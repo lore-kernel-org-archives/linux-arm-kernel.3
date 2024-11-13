@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE7ED597B7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 00:16:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3EDED597C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 01:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gMt6xiNUzbP586OUi3bpRznhicbRyyZqkrZh8cOiBiw=; b=nvl2Id3/Vpe6ap
-	Qy8FgDOvPL0kW72RFfRGEpgpWS6IR4wwdK12iE0fuPToobE/rhfFHCevkxIhnRsn4mnkMjOvoYDR9
-	ibP9qJ8NVcwj/pvaaB6EAoSRoYsce5R9ulENwrfmRaT7wG/Zxlsc05sTIZ228Vt/Rj7dcIs7fuIw0
-	fGDKJ2PGQRYLphdl4F8Ztzl1IqS9jEA0UYDKIlrjBM0fUTTjcKd4RjIL+buPqcR44iMcvxSlhWj+r
-	u2I/7TLJfOoQlf/VHzDh8zhoxvyL0dYc1twnqSOuiS7myXhjEDaBx2b1/Fl2/JkN8Z9MkHrzxUnMn
-	BcZCYSPR99dD2W8vtXag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X/yyOuGNVIzT+zYvh4v3hplD3RNbNSCQhrz/FBYBpRw=; b=eK2oe1YtPRtwO2w/k3QMMTpf5O
+	vATUrmxZv2k0vWUzyy7RvF+6a/dcQ4wdS3URVZbg/n4WbZERn08PVfEcW4V0/g86yQ3w3BqzcQ765
+	+y0QaWLkOfkcma4r3/rqnsj1qdGlOxN5nxt1V18bLfKUQByl2JZ0p2+xUHUSjCMSft/k4bwUx3duc
+	ooSY+oGLl9/trQJdXFtrjJ2Lyvjgzhn6LUQxUXonvTU06fMCKnMs4y1/3TOb9n/GaIFc1cZ0XZdlV
+	Nk5Lkm6DaOxPy0cS4i3IFpgtyB9hkBAmqs4OqiE+GKVQ6WmG+chBwwCjfut6+2OXM+h/+bliHRZtn
+	C/SIhZGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB13P-00000005Ng7-0Uc9;
-	Wed, 13 Nov 2024 00:16:15 +0000
-Received: from mx2.sberdevices.ru ([45.89.224.132] helo=mx1.sberdevices.ru)
+	id 1tB1nf-00000005TYr-2Kg6;
+	Wed, 13 Nov 2024 01:04:03 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAzss-00000005DGP-1kV9;
-	Tue, 12 Nov 2024 23:01:20 +0000
-Received: from p-infra-ksmg-sc-msk02.sberdevices.ru (localhost [127.0.0.1])
-	by mx1.sberdevices.ru (Postfix) with ESMTP id 1ED1D12000C;
-	Wed, 13 Nov 2024 02:01:03 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 1ED1D12000C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
-	s=mail; t=1731452463;
-	bh=gMt6xiNUzbP586OUi3bpRznhicbRyyZqkrZh8cOiBiw=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=iodAhEWjWIjWyDbzoAX42ObmnYWHz8n0F7KcKy6V5cPR3Wq8kRNxf3SsgPkelm4v5
-	 23ijXgTZZ0vOFqbuQiiFcbkLpOO77GuMgDnTNyLsonikc4tW4AuSueW1lGbIgKZw8E
-	 E6TiK7A/p5V5gYp41C+Grbq0tK5TqjPqspNrMq0Xc9oVLgNob3yiXaZEox0K7HbReC
-	 XAwVf5chP0q1w7CP5j/FF7l+6lGbH2v/JQl9wJsH7UnHc2UOiRzmXn9Cmot6fNtOCp
-	 KYqvMnz/a/xWywNDNqpskUQtAHjVEDoPFnNTNOMEM8s2gj+Ni6su6Nr9Nuj6ms7v8y
-	 gaiW8ePE9O2KQ==
-Received: from smtp.sberdevices.ru (p-i-exch-sc-m02.sberdevices.ru [172.16.192.103])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.sberdevices.ru (Postfix) with ESMTPS;
-	Wed, 13 Nov 2024 02:01:02 +0300 (MSK)
-From: Jan Dakinevich <jan.dakinevich@salutedevices.com>
-To: Jan Dakinevich <jan.dakinevich@salutedevices.com>, Conor Dooley
-	<conor+dt@kernel.org>, <devicetree@vger.kernel.org>, Jerome Brunet
-	<jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, <linux-amlogic@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, "Rob
- Herring" <robh@kernel.org>
-Subject: [PATCH 0/2] Add support for A1 SoC in auxiliary reset driver
-Date: Wed, 13 Nov 2024 02:00:54 +0300
-Message-ID: <20241112230056.1406222-1-jan.dakinevich@salutedevices.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tB1lb-00000005TLk-2veL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Nov 2024 01:01:57 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-539fe76e802so7009632e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 17:01:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731459713; x=1732064513; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=X/yyOuGNVIzT+zYvh4v3hplD3RNbNSCQhrz/FBYBpRw=;
+        b=jc+KhD5Vj65e/Lh0lVTn7Mp4Wb/hnp+5bfnj+7TZUBattZh277DaWDbzchmfe2gVwx
+         t7pM7lzBPSWJFUqrKq8ma8YlEuQxHQPl7NOZKMSj6dtaUswYw2JD1q1CRERk91H3V37k
+         50kmvB6n+ivYavFSrwbpx35eonyczuAAIupURqjlyYGPfLLkesyuMmlE4IP8JWaYHuLX
+         t5f5RSksckJBQIf4LiUGAyliEz9Lz6el+vqBzaxkeK4aUyai+CYm0h9ocF7GmQhqU6vz
+         kysUSRiV/1jHKcjaaHV5bqF45w17bIwnTvGHhtfyVgU2Tbr3j7BmuIEOdQm+zuUFtkUQ
+         uqpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731459713; x=1732064513;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=X/yyOuGNVIzT+zYvh4v3hplD3RNbNSCQhrz/FBYBpRw=;
+        b=ZxISAVoj55KWsEOH8ZaQFHDjVuXlF7nXPhr5tgURCK+8xyu4pP2L7hGgvzhPvugEct
+         6Q+Bda4o44inqol8/2/NJE5ejulivRlWELJnDlrcWKTT0tDTQ5hoe//fE3e0sAk2HeGu
+         FlzqWekm8y03awKRDCWYeM+d/3hbHRpmATiIDIA8CV6KEqFxo1V2bUz1AbFXLl7aBGit
+         KlXRsNBB3kfg1hc0vIXEjDQatp4KvZkR7Hq6GXsAS4wVowaHxPgQHY2pa/3JWf4gAp3o
+         J/wQvAfqfsVwegF9WpHDIoc939wCEIqt/ULOOO0qnJun1QdQTYYMjEHJLvI9JyIklTvw
+         4aLA==
+X-Forwarded-Encrypted: i=1; AJvYcCUhturiKfwyKUX4yLuVK/bcjtGjUzORcSq+vJdnOqZ2M61mS+CuL8MMaWZHP1/a8Lzxml14zSDwuMmrvgIznM6V@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxg6OSi196Ex6fFVsF+A6GBqfQYsNPWwfVGdYGFDlLA30C7jaUy
+	TFH9IsKAr7ExyxN007FUApHYsPiVv9ltLdYbLcAhLyqSRnck62iM98LBOLAHs9FHCuXwZ72YkiC
+	OabPTSqWaWgnkvZqVUSDZ8G1QUiJ5MwXQKJYdqg==
+X-Google-Smtp-Source: AGHT+IGrTpBP4XZN2inszS5LiWIDhaTOAjWYv1IN45jLudjPrpRKEn2OnUUglHnQBM+zZuWyWdAuDjaQVoneTf1/DNk=
+X-Received: by 2002:a05:6512:ba0:b0:539:e436:f1cd with SMTP id
+ 2adb3069b0e04-53d862d38c5mr9315032e87.16.1731459712927; Tue, 12 Nov 2024
+ 17:01:52 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.28.128.42]
-X-ClientProxiedBy: p-i-exch-a-m1.sberdevices.ru (172.24.196.116) To
- p-i-exch-a-m1.sberdevices.ru (172.24.196.116)
-X-KSMG-Rule-ID: 10
-X-KSMG-Message-Action: clean
-X-KSMG-AntiSpam-Lua-Profiles: 189131 [Nov 12 2024]
-X-KSMG-AntiSpam-Version: 6.1.1.7
-X-KSMG-AntiSpam-Envelope-From: YVDakinevich@sberdevices.ru
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Info: LuaCore: 41 0.3.41 623e98d5198769c015c72f45fabbb9f77bdb702b, {Tracking_smtp_not_equal_from}, {Tracking_uf_ne_domains}, lore.kernel.org:7.1.1;smtp.sberdevices.ru:5.0.1,7.1.1;salutedevices.com:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;sberdevices.ru:5.0.1,7.1.1;127.0.0.199:7.1.2, {Tracking_smtp_domain_mismatch}, {Tracking_smtp_domain_2level_mismatch}, {Tracking_sender_alignment_int}, {Tracking_white_helo}, FromAlignment: n
-X-MS-Exchange-Organization-SCL: -1
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiPhishing: Clean, bases: 2024/11/12 21:28:00
-X-KSMG-LinksScanning: Clean, bases: 2024/11/12 22:50:00
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2024/11/12 21:10:00 #26864167
-X-KSMG-AntiVirus-Status: Clean, skipped
+References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com> <20241112182938.GA172989@nvidia.com>
+In-Reply-To: <20241112182938.GA172989@nvidia.com>
+From: Zhangfei Gao <zhangfei.gao@linaro.org>
+Date: Wed, 13 Nov 2024 09:01:41 +0800
+Message-ID: <CABQgh9HOHzeRF7JfrXrRAcGB53o29HkW9rnVTf4JefeVWDvzyQ@mail.gmail.com>
+Subject: Re: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: acpica-devel@lists.linux.dev, iommu@lists.linux.dev, 
+	Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>, kvm@vger.kernel.org, 
+	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Robert Moore <robert.moore@intel.com>, Robin Murphy <robin.murphy@arm.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>, 
+	Alex Williamson <alex.williamson@redhat.com>, Donald Dutile <ddutile@redhat.com>, 
+	Eric Auger <eric.auger@redhat.com>, Hanjun Guo <guohanjun@huawei.com>, 
+	Jean-Philippe Brucker <jean-philippe@linaro.org>, Jerry Snitselaar <jsnitsel@redhat.com>, 
+	Moritz Fischer <mdf@kernel.org>, Michael Shavit <mshavit@google.com>, Nicolin Chen <nicolinc@nvidia.com>, 
+	patches@lists.linux.dev, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>, Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_150118_641716_34146B86 
-X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-CacheID: sfid-20241112_170155_775091_68C6596D 
+X-CRM114-Status: UNSURE (   9.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,22 +100,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This was a part of series [1]. Comparing to original series, reset functionality
-on top of 'audio-vad' clock controller also is added.
+On Wed, 13 Nov 2024 at 02:29, Jason Gunthorpe <jgg@nvidia.com> wrote:
+>
+> On Wed, Oct 30, 2024 at 09:20:44PM -0300, Jason Gunthorpe wrote:
+> > Jason Gunthorpe (7):
+> >   iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED
+> >   iommu/arm-smmu-v3: Use S2FWB for NESTED domains
+> >   iommu/arm-smmu-v3: Allow ATS for IOMMU_DOMAIN_NESTED
+> >
+> > Nicolin Chen (5):
+> >   iommu/arm-smmu-v3: Support IOMMU_VIOMMU_ALLOC
+> >   iommu/arm-smmu-v3: Support IOMMU_HWPT_INVALIDATE using a VIOMMU object
+>
+> Applied to iommufd for-next along with all the dependencies and the
+> additional hunk Zhangfei pointed out.
 
-Links:
-  [1] https://lore.kernel.org/all/20240913121152.817575-1-jan.dakinevich@salutedevices.com/
+Thanks Jason, I have verified on aarch64 based on your
+jason/smmuv3_nesting branch
 
-Jan Dakinevich (2):
-  dt-bindings: reset: add bindings for A1 SoC audio reset controller
-  reset: amlogic: add support for A1 SoC in auxiliary reset driver
+https://github.com/Linaro/linux-kernel-uadk/tree/6.12-wip
+https://github.com/Linaro/qemu/tree/6.12-wip
 
- drivers/reset/amlogic/reset-meson-aux.c       | 18 ++++++++++
- .../reset/amlogic,meson-a1-audio-reset.h      | 36 +++++++++++++++++++
- 2 files changed, 54 insertions(+)
- create mode 100644 include/dt-bindings/reset/amlogic,meson-a1-audio-reset.h
+Still need this hack
+https://github.com/Linaro/linux-kernel-uadk/commit/eaa194d954112cad4da7852e29343e546baf8683
 
--- 
-2.34.1
+One is adding iommu_dev_enable/disable_feature IOMMU_DEV_FEAT_SVA,
+which you have patchset before.
+The other is to temporarily ignore S2FWB or CANWBS.
 
+Thanks
 
