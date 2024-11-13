@@ -4,148 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B016D41C02
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 05:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B15D41C02
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 05:23:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BGpw6IhWulrLsx7SLcv4t5c4V/1E3UeVv54qVGXLm/U=; b=iQEv2ws3vxlqga6MofC7sbTtfk
-	xd0bGoewBt6rSlUURUa/pRZBxutPo0y4mkpmn/GIZ1AvsXshb8zYcLvfTjMEct0lm5R5AiOHyGVsu
-	m139b5Rw2jIBKZlN+wVTNWthI60i3BQVVwQsUtWeevthRd9NlOlmZtiS8xxi7mc29qaUvdUqfMxso
-	dNaE0J9XXaQ1oDmTQZkC+lNpxq7Z2cn6npEhFgDbPwiub3symD8LdAOoAuHg77EZQ1I09uhZfs4CR
-	Pkd8APCLL/LQf522CmTvByHNkCWgRezjBJ2tNHfNtS1/w3jhbzk3wGpmYoqnGeO9ypxaTvwdaqK6l
-	DHqScBeA==;
+	bh=Iwuqnvj/nbrL3+EwHhwq8mWZzBCYb5TWiIcYxHRcvLE=; b=TRBRLh0ds4hg/CeBlP41ngAagq
+	PdiuDkGkYcPlxm4EVL7ehH5+Y0l54cKQo852PxY4msoqKZKgPSeNJBcc7eRDvI3CZ6UzQoQ3gkStI
+	DDwMdNRYn47GBTs7jYXWCDDvajPIgS08zEMBwIXCUX1jM9wKPfAgoKM0SssQJBt5FUFLFUPmvgLV8
+	rKQ4UZNfjUutZy8wW4CPptIfgfEC0qdjtH26Psxh6lFlYBW7dMIDIYdOZnFVxs1+L56IWSX+jo1/6
+	JQdeS2HCzlZwb44ZhDyaQCmDWk8CopqyJ7CvLs6DM1kL/oHOsBJViud6S7Ta3UG62tG+VAojbXZ7c
+	E1YO5nJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB5ot-00000005njM-1lPu;
-	Wed, 13 Nov 2024 05:21:35 +0000
-Received: from mail-centralindiaazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c408::3] helo=PNZPR01CU001.outbound.protection.outlook.com)
+	id 1tB5qe-00000005ntZ-0EZ1;
+	Wed, 13 Nov 2024 05:23:24 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB5n3-00000005nNA-0E2X
+	id 1tB5nM-00000005nQn-0hNn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 05:19:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V1XLjR1yKe8Vfp19EZa/K+rgG7ctVA0l4N2HO6gsUpB4f4+oDnCgnZP6A4zyke/r0rEvIgZthqYn+iwGYs2FZEgETYMpwq+bvWP0RXIhemV8WQ5nLftVnJQnTq6BCcXUK3OjJbAPySW/AW6woNqgO6dRFUR7lCPdxVAAxuzNwwXF8KwLB/G+43RcxSjzN4kC8H7KHxKbFtFk8hHWa9T1KPIq/+RP7i17ysNvsPm/tjTrg7V74xOgmrlDARR2wud5lsGAybyogt0opEn8d2T1FFbazNmCTHCnFhtn9m0vHmHawztoja9jjkBqE5FMI4CnvKQcWgCg6Yx7YXoXyGJCiQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BGpw6IhWulrLsx7SLcv4t5c4V/1E3UeVv54qVGXLm/U=;
- b=izVdiqR84fIFCfRCZc2fIJyUEggtDFwI9KGuExzDfl33Y50Ry1K2iHgvNx4UYtaolEZLo4Xbt0q4q6OCXSI2sppe1nwA8HoO980n8J7O8yllGe7xXPH1C3IVWXe7uLltzknCXWk1iHlBN6aZkw5pqcCbYCWHvbHx2FG3TPgC7cLqrDvKpXU5yAkW4t5GAyW9MC7MMwZ+mrMtVhPhJYmdToyKNPG8nfxPWgYx5p1ix+nh5DwhLc1XQFZ5AGnMzcWIw8rIZ0b9AD+RRqi+AbjGcgqJYjPNDr5W4Pb8k6NiyVpstXfyH9wfBBqHIzRgYpDsJok7QZosenuQ9VVfUdPSGw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=siliconsignals.io; dmarc=pass action=none
- header.from=siliconsignals.io; dkim=pass header.d=siliconsignals.io; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=siliconsignals.io;
-Received: from PN0P287MB2843.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:204::8)
- by PN2P287MB1682.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1ac::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.28; Wed, 13 Nov
- 2024 05:19:28 +0000
-Received: from PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
- ([fe80::1134:92d7:1f68:2fac]) by PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
- ([fe80::1134:92d7:1f68:2fac%3]) with mapi id 15.20.8137.027; Wed, 13 Nov 2024
- 05:19:28 +0000
-From: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>
-To: broonie@kernel.org,
-	will@kernel.org
-Cc: tarang.raval@siliconsignals.io,
-	Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
+	Wed, 13 Nov 2024 05:20:01 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-72410cc7be9so5650703b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 21:19:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731475199; x=1732079999; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Iwuqnvj/nbrL3+EwHhwq8mWZzBCYb5TWiIcYxHRcvLE=;
+        b=HeA7by7GJKNnNAOH9qY7U38BSQ8F1p3LoK3x4EM4hGgDwsZhEyooMq4FYGSkFY5xq0
+         M5Q2f0X5MJ+gh9szLD1trBUVIG2IBrV3lxSzjcGxfDyCjZ08i28GShiYcIg48o+2xm46
+         FDn8B6/197mxlLrXSNozBaL9y3Qfm8ImR1SpL6xdFTseIhPO/Ww89CNIchtITdVT5Y+E
+         rzSR4t54yLTBwxzZhcsxVxCN5MvLp2uycQ+ZGxVUiDTamdmZEjA2EZPJJvBoq+3T4J0R
+         4D7ReNntbj6NLgPV7+OSuIn0apPpf+0L+EJSmDmfcy041R64qJyuHffLiBLkkpX8OnMl
+         OMtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731475199; x=1732079999;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Iwuqnvj/nbrL3+EwHhwq8mWZzBCYb5TWiIcYxHRcvLE=;
+        b=b9FxbIwY8A+sSscJf8DHARNAZZTHYl/d+vRXhkOAzP5JoSfqtWNabM3lahUY+alDSr
+         eKgjqPlBS76Fd5+T9LLQ6VlX92iIgpYFjfp/2pIoD5bEQDpg0FyxuA7KIsalxAe7zJLg
+         GyvuOy1Eol4CDWqTSSJy3i5zubQEYsOwHtlZ4zpuO5fPqBhLOSE2iXtPzcdJ20B1UyXi
+         P3SbM8n3MlaogK7VKw6ZcUqRXKPE6tlOP+QA0JQD+JztCfucEGhRky95e+fEpI+DCf3s
+         T8Hcjpm7qOeuduBc5tlTXU8uLPMoOLwrcasnGnWMSp57c0588/5oCvPxDGlKp2W2KIjN
+         QK6g==
+X-Forwarded-Encrypted: i=1; AJvYcCWbh2CxcnJgyFF4/2Hsd4AIXU5HWPLIumA331+5CwH4/eHoQ3C5DOZBlRk76AH8TU3ZYGxBS9DaqRfniGtMMcdg@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUfbt7Lp0Gkx+JQbPg1JUPpFGpCnj/4mGptsjNzEGWVZoiUxUo
+	/BP+JsEIjKCf/mYFTgtdjWZXiDmunhngT0zLdhsLqqfTYmfe786N
+X-Google-Smtp-Source: AGHT+IHHLuQHdAS2u9WN0pIMIXl2KNf3Ujr3Tnj71CU1NlZaH8WrIseMiurWt5EYjyMM3qTV3eIdXA==
+X-Received: by 2002:a05:6a00:2385:b0:71e:7887:81ac with SMTP id d2e1a72fcca58-72413349148mr23941105b3a.16.1731475198540;
+        Tue, 12 Nov 2024 21:19:58 -0800 (PST)
+Received: from yclu-ubuntu.. (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724079aaa01sm12644376b3a.100.2024.11.12.21.19.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Nov 2024 21:19:57 -0800 (PST)
+From: Joey Lu <a0987203069@gmail.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	richardcochran@gmail.com
+Cc: alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com,
+	ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	yclu4@nuvoton.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] arm64: Refactor conditional logic
-Date: Wed, 13 Nov 2024 10:48:18 +0530
-Message-ID: <20241113051852.4806-1-hardevsinh.palaniya@siliconsignals.io>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PN2PR01CA0238.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:eb::8) To PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:204::8)
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	openbmc@lists.ozlabs.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Joey Lu <a0987203069@gmail.com>
+Subject: [PATCH v2 0/3] Add support for Nuvoton MA35D1 GMAC
+Date: Wed, 13 Nov 2024 13:18:54 +0800
+Message-Id: <20241113051857.12732-1-a0987203069@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PN0P287MB2843:EE_|PN2P287MB1682:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9e48286a-80f9-4dc5-514f-08dd03a2bf42
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FkOqGmFeWSyZOxdBOv7McD1fVrtqJKpH4bDEYPHa5GN8zLnnXZyD90nmGpKF?=
- =?us-ascii?Q?ioifFiJWHsRKQw5lFp/ywO+titXCjgFsOifpm31OqgPac5I/ASQ3UggJ6Teg?=
- =?us-ascii?Q?LhBe16XqRwoH4NgCW4O9ms63CEbwNAvThOyYDHx2ZtVhsNxW/qVX2/rwm/Qi?=
- =?us-ascii?Q?lM+59Pi6L6J7+62BU2iw1LsO8Lf/av5HoCQWHcFGhHgwCWI7zof0kqJbgnG+?=
- =?us-ascii?Q?G+2CKDHAAmv2+1+rAhwl7Rw2HFNtzX1VcdKOA1KOoMVC52a9jTQI6m/3FlRV?=
- =?us-ascii?Q?OpOwC+9M2ujwWZSkLpF4pdpvAzwsSL8LTdr1V8FlOb7zVpSFaj5xBKBIxP+U?=
- =?us-ascii?Q?+SkEIZPPJufOZvG5UusRUpuDEVmaC6R5E+nkjd5dAG2lJTw2t1j2OQECGdeM?=
- =?us-ascii?Q?A70ZKYublYIc3Q3dovzBkqQhtgPYuQp5/c058w5xRT16fqz1Jmr+aEJlu+W0?=
- =?us-ascii?Q?/py/rZrbTw1a63tSRZ9nLbTT4aga4Ndru8GGcNMKCQi8B0yb8QF+U1Ag5I74?=
- =?us-ascii?Q?busEvAFdqg38PX6+bqnpTK2z+W+G6SiQF7dDYOWXsG6nr5EmWyADjOkomlAg?=
- =?us-ascii?Q?8iyef4PUtKaztJWFizSJjyw+48rCDv1PHdp0knsWKDerHa3Dn+hGG4Wfna8X?=
- =?us-ascii?Q?z/YxSgkbXWNytM2goceawgmww6TP+c0luHw2kRDf3C5oSgbKaL5/4eodSsmm?=
- =?us-ascii?Q?N2FZXTKaBgov5kjbkpjL7jZH8rBc2oP8KX8PUHk46he6pmKfcE9zSvkxw7AJ?=
- =?us-ascii?Q?139x/5vyJ8pTN60yFCjCKB0D7UrNdy4nusgfvDdMzvH8uS+BktdegKP+cdOc?=
- =?us-ascii?Q?GU/uuaw2VjIIFMqfLkWy6DKGBYHBC6eFq2zjTa7X4KslDRI0tndfQFNvBU5k?=
- =?us-ascii?Q?T1a5miypqhM+qsyp8rYysJE2woqtxpSYc4HleQQ2l+qI/DDH2luiWpQotmmX?=
- =?us-ascii?Q?B16qZQprVRBbvf+N+Zc2A4cO7STgiPUJV4HCpsKItxnwP9fNGJQR6sbyTDez?=
- =?us-ascii?Q?wPyX80N47Op7noWf7neNHXrWM+mdJeMTGFQuP3uQtWjV/IXu1T9yDSe3+zlC?=
- =?us-ascii?Q?qPlt1KtrsInGGY1LU3mmsp77XWP08loyrXW+tj2Q6M46cRdiGK5BkF7dpZTb?=
- =?us-ascii?Q?LlAh2hectqib/tTVUe6PVK2E0bNJlyafaShiCYenpf1y7/1Z2Dz2aDPMx5+M?=
- =?us-ascii?Q?T6uTz4P4axeFilW6EUFiLLSpmejuULs7BNha8gHassUfSFOGzVV2qQv6n3/7?=
- =?us-ascii?Q?yC3enbON0OS6KUVURFi3X0TOrsSYRocnZ3Q35hRueb5nW7zaEZHyB9LTWpmq?=
- =?us-ascii?Q?PqvpwFsBcz6hTmMuK4pvSRokMzNKhpGhh7ZyOWocWtkeibKQmRlWIxA1BNB7?=
- =?us-ascii?Q?PGTjEmU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN0P287MB2843.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dqDo5vrxewFW6ONWXcSXl3t7/cT+VUWJ4P8cbyU/5Th06F1Pr8oMw6I7GZxj?=
- =?us-ascii?Q?D077JUhF4r+7BYwqXPlxl7zef2Rklf+r0jCDKsEMKvFafiyrxitrgOM7McVl?=
- =?us-ascii?Q?pPI/PmrQZyq6qbUnRDoXmqDMKZadrvJlma9e8jBx45Jf+mZyezxgdXIrGO3d?=
- =?us-ascii?Q?FETutYHf4kQVIKqUupBqCqQLsuCS3m+a5QD4LZR+jbFoPNLrVxzickFz1l6O?=
- =?us-ascii?Q?koUTM9zaoTz07hfEkMoK3trrAK2xedHZ5+fp2YKtnn4wVlqiGQfpBKllQt99?=
- =?us-ascii?Q?GeFm7yjIOvZfrg16YfZRXD3k8zKo97fJmNHq6BDNwhJvSvo+ueGRFHYmbVQ+?=
- =?us-ascii?Q?w+yBmK8F383/EG2DDy8bVIS9FVnhWPG7hRqjfWjGnNiZ8LOrIb7jIDoyHf/1?=
- =?us-ascii?Q?5dbM7ODx7bUML0YD+iP3hmNTKB99JDXgj9mgpKPnRpTS9+JPo+cnPlq0vHJp?=
- =?us-ascii?Q?H3tuv7dwTdJVJUnFo7q3OkoMTp+D8BTIjr+uRApoemOurfWQLY5BFCIHOjN1?=
- =?us-ascii?Q?K2b5JGP5bwFBf4LzDpFY5qMPQlPVe8RsWV6jOJnLmgYf8cvhPifDfVinNkjB?=
- =?us-ascii?Q?hqzXMk1dcrRiEFbyyFtzgu5et3J4CmJ1pa3zx3BxnO0bH+sdtqHK1PM3fhT7?=
- =?us-ascii?Q?Tr6szoTJmRDHrI2JIg6ndbGUFC1Wr1BdJ+IrHTIkyixSsAcyo7AzEM2ia2Id?=
- =?us-ascii?Q?G5rP0z4cZcMvOfIJ/UFO1lPcs51nVLcRUu2EYCs0BP93kNZdlE+BjgfR2+4K?=
- =?us-ascii?Q?eAi2oH5IY7Mdi/1JSni8iqEo4k4adZQ6/wK3f0aWiAjj5a+LshjsnKo7fGn7?=
- =?us-ascii?Q?ilw4uDf92bFgGQsFo6Ekex7zuSDwA0VqoWKJjySl2S/C64XUIqB7oJDZ+Fqk?=
- =?us-ascii?Q?REmNXMyJ7q50y2qbhYA810TbNVuU3Ma1c6dFe6chFbA1UfcoZOGDSHWn7fPe?=
- =?us-ascii?Q?sSS/yzhdTPI1l8W801/LyTO9PYRY+Fw8JcRd1ECO4BO882NNpjJSZXnbWCso?=
- =?us-ascii?Q?mqGZPdIdQCYDbzfAVhMF22dktbGdGSk7ykYoJ3w7ukGTpCwsIW7f6w88W93b?=
- =?us-ascii?Q?UbP7MXEK7py2Dbx0tLGLsy8Zb0N8WDJTboMBqsfP/Ou9+CN1KrKuT/pu2If0?=
- =?us-ascii?Q?9s3U6UJVee3XK712LlpScSaTWx1l16zqLtFThjyLV/c3qx2VvOPdV0DX0CP+?=
- =?us-ascii?Q?gi/W5XSMlGI9RaHRgPvh6Tix1FpeUeHsO6kgVyi+IbGhKp9b3cfdWYF2EjwW?=
- =?us-ascii?Q?kZ2710T/xOVejlTGpafG8W3JYQVAgmxRo6lvsNaHo+IfNeIyMqo3zWowlpbK?=
- =?us-ascii?Q?WGscX9+uwavkWr+T7JRajZ/7IGYYh7UKsR4WiSrbpFaTvhgz1tMvoGezdZky?=
- =?us-ascii?Q?lr0Auf9gnAzGg0BQGgZZxGSmsTrlYDK0aowYB5k07RvleI+JR0qQ53E+UOa7?=
- =?us-ascii?Q?AY20WMGWPGaRF6Y9umP1GDmSAHcAiW5IVfVvzmWLFDqpipN69sYlcHE/ZnYx?=
- =?us-ascii?Q?oq3Eon7QAcsPkrqFw4EBHwi9sq6xiXZPl2L3VcscpLXfyS+ant30LT271xKt?=
- =?us-ascii?Q?C50oeDqF8RPiK7e9PBc2mGGvjPb/KKD2aI2gxcFj1XXOIS1H1iy6/VP8THR5?=
- =?us-ascii?Q?wzXnO1/QneeGENAkLq4K6ieiLsbHvCbRRkv4tMqy0CVf?=
-X-OriginatorOrg: siliconsignals.io
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9e48286a-80f9-4dc5-514f-08dd03a2bf42
-X-MS-Exchange-CrossTenant-AuthSource: PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2024 05:19:28.6215
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 7ec5089e-a433-4bd1-a638-82ee62e21d37
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /QTOd6AOaSCq/BZSs9LeIOU/kVCjiN/KSMmHBaf7F77B7npALtRf/nFaDNfXKEgu+GOd04r85Df9T7ezoP87c1lTgkO2d4PegNL1SCnLqYd71QbbiADLWmsg7PzXN2Lg
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2P287MB1682
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_211941_120598_92E6EE01 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20241112_212000_230517_D4463CF1 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,53 +108,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unnecessarily checks ftr_ovr == tmp in an extra else if, which is not
-needed because that condition would already be true by default if the
-previous conditions are not satisfied.
+This patch series is submitted to add GMAC support for Nuvoton MA35D1
+SoC platform. This work involves implementing a GMAC driver glue layer
+based on Synopsys DWMAC driver framework to leverage MA35D1's dual GMAC
+interface capabilities.
 
-Additionally, all branches set the variable str, making the subsequent
-"if (str)" check redundant
+Overview:
+  1. Added a GMAC driver glue layer for MA35D1 SoC, providing support for
+  the platform's two GMAC interfaces.
+  2. Added device tree settings, with specific configurations for our
+  development boards:
+    a. SOM board: Configured for two RGMII interfaces.
+    b. IoT board: Configured with one RGMII and one RMII interface.
+  3. Added dt-bindings for the GMAC interfaces.
 
-Signed-off-by: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>
----
+v2:
+  - Update nuvoton,ma35d1-dwmac.yaml
+    - Rename file to align with the compatible property.
+    - Add an argument to syscon to replace mac-id,
+      with corresponding descriptions.
+    - Use tx-internal-delay-ps and rx-internal-delay-ps properties for
+      configurable path delay with corresponding descriptions,
+      allowing selection between GMAC internal and PHY.
+    - Add all supported phy-mode options.
+    - Remove unused properties.
+  - Update dtsi
+    - Modify syscon configuration to include an argument for
+      GMAC interface selection.
+  - Update dwmac-nuvoton driver
+    - Remove redundant device information print statements.
+    - Remove non-global parameters.
+    - Retrieve GMAC interface selection from the syscon argument.
+    - Parse Tx and Rx path delays by correct properties.
+    - Update configurations to support Wake-on-LAN.
 
-Changelog in V2:
+Joey Lu (3):
+  dt-bindings: net: nuvoton: Add schema for MA35 family GMAC
+  arm64: dts: nuvoton: Add Ethernet nodes
+  net: stmmac: dwmac-nuvoton: Add dwmac support for MA35 family
 
-- remove str check 
+ .../bindings/net/nuvoton,ma35d1-dwmac.yaml    | 170 +++++++++++++++++
+ .../boot/dts/nuvoton/ma35d1-iot-512m.dts      |  12 ++
+ .../boot/dts/nuvoton/ma35d1-som-256m.dts      |  10 +
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       |  52 +++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-nuvoton.c   | 179 ++++++++++++++++++
+ 7 files changed, 435 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
 
----
- arch/arm64/kernel/cpufeature.c | 13 ++++++-------
- 1 file changed, 6 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 718728a85430..728709483fb7 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -989,17 +989,16 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
- 				/* Override was valid */
- 				ftr_new = tmp;
- 				str = "forced";
--			} else if (ftr_ovr == tmp) {
-+			} else {
- 				/* Override was the safe value */
- 				str = "already set";
- 			}
- 
--			if (str)
--				pr_warn("%s[%d:%d]: %s to %llx\n",
--					reg->name,
--					ftrp->shift + ftrp->width - 1,
--					ftrp->shift, str,
--					tmp & (BIT(ftrp->width) - 1));
-+			pr_warn("%s[%d:%d]: %s to %llx\n",
-+				reg->name,
-+				ftrp->shift + ftrp->width - 1,
-+				ftrp->shift, str,
-+				tmp & (BIT(ftrp->width) - 1));
- 		} else if ((ftr_mask & reg->override->val) == ftr_mask) {
- 			reg->override->val &= ~ftr_mask;
- 			pr_warn("%s[%d:%d]: impossible override, ignored\n",
 -- 
-2.43.0
+2.34.1
 
 
