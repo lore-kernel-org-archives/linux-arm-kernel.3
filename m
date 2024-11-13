@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF5CCD637C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 21:19:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A60ED637C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 21:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qre+YsoAA+tCpP15ljstTn0wo8h42CjhpKCl34sV5so=; b=kcdAWxztODKlzR8+Q3QwrQ8MtB
-	iK4nb3YUZtFkhYJljA9HnL+DwjKc7usgtJ0shLh4OZv/m+VKG4SvU9slhXCCL15i9NY+HSRKK3kAv
-	0zZG57JFYlyUMUMH6k+uCpXE4Eu0ZuGbkCPl9mA0Yf0ZrfH/kX5CNg8fwlkDy7MXwA99Wjua8Ju+B
-	b3Lybg3sF6Pu8WpdzNhBhEDZnX1MZbEg5UEBxYdI/vNnu3GbR5j8YDzKR+3HDQpATzx6hCIP6kp/G
-	38vhvr4/+lpiq9BB49c9jmRtDOdtX5gV2mJ9otJAhTR9JCMJW94ICar43/suDYX6OhISaInce/xx3
-	KH7iHV/A==;
+	bh=Opob3RQduFMh0i0m3N7+n1mMptl8D8HlInDDs6UHQk4=; b=EssBYAXe41z38qsNwdqrPoBMHG
+	EN7k/6X3/qr5+hnEQyRJ7pMMPdzUNht0JjURLYeHruF1042UGWcSVfdBJOZbLgNzI/EQwpnjQ2i1I
+	JLaRHFNYQWHnkJUiODA47JhuluNv+48gY2W9ddAHizsdBnk8e7jXJS009vGKCyeUdJznYkBPl6z2x
+	3HBgx9p0jXGEJQfWRZ6xTCnXIG+mVmDPbQQ0NHbSLexZNf+E1ZEmasACvXvO2fZ2zU6T7CoLNqWBw
+	Jobso185boywxfbZS+C4Fi03+hTHNv2YyHVKYRLWcEO0ZcCILswHjLi9bWqGpfg5zmO6KICq+VfiB
+	eTO5kYTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBKlc-000000083cO-1dAK;
-	Wed, 13 Nov 2024 21:19:12 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tBKnQ-000000083oo-1Oyj;
+	Wed, 13 Nov 2024 21:21:04 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBKer-000000082Jc-0nJX
+	id 1tBKf5-000000082Mz-0JjC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 21:12:14 +0000
+	Wed, 13 Nov 2024 21:12:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1731532333; x=1763068333;
+  t=1731532347; x=1763068347;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=7GTsdJGtOglgq6pJjKATbODyOcoDANT26+ktdOOzcCk=;
-  b=ttxMYC07s0m+xChtdR1HwgYDY4PaePp5dDo+pRmCjC7r9uZsDedEaic4
-   T6i/sdB76ayTYnk5JjbjlkjxS4rB5VqX6aaX2f4PeCBiuW2j6yb7cajAa
-   QDYZdfCBDpGFe0Stwf37IqKI1FykpUqNUsV2wQBO3rhN9faW6cJxaE4oR
-   ftOTABkT9B3PG1Q653+x7eN71GiE2Y+BLZdZYcEG5ntJVCGzJm/z+iOFx
-   Z5ETVy+8OxUk486POco7cwpYwh83Q37ggDIG/D27UtDjoMKjiFzKAb/1Y
-   f1iYOO30WEfFyPcAl7IbxyO8JOA5IR9QYDzX75K6Jv2grYDnfaZfHeflI
-   g==;
-X-CSE-ConnectionGUID: KA3skogJTWSLY1V4ky2YAQ==
-X-CSE-MsgGUID: +7zjv/ptSuGrFCaoC0r57Q==
+  bh=svbx3/Il10T0pAS9HC3iTDtx7A8zQjEjVIdly0SxNoc=;
+  b=IAx4KRyNdwrrIiftqP+LqalEig8z6iW+qz8D+/dxkjldKlhv7Phc7uqr
+   qwciGD7E/dq4oiWyZpB4SlCcekP3SGjPqg7Zy6A7vEbTvqEj1PxUlO+AV
+   y/OqwwU243V4ctQ+vHyJWQVHCIz2k9c90l7W7QjvCXMIdPQMzDsMAvHuQ
+   a1vSx8Ds0iEDlMMhV0KUcn/LCRG+RmpW+am5EQ4MuhIBN2VX52sufPFDo
+   TAXfNR8VhCQQThPIGH90BbZA1DvLIpUTOAoc34S8QbsNMno8nRhMdkW4H
+   aH9sNPt2DYf0UBhFSqjvzQg7KSWvTpRCysMdUpAqE8kuXs+ce2e5esXBv
+   w==;
+X-CSE-ConnectionGUID: F8Mv1SaFTZWcTt5A65WwiA==
+X-CSE-MsgGUID: +FM6cmYhQgS3ssI4f5iwQQ==
 X-IronPort-AV: E=Sophos;i="6.12,152,1728975600"; 
-   d="scan'208";a="265427894"
+   d="scan'208";a="34014107"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Nov 2024 14:12:05 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Nov 2024 14:12:24 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 13 Nov 2024 14:11:40 -0700
+ 15.1.2507.35; Wed, 13 Nov 2024 14:11:44 -0700
 Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Wed, 13 Nov 2024 14:11:37 -0700
+ 15.1.2507.35 via Frontend Transport; Wed, 13 Nov 2024 14:11:41 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Wed, 13 Nov 2024 22:11:10 +0100
-Subject: [PATCH net-next v2 2/8] net: sparx5: add function for RGMII port
- check
+Date: Wed, 13 Nov 2024 22:11:11 +0100
+Subject: [PATCH net-next v2 3/8] net: sparx5: use is_port_rgmii()
+ throughout
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241113-sparx5-lan969x-switch-driver-4-v2-2-0db98ac096d1@microchip.com>
+Message-ID: <20241113-sparx5-lan969x-switch-driver-4-v2-3-0db98ac096d1@microchip.com>
 References: <20241113-sparx5-lan969x-switch-driver-4-v2-0-0db98ac096d1@microchip.com>
 In-Reply-To: <20241113-sparx5-lan969x-switch-driver-4-v2-0-0db98ac096d1@microchip.com>
 To: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -76,8 +76,8 @@ CC: <devicetree@vger.kernel.org>, <netdev@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
 X-Mailer: b4 0.14-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_131213_445005_2CA82235 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20241113_131227_314154_AFA7591E 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,90 +92,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The lan969x device contains two RGMII interfaces, sitting at port 28 and
-29. Add function: is_port_rgmii() to the match data ops, that checks if
-a given port is an RGMII port or not. For Sparx5, this function always
-returns false.
+Now that we can check if a given port is an RGMII port, use it in the
+following cases:
+
+ - To set RGMII PHY modes for RGMII port devices.
+
+ - To avoid checking for a SerDes node in the devicetree, when the port
+   is an RGMII port.
+
+ - To bail out of sparx5_port_init() when the common configuration is
+   done.
 
 Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
 Reviewed-by: Horatiu Vultur <horatiu.vultur@microchip.com>
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- drivers/net/ethernet/microchip/lan969x/lan969x.c    | 1 +
- drivers/net/ethernet/microchip/lan969x/lan969x.h    | 5 +++++
- drivers/net/ethernet/microchip/sparx5/sparx5_main.c | 1 +
- drivers/net/ethernet/microchip/sparx5/sparx5_main.h | 1 +
- drivers/net/ethernet/microchip/sparx5/sparx5_port.h | 5 +++++
- 5 files changed, 13 insertions(+)
+ .../net/ethernet/microchip/sparx5/sparx5_main.c    | 28 +++++++++++++++-------
+ .../net/ethernet/microchip/sparx5/sparx5_port.c    |  3 +++
+ 2 files changed, 23 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x.c b/drivers/net/ethernet/microchip/lan969x/lan969x.c
-index ac37d0f74ee3..a7e41058cb7c 100644
---- a/drivers/net/ethernet/microchip/lan969x/lan969x.c
-+++ b/drivers/net/ethernet/microchip/lan969x/lan969x.c
-@@ -329,6 +329,7 @@ static const struct sparx5_ops lan969x_ops = {
- 	.is_port_5g              = &lan969x_port_is_5g,
- 	.is_port_10g             = &lan969x_port_is_10g,
- 	.is_port_25g             = &lan969x_port_is_25g,
-+	.is_port_rgmii           = &lan969x_port_is_rgmii,
- 	.get_port_dev_index      = &lan969x_port_dev_mapping,
- 	.get_port_dev_bit        = &lan969x_get_dev_mode_bit,
- 	.get_hsch_max_group_rate = &lan969x_get_hsch_max_group_rate,
-diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x.h b/drivers/net/ethernet/microchip/lan969x/lan969x.h
-index 2489d0d32dfd..4b91c47d6d21 100644
---- a/drivers/net/ethernet/microchip/lan969x/lan969x.h
-+++ b/drivers/net/ethernet/microchip/lan969x/lan969x.h
-@@ -59,6 +59,11 @@ static inline bool lan969x_port_is_25g(int portno)
- 	return false;
- }
- 
-+static inline bool lan969x_port_is_rgmii(int portno)
-+{
-+	return portno == 28 || portno == 29;
-+}
-+
- /* lan969x_calendar.c */
- int lan969x_dsm_calendar_calc(struct sparx5 *sparx5, u32 taxi,
- 			      struct sparx5_calendar_data *data);
 diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-index 2f1013f870fb..ad8c048179c7 100644
+index ad8c048179c7..2967dd1952e9 100644
 --- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
 +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-@@ -1073,6 +1073,7 @@ static const struct sparx5_ops sparx5_ops = {
- 	.is_port_5g              = &sparx5_port_is_5g,
- 	.is_port_10g             = &sparx5_port_is_10g,
- 	.is_port_25g             = &sparx5_port_is_25g,
-+	.is_port_rgmii           = &sparx5_port_is_rgmii,
- 	.get_port_dev_index      = &sparx5_port_dev_mapping,
- 	.get_port_dev_bit        = &sparx5_port_dev_mapping,
- 	.get_hsch_max_group_rate = &sparx5_get_hsch_max_group_rate,
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-index d5dd953b0a71..c58d7841638e 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-@@ -313,6 +313,7 @@ struct sparx5_ops {
- 	bool (*is_port_5g)(int portno);
- 	bool (*is_port_10g)(int portno);
- 	bool (*is_port_25g)(int portno);
-+	bool (*is_port_rgmii)(int portno);
- 	u32  (*get_port_dev_index)(struct sparx5 *sparx5, int port);
- 	u32  (*get_port_dev_bit)(struct sparx5 *sparx5, int port);
- 	u32  (*get_hsch_max_group_rate)(int grp);
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_port.h b/drivers/net/ethernet/microchip/sparx5/sparx5_port.h
-index 9b9bcc6834bc..c8a37468a3d1 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_port.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.h
-@@ -40,6 +40,11 @@ static inline bool sparx5_port_is_25g(int portno)
- 	return portno >= 56 && portno <= 63;
- }
- 
-+static inline bool sparx5_port_is_rgmii(int portno)
-+{
-+	return false;
-+}
-+
- static inline u32 sparx5_to_high_dev(struct sparx5 *sparx5, int port)
+@@ -313,10 +313,13 @@ static int sparx5_create_port(struct sparx5 *sparx5,
+ 			      struct initial_port_config *config)
  {
- 	const struct sparx5_ops *ops = sparx5->data->ops;
+ 	struct sparx5_port *spx5_port;
++	const struct sparx5_ops *ops;
+ 	struct net_device *ndev;
+ 	struct phylink *phylink;
+ 	int err;
+ 
++	ops = sparx5->data->ops;
++
+ 	ndev = sparx5_create_netdev(sparx5, config->portno);
+ 	if (IS_ERR(ndev)) {
+ 		dev_err(sparx5->dev, "Could not create net device: %02u\n",
+@@ -357,6 +360,9 @@ static int sparx5_create_port(struct sparx5 *sparx5,
+ 		MAC_SYM_PAUSE | MAC_10 | MAC_100 | MAC_1000FD |
+ 		MAC_2500FD | MAC_5000FD | MAC_10000FD | MAC_25000FD;
+ 
++	if (ops->is_port_rgmii(spx5_port->portno))
++		phy_interface_set_rgmii(spx5_port->phylink_config.supported_interfaces);
++
+ 	__set_bit(PHY_INTERFACE_MODE_SGMII,
+ 		  spx5_port->phylink_config.supported_interfaces);
+ 	__set_bit(PHY_INTERFACE_MODE_QSGMII,
+@@ -831,6 +837,7 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+ 	struct initial_port_config *configs, *config;
+ 	struct device_node *np = pdev->dev.of_node;
+ 	struct device_node *ports, *portnp;
++	const struct sparx5_ops *ops;
+ 	struct reset_control *reset;
+ 	struct sparx5 *sparx5;
+ 	int idx = 0, err = 0;
+@@ -852,6 +859,7 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+ 		return -EINVAL;
+ 
+ 	regs = sparx5->data->regs;
++	ops = sparx5->data->ops;
+ 
+ 	/* Do switch core reset if available */
+ 	reset = devm_reset_control_get_optional_shared(&pdev->dev, "switch");
+@@ -881,7 +889,7 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+ 
+ 	for_each_available_child_of_node(ports, portnp) {
+ 		struct sparx5_port_config *conf;
+-		struct phy *serdes;
++		struct phy *serdes = NULL;
+ 		u32 portno;
+ 
+ 		err = of_property_read_u32(portnp, "reg", &portno);
+@@ -911,13 +919,17 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+ 			conf->sd_sgpio = ~0;
+ 		else
+ 			sparx5->sd_sgpio_remapping = true;
+-		serdes = devm_of_phy_get(sparx5->dev, portnp, NULL);
+-		if (IS_ERR(serdes)) {
+-			err = dev_err_probe(sparx5->dev, PTR_ERR(serdes),
+-					    "port %u: missing serdes\n",
+-					    portno);
+-			of_node_put(portnp);
+-			goto cleanup_config;
++		/* There is no SerDes node for RGMII ports. */
++		if (!ops->is_port_rgmii(portno)) {
++			serdes = devm_of_phy_get(sparx5->dev, portnp, NULL);
++			if (IS_ERR(serdes)) {
++				err = dev_err_probe(sparx5->dev,
++						    PTR_ERR(serdes),
++						    "port %u: missing serdes\n",
++						    portno);
++				of_node_put(portnp);
++				goto cleanup_config;
++			}
+ 		}
+ 		config->portno = portno;
+ 		config->node = portnp;
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
+index c929b2a63386..8f4f19a2bd65 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
+@@ -1090,6 +1090,9 @@ int sparx5_port_init(struct sparx5 *sparx5,
+ 		 ANA_CL_FILTER_CTRL_FILTER_SMAC_MC_DIS,
+ 		 sparx5, ANA_CL_FILTER_CTRL(port->portno));
+ 
++	if (ops->is_port_rgmii(port->portno))
++		return 0; /* RGMII device - nothing more to configure */
++
+ 	/* Configure MAC vlan awareness */
+ 	err = sparx5_port_max_tags_set(sparx5, port);
+ 	if (err)
 
 -- 
 2.34.1
