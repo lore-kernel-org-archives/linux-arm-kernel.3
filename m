@@ -4,94 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D0CD41C2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 09:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C1EAD41C27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 09:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U+AgTLIPyQbInlDNsHOkghXs+B5NjW43gyYJmG6WdSQ=; b=n/HDspAeU8pQFH+WB5pvg7ATy9
-	OB6IELkdLAfaREn5/Qm73M/8RiaTHPYymXJNRVyFkSkrWiP65aiPg+Dv0Sx4k/Fh+1RWfqupwBmNc
-	3n3eIufiwJ3kGj+EH+R+bO8Wy+jiwAF4ceClVGer1Rw5JQR5qXtBdUOIfeo+Kn3ODW7ukEuS15nvz
-	PWZlEGcqXCCcYWX6dGtVMFCiRZotlEOqv9cj6b35JXk2dQQzHBd3mEXUnY89g0zPhrhP1uX0YzAKH
-	DxSlCk/jY+BUYnU0sUFMgSfmDmdZRiq2VFZbixMLCCSZ3LnQ88IRtVb9/Pn3p3gdf5U13Xiy6P+3E
-	dZAqR1+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dH4NPdSLmO0RKFLI7wda1Hjq/5269gBCNl16KCuitGg=; b=HHHCUv+qMogntcHeC+CACykPfe
+	+X3pHcScs2F5s8Etb9K25uRegjK75xjQfxQzqEvBNeckWOCz8nyheVnTkPvLnf/eWXOxzrtspte0n
+	QezTnlkBnSmsV9mayawY67VUeAr5WKUnsBsOE2k4jWAI32e2CebJr8htXco0rS1ZUw5TmeVNvU2UK
+	CmMph8Z+e3HSdXFPAVTjvs52CA1hHHo3YAX08ih5kayuIRYoDSF7+O/mFx1aZNN9n9tpE1ouZXFES
+	qqhUazDq1rqByqD3N1Dy238y964MfhCyqH46Rq3e28DCC2XPUVJKj2PF0Y/uZoXgoztDyLvLe1tVq
+	4eyo0GXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBA0n-00000006IgU-1xrS;
-	Wed, 13 Nov 2024 09:50:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tBA2d-00000006J8S-1mrJ;
+	Wed, 13 Nov 2024 09:52:03 +0000
+Received: from mail-db8eur05on2071d.outbound.protection.outlook.com ([2a01:111:f403:2614::71d] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB9ot-00000006GA6-2loa;
-	Wed, 13 Nov 2024 09:37:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=U+AgTLIPyQbInlDNsHOkghXs+B5NjW43gyYJmG6WdSQ=; b=P4e3S2+VbGQ64JCPg0NnXQpYOz
-	lh/EQ2pb72ZH/75sIKB1UO6uzQU1vilYCypfgMqQoqEuzd6CYA+qk8DbiLX0iNLk7JyDe/qMz9+35
-	e6D9JAiMgjdTgNSCceD0ZHcV6x4MER44cHTkvrxEvYq6bsRLHMVrqdIz57CBRWNTviDAUIe/q/9iu
-	diSrzisI+yW1oqSdnIIi7iVMDd+5aRqmk9j+V7E7kAeNHG/P8pl+nOBpbCCkwM0DrELnaQZNA9VbT
-	MiFG4La/8JHf3YsuGEW4fzZUCcAJfW/5FSZ07czpz8NPf0y19toQnTP2M4C0kGbMKRLW5H3JVFrKf
-	rOGILgpw==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB9oi-0000000DDvF-2MoM;
-	Wed, 13 Nov 2024 09:37:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2B3CB5C4C0E;
-	Wed, 13 Nov 2024 09:36:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id EB9C5C4AF0C;
-	Wed, 13 Nov 2024 09:37:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731490656;
-	bh=rwGEUOIpNRJdihacl3Vr8CYfVXN0US+iyPXC4i8Y4D8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=AXvh0l4rebHUCtUnF3sJmsFKX5zYNTZL3WQJrbBoTs2jpLWxT0R2Gb0DNDqQ9MEYP
-	 S2ZT9Runvjud2bvmJ/1YXXkMnogygiRQotnwqo7fyeGWVteCDlga7PVG6o0MhlImkC
-	 vEwbR1idud3SvRCopUwtf/W023meNrynBlxgLwXPWz/fSpwQnFM7brPv96RaaElc3/
-	 Zi03WhS77Xjr+LTkHvxfFla76RnCF6jw3+bxoLQgo6QGhcGLwbw0m1c+4inAvkSdIm
-	 I6HMR2Hi7k+Qxv6qh8+cxdkWiFZYSO1WCPwWmJGbiinqWp0445zsH8CxNmKsRzcl3a
-	 YN6JjgG/erIZQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E13DAD41C24;
-	Wed, 13 Nov 2024 09:37:35 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Wed, 13 Nov 2024 17:37:31 +0800
-Subject: [PATCH v7 4/5] pinctrl: meson: Add driver support for Amlogic A4
- SoCs
-MIME-Version: 1.0
+	id 1tB9s7-00000006GkI-23wE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Nov 2024 09:41:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kNNeEkhpTHiPcJeg24xC+jBoOOQl5MljumD8BXcuJL9690MLjyvPWSOCVfH1ydTlO18mZfFG74mKHEBvkIwX9MsinWEk9Rj3tsxm+4ju3KXGaGaK8GUoeNosN+BcP9S6WH8mhu7r9IJ3BCn5A5z24BBJH0ilildXO16GO3ZjTm86xyQ9jHpm1zF6pfqH/Wanc7dP/YykIrbP5KZQn4pdcTAuZBsFkaEnLIIRhxYPxvHKnvq1Uko1pBwjVycAnFrfkZPK17NgYcKJSJeEdtKDqRO2LyHi/0VvnVYbl5MixT2N757wG6QfzIluZG+0nRmwAYGmkbLHAaRUdq/+t3MrwQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dH4NPdSLmO0RKFLI7wda1Hjq/5269gBCNl16KCuitGg=;
+ b=fdr0iaJotTpo1+WQLTPDfDrorf2nrHSIECWxU8A9lWUaOpqNznEcTPdXMjNCKH84alpNCRsHs14fqQG7261KZxnFz6DMYARwurrGe0VqpSHEykh96+1OmpL0jMck9y9C9R8cPt2sUIWqKJNDYLsVuh+pMID8RBmMC7itRFNn3pCA7FXLyvInYUK+166HKUkeNwmpkwULQvAAuUIckXQx+Sy9Tg9CTViCpeXIapamAO+FKRNb7RjlFNtRLoGwlR/rMOm9k711DLSopFIUbhp/KXBOSkVWwtEFELoqBLmetOWgXb8GgktAmaGcQhDmtzo+NVZK0cTS6B/d//30XjyPgw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dH4NPdSLmO0RKFLI7wda1Hjq/5269gBCNl16KCuitGg=;
+ b=qLOc4sgHMiAqAVukEazarvl7x7aec/NLAsBsOQtATweRJTmEs1LDTxb9j8aPNyuA40ai9AbAgdMNXce2hv70IxvjuowyX2+MQS5iA7NxcOzqHmol4ehQ5ba+12qHQLhACWRdI7z9qZV9S4pdE32V8Lr39E/eOEIRNemRCUNsdBc=
+Received: from AM9PR04MB7586.eurprd04.prod.outlook.com (2603:10a6:20b:2d5::17)
+ by PAXPR04MB8605.eurprd04.prod.outlook.com (2603:10a6:102:218::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.17; Wed, 13 Nov
+ 2024 09:41:06 +0000
+Received: from AM9PR04MB7586.eurprd04.prod.outlook.com
+ ([fe80::c04e:8a97:516c:5529]) by AM9PR04MB7586.eurprd04.prod.outlook.com
+ ([fe80::c04e:8a97:516c:5529%4]) with mapi id 15.20.8158.013; Wed, 13 Nov 2024
+ 09:41:05 +0000
+From: Josua Mayer <josua@solid-run.com>
+To: Rob Herring <robh@kernel.org>
+CC: Saravana Kannan <saravanak@google.com>, Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Geert Uytterhoeven
+	<geert@linux-m68k.org>, Jon Nettleton <jon@solid-run.com>, Yazan Shhady
+	<yazan.shhady@solid-run.com>, Rabeeh Khoury <rabeeh@solid-run.com>
+Subject: Re: [PATCH 0/2] of: add support for value "false" to
+ of_property_read_bool
+Thread-Topic: [PATCH 0/2] of: add support for value "false" to
+ of_property_read_bool
+Thread-Index: AQHbNM31DAG0MrQIm0yI7cftJ+pYQ7KzqNmAgAFN3IA=
+Date: Wed, 13 Nov 2024 09:41:05 +0000
+Message-ID: <288deac4-5387-4492-9e9c-cabf77b9c0ba@solid-run.com>
+References: <20241112-am64-overlay-bool-v1-0-b9d1faff444e@solid-run.com>
+ <CAL_JsqJAQswTo2eWxLw62wqb-2i=_9W84_v_tW+TSW4kgNK3_A@mail.gmail.com>
+In-Reply-To: <CAL_JsqJAQswTo2eWxLw62wqb-2i=_9W84_v_tW+TSW4kgNK3_A@mail.gmail.com>
+Accept-Language: de-DE, en-US
+Content-Language: de-DE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=solid-run.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM9PR04MB7586:EE_|PAXPR04MB8605:EE_
+x-ms-office365-filtering-correlation-id: 9258753a-d099-4dac-a613-08dd03c74b96
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|10070799003|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?dVBCMUd2cDJtb202bTh6T3N6RzJCTXFuNDMvKzVpdVNDUmZMZVdMbGM2T3hn?=
+ =?utf-8?B?NHRUeVhUNkI2em9nSXh2d1Q3b25lc1FGdjBLdDNZVXBVclhMaXlOSXNkeXR4?=
+ =?utf-8?B?NVEyNFpZZVEyK3UyTkNINGdmTFdXb3NJa1BOZ1k5cGlsdnhxbTk0SjVsZG51?=
+ =?utf-8?B?SFpWMXNRZ2tlaWxTR0V6aTBkUUhUUEI4U1R0RFBVV1BwZWtkakMvd1BzSEww?=
+ =?utf-8?B?V3lQWTE4ZklHVFdZT0tFN2VrT0d0VUhULzAvVTJtazFrVG9KOFRwRkdGYWh4?=
+ =?utf-8?B?NkFta21KNzdrblRvVHhONVRvMy9ad0pNeDk0Qy8zamtRcTRFN1lMQVN4WEJU?=
+ =?utf-8?B?aHpndURzWUpVMFNxVjEzSVpCOTh4Rml0QWpFbVhiTlpxYjZqVURZS1I1Lytv?=
+ =?utf-8?B?dDduYzFIVTFubC9PZGsyTUFlaTJZTmZiUnBObXdsVWlrUDdybG04czcvajN5?=
+ =?utf-8?B?OXdreGQzSXdVTk9pKzZYckVkRzVuU25FRE9qSTdtSUN1U1NWbU5zdVVUNjFF?=
+ =?utf-8?B?WTVKb1RFcHpuVGN4b1RCTmhtQm5JaURoYzBDYjZFTUR6aUZqWDdiVVIxcDJB?=
+ =?utf-8?B?TWg4NkhSdWorVktFWkNMMWg5dVVoYzdUMjZtV3VEK0lmdE1iQURWR0pxbXBH?=
+ =?utf-8?B?QVBEaEJ2eHJvQXVVMXUrckRnOVVzLzlkZzlzNDNZK1Q2THJJQzluT3ZyZ2Zn?=
+ =?utf-8?B?ZVQzT3NsZHBJZlBiZ3VjdTdoMlBzNW1PUzFQU1ZaOGY2a29QSWtBMHdXdlJT?=
+ =?utf-8?B?b0NCRlF3T2FlNFY3QnExbnI4WkRQVDhvVkgzMmJQblVQVFU4dlc1SGFHcVVu?=
+ =?utf-8?B?cGtzS0J6K1YycWhudDVvRXRRbWRwQ1Y2YzlIc3ZzbzhmVTNwaXphMEtsVDhJ?=
+ =?utf-8?B?SGhYU0dEL0pUdlNuQkNTWEExYjJnQUFMY3RubnArNENxZFJtajJTeFR2TVh6?=
+ =?utf-8?B?Sm1DbURvUyt2QTBReHZBR3A0RkdPQXRhQkV6LzYzZnkrbEtzY0ZxZHdxNmlj?=
+ =?utf-8?B?bENOTG9ncUROblhIZmM0RmFmMnFPRlJwVFd0NzJuQnJZQ0lYdjRGdnVmNHp2?=
+ =?utf-8?B?WHJkOTUzMjV3b0krYVFwazk1WndvcThGQVVQRkcxVGlVVWNNNWQyY214SzFj?=
+ =?utf-8?B?cjNPY3MyT3BHV0lGbUkyWkVBT3ZDa2VmbU0wdEFaQVFnelhIWjhUTzM2VFNm?=
+ =?utf-8?B?aGl0MnJtMUFMRmlMWXYvVEMydTUvWFo4ZERCbmFKeVl3QmVXeEdWSUhQTVg0?=
+ =?utf-8?B?TStxd09pSFdPTEVsYUtuaGhEckdMZFlvMFV0YTBHVzFjT2s2eWhDaE1tenFJ?=
+ =?utf-8?B?QitmY2Z6YkFubkt4N25TR0pxaXh0RFVjdExyWE5qdG5VZlRjbG9EbHh6cHdX?=
+ =?utf-8?B?MW9qZkRObnV1amlxVUtLRmpUUkhNMFBwZWt6VDRPcTF0NmFWMEc2eUdMR1Ex?=
+ =?utf-8?B?Y2pJRTVuaTFNYzU0N3J1aXM2VUtpZEpVN3hQc250UDdnM2NXMStldzFDUUc3?=
+ =?utf-8?B?MHM4REJMQ2FhRENjM09mWlIwdlVlWEcxRWNLUXRoVGdwQUxOb29IR2JCMWZN?=
+ =?utf-8?B?Vm9iSXFxTTdiRWNybkZaSkVqK1lpckpPYVJhenVudzRXYnBYSEJEdDJIRk1x?=
+ =?utf-8?B?bXVmU2VJbHNQaVQ3U3VYSnhlZmVzY3orMmFldG5rL2VmUHMzY2RLNzh2dGk5?=
+ =?utf-8?B?Wmo4UEM3ZEZyZytIY0wzNXErVHlkaWpqZWxjYlJ3VUEySkMzT1dxb3JFRHVX?=
+ =?utf-8?B?UEw2K2F3U2lxb2txMHBjdTdLSDVFWGVJQXZwUVF2RWZUdGZwOXJYRDlGK3BP?=
+ =?utf-8?Q?s7+kWM0dHeQrpBUybW55Ze4b1GUPj5gFBBqVA=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB7586.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(10070799003)(1800799024)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?dXNzUFA2cTM3ZUJzS1pNQXIvNTU5ck9KOEg4WmVkMWRKYnRuVEVBWGRXa1By?=
+ =?utf-8?B?Yzl6SUJGVGc1Um9SNFI0MWZJOUJpT0U1Q1pFei94d2tIL3BHWitrenVwSERF?=
+ =?utf-8?B?Ui9QbHdUSWpJby9QM2E5WkljbjcxV0hrWDhJUklYUkw1YTBhZlkyeDlQK0dJ?=
+ =?utf-8?B?OVJ5Y2MwWUlHQ0RYcUplNmNPdnRrRzFCWTlFdS84YmFuTUJmTi9GT2pLKzZi?=
+ =?utf-8?B?aHhWYm80RkkwdzkvZWdpRUZmUDJjOWVpTTVlQmpLeTcybklsSlBrdXY2dVEr?=
+ =?utf-8?B?Q1BOdE0wbFU5TzBjcmNHM1lSNkE1WDRTOXFaOXhjbW5lRGhqcHVZYzZIVk1Z?=
+ =?utf-8?B?aTdZUWNVc2JQeDJ4NUplK0pXTmc2QU8yZFYzNEYwdXZUMTFSMVFVa3B0U0RT?=
+ =?utf-8?B?NjBsdnREY1MweWN6azFFcVZZK1dhdlBiRit4UGg3ZVRhOVlpa1paK3B4ZTU0?=
+ =?utf-8?B?Q2d1bDVHNVduc0FJdFBOMlcxTXdqKytkUHhYemdhOGdINHAxNml5Q3dWaE1E?=
+ =?utf-8?B?WmdYKzdkL3FFQ3dLZDZZbk04YTNzVWxHMzVyK3M5VmNNZkQ4SnVuWmdUK3Jt?=
+ =?utf-8?B?OEtkZmJlczhCM2Q0VXB6c3p5UEhFMEI5M0Z5QkUxSTZpc1k3QUlEcFZoendI?=
+ =?utf-8?B?SHNVSzE1L3liY0hnTzdQbGpLU3BXNlh3V0VtUnBUQWYyaCt5aWR3NFo1dXRG?=
+ =?utf-8?B?NGpMbThCQThEN0JOTTNiT0RGUHMxREJrd1VBa3lZeVlRbXJEUXVsSzNaakxY?=
+ =?utf-8?B?YXNaNVppQmNUM1psdEo3UFpCdWVzMjdFcXIzV1dNZzdtVFZJSHB2eGZnbUh3?=
+ =?utf-8?B?WmZWVDdpNWRuRmYyVjVRa0NBWHR1a3ZGSEhOZnBRclpqRk9Ta2U2RXZSWVJG?=
+ =?utf-8?B?Q09WRVBUZThhMVpIa0VpM1o2Qjg5VVJobnJJOFRmK1RYbFZzNWh1SXZ3eEls?=
+ =?utf-8?B?UExwb3JZakRYL09GKzlMeHkrQjRlbFdCZXhNSU11ZU8yd0RZNHBaQ1VocXRZ?=
+ =?utf-8?B?NUFHRFhEanJNZk9VSVdwU1N1WEYydkwveDlYQ3owbXZrS0hJNGJ3Y0J3NHlY?=
+ =?utf-8?B?K3l1cGxmOXRIbjZubkZZUWRmTHBqbUxhL210VnAwUXEzdUdrS2JPSDIzLzhl?=
+ =?utf-8?B?ZStCZTB1RGJKc3RpQS9PcUFwSlMvRnkrZElPUVhCS2IrelMvSU1iL0MwYTBX?=
+ =?utf-8?B?blVZbGlxWUc5bmFVM3FhbkRwaFZsWkJwbFNCTGpLdlZYSWovL0ptdWhpM0lL?=
+ =?utf-8?B?Y1Q3WTdSQ0VoWnRzYy9XSHVkY25sUndsOHd0RHd3Z0NtN0VUUHNjYzQ3ZjV0?=
+ =?utf-8?B?eDQySkZUL3hBT0pBQ2tqK0IwOVVjZlNIRGlaQ3V4ZlREWm8zZ2hraUU4M0Jq?=
+ =?utf-8?B?bVp6VFcwQzczUDJmeDJMdHpERzJWSXBKTXlOV1U2MU1YbWdXbVBDSTdqeGJU?=
+ =?utf-8?B?VldKekNQcFZFeGNkVEdOTjZ2ZCtWNlhnV3dIZ1JVMFZ2Ty81NUIzWVZUZHla?=
+ =?utf-8?B?bldIS1Y3YUc4cnBBQ1VoeCt0Z2xZTldRNG00enhJd0FCdVNCYXZIVkJzYlpJ?=
+ =?utf-8?B?RlBxMzNsaVA1WXNLaUxuNE1xQlZLemYrY01NQjdCK3BDQU04ZmEvTDR6OU41?=
+ =?utf-8?B?WmRSanFsR3lsV3l5emVaQnhoNGk5WTErbS83T3FVbHVuNWRMajRLRmRjZDM3?=
+ =?utf-8?B?UG1ibVVNdkRSYkE5LzJia2dGTDcxS2dXbFZrSDBjUGQ1QUt3NkdobTZZZ3E1?=
+ =?utf-8?B?LzBORkVFSDd2bCtyQzVCT1ozQi9nZzQyditNNi9wQXcrcGlmN1hRUTFoUzll?=
+ =?utf-8?B?b05pRDZ0SjJmQmJDY1d3bmNUamNMZHZlUGJHR3l6R0NWaDdmaE96U2pRSmxH?=
+ =?utf-8?B?M0h0djhYUUVMZ3RNK1ZHR3Q0UXNJbEVOQUhpWVF3c1JySFpnMlRIS05La0pC?=
+ =?utf-8?B?d0lZTVZxRXlhK2lYcitieTY2eVk2OGpFVGlaTHc0TkZCcEdDdWRidkJIVWVr?=
+ =?utf-8?B?bTMwbTFNL09LUGc0bjYvZUc0TDAxWWszQnlqM0E4UUpOcVdVUmZ1bGNFRy91?=
+ =?utf-8?B?S1BiOGd3NWYyVXFGekNIQzViN0pqN0FobWZpc3RrZ05QZy85WnFrVVBwdVd4?=
+ =?utf-8?B?cldnMjV5YjRaT1hCV3IwbDQ5UmE3VDg2UVNFaVU5Rlp3aThJSmg0WE5oVlFo?=
+ =?utf-8?Q?aRw+ZTKUsf1LHxm7e23cdac=3D?=
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241113-a4_pinctrl-v7-4-0546a20c1c22@amlogic.com>
-References: <20241113-a4_pinctrl-v7-0-0546a20c1c22@amlogic.com>
-In-Reply-To: <20241113-a4_pinctrl-v7-0-0546a20c1c22@amlogic.com>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1731490653; l=45209;
- i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=k+BTxLebWfNJZ27OfoMAUrw2L60yKj4hqGF+c3QqrGQ=;
- b=3K1YafInW4NMYH5yh5mE9nEgCRM4X/MBsge89cZDREDXofl22Rmtzo1J8fameokbHFV05Hjmf
- 5tjTQPQTSprCTCY/C3BEVF7maDGEV48P1W6qqka9S6Sda8mp41wGIic
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
- auth_id=107
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Content-ID: <37D40E1E8EB16243B8B1DC9B03F755E1@eurprd04.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB7586.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9258753a-d099-4dac-a613-08dd03c74b96
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Nov 2024 09:41:05.7513
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: JrUCFoyAkn7Cnwj9YR+TcEHWJ/SPM/z43PX4ykHUTA2uEjSJsAm2FwYbFmhUnAhXnHs5gq2MnTXOyMihFuBTfg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8605
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_093748_404815_C86676F6 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20241113_014111_575382_39201176 
+X-CRM114-Status: GOOD (  20.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,1383 +183,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-
-Add a new pinctrl driver for Amlogic A4 SoCs which share
-the same register layout as the previous Amlogic S4.
-
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
- drivers/pinctrl/meson/Kconfig              |    6 +
- drivers/pinctrl/meson/Makefile             |    1 +
- drivers/pinctrl/meson/pinctrl-amlogic-a4.c | 1324 ++++++++++++++++++++++++++++
- 3 files changed, 1331 insertions(+)
-
-diff --git a/drivers/pinctrl/meson/Kconfig b/drivers/pinctrl/meson/Kconfig
-index cc397896762c..3e90bb5ec442 100644
---- a/drivers/pinctrl/meson/Kconfig
-+++ b/drivers/pinctrl/meson/Kconfig
-@@ -67,6 +67,12 @@ config PINCTRL_MESON_S4
- 	select PINCTRL_MESON_AXG_PMX
- 	default y
- 
-+config PINCTRL_AMLOGIC_A4
-+	tristate "Amlogic A4 SoC pinctrl driver"
-+	depends on ARM64
-+	select PINCTRL_MESON_AXG_PMX
-+	default y
-+
- config PINCTRL_AMLOGIC_C3
- 	tristate "Amlogic C3 SoC pinctrl driver"
- 	depends on ARM64
-diff --git a/drivers/pinctrl/meson/Makefile b/drivers/pinctrl/meson/Makefile
-index 9e538b9ffb9b..c92a65a83344 100644
---- a/drivers/pinctrl/meson/Makefile
-+++ b/drivers/pinctrl/meson/Makefile
-@@ -10,5 +10,6 @@ obj-$(CONFIG_PINCTRL_MESON_AXG) += pinctrl-meson-axg.o
- obj-$(CONFIG_PINCTRL_MESON_G12A) += pinctrl-meson-g12a.o
- obj-$(CONFIG_PINCTRL_MESON_A1) += pinctrl-meson-a1.o
- obj-$(CONFIG_PINCTRL_MESON_S4) += pinctrl-meson-s4.o
-+obj-$(CONFIG_PINCTRL_AMLOGIC_A4) += pinctrl-amlogic-a4.o
- obj-$(CONFIG_PINCTRL_AMLOGIC_C3) += pinctrl-amlogic-c3.o
- obj-$(CONFIG_PINCTRL_AMLOGIC_T7) += pinctrl-amlogic-t7.o
-diff --git a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-new file mode 100644
-index 000000000000..edc5f2ba2c8a
---- /dev/null
-+++ b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-@@ -0,0 +1,1324 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-+/*
-+ * Pin controller and GPIO driver for Amlogic A4 SoC.
-+ *
-+ * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
-+ * Author: Xianwei Zhao <xianwei.zhao@amlogic.com>
-+ *         Huqiang Qin <huqiang.qin@amlogic.com>
-+ */
-+
-+#include "pinctrl-meson.h"
-+#include "pinctrl-meson-axg-pmx.h"
-+#include <dt-bindings/gpio/amlogic-gpio.h>
-+
-+/* Standard port */
-+
-+#define GPIOE_0				0
-+#define GPIOE_1				1
-+
-+#define GPIOD_0				2
-+#define GPIOD_1				3
-+#define GPIOD_2				4
-+#define GPIOD_3				5
-+#define GPIOD_4				6
-+#define GPIOD_5				7
-+#define GPIOD_6				8
-+#define GPIOD_7				9
-+#define GPIOD_8				10
-+#define GPIOD_9				11
-+#define GPIOD_10			12
-+#define GPIOD_11			13
-+#define GPIOD_12			14
-+#define GPIOD_13			15
-+#define GPIOD_14			16
-+#define GPIOD_15			17
-+
-+#define GPIOB_0				18
-+#define GPIOB_1				19
-+#define GPIOB_2				20
-+#define GPIOB_3				21
-+#define GPIOB_4				22
-+#define GPIOB_5				23
-+#define GPIOB_6				24
-+#define GPIOB_7				25
-+#define GPIOB_8				26
-+#define GPIOB_9				27
-+#define GPIOB_10			28
-+#define GPIOB_11			29
-+#define GPIOB_12			30
-+#define GPIOB_13			31
-+
-+#define GPIOX_0				32
-+#define GPIOX_1				33
-+#define GPIOX_2				34
-+#define GPIOX_3				35
-+#define GPIOX_4				36
-+#define GPIOX_5				37
-+#define GPIOX_6				38
-+#define GPIOX_7				39
-+#define GPIOX_8				40
-+#define GPIOX_9				41
-+#define GPIOX_10			42
-+#define GPIOX_11			43
-+#define GPIOX_12			44
-+#define GPIOX_13			45
-+#define GPIOX_14			46
-+#define GPIOX_15			47
-+#define GPIOX_16			48
-+#define GPIOX_17			49
-+
-+#define GPIOT_0				50
-+#define GPIOT_1				51
-+#define GPIOT_2				52
-+#define GPIOT_3				53
-+#define GPIOT_4				54
-+#define GPIOT_5				55
-+#define GPIOT_6				56
-+#define GPIOT_7				57
-+#define GPIOT_8				58
-+#define GPIOT_9				59
-+#define GPIOT_10			60
-+#define GPIOT_11			61
-+#define GPIOT_12			62
-+#define GPIOT_13			63
-+#define GPIOT_14			64
-+#define GPIOT_15			65
-+#define GPIOT_16			66
-+#define GPIOT_17			67
-+#define GPIOT_18			68
-+#define GPIOT_19			69
-+#define GPIOT_20			70
-+#define GPIOT_21			71
-+#define GPIOT_22			72
-+
-+/* Aobus port */
-+#define GPIOAO_0			0
-+#define GPIOAO_1			1
-+#define GPIOAO_2			2
-+#define GPIOAO_3			3
-+#define GPIOAO_4			4
-+#define GPIOAO_5			5
-+#define GPIOAO_6			6
-+
-+#define GPIO_TEST_N			7
-+
-+#define GPIOE_NUM			2
-+#define GPIOD_NUM			16
-+#define GPIOB_NUM			14
-+#define GPIOX_NUM			18
-+#define GPIOT_NUM			23
-+#define GPIOAO_NUM			7
-+
-+static const struct pinctrl_pin_desc a4_aobus_pins[] = {
-+	MESON_PIN(GPIOAO_0),
-+	MESON_PIN(GPIOAO_1),
-+	MESON_PIN(GPIOAO_2),
-+	MESON_PIN(GPIOAO_3),
-+	MESON_PIN(GPIOAO_4),
-+	MESON_PIN(GPIOAO_5),
-+	MESON_PIN(GPIOAO_6),
-+
-+	MESON_PIN(GPIO_TEST_N)
-+};
-+
-+static const struct pinctrl_pin_desc a4_periphs_pins[] = {
-+	MESON_PIN(GPIOE_0),
-+	MESON_PIN(GPIOE_1),
-+
-+	MESON_PIN(GPIOD_0),
-+	MESON_PIN(GPIOD_1),
-+	MESON_PIN(GPIOD_2),
-+	MESON_PIN(GPIOD_3),
-+	MESON_PIN(GPIOD_4),
-+	MESON_PIN(GPIOD_5),
-+	MESON_PIN(GPIOD_6),
-+	MESON_PIN(GPIOD_7),
-+	MESON_PIN(GPIOD_8),
-+	MESON_PIN(GPIOD_9),
-+	MESON_PIN(GPIOD_10),
-+	MESON_PIN(GPIOD_11),
-+	MESON_PIN(GPIOD_12),
-+	MESON_PIN(GPIOD_13),
-+	MESON_PIN(GPIOD_14),
-+	MESON_PIN(GPIOD_15),
-+
-+	MESON_PIN(GPIOB_0),
-+	MESON_PIN(GPIOB_1),
-+	MESON_PIN(GPIOB_2),
-+	MESON_PIN(GPIOB_3),
-+	MESON_PIN(GPIOB_4),
-+	MESON_PIN(GPIOB_5),
-+	MESON_PIN(GPIOB_6),
-+	MESON_PIN(GPIOB_7),
-+	MESON_PIN(GPIOB_8),
-+	MESON_PIN(GPIOB_9),
-+	MESON_PIN(GPIOB_10),
-+	MESON_PIN(GPIOB_11),
-+	MESON_PIN(GPIOB_12),
-+	MESON_PIN(GPIOB_13),
-+
-+	MESON_PIN(GPIOX_0),
-+	MESON_PIN(GPIOX_1),
-+	MESON_PIN(GPIOX_2),
-+	MESON_PIN(GPIOX_3),
-+	MESON_PIN(GPIOX_4),
-+	MESON_PIN(GPIOX_5),
-+	MESON_PIN(GPIOX_6),
-+	MESON_PIN(GPIOX_7),
-+	MESON_PIN(GPIOX_8),
-+	MESON_PIN(GPIOX_9),
-+	MESON_PIN(GPIOX_10),
-+	MESON_PIN(GPIOX_11),
-+	MESON_PIN(GPIOX_12),
-+	MESON_PIN(GPIOX_13),
-+	MESON_PIN(GPIOX_14),
-+	MESON_PIN(GPIOX_15),
-+	MESON_PIN(GPIOX_16),
-+	MESON_PIN(GPIOX_17),
-+
-+	MESON_PIN(GPIOT_0),
-+	MESON_PIN(GPIOT_1),
-+	MESON_PIN(GPIOT_2),
-+	MESON_PIN(GPIOT_3),
-+	MESON_PIN(GPIOT_4),
-+	MESON_PIN(GPIOT_5),
-+	MESON_PIN(GPIOT_6),
-+	MESON_PIN(GPIOT_7),
-+	MESON_PIN(GPIOT_8),
-+	MESON_PIN(GPIOT_9),
-+	MESON_PIN(GPIOT_10),
-+	MESON_PIN(GPIOT_11),
-+	MESON_PIN(GPIOT_12),
-+	MESON_PIN(GPIOT_13),
-+	MESON_PIN(GPIOT_14),
-+	MESON_PIN(GPIOT_15),
-+	MESON_PIN(GPIOT_16),
-+	MESON_PIN(GPIOT_17),
-+	MESON_PIN(GPIOT_18),
-+	MESON_PIN(GPIOT_19),
-+	MESON_PIN(GPIOT_20),
-+	MESON_PIN(GPIOT_21),
-+	MESON_PIN(GPIOT_22)
-+};
-+
-+/* GPIOAO func1 */
-+static const unsigned int i2c_slave_a_sda_ao0_pins[]		= { GPIOAO_0 };
-+static const unsigned int i2c_slave_a_scl_ao1_pins[]		= { GPIOAO_1 };
-+static const unsigned int remote_ao_input_ao3_pins[]		= { GPIOAO_3 };
-+static const unsigned int uart_ao_c_tx_ao4_pins[]		= { GPIOAO_4 };
-+static const unsigned int uart_ao_c_rx_ao5_pins[]		= { GPIOAO_5 };
-+static const unsigned int clk_32k_ao_out_pins[]			= { GPIOAO_6 };
-+
-+/* GPIOAO func2 */
-+static const unsigned int uart_ao_c_tx_ao0_pins[]		= { GPIOAO_0 };
-+static const unsigned int uart_ao_c_rx_ao1_pins[]		= { GPIOAO_1 };
-+static const unsigned int i2c_slave_a_sda_ao2_pins[]		= { GPIOAO_2 };
-+static const unsigned int i2c_slave_a_scl_ao3_pins[]		= { GPIOAO_3 };
-+static const unsigned int remote_ao_input_ao4_pins[]		= { GPIOAO_4 };
-+static const unsigned int pwm_g_pins[]				= { GPIOAO_6 };
-+
-+/* GPIOAO func3 */
-+static const unsigned int remote_ao_input_ao1_pins[]		= { GPIOAO_1 };
-+static const unsigned int remote_ao_input_ao6_pins[]		= { GPIOAO_6 };
-+
-+/* GPIOAO func4 */
-+static const unsigned int pmic_sleep_ao2_pins[]			= { GPIOAO_2 };
-+static const unsigned int pmic_sleep_ao4_pins[]			= { GPIOAO_4 };
-+
-+static const struct meson_pmx_group a4_aobus_groups[] = {
-+	GPIO_GROUP(GPIOAO_0),
-+	GPIO_GROUP(GPIOAO_1),
-+	GPIO_GROUP(GPIOAO_2),
-+	GPIO_GROUP(GPIOAO_3),
-+	GPIO_GROUP(GPIOAO_4),
-+	GPIO_GROUP(GPIOAO_5),
-+	GPIO_GROUP(GPIOAO_6),
-+
-+	GPIO_GROUP(GPIO_TEST_N),
-+
-+	/* GPIOAO func1 */
-+	GROUP(i2c_slave_a_sda_ao0,			1),
-+	GROUP(i2c_slave_a_scl_ao1,			1),
-+	GROUP(remote_ao_input_ao3,			1),
-+	GROUP(uart_ao_c_tx_ao4,				1),
-+	GROUP(uart_ao_c_rx_ao5,				1),
-+	GROUP(clk_32k_ao_out,				1),
-+
-+	/* GPIOAO func2 */
-+	GROUP(uart_ao_c_tx_ao0,				2),
-+	GROUP(uart_ao_c_rx_ao1,				2),
-+	GROUP(i2c_slave_a_sda_ao2,			2),
-+	GROUP(i2c_slave_a_scl_ao3,			2),
-+	GROUP(remote_ao_input_ao4,			2),
-+	GROUP(pwm_g,					2),
-+
-+	/* GPIOAO func3 */
-+	GROUP(remote_ao_input_ao1,			3),
-+	GROUP(remote_ao_input_ao6,			3),
-+
-+	/* GPIOAO func4 */
-+	GROUP(pmic_sleep_ao2,				4),
-+	GROUP(pmic_sleep_ao4,				4)
-+};
-+
-+/* GPIOE func1 */
-+static const unsigned int pwm_e_e0_pins[]			= { GPIOE_0 };
-+static const unsigned int pwm_f_pins[]				= { GPIOE_1 };
-+
-+/* GPIOE func3 */
-+static const unsigned int uart_b_tx_e0_pins[]			= { GPIOE_0 };
-+static const unsigned int uart_b_rx_e1_pins[]			= { GPIOE_1 };
-+
-+/* GPIOE func5 */
-+static const unsigned int i2c0_sda_e0_pins[]			= { GPIOE_0 };
-+static const unsigned int i2c0_scl_e1_pins[]			= { GPIOE_1 };
-+
-+/* GPIOD func1 */
-+static const unsigned int pdm_din1_d2_pins[]			= { GPIOD_2 };
-+static const unsigned int pdm_din0_d3_pins[]			= { GPIOD_3 };
-+static const unsigned int pdm_dclk_d4_pins[]			= { GPIOD_4 };
-+static const unsigned int remote_out_pins[]			= { GPIOD_5 };
-+static const unsigned int jtag_1_clk_pins[]			= { GPIOD_6 };
-+static const unsigned int jtag_1_tms_pins[]			= { GPIOD_7 };
-+static const unsigned int jtag_1_tdi_pins[]			= { GPIOD_8 };
-+static const unsigned int jtag_1_tdo_pins[]			= { GPIOD_9 };
-+static const unsigned int clk12_24_pins[]			= { GPIOD_10 };
-+static const unsigned int tdm_d3_d11_pins[]			= { GPIOD_11 };
-+static const unsigned int tdm_d2_d12_pins[]			= { GPIOD_12 };
-+static const unsigned int mclk1_d13_pins[]			= { GPIOD_13 };
-+static const unsigned int tdm_sclk1_d14_pins[]			= { GPIOD_14 };
-+static const unsigned int tdm_fs1_d15_pins[]			= { GPIOD_15 };
-+
-+/* GPIOD func2 */
-+static const unsigned int uart_b_tx_d0_pins[]			= { GPIOD_0 };
-+static const unsigned int uart_b_rx_d1_pins[]			= { GPIOD_1 };
-+static const unsigned int uart_b_cts_pins[]			= { GPIOD_2 };
-+static const unsigned int uart_b_rts_pins[]			= { GPIOD_3 };
-+static const unsigned int remote_in_pins[]			= { GPIOD_5 };
-+static const unsigned int pwm_a_hiz_pins[]			= { GPIOD_6 };
-+static const unsigned int pwm_b_hiz_pins[]			= { GPIOD_7 };
-+static const unsigned int pwm_c_hiz_pins[]			= { GPIOD_8 };
-+static const unsigned int pwm_d_hiz_pins[]			= { GPIOD_9 };
-+static const unsigned int gen_clk_pins[]			= { GPIOD_10 };
-+static const unsigned int pwm_e_hiz_pins[]			= { GPIOD_11 };
-+static const unsigned int i2c3_sda_d12_pins[]			= { GPIOD_12 };
-+static const unsigned int i2c3_scl_d13_pins[]			= { GPIOD_13 };
-+static const unsigned int i2c2_sda_d14_pins[]			= { GPIOD_14 };
-+static const unsigned int i2c2_scl_d15_pins[]			= { GPIOD_15 };
-+
-+/* GPIOD func3 */
-+static const unsigned int uart_a_tx_d2_pins[]			= { GPIOD_2 };
-+static const unsigned int uart_a_rx_d3_pins[]			= { GPIOD_3 };
-+static const unsigned int pwm_a_d6_pins[]			= { GPIOD_6 };
-+static const unsigned int pwm_b_d7_pins[]			= { GPIOD_7 };
-+static const unsigned int pwm_c_d8_pins[]			= { GPIOD_8 };
-+static const unsigned int pwm_d_d9_pins[]			= { GPIOD_9 };
-+static const unsigned int pwm_e_d11_pins[]			= { GPIOD_11 };
-+static const unsigned int pwm_h_d12_pins[]			= { GPIOD_12 };
-+
-+/* GPIOD func4 */
-+static const unsigned int spi_b_miso_d2_pins[]			= { GPIOD_2 };
-+static const unsigned int spi_b_mosi_d3_pins[]			= { GPIOD_3 };
-+static const unsigned int spi_b_clk_d4_pins[]			= { GPIOD_4 };
-+static const unsigned int spi_b_ss0_d5_pins[]			= { GPIOD_5 };
-+static const unsigned int spi_b_dq2_pins[]			= { GPIOD_6 };
-+static const unsigned int spi_b_dq3_pins[]			= { GPIOD_7 };
-+static const unsigned int tdm_d12_d8_pins[]			= { GPIOD_8 };
-+static const unsigned int tdm_d13_d9_pins[]			= { GPIOD_9 };
-+static const unsigned int i2c1_sda_d10_pins[]			= { GPIOD_10 };
-+static const unsigned int i2c1_scl_d11_pins[]			= { GPIOD_11 };
-+
-+/* GPIOD func5 */
-+static const unsigned int i2c1_sda_d2_pins[]			= { GPIOD_2 };
-+static const unsigned int i2c1_scl_d3_pins[]			= { GPIOD_3 };
-+static const unsigned int eth_mdio_d6_pins[]			= { GPIOD_6 };
-+static const unsigned int eth_mdc_d7_pins[]			= { GPIOD_7 };
-+static const unsigned int dcon_led_d8_pins[]			= { GPIOD_8 };
-+static const unsigned int mic_mute_en_pins[]			= { GPIOD_10 };
-+static const unsigned int mic_mute_key_pins[]			= { GPIOD_11 };
-+static const unsigned int dcon_led_d12_pins[]			= { GPIOD_12 };
-+static const unsigned int mclk0_d13_pins[]			= { GPIOD_13 };
-+static const unsigned int tdm_sclk0_d14_pins[]			= { GPIOD_14 };
-+static const unsigned int tdm_fs0_d15_pins[]			= { GPIOD_15 };
-+
-+/* GPIOB func1 */
-+static const unsigned int emmc_nand_d0_pins[]			= { GPIOB_0 };
-+static const unsigned int emmc_nand_d1_pins[]			= { GPIOB_1 };
-+static const unsigned int emmc_nand_d2_pins[]			= { GPIOB_2 };
-+static const unsigned int emmc_nand_d3_pins[]			= { GPIOB_3 };
-+static const unsigned int emmc_nand_d4_pins[]			= { GPIOB_4 };
-+static const unsigned int emmc_nand_d5_pins[]			= { GPIOB_5 };
-+static const unsigned int emmc_nand_d6_pins[]			= { GPIOB_6 };
-+static const unsigned int emmc_nand_d7_pins[]			= { GPIOB_7 };
-+static const unsigned int emmc_clk_pins[]			= { GPIOB_8 };
-+static const unsigned int emmc_rst_pins[]			= { GPIOB_9 };
-+static const unsigned int emmc_cmd_pins[]			= { GPIOB_10 };
-+static const unsigned int emmc_nand_ds_pins[]			= { GPIOB_11 };
-+
-+/* GPIOB func2 */
-+static const unsigned int nand_wen_clk_pins[]			= { GPIOB_8 };
-+static const unsigned int nand_ale_pins[]			= { GPIOB_9 };
-+static const unsigned int nand_ren_wr_pins[]			= { GPIOB_10 };
-+static const unsigned int nand_cle_pins[]			= { GPIOB_11 };
-+static const unsigned int nand_ce0_pins[]			= { GPIOB_12 };
-+
-+/* GPIOB func4 */
-+static const unsigned int spinf_mo_d0_pins[]			= { GPIOB_0 };
-+static const unsigned int spinf_mi_d1_pins[]			= { GPIOB_1 };
-+static const unsigned int spinf_wp_d2_pins[]			= { GPIOB_2 };
-+static const unsigned int spinf_hold_d3_pins[]			= { GPIOB_3 };
-+static const unsigned int spinf_d4_pins[]			= { GPIOB_4 };
-+static const unsigned int spinf_d5_pins[]			= { GPIOB_5 };
-+static const unsigned int spinf_d6_pins[]			= { GPIOB_6 };
-+static const unsigned int spinf_d7_pins[]			= { GPIOB_7 };
-+static const unsigned int spinf_rst_pins[]			= { GPIOB_9 };
-+static const unsigned int spinf_clk_pins[]			= { GPIOB_10 };
-+static const unsigned int spinf_cs1_pins[]			= { GPIOB_12 };
-+static const unsigned int spinf_cs0_pins[]			= { GPIOB_13 };
-+
-+/* GPIOX func1 */
-+static const unsigned int sdio_d0_pins[]			= { GPIOX_0 };
-+static const unsigned int sdio_d1_pins[]			= { GPIOX_1 };
-+static const unsigned int sdio_d2_pins[]			= { GPIOX_2 };
-+static const unsigned int sdio_d3_pins[]			= { GPIOX_3 };
-+static const unsigned int sdio_clk_pins[]			= { GPIOX_4 };
-+static const unsigned int sdio_cmd_pins[]			= { GPIOX_5 };
-+static const unsigned int mclk0_x6_pins[]			= { GPIOX_6 };
-+static const unsigned int tdm_d1_pins[]				= { GPIOX_7 };
-+static const unsigned int tdm_d0_x8_pins[]			= { GPIOX_8 };
-+static const unsigned int tdm_fs0_x9_pins[]			= { GPIOX_9 };
-+static const unsigned int tdm_sclk0_x10_pins[]			= { GPIOX_10 };
-+static const unsigned int uart_a_tx_x11_pins[]			= { GPIOX_11 };
-+static const unsigned int uart_a_rx_x12_pins[]			= { GPIOX_12 };
-+static const unsigned int uart_a_cts_pins[]			= { GPIOX_13 };
-+static const unsigned int uart_a_rts_pins[]			= { GPIOX_14 };
-+static const unsigned int pwm_g_x15_pins[]			= { GPIOX_15 };
-+static const unsigned int pwm_b_x17_pins[]			= { GPIOX_17 };
-+
-+/* GPIOX func2 */
-+static const unsigned int pwm_a_x6_pins[]			= { GPIOX_6 };
-+static const unsigned int spi_a_mosi_x7_pins[]			= { GPIOX_7 };
-+static const unsigned int spi_a_miso_x8_pins[]			= { GPIOX_8 };
-+static const unsigned int spi_a_ss0_x9_pins[]			= { GPIOX_9 };
-+static const unsigned int spi_a_clk_x10_pins[]			= { GPIOX_10 };
-+static const unsigned int i2c0_sda_x16_pins[]			= { GPIOX_16 };
-+static const unsigned int i2c0_scl_x17_pins[]			= { GPIOX_17 };
-+
-+/* GPIOX func5 */
-+static const unsigned int eth_mdio_x0_pins[]			= { GPIOX_0 };
-+static const unsigned int eth_mdc_x1_pins[]			= { GPIOX_1 };
-+static const unsigned int eth_rgmii_rx_clk_pins[]		= { GPIOX_2 };
-+static const unsigned int eth_rx_dv_pins[]			= { GPIOX_3 };
-+static const unsigned int eth_rxd0_pins[]			= { GPIOX_4 };
-+static const unsigned int eth_rxd1_pins[]			= { GPIOX_5 };
-+static const unsigned int eth_rxd2_rgmii_pins[]			= { GPIOX_6 };
-+static const unsigned int eth_rxd3_rgmii_pins[]			= { GPIOX_7 };
-+static const unsigned int eth_rgmii_tx_clk_pins[]		= { GPIOX_8 };
-+static const unsigned int eth_txen_pins[]			= { GPIOX_9 };
-+static const unsigned int eth_txd0_pins[]			= { GPIOX_10 };
-+static const unsigned int eth_txd1_pins[]			= { GPIOX_11 };
-+static const unsigned int eth_txd2_rgmii_pins[]			= { GPIOX_12 };
-+static const unsigned int eth_txd3_rgmii_pins[]			= { GPIOX_13 };
-+static const unsigned int spi_b_mosi_x14_pins[]			= { GPIOX_14 };
-+static const unsigned int spi_b_ss0_x15_pins[]			= { GPIOX_15 };
-+static const unsigned int spi_b_clk_x16_pins[]			= { GPIOX_16 };
-+static const unsigned int spi_b_miso_x17_pins[]			= { GPIOX_17 };
-+
-+/* GPIOT func1 */
-+static const unsigned int tdm_d2_t0_pins[]			= { GPIOT_0 };
-+static const unsigned int tdm_d3_t1_pins[]			= { GPIOT_1 };
-+static const unsigned int tdm_fs1_t2_pins[]			= { GPIOT_2 };
-+static const unsigned int tdm_sclk1_t3_pins[]			= { GPIOT_3 };
-+static const unsigned int mclk1_t4_pins[]			= { GPIOT_4 };
-+static const unsigned int tdm_d4_t5_pins[]			= { GPIOT_5 };
-+static const unsigned int tdm_d5_t6_pins[]			= { GPIOT_6 };
-+static const unsigned int tdm_d6_t7_pins[]			= { GPIOT_7 };
-+static const unsigned int tdm_d7_pins[]				= { GPIOT_8 };
-+static const unsigned int spdif_out_pins[]			= { GPIOT_9 };
-+static const unsigned int spdif_in_t10_pins[]			= { GPIOT_10 };
-+static const unsigned int tdm_fs2_t11_pins[]			= { GPIOT_11 };
-+static const unsigned int tdm_sclk2_t12_pins[]			= { GPIOT_12 };
-+static const unsigned int tdm_d8_pins[]				= { GPIOT_13 };
-+static const unsigned int tdm_d9_pins[]				= { GPIOT_14 };
-+static const unsigned int tdm_d10_pins[]			= { GPIOT_15 };
-+static const unsigned int tdm_d11_pins[]			= { GPIOT_16 };
-+static const unsigned int mclk2_t17_pins[]			= { GPIOT_17 };
-+static const unsigned int tdm_d12_t18_pins[]			= { GPIOT_18 };
-+static const unsigned int tdm_d13_t19_pins[]			= { GPIOT_19 };
-+static const unsigned int i2c0_sda_t21_pins[]			= { GPIOT_21 };
-+static const unsigned int i2c0_scl_t22_pins[]			= { GPIOT_22 };
-+
-+/* GPIOT func2 */
-+static const unsigned int i2c3_sda_t0_pins[]			= { GPIOT_0 };
-+static const unsigned int i2c3_scl_t1_pins[]			= { GPIOT_1 };
-+static const unsigned int uart_d_tx_t7_pins[]			= { GPIOT_7 };
-+static const unsigned int uart_d_rx_t8_pins[]			= { GPIOT_8 };
-+static const unsigned int uart_d_cts_pins[]			= { GPIOT_9 };
-+static const unsigned int uart_d_rts_pins[]			= { GPIOT_10 };
-+static const unsigned int spi_a_dq2_pins[]			= { GPIOT_11 };
-+static const unsigned int spi_a_dq3_pins[]			= { GPIOT_12 };
-+static const unsigned int spi_a_clk_t13_pins[]			= { GPIOT_13 };
-+static const unsigned int spi_a_mosi_t14_pins[]			= { GPIOT_14 };
-+static const unsigned int spi_a_miso_t15_pins[]			= { GPIOT_15 };
-+static const unsigned int spi_a_ss0_t16_pins[]			= { GPIOT_16 };
-+static const unsigned int spi_a_ss1_pins[]			= { GPIOT_17 };
-+static const unsigned int spi_a_ss2_pins[]			= { GPIOT_18 };
-+static const unsigned int pwm_g_t19_pins[]			= { GPIOT_19 };
-+static const unsigned int pwm_h_t20_pins[]			= { GPIOT_20 };
-+static const unsigned int eth_link_led_t21_pins[]		= { GPIOT_21 };
-+static const unsigned int eth_act_led_t22_pins[]		= { GPIOT_22 };
-+
-+/* GPIOT func3 */
-+static const unsigned int pdm_din1_t0_pins[]			= { GPIOT_0 };
-+static const unsigned int pdm_din0_t1_pins[]			= { GPIOT_1 };
-+static const unsigned int pdm_dclk_t2_pins[]			= { GPIOT_2 };
-+static const unsigned int spi_b_clk_t5_pins[]			= { GPIOT_5 };
-+static const unsigned int spi_b_mosi_t6_pins[]			= { GPIOT_6 };
-+static const unsigned int spi_b_miso_t7_pins[]			= { GPIOT_7 };
-+static const unsigned int spi_b_ss0_t8_pins[]			= { GPIOT_8 };
-+static const unsigned int spi_b_ss1_pins[]			= { GPIOT_9 };
-+static const unsigned int spi_b_ss2_pins[]			= { GPIOT_10 };
-+static const unsigned int uart_e_tx_pins[]			= { GPIOT_14 };
-+static const unsigned int uart_e_rx_pins[]			= { GPIOT_15 };
-+static const unsigned int uart_e_rts_pins[]			= { GPIOT_16 };
-+static const unsigned int uart_e_cts_pins[]			= { GPIOT_17 };
-+static const unsigned int eth_link_led_t18_pins[]		= { GPIOT_18 };
-+static const unsigned int eth_act_led_t19_pins[]		= { GPIOT_19 };
-+static const unsigned int tdm_d4_t20_pins[]			= { GPIOT_20 };
-+static const unsigned int tdm_d5_t21_pins[]			= { GPIOT_21 };
-+static const unsigned int tdm_d6_t22_pins[]			= { GPIOT_22 };
-+
-+/* GPIOT func4 */
-+static const unsigned int dcon_led_t4_pins[]			= { GPIOT_4 };
-+static const unsigned int mclk2_t5_pins[]			= { GPIOT_5 };
-+static const unsigned int tdm_fs2_t6_pins[]			= { GPIOT_6 };
-+static const unsigned int tdm_sclk2_t7_pins[]			= { GPIOT_7 };
-+static const unsigned int spdif_in_t9_pins[]			= { GPIOT_9 };
-+static const unsigned int i2c2_sda_t11_pins[]			= { GPIOT_11 };
-+static const unsigned int i2c2_scl_t12_pins[]			= { GPIOT_12 };
-+static const unsigned int pwm_d_t15_pins[]			= { GPIOT_15 };
-+static const unsigned int pwm_c_t16_pins[]			= { GPIOT_16 };
-+static const unsigned int uart_d_tx_t18_pins[]			= { GPIOT_18 };
-+static const unsigned int uart_d_rx_t19_pins[]			= { GPIOT_19 };
-+static const unsigned int tdm_d0_t20_pins[]			= { GPIOT_20 };
-+static const unsigned int tdm_fs0_t21_pins[]			= { GPIOT_21 };
-+static const unsigned int tdm_sclk0_t22_pins[]			= { GPIOT_22 };
-+
-+/* GPIOT func5 */
-+static const unsigned int lcd_d0_pins[]				= { GPIOT_0 };
-+static const unsigned int lcd_d1_pins[]				= { GPIOT_1 };
-+static const unsigned int lcd_d2_pins[]				= { GPIOT_2 };
-+static const unsigned int lcd_d3_pins[]				= { GPIOT_3 };
-+static const unsigned int lcd_d4_pins[]				= { GPIOT_4 };
-+static const unsigned int lcd_d5_pins[]				= { GPIOT_5 };
-+static const unsigned int lcd_d6_pins[]				= { GPIOT_6 };
-+static const unsigned int lcd_d7_pins[]				= { GPIOT_7 };
-+static const unsigned int lcd_d8_pins[]				= { GPIOT_8 };
-+static const unsigned int lcd_d9_pins[]				= { GPIOT_9 };
-+static const unsigned int lcd_d10_pins[]			= { GPIOT_10 };
-+static const unsigned int lcd_d11_pins[]			= { GPIOT_11 };
-+static const unsigned int lcd_d12_pins[]			= { GPIOT_12 };
-+static const unsigned int lcd_d13_pins[]			= { GPIOT_13 };
-+static const unsigned int lcd_d14_pins[]			= { GPIOT_14 };
-+static const unsigned int lcd_d15_pins[]			= { GPIOT_15 };
-+static const unsigned int lcd_d16_pins[]			= { GPIOT_16 };
-+static const unsigned int lcd_d17_pins[]			= { GPIOT_17 };
-+static const unsigned int lcd_clk_pins[]			= { GPIOT_18 };
-+static const unsigned int lcd_den_pins[]			= { GPIOT_19 };
-+static const unsigned int lcd_hsync_pins[]			= { GPIOT_20 };
-+static const unsigned int lcd_vsync_pins[]			= { GPIOT_21 };
-+
-+static const struct meson_pmx_group a4_periphs_groups[] = {
-+	/* func0 as GPIO */
-+	GPIO_GROUP(GPIOE_0),
-+	GPIO_GROUP(GPIOE_1),
-+
-+	GPIO_GROUP(GPIOD_0),
-+	GPIO_GROUP(GPIOD_1),
-+	GPIO_GROUP(GPIOD_2),
-+	GPIO_GROUP(GPIOD_3),
-+	GPIO_GROUP(GPIOD_4),
-+	GPIO_GROUP(GPIOD_5),
-+	GPIO_GROUP(GPIOD_6),
-+	GPIO_GROUP(GPIOD_7),
-+	GPIO_GROUP(GPIOD_8),
-+	GPIO_GROUP(GPIOD_9),
-+	GPIO_GROUP(GPIOD_10),
-+	GPIO_GROUP(GPIOD_11),
-+	GPIO_GROUP(GPIOD_12),
-+	GPIO_GROUP(GPIOD_13),
-+	GPIO_GROUP(GPIOD_14),
-+	GPIO_GROUP(GPIOD_15),
-+
-+	GPIO_GROUP(GPIOB_0),
-+	GPIO_GROUP(GPIOB_1),
-+	GPIO_GROUP(GPIOB_2),
-+	GPIO_GROUP(GPIOB_3),
-+	GPIO_GROUP(GPIOB_4),
-+	GPIO_GROUP(GPIOB_5),
-+	GPIO_GROUP(GPIOB_6),
-+	GPIO_GROUP(GPIOB_7),
-+	GPIO_GROUP(GPIOB_8),
-+	GPIO_GROUP(GPIOB_9),
-+	GPIO_GROUP(GPIOB_10),
-+	GPIO_GROUP(GPIOB_11),
-+	GPIO_GROUP(GPIOB_12),
-+	GPIO_GROUP(GPIOB_13),
-+
-+	GPIO_GROUP(GPIOX_0),
-+	GPIO_GROUP(GPIOX_1),
-+	GPIO_GROUP(GPIOX_2),
-+	GPIO_GROUP(GPIOX_3),
-+	GPIO_GROUP(GPIOX_4),
-+	GPIO_GROUP(GPIOX_5),
-+	GPIO_GROUP(GPIOX_6),
-+	GPIO_GROUP(GPIOX_7),
-+	GPIO_GROUP(GPIOX_8),
-+	GPIO_GROUP(GPIOX_9),
-+	GPIO_GROUP(GPIOX_10),
-+	GPIO_GROUP(GPIOX_11),
-+	GPIO_GROUP(GPIOX_12),
-+	GPIO_GROUP(GPIOX_13),
-+	GPIO_GROUP(GPIOX_14),
-+	GPIO_GROUP(GPIOX_15),
-+	GPIO_GROUP(GPIOX_16),
-+	GPIO_GROUP(GPIOX_17),
-+
-+	GPIO_GROUP(GPIOT_0),
-+	GPIO_GROUP(GPIOT_1),
-+	GPIO_GROUP(GPIOT_2),
-+	GPIO_GROUP(GPIOT_3),
-+	GPIO_GROUP(GPIOT_4),
-+	GPIO_GROUP(GPIOT_5),
-+	GPIO_GROUP(GPIOT_6),
-+	GPIO_GROUP(GPIOT_7),
-+	GPIO_GROUP(GPIOT_8),
-+	GPIO_GROUP(GPIOT_9),
-+	GPIO_GROUP(GPIOT_10),
-+	GPIO_GROUP(GPIOT_11),
-+	GPIO_GROUP(GPIOT_12),
-+	GPIO_GROUP(GPIOT_13),
-+	GPIO_GROUP(GPIOT_14),
-+	GPIO_GROUP(GPIOT_15),
-+	GPIO_GROUP(GPIOT_16),
-+	GPIO_GROUP(GPIOT_17),
-+	GPIO_GROUP(GPIOT_18),
-+	GPIO_GROUP(GPIOT_19),
-+	GPIO_GROUP(GPIOT_20),
-+	GPIO_GROUP(GPIOT_21),
-+	GPIO_GROUP(GPIOT_22),
-+
-+	/* GPIOE func1 */
-+	GROUP(pwm_e_e0,			1),
-+	GROUP(pwm_f,			1),
-+
-+	/* GPIOE func3 */
-+	GROUP(uart_b_tx_e0,		3),
-+	GROUP(uart_b_rx_e1,		3),
-+
-+	/* GPIOE func5 */
-+	GROUP(i2c0_sda_e0,		5),
-+	GROUP(i2c0_scl_e1,		5),
-+
-+	/* GPIOD func1 */
-+	GROUP(pdm_din1_d2,		1),
-+	GROUP(pdm_din0_d3,		1),
-+	GROUP(pdm_dclk_d4,		1),
-+	GROUP(remote_out,		1),
-+	GROUP(jtag_1_clk,		1),
-+	GROUP(jtag_1_tms,		1),
-+	GROUP(jtag_1_tdi,		1),
-+	GROUP(jtag_1_tdo,		1),
-+	GROUP(clk12_24,			1),
-+	GROUP(tdm_d3_d11,		1),
-+	GROUP(tdm_d2_d12,		1),
-+	GROUP(mclk1_d13,		1),
-+	GROUP(tdm_sclk1_d14,		1),
-+	GROUP(tdm_fs1_d15,		1),
-+
-+	/* GPIOD func2 */
-+	GROUP(uart_b_tx_d0,		2),
-+	GROUP(uart_b_rx_d1,		2),
-+	GROUP(uart_b_cts,		2),
-+	GROUP(uart_b_rts,		2),
-+	GROUP(remote_in,		2),
-+	GROUP(pwm_a_hiz,		2),
-+	GROUP(pwm_b_hiz,		2),
-+	GROUP(pwm_c_hiz,		2),
-+	GROUP(pwm_d_hiz,		2),
-+	GROUP(gen_clk,			2),
-+	GROUP(pwm_e_hiz,		2),
-+	GROUP(i2c3_sda_d12,		2),
-+	GROUP(i2c3_scl_d13,		2),
-+	GROUP(i2c2_sda_d14,		2),
-+	GROUP(i2c2_scl_d15,		2),
-+
-+	/* GPIOD func3 */
-+	GROUP(uart_a_tx_d2,		3),
-+	GROUP(uart_a_rx_d3,		3),
-+	GROUP(pwm_a_d6,			3),
-+	GROUP(pwm_b_d7,			3),
-+	GROUP(pwm_c_d8,			3),
-+	GROUP(pwm_d_d9,			3),
-+	GROUP(pwm_e_d11,		3),
-+	GROUP(pwm_h_d12,		3),
-+
-+	/* GPIOD func4 */
-+	GROUP(spi_b_miso_d2,		4),
-+	GROUP(spi_b_mosi_d3,		4),
-+	GROUP(spi_b_clk_d4,		4),
-+	GROUP(spi_b_ss0_d5,		4),
-+	GROUP(spi_b_dq2,		4),
-+	GROUP(spi_b_dq3,		4),
-+	GROUP(tdm_d12_d8,		4),
-+	GROUP(tdm_d13_d9,		4),
-+	GROUP(i2c1_sda_d10,		4),
-+	GROUP(i2c1_scl_d11,		4),
-+
-+	/* GPIOD func5 */
-+	GROUP(i2c1_sda_d2,		5),
-+	GROUP(i2c1_scl_d3,		5),
-+	GROUP(eth_mdio_d6,		5),
-+	GROUP(eth_mdc_d7,		5),
-+	GROUP(dcon_led_d8,		5),
-+	GROUP(mic_mute_en,		5),
-+	GROUP(mic_mute_key,		5),
-+	GROUP(dcon_led_d12,		5),
-+	GROUP(mclk0_d13,		5),
-+	GROUP(tdm_sclk0_d14,		5),
-+	GROUP(tdm_fs0_d15,		5),
-+
-+	/* GPIOB func1 */
-+	GROUP(emmc_nand_d0,		1),
-+	GROUP(emmc_nand_d1,		1),
-+	GROUP(emmc_nand_d2,		1),
-+	GROUP(emmc_nand_d3,		1),
-+	GROUP(emmc_nand_d4,		1),
-+	GROUP(emmc_nand_d5,		1),
-+	GROUP(emmc_nand_d6,		1),
-+	GROUP(emmc_nand_d7,		1),
-+	GROUP(emmc_clk,			1),
-+	GROUP(emmc_rst,			1),
-+	GROUP(emmc_cmd,			1),
-+	GROUP(emmc_nand_ds,		1),
-+
-+	/* GPIOB func2 */
-+	GROUP(nand_wen_clk,		2),
-+	GROUP(nand_ale,			2),
-+	GROUP(nand_ren_wr,		2),
-+	GROUP(nand_cle,			2),
-+	GROUP(nand_ce0,			2),
-+
-+	/* GPIOB func4 */
-+	GROUP(spinf_mo_d0,		4),
-+	GROUP(spinf_mi_d1,		4),
-+	GROUP(spinf_wp_d2,		4),
-+	GROUP(spinf_hold_d3,		4),
-+	GROUP(spinf_d4,			4),
-+	GROUP(spinf_d5,			4),
-+	GROUP(spinf_d6,			4),
-+	GROUP(spinf_d7,			4),
-+	GROUP(spinf_rst,		4),
-+	GROUP(spinf_clk,		4),
-+	GROUP(spinf_cs1,		4),
-+	GROUP(spinf_cs0,		4),
-+
-+	/* GPIOX func1 */
-+	GROUP(sdio_d0,			1),
-+	GROUP(sdio_d1,			1),
-+	GROUP(sdio_d2,			1),
-+	GROUP(sdio_d3,			1),
-+	GROUP(sdio_clk,			1),
-+	GROUP(sdio_cmd,			1),
-+	GROUP(mclk0_x6,			1),
-+	GROUP(tdm_d1,			1),
-+	GROUP(tdm_d0_x8,		1),
-+	GROUP(tdm_fs0_x9,		1),
-+	GROUP(tdm_sclk0_x10,		1),
-+	GROUP(uart_a_tx_x11,		1),
-+	GROUP(uart_a_rx_x12,		1),
-+	GROUP(uart_a_cts,		1),
-+	GROUP(uart_a_rts,		1),
-+	GROUP(pwm_g_x15,		1),
-+	GROUP(pwm_b_x17,		1),
-+
-+	/* GPIOX func2 */
-+	GROUP(pwm_a_x6,			2),
-+	GROUP(spi_a_mosi_x7,		2),
-+	GROUP(spi_a_miso_x8,		2),
-+	GROUP(spi_a_ss0_x9,		2),
-+	GROUP(spi_a_clk_x10,		2),
-+	GROUP(i2c0_sda_x16,		2),
-+	GROUP(i2c0_scl_x17,		2),
-+
-+	/* GPIOX func5 */
-+	GROUP(eth_mdio_x0,		5),
-+	GROUP(eth_mdc_x1,		5),
-+	GROUP(eth_rgmii_rx_clk,		5),
-+	GROUP(eth_rx_dv,		5),
-+	GROUP(eth_rxd0,			5),
-+	GROUP(eth_rxd1,			5),
-+	GROUP(eth_rxd2_rgmii,		5),
-+	GROUP(eth_rxd3_rgmii,		5),
-+	GROUP(eth_rgmii_tx_clk,		5),
-+	GROUP(eth_txen,			5),
-+	GROUP(eth_txd0,			5),
-+	GROUP(eth_txd1,			5),
-+	GROUP(eth_txd2_rgmii,		5),
-+	GROUP(eth_txd3_rgmii,		5),
-+	GROUP(spi_b_mosi_x14,		5),
-+	GROUP(spi_b_ss0_x15,		5),
-+	GROUP(spi_b_clk_x16,		5),
-+	GROUP(spi_b_miso_x17,		5),
-+
-+	/* GPIOT func1 */
-+	GROUP(tdm_d2_t0,		1),
-+	GROUP(tdm_d3_t1,		1),
-+	GROUP(tdm_fs1_t2,		1),
-+	GROUP(tdm_sclk1_t3,		1),
-+	GROUP(mclk1_t4,			1),
-+	GROUP(tdm_d4_t5,		1),
-+	GROUP(tdm_d5_t6,		1),
-+	GROUP(tdm_d6_t7,		1),
-+	GROUP(tdm_d7,			1),
-+	GROUP(spdif_out,		1),
-+	GROUP(spdif_in_t10,		1),
-+	GROUP(tdm_fs2_t11,		1),
-+	GROUP(tdm_sclk2_t12,		1),
-+	GROUP(tdm_d8,			1),
-+	GROUP(tdm_d9,			1),
-+	GROUP(tdm_d10,			1),
-+	GROUP(tdm_d11,			1),
-+	GROUP(mclk2_t17,		1),
-+	GROUP(tdm_d12_t18,		1),
-+	GROUP(tdm_d13_t19,		1),
-+	GROUP(i2c0_sda_t21,		1),
-+	GROUP(i2c0_scl_t22,		1),
-+
-+	/* GPIOT func2 */
-+	GROUP(i2c3_sda_t0,		2),
-+	GROUP(i2c3_scl_t1,		2),
-+	GROUP(uart_d_tx_t7,		2),
-+	GROUP(uart_d_rx_t8,		2),
-+	GROUP(uart_d_cts,		2),
-+	GROUP(uart_d_rts,		2),
-+	GROUP(spi_a_dq2,		2),
-+	GROUP(spi_a_dq3,		2),
-+	GROUP(spi_a_clk_t13,		2),
-+	GROUP(spi_a_mosi_t14,		2),
-+	GROUP(spi_a_miso_t15,		2),
-+	GROUP(spi_a_ss0_t16,		2),
-+	GROUP(spi_a_ss1,		2),
-+	GROUP(spi_a_ss2,		2),
-+	GROUP(pwm_g_t19,		2),
-+	GROUP(pwm_h_t20,		2),
-+	GROUP(eth_link_led_t21,		2),
-+	GROUP(eth_act_led_t22,		2),
-+
-+	/* GPIOT func3 */
-+	GROUP(pdm_din1_t0,		3),
-+	GROUP(pdm_din0_t1,		3),
-+	GROUP(pdm_dclk_t2,		3),
-+	GROUP(spi_b_clk_t5,		3),
-+	GROUP(spi_b_mosi_t6,		3),
-+	GROUP(spi_b_miso_t7,		3),
-+	GROUP(spi_b_ss0_t8,		3),
-+	GROUP(spi_b_ss1,		3),
-+	GROUP(spi_b_ss2,		3),
-+	GROUP(uart_e_tx,		3),
-+	GROUP(uart_e_rx,		3),
-+	GROUP(uart_e_rts,		3),
-+	GROUP(uart_e_cts,		3),
-+	GROUP(eth_link_led_t18,		3),
-+	GROUP(eth_act_led_t19,		3),
-+	GROUP(tdm_d4_t20,		3),
-+	GROUP(tdm_d5_t21,		3),
-+	GROUP(tdm_d6_t22,		3),
-+
-+	/* GPIOT func4 */
-+	GROUP(dcon_led_t4,		4),
-+	GROUP(mclk2_t5,			4),
-+	GROUP(tdm_fs2_t6,		4),
-+	GROUP(tdm_sclk2_t7,		4),
-+	GROUP(spdif_in_t9,		4),
-+	GROUP(i2c2_sda_t11,		4),
-+	GROUP(i2c2_scl_t12,		4),
-+	GROUP(pwm_d_t15,		4),
-+	GROUP(pwm_c_t16,		4),
-+	GROUP(uart_d_tx_t18,		4),
-+	GROUP(uart_d_rx_t19,		4),
-+	GROUP(tdm_d0_t20,		4),
-+	GROUP(tdm_fs0_t21,		4),
-+	GROUP(tdm_sclk0_t22,		4),
-+
-+	/* GPIOT func5 */
-+	GROUP(lcd_d0,			5),
-+	GROUP(lcd_d1,			5),
-+	GROUP(lcd_d2,			5),
-+	GROUP(lcd_d3,			5),
-+	GROUP(lcd_d4,			5),
-+	GROUP(lcd_d5,			5),
-+	GROUP(lcd_d6,			5),
-+	GROUP(lcd_d7,			5),
-+	GROUP(lcd_d8,			5),
-+	GROUP(lcd_d9,			5),
-+	GROUP(lcd_d10,			5),
-+	GROUP(lcd_d11,			5),
-+	GROUP(lcd_d12,			5),
-+	GROUP(lcd_d13,			5),
-+	GROUP(lcd_d14,			5),
-+	GROUP(lcd_d15,			5),
-+	GROUP(lcd_d16,			5),
-+	GROUP(lcd_d17,			5),
-+	GROUP(lcd_clk,			5),
-+	GROUP(lcd_den,			5),
-+	GROUP(lcd_hsync,		5),
-+	GROUP(lcd_vsync,		5)
-+};
-+
-+static const char * const gpio_aobus_groups[] = {
-+	"GPIOAO_0", "GPIOAO_1", "GPIOAO_2", "GPIOAO_3",
-+	"GPIOAO_4", "GPIOAO_5", "GPIOAO_6",
-+	"GPIO_TEST_N"
-+};
-+
-+static const char * const i2c_slave_ao_groups[] = {
-+	"i2c_slave_a_sda_ao0", "i2c_slave_a_scl_ao1",
-+	"i2c_slave_a_sda_ao2", "i2c_slave_a_scl_ao3"
-+};
-+
-+static const char * const remote_in_ao_groups[] = {
-+	"remote_ao_input_ao1", "remote_ao_input_ao3", "remote_ao_input_ao4",
-+	"remote_ao_input_ao6"
-+};
-+
-+static const char * const uart_c_ao_groups[] = {
-+	"uart_ao_c_tx_ao0", "uart_ao_c_rx_ao1", "uart_ao_c_tx_ao4",
-+	"uart_ao_c_rx_ao5"
-+};
-+
-+static const char * const clk32_ao_groups[] = {
-+	"clk_32k_ao_out"
-+};
-+
-+static const char * const pwm_g_ao_groups[] = {
-+	"pwm_g"
-+};
-+
-+static const char * const pmic_sleep_ao_groups[] = {
-+	"pmic_sleep_ao2", "pmic_sleep_ao4"
-+};
-+
-+static const struct meson_pmx_func a4_aobus_functions[] = {
-+	FUNCTION(gpio_aobus),
-+	FUNCTION(i2c_slave_ao),
-+	FUNCTION(remote_in_ao),
-+	FUNCTION(uart_c_ao),
-+	FUNCTION(clk32_ao),
-+	FUNCTION(pwm_g_ao),
-+	FUNCTION(pmic_sleep_ao)
-+};
-+
-+static const char * const gpio_periphs_groups[] = {
-+	"GPIOE_0", "GPIOE_1",  "GPIOD_0", "GPIOD_1", "GPIOD_2",
-+	"GPIOD_3", "GPIOD_4", "GPIOD_5", "GPIOD_6",
-+	"GPIOD_7", "GPIOD_8", "GPIOD_9", "GPIOD_10",
-+	"GPIOD_11", "GPIOD_12", "GPIOD_13", "GPIOD_14",
-+	"GPIOD_15", "GPIOB_0", "GPIOB_1", "GPIOB_2",
-+	"GPIOB_3", "GPIOB_4", "GPIOB_5", "GPIOB_6",
-+	"GPIOB_7", "GPIOB_8", "GPIOB_9", "GPIOB_10",
-+	"GPIOB_11", "GPIOB_12", "GPIOB_13", "GPIOX_0",
-+	"GPIOX_1", "GPIOX_2", "GPIOX_3", "GPIOX_4",
-+	"GPIOX_5", "GPIOX_6", "GPIOX_7", "GPIOX_8",
-+	"GPIOX_9", "GPIOX_10", "GPIOX_11", "GPIOX_12",
-+	"GPIOX_13", "GPIOX_14", "GPIOX_15", "GPIOX_16",
-+	"GPIOX_17", "GPIOT_0", "GPIOT_1", "GPIOT_2",
-+	"GPIOT_3", "GPIOT_4", "GPIOT_5", "GPIOT_6",
-+	"GPIOT_7", "GPIOT_8", "GPIOT_9", "GPIOT_10",
-+	"GPIOT_11", "GPIOT_12", "GPIOT_13", "GPIOT_14",
-+	"GPIOT_15", "GPIOT_16", "GPIOT_17", "GPIOT_18",
-+	"GPIOT_19", "GPIOT_20", "GPIOT_21", "GPIOT_22"
-+};
-+
-+static const char * const uart_a_groups[] = {
-+	"uart_a_tx_d2", "uart_a_rx_d3", "uart_a_tx_x11",
-+	"uart_a_rx_x12", "uart_a_cts", "uart_a_rts"
-+};
-+
-+static const char * const uart_b_groups[] = {
-+	"uart_b_tx_e0", "uart_b_rx_e1", "uart_b_tx_d0", "uart_b_cts",
-+	"uart_b_rts", "uart_b_rx_d1"
-+};
-+
-+static const char * const uart_d_groups[] = {
-+	"uart_d_tx_t7", "uart_d_rx_t8", "uart_d_cts", "uart_d_rts",
-+	"uart_d_tx_t18", "uart_d_rx_t19"
-+};
-+
-+static const char * const uart_e_groups[] = {
-+	"uart_e_tx", "uart_e_rx", "uart_e_rts", "uart_e_cts"
-+};
-+
-+static const char * const i2c0_groups[] = {
-+	"i2c0_sda_e0", "i2c0_scl_e1", "i2c0_sda_x16", "i2c0_scl_x17",
-+	"i2c0_sda_t21", "i2c0_scl_t22"
-+};
-+
-+static const char * const i2c1_groups[] = {
-+	"i2c1_sda_d2", "i2c1_scl_d3", "i2c1_sda_d10", "i2c1_scl_d11"
-+};
-+
-+static const char * const i2c2_groups[] = {
-+	"i2c2_sda_d14", "i2c2_scl_d15", "i2c2_sda_t11", "i2c2_scl_t12"
-+};
-+
-+static const char * const i2c3_groups[] = {
-+	"i2c3_sda_d12", "i2c3_scl_d13", "i2c3_sda_t0", "i2c3_scl_t1"
-+};
-+
-+static const char * const pwm_a_groups[] = {
-+	"pwm_a_hiz", "pwm_a_x6", "pwm_a_d6"
-+};
-+
-+static const char * const pwm_b_groups[] = {
-+	"pwm_b_hiz", "pwm_b_x17", "pwm_b_d7"
-+};
-+
-+static const char * const pwm_c_groups[] = {
-+	"pwm_c_hiz", "pwm_c_t16", "pwm_c_d8"
-+};
-+
-+static const char * const pwm_d_groups[] = {
-+	"pwm_d_hiz", "pwm_d_t15", "pwm_d_d9"
-+};
-+
-+static const char * const pwm_e_groups[] = {
-+	"pwm_e_e0", "pwm_e_hiz", "pwm_e_d11"
-+};
-+
-+static const char * const pwm_f_groups[] = {
-+	"pwm_f"
-+};
-+
-+static const char * const pwm_g_groups[] = {
-+	"pwm_g_x15", "pwm_g_t19"
-+};
-+
-+static const char * const pwm_h_groups[] = {
-+	"pwm_h_d12", "pwm_h_t20"
-+};
-+
-+static const char * const remote_out_groups[] = {
-+	"remote_out"
-+};
-+
-+static const char * const remote_in_groups[] = {
-+	"remote_in"
-+};
-+
-+static const char * const dcon_led_groups[] = {
-+	"dcon_led_d8", "dcon_led_d12", "dcon_led_t4"
-+};
-+
-+static const char * const spinf_groups[] = {
-+	"spinf_mo_d0", "spinf_mi_d1", "spinf_wp_d2", "spinf_hold_d3",
-+	"spinf_d4", "spinf_d5", "spinf_d6", "spinf_d7", "spinf_rst",
-+	"spinf_clk", "spinf_cs1", "spinf_cs0"
-+};
-+
-+static const char * const lcd_groups[] = {
-+	"lcd_d0", "lcd_d1", "lcd_d2", "lcd_d3", "lcd_d4", "lcd_d5",
-+	"lcd_d6", "lcd_d7", "lcd_d8", "lcd_d9", "lcd_d10", "lcd_d11",
-+	"lcd_d12", "lcd_d13", "lcd_d14", "lcd_d15", "lcd_d16", "lcd_d17",
-+	"lcd_clk", "lcd_den", "lcd_hsync", "lcd_vsync"
-+};
-+
-+static const char * const jtag_1_groups[] = {
-+	"jtag_1_clk", "jtag_1_tms", "jtag_1_tdi", "jtag_1_tdo"
-+};
-+
-+static const char * const gen_clk_groups[] = {
-+	"gen_clk"
-+};
-+
-+static const char * const clk12_24_groups[] = {
-+	"clk12_24"
-+};
-+
-+static const char * const emmc_groups[] = {
-+	"emmc_nand_d0", "emmc_nand_d1", "emmc_nand_d2", "emmc_nand_d3",
-+	"emmc_nand_d4", "emmc_nand_d5", "emmc_nand_d6", "emmc_nand_d7",
-+	"emmc_clk", "emmc_rst", "emmc_cmd", "emmc_nand_ds"
-+};
-+
-+static const char * const nand_groups[] = {
-+	"emmc_nand_d0", "emmc_nand_d1", "emmc_nand_d2", "emmc_nand_d3",
-+	"emmc_nand_d4", "emmc_nand_d5", "emmc_nand_d6", "emmc_nand_d7",
-+	"nand_wen_clk", "nand_ale", "nand_ren_wr", "nand_cle", "nand_ce0"
-+};
-+
-+static const char * const spi_a_groups[] = {
-+	"spi_a_mosi_x7", "spi_a_miso_x8", "spi_a_ss0_x9", "spi_a_clk_x10",
-+	"spi_a_dq2", "spi_a_dq3", "spi_a_clk_t13", "spi_a_mosi_t14",
-+	"spi_a_miso_t15", "spi_a_ss0_t16", "spi_a_ss1", "spi_a_ss2"
-+};
-+
-+static const char * const spi_b_groups[] = {
-+	"spi_b_miso_d2", "spi_b_mosi_d3", "spi_b_clk_d4", "spi_b_ss0_d5",
-+	"spi_b_dq2", "spi_b_dq3", "spi_b_mosi_x14", "spi_b_ss0_x15",
-+	"spi_b_clk_x16", "spi_b_miso_x17", "spi_b_clk_t5", "spi_b_mosi_t6",
-+	"spi_b_miso_t7", "spi_b_ss0_t8", "spi_b_ss1", "spi_b_ss2"
-+};
-+
-+static const char * const pdm_groups[] = {
-+	"pdm_din1_d2", "pdm_dclk_d4", "pdm_din1_t0", "pdm_din0_t1",
-+	"pdm_dclk_t2", "pdm_din0_d3"
-+};
-+
-+static const char * const sdio_groups[] = {
-+	"sdio_d0", "sdio_d1", "sdio_d2", "sdio_d3",
-+	"sdio_clk", "sdio_cmd"
-+};
-+
-+static const char * const eth_groups[] = {
-+	"eth_mdio_d6", "eth_mdc_d7", "eth_mdio_x0", "eth_mdc_x1",
-+	"eth_rgmii_rx_clk", "eth_rx_dv", "eth_rxd0", "eth_rxd1",
-+	"eth_rxd2_rgmii", "eth_rxd3_rgmii", "eth_rgmii_tx_clk", "eth_txen",
-+	"eth_txd0", "eth_txd1", "eth_txd2_rgmii", "eth_txd3_rgmii",
-+	"eth_link_led_t18", "eth_act_led_t19", "eth_link_led_t21",
-+	"eth_act_led_t22"
-+};
-+
-+static const char * const mic_mute_groups[] = {
-+	"mic_mute_en", "mic_mute_key"
-+};
-+
-+static const char * const mclk_groups[] = {
-+	"mclk0_x6", "mclk0_d13", "mclk1_d13", "mclk1_t4",
-+	"mclk2_t5", "mclk2_t17"
-+};
-+
-+static const char * const tdm_groups[] = {
-+	"tdm_d12_d8", "tdm_d13_d9", "tdm_d2_d12", "tdm_sclk1_d14",
-+	"tdm_fs1_d15", "tdm_d1", "tdm_d0_x8", "tdm_fs0_x9",
-+	"tdm_sclk0_x10", "tdm_d2_t0", "tdm_d3_t1", "tdm_fs1_t2",
-+	"tdm_sclk1_t3", "tdm_d4_t5", "tdm_d5_t6", "tdm_d6_t7",
-+	"tdm_d7", "tdm_fs2_t11", "tdm_sclk2_t12", "tdm_d8",
-+	"tdm_d9", "tdm_d10", "tdm_d11", "tdm_d12_t18",
-+	"tdm_d13_t19", "tdm_d4_t20", "tdm_d5_t21", "tdm_d6_t22",
-+	"tdm_d3_d11", "tdm_sclk0_d14", "tdm_fs0_d15", "tdm_fs2_t6",
-+	"tdm_sclk2_t7", "tdm_d0_t20", "tdm_fs0_t21", "tdm_sclk0_t22"
-+};
-+
-+static const char * const spdif_in_groups[] = {
-+	"spdif_in_t9", "spdif_in_t10"
-+};
-+
-+static const char * const spdif_out_groups[] = {
-+	"spdif_out"
-+};
-+
-+static struct meson_pmx_func a4_periphs_functions[] = {
-+	FUNCTION(gpio_periphs),
-+	FUNCTION(uart_a),
-+	FUNCTION(uart_b),
-+	FUNCTION(uart_d),
-+	FUNCTION(uart_e),
-+	FUNCTION(i2c0),
-+	FUNCTION(i2c1),
-+	FUNCTION(i2c2),
-+	FUNCTION(i2c3),
-+	FUNCTION(pwm_a),
-+	FUNCTION(pwm_b),
-+	FUNCTION(pwm_c),
-+	FUNCTION(pwm_d),
-+	FUNCTION(pwm_e),
-+	FUNCTION(pwm_f),
-+	FUNCTION(pwm_g),
-+	FUNCTION(pwm_h),
-+	FUNCTION(remote_out),
-+	FUNCTION(remote_in),
-+	FUNCTION(dcon_led),
-+	FUNCTION(spinf),
-+	FUNCTION(lcd),
-+	FUNCTION(jtag_1),
-+	FUNCTION(gen_clk),
-+	FUNCTION(clk12_24),
-+	FUNCTION(emmc),
-+	FUNCTION(nand),
-+	FUNCTION(spi_a),
-+	FUNCTION(spi_b),
-+	FUNCTION(pdm),
-+	FUNCTION(sdio),
-+	FUNCTION(eth),
-+	FUNCTION(mic_mute),
-+	FUNCTION(mclk),
-+	FUNCTION(tdm),
-+	FUNCTION(spdif_in),
-+	FUNCTION(spdif_out)
-+};
-+
-+static const struct meson_bank a4_periphs_banks[] = {
-+	/* name  first  last  irq  pullen  pull  dir  out  in */
-+	BANK_DS("E",  GPIOE_0,  GPIOE_1,  14,  15,
-+		0x43,  0, 0x44,  0, 0x42,  0, 0x41,  0, 0x40,  0, 0x47,  0),
-+	BANK_DS("D",  GPIOD_0, GPIOD_15,  16, 31,
-+		0x33,  0, 0x34,  0, 0x32,  0, 0x31,  0, 0x30,  0, 0x37,  0),
-+	BANK_DS("B",  GPIOB_0, GPIOB_13, 0, 13,
-+		0x63,  0, 0x64,  0, 0x62,  0, 0x61,  0, 0x60,  0, 0x67,  0),
-+	BANK_DS("X",  GPIOX_0, GPIOX_17, 55, 72,
-+		0x13,  0, 0x14,  0, 0x12,  0, 0x11,  0, 0x10,  0, 0x17,  0),
-+	BANK_DS("T",  GPIOT_0, GPIOT_22, 32, 54,
-+		0x23,  0, 0x24,  0, 0x22,  0, 0x21,  0, 0x20,  0, 0x27,  0),
-+};
-+
-+static const struct meson_bank a4_aobus_banks[] = {
-+	BANK_DS("AO", GPIOAO_0, GPIOAO_6,  0,  6,
-+		0x3,   0,  0x4,  0,   0x2,  0,  0x1,  0,  0x0,  0,  0x7, 0),
-+	BANK_DS("TEST_N", GPIO_TEST_N,    GPIO_TEST_N,   7, 7,
-+		0x13,  0,  0x14,  0,  0x12, 0,  0x11,  0, 0x10, 0, 0x17, 0),
-+};
-+
-+static const struct meson_pmx_bank a4_periphs_pmx_banks[] = {
-+	/* name  first  lask  reg  offset */
-+	BANK_PMX("E",  GPIOE_0,  GPIOE_1, 0x12,  0),
-+	BANK_PMX("D",  GPIOD_0, GPIOD_15, 0x10,  0),
-+	BANK_PMX("B",  GPIOB_0, GPIOB_13, 0x00,  0),
-+	BANK_PMX("X",  GPIOX_0, GPIOX_17, 0x03,  0),
-+	BANK_PMX("T",  GPIOT_0, GPIOT_22, 0x0b,  0),
-+};
-+
-+static const struct meson_pmx_bank a4_aobus_pmx_banks[] = {
-+	BANK_PMX("AO", GPIOAO_0, GPIOAO_6, 0x00,  0),
-+	BANK_PMX("TEST_N", GPIO_TEST_N, GPIO_TEST_N, 0x0,  28),
-+};
-+
-+static const struct meson_axg_pmx_data a4_periphs_pmx_banks_data = {
-+	.pmx_banks	= a4_periphs_pmx_banks,
-+	.num_pmx_banks	= ARRAY_SIZE(a4_periphs_pmx_banks),
-+};
-+
-+static const struct meson_axg_pmx_data a4_aobus_pmx_banks_data = {
-+	.pmx_banks	= a4_aobus_pmx_banks,
-+	.num_pmx_banks	= ARRAY_SIZE(a4_aobus_pmx_banks),
-+};
-+
-+static int a4_of_gpio_xlate(struct gpio_chip *gc,
-+			    const struct of_phandle_args *gpiospec,
-+			    u32 *flags)
-+{
-+	int gpio_num = gpiospec->args[1];
-+
-+	switch (gpiospec->args[0]) {
-+	case AMLOGIC_GPIO_B:
-+		if (gpio_num >= GPIOB_NUM)
-+			return -EINVAL;
-+		gpio_num += GPIOB_0;
-+		break;
-+
-+	case AMLOGIC_GPIO_D:
-+		if (gpio_num >= GPIOD_NUM)
-+			return -EINVAL;
-+		gpio_num += GPIOD_0;
-+		break;
-+
-+	case AMLOGIC_GPIO_E:
-+		if (gpio_num >= GPIOE_NUM)
-+			return -EINVAL;
-+		gpio_num += GPIOE_0;
-+		break;
-+
-+	case AMLOGIC_GPIO_X:
-+		if (gpio_num >= GPIOX_NUM)
-+			return -EINVAL;
-+		gpio_num += GPIOX_0;
-+		break;
-+
-+	case AMLOGIC_GPIO_T:
-+		if (gpio_num >= GPIOT_NUM)
-+			return -EINVAL;
-+		gpio_num += GPIOT_0;
-+		break;
-+
-+	case AMLOGIC_GPIO_TEST_N:
-+		if (gpio_num != 0)
-+			return -EINVAL;
-+		gpio_num += GPIO_TEST_N;
-+		break;
-+
-+	case AMLOGIC_GPIO_AO:
-+		if (gpio_num >= GPIOAO_NUM)
-+			return -EINVAL;
-+		gpio_num += GPIOAO_0;
-+		break;
-+
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	if (flags)
-+		*flags = gpiospec->args[2];
-+
-+	return gpio_num;
-+}
-+
-+static const struct meson_pinctrl_data a4_periphs_pinctrl_data = {
-+	.name		= "periphs-banks",
-+	.pins		= a4_periphs_pins,
-+	.groups		= a4_periphs_groups,
-+	.funcs		= a4_periphs_functions,
-+	.banks		= a4_periphs_banks,
-+	.num_pins	= ARRAY_SIZE(a4_periphs_pins),
-+	.num_groups	= ARRAY_SIZE(a4_periphs_groups),
-+	.num_funcs	= ARRAY_SIZE(a4_periphs_functions),
-+	.num_banks	= ARRAY_SIZE(a4_periphs_banks),
-+	.pmx_ops	= &meson_axg_pmx_ops,
-+	.pmx_data	= &a4_periphs_pmx_banks_data,
-+	.parse_dt	= &meson_a1_parse_dt_extra,
-+	.of_gpio_n_cells = 3,
-+	.of_xlate	= &a4_of_gpio_xlate,
-+};
-+
-+static const struct meson_pinctrl_data a4_aobus_pinctrl_data = {
-+	.name		= "aobus-banks",
-+	.pins		= a4_aobus_pins,
-+	.groups		= a4_aobus_groups,
-+	.funcs		= a4_aobus_functions,
-+	.banks		= a4_aobus_banks,
-+	.num_pins	= ARRAY_SIZE(a4_aobus_pins),
-+	.num_groups	= ARRAY_SIZE(a4_aobus_groups),
-+	.num_funcs	= ARRAY_SIZE(a4_aobus_functions),
-+	.num_banks	= ARRAY_SIZE(a4_aobus_banks),
-+	.pmx_ops	= &meson_axg_pmx_ops,
-+	.pmx_data	= &a4_aobus_pmx_banks_data,
-+	.parse_dt	= &meson_a1_parse_dt_extra,
-+	.of_gpio_n_cells = 3,
-+	.of_xlate	= &a4_of_gpio_xlate,
-+};
-+
-+static const struct of_device_id a4_pinctrl_dt_match[] = {
-+	{
-+		.compatible = "amlogic,a4-periphs-pinctrl",
-+		.data = &a4_periphs_pinctrl_data,
-+	},
-+	{
-+		.compatible = "amlogic,a4-aobus-pinctrl",
-+		.data = &a4_aobus_pinctrl_data,
-+	},
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, a4_pinctrl_dt_match);
-+
-+static struct platform_driver a4_pinctrl_driver = {
-+	.probe  = meson_pinctrl_probe,
-+	.driver = {
-+		.name	= "amlogic-a4-pinctrl",
-+		.of_match_table = a4_pinctrl_dt_match,
-+	},
-+};
-+
-+module_platform_driver(a4_pinctrl_driver);
-+
-+MODULE_AUTHOR("Xianwei Zhao <xianwei.zhao@amlogic.com>");
-+MODULE_DESCRIPTION("Pin controller and GPIO driver for Amlogic A4 SoC");
-+MODULE_LICENSE("Dual BSD/GPL");
-
--- 
-2.37.1
-
-
+QW0gMTIuMTEuMjQgdW0gMTQ6NDYgc2NocmllYiBSb2IgSGVycmluZzoNCj4gT24gVHVlLCBOb3Yg
+MTIsIDIwMjQgYXQgMTI6NDHigK9BTSBKb3N1YSBNYXllciA8am9zdWFAc29saWQtcnVuLmNvbT4g
+d3JvdGU6DQo+PiBCb29sZWFuIHR5cGUgcHJvcGVydGllcyBhcmUgdXN1YWxseSBjb25zaWRlcmVk
+IHRydWUgaWYgcHJlc2VudCBhbmQgZmFsc2UNCj4+IHdoZW4gdGhleSBkbyBub3QgZXhpc3QuIFRo
+aXMgd29ya3Mgd2VsbCBmb3IgbWFueSBpbi10cmVlIGJvYXJkIGR0cyBhbmQNCj4+IGV4aXN0aW5n
+IGRyaXZlcnMuDQo+Pg0KPj4gV2hlbiB1c2VycyBuZWVkIHRvIG92ZXJycmlkZSBib29sZWFuIHZh
+bHVlcyBmcm9tIGluY2x1ZGVkIGR0cywNCj4+IC9kZWxldGUtcHJvcGVydHkvIGlzIHJlY29tbWVu
+ZC4gVGhpcyBob3dldmVyIGRvZXMgbm90IHdvcmsgaW4gb3ZlcmxheXMNCj4+IChhZGRvbnMpLg0K
+PiBBcyBzb29uIGFzIHNvbWVvbmUgbmVlZHMgdG8gZGVsZXRlIGEgbm9uLWJvb2xlYW4gcHJvcGVy
+dHksIHdlJ3JlIGJhY2sNCj4gdG8gdGhlIHNhbWUgcHJvYmxlbS4NCg0KUHJvcGVydGllcyBjYW4g
+YmUgcmVhc3NpZ25lZCBhbnkgdmFsdWUsIGUuZy4gYSBkcml2ZXIgZGVmYXVsdCBpZiBuZWVkZWQu
+DQpJdCBzaG91bGQgbmV2ZXIgYmUgbmVjZXNzYXJ5IHRvIGRlbGV0ZSBhIHByb3BlcnR5LA0Kc2lu
+Y2UgYSBzdWl0YWJsZSB2YWx1ZSBtYXkgYmUgc3BlY2lmaWVkIGluc3RlYWQuDQoNCkJvb2xlYW5z
+IGhhdmUgdHdvIHZhbGlkIHZhbHVlcywgdHJ1ZSBhbmQgZmFsc2UsDQpidXQgc29tZWhvdyB3ZSBj
+YW5ub3QgYXNzaWduIGZhbHNlLCB3ZSBjYW4ganVzdCBkZWxldGUgdGhlIHByb3BlcnR5Lg0KDQo+
+IElmIHlvdSB3YW50IHRvIGZpeCBpdCwgeW91IG5lZWQgdG8gZml4IGl0IGZvciBhbnkNCj4gcHJv
+cGVydHkuDQovZGVsZXRlLXByb3BlcnR5LyBpcyBhIGxhbmd1YWdlIGtleXdvcmQgdXNlZCBkdXJp
+bmcgY29tcGlsYXRpb24uDQpXaGVuIGluc3BlY3RpbmcgYSAuZHRibyBubyB0cmFjZSBvZiAvZGVs
+ZXRlLXByb3BlcnR5LyBpcyBsZWZ0Lg0KDQpIZW5jZSB3ZSBjYW4ndCAiZml4IiBkZWxldGluZyBw
+cm9wZXJ0aWVzIHRocm91Z2ggb3ZlcmxheXMuDQpXZSBjYW4gb25seSAiZml4IiAocmUtKWFzc2ln
+bmluZyBmYWxzZSB0byBhIGJvb2xlYW4gcHJvcGVydHkuDQoNCj4NCj4NCj4+IEdlZXJ0IHBvaW50
+ZWQgb3V0IFsxXSB0aGF0IHRoZXJlIGFyZSBzZXZlcmFsIGludml0YXRpb25zIGZvciB1c2luZw0K
+Pj4gc3RyaW5ncyAidHJ1ZSIgYW5kICJmYWxzZSIgb24gYm9vbGVhbiBwcm9wZXJ0aWVzOiBbMV0s
+IFsyXSwgWzNdLg0KPiBUaGVyZSdzIGFsd2F5cyBiYWQgZXhhbXBsZXMuLi4NCj4NCj4+IEFkZCBz
+dXBwb3J0IGZvciBhIHN0cmluZyB2YWx1ZSAiZmFsc2UiIHRvIGJlIGNvbnNpZGVyZWQgZmFsc2Ug
+b24gYm9vbGVhbg0KPj4gcHJvcGVydGllcyBieSBjaGFuZ2luZyBvZl9wcm9wZXJ0eV9yZWFkX2Jv
+b2wgaW1wbGVtZW50YXRpb24uDQo+IEFueSBleGlzdGluZyBzL3cgd2lsbCB0cmVhdCAnZm9vID0g
+ImZhbHNlIicgYXMgdHJ1ZS4gSXQncyBhbiBBQkkuDQpJIHdhcyByZWFkaW5nIHRocm91Z2ggdGhl
+IGRldmljZS10cmVlIHNwZWNpZmljYXRpb24sIGl0IG1ha2VzIGFic29sdXRlbHkNCm5vIG1lbnRp
+b24gb2YgYSBib29sZWFuIHR5cGUuDQoNCkkgYmVsaWV2ZSBvZl9wcm9wZXJ0eV9yZWFkX2Jvb2wg
+c2hvdWxkIGJlIGNhcGFibGUgb2YgZGVyaXZpbmcgZmFsc2UNCmZyb20gYSBwcmVzZW50IHByb3Bl
+cnR5Lg0KDQpXaGF0IGlzIHVwIHRvIG5vdyBjYWxsZWQgYm9vbCBpbiB0aGUga2VybmVsIC8gZGV2
+aWNlLXRyZWUsDQppcyBhY3R1YWxseSBvZl9wcm9wZXJ0eV9wcmVzZW50LCBvciBjb252ZXJzYXRp
+b25hbGx5IG9mX25vZGVfaGFzX2ZsYWcuDQoNCg0Kc2luY2VyZWx5DQpKb3N1YSBNYXllcg0KDQoN
+Cg==
 
