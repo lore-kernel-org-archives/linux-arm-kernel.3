@@ -4,75 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5607FD41C18
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 08:56:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D54C1D41C18
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 08:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8RSuBYLbfS+YB1LiSpgNI/bCs2s5Je21RbRkLi2fBK0=; b=iD7l5/tsvwyMpJGpZn93g4EtD8
-	cDQxxjulNK8HF/wtWIJzYFHXN7CBMNPfGfJgCMXlqEyLYgCYJsnmvpI+AcAbR2kEJD+5XWDBxHagW
-	Pd31h0NFGjD8DPH6KqB/NRjEhZh8LI6YTC3tfAFE85No2IP7TrXLy6L20MrgyyPj8RDqQPGH3jNQi
-	D2k/7EdOT0JJ7w1jbzhuUXYy39vrAoAsXxrXKLDOxY99gqubhjssWN8HDsh06ggz38Tn1m1daEF3D
-	wjFDXI+3Ii+gq9/52KO1OLetYSiRAM4YhmYpcyk9rwO2dEYLRnjo0oiLh5Me5SMiIuahwRUMn/aHj
-	/UTGu/Jg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9L+rrra6YcHTyGPDT2kFoo1nrPsWAkOb2wY+PkJ4JfA=; b=qTqqOPeprf0DEKLii0SIKZDCm4
+	tkxmGJNNgGMs6M/DLtAO6AJBQ6EMT5FR1gbgIK9EJmBamMMaRToQfBqinvLwEj97QquKF4oKJuAZv
+	mquNC+RpOliceqfvONXK5DdFw7sHCL8JF9QEgtjukY2V4bvgHNjXfZqmX+LX8gAJw4PRq432H+E3y
+	kWMu8JvgjRJCOuD0GuRinL97efsfghJjMdEKaLz2cNM6LWUhqWpqMDCykJ24KkyQllyRsbfFTewPy
+	iGYy0TN07qj7Do9BP+Bpyxh3q0NjKNmCA6srJP7g0T7/rEYmGVaJOAe8GpVyxiQMCCDUx/gdqkoI7
+	mM1cbk7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB9AZ-00000006AFD-2lEf;
-	Wed, 13 Nov 2024 08:56:11 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tB9CM-00000006APv-1Eye;
+	Wed, 13 Nov 2024 08:58:02 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB98h-000000069mc-26jP;
-	Wed, 13 Nov 2024 08:54:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1731488053;
-	bh=H7Y1+xgTkIPEtStm71lFE6l4dByLaWE7iB5+9vnDGGI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iQhqx4TBleDVuF99NZ8lyPaVvrWj/UzjnPj9HXGubDsaH/yb2EBFBDZmsuCAerrkE
-	 UZATpUZPFy/XJzSlnqI/Zw0O8t/UKQMCqCpEdXrVZ8JmjrC/+OYVBLVVrXKn7RY6Q1
-	 Z7BOKOntTQsJBEFpY+7tKRQHEd5PDEw/WSUpCal4dO3WCV5DYdXtkjZo3BkkkkzCd+
-	 diKkNAGTz52wbN3T+hKLmTdm0Zc/CE2Kej0CfgODqBWENTnY1A/lOTNPdcTacgWJxE
-	 uglHlcgvaj/X8zcvREF3Dd+lUakW/K97aMq47V7XmxwKb1Bs8eodv2ZsvZIpnDbljh
-	 lfMEU5K3d+YKQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0CE0017E139E;
-	Wed, 13 Nov 2024 09:54:13 +0100 (CET)
-Message-ID: <c2d1f933-0bb8-4aee-acd3-af4246f66913@collabora.com>
-Date: Wed, 13 Nov 2024 09:54:12 +0100
+	id 1tB98r-000000069oE-0OKl
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Nov 2024 08:54:28 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2e30116efc9so5390226a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 00:54:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nigauri-org.20230601.gappssmtp.com; s=20230601; t=1731488063; x=1732092863; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9L+rrra6YcHTyGPDT2kFoo1nrPsWAkOb2wY+PkJ4JfA=;
+        b=Cpcb39sjgA1SEAsPQNdHBXBYgkbCfhGZypUTBgjOeEFQRAxKn7CtegSQoqPnbFue/e
+         IglV1HgNAqv0b5WYNfLP71zpzJXWR0y30aduBZ9CosvwfwkkotdW9h4hFVDN4JJqT8NV
+         a5m761Y9/TDCDqRec+UCrnkrlk2OwvtbxQYt3A8QeQlZAJtUGCoJeybV7u91DFwYHB8d
+         sU6cUbcnnPRruszCmSVoxOiGGr/GYBQF3TmyLkSWMirQO1/qRNkYph3yt1azuuZne8q9
+         sGNR+9Myx9tUkvIJo95iVYWFTBN04PjWWPrkh3SkMfsO+ud85sOE5CQ3Vy8PsdLU+Uz7
+         04mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731488063; x=1732092863;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9L+rrra6YcHTyGPDT2kFoo1nrPsWAkOb2wY+PkJ4JfA=;
+        b=B8JnZJiNzotPtXfisSz1AmnNCF53Z/10jlnoUNLnI93AYIveZz8nDUjuUxqmXIeN6b
+         hOj39waNS55DA/tLmuNt1x4g+slZ3lS5IDes+FyvnAI2HgIOb60QtQOKCrjRbf19Vo2d
+         gyaqfylQNuhFpGklvQTGlc2VKST1JRgNVz/1PIvkrity0oUGcuUyPBsj8Js/2t72sByn
+         yMjXLBoJPT9k3qa+MWL5jfaybZa46b6j/MRttZgQVxouJpS2uvAefmIMp6Nh/KLFv3DQ
+         sZd8Z8uXDmbFtH6Ur+jFKHkqE+qDL4zjIY9HaW9mILr3y1JmphY67HurvEgFWcwYE/nz
+         bZ2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX1HZwOUYAizZW43qNcXAg78keb4KZMCylV+LvHvUGsvoXT3uRVVhXVYVAD+T0aYzpJVpGi0LypcJIZfyVs9OK0@lists.infradead.org
+X-Gm-Message-State: AOJu0YwS6OS+ebjfRKFcb7Rt2MAFDtqHI9BbUwGNSlTfAlvAHAoga1nJ
+	wjrRNtNtBk8o91PdsfmTqK2jU/kwr1pE1SdMEbTyLr7hIkaQsvqM9++jbiyp2qy6Q4yO07+jxA=
+	=
+X-Google-Smtp-Source: AGHT+IE1mBLN35IJhMVQm6eou9wLzp1bNB4yK6xl5v6c0Y8AKWezVqTcxycvcqArYyozh6RgCMxn9g==
+X-Received: by 2002:a17:90b:248e:b0:2e2:dd25:9b00 with SMTP id 98e67ed59e1d1-2e9b1741130mr28464867a91.22.1731488063521;
+        Wed, 13 Nov 2024 00:54:23 -0800 (PST)
+Received: from localhost ([2405:6581:5360:1800:a83:68dd:5f1c:4ed9])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e9f3e952e8sm953160a91.7.2024.11.13.00.54.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Nov 2024 00:54:22 -0800 (PST)
+From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+To: linux-rtc@vger.kernel.org,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Olof Johansson <olof@lixom.net>
+Cc: linux-amlogic@lists.infradead.org,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-kernel@vger.kernel.org,
+	Heiko Stuebner <heiko@sntech.de>,
+	Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+Subject: [PATCH 0/5] Merge RTC Haoyu HYM8563 into RTC PCF8563
+Date: Wed, 13 Nov 2024 17:53:50 +0900
+Message-ID: <20241113085355.1972607-1-iwamatsu@nigauri.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v2,1/1] i2c: mediatek: add runtime PM operations and bus
- regulator control
-To: =?UTF-8?B?Wm9pZSBMaW4gKOael+emueWmoSk=?= <Zoie.Lin@mediatek.com>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- =?UTF-8?B?UWlpIFdhbmcgKOeOi+eQqik=?= <Qii.Wang@mediatek.com>,
- "andi.shyti@kernel.org" <andi.shyti@kernel.org>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- =?UTF-8?B?VGVkZHkgQ2hlbiAo6Zmz5Lm+5YWDKQ==?= <Teddy.Chen@mediatek.com>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>
-References: <20241106125212.27362-1-zoie.lin@mediatek.com>
- <20241106125212.27362-2-zoie.lin@mediatek.com>
- <c7c5e802-3df8-4218-865f-81a207c517cd@collabora.com>
- <d1744ec6c7dbd63b128fa0cada2622dead9cb95b.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <d1744ec6c7dbd63b128fa0cada2622dead9cb95b.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_005415_719548_655B0569 
-X-CRM114-Status: GOOD (  25.60  )
+X-CRM114-CacheID: sfid-20241113_005425_363540_A2A0F156 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,228 +104,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 07/11/24 16:19, Zoie Lin (林禹妡) ha scritto:
-> Hi Angelo,
-> 
-> On Thu, 2024-11-07 at 11:13 +0100, AngeloGioacchino Del Regno wrote:
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> Il 06/11/24 13:52, Zoie Lin ha scritto:
->>> This commit introduces support for runtime PM operations in
->>> the I2C driver, enabling runtime suspend and resume functionality.
->>>
->>> Although in the most platforms, the bus power of i2c are always
->>> on, some platforms disable the i2c bus power in order to meet
->>> low power request.
->>>
->>> This implementation includes bus regulator control to facilitate
->>> proper handling of the bus power based on platform requirements.
->>>
->>> Signed-off-by: Zoie Lin <zoie.lin@mediatek.com>
->>> ---
->>>    drivers/i2c/busses/i2c-mt65xx.c | 77
->>> ++++++++++++++++++++++++++++-----
->>>    1 file changed, 65 insertions(+), 12 deletions(-)
->>>
->>> diff --git a/drivers/i2c/busses/i2c-mt65xx.c
->>> b/drivers/i2c/busses/i2c-mt65xx.c
->>> index 5bd342047d59..4209daec1efa 100644
->>> --- a/drivers/i2c/busses/i2c-mt65xx.c
->>> +++ b/drivers/i2c/busses/i2c-mt65xx.c
->>
->> ..snip..
->>
->>> @@ -1370,6 +1373,40 @@ static int mtk_i2c_parse_dt(struct
->>> device_node *np, struct mtk_i2c *i2c)
->>>        return 0;
->>>    }
->>>
->>> +static int mtk_i2c_runtime_suspend(struct device *dev)
->>> +{
->>> +     struct mtk_i2c *i2c = dev_get_drvdata(dev);
->>> +
->>> +     clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
->>> +     if (i2c->adap.bus_regulator)
->>> +             regulator_disable(i2c->adap.bus_regulator);
->>> +
->>> +     return 0;
->>> +}
->>> +
->>> +static int mtk_i2c_runtime_resume(struct device *dev)
->>> +{
->>> +     int ret = 0;
->>> +     struct mtk_i2c *i2c = dev_get_drvdata(dev);
->>
->>          struct mtk_i2c *i2c = dev_get_drvdata(dev);
->>          int ret;
->>
->>> +
->>> +     if (i2c->adap.bus_regulator) {
->>> +             ret = regulator_enable(i2c->adap.bus_regulator);
->>> +             if (ret) {
->>> +                     dev_err(dev, "enable regulator failed!\n");
->>> +                     return ret;
->>> +             }
->>> +     }
->>> +
->>> +     ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
->>> +     if (ret) {
->>> +             if (i2c->adap.bus_regulator)
->>> +                     regulator_disable(i2c->adap.bus_regulator);
->>> +             return ret;
->>> +     }
->>> +
->>> +     return 0;
->>> +}
->>> +
->>>    static int mtk_i2c_probe(struct platform_device *pdev)
->>>    {
->>>        int ret = 0;
->>> @@ -1472,13 +1509,18 @@ static int mtk_i2c_probe(struct
->>> platform_device *pdev)
->>>                }
->>>        }
->>>
->>> -     ret = clk_bulk_prepare_enable(I2C_MT65XX_CLK_MAX, i2c-
->>>> clocks);
->>> +     ret = clk_bulk_prepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
->>>        if (ret) {
->>> -             dev_err(&pdev->dev, "clock enable failed!\n");
->>>                return ret;
->>>        }
->>> +
->>> +     platform_set_drvdata(pdev, i2c);
->>> +
->>> +     ret = mtk_i2c_runtime_resume(i2c->dev);
->>> +     if (ret < 0)
->>> +             goto err_clk_bulk_unprepare;
->>>        mtk_i2c_init_hw(i2c);
->>> -     clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
->>> +     mtk_i2c_runtime_suspend(i2c->dev);
->>>
->>>        ret = devm_request_irq(&pdev->dev, irq, mtk_i2c_irq,
->>>                               IRQF_NO_SUSPEND | IRQF_TRIGGER_NONE,
->>> @@ -1486,19 +1528,22 @@ static int mtk_i2c_probe(struct
->>> platform_device *pdev)
->>>        if (ret < 0) {
->>>                dev_err(&pdev->dev,
->>>                        "Request I2C IRQ %d fail\n", irq);
->>> -             goto err_bulk_unprepare;
->>> +             goto err_clk_bulk_unprepare;
->>>        }
->>> +     pm_runtime_set_autosuspend_delay(&pdev->dev, 1000);
->>
->> You had comments from me and from Andi on this delay, and you
->> completely ignored
->> both of us.
->>
->> We're still waiting for an answer to our question.
-> 
-> I am sorry for any confusion caused by my previous response.
-> The response to your question was included in the cover letter, which
-> might not have been very noticeable.
->   
-> The delay before runtime_put_autosuspend() actually executes
-> mtk_i2c_runtime_suspend() depends on the frequency of I2C usage by the
-> devices attached to this bus. A 1000ms delay is a balanced value for
-> latency and power metrics based on the MTK platform.
->   
+RTC Haoyu HYM8563 has the same hardware structure as RTC PCF8563, and
+operates with the same device driver. Therefore, since we do not need
+two drivers with the same function, this merges HYM8563 into PCF8563.
 
-Can you please write down "the numbers" into the commit description?
+This series was tested with PCF8563 and HYM8563 on khadas vim3 board.
 
-As in, to justify why 1000ms is a balanced value for latency and power, so,
-write down a small table containing both values for various delays, like:
+Nobuhiro Iwamatsu (5):
+  ARM: multi_v7_defconfig: Add RTC PCF8563 support
+  rtc: pcf8563: Add support Haoyu HYM8563
+  dt-bindings: rtc: pcf8563: Add Haoyu HYM8563 compatibility
+  rtc: Remove HYM8563 RTC driver
+  dt-bindings: rtc: hym8563: Remove hym8563 binding
 
-Delay(ms)    Latency(us)   Power(uW)
-200          999           9999
-500          9999          99999
-1000         99999         999999
+ .../bindings/rtc/haoyu,hym8563.yaml           |  56 --
+ .../devicetree/bindings/rtc/nxp,pcf8563.yaml  |  18 +-
+ arch/arm/configs/multi_v7_defconfig           |   2 +-
+ arch/arm64/configs/defconfig                  |   1 -
+ drivers/rtc/Kconfig                           |  11 -
+ drivers/rtc/Makefile                          |   1 -
+ drivers/rtc/rtc-hym8563.c                     | 587 ------------------
+ drivers/rtc/rtc-pcf8563.c                     |   2 +
+ 8 files changed, 17 insertions(+), 661 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/rtc/haoyu,hym8563.yaml
+ delete mode 100644 drivers/rtc/rtc-hym8563.c
 
-Please also say what is the minimum acceptable latency.
-
-Thanks,
-Angelo
-
->   
-> Thank you.
->   
-> Best regards,
-> Zoie
->>
->>
->>> +     pm_runtime_use_autosuspend(&pdev->dev);
->>> +     pm_runtime_enable(&pdev->dev);
->>
->> devm_pm_runtime_enable() please.
->>
->>>
->>>        i2c_set_adapdata(&i2c->adap, i2c);
->>>        ret = i2c_add_adapter(&i2c->adap);
->>>        if (ret)
->>> -             goto err_bulk_unprepare;
->>> -
->>> -     platform_set_drvdata(pdev, i2c);
->>> +             goto err_pm_runtime_disable;
->>>
->>>        return 0;
->>>
->>> -err_bulk_unprepare:
->>> +err_pm_runtime_disable:
->>> +     pm_runtime_disable(&pdev->dev);
->>> +err_clk_bulk_unprepare:
->>>        clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
->>>
->>>        return ret;
->>> @@ -1510,6 +1555,7 @@ static void mtk_i2c_remove(struct
->>> platform_device *pdev)
->>>
->>>        i2c_del_adapter(&i2c->adap);
->>>
->>> +     pm_runtime_disable(&pdev->dev);
->>>        clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
->>>    }
->>>
->>> @@ -1518,6 +1564,10 @@ static int mtk_i2c_suspend_noirq(struct
->>> device *dev)
->>>        struct mtk_i2c *i2c = dev_get_drvdata(dev);
->>>
->>>        i2c_mark_adapter_suspended(&i2c->adap);
->>> +
->>> +     if (!pm_runtime_status_suspended(dev))
->>> +             mtk_i2c_runtime_suspend(dev);
->>> +
->>>        clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
->>>
->>>        return 0;
->>> @@ -1536,7 +1586,8 @@ static int mtk_i2c_resume_noirq(struct device
->>> *dev)
->>>
->>>        mtk_i2c_init_hw(i2c);
->>>
->>> -     clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
->>> +     if (pm_runtime_status_suspended(dev))
->>> +             mtk_i2c_runtime_suspend(dev);
->>
->> You want to resume, not to suspend, in a resume handler.
->>
->>>
->>>        i2c_mark_adapter_resumed(&i2c->adap);
->>>
->>> @@ -1546,6 +1597,8 @@ static int mtk_i2c_resume_noirq(struct device
->>> *dev)
->>>    static const struct dev_pm_ops mtk_i2c_pm = {
->>>        NOIRQ_SYSTEM_SLEEP_PM_OPS(mtk_i2c_suspend_noirq,
->>>                                  mtk_i2c_resume_noirq)
->>> +     SET_RUNTIME_PM_OPS(mtk_i2c_runtime_suspend,
->>> mtk_i2c_runtime_resume,
->>> +                        NULL)
->>>    };
->>>
->>>    static struct platform_driver mtk_i2c_driver = {
->>
->>
->>
+-- 
+2.45.2
 
 
