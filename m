@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 273C8D41C38
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 11:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987B7D41C38
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 11:30:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YeiLbEXgDXprcMkMwrAp9Z/x2FSz2B0O64HSPN6syKA=; b=I9/SYS1XimVel6Ry7tGf4Fu1EC
-	Jf65gYzoRr38exfToA+jxCcZ8T8Za3ZNR2fxGBZ+vrFYjMZi4FKauJPkMALRzAvyPp+4NtrhT9RFo
-	qjXT+Esogtj6V6wOHfmHL5/71oKt07xdRsSQjtwqdm57J0guuToKSNVBo7FeaPihaWw2LV/i86oIm
-	kCE2NQOUSM9vdl/lFVyMjpUrv64SxpgAzZPK2qXZ8vqusJg8zzvblY+LWAR4+sR1kTn6gPB7deO86
-	6Dui/1qRfAleAjW8VdxpjsyveuaMm6ZOlsV80BauwVAQAqCkZ5/54u7wbWNvdoYXFbEPHMp/YaJIe
-	mjSEac2Q==;
+	bh=4cAPfQeGTrt1ka3a8B8dbpYDJ+7g7frghO0IUAJZL8A=; b=L0r+vc1kJrPhv37974oeMB0e2A
+	Owr070X3/cPLa+i5DIbV8rWD222mOWuBjiRBguWPbCiJ22ddb9iHf23eJFzv/b4jRCMGdUTDYxmmH
+	I35RtTFGkAE9M0TTGvSCIGUec6t4oE0IamGuMJjFJamSJaZ+fzsqK5Xv4kR38RiM3+szlkwBCWsy4
+	hSjku0Y4z4BzAqPJezaD3NqfyIoczdHohfjnDa+b+vFgqBOSMrKDpR+O3gMdkvI/ed0/4AFoE4HDa
+	r3wbQeetSwsMRzPoNivKgZ6NjEScYj21bIYYNgLrJ9wDIMT7aWc85vhOra6+wNEdrCkobJKgaKl8Q
+	otFpDn1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBBXS-00000006b3q-40kA;
-	Wed, 13 Nov 2024 11:27:58 +0000
+	id 1tBBZE-00000006bKl-1VVa;
+	Wed, 13 Nov 2024 11:29:48 +0000
 Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBBVc-00000006akG-1PdB
+	id 1tBBVd-00000006akG-3hVZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 11:26:05 +0000
+	Wed, 13 Nov 2024 11:26:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731497164; x=1763033164;
+  t=1731497165; x=1763033165;
   h=date:from:to:cc:subject:message-id;
-  bh=Y1+5bSZpxguOLSD33s0KTW5mb3GoBd9jJM7pD1ZyN0w=;
-  b=N55zwcc4ll+PLxDubASAUkpX8AbAP16j3aTFUu/qreyPpPr3C78T9ByM
-   0Rur0SwPPaCcAuHfY+k6VqRuOTO+AsxmjQ+XjxSM37HgFyObP1bXB70Fm
-   WQSv8Msk7MkH8vQHnBwtap9wv213xCgvWoDMihW3nSPAomWBweafqSiwj
-   7YZ99SeUp79X5//U19pOIRLGs4nxg0+GEhUJdBXMnq5m9mH3MVvDL0jtW
-   gq849+zBdwWc/nr0iIfgmsMgMLFrMVANZNyQP4s1bTsfyZHjTWbK+3BSK
-   MKDSDoCT+iba2m/SZ9M0QgOm7QK9tX661R58smkaF/DBNIIbulUij/9ni
-   Q==;
-X-CSE-ConnectionGUID: SEXQPNKFT3mXVoave5vZZg==
-X-CSE-MsgGUID: Bm5LJipNTyyqx1Nkllbxug==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="31349133"
+  bh=N2QSd4EzvFFc/2XWQ+cRtHTpuDLHY7onHghRrOBR1JU=;
+  b=VGXc3qRVFA9A/e/d3q2VkyAtMFiNrCX+KxFb7g7qARzVEkZ9E0IgrLHo
+   hSzxCXneHI1Jv9Y3fvUiKz/tfyVk4fHSL6UUQahX5P3zdHg8i2heDZFXw
+   uFwz5+SDKfLI4FYtslX3xuA3r/H2XzSS9nhpjpA20f9K9A6Pf7U6Np5zm
+   MaxPGLBH31V0lM8QiHx+pbTa9QlzAJbPvVivaDH/Icit59/Rk/TSFZqtk
+   TJzBUVEOaZP/QxvAuxKx1zLneQ45OhjAHoN+T+VuP6FB56Xd6cVb537CJ
+   DvGdT4Lr2f1nVH/SGVlsZA9djmbJT9UJi5BXSIq+SGzDS/2BDCur49zHz
+   A==;
+X-CSE-ConnectionGUID: IpyJ9CufRvO7mUNv/0AVrg==
+X-CSE-MsgGUID: BIgwETKwRge+guZqsqAehg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="31349136"
 X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="31349133"
+   d="scan'208";a="31349136"
 Received: from orviesa006.jf.intel.com ([10.64.159.146])
   by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Nov 2024 03:26:03 -0800
-X-CSE-ConnectionGUID: 0c7xcZS1Rn6XJFJLleazsQ==
-X-CSE-MsgGUID: hHvz+PwuQrmMjlN/aqnZRQ==
+X-CSE-ConnectionGUID: GylRFO1aSbG/dotPfm866w==
+X-CSE-MsgGUID: O86Zj8IeRGSaHLD+R5tjTA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,150,1728975600"; 
-   d="scan'208";a="88001543"
+   d="scan'208";a="88001541"
 Received: from lkp-server01.sh.intel.com (HELO 80bd855f15b3) ([10.239.97.150])
   by orviesa006.jf.intel.com with ESMTP; 13 Nov 2024 03:26:03 -0800
 Received: from kbuild by 80bd855f15b3 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1tBBVX-0000Ip-36;
+	id 1tBBVX-0000In-32;
 	Wed, 13 Nov 2024 11:25:59 +0000
-Date: Wed, 13 Nov 2024 19:25:41 +0800
+Date: Wed, 13 Nov 2024 19:25:55 +0800
 From: kernel test robot <lkp@intel.com>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/defconfig] BUILD SUCCESS
- 3fba54700b5321f32b320d36dc44dd970973fb32
-Message-ID: <202411131936.fMF658Hg-lkp@intel.com>
+Subject: [soc:soc/arm] BUILD SUCCESS
+ 9c6cb0377534e77265ea673fd4834f858d5d1a6f
+Message-ID: <202411131949.TAcT3qEr-lkp@intel.com>
 User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_032604_449767_6B419B7F 
-X-CRM114-Status: UNSURE (   5.54  )
+X-CRM114-CacheID: sfid-20241113_032606_002114_F2C6D130 
+X-CRM114-Status: UNSURE (   5.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,13 +83,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/defconfig
-branch HEAD: 3fba54700b5321f32b320d36dc44dd970973fb32  Merge tag 'ti-k3-config-for-v6.13' of https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux into soc/defconfig
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/arm
+branch HEAD: 9c6cb0377534e77265ea673fd4834f858d5d1a6f  Merge tag 'imx-soc-6.13' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into soc/arm
 
 elapsed time: 733m
 
 configs tested: 126
-configs skipped: 94
+configs skipped: 3
 
 The following configs have been built successfully.
 More configs may be tested in the coming days.
