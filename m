@@ -4,99 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB868D41C00
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 05:29:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDFD3D41C03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 06:12:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5353xv9nfR949Aq3luMMcKblmb1cgT053z7RFtTwcFU=; b=OqwBpBaSW/KWZI8irJYYccC1/z
-	/eAGsj6BUyc+M94LrRM/PI1MMuj3GhW1l+oK8lk4E8ob9ycV2CYghslEGszLGqDO9vKYr8b3lwa53
-	fxaiz6liuZ0kCv6vzWiu4WUQwfYIXZ5m3EIbe7HR6KZ61VJu0fgxzrRwE7ix4dVeMr5qBdaCWDbGO
-	QqrF6zbjon9nInGE5hYDpuNFcbYXfKR+zt8TZyX4I6nBOGTxmhCx/lXLpCH+4UE1yhlnM3IPi8iW+
-	Dp9tFF+bKE5zqtAk6jRKfr+2OE6qYQ2yh/ZVYcjqRVDXz0XQXfKrF/HuBxKbB5KBuEGAE8ErdW6rX
-	v3RgGnuQ==;
+	bh=IbJyGIYF+t0s5RGNOpKjoIQnVKjH/xfjQJ02Hcx//wY=; b=O2KFAWb7E6L2DXqlOyUO3iJvbz
+	xHLcDmm7SbGoavwJ0pW/Uy2qtdCI5MIXgPlX66h5RBq7+SjEaJZAKXkAsnbWh/HoGQpLC0kqjv/E6
+	F8oBX7yWdT6YOaN7nRoyX9W0vg9L7fH4Xd3aA8BimZMnFQDPtEJISLITdK231pk+QD1MJlIT58Tls
+	jSx950Bjlhd4oddKyNj86VxsIHi1p8lNB7QLpRfIP6Q9bahkUWCG2vCon7gjCjBZV5hz+VxpUkMrN
+	FaBG+ZYTRsUiPDHnQJD3o2dpp8jwm2lkELdW2aT2YuP5TQD6kMSz2AwrEtfh8HuIVFPWKgw1AeZFW
+	LX0uXtwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB5vw-00000005oWL-3xYH;
-	Wed, 13 Nov 2024 05:28:53 +0000
-Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
+	id 1tB6c4-00000005s8s-0AhF;
+	Wed, 13 Nov 2024 06:12:24 +0000
+Received: from omta036.useast.a.cloudfilter.net ([44.202.169.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB5nW-00000005nSF-24N1
+	id 1tB6aE-00000005rcb-2YXe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 05:20:12 +0000
-Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-288a90e4190so2919304fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 21:20:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731475209; x=1732080009; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5353xv9nfR949Aq3luMMcKblmb1cgT053z7RFtTwcFU=;
-        b=kidaCkh77cYDhThq1gPtCgAPmA97fElbLuyvDBCZCg4j3V8TnvpJI7pHsZHtyZS/PH
-         c9QVqqCk9YwAm0eANyww3TuXdzJA98BvOcJK2NBxAfXvpAERycYHy6NRkE3ywShd0xuo
-         wg9Gs/eGMB+8nLvOwPjoJnmuLdX7AdF5MrXM4qcChXsc2n2xXQbXi2vn1gjW7hZQsZJ4
-         e+4IqpDHUg4MzNvD6q1JE/TeigazjKC+lVdAO+3R1XfHYe5lX2eQ1HBABJYM2QcpozGG
-         2KADp8j48/MM4G6LbVI4803zRFU44pFnrKhP0A+yR7EPKW+N+ADy7WuC9JddMplepZda
-         xSwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731475209; x=1732080009;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5353xv9nfR949Aq3luMMcKblmb1cgT053z7RFtTwcFU=;
-        b=YoLECaNcVC9TITxH7rvIlC57ok/Tqb13mE+AdCn9ze2aFhWzqbFOSuM7fKGR+RJ9bA
-         juGLxZ36ibRiWB2cB8WYTkJhOVsNtt/ZyMTAOUIrjWT1n0mFVIyewHICFvmkqz/cRJHl
-         mrtR2AccVw2vkoBdvCJw0qdHc/kttAKo2bgdKFJt1nj8jJSWAnWEBlBBsFUC7qDzpNUb
-         4P4Cf9RSmKvd3bbFeu00cRbAtHzhBq+/b1syA50VE+QbqESoY7SLoSn9StF5sts3RL/2
-         jh4j7xB0pRLdCveLmWcpzNBtTMJdoVXdRKiC3ZdZvdJ4KSKiqdj4mZrOyezD1kI+MHj0
-         SOWA==
-X-Forwarded-Encrypted: i=1; AJvYcCW3gjzLiyaTjjwz6Mt2hESgt43towywEI/4nkieYwo1E2FA4esyybZF547EdZ8JyS7cb3W0v+iHGmIj3s/qgVg9@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxbZjUgXbuLci0nkhgOz8Qwi3XOd4edIzLVCtbTa6wsLOTOZQ1
-	QMmwbveA4UdPA1l2bw1UDjvb7pY038faarkLwxfVeGgDXx0IwC04
-X-Google-Smtp-Source: AGHT+IFA7M9iVYxjJX9yzGaZF33PqN+3je2YxeBLIbH3+k+DhcZianzX1wGkCN8eQ4smDjyciHl1ng==
-X-Received: by 2002:a05:6870:230a:b0:254:bd24:de83 with SMTP id 586e51a60fabf-29560065134mr17026514fac.12.1731475209174;
-        Tue, 12 Nov 2024 21:20:09 -0800 (PST)
-Received: from yclu-ubuntu.. (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724079aaa01sm12644376b3a.100.2024.11.12.21.20.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Nov 2024 21:20:08 -0800 (PST)
-From: Joey Lu <a0987203069@gmail.com>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	richardcochran@gmail.com
-Cc: alexandre.torgue@foss.st.com,
-	joabreu@synopsys.com,
-	ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	yclu4@nuvoton.com,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	openbmc@lists.ozlabs.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH v2 3/3] net: stmmac: dwmac-nuvoton: Add dwmac support for MA35 family
-Date: Wed, 13 Nov 2024 13:18:57 +0800
-Message-Id: <20241113051857.12732-4-a0987203069@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241113051857.12732-1-a0987203069@gmail.com>
-References: <20241113051857.12732-1-a0987203069@gmail.com>
+	Wed, 13 Nov 2024 06:10:32 +0000
+Received: from eig-obgw-6008a.ext.cloudfilter.net ([10.0.30.227])
+	by cmsmtp with ESMTPS
+	id B5JbtKT8miA19B6aCtLYxO; Wed, 13 Nov 2024 06:10:28 +0000
+Received: from md-in-79.webhostbox.net ([43.225.55.182])
+	by cmsmtp with ESMTPS
+	id B6a8tEn8nGbbaB6a9tnIVp; Wed, 13 Nov 2024 06:10:26 +0000
+X-Authority-Analysis: v=2.4 cv=QNxuRBLL c=1 sm=1 tr=0 ts=673442d2
+ a=LfuyaZh/8e9VOkaVZk0aRw==:117 a=kofhyyBXuK/oEhdxNjf66Q==:17
+ a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=-pn6D5nKLtMA:10
+ a=adFrNvAlZa_jBKZnjswA:9 a=QEXdDO2ut3YA:10 a=ZCPYImcxYIQFgLOT52_G:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:To:Subject:Cc:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=IbJyGIYF+t0s5RGNOpKjoIQnVKjH/xfjQJ02Hcx//wY=; b=pvpYVg9n8DntXmS+V4Vhy7o/zg
+	aVTxKkjoOoFC5l4vT2DaRXchYrg5e+NgcELmsYXFwZ/8tvXorckG02G3m/ZMQo7LSwr5aadnTKA2Z
+	HhJgIF2WqWVig7Qml5Wdv8l2mVxyCciqQlCUXWYEE9x/eUXwBO4enSC/Uz+pJd4eLFSDBQL5WGUF/
+	6O5KssYI37VXId88b/kKWzFa79gJLfA/N6biu5xFvGCJGLxky/BmVFf8dequ5Oghw++QvszrnRahU
+	mLviAFI/XoH4IWSqklEPl1mT4Gzp2oJY57v+tCbvJR4UkQcjNGNgRRaULfFIMeimydocA1KXGEdJM
+	UT+x9MiQ==;
+Received: from [122.165.245.213] (port=35314 helo=[192.168.1.5])
+	by md-in-79.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <parthiban@linumiz.com>)
+	id 1tB6a2-003Pv5-1e;
+	Wed, 13 Nov 2024 11:40:18 +0530
+Message-ID: <2ef6afa0-2756-493b-83a4-62e73a8e2af9@linumiz.com>
+Date: Wed, 13 Nov 2024 11:40:14 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Cc: parthiban@linumiz.com, Andre Przywara <andre.przywara@arm.com>,
+ Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Daniel Vetter <daniel@ffwll.ch>, Samuel Holland <samuel@sholland.org>,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/sun4i: Workaround TCON TOP conflict between DE0 and
+ DE1
+To: John Watts <contact@jookia.org>
+References: <20241108-tcon_fix-v1-1-616218cc0d5f@jookia.org>
+ <20241108115357.691b77b0@donnerap.manchester.arm.com>
+ <Zy4SKCBwce3q0yj5@titan> <b26b9d86-4ff9-4543-85ce-176dccfbfa05@linumiz.com>
+ <Zy4c9BFcrz2JVU6k@titan> <ZzNCsFiAiACFrQhE@titan>
+ <f0d5b314-cfcc-4856-8d6e-09e437c075ec@linumiz.com> <ZzPluoI7xSTwhNcm@titan>
+Content-Language: en-US
+From: Parthiban <parthiban@linumiz.com>
+Organization: Linumiz
+In-Reply-To: <ZzPluoI7xSTwhNcm@titan>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - md-in-79.webhostbox.net
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - linumiz.com
+X-BWhitelist: no
+X-Source-IP: 122.165.245.213
+X-Source-L: No
+X-Exim-ID: 1tB6a2-003Pv5-1e
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: ([192.168.1.5]) [122.165.245.213]:35314
+X-Source-Auth: parthiban@linumiz.com
+X-Email-Count: 3
+X-Org: HG=dishared_whb_net_legacy;ORG=directi;
+X-Source-Cap: bGludW1jbWM7aG9zdGdhdG9yO21kLWluLTc5LndlYmhvc3Rib3gubmV0
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfFidC8uWsycDTn5a1BkYUbq0THsXgwxu3EwrT2OVkIXN05Fmbu/aDgmXCFITuqTK+q1unOUSjIqKH9n2cpdtRtVzChV0kSr9uQq2qntTyP05K5i7UCV2
+ HQa2I6u0ssncRQAYsV0oJAennTEdYR2BzAHV6pp/O+uDr0IeLieRI/KEVPPyxowR64BGe+s01Zv0UG5UnpQiFz4knEV+xq7H3R6kvJZK3bIP5FMfQzwh/ObZ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_212010_559261_3BB36FED 
-X-CRM114-Status: GOOD (  25.03  )
+X-CRM114-CacheID: sfid-20241112_221031_236111_76116A63 
+X-CRM114-Status: GOOD (  38.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,236 +118,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Gigabit Ethernet on Nuvoton MA35 series using dwmac driver.
+On 11/13/24 5:03 AM, John Watts wrote:
+> Hi there,
+> 
+> On Tue, Nov 12, 2024 at 10:43:44PM +0530, Parthiban wrote:
+>> #define TCON_TOP_PORT_DE0_MSK                   GENMASK(1, 0)
+>> #define TCON_TOP_PORT_DE1_MSK                   GENMASK(5, 4)
+>>
+>> references towards DE0 and DE1 is for DE itself, not the mixers in the
+>> current implementation.
+> 
+> So the datasheet says it's for DE0/DE1 but the Allwinner driver and mainline
+> driver assume it's for mixers. There's a conflation between mixer and DE in
 
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
----
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-nuvoton.c   | 179 ++++++++++++++++++
- 3 files changed, 191 insertions(+)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
+No, Mixers in upstream refers to RT-Mixers inside the DE. It's only the
+quirk for R40/D1 setting the DE ports using mixer numbering.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 05cc07b8f48c..55d94f669be3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -121,6 +121,17 @@ config DWMAC_MESON
- 	  the stmmac device driver. This driver is used for Meson6,
- 	  Meson8, Meson8b and GXBB SoCs.
- 
-+config DWMAC_NUVOTON
-+	tristate "Nuvoton MA35 dwmac support"
-+	default ARCH_MA35
-+	depends on OF && (ARCH_MA35 || COMPILE_TEST)
-+	select MFD_SYSCON
-+	help
-+	  Support for Ethernet controller on Nuvoton MA35 series SoC.
-+
-+	  This selects the Nuvoton MA35 series SoC glue layer support
-+	  for the stmmac device driver.
-+
- config DWMAC_QCOM_ETHQOS
- 	tristate "Qualcomm ETHQOS support"
- 	default ARCH_QCOM
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index c2f0e91f6bf8..c08fcfdd7b31 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -19,6 +19,7 @@ obj-$(CONFIG_DWMAC_IPQ806X)	+= dwmac-ipq806x.o
- obj-$(CONFIG_DWMAC_LPC18XX)	+= dwmac-lpc18xx.o
- obj-$(CONFIG_DWMAC_MEDIATEK)	+= dwmac-mediatek.o
- obj-$(CONFIG_DWMAC_MESON)	+= dwmac-meson.o dwmac-meson8b.o
-+obj-$(CONFIG_DWMAC_NUVOTON)	+= dwmac-nuvoton.o
- obj-$(CONFIG_DWMAC_QCOM_ETHQOS)	+= dwmac-qcom-ethqos.o
- obj-$(CONFIG_DWMAC_ROCKCHIP)	+= dwmac-rk.o
- obj-$(CONFIG_DWMAC_RZN1)	+= dwmac-rzn1.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
-new file mode 100644
-index 000000000000..68c71d2b46f4
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
-@@ -0,0 +1,179 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/**
-+ * dwmac-nuvoton.c - Nuvoton MA35 series DWMAC specific glue layer
-+ *
-+ * Copyright (C) 2024 Nuvoton Technology Corp.
-+ *
-+ * Author: Joey Lu <yclu4@nuvoton.com>
-+ */
-+
-+#include <linux/mfd/syscon.h>
-+#include <linux/of_device.h>
-+#include <linux/of_net.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/stmmac.h>
-+
-+#include "stmmac.h"
-+#include "stmmac_platform.h"
-+
-+#define PATHDLY_DEC         134
-+#define TXDLY_OFST          16
-+#define TXDLY_MSK           GENMASK(19, 16)
-+#define RXDLY_OFST          20
-+#define RXDLY_MSK           GENMASK(23, 20)
-+
-+#define REG_SYS_GMAC0MISCR  0x108
-+#define REG_SYS_GMAC1MISCR  0x10C
-+
-+#define MISCR_RMII          BIT(0)
-+
-+struct nvt_priv_data {
-+	struct platform_device *pdev;
-+	struct regmap *regmap;
-+};
-+
-+static struct nvt_priv_data *
-+nuvoton_gmac_setup(struct platform_device *pdev, struct plat_stmmacenet_data *plat)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct nvt_priv_data *bsp_priv;
-+	phy_interface_t phy_mode;
-+	u32 tx_delay, rx_delay;
-+	u32 macid, arg, reg;
-+
-+	bsp_priv = devm_kzalloc(dev, sizeof(*bsp_priv), GFP_KERNEL);
-+	if (!bsp_priv)
-+		return ERR_PTR(-ENOMEM);
-+
-+	bsp_priv->regmap =
-+		syscon_regmap_lookup_by_phandle_args(dev->of_node, "nuvoton,sys", 1, &macid);
-+	if (IS_ERR(bsp_priv->regmap)) {
-+		dev_err(dev, "Failed to get sys register\n");
-+		return ERR_PTR(-ENODEV);
-+	}
-+	if (macid > 1) {
-+		dev_err(dev, "Invalid sys arguments\n");
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	if (of_property_read_u32(dev->of_node, "tx-internal-delay-ps", &arg)) {
-+		tx_delay = 0; /* Default value is 0 */
-+	} else {
-+		if (arg > 0 && arg <= 2000) {
-+			tx_delay = (arg == 2000) ? 0xF : (arg / PATHDLY_DEC);
-+			dev_dbg(dev, "Set Tx path delay to 0x%x\n", tx_delay);
-+		} else {
-+			tx_delay = 0;
-+			dev_err(dev, "Invalid Tx path delay argument. Setting to default.\n");
-+		}
-+	}
-+	if (of_property_read_u32(dev->of_node, "rx-internal-delay-ps", &arg)) {
-+		rx_delay = 0; /* Default value is 0 */
-+	} else {
-+		if (arg > 0 && arg <= 2000) {
-+			rx_delay = (arg == 2000) ? 0xF : (arg / PATHDLY_DEC);
-+			dev_dbg(dev, "Set Rx path delay to 0x%x\n", rx_delay);
-+		} else {
-+			rx_delay = 0;
-+			dev_err(dev, "Invalid Rx path delay argument. Setting to default.\n");
-+		}
-+	}
-+
-+	regmap_read(bsp_priv->regmap,
-+		    macid == 0 ? REG_SYS_GMAC0MISCR : REG_SYS_GMAC1MISCR, &reg);
-+	reg &= ~(TXDLY_MSK | RXDLY_MSK);
-+
-+	if (of_get_phy_mode(pdev->dev.of_node, &phy_mode)) {
-+		dev_err(dev, "missing phy mode property\n");
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	switch (phy_mode) {
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+	case PHY_INTERFACE_MODE_RGMII_RXID:
-+	case PHY_INTERFACE_MODE_RGMII_TXID:
-+		reg &= ~MISCR_RMII;
-+		break;
-+	case PHY_INTERFACE_MODE_RMII:
-+		reg |= MISCR_RMII;
-+		break;
-+	default:
-+		dev_err(dev, "Unsupported phy-mode (%d)\n", phy_mode);
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	if (!(reg & MISCR_RMII)) {
-+		reg |= tx_delay << TXDLY_OFST;
-+		reg |= rx_delay << RXDLY_OFST;
-+	}
-+
-+	regmap_write(bsp_priv->regmap,
-+		     macid == 0 ? REG_SYS_GMAC0MISCR : REG_SYS_GMAC1MISCR, reg);
-+
-+	bsp_priv->pdev = pdev;
-+
-+	return bsp_priv;
-+}
-+
-+static int nuvoton_gmac_probe(struct platform_device *pdev)
-+{
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct stmmac_resources stmmac_res;
-+	int ret;
-+
-+	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-+	if (ret)
-+		return ret;
-+
-+	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-+	if (IS_ERR(plat_dat))
-+		return PTR_ERR(plat_dat);
-+
-+	/* Nuvoton DWMAC configs */
-+	plat_dat->has_gmac = 1;
-+	plat_dat->tx_fifo_size = 2048;
-+	plat_dat->rx_fifo_size = 4096;
-+	plat_dat->multicast_filter_bins = 0;
-+	plat_dat->unicast_filter_entries = 8;
-+	plat_dat->flags &= ~STMMAC_FLAG_USE_PHY_WOL;
-+
-+	plat_dat->bsp_priv = nuvoton_gmac_setup(pdev, plat_dat);
-+	if (IS_ERR(plat_dat->bsp_priv)) {
-+		ret = PTR_ERR(plat_dat->bsp_priv);
-+		return ret;
-+	}
-+
-+	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
-+	if (ret)
-+		return ret;
-+
-+	/* We support WoL by magic packet, override pmt to make it work! */
-+	plat_dat->pmt = 1;
-+	dev_info(&pdev->dev, "Wake-Up On Lan supported\n");
-+	device_set_wakeup_capable(&pdev->dev, 1);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id nuvoton_dwmac_match[] = {
-+	{ .compatible = "nuvoton,ma35d1-dwmac"},
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, nuvoton_dwmac_match);
-+
-+static struct platform_driver nuvoton_dwmac_driver = {
-+	.probe  = nuvoton_gmac_probe,
-+	.remove_new = stmmac_pltfr_remove,
-+	.driver = {
-+		.name           = "nuvoton-dwmac",
-+		.pm		= &stmmac_pltfr_pm_ops,
-+		.of_match_table = nuvoton_dwmac_match,
-+	},
-+};
-+module_platform_driver(nuvoton_dwmac_driver);
-+
-+MODULE_AUTHOR("Joey Lu <yclu4@nuvoton.com>");
-+MODULE_DESCRIPTION("Nuvoton DWMAC specific glue layer");
-+MODULE_LICENSE("GPL v2");
--- 
-2.34.1
+> this case, especially because everywhere mixer1 is used on the A133 it is
+> switched to DE1. I'm also unaware of the R40 having two DEs which kind of
+> confirms this might be a typo. If anyone has actually tested the second output
+> of this it would help find out if it actually means DE1 or mixer1.
+
+Gave a quick try, but display went blue. My current assumption is that it's
+called INDEPENDENT DE, so DE1 <-> LCD1 is the only possibility. Yet to try
+that pipeline.
+
+> 
+>> Handling for mixer0 <-> lcd1 and mixer1 <-> lcd0 also needs to set
+>> DE2TCON_MUX in de clock, which is missing now.
+> 
+> Hmm. Are you sure? Looking at the Allwinner drivers it has the method
+> de_top_set_de2tcon_mux in
+> drivers/video/fbdev/sunxi/disp2/disp/de/lowlevel_v33x/de330/de_top.c
+> which I think means it's for DE3? But I don't see it called anywhere?
+
+Missing in the upstream. 
+
+> 
+> This might be worth discussing in the DE3 patchset.
+> 
+>> sun8i_tcon_top_set_hdmi_src for R40 already sets these values via quirks.
+>> i.e controlling the port muxing. Also D1 quirks is same as R40. So the
+>> original changes to make the DE1 point to TVx can also done in this quirk
+>> without hardcoded value?
+> 
+> In this case I'm using an LCD which isn't HDMI, so I'm not too sure how much
+> this would help. Having it as a quirk also seems a bit overkill if this is a
+> general preventative fix, especially since Allwinner doesn't seem to test their
+> functionality. Relying on it seems like a mistake in this case.
+> 
+> My other thought is that when sun8i_tcon_top_de_config is called it could do
+> something. But I'm not sure what that something would actually be, given it may
+> be called twice in an (I assume) unknown order.
+> 
+> Say, if mixer1 is set as TV0 and and mixer0 is set as TV1 we would try to set mixer1
+> first, see that mixer0 is already set to TV0 then ... error? Even though the
+> final configuration doesn't have any conflicts.
+> 
+> I was thinking something like this for my next patch:
+> 
+> 	/*
+> 	 * Make sure that by default DE0 and DE1 are set to different outputs,
+> 	 * otherwise we get a strange tinting or unusable display on the T113.
+> 	*/
+> 	reg = readl(regs + TCON_TOP_PORT_SEL_REG);
+> 	reg &= ~TCON_TOP_PORT_DE0_MSK;
+> 	reg |= FIELD_PREP(TCON_TOP_PORT_DE0_MSK, 0);
+> 	reg &= ~TCON_TOP_PORT_DE1_MSK;
+> 	reg |= FIELD_PREP(TCON_TOP_PORT_DE1_MSK, 1);
+> 	writel(reg, regs + TCON_TOP_PORT_SEL_REG);
+> 
+> Perhaps this could be hidden behind a quirk? I would have to check to see which
+> chips have this behaviour, I'm not sure if it's a bug specific to the T113 or
+> D1/T113 or R40 too.
+> 
+> Also noting at the top of the file that DE0 and DE1 mean mixer0 and mixer1
+> might be good to reduce confusion.
+> 
+> What do you think? :)
+
+So far there is no real user for DE1 in upstream. DE_PORT_SELECT_REG value for
+DE1 can be negate of DE0, so that they won't conflict or cause timing issues.
+
+Also DE_PORT_SELECT_REG mentions only about TV and LCD muxing, but missing HDMI,
+DSI and so.
+
+Otherwise, if I get DE1 working in A133, I will try to add quirk to set DE0 and
+DE1 port mapping in that case to respective connector.
+
+Thanks,
+Parthiban
+
+> 
+>> Thanks,
+>> Parthiban
+> 
+> Thanks for your input!
+> 
+> John Watts
 
 
