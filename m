@@ -4,160 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E4B7D41C15
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 08:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F3AD41C15
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 08:19:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jEtsfa2IjSA4q++/5t5XEj4/uRWbf/7HrjPyqzd+aSs=; b=G35F0XHkoxxGqLBPn6CX6pZ+wv
-	xGwdtD5slzOefa+e4yRUQgDm5mZelr6dJ0m+AZe+txahdhtEAmxTZrFZFdZgUJr7NMFOnMGpV4V5G
-	ewlnQ2SBtbKUqKIElXSmv3+7A6acifeKlGOhXCFXz41X448Sy6woHI7XMEe1TqR+OnuNQoc0zam4J
-	ld0Q10aeBthnEvf5p+EVZ2pS32EQ0t5MOQQw99WLwP4RxKpvkjm4gVIXbHLzHiEjtu5qRIuUNaM8h
-	zzg2k7l7BbUkzu8059z6Lp9B+RjxgWXgmMvCDJ/H5wkFE254Sefb3ABNqiOQicbkPq00HgGUcPdLm
-	gyjwUzCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L/uGdh4k87UdLsVlqrkIfn4gIIwnutqsKO4ayJkibeU=; b=MdtI1Jvc5SXSUhsoypRPTvjKDZ
+	wGfhMTnw/ArryUSyz7Xi6YnaN/VUpkg1fWk76/oCAXQbBilWj+wvcho6Z1EQ2UNjK0XGBGx4CRKm3
+	JLH8nMTgtp3OLOMFBMhuVOo3yALRXf7MNLX5/Dti/FPjKR+zOSHmEIKmuZG5721j63C48gIHZRwkK
+	NL0/eE45Ur0Qck/de/etRiWNy9sstnDpyGZ+G6UghvuriIJ4nmmMOU1SJZ1NmlibpNu+RUYb5nRRN
+	trvVpkCkmruVWj78VnsAzcMoHLjxdZF7ZNMWOTj31FJ2Ojj40FnLwd0InXcL8PnC4xa9oLmEcfquH
+	uZq/6RlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB8VV-000000064Nb-0Rp6;
-	Wed, 13 Nov 2024 08:13:45 +0000
-Received: from mail-vi1eur02on20609.outbound.protection.outlook.com ([2a01:111:f403:2607::609] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1tB8aP-0000000659n-3Sng;
+	Wed, 13 Nov 2024 08:18:49 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB8QL-000000063mA-0sqT;
-	Wed, 13 Nov 2024 08:08:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p9tIzoJJI+0GRqXHEb3cZFODOM1ouzzdh9cPb3JYJSgrJdKxI7sqUHsT/QPCkoDJE3udyCFZDNriglhhoiRiHB2h/qrueHJ6h3YJzMu7xrgBHlH2BdP++V1wmW9gN43JWtx8dKrjAqePOc90YZiemA5/zmKQfbLL8BbM3LAtipjRiYCoZC2Lc/hNWQJAc5t14lAK8wW707Xf4KewmX9rq6++3EjWXCxLmYBRGSZHZsnvBIjt3FVEjbTgvzJ9TBVwQNbOAa1JPX+UUVutaA2kDE0RLcV75aAc6lYDl8tuXOWqrJg9rm6UsMgUAdL8irF0KTlOTVayFnKAjF85tKesWA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jEtsfa2IjSA4q++/5t5XEj4/uRWbf/7HrjPyqzd+aSs=;
- b=p+ZULiO1BpJBl3UkL9USP4c9y/ckKMeDYhR4sdF0ajyugZ5D3jNUGtRDw7MKSseLidmGey1WuS0cPO0wYh/On/6vCFeIHCGkG79lC63Q0J6lYln1FouzxrZ7N9yAFfSct2qelCobJNUFqvdhxNCTWrtURAwj3W+6ejMjShnBRjC130lRVSqFqOmScjOgTWPlgCyO8P040Imfk+dWCVEXu9bmFw5gx+hrOoXP7g38mVIY18KbJP5yB2dPkCTviYWCpVJjRHpUnL7SqT64pTm3KH0hfbBGPrCO8biiqYYA8RQ6uIuCVOimy7BR2GT2AE2mvw3uK7iat7c4dnWuZpRCpQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jEtsfa2IjSA4q++/5t5XEj4/uRWbf/7HrjPyqzd+aSs=;
- b=ZCs8y7M92K3qLwQxT845oZqrs38DJ/pLC6tbWCGs/jNLGnDDJN6ao3qtP8XVc3qJOM+CT6iAshgkk6ibTA5bWPjjHklKW03Xf7qoCFpxBhXCX9tlDpRC4L5WF0jq7km3ByNWltQU0p6hdEM+f1FDG3Q5XXzIdOWpu5HHtJq3DWD8dd3WmQtEv8nI+RX8VHW7YxVmVgZtp0O39MSR4KW6i/jEa4DGIF7GUB++7EreIbi1VncMDvDYh44byjaI6mjFAUqIFQLeb15ZzAJHp9TIKXpvn09HlP+hSoBY58SBquBpdR55DQONOYhSkluwIrQVOTh/yIO04R9rHxU6VI8KsQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by VI0PR04MB10928.eurprd04.prod.outlook.com (2603:10a6:800:261::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.28; Wed, 13 Nov
- 2024 08:08:21 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7%6]) with mapi id 15.20.8158.013; Wed, 13 Nov 2024
- 08:08:21 +0000
-From: Xu Yang <xu.yang_2@nxp.com>
-To: vkoul@kernel.org,
-	kishon@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	gregkh@linuxfoundation.org,
-	Frank.Li@nxp.com,
-	jun.li@nxp.com,
-	l.stach@pengutronix.de,
-	aford173@gmail.com,
-	hongxing.zhu@nxp.com,
-	alexander.stein@ew.tq-group.com
-Cc: linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org
-Subject: [PATCH v9 3/3] arm64: dts: imx95-19x19-evk: add typec nodes and enable usb3 node
-Date: Wed, 13 Nov 2024 16:07:45 +0800
-Message-Id: <20241113080745.2300915-3-xu.yang_2@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241113080745.2300915-1-xu.yang_2@nxp.com>
-References: <20241113080745.2300915-1-xu.yang_2@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0033.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::14) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	id 1tB8Yc-000000064ri-0OmV
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Nov 2024 08:16:59 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-20cdb889222so65623415ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 00:16:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1731485816; x=1732090616; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=L/uGdh4k87UdLsVlqrkIfn4gIIwnutqsKO4ayJkibeU=;
+        b=ADaydBn6PXJNjYZhLfFsLaw3LyIa/GKKTQybI7TpPTOzC7sfuX3Zbbrao/g5TEsDQS
+         TsdGZcZLXGCffidrbNNSlMu+KXwbe9A8ZNbPRk39jzZ93weLHpGPDQUKya90t5EfBf8s
+         T1eDwhw+22i+N3DsqppX/YDybhtUCrDVPSyAI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731485816; x=1732090616;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=L/uGdh4k87UdLsVlqrkIfn4gIIwnutqsKO4ayJkibeU=;
+        b=gt+1kj3WhMvCRlXNSlv8bDDJbpsIKE7HuWGqCJKMlv6qTkhOS7c374b26Rn8ABm3Rt
+         ggz8s+qdxoSLeGlhAZbkhDrZmKJty/QQQkCZeeaNSYCFRY44volEux4v+0XIPHbVTFfC
+         2K/BJOj0/wwV4mvFDt9dJLmFGYLilmwNDmJtCIHEPcuNXNjurtsEBWpdg6bTEAXrUKOb
+         wnzmbEHZudXrJeCV5NPgS38AxcnH+0GRL4886HEYPwBAg4piejE/kQZWaelMWoe4c6Af
+         UJ2gLix/FqmVx1+XFnkOlyJBtClSfjCeguHoiw5t4FWnj4RSBVclmlZiFbk6uo9OZabl
+         N0uw==
+X-Forwarded-Encrypted: i=1; AJvYcCW7IcLQXl2Q++SV7L+YHlwUkIaG9+tcsH9b+WuAk4g1+wgA0ICddWcQHL97mpAa+iP/1lXNNVKAgifdjgR7WyQx@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPs/1n5h1tBX5XVTLw+a+iS0QTwTZiHc2usDsD5b9f71D3rtbW
+	kYx0vjOMkybBjebtuiYKn/f/ubrmRfv3UMSf9xNvZLhf+1xP9D4HQY62XQSHLw==
+X-Google-Smtp-Source: AGHT+IHPhYwkzPsxjo/RCUL5hnCpKp45auPZIIYVaYgX0w4KzvUg5iggyNngj3Fzi9Z6NWyiw/1UDw==
+X-Received: by 2002:a17:903:1ca:b0:20c:ce1f:13bd with SMTP id d9443c01a7336-211b5c3f07cmr20960895ad.18.1731485816613;
+        Wed, 13 Nov 2024 00:16:56 -0800 (PST)
+Received: from yuanhsinte-p620-1.tpe.corp.google.com ([2401:fa00:1:10:a280:b47c:f4f6:1c31])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177e69029sm105462645ad.230.2024.11.13.00.16.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Nov 2024 00:16:56 -0800 (PST)
+From: Hsin-Te Yuan <yuanhsinte@chromium.org>
+Date: Wed, 13 Nov 2024 16:16:53 +0800
+Subject: [PATCH RESEND v4] arm64: dts: mt8183: set DMIC one-wire mode on
+ Damu
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|VI0PR04MB10928:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4e468c74-9ce7-486a-6404-08dd03ba56c3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?X8zsCpaGtBiOL5bQYOwz5FF7b68Okpfiy5CDQjgkQTSDgv87w3qJVDAUq/bp?=
- =?us-ascii?Q?1mdd8mfuh9sVhvH96bi9T4Ey0Cnxmh15uM2PZFOMrG230YIJ3dRCcpScH5+I?=
- =?us-ascii?Q?FjwZSUDv9G/0tPeVkB0WASXsY7pZzHdm2aPKnARr9bxsLo56dQ5ch2vX9fMs?=
- =?us-ascii?Q?EnTEIjlXR9r+imD2tLW3WEukMRnZI6tEzQbJi4OtFZK4gu5oEhn3r/zAzgFV?=
- =?us-ascii?Q?lR4eD89aEgqblQrybwlfg+2yVOTV0CjYombuGI1R8sLax3jVI+QYz62LMZn3?=
- =?us-ascii?Q?e/h6u+6T0ydmZTRAl3QXnmj+TuVNr30xB/bQD7tgzhVzcKF3ZoTASGGsrJDG?=
- =?us-ascii?Q?tz5kaQSBu7ETYcoxRvM6rYqccjAdvqrt6eiNhL1Qy97u3JDdxETAhMDBjfnP?=
- =?us-ascii?Q?nzR9YcpKMCjyksTbFjWJVLOKwILLjJ9Rht5pOaC0KUddmvKaRTXusY34gCFx?=
- =?us-ascii?Q?Z3QxZOpgwg8QgrXGVU0NCXlYY6+wexOZORye0OLxA4f6h5f1rPuyRcknkokA?=
- =?us-ascii?Q?bCxohEJdS35nQda8ARMbdHbQCE4DuTcW+zdwhgnOwemcYJ1KSOOeCF9hhTqz?=
- =?us-ascii?Q?Y483/ZV2kfqyf5GPzII4CBWza6AUocoXJg8OqD6FCJTLS6tiuUzGroRPr3sS?=
- =?us-ascii?Q?0VCH2JwjD8Ib8pPLq2NpjlY+L8zcef9Iv+4MupoJDdkWWgFLHF9BxzrLPvYX?=
- =?us-ascii?Q?OFVFXnPmgW2yvGPEeXcEbCZUOoUwRY95yoqxw7f0Tld2mHmSJomr76w1ZqAS?=
- =?us-ascii?Q?yjr1v5Np0k3uDFI+wstaDv26PPgC0Ccg/GxO9Y7AU4312dtfu2236Yv3ib/c?=
- =?us-ascii?Q?rIC3uXrZpLafxKjDwZN6N81sq17Ux5u6ohzlwa0Pfkh9I2PLWz9O8fYAWwL1?=
- =?us-ascii?Q?ZZfqflQxBG8OIKGMhJGzz/IKX6su+nx7UVFa7tKu93axbxZ1rU2FizkIOQNE?=
- =?us-ascii?Q?5t5O/HMjshF2KBGTjjGspc1Lr/MOEBoLQOJzgEahE47fmb9Lro0bw+VUlOoC?=
- =?us-ascii?Q?p//FZrxekGL2zNpAW8FYPMqmUsQxmPYhUfgxQ4HM18IaIUepUpYGOSS8wvqd?=
- =?us-ascii?Q?MzEHeiYvqpZYa6VqC+rOoIuz2ZbfnfiSU3sUtqXK4OVkq3IL6sMKhl7OrT3H?=
- =?us-ascii?Q?Os/n0wD/tW+mJuzlnTG0ASNCJtP3C8hEIuMH5a7MkUoJTY6VKNkcXoUZt7of?=
- =?us-ascii?Q?F5n4Z6cfdRSHXdiSsEH02A4pHZ2ONLL3qRVhY/pbYEgmjG5eZ6pEspuwo5/4?=
- =?us-ascii?Q?LO/o0CiIw4IXVuCwOG24Ne6JilZeKxkSmxQ01L8H2SE5/3AelhL0twTc7YrL?=
- =?us-ascii?Q?nBn7wI8hLK19hFodNXn1FjZJFX/89omliu2LszGuWmy8MR2mVqx1nQQnlV8+?=
- =?us-ascii?Q?2Ox8j82K8Ud2whoMLTZt4DXDvxh0?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fEBjphhVJ4fvX+Io/JrnY2c4WS+CFGxCVTiUSKCE1Zn4+tFNeGnQb4JSMygo?=
- =?us-ascii?Q?EaUqnDtKN9eO97WeyDK55eSEZ7e55zkl/mJ+egUh8GmHjnxtgq6arKXZsrsy?=
- =?us-ascii?Q?9znljTKfQUuWgDkyvvjEWV22OELMKvOS2hcmJaxVncRYJsAy4RopQL7QkjhV?=
- =?us-ascii?Q?bSOdRjFd1u8sQVqDASoSMrLr3E54B4qVsR03PZ8Kep3SX78LJKM1sny7P5KU?=
- =?us-ascii?Q?jNrXbslK1XSnF+UTW0b5vwzmuIdLHu7WEDdfsNStdld8xOeEd9SEJ7m0Q902?=
- =?us-ascii?Q?oDP7WZzPigld68IH2TmrYI5Y7iSk8TspaihpQkU3pcUyZ1WpvazCd5aqO2AG?=
- =?us-ascii?Q?af59n0AUKwvV+kMH2WDsWGb3/LHJZmGk92rqTf4XqPMIfGS1o+TwehjeUVcZ?=
- =?us-ascii?Q?SI2Cpdcjugct9hgR9mNplt+oN+IeB57svSfiDghf6zS3hWQFv1vUaeLpoW+P?=
- =?us-ascii?Q?pL2ryJgCMit2DqVBBKMx2IS3C4o9atx7E5lkCkemMRmyfWSoNexaurK/wVEH?=
- =?us-ascii?Q?Lr17IlEMgo7aKHNFe83clPXfVl/DyuXTCKyGUOKPTTdJDV3tXRWXXO4T1X5l?=
- =?us-ascii?Q?W9nPFfjJpUpYLVdvsGSmuqVJKzcGan+5W75oJ/dKZ2coDQ07NhErbf7SLW9Q?=
- =?us-ascii?Q?13H5znOgs6vlazqBp1TwthrkaD8z8Nc3+7U4oTyoWCytnXn4uI1KjdMvISHZ?=
- =?us-ascii?Q?DbIDigJuGvydDfSDOB3fjrMY+mqsLq7VIVRg0PjNgWYI9V/5pPhrUq72iGiM?=
- =?us-ascii?Q?2iRe6yjVIwig02kZ9PgmZcyTiX0Z0TBIRnWzAxvISEohM/g+CqRlPXYEDmox?=
- =?us-ascii?Q?Nx+hp/162eO1cch7qmORuk1zWzYPFF5fwO4hsnvXx8dhgsG/XGhdxdK1qQLy?=
- =?us-ascii?Q?Rp2X/OeDNgAktvArz+SLws+++ptUw59GOF4YMY4em63h2sg911Uoh2/wdSeO?=
- =?us-ascii?Q?f4YOx/w0fnskeFUhrGPizzrMFkkO70R9gOnewRAKQyHonC8oPA3W8BzS2ltd?=
- =?us-ascii?Q?Szzz3WDn7XrtDQv3/SlaZDKfEy8zwTDC9UctabgN8yjnVp7ISTxf0ck9fOtC?=
- =?us-ascii?Q?Ov0FuO1ht7YsnFdJR46HVW3zdvZ62qBuFn0RVdGJj+AxFdW18f4OvDvU6AMV?=
- =?us-ascii?Q?BBsR/pw3vcKWJkIRS1i2w+gftHlVGhdI6+NXk9AVW4nmuToY2FJvA0dMWQSD?=
- =?us-ascii?Q?dJmdhRr8++3PVxO0vtj3MIr/dIpiE05W3rLnjlcyHGAH85rUqqq9dJJwky6q?=
- =?us-ascii?Q?A8h0GN7yk4j3jnGqqhJbfU40ZmFjGO7m5cqckI8qQ+hNIDgAS3YUMd4IuAu3?=
- =?us-ascii?Q?MLvq1wCLo1toFO5Fse1LNAlRYwYzpN385MV7e65B7qpsgZORSlnKsUyhfPry?=
- =?us-ascii?Q?LlJ8CjAfdzGA2WK+MLFMXj0sT/NZ2TddWtLloadp/wwI1O3fLt98i+UoFFHt?=
- =?us-ascii?Q?TOklvhAeKbcp0yhJakPRQOxs+5vbvgtM1wuKM9rZ53qtA0Ndk2jlnlll07pS?=
- =?us-ascii?Q?mIV/eoI1crAmYftU8FeuYxv4uK9W7BhMt/q+80MUE/jopetybuJph2eo841E?=
- =?us-ascii?Q?h66QYIIuLu9lfNHHBPghOkZDTxrfJBV7xyKBdeCA?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e468c74-9ce7-486a-6404-08dd03ba56c3
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2024 08:08:21.3501
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vqgdtuji25ePqXyrcLMJKvN6SqAWvIoZOLe5vZdYoSACyA5fTzgzPsQ17R6M/4ytVJGJ8YtOxsWS6PDKWrUkGg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10928
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241113-damu-v4-1-6911b69610dd@chromium.org>
+X-B4-Tracking: v=1; b=H4sIAHRgNGcC/7WOuw7CMBAEfwW55pBfSWwqCmgpoEQUTnImLhIjB
+ wwI5d8xKZAQNBSUe7qdnTvpMTjsyXxyJwGj653vUpDTCaka0x0QXJ0y4ZRLRqmG2rRnMMJyK2S
+ hJNUkvR4DWncdMTuyWW1X6yXZp7sNvoVTE9C8IFQzCr5DuLiAEDkw4GUpaZ0ZUVm1qJrUced25
+ sPhiW5cf/LhNgpGMQ68u0SREIxrWSlkueL6HfHUiPJbT6ZeoXRZsLLOM55/TP/1f/TKfvfaD8P
+ wAFpDMEK2AQAA
+X-Change-ID: 20241009-damu-a3f2f3478409
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Hsin-Yi Wang <hsinyi@chromium.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Hsin-Te Yuan <yuanhsinte@chromium.org>
+X-Mailer: b4 0.15-dev-2a633
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_000825_280507_0F86DC70 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20241113_001658_181941_7CB553F1 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,147 +99,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This board has one Type-C port which has USB3 capability. This will
-add typec nodes and enable usb3 node.
+From: Hsin-Yi Wang <hsinyi@chromium.org>
 
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+Sets DMIC one-wire mode on Damu.
 
+Fixes: cabc71b08eb5 ("arm64: dts: mt8183: Add kukui-jacuzzi-damu board")
+Signed-off-by: Hsin-Yi Wang <hsinyi@chromium.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
 ---
-Changes in v2:
- - no changes
-Changes in v3:
- - no changes
 Changes in v4:
- - no changes
-Changes in v5:
- - correct nodes order
-Changes in v6:
- - rebase to latest
-Changes in v7:
- - no changes
-Changes in v8:
- - no changes
-Changes in v9:
- - add tunning param for usb3_phy
----
- .../boot/dts/freescale/imx95-19x19-evk.dts    | 82 +++++++++++++++++++
- 1 file changed, 82 insertions(+)
+- Add Reviewed-by tag back, which is dropped in v3
+- Link to v3: https://lore.kernel.org/r/20241009-damu-v3-1-1294c8e16829@chromium.org
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-index 37a1d4ca1b20..cd2b0a39e8c7 100644
---- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-@@ -6,6 +6,7 @@
- /dts-v1/;
- 
- #include <dt-bindings/pwm/pwm.h>
-+#include <dt-bindings/usb/pd.h>
- #include "imx95.dtsi"
- 
- / {
-@@ -250,6 +251,48 @@ i2c7_pcal6524: i2c7-gpio@22 {
- 		interrupt-parent = <&gpio5>;
- 		interrupts = <16 IRQ_TYPE_LEVEL_LOW>;
- 	};
-+
-+	ptn5110: tcpc@50 {
-+		compatible = "nxp,ptn5110", "tcpci";
-+		reg = <0x50>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_typec>;
-+		interrupt-parent = <&gpio5>;
-+		interrupts = <14 IRQ_TYPE_LEVEL_LOW>;
-+
-+		typec_con: connector {
-+			compatible = "usb-c-connector";
-+			label = "USB-C";
-+			power-role = "dual";
-+			data-role = "dual";
-+			try-power-role = "sink";
-+			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-+			sink-pdos = <PDO_FIXED(5000, 0, PDO_FIXED_USB_COMM)>;
-+			op-sink-microwatt = <0>;
-+			self-powered;
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					typec_con_hs: endpoint {
-+						remote-endpoint = <&usb3_data_hs>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					typec_con_ss: endpoint {
-+						remote-endpoint = <&usb3_data_ss>;
-+					};
-+				};
-+			};
-+		};
-+	};
+Changes in v3:
+- Add missing Sign-off-by tag
+- Link to v2: https://lore.kernel.org/r/20240910-one-wire-v2-1-2bb40d5a3cf8@chromium.org
+
+Changes in v2:
+- Add fixes tag 
+- Link to v1: https://lore.kernel.org/r/20240910-one-wire-v1-1-d25486a6ba6d@chromium.org
+---
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+index 0b45aee2e29953b6117b462034a00dff2596b9ff..06a689feff52945d141d196d439cba034f25fdf6 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+@@ -26,6 +26,10 @@ &touchscreen {
+ 	hid-descr-addr = <0x0001>;
  };
  
- &lpuart1 {
-@@ -332,6 +375,39 @@ &sai3 {
- 	status = "okay";
++&mt6358codec {
++	mediatek,dmic-mode = <1>; /* one-wire */
++};
++
+ &qca_wifi {
+ 	qcom,ath10k-calibration-variant = "GO_DAMU";
  };
- 
-+&usb3 {
-+	status = "okay";
-+};
-+
-+&usb3_dwc3 {
-+	dr_mode = "otg";
-+	hnp-disable;
-+	srp-disable;
-+	adp-disable;
-+	usb-role-switch;
-+	role-switch-default-mode = "peripheral";
-+	snps,dis-u1-entry-quirk;
-+	snps,dis-u2-entry-quirk;
-+	status = "okay";
-+
-+	port {
-+		usb3_data_hs: endpoint {
-+			remote-endpoint = <&typec_con_hs>;
-+		};
-+	};
-+};
-+
-+&usb3_phy {
-+	fsl,phy-tx-preemp-amp-tune-microamp = <600>;
-+	status = "okay";
-+
-+	port {
-+		usb3_data_ss: endpoint {
-+			remote-endpoint = <&typec_con_ss>;
-+		};
-+	};
-+};
-+
- &usdhc1 {
- 	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
- 	pinctrl-0 = <&pinctrl_usdhc1>;
-@@ -538,6 +614,12 @@ IMX95_PAD_SD2_RESET_B__GPIO3_IO_BIT7		0x31e
- 		>;
- 	};
- 
-+	pinctrl_typec: typecgrp {
-+		fsl,pins = <
-+			IMX95_PAD_GPIO_IO34__GPIO5_IO_BIT14			0x31e
-+		>;
-+	};
-+
- 	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
- 		fsl,pins = <
- 			IMX95_PAD_SD2_CD_B__GPIO3_IO_BIT0		0x31e
+
+---
+base-commit: 75b607fab38d149f232f01eae5e6392b394dd659
+change-id: 20241009-damu-a3f2f3478409
+
+Best regards,
 -- 
-2.34.1
+Hsin-Te Yuan <yuanhsinte@chromium.org>
 
 
