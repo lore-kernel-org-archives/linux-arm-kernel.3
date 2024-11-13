@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16875D637AF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 19:57:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB09CD637B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 19:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZJohuSDhLv+Ez941jeY7j+hZPem1AM5+WSMU5a11wcU=; b=oWpn9WHvMaFxiyg+LCcPeTLVR0
-	oQRDn8/88qio7L9ex5dB/SQc7vXznwn+E4Nqz5MoCkekm+OmSfutyX6qO/IrxskaQJpq8hdFbx0Oo
-	qcAI+Yj2cq7ZQHjmTFCeB+Wm+B7tF4m6jwe8X8fjgVZGwMgIq3laSQShCvXg5VaZPpqDvLXN8/TCw
-	9pHvKmxo66jvkcA8Wes+GfTOncVMA5TEIdtoeAra9bGOh8q/tTQBuREqWtcKK+EYa+Vjkj/vo0nZK
-	0VZ/CFLHtcCB5hWQEwOdCm7lDxQ96J0icrV1a8gX35KXtIzOaMoYwYjpzm6DhxebYs/xl6ipIYDgM
-	WcWb29yw==;
+	bh=0lQpVT555kI9HxWkbuw1QfCobvJUnpBBYDf2BdIAaRY=; b=vVuBSxqXv8HUX+W1LNJwD4M9D+
+	P4Pf2Ww+vJ6c7TDWID+kkvTEjWicMwX/IqI4YHz3CePR3QGMhE7AS4Gmf5ALJHkncD4ftYCQ4dyjD
+	EWnrOBccaT76ovsa7nkIYwsWSZgxB9Bmnn3xfC6oiCB70Ju95IzyunIfD7597BHNB6cBi57sUyej4
+	BDlB0CO0RcseTEzkGjtoPy9MHB8gV9w2uxYORWkjlaotbyJyKhvxlKydS3NOU8tzu+fTKR2RH1vwT
+	pkwSmM0jVQCCNKOh+7U3LHqxdazZsk2o4mb5Eurb6e4LT8xr39yOnB7HpEVaJVkmxCsVWH+rAmSJz
+	v/J1nsrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBJUB-00000007tKr-2xxW;
-	Wed, 13 Nov 2024 19:57:07 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tBJVy-00000007tVQ-3h6p;
+	Wed, 13 Nov 2024 19:58:58 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBJQY-00000007sm5-3izu
+	id 1tBJQa-00000007smH-1yCP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 19:53:24 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4315e9e9642so61456035e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 11:53:21 -0800 (PST)
+	Wed, 13 Nov 2024 19:53:25 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4315839a7c9so69172375e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 11:53:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731527600; x=1732132400; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1731527602; x=1732132402; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZJohuSDhLv+Ez941jeY7j+hZPem1AM5+WSMU5a11wcU=;
-        b=eACqfeZKOyQG+1p6e90eR2MMaTgb0fBm+KQd1rR7aJwSf0JXnFHK7ySMVvBMqKuJ5W
-         Kv5CcPVhf+WxZDXzveGaZI7Xtr6JLh7dsdy5oqdpeco4pQCIYZMw5mUgV5z3k/eCOQsc
-         w0eJXv9CHK7MM2XYMEew6VvKkhmgojHvvwNZM7F3CM5SIbo/jpQ5ao3PDBaFsMoPOuwF
-         MIMozrARWkNtpfK2mYlmZ2xY0eYcMgBf9gn1bDopcpVtuDOthupNpj8dg2mU8xkxmir4
-         MwAzzuXAf1Tw6aVfYeXlAfFI61B9R4CaGAxZCNqEdmznZ66oZb7CAioMk+BcvV3KgzlR
-         pI+Q==
+        bh=0lQpVT555kI9HxWkbuw1QfCobvJUnpBBYDf2BdIAaRY=;
+        b=hlgFtLmR3ARd892bHEG65wDtD/LjpmiKLgUSE6LvOoyHVN3Vv1cpjLfmTlJgqUKlK3
+         HMyyKNZvwfJnMCqD8ABMs+2cnrh0rn1T6qtLi+15w7IAalboI11g3NAE89pG6CE57Pr0
+         HlhMaituAVCeUB9Pk9Hj4+V1W3Y8sn0NETrrUa2KwmkbbsCcoGt2sAa8URXWu1t9lFyX
+         Cu/mYeU0ojzwzTvk3zOLG6zVae1vkUTKyDvodHt+qCzubyTw9mopOrMqMTDaPx5QiLU7
+         ZgKHNpL0aQ0+ct/7Cgt/N44lGWaVbOYM0W0LjM2EnoQSD0YrMkh6cIctg5Sd2pRtEpf0
+         PjqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731527600; x=1732132400;
+        d=1e100.net; s=20230601; t=1731527602; x=1732132402;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ZJohuSDhLv+Ez941jeY7j+hZPem1AM5+WSMU5a11wcU=;
-        b=RitQzkxH+eIVa/kouQPxCwXp9tpd1NJeDBA1clrt10P8B1jbMmZi6FFvqgrM8Z6Q9u
-         fLZLxcfwjxVE5MGKwMSBA3FyGEFmw7+3PRooM4CpswpqTWTtUummdyqBZ3+oWTe4G2UN
-         nqOc28+VUa5x7xsGHyYlAtaiYvXpM7fa4yQOtSpHlUjt+izX6U3Fb9Bj2d6GYAesTJrO
-         6sTCeo1zX2NDNYi6f6fwpCIDUExF9Ef2sR9HnU1U+B0e5/S1BKX9WrKcvkGVuA1m8pVl
-         icNTNnSkkQXmzo0END5pTUN2mGjGAReED6lm+cv4xWqa+PqCwF77WouOzJQbJJrJrp5+
-         9Rqw==
-X-Gm-Message-State: AOJu0YxprLtEYi/aiD9jV4BdH1SpydtD31xVeJJknSVVlix01w+ENZVT
-	szV1BodP3VN4R5gReY9YaPxtqOLfVn9OlqYbqcifL1qIeOUqcrjD
-X-Google-Smtp-Source: AGHT+IHwi2toH/v6RTvp83UH7M2Jmxcw9HOhI3L1kjcyknLKktTX9f30Gh639+d+i9hlq9WYg//Eow==
-X-Received: by 2002:a05:600c:5006:b0:431:5c17:d575 with SMTP id 5b1f17b1804b1-432d4aae640mr37829535e9.11.1731527600012;
-        Wed, 13 Nov 2024 11:53:20 -0800 (PST)
+        bh=0lQpVT555kI9HxWkbuw1QfCobvJUnpBBYDf2BdIAaRY=;
+        b=ndDgi9AbQmpwIJZqFsRx+8TGlR7agMO/ExXW5GozE1XnsjyA4nreyAugYW4fA6bdJI
+         mf9cYIQst/e3ziEin62WVgfTAUTCG9CRShfJ+fdQQ/TE1Y+r3f1zddK17pdln35PQIck
+         9ntQ18jLowIyuDHmTEO4RLWMrVq5eqjldPjCI1/33oMK1O3AQSRVc+jaD+kggG+dq9kQ
+         dX7fpGhk+g1iHAZpsHYcE6b4e8A8u3gPxmogXaHM3xq6e+XVbPRGJtarYrIR1EGlru9U
+         Lv9yfuwnL3n1FiAYNTtJ89d8mS1VWUqGnKbYUO7AL6euycsqriRN/rowvqtYuonUb0/d
+         MdDw==
+X-Gm-Message-State: AOJu0YwpN8Txig7FUu6BAGzoMWrSrPNMJsAyE4LtHf1FMdrod4cyMvhr
+	kaVmT2o/SSDEpQgEgUX232odfCXHXyejHTcWgbH4puVx+oB7B0Zf
+X-Google-Smtp-Source: AGHT+IH2Z2a0/rS9v7IeDir+dpM0VmMRaelsOvWV9gMqaYXP9EFNgflc7dj7yYlfrWcH5bgnnm7i0Q==
+X-Received: by 2002:a05:600c:3b9e:b0:431:3927:d1bc with SMTP id 5b1f17b1804b1-432b74fcb02mr189488175e9.2.1731527602016;
+        Wed, 13 Nov 2024 11:53:22 -0800 (PST)
 Received: from playground.localdomain ([86.127.146.72])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432d5503c58sm34633065e9.22.2024.11.13.11.53.17
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432d5503c58sm34633065e9.22.2024.11.13.11.53.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Nov 2024 11:53:18 -0800 (PST)
+        Wed, 13 Nov 2024 11:53:21 -0800 (PST)
 From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -79,17 +79,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-sound@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/5] ASoC: dt-bindings: add common binding for NXP CPUs
-Date: Wed, 13 Nov 2024 14:52:36 -0500
-Message-Id: <20241113195240.3699-2-laurentiumihalcea111@gmail.com>
+Subject: [PATCH v2 2/5] ASoC: dt-bindings: add binding for imx95's CM7 core
+Date: Wed, 13 Nov 2024 14:52:37 -0500
+Message-Id: <20241113195240.3699-3-laurentiumihalcea111@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241113195240.3699-1-laurentiumihalcea111@gmail.com>
 References: <20241113195240.3699-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_115322_967894_33E3B2C5 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20241113_115324_551747_2604FE8A 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,56 +106,64 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Add common binding for NXP CPUs sharing the same programming
-model (i.e: audio processing with SOF).
+Add binding for imx95's CM7 core.
 
 Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
- .../bindings/sound/fsl,sof-cpu.yaml           | 35 +++++++++++++++++++
- 1 file changed, 35 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
+ .../bindings/sound/fsl,imx95-cm7-sof.yaml     | 44 +++++++++++++++++++
+ 1 file changed, 44 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
 
-diff --git a/Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml b/Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
+diff --git a/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml b/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
 new file mode 100644
-index 000000000000..6d63fcd71154
+index 000000000000..f11e03bbcaba
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
-@@ -0,0 +1,35 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++++ b/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
+@@ -0,0 +1,44 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/sound/fsl,sof-cpu.yaml#
++$id: http://devicetree.org/schemas/sound/fsl,imx95-cm7-sof.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: NXP audio CPU common properties
++title: NXP imx95 CM7 core
 +
 +maintainers:
 +  - Daniel Baluta <daniel.baluta@nxp.com>
 +
++description: NXP imx95 CM7 core used for audio processing
++
++allOf:
++  - $ref: fsl,sof-cpu.yaml#
++
 +properties:
-+  reg:
-+    maxItems: 1
++  compatible:
++    const: fsl,imx95-cm7-sof
 +
-+  mboxes:
-+    maxItems: 4
-+
-+  mbox-names:
-+    items:
-+      - const: txdb0
-+      - const: txdb1
-+      - const: rxdb0
-+      - const: rxdb1
-+
-+  memory-region:
-+    maxItems: 1
++  port:
++    description: SAI3 port
++    $ref: audio-graph-port.yaml#
++    unevaluatedProperties: false
 +
 +required:
-+  - reg
-+  - mboxes
-+  - mbox-names
-+  - memory-region
++  - compatible
++  - port
 +
-+additionalProperties: true
++unevaluatedProperties: false
++
++examples:
++  - |
++    cm7-cpu@80000000 {
++      compatible = "fsl,imx95-cm7-sof";
++      reg = <0x80000000 0x6100000>;
++      mboxes = <&mu7 2 0>, <&mu7 2 1>, <&mu7 3 0>, <&mu7 3 1>;
++      mbox-names = "txdb0", "txdb1", "rxdb0", "rxdb1";
++      memory-region = <&adma_res>;
++      cpu: port {
++        /* SAI3-WM8962 link */
++        cpu_ep: endpoint { remote-endpoint = <&wm8962_ep>; };
++      };
++    };
 -- 
 2.34.1
 
