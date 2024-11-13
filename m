@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC50CD41C06
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 12:26:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE0BD41C04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 12:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YAXiNxl+L7WvMZzLtoh1AuLuo/AJ/EmyL8yk+YhQn7E=; b=CW/LeJkNRDV8FbdVnPVmWYqinj
-	0LAgSmyOlbT0HORtKnTyFCGHRmsSMag4bm8WgOrY4oTVjx8hsUQzH7yrvoas2AoPuH9ZkhjvANhM2
-	jhPfudPK8NnRbRwAvzZyesqQtC37usQDWm1I/oB/ZdJtZ9Lu3Rx2I9eOI+4nwTrxa9rFVJVbb+Bh7
-	MykMgvDMswwLYA1Z9/Dp10DVRPBaqoIPTDhJQiYrjg4hghZZCrrte7YDtppVbRlP6j8D+TOdSHq1n
-	GQX2hlL1r+dXedAmxumg0A+W7SZNf0GZ+X4OXpL45+03daDu7X63dOwgFk7B2ikowQK4/rAcl29WO
-	E5Qo1siQ==;
+	bh=JsE6HZ0BDIdFm8pHUV9wjAijdgzctcE9O8piDmD3bwk=; b=D/9mnNBfr0EbZLa9HjUOxYaWgP
+	7jQ0eHa2R4F3+ZnLZX5SSzJ8i6B4ggLhHAPTA4tm3nPZ3Vife3dBZCTVC6qYKwIbunuNLSQ0AUPKM
+	Kw13bkpIZW4XOgdvU8oRC6onIQgEygIp4XRDyUoGbUkbENz+PCZ/3qtZWfpspx2XpgxE9c4PWv4/C
+	TUkGkuWCb4Yt3QN1hw5qRosJ838UXuOU0zoBgEr8m5J9wBCe2sCSclgQy29gozSOr/1kku/+aUr4Z
+	W4solzOhTQvzUDrwvhwOVcy6SNdeg5rJ3mPaPYjuBWKfSJj7WGPhfOOjBFZZ3ZqHWteRvUQyrQHUK
+	IegKmN+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBCS5-00000006lEP-3WDM;
-	Wed, 13 Nov 2024 12:26:29 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tBCTs-00000006laT-3xHd;
+	Wed, 13 Nov 2024 12:28:20 +0000
+Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBCNA-00000006kJY-2H4u;
-	Wed, 13 Nov 2024 12:21:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1731500460; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=YU32egpaxQ3LPMkiCEiwlYinPgTJcYopTk+puFDwuHW/9RO5p79wjM2Ui4SYu+wL/frHuZzuy8fUUQTuKVqqr0T0NMV/4+9fM7PJU9cqkYbDQ6Gq107WiMmUYHcuOuX8UKmuuA16yr0+peWn38u9D2nDz6YNXKAJ+ZJ7WY8pYqo=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1731500460; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=YAXiNxl+L7WvMZzLtoh1AuLuo/AJ/EmyL8yk+YhQn7E=; 
-	b=Z+/3iUD44BYjzAGUq1cHO2bPj4wbjXN+ayl1Ka83L0+w1xcfYti/g3ZFtC2uZ4mtChZTn2nwlwi+DvPH2yfq9ezukDbOMZrolxlGcZ8mmfaBdeihUssIFVoz4iAz8trakaEKK0Fp/Th+ulWtxq/OnFN2UcGPl3JXDgO03ORpffc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
-	dmarc=pass header.from=<sebastian.fricke@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1731500460;
-	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=YAXiNxl+L7WvMZzLtoh1AuLuo/AJ/EmyL8yk+YhQn7E=;
-	b=f2CuR81N5f/eoPkL/+BDc6R275zeJ5SoF4H0cw9lo8TS+M/VEfcid4otwyE/SIj4
-	TbuBF/mb2W5vpti7JxV6wbckZ3lQNM1JlQER4u9BpJT2NKBkm5CPoLyH7wDWMVnR8OX
-	FZ7TlWHYFnUhP4hgflIVi4h5U8IU5DiK5qae+G2I=
-Received: by mx.zohomail.com with SMTPS id 1731500458968391.5228104021975;
-	Wed, 13 Nov 2024 04:20:58 -0800 (PST)
-Date: Wed, 13 Nov 2024 13:20:51 +0100
-From: Sebastian Fricke <sebastian.fricke@collabora.com>
-To: Yunfei Dong <yunfei.dong@mediatek.com>
-Cc: Jeffrey Kardatzke <jkardatzke@google.com>,
-	=?utf-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4=?= Prado <nfraprado@collabora.com>,
-	Nathan Hebert <nhebert@chromium.org>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil-cisco@xs4all.nl>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Tomasz Figa <tfiga@chromium.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Chen-Yu Tsai <wenst@chromium.org>, Yong Wu <yong.wu@mediatek.com>,
-	Hsin-Yi Wang <hsinyi@chromium.org>,
-	Fritz Koenig <frkoenig@chromium.org>,
-	Daniel Vetter <daniel@ffwll.ch>, Steve Cho <stevecho@chromium.org>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [PATCH v7 00/28] media: mediatek: add driver to support secure
- video decoder
-Message-ID: <20241113122051.u3iq3ci7iwrvt3mx@basti-XPS-13-9310>
-References: <20240720071606.27930-1-yunfei.dong@mediatek.com>
+	id 1tBCNG-00000006kKo-2PU7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Nov 2024 12:21:31 +0000
+Received: by mail-yb1-xb36.google.com with SMTP id 3f1490d57ef6-e28fea0f5b8so6198252276.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 04:21:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731500489; x=1732105289; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=JsE6HZ0BDIdFm8pHUV9wjAijdgzctcE9O8piDmD3bwk=;
+        b=ic9LQ/IhkNWZ43uL/sDog1fZjJbcK2h28k2NuoyQT3tPwJtd3Qu64SuiS7eVkyxAOJ
+         qXX4BN2E8HhAZIley6BbxZMM9tXOMLmjpw4PQIYuIwwq/ELyGYcAry0p6GFPJxLyNLnp
+         8Eu3ZT2mjuhEQ8QCNY3HuwD59OkUc1RbHfMOUwipoJKC0ieYgd2aScfAfaYC++KSMpAM
+         ublPxCz1VrFZkGLqfK2ltU15EMCMK/uz6Z/gZHqwnrRnDeZxeHV1V8mEi45K0bxc+lpD
+         I8Zfe+Ne7CamR1Um+uVeKbZz+v+nvg+UoFolVwNsdm+Kup5RR//ISq/j6DzC5tMZEC0x
+         Vd6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731500489; x=1732105289;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JsE6HZ0BDIdFm8pHUV9wjAijdgzctcE9O8piDmD3bwk=;
+        b=BT70SHA0S0AwGNb9oYpGGZyoiiEGqNRtnwJf48Gw8tY2tr3y/B+QpbcBm1AJgrTq4+
+         YiscyPXZ9JHJwHOg4yasFViTNJOFM+2/f2VA6yvZp79oUURvlmiPpKp+r0F63DyU7yMz
+         YTFuVzPo+7SISeyfedg1DBpkLvVr6rR9PN2BQfSEXqXu/UEQgk+vB3ikSl6c1tRwRWUg
+         bgnzhFkiBB0JjAqtlkVqpwwcU6pe7oTIjV4wIn/x1O5ytjWd3g27tYXc4VF58tKhyIxf
+         2qMUiu7WSwoBZDH1zXX9k7+hg/LEGp6zFFR7jIG9t2UBM5q3SrQGRrYgMlTF2KG3lz6i
+         IQxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUJq+unYO/EEZIApqGmS+vf78RMN3J+P7Qtifp91mu2mpLaIj3FI4dOfOr1dssQZtdiAl464fVcxYerBZEfoe6H@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2sclUGC9x+Z0P86abj1e3f+91f2LEp5HVzZjuUTvWjZd8y7Xz
+	f+nRg0lgWIWCqlosH/dCh/ExmOx7HXEIbaAtJSgI5Jjss+JOg3R7EQn6usDojaWS31qFaSCaDR+
+	zeCJG8jmc2V4XHc9ezaeh6kWG+F0fkXGV+oaAMQ==
+X-Google-Smtp-Source: AGHT+IHlEW9Y6a6VKxz7Rj8wBbFwf85y1XuiF8DPZGiTfkNkpU73TSXFVeGlAI184r1k/vIlZa0la+oK03iLvn2Otwg=
+X-Received: by 2002:a05:6902:1101:b0:e30:d443:8490 with SMTP id
+ 3f1490d57ef6-e337f8c6c9bmr18265860276.40.1731500489516; Wed, 13 Nov 2024
+ 04:21:29 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20240720071606.27930-1-yunfei.dong@mediatek.com>
-X-ZohoMailClient: External
+References: <20241113-add-display-support-for-qcs615-platform-v2-0-2873eb6fb869@quicinc.com>
+ <20241113-add-display-support-for-qcs615-platform-v2-9-2873eb6fb869@quicinc.com>
+In-Reply-To: <20241113-add-display-support-for-qcs615-platform-v2-9-2873eb6fb869@quicinc.com>
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Date: Wed, 13 Nov 2024 14:21:18 +0200
+Message-ID: <CAA8EJpok20-7HXJJbcJi8YZYCU68g_DGThR_ckjBEz0e+gGBSA@mail.gmail.com>
+Subject: Re: [PATCH v2 9/9] arm64: defconfig: Enable SX150X for QCS615 ride board
+To: Fange Zhang <quic_fangez@quicinc.com>
+Cc: Rob Clark <robdclark@gmail.com>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Krishna Manikandan <quic_mkrishn@quicinc.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Li Liu <quic_lliu6@quicinc.com>, 
+	Xiangxu Yin <quic_xiangxuy@quicinc.com>, linux-arm-msm@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_042124_640927_209C3F62 
-X-CRM114-Status: GOOD (  24.31  )
+X-CRM114-CacheID: sfid-20241113_042130_641663_8E14FF1B 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,183 +99,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Yunfei,
+On Wed, 13 Nov 2024 at 13:53, Fange Zhang <quic_fangez@quicinc.com> wrote:
+>
+> From: Li Liu <quic_lliu6@quicinc.com>
+>
+> For the QCS615 ride board, enable the SX150X to activate the ANX7625
+> allowing the DSI to output to the mDP through the external bridge.
+> The ANX7625 relies on the SX150X chip to perform reset and HPD.
+>
+> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+> ---
+>  arch/arm64/configs/defconfig | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index c0b8482ac6ad7498487718ba01d11b1c95e7543d..599a339a19435efbee7a5ef80c093b0e8c65f7ff 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -631,6 +631,7 @@ CONFIG_PINCTRL_SM8350=y
+>  CONFIG_PINCTRL_SM8450=y
+>  CONFIG_PINCTRL_SM8550=y
+>  CONFIG_PINCTRL_SM8650=y
+> +CONFIG_PINCTRL_SX150X=y
 
-On 20.07.2024 15:15, Yunfei Dong wrote:
->The patch series used to enable secure video playback (SVP) on MediaTek
->hardware in the Linux kernel.
+Your commit message doesn't describe why it needs to be disabled as a
+built-in. You are trying to enable it for all defconfig users.
+Also the placement of the symbol is not correct. You've added it to
+the section with msm pinctrl drivers, while the chip has nothing to do
+with msm.
 
-I will set this series as obsolete for now, please answer the open
-questions on your patches and then send a new series.
+>  CONFIG_PINCTRL_X1E80100=y
+>  CONFIG_PINCTRL_QCOM_SPMI_PMIC=y
+>  CONFIG_PINCTRL_LPASS_LPI=m
+>
+> --
+> 2.34.1
+>
 
-Regards,
-Sebastian
 
->
->Memory Definitions:
->secure memory - Memory allocated in the TEE (Trusted Execution
->Environment) which is inaccessible in the REE (Rich Execution
->Environment, i.e. linux kernel/user space).
->secure handle - Integer value which acts as reference to 'secure
->memory'. Used in communication between TEE and REE to reference
->'secure memory'.
->secure buffer - 'secure memory' that is used to store decrypted,
->compressed video or for other general purposes in the TEE.
->secure surface - 'secure memory' that is used to store graphic buffers.
->
->Memory Usage in SVP:
->The overall flow of SVP starts with encrypted video coming in from an
->outside source into the REE. The REE will then allocate a 'secure
->buffer' and send the corresponding 'secure handle' along with the
->encrypted, compressed video data to the TEE. The TEE will then decrypt
->the video and store the result in the 'secure buffer'. The REE will
->then allocate a 'secure surface'. The REE will pass the 'secure
->handles' for both the 'secure buffer' and 'secure surface' into the
->TEE for video decoding. The video decoder HW will then decode the
->contents of the 'secure buffer' and place the result in the 'secure
->surface'. The REE will then attach the 'secure surface' to the overlay
->plane for rendering of the video.
->
->Everything relating to ensuring security of the actual contents of the
->'secure buffer' and 'secure surface' is out of scope for the REE and
->is the responsibility of the TEE.
->
->This patch series is consists of four parts. The first is from Jeffrey,
->adding secure memory flag in v4l2 framework to support request secure
->buffer.
->
->The second and third parts are from John and T.J, adding some heap
->interfaces, then our kernel users could allocate buffer from special
->heap. The patch v1 is inside below dmabuf link.
->https://lore.kernel.org/linux-mediatek/20230911023038.30649-1-yong.wu@mediatek.com/
->To avoid confusing, move them into vcodec patch set since we use the
->new interfaces directly.
->
->The last part is mediatek video decoder driver, adding tee interface and
->decoder driver to support secure video playback.
->
->This patch set depends on "dma-buf: heaps: Add restricted heap"[1]
->
->[1] https://patchwork.kernel.org/project/linux-mediatek/list/?series=853380
->---
->Changed in v7:
->- fix many reviewer's comments
->- build optee driver to ko
->- support h264 svp and non svp vsi
->
->Changed in v6:
->- fix unreasonable logic for patch 2/3/23
->- add to support vp9 for patch 24
->
->Changed in v5:
->- fix merge conflict when rebase to latest media stage for patch 1/2
->- change allocate memory type to cma for patch 12
->- add to support av1 for patch 23
->
->Changed in v4:
->- change the driver according to maintainer advice for patch 1/2/3/4
->- replace secure with restricted for patch 1/2/3/4
->- fix svp decoder error for patch 21
->- add to support hevc for patch 22
->
->Changed in v3:
->- rewrite the cover-letter of this patch series
->- disable irq for svp mode
->- rebase the driver based on the latest media stage
->
->Changed in v2:
->- remove setting decoder mode and getting secure handle from decode
->- add Jeffrey's patch
->- add John and T.J's patch
->- getting secure flag with request buffer
->- fix some comments from patch v1
->---
->Jeffrey Kardatzke (2):
->  v4l2: add restricted memory flags
->  v4l2: handle restricted memory flags in queue setup
->
->John Stultz (2):
->  dma-heap: Add proper kref handling on dma-buf heaps
->  dma-heap: Provide accessors so that in-kernel drivers can allocate
->    dmabufs from specific heaps
->
->T.J. Mercier (1):
->  dma-buf: heaps: Deduplicate docs and adopt common format
->
->Xiaoyong Lu (1):
->  media: mediatek: vcodec: support av1 svp decoder for mt8188
->
->Yilong Zhou (1):
->  media: mediatek: vcodec: support vp9 svp decoder for mt8188
->
->Yunfei Dong (21):
->  media: videobuf2: calculate restricted memory size
->  media: mediatek: vcodec: add tee client interface to communiate with
->    optee-os
->  media: mediatek: vcodec: build decoder OPTEE driver as module
->  media: mediatek: vcodec: allocate tee share memory
->  media: mediatek: vcodec: send share memory data to optee
->  media: mediatek: vcodec: initialize msg and vsi information
->  media: mediatek: vcodec: add interface to allocate/free secure memory
->  media: mediatek: vcodec: using shared memory as vsi address
->  media: mediatek: vcodec: add single allocation format
->  media: mediatek: vcodec: support single allocation format
->  media: mediatek: vcodec: support single allocation buffer
->  media: mediatek: vcodec: re-construct h264 driver to support svp mode
->  media: mediatek: vcodec: remove parse nal_info in kernel
->  media: mediatek: vcodec: disable wait interrupt for svp mode
->  media: mediatek: vcodec: support tee decoder
->  media: mediatek: vcodec: move vdec init interface to setup callback
->  media: mediatek: vcodec: support hevc svp for mt8188
->  media: mediatek: vcodec: remove vsi data from common interface
->  media: mediatek: vcodec: rename vsi to extend vsi
->  media: mediatek: vcodec: adding non extend struct
->  media: mediatek: vcodec: support extend h264 driver
->
-> .../userspace-api/media/v4l/buffer.rst        |  10 +-
-> .../media/v4l/pixfmt-reserved.rst             |   7 +
-> .../media/v4l/vidioc-reqbufs.rst              |   6 +
-> drivers/dma-buf/dma-heap.c                    | 139 ++++-
-> .../media/common/videobuf2/videobuf2-core.c   |  29 +
-> .../common/videobuf2/videobuf2-dma-contig.c   |  34 +-
-> .../media/common/videobuf2/videobuf2-v4l2.c   |   4 +-
-> .../media/platform/mediatek/vcodec/Kconfig    |  13 +
-> .../mediatek/vcodec/common/mtk_vcodec_util.c  | 117 +++-
-> .../mediatek/vcodec/common/mtk_vcodec_util.h  |   8 +-
-> .../platform/mediatek/vcodec/decoder/Makefile |   4 +
-> .../mediatek/vcodec/decoder/mtk_vcodec_dec.c  | 152 +++--
-> .../vcodec/decoder/mtk_vcodec_dec_drv.c       |   8 +
-> .../vcodec/decoder/mtk_vcodec_dec_drv.h       |  11 +
-> .../vcodec/decoder/mtk_vcodec_dec_hw.c        |  34 +-
-> .../vcodec/decoder/mtk_vcodec_dec_optee.c     | 391 +++++++++++++
-> .../vcodec/decoder/mtk_vcodec_dec_optee.h     | 198 +++++++
-> .../vcodec/decoder/mtk_vcodec_dec_pm.c        |   6 +-
-> .../vcodec/decoder/mtk_vcodec_dec_stateless.c |  35 +-
-> .../vcodec/decoder/vdec/vdec_av1_req_lat_if.c | 104 ++--
-> .../decoder/vdec/vdec_h264_req_common.c       |  18 +-
-> .../decoder/vdec/vdec_h264_req_multi_if.c     | 536 +++++++++++++++++-
-> .../decoder/vdec/vdec_hevc_req_multi_if.c     |  88 +--
-> .../vcodec/decoder/vdec/vdec_vp9_req_lat_if.c | 101 ++--
-> .../mediatek/vcodec/decoder/vdec_drv_if.c     |   4 +-
-> .../mediatek/vcodec/decoder/vdec_msg_queue.c  |   9 +-
-> .../mediatek/vcodec/decoder/vdec_vpu_if.c     |  51 +-
-> .../mediatek/vcodec/decoder/vdec_vpu_if.h     |   4 +
-> drivers/media/v4l2-core/v4l2-common.c         |   2 +
-> drivers/media/v4l2-core/v4l2-ioctl.c          |   1 +
-> include/linux/dma-heap.h                      |  29 +-
-> include/media/videobuf2-core.h                |   8 +-
-> include/uapi/linux/videodev2.h                |   3 +
-> 33 files changed, 1868 insertions(+), 296 deletions(-)
-> create mode 100644 drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_optee.c
-> create mode 100644 drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_optee.h
->
->-- 
->2.18.0
->
-Sebastian Fricke
-Consultant Software Engineer
-
-Collabora Ltd
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK
-Registered in England & Wales no 5513718.
+-- 
+With best wishes
+Dmitry
 
