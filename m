@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D23ED41C3E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 13:14:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E7FCD41C3E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 13:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5nbqMK/vu5S+EB8yB3j6/LM3bRJoguYvwGMWQ/46LZk=; b=h8aHjSgoJSi1SEav65oE2ePXUK
-	5n+B6aS5OTAm7DAnJrLR4Yxu/I3LGbPh5yo898IvJFp3ithRTNWI41AZwrCgNT930UKFZ5uNWlP3E
-	Lzrgszk0n+TdSHa64O5xLKDLxr2tdl6BLKFglOLtyEyO158Z+Dwmx5aJVAtQbrf4+GkkgiF/bSFIf
-	a7S67OmjqXjjopYya6s4Y+Kx5LIsdLXMu4ESD12olKLRPmWnfMfbtaZTrqSF29ph2+YbgindjaS1q
-	mKCSDw47XhimcOHt6RKHkZRBDFjF3aT3T57Gs0eC2Lhvwz0eD8fXjEE+eXLzy65DN11zB98qm2hkA
-	pFGg9WZg==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+PEQwa7l4DLT738WiQ6Ib5yUyJgE+xpzL/9h4q6jaqI=; b=geV/A4fWBFNaMR8J2gm1G8bDeO
+	lVloONh/ITHeOPzpNeYlIYThFiYtLavh484ovTY9iqNYFimrHP1GaLKfrL/q8bnHy4KbpCHYjgmO+
+	pBRXV+vjG0GnYHy1sIoojEi1TzzmXNgGx2MH2tATO8wJkyRPPiQykfHjwa9fOqJmQkgXToTjSGH+p
+	kpUzqPwxShl0R2v3RdsFEfdMV99xyFXmDsCmqQjjp4MoOPM8BL73R+bEr4Yp07e6JodZ2G+Xdl2i1
+	oz3zr9u8Jqsh1vVh13g60lYtngaQ+kE8hZYu65vS6xU8pxn3M0bvp228Rr9YkO8398sw0Bh1MryLy
+	5FL+rETA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBDCC-00000006suP-3bko;
-	Wed, 13 Nov 2024 13:14:08 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1tBDDx-00000006tAF-3Puj;
+	Wed, 13 Nov 2024 13:15:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBDAK-00000006se6-3sO4;
-	Wed, 13 Nov 2024 13:12:14 +0000
-MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1731503528;
+	id 1tBDBE-00000006sp9-2KmU
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Nov 2024 13:13:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1731503587;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5nbqMK/vu5S+EB8yB3j6/LM3bRJoguYvwGMWQ/46LZk=;
-	b=PJtXT4LKXzMdwKPDnSFOu2Zu5pLcSSqZyrhtfdFdRp3nsgHkNp75NTmSyCZ0KsXk/Vdttr
-	cXGDeY6bFxmzhtcbPAgdL/ilrU1OxmenfyFD611R/gPUGmRJs4yGP4y60Ierqnxbl+WtRZ
-	8Gg7RsmG5kYaNEr2WHYfYssVkdgry/uU6nJR66QbWo4QnBl/ylJiNgDfCFN+MvskoSUqLs
-	wm51Ly/fDEo9Sl/KQHeThFL13VZ5U2v8ejevruNygDtxFKa6QlREIwVHfesOfg7QU27hSr
-	R7imDatYBIldY5SxmIZQTMlaFVW9R8ht2BrMmvI5JdkFtRbD+q+KPh4aA4v29w==
-Date: Wed, 13 Nov 2024 14:12:07 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: =?UTF-8?Q?Tam=C3=A1s_Sz=C5=B1cs?= <tszucs@linux.com>
-Cc: Jonas Karlman <jonas@kwiboo.se>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki
- <naoki@radxa.com>, Chukun Pan <amadeus@jmu.edu.cn>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Enable sdmmc2 on rock-3b and
- set it up for SDIO devices
-In-Reply-To: <CA+Gksr+6pjsHY=Mx2gmPnTV6TRbD_4dXptAqph8RSpR1pR9LtA@mail.gmail.com>
-References: <20241111181807.13211-1-tszucs@linux.com>
- <20241111181807.13211-3-tszucs@linux.com>
- <9fbdf05c-42e6-4ac5-9542-805200bc8c87@kwiboo.se>
- <260af427ae64d6f3b02a1579ee83eb3b@manjaro.org>
- <CA+Gksr+WvS-S+jeYYG=Bo9cemvnJmjsmU4aj9YnD3t8-HY7wbw@mail.gmail.com>
- <303ad3910668e852d6670d1c79dc22e0@manjaro.org>
- <CA+GksrLLbfyHdvu1VYB4S+W78C0T1DEWu5W6pP2-g3KdBeT-LQ@mail.gmail.com>
- <eed7f35d1311eced9144fd7a5656b58f@manjaro.org>
- <CA+Gksr+aoDazT3b7uPFTOf5h3Drn3idZ5Kiris3k1fAxweXcyQ@mail.gmail.com>
- <7229c5a3e9cef5dc05f6c42a846fcd29@manjaro.org>
- <CA+Gksr+6pjsHY=Mx2gmPnTV6TRbD_4dXptAqph8RSpR1pR9LtA@mail.gmail.com>
-Message-ID: <3b0fbf639ac2f6cce233049a941ece04@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=+PEQwa7l4DLT738WiQ6Ib5yUyJgE+xpzL/9h4q6jaqI=;
+	b=PjsOi9saLJkl7HtZohQpHPjuW5s1uyBiZeNLOEGFzQnQPdmHRf4a9vVCsu4NPR8olm4agi
+	+emxq4YINUG9bCjPC7uBCeIO5iJJ5ScNBXU+bsp0TMDxFgZaFn6bDgkNgomh9D+gEnjE5Z
+	1bxcqEHQ3jOlzsCBanfOGKf9msmHdyA=
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-654-V2qSKhXWMx29W0HufQae_w-1; Wed,
+ 13 Nov 2024 08:13:04 -0500
+X-MC-Unique: V2qSKhXWMx29W0HufQae_w-1
+X-Mimecast-MFC-AGG-ID: V2qSKhXWMx29W0HufQae_w
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4A984195419F;
+	Wed, 13 Nov 2024 13:13:03 +0000 (UTC)
+Received: from [172.64.11.46] (unknown [10.30.34.132])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 80E56195607C;
+	Wed, 13 Nov 2024 13:13:02 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS (MISSED 10 of 69): Test report for for-kernelci
+ (6.12.0-rc7, upstream-arm-next, 68556612)
+Date: Wed, 13 Nov 2024 13:13:02 -0000
+To: catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org
+MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+Message-Id: <09983.124111308130401644@us-mta-654.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: N_NZ2FeO4vt2E4XgwzDDVTiwVwRIVXD6xoj1gwhQFmQ_1731503583
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_051213_303439_0662DEB0 
-X-CRM114-Status: GOOD (  47.50  )
+X-CRM114-CacheID: sfid-20241113_051308_694215_49B40F27 
+X-CRM114-Status: UNSURE (   6.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,190 +84,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Tamas,
+Hi, we tested your kernel and here are the results:
 
-On 2024-11-13 12:17, Tamás Szűcs wrote:
-> On Wed, Nov 13, 2024 at 11:44 AM Dragan Simic <dsimic@manjaro.org> 
-> wrote:
->> On 2024-11-13 11:24, Tamás Szűcs wrote:
->> > On Wed, Nov 13, 2024 at 12:38 AM Dragan Simic <dsimic@manjaro.org>
->> > wrote:
->> >> On 2024-11-12 22:05, Tamás Szűcs wrote:
->> >> > On Tue, Nov 12, 2024 at 4:16 PM Dragan Simic <dsimic@manjaro.org>
->> >> > wrote:
->> >> >> On 2024-11-12 15:35, Tamás Szűcs wrote:
->> >> >> > I think it was totally fine to disable sdmmc2 at first, especially if
->> >> >> > it couldn’t be tested or wasn’t needed right away. From what I’ve
->> >> >> > seen, this board works great even at higher clock speeds than what
->> >> >> > rk356x-base.dtsi suggests. I don’t have access to the RK3568 errata,
->> >> >> > and there don’t seem to be any limits mentioned in the TRM either.
->> >> >> > Overall, this board is doing just fine as it is.
->> >> >>
->> >> >> Sorry, I'm missing the point of mentioning some clock speeds?  Any
->> >> >> chances, please, to clarify that a bit?
->> >> >
->> >> > It's all about stress scenarios, right. Sustained transfer at maximum
->> >> > clock, multiple SD/MMC blocks used concurrently. That kind of thing.
->> >> > Different data rates forced. I hope that answers your question.
->> >>
->> >> Ah, I see.  Though, I don't think we should worry much about that,
->> >> although testing it all is, of course, a good thing to do.
->> >
->> > Better be safe than sorry. Let's just say I've seen worse.
->> >
->> >> >> > Regarding device tree overlays, they would be ideal for implementing
->> >> >> > secondary functions, such as PCIe endpoint mode for users with
->> >> >> > specific requirements. However, the primary functions for PCIe on the
->> >> >> > M2E will be root complex mode, along with SDIO host, etc. In my view,
->> >> >> > the hardware is well-designed and interconnected. Users have a
->> >> >> > reasonable expectation that these primary functions should work
->> >> >> > seamlessly without additional configuration, right out of the box.
->> >> >>
->> >> >> That's basically what I referred to in my earlier response, and in my
->> >> >> previous response regarding the UART.  Users would expect the
->> >> >> Bluetooth
->> >> >> part to work as well, but the error messages I mentioned look nasty,
->> >> >> so
->> >> >> perhaps something should be done about that first.
->> >> >
->> >> > I'm not aware of any nasty error messages especially related to UART.
->> >> > Well, MMC core will acknowledge when the platform part fails to
->> >> > enumerate a device on sdmmc2, but there's nothing wrong with this.
->> >> > It's not even an error -- certainly not a nasty one.
->> >> >
->> >> > [    1.799703] mmc_host mmc2: card is non-removable.
->> >> > [    1.935011] mmc_host mmc2: Bus speed (slot 0) = 375000Hz (slot req
->> >> > 400000Hz, actual 375000HZ div = 0)
->> >> > [    7.195009] mmc_host mmc2: Bus speed (slot 0) = 375000Hz (slot req
->> >> > 375000Hz, actual 375000HZ div = 0)
->> >> > [   13.029540] mmc2: Failed to initialize a non-removable card
->> >>
->> >> This looks acceptable to me, but I'm now not really sure that we
->> >> should enable the sdmmc2 in the board dts.  Let me explain.
->> >>
->> >> As Jonas demonstrated with the WiFi+Bluetooth DT overlay, additional
->> >> DT configuration is needed to actually make an SDIO M.2 module plugged
->> >> into the ROCK 3B's M.2 slot work, so what do we actually get from
->> >> enabling the sdmmc2 in the board dts?  Just some error messages in
->> >> the kernel log :) and AFAICT no additional functionality when an SDIO
->> >> M.2 module is actually plugged into the slot.
->> >
->> > I think if you want to add a specific bluetooth DT overlay for your
->> > favorite module, you should.
->> > Our modules need this much and it's very useful already. I'm not
->> > interested in nailing down every single one we have in a separate
->> > overlay at this point.
->> 
->> It would help if you'd share more details about the M.2 SDIO
->> module you're referring to, please.
-> 
-> Kindly refer to 3/3.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-Just had a look at that product list page, and even tried having
-a look at MAYA-W4_ProductSummary_UBXDOC-465451970-3565.pdf, for
-example, and all I see are some high-level product descriptions,
-with no technical details we'd need to have a look at.
+Tested-by: CKI Project <cki-project@redhat.com>
 
->> >> >> > Dragan, what did you mean by SDIO related power timing requirements?
->> >> >>
->> >> >> Whenever there's an SDIO module, there's usually some required timing
->> >> >> of the power rails.  Though, I don't know what's that like with the
->> >> >> non-standard M.2 SDIO modules that Radxa sells, which are intended to
->> >> >> be used on Radxa boards with "hybrid" M.2 slots.
->> >> >
->> >> > Ok, I see. Not always. I can't comment on Radxa's SDIO module but I'm
->> >> > sure it's reasonably standard. And so is the M.2 Key E on this board.
->> >> > Actually, part of the appeal is that all standard buses are very
->> >> > nicely wired up. I want everybody to be able to use them.
->> >>
->> >> Yes, but getting it all wired in some way unfortunately doesn't mean
->> >> that it will all work without additional DT configuration in place,
->> >> as described above.
->> >
->> > Agreed, well these are the common changes needed.
->> 
->> They are common indeed, but unless demonstrated they're all that's
->> needed to get some M.2 SDIO module fully functional, it escapes me
->> to see what are the benefits of including (and more importantly,
->> enabling) these changes under the umbrella of commonality.
-> 
-> Please don't make it look harder than it is. Load device driver,
-> download firmware(s), you're set.
+Kernel information:
+    Commit message: Merge remote-tracking branch 'tip/irq/core' into for-ke=
+rnelci
 
-Well, all I can say to this is that you may be making the things
-look way simpler than they usually are.  Though, let's also see
-what other people will respond with.
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1539937649
 
->> >> Also, I'm not really sure there's some strict standard for the "GPIO"
->> >> and "UART" M.2 modules, that part of the specification was/is a bit
->> >> blurry or perhaps even non-existent.  It's been a while since I wrote
->> >> the M.2 aricle on English Wikipedia, :) maybe it's become defined
->> >> better in the meantime.
->> >>
->> >> >> Once again, please use inline replying. [*]
->> >> >>
->> >> >> [*] https://en.wikipedia.org/wiki/Posting_style
->> >> >>
->> >> >> > On Tue, Nov 12, 2024 at 5:41 AM Dragan Simic <dsimic@manjaro.org>
->> >> >> > wrote:
->> >> >> >>
->> >> >> >> Hello Jonas and Tamas,
->> >> >> >>
->> >> >> >> On 2024-11-11 20:06, Jonas Karlman wrote:
->> >> >> >> > On 2024-11-11 19:17, Tamás Szűcs wrote:
->> >> >> >> >> Enable SDIO on Radxa ROCK 3 Model B M.2 Key E. Add all supported UHS-I
->> >> >> >> >> rates and
->> >> >> >> >> enable 200 MHz maximum clock. Also, allow host wakeup via SDIO IRQ.
->> >> >> >> >>
->> >> >> >> >> Signed-off-by: Tamás Szűcs <tszucs@linux.com>
->> >> >> >> >> ---
->> >> >> >> >>  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 8 +++++++-
->> >> >> >> >>  1 file changed, 7 insertions(+), 1 deletion(-)
->> >> >> >> >>
->> >> >> >> >> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->> >> >> >> >> b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->> >> >> >> >> index 242af5337cdf..b7527ba418f7 100644
->> >> >> >> >> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->> >> >> >> >> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->> >> >> >> >> @@ -688,14 +688,20 @@ &sdmmc2 {
->> >> >> >> >>      cap-sd-highspeed;
->> >> >> >> >>      cap-sdio-irq;
->> >> >> >> >>      keep-power-in-suspend;
->> >> >> >> >> +    max-frequency = <200000000>;
->> >> >> >> >>      mmc-pwrseq = <&sdio_pwrseq>;
->> >> >> >> >>      non-removable;
->> >> >> >> >>      pinctrl-names = "default";
->> >> >> >> >>      pinctrl-0 = <&sdmmc2m0_bus4 &sdmmc2m0_clk &sdmmc2m0_cmd>;
->> >> >> >> >> +    sd-uhs-sdr12;
->> >> >> >> >> +    sd-uhs-sdr25;
->> >> >> >> >> +    sd-uhs-sdr50;
->> >> >> >> >
->> >> >> >> > I thought that lower speeds was implied by uhs-sdr104?
->> >> >> >>
->> >> >> >> Last time I went through the MMC drivers, they were implied.  IIRC,
->> >> >> >> such backward mode compatibility is actually a requirement made by
->> >> >> >> the MMC specification.
->> >> >> >>
->> >> >> >> >>      sd-uhs-sdr104;
->> >> >> >> >> +    sd-uhs-ddr50;
->> >> >> >> >>      vmmc-supply = <&vcc3v3_sys2>;
->> >> >> >> >>      vqmmc-supply = <&vcc_1v8>;
->> >> >> >> >> -    status = "disabled";
->> >> >> >> >> +    wakeup-source;
->> >> >> >> >> +    status = "okay";
->> >> >> >> >
->> >> >> >> > This should probably be enabled using an dt-overlay, there is no
->> >> >> >> > SDIO device embedded on the board and the reason I left it disabled
->> >> >> >> > in original board DT submission.
->> >> >> >>
->> >> >> >> Just went through the ROCK 3B schematic, version 1.51, and I think
->> >> >> >> there should be no need for a separate overlay, because sdmmc2 goes
->> >> >> >> to the M.2 slot on the board, which any user can plug an M.2 module
->> >> >> >> into, and the SDIO interface is kind-of self-discoverable.
->> >> >> >>
->> >> >> >> Of course, all that unless there are some horribly looking :) error
->> >> >> >> messages emitted to the kernel log when nothing is actually found,
->> >> >> >> in which case the SDIO/MMC driers should be fixed first.  Also, I'm
->> >> >> >> not sure what do we do with the possible SDIO-related power timing
->> >> >> >> requirements?
+Tests that were not ran because of internal issues:=20
+    Boot test [aarch64]
+    CKI/restraint [aarch64]
+    machineinfo [aarch64]
+    Reboot test [aarch64]
+    SELinux Custom Module Setup [aarch64]
+    Storage - blktests - throtl [aarch64]
+    Storage - blktests - ublk [aarch64]
+    Storage - swraid scsi_raid [aarch64]
+    stress: stress-ng - cpu-cache [aarch64]
+    stress: stress-ng - memory [aarch64]
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
