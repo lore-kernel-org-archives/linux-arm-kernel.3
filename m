@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDAED597DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 03:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7326BD597DF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 03:39:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AOUAWH6pV1fsYko+Yxr0f+QFCTZ+RX3OpT/Dx5oR4KQ=; b=bQValHn4Wh4DbxQIbMt9DWZ5qG
-	mAw02tvdU9XfW6cNNp31d5II5IHIjs+GW2F8NUiWauYy9hwVAttXZBMA6OqIBfU+jewZbI4fsHR1n
-	F7efe9hfrI5VJIBawQGTAePTDZ5JBqyzboXeCyeF7cFzRlZs0htXLtsY+F0pddSMGMBV98KlaAOxq
-	IKt98FMiODjym7iggLnVNknghQ0BxC6+3qyNxrwQURCZWL2OmNwxsIF9aoprqy/MDNhBFqW8fX91v
-	UMjiV1UougVU6c97TGV3dgAaMGJYzoUR3UCUeQSEfhPtaxTb08/LTwYOR+H1PY51dpZoGhZQJZASh
-	/D0KpXAA==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X32hJXSKXyuLTq4R9lt75Tsune+4HWC7brMAnjuouZQ=; b=oRCRRtafuHmm5+rlOuYjmryfH7
+	JOQeCgqKD7afdnr7mVz6a0cevBOzZzAELMOwJ3AAsHpjZFyk1YgqTbsZfc+VcS+YN3xjhcx4FU9Ij
+	ugWScOB3dbMZTpUtEZFyBhd0gNswAnw2hK1PWmimIgAv2LvkPkbH0SF6M8jzeyjYM89UavNta8SBX
+	6aJ+yzEdZlt5JtDEXVBzsOFFqpc+UWnuWTcjtpt1O/eS6ZMZ/1GRoy8/GqhdAEMEx2QDOdmlCLrn9
+	VvgZlxp8XtCmqFwDor5cTPxkIvnPhR2EpD/17cvXXYW+bNu3SrDccLB8GSTcKSo1WV/7RhoLKP2QS
+	3cnHl7yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB41M-00000005fx0-16Mc;
-	Wed, 13 Nov 2024 03:26:20 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tB4E6-00000005giA-3RwJ;
+	Wed, 13 Nov 2024 03:39:30 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB3zY-00000005frI-2S4g
+	id 1tB4CJ-00000005gdT-2ATX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 03:24:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5EA4AA40F87;
-	Wed, 13 Nov 2024 03:22:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1092FC4CECF;
-	Wed, 13 Nov 2024 03:24:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731468267;
-	bh=ZYSRn4jhHEScLQY/RV9Zp1TTf0al4w/RdxqA8X4W1h4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=UhY5xhK9SMnm68gF5pphZ74bThArxDM9WxtmB3hHSYWaoLtR7ZvDmyenHh/37OznC
-	 qE0w7bEtm6JMdk4q7K3abST8Zax8cpyM+X+znZipQkA5wDiu0GT9aQtvzrpAQruR0+
-	 zWF4yafDpe/cYEnupQsJ7LXn4VPij0fKi3XiLQOXDxUxkGDTV8P65W4mny0zlgBiyL
-	 t3l44w8g02txnAt4xYUWpqAPWQCxMfYwEy8rr1HS9edhliY+ifzrAA8F08rDuuAod7
-	 QKlHAOaSw3b+nYWcPOIgY4BHIjbgR0OXGErwa8fbFUIhRDyjOIwBH8ai93FsTCRzFW
-	 kSPkKy0XxhN1w==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Olof Johansson <olof@lixom.net>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Jingyi Wang <quic_jingyw@quicinc.com>,
-	Manikanta Mylavarapu <quic_mmanikan@quicinc.com>,
-	Song Xue <quic_songxue@quicinc.com>,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Melody Olvera <quic_molvera@quicinc.com>,
-	Sibi Sankar <quic_sibis@quicinc.com>
-Subject: [GIT PULL] A few more Qualcomm driver updates for v6.13
-Date: Tue, 12 Nov 2024 21:24:22 -0600
-Message-ID: <20241113032425.356306-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.47.0
+	Wed, 13 Nov 2024 03:37:41 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4Xp87Z63DWz1SGPx;
+	Wed, 13 Nov 2024 11:35:38 +0800 (CST)
+Received: from kwepemd200012.china.huawei.com (unknown [7.221.188.145])
+	by mail.maildlp.com (Postfix) with ESMTPS id 102AA180042;
+	Wed, 13 Nov 2024 11:37:29 +0800 (CST)
+Received: from [10.67.121.115] (10.67.121.115) by
+ kwepemd200012.china.huawei.com (7.221.188.145) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Wed, 13 Nov 2024 11:37:28 +0800
+Message-ID: <fa65b60a-9277-685c-0bcd-4ee1f9f69fff@hisilicon.com>
+Date: Wed, 13 Nov 2024 11:37:27 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH v2] irqchip/gicv3-its: Add workaround for hip09 ITS
+ erratum 162100801
+Content-Language: en-US
+To: Marc Zyngier <maz@kernel.org>
+CC: <tglx@linutronix.de>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <wangwudi@hisilicon.com>, Nianyao Tang
+	<tangnianyao@huawei.com>
+References: <20241112090426.1876148-1-wangzhou1@hisilicon.com>
+ <874j4ctqrb.wl-maz@kernel.org>
+From: Zhou Wang <wangzhou1@hisilicon.com>
+In-Reply-To: <874j4ctqrb.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.115]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemd200012.china.huawei.com (7.221.188.145)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_192428_770659_4390C385 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20241112_193739_906189_0CFD319B 
+X-CRM114-Status: GOOD (  26.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,79 +75,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2024/11/12 23:29, Marc Zyngier wrote:
+> On Tue, 12 Nov 2024 09:04:26 +0000,
+> Zhou Wang <wangzhou1@hisilicon.com> wrote:
+>>
+>> When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
+>> during unmapping operation, which will cause some vSGIs lost.
+>>
+>> To fix the issue, it needs to send VINVALL command after VMOVP.
+>>
+>> Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
+>> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+>> ---
+>>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>>  arch/arm64/Kconfig                          | 10 +++++++
+>>  drivers/irqchip/irq-gic-v3-its.c            | 29 +++++++++++++++++++++
+>>  3 files changed, 41 insertions(+)
+>>
+>> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+>> index 65bfab1b1861..77db10e944f0 100644
+>> --- a/Documentation/arch/arm64/silicon-errata.rst
+>> +++ b/Documentation/arch/arm64/silicon-errata.rst
+>> @@ -258,6 +258,8 @@ stable kernels.
+>>  | Hisilicon      | Hip{08,09,10,10C| #162001900      | N/A                         |
+>>  |                | ,11} SMMU PMCG  |                 |                             |
+>>  +----------------+-----------------+-----------------+-----------------------------+
+>> +| Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+>> ++----------------+-----------------+-----------------+-----------------------------+
+>>  +----------------+-----------------+-----------------+-----------------------------+
+>>  | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+>>  +----------------+-----------------+-----------------+-----------------------------+
+>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>> index 70d7f4f20225..d41cf6bf1458 100644
+>> --- a/arch/arm64/Kconfig
+>> +++ b/arch/arm64/Kconfig
+>> @@ -1232,6 +1232,16 @@ config HISILICON_ERRATUM_161600802
+>>  
+>>  	  If unsure, say Y.
+>>  
+>> +config HISILICON_ERRATUM_162100801
+>> +	bool "Hip09 162100801 erratum support"
+>> +	default y
+>> +	help
+>> +	  When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
+>> +	  during unmapping operation, which will cause some vSGIs lost.
+>> +	  So fix it by sending VINVALL command after VMOVP.
+>> +
+>> +	  If unsure, say Y.
+>> +
+>>  config QCOM_FALKOR_ERRATUM_1003
+>>  	bool "Falkor E1003: Incorrect translation due to ASID change"
+>>  	default y
+>> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+>> index 52f625e07658..e98d13d0adf9 100644
+>> --- a/drivers/irqchip/irq-gic-v3-its.c
+>> +++ b/drivers/irqchip/irq-gic-v3-its.c
+>> @@ -44,6 +44,7 @@
+>>  #define ITS_FLAGS_WORKAROUND_CAVIUM_22375	(1ULL << 1)
+>>  #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
+>>  #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
+>> +#define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
+>>  
+>>  #define RD_LOCAL_LPI_ENABLED                    BIT(0)
+>>  #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
+>> @@ -3804,6 +3805,7 @@ static int its_vpe_set_affinity(struct irq_data *d,
+>>  	struct its_vpe *vpe = irq_data_get_irq_chip_data(d);
+>>  	unsigned int from, cpu = nr_cpu_ids;
+>>  	struct cpumask *table_mask;
+>> +	struct its_node *its;
+>>  	unsigned long flags;
+>>  
+>>  	/*
+>> @@ -3866,6 +3868,17 @@ static int its_vpe_set_affinity(struct irq_data *d,
+>>  	vpe->col_idx = cpu;
+>>  
+>>  	its_send_vmovp(vpe);
+>> +
+>> +	/*
+>> +	 * Version of ITS is same in one system. As there is no cache in ITS,
+>> +	 * and only cache in related GICR should be clean, so one VINVALL is
+>> +	 * enough here.
+>> +	 */
+>> +	its = list_first_entry(&its_nodes, struct its_node, entry);
+>> +	if ((its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100801) &&
+>> +	    is_v4_1(its))
+>> +		its_send_vinvall(its, vpe);
+> 
+> Can this be done using the GICR_INVALLR register instead? I would
+> expect it to be a bit better performance wise, as it doesn't require
+> to take a global lock. Something like the hack below (untested).
+> 
+> Thanks,
+> 
+> 	M.
 
-The following changes since commit d088afa7de3cbe689954dad49e7058d2c4b8944c:
+Hi Marc,
 
-  soc: qcom: socinfo: add QCS9100 ID (2024-10-29 15:09:02 -0500)
+Many thanks for your suggestion! It is OK in theory and it works fine in test
+as well.
 
-are available in the Git repository at:
+I will send V3 soon.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-6.13-2
+Best,
+Zhou
 
-for you to fetch changes up to 54a8cd0f92068a3718092f68c8ae99e2078f44b6:
-
-  soc: qcom: ice: Remove the device_link field in qcom_ice (2024-11-11 22:03:30 -0600)
-
-----------------------------------------------------------------
-A few more Qualcomm driver updates for v6.13
-
-Make the Adreno driver invoke the SMMU aperture setup firmware function,
-which is required to allow the GPU to manage per-process page tables in
-some firmware versions - as an example Rb3Gen2 has no GPU without this.
-
-Add X1E Devkit to the list of devices that has functional EFI variable
-access through the uefisecapp.
-
-Flip the "manual slice configuration quirk" in the Qualcomm LLCC driver,
-as this only applies to a single platform, and introduce support for
-QCS8300, QCS615, SAR2130P, and SAR1130P.
-
-Lastly, add IPQ5424 and IPQ5404 to the Qualcomm socinfo driver.
-
-----------------------------------------------------------------
-Bjorn Andersson (2):
-      firmware: qcom: scm: Introduce CP_SMMU_APERTURE_ID
-      drm/msm/adreno: Setup SMMU aparture for per-process page table
-
-Dmitry Baryshkov (3):
-      dt-bindings: cache: qcom,llcc: document SAR2130P and SAR1130P
-      soc: qcom: llcc: use deciman integers for bit shift values
-      soc: qcom: llcc: add support for SAR2130P and SAR1130P
-
-Jingyi Wang (2):
-      dt-bindings: cache: qcom,llcc: Document the QCS8300 LLCC
-      soc: qcom: llcc: Add LLCC configuration for the QCS8300 platform
-
-Joe Hattori (1):
-      soc: qcom: ice: Remove the device_link field in qcom_ice
-
-Konrad Dybcio (1):
-      soc: qcom: llcc: Flip the manual slice configuration condition
-
-Manikanta Mylavarapu (2):
-      dt-bindings: arm: qcom,ids: add SoC ID for IPQ5424/IPQ5404
-      soc: qcom: socinfo: add IPQ5424/IPQ5404 SoC ID
-
-Melody Olvera (1):
-      dt-bindings: firmware: qcom,scm: Document sm8750 SCM
-
-Sibi Sankar (1):
-      firmware: qcom: uefisecapp: Allow X1E Devkit devices
-
-Song Xue (2):
-      dt-bindings: cache: qcom,llcc: Document the QCS615 LLCC
-      soc: qcom: llcc: Add configuration data for QCS615
-
- .../devicetree/bindings/cache/qcom,llcc.yaml       |  32 ++
- .../devicetree/bindings/firmware/qcom,scm.yaml     |   2 +
- drivers/firmware/qcom/qcom_scm.c                   |  27 +
- drivers/firmware/qcom/qcom_scm.h                   |   1 +
- drivers/gpu/drm/msm/adreno/adreno_gpu.c            |  11 +
- drivers/soc/qcom/ice.c                             |   6 +-
- drivers/soc/qcom/llcc-qcom.c                       | 615 +++++++++++++++++++--
- drivers/soc/qcom/socinfo.c                         |   2 +
- include/dt-bindings/arm/qcom,ids.h                 |   2 +
- include/linux/firmware/qcom/qcom_scm.h             |   2 +
- include/linux/soc/qcom/llcc-qcom.h                 |  12 +
- 11 files changed, 676 insertions(+), 36 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index fdec478ba5e7..d30d6ee727c1 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -62,6 +62,8 @@ static u32 lpi_id_bits;
+>  
+>  static u8 __ro_after_init lpi_prop_prio;
+>  
+> +static struct its_node *find_4_1_its(void);
+> +
+>  /*
+>   * Collection structure - just an ID, and a redistributor address to
+>   * ping. We use one per CPU as a bag of interrupts assigned to this
+> @@ -3797,6 +3799,22 @@ static void its_vpe_db_proxy_move(struct its_vpe *vpe, int from, int to)
+>  	raw_spin_unlock_irqrestore(&vpe_proxy.lock, flags);
+>  }
+>  
+> +static void its_vpe_4_1_invall_locked(int cpu, struct its_vpe *vpe)
+> +{
+> +	void __iomem *rdbase;
+> +	u64 val;
+> +
+> +	val  = GICR_INVALLR_V;
+> +	val |= FIELD_PREP(GICR_INVALLR_VPEID, vpe->vpe_id);
+> +
+> +	raw_spin_lock(&gic_data_rdist_cpu(cpu)->rd_lock);
+> +	rdbase = per_cpu_ptr(gic_rdists->rdist, cpu)->rd_base;
+> +	gic_write_lpir(val, rdbase + GICR_INVALLR);
+> +
+> +	wait_for_syncr(rdbase);
+> +	raw_spin_unlock(&gic_data_rdist_cpu(cpu)->rd_lock);
+> +}
+> +
+>  static int its_vpe_set_affinity(struct irq_data *d,
+>  				const struct cpumask *mask_val,
+>  				bool force)
+> @@ -3849,6 +3867,10 @@ static int its_vpe_set_affinity(struct irq_data *d,
+>  	vpe->col_idx = cpu;
+>  
+>  	its_send_vmovp(vpe);
+> +
+> +	if (find_4_1_its()->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100801)
+> +		its_vpe_4_1_invall_locked(cpu, vpe);
+> +
+>  	its_vpe_db_proxy_move(vpe, from, cpu);
+>  
+>  out:
+> @@ -4156,22 +4178,12 @@ static void its_vpe_4_1_deschedule(struct its_vpe *vpe,
+>  
+>  static void its_vpe_4_1_invall(struct its_vpe *vpe)
+>  {
+> -	void __iomem *rdbase;
+>  	unsigned long flags;
+> -	u64 val;
+>  	int cpu;
+>  
+> -	val  = GICR_INVALLR_V;
+> -	val |= FIELD_PREP(GICR_INVALLR_VPEID, vpe->vpe_id);
+> -
+>  	/* Target the redistributor this vPE is currently known on */
+>  	cpu = vpe_to_cpuid_lock(vpe, &flags);
+> -	raw_spin_lock(&gic_data_rdist_cpu(cpu)->rd_lock);
+> -	rdbase = per_cpu_ptr(gic_rdists->rdist, cpu)->rd_base;
+> -	gic_write_lpir(val, rdbase + GICR_INVALLR);
+> -
+> -	wait_for_syncr(rdbase);
+> -	raw_spin_unlock(&gic_data_rdist_cpu(cpu)->rd_lock);
+> +	its_vpe_4_1_invall_locked(cpu, vpe);
+>  	vpe_to_cpuid_unlock(vpe, flags);
+>  }
+>  
+> 
 
