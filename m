@@ -4,171 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48291D462CF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 15:58:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5783D462D8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 16:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1O9+djzdBi1jGLoprRNq8CZGqAdwOUFTtqlOzuEyw0w=; b=nDwUHO32zRq7OJph4VDsBQRrgc
-	P7Dxjxfgmx9krNd75Ok1kD/sGVLWW136CB1rqW8xqX3zuPsG/5bnWRiisH7cfcH2DkQ0PW7AL1avw
-	BfjwpNQnugBXTtK84DoF3jP4/bG9gb0wQOwpfuHdKP1tTDUVb2Atlfs+EhbRbQse3NMQz9hPWjAzt
-	2UbvuQtVtK5uKko3XYkVQ1kUkAC9OmcOQ3cDFTVFiv5AYkl5fVc4RBtPdqD8qZmh8GFurKDgy3+qM
-	+qj1tScDGOhUzFYIAsHFRrjvRGqyQjnMxWjHD1N3W/6wIg5327PTj195Xv9dpCwCo2gr4JnG9HZK7
-	16kax//g==;
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DWVYvGeSKKBkX8OnCLGLvSjd0lyP5dTVTlmN/GUEsOM=; b=WoLgadE36g+uLpadbmyFC54Q0v
+	hAmx0UpCEsNNXtDSgoz4csQJFEgcPoHEWafuGZoh1BXUwf+wf+4+WzPmvYt9QWpJYFV7p69LPaYA9
+	XcGKLXbyg1T7xnEvxflYeDTd3if8EDjhqEv3t9rQlGVNdctKet8AeZ1H7cOAZJNv3wYTxK/xqv54F
+	dOT7jIW+yCo00+TJy00Hho4fyIMoCorsdwo6K5C/ufNDQljl8I21F6GrF4SSzCuttwA2Yqjo7cZR0
+	HEsvozPDhoN2j+uNV/CQyRUWW0HicMEes2nXJGw7Pk7ApKcSL+0O8M6Y2ZBDkHum35wvNRBqWMy7J
+	iECa+yFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBFkc-00000007Nnt-2tIB;
-	Wed, 13 Nov 2024 15:57:50 +0000
-Received: from mail-am7eur03on2061e.outbound.protection.outlook.com ([2a01:111:f403:260e::61e] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1tBGH8-00000007Smn-3mcM;
+	Wed, 13 Nov 2024 16:31:26 +0000
+Received: from mail-db8eur05on20631.outbound.protection.outlook.com ([2a01:111:f403:2614::631] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBFin-00000007NYp-3cgk
+	id 1tBFGC-00000007IlS-3xvY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 15:55:59 +0000
+	Wed, 13 Nov 2024 15:26:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XsjumdwXi0bnA5F4LLQtrshgNP71G3p5Qg4KFnj+XK+UYSS/US7xSAS2QsYd4jD8vqs7UTOxqsbLNHxRTFWDQF3b5Hn32FnIzAaKS2XXeEqEN8ml6ob0RiHM8LdLX6jQf0Y5bs++0Q+b1d57CiuAHoak70n0QKNv6NQIAO4RpuNeyB7DIBbRyV5xCBrOXn72S2DMyHyc8Ys69WeyRVeK3ZfTB52PQNBi6ooh+Y044N9+/5lrotV2ICR5Zda7TP4Fd9tgtuw/0QxnWrrEiaSAJJhDPXzD20v6Ed77+aA2rgCk/8SOmcD71FumqnjmF6TuZanP+jSPspJULxoXvf1OfQ==
+ b=KJDHMAMrN6xy+m8g6AkcTV9F8AbxZejrfNSw3IQIFtw9wCrGLVEqlDWzqVwKHs9RPUabWjMdBrhGZj1eOs8AyEZ91LaNB9h9IcuZUId7fq0s9fuJOw6kvTntVNe9lX6RDyPlcP0cwIEdYMrbTyywe+SkGQjzuhW6wNqiwpBhVjPcrGHsJW2wuk3P6Np1kTI8bnQv6VzmW02Z3/ihUDzFCnqrG7/mBc0bUiNWdFKcGxkrAszo9T/NPJJxMhdfcpQmquvoBH6LmljjAZFP+2otbf2z2vTsYxwKmyYNlhJnwhV+oCLRoU/5JgJvP2sFchSkc4klUsb9YNADnntPIulSVQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1O9+djzdBi1jGLoprRNq8CZGqAdwOUFTtqlOzuEyw0w=;
- b=LNhlzfEVJPgM8L3OOszpwooKIJB408WjlHHQKGMx+HcEbTs+ZfCUKx+f/8HSCZw89VjMYVrBuvyJlHJQntxgdpSJQnUpmKKFmM2iOu/Mbf3msvsLnjzPeaVZEMh3XMH/Y7zYfHk/dsk+CYQs4i3UOjClUI/DfnKfqGipo74CxNkQHu+IOEOlu8lsCFP2vdsffNpFKgpva5i3spoSUlvAAt6Ou+hvp6p5RGUFcBxUONH/pGquLuQAsauaDw9pqTWKXr0+uFERJV8DbERLSdMxMtiDVa4Yul3s9UxrhJgFNRIfDJeXv/R235tbrU2NdLVDrbp2vbYcTwu+SVQQNpf/4Q==
+ bh=DWVYvGeSKKBkX8OnCLGLvSjd0lyP5dTVTlmN/GUEsOM=;
+ b=R4ZPUNR/c6MnsFOXZh2YSWUVD3Kil+Uw/xzr2Kr0yNPHtwr+ggePSnD5Z2shU1DrUZKQJkJgAejMFBBQMkHQGr+J46GXIHHk2expM0OjO5AcgIW0owOucRLQGNBbIYa8Qg4xRvx3+8n1LlIAG1vCbSjcOp0+94ZGFY88LStHEyAc7a7OIPUJ1pJsLeZHXVSf6GY5g2HM05gSAQNbgjZTvTdWGIfnXbqZc7lOIm+SDxesuOFMQLfbDxpJSuRbAEsVs0C9A6L17VWkoMlb95Z/y69uZcssacYcAhnEH17yjrES69SCu8lnSA07v6dxHTYM7VUPAG0qk2hkSANTSd4jdA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1O9+djzdBi1jGLoprRNq8CZGqAdwOUFTtqlOzuEyw0w=;
- b=DWVD4kXw2F5FA/3R0B+U30M9CFo5bW6+q7E7WM6Pk04ozpBztbqZ32k55frnlw2++0UqK4fTobYcG8rhyK2RHtvpxzUG+ygWY1a43G1Fyb3a5L+yTH5ewcwGN58S5XivcPeeio0FJHilgHzxZ7sKuX8Ha3vgZnd04K8y3zIyZnkTuBB1XW5rTFwryr8qcBwkzA2+DnqHm+qDal+8GGuAbc9abk5dJoUeLJA2YP0Dfz80p9OWqS2C8tEiSJ+fhpISJADxqHbfZHfJWnwzqvG209VFj9G7XhKsks+leCHWoDgZnTxVqD/NIYv+f0eGRwJdgE4W5zpVbuo9GXl+993Uqw==
+ bh=DWVYvGeSKKBkX8OnCLGLvSjd0lyP5dTVTlmN/GUEsOM=;
+ b=ncnJqAvDBx7a7Ct9bXBgg/ZGe5GLN07K92sFShUcM6V9nrVCM3MfupqA+Mj/th0DvVl+xb13JySXhPiP5cxRwd5NsAh1Hab9s5f7Gctn9m//OW9jlf7f/x+oav9t+OQWFlD2zTo7lnpvGvuHm13+FEmtAvUrUX/AnilpMTQdiWnM8DGEgDGmCXlYBYdqiUHtLIRUtEs9JKRNS+NfY8XV+Jh+ahzug8FMjr+xLuo45gk8vW9bjvtMnEdOqPpTvEmrrM+tWNWOHku2xtl6cSW0VS94u1HeUo8OAoiOC4fXlJ5zGt2poI+3mRuu/stX1PC8heJG8ixEdf+h0Aydmt4H8A==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by GVXPR04MB10852.eurprd04.prod.outlook.com (2603:10a6:150:225::20) with
+ by AM8PR04MB7761.eurprd04.prod.outlook.com (2603:10a6:20b:248::15) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.28; Wed, 13 Nov
- 2024 15:55:52 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.29; Wed, 13 Nov
+ 2024 15:26:16 +0000
 Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
  ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
  ([fe80::e81:b393:ebc5:bc3d%3]) with mapi id 15.20.8137.027; Wed, 13 Nov 2024
- 15:55:51 +0000
-Date: Wed, 13 Nov 2024 10:55:41 -0500
+ 15:26:16 +0000
+Date: Wed, 13 Nov 2024 10:26:04 -0500
 From: Frank Li <Frank.li@nxp.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>,
+	Larisa Grigore <larisa.grigore@nxp.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>, Lee Jones <lee@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	alyssa@rosenzweig.io, bpf@vger.kernel.org, broonie@kernel.org,
-	jgg@ziepe.ca, joro@8bytes.org, lgirdwood@gmail.com, maz@kernel.org,
-	p.zabel@pengutronix.de, robin.murphy@arm.com, will@kernel.org
-Subject: Re: [PATCH v5 0/2] PCI: add enabe(disable)_device() hook for bridge
-Message-ID: <ZzTL/b4BEAGvSa1Q@lizhi-Precision-Tower-5810>
-References: <20241104-imx95_lut-v5-0-feb972f3f13b@nxp.com>
-Content-Type: text/plain; charset=utf-8
+	imx@lists.linux.dev
+Subject: Re: [PATCH v6 1/7] dt-bindings: mfd: add support for the NXP SIUL2
+ module
+Message-ID: <ZzTFDPxPvmpphTdb@lizhi-Precision-Tower-5810>
+References: <20241113101124.1279648-1-andrei.stefanescu@oss.nxp.com>
+ <20241113101124.1279648-2-andrei.stefanescu@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241104-imx95_lut-v5-0-feb972f3f13b@nxp.com>
-X-ClientProxiedBy: BYAPR07CA0036.namprd07.prod.outlook.com
- (2603:10b6:a02:bc::49) To DB9PR04MB9626.eurprd04.prod.outlook.com
+In-Reply-To: <20241113101124.1279648-2-andrei.stefanescu@oss.nxp.com>
+X-ClientProxiedBy: BYAPR07CA0097.namprd07.prod.outlook.com
+ (2603:10b6:a03:12b::38) To DB9PR04MB9626.eurprd04.prod.outlook.com
  (2603:10a6:10:309::18)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|GVXPR04MB10852:EE_
-X-MS-Office365-Filtering-Correlation-Id: 458943bb-a47c-4d2f-91d5-08dd03fba60e
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AM8PR04MB7761:EE_
+X-MS-Office365-Filtering-Correlation-Id: f904004c-8464-449f-0ede-08dd03f78428
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ODdCalpNTzY1Y25Qei9QUm05WmRnYy9vS1BTaUl2aGphZndIWTdmUEZ5L1ha?=
- =?utf-8?B?ZXlNdlRrUTZqYzdvUS9lUlVqVFFVMFNZNG9lcG9KK2xMazdyOUVyRkd2aTM3?=
- =?utf-8?B?ODRjK1B5Mi9pQis4YWVsSjFGVUR4YkdSY0tZSDd3dUQ1Qi9XYW1DYS9PWVQ1?=
- =?utf-8?B?U1pJSVExOW1xTnBtM0ZjU1F4TjlYdEN5UDFGRlE0enBYTFRKVWlMWEtybVN6?=
- =?utf-8?B?ZnkwL1RDTnp0dzlRcjEwN0lJMW9hZXluWWlHa3hLOXVSUXdqcjRHRko3bmpC?=
- =?utf-8?B?NEJwRjB0R2hjRnFpT3hZL0srQkcvV3BlYURBY3JLdHFRanZPbjlnVEVCanNa?=
- =?utf-8?B?ZFR0dmlqUG02UXRVN092MjArR0I0V1JZL3k5Q1NGeHNyTnpUVDBvZXpjYjN0?=
- =?utf-8?B?UWxMTTRlRjN1RklUK2ltZSt2eEI1R09FWlc2MDU3ekh5Vy9BZ0E4WlduaDF0?=
- =?utf-8?B?Q251RUxOWXF2MXpGelpRSzBaVERnVmxVWC9sSllQeHhkK2FwWkFQWGp5NVUw?=
- =?utf-8?B?dzUrZGEybmM4UTFialF6SXpHejRZemwwZ2w2MzROS1VPblB2M0xEMDlpWGpy?=
- =?utf-8?B?REU1dkhBbHFwMm9wVFNxb2F3S0xYVFZpSDNPdGFFSlpaazhDQ0srRml0eDZU?=
- =?utf-8?B?ZUFNV2NLY0FmVllFV3lRMWtUUWJGeUtBeTU5alhKMWU4WTdJbWVJbmYxSDll?=
- =?utf-8?B?QU5NMDVPSHJ6OVdKcHVNRnlNaEEycXVDc3FuNW9SMjc3WnNBdHNNL0ZVQ1V6?=
- =?utf-8?B?Tm1uVnpBL0l0WUR3THlRY0xRVFBzcFN3bDRHVmh3Q0NlQzZJcDBFZE9kM2xL?=
- =?utf-8?B?cWxDY0dBUTR1ZW9vVU1aK0h2RFdHV00xSkxqYklFMlk4ZjlPajNjS3pyWFlj?=
- =?utf-8?B?RFFWU0VMcVRseTNRZVdQb1hlUnkrZjBud0dDU2VSaGcvOEpKdnpPRTZPdkt4?=
- =?utf-8?B?amg2bUZYWDBzY2RmUks3UUJ0d25pem40dkhadm0wcHhFVGtVUmdERzNDVFpw?=
- =?utf-8?B?R0tsQ0dndkxEYjZtMEt0R1ZGV2RibDM4UEZtZ3VOMFU5bGFUWmpCRmVFZnAy?=
- =?utf-8?B?MUE1WEtubDBBbmVZU20rclUxYXN0aVcrUDlKNFdjdFlzbW1iNE4rYjdWZTFa?=
- =?utf-8?B?Vzk4UGdtdWl1dGIwVnM3RzFFQ2FSdXIyMjh5eGVic0ZqcnNwWmdhSW0xODBJ?=
- =?utf-8?B?bk9mdm83bmw5NlREeFpPcU9weHgrVXhKaXB3VnNmUitRbUFkZW95TEtOM243?=
- =?utf-8?B?bmVNSnFXc0wrQUFlM3QxY1dra1lzSllBMmdjZVlrLzhFRVRBdjZtTTJ1eE4w?=
- =?utf-8?B?RkN2Q3JnUzgxUFRIRzNHdFEzZDdnN1hvdTdTVStPVWs3ZTFqNnRnWUdzV0Nk?=
- =?utf-8?B?VUxlZEF6TGJVOTNVOWFabDRSYTZOYWhGWm9NOWYvM2RrdEFaTWZrQ05UNWZr?=
- =?utf-8?B?MXZzZWhrN0xOUnliOWVWQU8xR0Y3ekdSclNRS3NJdVh1SGRVcWRUTHc1cldz?=
- =?utf-8?B?SUROaXcvZmFvUjZoMDUzMGY2Nzd5cDZZVllybW5IU3FxWnFCN1BGc1U2L25i?=
- =?utf-8?B?aUdHeTEzNTloNlUwREtreloxZzhtb3RKSFlhOFFYZlJSUEVLd3FFSjQ4RWxK?=
- =?utf-8?B?VEJPVkRobUlZQTFqdkZTcTRLZWRjU0VaUXBzNGtiSG1xVkY0WDN0anJja0pu?=
- =?utf-8?B?MzNOcmRZRVJ3MG41MHFuV2VkUi80ZDd2S09VaWZURzgwelRHaTA0V25nUU1T?=
- =?utf-8?B?WVkwM0FPK1RrL2VpeFNiSU9iTVNSbUhKV0YvQW1wZHlxZDRZNzV2Tk5KeDRO?=
- =?utf-8?B?NVR3QWRyMjlsRk9nb1ZZT2JiWXF6UlQxRDRGNWErcFBmWXFPMDVrcmNRZjNK?=
- =?utf-8?B?b2NYaVFOTVk3eVdNVWMwTlRqMzZXc3FXUS9mQ1EwUjB0b1E9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|7416014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OakSUgCRvpue3F1skZuDWl4TNDA5tw/z09uKWJtGl0e4EX7RJyWZzBLZxqvM?=
+ =?us-ascii?Q?AuouS2KMQZNNck5IRkiMKFFAE03PCaIRzIOmuL/PKuyPT8PzaD4ixmfBZ/AJ?=
+ =?us-ascii?Q?suYv4OwPgG9R8efR0MTyoqa66JjKqYxXQArFdDImi7yPkUiyRXxF9VBO5sDL?=
+ =?us-ascii?Q?YUo2NRpnuz1K/hs2toVI9DaBBmk/1rDSqKuUEDajuN/1mXE1ZNIB6fGmy/cA?=
+ =?us-ascii?Q?iYrT4djbV7y04dfxVtiVeWJZzJCn7Va9aZxlPtChFmq1qGtncpjHLoh+HaLb?=
+ =?us-ascii?Q?Uu4Hgaoqx4QbW4bGKmzX6DLPKsWX4fLQaEwE1qCjriI2cSsXeDmrO/Gp/EvW?=
+ =?us-ascii?Q?UJMvx9AFFG2k/vYk9czcF5EFrHMIVJ1g9UyIUu7Qp3HeWN6yQwiAzfZNypu4?=
+ =?us-ascii?Q?+F8Lltl8sOzRsQXGjKjaz/oK+55dlOgCtzSGde8Fb48dsQlsYXGzsvXdjE+j?=
+ =?us-ascii?Q?axbzDtJeyky9in8mEhsFx+piceJrZI/1+f1DZBpxF+xAD+DdWDF9KVMRF/nn?=
+ =?us-ascii?Q?7WJXf5sskJFcXzXWe+zAUPP3yvyqhykd/bnkW9//GXhLSHwQurPD4vHzW+WS?=
+ =?us-ascii?Q?spP+r+3MP+ClZdIzgd21iqtvX/AXYchlM+dtDK0V005O0g2cg1Ap8R6NcGZO?=
+ =?us-ascii?Q?lfGKqCqGgRAq3xAX1BwyBlEHLn+LYgzMgxPcnNlveaath/vmvojsLCF9Mfbb?=
+ =?us-ascii?Q?uwiWmql7HwRXCmmk8GIeHGROVcCPRJyUgmaVH60M9JhXRV2Gj7Wv7/G8lHr0?=
+ =?us-ascii?Q?UsM/nIIpuSiq/soDzDbSSj5oIIFBYXTWY3vzhXhw7UVbYfXHvyjCW8QwF+gI?=
+ =?us-ascii?Q?g4kd2xPb8Nld7YjB3bQAzA5OPm9JatGN2soiod5oJXP7erXpC0WEzlyc4AyK?=
+ =?us-ascii?Q?9nwyfxwG2a2oCmzzl0/ZUFA0xPcXWMJ4bLJbZVSlbpiL/j2VA0Jb/oZfXOUI?=
+ =?us-ascii?Q?KpVCM85uGWCYY7g6QAaOZqFRF8JtLPscP6hRIz+aN3qQuaBT+dxKuSCp6J8Q?=
+ =?us-ascii?Q?D/qXUN2p8Yn2MwXQmuV8m+pZpvId/vLHzoI/aoYcpNiVoI/PUwaboHzuBGsw?=
+ =?us-ascii?Q?epfjACLLbkoPpMEYQu5RZnbSMYCguXKHCHZ427Qq/WXwDxdxRp17Fi8SkKBk?=
+ =?us-ascii?Q?bhmZfepCQ8E+Z6kahQx1Q9GG3o41TG9saGgqY0DF8u8AkA/GRZpOJimJ0h72?=
+ =?us-ascii?Q?q2eYMDQjAKfqURTAeAZ+fqECOJCfJfH3+xFSPMP2h5PbFjUixe0+v7/DvlDO?=
+ =?us-ascii?Q?ieI+jpKUJQCFxVdngB20Lme1X8+0RcyHHDSFMhH2H1A9XNCu7MXnGLBJrbkT?=
+ =?us-ascii?Q?FcN5CgmUDyvpLjVHPvPcbIfk?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?elBmaHRwZUZFdHlkV0g2VEpGRkViU0JDakx3aTdWTHJwMWRVU2pLdnAzTTRt?=
- =?utf-8?B?S2UvakMwTEJBZmVFQ00xNWMvdWxrcktQcU5KZHJBT3FXaGprdjdCcW45bU91?=
- =?utf-8?B?aW5QOVpXd1dmT2hhdXYwTngxSFNWWHY2U1RzZXV6SXFSZkd3NmltWUdHc1l5?=
- =?utf-8?B?dXV5SmEzanA4TjFybktMcVNLN1JjYVhiWG8wRTdDdG93dzJLMDU3MnNSTjlO?=
- =?utf-8?B?UzlVTHZMbnpia25ESThwRk5TSTFrQ05rdlBZTTk3T2xjWEgvcU5ZOGZ2QVVM?=
- =?utf-8?B?M1hZN0pFLzl4QmwrZUpzVVIweE9rdWxEY2hBYnJXemsya2hBSW1MNFJDQUt6?=
- =?utf-8?B?VjVJZjVPU3J3Z2Uya05BZUxvREI4UlZNQU5CSEVkdUJSczNMb2JhMWxNeEF0?=
- =?utf-8?B?Tmk1RTRkVEV5ZnJ0N3Uwam5PbXEzUW5zOXZXaVVVdHFSNktBMlAzdlFGUzE5?=
- =?utf-8?B?a1ZCd2YvWnJ1UHhJUWh1Tm9UTzRJY08xdDVPNk1YSXFmMHQwWE1lU3ZiMXFz?=
- =?utf-8?B?VmhzS2tIU1VCRGlaeDY1V3ZWYWNEYml4L0d0alVORDhnQTVCVFdZeEdZTTR2?=
- =?utf-8?B?WlFHdkZ3UDgxdlNPQUdDazRVQnhDbjllSUFUNlJrUVJ2a0w1OHZVNUpzRGg1?=
- =?utf-8?B?ME5ub0NSOHF6dXp4VnVrQkxCYis1TUV6R2hoRnVPNjh1OGVIdjg4NGZ0ejE3?=
- =?utf-8?B?Vk5DM0FRMURVQjUvMy83SnZqN3A3STNBSk1Xb04wMEkxU3d2bTR5bmkycGFU?=
- =?utf-8?B?TjNEVjhiYllOQjF3UmJSVzNIUzN0ZkVSNmxhQXovemJ1ZHB2MGpodEZSM0Jx?=
- =?utf-8?B?aVc5VHdDTS9yeCtlSXp4SmlHUk5SdzFMU3ZZUzYxNVZhREFMYUJXRmhST3RF?=
- =?utf-8?B?WXc5aTNZb3ZTUlJmejRmV0pPczAyTWcrQ2dJVUpjeTlMY0l0TnJmQm9UQm9B?=
- =?utf-8?B?c0pFNFhqUVkxdUsrRVIydWF1U2g4cFNkWXYzRFpneEljSXQyNHIzRUJpYVRO?=
- =?utf-8?B?TGpCSW9rNitUSkhLTVh3NzM2WGVBMTFCV2F2M01pNFFJZWs1Z1VoN25Iais5?=
- =?utf-8?B?YlBCZ29nK2ZtMEhtbVZoOGxhenp6NEFseUNQWG0xS1gwQmo1SVVVblBnSDhP?=
- =?utf-8?B?Zys3b1dPa1NFLzhKaWsyUHYrRG5rRGJ6Qmk3czNsVXhRMUlMRG5wY2ZySVgx?=
- =?utf-8?B?NEY0cHV3Y1VERXZQVDlEKzcvNUM0Z2NNR0dXc0xVamFiaFhEdEoxdm9TMWVo?=
- =?utf-8?B?NmhKU2Vlb3RuL20yV1cxUWZkckFvdng1QWxGT1YvR0NuSlN3SUppRVZrd3Fn?=
- =?utf-8?B?dkM3cTQxTFBLR0lQaUFWdjlWWTZybnNoSjRkWklPanhrSkdCcW5vbVZDS0t2?=
- =?utf-8?B?L29FMVNkQUs0QWZvMDhoRGpTVVA1UEx0MGFVLzc2OWl5QjJGQ2xaTDVkWS9F?=
- =?utf-8?B?YThVdzRDODFqYkY5cXcvSzNwc2hkbU9MRUYzQ3dnVmdpKzBUdm5LRldDcmxz?=
- =?utf-8?B?QitFdWZ0TkpQZXhBZmxNQjFYL1RWTGgzcWh3aklCa3ViS1FQVjUwRFcvUng5?=
- =?utf-8?B?SjA3Y1c4MjB5b2NnakRWZU5IbVF1SDYwL0F4dWpSOVFhVzl2dmhIM0E0Z2hD?=
- =?utf-8?B?aUxQSy9BbG0rbmpsWjFuQm9tOU9FZVhuTGJaSHl5KzVSa1U4eUhvZStCODBC?=
- =?utf-8?B?ek1lQ1JCWjNOTWNIcVpGZ3VqeWNISjAxZmFUTkNXVXB6b3hhZGlVNDNjS0M4?=
- =?utf-8?B?R2xzTUpQVmt4STNtaVJrNkMvRmZEK1E3dDdvb0hiRzVtZC91Q1NlZDlFZDQ4?=
- =?utf-8?B?YzRpeHUxOVJ0M1dsVmwwQVBBVmFGdjI3VEU4NUtlcGNhakVMNCtZamh2VFY5?=
- =?utf-8?B?dVYrOERUSGRWMFFYY3IzKzl5Q0VBNEVPejZDZjZ3ZlRyQWZXZ1J6Y09FYmdq?=
- =?utf-8?B?UlFDeVpib0EvODdqamM5SE9lemdkT0RFcE8weHE4a2pDRVVWWlNQUnVDekJJ?=
- =?utf-8?B?aE1hRmZrck5OK0swdEF1V0dhWE9DQU9KbzN6OHY5dnYxWGhnYm56S2pobHBv?=
- =?utf-8?B?SC84THNRR2YxeDFlRG1lbUJlemt3VVFMZXU2MHRJNlBxMVJtNXdpWVpuUVQ2?=
- =?utf-8?Q?i6jA=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XuaWVsTQxQW9AO1RAZ5Pq11YgM85gyIG4QGDspVhs7DMIqmaAZdXsY3JLT/+?=
+ =?us-ascii?Q?Orl5eEPj1NYlSK1QCvTwxDsxt1T8QhyD7r9R34AGDuea2peR+Sr5rgcakG6M?=
+ =?us-ascii?Q?0LH2NQngC/xFPVgjnfr9HG4vOTtt2YZdsIztGtyEuFVTKzzBP8jVpNvSGhIK?=
+ =?us-ascii?Q?c0yg8rKHHfBQyBipT4NsUDgncbfso4kZ6NQU7WrLe9lmPSi3yCzVGQ4/VJ8z?=
+ =?us-ascii?Q?gdtCg4NlP1Kyxek+BACGBrQKAljzfvHej7rP9z6Vc6r5SU8GsLPPXUC7P/LZ?=
+ =?us-ascii?Q?oorj/X2oKG5FK8j4SaL/4JcIIzQXxiIJJT2mKGJf8rI48aHALwxiEunBhQHh?=
+ =?us-ascii?Q?lFYgC52BYyu8OcZ/nmIcUcGF3lrGtV4AECEYFP7E4m7y1amcAXr0qPshOqQy?=
+ =?us-ascii?Q?K2zKfTT6gzp69Ufkj7onK+SxSlYo1QOBEhPMU9E3h7tVlrm3U0cKxfVW1Rx8?=
+ =?us-ascii?Q?ObYfPE61tnrL/3s/+zZ2sCox1pTshvtIqg/3EX5LEKyrdN+86nzJPY5jXLG5?=
+ =?us-ascii?Q?p9BbL6/yPTyPEap5C6HSBzCtNRL2+dayU3hIWRrq8O+ptPi236oUP027xT0D?=
+ =?us-ascii?Q?oqNm0thHaSB04Wp5Ff4W9svLu0lERpt91ByYlmmDNp6x9buuM1x2m4CVbEky?=
+ =?us-ascii?Q?gMbx/8OZHpy0Qx8iBuYG2kiF3y0DWWSEFqEwoGGgFw0RlsGGW8uKXHtHfINI?=
+ =?us-ascii?Q?g4qZNzcZSxu5AG5wH7bOfvlHsWgZFYxUy5HWhXOSDeO0BtA/xguHs+20zsPg?=
+ =?us-ascii?Q?kEfDswfsMbCa1R0BsSRO0387tsl/RWoEboaM6OY20ST6cuohtxF1+DIqFdPo?=
+ =?us-ascii?Q?lr45p6/PR5E9TRfody6VTmNLXlQRu7cp2Z6KkTBV4ww1TZAgMOElny6qdJ3+?=
+ =?us-ascii?Q?zfQWbnvHcJ2YSVrJOw/UOfTdoLnhkYs7qwymwJD4MIWvDsEiEM+mIGqAJ+ll?=
+ =?us-ascii?Q?nwg9elhBiqovT0ITmJ8s0EUc3uZL8y/9mdZ8rdn0+ggB4Ce238Ra4UyNkZXL?=
+ =?us-ascii?Q?ECunRopk0LQMzJ+HU3TFtPQnyD7TNTy7kjKku5N5t9ZYToM5abXO1cp0+rX2?=
+ =?us-ascii?Q?o0QOBt4PD8zmoOXCxvKIHd1wd0PzInwgaGq433PshiOxoF5GEbsEHpN/vr/9?=
+ =?us-ascii?Q?osRUrbSPIIcp8XUmWKctoexduNtHPjfWOpq+QmNtoDCJKGNh3TUBzmuXNa9y?=
+ =?us-ascii?Q?BZ4Bp/PN0OSJIDzakKtDqvsPXusn/hrdm8yjnyNOkh8BFc6OpNpgv7OJag6o?=
+ =?us-ascii?Q?xtNXT9xVki0YgNk20Kj3oQ0Rq1la7weZGrJHTF8HdFj7B1C5RVapPxi0ktTW?=
+ =?us-ascii?Q?wwul5wcZzGSegadMUKKc5wQ1Pxgfm1zaIUcz/t5Mc4rxDJqpSWxr5idZp6x0?=
+ =?us-ascii?Q?N0tSbFqGXkFM0jBgk4V8SampYOHrZ/IvYBy4BVM0I8oLG2jgHSjbZGrz3kfY?=
+ =?us-ascii?Q?Z+mhroV3GHDPtFqQhR8B7K/NpWSFzNca5vAW0M2bsvdTh+NL6guO9+FmumnR?=
+ =?us-ascii?Q?2Qt5PlYQE7ji+n65w6vmSbV6OiKHO5U+hueufKtCcwMG7mCBVgwLvD+WUkoO?=
+ =?us-ascii?Q?pvB4+7JMU0cr0KwJv9Xy83VtqePgJ0PagXJDFvFQ?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 458943bb-a47c-4d2f-91d5-08dd03fba60e
+X-MS-Exchange-CrossTenant-Network-Message-Id: f904004c-8464-449f-0ede-08dd03f78428
 X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2024 15:55:51.7770
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2024 15:26:16.7884
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 18cRogZmWlm2+9Ef+YqXQ0bf6s54pHrgpEKd04/JIryQC7kMPasYKCkiVIOBTMUljcYYbtwcIyUfKPJSGoY+3A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10852
+X-MS-Exchange-CrossTenant-UserPrincipalName: gcviDfVVQoi9G+a3Bmc1BJlbpt88J9sBE2+wVF+uY3rB0LrNonLj6yJcMaAEIk5QlrMqbS81LF2WiyBg7xiQKw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7761
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_075557_932366_C2BECB43 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20241113_072625_166375_8A67FF42 
+X-CRM114-Status: GOOD (  26.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,122 +175,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 04, 2024 at 02:22:58PM -0500, Frank Li wrote:
-
-Any comments for this patches?
-
-Bjorn and give ack at v4 and Marc Zyngier give test/review tag at v4. I
-just drop these because change to use helper function and funtionality is
-the same.
-
-After this patch merge, I think apply's bus notification can convert to
-this way.
-
-Frank
-
-> Some system's IOMMU stream(master) ID bits(such as 6bits) less than
-> pci_device_id (16bit). It needs add hardware configuration to enable
-> pci_device_id to stream ID convert.
+On Wed, Nov 13, 2024 at 12:10:53PM +0200, Andrei Stefanescu wrote:
+> Add the dt-bindings for the NXP SIUL2 module which is a multi
+> function device. It can export information about the SoC, configure
+> the pinmux&pinconf for pins and it is also a GPIO controller with
+> interrupt capability.
 >
-> https://lore.kernel.org/imx/20240622173849.GA1432357@bhelgaas/
-> This ways use pcie bus notifier (like apple pci controller), when new PCIe
-> device added, bus notifier will call register specific callback to handle
-> look up table (LUT) configuration.
->
-> https://lore.kernel.org/imx/20240429150842.GC1709920-robh@kernel.org/
-> which parse dt's 'msi-map' and 'iommu-map' property to static config LUT
-> table (qcom use this way). This way is rejected by DT maintainer Rob.
->
-> Above ways can resolve LUT take or stream id out of usage the problem. If
-> there are not enough stream id resource, not error return, EP hardware
-> still issue DMA to do transfer, which may transfer to wrong possition.
->
-> Add enable(disable)_device() hook for bridge can return error when not
-> enough resource, and PCI device can't enabled.
->
-> Basicallly this version can match Bjorn's requirement:
-> 1: simple, because it is rare that there are no LUT resource.
-> 2: EP driver probe failure when no LUT, but lspci can see such device.
->
-> [    2.164415] nvme nvme0: pci function 0000:01:00.0
-> [    2.169142] pci 0000:00:00.0: Error enabling bridge (-1), continuing
-> [    2.175654] nvme 0000:01:00.0: probe with driver nvme failed with error -12
->
-> > lspci
-> 0000:00:00.0 PCI bridge: Philips Semiconductors Device 0000
-> 0000:01:00.0 Non-Volatile memory controller: Micron Technology Inc 2100AI NVMe SSD [Nitro] (rev 03)
->
-> To: Bjorn Helgaas <bhelgaas@google.com>
-> To: Richard Zhu <hongxing.zhu@nxp.com>
-> To: Lucas Stach <l.stach@pengutronix.de>
-> To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> To: Krzysztof Wilczyński <kw@linux.com>
-> To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> To: Rob Herring <robh@kernel.org>
-> To: Shawn Guo <shawnguo@kernel.org>
-> To: Sascha Hauer <s.hauer@pengutronix.de>
-> To: Pengutronix Kernel Team <kernel@pengutronix.de>
-> To: Fabio Estevam <festevam@gmail.com>
-> Cc: linux-pci@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: imx@lists.linux.dev
-> Cc: Frank.li@nxp.com \
-> Cc: alyssa@rosenzweig.io \
-> Cc: bpf@vger.kernel.org \
-> Cc: broonie@kernel.org \
-> Cc: jgg@ziepe.ca \
-> Cc: joro@8bytes.org \
-> Cc: l.stach@pengutronix.de \
-> Cc: lgirdwood@gmail.com \
-> Cc: maz@kernel.org \
-> Cc: p.zabel@pengutronix.de \
-> Cc: robin.murphy@arm.com \
-> Cc: will@kernel.org \
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
->
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
 > ---
-> Changes in v5:
-> - Add help function of pci_bridge_enable(disable)_device
-> - Because big change, removed Bjorn's review tags and have not
-> added
-> Marc Zyngier't review and test tags
-> - Fix pci-imx6.c according to Mani's feedback
-> - Link to v4: https://lore.kernel.org/r/20241101-imx95_lut-v4-0-0fdf9a2fe754@nxp.com
+>  .../bindings/mfd/nxp,s32g2-siul2.yaml         | 165 ++++++++++++++++++
+>  1 file changed, 165 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
 >
-> Changes in v4:
-> - Add Bjorn Helgaas review tag for patch1
-> - check 'target' value for patch2
-> - detail see each patches
-> - Link to v3: https://lore.kernel.org/r/20241024-imx95_lut-v3-0-7509c9bbab86@nxp.com
->
-> Changes in v3:
-> - disable_device when error happen
-> - use target for of_map_id
-> - Check if rid already in lut table when enable deviced
-> - Link to v2: https://lore.kernel.org/r/20240930-imx95_lut-v2-0-3b6467ba539a@nxp.com
->
-> Changes in v2:
-> - see each patch
-> - Link to v1: https://lore.kernel.org/r/20240926-imx95_lut-v1-0-d0c62087dbab@nxp.com
->
-> ---
-> Frank Li (2):
->       PCI: Add enable_device() and disable_device() callbacks for bridges
->       PCI: imx6: Add IOMMU and ITS MSI support for i.MX95
->
->  drivers/pci/controller/dwc/pci-imx6.c | 176 +++++++++++++++++++++++++++++++++-
->  drivers/pci/pci.c                     |  36 ++++++-
->  include/linux/pci.h                   |   2 +
->  3 files changed, 212 insertions(+), 2 deletions(-)
-> ---
-> base-commit: 06fb071a1aefbe4c6cc8fd41aacd0b9422361721
-> change-id: 20240926-imx95_lut-1c68222e0944
->
-> Best regards,
-> ---
-> Frank Li <Frank.Li@nxp.com>
+> diff --git a/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml b/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
+> new file mode 100644
+> index 000000000000..a8edbea75bb6
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
+> @@ -0,0 +1,165 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright 2024 NXP
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mfd/nxp,s32g2-siul2.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: NXP S32 System Integration Unit Lite2 (SIUL2)
+> +
+> +maintainers:
+> +  - Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> +
+> +description: |
+> +  SIUL2 is a hardware block which implements pinmuxing,
+> +  pinconf, GPIOs (some with interrupt capability) and
+> +  registers which contain information about the SoC.
+> +  There are generally two SIUL2 modules whose functionality
+> +  is grouped together. For example interrupt configuration
+> +  registers are part of SIUL2_1 even though interrupts are
+> +  also available for SIUL2_0 pins.
+> +
+> +  The following register types are exported by SIUL2:
+> +    - MIDR (MCU ID Register) - information related to the SoC
+> +    - interrupt configuration registers
+> +    - MSCR (Multiplexed Signal Configuration Register) - pinmuxing and pinconf
+> +    - IMCR (Input Multiplexed Signal Configuration Register)- pinmuxing
+> +    - PGPDO (Parallel GPIO Pad Data Out Register) - GPIO output value
+> +    - PGPDI (Parallel GPIO Pad Data In Register) - GPIO input value
+> +
+> +  Most registers are 32bit wide with the exception of PGPDO/PGPDI which are
+> +  16bit wide.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - nxp,s32g2-siul2
+> +      - nxp,s32g3-siul2
+> +
+> +  reg:
+> +    maxItems: 2
+> +
+> +  reg-names:
+> +    items:
+> +      - const: siul20
+> +      - const: siul21
+> +
+> +  gpio-controller: true
+> +
+> +  "#gpio-cells":
+> +    const: 2
+> +
+> +  gpio-ranges:
+> +    maxItems: 2
+> +
+> +  gpio-reserved-ranges:
+> +    maxItems: 2
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  interrupt-controller: true
+> +
+> +  "#interrupt-cells":
+> +    const: 2
+> +
+> +  nvmem-layout:
+> +    $ref: /schemas/nvmem/layouts/nvmem-layout.yaml#
+> +    description:
+> +      This container may reference an NVMEM layout parser.
+> +
+> +patternProperties:
+> +  "-hog(-[0-9]+)?$":
+> +    required:
+> +      - gpio-hog
+> +
+> +  "-pins$":
+> +    type: object
+> +    additionalProperties: false
+> +
+> +    patternProperties:
+> +      "-grp[0-9]$":
+> +        type: object
+> +        allOf:
+> +          - $ref: /schemas/pinctrl/pinmux-node.yaml#
+> +          - $ref: /schemas/pinctrl/pincfg-node.yaml#
+> +        description:
+> +          Pinctrl node's client devices specify pin muxes using subnodes,
+> +          which in turn use the standard properties below.
+> +
+> +        properties:
+> +          bias-disable: true
+> +          bias-high-impedance: true
+> +          bias-pull-up: true
+> +          bias-pull-down: true
+> +          drive-open-drain: true
+> +          input-enable: true
+> +          output-enable: true
+> +
+> +          pinmux:
+> +            description: |
+> +              An integer array for representing pinmux configurations of
+> +              a device. Each integer consists of a PIN_ID and a 4-bit
+> +              selected signal source(SSS) as IOMUX setting, which is
+> +              calculated as: pinmux = (PIN_ID << 4 | SSS)
+> +
+> +          slew-rate:
+> +            description: Supported slew rate based on Fmax values (MHz)
+> +            enum: [83, 133, 150, 166, 208]
+> +        required:
+> +          - pinmux
+> +
+> +        additionalProperties: false
+
+There are $ref, need use  unevaluatedProperties: false
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - gpio-controller
+> +  - "#gpio-cells"
+> +  - gpio-ranges
+> +  - gpio-reserved-ranges
+> +  - interrupts
+> +  - interrupt-controller
+> +  - "#interrupt-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    siul2@4009c000 {
+
+generic node name, such as 'pinctrl'
+
+> +      compatible = "nxp,s32g2-siul2";
+> +      reg = <0x4009c000 0x179c>,
+> +            <0x44010000 0x17b0>;
+> +      reg-names = "siul20", "siul21";
+> +      gpio-controller;
+> +      #gpio-cells = <2>;
+> +      gpio-ranges = <&siul2 0 0 102>, <&siul2 112 112 79>;
+> +      gpio-reserved-ranges = <102 10>, <123 21>;
+> +      interrupt-controller;
+> +      #interrupt-cells = <2>;
+> +      interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
+> +
+> +      jtag_pins: jtag-pins {
+
+needn't lable 'jtag_pins' in example.
+
+> +        jtag-grp0 {
+> +          pinmux = <0x0>;
+> +          input-enable;
+> +          bias-pull-up;
+> +          slew-rate = <166>;
+> +        };
+> +      };
+> +
+> +      nvmem-layout {
+> +        compatible = "fixed-layout";
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+> +
+> +        soc-major@0 {
+> +          reg = <0 0x4>;
+> +        };
+> +      };
+> +    };
+> +...
+> --
+> 2.45.2
 >
 
