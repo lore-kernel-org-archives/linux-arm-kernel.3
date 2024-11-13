@@ -4,88 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 274E3D41C04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 12:32:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB5B0D41C04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 12:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KImKDqWq4s21FhX0T9TYJY9R8T8zry6WhOX4TLZUuNk=; b=18dIPIDzhyefw+ZBfllXs+cA0H
-	VXhuGYZqY8shj7/DZntY4EoLvGCJNSPF4ig3lCyI2prYQgMGmRPUK+GrFUeqm5GQrQ2airJp4URbb
-	nr6xsDvfGXpQx5UiDWVFM/g1tkhcCX+7q06Okq41pKLUV5+87FMfACMAhOrdYSF6iLmxnNhn9Mz7G
-	qQvS9XN48nsVkbnPcSzDfl9Ei8TIGS44qXCo2FGygkv0cZb46v8ASRMGZCKP1i9hCwRDzi0upfSd1
-	qWTJCrYvNFaKhT7jpc467g00gOBuzjgzA7C9400VFwln28DABg1OIIMKbKKPRX6YWDxiENo+xnInJ
-	3Uk7iybw==;
+	bh=5hsqUm12FEof3+bAs2FTVSQ4hQjnEsVfsz2dBx5ThWA=; b=RFKlc1tqtO0SYdqNC2G6cZ+kSr
+	zjcR6nfkIDfL88Hk1sRRoMiROKHdeWQtI+anMU476BakiBaxnVDb0y6GcqUqsjN3ChqgEkX7Melpr
+	PB0simZyfEIUAyrnJ8hY40QagHQRABbvru7R+58AbENIoJw4RxLoOf9BnlBx1RvJ+pxQiJectSPvb
+	5koz/AQ43PjhFt5BdqQU838vhPDFjcwD5itlyDLnFaPsOXvTqfNBkD5dsqtsl4yDG5P2Y0Fgkk1HP
+	diX20mD0M6t4pfhABeRMs8Yl2zIFr1wd0lbPbtZD3Eg+Qe5utWx+FjZzArU4QuJpGMGHRBPFvkO47
+	3tEsIDWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBCXR-00000006m6p-18Hs;
-	Wed, 13 Nov 2024 12:32:01 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	id 1tBCZC-00000006mMu-2zMO;
+	Wed, 13 Nov 2024 12:33:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBCTW-00000006lVj-1TI8
+	id 1tBCWc-00000006m0j-1aHg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 12:27:59 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-6eca7391be2so21151277b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 04:27:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731500877; x=1732105677; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=KImKDqWq4s21FhX0T9TYJY9R8T8zry6WhOX4TLZUuNk=;
-        b=Vm9f/IncL/hniiW6e6XUSCRakvV9vIrnQi7rVHI9XP/rg3/MtkYrJnq4etTdg96MC/
-         TqmNJfCj4Uc9iO+MPBwe+YCOhGxgNAjpg4J5EFjTrqaD5XhkZSodg2e7vYKsrXiP8rjd
-         2nqAYoqk2mh6Jkb66nmlASR+ait6MdR0by3/1p97kddZpw2M0HOyyowG2jjChaV0mwHH
-         C45pWsPLVCLUwB+EcE3oy3jAN4mG81qkYUWJpWGlZZe6vGk9zOq/oUJ9nKMIh7JxYpLW
-         Wh+PNovnlXK+PB5KDcAz30fMyRLrXpUOhSX5ounekjVVfAJM/ulTljqo8PXSNrKYCGCw
-         2nPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731500877; x=1732105677;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KImKDqWq4s21FhX0T9TYJY9R8T8zry6WhOX4TLZUuNk=;
-        b=X2VACujKTKDqUHdKXh8SdJtR9p3bDeJL8P8E1Lmo3vDC0oPjGHkkPl51S4WSD67hcj
-         sbRw8Klb++8WEmEXQxU6DzmnPC5Q4rO1CV9WrgMcqiSY47ZYHMksDfDQFe4mK4SwlmvV
-         YzrIRcvrovnSp+UPRS+DaVubOYvO5Iwaw57Bi9IbEobK8fOcqF6zp9YfB7ak0rJfawVd
-         kXrETTs2kgdHkGxSP0PEYHV+8X02+nQNEFFt73zvoU2J3FGrBuCaFK5A2BeAvMFn9J0F
-         pTzDbdjTMrY+YHAtSR4wtf3wV9bKldb8TO9De6p3H+41osX2gB629CcCRsJxMFE4MB1K
-         U6RA==
-X-Forwarded-Encrypted: i=1; AJvYcCXnLc057BKwxII2ThOju8FF78fv+AIToYCl8khgZnGjDtFCva5erEx37e4IyTkypYv4x6G/eU+urJ6wQ5q28xeE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGWhMTSS58NmOtGS8FvLDJFoYuJ+R7NGJcZXkYGX9xuKcwaMqg
-	FA/7IVw6Tbn9RDEg7c3wDX6ioPZROg8Vl2Jrb9fNMx3ABR+r6p1XGLWHBSaO/vQqmMQy7bqe8e1
-	82PHi5YlSk1PmsSlSEiMQDRvqfMo6mU/0QEQg9g==
-X-Google-Smtp-Source: AGHT+IHaAWOdAgML2ba4DzOA4z4U2wezC3VkawX20A2dPxMskv1IqJdFG+uwKU9K7bhxa9QyXticQbkM331fssKDcLk=
-X-Received: by 2002:a05:690c:30b:b0:6e3:16da:e74 with SMTP id
- 00721157ae682-6eaddd9418emr194176117b3.16.1731500876873; Wed, 13 Nov 2024
- 04:27:56 -0800 (PST)
-MIME-Version: 1.0
-References: <20241113-add-display-support-for-qcs615-platform-v2-0-2873eb6fb869@quicinc.com>
- <20241113-add-display-support-for-qcs615-platform-v2-8-2873eb6fb869@quicinc.com>
-In-Reply-To: <20241113-add-display-support-for-qcs615-platform-v2-8-2873eb6fb869@quicinc.com>
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Wed, 13 Nov 2024 14:27:45 +0200
-Message-ID: <CAA8EJprBxL0KuOm4f1peRCw9Y=bzXo=Vt-QEv37RzJ62zJriNw@mail.gmail.com>
-Subject: Re: [PATCH v2 8/9] arm64: dts: qcom: Add display support for QCS615
- RIDE board
-To: Fange Zhang <quic_fangez@quicinc.com>
-Cc: Rob Clark <robdclark@gmail.com>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krishna Manikandan <quic_mkrishn@quicinc.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Li Liu <quic_lliu6@quicinc.com>, 
-	Xiangxu Yin <quic_xiangxuy@quicinc.com>, linux-arm-msm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 13 Nov 2024 12:31:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 45E875C5940;
+	Wed, 13 Nov 2024 12:30:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F1EBC4CECD;
+	Wed, 13 Nov 2024 12:31:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731501069;
+	bh=ncYZGcwx/3TAZXD29CS4gICiU4uEOyKNClVDiIXWyrQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dK9FbbSFdVexks0CaUF/jsc3+A7q8N0MG0UVemYdqCUxO0Rf75KJUx9DiWSbldoxC
+	 aEwPNbl1dh824THUd44lcqXeL/pdiJ59wDl6J3bFqU3a4R+aFQicwjwqqeR5/CahdL
+	 +9EAUNtUalQzv+CwfvdHHlLEZZMT3HTZAuHAq4xr8AnlGbS0vl2ycwfQ47kYBKgi/E
+	 FnOfen3Zww8zkRDoBVsTCvl1JCOw55qI4zzdZvJ7us1fQhuucj3Pvp+qgh9J8xu0RO
+	 jpAmBJ1ePXtOossEzXVjtn776TN81CidYL4hccPCPleTOaXllVY4k6/RWvcZQEYjhw
+	 ce2xkxS10yZjA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tBCWY-00CVWF-Uw;
+	Wed, 13 Nov 2024 12:31:07 +0000
+Date: Wed, 13 Nov 2024 12:31:05 +0000
+Message-ID: <86h68bz56e.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zhou Wang <wangzhou1@hisilicon.com>
+Cc: <tglx@linutronix.de>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>,
+	<wangwudi@hisilicon.com>,
+	<prime.zeng@hisilicon.com>,
+	Nianyao Tang <tangnianyao@huawei.com>
+Subject: Re: [PATCH v3] irqchip/gicv3-its: Add workaround for hip09 ITS erratum 162100801
+In-Reply-To: <20241113062759.1042187-1-wangzhou1@hisilicon.com>
+References: <20241113062759.1042187-1-wangzhou1@hisilicon.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, wangwudi@hisilicon.com, prime.zeng@hisilicon.com, tangnianyao@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_042758_484785_9248B76B 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20241113_043110_525614_AC7F7468 
+X-CRM114-Status: GOOD (  29.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,27 +87,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Nov 2024 at 13:53, Fange Zhang <quic_fangez@quicinc.com> wrote:
->
-> From: Li Liu <quic_lliu6@quicinc.com>
->
-> Add display MDSS and DSI configuration for QCS615.
-> QCS615 has a DP port, and DP support will be added in a later patch.
->
-> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
-> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+On Wed, 13 Nov 2024 06:27:59 +0000,
+Zhou Wang <wangzhou1@hisilicon.com> wrote:
+> 
+> When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
+> during unmapping operation, which will cause some vSGIs lost.
+> 
+> To fix the issue, invalidate related vPE cache through GICR_INVALLR
+> after VMOVP.
+> 
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
+> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
 > ---
->  arch/arm64/boot/dts/qcom/qcs615-ride.dts | 109 +++++++++++++++++++++++++++++++
->  1 file changed, 109 insertions(+)
+>  Documentation/arch/arm64/silicon-errata.rst |  2 +
+>  arch/arm64/Kconfig                          | 11 ++++
+>  drivers/irqchip/irq-gic-v3-its.c            | 56 +++++++++++++++++----
+>  3 files changed, 58 insertions(+), 11 deletions(-)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index 65bfab1b1861..77db10e944f0 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -258,6 +258,8 @@ stable kernels.
+>  | Hisilicon      | Hip{08,09,10,10C| #162001900      | N/A                         |
+>  |                | ,11} SMMU PMCG  |                 |                             |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 70d7f4f20225..0ea9c599681d 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1232,6 +1232,17 @@ config HISILICON_ERRATUM_161600802
+>  
+>  	  If unsure, say Y.
+>  
+> +config HISILICON_ERRATUM_162100801
+> +	bool "Hip09 162100801 erratum support"
+> +	default y
+> +	help
+> +	  When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
+> +	  during unmapping operation, which will cause some vSGIs lost.
+> +	  To fix the issue, invalidate related vPE cache through GICR_INVALLR
+> +	  after VMOVP.
+> +
+> +	  If unsure, say Y.
+> +
+>  config QCOM_FALKOR_ERRATUM_1003
+>  	bool "Falkor E1003: Incorrect translation due to ASID change"
+>  	default y
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index 52f625e07658..2cd1826b4bbd 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -44,6 +44,7 @@
+>  #define ITS_FLAGS_WORKAROUND_CAVIUM_22375	(1ULL << 1)
+>  #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
+>  #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
+> +#define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
+>  
+>  #define RD_LOCAL_LPI_ENABLED                    BIT(0)
+>  #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
+> @@ -61,6 +62,7 @@ static u32 lpi_id_bits;
+>  #define LPI_PENDBASE_SZ		ALIGN(BIT(LPI_NRBITS) / 8, SZ_64K)
+>  
+>  static u8 __ro_after_init lpi_prop_prio;
+> +static struct its_node *find_4_1_its(void);
+>  
+>  /*
+>   * Collection structure - just an ID, and a redistributor address to
+> @@ -3797,6 +3799,22 @@ static void its_vpe_db_proxy_move(struct its_vpe *vpe, int from, int to)
+>  	raw_spin_unlock_irqrestore(&vpe_proxy.lock, flags);
+>  }
+>  
+> +static void its_vpe_4_1_invall_locked(int cpu, struct its_vpe *vpe)
+> +{
+> +	void __iomem *rdbase;
+> +	u64 val;
+> +
+> +	val  = GICR_INVALLR_V;
+> +	val |= FIELD_PREP(GICR_INVALLR_VPEID, vpe->vpe_id);
+> +
+> +	raw_spin_lock(&gic_data_rdist_cpu(cpu)->rd_lock);
+> +	rdbase = per_cpu_ptr(gic_rdists->rdist, cpu)->rd_base;
+> +	gic_write_lpir(val, rdbase + GICR_INVALLR);
+> +
+> +	wait_for_syncr(rdbase);
+> +	raw_spin_unlock(&gic_data_rdist_cpu(cpu)->rd_lock);
+> +}
+> +
+>  static int its_vpe_set_affinity(struct irq_data *d,
+>  				const struct cpumask *mask_val,
+>  				bool force)
+> @@ -3866,6 +3884,16 @@ static int its_vpe_set_affinity(struct irq_data *d,
+>  	vpe->col_idx = cpu;
+>  
+>  	its_send_vmovp(vpe);
+> +
+> +	/*
+> +	 * Version of ITS is same in one system. As there is no cache in ITS,
+> +	 * and only cache in related GICR should be clean, directly use
+> +	 * GICR_INVALLR to clean cache, which will get a better performance
+> +	 * here.
+> +	 */
 
+I don't think this comment brings much. Maybe better to just drop it.
 
-This patch has even more feedback that was ignored at v1. Please go to
-the v1 discussion, respond to _all_ the items, so that we can actually
-see what got ignored and why. Usually I don't require this (we can all
-make a mistake and miss an item or two), but with this patchset the
-number of the comments that were ignored is extremely high.
+> +	if (find_4_1_its()->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100801)
+> +		its_vpe_4_1_invall_locked(cpu, vpe);
+> +
+
+Hold on, this is buggy. On a v4.0 implementation, this is obviously
+going to explode. You need to check the return value of find_4_1_its()
+for NULL.
+
+Thanks,
+
+	M.
 
 -- 
-With best wishes
-Dmitry
+Without deviation from the norm, progress is not possible.
 
