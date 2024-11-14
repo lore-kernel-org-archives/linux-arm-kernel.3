@@ -4,83 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6712ED65C58
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 08:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 898B4D65C57
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 08:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D8NT0ilLNLQv2fbYQnuudZNQtXrZHfRBWCgEeAGsrXE=; b=PR/eed45vEd5MQjOgHm7YlPpHS
-	0XJ5LU+9sJQp9qmWa4dPEP8YXCjrqBeBxW9U/35Igogosjrp2Z9dVLRGqA3zpqBcr87w+5WLB1Fim
-	wpRki3FHHAuSyCvuE2ssij5DwB+mLjrUdhaq0If16ylEC6scDjK24VA/erN6r7KITDu7GKKMW1YND
-	uFg4BdzVZu2lhkZu1AQAFEXoV+djkAzcaRsoBqvzWyUBss7bex21YS+Fr/oZ1rYQkqwVj7QdCRjqp
-	lAahvVYSR9H3R6K9tHUyoHgblZ9B3oEbsKjYznSODuD0ed2FvYhpEyu56ck6N7Yd67liPyTE0k1id
-	QNy79izA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gOSROv/ealMV5vU8TAZ9nIhvVTkOoOVosV++hhIi2Qs=; b=Ik26hufEYAZFUVBgqYcpcNmhSH
+	UnKShEbnzC5sFx02eXTWGlcXOA7SS7AtZ/Hsi7QymG8cHImHWw8aeBr13Jc7rMK/Ck3w3qSSlm/kD
+	pa8KAffEbGraoXOra7iCIakniXsBVqsurAq21EOfp3N6yUyQpL8RdsPYhQWHMtYyNZYDIlzHWyDcC
+	7XNDlBVpaiXp76X7WZW1Ifyh6jzhu4QJ074RnE2TSBYwAfgzYJ7Teb6EZFwyrqcSyACyqjbVBm0co
+	ttgdDedFLCaqG1tjxp7Ym5PrzdV2aZGXPL/9crgdalYgzRNRWK+IkZZ98ecb93fcB5hTy7HlIlnll
+	JUTIkgag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBV8B-00000009CJg-3Uq3;
-	Thu, 14 Nov 2024 08:23:11 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1tBVA2-00000009CYh-0Ym2;
+	Thu, 14 Nov 2024 08:25:06 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBV2n-00000009BU8-1zAX
+	id 1tBV2r-00000009BV9-4Avm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 08:17:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731572258; x=1763108258;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=xrJukahaxgNQYaY6Ib9PxdkI6uOeHardKxoJD+xZf7U=;
-  b=MlMrFEFBLT9YeaZKjbMOg9TyU/k3CxrAr49Y6F3jevhDMtCud1BYgELT
-   jjnJ5JLoiNenYZj3GxAsHJZHG0qjC9swX0fiJtxbULw7rpHMbbBxBQ9uj
-   dcp4pbAN3Hq1MPuJ14Qp6WIOeR5xHroFWwVGT/JESCGjUc8SNY5wcFF0A
-   trwwN4HDvXxGhjHCXKHq4rt0bqH8B9x4iMhPOvd6wNn3Z1FTzovRdes/Z
-   s3/pam1vdAuw8C0ZjdHwnMOSYEVNSMaVdJaRHgEzSu0/CAzMcG33Dlqgy
-   IO8qsXg0rQZx4HbFpmBem3gfJVcQhdIKB8fntthSC8CoxRFX8YkRlS/2L
-   w==;
-X-CSE-ConnectionGUID: w8ikwESoRge8y/rgLs+q5Q==
-X-CSE-MsgGUID: Ou6kJYVzTVKe8O3FdAswoQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11255"; a="42921283"
-X-IronPort-AV: E=Sophos;i="6.12,153,1728975600"; 
-   d="scan'208";a="42921283"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Nov 2024 00:17:37 -0800
-X-CSE-ConnectionGUID: 6xlRLCGzRvCeAy4d+oc+aA==
-X-CSE-MsgGUID: U32PUQYWQBSJGnHUzKVuGQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,153,1728975600"; 
-   d="scan'208";a="88553864"
-Received: from unknown (HELO YongLiang-Ubuntu20-iLBPG12.png.intel.com) ([10.88.229.33])
-  by fmviesa010.fm.intel.com with ESMTP; 14 Nov 2024 00:17:33 -0800
-From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net v1 2/2] net: stmmac: set initial EEE policy configuration
+	Thu, 14 Nov 2024 08:17:44 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4XptHV4t4Hz1V4PM;
+	Thu, 14 Nov 2024 16:15:02 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id EC95F140154;
+	Thu, 14 Nov 2024 16:17:32 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Thu, 14 Nov 2024 16:17:32 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>,
+	<james.clark@linaro.org>, <coresight@lists.linaro.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <yangyicong@hisilicon.com>
+Subject: [PATCH 2/2] coresight: tmc: Add missing doc of tmc_drvdata::reading
 Date: Thu, 14 Nov 2024 16:16:53 +0800
-Message-Id: <20241114081653.3939346-3-yong.liang.choong@linux.intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241114081653.3939346-1-yong.liang.choong@linux.intel.com>
-References: <20241114081653.3939346-1-yong.liang.choong@linux.intel.com>
+Message-ID: <20241114081653.24328-2-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20241114081653.24328-1-yangyicong@huawei.com>
+References: <20241114081653.24328-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_001737_597543_D5C19A49 
-X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-CacheID: sfid-20241114_001742_242098_21F87388 
+X-CRM114-Status: UNSURE (   9.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,30 +73,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set the initial eee_cfg values to have 'ethtool --show-eee ' display
-the initial EEE configuration.
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-Fixes: 49168d1980e2 ("net: phy: Add phy_support_eee() indicating MAC support EEE")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+tmc_drvdata::reading is used to indicate whether a reading process
+is performed through /dev/xyz.tmc. Document it.
+
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/hwtracing/coresight/coresight-tmc.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 7bf275f127c9..5fce52a9412e 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1204,7 +1204,7 @@ static int stmmac_init_phy(struct net_device *dev)
- 			netdev_err(priv->dev, "no phy at addr %d\n", addr);
- 			return -ENODEV;
- 		}
--
-+		phy_support_eee(phydev);
- 		ret = phylink_connect_phy(priv->phylink, phydev);
- 	} else {
- 		fwnode_handle_put(phy_fwnode);
+diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+index 2671926be62a..fdf7955e7350 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc.h
++++ b/drivers/hwtracing/coresight/coresight-tmc.h
+@@ -174,6 +174,7 @@ struct etr_buf {
+  * @pid:	Process ID of the process that owns the session that is using
+  *		this component. For example this would be the pid of the Perf
+  *		process.
++ * @reading:	buffer's in the reading through "/dev/xyz.tmc" entry
+  * @buf:	Snapshot of the trace data for ETF/ETB.
+  * @etr_buf:	details of buffer used in TMC-ETR
+  * @len:	size of the available trace for ETF/ETB.
 -- 
-2.34.1
+2.24.0
 
 
