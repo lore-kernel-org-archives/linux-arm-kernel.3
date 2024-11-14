@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D90E3D41C00
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 04:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D84EDD41C35
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 04:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3CRcqgJXGmT58AChw8Nvv5lieziF0ewVAThPCHqECyY=; b=URi3UNbehLNro3i8qmHysR9A3a
-	Go4tRLfX9EGD8WVXEEOz0j9lw8R2vDBc3U2Gh8BX5BaxmjWejIC/s47cmzbzEyAWvDHIIC/dd+dzH
-	9QSJ/nzQq6SAsWiO0CbE1OeJYQSZyTjiwtuGWybgZuT6c8lwvR+S7Ujlv8l3xKll4Rl1aIVun1DCb
-	fAeQ0oLrK2jC6hkq6xBECiMlQ8gnNviFYy4JscAUmicszkgrCPGOz3v11ES71nedn/Qs4QXjxdAcc
-	IZ/Us6PoJv2WLckrVuWzVxNafLSa7LbV9qvvgcLEbsw7A9TO57moZgMWuSNA1UyhDOaj/R5nqZmju
-	qURYGB4w==;
+	bh=yBayVBUAkz7cKc986pdQx+FDAwFxvHZ/cWI5fMaVMIo=; b=ev2Wm9U4mmHSnAow7tmEzXOf6T
+	ImQ1hYJFgV/SLq+S91ja6CH06+tkSaIotaE41eM60N9jWa8QNSYR/j+ygtWh8WIkps/RE6WWFVvXo
+	n0c9/XNyvrDnyKtivMz+iFRLga8yRX0YHbWqBf8ZS1YwlDcRtadvPpcJeg6DL9DxVAXUY2OQNx5BB
+	wXMBJRUQGBcTruL9u8FwJp2PrbRJhSDkDVixwn7fAO/ko3jMY1k/6XJ44s7mqBfxbAlMic16eOLOF
+	4hqpYXPeo7Jn0mXRm/QicsSSxkfiri3F825WxSMTn6mUDtfZqZ+2gM7nKr1rB3MvR+pwHcOMHyr27
+	izsY5aJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBRP1-00000008lMw-3Pa8;
-	Thu, 14 Nov 2024 04:24:19 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tBRZA-00000008mBF-27fq;
+	Thu, 14 Nov 2024 04:34:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBRNE-00000008lET-0O4Q
+	id 1tBRXL-00000008lxp-41Ti
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 04:22:29 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ADHxniA027157;
-	Thu, 14 Nov 2024 04:22:21 GMT
+	Thu, 14 Nov 2024 04:32:57 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ADH1QFH015416;
+	Thu, 14 Nov 2024 04:32:48 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	3CRcqgJXGmT58AChw8Nvv5lieziF0ewVAThPCHqECyY=; b=WhvsDkcnUH1nEG+E
-	3CWqk3tLV64njfViVerLcyKCr3zEE+z1XR+LdNkCvEVr6Oyw3UaruqMkgO9Jbn5W
-	wgckY0esbFHPTj27bHl9HQVdL/BAUc/ulRGm7MrLsQZ2KoV+pW3T9egrdcpgjdGR
-	ttETIInMdY2suFyqqW0V9qs8gNcqd8iHRxzSzeAYQEmbTufyPajZtPmDtdvK3wtS
-	FkRoRst8LeAFRN3Ruqbg9jXZFLWzhF3OPZ5WXEz4aoBaLTruiXVDjh+TKVET3yJQ
-	K6UYfhWvpos2K8HmzCvBzVxYPK2mbFM4SvSZ8YPE+0GKOl5QUf49JzqweSJ4zTOJ
-	b8+ZBw==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42w10jsauf-1
+	yBayVBUAkz7cKc986pdQx+FDAwFxvHZ/cWI5fMaVMIo=; b=YXnBkCn7pdsCyxsJ
+	xUv6F2tG6vmTQcAWhCHBq4QcQUARbIDFc+dztKSoPfw7eM+5XXuKl7EWYasxSzuO
+	FG5SRJTELpv0N6mZbRfyNGSQLFP0GSEo/B4/VTGqX66P/bu2VjLVsnA9pw9/fJZk
+	WVpIGyYXhLgz1nyjM4xMTTw9K/uncNV69lCY6AdS6y/MFI7dYbHFW2Nqoil2ZyOe
+	rc45S34xy6MEvBZU2PjOTub+t/2XHZFRTOhX+uAGEepeUEUJuKz/CX8gEBdmKVw1
+	0uC1XqCwCiUe1/BlvYNaf69+1PPkLw54qtYDR7X2oRsUJHw0rSyDra/vHW8lhdtj
+	4J3srQ==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42vsf32q3n-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 14 Nov 2024 04:22:21 +0000 (GMT)
+	Thu, 14 Nov 2024 04:32:48 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AE4MKxI020469
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AE4WlWl012211
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 14 Nov 2024 04:22:20 GMT
+	Thu, 14 Nov 2024 04:32:47 GMT
 Received: from [10.131.33.37] (10.80.80.8) by nalasex01a.na.qualcomm.com
  (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 13 Nov
- 2024 20:22:15 -0800
-Message-ID: <8d42682b-0fa7-3962-da12-728cfe64903b@quicinc.com>
-Date: Thu, 14 Nov 2024 09:52:12 +0530
+ 2024 20:32:42 -0800
+Message-ID: <55fd0c34-c52c-95c5-5cd0-16fd66a4baa2@quicinc.com>
+Date: Thu, 14 Nov 2024 10:02:40 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.11.0
-Subject: Re: [PATCH V4 0/5] arm_scmi: vendors: Qualcomm Generic Vendor
- Extensions
+Subject: Re: [PATCH V4 2/5] firmware: arm_scmi: Add QCOM Generic Vendor
+ Protocol documentation
 Content-Language: en-US
-To: Johan Hovold <johan@kernel.org>,
-        Cristian Marussi
-	<cristian.marussi@arm.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
 CC: <sudeep.holla@arm.com>, <andersson@kernel.org>, <konrad.dybcio@linaro.org>,
         <robh+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
@@ -70,30 +68,29 @@ CC: <sudeep.holla@arm.com>, <andersson@kernel.org>, <konrad.dybcio@linaro.org>,
         <quic_rgottimu@quicinc.com>, <quic_kshivnan@quicinc.com>,
         <conor+dt@kernel.org>, <arm-scmi@vger.kernel.org>
 References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
- <ZytnRc94iKUfMYH0@hovoldconsulting.com> <ZyvLktLUZOGP-LH5@pluto>
- <Zy4qvedrmkRdPR3x@hovoldconsulting.com>
+ <20241007061023.1978380-3-quic_sibis@quicinc.com> <Zxd89zenQAzafGpS@pluto>
 From: Sibi Sankar <quic_sibis@quicinc.com>
-In-Reply-To: <Zy4qvedrmkRdPR3x@hovoldconsulting.com>
+In-Reply-To: <Zxd89zenQAzafGpS@pluto>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: ck_pFac5hiXn-6giWIZ01__EsRj8wLt9
-X-Proofpoint-GUID: ck_pFac5hiXn-6giWIZ01__EsRj8wLt9
+X-Proofpoint-ORIG-GUID: Ko2b0q_qKKiVCz_zzQc9CXrY443DBOOD
+X-Proofpoint-GUID: Ko2b0q_qKKiVCz_zzQc9CXrY443DBOOD
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 adultscore=0
- suspectscore=0 spamscore=0 priorityscore=1501 bulkscore=0 mlxlogscore=999
- impostorscore=0 lowpriorityscore=0 phishscore=0 clxscore=1015 mlxscore=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 adultscore=0
+ bulkscore=0 phishscore=0 malwarescore=0 suspectscore=0 priorityscore=1501
+ clxscore=1015 mlxscore=0 spamscore=0 lowpriorityscore=0 mlxlogscore=999
  classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
- definitions=main-2411140031
+ definitions=main-2411140033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_202228_291304_B5454625 
-X-CRM114-Status: GOOD (  29.40  )
+X-CRM114-CacheID: sfid-20241113_203256_069079_414F2879 
+X-CRM114-Status: GOOD (  40.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,80 +107,308 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 11/8/24 20:44, Johan Hovold wrote:
-> On Wed, Nov 06, 2024 at 08:03:30PM +0000, Cristian Marussi wrote:
->> On Wed, Nov 06, 2024 at 01:55:33PM +0100, Johan Hovold wrote:
-> 
->>> First, I expected the drivers to be loaded automatically when built as
->>> modules, but that did not happen so something appears to be missing.
-> 
->> Even though, module usage is tracked by the core AND when an SCMI Vendor
->> driver tries to use protocol_X, it causes protocol_X to be initialized
->> (calling its protocol_init), there is NO auto-loading for SCMI Vendor
->> Protocols when bult as LKM...because there were really no ask till now
->> and this stuff is in general needed so very early dburing boot...so the
->> usecase of all these LKM modules is just debug/test as in your case
->> (or in mine frequently)....
+On 10/22/24 15:52, Cristian Marussi wrote:
+> On Mon, Oct 07, 2024 at 11:40:20AM +0530, Sibi Sankar wrote:
+>> Add QCOM System Control Management Interface (SCMI) Generic Vendor
+>> Extensions Protocol documentation.
 >>
->> ...and I am NOT saying with this that is necessarily right or must be
->> stay like this...just explaining how it is now....
 > 
-> Ok, thanks for clarifying.
+> Hi Sibi,
 > 
->> ....anyway...it is mostly trivial to add vendor/protocols autoloading
->> transparently...today I was experimenting with a patch that triggers
->> autoloading based on a generic common alias pattern in the form
->> 'scmi-protocol-0x<NN>' (with NN the specific protocol ID of course)
->> that triggers the loading as soon as the SCMI Vendor driver tries to
->> access the protocol during its probe...
+> a few remarks down below.
+> 
+>> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
+>> ---
+>>   .../arm_scmi/vendors/qcom/qcom_generic.rst    | 210 ++++++++++++++++++
+>>   1 file changed, 210 insertions(+)
+>>   create mode 100644 drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst
 >>
->> ....I will post it for the next cycle once it is clean.
->> (unless I am missing something else that you want to add...)
+>> diff --git a/drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst b/drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst
+>> new file mode 100644
+>> index 000000000000..1ee6dabaac23
+>> --- /dev/null
+>> +++ b/drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst
+>> @@ -0,0 +1,210 @@
+>> +.. SPDX-License-Identifier: GPL-2.0
+>> +.. include:: <isonum.txt>
+>> +
+>> +===============================================================================
+>> +QCOM System Control and Management Interface(SCMI) Vendor Protocols Extension
+>> +===============================================================================
+>> +
+>> +:Copyright: |copy| 2024, Qualcomm Innovation Center, Inc. All rights reserved.
+>> +
+>> +:Author: Sibi Sankar <quic_sibis@quicinc.com>
+>> +
+>> +SCMI_GENERIC: System Control and Management Interface QCOM Generic Vendor Protocol
+>> +==================================================================================
+>> +
+>> +This protocol is intended as a generic way of exposing a number of Qualcomm
+>> +SoC specific features through a mixture of pre-determined algorithm string and
+>> +param_id pairs hosted on the SCMI controller. It implements an interface compliant
+>> +with the Arm SCMI Specification with additional vendor specific commands as
+>> +detailed below.
+>> +
+>> +Commands:
+>> +_________
+>> +
+>> +PROTOCOL_VERSION
+>> +~~~~~~~~~~~~~~~~
+>> +
+>> +message_id: 0x0
+>> +protocol_id: 0x80
+>> +
+>> ++---------------+--------------------------------------------------------------+
+>> +|Return values                                                                 |
+>> ++---------------+--------------------------------------------------------------+
+>> +|Name           |Description                                                   |
+>> ++---------------+--------------------------------------------------------------+
+>> +|int32 status   |See ARM SCMI Specification for status code definitions.       |
+>> ++---------------+--------------------------------------------------------------+
+>> +|uint32 version |For this revision of the specification, this value must be    |
+>> +|               |0x10000.                                                      |
+>> ++---------------+--------------------------------------------------------------+
+>> +
+>> +PROTOCOL_ATTRIBUTES
+>> +~~~~~~~~~~~~~~~~~~~
+>> +
+>> +message_id: 0x1
+>> +protocol_id: 0x80
+>> +
+>> ++---------------+--------------------------------------------------------------+
+>> +|Return values                                                                 |
+>> ++------------------+-----------------------------------------------------------+
+>> +|Name              |Description                                                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|int32 status      |See ARM SCMI Specification for status code definitions.    |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 attributes |Bits[8] Set to 1.                                          |
+>> +|                  |Bits[0] Set to 1.                                          |
+>> ++------------------+-----------------------------------------------------------+
 > 
-> Sounds like that would solve the issue. I was just expecting the memlat
-> client driver and its protocol dependency to be loaded automatically
-> when built as modules on machines that can use them (e.g. as we don't
-> want to have every vendor protocol driver built into distro kernels,
-> etc).
-> 
->>> Second, after loading the protocol and client drivers manually (in that
->>> order, shouldn't the client driver pull in the protocol?), I got:
->>>
->>> 	scmi_module: Loaded SCMI Vendor Protocol 0x80 - Qualcomm  20000
->>> 	arm-scmi arm-scmi.0.auto: QCOM Generic Vendor Version 1.0
->>> 	scmi-qcom-generic-ext-memlat scmi_dev.5: error -EOPNOTSUPP: failed to configure common events
->>> 	scmi-qcom-generic-ext-memlat scmi_dev.5: probe with driver scmi-qcom-generic-ext-memlat failed with error -95
->>>
->>> which seems to suggest that the firmware on my CRD does not support this
->>> feature. Is that the way this should be interpreted? And does that mean
->>> that non of the commercial laptops supports this either?
->>
->> This seems like FW rejecting the command, maybe just only for the specific
->> Linux OSPM agent since it is not allowed to ask for that specific setup,
->> and only Sibi can shed a light here :D
->>
->> ...but this Vendor protocol, if I am not mistaken, AFAIU, uses a bunch
->> of "algo strings" coming from tokens it picks from DT and use thsoe as
->> params for the set_param() VendorProtocol ops...cannot be that a bad/missing
->> DT value could cause the FW to reject the command due to the params ?
->> (even if the command is supported)...
->>
->> ...just a guess ah... I have no real knowledge of this venndor proto...
-> 
-> Yeah, hopefully Sibi can shed some light on this. I'm using the DT
-> patch (5/5) from this series, which according to the commit message is
-> supposed to enable bus scaling on the x1e80100 platform. So I guess
-> something is missing in my firmware.
+> Mmmm, this does not explain so much what are those bits and what values
+> they can indeed assume :P ...
 
-Nah, it's probably just because of the algo string used.
-The past few series used caps MEMLAT string instead of
-memlat to pass the tuneables, looks like all the laptops
-havn't really switched to it yet. Will revert back to
-using to lower case memlat so that all devices are
-supported. Thanks for trying the series out!
+lol, after a lot of rooting around figured out they
+return the number of vendor protocols available in
+the system :/
+
+Not really sure if it's adding any useful info.
+
+> 
+>> +
+>> +PROTOCOL_MESSAGE_ATTRIBUTES
+>> +~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> +
+>> +message_id: 0x2
+>> +protocol_id: 0x80
+>> +
+>> ++---------------+--------------------------------------------------------------+
+>> +|Return values                                                                 |
+>> ++------------------+-----------------------------------------------------------+
+>> +|Name              |Description                                                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|int32 status      |See ARM SCMI Specification for status code definitions.    |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 attributes |For all message id's the parameter has a value of 0.       |
+>> ++------------------+-----------------------------------------------------------+
+>> +
+>> +QCOM_SCMI_SET_PARAM
+>> +~~~~~~~~~~~~~~~~~~~
+>> +
+>> +message_id: 0x10
+>> +protocol_id: 0x80
+>> +
+>> ++------------------+-----------------------------------------------------------+
+>> +|Parameters                                                                    |
+>> ++------------------+-----------------------------------------------------------+
+>> +|Name              |Description                                                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 ext_id     |Reserved, must be zero.                                    |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 algo_low   |Lower 32-bit value of the algorithm string.                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 algo_high  |Upper 32-bit value of the algorithm string.                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 param_id   |Serves as the token message id for the algorithm string    |
+>> +|                  |and is used to set various parameters supported by it.     |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 buf[]      |Serves as the payload for the specified param_id and       |
+>> +|                  |algorithm string pair.                                     |
+>> ++------------------+-----------------------------------------------------------+
+> 
+> And what abot the size of this payload ? .. so you are relying on the
+> fact that the transport will add the total message length at that layer
+> and so the server can determine where the valid payload ends...
+> 
+> ...it means the server will have some expectations about the payload length
+> based on the param_id and will check against the received transport-advertised
+> message-length, am I right ?
+> 
+> ...BUT what if you end up with multiple versions of this protocol in the future,
+> with varying payload lengths for the same param_id...REMEMEBER that the server
+> cannot know which version of a protocol the client is running (while the client
+> can see what the server runs) UNLESS you implement also NEGOTIATE_PROTOCOL_VERSION
+> for this protocol...
+> 
+> ...so without an explicit length nor the NEGOTIATE_PROTOCOL_VERSION you wont be
+> able in the future, server-side, to be sure if you are assumnig the right payload
+> length for the right version that the client is speaking...so at the end you
+> wont be able to support multiple versions of the protocol even if the Kernel
+> can support all of those versions...do you see what I mean ?
+> 
+> I think that would be advisable to implement NEGOTIATE_PROTOCOL_VERSION
+> if you dont want to carry an explicit size in the message for this payload...
+> 
+> ...or am I missing something ?
+
+ack makes sense but we planned to make sure that the sub-strings
+used maintain abi for all their messages but like you said having
+way to negotiate protocol version will be nice to have. Will make
+sure something along the lines get implemented with the next major
+version upgrade.
 
 -Sibi
 
 > 
-> Johan
+>> +|Return values                                                                 |
+>> ++------------------+-----------------------------------------------------------+
+>> +|Name              |Description                                                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|int32 status      |SUCCESS: if the param_id and buf[] is parsed successfully  |
+>> +|                  |by the chosen algorithm string.                            |
+>> +|                  |NOT_SUPPORTED: if the algorithm string does not have any   |
+>> +|                  |matches.                                                   |
+>> +|                  |INVALID_PARAMETERS: if the param_id and the buf[] passed   |
+>> +|                  |is rejected by the algorithm string.                       |
+>> ++------------------+-----------------------------------------------------------+
+>> +
+>> +QCOM_SCMI_GET_PARAM
+>> +~~~~~~~~~~~~~~~~~~~
+>> +
+>> +message_id: 0x11
+>> +protocol_id: 0x80
+>> +
+>> ++------------------+-----------------------------------------------------------+
+>> +|Parameters                                                                    |
+>> ++------------------+-----------------------------------------------------------+
+>> +|Name              |Description                                                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 ext_id     |Reserved, must be zero.                                    |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 algo_low   |Lower 32-bit value of the algorithm string.                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 algo_high  |Upper 32-bit value of the algorithm string.                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 param_id   |Serves as the token message id for the algorithm string.   |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 buf[]      |Serves as the payload and store of value for the specified |
+>> +|                  |param_id and algorithm string pair.                        |
+>> ++------------------+-----------------------------------------------------------+
+>> +|Return values                                                                 |
+>> ++------------------+-----------------------------------------------------------+
+>> +|Name              |Description                                                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|int32 status      |SUCCESS: if the param_id and buf[] is parsed successfully  |
+>> +|                  |by the chosen algorithm string and the result is copied    |
+>> +|                  |into buf[].                                                |
+>> +|                  |NOT_SUPPORTED: if the algorithm string does not have any   |
+>> +|                  |matches.                                                   |
+>> +|                  |INVALID_PARAMETERS: if the param_id and the buf[] passed   |
+>> +|                  |is rejected by the algorithm string.                       |
+>> ++------------------+-----------------------------------------------------------+
+> 
+> Similarly, no payload length means you will have to code some builtin
+> check to verify the length of the message that you have received against
+> the specific version that the server is running...this is NOT so
+> problematic here as in the _SET above since the client/agent DOES know which
+> protocol version the server is running...
+> 
+> ...it is a bit odd, but indeed similar to other variable sized SCMI messages in
+> standard protocols that sports optional fields in the reply, for which, similarly
+> you have to check the version of the protocol to desume the size of the message
+> based on the presence or not of some fields...
+> 
+>> +
+>> +QCOM_SCMI_START_ACTIVITY
+>> +~~~~~~~~~~~~~~~~~~~~~~~~
+>> +
+>> +message_id: 0x12
+>> +protocol_id: 0x80
+>> +
+>> ++------------------+-----------------------------------------------------------+
+>> +|Parameters                                                                    |
+>> ++------------------+-----------------------------------------------------------+
+>> +|Name              |Description                                                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 ext_id     |Reserved, must be zero.                                    |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 algo_low   |Lower 32-bit value of the algorithm string.                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 algo_high  |Upper 32-bit value of the algorithm string.                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 param_id   |Serves as the token message id for the algorithm string    |
+>> +|                  |and is generally used to start the activity performed by   |
+>> +|                  |the algorithm string.                                      |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 buf[]      |Serves as the payload for the specified param_id and       |
+>> +|                  |algorithm string pair.                                     |
+>> ++------------------+-----------------------------------------------------------+
+>> +|Return values                                                                 |
+>> ++------------------+-----------------------------------------------------------+
+>> +|Name              |Description                                                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|int32 status      |SUCCESS: if the activity performed by the algorithm string |
+>> +|                  |starts successfully.                                       |
+>> +|                  |NOT_SUPPORTED: if the algorithm string does not have any.  |
+>> +|                  |matches or if the activity is already running.             |
+>> ++------------------+-----------------------------------------------------------+
+>> +
+> 
+> Same consideration as above...being a SET-like operation with a variable
+> sized field in the request AND no explicit payload length, you will have
+> to derive the size from the message length BUT since you doint even have
+> implemented NEGOTIATE_PROTOCOL_VERSION in the future any kind of check
+> will become impossibe server side if you will have multiple protocols
+> with varying sizes for buf depending on the protocol version
+> 
+>> +QCOM_SCMI_STOP_ACTIVITY
+>> +~~~~~~~~~~~~~~~~~~~~~~~
+>> +
+>> +message_id: 0x13
+>> +protocol_id: 0x80
+>> +
+>> ++------------------+-----------------------------------------------------------+
+>> +|Parameters                                                                    |
+>> ++------------------+-----------------------------------------------------------+
+>> +|Name              |Description                                                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 ext_id     |Reserved, must be zero.                                    |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 algo_low   |Lower 32-bit value of the algorithm string.                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 algo_high  |Upper 32-bit value of the algorithm string.                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 param_id   |Serves as the token message id for the algorithm string    |
+>> +|                  |and is generally used to stop the activity performed by    |
+>> +|                  |the algorithm string.                                      |
+>> ++------------------+-----------------------------------------------------------+
+>> +|uint32 buf[]      |Serves as the payload for the specified param_id and       |
+>> +|                  |algorithm string pair.                                     |
+>> ++------------------+-----------------------------------------------------------+
+> 
+> Same.
+> 
+>> +|Return values                                                                 |
+>> ++------------------+-----------------------------------------------------------+
+>> +|Name              |Description                                                |
+>> ++------------------+-----------------------------------------------------------+
+>> +|int32 status      |SUCCESS: if the activity performed by the algorithm string |
+>> +|                  |stops successfully.                                        |
+>> +|                  |NOT_SUPPORTED: if the algorithm string does not have any   |
+>> +|                  |matches or if the activity isn't running.                  |
+>> ++------------------+-----------------------------------------------------------+
+> 
+> Thanks,
+> Cristian
 
