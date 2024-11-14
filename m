@@ -4,72 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7E4D6A223
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 17:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3116CD6A224
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 17:45:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aD/pNPbNG6Ga28qxloKb6nunuDvWsa+n0tWksHAsd30=; b=wui175RT4kaY1fRiWRB+LuDMrd
-	5kQ7FRxNDiDjFKoaXGQtP/6HvOE0VmX0DHG6FOJYoF/HJXz4cjwbAAAGkdZeV3QzCProf7AobTc9o
-	vISaHwYB8X+gGPNfGMdSn/PaiTKgRZ4Baa1riDZyQv/4deQQximTBHQWmJEjFJENrDk4Y73J5CdE7
-	sda1QGU+ky/KdBuU7443ZdATDlw7GsHWHT/NcXKsMYwjWM4lR87BqRlapDi7AfYbpwPtAWQB/27M6
-	gLP8CVKcS3ZdMVisIvoeFCrO6/VWA6dazWRF4R3qh44VJrTNa4LI5fdLLcratQ32hlZ/VKc/00JlR
-	xzptrasQ==;
+	bh=uWFM2OIDny8aQRNfF/FtlMduc/pXhoIYLcpFwT4ifvg=; b=kPyxH9Em238p0n5/Qk/kRtR658
+	bjEPyWM9hKnK2KtXmMI/6LGiTVqSHQBkot4ThCCm+I1s0Ld6pi2aau+PF50VCvC7ZjvKAe7SUHecp
+	LJrFqxSKiK2pKgKQ31Dv6qWsVw3Lr6+Ji5LmSS5nGcGKhKoYbpJX3TDIa27T1cdyBpdtwSPaLePvS
+	WqFIG54Kp46v80Coqw8R5NlTNfnUjtryXZhXqi+AXW9EeURDTlLXmy0VSZOF1DMww63EeuXotYPs0
+	zfJa8wWz3ZtRnpFj7yKi6qMoMozzfYdvjsBIeTRqhwv6bRgG3eaBU5fj0TIMAIMC5gxIX+tEXS9bD
+	js9D57NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBduR-00000000N9t-2bZm;
-	Thu, 14 Nov 2024 17:45:35 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tBduN-00000000N6J-3aPw;
+	Thu, 14 Nov 2024 17:45:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBctW-00000000AdM-2iVL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 16:40:37 +0000
+	id 1tBcoh-000000009OV-1w52;
+	Thu, 14 Nov 2024 16:35:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=aD/pNPbNG6Ga28qxloKb6nunuDvWsa+n0tWksHAsd30=; b=0eS4j9i9RtqrdP4VR8S7ahd47H
-	5wdsBjdDMBE2AbWkB+COcUSQTbRu7TIbqyRElUkCUPDr4KvQfifiETtT1itvOqTwM/167D2DB8g2B
-	JFq0f5HqlsETUdS1d6w9rZhyR8Yfc6Emu92AKMlfwIC3vyXcS9wC3y1zhrHvW8qISynRS/f91n3it
-	xQNWz/qOMKM4PfY4+dadqbHaHjcbmTcisMljb31ASOjvfxZIC/1Jhi2okURFuOKdBXH/2qg7yHXui
-	VSUCYOUpMQFlDocs1QJCC3rLlfDuT+4vTQL5xzVaLYIF4uJkFtohvoI5/FMeyz4AWDN+4s6+Y0/Vf
-	mfyNUWyQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33636)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tBctQ-0008O2-1V;
-	Thu, 14 Nov 2024 16:40:30 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tBctP-0001Fl-1S;
-	Thu, 14 Nov 2024 16:40:27 +0000
-Date: Thu, 14 Nov 2024 16:40:27 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Lucas Stach <l.stach@pengutronix.de>, kernel@pengutronix.de,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] ARM: Don't mention the full path of the source directory
- in mach-types.h
-Message-ID: <ZzYn-9hn5ztBQ4JZ@shell.armlinux.org.uk>
-References: <20240213092835.754462-2-u.kleine-koenig@pengutronix.de>
- <a80f1cc8d5dda405f5af08eaa33d21598fa31d14.camel@pengutronix.de>
- <7occ3sqwoae2gjhvjun5c5auinas3lwhugfqjeta5pcr2gv2jc@dnzl56imqvbr>
- <20241114131530.texa6lkfmm3ukh5d@pengutronix.de>
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:
+	Reply-To:Cc:Content-ID:Content-Description;
+	bh=uWFM2OIDny8aQRNfF/FtlMduc/pXhoIYLcpFwT4ifvg=; b=jZ19qofm/ftD1RzWGfZRaGRvY7
+	6sdz14Q5KagH4j4UKWfOJSxOeqtH2pZK5KccD5hEIR5onTqlcIn5G2kgKZB7Dk+ezGLt+YrG9h8do
+	+Eqvkr9MDYUTxUmCnrJoRSM8qKQ06XJOrC5D/KDG/p3X13ozTkwvn8fJMYLjV2oCdJ5FTTI6eyRPQ
+	jbcfJ6nX2gy7ncPSIQUsVYihONxK8HDZ1fbNj9kjQ9HjGmwd5XMg7odA3qwqwI3BaTvFuSh35b159
+	ywD5l9yF7o1T/upy+ykzDK+FYbpiaBk6PgnsWaCwVOrJtx3uDzFmrGf9krjofkMfyAAkSZag7hc0z
+	kU6u8i6A==;
+Received: from mx2.sberdevices.ru ([45.89.224.132] helo=mx1.sberdevices.ru)
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBcod-000000007pt-025q;
+	Thu, 14 Nov 2024 16:35:33 +0000
+Received: from p-infra-ksmg-sc-msk02.sberdevices.ru (localhost [127.0.0.1])
+	by mx1.sberdevices.ru (Postfix) with ESMTP id 488DB12000F;
+	Thu, 14 Nov 2024 19:29:33 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 488DB12000F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
+	s=mail; t=1731601773;
+	bh=uWFM2OIDny8aQRNfF/FtlMduc/pXhoIYLcpFwT4ifvg=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
+	b=NTk0EQQq1dTOoLVAR6GaTO++UVCib4kqHgC5/08c3yFCw4g/2aPtLZLuSqF5Iu77/
+	 4afD9B1yly2t5vKet6TX2wtmprg6tC217vm7GHcKy2mVpRIN4SNSBKIOm/Ylo1hvFG
+	 MycBb4j0nIYBd/sQRWscVnsTdtyYYSDNe+xQjghLZPxHSKW4MRF7bWtb/E5jeXGL8m
+	 1J56xNkZApekA3xLCyCEJgQswh2pmiZQ+PvOZYkgX1nWIFH5YXlafBrQgbf6cvCaOR
+	 7qIXDkkXiMCxb/j1b00WSIrrkbP/xPmDAaAb7RMFqfZ46CO5KZgVRqZZIKj4tP8PNm
+	 TR/k7qKZIe4rA==
+Received: from smtp.sberdevices.ru (p-i-exch-sc-m02.sberdevices.ru [172.16.192.103])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.sberdevices.ru (Postfix) with ESMTPS;
+	Thu, 14 Nov 2024 19:29:33 +0300 (MSK)
+From: Jan Dakinevich <jan.dakinevich@salutedevices.com>
+To: Jan Dakinevich <jan.dakinevich@salutedevices.com>, Jerome Brunet
+	<jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
+	<linux-amlogic@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Martin
+ Blumenstingl" <martin.blumenstingl@googlemail.com>, Michael Turquette
+	<mturquette@baylibre.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+	Stephen Boyd <sboyd@kernel.org>
+Subject: [RFC PATCH 2/3] clk: amlogic: axg-audio: synchronize *_audio_hw_clks and *_clk_regmaps arrays
+Date: Thu, 14 Nov 2024 19:29:25 +0300
+Message-ID: <20241114162926.3356551-3-jan.dakinevich@salutedevices.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241114162926.3356551-1-jan.dakinevich@salutedevices.com>
+References: <20241114162926.3356551-1-jan.dakinevich@salutedevices.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241114131530.texa6lkfmm3ukh5d@pengutronix.de>
+Content-Type: text/plain
+X-Originating-IP: [172.28.64.45]
+X-ClientProxiedBy: p-i-exch-a-m2.sberdevices.ru (172.24.196.120) To
+ p-i-exch-a-m1.sberdevices.ru (172.24.196.116)
+X-KSMG-Rule-ID: 10
+X-KSMG-Message-Action: clean
+X-KSMG-AntiSpam-Lua-Profiles: 189183 [Nov 14 2024]
+X-KSMG-AntiSpam-Version: 6.1.1.7
+X-KSMG-AntiSpam-Envelope-From: YVDakinevich@sberdevices.ru
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: not_detected
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Auth: dkim=none
+X-KSMG-AntiSpam-Info: LuaCore: 41 0.3.41 623e98d5198769c015c72f45fabbb9f77bdb702b, {Tracking_smtp_not_equal_from}, salutedevices.com:7.1.1;smtp.sberdevices.ru:7.1.1,5.0.1;127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;sberdevices.ru:7.1.1,5.0.1, {Tracking_smtp_domain_mismatch}, {Tracking_smtp_domain_2level_mismatch}, {Tracking_sender_alignment_int}, {Tracking_white_helo}, FromAlignment: n
+X-MS-Exchange-Organization-SCL: -1
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiPhishing: Clean
+X-KSMG-LinksScanning: Clean
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2024/11/14 14:31:00 #26861614
+X-KSMG-AntiVirus-Status: Clean, skipped
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_084035_005160_808E94FC 
-X-CRM114-Status: GOOD (  31.38  )
+X-CRM114-CacheID: sfid-20241114_163531_374817_63BCF1D4 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,82 +112,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 14, 2024 at 02:15:30PM +0100, Marco Felsch wrote:
-> Hi Uwe, Lucas,
-> 
-> On 24-07-25, Uwe Kleine-König wrote:
-> > Hallo Lucas,
-> > 
-> > On Wed, Jul 24, 2024 at 03:45:17PM +0200, Lucas Stach wrote:
-> > > Am Dienstag, dem 13.02.2024 um 10:28 +0100 schrieb Uwe Kleine-König:
-> > > > To make package building reproducible independent of the location of the
-> > > > source tree, the absolute path of this source tree must not be mentioned
-> > > > in the built artifact. So strip $abs_srctree from FILENAME in the
-> > > > output.
-> > > > 
-> > > > This fixes a warning issued by Yocto:
-> > > > 	WARNING: linux-lxatac-6.7-r0 do_package_qa: QA Issue: File /usr/src/debug/linux-lxatac/6.7-r0/arch/arm/include/generated/asm/mach-types.h in package linux-lxatac-src contains reference to TMPDIR
-> > > > 
-> > > > Signed-off-by: Uwe Kleine-König <u.kleine-koenig@pengutronix.de>
-> > > > ---
-> > > >  arch/arm/tools/gen-mach-types | 13 ++++++++++++-
-> > > >  1 file changed, 12 insertions(+), 1 deletion(-)
-> > > > 
-> > > > diff --git a/arch/arm/tools/gen-mach-types b/arch/arm/tools/gen-mach-types
-> > > > index cbe1c33bb871..9592ceb8a102 100644
-> > > > --- a/arch/arm/tools/gen-mach-types
-> > > > +++ b/arch/arm/tools/gen-mach-types
-> > > > @@ -21,10 +21,21 @@ NF == 3 {
-> > > >  	  num[nr] = ""; nr++
-> > > >  	}
-> > > >  
-> > > > +# prepend a \ to all special chars in a regexp
-> > > > +function quote(s) {
-> > > > +	return gensub("[][\\^$.|()*+?{}]", "\\\\&", "g", s)
-> > > 
-> > > gensub is a gawk extension and thus will break on systems with a
-> > > different awk implementation.
-> > 
-> > Oh, wasn't aware of that.
-> > 
-> > It seems for Debian the only packaged alternative awk implementation is
-> > goawk. This one knows about gensub, too.
-> > 
-> > Other tools in the kernel seem to assume gawk is available, but
-> > explicitly call it as gawk. gen-mach-types is called using $(AWK) which
-> > defaults to "awk".
-> > 
-> > So I guess the easiest fix would be:
-> > 
-> > diff --git a/arch/arm/tools/Makefile b/arch/arm/tools/Makefile
-> > index 28b6da8ac5f6..84107bb7ddf1 100644
-> > --- a/arch/arm/tools/Makefile
-> > +++ b/arch/arm/tools/Makefile
-> > @@ -32,7 +32,7 @@ uapi:	$(uapi-hdrs-y)
-> >  $(shell mkdir -p $(kapi) $(uapi))
-> >  
-> >  quiet_cmd_gen_mach = GEN     $@
-> > -      cmd_gen_mach = $(AWK) -f $(real-prereqs) > $@
-> > +      cmd_gen_mach = gawk -f $(real-prereqs) > $@
-> >  
-> >  $(kapi)/mach-types.h: $(src)/gen-mach-types $(src)/mach-types FORCE
-> >  	$(call if_changed,gen_mach)
-> > 
-> > maybe together with removing the shebang line from the script which is
-> > unused and (then) misleading.
-> > 
-> > If we want to stick to plain awk, I'd ask for someone with a different
-> > implementation to work on a patch.
-> 
-> I wasn't aware of this patch, therefore I send a simpler one which drops
-> the filename mention:
-> 
-> https://lore.kernel.org/all/20241114130021.2802803-1-m.felsch@pengutronix.de/T/#u
+To simplify review, synchronize the content and order of clocks listed
+in these arrays.
 
-Or just leave it as is. It's in a comment, it doesn't get into the
-executable, and thus is harmless.
+Signed-off-by: Jan Dakinevich <jan.dakinevich@salutedevices.com>
+---
+ drivers/clk/meson/axg-audio.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
+diff --git a/drivers/clk/meson/axg-audio.c b/drivers/clk/meson/axg-audio.c
+index 05a72a199ebd..5d2901b2a964 100644
+--- a/drivers/clk/meson/axg-audio.c
++++ b/drivers/clk/meson/axg-audio.c
+@@ -1095,6 +1095,8 @@ static struct clk_hw *g12a_audio_hw_clks[] = {
+ 	[AUD_CLKID_TDM_SCLK_PAD0]	= &g12a_tdm_sclk_pad_0.hw,
+ 	[AUD_CLKID_TDM_SCLK_PAD1]	= &g12a_tdm_sclk_pad_1.hw,
+ 	[AUD_CLKID_TDM_SCLK_PAD2]	= &g12a_tdm_sclk_pad_2.hw,
++	[AUD_CLKID_TORAM]		= &toram.hw,
++	[AUD_CLKID_EQDRC]		= &eqdrc.hw,
+ 	[AUD_CLKID_TOP]			= &axg_aud_top,
+ };
+ 
+@@ -1428,6 +1430,9 @@ static struct clk_regmap *const g12a_clk_regmaps[] = {
+ 	&spdifout_clk_sel,
+ 	&spdifout_clk_div,
+ 	&spdifout_clk,
++	&spdifout_b_clk_sel,
++	&spdifout_b_clk_div,
++	&spdifout_b_clk,
+ 	&spdifin_clk_sel,
+ 	&spdifin_clk_div,
+ 	&spdifin_clk,
+@@ -1508,9 +1513,6 @@ static struct clk_regmap *const g12a_clk_regmaps[] = {
+ 	&tdmout_a_lrclk,
+ 	&tdmout_b_lrclk,
+ 	&tdmout_c_lrclk,
+-	&spdifout_b_clk_sel,
+-	&spdifout_b_clk_div,
+-	&spdifout_b_clk,
+ 	&g12a_tdm_mclk_pad_0,
+ 	&g12a_tdm_mclk_pad_1,
+ 	&g12a_tdm_lrclk_pad_0,
+@@ -1565,6 +1567,9 @@ static struct clk_regmap *const sm1_clk_regmaps[] = {
+ 	&spdifout_clk_sel,
+ 	&spdifout_clk_div,
+ 	&spdifout_clk,
++	&spdifout_b_clk_sel,
++	&spdifout_b_clk_div,
++	&spdifout_b_clk,
+ 	&spdifin_clk_sel,
+ 	&spdifin_clk_div,
+ 	&spdifin_clk,
+@@ -1645,9 +1650,6 @@ static struct clk_regmap *const sm1_clk_regmaps[] = {
+ 	&tdmout_a_lrclk,
+ 	&tdmout_b_lrclk,
+ 	&tdmout_c_lrclk,
+-	&spdifout_b_clk_sel,
+-	&spdifout_b_clk_div,
+-	&spdifout_b_clk,
+ 	&sm1_tdm_mclk_pad_0,
+ 	&sm1_tdm_mclk_pad_1,
+ 	&sm1_tdm_lrclk_pad_0,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.34.1
+
 
