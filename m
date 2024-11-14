@@ -4,67 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E82D68B26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 14:24:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10F70D68B28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 14:26:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0DyiD3ejpKkSu4mppJ+GQZe5KVQL/VUrRw8jSsk28p4=; b=G8joxeTl7uXuoLqfI4QO5RBZmJ
-	7CwQgGtPJ/etM8Gx6ILo7OFC7W7h86JlJyrGrF0BXI+N9ulbIP1jxQL7UrG50rDt7x2XrLnphzkqs
-	fkd/msT2fKDXCf4DOoZNq86pw9JgmMR9NNo1JXiSt3x+a3Mc4OkRy5rzEhvnqk0C4hrf95JnMOGFl
-	7kEafHF8CcXdk51oi1VVwvNZf6fqdY04Bjq6oxNJbA6vzt4io8DhapAPmw+EqGkD9OF2rmySg3A1I
-	o28PjTvaI78CdBAYWb3FV9kgD14yswA4r5WOXl9tfhwKNFa6N6XU4sw/LCpwuEIHVfGlH4+WLoRnK
-	PqHya4mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MIkk/ugghnBw6fYu2dCC8sqJ6JiQClGOjOXMCnI8Iuk=; b=4GVNEBtir3KwIsMdHCYJfXwvI5
+	5JjF4WGPJisBxrEeF3uQjkQZwiKvQ3Gw+s+8KbHf+2p4ISUe3lYGzFKj3/WbXkdFKnbLs1h9PNA3/
+	xv8uBQg3z+de4NVXiqMikfkSNSlpnfXxwXAtrfH4ftjmZTf9u3rxgNUtobzA38bQKVF23q4zjfcqh
+	HIFhuutm0vCk3gqXDBbtU23Irpl56BIYNQ4/iwzySoCBTXzeN2KGmkjC7KVz0ocqFds/xLsJl19li
+	U9i5EgEPXOM4JRmn4lKslWBc68rAsGRKs2eNMsypjE3Y5WD1AF971JtmWaDeolxItXngmLpi6r2vx
+	xvFK9iiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBalD-0000000AC2R-1MXF;
-	Thu, 14 Nov 2024 14:23:51 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tBana-0000000ACNs-2Nqr;
+	Thu, 14 Nov 2024 14:26:18 +0000
+Received: from mail-centralindiaazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c408::1] helo=PNYPR01CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBahD-0000000ABD1-3VNk
+	id 1tBalm-0000000AC8h-1K8k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 14:19:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=0DyiD3ejpKkSu4mppJ+GQZe5KVQL/VUrRw8jSsk28p4=; b=O3ta6huYE8104TF8jA5dPpYfrC
-	XGQ+YiXAo+PzqMREZZzEfi/V9yb4N/GZXXIZ+yMv6AjEifbrygBdtC7Hf7c9/fEWnF6FPsiuiMXY7
-	i5PqfQpZvKYO3+J0+FR5agPTqRkuAaSclbPC5lHnqvENomg+BS/mdONRl6bj85zJ0tkA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tBags-00DIzU-Ir; Thu, 14 Nov 2024 15:19:22 +0100
-Date: Thu, 14 Nov 2024 15:19:22 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net v1 2/2] net: stmmac: set initial EEE policy
- configuration
-Message-ID: <a6cbf428-4672-4beb-8c55-e4d3ae684458@lunn.ch>
-References: <20241114081653.3939346-1-yong.liang.choong@linux.intel.com>
- <20241114081653.3939346-3-yong.liang.choong@linux.intel.com>
+	Thu, 14 Nov 2024 14:24:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=d6YWiusBt2ELW3LVrHXf2PM0hQGQKv24B9zi8S4diqvOF0LlkPBRK3WWQruO7I0Y1siSQycEmbOuLML4OyssvLfIG5G6rhJCBKo+Re87Ri+lAWhR5M2qUU4Q3ZeZ5fvD24ZLpRNJye8daxIq7J2vwF4betgQJPNxzS89sZt8Y0RqROZ8qGsx7bbmY8l1toZITXApjYy8ycvZ32WyYHKn817bDbKuF+ZT4r6cGwwQiZfxAVOU72lFh9pr9edppVANZJq12PFkDPTDdmmsDpAQN9OjEwnCFT+853Km7tbZXflpADWiGnWGMou+8LYvrqmDtPXfyfAnPXHI8G5RCNSbCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MIkk/ugghnBw6fYu2dCC8sqJ6JiQClGOjOXMCnI8Iuk=;
+ b=U6SjJGQFjg0S0xtADK7K9eArsTBAm9lM1Pzc6sUMzfVUX9tB6zjgScKKFKfZIk7EFm0OD+F5V6ZZXeCz/8n170WVrdC2++9d5jVSljoS4kN0XsuTdjDGJGUFUovyhoRCJCwyFG9g+iZ6DOReSlQ95/ippcmuqHY5EzX433tf8qyBDVbjXV9WczCq3DuAj8BEBFRlCE7J+A0867wuOl193d4GE1KvNLUbme06flIWcVM0k/wJoEfbzyrvsRH1SHrnconembTZbpdkRDrPvVUg9yXmv9StPIlUXqygOvwEdr8v72CSqYO9ZV5uB2ToM363GLS4Gmph/jLs0FvFKpoSMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=siliconsignals.io; dmarc=pass action=none
+ header.from=siliconsignals.io; dkim=pass header.d=siliconsignals.io; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=siliconsignals.io;
+Received: from PN0P287MB2843.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:204::8)
+ by PN0P287MB1374.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:189::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.17; Thu, 14 Nov
+ 2024 14:24:00 +0000
+Received: from PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
+ ([fe80::1134:92d7:1f68:2fac]) by PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
+ ([fe80::1134:92d7:1f68:2fac%3]) with mapi id 15.20.8158.017; Thu, 14 Nov 2024
+ 14:24:00 +0000
+From: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>
+To: will@kernel.org,
+	broonie@kernel.org
+Cc: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Marc Zyngier <maz@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] arm64: Refactor conditional logic
+Date: Thu, 14 Nov 2024 19:52:30 +0530
+Message-ID: <20241114142333.18210-1-hardevsinh.palaniya@siliconsignals.io>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: PN3PR01CA0080.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:9a::22) To PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:204::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241114081653.3939346-3-yong.liang.choong@linux.intel.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PN0P287MB2843:EE_|PN0P287MB1374:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8a4d9809-b38c-4119-cddf-08dd04b7fb49
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|366016|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jkWiBGgkLvEFtdwCnLpZQ1FhjdWJdETc3bZq+rQ1djJXW2HQXszRv3uzjT01?=
+ =?us-ascii?Q?jGpw3ooQdvh+a1C0uYZ0bRIi6vND+XY/820EvcAR7nG2YNK9F9Vx8hFg/S0p?=
+ =?us-ascii?Q?Q9xUTM9TuFtrFmN4PwU0TCB4eBM4gAx59oGWW1q6MRTwd7TL8oxM4ok1gMui?=
+ =?us-ascii?Q?PW0Pcg+r1Gbe6a8mjeGM0l8v/cud2WLI1yS7hI2P9ZiGxolai/dPZg+8nsvp?=
+ =?us-ascii?Q?HoCOqhl86unvWzhnEzGmhty72Q5AGtoYX1iiI6R9GCA+9yabC7nqej+GlF1+?=
+ =?us-ascii?Q?sMrDLLXicjBj5GrMVSs0oJgrNHjkIfodfpP7+em+svhfRy+McJp6RrakBueO?=
+ =?us-ascii?Q?tVPB1BYZPTV13jRCrPAgmcs0Kavnv5WgmaGQ7iMCVA45yAeGXu1C76k/Kefe?=
+ =?us-ascii?Q?4V84m6AvIuWOde3M1Xrb0Fo0DKfhegoaWOjE4haLIX/1p75iAGnNERAzzeSc?=
+ =?us-ascii?Q?kbTIIDJjqRKMe8gkpRkG0qck2iyBXT7IxwcFmKxqETtM4PhMc/1BFvkQKO9K?=
+ =?us-ascii?Q?1FGZ9yL0dAGvbHLrUBg5/RB9poidmawnmnPoa5EZtM+SgDr54kQ+RlqxYblY?=
+ =?us-ascii?Q?1huK62ejsxsyX4gdFCdGU86ydHYeBRW8ZEkBdn9GISXgIKQWXVkSoqW6gllV?=
+ =?us-ascii?Q?0DB6wEO2Y9K14dUfyshVHzczghkcfpDORJixPcvipoWzXP/iPuS8e94UrVq2?=
+ =?us-ascii?Q?N5iVcKenhG2AoERI/Zm8z2iZyAP5RYnB/L8RmbkwdxdsjKVhlVTfd7gmAODy?=
+ =?us-ascii?Q?Zkypj0FxNJCOipYJuelGvomZGgYcUNmkT/OIi1Mb+jJ2CdlKN3FC3rSRYd4v?=
+ =?us-ascii?Q?4mhKMHZJWmbpKmxEIABYxCIcUnJHe9CGYLYfowPr0ZfBp0LvJYkGW35vrN92?=
+ =?us-ascii?Q?f2AK92Tra93LQJ34VYEWDP7SG0CKP1ZQpWN2NiMnm0xRIlaPDFZWPLswY7MK?=
+ =?us-ascii?Q?0wEZg1MuQY5QV35ioSvQHqTpfltgDFrOGLwYU4yQKUog5+ObHYEWI55W6eOx?=
+ =?us-ascii?Q?Ql4KVRsXf2x3Bag55tEyqaFEMc6UhKg1J3BdCoGdlEOG1p0N2tQAXfJ5GxFX?=
+ =?us-ascii?Q?msQGsMG21VdrEL7vGHtuS2FvrccAOtmSf/3NoCfjHwIOhu5a4cUJZlVD69Bz?=
+ =?us-ascii?Q?Nzst3Vf97H4OGoqxKUNL5sAHp+L2K7xpv4c/lWaU7D1F4PJ7IziCP5gdaWUb?=
+ =?us-ascii?Q?pupWREjQjzkzz4Tm/fyJqh6k+OCQdFpQgK+bzYSoXQBuXFfm1hKfNylDWq0q?=
+ =?us-ascii?Q?9pPxENFn0IC/1QsLBuVI6ZE2p2baJtlJHU1ObyGDE2/GDJm/ROB6KLIjO/q0?=
+ =?us-ascii?Q?A9BWQ0/lfMAUShY8AA9Shel4rqB3kATwxuncVplTDLZ+Qlf9Y8i5hVaHcBCr?=
+ =?us-ascii?Q?VXcYKE8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN0P287MB2843.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(366016)(7416014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?X3iPXOmHvxR2f429cVS2iiAGcHDBSGSpDOM0zAOJ2e7i/J2wVLlxm9vANajw?=
+ =?us-ascii?Q?MXIoB7bf5DwXPXIJ66LFOe09DASKYo+h33SjzeSnG8fWwit8J84ou4MbWZuK?=
+ =?us-ascii?Q?tG5dAYPHHesJaWlex8Sv6d0u1kExMH+pcGYjqNrMNAhKvSG95gtS33WB0eDU?=
+ =?us-ascii?Q?AYD5Ed2KVttG7uS5rnBwuldiTdeeaqX6SFwTwIqb7InnffeXi5eINcGvd592?=
+ =?us-ascii?Q?9rdEgvmJXo33m7F6ltSJlhEETTQEPqlEh/5HhiuLbVEoTPEV2IwYV/ln1uvN?=
+ =?us-ascii?Q?UQQqcaRD9ljlnaG/XpREQmS3XJnGFUoZmQ0oWVcQUa5AJUzQpFB2ZwHTu9hH?=
+ =?us-ascii?Q?BlQUoAzhrR6yq/Vch2BctqWvgQ9/fEorVujnaBcqOkIxqwTjuPSdyW2WlpFO?=
+ =?us-ascii?Q?LjF92dkPGFxpdXSlGotaYd6otJT1w/SqZo/4y8emjbSUJEBycET4zBHnLUCN?=
+ =?us-ascii?Q?a6dcVfojoVZdBwczTtaFyebYZublh3E+B272ctujKvmgT+QK1Xj0/ff/tDLV?=
+ =?us-ascii?Q?+xwMIUt5hJpRVuI/Zpz9EKB1J7PVVRZXXDhAvgyl/4wwG6YLrj9a+CqBycJQ?=
+ =?us-ascii?Q?BFVITTbJ4OPtaevwuw8rHs25DcKIxjHn2Guyp/Cswn0v1m+fWTfTBk35GRbm?=
+ =?us-ascii?Q?MxtGJ4ad7HToxdg0kOTljRGpdIyHCt5QR97gNeeYisi4K+PqBpym2G7mk/GO?=
+ =?us-ascii?Q?DBuS+Qiu/lqc1X8rie8j4UtFcukFN4Oo2x//3pJ2t/bBONE8ObTIdBRlQ9pe?=
+ =?us-ascii?Q?je49bX0pXd0LU3AlUH1JRB2kNPHsQ0RQ3UgYsV/sUEPFpEbXhBQqlVtI+HeQ?=
+ =?us-ascii?Q?Erz42EEPWORC7PWmdLMD3eT711Kf8bxVwEpIUDFl6nnqfbEjHDmHHlkCwG2m?=
+ =?us-ascii?Q?p5KbUv0VZX6IiEd5qMVedLfgYj5LBIEJo5R+8DjWgSStmoYMgjSrNxf2t7Su?=
+ =?us-ascii?Q?1PKFJ8cJUvPnh8a9WL0zs1iRvtuqUSihmk5IKLxuLRN4e7CENfmtiUoCkTqz?=
+ =?us-ascii?Q?OuH0Nx8944h/eHWWm/e9YQliV4WVW+N7Z4VO5GuAB/nq466wF/YT/Y+0cbpD?=
+ =?us-ascii?Q?G/0ihiLnE77+U2jqYKB8MZ7TlAGLm8cJguExCWg8R8T11fnAxW51eIli175E?=
+ =?us-ascii?Q?dInfWhTkxnafSYBmz4MmFFCTw/x7tFEzAO7T/52wApaeEUZ6wRfzqX4RkxxR?=
+ =?us-ascii?Q?s7M71k57gaBbX9h0HnNQDonussoMUDwejggCTW6fhXRam3ynobj/tZXAmwG9?=
+ =?us-ascii?Q?nZWFGWxsimknyo67QTmGFrYyxgHli1SDWrNaxys3RVKfxDwQpSSwWSRsDjad?=
+ =?us-ascii?Q?sjWPmDCRUIhublEQIk3SQjjEVrKTIj3KUlJ1G1F1OzoiaVlcbzcvEDAgQ4nT?=
+ =?us-ascii?Q?iEpT6OcLB/WqgRYps4qxkgOmTkHEwhexuc4y0AOVOYJ0swpjUzcsE7p9c5vf?=
+ =?us-ascii?Q?QjDt+XFqMzr3vyGoWZ/T9SB6SO67EQPxqKIGFsXSoNB72LivQ1gERydhPBP1?=
+ =?us-ascii?Q?qxaAKkSdErQ2HXN/Iy6dNMAMyWHKi93Y3Ldp/r0DVtmKB0NC0GLvSrGu7gsD?=
+ =?us-ascii?Q?IH/YM6ULILwLIvsPLZkeFeURCnTSTAF/Dpy9Pqe24cg5vBUXEkcoGv19vpwP?=
+ =?us-ascii?Q?cjefh+Ht8Qn5fsEdZXRDEikestPpP2fgQLQHDyq4lngS?=
+X-OriginatorOrg: siliconsignals.io
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8a4d9809-b38c-4119-cddf-08dd04b7fb49
+X-MS-Exchange-CrossTenant-AuthSource: PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2024 14:23:59.9564
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7ec5089e-a433-4bd1-a638-82ee62e21d37
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NgCmjB1svzW8Gn3zcSj5bd6isNIjJ57itBY2vK42Vk1wvcbm3HLQ9IsH0Aj8UoIHtYC1RN5lvvzszZH42RRvLIZvRuO1DuIFKJKZ5at1x1vC7j0Tz/MLkebLxyil73Uf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB1374
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_061943_893623_4BDC47EE 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20241114_062426_364274_51A1C94E 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,35 +159,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 14, 2024 at 04:16:53PM +0800, Choong Yong Liang wrote:
-> Set the initial eee_cfg values to have 'ethtool --show-eee ' display
-> the initial EEE configuration.
-> 
-> Fixes: 49168d1980e2 ("net: phy: Add phy_support_eee() indicating MAC support EEE")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 7bf275f127c9..5fce52a9412e 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -1204,7 +1204,7 @@ static int stmmac_init_phy(struct net_device *dev)
->  			netdev_err(priv->dev, "no phy at addr %d\n", addr);
->  			return -ENODEV;
->  		}
-> -
-> +		phy_support_eee(phydev);
->  		ret = phylink_connect_phy(priv->phylink, phydev);
+Unnecessarily checks ftr_ovr == tmp in an extra else if, which is not
+needed because that condition would already be true by default if the
+previous conditions are not satisfied.
 
-Is supporting EEE a synthesis option, or is it always available?
+		if (ftr_ovr != tmp) {
+		} else if (ftr_new != tmp) {
+		} else if (ftr_ovr == tmp) {
 
-Some EEE code is guarded by:
+Logic: The first and last conditions are inverses of each other, so 
+the last condition must be true if the first two conditions are false.
 
-        if (!priv->dma_cap.eee)
-                return -EOPNOTSUPP;
+Additionally, all branches set the variable str, making the subsequent
+"if (str)" check redundant
 
-	Andrew
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>
+---
+
+Changelog in V2:
+
+- remove str check 
+
+Change in V3:
+
+- Add logic in commit msg 
+- Add review tag
+---
+ arch/arm64/kernel/cpufeature.c | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
+
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 718728a85430..728709483fb7 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -989,17 +989,16 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
+ 				/* Override was valid */
+ 				ftr_new = tmp;
+ 				str = "forced";
+-			} else if (ftr_ovr == tmp) {
++			} else {
+ 				/* Override was the safe value */
+ 				str = "already set";
+ 			}
+ 
+-			if (str)
+-				pr_warn("%s[%d:%d]: %s to %llx\n",
+-					reg->name,
+-					ftrp->shift + ftrp->width - 1,
+-					ftrp->shift, str,
+-					tmp & (BIT(ftrp->width) - 1));
++			pr_warn("%s[%d:%d]: %s to %llx\n",
++				reg->name,
++				ftrp->shift + ftrp->width - 1,
++				ftrp->shift, str,
++				tmp & (BIT(ftrp->width) - 1));
+ 		} else if ((ftr_mask & reg->override->val) == ftr_mask) {
+ 			reg->override->val &= ~ftr_mask;
+ 			pr_warn("%s[%d:%d]: impossible override, ignored\n",
+-- 
+2.43.0
+
 
