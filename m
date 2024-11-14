@@ -4,147 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10F70D68B28
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 14:26:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770CAD68B29
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 14:38:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MIkk/ugghnBw6fYu2dCC8sqJ6JiQClGOjOXMCnI8Iuk=; b=4GVNEBtir3KwIsMdHCYJfXwvI5
-	5JjF4WGPJisBxrEeF3uQjkQZwiKvQ3Gw+s+8KbHf+2p4ISUe3lYGzFKj3/WbXkdFKnbLs1h9PNA3/
-	xv8uBQg3z+de4NVXiqMikfkSNSlpnfXxwXAtrfH4ftjmZTf9u3rxgNUtobzA38bQKVF23q4zjfcqh
-	HIFhuutm0vCk3gqXDBbtU23Irpl56BIYNQ4/iwzySoCBTXzeN2KGmkjC7KVz0ocqFds/xLsJl19li
-	U9i5EgEPXOM4JRmn4lKslWBc68rAsGRKs2eNMsypjE3Y5WD1AF971JtmWaDeolxItXngmLpi6r2vx
-	xvFK9iiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pa7Y7UjZZ8FIjmF3nABQlnRIXS2xO6/79yTTpKgWBFM=; b=IpLuwTA0A0DCDy3IAOyK30ocSJ
+	CHXdCsz7Wn2fZ4H/o+vRevrdbg49NoF3BU9yUhOcZbeXXsUmhoHVc+ygKTC43NvKRdjYJMeuNhnVM
+	rdKvXkzj2CXGDvl3++M7Lt7oC1cE6ZFQxz7Sv15f8xI12c9Mza9YhakrPoSWa3pmvEDZ94/I71i/N
+	/H5pdBGvi1SkQ0Ec0OBDP4XkL+eXmdgNcWjx82z4+IXhGSc1HQVMK0FlVHULFOtKC+v2pYiA9/rre
+	KLCBwS93BrFgUH6wI9Nh04DH+X6kqBiRA+o4AgGuJ40tkCOBBO1Hs/7jaCCvmbbXEo1PLBAIXiRAa
+	qT6ECF4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBana-0000000ACNs-2Nqr;
-	Thu, 14 Nov 2024 14:26:18 +0000
-Received: from mail-centralindiaazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c408::1] helo=PNYPR01CU001.outbound.protection.outlook.com)
+	id 1tBazN-0000000AEKD-1Vg2;
+	Thu, 14 Nov 2024 14:38:29 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBalm-0000000AC8h-1K8k
+	id 1tBaxV-0000000ADyL-3QYE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 14:24:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=d6YWiusBt2ELW3LVrHXf2PM0hQGQKv24B9zi8S4diqvOF0LlkPBRK3WWQruO7I0Y1siSQycEmbOuLML4OyssvLfIG5G6rhJCBKo+Re87Ri+lAWhR5M2qUU4Q3ZeZ5fvD24ZLpRNJye8daxIq7J2vwF4betgQJPNxzS89sZt8Y0RqROZ8qGsx7bbmY8l1toZITXApjYy8ycvZ32WyYHKn817bDbKuF+ZT4r6cGwwQiZfxAVOU72lFh9pr9edppVANZJq12PFkDPTDdmmsDpAQN9OjEwnCFT+853Km7tbZXflpADWiGnWGMou+8LYvrqmDtPXfyfAnPXHI8G5RCNSbCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MIkk/ugghnBw6fYu2dCC8sqJ6JiQClGOjOXMCnI8Iuk=;
- b=U6SjJGQFjg0S0xtADK7K9eArsTBAm9lM1Pzc6sUMzfVUX9tB6zjgScKKFKfZIk7EFm0OD+F5V6ZZXeCz/8n170WVrdC2++9d5jVSljoS4kN0XsuTdjDGJGUFUovyhoRCJCwyFG9g+iZ6DOReSlQ95/ippcmuqHY5EzX433tf8qyBDVbjXV9WczCq3DuAj8BEBFRlCE7J+A0867wuOl193d4GE1KvNLUbme06flIWcVM0k/wJoEfbzyrvsRH1SHrnconembTZbpdkRDrPvVUg9yXmv9StPIlUXqygOvwEdr8v72CSqYO9ZV5uB2ToM363GLS4Gmph/jLs0FvFKpoSMA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=siliconsignals.io; dmarc=pass action=none
- header.from=siliconsignals.io; dkim=pass header.d=siliconsignals.io; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=siliconsignals.io;
-Received: from PN0P287MB2843.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:204::8)
- by PN0P287MB1374.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:189::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.17; Thu, 14 Nov
- 2024 14:24:00 +0000
-Received: from PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
- ([fe80::1134:92d7:1f68:2fac]) by PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
- ([fe80::1134:92d7:1f68:2fac%3]) with mapi id 15.20.8158.017; Thu, 14 Nov 2024
- 14:24:00 +0000
-From: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>
-To: will@kernel.org,
-	broonie@kernel.org
-Cc: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Marc Zyngier <maz@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] arm64: Refactor conditional logic
-Date: Thu, 14 Nov 2024 19:52:30 +0530
-Message-ID: <20241114142333.18210-1-hardevsinh.palaniya@siliconsignals.io>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PN3PR01CA0080.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:9a::22) To PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:204::8)
+	Thu, 14 Nov 2024 14:36:35 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-a9a0ec0a94fso101892966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 06:36:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731594991; x=1732199791; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pa7Y7UjZZ8FIjmF3nABQlnRIXS2xO6/79yTTpKgWBFM=;
+        b=HxdWfhx4iQb9dpMCnRxjXrXL7UXn3utDAeBkwTWoSEU4TvVk7lL3tQsS6sexPLwBUa
+         IRj6+onkpOyX0+S7MXxXO2K3fHrUaY2pTkE8jto0B8s/p/zwU/etaubRF8Yh6EHJLSpr
+         ZAh+QhLSJhAkm1tXedCgXUGP0Vl9n8MmsQBJCMqe72z8SVq1C7rpDKw9pq+TmEtfef2l
+         MUTlrig5cSzWsJ8IAL20Qg42rho2xIFYd7MIqfergKl2gccwweLCfqCtk7oM6Brvm9cV
+         ynFMTUgfHtLrTItR4yzSk4QxPo5bBPjUqRhXn7bZmCxC9hTarMDCycZ8BbHJDzpW3a9s
+         igLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731594991; x=1732199791;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pa7Y7UjZZ8FIjmF3nABQlnRIXS2xO6/79yTTpKgWBFM=;
+        b=R8V+rdmQMq3Fk09eeLr0pIEmGPMKq7m0A9P+Can9Mx3tr1bM7tWzMheET2O5KD1LUh
+         ksu/7kUOU4rbvl7q2k8ITRDYyNpUCf2efdHiupEQG1EsZN7zR+UDRU9JiuP8Kq+dGuv0
+         H3CSg4QN43/FKURHnfcRgeL5CNbXtInoV3kQHNwYeJrnZMwbtAAUigxq0mygZ6pTaFbj
+         9GyhWNqLpSNubb2jtvEk9arV8kzuRAvRlTzKEWUEjbXqmDv9Tk7jeYHXlmBmYx1Us3Mt
+         o+2zhIygQfH/oINxMvQEBguXg+vTy9ZWVUeHshGODim6AjLyPMjEnEsBUrmXkYFsaV7L
+         XI7A==
+X-Forwarded-Encrypted: i=1; AJvYcCVIJ3zNPbjckVlPjTgMiKXNQk6S4fMaebhmErTH8l53YrhZI8fuW/gLoYq0GUGrCNk9tcszUu61b+SKTh00pQf6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxkQQgwDQrP/ivr9w3GjBpwTZ/xbVLji7AazqpMSayzYIX4fgo
+	jqWXZnorydcR1rHi5sGHMF1umNoXclqntm2WUn91chmfyEZBvFPQ7cVPEY5xyOk=
+X-Google-Smtp-Source: AGHT+IH7PfOGJIvliX/1t0HJE8araMhkrCsgMJcBWVqx1e0rMFUpzpTGecxW01RnGR+WMCA1FGmNGw==
+X-Received: by 2002:a17:907:2dab:b0:a99:f975:2e6 with SMTP id a640c23a62f3a-a9eeff3772amr2396253666b.35.1731594991102;
+        Thu, 14 Nov 2024 06:36:31 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.90.214])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa20e001715sm70614866b.126.2024.11.14.06.36.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 Nov 2024 06:36:30 -0800 (PST)
+Message-ID: <1fa53163-6651-4053-ad80-837d6bf92e6f@linaro.org>
+Date: Thu, 14 Nov 2024 14:36:28 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PN0P287MB2843:EE_|PN0P287MB1374:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8a4d9809-b38c-4119-cddf-08dd04b7fb49
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|366016|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jkWiBGgkLvEFtdwCnLpZQ1FhjdWJdETc3bZq+rQ1djJXW2HQXszRv3uzjT01?=
- =?us-ascii?Q?jGpw3ooQdvh+a1C0uYZ0bRIi6vND+XY/820EvcAR7nG2YNK9F9Vx8hFg/S0p?=
- =?us-ascii?Q?Q9xUTM9TuFtrFmN4PwU0TCB4eBM4gAx59oGWW1q6MRTwd7TL8oxM4ok1gMui?=
- =?us-ascii?Q?PW0Pcg+r1Gbe6a8mjeGM0l8v/cud2WLI1yS7hI2P9ZiGxolai/dPZg+8nsvp?=
- =?us-ascii?Q?HoCOqhl86unvWzhnEzGmhty72Q5AGtoYX1iiI6R9GCA+9yabC7nqej+GlF1+?=
- =?us-ascii?Q?sMrDLLXicjBj5GrMVSs0oJgrNHjkIfodfpP7+em+svhfRy+McJp6RrakBueO?=
- =?us-ascii?Q?tVPB1BYZPTV13jRCrPAgmcs0Kavnv5WgmaGQ7iMCVA45yAeGXu1C76k/Kefe?=
- =?us-ascii?Q?4V84m6AvIuWOde3M1Xrb0Fo0DKfhegoaWOjE4haLIX/1p75iAGnNERAzzeSc?=
- =?us-ascii?Q?kbTIIDJjqRKMe8gkpRkG0qck2iyBXT7IxwcFmKxqETtM4PhMc/1BFvkQKO9K?=
- =?us-ascii?Q?1FGZ9yL0dAGvbHLrUBg5/RB9poidmawnmnPoa5EZtM+SgDr54kQ+RlqxYblY?=
- =?us-ascii?Q?1huK62ejsxsyX4gdFCdGU86ydHYeBRW8ZEkBdn9GISXgIKQWXVkSoqW6gllV?=
- =?us-ascii?Q?0DB6wEO2Y9K14dUfyshVHzczghkcfpDORJixPcvipoWzXP/iPuS8e94UrVq2?=
- =?us-ascii?Q?N5iVcKenhG2AoERI/Zm8z2iZyAP5RYnB/L8RmbkwdxdsjKVhlVTfd7gmAODy?=
- =?us-ascii?Q?Zkypj0FxNJCOipYJuelGvomZGgYcUNmkT/OIi1Mb+jJ2CdlKN3FC3rSRYd4v?=
- =?us-ascii?Q?4mhKMHZJWmbpKmxEIABYxCIcUnJHe9CGYLYfowPr0ZfBp0LvJYkGW35vrN92?=
- =?us-ascii?Q?f2AK92Tra93LQJ34VYEWDP7SG0CKP1ZQpWN2NiMnm0xRIlaPDFZWPLswY7MK?=
- =?us-ascii?Q?0wEZg1MuQY5QV35ioSvQHqTpfltgDFrOGLwYU4yQKUog5+ObHYEWI55W6eOx?=
- =?us-ascii?Q?Ql4KVRsXf2x3Bag55tEyqaFEMc6UhKg1J3BdCoGdlEOG1p0N2tQAXfJ5GxFX?=
- =?us-ascii?Q?msQGsMG21VdrEL7vGHtuS2FvrccAOtmSf/3NoCfjHwIOhu5a4cUJZlVD69Bz?=
- =?us-ascii?Q?Nzst3Vf97H4OGoqxKUNL5sAHp+L2K7xpv4c/lWaU7D1F4PJ7IziCP5gdaWUb?=
- =?us-ascii?Q?pupWREjQjzkzz4Tm/fyJqh6k+OCQdFpQgK+bzYSoXQBuXFfm1hKfNylDWq0q?=
- =?us-ascii?Q?9pPxENFn0IC/1QsLBuVI6ZE2p2baJtlJHU1ObyGDE2/GDJm/ROB6KLIjO/q0?=
- =?us-ascii?Q?A9BWQ0/lfMAUShY8AA9Shel4rqB3kATwxuncVplTDLZ+Qlf9Y8i5hVaHcBCr?=
- =?us-ascii?Q?VXcYKE8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN0P287MB2843.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(366016)(7416014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?X3iPXOmHvxR2f429cVS2iiAGcHDBSGSpDOM0zAOJ2e7i/J2wVLlxm9vANajw?=
- =?us-ascii?Q?MXIoB7bf5DwXPXIJ66LFOe09DASKYo+h33SjzeSnG8fWwit8J84ou4MbWZuK?=
- =?us-ascii?Q?tG5dAYPHHesJaWlex8Sv6d0u1kExMH+pcGYjqNrMNAhKvSG95gtS33WB0eDU?=
- =?us-ascii?Q?AYD5Ed2KVttG7uS5rnBwuldiTdeeaqX6SFwTwIqb7InnffeXi5eINcGvd592?=
- =?us-ascii?Q?9rdEgvmJXo33m7F6ltSJlhEETTQEPqlEh/5HhiuLbVEoTPEV2IwYV/ln1uvN?=
- =?us-ascii?Q?UQQqcaRD9ljlnaG/XpREQmS3XJnGFUoZmQ0oWVcQUa5AJUzQpFB2ZwHTu9hH?=
- =?us-ascii?Q?BlQUoAzhrR6yq/Vch2BctqWvgQ9/fEorVujnaBcqOkIxqwTjuPSdyW2WlpFO?=
- =?us-ascii?Q?LjF92dkPGFxpdXSlGotaYd6otJT1w/SqZo/4y8emjbSUJEBycET4zBHnLUCN?=
- =?us-ascii?Q?a6dcVfojoVZdBwczTtaFyebYZublh3E+B272ctujKvmgT+QK1Xj0/ff/tDLV?=
- =?us-ascii?Q?+xwMIUt5hJpRVuI/Zpz9EKB1J7PVVRZXXDhAvgyl/4wwG6YLrj9a+CqBycJQ?=
- =?us-ascii?Q?BFVITTbJ4OPtaevwuw8rHs25DcKIxjHn2Guyp/Cswn0v1m+fWTfTBk35GRbm?=
- =?us-ascii?Q?MxtGJ4ad7HToxdg0kOTljRGpdIyHCt5QR97gNeeYisi4K+PqBpym2G7mk/GO?=
- =?us-ascii?Q?DBuS+Qiu/lqc1X8rie8j4UtFcukFN4Oo2x//3pJ2t/bBONE8ObTIdBRlQ9pe?=
- =?us-ascii?Q?je49bX0pXd0LU3AlUH1JRB2kNPHsQ0RQ3UgYsV/sUEPFpEbXhBQqlVtI+HeQ?=
- =?us-ascii?Q?Erz42EEPWORC7PWmdLMD3eT711Kf8bxVwEpIUDFl6nnqfbEjHDmHHlkCwG2m?=
- =?us-ascii?Q?p5KbUv0VZX6IiEd5qMVedLfgYj5LBIEJo5R+8DjWgSStmoYMgjSrNxf2t7Su?=
- =?us-ascii?Q?1PKFJ8cJUvPnh8a9WL0zs1iRvtuqUSihmk5IKLxuLRN4e7CENfmtiUoCkTqz?=
- =?us-ascii?Q?OuH0Nx8944h/eHWWm/e9YQliV4WVW+N7Z4VO5GuAB/nq466wF/YT/Y+0cbpD?=
- =?us-ascii?Q?G/0ihiLnE77+U2jqYKB8MZ7TlAGLm8cJguExCWg8R8T11fnAxW51eIli175E?=
- =?us-ascii?Q?dInfWhTkxnafSYBmz4MmFFCTw/x7tFEzAO7T/52wApaeEUZ6wRfzqX4RkxxR?=
- =?us-ascii?Q?s7M71k57gaBbX9h0HnNQDonussoMUDwejggCTW6fhXRam3ynobj/tZXAmwG9?=
- =?us-ascii?Q?nZWFGWxsimknyo67QTmGFrYyxgHli1SDWrNaxys3RVKfxDwQpSSwWSRsDjad?=
- =?us-ascii?Q?sjWPmDCRUIhublEQIk3SQjjEVrKTIj3KUlJ1G1F1OzoiaVlcbzcvEDAgQ4nT?=
- =?us-ascii?Q?iEpT6OcLB/WqgRYps4qxkgOmTkHEwhexuc4y0AOVOYJ0swpjUzcsE7p9c5vf?=
- =?us-ascii?Q?QjDt+XFqMzr3vyGoWZ/T9SB6SO67EQPxqKIGFsXSoNB72LivQ1gERydhPBP1?=
- =?us-ascii?Q?qxaAKkSdErQ2HXN/Iy6dNMAMyWHKi93Y3Ldp/r0DVtmKB0NC0GLvSrGu7gsD?=
- =?us-ascii?Q?IH/YM6ULILwLIvsPLZkeFeURCnTSTAF/Dpy9Pqe24cg5vBUXEkcoGv19vpwP?=
- =?us-ascii?Q?cjefh+Ht8Qn5fsEdZXRDEikestPpP2fgQLQHDyq4lngS?=
-X-OriginatorOrg: siliconsignals.io
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8a4d9809-b38c-4119-cddf-08dd04b7fb49
-X-MS-Exchange-CrossTenant-AuthSource: PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2024 14:23:59.9564
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 7ec5089e-a433-4bd1-a638-82ee62e21d37
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NgCmjB1svzW8Gn3zcSj5bd6isNIjJ57itBY2vK42Vk1wvcbm3HLQ9IsH0Aj8UoIHtYC1RN5lvvzszZH42RRvLIZvRuO1DuIFKJKZ5at1x1vC7j0Tz/MLkebLxyil73Uf
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB1374
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 0/4] A mechanism for efficient support for per-function
+ metrics
+To: Ian Rogers <irogers@google.com>, Deepak Surti <deepak.surti@arm.com>,
+ Leo Yan <leo.yan@arm.com>
+Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
+ namhyung@kernel.org, mark.barnett@arm.com, ben.gainey@arm.com,
+ ak@linux.intel.com, will@kernel.org, james.clark@arm.com,
+ mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+ adrian.hunter@intel.com, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20241107160721.1401614-1-deepak.surti@arm.com>
+ <CAP-5=fU83dr8XR0_bO8ZHD2-K+YXmK7H-1evs9ERKJ3EiGLiFQ@mail.gmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <CAP-5=fU83dr8XR0_bO8ZHD2-K+YXmK7H-1evs9ERKJ3EiGLiFQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_062426_364274_51A1C94E 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20241114_063633_891619_33BB60E7 
+X-CRM114-Status: GOOD (  47.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,65 +101,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unnecessarily checks ftr_ovr == tmp in an extra else if, which is not
-needed because that condition would already be true by default if the
-previous conditions are not satisfied.
 
-		if (ftr_ovr != tmp) {
-		} else if (ftr_new != tmp) {
-		} else if (ftr_ovr == tmp) {
 
-Logic: The first and last conditions are inverses of each other, so 
-the last condition must be true if the first two conditions are false.
+On 14/11/2024 2:22 am, Ian Rogers wrote:
+> On Thu, Nov 7, 2024 at 8:08 AM Deepak Surti <deepak.surti@arm.com> wrote:
+>>
+>> This patch introduces the concept on an alternating sample rate to perf
+>> core and provides the necessary basic changes in the tools to activate
+>> that option.
+>>
+>> This patchset was original posted by Ben Gainey out for RFC back in April,
+>> the latest version of which can be found at
+>> https://lore.kernel.org/linux-perf-users/20240422104929.264241-1-ben.gainey@arm.com/.
+>> Going forward, I will be owning this.
+>>
+>> The primary use case for this change is to be able to enable collecting
+>> per-function performance metrics using the Arm PMU, as per the following
+>> approach:
+>>
+>>   * Starting with a simple periodic sampling (hotspot) profile,
+>>     augment each sample with PMU counters accumulated over a short window
+>>     up to the point the sample was take.
+>>   * For each sample, perform some filtering to improve attribution of
+>>     the accumulated PMU counters (ensure they are attributed to a single
+>>     function)
+>>   * For each function accumulate a total for each PMU counter so that
+>>     metrics may be derived.
+>>
+>> Without modification, and sampling at a typical rate associated
+>> with hotspot profiling (~1mS) leads to poor results. Such an
+>> approach gives you a reasonable estimation of where the profiled
+>> application is spending time for relatively low overhead, but the
+>> PMU counters cannot easily be attributed to a single function as the
+>> window over which they are collected is too large. A modern CPU may
+>> execute many millions of instructions over many thousands of functions
+>> within 1mS window. With this approach, the per-function metrics tend
+>> to trend to some average value across the top N functions in the
+>> profile.
+>>
+>> In order to ensure a reasonable likelihood that the counters are
+>> attributed to a single function, the sampling window must be rather
+>> short; typically something in the order of a few hundred cycles proves
+>> well as tested on a range of aarch64 Cortex and Neoverse cores.
+>>
+>> As it stands, it is possible to achieve this with perf using a very high
+>> sampling rate (e.g ~300cy), but there are at least three major concerns
+>> with this approach:
+>>
+>>   * For speculatively executing, out of order cores, can the results be
+>>     accurately attributed to a give function or the given sample window?
+>>   * A short sample window is not guaranteed to cover a single function.
+>>   * The overhead of sampling every few hundred cycles is very high and
+>>     is highly likely to cause throttling which is undesirable as it leads
+>>     to patchy results; i.e. the profile alternates between periods of
+>>     high frequency samples followed by longer periods of no samples.
+>>
+>> This patch does not address the first two points directly. Some means
+>> to address those are discussed on the RFC v2 cover letter. The patch
+>> focuses on addressing the final point, though happily this approach
+>> gives us a way to perform basic filtering on the second point.
+>>
+>> The alternating sample period allows us to do two things:
+>>
+>>   * We can control the risk of throttling and reduce overhead by
+>>     alternating between a long and short period. This allows us to
+>>     decouple the "periodic" sampling rate (as might be used for hotspot
+>>     profiling) from the short sampling window needed for collecting
+>>     the PMU counters.
+>>   * The sample taken at the end of the long period can be otherwise
+>>     discarded (as the PMU data is not useful), but the
+>>     PERF_RECORD_CALLCHAIN information can be used to identify the current
+>>     function at the start of the short sample window. This is useful
+>>     for filtering samples where the PMU counter data cannot be attributed
+>>     to a single function.
+> 
+> I think this is interesting. I'm a little concerned on the approach as
+> I wonder if a more flexible mechanism could be had.
+> 
+> One approach that wouldn't work would be to open high and low
+> frequency events, or groups of events, then use BPF filters to try to
+> replicate this approach by dropping most of the high frequency events.
+> I don't think it would work as the high frequency sampling is likely
+> going to trigger during the BPF filter execution, and the BPF filter
+> would be too much overhead.
+> 
+> Perhaps another approach is to change the perf event period with a new
+> BPF helper function that's called where we do the perf event
+> filtering. There's the overhead of running the BPF code, but the BPF
+> code could allow you to instead of alternating between two periods
+> allow you to alternate between an arbitrary number of them.
+> 
+> Thanks,
+> Ian
+> 
 
-Additionally, all branches set the variable str, making the subsequent
-"if (str)" check redundant
+There might be something to the arbitrary number of periods, because for 
+a very short run you might want a high sample rate and for a long run 
+you would want a low rate. BPF might allow you to reduce the rate over 
+time so you don't have to worry about picking the right one so much.
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>
----
++Leo because I think he's looking at linking BPF to the aux pause/resume 
+patches [1] which could be similar.
 
-Changelog in V2:
+[1]: 
+https://lore.kernel.org/linux-perf-users/20241114101711.34987-1-adrian.hunter@intel.com/T/#t
 
-- remove str check 
-
-Change in V3:
-
-- Add logic in commit msg 
-- Add review tag
----
- arch/arm64/kernel/cpufeature.c | 13 ++++++-------
- 1 file changed, 6 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 718728a85430..728709483fb7 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -989,17 +989,16 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
- 				/* Override was valid */
- 				ftr_new = tmp;
- 				str = "forced";
--			} else if (ftr_ovr == tmp) {
-+			} else {
- 				/* Override was the safe value */
- 				str = "already set";
- 			}
- 
--			if (str)
--				pr_warn("%s[%d:%d]: %s to %llx\n",
--					reg->name,
--					ftrp->shift + ftrp->width - 1,
--					ftrp->shift, str,
--					tmp & (BIT(ftrp->width) - 1));
-+			pr_warn("%s[%d:%d]: %s to %llx\n",
-+				reg->name,
-+				ftrp->shift + ftrp->width - 1,
-+				ftrp->shift, str,
-+				tmp & (BIT(ftrp->width) - 1));
- 		} else if ((ftr_mask & reg->override->val) == ftr_mask) {
- 			reg->override->val &= ~ftr_mask;
- 			pr_warn("%s[%d:%d]: impossible override, ignored\n",
--- 
-2.43.0
+>> There are several reasons why it is desirable to reduce the overhead and
+>> risk of throttling:
+>>
+>>    * PMU counter overflow typically causes an interrupt into the kernel;
+>>      this affects program runtime, and can affect things like branch
+>>      prediction, cache locality and so on which can skew the metrics.
+>>    * The very high sample rate produces significant amounts of data.
+>>      Depending on the configuration of the profiling session and machine,
+>>      it is easily possible to produce many orders of magnitude more data
+>>      which is costly for tools to post-process and increases the chance
+>>      of data loss. This is especially relevant on larger core count
+>>      systems where it is very easy to produce massive recordings.
+>>      Whilst the kernel will throttle such a configuration,
+>>      which helps to mitigate a large portion of the bandwidth and capture
+>>      overhead, it is not something that can be controlled for on a per
+>>      event basis, or for non-root users, and because throttling is
+>>      controlled as a percentage of time its affects vary from machine to
+>>      machine. AIUI throttling may also produce an uneven temporal
+>>      distribution of samples. Finally, whilst throttling does a good job
+>>      at reducing the overall amount of data produced, it still leads to
+>>      much larger captures than with this method; typically we have
+>>      observed 1-2 orders of magnitude larger captures.
+>>
+>> This patch set modifies perf core to support alternating between two
+>> sample_period values, providing a simple and inexpensive way for tools
+>> to separate out the sample window (time over which events are
+>> counted) from the sample period (time between interesting samples).
+>>
+>> It is expected to be used with the cycle counter event, alternating
+>> between a long and short period and subsequently discarding the counter
+>> data for samples with the long period. The combined long and short
+>> period gives the overall sampling period, and the short sample period
+>> gives the sample window. The symbol taken from the sample at the end of
+>> the long period can be used by tools to ensure correct attribution as
+>> described previously. The cycle counter is recommended as it provides
+>> fair temporal distribution of samples as would be required for the
+>> per-symbol sample count mentioned previously, and because the PMU can
+>> be programmed to overflow after a sufficiently short window (which may
+>> not be possible with software timer, for example). This patch does not
+>> restrict to only the cycle counter, it is possible there could be other
+>> novel uses based on different events, or more appropriate counters on
+>> other architectures. This patch set does not modify or otherwise disable
+>> the kernel's existing throttling behaviour; if a configuration is given
+>> that would lead high CPU usage, then throttling still occurs.
+>>
+>>
+>> To test this a simple `perf script` based python script was developed.
+>> For a limited set of Arm PMU events it will post process a
+>> `perf record`-ing and generate a table of metrics. Along side this a
+>> benchmark application was developed that rotates through a sequence
+>> of different classes of behaviour that can be detected by the Arm PMU
+>> (eg. mispredicts, cache misses, different instruction mixes). The path
+>> through the benchmark can be rotated after each iteration so as to
+>> ensure the results don't land on some lucky harmonic with the sample
+>> period. The script can be used with and without this patch allowing
+>> comparison of the results. Testing was on Juno (A53+A57), N1SDP,
+>> Gravaton 2 and 3. In addition this approach has been applied to a few
+>> of Arm's tools projects and has correctly identified improvements and
+>> regressions.
+>>
+>> Headline results from testing indicate that ~300 cycles sample window
+>> gives good results with or without this patch. Typical output on N1SDP (Neoverse-N1)
+>> for the provided benchmark when run as:
+>>
+>>      perf record -T --sample-cpu --call-graph fp,4 --user-callchains \
+>>          -k CLOCK_MONOTONIC_RAW \
+>>          -e '{cycles/period=999700,alt-period=300/,instructions,branch-misses,cache-references,cache-misses}:uS' \
+>>          benchmark 0 1
+>>
+>>      perf script -s generate-function-metrics.py -- -s discard
+>>
+>> Looks like (reformatted for email brevity):
+>>
+>>      Symbol              #     CPI   BM/KI  CM/KI  %CM   %CY   %I    %BM   %L1DA  %L1DM
+>>      fp_divider_stalls   6553   4.9   0.0     0.0   0.0  41.8  22.9   0.1   0.6    0.0
+>>      int_divider_stalls  4741   3.5   0.0     0.0   1.1  28.3  21.5   0.1   1.9    0.2
+>>      isb                 3414  20.1   0.2     0.0   0.4  17.6   2.3   0.1   0.8    0.0
+>>      branch_mispredicts  1234   1.1  33.0     0.0   0.0   6.1  15.2  99.0  71.6    0.1
+>>      double_to_int        694   0.5   0.0     0.0   0.6   3.4  19.1   0.1   1.2    0.1
+>>      nops                 417   0.3   0.2     0.0   2.8   1.9  18.3   0.6   0.4    0.1
+>>      dcache_miss          185   3.6   0.4   184.7  53.8   0.7   0.5   0.0  18.4   99.1
+>>
+>> (CPI = Cycles/Instruction, BM/KI = Branch Misses per 1000 Instruction,
+>>   CM/KI = Cache Misses per 1000 Instruction, %CM = Percent of Cache
+>>   accesses that miss, %CY = Percentage of total cycles, %I = Percentage
+>>   of total instructions, %BM = Percentage of total branch mispredicts,
+>>   %L1DA = Percentage of total cache accesses, %L1DM = Percentage of total
+>>   cache misses)
+>>
+>> When the patch is used, the resulting `perf.data` files are typically
+>> between 25-50x smaller than without, and take ~25x less time for the
+>> python script to post-process. For example, running the following:
+>>
+>>      perf record -i -vvv -e '{cycles/period=1000000/,instructions}:uS' benchmark 0 1
+>>      perf record -i -vvv -e '{cycles/period=1000/,instructions}:uS' benchmark 0 1
+>>      perf record -i -vvv -e '{cycles/period=300/,instructions}:uS' benchmark 0 1
+>>
+>> produces captures on N1SDP (Neoverse-N1) of the following sizes:
+>>
+>>      * period=1000000: 2.601 MB perf.data (55780 samples), script time = 0m0.362s
+>>      * period=1000: 283.749 MB perf.data (6162932 samples), script time = 0m33.100s
+>>      * period=300: 304.281 MB perf.data (6614182 samples), script time = 0m35.826s
+>>
+>> The "script time" is the user time from running "time perf script -s generate-function-metrics.py"
+>> on the recording. Similar processing times were observed for "time perf report --stdio|cat"
+>> as well.
+>>
+>> By comparison, with the patch active:
+>>
+>>      perf record -i -vvv -e '{cycles/period=999700,alt-period=300/,instructions}:uS' benchmark 0 1
+>>
+>> produces 4.923 MB perf.data (107512 samples), and script time = 0m0.578s.
+>> Which is as expected ~2x the size and ~2x the number of samples as per
+>> the period=1000000 recording. When compared to the period=300 recording,
+>> the results from the provided post-processing script are (within margin
+>> of error) the same, but the data file is ~62x smaller. The same affect
+>> is seen for the post-processing script runtime.
+>>
+>> Notably, without the patch enable, L1D cache miss rates are often higher
+>> than with, which we attribute to increased impact on the cache that
+>> trapping into the kernel every 300 cycles has.
+>>
+>> These results are given with `perf_cpu_time_max_percent=25`. When tested
+>> with `perf_cpu_time_max_percent=100` the size and time comparisons are
+>> more significant. Disabling throttling did not lead to obvious
+>> improvements in the collected metrics, suggesting that the sampling
+>> approach is sufficient to collect representative metrics.
+>>
+>> Cursory testing on a Xeon(R) W-2145 with a 300 *instruction* sample
+>> window (with and without the patch) suggests this approach might work
+>> for some counters. Using the same test script, it was possible to identify
+>> branch mispredicts correctly. However, whilst the patch is functionally
+>> correct, differences in the architectures may mean that this approach it
+>> enables does not apply as a means to collect per-function metrics on x86.
+>>
+>> Changes since RFC v2:
+>>   - Rebased on v6.12-rc6.
+>>
+>> Changes since RFC v1:
+>>   - Rebased on v6.9-rc1.
+>>   - Refactored from arm_pmu based extension to core feature
+>>   - Added the ability to jitter the sample window based on feedback
+>>     from Andi Kleen.
+>>   - Modified perf tool to parse the "alt-period" and "alt-period-jitter"
+>>     terms in the event specification.
+>>
+>> Ben Gainey (4):
+>>    perf: Allow periodic events to alternate between two sample periods
+>>    perf: Allow adding fixed random jitter to the alternate sampling
+>>      period
+>>    tools/perf: Modify event parser to support alt-period term
+>>    tools/perf: Modify event parser to support alt-period-jitter term
+>>
+>>   include/linux/perf_event.h                    |  5 ++
+>>   include/uapi/linux/perf_event.h               | 13 ++++-
+>>   kernel/events/core.c                          | 47 +++++++++++++++++++
+>>   tools/include/uapi/linux/perf_event.h         | 13 ++++-
+>>   tools/perf/tests/attr.c                       |  2 +
+>>   tools/perf/tests/attr.py                      |  2 +
+>>   tools/perf/tests/attr/base-record             |  4 +-
+>>   tools/perf/tests/attr/base-record-spe         |  2 +
+>>   tools/perf/tests/attr/base-stat               |  4 +-
+>>   tools/perf/tests/attr/system-wide-dummy       |  4 +-
+>>   .../attr/test-record-alt-period-jitter-term   | 13 +++++
+>>   .../tests/attr/test-record-alt-period-term    | 12 +++++
+>>   tools/perf/tests/attr/test-record-dummy-C0    |  4 +-
+>>   tools/perf/util/parse-events.c                | 30 ++++++++++++
+>>   tools/perf/util/parse-events.h                |  4 +-
+>>   tools/perf/util/parse-events.l                |  2 +
+>>   tools/perf/util/perf_event_attr_fprintf.c     |  1 +
+>>   tools/perf/util/pmu.c                         |  2 +
+>>   18 files changed, 157 insertions(+), 7 deletions(-)
+>>   create mode 100644 tools/perf/tests/attr/test-record-alt-period-jitter-term
+>>   create mode 100644 tools/perf/tests/attr/test-record-alt-period-term
+>>
+>> --
+>> 2.43.0
+>>
+> 
 
 
