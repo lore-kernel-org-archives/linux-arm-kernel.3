@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6DE5D65C57
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 08:27:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07A14D65C57
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 08:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FQovZfeTEmDjS5K+w6IPSkRX8DI3xPAze9JW2uvtAD4=; b=UdcCmvbXpMrqzsSjCHyh0wQle9
-	kU140DbFJrvMPvMwDfGsbfs5QyznkvfNFCPOtJVCJrMytpG4OSnYge21a3hDvI7R0BKFic4UgAKDW
-	Z29fEThCXEXMGI/gRpb+GsH/tiPUnrJzH33zHOquzTeoJ/V+PXrrxTs/+MWy5p0Orjftb3nd5ljnI
-	rGjCZIz5BcLmsIm/ITzztjzBS0AOT6nalj4bn7gu5J5whH9jsSpkeadvHodzVxMsBmL7U20AtOEzT
-	W/7WEQ1LVvYf/h6T0nrRMQhG35fsXVLC5ml5dCz/NEUuVrhcnwGcAfgfxcERVvunWPQptwEADKTvT
-	37f6P46w==;
+	bh=ewZugRWf25xsRMnPcZyWaiPOpTstQEQG/UMlvS5AVj4=; b=EvlXKcqvR5sAPCUqvVwc7tqa6m
+	emvAPyH1LuiCXyda1cC4N5wGuVngxJPx3M7esN3WcoVoxyS3CPhAWSAlghmXEWmkZ9A72HFpwmvJg
+	AhVABAXQFrhGB6oK3vw1QkuXwh6Zbl0h8jGjOsYDIAPN7y+bLGu5V9LF4Ze4un88QDy2wJpu88VPi
+	i2sD+7AaRTZ0au7tWx0DC6krVEZZJGGttfdbkt7kD/I6hsn62ZMvyaEbEj7Hm8mR4L6Gic101ON7e
+	ktyUkRMnLmUup0NQvFiqYwKtHHuBqbvT0ofb1/qoteOIqaaK+fCwzrczECMiQ+gzC8DaDZvQdYYgL
+	y52CKeAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBVBr-00000009Cqj-3xkF;
-	Thu, 14 Nov 2024 08:26:59 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1tBVDd-00000009D2H-1WQm;
+	Thu, 14 Nov 2024 08:28:49 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBV2r-00000009BVA-3bMB
+	id 1tBV4l-00000009Br0-3pUu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 08:17:44 +0000
+	Thu, 14 Nov 2024 08:19:42 +0000
 Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4XptHJ0GYqzDrTm;
-	Thu, 14 Nov 2024 16:14:52 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 890E51800CF;
-	Thu, 14 Nov 2024 16:17:32 +0800 (CST)
-Received: from localhost.localdomain (10.50.165.33) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Thu, 14 Nov 2024 16:17:31 +0800
-From: Yicong Yang <yangyicong@huawei.com>
-To: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>,
-	<james.clark@linaro.org>, <coresight@lists.linaro.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
-	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <yangyicong@hisilicon.com>
-Subject: [PATCH 1/2] coresight: tmc: Don't change the buffer size if it's in use
-Date: Thu, 14 Nov 2024 16:16:52 +0800
-Message-ID: <20241114081653.24328-1-yangyicong@huawei.com>
-X-Mailer: git-send-email 2.31.0
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4XptKq44Qsz10RlQ;
+	Thu, 14 Nov 2024 16:17:03 +0800 (CST)
+Received: from kwepemd200012.china.huawei.com (unknown [7.221.188.145])
+	by mail.maildlp.com (Postfix) with ESMTPS id 242C81800A6;
+	Thu, 14 Nov 2024 16:19:34 +0800 (CST)
+Received: from huawei.com (10.145.6.51) by kwepemd200012.china.huawei.com
+ (7.221.188.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.34; Thu, 14 Nov
+ 2024 16:19:32 +0800
+From: Zhou Wang <wangzhou1@hisilicon.com>
+To: <maz@kernel.org>, <tglx@linutronix.de>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<wangwudi@hisilicon.com>, <prime.zeng@hisilicon.com>, Zhou Wang
+	<wangzhou1@hisilicon.com>, Nianyao Tang <tangnianyao@huawei.com>
+Subject: [PATCH v4] irqchip/gicv3-its: Add workaround for hip09 ITS erratum 162100801
+Date: Thu, 14 Nov 2024 16:28:13 +0800
+Message-ID: <20241114082813.3865466-1-wangzhou1@hisilicon.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.50.165.33]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+X-Originating-IP: [10.145.6.51]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemd200012.china.huawei.com (7.221.188.145)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_001742_094150_591C9CAA 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20241114_001940_383172_C6BD519D 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,79 +69,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
+during unmapping operation, which will cause some vSGIs lost.
 
-Enable the trace in below steps will crash the kernel by NULL pointer
-dereferencing:
-echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
-echo 1 > /sys/bus/coresight/devices/etm0/enable_source
-echo 0x400000 > /sys/bus/coresight/devices/tmc_etr0/buffer_size
-echo 1 > /sys/bus/coresight/devices/etm2/enable_source
-dd if=/dev/tmc_etr0 of=test_etm_sysfs_etr_030.data
+To fix the issue, invalidate related vPE cache through GICR_INVALLR
+after VMOVP.
 
-The call trace will be like:
- WARNING: CPU: 39 PID: 8586 at drivers/hwtracing/coresight/coresight-tmc-etr.c:1123 __tmc_etr_disable_hw+0x108/0x140 [coresight_tmc]
- [...]
- Call trace:
-  __tmc_etr_disable_hw+0x108/0x140 [coresight_tmc]
-  tmc_read_prepare_etr+0xc0/0xd0 [coresight_tmc]
-  tmc_open+0x60/0xa0 [coresight_tmc]
-  misc_open+0x11c/0x170
-  chrdev_open+0xcc/0x2b0
-  do_dentry_open+0x140/0x4e0
-  vfs_open+0x34/0xf8
-  path_openat+0x2b0/0xf58
-  do_filp_open+0x8c/0x148
-  do_sys_openat2+0xb8/0xe8
-  __arm64_sys_openat+0x70/0xc0
-  el0_svc_common.constprop.0+0x64/0x148
-  do_el0_svc+0x24/0x38
-  el0_svc+0x40/0x140
-  el0t_64_sync_handler+0xc0/0xc8
-  el0t_64_sync+0x1a4/0x1a8
- ---[ end trace 0000000000000000 ]---
- Unable to handle kernel NULL pointer dereference at virtual address 0000000000000028
- [...]
- Call trace:
-  tmc_etr_get_sysfs_trace+0x10/0x80 [coresight_tmc]
-  vfs_read+0xcc/0x310
-  ksys_read+0x74/0x108
-  __arm64_sys_read+0x24/0x38
-  el0_svc_common.constprop.0+0x64/0x148
-  do_el0_svc+0x24/0x38
-  el0_svc+0x40/0x140
-
-Due to the buffer size changed, the buffer will be reallocated in
-tmc_etr_get_sysfs_buffer() when the second source enabled. At trace
-end tmc_etr_sync_sysfs_buf() will reset the drvdata->sysfs_buf and
-trigger the later NULL pointer dereference when reading out the
-data.
-
-But it doesn't make sense to change the buffer size when it's
-already in use. So block such behavior.
-
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
+Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
 ---
- drivers/hwtracing/coresight/coresight-tmc-core.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ Documentation/arch/arm64/silicon-errata.rst |  2 +
+ arch/arm64/Kconfig                          | 11 +++++
+ drivers/irqchip/irq-gic-v3-its.c            | 52 ++++++++++++++++-----
+ 3 files changed, 54 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index 475fa4bb6813..9660af63e9bc 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -319,6 +319,11 @@ static ssize_t buffer_size_store(struct device *dev,
- 	if (drvdata->config_type != TMC_CONFIG_TYPE_ETR)
- 		return -EPERM;
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index 65bfab1b1861..77db10e944f0 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -258,6 +258,8 @@ stable kernels.
+ | Hisilicon      | Hip{08,09,10,10C| #162001900      | N/A                         |
+ |                | ,11} SMMU PMCG  |                 |                             |
+ +----------------+-----------------+-----------------+-----------------------------+
++| Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+++----------------+-----------------+-----------------+-----------------------------+
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+ +----------------+-----------------+-----------------+-----------------------------+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 70d7f4f20225..0ea9c599681d 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1232,6 +1232,17 @@ config HISILICON_ERRATUM_161600802
  
-+	/* Don't change the buffer size if it's in use */
-+	guard(spinlock)(&drvdata->spinlock);
-+	if (coresight_get_mode(drvdata->csdev) != CS_MODE_DISABLED)
-+		return -EBUSY;
+ 	  If unsure, say Y.
+ 
++config HISILICON_ERRATUM_162100801
++	bool "Hip09 162100801 erratum support"
++	default y
++	help
++	  When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
++	  during unmapping operation, which will cause some vSGIs lost.
++	  To fix the issue, invalidate related vPE cache through GICR_INVALLR
++	  after VMOVP.
 +
- 	ret = kstrtoul(buf, 0, &val);
- 	if (ret)
- 		return ret;
++	  If unsure, say Y.
++
+ config QCOM_FALKOR_ERRATUM_1003
+ 	bool "Falkor E1003: Incorrect translation due to ASID change"
+ 	default y
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index 52f625e07658..fb2a96e376cc 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -44,6 +44,7 @@
+ #define ITS_FLAGS_WORKAROUND_CAVIUM_22375	(1ULL << 1)
+ #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
+ #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
++#define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
+ 
+ #define RD_LOCAL_LPI_ENABLED                    BIT(0)
+ #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
+@@ -61,6 +62,7 @@ static u32 lpi_id_bits;
+ #define LPI_PENDBASE_SZ		ALIGN(BIT(LPI_NRBITS) / 8, SZ_64K)
+ 
+ static u8 __ro_after_init lpi_prop_prio;
++static struct its_node *find_4_1_its(void);
+ 
+ /*
+  * Collection structure - just an ID, and a redistributor address to
+@@ -3797,6 +3799,22 @@ static void its_vpe_db_proxy_move(struct its_vpe *vpe, int from, int to)
+ 	raw_spin_unlock_irqrestore(&vpe_proxy.lock, flags);
+ }
+ 
++static void its_vpe_4_1_invall_locked(int cpu, struct its_vpe *vpe)
++{
++	void __iomem *rdbase;
++	u64 val;
++
++	val  = GICR_INVALLR_V;
++	val |= FIELD_PREP(GICR_INVALLR_VPEID, vpe->vpe_id);
++
++	raw_spin_lock(&gic_data_rdist_cpu(cpu)->rd_lock);
++	rdbase = per_cpu_ptr(gic_rdists->rdist, cpu)->rd_base;
++	gic_write_lpir(val, rdbase + GICR_INVALLR);
++
++	wait_for_syncr(rdbase);
++	raw_spin_unlock(&gic_data_rdist_cpu(cpu)->rd_lock);
++}
++
+ static int its_vpe_set_affinity(struct irq_data *d,
+ 				const struct cpumask *mask_val,
+ 				bool force)
+@@ -3804,6 +3822,7 @@ static int its_vpe_set_affinity(struct irq_data *d,
+ 	struct its_vpe *vpe = irq_data_get_irq_chip_data(d);
+ 	unsigned int from, cpu = nr_cpu_ids;
+ 	struct cpumask *table_mask;
++	struct its_node *its;
+ 	unsigned long flags;
+ 
+ 	/*
+@@ -3866,6 +3885,11 @@ static int its_vpe_set_affinity(struct irq_data *d,
+ 	vpe->col_idx = cpu;
+ 
+ 	its_send_vmovp(vpe);
++
++	its = find_4_1_its();
++	if (its && its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100801)
++		its_vpe_4_1_invall_locked(cpu, vpe);
++
+ 	its_vpe_db_proxy_move(vpe, from, cpu);
+ 
+ out:
+@@ -4173,22 +4197,12 @@ static void its_vpe_4_1_deschedule(struct its_vpe *vpe,
+ 
+ static void its_vpe_4_1_invall(struct its_vpe *vpe)
+ {
+-	void __iomem *rdbase;
+ 	unsigned long flags;
+-	u64 val;
+ 	int cpu;
+ 
+-	val  = GICR_INVALLR_V;
+-	val |= FIELD_PREP(GICR_INVALLR_VPEID, vpe->vpe_id);
+-
+ 	/* Target the redistributor this vPE is currently known on */
+ 	cpu = vpe_to_cpuid_lock(vpe, &flags);
+-	raw_spin_lock(&gic_data_rdist_cpu(cpu)->rd_lock);
+-	rdbase = per_cpu_ptr(gic_rdists->rdist, cpu)->rd_base;
+-	gic_write_lpir(val, rdbase + GICR_INVALLR);
+-
+-	wait_for_syncr(rdbase);
+-	raw_spin_unlock(&gic_data_rdist_cpu(cpu)->rd_lock);
++	its_vpe_4_1_invall_locked(cpu, vpe);
+ 	vpe_to_cpuid_unlock(vpe, flags);
+ }
+ 
+@@ -4781,6 +4795,14 @@ static bool its_set_non_coherent(void *data)
+ 	return true;
+ }
+ 
++static bool __maybe_unused its_enable_quirk_hip09_162100801(void *data)
++{
++	struct its_node *its = data;
++
++	its->flags |= ITS_FLAGS_WORKAROUND_HISILICON_162100801;
++	return true;
++}
++
+ static const struct gic_quirk its_quirks[] = {
+ #ifdef CONFIG_CAVIUM_ERRATUM_22375
+ 	{
+@@ -4827,6 +4849,14 @@ static const struct gic_quirk its_quirks[] = {
+ 		.init	= its_enable_quirk_hip07_161600802,
+ 	},
+ #endif
++#ifdef CONFIG_HISILICON_ERRATUM_162100801
++	{
++		.desc	= "ITS: Hip09 erratum 162100801",
++		.iidr	= 0x00051736,
++		.mask	= 0xffffffff,
++		.init	= its_enable_quirk_hip09_162100801,
++	},
++#endif
+ #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
+ 	{
+ 		.desc   = "ITS: Rockchip erratum RK3588001",
 -- 
-2.24.0
+2.34.1
 
 
