@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7142CD65C64
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 09:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99E63D65C64
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 09:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1D4LuRASNjtYcqBlr4oM8lVBwtYsZ6fne/tZREyW5xE=; b=ufwlkVw7/W1JnLVmR+kjYRzgYD
-	a5YDEc/DI9k/ZCB1YnhcKRgh2lUgTsf9cI6Zt2w+KH1zBidISUiLyI7SxamH00mSkTPQQyKwAvJZX
-	u8nCl0AobjrvoHGFZ2TbCiDbRT3fm62z8KViYB50g77DjDLYqBYzhvXR6LmtfsVkjqXYzTQprPOSj
-	1YNwUb3BJYgXISYjkRIpLRGkirOY6zIG7wIDNQLgtff7qaLBivAcAXbZ8KEEE0ZtreS85kcwwxWep
-	JCfqnrleuMyqR/7OtvpE6KgWYk/YIL1L3MESaH2CJzLIn8SLH/a+CUXrsXESjU/JE2x8JuXnLjcVs
-	nR3SsOew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mER75Q+4wG3UmVEMwASmKyWbuLRRLJol4qemiObTthM=; b=VWR/pxKcZ0ewOQpjIWGQQblcKw
+	4gy6BdlGl6WYAQH3Tv7Q9gCl+IYiYDiPwM/lBN3gDR+ba3fhw6keUIPnk17HXhd63lldK/xsIugF2
+	TBTc2nkdUXH7wvt70tYZ2BaYfC2xPN3fgM1h8AmXKiTwfMKGvqcLO+u6xVN8Q/R4zbcfxvFICqjNB
+	Ga8tk2rZlyQTrf9poD67Da8PNAdl5K3Wv5PfMVrBvOFfi+QLgupYJJJv87I1SIwvgm0kI9JLBRHds
+	bfMHAV0Wb6zvwq3JCFMDaDNCAmiUX4GOKCuMzk+NNoh2k9/m8Wq4yWUl82fu/PhJ0T2g6wI1d5wed
+	19A7NGFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWD3-00000009NAw-2mRN;
-	Thu, 14 Nov 2024 09:32:17 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWAH-00000009Mho-3aZL
+	id 1tBWJ0-00000009OJx-0vA4;
+	Thu, 14 Nov 2024 09:38:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBWH5-00000009Noz-0Eij
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 09:29:27 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tBWA6-0001EK-Eg; Thu, 14 Nov 2024 10:29:14 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tBWA6-000icz-02;
-	Thu, 14 Nov 2024 10:29:14 +0100
-Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 98E12372F4A;
-	Thu, 14 Nov 2024 09:29:13 +0000 (UTC)
-Date: Thu, 14 Nov 2024 10:29:13 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Charan.Pedumuru@microchip.com
-Subject: Re: [PATCH v2] dt-bindings: net: can: atmel: Convert to json schema
-Message-ID: <20241114-magnetic-eggplant-elephant-14e724-mkl@pengutronix.de>
-References: <20241003-can-v2-1-85701d3296dd@microchip.com>
- <xykmnsibdts7u73yu7b2vn3w55wx7puqo2nwhsji57th7lemym@f4l3ccxpevo4>
- <cd3a9342-3863-4a81-9b09-db7b8da1d561@microchip.com>
+	Thu, 14 Nov 2024 09:36:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 57D061474;
+	Thu, 14 Nov 2024 01:36:51 -0800 (PST)
+Received: from [10.57.89.178] (unknown [10.57.89.178])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C74D23F59E;
+	Thu, 14 Nov 2024 01:36:18 -0800 (PST)
+Message-ID: <0aabbc9e-8808-4aaa-a722-49ed3d45d15e@arm.com>
+Date: Thu, 14 Nov 2024 09:36:17 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ia4wiuv7bjc5o7j2"
-Content-Disposition: inline
-In-Reply-To: <cd3a9342-3863-4a81-9b09-db7b8da1d561@microchip.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 04/57] mm/page_alloc: Make page_frag_cache
+ boot-time page size compatible
+Content-Language: en-GB
+To: Vlastimil Babka <vbabka@suse.cz>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ David Hildenbrand <david@redhat.com>, Greg Marsden
+ <greg.marsden@oracle.com>, Ivan Ivanov <ivan.ivanov@suse.com>,
+ Kalesh Singh <kaleshsingh@google.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Matthias Brugger <mbrugger@suse.com>,
+ Miroslav Benes <mbenes@suse.cz>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20241014105514.3206191-1-ryan.roberts@arm.com>
+ <20241014105912.3207374-1-ryan.roberts@arm.com>
+ <20241014105912.3207374-4-ryan.roberts@arm.com>
+ <1d9f9188-42b1-4f83-87e7-e02a22b67caa@suse.cz>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <1d9f9188-42b1-4f83-87e7-e02a22b67caa@suse.cz>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_012925_927510_897518C6 
-X-CRM114-Status: GOOD (  23.90  )
+X-CRM114-CacheID: sfid-20241114_013627_296069_D2CFBA9C 
+X-CRM114-Status: GOOD (  25.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,107 +73,136 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: robh@kernel.org, conor+dt@kernel.org, linux-kernel@vger.kernel.org, alexandre.belloni@bootlin.com, devicetree@vger.kernel.org, netdev@vger.kernel.org, linux-can@vger.kernel.org, krzk@kernel.org, claudiu.beznea@tuxon.dev, edumazet@google.com, linux-arm-kernel@lists.infradead.org, kuba@kernel.org, krzk+dt@kernel.org, pabeni@redhat.com, davem@davemloft.net, mailhol.vincent@wanadoo.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 14/11/2024 08:23, Vlastimil Babka wrote:
+> On 10/14/24 12:58, Ryan Roberts wrote:
+>> "struct page_frag_cache" has some optimizations that depend on page
+>> size. Let's refactor it a bit so that those optimizations can be
+>> determined at run-time for the case where page size is a boot-time
+>> parameter. For compile-time page size, the compiler should dead code
+>> strip and the result is very similar to before.
+>>
+>> One wrinkle is that we don't know if we need the size member until
+>> runtime. So remove the ifdeffery and always define offset as u32 (needed
+>> if PAGE_SIZE is >= 64K) and size as u16 (only used when PAGE_SIZE <=
+>> 32K). We move the members around a bit so that the overall size of the
+>> struct remains the same; 24 bytes for 64-bit and 16 bytes on 32 bit.
+>>
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> 
+> Looks ok, but ideally the PAGE_FRAG_CACHE_MAX_ORDER #define should also be
+> replaced by some variable that's populated just once. It can be static local
+> to page_alloc.c as nothing else seems to use it.
 
---ia4wiuv7bjc5o7j2
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] dt-bindings: net: can: atmel: Convert to json schema
-MIME-Version: 1.0
+I can certainly do that, but wouldn't that be penalizing a compile-time page
+size configuration? My current change means that PAGE_FRAG_CACHE_MAX_ORDER still
+resolves to a compile-time constant in that situation and the compiler can
+eliminate conditional branches it knows will never be taken. Or perhaps you're
+suggesting I conditionally make it a variable if PAGE_SIZE_MIN != PAGE_SIZE_MAX?
 
-On 13.11.2024 05:30:53, Charan.Pedumuru@microchip.com wrote:
-> On 03/10/24 14:04, Krzysztof Kozlowski wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know =
-the content is safe
-> >
-> > On Thu, Oct 03, 2024 at 10:37:03AM +0530, Charan Pedumuru wrote:
-> >> Convert atmel-can documentation to yaml format
-> >>
-> >> Signed-off-by: Charan Pedumuru <charan.pedumuru@microchip.com>
-> >> ---
-> >> Changes in v2:
-> >> - Renamed the title to "Microchip AT91 CAN controller"
-> >> - Removed the unnecessary labels and add clock properties to examples
-> >> - Removed if condition statements and made clock properties as default=
- required properties
-> >> - Link to v1: https://lore.kernel.org/r/20240912-can-v1-1-c5651b1809bb=
-@microchip.com
-> >> ---
-> >>   .../bindings/net/can/atmel,at91sam9263-can.yaml    | 58 ++++++++++++=
-++++++++++
-> >>   .../devicetree/bindings/net/can/atmel-can.txt      | 15 ------
-> >>   2 files changed, 58 insertions(+), 15 deletions(-)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/net/can/atmel,at91sam92=
-63-can.yaml b/Documentation/devicetree/bindings/net/can/atmel,at91sam9263-c=
-an.yaml
-> >> new file mode 100644
-> >> index 000000000000..c818c01a718b
-> >> --- /dev/null
-> >> +++ b/Documentation/devicetree/bindings/net/can/atmel,at91sam9263-can.=
-yaml
-> >> @@ -0,0 +1,58 @@
-> >> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> >> +%YAML 1.2
-> >> +---
-> >> +$id: http://devicetree.org/schemas/net/can/atmel,at91sam9263-can.yaml#
-> >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >> +
-> >> +title: Microchip AT91 CAN Controller
-> >> +
-> >> +maintainers:
-> >> +  - Nicolas Ferre <nicolas.ferre@microchip.com>
-> >> +
-> >> +allOf:
-> >> +  - $ref: can-controller.yaml#
-> >> +
-> >> +properties:
-> >> +  compatible:
-> >> +    oneOf:
-> >> +      - enum:
-> >> +          - atmel,at91sam9263-can
-> >> +          - atmel,at91sam9x5-can
-> >> +      - items:
-> >> +          - enum:
-> >> +              - microchip,sam9x60-can
-> >> +          - const: atmel,at91sam9x5-can
-> > That is not what old binding said.
->=20
-> Apologies for the late reply, the driver doesn't have compatible with=20
-> "microchip,sam9x60-can",
-> so I made "atmel,at91sam9x5-can" as fallback driver
+Thanks,
+Ryan
 
-I think a better answer is:
+> 
+>>
+>> page_alloc
+>> ---
+>>
+>> ***NOTE***
+>> Any confused maintainers may want to read the cover note here for context:
+>> https://lore.kernel.org/all/20241014105514.3206191-1-ryan.roberts@arm.com/
+>>
+>>  include/linux/mm_types.h | 13 ++++++-------
+>>  mm/page_alloc.c          | 31 ++++++++++++++++++-------------
+>>  2 files changed, 24 insertions(+), 20 deletions(-)
+>>
+>> diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+>> index 4854249792545..0844ed7cfaa53 100644
+>> --- a/include/linux/mm_types.h
+>> +++ b/include/linux/mm_types.h
+>> @@ -544,16 +544,15 @@ static inline void *folio_get_private(struct folio *folio)
+>>  
+>>  struct page_frag_cache {
+>>  	void * va;
+>> -#if (PAGE_SIZE < PAGE_FRAG_CACHE_MAX_SIZE)
+>> -	__u16 offset;
+>> -	__u16 size;
+>> -#else
+>> -	__u32 offset;
+>> -#endif
+>>  	/* we maintain a pagecount bias, so that we dont dirty cache line
+>>  	 * containing page->_refcount every time we allocate a fragment.
+>>  	 */
+>> -	unsigned int		pagecnt_bias;
+>> +	unsigned int pagecnt_bias;
+>> +	__u32 offset;
+>> +	/* size only used when PAGE_SIZE < PAGE_FRAG_CACHE_MAX_SIZE, in which
+>> +	 * case PAGE_FRAG_CACHE_MAX_SIZE is 32K and 16 bits is sufficient.
+>> +	 */
+>> +	__u16 size;
+>>  	bool pfmemalloc;
+>>  };
+>>  
+>> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+>> index 91ace8ca97e21..8678103b1b396 100644
+>> --- a/mm/page_alloc.c
+>> +++ b/mm/page_alloc.c
+>> @@ -4822,13 +4822,18 @@ static struct page *__page_frag_cache_refill(struct page_frag_cache *nc,
+>>  	struct page *page = NULL;
+>>  	gfp_t gfp = gfp_mask;
+>>  
+>> -#if (PAGE_SIZE < PAGE_FRAG_CACHE_MAX_SIZE)
+>> -	gfp_mask = (gfp_mask & ~__GFP_DIRECT_RECLAIM) |  __GFP_COMP |
+>> -		   __GFP_NOWARN | __GFP_NORETRY | __GFP_NOMEMALLOC;
+>> -	page = alloc_pages_node(NUMA_NO_NODE, gfp_mask,
+>> -				PAGE_FRAG_CACHE_MAX_ORDER);
+>> -	nc->size = page ? PAGE_FRAG_CACHE_MAX_SIZE : PAGE_SIZE;
+>> -#endif
+>> +	if (PAGE_SIZE < PAGE_FRAG_CACHE_MAX_SIZE) {
+>> +		gfp_mask = (gfp_mask & ~__GFP_DIRECT_RECLAIM) |  __GFP_COMP |
+>> +			   __GFP_NOWARN | __GFP_NORETRY | __GFP_NOMEMALLOC;
+>> +		page = alloc_pages_node(NUMA_NO_NODE, gfp_mask,
+>> +					PAGE_FRAG_CACHE_MAX_ORDER);
+>> +		/*
+>> +		 * Cast to silence warning due to 16-bit nc->size. Not real
+>> +		 * because PAGE_SIZE only less than PAGE_FRAG_CACHE_MAX_SIZE
+>> +		 * when PAGE_FRAG_CACHE_MAX_SIZE is 32K.
+>> +		 */
+>> +		nc->size = (__u16)(page ? PAGE_FRAG_CACHE_MAX_SIZE : PAGE_SIZE);
+>> +	}
+>>  	if (unlikely(!page))
+>>  		page = alloc_pages_node(NUMA_NO_NODE, gfp, 0);
+>>  
+>> @@ -4870,10 +4875,10 @@ void *__page_frag_alloc_align(struct page_frag_cache *nc,
+>>  		if (!page)
+>>  			return NULL;
+>>  
+>> -#if (PAGE_SIZE < PAGE_FRAG_CACHE_MAX_SIZE)
+>>  		/* if size can vary use size else just use PAGE_SIZE */
+>> -		size = nc->size;
+>> -#endif
+>> +		if (PAGE_SIZE < PAGE_FRAG_CACHE_MAX_SIZE)
+>> +			size = nc->size;
+>> +
+>>  		/* Even if we own the page, we do not use atomic_set().
+>>  		 * This would break get_page_unless_zero() users.
+>>  		 */
+>> @@ -4897,10 +4902,10 @@ void *__page_frag_alloc_align(struct page_frag_cache *nc,
+>>  			goto refill;
+>>  		}
+>>  
+>> -#if (PAGE_SIZE < PAGE_FRAG_CACHE_MAX_SIZE)
+>>  		/* if size can vary use size else just use PAGE_SIZE */
+>> -		size = nc->size;
+>> -#endif
+>> +		if (PAGE_SIZE < PAGE_FRAG_CACHE_MAX_SIZE)
+>> +			size = nc->size;
+>> +
+>>  		/* OK, page count is 0, we can safely set it */
+>>  		set_page_count(page, PAGE_FRAG_CACHE_MAX_SIZE + 1);
+>>  
+> 
 
-The CAN IP core on the microchip,sam9x60-can is compatible with the IP
-core on the "atmel,at91sam9x5-can".
-
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---ia4wiuv7bjc5o7j2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmc1wuYACgkQKDiiPnot
-vG9Sqgf9G/Fg9mjf2UZVGGZWrYCj65mGdUNZgeVJfWBMxLzfrrBzSbDoC7BHvtk8
-kTCC4Q9xW18ne3S9xbZBACX/9j3Sn9+r5DPQDo2Nd04p6w1qAzkgdoMsgZw9M8CU
-uPbHPsWCqpG6ZyJnDWYYnRcI0DLozdRYeNH+3IJN0FIV9PQUXth6n51mak0eCgei
-xCtAqR+8ggUrebUlyuw6MddiZFStgeCFGmqnoxKk3TAz7OdwnPlb+mUDux+1Grpo
-GZEM6MMr4bqEtGjXxjXb72nmvcL3LpyE6NVDjvtKILQX03nARds7ZGuSXshaDj84
-aN65bsQb3LbFLmqNiBOcJPb1OGHRRg==
-=bN37
------END PGP SIGNATURE-----
-
---ia4wiuv7bjc5o7j2--
 
