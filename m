@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D5CCD65C5B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 08:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 211A1D65C60
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 09:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ToT77NODsvlbLTUvpom6vRLwi61ldhVszxA0ETyzPrk=; b=ZYGPxnBNiSpYyqOrQqVpwKTHZP
-	W/do5TbeHQvkGK7wc36nDs7VY4jLgUm/3GyyeTaVihmHUU9oRNWO4jss6+z9pLDh7R99tp9J42kf5
-	NVmp9heQjJlM5zvhm9Kjblpo1sjytMNYTFCVs+4n293lfNUgkdOxExoVx05/0bzv2NiWI8ktTj2/U
-	OjQ449a/Sp46vJqewn7vcd3URmiALhAOXA38RZuxGIglTUxRokmTvgaDrjm5c/1QzTcHVJn37MRli
-	43xtmy6qPJgsEP1cdl9Xw44Jyj4kgvOMX4ggi2nr0ALpJyaQu1yci1eH5SzszB28xSOJDJ3n4fB0z
-	DT1/BfUA==;
+	bh=Vq+0o5UZAFxdEgelWoO434l6bAqjjNI/4fem/VNfZD0=; b=UVFE0uZxCHV1KjxrlsjR2Duy+M
+	Q2IY++8rOZlabY6PH9o0jVgMYnj3qeYaZnFi82E5uGWr7iZ0mjJc+l5s0DNNQljujej7Q7yTvTIDc
+	kyvqFuUvmI2ct5vfm6k2vGHIwTHVOZ9C+LRFz+yjRfO4F9/OQWsD9u9+xnCHYDIEl4LTZoP0rFFtZ
+	BiOU+v+IAX6dGhSdz38SUAgHB5L5CCbLVN6C0Zn9DKVhITYwpy27J8+9C0lwu6lsspr3314tBbcJo
+	hFiiWWQxEMX/Uu6kW2bPZOdplGAxrfNE78n0oRq8icmU6m7b2QZvwIgWEtxKMb2/EKr76SAjVuVMa
+	vMCGciIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBVfv-00000009HLP-0hxB;
-	Thu, 14 Nov 2024 08:58:03 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1tBVmq-00000009IWG-245J;
+	Thu, 14 Nov 2024 09:05:12 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBVe2-00000009Gyk-1OMn
+	id 1tBVkx-00000009I9L-2dtQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 08:56:08 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7240d93fffdso255507b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 00:56:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731574565; x=1732179365; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ToT77NODsvlbLTUvpom6vRLwi61ldhVszxA0ETyzPrk=;
-        b=kOtyPZbgLLVVd9YFAA9tAn9h9lU3Jp8ga2o0P/+VbyuKFQGfaWopfUPDOj70HMAA7Y
-         /vfHpuFRkhsOI+hUW0UGusF8aHn+jgP+Yqz2OEOT2NMv+Ue7BX1HV2lO66GdH7eGYJGL
-         +ZHee/zEPFrMN7g/dXyIO6hMVFOH0/3DWVQebHvoY9fBXc6XN8uj9dAORu8pb20lNAeN
-         ozvspAzR29CzVNgkgmHMlqu5r6FDmTnC81ByJd/dV9OCWFmEyJyHbtIFShcD1akM2ILp
-         +wOHNG3LDStKSQJSrnauRSTLed3HBzHNQpGFOu58LaytqgDaEU5yqkSToG3oTOY+n59s
-         eLRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731574565; x=1732179365;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ToT77NODsvlbLTUvpom6vRLwi61ldhVszxA0ETyzPrk=;
-        b=AdOhmaLdR6DVIaeczzO7iVeFYs7WfOkei/WUbQk6sOM6NBnypWcpM2VKo3q3upIKkm
-         gPTj+BmcbTsl51pJ7EU50xcJPsLJzLEf8CuYqpfrfyF2oOz2NMgVg7vugH0NIsTGlL9j
-         vSjmKq5QkOopQXfgB8VmrZr2Wbj8iNC8SEPqYH7ERTUuPAcVv2aEaqSBEtFssaYhPK8l
-         cTRbpgXcC5ocTb76LJMREnlP3jwIYLyIFblGMI1EBfHRlGkCK+ZPu/yYS2bFEv8Y4t6k
-         zh28sBrxQxKO8NW1i0rFBk2VhqkZG1EOnLK3xYy1GjW0Y9C3UPIVOXgk864zJUMAtyc2
-         HwCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUeh/gQfx2kZUuWND+WbQH+nAMp8e57WZHvxoPHf1l3f2jYWyoPVryp6LEaon4um9Mr6MeGz2wJlr0HCFq8cWLK@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJSSrVqSp+DTXHz0fqgj9y1K98hoa4grFDoHRwTCLQ3SQg00We
-	QeBtwXIqcYCXZPqRMXdq3qDw+VGE1AqGvQh6cyrKqNkz6F+Z/jqd3mSJ7x+sKslBpU5Nbh6X32l
-	BmvjtE0alB0IlYzLZiiuF3DOyl6Bm2KFYC2RdaA==
-X-Google-Smtp-Source: AGHT+IEF/+2QRuIhdeC8yK5JAR2WX1SxP2TpNFoDaoCNxUEcokJnn2HBF5GtJzruhPEUticVRg3x/kmVprSaln0zgc4=
-X-Received: by 2002:a17:90b:1647:b0:2e2:c6c2:b3d5 with SMTP id
- 98e67ed59e1d1-2e9f2c7476bmr7530583a91.9.1731574564784; Thu, 14 Nov 2024
- 00:56:04 -0800 (PST)
+	Thu, 14 Nov 2024 09:03:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Vq+0o5UZAFxdEgelWoO434l6bAqjjNI/4fem/VNfZD0=; b=zD5NOp4D51nL3FAW1pcBwyJVl2
+	FxhxfgJ3tpP/uZ27OAg5hY80Mu9kbLJ7MGktRo9pgJd+G3N8RUkVd1wzUb8YIzxXs6iEI2PMBaqsH
+	hoStN7BCuIY/scBdom8a4Mtt72KeszUUBSK1BALW+ob16VYfc2EzNzdztNStW7d9CULAVpHecCKfC
+	KAaitanOUdWUkOIUukRB+yRq0Y5y7xJon0P3oEinFzgd7YMQ+43ZBZ3tLN+huJGGe8KLNKNyeLU3k
+	UM4P2lYEXKASMHptYgHYQ8Ngglt07QHh8cNWQ3AFhVnb/mrMhxlbM4HqkFDRNXQJASNlQ+OP8J32I
+	VQocwMsw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48016)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tBVkc-0007gg-0b;
+	Thu, 14 Nov 2024 09:02:54 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tBVkV-0000yG-1x;
+	Thu, 14 Nov 2024 09:02:47 +0000
+Date: Thu, 14 Nov 2024 09:02:47 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net v1 1/2] net: phy: Introduce phy_update_eee() to
+ update eee_cfg values
+Message-ID: <ZzW8t2bCTXJCP7-_@shell.armlinux.org.uk>
+References: <20241112072447.3238892-1-yong.liang.choong@linux.intel.com>
+ <20241112072447.3238892-2-yong.liang.choong@linux.intel.com>
+ <f8ec2c77-33fa-45a8-9b6b-4be15e5f3658@gmail.com>
+ <71b6be0e-426f-4fb4-9d28-27c55d5afa51@lunn.ch>
+ <eb937669-d4ce-4b72-bcae-0660e1345b76@linux.intel.com>
 MIME-Version: 1.0
-References: <20241114022916.644899-1-quic_sibis@quicinc.com> <20241114022916.644899-2-quic_sibis@quicinc.com>
-In-Reply-To: <20241114022916.644899-2-quic_sibis@quicinc.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 14 Nov 2024 09:55:53 +0100
-Message-ID: <CAKfTPtDnyDak1BsdufYuN=wQwhJ+XTJedjMEezAz1evhsB86Jg@mail.gmail.com>
-Subject: Re: [PATCH V8 1/1] cpufreq: scmi: Register for limit change notifications
-To: Sibi Sankar <quic_sibis@quicinc.com>
-Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, rafael@kernel.org, 
-	viresh.kumar@linaro.org, morten.rasmussen@arm.com, dietmar.eggemann@arm.com, 
-	lukasz.luba@arm.com, pierre.gondois@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, quic_mdtipton@quicinc.com, 
-	linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <eb937669-d4ce-4b72-bcae-0660e1345b76@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_005606_414911_9BBBAB73 
-X-CRM114-Status: GOOD (  23.21  )
+X-CRM114-CacheID: sfid-20241114_010315_698264_6CADBA3F 
+X-CRM114-Status: GOOD (  35.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,131 +91,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 14 Nov 2024 at 03:29, Sibi Sankar <quic_sibis@quicinc.com> wrote:
->
-> Register for limit change notifications if supported and use the throttled
-> frequency from the notification to apply HW pressure.
->
-> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
-> Tested-by: Mike Tipton <quic_mdtipton@quicinc.com>
-> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-> Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
+On Wed, Nov 13, 2024 at 06:10:55PM +0800, Choong Yong Liang wrote:
+> On 12/11/2024 9:04 pm, Andrew Lunn wrote:
+> > On Tue, Nov 12, 2024 at 12:03:15PM +0100, Heiner Kallweit wrote:
+> > > In stmmac_ethtool_op_get_eee() you have the following:
+> > > 
+> > > edata->tx_lpi_timer = priv->tx_lpi_timer;
+> > > edata->tx_lpi_enabled = priv->tx_lpi_enabled;
+> > > return phylink_ethtool_get_eee(priv->phylink, edata);
+> > > 
+> > > You have to call phylink_ethtool_get_eee() first, otherwise the manually
+> > > set values will be overridden. However setting tx_lpi_enabled shouldn't
+> > > be needed if you respect phydev->enable_tx_lpi.
+> > 
+> > I agree with Heiner here, this sounds like a bug somewhere, not
+> > something which needs new code in phylib. Lets understand why it gives
+> > the wrong results.
+> > 
+> > 	Andrew
+> Hi Russell, Andrew, and Heiner, thanks a lot for your valuable feedback.
+> 
+> The current implementation of the 'ethtool --show-eee' command heavily
+> relies on the phy_ethtool_get_eee() in phy.c. The eeecfg values are set by
+> the 'ethtool --set-eee' command and the phy_support_eee() during the initial
+> state. The phy_ethtool_get_eee() calls eeecfg_to_eee(), which returns the
+> eeecfg containing tx_lpi_timer, tx_lpi_enabled, and eee_enable for the
+> 'ethtool --show-eee' command.
 
-Looks good to me
-Acked-by: Vincent Guittot <vincent.guittot@linaro.org>
+These three members you mention are user configuration members.
 
-> ---
->
-> v8:
-> * Drop patch 1 since it was picked up by Viresh
-> * Leave policy->max update to the cpufreq_qos notifier [Vincent]
-> * We sanitized the range_max from V3 since we dealt with
->   policy->max, now we can drop the check and policy member
->   from scmi_data.
->
->  drivers/cpufreq/scmi-cpufreq.c | 45 ++++++++++++++++++++++++++++++++++
->  1 file changed, 45 insertions(+)
->
-> diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-> index 07d6f9a9b7c8..b8fe758aeb01 100644
-> --- a/drivers/cpufreq/scmi-cpufreq.c
-> +++ b/drivers/cpufreq/scmi-cpufreq.c
-> @@ -16,6 +16,7 @@
->  #include <linux/export.h>
->  #include <linux/module.h>
->  #include <linux/pm_opp.h>
-> +#include <linux/pm_qos.h>
->  #include <linux/slab.h>
->  #include <linux/scmi_protocol.h>
->  #include <linux/types.h>
-> @@ -26,6 +27,8 @@ struct scmi_data {
->         int nr_opp;
->         struct device *cpu_dev;
->         cpumask_var_t opp_shared_cpus;
-> +       struct notifier_block limit_notify_nb;
-> +       struct freq_qos_request limits_freq_req;
->  };
->
->  static struct scmi_protocol_handle *ph;
-> @@ -174,6 +177,22 @@ static struct freq_attr *scmi_cpufreq_hw_attr[] = {
->         NULL,
->  };
->
-> +static int scmi_limit_notify_cb(struct notifier_block *nb, unsigned long event, void *data)
-> +{
-> +       struct scmi_data *priv = container_of(nb, struct scmi_data, limit_notify_nb);
-> +       struct scmi_perf_limits_report *limit_notify = data;
-> +       unsigned int limit_freq_khz;
-> +       int ret;
-> +
-> +       limit_freq_khz = limit_notify->range_max_freq / HZ_PER_KHZ;
-> +
-> +       ret = freq_qos_update_request(&priv->limits_freq_req, limit_freq_khz);
-> +       if (ret < 0)
-> +               pr_warn("failed to update freq constraint: %d\n", ret);
-> +
-> +       return NOTIFY_OK;
-> +}
-> +
->  static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->  {
->         int ret, nr_opp, domain;
-> @@ -181,6 +200,7 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->         struct device *cpu_dev;
->         struct scmi_data *priv;
->         struct cpufreq_frequency_table *freq_table;
-> +       struct scmi_device *sdev = cpufreq_get_driver_data();
->
->         cpu_dev = get_cpu_device(policy->cpu);
->         if (!cpu_dev) {
-> @@ -294,6 +314,23 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->                 }
->         }
->
-> +       ret = freq_qos_add_request(&policy->constraints, &priv->limits_freq_req, FREQ_QOS_MAX,
-> +                                  FREQ_QOS_MAX_DEFAULT_VALUE);
-> +       if (ret < 0) {
-> +               dev_err(cpu_dev, "failed to add qos limits request: %d\n", ret);
-> +               goto out_free_table;
-> +       }
-> +
-> +       priv->limit_notify_nb.notifier_call = scmi_limit_notify_cb;
-> +       ret = sdev->handle->notify_ops->event_notifier_register(sdev->handle, SCMI_PROTOCOL_PERF,
-> +                                                       SCMI_EVENT_PERFORMANCE_LIMITS_CHANGED,
-> +                                                       &priv->domain_id,
-> +                                                       &priv->limit_notify_nb);
-> +       if (ret)
-> +               dev_warn(&sdev->dev,
-> +                        "failed to register for limits change notifier for domain %d\n",
-> +                        priv->domain_id);
-> +
->         return 0;
->
->  out_free_table:
-> @@ -313,7 +350,13 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->  static void scmi_cpufreq_exit(struct cpufreq_policy *policy)
->  {
->         struct scmi_data *priv = policy->driver_data;
-> +       struct scmi_device *sdev = cpufreq_get_driver_data();
->
-> +       sdev->handle->notify_ops->event_notifier_unregister(sdev->handle, SCMI_PROTOCOL_PERF,
-> +                                                           SCMI_EVENT_PERFORMANCE_LIMITS_CHANGED,
-> +                                                           &priv->domain_id,
-> +                                                           &priv->limit_notify_nb);
-> +       freq_qos_remove_request(&priv->limits_freq_req);
->         dev_pm_opp_free_cpufreq_table(priv->cpu_dev, &policy->freq_table);
->         dev_pm_opp_remove_all_dynamic(priv->cpu_dev);
->         free_cpumask_var(priv->opp_shared_cpus);
-> @@ -372,6 +415,8 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
->         if (!handle)
->                 return -ENODEV;
->
-> +       scmi_cpufreq_driver.driver_data = sdev;
-> +
->         perf_ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PERF, &ph);
->         if (IS_ERR(perf_ops))
->                 return PTR_ERR(perf_ops);
-> --
-> 2.34.1
->
+> The tx_lpi_timer and tx_lpi_enabled values stored in the MAC or PHY driver
+> are not retrieved by the 'ethtool --show-eee' command.
+
+tx_lpi_timer is the only thing that the MAC driver should be concerned
+with - it needs to program the MAC according to the timer value
+specified. Whether LPI is enabled or not is determined by
+phydev->enable_tx_lpi. The MAC should be using nothing else.
+
+> Currently, we are facing 3 issues:
+> 1. When we boot up our system and do not issue the 'ethtool --set-eee'
+> command, and then directly issue the 'ethtool --show-eee' command, it always
+> shows that EEE is disabled due to the eeecfg values not being set. However,
+> in the Maxliner GPY PHY, the driver EEE is enabled.
+
+So the software state is out of sync with the hardware state. This is a
+bug in the GPY PHY driver.
+
+If we look at the generic code, we can see that genphy_config_aneg()
+calls __genphy_config_aneg() which then goes on to call
+genphy_c45_an_config_eee_aneg(). genphy_c45_an_config_eee_aneg()
+writes the current EEE configuration to the PHY.
+
+Now if we look at gpy_config_aneg(), it doesn't do this. Therefore,
+the GPY PHY is retaining its hardware state which is different from
+the software state. This is wrong.
+
+> 2. The 'ethtool --show-eee' command does not display the correct status,
+> even if the link is down or the speed changes to one that does not support
+> EEE.
+
+"eee_enabled" means that the user has enabled EEE. It does not mean the
+hardware is using EEE. It is a user configuration knob to turn EEE
+on/off.
+
+"eee_active" reports whether EEE has been negotiated, and thus will be
+made use of.
+
+There has been a lot of misinterpretation of the EEE API, and this is
+one of them - some have thought that "eee_enabled" refers to whether EEE
+has been negotiated, and "eee_active" means that the interface is
+currently in low-power state. This is wrong.
+
+> 3. The tx_lpi_timer in 'ethtool --show-eee' always shows 0 if we have not
+> used 'ethtool --set-eee' to set the values, even though the driver sets
+> different values.
+
+The driver needs to set these when attaching the PHY.
+
+> I appreciate Russell's point that eee_enabled is a user configuration bit,
+> not a status bit. However, I am curious if tx_lpi_timer, tx_lpi_enabled, and
+> other fields are also considered configuration bits.
+
+tx_lpi_timer and tx_lpi_enabled are also user configuration.
+
+> It does not specify which fields are configuration bits and which are status
+> bits.
+
+The documentation is in include/uapi/linux/ethtool.h:
+
+ * @eee_active: Result of the eee auto negotiation.
+ * @eee_enabled: EEE configured mode (enabled/disabled).
+ * @tx_lpi_enabled: Whether the interface should assert its tx lpi, given
+ *      that eee was negotiated.
+ * @tx_lpi_timer: Time in microseconds the interface delays prior to asserting
+ *      its tx lpi (after reaching 'idle' state). Effective only when eee
+ *      was negotiated and tx_lpi_enabled was set.
+
+and has been for a very long time, yet people in the past have
+implemented it against the documentation, leading to the stupid
+situation where using ethtool --set-eee on one network driver
+works differently to another network driver. This has to stop,
+and by implementing most of the logic for the interface in phylib,
+it means there's less scope for misinterpretation.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
