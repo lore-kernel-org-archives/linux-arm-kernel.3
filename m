@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF397D65C6F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 10:52:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAD81D65C6C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 10:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GqgHf1P44U6+iXgzbbPS+DGRuZ/JJ1n6EooYA/AkJPM=; b=Z+p7sLqpjK21qsdgVqLvW/6Rcb
-	PPATYqKilk8Uk1EV0vbSbvYQAhAmnAV6ttgSZhENhHYzsWi4tyr7Ta5ZCz1KXMmlVz/bbkL8jYkB0
-	jtrk1rMRk4SGbxJigeM8C3bq4gO9xIlbVnpO4QrmmZNh1IbE9vlzv85qa4E5rULy9/kzqwDlT0zgD
-	f6iJYsqk/C1f4IApFZXacF21m0Gtcqm+/MxX3WO3SaAmWu3s8AwSa9nd/NZArUJProefG7CBfBTGV
-	xRoclNOD3nXCG853oqF51tXDN657OpLuT2GC5LhPrUOcBzu3MA1tYFx5MdVgkupEIwheUVX3fPkJE
-	zG0ef03w==;
+	bh=slipo85jeU4x0/6UQp38NN3nKrQSFTaT3dRImDEbsFI=; b=fZN43JvuDj2+22pUXWqJCDwZSP
+	9Yu6HCLISuXVRsMx9qd2rI4QTwO0Afx0XYFUuWaelH2I1dlGYBVmE20b8FerIyx880YNUy0X8Et3U
+	dRNhvmUqP/kbS4Kw1AUKRiHnsKDOWph9WwzBVk7GNxRx4HAGXaQ++XldaAJ+1LNIwKiLXCQOkTJQq
+	PwFjEaqTHE4+frNsk5DMT2StQBjgZetolJgynasPeOSXMdDr/GGi4dt7Nm3A558/uxB+mDF6CVh6i
+	ziBSirarDOCXT82QdiIFMBhgmhz8l6uPt3P8amfvmQPPMIPDNMsLp95EhKAVPYTOJEATXuOJrQYO4
+	5rFn1nTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBXSi-00000009cFv-3m7p;
-	Thu, 14 Nov 2024 10:52:32 +0000
+	id 1tBXUd-00000009ckf-2mKC;
+	Thu, 14 Nov 2024 10:54:31 +0000
 Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWlz-00000009T8B-0KoO;
-	Thu, 14 Nov 2024 10:08:31 +0000
-X-UUID: 59ea0e86a27011ef82ff63e91e7eb18c-20241114
+	id 1tBWly-00000009TDH-2gsR;
+	Thu, 14 Nov 2024 10:08:32 +0000
+X-UUID: 5aa5331ea27011ef82ff63e91e7eb18c-20241114
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=GqgHf1P44U6+iXgzbbPS+DGRuZ/JJ1n6EooYA/AkJPM=;
-	b=C2N3zW6okpN9jReT9HE+88JEzioc7MIBZKXrlyqiTiJSlg/kmF6Jw/w9qtUEbK2Ib73VoccjNQXgoPMAc7UirZWoatN7kz+cFIWA1tfLRSY7Jlp74ySUHne5TLkVwMRYetPK6NIlP1j3icmGWb1iLXC/TtEmjFZi0int+yY8bEI=;
+	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=slipo85jeU4x0/6UQp38NN3nKrQSFTaT3dRImDEbsFI=;
+	b=SKeGhNQX8Wh52YyOyWLxO2JQcSdzfnZA7oDOJgxDlYviKQX/ycSuV+/DTtWiFNvkQ3yGAnGOtj/TsP2sgCyxAcyZAkxTcQKt59Bg/9vh/7IjBeY9iTVyGh9aXf/0szEbfhpl+ztMP2zBiLdz0ar6hAm93HijMKGFl6V3WnjwTk8=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:0e9bd75f-7551-44ab-a5c1-c71ba509e619,IP:0,U
+X-CID-O-INFO: VERSION:1.1.42,REQID:73c26d74-3ad1-4b70-9f9b-e28024941748,IP:0,U
 	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
 	N:release,TS:-25
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:205f0c4f-a2ae-4b53-acd4-c3dc8f449198,B
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:276c1307-6ce0-4172-9755-bd2287e50583,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0,EDM:-3,IP
 	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
 	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 59ea0e86a27011ef82ff63e91e7eb18c-20241114
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+X-UUID: 5aa5331ea27011ef82ff63e91e7eb18c-20241114
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
 	(envelope-from <liju-clr.chen@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 596615033; Thu, 14 Nov 2024 03:08:10 -0700
+	with ESMTP id 1960416329; Thu, 14 Nov 2024 03:08:11 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.1118.26; Thu, 14 Nov 2024 18:08:06 +0800
 Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
@@ -69,9 +69,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-mediatek@lists.infradead.org>, Shawn Hsiao <shawn.hsiao@mediatek.com>,
 	PeiLun Suei <PeiLun.Suei@mediatek.com>, Chi-shen Yeh
 	<Chi-shen.Yeh@mediatek.com>, Kevenny Hsieh <Kevenny.Hsieh@mediatek.com>
-Subject: [PATCH v13 23/25] virt: geniezone: Add support for guest VM CPU idle
-Date: Thu, 14 Nov 2024 18:08:00 +0800
-Message-ID: <20241114100802.4116-24-liju-clr.chen@mediatek.com>
+Subject: [PATCH v13 22/25] virt: geniezone: Add support for virtual timer migration
+Date: Thu, 14 Nov 2024 18:07:59 +0800
+Message-ID: <20241114100802.4116-23-liju-clr.chen@mediatek.com>
 X-Mailer: git-send-email 2.18.0
 In-Reply-To: <20241114100802.4116-1-liju-clr.chen@mediatek.com>
 References: <20241114100802.4116-1-liju-clr.chen@mediatek.com>
@@ -79,8 +79,8 @@ MIME-Version: 1.0
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_020823_312102_2D265D96 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20241114_020822_928358_816F946E 
+X-CRM114-Status: GOOD (  22.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,249 +95,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kevenny Hsieh <kevenny.hsieh@mediatek.com>
+From: Willix Yeh <chi-shen.yeh@mediatek.com>
 
-Implement CPU idle functionality for guest VMs, allowing the guest
-VM's CPU to relinquish control to the host when it enters an idle
-state. Enable the host to schedule other processes, thereby reducing
-CPU usage and achieving power savings.
+Introduce a mechanism to migrate the ARM64 virtual timer from the
+guest VM to the host Linux system when the execution context switches
+from the guest VM to the host. Ensure that the guest VM's virtual
+timer continues to operate seamlessly after the context switch, given
+that ARM64 has only one virtual timer.
 
-Introduce a new capability (`enable_idle_support`) to support the idle
-feature. Emulate the WFI (Wait For Interrupt) instruction for the
-guest VM when it enters an idle state. Allow the host Linux kernel to
-schedule other processes and enable the vCPU to enter the `wait`
-state. Ensure that the vCPU can be woken up by interrupts such as the
-virtual timer (vtimer) and virtio interrupts.
+Translate the remaining time before the VM timer expires into the host
+Linux system by setting the remaining time on an hrtimer. This allows
+the guest VM to maintain its timer operations without interruption.
 
-With the idle feature, the vCPU can efficiently enter a lower power
-state, such as decreasing CPU frequency or even entering an idle
-state, thereby reducing CPU usage and improving overall system power
-efficiency.
+Enable seamless timer operation during idle states. When a VM enters
+an idle state and the execution context returns to the host Linux,
+ensure that the timer continues to operate seamlessly, preventing
+disruption to the guest VM's timing operations.
 
+Signed-off-by: Willix Yeh <chi-shen.yeh@mediatek.com>
+Co-developed-by: Kevenny Hsieh <kevenny.hsieh@mediatek.com>
 Signed-off-by: Kevenny Hsieh <kevenny.hsieh@mediatek.com>
 Signed-off-by: Liju Chen <liju-clr.chen@mediatek.com>
 ---
- arch/arm64/geniezone/vm.c               |  3 ++
- drivers/virt/geniezone/gzvm_exception.c | 46 +++++++++++++++++++++++++
- drivers/virt/geniezone/gzvm_vcpu.c      | 26 +++++++++++++-
- drivers/virt/geniezone/gzvm_vm.c        | 15 ++++++++
- include/linux/soc/mediatek/gzvm_drv.h   |  7 ++++
- include/uapi/linux/gzvm.h               |  2 ++
- 6 files changed, 98 insertions(+), 1 deletion(-)
+ arch/arm64/geniezone/gzvm_arch_common.h | 15 +++++++++++++++
+ arch/arm64/geniezone/vcpu.c             | 16 ++++++++++++++++
+ arch/arm64/geniezone/vm.c               | 24 ++++++++++++++++++++++++
+ drivers/virt/geniezone/gzvm_main.c      |  4 ++++
+ drivers/virt/geniezone/gzvm_vcpu.c      | 24 ++++++++++++++++++++++++
+ include/linux/soc/mediatek/gzvm_drv.h   |  7 +++++++
+ 6 files changed, 90 insertions(+)
 
+diff --git a/arch/arm64/geniezone/gzvm_arch_common.h b/arch/arm64/geniezone/gzvm_arch_common.h
+index 8f5d8528ab96..df16e33f6b74 100644
+--- a/arch/arm64/geniezone/gzvm_arch_common.h
++++ b/arch/arm64/geniezone/gzvm_arch_common.h
+@@ -7,6 +7,7 @@
+ #define __GZVM_ARCH_COMMON_H__
+ 
+ #include <linux/arm-smccc.h>
++#include <linux/clocksource.h>
+ 
+ enum {
+ 	GZVM_FUNC_CREATE_VM = 0,
+@@ -85,6 +86,10 @@ int gzvm_hypcall_wrapper(unsigned long a0, unsigned long a1,
+  * @lr: The array of LRs(list registers).
+  * @vtimer_offset: The offset maintained by hypervisor that is host cycle count
+  *                 when guest VM startup.
++ * @vtimer_delay: The remaining time before the next timer tick is triggered
++ *                while the VM is running.
++ * @vtimer_migrate: Indicates whether the guest virtual timer needs to be
++ *                  migrated to the host software timer.
+  *
+  * - Keep the same layout of hypervisor data struct.
+  * - Sync list registers back for acking virtual device interrupt status.
+@@ -94,8 +99,18 @@ struct gzvm_vcpu_hwstate {
+ 	__le32 __pad;
+ 	__le64 lr[GIC_V3_NR_LRS];
+ 	__le64 vtimer_offset;
++	__le64 vtimer_delay;
++	__le32 vtimer_migrate;
+ };
+ 
++struct timecycle {
++	u32 mult;
++	u32 shift;
++};
++
++u32 gzvm_vtimer_get_clock_mult(void);
++u32 gzvm_vtimer_get_clock_shift(void);
++
+ static inline unsigned int
+ assemble_vm_vcpu_tuple(u16 vmid, u16 vcpuid)
+ {
+diff --git a/arch/arm64/geniezone/vcpu.c b/arch/arm64/geniezone/vcpu.c
+index e12ea9cb4941..595f16904b99 100644
+--- a/arch/arm64/geniezone/vcpu.c
++++ b/arch/arm64/geniezone/vcpu.c
+@@ -11,6 +11,22 @@
+ #include <linux/soc/mediatek/gzvm_drv.h>
+ #include "gzvm_arch_common.h"
+ 
++u64 gzvm_vcpu_arch_get_timer_delay_ns(struct gzvm_vcpu *vcpu)
++{
++	u64 ns;
++
++	if (vcpu->hwstate->vtimer_migrate) {
++		ns = clocksource_cyc2ns(le64_to_cpu(vcpu->hwstate->vtimer_delay),
++					gzvm_vtimer_get_clock_mult(),
++					gzvm_vtimer_get_clock_shift());
++	} else {
++		ns = 0;
++	}
++
++	/* 0: no migrate, otherwise: migrate  */
++	return ns;
++}
++
+ int gzvm_arch_vcpu_update_one_reg(struct gzvm_vcpu *vcpu, __u64 reg_id,
+ 				  bool is_write, __u64 *data)
+ {
 diff --git a/arch/arm64/geniezone/vm.c b/arch/arm64/geniezone/vm.c
-index fccdcd5b8c75..cfd0aeb865e5 100644
+index 026c1980d054..fccdcd5b8c75 100644
 --- a/arch/arm64/geniezone/vm.c
 +++ b/arch/arm64/geniezone/vm.c
-@@ -449,6 +449,9 @@ int gzvm_vm_ioctl_arch_enable_cap(struct gzvm *gzvm,
- 	case GZVM_CAP_BLOCK_BASED_DEMAND_PAGING:
- 		ret = gzvm_vm_arch_enable_cap(gzvm, cap, &res);
- 		return ret;
-+	case GZVM_CAP_ENABLE_IDLE:
-+		ret = gzvm_vm_arch_enable_cap(gzvm, cap, &res);
-+		return ret;
- 	default:
- 		break;
- 	}
-diff --git a/drivers/virt/geniezone/gzvm_exception.c b/drivers/virt/geniezone/gzvm_exception.c
-index 5ffee863e378..391168a3f737 100644
---- a/drivers/virt/geniezone/gzvm_exception.c
-+++ b/drivers/virt/geniezone/gzvm_exception.c
-@@ -5,6 +5,8 @@
+@@ -15,6 +15,18 @@
  
- #include <linux/device.h>
- #include <linux/soc/mediatek/gzvm_drv.h>
-+#include <linux/sched.h>
-+#include <linux/rcuwait.h>
+ #define PAR_PA47_MASK GENMASK_ULL(47, 12)
  
++static struct timecycle clock_scale_factor;
++
++u32 gzvm_vtimer_get_clock_mult(void)
++{
++	return clock_scale_factor.mult;
++}
++
++u32 gzvm_vtimer_get_clock_shift(void)
++{
++	return clock_scale_factor.shift;
++}
++
  /**
-  * gzvm_handle_guest_exception() - Handle guest exception
-@@ -59,3 +61,47 @@ bool gzvm_handle_guest_hvc(struct gzvm_vcpu *vcpu)
- 		return gzvm_arch_handle_guest_hvc(vcpu);
- 	}
- }
-+
-+static void vcpu_block_wait(struct gzvm_vcpu *vcpu)
-+{
-+	struct rcuwait *wait = &vcpu->wait;
-+
-+	prepare_to_rcuwait(wait);
-+
-+	while (true) {
-+		set_current_state(TASK_INTERRUPTIBLE);
-+		if (vcpu->idle_events.virtio_irq) {
-+			vcpu->idle_events.virtio_irq = 0;
-+			break;
-+		}
-+		if (vcpu->idle_events.vtimer_irq) {
-+			vcpu->idle_events.vtimer_irq = 0;
-+			break;
-+		}
-+		if (signal_pending(current))
-+			break;
-+		schedule();
-+	}
-+	finish_rcuwait(wait);
-+}
-+
-+/**
-+ * gzvm_handle_guest_idle() - Handle guest vm entering idle
-+ * @vcpu: Pointer to struct gzvm_vcpu struct
-+ * Return:
-+ */
-+int gzvm_handle_guest_idle(struct gzvm_vcpu *vcpu)
-+{
-+	int ret = 0;
-+	u64 ns = 0;
-+
-+	ns = gzvm_vcpu_arch_get_timer_delay_ns(vcpu);
-+
-+	if (ns) {
-+		gzvm_vtimer_set(vcpu, ns);
-+		vcpu_block_wait(vcpu);
-+		gzvm_vtimer_release(vcpu);
-+	}
-+
-+	return ret;
-+}
-diff --git a/drivers/virt/geniezone/gzvm_vcpu.c b/drivers/virt/geniezone/gzvm_vcpu.c
-index ba85a6ae04a0..247848ee126c 100644
---- a/drivers/virt/geniezone/gzvm_vcpu.c
-+++ b/drivers/virt/geniezone/gzvm_vcpu.c
-@@ -16,8 +16,29 @@
- /* maximum size needed for holding an integer */
- #define ITOA_MAX_LEN 12
- 
-+/**
-+ * gzvm_vcpu_wakeup_all - wakes up all vCPUs associated with the specified
-+ * gzvm.
-+ * @gzvm: Pointer to gzvm structure.
-+ */
-+void gzvm_vcpu_wakeup_all(struct gzvm *gzvm)
-+{
-+	for (int i = 0; i < GZVM_MAX_VCPUS; i++) {
-+		if (gzvm->vcpus[i]) {
-+			gzvm->vcpus[i]->idle_events.virtio_irq += 1;
-+			rcuwait_wake_up(&gzvm->vcpus[i]->wait);
-+		}
-+	}
-+}
-+
- static enum hrtimer_restart gzvm_vtimer_expire(struct hrtimer *hrt)
- {
-+	struct gzvm_vcpu *vcpu;
-+
-+	vcpu = container_of(hrt, struct gzvm_vcpu, gzvm_vtimer);
-+
-+	gzvm_vcpu_wakeup_all(vcpu->gzvm);
-+
- 	return HRTIMER_NORESTART;
- }
- 
-@@ -111,7 +132,7 @@ static bool gzvm_vcpu_handle_mmio(struct gzvm_vcpu *vcpu)
- static long gzvm_vcpu_run(struct gzvm_vcpu *vcpu, void __user *argp)
- {
- 	bool need_userspace = false;
--	u64 exit_reason = 0;
-+	u64 exit_reason;
- 
- 	if (copy_from_user(vcpu->run, argp, sizeof(struct gzvm_vcpu_run)))
- 		return -EFAULT;
-@@ -160,6 +181,9 @@ static long gzvm_vcpu_run(struct gzvm_vcpu *vcpu, void __user *argp)
- 			fallthrough;
- 		case GZVM_EXIT_GZ:
- 			break;
-+		case GZVM_EXIT_IDLE:
-+			gzvm_handle_guest_idle(vcpu);
-+			break;
- 		case GZVM_EXIT_UNKNOWN:
- 			fallthrough;
- 		default:
-diff --git a/drivers/virt/geniezone/gzvm_vm.c b/drivers/virt/geniezone/gzvm_vm.c
-index 2ce36ad8791b..999c8c586d7b 100644
---- a/drivers/virt/geniezone/gzvm_vm.c
-+++ b/drivers/virt/geniezone/gzvm_vm.c
-@@ -170,6 +170,7 @@ gzvm_vm_ioctl_set_memory_region(struct gzvm *gzvm,
- int gzvm_irqchip_inject_irq(struct gzvm *gzvm, unsigned int vcpu_idx,
- 			    u32 irq, bool level)
- {
-+	gzvm_vcpu_wakeup_all(gzvm);
- 	return gzvm_arch_inject_irq(gzvm, vcpu_idx, irq, level);
- }
- 
-@@ -556,6 +557,18 @@ static int setup_mem_alloc_mode(struct gzvm *vm)
+  * gzvm_hypcall_wrapper() - the wrapper for hvc calls
+  * @a0: arguments passed in registers 0
+@@ -90,6 +102,18 @@ int gzvm_arch_probe(struct gzvm_version drv_version,
  	return 0;
  }
  
-+static int enable_idle_support(struct gzvm *vm)
++int gzvm_arch_drv_init(void)
 +{
-+	int ret;
-+	struct gzvm_enable_cap cap = {0};
++	/* timecycle init mult shift */
++	clocks_calc_mult_shift(&clock_scale_factor.mult,
++			       &clock_scale_factor.shift,
++			       arch_timer_get_cntfrq(),
++			       NSEC_PER_SEC,
++			       30);
 +
-+	cap.cap = GZVM_CAP_ENABLE_IDLE;
-+	ret = gzvm_vm_ioctl_enable_cap(vm, &cap, NULL);
-+	if (ret)
-+		pr_info("Hypervisor doesn't support idle\n");
-+	return ret;
++	return 0;
 +}
 +
- static struct gzvm *gzvm_create_vm(struct gzvm_driver *drv, unsigned long vm_type)
+ int gzvm_arch_set_memregion(u16 vm_id, size_t buf_size,
+ 			    phys_addr_t region)
  {
- 	int ret;
-@@ -604,6 +617,8 @@ static struct gzvm *gzvm_create_vm(struct gzvm_driver *drv, unsigned long vm_typ
+diff --git a/drivers/virt/geniezone/gzvm_main.c b/drivers/virt/geniezone/gzvm_main.c
+index 1816eecfcefb..0ec15c33111e 100644
+--- a/drivers/virt/geniezone/gzvm_main.c
++++ b/drivers/virt/geniezone/gzvm_main.c
+@@ -233,6 +233,10 @@ static int gzvm_drv_probe(struct platform_device *pdev)
+ 		 gzvm_drv.hyp_version.major, gzvm_drv.hyp_version.minor,
+ 		 gzvm_drv.hyp_version.sub);
  
- 	pr_debug("VM-%u is created\n", gzvm->vm_id);
- 
-+	enable_idle_support(gzvm);
++	ret = gzvm_arch_drv_init();
++	if (ret)
++		return ret;
 +
- 	return gzvm;
- }
+ 	ret = misc_register(&gzvm_dev);
+ 	if (ret)
+ 		return ret;
+diff --git a/drivers/virt/geniezone/gzvm_vcpu.c b/drivers/virt/geniezone/gzvm_vcpu.c
+index 3b146148abf3..ba85a6ae04a0 100644
+--- a/drivers/virt/geniezone/gzvm_vcpu.c
++++ b/drivers/virt/geniezone/gzvm_vcpu.c
+@@ -16,6 +16,28 @@
+ /* maximum size needed for holding an integer */
+ #define ITOA_MAX_LEN 12
  
++static enum hrtimer_restart gzvm_vtimer_expire(struct hrtimer *hrt)
++{
++	return HRTIMER_NORESTART;
++}
++
++static void gzvm_vtimer_init(struct gzvm_vcpu *vcpu)
++{
++	/* gzvm_vtimer init based on hrtimer */
++	hrtimer_init(&vcpu->gzvm_vtimer, CLOCK_MONOTONIC, HRTIMER_MODE_ABS_HARD);
++	vcpu->gzvm_vtimer.function = gzvm_vtimer_expire;
++}
++
++void gzvm_vtimer_set(struct gzvm_vcpu *vcpu, u64 ns)
++{
++	hrtimer_start(&vcpu->gzvm_vtimer, ktime_add_ns(ktime_get(), ns), HRTIMER_MODE_ABS_HARD);
++}
++
++void gzvm_vtimer_release(struct gzvm_vcpu *vcpu)
++{
++	hrtimer_cancel(&vcpu->gzvm_vtimer);
++}
++
+ static long gzvm_vcpu_update_one_reg(struct gzvm_vcpu *vcpu,
+ 				     void __user *argp,
+ 				     bool is_write)
+@@ -193,6 +215,7 @@ static void gzvm_destroy_vcpu(struct gzvm_vcpu *vcpu)
+ 	if (!vcpu)
+ 		return;
+ 
++	hrtimer_cancel(&vcpu->gzvm_vtimer);
+ 	gzvm_arch_destroy_vcpu(vcpu->gzvm->vm_id, vcpu->vcpuid);
+ 	/* clean guest's data */
+ 	memset(vcpu->run, 0, GZVM_VCPU_RUN_MAP_SIZE);
+@@ -271,6 +294,7 @@ int gzvm_vm_ioctl_create_vcpu(struct gzvm *gzvm, u32 cpuid)
+ 		goto free_vcpu_run;
+ 	gzvm->vcpus[cpuid] = vcpu;
+ 
++	gzvm_vtimer_init(vcpu);
+ 	return ret;
+ 
+ free_vcpu_run:
 diff --git a/include/linux/soc/mediatek/gzvm_drv.h b/include/linux/soc/mediatek/gzvm_drv.h
-index 901bc2fe28f1..54fa7aea7245 100644
+index 62e00fb06269..901bc2fe28f1 100644
 --- a/include/linux/soc/mediatek/gzvm_drv.h
 +++ b/include/linux/soc/mediatek/gzvm_drv.h
-@@ -130,6 +130,11 @@ struct gzvm_vcpu {
+@@ -129,6 +129,7 @@ struct gzvm_vcpu {
+ 	struct mutex lock;
  	struct gzvm_vcpu_run *run;
  	struct gzvm_vcpu_hwstate *hwstate;
- 	struct hrtimer gzvm_vtimer;
-+	struct {
-+		u32 vtimer_irq;
-+		u32 virtio_irq;
-+	} idle_events;
-+	struct rcuwait wait;
++	struct hrtimer gzvm_vtimer;
  };
  
  struct gzvm_pinned_page {
-@@ -260,6 +265,8 @@ bool gzvm_handle_guest_exception(struct gzvm_vcpu *vcpu);
- int gzvm_handle_relinquish(struct gzvm_vcpu *vcpu, phys_addr_t ipa);
- bool gzvm_handle_guest_hvc(struct gzvm_vcpu *vcpu);
- bool gzvm_arch_handle_guest_hvc(struct gzvm_vcpu *vcpu);
-+int gzvm_handle_guest_idle(struct gzvm_vcpu *vcpu);
-+void gzvm_vcpu_wakeup_all(struct gzvm *gzvm);
+@@ -242,11 +243,17 @@ int gzvm_vm_allocate_guest_page(struct gzvm *gzvm, struct gzvm_memslot *slot,
+ int gzvm_vm_ioctl_create_vcpu(struct gzvm *gzvm, u32 cpuid);
+ int gzvm_arch_vcpu_update_one_reg(struct gzvm_vcpu *vcpu, __u64 reg_id,
+ 				  bool is_write, __u64 *data);
++int gzvm_arch_drv_init(void);
+ int gzvm_arch_create_vcpu(u16 vm_id, int vcpuid, void *run);
+ int gzvm_arch_vcpu_run(struct gzvm_vcpu *vcpu, __u64 *exit_reason);
+ int gzvm_arch_destroy_vcpu(u16 vm_id, int vcpuid);
+ int gzvm_arch_inform_exit(u16 vm_id);
  
- int gzvm_arch_create_device(u16 vm_id, struct gzvm_create_device *gzvm_dev);
- int gzvm_arch_inject_irq(struct gzvm *gzvm, unsigned int vcpu_idx,
-diff --git a/include/uapi/linux/gzvm.h b/include/uapi/linux/gzvm.h
-index ce73735f0be2..61ce53cd9448 100644
---- a/include/uapi/linux/gzvm.h
-+++ b/include/uapi/linux/gzvm.h
-@@ -21,6 +21,7 @@
- /* query hypervisor supported block-based demand page */
- #define GZVM_CAP_BLOCK_BASED_DEMAND_PAGING	0x9201
- #define GZVM_CAP_ENABLE_DEMAND_PAGING	0x9202
-+#define GZVM_CAP_ENABLE_IDLE		0x9203
- #define GZVM_CAP_QUERY_HYP_BATCH_PAGES	0x9204
- 
- /* sub-commands put in args[0] for GZVM_CAP_PROTECTED_VM */
-@@ -188,6 +189,7 @@ enum {
- 	GZVM_EXIT_SYSTEM_EVENT = 0x92920008,
- 	GZVM_EXIT_SHUTDOWN = 0x92920009,
- 	GZVM_EXIT_GZ = 0x9292000a,
-+	GZVM_EXIT_IDLE = 0x9292000b,
- };
- 
- /* exception definitions of GZVM_EXIT_EXCEPTION */
++u64 gzvm_vcpu_arch_get_timer_delay_ns(struct gzvm_vcpu *vcpu);
++
++void gzvm_vtimer_set(struct gzvm_vcpu *vcpu, u64 ns);
++void gzvm_vtimer_release(struct gzvm_vcpu *vcpu);
++
+ int gzvm_find_memslot(struct gzvm *vm, u64 gpa);
+ int gzvm_handle_page_fault(struct gzvm_vcpu *vcpu);
+ bool gzvm_handle_guest_exception(struct gzvm_vcpu *vcpu);
 -- 
 2.18.0
 
