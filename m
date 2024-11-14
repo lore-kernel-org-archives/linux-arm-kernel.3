@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C1CD6A221
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 20:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C405D6A22C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 20:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
 	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kcD7lpOvfok8iwoAEQ7O4TR/rmcLTmp0Xw+RedPXt7g=; b=efhCFtqM986I8MaH4r78h20BGo
-	ahkWkOCSAdSUCWL0goAIunA+vlfs4tS8YoqLhCWs55adxsL2ZqC6768yItsy/jbkjvlBNlC42F9Z0
-	ZrFDTrYOdAuonCXTucdAGQ0LjbxWujk48gU7JO71ENSrN/GYOr6fOxtpRr0ntIhxpAs8IDKHOAggK
-	F+qKZPkR42C/WdUG2xB0Q/yXR2Aljvgsz2X8JWBMZvLNcwprkvmWFvVSkPq7o2miTq2pBKqNmmM5H
-	waiwyI32Ba3OaLUq0vN3g9lJyqc9rZxKv5LfGlJx8jdb3Yydd2jsqFwH5QnDSJ1PfG5gTbp2oM7b3
-	rAW0wSjw==;
+	bh=+CDkKWnuIWE7Qdr1ZvsvyfLP2c+eEHLfxf+YncF80ho=; b=PBv9xi5ZUqReYOMUvGFbBD07LB
+	6uvUUnJ2K+wrxi1hOyzVBiPFHv/P65auDBNfovVbFO3FDZBExYM2BlKOj9cjEjhC3nqQtb9SFcz45
+	q2H3AzC/Kf05piYUDhYyW43al+HfZkGw64QKKTbtKSZ8sbLf5ZNP8jvCsR5He6i7fz7gh4NdMqU6q
+	5109kJKe8PP86PoIqv9yZN67hZl+2dcO4s6/fOcrNBJVdSM4htRdqj1SUWrp2cuA2k/PbckI2iIZx
+	m4ZhF5ZVIk2Al/yyFXT/CSvE2lbIYbm51m2EgjexXXDRNAiLnaxuVecBVx3JXur8iWLIoNRdKne4i
+	4YfjtbZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBgVz-00000000lWh-2oTN;
-	Thu, 14 Nov 2024 20:32:31 +0000
+	id 1tBgXj-00000000lnH-3C8b;
+	Thu, 14 Nov 2024 20:34:19 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBgV4-00000000lS9-0pja
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 20:31:35 +0000
+	id 1tBgWo-00000000lel-0QZ3;
+	Thu, 14 Nov 2024 20:33:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0EB2A5C5906;
-	Thu, 14 Nov 2024 20:30:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE6A2C4CECD;
-	Thu, 14 Nov 2024 20:31:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 514005C5C4B;
+	Thu, 14 Nov 2024 20:32:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F65BC4CECD;
+	Thu, 14 Nov 2024 20:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731616293;
-	bh=kcD7lpOvfok8iwoAEQ7O4TR/rmcLTmp0Xw+RedPXt7g=;
+	s=k20201202; t=1731616401;
+	bh=+CDkKWnuIWE7Qdr1ZvsvyfLP2c+eEHLfxf+YncF80ho=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=WNorJ7yEDMNplHX5dphQlyW2bmGqbBL/yHqyMpEVOWl8vc+gXWYFFf9qImfUN3Ppe
-	 iT1gtyjYWUKT1F3D14m9rrxT5iwVmet+27+3hMrT2Se6u8fW+sP0/zFzsE33UsXXQN
-	 J+QmUbzuaaHZEa8f8inIbdFwWh7RA1sNNzlUi1+TRqW38WH5qWmV/2yiiIW/ZLCNjw
-	 zzs12lf3/ihZapP21fK+ZYZI0J3QQz6m9eQfp4KmVRuyG27MEljFs12181TswPg60A
-	 /akts2gMDE3j8xSsG8GT05HqyWHKTj9OtoaKB4/1Z3ASvBIHGGPQqCuPP6yTLbaYTE
-	 yzW2qWJFzL7CA==
-Message-ID: <c6d1d80e4e32439de589e241a596d3bb.sboyd@kernel.org>
+	b=VelODjWB+adbMJUXY/GTYKQEnsvUt4j+gZlgfx5ZdX6f6VAEY4F7q7mnYzrk9Tify
+	 vhrc2rdpYl3YrubN6lMMvikrWRWHLXVmNcnN3Re0kB5nu2/uc6w6rCBcwkGMBQaDxj
+	 ZLV2MuJBEfS8rIcOs5XwpkGtr1JXzOmaUOP++YkzqES4yEDBk7H0lr43VpZ7WBrtAc
+	 Dq+pnrl06ns4SoIaPaiNGsZGf/rKSxgZNug7uZCRefpH6emO6j8Sqm3K0yOOuF3cEt
+	 N++Qgi98eoAat791ChTWEaM8fjqtV8erYyib8sqJE5u12Sgfub1ZjebZSRynRZly6g
+	 FEERvrZt6yleA==
+Message-ID: <9efa4e83bb57b9121a03f53755d1f9f3.sboyd@kernel.org>
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20241114072820.3071-1-hanchunchao@inspur.com>
-References: <20241114072820.3071-1-hanchunchao@inspur.com>
-Subject: Re: [PATCH] clk: clk-apple-nco: Add NULL check in applnco_probe
+In-Reply-To: <20241111102932.3209861-1-arnd@kernel.org>
+References: <20241111102932.3209861-1-arnd@kernel.org>
+Subject: Re: [PATCH] clk: amlogic: axg-audio: fix Kconfig dependency on RESET_MESON_AUX
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: mturquette@baylibre.com, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, Charles Han <hanchunchao@inspur.com>
-To: Charles Han <hanchunchao@inspur.com>, alyssa@rosenzweig.io, marcan@marcan.st, povik+lin@cutebit.org, sven@svenpeter.dev
-Date: Thu, 14 Nov 2024 12:31:30 -0800
+Cc: Arnd Bergmann <arnd@arndb.de>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Chuan Liu <chuan.liu@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Arnd Bergmann <arnd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, Michael Turquette <mturquette@baylibre.com>, Neil Armstrong <neil.armstrong@linaro.org>
+Date: Thu, 14 Nov 2024 12:33:19 -0800
 User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_123134_279522_556D2521 
-X-CRM114-Status: UNSURE (   5.88  )
+X-CRM114-CacheID: sfid-20241114_123322_187752_895C28E2 
+X-CRM114-Status: UNSURE (   6.43  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,12 +71,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Charles Han (2024-11-13 23:28:20)
-> Add NULL check in applnco_probe, to handle kernel NULL pointer
-> dereference error.
+Quoting Arnd Bergmann (2024-11-11 02:29:21)
+> From: Arnd Bergmann <arnd@arndb.de>
 >=20
-> Fixes: 6641057d5dba ("clk: clk-apple-nco: Add driver for Apple NCO")
-> Signed-off-by: Charles Han <hanchunchao@inspur.com>
+> As in most cases, using 'imply' is wrong here and does not prevent
+> build failures since that code may not be visible to a built-in
+> clk driver:
+>=20
+> axg-audio.c:(.text+0x15c): undefined reference to `devm_meson_rst_aux_reg=
+ister'
+>=20
+> Replace the incorrt 'imply' with the necessary 'depends on'.
+>=20
+> Fixes: 664988eb47dd ("clk: amlogic: axg-audio: use the auxiliary reset dr=
+iver")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
 
 Applied to clk-next
