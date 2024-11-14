@@ -4,97 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7B9D65C6C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 10:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0583BD65C6F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 11:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TOxnymXbfRT1DhUocscm0skShCOMFhsJtkf5CuwCaMY=; b=1qf+CjXbST3EBSpUZfk43FivaF
-	LmbYqSIGXnDW/PgMJKnqvoEqLWvwf+6LhKY+4a852L7mQLkeipctEgfPZ3w/2pO7aGQE5Suzuky2/
-	FO5dPXLTMI875+MtFHXpfGZSsmVkFqS/5VUySUXAQibX/zvjWvVUzzxb4hAgvu6dFe9QY8ISi4t74
-	RR8E6Pv4aFJi/uUB5ylbIMdyZQ92Q6a7ICZuqqKruzF329yEefBCVS4eOABGWwIf/nNvaqBnpKYUc
-	gBUrdfFNMZSazlBzwr9kP4Amh4w9+M/Qz7IbHQuTNaWmi9wG26G+M2KcQL1Q/UXBAYYnsldmM1cMy
-	8H5GZkXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Il6MCIWPQie3YJaODFOx8K/akx4KWy4DGzrSlIIzXQo=; b=wO15BzzFFRTTC1lI/u9OvsmOna
+	HnEX1bW7ZwrgZodzbZKZRhH60lRGh7hDs/4lxBdcdfosC8bPOIMAqUGHMgd8A6ZooIKrSDz32aXXk
+	RbTyGYxzZ4Y407vIDUyHo9FJxdKQi5uaEiokPaPa20hM3lHbIVTMedUy+/p5WloQ5VHPnEtp221b+
+	hh8cRnky6BSh4QEVpGAS/0Cag3B8NaQVDK8RVoXgnWHwKiumSoH4sZr0EfA/n6J31+ycEd6rBSXUz
+	CPlxnXhCrkbxrG27umhGG7yL1gV17iPJgdzL1Q+ukVVTCS3aP1jwtoHAm+EIKp0UVre1UhsuQaEX2
+	DxWof38Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBXYE-00000009dIo-3CE4;
-	Thu, 14 Nov 2024 10:58:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tBXa2-00000009dbd-2lWc;
+	Thu, 14 Nov 2024 11:00:06 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWmC-00000009TJV-2R86;
-	Thu, 14 Nov 2024 10:08:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=TOxnymXbfRT1DhUocscm0skShCOMFhsJtkf5CuwCaMY=; b=MxLGmwDBBlRUwTSngxAgLXp5yM
-	GluUAPbFi7B8gIqJugEZRUmJpGCEI5vdVAnryWkDWoN/aU7NEgmk2Sw8OsJ2+cKwrtjuvBOjqDikh
-	FF+Anr7fPJBWLFrfzVfndaL+bwNnn3aymhSfOtbtc+8MLN6eUydjL9nkbFrfghP6c9rXKleN5nrfK
-	WuHsvT2dKJTQwTPeEqsHfGmqWb3EhVoO8qlabKuvk61RhqU6nVgDRhuZxzYD31zeF6uKN3h55agOY
-	VbFbPbsb3GTf7nxXAVnvZp6Tm0GRl70BV0vymwuQwkyuatfN0BBK67zcMpjTMoBDN3la0I8N1MaK2
-	AhnvbxBw==;
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWm4-0000000Db5A-1wnk;
-	Thu, 14 Nov 2024 10:08:32 +0000
-X-UUID: 595faf0ca27011ef82ff63e91e7eb18c-20241114
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=TOxnymXbfRT1DhUocscm0skShCOMFhsJtkf5CuwCaMY=;
-	b=hu+AMsdy2tn2xX6PXB2f8FcToozYM6fGzsT0UQxsk0+w9F9mAKpdPSh4/RpvQKaeXgpl8dFHMOX/TVPP1+eo0LexgW+hFQKGtJCb9PnNg2foZf7+aFtdeYaekMWPd/EOOULSh/rlO2xDvQnMROprj8Rhdak3zotiiorF/7C2oU8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:d77da709-0fc6-4fc0-9bdb-b0db0f0e9947,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:593fa25c-f18b-4d56-b49c-93279ee09144,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0,EDM:-3,IP
-	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
-	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 595faf0ca27011ef82ff63e91e7eb18c-20241114
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <liju-clr.chen@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 327449770; Thu, 14 Nov 2024 03:08:09 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Thu, 14 Nov 2024 18:08:06 +0800
-Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Thu, 14 Nov 2024 18:08:06 +0800
-From: Liju-clr Chen <liju-clr.chen@mediatek.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Steven
- Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Richard Cochran
-	<richardcochran@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Liju-clr Chen <Liju-clr.Chen@mediatek.com>, Yingshiuan Pan
-	<Yingshiuan.Pan@mediatek.com>, Ze-yu Wang <Ze-yu.Wang@mediatek.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-trace-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-mediatek@lists.infradead.org>, Shawn Hsiao <shawn.hsiao@mediatek.com>,
-	PeiLun Suei <PeiLun.Suei@mediatek.com>, Chi-shen Yeh
-	<Chi-shen.Yeh@mediatek.com>, Kevenny Hsieh <Kevenny.Hsieh@mediatek.com>
-Subject: [PATCH v13 20/25] virt: geniezone: Add tracing support for hyp call and vcpu exit_reason
-Date: Thu, 14 Nov 2024 18:07:57 +0800
-Message-ID: <20241114100802.4116-21-liju-clr.chen@mediatek.com>
-X-Mailer: git-send-email 2.18.0
-In-Reply-To: <20241114100802.4116-1-liju-clr.chen@mediatek.com>
-References: <20241114100802.4116-1-liju-clr.chen@mediatek.com>
+	id 1tBWmw-00000009TWm-3NQU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Nov 2024 10:09:30 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 753E52119F;
+	Thu, 14 Nov 2024 10:09:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1731578960; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Il6MCIWPQie3YJaODFOx8K/akx4KWy4DGzrSlIIzXQo=;
+	b=H1IDs8ap3R0WhxzhJfAHUhV8nquICuKmn5BuJQnAUKNFH6hm2KdhOqPqQr+gA4lgXT42kl
+	+gZj/NWcbBBcPErB7piRzIcSPlQB8UnLhFdXy3NX0M0djJ1WRSzQ0z/dtVh1HKntq23YBi
+	Vrs+1m6IdvMbffMB/70fSRZhc+9CLkg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1731578960;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Il6MCIWPQie3YJaODFOx8K/akx4KWy4DGzrSlIIzXQo=;
+	b=wUbPSJg7bnBdXNUSJ01COjnVMsD68Mwtcu2s/SzXdEW6KYLyBSgrw6jQXDJH63C7yplZdT
+	9ifItblf8gGgiDBQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1731578960; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Il6MCIWPQie3YJaODFOx8K/akx4KWy4DGzrSlIIzXQo=;
+	b=H1IDs8ap3R0WhxzhJfAHUhV8nquICuKmn5BuJQnAUKNFH6hm2KdhOqPqQr+gA4lgXT42kl
+	+gZj/NWcbBBcPErB7piRzIcSPlQB8UnLhFdXy3NX0M0djJ1WRSzQ0z/dtVh1HKntq23YBi
+	Vrs+1m6IdvMbffMB/70fSRZhc+9CLkg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1731578960;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Il6MCIWPQie3YJaODFOx8K/akx4KWy4DGzrSlIIzXQo=;
+	b=wUbPSJg7bnBdXNUSJ01COjnVMsD68Mwtcu2s/SzXdEW6KYLyBSgrw6jQXDJH63C7yplZdT
+	9ifItblf8gGgiDBQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 66D9C13721;
+	Thu, 14 Nov 2024 10:09:20 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id f/HHGFDMNWc2GwAAD6G6ig
+	(envelope-from <vbabka@suse.cz>); Thu, 14 Nov 2024 10:09:20 +0000
+Message-ID: <cb9cabed-0038-42b3-b9fc-c9ba62b12781@suse.cz>
+Date: Thu, 14 Nov 2024 11:09:20 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
-X-MTK: N
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] mm/slab: Avoid build bug for calls to kmalloc with a
+ large constant
+Content-Language: en-US
+To: Dave Kleikamp <dave.kleikamp@oracle.com>,
+ Ryan Roberts <ryan.roberts@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20241014105514.3206191-1-ryan.roberts@arm.com>
+ <20241014105912.3207374-1-ryan.roberts@arm.com>
+ <20241014105912.3207374-6-ryan.roberts@arm.com>
+ <44312f4a-8b9c-49ce-9277-5873a94ca1bb@oracle.com>
+From: Vlastimil Babka <vbabka@suse.cz>
+In-Reply-To: <44312f4a-8b9c-49ce-9277-5873a94ca1bb@oracle.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Spamd-Result: default: False [-4.30 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	RCPT_COUNT_FIVE(0.00)[6]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_100829_410058_6F539C69 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20241114_020923_107990_030E00F5 
+X-CRM114-Status: GOOD (  20.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,191 +136,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Liju Chen <liju-clr.chen@mediatek.com>
+On 11/1/24 21:16, Dave Kleikamp wrote:
+> When boot-time page size is enabled, the test against KMALLOC_MAX_CACHE_SIZE
+> is no longer optimized out with a constant size, so a build bug may
+> occur on a path that won't be reached.
 
-Add tracepoints for hypervisor calls and VCPU exit reasons in GenieZone
-driver. It aids performance debugging by providing more information
-about hypervisor operations and VCPU behavior.
+That's rather unfortunate, the __builtin_constant_p(size) part of
+kmalloc_noprof() really expects things to resolve at compile time and it
+would be better to keep it that way.
 
-Command Usage:
-echo geniezone:* >> /sys/kernel/tracing/set_event
-echo 1 > /sys/kernel/tracing/tracing_on
-echo 0 > /sys/kernel/tracing/tracing_on
-cat /sys/kernel/tracing/trace
+I think it would be better if we based KMALLOC_MAX_CACHE_SIZE itself on
+PAGE_SHIFT_MAX and kept it constant, instead of introducing
+KMALLOC_SHIFT_HIGH_MAX only for some sanity checks.
 
-For example:
-crosvm_vcpu0-4874    [007] .....    94.757349: mtk_hypcall_enter: id=0xfb001005
-crosvm_vcpu0-4874    [007] .....    94.760902: mtk_hypcall_leave: id=0xfb001005 invalid=0
-crosvm_vcpu0-4874    [007] .....    94.760902: mtk_vcpu_exit: vcpu exit_reason=IRQ(0x92920003)
+So if the kernel was built to support 4k to 64k, but booted as 4k, it would
+still create and use kmalloc caches up to 128k. SLUB should handle that fine
+(if not, please report it :)
 
-This example tracks a hypervisor function call by an ID (`0xbb001005`)
-from initiation to termination, which is supported (invalid=0). A vCPU
-exit is triggered by an Interrupt Request (IRQ) (exit reason: 0x92920003).
+Maybe we could also stop adding + 1 to PAGE_SHIFT_MAX if it's >=64k, so the
+cache size is max 64k and not 128k but that should be probably evaluated
+separately from this series.
 
-/* VM exit reason */
-enum {
-	GZVM_EXIT_UNKNOWN = 0x92920000,
-	GZVM_EXIT_MMIO = 0x92920001,
-	GZVM_EXIT_HYPERCALL = 0x92920002,
-	GZVM_EXIT_IRQ = 0x92920003,
-	GZVM_EXIT_EXCEPTION = 0x92920004,
-	GZVM_EXIT_DEBUG = 0x92920005,
-	GZVM_EXIT_FAIL_ENTRY = 0x92920006,
-	GZVM_EXIT_INTERNAL_ERROR = 0x92920007,
-	GZVM_EXIT_SYSTEM_EVENT = 0x92920008,
-	GZVM_EXIT_SHUTDOWN = 0x92920009,
-	GZVM_EXIT_GZ = 0x9292000a,
-};
+Vlastimil
 
-Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
-Signed-off-by: Yi-De Wu <yi-de.wu@mediatek.com>
-Signed-off-by: Liju Chen <liju-clr.chen@mediatek.com>
----
- arch/arm64/geniezone/vm.c          |  4 ++
- drivers/virt/geniezone/gzvm_vcpu.c |  3 ++
- include/trace/events/geniezone.h   | 84 ++++++++++++++++++++++++++++++
- 3 files changed, 91 insertions(+)
- create mode 100644 include/trace/events/geniezone.h
-
-diff --git a/arch/arm64/geniezone/vm.c b/arch/arm64/geniezone/vm.c
-index 0350d9444c18..026c1980d054 100644
---- a/arch/arm64/geniezone/vm.c
-+++ b/arch/arm64/geniezone/vm.c
-@@ -7,6 +7,8 @@
- #include <linux/err.h>
- #include <linux/uaccess.h>
- 
-+#define CREATE_TRACE_POINTS
-+#include <trace/events/geniezone.h>
- #include <linux/gzvm.h>
- #include <linux/soc/mediatek/gzvm_drv.h>
- #include "gzvm_arch_common.h"
-@@ -44,11 +46,13 @@ int gzvm_hypcall_wrapper(unsigned long a0, unsigned long a1,
- 		.a6 = a6,
- 		.a7 = a7,
- 	};
-+	trace_mtk_hypcall_enter(a0);
- 	arm_smccc_1_2_hvc(&args, &res_1_2);
- 	res->a0 = res_1_2.a0;
- 	res->a1 = res_1_2.a1;
- 	res->a2 = res_1_2.a2;
- 	res->a3 = res_1_2.a3;
-+	trace_mtk_hypcall_leave(a0, (res->a0 != ERR_NOT_SUPPORTED) ? 0 : 1);
- 
- 	return gzvm_err_to_errno(res->a0);
- }
-diff --git a/drivers/virt/geniezone/gzvm_vcpu.c b/drivers/virt/geniezone/gzvm_vcpu.c
-index b0dc3e4f47d7..3b146148abf3 100644
---- a/drivers/virt/geniezone/gzvm_vcpu.c
-+++ b/drivers/virt/geniezone/gzvm_vcpu.c
-@@ -9,6 +9,8 @@
- #include <linux/mm.h>
- #include <linux/platform_device.h>
- #include <linux/slab.h>
-+
-+#include <trace/events/geniezone.h>
- #include <linux/soc/mediatek/gzvm_drv.h>
- 
- /* maximum size needed for holding an integer */
-@@ -102,6 +104,7 @@ static long gzvm_vcpu_run(struct gzvm_vcpu *vcpu, void __user *argp)
- 
- 	while (!need_userspace && !signal_pending(current)) {
- 		gzvm_arch_vcpu_run(vcpu, &exit_reason);
-+		trace_mtk_vcpu_exit(exit_reason);
- 
- 		switch (exit_reason) {
- 		case GZVM_EXIT_MMIO:
-diff --git a/include/trace/events/geniezone.h b/include/trace/events/geniezone.h
-new file mode 100644
-index 000000000000..4fffd826ba67
---- /dev/null
-+++ b/include/trace/events/geniezone.h
-@@ -0,0 +1,84 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (c) 2023 MediaTek Inc.
-+ */
-+
-+#undef TRACE_SYSTEM
-+#define TRACE_SYSTEM geniezone
-+
-+#define _TRACE_GENIEZONE_H
-+
-+#include <linux/gzvm.h>
-+#include <linux/tracepoint.h>
-+
-+#define GZVM_EXIT_REASONS \
-+EM(UNKNOWN)\
-+EM(MMIO)\
-+EM(HYPERCALL)\
-+EM(IRQ)\
-+EM(EXCEPTION)\
-+EM(DEBUG)\
-+EM(FAIL_ENTRY)\
-+EM(INTERNAL_ERROR)\
-+EM(SYSTEM_EVENT)\
-+EM(SHUTDOWN)\
-+EMe(GZ)
-+
-+#undef EM
-+#undef EMe
-+#define EM(a) TRACE_DEFINE_ENUM(GZVM_EXIT_##a);
-+#define EMe(a) TRACE_DEFINE_ENUM(GZVM_EXIT_##a);
-+
-+GZVM_EXIT_REASONS
-+
-+#undef EM
-+#undef EMe
-+
-+#define EM(a)       { GZVM_EXIT_##a, #a },
-+#define EMe(a)      { GZVM_EXIT_##a, #a }
-+
-+TRACE_EVENT(mtk_hypcall_enter,
-+	    TP_PROTO(unsigned long id),
-+
-+	    TP_ARGS(id),
-+
-+	    TP_STRUCT__entry(__field(unsigned long, id)),
-+
-+	    TP_fast_assign(__entry->id = id;),
-+
-+	    TP_printk("id=0x%lx", __entry->id)
-+);
-+
-+TRACE_EVENT(mtk_hypcall_leave,
-+	    TP_PROTO(unsigned long id, unsigned long invalid),
-+
-+	    TP_ARGS(id, invalid),
-+
-+	    TP_STRUCT__entry(__field(unsigned long, id)
-+			     __field(unsigned long, invalid)
-+	    ),
-+
-+	    TP_fast_assign(__entry->id = id;
-+			   __entry->invalid = invalid;
-+	    ),
-+
-+	    TP_printk("id=0x%lx invalid=%lu", __entry->id, __entry->invalid)
-+);
-+
-+TRACE_EVENT(mtk_vcpu_exit,
-+	    TP_PROTO(unsigned long exit_reason),
-+
-+	    TP_ARGS(exit_reason),
-+
-+	    TP_STRUCT__entry(__field(unsigned long, exit_reason)),
-+
-+	    TP_fast_assign(__entry->exit_reason = exit_reason;),
-+
-+	    TP_printk("vcpu exit_reason=%s(0x%lx)",
-+		      __print_symbolic(__entry->exit_reason, GZVM_EXIT_REASONS),
-+		      __entry->exit_reason)
-+
-+);
-+
-+/* This part must be outside protection */
-+#include <trace/define_trace.h>
--- 
-2.18.0
+> Found compiling drivers/net/ethernet/qlogic/qed/qed_sriov.c
+> 
+> Signed-off-by: Dave Kleikamp <dave.kleikamp@oracle.com>
+> ---
+> 
+> Ryan,
+> 
+> Please consider incorporating this fix or something similar into your
+> mm patch in the boot-time pages size patches.
+> 
+>   include/linux/slab.h | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/slab.h b/include/linux/slab.h
+> index 9848296ca6ba..a4c7507ab8ec 100644
+> --- a/include/linux/slab.h
+> +++ b/include/linux/slab.h
+> @@ -685,7 +685,8 @@ static __always_inline unsigned int __kmalloc_index(size_t size,
+>   	if (size <= 1024 * 1024) return 20;
+>   	if (size <=  2 * 1024 * 1024) return 21;
+>   
+> -	if (!IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES) && size_is_constant)
+> +	if (!IS_ENABLED(CONFIG_ARM64_BOOT_TIME_PAGE_SIZE) &&
+> +	    !IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES) && size_is_constant)
+>   		BUILD_BUG_ON_MSG(1, "unexpected size in kmalloc_index()");
+>   	else
+>   		BUG();
 
 
