@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E7BD65C6F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 10:56:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7B9D65C6C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 10:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kJib80vtMQ+j8z3Fr/DFzZp66roaGSj4aK6eGZ/xOt0=; b=qYp+PwMRH5/Qsu17TF7Xe2CBx8
-	DbVXSydMJcVj87maSiqhHVjuvIcT55sf67q8bYXp0PpqjMPjZVgaae1Ke+lD+6ZLrTpcaPKBbtklK
-	gEeOuAT+uArWmw6D7hNQMalJRejWpzBCqQa/nzz7vZs9Dqrip/LqYCz8/Lr/03mkMEcEl897qMzMr
-	HJ2jt0+fTTxkX8cKlN1DKsXeAQ+K233kJdtmld2/+AFEGpGY7/KGT2IlWDG8IWYTtKYYvlS5oSXH+
-	iloLbPimFtSdsQBivlAQK1JDSu3XI4yxhRzR4wRPjFRn+nHT7p+o5VpmS92b7wZc1KImiUkY+r+iq
-	mXdj4vWQ==;
+	bh=TOxnymXbfRT1DhUocscm0skShCOMFhsJtkf5CuwCaMY=; b=1qf+CjXbST3EBSpUZfk43FivaF
+	LmbYqSIGXnDW/PgMJKnqvoEqLWvwf+6LhKY+4a852L7mQLkeipctEgfPZ3w/2pO7aGQE5Suzuky2/
+	FO5dPXLTMI875+MtFHXpfGZSsmVkFqS/5VUySUXAQibX/zvjWvVUzzxb4hAgvu6dFe9QY8ISi4t74
+	RR8E6Pv4aFJi/uUB5ylbIMdyZQ92Q6a7ICZuqqKruzF329yEefBCVS4eOABGWwIf/nNvaqBnpKYUc
+	gBUrdfFNMZSazlBzwr9kP4Amh4w9+M/Qz7IbHQuTNaWmi9wG26G+M2KcQL1Q/UXBAYYnsldmM1cMy
+	8H5GZkXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBXWS-00000009d34-0FS8;
-	Thu, 14 Nov 2024 10:56:24 +0000
+	id 1tBXYE-00000009dIo-3CE4;
+	Thu, 14 Nov 2024 10:58:14 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWmC-00000009TJT-1zsR;
+	id 1tBWmC-00000009TJV-2R86;
 	Thu, 14 Nov 2024 10:08:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=kJib80vtMQ+j8z3Fr/DFzZp66roaGSj4aK6eGZ/xOt0=; b=hjsALPDGrvPqBPpLzPaI2M6PwT
-	78gxAtO8ctDGh+xKqsK/faWFM7ULALuV3Ru92uWHTiToYNNVg/HbxfHZ3LyjzW+BPasFE3aZjBGqe
-	HfO+mS/YJEy2+zvVp3OK7fBmpg1klDHDJyrjNkmyry+FIYu5U3dbz2n/u39+DfrpMTWnqb/2QTdXV
-	5gXfbrmaK3uQ2/8BuzZWgy+0RzdbtACeFyJ5YV4ZhfvzrDGRht4T+o6206C2VvTl4Nq9/jv4VS4x0
-	I+Jiw1JPUEESxh7kItxAVEGK97akZiEOhQriKHXPQub533Jh62/KbMYzJ8ch0SoI6hRiio0YHmOmH
-	bKAqfQKQ==;
+	bh=TOxnymXbfRT1DhUocscm0skShCOMFhsJtkf5CuwCaMY=; b=MxLGmwDBBlRUwTSngxAgLXp5yM
+	GluUAPbFi7B8gIqJugEZRUmJpGCEI5vdVAnryWkDWoN/aU7NEgmk2Sw8OsJ2+cKwrtjuvBOjqDikh
+	FF+Anr7fPJBWLFrfzVfndaL+bwNnn3aymhSfOtbtc+8MLN6eUydjL9nkbFrfghP6c9rXKleN5nrfK
+	WuHsvT2dKJTQwTPeEqsHfGmqWb3EhVoO8qlabKuvk61RhqU6nVgDRhuZxzYD31zeF6uKN3h55agOY
+	VbFbPbsb3GTf7nxXAVnvZp6Tm0GRl70BV0vymwuQwkyuatfN0BBK67zcMpjTMoBDN3la0I8N1MaK2
+	AhnvbxBw==;
 Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWm4-0000000Db5H-1iM8;
+	id 1tBWm4-0000000Db5A-1wnk;
 	Thu, 14 Nov 2024 10:08:32 +0000
-X-UUID: 5abed5eea27011ef82ff63e91e7eb18c-20241114
+X-UUID: 595faf0ca27011ef82ff63e91e7eb18c-20241114
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=kJib80vtMQ+j8z3Fr/DFzZp66roaGSj4aK6eGZ/xOt0=;
-	b=U5dWbKxGD9R61cqlMsTR5Q/JPSz7YTafL6r+hIezdZAJypDUrT21tFDT4m0Nfon/c1mn9JP0T0Ov9BrEqPDSrsMgJl5RvFWjE6u8BUXWGsPxPg+1dIcrdHpk8e8fh096cFscYgpFbdqQn9PotaT7iBrYhQOcz0pUtrGoYAKK/50=;
+	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=TOxnymXbfRT1DhUocscm0skShCOMFhsJtkf5CuwCaMY=;
+	b=hu+AMsdy2tn2xX6PXB2f8FcToozYM6fGzsT0UQxsk0+w9F9mAKpdPSh4/RpvQKaeXgpl8dFHMOX/TVPP1+eo0LexgW+hFQKGtJCb9PnNg2foZf7+aFtdeYaekMWPd/EOOULSh/rlO2xDvQnMROprj8Rhdak3zotiiorF/7C2oU8=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:abfbffaf-8f36-4735-824e-f2d17f226b50,IP:0,U
+X-CID-O-INFO: VERSION:1.1.42,REQID:d77da709-0fc6-4fc0-9bdb-b0db0f0e9947,IP:0,U
 	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
 	N:release,TS:-25
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:215f0c4f-a2ae-4b53-acd4-c3dc8f449198,B
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:593fa25c-f18b-4d56-b49c-93279ee09144,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0,EDM:-3,IP
-	:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 5abed5eea27011ef82ff63e91e7eb18c-20241114
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 595faf0ca27011ef82ff63e91e7eb18c-20241114
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
 	(envelope-from <liju-clr.chen@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 739669791; Thu, 14 Nov 2024 03:08:11 -0700
+	with ESMTP id 327449770; Thu, 14 Nov 2024 03:08:09 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Thu, 14 Nov 2024 02:08:07 -0800
+ 15.2.1118.26; Thu, 14 Nov 2024 18:08:06 +0800
 Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
  mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Thu, 14 Nov 2024 18:08:07 +0800
+ 15.2.1118.26 via Frontend Transport; Thu, 14 Nov 2024 18:08:06 +0800
 From: Liju-clr Chen <liju-clr.chen@mediatek.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Catalin
@@ -83,9 +83,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-mediatek@lists.infradead.org>, Shawn Hsiao <shawn.hsiao@mediatek.com>,
 	PeiLun Suei <PeiLun.Suei@mediatek.com>, Chi-shen Yeh
 	<Chi-shen.Yeh@mediatek.com>, Kevenny Hsieh <Kevenny.Hsieh@mediatek.com>
-Subject: [PATCH v13 25/25] virt: geniezone: Reduce blocked duration in hypervisor when destroying a VM
-Date: Thu, 14 Nov 2024 18:08:02 +0800
-Message-ID: <20241114100802.4116-26-liju-clr.chen@mediatek.com>
+Subject: [PATCH v13 20/25] virt: geniezone: Add tracing support for hyp call and vcpu exit_reason
+Date: Thu, 14 Nov 2024 18:07:57 +0800
+Message-ID: <20241114100802.4116-21-liju-clr.chen@mediatek.com>
 X-Mailer: git-send-email 2.18.0
 In-Reply-To: <20241114100802.4116-1-liju-clr.chen@mediatek.com>
 References: <20241114100802.4116-1-liju-clr.chen@mediatek.com>
@@ -93,8 +93,8 @@ MIME-Version: 1.0
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_100829_411099_354FFBB3 
-X-CRM114-Status: GOOD (  24.30  )
+X-CRM114-CacheID: sfid-20241114_100829_410058_6F539C69 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,255 +109,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jerry Wang <ze-yu.wang@mediatek.com>
+From: Liju Chen <liju-clr.chen@mediatek.com>
 
-Reduce the blocked duration in the hypervisor when destroying a VM
-by splitting a single hypercall into multiple calls. Previously, the
-hypervisor could be blocked for an extended period when destroying a VM, as
-the entire process was handled in a single hypercall. This could lead to
-performance degradation because the scheduler does not have chances to
-schedule other tasks when the hypercall is processing by the hypervisor.
+Add tracepoints for hypervisor calls and VCPU exit reasons in GenieZone
+driver. It aids performance debugging by providing more information
+about hypervisor operations and VCPU behavior.
 
-By splitting the destruction process into multiple smaller hypercalls,
-significantly reduce the blocked duration in the hypervisor. Additionally,
-making the amount of each call adjustable provides flexibility to optimize
-the process based on different workloads and system configurations.
+Command Usage:
+echo geniezone:* >> /sys/kernel/tracing/set_event
+echo 1 > /sys/kernel/tracing/tracing_on
+echo 0 > /sys/kernel/tracing/tracing_on
+cat /sys/kernel/tracing/trace
 
-Signed-off-by: Jerry Wang <ze-yu.wang@mediatek.com>
+For example:
+crosvm_vcpu0-4874    [007] .....    94.757349: mtk_hypcall_enter: id=0xfb001005
+crosvm_vcpu0-4874    [007] .....    94.760902: mtk_hypcall_leave: id=0xfb001005 invalid=0
+crosvm_vcpu0-4874    [007] .....    94.760902: mtk_vcpu_exit: vcpu exit_reason=IRQ(0x92920003)
+
+This example tracks a hypervisor function call by an ID (`0xbb001005`)
+from initiation to termination, which is supported (invalid=0). A vCPU
+exit is triggered by an Interrupt Request (IRQ) (exit reason: 0x92920003).
+
+/* VM exit reason */
+enum {
+	GZVM_EXIT_UNKNOWN = 0x92920000,
+	GZVM_EXIT_MMIO = 0x92920001,
+	GZVM_EXIT_HYPERCALL = 0x92920002,
+	GZVM_EXIT_IRQ = 0x92920003,
+	GZVM_EXIT_EXCEPTION = 0x92920004,
+	GZVM_EXIT_DEBUG = 0x92920005,
+	GZVM_EXIT_FAIL_ENTRY = 0x92920006,
+	GZVM_EXIT_INTERNAL_ERROR = 0x92920007,
+	GZVM_EXIT_SYSTEM_EVENT = 0x92920008,
+	GZVM_EXIT_SHUTDOWN = 0x92920009,
+	GZVM_EXIT_GZ = 0x9292000a,
+};
+
+Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+Signed-off-by: Yi-De Wu <yi-de.wu@mediatek.com>
 Signed-off-by: Liju Chen <liju-clr.chen@mediatek.com>
 ---
- arch/arm64/geniezone/vm.c             | 27 ++++++++++--
- drivers/virt/geniezone/gzvm_main.c    | 62 +++++++++++++++++++++++++++
- drivers/virt/geniezone/gzvm_vm.c      |  2 +-
- include/linux/soc/mediatek/gzvm_drv.h |  7 ++-
- include/uapi/linux/gzvm.h             |  1 +
- 5 files changed, 94 insertions(+), 5 deletions(-)
+ arch/arm64/geniezone/vm.c          |  4 ++
+ drivers/virt/geniezone/gzvm_vcpu.c |  3 ++
+ include/trace/events/geniezone.h   | 84 ++++++++++++++++++++++++++++++
+ 3 files changed, 91 insertions(+)
+ create mode 100644 include/trace/events/geniezone.h
 
 diff --git a/arch/arm64/geniezone/vm.c b/arch/arm64/geniezone/vm.c
-index cfd0aeb865e5..fb4e5dd41002 100644
+index 0350d9444c18..026c1980d054 100644
 --- a/arch/arm64/geniezone/vm.c
 +++ b/arch/arm64/geniezone/vm.c
-@@ -175,12 +175,18 @@ int gzvm_arch_create_vm(unsigned long vm_type)
- 	return ret ? ret : res.a1;
+@@ -7,6 +7,8 @@
+ #include <linux/err.h>
+ #include <linux/uaccess.h>
+ 
++#define CREATE_TRACE_POINTS
++#include <trace/events/geniezone.h>
+ #include <linux/gzvm.h>
+ #include <linux/soc/mediatek/gzvm_drv.h>
+ #include "gzvm_arch_common.h"
+@@ -44,11 +46,13 @@ int gzvm_hypcall_wrapper(unsigned long a0, unsigned long a1,
+ 		.a6 = a6,
+ 		.a7 = a7,
+ 	};
++	trace_mtk_hypcall_enter(a0);
+ 	arm_smccc_1_2_hvc(&args, &res_1_2);
+ 	res->a0 = res_1_2.a0;
+ 	res->a1 = res_1_2.a1;
+ 	res->a2 = res_1_2.a2;
+ 	res->a3 = res_1_2.a3;
++	trace_mtk_hypcall_leave(a0, (res->a0 != ERR_NOT_SUPPORTED) ? 0 : 1);
+ 
+ 	return gzvm_err_to_errno(res->a0);
  }
- 
--int gzvm_arch_destroy_vm(u16 vm_id)
-+int gzvm_arch_destroy_vm(u16 vm_id, u64 destroy_page_gran)
- {
- 	struct arm_smccc_res res;
-+	int ret;
+diff --git a/drivers/virt/geniezone/gzvm_vcpu.c b/drivers/virt/geniezone/gzvm_vcpu.c
+index b0dc3e4f47d7..3b146148abf3 100644
+--- a/drivers/virt/geniezone/gzvm_vcpu.c
++++ b/drivers/virt/geniezone/gzvm_vcpu.c
+@@ -9,6 +9,8 @@
+ #include <linux/mm.h>
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
 +
-+	do {
-+		ret = gzvm_hypcall_wrapper(MT_HVC_GZVM_DESTROY_VM, vm_id,
-+					   destroy_page_gran, 0, 0,
-+					   0, 0, 0, &res);
-+	} while (ret == -EAGAIN);
++#include <trace/events/geniezone.h>
+ #include <linux/soc/mediatek/gzvm_drv.h>
  
--	return gzvm_hypcall_wrapper(MT_HVC_GZVM_DESTROY_VM, vm_id, 0, 0, 0, 0,
--				    0, 0, &res);
-+	return ret;
- }
+ /* maximum size needed for holding an integer */
+@@ -102,6 +104,7 @@ static long gzvm_vcpu_run(struct gzvm_vcpu *vcpu, void __user *argp)
  
- int gzvm_arch_memregion_purpose(struct gzvm *gzvm,
-@@ -241,6 +247,21 @@ int gzvm_arch_query_hyp_batch_pages(struct gzvm_enable_cap *cap,
- 	return ret;
- }
+ 	while (!need_userspace && !signal_pending(current)) {
+ 		gzvm_arch_vcpu_run(vcpu, &exit_reason);
++		trace_mtk_vcpu_exit(exit_reason);
  
-+int gzvm_arch_query_destroy_batch_pages(struct gzvm_enable_cap *cap,
-+					void __user *argp)
-+{
-+	struct arm_smccc_res res = {0};
-+	int ret;
+ 		switch (exit_reason) {
+ 		case GZVM_EXIT_MMIO:
+diff --git a/include/trace/events/geniezone.h b/include/trace/events/geniezone.h
+new file mode 100644
+index 000000000000..4fffd826ba67
+--- /dev/null
++++ b/include/trace/events/geniezone.h
+@@ -0,0 +1,84 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2023 MediaTek Inc.
++ */
 +
-+	ret = gzvm_arch_enable_cap(cap, &res);
-+	// destroy page batch size should be power of 2
-+	if (ret || ((res.a1 & (res.a1 - 1)) != 0))
-+		return -EINVAL;
++#undef TRACE_SYSTEM
++#define TRACE_SYSTEM geniezone
 +
-+	cap->args[0] = res.a1;
-+	return ret;
-+}
++#define _TRACE_GENIEZONE_H
 +
- /**
-  * gzvm_vm_ioctl_get_pvmfw_size() - Get pvmfw size from hypervisor, return
-  *				    in x1, and return to userspace in args
-diff --git a/drivers/virt/geniezone/gzvm_main.c b/drivers/virt/geniezone/gzvm_main.c
-index 0ec15c33111e..38a2406a16bd 100644
---- a/drivers/virt/geniezone/gzvm_main.c
-+++ b/drivers/virt/geniezone/gzvm_main.c
-@@ -49,6 +49,33 @@ static ssize_t demand_paging_batch_pages_store(struct kobject *kobj,
- 	return count;
- }
- 
-+static ssize_t destroy_batch_pages_show(struct kobject *kobj,
-+					struct kobj_attribute *attr,
-+					char *buf)
-+{
-+	return sprintf(buf, "%u\n", gzvm_drv.destroy_batch_pages);
-+}
++#include <linux/gzvm.h>
++#include <linux/tracepoint.h>
 +
-+static ssize_t destroy_batch_pages_store(struct kobject *kobj,
-+					 struct kobj_attribute *attr,
-+					 const char *buf, size_t count)
-+{
-+	int ret;
-+	u32 temp;
++#define GZVM_EXIT_REASONS \
++EM(UNKNOWN)\
++EM(MMIO)\
++EM(HYPERCALL)\
++EM(IRQ)\
++EM(EXCEPTION)\
++EM(DEBUG)\
++EM(FAIL_ENTRY)\
++EM(INTERNAL_ERROR)\
++EM(SYSTEM_EVENT)\
++EM(SHUTDOWN)\
++EMe(GZ)
 +
-+	ret = kstrtoint(buf, 10, &temp);
-+	if (ret < 0)
-+		return ret;
++#undef EM
++#undef EMe
++#define EM(a) TRACE_DEFINE_ENUM(GZVM_EXIT_##a);
++#define EMe(a) TRACE_DEFINE_ENUM(GZVM_EXIT_##a);
 +
-+	// destroy page batch size should be power of 2
-+	if ((temp & (temp - 1)) != 0)
-+		return -EINVAL;
++GZVM_EXIT_REASONS
 +
-+	gzvm_drv.destroy_batch_pages = temp;
++#undef EM
++#undef EMe
 +
-+	return count;
-+}
++#define EM(a)       { GZVM_EXIT_##a, #a },
++#define EMe(a)      { GZVM_EXIT_##a, #a }
 +
- /* /sys/kernel/gzvm/demand_paging_batch_pages */
- static struct kobj_attribute demand_paging_batch_pages_attr = {
- 		.attr = {
-@@ -59,6 +86,16 @@ static struct kobj_attribute demand_paging_batch_pages_attr = {
- 		.store = demand_paging_batch_pages_store,
- };
- 
-+/* /sys/kernel/gzvm/destroy_batch_pages */
-+static struct kobj_attribute destroy_batch_pages_attr = {
-+		.attr = {
-+			.name = "destroy_batch_pages",
-+			.mode = 0660,
-+		},
-+		.show = destroy_batch_pages_show,
-+		.store = destroy_batch_pages_store,
-+};
++TRACE_EVENT(mtk_hypcall_enter,
++	    TP_PROTO(unsigned long id),
 +
- static int gzvm_drv_sysfs_init(void)
- {
- 	int ret = 0;
-@@ -73,6 +110,11 @@ static int gzvm_drv_sysfs_init(void)
- 	if (ret)
- 		pr_debug("failed to create demand_batch_pages in /sys/kernel/gzvm\n");
- 
-+	ret = sysfs_create_file(gzvm_drv.sysfs_root_dir,
-+				&destroy_batch_pages_attr.attr);
-+	if (ret)
-+		pr_debug("failed to create destroy_batch_pages in /sys/kernel/gzvm\n");
++	    TP_ARGS(id),
 +
- 	return ret;
- }
- 
-@@ -124,6 +166,8 @@ int gzvm_err_to_errno(unsigned long err)
- 		return -EOPNOTSUPP;
- 	case ERR_FAULT:
- 		return -EFAULT;
-+	case ERR_BUSY:
-+		return -EAGAIN;
- 	default:
- 		break;
- 	}
-@@ -220,6 +264,20 @@ static int gzvm_query_hyp_batch_pages(void)
- 	return ret;
- }
- 
-+static int gzvm_query_destroy_batch_pages(void)
-+{
-+	int ret;
-+	struct gzvm_enable_cap cap = {0};
++	    TP_STRUCT__entry(__field(unsigned long, id)),
 +
-+	gzvm_drv.destroy_batch_pages = GZVM_DRV_DESTROY_PAGING_BATCH_PAGES;
-+	cap.cap = GZVM_CAP_QUERY_DESTROY_BATCH_PAGES;
++	    TP_fast_assign(__entry->id = id;),
 +
-+	ret = gzvm_arch_query_destroy_batch_pages(&cap, NULL);
-+	if (!ret)
-+		gzvm_drv.destroy_batch_pages = cap.args[0];
-+	return ret;
-+}
++	    TP_printk("id=0x%lx", __entry->id)
++);
 +
- static int gzvm_drv_probe(struct platform_device *pdev)
- {
- 	int ret;
-@@ -257,6 +315,10 @@ static int gzvm_drv_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	ret = gzvm_query_destroy_batch_pages();
-+	if (ret)
-+		return ret;
++TRACE_EVENT(mtk_hypcall_leave,
++	    TP_PROTO(unsigned long id, unsigned long invalid),
 +
- 	return 0;
- }
- 
-diff --git a/drivers/virt/geniezone/gzvm_vm.c b/drivers/virt/geniezone/gzvm_vm.c
-index 999c8c586d7b..43b6cf8b7d3f 100644
---- a/drivers/virt/geniezone/gzvm_vm.c
-+++ b/drivers/virt/geniezone/gzvm_vm.c
-@@ -360,7 +360,7 @@ static void gzvm_destroy_vm(struct gzvm *gzvm)
- 
- 	gzvm_vm_irqfd_release(gzvm);
- 	gzvm_destroy_vcpus(gzvm);
--	gzvm_arch_destroy_vm(gzvm->vm_id);
-+	gzvm_arch_destroy_vm(gzvm->vm_id, gzvm->gzvm_drv->destroy_batch_pages);
- 
- 	mutex_lock(&gzvm_list_lock);
- 	list_del(&gzvm->vm_list);
-diff --git a/include/linux/soc/mediatek/gzvm_drv.h b/include/linux/soc/mediatek/gzvm_drv.h
-index 8fc6c6f54227..b234edb3b9f3 100644
---- a/include/linux/soc/mediatek/gzvm_drv.h
-+++ b/include/linux/soc/mediatek/gzvm_drv.h
-@@ -30,6 +30,7 @@ struct gzvm_driver {
- 
- 	struct kobject *sysfs_root_dir;
- 	u32 demand_paging_batch_pages;
-+	u32 destroy_batch_pages;
- 
- 	struct dentry *gzvm_debugfs_dir;
- };
-@@ -53,6 +54,7 @@ struct gzvm_driver {
- #define ERR_INVALID_ARGS        (-8)
- #define ERR_NOT_SUPPORTED       (-24)
- #define ERR_NOT_IMPLEMENTED     (-27)
-+#define ERR_BUSY                (-33)
- #define ERR_FAULT               (-40)
- #define GZVM_IRQFD_RESAMPLE_IRQ_SOURCE_ID       1
- 
-@@ -68,6 +70,7 @@ struct gzvm_driver {
- #define GZVM_BLOCK_BASED_DEMAND_PAGE_SIZE	(PMD_SIZE) /* 2MB */
- #define GZVM_DRV_DEMAND_PAGING_BATCH_PAGES	\
- 	(GZVM_BLOCK_BASED_DEMAND_PAGE_SIZE / PAGE_SIZE)
-+#define GZVM_DRV_DESTROY_PAGING_BATCH_PAGES	(128)
- 
- #define GZVM_MAX_DEBUGFS_DIR_NAME_SIZE  20
- #define GZVM_MAX_DEBUGFS_VALUE_SIZE	20
-@@ -225,12 +228,14 @@ int gzvm_arch_probe(struct gzvm_version drv_version,
- 		    struct gzvm_version *hyp_version);
- int gzvm_arch_query_hyp_batch_pages(struct gzvm_enable_cap *cap,
- 				    void __user *argp);
-+int gzvm_arch_query_destroy_batch_pages(struct gzvm_enable_cap *cap,
-+					void __user *argp);
- 
- int gzvm_arch_set_memregion(u16 vm_id, size_t buf_size,
- 			    phys_addr_t region);
- int gzvm_arch_check_extension(struct gzvm *gzvm, __u64 cap, void __user *argp);
- int gzvm_arch_create_vm(unsigned long vm_type);
--int gzvm_arch_destroy_vm(u16 vm_id);
-+int gzvm_arch_destroy_vm(u16 vm_id, u64 destroy_page_gran);
- int gzvm_arch_map_guest(u16 vm_id, int memslot_id, u64 pfn, u64 gfn,
- 			u64 nr_pages);
- int gzvm_arch_map_guest_block(u16 vm_id, int memslot_id, u64 gfn, u64 nr_pages);
-diff --git a/include/uapi/linux/gzvm.h b/include/uapi/linux/gzvm.h
-index d69e1abb21a0..87574bdc5c48 100644
---- a/include/uapi/linux/gzvm.h
-+++ b/include/uapi/linux/gzvm.h
-@@ -23,6 +23,7 @@
- #define GZVM_CAP_ENABLE_DEMAND_PAGING	0x9202
- #define GZVM_CAP_ENABLE_IDLE		0x9203
- #define GZVM_CAP_QUERY_HYP_BATCH_PAGES	0x9204
-+#define GZVM_CAP_QUERY_DESTROY_BATCH_PAGES	0x9205
- 
- /* sub-commands put in args[0] for GZVM_CAP_PROTECTED_VM */
- #define GZVM_CAP_PVM_SET_PVMFW_GPA		0
++	    TP_ARGS(id, invalid),
++
++	    TP_STRUCT__entry(__field(unsigned long, id)
++			     __field(unsigned long, invalid)
++	    ),
++
++	    TP_fast_assign(__entry->id = id;
++			   __entry->invalid = invalid;
++	    ),
++
++	    TP_printk("id=0x%lx invalid=%lu", __entry->id, __entry->invalid)
++);
++
++TRACE_EVENT(mtk_vcpu_exit,
++	    TP_PROTO(unsigned long exit_reason),
++
++	    TP_ARGS(exit_reason),
++
++	    TP_STRUCT__entry(__field(unsigned long, exit_reason)),
++
++	    TP_fast_assign(__entry->exit_reason = exit_reason;),
++
++	    TP_printk("vcpu exit_reason=%s(0x%lx)",
++		      __print_symbolic(__entry->exit_reason, GZVM_EXIT_REASONS),
++		      __entry->exit_reason)
++
++);
++
++/* This part must be outside protection */
++#include <trace/define_trace.h>
 -- 
 2.18.0
 
