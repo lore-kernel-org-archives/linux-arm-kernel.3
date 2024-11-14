@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3C6D68B32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 15:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE4AD68B31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 15:37:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A3p8kE0DMrkl9mhIZPg/dU5JWgGiY//aVa9AKST+fCQ=; b=UUMjG+6T3wFARGYz2TtmUZyZfK
-	4qdfYlrYvx7jZPfXUEEctyznx8P6xkKGhoDvNbQXOZaqvrFZdu2LYC7XiTWeMmhOj+afqfbGmuCCV
-	dtUJC+D8+97xvh8ylphLSr5euTIxYQ9LD3RCMeVuS1dcKudinoug+Nbu71sQS1T30O4RflWb2x1n4
-	9PcE7swaDmoyg7tAmdf542RtEeT59eYMde4u4Xjf7VC5++tH6rqyc/dLnlgfISOtcMBgm2v4wh4s9
-	Qw1qrBFQsy9hHVR8GmXdzYdEfVDa8giAV/EgnnAzQtgNQs4f58SOuPIsFKtfEEOnYdyU5d1KsyTHg
-	lt9Bo9Nw==;
+	bh=oublD+O6Qp3hgaKTR+8a0GSB7bBLcFDaiuPsv7MfQeQ=; b=Pn1Nk1BexYU4ZG9AR4FCWl/YP9
+	VJbeXoSxOUdGdQCuMGGFtTlBI/Nv9F2rhjIL6+MAR8izKE84mMO9y3lyp9eAQGXl9CkjQa8c0/oUl
+	6ZAxlpq7nVxou4k8rsAc63HS872VPsKjtW0NrbTp43p0WL4WQAQQEkm8pQ4CRFwL5+4FNrKkcXe1g
+	O1tjU2Dew3EVxvzN8JJrT19fv/zdUV69FJPWUajTBo/HVI1UsK53IEkjkXuISREclei6L5fgLUCky
+	EomKaaqb5x7vQnnuCJxNyqP1qHbi1vWeUc10eQYCDGLJsIAv1VLFMoi2YLWoHO0DyK5rTZoz9S7vW
+	1uDFnxzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBbto-000000002nV-0Cgj;
-	Thu, 14 Nov 2024 15:36:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBbsZ-000000001UN-0U2M
+	id 1tBbuk-000000003C5-37Bs;
+	Thu, 14 Nov 2024 15:37:46 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBbt9-000000002Yb-2DHf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 15:35:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6827B169E;
-	Thu, 14 Nov 2024 07:35:57 -0800 (PST)
-Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A1FB3F59E;
-	Thu, 14 Nov 2024 07:35:16 -0800 (PST)
-Message-ID: <2621385c-6fcf-4035-a5a0-5427a08045c8@arm.com>
-Date: Thu, 14 Nov 2024 15:35:15 +0000
+	Thu, 14 Nov 2024 15:36:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6C9F4A4150A;
+	Thu, 14 Nov 2024 15:34:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1C9FC4CECD;
+	Thu, 14 Nov 2024 15:36:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731598565;
+	bh=c+QtyugjOQ3i5dvHqnYIoLWX152YPjrTGXRzntFQuQw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=OVNQnGG4/atn0pvBVfywdQNfSoFZUzXEKhLrySyKPqBzmyY+ARm8iuYuhVfpeHUJW
+	 WEWVQbIbc7Rw5XZDGykgKrnPsOig8GBILoHY/LjsZJqNCGFa/tk51XrMN5Qo+VXaj9
+	 xkRrooSUGTm+F4UM0ZO/5XEDirB7nL/x3rK103a9hvMMQtUvyMimqDMdmrI3/ZZGsV
+	 8hWKe6HvmOjIPYeoeFwrVsQGpqrXdgOImj9KbL5VEavs8w2DS0enqg0VYgrfie6iTD
+	 FcyXwstDXwBg4RoGkXvWVqNt9n2k3ogeQ7nyuks/SjkDhhazwDMf4U4flygTy8F8Ng
+	 arcklwJFfExew==
+From: Mark Brown <broonie@kernel.org>
+To: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Olivier Moysan <olivier.moysan@foss.st.com>
+Cc: linux-sound@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20241114102851.2497942-1-olivier.moysan@foss.st.com>
+References: <20241114102851.2497942-1-olivier.moysan@foss.st.com>
+Subject: Re: [PATCH] ASoC: stm32: dfsdm: change rate upper limits
+Message-Id: <173159856240.505512.17591660886281127681.b4-ty@kernel.org>
+Date: Thu, 14 Nov 2024 15:36:02 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFCv1 0/7] vfio: Allow userspace to specify the address
- for each MSI vector
-To: Alex Williamson <alex.williamson@redhat.com>,
- Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, tglx@linutronix.de, maz@kernel.org,
- bhelgaas@google.com, leonro@nvidia.com,
- shameerali.kolothum.thodi@huawei.com, dlemoal@kernel.org,
- kevin.tian@intel.com, smostafa@google.com,
- andriy.shevchenko@linux.intel.com, reinette.chatre@intel.com,
- eric.auger@redhat.com, ddutile@redhat.com, yebin10@huawei.com,
- brauner@kernel.org, apatel@ventanamicro.com,
- shivamurthy.shastri@linutronix.de, anna-maria@linutronix.de,
- nipun.gupta@amd.com, marek.vasut+renesas@mailbox.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, kvm@vger.kernel.org
-References: <cover.1731130093.git.nicolinc@nvidia.com>
- <a63e7c3b-ce96-47a5-b462-d5de3a2edb56@arm.com>
- <ZzPOsrbkmztWZ4U/@Asurada-Nvidia> <20241113013430.GC35230@nvidia.com>
- <20241113141122.2518c55a.alex.williamson@redhat.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20241113141122.2518c55a.alex.williamson@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-355e8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_073531_294901_884CBD54 
-X-CRM114-Status: GOOD (  31.42  )
+X-CRM114-CacheID: sfid-20241114_073607_677399_40253AD9 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,91 +77,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/11/2024 9:11 pm, Alex Williamson wrote:
-> On Tue, 12 Nov 2024 21:34:30 -0400
-> Jason Gunthorpe <jgg@nvidia.com> wrote:
+On Thu, 14 Nov 2024 11:28:51 +0100, Olivier Moysan wrote:
+> Increase rate upper limit to 192kHz to reflect the rate range actually
+> supported by the STM32 DFSDM peripheral.
 > 
->> On Tue, Nov 12, 2024 at 01:54:58PM -0800, Nicolin Chen wrote:
->>> On Mon, Nov 11, 2024 at 01:09:20PM +0000, Robin Murphy wrote:
->>>> On 2024-11-09 5:48 am, Nicolin Chen wrote:
->>>>> To solve this problem the VMM should capture the MSI IOVA allocated by the
->>>>> guest kernel and relay it to the GIC driver in the host kernel, to program
->>>>> the correct MSI IOVA. And this requires a new ioctl via VFIO.
->>>>
->>>> Once VFIO has that information from userspace, though, do we really need
->>>> the whole complicated dance to push it right down into the irqchip layer
->>>> just so it can be passed back up again? AFAICS
->>>> vfio_msi_set_vector_signal() via VFIO_DEVICE_SET_IRQS already explicitly
->>>> rewrites MSI-X vectors, so it seems like it should be pretty
->>>> straightforward to override the message address in general at that
->>>> level, without the lower layers having to be aware at all, no?
->>>
->>> Didn't see that clearly!! It works with a simple following override:
->>> --------------------------------------------------------------------
->>> @@ -497,6 +497,10 @@ static int vfio_msi_set_vector_signal(struct vfio_pci_core_device *vdev,
->>>                  struct msi_msg msg;
->>>
->>>                  get_cached_msi_msg(irq, &msg);
->>> +               if (vdev->msi_iovas) {
->>> +                       msg.address_lo = lower_32_bits(vdev->msi_iovas[vector]);
->>> +                       msg.address_hi = upper_32_bits(vdev->msi_iovas[vector]);
->>> +               }
->>>                  pci_write_msi_msg(irq, &msg);
->>>          }
->>>   
->>> --------------------------------------------------------------------
->>>
->>> With that, I think we only need one VFIO change for this part :)
->>
->> Wow, is that really OK from a layering perspective? The comment is
->> pretty clear on the intention that this is to resync the irq layer
->> view of the device with the physical HW.
->>
->> Editing the msi_msg while doing that resync smells bad.
->>
->> Also, this is only doing MSI-X, we should include normal MSI as
->> well. (it probably should have a resync too?)
 > 
-> This was added for a specific IBM HBA that clears the vector table
-> during a built-in self test, so it's possible the MSI table being in
-> config space never had the same issue, or we just haven't encountered
-> it.  I don't expect anything else actually requires this.
 
-Yeah, I wasn't really suggesting to literally hook into this exact case; 
-it was more just a general observation that if VFIO already has one 
-justification for tinkering with pci_write_msi_msg() directly without 
-going through the msi_domain layer, then adding another (wherever it 
-fits best) can't be *entirely* unreasonable.
+Applied to
 
-At the end of the day, the semantic here is that VFIO does know more 
-than the IRQ layer, and does need to program the endpoint differently 
-from what the irqchip assumes, so I don't see much benefit in dressing 
-that up more than functionally necessary.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
->> I'd want Thomas/Marc/Alex to agree.. (please read the cover letter for
->> context)
-> 
-> It seems suspect to me too.  In a sense it is still just synchronizing
-> the MSI address, but to a different address space.
-> 
-> Is it possible to do this with the existing write_msi_msg callback on
-> the msi descriptor?  For instance we could simply translate the msg
-> address and call pci_write_msi_msg() (while avoiding an infinite
-> recursion).  Or maybe there should be an xlate_msi_msg callback we can
-> register.  Or I suppose there might be a way to insert an irqchip that
-> does the translation on write.  Thanks,
+Thanks!
 
-I'm far from keen on the idea, but if there really is an appetite for 
-more indirection, then I guess the least-worst option would be yet 
-another type of iommu_dma_cookie to work via the existing 
-iommu_dma_compose_msi_msg() flow, with some interface for VFIO to update 
-per-device addresses directly. But then it's still going to need some 
-kind of "layering violation" for VFIO to poke the IRQ layer into 
-re-composing and re-writing a message whenever userspace feels like 
-changing an address, because we're fundamentally stepping outside the 
-established lifecycle of a kernel-managed IRQ around which said layering 
-was designed...
+[1/1] ASoC: stm32: dfsdm: change rate upper limits
+      commit: ba888450828befb0607219f34c03aa8645625447
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
-Robin.
+Mark
+
 
