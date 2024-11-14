@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1825CD637D9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 02:58:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC427D637DA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 03:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JJq+FCylc0jmdKMgnYo/ob9xvCnB0F5KgIKVz3m2Nfs=; b=aHRNTqMNO3zfStjrQ1pvclYc3I
-	M1lG52tcDf27R/5yjItc+584cVgktAWlZuQNwe11OfgU80BUr3KFc5Vp46xl9k2iT5zojXO2gQ+IU
-	0EvHmL93esYfULz91S4aGgMx/i9gJ0c5V6oH/O68Rx5YabFCdqy0Iqovp0WKCmELxrlTTs953H2f+
-	FLVikYYfumVCfyZ9LuoN2RitOeWBO3I/25oVSMruwNb9lEvpc/iHJDF+nj/04qGMGP7jyU9I7cBeR
-	WrckexqZo+nh4ICrZw2zt6VH6MgNTImh+gEU5ToXy/IVYPixLJSvkkhqmsLVGDJJpm/oag/qwb201
-	Tx+fuleg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0cjutd52pESS819lrn/coTD2PWtaft3frXUGfzphBsI=; b=VrgI+FWhKFy0Bg+JHPAFbJx8N7
+	sPpsMh/gwtKiP44vfUkicqtdR4X9WnGPeuwlmbzd+3UhQmRtnREH9TGwzO4bTORnckmngqidP+nsq
+	7JljzUY1OO7V6uZ2xOWvPrqCM6RmDmUPWUbp5XgpxSlnaCFWifseBEg8C8lwz18QkXHqhOCZoCiJz
+	QsUkE0tYhArPmi0cEAxrNYDzCVHRNpxem7Y8mT9R7igRIQ1Lms6M4eaXqkdXr2dQHQHkUn0ULoCXB
+	AT2Bbzf5B14Si3HDwwZ9mkLY7RvEQj3WApITNrMXo/NI/TG5nBgSQi6tSWmGYVBePFtKrzau+uUL3
+	gJ6fd4vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBQ41-00000008ccq-3BDG;
-	Thu, 14 Nov 2024 02:58:33 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tBQ7t-00000008d5N-0dYF;
+	Thu, 14 Nov 2024 03:02:33 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBQ2A-00000008cSG-132g
+	id 1tBQ65-00000008ctV-1lIS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 02:56:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=JJq+FCylc0jmdKMgnYo/ob9xvCnB0F5KgIKVz3m2Nfs=; b=rXHBOzefIqgQ8x33CXqamAs/rK
-	nzL1Spdpkwe3YloUQNFyv7UIdHE4tWNPm7JLtHn0sNJgC1M2Cug/DVCLmcVedA9kiJoboJ9v1Ski4
-	4+eI6HBVUo72sS9vIr6cyhHIOd8tVnFRxjPAXkiP9GXLB2s3QwLLF7SMzoUf1wDK4nfA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tBQ1x-00DEnU-TW; Thu, 14 Nov 2024 03:56:25 +0100
-Date: Thu, 14 Nov 2024 03:56:25 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Joey Lu <a0987203069@gmail.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
-	richardcochran@gmail.com, alexandre.torgue@foss.st.com,
-	joabreu@synopsys.com, ychuang3@nuvoton.com, schung@nuvoton.com,
-	yclu4@nuvoton.com, linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 3/3] net: stmmac: dwmac-nuvoton: Add dwmac support for
- MA35 family
-Message-ID: <b7fb59a9-989e-42b9-ac72-71f353854812@lunn.ch>
-References: <20241113051857.12732-1-a0987203069@gmail.com>
- <20241113051857.12732-4-a0987203069@gmail.com>
+	Thu, 14 Nov 2024 03:00:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 90699A40296;
+	Thu, 14 Nov 2024 02:58:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E7D6C4CEC3;
+	Thu, 14 Nov 2024 03:00:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731553240;
+	bh=gbZQqgoltqwkJ/vm5DodVYLPZVBiaTAp0vA2MvKuZCY=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=gxN/j0XaazZWoNHJvyJSihstQrqhcQOZvPzddr12uATiXHq5rSBCPMVGZ4CZP3AqE
+	 dL15FKoPgsUl+LaHeAJdczLcq5c72YOHYxT8W1iCGzDVlPTAv7cHGA7qhsrGYZlxwK
+	 6N8FLtmcCDyIowDk2Fw90UmQ+G0u0Tn18g526479BYde1KQGWeDa8lpBXZO1D/qRTJ
+	 7zmqGwtos4+10aMTth6i+GWDf+RIgChvImDR3szcWa78Dp7LMsTx9Y7U6ErbxhI49S
+	 AJMqxYvNhR6T80xxPtB49SQoUAPIoxUJX2Dwe+BuNyldjPjoxlvjaC5qFYQP25ZJQN
+	 5jsQWsJ+NmU5g==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAF5F3809A80;
+	Thu, 14 Nov 2024 03:00:51 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241113051857.12732-4-a0987203069@gmail.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v4 0/9] Support external snapshots on dwmac1000
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173155325074.1464897.8509953412141339085.git-patchwork-notify@kernel.org>
+Date: Thu, 14 Nov 2024 03:00:50 +0000
+References: <20241112170658.2388529-1-maxime.chevallier@bootlin.com>
+In-Reply-To: <20241112170658.2388529-1-maxime.chevallier@bootlin.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: alexandre.torgue@foss.st.com, joabreu@synopsys.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, richardcochran@gmail.com,
+ alexis.lothore@bootlin.com, thomas.petazzoni@bootlin.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, daniel.machon@microchip.com,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_185638_311864_2D1D2C90 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241113_190041_544267_B545EA09 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,20 +79,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +	if (of_property_read_u32(dev->of_node, "tx-internal-delay-ps", &arg)) {
-> +		tx_delay = 0; /* Default value is 0 */
-> +	} else {
-> +		if (arg > 0 && arg <= 2000) {
-> +			tx_delay = (arg == 2000) ? 0xF : (arg / PATHDLY_DEC);
-> +			dev_dbg(dev, "Set Tx path delay to 0x%x\n", tx_delay);
-> +		} else {
-> +			tx_delay = 0;
-> +			dev_err(dev, "Invalid Tx path delay argument. Setting to default.\n");
-> +		}
-> +	}
+Hello:
 
-The device tree binding says that only [0, 2000] are valid. You should
-enforce this here, return -EINVAL of any other value.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-	Andrew
+On Tue, 12 Nov 2024 18:06:48 +0100 you wrote:
+> Hi,
+> 
+> This is v4 on the series to support external snapshots on dwmac1000.
+> 
+> The main change since v3 is the move of the fifo flush wait in the
+> ptp_clock_info enable() function within the mutex that protects the ptp
+> registers. Thanks Jakub and Paolo for spotting this.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,v4,1/9] net: stmmac: Don't modify the global ptp ops directly
+    https://git.kernel.org/netdev/net-next/c/80dc1ff787a9
+  - [net-next,v4,2/9] net: stmmac: Use per-hw ptp clock ops
+    https://git.kernel.org/netdev/net-next/c/13e908800c0d
+  - [net-next,v4,3/9] net: stmmac: Only update the auto-discovered PTP clock features
+    https://git.kernel.org/netdev/net-next/c/0bfd0afc746c
+  - [net-next,v4,4/9] net: stmmac: Introduce dwmac1000 ptp_clock_info and operations
+    https://git.kernel.org/netdev/net-next/c/8e7620726beb
+  - [net-next,v4,5/9] net: stmmac: Introduce dwmac1000 timestamping operations
+    https://git.kernel.org/netdev/net-next/c/477c3e1f6363
+  - [net-next,v4,6/9] net: stmmac: Enable timestamping interrupt on dwmac1000
+    https://git.kernel.org/netdev/net-next/c/774f57d6562d
+  - [net-next,v4,7/9] net: stmmac: Don't include dwmac4 definitions in stmmac_ptp
+    https://git.kernel.org/netdev/net-next/c/85cebb7279e8
+  - [net-next,v4,8/9] net: stmmac: Configure only the relevant bits for timestamping setup
+    https://git.kernel.org/netdev/net-next/c/62935443214e
+  - [net-next,v4,9/9] net: stmmac: dwmac_socfpga: This platform has GMAC
+    https://git.kernel.org/netdev/net-next/c/b818268d9250
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
