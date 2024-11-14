@@ -4,89 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95192D637D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 02:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 592CDD637D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 02:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r7Po/FwQThiBsQWRxYcauOHGQZjpnBIU7A93c7fpQdY=; b=CX5JSEoq1JQxz7yZTHVBilA8Ou
-	xlHLSKMx5avmrf3JZobjnigNw2x+eH2EMDNvOCkVE5tTvIiBEAhf8MLEQDAwcjpznd5alZPO0U/2t
-	UsLF16xg1JR/QZmYBMtVhUm7jwGYQfvZh+cyiDMTNo+BWpOmQ+qHVpIQKJH2vQsDNydKAeiXjkqpG
-	C+sZgyQmxYfkctbpgIh4TKMU++YJTcaTw5fBIUDeKsd8Wvo6TQMUd+hSLY/IZixI2dKXCgf1Eg3As
-	jtspUwP/OaNqgByiWk34Uk1TA6zHs+VbfvcTmEJLQfGp2AnXb8vOMOgbbzphq6gxXaSWQj9P4cjPn
-	f/RsQTpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=StFhRyIpCM9Uu8eeMJnktRCq06AyyCXEprdzl0A/TJI=; b=St5fN0pW/yxRC/cvqtEUl3yoOq
+	6QtsbO9AoOnMz6Yroa4YxhUpH4ynEwlZ/61+Tyvj1Vwxlc5U4aFnObL/Fi0hR30+SR1P6DwC9XsAD
+	fK0wLZTOvrsumObzaIBrh6+bDoa4n+5tV8RZArWVANT+cp2bXOnp0yuy/fw+uQ79ofeHokrh3d1U4
+	jlLB/1uHYg0QfKrKDfu9d3AMhERFY7BC1RvEsT+Rcl2Jsr0I+dyftuHXA/f0ZWsorPETstObBwhoM
+	NPfwFWK0kewpcZkoG4kG8x7gMRBD6tzzhm2kU5qpOlofcwXLtXt1kq17OAapwQZ2jieoQzyvCGDU0
+	4Vce/o+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBPfi-00000008Z44-0F0S;
-	Thu, 14 Nov 2024 02:33:26 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tBPlt-00000008ZtL-2Dmi;
+	Thu, 14 Nov 2024 02:39:49 +0000
+Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBPcA-00000008YiH-3TDy
+	id 1tBPk6-00000008Zik-2b8o
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 02:29:48 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ADMkOPP025933;
-	Thu, 14 Nov 2024 02:29:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	r7Po/FwQThiBsQWRxYcauOHGQZjpnBIU7A93c7fpQdY=; b=VRqUb8rXcHkBS5XX
-	MTOaF+PtySELj6nNPWDwbbXASdL+JO2wfONwTYHJa6LauTQ23mbLZO9BVe2vpiJ1
-	LVAlRzvd9UixrQ0hoT6Qa1L4Jk6adrDGVmueCEwJ0vxcCglvorq1UN0OC3sV32TC
-	e4OpKORpooGq+yQhBscGfhI5qiIKTc/Is/xoLnThcy8++gBeSHSuWph6Ii5vZto+
-	V0qXNd4jo3IKko7nW83HYtBIjzwohzO94kcCeFbT+JSHDwLR2sfR4N7p5zJVvasp
-	GtRDyA97V7z12LsWPhseOjXubw5Ka6D+DM5SyYd2o4nAZ19+0qS69z8YgsIAjtZK
-	GbnyNw==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42vkvrb9kv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 14 Nov 2024 02:29:40 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AE2TdNj026874
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 14 Nov 2024 02:29:39 GMT
-Received: from hu-sibis-blr.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 13 Nov 2024 18:29:35 -0800
-From: Sibi Sankar <quic_sibis@quicinc.com>
-To: <sudeep.holla@arm.com>, <cristian.marussi@arm.com>, <rafael@kernel.org>,
-        <viresh.kumar@linaro.org>, <morten.rasmussen@arm.com>,
-        <dietmar.eggemann@arm.com>, <lukasz.luba@arm.com>,
-        <pierre.gondois@arm.com>, <vincent.guittot@linaro.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <quic_mdtipton@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, Sibi Sankar <quic_sibis@quicinc.com>
-Subject: [PATCH V8 1/1] cpufreq: scmi: Register for limit change notifications
-Date: Thu, 14 Nov 2024 07:59:16 +0530
-Message-ID: <20241114022916.644899-2-quic_sibis@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241114022916.644899-1-quic_sibis@quicinc.com>
-References: <20241114022916.644899-1-quic_sibis@quicinc.com>
+	Thu, 14 Nov 2024 02:37:59 +0000
+Received: by mail-il1-x12e.google.com with SMTP id e9e14a558f8ab-3a3c00f2c75so446795ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 18:37:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731551877; x=1732156677; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=StFhRyIpCM9Uu8eeMJnktRCq06AyyCXEprdzl0A/TJI=;
+        b=eOblQounuBSO4zm/PwJ9p3UV4+pz+WNv9Cg4oukp1UVE3o1S2ilTmAR6w7fTzI+mq/
+         VHjlsxTZqh2FMx25NHFTZyuXY+y8CpxgGSrTIFUJY8C1SAw6SW23WWmN0WhKGXh9Bl7p
+         zS2s3tSNTUD9Cr8365qO0427XiZiLB8oLBE+UYYBns4PPB1/ma8lse/awHKv1zQCZ0IK
+         /ZF8GL5JAs9XLley5PscZF5hozw2hfFrk0eArvB0dHiMt+7SWxgYTBp9bmMDM+J4/HYN
+         CwAtp8Ll1wx7W+9qROTOXjUlGoxZFHOfiERW2w8/AdH3XsMutLsDo2Qpwp+quS71bQar
+         C7zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731551877; x=1732156677;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=StFhRyIpCM9Uu8eeMJnktRCq06AyyCXEprdzl0A/TJI=;
+        b=ro+/4ITzrs8KGOgDasWCI7L/JreP1V/+CLT8G8fODS3FgyZBnijJ9tj/WBIN8CviQX
+         h4jKgrwDoBGdSXyeSbK06KbAjGHjWglNX9BUoBBmCtu1uwiSkbXLTKNX9SwJhvrwJ6X9
+         ugyvKeNukEzDbYGnL2bsRsrjlegGHjztuE0Hd47Kg0cJ0YfocP0RnkMxDCFiNi4DfB8E
+         P3ZEmGUHqWL3yVdNxbBYCQTEJMy12cqypRvydPjgs6OzwKF7D4WBToOmmIoNmxER0zXu
+         VkqggWEXmJA74hFWMk3KSOzJPF4kMG2rfTcotF/X7Dfs0aO1BWAXyCWUAQ51jDO4bivj
+         TWVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVjlkeGvlYFIifTeBS9vAuhBFNG0YiQx3xAc/XmqYijcwTj9rQCcG52PbggrgiMhcLBFKwRmAmSn9obPAljIw41@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMMJI1PR3JgeI4bRKe5lBoKdNLPPm3K89bRNs1Y9qoBoy4Q/by
+	UwhbBii260F+Nu1HcmSjZmwF8YSIXNcE2heSVBIPY8RKaJ7w/Jbd/4dykURjOqcgv5ydBvB6nkj
+	tF2RuHDlRtIr+EjhNRKCM3/N5Y8w=
+X-Google-Smtp-Source: AGHT+IGcTJSj30ycrQ3ffIAZN66OsQquO1B46KfWjrwu9f3E/Tq4Zk70MH8L6VADeTi2CDkmD1g2VJE9cA/VEkQCcgQ=
+X-Received: by 2002:a92:c56d:0:b0:3a5:e1f5:1572 with SMTP id
+ e9e14a558f8ab-3a71fed5de0mr5894775ab.22.1731551877130; Wed, 13 Nov 2024
+ 18:37:57 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: l5ZyfhjEhTE5y1n7Shqs0WijiK8vafjL
-X-Proofpoint-GUID: l5ZyfhjEhTE5y1n7Shqs0WijiK8vafjL
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 adultscore=0
- phishscore=0 suspectscore=0 spamscore=0 mlxlogscore=999 priorityscore=1501
- bulkscore=0 clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
- definitions=main-2411140017
+References: <20241108100759.682260-1-shengjiu.wang@nxp.com>
+ <20241108100759.682260-4-shengjiu.wang@nxp.com> <PAXPR04MB84596DD01E6A066A621F590188582@PAXPR04MB8459.eurprd04.prod.outlook.com>
+In-Reply-To: <PAXPR04MB84596DD01E6A066A621F590188582@PAXPR04MB8459.eurprd04.prod.outlook.com>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Thu, 14 Nov 2024 10:37:44 +0800
+Message-ID: <CAA+D8AP=cdyvhtzDib8-T5GuHU9pXhPVgdomTQj8R=8CCFr5HQ@mail.gmail.com>
+Subject: Re: [PATCH v2 3/3] arm64: dts: imx93: Use IMX93_CLK_SPDIF_IPG as
+ SPDIF IPG clock
+To: Peng Fan <peng.fan@nxp.com>
+Cc: "S.J. Wang" <shengjiu.wang@nxp.com>, "abelvesa@kernel.org" <abelvesa@kernel.org>, 
+	"mturquette@baylibre.com" <mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>, 
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
+	"festevam@gmail.com" <festevam@gmail.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_182946_894203_13D56BB3 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20241113_183758_681871_74297DEE 
+X-CRM114-Status: GOOD (  21.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,125 +100,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Register for limit change notifications if supported and use the throttled
-frequency from the notification to apply HW pressure.
+On Mon, Nov 11, 2024 at 11:11=E2=80=AFAM Peng Fan <peng.fan@nxp.com> wrote:
+>
+> > Subject: [PATCH v2 3/3] arm64: dts: imx93: Use IMX93_CLK_SPDIF_IPG
+> > as SPDIF IPG clock
+> >
+>
+> This patch has a fix tag, but the other two not have. So the other two
+> will not be backported and cause issue.
+>
+> So use fixes for all or drop fixes for all.
+>
 
-Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
-Tested-by: Mike Tipton <quic_mdtipton@quicinc.com>
-Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
----
+Should I add the one same fixes tag to all 3 commits?
 
-v8:
-* Drop patch 1 since it was picked up by Viresh
-* Leave policy->max update to the cpufreq_qos notifier [Vincent]
-* We sanitized the range_max from V3 since we dealt with
-  policy->max, now we can drop the check and policy member
-  from scmi_data.
+Best regards
+Shengjiu Wang
 
- drivers/cpufreq/scmi-cpufreq.c | 45 ++++++++++++++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
-
-diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-index 07d6f9a9b7c8..b8fe758aeb01 100644
---- a/drivers/cpufreq/scmi-cpufreq.c
-+++ b/drivers/cpufreq/scmi-cpufreq.c
-@@ -16,6 +16,7 @@
- #include <linux/export.h>
- #include <linux/module.h>
- #include <linux/pm_opp.h>
-+#include <linux/pm_qos.h>
- #include <linux/slab.h>
- #include <linux/scmi_protocol.h>
- #include <linux/types.h>
-@@ -26,6 +27,8 @@ struct scmi_data {
- 	int nr_opp;
- 	struct device *cpu_dev;
- 	cpumask_var_t opp_shared_cpus;
-+	struct notifier_block limit_notify_nb;
-+	struct freq_qos_request	limits_freq_req;
- };
- 
- static struct scmi_protocol_handle *ph;
-@@ -174,6 +177,22 @@ static struct freq_attr *scmi_cpufreq_hw_attr[] = {
- 	NULL,
- };
- 
-+static int scmi_limit_notify_cb(struct notifier_block *nb, unsigned long event, void *data)
-+{
-+	struct scmi_data *priv = container_of(nb, struct scmi_data, limit_notify_nb);
-+	struct scmi_perf_limits_report *limit_notify = data;
-+	unsigned int limit_freq_khz;
-+	int ret;
-+
-+	limit_freq_khz = limit_notify->range_max_freq / HZ_PER_KHZ;
-+
-+	ret = freq_qos_update_request(&priv->limits_freq_req, limit_freq_khz);
-+	if (ret < 0)
-+		pr_warn("failed to update freq constraint: %d\n", ret);
-+
-+	return NOTIFY_OK;
-+}
-+
- static int scmi_cpufreq_init(struct cpufreq_policy *policy)
- {
- 	int ret, nr_opp, domain;
-@@ -181,6 +200,7 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
- 	struct device *cpu_dev;
- 	struct scmi_data *priv;
- 	struct cpufreq_frequency_table *freq_table;
-+	struct scmi_device *sdev = cpufreq_get_driver_data();
- 
- 	cpu_dev = get_cpu_device(policy->cpu);
- 	if (!cpu_dev) {
-@@ -294,6 +314,23 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
- 		}
- 	}
- 
-+	ret = freq_qos_add_request(&policy->constraints, &priv->limits_freq_req, FREQ_QOS_MAX,
-+				   FREQ_QOS_MAX_DEFAULT_VALUE);
-+	if (ret < 0) {
-+		dev_err(cpu_dev, "failed to add qos limits request: %d\n", ret);
-+		goto out_free_table;
-+	}
-+
-+	priv->limit_notify_nb.notifier_call = scmi_limit_notify_cb;
-+	ret = sdev->handle->notify_ops->event_notifier_register(sdev->handle, SCMI_PROTOCOL_PERF,
-+							SCMI_EVENT_PERFORMANCE_LIMITS_CHANGED,
-+							&priv->domain_id,
-+							&priv->limit_notify_nb);
-+	if (ret)
-+		dev_warn(&sdev->dev,
-+			 "failed to register for limits change notifier for domain %d\n",
-+			 priv->domain_id);
-+
- 	return 0;
- 
- out_free_table:
-@@ -313,7 +350,13 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
- static void scmi_cpufreq_exit(struct cpufreq_policy *policy)
- {
- 	struct scmi_data *priv = policy->driver_data;
-+	struct scmi_device *sdev = cpufreq_get_driver_data();
- 
-+	sdev->handle->notify_ops->event_notifier_unregister(sdev->handle, SCMI_PROTOCOL_PERF,
-+							    SCMI_EVENT_PERFORMANCE_LIMITS_CHANGED,
-+							    &priv->domain_id,
-+							    &priv->limit_notify_nb);
-+	freq_qos_remove_request(&priv->limits_freq_req);
- 	dev_pm_opp_free_cpufreq_table(priv->cpu_dev, &policy->freq_table);
- 	dev_pm_opp_remove_all_dynamic(priv->cpu_dev);
- 	free_cpumask_var(priv->opp_shared_cpus);
-@@ -372,6 +415,8 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
- 	if (!handle)
- 		return -ENODEV;
- 
-+	scmi_cpufreq_driver.driver_data = sdev;
-+
- 	perf_ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PERF, &ph);
- 	if (IS_ERR(perf_ops))
- 		return PTR_ERR(perf_ops);
--- 
-2.34.1
-
+> Regards,
+> Peng.
+>
+> > IMX93_CLK_BUS_WAKEUP is not accurate IPG clock, which missed the
+> > clock gate part.
+> >
+> > IMX93_CLK_SPDIF_IPG is the correct clock.
+> >
+> > Fixes: 1c4a4f7362fd ("arm64: dts: imx93: Add audio device nodes")
+> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> >  arch/arm64/boot/dts/freescale/imx93.dtsi | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/boot/dts/freescale/imx93.dtsi
+> > b/arch/arm64/boot/dts/freescale/imx93.dtsi
+> > index 688488de8cd2..56766fdb0b1e 100644
+> > --- a/arch/arm64/boot/dts/freescale/imx93.dtsi
+> > +++ b/arch/arm64/boot/dts/freescale/imx93.dtsi
+> > @@ -925,7 +925,7 @@ xcvr: xcvr@42680000 {
+> >                               reg-names =3D "ram", "regs", "rxfifo",
+> > "txfifo";
+> >                               interrupts =3D <GIC_SPI 203
+> > IRQ_TYPE_LEVEL_HIGH>,
+> >                                            <GIC_SPI 204
+> > IRQ_TYPE_LEVEL_HIGH>;
+> > -                             clocks =3D <&clk
+> > IMX93_CLK_BUS_WAKEUP>,
+> > +                             clocks =3D <&clk
+> > IMX93_CLK_SPDIF_IPG>,
+> >                                        <&clk
+> > IMX93_CLK_SPDIF_GATE>,
+> >                                        <&clk IMX93_CLK_DUMMY>,
+> >                                        <&clk
+> > IMX93_CLK_AUD_XCVR_GATE>;
+> > --
+> > 2.34.1
+>
 
