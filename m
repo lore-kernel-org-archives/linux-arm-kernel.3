@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 754DAD68B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 15:51:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E7BD68B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 15:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+AzLdEYWocJzcvwOs9QW6zaf0G7mUCi6/CpG3lyJBi4=; b=wkW+zkVTjDNqRApIh/zktZpgMh
-	sRY87xGBmHzvSWHxi5A480BhCCnSQDBYP/WLYybdWM50v86nPoPRII9ysW2SECWUteNBeZtsS6dQF
-	czLRm74TwJpDWjeAceFE2cvTW8qhTRbsjPFjRg1ViiFcXm2mOpUaafVOM9ssnKLLHW9CTCqx7gflN
-	oo5RmsQfG4zl0AihYsO0DV045bZf1SHP8BUtyu73Dis7rWmSwF/SKS3oC6dPmgqYg2Qpsao4fHPbZ
-	nDRcdTPhrmS/bs41uMRe2TpfiauXsWkRFoDTfmkZapdjcsFDL4scSSmhHZOPt/FCmICwCUyZsdsk/
-	oHUjoKJQ==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lsFacXP5o2cIfFFjFmHt4+id49zlrLdO2XORIjPTsvI=; b=L49cItyzTmVY6G
+	XbuncTxgnqM0pNVnDUMF9trTurU9mqLgas2+eEJn4M7x+aLXkzDxUNPXZh3WMVzNRNRhQKB+UCrfS
+	3f+pQJs5c6A+c5L/9G1ICXbGEvL86SxV/yyUo5hs22ePT74CZsw7MnXiEJghPdXX3FRxgDGZQia15
+	gvsVA76wAHfuESYBym/FZT0oJbA+178eswF3L67dF5xSaO5zmor9T1mKuKnltpSe/AhR0UX3uOW16
+	LNt0jrdPo9BDCweGHz0rYGlyYQN5M+vo3bPI4u0AE8YQ0vbUTIeKJ7tTCy2h1iEwAgkDQAWtj2dPQ
+	PsbeSXm6ToYjLV3qK/0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBc7l-00000000GY4-0qOg;
-	Thu, 14 Nov 2024 15:51:13 +0000
+	id 1tBc8g-00000000GrA-1Dly;
+	Thu, 14 Nov 2024 15:52:10 +0000
 Received: from mx1.sberdevices.ru ([37.18.73.165])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBc5o-00000000FqQ-1UNi;
-	Thu, 14 Nov 2024 15:49:16 +0000
+	id 1tBc5o-00000000FqO-1RiM;
+	Thu, 14 Nov 2024 15:49:17 +0000
 Received: from p-infra-ksmg-sc-msk01.sberdevices.ru (localhost [127.0.0.1])
-	by mx1.sberdevices.ru (Postfix) with ESMTP id ACC2610000C;
+	by mx1.sberdevices.ru (Postfix) with ESMTP id 6D8A2100002;
 	Thu, 14 Nov 2024 18:49:02 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru ACC2610000C
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 6D8A2100002
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
 	s=mail; t=1731599342;
-	bh=+AzLdEYWocJzcvwOs9QW6zaf0G7mUCi6/CpG3lyJBi4=;
+	bh=lsFacXP5o2cIfFFjFmHt4+id49zlrLdO2XORIjPTsvI=;
 	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=ONY1OLPIHNtrXIygBNIWANblBcCwFiQLFl88mNeGWZFyP8PnCF30oTcKrCNUpQSCN
-	 b6+CD/UEubCvAo18TLsjKQaFcD9IFA0O15jnLHsfeK6hgQ2UC2cEVAzdJ+HIYIR/4v
-	 Ly5LC2TKF74zutTetixZCSGrQqpIePG39uR+o3qS4fnqd1isMDcx4/qBXyRk7GeEav
-	 R1ScHkaMk3U130TdFvqWM+DvqRmNE62maAtGV3lQlnA4/JuZvhfg5cnGWsKVeaVS7Z
-	 AMSKcXeqHR4kXoaAtVZFfZ2kcoM4c9yVIIwiJc3+03G+ugP4W4jkLq9GF7MnRr7cPV
-	 +wotGnb0y5esA==
-Received: from smtp.sberdevices.ru (p-i-exch-sc-m02.sberdevices.ru [172.16.192.103])
+	b=kXloHT1HT2fl4vo9D14HHJ+tfNVXTgcdzLcP7cbMJG3e92pVtpaBJNgrmE4AD37FE
+	 ut1E2T75pKRjrkFOryV7fs50WYGEYW5k2KGjlUVOyxvy1IScoUMBKBmWT6L/mC7KE+
+	 kow794vbbvBhnDoY7vZdfhmUgMMrUy835N6q6M5bOJTZbhImM7s3cgFZMPBHWw1xdR
+	 D3fmk1zKhinG6TtnD/7FvpmpmlKazqjiBEl7gV53dVmNlC8KUU0K+6E9YI/47keO5x
+	 psEmFY1VBjuZR9rpS9TCWZ0bFhcuIw7v9ZDJWzLqJoSUq/HY9Dg3hmtvUK/han9zmf
+	 FUFlHsAjasUJw==
+Received: from smtp.sberdevices.ru (p-i-exch-sc-m01.sberdevices.ru [172.16.192.107])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
 	by mx1.sberdevices.ru (Postfix) with ESMTPS;
@@ -55,12 +55,10 @@ To: Jan Dakinevich <jan.dakinevich@salutedevices.com>, Christian Hewitt
 	<martin.blumenstingl@googlemail.com>, Neil Armstrong
 	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Xianwei Zhao
 	<xianwei.zhao@amlogic.com>
-Subject: [PATCH v2 1/2] dt-bindings: arm: amlogic: document AC200 support
-Date: Thu, 14 Nov 2024 18:48:55 +0300
-Message-ID: <20241114154856.3353691-2-jan.dakinevich@salutedevices.com>
+Subject: [PATCH v2 0/2] Introduce initial support of Amlogic AC200 board
+Date: Thu, 14 Nov 2024 18:48:54 +0300
+Message-ID: <20241114154856.3353691-1-jan.dakinevich@salutedevices.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241114154856.3353691-1-jan.dakinevich@salutedevices.com>
-References: <20241114154856.3353691-1-jan.dakinevich@salutedevices.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -76,16 +74,16 @@ X-KSMG-AntiSpam-Rate: 0
 X-KSMG-AntiSpam-Status: not_detected
 X-KSMG-AntiSpam-Method: none
 X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Info: LuaCore: 41 0.3.41 623e98d5198769c015c72f45fabbb9f77bdb702b, {Tracking_smtp_not_equal_from}, d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;salutedevices.com:7.1.1;127.0.0.199:7.1.2;sberdevices.ru:7.1.1,5.0.1;smtp.sberdevices.ru:7.1.1,5.0.1, {Tracking_smtp_domain_mismatch}, {Tracking_smtp_domain_2level_mismatch}, {Tracking_sender_alignment_int}, {Tracking_white_helo}, FromAlignment: n
+X-KSMG-AntiSpam-Info: LuaCore: 41 0.3.41 623e98d5198769c015c72f45fabbb9f77bdb702b, {Tracking_smtp_not_equal_from}, {Tracking_uf_ne_domains}, d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;lore.kernel.org:7.1.1;127.0.0.199:7.1.2;sberdevices.ru:7.1.1,5.0.1;smtp.sberdevices.ru:7.1.1,5.0.1;salutedevices.com:7.1.1, {Tracking_smtp_domain_mismatch}, {Tracking_smtp_domain_2level_mismatch}, {Tracking_sender_alignment_int}, {Tracking_white_helo}, FromAlignment: n
 X-MS-Exchange-Organization-SCL: -1
 X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiPhishing: Clean
-X-KSMG-LinksScanning: Clean
+X-KSMG-AntiPhishing: Clean, bases: 2024/11/14 12:25:00
+X-KSMG-LinksScanning: Clean, bases: 2024/11/14 12:25:00
 X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2024/11/14 14:31:00 #26861614
 X-KSMG-AntiVirus-Status: Clean, skipped
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_074914_518656_FD683E97 
-X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-CacheID: sfid-20241114_074914_515457_A52861AB 
+X-CRM114-Status: UNSURE (   8.43  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,26 +99,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for the Amlogic AC200 board.
+Changes v1 [1] -> v2:
+ - added "Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>" to
+   dt-bindings
+ - don't share the definition of sound card between ac2xx boards
 
-Signed-off-by: Jan Dakinevich <jan.dakinevich@salutedevices.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- Documentation/devicetree/bindings/arm/amlogic.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Links:
+ [1] https://lore.kernel.org/all/20240521222155.28094-1-jan.dakinevich@salutedevices.com/
 
-diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml b/Documentation/devicetree/bindings/arm/amlogic.yaml
-index 0647851ae1f5..ed0071695d29 100644
---- a/Documentation/devicetree/bindings/arm/amlogic.yaml
-+++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
-@@ -193,6 +193,7 @@ properties:
-           - enum:
-               - amediatech,x96-air
-               - amediatech,x96-air-gbit
-+              - amlogic,ac200
-               - bananapi,bpi-m2-pro
-               - bananapi,bpi-m5
-               - cyx,a95xf3-air
+Jan Dakinevich (2):
+  dt-bindings: arm: amlogic: document AC200 support
+  arch/arm64: dts: ac200: introduce initial support of the board
+
+ .../devicetree/bindings/arm/amlogic.yaml      |   1 +
+ arch/arm64/boot/dts/amlogic/Makefile          |   1 +
+ .../boot/dts/amlogic/meson-sm1-ac200.dts      | 109 ++++++++++++++++++
+ 3 files changed, 111 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/amlogic/meson-sm1-ac200.dts
+
 -- 
 2.34.1
 
