@@ -4,89 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 201ABD68B19
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 13:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4DC7D68B19
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 13:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Spz/FLEs6rhZtrhf3mKJTQa4j7O7N/nH4uWZ4nNC+/E=; b=zCD4X1EPogJf8+q+REgsdNWDQj
-	xDfBcQhQxwi00VF6TGLbWltlxbOoLqtHjcSSFvOp6RhY7ulvPQpgdyzbKGrn+PgGSI2zoOqAQhoZk
-	B/Xa7YteTQ7MYNQMwhI673laFhqP3TJzaCtYFIhc8sfA94fAEWcD9h3mn/fzOmx93UDowvwMofWhW
-	cDcaM8uy4Wu++eJvr7ppuAuF2poMSzjQplzs7USJpEudRC6hAKUe/tCTt/h6nlBHEp72IfG/AoraV
-	KcdMpkvpQ6diIDLBvDIQC8Ngr3m0o6FXQY1zuuNS7rn2jKixTyo/v/hcZVrAgb5oHhNRffDb74NQq
-	v0iHmTmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FQXl4q59fNjX85EwQ+m9pfVKNMy5RRT2Oq5kVUxSP8k=; b=Wp63l6Bu1VbVUzhqM1qdTo0S0c
+	M8065CVfPe/zGcnKOya8wqv62rq4wX3vgkNPzXynOaLDn/egIkjpaELNloEVqKw6wJubONPUkU0Gd
+	a/PguEqMKAWD8k4hMdqiaQkIpVojMiQO+ckhYRnzsBTuQy6sgvH2u6Sjs7dF7lMgjRMHhnAKOltj1
+	iQXeIDk595YGL+WkjI9GSKpo3s2NFIxvNdG9iRx2tOseqSr2AzIDn5YI1yw4FEyGtFmmC2PR82OP7
+	e5RbGH985K5z6YHDvNIcDeX+pkFb5n4RQZ0PITFqGio3yid0rFvvgKHgpZi5JN5TR2kjUplDV0/Vv
+	jSF6VKVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBaHI-0000000A7HB-2P8H;
-	Thu, 14 Nov 2024 13:52:56 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1tBaN8-0000000A85W-19F5;
+	Thu, 14 Nov 2024 13:58:58 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBa6Q-0000000A5pG-1mw4
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 13:41:44 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-e381bfce6a4so349364276.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 05:41:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731591701; x=1732196501; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Spz/FLEs6rhZtrhf3mKJTQa4j7O7N/nH4uWZ4nNC+/E=;
-        b=NnLJ5R22uAoHowPb5uy6OFfFr+ChqxKlq61oBCaIBp9iTrF19ge2MjjSCNLNT4xcVd
-         czl6p6BgrqJH3qNaPt4koLVz+a+osRs8aO47t4VNpcNy+5Vem7FVg3obmJI1+ZbUcYmb
-         DtgAaJPErei6d282zkyIf29TJ9b3t98TNuZrtH8FMOx6n2hMas+vpYm2WWmk3wa6mFU7
-         LmrdjJXETgxQBRDztyeQApR/KTe/LBt2lWPXl04PwuJDfggL8mYHY7zvyibg40N168mt
-         QH+iXeG597YJswj++14nHAAmXkFGUSqYskLaqCncNIAR21XNT19WjDwDK6Yx3HDf/5Q1
-         c7fw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731591701; x=1732196501;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Spz/FLEs6rhZtrhf3mKJTQa4j7O7N/nH4uWZ4nNC+/E=;
-        b=JZL/IWhXH73KoUlLNKMySKdWFJVmYn6EMvuCKsK0yK0lLPj7YFOKiWxG9Ca8RgpFV0
-         2EUkEA/yFrVqeOgfvXqKW7DnZKJeYXDW7LSSkWFHbIfm8Ra13uvbHOy/pKdMB8HweBHX
-         kKwo8pGyLZcLuYv2m8Su3USw1gqxJyiSf0dzzirNvWxjAMMZrwzaMpy7GBJKBtWbGEAF
-         r4A3MBXhqReya3hv5AUgYChwQQ32DCxdylTC9yRSu570R+2nEvn1ZdCVq013mJPviumt
-         spX61gpxAogdVFBxOtVc0ALQ8u1wu7ghH3T2CHuZ9UAYpeVfFPLuPXO58Lin61vjFKcR
-         ilUw==
-X-Forwarded-Encrypted: i=1; AJvYcCWVxVvP2P4FaQGYaKOJT0R4ti2oNFz5s0xau6PXuar60Amsy3m13SjpzexMW1wNXBdsWvQIrD1Xg+CCAO+DDPzb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOsWkyhUrA0iZu9xWZa9VVVrjW7MO/k79Q7gd1/lrm/NvqDn6P
-	vdOVpZLniI9iD4ju8QiETxHNHpqQ2Ccoq6H48XnDkb8DlaDHHmZu9SO5dehpG2H8x0rAX5VBfUm
-	185v+uonPW/QM45HQpNxoNU8q60OyTSsiSZumJw==
-X-Google-Smtp-Source: AGHT+IE9OBhWPTuVNohC5WRAGntCMa66vHJnC0GsF9hH0ovM6xYCWXHrFVChjjSq9tv9jWS0r9j8CiJ3oX8Geq2uOGI=
-X-Received: by 2002:a05:6902:2c02:b0:e38:1364:7075 with SMTP id
- 3f1490d57ef6-e381364718fmr1343941276.29.1731591700646; Thu, 14 Nov 2024
- 05:41:40 -0800 (PST)
+	id 1tBaLI-0000000A7qK-3LSY;
+	Thu, 14 Nov 2024 13:57:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1731592620;
+	bh=xXmKpFmqAMp48Y7ttayGjWqRYdxHGKlAorYsho+aMWU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EYOwq4+kKxuaOhDYbs8RKuUUPRF+f3aQPWayV9Nqu8LJ9IXJ4vuTG7EKa1QbkkuoY
+	 0nJawHXVrCFbuf/jFbKvEC66c1koNvSPnAdAESpFMc6+yGzf3s1EDop25TdW++FbGH
+	 2Z5PUz5FmwJN9Ym5Wjj+4EhItfFEYhDKqz6RosFxvlGq8JpTA56Fm7udasiY5OaHNR
+	 JpHjIJtMgU5ZsOZMh4XR/mXkVQkcnkrjjlCdyQ1YwkCOZk/ZZJsKsk7lPO9Ht5rKyG
+	 0U8dFrEkhNxY/L3zM2GlasIZTIZpKZhntVg05DjgW7PLet8XI6gJB5OBd0G64r6IbN
+	 Lng+IxWOdIIaw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3025917E3663;
+	Thu, 14 Nov 2024 14:57:00 +0100 (CET)
+Message-ID: <1a36456b-4844-4827-ab53-598ec14d7437@collabora.com>
+Date: Thu, 14 Nov 2024 14:56:59 +0100
 MIME-Version: 1.0
-References: <20241113-add-display-support-for-qcs615-platform-v2-0-2873eb6fb869@quicinc.com>
- <20241113-add-display-support-for-qcs615-platform-v2-6-2873eb6fb869@quicinc.com>
- <404f006b-46e5-44db-9f22-ec2139468ecc@oss.qualcomm.com>
-In-Reply-To: <404f006b-46e5-44db-9f22-ec2139468ecc@oss.qualcomm.com>
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Thu, 14 Nov 2024 15:41:29 +0200
-Message-ID: <CAA8EJpqQSp5eXoKHHEchKpGq9ZpU0k0RDASA8T+t+SENNx+_fQ@mail.gmail.com>
-Subject: Re: [PATCH v2 6/9] drm/msm/dsi: Add support for QCS615
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Fange Zhang <quic_fangez@quicinc.com>, Rob Clark <robdclark@gmail.com>, 
-	Abhinav Kumar <quic_abhinavk@quicinc.com>, Sean Paul <sean@poorly.run>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krishna Manikandan <quic_mkrishn@quicinc.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Li Liu <quic_lliu6@quicinc.com>, 
-	Xiangxu Yin <quic_xiangxuy@quicinc.com>, linux-arm-msm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: dts: mediatek: Set mediatek,mac-wol on
+ DWMAC node for all boards
+To: Michael Walle <mwalle@kernel.org>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
+Cc: kernel@collabora.com, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Biao Huang <biao.huang@mediatek.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Andrew Halaney <ahalaney@redhat.com>, Simon Horman <horms@kernel.org>
+References: <20241109-mediatek-mac-wol-noninverted-v2-0-0e264e213878@collabora.com>
+ <20241109-mediatek-mac-wol-noninverted-v2-2-0e264e213878@collabora.com>
+ <bdbfb1db-1291-4f95-adc9-36969bb51eb4@collabora.com>
+ <D5LWHT7OU9DQ.NCMSTUWT5991@kernel.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <D5LWHT7OU9DQ.NCMSTUWT5991@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_054142_501672_EEE698DF 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20241114_055705_038817_A29DAE97 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,43 +90,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 14 Nov 2024 at 15:32, Konrad Dybcio
-<konrad.dybcio@oss.qualcomm.com> wrote:
->
-> On 13.11.2024 12:51 PM, Fange Zhang wrote:
-> > From: Li Liu <quic_lliu6@quicinc.com>
-> >
-> > Add support for DSI 2.3.1 (block used on QCS615).
-> > Add phy configuration for QCS615
-> >
-> > Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
-> > Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
-> > ---
-> >  drivers/gpu/drm/msm/dsi/dsi_cfg.c          | 17 +++++++++++++++++
-> >  drivers/gpu/drm/msm/dsi/dsi_cfg.h          |  1 +
-> >  drivers/gpu/drm/msm/dsi/phy/dsi_phy.c      |  2 ++
-> >  drivers/gpu/drm/msm/dsi/phy/dsi_phy.h      |  1 +
-> >  drivers/gpu/drm/msm/dsi/phy/dsi_phy_14nm.c | 21 +++++++++++++++++++++
-> >  5 files changed, 42 insertions(+)
-> >
-> > diff --git a/drivers/gpu/drm/msm/dsi/dsi_cfg.c b/drivers/gpu/drm/msm/dsi/dsi_cfg.c
-> > index 10ba7d153d1cfc9015f527c911c4658558f6e29e..edbe50305d6e85fb615afa41f3b0db664d2f4413 100644
-> > --- a/drivers/gpu/drm/msm/dsi/dsi_cfg.c
-> > +++ b/drivers/gpu/drm/msm/dsi/dsi_cfg.c
-> > @@ -221,6 +221,21 @@ static const struct msm_dsi_config sc7280_dsi_cfg = {
-> >       },
-> >  };
-> >
-> > +static const struct regulator_bulk_data qcs615_dsi_regulators[] = {
-> > +     { .supply = "vdda", .init_load_uA = 21800 },
-> > +};
->
-> I believe refgen is also present here and you can reuse dsi_v2_4_regulators
+Il 14/11/24 13:29, Michael Walle ha scritto:
+> Hi,
+> 
+> On Thu Nov 14, 2024 at 10:26 AM CET, AngeloGioacchino Del Regno wrote:
+>> Il 09/11/24 16:16, Nícolas F. R. A. Prado ha scritto:
+>>> Due to the mediatek,mac-wol property previously being handled backwards
+>>> by the dwmac-mediatek driver, its use in the DTs seems to have been
+>>> inconsistent.
+>>>
+>>> Now that the driver has been fixed, correct this description. All the
+>>> currently upstream boards support MAC WOL, so add the mediatek,mac-wol
+>>> property to the missing ones.
+>>>
+>>> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+>>> ---
+>>>    arch/arm64/boot/dts/mediatek/mt2712-evb.dts                   | 1 +
+>>>    arch/arm64/boot/dts/mediatek/mt8195-demo.dts                  | 1 +
+>>>    arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts | 1 +
+>>>    3 files changed, 3 insertions(+)
+>>>
+>>
+>> ..snip..
+>>
+>>> diff --git a/arch/arm64/boot/dts/mediatek/mt8195-demo.dts b/arch/arm64/boot/dts/mediatek/mt8195-demo.dts
+>>> index 31d424b8fc7cedef65489392eb279b7fd2194a4a..c12684e8c449b2d7b3b3a79086925bfe5ae0d8f8 100644
+>>> --- a/arch/arm64/boot/dts/mediatek/mt8195-demo.dts
+>>> +++ b/arch/arm64/boot/dts/mediatek/mt8195-demo.dts
+>>> @@ -109,6 +109,7 @@ &eth {
+>>>    	pinctrl-names = "default", "sleep";
+>>>    	pinctrl-0 = <&eth_default_pins>;
+>>>    	pinctrl-1 = <&eth_sleep_pins>;
+>>> +	mediatek,mac-wol;
+>>
+>> The demo board has the same WoL capability as the EVK, so you can avoid adding the
+>> mac-wol property here.
+> 
+> Not sure I can follow you here.
+> 
 
-This was in feedback for v1... And the patch should be further split,
-having DSI and PHY parts separately.
+That's in the sense that they do WoL through the MAC and not through the PHY (as
+in, it's the MAC that has to be configured for WoL and not *only* the PHY).
 
--- 
-With best wishes
-Dmitry
+>>
+>>>    	status = "okay";
+>>>    
+>>>    	mdio {
+>>> diff --git a/arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts b/arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts
+>>> index e2e75b8ff91880711c82f783c7ccbef4128b7ab4..4985b65925a9ed10ad44a6e58b9657a9dd48751f 100644
+>>> --- a/arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts
+>>> +++ b/arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts
+>>> @@ -271,6 +271,7 @@ &eth {
+>>>    	pinctrl-names = "default", "sleep";
+>>>    	pinctrl-0 = <&eth_default_pins>;
+>>>    	pinctrl-1 = <&eth_sleep_pins>;
+>>> +	mediatek,mac-wol;
+>>
+>> I'm mostly sure that Kontron's i1200 works the same as the EVK in regards to WoL.
+>>
+>> Michael, I recall you worked on this board - can you please confirm?
+> 
+> I'd say so. Honestly, I've never tried WoL on this board, but I'm
+> not aware of any difference to the *demo* board (not the EVK).
+
+Thanks for confirming. I will ignore the devicetree commit entirely then, as this
+would ...un...fix the fix (meaning that patch [1/2] is good!).
+
+Cheers,
+Angelo
+
+> 
+> -michael
+
+
 
