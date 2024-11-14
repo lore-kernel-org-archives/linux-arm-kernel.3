@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE74DD68B2C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 14:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47F2AD68B2C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 14:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9QgoMz2gXE6CCus76Pqiv4l7faAk9fgsWt0YKAGIKck=; b=MdE8SisxbJ2LshxqlcLCznli3E
-	Xw6CbhZ9tfDGv3Pz1EJTPJOiGG8fhl+mI3cKEIuCxK8mTV5TfWfNs0w30ERYQsYhCbn+Q1PkUkRn/
-	zRbhi9fOGmhc1yUxGlL/1Hm7GaigV5droMqJC7CY4QzQCyAMvcgg8QiL7RB098XPU3SM0e3PB/LYt
-	YImzgxBqgug2WuOONLSi0YlNLS2Chej4IVZtJiP48Q941mIoXD+os/tagilZX8LI6iTYRgq8Oh2OF
-	R0EnjCNk+Ycb0Pd+hXC7Ul94v2y09aJ8Wwo9jodv8ssbHwZBtcSusL4Rva8p5BXafayW5/2Q1je/3
-	u9+3GtyA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LamMmHrHoISVxlDkxrXlCn20NYqsihYLKICdj17wsng=; b=SYDwDN3zIxnlxs3R9H7MlBgFHD
+	Pp9wZ/gWI8VBhEoJlh9dfOpR7Dpy452UTXKk0YtbLxunXwYrUgLeeQ80Af+khZJrfcfMlJ6nEaIe5
+	JHTIKgm4hXb3IzaoHst4mr0AbauqSaaRoUb0Ywa+kBj7pBZz/Q2oLeTYMdJN/lNjRTKxcrYKYVuyU
+	5AWb5AnObhvFcA2QbQFE7CpUUlZu/yLORFCBLNIG4HCyMQv6rMWx6Y84sYJY3LmoExkwXdQpMWvh1
+	0dVpKYiGFovbQb/d5Pr8Jr6t1niwqvF4ydjEiRVDo10UwGHPjTtGfgY6MdjF2b82eJHpP+HZ16q6N
+	cVYpXzaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBb18-0000000AEYm-47l8;
-	Thu, 14 Nov 2024 14:40:18 +0000
-Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
+	id 1tBb2v-0000000AEpw-2A4N;
+	Thu, 14 Nov 2024 14:42:09 +0000
+Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBaxv-0000000AE32-46He
+	id 1tBaxy-0000000AE3P-321B
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 14:37:01 +0000
-Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-290c69be014so331933fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 06:36:58 -0800 (PST)
+	Thu, 14 Nov 2024 14:37:05 +0000
+Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-2884e7fadb8so319392fac.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 06:37:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731595018; x=1732199818; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9QgoMz2gXE6CCus76Pqiv4l7faAk9fgsWt0YKAGIKck=;
-        b=X/hDPSuyFhPb1DO7VT7eASb/pgnSlq0Mi0SyWg8GBUOxYLgwZXwvEktxwG4tNY3Pii
-         w04Mte/j8KpioX7EARyI4vg/s4UIwwEs/7q092V1JefW2+ZJRDeZXifQQ7Xq03Wc4n76
-         2CXCYnV1sjHoJqnBMLb8Pjbqzwdow8q76M3v1XregFZcZFdvfHhZc58Z10duaz2dCNBS
-         zNbBLTE6Q70/Oe6pvMc+EnKBKpNJaxqsEOkHHgF8fUf41O7spGnYBBXjVUdZIIzTTE89
-         5iSiN+LQqWlWkOSbBiMUuuSvY2yEsxTSWPGYWypjzVFnAzfnDHW7xuQ6+lx9/onbSmiz
-         JyUg==
+        d=gmail.com; s=20230601; t=1731595020; x=1732199820; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LamMmHrHoISVxlDkxrXlCn20NYqsihYLKICdj17wsng=;
+        b=WJ4NfJAmxCcEkqpa8dIBzp+c2Pd4dOazqBo09hRuIVsfga1q2aA45FNJU0Yae+ZkIH
+         jcMR0eRYAxUDIXDkgdsrZBIDbQHyTrB75bqwGO/Aiybi6Brr8nV4UmgzSOY9t1jaLyZ3
+         Z19s5nkKkZjvVNot44TwLLCsm1f+JDzyqbxWN2MPWHt63Y0Ju9GsUYij5sx5Rwy/yxvR
+         GFk70btlsRUmRyxkqVKbhoYKpxRifnVgdCDBYemn0U2R2tALgBnd+z2vtW+FnQzX6hmk
+         MFTV85M/iCzp8D4mi0CvAHj3HrIJPrNwUFacquBfmZxkN63MA9so6+KjUd2BwomH9ILE
+         5xKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731595018; x=1732199818;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9QgoMz2gXE6CCus76Pqiv4l7faAk9fgsWt0YKAGIKck=;
-        b=AmXusynggO2BOvaF2Aug0Otg9LLhd+TvWOXSNwV11ugbpku2mmfEWkObDbjiOZEY5a
-         WqjAogbOJDggDBCEpGuUovyub/veG5WK5EUoVwAoiGMzrRZ7fxoU9z1aSIMfoOp2luxr
-         kcHAyf3NQsz82t0OaKWaEImOwJKiwIncot3BKgWmblKB/LzoBLzI7+JMGTYfict4PenF
-         Bx7yGebdQCOGFuax9NFHD9rgw3gI4SwG+2RF/JmYRsAB/wDIg66UXSHSQ6TcmoV5/h92
-         kOsQieA64z1ej9bdEEmCO/x/qRaL6SX7CBndzAHlJxY4MGQIuRx3Cm6rvWfdLAJJ03wO
-         Nghg==
-X-Gm-Message-State: AOJu0YzEzD3qiXxVPyqjIw6SzXBNrRJrXcASLTrBlTXuiXJVn6wtkKRg
-	duE4k0d6PH494P9H27vHL/Mtr+TzdJ0L3DfzZsQWQdcHgBuWkUA9
-X-Google-Smtp-Source: AGHT+IFI3nlf8wAL4X0Sj5OS273H3/gWwdE9mh3koUy2pzCJuGW4ZTDW4qZM59jCbcJpseZpxiyxmg==
-X-Received: by 2002:a05:6870:1b05:b0:259:88b4:976 with SMTP id 586e51a60fabf-296106d1d16mr2508059fac.43.1731595017861;
-        Thu, 14 Nov 2024 06:36:57 -0800 (PST)
+        d=1e100.net; s=20230601; t=1731595020; x=1732199820;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LamMmHrHoISVxlDkxrXlCn20NYqsihYLKICdj17wsng=;
+        b=rrTzCm5vN5wvDUOiEbUTFojki5jCE89Etq+Kg8WNGLWtHHOgaExAEDRjN7HiniE8z4
+         AvDu7q6PU6zxl4Oo6DMtquyQh0R7N4yiQlp0QWmjIvz/K4l3mT/OcK6UKSb4ep03zq33
+         2YUOtzASCyG0K827zam/RlV0uSN8IPq51tAbCo1UBKvUtltI9K5P3qFL7C3GQfJF+Mm9
+         gP1xZdsWV6w9iwzZsDK5N1tLk2Af/AuzxdjstaQNMEeR6NEHPhuy4dsqyi5lbBIS95SX
+         P1WplP77p/+HkPTrjKSSlsGnnasHKM4HUC+g8qn85P2F7QSOdZ7Q8dveZw7EBo6otg4Z
+         Ya2A==
+X-Gm-Message-State: AOJu0Yz3L1TwiyVWCKNQkqp7zeMJsyv1YUbJ5iGb4YPU5lzHtkt1WFhV
+	cfNYYqAvBaLpdnDqyDwHq2+mzC0mJksmz5Jr0xpMUuBWiaqG8d70
+X-Google-Smtp-Source: AGHT+IFsQik4tjBSI2mRjcpS5ABfhYDsS9jNEFlH4iamdiDIl0ypAeAwQjngdw/0Rj4LrHF4boIDmw==
+X-Received: by 2002:a05:6870:889e:b0:25e:1382:864d with SMTP id 586e51a60fabf-29610648008mr2874010fac.30.1731595020475;
+        Thu, 14 Nov 2024 06:37:00 -0800 (PST)
 Received: from localhost.localdomain ([38.44.237.182])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-71a6eaeea60sm393294a34.43.2024.11.14.06.36.55
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-71a6eaeea60sm393294a34.43.2024.11.14.06.36.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Nov 2024 06:36:57 -0800 (PST)
+        Thu, 14 Nov 2024 06:37:00 -0800 (PST)
 From: Sota4Ever <wachiturroxd150@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>,
 	Alim Akhtar <alim.akhtar@samsung.com>,
@@ -70,15 +71,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/2] Add support for Samsung Galaxy S20 FE (SM-G780F/r8s) [SoC Exynos990]
-Date: Thu, 14 Nov 2024 14:36:34 +0000
-Message-Id: <20241114143636.374-1-wachiturroxd150@gmail.com>
+Subject: [PATCH v3 1/2] dt-bindings: arm: samsung: Add compatible for Samsung Galaxy S20 FE (SM-G780F)
+Date: Thu, 14 Nov 2024 14:36:35 +0000
+Message-Id: <20241114143636.374-2-wachiturroxd150@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241114143636.374-1-wachiturroxd150@gmail.com>
+References: <20241114143636.374-1-wachiturroxd150@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_063700_041919_69CA85FC 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20241114_063702_841216_CE2F3363 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,54 +98,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Denzeel Oliva <wachiturroxd150@gmail.com>
 
-Hello :),
+Add binding for the Samsung Galaxy S20 FE (SM-G780F) board, which is
+based on the Samsung Exynos990 SoC.
 
-I'm a newbie and I started getting interested 1 year ago.
-Well, that's the beginning,
-until I learn more about kernels and the C language,
-which is important in that.
+Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+---
+ .../devicetree/bindings/arm/samsung/samsung-boards.yaml          | 1 +
+ 1 file changed, 1 insertion(+)
 
-Well, bluntly, here it is:
-
-That Samsung Galaxy S20 FE device is part of the Exynos990 SoC family,
-I saw that Igor supported that processor,
-I took advantage of it.
-
-It has the same functions of:
-
-* CPU
-* pintrl
-* gpio-keys
-* simple-framebuffer
-
-Just enough to reach a shell in an initramfs.
-
-The preferred way to boot the upstream kernel is by using a
-shim bootloader, called uniLoader.
-Changes: - Simply add dts from S20 FE device
-
-Special thanks to Igor for helping me with that :)
-
-Changes in v2:
-- Change author name
-
-Changes in v3:
-- Adjusted value <0x08 0x80000000 0x0 0x0c000000> to
- <0x8 0x80000000 0x0 0xc0000000>
-Honestly I was wrong in the parameter and the other one is
-not necessary to put another "0"
-
-Denzeel Oliva (2):
-  dt-bindings: arm: samsung: Add compatible for Samsung Galaxy S20 FE
-    (SM-G780F)
-  arm64: dts: Add initial support for Samsung Galaxy S20 FE (r8s)
-
- .../bindings/arm/samsung/samsung-boards.yaml  |   1 +
- arch/arm64/boot/dts/exynos/Makefile           |   1 +
- arch/arm64/boot/dts/exynos/exynos990-r8s.dts  | 115 ++++++++++++++++++
- 3 files changed, 117 insertions(+)
- create mode 100644 arch/arm64/boot/dts/exynos/exynos990-r8s.dts
-
+diff --git a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+index b5ba5ffc3..168e77375 100644
+--- a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
++++ b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+@@ -240,6 +240,7 @@ properties:
+         items:
+           - enum:
+               - samsung,c1s                     # Samsung Galaxy Note20 5G (SM-N981B)
++              - samsung,r8s                     # Samsung Galaxy S20 FE (SM-G780F)
+           - const: samsung,exynos990
+ 
+       - description: Exynos Auto v9 based boards
 -- 
 2.34.1
 
