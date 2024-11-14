@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 836BCD68B03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 13:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 962BFD68B09
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 13:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7iCRMQgxKEbKmY23mtTxx2j3ocktgqQvefLfPvigazg=; b=jQu9Da9/VjWjcLcYCfqbB0Rlj6
-	YE5jclUDYCJcus9Uu3HcczhqLJNfAL2m4tbryI0SfQPnHDqiuzH4D+11MQAuKMx/sddRR97w8FYYj
-	dKQ9rbAhuerOeA8Zy9C/WcQkY7dIJUkjGWaBY+zOBdyvcyJPIjqbUViev26OLAb2FmkdBFVsoVx4K
-	DocCC0u3Bs0AdCXMQsqeqY5oUWinIwtnXQbnlTGyQdG5xsGd4Nm4E2TLF7KASJ6j2FDfbYzmCYcXS
-	+G0L/yD+un92SZbN7WYVgf+5yuv3InRetzm0vHwchHJVBM3cCA/69U0teAlwdrn6gowDdTXcG0bOo
-	ZyDoXhuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UL42DfD3zdkirn/MlnMaCuJCLq4Q3YvSc/R+n8i9e4E=; b=f1XBHclhIYfgA19Mu45lmay2Vf
+	t0mW8xOANUSUAz5n/OO00aNUlBm7c0dfq/eJiX3lWHRGhKyNdVGJHgZJMCHocekkLnDvJ5KH4Puv4
+	6BYXaa156xWygd1jEwMqY3YSg1n9eDlX1Xnql80zoko+jcyb147s7WjrU/0V/csZwOlF2/+cEe7AT
+	cT7Qi5NRpsCWc0fHfSKKbqxU1gpY9/rlwWSZKT2C6a1Tag8MzpHZm5xk67hhyJxZNvvuBN4mutD1E
+	9KWx2pF5Sl7CujXorC3hIVTXNQx9fxMnhMnjp1aVTDBcAhWfR94rhmJfvfU0Ba+cmy7E4ZyeEvhJH
+	ipakXJKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBZWJ-00000009zxb-15Jr;
-	Thu, 14 Nov 2024 13:04:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tBZj0-0000000A26V-1ZAd;
+	Thu, 14 Nov 2024 13:17:30 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBZTX-00000009zZ1-49V3
+	id 1tBZh9-0000000A1uw-0V1d
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 13:01:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 218845C5F13;
-	Thu, 14 Nov 2024 13:00:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AE6AC4CECD;
-	Thu, 14 Nov 2024 13:01:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731589291;
-	bh=znIi5ZhH0roDBGFwUetxCsbJMCd7PbY3dvLNlBEnHaI=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=OKVi/7d2yTopEE+eYkrzveGgVu5IM+UsZgON8pbD8HClNlqS+9D0NQviThUXXHawO
-	 XJKMPf+csqspkjwsPxUVy+EMQDQQERKICOnyk56M6lR/1HgZl0QNfsCaECyGOHgL9q
-	 6MnQD6w01f3EZAZDc7VyCiwOlU7DJH9yhHWC3uGulh+Yw0K2ly5N6iX6OZt4LGNruy
-	 LmFWfzP79wsnELTxOeRtad/7ItcT84bolDJ3CJp+AqQEGIFlTYN7hWe4pGIJTSOE6R
-	 w1ImRIfTRCqGiN8cCgGj/kwhu/nLEs3f9KqN31tgbFsvjTR5N1Qo4vwlm+k1efSsFb
-	 rNr2J33odeT5g==
-From: Mark Brown <broonie@kernel.org>
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Jonas Rebmann <jre@pengutronix.de>
-Cc: kernel@pengutronix.de, linux-spi@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20241113-imx-spi-word-delay-v2-0-2b65b737bf29@pengutronix.de>
-References: <20241113-imx-spi-word-delay-v2-0-2b65b737bf29@pengutronix.de>
-Subject: Re: [PATCH v2 0/2] spi: imx: support word delay in ecspi
-Message-Id: <173158928856.484595.3921699899296506205.b4-ty@kernel.org>
-Date: Thu, 14 Nov 2024 13:01:28 +0000
+	Thu, 14 Nov 2024 13:15:36 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tBZh4-0001vg-QQ; Thu, 14 Nov 2024 14:15:30 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tBZh4-000kPq-1f;
+	Thu, 14 Nov 2024 14:15:30 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tBZh4-00BZfu-1O;
+	Thu, 14 Nov 2024 14:15:30 +0100
+Date: Thu, 14 Nov 2024 14:15:30 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Lucas Stach <l.stach@pengutronix.de>,
+	Russell King <linux@armlinux.org.uk>, kernel@pengutronix.de,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] ARM: Don't mention the full path of the source directory
+ in mach-types.h
+Message-ID: <20241114131530.texa6lkfmm3ukh5d@pengutronix.de>
+References: <20240213092835.754462-2-u.kleine-koenig@pengutronix.de>
+ <a80f1cc8d5dda405f5af08eaa33d21598fa31d14.camel@pengutronix.de>
+ <7occ3sqwoae2gjhvjun5c5auinas3lwhugfqjeta5pcr2gv2jc@dnzl56imqvbr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-355e8
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <7occ3sqwoae2gjhvjun5c5auinas3lwhugfqjeta5pcr2gv2jc@dnzl56imqvbr>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_050132_109671_EEB82BEE 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20241114_051535_186190_47B7775F 
+X-CRM114-Status: GOOD (  28.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,44 +80,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Nov 2024 13:18:30 +0100, Jonas Rebmann wrote:
-> The i.MX SPI controller supports inserting a configurable delay between
-> subsequent words, which is needed for some slower devices that couldn't
-> keep up otherwise.
+Hi Uwe, Lucas,
+
+On 24-07-25, Uwe Kleine-König wrote:
+> Hallo Lucas,
 > 
-> This patch series introduces support for the word delay parameters for
-> i.MX51 onwards.
+> On Wed, Jul 24, 2024 at 03:45:17PM +0200, Lucas Stach wrote:
+> > Am Dienstag, dem 13.02.2024 um 10:28 +0100 schrieb Uwe Kleine-König:
+> > > To make package building reproducible independent of the location of the
+> > > source tree, the absolute path of this source tree must not be mentioned
+> > > in the built artifact. So strip $abs_srctree from FILENAME in the
+> > > output.
+> > > 
+> > > This fixes a warning issued by Yocto:
+> > > 	WARNING: linux-lxatac-6.7-r0 do_package_qa: QA Issue: File /usr/src/debug/linux-lxatac/6.7-r0/arch/arm/include/generated/asm/mach-types.h in package linux-lxatac-src contains reference to TMPDIR
+> > > 
+> > > Signed-off-by: Uwe Kleine-König <u.kleine-koenig@pengutronix.de>
+> > > ---
+> > >  arch/arm/tools/gen-mach-types | 13 ++++++++++++-
+> > >  1 file changed, 12 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/arm/tools/gen-mach-types b/arch/arm/tools/gen-mach-types
+> > > index cbe1c33bb871..9592ceb8a102 100644
+> > > --- a/arch/arm/tools/gen-mach-types
+> > > +++ b/arch/arm/tools/gen-mach-types
+> > > @@ -21,10 +21,21 @@ NF == 3 {
+> > >  	  num[nr] = ""; nr++
+> > >  	}
+> > >  
+> > > +# prepend a \ to all special chars in a regexp
+> > > +function quote(s) {
+> > > +	return gensub("[][\\^$.|()*+?{}]", "\\\\&", "g", s)
+> > 
+> > gensub is a gawk extension and thus will break on systems with a
+> > different awk implementation.
 > 
-> [...]
+> Oh, wasn't aware of that.
+> 
+> It seems for Debian the only packaged alternative awk implementation is
+> goawk. This one knows about gensub, too.
+> 
+> Other tools in the kernel seem to assume gawk is available, but
+> explicitly call it as gawk. gen-mach-types is called using $(AWK) which
+> defaults to "awk".
+> 
+> So I guess the easiest fix would be:
+> 
+> diff --git a/arch/arm/tools/Makefile b/arch/arm/tools/Makefile
+> index 28b6da8ac5f6..84107bb7ddf1 100644
+> --- a/arch/arm/tools/Makefile
+> +++ b/arch/arm/tools/Makefile
+> @@ -32,7 +32,7 @@ uapi:	$(uapi-hdrs-y)
+>  $(shell mkdir -p $(kapi) $(uapi))
+>  
+>  quiet_cmd_gen_mach = GEN     $@
+> -      cmd_gen_mach = $(AWK) -f $(real-prereqs) > $@
+> +      cmd_gen_mach = gawk -f $(real-prereqs) > $@
+>  
+>  $(kapi)/mach-types.h: $(src)/gen-mach-types $(src)/mach-types FORCE
+>  	$(call if_changed,gen_mach)
+> 
+> maybe together with removing the shebang line from the script which is
+> unused and (then) misleading.
+> 
+> If we want to stick to plain awk, I'd ask for someone with a different
+> implementation to work on a patch.
 
-Applied to
+I wasn't aware of this patch, therefore I send a simpler one which drops
+the filename mention:
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+https://lore.kernel.org/all/20241114130021.2802803-1-m.felsch@pengutronix.de/T/#u
 
-Thanks!
-
-[1/2] spi: imx: pass struct spi_transfer to prepare_transfer()
-      commit: 7b94af24a7a4d12a76183f1b2f0d363d2c9ced43
-[2/2] spi: imx: support word delay
-      commit: a3bb4e663df318b232746478e7b191bcf6e3af40
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Regards,
+  Marco
 
