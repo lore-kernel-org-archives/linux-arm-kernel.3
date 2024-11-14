@@ -4,78 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C36D65C77
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 11:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B30E3D65C77
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 11:17:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gIPrSHgQCALCepHl6R+DTYzMov4UgSjk+ZA9/KyL5Qc=; b=SNPfwlHnY/b8LGPEPhXSQrwpXt
-	0aNIMZfkwq5e3pdqvY61VlkBJUEiDKi9WBBQGwhq4LEvdnk0awKbam6PsUtsLRvZ5zKhTFMN/HW2a
-	ff5yOnkw+z+dQcvhBiyojZXYDdZaERqgQbza+I3v/igcZaXIYAo1sUyMaS5ORzDbsSkBycOyusr/6
-	ZKGjHza/9j7uz4oc1/A3g0l8iEJuKQMXKb89gFq5BA65M3CP4nVWRHDcLJr3EVXMo7avT/RYKhpYd
-	gVv9Mv/OFtMLu921oa++FIMjG8HihPyILM2NEtOgNR3NZ7QuN0Scd/BhYH+7WHR+Ntc8wucEJOCnY
-	Rm9wWbnA==;
+	bh=PO7+1L/RL1jlngVwSYfjIWxhUQu8nxxElZ4cG7x7r88=; b=ePpZ9oonSqpdhVvYFY0mZ/9++W
+	NJzC4KYCB/d7a6djIoCfvVxRHWuXpA2wm0JJAaslE5iLQZKSkSMriTWK9q6fudGTg1AlU7+7snSy6
+	OSWGN41FD66zVeSjjPZBLlR5qOutL4N0/TKy9aw58g0/uqIWKjd4M6Bc61b1iqhptyBG+144JOLou
+	vCecC6l43fhf+radVGa9IbA3EMH1wdrbsPQc0dlo4xVlNKO/bg1dUAWdivWYXAyqmrzuh/GiZx7oi
+	ZCmuO5bnRl7ITCws19aTFSrFPAtsmr8FfrZKu2KjznsdYhjsrfpeI/eHm1JjcbGIuIa5SyiMcM43L
+	kfFxIIGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBXqR-00000009gyG-3Azp;
-	Thu, 14 Nov 2024 11:17:03 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tBXqS-00000009gyS-0ARI;
+	Thu, 14 Nov 2024 11:17:04 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWk1-00000009Soi-0KLV
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 10:06:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=gIPrSHgQCALCepHl6R+DTYzMov4UgSjk+ZA9/KyL5Qc=; b=CA0uCSYsodv0SQpUQLPg+KwV1j
-	EOlFv+wYDpcRDgp2xP9fYXhBS0UkslmAeNFxvc/UPX/QDM9nTvMHb+Rb6cUcq/zTfCKsxIGlFmrwM
-	TyoKtRmwlH4+WcAcpfp+TwMMEyi0UTdTrCScZJ7tnbJ1Df18lW2N/W4W/S3JgmLXtJlNWq7uXid7o
-	aOQsjDZCkpZNfzjalZOEcIqNmHnBv3jRuVfiCkBdf6nz8dnJb1nv/+OzBsWBGtX8Sl0mRWh2ozlpd
-	GBjeExq32+6wAshDmMRV/EWWV1+oJyy3Pn30P4STwNRs68DsewdJaRfxtzYgjEOaiziLFeokGZHMe
-	8LukeCIg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58434)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tBWje-0007mr-2u;
-	Thu, 14 Nov 2024 10:05:59 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tBWjY-000113-2H;
-	Thu, 14 Nov 2024 10:05:52 +0000
-Date: Thu, 14 Nov 2024 10:05:52 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net v1 1/2] net: phy: set eee_cfg based on PHY
- configuration
-Message-ID: <ZzXLgEjElnJD1445@shell.armlinux.org.uk>
-References: <20241114081653.3939346-1-yong.liang.choong@linux.intel.com>
- <20241114081653.3939346-2-yong.liang.choong@linux.intel.com>
- <ZzXBpEHs0y2_elqK@shell.armlinux.org.uk>
+	id 1tBWlo-00000009T5d-2nRl;
+	Thu, 14 Nov 2024 10:08:18 +0000
+X-UUID: 5793d6f8a27011ef9048ed6ed365623b-20241114
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=PO7+1L/RL1jlngVwSYfjIWxhUQu8nxxElZ4cG7x7r88=;
+	b=c/ALBO09I62XsFGLRj8l+YQr1OpPbBuOqtVh7gq6Wpwci8wgGNAqfaXfnqQ6yEF9JNBjw05VH3t6ogN5cG9k9Lw9uPhO1f18QFHhbQcbn6FTech1FjUMrpMGxKj2zZij01+ia9T+fpNT8/4xmpWRkcaBwvWKTIkE2cug5NrVepQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:c2922383-d15b-4bde-a068-89aa23f6cee1,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:3a3fa25c-f18b-4d56-b49c-93279ee09144,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0,EDM:-3,IP
+	:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-UUID: 5793d6f8a27011ef9048ed6ed365623b-20241114
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
+	(envelope-from <liju-clr.chen@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 51509052; Thu, 14 Nov 2024 03:08:06 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Thu, 14 Nov 2024 18:08:03 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Thu, 14 Nov 2024 18:08:02 +0800
+From: Liju-clr Chen <liju-clr.chen@mediatek.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	"Catalin Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	"Steven Rostedt" <rostedt@goodmis.org>, Masami Hiramatsu
+	<mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Richard Cochran <richardcochran@gmail.com>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Liju-clr Chen
+	<Liju-clr.Chen@mediatek.com>, Yingshiuan Pan <Yingshiuan.Pan@mediatek.com>,
+	Ze-yu Wang <Ze-yu.Wang@mediatek.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-trace-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-mediatek@lists.infradead.org>, Shawn Hsiao <shawn.hsiao@mediatek.com>,
+	PeiLun Suei <PeiLun.Suei@mediatek.com>, Chi-shen Yeh
+	<Chi-shen.Yeh@mediatek.com>, Kevenny Hsieh <Kevenny.Hsieh@mediatek.com>
+Subject: [PATCH v13 02/25] docs: geniezone: Introduce GenieZone hypervisor
+Date: Thu, 14 Nov 2024 18:07:39 +0800
+Message-ID: <20241114100802.4116-3-liju-clr.chen@mediatek.com>
+X-Mailer: git-send-email 2.18.0
+In-Reply-To: <20241114100802.4116-1-liju-clr.chen@mediatek.com>
+References: <20241114100802.4116-1-liju-clr.chen@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ZzXBpEHs0y2_elqK@shell.armlinux.org.uk>
+Content-Type: text/plain
+X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-AS-Result: No-10--14.459700-8.000000
+X-TMASE-MatchedRID: +CLiPMT38ZAihjhlMTu+HHa57ruHAnHxFuNF4lJG6xs1LB46LFAAkkd0
+	Rzx07LDVu1YWrIMJBFIUZ7mqlsLL7wAwGIAo3ShbyATMS/tDL5ipD1R7N5OROMA5YKm8dwM6jIZ
+	02fRmyUctK7tHzSdmVLdnCNkrUAnN1ddezVny+QLiHyvyXeXh5qny79MYSKWc/uK0hv0lVwklHD
+	ysIsZQz11tBKF7hhAzucwGRxuiOSoY1mlq1H5Z3ov2/i8VNqeOWOi4GPaBr7/FpA1uJFd1mtZho
+	S9qxz0XHuLux1hFzDvyN9+MhBBXP9D+INh9HpXLSEQN/D/3cG4ayaQg2/Z1zxy/A9iZcrIf+bls
+	dPlPYzaEOdaLaz+/0fJtR6XZoHQXq9Fb0RfhjvR3p/MPn9NFkc/rSr8VfmGwJ870fpj93L41Itq
+	0yDsRhtMHHnHl1YlR3VFTasCiHDkWfqaKovr4bRDK/Fqp4JZ8fS0Ip2eEHnz3IzXlXlpamPoLR4
+	+zsDTtgUicvJ4MChmZe7u+gKYNYQqHGxD+0tBiTNWJBiG7qgnFyyED9rMmwkNHOP6jPEsn
+X-TM-AS-User-Approved-Sender: No
+X-TM-AS-User-Blocked-Sender: No
+X-TMASE-Result: 10--14.459700-8.000000
+X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-SNTS-SMTP: C36932093DDEBE95FB9B90E7042C04888CCC10DA95C3422327E1DA15A6F171792000:8
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_020621_194594_5D8BEF05 
-X-CRM114-Status: GOOD (  31.85  )
+X-CRM114-CacheID: sfid-20241114_020812_861443_C7717311 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,119 +111,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 14, 2024 at 09:23:48AM +0000, Russell King (Oracle) wrote:
-> On Thu, Nov 14, 2024 at 04:16:52PM +0800, Choong Yong Liang wrote:
-> > Not all PHYs have EEE enabled by default. For example, Marvell PHYs are
-> > designed to have EEE hardware disabled during the initial state, and it
-> > needs to be configured to turn it on again.
-> > 
-> > This patch reads the PHY configuration and sets it as the initial value for
-> > eee_cfg.tx_lpi_enabled and eee_cfg.eee_enabled instead of having them set to
-> > true by default.
-> 
-> eee_cfg.tx_lpi_enabled is something phylib tracks, and it merely means
-> that LPI needs to be enabled at the MAC if EEE was negotiated:
-> 
->  * @tx_lpi_enabled: Whether the interface should assert its tx lpi, given
->  *      that eee was negotiated.
-> 
-> eee_cfg.eee_enabled means that EEE mode was enabled - which is user
-> configuration:
-> 
->  * @eee_enabled: EEE configured mode (enabled/disabled).
-> 
-> phy_probe() reads the initial PHY state and sets things up
-> appropriately.
-> 
-> However, there is a point where the EEE configuration (advertisement,
-> and therefore eee_enabled state) is written to the PHY, and that should
-> be config_aneg(). Looking at the Marvell driver, it's calling
-> genphy_config_aneg() which eventually calls
-> genphy_c45_an_config_eee_aneg() which does this (via
-> __genphy_config_aneg()).
-> 
-> Please investigate why the hardware state is going out of sync with the
-> software state.
+From: Yingshiuan Pan <yingshiuan.pan@mediatek.com>
 
-I think I've found the issue.
+GenieZone is MediaTek proprietary hypervisor solution, and it is running
+in EL2 stand alone as a type-I hypervisor. It is a pure EL2
+implementation which implies it does not rely any specific host VM, and
+this behavior improves GenieZone's security as it limits its interface.
 
-We have phydev->eee_enabled and phydev->eee_cfg.eee_enabled, which looks
-like a bug to me. We write to phydev->eee_cfg.eee_enabled in
-phy_support_eee(), leaving phydev->eee_enabled untouched.
+Signed-off-by: Yingshiuan Pan <yingshiuan.pan@mediatek.com>
+Co-developed-by: Yi-De Wu <yi-de.wu@mediatek.com>
+Signed-off-by: Yi-De Wu <yi-de.wu@mediatek.com>
+Signed-off-by: Liju Chen <liju-clr.chen@mediatek.com>
+---
+ Documentation/virt/geniezone/introduction.rst | 87 +++++++++++++++++++
+ Documentation/virt/index.rst                  |  1 +
+ MAINTAINERS                                   |  6 ++
+ 3 files changed, 94 insertions(+)
+ create mode 100644 Documentation/virt/geniezone/introduction.rst
 
-However, most other places are using phydev->eee_enabled.
-
-This is (a) confusing and (b) wrong, and having the two members leads
-to this confusion, and makes the code more difficult to follow (unless
-one has already clocked that there are these two different things both
-called eee_enabled).
-
-This is my untested prototype patch to fix this - it may cause breakage
-elsewhere:
-
-diff --git a/drivers/net/phy/phy-c45.c b/drivers/net/phy/phy-c45.c
-index c1b3576c307f..2d64d3f293e5 100644
---- a/drivers/net/phy/phy-c45.c
-+++ b/drivers/net/phy/phy-c45.c
-@@ -943,7 +943,7 @@ EXPORT_SYMBOL_GPL(genphy_c45_read_eee_abilities);
-  */
- int genphy_c45_an_config_eee_aneg(struct phy_device *phydev)
- {
--	if (!phydev->eee_enabled) {
-+	if (!phydev->eee_cfg.eee_enabled) {
- 		__ETHTOOL_DECLARE_LINK_MODE_MASK(adv) = {};
+diff --git a/Documentation/virt/geniezone/introduction.rst b/Documentation/virt/geniezone/introduction.rst
+new file mode 100644
+index 000000000000..206b019f777b
+--- /dev/null
++++ b/Documentation/virt/geniezone/introduction.rst
+@@ -0,0 +1,87 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++======================
++GenieZone Introduction
++======================
++
++Overview
++========
++GenieZone hypervisor (gzvm) is a type-I hypervisor that supports various virtual
++machine types and provides security features such as TEE-like scenarios and
++secure boot. It can create guest VMs for security use cases and has
++virtualization capabilities for both platform and interrupt. Although the
++hypervisor can be booted independently, it requires the assistance of GenieZone
++hypervisor kernel driver (also named gzvm) to leverage the ability of Linux
++kernel for vCPU scheduling, memory management, inter-VM communication and virtio
++backend support.
++
++Supported Architecture
++======================
++GenieZone now only supports MediaTek ARM64 SoC.
++
++Features
++========
++
++- vCPU Management
++
++  VM manager aims to provide vCPUs on the basis of time sharing on physical
++  CPUs. It requires Linux kernel in host VM for vCPU scheduling and VM power
++  management.
++
++- Memory Management
++
++  Direct use of physical memory from VMs is forbidden and designed to be
++  dictated to the privilege models managed by GenieZone hypervisor for security
++  reason. With the help of the gzvm module, the hypervisor is able to manipulate
++  memory as objects.
++
++- Virtual Platform
++
++  The gzvm hypervisor emulates a virtual mobile platform for guest OS running on
++  guest VM. The platform supports various architecture-defined devices, such as
++  virtual arch timer, GIC, MMIO, PSCI, and exception watching...etc.
++
++- Inter-VM Communication
++
++  Communication among guest VMs is provided mainly on RPC. More communication
++  mechanisms will be provided in the future based on VirtIO-vsock.
++
++- Device Virtualization
++
++  The solution is provided using the well-known VirtIO. The gzvm module redirects
++  MMIO traps back to VMM where the virtual devices are mostly emulated.
++  Ioeventfd is implemented using eventfd for signaling host VM that some IO
++  events in guest VMs need to be processed.
++
++- Interrupt virtualization
++
++  All interrupts during some guest VMs running are handled by GenieZone
++  hypervisor with the help of gzvm module, both virtual and physical ones.
++  In case there's no guest VM running, physical interrupts are handled by host
++  VM directly for performance reason. Irqfd is also implemented using eventfd
++  for accepting vIRQ requests in gzvm module.
++
++Platform architecture component
++===============================
++
++- vm
++
++  The vm component is responsible for setting up the capability and memory
++  management for the protected VMs. The capability is mainly about the lifecycle
++  control and boot context initialization. And the memory management is highly
++  integrated with ARM 2-stage translation tables to convert VA to IPA to PA
++  under proper security measures required by protected VMs.
++
++- vcpu
++
++  The vcpu component is the core of virtualizing an aarch64 physical CPU, and it
++  controls the vCPU lifecycle including creating, running and destroying.
++  With self-defined exit handler, the vm component is able to act accordingly
++  before termination.
++
++- vgic
++
++  The vgic component exposes control interfaces to Linux kernel via irqchip, and
++  we intend to support all SPI, PPI, and SGI. When it comes to virtual
++  interrupts, the GenieZone hypervisor writes to list registers and triggers
++  vIRQ injection in guest VMs via GIC.
+diff --git a/Documentation/virt/index.rst b/Documentation/virt/index.rst
+index 7fb55ae08598..cf12444db336 100644
+--- a/Documentation/virt/index.rst
++++ b/Documentation/virt/index.rst
+@@ -16,6 +16,7 @@ Virtualization Support
+    coco/sev-guest
+    coco/tdx-guest
+    hyperv/index
++   geniezone/introduction
  
- 		return genphy_c45_write_eee_adv(phydev, adv);
-@@ -1576,8 +1576,6 @@ int genphy_c45_ethtool_set_eee(struct phy_device *phydev,
- 		}
- 	}
+ .. only:: html and subproject
  
--	phydev->eee_enabled = data->eee_enabled;
--
- 	ret = genphy_c45_an_config_eee_aneg(phydev);
- 	if (ret > 0) {
- 		ret = phy_restart_aneg(phydev);
-diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index bc24c9f2786b..b26bb33cd1d4 100644
---- a/drivers/net/phy/phy_device.c
-+++ b/drivers/net/phy/phy_device.c
-@@ -3589,12 +3589,12 @@ static int phy_probe(struct device *dev)
- 	/* There is no "enabled" flag. If PHY is advertising, assume it is
- 	 * kind of enabled.
- 	 */
--	phydev->eee_enabled = !linkmode_empty(phydev->advertising_eee);
-+	phydev->eee_cfg.eee_enabled = !linkmode_empty(phydev->advertising_eee);
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 279560bf2b6d..bd119e707b7f 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -9671,6 +9671,12 @@ F:	include/vdso/
+ F:	kernel/time/vsyscall.c
+ F:	lib/vdso/
  
- 	/* Some PHYs may advertise, by default, not support EEE modes. So,
- 	 * we need to clean them.
- 	 */
--	if (phydev->eee_enabled)
-+	if (phydev->eee_cfg.eee_enabled)
- 		linkmode_and(phydev->advertising_eee, phydev->supported_eee,
- 			     phydev->advertising_eee);
- 
-diff --git a/include/linux/phy.h b/include/linux/phy.h
-index 1e4127c495c0..33905e9672a7 100644
---- a/include/linux/phy.h
-+++ b/include/linux/phy.h
-@@ -601,7 +601,6 @@ struct macsec_ops;
-  * @adv_old: Saved advertised while power saving for WoL
-  * @supported_eee: supported PHY EEE linkmodes
-  * @advertising_eee: Currently advertised EEE linkmodes
-- * @eee_enabled: Flag indicating whether the EEE feature is enabled
-  * @enable_tx_lpi: When True, MAC should transmit LPI to PHY
-  * @eee_cfg: User configuration of EEE
-  * @lp_advertising: Current link partner advertised linkmodes
-@@ -721,7 +720,6 @@ struct phy_device {
- 	/* used for eee validation and configuration*/
- 	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported_eee);
- 	__ETHTOOL_DECLARE_LINK_MODE_MASK(advertising_eee);
--	bool eee_enabled;
- 
- 	/* Host supported PHY interface types. Should be ignored if empty. */
- 	DECLARE_PHY_INTERFACE_MASK(host_interfaces);
-
++GENIEZONE HYPERVISOR DRIVER
++M:	Yingshiuan Pan <yingshiuan.pan@mediatek.com>
++M:	Ze-Yu Wang <ze-yu.wang@mediatek.com>
++M:	Liju Chen <liju-clr.chen@mediatek.com>
++F:	Documentation/virt/geniezone/
++
+ GENWQE (IBM Generic Workqueue Card)
+ M:	Frank Haverkamp <haver@linux.ibm.com>
+ S:	Supported
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.18.0
+
 
