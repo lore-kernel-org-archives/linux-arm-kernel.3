@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B89D65C70
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 11:04:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA9FD65C6C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 11:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tL0N5qNqzk9qCI8C/1LafnSstp1Wxthn0MeoWOBVEIE=; b=kGwS1E5JZj1aLi6ks62SX7QfcN
-	z1D72UynO+q0WbRCQmB+i4MjGOHHuMrSEsuu0Ro6ptJbn6IAuVlwk57iDZubxICHVWIxrVXV2+GtE
-	ce9zioz/Tp4LYeu0pPjTGxh/37t2SzOC+Ei35XCzYxSHkakUlv0Y9zzPbI7m32jKq7Zn3Gipb0gG6
-	xfuC8cXeiAid/CXT4R+aClFV/ym9mvi1iZLqeHyj2OASSNbDGzaYnmkOPBiX7nYDWXWyofA/dw0Fo
-	Ab7At7moBkHkJF6azEyXfGk/KcOtkXBZ/BV7Y2bImBkA2ZgrTQkcD3Nl7UDFzLX2grdYLLWcuxdhe
-	elAb+VhQ==;
+	bh=97buAnNKpjE7K7t8ciNQcmldyfYzzBRNkIIjEo3x2a4=; b=qerB6x5OPsSAOcJUIZEMYqOXkZ
+	OyMZYdaY3Tvp/HnQqN8Bei+bpEC5KUEWoK5Upa6UYzr/nfywKcvVDBn2omobuN6E/8CwSnpc3efmO
+	191Eqbod/iGgomO2MKc/aeWs3cJsxztVMcYeoErOraWcoBAVsYswplVYV5epydauxE0YGmM90VxTn
+	//tbhIFmPupL1kTlo6y/YiSGOgqDk8a9T1L4u0p044cszPd6i9IMoi0YXempyqXSWDfrdZxIz2Wqv
+	qTwJ+S2G83FrI/aiSmQaYKypFFCzq2a+VJuHl+d6IlhYCzClsszIaH7hGAr+OeFzoKoQkjCy7rA9T
+	u7Ygk8vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBXdi-00000009eSV-2Hep;
-	Thu, 14 Nov 2024 11:03:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tBXfX-00000009eoZ-2IUq;
+	Thu, 14 Nov 2024 11:05:47 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWnr-00000009Tmm-0ab4
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 10:10:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 09C185C5AE5;
-	Thu, 14 Nov 2024 10:09:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFFC3C4CECD;
-	Thu, 14 Nov 2024 10:10:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731579018;
-	bh=zIXoVPuLxS46P+2i3Z4nmPDd0XPDfcNwgdZycvncv+w=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=CHRbrM4tcguZd7l9uc7J+VttnK1I2vUOgOSwFNF7UCmjXoTOe/7CyDW0H7jFHGHDG
-	 saGQ7gTZU3zDTlbumMOmQ7Z6mMZdnFN6y763tekJ9zeSRt0dZOEFV79pKwAatLLO+F
-	 /4lipHoacF3cjwrTDqcoH/yhC8WfEZcWbY3hFb85v+8a5kroRlJeCJVbu8tqpZNSKh
-	 PUCPoaxztlV0h86DbTcvLneQuS44bF4hZMdyfVRHMqAUf/WvWZqi7wzvE3hE/xUDE2
-	 ZXgG95CC2JDgX5TBSB6f29t8C9UkYjnHnuaLeUYJuVq0Xk/Z+pGBFSKuEEzxRUU0/g
-	 VF/fsw00+lVCw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADDEC3809A80;
-	Thu, 14 Nov 2024 10:10:29 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1tBWsb-00000009Uuv-0faS;
+	Thu, 14 Nov 2024 10:15:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1731579310;
+	bh=BDRlZ1ycBCD+bjuZg/SwSLSTmoyMuj7OjThlUTsmJHI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EUbp6U8gYbjbmAz90H6csJSmUy+Ed5NAgHo2qxm/riuc1qY/DZBTR7sRCtDeRM5lc
+	 lvdeHFmG49a2LZWUuFUOHzPmVpgm0fyFPiyS/4zrw1R1i+C+e0jYsNMPLwoYx9k5Au
+	 wCSwd9dC0/59YxZD/RiTh13wTlzOxuyqZj30XAhK4urUs7efoVrBRc0u1oWUAz/66M
+	 73n8y9COblMdMhpFw6IVBGen7o397YqPq+2JC+89P/wKfNNUohBF3r8BR7nYFmsHgy
+	 NNDrCfkV0Bx16eMx/iCSt6oU4mSDggga5pdZEVwCBi2YRgC/euiaFtNwvrWqpoM2nK
+	 7qWImVMBaJ/1w==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3F6DC17E35D8;
+	Thu, 14 Nov 2024 11:15:10 +0100 (CET)
+Message-ID: <d67ead02-8502-4d71-bb5d-38b80c103e3d@collabora.com>
+Date: Thu, 14 Nov 2024 11:15:09 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v5] net: ti: icssg-prueth: Fix 1 PPS sync
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173157902851.1866232.9016016024902028479.git-patchwork-notify@kernel.org>
-Date: Thu, 14 Nov 2024 10:10:28 +0000
-References: <20241111095842.478833-1-m-malladi@ti.com>
-In-Reply-To: <20241111095842.478833-1-m-malladi@ti.com>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: vigneshr@ti.com, horms@kernel.org, jan.kiszka@siemens.com,
- diogo.ivo@siemens.com, pabeni@redhat.com, kuba@kernel.org,
- edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com, rogerq@kernel.org,
- danishanwar@ti.com, vadim.fedorenko@linux.dev
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/3] media: mediatek: vcodec: add description for vsi
+ struct
+To: Yunfei Dong <yunfei.dong@mediatek.com>,
+ =?UTF-8?Q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?= <nfraprado@collabora.com>,
+ Sebastian Fricke <sebastian.fricke@collabora.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Nathan Hebert <nhebert@chromium.org>
+Cc: Hsin-Yi Wang <hsinyi@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>,
+ Fritz Koenig <frkoenig@chromium.org>, Daniel Vetter <daniel@ffwll.ch>,
+ Steve Cho <stevecho@chromium.org>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20241108034019.20064-1-yunfei.dong@mediatek.com>
+ <20241108034019.20064-4-yunfei.dong@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241108034019.20064-4-yunfei.dong@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_021019_413567_377CE2FD 
-X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-CacheID: sfid-20241114_021513_482307_FC4D00C3 
+X-CRM114-Status: UNSURE (   7.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,30 +87,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Mon, 11 Nov 2024 15:28:42 +0530 you wrote:
-> The first PPS latch time needs to be calculated by the driver
-> (in rounded off seconds) and configured as the start time
-> offset for the cycle. After synchronizing two PTP clocks
-> running as master/slave, missing this would cause master
-> and slave to start immediately with some milliseconds
-> drift which causes the PPS signal to never synchronize with
-> the PTP master.
+Il 08/11/24 04:40, Yunfei Dong ha scritto:
+> If the video shared information (vsi) is changed accidentally,
+> will leading to play h264 bitstream fail if the firmware won't
+> be changed at the same time. Marking the shared struct with
+> "shared interface with firmware".
 > 
-> [...]
+> Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
+> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 
-Here is the summary with links:
-  - [net,v5] net: ti: icssg-prueth: Fix 1 PPS sync
-    https://git.kernel.org/netdev/net/c/dc065076ee77
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 
