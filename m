@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A672D68B26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 14:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A68EDD68B28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 14:18:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OeQPBbRjfbzEeBh5C0Zu4fUuTp84BIPopKnNFoCv+Eo=; b=3ZviBhQ8a6xrEwjz4N+90B++Du
-	cclLVJZfVG0+RvqO+ID+2qlolTzKhKsGgYKtYV/jbfPW96lrTZWxryVUvl+vtN5lYe7z4Le8IoAth
-	6ihBjmSBHlJm4ik/jbcMN9MkAaE8CWBLY5+BxaHadRrJAz4CRow959vyLnkwkC/MM+d1U1G3ia8ZE
-	0/QpZvLDiM9NKX2yEWNkJkabw+eZJ27Nj3ugAbZ6K1s6ANUttCC/1g8vKvdXAD2binJ6tSv6gtDe9
-	GE61iWP0q+ARlda/KprUjndAWLuM8OH7fWXTL1nP2QVIMbsaNRSjQxCgOmdmwYfB7nSzu57kzoWpD
-	erJmhGow==;
+	bh=tPdVNFNydRkGjxrKLLidVYIO9BYOAKsV1uCBKmqE/m4=; b=kF/rmAhs7JTJxQGgXX//kYFqLp
+	fy67EEkQarsKYvJ4oYPQj+dyHUpawRGHab1on47CD7KLPMdJ+xfyh/+w9eCSeqAN1qPY7GnblE741
+	ySkteNFV/9MuRp7WNAlWDyktrkVPKwauSVrEd1ySI/36Of21B+kNq6jNiMGmkZpG1Mn5BVx1VWyBj
+	ESoZX2UnZya/M2hiZK7nRk1oiCGuxx5XqqXGX+d86eFhdfatxii0y39MygT6NadOJpH7LJeyo88rl
+	MjO5Hw47hii9uW/MQJ08BWueSVpzp5E26595el56/Usc8nww4/yvKHBKYNmrg2JK7Tk4uGbrlOkFu
+	LbEt+0fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBae3-0000000AAk1-2Bjm;
-	Thu, 14 Nov 2024 14:16:27 +0000
+	id 1tBafq-0000000AB15-0Q2i;
+	Thu, 14 Nov 2024 14:18:18 +0000
 Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBaZx-0000000A9uP-35Yo
+	id 1tBaZx-0000000A9uQ-35BY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 14:12:16 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Xq2B60Qdbz21l8y;
-	Thu, 14 Nov 2024 22:10:54 +0800 (CST)
+	Thu, 14 Nov 2024 14:12:17 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Xq2B432T7z21l8v;
+	Thu, 14 Nov 2024 22:10:52 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id C663E140259;
-	Thu, 14 Nov 2024 22:12:09 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 2DDBF1A016C;
+	Thu, 14 Nov 2024 22:12:08 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Thu, 14 Nov 2024 22:12:08 +0800
+ 15.2.1258.34; Thu, 14 Nov 2024 22:12:07 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
 	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
@@ -49,9 +49,9 @@ CC: <linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
 	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
 	<linuxarm@huawei.com>, <yangyicong@hisilicon.com>, <xuwei5@huawei.com>,
 	<guohanjun@huawei.com>
-Subject: [PATCH v9 4/4] arm64: Kconfig: Enable HOTPLUG_SMT
-Date: Thu, 14 Nov 2024 22:11:27 +0800
-Message-ID: <20241114141127.23232-5-yangyicong@huawei.com>
+Subject: [PATCH v9 2/4] arch_topology: Support SMT control for OF based system
+Date: Thu, 14 Nov 2024 22:11:25 +0800
+Message-ID: <20241114141127.23232-3-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20241114141127.23232-1-yangyicong@huawei.com>
 References: <20241114141127.23232-1-yangyicong@huawei.com>
@@ -62,9 +62,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_061213_951437_E5A439CE 
-X-CRM114-Status: UNSURE (   7.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241114_061214_104335_D906806C 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,25 +80,82 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-Enable HOTPLUG_SMT for SMT control.
+On building the topology from the devicetree, we've already
+gotten the SMT thread number of each core. Update the largest
+SMT thread number and enable the SMT control by the end of
+topology parsing.
 
+The core's SMT control provides two interface to the users [1]:
+1) enable/disable SMT by writing on/off
+2) enable/disable SMT by writing thread number 1/max_thread_number
+
+If a system have more than one SMT thread number the 2) may
+not handle it well, since there're multiple thread numbers in the
+system and 2) only accept 1/max_thread_number. So issue a warning
+to notify the users if such system detected.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- arch/arm64/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/base/arch_topology.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 70d7f4f20225..5eecd2e2c093 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -243,6 +243,7 @@ config ARM64
- 	select HAVE_KRETPROBES
- 	select HAVE_GENERIC_VDSO
- 	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
-+	select HOTPLUG_SMT if HOTPLUG_CPU
- 	select IRQ_DOMAIN
- 	select IRQ_FORCED_THREADING
- 	select KASAN_VMALLOC if KASAN
+diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+index 3ebe77566788..31e0291ee660 100644
+--- a/drivers/base/arch_topology.c
++++ b/drivers/base/arch_topology.c
+@@ -11,6 +11,7 @@
+ #include <linux/cleanup.h>
+ #include <linux/cpu.h>
+ #include <linux/cpufreq.h>
++#include <linux/cpu_smt.h>
+ #include <linux/device.h>
+ #include <linux/of.h>
+ #include <linux/slab.h>
+@@ -506,6 +507,10 @@ core_initcall(free_raw_capacity);
+ #endif
+ 
+ #if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
++
++/* Maximum SMT thread number detected used to enable the SMT control */
++static unsigned int max_smt_thread_num;
++
+ /*
+  * This function returns the logic cpu number of the node.
+  * There are basically three kinds of return values:
+@@ -565,6 +570,17 @@ static int __init parse_core(struct device_node *core, int package_id,
+ 		i++;
+ 	} while (1);
+ 
++	/*
++	 * If max_smt_thread_num has been initialized and doesn't match
++	 * the thread number of this entry, then the system has
++	 * heterogeneous SMT topology.
++	 */
++	if (max_smt_thread_num && max_smt_thread_num != i)
++		pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
++
++	if (max_smt_thread_num < i)
++		max_smt_thread_num = i;
++
+ 	cpu = get_cpu_for_node(core);
+ 	if (cpu >= 0) {
+ 		if (!leaf) {
+@@ -677,6 +693,14 @@ static int __init parse_socket(struct device_node *socket)
+ 	if (!has_socket)
+ 		ret = parse_cluster(socket, 0, -1, 0);
+ 
++	/*
++	 * Notify the CPU framework of the SMT support. A thread number of 1
++	 * can be handled by the framework so we don't need to check
++	 * max_smt_thread_num to see we support SMT or not.
++	 */
++	if (max_smt_thread_num)
++		cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
++
+ 	return ret;
+ }
+ 
 -- 
 2.24.0
 
