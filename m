@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A23A5D6A22F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 21:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ACCFD6A22D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 21:04:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
 	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RG1GHuMKWcuonmjsC+qi8OfZV4+4HUh57bb4KUZX6QY=; b=GzH3KwxaimgDFxX+t4os5aqV/n
-	o3sYaO6B9l5MqqG7UQ7x/F0kj5tHrKlAVdtsNqDBRyzEmqwo+21RRQ7zP0dI3gj/+S9oYYZkn6cp/
-	Rmu4MrKj/rWgub3tomJjpzp74hBYMu5LA7uU171mn7zEzY91YV8bGQcBMrxjTFMW+5dEqd+Rgn9ju
-	tAHOwbY/aIFKF/6Nm+qb/0Ll0KXFo16PRh21NfJh6rfLtM4WMqdtyk9j9s3B8QSOTiZEAD54ooZ74
-	v/jZn58H6wdPk6px6DPkZKUNhqAVH7dyZEcAqxklbM9oDFa13QSbXfneIbWGb/rT9Jlenh7pfp2eN
-	3cGSdMnw==;
+	bh=JbVEEkL8lglYHKBJSgT9JiBSY0i5Tm3rez3G/cRCJ9g=; b=Xk3ex+AQAUURyPZFcPaTRPKbu+
+	TDcdWZDREgsP6x/IkoeIOLUp8ti5qtRqZT5VBQ1HbxS/tBMbMo7GejpPxdqUWL2jNsfEOitbCuve2
+	Zq6kbRmd2pG+bn90MZiaXm5jpMsPqCfhPX+gqfNePHlV5BH2otqejeDiZRVz1WE8qCX1T1aMz/9T7
+	ArSXeUsgf5KQbCnq5vRqFb+kQ82ylyRZGkUzRqQr32CMV9yGRQzyh22OtB7m4HjBsbEu8+ysjDgpf
+	Z/YuxcbQXNsuqHGAYiI9Xsyi2cJm2tSVm9hpqycGqB4rVBlV7UjY8xMVpZ02KEKftPqNYEHbtAD2/
+	KrhiksqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBgzS-00000000pmF-41rG;
-	Thu, 14 Nov 2024 21:02:58 +0000
+	id 1tBh0L-00000000pwL-2kji;
+	Thu, 14 Nov 2024 21:03:53 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBgxt-00000000pLA-1272
+	id 1tBgyH-00000000pSR-1NGa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 21:01:22 +0000
+	Thu, 14 Nov 2024 21:01:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 73EDB5C5C72;
-	Thu, 14 Nov 2024 21:00:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37B0FC4CECD;
-	Thu, 14 Nov 2024 21:01:20 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 86B225C5838;
+	Thu, 14 Nov 2024 21:01:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63923C4CECD;
+	Thu, 14 Nov 2024 21:01:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731618080;
-	bh=RG1GHuMKWcuonmjsC+qi8OfZV4+4HUh57bb4KUZX6QY=;
+	s=k20201202; t=1731618104;
+	bh=JbVEEkL8lglYHKBJSgT9JiBSY0i5Tm3rez3G/cRCJ9g=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=nf1c8pyxATuPT4X46VFsO4vdktspzDfSWFvirSPUhMWto+qEi5J1JAF70zfiwd8RJ
-	 uW+1HASKf1GZXGaFJqUA/P5X3xjZKhCCzaMkj1ftqnkcItHE8nQ42GkMlxpXo4LeVp
-	 whUNqVmK0IbPUbiPkvPj/EMT+ogLR++XGPQ3PADSBduy2UsjNCYBvTcc9TV+TybiK9
-	 MQwMeq5lAxkEdjXKS16SWh4q8Jv1KMst9DCIbz1dxZHpjz9DkjKXEZuR5fkV8ocnLH
-	 EKOKYhG2sOM4+pLKpYJcRLSvqSF8sJNaH1NUMH8pmYX0gsqpzWMZr53Gc3DQC4YJTR
-	 FZRm8HN5UDZgg==
-Message-ID: <47b2b9acfc19f3d4801e5cdd0e1c040b.sboyd@kernel.org>
+	b=eKDixHelJokBuECvd+Kz/bmmlvVRmVnIODXaAat2ZVyHL2dgImTv8UTgnA5RZxkj4
+	 Ib+0IKp2/GpvyxBG3e6yA1Ewstc68XxZzfqHxi4gnzMqCp38FIXy0JjAkCkYGhGrbO
+	 UtoqLw6U56vvkWr7N/6tQW8au50JybT36Fr1nv2I2l3irg4QKYYPDgZqnxuMsoP6PN
+	 XkkFR3mLUs38U0QzBA0bHAnxgt3VnBsmWW2eJ2jnTF6DjXMnfrioypHl126QDNaHFt
+	 Df7i0DWqJHdkb/1doRF02XK/+HcjpKC5GEvE6glKcV8QZte1br8VY/eL9xhc+wOoD3
+	 8q9Hs5DUvNUJg==
+Message-ID: <f7298afe9999b1f6f1bca0891c999cd0.sboyd@kernel.org>
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20241112-clk-en7581-syscon-v2-2-8ada5e394ae4@kernel.org>
-References: <20241112-clk-en7581-syscon-v2-0-8ada5e394ae4@kernel.org> <20241112-clk-en7581-syscon-v2-2-8ada5e394ae4@kernel.org>
-Subject: Re: [PATCH RESEND v2 2/7] clk: en7523: remove REG_PCIE*_{MEM,MEM_MASK} configuration
+In-Reply-To: <20241112-clk-en7581-syscon-v2-3-8ada5e394ae4@kernel.org>
+References: <20241112-clk-en7581-syscon-v2-0-8ada5e394ae4@kernel.org> <20241112-clk-en7581-syscon-v2-3-8ada5e394ae4@kernel.org>
+Subject: Re: [PATCH RESEND v2 3/7] clk: en7523: move clock_register in hw_init callback
 From: Stephen Boyd <sboyd@kernel.org>
 Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, upstream@airoha.com, angelogioacchino.delregno@collabora.com, linux-arm-kernel@lists.infradead.org, lorenzo.bianconi83@gmail.com, ansuelsmth@gmail.com, Lorenzo Bianconi <lorenzo@kernel.org>
 To: Conor Dooley <conor+dt@kernel.org>, Felix Fietkau <nbd@nbd.name>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>
-Date: Thu, 14 Nov 2024 13:01:18 -0800
+Date: Thu, 14 Nov 2024 13:01:42 -0800
 User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_130121_324692_F34088A7 
-X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-CacheID: sfid-20241114_130145_411310_83B24535 
+X-CRM114-Status: UNSURE (   7.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,13 +72,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Lorenzo Bianconi (2024-11-11 16:08:49)
-> REG_PCIE*_MEM and REG_PCIE*_MEM_MASK regs (PBUS_CSR memory region) are not
-> part of the scu block on the EN7581 SoC and they are used to select the
-> PCIE ports on the PBUS, so remove this configuration from the clock driver
-> and set these registers in the PCIE host driver instead.
-> This patch does not introduce any backward incompatibility since the dts
-> for EN7581 SoC is not upstream yet.
+Quoting Lorenzo Bianconi (2024-11-11 16:08:50)
+> Move en7523_register_clocks routine in hw_init callback.
+> Introduce en7523_clk_hw_init callback for EN7523 SoC.
+> This is a preliminary patch to differentiate IO mapped region between
+> EN7523 and EN7581 SoCs in order to access chip-scu IO region
+> <0x1fa20000 0x384> on EN7581 SoC as syscon device since it contains
+> miscellaneous registers needed by multiple devices (clock, pinctrl ..).
 >=20
 > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 > ---
