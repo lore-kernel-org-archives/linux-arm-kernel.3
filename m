@@ -4,77 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF1FDD68B39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 16:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B857D68B39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 16:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QxKuovhL+u1OFBpfTXmEVoSjj1ikzv01SBbPzszYYgc=; b=L1k3X62WZzOhZogsYZ/yDhtsXH
-	rzBwXagl3TF3h2WrpAAR8Q+99zTWnbmAKnBV63kZAGHeTQpSk1Qgdyk6Mb0gfJd+3uW+yBWyZYwtV
-	LXiNgvI7Hle6kMO/hdOHkAA1WFMs7L3ruzIL25cYA27bvrLllssAvmjCO/gQWP/MVENzE84AxcmUL
-	XbSTXRFrm34l1V+6YVEzgHQ5EbTVuhKsPREbAZZppaSqaewI8r7oCjGXDH0MuWMnEfCSsLDv7z/LZ
-	5ZYFffkxDB6X6kh024ecH6w3SDEFpSVO6z67MjbU/lhsnriWOzj1MyeDGr+3Z01JinuRSFhK7WjIO
-	I0AZWGJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w4oBcSoPWS1ijLnjT7UuN2GM4IwcjkpvQQ/xe1vRpqU=; b=FRg5AF7P9uazFx00QvUjasGL33
+	LOH3Ja9oG8AUycs1nPc2RDYCs5a+n/nJMsPPlFzUsKTTaCU79xCRUGHjL1p8O06uACSThRSUGU9IN
+	+thpiivHKVbwkSDjfqpbx6cv12owBlAEVlX7cU/aEGzI8XwJuBow4o4fkFKEOZyfWSH9NGnXLAYsR
+	oSxxt0CI8nbQ8exmZr2YPzmuxXk1B0Fhxmbm8Lqjz5KYSEBBwmoNYha2fUWjgkPvAvrB/H3hIQB/7
+	BZBKJVXmmCA3r6nwSU7pNvDbTpldsqpUCZsRXlezU8twTAvK5fgGvkxaKpFljOfaJejCdJw6gfA10
+	5tUCtG3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBcvv-00000000B1t-3woS;
-	Thu, 14 Nov 2024 16:43:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tBcxk-00000000BYr-06Jj;
+	Thu, 14 Nov 2024 16:44:56 +0000
+Received: from mail-am6eur05on20609.outbound.protection.outlook.com ([2a01:111:f403:2612::609] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBcr3-00000000A60-0Yza
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 14 Nov 2024 16:38:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:CC:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=QxKuovhL+u1OFBpfTXmEVoSjj1ikzv01SBbPzszYYgc=; b=i7I8dX3ii7Rhnrn4ZR+XsQPWVD
-	i5RytYkBV9RUTpwlusGzGFHsdTsgvMF3rRYevJYzfl6H1LayHyZrzvwaS3yXGHCz7ImmdwJIFCpsf
-	uOnaLi+ycM8VhSpWtJL+CjLjGYIAaXJQxSARrwVVe3eDU07H7weJOo6wwiFBaXJ4eCBicDsAABKsC
-	TyZEW0R9emldAFubMe3m1Wyafr/9PltHNg4XrBrn9ujnxw3x6aumCHGnxgozuAtlrPfVTUY7J7WNL
-	vBrcMS1SV1X2MQKjl/j47S0r6NX3+WvON3V/dDwBfojhgegs+3mT7kWJulQPaEkqjavlDI/6apYQn
-	GZIi6xWQ==;
-Received: from szxga01-in.huawei.com ([45.249.212.187])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBbGG-000000002b1-0Ca6
+	id 1tBcv6-00000000AsM-379k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 14:55:58 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Xq36N6rHXz10R0K;
-	Thu, 14 Nov 2024 22:52:44 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id DA8D218009E;
-	Thu, 14 Nov 2024 22:55:15 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Thu, 14 Nov 2024 22:55:15 +0800
-CC: <yangyicong@hisilicon.com>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <fanghao11@huawei.com>,
-	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>
-Subject: Re: [PATCH] ACPI/IORT: Add PMCG platform information for HiSilicon
- HIP09A
-To: Qinxin Xia <xiaqinxin@huawei.com>, <lpieralisi@kernel.org>,
-	<guohanjun@huawei.com>, <sudeep.holla@arm.com>
-References: <20241107094036.2398983-1-xiaqinxin@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <4ac9e057-725c-a0ae-e2db-612ea359bec1@huawei.com>
-Date: Thu, 14 Nov 2024 22:55:14 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Thu, 14 Nov 2024 16:42:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WxhEtfb2EN4xn1DiM4Rwoy9LPzQhvSNN3LdkWOYiLMNrZKiziZjInDamaOTSTaZSsUZMXdwrY9Gzl/HV+7oZzaOGUtc1SirtbDzf0WyS2ubdKDap5TaXFUCi/OxWX44+02s65cBLgNfm/3Oi/IAVaRbgmZsBiVMzS257KcTjwcqQX+G1yV8KaIYkbUv0P4Fv4byTYzEIhqz2LZ7uJQ6rb5/nj8shfFjeLG4AI1CMQoKzTM+OGm0dUgm8dwP3WLiIXBDPLR7SVuJ8GWHUo/SP6HmoW1chELoveZaSG1/Kt0iHOhEffpxTW3VCUyMXkLE1nTKAAtx6CusVb3h/5nIEzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w4oBcSoPWS1ijLnjT7UuN2GM4IwcjkpvQQ/xe1vRpqU=;
+ b=t8iuF9ZTmADGzW2tkRS0WVFLM8by5fvuMqEvuke12xtORUn1BrYc4E+dsJ4Z+awNj6ZajlK6kq3eYUVKbS78+CPL9uXWSuYg8ASBOm0Ro8WUPHaEezWICXX77xzav5PDHEyZ3MQP2rUrgAUNxvzjQRSHI+/LdL0APduP3DHvBpk1kLfR35u8HNxrOHF1uQxP8aYUVDUR0Auf3cT3E4pew3OG+v+TYSCWMWTsu17ZLhminYeos/SQOQVgz0ngzolte0Htx7U1wW4XMctTDdqhg+inpTEHKlE69kvcE4Yh9KAvDMCEPpTIqTHv3Ns+LYYv6r7peY5SXQxpMWZHSla08Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=w4oBcSoPWS1ijLnjT7UuN2GM4IwcjkpvQQ/xe1vRpqU=;
+ b=Jd+vY/01cCCawiQAbKD0VnJSGVP2Gq1vGLwcOee4Cd61lvPXEADDZd1dr5smZOTnNMr0zkg9BKwDeD8Q4nfedHfQzi5TGPZRPG1EVefGWtRugG4fAfIerFCMjmn1m0vHMLmeQcOh2BvO6ldA6YX1fo8yOSXc0iR7nQULhGizxyaHG4/jxi89l6zESI+2PB2dJqutSE0DtuELctDjFox7rpRFTEwGHpd42KHkJrlK9nIhI5r4xsVzYXcVcGgdOmAuBoVIRbdtTii7ZLnVEPeerWe3j4aNj20YBfoPk8FT0376VmPhq4OQk0pPQxxRHYYNhbd/Cglaj6cfj/WW+e0e/g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS8PR04MB7623.eurprd04.prod.outlook.com (2603:10a6:20b:29c::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.18; Thu, 14 Nov
+ 2024 16:42:09 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8137.027; Thu, 14 Nov 2024
+ 16:42:08 +0000
+Date: Thu, 14 Nov 2024 11:42:00 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: zhangjiao2 <zhangjiao2@cmss.chinamobile.com>
+Cc: jassisinghbrar@gmail.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] mailbox: imx: Modify the incorrect format specifier
+Message-ID: <ZzYoWFVhfNnAcAmy@lizhi-Precision-Tower-5810>
+References: <20241114055926.38502-1-zhangjiao2@cmss.chinamobile.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241114055926.38502-1-zhangjiao2@cmss.chinamobile.com>
+X-ClientProxiedBy: SJ0PR05CA0207.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::32) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-In-Reply-To: <20241107094036.2398983-1-xiaqinxin@huawei.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB7623:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5179fd89-d498-4ac8-8689-08dd04cb47de
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|366016|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wJyegtNsiU11w7jWGWq8qiqfy6b0i62z6tCMcB74kU5jkvqOVb7PDHVid7o6?=
+ =?us-ascii?Q?MNXHxx6ehDjKmG3s6J8xVCKtDgskzoiXNwX4L1nt+LDnuyrdx2YYkQT8chfl?=
+ =?us-ascii?Q?wzA21OvdyyY2mTTtCLQDk9lklyNpWCRGsDmJpV6Q1bzNECVMSpix/akz1913?=
+ =?us-ascii?Q?HrRhhnMhOC2ImR5ngB8gkNkOZDvptsh2mFNOQzsP6vqUZxicJV1/hVucV+wt?=
+ =?us-ascii?Q?SNGzthQq2SA1Jpo8R57qjchNHNSYR2aqtYWmZu/INxV0sVJFjxq1GiRS4vDY?=
+ =?us-ascii?Q?Q8dWsO8Jv7X6WrJ+z4gAMOUiHXrjVZ0QIQp1k91LjCCKDaCf0yUPMOPKJfbT?=
+ =?us-ascii?Q?stklEXI6sNPd09YirrQWWiajR9lsmMGS7/HSUY2mt2jtVuRUAh7py1TTnb3y?=
+ =?us-ascii?Q?B0JrQzf6EL+Tj54yb1LeuQhxG88P4fylYTRXlbBApHJ0l7BnpCB5SIxALHnC?=
+ =?us-ascii?Q?sfIdbY2JuJbEczevb9rsEcl3vxpBPyDjZ9/OYWiY8BEJQuJuZ4oEHTGLhsiP?=
+ =?us-ascii?Q?/6vivG+GCAY+EJWOBpqwLSBLBo0nndf2ZVp1Yt0u0jZ2il6efdMs7Ofj/snb?=
+ =?us-ascii?Q?kcIuXJNBuIumpN/4AqYHu65a0cPxp874VP/zjeRKq+yVo2O+GKCQsZ/tvEOK?=
+ =?us-ascii?Q?fTPkvfD3cRn6O3vOrDpD7l7MdQJqNe0/aLQuNW1VYmYjlKghOyB89ZfCqc6L?=
+ =?us-ascii?Q?pkKEC1lUH/86ZadSauLMz0eWlXV9weAJdf0qFsoUzqGwnu0uld4ltGH6Iybn?=
+ =?us-ascii?Q?r+RghKCRaYTCUzbhg7XlMvROu+uuPd3igtMtuzB7BxfPDpDVbrrDpmW/K+qd?=
+ =?us-ascii?Q?6NfcvLqbQIZbgLhjz9KMNC9teG0Hic9xgZZ/DmtpNGdX/9HKG6HoauSMVhiu?=
+ =?us-ascii?Q?BcZxXgnyZfM0uQuaifuv/OjRZKVXL8GR6NS/0zdPvwCud+5a0jda2MRCDyhT?=
+ =?us-ascii?Q?332HYeXLK4nfpeLgOnOnAbw5evbuH8g5vR66r4+qR6tAsckXzZ26QbdiMGDa?=
+ =?us-ascii?Q?dcMscVGG1glszLaZman5HVAJqFcjPwHuFFsv4VnYfHj78AQ0RNxxWEo6ScFF?=
+ =?us-ascii?Q?89/26fwMT7q/+Hf36qchTZ8Z8D8r1jw+GqF+hud5Mg+7ZGzY+HCH/B5qr/fA?=
+ =?us-ascii?Q?Oe/BS/4mfG6elYrN3xFBMHVmO3t4P8kTJzF9VmxP6Sar0W258/ktxM95hC3o?=
+ =?us-ascii?Q?pYsnSeMlKPABhdLw8dG5+qCpuy4G3rL+i2wX1e7nRmnOvhzyjkoNGifslGUE?=
+ =?us-ascii?Q?10ASwBPi3cJoI+tjCSY95echQ5cNPVqRlnOAn+AOZlqeyfijUTqc0355rpBV?=
+ =?us-ascii?Q?9foetXpMCMp0X9OgDm+ivuzI3S49cdaVGwjLtoWsdLGGWHxuM4M21JYWM/VA?=
+ =?us-ascii?Q?683uptU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(366016)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OCzmBaQDrSxIPwjRnDhKfnKtlABFSlvECWUkTHXeC3wZdElOuEGAUL1j3rFh?=
+ =?us-ascii?Q?cUG7epylim/OewU6A2di2Zbk91h5YeEE+7DV9PnLfe9Vm6c7uUKsu2P6PL20?=
+ =?us-ascii?Q?DOHzQnalvfdHz7ia4ll+6Enld9tU2I+Dn+SpCicUxkzmh/CXzKl8pzY05G30?=
+ =?us-ascii?Q?mEPcHkp4nflohGjYCdU7mfGu4kmVgeEQMs27R+ygQkFYrA8opo2PVjzGnNiu?=
+ =?us-ascii?Q?Z6B2xyjW66P9z6Pp/Lyg5e5+ZoGG5s5KCRDhoSCAUcMLZZXY4Mf7F1V+9HlK?=
+ =?us-ascii?Q?ymLFPkvWXZ7ttJ7JEXV6qeNXpoLwNDBlKW8iYL0U0pCkrjJDlbvR5/VNGR+C?=
+ =?us-ascii?Q?gsqkDK+M3SbCZB1nx4TQRCFe0iMHBZp5YfSbH8M0KVMMf/vUct8rdeJFJcs3?=
+ =?us-ascii?Q?hKq5zTgp0YE6UjgbdVeTrZaz0oAdP4On2Wevmhfa7f7jptgboBzBSxSy6XT2?=
+ =?us-ascii?Q?xplKl/DmJsqYMEi4bzOYU17zEqRDoOuNjPoTsGXldR/QFkPBEZBy9Ga6pWAJ?=
+ =?us-ascii?Q?z8l2xd8wM6i4goav7dQMT4R6L7dy0bYUXjes83btdKFJlGspXp6Vm9JktsU7?=
+ =?us-ascii?Q?ucT4bYTqyFsksPVPn9O9CSfqnaKrw6o2bBwVH9L7cJbARkUmHxIfBnyilKDa?=
+ =?us-ascii?Q?GzOLdmkryi7uBLt+oXsl2vd0GJhNAxlT+bAZYbdrRoIl5U1o5ck4X3uUeFL0?=
+ =?us-ascii?Q?3LSOiFhK+4Dld8BuSgbbhw1GhC3Iw0mxj/yvwtX2p1EJ3JCQPUEk/58jNVZx?=
+ =?us-ascii?Q?RhPKKJ20Wqot4Cq/daOeL0PsVhS10dSz0jD+JRZ6l6uW7Sp+GHJLDKjtQAqt?=
+ =?us-ascii?Q?8ed5fBi9zUGEvpRfO9WZKYNXpMDfziEcFxnrx3qvuH8T2ycJ0jImnwF0xgSh?=
+ =?us-ascii?Q?K7cUa7jyavoM6x856iNopKq9qASeLV7SfxxObuEKoPOHOBZNvfamcY5NKKxn?=
+ =?us-ascii?Q?1eNKJu13mckoytPQynm//NVBYMHe7pqByKAJeUiUv21PIFZi2pShUVOS8IXM?=
+ =?us-ascii?Q?1OUnszYN+JCygV8tO2o8XwqrU8k/WEBWhjBPGd5ztvE8BS+GNY/oiCqQ3p5x?=
+ =?us-ascii?Q?U1B/WLsm2i/vTHA8CYy6y+FWbz2oDtjjSA8ohhWa9vi6KOfqhOueK/MOC9tM?=
+ =?us-ascii?Q?omC6xYd07tbJWDPNbfbq4kOErrQny4aWJU6Y/VDBAxZSfAAftkl8GyExUtjY?=
+ =?us-ascii?Q?aS6/fGKvbo9gw9V3oQc9zF19LNAk3bA8olpkdlRhom9tA9n9mKAdbmQ5qipd?=
+ =?us-ascii?Q?ZmsG/0kvd4B1R3Z41dk+KQ7b/RRJlX2oMcZqqIbysQM/QhV625TYeE1QbbqS?=
+ =?us-ascii?Q?Bf2wqT3s8AsA7ElaCf8/Wl/9dpoP8VbOgSrntrqN77bDrd0VVcW/RztDJ6Q1?=
+ =?us-ascii?Q?hoFOgw5nGJfyosjWCueln5mmGvOhPoH2xst+YjX3VPjOuJxQ7oqbA5Kne1e5?=
+ =?us-ascii?Q?8wbd+zXxLz/zBSm45KSbgfZQiPX/Cvm/sDKQ8z3nVMYuROxk2YoWYm7wW98V?=
+ =?us-ascii?Q?4Gr3XcX4ha87eDjEq3cicO7HUtulvAOtcRseddskDC5jxiCDstmRrhcFrBDu?=
+ =?us-ascii?Q?YXM5jEd1lrLOnpt7Tws=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5179fd89-d498-4ac8-8689-08dd04cb47de
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2024 16:42:08.9068
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ehEl0irEZYwjesHWWXIL7KHGxvh0d3Q0d28xE9XwDRMHptNDi4XiaDuNZIuY2u4MF9XNvvVGlN8rcHslald1Cg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7623
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_145557_145565_F50707F2 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20241114_084212_835472_CC9A9933 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,49 +155,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/11/7 17:40, Qinxin Xia wrote:
-> HiSilicon HIP09A platforms using the same SMMU PMCG with HIP09
-> and thus suffers the same erratum. List them in the PMCG platform
-> information list without introducing a new SMMU PMCG Model.
-> 
-> Update the silicon-errata.rst as well.
-> 
-> Signed-off-by: Qinxin Xia <xiaqinxin@huawei.com>
+On Thu, Nov 14, 2024 at 01:59:26PM +0800, zhangjiao2 wrote:
+> From: zhang jiao <zhangjiao2@cmss.chinamobile.com>
+>
+> The format specifier of "unsigned int" in snprintf()
+> should be "%u", not "%i".
 
-Reviewed-by: Yicong Yang <yangyicong@hisilicon.com>
+Replace %i with %u in snprintf() because it is "unsigned int".
 
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+>
+> Signed-off-by: zhang jiao <zhangjiao2@cmss.chinamobile.com>
 > ---
->  Documentation/arch/arm64/silicon-errata.rst | 4 ++--
->  drivers/acpi/arm64/iort.c                   | 2 ++
->  2 files changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-> index 65bfab1b1861..b21c0b1ed567 100644
-> --- a/Documentation/arch/arm64/silicon-errata.rst
-> +++ b/Documentation/arch/arm64/silicon-errata.rst
-> @@ -255,8 +255,8 @@ stable kernels.
->  +----------------+-----------------+-----------------+-----------------------------+
->  | Hisilicon      | Hip08 SMMU PMCG | #162001800      | N/A                         |
->  +----------------+-----------------+-----------------+-----------------------------+
-> -| Hisilicon      | Hip{08,09,10,10C| #162001900      | N/A                         |
-> -|                | ,11} SMMU PMCG  |                 |                             |
-> +| Hisilicon      | Hip{08,09x,10x, | #162001900      | N/A                         |
-> +|                | 11} SMMU PMCG   |                 |                             |
->  +----------------+-----------------+-----------------+-----------------------------+
->  +----------------+-----------------+-----------------+-----------------------------+
->  | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
-> diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
-> index 4c745a26226b..bf3be532e089 100644
-> --- a/drivers/acpi/arm64/iort.c
-> +++ b/drivers/acpi/arm64/iort.c
-> @@ -1703,6 +1703,8 @@ static struct acpi_platform_list pmcg_plat_info[] __initdata = {
->  	/* HiSilicon Hip09 Platform */
->  	{"HISI  ", "HIP09   ", 0, ACPI_SIG_IORT, greater_than_or_equal,
->  	 "Erratum #162001900", IORT_SMMU_V3_PMCG_HISI_HIP09},
-> +	{"HISI  ", "HIP09A  ", 0, ACPI_SIG_IORT, greater_than_or_equal,
-> +	 "Erratum #162001900", IORT_SMMU_V3_PMCG_HISI_HIP09},
->  	/* HiSilicon Hip10/11 Platform uses the same SMMU IP with Hip09 */
->  	{"HISI  ", "HIP10   ", 0, ACPI_SIG_IORT, greater_than_or_equal,
->  	 "Erratum #162001900", IORT_SMMU_V3_PMCG_HISI_HIP09},
-> 
+>  drivers/mailbox/imx-mailbox.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
+> index f815dab3be50..3fe51b2de89e 100644
+> --- a/drivers/mailbox/imx-mailbox.c
+> +++ b/drivers/mailbox/imx-mailbox.c
+> @@ -782,7 +782,7 @@ static int imx_mu_init_generic(struct imx_mu_priv *priv)
+>  		cp->chan = &priv->mbox_chans[i];
+>  		priv->mbox_chans[i].con_priv = cp;
+>  		snprintf(cp->irq_desc, sizeof(cp->irq_desc),
+> -			 "%s[%i-%i]", dev_name(priv->dev), cp->type, cp->idx);
+> +			 "%s[%i-%u]", dev_name(priv->dev), cp->type, cp->idx);
+>  	}
+>
+>  	priv->mbox.num_chans = IMX_MU_CHANS;
+> @@ -819,7 +819,7 @@ static int imx_mu_init_specific(struct imx_mu_priv *priv)
+>  		cp->chan = &priv->mbox_chans[i];
+>  		priv->mbox_chans[i].con_priv = cp;
+>  		snprintf(cp->irq_desc, sizeof(cp->irq_desc),
+> -			 "%s[%i-%i]", dev_name(priv->dev), cp->type, cp->idx);
+> +			 "%s[%i-%u]", dev_name(priv->dev), cp->type, cp->idx);
+>  	}
+>
+>  	priv->mbox.num_chans = num_chans;
+> --
+> 2.33.0
+>
+>
+>
 
