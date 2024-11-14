@@ -4,99 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20180D637D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 02:25:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C940ED637D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 02:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DFjbyEhB6YlvQdLcxCY78EUF4TC4mFNmvglTPgbd4h0=; b=n2y565VVN3j/QMsTlXeXmJCQt/
-	+huyfwtzcAdP4tVKjQsjRRqNx6ngVUg8huesTbkO8DYEF2Ln+3FEnE4j3OiIh6GP58C7NKWibXP+6
-	99iSz/KFfCREaTbuBSHHW5Jx6xqtOSgMm97mDfshCfvSEbcr0pxkltIonbbhXaCLJKxCtC1pkXAW7
-	akI9BmvNPmF8C2vR13I50U57OJxuqyStGO2hpKMjZGHRHrFBP/3MwR9kxf3PfyjDoNFVgDcl/LaOT
-	OAv0RUSHJkyYdHsS9tnRfh+UU1AWdxR7Rnn+tbQC1MpeVpgOJHP43bH0RHWZUuoViPJBS4iTY9eRi
-	WSGwZz+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/XFWMzXOJN0DmiAz834Zjqrvrr/ljxZnbS1N4jwbPsg=; b=bggxLDnmEP6fETla6ht8DEx5J6
+	Yxtt2dkcLBwOYldoReBEc9VowxVYh21uOmrhYXjcK3dxyvpn6pySalg+JhMQDNGVHXDFrXF983ak5
+	UzQJKal49Hvyh/ou+7fn1XL+NEFsMNiCy5uwvMWKOr5hBVBHABCN9PCX4gGIifYjLjkBKQZh2mJxI
+	BHNL0A70JaqiAKj+jms7aDdH7Im7yAo/SvQJcQzeNb4JGMboMSx+keFvpb3HGr5gPGKS+3bVgTc50
+	O9YayfWEgLXheI3Tqw3JsjEg/f6afnWycJZ4S63+CBuhmE8WThH84q2Skg/C2MjsfgrDHOdGhRMh+
+	da/MDmtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBPXK-00000008XmF-1FfB;
-	Thu, 14 Nov 2024 02:24:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tBPdw-00000008Yrb-4BkR;
+	Thu, 14 Nov 2024 02:31:37 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBPVU-00000008XMP-2P9z
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 14 Nov 2024 02:22:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=DFjbyEhB6YlvQdLcxCY78EUF4TC4mFNmvglTPgbd4h0=; b=URUOdu1dxBL98U8fAQkY18XrRs
-	1Z9hcf8Y6EFEKdcuMFH8Gr78RccuW9x2uwYFi3pmnnawHGa1Zbee3vVqh1f9iAd1eGVqu5mN0AzOb
-	gb2nLkR2DyjG46mdK55S5ml83UNIC9porhb/LhQZZkOMHjbc3JND44Qat5RZXYzMHU1kt2SOs8tPE
-	Q5oM+V/4XFUK95nw9YboDO2xYKPNVQwPtrqrIObZSWH0flNtMYejmHkMXZUoXvJVYlKw2BtJZVwoh
-	rhZvMxIF6k6sGz0HoJTnkn8TmmqAhNYSWC+XUrHtAYmcy4xbqNm/5cZ/esLvpYlOxgsLtHZvUuP6E
-	3Z1Hapbw==;
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBPVR-0000000DPrJ-0i2s
+	id 1tBPc7-00000008Yhv-3j9M
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 02:22:51 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-20ca4877690so38175ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 18:22:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731550965; x=1732155765; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DFjbyEhB6YlvQdLcxCY78EUF4TC4mFNmvglTPgbd4h0=;
-        b=ckvgciVKCY+gkDT2KFrMirSV3uzlU8hXgcceVYyP5gYFR2ejETqGnezmbrb1Gh529D
-         nALWzKg2pdoSlesh+JDno06wFPlsg2wZdTdiZZhwEL9pgwVMYJmb8hGYUb1x2Wzg+Qua
-         UGq1LF/AlYxC1gQyWEO2y+3vEcsaZta9QCwJVFhesBcLxyJTu4wBhNJz3QJ3ZKzgEZqJ
-         thR2WxJwTqiYNrzUMQ+KOP7MpkTyrlogPocZ91yvve/6TZm9Z4IK8nyPmOIjCYSNH3p5
-         VOSUY4DXvjSrcSXDZED10Jijt1WmfQFLCMzb2s8DcsjhNlWsYivBv/w3HS9rfL4e97TE
-         lVDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731550965; x=1732155765;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DFjbyEhB6YlvQdLcxCY78EUF4TC4mFNmvglTPgbd4h0=;
-        b=AcfexrxmcNcnzvamo3/94gD42t6ZOMhHu07StVmXfAe93NtIugfdhBeyaNr2QzEo8N
-         G3uKIMGYblHcOh+dbdPAEocaoD65jQdaoUmWfqiYGK5yE6bp+tuWlmThFoTQhpWb2+sK
-         w+jEElGR3Lga5h4i7dozMNj6FNuGMQoHkBcYF+wdhgaHlUw0YUNAzy0kTMeul5zTVa8q
-         Xy38Ifpc3fvxdxaYMfXvlDS+CDXmeO1pLte0Wi7QSpnEIvk/mX6qZuB1kOgH6PWlkpIw
-         ixwRx2cP+hsARGD4q9LxHSta61RTtmXBUXwT+8EPkWJi8j7jjgJQLRIjaNuMICT8Y7En
-         8F6w==
-X-Forwarded-Encrypted: i=1; AJvYcCWNWJ/Z7FEtcexG/ugOSIRHSCjhgyO8jzFgSineRvHjL7qAxY+h2w8DDrsQzNSaREIh73ZjIqOv+a8JUpRsyIXk@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvK3VCg5To9ixuy2uLUqSOOExaKFdvOVjDTc332kDQeWSqZtsb
-	n7rL7SLKt9Gc2fXHcOCDXH2uRDiHGmt0Ti98HBER+CtYkHnEL0L8+aG00A8FZ3xHgFBavL0EwlX
-	Y8kLMmy7EsjvLcbDNPKEhYu44f4vspceDsboI
-X-Gm-Gg: ASbGncs/YyWeoTjxl8xpO3M2i5e0L8DxJ97N6WT9mQtPlmshPtCTOji/51MCNkSTp/+
-	AqWXrRVPfiAhWRZSKiRjDNgtEEcINnWVF
-X-Google-Smtp-Source: AGHT+IEkHAxuNUMrQfjgKIWdSsYc7V/QUk6N1one1DotrFR+zPLsyGLzHOhroHdOV2Gkm0PwtDPFe6/yqGWMOs6bXdU=
-X-Received: by 2002:a17:902:fa4f:b0:20b:13a8:9f86 with SMTP id
- d9443c01a7336-211c193f425mr1508925ad.28.1731550964983; Wed, 13 Nov 2024
- 18:22:44 -0800 (PST)
+	Thu, 14 Nov 2024 02:29:45 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ADH1ZCv025361;
+	Thu, 14 Nov 2024 02:29:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=/XFWMzXOJN0DmiAz834Zjq
+	rvrr/ljxZnbS1N4jwbPsg=; b=d5vD2FGN2l+cui/Oh3IhlPj2z2YVHWGB4aYzco
+	X2LKIa9mf//4/O06DA6vTgUOoM15KUmVmRq2/SN6BvTwmGKWe9gQMxUjAIpVoZz9
+	EViE/tn/fiSdn655wLJClQj2ushCOZRhrVLn5YpYTeVe3473/isTrJyozr2nb/th
+	jrA2NPpxyVoa2FQfCxM/tetJsINfx/JJIt/U49DVvS6bJYfkXNktHf6QdNJTYQEa
+	RYVilmDXQenxuLiOER6nnHL2G1bamA4O3Btk/wlP27ZIgyUTDuhdaymIT7NPmu7V
+	ZC3FQIwYwBDQb66GiSkTHFUFnNitb5yMartMYBzzNzCvo6bQ==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42vgqqut3j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 14 Nov 2024 02:29:35 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AE2TYK0031976
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 14 Nov 2024 02:29:34 GMT
+Received: from hu-sibis-blr.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 13 Nov 2024 18:29:30 -0800
+From: Sibi Sankar <quic_sibis@quicinc.com>
+To: <sudeep.holla@arm.com>, <cristian.marussi@arm.com>, <rafael@kernel.org>,
+        <viresh.kumar@linaro.org>, <morten.rasmussen@arm.com>,
+        <dietmar.eggemann@arm.com>, <lukasz.luba@arm.com>,
+        <pierre.gondois@arm.com>, <vincent.guittot@linaro.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <quic_mdtipton@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, Sibi Sankar <quic_sibis@quicinc.com>
+Subject: [PATCH V8 0/1] firmware: arm_scmi: Register and handle limits change notification
+Date: Thu, 14 Nov 2024 07:59:15 +0530
+Message-ID: <20241114022916.644899-1-quic_sibis@quicinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20241107160721.1401614-1-deepak.surti@arm.com>
-In-Reply-To: <20241107160721.1401614-1-deepak.surti@arm.com>
-From: Ian Rogers <irogers@google.com>
-Date: Wed, 13 Nov 2024 18:22:33 -0800
-Message-ID: <CAP-5=fU83dr8XR0_bO8ZHD2-K+YXmK7H-1evs9ERKJ3EiGLiFQ@mail.gmail.com>
-Subject: Re: [PATCH v1 0/4] A mechanism for efficient support for per-function metrics
-To: Deepak Surti <deepak.surti@arm.com>
-Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, 
-	namhyung@kernel.org, mark.barnett@arm.com, ben.gainey@arm.com, 
-	ak@linux.intel.com, will@kernel.org, james.clark@arm.com, 
-	mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org, 
-	adrian.hunter@intel.com, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 7AJqlshVTjnTHf0zBfBFHPIs_Nfqs9t5
+X-Proofpoint-GUID: 7AJqlshVTjnTHf0zBfBFHPIs_Nfqs9t5
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 clxscore=1015
+ impostorscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0
+ priorityscore=1501 phishscore=0 malwarescore=0 mlxlogscore=904
+ adultscore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411140017
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_022249_580256_08D52801 
-X-CRM114-Status: GOOD (  59.81  )
+X-CRM114-CacheID: sfid-20241113_182944_081934_803ABDCA 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,302 +98,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 7, 2024 at 8:08=E2=80=AFAM Deepak Surti <deepak.surti@arm.com> =
-wrote:
->
-> This patch introduces the concept on an alternating sample rate to perf
-> core and provides the necessary basic changes in the tools to activate
-> that option.
->
-> This patchset was original posted by Ben Gainey out for RFC back in April=
-,
-> the latest version of which can be found at
-> https://lore.kernel.org/linux-perf-users/20240422104929.264241-1-ben.gain=
-ey@arm.com/.
-> Going forward, I will be owning this.
->
-> The primary use case for this change is to be able to enable collecting
-> per-function performance metrics using the Arm PMU, as per the following
-> approach:
->
->  * Starting with a simple periodic sampling (hotspot) profile,
->    augment each sample with PMU counters accumulated over a short window
->    up to the point the sample was take.
->  * For each sample, perform some filtering to improve attribution of
->    the accumulated PMU counters (ensure they are attributed to a single
->    function)
->  * For each function accumulate a total for each PMU counter so that
->    metrics may be derived.
->
-> Without modification, and sampling at a typical rate associated
-> with hotspot profiling (~1mS) leads to poor results. Such an
-> approach gives you a reasonable estimation of where the profiled
-> application is spending time for relatively low overhead, but the
-> PMU counters cannot easily be attributed to a single function as the
-> window over which they are collected is too large. A modern CPU may
-> execute many millions of instructions over many thousands of functions
-> within 1mS window. With this approach, the per-function metrics tend
-> to trend to some average value across the top N functions in the
-> profile.
->
-> In order to ensure a reasonable likelihood that the counters are
-> attributed to a single function, the sampling window must be rather
-> short; typically something in the order of a few hundred cycles proves
-> well as tested on a range of aarch64 Cortex and Neoverse cores.
->
-> As it stands, it is possible to achieve this with perf using a very high
-> sampling rate (e.g ~300cy), but there are at least three major concerns
-> with this approach:
->
->  * For speculatively executing, out of order cores, can the results be
->    accurately attributed to a give function or the given sample window?
->  * A short sample window is not guaranteed to cover a single function.
->  * The overhead of sampling every few hundred cycles is very high and
->    is highly likely to cause throttling which is undesirable as it leads
->    to patchy results; i.e. the profile alternates between periods of
->    high frequency samples followed by longer periods of no samples.
->
-> This patch does not address the first two points directly. Some means
-> to address those are discussed on the RFC v2 cover letter. The patch
-> focuses on addressing the final point, though happily this approach
-> gives us a way to perform basic filtering on the second point.
->
-> The alternating sample period allows us to do two things:
->
->  * We can control the risk of throttling and reduce overhead by
->    alternating between a long and short period. This allows us to
->    decouple the "periodic" sampling rate (as might be used for hotspot
->    profiling) from the short sampling window needed for collecting
->    the PMU counters.
->  * The sample taken at the end of the long period can be otherwise
->    discarded (as the PMU data is not useful), but the
->    PERF_RECORD_CALLCHAIN information can be used to identify the current
->    function at the start of the short sample window. This is useful
->    for filtering samples where the PMU counter data cannot be attributed
->    to a single function.
+This series registers for scmi limits change notifications to determine
+the throttled frequency and apply HW pressure.
 
-I think this is interesting. I'm a little concerned on the approach as
-I wonder if a more flexible mechanism could be had.
+V8:
+* Drop patch 1 since it was picked up by Viresh
+* Leave policy->max update to the cpufreq_qos notifier [Vincent]
+* We sanitized the range_max from V3 since we dealt with
+  policy->max, now we can drop the check and policy member
+  from scmi_data.
 
-One approach that wouldn't work would be to open high and low
-frequency events, or groups of events, then use BPF filters to try to
-replicate this approach by dropping most of the high frequency events.
-I don't think it would work as the high frequency sampling is likely
-going to trigger during the BPF filter execution, and the BPF filter
-would be too much overhead.
+V7:
+* Add a new request instead of reusing the max_freq_req [Vincent]
+* Use the non-devm versions of register/unregister of event notifier
+  since we have to remove them when the cpus get removed anyway.
+* Add new patch to fix cleanup path on boost enablement failure.
 
-Perhaps another approach is to change the perf event period with a new
-BPF helper function that's called where we do the perf event
-filtering. There's the overhead of running the BPF code, but the BPF
-code could allow you to instead of alternating between two periods
-allow you to alternate between an arbitrary number of them.
+V6:
+* Unregister the notifier in the exit path to make sure
+  the cpus work across suspend/resume cycles.
 
-Thanks,
-Ian
+V5:
+* Drop patch 1 and use pm_qos to update constraints. [Vincent]
+* Use sdev instead of cpu_dev in dev_warn. [Christian]
+* Pass sdev directly through private data. [Christian]
+* Dropping Rb's for now.
 
-> There are several reasons why it is desirable to reduce the overhead and
-> risk of throttling:
->
->   * PMU counter overflow typically causes an interrupt into the kernel;
->     this affects program runtime, and can affect things like branch
->     prediction, cache locality and so on which can skew the metrics.
->   * The very high sample rate produces significant amounts of data.
->     Depending on the configuration of the profiling session and machine,
->     it is easily possible to produce many orders of magnitude more data
->     which is costly for tools to post-process and increases the chance
->     of data loss. This is especially relevant on larger core count
->     systems where it is very easy to produce massive recordings.
->     Whilst the kernel will throttle such a configuration,
->     which helps to mitigate a large portion of the bandwidth and capture
->     overhead, it is not something that can be controlled for on a per
->     event basis, or for non-root users, and because throttling is
->     controlled as a percentage of time its affects vary from machine to
->     machine. AIUI throttling may also produce an uneven temporal
->     distribution of samples. Finally, whilst throttling does a good job
->     at reducing the overall amount of data produced, it still leads to
->     much larger captures than with this method; typically we have
->     observed 1-2 orders of magnitude larger captures.
->
-> This patch set modifies perf core to support alternating between two
-> sample_period values, providing a simple and inexpensive way for tools
-> to separate out the sample window (time over which events are
-> counted) from the sample period (time between interesting samples).
->
-> It is expected to be used with the cycle counter event, alternating
-> between a long and short period and subsequently discarding the counter
-> data for samples with the long period. The combined long and short
-> period gives the overall sampling period, and the short sample period
-> gives the sample window. The symbol taken from the sample at the end of
-> the long period can be used by tools to ensure correct attribution as
-> described previously. The cycle counter is recommended as it provides
-> fair temporal distribution of samples as would be required for the
-> per-symbol sample count mentioned previously, and because the PMU can
-> be programmed to overflow after a sufficiently short window (which may
-> not be possible with software timer, for example). This patch does not
-> restrict to only the cycle counter, it is possible there could be other
-> novel uses based on different events, or more appropriate counters on
-> other architectures. This patch set does not modify or otherwise disable
-> the kernel's existing throttling behaviour; if a configuration is given
-> that would lead high CPU usage, then throttling still occurs.
->
->
-> To test this a simple `perf script` based python script was developed.
-> For a limited set of Arm PMU events it will post process a
-> `perf record`-ing and generate a table of metrics. Along side this a
-> benchmark application was developed that rotates through a sequence
-> of different classes of behaviour that can be detected by the Arm PMU
-> (eg. mispredicts, cache misses, different instruction mixes). The path
-> through the benchmark can be rotated after each iteration so as to
-> ensure the results don't land on some lucky harmonic with the sample
-> period. The script can be used with and without this patch allowing
-> comparison of the results. Testing was on Juno (A53+A57), N1SDP,
-> Gravaton 2 and 3. In addition this approach has been applied to a few
-> of Arm's tools projects and has correctly identified improvements and
-> regressions.
->
-> Headline results from testing indicate that ~300 cycles sample window
-> gives good results with or without this patch. Typical output on N1SDP (N=
-eoverse-N1)
-> for the provided benchmark when run as:
->
->     perf record -T --sample-cpu --call-graph fp,4 --user-callchains \
->         -k CLOCK_MONOTONIC_RAW \
->         -e '{cycles/period=3D999700,alt-period=3D300/,instructions,branch=
--misses,cache-references,cache-misses}:uS' \
->         benchmark 0 1
->
->     perf script -s generate-function-metrics.py -- -s discard
->
-> Looks like (reformatted for email brevity):
->
->     Symbol              #     CPI   BM/KI  CM/KI  %CM   %CY   %I    %BM  =
- %L1DA  %L1DM
->     fp_divider_stalls   6553   4.9   0.0     0.0   0.0  41.8  22.9   0.1 =
-  0.6    0.0
->     int_divider_stalls  4741   3.5   0.0     0.0   1.1  28.3  21.5   0.1 =
-  1.9    0.2
->     isb                 3414  20.1   0.2     0.0   0.4  17.6   2.3   0.1 =
-  0.8    0.0
->     branch_mispredicts  1234   1.1  33.0     0.0   0.0   6.1  15.2  99.0 =
- 71.6    0.1
->     double_to_int        694   0.5   0.0     0.0   0.6   3.4  19.1   0.1 =
-  1.2    0.1
->     nops                 417   0.3   0.2     0.0   2.8   1.9  18.3   0.6 =
-  0.4    0.1
->     dcache_miss          185   3.6   0.4   184.7  53.8   0.7   0.5   0.0 =
- 18.4   99.1
->
-> (CPI =3D Cycles/Instruction, BM/KI =3D Branch Misses per 1000 Instruction=
-,
->  CM/KI =3D Cache Misses per 1000 Instruction, %CM =3D Percent of Cache
->  accesses that miss, %CY =3D Percentage of total cycles, %I =3D Percentag=
-e
->  of total instructions, %BM =3D Percentage of total branch mispredicts,
->  %L1DA =3D Percentage of total cache accesses, %L1DM =3D Percentage of to=
-tal
->  cache misses)
->
-> When the patch is used, the resulting `perf.data` files are typically
-> between 25-50x smaller than without, and take ~25x less time for the
-> python script to post-process. For example, running the following:
->
->     perf record -i -vvv -e '{cycles/period=3D1000000/,instructions}:uS' b=
-enchmark 0 1
->     perf record -i -vvv -e '{cycles/period=3D1000/,instructions}:uS' benc=
-hmark 0 1
->     perf record -i -vvv -e '{cycles/period=3D300/,instructions}:uS' bench=
-mark 0 1
->
-> produces captures on N1SDP (Neoverse-N1) of the following sizes:
->
->     * period=3D1000000: 2.601 MB perf.data (55780 samples), script time =
-=3D 0m0.362s
->     * period=3D1000: 283.749 MB perf.data (6162932 samples), script time =
-=3D 0m33.100s
->     * period=3D300: 304.281 MB perf.data (6614182 samples), script time =
-=3D 0m35.826s
->
-> The "script time" is the user time from running "time perf script -s gene=
-rate-function-metrics.py"
-> on the recording. Similar processing times were observed for "time perf r=
-eport --stdio|cat"
-> as well.
->
-> By comparison, with the patch active:
->
->     perf record -i -vvv -e '{cycles/period=3D999700,alt-period=3D300/,ins=
-tructions}:uS' benchmark 0 1
->
-> produces 4.923 MB perf.data (107512 samples), and script time =3D 0m0.578=
-s.
-> Which is as expected ~2x the size and ~2x the number of samples as per
-> the period=3D1000000 recording. When compared to the period=3D300 recordi=
-ng,
-> the results from the provided post-processing script are (within margin
-> of error) the same, but the data file is ~62x smaller. The same affect
-> is seen for the post-processing script runtime.
->
-> Notably, without the patch enable, L1D cache miss rates are often higher
-> than with, which we attribute to increased impact on the cache that
-> trapping into the kernel every 300 cycles has.
->
-> These results are given with `perf_cpu_time_max_percent=3D25`. When teste=
-d
-> with `perf_cpu_time_max_percent=3D100` the size and time comparisons are
-> more significant. Disabling throttling did not lead to obvious
-> improvements in the collected metrics, suggesting that the sampling
-> approach is sufficient to collect representative metrics.
->
-> Cursory testing on a Xeon(R) W-2145 with a 300 *instruction* sample
-> window (with and without the patch) suggests this approach might work
-> for some counters. Using the same test script, it was possible to identif=
-y
-> branch mispredicts correctly. However, whilst the patch is functionally
-> correct, differences in the architectures may mean that this approach it
-> enables does not apply as a means to collect per-function metrics on x86.
->
-> Changes since RFC v2:
->  - Rebased on v6.12-rc6.
->
-> Changes since RFC v1:
->  - Rebased on v6.9-rc1.
->  - Refactored from arm_pmu based extension to core feature
->  - Added the ability to jitter the sample window based on feedback
->    from Andi Kleen.
->  - Modified perf tool to parse the "alt-period" and "alt-period-jitter"
->    terms in the event specification.
->
-> Ben Gainey (4):
->   perf: Allow periodic events to alternate between two sample periods
->   perf: Allow adding fixed random jitter to the alternate sampling
->     period
->   tools/perf: Modify event parser to support alt-period term
->   tools/perf: Modify event parser to support alt-period-jitter term
->
->  include/linux/perf_event.h                    |  5 ++
->  include/uapi/linux/perf_event.h               | 13 ++++-
->  kernel/events/core.c                          | 47 +++++++++++++++++++
->  tools/include/uapi/linux/perf_event.h         | 13 ++++-
->  tools/perf/tests/attr.c                       |  2 +
->  tools/perf/tests/attr.py                      |  2 +
->  tools/perf/tests/attr/base-record             |  4 +-
->  tools/perf/tests/attr/base-record-spe         |  2 +
->  tools/perf/tests/attr/base-stat               |  4 +-
->  tools/perf/tests/attr/system-wide-dummy       |  4 +-
->  .../attr/test-record-alt-period-jitter-term   | 13 +++++
->  .../tests/attr/test-record-alt-period-term    | 12 +++++
->  tools/perf/tests/attr/test-record-dummy-C0    |  4 +-
->  tools/perf/util/parse-events.c                | 30 ++++++++++++
->  tools/perf/util/parse-events.h                |  4 +-
->  tools/perf/util/parse-events.l                |  2 +
->  tools/perf/util/perf_event_attr_fprintf.c     |  1 +
->  tools/perf/util/pmu.c                         |  2 +
->  18 files changed, 157 insertions(+), 7 deletions(-)
->  create mode 100644 tools/perf/tests/attr/test-record-alt-period-jitter-t=
-erm
->  create mode 100644 tools/perf/tests/attr/test-record-alt-period-term
->
-> --
-> 2.43.0
->
+V4:
+* Use EXPORT_SYMBOL_GPL instead. [Trilok]
+* Use a interim variable to show the khz calc. [Lukasz]
+* Use driver_data to pass on the handle and scmi_dev instead of using
+  global variables. Dropped Lukasz's Rb due to adding these minor
+  changes.
+
+V3:
+* Sanitize range_max received from the notifier. [Pierre]
+* Drop patches 1/2 from v2. [Cristian]
+* Update commit message in patch 2.
+
+V2:
+* Rename opp_xlate -> freq_xlate [Viresh]
+* Export cpufreq_update_pressure and use it directly [Lukasz]
+
+base-branch: next-20241113
+
+Sibi Sankar (1):
+  cpufreq: scmi: Register for limit change notifications
+
+ drivers/cpufreq/scmi-cpufreq.c | 45 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
+
+-- 
+2.34.1
+
 
