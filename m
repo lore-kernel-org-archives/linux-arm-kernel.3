@@ -4,55 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAD81D65C6C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 10:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E7BD65C6F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 10:56:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=slipo85jeU4x0/6UQp38NN3nKrQSFTaT3dRImDEbsFI=; b=fZN43JvuDj2+22pUXWqJCDwZSP
-	9Yu6HCLISuXVRsMx9qd2rI4QTwO0Afx0XYFUuWaelH2I1dlGYBVmE20b8FerIyx880YNUy0X8Et3U
-	dRNhvmUqP/kbS4Kw1AUKRiHnsKDOWph9WwzBVk7GNxRx4HAGXaQ++XldaAJ+1LNIwKiLXCQOkTJQq
-	PwFjEaqTHE4+frNsk5DMT2StQBjgZetolJgynasPeOSXMdDr/GGi4dt7Nm3A558/uxB+mDF6CVh6i
-	ziBSirarDOCXT82QdiIFMBhgmhz8l6uPt3P8amfvmQPPMIPDNMsLp95EhKAVPYTOJEATXuOJrQYO4
-	5rFn1nTQ==;
+	bh=kJib80vtMQ+j8z3Fr/DFzZp66roaGSj4aK6eGZ/xOt0=; b=qYp+PwMRH5/Qsu17TF7Xe2CBx8
+	DbVXSydMJcVj87maSiqhHVjuvIcT55sf67q8bYXp0PpqjMPjZVgaae1Ke+lD+6ZLrTpcaPKBbtklK
+	gEeOuAT+uArWmw6D7hNQMalJRejWpzBCqQa/nzz7vZs9Dqrip/LqYCz8/Lr/03mkMEcEl897qMzMr
+	HJ2jt0+fTTxkX8cKlN1DKsXeAQ+K233kJdtmld2/+AFEGpGY7/KGT2IlWDG8IWYTtKYYvlS5oSXH+
+	iloLbPimFtSdsQBivlAQK1JDSu3XI4yxhRzR4wRPjFRn+nHT7p+o5VpmS92b7wZc1KImiUkY+r+iq
+	mXdj4vWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBXUd-00000009ckf-2mKC;
-	Thu, 14 Nov 2024 10:54:31 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tBXWS-00000009d34-0FS8;
+	Thu, 14 Nov 2024 10:56:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWly-00000009TDH-2gsR;
+	id 1tBWmC-00000009TJT-1zsR;
+	Thu, 14 Nov 2024 10:08:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=kJib80vtMQ+j8z3Fr/DFzZp66roaGSj4aK6eGZ/xOt0=; b=hjsALPDGrvPqBPpLzPaI2M6PwT
+	78gxAtO8ctDGh+xKqsK/faWFM7ULALuV3Ru92uWHTiToYNNVg/HbxfHZ3LyjzW+BPasFE3aZjBGqe
+	HfO+mS/YJEy2+zvVp3OK7fBmpg1klDHDJyrjNkmyry+FIYu5U3dbz2n/u39+DfrpMTWnqb/2QTdXV
+	5gXfbrmaK3uQ2/8BuzZWgy+0RzdbtACeFyJ5YV4ZhfvzrDGRht4T+o6206C2VvTl4Nq9/jv4VS4x0
+	I+Jiw1JPUEESxh7kItxAVEGK97akZiEOhQriKHXPQub533Jh62/KbMYzJ8ch0SoI6hRiio0YHmOmH
+	bKAqfQKQ==;
+Received: from mailgw01.mediatek.com ([216.200.240.184])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBWm4-0000000Db5H-1iM8;
 	Thu, 14 Nov 2024 10:08:32 +0000
-X-UUID: 5aa5331ea27011ef82ff63e91e7eb18c-20241114
+X-UUID: 5abed5eea27011ef82ff63e91e7eb18c-20241114
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=slipo85jeU4x0/6UQp38NN3nKrQSFTaT3dRImDEbsFI=;
-	b=SKeGhNQX8Wh52YyOyWLxO2JQcSdzfnZA7oDOJgxDlYviKQX/ycSuV+/DTtWiFNvkQ3yGAnGOtj/TsP2sgCyxAcyZAkxTcQKt59Bg/9vh/7IjBeY9iTVyGh9aXf/0szEbfhpl+ztMP2zBiLdz0ar6hAm93HijMKGFl6V3WnjwTk8=;
+	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=kJib80vtMQ+j8z3Fr/DFzZp66roaGSj4aK6eGZ/xOt0=;
+	b=U5dWbKxGD9R61cqlMsTR5Q/JPSz7YTafL6r+hIezdZAJypDUrT21tFDT4m0Nfon/c1mn9JP0T0Ov9BrEqPDSrsMgJl5RvFWjE6u8BUXWGsPxPg+1dIcrdHpk8e8fh096cFscYgpFbdqQn9PotaT7iBrYhQOcz0pUtrGoYAKK/50=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:73c26d74-3ad1-4b70-9f9b-e28024941748,IP:0,U
+X-CID-O-INFO: VERSION:1.1.42,REQID:abfbffaf-8f36-4735-824e-f2d17f226b50,IP:0,U
 	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
 	N:release,TS:-25
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:276c1307-6ce0-4172-9755-bd2287e50583,B
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:215f0c4f-a2ae-4b53-acd4-c3dc8f449198,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0,EDM:-3,IP
-	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
-	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+	:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 5aa5331ea27011ef82ff63e91e7eb18c-20241114
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-UUID: 5abed5eea27011ef82ff63e91e7eb18c-20241114
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
 	(envelope-from <liju-clr.chen@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1960416329; Thu, 14 Nov 2024 03:08:11 -0700
+	with ESMTP id 739669791; Thu, 14 Nov 2024 03:08:11 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Thu, 14 Nov 2024 18:08:06 +0800
+ 15.2.1118.26; Thu, 14 Nov 2024 02:08:07 -0800
 Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
  mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Thu, 14 Nov 2024 18:08:06 +0800
+ 15.2.1118.26 via Frontend Transport; Thu, 14 Nov 2024 18:08:07 +0800
 From: Liju-clr Chen <liju-clr.chen@mediatek.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Catalin
@@ -69,9 +83,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-mediatek@lists.infradead.org>, Shawn Hsiao <shawn.hsiao@mediatek.com>,
 	PeiLun Suei <PeiLun.Suei@mediatek.com>, Chi-shen Yeh
 	<Chi-shen.Yeh@mediatek.com>, Kevenny Hsieh <Kevenny.Hsieh@mediatek.com>
-Subject: [PATCH v13 22/25] virt: geniezone: Add support for virtual timer migration
-Date: Thu, 14 Nov 2024 18:07:59 +0800
-Message-ID: <20241114100802.4116-23-liju-clr.chen@mediatek.com>
+Subject: [PATCH v13 25/25] virt: geniezone: Reduce blocked duration in hypervisor when destroying a VM
+Date: Thu, 14 Nov 2024 18:08:02 +0800
+Message-ID: <20241114100802.4116-26-liju-clr.chen@mediatek.com>
 X-Mailer: git-send-email 2.18.0
 In-Reply-To: <20241114100802.4116-1-liju-clr.chen@mediatek.com>
 References: <20241114100802.4116-1-liju-clr.chen@mediatek.com>
@@ -79,8 +93,8 @@ MIME-Version: 1.0
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_020822_928358_816F946E 
-X-CRM114-Status: GOOD (  22.40  )
+X-CRM114-CacheID: sfid-20241114_100829_411099_354FFBB3 
+X-CRM114-Status: GOOD (  24.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,241 +109,255 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Willix Yeh <chi-shen.yeh@mediatek.com>
+From: Jerry Wang <ze-yu.wang@mediatek.com>
 
-Introduce a mechanism to migrate the ARM64 virtual timer from the
-guest VM to the host Linux system when the execution context switches
-from the guest VM to the host. Ensure that the guest VM's virtual
-timer continues to operate seamlessly after the context switch, given
-that ARM64 has only one virtual timer.
+Reduce the blocked duration in the hypervisor when destroying a VM
+by splitting a single hypercall into multiple calls. Previously, the
+hypervisor could be blocked for an extended period when destroying a VM, as
+the entire process was handled in a single hypercall. This could lead to
+performance degradation because the scheduler does not have chances to
+schedule other tasks when the hypercall is processing by the hypervisor.
 
-Translate the remaining time before the VM timer expires into the host
-Linux system by setting the remaining time on an hrtimer. This allows
-the guest VM to maintain its timer operations without interruption.
+By splitting the destruction process into multiple smaller hypercalls,
+significantly reduce the blocked duration in the hypervisor. Additionally,
+making the amount of each call adjustable provides flexibility to optimize
+the process based on different workloads and system configurations.
 
-Enable seamless timer operation during idle states. When a VM enters
-an idle state and the execution context returns to the host Linux,
-ensure that the timer continues to operate seamlessly, preventing
-disruption to the guest VM's timing operations.
-
-Signed-off-by: Willix Yeh <chi-shen.yeh@mediatek.com>
-Co-developed-by: Kevenny Hsieh <kevenny.hsieh@mediatek.com>
-Signed-off-by: Kevenny Hsieh <kevenny.hsieh@mediatek.com>
+Signed-off-by: Jerry Wang <ze-yu.wang@mediatek.com>
 Signed-off-by: Liju Chen <liju-clr.chen@mediatek.com>
 ---
- arch/arm64/geniezone/gzvm_arch_common.h | 15 +++++++++++++++
- arch/arm64/geniezone/vcpu.c             | 16 ++++++++++++++++
- arch/arm64/geniezone/vm.c               | 24 ++++++++++++++++++++++++
- drivers/virt/geniezone/gzvm_main.c      |  4 ++++
- drivers/virt/geniezone/gzvm_vcpu.c      | 24 ++++++++++++++++++++++++
- include/linux/soc/mediatek/gzvm_drv.h   |  7 +++++++
- 6 files changed, 90 insertions(+)
+ arch/arm64/geniezone/vm.c             | 27 ++++++++++--
+ drivers/virt/geniezone/gzvm_main.c    | 62 +++++++++++++++++++++++++++
+ drivers/virt/geniezone/gzvm_vm.c      |  2 +-
+ include/linux/soc/mediatek/gzvm_drv.h |  7 ++-
+ include/uapi/linux/gzvm.h             |  1 +
+ 5 files changed, 94 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/geniezone/gzvm_arch_common.h b/arch/arm64/geniezone/gzvm_arch_common.h
-index 8f5d8528ab96..df16e33f6b74 100644
---- a/arch/arm64/geniezone/gzvm_arch_common.h
-+++ b/arch/arm64/geniezone/gzvm_arch_common.h
-@@ -7,6 +7,7 @@
- #define __GZVM_ARCH_COMMON_H__
- 
- #include <linux/arm-smccc.h>
-+#include <linux/clocksource.h>
- 
- enum {
- 	GZVM_FUNC_CREATE_VM = 0,
-@@ -85,6 +86,10 @@ int gzvm_hypcall_wrapper(unsigned long a0, unsigned long a1,
-  * @lr: The array of LRs(list registers).
-  * @vtimer_offset: The offset maintained by hypervisor that is host cycle count
-  *                 when guest VM startup.
-+ * @vtimer_delay: The remaining time before the next timer tick is triggered
-+ *                while the VM is running.
-+ * @vtimer_migrate: Indicates whether the guest virtual timer needs to be
-+ *                  migrated to the host software timer.
-  *
-  * - Keep the same layout of hypervisor data struct.
-  * - Sync list registers back for acking virtual device interrupt status.
-@@ -94,8 +99,18 @@ struct gzvm_vcpu_hwstate {
- 	__le32 __pad;
- 	__le64 lr[GIC_V3_NR_LRS];
- 	__le64 vtimer_offset;
-+	__le64 vtimer_delay;
-+	__le32 vtimer_migrate;
- };
- 
-+struct timecycle {
-+	u32 mult;
-+	u32 shift;
-+};
-+
-+u32 gzvm_vtimer_get_clock_mult(void);
-+u32 gzvm_vtimer_get_clock_shift(void);
-+
- static inline unsigned int
- assemble_vm_vcpu_tuple(u16 vmid, u16 vcpuid)
- {
-diff --git a/arch/arm64/geniezone/vcpu.c b/arch/arm64/geniezone/vcpu.c
-index e12ea9cb4941..595f16904b99 100644
---- a/arch/arm64/geniezone/vcpu.c
-+++ b/arch/arm64/geniezone/vcpu.c
-@@ -11,6 +11,22 @@
- #include <linux/soc/mediatek/gzvm_drv.h>
- #include "gzvm_arch_common.h"
- 
-+u64 gzvm_vcpu_arch_get_timer_delay_ns(struct gzvm_vcpu *vcpu)
-+{
-+	u64 ns;
-+
-+	if (vcpu->hwstate->vtimer_migrate) {
-+		ns = clocksource_cyc2ns(le64_to_cpu(vcpu->hwstate->vtimer_delay),
-+					gzvm_vtimer_get_clock_mult(),
-+					gzvm_vtimer_get_clock_shift());
-+	} else {
-+		ns = 0;
-+	}
-+
-+	/* 0: no migrate, otherwise: migrate  */
-+	return ns;
-+}
-+
- int gzvm_arch_vcpu_update_one_reg(struct gzvm_vcpu *vcpu, __u64 reg_id,
- 				  bool is_write, __u64 *data)
- {
 diff --git a/arch/arm64/geniezone/vm.c b/arch/arm64/geniezone/vm.c
-index 026c1980d054..fccdcd5b8c75 100644
+index cfd0aeb865e5..fb4e5dd41002 100644
 --- a/arch/arm64/geniezone/vm.c
 +++ b/arch/arm64/geniezone/vm.c
-@@ -15,6 +15,18 @@
+@@ -175,12 +175,18 @@ int gzvm_arch_create_vm(unsigned long vm_type)
+ 	return ret ? ret : res.a1;
+ }
  
- #define PAR_PA47_MASK GENMASK_ULL(47, 12)
+-int gzvm_arch_destroy_vm(u16 vm_id)
++int gzvm_arch_destroy_vm(u16 vm_id, u64 destroy_page_gran)
+ {
+ 	struct arm_smccc_res res;
++	int ret;
++
++	do {
++		ret = gzvm_hypcall_wrapper(MT_HVC_GZVM_DESTROY_VM, vm_id,
++					   destroy_page_gran, 0, 0,
++					   0, 0, 0, &res);
++	} while (ret == -EAGAIN);
  
-+static struct timecycle clock_scale_factor;
-+
-+u32 gzvm_vtimer_get_clock_mult(void)
+-	return gzvm_hypcall_wrapper(MT_HVC_GZVM_DESTROY_VM, vm_id, 0, 0, 0, 0,
+-				    0, 0, &res);
++	return ret;
+ }
+ 
+ int gzvm_arch_memregion_purpose(struct gzvm *gzvm,
+@@ -241,6 +247,21 @@ int gzvm_arch_query_hyp_batch_pages(struct gzvm_enable_cap *cap,
+ 	return ret;
+ }
+ 
++int gzvm_arch_query_destroy_batch_pages(struct gzvm_enable_cap *cap,
++					void __user *argp)
 +{
-+	return clock_scale_factor.mult;
-+}
++	struct arm_smccc_res res = {0};
++	int ret;
 +
-+u32 gzvm_vtimer_get_clock_shift(void)
-+{
-+	return clock_scale_factor.shift;
++	ret = gzvm_arch_enable_cap(cap, &res);
++	// destroy page batch size should be power of 2
++	if (ret || ((res.a1 & (res.a1 - 1)) != 0))
++		return -EINVAL;
++
++	cap->args[0] = res.a1;
++	return ret;
 +}
 +
  /**
-  * gzvm_hypcall_wrapper() - the wrapper for hvc calls
-  * @a0: arguments passed in registers 0
-@@ -90,6 +102,18 @@ int gzvm_arch_probe(struct gzvm_version drv_version,
- 	return 0;
- }
- 
-+int gzvm_arch_drv_init(void)
-+{
-+	/* timecycle init mult shift */
-+	clocks_calc_mult_shift(&clock_scale_factor.mult,
-+			       &clock_scale_factor.shift,
-+			       arch_timer_get_cntfrq(),
-+			       NSEC_PER_SEC,
-+			       30);
-+
-+	return 0;
-+}
-+
- int gzvm_arch_set_memregion(u16 vm_id, size_t buf_size,
- 			    phys_addr_t region)
- {
+  * gzvm_vm_ioctl_get_pvmfw_size() - Get pvmfw size from hypervisor, return
+  *				    in x1, and return to userspace in args
 diff --git a/drivers/virt/geniezone/gzvm_main.c b/drivers/virt/geniezone/gzvm_main.c
-index 1816eecfcefb..0ec15c33111e 100644
+index 0ec15c33111e..38a2406a16bd 100644
 --- a/drivers/virt/geniezone/gzvm_main.c
 +++ b/drivers/virt/geniezone/gzvm_main.c
-@@ -233,6 +233,10 @@ static int gzvm_drv_probe(struct platform_device *pdev)
- 		 gzvm_drv.hyp_version.major, gzvm_drv.hyp_version.minor,
- 		 gzvm_drv.hyp_version.sub);
+@@ -49,6 +49,33 @@ static ssize_t demand_paging_batch_pages_store(struct kobject *kobj,
+ 	return count;
+ }
  
-+	ret = gzvm_arch_drv_init();
++static ssize_t destroy_batch_pages_show(struct kobject *kobj,
++					struct kobj_attribute *attr,
++					char *buf)
++{
++	return sprintf(buf, "%u\n", gzvm_drv.destroy_batch_pages);
++}
++
++static ssize_t destroy_batch_pages_store(struct kobject *kobj,
++					 struct kobj_attribute *attr,
++					 const char *buf, size_t count)
++{
++	int ret;
++	u32 temp;
++
++	ret = kstrtoint(buf, 10, &temp);
++	if (ret < 0)
++		return ret;
++
++	// destroy page batch size should be power of 2
++	if ((temp & (temp - 1)) != 0)
++		return -EINVAL;
++
++	gzvm_drv.destroy_batch_pages = temp;
++
++	return count;
++}
++
+ /* /sys/kernel/gzvm/demand_paging_batch_pages */
+ static struct kobj_attribute demand_paging_batch_pages_attr = {
+ 		.attr = {
+@@ -59,6 +86,16 @@ static struct kobj_attribute demand_paging_batch_pages_attr = {
+ 		.store = demand_paging_batch_pages_store,
+ };
+ 
++/* /sys/kernel/gzvm/destroy_batch_pages */
++static struct kobj_attribute destroy_batch_pages_attr = {
++		.attr = {
++			.name = "destroy_batch_pages",
++			.mode = 0660,
++		},
++		.show = destroy_batch_pages_show,
++		.store = destroy_batch_pages_store,
++};
++
+ static int gzvm_drv_sysfs_init(void)
+ {
+ 	int ret = 0;
+@@ -73,6 +110,11 @@ static int gzvm_drv_sysfs_init(void)
+ 	if (ret)
+ 		pr_debug("failed to create demand_batch_pages in /sys/kernel/gzvm\n");
+ 
++	ret = sysfs_create_file(gzvm_drv.sysfs_root_dir,
++				&destroy_batch_pages_attr.attr);
++	if (ret)
++		pr_debug("failed to create destroy_batch_pages in /sys/kernel/gzvm\n");
++
+ 	return ret;
+ }
+ 
+@@ -124,6 +166,8 @@ int gzvm_err_to_errno(unsigned long err)
+ 		return -EOPNOTSUPP;
+ 	case ERR_FAULT:
+ 		return -EFAULT;
++	case ERR_BUSY:
++		return -EAGAIN;
+ 	default:
+ 		break;
+ 	}
+@@ -220,6 +264,20 @@ static int gzvm_query_hyp_batch_pages(void)
+ 	return ret;
+ }
+ 
++static int gzvm_query_destroy_batch_pages(void)
++{
++	int ret;
++	struct gzvm_enable_cap cap = {0};
++
++	gzvm_drv.destroy_batch_pages = GZVM_DRV_DESTROY_PAGING_BATCH_PAGES;
++	cap.cap = GZVM_CAP_QUERY_DESTROY_BATCH_PAGES;
++
++	ret = gzvm_arch_query_destroy_batch_pages(&cap, NULL);
++	if (!ret)
++		gzvm_drv.destroy_batch_pages = cap.args[0];
++	return ret;
++}
++
+ static int gzvm_drv_probe(struct platform_device *pdev)
+ {
+ 	int ret;
+@@ -257,6 +315,10 @@ static int gzvm_drv_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
++	ret = gzvm_query_destroy_batch_pages();
 +	if (ret)
 +		return ret;
 +
- 	ret = misc_register(&gzvm_dev);
- 	if (ret)
- 		return ret;
-diff --git a/drivers/virt/geniezone/gzvm_vcpu.c b/drivers/virt/geniezone/gzvm_vcpu.c
-index 3b146148abf3..ba85a6ae04a0 100644
---- a/drivers/virt/geniezone/gzvm_vcpu.c
-+++ b/drivers/virt/geniezone/gzvm_vcpu.c
-@@ -16,6 +16,28 @@
- /* maximum size needed for holding an integer */
- #define ITOA_MAX_LEN 12
+ 	return 0;
+ }
  
-+static enum hrtimer_restart gzvm_vtimer_expire(struct hrtimer *hrt)
-+{
-+	return HRTIMER_NORESTART;
-+}
-+
-+static void gzvm_vtimer_init(struct gzvm_vcpu *vcpu)
-+{
-+	/* gzvm_vtimer init based on hrtimer */
-+	hrtimer_init(&vcpu->gzvm_vtimer, CLOCK_MONOTONIC, HRTIMER_MODE_ABS_HARD);
-+	vcpu->gzvm_vtimer.function = gzvm_vtimer_expire;
-+}
-+
-+void gzvm_vtimer_set(struct gzvm_vcpu *vcpu, u64 ns)
-+{
-+	hrtimer_start(&vcpu->gzvm_vtimer, ktime_add_ns(ktime_get(), ns), HRTIMER_MODE_ABS_HARD);
-+}
-+
-+void gzvm_vtimer_release(struct gzvm_vcpu *vcpu)
-+{
-+	hrtimer_cancel(&vcpu->gzvm_vtimer);
-+}
-+
- static long gzvm_vcpu_update_one_reg(struct gzvm_vcpu *vcpu,
- 				     void __user *argp,
- 				     bool is_write)
-@@ -193,6 +215,7 @@ static void gzvm_destroy_vcpu(struct gzvm_vcpu *vcpu)
- 	if (!vcpu)
- 		return;
+diff --git a/drivers/virt/geniezone/gzvm_vm.c b/drivers/virt/geniezone/gzvm_vm.c
+index 999c8c586d7b..43b6cf8b7d3f 100644
+--- a/drivers/virt/geniezone/gzvm_vm.c
++++ b/drivers/virt/geniezone/gzvm_vm.c
+@@ -360,7 +360,7 @@ static void gzvm_destroy_vm(struct gzvm *gzvm)
  
-+	hrtimer_cancel(&vcpu->gzvm_vtimer);
- 	gzvm_arch_destroy_vcpu(vcpu->gzvm->vm_id, vcpu->vcpuid);
- 	/* clean guest's data */
- 	memset(vcpu->run, 0, GZVM_VCPU_RUN_MAP_SIZE);
-@@ -271,6 +294,7 @@ int gzvm_vm_ioctl_create_vcpu(struct gzvm *gzvm, u32 cpuid)
- 		goto free_vcpu_run;
- 	gzvm->vcpus[cpuid] = vcpu;
+ 	gzvm_vm_irqfd_release(gzvm);
+ 	gzvm_destroy_vcpus(gzvm);
+-	gzvm_arch_destroy_vm(gzvm->vm_id);
++	gzvm_arch_destroy_vm(gzvm->vm_id, gzvm->gzvm_drv->destroy_batch_pages);
  
-+	gzvm_vtimer_init(vcpu);
- 	return ret;
- 
- free_vcpu_run:
+ 	mutex_lock(&gzvm_list_lock);
+ 	list_del(&gzvm->vm_list);
 diff --git a/include/linux/soc/mediatek/gzvm_drv.h b/include/linux/soc/mediatek/gzvm_drv.h
-index 62e00fb06269..901bc2fe28f1 100644
+index 8fc6c6f54227..b234edb3b9f3 100644
 --- a/include/linux/soc/mediatek/gzvm_drv.h
 +++ b/include/linux/soc/mediatek/gzvm_drv.h
-@@ -129,6 +129,7 @@ struct gzvm_vcpu {
- 	struct mutex lock;
- 	struct gzvm_vcpu_run *run;
- 	struct gzvm_vcpu_hwstate *hwstate;
-+	struct hrtimer gzvm_vtimer;
+@@ -30,6 +30,7 @@ struct gzvm_driver {
+ 
+ 	struct kobject *sysfs_root_dir;
+ 	u32 demand_paging_batch_pages;
++	u32 destroy_batch_pages;
+ 
+ 	struct dentry *gzvm_debugfs_dir;
  };
+@@ -53,6 +54,7 @@ struct gzvm_driver {
+ #define ERR_INVALID_ARGS        (-8)
+ #define ERR_NOT_SUPPORTED       (-24)
+ #define ERR_NOT_IMPLEMENTED     (-27)
++#define ERR_BUSY                (-33)
+ #define ERR_FAULT               (-40)
+ #define GZVM_IRQFD_RESAMPLE_IRQ_SOURCE_ID       1
  
- struct gzvm_pinned_page {
-@@ -242,11 +243,17 @@ int gzvm_vm_allocate_guest_page(struct gzvm *gzvm, struct gzvm_memslot *slot,
- int gzvm_vm_ioctl_create_vcpu(struct gzvm *gzvm, u32 cpuid);
- int gzvm_arch_vcpu_update_one_reg(struct gzvm_vcpu *vcpu, __u64 reg_id,
- 				  bool is_write, __u64 *data);
-+int gzvm_arch_drv_init(void);
- int gzvm_arch_create_vcpu(u16 vm_id, int vcpuid, void *run);
- int gzvm_arch_vcpu_run(struct gzvm_vcpu *vcpu, __u64 *exit_reason);
- int gzvm_arch_destroy_vcpu(u16 vm_id, int vcpuid);
- int gzvm_arch_inform_exit(u16 vm_id);
+@@ -68,6 +70,7 @@ struct gzvm_driver {
+ #define GZVM_BLOCK_BASED_DEMAND_PAGE_SIZE	(PMD_SIZE) /* 2MB */
+ #define GZVM_DRV_DEMAND_PAGING_BATCH_PAGES	\
+ 	(GZVM_BLOCK_BASED_DEMAND_PAGE_SIZE / PAGE_SIZE)
++#define GZVM_DRV_DESTROY_PAGING_BATCH_PAGES	(128)
  
-+u64 gzvm_vcpu_arch_get_timer_delay_ns(struct gzvm_vcpu *vcpu);
-+
-+void gzvm_vtimer_set(struct gzvm_vcpu *vcpu, u64 ns);
-+void gzvm_vtimer_release(struct gzvm_vcpu *vcpu);
-+
- int gzvm_find_memslot(struct gzvm *vm, u64 gpa);
- int gzvm_handle_page_fault(struct gzvm_vcpu *vcpu);
- bool gzvm_handle_guest_exception(struct gzvm_vcpu *vcpu);
+ #define GZVM_MAX_DEBUGFS_DIR_NAME_SIZE  20
+ #define GZVM_MAX_DEBUGFS_VALUE_SIZE	20
+@@ -225,12 +228,14 @@ int gzvm_arch_probe(struct gzvm_version drv_version,
+ 		    struct gzvm_version *hyp_version);
+ int gzvm_arch_query_hyp_batch_pages(struct gzvm_enable_cap *cap,
+ 				    void __user *argp);
++int gzvm_arch_query_destroy_batch_pages(struct gzvm_enable_cap *cap,
++					void __user *argp);
+ 
+ int gzvm_arch_set_memregion(u16 vm_id, size_t buf_size,
+ 			    phys_addr_t region);
+ int gzvm_arch_check_extension(struct gzvm *gzvm, __u64 cap, void __user *argp);
+ int gzvm_arch_create_vm(unsigned long vm_type);
+-int gzvm_arch_destroy_vm(u16 vm_id);
++int gzvm_arch_destroy_vm(u16 vm_id, u64 destroy_page_gran);
+ int gzvm_arch_map_guest(u16 vm_id, int memslot_id, u64 pfn, u64 gfn,
+ 			u64 nr_pages);
+ int gzvm_arch_map_guest_block(u16 vm_id, int memslot_id, u64 gfn, u64 nr_pages);
+diff --git a/include/uapi/linux/gzvm.h b/include/uapi/linux/gzvm.h
+index d69e1abb21a0..87574bdc5c48 100644
+--- a/include/uapi/linux/gzvm.h
++++ b/include/uapi/linux/gzvm.h
+@@ -23,6 +23,7 @@
+ #define GZVM_CAP_ENABLE_DEMAND_PAGING	0x9202
+ #define GZVM_CAP_ENABLE_IDLE		0x9203
+ #define GZVM_CAP_QUERY_HYP_BATCH_PAGES	0x9204
++#define GZVM_CAP_QUERY_DESTROY_BATCH_PAGES	0x9205
+ 
+ /* sub-commands put in args[0] for GZVM_CAP_PROTECTED_VM */
+ #define GZVM_CAP_PVM_SET_PVMFW_GPA		0
 -- 
 2.18.0
 
