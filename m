@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47CCCD6A222
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 17:36:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5343BD6A223
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 17:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PyBn26mUePqthY9XrpQhwn7miJxqIZLoeEl6nlPcolo=; b=wRaZZ0tsNGDRtR7lTHnfidJSWT
-	u6rKKy+TL+z24HhHmqtgY3oQ8n9IijOURmmpW5LEQbx4xAyQlRtE1cYybIQJfkylVGPxWVo9a+sWd
-	CuvDmCUSa6LNH7VLh0jdLvAYpvF099ttr9wxB7qrGFQT08Icnz4gOoQS//ZQPgm7PdWBwtEaXnM1p
-	lDtOQPoHd+ApQ+UkEQIUFYqOaaCKjy2WHS4/9sk566UiDYJFmkXmX9bFOg5uvdVkuCjmsyE9+O/X/
-	LZt0Fc8bknYP+Z3C/hOYQ4AHDNsLDd2iXCKDqWJnweDzgOs/koYF1oWKOFImEJ5w7omZJ+7Q3Kax+
-	1BFccZBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QVyaKxFQo0Kexw7pAfdHq+ncZpVV9gGVzi64IeD5HVw=; b=LWboLPE4sjWa7qmYg8SIUaDCpt
+	8JaS9jPBaLMeGY9qZhAGYGxwkkghMZAaosE0QJA7GzCBBSe2j0x54nCOTHl19OgZ8Lk5UyYTr03cb
+	TivvJn7hcyhGimAFbNXkiE0YVwirjxYTvp4s9GdqwLTCRLkm5/ErVrE1t7AZenJBuL4oelTurFKNk
+	zpSQV1NqnZZwEOMBmG6GQlsz1smoXU3muPyZHdskH5CD38wS8mIoHi0zB83BMRIzkpwyL6tguotDs
+	dCKofurRL6xphL9WyTRoCB+BLwR3Gw70yoUJ2bmRrZDB+uHgRTGXIcsB4DUDaNKwEiqjg1wJamquD
+	Z3MZumNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBdlc-00000000LPt-48bZ;
-	Thu, 14 Nov 2024 17:36:28 +0000
-Received: from mail-il1-f197.google.com ([209.85.166.197])
+	id 1tBdpc-00000000M8l-3WaR;
+	Thu, 14 Nov 2024 17:40:36 +0000
+Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBdkg-00000000LJ3-3XKI
+	id 1tBdof-00000000Lx8-2lRZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 17:35:32 +0000
-Received: by mail-il1-f197.google.com with SMTP id e9e14a558f8ab-3a7447028bcso4760975ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 09:35:29 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731605729; x=1732210529;
-        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=PyBn26mUePqthY9XrpQhwn7miJxqIZLoeEl6nlPcolo=;
-        b=qQg1dhCDI8iYNTV90fz0XaLBciFkZjU9NTVZAA9isKz9T/8U14AUvrz0BWS7nX0OHq
-         jLidCkQSSTyU2YAN/EdODaOvytaAk1/INlOKMcsXc5yQu1IQC7vzJjnpKkNf5UebZ1/W
-         rEWGn5RFTXM13si4JBfEHzM13Y+XUKM1IImbs3pg+3c6u3pw8sLw46dRkZIv+Lcsjcrx
-         m3NTczQNzPajUJG47wI+FOccgQOA9PHSRU7zBG6GVxlDUJZyjblbLIIPzmVjY55Z5xu2
-         grw7pEBe1V1knyI3XfRKOZG00RS8Of3ErUqCBptKiMDVpSlIf5SLap58XjMYvU1k/mCo
-         OcUA==
-X-Forwarded-Encrypted: i=1; AJvYcCXCaui1rkF0qP31hKGvF5QleZPLHzvWXw8w45uU52QML+srRkh8eouG2ap+yGfuxnP3t8xOVGT9MsvmimCx12UN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4jZAcDRrQi5l/8N3nymDI20SoHwgAYrOsJXBA9PsJW6V6lp8w
-	1dDZULre0SHXH4u2n//q0fujr/G8Lvv50KcJTxDXu90hnvPPKdN1hFpwz5jlBbAGeBnRTDjJmmP
-	zQI24DwxFHvJ294OB3OPVspSt3AilOuZLiJu7RLBxBjOx25w8IXNSpdY=
-X-Google-Smtp-Source: AGHT+IGArfQl0h1dH8qLIGSN+m5H0UpJUvpQ7t2lE3lgEmpmzkn62NzkZK3va21oObzriu4b26lvMeqFvzxzKH2wLjKKv0K7GlhR
+	Thu, 14 Nov 2024 17:39:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1731605971; x=1732210771; i=wahrenst@gmx.net;
+	bh=QVyaKxFQo0Kexw7pAfdHq+ncZpVV9gGVzi64IeD5HVw=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=aKH1AkZv4GuaaruAM8sKJc4etq6PuUvjZEofA3B/hGGXlFQksaasy9nGczpEYr8m
+	 De8mvNn0Qw8fcPlYqP/qHSN9zmC6xkLi+TIjkMtfNkuRHRBHIDivrJ8E5RfFHHAdu
+	 Lqa1kUy33z+hNLsUTnllHXwkF1xfjUPUfQFN+1JlfRO3dNRy4UWVUqEKA3Jvr/5YK
+	 s9oio+l07opu+DkSw6jxwDv5yh29yhcesW/V14upUTKdmx20j0W9WcFYNqRF2GF8G
+	 P35YajvpMF8kCpvsPYgkW1UP0aFfZb3Xz+PTPxKLARxHgc9Kndvnl886pE7yFzEcA
+	 +EadB2MDw8fDPgHg0w==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MyKDe-1tzKYR1Xgq-010Om6; Thu, 14
+ Nov 2024 18:39:31 +0100
+Message-ID: <4c157893-ceba-4a6a-a860-182af5f08c5f@gmx.net>
+Date: Thu, 14 Nov 2024 18:39:30 +0100
 MIME-Version: 1.0
-X-Received: by 2002:a05:6e02:2181:b0:3a6:f349:71e6 with SMTP id
- e9e14a558f8ab-3a71fec44f3mr31321115ab.22.1731605728729; Thu, 14 Nov 2024
- 09:35:28 -0800 (PST)
-Date: Thu, 14 Nov 2024 09:35:28 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <673634e0.050a0220.1324f8.009d.GAE@google.com>
-Subject: [syzbot] [kvmarm?] WARNING in kvm_handle_mmio_return
-From: syzbot <syzbot+4727d10d6a805738b0f2@syzkaller.appspotmail.com>
-To: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	maz@kernel.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, 
-	syzkaller-bugs@googlegroups.com, will@kernel.org, yuzenghui@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] soc: imx: Add SoC device register for i.MX9
+To: alice.guo@oss.nxp.com, alexander.stein@ew.tq-group.com,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com
+Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, "alice.guo" <alice.guo@nxp.com>
+References: <20241111032307.144733-1-alice.guo@oss.nxp.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+In-Reply-To: <20241111032307.144733-1-alice.guo@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:cWx//gh6D80b94XAjSQH6K7k2iTU+lf7hW09THpVA0oyHpePheO
+ OWblZo9UujBnxMeitHWu+Kp0PdSSRhNm+362P/8b+gBDGQxvje5FPWC5IutnRPVgRx2lUoY
+ wEMuVInYLPTMVMsSFMOvkJ6TdCFjOaapBbB0G1hIej20NU7mgMqPv91IEMrUodN8zADnzRp
+ AB0eUZ3/4g/Ssn9kT0K7A==
+UI-OutboundReport: notjunk:1;M01:P0:J5ap3uADCfA=;ET7q+/xSlZQGYeUqoSGP+iApWXy
+ 21TUSkvaNEqAG0R31qz/KshsqnfjHuVvh0UZOS+45OroAstuk3kVTVK7KiSZ5kE/Q3CdFhwrv
+ yu3vN80qn10GxQ7b0GyM7D2QzPmv8JmgNAxNq8Sb+zvKdxZi3rg+Bdl/D3FbrLKIFch0iLmcP
+ KB9laSsqdxtmt5X+clIa8O5Jl7IIs8cynDNwphhYY1ewcWt+3QPSr6vlHvPIhNlM6PKVyhVLX
+ fV7OtuEAd36oDnRu57fHPu5wL3aF6Dyxc7FWFrfXSZ/pXn52xr5X63eKU89/lqukWqI6DSATG
+ KihEcHMfs3NMZm/2nfArp6fqRsKyYOv7zc9yXNoB4cee2bUnO8GEs0hkyh+c+P6ypJbozWfc6
+ XLJsFhHvJN/8Vr48nB8yQpsq/3P6bU6Hb5oxwb1sGTfV2C3urW+xIQ+wKGygUmQiTfxZoXoUq
+ t11jpLn+5Q7wFHsbW4QbiEhDspFFhNRNopGVPgj6AadR7AX4Y4roGwu+60CENz+VZKgM5EOd1
+ 5wPtYVLqL2j6qBUA3CQKImZ7J8dGcm7Ojsf46GCxwq7kGi5gcUjuoTTEcyDAqJ+e2Or1CoF7b
+ mHjRjYJpyNNuC927sfyZPsIDKYoC/THwz7NFsdrKUsmfpsDN7JmpD+9AZINXRcRGAcesRjWUq
+ H2ep1Xzp6/thKJr4nQ4PT6ktA70Yj+ZgHyosVYQSr7J744XF469qNXtco6GRcIDXQZdW9MVVO
+ 2SxvLduCEOIZv62i9hahsL84yAaPYAKGyE08pRj6+XElwtcDWC/K53QlShIzycpwjre6J/sn4
+ DYVRq57nW27iBfHYh25DJACWPveqcT8Uph7kjGG2QeaiddarkTe4IgSsB4yBlwGuhL3wBk0c7
+ nkhA7nConmaKf8FwiULcCOp7KUCL2rWbzgHKQAv8WjTpsyhw0yb8BbBGt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_093530_886733_BEAE82D5 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241114_093937_987853_672FFB03 
+X-CRM114-Status: GOOD (  33.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,88 +96,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi Alice,
 
-syzbot found the following issue on:
+these are the new comments
 
-HEAD commit:    2d5404caa8c7 Linux 6.12-rc7
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=1393335f980000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=a0d77fb8077b4744
-dashboard link: https://syzkaller.appspot.com/bug?extid=4727d10d6a805738b0f2
-compiler:       aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40
-userspace arch: arm64
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=1793335f980000
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=144ff4e8580000
+Am 11.11.24 um 04:23 schrieb alice.guo@oss.nxp.com:
+> From: "alice.guo" <alice.guo@nxp.com>
+>
+> i.MX9 SoCs have SoC ID, SoC revision number and chip unique identifier
+> which are provided by the corresponding ARM trusted firmware API. This
+> patch intends to use SMC call to obtain these information and then
+> register i.MX9 SoC as a device.
+>
+> Signed-off-by: Alice Guo <alice.guo@nxp.com>
+> Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+> ---
+>
+> Changes for v2:
+>   - refine error log print
+> Changes for v3:
+>   - return -EINVAL when arm_smccc_smc failed
+>   - fix the build warning caused by pr_err("%s: SMC failed: %d\n", __fun=
+c__, res.a0);
+>   - drop the pr_err in imx9_soc_init
+>   - free the memory in the reverse order of allocation
+>   - use of_match_node instead of of_machine_is_compatible
+> Changes for v4:
+>   - fix the build warning: 'imx9_soc_match' defined but not used [-Wunus=
+ed-const-variable=3D]
+>   - add Tested-by and Reviewed-by
+> Changes for v5:
+>   - probe imx9 soc driver as a platform driver
+>
+>   drivers/soc/imx/Makefile   |   2 +-
+>   drivers/soc/imx/soc-imx9.c | 124 +++++++++++++++++++++++++++++++++++++
+>   2 files changed, 125 insertions(+), 1 deletion(-)
+>   create mode 100644 drivers/soc/imx/soc-imx9.c
+>
+> diff --git a/drivers/soc/imx/Makefile b/drivers/soc/imx/Makefile
+> index 3ad321ca608a..ca6a5fa1618f 100644
+> --- a/drivers/soc/imx/Makefile
+> +++ b/drivers/soc/imx/Makefile
+> @@ -3,4 +3,4 @@ ifeq ($(CONFIG_ARM),y)
+>   obj-$(CONFIG_ARCH_MXC) +=3D soc-imx.o
+>   endif
+>   obj-$(CONFIG_SOC_IMX8M) +=3D soc-imx8m.o
+> -obj-$(CONFIG_SOC_IMX9) +=3D imx93-src.o
+> +obj-$(CONFIG_SOC_IMX9) +=3D imx93-src.o soc-imx9.o
+> diff --git a/drivers/soc/imx/soc-imx9.c b/drivers/soc/imx/soc-imx9.c
+> new file mode 100644
+> index 000000000000..4ef92260e8f9
+> --- /dev/null
+> +++ b/drivers/soc/imx/soc-imx9.c
+> @@ -0,0 +1,124 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Copyright 2024 NXP
+> + */
+> +
+> +#include <linux/arm-smccc.h>
+> +#include <linux/init.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/slab.h>
+> +#include <linux/sys_soc.h>
+> +
+> +#define IMX_SIP_GET_SOC_INFO	0xc2000006
+> +#define SOC_ID(x)		(((x) & 0xFFFF) >> 8)
+> +#define SOC_REV_MAJOR(x)	((((x) >> 28) & 0xF) - 0x9)
+> +#define SOC_REV_MINOR(x)	(((x) >> 24) & 0xF)
+> +
+> +static int imx9_soc_probe(struct platform_device *pdev)
+> +{
+> +	struct soc_device_attribute *attr;
+> +	struct arm_smccc_res res;
+> +	struct soc_device *sdev;
+> +	u32 soc_id, rev_major, rev_minor;
+> +	u64 uid127_64, uid63_0;
+> +	int err;
+> +
+> +	attr =3D kzalloc(sizeof(*attr), GFP_KERNEL);
+> +	if (!attr)
+> +		return -ENOMEM;
+> +
+> +	err =3D of_property_read_string(of_root, "model", &attr->machine);
+> +	if (err) {
+> +		pr_err("%s: missing model property: %d\n", __func__, err);
+> +		goto attr;
+> +	}
+> +
+> +	attr->family =3D kasprintf(GFP_KERNEL, "Freescale i.MX");
+> +
+> +	/*
+> +	 * Retrieve the soc id, rev & uid info:
+> +	 * res.a1[31:16]: soc revision;
+> +	 * res.a1[15:0]: soc id;
+> +	 * res.a2: uid[127:64];
+> +	 * res.a3: uid[63:0];
+> +	 */
+> +	arm_smccc_smc(IMX_SIP_GET_SOC_INFO, 0, 0, 0, 0, 0, 0, 0, &res);
+> +	if (res.a0 !=3D SMCCC_RET_SUCCESS) {
+> +		pr_err("%s: SMC failed: 0x%lx\n", __func__, res.a0);
+> +		err =3D -EINVAL;
+> +		goto family;
+> +	}
+I like it that soc-imx8m.c handles the corner case
+CONFIG_HAVE_ARM_SMCCC=3Dn in order to increase build coverage.
 
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/384ffdcca292/non_bootable_disk-2d5404ca.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/9fafeb95420d/vmlinux-2d5404ca.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/498f7a357ea2/Image-2d5404ca.gz.xz
+Is it possible to adapt this driver accordingly?
+> +
+> +	soc_id =3D SOC_ID(res.a1);
+> +	rev_major =3D SOC_REV_MAJOR(res.a1);
+> +	rev_minor =3D SOC_REV_MINOR(res.a1);
+> +
+> +	attr->soc_id =3D kasprintf(GFP_KERNEL, "i.MX%2x", soc_id);
+> +	attr->revision =3D kasprintf(GFP_KERNEL, "%d.%d", rev_major, rev_minor=
+);
+> +
+> +	uid127_64 =3D res.a2;
+> +	uid63_0 =3D res.a3;
+> +	attr->serial_number =3D kasprintf(GFP_KERNEL, "%016llx%016llx", uid127=
+_64, uid63_0);
+> +
+> +	sdev =3D soc_device_register(attr);
+> +	if (IS_ERR(sdev)) {
+> +		err =3D PTR_ERR(sdev);
+> +		pr_err("%s failed to register SoC as a device: %d\n", __func__, err);
+> +		goto serial_number;
+> +	}
+> +
+> +	return 0;
+> +
+> +serial_number:
+> +	kfree(attr->serial_number);
+> +	kfree(attr->revision);
+> +	kfree(attr->soc_id);
+> +family:
+> +	kfree(attr->family);
+> +attr:
+> +	kfree(attr);
+> +	return err;
+> +}
+> +
+> +static __maybe_unused const struct of_device_id imx9_soc_match[] =3D {
+> +	{ .compatible =3D "fsl,imx93", },
+> +	{ .compatible =3D "fsl,imx95", },
+> +	{ }
+> +};
+> +
+> +static struct platform_driver imx9_soc_driver =3D {
+> +	.probe =3D imx9_soc_probe,
+> +	.driver.name =3D "imx9-soc",
+Just a nit:
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+4727d10d6a805738b0f2@syzkaller.appspotmail.com
+.driver =3D {
+ =C2=A0=C2=A0=C2=A0 .name =3D "imx9-soc",
+},
 
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 3270 at arch/arm64/include/asm/kvm_emulate.h:536 kvm_handle_mmio_return+0x1b4/0x1f4 arch/arm64/kvm/mmio.c:99
-Modules linked in:
-CPU: 0 UID: 0 PID: 3270 Comm: syz-executor447 Not tainted 6.12.0-rc7-syzkaller #0
-Hardware name: linux,dummy-virt (DT)
-pstate: 61400009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-pc : kvm_incr_pc arch/arm64/include/asm/kvm_emulate.h:536 [inline]
-pc : kvm_handle_mmio_return+0x1b4/0x1f4 arch/arm64/kvm/mmio.c:118
-lr : kvm_arch_vcpu_ioctl_run+0x1ac/0x854 arch/arm64/kvm/arm.c:1135
-sp : ffff800088e33ab0
-x29: ffff800088e33ab0 x28: f6f0000005b35b40 x27: 0000000000000000
-x26: 0000000000000000 x25: fbf00000073d8048 x24: fbf00000073d8000
-x23: 0000000000000000 x22: 0000000000000000 x21: 0000000000000000
-x20: f3f000000664a000 x19: fbf00000073d8000 x18: ffffffffffffffff
-x17: 0000000000000000 x16: 0000000000000000 x15: ffff800088e33aa0
-x14: ffff800088e33d88 x13: ffff800088e33d4a x12: 6d766b3a65646f6e
-x11: 0000000000000000 x10: 0000000000000078 x9 : 000000000000000c
-x8 : ffff800088e33d98 x7 : 0000000000000000 x6 : 0000000000005452
-x5 : 0000000000000005 x4 : f0f00000060bd300 x3 : f6f0000005b35b40
-x2 : 0000000000000000 x1 : 0000000093c18046 x0 : 0000000000000001
-Call trace:
- kvm_handle_mmio_return+0x1b4/0x1f4 arch/arm64/kvm/mmio.c:99
- kvm_arch_vcpu_ioctl_run+0x1ac/0x854 arch/arm64/kvm/arm.c:1135
- kvm_vcpu_ioctl+0x294/0xa04 virt/kvm/kvm_main.c:4475
- vfs_ioctl fs/ioctl.c:51 [inline]
- __do_sys_ioctl fs/ioctl.c:907 [inline]
- __se_sys_ioctl fs/ioctl.c:893 [inline]
- __arm64_sys_ioctl+0xac/0xf0 fs/ioctl.c:893
- __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
- invoke_syscall+0x48/0x110 arch/arm64/kernel/syscall.c:49
- el0_svc_common.constprop.0+0x40/0xe0 arch/arm64/kernel/syscall.c:132
- do_el0_svc+0x1c/0x28 arch/arm64/kernel/syscall.c:151
- el0_svc+0x30/0xdc arch/arm64/kernel/entry-common.c:712
- el0t_64_sync_handler+0x100/0x12c arch/arm64/kernel/entry-common.c:730
- el0t_64_sync+0x19c/0x1a0 arch/arm64/kernel/entry.S:598
----[ end trace 0000000000000000 ]---
+This makes it easier to extend later. Maybe we can use a define also for
+"imx9-soc" and use it
+> +};
+> +
+> +static int __init imx9_soc_init(void)
+> +{
+> +	int ret;
+> +	struct platform_device *pdev;
+> +
+> +	/* No match means it is not an i.MX 9 series SoC, do nothing. */
+> +	if (!of_match_node(imx9_soc_match, of_root))
+> +		return 0;
+> +
+> +	ret =3D platform_driver_register(&imx9_soc_driver);
+> +	if (ret) {
+> +		pr_err("failed to register imx9_soc platform driver: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	pdev =3D platform_device_register_simple("imx9-soc", -1, NULL, 0);
+here too
 
+Regards
+> +	if (IS_ERR(pdev)) {
+> +		pr_err("failed to register imx9_soc platform device: %ld\n", PTR_ERR(=
+pdev));
+> +		platform_driver_unregister(&imx9_soc_driver);
+> +		return PTR_ERR(pdev);
+> +	}
+> +
+> +	return 0;
+> +}
+> +device_initcall(imx9_soc_init);
+> +
+> +MODULE_AUTHOR("NXP");
+> +MODULE_DESCRIPTION("NXP i.MX9 SoC");
+> +MODULE_LICENSE("GPL");
 
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want syzbot to run the reproducer, reply with:
-#syz test: git://repo/address.git branch-or-commit-hash
-If you attach or paste a git patch, syzbot will apply it before testing.
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
 
