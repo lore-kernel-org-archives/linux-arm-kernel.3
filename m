@@ -4,150 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D76FD68B2C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 14:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40808D68B31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 15:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m1H7RyhqiJfi+Hsr34GvO+vOADgySUX1dEoQ83ucy1E=; b=VZFiSSKNjktDPQJ5rAnivozn7/
-	NEFnlWXQ1RJzanro6Kvdib/AmWXXK2Zc4TLzbUCMCV3AepsglQ3gSoiLE8JpcsNBx97r8JXY2qDpK
-	NSK7Dkf5FvZJmXCMxImLS0y/3Oi3RMz/WudaTdKWtKzhAbkTlZx+QCPgRPAkLfY18Ltzp8z+5z6XL
-	9JkahirzduZCCf3ZDcxrnuW1hf135yOcQDA1oCB3TUVKwxk5uIDyuDy389y74TpBXdhkt2q7h5L2/
-	n1njbmq9sAofCmZggtGSzvl7hyfNB9AHx+8KjZTKnRk19vEfEcF/kZTfFeNazHT+cPApCXbxiwOgl
-	GzaL6eHA==;
+	bh=SLgC23ZvmymLrEGALbEff11hpcG/5PNIpGmCyFIvw94=; b=38mSl3X84RuXxx8OJfw5vkuDqY
+	+H7Ibq1AwhAV3uLsR9IL/ONHmF2NDrvZEGUG79m7NE8nJ02abMXMgSoKEpvuhSQdqEJvXpYZlKiQT
+	cUhAXd/YsEPw/DPQKwthRNzhBrkBCS4p/wQaHjvC0VRFQeNGI3WoK3+U0kvpoTPdK9PZbJ3MzWWxB
+	zJ7AAZgENn1nrR23hzNX8dVej37skZ2CHBVphlgnK0l/madQ6RGemJ7AU3d1gG9siKmxK7wJ/J2ak
+	vjqPCnVX2nTyWo3wsF1F7+wRuC0+N0ZT2EhMl3EVE9JM0VVFUkuRjO2MpGowZH0I4irDVqz/k3ohY
+	GPzj0+ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBb6U-0000000AFZN-3avj;
-	Thu, 14 Nov 2024 14:45:50 +0000
-Received: from mail-southindiaazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c409::2] helo=MA0PR01CU012.outbound.protection.outlook.com)
+	id 1tBbqd-000000000Xx-42N9;
+	Thu, 14 Nov 2024 15:33:32 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBayG-0000000AE8S-3PeS
+	id 1tBb3O-0000000AEvL-2aqT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 14:37:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=alL++i/Yv1iU9dAdn7euFBJd8+WJV2j/CPlmq6u8ozDHlYEr7m4tAcuFqHVmqXNol75UYLUHAFje7uOATtuNKpj0ENPTef9FReOpoNqlcD0JWwr63OLe0DT+Tbb4++879eS43ZpRSdv85dYQnk9jzOMbQKuItoeMSt3fBf2n9sAKYsMIo5UsiEsw5ka7IRWUSXBxMKneffQh400cWCH4U5itpSgMcN62rlk8w4f/PXQPKEFnZ+E6TKf0lPw57Uqa/eF51yzZMoLucVm4dNBqRG27gmiAkC5ZzZrAai1EcJ3tiM/54AnnCwcdW3HvNqqG4jZv5xohDXwX9LSuxb3qJw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=m1H7RyhqiJfi+Hsr34GvO+vOADgySUX1dEoQ83ucy1E=;
- b=gwDNtOAmjHemfGXCrHcSJrEwhtF6cRZXfvw81sDB4RGfTb5gD7mLrgqyWaUBjsYI+3Utgwd7pM/gfWA6/VDr0Ay706ja09SlXsUETf0eJvZOibkZejZ7NGLlGi+8FFTNZxkOGA9TjJngiXhKq5Q5Rx71pnFDjQIGJbLLZ4a+p4Nfs6a4UP4AsLaNsqDX+6Em3d+Mkq3ZqJ7hLd/0pGXzQ7+q5ojndbpsKqlPbr/zyTLxEpfBj/s05zz4r+4TU3RKUBlDLgbLBU8gbFCkFSZWB8DGBGHkT5Cs17Dc4Fq0JXX0I188wT7+09blUCm3fVnsHsaVCOYnhFGQzDQwqZ8JbA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=siliconsignals.io; dmarc=pass action=none
- header.from=siliconsignals.io; dkim=pass header.d=siliconsignals.io; arc=none
-Received: from PN0P287MB2843.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:204::8)
- by PN0P287MB2152.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1b7::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.18; Thu, 14 Nov
- 2024 14:37:13 +0000
-Received: from PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
- ([fe80::1134:92d7:1f68:2fac]) by PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
- ([fe80::1134:92d7:1f68:2fac%3]) with mapi id 15.20.8158.017; Thu, 14 Nov 2024
- 14:37:13 +0000
-From: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>
-To: "will@kernel.org" <will@kernel.org>, "broonie@kernel.org"
-	<broonie@kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>, Oliver Upton
-	<oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Ard Biesheuvel
-	<ardb@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Joey Gouly
-	<joey.gouly@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] arm64: Refactor conditional logic
-Thread-Topic: [PATCH v2] arm64: Refactor conditional logic
-Thread-Index: AQHbNqDYhJB07AnF90+yVvz+NvSraLK21vA6
-Date: Thu, 14 Nov 2024 14:37:13 +0000
-Message-ID: <PN0P287MB2843A2EFD47FA629DBFD061FFF5B2@PN0P287MB2843.INDP287.PROD.OUTLOOK.COM>
-References: <20241114142333.18210-1-hardevsinh.palaniya@siliconsignals.io>
-In-Reply-To: <20241114142333.18210-1-hardevsinh.palaniya@siliconsignals.io>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=siliconsignals.io;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PN0P287MB2843:EE_|PN0P287MB2152:EE_
-x-ms-office365-filtering-correlation-id: 2f22450d-70e3-4068-1f47-08dd04b9d43c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?ZgNN0ngJdv2ayLHqvhPe8xm5joufFzQktlg1p7OdeEch9ggQ3YRZVTmPa2?=
- =?iso-8859-1?Q?1KVKWx8QlDtk1C9v3TMl7GA/NdbPuokfVZGVxEGs14sbsk9zPJcHolJYkd?=
- =?iso-8859-1?Q?uLIcacYRhn4YqGvwURdSletS0ykkQXaIAIzKLtnu0TxJ69QLR+NLnPmVp1?=
- =?iso-8859-1?Q?MGyQRbmzU5k0x5XDplARluDuegfuLX1CxaBM5C4j+Mv2FSo2/ojK7QWArZ?=
- =?iso-8859-1?Q?VunTb+QtTOiurrAAs6pm/sd+n+98wLotvqxASSP6NinTwcg6HqvS6FqTIf?=
- =?iso-8859-1?Q?wGOcyplJ/Mz2uGPi5g8HCr0poCYB/PY3N1xqmga7ffLKlsgHfcJL6Ci5j0?=
- =?iso-8859-1?Q?KcryGEHDYq04nTTKor7nlwdO8znh1Csu6Q2Y3kxFIMRKZyO3gDgYcxzjaZ?=
- =?iso-8859-1?Q?1qEwRDCUT+grOp+wdLIsi0JGBaJIVc9MYA8ja/Yrx3N7nu/EAq8/tM9tkX?=
- =?iso-8859-1?Q?AZ/gKNv2rVyAxQX/TAHzdKK/ufErAfv6p3yAbu7XGeyWHkYGUaQhz+l4/w?=
- =?iso-8859-1?Q?rcauG66TMwyY3K4F6E4YsKIZKoUDmQzkvpOX/u5ouBQA+SbgB/OUDfMVcs?=
- =?iso-8859-1?Q?vnHUF4VY8rl2FB+7IneheD9LB1x0WCe0K9fjTqwq0d3UPzh3XxTHpmLWjN?=
- =?iso-8859-1?Q?H1lEZ9+OFCAo6mB5Rp7oWMi5OsZZxZjkquGC/d7aChi7ASfwfnZEwNosfG?=
- =?iso-8859-1?Q?f9IBEFL2AnrZism/lRPU4ktkMDltA8Yu+HqmdRItFqAtjtLa0vDLiOCn0o?=
- =?iso-8859-1?Q?qsIbPTNtpBWyctzkdTnNrJC4e3r6VaYQtaotlCsnm+Jhi73DQTfYHF7Z0F?=
- =?iso-8859-1?Q?HOnNmCxOOqhbPe1yW4ly6t4Tqz5fUUxsPuO2OoYRWj1yNvf4MnEPxTMPRP?=
- =?iso-8859-1?Q?d/6KRwq/fNNiBnekNz2UoFz6FzdJZXbpnBZHUFzz5oKwNBNqM6GZG/4atF?=
- =?iso-8859-1?Q?7omYKGeg39YAsOgUaPEEO5ORmu9+F+KOiMKTUBZUAKA6lhv4hnQK4QvzIc?=
- =?iso-8859-1?Q?eROUcFvjpmUHzTD9M8/CLzB0aDvAhhgKsk55FvQSeOm9mLISzq4a8yQinN?=
- =?iso-8859-1?Q?91FctZz+QiyWVgqyFMp3vMULvP0n/sLlxYKn5kaSJDvSK52SoPMau2LHii?=
- =?iso-8859-1?Q?iCgX1+E7X2/to8EuAanNmmRjAtrgoSYB9tjTpgGj2P0Y1Koh3BEnHd4udd?=
- =?iso-8859-1?Q?S2zeVlxqMrM9aiPG/PYnWfyvRu3j4tt11LjQFu5Skco1kufqoei7ARxX7s?=
- =?iso-8859-1?Q?M/mBK1d9qA4+jjuHqIv9J/BNjuKIHHVrMbwxeF3Xu+fmLm6TdyTgKeHsi6?=
- =?iso-8859-1?Q?VRhNTEulxIqryruOPqBSOlCVQk0hhFHSc/Hx8VnmXQ+mzJ0EkNqb83vzhq?=
- =?iso-8859-1?Q?e0JCtCUZwZuQx4XvbiFY/5P0oYXrVmP1CD6R+SGeUSXTPceTQyk6k=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN0P287MB2843.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?InyGtQ9/juGUhHVDzfXGZ7QbDTqAEkXfbELhX/BmwPVRpsa/0VAkh4oZb6?=
- =?iso-8859-1?Q?+yizDurNFHOCceUs+oLXyHyTpK9F30VspAAGwv1tIArEkge2KvEAqnjXXB?=
- =?iso-8859-1?Q?VuI17xjvgbNVOmL4cQx5JKxA888NZWkGJWoStyMvU4bXJyVRPgfdPUPSMd?=
- =?iso-8859-1?Q?XUzXvvJ1z2l2AK6y7JH9m+xoFbIPrpJxg5krlvcpy1VpZpECFC3MKlrUlE?=
- =?iso-8859-1?Q?QO50du9xQFT29VHSjdjr5nBsGCasSDC1ZFj5SA94jehBrdqMLhgSFg2chE?=
- =?iso-8859-1?Q?UDJ97WvgBnQ/b5VMy7QYpmj8OEIRIpDidjK9a4ZmuWrG7guecvg/FoyXbu?=
- =?iso-8859-1?Q?Q9/bF4Pm3cMl4RiU3QiPdjjkLaHTba0WZCpQgzHaMXHKNgFKhduTQL4UYL?=
- =?iso-8859-1?Q?Dqz+Y6c0raoAQysYQKdjBCE2T3nW0kNgHvwJq8nBKwCfvU9ZulkEkvhjmU?=
- =?iso-8859-1?Q?Sjh6R+Q4lXKWMSVrsXkSf+QY3+LGLPjcNa+3XWUUy/yGLSCGKGYYhLK5SA?=
- =?iso-8859-1?Q?Mcw+HhOXt5j6V5bvxg/RPHJfCX7Byjz6hAvtZi9tgXFaBPgJQafvl0dw8T?=
- =?iso-8859-1?Q?v+L1eUOIHD7v99+Zgi/sHcdVpfwMRdh/pssWuXw6UhA6ntUgERAaguTNpx?=
- =?iso-8859-1?Q?UcNu+a9JTUDkhBer6/L0/YByoZyZsgkw2Ye4mjWb5FEeZ/firR4gwzcQeH?=
- =?iso-8859-1?Q?gMGkd2XG2nZ34hEKzyWaaK772ZQm03gLk05jOoU7KNC8RQfMCQFUW64U4P?=
- =?iso-8859-1?Q?aKWOJ9z6I+yawKjU7cizPDuedHZ8papOlZ77VFASo7mCi9cSi6eD/M5PZ+?=
- =?iso-8859-1?Q?7CY1QXa5ycQETVcS22F2zudh0QncD0sjhA/p57A6O0kU7AY5Gu4x6cgqgC?=
- =?iso-8859-1?Q?M+KvFVfy95Bq5NmsGbFeh3wVT7vkB3m8rBI47yjuWh41vE5Fq7il7UvJ3Z?=
- =?iso-8859-1?Q?vz3vuRYuUdQquXtmK3AYzf9o5AkM15uwPm90ux2gpjG4Y7OJ/52y7hee77?=
- =?iso-8859-1?Q?qDQdgnaIw/4IlfClV2iy8MMTOdspyPG9fm8tMBwf7L2pbTrBta3LRqgLey?=
- =?iso-8859-1?Q?hGVPmWIyYkUaqduM9/IMJhIcz3T7I5T57TAAgka1IV13dhB/vYSDAOP9eK?=
- =?iso-8859-1?Q?96i4Tu8y9k/PeiEhM9bafUTkg4PzJs4ids0JYxq7JblGLoBy+KtSEagXuL?=
- =?iso-8859-1?Q?Wa8Bkh8z3TKOcO61uIjYlluDcMZ0ya9z608OoZkewbFdzrTBtxwP2+7Y/o?=
- =?iso-8859-1?Q?RlwPR9S2V/alb9nj0fqwagQz5vPTfymnBhTJgc7J0KSF69PK8/ifPZ23kE?=
- =?iso-8859-1?Q?wzIK3j8eYA7CYfbCdbIXSKrTMwcRta8lye+dcEO/vGFbbDaIQWwm4YXxvj?=
- =?iso-8859-1?Q?TvQBvMkyzs+Bm0fa44XiV37znerc3pZDkbfk+N9CZ3ClvrO49rD/o9Dv/U?=
- =?iso-8859-1?Q?E+RvpVbEeYeDP8m1y/wR4ABsNuXajkrJth7JWRSWTqhOXRIP1tz1Z48KXR?=
- =?iso-8859-1?Q?nQG37FrY5s0eRJErkllL98PFKtKQSGat9FiLro/S0XQ/AnKlw2rv3iZY0a?=
- =?iso-8859-1?Q?9K8RZp24zlsvwWDf66ApIVglSB42dr/eXtdwgEfgh6InXX4Mx8Cgl3ETyk?=
- =?iso-8859-1?Q?pGbFoaTaii3P37WdpDqQU/72450lcCbcXU94lPYE21FD3WAvenyTZTZJ7X?=
- =?iso-8859-1?Q?WHHpTUFHDA4Q1thHggI=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 14 Nov 2024 14:42:42 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 522AB2000B;
+	Thu, 14 Nov 2024 14:42:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1731595354;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SLgC23ZvmymLrEGALbEff11hpcG/5PNIpGmCyFIvw94=;
+	b=lB5wSpp5uD9+q5NqLpskR78nJ7/CPKhdP2RV0FY27swKYgb+njCX7C13AEc2yqpyPSXli3
+	VGVO+CLYAEczdT+TyAPF1WICITAN9BWp8Fq1Vrl6uZ/hJA9lg8pQGlEmmPkguVgNIBs9P8
+	R0Jwy0DNE7Nt/8UJPEI/1lxPpPPrCLTP5TblkIAJNUrjq5RCzLcTyIN7/WgXeHIfMQLXNz
+	FspSOX9chKH/Ae05MqIeaW0SWWCN3VHb71fFCZumSIB3K8YlKyJNyf5WQxF06oOXKNYYNm
+	KvD0QppUqXzfwIOHX5eRASa3Iw6Uf35JR+/4wy7XnD7Aobh54q2UpCy1rXbp1A==
+Date: Thu, 14 Nov 2024 15:42:31 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	NXP S32 Linux <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>,
+	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+Subject: Re: [PATCH v4 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
+Message-ID: <2024111414423117e158e3@mail.local>
+References: <20241111135940.2534034-1-ciprianmarian.costea@oss.nxp.com>
+ <20241111135940.2534034-3-ciprianmarian.costea@oss.nxp.com>
 MIME-Version: 1.0
-X-OriginatorOrg: siliconsignals.io
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2f22450d-70e3-4068-1f47-08dd04b9d43c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Nov 2024 14:37:13.2340
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 7ec5089e-a433-4bd1-a638-82ee62e21d37
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 4GP8BcMpf8ssnq9Q5f++ccNc7Dxf8Z1p3pgWabFKhXKw68xB7DihnBWjo5plU/y2cRheCvpNSU4JF2DtWoPw6e6qO0+4o+tMBS/tBhwqdn4ithwkpmeDuIlWUI9YNXJf
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB2152
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241111135940.2534034-3-ciprianmarian.costea@oss.nxp.com>
+X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_063721_079171_CDC25447 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20241114_064239_077343_5EC72779 
+X-CRM114-Status: GOOD (  46.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,134 +80,653 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,=0A=
-=0A=
-> Unnecessarily checks ftr_ovr =3D=3D tmp in an extra else if, which is not=
-=0A=
-> needed because that condition would already be true by default if the=0A=
-> previous conditions are not satisfied.=0A=
->=0A=
->=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 if (ftr_ovr !=3D tmp) {=0A=
->=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 } else if (ftr_new !=3D tmp) {=0A=
->=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 } else if (ftr_ovr =3D=3D tmp) {=0A=
->=0A=
-> Logic: The first and last conditions are inverses of each other, so=0A=
-> the last condition must be true if the first two conditions are false.=0A=
->=0A=
-> Additionally, all branches set the variable str, making the subsequent=0A=
-> "if (str)" check redundant=0A=
->=A0=0A=
-> Reviewed-by: Mark Brown <broonie@kernel.org>=0A=
-> Signed-off-by: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io=
->=0A=
-=0A=
-Please consider this patch as v3. Apologies for the inconvenience.=0A=
-=0A=
-Best regards,=0A=
-Hardev=0A=
-=0A=
-=0A=
-________________________________________=0A=
-From:=A0Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>=0A=
-Sent:=A0Thursday, November 14, 2024 7:52 PM=0A=
-To:=A0will@kernel.org <will@kernel.org>; broonie@kernel.org <broonie@kernel=
-.org>=0A=
-Cc:=A0Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>; Catalin =
-Marinas <catalin.marinas@arm.com>; Oliver Upton <oliver.upton@linux.dev>; M=
-arc Zyngier <maz@kernel.org>; Ard Biesheuvel <ardb@kernel.org>; Mark Rutlan=
-d <mark.rutland@arm.com>; Joey Gouly <joey.gouly@arm.com>; Ryan Roberts <ry=
-an.roberts@arm.com>; linux-arm-kernel@lists.infradead.org <linux-arm-kernel=
-@lists.infradead.org>; linux-kernel@vger.kernel.org <linux-kernel@vger.kern=
-el.org>=0A=
-Subject:=A0[PATCH v2] arm64: Refactor conditional logic=0A=
-=A0=0A=
-Unnecessarily checks ftr_ovr =3D=3D tmp in an extra else if, which is not=
-=0A=
-needed because that condition would already be true by default if the=0A=
-previous conditions are not satisfied.=0A=
-=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 if (ftr_ovr !=3D tmp) {=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 } else if (ftr_new !=3D tmp) =
-{=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 } else if (ftr_ovr =3D=3D tmp=
-) {=0A=
-=0A=
-Logic: The first and last conditions are inverses of each other, so=0A=
-the last condition must be true if the first two conditions are false.=0A=
-=0A=
-Additionally, all branches set the variable str, making the subsequent=0A=
-"if (str)" check redundant=0A=
-=0A=
-Reviewed-by: Mark Brown <broonie@kernel.org>=0A=
-Signed-off-by: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>=
-=0A=
----=0A=
-=0A=
-Changelog in V2:=0A=
-=0A=
-- remove str check=0A=
-=0A=
-Change in V3:=0A=
-=0A=
-- Add logic in commit msg=0A=
-- Add review tag=0A=
----=0A=
-=A0arch/arm64/kernel/cpufeature.c | 13 ++++++-------=0A=
-=A01 file changed, 6 insertions(+), 7 deletions(-)=0A=
-=0A=
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.=
-c=0A=
-index 718728a85430..728709483fb7 100644=0A=
---- a/arch/arm64/kernel/cpufeature.c=0A=
-+++ b/arch/arm64/kernel/cpufeature.c=0A=
-@@ -989,17 +989,16 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0 /* Override was valid */=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0 ftr_new =3D tmp;=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0 str =3D "forced";=0A=
--=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 } else =
-if (ftr_ovr =3D=3D tmp) {=0A=
-+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 } else =
-{=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0 /* Override was the safe value */=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0 str =3D "already set";=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 }=
-=0A=
-=A0=0A=
--=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 if (str=
-)=0A=
--=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0 pr_warn("%s[%d:%d]: %s to %llx\n",=0A=
--=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 reg->name,=0A=
--=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 ftrp->shift + ftrp->width - 1,=
-=0A=
--=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 ftrp->shift, str,=0A=
--=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 tmp & (BIT(ftrp->width) - 1));=
-=0A=
-+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 pr_warn=
-("%s[%d:%d]: %s to %llx\n",=0A=
-+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0 reg->name,=0A=
-+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0 ftrp->shift + ftrp->width - 1,=0A=
-+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0 ftrp->shift, str,=0A=
-+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0 tmp & (BIT(ftrp->width) - 1));=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 } else if ((ftr_mask & reg=
-->override->val) =3D=3D ftr_mask) {=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 re=
-g->override->val &=3D ~ftr_mask;=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 pr=
-_warn("%s[%d:%d]: impossible override, ignored\n",=0A=
---=0A=
-2.43.0=0A=
+Hello,
+
+On 11/11/2024 15:59:38+0200, Ciprian Costea wrote:
+> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> 
+> Add a RTC driver for NXP S32G2/S32G3 SoCs.
+> 
+> The RTC module is used to enable Suspend to RAM (STR) support on NXP
+> S32G2/S32G3 SoC based boards.
+> 
+> RTC tracks clock time during system suspend.
+> 
+> RTC from S32G2/S32G3 is not battery-powered and it is not kept alive
+> during system reset.
+> 
+> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> ---
+>  drivers/rtc/Kconfig    |  11 +
+>  drivers/rtc/Makefile   |   1 +
+>  drivers/rtc/rtc-s32g.c | 692 +++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 704 insertions(+)
+>  create mode 100644 drivers/rtc/rtc-s32g.c
+> 
+> diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
+> index e87c3d74565c..18fc3577f6cd 100644
+> --- a/drivers/rtc/Kconfig
+> +++ b/drivers/rtc/Kconfig
+> @@ -2054,4 +2054,15 @@ config RTC_DRV_SSD202D
+>  	  This driver can also be built as a module, if so, the module
+>  	  will be called "rtc-ssd20xd".
+>  
+> +config RTC_DRV_S32G
+> +	tristate "RTC driver for S32G2/S32G3 SoCs"
+> +	depends on ARCH_S32 || COMPILE_TEST
+> +	depends on COMMON_CLK
+> +	help
+> +	  Say yes to enable RTC driver for platforms based on the
+> +	  S32G2/S32G3 SoC family.
+> +
+> +	  This RTC module can be used as a wakeup source.
+> +	  Please note that it is not battery-powered.
+> +
+>  endif # RTC_CLASS
+> diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
+> index 8ee79cb18322..a63d010a753c 100644
+> --- a/drivers/rtc/Makefile
+> +++ b/drivers/rtc/Makefile
+> @@ -158,6 +158,7 @@ obj-$(CONFIG_RTC_DRV_RX8025)	+= rtc-rx8025.o
+>  obj-$(CONFIG_RTC_DRV_RX8111)	+= rtc-rx8111.o
+>  obj-$(CONFIG_RTC_DRV_RX8581)	+= rtc-rx8581.o
+>  obj-$(CONFIG_RTC_DRV_RZN1)	+= rtc-rzn1.o
+> +obj-$(CONFIG_RTC_DRV_S32G)	+= rtc-s32g.o
+>  obj-$(CONFIG_RTC_DRV_S35390A)	+= rtc-s35390a.o
+>  obj-$(CONFIG_RTC_DRV_S3C)	+= rtc-s3c.o
+>  obj-$(CONFIG_RTC_DRV_S5M)	+= rtc-s5m.o
+> diff --git a/drivers/rtc/rtc-s32g.c b/drivers/rtc/rtc-s32g.c
+> new file mode 100644
+> index 000000000000..c3792b674a18
+> --- /dev/null
+> +++ b/drivers/rtc/rtc-s32g.c
+> @@ -0,0 +1,692 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Copyright 2024 NXP
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/clk-provider.h>
+> +#include <linux/err.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/math64.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/rtc.h>
+> +
+> +#define RTCC_OFFSET	0x4ul
+> +#define RTCS_OFFSET	0x8ul
+> +#define RTCCNT_OFFSET	0xCul
+> +#define APIVAL_OFFSET	0x10ul
+> +#define RTCVAL_OFFSET	0x14ul
+> +
+> +/* RTCC fields */
+> +#define RTCC_CNTEN				BIT(31)
+> +#define RTCC_RTCIE_SHIFT		30
+> +#define RTCC_RTCIE				BIT(RTCC_RTCIE_SHIFT)
+> +#define RTCC_ROVREN				BIT(28)
+> +#define RTCC_APIEN				BIT(15)
+> +#define RTCC_APIIE				BIT(14)
+> +#define RTCC_CLKSEL_OFFSET		12
+> +#define RTCC_CLKSEL_MASK		GENMASK(13, 12)
+> +#define RTCC_CLKSEL(n)			(((n) << 12) & RTCC_CLKSEL_MASK)
+> +#define RTCC_DIV512EN			BIT(11)
+> +#define RTCC_DIV32EN			BIT(10)
+> +
+> +/* RTCS fields */
+> +#define RTCS_RTCF		BIT(29)
+> +#define RTCS_INV_RTC		BIT(18)
+> +#define RTCS_APIF		BIT(13)
+> +#define RTCS_ROVRF		BIT(10)
+> +
+> +#define ROLLOVER_VAL		GENMASK(31, 0)
+> +#define RTC_SYNCH_TIMEOUT	(100 * USEC_PER_MSEC)
+> +
+> +#define RTC_CLK_MUX_SIZE	4
+> +
+> +/*
+> + * S32G2 and S32G3 SoCs have RTC clock source 1 reserved and
+> + * should not be used.
+> + */
+> +#define RTC_QUIRK_SRC1_RESERVED			BIT(2)
+> +
+> +enum {
+> +	RTC_CLK_SRC0,
+> +	RTC_CLK_SRC1,
+> +	RTC_CLK_SRC2,
+> +	RTC_CLK_SRC3
+> +};
+> +
+> +enum {
+> +	DIV1 = 1,
+> +	DIV32 = 32,
+> +	DIV512 = 512,
+> +	DIV512_32 = 16384
+> +};
+> +
+> +static const char *rtc_clk_src[RTC_CLK_MUX_SIZE * 2] = {
+> +	"rtc_runtime_s0",
+> +	"rtc_runtime_s1",
+> +	"rtc_runtime_s2",
+> +	"rtc_runtime_s3",
+> +	"rtc_standby_s0",
+> +	"rtc_standby_s1",
+> +	"rtc_standby_s2",
+> +	"rtc_standby_s3"
+> +};
+> +
+> +struct rtc_time_base {
+> +	s64 sec;
+> +	u64 cycles;
+> +	u64 rollovers;
+> +	struct rtc_time tm;
+> +};
+> +
+> +struct rtc_priv {
+> +	struct rtc_device *rdev;
+> +	void __iomem *rtc_base;
+> +	struct clk *ipg;
+> +	struct clk *runtime_clk;
+> +	struct clk *suspend_clk;
+> +	const struct rtc_soc_data *rtc_data;
+> +	struct rtc_time_base base;
+> +	u64 rtc_hz;
+> +	u64 rollovers;
+> +	int dt_irq_id;
+> +	int runtime_src_idx;
+> +	int suspend_src_idx;
+> +};
+> +
+> +struct rtc_soc_data {
+> +	u32 runtime_div;
+> +	u32 suspend_div;
+> +	u32 quirks;
+> +};
+> +
+> +static const struct rtc_soc_data rtc_s32g2_data = {
+> +	.runtime_div = DIV512,
+> +	.suspend_div = DIV512,
+> +	.quirks = RTC_QUIRK_SRC1_RESERVED,
+> +};
+> +
+> +static int is_src1_reserved(struct rtc_priv *priv)
+> +{
+> +	return priv->rtc_data->quirks & RTC_QUIRK_SRC1_RESERVED;
+> +}
+> +
+> +static u64 cycles_to_sec(u64 hz, u64 cycles)
+> +{
+> +	return div_u64(cycles, hz);
+> +}
+> +
+> +/**
+> + * Convert a number of seconds to a value suitable for RTCVAL in our clock's
+> + * current configuration.
+> + * @rtcval: The value to go into RTCVAL[RTCVAL]
+> + * Returns: 0 for success, -EINVAL if @seconds push the counter at least
+> + *          twice the rollover interval
+> + */
+> +static int sec_to_rtcval(const struct rtc_priv *priv,
+> +			 unsigned long seconds, u32 *rtcval)
+> +{
+> +	u32 rtccnt, delta_cnt;
+> +	u32 target_cnt = 0;
+> +
+> +	/* For now, support at most one rollover of the counter */
+> +	if (!seconds || seconds > cycles_to_sec(priv->rtc_hz, ROLLOVER_VAL))
+> +		return -EINVAL;
+
+Honestly, I still feel the whole rollover handling is useless as it
+doesn't bring any significant benefits. The workflow seems like it will
+always be something like:
+ - set time
+ - set alarm
+ - wait for wakeup
+
+Without rollover support, you already have the whole 32bit range for the
+counter. Obviously get_time_left is then useless.
+
+The whole clock switching code also seem over complicated. What are the
+actual benefits? The accuracy of the wakeup will always be the one of
+the clock selected while in suspend and this RTC will probably not be
+your system clock because of its limitations.
+
+> +static int s32g_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alrm)
+> +{
+> +	struct rtc_priv *priv = dev_get_drvdata(dev);
+> +	struct rtc_time time_crt;
+> +	long long t_crt, t_alrm;
+> +	u32 rtcval, rtcs;
+> +	int ret = 0;
+> +
+> +	iowrite32(0x0, priv->rtc_base + RTCVAL_OFFSET);
+> +
+> +	t_alrm = rtc_tm_to_time64(&alrm->time);
+> +
+> +	/*
+> +	 * Assuming the alarm is being set relative to the same time
+> +	 * returned by our s32g_rtc_read_time callback
+> +	 */
+> +	ret = s32g_rtc_read_time(dev, &time_crt);
+> +	if (ret)
+> +		return ret;
+> +
+> +	t_crt = rtc_tm_to_time64(&time_crt);
+> +	if (t_alrm <= t_crt) {
+> +		dev_warn(dev, "Alarm is set in the past\n");
+
+This is never going to happen.
+
+> +		return -EINVAL;
+> +	}
+> +
+> +	ret = sec_to_rtcval(priv, t_alrm - t_crt, &rtcval);
+> +	if (ret) {
+> +		/*
+> +		 * Rollover support enables RTC alarm
+> +		 * for a maximum timespan of ~3 months.
+> +		 */
+> +		dev_warn(dev, "Alarm is set too far in the future\n");
+> +		return ret;
+
+-ERANGE is probably appriopriate.
+
+> +	}
+> +
+> +	ret = read_poll_timeout(ioread32, rtcs, !(rtcs & RTCS_INV_RTC),
+> +				0, RTC_SYNCH_TIMEOUT, false, priv->rtc_base + RTCS_OFFSET);
+> +	if (ret) {
+> +		dev_err(dev, "Synchronization failed\n");
+
+The driver is very verbose. Most of the strings will never be seen by
+anyone because this is an embedded system however, the strings will take
+space which make the system slower to boot an use more memory than
+necessary.
+
+> +		return ret;
+> +	}
+> +
+> +	iowrite32(rtcval, priv->rtc_base + RTCVAL_OFFSET);
+> +
+> +	return 0;
+> +}
+> +
+> +static int s32g_rtc_set_time(struct device *dev,
+> +			     struct rtc_time *time)
+> +{
+> +	struct rtc_priv *priv = dev_get_drvdata(dev);
+> +
+> +	if (!time)
+
+How will this ever happen?
+
+> +		return -EINVAL;
+> +
+> +	priv->base.rollovers = priv->rollovers;
+> +	priv->base.cycles = ioread32(priv->rtc_base + RTCCNT_OFFSET);
+> +	priv->base.sec = rtc_tm_to_time64(time);
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Disable the 32-bit free running counter.
+> + * This allows Clock Source and Divisors selection
+> + * to be performed without causing synchronization issues.
+> + */
+> +static void s32g_rtc_disable(struct rtc_priv *priv)
+> +{
+> +	u32 rtcc = ioread32(priv->rtc_base + RTCC_OFFSET);
+> +
+> +	rtcc &= ~RTCC_CNTEN;
+> +	iowrite32(rtcc, priv->rtc_base + RTCC_OFFSET);
+> +}
+> +
+> +static void s32g_rtc_enable(struct rtc_priv *priv)
+> +{
+> +	u32 rtcc = ioread32(priv->rtc_base + RTCC_OFFSET);
+> +
+> +	rtcc |= RTCC_CNTEN;
+> +	iowrite32(rtcc, priv->rtc_base + RTCC_OFFSET);
+> +}
+> +
+> +static void adjust_dividers(struct rtc_priv *priv,
+> +			    u32 div_val, u32 *reg)
+> +{
+> +	switch (div_val) {
+> +	case DIV512_32:
+> +		*reg |= RTCC_DIV512EN;
+> +		*reg |= RTCC_DIV32EN;
+> +		break;
+> +	case DIV512:
+> +		*reg |= RTCC_DIV512EN;
+> +		break;
+> +	case DIV32:
+> +		*reg |= RTCC_DIV32EN;
+> +		break;
+> +	default:
+> +		return;
+> +	}
+> +
+> +	priv->rtc_hz /= div_val;
+> +}
+> +
+> +static int rtc_get_clk_src(struct rtc_priv *priv)
+> +{
+> +	return (ioread32(priv->rtc_base + RTCC_OFFSET) &
+> +			RTCC_CLKSEL_MASK) >> RTCC_CLKSEL_OFFSET;
+> +}
+> +
+> +static int rtc_clk_src_switch(struct rtc_priv *priv, u32 src)
+> +{
+> +	struct device *dev = priv->rdev->dev.parent;
+> +	u32 rtcc = 0;
+> +
+> +	switch (src % RTC_CLK_MUX_SIZE) {
+> +	case RTC_CLK_SRC0:
+> +		rtcc |= RTCC_CLKSEL(RTC_CLK_SRC0);
+> +		break;
+> +	case RTC_CLK_SRC1:
+> +		if (is_src1_reserved(priv))
+> +			return -EOPNOTSUPP;
+> +		rtcc |= RTCC_CLKSEL(RTC_CLK_SRC1);
+> +		break;
+> +	case RTC_CLK_SRC2:
+> +		rtcc |= RTCC_CLKSEL(RTC_CLK_SRC2);
+> +		break;
+> +	case RTC_CLK_SRC3:
+> +		rtcc |= RTCC_CLKSEL(RTC_CLK_SRC3);
+> +		break;
+> +	default:
+> +		dev_err(dev, "Invalid clock mux parent: %d\n", src);
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (src < RTC_CLK_MUX_SIZE) {
+> +		priv->rtc_hz = clk_get_rate(priv->runtime_clk);
+> +		if (!priv->rtc_hz) {
+> +			dev_err(dev, "Failed to get RTC frequency\n");
+> +			return -EINVAL;
+> +		}
+> +		adjust_dividers(priv, priv->rtc_data->runtime_div, &rtcc);
+> +	} else {
+> +		priv->rtc_hz = clk_get_rate(priv->suspend_clk);
+> +		if (!priv->rtc_hz) {
+> +			dev_err(dev, "Failed to get RTC frequency\n");
+> +			return -EINVAL;
+> +		}
+> +		adjust_dividers(priv, priv->rtc_data->suspend_div, &rtcc);
+> +	}
+> +
+> +	rtcc |= RTCC_RTCIE | RTCC_ROVREN;
+> +	/*
+> +	 * Make sure the CNTEN is 0 before we configure
+> +	 * the clock source and dividers.
+> +	 */
+> +	s32g_rtc_disable(priv);
+> +	iowrite32(rtcc, priv->rtc_base + RTCC_OFFSET);
+> +	s32g_rtc_enable(priv);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct rtc_class_ops rtc_ops = {
+> +	.read_time = s32g_rtc_read_time,
+> +	.set_time = s32g_rtc_set_time,
+> +	.read_alarm = s32g_rtc_read_alarm,
+> +	.set_alarm = s32g_rtc_set_alarm,
+> +	.alarm_irq_enable = s32g_rtc_alarm_irq_enable,
+> +};
+> +
+> +static int rtc_clk_dts_setup(struct rtc_priv *priv,
+> +			     struct device *dev)
+> +{
+> +	int i;
+> +
+> +	priv->runtime_src_idx = -EINVAL;
+> +	priv->suspend_src_idx = -EINVAL;
+> +
+> +	priv->ipg = devm_clk_get_enabled(dev, "ipg");
+> +	if (IS_ERR(priv->ipg)) {
+> +		dev_err(dev, "Failed to get 'ipg' clock\n");
+> +		return PTR_ERR(priv->ipg);
+> +	}
+> +
+> +	/* Get RTC runtime clock source */
+> +	for (i = 0; i < RTC_CLK_MUX_SIZE; i++) {
+> +		priv->runtime_clk = devm_clk_get_enabled(dev, rtc_clk_src[i]);
+> +		if (!IS_ERR(priv->runtime_clk)) {
+> +			priv->runtime_src_idx = i;
+> +			break;
+> +		}
+> +	}
+> +
+> +	if (IS_ERR(priv->runtime_clk)) {
+> +		dev_err(dev, "Failed to get runtime rtc clock\n");
+> +		return PTR_ERR(priv->runtime_clk);
+> +	}
+> +
+> +	/* If present, get RTC suspend clock source */
+> +	for (i = RTC_CLK_MUX_SIZE; i < RTC_CLK_MUX_SIZE * 2; i++) {
+> +		priv->suspend_clk = devm_clk_get_enabled(dev, rtc_clk_src[i]);
+> +		if (!IS_ERR(priv->suspend_clk)) {
+> +			priv->suspend_src_idx = i;
+> +			break;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int rtc_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct rtc_priv *priv;
+> +	int ret = 0;
+> +
+> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	priv->rtc_data = of_device_get_match_data(dev);
+> +	if (!priv->rtc_data)
+> +		return -ENODEV;
+> +
+> +	priv->rtc_base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(priv->rtc_base))
+> +		return dev_err_probe(dev, PTR_ERR(priv->rtc_base),
+> +				"Failed to map registers\n");
+> +
+> +	device_init_wakeup(dev, true);
+> +
+> +	ret = rtc_clk_dts_setup(priv, dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	priv->rdev = devm_rtc_allocate_device(dev);
+> +	if (IS_ERR(priv->rdev))
+> +		return dev_err_probe(dev, PTR_ERR(priv->rdev),
+> +				"Failed to allocate RTC device\n");
+> +
+> +	ret = rtc_clk_src_switch(priv, priv->runtime_src_idx);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				"Failed clk source switch, err: %d\n", ret);
+> +
+> +	platform_set_drvdata(pdev, priv);
+> +	priv->rdev->ops = &rtc_ops;
+> +
+> +	ret = devm_rtc_register_device(priv->rdev);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to register RTC device\n");
+> +		goto disable_rtc;
+> +	}
+> +
+> +	priv->dt_irq_id = platform_get_irq(pdev, 0);
+> +	if (priv->dt_irq_id < 0)
+> +		return dev_err_probe(dev, priv->dt_irq_id,
+> +				"Error reading interrupt # from dts\n");
+> +
+> +	ret = devm_request_irq(dev, priv->dt_irq_id,
+> +			       rtc_handler, 0, dev_name(dev), pdev);
+> +	if (ret) {
+> +		dev_err(dev, "Request interrupt %d failed, error: %d\n",
+> +			priv->dt_irq_id, ret);
+> +		goto disable_rtc;
+> +	}
+> +
+> +	return 0;
+> +
+> +disable_rtc:
+> +	s32g_rtc_disable(priv);
+> +	return ret;
+> +}
+> +
+> +static void rtc_remove(struct platform_device *pdev)
+> +{
+> +	struct rtc_priv *priv = platform_get_drvdata(pdev);
+> +
+
+You really need a comment here stating why you feel this is necessary to
+stop the RTC when removing the driver. Also, you need to prefix your
+function names with s32g.
+
+> +	s32g_rtc_disable(priv);
+> +}
+> +
+> +static void  __maybe_unused enable_api_irq(struct device *dev, unsigned int enabled)
+> +{
+> +	struct rtc_priv *priv = dev_get_drvdata(dev);
+> +	u32 api_irq = RTCC_APIEN | RTCC_APIIE;
+> +	u32 rtcc;
+> +
+> +	rtcc = ioread32(priv->rtc_base + RTCC_OFFSET);
+> +	if (enabled)
+> +		rtcc |= api_irq;
+> +	else
+> +		rtcc &= ~api_irq;
+> +	iowrite32(rtcc, priv->rtc_base + RTCC_OFFSET);
+> +}
+> +
+> +static int __maybe_unused rtc_suspend(struct device *dev)
+> +{
+> +	struct rtc_priv *init_priv = dev_get_drvdata(dev);
+> +	struct rtc_priv priv;
+> +	long long base_sec;
+> +	int ret = 0;
+> +	u32 rtcval;
+> +	u32 sec;
+> +
+> +	if (!device_may_wakeup(dev))
+> +		return 0;
+> +
+> +	if (init_priv->suspend_src_idx < 0)
+> +		return 0;
+> +
+> +	if (rtc_get_clk_src(init_priv) + RTC_CLK_MUX_SIZE ==
+> +			init_priv->suspend_src_idx)
+> +		return 0;
+> +
+> +	/* Save last known timestamp before we switch clocks and reinit RTC */
+> +	ret = s32g_rtc_read_time(dev, &init_priv->base.tm);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/*
+> +	 * Use a local copy of the RTC control block to
+> +	 * avoid restoring it on resume path.
+> +	 */
+> +	memcpy(&priv, init_priv, sizeof(priv));
+> +
+> +	ret = get_time_left(dev, init_priv, &sec);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Adjust for the number of seconds we'll be asleep */
+> +	base_sec = rtc_tm_to_time64(&init_priv->base.tm);
+> +	base_sec += sec;
+> +	rtc_time64_to_tm(base_sec, &init_priv->base.tm);
+> +
+> +	ret = rtc_clk_src_switch(&priv, priv.suspend_src_idx);
+> +	if (ret) {
+> +		dev_err(dev, "Failed clk source switch, err: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	ret = sec_to_rtcval(&priv, sec, &rtcval);
+> +	if (ret) {
+> +		dev_warn(dev, "Alarm is too far in the future\n");
+> +		return ret;
+> +	}
+> +
+> +	s32g_rtc_alarm_irq_enable(dev, 0);
+> +	enable_api_irq(dev, 1);
+> +	iowrite32(rtcval, priv.rtc_base + APIVAL_OFFSET);
+> +	iowrite32(0, priv.rtc_base + RTCVAL_OFFSET);
+> +
+> +	return ret;
+> +}
+> +
+> +static int __maybe_unused rtc_resume(struct device *dev)
+> +{
+> +	struct rtc_priv *priv = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	if (!device_may_wakeup(dev))
+> +		return 0;
+> +
+> +	if (rtc_get_clk_src(priv) == priv->runtime_src_idx)
+> +		return 0;
+> +
+> +	/* Disable wake-up interrupts */
+> +	enable_api_irq(dev, 0);
+> +
+> +	ret = rtc_clk_src_switch(priv, priv->runtime_src_idx);
+> +	if (ret) {
+> +		dev_err(dev, "Failed clk source switch, err: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	/*
+> +	 * Now RTCCNT has just been reset, and is out of sync with priv->base;
+> +	 * reapply the saved time settings
+> +	 */
+> +	return s32g_rtc_set_time(dev, &priv->base.tm);
+> +}
+> +
+> +static const struct of_device_id rtc_dt_ids[] = {
+> +	{ .compatible = "nxp,s32g2-rtc", .data = &rtc_s32g2_data},
+> +	{ /* sentinel */ },
+> +};
+> +
+> +static SIMPLE_DEV_PM_OPS(rtc_pm_ops,
+> +			 rtc_suspend, rtc_resume);
+> +
+> +static struct platform_driver rtc_driver = {
+> +	.driver		= {
+> +		.name			= "s32g-rtc",
+> +		.pm				= &rtc_pm_ops,
+> +		.of_match_table = rtc_dt_ids,
+> +	},
+> +	.probe		= rtc_probe,
+> +	.remove	= rtc_remove,
+> +};
+> +module_platform_driver(rtc_driver);
+> +
+> +MODULE_AUTHOR("NXP");
+> +MODULE_DESCRIPTION("NXP RTC driver for S32G2/S32G3");
+> +MODULE_LICENSE("GPL");
+> -- 
+> 2.45.2
+> 
+
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
