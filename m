@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5343BD6A223
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 17:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A5CD6A221
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 17:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QVyaKxFQo0Kexw7pAfdHq+ncZpVV9gGVzi64IeD5HVw=; b=LWboLPE4sjWa7qmYg8SIUaDCpt
-	8JaS9jPBaLMeGY9qZhAGYGxwkkghMZAaosE0QJA7GzCBBSe2j0x54nCOTHl19OgZ8Lk5UyYTr03cb
-	TivvJn7hcyhGimAFbNXkiE0YVwirjxYTvp4s9GdqwLTCRLkm5/ErVrE1t7AZenJBuL4oelTurFKNk
-	zpSQV1NqnZZwEOMBmG6GQlsz1smoXU3muPyZHdskH5CD38wS8mIoHi0zB83BMRIzkpwyL6tguotDs
-	dCKofurRL6xphL9WyTRoCB+BLwR3Gw70yoUJ2bmRrZDB+uHgRTGXIcsB4DUDaNKwEiqjg1wJamquD
-	Z3MZumNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0jxstw+HdDkmUNCxSNezg+z3DZ+qdKf7DbKMcdrw87E=; b=uBQic9iLIjh2uf9fh+Z/dkn3pD
+	PC83PDx5U8VGJo1MTBT/ntlewLryr6iYk8SFVX4sBBcSKUNlrR6J7dRZ41pRmJJ1cEW3gP2hQVIKV
+	CBm6Shh4fGMpJv8wBYdr410s1vKc2QSdwyRvlGkN3ExdeN0WH4o1YZmJfYNmMBqKdzQYDDex05Oc/
+	uGibdptIde5e6s168hYdcbuBnppOgDIsELfAQoPrpozgCCl8BlhqaSYMsAXcQFevWdQrhgxlrngUd
+	fPj6WOzh9GL+BRacRSt2jI5G1f/Ccu4b2Txe8P0zQ5VTHReGnYw/yhdFd0XpxRSSGVmEExMvaqA2b
+	OdSFwz9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBdpc-00000000M8l-3WaR;
-	Thu, 14 Nov 2024 17:40:36 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1tBdsU-00000000Mim-30AF;
+	Thu, 14 Nov 2024 17:43:34 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBdof-00000000Lx8-2lRZ
+	id 1tBdrZ-00000000MVX-19nQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 17:39:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1731605971; x=1732210771; i=wahrenst@gmx.net;
-	bh=QVyaKxFQo0Kexw7pAfdHq+ncZpVV9gGVzi64IeD5HVw=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=aKH1AkZv4GuaaruAM8sKJc4etq6PuUvjZEofA3B/hGGXlFQksaasy9nGczpEYr8m
-	 De8mvNn0Qw8fcPlYqP/qHSN9zmC6xkLi+TIjkMtfNkuRHRBHIDivrJ8E5RfFHHAdu
-	 Lqa1kUy33z+hNLsUTnllHXwkF1xfjUPUfQFN+1JlfRO3dNRy4UWVUqEKA3Jvr/5YK
-	 s9oio+l07opu+DkSw6jxwDv5yh29yhcesW/V14upUTKdmx20j0W9WcFYNqRF2GF8G
-	 P35YajvpMF8kCpvsPYgkW1UP0aFfZb3Xz+PTPxKLARxHgc9Kndvnl886pE7yFzEcA
-	 +EadB2MDw8fDPgHg0w==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MyKDe-1tzKYR1Xgq-010Om6; Thu, 14
- Nov 2024 18:39:31 +0100
-Message-ID: <4c157893-ceba-4a6a-a860-182af5f08c5f@gmx.net>
-Date: Thu, 14 Nov 2024 18:39:30 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] soc: imx: Add SoC device register for i.MX9
-To: alice.guo@oss.nxp.com, alexander.stein@ew.tq-group.com,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, "alice.guo" <alice.guo@nxp.com>
-References: <20241111032307.144733-1-alice.guo@oss.nxp.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-In-Reply-To: <20241111032307.144733-1-alice.guo@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:cWx//gh6D80b94XAjSQH6K7k2iTU+lf7hW09THpVA0oyHpePheO
- OWblZo9UujBnxMeitHWu+Kp0PdSSRhNm+362P/8b+gBDGQxvje5FPWC5IutnRPVgRx2lUoY
- wEMuVInYLPTMVMsSFMOvkJ6TdCFjOaapBbB0G1hIej20NU7mgMqPv91IEMrUodN8zADnzRp
- AB0eUZ3/4g/Ssn9kT0K7A==
-UI-OutboundReport: notjunk:1;M01:P0:J5ap3uADCfA=;ET7q+/xSlZQGYeUqoSGP+iApWXy
- 21TUSkvaNEqAG0R31qz/KshsqnfjHuVvh0UZOS+45OroAstuk3kVTVK7KiSZ5kE/Q3CdFhwrv
- yu3vN80qn10GxQ7b0GyM7D2QzPmv8JmgNAxNq8Sb+zvKdxZi3rg+Bdl/D3FbrLKIFch0iLmcP
- KB9laSsqdxtmt5X+clIa8O5Jl7IIs8cynDNwphhYY1ewcWt+3QPSr6vlHvPIhNlM6PKVyhVLX
- fV7OtuEAd36oDnRu57fHPu5wL3aF6Dyxc7FWFrfXSZ/pXn52xr5X63eKU89/lqukWqI6DSATG
- KihEcHMfs3NMZm/2nfArp6fqRsKyYOv7zc9yXNoB4cee2bUnO8GEs0hkyh+c+P6ypJbozWfc6
- XLJsFhHvJN/8Vr48nB8yQpsq/3P6bU6Hb5oxwb1sGTfV2C3urW+xIQ+wKGygUmQiTfxZoXoUq
- t11jpLn+5Q7wFHsbW4QbiEhDspFFhNRNopGVPgj6AadR7AX4Y4roGwu+60CENz+VZKgM5EOd1
- 5wPtYVLqL2j6qBUA3CQKImZ7J8dGcm7Ojsf46GCxwq7kGi5gcUjuoTTEcyDAqJ+e2Or1CoF7b
- mHjRjYJpyNNuC927sfyZPsIDKYoC/THwz7NFsdrKUsmfpsDN7JmpD+9AZINXRcRGAcesRjWUq
- H2ep1Xzp6/thKJr4nQ4PT6ktA70Yj+ZgHyosVYQSr7J744XF469qNXtco6GRcIDXQZdW9MVVO
- 2SxvLduCEOIZv62i9hahsL84yAaPYAKGyE08pRj6+XElwtcDWC/K53QlShIzycpwjre6J/sn4
- DYVRq57nW27iBfHYh25DJACWPveqcT8Uph7kjGG2QeaiddarkTe4IgSsB4yBlwGuhL3wBk0c7
- nkhA7nConmaKf8FwiULcCOp7KUCL2rWbzgHKQAv8WjTpsyhw0yb8BbBGt
+	Thu, 14 Nov 2024 17:42:38 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-71e55c9d23cso676175b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 09:42:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1731606155; x=1732210955; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=0jxstw+HdDkmUNCxSNezg+z3DZ+qdKf7DbKMcdrw87E=;
+        b=rqL3OLng1ZTk4ozygW6Bq3cHZoWuUu+ZrxzXEulASy9soO8jgTES0N+yCeeDyU70Gv
+         OX3N50eqDXU+HNUFrl+o1wGsfZh3NynDf1k3vyN1lmbdcKMluM3Cy+CDZ8MlSSFKVr1K
+         /OjVIZPy4bs6S17dpWIF3Rbs54NOyRyo9N5xstvWYaTcN0+ex+1U/FdnT5KI45rTtNo1
+         dtQIeJ0mmaCZRVXTgOt2xU/P7wH6PZzBUKZuHCsDKUT3FgLpRHr8vCdOG2pCITONyoxS
+         6o0wMeWjY9jvOq/2Bl+/6AeDRiEKV7X7FugSSKQyPMgRrzJB9bx+vVueHECh4RuyyOzc
+         J/gQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731606155; x=1732210955;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=0jxstw+HdDkmUNCxSNezg+z3DZ+qdKf7DbKMcdrw87E=;
+        b=T7CX5O5vgw7Ka8AwbzGmtztnTNV1cDc8dvtV2xyPvaipCn4HZu0slPC9UslaLo4O8R
+         4/tXknNG1gjX1sXXwDqQQkcmh6LBTk3zRfN46NXsqcUx4OsuTQFD1WR6cBo7YJotDksy
+         A4WEitNQosDL9NWNg8uCM0fwF5TjksfRu9EFcdpXDMYcr8Mv5F5vPVLJgnMtFSHZo5tg
+         3xk0pHXhTJIX2tSKI/CO8EebQ0mdgSJ7XKWwUGax+twcnBXYB53aBPTZP9sTJH/tarkp
+         bSc1zVuf0+K7uWsNPoKqvM7gC/lsVCWJl0wmPfn905RFthL0lIiEhhb8Pfde6PiNvCzA
+         rB7g==
+X-Forwarded-Encrypted: i=1; AJvYcCXPJKEeT83ES2vgu1VNn817ojVObHDPh6RSzKu3Bq1iNKkd7W1N+alIPW0ovzQ69II41cj93R8ENdgwzqJK2Zax@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwuUnUXnx4wNlPdM+1dskN7slrdcgx+q/9mv84+67M6rviWs/I
+	59lV8MEGgDnbajhKCDmm2zSieuDXXlfSmyl7Q29kAHnUYrLYH+fLaGaFEC83EXa6tmdkDXhSe25
+	I9A==
+X-Google-Smtp-Source: AGHT+IE2t7/BQUDGvQdq1WU4OfDCD4pafvlstYkabCEfeZEIVCwo/4m39wonrcrGj/V1SHEHETmIrMp08OA=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
+ (user=seanjc job=sendgmr) by 2002:a05:6a00:2167:b0:724:67d7:17b2 with SMTP id
+ d2e1a72fcca58-72467d71a19mr35667b3a.0.1731606154070; Thu, 14 Nov 2024
+ 09:42:34 -0800 (PST)
+Date: Thu, 14 Nov 2024 09:42:32 -0800
+In-Reply-To: <20241108-eaacad12f1eef31481cf0c6c@orel>
+Mime-Version: 1.0
+References: <20240821223012.3757828-1-vipinsh@google.com> <CAHVum0eSxCTAme8=oV9a=cVaJ9Jzu3-W-3vgbubVZ2qAWVjfJA@mail.gmail.com>
+ <CAHVum0fWJW7V5ijtPcXQAtPSdoQSKjzYwMJ-XCRH2_sKs=Kg7g@mail.gmail.com>
+ <ZyuiH_CVQqJUoSB-@google.com> <20241108-eaacad12f1eef31481cf0c6c@orel>
+Message-ID: <ZzY2iAqNfeiiIGys@google.com>
+Subject: Re: [RFC PATCH 0/1] KVM selftests runner for running more than just default
+From: Sean Christopherson <seanjc@google.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Vipin Sharma <vipinsh@google.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	Paolo Bonzini <pbonzini@redhat.com>, Anup Patel <anup@brainfault.org>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_093937_987853_672FFB03 
-X-CRM114-Status: GOOD (  33.62  )
+X-CRM114-CacheID: sfid-20241114_094237_313760_1EF918B0 
+X-CRM114-Status: GOOD (  34.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,201 +94,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alice,
+On Fri, Nov 08, 2024, Andrew Jones wrote:
+> On Wed, Nov 06, 2024 at 09:06:39AM -0800, Sean Christopherson wrote:
+> > On Fri, Nov 01, 2024, Vipin Sharma wrote:
+> > > Phase 3: Provide collection of interesting configurations
+> > > 
+> > > Specific individual constructs can be combined in a meaningful way to
+> > > provide interesting configurations to run on a platform. For example,
+> > > user doesn't need to specify each individual configuration instead,
+> > > some prebuilt configurations can be exposed like
+> > > --stress_test_shadow_mmu, --test_basic_nested
+> > 
+> > IMO, this shouldn't be baked into the runner, i.e. should not surface as dedicated
+> > command line options.  Users shouldn't need to modify the runner just to bring
+> > their own configuration.  I also think configurations should be discoverable,
+> > e.g. not hardcoded like KUT's unittest.cfg.  A very real problem with KUT's
+> > approach is that testing different combinations is frustratingly difficult,
+> > because running a testcase with different configuration requires modifying a file
+> > that is tracked by git.
+> 
+> We have support in KUT for environment variables (which are stored in an
+> initrd). The feature hasn't been used too much, but x86 applies it to
+> configuration parameters needed to execute tests from grub, arm uses it
+> for an errata framework allowing tests to run on kernels which may not
+> include fixes to host-crashing bugs, and riscv is using them quite a bit
+> for providing test parameters and test expected results in order to allow
+> SBI tests to be run on a variety of SBI implementations. The environment
+> variables are provided in a text file which is not tracked by git. kvm
+> selftests can obviously also use environment variables by simply sourcing
+> them first in wrapper scripts for the tests.
 
-these are the new comments
+Oh hell no! :-)
 
-Am 11.11.24 um 04:23 schrieb alice.guo@oss.nxp.com:
-> From: "alice.guo" <alice.guo@nxp.com>
->
-> i.MX9 SoCs have SoC ID, SoC revision number and chip unique identifier
-> which are provided by the corresponding ARM trusted firmware API. This
-> patch intends to use SMC call to obtain these information and then
-> register i.MX9 SoC as a device.
->
-> Signed-off-by: Alice Guo <alice.guo@nxp.com>
-> Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
-> ---
->
-> Changes for v2:
->   - refine error log print
-> Changes for v3:
->   - return -EINVAL when arm_smccc_smc failed
->   - fix the build warning caused by pr_err("%s: SMC failed: %d\n", __fun=
-c__, res.a0);
->   - drop the pr_err in imx9_soc_init
->   - free the memory in the reverse order of allocation
->   - use of_match_node instead of of_machine_is_compatible
-> Changes for v4:
->   - fix the build warning: 'imx9_soc_match' defined but not used [-Wunus=
-ed-const-variable=3D]
->   - add Tested-by and Reviewed-by
-> Changes for v5:
->   - probe imx9 soc driver as a platform driver
->
->   drivers/soc/imx/Makefile   |   2 +-
->   drivers/soc/imx/soc-imx9.c | 124 +++++++++++++++++++++++++++++++++++++
->   2 files changed, 125 insertions(+), 1 deletion(-)
->   create mode 100644 drivers/soc/imx/soc-imx9.c
->
-> diff --git a/drivers/soc/imx/Makefile b/drivers/soc/imx/Makefile
-> index 3ad321ca608a..ca6a5fa1618f 100644
-> --- a/drivers/soc/imx/Makefile
-> +++ b/drivers/soc/imx/Makefile
-> @@ -3,4 +3,4 @@ ifeq ($(CONFIG_ARM),y)
->   obj-$(CONFIG_ARCH_MXC) +=3D soc-imx.o
->   endif
->   obj-$(CONFIG_SOC_IMX8M) +=3D soc-imx8m.o
-> -obj-$(CONFIG_SOC_IMX9) +=3D imx93-src.o
-> +obj-$(CONFIG_SOC_IMX9) +=3D imx93-src.o soc-imx9.o
-> diff --git a/drivers/soc/imx/soc-imx9.c b/drivers/soc/imx/soc-imx9.c
-> new file mode 100644
-> index 000000000000..4ef92260e8f9
-> --- /dev/null
-> +++ b/drivers/soc/imx/soc-imx9.c
-> @@ -0,0 +1,124 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright 2024 NXP
-> + */
-> +
-> +#include <linux/arm-smccc.h>
-> +#include <linux/init.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/slab.h>
-> +#include <linux/sys_soc.h>
-> +
-> +#define IMX_SIP_GET_SOC_INFO	0xc2000006
-> +#define SOC_ID(x)		(((x) & 0xFFFF) >> 8)
-> +#define SOC_REV_MAJOR(x)	((((x) >> 28) & 0xF) - 0x9)
-> +#define SOC_REV_MINOR(x)	(((x) >> 24) & 0xF)
-> +
-> +static int imx9_soc_probe(struct platform_device *pdev)
-> +{
-> +	struct soc_device_attribute *attr;
-> +	struct arm_smccc_res res;
-> +	struct soc_device *sdev;
-> +	u32 soc_id, rev_major, rev_minor;
-> +	u64 uid127_64, uid63_0;
-> +	int err;
-> +
-> +	attr =3D kzalloc(sizeof(*attr), GFP_KERNEL);
-> +	if (!attr)
-> +		return -ENOMEM;
-> +
-> +	err =3D of_property_read_string(of_root, "model", &attr->machine);
-> +	if (err) {
-> +		pr_err("%s: missing model property: %d\n", __func__, err);
-> +		goto attr;
-> +	}
-> +
-> +	attr->family =3D kasprintf(GFP_KERNEL, "Freescale i.MX");
-> +
-> +	/*
-> +	 * Retrieve the soc id, rev & uid info:
-> +	 * res.a1[31:16]: soc revision;
-> +	 * res.a1[15:0]: soc id;
-> +	 * res.a2: uid[127:64];
-> +	 * res.a3: uid[63:0];
-> +	 */
-> +	arm_smccc_smc(IMX_SIP_GET_SOC_INFO, 0, 0, 0, 0, 0, 0, 0, &res);
-> +	if (res.a0 !=3D SMCCC_RET_SUCCESS) {
-> +		pr_err("%s: SMC failed: 0x%lx\n", __func__, res.a0);
-> +		err =3D -EINVAL;
-> +		goto family;
-> +	}
-I like it that soc-imx8m.c handles the corner case
-CONFIG_HAVE_ARM_SMCCC=3Dn in order to increase build coverage.
+For reproducibility, transparency, determinism, environment variables are pure
+evil.  I don't want to discover that I wasn't actually testing what I thought I
+was testing because I forgot to set/purge an environment variable.  Ditto for
+trying to reproduce a failure reported by someone.
 
-Is it possible to adapt this driver accordingly?
-> +
-> +	soc_id =3D SOC_ID(res.a1);
-> +	rev_major =3D SOC_REV_MAJOR(res.a1);
-> +	rev_minor =3D SOC_REV_MINOR(res.a1);
-> +
-> +	attr->soc_id =3D kasprintf(GFP_KERNEL, "i.MX%2x", soc_id);
-> +	attr->revision =3D kasprintf(GFP_KERNEL, "%d.%d", rev_major, rev_minor=
-);
-> +
-> +	uid127_64 =3D res.a2;
-> +	uid63_0 =3D res.a3;
-> +	attr->serial_number =3D kasprintf(GFP_KERNEL, "%016llx%016llx", uid127=
-_64, uid63_0);
-> +
-> +	sdev =3D soc_device_register(attr);
-> +	if (IS_ERR(sdev)) {
-> +		err =3D PTR_ERR(sdev);
-> +		pr_err("%s failed to register SoC as a device: %d\n", __func__, err);
-> +		goto serial_number;
-> +	}
-> +
-> +	return 0;
-> +
-> +serial_number:
-> +	kfree(attr->serial_number);
-> +	kfree(attr->revision);
-> +	kfree(attr->soc_id);
-> +family:
-> +	kfree(attr->family);
-> +attr:
-> +	kfree(attr);
-> +	return err;
-> +}
-> +
-> +static __maybe_unused const struct of_device_id imx9_soc_match[] =3D {
-> +	{ .compatible =3D "fsl,imx93", },
-> +	{ .compatible =3D "fsl,imx95", },
-> +	{ }
-> +};
-> +
-> +static struct platform_driver imx9_soc_driver =3D {
-> +	.probe =3D imx9_soc_probe,
-> +	.driver.name =3D "imx9-soc",
-Just a nit:
+KUT's usage to adjust to the *system* environment is somewhat understandable
+But for KVM selftests, there should be absolutely zero reason to need to fall
+back to environment variables.  Unlike KUT, which can run in a fairly large variety
+of environments, e.g. bare metal vs. virtual, different VMMs, different firmware,
+etc., KVM selftests effectively support exactly one environment.
 
-.driver =3D {
- =C2=A0=C2=A0=C2=A0 .name =3D "imx9-soc",
-},
+And unlike KUT, KVM selftests are tightly coupled to the kernel.  Yes, it's very
+possible to run selftests against different kernels, but I don't think we should
+go out of our way to support such usage.  And if an environment needs to skip a
+test, it should be super easy to do so if we decouple the test configuration
+inputs from the test runner.
 
-This makes it easier to extend later. Maybe we can use a define also for
-"imx9-soc" and use it
-> +};
-> +
-> +static int __init imx9_soc_init(void)
-> +{
-> +	int ret;
-> +	struct platform_device *pdev;
-> +
-> +	/* No match means it is not an i.MX 9 series SoC, do nothing. */
-> +	if (!of_match_node(imx9_soc_match, of_root))
-> +		return 0;
-> +
-> +	ret =3D platform_driver_register(&imx9_soc_driver);
-> +	if (ret) {
-> +		pr_err("failed to register imx9_soc platform driver: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	pdev =3D platform_device_register_simple("imx9-soc", -1, NULL, 0);
-here too
+> > There are underlying issues with KUT that essentially necessitate that approach,
+> > e.g. x86 has several testcases that fail if run without the exact right config.
+> > But that's just another reason to NOT follow KUT's pattern, e.g. to force us to
+> > write robust tests.
+> > 
+> > E.g. instead of per-config command line options, let the user specify a file,
+> > and/or a directory (using a well known filename pattern to detect configs).
+> 
+> Could also use an environment variable to specify a file which contains
+> a config in a test-specific format if parsing environment variables is
+> insufficient or awkward for configuring a test.
 
-Regards
-> +	if (IS_ERR(pdev)) {
-> +		pr_err("failed to register imx9_soc platform device: %ld\n", PTR_ERR(=
-pdev));
-> +		platform_driver_unregister(&imx9_soc_driver);
-> +		return PTR_ERR(pdev);
-> +	}
-> +
-> +	return 0;
-> +}
-> +device_initcall(imx9_soc_init);
-> +
-> +MODULE_AUTHOR("NXP");
-> +MODULE_DESCRIPTION("NXP i.MX9 SoC");
-> +MODULE_LICENSE("GPL");
-
+There's no reason to use a environment variable for this.  If we want to support
+"advanced" setup via a test configuration, then that can simply go in configuration
+file that's passed to the runner.
 
