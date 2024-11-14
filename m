@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 256E0D6A221
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 17:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A41D6D6A221
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 17:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yZrqoNR06/CL9cr4an/fqubFTdKIUH32d5EHZzbPv8I=; b=foqQRcyqPOhGzZJJq4EkgX5pX+
-	WxntlPV6tOq4a/dmEk1TTa5sDhGFS0bUagJ5yzy+hUqMzjOjad87qXPTrsI/ZgkDnaRSCWgnb08mY
-	IDNwXRd62f5GlRmdC076qot5jafKDqHSWHaF3c6Ye0waNtWO/N+RaAnDHbxoaBHExegpJyBif/6pj
-	Ogr11kckEheuNDXnLD23P/a4MRHEVdV0utxSJ+WhCsXjaZDmEFPSL/FkzaOkVVwm32Yb/PhvY65FC
-	Er2DgbtuAp/DQJ9B6io8A8lDaNnjEb6ZwegqsL87rZZ//zbZhexCk0I1zgXGDr3NaOQzgB+oy0oY4
-	YNXucC2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y7EG3D9HZ0ut26YbzQfgfSRMFagBwHi+KRKF3wP5P2E=; b=h/29fd8tmjgEMdROspePxuQqmZ
+	UhYubUZSYOqQKGC3f/S4Ldr0o/mqsD/mQrwWxSzk+VZCuYmtLGHAaU/cx3hOIVKtZi3x0QIMHJOV9
+	ktPP5d1jiKywSV7yDL58nru+u0nlkh2W25piA03tV7EqG8daXO1ctXPPjOvewwLPCssdTAcMx2YEz
+	SYjY+hLTsZ5HmUIZoSkeMF8z2g0WdRZ6daoMVkx6IucFLZ2HnV6WfVmMCFQcdMrnDTdN7aQffV9ce
+	SfATPa8jIxrs9Vyzn06ogxfYO7voVT/ZhVogmfzMeys1dy383ravl6GLEX373KyfGTOZ+ra3Jj4nH
+	wr8ofSJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBdUv-00000000IM8-3si7;
-	Thu, 14 Nov 2024 17:19:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBdTz-00000000IBL-1ZFY
+	id 1tBdXR-00000000Isg-2uI4;
+	Thu, 14 Nov 2024 17:21:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBdWT-00000000Igz-3Su2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 17:18:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7B0905C5F31;
-	Thu, 14 Nov 2024 17:17:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B69DC4CECD;
-	Thu, 14 Nov 2024 17:18:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731604694;
-	bh=LEScVdE1MmRWG9RlagdTE4dJgZgN9CYYoi/c43WPRXw=;
-	h=Date:From:To:Cc:Subject:From;
-	b=iu/9dD9T8apb8rpUwdvWz0nd1RHmoZ70W8mu51pn7loG9dSffXjV54idqmmpXU/Mw
-	 b3fzN2suCvLwEHauAKWP80nPgAlHWcY2Dd0lZZbZ/om5M8inY+pOG++/Ul7hcs7fuL
-	 L7guv/mr24X4Ke4RMEJ7+FDtxmzKBLJvxLazjedjeeXLdNuWiSFEDo90oxhkqqGeFr
-	 sPAFoOJe25aTnGvls8TM1JiMb5B/9MVEwiaOWimsmVEV5sx0uuasTlw2TGEfnYO+N7
-	 q69g/qxzRbpb1S2MRkCD5fnYYPJy8hpMU2ToMuZSTxXD8w8q0CcLHSV+QNT2PlpkLN
-	 hKKvxEq+SPiNQ==
-Date: Thu, 14 Nov 2024 17:18:09 +0000
-From: Will Deacon <will@kernel.org>
-To: joro@8bytes.org
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, robin.murphy@arm.com,
-	kernel-team@android.com
-Subject: [GIT PULL] iommu/arm-smmu: Updates for 6.13
-Message-ID: <20241114171808.GA24017@willie-the-truck>
+	Thu, 14 Nov 2024 17:20:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D99591474;
+	Thu, 14 Nov 2024 09:21:15 -0800 (PST)
+Received: from [10.57.66.233] (unknown [10.57.66.233])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EF4723F6A8;
+	Thu, 14 Nov 2024 09:20:43 -0800 (PST)
+Message-ID: <df8967cd-2157-46a2-97d9-a1aea883cf63@arm.com>
+Date: Thu, 14 Nov 2024 17:20:42 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] coresight: tmc: Don't change the buffer size if it's
+ in use
+Content-Language: en-GB
+To: James Clark <james.clark@linaro.org>, Yicong Yang
+ <yangyicong@huawei.com>, mike.leach@linaro.org, coresight@lists.linaro.org
+Cc: yangyicong@hisilicon.com, jonathan.cameron@huawei.com,
+ prime.zeng@hisilicon.com, hejunhao3@huawei.com, linuxarm@huawei.com,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <20241114081653.24328-1-yangyicong@huawei.com>
+ <9a637e74-d81d-405c-bad0-c97ec1aa4b77@linaro.org>
+ <0cfbd546-ee9a-da6e-904a-c1da4e59e286@huawei.com>
+ <658fec30-af5e-4a90-bf5a-426aedb55e50@linaro.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <658fec30-af5e-4a90-bf5a-426aedb55e50@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_091815_451679_133AB3A0 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20241114_092049_979345_2C232EA0 
+X-CRM114-Status: GOOD (  35.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,81 +70,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joerg,
+Hi,
 
-Please pull these Arm SMMU updates for 6.13.
+Thanks for the report, see my comments inline.
 
-The summary is in the tag, but the highlight is definitely the removal
-of the complicated block-splitting code from the Arm page-table
-implementations. It even means that we have a negative diffstat!
+On 14/11/2024 15:26, James Clark wrote:
+> 
+> 
+> On 14/11/2024 2:51 pm, Yicong Yang wrote:
+>> On 2024/11/14 18:30, James Clark wrote:
+>>>
+>>>
+>>> On 14/11/2024 8:16 am, Yicong Yang wrote:
+>>>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>>>
+>>>> Enable the trace in below steps will crash the kernel by NULL pointer
+>>>> dereferencing:
+>>>> echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
+>>>> echo 1 > /sys/bus/coresight/devices/etm0/enable_source
+>>>> echo 0x400000 > /sys/bus/coresight/devices/tmc_etr0/buffer_size
+>>>> echo 1 > /sys/bus/coresight/devices/etm2/enable_source
+>>>> dd if=/dev/tmc_etr0 of=test_etm_sysfs_etr_030.data
+>>>>
+>>>> The call trace will be like:
+>>>>    WARNING: CPU: 39 PID: 8586 at drivers/hwtracing/coresight/ 
+>>>> coresight-tmc-etr.c:1123 __tmc_etr_disable_hw+0x108/0x140 
+>>>> [coresight_tmc]
+>>>>    [...]
+>>>>    Call trace:
+>>>>     __tmc_etr_disable_hw+0x108/0x140 [coresight_tmc]
+>>>>     tmc_read_prepare_etr+0xc0/0xd0 [coresight_tmc]
+>>>>     tmc_open+0x60/0xa0 [coresight_tmc]
+>>>>     misc_open+0x11c/0x170
+>>>>     chrdev_open+0xcc/0x2b0
+>>>>     do_dentry_open+0x140/0x4e0
+>>>>     vfs_open+0x34/0xf8
+>>>>     path_openat+0x2b0/0xf58
+>>>>     do_filp_open+0x8c/0x148
+>>>>     do_sys_openat2+0xb8/0xe8
+>>>>     __arm64_sys_openat+0x70/0xc0
+>>>>     el0_svc_common.constprop.0+0x64/0x148
+>>>>     do_el0_svc+0x24/0x38
+>>>>     el0_svc+0x40/0x140
+>>>>     el0t_64_sync_handler+0xc0/0xc8
+>>>>     el0t_64_sync+0x1a4/0x1a8
+>>>>    ---[ end trace 0000000000000000 ]---
+>>>>    Unable to handle kernel NULL pointer dereference at virtual 
+>>>> address 0000000000000028
+>>>>    [...]
+>>>>    Call trace:
+>>>>     tmc_etr_get_sysfs_trace+0x10/0x80 [coresight_tmc]
+>>>>     vfs_read+0xcc/0x310
+>>>>     ksys_read+0x74/0x108
+>>>>     __arm64_sys_read+0x24/0x38
+>>>>     el0_svc_common.constprop.0+0x64/0x148
+>>>>     do_el0_svc+0x24/0x38
+>>>>     el0_svc+0x40/0x140
+>>>>
+>>>> Due to the buffer size changed, the buffer will be reallocated in
+>>>> tmc_etr_get_sysfs_buffer() when the second source enabled. At trace
+>>>> end tmc_etr_sync_sysfs_buf() will reset the drvdata->sysfs_buf and
+>>>> trigger the later NULL pointer dereference when reading out the
+>>>> data.
+>>>>
+>>>> But it doesn't make sense to change the buffer size when it's
+>>>> already in use. So block such behavior.
+>>>>
+>>>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>>>> ---
+>>>>    drivers/hwtracing/coresight/coresight-tmc-core.c | 5 +++++
+>>>>    1 file changed, 5 insertions(+)
+>>>>
+>>>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/ 
+>>>> drivers/hwtracing/coresight/coresight-tmc-core.c
+>>>> index 475fa4bb6813..9660af63e9bc 100644
+>>>> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
+>>>> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+>>>> @@ -319,6 +319,11 @@ static ssize_t buffer_size_store(struct device 
+>>>> *dev,
+>>>>        if (drvdata->config_type != TMC_CONFIG_TYPE_ETR)
+>>>>            return -EPERM;
+>>>>    +    /* Don't change the buffer size if it's in use */
+>>>> +    guard(spinlock)(&drvdata->spinlock);
+>>>> +    if (coresight_get_mode(drvdata->csdev) != CS_MODE_DISABLED)
 
-As with 6.12, I've already pushed this lot to the arm/smmu branch in
-the iommu tree. Please can you merge that into 'next'?
+Could we do something like this below ?
 
-Cheers,
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c 
+b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+index a48bb85d0e7f..863a645fa88a 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+@@ -1178,7 +1178,9 @@ static struct etr_buf 
+*tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+          */
+         spin_lock_irqsave(&drvdata->spinlock, flags);
+         sysfs_buf = READ_ONCE(drvdata->sysfs_buf);
+-       if (!sysfs_buf || (sysfs_buf->size != drvdata->size)) {
++       if (!sysfs_buf ||
++           ((sysfs_buf->size != drvdata->size) &&
++             coresight_get_mode(csdev) != CS_MODE_SYSFS))
+                 spin_unlock_irqrestore(&drvdata->spinlock, flags);
 
-Will
+                 /* Allocate memory with the locks released */
 
---->8
+i.e., do not allocate a new buffer if the sysfs mode is active. The new
+size can be set when the new session starts
 
-The following changes since commit 8e929cb546ee42c9a61d24fae60605e9e3192354:
 
-  Linux 6.12-rc3 (2024-10-13 14:33:32 -0700)
+>>>
+>>> Size isn't used in perf mode is it? So it can be -EBUSY only when 
+>>> mode == CS_MODE_SYSFS.
+>>>
+>>
+>> alloc_etr_buf() on the perf path will read drvdata->size, not sure it 
+>> matters if user
+>> change it through sysfs in the meanwhile. Will test and have a check 
+>> if there are any
+>> other places using size on the perf path.
 
-are available in the Git repository at:
+That was there to make sure the user can allocate a bigger buffer (of
+the AUX size vs sysfs configured size) and possibly collect more trace
+(i.e., in multiple aux buffers). But looks like that is not useful,
+given we can only ever collect to one AUX (the last one turning ETR off).
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git tags/arm-smmu-updates
+So we could remove that check.
 
-for you to fetch changes up to a3799717b881aa0f4e722afb70e7b8ba84ae4f36:
+Suzuki
 
-  iommu/tegra241-cmdqv: Fix alignment failure at max_n_shift (2024-11-12 15:09:42 +0000)
 
-----------------------------------------------------------------
-Arm SMMU updates for 6.13
+>>
+> 
+> Hmmm I assumed that Perf mode completely ignored anything from sysfs 
+> mode. I see that alloc_etr_buf() does sometimes use the sysfs value. I 
+> don't really see why that's necessary because that means it sometimes 
+> ignores the buffer size from the perf command line depending on what's 
+> in sysfs, but the modes should be mutually exclusive.
+> 
+> Unless we fix that then I think you do need to use the device spinlock. 
+> But I think we should tidy up alloc_etr_buf() to only try to allocate 
+> from the Perf size down to TMC_ETR_PERF_MIN_BUF_SIZE, ignoring drvdata- 
+>  >size. Then the behavior is less surprising to users and also anyone 
+> reading the code. And rename it to alloc_etr_buf_perf().
+> 
+> Unless Suzuki knows of a reason it was done that way to begin with? I 
+> checked the commit message but it just says that it was like that but 
+> not why.
+> 
+>>>> +        return -EBUSY;
+>>>> +
+>>>>        ret = kstrtoul(buf, 0, &val);
+>>>>        if (ret)
+>>>>            return ret;
+>>>
+>>> Looks ok to me. Although for consistency it might be worth changing 
+>>> to guard(mutex)(&coresight_mutex) because this is about sysfs mode 
+>>> only and other usages of mode and comments point to coresight_mutex. 
+>>> Using the device's spinlock will technically work but it did make me 
+>>> go and double check the code. And there are other cases of reading 
+>>> the mode like this:
+>>>
+>>
+>> ok, I thought to also serialize the use of drvdata->size. But as you 
+>> mentioned
+>> use coresight_mutex is enough and will be consistenct with other places.
+>>
+>>> static ssize_t enable_source_show(struct device *dev,
+>>>                    struct device_attribute *attr,
+>>>                    char *buf)
+>>> {
+>>>      struct coresight_device *csdev = to_coresight_device(dev);
+>>>
+>>>      guard(mutex)(&coresight_mutex);
+>>>      return scnprintf(buf, PAGE_SIZE, "%u\n",
+>>>               coresight_get_mode(csdev) == CS_MODE_SYSFS);
+>>> }
+>>>
+>>> Mode can change to CS_MODE_PERF while inside coresight_mutex but the 
+>>> device would end up not being enabled for sysfs, so it's still ok to 
+>>> update the sysfs size value in that case.
+>>>
+>>> With that change:
+>>>
+>>> Reviewed-by: James Clark <james.clark@linaro.org>
+>>
+>> Thanks.
+>>
+> 
 
-- SMMUv2:
-  * Return -EPROBE_DEFER for client devices probing before their SMMU.
-  * Devicetree binding updates for Qualcomm MMU-500 implementations.
-
-- SMMUv3:
-  * Minor fixes and cleanup for NVIDIA's virtual command queue driver.
-
-- IO-PGTable:
-  * Fix indexing of concatenated PGDs and extend selftest coverage.
-  * Remove unused block-splitting support.
-
-----------------------------------------------------------------
-Dmitry Baryshkov (1):
-      dt-bindings: iommu: arm,smmu: Add Qualcomm SAR2130P compatible
-
-Jason Gunthorpe (3):
-      iommu/io-pgtable-arm: Remove split on unmap behavior
-      iommu/io-pgtable-arm-v7s: Remove split on unmap behavior
-      iommu: Add a kdoc to iommu_unmap()
-
-Mostafa Saleh (2):
-      iommu/io-pgtable-arm: Fix stage-2 map/unmap for concatenated tables
-      iommu/io-pgtable-arm: Add self test for the last page in the IAS
-
-Nicolin Chen (2):
-      iommu/tegra241-cmdqv: Staticize cmdqv_debugfs_dir
-      iommu/tegra241-cmdqv: Fix alignment failure at max_n_shift
-
-Pratyush Brahma (1):
-      iommu/arm-smmu: Defer probe of clients after smmu device bound
-
-Qingqing Zhou (1):
-      dt-bindings: arm-smmu: document QCS615 APPS SMMU
-
-Will Deacon (2):
-      iommu/tegra241-cmdqv: Fix unused variable warning
-      Merge branch 'for-joerg/arm-smmu/bindings' into arm/smmu
-
- .../devicetree/bindings/iommu/arm,smmu.yaml        |   5 +
- drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c     |   7 +-
- drivers/iommu/arm/arm-smmu/arm-smmu.c              |  11 ++
- drivers/iommu/io-pgtable-arm-v7s.c                 | 149 +--------------------
- drivers/iommu/io-pgtable-arm.c                     | 114 +++++-----------
- drivers/iommu/iommu.c                              |  14 ++
- 6 files changed, 74 insertions(+), 226 deletions(-)
 
