@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE65D65C58
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 08:19:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D24D65C57
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 08:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h2XV304Wzeeoc1hoXD3uWyEampjoyLLsZatB/CccIn0=; b=nQCQ9MH21uJ2rT79j4f23AtWNe
-	B2WxyVzW0EvjAyNd78UbIgE5G36Nqdpri7Sz/h616XGDlwcIpqB5XCkTJqiiKvrEPnnb3eC173grx
-	5YfmLpVbSv2SiiFYxI6TRmL2xqKVI/Agk2iRb1VQ7zTkL3YKgLDjRQw3YS28U4iAfVqhmNWmLvdIY
-	ai0FMasFvEYZ6mzFJG2HG41KQoQxu+11N6yRqaDvwemmWyYeLdsYcCyJWqAASc1kyG08lbVDf2PpV
-	7tLCBlBU8xmqjMBrGoy1GOxVmKqtHSChJb9JvFdNE5ElQD0E4iNGRABLtR5OqHuCOR8+eT3+ZNjUC
-	Y2BIVlLQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YBTxkIkcJIVF2jwH04sauDhEhHoYYiAVyr/BsRZxqOM=; b=s8WEjK1eIluKJBF4kJQh+y6bqj
+	Y0AfMJ44orcmUx98ESWMAfSGS+/uxnagBKzr/GBRc4J524XNN39yDk49ISNIG49emwfmk3kFU+LTb
+	uo7O04G472YOBTHEAAgt5t1a5cY6MH+5c32DGqqxpTj1kMYLu0wVp4S8of3UlmqNysLcirPY1zBl3
+	y9VoX0IEbROxrllEEh0b7sTH+MSj410jIksxKt15Me4w/+wq79piSyZWFVD5JWjPUN0JhCcg6vUco
+	u04CyRpurMJK/n1UY/7qYKTMhEymrgQONLx253E+PQJsffbgEseeFCJiqg3fRp4n6tcUk3MVk5i3C
+	2uFG1hTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBV4Z-00000009Bpv-3C8B;
-	Thu, 14 Nov 2024 08:19:27 +0000
+	id 1tBV6N-00000009C5J-3WD8;
+	Thu, 14 Nov 2024 08:21:19 +0000
 Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBV2h-00000009BU8-1dlp
+	id 1tBV2j-00000009BU8-0C4O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 08:17:32 +0000
+	Thu, 14 Nov 2024 08:17:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731572251; x=1763108251;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=LzcUFYSQKL3vPxB47TGpPrctgQCVXb4LxxKzcyPBE3c=;
-  b=J/p1ksXFoO/piHXs3NxacSBlpAORuD3kIKTS2Krz9PumtCiqOKqzbrDd
-   C+jQDYrEiJDNGiZfdxshZig9HPv2S0rdyKKNArxZzVoNXQkSdZMicWQUy
-   Gu5pSenoHuXENufc+OJnwZFblG+iyFARUOuYH08YpU3Q8nERZtsRRW3WJ
-   qWLTEXxaUDjxYyg5gksCLaddDC78p3//TWO7ufN5yeKQwDj+U9ZNYOgmM
-   WSzA/k8100m/1dSNlZzST0bGpCG9MYoCbSLH1NJJER85A6P17pmSZFY/u
-   sBma67ccxxXBXthaMmznRpwOtlIGRoiukYppzx8dlpkTCrpTPbM6grJq/
-   Q==;
-X-CSE-ConnectionGUID: fLx44hQFTQizdkf9Ng5OAA==
-X-CSE-MsgGUID: Zh9Eso30QLmwbnEW6SCNZg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11255"; a="42921242"
+  t=1731572253; x=1763108253;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=ocQgpKPOx0XcLpqISFGSjESyE6sRma++231CI0veC/0=;
+  b=hfgN+nDl07zccguuw8LjFfd7wxMBH1VexQBS393Vd64slqX9DuVqT+Tk
+   WBIjBdnkzhgyf4xaESgGL6rl3c3OsQAg66k3inyZ2uRbp4FrE2+wJcVRN
+   EKvIuH9PMu06YmLezl9Uq6UhWF6OX28Cdxk+sIVhXk1jDyyU89yW9u9Ho
+   5fbdP1hXpNB/Hso9lMe9pdRaV9efZZYPAWCPzv2XLpil2RLPGlPacgYFy
+   TclG/NjXTZ+eoofnR73sf4f51Y0f31XMrX4ECt1TPabj1A7ECo8ke86Pk
+   IJxWD+Zf8/6IVR/MUC4C3AikJXqjmiq3plkUXMofxFdEq178lzluwX8x4
+   w==;
+X-CSE-ConnectionGUID: aYgW5X5OQSG+EN0P/GxVVg==
+X-CSE-MsgGUID: dCj3F2VhQKegA24+Cktwiw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11255"; a="42921264"
 X-IronPort-AV: E=Sophos;i="6.12,153,1728975600"; 
-   d="scan'208";a="42921242"
+   d="scan'208";a="42921264"
 Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Nov 2024 00:17:28 -0800
-X-CSE-ConnectionGUID: Lvz13PUNTQi3AKSD7udmqQ==
-X-CSE-MsgGUID: d9mnhq+6T1mq86CnPiONVQ==
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Nov 2024 00:17:33 -0800
+X-CSE-ConnectionGUID: jJowESe6TKC+BYh6mIOHXA==
+X-CSE-MsgGUID: gp9mz9c4SoifszaSS/wpSA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,153,1728975600"; 
-   d="scan'208";a="88553858"
+   d="scan'208";a="88553860"
 Received: from unknown (HELO YongLiang-Ubuntu20-iLBPG12.png.intel.com) ([10.88.229.33])
-  by fmviesa010.fm.intel.com with ESMTP; 14 Nov 2024 00:17:24 -0800
+  by fmviesa010.fm.intel.com with ESMTP; 14 Nov 2024 00:17:29 -0800
 From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Heiner Kallweit <hkallweit1@gmail.com>,
@@ -70,15 +70,17 @@ Cc: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net v1 0/2] Fix 'ethtool --show-eee' during initial stage
-Date: Thu, 14 Nov 2024 16:16:51 +0800
-Message-Id: <20241114081653.3939346-1-yong.liang.choong@linux.intel.com>
+Subject: [PATCH net v1 1/2] net: phy: set eee_cfg based on PHY configuration
+Date: Thu, 14 Nov 2024 16:16:52 +0800
+Message-Id: <20241114081653.3939346-2-yong.liang.choong@linux.intel.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241114081653.3939346-1-yong.liang.choong@linux.intel.com>
+References: <20241114081653.3939346-1-yong.liang.choong@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_001731_510515_E9645EA4 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20241114_001733_163784_AA6422E1 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,31 +95,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The commit 49168d1980e2 
-("net: phy: Add phy_support_eee() indicating MAC support EEE") introduced
-phy_support_eee() to set eee_cfg.tx_lpi_enabled and eee_cfg.eee_enabled to
-true as the default value. However, not all PHYs have EEE enabled by default.
-For example, Marvell PHYs are designed to have EEE hardware disabled during
-the initial state, and it needs to be configured to turn it on again.
+Not all PHYs have EEE enabled by default. For example, Marvell PHYs are
+designed to have EEE hardware disabled during the initial state, and it
+needs to be configured to turn it on again.
 
-When the MAC boots up with a Marvell PHY and phy_support_eee() is implemented,
-the 'ethtool --show-eee' command shows that EEE is enabled, but in actuality,
-the driver side is disabled. If we try to enable EEE through
-'ethtool --set-eee' for a Marvell PHY, nothing happens because the eee_cfg
-matches the setting required to enable EEE in ethnl_set_eee().
+This patch reads the PHY configuration and sets it as the initial value for
+eee_cfg.tx_lpi_enabled and eee_cfg.eee_enabled instead of having them set to
+true by default.
 
-This patch series will read the PHY configuration and set it as the initial
-value for eee_cfg.tx_lpi_enabled and eee_cfg.eee_enabled, allowing
-'ethtool --show-eee' to display the correct value during the initial stage.
+Fixes: 49168d1980e2 ("net: phy: Add phy_support_eee() indicating MAC support EEE")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+---
+ drivers/net/phy/phy_device.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-Choong Yong Liang (2):
-  net: phy: set eee_cfg based on PHY configuration
-  net: stmmac: set initial EEE policy configuration
-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
- drivers/net/phy/phy_device.c                      | 7 +++++--
- 2 files changed, 6 insertions(+), 3 deletions(-)
-
+diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+index 499797646580..b4fa40c2371a 100644
+--- a/drivers/net/phy/phy_device.c
++++ b/drivers/net/phy/phy_device.c
+@@ -3010,9 +3010,12 @@ EXPORT_SYMBOL_GPL(phy_advertise_eee_all);
+  */
+ void phy_support_eee(struct phy_device *phydev)
+ {
++	bool is_enabled = true;
++
++	genphy_c45_eee_is_active(phydev, NULL, NULL, &is_enabled);
+ 	linkmode_copy(phydev->advertising_eee, phydev->supported_eee);
+-	phydev->eee_cfg.tx_lpi_enabled = true;
+-	phydev->eee_cfg.eee_enabled = true;
++	phydev->eee_cfg.tx_lpi_enabled = is_enabled;
++	phydev->eee_cfg.eee_enabled = is_enabled;
+ }
+ EXPORT_SYMBOL(phy_support_eee);
+ 
 -- 
 2.34.1
 
