@@ -4,89 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6867DD68B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 16:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E51D68B36
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 16:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2d8lH+LvVClXz36Mw/guiwdLgrwKANSS/DsNzWrGd9Q=; b=lT6YZ0Ht6CzP6vz1PTvQQ2keLp
-	68+6vo+EqDXxsFz03oeFyOr9m31MOcE8r51cml2lCc4ebJX2TCv6NeXNLguhfmDdLp/j1UWdFohXk
-	bdUHXeLV3kqq6d0NBdxw+9lkK387js5HO/1m9JNl+Np4muqSaL6ODN/rcLLyouf9HWQO1HohYfa5i
-	yHel7e5nT4vu5BUxLi6VDszw6lkjTUNpG8GZIVfcLMB0JFcHjsnRBsAgXpDXpMLmdSZwvSY8SvKi2
-	hFGNr0XNepLWjpsXrTMGA/G/LHpfXkVygr86GLVIqgf7ZO8LlJp0KRFuUzU9HpG8DNVEmXs5JqUMp
-	YS9NKG7A==;
+	bh=KVl4h5R6rnhw6YUf9IrDWsXYnzegGCj/KhuQEleNVkg=; b=WsPtU0Ekw+mYjRnSxymR+IF+b7
+	5Qg3Ah5iI7nqySxuMjEjy8qEoE8MeXFGad12OqYoaRE9IsDd52rJ5QsuUUk2dLX0O+cBVV2IPCbsd
+	fXPggXHPfiilzQQoJ6hmM+yax5EtP/28/E4tMrnakrhuBfnYSDVdqi2AwTPoBbJg84Bpung7N5lOi
+	lnWTBHhmeNThZcceNxq957CyzOmDDVj+Ezi0HkTLnCx0zkD4BWm/vGHmhtDAgLFB/RvIpggn4nroS
+	hpS7JUlRMKcR2XVobpUu9IRHfTpYv0HH1V8lC/U02IEZqI+gp5oVMmTzrgTz83lIi31SbBH/rF5vy
+	83ODGF+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBcVO-000000004Ia-0VYn;
-	Thu, 14 Nov 2024 16:15:38 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tBcmY-0000000092o-3rt6;
+	Thu, 14 Nov 2024 16:33:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBcQC-000000002er-2IKn
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 16:10:17 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AEAPvdJ031268;
-	Thu, 14 Nov 2024 16:10:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2d8lH+LvVClXz36Mw/guiwdLgrwKANSS/DsNzWrGd9Q=; b=KPTaZ21qXAW0gQc+
-	Xd/9monuKIiczx6ORPV69hBYzKaJEFY7lb6RFG+2PuDKFeTW2/WGmvdokDCXTMIJ
-	gVFjqAPx6D0jOHdIVoMoTnScBfZRZjMipMWA7hUDAY1QqfUd+gpuebhA4X6onyaU
-	IOiVZogv3i++uMWL+C6tnMvTzKFKCF5kHJSghgBchbTF8FFhp0zorE+GYFdboKmK
-	RbdIXBpCs87iCeT/Pg5juac6dU7PEeNqkiLYqRm4Ke4WJq6J6+bzGZj3P6jpLcXt
-	lgdTfNSt0ueR+5meFsLDktKs3WVYFHMsfLI7oNMJGeXFyd1cQCY3bV4ZVMbky5Ea
-	7IvuIw==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42w66gucpv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 14 Nov 2024 16:10:08 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AEGA7JI019116
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 14 Nov 2024 16:10:07 GMT
-Received: from hu-bibekkum-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 14 Nov 2024 08:10:02 -0800
-From: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-To: <robdclark@gmail.com>, <will@kernel.org>, <robin.murphy@arm.com>,
-        <joro@8bytes.org>, <jgg@ziepe.ca>, <jsnitsel@redhat.com>,
-        <robh@kernel.org>, <krzysztof.kozlowski@linaro.org>,
-        <quic_c_gdjako@quicinc.com>, <dmitry.baryshkov@linaro.org>
-CC: <iommu@lists.linux.dev>, <linux-arm-msm@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <quic_bibekkum@quicinc.com>
-Subject: [PATCH RESEND v17 5/5] iommu/arm-smmu: add ACTLR data and support for qcom_smmu_500
-Date: Thu, 14 Nov 2024 21:37:21 +0530
-Message-ID: <20241114160721.1527934-6-quic_bibekkum@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241114160721.1527934-1-quic_bibekkum@quicinc.com>
-References: <20241114160721.1527934-1-quic_bibekkum@quicinc.com>
+	id 1tBcle-000000008rm-14S9
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 14 Nov 2024 16:32:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=KVl4h5R6rnhw6YUf9IrDWsXYnzegGCj/KhuQEleNVkg=; b=n2xkHdT1HWMG3UPYX8L66GnioC
+	9sZRphIee2ajkU+LPtbpX5CE9MIOoSsqtUh1uDWgEAwLlU+a0yJG/qf55YVfVYuz3ac1thP+B/8ww
+	e8wtORX2Dyew/ckDq8nvfhXoayao12i1iinsE+R7gTy9ynsQwbCY+JmzkgWPG5BqQv7QqmD1Sx8Zb
+	4nNqABqm9+73dAdbJVBmWYYNcKgnTg/BSSGuH477e5jkruwIIDfrGH/hLcbTCON2wvBYz0Pb0LKWK
+	u1qA/SGgiq9rIOy8VIRRfSJ5KSQrGyps7gipayt101UsD7HxuN1Z0JkbjsP5ui2/VdmQyWrv2iBeQ
+	Bd/6zqBg==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBbM1-0000000033t-3CHr;
+	Thu, 14 Nov 2024 15:01:54 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 1FB58300446; Thu, 14 Nov 2024 16:01:53 +0100 (CET)
+Date: Thu, 14 Nov 2024 16:01:52 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Deepak Surti <deepak.surti@arm.com>
+Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+	mark.barnett@arm.com, ben.gainey@arm.com, ak@linux.intel.com,
+	will@kernel.org, james.clark@arm.com, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 1/4] perf: Allow periodic events to alternate between
+ two sample periods
+Message-ID: <20241114150152.GC39245@noisy.programming.kicks-ass.net>
+References: <20241107160721.1401614-1-deepak.surti@arm.com>
+ <20241107160721.1401614-2-deepak.surti@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: q47SVlZGnUZsOv5plWKerGt4nUpGic5e
-X-Proofpoint-ORIG-GUID: q47SVlZGnUZsOv5plWKerGt4nUpGic5e
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=999
- mlxscore=0 malwarescore=0 suspectscore=0 impostorscore=0
- priorityscore=1501 bulkscore=0 clxscore=1015 lowpriorityscore=0
- adultscore=0 spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411140126
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_081016_709128_A44CA547 
-X-CRM114-Status: GOOD (  13.66  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241107160721.1401614-2-deepak.surti@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,69 +76,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ACTLR data table for qcom_smmu_500 including
-corresponding data entry and set prefetch value by
-way of a list of compatible strings.
+On Thu, Nov 07, 2024 at 04:07:18PM +0000, Deepak Surti wrote:
+> From: Ben Gainey <ben.gainey@arm.com>
+> 
+> This change modifies perf_event_attr to add a second, alternative
+> sample period field, and modifies the core perf overflow handling
+> such that when specified an event will alternate between two sample
+> periods.
+> 
+> Currently, perf does not provide a  mechanism for decoupling the period
+> over which counters are counted from the period between samples. This is
+> problematic for building a tool to measure per-function metrics derived
+> from a sampled counter group. Ideally such a tool wants a very small
+> sample window in order to correctly attribute the metrics to a given
+> function, but prefers a larger sample period that provides representative
+> coverage without excessive probe effect, triggering throttling, or
+> generating excessive amounts of data.
+> 
+> By alternating between a long and short sample_period and subsequently
+> discarding the long samples, tools may decouple the period between
+> samples that the tool cares about from the window of time over which
+> interesting counts are collected.
 
-Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
----
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 33 ++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+Do you have a link to a paper or something that explains this method?
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index b595fee23836..5106103574ab 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -16,8 +16,40 @@
 
- #define QCOM_DUMMY_VAL	-1
+> +	/*
+> +	 * Indicates that the alternative_sample_period is used
+> +	 */
+> +	bool				using_alternative_sample_period;
 
-+/*
-+ * SMMU-500 TRM defines BIT(0) as CMTLB (Enable context caching in the
-+ * macro TLB) and BIT(1) as CPRE (Enable context caching in the prefetch
-+ * buffer). The remaining bits are implementation defined and vary across
-+ * SoCs.
-+ */
-+
-+#define CPRE			(1 << 1)
-+#define CMTLB			(1 << 0)
-+#define PREFETCH_SHIFT		8
-+#define PREFETCH_DEFAULT	0
-+#define PREFETCH_SHALLOW	(1 << PREFETCH_SHIFT)
-+#define PREFETCH_MODERATE	(2 << PREFETCH_SHIFT)
-+#define PREFETCH_DEEP		(3 << PREFETCH_SHIFT)
- #define GFX_ACTLR_PRR          (1 << 5)
+I typically prefer variables names that are shorter.
 
-+static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
-+	{ .compatible = "qcom,adreno",
-+			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,adreno-gmu",
-+			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,adreno-smmu",
-+			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,fastrpc",
-+			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sc7280-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sc7280-venus",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm8550-mdss",
-+			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
-+	{ }
-+};
-+
- static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
- {
- 	return container_of(smmu, struct qcom_smmu, smmu);
-@@ -620,6 +652,7 @@ static const struct qcom_smmu_match_data qcom_smmu_500_impl0_data = {
- 	.impl = &qcom_smmu_500_impl,
- 	.adreno_impl = &qcom_adreno_smmu_500_impl,
- 	.cfg = &qcom_smmu_impl0_cfg,
-+	.client_match = qcom_smmu_actlr_client_of_match,
- };
 
- /*
---
-2.34.1
+> @@ -9822,6 +9825,26 @@ static int __perf_event_overflow(struct perf_event *event,
+>  	    !bpf_overflow_handler(event, data, regs))
+>  		return ret;
+>  
+> +	/*
+> +	 * Swap the sample period to the alternative period
+> +	 */
+> +	if (event->attr.alternative_sample_period) {
+> +		bool using_alt = hwc->using_alternative_sample_period;
+> +		u64 sample_period = (using_alt ? event->attr.sample_period
+> +					       : event->attr.alternative_sample_period);
+> +
+> +		hwc->sample_period = sample_period;
+> +		hwc->using_alternative_sample_period = !using_alt;
+> +
+> +		if (local64_read(&hwc->period_left) > 0) {
+> +			event->pmu->stop(event, PERF_EF_UPDATE);
+> +
+> +			local64_set(&hwc->period_left, 0);
+> +
+> +			event->pmu->start(event, PERF_EF_RELOAD);
+> +		}
+
+This is quite terrible :-(
+
+Getting here means we just went through the effort of programming the
+period and you'll pretty much always hit that 'period_left > 0' case.
+
+Why do we need this case at all? If you don't do this, then the next
+overflow will pick the period you just wrote to hwc->sample_period
+(although you might want to audit all arch implementations).
+
+Looking at it again, that truncation to 0 is just plain wrong -- always.
+Why are you doing this?
+
+
 
 
