@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD6CD68B32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 15:35:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B434DD68B32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 15:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G4EZ3jl6nOJdqJAgt3wJNi7n9xQj+CzVY+eMw04jHG4=; b=0exzZcU31Ktxwv714BtHVLvAc6
-	5a1jY2mKdANV4IUOkw+BlGSsMm8VpQmVsiWDJMxDhMaMtCduq68o+evMMBsbMTtC2iBse+kPaRc8H
-	0TcnGKF8b6IiA23+NWcy8I9V04InlWlfVwlAIaWF8kT+nRh4Q2fxSnTy/ScmZaEZ0S/wB9y/XtygO
-	hwtS/4/WLnx7QvDKn8p6Hg17a1Uvc8iZXRKRmqnqfsKfIAbNAakZCnUvIt2Wf8fHLJ2k5TnN/84cN
-	fQ8nCm1b8rxUtAX/VlPDbQGic4HrRK/jeUbLrrIwyWlUVaEw39eFqkLzE87d6MBA2xiP/ugSJrDKI
-	H7yPBZFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TZlXediQFwa1jXgmv8xX/GX4+kCRPu8W9XhXLyJ2m8Y=; b=vaHSev7kRH7gxUYplqSFZj6nRl
+	DhcsfIX6xhFfa/h0ec0UM/bPy56ItKolwHEV0BugMbYoMlkUC1ldZwnd7Kq4uz+ERYgvF3kO3PTF4
+	WTcghlI9BNw/dxgEapMAZsAK5vXIEDcfPnWAFBIRGeY05HQHfcWFn7Lq3i8IKuGraPgWYLT9GfuH/
+	RLUvEZGDgoy0ObR+YO/K0Dn1hTohsmLb+iCi9XuuTRdaxKcuvHCer9TEySO83dleLIiz/vHyFPgQA
+	lInS3Y/bGY/WZtR2a6WbUI3PR+BenrbXG6loBLePUgzix6YWUmem4GDcLvxdtpdRYYgFtzZZI0YSa
+	7noVb51g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBbru-0000000018p-48KP;
-	Thu, 14 Nov 2024 15:34:50 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tBbss-000000002Sa-08I1;
+	Thu, 14 Nov 2024 15:35:50 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBbqg-000000000YV-31Xn;
-	Thu, 14 Nov 2024 15:33:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=G4EZ3jl6nOJdqJAgt3wJNi7n9xQj+CzVY+eMw04jHG4=; b=rUwt46Zez10UJ8W0ckfKsbtoTq
-	x2S5LRlUHPXEcceM7uJZuiR9eRSfX8dvUz1C+V4g4K73c3YOI53zwAyzVsKK4A/XvXkdZcI4dV5Pv
-	6pu12wjuWJHLBtM4IX87wOayueKLhV6oAEhIqQyK0aldO5epFecK07i1o33aSeO/iXPM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tBbqO-00DJTv-Ey; Thu, 14 Nov 2024 16:33:16 +0100
-Date: Thu, 14 Nov 2024 16:33:16 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: wojackbb@gmail.com
-Cc: netdev@vger.kernel.org, chandrashekar.devegowda@intel.com,
-	chiranjeevi.rapolu@linux.intel.com, haijun.liu@mediatek.com,
-	m.chetan.kumar@linux.intel.com, ricardo.martinez@linux.intel.com,
-	loic.poulain@linaro.org, ryazanov.s.a@gmail.com,
-	johannes@sipsolutions.net, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	angelogioacchino.delregno@collabora.com,
-	linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com
-Subject: Re: [net-next,v2] [PATCH net-next v2] net: wwan: t7xx: Change
- PM_AUTOSUSPEND_MS to 5000
-Message-ID: <546f1456-87f2-4e54-a486-86cac1504a3d@lunn.ch>
-References: <20241114102002.481081-1-wojackbb@gmail.com>
+	id 1tBbrg-0000000010t-1nS9
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Nov 2024 15:34:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1731598473;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=TZlXediQFwa1jXgmv8xX/GX4+kCRPu8W9XhXLyJ2m8Y=;
+	b=WRJBhlsEIvXfO5Wt1eFhTOUyUV8U7oHBWRkbkERz7UCWC61CBHvudOMiMKrYS9bzYkTmJY
+	9fT41aKkdpbtUggj+i85Ki554cvBwQrmERgyMvX4qQgmTbqF3M6hiuG12oFxXED0XVWRC4
+	9xy6GrJJZ6iqrbTDM4lR2FLDKtzj6Q0=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-237-sjSLgoxAOACESXkakonGCA-1; Thu,
+ 14 Nov 2024 10:33:04 -0500
+X-MC-Unique: sjSLgoxAOACESXkakonGCA-1
+X-Mimecast-MFC-AGG-ID: sjSLgoxAOACESXkakonGCA
+Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 86F011956088;
+	Thu, 14 Nov 2024 15:33:03 +0000 (UTC)
+Received: from [172.64.11.46] (unknown [10.30.34.132])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C4D6B1955F3D;
+	Thu, 14 Nov 2024 15:33:02 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.12.0-rc7,
+ upstream-arm-next, 88740716)
+Date: Thu, 14 Nov 2024 15:33:02 -0000
+To: catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241114102002.481081-1-wojackbb@gmail.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
+Message-Id: <54866.124111410330402401@us-mta-237.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: yz3zsC0aTzqscRd2LbBKCvO541Bss6aIL_BuqvZzDk4_1731598383
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_073334_924879_366344F6 
-X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-CacheID: sfid-20241114_073436_548705_B9E5D07D 
+X-CRM114-Status: UNSURE (   6.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,30 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 14, 2024 at 06:20:02PM +0800, wojackbb@gmail.com wrote:
-> From: Jack Wu <wojackbb@gmail.com>
-> 
-> Because optimizing the power consumption of t7XX,
-> change auto suspend time to 5000.
-> 
-> The Tests uses a script to loop through the power_state
-> of t7XX.
-> (for example: /sys/bus/pci/devices/0000\:72\:00.0/power_state)
-> 
-> * If Auto suspend is 20 seconds,
->   test script show power_state have 0~5% of the time was in D3 state
->   when host don't have data packet transmission.
-> 
-> * Changed auto suspend time to 5 seconds,
->   test script show power_state have 50%~80% of the time was in D3 state
->   when host don't have data packet transmission.
-> 
-> We tested Fibocom FM350 and our products using the t7xx and they all
-> benefited from this.
-> 
-> Signed-off-by: Jack Wu <wojackbb@gmail.com>
+Hi, we tested your kernel and here are the results:
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-    Andrew
+Tested-by: CKI Project <cki-project@redhat.com>
+
+Kernel information:
+    Commit message: Merge remote-tracking branch 'iommu/arm/smmu' into for-=
+kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1542828459
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
