@@ -4,86 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00422D637A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 00:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1DDD637A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 00:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nPUlb3VBMTlmosq70yahB7ivXqgjw6fLoL5yh5SfhFE=; b=jDTdED0uxDxoVTFF0F9ZbxD9Nd
-	mqRvbJzP5wuqRJlzNw9rnIihX0b6h2qDXzqD20wIUqMCOhN9wIDFcD1G1UOUSO0fofXcFcLPhkan6
-	zWOqahvozNShU+xqWisxTk0lzkzsiUHYyuFsLKoi74S8NR71MMEOu1sfPaeF9JrHz1uvIrMTyk2Fg
-	ULuYhZaXBnCSFuyvH1yeLoEmvR4cUPte/AE1FDKb4mMqSZ015uY/SfNJWOzY29R+NAVnqHE2C/WkM
-	A0gGPLWjQUpDrMRD4EYxzCUwIY9ocpjnoe6bc2eixw3KHbn8UJ8C1FODdD+255+1i1PodAI1gBnKA
-	Q9Jq1ooA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=irqL6pr5FGKQNln0RCNGxRMdsDOI546965/EfKxMtaA=; b=4cMAJDRKgGDsTwhw/KxWYtMteg
+	wPzloGcED8FPDnbt2P8+qm+OHg8KPCnCC6tHzeQyKS1TxphX+Of8y2sJMGiTWyxEMGFwQrCFIJEiO
+	UmH/UVochkdXh8izZvARF/auieICq5U22MaKg4fhJJIUEATKSTEfzxgRoki37DqNnSIr3oblE+qC4
+	3W4JpsL6KmC0M9mwgOi+7oOewhNgKD8C9Acgzvk7+leE78E2hWomCm3WY3zZXQ3Ycysztg6WTLr9/
+	z0XNFcBjWFsDwvdKgvU3ZNoKQTuasP/GwGN5l2pXhBE8bRKmA7dvD34FDzlFNPLnwWPnyuPZ1QQt3
+	WM/G0c7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBNHm-00000008IlQ-3i8I;
-	Thu, 14 Nov 2024 00:00:35 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1tBNOp-00000008JfB-37YA;
+	Thu, 14 Nov 2024 00:07:52 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBNFv-00000008IQ6-3Dus
+	id 1tBNN0-00000008JQc-2aoA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 23:58:42 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-20c8b557f91so79420155ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 15:58:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731542318; x=1732147118; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=nPUlb3VBMTlmosq70yahB7ivXqgjw6fLoL5yh5SfhFE=;
-        b=hFRctcm0kpOuHAs+5SSlKQLJ6INgNz5tp8BpOoz3rx/Os85FSREpCkKX+YYBY5po8C
-         fX84NJ9mT/xjzlTwG0t6ZkPbscGAx6uzidkMxP/w4Iqna3khe/pqU1FGe1j3hykFIAz1
-         e3Mwz3dulP5KO4yTlxgkxzH0Ct84XUDlv4JvuJaqH0oW62oWVFAuBH11PRUxIL7gjWF4
-         EWnGNmpO8vUmuxKsB43SnyQkayJx6v4R8ShwgWA36caZbD/JC+BRbSsbmX8zuwww6mr2
-         +fIYiERvvBg28SmV6VBPVUGvMEAG4g06rJ0bEJTOVcBBp22haCp7BD6HbScI0+ZHao3M
-         5pPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731542318; x=1732147118;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nPUlb3VBMTlmosq70yahB7ivXqgjw6fLoL5yh5SfhFE=;
-        b=LZtdi4oXzGGh6FVF/RCoxWg8CUZukdv1kPAsRadQ+esDjWUytJUKKjjsrvuIAfyQwM
-         JbUE5qz/XcaaV9bRKeAQptz/IZ4Maj9uhaqvDdWgTa+/2XSXpuOOWtx7EOxNqI+vC2+W
-         DyRLJgabvYDG5Vgn2PmphoiKOb0HeM6iTRZEVltomtTN3yORzmwalM5nDQPh4LVM0bkk
-         yrtk6DXTPMvsmW+MYDVGWNUbBwzHqFxH/+v4weqMDZ0mx6AY4oga8Mx4cYRS1krFt2Qo
-         l585Bvms5flGp5VNkTxJ0EvZNc4yT3H2LVIgcFNkmmnCem0Z6pE3Cw9iQzS4CcGkk0Sj
-         5SGw==
-X-Forwarded-Encrypted: i=1; AJvYcCUtr61rK7ADE07QeaWFPEgSmNU8m0GVIKoJzPgYNF3GrEIWf859lLF+I+CAZi6gGS+V/mYTijE2FCnDNNZOMvK9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaWIvKs7nubC7PXaUdTpwUPGliODq2aovvPn01yPoZBNEL9K3m
-	ebnPvn1m6PD6wOsLCqNDT+bJ6XZD+DARFQatp0OdFL4r2/5RmDkiSy+aXBpO
-X-Google-Smtp-Source: AGHT+IHOyod3VXmk40tVpnrNG9DlVhMryxGrcLmpbXsiCrrp/ME48mm5tCfyOy0LYdi695U39z6Qug==
-X-Received: by 2002:a17:902:e84e:b0:20c:7661:dce8 with SMTP id d9443c01a7336-21183d668d4mr312024285ad.36.1731542318242;
-        Wed, 13 Nov 2024 15:58:38 -0800 (PST)
-Received: from [172.19.1.43] (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177dde1b8sm115569335ad.60.2024.11.13.15.58.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 Nov 2024 15:58:37 -0800 (PST)
-Message-ID: <6f20fb7c-ef70-400a-b359-55f101d8821a@gmail.com>
-Date: Thu, 14 Nov 2024 07:58:33 +0800
+	Thu, 14 Nov 2024 00:06:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1731542758; x=1763078758;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=QCU4sOzgkeIKbdmKlY+8wD3dNS2f394YpPWJGiZp+Bs=;
+  b=QUUcgK8LIG7NhljrT0/pJdd89kLe22wCJWDa2uS7Is40ePI2YS3dA9Z3
+   rkscJRW3mNI5SzShg3zyd83XRONIbZS6x4jBmc1IVnUyiRcnlWNnH6K3V
+   rbVKbkOENR/F8H4itk7oigXhwEAdWBb45Vuz3JnidSTqHOm5mfkwOnJfW
+   8TCsTE+w94zOCzTDVAljsm6flfbRw6DBfqnW7ZGK/CSEnWqTKg/Ldd2hi
+   SrYF/eFImK1R92oP7NAYf3efMi+kU2czGt8l/G92DNYjea3neACHcGfVc
+   etNlCh1xLOLzTzxNXxO6FgDiySloarJAuyT10BhgZXNO7yLKZgRFSg/+t
+   g==;
+X-CSE-ConnectionGUID: p7rdzvW2Qqe3wE4uEBai5A==
+X-CSE-MsgGUID: zz+JVGGZQ36GtkyFpmxSVQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11255"; a="42073495"
+X-IronPort-AV: E=Sophos;i="6.12,152,1728975600"; 
+   d="scan'208";a="42073495"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Nov 2024 16:05:57 -0800
+X-CSE-ConnectionGUID: KKYYy0w6RvCAL6KZ1+vJGA==
+X-CSE-MsgGUID: MXJRmlm9RzmXYn9RqXolmw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,152,1728975600"; 
+   d="scan'208";a="111341296"
+Received: from lkp-server01.sh.intel.com (HELO 80bd855f15b3) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 13 Nov 2024 16:05:54 -0800
+Received: from kbuild by 80bd855f15b3 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tBNMt-0000uR-20;
+	Thu, 14 Nov 2024 00:05:51 +0000
+Date: Thu, 14 Nov 2024 08:05:07 +0800
+From: kernel test robot <lkp@intel.com>
+To: Bibek Kumar Patro <quic_bibekkum@quicinc.com>, robdclark@gmail.com,
+	will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+	jgg@ziepe.ca, jsnitsel@redhat.com, robh@kernel.org,
+	krzysztof.kozlowski@linaro.org, quic_c_gdjako@quicinc.com,
+	dmitry.baryshkov@linaro.org
+Cc: oe-kbuild-all@lists.linux.dev, iommu@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, quic_bibekkum@quicinc.com
+Subject: Re: [PATCH v17 1/5] iommu/arm-smmu: re-enable context caching in
+ smmu reset operation
+Message-ID: <202411140748.6mcFdJdO-lkp@intel.com>
+References: <20241112165454.2698269-2-quic_bibekkum@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
-To: Rob Herring <robh@kernel.org>
-Cc: dmitry.torokhov@gmail.com, krzk+dt@kernel.org, conor+dt@kernel.org,
- sudeep.holla@arm.com, peng.fan@nxp.com, arnd@arndb.de,
- linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, mjchen@nuvoton.com
-References: <20241112053059.3361-1-mjchen0829@gmail.com>
- <20241112053059.3361-2-mjchen0829@gmail.com>
- <20241112182551.GA1394330-robh@kernel.org>
-Content-Language: en-US
-From: Ming-Jen Chen <mjchen0829@gmail.com>
-In-Reply-To: <20241112182551.GA1394330-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241112165454.2698269-2-quic_bibekkum@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_155839_847442_2A54D6F6 
-X-CRM114-Status: GOOD (  23.23  )
+X-CRM114-CacheID: sfid-20241113_160558_697073_9465FC20 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,143 +93,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Bibek,
 
-On 2024/11/13 上午 02:25, Rob Herring wrote:
-> On Tue, Nov 12, 2024 at 05:30:58AM +0000, mjchen wrote:
->> Add YAML bindings for MA35D1 SoC keypad.
->>
->> Signed-off-by: mjchen <mjchen0829@gmail.com>
->> ---
->>   .../bindings/input/nuvoton,ma35d1-keypad.yaml | 89 +++++++++++++++++++
->>   1 file changed, 89 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
->> new file mode 100644
->> index 000000000000..71debafc3890
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
->> @@ -0,0 +1,89 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/input/nuvoton,ma35d1-keypad.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Nuvoton MA35D1 Keypad
->> +
->> +maintainers:
->> +  - Ming-jen Chen <mjchen0829@gmail.com>
->> +
->> +allOf:
->> +  - $ref: /schemas/input/matrix-keymap.yaml#
->> +
->> +properties:
->> +  compatible:
->> +    const: nuvoton,ma35d1-kpi
->> +
->> +  debounce-period:
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    enum: [0, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
->> +    description: |
->> +      Key debounce period select, specified in terms of keypad IP clock cycles.
->> +      Valid values include 0 (no debounce) and specific clock cycle values:
->> +      8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, and 8192.
-> No need to list the values twice.
->
-> We already have a bunch of debounce time properties. Don't add more. If
-> you have the clock frequency, then you can use the existing
-> "debounce-delay-ms" and convert to register values.
->
->> +
->> +  nuvoton,key-scan-time:
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    description: |
->> +      Set the time it takes to scan each key in the keypad, in clock cycles of the IP.
->> +      This parameter controls how frequently the keypad is scanned, adjusting the response time.
->> +      The valid range is from 1 to 256 clock cycles.
->> +    minimum: 1
->> +    maximum: 256
->> +
->> +  nuvoton,key-scan-time-div:
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    description: |
->> +      Set a divider that adjusts the scan time for each key.
->> +      This value scales the time it takes to scan each key
->> +      by multiplying the key-scan-time by the specified factor.
->> +      For example, if you set key-scan-time to 64 cycles and configure key-scan-time-div to 2,
->> +      the scan time for each key will be increased to 128 cycles (64 cycles * 2). time.
->> +    minimum: 1
->> +    maximum: 256
-> Again, we have existing properties such as scan-interval,
-> scan-interval-ms, and scan-delay. How is this different?
->
-> With a single property in time units, you can solve for how many clock
-> cycles.
->
-I will remove the custom properties.
+kernel test robot noticed the following build warnings:
 
-I introduced and replaced them with the existing properties, such as
+[auto build test WARNING on linus/master]
+[also build test WARNING on joro-iommu/next v6.12-rc7 next-20241113]
+[cannot apply to arm64/for-next/core]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-sacn-interval-ms, and debounce-delay-ms as you suggested.
+url:    https://github.com/intel-lab-lkp/linux/commits/Bibek-Kumar-Patro/iommu-arm-smmu-re-enable-context-caching-in-smmu-reset-operation/20241113-042646
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20241112165454.2698269-2-quic_bibekkum%40quicinc.com
+patch subject: [PATCH v17 1/5] iommu/arm-smmu: re-enable context caching in smmu reset operation
+config: powerpc64-randconfig-r064-20241114 (https://download.01.org/0day-ci/archive/20241114/202411140748.6mcFdJdO-lkp@intel.com/config)
+compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 592c0fe55f6d9a811028b5f3507be91458ab2713)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241114/202411140748.6mcFdJdO-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411140748.6mcFdJdO-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from drivers/iommu/arm/arm-smmu/arm-smmu-impl.c:10:
+   In file included from drivers/iommu/arm/arm-smmu/arm-smmu.h:18:
+   In file included from include/linux/io-64-nonatomic-hi-lo.h:5:
+   In file included from include/linux/io.h:14:
+   In file included from arch/powerpc/include/asm/io.h:24:
+   In file included from include/linux/mm.h:2213:
+   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
+     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
+         |                               ~~~~~~~~~~~ ^ ~~~
+>> drivers/iommu/arm/arm-smmu/arm-smmu-impl.c:113:6: warning: unused variable 'i' [-Wunused-variable]
+     113 |         int i;
+         |             ^
+   2 warnings generated.
 
 
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    maxItems: 1
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - interrupts
->> +  - clocks
->> +  - linux,keymap
->> +  - debounce-period
->> +  - nuvoton,key-scan-time
->> +  - nuvoton,key-scan-time-div
->> +
->> +unevaluatedProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/input/input.h>
->> +    keypad@404A0000 {
->> +      compatible = "nuvoton,ma35d1-kpi";
->> +      reg = <0x404A0000 0x10000>;
->> +      interrupts = <79>;
->> +      clocks = <&clk>;
->> +      keypad,num-rows = <2>;
->> +      keypad,num-columns = <2>;
-> Surely these should be required?
+vim +/i +113 drivers/iommu/arm/arm-smmu/arm-smmu-impl.c
 
-I will add "keypad,num-rows" and "keypad,num-columes" to the required 
-properties in the next verision.
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  109  
+759aaa10c76cba drivers/iommu/arm-smmu-impl.c Vivek Gautam 2019-09-20  110  int arm_mmu500_reset(struct arm_smmu_device *smmu)
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  111  {
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  112  	u32 reg, major;
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15 @113  	int i;
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  114  	/*
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  115  	 * On MMU-500 r2p0 onwards we need to clear ACR.CACHE_LOCK before
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  116  	 * writes to the context bank ACTLRs will stick. And we just hope that
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  117  	 * Secure has also cleared SACR.CACHE_LOCK for this to take effect...
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  118  	 */
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  119  	reg = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_ID7);
+fba6e960772b7b drivers/iommu/arm-smmu-impl.c Will Deacon  2020-01-10  120  	major = FIELD_GET(ARM_SMMU_ID7_MAJOR, reg);
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  121  	reg = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sACR);
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  122  	if (major >= 2)
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  123  		reg &= ~ARM_MMU500_ACR_CACHE_LOCK;
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  124  	/*
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  125  	 * Allow unmatched Stream IDs to allocate bypass
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  126  	 * TLB entries for reduced latency.
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  127  	 */
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  128  	reg |= ARM_MMU500_ACR_SMTNMB_TLBEN | ARM_MMU500_ACR_S2CRB_TLBEN;
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  129  	arm_smmu_gr0_write(smmu, ARM_SMMU_GR0_sACR, reg);
+62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  130  
 
-
-Thank you for the feedback.
-
-As both Conor Dooly and Rob Herring point out, I'll make the changes as 
-suggested.
-
->> +
->> +      linux,keymap = <
->> +         MATRIX_KEY(0, 0, KEY_ENTER)
->> +         MATRIX_KEY(0, 1, KEY_ENTER)
->> +         MATRIX_KEY(1, 0, KEY_SPACE)
->> +         MATRIX_KEY(1, 1, KEY_Z)
->> +      >;
->> +
->> +      debounce-period = <8>;
->> +      nuvoton,key-scan-time = <1>;
->> +      nuvoton,key-scan-time-div = <24>;
->> +    };
->> -- 
->> 2.25.1
->>
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
