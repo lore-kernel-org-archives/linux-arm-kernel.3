@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FED3D65C53
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 07:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4FF3D65C52
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 07:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=30xkgxShCgjwpUU47CWqpAuTdlD6ZjqOuHTYvDzpD0w=; b=CIoIHu1lyLiOgTTkla3PXrcLi2
-	eLVfijMrfHlyNqCD2XH5YFyDjZr+hR2Q3YDTHk5Md1kBTw2l4bcG42NbA4Bagb+OSOJDIObFaIK5P
-	llzuQyXoevkGMzGLEKcDyz/8CWARl8BgJSnN18TxYotMJUJ03R748XwHZiT9q49gh+uiUi/UbqwVX
-	rutM3tWYeazkiov//GsvhPA2eMQ23O53MtelmNXDcNPYSwbzowCK6lxOyGZBeeLYuvIl6hjfRgixB
-	PYvh6HdUg+HHkJy6Aj6M4BLRXsMJShNZ0FNPnsbyM0d1MjUaHSsRUllZW9x2EVaa6FZKYh740WFt2
-	dCxpiHtg==;
+	bh=fQZlTSOnck7v/jliz5eiEp/DzHQdtT+j8KFoxuJa2kE=; b=GKArtHfcnN1EYPOyBGe43Sw99g
+	lrxshfKwEUGyQf7aq/UXq3IF0t4z/1HSyRVGtJNae13MMg7y/SuaoxvwEGpVNOniwkOEgEnmx6Qgt
+	Y8rh/f5AYJFWHI13Zr2e9I3AY4t5LAPChsAbITgO4NIU7rQ6SkHfB6TdLbRqErgqFq2cLfbH/W4CP
+	3lewLFfjdBQ7Cigxa+hkMkiIDHU9Yc3WlDW9ESNyA6QJ3227YgwN6En6fdD9qjtd4DUTwM8Db8aRL
+	l/AiBwu5UwPsbIwBQ4dxpcqOTc7qtJ8xWytyjFeFJFV+jAY0tPc7Y+NrFEX643qDdFS8meVVpfBqT
+	MJJzumdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBTuw-000000091zU-0TfZ;
-	Thu, 14 Nov 2024 07:05:26 +0000
-Received: from mail-vi1eur05on20607.outbound.protection.outlook.com ([2a01:111:f403:2613::607] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tBTya-000000092ru-20qY;
+	Thu, 14 Nov 2024 07:09:12 +0000
+Received: from mail-vi1eur05on2062d.outbound.protection.outlook.com ([2a01:111:f403:2613::62d] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBTo6-000000090PQ-30Io
+	id 1tBToV-000000090Vr-0ehE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 06:58:23 +0000
+	Thu, 14 Nov 2024 06:58:48 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IrKmu1ae/lyC5JgmwWfqeyDkqz+/OrRGYSBZ6quL6tFJaAITeiOS1ire308TqqqEUC/+Ju+7czq9WpP2CsFdOL/Rhl5OYVG2ANKDlZkXyDJGN1cn4vDlD08ufCiMNO178VxKu1GEVlNtd4RKPgRRzJWHdt+ZKLP5DQR15pgoH77EOa7haLCHmTC5XGvZzePvtH8hz/ok5dHZxj9zyOxUWT7RovQ/X4j39qLde8eG24meqSfyVE2EOKLZjnl5N579FNxUcLq+tIkTsRIJhCO2A0gS1IexjbmqbkEDRREzZQ/iXLlqIR3Rg135kJ3ziGd5rhOg16Q1zVJQAiDW6Ccpiw==
+ b=VVng/VFXovRW7fRR+Oo+ijBBb/flLaOlCGs07u8KvhoO2z6U6+XOyDkl+5+a0W834Fuf4YKhV+sv2PwI73XSYkFTeq4++YxfIkuSxP1hfwO++4GwEflM64odkkBQV6vjTxzA8S+3GdPJCivsiuEklYGxQd3tQrZ/QA1Sa6nKrKhLQj/DUhpacjmZNXU/UIxqKKPdzI8RpnwIrLe/AfHQQoiNToJMDftE3F+czgIkNrPUi0p6y8Z5eTEOWgikwtTESfSTY5+ozVcliTfOCSEL6i95y1nYl6bEwApqXm7bLYcFSxXtQD9Fz75RwAVOGioEr23gZ5eJtDdkgJ90rSHzqQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=30xkgxShCgjwpUU47CWqpAuTdlD6ZjqOuHTYvDzpD0w=;
- b=IZGhqBHBxVTeT6pDa18ELuWxmrxfZ1KUzLwJGQmNL1e0Wy+88/vED/H9drhhBQlntNfiWa6RXmYEC4H21CrcqBMGjURkBbsJB7xcXBOcTGsZPw1PbKdwFHpU/hq3/1mlCVZEiLaM+W6+BxdZp3KSvBvKMCBCdXss2nLc2zXSypfiuk7meAIkDzfe6a8jkY3F1nSjIK/VGurXghCIFh+ET5WriEqHS9hRJNJq9TxH6DOFotgXb6lDA8W4nH0DLIWjPTXrbHY0eps5OA0j31jlc9ZpLd25XYfCasi7gsn7DzzCXX0ybfEEI0nlRclCLEGzm9w8Nt/TbC5uXQXs4FoG/w==
+ bh=fQZlTSOnck7v/jliz5eiEp/DzHQdtT+j8KFoxuJa2kE=;
+ b=xSzvXsfDIu3TlZKTeBHy37PsfhBmvDjC0oM5uzgFT7Xjs0NEzF67yV4ZxIlnYFRmW5lhS6OzeTzC5p0F+Dj1q2lo+M77yIBmUut41mF5UZp7bAAoY+G1EdHu7/XpDbF6t+E4qfqZaUOY8gu21LLLZK8BbjJGiu8s5a2xy1cUHZLnN7jv4C4CX0/WWsleH0QQqCNHsBn1VDhWzIgfj61jIs7nTQ1xYguOJGrpk3y2Ppv7rLILCWcD7qYM4EMz3WO3k4EI11B/+gqEt8mhi5PwB9b2Ul5JmO19HWAQroVNbw20TzhLBcZymu3W2msRuVQnBWSKwv2M9ROoX9hmOcTukg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=30xkgxShCgjwpUU47CWqpAuTdlD6ZjqOuHTYvDzpD0w=;
- b=TQSatUQqDLDqTmYve7vv6ELkAMF/SLIyMycf6BpR+kYE+isIARl2QeI6TrXnB7j/JtgCQDBRt2rkfbxOzkC7+i8NC7T4hnP7LWR3idiCZk61qpw1b3sWFrL5FcLzEIkreTRlK66RhUAD6FaIdwyR9JJC21e1rwCQvH0QyvoA0bBPHkP81eSn+/OiUTV0VxPBhzEbi1AtaY1aWIUEMuKrAGyqvhgQvCWJps37OaAhj1pKK5y7erAHlL8q9WQxwdxSh9EuyWBFRFZhEzNAcrqhuMkCjecShaUs9Iu7APGxJ79EBvQpapgC81TxpZn7xZhFmpdr6Xp3kPgeuEkiaVraEw==
+ bh=fQZlTSOnck7v/jliz5eiEp/DzHQdtT+j8KFoxuJa2kE=;
+ b=HDKNROPTd0Z0cadHECEGUoJGC2lGXEt6ecBTFTCVcAMA3ue65WPGWlGp9t+5gBK3OCZOYkarpW8cgAdOMak/I2RDk3JfYyOmLD9cSYK7Uep8NliO1oqPpJufQrAZ2LKqBACKguFunOvbfbr2Z4EA0QcZDIMIrzuzY2DKi4bXAXtWxsJTASNrMaVSWStXlUPEvXTjB3oBdXkQGnTKAAjPKfLzvzPCcCk8GWtKY+8ga8l8tn+nA57V1nqQK606vbTGk1Qi5sCL3eFd4E594srtDlgJdBjizTqA0PRlKt/+S64E1VCFssmSDznxkv0Sk4tQ01OeZP5EH+dBFbv489U66A==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by AS8PR04MB9510.eurprd04.prod.outlook.com (2603:10a6:20b:44a::11) with
+ by PA2PR04MB10278.eurprd04.prod.outlook.com (2603:10a6:102:408::15) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.17; Thu, 14 Nov
- 2024 06:58:18 +0000
+ 2024 06:58:43 +0000
 Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
  ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
  ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.8137.027; Thu, 14 Nov 2024
- 06:58:18 +0000
+ 06:58:43 +0000
 From: Liu Ying <victor.liu@nxp.com>
 To: imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -89,9 +89,9 @@ Cc: shawnguo@kernel.org,
 	arnd@arndb.de,
 	nfraprado@collabora.com,
 	marex@denx.de
-Subject: [PATCH v7 3/7] drm/bridge: fsl-ldb: Get the next non-panel bridge
-Date: Thu, 14 Nov 2024 14:57:55 +0800
-Message-Id: <20241114065759.3341908-4-victor.liu@nxp.com>
+Subject: [PATCH v7 5/7] drm/bridge: fsl-ldb: Use clk_round_rate() to validate "pix" clock rate
+Date: Thu, 14 Nov 2024 14:57:57 +0800
+Message-Id: <20241114065759.3341908-6-victor.liu@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241114065759.3341908-1-victor.liu@nxp.com>
 References: <20241114065759.3341908-1-victor.liu@nxp.com>
@@ -101,79 +101,79 @@ X-ClientProxiedBy: SG2P153CA0048.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::17)
  To AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AS8PR04MB9510:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ced74fa-fd4b-4aad-5b45-08dd0479b804
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|PA2PR04MB10278:EE_
+X-MS-Office365-Filtering-Correlation-Id: ad99850b-4a72-49e9-65ad-08dd0479c6bd
 X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sm/jLtK2/5k6FAO24YD0akC9MZX/qH0ujLuonfikVSdRosGfukYS0/AXk7vR?=
- =?us-ascii?Q?XlOOv1MFlS5ve9rqYvss/SLeCTXPIT+Oh94ROTCEWNyLRF3GXMAEI7HapPgG?=
- =?us-ascii?Q?tkNFjqpS6Ou7ImjmP2D8MiAFTELzHPvAmwH+LguVc7WZn1S9Hh3cfH/hWVov?=
- =?us-ascii?Q?fGfzwI9ggub8jxmYx4UOJoxn/ymCIt6CBYLgdSi8F/2qVh3CfvbN6BkL/EQ/?=
- =?us-ascii?Q?oAx7H385Xo8EmmweZbfdQAR8gEB7Vdpg4nscbKXlQw6rYPsbFU9FgSRljVoU?=
- =?us-ascii?Q?lY1hf31lvZKy0STUVQu/P+C428Fds9XR3V4OdObAxqOQe9ZD5w8zWn+ZIel3?=
- =?us-ascii?Q?Ihf7WpQ9uR6Els6RSdPZ15mZaYAb35Y/Zr6qYco6Jg7nRGD1h8rMRcPpJ+4R?=
- =?us-ascii?Q?cg4ty5tiq1jPouvmxBph2e9UuuWOAnEeWF1A9a+TwxqBJ9Wzq1FyVUFqeGMT?=
- =?us-ascii?Q?6dT1m/eVLlkSFYQaFMQavUJgksohN0ngmXT2jUsekeu68g3trkEfjhHfkmD3?=
- =?us-ascii?Q?xUPMRwUHa2Fhqhq71uvYQap69KntWC/WKPj13HjCSpZHw6X0vhsQNyXXXthh?=
- =?us-ascii?Q?W1jRLvrekY8Kjf7qDkGNAaHKee1FozHU/bKRg3tfqXYPzjnKn6RF5ZEWNObx?=
- =?us-ascii?Q?/P1AIqstIVjsU9MEjS5ONhloH1tJgty86E3wlfrO6KJ65mD6WNNwMHlpD+wt?=
- =?us-ascii?Q?lQIVgqgtdDzauuq8zTQTjHrfL1QQwBJ8q+7s3dtoCDelReg7eFCWtDAVnJa8?=
- =?us-ascii?Q?Uo+iaVtmTvwJOfo0c5gSYvnhztxTsjozZ1Gf0GgPC4w75xBm/V3usCzO5CKm?=
- =?us-ascii?Q?ALtLXDuq/rgD983HLeU42HJvPa/VTGKEV+a8UwnMqqFgfEBZ4iTQD14aCNWH?=
- =?us-ascii?Q?5jpDruJugAqeL8ZVFsQ01dA6vgaSjO6ZmNBHxoF7c9XhKKBK0VR5mMypOoO7?=
- =?us-ascii?Q?2XECK1VMBGqfHw6MRI0cuHGrlbGJ1Q9G1BBWafcX8Qi4WEOk+Qk7lDLn+lmr?=
- =?us-ascii?Q?9PqpWfH9bkyHmUle3lo0x5naoHj10+uhcxhS4Z5D6wvKqMVr2/pTJ61kVMyG?=
- =?us-ascii?Q?8l0O8NYRT8GmA2Rx6neYf4LR8V8TEADDu4SahtUAdts6RubkDHkpud1H8CSY?=
- =?us-ascii?Q?vgKEdkktpwW1D9DKlrbXbbN8rAgCI0v6XRmZkOrgkT3gh4TVCdLR8hRqkwcR?=
- =?us-ascii?Q?kONpnt+grebQdZjoNL6TePmobB++MR7BY5d64TOfbrOnebD+V+pSKIygRFQw?=
- =?us-ascii?Q?HCj6pu6k2RYXQzsmO1rFmj1cPr4XIKP6WuB4cEUI/6o8wbhPUF3d11I/IwQw?=
- =?us-ascii?Q?IpqfxTv6O/Z8kKl9YxjwRGfsQc5sz/qjOPHFVOGMfAGDBm6byCKlt4R6hxZq?=
- =?us-ascii?Q?PwqbhfI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xeFhgQ4PynevnX3vm4bnjNFLfeU2g+7yXM0ZVULQHMFnL/9cKWHfv0xzecwP?=
+ =?us-ascii?Q?WBvzVOkEV6vsj+yn6CHcszEN8qQN6LSYgXD2NUgvbJvBIhos9hpT9PI1/tKB?=
+ =?us-ascii?Q?RO38JnmymfGHH4+jw8lg7A7eU8e3rQbsfjAS4LYo/MEyugcuFwdiNvtwS7iE?=
+ =?us-ascii?Q?oIlwFcuCvT8Dgj5s32F3It7T9r4AyOjrNBx+KYtMMK3ReG6sumx8xdttqesq?=
+ =?us-ascii?Q?lzy7MChqDy9x/+LIpGtiTROf+PyGiy0MBb41cZgxlSafgWrvxwV1wfGwp4+L?=
+ =?us-ascii?Q?pbGtvaEAt9j+5Lve6XXgfYCv6a21kfs4Ej57E//hWy9yFJjzU0riy7KCtVvJ?=
+ =?us-ascii?Q?Y8u2OCfYcEgHBQbsbREh6Ul8BEdSWdnwE/NTqZaJT2e66CQsC2L841XOalc1?=
+ =?us-ascii?Q?CsSJRy/8QxNAoyYdfqh3DNexkUupUgcKO2LhSJbGkCy016Sx/gPQg/BvDdB7?=
+ =?us-ascii?Q?PIW1fDtaZ+RM01JgsRzraI9QqGwm7PC+sn6HUSsFz9YvUEAsXN1m53s2Exaz?=
+ =?us-ascii?Q?s5Wv5wliRJkBYzpjB2jZLGrQMjZ2/BwVsiCx3c2wlGqldOMf0c0O9Q+5rmCQ?=
+ =?us-ascii?Q?frHo18M4tXcAT8nDLuuZFaXqhJ0xIlfLJQAgU8qkC0xTILAktRWddLvljDkC?=
+ =?us-ascii?Q?u71bvWDqXLGAl9DmVZSyN9pH7OTeCUmhrXQC4RTeCVqJMtvmGhlFcOUotTfX?=
+ =?us-ascii?Q?fNzdreCc1aeBTgDOF4AxZq8AoA35KKM/GGOO1UameJI+2jSAwxSTBqSAmmoQ?=
+ =?us-ascii?Q?8lpxNpKdX57WI0KenQN2v65pZdE++1hlq7zTaPFYldVJ1Z97lA0Zf11wb3Ma?=
+ =?us-ascii?Q?AUGKdKMcqcV39c4CuukYOYVs+IaS95s74yN2pFqzjkCQVYBA0ogZ+5tdmyXi?=
+ =?us-ascii?Q?AvgZnvE0+2ztodfnVH+lrxIZ8E/A2rJ2Xb7Um9Zy52xb5zJCZxxOHxA5rl0Z?=
+ =?us-ascii?Q?44FqTJq3zfNVpms4c/50obUpSpBk3ynXHYsNQc+042eUUNzgCzrP9NiU7zF1?=
+ =?us-ascii?Q?KXuMhtaUzHFlTcz3DjN7wQ9UG75qVKT4HzIJnoEgg0TfYDPaOEJx/vwftxK6?=
+ =?us-ascii?Q?4SpggW/0QtoelUNqZo+A/uUlYR5flfgfnfQuiAngh1r4d/EKc+BOVMkZ0MbC?=
+ =?us-ascii?Q?JIbi8Jcz8/WFuaveT1Jybolb1jTiAV9aFW0j5ki33XZkq84xSa0pTfGwgRCM?=
+ =?us-ascii?Q?YP/HTaHlAtVbb3Mnse297yuDkyb3xv74YFyUfnqNQoKxe2HZLp8fa7y7yUWM?=
+ =?us-ascii?Q?IpngpJUhkmXA3IR5Fw91p813e3JPMWvPUDLoBYo5q6p+XTQx7WyW2eXq0NFs?=
+ =?us-ascii?Q?iQjn8G2KtKP9p93S5cK+KlfrMKbDuP6tmno6NqsmBB0JacHBqUcopTCuaTkF?=
+ =?us-ascii?Q?nMCkgqfK/lxIwGOs9MGfwB/+eDoC?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zsZfh3bSkUZdtgOEv2j69tH9rgNd5/2ul96JPW+Eh7rcJpogE+GNOHMag2Ig?=
- =?us-ascii?Q?nYZN52+m7rPHy2skt6xaLJa0D/o2i5hN9Y3fr8x24yDJJKoa6zPaRL8fLjr6?=
- =?us-ascii?Q?O4lg2/iLwFCa1b56LnTzh3xF5U/xJM7pzuZO5phSM1sw3/vDHQI0Xe+jzoxd?=
- =?us-ascii?Q?wkYifAuqXpkP7yE98RZjbNW6EckBH/7K3VVPFxRpyM+dztmaQ6msVv8oSebh?=
- =?us-ascii?Q?b7hGdjT2JkyK58oc4pteZ4ayQ+AxfU6XcSVW7oOu6PClNsm6taqNzK9QMrDi?=
- =?us-ascii?Q?hW/6Of/SMlNHGyYd7eFAvpGJsP/EtclMbzzrPPHp3tBc2OYIHaYwsR7XaCvR?=
- =?us-ascii?Q?J9Q3Ge8iv9mwXneyKBrBcg4G8w9HNFRJEGSB01ZCGKZKSFBGntVO6RkQbhzr?=
- =?us-ascii?Q?hn5zp78lvPTF4TcKTGMFDVkp7YSaKdo0Iq/vgngS3JaMhOqF9StLA5mD3iU4?=
- =?us-ascii?Q?1IYd0T2rKycDzVpD2YifmPmnwUJhOjWhdkiWqqX4DVsgVHQF8zIE+t5qDeiB?=
- =?us-ascii?Q?yTTTHsjKK4hag443q5eJjSLUJ3rHqm8jJUZIleD1ryl+GeekA+PRloe9n5Fi?=
- =?us-ascii?Q?5rAa38GAD9QyZ47RFe2h1xZbQBtCSpDCvYpeJZOUNtx7nbri05VUyoL+tHU4?=
- =?us-ascii?Q?AQivYEbqj7IA4TMhW94YoLlMJjLTwrFZ1IHSzHGykeoLaAmB1gaAJx1RRs0Z?=
- =?us-ascii?Q?mJCiB9n9fUG1e1/gy+gDeyJ8Ho55eCv+Jt/QAMo8vDsW6Ecf6YsD7B1Lwho/?=
- =?us-ascii?Q?PT/r+L2gLbIGTvtlz3Ati6W6Fz7MoCFhZkfIt4xJWMYMV3mPHNkj/8VB9WjC?=
- =?us-ascii?Q?ScOtKnpdMHFgXHXnI+8MaywkTzGR1Nm08W7mWsHOsOZwVi7q+qBGis3MP6j2?=
- =?us-ascii?Q?I1R8VJZTkxRmMzRNEYzZvwq3cPYKS89fiIlVw/LvrYCyvRh7S6xQ7FhX0zZf?=
- =?us-ascii?Q?vGbn+GUUSTBjzqcbWV2fIrURtwlhSyplMbt+K8tpK5HOamRKuPtNoE6t5cqe?=
- =?us-ascii?Q?7aMuSYPjLlcfCVkXo3gM+G5XxIAgorwTItLVDbIgVZCuXjG8IkrNfFesYoS8?=
- =?us-ascii?Q?j8jB1ipV89s/2EzAGW6p0PPr/k1lBEjYLWrDn/PnLFlZNF7sY6xoVbDER2t7?=
- =?us-ascii?Q?tNHe4VUzN+TTh13anuiQuQekLpLYSe0gY1vN5kMupdptigIOi2YDWeh6lEix?=
- =?us-ascii?Q?O4hueA2FHfifJKSx63O4pjIygo5sKmkTdMOSdMIZGq6mVdFJxlZPr28FUXgM?=
- =?us-ascii?Q?sOIy6igjiwxqPB5NgCqRG4Mc5ocfaUEeQ7LfZVHIp2wrJA5VZQltnJ/m3TP7?=
- =?us-ascii?Q?vF1MEVgK+uuMkFicpnXo38zn55a+vBcbmL8qQV1rNKsdmUSt1C46V0VsKZnC?=
- =?us-ascii?Q?G6sdjmzfukSVQ47WrrHMag/1lxA1fy858xkqiSONZa2VJwAX/KCoVuQfoxHQ?=
- =?us-ascii?Q?LvOHkrNRymaZGM/75oRNbOXxjohfPJ3MvQqPh3uRIhlsEmR3NfFyA3OHV2sh?=
- =?us-ascii?Q?DFVDuh/9KzY1gUwyiOyzVM2F25nDtalsxQauXK1Q3IN1uXrP6oiYspYg5nYG?=
- =?us-ascii?Q?6pyutLLZiHJS14SovhmNekxZMeF60VtCujCUwb1B?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VFqWt3C3GiMwn0ienLzXw+WIm/jth3sm6Zkj6QwY6hoZ+VNFyamGnz3FZJPG?=
+ =?us-ascii?Q?Q5D1svZ2aYqpAFf/R/VIxKmKRThSAcqd/82a1d+d3VOiL5DE+YyDvp3gSxg/?=
+ =?us-ascii?Q?J0HuaJ0Ltk+l3LFYkzeTHeer2MayjZCtAc04A38czXBxOcchQ+F/pedexaK0?=
+ =?us-ascii?Q?9Vn0bpqUowkoGkNoiUYa0H2eqkwHOTLv0323JDmdwhxl3LmDWinkvglxl4Sr?=
+ =?us-ascii?Q?ORYM37BBpy7BWVKez3F/3LmT87gwIwn5sSisxP6oOc15Ofi4VJ7t5IVQ5xfs?=
+ =?us-ascii?Q?/P7bfvEv6BCpqxmgwhIODQQe457T1dm/E6E8bg5BljfqucJ8So1SVhFVkLrU?=
+ =?us-ascii?Q?pujY120p6spEWr+r5pyFAxEpNxyShaka5mICuwZdmQU9j69ARfx5MmS2MIX/?=
+ =?us-ascii?Q?FmG5isVqiATHQJVMjrhA1DQOJHiF58VtMWMDRpnlho+uHYaSAEhjE+ChOV8d?=
+ =?us-ascii?Q?Lord6V80Qke5fEgtpkmypkZMYU++797uh1QxmDFKaW5uJkaRPbXTI+YJ3Kl1?=
+ =?us-ascii?Q?0uBZ+gn3tXqjLj6/+vLLrN+eDCjz/aY/Xa/t7raXfAPtaDsObzAC6ZVEC7+P?=
+ =?us-ascii?Q?lW2xTUAM9S2laU2yzbBYbTBwiSZhx7qf24qkap3Mct1BRyHhnl3Y5ZAXBJLc?=
+ =?us-ascii?Q?E6JK/3VbBLH+GNAXAOY3JJb7Rl+C/O9QD0xkUIItISeBjc7P+DdYoLunCKTH?=
+ =?us-ascii?Q?VEJ55YvxYZAa6hm3gSTpJV3QwM3fQPKLxeI1GbTppGaOK4iIT83C8M6HfITU?=
+ =?us-ascii?Q?uAT+s7+nzsPPZLMOs4PfzC6sYMLBSLBBafXt7k5M5oOyOi5/S9oMmp6WILnn?=
+ =?us-ascii?Q?96Tago5SbyA+FXDIokE7sMU4NEU3se+X13oltNFT6K2AUclmzuayo9g3gv3C?=
+ =?us-ascii?Q?fUljgik9Xlvf9s/Zwf26eTkYlqydEjjUaPBbnr0bCBRmKhr1x7ljFo15t0eg?=
+ =?us-ascii?Q?imylkN3xnu9a4oV4rVtfAebdu4rTxHhHafgoGW/LsBmyNi037x7TRwb23uJO?=
+ =?us-ascii?Q?+rsA1CROY58pig9nesoZWQfg9ttFDEsl3viybPBiyAfzI+xpFSeEaI0Fft6D?=
+ =?us-ascii?Q?aRY2fCW8tO3Lvbkb5I6jDw7JGJVWzyvLgaElniVYn8YPrfVspDZv1xl/OtNX?=
+ =?us-ascii?Q?LXZQKfdJ5jaBJwK+n1w3IpMCpnLW+rTmHZJ+JLT/RDcw9kr0Fo2t+QaGhny2?=
+ =?us-ascii?Q?K7/esFTZ92hwe6+x3clPr63ODxgPY5U1QWHUoC5piaxBmK5Q8BoWfupY24wf?=
+ =?us-ascii?Q?x6DasWbJPAR7AxUWtOhv6vj34xkMBoAUO4oBRphsyn6A2U9DBogO3Ak2D5X6?=
+ =?us-ascii?Q?0wwzoO2ArisCSE5jdo/Y1n2FpdTBPlFv0Sed616FfUKFn8pyTpARpE0R/UXQ?=
+ =?us-ascii?Q?vSJm6QEF/Zyk6NYIuck1BOzbuUPog87/h0Az0ehcs5WKDdcISs3PLJatb2uN?=
+ =?us-ascii?Q?Va9EuyznhUD50kKtzUHAvNfLJqk1ljy4jUX7tsijU/CLPtlavyBktLXnmrxa?=
+ =?us-ascii?Q?aevRoasGy/DIJHG/d/jqlCbDonAjuJiTla2KRp9xe5h8symBJ7UgOL1qXDCW?=
+ =?us-ascii?Q?ndMbTlefzBN6bKao9FBICeLmIbuLTzeKYVYqARJj?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ced74fa-fd4b-4aad-5b45-08dd0479b804
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad99850b-4a72-49e9-65ad-08dd0479c6bd
 X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2024 06:58:18.4359
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2024 06:58:43.1440
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xfMXY3PsPJkzLZNkyLEC4KlxBq8u7lC6ncaNDdRwUsDkpPKKRZvozaSFYqXq4I9X3r4NRESDxS+khBBqCyy8Xg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9510
+X-MS-Exchange-CrossTenant-UserPrincipalName: Dne4Kxmm1d0adU1G7io9LLLFZLUkENIfXCsHMPdBJf9Qgpen5MNbli2reYLCimDIGIffKvxSorWSpRwMkdw9fg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10278
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_225822_788717_28DE289E 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20241113_225847_227057_29D755C3 
+X-CRM114-Status: GOOD (  20.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,119 +188,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The next bridge in bridge chain could be a panel bridge or a non-panel
-bridge.  Use devm_drm_of_get_bridge() to replace the combination
-function calls of of_drm_find_panel() and devm_drm_panel_bridge_add()
-to get either a panel bridge or a non-panel bridge, instead of getting
-a panel bridge only.
+Same to "ldb" clock rate validation, call clk_round_rate() to validate
+"pix"(pixel clock) rate too.  This may filter modes out whose pixel
+clock rates cannot be supported by the pixel clock tree.  For example,
+when the pixel clock is derived from the i.MX8MP video_pll1_out clock
+and video_pll1_out clock rate is 1.0395GHz, mode 720x576p@50Hz with
+27MHz pixel clock rate will be filtered out in LDB split mode because
+the PLL clock rate does satisfy the "ldb" clock rate(27MHz * 3.5 = 94.5MHz)
+with 11 division ratio while it cannot satisfy the "pix" clock rate
+with 38.5 division ratio(only integer division ratio is supported).
 
 Signed-off-by: Liu Ying <victor.liu@nxp.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 ---
+Note that this patch depends on a patch in shawnguo/imx/fixes:
+https://patchwork.kernel.org/project/linux-arm-kernel/patch/20241017031146.157996-1-marex@denx.de/
+Also, this patch depends on patch 2.
+
 v7:
-* No change.
+* Put pixel clock properly by adding a dev managed action in fsl_ldb_probe().
 
 v6:
-* No change.
+* New patch.
 
-v5:
-* No change.
-
-v4:
-* No change.
-
-v3:
-* Collect Dmitry' R-b tag.
-
-v2:
-* No change.
-
- drivers/gpu/drm/bridge/fsl-ldb.c | 31 +++++++++++--------------------
- 1 file changed, 11 insertions(+), 20 deletions(-)
+ drivers/gpu/drm/bridge/fsl-ldb.c | 53 +++++++++++++++++++++++++-------
+ 1 file changed, 42 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/fsl-ldb.c b/drivers/gpu/drm/bridge/fsl-ldb.c
-index 0e4bac7dd04f..b559f3e0bef6 100644
+index d9436ff9ccc3..9afd91c30c88 100644
 --- a/drivers/gpu/drm/bridge/fsl-ldb.c
 +++ b/drivers/gpu/drm/bridge/fsl-ldb.c
-@@ -15,7 +15,6 @@
+@@ -4,6 +4,7 @@
+  */
+ 
+ #include <linux/clk.h>
++#include <linux/device.h>
+ #include <linux/media-bus-format.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+@@ -11,6 +12,7 @@
+ #include <linux/of_graph.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
++#include <linux/units.h>
+ 
  #include <drm/drm_atomic_helper.h>
  #include <drm/drm_bridge.h>
- #include <drm/drm_of.h>
--#include <drm/drm_panel.h>
- 
- #define LDB_CTRL_CH0_ENABLE			BIT(0)
- #define LDB_CTRL_CH0_DI_SELECT			BIT(1)
-@@ -86,7 +85,7 @@ static const struct fsl_ldb_devdata fsl_ldb_devdata[] = {
- struct fsl_ldb {
+@@ -86,7 +88,8 @@ struct fsl_ldb {
  	struct device *dev;
  	struct drm_bridge bridge;
--	struct drm_bridge *panel_bridge;
-+	struct drm_bridge *next_bridge;
- 	struct clk *clk;
+ 	struct drm_bridge *next_bridge;
+-	struct clk *clk;
++	struct clk *clk_ldb;
++	struct clk *clk_pixel;
  	struct regmap *regmap;
  	const struct fsl_ldb_devdata *devdata;
-@@ -117,7 +116,7 @@ static int fsl_ldb_attach(struct drm_bridge *bridge,
- {
- 	struct fsl_ldb *fsl_ldb = to_fsl_ldb(bridge);
+ 	bool ch0_enabled;
+@@ -176,15 +179,15 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
+ 	mode = &crtc_state->adjusted_mode;
  
--	return drm_bridge_attach(bridge->encoder, fsl_ldb->panel_bridge,
-+	return drm_bridge_attach(bridge->encoder, fsl_ldb->next_bridge,
- 				 bridge, flags);
+ 	requested_link_freq = fsl_ldb_link_frequency(fsl_ldb, mode->clock);
+-	clk_set_rate(fsl_ldb->clk, requested_link_freq);
++	clk_set_rate(fsl_ldb->clk_ldb, requested_link_freq);
+ 
+-	configured_link_freq = clk_get_rate(fsl_ldb->clk);
++	configured_link_freq = clk_get_rate(fsl_ldb->clk_ldb);
+ 	if (configured_link_freq != requested_link_freq)
+ 		dev_warn(fsl_ldb->dev, "Configured LDB clock (%lu Hz) does not match requested LVDS clock: %lu Hz\n",
+ 			 configured_link_freq,
+ 			 requested_link_freq);
+ 
+-	clk_prepare_enable(fsl_ldb->clk);
++	clk_prepare_enable(fsl_ldb->clk_ldb);
+ 
+ 	/* Program LDB_CTRL */
+ 	reg =	(fsl_ldb->ch0_enabled ? LDB_CTRL_CH0_ENABLE : 0) |
+@@ -237,7 +240,7 @@ static void fsl_ldb_atomic_disable(struct drm_bridge *bridge,
+ 			regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, 0);
+ 	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->ldb_ctrl, 0);
+ 
+-	clk_disable_unprepare(fsl_ldb->clk);
++	clk_disable_unprepare(fsl_ldb->clk_ldb);
  }
  
-@@ -292,9 +291,7 @@ static const struct drm_bridge_funcs funcs = {
+ #define MAX_INPUT_SEL_FORMATS 1
+@@ -269,15 +272,21 @@ fsl_ldb_mode_valid(struct drm_bridge *bridge,
+ 		   const struct drm_display_info *info,
+ 		   const struct drm_display_mode *mode)
+ {
++	unsigned long link_freq, pclk_rate, rounded_pclk_rate;
+ 	struct fsl_ldb *fsl_ldb = to_fsl_ldb(bridge);
+-	unsigned long link_freq;
+ 
+ 	if (mode->clock > (fsl_ldb_is_dual(fsl_ldb) ? 160000 : 80000))
+ 		return MODE_CLOCK_HIGH;
+ 
+ 	/* Validate "ldb" clock rate. */
+ 	link_freq = fsl_ldb_link_frequency(fsl_ldb, mode->clock);
+-	if (link_freq != clk_round_rate(fsl_ldb->clk, link_freq))
++	if (link_freq != clk_round_rate(fsl_ldb->clk_ldb, link_freq))
++		return MODE_NOCLOCK;
++
++	/* Validate pixel clock rate. */
++	pclk_rate = mode->clock * HZ_PER_KHZ;
++	rounded_pclk_rate = clk_round_rate(fsl_ldb->clk_pixel, pclk_rate);
++	if (rounded_pclk_rate != pclk_rate)
+ 		return MODE_NOCLOCK;
+ 
+ 	return MODE_OK;
+@@ -294,12 +303,20 @@ static const struct drm_bridge_funcs funcs = {
+ 	.mode_valid = fsl_ldb_mode_valid,
+ };
+ 
++static void fsl_ldb_clk_pixel_put(void *data)
++{
++	struct fsl_ldb *fsl_ldb = data;
++
++	clk_put(fsl_ldb->clk_pixel);
++}
++
  static int fsl_ldb_probe(struct platform_device *pdev)
  {
  	struct device *dev = &pdev->dev;
--	struct device_node *panel_node;
- 	struct device_node *remote1, *remote2;
--	struct drm_panel *panel;
+-	struct device_node *remote1, *remote2;
++	struct device_node *remote0, *remote1, *remote2;
  	struct fsl_ldb *fsl_ldb;
  	int dual_link;
++	int ret;
  
-@@ -318,33 +315,27 @@ static int fsl_ldb_probe(struct platform_device *pdev)
+ 	fsl_ldb = devm_kzalloc(dev, sizeof(*fsl_ldb), GFP_KERNEL);
+ 	if (!fsl_ldb)
+@@ -313,9 +330,23 @@ static int fsl_ldb_probe(struct platform_device *pdev)
+ 	fsl_ldb->bridge.funcs = &funcs;
+ 	fsl_ldb->bridge.of_node = dev->of_node;
+ 
+-	fsl_ldb->clk = devm_clk_get(dev, "ldb");
+-	if (IS_ERR(fsl_ldb->clk))
+-		return PTR_ERR(fsl_ldb->clk);
++	fsl_ldb->clk_ldb = devm_clk_get(dev, "ldb");
++	if (IS_ERR(fsl_ldb->clk_ldb))
++		return PTR_ERR(fsl_ldb->clk_ldb);
++
++	/* Get pixel clock from display controller's OF node. */
++	remote0 = of_graph_get_remote_node(dev->of_node, 0, 0);
++	fsl_ldb->clk_pixel = of_clk_get_by_name(remote0, "pix");
++	of_node_put(remote0);
++	if (IS_ERR(fsl_ldb->clk_pixel))
++		return PTR_ERR(fsl_ldb->clk_pixel);
++
++	ret = devm_add_action_or_reset(dev, fsl_ldb_clk_pixel_put, fsl_ldb);
++	if (ret) {
++		dev_err(dev, "Failed to add pixel clock put devm action: %d\n",
++			ret);
++		return ret;
++	}
+ 
+ 	fsl_ldb->regmap = syscon_node_to_regmap(dev->of_node->parent);
  	if (IS_ERR(fsl_ldb->regmap))
- 		return PTR_ERR(fsl_ldb->regmap);
- 
--	/* Locate the remote ports and the panel node */
-+	/* Locate the remote ports. */
- 	remote1 = of_graph_get_remote_node(dev->of_node, 1, 0);
- 	remote2 = of_graph_get_remote_node(dev->of_node, 2, 0);
- 	fsl_ldb->ch0_enabled = (remote1 != NULL);
- 	fsl_ldb->ch1_enabled = (remote2 != NULL);
--	panel_node = of_node_get(remote1 ? remote1 : remote2);
- 	of_node_put(remote1);
- 	of_node_put(remote2);
- 
--	if (!fsl_ldb->ch0_enabled && !fsl_ldb->ch1_enabled) {
--		of_node_put(panel_node);
--		return dev_err_probe(dev, -ENXIO, "No panel node found");
--	}
-+	if (!fsl_ldb->ch0_enabled && !fsl_ldb->ch1_enabled)
-+		return dev_err_probe(dev, -ENXIO, "No next bridge node found");
- 
- 	dev_dbg(dev, "Using %s\n",
- 		fsl_ldb_is_dual(fsl_ldb) ? "dual-link mode" :
- 		fsl_ldb->ch0_enabled ? "channel 0" : "channel 1");
- 
--	panel = of_drm_find_panel(panel_node);
--	of_node_put(panel_node);
--	if (IS_ERR(panel))
--		return PTR_ERR(panel);
--
--	fsl_ldb->panel_bridge = devm_drm_panel_bridge_add(dev, panel);
--	if (IS_ERR(fsl_ldb->panel_bridge))
--		return PTR_ERR(fsl_ldb->panel_bridge);
--
-+	fsl_ldb->next_bridge = devm_drm_of_get_bridge(dev, dev->of_node,
-+						      fsl_ldb->ch0_enabled ? 1 : 2,
-+						      0);
-+	if (IS_ERR(fsl_ldb->next_bridge))
-+		return dev_err_probe(dev, PTR_ERR(fsl_ldb->next_bridge),
-+				     "failed to get next bridge\n");
- 
- 	if (fsl_ldb_is_dual(fsl_ldb)) {
- 		struct device_node *port1, *port2;
 -- 
 2.34.1
 
