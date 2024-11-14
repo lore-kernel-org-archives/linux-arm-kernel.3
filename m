@@ -4,96 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324CCD6A226
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 18:32:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD4CD6A226
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 18:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qPgttRKqIwbel5Escl1oq0suAUqJ6hGmn2l42WFD7Wk=; b=WTAgFZ6ip+56GDNmd7uKty9ARE
-	gidnPTe3ADUQrZW4mu6yOV23J1r23EYbDgA8ErnVNa5I8b6VmWHsc9QH8m/JS5vx8X1GV5ORiVl/e
-	qxKsmAjAE1jpW/aPJoALSVNO9w4aHBnM1QtXSxECFnyhMxJX/upv3jlD1oLbpgtTpMROnuig4XyDM
-	KzGtjTOibxT2rQNBVcEb+hsqhhoC/iOUhWOFi9kQXHIPVe+rbR9Xs1kQ8wsfPmSONNKXhjYPKkadQ
-	D4D6t8oLcxCwnDutpoTKDD925LoMh5ZLgAxzDN5NT03zJBrRvsDnCcEQK/m4L7PCTyKVJnbBXxCdP
-	Mrki1W2g==;
+	bh=F+act8H8vBI0kssh+d2SqywPLeFhuuqkPtiKdY3nWas=; b=gVzf5GJPpg1kl7NcYQ5UU+nRxx
+	UYrvCUCOb3iVpdKpCFQIRmYhxiJpP3x/hWCgDlfoHe74mO6Ykbo0ikshlhrJaLo77ZUIf4FaAW2Fi
+	zVy0UMcKVcOM960kSEpL0a+MqpsdbxdT+nrDM9+RUP40GZrf+7msLv2MqZnWbNgr0DkuHPJ6685wL
+	9xjDtYaxjebsHWKsRR9nwqX1mfAMMWeEV65RAPxm9yUq5w9l+gaolYeN95H67CNN6ig9NJjlaEdG4
+	xIKby+ykNAFhuVXTsqCxsgR8z+a141aF4SmKrjDbde5sR+0Om4ttgLlwoqxY0T2K+xvBadRBb0q05
+	soRasM2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBedd-00000000Ubw-3PHX;
-	Thu, 14 Nov 2024 18:32:17 +0000
-Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
+	id 1tBezU-00000000XSB-34YF;
+	Thu, 14 Nov 2024 18:54:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBecf-00000000UNe-2YHq
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 18:31:18 +0000
-Received: by mail-il1-x12f.google.com with SMTP id e9e14a558f8ab-3a71ef98bc4so7745ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 10:31:16 -0800 (PST)
+	id 1tBeya-00000000XHi-1sba;
+	Thu, 14 Nov 2024 18:53:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=F+act8H8vBI0kssh+d2SqywPLeFhuuqkPtiKdY3nWas=; b=Q3hnrySJxpyM9RHt/1VjpPFa90
+	+770ZIVtEe+h4X9JIVhsl6mYjHadQCn6RN2Co0Fzo+nxBmfzDOW8UoAiXsdPUAji/b38SMdhuTWUW
+	/c6G+tHXdR6tPn13yxsL23Km+iHpRoNqB/DlPsWhZkvtCgs8HKtTMhX7A3PgxHOLOA4FK4gIl8QDW
+	qZqexfNN2GOKF7Xgar5SM5NtBPejqy8iVQTDmxV6c1UC0IvAPGpWHf0J55QCmLJR9lNMUE7h8odvQ
+	ORn2yPYl5Z6bdloeQPPAEZFd/UQh1+MqsCBXQ//7rn4H92YmjYft2WZemoBjebXPfzgUQck3WJ0+l
+	EjpX28jA==;
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBeyX-000000009Ub-05DY;
+	Thu, 14 Nov 2024 18:53:54 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-43155abaf0bso9174165e9.0;
+        Thu, 14 Nov 2024 10:53:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731609075; x=1732213875; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qPgttRKqIwbel5Escl1oq0suAUqJ6hGmn2l42WFD7Wk=;
-        b=G+S11FxEz6VR8n7TvTn9KNUV/XsYXMTF7F0KT2PFF8MPwSTYkTLFgx/q3bCrnrk7a5
-         RJDHQDSCkHTrNTh+4ZgFMxkRxh5+CNm7PDVxyjxn5bZAbOURQUQb7qAnuQlVrOzq7flf
-         DOvd4u4YKsYGkgkfvTfRhn97C6Mn4TblZrmTDddQf/7y0xknIwpKnwZj2fL8hibQAm74
-         kGiaqRnwbBpoUU6lIN3CZ4FfgQTJexTNSbKyqfq7pZWA08Veev5ZcbrZVaYFJ83cHfHU
-         hxDkbYIMNb89a6XviZCi9VxAc9eF2Ai6GH8yqo3fB+WmmIVHi7P6p7idQ7pDV3twGMKD
-         Q8kA==
+        d=gmail.com; s=20230601; t=1731610429; x=1732215229; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=F+act8H8vBI0kssh+d2SqywPLeFhuuqkPtiKdY3nWas=;
+        b=krEALQD1cDvDXHx1M4kbIYvUMRpS5VEdYyHNyqLPCj0EjAKeXHS+G1YevbUMp1feC5
+         11w9tclXBTwd4Mxy0WlMbQwbII+FtDhCmd8JVykC65NH0yHTeNkyO63aFDJZD6EWFya+
+         ckc2wCm26dQjB3iVW3f4RumhcbrNjJ4IWyZ+86lFYSiAKN3L/dArJC0LleGnrJ2V4zkf
+         h/byFdOD1Z6Ac1Pwh9XV61m6b3fD3tES5x41WRyWHg3CQkdfxQd+SAIX/+datZVpiROd
+         UvYY5ELMk5m19hrHfYNRHUXUK5hCvP7WwvhXAg1hhgd2uDBnF9AtcN2+9fN0xRpzqIrZ
+         +Bog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731609075; x=1732213875;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qPgttRKqIwbel5Escl1oq0suAUqJ6hGmn2l42WFD7Wk=;
-        b=MzwQ5YP9dAPO5ZE1WbtRV+OkIQjVweXlEklajx09bvBqMldSLU/ytdO3xZMkS5zWg0
-         SYgCH8qMMmL+vRRgPlnFnmkYI+KlzI1taODJVzzet0yK0oUeaWNe5/0v0x1LsQ00UceS
-         nhHqmI7dhvU83SNsINCFQPy1OQ/2rVuXl9MnCSDg++KRr3rwalux4RSusZvfJb06EjY2
-         3a5HeBD291ZhCU/bZXQwnMWHlvSiL2b4GBVwZxyJk1vySswJ841YIJ8XWabUxneGrKZ3
-         6mVnaq86RyRVZoxErOjpmsoj2ZAgetiBzhDNvJt91ni5YfOO5XbbZfU9gZv1o2l6PdP3
-         gN3g==
-X-Forwarded-Encrypted: i=1; AJvYcCWaDpOCNXP/dYSgUTfrCB0RGkxSL/U5cp62UvKI1aKDMdKEfoeOWV6M+npWChsmCBwkfk0WNWYEvqZLfRdgt7ux@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxv+HjHKV36aO+JMmYxlooQWoPmZFq+umz1RkpmUagB+on6ZprX
-	bH9QZEFCRVxSAvkltqIrTMDFsz5yPVVR3f6hDaZG1Dr4Rb6AzsH7Fnrqc4xlBWEGzfK/Rah0NlQ
-	p96+zXtvg8VHAwFj23YatWduIizJxhiyOf4Dy
-X-Gm-Gg: ASbGncuWEOLITc3TaZnwOMImIRrHc0jLVDFk/O/W57EsBDZx2kGoL1ijhOOa9MetmhG
-	OJAk8dAAipPEeoOzATeAl8SmgzfB+i10ZV+0mKpxs/dbufwFsg8eBHRLhTNqXSuU=
-X-Google-Smtp-Source: AGHT+IHbt2clAsvEm2GCWE3HZL8c9XYanWoYZmP6qTNs/eamsLOQaZgatLIMPvRuQ3+hmYVnmRaUTEoaA8PTfGw6NT4=
-X-Received: by 2002:a05:6e02:1a4e:b0:3a6:af68:668a with SMTP id
- e9e14a558f8ab-3a71e7a2d67mr5483705ab.18.1731609075190; Thu, 14 Nov 2024
- 10:31:15 -0800 (PST)
+        d=1e100.net; s=20230601; t=1731610429; x=1732215229;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=F+act8H8vBI0kssh+d2SqywPLeFhuuqkPtiKdY3nWas=;
+        b=spNukcaaiK43vMXGeU0cxRUY6XxX/d0FhlYpK73WA1ouJP4fiTuL/CuE5CZnGGPsyK
+         yfaErHediyPAi2hwTozStNHFNoDs1NVoa9KrSaxhrNUCg+LZnZ9fGwjtzJ4s9/u93yPt
+         eSUhaUxjkjFXF005RztZHLnJO42k7sHEJPDmgnwixJDtBg7UsLVL8yyZPAVkcyUCsPny
+         zR7cxkmtpGzwvZWb7KXNjF1g2hVylFegSz3DbCRuDqtbVpajar+92lFEgrMCg9jXFhR7
+         6gI+LXAmGrMxnUsrTG4Rr1TjfXRtAYkI0kLu24yYuYovY6PHIlMKLrvTyY/L2rqazQuo
+         FYtg==
+X-Forwarded-Encrypted: i=1; AJvYcCWklt8ti6AsrE6XKNX6No+JZBg0ckGY+ssMX4laBO1Y1RfKKwUNEvQcuOmzVbX4H+PdVn+9KnwiiGlO/a3eEqDm@lists.infradead.org, AJvYcCXbuaCl8LYdiHPNtPNf5wrV/HInLjkfGGP/A6RQn/f+oWtCA+nwItOCMHGfuV6hLAHB2PUvkEpLqn8D3qhp+UY=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyt6ioAu8wz83O9wzSYavsOagP5sE07OJKfOW2GA+TOkjluI+ql
+	9AUXAvNMc4HO/L7iq11Z9rzoNc4EZ1dCN5M+yqzQIm8tXc9EEPc1
+X-Google-Smtp-Source: AGHT+IELUfVKeMhRwtzYKmzZRv1LYcmCpcb3hbTxVOGXrsYtHnsfVttlc2lV8lA+TvnfMtpATpXodQ==
+X-Received: by 2002:a05:6000:1785:b0:37c:d244:bdb1 with SMTP id ffacd0b85a97d-3821851c6a4mr2752224f8f.26.1731610428830;
+        Thu, 14 Nov 2024 10:53:48 -0800 (PST)
+Received: from [192.168.0.2] ([69.6.8.124])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3821adbbc44sm2208283f8f.45.2024.11.14.10.53.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 Nov 2024 10:53:48 -0800 (PST)
+Message-ID: <6835fde6-0863-49e8-90e8-be88e86ef346@gmail.com>
+Date: Thu, 14 Nov 2024 20:54:20 +0200
 MIME-Version: 1.0
-References: <20241107162035.52206-1-irogers@google.com> <20241108025535.wfhke3btch5af4fu@hippo>
-In-Reply-To: <20241108025535.wfhke3btch5af4fu@hippo>
-From: Ian Rogers <irogers@google.com>
-Date: Thu, 14 Nov 2024 10:31:04 -0800
-Message-ID: <CAP-5=fW=RXz-A=xndhs8wkXaKCz-qXB=PemAMvbZpUagvObUoA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/8] Refactor cpuid and metric table lookup code
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>
-Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Xu Yang <xu.yang_2@nxp.com>, 
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Huacai Chen <chenhuacai@kernel.org>, 
-	Bibo Mao <maobibo@loongson.cn>, Athira Rajeev <atrajeev@linux.vnet.ibm.com>, 
-	Ben Zong-You Xie <ben717@andestech.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Sandipan Das <sandipan.das@amd.com>, Benjamin Gray <bgray@linux.ibm.com>, 
-	Ravi Bangoria <ravi.bangoria@amd.com>, =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
-	Yicong Yang <yangyicong@hisilicon.com>, 
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Dima Kogan <dima@secretsauce.net>, 
-	"Dr. David Alan Gilbert" <linux@treblig.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [net-next,v2] [PATCH net-next v2] net: wwan: t7xx: Change
+ PM_AUTOSUSPEND_MS to 5000
+To: wojackbb@gmail.com
+Cc: netdev@vger.kernel.org, chandrashekar.devegowda@intel.com,
+ chiranjeevi.rapolu@linux.intel.com, haijun.liu@mediatek.com,
+ m.chetan.kumar@linux.intel.com, ricardo.martinez@linux.intel.com,
+ loic.poulain@linaro.org, johannes@sipsolutions.net, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ linux-arm-kernel@lists.infradead.org,
+ angelogioacchino.delregno@collabora.com, linux-mediatek@lists.infradead.org,
+ matthias.bgg@gmail.com
+References: <20241114102002.481081-1-wojackbb@gmail.com>
+Content-Language: en-US
+From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
+In-Reply-To: <20241114102002.481081-1-wojackbb@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_103117_648731_3069FFAD 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20241114_185353_259461_010B78B2 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,25 +114,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 7, 2024 at 6:57=E2=80=AFPM Xu Yang <xu.yang_2@nxp.com> wrote:
->
-> On Thu, Nov 07, 2024 at 08:20:27AM -0800, Ian Rogers wrote:
-> > Xu Yang <xu.yang_2@nxp.com> reported issues with the system metric
-> > lookup:
-> > https://lore.kernel.org/linux-perf-users/20241106085441.3945502-1-xu.ya=
-ng_2@nxp.com/
-> > These patches remove a lot of the logic relating CPUIDs to PMUs so
-> > that the PMU isn't part of the question when finding a metric table.
-> > For time reasons, it doesn't go as far as allowing system metrics
-> > without a metric table as a metric table is needed for metrics to
-> > refer to other metrics, and the refactoring of that resolution is a
-> > hassle.
->
-> For this patchset:
-> Tested-by: Xu Yang <xu.yang_2@nxp.com>
+Hello Jack,
 
-Ping. Would be nice for this to land given the ARM fix and general cleanup.
+On 14.11.2024 12:20, wojackbb@gmail.com wrote:
+> From: Jack Wu <wojackbb@gmail.com>
+> 
+> Because optimizing the power consumption of t7XX,
+> change auto suspend time to 5000.
+> 
+> The Tests uses a script to loop through the power_state
+> of t7XX.
+> (for example: /sys/bus/pci/devices/0000\:72\:00.0/power_state)
+> 
+> * If Auto suspend is 20 seconds,
+>    test script show power_state have 0~5% of the time was in D3 state
+>    when host don't have data packet transmission.
+> 
+> * Changed auto suspend time to 5 seconds,
+>    test script show power_state have 50%~80% of the time was in D3 state
+>    when host don't have data packet transmission.
+> 
+> We tested Fibocom FM350 and our products using the t7xx and they all
+> benefited from this.
 
-Thanks,
-Ian
+Possible negative outcomes for data transmission still need 
+clarification. Let me repeat it here.
+
+On 06.11.2024 13:10, 吳逼逼 wrote:
+> Receiving or sending data will cause PCIE to change D3 Cold to D0 state.
+
+Am I understand it correctly that receiving IP packets on downlink will 
+cause PCIe link re-activation?
+
+
+I am concerned about a TCP connection that can be idle for a long period 
+of time. For example, an established SSH connection can stay idle for 
+minutes. If I connected to a server and execute something like this:
+
+user@host$ sleep 20 && echo "Done"
+
+Will I eventually see the "Done" message or will the autosuspended modem 
+effectively block any incoming traffic? And how long does it take for 
+the modem to wake up and deliver a downlink packet to the host? Have you 
+measured StDev change?
+
+> Signed-off-by: Jack Wu <wojackbb@gmail.com>
+> ---
+> V2:
+>   * supplementary commit information
+> ---
+> ---
+>   drivers/net/wwan/t7xx/t7xx_pci.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/wwan/t7xx/t7xx_pci.c b/drivers/net/wwan/t7xx/t7xx_pci.c
+> index e556e5bd49ab..dcadd615a025 100644
+> --- a/drivers/net/wwan/t7xx/t7xx_pci.c
+> +++ b/drivers/net/wwan/t7xx/t7xx_pci.c
+> @@ -48,7 +48,7 @@
+>   #define T7XX_INIT_TIMEOUT		20
+>   #define PM_SLEEP_DIS_TIMEOUT_MS		20
+>   #define PM_ACK_TIMEOUT_MS		1500
+> -#define PM_AUTOSUSPEND_MS		20000
+> +#define PM_AUTOSUSPEND_MS		5000
+>   #define PM_RESOURCE_POLL_TIMEOUT_US	10000
+>   #define PM_RESOURCE_POLL_STEP_US	100
+>   
+
 
