@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74443D68B27
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 14:14:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A672D68B26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 14:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tp6HHXvFzZMIMq2zkDy+IUSxS8v5sPP/mOnIb7odT7k=; b=W9DQFQE85yXmy9g8IQWgP44rR7
-	O8MIsavfQcBcDvspH84Rol1RzBReNaaXYdH5iISTPgDbjGatSul3DyqTdvwUCMM6LvBLeqgS9fAAp
-	HEVBMWJp8TsI87FWEaEv/5PESj3VewDFlqHu5T42lsxtJLh24W8h6EC57I6xM4CFTim4h2+ckdwhA
-	8qD8/uywiu+AgZrbVRiz64xmvGCrjbjobQx2KW3JuwLq701SK58JAHF+MwbmkeZ5Oux2njNWiartI
-	fTBhLXc5TsCKaHpCizDPylavIYS1E1MGfz9SeZ/fmKo4sanmYfb2Ye9wYryPBXG0MuaIkxWTEdgCt
-	ruTD9+kQ==;
+	bh=OeQPBbRjfbzEeBh5C0Zu4fUuTp84BIPopKnNFoCv+Eo=; b=3ZviBhQ8a6xrEwjz4N+90B++Du
+	cclLVJZfVG0+RvqO+ID+2qlolTzKhKsGgYKtYV/jbfPW96lrTZWxryVUvl+vtN5lYe7z4Le8IoAth
+	6ihBjmSBHlJm4ik/jbcMN9MkAaE8CWBLY5+BxaHadRrJAz4CRow959vyLnkwkC/MM+d1U1G3ia8ZE
+	0/QpZvLDiM9NKX2yEWNkJkabw+eZJ27Nj3ugAbZ6K1s6ANUttCC/1g8vKvdXAD2binJ6tSv6gtDe9
+	GE61iWP0q+ARlda/KprUjndAWLuM8OH7fWXTL1nP2QVIMbsaNRSjQxCgOmdmwYfB7nSzu57kzoWpD
+	erJmhGow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBacC-0000000AAPb-3WnZ;
-	Thu, 14 Nov 2024 14:14:32 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1tBae3-0000000AAk1-2Bjm;
+	Thu, 14 Nov 2024 14:16:27 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBaZx-0000000A9uS-1WBS
+	id 1tBaZx-0000000A9uP-35Yo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 14:12:15 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4Xq2Cl0r0Jz1yqBN;
-	Thu, 14 Nov 2024 22:12:19 +0800 (CST)
+	Thu, 14 Nov 2024 14:12:16 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Xq2B60Qdbz21l8y;
+	Thu, 14 Nov 2024 22:10:54 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5570318002B;
-	Thu, 14 Nov 2024 22:12:07 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id C663E140259;
+	Thu, 14 Nov 2024 22:12:09 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Thu, 14 Nov 2024 22:12:06 +0800
+ 15.2.1258.34; Thu, 14 Nov 2024 22:12:08 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
 	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
@@ -49,9 +49,9 @@ CC: <linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
 	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
 	<linuxarm@huawei.com>, <yangyicong@hisilicon.com>, <xuwei5@huawei.com>,
 	<guohanjun@huawei.com>
-Subject: [PATCH v9 1/4] cpu/SMT: Provide a default topology_is_primary_thread()
-Date: Thu, 14 Nov 2024 22:11:24 +0800
-Message-ID: <20241114141127.23232-2-yangyicong@huawei.com>
+Subject: [PATCH v9 4/4] arm64: Kconfig: Enable HOTPLUG_SMT
+Date: Thu, 14 Nov 2024 22:11:27 +0800
+Message-ID: <20241114141127.23232-5-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20241114141127.23232-1-yangyicong@huawei.com>
 References: <20241114141127.23232-1-yangyicong@huawei.com>
@@ -62,8 +62,9 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_061213_819263_FAB0C3B4 
-X-CRM114-Status: GOOD (  16.67  )
+X-CRM114-CacheID: sfid-20241114_061213_951437_E5A439CE 
+X-CRM114-Status: UNSURE (   7.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,86 +81,25 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-Currently if architectures want to support HOTPLUG_SMT they need to
-provide a topology_is_primary_thread() telling the framework which
-thread in the SMT cannot offline. However arm64 doesn't have a
-restriction on which thread in the SMT cannot offline, a simplest
-choice is that just make 1st thread as the "primary" thread. So
-just make this as the default implementation in the framework and
-let architectures like x86 that have special primary thread to
-override this function (which they've already done).
-
-There's no need to provide a stub function if !CONFIG_SMP or
-!CONFIG_HOTPLUG_SMP. In such case the testing CPU is already
-the 1st CPU in the SMT so it's always the primary thread.
+Enable HOTPLUG_SMT for SMT control.
 
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- arch/powerpc/include/asm/topology.h |  1 +
- arch/x86/include/asm/topology.h     |  2 +-
- include/linux/topology.h            | 20 ++++++++++++++++++++
- 3 files changed, 22 insertions(+), 1 deletion(-)
+ arch/arm64/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/powerpc/include/asm/topology.h b/arch/powerpc/include/asm/topology.h
-index 16bacfe8c7a2..da15b5efe807 100644
---- a/arch/powerpc/include/asm/topology.h
-+++ b/arch/powerpc/include/asm/topology.h
-@@ -152,6 +152,7 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
- {
- 	return cpu == cpu_first_thread_sibling(cpu);
- }
-+#define topology_is_primary_thread topology_is_primary_thread
- 
- static inline bool topology_smt_thread_allowed(unsigned int cpu)
- {
-diff --git a/arch/x86/include/asm/topology.h b/arch/x86/include/asm/topology.h
-index 92f3664dd933..d84d9b6d8678 100644
---- a/arch/x86/include/asm/topology.h
-+++ b/arch/x86/include/asm/topology.h
-@@ -219,11 +219,11 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
- {
- 	return cpumask_test_cpu(cpu, cpu_primary_thread_mask);
- }
-+#define topology_is_primary_thread topology_is_primary_thread
- 
- #else /* CONFIG_SMP */
- static inline int topology_phys_to_logical_pkg(unsigned int pkg) { return 0; }
- static inline int topology_max_smt_threads(void) { return 1; }
--static inline bool topology_is_primary_thread(unsigned int cpu) { return true; }
- static inline unsigned int topology_amd_nodes_per_pkg(void) { return 1; }
- #endif /* !CONFIG_SMP */
- 
-diff --git a/include/linux/topology.h b/include/linux/topology.h
-index 52f5850730b3..b8e860276518 100644
---- a/include/linux/topology.h
-+++ b/include/linux/topology.h
-@@ -240,6 +240,26 @@ static inline const struct cpumask *cpu_smt_mask(int cpu)
- }
- #endif
- 
-+#ifndef topology_is_primary_thread
-+
-+#define topology_is_primary_thread topology_is_primary_thread
-+
-+static inline bool topology_is_primary_thread(unsigned int cpu)
-+{
-+	/*
-+	 * On SMT hotplug the primary thread of the SMT won't be disabled.
-+	 * Architectures do have a special primary thread (e.g. x86) need
-+	 * to override this function. Otherwise just make the first thread
-+	 * in the SMT as the primary thread.
-+	 *
-+	 * The sibling cpumask of an offline CPU contains always the CPU
-+	 * itself.
-+	 */
-+	return cpu == cpumask_first(topology_sibling_cpumask(cpu));
-+}
-+
-+#endif
-+
- static inline const struct cpumask *cpu_cpu_mask(int cpu)
- {
- 	return cpumask_of_node(cpu_to_node(cpu));
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 70d7f4f20225..5eecd2e2c093 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -243,6 +243,7 @@ config ARM64
+ 	select HAVE_KRETPROBES
+ 	select HAVE_GENERIC_VDSO
+ 	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
++	select HOTPLUG_SMT if HOTPLUG_CPU
+ 	select IRQ_DOMAIN
+ 	select IRQ_FORCED_THREADING
+ 	select KASAN_VMALLOC if KASAN
 -- 
 2.24.0
 
