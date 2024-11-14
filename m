@@ -4,166 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1668DD65C64
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 09:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8365ED65C66
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 09:45:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/8EvWtEao6d6hMqRqEtX62bvgP6Blu47T3zMYNngkTk=; b=SOVszdkUW6lydLGM/m3y79Dl56
-	LHgAg0TSqnmNFZcHT7QKye8TpuILrOXWKNF1NkY72Rr50xz9UtKk9DBDOXwJj+w1OJC18+rVjDhal
-	dIBnVsW+nuCQrCbNd72ydRniVSubSL4rz0YbyqcdwGAh38AU4+rYLU+1DfL3ceNHWn+mSJjlb8lVf
-	IDqzr3bTJEyrRFqLcU+wt8VdVyfxT2epjF2veIIgxCKGjI7+qD+Ra9O6Ml6Qs8+jvJekgAgjISEsD
-	zhCdwBx49l0h2VaA8V62hP5BGFJNO6scoXbiKE85HcNT6yDjJErZNtpWzdFjZSMD94F+x1d7VV2Qi
-	F79Q2Rhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7E3oRv+rq/XKtcZoaXZsJTQg3amz2zyCTxOxkN0m2BA=; b=WeBl2o7N+wjQZBixR0ITaQOwt0
+	IkiYABqd1/Lk9xVP0M+rTFTl1k4RwtZ/MolEamxdVHpHkBpsrETu41w+GWd/40f6TqpaPimvcd66I
+	HYv4W1MvSQIxSU0iHrDqFSKnp2UaNvJcvVdIFll6rtqu16V4jup37LvbfeAu1g7EDXZ1zYoSi6BqV
+	ssxjsPddsq85Dp/3zkkH2gq5njsbsnZF71afcJqgA/MOd9g4wVzQxAUN95vkycrpENayl93YOkVlL
+	yVaxpCgi+6iDy7u4ELVXySqL43xw3QO16gqs80/VpB0ZGiwwEH1652dtwst+Y268PrYjXqyafN/aS
+	w754x/4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWLW-00000009Okn-3CJy;
-	Thu, 14 Nov 2024 09:41:02 +0000
-Received: from mail-am0eur02on2062e.outbound.protection.outlook.com ([2a01:111:f403:2606::62e] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1tBWPc-00000009PKz-0rlq;
+	Thu, 14 Nov 2024 09:45:16 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWJf-00000009OTo-34gz;
-	Thu, 14 Nov 2024 09:39:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=geP6ciJtVSCsI1tjklGJqTVOCaObdP4ZGfqgdA6Q2dq/k3I7BhH1Nk5Ov7zpyOS0gk9xoHYHsvVZLiHm2HeIin4zoy3dokOaSWPzR1ETf1EtpyPRidcxEvd3E/n/mECrbuWlRdlNAPHrezBBLNudlUDwPp93lPI6JKoTPlBvlPMvkoXe5uBSbvjmk6uLMMpaAKWZPMAntqqGjs4lgMIx0xKEzac6USX3x25AQmKbj63MscYT7Oe5swBgBcKofSDQ8mADWO+o9Q2OR97WFaVat4enYxxLNv6acCopmaY1ocktGx0cyYtwuDL1D2AJQ/ViDqEhMpjGlMEBmLvelks65A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/8EvWtEao6d6hMqRqEtX62bvgP6Blu47T3zMYNngkTk=;
- b=ruReq9nDaANDYCJNCR9Xwlsblfbj9XfoGQG6w228AP5SDuG61JqpqK4HpaeCq4G6go2WuyqiT3Wn3Xn9J8hm+Crf6HZSNLUagoBvBei5VN1KtbdEsDSAd+iGCG12MY4WpeMh0QKZeBrgmK+YWhby+NHiYFI2/By+hUaOAaSD43bTVL+YFOA2jC3g/VZwRkDy1j1xafuOLTMraGqZTSPD2+8hdo+/tBoOS2Qtc/z0Jyw8OOVi5Ovzpg4dxHLFDGn794jxSyig/AyvnUIAaN3bKmlvddZQ16Kabzh32Ot8kP2yKeU8zRhBpGHG+RwhIHbdHq62q0pREoP/W90FE7m9Og==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/8EvWtEao6d6hMqRqEtX62bvgP6Blu47T3zMYNngkTk=;
- b=MIuvpyDqxDD8+U+U7GRz084E4ZpQ+EGCsUiXMex3qlYsehA2UAEUUZPCRvsCD8x39N1K99aKFrviVUgl+G5YE/8MmSWkUypZjZpVeycWI2AlSJrnmpiLE/GFMtB1IetjvrmQSqvK2+0QsI4Gzv/1joOC1KoXarUSMiGHcquBx/8=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by DBBPR04MB7627.eurprd04.prod.outlook.com (2603:10a6:10:208::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.18; Thu, 14 Nov
- 2024 09:38:58 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%7]) with mapi id 15.20.8158.013; Thu, 14 Nov 2024
- 09:38:58 +0000
-Message-ID: <030c3b0f-9396-4fbb-af4e-cf2cb58ffac1@cherry.de>
-Date: Thu, 14 Nov 2024 10:38:56 +0100
+	id 1tBWNk-00000009P3t-1O2C
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Nov 2024 09:43:21 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2ea0bf6bebbso122559a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 01:43:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731577398; x=1732182198; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=7E3oRv+rq/XKtcZoaXZsJTQg3amz2zyCTxOxkN0m2BA=;
+        b=YL6ln98OkgxPJgAjhtn3bVXitUydA/SjwJLmwp3zZz9ow/56BWEGgvoYrba2p6vx5I
+         C4tdfOwqdWVavYwntHv7L3iLBDjVUuieJWgz9m2tTCrFv5e+0jGTkL7JGxJvQoHAibSX
+         8KRYhOk/yozusEvy4fZcvmf98TsUXfIGN4DfoNJWygDN9Ht15gq8JOrPZSgU6v1J10sz
+         WDhMOvv7Zw5azQiOiIHjLOrO3Jvsov2Fq8Gzx/+lEtYRaI5hdSVf0RJgw5jMrCodYJZ8
+         Mgc2yTMgP0FCjYcAPlTLw768/3SCP2/jNbifM2xwHCOp3d5fnkZAmqS8RVcivYLEEa8H
+         miqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731577398; x=1732182198;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7E3oRv+rq/XKtcZoaXZsJTQg3amz2zyCTxOxkN0m2BA=;
+        b=r+8da3XmA4QAhE+a2rBCQOgcQXCGHNiulPthvATTOczY9FI7BYkGW9QOa3cWnr7v5y
+         hAbXHSE7cCRBcSpltZ3W7QQAt57NBbjEM2d8Jowe+rvexGf7d07fEnmFqYp8e6K4VXk8
+         BIZiZoPO2asw4qSr9go1JGTbJiNqAxVRdH80U/1X6X78trSfTVzwrux57Li3sxDPqzF+
+         2RmlsmEkG03LcetIqgdUGaxuceBI7gLGQURDcOkKbCTkV55AAdfRpmY8gHVtj7ZcEsx3
+         XLqhzLQLFHHLvZgVdb3PxPjib2LJi+9J6Hqr+OF5/el4fUuVKnrZydba2ec4mxMKbYfe
+         ebSw==
+X-Forwarded-Encrypted: i=1; AJvYcCURIl3CVSWjvAdrVvTgT/LqRV6zxypZ+vVEbf242onZHCQuUeKA2kLnOhWWV1MJIf8s8SLi93/Yk5sNPp+qHy2T@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3i5G70CUqZ5N44RyfB4c2rQG16j+dpQ8ZvEcGjXPcvE+Jfiuq
+	GXrMD0hl1JB0Q7OndASqpfq30ayfBC5si05sgvDHH0x6qajw7qbD
+X-Google-Smtp-Source: AGHT+IE7N5I7GpMECo0it1xEKMgqYnL8RbOemjcjR8CajkVg4l/czbLMGpNGruEWzRMOSH4KompvSQ==
+X-Received: by 2002:a17:90b:3ec5:b0:2e9:5f95:54c1 with SMTP id 98e67ed59e1d1-2e9b173c441mr33338891a91.17.1731577398096;
+        Thu, 14 Nov 2024 01:43:18 -0800 (PST)
+Received: from [192.168.0.101] (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ea06f9c51esm783484a91.39.2024.11.14.01.43.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 Nov 2024 01:43:17 -0800 (PST)
+Message-ID: <bbc212a7-ae42-461a-b0a9-509838053ab2@gmail.com>
+Date: Thu, 14 Nov 2024 17:43:14 +0800
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] drm/rockchip: vop2: fix rk3588 dp+dsi maxclk
- verification
-To: Andy Yan <andyshrk@163.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, hjc@rock-chips.com,
- andy.yan@rock-chips.com, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
-References: <20240425195506.2935955-1-heiko@sntech.de>
- <20240425195506.2935955-2-heiko@sntech.de>
- <cb73853e-4201-4cc9-9e8a-f977e66241f6@cherry.de>
- <72672888.8f9.1932826549b.Coremail.andyshrk@163.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: net: nuvoton: Add schema for MA35
+ family GMAC
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: krzk+dt@kernel.org, mcoquelin.stm32@gmail.com, davem@davemloft.net,
+ conor+dt@kernel.org, pabeni@redhat.com, richardcochran@gmail.com,
+ devicetree@vger.kernel.org, joabreu@synopsys.com, edumazet@google.com,
+ linux-kernel@vger.kernel.org, kuba@kernel.org, schung@nuvoton.com,
+ yclu4@nuvoton.com, ychuang3@nuvoton.com,
+ linux-stm32@st-md-mailman.stormreply.com, openbmc@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org, alexandre.torgue@foss.st.com,
+ netdev@vger.kernel.org, andrew+netdev@lunn.ch
+References: <20241113051857.12732-1-a0987203069@gmail.com>
+ <20241113051857.12732-2-a0987203069@gmail.com>
+ <173147854152.3007386.10475661912425454611.robh@kernel.org>
 Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <72672888.8f9.1932826549b.Coremail.andyshrk@163.com>
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <173147854152.3007386.10475661912425454611.robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0155.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ba::9) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|DBBPR04MB7627:EE_
-X-MS-Office365-Filtering-Correlation-Id: 450ae1bc-8f00-41d4-3030-08dd0490299b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NktUaGtZeGNWQ3VmUEk1TEEzR3BURndOYWE4WG9OaFpwcGhVbURCTHMvK1hy?=
- =?utf-8?B?VDBIVHpHeXQrNy8ySzJhYUJUWWVtQm5YdGFxUk0zRkZIQzh1SE5aaFF3d2RJ?=
- =?utf-8?B?V2FxTlc5U1ZINzJ2Q1V2UUM5YjNPN3RQN2toVzE3eSsrcmhGaUx3Znkxai9Y?=
- =?utf-8?B?dmJPZm0rZm5qWkpSb3hTOGZ2YUNDWTQ5MVNvT3BBdjgvc0xINERscUpRK3lW?=
- =?utf-8?B?TldRbm10TUU0bTUxcDVLeFhncTZ5aTR4SzRoYkJ6amhpZlZnWGhrUmZ3aUI1?=
- =?utf-8?B?YXFKL1RiNXpEcGhMaTJVdTUrWURiMHlqWG1xTkhqalUzejRFNXA1dEl2cVJ4?=
- =?utf-8?B?akk1cjVWbVpyMDRFZ2lteFRLNnRTZW5EV3Y4Zk0yWWxoaW1tY0c5LzBLN1l3?=
- =?utf-8?B?cks5OTRTOWtRR0tXVFdjakJGc3FFcHljYnN1aTZWYW1VeFhLUGUwUVFaYm1y?=
- =?utf-8?B?OHBwYUJXZ0JWb0V6OXFVUnhvRjYrejJ2RmxQQ0VkbExsR01XVTlIT0RSanBy?=
- =?utf-8?B?MXQwclJaYVp2NlVtcWxuMDNDS2l2UncxbW1oYVRBVjYyM0o2K3FCZDRuY3Jr?=
- =?utf-8?B?UVhpc3I2czJLcnliZ0hQYTZVbnMvN0lSUHFNcG9RWGhjTG43a0s1VENpMkVq?=
- =?utf-8?B?UFJuWFVaN2lxV3RDR3lSczJ4cTNCQUpOS3IvZG5hcExteUx1TE00aVk4Nzlx?=
- =?utf-8?B?UDNpWUlYdCt6c0JBb3MzNkZMb3RnTGp0WllxdVI4TlJrSEVSWlBBWjJHNW9S?=
- =?utf-8?B?OEVkUm4xa3A2ZXlNWlQwdmhBS0NpMmZnbjNVbXNuazUyZ3duT0RsM251V20v?=
- =?utf-8?B?cmtrL3JkVHFuK3ZOS3p0NGVyNXZ0QTJBaDkrV3dZSi9Tb0M0a3FJZ3ZqYXA5?=
- =?utf-8?B?Y3ltU0hkTG9HRVZ4Y0I3R2JxdXVMSW9LdWxlL1ZxU1BwcGZ5a3EwcHEyL0Fs?=
- =?utf-8?B?VVZHVHdVei8zdTRDS1ZBa2tHM1FMQ3NaUnJ3OFUrRm1lODVnWU5WRHdMaFds?=
- =?utf-8?B?dlBOR2RyY1RSRHVwTXI4ZG1TSTVBZWxpY0xvUGxUUjlEdGhqMmVvRmpPVzFY?=
- =?utf-8?B?ME5IYklxTkdsWFVwZXVHVWpjZ0hDWG1mM0FrcHRhRXFJdE5MT2tvUCtaWlV2?=
- =?utf-8?B?QkhUUnIxS2hTeVVWdzFZYXgwUVJnaHVXeFU0WjdVSVhxWncxWGJ4YU1tcHJL?=
- =?utf-8?B?c05QcGsweEZjOVhEK21pOElZZERHZnNxWG11K2RULzh4SUhPWnc2NXVPODFX?=
- =?utf-8?B?U0pTd2V6azBHbk1VVk9KT3dra3NaRGNUYnRDampvSVVpUkV2YXEwOEEyRlhU?=
- =?utf-8?B?YmFSeWJVUjBvcU9OQ3ZYUTFBUDFHUU5KbG9JT3JzdWlLdllkNURHYkNWcC9C?=
- =?utf-8?B?Y2hEZmlXNkxQdE1zYkN2QzRNTTNtUWNKd0o2cGExSEEzQ3pEd1BRa05GcTZm?=
- =?utf-8?B?RHR4M0hZMHVBVm5VL0NLQmY0MGlDbEg1ZnNoa3VNcXlJTGpuRE5kdG9PWlN4?=
- =?utf-8?B?WnAzbXRiTTVzOU12WjBkcGxON01xRVRCeW9rb1dHS3RHTFFlQ2h4amxBSHdS?=
- =?utf-8?B?ZFdZQVpYZ0FSOFJGdHVGaElyQ0RTcWZlY3NtZk43V296TDJmK3Z5MXN0Z1VV?=
- =?utf-8?B?SVFxRktsZ3pJUlFOQ3Vrd0JWeldhV1A4MjAzNjNaeWJsY2NtQytId3lEdG9h?=
- =?utf-8?B?K3g5bGd3V1NyUkY3anR4QnZJaUVsSVpwSXZFZHYzUVp5dlVmVzVyU0hCUlFT?=
- =?utf-8?Q?cASxPu0o35U1Q7wiuAUnNn41ClRypRrd2QbRFfV?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M3dvSFVFY3J1STZ2QnZCTWJhaDhsYXlnYXNJVlViYUlDU2ZuSUVZL0NMUTNR?=
- =?utf-8?B?TVRuZG5BUTdLYXBBMndoT3RmS3NCWU9RR2R4R3A3NnQ0MVFNNEhRc281WEhE?=
- =?utf-8?B?TGNZUDE5cmpWa2pTSGhTSW1nZ3lXMTd1U2dNSkVCTEZBV01nZU9uZ01Rd0ZW?=
- =?utf-8?B?NE1TR2F6bjVoc0orMjBCOEpUdGNTWU5ZVDFxVFA4NDdId3lFa21tbGwvSi9P?=
- =?utf-8?B?ZmdnZ1VqUjh3L2czWWxYdkZydkdueDAyYjVlVzZ4Qm9vZnp1VDZpTHQ0K1dI?=
- =?utf-8?B?b0lKWi8yM0hKM1NFTElndEozcTROd2FqK3ZEQlA3QVg5b1ZaU2RxTUlMTWRi?=
- =?utf-8?B?amZaZk1rL2J4Nk5ubTVRVHBGM3VTZzlOdTNTUklwMURWMm51MEJ1eXV0Q0sw?=
- =?utf-8?B?ZUtYRWdva0t3OUs3eEtVMzMzUzRsK1czR3pBdllobmtJSzhlbG9nck9JK2gv?=
- =?utf-8?B?U3pGbGF0U1MxajNhdTZDeDBiZHRGcGMwb0g2M01MNFhlcFJjL0I4cHR3aTVG?=
- =?utf-8?B?YTB4OUJIaG1LRlBwRTFXV2lFMXUybmlJRGFnSVBCRG9IOXNoaGY0VklmNFFV?=
- =?utf-8?B?aWtGVU5wRXVZaFFnZWhvQW1xN3dJeUw2QlpHY0l1WGlEMWlrbW1UV2V1L0to?=
- =?utf-8?B?eWRGT0o4U3lzOStMOU4zY2hldGwyZDFvNVJIOElYaXNjK2tFcTV6YkRiaUxR?=
- =?utf-8?B?Qkt0M1RKZDlHS0VzNjJnZkVhSWo5eVVDRWpZYTBQV2puMVA3MlVnVTl4bEtE?=
- =?utf-8?B?US9Mb2poOElpM2F6bUdrTnJCTHMrZ3BXMUI0VUxUdmxuQ3J2WEtFMmhNVjU5?=
- =?utf-8?B?T3MzMVM5LzJaZTBtdWl5eXNXVVpmZE9adS96d0lHQ24rRnZHVmt2ZDl3bHpw?=
- =?utf-8?B?dW1nRVBwY2QwRHdiNkl5VytLeTJ5UWRKdUhUQ2UrbEJjR1JKUlRjbnlteG5u?=
- =?utf-8?B?QWFWLzlqZ3IyYmptRDZaUDl2VEtjTHFVc3Azb3o0alBKaFo1N0crUXI2cit3?=
- =?utf-8?B?dVVoOUgxOE16ditadkNydSt5UHFQdW1NOFpnbUs4N2lvamFvNnEvelRDUFl5?=
- =?utf-8?B?L2tYbnZaSXRXcFhJNG1TcDRyZjN4SEZwL2psd2RzdmZBbTltMDNlQUZ2dHBy?=
- =?utf-8?B?Zi8zMkZCS1RKMVZ1UEE0SGk1aTRUcHk4aXJNMFpEeDI4WkpPeGlHMktpcGdu?=
- =?utf-8?B?TGNtMktTVmxsT3ZEUXdPcEdSY2FNckZSQnliV25NMmlwR1N3bVg5ck9OdGxP?=
- =?utf-8?B?bVU5akdHZ0k5eVJSSVF6aDA3R2IvdjJDYUpTZTl6akFEQlR5L05OZmFsVWgy?=
- =?utf-8?B?WDVHWURmMDZFS25LQm9ZOFRLMDBNYnZNQUczWW10R2FJcE5QZVlHeUZwUm9y?=
- =?utf-8?B?SWg5VEkzZGJyUXBXMjYxQkFHTTBpQWJuT01jd3ZlRmMvN2hRQ0xIVEtudk52?=
- =?utf-8?B?THEwSXhKdHg4ZzcrQVllYTVhSk14RGVYNkpOeVBHbTV5bmZ4QVV2UjJQZDF1?=
- =?utf-8?B?UmpNT0hadUdhUnJERllQdzhqVnA1Q09rZjJ4N1ExOW9NSFh2WkpQTnRvKzEz?=
- =?utf-8?B?TUU3Sjd2b0RQbkdTZ3NzYTJ6a0QvSm1hL3hORnpwM1pZZFFjRElhbWhnNUNz?=
- =?utf-8?B?QmFUNWlVTXQyVmtueGhUMHo2Y3Y4Sm1kRFBCazJCaDlXY2ZVQnZVVTJNUllG?=
- =?utf-8?B?cVFVTzQ1dEgxQkdnRDlXZkNFdk1GVUFWZHhPSlZwMDRaNVpIRGRDOFZNbEhC?=
- =?utf-8?B?NTlFb0VJNWJsVG16bmRVN0tvNFQxaWpWYzZ0ZkJqNVU4WHZpZW54MWZkbjVG?=
- =?utf-8?B?dU8xZjN6Q3R1a1BlMEJCZDJPNDJZaWpOWnJpd1NWLzNveE8wKzJVajlNQ3ZM?=
- =?utf-8?B?bllGbkZqeEFTNVd3cFZBMXUxVnVEamludjFjUFlxZ2gybE1mNWd1cXZVZXpi?=
- =?utf-8?B?YlJlelkxUUtqSjdtaS9tM1VKOGxheHVVTjFza1JRcWlUZ1lJMnF5dzIxc3ZU?=
- =?utf-8?B?Wmk3UU01RE9nQzBHZ1NjMEpzUmZxUEpTUXdYeDdYNk1iUmpHdzFubTZKS2lV?=
- =?utf-8?B?M1ZzVElCSjRDTGxwTm03NTI1dHpMcmU3cVY0NHlQaDg3Q2U0NTRNUGwvSkZj?=
- =?utf-8?B?bEpxeXpPNWpZRVVxaXhhWHRCaWRZaDNYV0RTc1FVd0tWaDZ2TDU0K1FWdVg5?=
- =?utf-8?B?Wnc9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 450ae1bc-8f00-41d4-3030-08dd0490299b
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2024 09:38:57.9229
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3/Q59u+mrcwrdkFFW5OZIKK4CfMADPPziABtV/vjk9bG+Xj1K97wWaQGzzrsu4F1YVquz3DuHRP3dfNdHnJhrQ6YzqM4Y13pj5XNbt5YwQ4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7627
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_013908_005920_D4906672 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20241114_014320_416777_010A2806 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,55 +103,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+Dear Rob,
 
-On 11/14/24 1:50 AM, Andy Yan wrote:
-> 
-> Hi,
-> 
-> At 2024-05-06 15:44:36, "Quentin Schulz" <quentin.schulz@cherry.de> wrote:
->> Hi Heiko,
+Thank you for your reply.
+
+On 11/13/24 14:15, Rob Herring (Arm) wrote:
+> On Wed, 13 Nov 2024 13:18:55 +0800, Joey Lu wrote:
+>> Create initial schema for Nuvoton MA35 family Gigabit MAC.
 >>
->> On 4/25/24 9:55 PM, Heiko Stuebner wrote:
->>> From: Heiko Stuebner <heiko.stuebner@cherry.de>
->>>
->>> The clock is in Hz while the value checked against is in kHz, so
->>> actual frequencies will never be able to be below to max value.
->>> Fix this by specifying the max-value in Hz too.
->>>
->>> Fixes: 5a028e8f062f ("drm/rockchip: vop2: Add support for rk3588")
->>> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
->>> ---
->>>    drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 4 ++--
->>>    1 file changed, 2 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->>> index 9bee1fd88e6a2..523880a4e8e74 100644
->>> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->>> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->>> @@ -1719,7 +1719,7 @@ static unsigned long rk3588_calc_cru_cfg(struct vop2_video_port *vp, int id,
->>>    		else
->>>    			dclk_out_rate = v_pixclk >> 2;
->>>    
->>> -		dclk_rate = rk3588_calc_dclk(dclk_out_rate, 600000);
->>> +		dclk_rate = rk3588_calc_dclk(dclk_out_rate, 600000000);
->>>    		if (!dclk_rate) {
->>>    			drm_err(vop2->drm, "DP dclk_out_rate out of range, dclk_out_rate: %ld KHZ\n",
+>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+>> ---
+>>   .../bindings/net/nuvoton,ma35d1-dwmac.yaml    | 170 ++++++++++++++++++
+>>   1 file changed, 170 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
 >>
->> It seems the error message is incorrect as well and should be saying Hz
->> instead of KHz. (note also the lowercase z).
-> 
-> I think kHz is fine, we can find many siminary usage in drm:
-> 
-> drivers/gpu/drm/drm_vblank.c
-> 656:    drm_dbg_core(dev, "crtc %u: clock %d kHz framedur %d linedur %d\n",
+> My bot found errors running 'make dt_binding_check' on your patch:
+>
+> yamllint warnings/errors:
+>
+> dtschema/dtc warnings/errors:
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml: ignoring, error in schema: properties: compatible
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml: properties:compatible: [{'items': [{'enum': ['nuvoton,ma35d1-dwmac']}, {'const': 'snps,dwmac-3.70a'}]}] is not of type 'object', 'boolean'
+> 	from schema $id: http://json-schema.org/draft-07/schema#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml: properties:compatible: [{'items': [{'enum': ['nuvoton,ma35d1-dwmac']}, {'const': 'snps,dwmac-3.70a'}]}] is not of type 'object', 'boolean'
+> 	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml: properties:clock-names: 'oneOf' conditional failed, one must be fixed:
+> 	[{'const': 'stmmaceth'}, {'const': 'ptp_ref'}] is too long
+> 	[{'const': 'stmmaceth'}, {'const': 'ptp_ref'}] is too short
+> 	False schema does not allow 2
+> 	1 was expected
+> 	hint: "minItems" is only needed if less than the "items" list length
+> 	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml: properties:clocks: 'oneOf' conditional failed, one must be fixed:
+> 	[{'description': 'MAC clock'}, {'description': 'PTP clock'}] is too long
+> 	[{'description': 'MAC clock'}, {'description': 'PTP clock'}] is too short
+> 	False schema does not allow 2
+> 	1 was expected
+> 	hint: "minItems" is only needed if less than the "items" list length
+> 	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml: 'oneOf' conditional failed, one must be fixed:
+> 	'unevaluatedProperties' is a required property
+> 	'additionalProperties' is a required property
+> 	hint: Either unevaluatedProperties or additionalProperties must be present
+> 	from schema $id: http://devicetree.org/meta-schemas/core.yaml#
+> Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.example.dtb: /example-0/ethernet@40120000: failed to match any schema with compatible: ['nuvoton,ma35d1-dwmac']
+> Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.example.dtb: /example-1/ethernet@40130000: failed to match any schema with compatible: ['nuvoton,ma35d1-dwmac']
+>
+> doc reference errors (make refcheckdocs):
+>
+> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241113051857.12732-2-a0987203069@gmail.com
+>
+> The base for the series is generally the latest rc1. A different dependency
+> should be noted in *this* patch.
+>
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
+>
+> pip3 install dtschema --upgrade
+>
+> Please check and re-submit after running the above command yourself. Note
+> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+> your schema. However, it must be unset to test all examples with your schema.
+>
+These warnings/errors will be fixed in next patch.
 
-The issue is that we print kHz for something that is in Hz, not that we 
-print a value in kHz.
+Thanks!
 
-The former is incorrect, the latter is fine. We are in the former 
-scenario here I believe, so it needs to be fixed.
+BR,
 
-Cheers,
-Quentin
+Joey
+
 
