@@ -4,86 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE45D65C57
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 08:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D5CCD65C5B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 08:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QLyvFPHpxm3Z8eNHyU2D0j8hgC2REPkIyuqNLE8iojs=; b=V8ZuRt4ObeywXeMgqXxf7UytH0
-	6HhjXP4xSU6MkY6dQS2RK3tv999/N5By4LJwJlmKrCCYryohvzWwA8A+p3Zarj+K7x7Gak5HmBSIs
-	6kBRi7DQW57yKHFM4QOGIUlrikBR7+4B/+JTCxy+ss7KLsyq8+zQDomPwpKAu0SnQPpbggxiV/NXf
-	GgXgflaiz+JsCIZFpj3nAdK2xK6ryyxHAHv6svUEb2wmd+BoYSAMbJSNw2jjGEA8NgTgedeOjkLf6
-	Y/I+AQLnbRLTV88RzAxavFvtfRHeB/HsCtqYflJxlcF/W4nTtCiuHn8Hgti0LfyNcxx9eLYD9ab5s
-	gOtkPJ1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ToT77NODsvlbLTUvpom6vRLwi61ldhVszxA0ETyzPrk=; b=ZYGPxnBNiSpYyqOrQqVpwKTHZP
+	W/do5TbeHQvkGK7wc36nDs7VY4jLgUm/3GyyeTaVihmHUU9oRNWO4jss6+z9pLDh7R99tp9J42kf5
+	NVmp9heQjJlM5zvhm9Kjblpo1sjytMNYTFCVs+4n293lfNUgkdOxExoVx05/0bzv2NiWI8ktTj2/U
+	OjQ449a/Sp46vJqewn7vcd3URmiALhAOXA38RZuxGIglTUxRokmTvgaDrjm5c/1QzTcHVJn37MRli
+	43xtmy6qPJgsEP1cdl9Xw44Jyj4kgvOMX4ggi2nr0ALpJyaQu1yci1eH5SzszB28xSOJDJ3n4fB0z
+	DT1/BfUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBVHD-00000009DQ9-3G7e;
-	Thu, 14 Nov 2024 08:32:31 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1tBVfv-00000009HLP-0hxB;
+	Thu, 14 Nov 2024 08:58:03 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBVB4-00000009CjT-0qoC
+	id 1tBVe2-00000009Gyk-1OMn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 08:26:12 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a9a850270e2so58270366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 00:26:08 -0800 (PST)
+	Thu, 14 Nov 2024 08:56:08 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7240d93fffdso255507b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 00:56:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731572767; x=1732177567; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=QLyvFPHpxm3Z8eNHyU2D0j8hgC2REPkIyuqNLE8iojs=;
-        b=SyXwrjQ9Sohv0z5ea5EWFOw3Ng02vJIOlrzmhQPAuZTeDFolc9tKnqcjkWJdlZ469w
-         DDIP/lamcKr7a6RRLMFnpf6c94p4tnGB8Rucp59wQCB/yj8mb0hFE+bVvEhMu0LHH3GO
-         UcuedgfrphnTBCyBvwiTRP9dlXRKnOe1I4XuCXT2zfyBHHRZ8NfXv/jev0efzeMfOEaL
-         L2M7wjYn7JpPiwDna+s/hpAzACuxedgenzNRRs5zL0M50Oa9XRf8NDKP3FMJcS6dClNd
-         9t4Tm2hj9U+hoqRYOtOiSm5bDnMTCtFoOQZX8JLlvGDbBsmg6QhDzDjky7mWEH91pH2j
-         I7fw==
+        d=linaro.org; s=google; t=1731574565; x=1732179365; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ToT77NODsvlbLTUvpom6vRLwi61ldhVszxA0ETyzPrk=;
+        b=kOtyPZbgLLVVd9YFAA9tAn9h9lU3Jp8ga2o0P/+VbyuKFQGfaWopfUPDOj70HMAA7Y
+         /vfHpuFRkhsOI+hUW0UGusF8aHn+jgP+Yqz2OEOT2NMv+Ue7BX1HV2lO66GdH7eGYJGL
+         +ZHee/zEPFrMN7g/dXyIO6hMVFOH0/3DWVQebHvoY9fBXc6XN8uj9dAORu8pb20lNAeN
+         ozvspAzR29CzVNgkgmHMlqu5r6FDmTnC81ByJd/dV9OCWFmEyJyHbtIFShcD1akM2ILp
+         +wOHNG3LDStKSQJSrnauRSTLed3HBzHNQpGFOu58LaytqgDaEU5yqkSToG3oTOY+n59s
+         eLRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731572767; x=1732177567;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QLyvFPHpxm3Z8eNHyU2D0j8hgC2REPkIyuqNLE8iojs=;
-        b=Chlw/ze90+5whXWkcHMi61mOJMNHhF35pPXuZG21glhkHgh2Ec+kE4oQfvPW2CepKW
-         Z9oX4XAD6PvvMzauwC7RbmqMoYbiVBvaTexwROa4wVylwqsZX7ANdB0bM89+SLzJqzK6
-         Xnz/+9T8V3wpsfHTLOU2rD5L8nqjNNgKkt2hxv5CQB51To38zsNpUNX40QtjdeYrXdND
-         2M/yY493KBZ0D+S7JFwEwmywoo0uZ1FnhIz1TTqcoKh5PzFlhkiFOo7Qe2sPcgSIDCQ4
-         oJL0DM8gdalAZ9LAaziYzDCDfJTJHeynmE6n+bze6h3npoKELTCPiFm9I5Td783HCRM4
-         19Vg==
-X-Gm-Message-State: AOJu0YzSJ7pGcjIf39svo6fnY4TXtlMBVSAbnhv17fE3yrgI2L3hOXmW
-	WriaTGsEhKulqQp9wFLLMkLRDOZh47GbErmQOAe47EMpO7KGhKth
-X-Google-Smtp-Source: AGHT+IEf1WmcfXNdSENwfIUsrYNgAlR4c3RtKQdPsGuXCzLAnypp6yYLWhuIvEI3eSxUjjW590bBQw==
-X-Received: by 2002:a17:906:7305:b0:a9e:8612:f201 with SMTP id a640c23a62f3a-aa20cdf5073mr103350866b.59.1731572766864;
-        Thu, 14 Nov 2024 00:26:06 -0800 (PST)
-Received: from [192.168.35.18] ([77.85.230.22])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa20df268d5sm35235566b.5.2024.11.14.00.26.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 Nov 2024 00:26:06 -0800 (PST)
-Message-ID: <746e218b-a00c-49ac-a998-511696bc9525@gmail.com>
-Date: Thu, 14 Nov 2024 10:26:05 +0200
+        d=1e100.net; s=20230601; t=1731574565; x=1732179365;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ToT77NODsvlbLTUvpom6vRLwi61ldhVszxA0ETyzPrk=;
+        b=AdOhmaLdR6DVIaeczzO7iVeFYs7WfOkei/WUbQk6sOM6NBnypWcpM2VKo3q3upIKkm
+         gPTj+BmcbTsl51pJ7EU50xcJPsLJzLEf8CuYqpfrfyF2oOz2NMgVg7vugH0NIsTGlL9j
+         vSjmKq5QkOopQXfgB8VmrZr2Wbj8iNC8SEPqYH7ERTUuPAcVv2aEaqSBEtFssaYhPK8l
+         cTRbpgXcC5ocTb76LJMREnlP3jwIYLyIFblGMI1EBfHRlGkCK+ZPu/yYS2bFEv8Y4t6k
+         zh28sBrxQxKO8NW1i0rFBk2VhqkZG1EOnLK3xYy1GjW0Y9C3UPIVOXgk864zJUMAtyc2
+         HwCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUeh/gQfx2kZUuWND+WbQH+nAMp8e57WZHvxoPHf1l3f2jYWyoPVryp6LEaon4um9Mr6MeGz2wJlr0HCFq8cWLK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJSSrVqSp+DTXHz0fqgj9y1K98hoa4grFDoHRwTCLQ3SQg00We
+	QeBtwXIqcYCXZPqRMXdq3qDw+VGE1AqGvQh6cyrKqNkz6F+Z/jqd3mSJ7x+sKslBpU5Nbh6X32l
+	BmvjtE0alB0IlYzLZiiuF3DOyl6Bm2KFYC2RdaA==
+X-Google-Smtp-Source: AGHT+IEF/+2QRuIhdeC8yK5JAR2WX1SxP2TpNFoDaoCNxUEcokJnn2HBF5GtJzruhPEUticVRg3x/kmVprSaln0zgc4=
+X-Received: by 2002:a17:90b:1647:b0:2e2:c6c2:b3d5 with SMTP id
+ 98e67ed59e1d1-2e9f2c7476bmr7530583a91.9.1731574564784; Thu, 14 Nov 2024
+ 00:56:04 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: Add initial support for Samsung Galaxy
- S20 FE (r8s)
-Content-Language: en-US
-To: Denzeel Oliva <wachiturroxd150@gmail.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
- <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20241112193149.1262-1-wachiturroxd150@gmail.com>
- <20241112193149.1262-3-wachiturroxd150@gmail.com>
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <20241112193149.1262-3-wachiturroxd150@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20241114022916.644899-1-quic_sibis@quicinc.com> <20241114022916.644899-2-quic_sibis@quicinc.com>
+In-Reply-To: <20241114022916.644899-2-quic_sibis@quicinc.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Thu, 14 Nov 2024 09:55:53 +0100
+Message-ID: <CAKfTPtDnyDak1BsdufYuN=wQwhJ+XTJedjMEezAz1evhsB86Jg@mail.gmail.com>
+Subject: Re: [PATCH V8 1/1] cpufreq: scmi: Register for limit change notifications
+To: Sibi Sankar <quic_sibis@quicinc.com>
+Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, rafael@kernel.org, 
+	viresh.kumar@linaro.org, morten.rasmussen@arm.com, dietmar.eggemann@arm.com, 
+	lukasz.luba@arm.com, pierre.gondois@arm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, quic_mdtipton@quicinc.com, 
+	linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_002610_294296_A37E3A82 
-X-CRM114-Status: GOOD (  20.21  )
+X-CRM114-CacheID: sfid-20241114_005606_414911_9BBBAB73 
+X-CRM114-Status: GOOD (  23.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,167 +92,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-
-On 11/12/24 21:31, Denzeel Oliva wrote:
-> Add initial support for the Samsung Galaxy S20 FE (r8s/SM-G780F) device.
-> Its launch was in 2020 and also based on the Exynos 990 SoC.
-> It is only configured with 6GB of RAM, although storage options may differ.
-
-As far as I can tell, there are models with more than 6gb's of ram.
-How would the memory node differ for them?
-
+On Thu, 14 Nov 2024 at 03:29, Sibi Sankar <quic_sibis@quicinc.com> wrote:
 >
-> This device tree adds support for the following:
+> Register for limit change notifications if supported and use the throttled
+> frequency from the notification to apply HW pressure.
 >
-> - SimpleFB
-> - 6GB RAM
-> - Buttons
->
-> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
+> Tested-by: Mike Tipton <quic_mdtipton@quicinc.com>
+> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+> Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
+
+Looks good to me
+Acked-by: Vincent Guittot <vincent.guittot@linaro.org>
+
 > ---
->  arch/arm64/boot/dts/exynos/Makefile          |   1 +
->  arch/arm64/boot/dts/exynos/exynos990-r8s.dts | 115 +++++++++++++++++++
->  2 files changed, 116 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/exynos/exynos990-r8s.dts
 >
-> diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-> index 7a934499b..948a2c6cb 100644
-> --- a/arch/arm64/boot/dts/exynos/Makefile
-> +++ b/arch/arm64/boot/dts/exynos/Makefile
-> @@ -9,5 +9,6 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
->  	exynos850-e850-96.dtb		\
->  	exynos8895-dreamlte.dtb		\
->  	exynos990-c1s.dtb		\
-> +	exynos990-r8s.dtb               \
->  	exynosautov9-sadk.dtb		\
->  	exynosautov920-sadk.dtb
-> diff --git a/arch/arm64/boot/dts/exynos/exynos990-r8s.dts b/arch/arm64/boot/dts/exynos/exynos990-r8s.dts
-> new file mode 100644
-> index 000000000..b21863bbb
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/exynos/exynos990-r8s.dts
-> @@ -0,0 +1,115 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
-> +/*
-> + * Samsung Galaxy S20 FE (r8s/SM-G780F) device tree source
-> + *
-> + * Copyright (c) 2024, Denzeel Oliva <wachiturroxd150@gmail.com>
-> + */
+> v8:
+> * Drop patch 1 since it was picked up by Viresh
+> * Leave policy->max update to the cpufreq_qos notifier [Vincent]
+> * We sanitized the range_max from V3 since we dealt with
+>   policy->max, now we can drop the check and policy member
+>   from scmi_data.
+>
+>  drivers/cpufreq/scmi-cpufreq.c | 45 ++++++++++++++++++++++++++++++++++
+>  1 file changed, 45 insertions(+)
+>
+> diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
+> index 07d6f9a9b7c8..b8fe758aeb01 100644
+> --- a/drivers/cpufreq/scmi-cpufreq.c
+> +++ b/drivers/cpufreq/scmi-cpufreq.c
+> @@ -16,6 +16,7 @@
+>  #include <linux/export.h>
+>  #include <linux/module.h>
+>  #include <linux/pm_opp.h>
+> +#include <linux/pm_qos.h>
+>  #include <linux/slab.h>
+>  #include <linux/scmi_protocol.h>
+>  #include <linux/types.h>
+> @@ -26,6 +27,8 @@ struct scmi_data {
+>         int nr_opp;
+>         struct device *cpu_dev;
+>         cpumask_var_t opp_shared_cpus;
+> +       struct notifier_block limit_notify_nb;
+> +       struct freq_qos_request limits_freq_req;
+>  };
+>
+>  static struct scmi_protocol_handle *ph;
+> @@ -174,6 +177,22 @@ static struct freq_attr *scmi_cpufreq_hw_attr[] = {
+>         NULL,
+>  };
+>
+> +static int scmi_limit_notify_cb(struct notifier_block *nb, unsigned long event, void *data)
+> +{
+> +       struct scmi_data *priv = container_of(nb, struct scmi_data, limit_notify_nb);
+> +       struct scmi_perf_limits_report *limit_notify = data;
+> +       unsigned int limit_freq_khz;
+> +       int ret;
 > +
-> +/dts-v1/;
-> +#include "exynos990.dtsi"
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
+> +       limit_freq_khz = limit_notify->range_max_freq / HZ_PER_KHZ;
 > +
-> +/ {
-> +	model = "Samsung Galaxy S20 FE";
-> +	compatible = "samsung,r8s", "samsung,exynos990";
+> +       ret = freq_qos_update_request(&priv->limits_freq_req, limit_freq_khz);
+> +       if (ret < 0)
+> +               pr_warn("failed to update freq constraint: %d\n", ret);
 > +
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
+> +       return NOTIFY_OK;
+> +}
 > +
-> +	chosen {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
+>  static int scmi_cpufreq_init(struct cpufreq_policy *policy)
+>  {
+>         int ret, nr_opp, domain;
+> @@ -181,6 +200,7 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
+>         struct device *cpu_dev;
+>         struct scmi_data *priv;
+>         struct cpufreq_frequency_table *freq_table;
+> +       struct scmi_device *sdev = cpufreq_get_driver_data();
+>
+>         cpu_dev = get_cpu_device(policy->cpu);
+>         if (!cpu_dev) {
+> @@ -294,6 +314,23 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
+>                 }
+>         }
+>
+> +       ret = freq_qos_add_request(&policy->constraints, &priv->limits_freq_req, FREQ_QOS_MAX,
+> +                                  FREQ_QOS_MAX_DEFAULT_VALUE);
+> +       if (ret < 0) {
+> +               dev_err(cpu_dev, "failed to add qos limits request: %d\n", ret);
+> +               goto out_free_table;
+> +       }
 > +
-> +		framebuffer0: framebuffer@f1000000 {
-> +			compatible = "simple-framebuffer";
-> +			reg = <0 0xf1000000 0 (1080 * 2400 * 4)>;
-> +			width = <1080>;
-> +			height = <2400>;
-> +			stride = <(1080 * 4)>;
-> +			format = "a8r8g8b8";
-> +		};
-> +	};
+> +       priv->limit_notify_nb.notifier_call = scmi_limit_notify_cb;
+> +       ret = sdev->handle->notify_ops->event_notifier_register(sdev->handle, SCMI_PROTOCOL_PERF,
+> +                                                       SCMI_EVENT_PERFORMANCE_LIMITS_CHANGED,
+> +                                                       &priv->domain_id,
+> +                                                       &priv->limit_notify_nb);
+> +       if (ret)
+> +               dev_warn(&sdev->dev,
+> +                        "failed to register for limits change notifier for domain %d\n",
+> +                        priv->domain_id);
 > +
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +		reg = <0x0 0x80000000 0x0 0x3ab00000>,
-> +		      /* Memory hole */
-> +		      <0x0 0xc1200000 0x0 0x1ee00000>,
-> +		      /* Memory hole */
-> +		      <0x0 0xe1900000 0x0 0x1e700000>,
-> +		      /* Memory hole - last block */
-> +		      <0x08 0x80000000 0x0 0x0c000000>;
-
-0x08 -> 0x8
-
-Best regards, Ivo.
-
-> +	};
+>         return 0;
+>
+>  out_free_table:
+> @@ -313,7 +350,13 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
+>  static void scmi_cpufreq_exit(struct cpufreq_policy *policy)
+>  {
+>         struct scmi_data *priv = policy->driver_data;
+> +       struct scmi_device *sdev = cpufreq_get_driver_data();
+>
+> +       sdev->handle->notify_ops->event_notifier_unregister(sdev->handle, SCMI_PROTOCOL_PERF,
+> +                                                           SCMI_EVENT_PERFORMANCE_LIMITS_CHANGED,
+> +                                                           &priv->domain_id,
+> +                                                           &priv->limit_notify_nb);
+> +       freq_qos_remove_request(&priv->limits_freq_req);
+>         dev_pm_opp_free_cpufreq_table(priv->cpu_dev, &policy->freq_table);
+>         dev_pm_opp_remove_all_dynamic(priv->cpu_dev);
+>         free_cpumask_var(priv->opp_shared_cpus);
+> @@ -372,6 +415,8 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
+>         if (!handle)
+>                 return -ENODEV;
+>
+> +       scmi_cpufreq_driver.driver_data = sdev;
 > +
-> +	reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		cont_splash_mem: framebuffer@f1000000 {
-> +			reg = <0 0xf1000000 0 0x13c6800>;
-> +			no-map;
-> +		};
-> +
-> +		abox_reserved: audio@f7fb0000 {
-> +			reg = <0 0xf7fb0000 0 0x2a50000>;
-> +			no-map;
-> +		};
-> +	};
-> +
-> +	gpio-keys {
-> +		compatible = "gpio-keys";
-> +
-> +		pinctrl-0 = <&key_power &key_voldown &key_volup>;
-> +		pinctrl-names = "default";
-> +
-> +		power-key {
-> +			label = "Power";
-> +			linux,code = <KEY_POWER>;
-> +			gpios = <&gpa2 4 GPIO_ACTIVE_LOW>;
-> +			wakeup-source;
-> +		};
-> +
-> +		voldown-key {
-> +			label = "Volume Down";
-> +			linux,code = <KEY_VOLUMEDOWN>;
-> +			gpios = <&gpa0 4 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		volup-key {
-> +			label = "Volume Up";
-> +			linux,code = <KEY_VOLUMEUP>;
-> +			gpios = <&gpa0 3 GPIO_ACTIVE_LOW>;
-> +		};
-> +	};
-> +};
-> +
-> +&oscclk {
-> +	clock-frequency = <26000000>;
-> +};
-> +
-> +&pinctrl_alive {
-> +	key_power: key-power-pins {
-> +		samsung,pins = "gpa2-4";
-> +		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-> +		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-> +		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-> +	};
-> +
-> +	key_voldown: key-voldown-pins {
-> +		samsung,pins = "gpa0-4";
-> +		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-> +		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-> +		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-> +	};
-> +
-> +	key_volup: key-volup-pins {
-> +		samsung,pins = "gpa0-3";
-> +		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-> +		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-> +		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-> +	};
-> +};
-
+>         perf_ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PERF, &ph);
+>         if (IS_ERR(perf_ops))
+>                 return PTR_ERR(perf_ops);
+> --
+> 2.34.1
+>
 
