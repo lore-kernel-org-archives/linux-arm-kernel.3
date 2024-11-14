@@ -4,181 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22C8BD65C68
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 09:47:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AC4D65C68
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 09:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UPHmLcVcL9xfETg7OAJ2zqh9E1K9i5STeOVJBWrux7c=; b=deo2/IdLsp/LJ6vHM9C1tT0I7t
-	OVCLIODr1Nr8PpjXXxZBIZDEnORFCCS1JN8zsZQUi2yHixAnva1hb8y8igOG/vyPI76TslSqjBdN5
-	2jYy1MepEhByAC/BFyMafPX+8oTbppQmyNpgD4rtkWKeQy7Llz5ygDW8NfNMMgmGTxI4Bs51PH2EY
-	o4x0ZKlkjymlE2HsAPLP3Kw9WWQ1mJnqQlqWLo3/JbB1sSql5NqLO3djGu342vnTyAB2GKx0wseT7
-	HZpPqcy7kUYAYV+sGxQOP9aCKBrnvB22Lc4nGZJoqrHCjKNQoc2sDzMRl+A8fZ0kB5vQhwkcZ32Ku
-	4oI+Zk4Q==;
+	bh=BJ007AyfFSmUh1mOpRxq8pHzHMlQHIiPTiwXlN1yM+4=; b=4umEVelZQT/MVtZiF31BlrORUK
+	9T9XGpDLSVyEh8igQsmMT0u6BnTrIH8BS3TWaUclVfwKjaYY15Z3fAh2ueDitmqfWDlEIj6IMeg6b
+	D/XfZaCwxOrJQY+3wnWqXEG51j9hmtSiaDCg1w0oJiqsVP0x37QkeYHVEx9lxVET3LDteBCYwQwCB
+	UcncVRV6GXfr93ccNOFSDK2h0QakMIvl3lwioh4j8saiSkkU+m7zsdChOZuJOhs9J3y4dGes+Y/ni
+	umbW/mjXGgJurzUKmYZnjB/AdSWhqKK51vHOr/LSHzOLofX2bG/xRq+CeB1V3Jv5MVYSi7RLLlcQt
+	G+ZuHLEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWRQ-00000009Pf1-1XIy;
-	Thu, 14 Nov 2024 09:47:08 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1tBWVU-00000009QES-3ANo;
+	Thu, 14 Nov 2024 09:51:20 +0000
+Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWNs-00000009P4S-1KbB
+	id 1tBWTd-00000009PwL-2bxA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 09:43:32 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 719FB1F78A;
-	Thu, 14 Nov 2024 09:43:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1731577405; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=UPHmLcVcL9xfETg7OAJ2zqh9E1K9i5STeOVJBWrux7c=;
-	b=lH+paargPPFs7fdK+5c20Hdd0lEOl3gVObeEtxMViRQPYTYYwlT3Tp7bgw0y7gkTSa0Olb
-	OXpOQ5jhq6QwJVwN7OwkWcavcnbbS5em+4lvGK5nxRw+17Ba9Y4wBLdr5jcVG/6jeBVGfN
-	J2fYloM+77XON/WH/zCRmKNc3z/Y/b8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1731577405;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=UPHmLcVcL9xfETg7OAJ2zqh9E1K9i5STeOVJBWrux7c=;
-	b=8gmWwWerVB2Q1TMOv5Podk1LMJepG9g36fZZy5j5X1ABpFbnnNKXy19pG6qkgNGr565Nxa
-	TM5R5GYWjjpefgCQ==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=lH+paarg;
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=8gmWwWer
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1731577405; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=UPHmLcVcL9xfETg7OAJ2zqh9E1K9i5STeOVJBWrux7c=;
-	b=lH+paargPPFs7fdK+5c20Hdd0lEOl3gVObeEtxMViRQPYTYYwlT3Tp7bgw0y7gkTSa0Olb
-	OXpOQ5jhq6QwJVwN7OwkWcavcnbbS5em+4lvGK5nxRw+17Ba9Y4wBLdr5jcVG/6jeBVGfN
-	J2fYloM+77XON/WH/zCRmKNc3z/Y/b8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1731577405;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=UPHmLcVcL9xfETg7OAJ2zqh9E1K9i5STeOVJBWrux7c=;
-	b=8gmWwWerVB2Q1TMOv5Podk1LMJepG9g36fZZy5j5X1ABpFbnnNKXy19pG6qkgNGr565Nxa
-	TM5R5GYWjjpefgCQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4C08B13794;
-	Thu, 14 Nov 2024 09:43:25 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id VtowEj3GNWcsEgAAD6G6ig
-	(envelope-from <vbabka@suse.cz>); Thu, 14 Nov 2024 09:43:25 +0000
-Message-ID: <1db4bb59-bd68-4aff-883b-1af40ca123b2@suse.cz>
-Date: Thu, 14 Nov 2024 10:43:25 +0100
+	Thu, 14 Nov 2024 09:49:27 +0000
+Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-5ec1ee25504so159216eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 01:49:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731577763; x=1732182563; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=BJ007AyfFSmUh1mOpRxq8pHzHMlQHIiPTiwXlN1yM+4=;
+        b=SkgEmvibCLqg1Z14+/p6Q47eq1JssoHVcLN8mkQ832Z+mxjgbcJJ1ynLE/C9VrRXaB
+         FTs4hLO2CpskWmgtSYMGB9jgCXQ95pYVFmd0GMxdU1Sooeeo/Zr0IAP6T5Y6xG0iIEoE
+         qLBmzE1bq1fdidPdcU5LrL0f8OFXKI+YsNpufJOp3+MRMfbRZF2oxGm5oHLZLCHB5N2R
+         t4Cwjaz3Urkcx4msEPCUUN/7gVGR9WFZi+eBZHAWpeE4WMV+mEi4guWYa9bDRb//jnPQ
+         VBF49XvCYq2H8ygskWFJAt6CvYQ/3odL49sQwGVq9CTTlat1kQ0RBcRncEiSLk5+7eB6
+         SEvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731577763; x=1732182563;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=BJ007AyfFSmUh1mOpRxq8pHzHMlQHIiPTiwXlN1yM+4=;
+        b=WVoq926VVBjm4LIoMqqA2IdUva9B+dzDdyv7Ww0asoUd5+tiGMyAcHzYUvLKat09aE
+         NRmqofK6ssgpes/8ln2U5DIFiE7ZZ2ByveCJrNW03DdxH0FOf5wjCPF/7Q6biL7XBoT3
+         Zm0No4lR8QgxodzCD/IzzMe58/lg5JH4VpeFjhIW9Uad0h/w1ARTR6kyqMyP7W0RPMV+
+         FPbz/O5Y0iUoUsdwxymUt+dwHaQQ0NFvi9kXEG3G2MsjECQnhg/jt4PkD4Fwig6rEE4K
+         /wnfC8zvKsWCGgNzxWbaRGkJd8iYC8URSBDMJs7onvCdj0s0e5wjK2KVHKmch3gtwVuY
+         deYA==
+X-Forwarded-Encrypted: i=1; AJvYcCUWPEfgG7d9Gcp6S4ANvAgSg6RHx70n8ZoW5nhJeo+WvRFmW0hDHWSYu8hd8/NCKkWnfLZCY3/fMhXsHX6AIrEx@lists.infradead.org
+X-Gm-Message-State: AOJu0YycsfxBaCSlduZXs4rmnL71eh3jm1Uv2jmSYz9I2+n61xhJGvnO
+	2PqX01SjoUam2DW8Oq/5U2fvwPePg8wDl4ZNEZgR+LWX5+uReX/K
+X-Google-Smtp-Source: AGHT+IElpYeRFs0SFCU7YxvfDnm+J9VKwBd+r6YY8KKPQksjpdgonuoZU+lvxZoNdrIbZVA3+RzO9w==
+X-Received: by 2002:a05:6830:631c:b0:718:c2e:a193 with SMTP id 46e09a7af769-71a6010a842mr6854545a34.10.1731577762840;
+        Thu, 14 Nov 2024 01:49:22 -0800 (PST)
+Received: from [192.168.0.101] (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7f8b37e01easm713510a12.24.2024.11.14.01.49.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 Nov 2024 01:49:22 -0800 (PST)
+Message-ID: <8e55e276-f2ee-4679-8e0f-ca5afb3653fc@gmail.com>
+Date: Thu, 14 Nov 2024 17:49:18 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 04/57] mm/page_alloc: Make page_frag_cache
- boot-time page size compatible
+Subject: Re: [PATCH v2 3/3] net: stmmac: dwmac-nuvoton: Add dwmac support for
+ MA35 family
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, mcoquelin.stm32@gmail.com, richardcochran@gmail.com,
+ alexandre.torgue@foss.st.com, joabreu@synopsys.com, ychuang3@nuvoton.com,
+ schung@nuvoton.com, yclu4@nuvoton.com, linux-arm-kernel@lists.infradead.org,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20241113051857.12732-1-a0987203069@gmail.com>
+ <20241113051857.12732-4-a0987203069@gmail.com>
+ <b7fb59a9-989e-42b9-ac72-71f353854812@lunn.ch>
 Content-Language: en-US
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- David Hildenbrand <david@redhat.com>, Greg Marsden
- <greg.marsden@oracle.com>, Ivan Ivanov <ivan.ivanov@suse.com>,
- Kalesh Singh <kaleshsingh@google.com>, Marc Zyngier <maz@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Matthias Brugger <mbrugger@suse.com>,
- Miroslav Benes <mbenes@suse.cz>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20241014105514.3206191-1-ryan.roberts@arm.com>
- <20241014105912.3207374-1-ryan.roberts@arm.com>
- <20241014105912.3207374-4-ryan.roberts@arm.com>
- <1d9f9188-42b1-4f83-87e7-e02a22b67caa@suse.cz>
- <0aabbc9e-8808-4aaa-a722-49ed3d45d15e@arm.com>
-From: Vlastimil Babka <vbabka@suse.cz>
-Autocrypt: addr=vbabka@suse.cz; keydata=
- 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
- EP+ylKVEKb0Q2A==
-In-Reply-To: <0aabbc9e-8808-4aaa-a722-49ed3d45d15e@arm.com>
-Content-Type: text/plain; charset=UTF-8
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <b7fb59a9-989e-42b9-ac72-71f353854812@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 719FB1F78A
-X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-4.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[17];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_TLS_ALL(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	TO_DN_SOME(0.00)[];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	DKIM_TRACE(0.00)[suse.cz:+]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_014328_706158_F3F6D73B 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20241114_014925_698141_E495FD3A 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,42 +103,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/14/24 10:36, Ryan Roberts wrote:
-> On 14/11/2024 08:23, Vlastimil Babka wrote:
->> On 10/14/24 12:58, Ryan Roberts wrote:
->>> "struct page_frag_cache" has some optimizations that depend on page
->>> size. Let's refactor it a bit so that those optimizations can be
->>> determined at run-time for the case where page size is a boot-time
->>> parameter. For compile-time page size, the compiler should dead code
->>> strip and the result is very similar to before.
->>>
->>> One wrinkle is that we don't know if we need the size member until
->>> runtime. So remove the ifdeffery and always define offset as u32 (needed
->>> if PAGE_SIZE is >= 64K) and size as u16 (only used when PAGE_SIZE <=
->>> 32K). We move the members around a bit so that the overall size of the
->>> struct remains the same; 24 bytes for 64-bit and 16 bytes on 32 bit.
->>>
->>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> 
->> Looks ok, but ideally the PAGE_FRAG_CACHE_MAX_ORDER #define should also be
->> replaced by some variable that's populated just once. It can be static local
->> to page_alloc.c as nothing else seems to use it.
-> 
-> I can certainly do that, but wouldn't that be penalizing a compile-time page
-> size configuration? My current change means that PAGE_FRAG_CACHE_MAX_ORDER still
-> resolves to a compile-time constant in that situation and the compiler can
-> eliminate conditional branches it knows will never be taken. Or perhaps you're
+Dear Andrew,
 
-Ah, I see.
+Thank you for your reply.
 
-> suggesting I conditionally make it a variable if PAGE_SIZE_MIN != PAGE_SIZE_MAX?
+On 11/14/24 10:56, Andrew Lunn wrote:
+>> +	if (of_property_read_u32(dev->of_node, "tx-internal-delay-ps", &arg)) {
+>> +		tx_delay = 0; /* Default value is 0 */
+>> +	} else {
+>> +		if (arg > 0 && arg <= 2000) {
+>> +			tx_delay = (arg == 2000) ? 0xF : (arg / PATHDLY_DEC);
+>> +			dev_dbg(dev, "Set Tx path delay to 0x%x\n", tx_delay);
+>> +		} else {
+>> +			tx_delay = 0;
+>> +			dev_err(dev, "Invalid Tx path delay argument. Setting to default.\n");
+>> +		}
+>> +	}
+> The device tree binding says that only [0, 2000] are valid. You should
+> enforce this here, return -EINVAL of any other value.
+>
+> 	Andrew
 
-Given the only place it's being used, it shouldn't be worth it after all.
+This will be fixed in the next version. And I will correct error messages.
 
-You can add for this patch:
+Thanks!
 
-Acked-by: Vlastimil Babka <vbabka@suse.cz>
+BR,
 
-> Thanks,
-> Ryan
+Joey
+
 
