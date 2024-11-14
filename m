@@ -4,57 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E76D65C7E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 11:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8968D65C7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 11:57:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AVZNQAlU7+ZpAb7hQ/Q+oevBEVygnQyFV6H/sTq2pbQ=; b=4ueE3VDphxgiGXQxfR4UHF/nym
-	KbepghYf+4Xkzh8PM7vK1BWEvOsx4ZLurq6PWeyRbwuqozkM0tCNK85tNM+LEEQqBJF7dsU+gfJlr
-	9ZS9L6nD8Dh3n03fOqBBkwXIvkCHOlUusa1Y+QXowaQQilnZBa6h5ocBjd2Pl+L+KNfv9wGNZk/x7
-	FY4QV0s+O7/srvxUPm7MrjXKxvmm+xcjSBmwiTu7QzCQAsOS49FDWvgLGY9UXspsNdpLuKkJOeUw5
-	1WHkUJOIdpgJzF3V+Y+inpbjMjIuaIIZAaFGS3jvVGpndKXSf/wMaeSQEU2Bg6IXQ7GXiNx69R8If
-	J0Q2H8ZQ==;
+	bh=0qjey6Mx3Q/UGdfyDuIVN7Gf6sPP9fIdKBKgrtzXg9E=; b=0GBFhEbV/+GPGt6Rurj9ZG2Cx5
+	fArpn0P6tzQ/TXt/HPKelTPVdsNf2d61kDDXw8SxsJ5XyFfR/EkN/dpc2vEyCkjuyQTRBuqRqWLQc
+	fE1oF+ONJeDGPKpG+X2xSs8s6Uq6+dco5pJkykbyYFh+XzQDZ59iypsmv1JNryTZL88cUdGmM+TTx
+	00cfDxeqmeM57J0maFKTlNJyIco9PruFBxVieUDF8qP3E7UbThd7jdHxbAvnWVWdkVtwQBr6bPscw
+	zbDyUCOgVIQySiMSGV1n9oTFufRk9gYI8wzQhZRzm/BIPB2n/y92BTuEpHSg9V5kM+/abOxu7Nr4R
+	Jmng5Z9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBYRm-00000009npc-1HFq;
-	Thu, 14 Nov 2024 11:55:39 +0000
-Received: from hutie.ust.cz ([185.8.165.127])
+	id 1tBYTa-00000009o8M-3UNx;
+	Thu, 14 Nov 2024 11:57:30 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBXoB-00000009gQE-0PGj
+	id 1tBXom-00000009gYJ-0dOr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 11:14:45 +0000
-Content-Type: text/plain;
-	charset=utf-8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cutebit.org; s=mail;
-	t=1731582876; bh=AVZNQAlU7+ZpAb7hQ/Q+oevBEVygnQyFV6H/sTq2pbQ=;
-	h=Subject:From:In-Reply-To:Date:Cc:References:To;
-	b=L6On/y7yfj0le00M9cmM7nVAN9LOBwYp1ICAEYj4z0NO6oESXKUJB5dY2ucnBFbH8
-	 5FMpWiht3uVgpoulm5F5cLXXjDmqJnbLEydwu08+eUjVxauovHAv6ycDbhWj2Ko2ih
-	 tHSev2EyHI5XbCIZW0HztCK02YDB2XkIPh6ay3cY=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3818.100.11.1.3\))
-Subject: Re: [PATCH] clk: clk-apple-nco: Add NULL check in applnco_probe
-From: =?utf-8?Q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>
-In-Reply-To: <20241114072820.3071-1-hanchunchao@inspur.com>
-Date: Thu, 14 Nov 2024 12:14:24 +0100
-Cc: marcan@marcan.st,
- sven@svenpeter.dev,
- alyssa@rosenzweig.io,
- mturquette@baylibre.com,
- sboyd@kernel.org,
- asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <96592A7F-0E4A-446F-A88F-4C7E2F8F3A14@cutebit.org>
-References: <20241114072820.3071-1-hanchunchao@inspur.com>
-To: Charles Han <hanchunchao@inspur.com>
+	Thu, 14 Nov 2024 11:15:23 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 6B01621209;
+	Thu, 14 Nov 2024 11:15:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1731582917; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0qjey6Mx3Q/UGdfyDuIVN7Gf6sPP9fIdKBKgrtzXg9E=;
+	b=soH1KFQIh22uCUjBTw7ooNR7RW3FkSpu16dbXeUuMOZjBi+81nutpdqLjYG7dMO21+ZD38
+	xlNV5NQmrUgTdTUV0YO8wbL95F2596wNvFya5rrvwN9CpNodcIYgENN6Dg2JD1Xz2zks27
+	4CRqsDOukFthq5QPWQabS6ZAL7PA4xY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1731582917;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0qjey6Mx3Q/UGdfyDuIVN7Gf6sPP9fIdKBKgrtzXg9E=;
+	b=kQ4TG4KNu3OM2RgAnFIyLRLWHgw8nRfex4fOQN8zExSInSuPKYOW3k2o/Eu0ZFTtni2EfK
+	lCWzuETanD5w/tAQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1731582917; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0qjey6Mx3Q/UGdfyDuIVN7Gf6sPP9fIdKBKgrtzXg9E=;
+	b=soH1KFQIh22uCUjBTw7ooNR7RW3FkSpu16dbXeUuMOZjBi+81nutpdqLjYG7dMO21+ZD38
+	xlNV5NQmrUgTdTUV0YO8wbL95F2596wNvFya5rrvwN9CpNodcIYgENN6Dg2JD1Xz2zks27
+	4CRqsDOukFthq5QPWQabS6ZAL7PA4xY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1731582917;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0qjey6Mx3Q/UGdfyDuIVN7Gf6sPP9fIdKBKgrtzXg9E=;
+	b=kQ4TG4KNu3OM2RgAnFIyLRLWHgw8nRfex4fOQN8zExSInSuPKYOW3k2o/Eu0ZFTtni2EfK
+	lCWzuETanD5w/tAQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 3AC6113794;
+	Thu, 14 Nov 2024 11:15:17 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id h8vIDcXbNWeXMQAAD6G6ig
+	(envelope-from <vbabka@suse.cz>); Thu, 14 Nov 2024 11:15:17 +0000
+Message-ID: <2510b50b-4178-4c14-b2cc-db5a77a1c8d7@suse.cz>
+Date: Thu, 14 Nov 2024 12:15:16 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 15/57] stackdepot: Remove PAGE_SIZE compile-time
+ constant assumption
+Content-Language: en-US
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ David Hildenbrand <david@redhat.com>, Greg Marsden
+ <greg.marsden@oracle.com>, Ivan Ivanov <ivan.ivanov@suse.com>,
+ Kalesh Singh <kaleshsingh@google.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Matthias Brugger <mbrugger@suse.com>,
+ Miroslav Benes <mbenes@suse.cz>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20241014105514.3206191-1-ryan.roberts@arm.com>
+ <20241014105912.3207374-1-ryan.roberts@arm.com>
+ <20241014105912.3207374-15-ryan.roberts@arm.com>
+From: Vlastimil Babka <vbabka@suse.cz>
+In-Reply-To: <20241014105912.3207374-15-ryan.roberts@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Spamd-Result: default: False [-4.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[17];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[arm.com:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_031444_027570_125A90F8 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20241114_031520_535408_4BCDF8DE 
+X-CRM114-Status: GOOD (  28.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,41 +142,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks.
+On 10/14/24 12:58, Ryan Roberts wrote:
+> To prepare for supporting boot-time page size selection, refactor code
+> to remove assumptions about PAGE_SIZE being compile-time constant. Code
+> intended to be equivalent when compile-time page size is active.
+> 
+> "union handle_parts" previously calculated the number of bits required
+> for its pool index and offset members based on PAGE_SHIFT. This is
+> problematic for boot-time page size builds because the actual page size
+> isn't known until boot-time.
+> 
+> We could use PAGE_SHIFT_MAX in calculating the worst case offset bits,
+> but bits would be wasted that could be used for pool index when
+> PAGE_SIZE is set smaller than MAX, the end result being that stack depot
+> can address less memory than it should.
+> 
+> To avoid needing to dynamically define the offset and index bit widths,
+> let's instead fix the pool size and derive the order at runtime based on
+> the PAGE_SIZE. This means that the fields' widths can remain static,
+> with the down side being slightly increased risk of failing to allocate
+> the large folio.
+> 
+> This only affects boot-time page size builds. compile-time page size
+> builds will still always allocate order-2 folios.
+> 
+> Additionally, wrap global variables that are initialized with PAGE_SIZE
+> derived values using DEFINE_GLOBAL_PAGE_SIZE_VAR() so their
+> initialization can be deferred for boot-time page size builds.
 
-Reviewed-by: Martin Povi=C5=A1er <povik+lin@cutebit.org>
+This is done for pool_offset but given it's initialized by DEPOT_POOL_SIZE,
+it doesn't look derived from PAGE_SIZE?
 
-Martin
+> 
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
-> On 14. 11. 2024, at 8:28, Charles Han <hanchunchao@inspur.com> wrote:
->=20
-> Add NULL check in applnco_probe, to handle kernel NULL pointer
-> dereference error.
->=20
-> Fixes: 6641057d5dba ("clk: clk-apple-nco: Add driver for Apple NCO")
-> Signed-off-by: Charles Han <hanchunchao@inspur.com>
+Other than that,
+Acked-by: Vlastimil Babka <vbabka@suse.cz>
+
+
 > ---
-> drivers/clk/clk-apple-nco.c | 3 +++
-> 1 file changed, 3 insertions(+)
->=20
-> diff --git a/drivers/clk/clk-apple-nco.c b/drivers/clk/clk-apple-nco.c
-> index 39472a51530a..457a48d48941 100644
-> --- a/drivers/clk/clk-apple-nco.c
-> +++ b/drivers/clk/clk-apple-nco.c
-> @@ -297,6 +297,9 @@ static int applnco_probe(struct platform_device =
-*pdev)
-> memset(&init, 0, sizeof(init));
-> init.name =3D devm_kasprintf(&pdev->dev, GFP_KERNEL,
-> "%s-%d", np->name, i);
-> + if (!init.name)
-> + return -ENOMEM;
-> +
-> init.ops =3D &applnco_ops;
-> init.parent_data =3D &pdata;
-> init.num_parents =3D 1;
-> --=20
-> 2.31.1
->=20
->=20
+> 
+> ***NOTE***
+> Any confused maintainers may want to read the cover note here for context:
+> https://lore.kernel.org/all/20241014105514.3206191-1-ryan.roberts@arm.com/
+> 
+>  include/linux/stackdepot.h | 6 +++---
+>  lib/stackdepot.c           | 6 +++---
+>  2 files changed, 6 insertions(+), 6 deletions(-)
+> 
+> diff --git a/include/linux/stackdepot.h b/include/linux/stackdepot.h
+> index e9ec32fb97d4a..ac877a4e90406 100644
+> --- a/include/linux/stackdepot.h
+> +++ b/include/linux/stackdepot.h
+> @@ -32,10 +32,10 @@ typedef u32 depot_stack_handle_t;
+>  
+>  #define DEPOT_HANDLE_BITS (sizeof(depot_stack_handle_t) * 8)
+>  
+> -#define DEPOT_POOL_ORDER 2 /* Pool size order, 4 pages */
+> -#define DEPOT_POOL_SIZE (1LL << (PAGE_SHIFT + DEPOT_POOL_ORDER))
+> +#define DEPOT_POOL_ORDER 2 /* Pool size order, 4 pages of PAGE_SIZE_MAX */
+> +#define DEPOT_POOL_SIZE (1LL << (PAGE_SHIFT_MAX + DEPOT_POOL_ORDER))
+>  #define DEPOT_STACK_ALIGN 4
+> -#define DEPOT_OFFSET_BITS (DEPOT_POOL_ORDER + PAGE_SHIFT - DEPOT_STACK_ALIGN)
+> +#define DEPOT_OFFSET_BITS (DEPOT_POOL_ORDER + PAGE_SHIFT_MAX - DEPOT_STACK_ALIGN)
+>  #define DEPOT_POOL_INDEX_BITS (DEPOT_HANDLE_BITS - DEPOT_OFFSET_BITS - \
+>  			       STACK_DEPOT_EXTRA_BITS)
+>  
+> diff --git a/lib/stackdepot.c b/lib/stackdepot.c
+> index 5ed34cc963fc3..974351f0e9e3c 100644
+> --- a/lib/stackdepot.c
+> +++ b/lib/stackdepot.c
+> @@ -68,7 +68,7 @@ static void *new_pool;
+>  /* Number of pools in stack_pools. */
+>  static int pools_num;
+>  /* Offset to the unused space in the currently used pool. */
+> -static size_t pool_offset = DEPOT_POOL_SIZE;
+> +static DEFINE_GLOBAL_PAGE_SIZE_VAR(size_t, pool_offset, DEPOT_POOL_SIZE);
+>  /* Freelist of stack records within stack_pools. */
+>  static LIST_HEAD(free_stacks);
+>  /* The lock must be held when performing pool or freelist modifications. */
+> @@ -625,7 +625,7 @@ depot_stack_handle_t stack_depot_save_flags(unsigned long *entries,
+>  	 */
+>  	if (unlikely(can_alloc && !READ_ONCE(new_pool))) {
+>  		page = alloc_pages(gfp_nested_mask(alloc_flags),
+> -				   DEPOT_POOL_ORDER);
+> +				   get_order(DEPOT_POOL_SIZE));
+>  		if (page)
+>  			prealloc = page_address(page);
+>  	}
+> @@ -663,7 +663,7 @@ depot_stack_handle_t stack_depot_save_flags(unsigned long *entries,
+>  exit:
+>  	if (prealloc) {
+>  		/* Stack depot didn't use this memory, free it. */
+> -		free_pages((unsigned long)prealloc, DEPOT_POOL_ORDER);
+> +		free_pages((unsigned long)prealloc, get_order(DEPOT_POOL_SIZE));
+>  	}
+>  	if (found)
+>  		handle = found->handle.handle;
 
 
