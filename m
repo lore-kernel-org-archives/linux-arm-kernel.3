@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 962BFD68B09
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 13:17:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 543D2D68B16
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 13:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UL42DfD3zdkirn/MlnMaCuJCLq4Q3YvSc/R+n8i9e4E=; b=f1XBHclhIYfgA19Mu45lmay2Vf
-	t0mW8xOANUSUAz5n/OO00aNUlBm7c0dfq/eJiX3lWHRGhKyNdVGJHgZJMCHocekkLnDvJ5KH4Puv4
-	6BYXaa156xWygd1jEwMqY3YSg1n9eDlX1Xnql80zoko+jcyb147s7WjrU/0V/csZwOlF2/+cEe7AT
-	cT7Qi5NRpsCWc0fHfSKKbqxU1gpY9/rlwWSZKT2C6a1Tag8MzpHZm5xk67hhyJxZNvvuBN4mutD1E
-	9KWx2pF5Sl7CujXorC3hIVTXNQx9fxMnhMnjp1aVTDBcAhWfR94rhmJfvfU0Ba+cmy7E4ZyeEvhJH
-	ipakXJKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UUMmmc2rtpU3nLkTMTTbJzpaolkWX5d9pYon10z9cOc=; b=Wj/PvU8tixLgAMrWV9GgZYRpnI
+	o7zpkQA9NF8O+6ZJ3rVfLVEfsvHeC7aDLHDgUC1AJ5gEBXSPZCcVNi1wDA39tHowziy+/MpRpozc9
+	Io7zTq18C1zinTxVnLFzirkDRzqfAsHnZORmNSxkmh+e3Ug7Q7GDjYiu6Kcl2W/IOJ479RyJFmz9e
+	TIZzLcdqs86/LgCS5d+ZpiLkzA7lZF+Ig4WpwZI5FU6sPRLI7EX9h2ASB9HYfmFXMJBDFeoe8UKDF
+	sK9k4EwWS+o+6Y/kMy7PNQb3zOpM4kVJ8+IrnrlGBB4nl67nYYQWge3u1mmdcN22CYYf7HoOg/H5s
+	fEelzG+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBZj0-0000000A26V-1ZAd;
-	Thu, 14 Nov 2024 13:17:30 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tBZys-0000000A4Ez-3wPL;
+	Thu, 14 Nov 2024 13:33:54 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBZh9-0000000A1uw-0V1d
+	id 1tBZx0-0000000A3ze-1Zg7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 13:15:36 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tBZh4-0001vg-QQ; Thu, 14 Nov 2024 14:15:30 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tBZh4-000kPq-1f;
-	Thu, 14 Nov 2024 14:15:30 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tBZh4-00BZfu-1O;
-	Thu, 14 Nov 2024 14:15:30 +0100
-Date: Thu, 14 Nov 2024 14:15:30 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Lucas Stach <l.stach@pengutronix.de>,
-	Russell King <linux@armlinux.org.uk>, kernel@pengutronix.de,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] ARM: Don't mention the full path of the source directory
- in mach-types.h
-Message-ID: <20241114131530.texa6lkfmm3ukh5d@pengutronix.de>
-References: <20240213092835.754462-2-u.kleine-koenig@pengutronix.de>
- <a80f1cc8d5dda405f5af08eaa33d21598fa31d14.camel@pengutronix.de>
- <7occ3sqwoae2gjhvjun5c5auinas3lwhugfqjeta5pcr2gv2jc@dnzl56imqvbr>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <7occ3sqwoae2gjhvjun5c5auinas3lwhugfqjeta5pcr2gv2jc@dnzl56imqvbr>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+	Thu, 14 Nov 2024 13:32:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1731591118; x=1763127118;
+  h=date:from:to:cc:subject:message-id;
+  bh=gKtEPV96K32I6pv0MMRZcWKNN1fuoy22zzDi8SPmrCU=;
+  b=ZuE1vKr5JQshr7/dq7I8gEKje6aS/a0A9imfBiWqiB9laMnuh6eH0vW7
+   E5VsA9uqQVZsADhomI4GhbD4VajwqDFvEI3gGF0W1T5uijBUFE9Q9Ekkz
+   pAjHjfMZBFi413mHx6ng7ORP8UwFk2gWsZfWUK+jjaHNtRylBAeYJ/zA/
+   dMe3MTrYCndY9N6EXdRTXZkxJM0/3QYlNREDKX4aTwBP/G3545JBHg7Yr
+   9RFGLsgk1tBLQx3VMpWKqe6iOqVOC2naz/nHKZKnCxD8hrx0gfHm2LLEq
+   rVyxcus1WAENlUPgeP5W44G5PLeQiXBhBlqO3hbhwtCM4Sdk4jaNso1Fn
+   w==;
+X-CSE-ConnectionGUID: UcphvjyjQlyvEPK5Djz0hg==
+X-CSE-MsgGUID: xqnPvhhcSjilvLU3JKVx7w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11256"; a="56925474"
+X-IronPort-AV: E=Sophos;i="6.12,154,1728975600"; 
+   d="scan'208";a="56925474"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Nov 2024 05:31:57 -0800
+X-CSE-ConnectionGUID: 1Rs2y8iOS46ZpG8upj6n4w==
+X-CSE-MsgGUID: wsLX2fk6Q8WO5+68P2ENtQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,154,1728975600"; 
+   d="scan'208";a="93153309"
+Received: from lkp-server01.sh.intel.com (HELO c7bc087bbc55) ([10.239.97.150])
+  by orviesa005.jf.intel.com with ESMTP; 14 Nov 2024 05:31:55 -0800
+Received: from kbuild by c7bc087bbc55 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tBZwv-000049-0D;
+	Thu, 14 Nov 2024 13:31:53 +0000
+Date: Thu, 14 Nov 2024 21:31:23 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/dt] BUILD SUCCESS
+ a1cc63408f72f038e7aa4b5c735270261daf9691
+Message-ID: <202411142115.q3VZPG94-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_051535_186190_47B7775F 
-X-CRM114-Status: GOOD (  28.03  )
+X-CRM114-CacheID: sfid-20241114_053158_464876_25A9240F 
+X-CRM114-Status: UNSURE (   5.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,77 +83,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe, Lucas,
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
+branch HEAD: a1cc63408f72f038e7aa4b5c735270261daf9691  Merge tag 'at91-soc-6.13' of https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux into soc/dt
 
-On 24-07-25, Uwe Kleine-König wrote:
-> Hallo Lucas,
-> 
-> On Wed, Jul 24, 2024 at 03:45:17PM +0200, Lucas Stach wrote:
-> > Am Dienstag, dem 13.02.2024 um 10:28 +0100 schrieb Uwe Kleine-König:
-> > > To make package building reproducible independent of the location of the
-> > > source tree, the absolute path of this source tree must not be mentioned
-> > > in the built artifact. So strip $abs_srctree from FILENAME in the
-> > > output.
-> > > 
-> > > This fixes a warning issued by Yocto:
-> > > 	WARNING: linux-lxatac-6.7-r0 do_package_qa: QA Issue: File /usr/src/debug/linux-lxatac/6.7-r0/arch/arm/include/generated/asm/mach-types.h in package linux-lxatac-src contains reference to TMPDIR
-> > > 
-> > > Signed-off-by: Uwe Kleine-König <u.kleine-koenig@pengutronix.de>
-> > > ---
-> > >  arch/arm/tools/gen-mach-types | 13 ++++++++++++-
-> > >  1 file changed, 12 insertions(+), 1 deletion(-)
-> > > 
-> > > diff --git a/arch/arm/tools/gen-mach-types b/arch/arm/tools/gen-mach-types
-> > > index cbe1c33bb871..9592ceb8a102 100644
-> > > --- a/arch/arm/tools/gen-mach-types
-> > > +++ b/arch/arm/tools/gen-mach-types
-> > > @@ -21,10 +21,21 @@ NF == 3 {
-> > >  	  num[nr] = ""; nr++
-> > >  	}
-> > >  
-> > > +# prepend a \ to all special chars in a regexp
-> > > +function quote(s) {
-> > > +	return gensub("[][\\^$.|()*+?{}]", "\\\\&", "g", s)
-> > 
-> > gensub is a gawk extension and thus will break on systems with a
-> > different awk implementation.
-> 
-> Oh, wasn't aware of that.
-> 
-> It seems for Debian the only packaged alternative awk implementation is
-> goawk. This one knows about gensub, too.
-> 
-> Other tools in the kernel seem to assume gawk is available, but
-> explicitly call it as gawk. gen-mach-types is called using $(AWK) which
-> defaults to "awk".
-> 
-> So I guess the easiest fix would be:
-> 
-> diff --git a/arch/arm/tools/Makefile b/arch/arm/tools/Makefile
-> index 28b6da8ac5f6..84107bb7ddf1 100644
-> --- a/arch/arm/tools/Makefile
-> +++ b/arch/arm/tools/Makefile
-> @@ -32,7 +32,7 @@ uapi:	$(uapi-hdrs-y)
->  $(shell mkdir -p $(kapi) $(uapi))
->  
->  quiet_cmd_gen_mach = GEN     $@
-> -      cmd_gen_mach = $(AWK) -f $(real-prereqs) > $@
-> +      cmd_gen_mach = gawk -f $(real-prereqs) > $@
->  
->  $(kapi)/mach-types.h: $(src)/gen-mach-types $(src)/mach-types FORCE
->  	$(call if_changed,gen_mach)
-> 
-> maybe together with removing the shebang line from the script which is
-> unused and (then) misleading.
-> 
-> If we want to stick to plain awk, I'd ask for someone with a different
-> implementation to work on a patch.
+elapsed time: 805m
 
-I wasn't aware of this patch, therefore I send a simpler one which drops
-the filename mention:
+configs tested: 72
+configs skipped: 2
 
-https://lore.kernel.org/all/20241114130021.2802803-1-m.felsch@pengutronix.de/T/#u
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Regards,
-  Marco
+tested configs:
+alpha                  allyesconfig    gcc-14.2.0
+arc                    allmodconfig    gcc-13.2.0
+arc                    allyesconfig    gcc-13.2.0
+arc         randconfig-001-20241114    gcc-13.2.0
+arc         randconfig-002-20241114    gcc-13.2.0
+arm                    allmodconfig    gcc-14.2.0
+arm                    allyesconfig    gcc-14.2.0
+arm         randconfig-001-20241114    gcc-14.2.0
+arm         randconfig-002-20241114    gcc-14.2.0
+arm         randconfig-003-20241114    gcc-14.2.0
+arm         randconfig-004-20241114    clang-14
+arm64                  allmodconfig    clang-20
+arm64       randconfig-001-20241114    clang-20
+arm64       randconfig-002-20241114    gcc-14.2.0
+arm64       randconfig-003-20241114    gcc-14.2.0
+arm64       randconfig-004-20241114    gcc-14.2.0
+csky        randconfig-001-20241114    gcc-14.2.0
+csky        randconfig-002-20241114    gcc-14.2.0
+hexagon                allmodconfig    clang-20
+hexagon                allyesconfig    clang-20
+hexagon     randconfig-001-20241114    clang-20
+hexagon     randconfig-002-20241114    clang-20
+i386                   allmodconfig    gcc-12
+i386                    allnoconfig    gcc-12
+i386                   allyesconfig    gcc-12
+i386                      defconfig    clang-19
+loongarch              allmodconfig    gcc-14.2.0
+loongarch   randconfig-001-20241114    gcc-14.2.0
+loongarch   randconfig-002-20241114    gcc-14.2.0
+m68k                   allmodconfig    gcc-14.2.0
+m68k                   allyesconfig    gcc-14.2.0
+microblaze             allmodconfig    gcc-14.2.0
+microblaze             allyesconfig    gcc-14.2.0
+nios2       randconfig-001-20241114    gcc-14.2.0
+nios2       randconfig-002-20241114    gcc-14.2.0
+openrisc                allnoconfig    gcc-14.2.0
+openrisc               allyesconfig    gcc-14.2.0
+parisc                 allmodconfig    gcc-14.2.0
+parisc                  allnoconfig    gcc-14.2.0
+parisc                 allyesconfig    gcc-14.2.0
+parisc      randconfig-001-20241114    gcc-14.2.0
+parisc      randconfig-002-20241114    gcc-14.2.0
+powerpc                allmodconfig    gcc-14.2.0
+powerpc                 allnoconfig    gcc-14.2.0
+powerpc                allyesconfig    clang-20
+powerpc     randconfig-001-20241114    gcc-14.2.0
+powerpc     randconfig-002-20241114    clang-14
+powerpc     randconfig-003-20241114    gcc-14.2.0
+powerpc64   randconfig-001-20241114    gcc-14.2.0
+powerpc64   randconfig-002-20241114    clang-20
+riscv                  allmodconfig    clang-20
+riscv                   allnoconfig    gcc-14.2.0
+riscv                  allyesconfig    clang-20
+riscv       randconfig-001-20241114    gcc-14.2.0
+riscv       randconfig-002-20241114    clang-14
+s390                   allmodconfig    clang-20
+s390                    allnoconfig    clang-20
+s390                   allyesconfig    gcc-14.2.0
+s390        randconfig-001-20241114    gcc-14.2.0
+s390        randconfig-002-20241114    clang-20
+sh                     allmodconfig    gcc-14.2.0
+sh                     allyesconfig    gcc-14.2.0
+sh          randconfig-001-20241114    gcc-14.2.0
+sparc                  allmodconfig    gcc-14.2.0
+um                     allmodconfig    clang-20
+um                      allnoconfig    clang-17
+um                     allyesconfig    gcc-12
+x86_64                  allnoconfig    clang-19
+x86_64                 allyesconfig    clang-19
+x86_64                    defconfig    gcc-11
+x86_64                        kexec    clang-19
+x86_64                     rhel-8.3    gcc-12
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
