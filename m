@@ -4,51 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A906ED41D46
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 12:24:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A7A9D65C7E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 12:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Reply-To:MIME-Version:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lTbgxKYRaMUYg8OeNCmifSJcN4fEGjBh6yMmTyaMpzo=; b=OVm02BOTs4N/Uix0KS29134VMk
-	WHd+3F5QxB0LBeKMXz1Y047gMBn3EEy81V9dt/libEgm8o5Eo0EWGzCh9Hgj59+zL38BeMwSpr/4W
-	A3YpjEqS+jE0Z9H/R7ycQvZDA98QLqf0Xb0D3M5RrfsZdRTHa2kVBDQBRKWQairNlSA2N+ACIxUuj
-	tkdyk14xkvxoRv4O+4y+dKEzrfQje6lk0v7mj6jXJTrMi6Y++1qdV2e6DYBANFqkTvyHHzFQVhXPs
-	KWkRpsr/5alituGZu5T3iBOLgTUlg2EFQvpX4BQAJ8l0Q7fA2rN/4rRMxhST1IsaDUZqJ7cDVJoK9
-	/kdSVOEg==;
+	bh=yJkC8kA6dGMJdoD6V4YUCW/70FaJFyHKCUtXY4mJlAI=; b=dOO1PYZuOQCyrxV1HuVNmJb/kx
+	7KpfsfqbYdnr2KXLIaramgMgQ8lGiqoQDudnydvSkwVO6ZlQte6uKjw6VXj0WFbfIDyuUCcY+Z7om
+	70zZUL60grrZ3JOjeIm/4smQ+ZWrZKD29oIKRONhYtyArHsv0JC2j6msAFoMwsbnrTD3UBl+fMVXp
+	p4le+hiHaWGL3OdJz7PLesMM+Lh2lA5XHqdwK/7p1Ix4QteBVz9Z8mUyxBGEH9/+VuessK4B3bGig
+	PuUXcWJfVT0aTVt9pj5odKUwTW61zh0Tz3eXpz5+M/zsTzdvu7gflVYQZ4GHIbNLzshoPAeEaqRhR
+	JeqmoqzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBYti-00000009tlb-09Mb;
-	Thu, 14 Nov 2024 12:24:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBYri-00000009tDC-1vnb
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 12:22:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3ABD1480;
-	Thu, 14 Nov 2024 04:22:54 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 068313F6A8;
-	Thu, 14 Nov 2024 04:22:23 -0800 (PST)
-Date: Thu, 14 Nov 2024 12:22:21 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Paul Benoit <paul@os.amperecomputing.com>
-Cc: linux-kernel@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] firmware: smccc: Support optional Arm SMC SOC_ID name
-Message-ID: <ZzXrfV3uDGRkBD2L@J2N7QTR9R3>
-References: <20241114030452.10149-1-paul@os.amperecomputing.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241114030452.10149-1-paul@os.amperecomputing.com>
+	id 1tBZ0W-00000009uwn-2eZN;
+	Thu, 14 Nov 2024 12:31:32 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBYyg-00000009uj4-23Zy;
+	Thu, 14 Nov 2024 12:29:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E69D2A402D0;
+	Thu, 14 Nov 2024 12:27:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25DD9C4CECD;
+	Thu, 14 Nov 2024 12:29:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731587376;
+	bh=jO8wO2u4TzSToVkvP8mnOBJEASwGFrGljAE99wHmaPE=;
+	h=Date:Subject:Cc:From:To:References:In-Reply-To:From;
+	b=SPR/fBQd80bXXGD5IPBlR4X7HFTjYE5PHfr8245sbYTmj+g0esjtnIiss+qf2ZyKD
+	 HOdgQ4qZ5mJNnB+ExZV0XFEfEhFYayh4LFv8vHeMCLExPg2baQW835vkCWkNHYacNy
+	 Ms8uvo9fWQZPskkh23D2w93r6TlksldOU1u65ij5sM8uIdFwHRhQJeKu+PgJCowB1M
+	 9be93vxQCvQnfAzgoTUFzEteB1ZbvyQnHgN58FKyDI2OBBAjTIVctfgMZjRIER6h9W
+	 a/9oa/sbht8PM9Xn/zHOK2euCD8uxgKuQbjnsGV8HXemsHCmd9CuI8PZmdBsrIpRkL
+	 W+P0WM8igLjhg==
+Content-Type: multipart/signed;
+ boundary=52ace44e12075fa8225f0041c53d0c91369398e0eb41fb0d755839799c8c;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Thu, 14 Nov 2024 13:29:32 +0100
+Message-Id: <D5LWHT7OU9DQ.NCMSTUWT5991@kernel.org>
+Subject: Re: [PATCH v2 2/2] arm64: dts: mediatek: Set mediatek,mac-wol on
+ DWMAC node for all boards
+Cc: <kernel@collabora.com>, <netdev@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-mediatek@lists.infradead.org>, "Andrew Lunn"
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo
+ Abeni" <pabeni@redhat.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Matthias Brugger" <matthias.bgg@gmail.com>, "Biao Huang"
+ <biao.huang@mediatek.com>, "Alexandre Torgue"
+ <alexandre.torgue@foss.st.com>, "Jose Abreu" <joabreu@synopsys.com>,
+ "Maxime Coquelin" <mcoquelin.stm32@gmail.com>, "Bartosz Golaszewski"
+ <bartosz.golaszewski@linaro.org>, "Andrew Halaney" <ahalaney@redhat.com>,
+ "Simon Horman" <horms@kernel.org>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
+ =?utf-8?b?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
+X-Mailer: aerc 0.16.0
+References: <20241109-mediatek-mac-wol-noninverted-v2-0-0e264e213878@collabora.com> <20241109-mediatek-mac-wol-noninverted-v2-2-0e264e213878@collabora.com> <bdbfb1db-1291-4f95-adc9-36969bb51eb4@collabora.com>
+In-Reply-To: <bdbfb1db-1291-4f95-adc9-36969bb51eb4@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_042226_666512_353F2AA3 
-X-CRM114-Status: GOOD (  38.96  )
+X-CRM114-CacheID: sfid-20241114_042938_690486_93BE77AB 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,246 +85,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+--52ace44e12075fa8225f0041c53d0c91369398e0eb41fb0d755839799c8c
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-On Wed, Nov 13, 2024 at 07:04:52PM -0800, Paul Benoit wrote:
-> Issue Number 1.6 of the Arm SMC Calling Convention introduces an
-> optional SOC_ID name string.  If available, point the 'machine' field of
-> the SoC Device Attributes at this string so that it will appear under
-> /sys/bus/soc/devices/soc0/machine.  On Arm SMC compliant SoCs, this will
-> allow things like 'lscpu' to eventually get a SoC provider model name
-> from there rather than each tool/utility needing to get a possibly
-> inconsistent, obsolete, or incorrect model/machine name from its own
-> hardcoded model/machine name table.
-> 
-> Signed-off-by: Paul Benoit <paul@os.amperecomputing.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Sudeep Holla <sudeep.holla@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  drivers/firmware/smccc/smccc.c  | 70 +++++++++++++++++++++++++++++++++
->  drivers/firmware/smccc/soc_id.c |  1 +
->  include/linux/arm-smccc.h       | 10 +++++
->  3 files changed, 81 insertions(+)
-> 
-> diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
-> index a74600d9f2d7..1c7084b0b8d7 100644
-> --- a/drivers/firmware/smccc/smccc.c
-> +++ b/drivers/firmware/smccc/smccc.c
-> @@ -18,10 +18,12 @@ static enum arm_smccc_conduit smccc_conduit = SMCCC_CONDUIT_NONE;
->  bool __ro_after_init smccc_trng_available = false;
->  s32 __ro_after_init smccc_soc_id_version = SMCCC_RET_NOT_SUPPORTED;
->  s32 __ro_after_init smccc_soc_id_revision = SMCCC_RET_NOT_SUPPORTED;
-> +char __ro_after_init smccc_soc_id_name[136] = "";
->  
->  void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit conduit)
->  {
->  	struct arm_smccc_res res;
-> +	struct arm_smccc_1_2_regs regs_1_2;
->  
->  	smccc_version = version;
->  	smccc_conduit = conduit;
-> @@ -37,6 +39,66 @@ void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit conduit)
->  			smccc_soc_id_version = (s32)res.a0;
->  			arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_SOC_ID, 1, &res);
->  			smccc_soc_id_revision = (s32)res.a0;
-> +
-> +			/* Issue Number 1.6 of the Arm SMC Calling Convention
-> +			 * specification introduces an optional "name" string
-> +			 * to the ARM_SMCCC_ARCH_SOC_ID function.  Fetch it if
-> +			 * available.
-> +			 */
+Hi,
 
-I think the code for the SOC_ID name should live under soc_id.c, since
-it *only* matters to the sysfs interface (and will not be used by other
-code in the kernel to identify the SOC). That should be initialised
-under smccc_soc_init(), ideally factored into a smccc_soc_name_init()
-helper.
+On Thu Nov 14, 2024 at 10:26 AM CET, AngeloGioacchino Del Regno wrote:
+> Il 09/11/24 16:16, N=C3=ADcolas F. R. A. Prado ha scritto:
+> > Due to the mediatek,mac-wol property previously being handled backwards
+> > by the dwmac-mediatek driver, its use in the DTs seems to have been
+> > inconsistent.
+> >=20
+> > Now that the driver has been fixed, correct this description. All the
+> > currently upstream boards support MAC WOL, so add the mediatek,mac-wol
+> > property to the missing ones.
+> >=20
+> > Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+> > ---
+> >   arch/arm64/boot/dts/mediatek/mt2712-evb.dts                   | 1 +
+> >   arch/arm64/boot/dts/mediatek/mt8195-demo.dts                  | 1 +
+> >   arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts | 1 +
+> >   3 files changed, 3 insertions(+)
+> >=20
+>
+> ..snip..
+>
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8195-demo.dts b/arch/arm64/=
+boot/dts/mediatek/mt8195-demo.dts
+> > index 31d424b8fc7cedef65489392eb279b7fd2194a4a..c12684e8c449b2d7b3b3a79=
+086925bfe5ae0d8f8 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8195-demo.dts
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8195-demo.dts
+> > @@ -109,6 +109,7 @@ &eth {
+> >   	pinctrl-names =3D "default", "sleep";
+> >   	pinctrl-0 =3D <&eth_default_pins>;
+> >   	pinctrl-1 =3D <&eth_sleep_pins>;
+> > +	mediatek,mac-wol;
+>
+> The demo board has the same WoL capability as the EVK, so you can avoid a=
+dding the
+> mac-wol property here.
 
-Nit: comments should have the leading '/*' on its own line, e.g.
+Not sure I can follow you here.
 
-	/*
-	 * Multi-line comments should be formatted like this, with a
-	 * leading and trailing line.
-	 */
+>
+> >   	status =3D "okay";
+> >  =20
+> >   	mdio {
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.=
+dts b/arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts
+> > index e2e75b8ff91880711c82f783c7ccbef4128b7ab4..4985b65925a9ed10ad44a6e=
+58b9657a9dd48751f 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts
+> > @@ -271,6 +271,7 @@ &eth {
+> >   	pinctrl-names =3D "default", "sleep";
+> >   	pinctrl-0 =3D <&eth_default_pins>;
+> >   	pinctrl-1 =3D <&eth_sleep_pins>;
+> > +	mediatek,mac-wol;
+>
+> I'm mostly sure that Kontron's i1200 works the same as the EVK in regards=
+ to WoL.
+>
+> Michael, I recall you worked on this board - can you please confirm?
 
-> +			regs_1_2.a0 = ARM_SMCCC_ARCH_SOC_ID;
-> +			regs_1_2.a1 = 2;	/* SOC_ID name */
-> +			arm_smccc_1_2_smc(
-> +				(const struct arm_smccc_1_2_regs *)&regs_1_2,
-> +				(struct arm_smccc_1_2_regs *)&regs_1_2);
+I'd say so. Honestly, I've never tried WoL on this board, but I'm
+not aware of any difference to the *demo* board (not the EVK).
 
-These casts shouldn't be necessary, and they look suspicious.
+-michael
 
-Additionally, this should be using whichever conduit SMCCC happens to be
-using rather than assuming SMC. As with the rest of this code using
-arm_smccc_1_1_invoke(), we should add a arm_smccc_1_2_invoke() wrapper
-for that, with this looking like:
+--52ace44e12075fa8225f0041c53d0c91369398e0eb41fb0d755839799c8c
+Content-Type: application/pgp-signature; name="signature.asc"
 
-			arm_smccc_1_2_invoke(&regs_1_2, &regs_1_2);
-> +
-> +			if ((u32)regs_1_2.a0 == 0) {
-> +				unsigned long *destination =
-> +					(unsigned long *)smccc_soc_id_name;
-> +
-> +				/*
-> +				 * Copy regs_1_2.a1..regs_1_2.a17 to the
-> +				 * smccc_soc_id_name string with consideration
-> +				 * to the endianness of the values in a1..a17.
+-----BEGIN PGP SIGNATURE-----
 
-This indicates that we have to do *something* about endianness, but
-doesn't say *what* consideration is necessary, which is rather
-unhelpful -- it would be better to describe the format of the registers,
-which would indicate what specifically we need to do.
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCZzXtLRIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/iWHAF9EGqmrI+ZjOLTQX1iNMNp1lIL3a30zG0Z
+fCfLfeCWZL2+RRWPcly4R/8op414wophAYCl6jD4W7sXAYn0uTQU69C8uyAyzQus
+LYNR9AIEedX7Y537PxIcEpLeEJ++qmkDDo8=
+=xSul
+-----END PGP SIGNATURE-----
 
-For example:
-
-	The string is packed into registers a1 to a17 such that each
-	register contains 8 successive bytes, and within each register
-	byte N of the string fragment is encoded into bits [8*N+7:8*N].
-
-> +				 * As per Issue 1.6 of the Arm SMC Calling
-> +				 * Convention, the string will be NUL terminated
-> +				 * and padded, from the end of the string to
-> +				 * the end of the 136 byte buffer, with NULs.
-> +				 */
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a1);
-
-If you used cpu_to_le64(), you wouldn't need a cast, though either way you will
-need a cast on the return value since 'destination' is not an array of __le64,
-and sparse should complain.
-
-This isn't really an endianness conversion since we're unpacking smaller
-elements out of a larger container, so I reckon it would be better to
-handle this explicitly, e.g.
-
-	void str_fragment_from_reg(char *dst, u64 reg)
-	{
-		dst[0] = (reg >> 0)  & 0xff;
-		dst[1] = (reg >> 8)  & 0xff;
-		dst[2] = (reg >> 16) & 0xff;
-		dst[3] = (reg >> 24) & 0xff;
-		dst[4] = (reg >> 32) & 0xff;
-		dst[5] = (reg >> 40) & 0xff;
-		dst[6] = (reg >> 48) & 0xff;
-		dst[7] = (reg >> 56) & 0xff;
-	}
-
-... and then using that:
-
-	str_fragment_from_reg(destination + 0,  regs_1_2.a1);
-	str_fragment_from_reg(destination + 8,  regs_1_2.a2);
-	str_fragment_from_reg(destination + 16, regs_1_2.a3);
-	str_fragment_from_reg(destination + 24, regs_1_2.a4);
-	...
-
-That way we avoid all the messy casting, and we can more clearly align
-this with the way the spec says this is packed.
-
-The generated code looks sane (with GCC 14.2.0, at least):
-
-	// little-endian kernel
-	0000000000000000 <str_fragment_from_reg>:
-	   0:   f9000001        str     x1, [x0]
-	   4:   d65f03c0        ret
-
-	// big-endian kernel
-	0000000000000000 <str_fragment_from_reg>:
-	   0:   dac00c21        rev     x1, x1
-	   4:   f9000001        str     x1, [x0]
-	   8:   d65f03c0        ret
-
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a2);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a3);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a4);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a5);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a6);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a7);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a8);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a9);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a10);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a11);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a12);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a13);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a14);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a15);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a16);
-> +				*destination++ =
-> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a17);
-
-We probably want to check that the string is actually NUL terminated
-here, and log a FW BUG message if it is not.
-
-> +			}
->  		}
->  	}
->  }
-> @@ -67,6 +129,14 @@ s32 arm_smccc_get_soc_id_revision(void)
->  }
->  EXPORT_SYMBOL_GPL(arm_smccc_get_soc_id_revision);
->  
-> +char *arm_smccc_get_soc_id_name(void)
-> +{
-> +	if (strnlen(smccc_soc_id_name, sizeof(smccc_soc_id_name)))
-> +		return smccc_soc_id_name;
-> +
-> +	return NULL;
-> +}
-
-As above, I think this can be folded into the probing routine.
-
-> +
->  static int __init smccc_devices_init(void)
->  {
->  	struct platform_device *pdev;
-> diff --git a/drivers/firmware/smccc/soc_id.c b/drivers/firmware/smccc/soc_id.c
-> index 1990263fbba0..6f698c703868 100644
-> --- a/drivers/firmware/smccc/soc_id.c
-> +++ b/drivers/firmware/smccc/soc_id.c
-> @@ -72,6 +72,7 @@ static int __init smccc_soc_init(void)
->  	soc_dev_attr->soc_id = soc_id_str;
->  	soc_dev_attr->revision = soc_id_rev_str;
->  	soc_dev_attr->family = soc_id_jep106_id_str;
-> +	soc_dev_attr->machine = arm_smccc_get_soc_id_name();
->  
->  	soc_dev = soc_device_register(soc_dev_attr);
->  	if (IS_ERR(soc_dev)) {
-> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
-> index 67f6fdf2e7cd..5935cf636135 100644
-> --- a/include/linux/arm-smccc.h
-> +++ b/include/linux/arm-smccc.h
-> @@ -333,6 +333,16 @@ s32 arm_smccc_get_soc_id_version(void);
->   */
->  s32 arm_smccc_get_soc_id_revision(void);
->  
-> +/**
-> + * arm_smccc_get_soc_id_name()
-> + *
-> + * Returns the SOC ID name.
-> + *
-> + * When ARM_SMCCC_ARCH_SOC_ID name is not present, returns NULL.
-> + */
-> +char *arm_smccc_get_soc_id_name(void);
-
-I don't think this needs to be exposed outside of the SOC ID code.
-
-Thanks,
-Mark.
+--52ace44e12075fa8225f0041c53d0c91369398e0eb41fb0d755839799c8c--
 
