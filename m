@@ -4,81 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1DDD637A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 00:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC242D637D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 00:49:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=irqL6pr5FGKQNln0RCNGxRMdsDOI546965/EfKxMtaA=; b=4cMAJDRKgGDsTwhw/KxWYtMteg
-	wPzloGcED8FPDnbt2P8+qm+OHg8KPCnCC6tHzeQyKS1TxphX+Of8y2sJMGiTWyxEMGFwQrCFIJEiO
-	UmH/UVochkdXh8izZvARF/auieICq5U22MaKg4fhJJIUEATKSTEfzxgRoki37DqNnSIr3oblE+qC4
-	3W4JpsL6KmC0M9mwgOi+7oOewhNgKD8C9Acgzvk7+leE78E2hWomCm3WY3zZXQ3Ycysztg6WTLr9/
-	z0XNFcBjWFsDwvdKgvU3ZNoKQTuasP/GwGN5l2pXhBE8bRKmA7dvD34FDzlFNPLnwWPnyuPZ1QQt3
-	WM/G0c7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IAnmVBwWFf3Xhdog2eQqQl/DSldjwsVOe2c/bV8ijyY=; b=mHP5QW/LJ7L8idEaUxuRGfmzrY
+	VlDPoW/6pB3vElr0UPKHihGIE8/yuWsKm2dTiUe8pwE98cUI3f/G8aLhHa2uvTJNKIq/Bx/Rbedk8
+	9JDbbvsAOVlUE61FOeE1glmFKgif0ZEyddTdIftHrGPfybPsnecU97hv6iZwWNIUV1ziBCpLjmP/q
+	o0X1pPPfUS6de941MGpQ4tCBVNwUd9qQskOS8ZBYekqMq5XKQyv6qhI3RoUo9PTL5KdmQjh3TGA/O
+	qeRuxT1Dsct/woqK2BGuaq4MSmqBc9FF+ujgDLQ/lEJA+pS3KUMNlECP4pmWaDTEnADZI+xapAR/C
+	yLZiB2jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBNOp-00000008JfB-37YA;
-	Thu, 14 Nov 2024 00:07:52 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1tBO2z-00000008NCX-387x;
+	Thu, 14 Nov 2024 00:49:21 +0000
+Received: from mail-io1-xd2d.google.com ([2607:f8b0:4864:20::d2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBNN0-00000008JQc-2aoA
+	id 1tBO1B-00000008N4I-1gHv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 00:06:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731542758; x=1763078758;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=QCU4sOzgkeIKbdmKlY+8wD3dNS2f394YpPWJGiZp+Bs=;
-  b=QUUcgK8LIG7NhljrT0/pJdd89kLe22wCJWDa2uS7Is40ePI2YS3dA9Z3
-   rkscJRW3mNI5SzShg3zyd83XRONIbZS6x4jBmc1IVnUyiRcnlWNnH6K3V
-   rbVKbkOENR/F8H4itk7oigXhwEAdWBb45Vuz3JnidSTqHOm5mfkwOnJfW
-   8TCsTE+w94zOCzTDVAljsm6flfbRw6DBfqnW7ZGK/CSEnWqTKg/Ldd2hi
-   SrYF/eFImK1R92oP7NAYf3efMi+kU2czGt8l/G92DNYjea3neACHcGfVc
-   etNlCh1xLOLzTzxNXxO6FgDiySloarJAuyT10BhgZXNO7yLKZgRFSg/+t
-   g==;
-X-CSE-ConnectionGUID: p7rdzvW2Qqe3wE4uEBai5A==
-X-CSE-MsgGUID: zz+JVGGZQ36GtkyFpmxSVQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11255"; a="42073495"
-X-IronPort-AV: E=Sophos;i="6.12,152,1728975600"; 
-   d="scan'208";a="42073495"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Nov 2024 16:05:57 -0800
-X-CSE-ConnectionGUID: KKYYy0w6RvCAL6KZ1+vJGA==
-X-CSE-MsgGUID: MXJRmlm9RzmXYn9RqXolmw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,152,1728975600"; 
-   d="scan'208";a="111341296"
-Received: from lkp-server01.sh.intel.com (HELO 80bd855f15b3) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 13 Nov 2024 16:05:54 -0800
-Received: from kbuild by 80bd855f15b3 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tBNMt-0000uR-20;
-	Thu, 14 Nov 2024 00:05:51 +0000
-Date: Thu, 14 Nov 2024 08:05:07 +0800
-From: kernel test robot <lkp@intel.com>
-To: Bibek Kumar Patro <quic_bibekkum@quicinc.com>, robdclark@gmail.com,
-	will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
-	jgg@ziepe.ca, jsnitsel@redhat.com, robh@kernel.org,
-	krzysztof.kozlowski@linaro.org, quic_c_gdjako@quicinc.com,
-	dmitry.baryshkov@linaro.org
-Cc: oe-kbuild-all@lists.linux.dev, iommu@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, quic_bibekkum@quicinc.com
-Subject: Re: [PATCH v17 1/5] iommu/arm-smmu: re-enable context caching in
- smmu reset operation
-Message-ID: <202411140748.6mcFdJdO-lkp@intel.com>
-References: <20241112165454.2698269-2-quic_bibekkum@quicinc.com>
+	Thu, 14 Nov 2024 00:47:30 +0000
+Received: by mail-io1-xd2d.google.com with SMTP id ca18e2360f4ac-83ac817aac3so3000039f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 16:47:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731545247; x=1732150047; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IAnmVBwWFf3Xhdog2eQqQl/DSldjwsVOe2c/bV8ijyY=;
+        b=nOmAglV0taIwFwnz3n5a4SFG6i5l/uET4wjVK7Kth8HHpCy4oO4q5Kqc1woW4X7Pvn
+         O5KxgpVjGgNYKF70fZT2OvncL6KDB67OLltGuqn3wftf4USlTzIZw19Dr8BTxkGEtre0
+         Z5pxGiwyP2IegLVauOl38AcAUyLoNLfsvMQOqgKzgtAQP9Yp0i7+IRDSGAyY2GBe9icx
+         A1Rt9bEWgcUyaIX7/mHQsOqWjosamzPoGfmIknnAqvuGAwuMEeCBKAoXgwv7Auuy/kQS
+         GyZShnHJfm26IgU2z/FNFw2O7rKfW5b5lI4v94cwgZDE++LA/Wf4SwR4sFB0uePRYvn0
+         9NVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731545247; x=1732150047;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IAnmVBwWFf3Xhdog2eQqQl/DSldjwsVOe2c/bV8ijyY=;
+        b=oMT/vlM6k9GuiojxEVNfaGGjVUG0Ygn7XsENQURaEdx7jR8hvq6JpWtbXS+1dpPHdi
+         XWUpQB0gC96OHeMm7hYCq7UhXcCiJw7/ZV3ScM5/3iIAeTCy8uJNSOkN1UguxKQN1le6
+         wntz/KzMYnY5zIpteBwUc2c4VZ+Uz/KVySrvJTNoZ57dH82ugXdAPuSkNCiSi+iWF8Vw
+         2PifdiKbTmPxmqEDQNqBm6tk1L0gGqVaeGH3+QjZH/JHJXApM7zZmLHAb3up//3lK6IA
+         MOAlQn5DUGe1lkjPNbwMBkCOb13ikLBEpGVQUz+gZPTOD0CR7PGmdhms5kg8O8pf6fy7
+         aXjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUAC2JdtC4wjrAYfKGONKESfZ4WqBNpfUH3j2ms50PgmkqT/SkGLcVbHxPJNw+Ls0lDWRpRJ9oKPpXvX5+EPaiI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZMzNWXqRbl82S9Y7g3GyMLjUxXj71RJPSV5217vylg3QORdG4
+	mRqR1u2aREr2eYfc0tgujuS5+o3e9l5OWzYIDbj/GO8dEiT/BlgH
+X-Google-Smtp-Source: AGHT+IFxRqbD12YhC4U8wkPfDwTQO33ThQkh9I8WnH/R9DUcJXRSMyZaEJfwBf3KNdmT3lZ2JubIow==
+X-Received: by 2002:a05:6602:15c5:b0:82d:16fa:52dd with SMTP id ca18e2360f4ac-83e431d3082mr1061871039f.7.1731545247358;
+        Wed, 13 Nov 2024 16:47:27 -0800 (PST)
+Received: from localhost ([2607:fea8:52a3:d200::8f60])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4e02fd148fasm2446173.86.2024.11.13.16.47.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Nov 2024 16:47:26 -0800 (PST)
+From: Richard Acayan <mailingradian@gmail.com>
+To: Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Rob Clark <robdclark@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org
+Cc: Richard Acayan <mailingradian@gmail.com>
+Subject: [PATCH v2 0/2] iommu/arm-smmu-qcom: Add SDM670 SMMU v2
+Date: Wed, 13 Nov 2024 19:47:14 -0500
+Message-ID: <20241114004713.42404-4-mailingradian@gmail.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241112165454.2698269-2-quic_bibekkum@quicinc.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_160558_697073_9465FC20 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20241113_164729_461090_3F313738 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,73 +99,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bibek,
+This adds the SMMU v2 for the Snapdragon 670, used for the Adreno GPU.
 
-kernel test robot noticed the following build warnings:
+Changes since v1 (20240730013820.41702-4-mailingradian@gmail.com):
+- explain need for specific compatible in iommu driver patch (2/2)
 
-[auto build test WARNING on linus/master]
-[also build test WARNING on joro-iommu/next v6.12-rc7 next-20241113]
-[cannot apply to arm64/for-next/core]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Richard Acayan (2):
+  dt-bindings: iommu: arm,smmu: add sdm670 adreno iommu compatible
+  iommu/arm-smmu-qcom: add sdm670 adreno iommu compatible
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Bibek-Kumar-Patro/iommu-arm-smmu-re-enable-context-caching-in-smmu-reset-operation/20241113-042646
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20241112165454.2698269-2-quic_bibekkum%40quicinc.com
-patch subject: [PATCH v17 1/5] iommu/arm-smmu: re-enable context caching in smmu reset operation
-config: powerpc64-randconfig-r064-20241114 (https://download.01.org/0day-ci/archive/20241114/202411140748.6mcFdJdO-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 592c0fe55f6d9a811028b5f3507be91458ab2713)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241114/202411140748.6mcFdJdO-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411140748.6mcFdJdO-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from drivers/iommu/arm/arm-smmu/arm-smmu-impl.c:10:
-   In file included from drivers/iommu/arm/arm-smmu/arm-smmu.h:18:
-   In file included from include/linux/io-64-nonatomic-hi-lo.h:5:
-   In file included from include/linux/io.h:14:
-   In file included from arch/powerpc/include/asm/io.h:24:
-   In file included from include/linux/mm.h:2213:
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
->> drivers/iommu/arm/arm-smmu/arm-smmu-impl.c:113:6: warning: unused variable 'i' [-Wunused-variable]
-     113 |         int i;
-         |             ^
-   2 warnings generated.
-
-
-vim +/i +113 drivers/iommu/arm/arm-smmu/arm-smmu-impl.c
-
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  109  
-759aaa10c76cba drivers/iommu/arm-smmu-impl.c Vivek Gautam 2019-09-20  110  int arm_mmu500_reset(struct arm_smmu_device *smmu)
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  111  {
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  112  	u32 reg, major;
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15 @113  	int i;
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  114  	/*
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  115  	 * On MMU-500 r2p0 onwards we need to clear ACR.CACHE_LOCK before
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  116  	 * writes to the context bank ACTLRs will stick. And we just hope that
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  117  	 * Secure has also cleared SACR.CACHE_LOCK for this to take effect...
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  118  	 */
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  119  	reg = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_ID7);
-fba6e960772b7b drivers/iommu/arm-smmu-impl.c Will Deacon  2020-01-10  120  	major = FIELD_GET(ARM_SMMU_ID7_MAJOR, reg);
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  121  	reg = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sACR);
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  122  	if (major >= 2)
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  123  		reg &= ~ARM_MMU500_ACR_CACHE_LOCK;
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  124  	/*
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  125  	 * Allow unmatched Stream IDs to allocate bypass
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  126  	 * TLB entries for reduced latency.
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  127  	 */
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  128  	reg |= ARM_MMU500_ACR_SMTNMB_TLBEN | ARM_MMU500_ACR_S2CRB_TLBEN;
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  129  	arm_smmu_gr0_write(smmu, ARM_SMMU_GR0_sACR, reg);
-62b993a36e4c2d drivers/iommu/arm-smmu-impl.c Robin Murphy 2019-08-15  130  
+ Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 1 +
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c            | 1 +
+ 2 files changed, 2 insertions(+)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.47.0
+
 
