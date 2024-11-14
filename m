@@ -4,84 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81400D68B2B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 14:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D76FD68B2C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 14:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IGt3perR6MKvrKIP+pWiAPIqBuHbAKWRSnzDOTu938g=; b=I7eZGB0tS82hD2n000lqNGLzY/
-	YWl1CLHacqXv7iZL2lwF15vz24l1WxbzHVcSxCnor/jP2JY/ZzwJ9cpWzaI0mAzUIX9fFSLWdJiKe
-	v1UrarXR3zO3MRkwaeTB8BU0+qAOKf603o0UA07EIfB061m/oWnIXg6rxh/7E0pv69HcaRMs4bNO6
-	izQWm3JdJA5y4xTnMWT9wEFwUtPK0h/6B8CQtEotcyhE7EIHUxGdOpTTpiq9SfezEIIhM6rWjg2UI
-	7xdXftpgW4iEDiAQgSCQ8Xiy/j6LE0qet0fz5XtZQ4LcIAdvQHjK/Z3yggaP6a7s/TXKS499EHAkd
-	uYPzlY6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m1H7RyhqiJfi+Hsr34GvO+vOADgySUX1dEoQ83ucy1E=; b=VZFiSSKNjktDPQJ5rAnivozn7/
+	NEFnlWXQ1RJzanro6Kvdib/AmWXXK2Zc4TLzbUCMCV3AepsglQ3gSoiLE8JpcsNBx97r8JXY2qDpK
+	NSK7Dkf5FvZJmXCMxImLS0y/3Oi3RMz/WudaTdKWtKzhAbkTlZx+QCPgRPAkLfY18Ltzp8z+5z6XL
+	9JkahirzduZCCf3ZDcxrnuW1hf135yOcQDA1oCB3TUVKwxk5uIDyuDy389y74TpBXdhkt2q7h5L2/
+	n1njbmq9sAofCmZggtGSzvl7hyfNB9AHx+8KjZTKnRk19vEfEcF/kZTfFeNazHT+cPApCXbxiwOgl
+	GzaL6eHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBb4i-0000000AFEi-1HyO;
-	Thu, 14 Nov 2024 14:44:00 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1tBb6U-0000000AFZN-3avj;
+	Thu, 14 Nov 2024 14:45:50 +0000
+Received: from mail-southindiaazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c409::2] helo=MA0PR01CU012.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBay0-0000000AE4r-2BxX
+	id 1tBayG-0000000AE8S-3PeS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 14:37:06 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-288661760d3so284291fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 06:37:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731595023; x=1732199823; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IGt3perR6MKvrKIP+pWiAPIqBuHbAKWRSnzDOTu938g=;
-        b=WZphTTWYU5xL29i8aSqN769seh1TH8Gyk2Zhkg3QsCq7meY+/IVpJXFEkI/gRIJqVi
-         raLy3MR5Jihr8kGi7r25K62dtdDduiByAkocd37rN6EOiflMDg+AEd5jjHIBB7AqUmYZ
-         meMdlk66qHPn96cATunv8UZ/F9JRbJ2nXBwjYKAH0oD15NElvf9EgtM8d6jN77gesr9n
-         fZMuM/nUe9FYst5Bgml6U3/76yhIZ59vwaM25MhxbXlbR0l+mTA34JjJDS8Yole0Km4r
-         05jps4PNyz1ul2XOAparURpl4EDuYY9EJCPDIkirPqq1WZ+z9mf99/RCwxu0zjYTPx6o
-         SJgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731595023; x=1732199823;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IGt3perR6MKvrKIP+pWiAPIqBuHbAKWRSnzDOTu938g=;
-        b=l2SjXWmXQBrFpWHoeHY1ebMFpFUbMyq7G6EZrGGs7gjkxVB2wvpAB9E6h11liE1nyb
-         Y+pHybmbtCuf5O7QkzZhbzAbk9bNU9Jx+lfvtOGcBFc+MsgvNEER2zwyztWwcH2gelLn
-         qhoeGrCXS4EX0Kz0wv1FPbt4FNnK0hG/nnm1YsbAtU5ASPjQ0o4QatC8pGVkSA7iyBoE
-         4uGR9CMhd2U+UXUKKbAgxPEfgHmrGcqaoQfiWyFivubHo54YWjGK54Ifeju7rN+gG+gs
-         YrMlgowxamgkSGuc9O9W8Ve3cf81R0u0HGq3TV7B0HC37LNfo42QsGfno01CumzuemJh
-         DODQ==
-X-Gm-Message-State: AOJu0Yyns2U8+860ogEWxGDfEAZkK71DYdJEwPArrJ8X9dVGtHJJk489
-	MSIKjgipUDrzl55Q8MtN3wYUgTkq8KVuAlvSW9y0g76oO6TVg9+z
-X-Google-Smtp-Source: AGHT+IEqNhhPHGyb7oB+cPPBeJw9s37iJW919hbsr058ZKOG5V8yHEvVE7yjxHXwdc4ny2A8okRAGg==
-X-Received: by 2002:a05:6870:d03:b0:261:877:7459 with SMTP id 586e51a60fabf-2956036baedmr20256480fac.38.1731595023281;
-        Thu, 14 Nov 2024 06:37:03 -0800 (PST)
-Received: from localhost.localdomain ([38.44.237.182])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-71a6eaeea60sm393294a34.43.2024.11.14.06.37.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Nov 2024 06:37:02 -0800 (PST)
-From: Sota4Ever <wachiturroxd150@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/2] arm64: dts: Add initial support for Samsung Galaxy S20 FE (r8s)
-Date: Thu, 14 Nov 2024 14:36:36 +0000
-Message-Id: <20241114143636.374-3-wachiturroxd150@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241114143636.374-1-wachiturroxd150@gmail.com>
-References: <20241114143636.374-1-wachiturroxd150@gmail.com>
+	Thu, 14 Nov 2024 14:37:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=alL++i/Yv1iU9dAdn7euFBJd8+WJV2j/CPlmq6u8ozDHlYEr7m4tAcuFqHVmqXNol75UYLUHAFje7uOATtuNKpj0ENPTef9FReOpoNqlcD0JWwr63OLe0DT+Tbb4++879eS43ZpRSdv85dYQnk9jzOMbQKuItoeMSt3fBf2n9sAKYsMIo5UsiEsw5ka7IRWUSXBxMKneffQh400cWCH4U5itpSgMcN62rlk8w4f/PXQPKEFnZ+E6TKf0lPw57Uqa/eF51yzZMoLucVm4dNBqRG27gmiAkC5ZzZrAai1EcJ3tiM/54AnnCwcdW3HvNqqG4jZv5xohDXwX9LSuxb3qJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=m1H7RyhqiJfi+Hsr34GvO+vOADgySUX1dEoQ83ucy1E=;
+ b=gwDNtOAmjHemfGXCrHcSJrEwhtF6cRZXfvw81sDB4RGfTb5gD7mLrgqyWaUBjsYI+3Utgwd7pM/gfWA6/VDr0Ay706ja09SlXsUETf0eJvZOibkZejZ7NGLlGi+8FFTNZxkOGA9TjJngiXhKq5Q5Rx71pnFDjQIGJbLLZ4a+p4Nfs6a4UP4AsLaNsqDX+6Em3d+Mkq3ZqJ7hLd/0pGXzQ7+q5ojndbpsKqlPbr/zyTLxEpfBj/s05zz4r+4TU3RKUBlDLgbLBU8gbFCkFSZWB8DGBGHkT5Cs17Dc4Fq0JXX0I188wT7+09blUCm3fVnsHsaVCOYnhFGQzDQwqZ8JbA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=siliconsignals.io; dmarc=pass action=none
+ header.from=siliconsignals.io; dkim=pass header.d=siliconsignals.io; arc=none
+Received: from PN0P287MB2843.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:204::8)
+ by PN0P287MB2152.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1b7::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.18; Thu, 14 Nov
+ 2024 14:37:13 +0000
+Received: from PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
+ ([fe80::1134:92d7:1f68:2fac]) by PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
+ ([fe80::1134:92d7:1f68:2fac%3]) with mapi id 15.20.8158.017; Thu, 14 Nov 2024
+ 14:37:13 +0000
+From: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>
+To: "will@kernel.org" <will@kernel.org>, "broonie@kernel.org"
+	<broonie@kernel.org>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Oliver Upton
+	<oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Ard Biesheuvel
+	<ardb@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Joey Gouly
+	<joey.gouly@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] arm64: Refactor conditional logic
+Thread-Topic: [PATCH v2] arm64: Refactor conditional logic
+Thread-Index: AQHbNqDYhJB07AnF90+yVvz+NvSraLK21vA6
+Date: Thu, 14 Nov 2024 14:37:13 +0000
+Message-ID: <PN0P287MB2843A2EFD47FA629DBFD061FFF5B2@PN0P287MB2843.INDP287.PROD.OUTLOOK.COM>
+References: <20241114142333.18210-1-hardevsinh.palaniya@siliconsignals.io>
+In-Reply-To: <20241114142333.18210-1-hardevsinh.palaniya@siliconsignals.io>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=siliconsignals.io;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PN0P287MB2843:EE_|PN0P287MB2152:EE_
+x-ms-office365-filtering-correlation-id: 2f22450d-70e3-4068-1f47-08dd04b9d43c
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?ZgNN0ngJdv2ayLHqvhPe8xm5joufFzQktlg1p7OdeEch9ggQ3YRZVTmPa2?=
+ =?iso-8859-1?Q?1KVKWx8QlDtk1C9v3TMl7GA/NdbPuokfVZGVxEGs14sbsk9zPJcHolJYkd?=
+ =?iso-8859-1?Q?uLIcacYRhn4YqGvwURdSletS0ykkQXaIAIzKLtnu0TxJ69QLR+NLnPmVp1?=
+ =?iso-8859-1?Q?MGyQRbmzU5k0x5XDplARluDuegfuLX1CxaBM5C4j+Mv2FSo2/ojK7QWArZ?=
+ =?iso-8859-1?Q?VunTb+QtTOiurrAAs6pm/sd+n+98wLotvqxASSP6NinTwcg6HqvS6FqTIf?=
+ =?iso-8859-1?Q?wGOcyplJ/Mz2uGPi5g8HCr0poCYB/PY3N1xqmga7ffLKlsgHfcJL6Ci5j0?=
+ =?iso-8859-1?Q?KcryGEHDYq04nTTKor7nlwdO8znh1Csu6Q2Y3kxFIMRKZyO3gDgYcxzjaZ?=
+ =?iso-8859-1?Q?1qEwRDCUT+grOp+wdLIsi0JGBaJIVc9MYA8ja/Yrx3N7nu/EAq8/tM9tkX?=
+ =?iso-8859-1?Q?AZ/gKNv2rVyAxQX/TAHzdKK/ufErAfv6p3yAbu7XGeyWHkYGUaQhz+l4/w?=
+ =?iso-8859-1?Q?rcauG66TMwyY3K4F6E4YsKIZKoUDmQzkvpOX/u5ouBQA+SbgB/OUDfMVcs?=
+ =?iso-8859-1?Q?vnHUF4VY8rl2FB+7IneheD9LB1x0WCe0K9fjTqwq0d3UPzh3XxTHpmLWjN?=
+ =?iso-8859-1?Q?H1lEZ9+OFCAo6mB5Rp7oWMi5OsZZxZjkquGC/d7aChi7ASfwfnZEwNosfG?=
+ =?iso-8859-1?Q?f9IBEFL2AnrZism/lRPU4ktkMDltA8Yu+HqmdRItFqAtjtLa0vDLiOCn0o?=
+ =?iso-8859-1?Q?qsIbPTNtpBWyctzkdTnNrJC4e3r6VaYQtaotlCsnm+Jhi73DQTfYHF7Z0F?=
+ =?iso-8859-1?Q?HOnNmCxOOqhbPe1yW4ly6t4Tqz5fUUxsPuO2OoYRWj1yNvf4MnEPxTMPRP?=
+ =?iso-8859-1?Q?d/6KRwq/fNNiBnekNz2UoFz6FzdJZXbpnBZHUFzz5oKwNBNqM6GZG/4atF?=
+ =?iso-8859-1?Q?7omYKGeg39YAsOgUaPEEO5ORmu9+F+KOiMKTUBZUAKA6lhv4hnQK4QvzIc?=
+ =?iso-8859-1?Q?eROUcFvjpmUHzTD9M8/CLzB0aDvAhhgKsk55FvQSeOm9mLISzq4a8yQinN?=
+ =?iso-8859-1?Q?91FctZz+QiyWVgqyFMp3vMULvP0n/sLlxYKn5kaSJDvSK52SoPMau2LHii?=
+ =?iso-8859-1?Q?iCgX1+E7X2/to8EuAanNmmRjAtrgoSYB9tjTpgGj2P0Y1Koh3BEnHd4udd?=
+ =?iso-8859-1?Q?S2zeVlxqMrM9aiPG/PYnWfyvRu3j4tt11LjQFu5Skco1kufqoei7ARxX7s?=
+ =?iso-8859-1?Q?M/mBK1d9qA4+jjuHqIv9J/BNjuKIHHVrMbwxeF3Xu+fmLm6TdyTgKeHsi6?=
+ =?iso-8859-1?Q?VRhNTEulxIqryruOPqBSOlCVQk0hhFHSc/Hx8VnmXQ+mzJ0EkNqb83vzhq?=
+ =?iso-8859-1?Q?e0JCtCUZwZuQx4XvbiFY/5P0oYXrVmP1CD6R+SGeUSXTPceTQyk6k=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN0P287MB2843.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?InyGtQ9/juGUhHVDzfXGZ7QbDTqAEkXfbELhX/BmwPVRpsa/0VAkh4oZb6?=
+ =?iso-8859-1?Q?+yizDurNFHOCceUs+oLXyHyTpK9F30VspAAGwv1tIArEkge2KvEAqnjXXB?=
+ =?iso-8859-1?Q?VuI17xjvgbNVOmL4cQx5JKxA888NZWkGJWoStyMvU4bXJyVRPgfdPUPSMd?=
+ =?iso-8859-1?Q?XUzXvvJ1z2l2AK6y7JH9m+xoFbIPrpJxg5krlvcpy1VpZpECFC3MKlrUlE?=
+ =?iso-8859-1?Q?QO50du9xQFT29VHSjdjr5nBsGCasSDC1ZFj5SA94jehBrdqMLhgSFg2chE?=
+ =?iso-8859-1?Q?UDJ97WvgBnQ/b5VMy7QYpmj8OEIRIpDidjK9a4ZmuWrG7guecvg/FoyXbu?=
+ =?iso-8859-1?Q?Q9/bF4Pm3cMl4RiU3QiPdjjkLaHTba0WZCpQgzHaMXHKNgFKhduTQL4UYL?=
+ =?iso-8859-1?Q?Dqz+Y6c0raoAQysYQKdjBCE2T3nW0kNgHvwJq8nBKwCfvU9ZulkEkvhjmU?=
+ =?iso-8859-1?Q?Sjh6R+Q4lXKWMSVrsXkSf+QY3+LGLPjcNa+3XWUUy/yGLSCGKGYYhLK5SA?=
+ =?iso-8859-1?Q?Mcw+HhOXt5j6V5bvxg/RPHJfCX7Byjz6hAvtZi9tgXFaBPgJQafvl0dw8T?=
+ =?iso-8859-1?Q?v+L1eUOIHD7v99+Zgi/sHcdVpfwMRdh/pssWuXw6UhA6ntUgERAaguTNpx?=
+ =?iso-8859-1?Q?UcNu+a9JTUDkhBer6/L0/YByoZyZsgkw2Ye4mjWb5FEeZ/firR4gwzcQeH?=
+ =?iso-8859-1?Q?gMGkd2XG2nZ34hEKzyWaaK772ZQm03gLk05jOoU7KNC8RQfMCQFUW64U4P?=
+ =?iso-8859-1?Q?aKWOJ9z6I+yawKjU7cizPDuedHZ8papOlZ77VFASo7mCi9cSi6eD/M5PZ+?=
+ =?iso-8859-1?Q?7CY1QXa5ycQETVcS22F2zudh0QncD0sjhA/p57A6O0kU7AY5Gu4x6cgqgC?=
+ =?iso-8859-1?Q?M+KvFVfy95Bq5NmsGbFeh3wVT7vkB3m8rBI47yjuWh41vE5Fq7il7UvJ3Z?=
+ =?iso-8859-1?Q?vz3vuRYuUdQquXtmK3AYzf9o5AkM15uwPm90ux2gpjG4Y7OJ/52y7hee77?=
+ =?iso-8859-1?Q?qDQdgnaIw/4IlfClV2iy8MMTOdspyPG9fm8tMBwf7L2pbTrBta3LRqgLey?=
+ =?iso-8859-1?Q?hGVPmWIyYkUaqduM9/IMJhIcz3T7I5T57TAAgka1IV13dhB/vYSDAOP9eK?=
+ =?iso-8859-1?Q?96i4Tu8y9k/PeiEhM9bafUTkg4PzJs4ids0JYxq7JblGLoBy+KtSEagXuL?=
+ =?iso-8859-1?Q?Wa8Bkh8z3TKOcO61uIjYlluDcMZ0ya9z608OoZkewbFdzrTBtxwP2+7Y/o?=
+ =?iso-8859-1?Q?RlwPR9S2V/alb9nj0fqwagQz5vPTfymnBhTJgc7J0KSF69PK8/ifPZ23kE?=
+ =?iso-8859-1?Q?wzIK3j8eYA7CYfbCdbIXSKrTMwcRta8lye+dcEO/vGFbbDaIQWwm4YXxvj?=
+ =?iso-8859-1?Q?TvQBvMkyzs+Bm0fa44XiV37znerc3pZDkbfk+N9CZ3ClvrO49rD/o9Dv/U?=
+ =?iso-8859-1?Q?E+RvpVbEeYeDP8m1y/wR4ABsNuXajkrJth7JWRSWTqhOXRIP1tz1Z48KXR?=
+ =?iso-8859-1?Q?nQG37FrY5s0eRJErkllL98PFKtKQSGat9FiLro/S0XQ/AnKlw2rv3iZY0a?=
+ =?iso-8859-1?Q?9K8RZp24zlsvwWDf66ApIVglSB42dr/eXtdwgEfgh6InXX4Mx8Cgl3ETyk?=
+ =?iso-8859-1?Q?pGbFoaTaii3P37WdpDqQU/72450lcCbcXU94lPYE21FD3WAvenyTZTZJ7X?=
+ =?iso-8859-1?Q?WHHpTUFHDA4Q1thHggI=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: siliconsignals.io
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2f22450d-70e3-4068-1f47-08dd04b9d43c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Nov 2024 14:37:13.2340
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 7ec5089e-a433-4bd1-a638-82ee62e21d37
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 4GP8BcMpf8ssnq9Q5f++ccNc7Dxf8Z1p3pgWabFKhXKw68xB7DihnBWjo5plU/y2cRheCvpNSU4JF2DtWoPw6e6qO0+4o+tMBS/tBhwqdn4ithwkpmeDuIlWUI9YNXJf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB2152
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_063704_661886_20626026 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20241114_063721_079171_CDC25447 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,158 +162,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Denzeel Oliva <wachiturroxd150@gmail.com>
-
-Add initial support for the Samsung Galaxy S20 FE (r8s/SM-G780F) device.
-Its launch was in 2020 and also based on the Exynos 990 SoC.
-It is only configured with 6GB of RAM, although storage options may differ.
-
-This device tree adds support for the following:
-
-- SimpleFB
-- 6GB RAM
-- Buttons
-
-Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
----
- arch/arm64/boot/dts/exynos/Makefile          |   1 +
- arch/arm64/boot/dts/exynos/exynos990-r8s.dts | 115 +++++++++++++++++++
- 2 files changed, 116 insertions(+)
- create mode 100644 arch/arm64/boot/dts/exynos/exynos990-r8s.dts
-
-diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-index 7a934499b..948a2c6cb 100644
---- a/arch/arm64/boot/dts/exynos/Makefile
-+++ b/arch/arm64/boot/dts/exynos/Makefile
-@@ -9,5 +9,6 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
- 	exynos850-e850-96.dtb		\
- 	exynos8895-dreamlte.dtb		\
- 	exynos990-c1s.dtb		\
-+	exynos990-r8s.dtb               \
- 	exynosautov9-sadk.dtb		\
- 	exynosautov920-sadk.dtb
-diff --git a/arch/arm64/boot/dts/exynos/exynos990-r8s.dts b/arch/arm64/boot/dts/exynos/exynos990-r8s.dts
-new file mode 100644
-index 000000000..b21863bbb
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos990-r8s.dts
-@@ -0,0 +1,115 @@
-+// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
-+/*
-+ * Samsung Galaxy S20 FE (r8s/SM-G780F) device tree source
-+ *
-+ * Copyright (c) 2024, Denzeel Oliva <wachiturroxd150@gmail.com>
-+ */
-+
-+/dts-v1/;
-+#include "exynos990.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/ {
-+	model = "Samsung Galaxy S20 FE";
-+	compatible = "samsung,r8s", "samsung,exynos990";
-+
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	chosen {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		framebuffer0: framebuffer@f1000000 {
-+			compatible = "simple-framebuffer";
-+			reg = <0 0xf1000000 0 (1080 * 2400 * 4)>;
-+			width = <1080>;
-+			height = <2400>;
-+			stride = <(1080 * 4)>;
-+			format = "a8r8g8b8";
-+		};
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x0 0x3ab00000>,
-+		      /* Memory hole */
-+		      <0x0 0xc1200000 0x0 0x1ee00000>,
-+		      /* Memory hole */
-+		      <0x0 0xe1900000 0x0 0x1e700000>,
-+		      /* Memory hole - last block */
-+		      <0x8 0x80000000 0x0 0xc0000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		cont_splash_mem: framebuffer@f1000000 {
-+			reg = <0 0xf1000000 0 0x13c6800>;
-+			no-map;
-+		};
-+
-+		abox_reserved: audio@f7fb0000 {
-+			reg = <0 0xf7fb0000 0 0x2a50000>;
-+			no-map;
-+		};
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		pinctrl-0 = <&key_power &key_voldown &key_volup>;
-+		pinctrl-names = "default";
-+
-+		power-key {
-+			label = "Power";
-+			linux,code = <KEY_POWER>;
-+			gpios = <&gpa2 4 GPIO_ACTIVE_LOW>;
-+			wakeup-source;
-+		};
-+
-+		voldown-key {
-+			label = "Volume Down";
-+			linux,code = <KEY_VOLUMEDOWN>;
-+			gpios = <&gpa0 4 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		volup-key {
-+			label = "Volume Up";
-+			linux,code = <KEY_VOLUMEUP>;
-+			gpios = <&gpa0 3 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+};
-+
-+&oscclk {
-+	clock-frequency = <26000000>;
-+};
-+
-+&pinctrl_alive {
-+	key_power: key-power-pins {
-+		samsung,pins = "gpa2-4";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+
-+	key_voldown: key-voldown-pins {
-+		samsung,pins = "gpa0-4";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+
-+	key_volup: key-volup-pins {
-+		samsung,pins = "gpa0-3";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+};
--- 
-2.34.1
-
+Hi all,=0A=
+=0A=
+> Unnecessarily checks ftr_ovr =3D=3D tmp in an extra else if, which is not=
+=0A=
+> needed because that condition would already be true by default if the=0A=
+> previous conditions are not satisfied.=0A=
+>=0A=
+>=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 if (ftr_ovr !=3D tmp) {=0A=
+>=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 } else if (ftr_new !=3D tmp) {=0A=
+>=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 } else if (ftr_ovr =3D=3D tmp) {=0A=
+>=0A=
+> Logic: The first and last conditions are inverses of each other, so=0A=
+> the last condition must be true if the first two conditions are false.=0A=
+>=0A=
+> Additionally, all branches set the variable str, making the subsequent=0A=
+> "if (str)" check redundant=0A=
+>=A0=0A=
+> Reviewed-by: Mark Brown <broonie@kernel.org>=0A=
+> Signed-off-by: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io=
+>=0A=
+=0A=
+Please consider this patch as v3. Apologies for the inconvenience.=0A=
+=0A=
+Best regards,=0A=
+Hardev=0A=
+=0A=
+=0A=
+________________________________________=0A=
+From:=A0Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>=0A=
+Sent:=A0Thursday, November 14, 2024 7:52 PM=0A=
+To:=A0will@kernel.org <will@kernel.org>; broonie@kernel.org <broonie@kernel=
+.org>=0A=
+Cc:=A0Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>; Catalin =
+Marinas <catalin.marinas@arm.com>; Oliver Upton <oliver.upton@linux.dev>; M=
+arc Zyngier <maz@kernel.org>; Ard Biesheuvel <ardb@kernel.org>; Mark Rutlan=
+d <mark.rutland@arm.com>; Joey Gouly <joey.gouly@arm.com>; Ryan Roberts <ry=
+an.roberts@arm.com>; linux-arm-kernel@lists.infradead.org <linux-arm-kernel=
+@lists.infradead.org>; linux-kernel@vger.kernel.org <linux-kernel@vger.kern=
+el.org>=0A=
+Subject:=A0[PATCH v2] arm64: Refactor conditional logic=0A=
+=A0=0A=
+Unnecessarily checks ftr_ovr =3D=3D tmp in an extra else if, which is not=
+=0A=
+needed because that condition would already be true by default if the=0A=
+previous conditions are not satisfied.=0A=
+=0A=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 if (ftr_ovr !=3D tmp) {=0A=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 } else if (ftr_new !=3D tmp) =
+{=0A=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 } else if (ftr_ovr =3D=3D tmp=
+) {=0A=
+=0A=
+Logic: The first and last conditions are inverses of each other, so=0A=
+the last condition must be true if the first two conditions are false.=0A=
+=0A=
+Additionally, all branches set the variable str, making the subsequent=0A=
+"if (str)" check redundant=0A=
+=0A=
+Reviewed-by: Mark Brown <broonie@kernel.org>=0A=
+Signed-off-by: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>=
+=0A=
+---=0A=
+=0A=
+Changelog in V2:=0A=
+=0A=
+- remove str check=0A=
+=0A=
+Change in V3:=0A=
+=0A=
+- Add logic in commit msg=0A=
+- Add review tag=0A=
+---=0A=
+=A0arch/arm64/kernel/cpufeature.c | 13 ++++++-------=0A=
+=A01 file changed, 6 insertions(+), 7 deletions(-)=0A=
+=0A=
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.=
+c=0A=
+index 718728a85430..728709483fb7 100644=0A=
+--- a/arch/arm64/kernel/cpufeature.c=0A=
++++ b/arch/arm64/kernel/cpufeature.c=0A=
+@@ -989,17 +989,16 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)=0A=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0 /* Override was valid */=0A=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0 ftr_new =3D tmp;=0A=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0 str =3D "forced";=0A=
+-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 } else =
+if (ftr_ovr =3D=3D tmp) {=0A=
++=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 } else =
+{=0A=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0 /* Override was the safe value */=0A=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0 str =3D "already set";=0A=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 }=
+=0A=
+=A0=0A=
+-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 if (str=
+)=0A=
+-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0 pr_warn("%s[%d:%d]: %s to %llx\n",=0A=
+-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 reg->name,=0A=
+-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 ftrp->shift + ftrp->width - 1,=
+=0A=
+-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 ftrp->shift, str,=0A=
+-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 tmp & (BIT(ftrp->width) - 1));=
+=0A=
++=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 pr_warn=
+("%s[%d:%d]: %s to %llx\n",=0A=
++=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0 reg->name,=0A=
++=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0 ftrp->shift + ftrp->width - 1,=0A=
++=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0 ftrp->shift, str,=0A=
++=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0 tmp & (BIT(ftrp->width) - 1));=0A=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 } else if ((ftr_mask & reg=
+->override->val) =3D=3D ftr_mask) {=0A=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 re=
+g->override->val &=3D ~ftr_mask;=0A=
+=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 pr=
+_warn("%s[%d:%d]: impossible override, ignored\n",=0A=
+--=0A=
+2.43.0=0A=
 
