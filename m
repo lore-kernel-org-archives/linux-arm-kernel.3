@@ -4,58 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A41D6D6A221
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 17:22:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AC3CD6A220
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 17:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y7EG3D9HZ0ut26YbzQfgfSRMFagBwHi+KRKF3wP5P2E=; b=h/29fd8tmjgEMdROspePxuQqmZ
-	UhYubUZSYOqQKGC3f/S4Ldr0o/mqsD/mQrwWxSzk+VZCuYmtLGHAaU/cx3hOIVKtZi3x0QIMHJOV9
-	ktPP5d1jiKywSV7yDL58nru+u0nlkh2W25piA03tV7EqG8daXO1ctXPPjOvewwLPCssdTAcMx2YEz
-	SYjY+hLTsZ5HmUIZoSkeMF8z2g0WdRZ6daoMVkx6IucFLZ2HnV6WfVmMCFQcdMrnDTdN7aQffV9ce
-	SfATPa8jIxrs9Vyzn06ogxfYO7voVT/ZhVogmfzMeys1dy383ravl6GLEX373KyfGTOZ+ra3Jj4nH
-	wr8ofSJQ==;
+	bh=XgMMy+4oHqhQAIKt3y7EZ0tmTJ2euqZWHA2y3veCa1g=; b=zxCwOK3DFXY/NpgwWBnhFw1NJw
+	ztqr26fxQXnZfiHqrKj8mTf580CRsVWT+teq40i69yruV6vSCNlMz0kZytfDaSyTg263MwNsLMjo8
+	Esik+GoSWd/waODrumWZq2OjhQhFXDJ0sTu995s96N8k0+QW6GXUpTIIPs2B6Xf3xifKjGD3Y4XCj
+	NajaTXy1iVePkX8L7mLlZFQLKqHV3ZdR1zMQkJNEaxVdqgnXgDPfoOhdfEVl9vuokcgKkm0jEN6jM
+	EEHDkjFVsseKTo+OlTdqlV+XTZiRy7QSkLBrtG4Na2yTA3L1aRt/hcNBovjnv424DmoUlG7KwQ0ef
+	w8Jj/mnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBdXR-00000000Isg-2uI4;
-	Thu, 14 Nov 2024 17:21:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBdWT-00000000Igz-3Su2
+	id 1tBdYN-00000000JCY-1fQe;
+	Thu, 14 Nov 2024 17:22:47 +0000
+Received: from mout.gmx.net ([212.227.15.19])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBdWz-00000000IjO-2niJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 17:20:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D99591474;
-	Thu, 14 Nov 2024 09:21:15 -0800 (PST)
-Received: from [10.57.66.233] (unknown [10.57.66.233])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EF4723F6A8;
-	Thu, 14 Nov 2024 09:20:43 -0800 (PST)
-Message-ID: <df8967cd-2157-46a2-97d9-a1aea883cf63@arm.com>
-Date: Thu, 14 Nov 2024 17:20:42 +0000
+	Thu, 14 Nov 2024 17:21:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1731604873; x=1732209673; i=wahrenst@gmx.net;
+	bh=XgMMy+4oHqhQAIKt3y7EZ0tmTJ2euqZWHA2y3veCa1g=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=I2iJl4kv/k11IlACiHS3oKguS2fcLQ/k9CFWc7L1gwIQ4o/iT2Q46cW9aiqms1YJ
+	 qLM4uOfYefXR06wpO/iIAgF8cwUFKDcT2uoJ9+ue/4zgELPGMQeVFKfNM8AqvYuTW
+	 gw1IGqXywMpe9cT3GdqB3QXNpq9ymtLt7aPYheCUHenWTAVQnkMihZo25atj7AJdb
+	 ihlt8GyUUzNXrBO17pmOenbnwYRPmbu8K8NlGALajiyoug8cCiQZAtU97Y+y/JtCx
+	 g41dE5ijqGRFWBgM6CnEIMo9ad7TYPqRZIEBqbWuryJIvp7QcvD6OIHPxCvtlOOQH
+	 gb8VpvNy2g2eGamo3g==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MAfUo-1t50lM41Lk-0063ZB; Thu, 14
+ Nov 2024 18:21:13 +0100
+Message-ID: <f9b27f78-2829-43b5-853e-55f87223b256@gmx.net>
+Date: Thu, 14 Nov 2024 18:21:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] coresight: tmc: Don't change the buffer size if it's
- in use
-Content-Language: en-GB
-To: James Clark <james.clark@linaro.org>, Yicong Yang
- <yangyicong@huawei.com>, mike.leach@linaro.org, coresight@lists.linaro.org
-Cc: yangyicong@hisilicon.com, jonathan.cameron@huawei.com,
- prime.zeng@hisilicon.com, hejunhao3@huawei.com, linuxarm@huawei.com,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20241114081653.24328-1-yangyicong@huawei.com>
- <9a637e74-d81d-405c-bad0-c97ec1aa4b77@linaro.org>
- <0cfbd546-ee9a-da6e-904a-c1da4e59e286@huawei.com>
- <658fec30-af5e-4a90-bf5a-426aedb55e50@linaro.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <658fec30-af5e-4a90-bf5a-426aedb55e50@linaro.org>
+Subject: =?UTF-8?B?UmU6IOWbnuWkjTogW0VYVF0gUmU6IFtQQVRDSCB2NV0gc29jOiBpbXg6?=
+ =?UTF-8?Q?_Add_SoC_device_register_for_i=2EMX9?=
+To: "Alice Guo (OSS)" <alice.guo@oss.nxp.com>
+Cc: "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>,
+ "shawnguo@kernel.org" <shawnguo@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Alice Guo <alice.guo@nxp.com>,
+ "alexander.stein@ew.tq-group.com" <alexander.stein@ew.tq-group.com>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>, Peng Fan <peng.fan@nxp.com>
+References: <20241111032307.144733-1-alice.guo@oss.nxp.com>
+ <eed25785-7972-43ce-9903-d8350e51ff7e@gmx.net>
+ <PAXPR04MB9644C81E428A2AD90F7E5E6EE25B2@PAXPR04MB9644.eurprd04.prod.outlook.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+In-Reply-To: <PAXPR04MB9644C81E428A2AD90F7E5E6EE25B2@PAXPR04MB9644.eurprd04.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:KUmWu2rfel4DoRQNr3ppUnphw8MqIgFflIQCRmYcqL3vFXuNjPB
+ 2GZ4gLya/pILw+6fpSMDRK3vQiJSQqOmEW6KJOVpl1HZSuyEUNV15HxLHSs8v4vrjGuH0eb
+ z5d6yEBF8bt0D+8q//de/Si1xtEcXvJJ+NhhFrOVgKe87gsghS9Ow3MLQviMZZCzBl89pPv
+ IMYPn+dxDiif65UErLazw==
+UI-OutboundReport: notjunk:1;M01:P0:M/YUmZxmemo=;8llD2nlaWqHmow9ukLbXBKykNYf
+ kI2+l2mERSidDltwBgwT8zqcKUhX3bcnVaUOdd24sYvDi5MjJ08fKgnDdGQ3f3K59h0Yqr2Jz
+ Mao9WspPeTDTPTNe3fRahH+YA+5vhQrgrjuu9z+kLaSOUZKuJVQtHTEyXdp2cMfPVxu917bNb
+ D4mVXZMa/tR6m9TkmxYXvwnefyJ4PF52qUB/6UTJL2F0/BrWST797Y80KNFc4MZykZrOQkzsh
+ 4IJ+DRkX74TkdSgbe5/yILw1rHZphpmNjqDXtBNI5mHdkZZoIU2S0QUbHDLpwb1aqd6YFymcn
+ DCDAaASqGuI50nn3j8oRnHxiS5Oe6FY8YCVQYRNkJyKNG8H9/PPyBI8fw7kAa4jBRDtZ/4l77
+ VkXteFKUrn3yZEZ+CNOUOJckBlVjuYTvGgJp1bnhgM/dzmVGLqqFGOTt8lpoWwACyG5tfA/FA
+ HOgENg/grMEO3ivqvvMO09nsPRgHYBdFZqwlQTjOgUi120SYdwjednYlQBwhbDLplPIdbcwit
+ sVeoKK+itpaPZ18ccx4xhrGl29apq8ds0sdqGPQBTCMT6TZcF3DpBF2zUUmGSNwaT5PrV2rwu
+ fehIZ0x+7lHJ/XnGokjWCDH8dakldcb749KD7qw7pIPIZDLbUoJHp8bpuZY+fVMWj3+ihYVGv
+ JACw/SY6ih9JptbTv8uEUc+e8E3z0DjyPY1aOkaIOVJRHBjENO8r6qe+X9I0WpBRA8U25bHJB
+ f2EVD1bxkXDxKRIwCqpc8I12bCtzVHpbJIAkfA+yGiltbviCNJ3t+42P0vKk1+yN4KbNp3GHk
+ z39gu1ZFXXdBLvA46HCgTGawTY2ypgyJDw+SCPFbod9AMFug3QCQPloOvVmgHmkxYKfwpy/Yw
+ PprV1xgovrCK8nNIvpNCf1lD9jCdvK2EPXwGNFYSpt1ytKl+5QHw6Sw+D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_092049_979345_2C232EA0 
-X-CRM114-Status: GOOD (  35.86  )
+X-CRM114-CacheID: sfid-20241114_092122_067908_5A4F7D6B 
+X-CRM114-Status: UNSURE (   6.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,192 +106,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hello Alice,
 
-Thanks for the report, see my comments inline.
+Am 14.11.24 um 08:58 schrieb Alice Guo (OSS):
+> Hi Stefan,
+>
+> There is no device node which is bound to this driver in DTS file so tha=
+t I did not use module_platform_driver. This method is the same with drive=
+rs/soc/imx/soc-imx8m.c.
+sorry, I wasn't aware that this must handled in this special way. Please
+ignore the last comments. I will send new ones.
 
-On 14/11/2024 15:26, James Clark wrote:
-> 
-> 
-> On 14/11/2024 2:51 pm, Yicong Yang wrote:
->> On 2024/11/14 18:30, James Clark wrote:
->>>
->>>
->>> On 14/11/2024 8:16 am, Yicong Yang wrote:
->>>> From: Yicong Yang <yangyicong@hisilicon.com>
->>>>
->>>> Enable the trace in below steps will crash the kernel by NULL pointer
->>>> dereferencing:
->>>> echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
->>>> echo 1 > /sys/bus/coresight/devices/etm0/enable_source
->>>> echo 0x400000 > /sys/bus/coresight/devices/tmc_etr0/buffer_size
->>>> echo 1 > /sys/bus/coresight/devices/etm2/enable_source
->>>> dd if=/dev/tmc_etr0 of=test_etm_sysfs_etr_030.data
->>>>
->>>> The call trace will be like:
->>>>    WARNING: CPU: 39 PID: 8586 at drivers/hwtracing/coresight/ 
->>>> coresight-tmc-etr.c:1123 __tmc_etr_disable_hw+0x108/0x140 
->>>> [coresight_tmc]
->>>>    [...]
->>>>    Call trace:
->>>>     __tmc_etr_disable_hw+0x108/0x140 [coresight_tmc]
->>>>     tmc_read_prepare_etr+0xc0/0xd0 [coresight_tmc]
->>>>     tmc_open+0x60/0xa0 [coresight_tmc]
->>>>     misc_open+0x11c/0x170
->>>>     chrdev_open+0xcc/0x2b0
->>>>     do_dentry_open+0x140/0x4e0
->>>>     vfs_open+0x34/0xf8
->>>>     path_openat+0x2b0/0xf58
->>>>     do_filp_open+0x8c/0x148
->>>>     do_sys_openat2+0xb8/0xe8
->>>>     __arm64_sys_openat+0x70/0xc0
->>>>     el0_svc_common.constprop.0+0x64/0x148
->>>>     do_el0_svc+0x24/0x38
->>>>     el0_svc+0x40/0x140
->>>>     el0t_64_sync_handler+0xc0/0xc8
->>>>     el0t_64_sync+0x1a4/0x1a8
->>>>    ---[ end trace 0000000000000000 ]---
->>>>    Unable to handle kernel NULL pointer dereference at virtual 
->>>> address 0000000000000028
->>>>    [...]
->>>>    Call trace:
->>>>     tmc_etr_get_sysfs_trace+0x10/0x80 [coresight_tmc]
->>>>     vfs_read+0xcc/0x310
->>>>     ksys_read+0x74/0x108
->>>>     __arm64_sys_read+0x24/0x38
->>>>     el0_svc_common.constprop.0+0x64/0x148
->>>>     do_el0_svc+0x24/0x38
->>>>     el0_svc+0x40/0x140
->>>>
->>>> Due to the buffer size changed, the buffer will be reallocated in
->>>> tmc_etr_get_sysfs_buffer() when the second source enabled. At trace
->>>> end tmc_etr_sync_sysfs_buf() will reset the drvdata->sysfs_buf and
->>>> trigger the later NULL pointer dereference when reading out the
->>>> data.
->>>>
->>>> But it doesn't make sense to change the buffer size when it's
->>>> already in use. So block such behavior.
->>>>
->>>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
->>>> ---
->>>>    drivers/hwtracing/coresight/coresight-tmc-core.c | 5 +++++
->>>>    1 file changed, 5 insertions(+)
->>>>
->>>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/ 
->>>> drivers/hwtracing/coresight/coresight-tmc-core.c
->>>> index 475fa4bb6813..9660af63e9bc 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
->>>> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
->>>> @@ -319,6 +319,11 @@ static ssize_t buffer_size_store(struct device 
->>>> *dev,
->>>>        if (drvdata->config_type != TMC_CONFIG_TYPE_ETR)
->>>>            return -EPERM;
->>>>    +    /* Don't change the buffer size if it's in use */
->>>> +    guard(spinlock)(&drvdata->spinlock);
->>>> +    if (coresight_get_mode(drvdata->csdev) != CS_MODE_DISABLED)
-
-Could we do something like this below ?
-
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c 
-b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-index a48bb85d0e7f..863a645fa88a 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-@@ -1178,7 +1178,9 @@ static struct etr_buf 
-*tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
-          */
-         spin_lock_irqsave(&drvdata->spinlock, flags);
-         sysfs_buf = READ_ONCE(drvdata->sysfs_buf);
--       if (!sysfs_buf || (sysfs_buf->size != drvdata->size)) {
-+       if (!sysfs_buf ||
-+           ((sysfs_buf->size != drvdata->size) &&
-+             coresight_get_mode(csdev) != CS_MODE_SYSFS))
-                 spin_unlock_irqrestore(&drvdata->spinlock, flags);
-
-                 /* Allocate memory with the locks released */
-
-i.e., do not allocate a new buffer if the sysfs mode is active. The new
-size can be set when the new session starts
-
-
->>>
->>> Size isn't used in perf mode is it? So it can be -EBUSY only when 
->>> mode == CS_MODE_SYSFS.
->>>
->>
->> alloc_etr_buf() on the perf path will read drvdata->size, not sure it 
->> matters if user
->> change it through sysfs in the meanwhile. Will test and have a check 
->> if there are any
->> other places using size on the perf path.
-
-That was there to make sure the user can allocate a bigger buffer (of
-the AUX size vs sysfs configured size) and possibly collect more trace
-(i.e., in multiple aux buffers). But looks like that is not useful,
-given we can only ever collect to one AUX (the last one turning ETR off).
-
-So we could remove that check.
-
-Suzuki
-
-
->>
-> 
-> Hmmm I assumed that Perf mode completely ignored anything from sysfs 
-> mode. I see that alloc_etr_buf() does sometimes use the sysfs value. I 
-> don't really see why that's necessary because that means it sometimes 
-> ignores the buffer size from the perf command line depending on what's 
-> in sysfs, but the modes should be mutually exclusive.
-> 
-> Unless we fix that then I think you do need to use the device spinlock. 
-> But I think we should tidy up alloc_etr_buf() to only try to allocate 
-> from the Perf size down to TMC_ETR_PERF_MIN_BUF_SIZE, ignoring drvdata- 
->  >size. Then the behavior is less surprising to users and also anyone 
-> reading the code. And rename it to alloc_etr_buf_perf().
-> 
-> Unless Suzuki knows of a reason it was done that way to begin with? I 
-> checked the commit message but it just says that it was like that but 
-> not why.
-> 
->>>> +        return -EBUSY;
->>>> +
->>>>        ret = kstrtoul(buf, 0, &val);
->>>>        if (ret)
->>>>            return ret;
->>>
->>> Looks ok to me. Although for consistency it might be worth changing 
->>> to guard(mutex)(&coresight_mutex) because this is about sysfs mode 
->>> only and other usages of mode and comments point to coresight_mutex. 
->>> Using the device's spinlock will technically work but it did make me 
->>> go and double check the code. And there are other cases of reading 
->>> the mode like this:
->>>
->>
->> ok, I thought to also serialize the use of drvdata->size. But as you 
->> mentioned
->> use coresight_mutex is enough and will be consistenct with other places.
->>
->>> static ssize_t enable_source_show(struct device *dev,
->>>                    struct device_attribute *attr,
->>>                    char *buf)
->>> {
->>>      struct coresight_device *csdev = to_coresight_device(dev);
->>>
->>>      guard(mutex)(&coresight_mutex);
->>>      return scnprintf(buf, PAGE_SIZE, "%u\n",
->>>               coresight_get_mode(csdev) == CS_MODE_SYSFS);
->>> }
->>>
->>> Mode can change to CS_MODE_PERF while inside coresight_mutex but the 
->>> device would end up not being enabled for sysfs, so it's still ok to 
->>> update the sysfs size value in that case.
->>>
->>> With that change:
->>>
->>> Reviewed-by: James Clark <james.clark@linaro.org>
->>
->> Thanks.
->>
-> 
-
+Best regards
+>
+> Best Regards,
+> Alice Guo
 
