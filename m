@@ -4,130 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8968D65C7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 11:57:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF49D65C7E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 12:01:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0qjey6Mx3Q/UGdfyDuIVN7Gf6sPP9fIdKBKgrtzXg9E=; b=0GBFhEbV/+GPGt6Rurj9ZG2Cx5
-	fArpn0P6tzQ/TXt/HPKelTPVdsNf2d61kDDXw8SxsJ5XyFfR/EkN/dpc2vEyCkjuyQTRBuqRqWLQc
-	fE1oF+ONJeDGPKpG+X2xSs8s6Uq6+dco5pJkykbyYFh+XzQDZ59iypsmv1JNryTZL88cUdGmM+TTx
-	00cfDxeqmeM57J0maFKTlNJyIco9PruFBxVieUDF8qP3E7UbThd7jdHxbAvnWVWdkVtwQBr6bPscw
-	zbDyUCOgVIQySiMSGV1n9oTFufRk9gYI8wzQhZRzm/BIPB2n/y92BTuEpHSg9V5kM+/abOxu7Nr4R
-	Jmng5Z9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D6CI2JJxrt75m45cwXmLOXKbpv11yL317iRzR+Z7ZaE=; b=3hD5tZ0pgORBTC8LDCEAPi6tuR
+	MpNuA5CvmbpHsWQWdSA0RuBcRPG5RKWY3J6YpvbrwWQPD+TGoTiZgJpo9pEsU/TpiyE1xAEkR0F7I
+	VkY+QvmFz5VYlOza7+gLSIIoLAeyjGAek+xwzQ3RACRqWixcjvidZ51E9SrEBn+JFBOoaHy8+JMFn
+	4pz+MJ4zNhigceV4F2QYsBIBd1Bv+iOFaQG8BD9VuZE+nfYpdkWPJZ+tRbPPKr8A1mbbzbyPoRowq
+	V/ce/pVaVKWTcnp0U4S2abx1COQqUOcqEDfYAUDNvOSx6ExYnvROlsUiD+sQLwJFUFW4oSfecTlnw
+	BS+v7MGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBYTa-00000009o8M-3UNx;
-	Thu, 14 Nov 2024 11:57:30 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1tBYWr-00000009pa5-1lxy;
+	Thu, 14 Nov 2024 12:00:53 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBXom-00000009gYJ-0dOr
+	id 1tBXyG-00000009ieW-0hN7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Nov 2024 11:15:23 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 6B01621209;
-	Thu, 14 Nov 2024 11:15:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1731582917; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0qjey6Mx3Q/UGdfyDuIVN7Gf6sPP9fIdKBKgrtzXg9E=;
-	b=soH1KFQIh22uCUjBTw7ooNR7RW3FkSpu16dbXeUuMOZjBi+81nutpdqLjYG7dMO21+ZD38
-	xlNV5NQmrUgTdTUV0YO8wbL95F2596wNvFya5rrvwN9CpNodcIYgENN6Dg2JD1Xz2zks27
-	4CRqsDOukFthq5QPWQabS6ZAL7PA4xY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1731582917;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0qjey6Mx3Q/UGdfyDuIVN7Gf6sPP9fIdKBKgrtzXg9E=;
-	b=kQ4TG4KNu3OM2RgAnFIyLRLWHgw8nRfex4fOQN8zExSInSuPKYOW3k2o/Eu0ZFTtni2EfK
-	lCWzuETanD5w/tAQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1731582917; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0qjey6Mx3Q/UGdfyDuIVN7Gf6sPP9fIdKBKgrtzXg9E=;
-	b=soH1KFQIh22uCUjBTw7ooNR7RW3FkSpu16dbXeUuMOZjBi+81nutpdqLjYG7dMO21+ZD38
-	xlNV5NQmrUgTdTUV0YO8wbL95F2596wNvFya5rrvwN9CpNodcIYgENN6Dg2JD1Xz2zks27
-	4CRqsDOukFthq5QPWQabS6ZAL7PA4xY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1731582917;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0qjey6Mx3Q/UGdfyDuIVN7Gf6sPP9fIdKBKgrtzXg9E=;
-	b=kQ4TG4KNu3OM2RgAnFIyLRLWHgw8nRfex4fOQN8zExSInSuPKYOW3k2o/Eu0ZFTtni2EfK
-	lCWzuETanD5w/tAQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 3AC6113794;
-	Thu, 14 Nov 2024 11:15:17 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id h8vIDcXbNWeXMQAAD6G6ig
-	(envelope-from <vbabka@suse.cz>); Thu, 14 Nov 2024 11:15:17 +0000
-Message-ID: <2510b50b-4178-4c14-b2cc-db5a77a1c8d7@suse.cz>
-Date: Thu, 14 Nov 2024 12:15:16 +0100
+	Thu, 14 Nov 2024 11:25:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 12D84A418E8;
+	Thu, 14 Nov 2024 11:23:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75964C4CECD;
+	Thu, 14 Nov 2024 11:25:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731583506;
+	bh=EF+ANVAHa4r5Nmh3iDwTFEvrbHbm9uJkURJzb5PQ07Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BUCFFougLX8RbrTxIm6Bfjnw0gNrSwIFdRPtO9YL4iNHh653Wy7AKDGdBz3u10u9z
+	 GnsIO+c2pciC4V0zv2fqNeEIdDeFPYyKVf1Z6LJgAC+TR9DcLtD53mg7SAdcKWGgpK
+	 pr8l+3BZqEjpFXBiuhahGX2yW+qtQM037nSi1jPd7/agv+CcrO3Ahy3CZ37v7tCDfQ
+	 c1ycrTisQSuKMfY6b51OT0ODlbOGBGPOpiKpXYX7qVdvHqZUpGG3jldk7NcmHlqfW3
+	 qr8GBESlZMQR9HVxarfZ+GsjaCfBCLyOMBCHGw66kN3d6JNFsN9R0OXI1PqoM6mOC4
+	 I1PjZJkfaD/MA==
+Date: Thu, 14 Nov 2024 12:25:03 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Hongbo Li <lihongbo22@huawei.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH -next v2] soc/fsl/qbman: make use of the helper function
+ kthread_run_on_cpu()
+Message-ID: <ZzXeD2I-ybbhE-iT@localhost.localdomain>
+References: <20240904022633.2079803-1-lihongbo22@huawei.com>
+ <b22fb30d-96a5-4455-a0f6-0d7fe564cfa3@csgroup.eu>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 15/57] stackdepot: Remove PAGE_SIZE compile-time
- constant assumption
-Content-Language: en-US
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- David Hildenbrand <david@redhat.com>, Greg Marsden
- <greg.marsden@oracle.com>, Ivan Ivanov <ivan.ivanov@suse.com>,
- Kalesh Singh <kaleshsingh@google.com>, Marc Zyngier <maz@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Matthias Brugger <mbrugger@suse.com>,
- Miroslav Benes <mbenes@suse.cz>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20241014105514.3206191-1-ryan.roberts@arm.com>
- <20241014105912.3207374-1-ryan.roberts@arm.com>
- <20241014105912.3207374-15-ryan.roberts@arm.com>
-From: Vlastimil Babka <vbabka@suse.cz>
-In-Reply-To: <20241014105912.3207374-15-ryan.roberts@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-4.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[17];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[arm.com:email]
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <b22fb30d-96a5-4455-a0f6-0d7fe564cfa3@csgroup.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_031520_535408_4BCDF8DE 
-X-CRM114-Status: GOOD (  28.91  )
+X-CRM114-CacheID: sfid-20241114_032508_309798_91E6CF80 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,102 +75,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/14/24 12:58, Ryan Roberts wrote:
-> To prepare for supporting boot-time page size selection, refactor code
-> to remove assumptions about PAGE_SIZE being compile-time constant. Code
-> intended to be equivalent when compile-time page size is active.
+Le Thu, Nov 14, 2024 at 08:38:59AM +0100, Christophe Leroy a écrit :
+> Hi,
 > 
-> "union handle_parts" previously calculated the number of bits required
-> for its pool index and offset members based on PAGE_SHIFT. This is
-> problematic for boot-time page size builds because the actual page size
-> isn't known until boot-time.
+> Le 04/09/2024 à 04:26, Hongbo Li a écrit :
+> > Replace kthread_create/kthread_bind/wake_up_process() with
+> > kthread_run_on_cpu() to simplify the code.
+> > 
+> > Signed-off-by: Hongbo Li <lihongbo22@huawei.com>
 > 
-> We could use PAGE_SHIFT_MAX in calculating the worst case offset bits,
-> but bits would be wasted that could be used for pool index when
-> PAGE_SIZE is set smaller than MAX, the end result being that stack depot
-> can address less memory than it should.
+> A similar change is proposed as part of a larger series, see patch 7 in that
+> series
+> https://lore.kernel.org/lkml/20241112142248.20503-1-frederic@kernel.org/
 > 
-> To avoid needing to dynamically define the offset and index bit widths,
-> let's instead fix the pool size and derive the order at runtime based on
-> the PAGE_SIZE. This means that the fields' widths can remain static,
-> with the down side being slightly increased risk of failing to allocate
-> the large folio.
-> 
-> This only affects boot-time page size builds. compile-time page size
-> builds will still always allocate order-2 folios.
-> 
-> Additionally, wrap global variables that are initialized with PAGE_SIZE
-> derived values using DEFINE_GLOBAL_PAGE_SIZE_VAR() so their
-> initialization can be deferred for boot-time page size builds.
+> I prefer to leave this patch aside and not interfere with Frederic's work.
 
-This is done for pool_offset but given it's initialized by DEPOT_POOL_SIZE,
-it doesn't look derived from PAGE_SIZE?
+Speaking of, feel free to take it, the conversions to kthread_run_on_cpu()
+are standalone patches.
+
+Thanks.
 
 > 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-
-Other than that,
-Acked-by: Vlastimil Babka <vbabka@suse.cz>
-
-
-> ---
-> 
-> ***NOTE***
-> Any confused maintainers may want to read the cover note here for context:
-> https://lore.kernel.org/all/20241014105514.3206191-1-ryan.roberts@arm.com/
-> 
->  include/linux/stackdepot.h | 6 +++---
->  lib/stackdepot.c           | 6 +++---
->  2 files changed, 6 insertions(+), 6 deletions(-)
-> 
-> diff --git a/include/linux/stackdepot.h b/include/linux/stackdepot.h
-> index e9ec32fb97d4a..ac877a4e90406 100644
-> --- a/include/linux/stackdepot.h
-> +++ b/include/linux/stackdepot.h
-> @@ -32,10 +32,10 @@ typedef u32 depot_stack_handle_t;
->  
->  #define DEPOT_HANDLE_BITS (sizeof(depot_stack_handle_t) * 8)
->  
-> -#define DEPOT_POOL_ORDER 2 /* Pool size order, 4 pages */
-> -#define DEPOT_POOL_SIZE (1LL << (PAGE_SHIFT + DEPOT_POOL_ORDER))
-> +#define DEPOT_POOL_ORDER 2 /* Pool size order, 4 pages of PAGE_SIZE_MAX */
-> +#define DEPOT_POOL_SIZE (1LL << (PAGE_SHIFT_MAX + DEPOT_POOL_ORDER))
->  #define DEPOT_STACK_ALIGN 4
-> -#define DEPOT_OFFSET_BITS (DEPOT_POOL_ORDER + PAGE_SHIFT - DEPOT_STACK_ALIGN)
-> +#define DEPOT_OFFSET_BITS (DEPOT_POOL_ORDER + PAGE_SHIFT_MAX - DEPOT_STACK_ALIGN)
->  #define DEPOT_POOL_INDEX_BITS (DEPOT_HANDLE_BITS - DEPOT_OFFSET_BITS - \
->  			       STACK_DEPOT_EXTRA_BITS)
->  
-> diff --git a/lib/stackdepot.c b/lib/stackdepot.c
-> index 5ed34cc963fc3..974351f0e9e3c 100644
-> --- a/lib/stackdepot.c
-> +++ b/lib/stackdepot.c
-> @@ -68,7 +68,7 @@ static void *new_pool;
->  /* Number of pools in stack_pools. */
->  static int pools_num;
->  /* Offset to the unused space in the currently used pool. */
-> -static size_t pool_offset = DEPOT_POOL_SIZE;
-> +static DEFINE_GLOBAL_PAGE_SIZE_VAR(size_t, pool_offset, DEPOT_POOL_SIZE);
->  /* Freelist of stack records within stack_pools. */
->  static LIST_HEAD(free_stacks);
->  /* The lock must be held when performing pool or freelist modifications. */
-> @@ -625,7 +625,7 @@ depot_stack_handle_t stack_depot_save_flags(unsigned long *entries,
->  	 */
->  	if (unlikely(can_alloc && !READ_ONCE(new_pool))) {
->  		page = alloc_pages(gfp_nested_mask(alloc_flags),
-> -				   DEPOT_POOL_ORDER);
-> +				   get_order(DEPOT_POOL_SIZE));
->  		if (page)
->  			prealloc = page_address(page);
->  	}
-> @@ -663,7 +663,7 @@ depot_stack_handle_t stack_depot_save_flags(unsigned long *entries,
->  exit:
->  	if (prealloc) {
->  		/* Stack depot didn't use this memory, free it. */
-> -		free_pages((unsigned long)prealloc, DEPOT_POOL_ORDER);
-> +		free_pages((unsigned long)prealloc, get_order(DEPOT_POOL_SIZE));
->  	}
->  	if (found)
->  		handle = found->handle.handle;
-
+> Christophe
 
