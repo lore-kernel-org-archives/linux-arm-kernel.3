@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69AD1D68BCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 18:25:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740EDD68BCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 18:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1CnwJEhoyWWs0hfunP5nkD+KmYCyarErjrVddNp9cu4=; b=KnnbFkUAG9xg703SipfKePS4qi
-	C4P/eY164lnQlQENhUIx8CjYj7bXJxbuteUtCBaffQIu6NmYzwONsPgMMdICX87LnLgjI1mZ0hamM
-	fzJiXiMU7hQmhSeMwNpmtwDb68IaIShmhlG0MfEnZpfasDTqZeJVNFfHpLbxENmHHCGmzXC25HRyq
-	kswWfx28C/DiCYDVKa/cHI17fZvLyQJ9I4Z1K87Vrvwhnltl/1b6dbUBCCIzg6jgyX8Vb0rq44d5n
-	FCVrABXbpLWAuPHIKspkiKdjZ8fabfi1v3zf6WAQ/Xdo034r9g+b7PU0KY0LAOBMtSbzMoYbQpOaI
-	zuCJDUqA==;
+	bh=s9XJvqo1TjVxClmTuPUa2mnZBMZRL0LlNGR2vRqPsWA=; b=jxwNSqKOP7S8SP2HtSNY1euZo0
+	Kdr4pIqh4rdiKKkTRjATlySmcp+VZBcmTkDlYbR62XRA5R3cZRQxoS71x4OmhJVZtbNZorJOSoM1T
+	AYHurqObwmoie/KcFgOvESYFUOjFW6mQCWc9VO9K054gn/rS5FpleXmX/rc55J8ssxdeJ49t70MpO
+	qKcHsFDwrp1rY4b6ZQz2DWDx+qmZto/u8dW5cWMljo2uYqZScHpHnAQ+Q+0yHsCKWrzmnR/W7wxPU
+	2rqSVs6hg2SFgZ/y3fhjXoHE9Kgnv4Uof4rmV3UDFdb2ZH7bEDRqs6BsGRxmE+2nQDxrx9eMRL9kh
+	EL1QltSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC0zt-00000003gll-0gbE;
-	Fri, 15 Nov 2024 18:24:45 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tC11O-00000003h5H-3QH2;
+	Fri, 15 Nov 2024 18:26:18 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC0yx-00000003gcj-2ATJ
+	id 1tC10R-00000003gpp-3zH4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 18:23:48 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-21145812538so17619635ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 10:23:46 -0800 (PST)
+	Fri, 15 Nov 2024 18:25:21 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-20cdb889222so10689185ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 10:25:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731695026; x=1732299826; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1731695119; x=1732299919; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=1CnwJEhoyWWs0hfunP5nkD+KmYCyarErjrVddNp9cu4=;
-        b=Xmu8w7yY130l373mNSqDlWlt2W2bGjvdLN93HXJ1rWc7QSEA3CODHISCwWiMPEIFhx
-         LaHxLKd7BY47R7NWKj3YMKk0WiVFhcodEZZMV3V7B//jkCZaKWr5h06YQYB6yoUwPGPl
-         q5zSRI25JyQT7DNSwNuFoV+AMq5x5Z4g/wy2+iLO0sMIDJu5gG/Do/Hp9mETO5gpfPSV
-         DjpJdbKnWk8zQmS83fCNkRJgxkiAMs0ONV4pge4hr5V2zBMQT7tLSxc6QQKd+yRXQK1s
-         h7baqN4SX9OGBXBQ2nvC/J7SnvGCibDOLMlEdaF01m4yWOj81P541VWkm0oUP+yKxHoF
-         CpUw==
+        bh=s9XJvqo1TjVxClmTuPUa2mnZBMZRL0LlNGR2vRqPsWA=;
+        b=mwtAn/j3JmM9Jus+l4VPzz8zgErurCrO6vz1iYH9XVG2gY0+hi6oRiaF31RmQjLZvc
+         pAaRudiDrAuGgLIzV5zyYKDrFQo7vYbXlJPOKCWKyHaEbZhDyItI6WVnYGUHFd4cwCvA
+         NTdYhZ2wmvKwI4bM7RZxCiq7/gpiFd6trKBM1awEy0hetsGooPcEXgJARGNml57FNDbT
+         i0UUif3Q2Ox3t2ELrEwyjS4vFQb8jZMpQTrj28kqP5Ez5WJ7HdVQM0kXHujK4p0AQwWu
+         IOe8Y8oVaZnsMV+htgnsXW5BxnK6DIDU8aJpcMu2KN3CL1/yLrcRk0YDGaJFwDsx2HvH
+         ZRxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731695026; x=1732299826;
+        d=1e100.net; s=20230601; t=1731695119; x=1732299919;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1CnwJEhoyWWs0hfunP5nkD+KmYCyarErjrVddNp9cu4=;
-        b=ZFXoADlAf6KJP4IA6Zl1XfTu3+WdMSc4jYvNN74UC5CMvTNPlYb+5JDeWzUEw+ZWfx
-         q2Yhxk+YH/cON+3TrEGEDNUzUOtTIdLJAxRkNBM6KNvGE6TNKaxrqmyJS//neyTUxK+f
-         oALpBjd/Ea4TTX5/TDP4eJVJPF+jtNFqoeyu4vWSiNGGVeM5HX68fJXtprEpOicl70Ue
-         ZXe8Ii7YOZWy8oLw1OGgGO7zWq6X9i+scZCz+nZFPo82fJh11/ZIlKtKbk4Z1TCGZbmA
-         DWEX4vdFPNWhBqiu7vKcsQqpPdKZmIK7OTQncAUUGKCGw5egzCwFmahxHKwtuJCEmIm4
-         Pn5w==
-X-Forwarded-Encrypted: i=1; AJvYcCU1c/kvg5u0C5eKddSubB9maSrM6ZZI03WkC/nEAOYLYqNVHEBYKsFpt9t+LMQ23Q2Y7KVE7ijul/pgVYE+pdmQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxva6MvpOuOxIYlttMxVozKqPcbAI9fJuss4lC2WzIgdtlYhLn+
-	ctETgYBfp9fivv25NmNELF9x3ErmZse6NpqHUP4+zKBUxeGB6zSShQCV6RJytA==
-X-Google-Smtp-Source: AGHT+IEwWbdg7azduaJi6v/1T3xzOGMgr6uhezauDZeHmiw5GXWdDs8QfnFyhbpVqwXNdilvnfJezQ==
-X-Received: by 2002:a17:903:1d0:b0:20e:5792:32ed with SMTP id d9443c01a7336-211d0ebc0c5mr44114045ad.41.1731695026118;
-        Fri, 15 Nov 2024 10:23:46 -0800 (PST)
+        bh=s9XJvqo1TjVxClmTuPUa2mnZBMZRL0LlNGR2vRqPsWA=;
+        b=Wk91zUrIMpGGk9bQ3vuNQUYPNnUUFfrxxi30cQ/ew8nkPXAzEqxoaqhwLUpJvv/Ilq
+         Olt5ePOp3OYCvp0dr0m66NkwSuRQ7H4cPn1p7karopq5PRsPwPBp1E9CfbOqDIfXKqtQ
+         +y9WCq+0/Th11MfJ2udTN1LQw5+/CO6frqGv4bMT45cjn/OgKbiRdLgWzKifSj/v5ghZ
+         DZyr3viQq2bE8XAFfbMvYydxikNfXxicUVMZobnfpwLKw+pEsy4iUpOy+R9iPbL3EdSn
+         eL/hs+A3vSfFSywFUxfpOizExJdVpJji3VVwZn4DkUWGmiJaMc08u9l8cBq6BoW8OqE9
+         fPxg==
+X-Forwarded-Encrypted: i=1; AJvYcCXDoHko3+vqwKBmC+K3lxWOsnj/YTZ/TMu+cZgef18e8Uohl1ACZNEXyQtYeXH0Tl0y/49ycgTuCN0vYPfCqyp9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzS+upKi1Niu4/IKlq+aMWGJ1/rVk9MSEyosbv+z6jH9acU4rp/
+	wMgTs1erRrPkHZJZeVUcjNXU82eE5Ab8yPT3BbvrbJGJV8RgvlZrIqOsA6csxg==
+X-Google-Smtp-Source: AGHT+IG8xYEUyxbkvzwvpJ9n8KCZIy6/ye3xoYrVPeMJNXB6RnHN6free7fMoWUZKt6qptIgJECrgA==
+X-Received: by 2002:a17:902:dacd:b0:20e:986a:6e72 with SMTP id d9443c01a7336-211d0d92195mr50180975ad.30.1731695118780;
+        Fri, 15 Nov 2024 10:25:18 -0800 (PST)
 Received: from thinkpad ([117.193.215.93])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f51fe0sm15266645ad.233.2024.11.15.10.23.41
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f61670sm14893285ad.281.2024.11.15.10.25.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Nov 2024 10:23:45 -0800 (PST)
-Date: Fri, 15 Nov 2024 23:53:36 +0530
+        Fri, 15 Nov 2024 10:25:18 -0800 (PST)
+Date: Fri, 15 Nov 2024 23:55:10 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 To: Frank Li <Frank.Li@nxp.com>
 Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
@@ -79,19 +79,18 @@ Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
 	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH v7 3/7] PCI: dwc: ep: Add bus_addr_base for outbound
- window
-Message-ID: <20241115182336.7jy63pt7n66h6pa2@thinkpad>
+Subject: Re: [PATCH v7 4/7] PCI: imx6: Remove cpu_addr_fixup()
+Message-ID: <20241115182510.zyaopwz4phl2szzi@thinkpad>
 References: <20241029-pci_fixup_addr-v7-0-8310dc24fb7c@nxp.com>
- <20241029-pci_fixup_addr-v7-3-8310dc24fb7c@nxp.com>
+ <20241029-pci_fixup_addr-v7-4-8310dc24fb7c@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241029-pci_fixup_addr-v7-3-8310dc24fb7c@nxp.com>
+In-Reply-To: <20241029-pci_fixup_addr-v7-4-8310dc24fb7c@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_102347_587463_5F8F54B7 
-X-CRM114-Status: GOOD (  33.00  )
+X-CRM114-CacheID: sfid-20241115_102519_991924_09A067C8 
+X-CRM114-Status: GOOD (  20.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,167 +105,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 12:36:36PM -0400, Frank Li wrote:
->                    Endpoint
->   ┌───────────────────────────────────────────────┐
->   │                             pcie-ep@5f010000  │
->   │                             ┌────────────────┐│
->   │                             │   Endpoint     ││
->   │                             │   PCIe         ││
->   │                             │   Controller   ││
->   │           bus@5f000000      │                ││
->   │           ┌──────────┐      │                ││
->   │           │          │ Outbound Transfer     ││
->   │┌─────┐    │  Bus     ┼─────►│ ATU  ──────────┬┬─────►
->   ││     │    │  Fabric  │Bus   │                ││PCI Addr
->   ││ CPU ├───►│          │Addr  │                ││0xA000_0000
->   ││     │CPU │          │0x8000_0000            ││
->   │└─────┘Addr└──────────┘      │                ││
->   │       0x7000_0000           └────────────────┘│
->   └───────────────────────────────────────────────┘
-> 
-> Add 'bus_addr_base' to configure the outbound window address for CPU write.
-
-This doesn't make a lot of sense to readers. Use something like,
-
-"Use 'ranges' property in DT to configure the iATU outbound window address."
-
-> The bus fabric generally passes the same address to the PCIe EP controller,
-> but some bus fabrics convert the address before sending it to the PCIe EP
-> controller.
-> 
-> Above diagram, CPU write data to outbound windows address 0x7000_0000,
-> Bus fabric convert it to 0x8000_0000. ATU should use bus address
-> 0x8000_0000 as input address and convert to PCI address 0xA000_0000.
-
-s/convert/map
-
-> 
-> Previously, 'cpu_addr_fixup()' was used to handle address conversion. Now,
-> the device tree provides this information, preferring a common method.
-> 
-> bus@5f000000 {
-> 	compatible = "simple-bus";
-> 	ranges = <0x80000000 0x0 0x70000000 0x10000000>;
-> 
-> 	pcie-ep@5f010000 {
-> 		reg = <0x80000000 0x10000000>;
-> 		reg-names ="addr_space";
-> 		...
-> 	};
-> 	...
-> };
-> 
-> 'ranges' in bus@5f000000 descript how address convert from CPU address
-> to bus address.
-> 
-> Use `of_property_read_reg()` to obtain the bus address and set it to the
-> ATU correctly, eliminating the need for vendor-specific cpu_addr_fixup().
-> 
-> Add 'using_dtbus_info' to indicate device tree reflect correctly bus
-> address translation in case break compatibility.
+On Tue, Oct 29, 2024 at 12:36:37PM -0400, Frank Li wrote:
+> Remove cpu_addr_fixup() because dwc common driver already handle address
+> translate.
 > 
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-One comment below. With that addressed,
+Great work!
 
 Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-> ---
-> Change from v6 to v7
-> - none
-> 
-> Change from v5 to v6
-> - update diagram
-> - Add comments for of_property_read_reg()
-> - Remove unrelated 0x5f00_0000 in commit message
-> 
-> Change from v3 to v4
-> - change bus_addr_base to u64 to fix 32bit build error
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202410230328.BTHareG1-lkp@intel.com/
-> 
-> Change from v2 to v3
-> - Add using_dtbus_info to control if use device tree bus ranges
-> information.
-> ---
->  drivers/pci/controller/dwc/pcie-designware-ep.c | 21 ++++++++++++++++++++-
->  drivers/pci/controller/dwc/pcie-designware.h    |  1 +
->  2 files changed, 21 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
-> index 43ba5c6738df1..a5b40c32aadf5 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-ep.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
-> @@ -9,6 +9,7 @@
->  #include <linux/align.h>
->  #include <linux/bitfield.h>
->  #include <linux/of.h>
-> +#include <linux/of_address.h>
->  #include <linux/platform_device.h>
->  
->  #include "pcie-designware.h"
-> @@ -294,7 +295,7 @@ static int dw_pcie_ep_map_addr(struct pci_epc *epc, u8 func_no, u8 vfunc_no,
->  
->  	atu.func_no = func_no;
->  	atu.type = PCIE_ATU_TYPE_MEM;
-> -	atu.cpu_addr = addr;
-> +	atu.cpu_addr = addr - ep->phys_base + ep->bus_addr_base;
->  	atu.pci_addr = pci_addr;
->  	atu.size = size;
->  	ret = dw_pcie_ep_outbound_atu(ep, &atu);
-> @@ -861,6 +862,7 @@ int dw_pcie_ep_init(struct dw_pcie_ep *ep)
->  	struct device *dev = pci->dev;
->  	struct platform_device *pdev = to_platform_device(dev);
->  	struct device_node *np = dev->of_node;
-> +	int index;
->  
->  	INIT_LIST_HEAD(&ep->func_list);
->  
-> @@ -873,6 +875,23 @@ int dw_pcie_ep_init(struct dw_pcie_ep *ep)
->  		return -EINVAL;
->  
->  	ep->phys_base = res->start;
-> +	ep->bus_addr_base = ep->phys_base;
-> +
-> +	if (pci->using_dtbus_info) {
-> +		index = of_property_match_string(np, "reg-names", "addr_space");
-> +		if (index < 0)
-> +			return -EINVAL;
-> +
-> +		/*
-> +		 * Retrieve the local bus address information, which is sent to
-> +		 * the PCIe Endpoint (EP) controller. If the parent bus
-> +		 * 'ranges' in the device tree provide the correct address
-> +		 * conversion information, set 'using_dtbus_info' to true. This
-> +		 * allows 'cpu_addr_fixup()' to be eliminated.
-> +		 */
-
-		/*
-		 * Get the untranslated bus address from devicetree to use it as
-		 * the iATU CPU address in dw_pcie_ep_map_addr().
-		 */
-
 - Mani
 
-> +		of_property_read_reg(np, index, &ep->bus_addr_base, NULL);
-> +	}
-> +
->  	ep->addr_size = resource_size(res);
+> ---
+> Change from v2 to v7
+> - none
+> Change from v1 to v2
+> - set using_dtbus_info true
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 22 ++--------------------
+>  1 file changed, 2 insertions(+), 20 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 808d1f1054173..533905b3942a1 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -81,7 +81,6 @@ enum imx_pcie_variants {
+>  #define IMX_PCIE_FLAG_HAS_PHY_RESET		BIT(5)
+>  #define IMX_PCIE_FLAG_HAS_SERDES		BIT(6)
+>  #define IMX_PCIE_FLAG_SUPPORT_64BIT		BIT(7)
+> -#define IMX_PCIE_FLAG_CPU_ADDR_FIXUP		BIT(8)
 >  
->  	if (ep->ops->pre_init)
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-> index f8067393ad35a..f10b533b04f77 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.h
-> +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> @@ -410,6 +410,7 @@ struct dw_pcie_ep {
->  	struct list_head	func_list;
->  	const struct dw_pcie_ep_ops *ops;
->  	phys_addr_t		phys_base;
-> +	u64			bus_addr_base;
->  	size_t			addr_size;
->  	size_t			page_size;
->  	u8			bar_to_atu[PCI_STD_NUM_BARS];
+>  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
+>  
+> @@ -1012,22 +1011,6 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
+>  		regulator_disable(imx_pcie->vpcie);
+>  }
+>  
+> -static u64 imx_pcie_cpu_addr_fixup(struct dw_pcie *pcie, u64 cpu_addr)
+> -{
+> -	struct imx_pcie *imx_pcie = to_imx_pcie(pcie);
+> -	struct dw_pcie_rp *pp = &pcie->pp;
+> -	struct resource_entry *entry;
+> -
+> -	if (!(imx_pcie->drvdata->flags & IMX_PCIE_FLAG_CPU_ADDR_FIXUP))
+> -		return cpu_addr;
+> -
+> -	entry = resource_list_first_type(&pp->bridge->windows, IORESOURCE_MEM);
+> -	if (!entry)
+> -		return cpu_addr;
+> -
+> -	return cpu_addr - entry->offset;
+> -}
+> -
+>  static const struct dw_pcie_host_ops imx_pcie_host_ops = {
+>  	.init = imx_pcie_host_init,
+>  	.deinit = imx_pcie_host_exit,
+> @@ -1036,7 +1019,6 @@ static const struct dw_pcie_host_ops imx_pcie_host_ops = {
+>  static const struct dw_pcie_ops dw_pcie_ops = {
+>  	.start_link = imx_pcie_start_link,
+>  	.stop_link = imx_pcie_stop_link,
+> -	.cpu_addr_fixup = imx_pcie_cpu_addr_fixup,
+>  };
+>  
+>  static void imx_pcie_ep_init(struct dw_pcie_ep *ep)
+> @@ -1446,6 +1428,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		return ret;
+>  
+> +	pci->using_dtbus_info = true;
+>  	if (imx_pcie->drvdata->mode == DW_PCIE_EP_TYPE) {
+>  		ret = imx_add_pcie_ep(imx_pcie, pdev);
+>  		if (ret < 0)
+> @@ -1585,8 +1568,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  	},
+>  	[IMX8Q] = {
+>  		.variant = IMX8Q,
+> -		.flags = IMX_PCIE_FLAG_HAS_PHYDRV |
+> -			 IMX_PCIE_FLAG_CPU_ADDR_FIXUP,
+> +		.flags = IMX_PCIE_FLAG_HAS_PHYDRV,
+>  		.clk_names = imx8q_clks,
+>  		.clks_cnt = ARRAY_SIZE(imx8q_clks),
+>  	},
 > 
 > -- 
 > 2.34.1
