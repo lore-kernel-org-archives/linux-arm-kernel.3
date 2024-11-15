@@ -4,102 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A5ED68BCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 17:18:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F219D68BCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 17:26:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WNINNbdA0F6hP6eHCYu5y4eAOKcxmjVgS1A+60t/9YU=; b=pBlByfH/nfXs7kCtmBhrg4ASY0
-	n7is0H7NztrLmnBnCl5qAjrni6CI+E0TLRxtZBpql2mk8JBouqTC2ZSd3+2dv/RG1j0wlkD02WKv4
-	6Yf9YDTDaGOdk77WJ/agI+uBylPl+rfxu9aOMtfF5xSNZey1E2nqhNNfpIP6qF+HcSeIvut5R0Vl5
-	l4MI1vW30AhH0lsxGPNDeU8pizNUvo80FZ+bh6tzaCwQdnMyG9Y194aVBGT6j2a3mpILg7EevIJTx
-	Eo8sc4mP6bNTQofIb8p+2g3GpoVykxhXkU1ALE+7BGhWx3ncjYYEh4Y/u838kWiuzDez7TZkqo3Dz
-	JUUdWuGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=yfUzXmB04ofTgBEHXl7/APs3CylNZDZ/sY3E7jcM7xc=; b=kGRAEHMk0eVQYv
+	Fp+JIeoI9NFBqlnUxesIy3tn2oSmry6HSZRMlNlSzHO/34EenqspPZtqHOlaFdQy5vnUwCD+kVUT+
+	Up/NW5Op83IYuxeU4NKgOiNG9OGE9Rsp63m9R+yfT8KX17SvrS5274bg2Err2Y7T1gseEINGDVF4x
+	V2cKRTAbj5GJSrJ2HnjN6oYuUgpbOCU0c7oPHK/NYJY+7qkZLcF/5KVTUcDkyi2rV8vkzyerkoEkj
+	cWNSI6vzWC1AzTzHbALNrj4ckhBNN1dhs6SLnTdEXtGVIRAAItjoVvMnglGoK/AnvDQdnA3Q7IJw5
+	6ndl9QxKrQVW858aQUAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBzxT-00000003Wdc-0dAM;
-	Fri, 15 Nov 2024 17:18:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tC05c-00000003Y3V-407L;
+	Fri, 15 Nov 2024 17:26:36 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBzwY-00000003WQc-0XE9
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 17:17:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1731691032;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WNINNbdA0F6hP6eHCYu5y4eAOKcxmjVgS1A+60t/9YU=;
-	b=ZxrymZ8FHrcZbdfPiw7mDqS58bk2+NjctsEAcu53vllQbaeF7ANlGb7abWXlt//zO2vKZQ
-	d5XG3GK1UbJwUWOsfNIkqItdnh4Ix6LP9z4c9r6HEhxS4dBtXpfXfNIXl992nKBn6BLatp
-	4wJ/VVDI5/Uj9fiQkg5/vRlsBf70WXQ=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-300-rncohbmYNeqNnx9EXmv2Bg-1; Fri, 15 Nov 2024 12:17:10 -0500
-X-MC-Unique: rncohbmYNeqNnx9EXmv2Bg-1
-X-Mimecast-MFC-AGG-ID: rncohbmYNeqNnx9EXmv2Bg
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4315ad4938fso14412605e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 09:17:10 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731691029; x=1732295829;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WNINNbdA0F6hP6eHCYu5y4eAOKcxmjVgS1A+60t/9YU=;
-        b=FGqI3dCCg6hNm3tBolxTZm+hF43TPTbz1oPuH24Thka7Tpy8kP313vFKXsb35tbT8z
-         OAjb5hgTsNUHYcO/6cillCAJm6+fFep53Z9Lmia5CjPhMrnOnib6FN4soLyrwTvpTNWC
-         RaawT/ef2cEzmSjvnKue2FKhxXD5k/vj1yi/C5nIjBIvqZd5FZWAIEY/0HV/rz8ZsfF1
-         U9L+rpkldlE45KACrqtg/DbKEfRjzJvY+ITjtJH+zD4H8E/TF0VRkF1XIFo9efEtrlt6
-         j3zSn9u1mcP45w/6yKl8tAYRFGk+NPdhNv7ezJjaEkPanPP+OmLoR/T1TQV3FnlZ6gVT
-         JnOg==
-X-Forwarded-Encrypted: i=1; AJvYcCWK4cYOLVFF7MfDWJSt2OXFi1wWyRbmglOHU/wFLJa6bCwyMXAPJB3AIFpMrRE46ZJT4SoDcGyhjaxrfDZtFwYZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyt7qaNSWeggEx2qCOHeG3qgEICZq5hCrnLNvk5O0tfwCSCyeZu
-	oqpnAF40pMubinZlT8VWf7lmrgdLtEjSpfd5l3Omu6pUbTSrmeEOzmf6JS+4RFd1Dx2vlSy41GA
-	x0G7nOetgrfvi1ytHEYtfJ7rMWKFVZTRzd3pmeJEToeWQT0xoUtXwzEocaZddSVLCI6+So5wq
-X-Received: by 2002:a05:6000:1541:b0:382:2976:c26c with SMTP id ffacd0b85a97d-3822976c427mr1615837f8f.31.1731691029632;
-        Fri, 15 Nov 2024 09:17:09 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHqsGWeYmupRnbdYRzMnGla3oGhpbGMYhra1dRBEvJ2Cnd/70uqsVI1qXDSJV35YPP52UmDlQ==
-X-Received: by 2002:a05:6000:1541:b0:382:2976:c26c with SMTP id ffacd0b85a97d-3822976c427mr1615812f8f.31.1731691029280;
-        Fri, 15 Nov 2024 09:17:09 -0800 (PST)
-Received: from [192.168.88.24] (146-241-44-112.dyn.eolo.it. [146.241.44.112])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3821ada2a8bsm4868047f8f.17.2024.11.15.09.17.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 15 Nov 2024 09:17:08 -0800 (PST)
-Message-ID: <ed2ec1c2-65c7-4768-99f1-987e5fa39a54@redhat.com>
-Date: Fri, 15 Nov 2024 18:17:07 +0100
+	id 1tC04g-00000003XsN-2czA;
+	Fri, 15 Nov 2024 17:25:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7FE7EA42BAB;
+	Fri, 15 Nov 2024 17:23:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7167C4CECF;
+	Fri, 15 Nov 2024 17:25:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731691537;
+	bh=B5HD6FNYjbwvelKHX9O/ZdMyYIKdSlEvRVWHBFf74j8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=WcXaPIm6WdUXfZSjMdG+JVztfyMit+f2yPV6YeN1NZzQXkpO0wmt1PgI3au1RF50R
+	 LHUBGZ0Cvt86wCrxygPt98TmAcFHPzMWjkT3D1CDHcOtALCHGLjhUqBMq2esM83LRq
+	 dC66w/GliM5szwN6wE+X7c/6i3JYnQuI/lnIZY+ygQMmilIqVDGWBQ0s7jdMYZPnhZ
+	 LGzZEKSxuQVpXUUyDg6A0Nff5ZAb+Z2yKW0E2cNDRAc4xifpGzAGBPW56dlr5j/X/S
+	 hRyM4fl66Rjw6Ohf2wPWaNZLQ3guLNCoFS6Dfkw4CK7FEwjGTwli+8n9i49ABjNtR7
+	 cN9Lq0wdTNFLw==
+Date: Fri, 15 Nov 2024 11:25:34 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Andrea della Porta <andrea.porta@suse.com>,
+	Rob Herring <robh@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>, stable@vger.kernel.org
+Subject: Re: [PATCH] PCI: of_property: Assign PCI instead of CPU bus address
+ to dynamic PCI nodes
+Message-ID: <20241115172534.GA2044163@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/1] net: stmmac: dwmac-tegra: Read iommu stream id
- from device tree
-To: Parker Newman <parker@finest.io>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: Parker Newman <pnewman@connecttech.com>
-References: <cover.1731685185.git.pnewman@connecttech.com>
- <f2a14edb5761d372ec939ccbea4fb8dfd1fdab91.1731685185.git.pnewman@connecttech.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <f2a14edb5761d372ec939ccbea4fb8dfd1fdab91.1731685185.git.pnewman@connecttech.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: BMlgtorjMeDI0Ax33qVmHbFV256z74vyaoMOYKrR2uM_1731691030
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241108094256.28933-1-andrea.porta@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_091714_236785_9A3CF5C4 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20241115_092538_791404_9117D457 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,35 +96,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/15/24 17:31, Parker Newman wrote:
-> From: Parker Newman <pnewman@connecttech.com>
+On Fri, Nov 08, 2024 at 10:42:56AM +0100, Andrea della Porta wrote:
+> When populating "ranges" property for a PCI bridge or endpoint,
+> of_pci_prop_ranges() incorrectly use the CPU bus address of the resource.
+> In such PCI nodes, the window should instead be in PCI address space. Call
+> pci_bus_address() on the resource in order to obtain the PCI bus
+> address.
 > 
-> Read the iommu stream id from device tree rather than hard coding to mgbe0.
-> Fixes kernel panics when using mgbe controllers other than mgbe0.
+> Fixes: 407d1a51921e ("PCI: Create device tree node for bridge")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+> Tested-by: Herve Codina <herve.codina@bootlin.com>
 
-It's better to include the full Oops backtrace, possibly decoded.
+I picked this up on pci/of for v6.13, thanks!  Rob, let me know if
+you'd prefer to take it or ack/review it.
 
-> Tested with Orin AGX 64GB module on Connect Tech Forge carrier board.
-
-Since this looks like a fix, you should include a suitable 'Fixes' tag
-here, and specify the 'net' target tree in the subj prefix.
-
-> @@ -241,6 +243,12 @@ static int tegra_mgbe_probe(struct platform_device *pdev)
->  	if (IS_ERR(mgbe->xpcs))
->  		return PTR_ERR(mgbe->xpcs);
+> ---
+> This patch, originally preparatory for a bigger patchset (see [1]), has
+> been splitted in a standalone one for better management and because it
+> contains a bugfix which is probably of interest to stable branch.
 > 
-> +	/* get controller's stream id from iommu property in device tree */
-> +	if (!tegra_dev_iommu_get_stream_id(mgbe->dev, &mgbe->iommu_sid)) {
-> +		dev_err(mgbe->dev, "failed to get iommu stream id\n");
-> +		return -EINVAL;
-> +	}
-
-I *think* it would be better to fallback (possibly with a warning or
-notice) to the previous default value when the device tree property is
-not available, to avoid regressions.
-
-Thanks,
-
-Paolo
-
+>  drivers/pci/of_property.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/of_property.c b/drivers/pci/of_property.c
+> index 5a0b98e69795..886c236e5de6 100644
+> --- a/drivers/pci/of_property.c
+> +++ b/drivers/pci/of_property.c
+> @@ -126,7 +126,7 @@ static int of_pci_prop_ranges(struct pci_dev *pdev, struct of_changeset *ocs,
+>  		if (of_pci_get_addr_flags(&res[j], &flags))
+>  			continue;
+>  
+> -		val64 = res[j].start;
+> +		val64 = pci_bus_address(pdev, &res[j] - pdev->resource);
+>  		of_pci_set_address(pdev, rp[i].parent_addr, val64, 0, flags,
+>  				   false);
+>  		if (pci_is_bridge(pdev)) {
+> -- 
+> 2.35.3
+> 
 
