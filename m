@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02BF6D6DDFA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 13:12:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD50D6DDFA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 13:16:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NLb7/7MPArmAXwhvn/nbETdJKG+sBfotx0epRnf772U=; b=TjxDTNoFVsjNbWk/12rw5qMzC9
-	VK6GtOuuRK4C864lbFYZKNRK0FckaKnQDwn+fRtrFpvD+fYJoOo0KYdbgV9iwUubrfLcubgi4wwVw
-	wEe5tGYMtpF6ia5BptgxJ8x7iRdLVlk95AClK0IKpGC+udECvCNZvph0F9E5+T0ScJ+6ORZ8w4HkP
-	XiFtQ8K7tJnnv84mbrsUU4ekRdBLEO/22YUf9OqKUu7Ek2pDxh/4qrl+l2i1WpGmt/w6F+8HEkZeM
-	RUJOApf0/3Q9GtSdM7fYUTu9zVwvGop1g9t0y6X5DyMPRl4wy/0KItWEXG7cpSvrEUGyl/hX8nuB5
-	5vjM0pEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jbyO1AHv2SrrjDMufGe/qPlv7KoAstD0OvUVZ7mbUvQ=; b=yJkeCCtksoH6dIIgihvrlAADsR
+	6uia5lfaYrycMrydftU3pUIqLcvGchHbBbwYpN0VMhyVHc1FgCCXvLoofvTnQcJphfxikLV1/81mC
+	Hhxf5OCuBBegwbwF+UQSb38l2/UFkAWb1mxSikm5sXb+FsIhwdEfGthd1VmZ9GQbCTbMmBRRjpUBg
+	wvXqDWJlTDte7AkTChmHEGSyoBXSmn1Mfuf/m/gN5ajWNyYIdxpCJNdETVyfwsqEaS6T1XeJUMpgF
+	4TWWXNdDksTv2i16MKlUGcj5weTrfyH+l64Qu3VmYADkLiFey7i98RbSemXAwTGuEDPAm2KxNex9y
+	XpuYO4zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBw7c-00000002lAn-0FWo;
-	Fri, 15 Nov 2024 13:12:24 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1tBwBr-00000002ljX-0B0x;
+	Fri, 15 Nov 2024 13:16:47 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBw5m-00000002ksa-0APS
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 13:10:31 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 8E891A03F3;
-	Fri, 15 Nov 2024 14:10:19 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=NLb7/7MPArmAXwhvn/nb
-	ETdJKG+sBfotx0epRnf772U=; b=D3Hh6YsXVmldwd00F0xnlFbvCldf8nptR4ML
-	VFfjs7I1othA8hMb7lgf16ZHQ8tNiocGolWZVWWaeNwIw1CDPp8gEWlx0T+c6gqE
-	Z4Uh3wVA7GdXs39/VfUQ2pAot3ytdBL0rIKxIl4G0VPMZqUSeXXgHb/zNeav7rIL
-	PNse3NGlSwhDS4ttXJSU0qGoo6niaaV1AWgmA3ZO2MI3FfCfxGv56Ut38J/BRH7r
-	Vey14L90aLkODZ2SaUjrzkxs9/OC4nTre0yoEYHiIpfvQmD0GB++vTeaqmChWdns
-	kvjpuO/ippfyAV6yq24Ct5qToOSkkgte8YCh7JF+UbW7RX4hFHzUa2FHgfoKtePf
-	97UdNkHZEMMjvDpTrHfAsr4EQDEK8klGtF7CYrrVCp0ypyacKI3vXMN3Ep+rjKC1
-	jFK+MOw2t952uD58CkcbtNT6MchfiQgq+ZeiA2sOdSWZSJ4gugnq5WCmRYAfHH9W
-	xkHv/XttlUZVMYI0duL5cE93D3T2C/5d9ryJD6zWVbffEw53zGPvmEEZfxEy8Aea
-	p0SlGg+8+gfPd4bojZw+xS0GxwWeaPQrnNhlVvs7SLoFQg/0by3DrVNbS5Ye3lf0
-	C7LCEIYxogg4ZuYKgLFBVVrTaM+xC4FWpG+KQg6jwDZlAIt4Uh8ovnJSLTLKLwvs
-	GBhSjH0=
-Message-ID: <594b2929-f7ab-4d30-a97c-1b1b31258d25@prolan.hu>
-Date: Fri, 15 Nov 2024 14:10:18 +0100
+	id 1tBwAw-00000002lf7-1Z26;
+	Fri, 15 Nov 2024 13:15:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A383F5C61CA;
+	Fri, 15 Nov 2024 13:15:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4795C4CECF;
+	Fri, 15 Nov 2024 13:15:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731676549;
+	bh=70ptQYo30UwVusaCHZRa/EN+gh7OcDEFJVb5k9kd/W8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PqRWThO4yBC11BlqCVLdvCdiqntr2dtVg/ncjFDMvzDXzSMfdrNqx6YfIslFKNN+Y
+	 0taDWV3MkBOsEZJn2Hq93JcBQ5L/EguelK7R/c6ye/N6bJwLFIKFZ1tAXovsdR55QR
+	 Qg+hVCXH6nmQi4t9nyJtCIU2jWY3zUrsJ72DWfdI0CSpiVwI4oYgxW+NPX2Div5FA1
+	 Z4oU/RwvHbVlBjkC562ZQwZh9wbMkcyaqCCjXUFcaQ/LxAE8gTOo72U9V2cb9Kbtuk
+	 u9D12+eeLHqFr7hWWMWy9LW/82SL6w7jBGbCaAo12g4sc3p+Hqz1gYudvh+jSfXM6n
+	 bR5s+IFutX9oQ==
+Date: Fri, 15 Nov 2024 14:15:45 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 3/4] PCI: mediatek-gen3: Move reset/assert callbacks
+ in .power_up()
+Message-ID: <ZzdJgeX2dp_z1QmJ@lore-rh-laptop>
+References: <20241109-pcie-en7581-fixes-v2-0-0ea3a4af994f@kernel.org>
+ <20241109-pcie-en7581-fixes-v2-3-0ea3a4af994f@kernel.org>
+ <20241115090231.nwmxl6acspxqflpc@thinkpad>
+ <ZzcRG3OInXZ2TP-Z@lore-rh-laptop>
+ <20241115123707.in4x27ub4wtwdggh@thinkpad>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/3] Add support for codec of F1C100s
-To: <linux-sound@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-CC: Mesih Kilinc <mesihkilinc@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, "Takashi
- Iwai" <tiwai@suse.com>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
-	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>
-References: <20241102125712.2647325-1-csokas.bence@prolan.hu>
-Content-Language: en-US
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <20241102125712.2647325-1-csokas.bence@prolan.hu>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.254.7.14]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D94855617C6B
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Az29kcYdHjsISUBm"
+Content-Disposition: inline
+In-Reply-To: <20241115123707.in4x27ub4wtwdggh@thinkpad>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_051030_536916_5FABFA80 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20241115_051550_511712_F94C46C4 
+X-CRM114-Status: GOOD (  33.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,38 +84,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-So, if there's no further remarks, can this be merged? The next window 
-is coming up, and there's the DT addition still waiting in the pipe.
-Bence
 
-On 2024. 11. 02. 13:57, Csókás, Bence wrote:
-> Support for Allwinner F1C100s/200s series audio was
-> submitted in 2018 as an RFC series, but was not merged,
-> despite having only minor errors. However, this is
-> essential for having audio on these SoCs.
-> This series was forward-ported/rebased to the best of
-> my abilities, on top of Linus' tree as of now:
-> commit c2ee9f594da8 ("KVM: selftests: Fix build on on non-x86 architectures")
-> 
-> Link: https://lore.kernel.org/all/cover.1543782328.git.mesihkilinc@gmail.com/
-> 
-> As requested by many, this series will now be split in 2, the DMA and the
-> ALSA/ASoC codec driver. This is the codec part of the series.
-> The first part (DMA) can be seen here. This series can be applied and
-> built without the former, but for working audio you need them both,
-> plus add it to Device Tree.
-> Link: https://lore.kernel.org/linux-kernel/20241102093140.2625230-2-csokas.bence@prolan.hu/
-> 
-> Csókás, Bence (1):
->    dt-bindings: sound: Add Allwinner suniv F1C100s Audio Codec
-> 
-> Mesih Kilinc (2):
->    ASoC: sun4i-codec: Add DMA Max Burst field
->    ASoC: sun4i-codec: Add support for Allwinner suniv F1C100s
-> 
->   .../sound/allwinner,sun4i-a10-codec.yaml      |  31 ++
->   sound/soc/sunxi/sun4i-codec.c                 | 365 +++++++++++++++++-
->   2 files changed, 394 insertions(+), 2 deletions(-)
-> 
+--Az29kcYdHjsISUBm
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Nov 15, Manivannan Sadhasivam wrote:
+> On Fri, Nov 15, 2024 at 10:15:07AM +0100, Lorenzo Bianconi wrote:
+> > > On Sat, Nov 09, 2024 at 10:28:39AM +0100, Lorenzo Bianconi wrote:
+> > > > In order to make the code more readable, move phy and mac reset lin=
+es
+> > > > assert/de-assert configuration in .power_up() callback
+> > > > (mtk_pcie_en7581_power_up()/mtk_pcie_power_up()).
+> > > >=20
+> > >=20
+> > > I don't understand how moving the code (duplicting it also) makes the=
+ code more
+> > > readable. Could you please explain?
+> >=20
+> > Hi Manivannan,
+> >=20
+> > this has been requested by Bjorn in
+> > https://patchwork.kernel.org/project/linux-pci/patch/aca00bd672ee576ad9=
+6d279414fc0835ff31f637.1720022580.git.lorenzo@kernel.org/#26110282
+> >=20
+>=20
+> Ok. The description needs to state the reason i.e., the
+> reset_control_bulk_assert() is moved to make it pair with
+> reset_control_bulk_deassert() in mtk_pcie_setup() and
+> mtk_pcie_en7581_power_up().
+
+ack, I will update the commit log.
+
+>=20
+> Btw, could you explain why reset_control_bulk_deassert() is present in
+> mtk_pcie_setup()?
+
+it is because the clock is shared for Airoha EN7581 and we need to be sure
+rstc->deassert_count is not 0 running reset_control_bulk_assert().
+
+https://github.com/torvalds/linux/blob/master/drivers/reset/core.c#L483
+
+Regards,
+Lorenzo
+
+>=20
+> - Mani
+>=20
+> > >=20
+> > > > Introduce PCIE_MTK_RESET_TIME_US macro for the time needed to
+> > > > complete PCIe reset on MediaTek controller.
+> > > >=20
+> > > > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > > > ---
+> > > >  drivers/pci/controller/pcie-mediatek-gen3.c | 28 +++++++++++++++++=
++++--------
+> > > >  1 file changed, 20 insertions(+), 8 deletions(-)
+> > > >=20
+> > > > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/=
+pci/controller/pcie-mediatek-gen3.c
+> > > > index 8c8c733a145634cdbfefd339f4a692f25a6e24de..1ad93d2407810ba873d=
+9a16da96208b3cc0c3011 100644
+> > > > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> > > > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> > > > @@ -120,6 +120,9 @@
+> > > > =20
+> > > >  #define MAX_NUM_PHY_RESETS		3
+> > > > =20
+> > > > +/* Time in us needed to complete PCIe reset on MediaTek controller=
+ */
+> > >=20
+> > > No need of this comment. Macro name itself is explanatory.
+> >=20
+> > ack, I will fix it.
+> >=20
+> > Regards,
+> > Lorenzo
+> >=20
+> > >=20
+> > > - Mani
+> > >=20
+> > > > +#define PCIE_MTK_RESET_TIME_US		10
+> > > > +
+> > > >  /* Time in ms needed to complete PCIe reset on EN7581 SoC */
+> > > >  #define PCIE_EN7581_RESET_TIME_MS	100
+> > > > =20
+> > > > @@ -867,6 +870,14 @@ static int mtk_pcie_en7581_power_up(struct mtk=
+_gen3_pcie *pcie)
+> > > >  	int err;
+> > > >  	u32 val;
+> > > > =20
+> > > > +	/*
+> > > > +	 * The controller may have been left out of reset by the bootload=
+er
+> > > > +	 * so make sure that we get a clean start by asserting resets her=
+e.
+> > > > +	 */
+> > > > +	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
+> > > > +				  pcie->phy_resets);
+> > > > +	reset_control_assert(pcie->mac_reset);
+> > > > +
+> > > >  	/*
+> > > >  	 * Wait for the time needed to complete the bulk assert in
+> > > >  	 * mtk_pcie_setup for EN7581 SoC.
+> > > > @@ -941,6 +952,15 @@ static int mtk_pcie_power_up(struct mtk_gen3_p=
+cie *pcie)
+> > > >  	struct device *dev =3D pcie->dev;
+> > > >  	int err;
+> > > > =20
+> > > > +	/*
+> > > > +	 * The controller may have been left out of reset by the bootload=
+er
+> > > > +	 * so make sure that we get a clean start by asserting resets her=
+e.
+> > > > +	 */
+> > > > +	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
+> > > > +				  pcie->phy_resets);
+> > > > +	reset_control_assert(pcie->mac_reset);
+> > > > +	usleep_range(PCIE_MTK_RESET_TIME_US, 2 * PCIE_MTK_RESET_TIME_US);
+> > > > +
+> > > >  	/* PHY power on and enable pipe clock */
+> > > >  	err =3D reset_control_bulk_deassert(pcie->soc->phy_resets.num_res=
+ets, pcie->phy_resets);
+> > > >  	if (err) {
+> > > > @@ -1013,14 +1033,6 @@ static int mtk_pcie_setup(struct mtk_gen3_pc=
+ie *pcie)
+> > > >  	 * counter since the bulk is shared.
+> > > >  	 */
+> > > >  	reset_control_bulk_deassert(pcie->soc->phy_resets.num_resets, pci=
+e->phy_resets);
+> > > > -	/*
+> > > > -	 * The controller may have been left out of reset by the bootload=
+er
+> > > > -	 * so make sure that we get a clean start by asserting resets her=
+e.
+> > > > -	 */
+> > > > -	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets, pcie-=
+>phy_resets);
+> > > > -
+> > > > -	reset_control_assert(pcie->mac_reset);
+> > > > -	usleep_range(10, 20);
+> > > > =20
+> > > >  	/* Don't touch the hardware registers before power up */
+> > > >  	err =3D pcie->soc->power_up(pcie);
+> > > >=20
+> > > > --=20
+> > > > 2.47.0
+> > > >=20
+> > >=20
+> > > --=20
+> > > =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=
+=A9=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=
+=AE=E0=AF=8D
+>=20
+>=20
+>=20
+> --=20
+> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
+=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
+=E0=AF=8D
+
+--Az29kcYdHjsISUBm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZzdJfgAKCRA6cBh0uS2t
+rAc+AP9ub7dajbYVmtXzENOojOgxYKgGlbym8v7JFbk2MDEf7AEA72IU0ALoGmk1
+Uh4ep6rnZJgFC0aB3YAo3lXmumLpxww=
+=VKZA
+-----END PGP SIGNATURE-----
+
+--Az29kcYdHjsISUBm--
 
