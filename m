@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C08C8D68BCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 16:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E779D68BCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 16:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A1rLKs7XMafDwKPJur3KVVVuDZ+Nk4nB0R3fvhHVGOI=; b=IjrXpQwHw51gwx8saNOHYsh8FT
-	oZz42U7va8dL5qQti9Cjn+89oHtDFEZgvt071AcbnzvJ2VdjZW+tJ9RAPpEj3U9LLpGi+uhPLtpeO
-	OK3QHhYdABDJZ8IX2/1k9+ANdE6dvlRfo00csgmftQPkHiP0c0EL92Su39aF/QZYMfSURbH76PqY+
-	82U0bBRu8p28dqs2EWl4u4lW0kX4iu42WQ8xPF69b7rsbovaC4MBOWNZiX5u/Q7Mw1eqJGEurGmuy
-	6F25z5xoRrnX5WLMAPcEQzCJoTCe1oskdF9D8b/RJtxVVDlnC5bY1IC2Nqb/OobFduhbFQNrQMm1U
-	+NdVYaSw==;
+	bh=B0LjiaqMThscAIs7bg4QizE4MBHTTfzv3pHzToNXt/M=; b=mpVxWjnyJ7pSsNt0sDiVKRsLaa
+	rYCIWB2fT5CbCGzqgg8k1iDx/D+u+RboYY3upz04lw0rpgjqlStqfiyGxMMRD1xViwi6g7Z08+Xkh
+	0pkp8sJ14IPyGO13Jd7K7ddymj74kDTyCqKhrR5jwegI3cmMe69rhq9qEP92FLhrU10VfWVZJ3pPv
+	GIXX7WY/1RgVf/qcx8Vto0zwO0KTssUZjvYoF4fw2P1r/18p8N9B+lWmWlyvJhsb94j3iSkkb3U2Q
+	MyTFvKD6kanCyCdPP2FNcPege9Cwg3tI8G8MMUfQ82EKcZpS/J/JBbP7V6rir9WBBhzp0n3aodCR/
+	6BAwk7bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBzJd-00000003MhD-1cu9;
-	Fri, 15 Nov 2024 16:37:01 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1tBzKW-00000003MrE-49wm;
+	Fri, 15 Nov 2024 16:37:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBzIh-00000003MV6-41GW
+	id 1tBzIk-00000003MVj-31KC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 16:36:05 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7246c8c9b1cso1425730b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 08:36:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731688563; x=1732293363; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=A1rLKs7XMafDwKPJur3KVVVuDZ+Nk4nB0R3fvhHVGOI=;
-        b=IhmDd9t6Vj9J21LaRuzdEhcDc1tApOovoio5+I3TaxJ4dObzO3WXI9CRYijr5O3r/X
-         25GvbVI6Ivbd8Zh/JarxRBMmk+Ux0bp7moC1pt//GQFLoby4vPYPLZHrYSNgeZTqURik
-         wxU96Ct4y1/9dES57R6R74L2FGFKTOPQr8QYDn+bYcNsZhAP43xhFBdWyjPhCj8z1gfL
-         6pjZUaEGviPYaHl0bgbHCpyuAOWUg+6zF51T5ZdD2efg6WHR+pB3e0IR1DgtC1vDM/i9
-         fJWWpS2UWJZ8OYyMR27jDHFQhEGKONWTxslR05ciJGZkaqfRbGeViM6j0+0gOacvbrEu
-         WGKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731688563; x=1732293363;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=A1rLKs7XMafDwKPJur3KVVVuDZ+Nk4nB0R3fvhHVGOI=;
-        b=bjQVcf8MM4OenQHWYHi3m1IMbredNC1uDdpyBChitEekYHR7T1Wb4jCXRlh3q79V5g
-         5t/zR/PxDOV2iNULqPWXRZNdO8jdhwPohqFgNVZNoTjfx9CDxLL5YWm+xlmXI3AykjSo
-         5UdKTnUPL+kiRUlch64EZmM3AjQxBtpP0Wm9JzBP/T6+sq+8CC3L02NNxkRs0ItdCDrX
-         f2Kd/C+hF3Gj+lbN+mg+yl6wUdJ/KCGzhnbKbqs3cPZySOjjfQEtgEJMm/kOQB5Dn/rm
-         DdCluXMKrEon7iO0p/7kjBJrvPdmazwQHJ+ugGlaGkKSVVs8uNvlUIpH8xHbG8pLs+2h
-         mckQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX+H5eb5iomIxx1zOoe5EOUu635cv4NIrER7sTfpkGKDCc29qq2oR6qxVviashX9yjC168OSSmcbH3t4nNw2Vw+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHKDbm6Oc1FCSgWZkND75NiRXM44fCIHAGN1tWHqt8AHaDMGtu
-	246H0F49cx7TY8NmKNVkQqxFRDBxp5YW/MKX8V8p+z/FRBktWbS3RCR3d98nmg==
-X-Google-Smtp-Source: AGHT+IGFnW6rFMw+hHUnNFuHyJmsLi6k9X5/Gsoh1t7i3szUhNuaPDcIgnR8yPSEXL5+AmJiguW+3g==
-X-Received: by 2002:a05:6a00:b56:b0:71d:fb29:9f07 with SMTP id d2e1a72fcca58-72476bba9femr3943662b3a.15.1731688563135;
-        Fri, 15 Nov 2024 08:36:03 -0800 (PST)
-Received: from thinkpad ([117.193.215.93])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724771e8ad1sm1533972b3a.168.2024.11.15.08.35.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Nov 2024 08:36:02 -0800 (PST)
-Date: Fri, 15 Nov 2024 22:05:52 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH v7 1/7] of: address: Add parent_bus_addr to struct
- of_pci_range
-Message-ID: <20241115163552.mk7msyu57oqqetaw@thinkpad>
-References: <20241029-pci_fixup_addr-v7-0-8310dc24fb7c@nxp.com>
- <20241029-pci_fixup_addr-v7-1-8310dc24fb7c@nxp.com>
+	Fri, 15 Nov 2024 16:36:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 14E1BA429E4;
+	Fri, 15 Nov 2024 16:34:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E232C4CED5;
+	Fri, 15 Nov 2024 16:36:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731688565;
+	bh=6yQrzL+pY0s5bWYhKAenvAd4K3vkSdTM9mFizd+1r8E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H99tUUBjROYIibs7vXroxAi3KXnmtRNRe1yk//et3sKkQZfVPW2DCaDJlHgMsrnAK
+	 Y6iuBeAZFRfUzJZcbT2178fMPypgrYxiE/oWrhYWdNN0qbdZA+UsYJjonG5XV9hTnU
+	 ELMQnXVNxjU30qSBtvn1KcZyVyrzBjvk0LH6C2LXAMDqTMcdUj5/183weCY3T7jw8L
+	 RFds4A3qvgQD2FmsqcARtCjpAig8ANEpgfBcn7kfTUVGl7nS7Id4DXdqaAa7R84K+H
+	 yKEcNGIULnpqYwTkfwqboyI1zpC1GvA7Q5bkfAEy+QsJ/aToJ/Zuc4jZxaRvsIdG7E
+	 pNnt/nYpycq0Q==
+Date: Fri, 15 Nov 2024 10:36:03 -0600
+From: Rob Herring <robh@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
+	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	p.zabel@pengutronix.de, cassel@kernel.org,
+	quic_schintav@quicinc.com, fabrice.gasnier@foss.st.com,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/5] dt-bindings: PCI: Add STM32MP25 PCIe root complex
+ bindings
+Message-ID: <20241115163603.GA3188739-robh@kernel.org>
+References: <20241112161925.999196-1-christian.bruel@foss.st.com>
+ <20241112161925.999196-2-christian.bruel@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241029-pci_fixup_addr-v7-1-8310dc24fb7c@nxp.com>
+In-Reply-To: <20241112161925.999196-2-christian.bruel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_083604_002106_F828E56A 
-X-CRM114-Status: GOOD (  24.26  )
+X-CRM114-CacheID: sfid-20241115_083606_905424_CEABA4FC 
+X-CRM114-Status: GOOD (  23.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,125 +79,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 12:36:34PM -0400, Frank Li wrote:
-> Introduce field 'parent_bus_addr' in struct of_pci_range to retrieve parent
-> bus address information.
+On Tue, Nov 12, 2024 at 05:19:21PM +0100, Christian Bruel wrote:
+> Document the bindings for STM32MP25 PCIe Controller configured in
+> root complex mode.
+> Supports 4 legacy interrupts and MSI interrupts from the ARM
+> GICv2m controller.
 > 
-> Refer to the diagram below to understand that the bus fabric in some
-> systems (like i.MX8QXP) does not use a 1:1 address map between input and
-> output.
+> Allow tuning to change payload (default 128B) thanks to the
+> st,max-payload-size entry.
+> Can also limit the Maximum Read Request Size on downstream devices to the
+> minimum possible value between 128B and 256B.
 > 
-> Currently, many controller drivers use .cpu_addr_fixup() callback hardcodes
-> that translation in the code, e.g., "cpu_addr & CDNS_PLAT_CPU_TO_BUS_ADDR"
-> (drivers/pci/controller/cadence/pcie-cadence-plat.c),
-> "cpu_addr + BUS_IATU_OFFSET"(drivers/pci/controller/dwc/pcie-intel-gw.c),
-> etc, even though those translations *should* be described via DT.
+> STM32 PCIE may be in a power domain which is the case for the STM32MP25
+> based boards.
+> Supports wake# from wake-gpios
 > 
-> The .cpu_addr_fixup() can be eliminated if DT correct reflect hardware
-> behavior and driver use 'parent_bus_addr' in struct of_pci_range.
-> 
->             ┌─────────┐                    ┌────────────┐
->  ┌─────┐    │         │ IA: 0x8ff8_0000    │            │
->  │ CPU ├───►│   ┌────►├─────────────────┐  │ PCI        │
->  └─────┘    │   │     │ IA: 0x8ff0_0000 │  │            │
->   CPU Addr  │   │  ┌─►├─────────────┐   │  │ Controller │
-> 0x7ff8_0000─┼───┘  │  │             │   │  │            │
->             │      │  │             │   │  │            │   PCI Addr
-> 0x7ff0_0000─┼──────┘  │             │   └──► IOSpace   ─┼────────────►
->             │         │             │      │            │    0
-> 0x7000_0000─┼────────►├─────────┐   │      │            │
->             └─────────┘         │   └──────► CfgSpace  ─┼────────────►
->              BUS Fabric         │          │            │    0
->                                 │          │            │
->                                 └──────────► MemSpace  ─┼────────────►
->                         IA: 0x8000_0000    │            │  0x8000_0000
->                                            └────────────┘
-> 
-> bus@5f000000 {
->         compatible = "simple-bus";
->         #address-cells = <1>;
->         #size-cells = <1>;
->         ranges = <0x80000000 0x0 0x70000000 0x10000000>;
-> 
->         pcie@5f010000 {
->                 compatible = "fsl,imx8q-pcie";
->                 reg = <0x5f010000 0x10000>, <0x8ff00000 0x80000>;
->                 reg-names = "dbi", "config";
->                 #address-cells = <3>;
->                 #size-cells = <2>;
->                 device_type = "pci";
->                 bus-range = <0x00 0xff>;
->                 ranges = <0x81000000 0 0x00000000 0x8ff80000 0 0x00010000>,
->                          <0x82000000 0 0x80000000 0x80000000 0 0x0ff00000>;
-> 	...
-> 	};
-> };
-> 
-> 'parent_bus_addr' in struct of_pci_range can indicate above diagram internal
-> address (IA) address information.
-> 
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-
-Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-
-- Mani
-
+> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
 > ---
-> Change from v5 to v7
-> -none
+>  .../bindings/pci/st,stm32-pcie-host.yaml      | 149 ++++++++++++++++++
+>  1 file changed, 149 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
 > 
-> Change from v4 to v5
-> - remove confused  <0x5f000000 0x0 0x5f000000 0x21000000>
-> - change address order to 7ff8_0000, 7ff0_0000, 7000_0000
-> - In commit message use parent bus addres
-> 
-> Change from v3 to v4
-> - improve commit message by driver source code path.
-> 
-> Change from v2 to v3
-> - cpu_untranslate_addr -> parent_bus_addr
-> - Add Rob's review tag
->   I changed commit message base on Bjorn, if you have concern about review
-> added tag, let me know.
-> 
-> Change from v1 to v2
-> - add parent_bus_addr in struct of_pci_range, instead adding new API.
-> ---
->  drivers/of/address.c       | 2 ++
->  include/linux/of_address.h | 1 +
->  2 files changed, 3 insertions(+)
-> 
-> diff --git a/drivers/of/address.c b/drivers/of/address.c
-> index 286f0c161e332..1a0229ee4e0b2 100644
-> --- a/drivers/of/address.c
-> +++ b/drivers/of/address.c
-> @@ -811,6 +811,8 @@ struct of_pci_range *of_pci_range_parser_one(struct of_pci_range_parser *parser,
->  	else
->  		range->cpu_addr = of_translate_address(parser->node,
->  				parser->range + na);
+> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+> new file mode 100644
+> index 000000000000..d7d360b63a08
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+> @@ -0,0 +1,149 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-host.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +	range->parent_bus_addr = of_read_number(parser->range + na, parser->pna);
->  	range->size = of_read_number(parser->range + parser->pna + na, ns);
->  
->  	parser->range += np;
-> diff --git a/include/linux/of_address.h b/include/linux/of_address.h
-> index 26a19daf0d092..13dd79186d02c 100644
-> --- a/include/linux/of_address.h
-> +++ b/include/linux/of_address.h
-> @@ -26,6 +26,7 @@ struct of_pci_range {
->  		u64 bus_addr;
->  	};
->  	u64 cpu_addr;
-> +	u64 parent_bus_addr;
->  	u64 size;
->  	u32 flags;
->  };
-> 
+> +title: STM32MP25 PCIe root complex driver
+> +
+> +maintainers:
+> +  - Christian Bruel <christian.bruel@foss.st.com>
+> +
+> +description:
+> +  PCIe root complex controller based on the Synopsys DesignWare PCIe core.
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      const: st,stm32mp25-pcie-rc
+> +  required:
+> +    - compatible
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/pci-host-bridge.yaml#
+> +  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
+
+snps,dw-pcie.yaml instead of these 2.
+
+> +
+> +properties:
+> +  compatible:
+> +    const: st,stm32mp25-pcie-rc
+> +
+> +  reg:
+> +    items:
+> +      - description: Data Bus Interface (DBI) registers.
+> +      - description: PCIe configuration registers.
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dbi
+> +      - const: config
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  reset-names:
+> +    const: core
+
+-names with a single entry is kind of pointless.
+
+> +
+> +  clocks:
+> +    maxItems: 1
+> +    description: PCIe system clock
+> +
+> +  clock-names:
+> +    const: core
+> +
+> +  phys:
+> +    maxItems: 1
+> +
+> +  phy-names:
+> +    const: pcie-phy
+> +
+> +  num-lanes:
+> +    const: 1
+> +
+> +  msi-parent:
+> +    maxItems: 1
+
+Just 'msi-parent: true'. It's already only ever 1 entry.
+
+> +
+> +  reset-gpios:
+> +    description: GPIO controlled connection to PERST# signal
+> +    maxItems: 1
+> +
+> +  wake-gpios:
+> +    description: GPIO controlled connection to WAKE# input signal
+> +    maxItems: 1
+> +
+
+> +  st,limit-mrrs:
+> +    description: If present limit downstream MRRS to 256B
+> +    type: boolean
+> +
+> +  st,max-payload-size:
+> +    description: Maximum Payload size to use
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    enum: [128, 256]
+> +    default: 128
+
+IIRC, other hosts have similar restrictions, so you should be able to do 
+the same and imply it from the compatible. Though I'm open to a common 
+property as Bjorn suggested.
+
+> +
+> +  wakeup-source: true
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  access-controllers:
+> +    maxItems: 1
+> +
+> +if:
+> +  required:
+> +    - wakeup-source
+> +then:
+> +  required:
+> +    - wake-gpios
+
+This can be just:
+
+dependentRequired:
+  wakeup-source: [ wake-gpios ]
+
+(dependentRequired supercedes dependencies)
+
+> +
+> +required:
+> +  - interrupt-map
+> +  - interrupt-map-mask
+> +  - ranges
+> +  - resets
+> +  - reset-names
+> +  - clocks
+> +  - clock-names
+> +  - phys
+> +  - phy-names
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
+> +    #include <dt-bindings/gpio/gpio.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/phy/phy.h>
+> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
+> +
+> +    pcie@48400000 {
+> +        compatible = "st,stm32mp25-pcie-rc";
+> +        device_type = "pci";
+> +        num-lanes = <1>;
+> +        reg = <0x48400000 0x400000>,
+> +              <0x10000000 0x10000>;
+> +        reg-names = "dbi", "config";
+> +        #interrupt-cells = <1>;
+> +        interrupt-map-mask = <0 0 0 7>;
+> +        interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
+> +                        <0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
+> +                        <0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
+> +                        <0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
+> +        #address-cells = <3>;
+> +        #size-cells = <2>;
+> +        ranges = <0x01000000 0 0x10010000 0x10010000 0 0x10000>,
+> +                 <0x02000000 0 0x10020000 0x10020000 0 0x7fe0000>,
+> +                 <0x42000000 0 0x18000000 0x18000000 0 0x8000000>;
+> +        bus-range = <0x00 0xff>;
+
+Don't need this unless it's restricted to less than bus 0-255.
+
+> +        clocks = <&rcc CK_BUS_PCIE>;
+> +        clock-names = "core";
+> +        phys = <&combophy PHY_TYPE_PCIE>;
+> +        phy-names = "pcie-phy";
+> +        resets = <&rcc PCIE_R>;
+> +        reset-names = "core";
+> +        msi-parent = <&v2m0>;
+> +        wakeup-source;
+> +        wake-gpios = <&gpioh 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+> +        access-controllers = <&rifsc 76>;
+> +        power-domains = <&CLUSTER_PD>;
+> +    };
 > -- 
 > 2.34.1
 > 
-
--- 
-மணிவண்ணன் சதாசிவம்
 
