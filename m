@@ -4,77 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B254D6DDE3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 13:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9DE7D6DDE3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 14:03:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9TL/f6gB+eR6At/50KIxwZ5dbWdax/WfEXDBQV+7s6Q=; b=S90wsHIoYnNySeJEcHgHYw/LZl
-	yA9NsHv1rDj4iTBhq6B0WdyPs3MH88lynVgsm7c4Jvl3FF+krguXVt0kw9c/5veOMXWn933ov/f6t
-	Y1KWHTl3T7Oc5OGwFqB3FBMCavVFQXqtMu87c4b+9OUIjluwlY2wsYGVycjSe1cduVY1ZkaQsikuk
-	CvtGRFkTdde+ukP7P2EvgZTDsuRhsaQksJkySS3cG0dVddEhukg3Ah6yV2O8V/Mq5v4kmYU9RmabN
-	sDG6sQfKSOyPLB3+401DnQjtTj7m3yHBwxVKbsgIhzjwfL4uLRX/mrux+wbTCHHWs4Qu8GHhTRAzE
-	/BPQK5xg==;
+	bh=Pl7U/tzpXwjOgMfEmhjb4J8CMaJEcojsgMv5810LpGs=; b=RX4wGTTwwR9xZATYURSan21efy
+	v+lnBDXbXUCsyF2pkmLA/tXBajI6BJ1P+ct2NcMjlFgRjB1GRL5FK6ZuiC18O+TSQYEibTcsAZtqP
+	zGEBo5pZmW90Nac2f9zofS+Y6ngTDwOFS+h5oF6p5ttxn8Gc4aTjlHNyqjzUQ82CPVZRGxlAInfJf
+	Ke0tMpsGbwkwzvov7AyDqdhKiKei5QuRFuUtZwp5OThZnxSb3pp8SaKnzzljaBrKBT+4ensZSA/xb
+	Vj8tgMVK/FoqOi0/2v35MvD0A3By53tInmpR9syhW8mOFroYW4GjApYJGCCwIQ8qNPXGIf67pV13J
+	iLDFFHgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBwkJ-00000002tie-46yd;
-	Fri, 15 Nov 2024 13:52:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tBwuo-00000002vNy-3Q6Q;
+	Fri, 15 Nov 2024 14:03:14 +0000
+Received: from mail-dm6nam12on2060d.outbound.protection.outlook.com ([2a01:111:f403:2417::60d] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBwjP-00000002tXE-0Q9V
+	id 1tBwtt-00000002vCg-1233
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 13:51:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A4BBB5C46EE;
-	Fri, 15 Nov 2024 13:50:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDB1EC4CED2;
-	Fri, 15 Nov 2024 13:51:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731678684;
-	bh=MlPuyzzgSsm7Upv0T4jrjr7nvxuVanXJvHn97zg2xk0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TPtvyYChMaPn5PzQdbSjVCCdUbBtgON+sNttzyOVbc+My1IIaOget9MSj9wgiE9+W
-	 NftbX7/VJXCT9NMLnDUNlqJeoovzXCAEPhlNRLLEEQKtEDD0pABgOEvsan220/BIzb
-	 HRGiFPOqg6a/dbzL9GRvrP683lcy+nJc0d+EyiL6Y8ltbSXcr+Drzaose5rsdYc1eR
-	 BE7c2v4iTK3pO4e4v8WfuBCNt/roopJGTQCg4qTMR2ExqKTrnu1SubgrgR0CzTFHfz
-	 7Poo53qVqJD6FJvBqhNhmCPr0sQ5/ZSFMoQMRe+ZopcqRrbFuqpwJTW+E/HmhQVXDS
-	 6iYqxQeuqRl7g==
-Date: Fri, 15 Nov 2024 14:51:16 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Elliot Berman <quic_eberman@quicinc.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, cros-qcom-dts-watchers@chromium.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
-	Melody Olvera <quic_molvera@quicinc.com>,
-	Shivendra Pratap <quic_spratap@quicinc.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Fri, 15 Nov 2024 14:02:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aqFewbVSQ5EVdenaLdQ/un4kVKQZ6lndSU8pLbfYtM5Tvd18Lq4Hss66DUFU8yhJXRKt9SM+rH6AUh27spQJSWT5T3csHMohAx3aH2wXVyEisKIr/imv5RPopl5E1h710xdrK8cKXI87MyQlko/G9I0HfrjVb3x1pBQ7ITuDmsewhqe560n38GAUy6vqMKclHzfB0tAlT2eAetqg5ENnDGSIqLFTlg3RC39+t8t2RuXXCQWxFTYrVlrRYNutEe9sUCrKRz9v6EnvBNbr1mOIp27ZFeUtPbioTszfrEgGzrMlSo9vL/aMV9NmNQho06RZc+vUViJw2tAdm4kX2JAbdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Pl7U/tzpXwjOgMfEmhjb4J8CMaJEcojsgMv5810LpGs=;
+ b=A+HtgZzKCgGqScVbDBpXEt41VQRnQRyV02DbJ/7PQSXGZs6umHiEdQdCJYHbXTwrMSmkk3eicpZf+5Bh4v/wZZSCEdCSIR3wggPq0LGcpnnZnaUJ2EPOFVd5h8IhXMSj5p20ksGXbXwirYnN+QgbMdLLeLgvPSwEYfg1z820d3ZiHYe3NIazugdhMSNuscdd0RDjOraBlBYsRq7e5P72Eo7wiVEGxOJ6W3QU6NusbCJ1fW3O8Yh4/kHYCzsBxMF6qrLZMlx6KsjdIems4pzeZiIWrg0QCAOP5iwQ//tTQoxhHtuIn5UofD1ZADZnYfBZbTMhcet+Vch0il40Uu+ekw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Pl7U/tzpXwjOgMfEmhjb4J8CMaJEcojsgMv5810LpGs=;
+ b=gK8DXge4PmE2lnuxJumQ+lJnu/YSGjM5w/iKAo3pjs5R7UUdYLUmRL3GFMstmiy8xg97ACx50wXX2/rolyJEZkFpQ2k8S4r3d/rSI+mgVB9niUKOrQI2qdUK0lmFEWUakL2kwnEKc9hZR1WV3VnmCDOXIE2jMEsrWoQiUwSGk/uDcZEdy0tsJJNfaKCt+LG3IYQ/lz6xR4FxgeieXtWP4IcmWpCJV686k+TNnLxC7PT+a2F1TGpMM1ELoQAWHRNBQHQe/3DK4wdll7zmL57lZGkjd//NcaQ0Aw3UIPj57g4TwxDJD7V/qLH3v5ZfRTIVl9KQBBe1Ow5T9wApyekMig==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MW6PR12MB8663.namprd12.prod.outlook.com (2603:10b6:303:240::9)
+ by MW6PR12MB8707.namprd12.prod.outlook.com (2603:10b6:303:241::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.18; Fri, 15 Nov
+ 2024 14:02:01 +0000
+Received: from MW6PR12MB8663.namprd12.prod.outlook.com
+ ([fe80::594:5be3:34d:77f]) by MW6PR12MB8663.namprd12.prod.outlook.com
+ ([fe80::594:5be3:34d:77f%6]) with mapi id 15.20.8158.019; Fri, 15 Nov 2024
+ 14:02:01 +0000
+Date: Fri, 15 Nov 2024 10:01:59 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+Cc: David Woodhouse <dwmw2@infradead.org>, iommu@lists.linux.dev,
+	Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Stephen Boyd <swboyd@chromium.org>, linux-pm@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v8 3/6] firmware: psci: Read and use vendor reset types
-Message-ID: <ZzdR1HuTpnU1OL/i@lpieralisi>
-References: <20241107-arm-psci-system_reset2-vendor-reboots-v8-0-e8715fa65cb5@quicinc.com>
- <20241107-arm-psci-system_reset2-vendor-reboots-v8-3-e8715fa65cb5@quicinc.com>
-MIME-Version: 1.0
+	Robin Murphy <robin.murphy@arm.com>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Will Deacon <will@kernel.org>, patches@lists.linux.dev
+Subject: Re: [PATCH 2/2] iommu: Rename ops->domain_alloc_user() to
+ domain_alloc_paging_flags()
+Message-ID: <20241115140159.GW35230@nvidia.com>
+References: <2-v1-c252ebdeb57b+329-iommu_paging_flags_jgg@nvidia.com>
+ <e9981960-a7f0-4e0f-991a-0b96e1d57cd5@linux.intel.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241107-arm-psci-system_reset2-vendor-reboots-v8-3-e8715fa65cb5@quicinc.com>
+In-Reply-To: <e9981960-a7f0-4e0f-991a-0b96e1d57cd5@linux.intel.com>
+X-ClientProxiedBy: BL1PR13CA0214.namprd13.prod.outlook.com
+ (2603:10b6:208:2bf::9) To MW6PR12MB8663.namprd12.prod.outlook.com
+ (2603:10b6:303:240::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW6PR12MB8663:EE_|MW6PR12MB8707:EE_
+X-MS-Office365-Filtering-Correlation-Id: fddf0c0c-4d20-420d-57dc-08dd057e13cd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hd8T9YHLT+Z7+fqmvDUCYauIOnKTDsfjdOWMvkKLNmFer9ZcnTsyHAWZiekK?=
+ =?us-ascii?Q?4w3c6i/ECDMcmLK1xCRlWzSSb2c6VLhR7WgYb9mw+Fw6P3WrCp+GFtod1NTU?=
+ =?us-ascii?Q?UboUDxwTUX1W9HBpOpIC2pPEzk60w+7ab9aRNtBeAWFuk4ccwlTn7kuwoQ47?=
+ =?us-ascii?Q?tTiGZKHwqI5IbrZQ0pTwZFykyVVGFHPVGe2194PWPhmDIF9DFsTCdn5dt1wI?=
+ =?us-ascii?Q?S1JY/2nNYKdLOxDm0rtP2qJfeq1Ku8wT6CshlbLHx5uFISoYIDPItDc831PY?=
+ =?us-ascii?Q?oEbKmOlODvf5qUBFjqRQD3fQ/ELppOjZ/EtcCgwLE8ECQ0TP/GiUZgFxl4KL?=
+ =?us-ascii?Q?bckxGvz322yWmembY4OO6Oihjf1R5MwaosR0T9uAaQuRkeYF33ATwWF07fRf?=
+ =?us-ascii?Q?SyldA9uYKdw4rmlWsRUYaAxSXA3l9gEbL823eGkAg3Irr5eh4qwid2v2EM6t?=
+ =?us-ascii?Q?Pi8wFj1j26JQ+FyAibQkvSsoMhys9YtcHSqCxGLL0V8njmmZ4zmEMYFtF15P?=
+ =?us-ascii?Q?9DeLvWaBUWt+RleSeT9p7fGHp8dlaUJvR8VDrpjGtuG6/bf47BSOmUKzkJNv?=
+ =?us-ascii?Q?tBhuYyrCrqXe4v/UWAdAsixzF2lxW8D5kSpdDCeGA26tvJps8p/aFPD9epxu?=
+ =?us-ascii?Q?L0UxbPrnIoQp2eUCNMM+uryiFbGcaVkv+J1o+d8F44WA5C/sbVltEqjhAh+3?=
+ =?us-ascii?Q?9OOmWCN0kTYn3DAlyWy9V0brcjiRoFt1uvlY4EI0bd5mQI4oYhSMFr1+lqlu?=
+ =?us-ascii?Q?3GKcA5+DHzk77VR1nL+GBT/vqwZCV2qZdVOaVhSs8zNxdOCMIfB8fQcMPohk?=
+ =?us-ascii?Q?nRPTiRrekPPyhDjSA18NsnKx6KrQHHBvJQalFQjRWAzRxeq08pUWLC3aUuxM?=
+ =?us-ascii?Q?Pzfe2dYbSOwWx0N6EJS05zp+xVYnyFtLDc8pgG8Z0NEAHpCi16hr0C/6s11b?=
+ =?us-ascii?Q?eYC1BTZ/Lgg6945Oh2MAntJcGkwpL6Qmbm1HmDZs33BnBmk/QBlvcPACKIc3?=
+ =?us-ascii?Q?3ukMtmG/hv2owO5PdnoH0K05nEVTCdnAGgjzOVsFLT5eOlipXvNYneR4eoeE?=
+ =?us-ascii?Q?NywaJhmwJ/cIGBuM/oE3i613EpiLiRSTcFzNzsu8urgdw/UN9YlkggyKMg+v?=
+ =?us-ascii?Q?3d+SRTv9TyfTujOEDVVCkFrCFZn9RYP8oxJt8qbQWbT+DYlXT7K3rni5Oo17?=
+ =?us-ascii?Q?k2iwPWoHZlmfAZyF7SPVcMFgZNOKLMWVMWGlQ5YU0k/pELGTRo/EaIujnjjb?=
+ =?us-ascii?Q?YU33iIX8U6D+60xUr7C4u3I044/Dx3/P+DGILPsKcdQxWXyWJq1zXrj+zLCO?=
+ =?us-ascii?Q?Ovwd9SV7OhE5rWpenEOz4mqg?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW6PR12MB8663.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2aDeC9UllZNi1LPy3Qiuqz7as/6IoU0OqKcvaOa/fBDtaqCjWtCOxt1gyFKM?=
+ =?us-ascii?Q?a9Q1ezt4dQvDARzT3ZPpgdRXVyJ7Wfh93JehtB8m3OI8e8EcXqixoZ2f1PLJ?=
+ =?us-ascii?Q?DwfPEjGQCkbK0OxrKh/oWg6uTCkx569zxYWItPY+EbB2pzcrN7KE7DJPFUck?=
+ =?us-ascii?Q?KfO7kN7nFrQ5VfoKfDIw31XDU00YSk7tDr8lGTV4xz7GvTHwypA4NIeGJZig?=
+ =?us-ascii?Q?ZNLAHh4cZQ/opMhT0Htbmdz2KMckNWHzw0XW7uwWXTT6YPusBb9gg5v0jdqk?=
+ =?us-ascii?Q?6vXESPZhnATYYIUPTU30jp+YQSa/L2PTehquKaAD/7c3SBghq2MxqlcjAkYS?=
+ =?us-ascii?Q?alUgPGC8MKqdSKYFAlhHWXbsprR1o5DU1UVtjWwic2UMFq5lxNeBX5srp0zj?=
+ =?us-ascii?Q?E6Fd9xLmdVuVMW3Ohyhfx/COLhVyHbZ1v8JxqHbpBmSByFY6wd3vvxMrys/P?=
+ =?us-ascii?Q?MCDf4i0jP7n/x77SmBH8gmMDmEqeuLsEbVa/TcD//lpy8FtL1m0HpBMqLTm0?=
+ =?us-ascii?Q?MkbcYhTan/lJlKys1vV5IBgrReIZRWuEMbGi+QOgYZwBLFRsFqI0ZqKwGSMz?=
+ =?us-ascii?Q?B9E4XMJGoEt6Je56eq6+Kt/Ps6GDqNTcUaptxiapJokHWnqJzS6HHlIMB7E6?=
+ =?us-ascii?Q?HSX+AFIVypmrn0bwBamEqG3HwQkTC5pEFbMrbvb0lpboeDsaopN4J6SkYCLi?=
+ =?us-ascii?Q?w8MbLNsdZVCpWEy3J+xMqWW/a04DI8n20tZtoRdiR0zXhLWlDqzpcuyefAjo?=
+ =?us-ascii?Q?mJHrxJwGjwpeXmiy2Q6ylTQYCTHZw6JoEMdbSyGywcL/MhavAAYKEenqw1T0?=
+ =?us-ascii?Q?ghkclUesNX6Ec2MPqiJlwIcwk5ZuN4wbRxWKBHNpciAayDx81UHvmZNOXHKJ?=
+ =?us-ascii?Q?FzbTB+W+qBMeoZhMBNLZhcMYhwSLu5nYXIzr20TLUmX9NF5+gKY3ISnR003t?=
+ =?us-ascii?Q?z4jF2AFgSnlh4TgJRrcS2HLtlnHxiLMe0voMNzARrudsyu1/xE15v69EDE12?=
+ =?us-ascii?Q?XXYDXYEnRugTSCehisEqWO/9DkcGQo9FUHqgxZhsKrywFxyBnNeJzqB1XClh?=
+ =?us-ascii?Q?ueKvNzk8jXvaVWv7FY8CAuE/zUWlK21y88SIQpLRzqrg+8GjMuuDWn2QuSMC?=
+ =?us-ascii?Q?w7Lwu65r69S5EDboDJRnjmKxwCzWbE6RDxMQAbQFqF0kyBJz4z9J21D8edtd?=
+ =?us-ascii?Q?/Dr+St2/SfXnKwcM5ZxZ82F4pst/XEZHlQ+pULFJ8D0fMT0FjWDHsd52xS/J?=
+ =?us-ascii?Q?38ZodD1Mr2Gxv1Rsz9MtF2HCBMoEYJGgTUNe4ht+yDl0JLOKsxsBJmHUlXMG?=
+ =?us-ascii?Q?B51Lxd8vK0GGdiEoqLQvgiscPEL5Crxxcb/qGs9Zg4skwMu31y5FqjyspZa1?=
+ =?us-ascii?Q?w5eAXyC9wSwcfHMcM5I7us5JoVgtGSFgOTQG7fSGc9W1DTNK6GtMdgPfPHIB?=
+ =?us-ascii?Q?mdrV4eqNkHNU2n75l/nAEGoFZIgXp5ICumLFwZHDXFkofShV/N7aWfKP3E3P?=
+ =?us-ascii?Q?r6HeMmN97GZVJWqw9W1CNZBlaiJZsmZxyZjZ90j2HeCmGZJDQCoyOlIppFj5?=
+ =?us-ascii?Q?wVQ6Jw8tu9PT8P856Qo=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fddf0c0c-4d20-420d-57dc-08dd057e13cd
+X-MS-Exchange-CrossTenant-AuthSource: MW6PR12MB8663.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2024 14:02:01.3876
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vi4LIvuNMWjb/310Tg3hQVjvJf8Wa7Wv+pGHFBY0f9pj+isxtYWDhHayBfPe5uOk
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8707
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_055127_224151_FB4973C5 
-X-CRM114-Status: GOOD (  44.79  )
+X-CRM114-CacheID: sfid-20241115_060217_303516_2530B9A4 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,203 +160,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 07, 2024 at 03:38:27PM -0800, Elliot Berman wrote:
-> SoC vendors have different types of resets and are controlled through
-> various registers. For instance, Qualcomm chipsets can reboot to a
-> "download mode" that allows a RAM dump to be collected. Another example
-> is they also support writing a cookie that can be read by bootloader
-> during next boot. PSCI offers a mechanism, SYSTEM_RESET2, for these
-> vendor reset types to be implemented without requiring drivers for every
-> register/cookie.
+On Fri, Nov 15, 2024 at 11:22:50AM +0800, Baolu Lu wrote:
+> On 11/15/24 03:55, Jason Gunthorpe wrote:
+> > Now that the main domain allocating path is calling this function it
+> > doesn't make sense to leave it named _user. Change the name to
+> > alloc_paging_flags() to mirror the new iommu_paging_domain_alloc_flags()
+> > function.
+> > 
+> > A driver should implement only one of ops->domain_alloc_paging() or
+> > ops->domain_alloc_paging_user(). The former is a simpler interface with
 > 
-> Add support in PSCI to statically map reboot mode commands from
-> userspace to a vendor reset and cookie value using the device tree.
+> s/user/flags/
 > 
-> A separate initcall is needed to parse the devicetree, instead of using
-> psci_dt_init because mm isn't sufficiently set up to allocate memory.
+> I think domain_alloc_paging and domain_alloc_paging_flags will
+> eventually be merged into a single domain_alloc_paging with flag
+> support.
 
-Nit: information below this point is more a cover letter than for the
-commit log.
+I have patches to do that to arm, amd and intel. Alot of drivers will
+just stay with domain_alloc_paging() because they don't need anything
+more complex and there is no reason to spread around boilerplate
 
-> Reboot mode framework is close but doesn't quite fit with the
-> design and requirements for PSCI SYSTEM_RESET2. Some of these issues can
-> be solved but doesn't seem reasonable in sum:
->  1. reboot mode registers against the reboot_notifier_list, which is too
->     early to call SYSTEM_RESET2. PSCI would need to remember the reset
->     type from the reboot-mode framework callback and use it
->     psci_sys_reset.
->  2. reboot mode assumes only one cookie/parameter is described in the
->     device tree. SYSTEM_RESET2 uses 2: one for the type and one for
->     cookie.
->  3. psci cpuidle driver already registers a driver against the
->     arm,psci-1.0 compatible. Refactoring would be needed to have both a
->     cpuidle and reboot-mode driver.
-> 
-> Tested-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
-> ---
->  drivers/firmware/psci/psci.c | 104 +++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 104 insertions(+)
-> 
-> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-> index 2328ca58bba61fdb677ac20a1a7447882cd0cf22..e60e3f8749c5a6732c51d23a2c1f453361132d9a 100644
-> --- a/drivers/firmware/psci/psci.c
-> +++ b/drivers/firmware/psci/psci.c
-> @@ -79,6 +79,14 @@ struct psci_0_1_function_ids get_psci_0_1_function_ids(void)
->  static u32 psci_cpu_suspend_feature;
->  static bool psci_system_reset2_supported;
->  
-> +struct psci_reset_param {
-> +	const char *mode;
-> +	u32 reset_type;
-> +	u32 cookie;
-> +};
-> +static struct psci_reset_param *psci_reset_params __ro_after_init;
-> +static size_t num_psci_reset_params __ro_after_init;
-> +
->  static inline bool psci_has_ext_power_state(void)
->  {
->  	return psci_cpu_suspend_feature &
-> @@ -305,9 +313,38 @@ static int get_set_conduit_method(const struct device_node *np)
->  	return 0;
->  }
->  
-> +static void psci_vendor_system_reset2(const char *cmd)
-> +{
-> +	unsigned long ret;
-> +	size_t i;
-> +
-> +	for (i = 0; i < num_psci_reset_params; i++) {
-> +		if (!strcmp(psci_reset_params[i].mode, cmd)) {
-> +			ret = invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
-> +					     psci_reset_params[i].reset_type,
-> +					     psci_reset_params[i].cookie, 0);
-> +			/*
-> +			 * if vendor reset fails, log it and fall back to
-> +			 * architecture reset types
-> +			 */
-> +			pr_err("failed to perform reset \"%s\": %ld\n", cmd,
-> +			       (long)ret);
-> +			return;
-> +		}
-> +	}
-> +}
-> +
->  static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
->  			  void *data)
->  {
-> +	/*
-> +	 * try to do the vendor system_reset2
-> +	 * If the reset fails or there wasn't a match on the command,
-> +	 * fall back to architectural resets
-> +	 */
-> +	if (data && num_psci_reset_params)
-> +		psci_vendor_system_reset2(data);
-> +
->  	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
->  	    psci_system_reset2_supported) {
-
-This is a mess. To issue architectural warm reset we check reboot_mode,
-for vendor resets we ignore it - there is no rationale, that's the point
-I am making.
-
-Also see my question on the other thread re: user space and reset
-"modes".
-
-I appreciate we are not making progress but I don't want to pick up
-the pieces later after merging this code - it is unclear to me what's
-the best path forward - I would like to understand how other
-platforms/arches behave in this respect.
-
->  		/*
-> @@ -750,6 +787,73 @@ static const struct of_device_id psci_of_match[] __initconst = {
->  	{},
->  };
->  
-> +#define REBOOT_PREFIX "mode-"
-> +
-> +static int __init psci_init_system_reset2_modes(void)
-> +{
-> +	const size_t len = strlen(REBOOT_PREFIX);
-> +	struct psci_reset_param *param;
-> +	struct device_node *psci_np __free(device_node) = NULL;
-> +	struct device_node *np __free(device_node) = NULL;
-> +	struct property *prop;
-> +	size_t count = 0;
-> +	u32 magic[2];
-> +	int num;
-> +
-> +	if (!psci_system_reset2_supported)
-> +		return 0;
-> +
-> +	psci_np = of_find_matching_node(NULL, psci_of_match);
-> +	if (!psci_np)
-> +		return 0;
-> +
-> +	np = of_find_node_by_name(psci_np, "reset-types");
-> +	if (!np)
-> +		return 0;
-> +
-> +	for_each_property_of_node(np, prop) {
-> +		if (strncmp(prop->name, REBOOT_PREFIX, len))
-> +			continue;
-> +		num = of_property_count_u32_elems(np, prop->name);
-> +		if (num != 1 && num != 2)
-> +			continue;
-> +
-> +		count++;
-> +	}
-> +
-> +	param = psci_reset_params =
-> +		kcalloc(count, sizeof(*psci_reset_params), GFP_KERNEL);
-> +	if (!psci_reset_params)
-> +		return -ENOMEM;
-> +
-> +	for_each_property_of_node(np, prop) {
-> +		if (strncmp(prop->name, REBOOT_PREFIX, len))
-> +			continue;
-> +
-> +		param->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
-
-FWIW - I think you need to keep the logic in the previous loop into account
-because that's what is used to allocate param, it is not a given that
-param is valid at this stage if I am not mistaken - the previous loop
-checked:
-
-	num = of_property_count_u32_elems(np, prop->name);
-	if (num != 1 && num != 2)
-		continue;
-
-Lorenzo
-
-> +		if (!param->mode)
-> +			continue;
-> +
-> +		num = of_property_read_variable_u32_array(np, prop->name, magic,
-> +							  1, ARRAY_SIZE(magic));
-> +		if (num < 0) {
-> +			pr_warn("Failed to parse vendor reboot mode %s\n",
-> +				param->mode);
-> +			kfree_const(param->mode);
-> +			continue;
-> +		}
-> +
-> +		/* Force reset type to be in vendor space */
-> +		param->reset_type = PSCI_1_1_RESET_TYPE_VENDOR_START | magic[0];
-> +		param->cookie = num > 1 ? magic[1] : 0;
-> +		param++;
-> +		num_psci_reset_params++;
-> +	}
-> +
-> +	return 0;
-> +}
-> +arch_initcall(psci_init_system_reset2_modes);
-> +
->  int __init psci_dt_init(void)
->  {
->  	struct device_node *np;
-> 
-> -- 
-> 2.34.1
-> 
+Jason
 
