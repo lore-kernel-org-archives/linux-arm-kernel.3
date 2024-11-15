@@ -4,99 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E8CD68BDA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 23:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79670D68BDC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 23:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CiJda9W8rYQ25aoVKNjG4upIlR/b8ZNesPsVfBmzmp4=; b=2xjUjG3A2SCRnivFpi2iZuXEMr
-	+TbBzshLeiF2qoPHMAXh6azlfK+60cdW5+1AFh0A80gO/ArnV2yDESeCNZg1FCoJmbtBPPoWV9pEN
-	eH7XhDocYqfrLft7V7gO5gW4uLtIqxEIwKXbQ0wG403WcN4u+AOu7/Lm3A5FthZ0tF1gI1anSX0wy
-	TygXraUh1E/O9vzwlH5uWEKb58e6Kw3GRvwQaFly0/cjaBCf8dk4f1shyq1cxQ4fEKfG0p9nDGx0g
-	GAjcTY5fKvWtI0RsPyheaTKI/S9eswtAfa9yUfSSCduOLm4OgH3+TOcNMSElfmCBSpuEreFp2GOkx
-	DaAeJ+eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UKfURWwDvtWSqqeHm5kKHmniZPeJPhF6XTUSjfdoVwk=; b=wN+oTR4/2l8M9GEExLB0ZjSrLM
+	b/Pa6i4wBOiEAO+pmS49O6kpzgzSkO8+E586c5FzZnYOzGvLGdz+hw1S1cFM4gOD9+KFelpttqtNX
+	9uW7V4OxBRAvEIXVaeo7bH9DRSMql9obdrTj3kRpcALLqt9/b6vA9RF/yKuaYN0R1sqDT9RAIKnNc
+	nGP2Ofq99Bfb7sC+i04qSxrUlfezByVb1FnZyQTrTUqduWIIUfwYSpIHA47KRF0nLptrjnN02lWwe
+	kPA6P8L2paB9641lY2T6+8Hwbs3rSe/FsrbYhtdwSiPYi2+ktB8cjqXgyPZNuAjKRn2AuCk7okBn9
+	fOZZT7yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC5bn-00000004XRI-1EFh;
-	Fri, 15 Nov 2024 23:20:11 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tC5eO-00000004Y1d-2sUQ;
+	Fri, 15 Nov 2024 23:22:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC5ar-00000004XIO-0byj;
-	Fri, 15 Nov 2024 23:19:14 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-431548bd1b4so1326215e9.3;
-        Fri, 15 Nov 2024 15:19:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731712751; x=1732317551; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=CiJda9W8rYQ25aoVKNjG4upIlR/b8ZNesPsVfBmzmp4=;
-        b=XAvOTgLu+aj2iWGOoVDr6lSEoOrh8sdY5p0kiERIAi00uODvMZr/AR5J6aVUOZMcXW
-         kooJRI/ujGJxm3so/VSDZqg+FgbttUPw/ns+SEKc9q4B4NKM66Pxe2A74IRBGu6ktACg
-         UXq0nsIvTQXcf8b1Jj1hnSyjfVGtLVu966tLo7MNO7lVtJN5EZQAcqyv7Zbwi0beN06M
-         e/sM2v4FlhyyCFODiP8dGzUiK+rE1pQuayTFmCWSuP3SIqQ02oKBkf+3w08XfhAEeYBf
-         dw+blNSOBmxCRkT3VL6sC6SAi0JGU+lBhf+6viDzjjfXP4c7Kogi9L7afOZNPRsC+WYf
-         cJkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731712751; x=1732317551;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CiJda9W8rYQ25aoVKNjG4upIlR/b8ZNesPsVfBmzmp4=;
-        b=izCDhun/opeE+T+NCD3UZmQ2HJwkXR4sdgAQdQxzYz2ETu6O7ROWzTwJZmc3RTPq3I
-         j3O8TdSGzTUtp+BUTUBWZABawpS6TQijG5d9j7C7Y3PUO3hyqhp/D5gfjZSYuzVytD0T
-         02vXiVamoKrhhEFU8DaTfHdq+CYCwu8pxVKTtqn1INAjJbBqkvv+9mnBXvhwy/rn5oSx
-         uTfc4Ibn7XSL+QaGk1Npv5SOWY0zXhpBRroDtQRRp0qpFPNMuSbjjCoUjq94bkdUtrxg
-         dZEL/gIKe10W4nvVXDvKJmCGE9XPq+bdcq2n7AljVMZ2XuuNcHCaRBVBh1BbmqsUvVc5
-         UF5w==
-X-Forwarded-Encrypted: i=1; AJvYcCWsGcTne7xaE+b4kRsFNrFmVQr5m/0CoBdPzPUs5CcFEGKFXwXWKRD6jgDjGHA/6HsFsU9qzZWgKZtVITg1l/0=@lists.infradead.org, AJvYcCXvSnYccQVwmu62MqJTwOyX2Ho/gNcBk0swf2P256iEajxXxjsBHUIVSXuHx/Q8dEt0W0sBcGrkR4MGpIlCwxue@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywkj0ZbFaBcEgAm9GUA+IwJ7PUCdC/j/xqF75Lqi5rHvyz2N5wN
-	7TBd+/EeYS2UZvDJa0NPfp4VgCn5widUA/LGI+0LhumBWXVZCAuf
-X-Google-Smtp-Source: AGHT+IEuO6BO2OZ0lz6Px1gCfwr1s+/P/FdZIjh0SxJhkn+AIGHj1BkY+4LWXmmNkKyjGdn4wRI4SQ==
-X-Received: by 2002:a05:600c:3111:b0:431:5c7b:e937 with SMTP id 5b1f17b1804b1-432df74c8bdmr41371685e9.17.1731712751200;
-        Fri, 15 Nov 2024 15:19:11 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432da298c81sm73081885e9.39.2024.11.15.15.19.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Nov 2024 15:19:10 -0800 (PST)
-Message-ID: <6737d6ee.050a0220.34072b.91c7@mx.google.com>
-X-Google-Original-Message-ID: <ZzfW6oLHfmanuyV-@Ansuel-XPS.>
-Date: Sat, 16 Nov 2024 00:19:06 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v5 3/4] net: dsa: Add Airoha AN8855 5-Port
- Gigabit DSA Switch driver
-References: <20241112204743.6710-1-ansuelsmth@gmail.com>
- <20241112204743.6710-4-ansuelsmth@gmail.com>
- <20241114192202.215869ed@kernel.org>
- <6737c439.5d0a0220.d7fe0.2221@mx.google.com>
- <20241115145918.5ed4d5ec@kernel.org>
- <6737d35f.050a0220.3d6fb4.8d89@mx.google.com>
- <20241115151553.71668045@kernel.org>
+	id 1tC5dT-00000004XvU-36KH;
+	Fri, 15 Nov 2024 23:21:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1853EA426BC;
+	Fri, 15 Nov 2024 23:20:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E1E6C4CECF;
+	Fri, 15 Nov 2024 23:21:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731712914;
+	bh=UKfURWwDvtWSqqeHm5kKHmniZPeJPhF6XTUSjfdoVwk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=LsV4sVdgpvW1g76R/yd9MXfJEdFvLvA6ONdP9sjLPJWwKVY2B2Z36R5MBp+gwF9ZN
+	 kuRlA8FP6ylyfXC3I0oPgy61b6Ag2Eh4XET2nneCbC4+4q/fdPNNK5HVt0+BUEyMhw
+	 qPvllORMrR/W4qkWdmYMgYU1PLVFg4Ctz2rbKUhuoVMos/V8cVsy6iz7gm46EZZBo3
+	 eCrx7/tJcDhroYFCfunXAjgT61N4wIYlUqpWch8WvYrKDCU9QcbHy6bV6L0UmTBSHs
+	 X+YB2FLmBPk/NiYEMyT8J+Su611gwsawps9JC5tYG6gYJv1xJ/DZwC/9o2YTGF0kTZ
+	 mO4ildP/MiIOA==
+Date: Fri, 15 Nov 2024 15:21:53 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Sergey Ryazanov <ryazanov.s.a@gmail.com>
+Cc: wojackbb@gmail.com, netdev@vger.kernel.org,
+ chandrashekar.devegowda@intel.com, chiranjeevi.rapolu@linux.intel.com,
+ haijun.liu@mediatek.com, m.chetan.kumar@linux.intel.com,
+ ricardo.martinez@linux.intel.com, loic.poulain@linaro.org,
+ johannes@sipsolutions.net, davem@davemloft.net, edumazet@google.com,
+ pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+ angelogioacchino.delregno@collabora.com,
+ linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com
+Subject: Re: [net-next,v2] [PATCH net-next v2] net: wwan: t7xx: Change
+ PM_AUTOSUSPEND_MS to 5000
+Message-ID: <20241115152153.5678682f@kernel.org>
+In-Reply-To: <6835fde6-0863-49e8-90e8-be88e86ef346@gmail.com>
+References: <20241114102002.481081-1-wojackbb@gmail.com>
+	<6835fde6-0863-49e8-90e8-be88e86ef346@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241115151553.71668045@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_151913_182234_770394C2 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20241115_152155_837943_1F2182E3 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,26 +78,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 15, 2024 at 03:15:53PM -0800, Jakub Kicinski wrote:
-> On Sat, 16 Nov 2024 00:03:55 +0100 Christian Marangi wrote:
-> > > > Ok I will search for this but it does sounds like something new and not
-> > > > used by other DSA driver, any hint on where to look for examples?  
-> > > 
-> > > It's relatively recent but I think the ops are plumbed thru to DSA.
-> > > Take a look at all the *_stats members of struct dsa_switch_ops, most
-> > > of them take a fixed format struct to fill in and the struct has some
-> > > extra kdoc on which field is what.  
-> > 
-> > Thanks for the follow-up, they are the get_stats64 I assume, quite
-> > different to the ethtools one as we need a poll logic. Ok I will check
-> > what to drop and rework it.
-> 
-> https://elixir.bootlin.com/linux/v6.12-rc1/source/include/net/dsa.h#L915-L927
-> 
-> am I looking in the wrong place?
+On Thu, 14 Nov 2024 20:54:20 +0200 Sergey Ryazanov wrote:
+> > We tested Fibocom FM350 and our products using the t7xx and they all
+> > benefited from this. =20
+>=20
+> Possible negative outcomes for data transmission still need=20
+> clarification. Let me repeat it here.
+>=20
+> On 06.11.2024 13:10, =E5=90=B3=E9=80=BC=E9=80=BC wrote:
+> > Receiving or sending data will cause PCIE to change D3 Cold to D0 state=
+. =20
+>=20
+> Am I understand it correctly that receiving IP packets on downlink will=20
+> cause PCIe link re-activation?
+>=20
+>=20
+> I am concerned about a TCP connection that can be idle for a long period=
+=20
+> of time. For example, an established SSH connection can stay idle for=20
+> minutes. If I connected to a server and execute something like this:
+>=20
+> user@host$ sleep 20 && echo "Done"
+>=20
+> Will I eventually see the "Done" message or will the autosuspended modem=
+=20
+> effectively block any incoming traffic? And how long does it take for=20
+> the modem to wake up and deliver a downlink packet to the host? Have you=
+=20
+> measured StDev change?
 
-Yep should be those.
+He's decreasing the sleep timer from 20 to 5 sec, both of which=20
+are very high for networking, anyway. You appear to be questioning
+autosuspend itself but it seems to have been added 2 years ago already.
 
--- 
-	Ansuel
+What am I missing?
 
