@@ -4,76 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E27D68BCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 18:30:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE11D68BCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 18:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BsyG1LXRA/7W+KV3OjFnPglA0evpVqXbyPXRpQQ0nGw=; b=vVK3/Z5dkpSjGPFHnOIbZOVGDQ
-	NdExHsKBEgtkFX66CBHxehS2HESL/xo2yBvCF3zn1Ci5rZKmtyDrWFe/2jCuLaD40dcJjBTDJ6q2+
-	9KA3JGAOhK/prdJpOMyUe/HYEWufA/QYqGF6JCCYsjhgXgok45naCXESyWXQJgTZ3IB4Oru6IJief
-	HilqcQJntXNcZ6DDlOeczTgYgsEt1HvOBhGpt/ovO0lKRfNGJfi9Et2K2jbOQGK/oYG1TYntDMPoo
-	xjqhQ2BSdzGGwUT5+Os0hgK79PEIQthjPn4s7/fFHAtVifKT1catOV8tmvPYHyJautiGIrqOwAkhu
-	kQcV6WuA==;
+	bh=UDhn6omm2PDSvjgVva+Q//55lVdH7bDG6FPk8U1Yjnc=; b=if/jMg0pUeOL9GTtShZ0IV1Fzd
+	2Kbq7hw/TYEYCHkAvp4QhKqUNd4apd0a7nwA8FUfyo0/OyMFDkAloj2AAndsAC36paOo6lYjuIcUW
+	Y2stnvTG5M/hsl4DD0140YzV/FtYAGrphtP2siHYtvw8uL6ewFTPLZ2gFT5bwtOvapa+I+MmnDwiT
+	/5ulvtdqOEBXy575DH/uWzKMbH/LG4pmwDbm6a+0VsZwAQBZ9qZs/nwoZTNA/2rm1ARom5S3CVzkK
+	w7fcr4REIqvLmw9UZkKUWgJ6ta15wIVAP+Yr8J+5v5EfJqlIxQ64i2ML8IScZN6fwk9m6h1lRK+VS
+	YfRne2wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC15b-00000003hnO-1Uwq;
-	Fri, 15 Nov 2024 18:30:39 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1tC17F-00000003iBv-06EW;
+	Fri, 15 Nov 2024 18:32:21 +0000
+Received: from mail-dm6nam04on2065.outbound.protection.outlook.com ([40.107.102.65] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC01x-00000003XPu-0ZGI
+	id 1tC16H-00000003hu2-2u0A
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 17:22:50 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e3826e5c0c0so1637756276.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 09:22:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731691367; x=1732296167; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=BsyG1LXRA/7W+KV3OjFnPglA0evpVqXbyPXRpQQ0nGw=;
-        b=C6Fa3ffgSZsUcU0R8LN6a64gt1zfrc7+GqeEcXOml0io+YWuc1P+5aCQfO4KBY3P82
-         QIvmpO7lXVoT6nhQSE71CqYk474bkhp/u48CI//mTtWJN/Gd5FZ0f8yM2malrON7MPOk
-         +hDBCVkqvcDK0NxWAQzP3OYAhdPQW8nLhBEAy+f2pRXEQJw/bLz/prreKdw4Flt6fIgJ
-         MwxvBxN7onGrJMg/OrWmdAHJ+gOTyhgj/V4OlN+wIWBqc2Qt2dFeurHrTOJNgs0yhrNT
-         iPwKWt9egeCig175zVFL6BusikJQm0tTsw0wWTaxebCPcimLycCMC+mx/Fi6Eo14lM7r
-         sQ8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731691367; x=1732296167;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BsyG1LXRA/7W+KV3OjFnPglA0evpVqXbyPXRpQQ0nGw=;
-        b=aW9T4+xhv6h89Grq+aLgaeM9DGeDW9zBuig+GSlHr7yCemQFY1FP3WRz//I+xbbhdJ
-         yEvIuLholaX2X0nmq+5019NxbPiTgCrMISVuRb/UGi5Y1tMDwloUkkHg35IbuwrEO/De
-         GF/yK6gFl5GW0hdMslQ6hpKQoY9k92XJBG4cmlSUXOlrVAXmFn5h1jWEUU3eXvpeDrmM
-         JuMlGlc7ULv90YrRKWCqF/nY1ZGyH0qNTUNAjFfiD/qdsEJl9DWHeQ/5Yw/viYKp/K+0
-         qYsTM5qGiyGvam8Aii9sbbb+LP/dbVoljHnezb4bzNHMjfYvyqUZ/C1jxkjkYrpEXhS/
-         oAJw==
-X-Forwarded-Encrypted: i=1; AJvYcCVzz1Qaa/rL7UxHWqpFBENikRue9Uh1/moBKlouVDBPhv7LjImTaYaNIiWDWLYfy9AP370i2HKSmGrHR8wg6WSI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDlHRmDMOgs+HJf6rQaIl6bxODc6kIJ4NXI7iI7CCkK6qEUUbb
-	qTazEKjzyBVs1DHpvZYvySloGd45aHyfMoP8x9lBYgi4+vNYd8deyi1GDFxa4UkKnp8+lQk0Hvr
-	ocPIzzSPMgg==
-X-Google-Smtp-Source: AGHT+IGsNFjwDx3jzS5qgLurnITHUTNl+C7edx5Hcxb5uU5DHpf+5tuu5L5h4bcVjOQnEwH2ggCQphITmYa6kA==
-X-Received: from mostafa.c.googlers.com ([fda3:e722:ac3:cc00:28:9cb1:c0a8:333c])
- (user=smostafa job=sendgmr) by 2002:a25:660d:0:b0:e2e:2cba:ac1f with SMTP id
- 3f1490d57ef6-e3826395ad4mr76341276.6.1731691366807; Fri, 15 Nov 2024 09:22:46
- -0800 (PST)
-Date: Fri, 15 Nov 2024 17:22:35 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241115172235.1493328-1-smostafa@google.com>
-Subject: [PATCH] drivers/io-pgtable-arm: Fix stage concatenation with 16K
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, 
-	Mostafa Saleh <smostafa@google.com>, Daniel Mentz <danielmentz@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 15 Nov 2024 18:31:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xkNxq0GLFfvO2AiNtNlhpA7SI6CsWlbnq6V2ub2JD50l0x1L790RNBAP4xKkt5ZxpRfRFbHitaFjh5g7/2SCSIo4AaYLIP/UniI5ZOMMqWUo1JR1nj8SfUULtLnOYKCpY0obaBZ2HmS2JKVQveGfHacVvAo7giE1Kp0fLXmcjO+40Qvv/Il1Y+cOgCoNkjDUk03RCKhEy403Hra+OjNqmKgrPKY5tGaeGL4I0RJWW8PAluDP9GT1yvMpfN5Dmz3R7nOEuxECPeNpB+xORjiU0KEhpaNtH0QBYtWdHDsabcp2uhkFF3MvwpbfFK0LidccBC7YcYcI86oqYf0F2rrouQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UDhn6omm2PDSvjgVva+Q//55lVdH7bDG6FPk8U1Yjnc=;
+ b=lXeGQM0SR5g226bqfYNdafm0Mil0GAYuLKvQJss3siZ1uII3IxtD/keKAM0Av7iTKt/9MX7vkV0dox5Ww3LaQI/X4+w2MG7LfN1npEGfECmJUieYgFhm2G6H8dxV4pajQRqPfC38qjRs9vUSdhBim/0Dpsu1hN7ofg7olsyHdOxjIGootV8IZ7uiPmA9i018eI9kIckfVJ3K9F+//t7Cqc2iVTkhVyk8MYH4yncBHRLVLHkWoddNMgXj93ZNgS+I8K4qCyhwwP0rolpyz+LuUcNs0ilpeRXJWiKbLgAC3ZA0PWKmH2+PHGtWNP10mYaQfPMVaIDHAbXMGuWiE31I5Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=synopsys.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UDhn6omm2PDSvjgVva+Q//55lVdH7bDG6FPk8U1Yjnc=;
+ b=BsKOm78Z/kGHrlAYNYJ4A2oFTvhD+a4UBAJalp2IbmhvS94gdLlC4/GVGhj6/s1HNjKAjczqmOA/loMfDXmxcG0mEhf8m4us+uug/w65Sv8wAfHrFOhigRCryUk0Vxn12C2mTi6+HAy3akn3COKGsmwn/Xfuetgjy0noThVr90Y=
+Received: from BYAPR02CA0071.namprd02.prod.outlook.com (2603:10b6:a03:54::48)
+ by CY5PR12MB6598.namprd12.prod.outlook.com (2603:10b6:930:42::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.18; Fri, 15 Nov
+ 2024 18:31:10 +0000
+Received: from SJ1PEPF00002315.namprd03.prod.outlook.com
+ (2603:10b6:a03:54:cafe::da) by BYAPR02CA0071.outlook.office365.com
+ (2603:10b6:a03:54::48) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.16 via Frontend
+ Transport; Fri, 15 Nov 2024 18:31:10 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
+Received: from SATLEXMB03.amd.com (165.204.84.17) by
+ SJ1PEPF00002315.mail.protection.outlook.com (10.167.242.169) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8158.14 via Frontend Transport; Fri, 15 Nov 2024 18:31:10 +0000
+Received: from SATLEXMB05.amd.com (10.181.40.146) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 15 Nov
+ 2024 12:31:09 -0600
+Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB05.amd.com
+ (10.181.40.146) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 15 Nov
+ 2024 12:31:08 -0600
+Received: from xhdradheys41.xilinx.com (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Fri, 15 Nov 2024 12:31:05 -0600
+From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+To: <Thinh.Nguyen@synopsys.com>, <gregkh@linuxfoundation.org>,
+	<michal.simek@amd.com>, <robert.hancock@calian.com>
+CC: <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <git@amd.com>, Neal Frager
+	<neal.frager@amd.com>, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Subject: [PATCH] usb: dwc3: xilinx: make sure pipe clock is deselected in usb2 only mode
+Date: Sat, 16 Nov 2024 00:01:00 +0530
+Message-ID: <1731695460-1814409-1-git-send-email-radhey.shyam.pandey@amd.com>
+X-Mailer: git-send-email 2.1.1
+MIME-Version: 1.0
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB05.amd.com: radhey.shyam.pandey@amd.com does not
+ designate permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002315:EE_|CY5PR12MB6598:EE_
+X-MS-Office365-Filtering-Correlation-Id: d37f9438-61a2-4e2a-3676-08dd05a3ad9c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dJm3/uaImGQOdcfySngY3jjlyqUqeElHPL1wf/ISYTQ/7g6FgPhA4WjodsN0?=
+ =?us-ascii?Q?ubBrv7/dKEcuTqYix90E4zLRFdRkX/rO6VpSDgpSp7UDKyeg7JmKcQSFerEA?=
+ =?us-ascii?Q?XQHFbO99OvfMCTifnaVMFMmwuK0gMnewquIOjG27o8BQAgoFkMpq0KMXhzd0?=
+ =?us-ascii?Q?/LMCCDk2uBtDXuvru/+190EkFMCOsJTAfE4WAfaK7siWVlWub+4cHpnSr/0j?=
+ =?us-ascii?Q?8TSWCXTeMNSSsEqMX1GAW50mIaKeNbUvn1C3r5omKZGQKJmNfQwHaHCdAt+A?=
+ =?us-ascii?Q?VcROdExYtgU6MUTEiX6vlq/0393j/Glkktn7buVuKx9Dw/hDZGv07RFu6mSY?=
+ =?us-ascii?Q?MnvVYpGFktxE7Xon8Nmt0pGQ+sWbJ5XG4V2dy4rlPqSEwQO5I1X6LjKoCVi8?=
+ =?us-ascii?Q?M82LXJwpO5BaDtbxQQKMx7/GAxCfoeTl8MD1nQOOhY3PHeEyaY7GzfNOOMT3?=
+ =?us-ascii?Q?eIqI+exM/Er5npk/aEi9xAsg1qpCQdAJRH+Gy/nA5Jr4s5b/MEk4kAhHATzs?=
+ =?us-ascii?Q?Of3kaSvtLuHotKgtwjPwgGcXSBZ4QxqjROu2jB+vtYMpxNkUIpi4FMBGu9nL?=
+ =?us-ascii?Q?J/FcYYUL6nygHZrc9jsPoF8pMQIk9GaUzYcHRReLApqs+VsmyKx7/8EUe0KW?=
+ =?us-ascii?Q?ma5knuYdfWCAVs0cax6yCxPyGARc0YKF33OHSwknIygh0+C1IwwHnrXViQmL?=
+ =?us-ascii?Q?my+4+qBFyLb+DaylH6vF+H5NgmLbMeqlZhXMFfImm96YD0HGxirg006yYiTW?=
+ =?us-ascii?Q?GTc2pKq0jktmMBsESI+awtMQVPYplBhrdEyuorZ1bM0QOF9rFed9J6Y+y/WA?=
+ =?us-ascii?Q?68W8KZkUJYUz4ttaooZGHEEeOFdqjbeeDmcxiJvPcgUMLI385M7Swq1ff6SR?=
+ =?us-ascii?Q?+lzIhNKjJdA2RiOdoG9Uvwr22SVPRAivWLAniRyda3Ca23zmQ6/5pLU1qxRC?=
+ =?us-ascii?Q?+FWmW2oHkrBESHONMbdXUJXNqCRpd77HX0WXQJdf7j4gXyaaovByvNK9R6rX?=
+ =?us-ascii?Q?ejs+fHx8EnlFoQqCno+xPKFI0ZwOstr6ICvzQUfOFBq7rjIhcXsRBHDQbaD9?=
+ =?us-ascii?Q?zAuGs2ChcuSAgLt48E5CrX6hpEcJ8YCGvwUX+d+ZruB9AbSIl5D1dNedi4KZ?=
+ =?us-ascii?Q?cX7ZzuYWxKX3arC/pqVgjsH9GrgFkBUQULPcxsBR8/VyqDF5XRuy7ST4ZjJA?=
+ =?us-ascii?Q?TrhSaBndlG0+UzU5oe3LF+QARu8G2DT0SQS0KHmRBz8oKHt0y1jEe40yzBan?=
+ =?us-ascii?Q?7yT8sN3y2rjH0k8lSw6QmOX5wIhodLpId8L6JBMLCagP3IAYteWq+7PiM7jS?=
+ =?us-ascii?Q?okyoosfhhlg9id9hrTwqyUZW+n7lr/quF3IfaZ65Q00irMx9kYe8dmTqiq18?=
+ =?us-ascii?Q?fasKAKRyEUWd8Q1FTa0HO76icZCpi0/mY5dDBfowP0K6op7zTw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2024 18:31:10.5263
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d37f9438-61a2-4e2a-3676-08dd05a3ad9c
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002315.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6598
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_092249_170833_E4380542 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20241115_103122_001591_CFE6BF88 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,51 +146,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the Arm spec DDI0487 K.a, in:
-"Table D8-9 Implications of the effective minimum T0SZ value on the
-initial stage 2 lookup level"
+From: Neal Frager <neal.frager@amd.com>
 
-Some combinations of granule and input size with stage-2 would
-require to use initial lookup levels that can only be achieved
-with concatenated PGDs.
+When the USB3 PHY is not defined in the Linux device tree, there could
+still be a case where there is a USB3 PHY is active on the board and
+enabled by the first stage bootloader.  If serdes clock is being used
+then the USB will fail to enumerate devices in 2.0 only mode.
 
-There was one missing case in the current implementation for 16K,
-which is 40-bits.
+To solve this, make sure that the PIPE clock is deselected whenever the
+USB3 PHY is not defined and guarantees that the USB2 only mode will work
+in all cases.
 
-Cc: Daniel Mentz <danielmentz@google.com>
-
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
+Fixes: 9678f3361afc ("usb: dwc3: xilinx: Skip resets and USB3 register settings for USB2.0 mode")
+Signed-off-by: Neal Frager <neal.frager@amd.com>
+Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 ---
- drivers/iommu/io-pgtable-arm.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+ drivers/usb/dwc3/dwc3-xilinx.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index 0e67f1721a3d..9a57874a5cb8 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -1044,10 +1044,18 @@ arm_64_lpae_alloc_pgtable_s2(struct io_pgtable_cfg *cfg, void *cookie)
- 		return NULL;
- 
- 	/*
--	 * Concatenate PGDs at level 1 if possible in order to reduce
--	 * the depth of the stage-2 walk.
-+	 * Some cases where concatenation is mandatory after de-ciphering RSRKBC
-+	 * in the Arm DDI0487 (K.a):
-+	 * - 40 bits with 4K: use 2 table at level 1 instead of level 0
-+	 * - 40 bits with 16K: use 16 tables at level 2 instead of level 1
-+	 * - 42 bits with 4K: use 8 tabels at level 1 instead of level 0
-+	 * - 48 bits with 16K: use 2 tabels at level 1 instead of level 0
-+	 * Looking at the possible valid input size, that concludes to always
-+	 * use level 1 with concatentation if possible or at level 2 only
-+	 * with 16K.
+diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
+index e3738e1610db..a33a42ba0249 100644
+--- a/drivers/usb/dwc3/dwc3-xilinx.c
++++ b/drivers/usb/dwc3/dwc3-xilinx.c
+@@ -121,8 +121,11 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
+ 	 * in use but the usb3-phy entry is missing from the device tree.
+ 	 * Therefore, skip these operations in this case.
  	 */
--	if (data->start_level == 0) {
-+	if ((data->start_level == 0) ||
-+	    ((data->start_level == 1) && (ARM_LPAE_GRANULE(data) == SZ_16K))) {
- 		unsigned long pgd_pages;
+-	if (!priv_data->usb3_phy)
++	if (!priv_data->usb3_phy) {
++		/* Deselect the PIPE Clock Select bit in FPD PIPE Clock register */
++		writel(PIPE_CLK_DESELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
+ 		goto skip_usb3_phy;
++	}
  
- 		pgd_pages = ARM_LPAE_PGD_SIZE(data) / sizeof(arm_lpae_iopte);
+ 	crst = devm_reset_control_get_exclusive(dev, "usb_crst");
+ 	if (IS_ERR(crst)) {
+
+base-commit: 744cf71b8bdfcdd77aaf58395e068b7457634b2c
 -- 
-2.47.0.338.g60cca15819-goog
+2.34.1
 
 
