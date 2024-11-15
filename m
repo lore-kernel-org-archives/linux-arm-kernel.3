@@ -4,71 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9070D68BC6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 15:08:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3367FD68BC6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 15:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5r1IRfz41JLETosbDDcPaOgU8fD9Vh1HzBQ3yygD4tc=; b=MiCD3CCfKgI97g51CDFgpOrSA5
-	rZh6xJB1IfY+BzcMzHgaaxgQYbF3mRs2ntaOowge6T3P4QrtZC9vGVKnPa1g1+KgQpvQIAHE7DHYm
-	3ZwTPyFeixjfBgFGW/xVmFbzd6MW3kkThLfER0+82aOMPfj1Zw6H8bPQ6Ys/nIHQDFc47Bn+fNtF6
-	jmsrg0Gmeu4ecYCmFEkER156KhoU8XcqLOFUEveUjcBpLPAwzdCRlqGE12QvPz/WKZTiQkrbm9TwQ
-	CdupAjGx8jnAc78b6+rzXL2vhyHfrdCef1UnFtqu19ISVsSwgnlVEVkNsoKUQ1l04SCuK8ABsBeGq
-	CIIh3kWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nLE+UOTS7yHdog6ETbMGcYAEjTIcnW2Hb1xbsSa24qU=; b=2nntf38xq6lu1s0caoW1ANWJrX
+	ZHuy+QDeDnMmvqMFC0knovxLjLmarbxcHqTES2kgSsKuoFeEpIo9hcWhbpcEP2zBOOgKVGzCzq/2I
+	4KZ8KnVbfYchGBcsBfrhlow9DGKq6KzFyoxcL8wA8JW+fYkHdKHSaO9k6zJNZ34hwlkyL5iY9axG+
+	OrEEhUyML0gYhj1xut+chZhC3rtg4CDxUG14EKhnJyvtJbW/gwKseib7gsWapCgC5E7o/hfT117F/
+	Ym8pViMit4tkYygoFTogeOzv8rsa4zi9quDxPkMHsOSBW2fKz4uwo1ulX3IAZQe5X8qUr3CG2A4ZT
+	0OpLKxRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBxvW-000000036Ru-0jkh;
-	Fri, 15 Nov 2024 15:08:02 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tBxyS-000000036x6-10JN;
+	Fri, 15 Nov 2024 15:11:04 +0000
+Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBxub-000000036FT-0vvD
+	id 1tBxxV-000000036nF-3tAb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 15:07:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 67EB4A42641;
-	Fri, 15 Nov 2024 15:05:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88E5AC4CED2;
-	Fri, 15 Nov 2024 15:07:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731683224;
-	bh=488LeDMT03GJrMxbHp32JdOvGZEH1XPQ5yO1aJUMtrM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Co6tX4Ce0VaVN457Y6xZQmCTc8t+xi/xAm+t+3InloQINTJh2BpB/nwZgf3oai06a
-	 f02yy9DrXsJVjdJs+lDhPqAQGlqA0DvdCa3UquyRZBmNYIAy3SXtjG6oNpabz+RAY3
-	 V/IRL6sP4LBMG6pop7ujpqTnoIX23FYhsceHWpFMYQ/R1oztbtFc9NtPLsBluf/a8r
-	 MlBgjtKTbNUKIynZLJKvBlKF6yxoBnD53h4SdcxrBcOwAkDm/RNzudoosoqcKiM1Zn
-	 rH8XL/yQL3ORJGnUTOfNgYMjyjlcttz1dD6JWaw3MtO9NuwFvF24656s3dLKtjw/ah
-	 Z4Z1EsPp+B1VA==
-Date: Fri, 15 Nov 2024 15:07:01 +0000
-From: Mark Brown <broonie@kernel.org>
-To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Mesih Kilinc <mesihkilinc@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>
-Subject: Re: [PATCH v5 0/3] Add support for codec of F1C100s
-Message-ID: <ZzdjlbelMywpXOAI@finisterre.sirena.org.uk>
-References: <20241102125712.2647325-1-csokas.bence@prolan.hu>
- <594b2929-f7ab-4d30-a97c-1b1b31258d25@prolan.hu>
+	Fri, 15 Nov 2024 15:10:07 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 0B88D2540176;
+	Fri, 15 Nov 2024 10:10:02 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Fri, 15 Nov 2024 10:10:02 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1731683401;
+	 x=1731769801; bh=nLE+UOTS7yHdog6ETbMGcYAEjTIcnW2Hb1xbsSa24qU=; b=
+	nOXSJWzhDQ7uEdSXslDHBBwBRSTNC8fnK/NE/YQCB6PI/LdSdoPJ2JKAQIvUpeVw
+	+Q794Wy/0b76KSlKhJNHNQ25mJhL8725nuoWbTKcZ9NMI2TRQaOdF7p8RM58Bad2
+	HWluM9ucfcS+fB5MkBIJ51JOOJyNCz6gpla1WLh6uM6aZOuSj8EUd6tTF2QPr/YM
+	p7jncsqs3egS4TVeh8djL6TZBF/wor//7nQYrQd4ZHGSsAmxokbA+9QwtjLMHFew
+	OgIQetlun9Gc+1dt0cBnUaPaKTbwRiUqUcwcxKcEKa7oQA9KU7vh0dTgmwxMNetQ
+	u+FrkHosWsrrGZhk2WMdyw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1731683401; x=
+	1731769801; bh=nLE+UOTS7yHdog6ETbMGcYAEjTIcnW2Hb1xbsSa24qU=; b=d
+	eXa/HdnRwNcPVOz9naGBFMhieyx9xKP+9Lb270gD7hW6j+bE7mY/xtgIM8Hv4Rio
+	v/0HlWHx6Te0u9/j+jcM3nPsZIMYSmQTkxWaJ5KgYlmFUYe0zDoInZCr3LTtPbQP
+	28fTozk4Zv2EsVLtBmhgy0TkCiCnGv0VL6ve38KdZ10VYLeCyVZ/ws6z1dspiwPt
+	ipftlke+cQaItb4XA22Z/uIqtc/DTImPhhsF3f54uKMUDqnc5m1ryDiM3L89zseI
+	77oACeSe2jaOEFwU7yUfjs/vI+Sj4Al/Ixd8AvZZnhxgMuJVeVp0riNu83zuC2CR
+	4SHVJAwdKDfBSQp+WbXuA==
+X-ME-Sender: <xms:SWQ3Z7wC3cCbw6nUGAgMVd46TBZ5uAnOYaBtv2ddjcS2KPAwRDVW4A>
+    <xme:SWQ3ZzQu1YPT3qeD89nLlInWzRzg6HSfp447g4iPk0vUfodpruAxYqefN2dPww9nA
+    1-lKW69DRMLP1dyYes>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrvdeggdejtdcutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
+    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
+    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
+    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
+    gvqeenucggtffrrghtthgvrhhnpeelheevjeevgffhteeiveffgedtvedvteekleefgeel
+    ffeuvefhudetieehgfelveenucffohhmrghinhepsghlrghiiigvrdgtohhmpdhkvghrnh
+    gvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhr
+    ohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopedugedpmhhouggvpe
+    hsmhhtphhouhhtpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdr
+    tghomhdprhgtphhtthhopehjrghmvghsrdgtohifghhilhhlsegslhgrihiivgdrtghomh
+    dprhgtphhtthhopehmrghtthhhvgifrdhrvggufhgvrghrnhessghlrghiiigvrdgtohhm
+    pdhrtghpthhtohepnhgvihhlrdhjohhnvghssegslhgrihiivgdrtghomhdprhgtphhtth
+    hopehnihhkohhlrghoshdrphgrshgrlhhouhhkohhssegslhgrihiivgdrtghomhdprhgt
+    phhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhrii
+    hkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdr
+    ohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:SWQ3Z1W8l1AmoJ--C8_Z8WY90ySNt3vYnVjiEucoY3qO6S5pgP253A>
+    <xmx:SWQ3Z1j6Dj1RHATybGvOg7F4c4dmq8pULORdF6D3npJ_sZLxehL3wA>
+    <xmx:SWQ3Z9Brr8nDHRZLRI4_Ug5OfGNuUoDSsO6cgWWv7rUPLMdPpu57UQ>
+    <xmx:SWQ3Z-JjNL-O0kEz6pY9YJ7r-GojJ5UZ5ISMJix1UO9-zW6qgpMJEA>
+    <xmx:SWQ3Z1wtsBDS6K2uC0fhZz913LWUaa_TbAZd4LA3dHMmlZTgXu49Y6NN>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 46E032220072; Fri, 15 Nov 2024 10:10:01 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Ep0istO153xYfToL"
-Content-Disposition: inline
-In-Reply-To: <594b2929-f7ab-4d30-a97c-1b1b31258d25@prolan.hu>
-X-Cookie: Editing is a rewording activity.
+Date: Fri, 15 Nov 2024 16:09:30 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Niko Pasaloukos" <nikolaos.pasaloukos@blaize.com>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "James Cowgill" <james.cowgill@blaize.com>,
+ "Matt Redfearn" <matthew.redfearn@blaize.com>,
+ "Neil Jones" <neil.jones@blaize.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Olof Johansson" <olof@lixom.net>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "soc@lists.linux.dev" <soc@lists.linux.dev>
+Message-Id: <141c7d39-9f0e-4c1c-86c5-149328ab979a@app.fastmail.com>
+In-Reply-To: <20241115-blaize-blzp1600_init_board_support-v5-0-c09094e63dc5@blaize.com>
+References: <20241115-blaize-blzp1600_init_board_support-v5-0-c09094e63dc5@blaize.com>
+Subject: Re: [PATCH v5 0/6] Add support for Blaize BLZP1600 SoC
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_070705_329198_9C1CE4F0 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20241115_071006_354214_E05AEF31 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +123,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Nov 15, 2024, at 15:58, Niko Pasaloukos wrote:
+> Blaize, Inc. (www.blaize.com) is a SoC designer and manufacturer
+> with integrated programmable Graph-Streaming-Processors for AI
+> and ML. This series adds support for the Blaize BLZP1600 SoC.
+>
+> The SoC can run as either a PCIe based accelerator in a host
+> system, or as a stand alone SoC running Linux on its integrated
+> dual core ARM Cortex A53 cluster.
+>
+> The SoC includes a suite of peripherals, support for which will
+> be added later.
+>
+> This first series is just the basics to get the upstream
+> kernel to boot with a UART console and ARM SCMI based
+> clocks and resets.
+>
 
---Ep0istO153xYfToL
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Niko,
 
-On Fri, Nov 15, 2024 at 02:10:18PM +0100, Cs=F3k=E1s Bence wrote:
-> So, if there's no further remarks, can this be merged? The next window is
-> coming up, and there's the DT addition still waiting in the pipe.
+This version looks good to me, but it's likely that others
+still have review comments. Either way I should let you know
+of the next steps for merging the series.
 
-Please don't send content free pings and please allow a reasonable time
-for review.  People get busy, go on holiday, attend conferences and so=20
-on so unless there is some reason for urgency (like critical bug fixes)
-please allow at least a couple of weeks for review.  If there have been
-review comments then people may be waiting for those to be addressed.
+Since the 6.13 development cycle is now over (the
+merge window starts once Linus publishes 6.12
+this weekend), the earliest release to merge this
+into is now 6.14.
 
-Sending content free pings adds to the mail volume (if they are seen at
-all) which is often the problem and since they can't be reviewed
-directly if something has gone wrong you'll have to resend the patches
-anyway, so sending again is generally a better approach though there are
-some other maintainers who like them - if in doubt look at how patches
-for the subsystem are normally handled.
+Once 6.13-rc1 is out and the patch review is complete,
+you can submit the patches for inclusion by sending
+to:soc@lists.linux.dev (formerly soc@kernel.org).
+This is usually done as a pull request, but separate
+patches are fine as well, especially if you don't yet
+have a kernel.org account.
 
-Please don't top post, reply in line with needed context.  This allows
-readers to readily follow the flow of conversation and understand what
-you are talking about and also helps ensure that everything in the
-discussion is being addressed.
+After the entry to the MAINTAINERS file is merged,
+I suggest you also apply for a kernel.org account,
+see [1]. You probably also read the documentation at
+[2] about the usual process, let me know if you
+have questions about that.
 
---Ep0istO153xYfToL
-Content-Type: application/pgp-signature; name="signature.asc"
+       Arnd
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmc3Y5QACgkQJNaLcl1U
-h9CPLgf/ZgHaaghsRbFT07zKYB2H+48YxD21K6sLJgxlXtbMMZxTghpDMVHRI19W
-mt1JU3JUgIXEIyrAT9ya5WZlvPygJWxblECU0+Qqg/MXR19qGco9nQ/roMTS1xIE
-GbkbECeHM1V21BdDIQt0Od3a0fwUBgrqV8IsJfpsV2FI51+1IeMmZ8RAeBCnoE2G
-EjudHbRo4hmY7+J/deS3+eZxCK9eKYsmasrrfFXejlr0JqHEan1uPyLF8oqRdf5e
-ZjEi97j4fAuladvktKKzAADVuVMa0+exvloFO1HUABgUgY7T9xkWAOzy5q/rOScJ
-4gDyakjE2bFbI9NDZE65L6Q5FdGctQ==
-=r8ND
------END PGP SIGNATURE-----
-
---Ep0istO153xYfToL--
+[1] https://korg.docs.kernel.org/accounts.html
+[2] https://www.kernel.org/doc/Documentation/process/maintainer-soc.rst
 
