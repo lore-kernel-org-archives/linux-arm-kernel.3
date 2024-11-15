@@ -4,84 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F219D68BCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 17:26:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F55BD68BCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 17:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=yfUzXmB04ofTgBEHXl7/APs3CylNZDZ/sY3E7jcM7xc=; b=kGRAEHMk0eVQYv
-	Fp+JIeoI9NFBqlnUxesIy3tn2oSmry6HSZRMlNlSzHO/34EenqspPZtqHOlaFdQy5vnUwCD+kVUT+
-	Up/NW5Op83IYuxeU4NKgOiNG9OGE9Rsp63m9R+yfT8KX17SvrS5274bg2Err2Y7T1gseEINGDVF4x
-	V2cKRTAbj5GJSrJ2HnjN6oYuUgpbOCU0c7oPHK/NYJY+7qkZLcF/5KVTUcDkyi2rV8vkzyerkoEkj
-	cWNSI6vzWC1AzTzHbALNrj4ckhBNN1dhs6SLnTdEXtGVIRAAItjoVvMnglGoK/AnvDQdnA3Q7IJw5
-	6ndl9QxKrQVW858aQUAA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BIKvb0ovihvwQW9n54hYp/oWjnQOhMsNbKAiPmTzOOM=; b=SZA1CaMkzuL8ILAAOLQhUdoGKw
+	jAj42b4m37yHxWWnQQ95bGmSu54yCeQdsJY1CF3B77LXMUr/hklFgk4T1MtAUolXHuqIb/5VMyEnb
+	OvH4GwAFwgQvsJdx1lcI/hfWGz0CLdUhRqRysVEsyh7i1sJdwDhvT6KVnz5XzOorNukHbbTH9nDlM
+	BagOg2TSpOisCzYI9CtzoPc8MAaoP1SvOarfoZ6hjMvhwdz4k2aESnaeeFxan71Ve6SZasrpdqKjq
+	iabI6xQoil0U1JYIT7mkaFNryFU6hp7yjCpXw7czxnSN1DVxJ8YaQmUhkVeJb97DZ6QVTJeYXJrrY
+	PRzDkfjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC05c-00000003Y3V-407L;
-	Fri, 15 Nov 2024 17:26:36 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tC0DR-00000003ZJb-3d0d;
+	Fri, 15 Nov 2024 17:34:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC04g-00000003XsN-2czA;
-	Fri, 15 Nov 2024 17:25:39 +0000
+	id 1tC0CV-00000003ZAo-3EYA
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 Nov 2024 17:33:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7FE7EA42BAB;
-	Fri, 15 Nov 2024 17:23:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7167C4CECF;
-	Fri, 15 Nov 2024 17:25:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B3F4E5C6465;
+	Fri, 15 Nov 2024 17:32:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B938C4CECF;
+	Fri, 15 Nov 2024 17:33:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731691537;
-	bh=B5HD6FNYjbwvelKHX9O/ZdMyYIKdSlEvRVWHBFf74j8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=WcXaPIm6WdUXfZSjMdG+JVztfyMit+f2yPV6YeN1NZzQXkpO0wmt1PgI3au1RF50R
-	 LHUBGZ0Cvt86wCrxygPt98TmAcFHPzMWjkT3D1CDHcOtALCHGLjhUqBMq2esM83LRq
-	 dC66w/GliM5szwN6wE+X7c/6i3JYnQuI/lnIZY+ygQMmilIqVDGWBQ0s7jdMYZPnhZ
-	 LGzZEKSxuQVpXUUyDg6A0Nff5ZAb+Z2yKW0E2cNDRAc4xifpGzAGBPW56dlr5j/X/S
-	 hRyM4fl66Rjw6Ohf2wPWaNZLQ3guLNCoFS6Dfkw4CK7FEwjGTwli+8n9i49ABjNtR7
-	 cN9Lq0wdTNFLw==
-Date: Fri, 15 Nov 2024 11:25:34 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Andrea della Porta <andrea.porta@suse.com>,
-	Rob Herring <robh@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
+	s=k20201202; t=1731692022;
+	bh=KAyTU2wbJPNWq+AnPPIg5jRJD0fH1t6QufJ8G6BdE+g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ME/5oqI+9A5m65Ks+FI//A2msRKaoqyZsf8e+ZghTz6L0qiyWlGJI6zbxAO4SjmJ7
+	 QTv6C9Js0yK/mIY90hePo9stLZfjatvVg5Osg7PVkMKaHT0MvI1wZrW3oSKUVrrsx/
+	 fGfxx9566+orfgW9/TF5/rWaUCIRJL1j60bX5O6M6XeVlZoojkhxIif/G6voPR++Ep
+	 VrwdwVo20M6h4e7coL8dKdFziZGDy/mJCEbWTJJrM4FiEFlyZUz2TeibmpDAKmTOCJ
+	 vQ7UCDJDzVsyXx8f8wbgt5GNWmZmeMiG+4/ghCKaLIrFD+MIHxbiGK4Uf5Pn5KYe17
+	 QzfRUhDaCSGow==
+Date: Fri, 15 Nov 2024 11:33:40 -0600
+From: Rob Herring <robh@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>, stable@vger.kernel.org
-Subject: Re: [PATCH] PCI: of_property: Assign PCI instead of CPU bus address
- to dynamic PCI nodes
-Message-ID: <20241115172534.GA2044163@bhelgaas>
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Mark Brown <broonie@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Takashi Iwai <tiwai@suse.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-sound@vger.kernel.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/5] ASoC: dt-bindings: add common binding for NXP CPUs
+Message-ID: <20241115173340.GA3436142-robh@kernel.org>
+References: <20241113195240.3699-1-laurentiumihalcea111@gmail.com>
+ <20241113195240.3699-2-laurentiumihalcea111@gmail.com>
+ <ZzUF+iFeKSqKGcpX@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241108094256.28933-1-andrea.porta@suse.com>
+In-Reply-To: <ZzUF+iFeKSqKGcpX@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_092538_791404_9117D457 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20241115_093343_850712_D151E3A8 
+X-CRM114-Status: GOOD (  16.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,44 +84,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 08, 2024 at 10:42:56AM +0100, Andrea della Porta wrote:
-> When populating "ranges" property for a PCI bridge or endpoint,
-> of_pci_prop_ranges() incorrectly use the CPU bus address of the resource.
-> In such PCI nodes, the window should instead be in PCI address space. Call
-> pci_bus_address() on the resource in order to obtain the PCI bus
-> address.
+On Wed, Nov 13, 2024 at 03:03:06PM -0500, Frank Li wrote:
+> On Wed, Nov 13, 2024 at 02:52:36PM -0500, Laurentiu Mihalcea wrote:
+> > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> >
+> > Add common binding for NXP CPUs sharing the same programming
+> > model (i.e: audio processing with SOF).
 > 
-> Fixes: 407d1a51921e ("PCI: Create device tree node for bridge")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-> Tested-by: Herve Codina <herve.codina@bootlin.com>
+> Add binding for NXP audio processor with Sound Open Firmware (SOF) support.
+> 
+> >
+> > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> > ---
+> >  .../bindings/sound/fsl,sof-cpu.yaml           | 35 +++++++++++++++++++
+> >  1 file changed, 35 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml b/Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
+> > new file mode 100644
+> > index 000000000000..6d63fcd71154
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
+> > @@ -0,0 +1,35 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/sound/fsl,sof-cpu.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: NXP audio CPU common properties
+> 
+> audio processor?
+> 
+> > +
+> > +maintainers:
+> > +  - Daniel Baluta <daniel.baluta@nxp.com>
+> > +
+> > +properties:
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  mboxes:
+> > +    maxItems: 4
+> > +
+> > +  mbox-names:
+> > +    items:
+> > +      - const: txdb0
+> > +      - const: txdb1
+> > +      - const: rxdb0
+> > +      - const: rxdb1
+> > +
+> > +  memory-region:
+> > +    maxItems: 1
+> > +
+> > +required:
+> > +  - reg
+> > +  - mboxes
+> > +  - mbox-names
+> > +  - memory-region
+> > +
+> > +additionalProperties: true
+> 
+> example ?
 
-I picked this up on pci/of for v6.13, thanks!  Rob, let me know if
-you'd prefer to take it or ack/review it.
+Common bindings generally don't have one.
 
-> ---
-> This patch, originally preparatory for a bigger patchset (see [1]), has
-> been splitted in a standalone one for better management and because it
-> contains a bugfix which is probably of interest to stable branch.
-> 
->  drivers/pci/of_property.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/of_property.c b/drivers/pci/of_property.c
-> index 5a0b98e69795..886c236e5de6 100644
-> --- a/drivers/pci/of_property.c
-> +++ b/drivers/pci/of_property.c
-> @@ -126,7 +126,7 @@ static int of_pci_prop_ranges(struct pci_dev *pdev, struct of_changeset *ocs,
->  		if (of_pci_get_addr_flags(&res[j], &flags))
->  			continue;
->  
-> -		val64 = res[j].start;
-> +		val64 = pci_bus_address(pdev, &res[j] - pdev->resource);
->  		of_pci_set_address(pdev, rp[i].parent_addr, val64, 0, flags,
->  				   false);
->  		if (pci_is_bridge(pdev)) {
-> -- 
-> 2.35.3
-> 
+Rob
 
