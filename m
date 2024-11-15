@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EAC1D6DDED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 11:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26B2ED6DDF3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 12:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+mvXcr5Z5PsIemwYslMa6Llzo3RDr0teFDNxaivqn1o=; b=aWCibN1LVoyHv7WlPH71e7Iiip
-	CQNCak0l0SJK9RakIAi6vOJzRIbevYvzR76qmMKS4oyQq3VyqUCRsJY9QowgDDFM3/7kU457HZyqn
-	Co99wqDx62WKV1RW2lDTYKmgMDGzgSE91DXIHPNREJxJnK3zRdGxT4n5v5Tdt7FzY+Wxk7pO+3ciH
-	y4t2gdv1xpFhp1wli4SOCTc9dv/r5tKxUuXuEC6fDatZqIGzBC8nTbtJ83wl583rsGJeQgRxfSh9q
-	614VjgdNH4AAH9Ecsxth/cSXh6oFhd2SVm73qWaH61QOmGPSOJvTIwv2LwPGUlpGq4rnyZAWH4Owi
-	0CfwOF9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wn7mCxZd7PZY0354mGjj5fKQa8WX8iyw262Lq0kdioQ=; b=IpLB4zJ5k5/OxLY9a5itUurkc6
+	jniBKa+y/1k+PmPIRfG6MvA0AG2RYpqffluM0AgMXVYOwCjht9N72ykRjBYie9HiJKotyaxh4+tDo
+	osKwfL2j1M9/2JthP4BUBD1P/EdW3AnVlNWE15USguvsMU6/JpDm+g7yk2grQmtAleXHx+r9xzKqa
+	qJwWREqiVQ0cOR/s1WH1JxKjDKs5xFHYXtVOL1UnWCnpdpYBEvuiN7movrRTlvhuUAB0NBgRfbF2X
+	aFHGT06hXCZIuFsxTLNeeqcIxdTrEVEuOQroZrvIkzyuCZqKP/6PedKCNI8qyztN3k8f3Qcwi2mhq
+	WYoMd8rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBuyQ-00000002asC-1MEo;
-	Fri, 15 Nov 2024 11:58:50 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1tBvT7-00000002fEh-0lSn;
+	Fri, 15 Nov 2024 12:30:33 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBuxT-00000002aZq-3nxW
+	id 1tBvSA-00000002f5T-2Hcw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 11:57:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=+mvXcr5Z5PsIemwYslMa6Llzo3RDr0teFDNxaivqn1o=; b=ObHsZmYvQQwQWpgg2Wam4dgyAO
-	bpSn6HDHimxZ6j3KdkdVVwP5/NxWTLMu6XD8jdLvG+pt9dhlaccIqJrggmrFYIICbmOLte6HkhyJ9
-	QhBrSI8qTCynMEiEguEreh0G+G2+CiJGeiaQLiRAyTQz5C0NWElJiYdSWeDu/2NuN99YFkmUhDTib
-	P/ZML453RjKxk8mpolecU/4x9cZELXopDCZ7ahQwSGKwXPNgQiuxKx8ryh+fHtC1coc1GIU/1WoAs
-	KUIGc+G2RDUTaCJtjJigVZNl4cvoQjtYIBB1tPLclV/HSAMk/MqqZWNAoD1tU8FgDuhaIc/txVN1a
-	eYryOOBQ==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1tBuxN-00H1xs-0M;
-	Fri, 15 Nov 2024 19:57:46 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 15 Nov 2024 19:57:45 +0800
-Date: Fri, 15 Nov 2024 19:57:45 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	ebiggers@kernel.org, keescook@chromium.org,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH v2 0/6] Clean up and improve ARM/arm64 CRC-T10DIF code
-Message-ID: <Zzc3OfJj85LpI1uY@gondor.apana.org.au>
-References: <20241105160859.1459261-8-ardb+git@google.com>
+	Fri, 15 Nov 2024 12:29:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1731673756; x=1732278556; i=wahrenst@gmx.net;
+	bh=Wn7mCxZd7PZY0354mGjj5fKQa8WX8iyw262Lq0kdioQ=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
+	 References:From:Cc:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=Dliy4j70VsvEOGfnH+23cWTEp5YOA3IaX9daSuRdTQTsu6vC+tmbAllSJzslqq52
+	 v13mXZhbL7G3/KihxvnXxdDFVBqaxGb7RB9UbJDx88Pxh/YXdKhb4Rp60lRxyVoEe
+	 23D49co93ikc/PnKuPd4ex2En3PvW9dH44GPxfruneM7z36uz2TFU+XAWU8bIHzI8
+	 TXfB44MYqPi3a/qJyAz4YPIue1FwVscdODnpD1xAqArUXtNlHT+DQvocJn/lIpylw
+	 880FDAq/HpoV81YUtvJ1JJKYHjehsbS32yM2fBuy6CvudAxW4qMVffehgac7qAyuX
+	 NMCDkpa6USpNngrqhA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1M5wLZ-1t8sEx2O7P-00BQn2; Fri, 15
+ Nov 2024 13:29:16 +0100
+Message-ID: <b57a66ba-9443-4554-8d45-f5c7e13c066a@gmx.net>
+Date: Fri, 15 Nov 2024 13:29:15 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241105160859.1459261-8-ardb+git@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] PCI/PME+pciehp: Request IRQF_ONESHOT because bwctrl
+ shares IRQ
+To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Bjorn Helgaas <bhelgaas@google.com>,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20241114142034.4388-1-ilpo.jarvinen@linux.intel.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>
+In-Reply-To: <20241114142034.4388-1-ilpo.jarvinen@linux.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:GjmH/Y0aQo/ytPNEjrXVwfzr6rLhe0YNZZcWH2ymVMMF8b8l17M
+ BySzNQrCQmQ944X0N1oc1IRh3IkTT1eNn8Auqam90q69tU+dF8xmaxVEaf6j3nu6UkdxYRU
+ dO//1v69A2wU57oEs2Pp6H7jYWrPWIIZkWd5n/Sdn7TBcz5o6dYKVsWP2DgmUy7KDPsvcZV
+ 5Ws3IA1Zpg3XIqqZOreEg==
+UI-OutboundReport: notjunk:1;M01:P0:w2r5LH4mw9o=;af7D0RjeTpRmYrUw9cJh+ZV+fdq
+ Uv+y31w29WxlIvhkOPVlhmTKXs4yED3Z5WAxZLHjOMc8wsFREvDSE3Vwh1uMxmAYWUR3kst94
+ Ji5a7F7L4pgGaHtmuptK4if54U+6BgKKr0SlvRbflccYPRgtjfHAEerHBBViQh87CwqoIVFN1
+ xxbbEBDqfMWW+VslDgQ9FEnqf8tQNBiPKpdI/oHkMJhBIo8Mysu2IVWhnfDDh5s0JJiuVzHCW
+ Eb1cDvy5Swkv12nIKj7p79cyqt7APIMIjhCgd2Bv9+hDlHQ2wUdjOCPAKQr0Z8I+Gr5WCtDNd
+ pjA8cnxUpRgPc1wxL2USD3zMGeHG7oawCN+UZjd2CmVVuyho0/tj7IQJiC2wxboNFzA0/eUFg
+ +a913BSP3cmpoSwwhBiZar9m+knFQfN1dOrpCaFPMwRX+fr1CeBYrEOWqu7+f53nvp366xtec
+ NskIdH74UeOpGUyk3PebYBIlSQyrB6772VKQiI7RGMpyA56Q9Egoz5jCxtHKtqwfPu6W8R0eJ
+ 6dQmifWShWF4xgEbFHbrCNQQRNguphcdFxeG5o6GPEF1Wv+PRdyc6ApI3JtjQvAjpVHtZoqbD
+ uMehWhug9vcoWF25NZFljvS82Ad95BgR2EdGuTaB3maCKivHeGURtN7qgc3d5UKB5nuS0VyLU
+ vbYD14SxFhBrE2iPuG3kL2gtKNMSLP0HFrYwwJ7Mw+m/vkHoz1d6ddbO5jpyqE2OGeViuFJYk
+ Wgk0bfHxgYNA89jvluiSDtxiW/rfhjZmMdMi3/+ShKMT430Rn5Ngjy5CRI5KVblRrZv+GLxpE
+ KSkc0CM09mvVEtE6JOlbUD0ra3zcXJnQS/PpCwL7RDXwPKM6JctyVGaiaclnlVP7bcj9dxdRi
+ AjhSfzrRtHze9qCBb3yo8rWN848Dy98oq00x3s2rr1RcIA+EDy9GMbt0S
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_035751_943053_04EFA820 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20241115_042934_866617_6A94D5A0 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,53 +97,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 05, 2024 at 05:09:00PM +0100, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> I realized that the generic sequence implementing 64x64 polynomial
-> multiply using 8x8 PMULL instructions, which is used in the CRC-T10DIF
-> code to implement a fallback version for cores that lack the 64x64 PMULL
-> instruction, is not very efficient.
-> 
-> The folding coefficients that are used when processing the bulk of the
-> data are only 16 bits wide, and so 3/4 of the partial results of all those
-> 8x8->16 bit multiplications do not contribute anything to the end result.
-> 
-> This means we can use a much faster implementation, producing a speedup
-> of 3.3x on Cortex-A72 without Crypto Extensions (Raspberry Pi 4).
-> 
-> The same logic can be ported to 32-bit ARM too, where it produces a
-> speedup of 6.6x compared with the generic C implementation on the same
-> platform.
-> 
-> Changes since v1:
-> - fix bug introduced in refactoring
-> - add asm comments to explain the fallback algorithm
-> - type 'u8 *out' parameter as 'u8 out[16]'
-> - avoid asm code for 16 byte inputs (a higher threshold might be more
->   appropriate but 16 is nonsensical given that the folding routine
->   returns a 16 byte output)
-> 
-> Ard Biesheuvel (6):
->   crypto: arm64/crct10dif - Remove obsolete chunking logic
->   crypto: arm64/crct10dif - Use faster 16x64 bit polynomial multiply
->   crypto: arm64/crct10dif - Remove remaining 64x64 PMULL fallback code
->   crypto: arm/crct10dif - Use existing mov_l macro instead of __adrl
->   crypto: arm/crct10dif - Macroify PMULL asm code
->   crypto: arm/crct10dif - Implement plain NEON variant
-> 
->  arch/arm/crypto/crct10dif-ce-core.S   | 249 ++++++++++-----
->  arch/arm/crypto/crct10dif-ce-glue.c   |  55 +++-
->  arch/arm64/crypto/crct10dif-ce-core.S | 335 +++++++++-----------
->  arch/arm64/crypto/crct10dif-ce-glue.c |  48 ++-
->  4 files changed, 376 insertions(+), 311 deletions(-)
-> 
-> -- 
-> 2.47.0.199.ga7371fff76-goog
+Hi Ilpo,
 
-All applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Am 14.11.24 um 15:20 schrieb Ilpo J=C3=A4rvinen:
+> PCIe BW controller uses IRQF_ONESHOT to solve the problem fixed by the
+> commit 3e82a7f9031f ("PCI/LINK: Supply IRQ handler so level-triggered
+> IRQs are acked"). The IRQ is shared with PME and PCIe hotplug. Due to
+> probe order, PME and hotplug can request IRQ first without IRQF_ONESHOT
+> and when BW controller requests IRQ later with IRQF_ONESHOT, the IRQ
+> request fails. The problem is seen at least on Rasperry Pi 4:
+>
+> pcieport 0000:00:00.0: PME: Signaling with IRQ 39
+> pcieport 0000:00:00.0: AER: enabled with IRQ 39
+> genirq: Flags mismatch irq 39. 00002084 (PCIe bwctrl) vs.00200084 (PCIe =
+PME)
+> pcie_bwctrl 0000:00:00.0:pcie010: probe with driver pcie_bwctrl failed w=
+ith error -16
+>
+> BW controller is always enabled so change PME and pciehp too to use
+> IRQF_ONESHOT.
+>
+> Fixes: 470b218c2bdf ("PCI/bwctrl: Re-add BW notification portdrv as PCIe=
+ BW controller")
+> Reported-by: Stefan Wahren <wahrenst@gmx.net>
+> Link: https://lore.kernel.org/linux-pci/dcd660fd-a265-4f47-8696-776a85e0=
+97a0@gmx.net/
+> Signed-off-by: Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com>
+> ---
+>
+I tested this patch on my Raspberry Pi 4B (linux-next, arm64/defconfig),
+but unfortunately this doesn't fix the issue completely:
+
+[=C2=A0=C2=A0=C2=A0 6.635741] pcieport 0000:00:00.0: PME: Signaling with I=
+RQ 39
+[=C2=A0=C2=A0=C2=A0 6.638845] genirq: Flags mismatch irq 39. 00000084 (aer=
+drv) vs.
+00202084 (PCIe PME)
+[=C2=A0=C2=A0=C2=A0 6.638954] pcieport 0000:00:00.0: AER: request AER IRQ =
+39 failed
+[=C2=A0=C2=A0=C2=A0 6.638970] aer 0000:00:00.0:pcie002: probe with driver =
+aer failed
+with error -16
+
+Regards
 
