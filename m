@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C676D68BC6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 16:25:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A03D68BC6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 16:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ugIYlZKNzdgf+Up0wPpZ1f28kJDbhhfTLKknRxV+K10=; b=T62E0p6AwrxL+pB+u78o3s2CCe
-	K0e/CHfuZmOneq+f9kA5DCe1OhC+8Qe8Ib0kQv605gUX4hYE3mZuAf5K8sG4nYLg3gW1zJzpDqxVx
-	e6id4BoJlIi/JMJX1OQuloy3QpMcJKUqqU789Eq90e/AXn+8U7oj3bNI+pLGBOAEALIMw+anli+XC
-	q80x3m1YZB9A5hNFsnBSUr1GQMwS7mWZG+Nud5+JUBQIcVwtmzepSgg9r21W8kWdgfZoIBB2yOU4o
-	2ky0lQhZAudDb8dZa7rv4dygqTFwuN+Et5MWsoTwrNNHhqqIhBC5FcdfKhdMaSfd8BHPnufkP3sou
-	JcsO9z3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TWTLATEsyb6jUoyiefPAil8PQLBGybKUePSHQXG87jc=; b=tcJkC2oB8i+mSSN00VocI4Ckhi
+	6vpMGQ8cV94qV1RwxBBNMgi4hePDQJTSdyC61GZ75WBcMzI2/BIzDrUE1Ihv43Sv5nOULPKn0Pst6
+	0wGdhzwPiP8V0Km16lxtz9hbNMwKhy+pWKdF0d+w9ejMVz0HXVyhQtXlTmg796Np/OU+nxShKrbig
+	1QTN3nx1y2PnOf70jJKY/yFzF1IJnWTyo6ut/wIVptVSKIPVoMTY8GQVeH87BQJasMeYQbKlad3TG
+	5vjXWwXWZIswsA9MBXaUXC0lIyQ24K6cJHkwGVNNAX8BPrMk3bV3H5Y5zodkjTQj5t2PGRtkfuTAq
+	U/jsP3Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBz8D-00000003KtM-10Ha;
-	Fri, 15 Nov 2024 16:25:13 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tBz96-00000003L43-0yU2;
+	Fri, 15 Nov 2024 16:26:08 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBz4i-00000003K3d-1ViL;
-	Fri, 15 Nov 2024 16:21:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1731687695;
-	bh=hzMNqFzjJmXhupDySrBmjKOmiFy0n0jBgxntqS1KgZs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dqxPlzsqQKMa2GOkMp5zMof02/OGqnSj/Xa2IvDASQM2MsCQ+Gx7cmVHQkL517wDh
-	 d/MDFCf1+aEqZ6GDz32dUuYiNyERNFCOPR29Vnq5L0T9OXqPzhS2P/+p76TlfgeSRO
-	 53ocPXS/kla7CH46o+rfvfOgt3ERTH1LaroAZ3ArO+B/NLyDjLuu5mEIxJmnk52OLQ
-	 KDvefA8k6dmtX/UkDZOtp2RBpz9Sdzm9jxEt8rwSU/ICepyQ6G8yRfuQjqiaJjZthO
-	 e9mlVLAOWkrfb0vu++5EiqcdXyha13WcDWStjUYY02MFUdTr67x82daHsnv/DSNLLy
-	 Zk+9OX6jqcrAA==
-Received: from bootstrap.mtl.collabora.ca (mtl.collabora.ca [66.171.169.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 74A6D17E3756;
-	Fri, 15 Nov 2024 17:21:32 +0100 (CET)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: linux-kernel@vger.kernel.org
-Cc: Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko.stuebner@cherry.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Alexey Charkov <alchark@gmail.com>,
-	Jianfeng Liu <liujianfeng1994@gmail.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com,
-	Detlev Casanova <detlev.casanova@collabora.com>
-Subject: [PATCH v4 3/3] arm64: dts: rockchip: Add VOP clock resets for rk3588s
-Date: Fri, 15 Nov 2024 11:20:42 -0500
-Message-ID: <20241115162120.83990-4-detlev.casanova@collabora.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241115162120.83990-1-detlev.casanova@collabora.com>
-References: <20241115162120.83990-1-detlev.casanova@collabora.com>
+	id 1tBz6e-00000003KbZ-0Mpe
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 Nov 2024 16:23:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DAD19A42AD0;
+	Fri, 15 Nov 2024 16:21:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 745ABC4CED5;
+	Fri, 15 Nov 2024 16:23:32 +0000 (UTC)
+Date: Fri, 15 Nov 2024 16:23:30 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 4/4] arm64: mte: Use stage-2 NoTagAccess memory attribute
+ if supported
+Message-ID: <Zzd1giMm-bzUiZgA@arm.com>
+References: <20241028094014.2596619-1-aneesh.kumar@kernel.org>
+ <20241028094014.2596619-5-aneesh.kumar@kernel.org>
+ <87o734ts4m.wl-maz@kernel.org>
+ <yq5ar080cq5x.fsf@kernel.org>
+ <87jzdst6os.wl-maz@kernel.org>
+ <yq5a34k2rw9o.fsf@kernel.org>
+ <86ldxozn3i.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86ldxozn3i.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_082136_541111_68DE778F 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241115_082336_263004_7BD692E0 
+X-CRM114-Status: GOOD (  50.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,37 +73,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds the needed clock resets for all rk3588(s) based SOCs.
+(joining the thread as well, though not sure I'm bringing anything new)
 
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+On Tue, Nov 12, 2024 at 11:51:45AM +0000, Marc Zyngier wrote:
+> On Fri, 08 Nov 2024 07:59:31 +0000, Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
+> > Marc Zyngier <maz@kernel.org> writes:
+> > > On Mon, 28 Oct 2024 13:28:42 +0000, Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
+> > >> Marc Zyngier <maz@kernel.org> writes:
+> > >> > On Mon, 28 Oct 2024 09:40:14 +0000, "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+> > >> >> Currently, the kernel won't start a guest if the MTE feature is enabled
+> > >> >> and the guest RAM is backed by memory which doesn't support access tags.
+> > >> >> Update this such that the kernel uses the NoTagAccess memory attribute
+> > >> >> while mapping pages from VMAs for which MTE is not allowed. The fault
+> > >> >> from accessing the access tags with such pages is forwarded to VMM so
+> > >> >> that VMM can decide to kill the guest or remap the pages so that
+> > >> >> access tag storage is allowed.
+> > >> >
+> > >> > I only have questions here:
+> > >> >
+> > >> > - what is the benefit of such approach? why shouldn't that be the
+> > >> >   kernel's job to fix it?
+> > >>
+> > >> IMHO leaving that policy decision to VMM makes the kernel changes
+> > >> simpler. In most cases, VMM will kill the guest, because these
+> > >> restrictions of MTE_ALLOWED are applied at the memslot/vma.
+> > >
+> > > Where is that captured? The whole idea behind FEAT_MTE_PERM was that
+> > > it would be the hypervisor's task to lazily allocate MTE-capable
+> > > memory as tagged-access would occur.
+> > 
+> > Lazily allocating MTE-capable memory requires changes to different
+> > kernel subsystems and previous attempts got dropped [1] because it
+> > was not clear whether the benefit of saving 3% memory overhead was worth
+> > the complexity we add to the kernel.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index d97d84b888375..b5c19423de9b6 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1268,6 +1268,18 @@ vop: vop@fdd90000 {
- 			      "pclk_vop";
- 		iommus = <&vop_mmu>;
- 		power-domains = <&power RK3588_PD_VOP>;
-+		resets = <&cru SRST_A_VOP>,
-+			 <&cru SRST_H_VOP>,
-+			 <&cru SRST_D_VOP0>,
-+			 <&cru SRST_D_VOP1>,
-+			 <&cru SRST_D_VOP2>,
-+			 <&cru SRST_D_VOP3>;
-+		reset-names = "aclk",
-+			      "hclk",
-+			      "dclk_vp0",
-+			      "dclk_vp1",
-+			      "dclk_vp2",
-+			      "dclk_vp3";
- 		rockchip,grf = <&sys_grf>;
- 		rockchip,vop-grf = <&vop_grf>;
- 		rockchip,vo1-grf = <&vo1_grf>;
+I'd say the most complex part in Alex's approach was the need to reuse
+the tag storage for classic data and kick the pages around when some
+other page needs to store tags in there. That approach is pretty much
+dead.
+
+In theory, having MTE and non-MTE memory (heterogeneous) without a
+carveout reuse would be a bit more manageable - not that far from the
+NUMA migration and at least you only migrate the page being accessed
+rather than unrelated ones where the tags need to go. But this was not
+Alex's goal for Android since people were asking for the reuse of the 3%
+carveout rather than a smaller carveout.
+
+Other future deployments, CXL-attached memory etc. may benefit from a
+new scheme but I wouldn't rush in implementing anything in the kernel
+for now.
+
+The VMM may be in a better position to manage such heterogeneous memory
+for the guest if it knows the capabilities of the slots (e.g. some DAX
+mmap() vs anonymous mmap()). This would require the VMM replacing a page
+within a slot from one memory type to another (while preserving the
+data). I don't think we have a concrete use-case yet to be worth the
+hassle.
+
+> That's not the point. Tagged memory doesn't have to cover the whole of
+> physical memory, and it can be statically allocated. The architecture
+> doesn't mandate that all of the memory is MTE-capable.
+
+There's some vague wording that general purpose memory should be MTE
+capable if FEAT_MTE2 or later is advertised. But that's not well defined
+and one can have other types of memory in the physical space (e.g. CXL)
+that don't support tags. Last time I looked we still haven't got a way
+to describe memory capabilities in firmware.
+
+For the time being, I think a real use-case for FEAT_MTE_PERM is in the
+context of cacheable MMIO (there are some patches around from Nvidia to
+do this with VFIO). That memory, if exposed to guest as WB and the guest
+enables MTE, may trigger some SErrors. With FEAT_MTE_PERM KVM could trap
+and inject a fault back into the guest - maybe SEA. Is it easier to do
+this from KVM itself or we would rather exit to the VMM and let it
+handle? The latter allows room for other fancier things in the future
+but the former may be quicker, in the absence of other strong use-cases.
+
+> > This patchset is not looking at that feature. Instead, it can be used to
+> > enable MTE in configurations that currently won't allow MTE. One such
+> > example is libkrun which includes linux kernel as firmware in a
+> > dynamically linked library (libkrunfw). libkrun can insert the kernel
+> > region which got mmaped as part of the library load, directly into the
+> > guest memory map instead of copying the kernel. Such a guest config
+> > can't enable MTE currently even though we will never use the newly
+> > inserted memory regions as tag access memory.
+
+I've never played with libkrunfw. Does it handle inserting a Linux
+kernel? Such approach may not work well with MTE. The kernel frees the
+init text/data sections back into the page allocator. With MTE
+advertised as present, the guest will try to reuse that memory,
+potentially as tagged. However, since the VMM mmap'ed the guest kernel
+from a file, VM_MTE is not supported in the VMM address space. Even if
+the mapping is MAP_PRIVATE and the page copied on write, the vma remains
+the original one associated with the file, so VM_MTE_ALLOWED not set.
+
+We could revisit this and allow mprotect(PROT_MTE) to force the CoW on
+private file mappings but we'd need some strong requirement for this
+(MTE+libkrunfw could be such thing if people need this combination).
+
+> > Similarly, virtiofs dax support can use a page cache region as
+> > virtio-shm region. We can use MTE_PERM to enable MTE in this config.
+> 
+> And this use case doesn't contradict what I am stating above. But it
+> definitely contradicts what you wrote: "In most cases, VMM will kill
+> the guest".
+
+To simplify things, I think whatever is presented to the VM as standard
+RAM (typically present at the VM boot) should either support MTE or MTE
+will be disabled for the guest. For other types of memory, whether WB
+MMIO or RAM presented as virtio-(pmem, shm etc.) backed by files in the
+VMM, the VM should be aware it is not standard RAM and should not
+attempt to enable MTE on it. If it does (either by mistake or malice),
+FEAT_MTE_PERM should trap and inject a fault back into the guest (or
+kill it altogether but for debugging, I'd rather inject a fault if
+possible).
+
 -- 
-2.47.0
-
+Catalin
 
