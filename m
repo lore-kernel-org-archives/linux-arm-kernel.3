@@ -4,114 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E266D68BCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 19:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFA6D68BCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 19:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3OKejUHsvqVk7PU6/stDd70c9pYuhRxj1RM5Vzawqg=; b=RckFDoHtbFD0Y41DDQSclW7knb
-	ZHwmhyL6mVHu0pC/0AzZBPdynWqVYhPkB3tGZ4JRh0oda7SCwXETfyBbE9hfhPsGFYLs9iKY/jZHn
-	iWZkSwVuA8ZSZ4XD8iFOmB8FByHLdmyZekggQMIcX4zHFi9MVOFtfv1ZshRk/8AtkVTrowsUL6Nvg
-	DjLmX8PYRfnfHCwdq0zEsmua2U+rh5qgzMec2gsEVaF6ShGNixC+GmvCZlgDjGRJrDUJ+iBbRNYUu
-	jV6+Jvo5d7rfFUCkGNR6Pi+PtsYIVXO+K5G8ZsfhZmOxNtYBL67kDwvE3+C4+ijN0CR5605LefmJ2
-	t0Ym+cxw==;
+	bh=gb7hmFy/0l+JpT17zGKACyUketzLohMMo6Nszps9h8Q=; b=HnVo4GU9oS+8dQWjBmfzEXsawj
+	ZGKLJcZLsMMk1f9fKa/Es2kSNYl3ssYMBNjBMfN914o9N/GgZTbHyDgkzWCWJH2YcY3XkKM29B8Di
+	DY6oH07xc6lg/r09QBHPtu6JPfB4FhvEEqOZVvN3pU/AWCQhU+Md4JP//FxqLmdYSwG8LUBCn4tsE
+	rVR6LywzjLjcRz0I/YGgncvifTeLessZx5oJo2f1kxJyKu9LeIKjsqtYZZGpk9mp8UHh3IEUsIw0J
+	zu98P5gt35v2tL/5XwcpTqPo8JfdX7e3c0emJ0u02EEspzIpAbQr1qlnKiuC3FKnkIkJuYfgGQulL
+	Oa1pZm0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC1i2-00000003o9G-0xoY;
-	Fri, 15 Nov 2024 19:10:22 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tC1r4-00000003ppK-2CmR;
+	Fri, 15 Nov 2024 19:19:42 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC1gH-00000003ntv-3Em7
+	id 1tC1q8-00000003pdH-2jNW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 19:08:34 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AF91kv8023967;
-	Fri, 15 Nov 2024 19:08:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=S3OKejUHsvqVk7PU6/stDd70
-	c9pYuhRxj1RM5Vzawqg=; b=i9j/aLunxtEiNHtvgR2yi3XotQ37mc4z/Fo5AFJU
-	N5y8fZs7iRp9KNnG150GycG/TVmPDNXxb5eFVAppIyOlwO+LGK46PoLal7bj5Ebu
-	EkG1ixd4trN0WNT/+dJQlxw9TIIjTO0uG5bkC1jX8DcSYK1Yb7xzJx5sfMI0xYIg
-	MY75CDreDZsLYki89xqAoJaCdF5Luo7ZM4ezRH7XG+K7vmpgAMSv6Uqz3w/Ax7pC
-	XCROvx9mDfs3TTSGpTcfKtri+7kBv7AdMArL2DCe+3ikulB6Z/cBRRjKDp/9lHeP
-	/TJfI05HkVV68kHzUeBMtF2xTiHIhQPz++9YGMQ9VLBzOA==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42x3achkd8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 15 Nov 2024 19:08:24 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AFJ8NQp014202
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 15 Nov 2024 19:08:23 GMT
-Received: from hu-eberman-lv.qualcomm.com (10.49.16.6) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Fri, 15 Nov 2024 11:08:23 -0800
-Date: Fri, 15 Nov 2024 11:08:22 -0800
-From: Elliot Berman <quic_eberman@quicinc.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-CC: Stephen Boyd <swboyd@chromium.org>, Andy Yan <andy.yan@rock-chips.com>,
-        Arnd Bergmann <arnd@arndb.de>,
-        Bartosz Golaszewski
-	<bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>,
-        Mark Rutland <mark.rutland@arm.com>, Olof Johansson <olof@lixom.net>,
-        Rob Herring <robh@kernel.org>, "Sebastian
- Reichel" <sre@kernel.org>,
-        Vinod Koul <vkoul@kernel.org>, Will Deacon
-	<will@kernel.org>,
-        <cros-qcom-dts-watchers@chromium.org>,
-        "Satya Durga
- Srinivasu Prabhala" <quic_satyap@quicinc.com>,
-        Melody Olvera
-	<quic_molvera@quicinc.com>,
-        Shivendra Pratap <quic_spratap@quicinc.com>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Florian Fainelli
-	<florian.fainelli@broadcom.com>,
-        <linux-pm@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>
-Subject: Re: [PATCH v6 3/5] firmware: psci: Read and use vendor reset types
-Message-ID: <20241115101401666-0800.eberman@hu-eberman-lv.qualcomm.com>
-References: <20241018-arm-psci-system_reset2-vendor-reboots-v6-0-50cbe88b0a24@quicinc.com>
- <20241018-arm-psci-system_reset2-vendor-reboots-v6-3-50cbe88b0a24@quicinc.com>
- <CAE-0n515sUkmTWptgY8pOaMDBPfDp5pZBy9Nby+4cMdMAnAZfA@mail.gmail.com>
- <20241023092251529-0700.eberman@hu-eberman-lv.qualcomm.com>
- <ZzdOOP0KuMMdo64W@lpieralisi>
+	Fri, 15 Nov 2024 19:18:45 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4315ee633dcso3875e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 11:18:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1731698322; x=1732303122; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=gb7hmFy/0l+JpT17zGKACyUketzLohMMo6Nszps9h8Q=;
+        b=ZBC/fHrUVi+1g3lLGC74PHbasr9P9rnujEcljlJt1EcOI9YoARCCiZHErFsYFvz0Gd
+         A4VhP7EXw0ugjOXx7u3ag7h+UWr7+1yfJroMVYIkd7UE7Af37URxbyc+8OB+bf+jDoO6
+         XTSFnEXg1DCkzHcjIhbVs5WjHXOvfM7Gcer5tkHNbGFMaFaE34dcKcuxcUrIw0ff3Cz4
+         Y8exTJdlXMie1Qy+sLALftwRfndfITJuJ9mYZ4Y1ipmFlnT/QM7Rzs0rKShwELhSCGoa
+         PiE7+m8KSN1yHQKWXp0iuIiqKI/SSUVJ5xnwkQ4T/H1q9o3b+0SaXA2KiooSNe6iERBu
+         Hcog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731698322; x=1732303122;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gb7hmFy/0l+JpT17zGKACyUketzLohMMo6Nszps9h8Q=;
+        b=kqAAAwfBtiHlN7dTMrUV6oknpAS8lvWkEVyMyp0JzPDTBAWlmz4l1m7z0EZwU3h9d2
+         P3B6NtmobL1foVWeRcbQ8d5oUF/pWbPu1m5E4QvchXzhTVLVrO67vFShbUqgWlY+sMS+
+         FqqyRUzVUtGH96gmtOeI2V3l9aF0cqG6iT6pNme7QDdIgA/lE/m/2AQfPg+29naMn37M
+         4vpznaVKMVmymgLlMnLm2+XSAUh/M8iljf92R9VM0WhKMhUhNszv630nNxf0RYrJawSA
+         wFRbFp/olQVjlrTwHORzdgVAzT2VlS7LFMEpxDL6Bmr1FgckP7uoRthQjQpjxfU9s7gr
+         4Reg==
+X-Forwarded-Encrypted: i=1; AJvYcCUk1d1UD3kbFfL1fLjLGRDl7uvvtjxTcsoNkvFNHsYrJk+Fl3OJvbMOI1vo4L7YDvQrDkrnQNjUgwNPlhxLKiQO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjykKw6PTQiJYajdq0oWvExY3nV9D2j2oJjLuH4RG7Qvi/LWVv
+	t9mO/0TCzin5931IcwCY5NCZbKTi4jXhGsemMDN/bPYj9QCFisWhiZesUwiBYQ==
+X-Gm-Gg: ASbGnctSxPpYZeTttcFVCc1+NZWNwMA/1y9UH1tL4swIugf+jxoyp6xXwquUZ3s631X
+	JZnjmSAIWgCRaazGs2Y2u5Ks0yu48LSu7B4THieJCIIFkFhwM4RWNCTl80W+p3Piq8hQZPTwOYx
+	eCcg/fNZdD6d2NhpQNhV665ZmSGelhvzE1GzikqJBfCtPLW7W9ApYQGcYGxloIkdYWmUq6bePFQ
+	2Eq31H/wKyvKJ56uRvoAmGaqBo/8QStQ38kYDgdi1gOYSSd0cqYV9bAM+h1U+z2sEp++bdAiW7/
+	BBYclRTdnqMO
+X-Google-Smtp-Source: AGHT+IG+0JQ95//Ajrq0lgO/WvKJa6AW6bqohkm2IbIyY8g9NlthrnZKtmPcJ0NxaAiAhUmfbGf1Ng==
+X-Received: by 2002:a05:600c:3512:b0:426:66a0:6df6 with SMTP id 5b1f17b1804b1-432e609ec5dmr52285e9.0.1731698321726;
+        Fri, 15 Nov 2024 11:18:41 -0800 (PST)
+Received: from google.com (158.100.79.34.bc.googleusercontent.com. [34.79.100.158])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432dab78918sm61906695e9.17.2024.11.15.11.18.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Nov 2024 11:18:40 -0800 (PST)
+Date: Fri, 15 Nov 2024 19:18:36 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, will@kernel.org,
+	joro@8bytes.org, Daniel Mentz <danielmentz@google.com>
+Subject: Re: [PATCH] drivers/io-pgtable-arm: Fix stage concatenation with 16K
+Message-ID: <ZzeejJL3Tt4OlFdr@google.com>
+References: <20241115172235.1493328-1-smostafa@google.com>
+ <888e6542-2aa4-43f1-b31e-79432c1ad199@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ZzdOOP0KuMMdo64W@lpieralisi>
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01c.na.qualcomm.com (10.47.97.35) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 7i90-Yo4Cnv42FH5lKbdam--oi7je5Dk
-X-Proofpoint-ORIG-GUID: 7i90-Yo4Cnv42FH5lKbdam--oi7je5Dk
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 suspectscore=0
- clxscore=1015 bulkscore=0 impostorscore=0 adultscore=0 malwarescore=0
- mlxlogscore=999 lowpriorityscore=0 spamscore=0 phishscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411150161
+In-Reply-To: <888e6542-2aa4-43f1-b31e-79432c1ad199@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_110833_933433_845DAAB5 
-X-CRM114-Status: GOOD (  35.10  )
+X-CRM114-CacheID: sfid-20241115_111844_690674_54A8CA87 
+X-CRM114-Status: GOOD (  32.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,73 +98,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 15, 2024 at 02:35:52PM +0100, Lorenzo Pieralisi wrote:
-> On Wed, Oct 23, 2024 at 09:30:21AM -0700, Elliot Berman wrote:
-> > On Fri, Oct 18, 2024 at 10:42:46PM -0700, Stephen Boyd wrote:
-> > > Quoting Elliot Berman (2024-10-18 12:39:48)
-> > > > diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-> > > > index 2328ca58bba6..60bc285622ce 100644
-> > > > --- a/drivers/firmware/psci/psci.c
-> > > > +++ b/drivers/firmware/psci/psci.c
-> > > > @@ -29,6 +29,8 @@
-> > > >  #include <asm/smp_plat.h>
-> > > >  #include <asm/suspend.h>
-> > > >
-> > > > +#define REBOOT_PREFIX "mode-"
-> > > 
-> > > Maybe move this near the function that uses it.
-> > > 
-> > > > +
-> > > >  /*
-> > > >   * While a 64-bit OS can make calls with SMC32 calling conventions, for some
-> > > >   * calls it is necessary to use SMC64 to pass or return 64-bit values.
-> > > > @@ -305,9 +315,29 @@ static int get_set_conduit_method(const struct device_node *np)
-> > > >         return 0;
-> > > >  }
-> > > >
-> > > > +static void psci_vendor_sys_reset2(unsigned long action, void *data)
-> > > > +{
-> > > > +       const char *cmd = data;
-> > > > +       unsigned long ret;
-> > > > +       size_t i;
-> > > > +
-> > > > +       for (i = 0; i < num_psci_reset_params; i++) {
-> > > > +               if (!strcmp(psci_reset_params[i].mode, cmd)) {
-> > > > +                       ret = invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
-> > > > +                                            psci_reset_params[i].reset_type,
-> > > > +                                            psci_reset_params[i].cookie, 0);
-> > > > +                       pr_err("failed to perform reset \"%s\": %ld\n",
-> > > > +                               cmd, (long)ret);
-> > > 
-> > > Do this intentionally return? Should it be some other function that's
-> > > __noreturn instead and a while (1) if the firmware returns back to the
-> > > kernel?
-> > > 
+Hi Robin,
+
+On Fri, Nov 15, 2024 at 06:29:20PM +0000, Robin Murphy wrote:
+> On 2024-11-15 5:22 pm, Mostafa Saleh wrote:
+> > According to the Arm spec DDI0487 K.a, in:
+> > "Table D8-9 Implications of the effective minimum T0SZ value on the
+> > initial stage 2 lookup level"
 > > 
-> > Yes, I think it's best to make sure we fall back to the architectural
-> > reset (whether it's the SYSTEM_RESET or architectural SYSTEM_RESET2)
-> > since device would reboot then.
+> > Some combinations of granule and input size with stage-2 would
+> > require to use initial lookup levels that can only be achieved
+> > with concatenated PGDs.
+> > 
+> > There was one missing case in the current implementation for 16K,
+> > which is 40-bits.
+> > 
+> > Cc: Daniel Mentz <danielmentz@google.com>
+> > 
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >   drivers/iommu/io-pgtable-arm.c | 14 +++++++++++---
+> >   1 file changed, 11 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+> > index 0e67f1721a3d..9a57874a5cb8 100644
+> > --- a/drivers/iommu/io-pgtable-arm.c
+> > +++ b/drivers/iommu/io-pgtable-arm.c
+> > @@ -1044,10 +1044,18 @@ arm_64_lpae_alloc_pgtable_s2(struct io_pgtable_cfg *cfg, void *cookie)
+> >   		return NULL;
+> >   	/*
+> > -	 * Concatenate PGDs at level 1 if possible in order to reduce
+> > -	 * the depth of the stage-2 walk.
+> > +	 * Some cases where concatenation is mandatory after de-ciphering RSRKBC
+> > +	 * in the Arm DDI0487 (K.a):
+> > +	 * - 40 bits with 4K: use 2 table at level 1 instead of level 0
+> > +	 * - 40 bits with 16K: use 16 tables at level 2 instead of level 1
+> > +	 * - 42 bits with 4K: use 8 tabels at level 1 instead of level 0
+> > +	 * - 48 bits with 16K: use 2 tabels at level 1 instead of level 0
 > 
-> Well, that's one of the doubts I have about enabling this code. From
-> userspace we are requesting a reboot (I don't even think that user
-> space knows which reboot modes are actually implemented (?)) and we may
-> end up issuing one with completely different semantics ?
+> This confused me, since per R_DXBSH, that last one is the only one which is
+> actually mandatory in general; the others may be valid per R_PZFHQ and
+> R_FBHPY. The additional R_SRKBC constraints come from the PA size, not the
+> choice of T0SZ (and thus ultimately start_level) itself, so although I guess
+> this probably works out true in practice based on how the SMMU drivers
+> happen to behave today, it's none too obvious why.
 
-You're right here, userspace issue a "reboot bootloader" and if kernel
-doesn't have the support to set up the right cookie, the device would do
-a normal reboot and not stop at the bootloader. This problem exists
-today and I think whether this is an issue to solve is out of scope here.
+Ah, you are right, I got a bit confused, it's not actually about the
+input size, but the fact that the SMMUv3 driver uses IAS = OAS for
+stage-2.
+And constraint R_SRKBC is about the OAS size.
 
+So in case we change that IAS = OAS for stage-2, we could end up using
+concatenation when it's not mandatory.
+I don't think that's a bad thing (I was actually thinking of changing
+the code to always use concatenation if possible)
+But, I can re-write the code in terms of OAS + granule instead so it's
+more robust incase we change the stage-2 config in the future.
+
+Thanks,
+Mostafa
 > 
-> Are these "reset types" exported to user space ?
+> Thanks,
+> Robin.
 > 
-
-No mechanism exists to do that. We could do something specific for PSCI
-or do something generic for everybody. I don't think something specific
-for PSCI is the right approach because it's a general problem. I don't
-think there's enough interest to change reboot command plumbing to
-advertise valid reset types to userspace.
-
-- Elliot
-
+> > +	 * Looking at the possible valid input size, that concludes to always
+> > +	 * use level 1 with concatentation if possible or at level 2 only
+> > +	 * with 16K.
+> >   	 */
+> > -	if (data->start_level == 0) {
+> > +	if ((data->start_level == 0) ||
+> > +	    ((data->start_level == 1) && (ARM_LPAE_GRANULE(data) == SZ_16K))) {
+> >   		unsigned long pgd_pages;
+> >   		pgd_pages = ARM_LPAE_PGD_SIZE(data) / sizeof(arm_lpae_iopte);
+> 
 
