@@ -4,97 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63AFED68BDC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 23:05:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF05AD68BDA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 23:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+kL+cS5EvQ3n9arZXmohSwmGYBlKGAKyqHLz8twlVd4=; b=FDQqwHqQGfu6cCmIHT/Sb8yIF+
-	Q8AThOw+kICmDv/B+wSYTi0MfCm7KWNbK0IPjs0LBxMfN+/BFdOoYeC1B/KXfgR8F/mu2owF8kaIc
-	rFjpKHK1KM+El477P5y6orjtRor7ThBXedOpKX5KrEbfzXuyO4j77kXqjlpCXw8fBO8X4dZPOaXtX
-	dt2pzi7xARY4YHWcHgf/9Y0JyJ/RZA+Ig9bpQTLS+lqxGznm4V/U1Kcg/9jojBRNWB2IEPTn94ask
-	0YTlQtdvAIMVWOCH3bvxD0fOebYtNhHL33Gx7v6k/X14EKlgJCHV09jS4E5IUMCg++AfMwvXZL6JF
-	/LLI99Qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qcrQFln46UFlE694DWfC1ZjSKJsmjOjqAXF3uHAiEnk=; b=NF6hsAaPFCKojYzaYWyhzREHOd
+	b13E1PJb5d3fF1Yx5ivg1IYy2n7W2QjpYpUI0n3rMX0CLNWp5bAKyOfmZCaQd5EADLDW7lifvAY0/
+	/u+LYQHUaIhmBLN+eIIO2cBo0C0DqAacskbAzo2vvsYvM7zOA70/5jA52V6JLBWOqcH77rp7OR3Uj
+	us9zCSlD3fuj2hNg82yWSiV9U5IS+9K2/TtaXLJcvnm2hYlRu7JCocaJB3NC4E4Mq+4CKnSLwTn3y
+	J0kXcDKvGWVEko3fjxCrfgnqKa3pDKe65iZU3O9WUtIe3H387FrCI2cihc/X2Hv8dZHmutoxJazPF
+	9y5wohBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC5N5-00000004VMb-1FmP;
-	Fri, 15 Nov 2024 23:04:59 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tC5P2-00000004Vq8-3yZk;
+	Fri, 15 Nov 2024 23:07:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC5MA-00000004VDh-12tb;
-	Fri, 15 Nov 2024 23:04:03 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-431616c23b5so13504595e9.0;
-        Fri, 15 Nov 2024 15:04:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731711840; x=1732316640; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=+kL+cS5EvQ3n9arZXmohSwmGYBlKGAKyqHLz8twlVd4=;
-        b=EJqLHFuhSL4divXqC97iWkEpnFxYqibgrVL+iC1ivvL4r/gXNcRsfSOi1fVUGGs6uk
-         7FWahcsCd6KBlSzBmB8SnWmwiY3mE+uJyNU7vVrNGSnGKRHoXL4uB1tx14SrgGkFwcH0
-         Zoy8Kq6criNiELofkf+iM0+JZ8kEOohc1aqhOqVEMWTyFc+cvtg4CMrtvIvrWC+8lsbv
-         puPa3ziCEW/Ljh62FUJlphIvSj6v5Gmx+tsJJZ0bx2ZupcDQUkkixzVUuwWFwKK9eo9H
-         YFoTmYwdAHGJi9cApTdgsmZfQ3cA63AJ6R3U5WZFs+o5A4qFHQL1N7ESyryOUV7kRsxp
-         dn2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731711840; x=1732316640;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+kL+cS5EvQ3n9arZXmohSwmGYBlKGAKyqHLz8twlVd4=;
-        b=Tcy6RRZjcaeNp+I+N7xR7juKbF88XK5OYnP24oh5v1u/h5qc0+cK8yc4VZYVWNoE7h
-         ndbgNogMJCDhOtH9JFyv5pATkWpPt3LV/RQNF1Dc/r1O50PUU9hD6oex4PdcucJwnSjO
-         mRk3HZas/l8a+TMb/hbcIstIqh3OmShE02983un+B1AttfC/slD7Wmd5TkG7IlJB1f+P
-         ArwAPVUlRh12yNOALFgC8SquRPDZSqEWxEy5EMNbSokviFilgIiaI5jDydZ0vZb4dfPD
-         7OYLI5JvpIa8PTVCCdjGAu7k8GFNBwq7sBh4Efffagme9or/RbUWPV4F4PwaWbyvkmEC
-         ainQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUQlgt04jzz8dron3QzEUsy0/1TJALR2AQZC1N8y5aOOsQOCPp0pCED30iZx64dhnW4mvKbxP+DVK8ey5QKc3g=@lists.infradead.org, AJvYcCXI7FrNxtk1UJTgWnwKNUVynyFw/5009/RenYbs2FYb3RFRyiEJ7PZZXLbH/XC24bNtEO0spCCGKxTLz6AkVOjl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzI7OmffUMUOcWIIW9C3zjaIG8r5//8uv8hZPEs97xejw8heAzX
-	YyJlYAmPRygdZq/ZJA80UUL6pUCYARS7ZVUaEZsweHXdUAuxxhcF
-X-Google-Smtp-Source: AGHT+IFn0fKVGf6BpBp5O3iANa0DxDXJALEgYAxM1KyvBAcvk7mElBpZceoItdzxTC/3s5Ak5XOV3A==
-X-Received: by 2002:a05:600c:3516:b0:431:5226:1633 with SMTP id 5b1f17b1804b1-432defd2589mr40395195e9.6.1731711840247;
-        Fri, 15 Nov 2024 15:04:00 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432da24498csm72756525e9.1.2024.11.15.15.03.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Nov 2024 15:03:59 -0800 (PST)
-Message-ID: <6737d35f.050a0220.3d6fb4.8d89@mx.google.com>
-X-Google-Original-Message-ID: <ZzfTW_cjJrGqLUff@Ansuel-XPS.>
-Date: Sat, 16 Nov 2024 00:03:55 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	id 1tC5O7-00000004Vf1-1fcY
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 Nov 2024 23:06:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5D764A41EC0;
+	Fri, 15 Nov 2024 23:04:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF8F9C4CECF;
+	Fri, 15 Nov 2024 23:05:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731711961;
+	bh=e/qjcGC/Gz+mw55kmBF1sqB0PcOV6jBJy2tWUAT/rrA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=nbpOA4J6ApxLj+x+T5PhlAzZATCwyQyhz9cFaeuFTriSV4jNBgkbcr+YnT33CYU8f
+	 eb8CEWGe+UYmE2Z1tYhdoNvTCMqp/8kQiVF+u4FiY0b6NUVDACoDDBTYWU4G2s+c5i
+	 4CmvxKD8UuBy1FbWwC/Tr5lR5qYs6ArlnuKhMyv+o9vfI4QT5aAEwNOT9K9xvWwCFC
+	 Q6EVTnvXodkHea6AHDiFU8u7n6qvsNnp3gJGfR54eNhE6qBSNIjR2C8nixbI9E1jIc
+	 qc2mh+B1ItHKTHebK/Fv2URc/CxqJzilq8FPBpLHWa7fz90Xj/2piDikKkbT4IPave
+	 Y30wzoHEagrsg==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Sudeep Holla <sudeep.holla@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Mark Brown <broonie@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v5 3/4] net: dsa: Add Airoha AN8855 5-Port
- Gigabit DSA Switch driver
-References: <20241112204743.6710-1-ansuelsmth@gmail.com>
- <20241112204743.6710-4-ansuelsmth@gmail.com>
- <20241114192202.215869ed@kernel.org>
- <6737c439.5d0a0220.d7fe0.2221@mx.google.com>
- <20241115145918.5ed4d5ec@kernel.org>
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org
+Subject: [PATCH] firmware: arm_scmi: fix i.MX build dependency
+Date: Sat, 16 Nov 2024 00:05:18 +0100
+Message-Id: <20241115230555.2435004-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241115145918.5ed4d5ec@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_150402_287170_8DFC406E 
-X-CRM114-Status: GOOD (  19.66  )
+X-CRM114-CacheID: sfid-20241115_150603_571532_9CB7ECD9 
+X-CRM114-Status: GOOD (  22.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,46 +83,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 15, 2024 at 02:59:18PM -0800, Jakub Kicinski wrote:
-> On Fri, 15 Nov 2024 22:59:18 +0100 Christian Marangi wrote:
-> > On Thu, Nov 14, 2024 at 07:22:02PM -0800, Jakub Kicinski wrote:
-> > > On Tue, 12 Nov 2024 21:47:26 +0100 Christian Marangi wrote:  
-> > > > +	MIB_DESC(1, 0x00, "TxDrop"),
-> > > > +	MIB_DESC(1, 0x04, "TxCrcErr"),  
-> > > 
-> > > What is a CRC Tx error :o 
-> > > Just out of curiosity, not saying its worng.
-> > >  
-> > 
-> > From Documentation, FCS error frame due to TX FIFO underrun.
-> 
-> Interesting
->
+From: Arnd Bergmann <arnd@arndb.de>
 
-Seems it's even supported in stats.
+The newly added SCMI vendor driver references functions in the
+protocol driver but needs a Kconfig dependency to ensure it can link,
+essentially the Kconfig dependency needs to be reversed to match the
+link time dependency:
 
-> > > > +	MIB_DESC(1, 0x08, "TxUnicast"),
-> > > > +	MIB_DESC(1, 0x0c, "TxMulticast"),
-> > > > +	MIB_DESC(1, 0x10, "TxBroadcast"),
-> > > > +	MIB_DESC(1, 0x14, "TxCollision"),  
-> > > 
-> > > Why can't these be rtnl stats, please keep in mind that we ask that
-> > > people don't duplicate in ethtool -S what can be exposed via standard
-> > > stats
-> > >   
-> > 
-> > Ok I will search for this but it does sounds like something new and not
-> > used by other DSA driver, any hint on where to look for examples?
-> 
-> It's relatively recent but I think the ops are plumbed thru to DSA.
-> Take a look at all the *_stats members of struct dsa_switch_ops, most
-> of them take a fixed format struct to fill in and the struct has some
-> extra kdoc on which field is what.
+arm-linux-gnueabi-ld: sound/soc/fsl/fsl_mqs.o: in function `fsl_mqs_sm_write':
+fsl_mqs.c:(.text+0x1aa): undefined reference to `scmi_imx_misc_ctrl_set'
+arm-linux-gnueabi-ld: sound/soc/fsl/fsl_mqs.o: in function `fsl_mqs_sm_read':
+fsl_mqs.c:(.text+0x1ee): undefined reference to `scmi_imx_misc_ctrl_get'
 
-Thanks for the follow-up, they are the get_stats64 I assume, quite
-different to the ethtools one as we need a poll logic. Ok I will check
-what to drop and rework it.
+This however only works after changing the dependency in the SND_SOC_FSL_MQS
+driver as well, which uses 'select IMX_SCMI_MISC_DRV' to turn on a
+driver it depends on. This is generally a bad idea, so the best solution
+is to change that into a dependency.
 
+To allow the ASoC driver to keep building with the SCMI support, this
+needs to be an optional dependency that enforces the link-time
+dependency if IMX_SCMI_MISC_DRV is a loadable module but not
+depend on it if that is disabled.
+
+Fixes: 61c9f03e22fc ("firmware: arm_scmi: Add initial support for i.MX MISC protocol")
+Fixes: 101c9023594a ("ASoC: fsl_mqs: Support accessing registers by scmi interface")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+I'm not sure this is the version we want to go with in the end, without
+having read the code in detail, but the version in linux-next is clearly
+wrong in multiple ways and this is the best I could come up with so far.
+
+If we can agree on this approach, it needs to go through the ASoC tree
+as that contains the 101c9023594a commit at the moment.
+---
+ drivers/firmware/arm_scmi/vendors/imx/Kconfig | 1 +
+ drivers/firmware/imx/Kconfig                  | 1 -
+ sound/soc/fsl/Kconfig                         | 2 +-
+ 3 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/firmware/arm_scmi/vendors/imx/Kconfig b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+index 2883ed24a84d..a01bf5e47301 100644
+--- a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
++++ b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+@@ -15,6 +15,7 @@ config IMX_SCMI_BBM_EXT
+ config IMX_SCMI_MISC_EXT
+ 	tristate "i.MX SCMI MISC EXTENSION"
+ 	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
++	depends on IMX_SCMI_MISC_DRV
+ 	default y if ARCH_MXC
+ 	help
+ 	  This enables i.MX System MISC control logic such as gpio expander
+diff --git a/drivers/firmware/imx/Kconfig b/drivers/firmware/imx/Kconfig
+index 477d3f32d99a..907cd149c40a 100644
+--- a/drivers/firmware/imx/Kconfig
++++ b/drivers/firmware/imx/Kconfig
+@@ -25,7 +25,6 @@ config IMX_SCU
+ 
+ config IMX_SCMI_MISC_DRV
+ 	tristate "IMX SCMI MISC Protocol driver"
+-	depends on IMX_SCMI_MISC_EXT || COMPILE_TEST
+ 	default y if ARCH_MXC
+ 	help
+ 	  The System Controller Management Interface firmware (SCMI FW) is
+diff --git a/sound/soc/fsl/Kconfig b/sound/soc/fsl/Kconfig
+index 8e88830e8e57..678540b78280 100644
+--- a/sound/soc/fsl/Kconfig
++++ b/sound/soc/fsl/Kconfig
+@@ -29,8 +29,8 @@ config SND_SOC_FSL_SAI
+ config SND_SOC_FSL_MQS
+ 	tristate "Medium Quality Sound (MQS) module support"
+ 	depends on SND_SOC_FSL_SAI
++	depends on IMX_SCMI_MISC_DRV || !IMX_SCMI_MISC_DRV
+ 	select REGMAP_MMIO
+-	select IMX_SCMI_MISC_DRV if IMX_SCMI_MISC_EXT !=n
+ 	help
+ 	  Say Y if you want to add Medium Quality Sound (MQS)
+ 	  support for the Freescale CPUs.
 -- 
-	Ansuel
+2.39.5
+
 
