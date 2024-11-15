@@ -4,148 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AAABD6DDD5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 05:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8356FD6DDD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 05:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SVz4AKcMAuwonFvZ/Gp9Ev2rF/JsS/L1xWYm5V4XvyY=; b=i6EHv3AHCYZ1yQ/O0l+4coSn1I
-	yXi2eqHxFL33uucMA32r+ZWBpqJ1TxhwwjWksat7C4csMRi9VWsFvaUR8QselDVN5RV1TAClcS3uk
-	lBwhdK0Eo/+DuvxN660qO9ywe9pREI52rJzEt4ZolKWwmDA7przXd67v9LUW33k8RfZwAoA7on5Xr
-	6sIONwFmc/6jDLXlB4ai9o9KIIngweZtDeP+gWgPfYgQDj2METFexzPJZVsT8DGZ4wtwSHuI+CkVp
-	DLoUbxFzg4Tj+pyiiVkNHi1tcV5WrSrCFQT9mNTu+zW8mRHxbBiGJVtQGrYZl30einUNMe+SQ+wOm
-	/3UVNn8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zYUsb8uxXS4aZuv0U2nOzBX4wh/+N4YYP8b8TTwW06Q=; b=jrRb5T1MFU5dnz9I7doJgUmN4x
+	hdjzC5s8+qBAPiIUIyFzxssRVSpiucY5hpGaB9ocoPPD5umHL3A2SyITFEiYo4koKMXjHSz3uJeTT
+	9BU2jD1pnnniDQeL055qpcu1Y+DtapS1CZzcR/BPgHK0GXEmABf0qbtJ1KpGe+K9vwDCVuzN6YOHP
+	IBZzTUMn8MRNQhu4fDlPPdpU6dZWIcbszm6evE9zMuQisPZWc2zW7+VKCswW4dWuD+FQcW99tj/WP
+	3PW3Gc7VYhX9OW/YJ9XKhSs9awIAa22AFuu9n83iNqGEYWdhcAf2JTwa+ryZLeYPwgIDKX/i/urYr
+	tTgkweHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBp3j-00000001gL5-24Q9;
-	Fri, 15 Nov 2024 05:39:55 +0000
-Received: from mail-centralindiaazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c408::3] helo=PNZPR01CU001.outbound.protection.outlook.com)
+	id 1tBpFY-00000001i9X-3MvV;
+	Fri, 15 Nov 2024 05:52:08 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBp2o-00000001gGa-1zOD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 05:38:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MxZ8ZTYuIIN8H0GKNmUbI0Q3s0AekLcK4WN02L+C/WzJ5J5XdV2miiHz926y8+zU+//CNRYEi3QqWWjCaU/+v6zpk0nUgXpTicrrXlBAmK2LfjQ6pZL1XNmQjuvgtlRXou+RqJOx5msbf5HIFP/2ba/63dqqMtel4idtSqeGnL/d4tq9katEIqKZColhTtoSUfvPCjqe5XhAWPRFi0ds5H1zwJSujJwwJkNZ+/A171PvH7RF1V4dxAqwDbTDyBmcCJW9Xh7TLbFSdMe6W3bjtJaMyBa/fksao7RLPF+NcCnofvp9k16fIkj7exs9qXKUTxltyP6SOZ5KeX2h58GQqA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SVz4AKcMAuwonFvZ/Gp9Ev2rF/JsS/L1xWYm5V4XvyY=;
- b=DaqU8T4d0Kejv8mBUIlg4Lqy2pgoaxcOefi/BgQHC7UcV6q3cBpkQUfuM0VPAVEQEjvhWJUBe4oyhTT2sGkZElrUYJ9Lyn0opWO6xcrjDoh4nXr5HMDX+x6IjqaW1Kf+z3mOIBp7hx7sybvcGX5LHdV3YWOIeQiNNZlCgnDbR54F5hG56iHy23ZhY+39bM07J5PJdWuX86WiPYc5igr8UnFSCtWUYxIiuXHb+oRhffenDmbjQP+cR+6iv3BK8cSDtxAhBEUubyQA9taMmYT0TAMB5fATskfOJORll21Ifvhiyi/wGSanYaqxDGWwQ30POuSS/0zMv/a9mJ3MeWNWuw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=siliconsignals.io; dmarc=pass action=none
- header.from=siliconsignals.io; dkim=pass header.d=siliconsignals.io; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=siliconsignals.io;
-Received: from PN0P287MB2843.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:204::8)
- by PN0P287MB1589.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:180::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.29; Fri, 15 Nov
- 2024 05:38:35 +0000
-Received: from PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
- ([fe80::1134:92d7:1f68:2fac]) by PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
- ([fe80::1134:92d7:1f68:2fac%3]) with mapi id 15.20.8158.017; Fri, 15 Nov 2024
- 05:38:35 +0000
-From: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>
-To: will@kernel.org,
-	broonie@kernel.org,
-	anshuman.khandual@arm.com
-Cc: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4] arm64/cpufeature: Refactor conditional logic in init_cpu_ftr_reg()
-Date: Fri, 15 Nov 2024 11:06:35 +0530
-Message-ID: <20241115053740.20523-1-hardevsinh.palaniya@siliconsignals.io>
-X-Mailer: git-send-email 2.43.0
+	id 1tBpEc-00000001hsT-1wld;
+	Fri, 15 Nov 2024 05:51:11 +0000
+X-UUID: 982c3020a31511ef9048ed6ed365623b-20241114
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=zYUsb8uxXS4aZuv0U2nOzBX4wh/+N4YYP8b8TTwW06Q=;
+	b=mcGjQ0WeoaToqiC+NgLFDBQ6q0LUsgjo+d2iUae5jlB811nEP1+mtA/69r9BTRynoNhR8upcwRRXAlCTqqNrz8xqyii/GA36haGhl7HtxlndIkcR+6+EuhKyIGxVz5IvrJMBtrw8xxbO4hjs3rn4KW65QmG0YKamvcnRqcxf6no=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.43,REQID:7854cfe4-6a87-471e-8577-ffc580eab8dc,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:ce19b8a,CLOUDID:b8df174f-a2ae-4b53-acd4-c3dc8f449198,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 982c3020a31511ef9048ed6ed365623b-20241114
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <yunfei.dong@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 207894890; Thu, 14 Nov 2024 22:51:01 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Thu, 14 Nov 2024 21:50:58 -0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Fri, 15 Nov 2024 13:50:58 +0800
+From: Yunfei Dong <yunfei.dong@mediatek.com>
+To: =?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?=
+	<nfraprado@collabora.com>, Sebastian Fricke <sebastian.fricke@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Hans Verkuil
+	<hverkuil-cisco@xs4all.nl>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Benjamin Gaignard
+	<benjamin.gaignard@collabora.com>, Nathan Hebert <nhebert@chromium.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>
+CC: Hsin-Yi Wang <hsinyi@chromium.org>, Fritz Koenig <frkoenig@chromium.org>,
+	Daniel Vetter <daniel@ffwll.ch>, Steve Cho <stevecho@chromium.org>, Yunfei
+ Dong <yunfei.dong@mediatek.com>, <linux-media@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v5 0/3] media: mediatek: vcodec: support h264 extend vsi
+Date: Fri, 15 Nov 2024 13:50:45 +0800
+Message-ID: <20241115055056.29917-1-yunfei.dong@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: PN3PR01CA0140.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:bf::12) To PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:204::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PN0P287MB2843:EE_|PN0P287MB1589:EE_
-X-MS-Office365-Filtering-Correlation-Id: 611c1095-92f6-4060-e250-08dd0537bf9f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|52116014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sSXezjCdTyPadODL68QLivLQtbmdClSTTGSY/2pYHCUxHnuAy9w0etKjqxgJ?=
- =?us-ascii?Q?CG34/cW3z+9RTlvG9Pk68khuw3mAdAfPW/WhmZGz9ElyRoAuoVSIRuDdDQBx?=
- =?us-ascii?Q?UMT4c9BHUl5JX6+q7AKSemyL7/ZFL4yDcMMT0XjtW3zqdmCtr23PO/2mKh+3?=
- =?us-ascii?Q?gxsOkAyWaPnJmmGMy++gaBtaDnPDFnwottOfQRjOIT0bepc5ubAcbcP+djLb?=
- =?us-ascii?Q?xP7hj36W6QZdnGXMjLS9eiv/TdzzOlrhxBT+vxxAWp9c0puSsFVX+Nr/wa7/?=
- =?us-ascii?Q?ir5Ju4XlneRvbfW6+nOp4m8TtAkjDU8Fvkqtk8bQzGzFvr1DWiP7XtUXTVbp?=
- =?us-ascii?Q?81LL4nm8WzqzgbQJQb4YEr0b9HUnmwjsRlm8BUabyrpvED6vcrn43NdUYaNt?=
- =?us-ascii?Q?PDlsXs2DN3Nu0LRa8bfyyi7cw0fY5h6RBVn6SpomFxGlfG6srjiGxrpuCg3d?=
- =?us-ascii?Q?gzbiNR8IUNMkakv0aQuV7AZOj4OsbAm4r0C8RjvNKVZNpQWScGV+cRCcJBe3?=
- =?us-ascii?Q?UqTOdYJu3QSg8rcR2HDOuwkh9MFkaGDfM7dqDswFRXZjdFoKzRqHISAdGSnU?=
- =?us-ascii?Q?dXcTJDInLpTOLQ/RZkodVXt+xdeO0H5UkPo7RsBic7y6wOAjQRmhMe06i6xr?=
- =?us-ascii?Q?BALN09t80kGkNdu9txsB9OPPllX50eJp03+Pp+nfjOBhMTYRQaYoVhv/mBxQ?=
- =?us-ascii?Q?L/DgS4eLFTd8HexDng1r/3o5+Rg/WiXs+Yeya7qgYZT1wYeZatYHSTgxUoVp?=
- =?us-ascii?Q?U9tZPshfDuLH2S1xVpGkqohXwuc9cRxU/ryyJywudCz1QjvlL5oxY5VRU1D+?=
- =?us-ascii?Q?P26okhvMa25Uya/ZjaWRH14dlSZTtS6gr05MAvAGKZN0RR+hLE7Moaau7KMA?=
- =?us-ascii?Q?lQ/GZwOsr84EncFIOu+rEvnkWsEPmFwBkJTKbFKZFhE/Zl3bi7PEcF8rSZjf?=
- =?us-ascii?Q?ZNXK3vMhJTGiowca/DadTFmRY1BCunpgiAG0l142tNRHK6XqcA0eVaTyymGq?=
- =?us-ascii?Q?Pi23v19RFjgu6levFx8zDjQsOcqpitj0Qa1xOcmCDZcU4M7GgAJQNQ6midsx?=
- =?us-ascii?Q?yNXMcae9yzUrEDQujJpWHtbWFhhRTfihRpOlOCWIOk0CckctKRdPhYrJSle7?=
- =?us-ascii?Q?PSx562AWjpb+h9xbjcg1k0Wu9yeoolVWTsTtLROyCtWhVn18BPanz4PhDSAU?=
- =?us-ascii?Q?OCczXvMWn2kTDMQuwJuSa3QX4tHY2NRhw8TNeVHBuqjLOtD1AN0SibwAQ8Ne?=
- =?us-ascii?Q?uOjHphZbmt23MQvOglWpcIkSCIzz5PsSa4JfF/JEKvXV1PsKR+HKQbzvbZPJ?=
- =?us-ascii?Q?TjQiLjJsMLWthbM/0cbvgNHmKkqL/ty6ap2C0Prtfrkuu/xIs6fVG+q2ntv+?=
- =?us-ascii?Q?YcECr3E=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN0P287MB2843.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tS6nOd1PySjMeQXcLIb0gHgI19IhLgf12VS4L1CORpzqfNb/7XeB/ctom8rr?=
- =?us-ascii?Q?kC+g//ALO2oDVc2gf+VxU5g309H3qfdZnc1Puf7uL+AhAaYVbxRZeFYVN7n8?=
- =?us-ascii?Q?rrdKriNrwXC5uKWCcjnNdCzNxfVqaDx3TfzmxwPMvWDn6i8iHlx24vmddn8w?=
- =?us-ascii?Q?KSIK1FDOPSagc1yOAB2FhFXeNx94g2ra65zA//gTN0ILHmzzRs04p6MyrCwC?=
- =?us-ascii?Q?71CYzwWGmPs2e8ZOaOZhlSAxe1d7UBNzqX0e+nfmNglVbkpS/oA90OpIWArS?=
- =?us-ascii?Q?ATlyhVYKS1XjWkXU+zudtLX9Sr3GHSgWQybV/O93+8o9F4TO5m7auED9xX2u?=
- =?us-ascii?Q?p+rKk4ehM+BriHllQR6jGIg+y8G+27nWy7PLVgHAcetZFFSRQzbp5+wchZHE?=
- =?us-ascii?Q?wOmPGGSo8gV/pfMAYEXoC33CLh5bPJQczDaCRtv3A92mIm/lB+5n0QQIObnU?=
- =?us-ascii?Q?cRODhYMauVgQa4Yqn5ySfjH6aGrTI6flM+8Qa9ba8UT0L06ERfNZq446M8Yz?=
- =?us-ascii?Q?Ygi1qo7DDmuuvGHN8F+pchsFBLD75Yw46DYZ7xqAFPQiBGBgDcsGawPvfsdE?=
- =?us-ascii?Q?jZjjs7H0a5CxJdyf+aEEinpWbqvaZ7tI6KX7xRH+k7Q+qhOrpkJz2Z3xoqK2?=
- =?us-ascii?Q?m4WBDgnUYmERHEe1emBocvtopjm3B3OB7DFKpfMGf5mbyB0tfy8j1Tyd3W8r?=
- =?us-ascii?Q?4gSiT9KJKIWX4y6X9AvD46EOz2IREXYbyBJ3zE4aBq3XY0R8DS0nXz5L0yfF?=
- =?us-ascii?Q?VZy2Sme8xE/SNM+LzH0cThrFTB1V9VxaIVZoshM2ZJF+yLj3JNw0LqZil+55?=
- =?us-ascii?Q?K4Tn2ZmpWjB7INgbeBlG8t7B/AxblWR5aUnv3fzCtYPasMAgaoRi2Olb/Mzz?=
- =?us-ascii?Q?2zffx+zL02Pg+VEwOUVEq/Hx/UegKejeoBQbYtR8VOfmYYb+dvuFdIPCciMl?=
- =?us-ascii?Q?+WxU416Y8dQJtMi6/UjQrFzwsGbF9GtGovl/oY1yMLvOPBjUplcCBlkDntxT?=
- =?us-ascii?Q?i1cDqwreEVJuDmDGhgGd7jWeqRQiauYbn5k3XkYAtlXphK/AiHtMLbSiDG4M?=
- =?us-ascii?Q?yi9aCd3Ce2xjVxcclpGCmdjdybgAAZ/gf3ZlTEMUV+d4w1MjeHrTXRdW38rr?=
- =?us-ascii?Q?UM55h7aU8IM2BfYac/Q0F00lMVxszw+lYFgernN//MJn1YH/6UpwJcLWwWiy?=
- =?us-ascii?Q?cQT1+pTQsjZ+Nh+W325QeaEfPTx/BSYCa3dyVPehoU41oczgaQ6PMeq983Gi?=
- =?us-ascii?Q?5Hq0+DiRbsvhOhCGgaxVYjGJcMIXb6b0uCB1d9Qj1oeSoBFDaLNN1Fx+gaZd?=
- =?us-ascii?Q?hEsi9necC/N0HrgQIjTzgAQNJ7PPrX/TpY5hmNZ5kZiTrXbWfhOD4rm4UdON?=
- =?us-ascii?Q?RsrnTF7APGluj1oBLz0jEFJXhH3iwo7Sh/0vJunOZVC2q8ZbznNlG+metBz7?=
- =?us-ascii?Q?uNmJlQMYRlj+xtGm30k17qRL11GD28pmfDtylmmd/4wSfk20rkUD97sVioXS?=
- =?us-ascii?Q?13dGUiqxfHMdCiBBI+bx4I9g8HcPZID0ePdaeumMRXOQx+CLqDT1BqQzq8Ql?=
- =?us-ascii?Q?9SHUlWfLJOjmeCEmynpCrK6hB97TJ4Xtp+7ksuWS7j25z1YdQAcwVWbm8pDB?=
- =?us-ascii?Q?SDGawY5mMryc5dSO/km8PBzWHmVTRGqd4oKnOCQ+bLfq?=
-X-OriginatorOrg: siliconsignals.io
-X-MS-Exchange-CrossTenant-Network-Message-Id: 611c1095-92f6-4060-e250-08dd0537bf9f
-X-MS-Exchange-CrossTenant-AuthSource: PN0P287MB2843.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2024 05:38:35.3904
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 7ec5089e-a433-4bd1-a638-82ee62e21d37
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YLR2S4L0uYawDQx5qaCKvlZlCC0+G5M01RjZnTUzpYvW1RdagV3/PRFgf6vL9z/uv1qGkWDbVLZDuOerC40ppXhxLUubo4qhnrK09zysW0Vn7wHZHXR1EeN78e4iq0e3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB1589
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_213858_511881_B9CB2DBA 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20241114_215110_647202_14C50487 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,69 +92,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unnecessarily checks ftr_ovr == tmp in an extra else if, which is not
-needed because that condition would already be true by default if the
-previous conditions are not satisfied.
+The working buffer address start and end are calculated in kernel
+side currently, the address end can't be calculated if the driver
+only getting the address file handle, not the real physical address.
+Need to send the extended vsi to firmware to calculate the address
+end.
 
-		if (ftr_ovr != tmp) {
-		} else if (ftr_new != tmp) {
-		} else if (ftr_ovr == tmp) {
-
-Logic: The first and last conditions are inverses of each other, so
-the last condition must be true if the first two conditions are false.
-
-Additionally, all branches set the variable str, making the subsequent
-"if (str)" check redundant
-
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Signed-off-by: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>
+Re-construct some interface and add configuration to support extend
+and non extend driver at the same time. Needn't to parse nal info for
+extended architecture.
 ---
-Changelog in V2:
+compared with v4:
+- rebase this patch series with latest vcodec driver
 
-- remove str check
+compared with v3:
+- change code logic with callback to decode for patch 2
 
-Change in V3:
+compared with v2:
+- squash patch 2/3/4 together
+- re-write commit message for patch 1
 
-- Add logic in commit msg
-- Add review tag
-
-Change in V4:
-
-- Change subject line
-- Add review tag
+compared with v1:
+- combine some pathes together for patch 2
+- re-write patch 4
 ---
- arch/arm64/kernel/cpufeature.c | 13 ++++++-------
- 1 file changed, 6 insertions(+), 7 deletions(-)
+Yunfei Dong (3):
+  media: mediatek: vcodec: remove vsi operation in common interface
+  media: mediatek: vcodec: support extended h264 decode
+  media: mediatek: vcodec: add description for vsi struct
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 718728a85430..728709483fb7 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -989,17 +989,16 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
- 				/* Override was valid */
- 				ftr_new = tmp;
- 				str = "forced";
--			} else if (ftr_ovr == tmp) {
-+			} else {
- 				/* Override was the safe value */
- 				str = "already set";
- 			}
- 
--			if (str)
--				pr_warn("%s[%d:%d]: %s to %llx\n",
--					reg->name,
--					ftrp->shift + ftrp->width - 1,
--					ftrp->shift, str,
--					tmp & (BIT(ftrp->width) - 1));
-+			pr_warn("%s[%d:%d]: %s to %llx\n",
-+				reg->name,
-+				ftrp->shift + ftrp->width - 1,
-+				ftrp->shift, str,
-+				tmp & (BIT(ftrp->width) - 1));
- 		} else if ((ftr_mask & reg->override->val) == ftr_mask) {
- 			reg->override->val &= ~ftr_mask;
- 			pr_warn("%s[%d:%d]: impossible override, ignored\n",
+ .../vcodec/decoder/mtk_vcodec_dec_drv.h       |   2 +
+ .../decoder/vdec/vdec_h264_req_multi_if.c     | 589 ++++++++++++++++--
+ 2 files changed, 524 insertions(+), 67 deletions(-)
+
 -- 
-2.43.0
+2.46.0
+
 
