@@ -4,90 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7463CD68BCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 16:39:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B88D68BCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 16:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=X5FKveEGFoRtJToEkzkSd7Mwk8gc6fAM/LYYJdowFdM=; b=0tfA9YhbpTgngdluyFBQarsSpP
-	2STdq0Q4Vq7fZRzoil0IWq+/lnMnyZaUz8bmJnSNoQ9EbOjvEK0jX6JhrLwwoKqxp78o54zKGpJIP
-	Ap5m9uWGwks5VaPr+kS/80B88bF4VATY589cVvuUklLX9cq1vzic+tqLIs5i6JLyja2y6OU6s6xld
-	ITcaSKRYDvuBfZCkRIPGC9ZjPNlnVVtZSobpWPkCgn2owcgYW2uzMelNr+CvGmoXreGyh5cNeZ3fQ
-	ad65eO4MB9F24A6iGRWjuVBMLZsWN81X41NOkOrKgSDbC/E5n4wMZrRU2Mt+8nBM1cnYn5p7Gq9Tg
-	+eqjGGBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aIXwLxG+SpzhPWf3vEsiDDXydvymJ/Yv6GPtBi4V8/Y=; b=LzimMQXzqhwu6h0AhRIA1qJyGG
+	wPdix3//xBjPpZ7SMxP1XQYsSVS7tdxJI/fr2K+zI+yv6bO1k1tuCQ3w3AZJUdNBGwy2+bd6K/OJr
+	6NJBFjXkwpPP2c/SeoB3sc44WHsus04dPEzeGVdaLlzDR5CEZagKBxMZfp3sLy5nd34FEotoEgwjk
+	QUavwVKSsqxcOcj3vwGXubIvAcvl5pAF0zD/2BB35275SRjURQDRt2xPIn7eXEP5kNR6qqPjJoxTe
+	RpPrsJOdXCMF7w1NmNs1VlxwdD6KVOtIlsTjxQITEh3VKT4fcQUtva9xOeVFVTm9KAwIZ/cKVtcla
+	wJ3BPDsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBzLj-00000003Nv6-482L;
-	Fri, 15 Nov 2024 16:39:11 +0000
-Received: from mout.perfora.net ([74.208.4.196])
+	id 1tBzNG-00000003P3Z-2WS0;
+	Fri, 15 Nov 2024 16:40:46 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBzKg-00000003N0N-35I5
+	id 1tBzMG-00000003OS2-2RWv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 16:38:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=finest.io;
-	s=s1-ionos; t=1731688682; x=1732293482; i=parker@finest.io;
-	bh=X5FKveEGFoRtJToEkzkSd7Mwk8gc6fAM/LYYJdowFdM=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
-	 MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=GpvnL11htK1cwtfT46yWvOtnwbWZzHXvvzYdAboHvlQMugZpNl76evj6B3grSQCc
-	 W/cwS7bULfD1ocbLIdbsQ9vqyKhKjvleHRi+7G2HqIU00tlCiJWDITZaREz/mub89
-	 jqK1GN7mzligoMSU+YSA/mVVwHtxNKFb/5tDDu1TnKrv52Q6R5gRqKoQyP9AbMxkq
-	 7VCJso36HlMDHDrH+4byi4mKRKpJ/iaUaIjIIDWmtK+qpuGmfdjrzqygD/LwMvPjX
-	 mABC4hEU9ctXDvK8b7wXNvAU1gWjrdgOzZro5R/Ki/HQVBN7IPCEApIm4ax0rgkvx
-	 zV2x8B5lEmH59j5DLA==
-X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
-Received: from finest.io ([98.159.241.229]) by mrelay.perfora.net (mreueus002
- [74.208.5.2]) with ESMTPSA (Nemesis) id 0MDzNh-1sz0p93pR1-00GdLZ; Fri, 15 Nov
- 2024 17:32:05 +0100
-From: Parker Newman <parker@finest.io>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	netdev@vger.kernel.org,
+	Fri, 15 Nov 2024 16:39:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C214AA42AD1;
+	Fri, 15 Nov 2024 16:37:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EC12C4CECF;
+	Fri, 15 Nov 2024 16:39:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731688783;
+	bh=iRr3qC8xf3SocAeyPSOv4BEKnzUJ3YHOuClfGqNnj3o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AP/GnWwjAUJLjLFoxgVufPIRcVQsuuCixNyxHBMNXq00d0lDhi+r0CB0ZJyC99XZi
+	 sglwDivb/koS7axFD0SOzdC8byWidw6FjVRON36PCqYXjefKXEypjAo1Ut5Tw3b3t1
+	 21q5Vn5Rb9IiF+fSp1XkK4qrm1FqkLpuidYcI+JgbOwnIrm9OxK7PxNJCVNfp07vdN
+	 0+g/2/cgwY+a8Dck3dFLWhcc4o3yUAGyz9kkLlXx1e/UELEajk5UaqMar2+KG8ZSUy
+	 eSKBCwOH2KxJ5A9fhdO0qtf9YW0ajNRR2cBP/vRBSJJyeZwvEaU8jtIcQQz8vSIV6o
+	 48KUb5iGtj3gg==
+Date: Fri, 15 Nov 2024 10:39:41 -0600
+From: Rob Herring <robh@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
+	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	p.zabel@pengutronix.de, cassel@kernel.org,
+	quic_schintav@quicinc.com, fabrice.gasnier@foss.st.com,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Parker Newman <pnewman@connecttech.com>
-Subject: [PATCH v1 0/1] net: stmmac: dwmac-tegra: Read iommu stream id from device tree
-Date: Fri, 15 Nov 2024 11:31:07 -0500
-Message-ID: <cover.1731685185.git.pnewman@connecttech.com>
-X-Mailer: git-send-email 2.47.0
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/5] dt-bindings: PCI: Add STM32MP25 PCIe endpoint
+ bindings
+Message-ID: <20241115163941.GA3324312-robh@kernel.org>
+References: <20241112161925.999196-1-christian.bruel@foss.st.com>
+ <20241112161925.999196-4-christian.bruel@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:VmMzWfMuiUIonudG8UECAGKTtEGicIuJhmmOO1QaBA8Qx1KyLJB
- wEy22iYL30pHd39L68ZkWkpgK3f91L6r7nr17yp6487cxmF8x797lm+/A2kSN+nUJeDFU0f
- TUu07BRkGBlZRFr92mVbbQt0b42wwSutsA6gHHnyYkhIdLRDQCmtwivXqtNG4TKsA8V7eWZ
- vWDhDZwGpz4iZXHdUFetQ==
-UI-OutboundReport: notjunk:1;M01:P0:k+zCuu5Wkrc=;9QzRlWQgP9IpFhY3gK78X3Lxg3T
- 311E3KflXFR3ZRfNrPHXnGDrql7kPvEPyL5NTqx8hGDC/5xLfKtzCkciZhjD4yE6xAsnUOhqw
- KN2mc07wHTNmS65MrTvryBMbwyBygk5WbEJfEFb9sOMn6kFvMHie1usZSWjwVik/vB+kg41+w
- 0xrZBsD8rvWiaVHY0PF6RaEysBdFPGmuHgV07d3DEOdBvJQLhtc5ICYXaJ9FwuAeJamCySMAS
- NmPV8P0woCT30f+HfO5h2iERJr6AihArnhWtuC+MWYVNWAcbbjST0Ym2GXk6aCFlXu8GWDdii
- x/ajXVDkUuwcv6nnbK8WcVTFdB0aAuc9qHx7hzKrzInPnP1mAVtSEyBTc4cf7kuuqmtXFh8dw
- IONkO1PZYb9zHw4ruNXvaJeeMLHBNzc6JLr+ojqX2dNlnt4K7iOh4qshnJSv6QzE3hiZO5YGb
- rUAIA7taTFirSQGRwMtn8gxOXanlKMd9pdKS3TZM32PPgLikYbHg+XP/ZZiM5WvXhfQiPdpq7
- V+H6RyPOof8btmldM8CpxGDfYTRsYitqnwAZoW2pFdQGdnAy2HEPRfeH0kiYq6QYjKAtJbqAd
- wMzgKUOwrsvuzmWwjiF6rTP7F92jwxRdOFf/lIEqqrWrPmEMZhI0MgQnPyC4dsH6pdv9L3MlE
- imBt7VixF0FctBOv82HzHDl6qQtb0d8cZsKyVJUEr8pddv7ttcxk9/xoXi8jGUpGot0mH4bMO
- VV+sJpOmkXncApwj83PMUXHNWzrh3DBOaolSmuieJASUrcrwOIwcEILOuI4lZKS+wx36aM89y
- HMVv4Fe28PtSwbSUDAMgXehD02Kd/rrcvUZnfWqsG3UfqsPJY8p7Vi8eA/69xSDOmQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241112161925.999196-4-christian.bruel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_083806_890481_7FADFB7B 
-X-CRM114-Status: UNSURE (   7.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241115_083944_780163_C6AC3F8C 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,26 +79,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Parker Newman <pnewman@connecttech.com>
+On Tue, Nov 12, 2024 at 05:19:23PM +0100, Christian Bruel wrote:
+> STM32MP25 PCIe Controller is based on the DesignWare core configured as
+> end point mode from the SYSCFG register.
+> 
+> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+> ---
+>  .../bindings/pci/st,stm32-pcie-ep.yaml        | 97 +++++++++++++++++++
+>  1 file changed, 97 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
+> new file mode 100644
+> index 000000000000..f0d215982794
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
+> @@ -0,0 +1,97 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-ep.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: STM32MP25 PCIe endpoint driver
+> +
+> +maintainers:
+> +  - Christian Bruel <christian.bruel@foss.st.com>
+> +
+> +description:
+> +  PCIe endpoint controller based on the Synopsys DesignWare PCIe core.
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
 
-Nvidia Tegra MGBE controllers require the iommu "Stream ID" (SID) to be
-written to a register for proper operation.
-The current driver is hard coded to mgbe0's SID, causing the other mgbe
-controller instances to not work.
+snps,dw-pcie-ep.yaml
 
-This patch enables the other mgbe controllers by reading the SID from the
-iommus property in the device tree using the existing
-tegra_dev_iommu_get_stream_id() function in linux/iommu.h.
+> +
+> +properties:
+> +  compatible:
+> +    const: st,stm32mp25-pcie-ep
+> +
+> +  reg:
+> +    items:
+> +      - description: Data Bus Interface (DBI) registers.
+> +      - description: PCIe configuration registers.
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dbi
+> +      - const: addr_space
+> +
+> +  clocks:
+> +    maxItems: 1
+> +    description: PCIe system clock
+> +
+> +  clock-names:
+> +    const: core
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  reset-names:
+> +    const: core
+> +
+> +  phys:
+> +    maxItems: 1
+> +
+> +  phy-names:
+> +    const: pcie-phy
+> +
+> +  reset-gpios:
+> +    description: GPIO controlled connection to PERST# signal
+> +    maxItems: 1
+> +
+> +  access-controllers:
+> +    maxItems: 1
+> +
+> +  power-domains:
+> +    maxItems: 1
 
-Parker Newman (1):
-  net: stmmac: dwmac-tegra: Read iommu stream id from device tree
+All these properties common between RC and EP modes should be in 
+a shared schema.
 
- drivers/net/ethernet/stmicro/stmmac/dwmac-tegra.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
-
-
-base-commit: 37c5695cb37a20403947062be8cb7e00f6bed353
-=2D-
-2.47.0
-
+> +
+> +required:
+> +  - resets
+> +  - reset-names
+> +  - clocks
+> +  - clock-names
+> +  - phys
+> +  - phy-names
+> +  - reset-gpios
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
+> +    #include <dt-bindings/gpio/gpio.h>
+> +    #include <dt-bindings/phy/phy.h>
+> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
+> +
+> +    pcie-ep@48400000 {
+> +        compatible = "st,stm32mp25-pcie-ep";
+> +        num-lanes = <1>;
+> +        reg = <0x48400000 0x400000>,
+> +              <0x10000000 0x8000000>;
+> +        reg-names = "dbi", "addr_space";
+> +        clocks = <&rcc CK_BUS_PCIE>;
+> +        clock-names = "core";
+> +        phys = <&combophy PHY_TYPE_PCIE>;
+> +        phy-names = "pcie-phy";
+> +        resets = <&rcc PCIE_R>;
+> +        reset-names = "core";
+> +        pinctrl-names = "default", "init";
+> +        pinctrl-0 = <&pcie_pins_a>;
+> +        pinctrl-1 = <&pcie_init_pins_a>;
+> +        reset-gpios = <&gpioj 8 GPIO_ACTIVE_LOW>;
+> +        power-domains = <&CLUSTER_PD>;
+> +        access-controllers = <&rifsc 68>;
+> +    };
+> -- 
+> 2.34.1
+> 
 
