@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24BBBD6DDE1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 13:37:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83168D6DDE1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 13:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zOX2qHMUjnGzaf6JIG8pckzdJI0P6r1C0VXNRCNb6CA=; b=cL9bkEwJ7U44C8jjEbhNFxMuQq
-	ubTrB9+XjLLbhDDkCnUnH+jYV7ZbrTcPOw2OgPY1Bz+x250yoPfcgxcG6yxjXLCiEGrDDcaghTbGX
-	TBUVin4wLqfz1/30ROUg/wlPlgCO4yQdS67Dfs8yZk3Cabq5h6YWaGfnjQIlvBvC65Gjlmcmj4LII
-	/Kzjk3YIcM0aUoVlZSXgZX3Sh+kinHayz0TdnH5DmNwG8vUMiP1/khizbRYYz0e1UMCxHYRV3+3hQ
-	cRmwOpRFB5xIgqRWuNW1gHrc8peYh1qygqLh8FwCtiylw0c/6iX7yiRCkEKXL9HDyMRXvuFcNIgGl
-	+nLlvlLA==;
+	bh=8+1mHkW5xeUn98DLU2MzEmZyX/j5XKeY/1cmO/2lLi0=; b=xM0Ad3BeAA/x+jS8GS2T7Hzg+Q
+	LWncQ6jfRsIIkZuFBcoZglbL1vLrR9u6uvRPSWYNRKv1/aDtazqAWZYJqgamF5fxJHMai+ghOfGjG
+	PTa5RN7ninKfYOPs4cWo0i9iH0jBym4CC/tcjOm8Z6fHOS4r9jV5TIUuHZ/U/SnlAOzgleBUxOmTs
+	KCUJcOpSHllut0QjCLqdYVdR5f6ZoI91fpK40zwVtbWnd5/o6tio+9LsYFTQIzhbkb1BySYP4JgwC
+	+bgBhl5Ad6Ph3mtd6Bbjtu5irDRQ79bmZDJ/TjaE/bqty1vSRJyDK8UbEj/gESu7fJggEa8nbh3tI
+	oyEk/EYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBwVQ-00000002qZ0-242k;
-	Fri, 15 Nov 2024 13:37:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tBwX7-00000002r18-0oPV;
+	Fri, 15 Nov 2024 13:38:45 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBwUV-00000002qRx-1AKW
+	id 1tBwWC-00000002qmT-1161
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 13:36:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3832C5C6232;
-	Fri, 15 Nov 2024 13:35:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99968C4CECF;
-	Fri, 15 Nov 2024 13:35:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731677762;
-	bh=AO9xLnbPqrNc6QxB+RS5a+ltPUCHQ2swdaCjyUpk4wQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ihMrMQsewJGf3fyd3nlj3JxP3tSQ4LnK2kgn3BN0eJzom0hdGJ6rjAK8YzNknop2o
-	 Loy9rOWAMzK2wgZYyDQftVkiBpE6qHthohXsA3wNHAfLpfVbuZm9Okvqe3R3+SSxeu
-	 utZD3w8CDTNJ4hf4WPFir8h8wBBvcfLu7jKEkS6XI6g2VcixMKOysYpG4ApLl2+UNJ
-	 c1TCbFe4izxfsz5re3g+DQcVASROO9DwmzJ3gFaDycj9PaZIae8gYkupbsxULSUqrq
-	 YsekWgxpkSxWR1hQZop/s3vbnaz3OeG/GiOlLme6Xf1dJ95hDNFZRNADqyF336AGtc
-	 d5tzg18ROdG/Q==
-Date: Fri, 15 Nov 2024 14:35:52 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Elliot Berman <quic_eberman@quicinc.com>
-Cc: Stephen Boyd <swboyd@chromium.org>, Andy Yan <andy.yan@rock-chips.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Olof Johansson <olof@lixom.net>, Rob Herring <robh@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Will Deacon <will@kernel.org>, cros-qcom-dts-watchers@chromium.org,
-	Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
-	Melody Olvera <quic_molvera@quicinc.com>,
-	Shivendra Pratap <quic_spratap@quicinc.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v6 3/5] firmware: psci: Read and use vendor reset types
-Message-ID: <ZzdOOP0KuMMdo64W@lpieralisi>
-References: <20241018-arm-psci-system_reset2-vendor-reboots-v6-0-50cbe88b0a24@quicinc.com>
- <20241018-arm-psci-system_reset2-vendor-reboots-v6-3-50cbe88b0a24@quicinc.com>
- <CAE-0n515sUkmTWptgY8pOaMDBPfDp5pZBy9Nby+4cMdMAnAZfA@mail.gmail.com>
- <20241023092251529-0700.eberman@hu-eberman-lv.qualcomm.com>
+	Fri, 15 Nov 2024 13:37:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=8+1mHkW5xeUn98DLU2MzEmZyX/j5XKeY/1cmO/2lLi0=; b=Kl27prUPtKYLoQ/s2vZBSQyK7n
+	io0y6C+YFo3TFcRYOPId/ovLvP0qnH4MTTmrLCxykNrMAgDlcjuEKYNVgmLD0AZp19EbK4AnN9AMQ
+	d2BNDZbM9fF77Uc96Q+nxoFC+wIz1pzysRw6sDoZzSa5/0QH/84rJz04uqaaf8eUUavgjq89VY10V
+	IDEScKjh1+tLlUHzQwe3Dcd/ZG9AUCz28wcHJEhUWDeaYKZjmqII/edIgVwkDKi5OuzyWvXADw4vR
+	KkpT5l5b86Q3467cLtrC48K/+RD+6P5FkGnwLWRNB6g+B3DsMoen12t09Pu66ZSTV8DuHSRput/f7
+	R8PShxVw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36000)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tBwVq-0001Pv-1F;
+	Fri, 15 Nov 2024 13:37:26 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tBwVk-00029i-1G;
+	Fri, 15 Nov 2024 13:37:20 +0000
+Date: Fri, 15 Nov 2024 13:37:20 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net v2 1/2] net: phy: replace phydev->eee_enabled with
+ eee_cfg.eee_enabled
+Message-ID: <ZzdOkE0lqpl6wx2d@shell.armlinux.org.uk>
+References: <20241115111151.183108-1-yong.liang.choong@linux.intel.com>
+ <20241115111151.183108-2-yong.liang.choong@linux.intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241023092251529-0700.eberman@hu-eberman-lv.qualcomm.com>
+In-Reply-To: <20241115111151.183108-2-yong.liang.choong@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_053603_405514_B063F727 
-X-CRM114-Status: GOOD (  32.73  )
+X-CRM114-CacheID: sfid-20241115_053748_284404_0CB100A9 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,153 +89,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 09:30:21AM -0700, Elliot Berman wrote:
-> On Fri, Oct 18, 2024 at 10:42:46PM -0700, Stephen Boyd wrote:
-> > Quoting Elliot Berman (2024-10-18 12:39:48)
-> > > diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-> > > index 2328ca58bba6..60bc285622ce 100644
-> > > --- a/drivers/firmware/psci/psci.c
-> > > +++ b/drivers/firmware/psci/psci.c
-> > > @@ -29,6 +29,8 @@
-> > >  #include <asm/smp_plat.h>
-> > >  #include <asm/suspend.h>
-> > >
-> > > +#define REBOOT_PREFIX "mode-"
-> > 
-> > Maybe move this near the function that uses it.
-> > 
-> > > +
-> > >  /*
-> > >   * While a 64-bit OS can make calls with SMC32 calling conventions, for some
-> > >   * calls it is necessary to use SMC64 to pass or return 64-bit values.
-> > > @@ -305,9 +315,29 @@ static int get_set_conduit_method(const struct device_node *np)
-> > >         return 0;
-> > >  }
-> > >
-> > > +static void psci_vendor_sys_reset2(unsigned long action, void *data)
-> > > +{
-> > > +       const char *cmd = data;
-> > > +       unsigned long ret;
-> > > +       size_t i;
-> > > +
-> > > +       for (i = 0; i < num_psci_reset_params; i++) {
-> > > +               if (!strcmp(psci_reset_params[i].mode, cmd)) {
-> > > +                       ret = invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
-> > > +                                            psci_reset_params[i].reset_type,
-> > > +                                            psci_reset_params[i].cookie, 0);
-> > > +                       pr_err("failed to perform reset \"%s\": %ld\n",
-> > > +                               cmd, (long)ret);
-> > 
-> > Do this intentionally return? Should it be some other function that's
-> > __noreturn instead and a while (1) if the firmware returns back to the
-> > kernel?
-> > 
+On Fri, Nov 15, 2024 at 07:11:50PM +0800, Choong Yong Liang wrote:
+> Not all PHYs have EEE enabled by default. For example, Marvell PHYs are
+> designed to have EEE hardware disabled during the initial state.
 > 
-> Yes, I think it's best to make sure we fall back to the architectural
-> reset (whether it's the SYSTEM_RESET or architectural SYSTEM_RESET2)
-> since device would reboot then.
-
-Well, that's one of the doubts I have about enabling this code. From
-userspace we are requesting a reboot (I don't even think that user
-space knows which reboot modes are actually implemented (?)) and we may
-end up issuing one with completely different semantics ?
-
-Are these "reset types" exported to user space ?
-
-Lorenzo
-
-> > > +               }
-> > > +       }
-> > > +}
-> > > +
-> > >  static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
-> > >                           void *data)
-> > >  {
-> > > +       if (data && num_psci_reset_params)
-> > > +               psci_vendor_sys_reset2(action, data);
-> > > +
-> > >         if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
-> > >             psci_system_reset2_supported) {
-> > >                 /*
-> > > @@ -750,6 +780,68 @@ static const struct of_device_id psci_of_match[] __initconst = {
-> > >         {},
-> > >  };
-> > >
-> > > +static int __init psci_init_system_reset2_modes(void)
-> > > +{
-> > > +       const size_t len = strlen(REBOOT_PREFIX);
-> > > +       struct psci_reset_param *param;
-> > > +       struct device_node *psci_np __free(device_node) = NULL;
-> > > +       struct device_node *np __free(device_node) = NULL;
-> > > +       struct property *prop;
-> > > +       size_t count = 0;
-> > > +       u32 magic[2];
-> > > +       int num;
-> > > +
-> > > +       if (!psci_system_reset2_supported)
-> > > +               return 0;
-> > > +
-> > > +       psci_np = of_find_matching_node(NULL, psci_of_match);
-> > > +       if (!psci_np)
-> > > +               return 0;
-> > > +
-> > > +       np = of_find_node_by_name(psci_np, "reset-types");
-> > > +       if (!np)
-> > > +               return 0;
-> > > +
-> > > +       for_each_property_of_node(np, prop) {
-> > > +               if (strncmp(prop->name, REBOOT_PREFIX, len))
-> > > +                       continue;
-> > > +               num = of_property_count_elems_of_size(np, prop->name, sizeof(magic[0]));
-> > 
-> > Use of_property_count_u32_elems()?
-> > 
-> > > +               if (num != 1 && num != 2)
-> > > +                       continue;
-> > > +
-> > > +               count++;
-> > > +       }
-> > > +
-> > > +       param = psci_reset_params = kcalloc(count, sizeof(*psci_reset_params), GFP_KERNEL);
-> > > +       if (!psci_reset_params)
-> > > +               return -ENOMEM;
-> > > +
-> > > +       for_each_property_of_node(np, prop) {
-> > > +               if (strncmp(prop->name, REBOOT_PREFIX, len))
-> > > +                       continue;
-> > > +
-> > > +               param->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
-> > > +               if (!param->mode)
-> > > +                       continue;
-> > > +
-> > > +               num = of_property_read_variable_u32_array(np, prop->name, magic, 1, 2);
-> > 
-> > ARRAY_SIZE(magic)?
-> > 
-> > > +               if (num < 0) {
-> > 
-> > Should this be less than 1?
-> > 
+> In the initial stage, phy_probe() sets phydev->eee_enabled to be disabled.
+> Then, the MAC calls phy_support_eee() to set eee_cfg.eee_enabled to be
+> enabled. However, when phy_start_aneg() is called,
+> genphy_c45_an_config_eee_aneg() still refers to phydev->eee_enabled.
+> This causes the 'ethtool --show-eee' command to show that EEE is enabled,
+> but in actuality, the driver side is disabled.
 > 
-> of_property_read_variable_u32_array should return -EOVERFLOW (or maybe
-> -ENODATA) if the array is empty. I don't see it's possible for
-> of_property_read_variable_u32_array() to return a non-negative value
-> that's not 1 or 2.
-> 
-> > > +                       pr_warn("Failed to parse vendor reboot mode %s\n", param->mode);
-> > > +                       kfree_const(param->mode);
-> > > +                       continue;
-> > > +               }
-> > > +
-> > > +               /* Force reset type to be in vendor space */
-> > > +               param->reset_type = PSCI_1_1_RESET_TYPE_VENDOR_START | magic[0];
-> > > +               param->cookie = num == 2 ? magic[1] : 0;
-> > 
-> > ARRAY_SIZE(magic)?
-> > 
-> > > +               param++;
-> > > +               num_psci_reset_params++;
-> > > +       }
-> > > +
-> > > +       return 0;
+> This patch will remove phydev->eee_enabled and replace it with
+> eee_cfg.eee_enabled. When performing genphy_c45_an_config_eee_aneg(),
+> it will follow the master configuration to have software and hardware
+> in sync.
+
+Hmm. I'm not happy with how you're handling my patch. I would've liked
+some feedback on it (thanks for spotting that the set_eee case needed
+to pass the state to genphy_c45_an_config_eee_aneg()).
+
+However, what's worse is, that the bulk of this patch is my work, yet
+you've effectively claimed complete authorship of it in the way you
+are submitting this patch. Moreover, you are violating the kernel
+submission rules, as the Signed-off-by does not include one for me
+(which I need to explicitly give.) I was waiting for the results of
+your testing before finalising the patch.
+
+The patch needs to be authored by me, the first sign-off needs to be
+me, then optionally Co-developed-by for you, and then your sign-off.
+
+See Documentation/process/submitting-patches.rst
+
+Thanks.
+
+pw-bot: cr
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
