@@ -4,77 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81391D6DDE1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 13:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24BBBD6DDE1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 13:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H+qj7oh9KNg4cPkW2m+Q2tqwjODFyQtNZoavOVJ3o1s=; b=S5n8zUnUtec1znM8D1RHY5cJJH
-	JYR9oAmhNQep4TtqzEQuewKGJ7IFZAg79C+7EH31vm1LTlFjmSU8GABV7PuKpr4QxQYytZhLC9Zkh
-	DMiKhdMwrkx64pYcy+aWUklM2mpgF1C0uF34mIbFa9PRzqNbhYlfY014yLOQgjsIXZsB7EkzQzZ4+
-	DYF4T9+3uy6hBkGEvamfbYMwfaeEAeOZXGH1ePdywgynA/qZamGa+OyV41tXH71aAbdw0i3Tds94x
-	7qf4Dkw9V2wfQ/ZhZ+5rrjyMKQgHC3JCZk4V0gtIrAWxyDPDEDvUvQo3Ef8Cg550vkIRay46354jM
-	UFjPzhXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zOX2qHMUjnGzaf6JIG8pckzdJI0P6r1C0VXNRCNb6CA=; b=cL9bkEwJ7U44C8jjEbhNFxMuQq
+	ubTrB9+XjLLbhDDkCnUnH+jYV7ZbrTcPOw2OgPY1Bz+x250yoPfcgxcG6yxjXLCiEGrDDcaghTbGX
+	TBUVin4wLqfz1/30ROUg/wlPlgCO4yQdS67Dfs8yZk3Cabq5h6YWaGfnjQIlvBvC65Gjlmcmj4LII
+	/Kzjk3YIcM0aUoVlZSXgZX3Sh+kinHayz0TdnH5DmNwG8vUMiP1/khizbRYYz0e1UMCxHYRV3+3hQ
+	cRmwOpRFB5xIgqRWuNW1gHrc8peYh1qygqLh8FwCtiylw0c/6iX7yiRCkEKXL9HDyMRXvuFcNIgGl
+	+nLlvlLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBwS9-00000002puU-2WdJ;
-	Fri, 15 Nov 2024 13:33:37 +0000
-Received: from phobos.denx.de ([85.214.62.61])
+	id 1tBwVQ-00000002qZ0-242k;
+	Fri, 15 Nov 2024 13:37:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBwRD-00000002pj9-3ReO
+	id 1tBwUV-00000002qRx-1AKW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 13:32:41 +0000
-Received: from [127.0.0.1] (p578adb1c.dip0.t-ipconnect.de [87.138.219.28])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
-	(No client certificate requested)
-	(Authenticated sender: marex@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 9F1578933F;
-	Fri, 15 Nov 2024 14:32:34 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1731677557;
-	bh=H+qj7oh9KNg4cPkW2m+Q2tqwjODFyQtNZoavOVJ3o1s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=x/yKgXzt5wXdAhX1heSr54ECEMtwnb7KeIjmhCnEFKsCmW55rEtnTUDRTOYa6DgOl
-	 1q4lxu/oPO0lQDqPj+7YqFaNctKqkC00ktQpuyapcEsphRjU/baM0WTsMMrkZEq+YA
-	 J912rP2jKFVOMTK4V5tEQmqdbkZlr9rvC6QDxgsqFr3gCYfBGDm5fh/7qrf2Bugb81
-	 exqm5vFPCgl6dyhT9hNJYpZyr0FU6OZXzfOR1dLJO7L+Bf6BnXGmp03BYdgi6iqUBQ
-	 83EefnCuEz9o3BwHN6cmXG155y1UAHVRX4OsR7mWlhJxRzelXyltN/PZJJu7O9K6Fy
-	 8FID/dPGlBYww==
-Message-ID: <df6ebdde-65f8-4aad-93c7-b1df695bd2ef@denx.de>
-Date: Fri, 15 Nov 2024 13:31:28 +0100
+	Fri, 15 Nov 2024 13:36:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3832C5C6232;
+	Fri, 15 Nov 2024 13:35:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99968C4CECF;
+	Fri, 15 Nov 2024 13:35:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731677762;
+	bh=AO9xLnbPqrNc6QxB+RS5a+ltPUCHQ2swdaCjyUpk4wQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ihMrMQsewJGf3fyd3nlj3JxP3tSQ4LnK2kgn3BN0eJzom0hdGJ6rjAK8YzNknop2o
+	 Loy9rOWAMzK2wgZYyDQftVkiBpE6qHthohXsA3wNHAfLpfVbuZm9Okvqe3R3+SSxeu
+	 utZD3w8CDTNJ4hf4WPFir8h8wBBvcfLu7jKEkS6XI6g2VcixMKOysYpG4ApLl2+UNJ
+	 c1TCbFe4izxfsz5re3g+DQcVASROO9DwmzJ3gFaDycj9PaZIae8gYkupbsxULSUqrq
+	 YsekWgxpkSxWR1hQZop/s3vbnaz3OeG/GiOlLme6Xf1dJ95hDNFZRNADqyF336AGtc
+	 d5tzg18ROdG/Q==
+Date: Fri, 15 Nov 2024 14:35:52 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Elliot Berman <quic_eberman@quicinc.com>
+Cc: Stephen Boyd <swboyd@chromium.org>, Andy Yan <andy.yan@rock-chips.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Olof Johansson <olof@lixom.net>, Rob Herring <robh@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Will Deacon <will@kernel.org>, cros-qcom-dts-watchers@chromium.org,
+	Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
+	Melody Olvera <quic_molvera@quicinc.com>,
+	Shivendra Pratap <quic_spratap@quicinc.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v6 3/5] firmware: psci: Read and use vendor reset types
+Message-ID: <ZzdOOP0KuMMdo64W@lpieralisi>
+References: <20241018-arm-psci-system_reset2-vendor-reboots-v6-0-50cbe88b0a24@quicinc.com>
+ <20241018-arm-psci-system_reset2-vendor-reboots-v6-3-50cbe88b0a24@quicinc.com>
+ <CAE-0n515sUkmTWptgY8pOaMDBPfDp5pZBy9Nby+4cMdMAnAZfA@mail.gmail.com>
+ <20241023092251529-0700.eberman@hu-eberman-lv.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/7] Revert "clk: imx: clk-imx8mp: Allow media_disp
- pixel clock reconfigure parent rate"
-To: Liu Ying <victor.liu@nxp.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- dri-devel@lists.freedesktop.org
-Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
- abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
- sboyd@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
- rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- quic_bjorande@quicinc.com, geert+renesas@glider.be,
- dmitry.baryshkov@linaro.org, arnd@arndb.de, nfraprado@collabora.com
-References: <20241114065759.3341908-1-victor.liu@nxp.com>
- <20241114065759.3341908-3-victor.liu@nxp.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <20241114065759.3341908-3-victor.liu@nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241023092251529-0700.eberman@hu-eberman-lv.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_053240_165457_B398496D 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20241115_053603_405514_B063F727 
+X-CRM114-Status: GOOD (  32.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,33 +92,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/14/24 7:57 AM, Liu Ying wrote:
-> This reverts commit ff06ea04e4cf3ba2f025024776e83bfbdfa05155.
+On Wed, Oct 23, 2024 at 09:30:21AM -0700, Elliot Berman wrote:
+> On Fri, Oct 18, 2024 at 10:42:46PM -0700, Stephen Boyd wrote:
+> > Quoting Elliot Berman (2024-10-18 12:39:48)
+> > > diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+> > > index 2328ca58bba6..60bc285622ce 100644
+> > > --- a/drivers/firmware/psci/psci.c
+> > > +++ b/drivers/firmware/psci/psci.c
+> > > @@ -29,6 +29,8 @@
+> > >  #include <asm/smp_plat.h>
+> > >  #include <asm/suspend.h>
+> > >
+> > > +#define REBOOT_PREFIX "mode-"
+> > 
+> > Maybe move this near the function that uses it.
+> > 
+> > > +
+> > >  /*
+> > >   * While a 64-bit OS can make calls with SMC32 calling conventions, for some
+> > >   * calls it is necessary to use SMC64 to pass or return 64-bit values.
+> > > @@ -305,9 +315,29 @@ static int get_set_conduit_method(const struct device_node *np)
+> > >         return 0;
+> > >  }
+> > >
+> > > +static void psci_vendor_sys_reset2(unsigned long action, void *data)
+> > > +{
+> > > +       const char *cmd = data;
+> > > +       unsigned long ret;
+> > > +       size_t i;
+> > > +
+> > > +       for (i = 0; i < num_psci_reset_params; i++) {
+> > > +               if (!strcmp(psci_reset_params[i].mode, cmd)) {
+> > > +                       ret = invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
+> > > +                                            psci_reset_params[i].reset_type,
+> > > +                                            psci_reset_params[i].cookie, 0);
+> > > +                       pr_err("failed to perform reset \"%s\": %ld\n",
+> > > +                               cmd, (long)ret);
+> > 
+> > Do this intentionally return? Should it be some other function that's
+> > __noreturn instead and a while (1) if the firmware returns back to the
+> > kernel?
+> > 
 > 
-> media_disp1_pix clock is the pixel clock of the first i.MX8MP LCDIFv3
-> display controller, while media_disp2_pix clock is the pixel clock of
-> the second i.MX8MP LCDIFv3 display controller.  The two display
-> controllers connect with Samsung MIPI DSI controller and LVDS Display
-> Bridge(LDB) respectively.  Since the two display controllers are driven
-> by separate DRM driver instances and the two pixel clocks may be derived
-> from the same video_pll1_out clock(sys_pll3_out clock could be already
-> used to derive audio_axi clock), there is no way to negotiate a dynamically
-> changeable video_pll1_out clock rate to satisfy both of the two display
-> controllers.  In this case, the only solution to drive them with the
-> single video_pll1_out clock is to assign a sensible/unchangeable clock
-> rate for video_pll1_out clock.  Thus, there is no need to set the
-> CLK_SET_RATE_PARENT flag for media_disp{1,2}_pix clocks, drop it then.
+> Yes, I think it's best to make sure we fall back to the architectural
+> reset (whether it's the SYSTEM_RESET or architectural SYSTEM_RESET2)
+> since device would reboot then.
+
+Well, that's one of the doubts I have about enabling this code. From
+userspace we are requesting a reboot (I don't even think that user
+space knows which reboot modes are actually implemented (?)) and we may
+end up issuing one with completely different semantics ?
+
+Are these "reset types" exported to user space ?
+
+Lorenzo
+
+> > > +               }
+> > > +       }
+> > > +}
+> > > +
+> > >  static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
+> > >                           void *data)
+> > >  {
+> > > +       if (data && num_psci_reset_params)
+> > > +               psci_vendor_sys_reset2(action, data);
+> > > +
+> > >         if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
+> > >             psci_system_reset2_supported) {
+> > >                 /*
+> > > @@ -750,6 +780,68 @@ static const struct of_device_id psci_of_match[] __initconst = {
+> > >         {},
+> > >  };
+> > >
+> > > +static int __init psci_init_system_reset2_modes(void)
+> > > +{
+> > > +       const size_t len = strlen(REBOOT_PREFIX);
+> > > +       struct psci_reset_param *param;
+> > > +       struct device_node *psci_np __free(device_node) = NULL;
+> > > +       struct device_node *np __free(device_node) = NULL;
+> > > +       struct property *prop;
+> > > +       size_t count = 0;
+> > > +       u32 magic[2];
+> > > +       int num;
+> > > +
+> > > +       if (!psci_system_reset2_supported)
+> > > +               return 0;
+> > > +
+> > > +       psci_np = of_find_matching_node(NULL, psci_of_match);
+> > > +       if (!psci_np)
+> > > +               return 0;
+> > > +
+> > > +       np = of_find_node_by_name(psci_np, "reset-types");
+> > > +       if (!np)
+> > > +               return 0;
+> > > +
+> > > +       for_each_property_of_node(np, prop) {
+> > > +               if (strncmp(prop->name, REBOOT_PREFIX, len))
+> > > +                       continue;
+> > > +               num = of_property_count_elems_of_size(np, prop->name, sizeof(magic[0]));
+> > 
+> > Use of_property_count_u32_elems()?
+> > 
+> > > +               if (num != 1 && num != 2)
+> > > +                       continue;
+> > > +
+> > > +               count++;
+> > > +       }
+> > > +
+> > > +       param = psci_reset_params = kcalloc(count, sizeof(*psci_reset_params), GFP_KERNEL);
+> > > +       if (!psci_reset_params)
+> > > +               return -ENOMEM;
+> > > +
+> > > +       for_each_property_of_node(np, prop) {
+> > > +               if (strncmp(prop->name, REBOOT_PREFIX, len))
+> > > +                       continue;
+> > > +
+> > > +               param->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
+> > > +               if (!param->mode)
+> > > +                       continue;
+> > > +
+> > > +               num = of_property_read_variable_u32_array(np, prop->name, magic, 1, 2);
+> > 
+> > ARRAY_SIZE(magic)?
+> > 
+> > > +               if (num < 0) {
+> > 
+> > Should this be less than 1?
+> > 
 > 
-> Fixes: ff06ea04e4cf ("clk: imx: clk-imx8mp: Allow media_disp pixel clock reconfigure parent rate")
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-Uh, I almost missed this revert between all the LDB patches.
-
-This revert will break my usecase on MX8MP where I need to operate two 
-disparate panels attached to LVDS and TC358767 DSI-to-DP bridge and I 
-need accurate pixel clock for both. Not being able to configure accurate 
-pixel clock will make the displays not work, so from my side, this is a 
-NAK, sorry.
-
-There has to be some better solution which still allows the PLL 
-reconfiguration to achieve accurate pixel clock.
+> of_property_read_variable_u32_array should return -EOVERFLOW (or maybe
+> -ENODATA) if the array is empty. I don't see it's possible for
+> of_property_read_variable_u32_array() to return a non-negative value
+> that's not 1 or 2.
+> 
+> > > +                       pr_warn("Failed to parse vendor reboot mode %s\n", param->mode);
+> > > +                       kfree_const(param->mode);
+> > > +                       continue;
+> > > +               }
+> > > +
+> > > +               /* Force reset type to be in vendor space */
+> > > +               param->reset_type = PSCI_1_1_RESET_TYPE_VENDOR_START | magic[0];
+> > > +               param->cookie = num == 2 ? magic[1] : 0;
+> > 
+> > ARRAY_SIZE(magic)?
+> > 
+> > > +               param++;
+> > > +               num_psci_reset_params++;
+> > > +       }
+> > > +
+> > > +       return 0;
 
