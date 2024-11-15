@@ -4,66 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDFFD68BCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 18:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010A7D68BCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 18:54:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m4ZorEYxEWq4lpC5KaGyNQr4w26NFg/NRPi50GU8a0k=; b=GlvuJz1R2AZvdXznR+UNcUepqL
-	0AI9wfXRUvobzyjZGf7JgYV9XLvG/Gs3HX3dx8WkGBGFGh/tDA/JM4moCoF7zHfSBTpFsAshyy2SP
-	GTE3zW1healWCuG9EEJ3vxF9qiOZhODX6RDeRN/WuQxKUOJj/nO4ZtQB1eHB9t8PjPKQH+y7hbS0B
-	Fe2boL1j6RZeCHo1d2+5w4mSZ5bHc2Gt51BmSezDLUqeSFBbJacUYdDcEbFqOk2xHhvi5TURHKRO4
-	kRH1ml2XCruFVTitlSaD6WEPW/Qt9w8YZnBy1fauD9gS8aWQV3B4v/7sqFknt0KwNEIY3aOt/mQrO
-	cHyVQA9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d5elQBFEHbJlxFLK/U8geAkzp/tbJO8V9jLQWafGrL4=; b=PJ53jvhdsZl1NJzaHK266F45al
+	c51FFELv8obvqi375D7fINfrqCPwHWrX+03zgBw8rEZpyUB0EDu+/r/okhG9GZDd5UgjXVkWdaHMi
+	ZYXtDzZsnk4Yz+3CNv0U4iiUAbJy0BVj9Glrx3R/e9mgPl3juQjTcx6W0glkWM6fsWjOIJnZ8hgGJ
+	eR3lz6Hm3z8bPV8Mo2zlE3OMx/df6NOBGueOAtvTKCYQom1WLq3d61XBs8+16hDDEC2xmSHnF/atx
+	6UEtYJcl1rPtrxF4zSkhvDpnl73o+qZUfc1xNLcCotqkKAeg9sxnQY4C3zoRq3iRjoKcjVeTozlvr
+	OL6zm6KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC1Ah-00000003igs-3s9o;
-	Fri, 15 Nov 2024 18:35:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tC1Sd-00000003lgR-0URu;
+	Fri, 15 Nov 2024 18:54:27 +0000
+Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC19l-00000003iTF-3wj4;
-	Fri, 15 Nov 2024 18:34:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EB8225C64DD;
-	Fri, 15 Nov 2024 18:34:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02047C4CECF;
-	Fri, 15 Nov 2024 18:34:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731695695;
-	bh=X9vWYFVz8BcjMAxz3u0utMXx6m8g2WY5vbDXySCXt6A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tTTcZkCTMkcgCbLKF12B7wo9jFmgkOedDi1F09VwVuBVzlALusVFrk9ZzxpWco/WM
-	 gWn5QYPE+lL5V3uclzDbF+96nts3psn/sE2s8g2YRHwbKAWXgJI2n4lqFLTmKAQYv3
-	 0Xww5hv/Hgm5rps8193SwsiebhD6eCVqz2Kf5CUD5hfcl3+d+qnyapyvr4dbeJ9V+5
-	 pqsEc074oOuVWjcZAT7lJiKgo2nDvEyHEuaMus/sRALo3jsJIShF1mJOFlnYgBSPwC
-	 ABvX8DXAIpbm6Acb3Yd7ZWUuuKaZNAdxZxBucyW1sGy1ROJwJvAvZS8xRKzfJ5EHPv
-	 OPj5vnrW0ZF8Q==
-Date: Fri, 15 Nov 2024 18:34:50 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	jun.li@nxp.com, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: phy: imx8mq-usb: optionally refer to
- usb-switch.yaml
-Message-ID: <20241115-bladder-legislate-7daef7a750ad@spud>
-References: <20241114102203.4065533-1-xu.yang_2@nxp.com>
- <20241114-marmalade-bottling-8fe656515ee7@spud>
- <20241115020045.qlrkyrelpgdwpxxk@hippo>
+	id 1tC1Rg-00000003lXS-3yYP
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 Nov 2024 18:53:30 +0000
+Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6cbcc2bd800so18222366d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 10:53:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1731696806; x=1732301606; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=d5elQBFEHbJlxFLK/U8geAkzp/tbJO8V9jLQWafGrL4=;
+        b=c5zc3F7yBTVn7+4hFgitW7RhOgjwplvEUHdMQSLmlRx6dMH0L8Fx/GPVrA3mi77yEU
+         6ul4ygTx6gM0XvW2Ch15/m1aPGqW77ZWwcKoePWu5znK/Qdt9qvyYClfJlGrkjEQPRTR
+         Gme4vDv7aCYKs0+zNfL9rhS8KYYWb/dh4H6AM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731696806; x=1732301606;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=d5elQBFEHbJlxFLK/U8geAkzp/tbJO8V9jLQWafGrL4=;
+        b=hJ2uDQW+BK3rNefGHkthJwSyFEs55AISQuqk6CWIs7y00lDmR0NsIe2df8+dPqgh5N
+         1YJcmCOtpo+qfGV96BS91STjE+w6kzwPXdGw0Fn2m5RrH0uFk1brY2YXSlCXrjjndu2R
+         whklQNYzlKs2p5/uizRW4FxagaTzC2eZqA18DfZtjBQY4yL/QLy0UWZP39Rx7QsJ3jIq
+         I1LI54yvv+bVxl9DpE1fZZtlbESD6GA22flOwsZm+0mHcyWBA43nAv+tXQm8kopoI0k8
+         ZA1mGl0ElMpSCziz4E/RNpAFnI7sJUds6sIDShULfRK5DE4SE53iDWO2ymO8mIjGLsPA
+         MGkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVuABsSDvnAnSfPPhnoZxhLGn3bZ8Ij6ld2Qdu9n7duOroO01E+RTuc1BioTxRa/vVJ7dbgGLuvVo5aQEDWe9Sp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNnGZfBfOkxdACfGHgZK3hkVjDXV+hSgtbLO1JE2jK0LI9/JyT
+	WceZw6biZPZnSgenJ0JR0Nl4+RnkTc1Sfe1J0n2gCWm77hXu/1Z+//VkGtmxsA==
+X-Google-Smtp-Source: AGHT+IENzcn3L8l6GMiTpIvz1WW2qSAUSbXEx7SiZS3NLUHADjwn+UVn3VsP/poiLGJW1U8cFqG/Aw==
+X-Received: by 2002:a05:6214:4988:b0:6d3:8e50:65cf with SMTP id 6a1803df08f44-6d3fac951d6mr67538556d6.20.1731696806055;
+        Fri, 15 Nov 2024 10:53:26 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d3ee773205sm20958426d6.16.2024.11.15.10.53.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 15 Nov 2024 10:53:25 -0800 (PST)
+Message-ID: <3cd75897-df45-4938-9d19-60df062a5b9b@broadcom.com>
+Date: Fri, 15 Nov 2024 10:53:21 -0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qWspPwlOiJv9Bk4P"
-Content-Disposition: inline
-In-Reply-To: <20241115020045.qlrkyrelpgdwpxxk@hippo>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 3/5] firmware: psci: Read and use vendor reset types
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Elliot Berman <quic_eberman@quicinc.com>
+Cc: Stephen Boyd <swboyd@chromium.org>, Andy Yan <andy.yan@rock-chips.com>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
+ <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Mark Rutland <mark.rutland@arm.com>, Olof Johansson <olof@lixom.net>,
+ Rob Herring <robh@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, Will Deacon <will@kernel.org>,
+ cros-qcom-dts-watchers@chromium.org,
+ Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
+ Melody Olvera <quic_molvera@quicinc.com>,
+ Shivendra Pratap <quic_spratap@quicinc.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org
+References: <20241018-arm-psci-system_reset2-vendor-reboots-v6-0-50cbe88b0a24@quicinc.com>
+ <20241018-arm-psci-system_reset2-vendor-reboots-v6-3-50cbe88b0a24@quicinc.com>
+ <CAE-0n515sUkmTWptgY8pOaMDBPfDp5pZBy9Nby+4cMdMAnAZfA@mail.gmail.com>
+ <20241023092251529-0700.eberman@hu-eberman-lv.qualcomm.com>
+ <ZzdOOP0KuMMdo64W@lpieralisi>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+In-Reply-To: <ZzdOOP0KuMMdo64W@lpieralisi>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_103458_067692_5198AD06 
-X-CRM114-Status: GOOD (  26.20  )
+X-CRM114-CacheID: sfid-20241115_105329_083467_5B7D2237 
+X-CRM114-Status: GOOD (  21.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,106 +111,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 11/15/24 05:35, Lorenzo Pieralisi wrote:
+> On Wed, Oct 23, 2024 at 09:30:21AM -0700, Elliot Berman wrote:
+>> On Fri, Oct 18, 2024 at 10:42:46PM -0700, Stephen Boyd wrote:
+>>> Quoting Elliot Berman (2024-10-18 12:39:48)
+>>>> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+>>>> index 2328ca58bba6..60bc285622ce 100644
+>>>> --- a/drivers/firmware/psci/psci.c
+>>>> +++ b/drivers/firmware/psci/psci.c
+>>>> @@ -29,6 +29,8 @@
+>>>>   #include <asm/smp_plat.h>
+>>>>   #include <asm/suspend.h>
+>>>>
+>>>> +#define REBOOT_PREFIX "mode-"
+>>>
+>>> Maybe move this near the function that uses it.
+>>>
+>>>> +
+>>>>   /*
+>>>>    * While a 64-bit OS can make calls with SMC32 calling conventions, for some
+>>>>    * calls it is necessary to use SMC64 to pass or return 64-bit values.
+>>>> @@ -305,9 +315,29 @@ static int get_set_conduit_method(const struct device_node *np)
+>>>>          return 0;
+>>>>   }
+>>>>
+>>>> +static void psci_vendor_sys_reset2(unsigned long action, void *data)
+>>>> +{
+>>>> +       const char *cmd = data;
+>>>> +       unsigned long ret;
+>>>> +       size_t i;
+>>>> +
+>>>> +       for (i = 0; i < num_psci_reset_params; i++) {
+>>>> +               if (!strcmp(psci_reset_params[i].mode, cmd)) {
+>>>> +                       ret = invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
+>>>> +                                            psci_reset_params[i].reset_type,
+>>>> +                                            psci_reset_params[i].cookie, 0);
+>>>> +                       pr_err("failed to perform reset \"%s\": %ld\n",
+>>>> +                               cmd, (long)ret);
+>>>
+>>> Do this intentionally return? Should it be some other function that's
+>>> __noreturn instead and a while (1) if the firmware returns back to the
+>>> kernel?
+>>>
+>>
+>> Yes, I think it's best to make sure we fall back to the architectural
+>> reset (whether it's the SYSTEM_RESET or architectural SYSTEM_RESET2)
+>> since device would reboot then.
+> 
+> Well, that's one of the doubts I have about enabling this code. From
+> userspace we are requesting a reboot (I don't even think that user
+> space knows which reboot modes are actually implemented (?)) and we may
+> end up issuing one with completely different semantics ?
+> 
+> Are these "reset types" exported to user space ?
 
---qWspPwlOiJv9Bk4P
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+AFAICT, they are not, but arguably you already need custom user space 
+which is capable of doing:
 
-On Fri, Nov 15, 2024 at 10:00:45AM +0800, Xu Yang wrote:
-> On Thu, Nov 14, 2024 at 05:45:07PM +0000, Conor Dooley wrote:
-> > On Thu, Nov 14, 2024 at 06:22:03PM +0800, Xu Yang wrote:
-> > > The i.MX95 usb-phy can work with or without orientation-switch. With
-> > > current setting, if usb-phy works without orientation-switch, the
-> > > dt-schema check will show below error:
-> > >=20
-> > > phy@4c1f0040: 'oneOf' conditional failed, one must be fixed:
-> > >         'port' is a required property
-> > >         'ports' is a required property
-> > >         from schema $id: http://devicetree.org/schemas/phy/fsl,imx8mq=
--usb-phy.yaml#
-> > >=20
-> > > This will add a condition to optionally refer to usb-switch.yaml.
-> > >=20
-> > > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> >=20
-> > $subject is not what the patch does.
->=20
-> I look through other yaml and find below format could achieve the
-> restriction on one property:
->=20
-> https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/tree/Docum=
-entation/devicetree/bindings/usb/gpio-sbu-mux.yaml?h=3Dusb-testing#n54
->=20
->   - if:
->       required:
->         - mode-switch
->     then:
->       required:
->         - enable-gpios
->=20
-> If mode-switch is present, then enable-gpios is required. If not, then
-> enable-gpios is not required.
->=20
-> For my case, if compatible contains "fsl,imx95-usb-phy" and orientation-s=
-witch
-> is present, then this schema needs to refer to usb-switch.yaml. If not. t=
-hen
-> this schema will not refer to usb-switch.yaml. So the subject could refle=
-ct
-> the thing this patch does.
->=20
-> Is this feasible? If not, could you give some advices?=20
+syscall(SYS_reboot, LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, 
+LINUX_REBOOT_CMD_RESTART2, reboot_cmd);
 
-Hmm, I guess I can now see an interpretation of the wording that
-reflects what the patch contents contains. However, you need a hardware
-based justification for the condition you're adding since it disables
-mode-switch and defining port nodes etc if orientation-switch isn't present.
-That's fine if that hardware doesn't support mode switching or ports
-without orientation switching, but not if it does.
+in order to utilize the custom reboot mode. I could imagine that with a 
+discovery mechanism, a wrapper could be written to check that the 
+specified command is actually supported before issuing the system call, 
+or even have the system call do that under the hood.
 
-Cheers,
-Conor.
-
->=20
-> Thanks,
-> Xu Yang
->=20
-> >=20
-> > > ---
-> > >  Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml | 2 ++
-> > >  1 file changed, 2 insertions(+)
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy=
-=2Eyaml b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> > > index 6d6d211883ae..1238792157f8 100644
-> > > --- a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> > > +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> > > @@ -118,6 +118,8 @@ allOf:
-> > >            contains:
-> > >              enum:
-> > >                - fsl,imx95-usb-phy
-> > > +      required:
-> > > +        - orientation-switch
-> > >      then:
-> > >        $ref: /schemas/usb/usb-switch.yaml#
-> > > =20
-> > > --=20
-> > > 2.34.1
-> > >=20
->=20
->=20
-
---qWspPwlOiJv9Bk4P
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZzeUSgAKCRB4tDGHoIJi
-0nmLAP41b2HVcBe/oDDoqT3FelaZ+a2IvuVeK6Hmd+l+FjRdbAD+NvRvcHrjfcUp
-l7LuK5Nnt6oS3qIiOHl2p00S970odgw=
-=TUzT
------END PGP SIGNATURE-----
-
---qWspPwlOiJv9Bk4P--
+I don't personally feel like this is very important in the sense that as 
+long as a fallback exists for an unsupported reboot command specified, 
+the system does reboot.
+-- 
+Florian
 
