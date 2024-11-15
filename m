@@ -4,63 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE756D68BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 15:14:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C572D68BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 15:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/gkHaFYOs1XzoJNREveXYRDfQ2Q/bNlVJttvqdE6j4=; b=apROsCPeaAptmpUaT7Y7fT+FwD
-	WQcoHzHXdbxFzO89j8uKdYgZVjVdufPJiZSldtXMBGr28hYvvjHLHmCLrkCwWJ7Q8Ai2tIyORKXOf
-	dL46QQuolDwiJzVrmigkcacvRogJLl1XIgAzO2zlvLN99U/+lWez4nEQsh23Td+myIfPVkmFLL35K
-	1jfmBJALbLo27Clldne7upVsDGFUbGGiK8fZFuZYJuhxTTOPgSMJkQU+/duieSxiKT0Vz1QUJP7Gb
-	A6xjbXrdZi1qxCN8I5yGod6/rIYMAwFsvwgzytqCQzEgSnmLcV70Osvngw766939gy/3VozaS1KW6
-	lEweEjEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=f6mRNT+3cEEBFBqNnfm9nrFBEqUKrx55F3XWxjHMxiY=; b=geMF8XJ2OxScTFpwWBvkQ2GKJN
+	6MxM/JDBfF5SmUF7S5sAj4V/tsBrZhdwcjCa8K4ekeI31p4ZvQU81wo5OeiGC//js+Sb3rZotr1UV
+	oGDSdGlGfr8+AMVaT4sWvrGExoO4mqhcvnDIYRirdz7VyOr1HF4dOXkLhCkYBkBX198jnk4s3HprS
+	EkywgTt7r2yJ436Hlb1fIcL7EzJD3+frCS20bIWAKyqigosV9Jb0spaQ25AE+xReOfYra0W9tBpvg
+	r63mqQCTyYhv1nOtj/F0s7teh0yyOj1eR/MUSsZDXjcLTj20hRE8BAa+39TDn1xgfOo9IU8Hrnl62
+	bHEbuAXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBy1S-000000037gr-34Ox;
-	Fri, 15 Nov 2024 15:14:10 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tBy98-000000038zL-0W8n;
+	Fri, 15 Nov 2024 15:22:06 +0000
+Received: from mx.treblig.org ([2a00:1098:5b::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBy0W-000000037Pv-25al;
-	Fri, 15 Nov 2024 15:13:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BE5D0A429D1;
-	Fri, 15 Nov 2024 15:11:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3967CC4CED5;
-	Fri, 15 Nov 2024 15:13:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731683591;
-	bh=tkkm3Dprf75KMyhZXFHRBmbpABU0uYoMcD94+1XAHDk=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=qtXe5RO6h48pceWkqHcf35A2h7vrGZqYQ/O4nQ31pt22c0QHmx+KRzgF+epWHY/U1
-	 BO3+5Y6IUYrqYDP1XZn4f1YU3lQNbGwlELat7rbDK64mFpGzpDi0tePB+Uiu/lkrY9
-	 wt/NtJStU8MNvFQbY5Ec5wC9Ag0vHR9cwMiTsbQPfk7QgQusnlxRWW0p2OKoy/NsAO
-	 +bJA7k1vqzlOEKinHq01TgfnGAL/GMTh4Hx4J3rgA1A1mRHVyEpDszLxv+8LWEft0a
-	 Cw1etht4SDocG16D/ffFvzyn5Qb7DQOpJtgQKURsJDBoQebJyEzeh2nRdYvwIxm/PY
-	 r6Si50wdvMkLA==
-Date: Fri, 15 Nov 2024 09:13:09 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1tBy88-000000038fX-3HMu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 Nov 2024 15:21:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=treblig.org
+	; s=bytemarkmx; h=MIME-Version:Message-ID:Date:Subject:From:Content-Type:From
+	:Subject; bh=f6mRNT+3cEEBFBqNnfm9nrFBEqUKrx55F3XWxjHMxiY=; b=BgqBMXtNDTMuQkKC
+	sV+s8ZTrZbXSIoSC2Eu9uS0ojjn6VNVMK8pFpzkrJpm+fEyl9WDGT54akTB/hJ0d97xnRnKndP+VG
+	9JdTQCHTLx7Ti20VYEbjGIiVbqQMHRxEPCBi4CSMa8cChA6vQ6QjBztFTcsTWCk8w087eKJ6Tg8cf
+	d1jxWTmKiAijSffIgLcdVRp/e45SfuHZON7mt9iQJDR1DV5PZQZ1pHfwfb9p4CLzTs/AbBxgfcK/I
+	kEg9Gzr0mO13y2nmRgC1VV1K1xqiA19UL60ydL4i5qJ0GAlY48oBrcDaEST38lnZKsYaewCTp6kyQ
+	4tqXHFCjgZ9FFLWD5Q==;
+Received: from localhost ([127.0.0.1] helo=dalek.home.treblig.org)
+	by mx.treblig.org with esmtp (Exim 4.96)
+	(envelope-from <linux@treblig.org>)
+	id 1tBy80-00098y-2k;
+	Fri, 15 Nov 2024 15:20:56 +0000
+From: linux@treblig.org
+To: ioana.ciornei@nxp.com,
+	stuyoder@gmail.com,
+	christophe.leroy@csgroup.eu
+Cc: linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	"Dr. David Alan Gilbert" <linux@treblig.org>
+Subject: [PATCH] bus: fsl-mc: Remove deadcode
+Date: Fri, 15 Nov 2024 15:20:55 +0000
+Message-ID: <20241115152055.279732-1-linux@treblig.org>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Hsin-Yi Wang <hsinyi@chromium.org>, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>
-To: Hsin-Te Yuan <yuanhsinte@chromium.org>
-In-Reply-To: <20241113-damu-v4-1-6911b69610dd@chromium.org>
-References: <20241113-damu-v4-1-6911b69610dd@chromium.org>
-Message-Id: <173168321208.2749684.5154968423883102453.robh@kernel.org>
-Subject: Re: [PATCH RESEND v4] arm64: dts: mt8183: set DMIC one-wire mode
- on Damu
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_071312_671067_1907BFF7 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20241115_072104_992577_07FA07BB 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,100 +71,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: "Dr. David Alan Gilbert" <linux@treblig.org>
 
-On Wed, 13 Nov 2024 16:16:53 +0800, Hsin-Te Yuan wrote:
-> From: Hsin-Yi Wang <hsinyi@chromium.org>
-> 
-> Sets DMIC one-wire mode on Damu.
-> 
-> Fixes: cabc71b08eb5 ("arm64: dts: mt8183: Add kukui-jacuzzi-damu board")
-> Signed-off-by: Hsin-Yi Wang <hsinyi@chromium.org>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
-> ---
-> Changes in v4:
-> - Add Reviewed-by tag back, which is dropped in v3
-> - Link to v3: https://lore.kernel.org/r/20241009-damu-v3-1-1294c8e16829@chromium.org
-> 
-> Changes in v3:
-> - Add missing Sign-off-by tag
-> - Link to v2: https://lore.kernel.org/r/20240910-one-wire-v2-1-2bb40d5a3cf8@chromium.org
-> 
-> Changes in v2:
-> - Add fixes tag
-> - Link to v1: https://lore.kernel.org/r/20240910-one-wire-v1-1-d25486a6ba6d@chromium.org
-> ---
->  arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
+fsl_mc_allocator_driver_exit() was added explicitly by
+commit 1e8ac83b6caf ("bus: fsl-mc: add fsl_mc_allocator cleanup function")
+but was never used.
 
+Remove it.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+fsl_mc_portal_reset() was added in 2015 by
+commit 197f4d6a4a00 ("staging: fsl-mc: fsl-mc object allocator driver")
+but was never used.
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+Remove it.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+fsl_mc_portal_reset() was the only caller of dpmcp_reset().
 
-  pip3 install dtschema --upgrade
+Remove it.
 
+Signed-off-by: Dr. David Alan Gilbert <linux@treblig.org>
+---
+ drivers/bus/fsl-mc/dpmcp.c            | 22 ----------------------
+ drivers/bus/fsl-mc/fsl-mc-allocator.c |  5 -----
+ drivers/bus/fsl-mc/fsl-mc-private.h   |  6 ------
+ drivers/bus/fsl-mc/mc-io.c            | 20 --------------------
+ include/linux/fsl/mc.h                |  2 --
+ 5 files changed, 55 deletions(-)
 
-New warnings running 'make CHECK_DTBS=y mediatek/mt8183-kukui-jacuzzi-damu.dtb' for 20241113-damu-v4-1-6911b69610dd@chromium.org:
-
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: pinctrl@10005000: mmc0-pins-default:pins-clk:mediatek,pull-down-adv: 10 is not one of [0, 1, 2, 3]
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: pinctrl@10005000: mmc0-pins-uhs:pins-clk:mediatek,pull-down-adv: 10 is not one of [0, 1, 2, 3]
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: pinctrl@10005000: mmc0-pins-uhs:pins-ds:mediatek,pull-down-adv: 10 is not one of [0, 1, 2, 3]
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: pinctrl@10005000: mmc1-pins-default:pins-cmd-dat:mediatek,pull-up-adv: 10 is not one of [0, 1, 2, 3]
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: pinctrl@10005000: mmc1-pins-default:pins-clk:mediatek,pull-down-adv: 10 is not one of [0, 1, 2, 3]
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: pinctrl@10005000: mmc1-pins-uhs:pins-cmd-dat:mediatek,pull-up-adv: 10 is not one of [0, 1, 2, 3]
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: pinctrl@10005000: mmc1-pins-uhs:pins-clk:mediatek,pull-down-adv: 10 is not one of [0, 1, 2, 3]
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: pinctrl@10005000: panel-pins-default: 'panel-reset' does not match any of the regexes: '^pins', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: pinctrl@10005000: pp3300-panel-pins: 'panel-3v3-enable' does not match any of the regexes: '^pins', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: pinctrl@10005000: touchscreen-pins: 'touch-int-odl', 'touch-rst-l' do not match any of the regexes: '^pins', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: pinctrl@10005000: trackpad-pins: 'trackpad-int' does not match any of the regexes: '^pins', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: pinctrl@10005000: volume-button-pins: 'voldn-btn-odl', 'volup-btn-odl' do not match any of the regexes: '^pins', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: pinctrl@10005000: 'audiopins', 'audiotdmoutoff', 'audiotdmouton', 'da7219_pins', 'ec-ap-int-odl', 'gpio-line-names', 'h1-int-od-l', 'i2c0', 'i2c1', 'i2c2', 'i2c3', 'i2c4', 'i2c5', 'i2c6', 'pp1000-mipibrdg-en', 'pp1800-mipibrdg-en', 'pp3300-mipibrdg-en', 'ppvarn-lcd-en', 'ppvarp-lcd-en', 'pwm0-pin-default', 'scp', 'spi0', 'spi1', 'spi2', 'spi3', 'spi4', 'spi5' do not match any of the regexes: '-pins(-[a-z]+)?$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: touchscreen@10: 'reset-gpios' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/input/hid-over-i2c.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: /soc/audio-controller@11220000: failed to match any schema with compatible: ['mediatek,mt8183-audiosys', 'syscon']
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: /soc/audio-controller@11220000/mt8183-afe-pcm: failed to match any schema with compatible: ['mediatek,mt8183-audio']
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: syscon@13000000: 'power-domains' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/clock/mediatek,syscon.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: dsi@14014000: ports: 'port@0' is a required property
-	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,dsi.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: dsi@14014000: ports: 'port@1' is a required property
-	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,dsi.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: dsi@14014000: Unevaluated properties are not allowed ('ports' was unexpected)
-	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,dsi.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: vcodec@17020000: 'assigned-clocks' is a required property
-	from schema $id: http://devicetree.org/schemas/media/mediatek,vcodec-encoder.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: vcodec@17020000: 'assigned-clock-parents' is a required property
-	from schema $id: http://devicetree.org/schemas/media/mediatek,vcodec-encoder.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: thermal-zones: 'tboard1', 'tboard2' do not match any of the regexes: '^[a-zA-Z][a-zA-Z0-9\-]{1,10}-thermal$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/thermal/thermal-zones.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: /mt8183-sound: failed to match any schema with compatible: ['mediatek,mt8183_da7219_max98357']
-arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dtb: bt-sco: '#sound-dai-cells' is a required property
-	from schema $id: http://devicetree.org/schemas/sound/linux,bt-sco.yaml#
-
-
-
-
+diff --git a/drivers/bus/fsl-mc/dpmcp.c b/drivers/bus/fsl-mc/dpmcp.c
+index 5fbd0dbde24a..7816c0a728ef 100644
+--- a/drivers/bus/fsl-mc/dpmcp.c
++++ b/drivers/bus/fsl-mc/dpmcp.c
+@@ -75,25 +75,3 @@ int dpmcp_close(struct fsl_mc_io *mc_io,
+ 	/* send command to mc*/
+ 	return mc_send_command(mc_io, &cmd);
+ }
+-
+-/**
+- * dpmcp_reset() - Reset the DPMCP, returns the object to initial state.
+- * @mc_io:	Pointer to MC portal's I/O object
+- * @cmd_flags:	Command flags; one or more of 'MC_CMD_FLAG_'
+- * @token:	Token of DPMCP object
+- *
+- * Return:	'0' on Success; Error code otherwise.
+- */
+-int dpmcp_reset(struct fsl_mc_io *mc_io,
+-		u32 cmd_flags,
+-		u16 token)
+-{
+-	struct fsl_mc_command cmd = { 0 };
+-
+-	/* prepare command */
+-	cmd.header = mc_encode_cmd_header(DPMCP_CMDID_RESET,
+-					  cmd_flags, token);
+-
+-	/* send command to mc*/
+-	return mc_send_command(mc_io, &cmd);
+-}
+diff --git a/drivers/bus/fsl-mc/fsl-mc-allocator.c b/drivers/bus/fsl-mc/fsl-mc-allocator.c
+index b5e8c021fa1f..6c3beb82dd1b 100644
+--- a/drivers/bus/fsl-mc/fsl-mc-allocator.c
++++ b/drivers/bus/fsl-mc/fsl-mc-allocator.c
+@@ -656,8 +656,3 @@ int __init fsl_mc_allocator_driver_init(void)
+ {
+ 	return fsl_mc_driver_register(&fsl_mc_allocator_driver);
+ }
+-
+-void fsl_mc_allocator_driver_exit(void)
+-{
+-	fsl_mc_driver_unregister(&fsl_mc_allocator_driver);
+-}
+diff --git a/drivers/bus/fsl-mc/fsl-mc-private.h b/drivers/bus/fsl-mc/fsl-mc-private.h
+index b3520ea1b9f4..e1b7ec3ed1a7 100644
+--- a/drivers/bus/fsl-mc/fsl-mc-private.h
++++ b/drivers/bus/fsl-mc/fsl-mc-private.h
+@@ -66,10 +66,6 @@ int dpmcp_close(struct fsl_mc_io *mc_io,
+ 		u32 cmd_flags,
+ 		u16 token);
+ 
+-int dpmcp_reset(struct fsl_mc_io *mc_io,
+-		u32 cmd_flags,
+-		u16 token);
+-
+ /*
+  * Data Path Resource Container (DPRC) API
+  */
+@@ -631,8 +627,6 @@ int dprc_scan_objects(struct fsl_mc_device *mc_bus_dev,
+ 
+ int __init fsl_mc_allocator_driver_init(void);
+ 
+-void fsl_mc_allocator_driver_exit(void);
+-
+ void fsl_mc_init_all_resource_pools(struct fsl_mc_device *mc_bus_dev);
+ 
+ void fsl_mc_cleanup_all_resource_pools(struct fsl_mc_device *mc_bus_dev);
+diff --git a/drivers/bus/fsl-mc/mc-io.c b/drivers/bus/fsl-mc/mc-io.c
+index 95b10a6cf307..a0ad7866cbfc 100644
+--- a/drivers/bus/fsl-mc/mc-io.c
++++ b/drivers/bus/fsl-mc/mc-io.c
+@@ -263,23 +263,3 @@ void fsl_mc_portal_free(struct fsl_mc_io *mc_io)
+ 	dpmcp_dev->consumer_link = NULL;
+ }
+ EXPORT_SYMBOL_GPL(fsl_mc_portal_free);
+-
+-/**
+- * fsl_mc_portal_reset - Resets the dpmcp object for a given fsl_mc_io object
+- *
+- * @mc_io: Pointer to the fsl_mc_io object that wraps the MC portal to free
+- */
+-int fsl_mc_portal_reset(struct fsl_mc_io *mc_io)
+-{
+-	int error;
+-	struct fsl_mc_device *dpmcp_dev = mc_io->dpmcp_dev;
+-
+-	error = dpmcp_reset(mc_io, 0, dpmcp_dev->mc_handle);
+-	if (error < 0) {
+-		dev_err(&dpmcp_dev->dev, "dpmcp_reset() failed: %d\n", error);
+-		return error;
+-	}
+-
+-	return 0;
+-}
+-EXPORT_SYMBOL_GPL(fsl_mc_portal_reset);
+diff --git a/include/linux/fsl/mc.h b/include/linux/fsl/mc.h
+index c90ec889bfc2..37316a58d2ed 100644
+--- a/include/linux/fsl/mc.h
++++ b/include/linux/fsl/mc.h
+@@ -417,8 +417,6 @@ int __must_check fsl_mc_portal_allocate(struct fsl_mc_device *mc_dev,
+ 
+ void fsl_mc_portal_free(struct fsl_mc_io *mc_io);
+ 
+-int fsl_mc_portal_reset(struct fsl_mc_io *mc_io);
+-
+ int __must_check fsl_mc_object_allocate(struct fsl_mc_device *mc_dev,
+ 					enum fsl_mc_pool_type pool_type,
+ 					struct fsl_mc_device **new_mc_adev);
+-- 
+2.47.0
 
 
