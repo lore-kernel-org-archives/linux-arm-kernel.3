@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A72B9D6DDD5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 06:21:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1801FD6DDD7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 06:39:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9gKUJ2cNG0t/qB73uD+0bQQcA1KeJf1H91Ybk4Lvf6A=; b=y38MygDGq/Q1tp9+hRGx2y1GQl
-	HFaO1DzRql1sF1CTWxeRTHXzUG5YtpPcwo0ruJH/M9NQBzeVQC55oP7f9P5zbS7jBBmC3Mlh3+6eM
-	Goom9j9JyVoVh2eda/2fxP/Hs6r8NsKEyNjq2W07yL1IiC7mdM3ImW2M3Sy3LBEwlRxWeiECM5BKn
-	jkgbFmlG5egi8QaaG2ZQVzuQoCoBVBEvw4J++GP3FU7FMUgZVxGfWVjw9Cdt/NQRh5Nv8LS9IK9be
-	mHBqMcZ3mq+9i87cOElhmuwwXYOrd+VSHu8rKYS5nE8MPFqO/NKRwNhLp0bzbVS05lDASOxL31qLG
-	r8flUMbA==;
+	bh=3ASYot59pnFaxW/GHMyz8Y0KBxe3S70/tiXkzx5jQ+Y=; b=iSfSLSMiYYA5SbazDMGssH6iqe
+	ByC4HfqMJAepyVsMQ9eugGExG067AOZc2M2QG9fKBnuhNs+HASx8l5zbJpqY9mz0EKMMeAkEJ6yNg
+	g6FJ630hiZ5MnCqi83a4G/scg8RfhSHOnI+ZB0gL0TmnLhDunadocykjjNH6wtj9g+ypk9pOrLJ7h
+	5D/pZ56lgFpA4KW44GHH7I2agAXr+2f++d8JXvGCGn1/yAoSaQXn00yrkhTpKUCUQJcg2aDr2Na9+
+	LqNekBYvUKACTPVKHkVSwR+PkOkd60JaeoC9aHbNgsA6FtSFVQU7wiqIG17mPzG1VQsIIzNbGx7Z7
+	pHzR3dgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBphg-00000001mHL-2Rgk;
-	Fri, 15 Nov 2024 06:21:12 +0000
+	id 1tBpzK-00000001oJq-17X3;
+	Fri, 15 Nov 2024 06:39:26 +0000
 Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBpgl-00000001m8B-0TGw
+	id 1tBpyO-00000001o7M-0fxA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 06:20:16 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-20c7ee8fe6bso15773695ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 22:20:14 -0800 (PST)
+	Fri, 15 Nov 2024 06:38:29 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-20caccadbeeso4093475ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 22:38:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731651614; x=1732256414; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1731652707; x=1732257507; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=9gKUJ2cNG0t/qB73uD+0bQQcA1KeJf1H91Ybk4Lvf6A=;
-        b=YrLmIESsq8pXloSqRsKYGGGwQ+heXKL3G8nc71J6EqqEDgQwAAsCyE3vXhtWYX3eYB
-         /trC1XrxmK6i3OCfC0UPEOCSMOlAMMBmtljR8V3wa9jKFOJf/25/CjKIg9CpVAmhR79Y
-         9PCJAhh9VEE6v4jcr3zF6qKFW+xIoVidNYKXRhJNuGr3v/VM/6ZTKQZDa+ill7B3AzQM
-         IwLpB98neak9VHQSZ2/eqZkzU4vnwJHd+0Z6SzIPTW7t+G/aJWVOillWBqoao0WImuR3
-         C9AKUxBbzOSpVW3oIhqSHCsdwnkQe6Mj5AA0pFG/bJ47wqe0ePaD+jJpeyhVGhZA6r3w
-         j5Iw==
+        bh=3ASYot59pnFaxW/GHMyz8Y0KBxe3S70/tiXkzx5jQ+Y=;
+        b=fqrk/zWe1skddyEM7xX9Do4Q1p7+mTaThzdtBlaiUu0BNlUh4iw92dsBBGkzgvc4Tl
+         HAD9NW4zTreWGMuyTWL+xLjLbv/Javu2QmilV/LRxNII4CKGjkmtShCjDtXlt+E1oqZS
+         qyb/gPPOdVPewNjHyB3r3uXQd64/8JrQWPiPvwYdMgES1bQ7Z6Bh+NrRPoS5KtBh+4PC
+         uF1cCSmlYJiPoLWF7+g5uIXcupJ5hlMOKdbjACreelykAaa5cpDEZzeGGXubdCXHdGcf
+         ojbqIXeJVvbEBSjQ8jfhgBr+YVziJfZWJX91UM3DSQEZlPvNRUUhj5plLXIePR7cbQgW
+         ebcA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731651614; x=1732256414;
+        d=1e100.net; s=20230601; t=1731652707; x=1732257507;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9gKUJ2cNG0t/qB73uD+0bQQcA1KeJf1H91Ybk4Lvf6A=;
-        b=w2S0CPYLFhUof2SEPjW2R+IkSxW3W3e67i/MUMPpCjOibh7305FjAFKw6Bh8f2hMwv
-         76aqzLLa/Q+45wXo4NdAIslvbipjTPtmtukrs/DiH022e6hdEybI0Pl7dgqPo0f2owpt
-         krlIz1EPpLjSrQwfnK9u02W8t/8XIsIs+gd2idUgWQra9ZqfgNpAx+5cnIiGpnDv2Z4G
-         /AcJug0ELfx1Wc2D59SSA/EqwcKX1BaOZBi7RFIvrfMkm3/JERP1r7yioZ86AJ1/jmfk
-         wOI2XDWDSS3SCsbtpd8eYxw7kUexWDn0YN49Mwwmej4nWJhxEmXXRd9WBRAqGhkcISFO
-         ERuw==
-X-Forwarded-Encrypted: i=1; AJvYcCV0UGwQ3tKUJTjqucZtFlMys/lu1ZUtRKjfD1UuVA5w/RIy8ZyAZYoQi0lzbRiM53+kxokdKUOOhl8C1hoQjT5F@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMlpd21iQ268scHDbBZxGWjUt1R02Oap/YL7m37nOV5cciEdsp
-	D+Zm7cDcs3omAvpXGVPCj4SFMF5aP8+HztaJbUfx3nODRWHDcXiWWhWim6YDKuPMdFwUd2Ph7JA
-	=
-X-Google-Smtp-Source: AGHT+IEbADa24OOCr64EMECKMnFPpNDtB+pfm88K+JWVfITt31bJPhoSBXJFkrjbhoFDajn7rZEVFw==
-X-Received: by 2002:a17:902:f651:b0:20d:345a:9641 with SMTP id d9443c01a7336-211d0d8444cmr20995845ad.27.1731651614011;
-        Thu, 14 Nov 2024 22:20:14 -0800 (PST)
+        bh=3ASYot59pnFaxW/GHMyz8Y0KBxe3S70/tiXkzx5jQ+Y=;
+        b=WRTtaZ5aBRbH7QD8+4cGHWM77uZY/GmAbqGuW69VES+wThdqKPjhhJcOoMjSGuwTVm
+         ndNxLK5NDXPdXmtwNc9Kk6IHJD4MjYbCQPfpgn904Zgom5Jo8Z26ELFafrc2gRFfD+57
+         WL+cXSCkoI+HHJufUiSmV5P/9wUv+rQ3ewuTfBcFd0NVOPWyPcwpYw/SeAR+PpDv0mRt
+         m55mLk4mV/pDE+xQny7PvURy8xCFDZS1uy5wNSU3k3IEOrabeGCScA5rDzkPaU/7DlIc
+         /a8AhZB+CEuzKCm+y6/G5l9X74FPVU9G49ZwHbDHpp/JTLuuYih+rOAVBb8pJYGVtJ4y
+         F1ZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVkp+q/B8c0N7Z10ImVmxji+ETzSHTUwHQhLsQau6rFq1nyjKZ/3SJM7ZeJrprlJaKBoYtUG18rNTWa+B4PGxdN@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywgd4syLzm1v7gIK2AFtIWDUCoHo5cM/JgmGSYSwXzOqhuALAZs
+	Ul8Zu/vFKsqvquh9pwn2d+TbFNOO9mYSZQLch5P9IYhUqozZbrT/V9rBXyNvuw==
+X-Google-Smtp-Source: AGHT+IHmK/K9KtNXF8MAKgzWlqq1Xbvw08TMatRS4xdoCN6jQH4adnR3wRNRA42mwN6r478Ju/K5qw==
+X-Received: by 2002:a17:902:ecc1:b0:20c:c631:d81f with SMTP id d9443c01a7336-211d0d71690mr17005295ad.21.1731652707497;
+        Thu, 14 Nov 2024 22:38:27 -0800 (PST)
 Received: from thinkpad ([117.193.208.47])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f47b62sm5786625ad.175.2024.11.14.22.20.10
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0ec7bc7sm6089015ad.68.2024.11.14.22.38.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Nov 2024 22:20:13 -0800 (PST)
-Date: Fri, 15 Nov 2024 11:50:05 +0530
+        Thu, 14 Nov 2024 22:38:27 -0800 (PST)
+Date: Fri, 15 Nov 2024 12:08:16 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
-	"open list:PCI DRIVER FOR GENERIC OF HOSTS" <linux-pci@vger.kernel.org>,
-	"moderated list:PCI DRIVER FOR GENERIC OF HOSTS" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH] PCI: check bridge->bus in pci_host_common_remove
-Message-ID: <20241115062005.6ifvr6ens2qnrrrf@thinkpad>
-References: <20241028084644.3778081-1-peng.fan@oss.nxp.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: l.stach@pengutronix.de, bhelgaas@google.com, lpieralisi@kernel.org,
+	kw@linux.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, shawnguo@kernel.org, frank.li@nxp.com,
+	s.hauer@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
+	kernel@pengutronix.de, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 02/10] PCI: imx6: Add ref clock for i.MX95 PCIe
+Message-ID: <20241115063816.xpjqgm2j34enhe7s@thinkpad>
+References: <20241101070610.1267391-1-hongxing.zhu@nxp.com>
+ <20241101070610.1267391-3-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241028084644.3778081-1-peng.fan@oss.nxp.com>
+In-Reply-To: <20241101070610.1267391-3-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_222015_186237_95043D57 
-X-CRM114-Status: GOOD (  29.60  )
+X-CRM114-CacheID: sfid-20241114_223828_207406_E91D00B9 
+X-CRM114-Status: GOOD (  22.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,99 +99,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 04:46:43PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> When PCI node was created using an overlay and the overlay is
-> reverted/destroyed, the "linux,pci-domain" property no longer exists,
-> so of_get_pci_domain_nr will return failure. Then
-> of_pci_bus_release_domain_nr will actually use the dynamic IDA, even
-> if the IDA was allocated in static IDA. So the flow is as below:
-> A: of_changeset_revert
->     pci_host_common_remove
->      pci_bus_release_domain_nr
->        of_pci_bus_release_domain_nr
->          of_get_pci_domain_nr      # fails because overlay is gone
->          ida_free(&pci_domain_nr_dynamic_ida)
-> 
-> With driver calls pci_host_common_remove explicity, the flow becomes:
-> B pci_host_common_remove
->    pci_bus_release_domain_nr
->     of_pci_bus_release_domain_nr
->      of_get_pci_domain_nr      # succeeds in this order
->       ida_free(&pci_domain_nr_static_ida)
-> A of_changeset_revert
->    pci_host_common_remove
-> 
-> With updated flow, the pci_host_common_remove will be called twice,
-> so need to check 'bridge->bus' to avoid accessing invalid pointer.
-> 
-> Fixes: c14f7ccc9f5d ("PCI: Assign PCI domain IDs by ida_alloc()")
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+On Fri, Nov 01, 2024 at 03:06:02PM +0800, Richard Zhu wrote:
+> Add "ref" clock to enable reference clock. To avoid the DT
+> compatibility, i.MX95 REF clock might be optional.
 
-I went through the previous discussion [1] and I couldn't see an agreement on
-the point raised by Bjorn on 'removing the host bridge before the overlay'.
+Your wording is not correct. Perhaps you wanted to say, "To avoid breaking DT
+backwards compatibility"?
 
-I do think this is a valid point and if you do not think so, please state the
-reason.
+> Replace the
+> devm_clk_bulk_get() by devm_clk_bulk_get_optional() to fetch
+> i.MX95 PCIe optional clocks in driver.
+> 
+> If use external clock, ref clock should point to external reference.
+> 
+> If use internal clock, CREF_EN in LAST_TO_REG controls reference output,
+> which implement in drivers/clk/imx/clk-imx95-blk-ctl.c.
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 19 +++++++++++++------
+>  1 file changed, 13 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 808d1f105417..bc8567677a67 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -82,6 +82,7 @@ enum imx_pcie_variants {
+>  #define IMX_PCIE_FLAG_HAS_SERDES		BIT(6)
+>  #define IMX_PCIE_FLAG_SUPPORT_64BIT		BIT(7)
+>  #define IMX_PCIE_FLAG_CPU_ADDR_FIXUP		BIT(8)
+> +#define IMX_PCIE_FLAG_CUSTOM_PME_TURNOFF	BIT(9)
+>  
+>  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
+>  
+> @@ -98,6 +99,7 @@ struct imx_pcie_drvdata {
+>  	const char *gpr;
+>  	const char * const *clk_names;
+>  	const u32 clks_cnt;
+> +	const u32 clks_optional_cnt;
+>  	const u32 ltssm_off;
+>  	const u32 ltssm_mask;
+>  	const u32 mode_off[IMX_PCIE_MAX_INSTANCES];
+> @@ -1278,9 +1280,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  	struct device_node *np;
+>  	struct resource *dbi_base;
+>  	struct device_node *node = dev->of_node;
+> -	int ret;
+> +	int ret, i, req_cnt;
+>  	u16 val;
+> -	int i;
+>  
+>  	imx_pcie = devm_kzalloc(dev, sizeof(*imx_pcie), GFP_KERNEL);
+>  	if (!imx_pcie)
+> @@ -1330,7 +1331,10 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  		imx_pcie->clks[i].id = imx_pcie->drvdata->clk_names[i];
+>  
+>  	/* Fetch clocks */
+> -	ret = devm_clk_bulk_get(dev, imx_pcie->drvdata->clks_cnt, imx_pcie->clks);
+> +	req_cnt = imx_pcie->drvdata->clks_cnt - imx_pcie->drvdata->clks_optional_cnt;
+> +	ret = devm_clk_bulk_get(dev, req_cnt, imx_pcie->clks);
+> +	ret |= devm_clk_bulk_get_optional(dev, imx_pcie->drvdata->clks_optional_cnt,
+> +					  imx_pcie->clks + req_cnt);
+
+Why do you need to use 'clk_bulk' API to get a single reference clock? Just use
+devm_clk_get_optional(dev, "ref")
+
+And who is going to supply the reference clock in the absence of this clockn in
+DT?
 
 - Mani
 
-[1] https://lore.kernel.org/lkml/20230913115737.GA426735@bhelgaas/
-
-> ---
-> 
-> V1:
->  Not sure to keep the fixes here. I could drop the Fixes tag if it is
->  improper.
->  This is to revisit the patch [1] which was rejected last year. This
->  new flow is using the suggest flow following Bjorn's suggestion.
->  But of_changeset_revert will still invoke plaform_remove and then
->  pci_host_common_remove. So worked out this patch together with a patch
->  to jailhouse driver as below:
->  static void destroy_vpci_of_overlay(void)
->  {
-> +       struct device_node *vpci_node = NULL;
-> +
->         if (overlay_applied) {
-> +#if LINUX_VERSION_CODE >= KERNEL_VERSION(6,6,0)
-> +               vpci_node = of_find_node_by_path("/pci@0");
-> +               if (vpci_node) {
-> +                       struct platform_device *pdev = of_find_device_by_node(vpci_node);
-> +                       if (!pdev)
-> +                               printk("Not found device for /pci@0\n");
-> +                       else {
-> +                               pci_host_common_remove(pdev);
-> +                               platform_device_put(pdev);
-> +                       }
-> +               }
-> +               of_node_put(vpci_node);
-> +#endif
-> +
->                 of_changeset_revert(&overlay_changeset);
-> 
->  [1] https://lore.kernel.org/lkml/20230908224858.GA306960@bhelgaas/T/#md12e6097d91a012ede78c997fc5abf460029a569
-> 
->  drivers/pci/controller/pci-host-common.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-> index cf5f59a745b3..5a9c29fc57cd 100644
-> --- a/drivers/pci/controller/pci-host-common.c
-> +++ b/drivers/pci/controller/pci-host-common.c
-> @@ -86,8 +86,10 @@ void pci_host_common_remove(struct platform_device *pdev)
->  	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
+>  	if (ret)
+>  		return ret;
 >  
->  	pci_lock_rescan_remove();
-> -	pci_stop_root_bus(bridge->bus);
-> -	pci_remove_root_bus(bridge->bus);
-> +	if (bridge->bus) {
-> +		pci_stop_root_bus(bridge->bus);
-> +		pci_remove_root_bus(bridge->bus);
-> +	}
->  	pci_unlock_rescan_remove();
->  }
->  EXPORT_SYMBOL_GPL(pci_host_common_remove);
+> @@ -1480,6 +1484,7 @@ static const char * const imx8mm_clks[] = {"pcie_bus", "pcie", "pcie_aux"};
+>  static const char * const imx8mq_clks[] = {"pcie_bus", "pcie", "pcie_phy", "pcie_aux"};
+>  static const char * const imx6sx_clks[] = {"pcie_bus", "pcie", "pcie_phy", "pcie_inbound_axi"};
+>  static const char * const imx8q_clks[] = {"mstr", "slv", "dbi"};
+> +static const char * const imx95_clks[] = {"pcie_bus", "pcie", "pcie_phy", "pcie_aux", "ref"};
+>  
+>  static const struct imx_pcie_drvdata drvdata[] = {
+>  	[IMX6Q] = {
+> @@ -1592,9 +1597,11 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  	},
+>  	[IMX95] = {
+>  		.variant = IMX95,
+> -		.flags = IMX_PCIE_FLAG_HAS_SERDES,
+> -		.clk_names = imx8mq_clks,
+> -		.clks_cnt = ARRAY_SIZE(imx8mq_clks),
+> +		.flags = IMX_PCIE_FLAG_HAS_SERDES |
+> +			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+> +		.clk_names = imx95_clks,
+> +		.clks_cnt = ARRAY_SIZE(imx95_clks),
+> +		.clks_optional_cnt = 1,
+>  		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
+>  		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
+>  		.mode_off[0]  = IMX95_PE0_GEN_CTRL_1,
 > -- 
 > 2.37.1
 > 
