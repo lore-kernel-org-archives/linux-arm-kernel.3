@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9438CD6DDEC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 09:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A97D6DDEC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 09:02:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c6LO4Usr4YLCJ7gfFHS9SsbF18mDXFAaRhBjtGDvUq4=; b=N9hiy0AiNqZlZF+7zTSntYIoze
-	FSOUle26KVRFH7DTnMMD5ljcXA8//OoJ2JQD4Xeka5h+y5bnVt0LkKo8theySidiyDMfheLwzIJgT
-	BiKh9aWIunyTJvpHQNDN6/cKLa4gtOlaCmwvUBNM/tWXmmou915U8krPRHf6e/gD8iXi6rOEeJtIR
-	8r3gIKMnntsL3v27AUYpNj2EJ7E/y0oD57L6RG5uxaz1JeNXls7GoPn9EsX/k501juaL93T6O+6I4
-	hPjocz9f61/+0dTowQwP/uSKQ0yRmQOxKkPPw6+/ieOnfiEBfA5/dSu6mQrdp/6VLhU8BeM1jLAdM
-	pVH2kfiA==;
+	bh=ZSduSpw6Gs8k/0VwrNK4EQsaE6HAEWDhJjg1+iiQFrU=; b=cEfsK1T82Va46F9aIsjBIcJB8v
+	NK+ySl6r9tiAsgE5hwpMf6qXOd018GJ11iBhRTNCgBSP1Tc8XtsedGB/ubJx7xYLTyp/+do+wc402
+	lcYs4MeCdhC2PTmv9RoDJ8do0ICe81Fpbu5MLEhiqsS2AG0Fqu/3Sf0nX/vFn4hm2+R0yZYoSZ2bo
+	2EHsiAHOalS+/bX0gLvRSRFGAzBDv4LUCf19zt0E5Ycy7cHwMKm6kyawBh9ov9A5rcdBXf/Pt7SPg
+	gEE02AR4UXNWX+Noa+iSaoC6mSrwmY/mzzpmyRbU97WO8q8e7B+KfpoaOWAOuNIHY1C/oL5+M7ESi
+	P9Odz3wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBsCM-000000027Ov-22h3;
-	Fri, 15 Nov 2024 09:01:02 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1tBsDH-000000027ez-2xdm;
+	Fri, 15 Nov 2024 09:01:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBsBR-000000027CU-1cqE
+	id 1tBsC2-000000027Jv-2zdD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 09:00:06 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-7246c8b89b4so1033433b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 01:00:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731661205; x=1732266005; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=c6LO4Usr4YLCJ7gfFHS9SsbF18mDXFAaRhBjtGDvUq4=;
-        b=CvdskNCn3it2elC2hjfgM/onx5zNWchHdapqfxllGuaPDnp4xCm1Ygd4WPll0li8yA
-         MhsEb+DSudikV5QxiprhIMC6hgXXxxTazvDZ8G6oIHjgMZcVYLXx8QStzWUG1HZamsQ4
-         8JJcsCXRP2c6CTcIkn8dIrhxn2XJU3dgA3zvS2x/504pjILWjAKl5dZ7Tejw2XFtKCer
-         S50MrCtYj86mY+ewpS4SmpLEVqqJ68gh6IfPRse4JkWGXbK6cn9VdMUEnOP3ZijKR3lc
-         ertNxntcOFl+3mOeP3Xkv3Ab/ztjBU8JUNOUNAfB7ODoAcbfQOelAOwqYLsRLcIMKWUi
-         9SXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731661205; x=1732266005;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=c6LO4Usr4YLCJ7gfFHS9SsbF18mDXFAaRhBjtGDvUq4=;
-        b=xC2uFa0foCrsIk3tvs3u5A4bZ457ewlTA+CeqPZQB/TPCNHuz8+cxJ2zJniLjoqPkL
-         /qHzK/sNKZ2aGJYVXdoijjEMthVNSoYNvUiNmkagqTj4loWGrszUXNQcQzJ60BJv7ZMF
-         RkJCTbQ+c7b3w/djakuggVaXFYj5+N0Kx6GHY8kmR4Z7PfT617DoO7QsyOffG3cWCYyN
-         bz5q3LVGt2UOnX5+It9kItHG27cv2Ch1fX+uwQYY0gwTiymrJ7AXz+P11yMrSK/vPGOV
-         CsVxxdzuZ3aox0al0uOJjPi89mDHelmiu0xCh/9YBD6BCyN1jcgbEk540x30iIWX7f5H
-         Np/A==
-X-Forwarded-Encrypted: i=1; AJvYcCUo1IHxzSOYoCZaa9YeWfkr7tRm0l7Z1A01UK9GJNg8TsPwVPok5bpqvMNX/EPIikhYqSEkXf3oPK/4ZDeWs3/W@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNVzYXTKXht2WOXl7GIaKjCwMBOOzbp+TD4QVGITne9KYmCX2D
-	Re6g9FRv3IV3InPTiKTSkEy/UA1iMw0XpYimF38gnCw4xolHpdd2TTqDRulJnw==
-X-Google-Smtp-Source: AGHT+IGXzc2k85nHigsVQvGCV/dEUXykSPtZP9SAjYxa8cXADj5jMo8+rVoyKMXLZcK2JnJ73FDM+Q==
-X-Received: by 2002:a05:6a00:21ca:b0:71e:44f6:690f with SMTP id d2e1a72fcca58-724760cafa2mr4071933b3a.8.1731661204509;
-        Fri, 15 Nov 2024 01:00:04 -0800 (PST)
-Received: from thinkpad ([117.193.208.47])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724771fc665sm883611b3a.173.2024.11.15.00.59.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Nov 2024 01:00:04 -0800 (PST)
-Date: Fri, 15 Nov 2024 14:29:55 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/4] PCI: mediatek-gen3: rely on
- clk_bulk_prepare_enable() in mtk_pcie_en7581_power_up()
-Message-ID: <20241115085955.dbhi2v7qfuq3tmr4@thinkpad>
-References: <20241109-pcie-en7581-fixes-v2-0-0ea3a4af994f@kernel.org>
- <20241109-pcie-en7581-fixes-v2-2-0ea3a4af994f@kernel.org>
+	Fri, 15 Nov 2024 09:00:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4DE6B5C5C57
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 08:59:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C621C4CECF
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 09:00:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731661241;
+	bh=ep6e6vrM90+sANFQNBPsBH/0puLJC8rHexalC7iAPdk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=g8db1pBccH96DxqOHKfc2GWxOPNR7o2mN9YY+T59BAxt1TwyNKOr48DtTjyEif4Q7
+	 FVYSU084mEIJQyyRLgv7i1VZ9nVCCiKg7BYDPssj4M5omGZvrMRjmg0bEYHfVNHr1b
+	 J7VwOQ+PkWEDWKn763/e/l6iAQRbUOn+nVhS+o2/yIcYc31q1b/hiAum8bLetOGOGc
+	 67e9kLWGznHq+ghh8hORihpKixZdnPVGySZ7pK/cGJtMpcary0eaJBrECEjArhsKhh
+	 lAxLUU9qabRAi+yktNp62IdbPsVBzTuxmLX7ej4MLBkDndcEgpRFPyAfx6dDKdXmCQ
+	 JHArw365ycE5A==
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-2fb4fa17044so16394421fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 01:00:41 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX+b4KvhBq/XZZXEJ2FCpv+XjrHiW8W5CWLnG43yZ9AP1l3gq20UWr6OrarJjvIGenzQKQLWFG1WD26HSnFjgbk@lists.infradead.org
+X-Gm-Message-State: AOJu0YznwVzOsuB/iwIyqAMkgnRdCYdoSV2Ud4m8nnibgkI+zWkosA2b
+	QyCbHcwVLYtVN5s/FfF0KFY228ZXgq7WTqQSczleARKk6uX2XY37EM6u+tJf4ASAsopKWBGjQXS
+	H9sRpCHWxZISnEL6nI48TmQRDuN4=
+X-Google-Smtp-Source: AGHT+IE0QJBljUkm8oRmVb4pgis/ZjWPlu7BiybmSlxSYB+SiOgXWAJnKXSwfSr9IRUZHqmg2tA8/0dnJAWqKj//OnU=
+X-Received: by 2002:a2e:a9a8:0:b0:2fb:6110:c5cb with SMTP id
+ 38308e7fff4ca-2ff6070e6c1mr10431401fa.34.1731661239537; Fri, 15 Nov 2024
+ 01:00:39 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241109-pcie-en7581-fixes-v2-2-0ea3a4af994f@kernel.org>
+References: <20241111083544.1845845-8-ardb+git@google.com> <20241111083544.1845845-10-ardb+git@google.com>
+ <ea124997-8dee-457c-bef1-d5d829c84da3@arm.com>
+In-Reply-To: <ea124997-8dee-457c-bef1-d5d829c84da3@arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 15 Nov 2024 10:00:27 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXF1kYaiJmQXdvfSzGmgO78cechpm-JC=n3yGhRBXQF6nw@mail.gmail.com>
+Message-ID: <CAMj1kXF1kYaiJmQXdvfSzGmgO78cechpm-JC=n3yGhRBXQF6nw@mail.gmail.com>
+Subject: Re: [PATCH 2/6] arm64/mm: Override PARange for !LPA2 and use it consistently
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Kees Cook <keescook@chromium.org>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_010005_464401_D7B0B9CF 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20241115_010042_853276_CE629B8D 
+X-CRM114-Status: GOOD (  42.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,78 +84,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 09, 2024 at 10:28:38AM +0100, Lorenzo Bianconi wrote:
-> Squash clk_bulk_prepare() and clk_bulk_enable() in
-> clk_bulk_prepare_enable() in mtk_pcie_en7581_power_up() routine
-> 
+Hi Anshuman,
 
-Perhaps use something like,
+On Fri, 15 Nov 2024 at 07:05, Anshuman Khandual
+<anshuman.khandual@arm.com> wrote:
+>
+> On 11/11/24 14:05, Ard Biesheuvel wrote:
+> > From: Ard Biesheuvel <ardb@kernel.org>
+> >
+> > When FEAT_LPA{,2} are not implemented, the ID_AA64MMFR0_EL1.PARange and
+> > TCR.IPS values corresponding with 52-bit physical addressing are
+> > reserved.
+> >
+> > Setting the TCR.IPS field to 0b110 (52-bit physical addressing) has side
+> > effects, such as how the TTBRn_ELx.BADDR fields are interpreted, and so
+> > it is important that disabling FEAT_LPA2 (by overriding the
+> > ID_AA64MMFR0.TGran fields) also presents a PARange field consistent with
+> > that.
+> >
+> > So limit the field to 48 bits unless LPA2 is enabled, and update
+> > existing references to use the override consistently.
+> >
+> > Fixes: 352b0395b505 ("arm64: Enable 52-bit virtual addressing for 4k and 16k granule configs")
+> > Cc: <stable@vger.kernel.org>
+> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> > ---
+> >  arch/arm64/include/asm/assembler.h    | 5 +++++
+> >  arch/arm64/kernel/cpufeature.c        | 2 +-
+> >  arch/arm64/kernel/pi/idreg-override.c | 9 +++++++++
+> >  arch/arm64/kernel/pi/map_kernel.c     | 6 ++++++
+> >  arch/arm64/mm/init.c                  | 2 +-
+> >  5 files changed, 22 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+> > index 3d8d534a7a77..ad63457a05c5 100644
+> > --- a/arch/arm64/include/asm/assembler.h
+> > +++ b/arch/arm64/include/asm/assembler.h
+> > @@ -343,6 +343,11 @@ alternative_cb_end
+> >       // Narrow PARange to fit the PS field in TCR_ELx
+> >       ubfx    \tmp0, \tmp0, #ID_AA64MMFR0_EL1_PARANGE_SHIFT, #3
+> >       mov     \tmp1, #ID_AA64MMFR0_EL1_PARANGE_MAX
+> > +#ifdef CONFIG_ARM64_LPA2
+> > +alternative_if_not ARM64_HAS_VA52
+> > +     mov     \tmp1, #ID_AA64MMFR0_EL1_PARANGE_48
+> > +alternative_else_nop_endif
+> > +#endif
+>
+> I guess this will only take effect after cpu features have been finalized
+> but will not be applicable for __cpu_setup() during primary and secondary
+> cpu bring up during boot.
+>
 
-"Replace clk_bulk_prepare() and clk_bulk_enable() with clk_bulk_prepare_enable()
-in mtk_pcie_en7581_power_up()."
+It is the other way around, actually. This limit will always be
+applied on primary boot, which is why IPS is updated again in
+set_ttbr0_for_lpa2() [below]. Before booting the secondaries (or other
+subsequent invocations of this code, e.g., in the resume path), this
+MOV will be NOPed out if LPA2 support is enabled.
 
-'Squash' doesn't sound right since you are not squashing any code.
 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  drivers/pci/controller/pcie-mediatek-gen3.c | 14 +++-----------
->  1 file changed, 3 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-> index 0fac0b9fd785e463d26d29d695b923db41eef9cc..8c8c733a145634cdbfefd339f4a692f25a6e24de 100644
-> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
-> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-> @@ -903,12 +903,6 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
->  	pm_runtime_enable(dev);
->  	pm_runtime_get_sync(dev);
->  
-> -	err = clk_bulk_prepare(pcie->num_clks, pcie->clks);
-> -	if (err) {
-> -		dev_err(dev, "failed to prepare clock\n");
-> -		goto err_clk_prepare;
-> -	}
-> -
->  	val = FIELD_PREP(PCIE_VAL_LN0_DOWNSTREAM, 0x47) |
->  	      FIELD_PREP(PCIE_VAL_LN1_DOWNSTREAM, 0x47) |
->  	      FIELD_PREP(PCIE_VAL_LN0_UPSTREAM, 0x41) |
-> @@ -921,17 +915,15 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
->  	      FIELD_PREP(PCIE_K_FINETUNE_MAX, 0xf);
->  	writel_relaxed(val, pcie->base + PCIE_PIPE4_PIE8_REG);
->  
-> -	err = clk_bulk_enable(pcie->num_clks, pcie->clks);
-> +	err = clk_bulk_prepare_enable(pcie->num_clks, pcie->clks);
->  	if (err) {
->  		dev_err(dev, "failed to prepare clock\n");
-> -		goto err_clk_enable;
-> +		goto err_clk_init;
+> >       cmp     \tmp0, \tmp1
+> >       csel    \tmp0, \tmp1, \tmp0, hi
+> >       bfi     \tcr, \tmp0, \pos, #3
+> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > index 37e4c02e0272..6f5137040ff6 100644
+> > --- a/arch/arm64/kernel/cpufeature.c
+> > +++ b/arch/arm64/kernel/cpufeature.c
+> > @@ -3399,7 +3399,7 @@ static void verify_hyp_capabilities(void)
+> >               return;
+> >
+> >       safe_mmfr1 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR1_EL1);
+> > -     mmfr0 = read_cpuid(ID_AA64MMFR0_EL1);
+> > +     mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
+>
+> Small nit, should be renamed as safe_mmfr0 to be consistent with safe_mmfr1 ?
+>
 
-err_clk_prepare_enable?
+safe_mmfr1 exists because there is also mmfr1 in the same scope. No
+such distinction exists for mmfr0, so I opted for keeping the name.
 
-But I usually prefer err labels to be named after their purpose. Like here,
-'err_runtime_put_reset' so it gives the reader a sense of what the label is
-supposed to do.
+> >       mmfr1 = read_cpuid(ID_AA64MMFR1_EL1);
+> >
+> >       /* Verify VMID bits */
+> > diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+> > index 22159251eb3a..c6b185b885f7 100644
+> > --- a/arch/arm64/kernel/pi/idreg-override.c
+> > +++ b/arch/arm64/kernel/pi/idreg-override.c
+> > @@ -83,6 +83,15 @@ static bool __init mmfr2_varange_filter(u64 val)
+> >               id_aa64mmfr0_override.val |=
+> >                       (ID_AA64MMFR0_EL1_TGRAN_LPA2 - 1) << ID_AA64MMFR0_EL1_TGRAN_SHIFT;
+> >               id_aa64mmfr0_override.mask |= 0xfU << ID_AA64MMFR0_EL1_TGRAN_SHIFT;
+> > +
+> > +             /*
+> > +              * Override PARange to 48 bits - the override will just be
+> > +              * ignored if the actual PARange is smaller, but this is
+> > +              * unlikely to be the case for LPA2 capable silicon.
+> > +              */
+> > +             id_aa64mmfr0_override.val |=
+> > +                     ID_AA64MMFR0_EL1_PARANGE_48 << ID_AA64MMFR0_EL1_PARANGE_SHIFT;
+> > +             id_aa64mmfr0_override.mask |= 0xfU << ID_AA64MMFR0_EL1_PARANGE_SHIFT;
+> Could these be used instead ?
+>
+> SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, PARANGE, 48)
+> ID_AA64MMFR0_EL1_PARANGE_MASK ?
+>
 
-However, to keep the existing sematics, you can just name it
-err_clk_prepare_enable.
+Yes, but 2 lines before, there is another occurrence of this idiom,
+and I did not want to deviate from that.
 
-- Mani
+We could update both, or update the other one first in a separate
+patch, I suppose.
 
->  	}
->  
->  	return 0;
->  
-> -err_clk_enable:
-> -	clk_bulk_unprepare(pcie->num_clks, pcie->clks);
-> -err_clk_prepare:
-> +err_clk_init:
->  	pm_runtime_put_sync(dev);
->  	pm_runtime_disable(dev);
->  	reset_control_assert(pcie->mac_reset);
-> 
-> -- 
-> 2.47.0
-> 
 
--- 
-மணிவண்ணன் சதாசிவம்
+>
+> >       }
+> >  #endif
+> >       return true;
+> > diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
+> > index f374a3e5a5fe..e57b043f324b 100644
+> > --- a/arch/arm64/kernel/pi/map_kernel.c
+> > +++ b/arch/arm64/kernel/pi/map_kernel.c
+> > @@ -136,6 +136,12 @@ static void noinline __section(".idmap.text") set_ttbr0_for_lpa2(u64 ttbr)
+> >  {
+> >       u64 sctlr = read_sysreg(sctlr_el1);
+> >       u64 tcr = read_sysreg(tcr_el1) | TCR_DS;
+> > +     u64 mmfr0 = read_sysreg(id_aa64mmfr0_el1);
+> > +     u64 parange = cpuid_feature_extract_unsigned_field(mmfr0,
+> > +                                                        ID_AA64MMFR0_EL1_PARANGE_SHIFT);
+> > +
+> > +     tcr &= ~TCR_IPS_MASK;
+>
+> Could there be a different IPS value in TCR ? OR is this just a normal
+> clean up instead.
+>
+
+As explained above, TCR.IPS will be capped at 48 bits up to this point.
+
+> > +     tcr |= parange << TCR_IPS_SHIFT;
+>
+> Wondering if FIELD_PREP() could be used here.
+>
+
+AIUI we'd end up with
+
+tcr &= ~TCR_IPS_MASK;
+tcr |= FIELD_PREP(TCR_IPS_MASK, parange);
+
+Is that really so much better?
+
+
+> >
+> >       asm("   msr     sctlr_el1, %0           ;"
+> >           "   isb                             ;"
+> > diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> > index d21f67d67cf5..4db9887b2aef 100644
+> > --- a/arch/arm64/mm/init.c
+> > +++ b/arch/arm64/mm/init.c
+> > @@ -280,7 +280,7 @@ void __init arm64_memblock_init(void)
+> >
+> >       if (IS_ENABLED(CONFIG_RANDOMIZE_BASE)) {
+> >               extern u16 memstart_offset_seed;
+> > -             u64 mmfr0 = read_cpuid(ID_AA64MMFR0_EL1);
+> > +             u64 mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
+>
+> Could this have a comment explaining the need for sanitized value ?
+>
+
+Sure. Actually, it shouldn't make any difference here (unless we allow
+PARange to be narrowed even further, which might make sense if we care
+about enabling randomization of the linear map on systems where
+PARange is much larger than the size of the physical address space
+that is actually populated). However, for consistency, it is better to
+avoid the 52-bit PARange if LPA2 is disabled.
+
+
+> >               int parange = cpuid_feature_extract_unsigned_field(
+> >                                       mmfr0, ID_AA64MMFR0_EL1_PARANGE_SHIFT);
+> >               s64 range = linear_region_size -
+>
+> Otherwise LGTM.
+
+Thanks!
 
