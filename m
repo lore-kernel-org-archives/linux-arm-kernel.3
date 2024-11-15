@@ -4,89 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DE4D68BC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 14:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F7D6D68BC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 14:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=28sARET1Qvfwc/kfA8YISTif9oxfXiX08KxWO0Zur2Q=; b=ORN/mJ4I+cRXvWzXyTd0yWp4nm
-	ViHlxC86eTP5PUl3zo/3DIz73vFE13SoxOjbw+1WF7R2FHY12i3I8otILSwrywRU/8oH/aYNpMcBR
-	8WaeUbG3+982GNNMynjpqJKLvrD0ZdzDSC0REibMcb2JRWZnCag0Jy2VeemM0G7lddc0z/pPOxiwd
-	Gn7juBHioFO9hq3jhD+RPT8XCaioApQs0BYzZDi3M2nna2bQo5eevKlGvzGTS83FoFrVS03g626hQ
-	ODcCXtjE26H+GmOQH+0dyww7IQLRPbYjt5JMMF+vgbj0xPPYObxNHq0O88BucIbA0XH8iqoKTJ889
-	zFU1r5SQ==;
+	bh=aTUNOjgG0Zp4JeKQGmJp1O0R3MYD+qqsIvkL7cSPS7E=; b=s4VpKWP1apLUEamGtZN5Au86Bo
+	oOIi+ef/ZtqAheelK9J1q9GC5mVrajLFV6Q7TXaR6lJtThUw1f1nHEQhtm8P/hBRoRqQyYWV5m/57
+	S47aLMihzbIyFaZjsJr4AIybrSsqKEytjMH6UkaKrN2i0CI2yT8aeDqBQZiy/6QEVRzYvZcR2Z2FV
+	HGCyVx076a8yP28OO2CtsvqFOs9vyQgKN4GHG8md8kd6Jhn30UenH4Z0P3rlltAHSUxs0W+WV/Fmu
+	uVJ5cJGJ6ysCUCKMwaSvQv6YSQsS2zxYyC7JKa5Se6sazDXOkqvplxL7xqC0HwgRrf15Jn2nb1m/X
+	LLe396Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBxdR-000000032Vm-3K6g;
-	Fri, 15 Nov 2024 14:49:21 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tBxeL-000000032if-34n4;
+	Fri, 15 Nov 2024 14:50:17 +0000
+Received: from mail-dm3nam02on2060f.outbound.protection.outlook.com ([2a01:111:f403:2405::60f] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBxbe-0000000329L-2Qyq
+	id 1tBxcq-000000032QI-0gqV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 14:47:31 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-211c1bd70f6so15995775ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 06:47:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731682049; x=1732286849; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=28sARET1Qvfwc/kfA8YISTif9oxfXiX08KxWO0Zur2Q=;
-        b=wZsjJab1XCBH2bDoU2qQ8X/Xpyn5YdywKNf1BqXrrhJs2AObvyg0FJiX9f3owu9dCv
-         IasDp2avPlS6rsgxTyoYK5qh2Z+fBOrpQmuoay1q8Alt6W94HUKCIF5SqJHFg3I29zWP
-         YTXaMmO4gY3o86eLPbmPzTx1I18WfPGQqqJZANyLByJbEauHYKs1XzFbtfsKAoaZphAx
-         9PiFOy30/4vT/gbQUpQUP8kL0a0nClNpl55WU2uxej0qpMnzxu/vu3WZdkFGVOoawvEY
-         zAWaNuxQQnua3TBHYRwE7r+jELsNxNcgrhqmIzT8XtiyNooABhJ4N3ERzTaNUsjQxiPO
-         UsLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731682049; x=1732286849;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=28sARET1Qvfwc/kfA8YISTif9oxfXiX08KxWO0Zur2Q=;
-        b=MsLuDhEpf+HSj539bL48j098LIQz6LMBsmNFEGV4p9N5Al+Jj2D84W1QFH0IdgZ7Pg
-         dKJBGgkQ5excyHkwEJpcSZnnDyQBCqmrIXHeG2TbuLuttA/U2SPH1Lt+nXWQ+V/6j8qq
-         ey1DDFO67B6b3JX1vGClRLpBOn/vT7KvNZHx6y/gFSl3hopejuCYkIIifc7drO9BPcxk
-         C0q0PP4G7e5ayrpQLexNcUBcWcX6hU45kTggWc4jSufyWVyMfNqGOQMDQ4Wl7aUiHQ+9
-         HAYN3EKz+EMVOMxHdI5fr/SptKtuFg7KLHqjJlr2IJcxJQD/5gybN1WDJrOmpeeouW8J
-         QHdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWUnZFScw5ieHS8zlo3v1Ml51HRe+6QUYhHZTyOhGNe6voSm9Nt17zvDKfT1zt/D9WFYIdhbq2r690hNNTw9qf8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyKZcvkJEKOStShTe7Za/lhiTqc8f+nUeNDswYFkxkhCcSdI7e
-	qf/bW73KGJL+apmKeZFkW5amZkqM5Sf2ya85U8oL35GNtxxgosXTYrPFk4Rkmw==
-X-Google-Smtp-Source: AGHT+IGRUIkevz/pH5H9stH+NwULAos/5+zuVi7FkeklDpdipWBtq5/BITL7lD88Phwhg2XyNYyRxQ==
-X-Received: by 2002:a17:902:ea04:b0:20a:fd4e:fef6 with SMTP id d9443c01a7336-211c0f1edf4mr113011435ad.8.1731682049251;
-        Fri, 15 Nov 2024 06:47:29 -0800 (PST)
-Received: from thinkpad ([117.193.215.93])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f54a2csm12920475ad.256.2024.11.15.06.47.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Nov 2024 06:47:28 -0800 (PST)
-Date: Fri, 15 Nov 2024 20:17:20 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Peng Fan <peng.fan@nxp.com>, Rob Herring <robh@kernel.org>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
-	"open list:PCI DRIVER FOR GENERIC OF HOSTS" <linux-pci@vger.kernel.org>,
-	"moderated list:PCI DRIVER FOR GENERIC OF HOSTS" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] PCI: check bridge->bus in pci_host_common_remove
-Message-ID: <20241115144720.ovsyq2ani47norby@thinkpad>
-References: <20241028084644.3778081-1-peng.fan@oss.nxp.com>
- <20241115062005.6ifvr6ens2qnrrrf@thinkpad>
- <PAXPR04MB8459D1507CA69498D8C38E0488242@PAXPR04MB8459.eurprd04.prod.outlook.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Fri, 15 Nov 2024 14:48:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P/F/Fp/BXsHBKnxhMS5u32k5FVirYP1nFttMJ5nogiWm4xeTZZdyL6/5P1H3I4rsbQhI0lAuVpmaOj5rF30yQnIk3fbVXiJdBvBurKlFzwQycs4RKSkvn31AiaPo0kXJNg+t89WQ0lx0O3SczC8gkyFkLQ4Am/bNXfBm3TaqdAU0qm8Ne64C9/PQf4rL2jG1wPWmG9CJ55LjFzoggCP+QQ0uMM5CkLYPBQ6BhLNcLe5t+RcZpbgdU/hkXO6SgFxyd1qJWIGngVT/ybxlFZFdzuBUb8ssrclYeZeBErq8bzK8ybt4hT0+ML26e5JFoE/2PlEqmPdQTYhsVuC4gOUFtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aTUNOjgG0Zp4JeKQGmJp1O0R3MYD+qqsIvkL7cSPS7E=;
+ b=UIsw53SQNPLJ2qDYjG+NbNR6L/arpBWs7yJ8vi1U9c/ZRaIWLuNnJG7jButAeyx8/OIjlby57j4UV8ZZQX5I3Ov4367RRk7kpdi6qGVQVHzUOCOBWI5uqzSY/MkMFXAd6vgoW6EVvbe4yMTtJybrwpDPUjAIq1s16TVPeVQx/Qeih/T07fyWQD447T/6gQhTIT+MOV8GLyaXc1YDZcbw+hzslNTE7wnhg4Qs5Yf5+Sy7mcLScrWOUfMc+xOL7g5DN60tTOGv7/vP4B/sHivLNts5LeT9JZlXAhSIufjPEoIzyFAzVPqzDsi7Q+RlmiGTFLM2fJUpX4rF6YQtCcimqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aTUNOjgG0Zp4JeKQGmJp1O0R3MYD+qqsIvkL7cSPS7E=;
+ b=gM/vRnOJqX0lgfSQ60KXqkwy4Wea4CuAocSKGbZn0XEHoWrmBQXKl0NzEzWUAxGnPOXzv4FMHtchuBtezri4haf5mndlZJgVF7acrJtZ0CwfMTqxqB0zrJL6fUG5aBQzNtaoVv7lhCIiCL6NRZ02YaV8GAeI0wF0yUD/UuPWGIk9DTAlqL6PghEZy92k1bEAyMcmRYoynqWOfevxkkaib9gMQzEwE8QyVRbpyaU22ivsPMhB+fMGiNBah2PlOlGwNxAkdGHebopzS82pkybx6awlOfvotUx0ddW7XgS7LoanOersVy8U4u6XvnA4UdYqD+bY7XEwX13YaDWXmfEY8g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MW6PR12MB8663.namprd12.prod.outlook.com (2603:10b6:303:240::9)
+ by IA1PR12MB6212.namprd12.prod.outlook.com (2603:10b6:208:3e4::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.18; Fri, 15 Nov
+ 2024 14:48:36 +0000
+Received: from MW6PR12MB8663.namprd12.prod.outlook.com
+ ([fe80::594:5be3:34d:77f]) by MW6PR12MB8663.namprd12.prod.outlook.com
+ ([fe80::594:5be3:34d:77f%6]) with mapi id 15.20.8158.019; Fri, 15 Nov 2024
+ 14:48:35 +0000
+Date: Fri, 15 Nov 2024 10:48:34 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+Cc: David Woodhouse <dwmw2@infradead.org>, iommu@lists.linux.dev,
+	Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Will Deacon <will@kernel.org>, patches@lists.linux.dev
+Subject: Re: [PATCH 1/2] iommu: Add ops->domain_alloc_nested()
+Message-ID: <20241115144834.GX35230@nvidia.com>
+References: <1-v1-c252ebdeb57b+329-iommu_paging_flags_jgg@nvidia.com>
+ <9c065d9d-ec97-4d3c-a2af-0dd4fe40ad5a@linux.intel.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <PAXPR04MB8459D1507CA69498D8C38E0488242@PAXPR04MB8459.eurprd04.prod.outlook.com>
+In-Reply-To: <9c065d9d-ec97-4d3c-a2af-0dd4fe40ad5a@linux.intel.com>
+X-ClientProxiedBy: BLAPR03CA0173.namprd03.prod.outlook.com
+ (2603:10b6:208:32f::35) To MW6PR12MB8663.namprd12.prod.outlook.com
+ (2603:10b6:303:240::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW6PR12MB8663:EE_|IA1PR12MB6212:EE_
+X-MS-Office365-Filtering-Correlation-Id: 065150fa-8060-4c69-6641-08dd0584952e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?A8HNwFmsvBiFE3EN+mivQho2xG3VsfpjVS5JTQ//AWSu+6IrdPhamQmTmbkY?=
+ =?us-ascii?Q?aVFg+PHkv0d7LCRL3CNPq8yqii7CvxPRj51xZxajC/8vFeExWDSKQJJP+P7b?=
+ =?us-ascii?Q?2FfSXPSsx1AIX1ndceyIvbzdpABMe8rTp7OyFjQWVfj5x4TNDeK1ns9raQ/i?=
+ =?us-ascii?Q?5fyTVDKfB7jP8sQgfn8TfBrvjxf9nnBe8S7tjjFi9qjEpiy2A9QyR1w4v1/X?=
+ =?us-ascii?Q?B92c9HRnaqS0TQOyiNL+DCFARsKdWS7L+TmstSEa79uAR/hZFX+gwzbCVD26?=
+ =?us-ascii?Q?wS0Bs1W0VcZRBDEKpvNNIzUKrD0MJNC5ZuDKUBMmyJ+gTblnHiq4HDnCC/J1?=
+ =?us-ascii?Q?PjEzKLCHdhVF5uE69z5May5l0AC22oAN2eMC0LdNHPAKCuqMLv17ID3WQpFW?=
+ =?us-ascii?Q?4dNoUuZkMLD9GNLOEWcNqPaIFQScSIiderEWNwhDKQStfxI43tHvOR4KdcyB?=
+ =?us-ascii?Q?KMCukfxbtMxW7cdyZRSrhxRUzxDd6jX9mG7YIeYrRR25t2/UCBR8fsBnX3OX?=
+ =?us-ascii?Q?N8LuxNvsAQTcIOszyHM81kndrvbOBLJaxgU/UZK7h1Y1UjpIb2Tkx4JgbJ62?=
+ =?us-ascii?Q?ukcfXCgql/LerBgWPYjIcvtG6SS2nbep+cXK69I4IeqTKBc7m6E0kt8qM48y?=
+ =?us-ascii?Q?OhEL2dJbELyGf1Su1Ccpge7slKnHACm0/RNYHIfRqQrS/qKqzvut0yxJwd/n?=
+ =?us-ascii?Q?ZU+y7+paXT8iZ7R3w2y57cUTTMcd/vOGfFRshRfneOdVozT60SsWyIemgGLn?=
+ =?us-ascii?Q?Xxo6BUszxydO/d+kyedKsLmsjl9fIXFczFpcpuQwYw2fDCs3BY5u8eNFXZLm?=
+ =?us-ascii?Q?wagws+y4hNKn3/RqCIOIr5nCBnIOin+0HA93DkifB2o9FfQ0bf7F+mgOmudu?=
+ =?us-ascii?Q?07qxdCqKlVND74XG+Glfb6z7h4RFH3bSQmEfuPe5/MNFGu5NwPppwruDv7+a?=
+ =?us-ascii?Q?1ZsnB3+ELf7BhYTXp3/vOjim5FeV607JYA64KIboqsCn7niUJygmKPZkPcOU?=
+ =?us-ascii?Q?G64lESDI8Fwtc0rPoHfrZJLO08SOOkKuR1xD371ALa0CvUtbOqsv7mxizDT6?=
+ =?us-ascii?Q?gDZZfJA1zEsV2x71w0KgqjupWmT5Y0+mdFcK4Rzl90UJvP0DB8Evt6eE+tLk?=
+ =?us-ascii?Q?DqyyXVVE8SnP2y7TDYjI9pyNYHzr7FZ8KsprzjUBIhuxRrwT++JUaHIXIVhF?=
+ =?us-ascii?Q?4xsTFSMNjnhnq7MoOW62kaJi3JJwB+eIPUg+XfdQd3pnkD0JoN+gD57amxNR?=
+ =?us-ascii?Q?E2r/zn5+4dRxYLLtmzMQORvONc1yMl2X6R4v/M4K1QCAfU5QzlU/mNVTyIxp?=
+ =?us-ascii?Q?8Ng=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW6PR12MB8663.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sm6DBXXQiu7mOLi6vXc6N8yTHWVHSw+MKRuuIgcoaECMxz8c9OpxBgTg7LPR?=
+ =?us-ascii?Q?Od0voGwowVMXDCrij3tgQyeGo280iFQcPcCa6SSE7mAnKr/OvxQ49oBXI0QN?=
+ =?us-ascii?Q?0FC38ZHGq7BLfKHQEOhNIz1pGdBJFtxn1TgWS5pPhLqHyJeFpcU3Ec2LoGnD?=
+ =?us-ascii?Q?wnwoqUHG0bD6YFcf3ch1HdVeVx5I6kqvpfSZTmY29upXO+BpGqvJeHYARC05?=
+ =?us-ascii?Q?HGzZByG0TAssuUQ98Je1gXApugHAICSI+HSLbYGO4HULf3ug//KQoSakrK/E?=
+ =?us-ascii?Q?lBrg87+GFI/O2WhmrXApKaty9CZ+wiNAzgGu1oFANDhGMErYPRg+N60hkppK?=
+ =?us-ascii?Q?WQSdWmIWLePA/Yxcehg4Du3HOpUZIJC8AGLGwfKCpe3uj0BB5mbMDLPdDYUz?=
+ =?us-ascii?Q?VaIcHb8JfMWxiOvMdsFvkabF692Y61YgKeXFREMRBYZbHFJAUYBAsvDIW6gv?=
+ =?us-ascii?Q?CiS0u0AQnq/HRSVSQ6M4Ayc2gdIE4OQ41EvzxaqYJH6jzGAY6LKSF/Bu9ozu?=
+ =?us-ascii?Q?gx4z2+ntCEV1vDEPse+jJsb+fBLB2TPc4f6JCRPyW+q+uAIvEGaRkZkCW+Z8?=
+ =?us-ascii?Q?8egR/EcHrtYi00d7BST8xqeL+vPGs0W+RevY6ovzUWvXoSftX9WzrqYuN5gs?=
+ =?us-ascii?Q?0DDwn+IL50UaXxQ57i2bqnnjBdL4zI+9//Jz02DcWbMu4Vp1UoUz6TA93FkK?=
+ =?us-ascii?Q?+iv/ebuD5/eBDU7m1tf1ydEvwu40L8fYNpHY53Xdc1C07OPpZAZ1ivfnlKM/?=
+ =?us-ascii?Q?K1usvl3usznbjvpIaoaxgiyp/FlwP3ioAnxedCOgCUB98BOSMUH6LnpE4jc1?=
+ =?us-ascii?Q?LbuO5m4pFciKwJiZAXxHT72bs4XdHZ3IkW4iR2C8NMU36+h+wCO33tOVGz6M?=
+ =?us-ascii?Q?V+i7NKEddqJVYuImy2gWvvYQLbu+gB4d92YnvA/NWSnbbU6mECYEXwVOHrVO?=
+ =?us-ascii?Q?u+Ay+fJNjAVKmEEUJ//Iq7HyDLdCKUF8t0qKWFGlKHQkZOsGctZL2rc7v90G?=
+ =?us-ascii?Q?g1vvAWTz9FMY5nYrnONvJMq+kxxtJIlSdm4i+znXEJKI9daFEEADy3K3JYXL?=
+ =?us-ascii?Q?piZljzNAw+YoACKlwTgn83KZ7BWTFAMcF/lKadXcTiUUbKOE5z/R2NzAb3yq?=
+ =?us-ascii?Q?xZpATYMvThB8OIUW6ogvYIFkUMxDA29nYrwA189ZL7K5/qIsfq45bNdORBLE?=
+ =?us-ascii?Q?VRyJcjKi5v7AmdSg5C3G+Oxp1KP06fu3Js9E2Co4tonvoZ91wrfF1rSkL5j1?=
+ =?us-ascii?Q?SFjzR2RxfWvTHqWF5IsLG7+xB6RZxHYruuN7SpX1qcN8XcfGtfrnddNOvWwL?=
+ =?us-ascii?Q?RUzPKofPOlV6tXkWlqJaJ4kSMFh+xFHHDuz4rcUqrxgF4mM+1y8e6mKh4u8u?=
+ =?us-ascii?Q?Up+qMzp0VxCHAjFhTWsGEii099jlQ6wA8gzCZcD2ve6oKomKgzG7GQaWsDwb?=
+ =?us-ascii?Q?4Vp3UYjiWcJzMlNRvA9/Eq6619HH3tg51n9M4iftaeVXJIAygr5+fDMpgQJP?=
+ =?us-ascii?Q?LBw5GgDc5+x/YiVRBwAAJj4m4uhaVJT2IzcAfkiU0Wj08H4RxNGg6ZIzfqoZ?=
+ =?us-ascii?Q?UKflt7zKpE2XFKcOToI=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 065150fa-8060-4c69-6641-08dd0584952e
+X-MS-Exchange-CrossTenant-AuthSource: MW6PR12MB8663.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2024 14:48:35.4159
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GJ4alIjaGH2ZmSWHV4vwsBIeeEMl9mNLYCcJbimvI0c86u63TC/huye9zhe8wcrV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6212
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_064730_626403_7464334C 
-X-CRM114-Status: GOOD (  52.25  )
+X-CRM114-CacheID: sfid-20241115_064844_204036_DDE96CA6 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,194 +159,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 15, 2024 at 10:14:10AM +0000, Peng Fan wrote:
-> Hi Manivannan,
-> 
-> > Subject: Re: [PATCH] PCI: check bridge->bus in
-> > pci_host_common_remove
-> > 
-> > On Mon, Oct 28, 2024 at 04:46:43PM +0800, Peng Fan (OSS) wrote:
-> > > From: Peng Fan <peng.fan@nxp.com>
-> > >
-> > > When PCI node was created using an overlay and the overlay is
-> > > reverted/destroyed, the "linux,pci-domain" property no longer exists,
-> > > so of_get_pci_domain_nr will return failure. Then
-> > > of_pci_bus_release_domain_nr will actually use the dynamic IDA,
-> > even
-> > > if the IDA was allocated in static IDA. So the flow is as below:
-> > > A: of_changeset_revert
-> > >     pci_host_common_remove
-> > >      pci_bus_release_domain_nr
-> > >        of_pci_bus_release_domain_nr
-> > >          of_get_pci_domain_nr      # fails because overlay is gone
-> > >          ida_free(&pci_domain_nr_dynamic_ida)
-> > >
-> > > With driver calls pci_host_common_remove explicity, the flow
-> > becomes:
-> > > B pci_host_common_remove
-> > >    pci_bus_release_domain_nr
-> > >     of_pci_bus_release_domain_nr
-> > >      of_get_pci_domain_nr      # succeeds in this order
-> > >       ida_free(&pci_domain_nr_static_ida)
-> > > A of_changeset_revert
-> > >    pci_host_common_remove
-> > >
-> > > With updated flow, the pci_host_common_remove will be called
-> > twice, so
-> > > need to check 'bridge->bus' to avoid accessing invalid pointer.
-> > >
-> > > Fixes: c14f7ccc9f5d ("PCI: Assign PCI domain IDs by ida_alloc()")
-> > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> > 
-> > I went through the previous discussion [1] and I couldn't see an
-> > agreement on the point raised by Bjorn on 'removing the host bridge
-> > before the overlay'.
-> 
-> This patch is an agreement to Bjorn's idea. 
-> 
-> I have added pci_host_common_remove to remove host bridge
-> before removing overlay as I wrote in commit log.
-> 
-> But of_changeset_revert will still runs into pci_host_
-> common_remove to remove the host bridge again. Per
-> my view, the design of of_changeset_revert to remove
-> the device tree node will trigger device remove, so even
-> pci_host_common_remove was explicitly used before
-> of_changeset_revert. The following call to of_changeset_revert
-> will still call pci_host_common_remove.
-> 
-> So I did this patch to add a check of 'bus' to avoid remove again.
-> 
+On Fri, Nov 15, 2024 at 11:19:03AM +0800, Baolu Lu wrote:
 
-Ok. I think there was a misunderstanding. Bjorn's example driver,
-'i2c-demux-pinctrl' applies the changeset, then adds the i2c adapter for its
-own. And in remove(), it does the reverse.
-
-But in your case, the issue is with the host bridge driver that gets probed
-because of the changeset. While with 'i2c-demux-pinctrl' driver, it only
-applies the changeset. So we cannot compare both drivers. I believe in your
-case, 'i2c-demux-pinctrl' becomes 'jailhouse', isn't it?
-
-So in your case, changeset is applied by jailhouse and that causes the
-platform device to be created for the host bridge and then the host bridge
-driver gets probed. So during destroy(), you call of_changeset_revert() that
-removes the platform device and during that process it removes the host bridge
-driver. The issue happens because during host bridge remove, it calls
-pci_remove_root_bus() and that tries to remove the domain_nr using
-pci_bus_release_domain_nr().
-
-But pci_bus_release_domain_nr() uses DT node to check whether to free the
-domain_nr from static IDA or dynamic IDA. And because there is no DT node exist
-at this time (it was already removed by of_changeset_revert()), it forces
-pci_bus_release_domain_nr() to use dynamic IDA even though the IDA was initially
-allocated from static IDA.
-
-I think a neat way to solve this issue would be by removing the OF node only
-after removing all platform devices/drivers associated with that node. But I
-honestly do not know whether that is possible or not. Otherwise, any other
-driver that relies on the OF node in its remove() callback, could suffer from
-the same issue. And whatever fix we may come up with in PCI core, it will be a
-band-aid only.
-
-I'd like to check with Rob first about his opinion.
-
-- Mani
-
-> > 
-> > I do think this is a valid point and if you do not think so, please state
-> > the reason.
+> > diff --git a/drivers/iommu/intel/nested.c b/drivers/iommu/intel/nested.c
+> > index 42c4533a6ea21d..aba92c00b42740 100644
+> > --- a/drivers/iommu/intel/nested.c
+> > +++ b/drivers/iommu/intel/nested.c
+> > @@ -186,14 +186,21 @@ static const struct iommu_domain_ops intel_nested_domain_ops = {
+> >   	.cache_invalidate_user	= intel_nested_cache_invalidate_user,
+> >   };
+> > -struct iommu_domain *intel_nested_domain_alloc(struct iommu_domain *parent,
+> > -					       const struct iommu_user_data *user_data)
+> > +struct iommu_domain *
+> > +intel_iommu_domain_alloc_nested(struct device *dev, struct iommu_domain *parent,
+> > +				u32 flags,
+> > +				const struct iommu_user_data *user_data)
+> >   {
+> > +	struct device_domain_info *info = dev_iommu_priv_get(dev);
+> >   	struct dmar_domain *s2_domain = to_dmar_domain(parent);
+> > +	struct intel_iommu *iommu = info->iommu;
+> >   	struct iommu_hwpt_vtd_s1 vtd;
+> >   	struct dmar_domain *domain;
+> >   	int ret;
+> > +	if (!nested_supported(iommu) || flags)
+> > +		return ERR_PTR(-EOPNOTSUPP);
 > 
-> I agree Bjorn's view, this patch is output of agreement as I write above.
+> How about making it like
 > 
-> Thanks,
-> Peng.
+>         if (!nested_supported(iommu) || (flags &
+> ~IOMMU_HWPT_FAULT_ID_VALID))
+>                 return ERR_PTR(-EOPNOTSUPP);
 > 
-> > 
-> > - Mani
-> > 
-> > [1]
-> > https://lore.kernel.org/lkml/20230913115737.GA426735@bhelgaas/
-> > 
-> > > ---
-> > >
-> > > V1:
-> > >  Not sure to keep the fixes here. I could drop the Fixes tag if it is
-> > > improper.
-> > >  This is to revisit the patch [1] which was rejected last year. This
-> > > new flow is using the suggest flow following Bjorn's suggestion.
-> > >  But of_changeset_revert will still invoke plaform_remove and then
-> > > pci_host_common_remove. So worked out this patch together with a
-> > patch
-> > > to jailhouse driver as below:
-> > >  static void destroy_vpci_of_overlay(void)  {
-> > > +       struct device_node *vpci_node = NULL;
-> > > +
-> > >         if (overlay_applied) {
-> > > +#if LINUX_VERSION_CODE >= KERNEL_VERSION(6,6,0)
-> > > +               vpci_node = of_find_node_by_path("/pci@0");
-> > > +               if (vpci_node) {
-> > > +                       struct platform_device *pdev =
-> > of_find_device_by_node(vpci_node);
-> > > +                       if (!pdev)
-> > > +                               printk("Not found device for /pci@0\n");
-> > > +                       else {
-> > > +                               pci_host_common_remove(pdev);
-> > > +                               platform_device_put(pdev);
-> > > +                       }
-> > > +               }
-> > > +               of_node_put(vpci_node); #endif
-> > > +
-> > >                 of_changeset_revert(&overlay_changeset);
-> > >
-> > >  [1]
-> > >
-> > https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2F
-> > lore
-> > > .kernel.org%2Flkml%2F20230908224858.GA306960%40bhelgaas%2
-> > FT%2F%23md12e
-> > >
-> > 6097d91a012ede78c997fc5abf460029a569&data=05%7C02%7Cpeng.
-> > fan%40nxp.com
-> > > %7C025e209cf9264c4240fa08dd053d9211%7C686ea1d3bc2b4c6fa
-> > 92cd99c5c301635
-> > > %7C0%7C0%7C638672484189046564%7CUnknown%7CTWFpbGZsb
-> > 3d8eyJFbXB0eU1hcGki
-> > >
-> > OnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIl
-> > dUIjoyfQ
-> > > %3D%3D%7C0%7C%7C%7C&sdata=uCo5MO5fEqCjBzwZ8hdnsf3ORh
-> > SedhrJWvNOCCMNvG0%
-> > > 3D&reserved=0
-> > >
-> > >  drivers/pci/controller/pci-host-common.c | 6 ++++--
-> > >  1 file changed, 4 insertions(+), 2 deletions(-)
-> > >
-> > > diff --git a/drivers/pci/controller/pci-host-common.c
-> > > b/drivers/pci/controller/pci-host-common.c
-> > > index cf5f59a745b3..5a9c29fc57cd 100644
-> > > --- a/drivers/pci/controller/pci-host-common.c
-> > > +++ b/drivers/pci/controller/pci-host-common.c
-> > > @@ -86,8 +86,10 @@ void pci_host_common_remove(struct
-> > platform_device *pdev)
-> > >  	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
-> > >
-> > >  	pci_lock_rescan_remove();
-> > > -	pci_stop_root_bus(bridge->bus);
-> > > -	pci_remove_root_bus(bridge->bus);
-> > > +	if (bridge->bus) {
-> > > +		pci_stop_root_bus(bridge->bus);
-> > > +		pci_remove_root_bus(bridge->bus);
-> > > +	}
-> > >  	pci_unlock_rescan_remove();
-> > >  }
-> > >  EXPORT_SYMBOL_GPL(pci_host_common_remove);
-> > > --
-> > > 2.37.1
-> > >
-> > 
-> > --
-> > மணிவண்ணன் சதாசிவம்
+>         if ((flags & IOMMU_HWPT_FAULT_ID_VALID) && !info->pri_supported)
+>                 return ERR_PTR(-EOPNOTSUPP);
 
--- 
-மணிவண்ணன் சதாசிவம்
+I think that is possibly a good idea for a followup, but right now it
+was left like this:
+
++       hwpt->domain = ops->domain_alloc_nested(
++               idev->dev, parent->common.domain,
++               flags & ~IOMMU_HWPT_FAULT_ID_VALID, user_data);
+
+So you'd also want to remove the FAUlT_ID_VALID masking there to move
+it to the driver.
+
+I'm also wondering if we should put the pri_supported concept into
+core code flags and have less boilerplate in drivers.
+
+Thanks,
+Jason
 
