@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1801FD6DDD7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 06:39:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B61D6DDD5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 06:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ASYot59pnFaxW/GHMyz8Y0KBxe3S70/tiXkzx5jQ+Y=; b=iSfSLSMiYYA5SbazDMGssH6iqe
-	ByC4HfqMJAepyVsMQ9eugGExG067AOZc2M2QG9fKBnuhNs+HASx8l5zbJpqY9mz0EKMMeAkEJ6yNg
-	g6FJ630hiZ5MnCqi83a4G/scg8RfhSHOnI+ZB0gL0TmnLhDunadocykjjNH6wtj9g+ypk9pOrLJ7h
-	5D/pZ56lgFpA4KW44GHH7I2agAXr+2f++d8JXvGCGn1/yAoSaQXn00yrkhTpKUCUQJcg2aDr2Na9+
-	LqNekBYvUKACTPVKHkVSwR+PkOkd60JaeoC9aHbNgsA6FtSFVQU7wiqIG17mPzG1VQsIIzNbGx7Z7
-	pHzR3dgw==;
+	bh=+9X/wxgCiPevQR8azxljXcXglwxyvUBHBH4k0NcW95s=; b=UEB12y4Ycz9TfYGVtrXc4YXU6/
+	2/h7wFAUoFKDijQbLfXXEaH1nmVhnut9FAULLVfd1mnSVuBUlxGAZSU7oYUPq2c0pJ18TMYsCaeJU
+	ObPYzUYuSGa189Eml+cJiuv0XFm9FOnVNQc4g3SQb8P4bNXKjRBfelAD+U5DDhAiuEDjbAQcaAVQx
+	iL1tTTjN61YBXpna/vqeboEcroBZIUxBGbRp/ySQeptpvsXyXOwhFoowj6IqiiAkp7rFf+91f9ujF
+	Ax2a5QvAnYaXpIZNfgmEXqYmqhwinHE9Nz0gyspvj5u5l7/cRbOwtp3BhSnN0Ei1sJcxFtLjRyvOu
+	ZJpwgi0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBpzK-00000001oJq-17X3;
-	Fri, 15 Nov 2024 06:39:26 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tBq23-00000001orl-0BZg;
+	Fri, 15 Nov 2024 06:42:15 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBpyO-00000001o7M-0fxA
+	id 1tBq17-00000001ogT-49zU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 06:38:29 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-20caccadbeeso4093475ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 22:38:28 -0800 (PST)
+	Fri, 15 Nov 2024 06:41:19 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-20c9978a221so16734185ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 22:41:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731652707; x=1732257507; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1731652877; x=1732257677; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=3ASYot59pnFaxW/GHMyz8Y0KBxe3S70/tiXkzx5jQ+Y=;
-        b=fqrk/zWe1skddyEM7xX9Do4Q1p7+mTaThzdtBlaiUu0BNlUh4iw92dsBBGkzgvc4Tl
-         HAD9NW4zTreWGMuyTWL+xLjLbv/Javu2QmilV/LRxNII4CKGjkmtShCjDtXlt+E1oqZS
-         qyb/gPPOdVPewNjHyB3r3uXQd64/8JrQWPiPvwYdMgES1bQ7Z6Bh+NrRPoS5KtBh+4PC
-         uF1cCSmlYJiPoLWF7+g5uIXcupJ5hlMOKdbjACreelykAaa5cpDEZzeGGXubdCXHdGcf
-         ojbqIXeJVvbEBSjQ8jfhgBr+YVziJfZWJX91UM3DSQEZlPvNRUUhj5plLXIePR7cbQgW
-         ebcA==
+        bh=+9X/wxgCiPevQR8azxljXcXglwxyvUBHBH4k0NcW95s=;
+        b=LnbCqoEJT/GutKHSdRGO8pq1/k5ctMXVvcchG+reexAHZW+emKM/y7JnyGBExsRL/+
+         wKADbsEuIKi6qfuUch+VzZJoVHKnl1eTm+uGT7HarZmFjWjK7scdgQWUiacIngWI0ztc
+         cwHIcueipKC8gm3OCCp1oDej9W45APUR2IahTdB6HWkm/HitcHSpUpK+jxGbXSRKPqY8
+         tFcK+sE/iJJcMQis5jlkpemq3KipY+YI8FgLnGUe5up0Heew/Cfw7Mhamvmn0XCDTgtb
+         l7H2sVYxy2ySObTESdeLPQsmfWsPwBAsBHKar7MIJ/l4Nw14g3dcnJvMl4mH9vQkSQxR
+         lsbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731652707; x=1732257507;
+        d=1e100.net; s=20230601; t=1731652877; x=1732257677;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3ASYot59pnFaxW/GHMyz8Y0KBxe3S70/tiXkzx5jQ+Y=;
-        b=WRTtaZ5aBRbH7QD8+4cGHWM77uZY/GmAbqGuW69VES+wThdqKPjhhJcOoMjSGuwTVm
-         ndNxLK5NDXPdXmtwNc9Kk6IHJD4MjYbCQPfpgn904Zgom5Jo8Z26ELFafrc2gRFfD+57
-         WL+cXSCkoI+HHJufUiSmV5P/9wUv+rQ3ewuTfBcFd0NVOPWyPcwpYw/SeAR+PpDv0mRt
-         m55mLk4mV/pDE+xQny7PvURy8xCFDZS1uy5wNSU3k3IEOrabeGCScA5rDzkPaU/7DlIc
-         /a8AhZB+CEuzKCm+y6/G5l9X74FPVU9G49ZwHbDHpp/JTLuuYih+rOAVBb8pJYGVtJ4y
-         F1ZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVkp+q/B8c0N7Z10ImVmxji+ETzSHTUwHQhLsQau6rFq1nyjKZ/3SJM7ZeJrprlJaKBoYtUG18rNTWa+B4PGxdN@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywgd4syLzm1v7gIK2AFtIWDUCoHo5cM/JgmGSYSwXzOqhuALAZs
-	Ul8Zu/vFKsqvquh9pwn2d+TbFNOO9mYSZQLch5P9IYhUqozZbrT/V9rBXyNvuw==
-X-Google-Smtp-Source: AGHT+IHmK/K9KtNXF8MAKgzWlqq1Xbvw08TMatRS4xdoCN6jQH4adnR3wRNRA42mwN6r478Ju/K5qw==
-X-Received: by 2002:a17:902:ecc1:b0:20c:c631:d81f with SMTP id d9443c01a7336-211d0d71690mr17005295ad.21.1731652707497;
-        Thu, 14 Nov 2024 22:38:27 -0800 (PST)
+        bh=+9X/wxgCiPevQR8azxljXcXglwxyvUBHBH4k0NcW95s=;
+        b=AUAhtFdH+3Y0TaF5PeJSmnCO4SrzhUTSuyMZxm79fh+83QVuRgpc9qklGXyiBNmhHU
+         CpPGHA1debPx2Ho3txXZU8wyNvfOUUoi+BAKyL6fLH4TcIThd0iJhW0qS74XUlMg58m0
+         D2u2jBlRhfrK3gj6vOSYj+h9/j3ijf7wT5uQ0FH3SeyOrIDdTdumXWGQNxhlGqCqIYZx
+         NczMyU7E/DpnGLDPWkUfI7H+XIelea23eZefYzTg1BMAdkn1vxso/CKTyn8c/1EIhr7u
+         DpyfdvSVNcu/t6xHJJjo9jAl37V6P96fF61OBrtmsGJ2DHn02UWZgOAhHkPfayesRe3g
+         F8PA==
+X-Forwarded-Encrypted: i=1; AJvYcCU6+F1+vhglVN7S4A83HLB8H9/fINziI05r0FGV46Rp5LJQEPokKpxc0qIB2A4UwA++qmBlP7SXywwFP91bbBhz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyhh638tylrBK3GxmOeGapATQKhY5yuEPmUFHG0l2ZkUchK0PRb
+	mQ8gl1nhdJSiC3dCdnlR1/ZSqb0FmgYQjHxsJ2YejRGNMEzb6jgFraMDVr8NaQ==
+X-Google-Smtp-Source: AGHT+IGabkTqfzJ7F61xnkcjI95zLPKfJGfkK+pvHWTH/TvMDmJ1L9QNKaKVIJTm7qh/u3tDNf6Mrw==
+X-Received: by 2002:a17:902:f544:b0:20c:f27f:fbf with SMTP id d9443c01a7336-211d0d7687fmr23670135ad.25.1731652877101;
+        Thu, 14 Nov 2024 22:41:17 -0800 (PST)
 Received: from thinkpad ([117.193.208.47])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0ec7bc7sm6089015ad.68.2024.11.14.22.38.21
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f56e10sm6129835ad.242.2024.11.14.22.41.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Nov 2024 22:38:27 -0800 (PST)
-Date: Fri, 15 Nov 2024 12:08:16 +0530
+        Thu, 14 Nov 2024 22:41:16 -0800 (PST)
+Date: Fri, 15 Nov 2024 12:11:06 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 To: Richard Zhu <hongxing.zhu@nxp.com>
 Cc: l.stach@pengutronix.de, bhelgaas@google.com, lpieralisi@kernel.org,
@@ -73,18 +73,19 @@ Cc: l.stach@pengutronix.de, bhelgaas@google.com, lpieralisi@kernel.org,
 	kernel@pengutronix.de, linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 02/10] PCI: imx6: Add ref clock for i.MX95 PCIe
-Message-ID: <20241115063816.xpjqgm2j34enhe7s@thinkpad>
+Subject: Re: [PATCH v6 03/10] PCI: imx6: Fetch dbi2 and iATU base addesses
+ from DT
+Message-ID: <20241115064106.iwrorgimt6yenalx@thinkpad>
 References: <20241101070610.1267391-1-hongxing.zhu@nxp.com>
- <20241101070610.1267391-3-hongxing.zhu@nxp.com>
+ <20241101070610.1267391-4-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241101070610.1267391-3-hongxing.zhu@nxp.com>
+In-Reply-To: <20241101070610.1267391-4-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_223828_207406_E91D00B9 
-X-CRM114-Status: GOOD (  22.72  )
+X-CRM114-CacheID: sfid-20241114_224118_033171_F71E8270 
+X-CRM114-Status: GOOD (  20.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,103 +100,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 01, 2024 at 03:06:02PM +0800, Richard Zhu wrote:
-> Add "ref" clock to enable reference clock. To avoid the DT
-> compatibility, i.MX95 REF clock might be optional.
-
-Your wording is not correct. Perhaps you wanted to say, "To avoid breaking DT
-backwards compatibility"?
-
-> Replace the
-> devm_clk_bulk_get() by devm_clk_bulk_get_optional() to fetch
-> i.MX95 PCIe optional clocks in driver.
+On Fri, Nov 01, 2024 at 03:06:03PM +0800, Richard Zhu wrote:
+> Since dbi2 and atu regs are added for i.MX8M PCIes. Fetch the dbi2 and
+> iATU base addresses from DT directly, and remove the useless codes.
 > 
-> If use external clock, ref clock should point to external reference.
-> 
-> If use internal clock, CREF_EN in LAST_TO_REG controls reference output,
-> which implement in drivers/clk/imx/clk-imx95-blk-ctl.c.
+
+It'd be useful to mention where the base addresses were extraced. Like by the
+DWC common driver.
+
+> Upsteam dts's have not enabled EP function. So no function broken for
+> old upsteam's dtb.
 > 
 > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 19 +++++++++++++------
->  1 file changed, 13 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 808d1f105417..bc8567677a67 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -82,6 +82,7 @@ enum imx_pcie_variants {
->  #define IMX_PCIE_FLAG_HAS_SERDES		BIT(6)
->  #define IMX_PCIE_FLAG_SUPPORT_64BIT		BIT(7)
->  #define IMX_PCIE_FLAG_CPU_ADDR_FIXUP		BIT(8)
-> +#define IMX_PCIE_FLAG_CUSTOM_PME_TURNOFF	BIT(9)
->  
->  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
->  
-> @@ -98,6 +99,7 @@ struct imx_pcie_drvdata {
->  	const char *gpr;
->  	const char * const *clk_names;
->  	const u32 clks_cnt;
-> +	const u32 clks_optional_cnt;
->  	const u32 ltssm_off;
->  	const u32 ltssm_mask;
->  	const u32 mode_off[IMX_PCIE_MAX_INSTANCES];
-> @@ -1278,9 +1280,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  	struct device_node *np;
->  	struct resource *dbi_base;
->  	struct device_node *node = dev->of_node;
-> -	int ret;
-> +	int ret, i, req_cnt;
->  	u16 val;
-> -	int i;
->  
->  	imx_pcie = devm_kzalloc(dev, sizeof(*imx_pcie), GFP_KERNEL);
->  	if (!imx_pcie)
-> @@ -1330,7 +1331,10 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  		imx_pcie->clks[i].id = imx_pcie->drvdata->clk_names[i];
->  
->  	/* Fetch clocks */
-> -	ret = devm_clk_bulk_get(dev, imx_pcie->drvdata->clks_cnt, imx_pcie->clks);
-> +	req_cnt = imx_pcie->drvdata->clks_cnt - imx_pcie->drvdata->clks_optional_cnt;
-> +	ret = devm_clk_bulk_get(dev, req_cnt, imx_pcie->clks);
-> +	ret |= devm_clk_bulk_get_optional(dev, imx_pcie->drvdata->clks_optional_cnt,
-> +					  imx_pcie->clks + req_cnt);
 
-Why do you need to use 'clk_bulk' API to get a single reference clock? Just use
-devm_clk_get_optional(dev, "ref")
-
-And who is going to supply the reference clock in the absence of this clockn in
-DT?
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
 - Mani
 
->  	if (ret)
->  		return ret;
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 20 --------------------
+>  1 file changed, 20 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index bc8567677a67..462decd1d589 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -1115,7 +1115,6 @@ static int imx_add_pcie_ep(struct imx_pcie *imx_pcie,
+>  			   struct platform_device *pdev)
+>  {
+>  	int ret;
+> -	unsigned int pcie_dbi2_offset;
+>  	struct dw_pcie_ep *ep;
+>  	struct dw_pcie *pci = imx_pcie->pci;
+>  	struct dw_pcie_rp *pp = &pci->pp;
+> @@ -1125,25 +1124,6 @@ static int imx_add_pcie_ep(struct imx_pcie *imx_pcie,
+>  	ep = &pci->ep;
+>  	ep->ops = &pcie_ep_ops;
 >  
-> @@ -1480,6 +1484,7 @@ static const char * const imx8mm_clks[] = {"pcie_bus", "pcie", "pcie_aux"};
->  static const char * const imx8mq_clks[] = {"pcie_bus", "pcie", "pcie_phy", "pcie_aux"};
->  static const char * const imx6sx_clks[] = {"pcie_bus", "pcie", "pcie_phy", "pcie_inbound_axi"};
->  static const char * const imx8q_clks[] = {"mstr", "slv", "dbi"};
-> +static const char * const imx95_clks[] = {"pcie_bus", "pcie", "pcie_phy", "pcie_aux", "ref"};
+> -	switch (imx_pcie->drvdata->variant) {
+> -	case IMX8MQ_EP:
+> -	case IMX8MM_EP:
+> -	case IMX8MP_EP:
+> -		pcie_dbi2_offset = SZ_1M;
+> -		break;
+> -	default:
+> -		pcie_dbi2_offset = SZ_4K;
+> -		break;
+> -	}
+> -
+> -	pci->dbi_base2 = pci->dbi_base + pcie_dbi2_offset;
+> -
+> -	/*
+> -	 * FIXME: Ideally, dbi2 base address should come from DT. But since only IMX95 is defining
+> -	 * "dbi2" in DT, "dbi_base2" is set to NULL here for that platform alone so that the DWC
+> -	 * core code can fetch that from DT. But once all platform DTs were fixed, this and the
+> -	 * above "dbi_base2" setting should be removed.
+> -	 */
+>  	if (device_property_match_string(dev, "reg-names", "dbi2") >= 0)
+>  		pci->dbi_base2 = NULL;
 >  
->  static const struct imx_pcie_drvdata drvdata[] = {
->  	[IMX6Q] = {
-> @@ -1592,9 +1597,11 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  	},
->  	[IMX95] = {
->  		.variant = IMX95,
-> -		.flags = IMX_PCIE_FLAG_HAS_SERDES,
-> -		.clk_names = imx8mq_clks,
-> -		.clks_cnt = ARRAY_SIZE(imx8mq_clks),
-> +		.flags = IMX_PCIE_FLAG_HAS_SERDES |
-> +			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
-> +		.clk_names = imx95_clks,
-> +		.clks_cnt = ARRAY_SIZE(imx95_clks),
-> +		.clks_optional_cnt = 1,
->  		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
->  		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
->  		.mode_off[0]  = IMX95_PE0_GEN_CTRL_1,
 > -- 
 > 2.37.1
 > 
