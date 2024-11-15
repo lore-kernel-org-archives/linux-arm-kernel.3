@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD50D6DDFA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 13:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F55DD6DDFA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 13:23:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jbyO1AHv2SrrjDMufGe/qPlv7KoAstD0OvUVZ7mbUvQ=; b=yJkeCCtksoH6dIIgihvrlAADsR
-	6uia5lfaYrycMrydftU3pUIqLcvGchHbBbwYpN0VMhyVHc1FgCCXvLoofvTnQcJphfxikLV1/81mC
-	Hhxf5OCuBBegwbwF+UQSb38l2/UFkAWb1mxSikm5sXb+FsIhwdEfGthd1VmZ9GQbCTbMmBRRjpUBg
-	wvXqDWJlTDte7AkTChmHEGSyoBXSmn1Mfuf/m/gN5ajWNyYIdxpCJNdETVyfwsqEaS6T1XeJUMpgF
-	4TWWXNdDksTv2i16MKlUGcj5weTrfyH+l64Qu3VmYADkLiFey7i98RbSemXAwTGuEDPAm2KxNex9y
-	XpuYO4zA==;
+	bh=ef3SzHkC/AAEf+p5zTM3KCa1I619LTyjflgp5vpLoF4=; b=uRcoWOIw++H150S+ijs4hQ7xsX
+	2iUFcrsTzsMjUt0Y3Xs7VG0h6WfFhsbzXBDOhOcQhwa1pKp9liQDDDq9nY7z9qCq6KfgJBHc2BDfE
+	kRc7O+kGqTl5P4aO9FN+IgChI1om0ZW0kWGqs2NoZe0/970PHF+bVv0BNbjwPtTyu7M9lYDI90Yj2
+	w2UPyxis4mkKFZQSlA0tWhidjXam/nW0WKpE4hxLOsgwyqr5xNZCSZ7BLY6Vhy1WRrL+8z2RhVvJJ
+	bTDYmqtN+iDDJPF/mwOTPtGn5SuvfIQBRM9BKaV55sN+l+3xER6kuNbHjeyOOHKT3ujimkoC1celM
+	M7/3d6MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBwBr-00000002ljX-0B0x;
-	Fri, 15 Nov 2024 13:16:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tBwIe-00000002mds-26Oj;
+	Fri, 15 Nov 2024 13:23:48 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBwAw-00000002lf7-1Z26;
-	Fri, 15 Nov 2024 13:15:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A383F5C61CA;
-	Fri, 15 Nov 2024 13:15:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4795C4CECF;
-	Fri, 15 Nov 2024 13:15:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731676549;
-	bh=70ptQYo30UwVusaCHZRa/EN+gh7OcDEFJVb5k9kd/W8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PqRWThO4yBC11BlqCVLdvCdiqntr2dtVg/ncjFDMvzDXzSMfdrNqx6YfIslFKNN+Y
-	 0taDWV3MkBOsEZJn2Hq93JcBQ5L/EguelK7R/c6ye/N6bJwLFIKFZ1tAXovsdR55QR
-	 Qg+hVCXH6nmQi4t9nyJtCIU2jWY3zUrsJ72DWfdI0CSpiVwI4oYgxW+NPX2Div5FA1
-	 Z4oU/RwvHbVlBjkC562ZQwZh9wbMkcyaqCCjXUFcaQ/LxAE8gTOo72U9V2cb9Kbtuk
-	 u9D12+eeLHqFr7hWWMWy9LW/82SL6w7jBGbCaAo12g4sc3p+Hqz1gYudvh+jSfXM6n
-	 bR5s+IFutX9oQ==
-Date: Fri, 15 Nov 2024 14:15:45 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/4] PCI: mediatek-gen3: Move reset/assert callbacks
- in .power_up()
-Message-ID: <ZzdJgeX2dp_z1QmJ@lore-rh-laptop>
-References: <20241109-pcie-en7581-fixes-v2-0-0ea3a4af994f@kernel.org>
- <20241109-pcie-en7581-fixes-v2-3-0ea3a4af994f@kernel.org>
- <20241115090231.nwmxl6acspxqflpc@thinkpad>
- <ZzcRG3OInXZ2TP-Z@lore-rh-laptop>
- <20241115123707.in4x27ub4wtwdggh@thinkpad>
+	id 1tBwHi-00000002mPx-3JEe
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 Nov 2024 13:22:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=ef3SzHkC/AAEf+p5zTM3KCa1I619LTyjflgp5vpLoF4=; b=kuS9SzL/3MNLaDLbckp5u18ELV
+	TC/iDCSgoIsrmkllG4TQsJA8fMVq1f5M0UQpUg7sxxQ6138WVDYLd/ird8R+uvzoojnz1GKmjrw43
+	M2aKNrxrwjjoLFw8OyfhJZ+u8pctVsw8ZDkz38yqYQu3xTw82qBqS9dj9HNHDgJv+6KM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tBwHM-00DQ7l-NL; Fri, 15 Nov 2024 14:22:28 +0100
+Date: Fri, 15 Nov 2024 14:22:28 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Sagar Cheluvegowda <quic_scheluve@quicinc.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel@quicinc.com
+Subject: Re: [PATCH] net: stmmac: dwmac-qcom-ethqos: Enable support for XGMAC
+Message-ID: <5899239a-50c4-46ca-9cd7-43e95d61fe54@lunn.ch>
+References: <20241112-fix_qcom_ethqos_to_support_xgmac-v1-1-f0c93b27f9b2@quicinc.com>
+ <55914c2a-95d8-4c40-a3ea-dfa6b2aeb1dd@lunn.ch>
+ <2ac308d7-35be-463e-9838-3bbedc2a4d68@quicinc.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Az29kcYdHjsISUBm"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241115123707.in4x27ub4wtwdggh@thinkpad>
+In-Reply-To: <2ac308d7-35be-463e-9838-3bbedc2a4d68@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_051550_511712_F94C46C4 
-X-CRM114-Status: GOOD (  33.36  )
+X-CRM114-CacheID: sfid-20241115_052250_826420_2B59B637 
+X-CRM114-Status: GOOD (  22.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,177 +79,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Nov 14, 2024 at 05:08:13PM -0800, Sagar Cheluvegowda wrote:
+> 
+> 
+> On 11/13/2024 6:51 PM, Andrew Lunn wrote:
+> > On Tue, Nov 12, 2024 at 06:08:10PM -0800, Sagar Cheluvegowda wrote:
+> >> All Qualcomm platforms have only supported EMAC version 4 until
+> >> now whereas in future we will also be supporting XGMAC version
+> >> which has higher capabilities than its peer. As both has_gmac4
+> >> and has_xgmac fields cannot co-exist, make sure to disable the
+> >> former flag when has_xgmac  is enabled.
+> > 
+> > If you say they are mutually exclusive, how can it happen that both
+> > are enabled?
+> > 
+> > To me, this feels like you are papering over a bug somewhere else.
+> > 
+> > 	Andrew
+> 
+> 
+> We can set either has_gmac4 or has_xgmac flags by using below
+> dtsi properties as well. But since Qualcomm only supported
+> GMAC4 version in all of its chipsets until now, we had enabled
+> has_gmac4 flag by default within dwmac_qcom_ethqos.c instead
+> of adding any of the below entries in the dtsi. But this will
+> create problem for us as we start supporting Xgmac version
+> in the future, so we are trying to add this change so that
+> our driver can support Xgmac version when "snps,dwxgmac" is 
+> defined in the dtsi and we are keeping the default supported
+> configuration as gmac4.
 
---Az29kcYdHjsISUBm
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+So i think you are saying that stmmac_probe_config_dt() does not
+reliably set
 
-On Nov 15, Manivannan Sadhasivam wrote:
-> On Fri, Nov 15, 2024 at 10:15:07AM +0100, Lorenzo Bianconi wrote:
-> > > On Sat, Nov 09, 2024 at 10:28:39AM +0100, Lorenzo Bianconi wrote:
-> > > > In order to make the code more readable, move phy and mac reset lin=
-es
-> > > > assert/de-assert configuration in .power_up() callback
-> > > > (mtk_pcie_en7581_power_up()/mtk_pcie_power_up()).
-> > > >=20
-> > >=20
-> > > I don't understand how moving the code (duplicting it also) makes the=
- code more
-> > > readable. Could you please explain?
-> >=20
-> > Hi Manivannan,
-> >=20
-> > this has been requested by Bjorn in
-> > https://patchwork.kernel.org/project/linux-pci/patch/aca00bd672ee576ad9=
-6d279414fc0835ff31f637.1720022580.git.lorenzo@kernel.org/#26110282
-> >=20
->=20
-> Ok. The description needs to state the reason i.e., the
-> reset_control_bulk_assert() is moved to make it pair with
-> reset_control_bulk_deassert() in mtk_pcie_setup() and
-> mtk_pcie_en7581_power_up().
+	plat->has_gmac4 = 1;
 
-ack, I will update the commit log.
+or
 
->=20
-> Btw, could you explain why reset_control_bulk_deassert() is present in
-> mtk_pcie_setup()?
+	plat->has_xgmac = 1;
 
-it is because the clock is shared for Airoha EN7581 and we need to be sure
-rstc->deassert_count is not 0 running reset_control_bulk_assert().
+because you have not listed the secondary compatibles:
 
-https://github.com/torvalds/linux/blob/master/drivers/reset/core.c#L483
+"snps,dwmac-4.00"
+"snps,dwmac-4.10a"
+"snps,dwmac-4.20a"
+"snps,dwmac-5.10a"
+"snps,dwmac-5.20"
+"snps,dwxgmac"
 
-Regards,
-Lorenzo
+in your .dtsi files.
 
->=20
-> - Mani
->=20
-> > >=20
-> > > > Introduce PCIE_MTK_RESET_TIME_US macro for the time needed to
-> > > > complete PCIe reset on MediaTek controller.
-> > > >=20
-> > > > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > > > ---
-> > > >  drivers/pci/controller/pcie-mediatek-gen3.c | 28 +++++++++++++++++=
-+++--------
-> > > >  1 file changed, 20 insertions(+), 8 deletions(-)
-> > > >=20
-> > > > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/=
-pci/controller/pcie-mediatek-gen3.c
-> > > > index 8c8c733a145634cdbfefd339f4a692f25a6e24de..1ad93d2407810ba873d=
-9a16da96208b3cc0c3011 100644
-> > > > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
-> > > > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-> > > > @@ -120,6 +120,9 @@
-> > > > =20
-> > > >  #define MAX_NUM_PHY_RESETS		3
-> > > > =20
-> > > > +/* Time in us needed to complete PCIe reset on MediaTek controller=
- */
-> > >=20
-> > > No need of this comment. Macro name itself is explanatory.
-> >=20
-> > ack, I will fix it.
-> >=20
-> > Regards,
-> > Lorenzo
-> >=20
-> > >=20
-> > > - Mani
-> > >=20
-> > > > +#define PCIE_MTK_RESET_TIME_US		10
-> > > > +
-> > > >  /* Time in ms needed to complete PCIe reset on EN7581 SoC */
-> > > >  #define PCIE_EN7581_RESET_TIME_MS	100
-> > > > =20
-> > > > @@ -867,6 +870,14 @@ static int mtk_pcie_en7581_power_up(struct mtk=
-_gen3_pcie *pcie)
-> > > >  	int err;
-> > > >  	u32 val;
-> > > > =20
-> > > > +	/*
-> > > > +	 * The controller may have been left out of reset by the bootload=
-er
-> > > > +	 * so make sure that we get a clean start by asserting resets her=
-e.
-> > > > +	 */
-> > > > +	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
-> > > > +				  pcie->phy_resets);
-> > > > +	reset_control_assert(pcie->mac_reset);
-> > > > +
-> > > >  	/*
-> > > >  	 * Wait for the time needed to complete the bulk assert in
-> > > >  	 * mtk_pcie_setup for EN7581 SoC.
-> > > > @@ -941,6 +952,15 @@ static int mtk_pcie_power_up(struct mtk_gen3_p=
-cie *pcie)
-> > > >  	struct device *dev =3D pcie->dev;
-> > > >  	int err;
-> > > > =20
-> > > > +	/*
-> > > > +	 * The controller may have been left out of reset by the bootload=
-er
-> > > > +	 * so make sure that we get a clean start by asserting resets her=
-e.
-> > > > +	 */
-> > > > +	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
-> > > > +				  pcie->phy_resets);
-> > > > +	reset_control_assert(pcie->mac_reset);
-> > > > +	usleep_range(PCIE_MTK_RESET_TIME_US, 2 * PCIE_MTK_RESET_TIME_US);
-> > > > +
-> > > >  	/* PHY power on and enable pipe clock */
-> > > >  	err =3D reset_control_bulk_deassert(pcie->soc->phy_resets.num_res=
-ets, pcie->phy_resets);
-> > > >  	if (err) {
-> > > > @@ -1013,14 +1033,6 @@ static int mtk_pcie_setup(struct mtk_gen3_pc=
-ie *pcie)
-> > > >  	 * counter since the bulk is shared.
-> > > >  	 */
-> > > >  	reset_control_bulk_deassert(pcie->soc->phy_resets.num_resets, pci=
-e->phy_resets);
-> > > > -	/*
-> > > > -	 * The controller may have been left out of reset by the bootload=
-er
-> > > > -	 * so make sure that we get a clean start by asserting resets her=
-e.
-> > > > -	 */
-> > > > -	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets, pcie-=
->phy_resets);
-> > > > -
-> > > > -	reset_control_assert(pcie->mac_reset);
-> > > > -	usleep_range(10, 20);
-> > > > =20
-> > > >  	/* Don't touch the hardware registers before power up */
-> > > >  	err =3D pcie->soc->power_up(pcie);
-> > > >=20
-> > > > --=20
-> > > > 2.47.0
-> > > >=20
-> > >=20
-> > > --=20
-> > > =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=
-=A9=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=
-=AE=E0=AF=8D
->=20
->=20
->=20
-> --=20
-> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
-=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
-=E0=AF=8D
+It is too late to add these, because of backwards compatibility to old
+DT blobs.
 
---Az29kcYdHjsISUBm
-Content-Type: application/pgp-signature; name="signature.asc"
+However, you are thinking of doing it correctly for new SoCs, and
+include "snps,dwxgmac", so stmmac_probe_config_dt() will set
+plat->has_xgmac = 1. The hard coded plat_dat->has_gmac4 = 1 then gives
+you problems.
 
------BEGIN PGP SIGNATURE-----
+Correct?
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZzdJfgAKCRA6cBh0uS2t
-rAc+AP9ub7dajbYVmtXzENOojOgxYKgGlbym8v7JFbk2MDEf7AEA72IU0ALoGmk1
-Uh4ep6rnZJgFC0aB3YAo3lXmumLpxww=
-=VKZA
------END PGP SIGNATURE-----
+An explanation like this needs to be added to the commit message
+however you solve it in the end, because your current commit message
+does not explain the problem you are trying to solve.
 
---Az29kcYdHjsISUBm--
+You already have:
+
+struct ethqos_emac_driver_data {
+        const struct ethqos_emac_por *por;
+        unsigned int num_por;
+        bool rgmii_config_loopback_en;
+        bool has_emac_ge_3;
+        const char *link_clk_name;
+        bool has_integrated_pcs;
+        u32 dma_addr_width;
+        struct dwmac4_addrs dwmac4_addrs;
+        bool needs_sgmii_loopback;
+};
+
+static const struct of_device_id qcom_ethqos_match[] = {
+        { .compatible = "qcom,qcs404-ethqos", .data = &emac_v2_3_0_data},
+        { .compatible = "qcom,sa8775p-ethqos", .data = &emac_v4_0_0_data},
+        { .compatible = "qcom,sc8280xp-ethqos", .data = &emac_v3_0_0_data},
+        { .compatible = "qcom,sm8150-ethqos", .data = &emac_v2_1_0_data},
+        { }
+};
+
+This has has_emac_ge_3. I think it is much cleaner to add has_gmac4
+and has_xgmac to ethqos_emac_driver_data, so you have a clear link to
+the compatible.
+
+	Andrew
 
