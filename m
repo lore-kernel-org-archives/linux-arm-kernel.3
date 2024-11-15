@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E779D68BCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 16:38:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7463CD68BCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 16:39:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B0LjiaqMThscAIs7bg4QizE4MBHTTfzv3pHzToNXt/M=; b=mpVxWjnyJ7pSsNt0sDiVKRsLaa
-	rYCIWB2fT5CbCGzqgg8k1iDx/D+u+RboYY3upz04lw0rpgjqlStqfiyGxMMRD1xViwi6g7Z08+Xkh
-	0pkp8sJ14IPyGO13Jd7K7ddymj74kDTyCqKhrR5jwegI3cmMe69rhq9qEP92FLhrU10VfWVZJ3pPv
-	GIXX7WY/1RgVf/qcx8Vto0zwO0KTssUZjvYoF4fw2P1r/18p8N9B+lWmWlyvJhsb94j3iSkkb3U2Q
-	MyTFvKD6kanCyCdPP2FNcPege9Cwg3tI8G8MMUfQ82EKcZpS/J/JBbP7V6rir9WBBhzp0n3aodCR/
-	6BAwk7bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X5FKveEGFoRtJToEkzkSd7Mwk8gc6fAM/LYYJdowFdM=; b=0tfA9YhbpTgngdluyFBQarsSpP
+	2STdq0Q4Vq7fZRzoil0IWq+/lnMnyZaUz8bmJnSNoQ9EbOjvEK0jX6JhrLwwoKqxp78o54zKGpJIP
+	Ap5m9uWGwks5VaPr+kS/80B88bF4VATY589cVvuUklLX9cq1vzic+tqLIs5i6JLyja2y6OU6s6xld
+	ITcaSKRYDvuBfZCkRIPGC9ZjPNlnVVtZSobpWPkCgn2owcgYW2uzMelNr+CvGmoXreGyh5cNeZ3fQ
+	ad65eO4MB9F24A6iGRWjuVBMLZsWN81X41NOkOrKgSDbC/E5n4wMZrRU2Mt+8nBM1cnYn5p7Gq9Tg
+	+eqjGGBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBzKW-00000003MrE-49wm;
-	Fri, 15 Nov 2024 16:37:56 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tBzLj-00000003Nv6-482L;
+	Fri, 15 Nov 2024 16:39:11 +0000
+Received: from mout.perfora.net ([74.208.4.196])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBzIk-00000003MVj-31KC
+	id 1tBzKg-00000003N0N-35I5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 16:36:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 14E1BA429E4;
-	Fri, 15 Nov 2024 16:34:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E232C4CED5;
-	Fri, 15 Nov 2024 16:36:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731688565;
-	bh=6yQrzL+pY0s5bWYhKAenvAd4K3vkSdTM9mFizd+1r8E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=H99tUUBjROYIibs7vXroxAi3KXnmtRNRe1yk//et3sKkQZfVPW2DCaDJlHgMsrnAK
-	 Y6iuBeAZFRfUzJZcbT2178fMPypgrYxiE/oWrhYWdNN0qbdZA+UsYJjonG5XV9hTnU
-	 ELMQnXVNxjU30qSBtvn1KcZyVyrzBjvk0LH6C2LXAMDqTMcdUj5/183weCY3T7jw8L
-	 RFds4A3qvgQD2FmsqcARtCjpAig8ANEpgfBcn7kfTUVGl7nS7Id4DXdqaAa7R84K+H
-	 yKEcNGIULnpqYwTkfwqboyI1zpC1GvA7Q5bkfAEy+QsJ/aToJ/Zuc4jZxaRvsIdG7E
-	 pNnt/nYpycq0Q==
-Date: Fri, 15 Nov 2024 10:36:03 -0600
-From: Rob Herring <robh@kernel.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
-	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	p.zabel@pengutronix.de, cassel@kernel.org,
-	quic_schintav@quicinc.com, fabrice.gasnier@foss.st.com,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	Fri, 15 Nov 2024 16:38:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=finest.io;
+	s=s1-ionos; t=1731688682; x=1732293482; i=parker@finest.io;
+	bh=X5FKveEGFoRtJToEkzkSd7Mwk8gc6fAM/LYYJdowFdM=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=GpvnL11htK1cwtfT46yWvOtnwbWZzHXvvzYdAboHvlQMugZpNl76evj6B3grSQCc
+	 W/cwS7bULfD1ocbLIdbsQ9vqyKhKjvleHRi+7G2HqIU00tlCiJWDITZaREz/mub89
+	 jqK1GN7mzligoMSU+YSA/mVVwHtxNKFb/5tDDu1TnKrv52Q6R5gRqKoQyP9AbMxkq
+	 7VCJso36HlMDHDrH+4byi4mKRKpJ/iaUaIjIIDWmtK+qpuGmfdjrzqygD/LwMvPjX
+	 mABC4hEU9ctXDvK8b7wXNvAU1gWjrdgOzZro5R/Ki/HQVBN7IPCEApIm4ax0rgkvx
+	 zV2x8B5lEmH59j5DLA==
+X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
+Received: from finest.io ([98.159.241.229]) by mrelay.perfora.net (mreueus002
+ [74.208.5.2]) with ESMTPSA (Nemesis) id 0MDzNh-1sz0p93pR1-00GdLZ; Fri, 15 Nov
+ 2024 17:32:05 +0100
+From: Parker Newman <parker@finest.io>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/5] dt-bindings: PCI: Add STM32MP25 PCIe root complex
- bindings
-Message-ID: <20241115163603.GA3188739-robh@kernel.org>
-References: <20241112161925.999196-1-christian.bruel@foss.st.com>
- <20241112161925.999196-2-christian.bruel@foss.st.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Parker Newman <pnewman@connecttech.com>
+Subject: [PATCH v1 0/1] net: stmmac: dwmac-tegra: Read iommu stream id from device tree
+Date: Fri, 15 Nov 2024 11:31:07 -0500
+Message-ID: <cover.1731685185.git.pnewman@connecttech.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241112161925.999196-2-christian.bruel@foss.st.com>
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:VmMzWfMuiUIonudG8UECAGKTtEGicIuJhmmOO1QaBA8Qx1KyLJB
+ wEy22iYL30pHd39L68ZkWkpgK3f91L6r7nr17yp6487cxmF8x797lm+/A2kSN+nUJeDFU0f
+ TUu07BRkGBlZRFr92mVbbQt0b42wwSutsA6gHHnyYkhIdLRDQCmtwivXqtNG4TKsA8V7eWZ
+ vWDhDZwGpz4iZXHdUFetQ==
+UI-OutboundReport: notjunk:1;M01:P0:k+zCuu5Wkrc=;9QzRlWQgP9IpFhY3gK78X3Lxg3T
+ 311E3KflXFR3ZRfNrPHXnGDrql7kPvEPyL5NTqx8hGDC/5xLfKtzCkciZhjD4yE6xAsnUOhqw
+ KN2mc07wHTNmS65MrTvryBMbwyBygk5WbEJfEFb9sOMn6kFvMHie1usZSWjwVik/vB+kg41+w
+ 0xrZBsD8rvWiaVHY0PF6RaEysBdFPGmuHgV07d3DEOdBvJQLhtc5ICYXaJ9FwuAeJamCySMAS
+ NmPV8P0woCT30f+HfO5h2iERJr6AihArnhWtuC+MWYVNWAcbbjST0Ym2GXk6aCFlXu8GWDdii
+ x/ajXVDkUuwcv6nnbK8WcVTFdB0aAuc9qHx7hzKrzInPnP1mAVtSEyBTc4cf7kuuqmtXFh8dw
+ IONkO1PZYb9zHw4ruNXvaJeeMLHBNzc6JLr+ojqX2dNlnt4K7iOh4qshnJSv6QzE3hiZO5YGb
+ rUAIA7taTFirSQGRwMtn8gxOXanlKMd9pdKS3TZM32PPgLikYbHg+XP/ZZiM5WvXhfQiPdpq7
+ V+H6RyPOof8btmldM8CpxGDfYTRsYitqnwAZoW2pFdQGdnAy2HEPRfeH0kiYq6QYjKAtJbqAd
+ wMzgKUOwrsvuzmWwjiF6rTP7F92jwxRdOFf/lIEqqrWrPmEMZhI0MgQnPyC4dsH6pdv9L3MlE
+ imBt7VixF0FctBOv82HzHDl6qQtb0d8cZsKyVJUEr8pddv7ttcxk9/xoXi8jGUpGot0mH4bMO
+ VV+sJpOmkXncApwj83PMUXHNWzrh3DBOaolSmuieJASUrcrwOIwcEILOuI4lZKS+wx36aM89y
+ HMVv4Fe28PtSwbSUDAMgXehD02Kd/rrcvUZnfWqsG3UfqsPJY8p7Vi8eA/69xSDOmQ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_083606_905424_CEABA4FC 
-X-CRM114-Status: GOOD (  23.57  )
+X-CRM114-CacheID: sfid-20241115_083806_890481_7FADFB7B 
+X-CRM114-Status: UNSURE (   7.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,209 +102,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 12, 2024 at 05:19:21PM +0100, Christian Bruel wrote:
-> Document the bindings for STM32MP25 PCIe Controller configured in
-> root complex mode.
-> Supports 4 legacy interrupts and MSI interrupts from the ARM
-> GICv2m controller.
-> 
-> Allow tuning to change payload (default 128B) thanks to the
-> st,max-payload-size entry.
-> Can also limit the Maximum Read Request Size on downstream devices to the
-> minimum possible value between 128B and 256B.
-> 
-> STM32 PCIE may be in a power domain which is the case for the STM32MP25
-> based boards.
-> Supports wake# from wake-gpios
-> 
-> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-> ---
->  .../bindings/pci/st,stm32-pcie-host.yaml      | 149 ++++++++++++++++++
->  1 file changed, 149 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-> new file mode 100644
-> index 000000000000..d7d360b63a08
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-> @@ -0,0 +1,149 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-host.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: STM32MP25 PCIe root complex driver
-> +
-> +maintainers:
-> +  - Christian Bruel <christian.bruel@foss.st.com>
-> +
-> +description:
-> +  PCIe root complex controller based on the Synopsys DesignWare PCIe core.
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      const: st,stm32mp25-pcie-rc
-> +  required:
-> +    - compatible
-> +
-> +allOf:
-> +  - $ref: /schemas/pci/pci-host-bridge.yaml#
-> +  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
+From: Parker Newman <pnewman@connecttech.com>
 
-snps,dw-pcie.yaml instead of these 2.
+Nvidia Tegra MGBE controllers require the iommu "Stream ID" (SID) to be
+written to a register for proper operation.
+The current driver is hard coded to mgbe0's SID, causing the other mgbe
+controller instances to not work.
 
-> +
-> +properties:
-> +  compatible:
-> +    const: st,stm32mp25-pcie-rc
-> +
-> +  reg:
-> +    items:
-> +      - description: Data Bus Interface (DBI) registers.
-> +      - description: PCIe configuration registers.
-> +
-> +  reg-names:
-> +    items:
-> +      - const: dbi
-> +      - const: config
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  reset-names:
-> +    const: core
+This patch enables the other mgbe controllers by reading the SID from the
+iommus property in the device tree using the existing
+tegra_dev_iommu_get_stream_id() function in linux/iommu.h.
 
--names with a single entry is kind of pointless.
+Parker Newman (1):
+  net: stmmac: dwmac-tegra: Read iommu stream id from device tree
 
-> +
-> +  clocks:
-> +    maxItems: 1
-> +    description: PCIe system clock
-> +
-> +  clock-names:
-> +    const: core
-> +
-> +  phys:
-> +    maxItems: 1
-> +
-> +  phy-names:
-> +    const: pcie-phy
-> +
-> +  num-lanes:
-> +    const: 1
-> +
-> +  msi-parent:
-> +    maxItems: 1
+ drivers/net/ethernet/stmicro/stmmac/dwmac-tegra.c | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
 
-Just 'msi-parent: true'. It's already only ever 1 entry.
 
-> +
-> +  reset-gpios:
-> +    description: GPIO controlled connection to PERST# signal
-> +    maxItems: 1
-> +
-> +  wake-gpios:
-> +    description: GPIO controlled connection to WAKE# input signal
-> +    maxItems: 1
-> +
+base-commit: 37c5695cb37a20403947062be8cb7e00f6bed353
+=2D-
+2.47.0
 
-> +  st,limit-mrrs:
-> +    description: If present limit downstream MRRS to 256B
-> +    type: boolean
-> +
-> +  st,max-payload-size:
-> +    description: Maximum Payload size to use
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [128, 256]
-> +    default: 128
-
-IIRC, other hosts have similar restrictions, so you should be able to do 
-the same and imply it from the compatible. Though I'm open to a common 
-property as Bjorn suggested.
-
-> +
-> +  wakeup-source: true
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  access-controllers:
-> +    maxItems: 1
-> +
-> +if:
-> +  required:
-> +    - wakeup-source
-> +then:
-> +  required:
-> +    - wake-gpios
-
-This can be just:
-
-dependentRequired:
-  wakeup-source: [ wake-gpios ]
-
-(dependentRequired supercedes dependencies)
-
-> +
-> +required:
-> +  - interrupt-map
-> +  - interrupt-map-mask
-> +  - ranges
-> +  - resets
-> +  - reset-names
-> +  - clocks
-> +  - clock-names
-> +  - phys
-> +  - phy-names
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-> +    #include <dt-bindings/gpio/gpio.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/phy/phy.h>
-> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
-> +
-> +    pcie@48400000 {
-> +        compatible = "st,stm32mp25-pcie-rc";
-> +        device_type = "pci";
-> +        num-lanes = <1>;
-> +        reg = <0x48400000 0x400000>,
-> +              <0x10000000 0x10000>;
-> +        reg-names = "dbi", "config";
-> +        #interrupt-cells = <1>;
-> +        interrupt-map-mask = <0 0 0 7>;
-> +        interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
-> +                        <0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
-> +                        <0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
-> +                        <0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
-> +        #address-cells = <3>;
-> +        #size-cells = <2>;
-> +        ranges = <0x01000000 0 0x10010000 0x10010000 0 0x10000>,
-> +                 <0x02000000 0 0x10020000 0x10020000 0 0x7fe0000>,
-> +                 <0x42000000 0 0x18000000 0x18000000 0 0x8000000>;
-> +        bus-range = <0x00 0xff>;
-
-Don't need this unless it's restricted to less than bus 0-255.
-
-> +        clocks = <&rcc CK_BUS_PCIE>;
-> +        clock-names = "core";
-> +        phys = <&combophy PHY_TYPE_PCIE>;
-> +        phy-names = "pcie-phy";
-> +        resets = <&rcc PCIE_R>;
-> +        reset-names = "core";
-> +        msi-parent = <&v2m0>;
-> +        wakeup-source;
-> +        wake-gpios = <&gpioh 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-> +        access-controllers = <&rifsc 76>;
-> +        power-domains = <&CLUSTER_PD>;
-> +    };
-> -- 
-> 2.34.1
-> 
 
