@@ -4,166 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FCCED68BCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 17:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5B36D68BCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 17:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qdRE/WqH0pxL8YBeRNRLZGyv3hWogvkfT9xlpzc8T+0=; b=AcMyC50g8KouUo0BG5/cr3IKuZ
-	i8WNEikDgyF2IOUGNiECNh6I+O+4GO2WgHgtCMIAJss+C49w8oRPYTjilug11OFIk/uYU4zKbSB8A
-	DHV/iH1dGw+gZ2SEw8oxkLjrO8QeyNShn482HzcZCEeyvLr58E8kkmw/xKYZlo9kw56O1D9+jqPnB
-	ntd8I1dgHvteoooKMFnhsE8PBHo5vfSk3jW56YbXdoBtNNslRwYDbYkNYIik8TPgS3xC6CbhI6ex3
-	0woB8vM3r6Z7NY7c8UP5Ar72FAjzjAMLn4hKUHANJ4YYQlzwUs8yFTc32SMFEi8fCN0ZAY/WuBi1F
-	nSiURkyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HsIDulqPVm11kvME4lSY/OQMyOCr+gV0M7N3MMcJtZE=; b=2VNy3cU6gZF4ZgmFhH6xi9CL3t
+	+GJ1ahD+jPCYu/BAe/r5SjzKkCGOmZwYw7oVIBbZVGp8Aqzy9FyCr8e9t3BmCrU1u4vE2qOL2RX7r
+	Q9drYIzZDPbqLeDKnjacfE+oBNgkSI9k8dxyWbLViq3l7AfvUSrsqhDvN7t9RRHeLvkTvdRO+LFol
+	fqarmi8L3MFuvec3TUR8ypgbVDW/G0gKnu3YQ8QwuzYsXy0jygFi0jQC1QX8BqEHgRucOlN1hv05E
+	j7rMJtV8DgqHyVuVR7Vii5lf4ZN0fUIblGoW2A2P8StWlhQlx82w8wFOl0dTVnTvL2VPSPcTKa+LG
+	70knm4LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC0OG-00000003bGA-2c9k;
-	Fri, 15 Nov 2024 17:45:52 +0000
-Received: from mail-vi1eur02on2062d.outbound.protection.outlook.com ([2a01:111:f403:2607::62d] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1tC0V7-00000003cK4-1Ppb;
+	Fri, 15 Nov 2024 17:52:57 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC0NK-00000003ajn-3dZK
+	id 1tC0UB-00000003cAF-40CT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 17:44:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Yf39qQ+7VFgqViuq63lYzNejfWiqoVctfSKcUFgQifz65Mac3eCLXhDkpZ6S4kJZfbOcMAhNlNAUviN+6Fjqfo4YaIZNTqGPcmFgGo/ss61f8aN6GC2Hes2Rs+MRiANIJ9i6bdr9XxWG+NiJp1+3gbke1u8TkTVlCduwBPSOexk/d0KRnKd2JgCAPcBkG+U7yIWrJScjuFUTuSqQilDwDDFI1oXCE4+9nSgnU42sObr5wGgwW3eHsQ+f9+aQ8gWUdlWR2uLBr1tHvrywDshKPY8XXCrqxnb4DDGdIOydgY55R1IXBPEq1ywNSvZArMec0IxyqDnJybPt2URwLog9IQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qdRE/WqH0pxL8YBeRNRLZGyv3hWogvkfT9xlpzc8T+0=;
- b=ZlwjRO8tCgs0TIdL0F9D32T7qw4ZXcFUA0x+a4VVUa5W7tVtLAJdm85AchBl9ZwqQY2kFZn/J88CZuAWlJJpvG5HlW4Z4moxNssxVqfKiaq0GMsewGOntq6LDCnjy7hscddlx3c5/Ap2G/fxEhEzG5NCiirKomkXBBJ3nifVuCaNlx9Bqj9/jfGUXcKx0kbda4n3O84wqGdsk5dnd8g90r7rR0bG8momAA1dV2vLhDtTgddPxVxZr9BgbddklKrLgmoZfkfk4GMm4xQdt2kVfv4GSt5x9HAilOA0NuDI0LuoF9DKXa1kQuEK7xIQtWogbk6uS51fBX9EypaKk27GAw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qdRE/WqH0pxL8YBeRNRLZGyv3hWogvkfT9xlpzc8T+0=;
- b=U/hPpnjMy1p1L9LaMiJ8HHM70u2TJVTkBPbSSsJbN8tGDcDc9RPPYS2q64fhoFSbHFKTc1BUGb2pge7HauD/VxC696KO/JOKA4rNqqjnhQNgcM0O2esT3OYw0n8bgPdMBODQtyxQc8gELNYJvseAv0CgzV2iE41jnz9+pfTmoGXOO+lTBPMeLKGG79g7weo42ZftDxJCgB3BDCz1c+lvMWBeqHT4nRxb0TLkAOm7pRwsfm60USD+wZN7KkEyTrc2qfOZlHkFnqc7bqulPyA7o3etblhioE8y8WnJGz9NFV7ZbiEXBvc00y9mRs0F7i3x50OlQQ738p5HvxS/rtl/dg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU0PR04MB9250.eurprd04.prod.outlook.com (2603:10a6:10:351::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.17; Fri, 15 Nov
- 2024 17:28:59 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8158.017; Fri, 15 Nov 2024
- 17:28:59 +0000
-Date: Fri, 15 Nov 2024 12:28:50 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Richard Zhu <hongxing.zhu@nxp.com>, l.stach@pengutronix.de,
-	bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com,
-	imx@lists.linux.dev, kernel@pengutronix.de,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 10/10] arm64: dts: imx95: Add ref clock for i.MX95 PCIe
-Message-ID: <ZzeE0lR8DGG214qq@lizhi-Precision-Tower-5810>
-References: <20241101070610.1267391-1-hongxing.zhu@nxp.com>
- <20241101070610.1267391-11-hongxing.zhu@nxp.com>
- <20241115071605.qwy4hfqmrnaknokl@thinkpad>
+	Fri, 15 Nov 2024 17:52:01 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-21145812538so17399465ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 09:51:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731693118; x=1732297918; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=HsIDulqPVm11kvME4lSY/OQMyOCr+gV0M7N3MMcJtZE=;
+        b=t2JP78KnX8bnwi7DhdAoYlnS2LuPvRTd/lIeHCUQzMCcq5K4Cw+pJoD8F/gH22F/1O
+         2qcXwzk9udEV/dBloyeGAfqdj0Vgy9ZW/clf0S8hbnOWjStlGvy2uA9b753WMQqWt3hh
+         nZlSw/4+cKl5ks/yXwV9nUpJF9XCIG9VTRzOzpQ0Olqn129YaWE4hp0IyUj27+10iC+z
+         vZSCuXlv5rih6YrwF8qHo4LPkX6XW/jaAWiayU4sVsWKYxbRNACKCEOI5WYZfLqWr+jr
+         r0NmklTigd0v+W29z3rHCNyqRezb2NYKQtPR45n03184jdIXC4VeCnUJrAqHSdDy4WEA
+         YQZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731693118; x=1732297918;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HsIDulqPVm11kvME4lSY/OQMyOCr+gV0M7N3MMcJtZE=;
+        b=sIaPxx8o8J68IKCk6R4Nb63BWn/pTRhu1eKVr9STbhxAh80LNXn3SclIvELpdFJ/3P
+         XiwD9HQekfG2GwWhyqgnHLHS0dLZN08JzO3kOvY3ZMLcDnLkbfE/2RfZdjmj/si2IWfo
+         RGypSMBEOQQEapUkACJzG1QUsAt4Oj+sHhUxLdKGWrf5bZ4hpKe4WwycrpB4DBE1IU3b
+         6m9v5jJDf5b/hX1jy311IECrrBjv4fbpC6ag/ns8FfKbYgoYer7qU1Gnd//b8g8v0Dee
+         nAsNw8hjcGji7wL5YLlIeypwdp9C2KigcqKkxKID5Y6r89JzK+f5S9yNyrGjhpa0a2WZ
+         E6XA==
+X-Forwarded-Encrypted: i=1; AJvYcCXXmYTXMcJkxxcFQqvhX43vDHqCw4uqkmsh5pKmWPkOOAxWCY8/x4oCzOB+d1PfHHEbblYecP9vkELrCPMhvgGb@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhxNa34HgUMCztN6iXTIAaqFspBETzK9Ve6LHgMLVfL/PXLNJs
+	NmBsKTbL515O/8A7BRTWfTyWcN6E6C6K79mHSCOVB1uqfHGe4qA9OxCf9aXzQg==
+X-Google-Smtp-Source: AGHT+IEo8KIx+IDClFIGzyYawx9wyWhggQfWSS3I5L/7qTi+6XFaoyQ//P5mcasYulpv7qLH/9m62A==
+X-Received: by 2002:a17:902:d4ca:b0:20c:f3cf:50e6 with SMTP id d9443c01a7336-211d0ebc492mr54783415ad.38.1731693118199;
+        Fri, 15 Nov 2024 09:51:58 -0800 (PST)
+Received: from thinkpad ([117.193.215.93])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211e9d0c389sm793705ad.161.2024.11.15.09.51.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Nov 2024 09:51:57 -0800 (PST)
+Date: Fri, 15 Nov 2024 23:21:48 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH v7 2/7] PCI: dwc: Using parent_bus_addr in of_range to
+ eliminate cpu_addr_fixup()
+Message-ID: <20241115175148.tqzqiv53mccz52tq@thinkpad>
+References: <20241029-pci_fixup_addr-v7-0-8310dc24fb7c@nxp.com>
+ <20241029-pci_fixup_addr-v7-2-8310dc24fb7c@nxp.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241115071605.qwy4hfqmrnaknokl@thinkpad>
-X-ClientProxiedBy: BY3PR04CA0027.namprd04.prod.outlook.com
- (2603:10b6:a03:217::32) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU0PR04MB9250:EE_
-X-MS-Office365-Filtering-Correlation-Id: e0d61a0d-0fd6-4c6f-f39b-08dd059afd3f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SzV1Z2xtTmhvQ1loanVGTy83Um1OSnF2ZXFOQUUzRnN5aHBUeXlidUxvWFha?=
- =?utf-8?B?emVoZ1JDRDdLVkthRWwxYkxmOFBrVE1jb3BlSEtPb0IwTERPbStaZ3JId2pw?=
- =?utf-8?B?TmkvbXJRMEdYRXl2NDc3VDRtSUJCVm41Tisvc20xWnBYT3hHLzI0TGY2NWN1?=
- =?utf-8?B?Y2g5SWVtR2dpMjRuVEdETWNKQ2llME5WSHllU0pDVzRqS3FQR29DYWcxMXVm?=
- =?utf-8?B?NUU5emJzK2JqcFZtMmJ1ZzRRRmJ0Y1Zhc0tURGdlRlhHekw1dzg2elo1QjJE?=
- =?utf-8?B?VVQyQnluRzY1YjNJUFpIdkxwWTJCTGphTFA5VkJSWGN2ZTdDQXIxSWt5UWw0?=
- =?utf-8?B?eVBBdFVBUnNPRjZ5TEZCT0JCYkg4RGluWkpkeHlqSGJQU29oZUFRcURDYmJ5?=
- =?utf-8?B?T2c5L3N5SWVvL2dDQlR5OHdYZk5MWjREWXZqZTFFK3JjRERPSm00K1FGRXcw?=
- =?utf-8?B?NzAwaUdJL2pKejRhcktyckJueUtTWGd0OG1Ec0p0VU5MS29vcmg1ZFFXVjJN?=
- =?utf-8?B?S0VyRWhWSk1TVTJ4VVBqaDRESHl4NGt2aGl6TVJTQTJyT254WG1WWnM3Q1Ax?=
- =?utf-8?B?NkV4MU5vWkpnYkEyUU9MMmkxd2R0elQvRHRObVBnS3ZNT1BCRU5jVjZWVVZO?=
- =?utf-8?B?Q0IrcUlvQlE1RVVqbUlDdHBRRWtYWnZBakxZeGNvczY5a0pNQVFESEdUSGZs?=
- =?utf-8?B?K0poa3dHMUl2c3pTR3hpKzlVMkdrNkJFV0M1a2NZaHhUNVFNWVEwckpKQldx?=
- =?utf-8?B?enRYUGt6MHMyWUtzeEcyanpTNlFHNjZEaDQwekZidEtsaWp0NUpSRk1sSGVE?=
- =?utf-8?B?WllpSjhENWFBR1AxOHpsRk41cXcvaGE4UWdPNlhyTEpTUTdJRWt6dkZrbk1L?=
- =?utf-8?B?SjNzNWYzQTRob1IrRXRLQUg3WTZMelUrQ2lwWGl5anUyNVVlKzh4ekhjbmlp?=
- =?utf-8?B?eWNQSGJPOFQwTk5oem1JcHBVRWlWUW5qbG9Rbkkzc05WcTBoS2ZvOUhvQXZa?=
- =?utf-8?B?aldZOWdxUjV2UTRGSXhSRGp3aHlxandNZVJhREEvekdVSTlYc2NMZmZYZnhm?=
- =?utf-8?B?cUhoL0ZTZDIzbWNHMzhmdHpibDJja0pzQytSTnIwSk5LUFZEelFXTC9HQ0Rq?=
- =?utf-8?B?d2hZelR5dkZrVlVNUzhqSVJiaFZPZ251MTM4TUVyd3p0Y2FpTkFXSmNsLzRT?=
- =?utf-8?B?dHNGQlY3czdaT2hkajAycmFSVkhSUE5zcmRrM2Zldkl0U0VNSEs2REYvRkYz?=
- =?utf-8?B?bFAzdkpuZGRPcTdGQnF4TFpqWnJ3UVNvekpoblNFc0N3NEZsd0lObjRqdnNk?=
- =?utf-8?B?aDMxanQvMWYvNjhGSWJKSFhPa1FScjJ0MVpoNndhVXFqdTdRaHJQcDB5VkVM?=
- =?utf-8?B?c3ZwajBUa2NqMm5XRXNjblBQQkJnK05YTE5HM1RhMHVEanZBU213TXM5M21O?=
- =?utf-8?B?MG4xc1lxZGZMYWVsRmNLb01MV0V5QlRCRW5oNGNza29XQWU4ZVA3S0ZpOW00?=
- =?utf-8?B?RWRIYitYTndRSHZzQ2Jyelk2OXdWbDRPWndYZzJCUCtkaGIvbVZUa3diTnZu?=
- =?utf-8?B?K0JmTTByVjZ2YkdTMVBNWDBOYjg1RGRYanRvT0txTFRWOUNJVnlSbG83bkx6?=
- =?utf-8?B?T25Cam5iN3lvdit6RFNNcFpjVlVnMTRQLzBVV2RoZUtka0hXd2hkUUpiblE1?=
- =?utf-8?B?ZU9tKzJvZ1g5VksyZHdvLy83OC9mNWx5RStEMGRCbXhmTDdIcjF5SUltVHFR?=
- =?utf-8?B?OWVld2NZdWNmQmpRYWlIQmxkQ1NVN3ZCdjhJdXFkeFBQSUlXV0RXSzZkRHgy?=
- =?utf-8?Q?xTzQ+LexGAO/BjRbc+34yebrs76FxPQ8NmFOo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YU5NbExZY3dUQklzTVFUbS9oOVhSK3I4dmlOa00rKzlKVFJTYkFBa1FDZm1j?=
- =?utf-8?B?ZWkyMUc4VXJaT0Q4TmdnSzVxcE5Sdm1oQnZxS2c0YURNVmJSN3hQMjYxK2Ji?=
- =?utf-8?B?OGVsY3phQ0pFUUJiSXVHNWVndDBLSE9uY2h6ajZGaVpLNUt3cDlQV3lwc0sz?=
- =?utf-8?B?blArYlNCYW5NTldJUmFqMTBsNlBnQ3BZbTNtNkduVVdhOUI0b1JyVjJmZmxk?=
- =?utf-8?B?RktCSmZoQ1lhK29iOHB6RzM4aDZ5QVF1cEN5MXE5MWs3YUpvNVVjVm1xUVFH?=
- =?utf-8?B?UTNndGdPMHZnVUgwRXhseEV5ZTYyWStWUEVsQzBBd25nQVduS2xBNFZVT3Vk?=
- =?utf-8?B?YllGb1lqSVRrWlYxVEkyelBNMUkybUx5NUNDeW1nZ3dkc2NuZUU0MDVoQXFq?=
- =?utf-8?B?Y1JZY3RpTDdQZHRzU2NLRTYrN29vQnFPTHVRc2J4TDJJcjlLbzNhcGxUdkdV?=
- =?utf-8?B?dHZEKzdMWHRtaFNTbWMvMkZWa2ZwWE02WWlBM3JKV3M5MmdRdmJpQXpLdkJh?=
- =?utf-8?B?RTQ2dENKdXdRdVQ3ME1jS0ovR3N1QittSzhuQ2dGMEwyWW5GMGJIQmUvY2Jy?=
- =?utf-8?B?RDZHR3FoTzlmVmgvV3AyTW4zYXFRZTFOdXIvOEFDeE9VVlN3NW1UdnhKbjMr?=
- =?utf-8?B?NnJlUTFKZ0RDMTVKditLMlgzaHlzbWpzd005SjgwTTVQbzY4TkZGY2lLdWFu?=
- =?utf-8?B?RTZFWFoxbTFaU0tSVGs0WjVGdEdTOGUrVFN3MGJUSW5NRGVnbkV1TnFLR0Ur?=
- =?utf-8?B?Wk85UDFxdXRqcW9rSE80aXlvN05BMFJSR3dUK3lFRU43OTZ4dXZ6MHE1Slpr?=
- =?utf-8?B?MENnSkRpTm1TeTVJVkJTVHMxVWhZLzVROWE5RnZQdVZNVks0U05FR050aVF6?=
- =?utf-8?B?TC9CNDFxMndlNEd2VnMxOEVqZmZ2U0YxMURlS2xqTCt3NVk3cmNoMFZYQk9Q?=
- =?utf-8?B?Tm1YNVB1VUloVnBJRnVkbStBV2dJaENnWElKUDUrMTM2b1VHNGRJbUJLelhQ?=
- =?utf-8?B?U1RLOHJVL2hicTd1eG9PQ0RlYXZFUW15ejhtSkRWK1VHand2RHEvb2pDUXln?=
- =?utf-8?B?cG82Mzg4MzZWRDZoamdpL2ZiQ3U1Sk9PRFZSOVBWNWExVTNmNzhIdkZvbTV4?=
- =?utf-8?B?Q3kwNHduelFnQk5xZ0hjb01hbk5oYnBnSGYrRkFrMlZxL01tUURGYlhWTGZN?=
- =?utf-8?B?ZFdWWVFKSUhvcW9GeHRvV3Y3d3ZpUHBWdkluR25DZHBlMHNJS0hjTWpmN3ps?=
- =?utf-8?B?QzhXaVJNYVBzOCtqMno2czNpenZVdUYxZ0ZaaTVHZ00ydTFPWkNlVTBLU01E?=
- =?utf-8?B?emRJYzFRNktPODVCR2Z6K3NNZC8zK1hINjQ1aSs2SHpLNS9pV2lkQ2o0Q1Nm?=
- =?utf-8?B?UU9GTDduQ3FlRmtaN1B0WVhNRzNJK0ZaU2hYYy9YWm5BUlNQOUVWWHdqcFdJ?=
- =?utf-8?B?VWptU2dMemU1L3B5NDE0ZFZDamRQT2k0c3pZRW9YUmp3S2p2dHE5N0dkWk1j?=
- =?utf-8?B?bVMxSHF5L2lDSlFjTzNSUDk1VjNvVUs4RTNSVW0ra0N6WHV6a3JWdkl6NVhM?=
- =?utf-8?B?ZDRpdXhzT2VvVGVYMmhaSDBkY0RzZDI3NlRiTkxJenVpR2lIdEhkNDNla2E1?=
- =?utf-8?B?dnBTKzdkM0w5NXQvVGRDeE8yczJYSkVZMG03U1luaFRrSlVoSFNoSmNxTVpl?=
- =?utf-8?B?bTZkdnpCNDRsekhjOXozZXNNTDF2bmFOSFZwQ1VNak5JdmJhVXFSQWxQKzVT?=
- =?utf-8?B?T0kyMElGVDVtRlZtUU9NeW5rZG1TZHhoTmlPNzRNcW90MUFrSG5yVnZUSDRu?=
- =?utf-8?B?bFBCUjArcDRVZERuZUU0Z2JNQ0R5eTJEUmQ1UEJGL1N4OVZGU0VoTmxTWGtP?=
- =?utf-8?B?U3JLMjhUMVVUM3ptQWdxY3lra3BaRW81c3E4NnVWNUYvb2pXc0c5K2w4NXNW?=
- =?utf-8?B?M2h3VmZYV1RrVThobDNsUlMwN2QxUVpTdTVHejFDWGF5Vk0yWmJtZm1YYmIv?=
- =?utf-8?B?ZXpPT0w0L2Rxdis5UEZKVHF4YlJKeDEwZWZmU3NXM2k2elpPbjFKM3V2cmFM?=
- =?utf-8?B?QnpLeHlOZlBQWlFQNi9MWGpkeWtndlZFRDlvNUt2ZUowc2hGTXJpQStLN1hQ?=
- =?utf-8?Q?29/2rDVEbMyU7X/pw2fFisPOj?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e0d61a0d-0fd6-4c6f-f39b-08dd059afd3f
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2024 17:28:58.9982
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6lUvwOyBujn5yAuxZLgfWfezuM1h+Yzh57hyPtNg5tuw/cDfxD81yPILPDBr9ua66QD1toR7tPwHQNtjgSUuKQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9250
+In-Reply-To: <20241029-pci_fixup_addr-v7-2-8310dc24fb7c@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_094454_902125_103F754A 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20241115_095159_995441_1241F3A1 
+X-CRM114-Status: GOOD (  37.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,78 +106,252 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 15, 2024 at 12:46:05PM +0530, Manivannan Sadhasivam wrote:
-> On Fri, Nov 01, 2024 at 03:06:10PM +0800, Richard Zhu wrote:
-> > Add ref clock for i.MX95 PCIe here, when the internal PLL is used as
-> > PCIe reference clock.
-> >
-> > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx95.dtsi | 18 ++++++++++++++----
-> >  1 file changed, 14 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> > index 03661e76550f..5cb504b5f851 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> > @@ -1473,6 +1473,14 @@ smmu: iommu@490d0000 {
-> >  			};
-> >  		};
-> >
-> > +		hsio_blk_ctl: syscon@4c0100c0 {
-> > +			compatible = "nxp,imx95-hsio-blk-ctl", "syscon";
-> > +			reg = <0x0 0x4c0100c0 0x0 0x4>;
-> > +			#clock-cells = <1>;
-> > +			clocks = <&dummy>;
->
-> What does this 'dummy' clock do? Looks like it doesn't have a frequency at all.
-> Is bootloader updating it? But the name looks wierd.
+On Tue, Oct 29, 2024 at 12:36:35PM -0400, Frank Li wrote:
 
-dummy clock is not used for this instance, which needn't at all. Leave here
-just keep compatible with the other instance.
+Please reword the subject as:
 
-Some instance of "nxp,imx95-hsio-blk-ctl" required input clocks. but this
-one is not, so put dummy here.
+PCI: dwc: Use devicetree 'ranges' property to get rid of cpu_addr_fixup() callback
 
-Frank
->
-> - Mani
->
-> > +			power-domains = <&scmi_devpd IMX95_PD_HSIO_TOP>;
-> > +		};
-> > +
-> >  		pcie0: pcie@4c300000 {
-> >  			compatible = "fsl,imx95-pcie";
-> >  			reg = <0 0x4c300000 0 0x10000>,
-> > @@ -1500,8 +1508,9 @@ pcie0: pcie@4c300000 {
-> >  			clocks = <&scmi_clk IMX95_CLK_HSIO>,
-> >  				 <&scmi_clk IMX95_CLK_HSIOPLL>,
-> >  				 <&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
-> > -				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
-> > -			clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux";
-> > +				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>,
-> > +				 <&hsio_blk_ctl 0>;
-> > +			clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "ref";
-> >  			assigned-clocks =<&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
-> >  					 <&scmi_clk IMX95_CLK_HSIOPLL>,
-> >  					 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
-> > @@ -1528,8 +1537,9 @@ pcie0_ep: pcie-ep@4c300000 {
-> >  			clocks = <&scmi_clk IMX95_CLK_HSIO>,
-> >  				 <&scmi_clk IMX95_CLK_HSIOPLL>,
-> >  				 <&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
-> > -				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
-> > -			clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux";
-> > +				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>,
-> > +				 <&hsio_blk_ctl 0>;
-> > +			clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "ref";
-> >  			assigned-clocks =<&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
-> >  					 <&scmi_clk IMX95_CLK_HSIOPLL>,
-> >  					 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
-> > --
-> > 2.37.1
-> >
->
-> --
-> மணிவண்ணன் சதாசிவம்
+> parent_bus_addr in struct of_range can indicate address information just
+> ahead of PCIe controller. Most system's bus fabric use 1:1 map between
+> input and output address. but some hardware like i.MX8QXP doesn't use 1:1
+> map. See below diagram:
+> 
+>             ┌─────────┐                    ┌────────────┐
+>  ┌─────┐    │         │ IA: 0x8ff8_0000    │            │
+>  │ CPU ├───►│   ┌────►├─────────────────┐  │ PCI        │
+>  └─────┘    │   │     │ IA: 0x8ff0_0000 │  │            │
+>   CPU Addr  │   │  ┌─►├─────────────┐   │  │ Controller │
+> 0x7ff8_0000─┼───┘  │  │             │   │  │            │
+>             │      │  │             │   │  │            │   PCI Addr
+> 0x7ff0_0000─┼──────┘  │             │   └──► IOSpace   ─┼────────────►
+>             │         │             │      │            │    0
+> 0x7000_0000─┼────────►├─────────┐   │      │            │
+>             └─────────┘         │   └──────► CfgSpace  ─┼────────────►
+>              BUS Fabric         │          │            │    0
+>                                 │          │            │
+>                                 └──────────► MemSpace  ─┼────────────►
+>                         IA: 0x8000_0000    │            │  0x8000_0000
+>                                            └────────────┘
+> 
+> bus@5f000000 {
+> 	compatible = "simple-bus";
+> 	#address-cells = <1>;
+> 	#size-cells = <1>;
+> 	ranges = <0x80000000 0x0 0x70000000 0x10000000>;
+> 
+> 	pcie@5f010000 {
+> 		compatible = "fsl,imx8q-pcie";
+> 		reg = <0x5f010000 0x10000>, <0x8ff00000 0x80000>;
+> 		reg-names = "dbi", "config";
+> 		#address-cells = <3>;
+> 		#size-cells = <2>;
+> 		device_type = "pci";
+> 		bus-range = <0x00 0xff>;
+> 		ranges = <0x81000000 0 0x00000000 0x8ff80000 0 0x00010000>,
+> 			 <0x82000000 0 0x80000000 0x80000000 0 0x0ff00000>;
+> 	...
+> 	};
+> };
+> 
+> Term internal address (IA) here means the address just before PCIe
+> controller. After ATU use this IA instead CPU address, cpu_addr_fixup() can
+> be removed.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Add a resource_size_t parent_bus_addr local varible to fix 32bit build
+> error.
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202410291546.kvgEWJv7-lkp@intel.com/
+> 
+> Chagne from v5 to v6
+> -add comments for of_property_read_reg().
+> 
+> Change from v4 to v5
+> - remove confused 0x5f00_0000 range in sample dts.
+> - reorder address at above diagram.
+> 
+> Change from v3 to v4
+> - none
+> 
+> Change from v2 to v3
+> - %s/cpu_untranslate_addr/parent_bus_addr/g
+> - update diagram.
+> - improve commit message.
+> 
+> Change from v1 to v2
+> - update because patch1 change get untranslate address method.
+> - add using_dtbus_info in case break back compatibility for exited platform.
+> ---
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 55 ++++++++++++++++++++++-
+>  drivers/pci/controller/dwc/pcie-designware.h      |  8 ++++
+>  2 files changed, 62 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index 3e41865c72904..ea01b7bda0a76 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -418,6 +418,34 @@ static void dw_pcie_host_request_msg_tlp_res(struct dw_pcie_rp *pp)
+>  	}
+>  }
+>  
+> +static int dw_pcie_get_untranslate_addr(struct dw_pcie *pci, resource_size_t pci_addr,
+> +					resource_size_t *i_addr)
+
+dw_pcie_get_parent_addr()? Since this function is anyway reading the parent
+address from DT.
+
+> +{
+> +	struct device *dev = pci->dev;
+> +	struct device_node *np = dev->of_node;
+> +	struct of_range_parser parser;
+> +	struct of_range range;
+> +	int ret;
+> +
+> +	if (!pci->using_dtbus_info) {
+> +		*i_addr = pci_addr;
+> +		return 0;
+> +	}
+> +
+> +	ret = of_range_parser_init(&parser, np);
+> +	if (ret)
+> +		return ret;
+> +
+> +	for_each_of_pci_range(&parser, &range) {
+> +		if (pci_addr == range.bus_addr) {
+> +			*i_addr = range.parent_bus_addr;
+> +			break;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  int dw_pcie_host_init(struct dw_pcie_rp *pp)
+>  {
+>  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> @@ -427,6 +455,7 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
+>  	struct resource_entry *win;
+>  	struct pci_host_bridge *bridge;
+>  	struct resource *res;
+> +	int index;
+>  	int ret;
+>  
+>  	raw_spin_lock_init(&pp->lock);
+> @@ -440,6 +469,20 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
+>  		pp->cfg0_size = resource_size(res);
+>  		pp->cfg0_base = res->start;
+>  
+> +		if (pci->using_dtbus_info) {
+> +			index = of_property_match_string(np, "reg-names", "config");
+> +			if (index < 0)
+> +				return -EINVAL;
+> +			/*
+> +			 * Retrieve the parent bus address of PCI config space.
+> +			 * If the parent bus ranges in the device tree provide
+> +			 * the correct address conversion information, set
+> +			 * 'using_dtbus_info' to true, The 'cpu_addr_fixup()'
+> +			 * can be eliminated.
+> +			 */
+
+Nobody will switch to 'ranges' property if you mention it in comments. We
+usually add dev_warn_once() to print a warning for broken DT so that the users
+will try to fix it. You can use below diff (as a separate patch ofc):
+
+```
+diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
+index 6d6cbc8b5b2c..d1e5395386fe 100644
+--- a/drivers/pci/controller/dwc/pcie-designware.c
++++ b/drivers/pci/controller/dwc/pcie-designware.c
+@@ -844,6 +844,9 @@ void dw_pcie_iatu_detect(struct dw_pcie *pci)
+                 dw_pcie_cap_is(pci, IATU_UNROLL) ? "T" : "F",
+                 pci->num_ob_windows, pci->num_ib_windows,
+                 pci->region_align / SZ_1K, (pci->region_limit + 1) / SZ_1G);
++
++       if (pci->ops && pci->ops->cpu_addr_fixup)
++               dev_warn_once(pci->dev, "Broken \"ranges\" property detected. Please fix DT!\n");
+ }
+ 
+ static u32 dw_pcie_readl_dma(struct dw_pcie *pci, u32 reg)
+```
+
+> +			of_property_read_reg(np, index, &pp->cfg0_base, NULL);
+
+Can you explain what is going on here?
+
+> +		}
+> +
+>  		pp->va_cfg0_base = devm_pci_remap_cfg_resource(dev, res);
+>  		if (IS_ERR(pp->va_cfg0_base))
+>  			return PTR_ERR(pp->va_cfg0_base);
+> @@ -462,6 +505,9 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
+>  		pp->io_base = pci_pio_to_address(win->res->start);
+>  	}
+>  
+> +	if (dw_pcie_get_untranslate_addr(pci, pp->io_bus_addr, &pp->io_base))
+> +		return -ENODEV;
+
+Use actual return value here and below.
+
+> +
+>  	/* Set default bus ops */
+>  	bridge->ops = &dw_pcie_ops;
+>  	bridge->child_ops = &dw_child_pcie_ops;
+> @@ -722,6 +768,8 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
+>  
+>  	i = 0;
+>  	resource_list_for_each_entry(entry, &pp->bridge->windows) {
+> +		resource_size_t parent_bus_addr;
+> +
+>  		if (resource_type(entry->res) != IORESOURCE_MEM)
+>  			continue;
+>  
+> @@ -730,9 +778,14 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
+>  
+>  		atu.index = i;
+>  		atu.type = PCIE_ATU_TYPE_MEM;
+> -		atu.cpu_addr = entry->res->start;
+> +		parent_bus_addr = entry->res->start;
+>  		atu.pci_addr = entry->res->start - entry->offset;
+>  
+> +		if (dw_pcie_get_untranslate_addr(pci, entry->res->start, &parent_bus_addr))
+> +			return -EINVAL;
+> +
+> +		atu.cpu_addr = parent_bus_addr;
+> +
+>  		/* Adjust iATU size if MSG TLP region was allocated before */
+>  		if (pp->msg_res && pp->msg_res->parent == entry->res)
+>  			atu.size = resource_size(entry->res) -
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> index 347ab74ac35aa..f8067393ad35a 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.h
+> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> @@ -463,6 +463,14 @@ struct dw_pcie {
+>  	struct reset_control_bulk_data	core_rsts[DW_PCIE_NUM_CORE_RSTS];
+>  	struct gpio_desc		*pe_rst;
+>  	bool			suspended;
+> +	/*
+> +	 * Use device tree 'ranges' property of bus node instead using
+> +	 * cpu_addr_fixup(). Some old platform dts 'ranges' in bus node may not
+> +	 * reflect real hardware's behavior. In case break these platform back
+> +	 * compatibility, add below flags. Set it true if dts already correct
+> +	 * indicate bus fabric address convert.
+
+	/*
+	 * This flag indicates that the vendor driver uses devicetree 'ranges'
+	 * property to allow iATU to use the Intermediate Address (IA) for
+	 * outbound mapping. Using this flag also avoids the usage of
+	 * 'cpu_addr_fixup' callback implementation in the driver.
+	 */
+
+> +	 */
+> +	bool			using_dtbus_info;
+
+'use_dt_ranges'?
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
