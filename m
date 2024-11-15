@@ -4,117 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863C2D6A25F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 00:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B03D6A223
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 01:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	Content-Type:Content-Transfer-Encoding:Date:Message-ID:In-Reply-To:CC:To:From
-	:Subject:Mime-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2QTg3uMImeU66RhLX3/5YsxnFUoi2i1VFQyshj8WnNg=; b=2tW1Ete6KL7Ja0M8hjZRdLcUeA
-	PaJIIX02f6BXY8v1jJ8PHlBxaNx487Pz86j6Il7Eh3hTpnJJeDSh1fhCX+pfo7pRGyza+Ubw+AMNZ
-	AFdiOteJXc2+Bv8ZlJUKrg/Hkti01rZv1YPF0GoSEkd2QRr+j3QtNl/Ip4XyanVbC2Wa6VgYkwYdU
-	cGEAd0XCnlIGPLB64Xm6PP+v05VRHrnc2n1gLeEtZAznvr7GijJ9r5LfDm+IaLWFe38ATFrttYMZL
-	FhdNtnXq+Fd9mHTJyTx5W18UdSUxsJgNt+MIn/gYn1WCO0vRtnK/O6MdohskZmBweGsqU3IksVG7l
-	zaN7rXBA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3aWXJDvKxrgbp/6ctsqOes9P0Tv5Ujk4CBOngYzj++k=; b=WvUpI44eJEfx6hJr85MjBFkaKD
+	hUPXpyPnv9tO6BupdJYH9N/UUcaaYVfwE8OGWWcVdb/eYkeYo3PE6dV5u8Li4qYyBV8K5y08rnW9H
+	19YLbZZ+WBZx5Cu1xAEQdeW8Y/uo3rf4Io+LWgxsCjX/33gdIwtAe3cu1tqhsZp7l0SZseiC1/fDL
+	LjKIzZTXkHAQAH9w+lR3dVlYHukfGFSJIIXSFRyHrHi8B/7epoDcTprOUYc0pqPFxHwK7N67omoFf
+	gmaCT/TclK1QqkNPjqmnc4FDTgrkufe63w0pgrQiow5w2KlLKbIk6UN+ccnIOgb6femukaY7jCPgX
+	pmEBbmkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBkMn-00000001EBX-3j1E;
-	Fri, 15 Nov 2024 00:39:17 +0000
-Received: from [203.254.224.34] (helo=mailout4.samsung.com)
+	id 1tBkpb-00000001Gf0-03VN;
+	Fri, 15 Nov 2024 01:09:03 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBkLq-00000001E4r-3RGD
+	id 1tBkod-00000001GZz-0g1v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 00:38:22 +0000
-Received: from epcas1p1.samsung.com (unknown [182.195.41.45])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20241115003812epoutp0448d2b698267cdcf7163c6272ff984889~H-U25xrFh3020530205epoutp04m
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 00:38:12 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20241115003812epoutp0448d2b698267cdcf7163c6272ff984889~H-U25xrFh3020530205epoutp04m
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1731631092;
-	bh=2QTg3uMImeU66RhLX3/5YsxnFUoi2i1VFQyshj8WnNg=;
-	h=Subject:Reply-To:From:To:CC:In-Reply-To:Date:References:From;
-	b=n06gKXqPozK50JkoDvZxhWPYFMHiJ42WNvPnwMZN8BAK263oS3OVs3pVRKW8HHMhd
-	 ADQmtmQKRs4YIMW/2Qo6KRB1O3mRqYdTEs800lHJey/7RF4jnfadrFd72zbrtaslUN
-	 Ric0aukVmj07r38UNfFhV/UJeh/fysvD+C1nw27s=
-Received: from epsnrtp4.localdomain (unknown [182.195.42.165]) by
-	epcas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20241115003811epcas1p2b96da2b129d9027364eef77e96486f1b~H-U2XwYY-2573625736epcas1p2C;
-	Fri, 15 Nov 2024 00:38:11 +0000 (GMT)
-Received: from epsmges1p1.samsung.com (unknown [182.195.36.144]) by
-	epsnrtp4.localdomain (Postfix) with ESMTP id 4XqJ5t2gq8z4x9Q2; Fri, 15 Nov
-	2024 00:38:10 +0000 (GMT)
-X-AuditID: b6c32a35-6c7ff70000023fb3-78-673697f2e2ec
-Received: from epcas1p2.samsung.com ( [182.195.41.46]) by
-	epsmges1p1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	19.41.16307.2F796376; Fri, 15 Nov 2024 09:38:10 +0900 (KST)
-Mime-Version: 1.0
-Subject: RE: Re: [PATCH V4 4/5] soc: qcom: Introduce SCMI based Memlat
- (Memory Latency) governor
-From: MyungJoo Ham <myungjoo.ham@samsung.com>
-To: Sibi Sankar <quic_sibis@quicinc.com>, Dmitry Baryshkov
-	<dmitry.baryshkov@linaro.org>, Kyungmin Park <Kyungmin.park@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>, Viresh Kumar <viresh.kumar@linaro.org>
-CC: "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
-	"cristian.marussi@arm.com" <cristian.marussi@arm.com>,
-	"andersson@kernel.org" <andersson@kernel.org>, "konrad.dybcio@linaro.org"
-	<konrad.dybcio@linaro.org>, "robh+dt@kernel.org" <robh+dt@kernel.org>,
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "quic_rgottimu@quicinc.com"
-	<quic_rgottimu@quicinc.com>, "quic_kshivnan@quicinc.com"
-	<quic_kshivnan@quicinc.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>, Amir Vajid
-	<avajid@quicinc.com>
-X-Priority: 3
-X-Content-Kind-Code: NORMAL
-In-Reply-To: <ac655bdc-5ccf-c6c6-3203-659f1916c53c@quicinc.com>
-X-Drm-Type: N,general
-X-Msg-Generator: Mail
-X-Msg-Type: PERSONAL
-X-Reply-Demand: N
-Message-ID: <20241115003809epcms1p518df149458f3023d33ec6d87a315e8f6@epcms1p5>
-Date: Fri, 15 Nov 2024 09:38:09 +0900
-X-CMS-MailID: 20241115003809epcms1p518df149458f3023d33ec6d87a315e8f6
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 101P
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrCJsWRmVeSWpSXmKPExsWy7bCmnu6n6WbpBgt/8Fps67CxOHflKrvF
-	+Sv9bBZr9p5jsjjY9pPN4vqX56wW84+cY7WYeB7I7Zi8ncWi78VDZouzTW/YLTY9vgaU2H+W
-	3eLyrjlsFp83b2G3eHl7G5tF86LfbBate4+wWyw/tYPFYuNXDwcRjzXz1jB6bFrVyeZx59oe
-	No/NS+o9Ju6p8+jbsorR4/MmuQD2qGybjNTElNQihdS85PyUzLx0WyXv4HjneFMzA0NdQ0sL
-	cyWFvMTcVFslF58AXbfMHKBvlBTKEnNKgUIBicXFSvp2NkX5pSWpChn5xSW2SqkFKTkFpgV6
-	xYm5xaV56Xp5qSVWhgYGRqZAhQnZGf8WvmcuaOOoOPdrH3sD41a2LkZODgkBE4mfvz+wdzFy
-	cQgJ7GCUuHDkPXMXIwcHr4CgxN8dwiCmsECSRNeuHJByIQEliYab+5hBbGEBfYmOB9sYQWw2
-	AV2JrRvusoCMERG4yigxc/pZMIdZ4C6bROe+q6wQy3glZrQ/ZYGwpSW2L98K1s0pYC/xb/5i
-	qLioxM3Vb9lh7PfH5jNC2CISrffOMkPYghIPfu6GiktK9N3ZywSyTEJgG6PEjiNz2CCc/YwS
-	Ux62QU3Slzgz9yTYy7wCvhI7mw6BXcQioCrR0twNDQoXiZafEHFmAXmJ7W/ngEOCWUBTYv0u
-	fYgwn8S7rz1wz+yY94QJwlaTOLR7CdQqGYnT0xdCHeohcfHDRVZI0K1mlti1MW4Co/wsRPjO
-	QrJsFsKyBYzMqxjFUguKc9NTiw0LDOFRmpyfu4kRnJy1THcwTnz7Qe8QIxMH4yFGCQ5mJRHe
-	U87G6UK8KYmVValF+fFFpTmpxYcYTYHenMgsJZqcD8wPeSXxhiaWBiZmRsYmFoZmhkrivGeu
-	lKUKCaQnlqRmp6YWpBbB9DFxcEo1MOl+iFI6bSJ5aZ7T8ou7bZ/+/ym7evZNST7DCXEVc39N
-	XNCT5+qwa/MuQc3sO2uPpL1J1K68ru7hcLpa+VH9JOmgb5vjiucaTTt3Nlx2pvdZ3g/TNunM
-	2vtHRXrDN8FPPTuenKsJ3cSVOmvBj9pjj36eLtdnb/uzJ8Fm2QYd/tt1vet/RFQ4qk/8avC+
-	dV5r39r+aJccvs+1i6J4rlmYTZ8gzOMXvMvC7hJD6Y/n/nHqmmcWd/XP+i38ZO0pxQWNgh33
-	rlp56j78POt46gbZyRb8vqXvVmhMna144YHpessbcoHyUaLTjpUsN1S8d/Sn+o0Paumdd/aa
-	q/vWX3h+zlJnp/qmwyc23T/XxXTRo0hZiaU4I9FQi7moOBEA2uwez1cEAAA=
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20241114041419epcas1p3b52bb9795ffd9efa568bb106ba268e02
-References: <ac655bdc-5ccf-c6c6-3203-659f1916c53c@quicinc.com>
-	<20241007061023.1978380-1-quic_sibis@quicinc.com>
-	<20241007061023.1978380-5-quic_sibis@quicinc.com>
-	<2aycrvnvivcrqctqmweadcgenwugafdr6ub3bzkscterpenz32@bzabln2hkral>
-	<29eef87e-96f6-5105-6f7a-a8e01efcb4a3@quicinc.com>
-	<k4lpzxtrq3x6riyv6etxiobn7nbpczf2bp3m4oc752nhjknlit@uo53kbppzim7>
-	<CGME20241114041419epcas1p3b52bb9795ffd9efa568bb106ba268e02@epcms1p5>
+	Fri, 15 Nov 2024 01:08:04 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-6ee3c27c0e3so15092857b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Nov 2024 17:07:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1731632878; x=1732237678; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3aWXJDvKxrgbp/6ctsqOes9P0Tv5Ujk4CBOngYzj++k=;
+        b=GwoZpIGB9aFjJKkFZv5DdQujKgbQY91OL8eP5KkXFa2JIOwM5rdE0XXRd4M/aQYWD4
+         l08vYtepMwBjv1cx0WkWf1jluO55IMlnHSo683vD5EL2pWT+QnIeiie+ESyGH5h4+/a3
+         pWfQ+g1v5ieSECrjEmgZwWM4OfMT+TM2bfhf9r2NT0OeTfJdD3f4q5+kjfA+nseLEINu
+         OTqsH/pIKbcA1WT9/1nMSBQA1cOTK/Mfmb/XKla6QrYTPH6/4nQWElVVlYaNrGvaysdL
+         mEIw6jxilXSuLb8EAS05LQ0CHwYN11PXS3GsIAJnVIKBgVLWq7z2ET9n2tmiC7nVxiN1
+         Rpxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731632878; x=1732237678;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3aWXJDvKxrgbp/6ctsqOes9P0Tv5Ujk4CBOngYzj++k=;
+        b=Yv4MmQn1CcIZhJRoDjtYHW+CykHIknAxqDc+lAJ/UR6pp80eYa4rrZR6ZsgIZE10UC
+         dGWGsfZ2k5rUjrJJm7wQVcRsQEQC8vDb3tJe9isa4QHaKRrzmmWG3g28JGaV5XBGBfeS
+         BX9bs7oRueFt6wRf9NxtfAsue7401f3IrbPzhZz+yUV1dSi4UO6PmUcjn8sPMClS4V8v
+         UfyLvyZ5XaskbpOLLwQhwVRUE/W8WCua3hAyTRDr1uQn+hCJIHIyr+G+x3guVxza/hy4
+         gGbrqn1Lm05hTJSphNyjeLzgxE4Ipq/t/035yFCxDlOSlgRCL5PNaTcP8Xde0hUVgHfF
+         qqVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVz39ti0NQTosSrcRAjj5K9OkmMLVEZJwPtk7yZNkrbC+h7AMn72SnLklp6OINZbJ7Oh3Yo/K5PkXeHwX83mZj3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxA6v+4duwEwse95HztFtsS8R3sW3ZcgpJIFbOAduZqno2AVXDA
+	3RNBiGRwyVAFeZ2Rg2/e6x22WND2bDQotYGYTXkr7FSwmQ8G+VcLJOMEQkOZ96I=
+X-Google-Smtp-Source: AGHT+IFbzaNJ9yX/vZFqwFt8LqRMXX16nQ2JQuel0sEYgbV2jhBLReqJAN+HyqsCdlHeN/ugBBKRhw==
+X-Received: by 2002:a05:690c:604:b0:6ee:381b:eb74 with SMTP id 00721157ae682-6ee55c2bad7mr11848267b3.22.1731632878617;
+        Thu, 14 Nov 2024 17:07:58 -0800 (PST)
+Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b35ca2f72esm107056085a.78.2024.11.14.17.07.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Nov 2024 17:07:57 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1tBkoW-00000002KO4-3Gj3;
+	Thu, 14 Nov 2024 21:07:56 -0400
+Date: Thu, 14 Nov 2024 21:07:56 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	patches@lists.linux.dev
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Import IOMMUFD module namespace
+Message-ID: <20241115010756.GB173265@ziepe.ca>
+References: <20241114-arm-smmu-v3-import-iommufd-module-ns-v1-1-c551e7b972e9@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241114-arm-smmu-v3-import-iommufd-module-ns-v1-1-c551e7b972e9@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_163819_489031_6EB4623B 
-X-CRM114-Status: GOOD (  25.09  )
+X-CRM114-CacheID: sfid-20241114_170803_335340_8CD1CD21 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,42 +94,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: myungjoo.ham@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->
->Hey Dmitry,
->
->Thanks for taking time to review the series.
->
->+ Devfreq maintainers to comment (I thought you already added
->them by name)
->
->
->Hey MyungJoo/Kyungmin/Chanwoo,
->
->Can you weigh in here? Does it make sense to add a new
->class of devfreq devices that don't have governors
->associated with them just for them to export a few
->essential data to userspace? In this scenario the
->scaling algorithm is in a SCP and we just start
->them from the kernel. We do have ways to get the
->current frequency of various buses but does this
->warrant adding a new class of governor less devices?
->
->-Sibi
+On Thu, Nov 14, 2024 at 10:42:29AM -0700, Nathan Chancellor wrote:
+> Commit 69d9b312f38a ("iommu/arm-smmu-v3: Support IOMMU_VIOMMU_ALLOC")
+> started using _iommufd_object_alloc() without importing the IOMMUFD
+> module namespace, resulting in a modpost warning:
+> 
+>   WARNING: modpost: module arm_smmu_v3 uses symbol _iommufd_object_alloc from namespace IOMMUFD, but does not import it.
+> 
+> Commit d68beb276ba2 ("iommu/arm-smmu-v3: Support IOMMU_HWPT_INVALIDATE
+> using a VIOMMU object") added another warning by using
+> iommufd_viommu_find_dev():
+> 
+>   WARNING: modpost: module arm_smmu_v3 uses symbol iommufd_viommu_find_dev from namespace IOMMUFD, but does not import it.
+> 
+> Import the IOMMUFD module namespace to resolve the warnings.
+> 
+> Fixes: 69d9b312f38a ("iommu/arm-smmu-v3: Support IOMMU_VIOMMU_ALLOC")
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 2 ++
+>  1 file changed, 2 insertions(+)
 
-If voltage/frequency is controlled by SCP
-(it's an SoC's internal hardware IP, right?),
-it's good to have a userspace governer
-with the driver not accepting updates from userspace.
+I guess the build bots don't run ARM64 all mod config?
 
-E.g., Let "target" callback not update the frequency value,
- or let "target" callback always return an error with
- a dev_err message that you don't accept frequency changes
- from userspace.
+Thanks, applied
 
-Cheers,
-MyungJoo.
+Jason
 
