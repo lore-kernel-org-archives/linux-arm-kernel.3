@@ -4,95 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62EA5D68BD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 20:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C92D68BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 20:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vOebRQETbZvWS73rKNCR7PLpNcmPn5Rr3U0j+a9cUYI=; b=pOcGDWlu63vlMty+NeSA0xGTFI
-	P2A59otp+4HUEg+Og8VriQMk2E1nP+QFrJLFfxUOGV3WkIERDg8MnKEXF92wVXW+O2f8Z8OBdUAZP
-	/ymYYWcN/vihqKrp6zFKiw4KiJgUJdNL2Vhv/sHS854qYT5zRsJ7P0aY/IjRnSqrSctQFFn5CjDHs
-	GMO6xF2fwOB0VFzfapU4xT9lq5iIxP2n1MyktG93/FrmqH8VwdcWlc+mG513/iPoAbUlKFEHmcQAh
-	qZxsc2BexVMXgsrwAinh7wXdlsl/o4E+fPrTTcEXI40vNSfXI+ZZIDkxCqA6mcxU6cMNTx1BnIRjk
-	ydXBZyGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bMaPm1+IImUdO7cISBLcl9c7Iu1WSHE+iCkPkVlturo=; b=fB4qiPnlzokVNZJB6XG+YqigVp
+	pXQWMROPimkYjssm2Fa+arFY9P7BTuGCJp+k3p7hZKDxtL73+gmQ6p25z+zvmtdFgaa1+qrsuSbxh
+	BjnVSiq6mTmRIUBu/aTAp/XwQM4vkS9zOOLP1TBy2Pf1F2BNurAzFdvFUNSd3TikSBPQuVEt5g8P1
+	AquIqbQANKCdIQsgFqGLdPX1vAeeB0FqF48yA4xOWP25eDWGFvhDKG64Aj04hmB/lEgZ6iDwC987c
+	2+naeq/HlEaQ1Sl23m5H6pTLR1bMmHAbv56VUH87xdkGc8mC/MZV6dw9rcWVq97ypbO8WYuRYfnN7
+	4nN9wd0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC2n6-000000040pu-2ONF;
-	Fri, 15 Nov 2024 20:19:40 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tC2uL-000000042Mx-35YB;
+	Fri, 15 Nov 2024 20:27:09 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC2mA-000000040br-0YdQ
+	id 1tC2tP-0000000427b-0FcV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 20:18:43 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-211eb2be4a8so23195ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 12:18:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731701920; x=1732306720; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vOebRQETbZvWS73rKNCR7PLpNcmPn5Rr3U0j+a9cUYI=;
-        b=XPA1QzDQlH6wTt5H4n9cfhXgd3pbfRpooCYy7VZq3jfQZseN1y9thOC8KsUmmB9uAO
-         H8V9AB6q0bE2rSzBrrtyLZ3JXldRwOYw+q0d5OieT74HRaCp+WLPEd9v3pY+qW+deTnV
-         PqcyPaATUCimOrZAfczZQmrAt86+IM+T1oZCQmqRp9FTnKpIgDid1lrTQ7Tv9QcsXS+2
-         YwheqFJKlte/rspz2nbGya3PC7KKZIoTOzmGPmJxQTmph7c1KNMB+ZytJMJMhhEV0/G1
-         9uLkMgrxeCK+2SF2BM0FbDmUNr2qS8kixEJXaTf1SVQn0uEcAtXFFNsC4HwX1svR8DPK
-         KuWg==
+	Fri, 15 Nov 2024 20:26:12 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AFC2DBP017790
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 20:26:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	bMaPm1+IImUdO7cISBLcl9c7Iu1WSHE+iCkPkVlturo=; b=Cm+KtutMRhf7d9kY
+	zGLxREdMiXLY9z/H3sT06+8p+BjYGdVp3oK6EI1TlsQ/+JvJs+IAE2RrsXuF6MBx
+	E10lpqEH8dhwfj7cmwD4556FqXRGH3H4hkM+koYn9EFU57xY+q4S46vwpnlQFPBK
+	fyOnMsKl1j/sYNDnCshbAWskVxYYV5DDCBt2+VUuZOuLSgu+KxZJ2saCRWiDRdQJ
+	z+82TfeSO4QjPWsIPlF3vGxghioeN89Dir1vIDkaDD0Va0XSjJI5D0oJh7NRBOkN
+	dq0dl2xKsmSAKmQjjJN9sgMCAbSTYaOa0LqONP+4afV3D/Rx17AjGaTSiWK1KdOJ
+	k8nPYQ==
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42wvw2jvnp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 20:26:09 +0000 (GMT)
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-3e6069ec8fbso398006b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 12:26:09 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731701920; x=1732306720;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vOebRQETbZvWS73rKNCR7PLpNcmPn5Rr3U0j+a9cUYI=;
-        b=Py69AzicIn9Qx/5pPvRLMpsMxlbwH26ZP9/6ioWN15F1nZg02NpomLRPF7mKk0NOaN
-         UC2l1CCYJNIazbwiJklVCKNx4hWzdjANdHLXOgjuHKFiT/lky0SVmHrfm/ymS2XgRpeK
-         iLsYP7rlmZGe1UPfDmbs173J6RWrCYtnoax7yW7TPovGGkHHhHiPryd5XR96yJ4jSmqZ
-         0oKIxw6ZcOnpcD4wlHq+QLgQSs/y6hcBrJ/Y7D+wVjHYcMCtNmF8WdMpLEODaO05r1UV
-         xnOUYeW7Z8F4hJomQqZ2Jbuo6PbuaRcQkHXeUStqslNnlfgKqgfRa7zEgAdIDXrtNBE9
-         D3HQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWZtXxDgBPgqmRWtSCkvp1suGAIrmjdJ4WbIaK9rSHaBJwbo71SAwhkRnAIttJ5ixg34Rp+zHpqsC4Ri85rU2ul@lists.infradead.org
-X-Gm-Message-State: AOJu0YynWRXp0uxU/3X9k4K7Fk/A40DY885J618yFKoGJTcBwSpcBN2+
-	arM5bb2CfqUyynZkeT2P5efsQWgR7YsCwf2K0qujdjPfW0RvOJjpiuRQyniYqA==
-X-Gm-Gg: ASbGncsDqe8sZwK8NgOQ+Va+tKHYglaqpQ63zC3jAkHlb25cdD/XVGfvXL9mtKXxxtx
-	W/ShCNHK5ZHZmriesJCuLLuG1d4a607WFO0nT61kzYt+HODTNRjX9CRbdehgjM7UTq44meFi7Q4
-	OLUfkuFueIH3AOEC7MKUXT6NGY8c8zkAeWMMQZbwQ1D/rhaFWXLvqMsxx+eNP7KvAkCXV6JEX5Z
-	Zap+JK0HCvRPgTaH3kwWq9/WtTjPHz91VdVcfvg2DOlm22wwJiPOe0DnFHNkGg5hcV+OIbw1RoF
-	FTZs1nyK
-X-Google-Smtp-Source: AGHT+IF9YmYViYu4bbu+rcQFvrqm2Ir1zaH/4DN+NJJV5bwFNTi7N4AI+TENAbybYY+gwUtHULYlMQ==
-X-Received: by 2002:a17:902:ea05:b0:205:753e:b49d with SMTP id d9443c01a7336-211ecbe9b05mr288535ad.0.1731701919907;
-        Fri, 15 Nov 2024 12:18:39 -0800 (PST)
-Received: from google.com (60.89.247.35.bc.googleusercontent.com. [35.247.89.60])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0dc2bfbsm16436765ad.50.2024.11.15.12.18.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Nov 2024 12:18:38 -0800 (PST)
-Date: Fri, 15 Nov 2024 12:18:35 -0800
-From: Vipin Sharma <vipinsh@google.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Anup Patel <anup@brainfault.org>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 0/1] KVM selftests runner for running more than just
- default
-Message-ID: <20241115201835.GA599524.vipinsh@google.com>
-References: <20240821223012.3757828-1-vipinsh@google.com>
- <CAHVum0eSxCTAme8=oV9a=cVaJ9Jzu3-W-3vgbubVZ2qAWVjfJA@mail.gmail.com>
- <CAHVum0fWJW7V5ijtPcXQAtPSdoQSKjzYwMJ-XCRH2_sKs=Kg7g@mail.gmail.com>
- <ZyuiH_CVQqJUoSB-@google.com>
+        d=1e100.net; s=20230601; t=1731702368; x=1732307168;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bMaPm1+IImUdO7cISBLcl9c7Iu1WSHE+iCkPkVlturo=;
+        b=bWG2ksP8R5IzKioXUgKqAUbVjy+A8csQGZ6fzPzE3a4Yt+VYQ7VRUWZqFr6DYusBJn
+         0KogI/N4Uc37Sa7tIb0X8XUYkQf2FfBaMg7TNegBnv040M3W6ebSimLbwOoZeMNEe1Xk
+         LV1LUXZ+RnaZKEFQSJ3R7bJLDuf3702JF7fg17pzIvd6oPJc4L6HUvw6Cq8hOucpimo2
+         O3oq//f0JzfGEhpUEbNqHm+r3nmoca35sT88RujVV8ZonHY0VjL8fjPqqAjtQR4DBHnt
+         rxB5Zde+7EasGvWtAb00ua6sTG1zrIVg+nlcsatPuhEeEKOKSX1vS9XER0nXLU8IiIiG
+         Nzwg==
+X-Forwarded-Encrypted: i=1; AJvYcCWiTxPM0YBGG+trrPipUkMw5SJofW/R0Vz0fKUwpz0geScrZ6Tv50YtstzEljCGpcUTpS17zNBj3PyEizY00Ze/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZf6JgassaU77aD0dPfjiWvHm7aILOwRD0DpOPV/jKvXwGTzJs
+	tZCDxmTaPpV3IPksju1ts8APyykrywXnhOfx7OcoEcPcTyKtMD1YnCJcXJ9VGlHY6pmPa9sRdnM
+	zL8on23TGbNaBdRom8vdwWZIBw4TJipJe2WqBjmhgEjF98d8qmgLyiltMz5WWBckyE8FBpsJpJg
+	==
+X-Received: by 2002:a05:6830:641c:b0:710:f7b0:1d9f with SMTP id 46e09a7af769-71a77a53decmr880167a34.7.1731702368463;
+        Fri, 15 Nov 2024 12:26:08 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFtR3/Q2/qCLJeKACK4JhpVADHvNgsg3j76CniniMUeFU85uyl/kGD/ZyaH9K7cExGWRaIdJw==
+X-Received: by 2002:a05:6830:641c:b0:710:f7b0:1d9f with SMTP id 46e09a7af769-71a77a53decmr880154a34.7.1731702368136;
+        Fri, 15 Nov 2024 12:26:08 -0800 (PST)
+Received: from [192.168.212.120] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa20e046c68sm210747166b.167.2024.11.15.12.26.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 15 Nov 2024 12:26:06 -0800 (PST)
+Message-ID: <636c2392-bcd6-45ae-a7f7-ed893479d3dd@oss.qualcomm.com>
+Date: Fri, 15 Nov 2024 21:26:03 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ZyuiH_CVQqJUoSB-@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/6] arm64: dts: qcom: Add base SM8750 dtsi
+To: Melody Olvera <quic_molvera@quicinc.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Geert Uytterhoeven <geert+renesas@glider.be>,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Arnd Bergmann <arnd@arndb.de>,
+        =?UTF-8?Q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?= <nfraprado@collabora.com>,
+        Trilok Soni <quic_tsoni@quicinc.com>,
+        Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        Taniya Das <quic_tdas@quicinc.com>,
+        Jishnu Prakash <quic_jprakash@quicinc.com>,
+        Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>
+References: <20241112004936.2810509-1-quic_molvera@quicinc.com>
+ <20241112004936.2810509-4-quic_molvera@quicinc.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20241112004936.2810509-4-quic_molvera@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: RRXHEPUq8IAZ-e6IbXfT2UfwQ9hM8yWj
+X-Proofpoint-GUID: RRXHEPUq8IAZ-e6IbXfT2UfwQ9hM8yWj
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=760
+ malwarescore=0 adultscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
+ priorityscore=1501 mlxscore=0 phishscore=0 bulkscore=0 clxscore=1015
+ impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411150171
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_121842_169494_EC65C081 
-X-CRM114-Status: GOOD (  56.23  )
+X-CRM114-CacheID: sfid-20241115_122611_220042_16A08B3D 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,215 +131,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-11-06 09:06:39, Sean Christopherson wrote:
-> On Fri, Nov 01, 2024, Vipin Sharma wrote:
-> > 
-> > We need to have a roadmap for the runner in terms of features we support.
-> > 
-> > Phase 1: Having a basic selftest runner is useful which can:
-> > 
-> > - Run tests parallely
+On 12.11.2024 1:49 AM, Melody Olvera wrote:
+> Add the base dtsi for the SM8750 SoC describing the CPUs, GCC and
+> RPMHCC clock controllers, geni UART, interrupt controller, TLMM,
+> reserved memory, interconnects, and SMMU.
 > 
-> Maybe with a (very conversative) per test timeout?  Selftests generally don't have
-> the same problems as KVM-Unit-Tests (KUT), as selftests are a little better at
-> guarding against waiting indefinitely, i.e. I don't think we need a configurable
-> timeout.  But a 120 second timeout or so would be helpful.
-> 
-> E.g. I recently was testing a patch (of mine) that had a "minor" bug where it
-> caused KVM to do a remote TLB flush on *every* SPTE update in the shadow MMU,
-> which manifested as hilariously long runtimes for max_guest_memory_test.  I was
-> _this_ close to not catching the bug (which would have been quite embarrasing),
-> because my hack-a-scripts don't use timeouts (I only noticed because a completely
-> unrelated bug was causing failures).
+> Co-developed-by: Taniya Das <quic_tdas@quicinc.com>
+> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
+> Co-developed-by: Jishnu Prakash <quic_jprakash@quicinc.com>
+> Signed-off-by: Jishnu Prakash <quic_jprakash@quicinc.com>
+> Co-developed-by: Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>
+> Signed-off-by: Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>
+> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
+> ---
 
-RFC code has the feature to specify timeout for each test. I will change
-it so that a default value of 120 second is applied to all and remove the need
-to write timeout for each individual test in json. It will be simple to
-add a command line option to override this value.
+[...]
 
-> 
-> > - Provide a summary of what passed and failed, or only in case of failure.
-> 
-> I think a summary is always warranted.  And for failures, it would be helpful to
-> spit out _what_ test failed, versus the annoying KUT runner's behavior of stating
-> only the number of passes/failures, which forces the user to go spelunking just
-> to find out what (sub)test failed.
+> +			power-domain-names = "psci";
+> +			cpu-idle-states = <&cluster0_c4>;
 
-Default will be to print all test statuses, one line per test. This is
-what RFC code does.
+So here and on x1 we use cpu-idle-states instead of putting the idle state
+under domain-idle-states in CPU_PDn like on other PSCI OSI mode-supporting
+SoCs. IIUC it works out to be the same thing, but maybe we should stick
+to the latter for consistency
 
-For summary, I can add one line at the end which shows count of passed,
-skipped, and failed tests.
+[...]
 
-Having an option to only print failed/skipped test will provide easy
-way to identify them. When we print each test status then user has to
-scroll up the terminal read each status to identify what failed. But with an
-option to override default behavior and print only skipped, failed, or
-both. This doesn't have to be in phase 1, but I think its useful and we
-should add in future version.
+> +
+> +			gic_its: msi-controller@16040000 {
+> +				compatible = "arm,gic-v3-its";
+> +				reg = <0x0 0x16040000 0x0 0x20000>;
+> +
+> +				msi-controller;
+> +				#msi-cells = <1>;
+> +
+> +				status = "disabled";
+> +			};
 
-> 
-> I also think the runner should have a "heartbeat" mechanism, i.e. something that
-> communicates to the user that forward progress is being made.  And IMO, that
-> mechanism should also spit out skips and failures (this could be optional though).
-> One of the flaws with the KUT runner is that it's either super noisy and super
-> quiet.
+Any reason it's disabled?
 
-A true heartbeat feature would be something like runner is sending and
-receiving messages from individual selftests. That is gonna be difficult
-and not worth the complexity.
+LGTM otherwise
 
-To show forward progress, each test's pass/fail status can be printed
-immediately (RFC runner does this). As we are planning to have a
-default timeout then there will always be a forward progress.
-
-RFC runner has output like this:
-
-2024-11-15 09:53:52,124 | 638866 |     INFO | SKIPPED: dirty_log_perf_tests/dirty_log_perf_test_max_vcpu_no_manual_protect
-2024-11-15 09:53:52,124 | 638866 |     INFO | SKIPPED: dirty_log_perf_tests/dirty_log_perf_test_max_vcpu_manual_protect
-2024-11-15 09:53:52,124 | 638866 |     INFO | SKIPPED: dirty_log_perf_tests/dirty_log_perf_test_max_vcpu_manual_protect_random_access
-2024-11-15 09:53:52,124 | 638866 |     INFO | SETUP_FAILED: dirty_log_perf_tests/dirty_log_perf_test_max_10_vcpu_hugetlb
-2024-11-15 09:53:52,171 | 638866 |     INFO | SKIPPED: x86_sanity_tests/vmx_msrs_test
-2024-11-15 09:53:52,171 | 638866 |     INFO | SKIPPED: x86_sanity_tests/private_mem_conversions_test
-2024-11-15 09:53:52,171 | 638866 |     INFO | SKIPPED: x86_sanity_tests/apic_bus_clock_test
-2024-11-15 09:53:52,171 | 638866 |     INFO | SETUP_FAILED: x86_sanity_tests/dirty_log_page_splitting_test
-
-> 
-> E.g. my mess of bash outputs this when running selftests in parallel (trimmed for
-> brevity):
-> 
->         Running selftests with npt_disabled
->         Waiting for 'access_tracking_perf_test', PID '92317'
->         Waiting for 'amx_test', PID '92318'
->         SKIPPED amx_test
->         Waiting for 'apic_bus_clock_test', PID '92319'
->         Waiting for 'coalesced_io_test', PID '92321'
->         Waiting for 'cpuid_test', PID '92324'
->         
->         ...
->         
->         Waiting for 'hyperv_svm_test', PID '92552'
->         SKIPPED hyperv_svm_test
->         Waiting for 'hyperv_tlb_flush', PID '92563'
->         FAILED hyperv_tlb_flush : ret ='254'
->         Random seed: 0x6b8b4567
->         ==== Test Assertion Failure ====
->           x86_64/hyperv_tlb_flush.c:117: val == expected
->           pid=92731 tid=93548 errno=4 - Interrupted system call
->              1	0x0000000000411566: assert_on_unhandled_exception at processor.c:627
->              2	0x000000000040889a: _vcpu_run at kvm_util.c:1649
->              3	 (inlined by) vcpu_run at kvm_util.c:1660
->              4	0x00000000004041a1: vcpu_thread at hyperv_tlb_flush.c:548
->              5	0x000000000043a305: start_thread at pthread_create.o:?
->              6	0x000000000045f857: __clone3 at ??:?
->           val == expected
-
-This is interesting, i.e. printing error message inline for the failed tests.
-I can add this feature.
-
->         Waiting for 'kvm_binary_stats_test', PID '92579'
->         
->         ...
->         
->         SKIPPED vmx_preemption_timer_test
->         Waiting for 'vmx_set_nested_state_test', PID '93316'
->         SKIPPED vmx_set_nested_state_test
->         Waiting for 'vmx_tsc_adjust_test', PID '93329'
->         SKIPPED vmx_tsc_adjust_test
->         Waiting for 'xapic_ipi_test', PID '93350'
->         Waiting for 'xapic_state_test', PID '93360'
->         Waiting for 'xcr0_cpuid_test', PID '93374'
->         Waiting for 'xen_shinfo_test', PID '93391'
->         Waiting for 'xen_vmcall_test', PID '93405'
->         Waiting for 'xss_msr_test', PID '93420'
-> 
-> It's far from perfect, e.g. just waits in alphabetical order, but it gives me
-> easy to read feedback, and signal that tests are indeed running and completing.
->         
-> > - Dump output which can be easily accessed and parsed.
-> 
-> And persist the output/logs somewhere, e.g. so that the user can triage failures
-> after the fact.
-> 
-
-RFC runner does this but not by default. Its provide an option to pass
-a path to dump output in hierarchical folder structure.
-
-Do you think this should be enabled by default? I prefer not, because
-then it becomes a cleaning chore to delete the directories later.
-
-> > - Allow to run with different command line parameters.
-> 
-> Command line parameters for tests?  If so, I would put this in phase 3.  I.e. make
-> the goal of Phase 1 purely about running tests in parallel.
-
-Okay. Only default execution in phase 1.
-
-> 
-> > Current patch does more than this and can be simplified.
-> > 
-> > Phase 2: Environment setup via runner
-> > 
-> > Current patch, allows to write "setup" commands at test suite and test
-> > level in the json config file to setup the environment needed by a
-> > test to run. This might not be ideal as some settings are exposed
-> > differently on different platforms.
-> > 
-> > For example,
-> > To enable TDP:
-> > - Intel needs npt=Y
-> > - AMD needs ept=Y
-> > - ARM always on.
-> > 
-> > To enable APIC virtualization
-> > - Intel needs enable_apicv=Y
-> > - AMD needs avic=Y
-> > 
-> > To enable/disable nested, they both have the same file name "nested"
-> > in their module params directory which should be changed.
-> > 
-> > These kinds of settings become more verbose and unnecessary on other
-> > platforms. Instead, runners should have some programming constructs
-> > (API, command line options, default) to enable these options in a
-> > generic way. For example, enable/disable nested can be exposed as a
-> > command line --enable_nested, then based on the platform, runner can
-> > update corresponding module param or ignore.
-> > 
-> > This will easily extend to providing sane configuration on the
-> > corresponding platforms without lots of hardcoding in JSON. These
-> > individual constructs will provide a generic view/option to run a KVM
-> > feature, and under the hood will do things differently based on the
-> > platform it is running on like arm, x86-intel, x86-amd, s390, etc.
-> 
-> My main input on this front is that the runner needs to configure module params
-> (and other environment settings) _on behalf of the user_, i.e. in response to a
-> command line option (to the runner), not in response to per-test configurations.
-> 
-> One of my complaints with our internal infrastructure is that the testcases
-> themselves can dictate environment settings.  There are certainly benefits to
-> that approach, but it really only makes sense at scale where there are many
-> machines available, i.e. where the runner can achieve parallelism by running
-> tests on multiple machines, and where the complexity of managing the environment
-> on a per-test basis is worth the payout.
-> 
-> For the upstream runner, I want to cater to developers, i.e. to people that are
-> running tests on one or two machines.  And I want the runner to rip through tests
-> as fast as possible, i.e. I don't want tests to get serialized because each one
-> insists on being a special snowflake and doesn't play nice with other children.
-> Organizations that the have a fleet of systems can pony up the resources to develop
-> their own support (on top?).
-> 
-> Selftests can and do check for module params, and should and do use TEST_REQUIRE()
-> to skip when a module param isn't set as needed.  Extending that to arbitrary
-> sysfs knobs should be trivial.  I.e. if we get _failures_ because of an incompatible
-> environment, then it's a test bug.
-
-I agree, RFC runner approach is not great in this regards, it is very
-verbose and hinders parallel execution.
-
-Just for the record, not all options can be generic, there might be some
-arch specific command line options. We should first strive to have
-generic options or name them in a way they can be applied to other arch
-when (if ever) they add a support. I don't have good playbook for this,
-I think this will be handled case by case.
+Konrad
 
