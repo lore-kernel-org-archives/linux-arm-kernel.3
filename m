@@ -4,168 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AFECD68BCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 17:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69AD1D68BCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 18:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lE8VoHLIWRB4ibsLC9j/Wnt/YktLXTPLTZmciV+yDMI=; b=Hrcb6VT85gionfU9/uvIYrAQub
-	y0i54y6JqTKxh2UErvqbpk9IljkGeRtg3kyqoNkXksyJM3rY9MT1i4bx943YBSb2JAYFenPb4SMKh
-	eArRJpZRRaZ8RooTdKmW7vXfAeWnqb2kaHmyoc6D1NzxP4owqtTpLByYJ/pTqMgYmPLYIHAddxNhs
-	Nvs1j/gUhgsMEFvZgX0vy0e7Jzy6O6zDzXm+2b0agA8JgZb+7cGi3k9EXoF0XddyX89/2rsekd0Dx
-	f5Ldup3hNM1J5oicPS3ob/Z0qu6MDXpXPaKOdDVUhhIXtxjcbaLuC8JXK1SbrSWYkTJ3Q1L5hZa6m
-	CApSQgsg==;
+	bh=1CnwJEhoyWWs0hfunP5nkD+KmYCyarErjrVddNp9cu4=; b=KnnbFkUAG9xg703SipfKePS4qi
+	C4P/eY164lnQlQENhUIx8CjYj7bXJxbuteUtCBaffQIu6NmYzwONsPgMMdICX87LnLgjI1mZ0hamM
+	fzJiXiMU7hQmhSeMwNpmtwDb68IaIShmhlG0MfEnZpfasDTqZeJVNFfHpLbxENmHHCGmzXC25HRyq
+	kswWfx28C/DiCYDVKa/cHI17fZvLyQJ9I4Z1K87Vrvwhnltl/1b6dbUBCCIzg6jgyX8Vb0rq44d5n
+	FCVrABXbpLWAuPHIKspkiKdjZ8fabfi1v3zf6WAQ/Xdo034r9g+b7PU0KY0LAOBMtSbzMoYbQpOaI
+	zuCJDUqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC0YY-00000003cvd-0YPq;
-	Fri, 15 Nov 2024 17:56:30 +0000
-Received: from mail-bn8nam11on20611.outbound.protection.outlook.com ([2a01:111:f403:2414::611] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1tC0zt-00000003gll-0gbE;
+	Fri, 15 Nov 2024 18:24:45 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC0Xb-00000003ciq-2pzZ
+	id 1tC0yx-00000003gcj-2ATJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 17:55:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=y5Dm2MtCe66WUlbIBkjD3Bz1oH/qau96g0xVKEOaqINLmY8p2MsxG7YNE8af+T3GgtoGe40mMu8vvm7b1BPqY/KIP3oBknvOglaNqYuOp3FRmnKEtWRjZgjZSvaDSUdyrvfU8a8dZU0Wy7ZA9nva/YM9+JWEF6APxnljD1uUGlVG5MhunSfxjaTG7rLd551a0OeF1ZurAKXdkMMNyKbHWPiVFpOClqDXYNvTLK2MRBmvEOOrlzeY+RKLjSKOCJcIRkyrqRS3LhJbCgPFtghy4VUz9/sKuSSoJv5DEJn8s0mxy3q+ULPj9uij3ofKJFC6g7YjRvKRR0hxMsV33lkWVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lE8VoHLIWRB4ibsLC9j/Wnt/YktLXTPLTZmciV+yDMI=;
- b=q0/AtyZJ+k3bwxKqYfycuh7xhdFKat4LzoJkyZMKd0xA+CJOJBzf6OTNiCYIkdIV+y8P4mB4RKTetsBM2u3EcB5TzL161GFCImuw63pAD61uN++A0FblyoEB15lmJVmVBwwRXawaaSdZCuvr10klBgshTNIC32g7JaoPaLlUbglZn632jOSne7Mxpub8ikI9DwiwTJFjZpG3Ioxi34wIYr7r8jztm4mtqz5LgyL/edlZH+jysGk82eycCsjz/hHS6poUwHFGBM8aOGQdHx/wxP5e4xkRrJxqRr00OPU44tc+uTmWO0MOOwt3YPCMV1o+MrcQQSCNqOINjH9shzUFJg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lE8VoHLIWRB4ibsLC9j/Wnt/YktLXTPLTZmciV+yDMI=;
- b=aoYtLkikxOluR61jq+mjAvXzLaj5VhaUTjiW8CL3dJXJfDvwawfpNySaeUq5abSH7E6EB5Gn48A7nPF0tJZxnKuBLsPUMlvDPSwlVNS4/GH46w+hw3A9aIgOgs9Pt4VQn2F4qThFrMbSHKx9+iCSTp6okH66GmNGQOHvvWzV7FS4ie+03QxTSZjCvnAKcDN3wiM7FYPGoIPkAW0mFDfZNiH0h1GqMj8zviNHpq2BJsZtYtx+qEvrmKEHT4cS1H/6qk9jQ8jun11ivZA67qhKvzOw0/pvnHQThsuV7vY/d2oDxMDmZ1+UoauIkrDKkNqRGIdxyiFXx0iYBjXaEH0adw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MW6PR12MB8663.namprd12.prod.outlook.com (2603:10b6:303:240::9)
- by CYYPR12MB8752.namprd12.prod.outlook.com (2603:10b6:930:b9::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.17; Fri, 15 Nov
- 2024 17:55:23 +0000
-Received: from MW6PR12MB8663.namprd12.prod.outlook.com
- ([fe80::594:5be3:34d:77f]) by MW6PR12MB8663.namprd12.prod.outlook.com
- ([fe80::594:5be3:34d:77f%6]) with mapi id 15.20.8158.019; Fri, 15 Nov 2024
- 17:55:23 +0000
-Date: Fri, 15 Nov 2024 13:55:22 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Baolu Lu <baolu.lu@linux.intel.com>
-Cc: Zhangfei Gao <zhangfei.gao@linaro.org>, acpica-devel@lists.linux.dev,
-	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
-	Kevin Tian <kevin.tian@intel.com>, kvm@vger.kernel.org,
-	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	Fri, 15 Nov 2024 18:23:48 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-21145812538so17619635ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 10:23:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731695026; x=1732299826; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=1CnwJEhoyWWs0hfunP5nkD+KmYCyarErjrVddNp9cu4=;
+        b=Xmu8w7yY130l373mNSqDlWlt2W2bGjvdLN93HXJ1rWc7QSEA3CODHISCwWiMPEIFhx
+         LaHxLKd7BY47R7NWKj3YMKk0WiVFhcodEZZMV3V7B//jkCZaKWr5h06YQYB6yoUwPGPl
+         q5zSRI25JyQT7DNSwNuFoV+AMq5x5Z4g/wy2+iLO0sMIDJu5gG/Do/Hp9mETO5gpfPSV
+         DjpJdbKnWk8zQmS83fCNkRJgxkiAMs0ONV4pge4hr5V2zBMQT7tLSxc6QQKd+yRXQK1s
+         h7baqN4SX9OGBXBQ2nvC/J7SnvGCibDOLMlEdaF01m4yWOj81P541VWkm0oUP+yKxHoF
+         CpUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731695026; x=1732299826;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=1CnwJEhoyWWs0hfunP5nkD+KmYCyarErjrVddNp9cu4=;
+        b=ZFXoADlAf6KJP4IA6Zl1XfTu3+WdMSc4jYvNN74UC5CMvTNPlYb+5JDeWzUEw+ZWfx
+         q2Yhxk+YH/cON+3TrEGEDNUzUOtTIdLJAxRkNBM6KNvGE6TNKaxrqmyJS//neyTUxK+f
+         oALpBjd/Ea4TTX5/TDP4eJVJPF+jtNFqoeyu4vWSiNGGVeM5HX68fJXtprEpOicl70Ue
+         ZXe8Ii7YOZWy8oLw1OGgGO7zWq6X9i+scZCz+nZFPo82fJh11/ZIlKtKbk4Z1TCGZbmA
+         DWEX4vdFPNWhBqiu7vKcsQqpPdKZmIK7OTQncAUUGKCGw5egzCwFmahxHKwtuJCEmIm4
+         Pn5w==
+X-Forwarded-Encrypted: i=1; AJvYcCU1c/kvg5u0C5eKddSubB9maSrM6ZZI03WkC/nEAOYLYqNVHEBYKsFpt9t+LMQ23Q2Y7KVE7ijul/pgVYE+pdmQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxva6MvpOuOxIYlttMxVozKqPcbAI9fJuss4lC2WzIgdtlYhLn+
+	ctETgYBfp9fivv25NmNELF9x3ErmZse6NpqHUP4+zKBUxeGB6zSShQCV6RJytA==
+X-Google-Smtp-Source: AGHT+IEwWbdg7azduaJi6v/1T3xzOGMgr6uhezauDZeHmiw5GXWdDs8QfnFyhbpVqwXNdilvnfJezQ==
+X-Received: by 2002:a17:903:1d0:b0:20e:5792:32ed with SMTP id d9443c01a7336-211d0ebc0c5mr44114045ad.41.1731695026118;
+        Fri, 15 Nov 2024 10:23:46 -0800 (PST)
+Received: from thinkpad ([117.193.215.93])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f51fe0sm15266645ad.233.2024.11.15.10.23.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Nov 2024 10:23:45 -0800 (PST)
+Date: Fri, 15 Nov 2024 23:53:36 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
-	Alex Williamson <alex.williamson@redhat.com>,
-	Donald Dutile <ddutile@redhat.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jerry Snitselaar <jsnitsel@redhat.com>,
-	Moritz Fischer <mdf@kernel.org>,
-	Michael Shavit <mshavit@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>, patches@lists.linux.dev,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
-Message-ID: <20241115175522.GA35230@nvidia.com>
-References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
- <20241112182938.GA172989@nvidia.com>
- <CABQgh9HOHzeRF7JfrXrRAcGB53o29HkW9rnVTf4JefeVWDvzyQ@mail.gmail.com>
- <20241113012359.GB35230@nvidia.com>
- <9df3dd17-375a-4327-b2a8-e9f7690d81b1@linux.intel.com>
- <20241113164316.GL35230@nvidia.com>
- <6ed97a10-853f-429e-8506-94b218050ad3@linux.intel.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6ed97a10-853f-429e-8506-94b218050ad3@linux.intel.com>
-X-ClientProxiedBy: BN9PR03CA0335.namprd03.prod.outlook.com
- (2603:10b6:408:f6::10) To MW6PR12MB8663.namprd12.prod.outlook.com
- (2603:10b6:303:240::9)
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH v7 3/7] PCI: dwc: ep: Add bus_addr_base for outbound
+ window
+Message-ID: <20241115182336.7jy63pt7n66h6pa2@thinkpad>
+References: <20241029-pci_fixup_addr-v7-0-8310dc24fb7c@nxp.com>
+ <20241029-pci_fixup_addr-v7-3-8310dc24fb7c@nxp.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW6PR12MB8663:EE_|CYYPR12MB8752:EE_
-X-MS-Office365-Filtering-Correlation-Id: 960e9745-0ad5-4ba7-f22c-08dd059eadbb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mbxJjowsLnZ8zHTgcI7P2yvZzlRzGcs396HiH68FJ5z+6YRTfBbU/WxY0j1U?=
- =?us-ascii?Q?ee0hy3QrIUdwA/EVq11ELyhK86VrwbU3X9LApYsNzJVo2V8lNgSUxpr3/sBG?=
- =?us-ascii?Q?H9GfjcOVTlDBdgAAqYqUdgPHXf53/76+0Cvhl0u9ocNVRfYoQX5VMVY4feiw?=
- =?us-ascii?Q?5jlj4ERPcArOZoRiWi0KM9QzBwJUaZlkfz8cN/U+nKqlTAUnMEa9S2LrFJGT?=
- =?us-ascii?Q?75GmD/QTYEX0CXJL9OD7oZpeXcUhjxcxpCZc7VJE4B5WCnSSW+LAZ8GVLw+x?=
- =?us-ascii?Q?KHB/c/3OrMOioW4ZKgccXd8BHxobQJCZFXkYUeAYS8Z7cZEylwMoG1isigy9?=
- =?us-ascii?Q?IpRVM/RYlQGnT0+Ul0qem8us0oKXBDf+JXx22hiUSUzCp3map99DOB5eqAaY?=
- =?us-ascii?Q?zudXKqGCIBUqGum4Vo4W2rqzLVJvq5jN+Cm0BU51wjmxUUMMg+RId/lHWTKw?=
- =?us-ascii?Q?aU2+SLt9rBCHfzV0j3a3eRcsmymC7rIOd9u/kLHglZ9aOs5M6pJcPau6zBd2?=
- =?us-ascii?Q?mLD9hcZthZo/1huz+2BDBQqVJpkjKBABl4twEIXDW5nq5oUA3cMnDBkgel0E?=
- =?us-ascii?Q?pq/VNvmNCFMA996JLjnrNsQ89f+WeF3VmhEjkxmnqOawxXrdnygICBC/ooPa?=
- =?us-ascii?Q?+9DdxmhqfTiMfPo4++FoSt3LsZ5ss8Fa6OxDyRHZXFDaZav6rVLB5n3lHHDd?=
- =?us-ascii?Q?fX/afm47kZs5j/4NXbKqtuHRaCjlkw80QDGUweF8Xd1wK2zH03ie10VgKPZ2?=
- =?us-ascii?Q?xxlByjU9+87DA0cZe09xFgonJmLKNcBiuhVk1U0xElRBTX+CgTmgkWtUkXm8?=
- =?us-ascii?Q?zs7ATww0DgvvUjJ7JSMBeZw2nwKXkB0iNvr32gANbTLXMo+dr6PVMGjOPjvd?=
- =?us-ascii?Q?mDmKc0INi5japg1BJvsHaGhJxPFVXibAGq9uA7i99/8PN8iyaAEerbUAesje?=
- =?us-ascii?Q?repeuuatnoTrbhCU/mJEYfybWFe6u8zMBDxKUa2ATIYPqKdNpbZIEyAQUbIs?=
- =?us-ascii?Q?sRZ3C6kMQj/3bkEVztqHLlgBbhDOsYxx3x+zjpGnv6w7j45TpnzjueDM8o2n?=
- =?us-ascii?Q?Vl5xyp/N58UEjipOfKzpbbDZBJ+Fl1T+B+4M4xVhZdZPG6JuRmi+x/l32IMy?=
- =?us-ascii?Q?1GZ4Vd+sFaNhy44W0FbBmGSt7X3dDQOn1it3kl2UMrKX1HypdT+AP199EGlq?=
- =?us-ascii?Q?H3teLyZEVLj/KjSfQ3o0Ee1B5rsPki/ZwOhSzd6y89N+/oCYzzFMZchnTLgq?=
- =?us-ascii?Q?s1FIDwoYp2P4IK93KSQrEoRAe+OENvLLGnxSj+j7R9NmqGrMBA2UozHzyux3?=
- =?us-ascii?Q?EHb9AnhO/xS8yijMhPnotwva?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW6PR12MB8663.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?V7tKoSvmOgXEOdU9Cl2dG2FnQmINMsJsmau2Th0VknkMoeI0JmwRR9Xkl8gk?=
- =?us-ascii?Q?sKb8hi5SqJtQc7Eld6xIFrE4+eeOfMiRMPRqPmcJBVDFWs5Qf7rnflts2G7H?=
- =?us-ascii?Q?Fc7RlCN9TtDzSFV9laaBFrPs1JoAe1LEl5PMxViPuC5wRE+B3rxvknPZTesn?=
- =?us-ascii?Q?EsmBpA5lFoldMd3tO+0upiYSPiXRo9K3kGtFAH/6rxIz7uQRzX2x+km0AK7u?=
- =?us-ascii?Q?/CCobAfRzslWrS8WbljNeSTbjHA+8YKYTtvSoi3JrrC+cMZqBUwSfXdSUWGc?=
- =?us-ascii?Q?XNfprZXKQS9OoIHw43Z95A4Ym0ng0Wi+7/FtmG88QVm3jbqVBqcrJuYDQUA4?=
- =?us-ascii?Q?FcE8P0tiJch/Bagn9HMTYw660h4gTAXu+qAjaUgon13jNAJ+IsWx8MCkpuDI?=
- =?us-ascii?Q?53ktvkI4M81hQ0A5xl8eS8xBS4FjYAo5ZO1YmwWWYLXGGFcm9+i1tVVU2LjB?=
- =?us-ascii?Q?oVS8dV5fxuU+1jrIqcyRSDVDoLe6HExqrrRzLPZiH1W1zHulP+BB37qOsyj9?=
- =?us-ascii?Q?kTXuzAUVAijxZJHJGJu6ITB0GDglh6oHGZiz5cIDOE/QvpJXWdpvT44EWZoi?=
- =?us-ascii?Q?MB1OEa0C6QAodmkZ0y8UU64ruEPdtVmgw4F8Ygr/5lOEg42/0/byd/QaSGPe?=
- =?us-ascii?Q?PNphNi3Oozrj77sjEypedwQE32mkgZaOVTjx297OqZiwLZEq79RXFuUfHj4M?=
- =?us-ascii?Q?Sv7pEtDVfkzjwxvI2WVfKQ4atXFmYYOESTw+3a0iq0K42BdECZj6F88wy+Ey?=
- =?us-ascii?Q?vcxnUPCH6SFm+eSvLA5hir811AcW92G7If026UYW9B/zHaUeYox/zPPuDEgD?=
- =?us-ascii?Q?UFYW4sVj9afJpx8+xdx3vmZ6WogfWKQey7VbcfNO9kqj8mMzauVH14lzBsCX?=
- =?us-ascii?Q?Z5/wCpWR9MSJZioRy1tCZ0ThsBBelThFS3ZcCKiMOd2FdqmhYH0stnAgQySQ?=
- =?us-ascii?Q?UnsXVdj3uJOg4Qfkk7ZAbaptpfzqUH/ThanD3RtzmMogUdmseQZfdK43OJpT?=
- =?us-ascii?Q?qBLm3R9wAoxQNXyekt8iigmyutJ09ErD7NRM6xROn2MB1/bg9YuUzSW7V7ZB?=
- =?us-ascii?Q?ZhnIvUr9ZKh8k5ZPjZiaka9XC4FZreM36WD4Pb4TqZ5heO8FkafaItbTi5II?=
- =?us-ascii?Q?Fm7TzEhkqY1bflEEt5h/Omvl9oBGf7FmTEtmeL6kccGFT/F/K9EfUdWUn5Gp?=
- =?us-ascii?Q?Y6iuEi2hAByzyNCMrlDx1ceqK4pFEsje/ojMk209N7Sq5nttOpxa+P4OjA8E?=
- =?us-ascii?Q?9826PjSTEi2H4evaR5iF6/9CkzFnsTlKedZQU0ONvej/fGQSqGkeXEyXoSfX?=
- =?us-ascii?Q?YCmBmoYUwdC+vK12w7mvjnYYJh0NbNZxFBHbngmRhCCG7YtDGCJgXSNmyrl4?=
- =?us-ascii?Q?QbTwPKv3S31STBalpTdtP6n14oE1JhymKs7cUlsfX+fxJ/Ak+Z3fSn6ZAgDq?=
- =?us-ascii?Q?oVyy90JT8FtALcvPU0bxTEoIw4IBrClTF5pFodNPPNVyZ7bYQ3G9HAfZbVzh?=
- =?us-ascii?Q?7ZeMCi3GkogcZrFXOgm6dSdV+0HD/xT7T/4ZfPn3TKalayWM92MkQFAM/ItN?=
- =?us-ascii?Q?aVMEm0ETRu16FNMMmL8=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 960e9745-0ad5-4ba7-f22c-08dd059eadbb
-X-MS-Exchange-CrossTenant-AuthSource: MW6PR12MB8663.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2024 17:55:23.6182
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ADDYgfLVKWdM12Z/bDc9HTHPH7LNOShfVZI4K2HdWxb3zc6+drPW60AholDfnfHq
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8752
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241029-pci_fixup_addr-v7-3-8310dc24fb7c@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_095531_715675_E7D0EB67 
-X-CRM114-Status: GOOD (  21.57  )
+X-CRM114-CacheID: sfid-20241115_102347_587463_5F8F54B7 
+X-CRM114-Status: GOOD (  33.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,44 +106,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 14, 2024 at 08:51:47AM +0800, Baolu Lu wrote:
-> On 11/14/24 00:43, Jason Gunthorpe wrote:
-> > On Wed, Nov 13, 2024 at 10:55:41AM +0800, Baolu Lu wrote:
-> > > On 11/13/24 09:23, Jason Gunthorpe wrote:
-> > > > > https://github.com/Linaro/linux-kernel-uadk/tree/6.12-wip
-> > > > > https://github.com/Linaro/qemu/tree/6.12-wip
-> > > > > 
-> > > > > Still need this hack
-> > > > > https://github.com/Linaro/linux-kernel-uadk/commit/
-> > > > > eaa194d954112cad4da7852e29343e546baf8683
-> > > > > 
-> > > > > One is adding iommu_dev_enable/disable_feature IOMMU_DEV_FEAT_SVA,
-> > > > > which you have patchset before.
-> > > > Yes, I have a more complete version of that here someplace. Need some
-> > > > help on vt-d but hope to get that done next cycle.
-> > > 
-> > > Can you please elaborate this a bit more? Are you talking about below
-> > > change
-> > 
-> > I need your help to remove IOMMU_DEV_FEAT_IOPF from the intel
-> > driver. I have a patch series that eliminates it from all the other
-> > drivers, and I wrote a patch to remove FEAT_SVA from intel..
+On Tue, Oct 29, 2024 at 12:36:36PM -0400, Frank Li wrote:
+>                    Endpoint
+>   ┌───────────────────────────────────────────────┐
+>   │                             pcie-ep@5f010000  │
+>   │                             ┌────────────────┐│
+>   │                             │   Endpoint     ││
+>   │                             │   PCIe         ││
+>   │                             │   Controller   ││
+>   │           bus@5f000000      │                ││
+>   │           ┌──────────┐      │                ││
+>   │           │          │ Outbound Transfer     ││
+>   │┌─────┐    │  Bus     ┼─────►│ ATU  ──────────┬┬─────►
+>   ││     │    │  Fabric  │Bus   │                ││PCI Addr
+>   ││ CPU ├───►│          │Addr  │                ││0xA000_0000
+>   ││     │CPU │          │0x8000_0000            ││
+>   │└─────┘Addr└──────────┘      │                ││
+>   │       0x7000_0000           └────────────────┘│
+>   └───────────────────────────────────────────────┘
 > 
-> Yes, sure. Let's make this happen in the next cycle.
->
-> FEAT_IOPF could be removed. IOPF manipulation can be handled in the
-> domain attachment path. A per-device refcount can be implemented. This
-> count increments with each iopf-capable domain attachment and decrements
-> with each detachment. PCI PRI is enabled for the first iopf-capable
-> domain and disabled when the last one is removed. Probably we can also
-> solve the PF/VF sharing PRI issue.
+> Add 'bus_addr_base' to configure the outbound window address for CPU write.
 
-Here is what I have so far, if you send me a patch for vt-d to move
-FEAT_IOPF into attach as you describe above (see what I did to arm for
-example), then I can send it next cycle
+This doesn't make a lot of sense to readers. Use something like,
 
-https://github.com/jgunthorpe/linux/commits/iommu_no_feat/
+"Use 'ranges' property in DT to configure the iATU outbound window address."
 
-Thanks,
-Jason
+> The bus fabric generally passes the same address to the PCIe EP controller,
+> but some bus fabrics convert the address before sending it to the PCIe EP
+> controller.
+> 
+> Above diagram, CPU write data to outbound windows address 0x7000_0000,
+> Bus fabric convert it to 0x8000_0000. ATU should use bus address
+> 0x8000_0000 as input address and convert to PCI address 0xA000_0000.
+
+s/convert/map
+
+> 
+> Previously, 'cpu_addr_fixup()' was used to handle address conversion. Now,
+> the device tree provides this information, preferring a common method.
+> 
+> bus@5f000000 {
+> 	compatible = "simple-bus";
+> 	ranges = <0x80000000 0x0 0x70000000 0x10000000>;
+> 
+> 	pcie-ep@5f010000 {
+> 		reg = <0x80000000 0x10000000>;
+> 		reg-names ="addr_space";
+> 		...
+> 	};
+> 	...
+> };
+> 
+> 'ranges' in bus@5f000000 descript how address convert from CPU address
+> to bus address.
+> 
+> Use `of_property_read_reg()` to obtain the bus address and set it to the
+> ATU correctly, eliminating the need for vendor-specific cpu_addr_fixup().
+> 
+> Add 'using_dtbus_info' to indicate device tree reflect correctly bus
+> address translation in case break compatibility.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+
+One comment below. With that addressed,
+
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+
+> ---
+> Change from v6 to v7
+> - none
+> 
+> Change from v5 to v6
+> - update diagram
+> - Add comments for of_property_read_reg()
+> - Remove unrelated 0x5f00_0000 in commit message
+> 
+> Change from v3 to v4
+> - change bus_addr_base to u64 to fix 32bit build error
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202410230328.BTHareG1-lkp@intel.com/
+> 
+> Change from v2 to v3
+> - Add using_dtbus_info to control if use device tree bus ranges
+> information.
+> ---
+>  drivers/pci/controller/dwc/pcie-designware-ep.c | 21 ++++++++++++++++++++-
+>  drivers/pci/controller/dwc/pcie-designware.h    |  1 +
+>  2 files changed, 21 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
+> index 43ba5c6738df1..a5b40c32aadf5 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-ep.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
+> @@ -9,6 +9,7 @@
+>  #include <linux/align.h>
+>  #include <linux/bitfield.h>
+>  #include <linux/of.h>
+> +#include <linux/of_address.h>
+>  #include <linux/platform_device.h>
+>  
+>  #include "pcie-designware.h"
+> @@ -294,7 +295,7 @@ static int dw_pcie_ep_map_addr(struct pci_epc *epc, u8 func_no, u8 vfunc_no,
+>  
+>  	atu.func_no = func_no;
+>  	atu.type = PCIE_ATU_TYPE_MEM;
+> -	atu.cpu_addr = addr;
+> +	atu.cpu_addr = addr - ep->phys_base + ep->bus_addr_base;
+>  	atu.pci_addr = pci_addr;
+>  	atu.size = size;
+>  	ret = dw_pcie_ep_outbound_atu(ep, &atu);
+> @@ -861,6 +862,7 @@ int dw_pcie_ep_init(struct dw_pcie_ep *ep)
+>  	struct device *dev = pci->dev;
+>  	struct platform_device *pdev = to_platform_device(dev);
+>  	struct device_node *np = dev->of_node;
+> +	int index;
+>  
+>  	INIT_LIST_HEAD(&ep->func_list);
+>  
+> @@ -873,6 +875,23 @@ int dw_pcie_ep_init(struct dw_pcie_ep *ep)
+>  		return -EINVAL;
+>  
+>  	ep->phys_base = res->start;
+> +	ep->bus_addr_base = ep->phys_base;
+> +
+> +	if (pci->using_dtbus_info) {
+> +		index = of_property_match_string(np, "reg-names", "addr_space");
+> +		if (index < 0)
+> +			return -EINVAL;
+> +
+> +		/*
+> +		 * Retrieve the local bus address information, which is sent to
+> +		 * the PCIe Endpoint (EP) controller. If the parent bus
+> +		 * 'ranges' in the device tree provide the correct address
+> +		 * conversion information, set 'using_dtbus_info' to true. This
+> +		 * allows 'cpu_addr_fixup()' to be eliminated.
+> +		 */
+
+		/*
+		 * Get the untranslated bus address from devicetree to use it as
+		 * the iATU CPU address in dw_pcie_ep_map_addr().
+		 */
+
+- Mani
+
+> +		of_property_read_reg(np, index, &ep->bus_addr_base, NULL);
+> +	}
+> +
+>  	ep->addr_size = resource_size(res);
+>  
+>  	if (ep->ops->pre_init)
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> index f8067393ad35a..f10b533b04f77 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.h
+> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> @@ -410,6 +410,7 @@ struct dw_pcie_ep {
+>  	struct list_head	func_list;
+>  	const struct dw_pcie_ep_ops *ops;
+>  	phys_addr_t		phys_base;
+> +	u64			bus_addr_base;
+>  	size_t			addr_size;
+>  	size_t			page_size;
+>  	u8			bar_to_atu[PCI_STD_NUM_BARS];
+> 
+> -- 
+> 2.34.1
+> 
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
