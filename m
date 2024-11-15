@@ -4,78 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E598D6DDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 03:25:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5E23D6DDCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 04:27:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7L47ovZHp47jBSLxGB8ttxTdbF8WZnBuFY8rCnvJ5jk=; b=n/BCUK0WoIEKYkgjfOcqfP9Bn9
-	/Y9j4/KWZqt0TdK2TMEXPXgRId22M/DFyfGF4WcTjeWDzMruOieepFY+iTcAF6GlAi6M+JJSx0m3V
-	s/9I947INEFuc/DP4XUBdYr8l+8bswYgunRGgYjbqy0i7mAFUyvIemMpOu0SX493R4KPMdCBcV3zV
-	fubvV3VeDVIGE49IHXaa67iLJpru4y/oU8/bag9bm3jNI4ZG2ZXyNXOL+93bULaGLuGeU0YCAdLUZ
-	vy1bGggncQXc+KR/NC4ceSxOi/YL1zQ7IcMRY5qTQAkR/TD00X4HHyxV2mjhYSq2hjQ1XC50XmXkH
-	5u4bpVeQ==;
+	bh=rQUvtnS3qluMHTld2rZ3ZN+B4sN7fghTJyJ5F6xsX+k=; b=FI1vhO1sbM6rO0htB4+ipV/NaF
+	rf2rj6HWA0UVXXg13KbtOqan39QRGwMYKc5bCv6Jpo0gQugokdUNgeus0uohLYP+zKQP268minQ/r
+	v9VjmSRzKdKdbx+L0hkrBdkskapjk2lWbOKT+IQ5qpeFIzSdXiRKO3wdpp+04K8XSRCC3M3LsCgZc
+	iyDPU/VCOG8C2QPq4Ger7bIczNelvyKWiUUzj06qzK6mxcn1btC3ROPUcrtDOfhIvb4W5MFngTSRz
+	JbUCXxwCMsTt/jYk/PVnLUhNL/iXaQBSMhZmau+c1ZFg8N4+qtUNg5rvh3nrif2ncWzokjq7V84me
+	kwE1WcsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBmxT-00000001Tlk-1fVZ;
-	Fri, 15 Nov 2024 03:25:19 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBmwX-00000001Tdu-0tio
+	id 1tBnux-00000001a0D-2rZ1;
+	Fri, 15 Nov 2024 04:26:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBnu1-00000001ZtO-1Yok
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 03:24:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731641061; x=1763177061;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=8QTLKulU08ztsSRY97lKpfpwjYQSjInkq5JQac5Ipcw=;
-  b=UeQIt2ICWTMqSujkQF720eLI7L8a/gqkJhULfgz1IF1evfiHNi6YZWRR
-   rGn8zSXeKSsP8VMct4Hge4JXWCt3I+wLzSOsMWgTTwILIKJO5IalcO3vF
-   925FrNJMPle4cv4tMk1lyMTCbKfEUPaKoXVOOBIBA5wneYPyqgAFzhkvV
-   zRaA4WM42nRco+w4ty4HmWNO/47rQe8j+a7XDh3JEartqErGuEzLUWNQO
-   wXtRH0pjMZUxbMOPBVfZCWvAH9s7dFBHNseTsvYIKeYf8drfIaHQn++CF
-   91LVyeCpFNdIBv9RMmzXBOB+YXr9b/SUod925lTqOf5ADn5pI4s+KMl49
-   g==;
-X-CSE-ConnectionGUID: Aqk9kIJBTxyeRi8GCK79dA==
-X-CSE-MsgGUID: 0SPrNUoqRuCCs/1ZsKkaXw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11256"; a="35547985"
-X-IronPort-AV: E=Sophos;i="6.12,155,1728975600"; 
-   d="scan'208";a="35547985"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Nov 2024 19:24:20 -0800
-X-CSE-ConnectionGUID: bz14ucyiSAKh7VeVs8wqJA==
-X-CSE-MsgGUID: Pp7bmtyYTW64DjWErzO2FQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,155,1728975600"; 
-   d="scan'208";a="88819369"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Nov 2024 19:23:53 -0800
-Message-ID: <e9981960-a7f0-4e0f-991a-0b96e1d57cd5@linux.intel.com>
-Date: Fri, 15 Nov 2024 11:22:50 +0800
+	Fri, 15 Nov 2024 04:25:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB66315BF;
+	Thu, 14 Nov 2024 20:26:14 -0800 (PST)
+Received: from [10.163.45.151] (unknown [10.163.45.151])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9651C3F66E;
+	Thu, 14 Nov 2024 20:25:40 -0800 (PST)
+Message-ID: <5e836e52-bc10-462b-b819-f3e4d33bf876@arm.com>
+Date: Fri, 15 Nov 2024 09:55:35 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] iommu: Rename ops->domain_alloc_user() to
- domain_alloc_paging_flags()
-To: Jason Gunthorpe <jgg@nvidia.com>, David Woodhouse <dwmw2@infradead.org>,
- iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
- Kevin Tian <kevin.tian@intel.com>, linux-arm-kernel@lists.infradead.org,
- Robin Murphy <robin.murphy@arm.com>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Will Deacon <will@kernel.org>
-Cc: patches@lists.linux.dev
-References: <2-v1-c252ebdeb57b+329-iommu_paging_flags_jgg@nvidia.com>
+Subject: Re: [PATCH v2] arm64: Refactor conditional logic
+To: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>,
+ will@kernel.org, broonie@kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Joey Gouly <joey.gouly@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241114142333.18210-1-hardevsinh.palaniya@siliconsignals.io>
 Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <2-v1-c252ebdeb57b+329-iommu_paging_flags_jgg@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20241114142333.18210-1-hardevsinh.palaniya@siliconsignals.io>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_192421_313503_D3AE4672 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20241114_202549_494245_3D6160B5 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,27 +68,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/15/24 03:55, Jason Gunthorpe wrote:
-> Now that the main domain allocating path is calling this function it
-> doesn't make sense to leave it named _user. Change the name to
-> alloc_paging_flags() to mirror the new iommu_paging_domain_alloc_flags()
-> function.
+A small nit.
+
+The subject line could have been more specific to where this
+change applies (example below), otherwise it is too broad in
+the entire arm64 platform context.
+
+arm64/cpufeature: Refactor conditional logic in init_cpu_ftr_reg()
+
+On 11/14/24 19:52, Hardevsinh Palaniya wrote:
+> Unnecessarily checks ftr_ovr == tmp in an extra else if, which is not
+> needed because that condition would already be true by default if the
+> previous conditions are not satisfied.
 > 
-> A driver should implement only one of ops->domain_alloc_paging() or
-> ops->domain_alloc_paging_user(). The former is a simpler interface with
-
-s/user/flags/
-
-I think domain_alloc_paging and domain_alloc_paging_flags will
-eventually be merged into a single domain_alloc_paging with flag
-support.
-
-> less boiler plate that the majority of drivers use. The latter is for
-> drivers with a greater feature set (PASID, multiple page table support,
-> advanced iommufd support, nesting, etc). Additional patches will be needed
-> to achieve this.
+> 		if (ftr_ovr != tmp) {
+> 		} else if (ftr_new != tmp) {
+> 		} else if (ftr_ovr == tmp) {
 > 
-> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
+> Logic: The first and last conditions are inverses of each other, so 
+> the last condition must be true if the first two conditions are false.
+> 
+> Additionally, all branches set the variable str, making the subsequent
+> "if (str)" check redundant
+> 
+> Reviewed-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>
+> ---
+> 
+> Changelog in V2:
+> 
+> - remove str check 
+> 
+> Change in V3:
+> 
+> - Add logic in commit msg 
+> - Add review tag
+> ---
+>  arch/arm64/kernel/cpufeature.c | 13 ++++++-------
+>  1 file changed, 6 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 718728a85430..728709483fb7 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -989,17 +989,16 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
+>  				/* Override was valid */
+>  				ftr_new = tmp;
+>  				str = "forced";
+> -			} else if (ftr_ovr == tmp) {
+> +			} else {
+>  				/* Override was the safe value */
+>  				str = "already set";
+>  			}
+>  
+> -			if (str)
+> -				pr_warn("%s[%d:%d]: %s to %llx\n",
+> -					reg->name,
+> -					ftrp->shift + ftrp->width - 1,
+> -					ftrp->shift, str,
+> -					tmp & (BIT(ftrp->width) - 1));
+> +			pr_warn("%s[%d:%d]: %s to %llx\n",
+> +				reg->name,
+> +				ftrp->shift + ftrp->width - 1,
+> +				ftrp->shift, str,
+> +				tmp & (BIT(ftrp->width) - 1));
+>  		} else if ((ftr_mask & reg->override->val) == ftr_mask) {
+>  			reg->override->val &= ~ftr_mask;
+>  			pr_warn("%s[%d:%d]: impossible override, ignored\n",
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
