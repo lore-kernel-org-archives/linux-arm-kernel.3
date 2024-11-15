@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEBBD68BCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 16:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C08C8D68BCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 16:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uqLyK5BAyRobHArlImG/r9aAsay7r535oaTceuLvVWA=; b=qosHzgNPp/hslmp1YZm8kcw9mV
-	x84gvx0ZApImj+WlADmVDd6QDwOhBDcoD3AWhJ6ze5Cqch1055zZHwpndLTDMfvnHQIsuJiJ7sSQ4
-	IKFkHF1u7aOtj+Y5TWDg0Aq/MFbdNYA+YtDN71oFS/7Sptp50vFlqoi9TMfV4DLNKfO1Y7oSRTEWG
-	PXvkRl8RVbH01vURRxguZNoaS+hKnOz1n6kK/FXOegyq8aifLnegai/xOOGSV2amOR0aZnP0d51Eh
-	ZY6jBsvQh2F+YYF4/HkT4ElEVZHPub//pmkO1T5jKIalu3iyJpNBrt2bUEPKsAb7oz368bRJTC314
-	2ga0h7aQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A1rLKs7XMafDwKPJur3KVVVuDZ+Nk4nB0R3fvhHVGOI=; b=IjrXpQwHw51gwx8saNOHYsh8FT
+	oZz42U7va8dL5qQti9Cjn+89oHtDFEZgvt071AcbnzvJ2VdjZW+tJ9RAPpEj3U9LLpGi+uhPLtpeO
+	OK3QHhYdABDJZ8IX2/1k9+ANdE6dvlRfo00csgmftQPkHiP0c0EL92Su39aF/QZYMfSURbH76PqY+
+	82U0bBRu8p28dqs2EWl4u4lW0kX4iu42WQ8xPF69b7rsbovaC4MBOWNZiX5u/Q7Mw1eqJGEurGmuy
+	6F25z5xoRrnX5WLMAPcEQzCJoTCe1oskdF9D8b/RJtxVVDlnC5bY1IC2Nqb/OobFduhbFQNrQMm1U
+	+NdVYaSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBzGG-00000003M9Q-2GFr;
-	Fri, 15 Nov 2024 16:33:32 +0000
-Received: from mout.perfora.net ([74.208.4.196])
+	id 1tBzJd-00000003MhD-1cu9;
+	Fri, 15 Nov 2024 16:37:01 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBzFK-00000003Loa-1F0Q
+	id 1tBzIh-00000003MV6-41GW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 16:32:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=finest.io;
-	s=s1-ionos; t=1731688335; x=1732293135; i=parker@finest.io;
-	bh=uqLyK5BAyRobHArlImG/r9aAsay7r535oaTceuLvVWA=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=xnBVRIOGI8OaKA4exA9SeQpb+LYIHH+KMuYJadA629P2GtPNTiNO7YFmBE7ciFx7
-	 zeXgf3WYBbjHU8gf6QPdLqkDvr+YQ1nkQOyfRIKRCLMcInfqVaEk1s7jXxA56B65Q
-	 Rb1PxxboshMxGS035BVNgvRXmDCla69kpstRIZN5NCNjs0HiQYCQZmK1qcLc14nDd
-	 GwMNAELO98aYsOcL7pzeyY+FDu/hPs5c+fcLhPF1MCR5Iu/WP6tudPp6RbW9QFnjJ
-	 nWcfwQ2/aGtbYdGqOO3PyatLeLI+o1YQiBvKqUPQjcI0nE1tguUnvvoybDi+gLgkz
-	 YclkJqPUAlyBeeZRXw==
-X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
-Received: from finest.io ([98.159.241.229]) by mrelay.perfora.net (mreueus002
- [74.208.5.2]) with ESMTPSA (Nemesis) id 0MVen3-1tGXho2JHb-00YACL; Fri, 15 Nov
- 2024 17:32:15 +0100
-From: Parker Newman <parker@finest.io>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Parker Newman <pnewman@connecttech.com>
-Subject: [PATCH v1 1/1] net: stmmac: dwmac-tegra: Read iommu stream id from device tree
-Date: Fri, 15 Nov 2024 11:31:08 -0500
-Message-ID: <f2a14edb5761d372ec939ccbea4fb8dfd1fdab91.1731685185.git.pnewman@connecttech.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <cover.1731685185.git.pnewman@connecttech.com>
-References: <cover.1731685185.git.pnewman@connecttech.com>
+	Fri, 15 Nov 2024 16:36:05 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7246c8c9b1cso1425730b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Nov 2024 08:36:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731688563; x=1732293363; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=A1rLKs7XMafDwKPJur3KVVVuDZ+Nk4nB0R3fvhHVGOI=;
+        b=IhmDd9t6Vj9J21LaRuzdEhcDc1tApOovoio5+I3TaxJ4dObzO3WXI9CRYijr5O3r/X
+         25GvbVI6Ivbd8Zh/JarxRBMmk+Ux0bp7moC1pt//GQFLoby4vPYPLZHrYSNgeZTqURik
+         wxU96Ct4y1/9dES57R6R74L2FGFKTOPQr8QYDn+bYcNsZhAP43xhFBdWyjPhCj8z1gfL
+         6pjZUaEGviPYaHl0bgbHCpyuAOWUg+6zF51T5ZdD2efg6WHR+pB3e0IR1DgtC1vDM/i9
+         fJWWpS2UWJZ8OYyMR27jDHFQhEGKONWTxslR05ciJGZkaqfRbGeViM6j0+0gOacvbrEu
+         WGKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731688563; x=1732293363;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=A1rLKs7XMafDwKPJur3KVVVuDZ+Nk4nB0R3fvhHVGOI=;
+        b=bjQVcf8MM4OenQHWYHi3m1IMbredNC1uDdpyBChitEekYHR7T1Wb4jCXRlh3q79V5g
+         5t/zR/PxDOV2iNULqPWXRZNdO8jdhwPohqFgNVZNoTjfx9CDxLL5YWm+xlmXI3AykjSo
+         5UdKTnUPL+kiRUlch64EZmM3AjQxBtpP0Wm9JzBP/T6+sq+8CC3L02NNxkRs0ItdCDrX
+         f2Kd/C+hF3Gj+lbN+mg+yl6wUdJ/KCGzhnbKbqs3cPZySOjjfQEtgEJMm/kOQB5Dn/rm
+         DdCluXMKrEon7iO0p/7kjBJrvPdmazwQHJ+ugGlaGkKSVVs8uNvlUIpH8xHbG8pLs+2h
+         mckQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX+H5eb5iomIxx1zOoe5EOUu635cv4NIrER7sTfpkGKDCc29qq2oR6qxVviashX9yjC168OSSmcbH3t4nNw2Vw+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHKDbm6Oc1FCSgWZkND75NiRXM44fCIHAGN1tWHqt8AHaDMGtu
+	246H0F49cx7TY8NmKNVkQqxFRDBxp5YW/MKX8V8p+z/FRBktWbS3RCR3d98nmg==
+X-Google-Smtp-Source: AGHT+IGFnW6rFMw+hHUnNFuHyJmsLi6k9X5/Gsoh1t7i3szUhNuaPDcIgnR8yPSEXL5+AmJiguW+3g==
+X-Received: by 2002:a05:6a00:b56:b0:71d:fb29:9f07 with SMTP id d2e1a72fcca58-72476bba9femr3943662b3a.15.1731688563135;
+        Fri, 15 Nov 2024 08:36:03 -0800 (PST)
+Received: from thinkpad ([117.193.215.93])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724771e8ad1sm1533972b3a.168.2024.11.15.08.35.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Nov 2024 08:36:02 -0800 (PST)
+Date: Fri, 15 Nov 2024 22:05:52 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH v7 1/7] of: address: Add parent_bus_addr to struct
+ of_pci_range
+Message-ID: <20241115163552.mk7msyu57oqqetaw@thinkpad>
+References: <20241029-pci_fixup_addr-v7-0-8310dc24fb7c@nxp.com>
+ <20241029-pci_fixup_addr-v7-1-8310dc24fb7c@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:EFHR/GxuAAa5dFNi+oZRXzYiBIwpE3rPxeJh+/FkXRvXXm7itFF
- UXMd+O9um5JibJVzw1g/XgNgJN7EDxWoeyxiexfxN0m1fWvTSnd36j87dSEMlDRz5OBwlKZ
- LAUwlF3Ys8apsMCFBFCyT6+z/tyw//46Sb5q6aY9qyhnYrn69cQwxKpMOsGpYyXM9ll61et
- SXILMIyjInJpxWBKNZy8Q==
-UI-OutboundReport: notjunk:1;M01:P0:Tv2BRfTO0HQ=;QVb4D09UbdCm/rsKF0sXi7TFSFH
- 4J9wN7jTYPM5rrW/1RBoiTtMy6Dp8MFNpVrzIg/D2Fwjx1Jy/UfANEapVOZKV1bLqvBET/hsa
- Fr/RfSST8zYc7p8OavWVQ9A6p8buhKDZFGTRgp/CIEO5KZbUpqG7sfftKit47oKAihCKSVCPX
- 0aGFjSNFmKirP6G8D9cJ5YZYIFBqehV1QKR94m2SpDvqOJ+NSmgojS76kCEJI3DYyXoOajMiS
- y6Vcgtv49jyCynbD4g5Fla2oKvW5pB+INaObEudq9U/V1AlcKaxLDqxJIIwJZPaA3n/dgTgLC
- BYiOr+n3j78h/omkOY3qpOynNo/OIjMZ/Lur3I6Rs+RjnQLp7m6xyYUXNVRCgMo4uC5hbDkwo
- YCwKEbItZKpYl0AHRlmDVmyNt27lZrad/kpYOylQ1STzLJ4Lw1HuQtVB5Krh2zjie9n2wSEr5
- 6xjPJb1wQQU7aAlEgiaQ/obrElj5BmUQGJJDpmeLcJOMRny3DhYDStlwn0yQSuWWI1629iKfl
- zVa4BitAIrtyqlPJjxS2X4DjaSVF8zgp9oNac3i4jyWskPsdW0DWUaWYg+2XAJ8m+olp03FR7
- d/+QlqLvd0vfSitF3+ZDUk8BwzK8xV7A7NR6rjZQCpCmfrIGyBmDzrd9HP/4/lICNedLOdmSg
- dlOfh9LopIscIr6kgGQcVoc4dxAZBv5TrjkogSjHSan7i9XZFDJKPJtaM11Aaz+1dep2mbFnu
- MugeX80VCXMJL9c/5xhahNr/bdDCV16x4po7o9B9+ncTHf7c5LMMY93m4/bicuTVZxDgCjWnX
- CKZzKNWZ80rZaoYbXqivcrkaEqkYh43VUyU4o30/Z/ijBwI+AUfKj7tkteE1uCn8Xf
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241029-pci_fixup_addr-v7-1-8310dc24fb7c@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_083234_555668_BE1650F1 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20241115_083604_002106_F828E56A 
+X-CRM114-Status: GOOD (  24.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,82 +106,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Parker Newman <pnewman@connecttech.com>
+On Tue, Oct 29, 2024 at 12:36:34PM -0400, Frank Li wrote:
+> Introduce field 'parent_bus_addr' in struct of_pci_range to retrieve parent
+> bus address information.
+> 
+> Refer to the diagram below to understand that the bus fabric in some
+> systems (like i.MX8QXP) does not use a 1:1 address map between input and
+> output.
+> 
+> Currently, many controller drivers use .cpu_addr_fixup() callback hardcodes
+> that translation in the code, e.g., "cpu_addr & CDNS_PLAT_CPU_TO_BUS_ADDR"
+> (drivers/pci/controller/cadence/pcie-cadence-plat.c),
+> "cpu_addr + BUS_IATU_OFFSET"(drivers/pci/controller/dwc/pcie-intel-gw.c),
+> etc, even though those translations *should* be described via DT.
+> 
+> The .cpu_addr_fixup() can be eliminated if DT correct reflect hardware
+> behavior and driver use 'parent_bus_addr' in struct of_pci_range.
+> 
+>             ┌─────────┐                    ┌────────────┐
+>  ┌─────┐    │         │ IA: 0x8ff8_0000    │            │
+>  │ CPU ├───►│   ┌────►├─────────────────┐  │ PCI        │
+>  └─────┘    │   │     │ IA: 0x8ff0_0000 │  │            │
+>   CPU Addr  │   │  ┌─►├─────────────┐   │  │ Controller │
+> 0x7ff8_0000─┼───┘  │  │             │   │  │            │
+>             │      │  │             │   │  │            │   PCI Addr
+> 0x7ff0_0000─┼──────┘  │             │   └──► IOSpace   ─┼────────────►
+>             │         │             │      │            │    0
+> 0x7000_0000─┼────────►├─────────┐   │      │            │
+>             └─────────┘         │   └──────► CfgSpace  ─┼────────────►
+>              BUS Fabric         │          │            │    0
+>                                 │          │            │
+>                                 └──────────► MemSpace  ─┼────────────►
+>                         IA: 0x8000_0000    │            │  0x8000_0000
+>                                            └────────────┘
+> 
+> bus@5f000000 {
+>         compatible = "simple-bus";
+>         #address-cells = <1>;
+>         #size-cells = <1>;
+>         ranges = <0x80000000 0x0 0x70000000 0x10000000>;
+> 
+>         pcie@5f010000 {
+>                 compatible = "fsl,imx8q-pcie";
+>                 reg = <0x5f010000 0x10000>, <0x8ff00000 0x80000>;
+>                 reg-names = "dbi", "config";
+>                 #address-cells = <3>;
+>                 #size-cells = <2>;
+>                 device_type = "pci";
+>                 bus-range = <0x00 0xff>;
+>                 ranges = <0x81000000 0 0x00000000 0x8ff80000 0 0x00010000>,
+>                          <0x82000000 0 0x80000000 0x80000000 0 0x0ff00000>;
+> 	...
+> 	};
+> };
+> 
+> 'parent_bus_addr' in struct of_pci_range can indicate above diagram internal
+> address (IA) address information.
+> 
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Read the iommu stream id from device tree rather than hard coding to mgbe0=
-.
-Fixes kernel panics when using mgbe controllers other than mgbe0.
+Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-Tested with Orin AGX 64GB module on Connect Tech Forge carrier board.
+- Mani
 
-Signed-off-by: Parker Newman <pnewman@connecttech.com>
-=2D--
- drivers/net/ethernet/stmicro/stmmac/dwmac-tegra.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+> ---
+> Change from v5 to v7
+> -none
+> 
+> Change from v4 to v5
+> - remove confused  <0x5f000000 0x0 0x5f000000 0x21000000>
+> - change address order to 7ff8_0000, 7ff0_0000, 7000_0000
+> - In commit message use parent bus addres
+> 
+> Change from v3 to v4
+> - improve commit message by driver source code path.
+> 
+> Change from v2 to v3
+> - cpu_untranslate_addr -> parent_bus_addr
+> - Add Rob's review tag
+>   I changed commit message base on Bjorn, if you have concern about review
+> added tag, let me know.
+> 
+> Change from v1 to v2
+> - add parent_bus_addr in struct of_pci_range, instead adding new API.
+> ---
+>  drivers/of/address.c       | 2 ++
+>  include/linux/of_address.h | 1 +
+>  2 files changed, 3 insertions(+)
+> 
+> diff --git a/drivers/of/address.c b/drivers/of/address.c
+> index 286f0c161e332..1a0229ee4e0b2 100644
+> --- a/drivers/of/address.c
+> +++ b/drivers/of/address.c
+> @@ -811,6 +811,8 @@ struct of_pci_range *of_pci_range_parser_one(struct of_pci_range_parser *parser,
+>  	else
+>  		range->cpu_addr = of_translate_address(parser->node,
+>  				parser->range + na);
+> +
+> +	range->parent_bus_addr = of_read_number(parser->range + na, parser->pna);
+>  	range->size = of_read_number(parser->range + parser->pna + na, ns);
+>  
+>  	parser->range += np;
+> diff --git a/include/linux/of_address.h b/include/linux/of_address.h
+> index 26a19daf0d092..13dd79186d02c 100644
+> --- a/include/linux/of_address.h
+> +++ b/include/linux/of_address.h
+> @@ -26,6 +26,7 @@ struct of_pci_range {
+>  		u64 bus_addr;
+>  	};
+>  	u64 cpu_addr;
+> +	u64 parent_bus_addr;
+>  	u64 size;
+>  	u32 flags;
+>  };
+> 
+> -- 
+> 2.34.1
+> 
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-tegra.c b/drivers/n=
-et/ethernet/stmicro/stmmac/dwmac-tegra.c
-index 3827997d2132..dc903b846b1b 100644
-=2D-- a/drivers/net/ethernet/stmicro/stmmac/dwmac-tegra.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-tegra.c
-@@ -1,4 +1,5 @@
- // SPDX-License-Identifier: GPL-2.0-only
-+#include <linux/iommu.h>
- #include <linux/platform_device.h>
- #include <linux/of.h>
- #include <linux/module.h>
-@@ -19,6 +20,8 @@ struct tegra_mgbe {
- 	struct reset_control *rst_mac;
- 	struct reset_control *rst_pcs;
-
-+	u32 iommu_sid;
-+
- 	void __iomem *hv;
- 	void __iomem *regs;
- 	void __iomem *xpcs;
-@@ -50,7 +53,6 @@ struct tegra_mgbe {
- #define MGBE_WRAP_COMMON_INTR_ENABLE	0x8704
- #define MAC_SBD_INTR			BIT(2)
- #define MGBE_WRAP_AXI_ASID0_CTRL	0x8400
--#define MGBE_SID			0x6
-
- static int __maybe_unused tegra_mgbe_suspend(struct device *dev)
- {
-@@ -84,7 +86,7 @@ static int __maybe_unused tegra_mgbe_resume(struct devic=
-e *dev)
- 	writel(MAC_SBD_INTR, mgbe->regs + MGBE_WRAP_COMMON_INTR_ENABLE);
-
- 	/* Program SID */
--	writel(MGBE_SID, mgbe->hv + MGBE_WRAP_AXI_ASID0_CTRL);
-+	writel(mgbe->iommu_sid, mgbe->hv + MGBE_WRAP_AXI_ASID0_CTRL);
-
- 	value =3D readl(mgbe->xpcs + XPCS_WRAP_UPHY_STATUS);
- 	if ((value & XPCS_WRAP_UPHY_STATUS_TX_P_UP) =3D=3D 0) {
-@@ -241,6 +243,12 @@ static int tegra_mgbe_probe(struct platform_device *p=
-dev)
- 	if (IS_ERR(mgbe->xpcs))
- 		return PTR_ERR(mgbe->xpcs);
-
-+	/* get controller's stream id from iommu property in device tree */
-+	if (!tegra_dev_iommu_get_stream_id(mgbe->dev, &mgbe->iommu_sid)) {
-+		dev_err(mgbe->dev, "failed to get iommu stream id\n");
-+		return -EINVAL;
-+	}
-+
- 	res.addr =3D mgbe->regs;
- 	res.irq =3D irq;
-
-@@ -346,7 +354,7 @@ static int tegra_mgbe_probe(struct platform_device *pd=
-ev)
- 	writel(MAC_SBD_INTR, mgbe->regs + MGBE_WRAP_COMMON_INTR_ENABLE);
-
- 	/* Program SID */
--	writel(MGBE_SID, mgbe->hv + MGBE_WRAP_AXI_ASID0_CTRL);
-+	writel(mgbe->iommu_sid, mgbe->hv + MGBE_WRAP_AXI_ASID0_CTRL);
-
- 	plat->flags |=3D STMMAC_FLAG_SERDES_UP_AFTER_PHY_LINKUP;
-
-=2D-
-2.47.0
-
+-- 
+மணிவண்ணன் சதாசிவம்
 
