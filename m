@@ -4,111 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3367FD68BC6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 15:11:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E3BD68BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Nov 2024 15:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLE+UOTS7yHdog6ETbMGcYAEjTIcnW2Hb1xbsSa24qU=; b=2nntf38xq6lu1s0caoW1ANWJrX
-	ZHuy+QDeDnMmvqMFC0knovxLjLmarbxcHqTES2kgSsKuoFeEpIo9hcWhbpcEP2zBOOgKVGzCzq/2I
-	4KZ8KnVbfYchGBcsBfrhlow9DGKq6KzFyoxcL8wA8JW+fYkHdKHSaO9k6zJNZ34hwlkyL5iY9axG+
-	OrEEhUyML0gYhj1xut+chZhC3rtg4CDxUG14EKhnJyvtJbW/gwKseib7gsWapCgC5E7o/hfT117F/
-	Ym8pViMit4tkYygoFTogeOzv8rsa4zi9quDxPkMHsOSBW2fKz4uwo1ulX3IAZQe5X8qUr3CG2A4ZT
-	0OpLKxRA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nk174AGwbrN2iQ6lu65t+DAZ0jlZZM5p3WBAEQT210c=; b=dhyuqlwsh8BtsAD9IGQPFD19WT
+	0Fx+/L8baa7SWlEDVK+7s3XHl3yGRoaWpVH2KkZ5MNGP/YuFw+oqVRvHtIubc3d5xubdJDHuhwfHg
+	LnWM7+bdmE0YJ5xeeEHq6WrGkc+unWWuMEl0Ja7bSyzw2JUemLd0Y8JAPRnd6UboMiDbYbqeBX9Y9
+	Fgm7skvCxJT1JNQyV6Y9q0TWhwIJoFa7dkenbVQA4bZkT9fiADlZut+K4JIvyH1SpNsccYaONLQ00
+	rkGc44qvONQNxOKRsdUyURYnCtAJvMYdpG6eJ+qRqvGvWRZt0bm1noiHLs39kJfGVcslkiktWfvl/
+	nZLNz01g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBxyS-000000036x6-10JN;
-	Fri, 15 Nov 2024 15:11:04 +0000
-Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
+	id 1tBy0D-000000037Ik-3n3s;
+	Fri, 15 Nov 2024 15:12:53 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBxxV-000000036nF-3tAb
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Nov 2024 15:10:07 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 0B88D2540176;
-	Fri, 15 Nov 2024 10:10:02 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Fri, 15 Nov 2024 10:10:02 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1731683401;
-	 x=1731769801; bh=nLE+UOTS7yHdog6ETbMGcYAEjTIcnW2Hb1xbsSa24qU=; b=
-	nOXSJWzhDQ7uEdSXslDHBBwBRSTNC8fnK/NE/YQCB6PI/LdSdoPJ2JKAQIvUpeVw
-	+Q794Wy/0b76KSlKhJNHNQ25mJhL8725nuoWbTKcZ9NMI2TRQaOdF7p8RM58Bad2
-	HWluM9ucfcS+fB5MkBIJ51JOOJyNCz6gpla1WLh6uM6aZOuSj8EUd6tTF2QPr/YM
-	p7jncsqs3egS4TVeh8djL6TZBF/wor//7nQYrQd4ZHGSsAmxokbA+9QwtjLMHFew
-	OgIQetlun9Gc+1dt0cBnUaPaKTbwRiUqUcwcxKcEKa7oQA9KU7vh0dTgmwxMNetQ
-	u+FrkHosWsrrGZhk2WMdyw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1731683401; x=
-	1731769801; bh=nLE+UOTS7yHdog6ETbMGcYAEjTIcnW2Hb1xbsSa24qU=; b=d
-	eXa/HdnRwNcPVOz9naGBFMhieyx9xKP+9Lb270gD7hW6j+bE7mY/xtgIM8Hv4Rio
-	v/0HlWHx6Te0u9/j+jcM3nPsZIMYSmQTkxWaJ5KgYlmFUYe0zDoInZCr3LTtPbQP
-	28fTozk4Zv2EsVLtBmhgy0TkCiCnGv0VL6ve38KdZ10VYLeCyVZ/ws6z1dspiwPt
-	ipftlke+cQaItb4XA22Z/uIqtc/DTImPhhsF3f54uKMUDqnc5m1ryDiM3L89zseI
-	77oACeSe2jaOEFwU7yUfjs/vI+Sj4Al/Ixd8AvZZnhxgMuJVeVp0riNu83zuC2CR
-	4SHVJAwdKDfBSQp+WbXuA==
-X-ME-Sender: <xms:SWQ3Z7wC3cCbw6nUGAgMVd46TBZ5uAnOYaBtv2ddjcS2KPAwRDVW4A>
-    <xme:SWQ3ZzQu1YPT3qeD89nLlInWzRzg6HSfp447g4iPk0vUfodpruAxYqefN2dPww9nA
-    1-lKW69DRMLP1dyYes>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrvdeggdejtdcutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
-    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
-    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
-    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
-    gvqeenucggtffrrghtthgvrhhnpeelheevjeevgffhteeiveffgedtvedvteekleefgeel
-    ffeuvefhudetieehgfelveenucffohhmrghinhepsghlrghiiigvrdgtohhmpdhkvghrnh
-    gvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhr
-    ohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopedugedpmhhouggvpe
-    hsmhhtphhouhhtpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdr
-    tghomhdprhgtphhtthhopehjrghmvghsrdgtohifghhilhhlsegslhgrihiivgdrtghomh
-    dprhgtphhtthhopehmrghtthhhvgifrdhrvggufhgvrghrnhessghlrghiiigvrdgtohhm
-    pdhrtghpthhtohepnhgvihhlrdhjohhnvghssegslhgrihiivgdrtghomhdprhgtphhtth
-    hopehnihhkohhlrghoshdrphgrshgrlhhouhhkohhssegslhgrihiivgdrtghomhdprhgt
-    phhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhrii
-    hkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdr
-    ohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:SWQ3Z1W8l1AmoJ--C8_Z8WY90ySNt3vYnVjiEucoY3qO6S5pgP253A>
-    <xmx:SWQ3Z1j6Dj1RHATybGvOg7F4c4dmq8pULORdF6D3npJ_sZLxehL3wA>
-    <xmx:SWQ3Z9Brr8nDHRZLRI4_Ug5OfGNuUoDSsO6cgWWv7rUPLMdPpu57UQ>
-    <xmx:SWQ3Z-JjNL-O0kEz6pY9YJ7r-GojJ5UZ5ISMJix1UO9-zW6qgpMJEA>
-    <xmx:SWQ3Z1wtsBDS6K2uC0fhZz913LWUaa_TbAZd4LA3dHMmlZTgXu49Y6NN>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 46E032220072; Fri, 15 Nov 2024 10:10:01 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tBxzJ-0000000379z-0ykd;
+	Fri, 15 Nov 2024 15:11:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=nk174AGwbrN2iQ6lu65t+DAZ0jlZZM5p3WBAEQT210c=; b=2oiJfz2PsPaSVvAFd/OOAOWE9i
+	04gX2fak00SItozpZvfRKoQVQPDAg+TqJPLjy3Yf35Q/4wumcBHRVS5dkoQULujJU4Ligq/XI5H1H
+	MfWmVd+Nk58nZjqvJUp4ooBzGefeQPkx2Qf1S+fhSNyd2S3T7/NY16r/pYe6gSyMkgd05QvCVHCfZ
+	/CWAK2cC6vcUez7l7Uvi0T4fhZapXNnXdM9kRAkTsEsPuV/KTQp1sxmtLW3WcRkmzAKAg8yoMQ6sq
+	No1uZbmGJwUDon5wSTkVfwAyLTofPYWsgWWAeW/CBByIsft0295JLpJioFTu6c4+c8R6XT1e5Lslu
+	eAo6tqSw==;
+Received: from i53875a30.versanet.de ([83.135.90.48] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tBxz5-0002mM-O9; Fri, 15 Nov 2024 16:11:43 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: quentin.schulz@theobroma-systems.com,
+	hjc@rock-chips.com,
+	andy.yan@rock-chips.com,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	sebastian.reichel@collabora.com,
+	Heiko Stuebner <heiko.stuebner@cherry.de>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Andy Yan <andyshrk@163.com>
+Subject: [PATCH v2] drm/rockchip: vop2: fix rk3588 dp+dsi maxclk verification
+Date: Fri, 15 Nov 2024 16:11:31 +0100
+Message-ID: <20241115151131.416830-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Date: Fri, 15 Nov 2024 16:09:30 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Niko Pasaloukos" <nikolaos.pasaloukos@blaize.com>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "James Cowgill" <james.cowgill@blaize.com>,
- "Matt Redfearn" <matthew.redfearn@blaize.com>,
- "Neil Jones" <neil.jones@blaize.com>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Olof Johansson" <olof@lixom.net>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "soc@lists.linux.dev" <soc@lists.linux.dev>
-Message-Id: <141c7d39-9f0e-4c1c-86c5-149328ab979a@app.fastmail.com>
-In-Reply-To: <20241115-blaize-blzp1600_init_board_support-v5-0-c09094e63dc5@blaize.com>
-References: <20241115-blaize-blzp1600_init_board_support-v5-0-c09094e63dc5@blaize.com>
-Subject: Re: [PATCH v5 0/6] Add support for Blaize BLZP1600 SoC
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_071006_354214_E05AEF31 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20241115_071157_260541_242E0705 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,49 +79,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 15, 2024, at 15:58, Niko Pasaloukos wrote:
-> Blaize, Inc. (www.blaize.com) is a SoC designer and manufacturer
-> with integrated programmable Graph-Streaming-Processors for AI
-> and ML. This series adds support for the Blaize BLZP1600 SoC.
->
-> The SoC can run as either a PCIe based accelerator in a host
-> system, or as a stand alone SoC running Linux on its integrated
-> dual core ARM Cortex A53 cluster.
->
-> The SoC includes a suite of peripherals, support for which will
-> be added later.
->
-> This first series is just the basics to get the upstream
-> kernel to boot with a UART console and ARM SCMI based
-> clocks and resets.
->
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-Hi Niko,
+The clock is in Hz while the value checked against is in kHz, so
+actual frequencies will never be able to be below to max value.
+Fix this by specifying the max-value in Hz too.
 
-This version looks good to me, but it's likely that others
-still have review comments. Either way I should let you know
-of the next steps for merging the series.
+Fixes: 5a028e8f062f ("drm/rockchip: vop2: Add support for rk3588")
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Acked-by: Andy Yan<andyshrk@163.com>
+---
+changes in v2:
+- drop the separate vp3-config patch, as vp3 will always get the leftover
+  resources, so _should_ be fine (Andy)
+- fix error output to also report Hz for the value in Hz (Quentin)
+- add received Reviews+Acks
 
-Since the 6.13 development cycle is now over (the
-merge window starts once Linus publishes 6.12
-this weekend), the earliest release to merge this
-into is now 6.14.
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-Once 6.13-rc1 is out and the patch review is complete,
-you can submit the patches for inclusion by sending
-to:soc@lists.linux.dev (formerly soc@kernel.org).
-This is usually done as a pull request, but separate
-patches are fine as well, especially if you don't yet
-have a kernel.org account.
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 9ad025aa9ab0..0c8ec7220fbe 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1864,9 +1864,9 @@ static unsigned long rk3588_calc_cru_cfg(struct vop2_video_port *vp, int id,
+ 		else
+ 			dclk_out_rate = v_pixclk >> 2;
+ 
+-		dclk_rate = rk3588_calc_dclk(dclk_out_rate, 600000);
++		dclk_rate = rk3588_calc_dclk(dclk_out_rate, 600000000);
+ 		if (!dclk_rate) {
+-			drm_err(vop2->drm, "DP dclk_out_rate out of range, dclk_out_rate: %ld KHZ\n",
++			drm_err(vop2->drm, "DP dclk_out_rate out of range, dclk_out_rate: %ld Hz\n",
+ 				dclk_out_rate);
+ 			return 0;
+ 		}
+@@ -1881,9 +1881,9 @@ static unsigned long rk3588_calc_cru_cfg(struct vop2_video_port *vp, int id,
+ 		 * dclk_rate = N * dclk_core_rate N = (1,2,4 ),
+ 		 * we get a little factor here
+ 		 */
+-		dclk_rate = rk3588_calc_dclk(dclk_out_rate, 600000);
++		dclk_rate = rk3588_calc_dclk(dclk_out_rate, 600000000);
+ 		if (!dclk_rate) {
+-			drm_err(vop2->drm, "MIPI dclk out of range, dclk_out_rate: %ld KHZ\n",
++			drm_err(vop2->drm, "MIPI dclk out of range, dclk_out_rate: %ld Hz\n",
+ 				dclk_out_rate);
+ 			return 0;
+ 		}
+-- 
+2.45.2
 
-After the entry to the MAINTAINERS file is merged,
-I suggest you also apply for a kernel.org account,
-see [1]. You probably also read the documentation at
-[2] about the usual process, let me know if you
-have questions about that.
-
-       Arnd
-
-[1] https://korg.docs.kernel.org/accounts.html
-[2] https://www.kernel.org/doc/Documentation/process/maintainer-soc.rst
 
