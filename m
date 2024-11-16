@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48797D68BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Nov 2024 02:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFE5D68BDD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Nov 2024 03:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rsOFc6XM0L9uhjU6B+P/mFrxYDnmPbomxjPnr3e+ghw=; b=pwkzwzA39SQU4WKCpBjAS8sIjn
-	n2TtTmS68FrRJacU6eaXTKRUXPOwB1wHA2nLDExqXiu3mE4DgMHoalN//+JsYzbiYWLMeS0/sMd1z
-	R0TbKOteC4pqOL9vG09LcQyDeG9jnKAJNiN/v+VhvFqISLHNJ3gkSx7/23qSv9k25L02NkU1sJ5w9
-	8uwGkKZqIcO3orzxeE/Sb4TEWXAw2qW4z5GQ3+fiKxv7GIMAWaliGotkhhN2xjeGdVVH5Dv3zqFdK
-	N9vCQgcUvq2ct33DCwHPORTsSKlhVhPizMLbRyFuS38uoiiFZfIxMvY/OaCwOwMpMbzx/amw1PHaz
-	5uZAa3oQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jyE1TmMPT0e6QcpIdQiLG7N3lYLomH/9k2iReYPekIE=; b=ueFGq3WCzxAxALha0IDgf3Ifva
+	a51QmsS91GzaUrhErASnOUD/9WCoZTtf4Wh+BGAyMymhSKdsGcOP9WPwVwvDGHwZ4KJNvTxT5UQ25
+	lmXTAQbgg/hIj2jdKxWy/nTn5whesrsxjWyvVLw9kREJnU0Ssiufr/fJKDDvKC+0Dfay0L9rE1T0+
+	Jx1ohqtnMMiTKzryoHRFxc2foTORZ1fdF7m/mgRdANJ5Aj9wihUQNB6etdE/fSYhHtEM8WweNd3Wt
+	Gd1hUleW5bDETJ31w7TtjN2pjxM7iVnYP2BlT4kcy41ugieqH6ZbG01wm48jqS/Lfk35fN4mlT23q
+	l9gY+XVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC8xD-00000004pOu-0Fyw;
-	Sat, 16 Nov 2024 02:54:31 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1tC9JK-00000004r4E-0Xjd;
+	Sat, 16 Nov 2024 03:17:22 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC8wH-00000004pKB-0jsG
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Nov 2024 02:53:34 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Xqz1t4yNzz21kVN;
-	Sat, 16 Nov 2024 10:52:02 +0800 (CST)
-Received: from kwepemd200012.china.huawei.com (unknown [7.221.188.145])
-	by mail.maildlp.com (Postfix) with ESMTPS id 23645140109;
-	Sat, 16 Nov 2024 10:53:20 +0800 (CST)
-Received: from [10.67.121.115] (10.67.121.115) by
- kwepemd200012.china.huawei.com (7.221.188.145) with Microsoft SMTP Server
+	id 1tC9IO-00000004qrQ-3eaY;
+	Sat, 16 Nov 2024 03:16:25 +0000
+X-UUID: 26e5d7d6a3c911ef9048ed6ed365623b-20241115
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=jyE1TmMPT0e6QcpIdQiLG7N3lYLomH/9k2iReYPekIE=;
+	b=YSYVq0FP8+iJZsp+zxJLadZ9nkS4vHd0e06eZ30oYTQhSQFNk2fRVgMI6bcc5AapXCgxQY2ZOVNQZX473rcJ8DsqRmZ7t1znGlpz+zhRzInXXN0I0YYEnL8C2+rvXsLp1i0VUMbAxT5HWP5AAVFYVzHTRSHMl4gDm/5bYL0laEc=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.43,REQID:3a233e0a-b24f-46db-bd7e-ed7d7a80085f,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:ce19b8a,CLOUDID:7d162a07-6ce0-4172-9755-bd2287e50583,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 26e5d7d6a3c911ef9048ed6ed365623b-20241115
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+	(envelope-from <yunfei.dong@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1926407603; Fri, 15 Nov 2024 20:16:20 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Sat, 16 Nov 2024 10:53:19 +0800
-Message-ID: <ae8ff0db-480b-0d7d-e2b9-ec81130e789d@hisilicon.com>
-Date: Sat, 16 Nov 2024 10:53:18 +0800
+ 15.2.1118.26; Sat, 16 Nov 2024 11:16:18 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Sat, 16 Nov 2024 11:16:17 +0800
+From: Yunfei Dong <yunfei.dong@mediatek.com>
+To: =?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?=
+	<nfraprado@collabora.com>, Sebastian Fricke <sebastian.fricke@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Hans Verkuil
+	<hverkuil-cisco@xs4all.nl>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Benjamin Gaignard
+	<benjamin.gaignard@collabora.com>, Nathan Hebert <nhebert@chromium.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>
+CC: Hsin-Yi Wang <hsinyi@chromium.org>, Fritz Koenig <frkoenig@chromium.org>,
+	Daniel Vetter <daniel@ffwll.ch>, Steve Cho <stevecho@chromium.org>, Yunfei
+ Dong <yunfei.dong@mediatek.com>, <linux-media@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v6 0/3] media: mediatek: vcodec: support h264 extend vsi
+Date: Sat, 16 Nov 2024 11:16:09 +0800
+Message-ID: <20241116031616.15656-1-yunfei.dong@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH v4] irqchip/gicv3-its: Add workaround for hip09 ITS
- erratum 162100801
-Content-Language: en-US
-To: Thomas Gleixner <tglx@linutronix.de>, <maz@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<wangwudi@hisilicon.com>, <prime.zeng@hisilicon.com>, Nianyao Tang
-	<tangnianyao@huawei.com>
-References: <20241114082813.3865466-1-wangzhou1@hisilicon.com>
- <87msi0yscp.ffs@tglx>
-From: Zhou Wang <wangzhou1@hisilicon.com>
-In-Reply-To: <87msi0yscp.ffs@tglx>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.115]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemd200012.china.huawei.com (7.221.188.145)
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_185333_376897_A321F9D1 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241115_191624_919105_A12145D3 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,49 +92,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/11/16 7:44, Thomas Gleixner wrote:
-> On Thu, Nov 14 2024 at 16:28, Zhou Wang wrote:
-> 
->> When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
->> during unmapping operation, which will cause some vSGIs lost.
->>
->> To fix the issue, invalidate related vPE cache through GICR_INVALLR
->> after VMOVP.
->>
->> Suggested-by: Marc Zyngier <maz@kernel.org>
->> Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
->> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
-> 
-> This Signed-off-by chain is incorrect. Who authored the patch?
-> 
-> If Nianyao is the author then the changelog lacks a
-> 
->    From: Nianyao ....
-> 
-> line right at the top.
-> 
-> If you both authored it, then this lacks a Co-developed-by tag.
-> 
-> See Documentation/process/... for further explanation.
+The working buffer address start and end are calculated in kernel
+side currently, the address end can't be calculated if the driver
+only getting the address file handle, not the real physical address.
+Need to send the extended vsi to firmware to calculate the address
+end.
 
-Hi Thomas，
+Re-construct some interface and add configuration to support extend
+and non extend driver at the same time. Needn't to parse nal info for
+extended architecture.
+---
+compared with v5:
+- add some parameters comment for patch 2
 
-Thanks for pointing this.
+compared with v4:
+- rebase this patch series with latest vcodec driver
 
-We both author it, I will add a Co-developed-by tag like below and resend it:
+compared with v3:
+- change code logic with callback to decode for patch 2
 
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Co-developed-by: Nianyao Tang <tangnianyao@huawei.com>
-Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
-Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
-Reviewed-by: Marc Zyngier <maz@kernel.org>
+compared with v2:
+- squash patch 2/3/4 together
+- re-write commit message for patch 1
 
-Best,
-Zhou
+compared with v1:
+- combine some pathes together for patch 2
+- re-write patch 4
+---
+Yunfei Dong (3):
+  media: mediatek: vcodec: remove vsi operation in common interface
+  media: mediatek: vcodec: support extended h264 decode
+  media: mediatek: vcodec: add description for vsi struct
 
-> 
-> Thanks,
-> 
->         tglx
-> .
+ .../vcodec/decoder/mtk_vcodec_dec_drv.h       |   2 +
+ .../decoder/vdec/vdec_h264_req_multi_if.c     | 593 ++++++++++++++++--
+ 2 files changed, 528 insertions(+), 67 deletions(-)
+
+-- 
+2.46.0
+
 
