@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1EC0D68BDF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Nov 2024 08:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F7DD68BD2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Nov 2024 10:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gIUtkMDYSFIBO2VOuAbr5SSqMTiPnSn1asYr+BSGLis=; b=YxENU21qVDIATRdMAyDRmfcBIJ
-	LMVZ29cRSg1npWeAZEPDAcDX5YAel+K5DOjJcPf2BB6BPanPmAQqUGRBb0vWxGq3PSfQGbeLrCXwv
-	WfB1RULRBzgxmCxsRQ7DjUrI8DQcyL9r2KrnfxIgjRbXNDrRU9YOOPwp7RPe62ZyFrj9CgLuJYIS5
-	Gup1dijLDI8S9Vntg0ZR0gzI2inHGixVnzp1uyU94102bwJvtz3S1fK8nM2utoX30zHPJokCUv2Eg
-	7+YI2A0uNcDYVjuj8ZtFZ8jr4hLDjBQ+3nPAg1PQ5kwyZzklRWc08UP1kI5yoD5vwRes33ehOsDM3
-	69adlCnQ==;
+	bh=EiKywmX11up7vzxh9wOVcX/xRjapeyihgtiC9Dahg/Q=; b=OG4383ypvul/HngOXJiz31lv62
+	IdcQVLwspYyrqJ/T6siEwhaA/zFeOamEA2+M3fKkgkiUFDpHgowZPKeji2rLrQimFflKdl7+KuS2W
+	fspnjIjTgoYfKqwcd4av80DMJIQcUMyCbaRHiqV7ZzH59HY8r8VLIjQAtCv8wKlcEV0fJYMzMdfr/
+	7A1JqkYyBUsxgGqrGC3pfjBxzbsWBIgr6FsesXuVhWWL64MBxQcf7nBCZaw82QqbcZJce+HH68Bkp
+	tYYDRcVsfjcNTdtTJ8T4/4kVlPt04srGBDqt5cPbpSSUqbROKXee0lpmkfsBLzh8pPZGCmpHxqu4B
+	z+3zFgnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCE7k-00000005ECM-3E2z;
-	Sat, 16 Nov 2024 08:25:44 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tCG7w-00000005PfA-38QH;
+	Sat, 16 Nov 2024 10:34:04 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCE1t-00000005DCw-32n6;
-	Sat, 16 Nov 2024 08:19:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0C9AD5C4A77;
-	Sat, 16 Nov 2024 08:18:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 711AAC4CEC3;
-	Sat, 16 Nov 2024 08:19:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731745180;
-	bh=5ckEAFt3DCXgUGzrfG8vGUMcL5UShRW6eE3OUEf8DWo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=PHDw2jUn3ctkoH1Bf8Glb8QZo2OPAuZJaGTG7vPfibtyxjLOQiCuVCsGyzsPwbOX6
-	 XB6d99IK7HwSlgSHOwTylt7T+sI6dTABaHdgo19bW7Wq5kGcLGwBdSelmGHkxS6KkI
-	 WiDncig5kE5mXrxpaT+V2Cxbx3RQdgmWOVx0r5se2XMsqkrp9QODGvwQWtBPzqzrfM
-	 4GtSHbZ4XK2HY7qCBXCh17Bf57Uz53TMWL7zjiN9yCe3KKwzxZrroWjO8n6PmNfQdI
-	 xeZAg26j8FtuIB/x2xDJTXqa6h/vl4Fq0wLopnpw/Hh09kUiBFnjaXZ59daii1SJuk
-	 r8wLNAvQl1oWg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sat, 16 Nov 2024 09:18:27 +0100
-Subject: [PATCH v3 6/6] PCI: mediatek-gen3: rely on msleep() in
- mtk_pcie_en7581_power_up()
+	id 1tCG6x-00000005PXS-1mWX
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 16 Nov 2024 10:33:08 +0000
+Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4Xr9Fm6mkmz9sSV;
+	Sat, 16 Nov 2024 11:33:00 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id RtqYPDBAnn-D; Sat, 16 Nov 2024 11:33:00 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4Xr9Fm5fYzz9sST;
+	Sat, 16 Nov 2024 11:33:00 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id A84AA8B7A0;
+	Sat, 16 Nov 2024 11:33:00 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id Ln_6XnRxJZel; Sat, 16 Nov 2024 11:33:00 +0100 (CET)
+Received: from [192.168.232.159] (POS169858.IDSI0.si.c-s.fr [192.168.232.159])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 3ED8D8B763;
+	Sat, 16 Nov 2024 11:33:00 +0100 (CET)
+Message-ID: <3f9dbb7b-6527-48e1-9028-b46e5a0c58ce@csgroup.eu>
+Date: Sat, 16 Nov 2024 11:33:00 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241116-pcie-en7581-fixes-v3-6-f7add3afc27e@kernel.org>
-References: <20241116-pcie-en7581-fixes-v3-0-f7add3afc27e@kernel.org>
-In-Reply-To: <20241116-pcie-en7581-fixes-v3-0-f7add3afc27e@kernel.org>
-To: Ryder Lee <ryder.lee@mediatek.com>, 
- Jianjun Wang <jianjun.wang@mediatek.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>
-Cc: linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] bus: fsl-mc: Remove deadcode
+To: linux@treblig.org, ioana.ciornei@nxp.com, stuyoder@gmail.com
+Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241115152055.279732-1-linux@treblig.org>
+Content-Language: fr-FR
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+In-Reply-To: <20241115152055.279732-1-linux@treblig.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241116_001941_826113_5826613E 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20241116_023303_617262_43BFAE53 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +78,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since mtk_pcie_en7581_power_up() runs in non-atomic context, rely on
-msleep() routine instead of mdelay().
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/pci/controller/pcie-mediatek-gen3.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index 795f134e1970c504e8d9588c09a9c3ff51e5397e..aaec0cb6cc1c016d049e8a88148870de560b9ce2 100644
---- a/drivers/pci/controller/pcie-mediatek-gen3.c
-+++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -926,7 +926,7 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
- 	 * Wait for the time needed to complete the bulk assert in
- 	 * mtk_pcie_setup for EN7581 SoC.
- 	 */
--	mdelay(PCIE_EN7581_RESET_TIME_MS);
-+	msleep(PCIE_EN7581_RESET_TIME_MS);
- 
- 	/*
- 	 * Unlike the MediaTek controllers, the Airoha EN7581 requires PHY
-@@ -954,7 +954,7 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
- 	 * Wait for the time needed to complete the bulk de-assert above.
- 	 * This time is specific for EN7581 SoC.
- 	 */
--	mdelay(PCIE_EN7581_RESET_TIME_MS);
-+	msleep(PCIE_EN7581_RESET_TIME_MS);
- 
- 	/* MAC power on and enable transaction layer clocks */
- 	reset_control_deassert(pcie->mac_reset);
+Le 15/11/2024 à 16:20, linux@treblig.org a écrit :
+> [Vous ne recevez pas souvent de courriers de linux@treblig.org. Découvrez pourquoi ceci est important à https://aka.ms/LearnAboutSenderIdentification ]
+> 
+> From: "Dr. David Alan Gilbert" <linux@treblig.org>
+> 
+> fsl_mc_allocator_driver_exit() was added explicitly by
+> commit 1e8ac83b6caf ("bus: fsl-mc: add fsl_mc_allocator cleanup function")
+> but was never used.
+> 
+> Remove it.
+> 
+> fsl_mc_portal_reset() was added in 2015 by
+> commit 197f4d6a4a00 ("staging: fsl-mc: fsl-mc object allocator driver")
+> but was never used.
+> 
+> Remove it.
+> 
+> fsl_mc_portal_reset() was the only caller of dpmcp_reset().
+> 
+> Remove it.
+> 
+> Signed-off-by: Dr. David Alan Gilbert <linux@treblig.org>
 
--- 
-2.47.0
+Acked-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 
+> ---
+>   drivers/bus/fsl-mc/dpmcp.c            | 22 ----------------------
+>   drivers/bus/fsl-mc/fsl-mc-allocator.c |  5 -----
+>   drivers/bus/fsl-mc/fsl-mc-private.h   |  6 ------
+>   drivers/bus/fsl-mc/mc-io.c            | 20 --------------------
+>   include/linux/fsl/mc.h                |  2 --
+>   5 files changed, 55 deletions(-)
+> 
+> diff --git a/drivers/bus/fsl-mc/dpmcp.c b/drivers/bus/fsl-mc/dpmcp.c
+> index 5fbd0dbde24a..7816c0a728ef 100644
+> --- a/drivers/bus/fsl-mc/dpmcp.c
+> +++ b/drivers/bus/fsl-mc/dpmcp.c
+> @@ -75,25 +75,3 @@ int dpmcp_close(struct fsl_mc_io *mc_io,
+>          /* send command to mc*/
+>          return mc_send_command(mc_io, &cmd);
+>   }
+> -
+> -/**
+> - * dpmcp_reset() - Reset the DPMCP, returns the object to initial state.
+> - * @mc_io:     Pointer to MC portal's I/O object
+> - * @cmd_flags: Command flags; one or more of 'MC_CMD_FLAG_'
+> - * @token:     Token of DPMCP object
+> - *
+> - * Return:     '0' on Success; Error code otherwise.
+> - */
+> -int dpmcp_reset(struct fsl_mc_io *mc_io,
+> -               u32 cmd_flags,
+> -               u16 token)
+> -{
+> -       struct fsl_mc_command cmd = { 0 };
+> -
+> -       /* prepare command */
+> -       cmd.header = mc_encode_cmd_header(DPMCP_CMDID_RESET,
+> -                                         cmd_flags, token);
+> -
+> -       /* send command to mc*/
+> -       return mc_send_command(mc_io, &cmd);
+> -}
+> diff --git a/drivers/bus/fsl-mc/fsl-mc-allocator.c b/drivers/bus/fsl-mc/fsl-mc-allocator.c
+> index b5e8c021fa1f..6c3beb82dd1b 100644
+> --- a/drivers/bus/fsl-mc/fsl-mc-allocator.c
+> +++ b/drivers/bus/fsl-mc/fsl-mc-allocator.c
+> @@ -656,8 +656,3 @@ int __init fsl_mc_allocator_driver_init(void)
+>   {
+>          return fsl_mc_driver_register(&fsl_mc_allocator_driver);
+>   }
+> -
+> -void fsl_mc_allocator_driver_exit(void)
+> -{
+> -       fsl_mc_driver_unregister(&fsl_mc_allocator_driver);
+> -}
+> diff --git a/drivers/bus/fsl-mc/fsl-mc-private.h b/drivers/bus/fsl-mc/fsl-mc-private.h
+> index b3520ea1b9f4..e1b7ec3ed1a7 100644
+> --- a/drivers/bus/fsl-mc/fsl-mc-private.h
+> +++ b/drivers/bus/fsl-mc/fsl-mc-private.h
+> @@ -66,10 +66,6 @@ int dpmcp_close(struct fsl_mc_io *mc_io,
+>                  u32 cmd_flags,
+>                  u16 token);
+> 
+> -int dpmcp_reset(struct fsl_mc_io *mc_io,
+> -               u32 cmd_flags,
+> -               u16 token);
+> -
+>   /*
+>    * Data Path Resource Container (DPRC) API
+>    */
+> @@ -631,8 +627,6 @@ int dprc_scan_objects(struct fsl_mc_device *mc_bus_dev,
+> 
+>   int __init fsl_mc_allocator_driver_init(void);
+> 
+> -void fsl_mc_allocator_driver_exit(void);
+> -
+>   void fsl_mc_init_all_resource_pools(struct fsl_mc_device *mc_bus_dev);
+> 
+>   void fsl_mc_cleanup_all_resource_pools(struct fsl_mc_device *mc_bus_dev);
+> diff --git a/drivers/bus/fsl-mc/mc-io.c b/drivers/bus/fsl-mc/mc-io.c
+> index 95b10a6cf307..a0ad7866cbfc 100644
+> --- a/drivers/bus/fsl-mc/mc-io.c
+> +++ b/drivers/bus/fsl-mc/mc-io.c
+> @@ -263,23 +263,3 @@ void fsl_mc_portal_free(struct fsl_mc_io *mc_io)
+>          dpmcp_dev->consumer_link = NULL;
+>   }
+>   EXPORT_SYMBOL_GPL(fsl_mc_portal_free);
+> -
+> -/**
+> - * fsl_mc_portal_reset - Resets the dpmcp object for a given fsl_mc_io object
+> - *
+> - * @mc_io: Pointer to the fsl_mc_io object that wraps the MC portal to free
+> - */
+> -int fsl_mc_portal_reset(struct fsl_mc_io *mc_io)
+> -{
+> -       int error;
+> -       struct fsl_mc_device *dpmcp_dev = mc_io->dpmcp_dev;
+> -
+> -       error = dpmcp_reset(mc_io, 0, dpmcp_dev->mc_handle);
+> -       if (error < 0) {
+> -               dev_err(&dpmcp_dev->dev, "dpmcp_reset() failed: %d\n", error);
+> -               return error;
+> -       }
+> -
+> -       return 0;
+> -}
+> -EXPORT_SYMBOL_GPL(fsl_mc_portal_reset);
+> diff --git a/include/linux/fsl/mc.h b/include/linux/fsl/mc.h
+> index c90ec889bfc2..37316a58d2ed 100644
+> --- a/include/linux/fsl/mc.h
+> +++ b/include/linux/fsl/mc.h
+> @@ -417,8 +417,6 @@ int __must_check fsl_mc_portal_allocate(struct fsl_mc_device *mc_dev,
+> 
+>   void fsl_mc_portal_free(struct fsl_mc_io *mc_io);
+> 
+> -int fsl_mc_portal_reset(struct fsl_mc_io *mc_io);
+> -
+>   int __must_check fsl_mc_object_allocate(struct fsl_mc_device *mc_dev,
+>                                          enum fsl_mc_pool_type pool_type,
+>                                          struct fsl_mc_device **new_mc_adev);
+> --
+> 2.47.0
+> 
 
