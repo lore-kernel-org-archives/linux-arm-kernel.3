@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAA5CD68BE7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Nov 2024 19:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85A4D68BE7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Nov 2024 19:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dmE8MJeWTk8bxqfJVKrL0wXJqPiElWsvJ7UCb/1ffyQ=; b=h65cL/BXLWz377+fRq5GV92vXJ
-	bpErRA+8HdR3IP7pr+JxARp4SwaDmvydsrVV6gYOZxfI5Vp4/UmFMbLMBI42qeZRB9TZ+5PMseU+G
-	i7IKH77Zj9QY8xL8WSgq/tHXQ/svbKe5b3zmfWvh+JXB4Lubl8L3uTs8svo1ImOmqwqMqXjz3FL0y
-	lzZA52dml8irkqSH7okDzdSGKHhlTdLiNyOk6sLw9OpfpI4O9dyJDEWvXiosH7o5J93WcYR+VA7/Q
-	ewd+ZMngbgcVaaaRxcuA1eflMfmyrZqhKFwix+NZsxfwlbjh4INOWOuGOrg7AbXKyWhDJImfVUoL7
-	k0slCI6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dn+2cDfRC1yH4NOcw8ysKYN7T3VzTAsD6jJX6tRQuE0=; b=0RuNctQ7i1zJO+as0daG38HVTw
+	eyWiZRiNc2ed2MYza0bENNJ4yfkBCK+Op7sxQi9PpflI9JytgDTXQ5Nos8l5UOzIGuGswvqc0ZLMd
+	+DVaTwYkj4aUYInpgRxWqNB3W/GQkSST8HrID2+KH09v1R6UwzYhIIijaxhNBZ7Srp6oopuurdyeb
+	8j2N0E8AmmMCMMqoBtrf39+RhqWm/FFu8BqKXiYjRVlvReRBQk7W1NrPD89aoFVcwQ2iUco2l+GhB
+	hkbQoFsXAUDn8wwn7E5j4BUJWPP+DNoWwgJRqooxdH/fc9h0qRpkXJ+PRZENIysPJZh/nfLco6MMS
+	5wRNXBhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCOFD-000000065aj-0IH0;
-	Sat, 16 Nov 2024 19:14:07 +0000
-Received: from smtp.forwardemail.net ([207.246.76.47])
+	id 1tCOOw-000000066X5-30sd;
+	Sat, 16 Nov 2024 19:24:10 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCOEG-000000065W1-3je1
+	id 1tCOO1-000000066Gp-1BAc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Nov 2024 19:13:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1731784352;
- bh=dmE8MJeWTk8bxqfJVKrL0wXJqPiElWsvJ7UCb/1ffyQ=;
- b=T7n+2asG+D+AIg0AIXwxwGvNHuGAYpGQDoOW1213jPP4LAk1yI5bqwdvVj9CxFhrf0gPfj+2G
- lejwXy8n/UPkai3wMnn+UtXLdYldQhjzrKhWC+ebAvAUce8kkPpHxhcWffsBrdwlfW0R1JspCD3
- sTIb0nPK3xutRjbCAiSK9XAnbfFvVMAEOkVG2UMsKNuRToQSEdE06kqLty9fHzteAvmmkmNXhzo
- 7uOXnrU81Ais54aFnkJyyLiw5PaNgTQvxt6tCv7mbG3vZr0SMzGLkkvsznSpbO1bAP3H6Okpqb8
- MY40XL43rcc2x2XfK3KyPFTOrXnqyfc4noypsiMIKGnA==
-Message-ID: <c79c1878-370d-45fa-a802-1d175498bb1c@kwiboo.se>
-Date: Sat, 16 Nov 2024 20:12:21 +0100
+	Sat, 16 Nov 2024 19:23:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=dn+2cDfRC1yH4NOcw8ysKYN7T3VzTAsD6jJX6tRQuE0=; b=gdRfOcvTKwxKkLKP+bQtMsvxeP
+	Zcxq1PDSbPRXkd6PvRH478+Xa11lrRN3cdrqac8/EN9m0pGru+9CaGqImJwB9y2vem4kTJ9INuRjQ
+	3BNTlCTAlH6WrvWOK3XO5BHaKsjGnmQlg/tFjALWn9OFuc6IOvE4cK8R+h+z/XuTo7NM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tCONh-00DXYh-Cb; Sat, 16 Nov 2024 20:22:53 +0100
+Date: Sat, 16 Nov 2024 20:22:53 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Parker Newman <parker@finest.io>
+Cc: Paolo Abeni <pabeni@redhat.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Parker Newman <pnewman@connecttech.com>
+Subject: Re: [PATCH v1 1/1] net: stmmac: dwmac-tegra: Read iommu stream id
+ from device tree
+Message-ID: <bb52bdc1-df2e-493d-a58f-df3143715150@lunn.ch>
+References: <cover.1731685185.git.pnewman@connecttech.com>
+ <f2a14edb5761d372ec939ccbea4fb8dfd1fdab91.1731685185.git.pnewman@connecttech.com>
+ <ed2ec1c2-65c7-4768-99f1-987e5fa39a54@redhat.com>
+ <20241115135940.5f898781.parker@finest.io>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] drm/rockchip: vop2: Improve display modes handling on
- RK3588 HDMI0
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com>
- <20241116-vop2-hdmi0-disp-modes-v1-3-2bca51db4898@collabora.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20241116-vop2-hdmi0-disp-modes-v1-3-2bca51db4898@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Report-Abuse-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-ForwardEmail-Version: 0.4.40
-X-ForwardEmail-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 207.246.76.47
-X-ForwardEmail-ID: 6738ee9c127e0383f31a82d6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241115135940.5f898781.parker@finest.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241116_111309_366831_DD189828 
-X-CRM114-Status: GOOD (  24.25  )
+X-CRM114-CacheID: sfid-20241116_112313_371552_520BBDA6 
+X-CRM114-Status: GOOD (  26.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,131 +83,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
-
-On 2024-11-16 19:22, Cristian Ciocaltea wrote:
-> The RK3588 specific implementation is currently quite limited in terms
-> of handling the full range of display modes supported by the connected
-> screens, e.g. 2560x1440@75Hz, 2048x1152@60Hz, 1024x768@60Hz are just a
-> few of them.
+On Fri, Nov 15, 2024 at 01:59:40PM -0500, Parker Newman wrote:
+> On Fri, 15 Nov 2024 18:17:07 +0100
+> Paolo Abeni <pabeni@redhat.com> wrote:
 > 
-> Additionally, it doesn't cope well with non-integer refresh rates like
-> 59.94, 29.97, 23.98, etc.
+> > On 11/15/24 17:31, Parker Newman wrote:
+> > > From: Parker Newman <pnewman@connecttech.com>
+> > >
+> > > Read the iommu stream id from device tree rather than hard coding to mgbe0.
+> > > Fixes kernel panics when using mgbe controllers other than mgbe0.
+> >
+> > It's better to include the full Oops backtrace, possibly decoded.
+> >
 > 
-> Make use of HDMI0 PHY PLL as a more accurate DCLK source to handle
-> all display modes up to 4K@60Hz.
+> Will do, there are many different ones but I can add the most common.
 > 
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 34 ++++++++++++++++++++++++++++
->  1 file changed, 34 insertions(+)
+> > > Tested with Orin AGX 64GB module on Connect Tech Forge carrier board.
+> >
+> > Since this looks like a fix, you should include a suitable 'Fixes' tag
+> > here, and specify the 'net' target tree in the subj prefix.
+> >
 > 
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> index 3e4c1cfd0bac6fa90f4cab85e27c2a69b86fc9aa..dfe1a50132d596f036430d7db3631398d0802972 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> @@ -158,6 +158,7 @@ struct vop2_video_port {
->  	struct drm_crtc crtc;
->  	struct vop2 *vop2;
->  	struct clk *dclk;
-> +	struct clk *dclk_src;
->  	unsigned int id;
->  	const struct vop2_video_port_data *data;
->  
-> @@ -212,6 +213,7 @@ struct vop2 {
->  	struct clk *hclk;
->  	struct clk *aclk;
->  	struct clk *pclk;
-> +	struct clk *pll_hdmiphy0;
->  
->  	/* optional internal rgb encoder */
->  	struct rockchip_rgb *rgb;
-> @@ -220,6 +222,8 @@ struct vop2 {
->  	struct vop2_win win[];
->  };
->  
-> +#define VOP2_MAX_DCLK_RATE		600000 /* kHz */
-> +
->  #define vop2_output_if_is_hdmi(x)	((x) == ROCKCHIP_VOP2_EP_HDMI0 || \
->  					 (x) == ROCKCHIP_VOP2_EP_HDMI1)
->  
-> @@ -1103,6 +1107,9 @@ static void vop2_crtc_atomic_disable(struct drm_crtc *crtc,
->  
->  	vop2_crtc_disable_irq(vp, VP_INT_DSP_HOLD_VALID);
->  
-> +	if (vp->dclk_src)
-> +		clk_set_parent(vp->dclk, vp->dclk_src);
-> +
->  	clk_disable_unprepare(vp->dclk);
->  
->  	vop2->enable_count--;
-> @@ -2192,6 +2199,27 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
->  
->  	vop2_vp_write(vp, RK3568_VP_MIPI_CTRL, 0);
->  
-> +	/*
-> +	 * Switch to HDMI PHY PLL as DCLK source for display modes up
-> +	 * to 4K@60Hz, if available, otherwise keep using the system CRU.
-> +	 */
-> +	if (vop2->pll_hdmiphy0 && mode->crtc_clock <= VOP2_MAX_DCLK_RATE) {
-> +		drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
-> +			struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
-> +
-> +			if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
-> +				if (!vp->dclk_src)
-> +					vp->dclk_src = clk_get_parent(vp->dclk);
-> +
-> +				ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
-> +				if (ret < 0)
-> +					drm_warn(vop2->drm,
-> +						 "Could not switch to HDMI0 PHY PLL: %d\n", ret);
-> +				break;
-> +			}
-> +		}
-> +	}
-
-Why do we need to do this dynamically here?
-
-The device tree set PLL_HPLL as parent:
-
-&vop {
-	assigned-clocks = <&cru DCLK_VOP0>, <&cru DCLK_VOP1>;
-	assigned-clock-parents = <&pmucru PLL_HPLL>, <&cru PLL_VPLL>;
-	status = "okay";
-};
-
-Could this not just be changed to assign hdptxphy_hdmi0 as parent?
-
-&vop {
-	assigned-clocks = <&cru DCLK_VOP0>, <&cru DCLK_VOP1>;
-	assigned-clock-parents = <&hdptxphy_hdmi0>, <&cru PLL_VPLL>;
-	status = "okay";
-};
-
-or something similar?
-
-For RK3328 the vop dclk parent is assigned to hdmiphy using DT.
-
-Regards,
-Jonas
-
-> +
->  	clk_set_rate(vp->dclk, clock);
->  
->  	vop2_post_config(crtc);
-> @@ -3355,6 +3383,12 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
->  		return PTR_ERR(vop2->pclk);
->  	}
->  
-> +	vop2->pll_hdmiphy0 = devm_clk_get_optional(vop2->dev, "pll_hdmiphy0");
-> +	if (IS_ERR(vop2->pll_hdmiphy0)) {
-> +		drm_err(vop2->drm, "failed to get pll_hdmiphy0\n");
-> +		return PTR_ERR(vop2->pll_hdmiphy0);
-> +	}
-> +
->  	vop2->irq = platform_get_irq(pdev, 0);
->  	if (vop2->irq < 0) {
->  		drm_err(vop2->drm, "cannot find irq for vop2\n");
+> Sorry I missed the "net" tag.
 > 
+> The bug has existed since dwmac-tegra.c was added. I can add a Fixes tag but
+> in the past I was told they aren't needed in that situation?
+> 
+> > > @@ -241,6 +243,12 @@ static int tegra_mgbe_probe(struct platform_device *pdev)
+> > >  	if (IS_ERR(mgbe->xpcs))
+> > >  		return PTR_ERR(mgbe->xpcs);
+> > >
+> > > +	/* get controller's stream id from iommu property in device tree */
+> > > +	if (!tegra_dev_iommu_get_stream_id(mgbe->dev, &mgbe->iommu_sid)) {
+> > > +		dev_err(mgbe->dev, "failed to get iommu stream id\n");
+> > > +		return -EINVAL;
+> > > +	}
+> >
+> > I *think* it would be better to fallback (possibly with a warning or
+> > notice) to the previous default value when the device tree property is
+> > not available, to avoid regressions.
+> >
+> 
+> I debated this as well... In theory the iommu must be setup for the
+> mgbe controller to work anyways. Doing it this way means the worst case is
+> probe() fails and you lose an ethernet port.
 
+New DT properties are always optional. Take the example of a board
+only using a single controller. It should happily work. It probably
+does not have this property because it is not needed. Your change is
+likely to cause a regression on such a board.
+
+Also, is a binding patch needed?
+
+	Andrew
 
