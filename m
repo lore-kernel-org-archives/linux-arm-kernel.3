@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4901D68BE7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Nov 2024 18:23:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 712BCD68BE7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Nov 2024 18:24:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=coFTj0tEVtJeoxqSxilBvXyEBanQAvXPhaWMlmhTwGY=; b=YW285mmGKh8bgd
-	HXMnbqzQ55fgS3ia/+OCZimg2fcRNWgrZLwISBg68agyKfYfGDCiFal8+nk4h0knfUich6KMgpL4J
-	+RHTVrr60MGs+kzLlMfEFg9vATPWoXJUCEh1mDVwXSZ2iTbW0quLkKvN2Up54rKuYrcIbNuKEBc8i
-	Iiur3d9CH4L/AkvogB3iQWf+teBZ57Tg6YkjrjNHr47PQ0QDxJGSdbPlq8Fekq9tt+M4t/jq6c6mX
-	QBHmqrBhub5tCizmaLHT4pKMgNGOastnRVjpoUWA65hRAJGCVrv7CnDxz9+elTXe30Xhp0RzwhADe
-	djDfy3/KoBQLedGNV0hQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oby7T5Io3jaGrnkTlP4h+NDOm4tFxNcndhBAr6wlBxk=; b=1Pl0tijkGTB7DF1paMFWRyYS97
+	vb86HbwuaNbdfaiMjZXf63s4/FWSmZgLw3enoZEWOTOu0qdKXlQRF6dRAhuLqaTFFLZHJSV6RwEIc
+	ThHfDpgN746IhGDcUmwvVifnIglen6s4mAC82wIfg/4rL7uxj4HNAYo5BX/hkq1JxJUFV1EGszwNm
+	6JHPUVbK6ZKVlcKfFdhpb9xhlOxeVJisufdiVTXjV0tZ0odzxR3i3vlJhPTlEeoda2xyyNzLDDtdd
+	KRJGQT+D2H2g7bQkXsr2a6j/KvMG24wOZP12s2Fs1gKsqV75mc1n6ZZabOxo2+hmm+2pJ0E8O1CMT
+	R2XibkwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCNSU-000000062Dk-39pN;
-	Sat, 16 Nov 2024 18:23:46 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tCNTO-000000062Pr-1o5G;
+	Sat, 16 Nov 2024 18:24:42 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCNRU-000000061xa-3an8;
+	id 1tCNRU-000000061xb-3uun;
 	Sat, 16 Nov 2024 18:22:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1731781361;
-	bh=zuX+BjEd47Ipzf1ZvUKylfVmmbKCdRyf5jawLe5SYXY=;
-	h=From:Subject:Date:To:Cc:From;
-	b=Zq3gKsIC5JS8Sp48f3xdnKFMZUaNaEtdnbFLPSywsymPzhFlEpF7HCIx+FcqPU+40
-	 7lQIr9MFUA9ThajqAD4csskaVLkGO78B5/B3y+qNRHzsuis1hoovc4wfNwDe5pMZxr
-	 6c4gC0NR9dedLJ4K9hRX27SkBu/glMnXz/koqI/YiZ28slciehC72n8zAshNbY3q+4
-	 eOK88mLFP2h9ZT1oF3JYr0gTXzx8UNW9X6uYZS/3PmJYJ8GvSQyC64zQ23BYv+JsAf
-	 NkFKloeM4gke3eTs+fui6IgaBV+eMTHaxqPtsBn9XgkrkOeuMgul4m217jLb3uFlsc
-	 VYV1Rp2reZJ7Q==
+	s=mail; t=1731781362;
+	bh=LM9pPGTp7aEnr4m+OjZM6CvE5/x0hk9Hpk+Ltg9gsoA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=THAD5DlDfMEE4ka+eb1K53htNf0/75tr6CJobRdrV0z9lwIZUM3bob9PdEL6rA836
+	 T/BfujG+lglncPzIFhG1tv3kKrrNobc5KTbSHWFyY4K67Ov09Am6iPdNlfgJcWLskd
+	 zIHBySIkxCa0ZmeS+Q0aT9CKZ5IAtK9IAsuqaL9jObN1b0vneKMl48a5bQXFpsWHN0
+	 t/VIYkVZrzgHpJ0n046i23OjCtxgHeZPrrrcQjTGyFoQghtSbg2EJHx2iS47DqJfxY
+	 V90Y1SiacyMzJ0OupDYxxJ4nxhe3iUV9KX+Bu+NxDbJ1nd+g2Z79qCkEvz9w8JMqTx
+	 joqoJZBftbP7A==
 Received: from localhost (unknown [86.120.21.57])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 644F417E3768;
-	Sat, 16 Nov 2024 19:22:41 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5121A17E3778;
+	Sat, 16 Nov 2024 19:22:42 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH 0/5] Improve Rockchip VOP2 display modes handling on RK3588
- HDMI0
-Date: Sat, 16 Nov 2024 20:22:31 +0200
-Message-Id: <20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com>
+Date: Sat, 16 Nov 2024 20:22:32 +0200
+Subject: [PATCH 1/5] dt-bindings: display: vop2: Add optional PLL clock
+ properties
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOfiOGcC/x3MPQqAMAxA4atIZgOmSv25ijiojZpBWxoQoXh3i
- +M3vJdAOQorDEWCyLeo+CuDygLWY752RnHZYCrTEJHF2weDhzulQica8PSOFZe659pS39pug9y
- GyJs8/3ec3vcD9X76MWcAAAA=
-X-Change-ID: 20241116-vop2-hdmi0-disp-modes-b39e3619768f
+Message-Id: <20241116-vop2-hdmi0-disp-modes-v1-1-2bca51db4898@collabora.com>
+References: <20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com>
+In-Reply-To: <20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
  =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
  Andy Yan <andy.yan@rock-chips.com>, 
@@ -68,8 +66,9 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241116_102245_066651_E68C3A11 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20241116_102245_153772_D806BCEA 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,44 +83,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VOP2 support for RK3588 SoC is currently not capable to handle the full
-range of display modes advertised by the connected screens, e.g. it
-doesn't cope well with non-integer refresh rates like 59.94, 29.97,
-23.98, etc.
+On RK3588, HDMI PHY PLL can be used as an alternative and more accurate
+pixel clock source for VOP2 video ports 0, 1 and 2.
 
-There are two HDMI PHYs available on RK3588, each providing a PLL that
-can be used by three out of the four VOP2 video ports as an alternative
-and more accurate pixel clock source. This is able to correctly handle
-all display modes up to 4K@60Hz.
-
-As for the moment HDMI1 output is not supported upstream, the patch
-series targets HDMI0 only.
-
-Additionally, note that testing any HDMI 2.0 specific modes, e.g.
-4K@60Hz, requires high TMDS clock ratio and scrambling support [1]. The
-patch is usable but not yet ready to be submitted - I will handle this
-soon.
-
-Thanks,
-Cristian
-
-[1] https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/commits/rk3588-hdmi-bridge-next-20241115
+Document the optional PLL clock properties corresponding to the two HDMI
+PHYs available on the SoC.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-Cristian Ciocaltea (5):
-      dt-bindings: display: vop2: Add optional PLL clock properties
-      drm/rockchip: vop2: Drop unnecessary if_pixclk_rate computation
-      drm/rockchip: vop2: Improve display modes handling on RK3588 HDMI0
-      arm64: dts: rockchip: Enable HDMI0 PHY clk provider on RK3588
-      arm64: dts: rockchip: Add HDMI0 PHY PLL clock source to VOP2 on RK3588
+ Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
- .../bindings/display/rockchip/rockchip-vop2.yaml   |  4 +++
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  7 +++--
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c       | 36 +++++++++++++++++++++-
- 3 files changed, 44 insertions(+), 3 deletions(-)
----
-base-commit: 744cf71b8bdfcdd77aaf58395e068b7457634b2c
-change-id: 20241116-vop2-hdmi0-disp-modes-b39e3619768f
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+index 2531726af306bd388c00c3c0a1785b2c7367e2bd..46d956e63338e196361483a668fbf5597ebce24f 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+@@ -53,6 +53,8 @@ properties:
+       - description: Pixel clock for video port 2.
+       - description: Pixel clock for video port 3.
+       - description: Peripheral(vop grf/dsi) clock.
++      - description: Alternative pixel clock provided by HDMI0 PHY PLL.
++      - description: Alternative pixel clock provided by HDMI1 PHY PLL.
+ 
+   clock-names:
+     minItems: 5
+@@ -64,6 +66,8 @@ properties:
+       - const: dclk_vp2
+       - const: dclk_vp3
+       - const: pclk_vop
++      - const: pll_hdmiphy0
++      - const: pll_hdmiphy1
+ 
+   rockchip,grf:
+     $ref: /schemas/types.yaml#/definitions/phandle
+
+-- 
+2.47.0
 
 
