@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65B1BD68BE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Nov 2024 15:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 058FBD68BF5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Nov 2024 16:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kl9+L+s20bjo6FdXRDv6f97HZvSe4Rkk10pmpIZ6IVo=; b=wn1xXuAVRUfVF6i1PbbftEG3CU
-	KMqIk2Cx26uZSijzviAAEPL4UARZXTjPFhW5cKLiOxxRyygLaiG7Zb7NrT7PkezxyaSeRewkw92ai
-	6UsekrFdxGP6NSC2b7D9KH+imZMuJ2d9+6QKyu+K1AYio1uRxN/Sj/SYNns4TdqqL96dSSVcL8hNI
-	OiLjKUYzEtD9FcsEoaLALuFUG5oqo6ff1WKGHQJom0JraPFEWAnZYOY2mYdpdaP67/ENdvpKHSDqL
-	oGqgBOwJeK+rTtN6Jj9joix7DvoNH17Lu0Xq0JeHgI72YX3TKjndtL2XTyzAWPvQ/tLokRc7oZcq4
-	GUC0/RTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sEMnokryldfX1XldS60cSK2diJ6GvhyGPcKxjg9ozVY=; b=sWPr7ehCGvTGzLxdBIFuHQOj3V
+	tsSJ8jy/RzuHuC3hpU9nzWp5b+xoMT0zYjOi0+Nwd7GBBZng6PLDnYbTKAinYOoUqACRIOvlHIj3t
+	RArHMK147Sdi2BvLIUvCO/U/rsfWtUrYct7d2xpRrACEZ39/bb0d/n4FEaSux6wafB7Gh+ikzV+PT
+	VdY4l76ZIf9NlJMRLnxyaixaRKgqtz4FJb3PwX6AkrF8iG8ooPFa2rQyBmGnOafVBwzPUN3arja0F
+	qL4fYsUOmAOrVlDRTJhg3fjOXj99eCkBqfzhn3YQm6byTsU6a6RguQuJHCv8FY0oehlLZJfezwAbM
+	57iWml4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCKpn-00000005q5E-0Cz0;
-	Sat, 16 Nov 2024 15:35:39 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tCLq1-00000005vCj-0U9j;
+	Sat, 16 Nov 2024 16:39:57 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCKoq-00000005q1b-3ub2
+	id 1tCLp5-00000005v6p-0PZ6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Nov 2024 15:34:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=kl9+L+s20bjo6FdXRDv6f97HZvSe4Rkk10pmpIZ6IVo=; b=ljE4+OXpXvnb40kYTYlAbN3ON7
-	wQHgYoJJylhoqXNdAIOzjJklYVz+AcgHUdDpoJZPMJsNdWzku2ynM7h2JF0FkdqtViHqiJXXG9Bwh
-	csLzfJsobCuAXtdoOZwxpiX5BMHtQy+XDX4cKjSqAWq5Oo5TrPrTvGGd53TdDrnbhDxC/4K0ys9ow
-	yax1oYN6vFOferrYBM86G2ShYEKu+9yLfxM+tdJMkZa69v0ANAqVMpfkHUefziGOo/Ktw8lxvxyCV
-	wCmBLFg961DC9L8vUsInGuWl0ntIbj9yc7BUum2rD3uoCPKRpB/PJ/ed1zQ4Y3Ger9OBPLHVkTWOb
-	x3B3FVNQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42354)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tCKoX-0007L6-0O;
-	Sat, 16 Nov 2024 15:34:21 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tCKoQ-0003DP-11;
-	Sat, 16 Nov 2024 15:34:14 +0000
-Date: Sat, 16 Nov 2024 15:34:14 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net v2 0/2] Fix 'ethtool --show-eee' during initial stage
-Message-ID: <Zzi7dqqZLCCVvlHq@shell.armlinux.org.uk>
-References: <20241115111151.183108-1-yong.liang.choong@linux.intel.com>
- <403be2f6-bab1-4a63-bad4-c7eac1e572ee@gmail.com>
- <ZzdW2iB2OkbZxTgS@shell.armlinux.org.uk>
- <170a8d59-e954-4316-9b83-9b799cb60481@gmail.com>
+	Sat, 16 Nov 2024 16:39:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 31B94A406A5;
+	Sat, 16 Nov 2024 16:37:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CF6CC4CEC3;
+	Sat, 16 Nov 2024 16:38:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731775136;
+	bh=THeciZJBPS3p0ay6yJsWVLTykpa/po6hSXdreEo/+d4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=mM0+yP7UAFMPixmn0bhdNjTbZ72Ik6A4c4XgMzShRiV/WxUsRoCyue6DyA1pzy5j9
+	 7qjwfnUM7MqjgfTM8g7wuJdCPqFfB16VvIeOWzlHHK99Y/7a39NNdCnsBOntvvzpxz
+	 SbbH7hX1q0LoAFrq1LEsj79K32hoKnXtcObu6GAmY38GkIeWaV59ljafd2ygvPEwI4
+	 YDRVO795pb2Da1VoZ6DLdS/FFFAABj/QK2tndRFg781MJABVWsjeFL6zHu4hcr+9Yj
+	 MjbByS6KPnK5kZdZbB2XpPNA8RXgCZTBC72L1RV2eoBOA0z7FH9VjoCACSXYsE7ePW
+	 ExfaZsdNfKm9A==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>,
+	linux-clk@vger.kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Danila Tikhonov <danila@jiaxyga.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Taniya Das <quic_tdas@quicinc.com>,
+	Manikanta Mylavarapu <quic_mmanikan@quicinc.com>,
+	Imran Shaik <quic_imrashai@quicinc.com>,
+	Johan Hovold <johan+linaro@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Sricharan Ramabadhran <quic_srichara@quicinc.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Devi Priya <quic_devipriy@quicinc.com>,
+	Gabor Juhos <j4g8y7@gmail.com>,
+	Jonathan Marek <jonathan@marek.ca>,
+	Konrad Dybcio <quic_kdybcio@quicinc.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [GIT PULL] Qualcomm clock updates for v6.13
+Date: Sat, 16 Nov 2024 10:38:53 -0600
+Message-ID: <20241116163854.122610-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <170a8d59-e954-4316-9b83-9b799cb60481@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241116_073441_357501_A011F3B6 
-X-CRM114-Status: GOOD (  34.10  )
+X-CRM114-CacheID: sfid-20241116_083859_272995_73F6320D 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,103 +84,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 15, 2024 at 09:35:25PM +0100, Heiner Kallweit wrote:
-> On 15.11.2024 15:12, Russell King (Oracle) wrote:
-> > On Fri, Nov 15, 2024 at 02:41:54PM +0100, Heiner Kallweit wrote:
-> >> On 15.11.2024 12:11, Choong Yong Liang wrote:
-> >>> From: Choong Yong Liang <yong.liang.choong@intel.com>
-> >>>
-> >>> When the MAC boots up with a Marvell PHY and phy_support_eee() is implemented,
-> >>> the 'ethtool --show-eee' command shows that EEE is enabled, but in actuality,
-> >>> the driver side is disabled. If we try to enable EEE through
-> >>> 'ethtool --set-eee' for a Marvell PHY, nothing happens because the eee_cfg
-> >>> matches the setting required to enable EEE in ethnl_set_eee().
-> >>>
-> >>> This patch series will remove phydev->eee_enabled and replace it with
-> >>> eee_cfg.eee_enabled. When performing genphy_c45_an_config_eee_aneg(), it
-> >>> will follow the master configuration to have software and hardware in sync,
-> >>> allowing 'ethtool --show-eee' to display the correct value during the
-> >>> initial stage.
-> >>>
-> >>> v2 changes:
-> >>>  - Implement the prototype suggested by Russell
-> >>>  - Check EEE before calling phy_support_eee()
-> >>>
-> >>> Thanks to Russell for the proposed prototype in [1].
-> >>>
-> >>> Reference:
-> >>> [1] https://patchwork.kernel.org/comment/26121323/
-> >>>
-> >>> Choong Yong Liang (2):
-> >>>   net: phy: replace phydev->eee_enabled with eee_cfg.eee_enabled
-> >>>   net: stmmac: set initial EEE policy configuration
-> >>>
-> >>>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  3 +++
-> >>>  drivers/net/phy/phy-c45.c                         | 11 +++++------
-> >>>  drivers/net/phy/phy_device.c                      |  6 +++---
-> >>>  include/linux/phy.h                               |  5 ++---
-> >>>  4 files changed, 13 insertions(+), 12 deletions(-)
-> >>>
-> >>
-> >> Russell submitted the proposed patch already:
-> >> https://patchwork.kernel.org/project/netdevbpf/patch/E1tBXAF-00341F-EQ@rmk-PC.armlinux.org.uk/
-> >> So there's no need for your patch 1.
-> > 
-> > Patch 1 is an updated version of that patch, minus my authorship and of
-> > course no sign-off. I've already marked this series as requiring changes
-> > in patchwork (hopefully, if I did it correctly.)
-> > 
-> 
-> The updated version adds an argument to genphy_c45_an_config_eee_aneg(),
-> and I wonder whether we can do better, as this results in several calls
-> with the same argument. The following is an alternative, to be applied
-> on top of your original patch. I don't have a clear preference, though.
-> 
-> ---
->  drivers/net/phy/phy.c | 25 +++++++++++++++----------
->  1 file changed, 15 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
-> index 8876f3673..22c9bbebb 100644
-> --- a/drivers/net/phy/phy.c
-> +++ b/drivers/net/phy/phy.c
-> @@ -1682,11 +1682,10 @@ EXPORT_SYMBOL(phy_ethtool_get_eee);
->   * configuration.
->   */
->  static void phy_ethtool_set_eee_noneg(struct phy_device *phydev,
-> -				      struct ethtool_keee *data)
-> +				      struct ethtool_keee *old_cfg)
->  {
-> -	if (phydev->eee_cfg.tx_lpi_enabled != data->tx_lpi_enabled ||
-> -	    phydev->eee_cfg.tx_lpi_timer != data->tx_lpi_timer) {
-> -		eee_to_eeecfg(&phydev->eee_cfg, data);
-> +	if (phydev->eee_cfg.tx_lpi_enabled != old_cfg->tx_lpi_enabled ||
-> +	    phydev->eee_cfg.tx_lpi_timer != old_cfg->tx_lpi_timer) {
->  		phydev->enable_tx_lpi = eeecfg_mac_can_tx_lpi(&phydev->eee_cfg);
->  		if (phydev->link) {
->  			phydev->link = false;
-> @@ -1706,21 +1705,27 @@ static void phy_ethtool_set_eee_noneg(struct phy_device *phydev,
->   */
->  int phy_ethtool_set_eee(struct phy_device *phydev, struct ethtool_keee *data)
->  {
-> +	struct eee_config old_cfg;
->  	int ret;
->  
->  	if (!phydev->drv)
->  		return -EIO;
->  
-> +	old_cfg = phydev->eee_cfg;
-> +	eee_to_eeecfg(&phydev->eee_cfg, data);
-> +
 
-Hmm, don't we want to do this under phydev->lock, because network
-drivers and phylib may be reading from phydev->eee_cfg? If we
-update it outside the lock, and then revert, there's a chance that
-the phylib state machine / network driver may see the changes
-which then get reverted on failure, potentially leading to
-inconsistent state.
+The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-clk-for-6.13
+
+for you to fetch changes up to f1f49cc505bc998d7c13e5a518d027419a21fbae:
+
+  clk: qcom: remove unused data from gcc-ipq5424.c (2024-11-11 21:57:38 -0600)
+
+----------------------------------------------------------------
+Qualcomm clock updates for v6.13
+
+Add global clock controllers for QCS8300, and IPQ5424.
+Add camera, display and video clock controllers for SA8775P.
+Add global, display, gpu, tcsr, and rpmh clock controllers for SAR2130P.
+Add global, camera, display, gpu, and video clock controllers for
+SM8475.
+
+Support for IPQ9574 is added to the Alpha PLL clock driver, and the
+checks for already configured PLL at boot are cleaned up.
+
+QCS404 GPLL3 initial rate is corrected.
+
+A new ops for shared rcg2 floor_ops is introduced, for dealing with
+shared SDCC clocks.
+
+----------------------------------------------------------------
+Arnd Bergmann (1):
+      clk: qcom: remove unused data from gcc-ipq5424.c
+
+Bjorn Andersson (5):
+      Merge branch '20240818204348.197788-1-danila@jiaxyga.com' into clk-for-6.13
+      Merge branch '20241011-sa8775p-mm-v4-resend-patches-v5-0-4a9f17dc683a@quicinc.com' into clk-for-6.13
+      Merge branch '20241027-sar2130p-clocks-v5-0-ecad2a1432ba@linaro.org' into clk-for-6.13
+      Merge branch '20241028060506.246606-3-quic_srichara@quicinc.com' into clk-for-6.13
+      Merge branch '20240822-qcs8300-gcc-v2-1-b310dfa70ad8@quicinc.com' into clk-for-6.13
+
+Danila Tikhonov (10):
+      dt-bindings: clock: qcom,gcc-sm8450: Add SM8475 GCC bindings
+      dt-bindings: clock: qcom,sm8450-dispcc: Add SM8475 DISPCC bindings
+      dt-bindings: clock: qcom,sm8450-gpucc: Add SM8475 GPUCC bindings
+      dt-bindings: clock: qcom,sm8450-videocc: Add SM8475 VIDEOCC bindings
+      dt-bindings: clock: qcom,sm8450-camcc: Add SM8475 CAMCC bindings
+      clk: qcom: gcc-sm8450: Add SM8475 support
+      clk: qcom: dispcc-sm8450: Add SM8475 support
+      clk: qcom: gpucc-sm8450: Add SM8475 support
+      clk: qcom: videocc-sm8450: Add SM8475 support
+      clk: qcom: camcc-sm8450: Add SM8475 support
+
+Devi Priya (1):
+      clk: qcom: clk-alpha-pll: Add NSS HUAYRA ALPHA PLL support for ipq9574
+
+Dmitry Baryshkov (9):
+      dt-bindings: clock: qcom,rpmhcc: Add SAR2130P compatible
+      dt-bindings: clock: qcom: document SAR2130P Global Clock Controller
+      dt-bindings: clock: qcom,sm8550-tcsr: Add SAR2130P compatible
+      dt-bindings: clock: qcom,sm8550-dispcc: Add SAR2130P compatible
+      clk: qcom: rcg2: add clk_rcg2_shared_floor_ops
+      clk: qcom: rpmh: add support for SAR2130P
+      clk: qcom: add support for GCC on SAR2130P
+      clk: qcom: tcsrcc-sm8550: add SAR2130P support
+      clk: qcom: dispcc-sm8550: enable support for SAR2130P
+
+Gabor Juhos (1):
+      clk: qcom: gcc-qcs404: fix initial rate of GPLL3
+
+Imran Shaik (2):
+      dt-bindings: clock: qcom: Add GCC clocks for QCS8300
+      clk: qcom: Add support for Global Clock Controller on QCS8300
+
+Johan Hovold (2):
+      clk: qcom: clk-alpha-pll: drop lucid-evo pll enabled warning
+      clk: qcom: clk-alpha-pll: fix lucid 5lpe pll enabled check
+
+Jonathan Marek (1):
+      clk: qcom: videocc-sm8550: depend on either gcc-sm8550 or gcc-sm8650
+
+Konrad Dybcio (3):
+      clk: qcom: Make GCC_6125 depend on QCOM_GDSC
+      dt-bindings: clk: qcom,sm8450-gpucc: add SAR2130P compatibles
+      clk: qcom: add SAR2130P GPU Clock Controller support
+
+Krzysztof Kozlowski (1):
+      clk: qcom: constify static 'struct qcom_icc_hws_data'
+
+Manikanta Mylavarapu (4):
+      clk: qcom: ipq5332: remove q6 bring up clocks
+      clk: qcom: ipq9574: remove q6 bring up clocks
+      dt-bindings: clock: qcom: gcc-ipq5332: remove q6 bring up clock macros
+      dt-bindings: clock: qcom: gcc-ipq9574: remove q6 bring up clock macros
+
+Sricharan Ramabadhran (2):
+      dt-bindings: clock: Add Qualcomm IPQ5424 GCC binding
+      clk: qcom: add Global Clock controller (GCC) driver for IPQ5424 SoC
+
+Taniya Das (6):
+      dt-bindings: clock: qcom: Add SA8775P video clock controller
+      dt-bindings: clock: qcom: Add SA8775P camera clock controller
+      dt-bindings: clock: qcom: Add SA8775P display clock controllers
+      clk: qcom: Add support for Video clock controller on SA8775P
+      clk: qcom: Add support for Camera Clock Controller on SA8775P
+      clk: qcom: Add support for Display clock Controllers on SA8775P
+
+ .../devicetree/bindings/clock/qcom,gcc-sm8450.yaml |    4 +-
+ .../bindings/clock/qcom,ipq5332-gcc.yaml           |   41 +-
+ .../bindings/clock/qcom,qcs8300-gcc.yaml           |   66 +
+ .../devicetree/bindings/clock/qcom,rpmhcc.yaml     |    1 +
+ .../bindings/clock/qcom,sa8775p-camcc.yaml         |   62 +
+ .../bindings/clock/qcom,sa8775p-dispcc.yaml        |   79 +
+ .../bindings/clock/qcom,sa8775p-videocc.yaml       |   62 +
+ .../bindings/clock/qcom,sar2130p-gcc.yaml          |   65 +
+ .../bindings/clock/qcom,sm8450-camcc.yaml          |    1 +
+ .../bindings/clock/qcom,sm8450-dispcc.yaml         |    1 +
+ .../bindings/clock/qcom,sm8450-gpucc.yaml          |    3 +
+ .../bindings/clock/qcom,sm8450-videocc.yaml        |    1 +
+ .../bindings/clock/qcom,sm8550-dispcc.yaml         |    1 +
+ .../bindings/clock/qcom,sm8550-tcsr.yaml           |    1 +
+ drivers/clk/qcom/Kconfig                           |   88 +-
+ drivers/clk/qcom/Makefile                          |    7 +
+ drivers/clk/qcom/camcc-sa8775p.c                   | 1868 ++++++++++
+ drivers/clk/qcom/camcc-sm8450.c                    |  294 +-
+ drivers/clk/qcom/clk-alpha-pll.c                   |   23 +-
+ drivers/clk/qcom/clk-alpha-pll.h                   |    1 +
+ drivers/clk/qcom/clk-rcg.h                         |    1 +
+ drivers/clk/qcom/clk-rcg2.c                        |   48 +-
+ drivers/clk/qcom/clk-rpmh.c                        |   13 +
+ drivers/clk/qcom/common.h                          |    2 +-
+ drivers/clk/qcom/dispcc-sm8450.c                   |   66 +-
+ drivers/clk/qcom/dispcc-sm8550.c                   |   18 +-
+ drivers/clk/qcom/dispcc0-sa8775p.c                 | 1481 ++++++++
+ drivers/clk/qcom/dispcc1-sa8775p.c                 | 1481 ++++++++
+ drivers/clk/qcom/gcc-ipq5332.c                     |  382 +-
+ drivers/clk/qcom/gcc-ipq5424.c                     | 3291 ++++++++++++++++++
+ drivers/clk/qcom/gcc-ipq9574.c                     |  328 +-
+ drivers/clk/qcom/gcc-qcs404.c                      |    1 +
+ drivers/clk/qcom/gcc-qcs8300.c                     | 3640 ++++++++++++++++++++
+ drivers/clk/qcom/gcc-sar2130p.c                    | 2366 +++++++++++++
+ drivers/clk/qcom/gcc-sm8450.c                      |  181 +-
+ drivers/clk/qcom/gpucc-sar2130p.c                  |  502 +++
+ drivers/clk/qcom/gpucc-sm8450.c                    |   50 +-
+ drivers/clk/qcom/tcsrcc-sm8550.c                   |   18 +-
+ drivers/clk/qcom/videocc-sa8775p.c                 |  576 ++++
+ drivers/clk/qcom/videocc-sm8450.c                  |   48 +-
+ include/dt-bindings/clock/qcom,gcc-sm8450.h        |    3 +
+ include/dt-bindings/clock/qcom,ipq5332-gcc.h       |   20 -
+ include/dt-bindings/clock/qcom,ipq5424-gcc.h       |  156 +
+ include/dt-bindings/clock/qcom,ipq9574-gcc.h       |   18 -
+ include/dt-bindings/clock/qcom,qcs8300-gcc.h       |  234 ++
+ include/dt-bindings/clock/qcom,sa8775p-camcc.h     |  108 +
+ include/dt-bindings/clock/qcom,sa8775p-dispcc.h    |   87 +
+ include/dt-bindings/clock/qcom,sa8775p-videocc.h   |   47 +
+ include/dt-bindings/clock/qcom,sar2130p-gcc.h      |  185 +
+ include/dt-bindings/clock/qcom,sar2130p-gpucc.h    |   33 +
+ include/dt-bindings/reset/qcom,ipq5424-gcc.h       |  310 ++
+ include/dt-bindings/reset/qcom,sar2130p-gpucc.h    |   14 +
+ 52 files changed, 17573 insertions(+), 804 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,qcs8300-gcc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,sa8775p-camcc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,sa8775p-dispcc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,sa8775p-videocc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,sar2130p-gcc.yaml
+ create mode 100644 drivers/clk/qcom/camcc-sa8775p.c
+ create mode 100644 drivers/clk/qcom/dispcc0-sa8775p.c
+ create mode 100644 drivers/clk/qcom/dispcc1-sa8775p.c
+ create mode 100644 drivers/clk/qcom/gcc-ipq5424.c
+ create mode 100644 drivers/clk/qcom/gcc-qcs8300.c
+ create mode 100644 drivers/clk/qcom/gcc-sar2130p.c
+ create mode 100644 drivers/clk/qcom/gpucc-sar2130p.c
+ create mode 100644 drivers/clk/qcom/videocc-sa8775p.c
+ create mode 100644 include/dt-bindings/clock/qcom,ipq5424-gcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,qcs8300-gcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,sa8775p-camcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,sa8775p-dispcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,sa8775p-videocc.h
+ create mode 100644 include/dt-bindings/clock/qcom,sar2130p-gcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,sar2130p-gpucc.h
+ create mode 100644 include/dt-bindings/reset/qcom,ipq5424-gcc.h
+ create mode 100644 include/dt-bindings/reset/qcom,sar2130p-gpucc.h
 
