@@ -4,105 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB7A2D68BE5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Nov 2024 10:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97F62D68BDC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Nov 2024 13:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NsK2HSjEed8EMz5ILwoIkeMUbKZSPGTUjsgD49Z7xGA=; b=3tznp1LY1+N/dpONLQKbS4wkSq
-	D9iJpkOZ/pf0B3YF5K8UN7WJCzHOtLdfWARy55/+uEZnG+biaSqMlDCejA7QFK5t6yn/0TCRKx5eh
-	qGnZlewUEHl9ygw0dFoG5lMXNR1H9nso7Z2yL9+WaRYCeSgnhhtu9U8uNa7ELbD0tVv3kmpOgeYwK
-	7u+VPA448bNczAgUdtNrmrEd7WRTgg7idU4AsuUHHvhXDh/liqxZDT8es7gED6qCr2VG5VTxVochm
-	X0aFACqqfiNH/wm+ZSxVZ0wa5xWPoi+beoqukAzeWixADeHJQrQEcMvO/pVWsLSlms/+bTagS+7sY
-	9WaiIT6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tzKsLoqS+f2oaO0q+njlCY4YyzBcsusLXBar5P2xdBk=; b=Fc3ifHz7VymiF1gnp/g+gNYEh4
+	LtOrNlBvw/1wQ7fjN4B05W6iFegFdavVg5p+3N7oHV3PoQCweTVOroHx+VA9tsZV2EAWoMpcOGQeA
+	fo+45fps/Aig6mAEwszUXAwh6zakURiwzdMNANXklxQPErAMJxe9V322wq95zszh82CSUjj2GsDmY
+	68pSEVSvs8LAnxWh/H5vYVaQWCnf7lwm3/2QOFXztOP4DPmTvgqKQTQfjLAcM7VDutuT6z/fQr5Qx
+	WoowE6o3IMMxvepxvktkMm2JfbGLSWjbCy0A8/fULoWd9/X8wQcsPHGrJaLGMH6jHWU8f28TsDZQi
+	brn+jgTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCGUO-00000005RjE-0ZZw;
-	Sat, 16 Nov 2024 10:57:16 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1tCIdC-00000005d3o-2uTK;
+	Sat, 16 Nov 2024 13:14:30 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCGTP-00000005Rcj-2jqD;
-	Sat, 16 Nov 2024 10:56:20 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-2ff3232ee75so27673371fa.0;
-        Sat, 16 Nov 2024 02:56:14 -0800 (PST)
+	id 1tCIcG-00000005cpg-2Wwk;
+	Sat, 16 Nov 2024 13:13:33 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4314c4cb752so13548555e9.2;
+        Sat, 16 Nov 2024 05:13:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731754573; x=1732359373; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NsK2HSjEed8EMz5ILwoIkeMUbKZSPGTUjsgD49Z7xGA=;
-        b=FoWdeLp8eq2SFkTO38/lu/tFGJqpdrR17EXsQ7fZqdL9nzhsgqrmJonMfFwKnILFYu
-         etzwV7/xMexomtn66BXFVn3pd4y9s8izxhWXICcJEwlIZpnFxFK1aTSssUE1mEsu/bD9
-         /XM0fCf+q5FzdIxd/yDEUST/fMf3UiSC2g3kX1cK5V/Y0mnsTXlQlViYX2ZpmSuo3gvH
-         VEBoeKhVFILsilME0qxO5K1OQKhDi+qr5sCIas9WTTnUteNNn3MngCDyRlHWcwz+R1f/
-         zw+B38mfG3cuFamQ59PQ4Jcbuhdz+DJmfPGLKG5bRohE7XNXNBUG4yY6lv9v2kilN7if
-         L6wQ==
+        d=gmail.com; s=20230601; t=1731762811; x=1732367611; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tzKsLoqS+f2oaO0q+njlCY4YyzBcsusLXBar5P2xdBk=;
+        b=EWBSK5mgaykQr+Tgf1pX7d1Md4kqB4q6lPFUVAKxB+Uea00yPBg/T7bvulippEcPx0
+         WUFn3VcZVVt3tttXoGB1Zdo7HvCnjv2jAsFtUD4Bsvnx8aMCKhh8YP1E7mfyUZ6OMfmI
+         ozeYc4bQfV+u9NtNQI7jAMEP5zunsaRj6Lo7cTJceHCFtuE6Rw43+WrSfd3+Ch/+tRph
+         MACTPJdNN9PLGN8rtY6AY+wHomXiAhIUFM0sGVEe9BbLJL5EmOmydjjuprYm5xW9w/xx
+         BuC+xZRbJRf0jG4bGxCy9DUXyuHRpVJT3VWn5uCgCNZJvkMEOkiU5LSKCkJ7bluTofFc
+         IOfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731754573; x=1732359373;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NsK2HSjEed8EMz5ILwoIkeMUbKZSPGTUjsgD49Z7xGA=;
-        b=PbDuSha6speja/avzpqGYU4w9O55zB495Uv/px8+RTbg1EjSzrgsaiFDdGb0xIFAln
-         PsJOWjNW5pGJ6ZpZ1aM7cikEAqglJNku5Yy4gFbSsjlspR+xbJnVkT3QNzCDtkX5vDoV
-         YMRFQrshRl0xzNuW4xXqj0pZVPB3K8SIOKEK0OGVNpRKkwq/ttfnm+Fb3oJtAOiGQqKm
-         047cxKGjW82jTSk22D5/DbgbxRLcmxtAHaSQYIZxriJoWgKytu60ZodaQ0FQqn9KU+HV
-         fDXXyv/Fkn/2WtrsfbO7inZgQWrxMePqvE1PQNJqiYRN2bTFB9gICppYjcT/UYT/fEDh
-         gT7w==
-X-Forwarded-Encrypted: i=1; AJvYcCXgAEE/rVByQmBs31mQMkswAZCzgIzjLcrJ/NBfTsybqqMdNYEb5ZlvQu3RNuO/gA9DhVvAeADjDWw5RWDcjp0H@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2G7q1WrKxee0AoiPLXohl1/JCU/0CvEgb5cC1sbWQe2aCxlzQ
-	LXS7VhtMERcoDkmWjKgapLOJ9YYiHcWDr2lOL0S9oEmEAvmKLyne
-X-Google-Smtp-Source: AGHT+IEK8/b0zHZVkVOqjdtIvar+DEHmvQ9/RvK13Xl0AsBy6sPbYs/kgVQgfmYz7Sp5NJTIFX8hsA==
-X-Received: by 2002:a2e:be25:0:b0:2fb:5e64:327e with SMTP id 38308e7fff4ca-2ff609c654cmr35086611fa.33.1731754572865;
-        Sat, 16 Nov 2024 02:56:12 -0800 (PST)
-Received: from [192.168.1.11] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ff69b158fdsm2289301fa.102.2024.11.16.02.56.09
+        d=1e100.net; s=20230601; t=1731762811; x=1732367611;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=tzKsLoqS+f2oaO0q+njlCY4YyzBcsusLXBar5P2xdBk=;
+        b=vXOmyAWnSYNlbo2asbPLGJ4rM+IgR4RWEYpmS4QM4PukME3NFOnWZOInLfiKl/77nU
+         vqy7tfhp6fsaew/bVsrvnfRwd5br84mY/NMtG3COa/5Bf5tQOVB3xh/uVfiaier1Mtm0
+         nYmbjcWaA+AzhhXgA2ZisseJkZa9sOlWG5GVemC4glWwFdfbfWFT93skwEJi8wdsh6AS
+         DkeMAi75MMpcI4SH2iNDnJPL+n0t9D7dZBn/VPJr1YWTlL2hmE7oBPgRkWw0R+zvOwQX
+         dSCaBuw+zldmjLlZ5S5YYki6WDq/DhAisD4tlwQFEuVZ0igj23hXFjERIrYnGQhjkaum
+         ua9g==
+X-Forwarded-Encrypted: i=1; AJvYcCUHeMxkbXgCbX5spTnDm9duzf0E+akWz+gqahS6KVFljh9dFo9KLZQicLD0rczxI0fKvuDgue2YpIdZrm+pv7o=@lists.infradead.org, AJvYcCWgxVi//oeh8WOBb8ZfMso29XwisuTcjKtPZHLCEQpSw7pXjsLkGkPG2yKs7o4c3khdfZtuEWrnUkZ14lbEd9gI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFEAoGq+pP0K1lNwZRraATb1F8r1b2+IHLbLu/b6f80yQrWk4a
+	QIs6pNkaBrLhPth5Ih0pPHFXP2V2Bm9FMlwHQBBS8RKrKmaw7Q25
+X-Google-Smtp-Source: AGHT+IHKgxdnXc6kEl2B/inj2A/5CrmhjcYAgt6JHY3c9dX4n4YbiGY6Z4z8dNL6tW3Mt9/w9f8u3Q==
+X-Received: by 2002:a05:600c:4452:b0:42c:de34:34c1 with SMTP id 5b1f17b1804b1-432df7178e0mr56576705e9.2.1731762810605;
+        Sat, 16 Nov 2024 05:13:30 -0800 (PST)
+Received: from localhost.localdomain (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-432dab7206csm87459595e9.7.2024.11.16.05.13.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 16 Nov 2024 02:56:10 -0800 (PST)
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Date: Sat, 16 Nov 2024 11:55:55 +0100
-Subject: [PATCH v4] mtd: spi-nor: atmel: add at25sf321 entry
+        Sat, 16 Nov 2024 05:13:30 -0800 (PST)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: [net-next PATCH v6 0/4] net: dsa: Add Airoha AN8855 support
+Date: Sat, 16 Nov 2024 14:12:45 +0100
+Message-ID: <20241116131257.51249-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241116-spi-nor-v4-1-3de8ac6fd0be@gmail.com>
-X-B4-Tracking: v=1; b=H4sIADp6OGcC/2XMTQ6CMBCG4auYrq3ptPzVlfcwLqAdYBKhpDWNh
- nB3CxuILr/JPO/MAnrCwK6nmXmMFMiNaWTnEzN9PXbIyabNpJAZCKh4mIiPznNrpC50ZbEWLUv
- fk8eW3lvp/ki7p/By/rOFI6zX/0YEDtyWMm/aphSA5tYNNT0vxg1sbUR5cFLvTiaHUBRGaSEQ9
- K9TuwPId6eS0wpNXmVQlqY5umVZvjtp4J0OAQAA
-X-Change-ID: 20241018-spi-nor-dc29698dea0f
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Marcus Folkesson <marcus.folkesson@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4883;
- i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=S9eRxq402eK4I35Xnjw+5DdjS0TnqMYqf/6CHY6wIAM=;
- b=owEBbQKS/ZANAwAIAYiATm9ZXVIyAcsmYgBnOHpEhuDfKZJq5pNn5HGrppcMqMIFW/mvGNTVD
- 6wy2OGQw5GJAjMEAAEIAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCZzh6RAAKCRCIgE5vWV1S
- Ms4dEACJPrCLNfXlv8LSAo2ITG/27aqRj1Dux1Af4VpYRkhUvt7tAHQ9ZPBbd/IxFZbzbjiXOe2
- 67z7quG11la+0eif5vghMRHIQFD9TlBXnwzH8bANPMkLhCTfa9FAsHIWSaJroDVW3fpIPcLbi/O
- ecnaCH40s1oJ0nsJmmVtir90GeVptGAbsNsh5HuG+8fJGO95vDooMZZyoDlKLoC/0UPehbJELo9
- Yev671hIVjlvmvn9InEj8QGXqs3PJOIZ01D23+KCkwttEhOr22KvaSMaaSPeXY7os1SJ/RkCqJf
- lUHsMU8prc+FRvDnIL/HPE8J0uqw2bkxoIONyrfF9oWchX+LS8vvjJACL2YlBLUdVpyJ3hACc3Y
- FPnXy0jLYW+CiOhMcXXlDYFnYlf/GC5tDjXhRl7/l3qhx6TQa8QI/E5J+teoybwCZG2rWW59DjO
- /eREh2oqhXqn5+vr1NT2Go+tU7av3I652UYE3bwO8MzhB2t+Uy1FB1LsNNj+653EdkokOTU0tcz
- E1bgcZHoEKq1jnV+m/54Q2guLBPTfFF5miRTdvnU/ksFaR+ck22xUonbrDKMdKMBMu9JzfO7rS6
- Wte/dEC4HAIiyqxYJu6lcXZtoSlr5mItkXATxUVFXViFVJvCLQnVHkGt6hIxdzBAh+3EULZTcoq
- SwNMGlX1HPU5RJw==
-X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
- fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241116_025615_719143_06AFDCB3 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20241116_051332_640937_CECE561F 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,212 +105,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add entry for the at25sf321 32Mbit SPI flash.
+This small series add the initial support for the Airoha AN8855 Switch.
 
-This flash is populated on a custom board and was tested at
-10MHz frequency using the "ti,da830-spi" SPI controller.
+It's a 5 port Gigabit Switch with SGMII/HSGMII upstream port.
 
-Link: https://www.renesas.com/en/document/dst/at25sf321-datasheet?r=1608801
-Reviewed-by: Michael Walle <mwalle@kernel.org>
-Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
----
-root# cat /sys/class/spi_master/spi1/spi1.1/spi-nor/partname
-at25sf321
+This is starting to get in the wild and there are already some router
+having this switch chip.
 
-root# cat /sys/class/spi_master/spi1/spi1.1/spi-nor/jedec_id
-1f8701
+It's conceptually similar to mediatek switch but register and bits
+are different. And there is that massive Hell that is the PCS
+configuration.
+Saddly for that part we have absolutely NO documentation currently.
 
-root# cat /sys/class/spi_master/spi1/spi1.1/spi-nor/manufacturer
-atmel
+There is this special thing where PHY needs to be calibrated with values
+from the switch efuse. (the thing have a whole cpu timer and MCU)
 
-root# cat /sys/kernel/debug/spi-nor/spi1.1/capabilities
-Supported read modes by the flash
- 1S-1S-1S
-  opcode        0x03
-  mode cycles   0
-  dummy cycles  0
- 1S-1S-1S (fast read)
-  opcode        0x0b
-  mode cycles   0
-  dummy cycles  8
- 1S-1S-2S
-  opcode        0x3b
-  mode cycles   0
-  dummy cycles  8
- 1S-2S-2S
-  opcode        0xbb
-  mode cycles   4
-  dummy cycles  0
- 1S-1S-4S
-  opcode        0x6b
-  mode cycles   0
-  dummy cycles  8
- 1S-4S-4S
-  opcode        0xeb
-  mode cycles   2
-  dummy cycles  4
+Changes v6:
+- Drop standard MIB and handle with ethtool OPs (as requested by Jakub)
+- Cosmetic: use bool instead of 0 or 1
+Changes v5:
+- Add devm_dsa_register_switch() patch
+- Add Reviewed-by tag for DT patch
+Changes v4:
+- Set regmap readable_table static (mute compilation warning)
+- Add support for port_bridge flags (LEARNING, FLOOD)
+- Reset fdb struct in fdb_dump
+- Drop support_asym_pause in port_enable
+- Add define for get_phy_flags
+- Fix bug for port not inititially part of a bridge
+  (in an8855_setup the port matrix was always cleared but
+   the CPU port was never initially added)
+- Disable learning and flood for user port by default
+- Set CPU port to flood and learning by default
+- Correctly AND force duplex and flow control in an8855_phylink_mac_link_up
+- Drop RGMII from pcs_config
+- Check ret in "Disable AN if not in autoneg"
+- Use devm_mutex_init
+- Fix typo for AN8855_PORT_CHECK_MODE
+- Better define AN8855_STP_LISTENING = AN8855_STP_BLOCKING
+- Fix typo in AN8855_PHY_EN_DOWN_SHIFT
+- Use paged helper for PHY
+- Skip calibration in config_init if priv not defined
+Changes v3:
+- Out of RFC
+- Switch PHY code to select_page API
+- Better describe masks and bits in PHY driver for ADC register
+- Drop raw values and use define for mii read/write
+- Switch to absolute PHY address
+- Replace raw values with mask and bits for pcs_config
+- Fix typo for ext-surge property name
+- Drop support for relocating Switch base PHY address on the bus
+Changes v2:
+- Drop mutex guard patch
+- Drop guard usage in DSA driver
+- Use __mdiobus_write/read
+- Check return condition and return errors for mii read/write
+- Fix wrong logic for EEE
+- Fix link_down (don't force link down with autoneg)
+- Fix forcing speed on sgmii autoneg
+- Better document link speed for sgmii reg
+- Use standard define for sgmii reg
+- Imlement nvmem support to expose switch EFUSE
+- Rework PHY calibration with the use of NVMEM producer/consumer
+- Update DT with new NVMEM property
+- Move aneg validation for 2500-basex in pcs_config
+- Move r50Ohm table and function to PHY driver
 
-Supported page program modes by the flash
- 1S-1S-1S
-  opcode        0x02
+Christian Marangi (4):
+  net: dsa: add devm_dsa_register_switch()
+  dt-bindings: net: dsa: Add Airoha AN8855 Gigabit Switch documentation
+  net: dsa: Add Airoha AN8855 5-Port Gigabit DSA Switch driver
+  net: phy: Add Airoha AN8855 Internal Switch Gigabit PHY
 
-root# mtd_debug  info /dev/mtd6
-mtd.type = MTD_NORFLASH
-mtd.flags = MTD_BIT_WRITEABLE
-mtd.size = 65536 (64K)
-mtd.erasesize = 4096 (4K)
-mtd.writesize = 1 
-mtd.oobsize = 0 
-regions = 0
+ .../bindings/net/dsa/airoha,an8855.yaml       |  242 ++
+ MAINTAINERS                                   |   11 +
+ drivers/net/dsa/Kconfig                       |    9 +
+ drivers/net/dsa/Makefile                      |    1 +
+ drivers/net/dsa/an8855.c                      | 2233 +++++++++++++++++
+ drivers/net/dsa/an8855.h                      |  694 +++++
+ drivers/net/phy/Kconfig                       |    5 +
+ drivers/net/phy/Makefile                      |    1 +
+ drivers/net/phy/air_an8855.c                  |  268 ++
+ include/net/dsa.h                             |    1 +
+ net/dsa/dsa.c                                 |   19 +
+ 11 files changed, 3484 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/dsa/airoha,an8855.yaml
+ create mode 100644 drivers/net/dsa/an8855.c
+ create mode 100644 drivers/net/dsa/an8855.h
+ create mode 100644 drivers/net/phy/air_an8855.c
 
-SINGLE
-======
-spi-rx-bus-width = <1>;
-spi-tx-bus-width = <1>;
-
-root# cat /sys/kernel/debug/spi-nor/spi1.1/params
-name            at25sf321
-id              1f 87 01
-size            4.00 MiB
-write size      1
-page size       256
-address nbytes  3
-flags           HAS_16BIT_SR
-
-opcodes
- read           0x0b
-  dummy cycles  8
- erase          0x20
- program        0x02
- 8D extension   none
-
-protocols
- read           1S-1S-1S
- write          1S-1S-1S
- register       1S-1S-1S
-
-erase commands
- 20 (4.00 KiB) [0]
- d8 (64.0 KiB) [1]
- c7 (4.00 MiB)
-
-sector map
- region (in hex)   | erase mask | flags
- ------------------+------------+----------
- 00000000-003fffff |     [01  ] |
-
-DUAL
-======
-spi-rx-bus-width = <2>;
-spi-tx-bus-width = <2>;
-
-root# cat /sys/kernel/debug/spi-nor/spi1.1/params 
-name            at25sf321
-id              1f 87 01
-size            4.00 MiB
-write size      1
-page size       256
-address nbytes  3
-flags           HAS_16BIT_SR | SOFT_RESET
-
-opcodes
- read           0x0b
-  dummy cycles  8
- erase          0x20
- program        0x02
- 8D extension   repeat
-
-protocols
- read           1S-1S-1S
- write          1S-1S-1S
- register       1S-1S-1S
-
-erase commands
- 20 (4.00 KiB) [1]
- 52 (32.0 KiB) [2]
- d8 (64.0 KiB) [3]
- c7 (4.00 MiB)
-
-sector map
- region (in hex)   | erase mask | flags
- ------------------+------------+----------
- 00000000-003fffff |     [ 123] | 
-
-QUAD
-======
-spi-rx-bus-width = <4>;
-spi-tx-bus-width = <4>;
-
-root# cat /sys/kernel/debug/spi-nor/spi1.1/params
-name            at25sf321
-id              1f 87 01
-size            4.00 MiB
-write size      1
-page size       256
-address nbytes  3
-flags           HAS_16BIT_SR | SOFT_RESET
-
-opcodes
- read           0x0b
-  dummy cycles  8
- erase          0x20
- program        0x02
- 8D extension   repeat
-
-protocols
- read           1S-1S-1S
- write          1S-1S-1S
- register       1S-1S-1S
-
-erase commands
- 20 (4.00 KiB) [1]
- 52 (32.0 KiB) [2]
- d8 (64.0 KiB) [3]
- c7 (4.00 MiB)
-
-sector map
- region (in hex)   | erase mask | flags
- ------------------+------------+----------
- 00000000-003fffff |     [ 123] |
----
-Changes in v4:
-- Join line for link in description
-- Removed .name as the ID is reused by different chips
-- Link to v3: https://lore.kernel.org/r/20241115-spi-nor-v3-1-93ec584177cb@gmail.com
-
-Changes in v3:
-- Add SPI_NOR_DUAL_READ and SPI_NOR_QUAD_READ flags
-- Link to v2: https://lore.kernel.org/r/20241029-spi-nor-v2-1-e166c3900e19@gmail.com
-
-Changes in v2:
-- Change from at25sf321b to at25sf321
-- Link to v1: https://lore.kernel.org/r/20241018-spi-nor-v1-1-d725bfb701ec@gmail.com
----
- drivers/mtd/spi-nor/atmel.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/drivers/mtd/spi-nor/atmel.c b/drivers/mtd/spi-nor/atmel.c
-index 45d1153a04a07b7c61f46b117311b24ab695038f..82c592f0a1e156e6871785d58b670f76a0c03911 100644
---- a/drivers/mtd/spi-nor/atmel.c
-+++ b/drivers/mtd/spi-nor/atmel.c
-@@ -238,6 +238,10 @@ static const struct flash_info atmel_nor_parts[] = {
- 		.flags = SPI_NOR_HAS_LOCK,
- 		.no_sfdp_flags = SECT_4K,
- 		.fixups = &at25fs_nor_fixups
-+	}, {
-+		.id = SNOR_ID(0x1f, 0x87, 0x01),
-+		.size = SZ_4M,
-+		.no_sfdp_flags = SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ,
- 	},
- };
- 
-
----
-base-commit: 200289db261f0c8131a5756133e9d30966289c3b
-change-id: 20241018-spi-nor-dc29698dea0f
-
-Best regards,
 -- 
-Marcus Folkesson <marcus.folkesson@gmail.com>
+2.45.2
 
 
