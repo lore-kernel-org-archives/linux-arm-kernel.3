@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E35B4D68BF6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Nov 2024 23:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF2CBD68BF6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 00:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Z2Hk1TpWRHEVUQNYEojlmU2kpPlT0Pko0oMT95Le7Q=; b=mXbZiF+moQlzztzi9Kv2SZKssC
-	G6VWiK7KNepVauHVPUe9YbtXvbBBBeGJQC2JAj0K8ZmqKUI/gF7NIzQAYeyNnyWxqrfSOFiXo6Voo
-	UUuRReOFr8jWfI13/oLUJV9KkLRt/sVfsCBH3qreuNH3YnNXx6c9DyQMK6jqS/L6OLu5hSx2cwwHs
-	fbgGLW8Izi5qKUn5E2+NoN4dBVn3UFsYELT4pNpJeHUBq7HntYCNP34lJVBKomoFIOUXATgwLspud
-	ITob3FORfTfjVH86pqbNWLg+wPq0fji9m0ghpowqDoMa1EDU0Zh3VR7tdx5Oko6VfKWxqibCb1KLv
-	P2b+bTKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZGZ/FMiIULEo59v9i8aHwk5NShWDs+KEtnJqIceWRXw=; b=O/vy58n/v1kwLehc4Y1vZxq/M9
+	aM4bgoY3asmhx0P0u3GmcFyxZ9MkocLan8S4IO4JeTt4u2c0RtQIRj42mFactEDkGuJpCWL0xAcd1
+	vD8KFOrO/yMkW6k1am8UdVez+LL/pmoo41aQbd/UqVBreFdkQGUSucDSQnClZTyJVCzGjKqlnm+OQ
+	YbT+8D9KziueXIHAhEUpfB/7Gn2HudyAOsR2c0cuKjR2fN0FAJCoS/Rp6qVygEAPoJbNmBU6bw6P8
+	ksfOQ5naE+4TZ1SHHSL5GbKkooMffD1GuZtw8OsIKMD2hw9TU9XIFLlDVlXf5sImJwp+PPTOfdAWN
+	sTap/uoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCS8J-00000006T9O-1pdr;
-	Sat, 16 Nov 2024 23:23:15 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tCSlG-00000006YeJ-2eWG;
+	Sun, 17 Nov 2024 00:03:30 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCS7N-00000006SiF-2RZl;
-	Sat, 16 Nov 2024 23:22:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1731799334;
-	bh=hlDAqD7B9xoSkBa/4eiClvoljR+dK557brn+9rmbF+s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=p36JVddUrAA0pa+xJHFYYjoedQ+zcIHWixrC64AqnF/KpKTnJmUOBKZc7rohrvGe5
-	 HxXbbcfvTVeskRu7F9pDywq+bO1hW6F34lDDlahH/ptXmrbE0+PMXQd7+tGZnJUvOT
-	 DXiqwODd90KComjPo+Ah6bahP1WJYHhh89TaEGP8O1ZIuhXhJ3iQqhkez3HjcZ0Fgy
-	 ahPGszMl9tEI0d9x5HesZd8rmMc4/QgmY/CfFdFPZmPK+cXtNJKOH2z6UXirCxTxKl
-	 Ktx/M42KINi3bsXuqYafQXtRQCbxXsAZY9x8llkjtduURwfTgsiIOpzPpPHVBcL//d
-	 KskbCQkGKa5jg==
-Received: from [192.168.1.90] (unknown [86.120.21.57])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1B2A017E0CD2;
-	Sun, 17 Nov 2024 00:22:14 +0100 (CET)
-Message-ID: <3d330c00-cdf0-4103-ac4b-b3d4e5c81335@collabora.com>
-Date: Sun, 17 Nov 2024 01:22:13 +0200
+	id 1tCSkH-00000006YYO-3eai;
+	Sun, 17 Nov 2024 00:02:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1731801750; x=1763337750;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gxKgLgaDLjJze/Htyj3X1BttLL7u3v4J/jz7At2NUZ8=;
+  b=MdZ5Em9aZ1jMuF8ll1fhW+JDdJ06ulSug6GVUaiO0v328lmin6hHmYgA
+   Y05waehbT1pjBfWL8N6J0Ddn61M3U1UqFId3aYvMTF8GFBmDnMFKTx5Ju
+   7O4Ep49Mf2biURkqsXYLKIPnJQNEvX8EqOv1lWsb5vSeaQEiEMu5lzLZv
+   IV88DR202UsrPM/xopT00RSQFgTUytC+LZc6jE6je88WVTXyEq39ZCOk2
+   5j0KGGrTLhj1aujVVPuk6qaj3CnZsZ7xKjZlYphSUjSgv3tEVmEA1YTGx
+   KSJDD+3tzQFmXGf4zR2LWV2MD5oL9PeVP0JGTrNr0trouk1okzsAKSzG7
+   A==;
+X-CSE-ConnectionGUID: d6gCN5IYQUSZqDopGbteSw==
+X-CSE-MsgGUID: EkctcbD6QGW4XitFVBt2Gg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11258"; a="32027335"
+X-IronPort-AV: E=Sophos;i="6.12,160,1728975600"; 
+   d="scan'208";a="32027335"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2024 16:02:25 -0800
+X-CSE-ConnectionGUID: AJMT17puQ4uybtOhMITHQQ==
+X-CSE-MsgGUID: 7wYf6vcVQbCNRNHNE56khQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,160,1728975600"; 
+   d="scan'208";a="89289158"
+Received: from lkp-server01.sh.intel.com (HELO 1e3cc1889ffb) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 16 Nov 2024 16:02:22 -0800
+Received: from kbuild by 1e3cc1889ffb with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tCSk7-0001Av-1I;
+	Sun, 17 Nov 2024 00:02:19 +0000
+Date: Sun, 17 Nov 2024 08:02:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>,
+	frattaroli.nicolas@gmail.com, linux-rockchip@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, lgirdwood@gmail.com, broonie@kernel.org,
+	perex@perex.cz, tiwai@suse.com, heiko@sntech.de,
+	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
+Subject: Re: [PATCH sound-next] ASoC: rockchip: i2s-tdm: Fix a useless call
+ issue
+Message-ID: <202411170713.FymmFfl3-lkp@intel.com>
+References: <20241115114924.23843-1-dheeraj.linuxdev@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] drm/rockchip: vop2: Improve display modes handling on
- RK3588 HDMI0
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com>
- <20241116-vop2-hdmi0-disp-modes-v1-3-2bca51db4898@collabora.com>
- <c79c1878-370d-45fa-a802-1d175498bb1c@kwiboo.se>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <c79c1878-370d-45fa-a802-1d175498bb1c@kwiboo.se>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241115114924.23843-1-dheeraj.linuxdev@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241116_152217_824886_53C2457A 
-X-CRM114-Status: GOOD (  24.53  )
+X-CRM114-CacheID: sfid-20241116_160230_055529_706E69A7 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,91 +91,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonas,
+Hi Dheeraj,
 
-On 11/16/24 9:12 PM, Jonas Karlman wrote:
-> Hi Cristian,
-> 
-> On 2024-11-16 19:22, Cristian Ciocaltea wrote:
->> The RK3588 specific implementation is currently quite limited in terms
->> of handling the full range of display modes supported by the connected
->> screens, e.g. 2560x1440@75Hz, 2048x1152@60Hz, 1024x768@60Hz are just a
->> few of them.
->>
->> Additionally, it doesn't cope well with non-integer refresh rates like
->> 59.94, 29.97, 23.98, etc.
->>
->> Make use of HDMI0 PHY PLL as a more accurate DCLK source to handle
->> all display modes up to 4K@60Hz.
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 34 ++++++++++++++++++++++++++++
->>  1 file changed, 34 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->> index 3e4c1cfd0bac6fa90f4cab85e27c2a69b86fc9aa..dfe1a50132d596f036430d7db3631398d0802972 100644
->> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+kernel test robot noticed the following build warnings:
 
-[...]
+[auto build test WARNING on rockchip/for-next]
+[also build test WARNING on linus/master v6.12-rc7 next-20241115]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
->> +	/*
->> +	 * Switch to HDMI PHY PLL as DCLK source for display modes up
->> +	 * to 4K@60Hz, if available, otherwise keep using the system CRU.
->> +	 */
->> +	if (vop2->pll_hdmiphy0 && mode->crtc_clock <= VOP2_MAX_DCLK_RATE) {
->> +		drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
->> +			struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
->> +
->> +			if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
->> +				if (!vp->dclk_src)
->> +					vp->dclk_src = clk_get_parent(vp->dclk);
->> +
->> +				ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
->> +				if (ret < 0)
->> +					drm_warn(vop2->drm,
->> +						 "Could not switch to HDMI0 PHY PLL: %d\n", ret);
->> +				break;
->> +			}
->> +		}
->> +	}
-> 
-> Why do we need to do this dynamically here?
-> 
-> The device tree set PLL_HPLL as parent:
-> 
-> &vop {
-> 	assigned-clocks = <&cru DCLK_VOP0>, <&cru DCLK_VOP1>;
-> 	assigned-clock-parents = <&pmucru PLL_HPLL>, <&cru PLL_VPLL>;
-> 	status = "okay";
-> };
-> 
-> Could this not just be changed to assign hdptxphy_hdmi0 as parent?
-> 
-> &vop {
-> 	assigned-clocks = <&cru DCLK_VOP0>, <&cru DCLK_VOP1>;
-> 	assigned-clock-parents = <&hdptxphy_hdmi0>, <&cru PLL_VPLL>;
-> 	status = "okay";
-> };
-> 
-> or something similar?
-> 
-> For RK3328 the vop dclk parent is assigned to hdmiphy using DT.
+url:    https://github.com/intel-lab-lkp/linux/commits/Dheeraj-Reddy-Jonnalagadda/ASoC-rockchip-i2s-tdm-Fix-a-useless-call-issue/20241115-195011
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git for-next
+patch link:    https://lore.kernel.org/r/20241115114924.23843-1-dheeraj.linuxdev%40gmail.com
+patch subject: [PATCH sound-next] ASoC: rockchip: i2s-tdm: Fix a useless call issue
+config: loongarch-randconfig-r054-20241117 (https://download.01.org/0day-ci/archive/20241117/202411170713.FymmFfl3-lkp@intel.com/config)
+compiler: loongarch64-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241117/202411170713.FymmFfl3-lkp@intel.com/reproduce)
 
-Yes, that would normally work.  The problem is that the PHY PLLs cannot
-provide pixel clocks for resolutions above 4K@60Hz (hence limited to
-HDMI 2.0), while VOP2 on RK3588 supports up to 8K@60Hz (making use of
-HDMI 2.1).
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411170713.FymmFfl3-lkp@intel.com/
 
-On top of that, the 2 PLLs are shared between 3 out of the 4 video ports
-of the display controller.  There is quite a bit of complexity in
-downstream driver to handle all possible usecases - see [1] for a brief
-description on how is that supposed to work.
+All warnings (new ones prefixed by >>):
 
-Regards,
-Cristian
+>> sound/soc/rockchip/rockchip_i2s_tdm.c:517:12: warning: 'rockchip_i2s_ch_to_io' defined but not used [-Wunused-function]
+     517 | static int rockchip_i2s_ch_to_io(unsigned int ch, bool substream_capture)
+         |            ^~~~~~~~~~~~~~~~~~~~~
 
-[1] https://github.com/radxa/kernel/blob/linux-6.1-stan-rkr4.1/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c#L4742
 
+vim +/rockchip_i2s_ch_to_io +517 sound/soc/rockchip/rockchip_i2s_tdm.c
+
+081068fd641403 Nicolas Frattaroli 2021-10-01  516  
+081068fd641403 Nicolas Frattaroli 2021-10-01 @517  static int rockchip_i2s_ch_to_io(unsigned int ch, bool substream_capture)
+081068fd641403 Nicolas Frattaroli 2021-10-01  518  {
+081068fd641403 Nicolas Frattaroli 2021-10-01  519  	if (substream_capture) {
+081068fd641403 Nicolas Frattaroli 2021-10-01  520  		switch (ch) {
+081068fd641403 Nicolas Frattaroli 2021-10-01  521  		case I2S_CHN_4:
+081068fd641403 Nicolas Frattaroli 2021-10-01  522  			return I2S_IO_6CH_OUT_4CH_IN;
+081068fd641403 Nicolas Frattaroli 2021-10-01  523  		case I2S_CHN_6:
+081068fd641403 Nicolas Frattaroli 2021-10-01  524  			return I2S_IO_4CH_OUT_6CH_IN;
+081068fd641403 Nicolas Frattaroli 2021-10-01  525  		case I2S_CHN_8:
+081068fd641403 Nicolas Frattaroli 2021-10-01  526  			return I2S_IO_2CH_OUT_8CH_IN;
+081068fd641403 Nicolas Frattaroli 2021-10-01  527  		default:
+081068fd641403 Nicolas Frattaroli 2021-10-01  528  			return I2S_IO_8CH_OUT_2CH_IN;
+081068fd641403 Nicolas Frattaroli 2021-10-01  529  		}
+081068fd641403 Nicolas Frattaroli 2021-10-01  530  	} else {
+081068fd641403 Nicolas Frattaroli 2021-10-01  531  		switch (ch) {
+081068fd641403 Nicolas Frattaroli 2021-10-01  532  		case I2S_CHN_4:
+081068fd641403 Nicolas Frattaroli 2021-10-01  533  			return I2S_IO_4CH_OUT_6CH_IN;
+081068fd641403 Nicolas Frattaroli 2021-10-01  534  		case I2S_CHN_6:
+081068fd641403 Nicolas Frattaroli 2021-10-01  535  			return I2S_IO_6CH_OUT_4CH_IN;
+081068fd641403 Nicolas Frattaroli 2021-10-01  536  		case I2S_CHN_8:
+081068fd641403 Nicolas Frattaroli 2021-10-01  537  			return I2S_IO_8CH_OUT_2CH_IN;
+081068fd641403 Nicolas Frattaroli 2021-10-01  538  		default:
+081068fd641403 Nicolas Frattaroli 2021-10-01  539  			return I2S_IO_2CH_OUT_8CH_IN;
+081068fd641403 Nicolas Frattaroli 2021-10-01  540  		}
+081068fd641403 Nicolas Frattaroli 2021-10-01  541  	}
+081068fd641403 Nicolas Frattaroli 2021-10-01  542  }
+081068fd641403 Nicolas Frattaroli 2021-10-01  543  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
