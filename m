@@ -4,55 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BC33D68BEF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 15:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6777DD10F24
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 16:59:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4q3nR9c4FLOvWXyixuO6uUYLfPpjbnCGfPGRVx1GhG4=; b=ZS5BtnD0NXWRMLZTe8fnAsw7Dr
-	SFo8EsX8RG6v2T9/4mdx9mRAqnOf91zF5WBKcc9r4HlCrMzeRIFfWZs9V66TyTk5N8nHNthNjGsTR
-	4OKf9lU8B44wz1IzB5lbn0898OjDmW3lssoxCh/Aqy8e/O3E2D4bTCNik2mCXI8EhYkM1W3qFQgM5
-	WUOUptcDKXSYJsXLzgSSSSjFT9xidHN0alZ9QUmbKixpKUJLZLQvpUoBZ3vDUQY1cg1KSxnpS5N6e
-	LT7EOpbiCP1V6GH978QgC6tE3PRJAncynTyGeHc5xAc7LGzZ7oKk5QRD3aLJQl784Zlh6a5UKvdMv
-	8U7Nv4UQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WN9Z3q0nVk9z2xNssb2ym9NxSDAUJcp5Q1Sd4eN+q90=; b=4W+lZVNrPdHUqM2YbJChlouzHJ
+	0IznEcitGv0T+ppVZP+AwdAc4oBTFVbIqIEwkm6Sfd2B66k1IVJPcZZvkjVyfcJqIgRvh2OvdygMI
+	xCq+EVqCa0KbQ4/zXHowPiM2FfNS1Ylsp+4Mam5eSlw/jGQTNDD+M/qNxfe7iZzUBEz3xyfx2ILLM
+	U9bkgoEE16LBqkktafdWT2Cq4WKCFEoHRCyGR5ASeagl4d19lOeR7OhLp/NY9CnfLETN1GWFmZSaR
+	KEKp4xwEqUZ9CxLAu8y++yj5GZvkFh4Wsf+oU8d02HnfCu93I+SaE54WYoNoP8YwIp0JV4FWX9lw3
+	0M6iGmfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tChNe-00000007VZM-3zCM;
-	Sun, 17 Nov 2024 15:40:07 +0000
-Received: from inva020.nxp.com ([92.121.34.13])
+	id 1tCic2-00000007aK2-25tq;
+	Sun, 17 Nov 2024 16:59:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tChMi-00000007VQP-2ztX
+	id 1tCib7-00000007aGn-0roJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 Nov 2024 15:39:10 +0000
-Received: from inva020.nxp.com (localhost [127.0.0.1])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 604521A033D;
-	Sun, 17 Nov 2024 16:39:05 +0100 (CET)
-Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 5302A1A0018;
-	Sun, 17 Nov 2024 16:39:05 +0100 (CET)
-Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
-	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 0CBCC203CE;
-	Sun, 17 Nov 2024 16:39:05 +0100 (CET)
-Date: Sun, 17 Nov 2024 16:39:05 +0100
-From: Jan Petrous <jan.petrous@oss.nxp.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v4 16/16] net: stmmac: dwmac-s32: Read PTP clock rate
- when ready
-Message-ID: <ZzoOGdlbQXQVxPkv@lsv051416.swis.nl-cdc01.nxp.com>
-References: <20241028-upstream_s32cc_gmac-v4-0-03618f10e3e2@oss.nxp.com>
- <20241028-upstream_s32cc_gmac-v4-16-03618f10e3e2@oss.nxp.com>
- <9154cc5f-a330-4f6d-b161-827e64231e35@lunn.ch>
+	Sun, 17 Nov 2024 16:58:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D6480A40F9A;
+	Sun, 17 Nov 2024 16:56:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DE88C4CED0;
+	Sun, 17 Nov 2024 16:58:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731862683;
+	bh=NpH4jY+JCjKP6r6zSnex/nzywYVAlfjvb617sL0GkLw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=EBxv/TOZ8w81qYwE+diW+f9Y6u0WGIiXFdsVP1oLEBc82WtRLuiclHWAZQDIkugEz
+	 2xJhKxhAXhWWyUeHErd3vdaHY2vwNZIdoV4G7g4hRx9N4bygnWwG0dptFO1fopnKKB
+	 IuN2PbdjMC2wAak/zwU1zclKvuVjgesAt+yX38xasOm5wW2i002CWWmt1I1ap+RwKM
+	 FumdE9rJVc2BXfTv1HmGSdc9rHTYMGZiKdMHQuOGREe86eeYPWRhpRZ6ykun8E1HOA
+	 YEnBr3dBHE5P7xjsC9OAIu6sER39SvP+ri+m90/ra+zgzCBRmbMhAGRxut952avkWK
+	 WT40++aBR6JNQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tCib3-00DYt6-1q;
+	Sun, 17 Nov 2024 16:58:01 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH 0/4] KVM: arm64: vgic: Collection of fixes for 6.13
+Date: Sun, 17 Nov 2024 16:57:53 +0000
+Message-Id: <20241117165757.247686-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9154cc5f-a330-4f6d-b161-827e64231e35@lunn.ch>
-X-Virus-Scanned: ClamAV using ClamSMTP
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241117_073909_013531_CD44D8D8 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20241117_085805_328693_D261C89F 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,50 +79,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: imx@lists.linux.dev, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Andrei Botila <andrei.botila@nxp.org>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, Jose Abreu <joabreu@synopsys.com>, Jacob Keller <jacob.e.keller@intel.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 01:18:43PM +0100, Andrew Lunn wrote:
-> On Mon, Oct 28, 2024 at 09:24:58PM +0100, Jan Petrous via B4 Relay wrote:
-> > From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-> > 
-> > The PTP clock is read by stmmac_platform during DT parse.
-> > On S32G/R the clock is not ready and returns 0. Postpone
-> > reading of the clock on PTP init.
-> 
-> This needs more explanation as to why this is a feature, not a bug,
-> for the PTP clock.
-> 
+This is a more or less random collection of vgic fixes, addressing
+issues ranging from "purely cosmetic" all the way to "pretty annoying"
+(of which patch #1 is an example).
 
-Thanks for comment. I did a homework and found out the root cause is
-using PTP clocks before they are properly enabled. As I understand,
-the clocks, especially the composite variant, require preparation and/or
-enabling them, what is not managed correctly for PTP clocks when
-stmmac_platform is used. In this case, the PTP clock value is read this way:
+The general theme is around the tightening of the internal API in
+order to make it a bit more difficult to get things wrong, something
+that I'm particularly good at. There is a bit more I'd like to do on
+the ITS, but I'm testing the waters here.
 
-   stmmac_probe_config_dt:
-   // https://github.com/torvalds/linux/blob/4a5df37964673effcd9f84041f7423206a5ae5f2/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c#L634
+Patches on top of kvmarm-6.13, tested on the funky x1e box.
 
-	/* Fall-back to main clock in case of no PTP ref is passed */
-	plat->clk_ptp_ref = devm_clk_get(&pdev->dev, "ptp_ref");
-	if (IS_ERR(plat->clk_ptp_ref)) {
-		plat->clk_ptp_rate = clk_get_rate(plat->stmmac_clk);
-		plat->clk_ptp_ref = NULL;
-		dev_info(&pdev->dev, "PTP uses main clock\n");
-	} else {
-		plat->clk_ptp_rate = clk_get_rate(plat->clk_ptp_ref);
-		dev_dbg(&pdev->dev, "PTP rate %d\n", plat->clk_ptp_rate);
-	}
+Marc Zyngier (4):
+  KVM: arm64: vgic-v3: Sanitise guest writes to GICR_INVLPIR
+  KVM: arm64: vgic: Make vgic_get_irq() more robust
+  KVM: arm64: vgic: Kill VGIC_MAX_PRIVATE definition
+  KVM: arm64: vgic-its: Add stronger type-checking to the ITS entry
+    sizes
 
-If I change getter to enabled getter:
-	plat->clk_ptp_ref = devm_clk_get_enabled(&pdev->dev, "ptp_ref");
+ arch/arm64/kvm/vgic/vgic-debug.c   |  5 +-
+ arch/arm64/kvm/vgic/vgic-init.c    |  2 +-
+ arch/arm64/kvm/vgic/vgic-its.c     | 77 +++++++++++++++++++++---------
+ arch/arm64/kvm/vgic/vgic-mmio-v2.c | 12 ++---
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c | 13 +++--
+ arch/arm64/kvm/vgic/vgic-mmio.c    | 38 +++++++--------
+ arch/arm64/kvm/vgic/vgic-v2.c      |  2 +-
+ arch/arm64/kvm/vgic/vgic-v3.c      |  2 +-
+ arch/arm64/kvm/vgic/vgic-v4.c      |  4 +-
+ arch/arm64/kvm/vgic/vgic.c         | 43 ++++++++++-------
+ arch/arm64/kvm/vgic/vgic.h         | 27 +----------
+ include/kvm/arm_vgic.h             |  1 -
+ 12 files changed, 126 insertions(+), 100 deletions(-)
 
-The driver got valid rate and the patch is not needed anymore.
+-- 
+2.39.2
 
-So, if I didn't miss something, it seems like I have to replace the current
-patch with one fixing clk getter.
-
-BR.
-/Jan
 
