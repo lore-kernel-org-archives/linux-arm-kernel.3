@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78032D68BE2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 03:29:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5514D68BDD
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 05:26:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Z7gztB2tDNAvS674D0yqm336ya3HxpZc5gMYexc2SI=; b=KMjkA/t3mRjyPjmmrK4zqKUnia
-	hFnE6Utd6WgT/clqwsBtCXHPJKF3d4HAEK2i2+qwXDkLKsjLmOEdg29bfMuxa1V2k8p6EgZEspCcb
-	rx8eYNOanOqH9QkFlj3bW5cM9RDD3Il6+hahd5Z/gkcIbPwE3aHCfDhuqZq/FvFEOTd2GRl6vH4Bg
-	hgvAyETBZVFP9vw9iCgm2Bnqs8TnLsOj4GrHMUPc0v9MAsiR2xjkeIKKhi6iq9IUFRE7AFVjWiUbj
-	jUiL+Tau5toMiSK3m4XlPPIy0HRi2+0xgTju49KCpdX+BgWZUyIITBMrv/2LWhoT7ZtJfpfX3tPSn
-	jrz4U4UQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1VW7Eea+1GT6H8MpnapiTmJLeEwFPnQEnPcJgx9UmgI=; b=BO3dVWzDDspe5AdDAGtArxNIbB
+	2i+KXOgYF36f0IFUbKHCRWngmw2Ye7CUIetc1m9B26Fsx0znVEYMMiBjFyZnTYkPsPca3HdzkZPeE
+	TjhcfnyH6Q7h27YVtHatIqGzzxn7Y1kDa89n28FaObqGi3iV3VoDiKtO8+3u4J2O2mIPqt7OGUrcg
+	4Ip7XGMwvU5o+r8z/98sZav9AWHDfc4Z8NXHtfVNDOJ5R6W6WDaEZ0NwGcHOPtrQXDhrJqFNi5nkn
+	RDQUSmH0UGPasV6EQnOq2jpwL7U/YpVAWT3p0pfhxsEpDTCfVIwZDPmQjd0tf/tYGvT+swCHwykVf
+	2dm13NMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCVxx-00000006jjT-2brM;
-	Sun, 17 Nov 2024 03:28:49 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1tCXnZ-00000006qGN-177D;
+	Sun, 17 Nov 2024 05:26:13 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCVx1-00000006jce-13oi;
-	Sun, 17 Nov 2024 03:27:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731814071; x=1763350071;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=5ITUgTk83bVHTXHHqKXnQknCDI3cg7wq8bv7laRd1OE=;
-  b=mMYc+OgARIVJWfhmD6Y4Pv4vT0ZqF+gQ8LMBohaGz9/jgsWT7DD1HKMp
-   HWcfUaHMcc0ClG/QsLx9MX2YFT5NQkbXfF0hjL2lmZmRBp2iF4Ti0WJrb
-   2dAGy33xz7gzDaD23gzQ3GznAULeUbuTgm/gJQavx66aW1pFs7ndk3R9E
-   VZBx0ca2CRebbC18TrPwqlGTDxp5lrrxqIcIZvKZ6xHUzH52qnJI+nqrq
-   2N0h4BholZkgRjFmO8SioU4aPItA97KlH2A2Cp8BipRTuEqf7h3tECAj2
-   QfZdnirz0Iq3Elb/PIJXGR6m43YM3z+zA7P2L38KcoeA8PMR5tD/j/Fuo
-   w==;
-X-CSE-ConnectionGUID: 4VOC1I3rQHO85WgooLE+eA==
-X-CSE-MsgGUID: XJUNp9kfRb2AG0F40rNF8w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11258"; a="54289159"
-X-IronPort-AV: E=Sophos;i="6.12,161,1728975600"; 
-   d="scan'208";a="54289159"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2024 19:27:46 -0800
-X-CSE-ConnectionGUID: xUENNUGtQCWbgkQ+iH8bSA==
-X-CSE-MsgGUID: ilK6R/C3R62WusFcHgBm3w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,161,1728975600"; 
-   d="scan'208";a="119844329"
-Received: from lkp-server01.sh.intel.com (HELO 1e3cc1889ffb) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 16 Nov 2024 19:27:41 -0800
-Received: from kbuild by 1e3cc1889ffb with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tCVwo-0001Kj-3C;
-	Sun, 17 Nov 2024 03:27:38 +0000
-Date: Sun, 17 Nov 2024 11:26:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: Christian Marangi <ansuelsmth@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
+	id 1tCXmd-00000006qBS-2LzE
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 17 Nov 2024 05:25:17 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-72483f6e2f3so769969b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 Nov 2024 21:25:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nigauri-org.20230601.gappssmtp.com; s=20230601; t=1731821114; x=1732425914; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1VW7Eea+1GT6H8MpnapiTmJLeEwFPnQEnPcJgx9UmgI=;
+        b=0/r1pXph5UIw5IsqIJRsgat8a9WZ8PX5FaI4STqOS4+sYDqfaowK9FVDRUXBH8KcYR
+         Iv+mq86RZ4jWHQRBlU9UMDMjYvm2BbUPU9raaj/F5nNyiQ2YFg+yJvoSYCCJJ6+dRtpA
+         xhW0Mcc0ZmGpwe3vLXe7vZ+NDy87EK/kzAVPubXivoOyHum0g6HAMy/RJ44Yj58sgfhb
+         BDp81WrLo5BwItNcFEZ+oVSBP5EpsveFaN4VthWoElx5rIpCGqJVNsAdZq2ia5asnbek
+         vSOd0TzHDUxCMsZRpJVTY8DG9UwF9YT8UXqzyZbP8lxsOK9HPhs7GW/aG8NCWFwfuZuM
+         NoSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731821114; x=1732425914;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1VW7Eea+1GT6H8MpnapiTmJLeEwFPnQEnPcJgx9UmgI=;
+        b=LVgABa4orCuCTlb0OWIDlRw3tsWnO+Soa3u5cbINjiYQfz/aySOTwzvz2yKcRyqFTe
+         6N8cIupl/Py1kDk9SPl69dJfevATQoIAGeDyFqz6rYJy/TbLodH+zRZxqgZXfcEoiaxx
+         ThPNZiGhiZaTccRF0W3qp7pF19yl7eyguuMTqbm1MkLV4smfLFPcHoZMuNJPUgmSYikO
+         lsUyo4sfPJp1fgIpiZyiD/buXmbmoRUK82HreYcb4PSKM9IuK3wgCwyjVSlw6mIuBwjY
+         rIg2VmW1PypTNEp2FR2fUEx665h1/nyCfzo9C32ZTL5M312NyV0qhGL9anY4kJtlDq83
+         nn8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUhXOAGA7mXzcabyWq6Tc9mC8dkKtxzp1hh+jT0i5Z1FUJqArT+sPKD2VAcLn3V7AKyU0Myt/twVaYQbAZSxJkC@lists.infradead.org
+X-Gm-Message-State: AOJu0YwD49AKcmEz9AS4hqCMiTzjojOTeZfRIdE54v3vtng92mi1LuTI
+	9HKX3tiSu/BYHRZmsWLoC630iYt7kdzyhS14FxULOj4iWlQJsR6NzzpFN6hsHerihwsnOOFiOA=
+	=
+X-Google-Smtp-Source: AGHT+IGIKhBFzH/0EKB/6b5lM8SAr8TWxF0Njpp5ye0c++OJX5e0IdyZKNZw2hCNJzCUyGgKB+BcJg==
+X-Received: by 2002:a05:6a00:10cd:b0:724:7843:4cf3 with SMTP id d2e1a72fcca58-7247843508dmr13674357b3a.0.1731821113905;
+        Sat, 16 Nov 2024 21:25:13 -0800 (PST)
+Received: from localhost ([2405:6581:5360:1800:96f6:cb09:e09e:fe02])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724771e1a69sm3956170b3a.141.2024.11.16.21.25.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 16 Nov 2024 21:25:13 -0800 (PST)
+From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+To: Johan Hovold <johan@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, upstream@airoha.com
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	netdev@vger.kernel.org
-Subject: Re: [net-next PATCH v5 1/4] net: dsa: add devm_dsa_register_switch()
-Message-ID: <202411171135.vgruCFdx-lkp@intel.com>
-References: <20241112204743.6710-2-ansuelsmth@gmail.com>
+	linux-mediatek@lists.infradead.org,
+	Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+Subject: [PATCH] gnss: mtk: Simplify return variables in mtk_set_active and mtk_set_standby
+Date: Sun, 17 Nov 2024 14:25:01 +0900
+Message-ID: <20241117052501.1138926-1-iwamatsu@nigauri.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241112204743.6710-2-ansuelsmth@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241116_192751_362434_BCCAA29A 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20241116_212515_647503_848A0622 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,129 +94,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
+Simply return directly instead of assign the return value.
 
-kernel test robot noticed the following build errors:
+Signed-off-by: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+---
+ drivers/gnss/mtk.c | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
 
-[auto build test ERROR on net-next/main]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Christian-Marangi/net-dsa-add-devm_dsa_register_switch/20241113-045219
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20241112204743.6710-2-ansuelsmth%40gmail.com
-patch subject: [net-next PATCH v5 1/4] net: dsa: add devm_dsa_register_switch()
-config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20241117/202411171135.vgruCFdx-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 592c0fe55f6d9a811028b5f3507be91458ab2713)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241117/202411171135.vgruCFdx-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411171135.vgruCFdx-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from net/dsa/dsa.c:10:
-   In file included from include/linux/device.h:32:
-   In file included from include/linux/device/driver.h:21:
-   In file included from include/linux/module.h:19:
-   In file included from include/linux/elf.h:6:
-   In file included from arch/s390/include/asm/elf.h:181:
-   In file included from arch/s390/include/asm/mmu_context.h:11:
-   In file included from arch/s390/include/asm/pgalloc.h:18:
-   In file included from include/linux/mm.h:2213:
-   include/linux/vmstat.h:504:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     504 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     505 |                            item];
-         |                            ~~~~
-   include/linux/vmstat.h:511:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     511 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     512 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
-   include/linux/vmstat.h:524:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     524 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     525 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
-   In file included from net/dsa/dsa.c:14:
-   In file included from include/linux/netdevice.h:38:
-   In file included from include/net/net_namespace.h:43:
-   In file included from include/linux/skbuff.h:28:
-   In file included from include/linux/dma-mapping.h:11:
-   In file included from include/linux/scatterlist.h:9:
-   In file included from arch/s390/include/asm/io.h:95:
-   include/asm-generic/io.h:548:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     548 |         val = __raw_readb(PCI_IOBASE + addr);
-         |                           ~~~~~~~~~~ ^
-   include/asm-generic/io.h:561:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     561 |         val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
-         |                                                         ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/big_endian.h:37:59: note: expanded from macro '__le16_to_cpu'
-      37 | #define __le16_to_cpu(x) __swab16((__force __u16)(__le16)(x))
-         |                                                           ^
-   include/uapi/linux/swab.h:102:54: note: expanded from macro '__swab16'
-     102 | #define __swab16(x) (__u16)__builtin_bswap16((__u16)(x))
-         |                                                      ^
-   In file included from net/dsa/dsa.c:14:
-   In file included from include/linux/netdevice.h:38:
-   In file included from include/net/net_namespace.h:43:
-   In file included from include/linux/skbuff.h:28:
-   In file included from include/linux/dma-mapping.h:11:
-   In file included from include/linux/scatterlist.h:9:
-   In file included from arch/s390/include/asm/io.h:95:
-   include/asm-generic/io.h:574:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     574 |         val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
-         |                                                         ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/big_endian.h:35:59: note: expanded from macro '__le32_to_cpu'
-      35 | #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
-         |                                                           ^
-   include/uapi/linux/swab.h:115:54: note: expanded from macro '__swab32'
-     115 | #define __swab32(x) (__u32)__builtin_bswap32((__u32)(x))
-         |                                                      ^
-   In file included from net/dsa/dsa.c:14:
-   In file included from include/linux/netdevice.h:38:
-   In file included from include/net/net_namespace.h:43:
-   In file included from include/linux/skbuff.h:28:
-   In file included from include/linux/dma-mapping.h:11:
-   In file included from include/linux/scatterlist.h:9:
-   In file included from arch/s390/include/asm/io.h:95:
-   include/asm-generic/io.h:585:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     585 |         __raw_writeb(value, PCI_IOBASE + addr);
-         |                             ~~~~~~~~~~ ^
-   include/asm-generic/io.h:595:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     595 |         __raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
-         |                                                       ~~~~~~~~~~ ^
-   include/asm-generic/io.h:605:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     605 |         __raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
-         |                                                       ~~~~~~~~~~ ^
-   include/asm-generic/io.h:693:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     693 |         readsb(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:701:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     701 |         readsw(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:709:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     709 |         readsl(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:718:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     718 |         writesb(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
-   include/asm-generic/io.h:727:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     727 |         writesw(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
-   include/asm-generic/io.h:736:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     736 |         writesl(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
->> <inline asm>:4:33: error: symbol '__export_symbol_dsa_register_switch' is already defined
-       4 | .section ".export_symbol","a" ; __export_symbol_dsa_register_switch: ; .asciz "GPL" ; .asciz "" ; .balign 8 ; .quad dsa_register_switch ; .previous
-         |                                 ^
-   16 warnings and 1 error generated.
-
+diff --git a/drivers/gnss/mtk.c b/drivers/gnss/mtk.c
+index c62b1211f4fe4e..be20f6d6470736 100644
+--- a/drivers/gnss/mtk.c
++++ b/drivers/gnss/mtk.c
+@@ -24,25 +24,15 @@ struct mtk_data {
+ static int mtk_set_active(struct gnss_serial *gserial)
+ {
+ 	struct mtk_data *data = gnss_serial_get_drvdata(gserial);
+-	int ret;
+ 
+-	ret = regulator_enable(data->vcc);
+-	if (ret)
+-		return ret;
+-
+-	return 0;
++	return regulator_enable(data->vcc);
+ }
+ 
+ static int mtk_set_standby(struct gnss_serial *gserial)
+ {
+ 	struct mtk_data *data = gnss_serial_get_drvdata(gserial);
+-	int ret;
+ 
+-	ret = regulator_disable(data->vcc);
+-	if (ret)
+-		return ret;
+-
+-	return 0;
++	return regulator_disable(data->vcc);
+ }
+ 
+ static int mtk_set_power(struct gnss_serial *gserial,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.45.2
+
 
