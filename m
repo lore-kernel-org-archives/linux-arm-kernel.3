@@ -4,82 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5514D68BDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 05:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0606D68BF2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 08:55:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1VW7Eea+1GT6H8MpnapiTmJLeEwFPnQEnPcJgx9UmgI=; b=BO3dVWzDDspe5AdDAGtArxNIbB
-	2i+KXOgYF36f0IFUbKHCRWngmw2Ye7CUIetc1m9B26Fsx0znVEYMMiBjFyZnTYkPsPca3HdzkZPeE
-	TjhcfnyH6Q7h27YVtHatIqGzzxn7Y1kDa89n28FaObqGi3iV3VoDiKtO8+3u4J2O2mIPqt7OGUrcg
-	4Ip7XGMwvU5o+r8z/98sZav9AWHDfc4Z8NXHtfVNDOJ5R6W6WDaEZ0NwGcHOPtrQXDhrJqFNi5nkn
-	RDQUSmH0UGPasV6EQnOq2jpwL7U/YpVAWT3p0pfhxsEpDTCfVIwZDPmQjd0tf/tYGvT+swCHwykVf
-	2dm13NMA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aAFozerT8AmWvaMiQhtVKgrLvIOoUAQYsmUVcu4V1u0=; b=k/aAb8CFNHzwxBoFhsCl/MtUNB
+	LDs7/ZJcNZNWvQm2HCv18/OmgqRcsjwLC5FLbkgHGuQNZdetgGYyTLfJP4XPhH2bV0diJJijBdxXg
+	dhtUq8VENk02m5RZmFU6bSbFKG9ATWZmFjeg9rc6A68Ggurxc6PWQA/uDihlThy4J1KeHl0m1L+9/
+	oTz8/jH0L7mevlZ7a/YoaMRwL54GRKUSmuAvSrJXL8VLS51gEoLsuBIP6EDjMRijH45cMBxh1v+kx
+	tW2mBGF6FmuPaDAENiYSwTXL8VqftxwIJmQUyzO4xNnIfYhUCACPEjxzq9xbW41a+DDkNwVwvxni1
+	JBsPWylA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCXnZ-00000006qGN-177D;
-	Sun, 17 Nov 2024 05:26:13 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1tCb3t-000000073dJ-0c3n;
+	Sun, 17 Nov 2024 08:55:17 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCXmd-00000006qBS-2LzE
+	id 1tCb2x-000000073Rc-0bVG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 Nov 2024 05:25:17 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-72483f6e2f3so769969b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 Nov 2024 21:25:14 -0800 (PST)
+	Sun, 17 Nov 2024 08:54:20 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-a9ed7d8d4e0so158662866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 Nov 2024 00:54:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nigauri-org.20230601.gappssmtp.com; s=20230601; t=1731821114; x=1732425914; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1VW7Eea+1GT6H8MpnapiTmJLeEwFPnQEnPcJgx9UmgI=;
-        b=0/r1pXph5UIw5IsqIJRsgat8a9WZ8PX5FaI4STqOS4+sYDqfaowK9FVDRUXBH8KcYR
-         Iv+mq86RZ4jWHQRBlU9UMDMjYvm2BbUPU9raaj/F5nNyiQ2YFg+yJvoSYCCJJ6+dRtpA
-         xhW0Mcc0ZmGpwe3vLXe7vZ+NDy87EK/kzAVPubXivoOyHum0g6HAMy/RJ44Yj58sgfhb
-         BDp81WrLo5BwItNcFEZ+oVSBP5EpsveFaN4VthWoElx5rIpCGqJVNsAdZq2ia5asnbek
-         vSOd0TzHDUxCMsZRpJVTY8DG9UwF9YT8UXqzyZbP8lxsOK9HPhs7GW/aG8NCWFwfuZuM
-         NoSw==
+        d=nigauri-org.20230601.gappssmtp.com; s=20230601; t=1731833657; x=1732438457; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aAFozerT8AmWvaMiQhtVKgrLvIOoUAQYsmUVcu4V1u0=;
+        b=ft/nJ+gmnxK2M4804u/UoIPpVttdcS6QRu0k38ejZXvo27i7AJV6cyqsB4K+CtiD5N
+         Gt8PBAhFk5ag5Mm/v3QouM7/Rg/Vt1r8lDpnmx8WymPu+XXdE+o4DpFjY0/+6xfx67DZ
+         JqpIs1Nc7FwAdc4/CtIWmBZHbAKOyKw/PCKtnr5cp9Sqn9SkwucpPagE3r+4Pxm3TxRE
+         3HVGRZP7+CtabWoGSQrFhojq8Y92JzUq8yfTN/vSUAl2zPEzapNqjoVIA9RhKRy7GZnb
+         e1D0A7jjtO1FMxYs9Cgohgz2OqmS2hhr5Kh+vzfcgeElRkQ2HbkaLUkSFjtXcrn+fvGl
+         WTmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731821114; x=1732425914;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1VW7Eea+1GT6H8MpnapiTmJLeEwFPnQEnPcJgx9UmgI=;
-        b=LVgABa4orCuCTlb0OWIDlRw3tsWnO+Soa3u5cbINjiYQfz/aySOTwzvz2yKcRyqFTe
-         6N8cIupl/Py1kDk9SPl69dJfevATQoIAGeDyFqz6rYJy/TbLodH+zRZxqgZXfcEoiaxx
-         ThPNZiGhiZaTccRF0W3qp7pF19yl7eyguuMTqbm1MkLV4smfLFPcHoZMuNJPUgmSYikO
-         lsUyo4sfPJp1fgIpiZyiD/buXmbmoRUK82HreYcb4PSKM9IuK3wgCwyjVSlw6mIuBwjY
-         rIg2VmW1PypTNEp2FR2fUEx665h1/nyCfzo9C32ZTL5M312NyV0qhGL9anY4kJtlDq83
-         nn8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUhXOAGA7mXzcabyWq6Tc9mC8dkKtxzp1hh+jT0i5Z1FUJqArT+sPKD2VAcLn3V7AKyU0Myt/twVaYQbAZSxJkC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwD49AKcmEz9AS4hqCMiTzjojOTeZfRIdE54v3vtng92mi1LuTI
-	9HKX3tiSu/BYHRZmsWLoC630iYt7kdzyhS14FxULOj4iWlQJsR6NzzpFN6hsHerihwsnOOFiOA=
-	=
-X-Google-Smtp-Source: AGHT+IGIKhBFzH/0EKB/6b5lM8SAr8TWxF0Njpp5ye0c++OJX5e0IdyZKNZw2hCNJzCUyGgKB+BcJg==
-X-Received: by 2002:a05:6a00:10cd:b0:724:7843:4cf3 with SMTP id d2e1a72fcca58-7247843508dmr13674357b3a.0.1731821113905;
-        Sat, 16 Nov 2024 21:25:13 -0800 (PST)
-Received: from localhost ([2405:6581:5360:1800:96f6:cb09:e09e:fe02])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724771e1a69sm3956170b3a.141.2024.11.16.21.25.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 16 Nov 2024 21:25:13 -0800 (PST)
-From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
-To: Johan Hovold <johan@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
-Subject: [PATCH] gnss: mtk: Simplify return variables in mtk_set_active and mtk_set_standby
-Date: Sun, 17 Nov 2024 14:25:01 +0900
-Message-ID: <20241117052501.1138926-1-iwamatsu@nigauri.org>
-X-Mailer: git-send-email 2.45.2
+        d=1e100.net; s=20230601; t=1731833657; x=1732438457;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aAFozerT8AmWvaMiQhtVKgrLvIOoUAQYsmUVcu4V1u0=;
+        b=UpX6fuSMWPpc/y+kefD603nHKP3bI/bp++puug4GmbAOKKxsDHaSmbnqpyDLhsjIS5
+         +FNuBDovlHZnHd7v8452fV5Q55Qpvz+bTZ72lpvlgquQ6d7k5AUTrjEriFIw1pvyaBHP
+         ISgwPAcGTNbS+1hofouF/IiUIWYO4mzjy64ZSdzT4weqI9gsglPHlEpg/Tyd57wmMewX
+         i2uj48SBbz2juLVygcJV2IJj9Sp3bWoDZpeJiw6jt32QSh/59xiylA8lkNOS9PII+Wcb
+         G4qEGn5CADdsLnRCuZgjEW22tzYuc+K7K6OawvMuH6JdxiDm/sykloVEmHTUM3JynMyl
+         ob0A==
+X-Gm-Message-State: AOJu0Yzkrt5GZxxwpCCsd5+fuGFZ5rjOg1v3Yfmd/Py4zpLa+p09KsZz
+	ZFydkPkleLjlg1QAu6VKHMpqxjaOeXl/E5Dz+JntOcv3gtKZD4F0YolGJuqstXU/RGsKR34o9Sl
+	GGz5ZjNXasaE0xrAEfOyyuV2R0/+KD6uSQLU=
+X-Google-Smtp-Source: AGHT+IH9A6EZKAlNlaThpg9AAuD/cbmV9VJvtt/bhTQvVCtVUAtunC0O/fpyJLc/etjVvqahiNW3SCx3U6/D6U7BbUI=
+X-Received: by 2002:a17:907:3f98:b0:a9e:d539:86c4 with SMTP id
+ a640c23a62f3a-aa4833f41cdmr702610266b.9.1731833657034; Sun, 17 Nov 2024
+ 00:54:17 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20241004061541.1666280-1-nobuhiro1.iwamatsu@toshiba.co.jp>
+In-Reply-To: <20241004061541.1666280-1-nobuhiro1.iwamatsu@toshiba.co.jp>
+From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+Date: Sun, 17 Nov 2024 17:53:51 +0900
+Message-ID: <CABMQnVK_RUC84QQ5zb+ZpuMOZcFMNV6HzEYAfmX4bOrRm+rvTw@mail.gmail.com>
+Subject: Re: [PATCH] ARM: dts: socfpga: sodia: Fix mdio bus probe and PHY ID
+To: dinguyen@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, robh+dt@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241116_212515_647503_848A0622 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20241117_005419_385707_D9204A95 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,46 +90,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Simply return directly instead of assign the return value.
+Hi Dinh,
 
-Signed-off-by: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
----
- drivers/gnss/mtk.c | 14 ++------------
- 1 file changed, 2 insertions(+), 12 deletions(-)
+Please check and apply this patch?
 
-diff --git a/drivers/gnss/mtk.c b/drivers/gnss/mtk.c
-index c62b1211f4fe4e..be20f6d6470736 100644
---- a/drivers/gnss/mtk.c
-+++ b/drivers/gnss/mtk.c
-@@ -24,25 +24,15 @@ struct mtk_data {
- static int mtk_set_active(struct gnss_serial *gserial)
- {
- 	struct mtk_data *data = gnss_serial_get_drvdata(gserial);
--	int ret;
- 
--	ret = regulator_enable(data->vcc);
--	if (ret)
--		return ret;
--
--	return 0;
-+	return regulator_enable(data->vcc);
- }
- 
- static int mtk_set_standby(struct gnss_serial *gserial)
- {
- 	struct mtk_data *data = gnss_serial_get_drvdata(gserial);
--	int ret;
- 
--	ret = regulator_disable(data->vcc);
--	if (ret)
--		return ret;
--
--	return 0;
-+	return regulator_disable(data->vcc);
- }
- 
- static int mtk_set_power(struct gnss_serial *gserial,
--- 
-2.45.2
+Thanks,
+  Nobuhiro
 
+2024=E5=B9=B410=E6=9C=884=E6=97=A5(=E9=87=91) 15:16 Nobuhiro Iwamatsu <iwam=
+atsu@nigauri.org>:
+>
+> From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+>
+> On SoCFPGA/Sodia board, mdio bus cannot be probed, so the PHY cannot be
+> found and the network device does not work.
+>
+> ```
+> stmmaceth ff702000.ethernet eth0: __stmmac_open: Cannot attach to PHY (er=
+ror: -19)
+> ```
+>
+> To probe the mdio bus, add "snps,dwmac-mdio" as compatible string of the
+> mdio bus. Also the PHY ID connected to this board is 4. Therefore, change
+> to 4.
+>
+> Fixes: 8fbc10b995a5 ("net: stmmac: check fwnode for phy device before sca=
+nning for phy")
+> Cc: stable@vger.kernel.org # 6.3+
+> Signed-off-by: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+> ---
+>  arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_sodia.dts | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_sodia.dts b=
+/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_sodia.dts
+> index ce0d6514eeb571..e4794ccb8e413f 100644
+> --- a/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_sodia.dts
+> +++ b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_sodia.dts
+> @@ -66,8 +66,10 @@ &gmac1 {
+>         mdio0 {
+>                 #address-cells =3D <1>;
+>                 #size-cells =3D <0>;
+> -               phy0: ethernet-phy@0 {
+> -                       reg =3D <0>;
+> +               compatible =3D "snps,dwmac-mdio";
+> +
+> +               phy0: ethernet-phy@4 {
+> +                       reg =3D <4>;
+>                         rxd0-skew-ps =3D <0>;
+>                         rxd1-skew-ps =3D <0>;
+>                         rxd2-skew-ps =3D <0>;
+> --
+> 2.45.2
+>
+
+
+--=20
+Nobuhiro Iwamatsu
+   iwamatsu at {nigauri.org / debian.org / kernel.org}
+   GPG ID: 32247FBB40AD1FA6
 
