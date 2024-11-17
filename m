@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69EC7D10F2B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 20:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 391A0D10F2B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 20:20:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n6cxG/zZp641/q+hYZRRTrOQqG5Xgl13FSXhfP9tpHQ=; b=sPUXFjoostZkkmg2HPR6fLe0FH
-	4p1S1GZvV8cGtfRVhbeXfrK7o4ZR0XUE7c4h5yp8+hMWMeFllw6LnEc746+wsLR4P4tbivmWKtEZL
-	LOfhzJOl4qcRN9DsS5rJaW4sTzn/WdUjU9zRq8uRGCq4QQDB7yfMe7i/qytgJ7pBMBMxOaPHzsbmW
-	8KoUXH2dxldWXrlF6JVlFjjM7WmQzAV83b6T35I+tAtHui5SZj48U8eKbBJMCnZx5Gs91IQAdckd/
-	yUJWk0j3rhXZIeBr4tJv5uCZZKERg4UFSf+halLnZurFkRB0+Re93gzzujcsUjZoVHHN5RBQsSfMt
-	XZYdAL9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=96aPTgcJmyf/nNkBF02AGuwprUpi9s19DA42nDAZD1E=; b=g3Vn1QZhuACIydDTLuLliS0hL9
+	Ixjy6jUKkEOa1DTYkn7no045EIVfroerkbxY9QxGyrjwmEOHjstfH+2eK9qLS8J7NcbtdyhJbeBQq
+	V78u4sb3awsXZgvouokLxB8bYNgIj3GOHykGV57Uht0ohm1gxCngIULyCGkEuxCVW5gWw7R6x8Csf
+	cjbrO5fzh0mMyJrmCmxc/htoC+en2zfMDhr1FXjK/QEqxgf3TVUYRJmjXWlkq+n1u5pXVJ+UqOVC7
+	uN0GTyo1jXQcTJX3TXs2CgDUuHtW6mSutnJ9a1Z3FlLhPLQpUzXl0N2hWpghrqM5nQdU4Wew3eJT8
+	nORm40og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tClYF-00000007m8v-1y5Y;
-	Sun, 17 Nov 2024 20:07:19 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tClkt-00000007n3q-03vs;
+	Sun, 17 Nov 2024 20:20:23 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tClXK-00000007m0K-1q08
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 Nov 2024 20:06:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=n6cxG/zZp641/q+hYZRRTrOQqG5Xgl13FSXhfP9tpHQ=; b=21
-	U+wuwFd3743A0QeYMjX6G0RHUhP4f7dA4yY9oNdlOscDp7pYteUrJm4U8xQtm+GpapDJENGzXZE/W
-	RfPmCRKX9/+gjOJm9IPDmStpa4eEKp+mM4zvBwtD07kB/kmfYz6+3TEy6Ts8zzFAM3f0Y6XXPldG8
-	1zqJkI/wx2p/4m4=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tClXD-00DbFs-Lt; Sun, 17 Nov 2024 21:06:15 +0100
-Date: Sun, 17 Nov 2024 21:06:15 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
-Cc: dinguyen@kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, robh+dt@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Subject: Re: [PATCH] ARM: dts: socfpga: sodia: Fix mdio bus probe and PHY ID
-Message-ID: <90978892-2086-4c70-9698-0957cc71abb8@lunn.ch>
-References: <20241004061541.1666280-1-nobuhiro1.iwamatsu@toshiba.co.jp>
- <CABMQnVK_RUC84QQ5zb+ZpuMOZcFMNV6HzEYAfmX4bOrRm+rvTw@mail.gmail.com>
+	id 1tCljw-00000007mtv-3kKE;
+	Sun, 17 Nov 2024 20:19:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=96aPTgcJmyf/nNkBF02AGuwprUpi9s19DA42nDAZD1E=; b=cPJckVm9tgpiNdGGsXKv+fPvFL
+	Eyf7jabTzBweHsJUEaqfOexNX1PUqAOlmb16f6BSbG3OmO8ynXMnjRXXiHEUuhiwYrpsr4mGkF6tx
+	5v+C8bm3SojWRhADaqLTdznStpXAeTHb93GuvRYkT+kOK1qQgVJZaFsGwftf/6Vc5RdFdzOat/JUd
+	YjjigLEa1dIUbhrIi9Y58G9SE08msxtG06Y6zGmVoTsMsqyB0FlYBnDbMpbJhqRA4t7/8061OBswo
+	CULbov/RYpkSL+4wnQ+xwyHT9h1WYkS+sKNGpV8LqpDOmulNQ/lQP5jdQMH6PstWHApjPzwBxxMG9
+	10kxECuA==;
+Received: from i53875a30.versanet.de ([83.135.90.48] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tCljt-0000cF-6j; Sun, 17 Nov 2024 21:19:21 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] Rockchip - add Firefly ROC-RK3576-PC board
+Date: Sun, 17 Nov 2024 21:18:53 +0100
+Message-ID: <20241117201855.789945-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CABMQnVK_RUC84QQ5zb+ZpuMOZcFMNV6HzEYAfmX4bOrRm+rvTw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241117_120622_539002_220C71AA 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20241117_121924_986113_5204ABFF 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,30 +76,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 17, 2024 at 05:53:51PM +0900, Nobuhiro Iwamatsu wrote:
-> Hi Dinh,
-> 
-> Please check and apply this patch?
-> 
-> Thanks,
->   Nobuhiro
-> 
-> 2024年10月4日(金) 15:16 Nobuhiro Iwamatsu <iwamatsu@nigauri.org>:
-> >
-> > From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
-> >
-> > On SoCFPGA/Sodia board, mdio bus cannot be probed, so the PHY cannot be
-> > found and the network device does not work.
-> >
-> > ```
-> > stmmaceth ff702000.ethernet eth0: __stmmac_open: Cannot attach to PHY (error: -19)
-> > ```
-> >
-> > To probe the mdio bus, add "snps,dwmac-mdio" as compatible string of the
-> > mdio bus. Also the PHY ID connected to this board is 4. Therefore, change
-> > to 4.
+This adds a second board based around the rk3576 SoC.
 
-It is the address which is 4, not the ID.
+Heiko Stuebner (2):
+  dt-bindings: arm: rockchip: Add Firefly ROC-RK3576-PC binding
+  arm64: dts: rockchip: Add devicetree for the ROC-RK3576-PC
 
-	Andrew
+ .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../arm64/boot/dts/rockchip/rk3576-roc-pc.dts | 745 ++++++++++++++++++
+ 3 files changed, 751 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts
+
+-- 
+2.45.2
+
 
