@@ -4,78 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0606D68BF2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 08:55:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34E6ED68BF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 10:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aAFozerT8AmWvaMiQhtVKgrLvIOoUAQYsmUVcu4V1u0=; b=k/aAb8CFNHzwxBoFhsCl/MtUNB
-	LDs7/ZJcNZNWvQm2HCv18/OmgqRcsjwLC5FLbkgHGuQNZdetgGYyTLfJP4XPhH2bV0diJJijBdxXg
-	dhtUq8VENk02m5RZmFU6bSbFKG9ATWZmFjeg9rc6A68Ggurxc6PWQA/uDihlThy4J1KeHl0m1L+9/
-	oTz8/jH0L7mevlZ7a/YoaMRwL54GRKUSmuAvSrJXL8VLS51gEoLsuBIP6EDjMRijH45cMBxh1v+kx
-	tW2mBGF6FmuPaDAENiYSwTXL8VqftxwIJmQUyzO4xNnIfYhUCACPEjxzq9xbW41a+DDkNwVwvxni1
-	JBsPWylA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UBJL4lyxdLBcQ1e8L59cNMmzafmUnyjik4oVsyMEbQU=; b=UUuAfx+tvz032h3rpUcu/vikUq
+	FmRB/3r99t8mmsF3PxhJEdoUSw3n3XiKhhyQMk9CxsHHeQ1eHQ+5Y16IbwYS3NigZhE445yWHD9Z/
+	wW1za2KNPJfN6md/6JyY3mvzDkgQsJyzvVGQGTfvwHLgDbk2LPhsDTM9L6C/C9p8LW8W3uHClzqNI
+	xlxZqDG2aiOVTRALq2CAXHtuxMq99mKfPl+HlPD8dmUlSHwOpDMiI1OPF8S7aSbCRKStL6rh5pbIb
+	S8gpVIrnklqD/ileTdPeR/1xaQPvGdRxHBbY9UIdRPZdE5gU1ofktxc57oPdvzNwBTbZYU+bKaJxP
+	HlsQOszA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCb3t-000000073dJ-0c3n;
-	Sun, 17 Nov 2024 08:55:17 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCb2x-000000073Rc-0bVG
+	id 1tCc8r-000000077er-0AFI;
+	Sun, 17 Nov 2024 10:04:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tCc7v-000000077Zy-37ai
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 Nov 2024 08:54:20 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-a9ed7d8d4e0so158662866b.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 Nov 2024 00:54:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nigauri-org.20230601.gappssmtp.com; s=20230601; t=1731833657; x=1732438457; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aAFozerT8AmWvaMiQhtVKgrLvIOoUAQYsmUVcu4V1u0=;
-        b=ft/nJ+gmnxK2M4804u/UoIPpVttdcS6QRu0k38ejZXvo27i7AJV6cyqsB4K+CtiD5N
-         Gt8PBAhFk5ag5Mm/v3QouM7/Rg/Vt1r8lDpnmx8WymPu+XXdE+o4DpFjY0/+6xfx67DZ
-         JqpIs1Nc7FwAdc4/CtIWmBZHbAKOyKw/PCKtnr5cp9Sqn9SkwucpPagE3r+4Pxm3TxRE
-         3HVGRZP7+CtabWoGSQrFhojq8Y92JzUq8yfTN/vSUAl2zPEzapNqjoVIA9RhKRy7GZnb
-         e1D0A7jjtO1FMxYs9Cgohgz2OqmS2hhr5Kh+vzfcgeElRkQ2HbkaLUkSFjtXcrn+fvGl
-         WTmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731833657; x=1732438457;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aAFozerT8AmWvaMiQhtVKgrLvIOoUAQYsmUVcu4V1u0=;
-        b=UpX6fuSMWPpc/y+kefD603nHKP3bI/bp++puug4GmbAOKKxsDHaSmbnqpyDLhsjIS5
-         +FNuBDovlHZnHd7v8452fV5Q55Qpvz+bTZ72lpvlgquQ6d7k5AUTrjEriFIw1pvyaBHP
-         ISgwPAcGTNbS+1hofouF/IiUIWYO4mzjy64ZSdzT4weqI9gsglPHlEpg/Tyd57wmMewX
-         i2uj48SBbz2juLVygcJV2IJj9Sp3bWoDZpeJiw6jt32QSh/59xiylA8lkNOS9PII+Wcb
-         G4qEGn5CADdsLnRCuZgjEW22tzYuc+K7K6OawvMuH6JdxiDm/sykloVEmHTUM3JynMyl
-         ob0A==
-X-Gm-Message-State: AOJu0Yzkrt5GZxxwpCCsd5+fuGFZ5rjOg1v3Yfmd/Py4zpLa+p09KsZz
-	ZFydkPkleLjlg1QAu6VKHMpqxjaOeXl/E5Dz+JntOcv3gtKZD4F0YolGJuqstXU/RGsKR34o9Sl
-	GGz5ZjNXasaE0xrAEfOyyuV2R0/+KD6uSQLU=
-X-Google-Smtp-Source: AGHT+IH9A6EZKAlNlaThpg9AAuD/cbmV9VJvtt/bhTQvVCtVUAtunC0O/fpyJLc/etjVvqahiNW3SCx3U6/D6U7BbUI=
-X-Received: by 2002:a17:907:3f98:b0:a9e:d539:86c4 with SMTP id
- a640c23a62f3a-aa4833f41cdmr702610266b.9.1731833657034; Sun, 17 Nov 2024
- 00:54:17 -0800 (PST)
+	Sun, 17 Nov 2024 10:03:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B76E1424;
+	Sun, 17 Nov 2024 02:03:54 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DBAC33F6A8;
+	Sun, 17 Nov 2024 02:03:21 -0800 (PST)
+Date: Sun, 17 Nov 2024 10:03:11 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Mark Brown <broonie@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Peng Fan <peng.fan@nxp.com>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
+Subject: Re: [PATCH] firmware: arm_scmi: fix i.MX build dependency
+Message-ID: <Zzm_X0o-TkkGQeAN@pluto>
+References: <20241115230555.2435004-1-arnd@kernel.org>
 MIME-Version: 1.0
-References: <20241004061541.1666280-1-nobuhiro1.iwamatsu@toshiba.co.jp>
-In-Reply-To: <20241004061541.1666280-1-nobuhiro1.iwamatsu@toshiba.co.jp>
-From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
-Date: Sun, 17 Nov 2024 17:53:51 +0900
-Message-ID: <CABMQnVK_RUC84QQ5zb+ZpuMOZcFMNV6HzEYAfmX4bOrRm+rvTw@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: socfpga: sodia: Fix mdio bus probe and PHY ID
-To: dinguyen@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, robh+dt@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241115230555.2435004-1-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241117_005419_385707_D9204A95 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20241117_020332_037998_DAA51D3F 
+X-CRM114-Status: GOOD (  24.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,63 +71,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dinh,
+On Sat, Nov 16, 2024 at 12:05:18AM +0100, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
 
-Please check and apply this patch?
+Hi Arnd,
+
+> The newly added SCMI vendor driver references functions in the
+> protocol driver but needs a Kconfig dependency to ensure it can link,
+> essentially the Kconfig dependency needs to be reversed to match the
+> link time dependency:
+> 
+> arm-linux-gnueabi-ld: sound/soc/fsl/fsl_mqs.o: in function `fsl_mqs_sm_write':
+> fsl_mqs.c:(.text+0x1aa): undefined reference to `scmi_imx_misc_ctrl_set'
+> arm-linux-gnueabi-ld: sound/soc/fsl/fsl_mqs.o: in function `fsl_mqs_sm_read':
+> fsl_mqs.c:(.text+0x1ee): undefined reference to `scmi_imx_misc_ctrl_get'
+> 
+
+The SCMI drivers, like the newly added IMX_SCMI_MISC_DRV, generally make
+ue of the related vendor protocol like IMX_SCMI_MISC_EXT, BUT the SCMI
+stack is designed in a way that NO symbols are needed to be exported by
+the protocol layer (to avoid a huge and growing number of symbols
+exports)...so usually the current DRV-->PROTO dependency is fine.
+
+In this case, AFAIU, it is the SCMI driver that in turn exports a few
+helpers that are used by another driver fsl_mqs, which in turn could be
+compiled and work with or without the SCMI stack, so with this patch we
+are artificially reversing the DRV<--PROTO dependency to solve this
+scenario in all the compillation scenarios...
+
+....BUT given that the IMX_SCMI_MISC_DRV is the one that should export
+the missing symbols could NOT this solved in a cleaner way, without
+adding the fake reverse dependency, by instead modifying the header of
+the driver with something like the classic:
+
+--->8-----
+diff --git a/include/linux/firmware/imx/sm.h b/include/linux/firmware/imx/sm.h
+index 9b85a3f028d1..3a7a3ec367c5 100644
+--- a/include/linux/firmware/imx/sm.h
++++ b/include/linux/firmware/imx/sm.h
+@@ -17,7 +17,19 @@
+ #define SCMI_IMX_CTRL_SAI4_MCLK                4       /* WAKE SAI4 MCLK */
+ #define SCMI_IMX_CTRL_SAI5_MCLK                5       /* WAKE SAI5 MCLK */
+ 
++#ifdef IMX_SCMI_MISC_DRV
+ int scmi_imx_misc_ctrl_get(u32 id, u32 *num, u32 *val);
+ int scmi_imx_misc_ctrl_set(u32 id, u32 val);
++#else
++static inline int scmi_imx_misc_ctrl_get(u32 id, u32 *num, u32 *val)
++{
++       return 0;
++}
++
++static inline int scmi_imx_misc_ctrl_set(u32 id, u32 val)
++{
++       return 0;
++}
++#endif
+ 
+ #endif
+----->8-----------
+
+....to just support compilation in all the scenarios.
+
+> This however only works after changing the dependency in the SND_SOC_FSL_MQS
+> driver as well, which uses 'select IMX_SCMI_MISC_DRV' to turn on a
+> driver it depends on. This is generally a bad idea, so the best solution
+> is to change that into a dependency.
+> 
+> To allow the ASoC driver to keep building with the SCMI support, this
+> needs to be an optional dependency that enforces the link-time
+> dependency if IMX_SCMI_MISC_DRV is a loadable module but not
+> depend on it if that is disabled.
+> 
+
+...and maybe with the above additions you could avoid also these other
+dep changes...
+
+...not sure if I am missing something and I have definitely not tested
+any of my babbling above...
 
 Thanks,
-  Nobuhiro
-
-2024=E5=B9=B410=E6=9C=884=E6=97=A5(=E9=87=91) 15:16 Nobuhiro Iwamatsu <iwam=
-atsu@nigauri.org>:
->
-> From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
->
-> On SoCFPGA/Sodia board, mdio bus cannot be probed, so the PHY cannot be
-> found and the network device does not work.
->
-> ```
-> stmmaceth ff702000.ethernet eth0: __stmmac_open: Cannot attach to PHY (er=
-ror: -19)
-> ```
->
-> To probe the mdio bus, add "snps,dwmac-mdio" as compatible string of the
-> mdio bus. Also the PHY ID connected to this board is 4. Therefore, change
-> to 4.
->
-> Fixes: 8fbc10b995a5 ("net: stmmac: check fwnode for phy device before sca=
-nning for phy")
-> Cc: stable@vger.kernel.org # 6.3+
-> Signed-off-by: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
-> ---
->  arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_sodia.dts | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_sodia.dts b=
-/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_sodia.dts
-> index ce0d6514eeb571..e4794ccb8e413f 100644
-> --- a/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_sodia.dts
-> +++ b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_sodia.dts
-> @@ -66,8 +66,10 @@ &gmac1 {
->         mdio0 {
->                 #address-cells =3D <1>;
->                 #size-cells =3D <0>;
-> -               phy0: ethernet-phy@0 {
-> -                       reg =3D <0>;
-> +               compatible =3D "snps,dwmac-mdio";
-> +
-> +               phy0: ethernet-phy@4 {
-> +                       reg =3D <4>;
->                         rxd0-skew-ps =3D <0>;
->                         rxd1-skew-ps =3D <0>;
->                         rxd2-skew-ps =3D <0>;
-> --
-> 2.45.2
->
-
-
---=20
-Nobuhiro Iwamatsu
-   iwamatsu at {nigauri.org / debian.org / kernel.org}
-   GPG ID: 32247FBB40AD1FA6
+Cristian
 
