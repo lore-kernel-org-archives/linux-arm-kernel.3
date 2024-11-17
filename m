@@ -4,92 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87AD1D68BFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 13:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BC33D68BEF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 15:40:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FnDq/5jDtvRz9wvJUkiQLKbNnaCYIlhSUV3JJFbTe6Y=; b=0G13UB6SAYgHACo8TTrF96LChG
-	8hH9jz7d6/t2HoPvpfzdwT3L1dYQoposwsfts+dmzg9jFB+p0AbCPTtmy92UJwWzIgQ+X1JewmNIa
-	Nq/Q6dnwiekftN46fWBGd/9wLTZ1G9hrjvagStuKnJlSysd7ewMZU0iNqVdw7dj/vrHib/ftrxeXO
-	Y83Vv71D5cFxA/nbUkUzrcqHha66i3wTWcfepJdWZNqCEJJusJNmIMFaeZUN9rkOdgO/Yi/VSaHGq
-	1BVoCFNT2q+8y9wGFwUKWZB1xrrx7wkK1fshZaQYMM9kaJGpu05Lawr3Ko84FEkD4XFOcuiUHeSGg
-	JuwnXSsg==;
+	bh=4q3nR9c4FLOvWXyixuO6uUYLfPpjbnCGfPGRVx1GhG4=; b=ZS5BtnD0NXWRMLZTe8fnAsw7Dr
+	SFo8EsX8RG6v2T9/4mdx9mRAqnOf91zF5WBKcc9r4HlCrMzeRIFfWZs9V66TyTk5N8nHNthNjGsTR
+	4OKf9lU8B44wz1IzB5lbn0898OjDmW3lssoxCh/Aqy8e/O3E2D4bTCNik2mCXI8EhYkM1W3qFQgM5
+	WUOUptcDKXSYJsXLzgSSSSjFT9xidHN0alZ9QUmbKixpKUJLZLQvpUoBZ3vDUQY1cg1KSxnpS5N6e
+	LT7EOpbiCP1V6GH978QgC6tE3PRJAncynTyGeHc5xAc7LGzZ7oKk5QRD3aLJQl784Zlh6a5UKvdMv
+	8U7Nv4UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCfQ3-00000007OiF-1ezr;
-	Sun, 17 Nov 2024 13:34:27 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tChNe-00000007VZM-3zCM;
+	Sun, 17 Nov 2024 15:40:07 +0000
+Received: from inva020.nxp.com ([92.121.34.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCfNX-00000007NyR-2BG0;
-	Sun, 17 Nov 2024 13:31:52 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-431616c23b5so18420785e9.0;
-        Sun, 17 Nov 2024 05:31:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731850310; x=1732455110; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:to
-         :from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=FnDq/5jDtvRz9wvJUkiQLKbNnaCYIlhSUV3JJFbTe6Y=;
-        b=kEYJDQXNRGXjB4h54lGsnqQM9vZ7BCm4zTRVo5PbsidS1RrQ11PrKYXHgqY7NniZW4
-         LTrU16uplKrRzKa+dn2v+aPRG7vLjEAW95fuu6ZU3SnEPPma+35FBotgC6aWuGt2he4+
-         h0Kles3FGH8qcTHsIP4wN0Gb6dUN9kxo57Dl9V8H0MxZHoQVIDULQD5zSd9QDyedMn5H
-         +DeRQulV0/cysk40iBWilwspCCXmSFKl2Sp85wWpqNxDx41pvUPFAso/wh3PjodhGb8v
-         xjOayGOFSJeF87CmU/+PZNYYRrKGmc8TuAaufuwaRoDjmjgv1GjJPbjDqLNw8c6UpgjB
-         oFjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731850310; x=1732455110;
-        h=in-reply-to:content-disposition:mime-version:references:subject:to
-         :from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FnDq/5jDtvRz9wvJUkiQLKbNnaCYIlhSUV3JJFbTe6Y=;
-        b=BDStE1s2Ycbsokkagqly2W7SafNcEL7xNIkMGWgZvfjlW9ivTfVFvMwQ5xooEGS2Lf
-         VyaFbd0KK0+OAkWUiaIsfCqbe4fNhFhye3Zt2hg9gG5k5BH8M9r7mFvGuaIvvwL8AO4h
-         gL8LVwC2tjZit5YIOGSVuPU+UMm31ESY5qYwRhg9qbeQ+saDnXBCAchRmiipEPKP0s1M
-         XWLasNd4lKsseCjVt0PUhoct4o7WmtYPfKCeD9yX+G0Ur87FpOGa9ZpB/gtdl/l3gs7T
-         RUhf8orC5CaKwxYGM+j2cZWfMLKuN7pIaBlPxOySn7B0wWriO13En31m7Y63JIraN0up
-         bB+A==
-X-Forwarded-Encrypted: i=1; AJvYcCWE+bOrtQOzqQosLD65Odu8mtmJzUnbKLAFt9Z+T/2B30YlOTqur1EJCP9t4RNx2Gjk+qA62MkL4yqSQLvD6Vh5@lists.infradead.org, AJvYcCXV+bVcePILtzA5oqp+QUI3gkWafXg25jxnPIy3h/JxMUb/WLC5rYhBjKWTtsJLMbxBG7CtnfXNbXl3d8mq55w=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzwn51RTJTIsDuhRrJmQ4wwjBm1z2a3vjpVJ1HbXnT5UMAgXuu1
-	mIuB7+KSh+1zsOyVNQYtl38RWvH2SpmDzKJVZ5jIXmtQ3gbCeU6i
-X-Google-Smtp-Source: AGHT+IERyxnbD4p7iEZ9MOnnFKigJwdLcKzUPk6eBLQKFq6MYktdFTsmEMmPRzYPWbmoKwroTD4JwQ==
-X-Received: by 2002:a05:600c:548b:b0:42c:b54c:a6d7 with SMTP id 5b1f17b1804b1-432d9767d80mr126959115e9.14.1731850309608;
-        Sun, 17 Nov 2024 05:31:49 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432da29978dsm122010285e9.41.2024.11.17.05.31.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 Nov 2024 05:31:49 -0800 (PST)
-Message-ID: <6739f045.050a0220.3b85cd.5d42@mx.google.com>
-X-Google-Original-Message-ID: <ZznwQRSsOT3CnD4v@Ansuel-XPS.>
-Date: Sun, 17 Nov 2024 14:31:45 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v6 0/4] net: dsa: Add Airoha AN8855 support
-References: <20241116131257.51249-1-ansuelsmth@gmail.com>
+	id 1tChMi-00000007VQP-2ztX
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 17 Nov 2024 15:39:10 +0000
+Received: from inva020.nxp.com (localhost [127.0.0.1])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 604521A033D;
+	Sun, 17 Nov 2024 16:39:05 +0100 (CET)
+Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 5302A1A0018;
+	Sun, 17 Nov 2024 16:39:05 +0100 (CET)
+Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
+	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 0CBCC203CE;
+	Sun, 17 Nov 2024 16:39:05 +0100 (CET)
+Date: Sun, 17 Nov 2024 16:39:05 +0100
+From: Jan Petrous <jan.petrous@oss.nxp.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v4 16/16] net: stmmac: dwmac-s32: Read PTP clock rate
+ when ready
+Message-ID: <ZzoOGdlbQXQVxPkv@lsv051416.swis.nl-cdc01.nxp.com>
+References: <20241028-upstream_s32cc_gmac-v4-0-03618f10e3e2@oss.nxp.com>
+ <20241028-upstream_s32cc_gmac-v4-16-03618f10e3e2@oss.nxp.com>
+ <9154cc5f-a330-4f6d-b161-827e64231e35@lunn.ch>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241116131257.51249-1-ansuelsmth@gmail.com>
+In-Reply-To: <9154cc5f-a330-4f6d-b161-827e64231e35@lunn.ch>
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241117_053151_560098_A7556CAD 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20241117_073909_013531_CD44D8D8 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,29 +64,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: imx@lists.linux.dev, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Andrei Botila <andrei.botila@nxp.org>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, Jose Abreu <joabreu@synopsys.com>, Jacob Keller <jacob.e.keller@intel.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 16, 2024 at 02:12:45PM +0100, Christian Marangi wrote:
-> This small series add the initial support for the Airoha AN8855 Switch.
+On Tue, Oct 29, 2024 at 01:18:43PM +0100, Andrew Lunn wrote:
+> On Mon, Oct 28, 2024 at 09:24:58PM +0100, Jan Petrous via B4 Relay wrote:
+> > From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+> > 
+> > The PTP clock is read by stmmac_platform during DT parse.
+> > On S32G/R the clock is not ready and returns 0. Postpone
+> > reading of the clock on PTP init.
 > 
-> It's a 5 port Gigabit Switch with SGMII/HSGMII upstream port.
-> 
-> This is starting to get in the wild and there are already some router
-> having this switch chip.
-> 
-> It's conceptually similar to mediatek switch but register and bits
-> are different. And there is that massive Hell that is the PCS
-> configuration.
-> Saddly for that part we have absolutely NO documentation currently.
-> 
-> There is this special thing where PHY needs to be calibrated with values
-> from the switch efuse. (the thing have a whole cpu timer and MCU)
+> This needs more explanation as to why this is a feature, not a bug,
+> for the PTP clock.
 > 
 
-Totally forgot to fix the devm_dsa_register_switch export symbol, fixed
-in v7. Sorry!
+Thanks for comment. I did a homework and found out the root cause is
+using PTP clocks before they are properly enabled. As I understand,
+the clocks, especially the composite variant, require preparation and/or
+enabling them, what is not managed correctly for PTP clocks when
+stmmac_platform is used. In this case, the PTP clock value is read this way:
 
--- 
-	Ansuel
+   stmmac_probe_config_dt:
+   // https://github.com/torvalds/linux/blob/4a5df37964673effcd9f84041f7423206a5ae5f2/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c#L634
+
+	/* Fall-back to main clock in case of no PTP ref is passed */
+	plat->clk_ptp_ref = devm_clk_get(&pdev->dev, "ptp_ref");
+	if (IS_ERR(plat->clk_ptp_ref)) {
+		plat->clk_ptp_rate = clk_get_rate(plat->stmmac_clk);
+		plat->clk_ptp_ref = NULL;
+		dev_info(&pdev->dev, "PTP uses main clock\n");
+	} else {
+		plat->clk_ptp_rate = clk_get_rate(plat->clk_ptp_ref);
+		dev_dbg(&pdev->dev, "PTP rate %d\n", plat->clk_ptp_rate);
+	}
+
+If I change getter to enabled getter:
+	plat->clk_ptp_ref = devm_clk_get_enabled(&pdev->dev, "ptp_ref");
+
+The driver got valid rate and the patch is not needed anymore.
+
+So, if I didn't miss something, it seems like I have to replace the current
+patch with one fixing clk getter.
+
+BR.
+/Jan
 
