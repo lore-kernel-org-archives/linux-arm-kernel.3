@@ -4,109 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A57BFD68BF2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 10:18:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C2AD68BF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Nov 2024 10:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PYcx8Jr5yUiktUasgz5b5XQtP7bTYoN5a4bcgqpVpuE=; b=STED1BMx7I131Ht0Tob/qhBpMD
-	4B8noZa7j3ZWgp6J3lAXJUJUsDvts2393ZtKiqo6AagzWGwnfFgpGMUANxYoR4hN3br/2KMggHwKP
-	J1tKR/ckl58PjFMF711SnmC+yfTkrjDwdMfIR4g2TJ005RH/MU8NAGk43qy/amsUk3BTcM72+ZtaU
-	8KOtUrZ9zp8fsA+wubYzGZNU2mv2mHxAbU11WftkprwSbeIz+OXI5d3QUnI34sHhIAviSEZ9NhpqH
-	ys7cnV3eMX7FwY1ZvoI+XDsFRHYImqpPdNtRv/HMFy2PHNj88nh/xVGdoBfnziwclikngj+bRz8V7
-	Ocg8xhBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Gk+/CzHV3RkQ7mr+TcU9c3T3Tzad8gqPxgxOGgsPZBY=; b=URjap6YPmVkKRGY6s1/nLeiw/H
+	2tKBvCO+Ke08DVw7ladvCBeD2BFfV78c0ujPh7F14QdJ/eWikZEOCtiQP7F58jbtDt+MvHPjQpgYA
+	1HOijI6oZx5pQn1Zo7xfzxKYJboGQu/Ie/BHSyhz9Rvt/i2LWINTQKa2ajzHlWuQfLH9TCphqOe5q
+	Qp1vSN0hSvTNl4MTfqXI0bxp1EH7hd7LRfT3qLgQVHuNdxF73+ENQQqVND6Joqx37QOdchmwDIMBS
+	C7Z0YzyM29W2ms1rSuWcrFzJWcb/TxmNeCwhUKBkGQbsvDw5H+zpPQybHfadUz1rLs52H8GE8yo0K
+	9O5Y2Xpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCcM9-000000078td-2wHy;
-	Sun, 17 Nov 2024 10:18:13 +0000
-Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
+	id 1tCcPP-0000000797r-26bC;
+	Sun, 17 Nov 2024 10:21:35 +0000
+Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCcLE-000000078nD-0q1k
+	id 1tCcOT-00000007937-2yrV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 Nov 2024 10:17:18 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 64E9A2540088;
-	Sun, 17 Nov 2024 05:17:12 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Sun, 17 Nov 2024 05:17:12 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1731838632;
-	 x=1731925032; bh=PYcx8Jr5yUiktUasgz5b5XQtP7bTYoN5a4bcgqpVpuE=; b=
-	YCe1xk09UAc666jKEwasOftYhYuiHV2LzAWg7lnaBuGYe7FhJ5hqDdqz0A0UaatY
-	7peGQCQdzrKwO0vzq2i1w1YB2CHzl2wuVPRC9j4/aA+OpZbnkfFxdFYDywbIBND0
-	dzKEttcDhkHq4+KnnYFKHS/72ztZzYt3Y/O9uGJ/8oVNu+6ClqZ0UJR5jnabxySu
-	/pWqEPnf10XvABlLR61hNKwczvAph7hi4aMZBeoVi8LLps1CXxs5cwhbFXgzx324
-	83REJNe0fYPX6TgEYqPtuFjA25fRzzxJvxV0aooFwSBDP36g5EQrUpmOG1lSbG2p
-	i9NhVEVwRahSNGEDbylMww==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1731838632; x=
-	1731925032; bh=PYcx8Jr5yUiktUasgz5b5XQtP7bTYoN5a4bcgqpVpuE=; b=c
-	SJCmSdBVsElQFPWJRzH4fOyiT/kF29Qo2/BCQsYRosU/bWNQOb+boZnrV3JYvPBO
-	yUPAX8alYPYpUhKXLSPYj705onP6ekrX+5tAeTkh2051IufGkHKucZOvCrvsSK6J
-	KvtmIW2xTzfbJU94zYi7t6dDBew2swTF9kZkiYS713YWeBb3iMw67YIyjiTABMSD
-	b42XOgkDTslJ/+8TFTu5A8Kn3H2JkEiikSakhg45f5lMuT34x5H9ySGVLfo3uSkz
-	EK0nydhF+y+p8MOSx2VbArOYY9xzChZsPRjoEkBbuLeaB2/AwKltY26sTHOrWxvN
-	EDVlP3C/L+gkVSBcl6xyg==
-X-ME-Sender: <xms:psI5Z3fUNbdJmGf5Cz0622QM_VWBUZvD5G_2VhkB99JTf4odEV2PXg>
-    <xme:psI5Z9N8eLaeAtN0DdAV5WL0NFrfPTfGGt-OKndrYLT_VjdwtWbnV-WDfqV0Jkwe3
-    R2U2ownJ73iYTKjr4c>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrvdekgddufecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
-    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
-    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
-    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
-    gvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffg
-    vedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmh
-    grihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopedujedp
-    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptghrihhsthhirghnrdhmrghruhhssh
-    hisegrrhhmrdgtohhmpdhrtghpthhtohepshhuuggvvghprdhhohhllhgrsegrrhhmrdgt
-    ohhmpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhmpdhrtghpthhtoh
-    eplhhgihhrugifohhougesghhmrghilhdrtghomhdprhgtphhtthhopegrrhhnugeskhgv
-    rhhnvghlrdhorhhgpdhrtghpthhtohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpd
-    hrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehl
-    ihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
-    dprhgtphhtthhopehimhigsehlihhsthhsrdhlihhnuhigrdguvghv
-X-ME-Proxy: <xmx:psI5ZwgQV_Ui7wklb8FQqU5xVJ4WpX_JHzzpPDGenV7M0ipeLm6rvw>
-    <xmx:psI5Z49vvKoC-Swy9ipgErz5w1wnTocSbaqfkUIqenWud-QWqQgChw>
-    <xmx:psI5Zzu-jRQMYewOVt3ezijq4NPm6bNYgNs-8i4Z3tkFr6WxZs89Vg>
-    <xmx:psI5Z3GdjSImVBoynfXzL2nXerVHd-lv2nMeHQZNfVNzv6dmtpuVXA>
-    <xmx:qMI5Z8820RpC-2VoNKHPcWA3Lo1BLgGn5qSSHf5bL_T2vz_3mYIEecpx>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D13482220071; Sun, 17 Nov 2024 05:17:10 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Sun, 17 Nov 2024 10:20:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1731838830;
+	bh=XnwVRnokFrmnC2nPBW2Pi8KvS5rKZccAQiigQhSs2FU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=awj33hk7yn8l/H81ibggz6xMsjMLtTqqX2JhUJz7RMSZG1FRXkafY1cLjjA+rlVoM
+	 lGZ16NyjVDl3L8AR9lAhneKCmxFnSnDDEX8OwPbA+E9C7cInejCO5wl5rsmbwXgczA
+	 fHI8tHASIncJDxzmCheRBynpd8CZdN0pqILEZUxY=
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Date: Sun, 17 Nov 2024 11:20:16 +0100
+Subject: [PATCH] perf: arm-ni: Fix attribute_group definition syntax
 MIME-Version: 1.0
-Date: Sun, 17 Nov 2024 11:16:49 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Cristian Marussi" <cristian.marussi@arm.com>,
- "Arnd Bergmann" <arnd@kernel.org>
-Cc: "Sudeep Holla" <sudeep.holla@arm.com>, "Shawn Guo" <shawnguo@kernel.org>,
- "Sascha Hauer" <s.hauer@pengutronix.de>, "Mark Brown" <broonie@kernel.org>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>,
- "Fabio Estevam" <festevam@gmail.com>, "Liam Girdwood" <lgirdwood@gmail.com>,
- "Jaroslav Kysela" <perex@perex.cz>, "Takashi Iwai" <tiwai@suse.com>,
- "Peng Fan" <peng.fan@nxp.com>, arm-scmi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
-Message-Id: <40fd6f5c-e3d8-4e75-b479-00d3f81423a8@app.fastmail.com>
-In-Reply-To: <Zzm_X0o-TkkGQeAN@pluto>
-References: <20241115230555.2435004-1-arnd@kernel.org>
- <Zzm_X0o-TkkGQeAN@pluto>
-Subject: Re: [PATCH] firmware: arm_scmi: fix i.MX build dependency
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20241117-arm-ni-syntax-v1-1-1894efca38ac@weissschuh.net>
+X-B4-Tracking: v=1; b=H4sIAF/DOWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxNDQ0Nz3cSiXN28TN3iyrySxApdI1ODRAtjA1MLUyNLJaCegqLUtMwKsHn
+ RsbW1AKAERsxfAAAA
+X-Change-ID: 20241117-arm-ni-syntax-250a83058529
+To: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1731838830; l=1098;
+ i=linux@weissschuh.net; s=20221212; h=from:subject:message-id;
+ bh=XnwVRnokFrmnC2nPBW2Pi8KvS5rKZccAQiigQhSs2FU=;
+ b=4vVy3arO72EZfxh5ovfjA9bszsEuseGV5JKPtX1fS44RPOS8gDEWaXZkeE7z0jby1AZj3JhIS
+ f+1tpOskReICe/Vr7766JoBLqx/vIkoHgXdED1cLhG/bhK4rbGRrBv+
+X-Developer-Key: i=linux@weissschuh.net; a=ed25519;
+ pk=KcycQgFPX2wGR5azS7RhpBqedglOZVgRPfdFSPB1LNw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241117_021717_012489_1C7F1E3D 
-X-CRM114-Status: GOOD (  32.52  )
+X-CRM114-CacheID: sfid-20241117_022038_182260_41B1781B 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,89 +76,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 17, 2024, at 11:03, Cristian Marussi wrote:
-> On Sat, Nov 16, 2024 at 12:05:18AM +0100, Arnd Bergmann wrote:
->> 
->> arm-linux-gnueabi-ld: sound/soc/fsl/fsl_mqs.o: in function `fsl_mqs_sm_write':
->> fsl_mqs.c:(.text+0x1aa): undefined reference to `scmi_imx_misc_ctrl_set'
->> arm-linux-gnueabi-ld: sound/soc/fsl/fsl_mqs.o: in function `fsl_mqs_sm_read':
->> fsl_mqs.c:(.text+0x1ee): undefined reference to `scmi_imx_misc_ctrl_get'
->> 
->
-> The SCMI drivers, like the newly added IMX_SCMI_MISC_DRV, generally make
-> ue of the related vendor protocol like IMX_SCMI_MISC_EXT, BUT the SCMI
-> stack is designed in a way that NO symbols are needed to be exported by
-> the protocol layer (to avoid a huge and growing number of symbols
-> exports)...so usually the current DRV-->PROTO dependency is fine.
->
-> In this case, AFAIU, it is the SCMI driver that in turn exports a few
-> helpers that are used by another driver fsl_mqs, which in turn could be
-> compiled and work with or without the SCMI stack, so with this patch we
-> are artificially reversing the DRV<--PROTO dependency to solve this
-> scenario in all the compillation scenarios...
->
-> ....BUT given that the IMX_SCMI_MISC_DRV is the one that should export
-> the missing symbols could NOT this solved in a cleaner way, without
-> adding the fake reverse dependency, by instead modifying the header of
-> the driver with something like the classic:
+The sentinel NULL value does not make sense and is a syntax error in a
+structure definition.
+Remove it.
 
-> --->8-----
-> diff --git a/include/linux/firmware/imx/sm.h b/include/linux/firmware/imx/sm.h
-> index 9b85a3f028d1..3a7a3ec367c5 100644
-> --- a/include/linux/firmware/imx/sm.h
-> +++ b/include/linux/firmware/imx/sm.h
-> @@ -17,7 +17,19 @@
->  #define SCMI_IMX_CTRL_SAI4_MCLK                4       /* WAKE SAI4 MCLK */
->  #define SCMI_IMX_CTRL_SAI5_MCLK                5       /* WAKE SAI5 MCLK */
-> 
-> +#ifdef IMX_SCMI_MISC_DRV
->  int scmi_imx_misc_ctrl_get(u32 id, u32 *num, u32 *val);
->  int scmi_imx_misc_ctrl_set(u32 id, u32 val);
-> +#else
-> +static inline int scmi_imx_misc_ctrl_get(u32 id, u32 *num, u32 *val)
-> +{
-> +       return 0;
-> +}
-> +
-> +static inline int scmi_imx_misc_ctrl_set(u32 id, u32 val)
-> +{
-> +       return 0;
-> +}
-> +#endif
+Fixes: 4d5a7680f2b4 ("perf: Add driver for Arm NI-700 interconnect PMU")
+Cc: stable@vger.kernel.org
+Signed-off-by: Thomas Weißschuh <linux@weissschuh.net>
+---
+Cc stable because although this commit is not yet released, it most
+likely will be by the time it hits mainline.
+---
+ drivers/perf/arm-ni.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-This usually doesn't work if the provider of these interfaces
-can be in a loadable module. The #ifdef above means this won't
-be usable when CONFIG_IMX_SCMI_MISC_DRV=m, while changing it to
-IS_ENABLED(CONFIG_IMX_SCMI_MISC_DRV) still produces a link error
-when the consumer is built-in. Changing it to IS_REACHABLE()
-in turn is even worse because it avoids the link failure but
-makes it silently do the wrong thing in some configurations.
+diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
+index 90fcfe693439ef3e18e23c6351433ac3c5ea78b5..fd7a5e60e96302fada29cd44e7bf9c582e93e4ce 100644
+--- a/drivers/perf/arm-ni.c
++++ b/drivers/perf/arm-ni.c
+@@ -247,7 +247,6 @@ static struct attribute *arm_ni_other_attrs[] = {
+ 
+ static const struct attribute_group arm_ni_other_attr_group = {
+ 	.attrs = arm_ni_other_attrs,
+-	NULL
+ };
+ 
+ static const struct attribute_group *arm_ni_attr_groups[] = {
 
->  #endif
-> ----->8-----------
->
-> ....to just support compilation in all the scenarios.
->
->> This however only works after changing the dependency in the SND_SOC_FSL_MQS
->> driver as well, which uses 'select IMX_SCMI_MISC_DRV' to turn on a
->> driver it depends on. This is generally a bad idea, so the best solution
->> is to change that into a dependency.
->> 
->> To allow the ASoC driver to keep building with the SCMI support, this
->> needs to be an optional dependency that enforces the link-time
->> dependency if IMX_SCMI_MISC_DRV is a loadable module but not
->> depend on it if that is disabled.
->> 
->
-> ...and maybe with the above additions you could avoid also these other
-> dep changes...
->
-> ...not sure if I am missing something and I have definitely not tested
-> any of my babbling above...
+---
+base-commit: 4a5df37964673effcd9f84041f7423206a5ae5f2
+change-id: 20241117-arm-ni-syntax-250a83058529
 
-In my experience, there is no way to avoid reflecting the dependencies
-correctly in Kconfig: if one driver has an EXPORT_SYMBOL that
-gets picked up by another driver, you need a matching 'depends on'.
+Best regards,
+-- 
+Thomas Weißschuh <linux@weissschuh.net>
 
-       Arnd
 
