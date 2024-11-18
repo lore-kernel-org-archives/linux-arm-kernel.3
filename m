@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D40DD10F37
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 05:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0093D10F57
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 05:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/Gv4FihppQNNBVUuce2/24rNSfyawZefVO6AC+eDXS4=; b=gKh/ZNrvZX2Sd2
-	j3YD0qSODLpdbGPyhPz++waGRLdZ5VJ/n6jZwvhtuO5UEplqDJx/PDytCQMmH8a8Rw0byrJwTbNJ8
-	rWGlWegJ8FvkuZhnSuqpzpn8Bzx2X0LR4z4s9dSPZSXC0WeOsJwAkH4AApeKSkhX7+EJ03WsootRU
-	/VUJyvWhhxz2N0JYKcfsYOCsDRdztHj/pygxbVWAueW0O8q6/nNZRtOLxj27XqW6WIUO0EGvPC3s/
-	tu5JpC+jek6QjYVBjPHHNvAWpHfJ7uwF2xaBQyQf1hQqudWN/iTcVFsyLw9chIBzAxvEOa1Qekp5a
-	b7wU1E2+ZvkMUIyR65aw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aYYd37sNCRvv/foUtdRFxY64hhQaPuuHWRsMzP3pjR8=; b=u6uVoLrkHd4wU7rDsCjuWDyS2R
+	ZaimU8Xz7OnejbthJps4bNawOfXiNw3haClD3grnskAew4zqKfEXKuChuLn2Mv39a+TfMM7YoI0eC
+	KQN/gUa5tDs2XcFC+DadCQcau+vSG1k97Hk8CGolDMrJadQyCKhwG4u9WbPjPZ9+4DuQj4oPQWTNj
+	UwXAfReCdxqM5wDUdpJ3p5Fav7Bv6IN+Z3mMynXlPUoDKOPJEtcLsF99dYEKpr+AxOT8y8dcZGM/V
+	hNGAi8tGlVi3ayA/7TQdhBc9j9l+xylKQfG43tGmT6CZh0GgUCQodcMNiG3s+JtzVy10rCKotAa0u
+	izbp0mvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCuQd-00000008PrB-1IVT;
-	Mon, 18 Nov 2024 05:36:03 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1tCuRV-00000008PyB-3rx2;
+	Mon, 18 Nov 2024 05:36:57 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCuOp-00000008PcV-3rJI
+	id 1tCuOx-00000008PdM-0l5C
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 05:34:13 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4AI5Y8rJ031967;
+	Mon, 18 Nov 2024 05:34:20 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4AI5Y8vp023236;
 	Sun, 17 Nov 2024 23:34:08 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
 	s=ti-com-17Q1; t=1731908048;
-	bh=/Gv4FihppQNNBVUuce2/24rNSfyawZefVO6AC+eDXS4=;
-	h=From:Subject:Date:To:CC;
-	b=vFUrg9h7fd2I8T6pTXkZlFzOt0/LL36KWY9LmfQ3mDgEjN905vF2OS5Q+CHq+mF/a
-	 KXUAqGTQ8EIKBdrVfOpYcAWgduHzbPFZAsI0uxZGb+h8r489bKmTctoqxbl3pOTbpf
-	 jJqyTka07okCZJzxL66UWX+7XVrahNmbvaqLT91U=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4AI5Y8HI013775;
+	bh=aYYd37sNCRvv/foUtdRFxY64hhQaPuuHWRsMzP3pjR8=;
+	h=From:Date:Subject:References:In-Reply-To:To:CC;
+	b=ngiad4PLo4asZT+Q6t73cxzcTl5thkpvboyyAdmxrvB23DvSGjQoJnMnJ+nXQtj4T
+	 KMvM8vk+sNuQ5MkatckJ9YdT0iNJJVcuUtVSC247DArAX6xsS5Sg9RyQqMqQrNlB5Q
+	 6uh6Ms2MgUBu0jMbn9JvVo46d8ohxQIDKuvdVGXE=
+Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4AI5Y8iK001689
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
 	Sun, 17 Nov 2024 23:34:08 -0600
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sun, 17
  Nov 2024 23:34:08 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sun, 17 Nov 2024 23:34:08 -0600
+ Frontend Transport; Sun, 17 Nov 2024 23:34:07 -0600
 Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4AI5Y7jS041445;
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4AI5Y8gR042478;
 	Sun, 17 Nov 2024 23:34:08 -0600
 From: Bryan Brattlof <bb@ti.com>
-Subject: [PATCH 0/2] arm64: dts: ti: introduce basic support for the AM62L
-Date: Sun, 17 Nov 2024 23:34:06 -0600
-Message-ID: <20241117-am62lx-v1-0-4e71e42d781d@ti.com>
+Date: Sun, 17 Nov 2024 23:34:07 -0600
+Subject: [PATCH 1/2] arm64: dts: ti: k3-am62l: add initial infrastructure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAM7ROmcC/z3MQQrCMBCF4auUWRuZGTRSV95DukjTqR2wrSQlV
- Erubqzg8n88vg2iBJUI12qDIEmjzlMJOlTgBzc9xGhXGhj5RMhn40bLz9Ug1763zgsiQTm/gvS
- 67tC9KT1oXObw3t1E3/VHEP6JRAZN29Xs0LaCF3tb9OjnEZqc8wdMsL1KmQAAAA==
+Content-Transfer-Encoding: 7bit
+Message-ID: <20241117-am62lx-v1-1-4e71e42d781d@ti.com>
+References: <20241117-am62lx-v1-0-4e71e42d781d@ti.com>
+In-Reply-To: <20241117-am62lx-v1-0-4e71e42d781d@ti.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
         Tero
  Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -72,9 +72,8 @@ CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
 X-Mailer: b4 0.13.0
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241117_213412_067234_9A0CCEF8 
-X-CRM114-Status: UNSURE (   8.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241117_213419_324036_E3035302 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,72 +88,336 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Everyone,
+From: Vignesh Raghavendra <vigneshr@ti.com>
 
-This small series adds the initial support (currently just a UART for 
-TI's AM62L SoC family.
+Add the initial infrastructure needed for the AM62L. All of which can be
+found in the Technical Reference Manual (TRM) located here:
 
-The AM62L is a lite, low power and performance optimized family of 
-application processors that are built for Linux application development. 
-AM62L is well suited for a wide range of general-purpose applications 
-with scalable ARM Cortex-A53 core performance and embedded features such 
-as: Multimedia DSI/DPI support, integrated ADC on chip, advanced lower 
-power management modes, and extensive security options for IP protection 
-with the built-in security features.
+    https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
 
-Additionally, the AM62Lx devices includes an extensive set of 
-peripherals that make it a well-suited for a broad range of industrial 
-applications while offering intelligent features and optimized power 
-architecture as well. In addition, the extensive set of peripherals 
-included in AM62Lx enables system-level connectivity, such as: USB, 
-MMC/SD, OSPI, CAN-FD and an ADC.
- 
-AM62L is a general purpose processor, however some of the applications 
-well suited for it include: Human Machine Interfaces (HMI), Medical 
-patient monitoring , Building automation, Smart secure gateways, Smart 
-Thermostats, EV charging stations, Smart Metering, Solar energy and 
-more.
- 
-Some highlights of AM62L SoC are:
- - Single to Dual 64-bit Arm® Cortex®-A53 microprocessor subsystem up to 
-   1.25GHz Integrated Giga-bit Ethernet switch supporting up to a total 
-   of two external
- - 16-bit DDR Subsystem that supports LPDDR4, DDR4 memory types.
- - Display support: 1x display support over MIPI DSI (4 lanes DPHY) or 
-   DPI (24-bit RGB LVCMOS)
- - Multiple low power modes support, ex: Deep sleep and Standby
- - Support for secure boot, Trusted Execution Environment (TEE) & 
-   Cryptographic Acceleration
-
-For more information check out our Technical Reference Manual (TRM) 
-which is loacted here:
-
-	https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf   
-
-Happy Hacking
-~Bryan
-
+Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
 Signed-off-by: Bryan Brattlof <bb@ti.com>
 ---
-Vignesh Raghavendra (2):
-      arm64: dts: ti: k3-am62l: add initial infrastructure
-      arm64: dts: ti: k3-am62l: add initial reference board file
-
  Documentation/devicetree/bindings/arm/ti/k3.yaml |  6 ++
  arch/arm64/boot/dts/ti/Makefile                  |  3 +
  arch/arm64/boot/dts/ti/k3-am62l-main.dtsi        | 52 ++++++++++++++
  arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi      | 33 +++++++++
  arch/arm64/boot/dts/ti/k3-am62l.dtsi             | 89 ++++++++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-am62l3-evm.dts         | 54 ++++++++++++++
  arch/arm64/boot/dts/ti/k3-am62l3.dtsi            | 67 ++++++++++++++++++
  arch/arm64/boot/dts/ti/k3-pinctrl.h              |  2 +
- 8 files changed, 306 insertions(+)
----
-base-commit: 767b6a0d0900c951e8b42306bd636268481a97ae
-change-id: 20241025-am62lx-029cf6ace001
+ 7 files changed, 252 insertions(+)
 
-Best regards,
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index 18f155cd06c84..b109e854879cb 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -31,6 +31,12 @@ properties:
+           - const: phytec,am62a-phycore-som
+           - const: ti,am62a7
+ 
++      - description: K3 AM62L3 SoC and Boards
++        items:
++          - enum:
++              - ti,am62l3-evm
++          - const: ti,am62l3
++
+       - description: K3 AM62P5 SoC and Boards
+         items:
+           - enum:
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index f71360f14f233..6745f779b1e6e 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -32,6 +32,9 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk-nand.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am62a7-sk.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am62a7-phyboard-lyra-rdk.dtb
+ 
++# Boards with AM62Lx SoCs
++dtb-$(CONFIG_ARCH_K3) += k3-am62l3-evm.dtb
++
+ # Boards with AM62Px SoC
+ dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi
+new file mode 100644
+index 0000000000000..bdc6cb26a86d3
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi
+@@ -0,0 +1,52 @@
++// SPDX-License-Identifier: GPL-2.0-only or MIT
++/*
++ * Device Tree file for the AM62L main domain peripherals
++ * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
++ *
++ * Technical Reference Manual: https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
++ */
++
++&cbass_main {
++	gic500: interrupt-controller@1800000 {
++		compatible = "arm,gic-v3";
++		reg = <0x00 0x01800000 0x00 0x10000>,	/* GICD */
++		      <0x00 0x01840000 0x00 0xc0000>,	/* GICR */
++		      <0x01 0x00000000 0x00 0x2000>,    /* GICC */
++		      <0x01 0x00010000 0x00 0x1000>,    /* GICH */
++		      <0x01 0x00020000 0x00 0x2000>;    /* GICV */
++		ranges;
++		#address-cells = <2>;
++		#size-cells = <2>;
++		#interrupt-cells = <3>;
++		interrupt-controller;
++		/*
++		 * vcpumntirq:
++		 * virtual CPU interface maintenance interrupt
++		 */
++		interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
++
++		gic_its: msi-controller@1820000 {
++			compatible = "arm,gic-v3-its";
++			reg = <0x00 0x01820000 0x00 0x10000>;
++			socionext,synquacer-pre-its = <0x1000000 0x400000>;
++			msi-controller;
++			#msi-cells = <1>;
++		};
++	};
++
++	main_uart0: serial@2800000 {
++		compatible = "ti,am64-uart", "ti,am654-uart";
++		reg = <0x00 0x02800000 0x00 0x100>;
++		interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
++		clock-frequency = <48000000>;
++		status = "disabled";
++	};
++
++	oc_sram: sram@70800000 {
++		compatible = "mmio-sram";
++		reg = <0x00 0x70800000 0x00 0x10000>;
++		ranges = <0x0 0x00 0x70800000 0x10000>;
++		#address-cells = <1>;
++		#size-cells = <1>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
+new file mode 100644
+index 0000000000000..070ba71110f0f
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
+@@ -0,0 +1,33 @@
++// SPDX-License-Identifier: GPL-2.0-only or MIT
++/*
++ * Device Tree file for the AM62L wakeup domain peripherals
++ * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
++ *
++ * Technical Reference Manual: https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
++ */
++
++&cbass_wakeup {
++	pmx0: pinctrl@4084000 {
++		compatible = "pinctrl-single";
++		reg = <0x00 0x4084000 0x00 0x8000>;
++		pinctrl-single,register-width = <32>;
++		pinctrl-single,function-mask = <0xffffffff>;
++		#pinctrl-cells = <1>;
++		bootph-all;
++	};
++
++	wkup_conf: bus@43000000 {
++		compatible = "simple-bus";
++		reg = <0x00 0x43000000 0x00 0x20000>;
++		ranges = <0x0 0x00 0x43000000 0x20000>;
++		#address-cells = <1>;
++		#size-cells = <1>;
++
++		chipid: chipid@14 {
++			compatible = "ti,am654-chipid";
++			reg = <0x14 0x4>;
++			bootph-all;
++		};
++	};
++};
++
+diff --git a/arch/arm64/boot/dts/ti/k3-am62l.dtsi b/arch/arm64/boot/dts/ti/k3-am62l.dtsi
+new file mode 100644
+index 0000000000000..43da8e52278ce
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am62l.dtsi
+@@ -0,0 +1,89 @@
++// SPDX-License-Identifier: GPL-2.0-only or MIT
++/*
++ * Device Tree Source for AM62L SoC Family
++ * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
++ *
++ * Tecnical Reference Manual: https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
++ */
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++
++#include "k3-pinctrl.h"
++
++/ {
++	model = "Texas Instruments K3 AM62L3 SoC";
++	compatible = "ti,am62l3";
++	interrupt-parent = <&gic500>;
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	firmware {
++		optee {
++			compatible = "linaro,optee-tz";
++			method = "smc";
++		};
++	};
++
++	a53_timer0: timer-cl0-cpu0 {
++		compatible = "arm,armv8-timer";
++		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>, /* cntpsirq */
++			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>, /* cntpnsirq */
++			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>, /* cntvirq */
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>; /* cnthpirq */
++	};
++
++	pmu: pmu {
++		compatible = "arm,cortex-a53-pmu";
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
++	};
++
++	cbass_main: bus@f0000 {
++		compatible = "simple-bus";
++		ranges = <0x00 0x00600000 0x00 0x00600000 0x00 0x00001100>, /* GPIO */
++			 <0x00 0x00a40000 0x00 0x00a40000 0x00 0x00000800>, /* Timesync router */
++			 <0x00 0x00a80000 0x00 0x00a80000 0x00 0x00040000>, /* GTC */
++			 <0x00 0x01000000 0x00 0x01000000 0x00 0x01b28400>, /* First peripheral window */ 
++			 <0x00 0x08000000 0x00 0x08000000 0x00 0x00200000>, /* CPSW */
++			 <0x00 0x09000000 0x00 0x09000000 0x00 0x00400000>, /* CTRL MMRs */
++			 <0x00 0x0e000000 0x00 0x0e000000 0x00 0x0bd28000>, /* Second peripheral window */
++			 <0x00 0x30200000 0x00 0x30200000 0x00 0x00400000>, /* DSS */
++			 <0x00 0x31000000 0x00 0x31000000 0x00 0x00050000>, /* USB0 DWC3 Core window */
++			 <0x00 0x31100000 0x00 0x31100000 0x00 0x00050000>, /* USB1 DWC3 Core window */
++			 <0x00 0x3b000000 0x00 0x3b000000 0x00 0x00001000>, /* GPMC0 */
++			 <0x00 0x47000000 0x00 0x47000000 0x00 0x02000000>, /* DMSS */
++			 <0x00 0x50000000 0x00 0x50000000 0x00 0x08000000>, /* GPMC DATA */
++			 <0x00 0x60000000 0x00 0x60000000 0x00 0x08000000>, /* FSS0 DAT1 */
++			 <0x00 0x70800000 0x00 0x70800000 0x00 0x00010000>, /* OCSRAM */
++			 <0x01 0x00000000 0x01 0x00000000 0x00 0x00310000>, /* A53 PERIPHBASE */
++			 <0x05 0x00000000 0x05 0x00000000 0x01 0x00000000>, /* FSS0 DAT3 */
++
++			 /* Wakeup Domain Range */
++			 <0x00 0x00b00000 0x00 0x00b00000 0x00 0x00001400>, /* VTM */
++			 <0x00 0x04080000 0x00 0x04080000 0x00 0x00008000>, /* PDCFG */
++			 <0x00 0x04201000 0x00 0x04201000 0x00 0x00008000>, /* GPIO */
++			 <0x00 0x2b100000 0x00 0x2b000000 0x00 0x00200400>, /* TIMER */
++			 <0x00 0x40800000 0x00 0x40800000 0x00 0x00014000>, /* DMA */
++			 <0x00 0x43000000 0x00 0x43000000 0x00 0x00080000>; /* CTRL MMRs */
++		#address-cells = <2>;
++		#size-cells = <2>;
++
++		 cbass_wakeup:  bus@43000000 {
++			 compatible = "simple-bus";
++			 ranges = <0x00 0x00b00000 0x00 0x00b00000 0x00 0x00001400>, /* VTM */
++				  <0x00 0x04080000 0x00 0x04080000 0x00 0x00008000>, /* PDCFG */
++				  <0x00 0x04201000 0x00 0x04201000 0x00 0x00008000>, /* GPIO */
++				  <0x00 0x2b100000 0x00 0x2b000000 0x00 0x00200400>, /* TIMER */
++				  <0x00 0x40800000 0x00 0x40800000 0x00 0x00014000>, /* DMA */
++				  <0x00 0x43000000 0x00 0x43000000 0x00 0x00080000>; /* CTRL MMRs */
++			 #address-cells = <2>;
++			 #size-cells = <2>;
++			 bootph-all;
++		 };
++	};
++};
++
++/* Now include peripherals for each bus segment */
++#include "k3-am62l-main.dtsi"
++#include "k3-am62l-wakeup.dtsi"
+diff --git a/arch/arm64/boot/dts/ti/k3-am62l3.dtsi b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
+new file mode 100644
+index 0000000000000..7dfc869fbce08
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
+@@ -0,0 +1,67 @@
++// SPDX-License-Identifier: GPL-2.0-only or MIT
++/*
++ * Device Tree file for the AM62L3 SoC family (Dual Core A53)
++ * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
++ *
++ * Technical Reference Manual: https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
++ */
++
++/dts-v1/;
++
++#include "k3-am62l.dtsi"
++
++/ {
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		cpu-map {
++			cluster0: cluster0 {
++				core0 {
++					cpu = <&cpu0>;
++				};
++
++				core1 {
++					cpu = <&cpu1>;
++				};
++			};
++		};
++
++		cpu0: cpu@0 {
++			compatible = "arm,cortex-a53";
++			reg = <0x000>;
++			device_type = "cpu";
++			enable-method = "psci";
++			i-cache-size = <0x8000>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <0x8000>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <128>;
++			next-level-cache = <&l2_0>;
++		};
++
++		cpu1: cpu@1 {
++			compatible = "arm,cortex-a53";
++			reg = <0x001>;
++			device_type = "cpu";
++			enable-method = "psci";
++			i-cache-size = <0x8000>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <0x8000>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <128>;
++			next-level-cache = <&l2_0>;
++		};
++	};
++
++	l2_0: l2-cache0 {
++		compatible = "cache";
++		cache-unified;
++		cache-level = <2>;
++		cache-size = <0x40000>;
++		cache-line-size = <64>;
++		cache-sets = <256>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+index 22b8d73cfd326..56abfe1790bee 100644
+--- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
++++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+@@ -47,6 +47,8 @@
+ #define AM62PX_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
+ #define AM62PX_MCU_IOPAD(pa, val, muxmode)	(((pa) & 0x1fff)) ((val) | (muxmode))
+ 
++#define AM62LX_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
++
+ #define AM62X_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
+ #define AM62X_MCU_IOPAD(pa, val, muxmode)	(((pa) & 0x1fff)) ((val) | (muxmode))
+ 
+
 -- 
-Bryan Brattlof <bb@ti.com>
+2.46.0
 
 
