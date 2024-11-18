@@ -4,69 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4582FD49222
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 13:31:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B8FD49222
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 13:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CgitSO12Tcu39jjcYc9b4qcvZmSoxQsq/VM/TY8Chgw=; b=uXPl+RH4vQt2Jw8OH361D7Qlo4
-	039lCa73AlRzSuodEpuQMJYyvwe6srCwZUHMUHiz94y9un87x1tWRWrMNEh13icEYORI3xtO8XpJK
-	tDtXpQMOZGyqS9BiprtSL+9Tv08j5IRq+WWGhA08R/bSRKqtJk9ESjPk/jRIF01JJWfNP/cmbZOwH
-	oEKLqKmMiFjvwvaeK8KFC12lvzCRU3vOsoO9o4DxV+5yf4/r5YmmLdsznBjqQgEKdiQC82BB+t1Dt
-	goHyGIOz0211AVXn4kBaO/xJ0VWkikAV2dyUOsehB6HkxX9aGD4ND7xCb2g6zG+kPDztz3K8BSR3m
-	PrCivKRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uc53FADjsmPhJRHalWX7IVUR3e7hAGYmGPhrTw0yBDc=; b=TRDOqHr3CupoTIT+KITVs9SkM/
+	Jl0h7Q8efiiu8tL9Cv05lQPN6FGl/LK+KgSZEt31wQJXMlE/fwDer2FtN4ebQVYuef/0aLwKgfufR
+	rOTo02NAw+2c4BIX89ri0J5hrVw+Dw8WaQXumJcpPrSXCd+5QZ93ODfUmVwhw5nEFuj/vscd+B97K
+	df3ujCGuB97eYRMNd6rt8++dh+9BS8vcs7q+yqeQId8Jd5Zo2KnG3YzDSMYlqJVSjN5c2fuzLaAky
+	uJn/2F4ZSUsItFQ60IFwBHJ8P+uCA/R2Fiq2XhcTrxKgQFf87orfaKz3zxWJMUs9R3wn/vPVr9V6d
+	jmQw3T7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD1qd-00000009aR1-2djl;
-	Mon, 18 Nov 2024 13:31:23 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD1SI-00000009Un1-1pVy;
-	Mon, 18 Nov 2024 13:06:20 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D80FEFF806;
-	Mon, 18 Nov 2024 13:06:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1731935172;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CgitSO12Tcu39jjcYc9b4qcvZmSoxQsq/VM/TY8Chgw=;
-	b=aKvYvzsMXQQ+ls8zRUxnMN6GkySr1qXCFabheMfnb2re1dpmlDRs93dxj9kRjTynCcg02/
-	1lc4TLcQyEjdG3NW5kg5VBTiF1fQvkygHr6+KILeTA2Wnlol83xPMKVD9p4hwtueAlHR2k
-	pJrl8oMnVn2K+jZXZEpETa0cG/fnJbFRbaxFDDXPlvfikQsC0lKc4EH+U0Ogv3HOAOL0Fh
-	plKibB+fHaASv3ksfyfd2T3Z/6Nw9sJOzKVLdL0pr0wdQ6LGnzKINLswMe6BBtwk0cFd9M
-	i0i/AMm4tNZjYt2Sz915at6l1cB72cQgMnfWgm6vfcxTI4IIDYnmMYJHaFZcuA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Sky Huang <SkyLake.Huang@mediatek.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,  Richard Weinberger
- <richard@nod.at>,  Vignesh Raghavendra <vigneshr@ti.com>,  Daniel Golle
- <daniel@makrotopia.org>,  Chia-Lin Kao <acelan.kao@canonical.com>,  "Mika
- Westerberg" <mika.westerberg@linux.intel.com>,  Cheng Ming Lin
- <chengminglin@mxic.com.tw>,  <linux-kernel@vger.kernel.org>,
-  <linux-mtd@lists.infradead.org>,  <linux-arm-kernel@lists.infradead.org>,
-  <linux-mediatek@lists.infradead.org>,  Steven Liu
- <Steven.Liu@mediatek.com>
-Subject: Re: [RFC PATCH nand/next 3/4] include: mtd: spinand: Add CASN page
- related macros and flags.
-In-Reply-To: <20241020132722.20565-4-SkyLake.Huang@mediatek.com> (Sky Huang's
-	message of "Sun, 20 Oct 2024 21:27:21 +0800")
-References: <20241020132722.20565-1-SkyLake.Huang@mediatek.com>
-	<20241020132722.20565-4-SkyLake.Huang@mediatek.com>
-User-Agent: mu4e 1.12.1; emacs 29.4
-Date: Mon, 18 Nov 2024 14:06:08 +0100
-Message-ID: <87r078y9mn.fsf@bootlin.com>
+	id 1tD1rY-00000009ahF-0uxj;
+	Mon, 18 Nov 2024 13:32:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tD1Tr-00000009VFY-3qyL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Nov 2024 13:07:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D7C3C1682;
+	Mon, 18 Nov 2024 05:08:20 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E8F33F5A1;
+	Mon, 18 Nov 2024 05:07:48 -0800 (PST)
+Date: Mon, 18 Nov 2024 13:07:43 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Gax-c <zichenxie0106@gmail.com>, catalin.marinas@arm.com,
+	robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org,
+	chenyuan0y@gmail.com, zzjas98@gmail.com, stable@vger.kernel.org,
+	David Howells <dhowells@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	Dan Williams <dan.j.williams@intel.com>
+Subject: Re: [PATCH] arm64: uaccess: Restrict user access to kernel memory in
+ __copy_user_flushcache()
+Message-ID: <Zzs8DtlbCqmBgzJV@J2N7QTR9R3>
+References: <20241115205206.17678-1-zichenxie0106@gmail.com>
+ <20241118115654.GA27696@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: miquel.raynal@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241118115654.GA27696@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_050614_908658_323E61CB 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20241118_050752_042031_D99F5E1D 
+X-CRM114-Status: GOOD (  29.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,145 +69,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/10/2024 at 21:27:21 +08, Sky Huang <SkyLake.Huang@mediatek.com> wrote:
+[ adding uaccess / iov_iter / pmem folk, question at the end ]
 
-> From: "Sky Huang" <skylake.huang@mediatek.com>
->
-> This patch adds SPINAND CASN page manipulation macros for
-> SPI-NAND driver to use. Also, some important flag bits, like
-> SPINAND_SUPR_CR(continuous read), are added to show the
-> SPI-NAND device's capability.
->
-> Signed-off-by: Sky Huang <skylake.huang@mediatek.com>
-> ---
->  include/linux/mtd/spinand.h | 100 +++++++++++++++++++++++++++++++++++-
->  1 file changed, 98 insertions(+), 2 deletions(-)
->
-> diff --git a/include/linux/mtd/spinand.h b/include/linux/mtd/spinand.h
-> index 702e5fb13dae..de97994c357b 100644
-> --- a/include/linux/mtd/spinand.h
-> +++ b/include/linux/mtd/spinand.h
-> @@ -62,6 +62,59 @@
->  		   SPI_MEM_OP_NO_DUMMY,					\
->  		   SPI_MEM_OP_NO_DATA)
->=20=20
-> +/* Macros for CASN */
-> +#define SPINAND_CASN_PAGE_READ_FROM_CACHE_OP(fast, naddr, addr, ndummy, =
-buf, len) \
-> +	SPI_MEM_OP(SPI_MEM_OP_CMD(fast ? 0x0b : 0x03, 1),		\
-> +		   SPI_MEM_OP_ADDR(naddr, addr, 1),			\
-> +		   SPI_MEM_OP_DUMMY(ndummy, 1),			\
-> +		   SPI_MEM_OP_DATA_IN(len, buf, 1))
-> +
-> +#define SPINAND_CASN_PAGE_READ_FROM_CACHE_X2_OP(naddr, addr, ndummy, buf=
-, len)	\
-> +	SPI_MEM_OP(SPI_MEM_OP_CMD(0x3b, 1),			\
-> +		   SPI_MEM_OP_ADDR(naddr, addr, 1),			\
-> +		   SPI_MEM_OP_DUMMY(ndummy, 1),			\
-> +		   SPI_MEM_OP_DATA_IN(len, buf, 2))
-> +
-> +#define SPINAND_CASN_PAGE_READ_FROM_CACHE_DUALIO_OP(naddr, addr, ndummy,=
- buf, len)	\
-> +		SPI_MEM_OP(SPI_MEM_OP_CMD(0xbb, 1),			\
-> +			   SPI_MEM_OP_ADDR(naddr, addr, 2),			\
-> +			   SPI_MEM_OP_DUMMY(ndummy, 2),			\
-> +			   SPI_MEM_OP_DATA_IN(len, buf, 2))
-> +
-> +#define SPINAND_CASN_PAGE_READ_FROM_CACHE_X4_OP(naddr, addr, ndummy, buf=
-, len)	\
-> +	SPI_MEM_OP(SPI_MEM_OP_CMD(0x6b, 1),				\
-> +		   SPI_MEM_OP_ADDR(naddr, addr, 1),				\
-> +		   SPI_MEM_OP_DUMMY(ndummy, 1),				\
-> +		   SPI_MEM_OP_DATA_IN(len, buf, 4))
-> +
-> +#define SPINAND_CASN_PAGE_READ_FROM_CACHE_QUADIO_OP(naddr, addr, ndummy,=
- buf, len)	\
-> +	SPI_MEM_OP(SPI_MEM_OP_CMD(0xeb, 1),				\
-> +		   SPI_MEM_OP_ADDR(naddr, addr, 4),				\
-> +		   SPI_MEM_OP_DUMMY(ndummy, 4),				\
-> +		   SPI_MEM_OP_DATA_IN(len, buf, 4))
-> +
-> +#define SPINAND_CASN_PROG_LOAD(reset, naddr, addr, buf, len)			\
-> +	SPI_MEM_OP(SPI_MEM_OP_CMD(reset ? 0x02 : 0x84, 1),		\
-> +		   SPI_MEM_OP_ADDR(naddr, addr, 1),				\
-> +		   SPI_MEM_OP_NO_DUMMY,					\
-> +		   SPI_MEM_OP_DATA_OUT(len, buf, 1))
-> +
-> +#define SPINAND_CASN_PROG_LOAD_X4(reset, naddr, addr, buf, len)			\
-> +	SPI_MEM_OP(SPI_MEM_OP_CMD(reset ? 0x32 : 0x34, 1),		\
-> +		   SPI_MEM_OP_ADDR(naddr, addr, 1),				\
-> +		   SPI_MEM_OP_NO_DUMMY,					\
-> +		   SPI_MEM_OP_DATA_OUT(len, buf, 4))
+On Mon, Nov 18, 2024 at 11:56:55AM +0000, Will Deacon wrote:
+> On Fri, Nov 15, 2024 at 02:52:07PM -0600, Gax-c wrote:
+> > From: Zichen Xie <zichenxie0106@gmail.com>
+> > 
+> > raw_copy_from_user() do not call access_ok(), so this code allowed
+> > userspace to access any virtual memory address. Change it to
+> > copy_from_user().
+> 
+> How can you access *any* virtual memory address, given that we force the
+> address to map userspace via __uaccess_mask_ptr()?
+> 
+> > Fixes: 9e94fdade4d8 ("arm64: uaccess: simplify __copy_user_flushcache()")
+> 
+> I don't think that commit changed the semantics of the code, so if it's
+> broken then I think it was broken before that change as well.
 
-Why would you need to redefine all these?
+AFAICT we've never had an access_ok() in __copy_user_flushcache() or
+__copy_from_user_flushcache() (which is the only caller of
+__copy_user_flushcache()).
 
-> +
-> +#define SPINAND_CASN_ADVECC_OP(casn_adv_ecc_status, buf)			\
-> +	SPI_MEM_OP(SPI_MEM_OP_CMD(casn_adv_ecc_status.cmd, 1),			\
-> +		   SPI_MEM_OP_ADDR(casn_adv_ecc_status.addr_nbytes,		\
-> +				   casn_adv_ecc_status.addr,			\
-> +				   casn_adv_ecc_status.addr_buswidth),		\
-> +		   SPI_MEM_OP_DUMMY(casn_adv_ecc_status.dummy_nbytes,		\
-> +				    casn_adv_ecc_status.dummy_buswidth),	\
-> +		   SPI_MEM_OP_DATA_IN(casn_adv_ecc_status.status_nbytes, buf, 1))
-> +/* Macros for CASN end */
-> +
->  #define SPINAND_PAGE_READ_FROM_CACHE_OP(fast, addr, ndummy, buf, len)	\
->  	SPI_MEM_OP(SPI_MEM_OP_CMD(fast ? 0x0b : 0x03, 1),		\
->  		   SPI_MEM_OP_ADDR(2, addr, 1),				\
-> @@ -312,8 +365,11 @@ struct spinand_ecc_info {
->=20=20
->  #define SPINAND_HAS_QE_BIT		BIT(0)
->  #define SPINAND_HAS_CR_FEAT_BIT		BIT(1)
-> -#define SPINAND_HAS_PROG_PLANE_SELECT_BIT		BIT(2)
-> -#define SPINAND_HAS_READ_PLANE_SELECT_BIT		BIT(3)
+We could fold the two together to make that aspect slightly clearer;
+IIUC we only had this out-of-line due ot the PAN toggling that we used
+to have.
 
-Why do you remove that?
+> > Signed-off-by: Zichen Xie <zichenxie0106@gmail.com>
+> > Cc: stable@vger.kernel.org
+> > ---
+> >  arch/arm64/lib/uaccess_flushcache.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/lib/uaccess_flushcache.c b/arch/arm64/lib/uaccess_flushcache.c
+> > index 7510d1a23124..fb138a3934db 100644
+> > --- a/arch/arm64/lib/uaccess_flushcache.c
+> > +++ b/arch/arm64/lib/uaccess_flushcache.c
+> > @@ -24,7 +24,7 @@ unsigned long __copy_user_flushcache(void *to, const void __user *from,
+> >  {
+> >  	unsigned long rc;
+> >  
+> > -	rc = raw_copy_from_user(to, from, n);
+> > +	rc = copy_from_user(to, from, n);
+> 
+> Does anybody actually call this with an unchecked user address?
+> 
+> From a quick look, there are two callers of _copy_from_iter_flushcache():
+> 
+>   1. pmem_recovery_write() - looks like it's using a kernel address?
+> 
+>   2. dax_copy_from_iter() - has a comment saying the address was already
+>                             checked in vfs_write().
+> 
+> What am I missing? It also looks like x86 elides the check.
 
-> +#define SPINAND_SUP_CR			BIT(2)
-> +#define SPINAND_SUP_ON_DIE_ECC		BIT(3)
-> +#define SPINAND_SUP_LEGACY_ECC_STATUS	BIT(4)
-> +#define SPINAND_SUP_ADV_ECC_STATUS	BIT(5)
-> +#define SPINAND_ECC_PARITY_READABLE	BIT(6)
->=20=20
->  /**
->   * struct spinand_ondie_ecc_conf - private SPI-NAND on-die ECC engine st=
-ructure
-> @@ -406,6 +462,28 @@ struct spinand_dirmap {
->  	struct spi_mem_dirmap_desc *rdesc_ecc;
->  };
->=20=20
-> +/**
-> + * struct CASN_ADVECC - CASN's advanced ECC description
-> + * @cmd: Command to access SPI-NAND on-chip ECC status registers
-> + * @mask: Mask to access SPI-NAND on-chip ECC status registers.
-> + *	  ADV_ECC_STATUS->status_nbytes | CASN_ADVECC->mask
-> + *			1		|      0 to 0xff
-> + *			2		|     0 to 0xffff
-> + * @shift: How many bits to shift to get on-chip ECC status
-> + * @pre_op: This comes from CASN page's ADV_ECC_STATUS's pre_op.
-> + *	    After reading on-chip ECC status, we need to do some math
-> + *	    operations if this is specified.
+IIUC the intent is that __copy_from_user_flushcache() is akin to
+raw_copy_from_user(), and requires that the caller has already checked
+access_ok(). The addition of __copy_from_user_flushcache() conicided
+with __copy_from_user() being replaced with raw_copy_from_user(), and I
+suspect the naming divergence was accidental.
 
-I'm not sure I understand how you'll encode a math operation there.
+That said, plain copy_from_user_iter() has an access_ok() check while
+copy_from_user_iter_flushcache() doesn't (and it lakcs any explanatory
+comment), so even if that's ok for current callers it seems like it
+might be fragile.
 
-> + * @pre_mask: This comes from CASN page's ADV_ECC_STATUS's pre_mask.
-> + *	      This is used in companion with pre_op above.
-> + */
-> +struct CASN_ADVECC {
+So the real question is where is the access_ok() call intended to live?
+I don't think it's meant to be in __copy_from_user_flushcache(), and is
+intended to live in *some* caller, but it seems odd that
+copy_from_user_iter() and copy_from_user_iter_flushcache() diverge.
 
-This is usually changing when continuous reads are enabled, it would
-need to be handled.
-
-> +	u8 cmd;
-> +	u16 mask;
-> +	u8 shift;
-> +	u8 pre_op;
-> +	u8 pre_mask;
-> +};
-> +
-
-Thanks,
-Miqu=C3=A8l
-
+Mark.
 
