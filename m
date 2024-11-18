@@ -4,117 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27CAFD5E393
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 06:27:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217F9D6DDC4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 06:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mtN7HaNLk92Shd3TrhFCwIdNZ4NaCLNwJBs2aJnO8bA=; b=X+fJk72RlfXs4Lm8kGMctvhuIk
-	DOZSTW6P2VISvfnmbSbzSZqzmyqbEzbaosGyeATch9S5fERFCdt7u7hyfyy5PZIna3QDrUysdx7zq
-	MNNCUiFZV4B0w02o1kRga/OlyGlkReQp+ktmGSZGomUPvXsV7QIYE+ijc/sjGiudy8XVJUh5O4Ztg
-	4ByFNJ9w4V8hy8sJQEsxY5JX+YlvLptkRYut3hAzZV1iwutVJCUUl4ExFI+3sA+Jwwc1+dyjpRyAk
-	k5fDZG5jwXtnlEu9X+qYMB2q5sfV/W+QTtcBGgL8I6Z1x8Xjm9xOC+J/yf1mBMevtJ35Rz3HMTCuS
-	c82q3efA==;
+	bh=Jxy8lRymo3BYrM8MI3ZHa5xny/Psidz3PzveGAuRUA4=; b=JtO2eATF2uDkkzxTPTN4PYQgUj
+	NZFr28m1q9I/gaBNrI+n/N2bd/Z20aFiZHAQYM1issKZFGAQv5lE1xwEknAI4cVbTbiFFroUum2aW
+	fUVDwTiLMC2M0VyCe4EtnCdw84MhUZ3RW0IQmUeDOa5n5ghMdQT3Uw+JduF/1I4Ols9ngiR9S9zb6
+	5b+Wi9/NsEPan1OQCEItK3gyVbSc2h6H6Z4Ss83YHQaLY1RT+EiXORCBELDjet/BFrmH4XMHAriFO
+	z2DytkrS6s5HAv5eLXPTR7tee3MDq52HAZOv0UYFvr1H23LRjT9dy0VgdegUJchdFZIZ/T7loohAG
+	VMc7DsIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCvE2-00000008WNe-2Ogy;
-	Mon, 18 Nov 2024 06:27:06 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tCvTZ-00000008Y7H-47Qy;
+	Mon, 18 Nov 2024 06:43:10 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCvD4-00000008WDV-1GdQ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 06:26:11 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AI5RlvS029968;
-	Mon, 18 Nov 2024 06:25:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	mtN7HaNLk92Shd3TrhFCwIdNZ4NaCLNwJBs2aJnO8bA=; b=ZW6uvM6ufwj/v0np
-	MkdZe3Eu1T0XuUt08LBTubz6LWnaVKRL0D2SjfecudOGQ2C2CPSBOYXJhKl2FLev
-	MRrvfJ3oZ6sdHDU+DkGpLL+TTLdUCv9xRTOxHCKyx0vqlD0ZleaHCUqHk/uoT56Q
-	ydAmEYK89Zfn3kDDwH2KLuIurqM852gPrF6O28SKKxGphV6A9WymkkXjQlKzeEHB
-	5FIKfjPLxJtfrlHlvODfAgrS25VI0axJ36wgNFhAZ3Auc+fGLnRD0/TUc9OHJLs9
-	auhxcmOcM9+Ys88Crq19kQumFeFdhnViL1siyw9LqmX0zU9WxghcEzonr6FNgfWq
-	pRLcPg==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42xks6kkcy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 Nov 2024 06:25:55 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AI6PsKY011914
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 Nov 2024 06:25:54 GMT
-Received: from [10.64.16.151] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 17 Nov
- 2024 22:25:47 -0800
-Message-ID: <1a0c1a49-d1fc-4b64-ae11-c4d343458133@quicinc.com>
-Date: Mon, 18 Nov 2024 14:25:44 +0800
+	id 1tCvSa-00000008Xze-0A2o;
+	Mon, 18 Nov 2024 06:42:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1731912125;
+	bh=hkBROPeoD5rMUjYCyIB1phZYBgfbk1CSvz/OhAqXRo0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TfdfMtp9anoHDX6J3bUXMT30uvCBfHLSu9NG3H/4PNxVWQwjI+sXiM/HoYdrzXDie
+	 49zHY7tDKadHkJ301mviS1XcRxolEa4M99bH42sKqy3wHD1PMbcx2bH4jlkdH5kq60
+	 9wPZ703y/xuBqhcSCVQnmIc+/kp33VnCeluqCFvpackG/sJgMpZTAZQenyyJ4aRAqa
+	 WmndLisx9HiH7CGK4UeWHLWBnGP53JuAl72FldAXs1Ot8ae8wMD6snAyG0ihC3hw6+
+	 tYqJSyZqs45EDB8p1XR2t/cr5/ruo99NIsi1J2fDWsalMqg0gEWR3JYhJZlL9uIh/i
+	 nwExZU78o2gtQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EF43517E1221;
+	Mon, 18 Nov 2024 07:42:04 +0100 (CET)
+Message-ID: <fd1c76ba-e288-4cc9-abcc-522b5ea6b0b9@collabora.com>
+Date: Mon, 18 Nov 2024 07:42:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/9] drm/msm/dsi: Add support for QCS615
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Konrad Dybcio
-	<konrad.dybcio@oss.qualcomm.com>
-CC: Rob Clark <robdclark@gmail.com>,
-        Abhinav Kumar
-	<quic_abhinavk@quicinc.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten
-	<marijn.suijten@somainline.org>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Krishna
- Manikandan" <quic_mkrishn@quicinc.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        "Catalin
- Marinas" <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Li Liu
-	<quic_lliu6@quicinc.com>,
-        Xiangxu Yin <quic_xiangxuy@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20241113-add-display-support-for-qcs615-platform-v2-0-2873eb6fb869@quicinc.com>
- <20241113-add-display-support-for-qcs615-platform-v2-6-2873eb6fb869@quicinc.com>
- <404f006b-46e5-44db-9f22-ec2139468ecc@oss.qualcomm.com>
- <CAA8EJpqQSp5eXoKHHEchKpGq9ZpU0k0RDASA8T+t+SENNx+_fQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: mediatek: Introduce MT8188 Geralt
+ platform based Ciri
+To: Fei Shao <fshao@chromium.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org
+References: <20241105093222.4055774-1-fshao@chromium.org>
+ <20241105093222.4055774-3-fshao@chromium.org>
+ <b66dbf9e-b35b-482c-9eb7-112ef1f398d6@collabora.com>
+ <CAC=S1ngozo11g1vF2jnHjTLcNmP8tOMsQhK+LR0QWqoeXwSJjg@mail.gmail.com>
+ <59f4bcc1-c752-4f2f-8e55-349cc2432b8a@collabora.com>
+ <CAC=S1nhhfwHU5K5ZyUhZBhvz38LOZGLnGN-Rc1ZAup_VTfkpvA@mail.gmail.com>
+ <CAC=S1nj5PVJ=zwZiBLoOCHzsspaRw9ddAH_dXfPayD=LyW5wNA@mail.gmail.com>
+ <545b6db8-c7d7-4a28-a040-12088f9002df@collabora.com>
+ <CAC=S1nhX88aaQ6dusab1qM2_noaSjTMdhJ9t5o4L_Nri9dWPVw@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: fange zhang <quic_fangez@quicinc.com>
-In-Reply-To: <CAA8EJpqQSp5eXoKHHEchKpGq9ZpU0k0RDASA8T+t+SENNx+_fQ@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: wWvdmn5f1Rc_thBbYjuCjU4IWId8jPsg
-X-Proofpoint-GUID: wWvdmn5f1Rc_thBbYjuCjU4IWId8jPsg
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
- priorityscore=1501 lowpriorityscore=0 phishscore=0 suspectscore=0
- mlxscore=0 impostorscore=0 mlxlogscore=999 adultscore=0 clxscore=1015
- spamscore=0 malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411180052
+In-Reply-To: <CAC=S1nhX88aaQ6dusab1qM2_noaSjTMdhJ9t5o4L_Nri9dWPVw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241117_222606_459366_4F9719DC 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20241117_224208_537233_1DAFFE88 
+X-CRM114-Status: GOOD (  33.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,54 +84,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2024/11/14 21:41, Dmitry Baryshkov wrote:
-> On Thu, 14 Nov 2024 at 15:32, Konrad Dybcio
-> <konrad.dybcio@oss.qualcomm.com> wrote:
+Il 18/11/24 06:26, Fei Shao ha scritto:
+> On Thu, Nov 14, 2024 at 6:09 PM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
 >>
->> On 13.11.2024 12:51 PM, Fange Zhang wrote:
->>> From: Li Liu <quic_lliu6@quicinc.com>
+>> Il 11/11/24 08:10, Fei Shao ha scritto:
+>>> On Fri, Nov 8, 2024 at 12:11 PM Fei Shao <fshao@chromium.org> wrote:
+>>>>
+>>>> On Thu, Nov 7, 2024 at 6:37 PM AngeloGioacchino Del Regno
+>>>> <angelogioacchino.delregno@collabora.com> wrote:
+>>>>>
+>>>>> Il 07/11/24 07:58, Fei Shao ha scritto:
+>>>>>> On Wed, Nov 6, 2024 at 9:19 PM AngeloGioacchino Del Regno
+>>>>>> <angelogioacchino.delregno@collabora.com> wrote:
+>>>>>>>
+>>>>>>> Il 05/11/24 10:30, Fei Shao ha scritto:
+>>>>>>>> Introduce MT8188-based Chromebook Ciri, also known commercially as
+>>>>>>>> Lenovo Chromebook Duet (11", 9).
+>>>>>>>>
+>>>>>>>> Ciri is a detachable device based on the Geralt design, where Geralt is
+>>>>>>>> the codename for the MT8188 platform. Ciri offers 8 SKUs to accommodate
+>>>>>>>> different combinations of second-source components, including:
+>>>>>>>> - audio codecs (RT5682S and ES8326)
+>>>>>>>> - speaker amps (TAS2563 and MAX98390)
+>>>>>>>> - MIPI-DSI panels (BOE nv110wum-l60 and IVO t109nw41)
+>>>>>>>>
+>>>>>>>> Signed-off-by: Fei Shao <fshao@chromium.org>
+>>>>>>>> ---
+>>> [...]
+>>>>>>>> +&pmic {
+>>>>>>>> +     interrupts-extended = <&pio 222 IRQ_TYPE_LEVEL_HIGH>;
+>>>>>>>> +};
+>>>>>>>> +
+>>>>>>>> +&scp {
+>>>>>>>
+>>>>>>> Is this SCP-dual or SCP?
+>>>>>>> I see SCP, but I also see a SCP-Dual memory region... what's going on here?
+>>>>>>>
+>>>>>>> Of course, the SCP-Dual won't work if you don't override the compatible string...
+>>>>>>
+>>>>>> To clarify, the second SCP core is used for MIPI camera in downstream,
+>>>>>> and I deliberately only describe the first SCP core here since the MTK
+>>>>>> camera ISP driver isn't in upstream at the moment.
+>>>>>> I had a fixup patch for removing the scp-dual reserved memory region,
+>>>>>> but likely it was missing during the rebase... let me check again if
+>>>>>> it can be removed, just in case there's firmware protecting the region
+>>>>>> and the kernel shouldn't access it.
+>>>>>>
+>>>>>
+>>>>> Hmm... but the second SCP core can still be brought up, even if the MIPI Camera
+>>>>> driver is not upstreamed yet, right?
+>>>>
+>>>> Well, that's true... and it should pave the way for validating the
+>>>> driver with the upstreamed DT whenever that becomes available.
+>>>>
+>>>>>
+>>>>> That shouldn't cause lockups and/or other kinds of bad behavior, and should
+>>>>> bring up a core and just never use it, without any particular issues.
+>>>>>
+>>>>> If we can enable the secondary core, let's just go for it.. as that will help
+>>>>> specifying the exact memory layout of this board (and failing to do that may
+>>>>> create some other issues, that's why I'm proposing to enable that even if it
+>>>>> is not really used in this case).
+>>>>>
+>>>>> What do you think? :-)
+>>>>>
+>>>>
+>>>> Sure, that sounds good to me, too.
+>>>> I started only with the essential DT bits to ensure the device can
+>>>> boot, which it does, so I guess it's time to bring that back. I'll
+>>>> incorporate that in v3.
+>>>> I plan to fix up the single SCP core node to SCP-dual directly, so
+>>>> please let me know if you prefer seeing that as an individual patch on
+>>>> top (either option works for me).
+>>>>
 >>>
->>> Add support for DSI 2.3.1 (block used on QCS615).
->>> Add phy configuration for QCS615
+>>> In fact, I noticed that it seems to require modifying mt8188.dtsi (and
+>>> potentially mt8390-genio-700-evk.dts) to support the second SCP core,
+>>> but I want to avoid doing so in this series if possible to keep this
+>>> as a pure new .dts introduction (if that makes sense).
 >>>
->>> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
->>> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
->>> ---
->>>   drivers/gpu/drm/msm/dsi/dsi_cfg.c          | 17 +++++++++++++++++
->>>   drivers/gpu/drm/msm/dsi/dsi_cfg.h          |  1 +
->>>   drivers/gpu/drm/msm/dsi/phy/dsi_phy.c      |  2 ++
->>>   drivers/gpu/drm/msm/dsi/phy/dsi_phy.h      |  1 +
->>>   drivers/gpu/drm/msm/dsi/phy/dsi_phy_14nm.c | 21 +++++++++++++++++++++
->>>   5 files changed, 42 insertions(+)
+>>> I can think of 3 options here:
+>>> 1. I resend this series *with* the single SCP core enabled in
+>>> -geralt.dtsi. And then I send a follow-up series to introduce the
+>>> second SCP core and update the affected .dts{,i}.
+>>> 2. I resend this series *without* any SCP cores in -geralt.dtsi. And
+>>> then I send a follow-up series to introduce both of the SCP cores at
+>>> once, and update the affected .dts{,i}.
+>>> 3. I delete the parent (mt8188) scp declaration and re-describe the
+>>> dual-core SCP structure in -geralt.dtsi. This avoids touching
+>>> mt8188.dtsi and mt8390-genio-700-evk but leaves the dual-core SCP
+>>> stuff exclusively to geralt/ciri. I don't know if MT8390 wants to
+>>> utilize the second SCP core or not.
 >>>
->>> diff --git a/drivers/gpu/drm/msm/dsi/dsi_cfg.c b/drivers/gpu/drm/msm/dsi/dsi_cfg.c
->>> index 10ba7d153d1cfc9015f527c911c4658558f6e29e..edbe50305d6e85fb615afa41f3b0db664d2f4413 100644
->>> --- a/drivers/gpu/drm/msm/dsi/dsi_cfg.c
->>> +++ b/drivers/gpu/drm/msm/dsi/dsi_cfg.c
->>> @@ -221,6 +221,21 @@ static const struct msm_dsi_config sc7280_dsi_cfg = {
->>>        },
->>>   };
+>>> I guess (3) is less likely what we want down the line, but that's just
+>>> for reference. Any preference/suggestion?
 >>>
->>> +static const struct regulator_bulk_data qcs615_dsi_regulators[] = {
->>> +     { .supply = "vdda", .init_load_uA = 21800 },
->>> +};
 >>
->> I believe refgen is also present here and you can reuse dsi_v2_4_regulators
+>> I want to verify with MediaTek whether the Genio 700 EVK can make use of the
+>> dual-core SCP first, as it is highly possible that it indeed can and, if that
+>> is the case, counting that any product development would be anyway based on
+>> the EVK.... we will probably never see single-core SCP in MT8188 devicetrees
+>> ever again.
+>>
+>> Please send the Geralt/Ciri devicetrees without SCP support for now, so that
+>> we can get the vast majority of the code upstream - which anyway is likely
+>> 95% of what you have right now... then I will either notify you for how to
+>> proceed with the SCP (especially if I come to a conclusion before you send
+>> the new series), or I will just send the SCP DT series on my own.
 > 
-> This was in feedback for v1... And the patch should be further split,
-> having DSI and PHY parts separately.
-
-ok will split the patch
-
-- DSI part
-drivers/gpu/drm/msm/dsi/dsi_cfg.c          | 17 +++++++++++++++++
-drivers/gpu/drm/msm/dsi/dsi_cfg.h          |  1 +
-- DSI phy part
-drivers/gpu/drm/msm/dsi/phy/dsi_phy_14nm.c | 21 +++++++++++++++++++++
-drivers/gpu/drm/msm/dsi/phy/dsi_phy.h      |  1 +
-drivers/gpu/drm/msm/dsi/phy/dsi_phy_14nm.c | 21 +++++++++++++++++++++
+> Noted. This is currently on the back burner as I have other tasks at
+> hand, but I'll get back to it ASAP (hopefully later this week).
 > 
+
+There's no rush. It's too late for 6.13 anyway, so take your time :-)
+
+
+> Thanks,
+> Fei
+> 
+>>
+>> Cheers,
+>> Angelo
+>>
+
+
 
 
