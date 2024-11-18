@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DDC4D49231
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 15:25:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAFA6D4923B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 15:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MnU5XTK5tf6lmEyuvaB0LJLpKJLlqNbSBa2n1XEH/NY=; b=VtBK2tDCD6gJ3WJJaEJfNtftKK
-	wuGDagkGH0QEqMr7OPvWKz/g2Coz5rj5ttbNWhqsvAZJ6yewppWPlk/CyZRan99kx0A/LMhToFB8y
-	U117s2ojXskgj0ZgvyqA3ag4WAgA7hfzRD2R882lcJhnUfdv69deB6dGozlnAqEVhjfwX+ITmosra
-	lU4l+3UROU1oKiNkuU9AXpn38eI72RYnr/JX0Y/wyZ4J4+ZXMC7EDnNRsRgmsUjy9v4r4/p80EiAR
-	YnQtbo2hGx4IZD0P6E2yInM79s8c4yqJIJw8+scTGsFnAkIPKw3qOZ25R4JzjxcHqWAu3aNOiEYyI
-	y/qtHIdQ==;
+	bh=yM1hknJVFS7HCJh8Bw8WhrGpM3PfCvn6SKwbNFv5FAY=; b=vScfcFXI00UN2yGLa1WYUAzLls
+	UJB0I99xKGbbKdA/zR8R7E84kutvN88jiN8R4RR7hMt9Onzb1E++OLZLgCszuaoyXNRoyQwy+ym1k
+	ITxEryGWMzzETACx119Uo8TFWntRXcdFC+5F0bdhISUlhNgjY5zNuUuBmq2yO7sJdr34wUqtSj037
+	qFOiehdl4HjSPNTv35zf2nLF9vKPULr1jmZ0fUBsyzH5Y1SarqOmiR14Z2in86z/MJ5DpwMqpbTnj
+	b3dtFmfG6oBzNC5gfsEU7kXXL73ob8bZw3ZkNmWATrDKr/o4jcfEeIqcbFcTCpaLuJmebSPfS+gbI
+	SJGwLLfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD3cR-00000009uxl-1iXR;
-	Mon, 18 Nov 2024 15:24:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD3bV-00000009umI-0xuJ
+	id 1tD3oR-00000009wcg-0x0h;
+	Mon, 18 Nov 2024 15:37:15 +0000
+Received: from out-187.mta1.migadu.com ([95.215.58.187])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tD3nV-00000009wQs-1Mf8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 15:23:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83A95165C;
-	Mon, 18 Nov 2024 07:24:22 -0800 (PST)
-Received: from [10.57.89.219] (unknown [10.57.89.219])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4ED6E3F5A1;
-	Mon, 18 Nov 2024 07:23:49 -0800 (PST)
-Message-ID: <9e04fa8f-7c08-49a9-9647-f8d1f183ffcf@arm.com>
-Date: Mon, 18 Nov 2024 15:23:47 +0000
+	Mon, 18 Nov 2024 15:36:19 +0000
+Message-ID: <0e5f84c7-40fc-42e9-8521-f0f1e82e4d9c@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1731944171;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yM1hknJVFS7HCJh8Bw8WhrGpM3PfCvn6SKwbNFv5FAY=;
+	b=fU5Svm76Z/VZZbJo2p5VhsyP12LlV0UA1Uytbdbxy5qBssiZCK13lQN3MOK/zoFdS+uU9G
+	I3syYlgTcuRE22SKlpaP5MlmAvh7dYl2WxZtJ21mGibK/OZDMcOIbb20oLwWufXOX6lNQA
+	ue+93MK0iQfvxGMWu5tkJxE2eNsOtrE=
+Date: Mon, 18 Nov 2024 10:36:02 -0500
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] perf: arm-ni: Remove spurious NULL in attribute_group
- definition
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Heiko Carstens <hca@linux.ibm.com>,
- Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Peter Zijlstra <peterz@infradead.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-s390@vger.kernel.org
-References: <20241118-sysfs-const-attribute_group-fixes-v1-0-48e0b0ad8cba@weissschuh.net>
- <20241118-sysfs-const-attribute_group-fixes-v1-1-48e0b0ad8cba@weissschuh.net>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20241118-sysfs-const-attribute_group-fixes-v1-1-48e0b0ad8cba@weissschuh.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 1/2] dt-bindings: net: xlnx,axi-ethernet: Add
+ bindings for AXI 2.5G MAC
+To: Suraj Gupta <suraj.gupta2@amd.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, michal.simek@amd.com, radhey.shyam.pandey@amd.com,
+ horms@kernel.org
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, git@amd.com, harini.katakam@amd.com
+References: <20241118081822.19383-1-suraj.gupta2@amd.com>
+ <20241118081822.19383-2-suraj.gupta2@amd.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <20241118081822.19383-2-suraj.gupta2@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_072353_306409_7CD850E9 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20241118_073618_242057_945D9755 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,31 +74,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-11-18 3:02 pm, Thomas Weißschuh wrote:
-> This NULL value is most-likely a copy-paste error from an array
-> definition. So far the NULL didn't have any effect.
-> As there will be a union in struct attribute_group at this location,
-> it will trigger a compiler warning.
-
-Acked-by: Robin Murphy <robin.murphy@arm.com>
-
-> Signed-off-by: Thomas Weißschuh <linux@weissschuh.net>
+On 11/18/24 03:18, Suraj Gupta wrote:
+> AXI 1G/2.5G Ethernet subsystem supports 1G and 2.5G speeds. "max-speed"
+> property is used to distinguish 1G and 2.5G MACs of AXI 1G/2.5G IP.
+> max-speed is made a required property, and it breaks DT ABI but driver
+> implementation ensures backward compatibility and assumes 1G when this
+> property is absent.
+> Modify existing bindings description for 2.5G MAC.
+> 
+> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
 > ---
->   drivers/perf/arm-ni.c | 1 -
->   1 file changed, 1 deletion(-)
+>  .../bindings/net/xlnx,axi-ethernet.yaml       | 44 +++++++++++++++++--
+>  1 file changed, 40 insertions(+), 4 deletions(-)
 > 
-> diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
-> index 90fcfe693439ef3e18e23c6351433ac3c5ea78b5..fd7a5e60e96302fada29cd44e7bf9c582e93e4ce 100644
-> --- a/drivers/perf/arm-ni.c
-> +++ b/drivers/perf/arm-ni.c
-> @@ -247,7 +247,6 @@ static struct attribute *arm_ni_other_attrs[] = {
->   
->   static const struct attribute_group arm_ni_other_attr_group = {
->   	.attrs = arm_ni_other_attrs,
-> -	NULL
->   };
->   
->   static const struct attribute_group *arm_ni_attr_groups[] = {
-> 
+> diff --git a/Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml b/Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml
+> index fb02e579463c..69e84e2e2b63 100644
+> --- a/Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml
+> +++ b/Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml
+> @@ -9,10 +9,12 @@ title: AXI 1G/2.5G Ethernet Subsystem
+>  description: |
+>    Also called  AXI 1G/2.5G Ethernet Subsystem, the xilinx axi ethernet IP core
+>    provides connectivity to an external ethernet PHY supporting different
+> -  interfaces: MII, GMII, RGMII, SGMII, 1000BaseX. It also includes two
+> +  interfaces: MII, GMII, RGMII, SGMII, 1000BaseX and 2500BaseX. It also includes two
+>    segments of memory for buffering TX and RX, as well as the capability of
+>    offloading TX/RX checksum calculation off the processor.
+>  
+> +  AXI 2.5G MAC is incremental speed upgrade of AXI 1G and supports 2.5G speed.
+> +
+>    Management configuration is done through the AXI interface, while payload is
+>    sent and received through means of an AXI DMA controller. This driver
+>    includes the DMA driver code, so this driver is incompatible with AXI DMA
+> @@ -62,6 +64,7 @@ properties:
+>        - rgmii
+>        - sgmii
+>        - 1000base-x
+> +      - 2500base-x
+>  
+>    xlnx,phy-type:
+>      description:
+> @@ -118,9 +121,9 @@ properties:
+>      type: object
+>  
+>    pcs-handle:
+> -    description: Phandle to the internal PCS/PMA PHY in SGMII or 1000Base-X
+> -      modes, where "pcs-handle" should be used to point to the PCS/PMA PHY,
+> -      and "phy-handle" should point to an external PHY if exists.
+> +    description: Phandle to the internal PCS/PMA PHY in SGMII or 1000base-x/
+> +      2500base-x modes, where "pcs-handle" should be used to point to the
+> +      PCS/PMA PHY, and "phy-handle" should point to an external PHY if exists.
+>      maxItems: 1
+>  
+>    dmas:
+> @@ -137,12 +140,17 @@ properties:
+>      minItems: 2
+>      maxItems: 32
+>  
+> +  max-speed:
+> +    description:
+> +      Indicates max MAC rate. 1G and 2.5G MACs of AXI 1G/2.5G IP are distinguished using it.
+> +
+
+Can't you read this from the TEMAC ability register?
+
+--Sean
+
+>  required:
+>    - compatible
+>    - interrupts
+>    - reg
+>    - xlnx,rxmem
+>    - phy-handle
+> +  - max-speed
+>  
+>  allOf:
+>    - $ref: /schemas/net/ethernet-controller.yaml#
+> @@ -164,6 +172,7 @@ examples:
+>          xlnx,rxmem = <0x800>;
+>          xlnx,txcsum = <0x2>;
+>          phy-handle = <&phy0>;
+> +        max-speed = <1000>;
+>  
+>          mdio {
+>              #address-cells = <1>;
+> @@ -188,6 +197,7 @@ examples:
+>          xlnx,txcsum = <0x2>;
+>          phy-handle = <&phy1>;
+>          axistream-connected = <&dma>;
+> +        max-speed = <1000>;
+>  
+>          mdio {
+>              #address-cells = <1>;
+> @@ -198,3 +208,29 @@ examples:
+>              };
+>          };
+>      };
+> +
+> +# AXI 2.5G MAC
+> +  - |
+> +    axi_ethernet_eth2: ethernet@a4000000 {
+> +        compatible = "xlnx,axi-ethernet-1.00.a";
+> +        interrupts = <0>;
+> +        clock-names = "s_axi_lite_clk", "axis_clk", "ref_clk", "mgt_clk";
+> +        clocks = <&axi_clk>, <&axi_clk>, <&pl_enet_ref_clk>, <&mgt_clk>;
+> +        phy-mode = "2500base-x";
+> +        reg = <0x40000000 0x40000>;
+> +        xlnx,rxcsum = <0x2>;
+> +        xlnx,rxmem = <0x800>;
+> +        xlnx,txcsum = <0x2>;
+> +        phy-handle = <&phy1>;
+> +        axistream-connected = <&dma>;
+> +        max-speed = <2500>;
+> +
+> +        mdio {
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +            phy2: ethernet-phy@1 {
+> +                device_type = "ethernet-phy";
+> +                reg = <1>;
+> +            };
+> +        };
+> +    };
 
 
