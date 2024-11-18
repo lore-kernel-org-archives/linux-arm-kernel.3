@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3167D6DDF9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 06:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8DED6DDC4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 06:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gHhDJjK3Ru4ZcZRn7FHuSAO9xKk4SrhCmvjPrRbIS44=; b=qW8LC/Zt65Z+pFifu9MOL4ca7Z
-	oMOt/iu3hTfUZl6RJJ+5TUnzvxfMRpWwFegxR2+rXuZOMFGu9l7G8Aiurl6r+Y2qkBNlbIoDLhPAi
-	yUbKq3TvjSePA1sarQy51Uyq6ej8OUohGx0pupgclnDEmVoj6z3n5Z2IsgUcpgPv5OomZ1mbX2J1W
-	LWCiHiYFc6zw3+wUpE3l0xUSG++kX7RY4vA4R0BLMHh5bw5mKLIN4ax/+172FjSVVVujRLkKMGdbW
-	A4wmYHXFjGyP1JCvFAjh691sWw20or+kkOSKF9oht26g0y02pDLGLYFuMJXiUqSpSdUm6F/Igf4m+
-	e+jM60uw==;
+	bh=74TOSSDm+PS8FEqf6ClWuGbANBPqdjyv4qB8j32Po7M=; b=o6QbOOPo9iVxhAbuJR+giZ3hB4
+	utJxkO0AEP2gBLz+uBCxIoPjMhFBLRH3hlLx3Dmg1AtZag3oE5xyrBEpk98M5rXaKwdT6WxUTBuLR
+	0evLoBAyxnMfE+fVDaGP1aellIsYJfbJFhhHyqMzdJkeKKv7F/SwFXyyM4MDJFfZjsEdYJ6AQ9keq
+	dW9the4PwAeL5CaXsm92BxjEUQMz1rQKWi5dBU0oiCvO1kTBc8BToEBPmJb59RFmCoAVAYrpRF8e7
+	s8zRaYq0M9N0vDOvV4AGgl3Fwp80WhbtD1ohtVVpBONCVBog19h9PozDCJipOB6ff9EJ/JOU7SRH1
+	abNcXatw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCvfe-00000008a3K-0uSi;
-	Mon, 18 Nov 2024 06:55:38 +0000
+	id 1tCvgY-00000008aDB-1aeA;
+	Mon, 18 Nov 2024 06:56:34 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCvcn-00000008ZYz-3vPa;
-	Mon, 18 Nov 2024 06:52:43 +0000
+	id 1tCveI-00000008ZoZ-03jp;
+	Mon, 18 Nov 2024 06:54:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1731912759;
-	bh=Wzof8Ms9Bx1I7gMnTWBqwPj9iq0cMnT9zRVArVqYBMI=;
+	s=mail; t=1731912852;
+	bh=Z2davH3euLXzw7+JmOS0iNFu1RheIVz/v10S5oNSC4Y=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=REq9SpKa55aKFUCf7qaWWO4c7scByRAFfFKwKtlJNh+w6CdWHSW3YHxLfsujwPfCV
-	 u/rw5xWvZA3YdXA1vCIv9VbUmsy9l9kMqYTbsEWdGyt96ZJ8Xn19MH7iXNq9omjra1
-	 JGGmoGLbyXriE+y+44nAx+Z4Vpg+Z6gYSRGNJkxQIsLlhcBD1q+jCwvsrypFIgCo2l
-	 EuEjAvkZxVwtNWmsghTzUe9tIoyZlWlwARlOsMBVFAjSE863P6CUrANHnq0FTymP6j
-	 JeiFTkEG1xjgsxtzAPDz2wSy/d+SHmtM23uGGdmmmJ56lPt2d5KMg3mRzuNt20l3SE
-	 IJL7ugd3ZTBjw==
+	b=JB1zCxRJ1gz78ADZYPJCeXUPq2IUttOwtcq8qjfQb5rGvUyPrtrq9zUFt6DDS+RRr
+	 reKB0vfBrersIUELTShL1XDxmj08OzGzQc4hctFlBYvlShoo13vy0H7u1axYVdRINo
+	 h99kkC36MLN2ARcdb+kRgLmvHPlioMhRtRdB7cRIhQibvtBmGX3PQJdnclABpHP2h6
+	 KS8MVRVFguZJQY2WZrLMluCmWAiuG5lSdFJmS+e5J0dlE0MxQ/ULqcMZPfeMuVuZW4
+	 awlmPNGnq3aS8mpfl90fjMCV+w/x2mFfXB/zGGqSIhbLL0hhpLj8qOcfQ49WF/eUYZ
+	 L/Zvr7WDM0frw==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2CAC717E1232;
-	Mon, 18 Nov 2024 07:52:39 +0100 (CET)
-Message-ID: <ddf945c3-8bb8-4f20-b53b-5cbf6579a1da@collabora.com>
-Date: Mon, 18 Nov 2024 07:52:38 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EE3E217E1245;
+	Mon, 18 Nov 2024 07:54:11 +0100 (CET)
+Message-ID: <f6fe51d5-eb16-45ae-b85d-c89ad874b65d@collabora.com>
+Date: Mon, 18 Nov 2024 07:54:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pinctrl: airoha: Use unsigned long for bit search
-To: Kees Cook <kees@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Sean Wang <sean.wang@kernel.org>, Linus Walleij
- <linus.walleij@linaro.org>, linux-mediatek@lists.infradead.org,
- linux-gpio@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-hardening@vger.kernel.org
-References: <20241117114534.work.292-kees@kernel.org>
+Subject: Re: [PATCH] drm/mediatek: Add support for 180-degree rotation in the
+ display driver
+To: "Jason-JH.Lin" <jason-jh.lin@mediatek.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Cc: Shawn Sung <shawn.sung@mediatek.com>, dri-devel@lists.freedesktop.org,
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Singo Chang
+ <singo.chang@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>,
+ Project_Global_Chrome_Upstream_Group@mediatek.com,
+ Fei Shao <fshao@chromium.org>
+References: <20241118025126.30808-1-jason-jh.lin@mediatek.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20241117114534.work.292-kees@kernel.org>
+In-Reply-To: <20241118025126.30808-1-jason-jh.lin@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241117_225242_148006_184237A1 
-X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-CacheID: sfid-20241117_225414_234916_72E5DA1B 
+X-CRM114-Status: UNSURE (   8.06  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,33 +81,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 17/11/24 12:45, Kees Cook ha scritto:
-> Instead of risking alignment problems and causing (false positive) array
-> bound warnings when casting a u32 to (64-bit) unsigned long, just use a
-> native unsigned long for doing bit searches. Avoids warning with GCC 15's
-> -Warray-bounds -fdiagnostics-details:
+Il 18/11/24 03:51, Jason-JH.Lin ha scritto:
+> mediatek-drm driver reported the capability of 180-degree rotation by
+> adding `DRM_MODE_ROTATE_180` to the plane property, as flip-x combined
+> with flip-y equals a 180-degree rotation. However, we did not handle
+> the rotation property in the driver and lead to rotation issues.
 > 
-> In file included from ../include/linux/bitmap.h:11,
->                   from ../include/linux/cpumask.h:12,
->                   from ../arch/x86/include/asm/paravirt.h:21,
->                   from ../arch/x86/include/asm/irqflags.h:80,
->                   from ../include/linux/irqflags.h:18,
->                   from ../include/linux/spinlock.h:59,
->                   from ../include/linux/irq.h:14,
->                   from ../include/linux/irqchip/chained_irq.h:10,
->                   from ../include/linux/gpio/driver.h:8,
->                   from ../drivers/pinctrl/mediatek/pinctrl-airoha.c:11:
-> In function 'find_next_bit',
->      inlined from 'airoha_irq_handler' at ../drivers/pinctrl/mediatek/pinctrl-airoha.c:2394:3:
-> ../include/linux/find.h:65:23: error: array subscript 'long unsigned int[0]' is partly outside array bounds of 'u32[1]' {aka 'unsigned int[1]'} [-Werror=array-bounds=]
->     65 |                 val = *addr & GENMASK(size - 1, offset);
->        |                       ^~~~~
-> ../drivers/pinctrl/mediatek/pinctrl-airoha.c: In function 'airoha_irq_handler':
-> ../drivers/pinctrl/mediatek/pinctrl-airoha.c:2387:21: note: object 'status' of size 4
->   2387 |                 u32 status;
->        |                     ^~~~~~
-> 
-> Signed-off-by: Kees Cook <kees@kernel.org>
+> Fixes: 74608d8feefd ("drm/mediatek: Add DRM_MODE_ROTATE_0 to rotation property")
+> Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
