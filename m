@@ -4,108 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5426ED60CEC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 22:17:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8EF4D60CEC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 22:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XJNsNXFftV73a7f1HlGoO9KUog+cN+4rISawA+ehEYI=; b=abzNY2PMmBnrEnEXwXqB7bAyp3
-	RmrT8PuAwId3uDOWMvFMb//yB+xj8JtSBQVXe/QazPZNhnJTjzxsxNfZR+bKIctiOQHjqbZzQPrJA
-	lpoa08+1fCE09rBXpJU3pMGygmwWpmBSJEfaSSThZE2m5qsu4MY+k2chBJcjA8qBxPrX1sxVGcFC5
-	jCxakpNMyJKVJjXlnqVF7TXepHNTFfTdtD7dmeq0qzqg89jTZ1WH5xRGWCisQzLtMBk4Ymu/dsrCC
-	2KGVzYR64ZCmF3dFRlaSFyLcj4XhMbfjSjbae9hrFGRKZ/lq+By0F6yXTY+iyAqpopHRdH4+OTX9I
-	i20FxZjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=14OsMhdGfdcpS80IHQ9XNfdJp63ZxqrrUOpqJIR6RjE=; b=ZvJFvmWpWib2fP28NsUOhxPz5r
+	2xDKy4hi8BHC/c/KuWX9cZHKmtqZ1Osi0yleLjLkG3fFOVwPyMkJCu/UTkdPtk5fF4qz5gVMyxRmX
+	tWKujDCBeS4QkF1JTx/05/n90r/U3xtEPaXZMB7BtngMgLP9oXFk0uzV/jMgYs59FwrVE/iYBcUSN
+	bj4kC1NVuUpQbFbewrRrYiXM6WEwKbJS84NtJZJeIS+Ue0LCpHaPijgRBTzTC8QrDstO0QjA9zejj
+	cPCeskMucu8jp1xZm3GIxfZWDNRbMWLDGIjZ5s9yX5+NwA00s/poEAq7PYy+uV4ibPId9m+0AdlbP
+	559f3Nsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDA3j-0000000Ak1I-2xhg;
-	Mon, 18 Nov 2024 22:17:27 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tDACi-0000000Al2u-0zr8;
+	Mon, 18 Nov 2024 22:26:44 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDA2n-0000000AjtP-3pTg
+	id 1tDABm-0000000AkuK-1hr8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 22:16:30 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AIGGpkX006018;
-	Mon, 18 Nov 2024 22:16:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XJNsNXFftV73a7f1HlGoO9KUog+cN+4rISawA+ehEYI=; b=LUKlTLWnHdiiqCAP
-	CsNY9tbAK+DLSLDayvQefHLy/B6Q7r6X9cYT44c7fBsl4jVlV5aEeFeAAXcGR8tZ
-	5Vw2zoW10l2Vj2ORIitP7hHHGpt7ztISw3pUFkxK1BVPqpUUt67eNMvOJI1ME6bP
-	LIiE+ouAZ5Vl/2PNw5uWE7YtUbC8XTZ5WgFCUie8yxsHxA8G1HVeV20TaTPwp3QM
-	xLImPnNr6Hg84O+mi97QWGdkmUeJVpS7z8vReBXY3DvGkFiP+hc9S5VK62sgTfzi
-	m8ocRzcWrKw9DjQmYakuarSwcZrevA7731a0VY4iNg4JGwLLrSYSPNqBtmMidTik
-	itWe5g==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4308y8grm0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 Nov 2024 22:16:19 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AIMGAsb007634
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 Nov 2024 22:16:10 GMT
-Received: from [10.71.108.63] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 18 Nov
- 2024 14:16:09 -0800
-Message-ID: <7062700e-1e96-4856-816a-ceefa0afd75c@quicinc.com>
-Date: Mon, 18 Nov 2024 14:16:09 -0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/6] arm64: dts: qcom: Add pmd8028 and pmih0108 PMICs
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-CC: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Geert Uytterhoeven
-	<geert+renesas@glider.be>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        "Arnd
- Bergmann" <arnd@arndb.de>,
-        =?UTF-8?Q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?=
-	<nfraprado@collabora.com>,
-        Trilok Soni <quic_tsoni@quicinc.com>,
-        "Satya Durga
- Srinivasu Prabhala" <quic_satyap@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Jishnu Prakash <quic_jprakash@quicinc.com>
-References: <20241112004936.2810509-1-quic_molvera@quicinc.com>
- <20241112004936.2810509-3-quic_molvera@quicinc.com>
- <r4slda74u7rpqiybsylrnoqiqo5qm4442rfwzhtjkwkkgqt25g@n5idmspl7sfd>
-Content-Language: en-US
-From: Melody Olvera <quic_molvera@quicinc.com>
-In-Reply-To: <r4slda74u7rpqiybsylrnoqiqo5qm4442rfwzhtjkwkkgqt25g@n5idmspl7sfd>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: s2vAzRuX-8NLCGbpzQenK-qU99mxDK-3
-X-Proofpoint-GUID: s2vAzRuX-8NLCGbpzQenK-qU99mxDK-3
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- mlxlogscore=878 lowpriorityscore=0 clxscore=1015 malwarescore=0
- adultscore=0 impostorscore=0 mlxscore=0 spamscore=0 phishscore=0
- suspectscore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411180183
+	Mon, 18 Nov 2024 22:25:47 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6eea70c89cbso7400587b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 14:25:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1731968745; x=1732573545; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=14OsMhdGfdcpS80IHQ9XNfdJp63ZxqrrUOpqJIR6RjE=;
+        b=cfHw5yOPkLupbMLxbC9iGBpcLO+dvHfOtEQb9nl9nkV5+PPehPktQV3G1oZEi8g/k2
+         CtEHp9xBTOcJ0QtpGzGan5FQcUlqIU86FO8SEZUU18xqHjpehFtGy72jAPWNid2ZraxQ
+         1ZqeaWNhGKpraVWyX5acFPEZxKtkoYS5yPGg7Mlj4NxjxVLsr1cUEhdyGgZgDZHSOarS
+         FwInYyR5CULJvSFERAEyV58iYKztjgmueC96zshGyl7oLfLCil39LoyzVbmnEOwRYYsE
+         V/pBakrom4fq4NSNa4tHwxyAlE1h+7UJf8R76oML/FOb4UZircOiEpGQxoFU+kemsUWH
+         905Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731968745; x=1732573545;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=14OsMhdGfdcpS80IHQ9XNfdJp63ZxqrrUOpqJIR6RjE=;
+        b=GcCbT1ryogrJw2WogvNizng8PA4sKAU4WfT0tT8z1Rjq3nq8omjZRVLOEEfcpxR53m
+         86muzYwzbgUR9s2iHi5UgvBYbHB+4CVtHuWLAe6a4mC3AKiDmIJgBtteJLEkOd7TgFxv
+         zYBV0TwkMIxlGY6dRLKQNomDYj+U4K8PQfa2xDgCEmgv5O3erjkWukaNScrUl8FSRKoV
+         fuhWiIg5jf6kBADiVsEvl2pZl7rkbQsgJYpvVmXVTKFDbnwiD+tsdsOLRErPH/q8hCtC
+         NcLNlzlR0Az22ka5tHz+dJj5Ys4aSB03Wo74L/2RoPWwkXd6dNC2o98O8FiRKqIJNXQx
+         tFAw==
+X-Forwarded-Encrypted: i=1; AJvYcCVqv0a302vjiWFdy7WdRTiVcXDJwonhTJMdbNbmHBZztT2LDwzgcB+CLWcnbLkogssL17VH3olWTQ7f4HBBsECk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxT2Ep3je6alW8zlQJd/H5u+j1txyygwZq2wQJJi6DwAT6xcEQ2
+	YCzuPLbe8Qa0jZv+opPaWnfK6ok5mAxBcsXvwqq17PGRGpQgFCmWCN0750OgcpCZg3cvJtTgxrY
+	2
+X-Google-Smtp-Source: AGHT+IHaqSLX7qNc1UhlL7DMMonDFnZRihYI5SIMh0lBI+T2x10S5W6DAGbzQyiEudeWnrky5v96GHNZfoI=
+X-Received: from yabinc-desktop.mtv.corp.google.com ([2a00:79e0:2e3f:8:bc56:3202:f6e1:c119])
+ (user=yabinc job=sendgmr) by 2002:a05:690c:2e08:b0:6ee:9a08:7686 with SMTP id
+ 00721157ae682-6eeaa3a3e90mr127907b3.4.1731968744961; Mon, 18 Nov 2024
+ 14:25:44 -0800 (PST)
+Date: Mon, 18 Nov 2024 14:25:40 -0800
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
+Message-ID: <20241118222540.27495-1-yabinc@google.com>
+Subject: [PATCH v2] arm64: Allow CONFIG_AUTOFDO_CLANG to be selected
+From: Yabin Cui <yabinc@google.com>
+To: Rong Xu <xur@google.com>, Han Shen <shenhan@google.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Kees Cook <kees@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, workflows@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Cc: Yabin Cui <yabinc@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_141629_966270_B96D9DD6 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20241118_142546_443984_911AF84F 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,143 +91,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Select ARCH_SUPPORTS_AUTOFDO_CLANG to allow AUTOFDO_CLANG to be
+selected.
 
+On ARM64, ETM traces can be recorded and converted to AutoFDO profiles.
+Experiments on Android show 4% improvement in cold app startup time
+and 13% improvement in binder benchmarks.
 
-On 11/15/2024 6:58 AM, Dmitry Baryshkov wrote:
-> On Mon, Nov 11, 2024 at 04:49:32PM -0800, Melody Olvera wrote:
->> From: Jishnu Prakash <quic_jprakash@quicinc.com>
->>
->> Add descriptions of pmd8028 and pmih0108 PMICs used on SM8750
->> platforms.
-> Up/lower case?
+Signed-off-by: Yabin Cui <yabinc@google.com>
+---
 
-Up; will change.
+Change-Logs in V2:
 
->
->> Signed-off-by: Jishnu Prakash <quic_jprakash@quicinc.com>
->> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
->> ---
->>   arch/arm64/boot/dts/qcom/pmd8028.dtsi  | 56 +++++++++++++++++++++++
->>   arch/arm64/boot/dts/qcom/pmih0108.dtsi | 62 ++++++++++++++++++++++++++
-> Those two are independent changes. Please use two separate patches.
+1. Use "For ARM platforms with ETM trace" in autofdo.rst.
+2. Create an issue and a change to use extbinary format in instructions:
+   https://github.com/Linaro/OpenCSD/issues/65
+   https://android-review.googlesource.com/c/platform/system/extras/+/3362107
 
-Sure thing. Will split.
+ Documentation/dev-tools/autofdo.rst | 18 +++++++++++++++++-
+ arch/arm64/Kconfig                  |  1 +
+ 2 files changed, 18 insertions(+), 1 deletion(-)
 
->
->>   2 files changed, 118 insertions(+)
->>   create mode 100644 arch/arm64/boot/dts/qcom/pmd8028.dtsi
->>   create mode 100644 arch/arm64/boot/dts/qcom/pmih0108.dtsi
->>
->> diff --git a/arch/arm64/boot/dts/qcom/pmd8028.dtsi b/arch/arm64/boot/dts/qcom/pmd8028.dtsi
->> new file mode 100644
->> index 000000000000..f8ef8e133854
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/qcom/pmd8028.dtsi
->> @@ -0,0 +1,56 @@
->> +// SPDX-License-Identifier: BSD-3-Clause
->> +/*
->> + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
->> + */
->> +
->> +#include <dt-bindings/interrupt-controller/irq.h>
->> +#include <dt-bindings/spmi/spmi.h>
->> +
->> +/ {
->> +	thermal-zones {
->> +		pmd8028-thermal {
->> +			polling-delay-passive = <100>;
->> +			thermal-sensors = <&pmd8028_temp_alarm>;
->> +
->> +			trips {
->> +				pmd8028_trip0: trip0 {
->> +					temperature = <95000>;
->> +					hysteresis = <0>;
->> +					type = "passive";
->> +				};
->> +
->> +				pmd8028_trip1: trip1 {
->> +					temperature = <115000>;
->> +					hysteresis = <0>;
->> +					type = "hot";
-> "critical" ?
+diff --git a/Documentation/dev-tools/autofdo.rst b/Documentation/dev-tools/autofdo.rst
+index 1f0a451e9ccd..a890e84a2fdd 100644
+--- a/Documentation/dev-tools/autofdo.rst
++++ b/Documentation/dev-tools/autofdo.rst
+@@ -55,7 +55,7 @@ process consists of the following steps:
+    workload to gather execution frequency data. This data is
+    collected using hardware sampling, via perf. AutoFDO is most
+    effective on platforms supporting advanced PMU features like
+-   LBR on Intel machines.
++   LBR on Intel machines, ETM traces on ARM machines.
+ 
+ #. AutoFDO profile generation: Perf output file is converted to
+    the AutoFDO profile via offline tools.
+@@ -141,6 +141,22 @@ Here is an example workflow for AutoFDO kernel:
+ 
+       $ perf record --pfm-events RETIRED_TAKEN_BRANCH_INSTRUCTIONS:k -a -N -b -c <count> -o <perf_file> -- <loadtest>
+ 
++   - For ARM platforms with ETM trace:
++
++     Follow the instructions in the `Linaro OpenCSD document
++     https://github.com/Linaro/OpenCSD/blob/master/decoder/tests/auto-fdo/autofdo.md`_
++     to record ETM traces for AutoFDO::
++
++      $ perf record -e cs_etm/@tmc_etr0/k -a -o <etm_perf_file> -- <loadtest>
++      $ perf inject -i <etm_perf_file> -o <perf_file> --itrace=i500009il
++
++     For ARM platforms running Android, follow the instructions in the
++     `Android simpleperf document
++     <https://android.googlesource.com/platform/system/extras/+/main/simpleperf/doc/collect_etm_data_for_autofdo.md>`_
++     to record ETM traces for AutoFDO::
++
++      $ simpleperf record -e cs-etm:k -a -o <perf_file> -- <loadtest>
++
+ 4) (Optional) Download the raw perf file to the host machine.
+ 
+ 5) To generate an AutoFDO profile, two offline tools are available:
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index fd9df6dcc593..c3814df5e391 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -103,6 +103,7 @@ config ARM64
+ 	select ARCH_SUPPORTS_PER_VMA_LOCK
+ 	select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
+ 	select ARCH_SUPPORTS_RT
++	select ARCH_SUPPORTS_AUTOFDO_CLANG
+ 	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
+ 	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
+ 	select ARCH_WANT_DEFAULT_BPF_JIT
+-- 
+2.47.0.338.g60cca15819-goog
 
-Will add.
-
->
->> +				};
->> +			};
->> +		};
->> +	};
->> +};
->> +
->> +&spmi_bus {
->> +	pmd8028: pmic@4 {
->> +		compatible = "qcom,pmd8028", "qcom,spmi-pmic";
->> +		reg = <0x4 SPMI_USID>;
->> +		#address-cells = <1>;
->> +		#size-cells = <0>;
->> +
->> +		pmd8028_temp_alarm: temp-alarm@a00 {
->> +			compatible = "qcom,spmi-temp-alarm";
->> +			reg = <0xa00>;
->> +			interrupts = <0x4 0xa 0x0 IRQ_TYPE_EDGE_BOTH>;
->> +			#thermal-sensor-cells = <0>;
->> +		};
->> +
->> +		pmd8028_gpios: gpio@8800 {
->> +			compatible = "qcom,pmd8028-gpio", "qcom,spmi-gpio";
->> +			reg = <0x8800>;
->> +			gpio-controller;
->> +			gpio-ranges = <&pmd8028_gpios 0 0 4>;
->> +			#gpio-cells = <2>;
->> +			interrupt-controller;
->> +			#interrupt-cells = <2>;
->> +		};
->> +	};
->> +};
->> diff --git a/arch/arm64/boot/dts/qcom/pmih0108.dtsi b/arch/arm64/boot/dts/qcom/pmih0108.dtsi
->> new file mode 100644
->> index 000000000000..3907d8fbcf78
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/qcom/pmih0108.dtsi
->> @@ -0,0 +1,62 @@
->> +// SPDX-License-Identifier: BSD-3-Clause
->> +/*
->> + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
->> + */
->> +
->> +#include <dt-bindings/interrupt-controller/irq.h>
->> +#include <dt-bindings/spmi/spmi.h>
->> +
->> +/ {
->> +	thermal-zones {
->> +		pmih0108-thermal {
->> +			polling-delay-passive = <100>;
->> +			thermal-sensors = <&pmih0108_temp_alarm>;
->> +
->> +			trips {
->> +				trip0 {
->> +					temperature = <95000>;
->> +					hysteresis = <0>;
->> +					type = "passive";
->> +				};
->> +
->> +				trip1 {
->> +					temperature = <115000>;
->> +					hysteresis = <0>;
->> +					type = "hot";
-> "critical" ?
-
-Will add.
-
-Thanks,
-Melody
-
->
->> +				};
->> +			};
->> +		};
->> +	};
->> +};
->> +[...]
 
