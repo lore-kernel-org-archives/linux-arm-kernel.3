@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C4AD49209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 10:20:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90141D49209
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 10:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HhZPrKD53idzU4FmXyf80coMhGtHvz8AQ0f+TJ4a0hQ=; b=cUnbxphZ1WMIa5mdlUtfNP4djZ
-	HR0bvsXAkBBqbXPI7Y8WofhnvNUB0OvtxFWIXM2vQv8KcHvM+goymrAjLLsl1/Z8tA/pha2oByhnt
-	Vu3DLRFdXNmLfWx9CI+wbwzrqUy2GDTU0AuRsvIVXczR4UD1rVou+U8icfG8mZnzQQBAQlq6Xc2FQ
-	QeRpNVWyapQSZ/J5GNTATFE5vsnMZBA374e4bldEsqqaINVDUthahM6W6MhKKyO7pSbfB/bJozH0P
-	HSNyX/3PcWCHqWogRVHtHl6kEIIkgos3mU1Oxs8Ds5VCIE0V82nBXXgUvCXAhSmSs2EUuhk7Ne7c7
-	RRTJfsGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ggXBfg4okLKWMAgjg72jaDL3DCA1UF4GqsJy38hSKnY=; b=G3Ca0AyYbNCtU7LmJdQU7GIFo8
+	hokvui1wviGs8ZQgULelaETW2m9H3+syeTIM79UGXxx7b4NVn4c47PuGBkKZCHoUShXUNg+JxlgsD
+	okiENTHbUGj57gc0WKhqssI7bTYRib0TUpAQUDHa+hCLio3X5KLZOlVh0MZVyT3o0CedVcVvjZGaY
+	vuKfzvz8MOCq/uVPnRlgLVMjOLAUjGvJVgvSi1KAzf8M5bLXnSglrRbut6uDk5BbXtGkXUCW8zMRI
+	UhQhPTymuQaKST8GUxpNNPVcdp5RDyng4ERvFlBCDa29uaIbLzu0FTjCMTqA8MIsg+PEJ5mTvPaC0
+	bt3Cf2pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCys5-000000093r0-0MLQ;
-	Mon, 18 Nov 2024 10:20:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCyqF-000000093VU-2Kmd
+	id 1tCyxW-000000094oS-1BrN;
+	Mon, 18 Nov 2024 10:26:18 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tCywa-000000094f7-194t
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 10:18:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23BDB1682;
-	Mon, 18 Nov 2024 02:19:16 -0800 (PST)
-Received: from [10.57.67.249] (unknown [10.57.67.249])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A839D3F5A1;
-	Mon, 18 Nov 2024 02:18:42 -0800 (PST)
-Message-ID: <ef057e19-1209-4a72-b223-ef3f1e2b4513@arm.com>
-Date: Mon, 18 Nov 2024 10:18:41 +0000
+	Mon, 18 Nov 2024 10:25:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 99A00A4186A;
+	Mon, 18 Nov 2024 10:23:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2136EC4CECC;
+	Mon, 18 Nov 2024 10:25:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731925516;
+	bh=ggXBfg4okLKWMAgjg72jaDL3DCA1UF4GqsJy38hSKnY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sJCCrg9bvID2IyZQEAeQeREC3tc+Lc7oWwX4q7GVqzfB7U2G0UxpqoKMwl6LYHt7D
+	 0/LqX4mgHcylmECKoDG9/grRXGMeDTD3uL5Haf/Ou9cuO42a2U2Yvkl7/HRHonK/l3
+	 cJ0MoOCJ+7GBMj9HHGFX5anGLRBmh4z0s2BGT2x98azXgcAWx/fYFgAi7Ys6FI5vn6
+	 qJKiCWMw26fUyWrb1PmEmb+KI8/VCGGpl3Fb+TEnmVrJzyamH1l5ddbG4DUq99Csgw
+	 w7jpdRqgpzHbTHJub4CEzXj/2veMUuSIUcFIUlQ4cqiH1n9n27a4Qr34D6ZbuTH3ZN
+	 3L7+V/h9OwKDw==
+Date: Mon, 18 Nov 2024 10:25:08 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Peng Fan <peng.fan@nxp.com>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
+Subject: Re: [PATCH] firmware: arm_scmi: fix i.MX build dependency
+Message-ID: <5b8e7658-85bd-4f08-b535-49dd228badd1@sirena.org.uk>
+References: <20241115230555.2435004-1-arnd@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/3] coresight: Add support to get static id for system
- trace sources
-Content-Language: en-GB
-To: Jinlong Mao <quic_jinlmao@quicinc.com>, Mike Leach
- <mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org
-References: <20241104115604.14522-1-quic_jinlmao@quicinc.com>
- <20241104115604.14522-3-quic_jinlmao@quicinc.com>
- <6424c536-2f2c-4a59-8b6d-f610201dc7a7@arm.com>
- <6a8e10fc-a231-467a-8056-d291e237fec1@quicinc.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <6a8e10fc-a231-467a-8056-d291e237fec1@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="QAxsM1bWuCAH5DLb"
+Content-Disposition: inline
+In-Reply-To: <20241115230555.2435004-1-arnd@kernel.org>
+X-Cookie: Used staples are good with SOY SAUCE!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_021847_686387_C87A1057 
-X-CRM114-Status: GOOD (  21.58  )
+X-CRM114-CacheID: sfid-20241118_022520_376729_50F7465C 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,199 +82,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/11/2024 10:14, Jinlong Mao wrote:
-> 
-> 
-> On 2024/11/13 21:27, Suzuki K Poulose wrote:
->> On 04/11/2024 11:56, Mao Jinlong wrote:
->>> Dynamic trace id was introduced in coresight subsystem, so trace id is
->>> allocated dynamically. However, some hardware ATB source has static 
->>> trace
->>> id and it cannot be changed via software programming. For such source,
->>> it can call coresight_get_static_trace_id to get the fixed trace id from
->>> device node and pass id to coresight_trace_id_get_static_system_id to
->>> reserve the id.
->>>
->>> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
->>> Reviewed-by: Mike Leach <mike.leach@linaro.org>
->>> ---
->>>   .../hwtracing/coresight/coresight-platform.c  |  6 +++
->>>   .../hwtracing/coresight/coresight-trace-id.c  | 39 +++++++++++++------
->>>   .../hwtracing/coresight/coresight-trace-id.h  |  9 +++++
->>>   include/linux/coresight.h                     |  1 +
->>>   4 files changed, 44 insertions(+), 11 deletions(-)
->>>
->>> diff --git a/drivers/hwtracing/coresight/coresight-platform.c b/ 
->>> drivers/hwtracing/coresight/coresight-platform.c
->>> index 64e171eaad82..633d96b9577a 100644
->>> --- a/drivers/hwtracing/coresight/coresight-platform.c
->>> +++ b/drivers/hwtracing/coresight/coresight-platform.c
->>> @@ -796,6 +796,12 @@ int coresight_get_cpu(struct device *dev)
->>>   }
->>>   EXPORT_SYMBOL_GPL(coresight_get_cpu);
->>> +int coresight_get_static_trace_id(struct device *dev, u32 *id)
->>> +{
->>> +    return fwnode_property_read_u32(dev_fwnode(dev), "arm,static- 
->>> trace-id", id);
->>> +}
->>> +EXPORT_SYMBOL_GPL(coresight_get_static_trace_id);
->>> +
->>>   struct coresight_platform_data *
->>>   coresight_get_platform_data(struct device *dev)
->>>   {
->>> diff --git a/drivers/hwtracing/coresight/coresight-trace-id.c b/ 
->>> drivers/hwtracing/coresight/coresight-trace-id.c
->>> index d98e12cb30ec..df8fe50b413f 100644
->>> --- a/drivers/hwtracing/coresight/coresight-trace-id.c
->>> +++ b/drivers/hwtracing/coresight/coresight-trace-id.c
->>> @@ -12,6 +12,12 @@
->>>   #include "coresight-trace-id.h"
->>> +enum trace_id_flags {
->>> +    TRACE_ID_ANY = 0x0,
->>> +    TRACE_ID_PREFER_ODD = 0x1,
->>> +    TRACE_ID_REQ_STATIC = 0x2,
->>> +};
->>> +
->>>   /* Default trace ID map. Used in sysfs mode and for system sources */
->>>   static DEFINE_PER_CPU(atomic_t, id_map_default_cpu_ids) = 
->>> ATOMIC_INIT(0);
->>>   static struct coresight_trace_id_map id_map_default = {
->>> @@ -74,16 +80,18 @@ static int coresight_trace_id_find_odd_id(struct 
->>> coresight_trace_id_map *id_map)
->>>    * Otherwise allocate next available ID.
->>>    */
->>>   static int coresight_trace_id_alloc_new_id(struct 
->>> coresight_trace_id_map *id_map,
->>> -                       int preferred_id, bool prefer_odd_id)
->>> +                       int preferred_id, unsigned int flags)
->>>   {
->>>       int id = 0;
->>>       /* for backwards compatibility, cpu IDs may use preferred value */
->>> -    if (IS_VALID_CS_TRACE_ID(preferred_id) &&
->>> -        !test_bit(preferred_id, id_map->used_ids)) {
->>> -        id = preferred_id;
->>> -        goto trace_id_allocated;
->>> -    } else if (prefer_odd_id) {
->>> +    if (IS_VALID_CS_TRACE_ID(preferred_id)) {
->>> +        if (!test_bit(preferred_id, id_map->used_ids)) {
->>> +            id = preferred_id;
->>> +            goto trace_id_allocated;
->>> +        } else if (flags & TRACE_ID_REQ_STATIC)
->>> +            return -EINVAL;
->>
->> nit: EBUSY sounds like a better choice here ? Requested ID is not
->> available.
->>
->> Additionally, do we need to handle a case where the preferred_id is
->> not valid ? I think we silently allocate a new trace id in such case ?
->>
->> Rest looks good to me.
->>
->> Suzuki
->>
->>
-> 
-> If preferred_id is not valid, a random id will be allocated for the 
-> source. For the normal source, 0 is provided here as preferred_id.
 
-My point is : If preferred_id is not valid *and* TRACE_ID_REQ_STATIC
-flag is set, we go ahead and allocate a random different ID. Which is
-not preferred. We should return -EINVAL in that case.
+--QAxsM1bWuCAH5DLb
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Suzuki
+On Sat, Nov 16, 2024 at 12:05:18AM +0100, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+>=20
+> The newly added SCMI vendor driver references functions in the
+> protocol driver but needs a Kconfig dependency to ensure it can link,
+> essentially the Kconfig dependency needs to be reversed to match the
+> link time dependency:
 
+Acked-by: Mark Brown <broonie@kernel.org>
 
-> 
->>
->>
->>> +    } else if (flags & TRACE_ID_PREFER_ODD) {
->>>       /* may use odd ids to avoid preferred legacy cpu IDs */
->>>           id = coresight_trace_id_find_odd_id(id_map);
->>>           if (id)
->>> @@ -153,7 +161,7 @@ static int _coresight_trace_id_get_cpu_id(int 
->>> cpu, struct coresight_trace_id_map
->>>        */
->>>       id = coresight_trace_id_alloc_new_id(id_map,
->>>                            CORESIGHT_LEGACY_CPU_TRACE_ID(cpu),
->>> -                         false);
->>> +                         TRACE_ID_ANY);
->>>       if (!IS_VALID_CS_TRACE_ID(id))
->>>           goto get_cpu_id_out_unlock;
->>> @@ -188,14 +196,14 @@ static void _coresight_trace_id_put_cpu_id(int 
->>> cpu, struct coresight_trace_id_ma
->>>       DUMP_ID_MAP(id_map);
->>>   }
->>> -static int coresight_trace_id_map_get_system_id(struct 
->>> coresight_trace_id_map *id_map)
->>> +static int coresight_trace_id_map_get_system_id(struct 
->>> coresight_trace_id_map *id_map,
->>> +                    int preferred_id, unsigned int traceid_flags)
->>>   {
->>>       unsigned long flags;
->>>       int id;
->>>       spin_lock_irqsave(&id_map->lock, flags);
->>> -    /* prefer odd IDs for system components to avoid legacy CPU IDS */
->>> -    id = coresight_trace_id_alloc_new_id(id_map, 0, true);
->>> +    id = coresight_trace_id_alloc_new_id(id_map, preferred_id, 
->>> traceid_flags);
->>>       spin_unlock_irqrestore(&id_map->lock, flags);
->>>       DUMP_ID(id);
->>> @@ -255,10 +263,19 @@ 
->>> EXPORT_SYMBOL_GPL(coresight_trace_id_read_cpu_id_map);
->>>   int coresight_trace_id_get_system_id(void)
->>>   {
->>> -    return coresight_trace_id_map_get_system_id(&id_map_default);
->>> +    /* prefer odd IDs for system components to avoid legacy CPU IDS */
->>> +    return coresight_trace_id_map_get_system_id(&id_map_default, 0,
->>> +            TRACE_ID_PREFER_ODD);
->>>   }
->>>   EXPORT_SYMBOL_GPL(coresight_trace_id_get_system_id);
->>> +int coresight_trace_id_get_static_system_id(int trace_id)
->>> +{
->>> +    return coresight_trace_id_map_get_system_id(&id_map_default,
->>> +            trace_id, TRACE_ID_REQ_STATIC);
->>> +}
->>> +EXPORT_SYMBOL_GPL(coresight_trace_id_get_static_system_id);
->>> +
->>>   void coresight_trace_id_put_system_id(int id)
->>>   {
->>>       coresight_trace_id_map_put_system_id(&id_map_default, id);
->>> diff --git a/drivers/hwtracing/coresight/coresight-trace-id.h b/ 
->>> drivers/hwtracing/coresight/coresight-trace-id.h
->>> index 9aae50a553ca..db68e1ec56b6 100644
->>> --- a/drivers/hwtracing/coresight/coresight-trace-id.h
->>> +++ b/drivers/hwtracing/coresight/coresight-trace-id.h
->>> @@ -116,6 +116,15 @@ int coresight_trace_id_read_cpu_id_map(int cpu, 
->>> struct coresight_trace_id_map *i
->>>    */
->>>   int coresight_trace_id_get_system_id(void);
->>> +/**
->>> + * Allocate a CoreSight static trace ID for a system component.
->>> + *
->>> + * Used to allocate static IDs for system trace sources such as 
->>> dummy source.
->>> + *
->>> + * return: Trace ID or -EINVAL if allocation is impossible.
->>> + */
->>> +int coresight_trace_id_get_static_system_id(int id);
->>> +
->>>   /**
->>>    * Release an allocated system trace ID.
->>>    *
->>> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
->>> index c13342594278..129795873072 100644
->>> --- a/include/linux/coresight.h
->>> +++ b/include/linux/coresight.h
->>> @@ -662,6 +662,7 @@ void coresight_relaxed_write64(struct 
->>> coresight_device *csdev,
->>>   void coresight_write64(struct coresight_device *csdev, u64 val, u32 
->>> offset);
->>>   extern int coresight_get_cpu(struct device *dev);
->>> +extern int coresight_get_static_trace_id(struct device *dev, u32 *id);
->>>   struct coresight_platform_data *coresight_get_platform_data(struct 
->>> device *dev);
->>>   struct coresight_connection *
->>
-> 
+--QAxsM1bWuCAH5DLb
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmc7FgMACgkQJNaLcl1U
+h9AHygf+I9zVvzEwmUe8hbkMAhNzupktcwow3B9jxslgerjTscA5tuygFib3caoG
+anu+zdsOxBLh/pYdc/MrKXBEt5Avbe7rK+hXv7po0spzAX/Z45NyvuZ0wsQjm43E
+0PbRY139l03Y93jWXC5YEupS9M9p7/Fh0JdTn+qSca1jT8P0B+/OZTHGghRLteLZ
+1qTG77fhn4ru60+MADnLvYqw47eVOgcykhZJSCA3qSfkekSxypAvq13lvyBSiPgj
+lVEjzhWsaaAzfI1q4u+TcsPbuuMoLk6uFX1HBwSAeD+DUePRPuoPg+jRVEjUf08/
+66z5nRhBiYqT06/LiOjkjLecgy/K+g==
+=Rp8x
+-----END PGP SIGNATURE-----
+
+--QAxsM1bWuCAH5DLb--
 
