@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76665D49207
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 16:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11BEED591A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 16:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xyym+ryXhChzZmaxhP0FnMGUW77JqbNhfaaIa/i3t60=; b=CABtdyUCpkeGgV/Mab5h/amJLN
-	0i5AAkl2avsql+ywhFy1Am6LDsMhR7CUHRRxzoajYvMsQLaFismPnvUM4UKphzvSxOd/+SBQAE9jf
-	1oByq4OE81swjbEPI1nl8WoU719DEO4Cet2LJk6zVZLyzArwTXmoTcfT3G/ag7rbiMfuNXLTGL4BH
-	qeX/iZ04vh37+2fkWuxojWrQEg7iRUwNtp6ACcJubScullafy/LhDm12KgE9/a2NhXfhMENQlfraa
-	qCew3oAAHF4KVWujO/lSlkv0xnH2gtaOTzkL06gIec0TlnyqFJbTdK9b9RPTgXefycDBhABuggdr/
-	XKxX/jtA==;
+	bh=luJMq8TMt6cFTuAKZlZ6Gilvnr9koKbdl4S7YCH45+M=; b=B4JotD2UiNlcaQMw07cH3lwjVg
+	csfwgobR/eXp64in3PLJxTUvEszw+kLmIFJQ+YqbAS9hu68ri7hL6t4lJjbqB5FljJo5EcF1lrQ6T
+	NUovOsDxPWJ+7KRn+R65KltzQfYQnQeyRImmvWK95gcP7xp9R6tFfYnSFfBU2so6V1V13AnrT7ZYW
+	S5lON6za5HGZiyqKbmn08NNy9D7G6MXE5V3D3qh73mxy9ilOVlTbvS+TkE5q3qdI55s5NdsRNmUYF
+	Vsnet0DmsI46675r1mzIrW/xyz35lg/Iesqdx6gl4RVdqiJ9ZZUR1WszkVEb3xF16++roVx87+YEH
+	YtG+nx8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD4WZ-0000000A3MH-1w2z;
-	Mon, 18 Nov 2024 16:22:51 +0000
-Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
+	id 1tD4gG-0000000A4ir-2dzZ;
+	Mon, 18 Nov 2024 16:32:52 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD4Vc-0000000A3E1-2lMj
+	id 1tD4fJ-0000000A4av-3xOG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 16:21:54 +0000
-Received: from [127.0.0.1] (p578adb1c.dip0.t-ipconnect.de [87.138.219.28])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
-	(No client certificate requested)
-	(Authenticated sender: marex@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 2246588E3F;
-	Mon, 18 Nov 2024 17:21:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1731946908;
-	bh=xyym+ryXhChzZmaxhP0FnMGUW77JqbNhfaaIa/i3t60=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Shse1mWpREOoMD+v4bSs1N08OXmE3Y+sFfm7ZkIdxf2ysFe6LN6AL573tvrlHs0iD
-	 k2JSU66EA8EwGdjsJk7DWAuWW8sLfFfIJ4EPihmA8+0fzrZGHpex2qTNtHSO/rU26U
-	 9nt6iZ8/ZSoTBMJernHRY8+JYOzAFFWagO6RD1vlYFN/mqCWzvP36SsYjj8uYrTtu5
-	 u+/IaQ8H1WQZ5SHxrhxLIyb6bzcLgvJbZgJMap3GdZe+rG/VqNHfxcpTRE5AuZWeHH
-	 E0Pg5P/LIQGpPAEjxpHfhdyshMkDd8KVJ0rrG7cl7ioNB1meyi95EGqmE6dvkzBchE
-	 wT+u/5boo6Wiw==
-Message-ID: <c3da6311-1eb7-4a67-977e-32c28897f0e0@denx.de>
-Date: Mon, 18 Nov 2024 15:30:04 +0100
+	Mon, 18 Nov 2024 16:31:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 084FAA41399
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 16:29:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47B22C4CED1
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 16:31:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731947511;
+	bh=x31hXLbjYV3wi9biP4K+7rZS3e6ndOZvglcnzxylZHY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=NpARf6cAiEWNNEMmssyDT9yyHlXJeFhtN4Xmp+owA4i7fHuykWm9E3qAfQBmvDTTt
+	 LOduWA3XtvjqgXlS8PB+7jHGRVazuJRsbZlLeBQHwhytZ10K95AGh2LtgwbbXi9hT5
+	 kyw3hAF1gR+UA8ahCNwB/1OeXFLb+UsM6I3HLkia/SoZC7WEQTa4LWVpWVPqlysrpV
+	 0nAD3NmiczhhcJn/O7JtIQ7KPHGPesZZegZZF5ZL1GwfOEVv8m9x2j5Xx1tg9QmWO4
+	 ThsmdnJKn9TLiGKlTgP0pNRq8IVzP6BhDCcys7q61L5gRkMaSNyarzz7LnR2Zi886U
+	 +dt1SMTyG2c9Q==
+Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-6ee7a400647so242517b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 08:31:51 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUZQs2iBi9g/Tw26olH4TRYIUqsIi/HRHXHmlQc8NFlVKhDOhVDp5zQEx0gT0+L43QR5mLV/sENpLeTVkRSVNFt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBj6rq+YcFqDYNtNJkqvc0vH27qqACbB0ADD0IgiQa8WOCAAOD
+	gyU9lF2MWMNOdHg3BKHfBOtI+7+XoeLgYjVNZY2vwbCWefhQAAsKC96RatzObW6s0pb1Qw0WcYz
+	Q6qF2Z2gvHE8vMMVuMDtRW7cagw==
+X-Google-Smtp-Source: AGHT+IHgWFGBpHakcpgOPIljqoMGrStpMMrXYqwxsjF16duHhASCw+zuAKS78YVpDNsXsy2xlxtfkrziGx+PnoDYKfU=
+X-Received: by 2002:a05:690c:604:b0:6ee:381b:eb74 with SMTP id
+ 00721157ae682-6ee55c2bad7mr122627077b3.22.1731947510541; Mon, 18 Nov 2024
+ 08:31:50 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: imx: clk-imx8mp: Allow media_disp pixel clock
- reconfigure parent rate
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, Abel Vesa
- <abelvesa@kernel.org>, linux-clk@vger.kernel.org,
- Fabio Estevam <festevam@gmail.com>, "Lukas F . Hartmann" <lukas@mntmn.com>,
- Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, imx@lists.linux.dev,
- kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
- Anson Huang <Anson.Huang@nxp.com>
-References: <20240531202648.277078-1-marex@denx.de>
- <20241112234206.558d5d5e@booty>
- <79f21303-b0ba-45ed-a842-7e5364fd4efc@denx.de>
- <20241113120622.3501db73@booty>
- <130fe140-e70d-4c45-aaab-e22762c58c88@denx.de>
- <20241115180936.4ab56be3@booty>
- <6bc5b8d7-ff10-4860-ac46-1460a7d850da@denx.de> <871pz9c606.fsf@bootlin.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <871pz9c606.fsf@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+References: <20241028-esai_fix-v1-0-3c1432a5613c@nxp.com> <20241028-esai_fix-v1-2-3c1432a5613c@nxp.com>
+In-Reply-To: <20241028-esai_fix-v1-2-3c1432a5613c@nxp.com>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 18 Nov 2024 10:31:39 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqJY5RHnfo9TWFLWBcj5h+FuvbkTYSg+gwN1L_r2ysSMgw@mail.gmail.com>
+Message-ID: <CAL_JsqJY5RHnfo9TWFLWBcj5h+FuvbkTYSg+gwN1L_r2ysSMgw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dts: imx8-ss-audio: add fallback compatible
+ string fsl,imx6ull-esai for esai
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shengjiu Wang <shengjiu.wang@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-sound@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_082152_999227_87AA2849 
-X-CRM114-Status: GOOD (  27.99  )
+X-CRM114-CacheID: sfid-20241118_083154_047419_D50B4576 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,69 +88,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/18/24 9:15 AM, Miquel Raynal wrote:
-> Hi Marek,
+On Mon, Oct 28, 2024 at 2:49=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrote:
+>
+> The ESAI of i.MX8QM is the same as i.MX6ULL. So add fsl,imx6ull-esai for
+> esai.
+>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8-ss-audio.dtsi   | 2 +-
+>  arch/arm64/boot/dts/freescale/imx8qm-ss-audio.dtsi | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
 
-Hello Miquel,
+Shawn, please pick this up for 6.13. The binding change landed
+introducing new warnings.
 
->>>> If you really want accurate pixel clock for your panel, you need similar
->>>> change to 4fbb73416b10 and configure the Video PLL such that the
->>>> accurate pixel clock can be derived from it. The Video PLL cannot be set
->>>> to pixel clock, because the LDB serializer clock are either 7x the pixel
->>>> clock, or 3.5x the pixel clock (for dual link LVDS), so the Video PLL
->>>> has to be set to 7x or 3.5x pixel clock of the panel, then you should
->>>> get accurate pixel clock and a working panel again.
->>> I found that I'm having the same issue that has been discussed in some
->>> related threads: the lcdif2 configures the video_pll1 to ~72 MHz, and
->>> later LDB tries to set it to 7x that value, failing.
->>
->> Right, which is solved by configuring the Video PLL to the correct
->> frequency in DT up front ... unless you have more than one output
->> supplied by that Video PLL.
-> 
-> No, this looks like a bug in the imx8 clock driver. I would expect the
-> core to handle such case without DT hack. It is not okay to fix clock
-> frequencies in DT because drivers are failing to do it properly. I
-> understand there are advanced/dual cases with very specific frequencies
-> where you don't expect it to magically work and giving hints with DT
-> assigned-clocks* properties makes sense, but here I don't think we
-> should consider it as a proper fix.
-
-It is not a proper fix, it is the best we can do right now. I already 
-replied to Luca with a bunch of patches where I tried to come up with a 
-way to negotiate the pixel clock in drivers ... I need to get back to those.
-
-> If I may recap:
-> 1- a simple display pipeline works
-> 2- the pixel frequency could be more precise so the video_pll1 parent is
->     used to dynamically compute a better frequency
-> 3- the video_pll1 parent is too low in some cases which breaks the
->     pipeline
-> 4- we need to force video_pll1 to a value in DT
-> 
-> How possibly 4 could be a relevant answer to 2, seriously? May I return
-> you the advice, if you want a better video_pll1 value in the first
-> place, why not assigning it up front in DT?
-
-Because I have DSI-to-(e)DP bridge on the DSI bus and I do not know the 
-pixel clock needed by attached panel up front.
-
-I already included a link to DTO which allowed me to operate both this 
-DSI-to-(e)DP bridge and LVDS panel with accurate pixel clock, I was 
-hoping that would also let you solve 3 and 4. 4fbb73416b10 ("arm64: dts: 
-imx8mp-phyboard-pollux: Set Video PLL1 frequency to 506.8 MHz") fixed 3. 
-for Isaac at least.
-
-> I understand your goal, and I agree with it, but please acknowledge that
-> even though the current patch looks fine per-se, it is exposing a real
-> bug that is now visible. Hiding it with DT properties feels really wrong.
-I do fully agree the whole DT Video PLL1 clock frequency configuration 
-is not good and it should not be in the DT at all. That is my goal in 
-the very end.
-
-The drivers (in this case, LCDIF1 + LCDIF2 + LDB) should negotiate the 
-Video PLL1 frequency that fits them all best and configure it 
-accordingly, without any DT assign-clock* workarounds.
-
-I just didn't figure out a way to do that ^ yet.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
