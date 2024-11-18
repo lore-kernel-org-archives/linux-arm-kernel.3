@@ -4,149 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBCC6D591AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 18:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53710D591AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 18:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CMy6CyGxIl2yyFuR4S4pWWa5p+rMXlhUtz651DwcqwQ=; b=zwyf0RhnDCVVhD05Dm5HtfGtf2
-	7McAtYeBZEPWsKsg/jNJGTv9kjJfU2zODvb101gJGAazkqjzG6YtJp+k6Ki+MRfsqZlgFGspD2hFo
-	zy+zCN9La9scVaLDfsFvTUKtAmpv6EWjOQ/eu8JOt2zjsu6wM73hKi1isS9DfmHmX8jF/5M5TNxVS
-	EA4S9Z7CAwDaHonfmgllYRc4lm9Ew7Wq1TJjbJbjbXpB8759piJyMEGMxrUouZxZ4mr8MQHw+mfD/
-	BrOCcRfUx2xRpjJS7Ll7/EpFUV6oB8zZFDcuusCbTUqswtmHfxu7CEdUsS/vLFJkag/D/JpR9NnK0
-	UVWZTuuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oVBaAoe5x3HLLMBRC4os5GnvajZ58Qlvy6tcTuD1j/Q=; b=GMIpuSfnGwY+9t7SoACdXzXUL8
+	321+NuWolx+VosiIda3GnytI48xiqtCZovCDOauCJu+QuGbU8cc0436BTGZLPHlkhS8n3GD6gc9br
+	cAfBzsjT8+E3I9BkZG3t19MFCE8IKd2dv4qJTMl5XK7pCOF5xBvta+lC9H/V9kvTH8Pdm5mZLLTVA
+	NdcOQZtgDNoprJ1qSOEJ8kXSaBtI1H3VeS7LF/oAeVIgUjBBejj8sLHSnh4yeDiyu916ydfmJFx0C
+	1GmCPBoqI5I4eeqwX1p7943KvyKrXM9tOSRVrm6hs/gzouFOQFB4TMTD0TVW92FXUh3cOQIBbB8g0
+	CscKXtkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD6NP-0000000AKFl-07FQ;
-	Mon, 18 Nov 2024 18:21:31 +0000
-Received: from mail-mw2nam10on20715.outbound.protection.outlook.com ([2a01:111:f403:2412::715] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1tD6ZU-0000000AM8y-2zKM;
+	Mon, 18 Nov 2024 18:34:00 +0000
+Received: from gentwo.org ([62.72.0.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD6K0-0000000AJeq-00F4
+	id 1tD6YZ-0000000AM1l-17qK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 18:18:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Hi7zeUyZqqupLF2Eo13vUeAYErRz/DDn8XpdwzPIKT//WjNAsXsL4qFo+x/xSZVY7cQuMENtOpwWQ1nOdSEYniAkox7NP+yKyW0SB+AFfH3BAZ4gQZ713nBNVg9Oq/kLfny6+rPj+a9ctCFBSC64AQckZH0V/9Wu0hnxchYHdu7lhGJWg0uJ+oCao3bO0x7blK9TNwAbEMhx4fElTaFR6zNCtqYywDsc9kG3lMfraZY5eb1CezmhfS/2V+k4LDTD6bBdrB9/35YvuaJUWmLZIzowHVpHZE+jxkKYd15nLjj7yuciyCSD1Anqb7bgvJkwFyCr97Lbpk8AlmRBfQ6m5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CMy6CyGxIl2yyFuR4S4pWWa5p+rMXlhUtz651DwcqwQ=;
- b=U9TDf9H+JuKlyCMcCGFkitK8uqFAkNnqHQ+LC+8aD/PjfmjYXfMyfg/DIAv2TrTOaRUgYj2BwzJ9WoWVFGA0i68q0+RpaOFq+3umbTMkUETGj8jMIopN96FCGRrMshNBnbj8cOBqIlUBKX8ARZlNNb1OT3pUAOeycxYpC594aa3//paUCUd1cnNoFBBkx2SkUel20LMAIqGhsfW2cGqxUCLS86T0NDIbrKEzBvDKwujhavhbIi5U7VAcRQou14XU6PBuSHb00euNfOfy8gJNznd8eTRZ9Ohkz0v/WkF0uoD1WpCJe5zOmPBxGt8FyRNixZdiB5OQx1cT3Rs9+/hBJA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CMy6CyGxIl2yyFuR4S4pWWa5p+rMXlhUtz651DwcqwQ=;
- b=JYLYKSNz6fD0PyStP2uk0RcgebJJRAacERu9FX7RtjCpccxSgRDJSe3WFVGDaw9fRD/P14nMTu+2D/8I1Kl3CNbux4ckzLugJr8onIa1bTr8I5DqiSHf9hlE5oTDEargi9uEgM2cuHfSdqLl+JPydBK5X5AS9blXTNFX20i33tU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- CO1PR01MB6694.prod.exchangelabs.com (2603:10b6:303:f5::7) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8182.13; Mon, 18 Nov 2024 18:17:41 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%4]) with mapi id 15.20.8182.013; Mon, 18 Nov 2024
- 18:17:41 +0000
-From: Yang Shi <yang@os.amperecomputing.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org
-Cc: cl@gentwo.org,
-	scott@os.amperecomputing.com,
-	yang@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] arm64: cpufeature: workaround AmpereOne FEAT_BBM level 2
-Date: Mon, 18 Nov 2024 10:16:10 -0800
-Message-ID: <20241118181711.962576-4-yang@os.amperecomputing.com>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20241118181711.962576-1-yang@os.amperecomputing.com>
-References: <20241118181711.962576-1-yang@os.amperecomputing.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: CH0PR13CA0038.namprd13.prod.outlook.com
- (2603:10b6:610:b2::13) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	Mon, 18 Nov 2024 18:33:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
+	s=default; t=1731954781;
+	bh=vABaQHltdx3jgRYXQyVoHdcwpcwDsu4UKSsK+/mK9OY=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=LKt38qr4UgPp504lHzG9BImmpehcu7oT4tlmhYqlIrjgeaS16zE5oubUp9SJSTdxA
+	 F0f5ozNhlf2/3Vw90tz4ISLXJH3BlvzNFPiKqKAgOTVuuEQob/qIT7k8eQA458g9Ue
+	 gaOSD1IXHyhCM3UQHmJ65BLWe2k/gV7y0yJfWaxI=
+Received: by gentwo.org (Postfix, from userid 1003)
+	id 7BAB4401EF; Mon, 18 Nov 2024 10:33:01 -0800 (PST)
+Received: from localhost (localhost [127.0.0.1])
+	by gentwo.org (Postfix) with ESMTP id 7A456401EB;
+	Mon, 18 Nov 2024 10:33:01 -0800 (PST)
+Date: Mon, 18 Nov 2024 10:33:01 -0800 (PST)
+From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+To: Yang Shi <yang@os.amperecomputing.com>
+cc: catalin.marinas@arm.com, will@kernel.org, scott@os.amperecomputing.com, 
+    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] arm64: cpufeature: workaround AmpereOne FEAT_BBM
+ level 2
+In-Reply-To: <20241118181711.962576-4-yang@os.amperecomputing.com>
+Message-ID: <1a9c94ff-fad5-3440-705b-d8dc0c0b39b5@gentwo.org>
+References: <20241118181711.962576-1-yang@os.amperecomputing.com> <20241118181711.962576-4-yang@os.amperecomputing.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|CO1PR01MB6694:EE_
-X-MS-Office365-Filtering-Correlation-Id: e78287f5-fcf0-4a65-e06a-08dd07fd4a99
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?P1gMl1sy1BiyWADik0Ii2kIoNw3t4O8mH8WT49zKqcICZVBIEwH0cwFHAJQP?=
- =?us-ascii?Q?2h3vU0lK4qQsplUdpyhuivL7MEWYOllIhG+6fI3ln97CFzi+b9S43EUEDQ+s?=
- =?us-ascii?Q?luhk07xTExiNhif3Y/T65zYTGbHIlM1cKjcwBOSPgiBr+1gEirn2LTVqj57+?=
- =?us-ascii?Q?Zc62TFGw0+2kMEfe1zb2LRDF8xCtnbhMlmDfv8m7Tm+OkHK3tlAL4Zzf4Pal?=
- =?us-ascii?Q?YxIjGDysqNWNhyJJV+K1GmaFshhWt9X4mvhVX1kVsqPlOaAd+bhAtqoPWWV7?=
- =?us-ascii?Q?HfA7r8Qoqgovzj0tc1PBEEejBVnRzg4j4ZSVS3YmZZI7fe21DJfeO5+tllyd?=
- =?us-ascii?Q?J/runcbBJN+svuGcZeaLkMpVrGHSPv7IAWUJ5pWjsfpoJLfOl3dpvB7LAHt+?=
- =?us-ascii?Q?A2NLVA7XE5i0eTBxzmKKSal+pbwOVee3cueKrsRYBggDpLeW4o7I9XY/TaMs?=
- =?us-ascii?Q?B/tzIsVpOwfMmr0fXThsx4NYXD1+117hJLixZ7J2nowGtyHZZS71O9C7CbkQ?=
- =?us-ascii?Q?w+fz0PgcbHQHmqrrY924PwVGZvxCBl+yO/4wLdJ7BbBiU8RUPbT+6v0jjDGL?=
- =?us-ascii?Q?UWyOcMAGkxE2KsQnnm/DgiyNrb/nq1QOiu6oeyouRCjUzQZ7Qd+xR9DrNh0F?=
- =?us-ascii?Q?pI1uDk3V/uR4Eisn1irAmR17MnFqk8mBwnAyEcoqZyMbPVkWaWYT6OgN6xoS?=
- =?us-ascii?Q?tLfFpQV8k0aagBQxn6wiC7bRJvW0uqx28daowZqMLtZqd3zVFRwWnu2hNYoh?=
- =?us-ascii?Q?K0HazgOMl5qKFYePznPGRppkq2K2Aq8SDxISsxlcBGkaA9wB4UH/Q5V4nrLB?=
- =?us-ascii?Q?qcxsw31524O0kzrgaalLKxEKcG5CBhn1dRSJN5GBJIxFYf5Ftlrrrdmp0uv6?=
- =?us-ascii?Q?qMlnDfCuRqMnJGW6jAEuuhCNq3lYjiF+lbnuTIFL58rMjaR1IKumC6OvE7HK?=
- =?us-ascii?Q?QUyQME2iPFlgvr4Be+5vlBTXvki1dPIMV9g3iO6Yod4ZkRezh5ikVm2aRaCt?=
- =?us-ascii?Q?lPAInTm9OmWvqAaCs8r+GVC/OU9Pz0i2DhE1g8t3iiqE2BjEZgn0GMFzI24d?=
- =?us-ascii?Q?BOTEjx2GR6DOmxPb0gLexH5X3JtXaubkj1XpN1OdeLY0eS9yQLuNGMZC5F7y?=
- =?us-ascii?Q?A07/A1iRTavugnK+3j5QEmHxZM8ZEoT3phzSFQVucGf5vYSRCG1pcKepzOJZ?=
- =?us-ascii?Q?fJ126ipKD7eOiUgLLv4h6gRE2befFCrgQN/dv7MHz0MWAiZtruK2TmykHfqm?=
- =?us-ascii?Q?1oxnE5FvVYuqX0veygaDOX1rBxzkwAGLVUlMh2CvmxGgQvw2d/h8/cqV+YLD?=
- =?us-ascii?Q?sTkL8a8lQup/5iUwh3h4/QVn/VPUoonNIwJIqRN5nxVAsYjXktVsuilSunPs?=
- =?us-ascii?Q?2FgmxjQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9X/xPXVQ9qv6qgJ2Vp/i1qBP3x9nIfwPp+GeKpsyxHe8+/lUHTYc4g77+hnp?=
- =?us-ascii?Q?Ujm+sFyw8jleT1pgL7k5IHFaRQt0PL25yjdt0adD5y3BEr+BUvaf4tOVvTwg?=
- =?us-ascii?Q?lPGB5jO4hNGNl310wIt+WsdNdPdniLGfsCDtWVJu26Xely2eya3YySnQBIAy?=
- =?us-ascii?Q?IPcxisaVSRQAKu8ym8JO2GdxMURpjqdJVsTvCh8qauO1uhdD3C+6cOS8bluf?=
- =?us-ascii?Q?HCmCaNypCNST8YtWoDPt9WeTwUDvXb9eaaZLmprmPBr41jtQOSN8ZkOTvQ93?=
- =?us-ascii?Q?hoXWETv0+b/ofbmFZtvwNnXrXw+JwciKcz6KJPM6p2CR/kxXebHOIZUUkfaL?=
- =?us-ascii?Q?RKd8dwehDf6i2YZnx0Sju7wuABupPi5kwC6PgzmviGY8zPVXb5HxYSWLHpIH?=
- =?us-ascii?Q?1hxYrrbghFHBVWvcTYUgr/O/RECFRDbtdGB7RczQytRIFZvjVtpz9pdKeMga?=
- =?us-ascii?Q?hryRpe8MXhfK3zgkNvEr6AaFfQhFfl8sN1EXnAB+RYPeqmn237QnvOuAz5Qx?=
- =?us-ascii?Q?bgAKqnuA2flcr5xP2062uX4oF++l0Ji98iFuQ7jV5gCAYvbfLMbOgNhPuNVf?=
- =?us-ascii?Q?ZF2aYtqVUI3f09ShqKqTMiRJ/SA6tny0RZScQPIFib5/vjrHgBZL/GW3QDZG?=
- =?us-ascii?Q?Qm+gGn25JLhdAd4MuQDebTuuIK6WWLDYkoEkV+nr7Z7sp6Rt2JDBhacmGs95?=
- =?us-ascii?Q?OpihHXFYy7F+sMdMi8Mbhwczk1ooYP5OH9qg3O/V8/P0OZ5V4LTU+As/WHXd?=
- =?us-ascii?Q?v0eQOOKN624C5PpNXaLRI9Y3zltUJ48i8EIrd0yi7likBZJLyYnIXJazKl9a?=
- =?us-ascii?Q?p90XHMgz+N2zb/Wy4Y8/RtQeRFVR2rl941tx/6zCTRe5Kz43txfWW1CacrjR?=
- =?us-ascii?Q?wMs5h2Rpy5bqfPMEm86cc3f/MzT74eVnFaPn2JviPGp0dbfAZbkqX9jGVArJ?=
- =?us-ascii?Q?ohMKhwQ1xV/+bsttEcDtevDjLVoFFvDOi+WJLRXyKGGP1GGZqJ4Gvg6fD5eb?=
- =?us-ascii?Q?H3F7XBKORcfz/jR3n1YrH6mPgmLXyZobXQAd0m2cQm1n1FBIcH1m1hx5D0ZC?=
- =?us-ascii?Q?rGa9PbCEoT9FRJXHHQFuyBwzkMVwiOHwmmQemB+l5bYDbddK+Ppj8NtG12b8?=
- =?us-ascii?Q?ecczagGwfqSx5H7e/fUH7oGo6iduz0B7wPgfXOUaZV5mxenNgltqCfiI8bUv?=
- =?us-ascii?Q?NojIyTFfhsCpkQg4B+PqLTUNEAeMfpUKWStBKgKH1NYvd9RF2K6vngaQaPSS?=
- =?us-ascii?Q?5XkZ5lbXGOFboiHSZ5EnNFbPPyfrQC1nmZ9aNj2hOpiMhFOeu52NZjyO+VIZ?=
- =?us-ascii?Q?ULwWFYle5u5KSqc60OvDXBgJHQnG5T309UVnz+aOdoKarxziMzU7mIUMytet?=
- =?us-ascii?Q?mpH6MaOFNx9g/y7MNlVoHUx/IzN1UhBZC7evlSz59qUKYJ46znExdE+WmpH8?=
- =?us-ascii?Q?QOiTCQzMxDEP5SOfLTA9SzQnDsDbg0lkFmZq5624bDnnDv7VGcKVU132uZFI?=
- =?us-ascii?Q?wWPptC7vv222kNb0V37VBBv3FJj/tdAWXfUKiWMWVVVnr/YRlw71dtWyyWCJ?=
- =?us-ascii?Q?7nat4sZ4hrJgCuyJ6SRTGo9p6wy0Z8iKuyeV3Bcn0IHzkdJZnMCSgSTCviB+?=
- =?us-ascii?Q?VnTp85lfpY5tnXhCYqEdMHE=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e78287f5-fcf0-4a65-e06a-08dd07fd4a99
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2024 18:17:41.7273
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7hQsEjbUiLQHeNv3BEQsI7d+IbcUReWIfRKKcg4RKdI4P36VUchiI/6dUAiCSWixfE8rKzo/TKdeuHU81wVIXcSuP8aFRqezXzFTiB8bT04=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB6694
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_101800_036015_5D09970F 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20241118_103303_346566_3D607F0F 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,42 +69,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_BBM level 2 is not advertised on AmpereOne because of a bug when
-collapsing stage 2 mappings from smaller to larger translations.  That
-doesn't impact splitting stage 1 mappings (whether stage 2 is enabled or
-not), so workaround it by detecting CPUID.
+On Mon, 18 Nov 2024, Yang Shi wrote:
 
-Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
----
- arch/arm64/include/asm/cpufeature.h | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+> FEAT_BBM level 2 is not advertised on AmpereOne because of a bug when
+> collapsing stage 2 mappings from smaller to larger translations.  That
+> doesn't impact splitting stage 1 mappings (whether stage 2 is enabled or
+> not), so workaround it by detecting CPUID.
 
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index c7ca5f9f88bb..d9b20eb43d31 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -847,10 +847,19 @@ static inline bool bbmlv2_available(void)
- {
- 	u64 mmfr2;
- 	u32 bbm;
-+	static const struct midr_range ampereone[] = {
-+		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
-+		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
-+		{}
-+	};
- 
- 	mmfr2 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR2_EL1);
- 	bbm = cpuid_feature_extract_unsigned_field(mmfr2, ID_AA64MMFR2_EL1_BBM_SHIFT);
--	return bbm == ID_AA64MMFR2_EL1_BBM_2;
-+	if ((bbm == ID_AA64MMFR2_EL1_BBM_2) ||
-+	    is_midr_in_range_list(read_cpuid_id(), ampereone))
-+		return true;
-+
-+	return false;
- }
- 
- int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
--- 
-2.41.0
 
+Would be better to have a bblmv2_split_available() function that only
+checks for the splitting capability.
+
+If more code is added that uses the so far unused collapsing features
+also included in the BBML2 feature set then that will break on AmpereOne.
+
+bbml2_split_available() could call bbml2_available() and check the ampere
+errata when false.
+
+Should work fine for now.
+
+Reviewed-by: Christoph Lameter <cl@linux.com>
 
