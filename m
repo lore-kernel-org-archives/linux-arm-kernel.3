@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D215D49221
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 13:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B5CD49223
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 13:45:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XnAbYm4VWUKZ0F1ePtL5cGK91Okpi3RKOo0VHnxT3ak=; b=Ph2kyqLaNUEaFnomDThuEHDiuu
-	WCMSj05vV13UuvXURjb/MAlpJfyu8Ror4OSB2ls2xN/kbM1J59FcHibH6zifruj5nov+JwmAbgt9d
-	n8Dvo1Q6PZnecPoH/lIeye790UxbhuM2VVeCfv+0qgUoiMt5pH3a2EnfZ5oC02EoI138MGUuKf/sB
-	02bBeV/gw/X1wNh1xVGDau1u71SOyo+ItGh1IanhpPVqomcg0Q3BizF71ufmlwEgMM3w0Srxp++sA
-	yC4tlYOh/uF1TJztZrg/lfnY0R1TZnurP8iBUZhvgOh8oK5v40U0qOeKLeMD42TTcBjsbYf2Ty8O3
-	+Bap2AMA==;
+	bh=Boh51om16/6cUq1DCmo9haIf3b5vZQi+saUvgPu/98Y=; b=SPF6xme3Ff/tsYIPrZblS9LFvB
+	sSlqnKkUdUr6V0mWYgXQzADelN98a6QWfGd/B1sJJ5EQ3Uf8ByhCK9UlnVO79nyKBvd3LTJxeLb49
+	7GVHc+quSpI+oM2JN2qBs6BemKm+j9hEgmZSceUqC6DpQQ9BgwGJLQTHgkkRx8mCbPbLWU75EbQqm
+	P1ta79lhyDWyxNkk5tIDTbCrvXbpEBaEEKy5zBYR1mvLpiBmR74VvvfmeUh6dcPUB5cQDKkTfAlvo
+	88Trk5rGz1QQ6o8a7leUFHWfVTbl5YJ2z0/riRn7dp79h/IwSaw5pVtRfpXLy/Rce98WnKgXUQhmz
+	4F/O4QLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD23Q-00000009e4G-2kAZ;
-	Mon, 18 Nov 2024 13:44:36 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tD24K-00000009eJc-1BFu;
+	Mon, 18 Nov 2024 13:45:32 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD1yy-00000009coo-41OR
+	id 1tD1yz-00000009cpa-2U9W
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 13:40:03 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AIBVd9e023803;
+	Mon, 18 Nov 2024 13:40:05 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AI9DM2l028148;
 	Mon, 18 Nov 2024 14:39:52 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	XnAbYm4VWUKZ0F1ePtL5cGK91Okpi3RKOo0VHnxT3ak=; b=2dO/+dQddZPaI+VI
-	1moKrpObqUbwCvFB2SC7idmegRg3FWWx+kO8fmBHSqcyo7FV1pa7g1PjC626/d8b
-	64/WmExCIiU6oMLZN3d/t3KFM3TVKG72bRFJgONp2EOGpwM36nQZs750z496cnT2
-	PvwwIcLf1k31JXcpSsP2xafnJeLciSFfl8FBUAG9ikjmLYCUcule68iH1hhTwuA3
-	u5W96u+P0siQKe34eMMQWZAJAgfw5UBVOSCECao+Fn/HMoWojP2reWOFajjYMzvA
-	2pRWmJkA2io7yH75LrS3MUyX3FrGKxiezNHRAUFI8yHpUQc553UFxeNrD/PDAgpt
-	c5Yhew==
+	Boh51om16/6cUq1DCmo9haIf3b5vZQi+saUvgPu/98Y=; b=2M4v1XZiijK8nefF
+	ak2n/7yBsecDvequuWx6nRBUKZpgK6HJwQLNrK8PLdkTkNlCi1wom4T4Tl59V3U4
+	o64j6uR/yXRLYjHSUAabFZRTRcs8nRNMWcGHgmn5Vdmr3WSyj9yDQE0bhR3QCorR
+	bogGW+Yj9LPuyNXwvTuxRSCk22T+paXMgFFDYrjs/vep67/5Psux8qKKwZQnmKYi
+	cKdmN487K55apXykg0qiKeISzXWk2Kdtr4wvLlByesJ35w5AYLJtZiG7uJl3PnW2
+	Ycs5c/RqI8T+VhtDaaiONuPeo3DcpxRYX9W7mjMuvO5cK1OQSi164KyuERAhSFUX
+	MEpKhQ==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42y5u3n8j0-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42y77n504r-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Mon, 18 Nov 2024 14:39:52 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id AEC6340059;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id F23E64005B;
 	Mon, 18 Nov 2024 14:38:32 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C4727278260;
-	Mon, 18 Nov 2024 14:35:34 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9F1FD2747D7;
+	Mon, 18 Nov 2024 14:35:28 +0100 (CET)
 Received: from localhost (10.129.178.213) by SHFDAG1NODE1.st.com
  (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 18 Nov
- 2024 14:35:34 +0100
+ 2024 14:35:28 +0100
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Mon, 18 Nov 2024 14:35:37 +0100
-Subject: [PATCH v3 14/15] arm64: dts: st: add csi & dcmipp node in
- stm32mp25
+Date: Mon, 18 Nov 2024 14:35:27 +0100
+Subject: [PATCH v3 04/15] media: stm32: dcmipp: use
+ v4l2_subdev_is_streaming
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241118-csi_dcmipp_mp25-v3-14-c1914afb0a0f@foss.st.com>
+Message-ID: <20241118-csi_dcmipp_mp25-v3-4-c1914afb0a0f@foss.st.com>
 References: <20241118-csi_dcmipp_mp25-v3-0-c1914afb0a0f@foss.st.com>
 In-Reply-To: <20241118-csi_dcmipp_mp25-v3-0-c1914afb0a0f@foss.st.com>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
@@ -90,9 +90,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_054001_357245_1988278F 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241118_054001_964955_7EA26131 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,48 +106,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add nodes describing the csi and dcmipp controllers handling the
-camera pipeline on the stm32mp25x.
+Rely on v4l2_subdev_is_streaming in order to know if the subdev
+is streaming or not instead of relying on a local variable.
 
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
- arch/arm64/boot/dts/st/stm32mp251.dtsi | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+ drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c | 6 +-----
+ drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c | 5 +----
+ 2 files changed, 2 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index 1167cf63d7e87aaa15c5c1ed70a9f6511fd818d4..6f8cabf2c5985f358689f15296300de24e9d9b25 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -518,6 +518,29 @@ i2c8: i2c@46040000 {
- 				status = "disabled";
- 			};
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+index 5a361ad6b0234c5de03c12b0b7b9d428eae63c06..50500112eab9a7b10a0c5e29773e31ded1a66628 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+@@ -78,7 +78,6 @@ struct dcmipp_byteproc_device {
+ 	struct v4l2_subdev sd;
+ 	struct device *dev;
+ 	void __iomem *regs;
+-	bool streaming;
+ };
  
-+			csi: csi@48020000 {
-+				compatible = "st,stm32mp25-csi";
-+				reg = <0x48020000 0x2000>;
-+				interrupts = <GIC_SPI 142 IRQ_TYPE_LEVEL_HIGH>;
-+				resets = <&rcc CSI_R>;
-+				clocks = <&rcc CK_KER_CSI>, <&rcc CK_KER_CSITXESC>,
-+					 <&rcc CK_KER_CSIPHY>;
-+				clock-names = "pclk", "txesc", "csi2phy";
-+				access-controllers = <&rifsc 86>;
-+				status = "disabled";
-+			};
-+
-+			dcmipp: dcmipp@48030000 {
-+				compatible = "st,stm32mp25-dcmipp";
-+				reg = <0x48030000 0x1000>;
-+				interrupts = <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>;
-+				resets = <&rcc DCMIPP_R>;
-+				clocks = <&rcc CK_BUS_DCMIPP>, <&rcc CK_KER_CSI>;
-+				clock-names = "kclk", "mclk";
-+				access-controllers = <&rifsc 87>;
-+				status = "disabled";
-+			};
-+
- 			sdmmc1: mmc@48220000 {
- 				compatible = "st,stm32mp25-sdmmc2", "arm,pl18x", "arm,primecell";
- 				arm,primecell-periphid = <0x00353180>;
+ static const struct v4l2_mbus_framefmt fmt_default = {
+@@ -239,11 +238,10 @@ static int dcmipp_byteproc_set_fmt(struct v4l2_subdev *sd,
+ 				   struct v4l2_subdev_state *sd_state,
+ 				   struct v4l2_subdev_format *fmt)
+ {
+-	struct dcmipp_byteproc_device *byteproc = v4l2_get_subdevdata(sd);
+ 	struct v4l2_mbus_framefmt *mf;
+ 	struct v4l2_rect *crop, *compose;
+ 
+-	if (byteproc->streaming)
++	if (v4l2_subdev_is_streaming(sd))
+ 		return -EBUSY;
+ 
+ 	mf = v4l2_subdev_state_get_format(sd_state, fmt->pad);
+@@ -495,8 +493,6 @@ static int dcmipp_byteproc_s_stream(struct v4l2_subdev *sd, int enable)
+ 		}
+ 	}
+ 
+-	byteproc->streaming = enable;
+-
+ 	return 0;
+ }
+ 
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c
+index 62c5c3331cfecdf5fcf0a5d20b4051b1b024968e..05e8897ae37a4b6c8e16c066e83ff5b1d1e07635 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c
+@@ -129,7 +129,6 @@ struct dcmipp_par_device {
+ 	struct v4l2_subdev sd;
+ 	struct device *dev;
+ 	void __iomem *regs;
+-	bool streaming;
+ };
+ 
+ static const struct v4l2_mbus_framefmt fmt_default = {
+@@ -230,7 +229,7 @@ static int dcmipp_par_set_fmt(struct v4l2_subdev *sd,
+ 	struct dcmipp_par_device *par = v4l2_get_subdevdata(sd);
+ 	struct v4l2_mbus_framefmt *mf;
+ 
+-	if (par->streaming)
++	if (v4l2_subdev_is_streaming(sd))
+ 		return -EBUSY;
+ 
+ 	mf = v4l2_subdev_state_get_format(sd_state, fmt->pad);
+@@ -370,8 +369,6 @@ static int dcmipp_par_s_stream(struct v4l2_subdev *sd, int enable)
+ 		reg_clear(par, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
+ 	}
+ 
+-	par->streaming = enable;
+-
+ 	return ret;
+ }
+ 
 
 -- 
 2.25.1
