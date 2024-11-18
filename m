@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 667FED60CFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 23:01:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EBF8D60CF8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 23:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CW49FFGZM5+j6JkPSwK06UkPkZUwSK4a4tgqhadqsvo=; b=yErpxTtubb45sgSIhnbpnApa3n
-	HW0PWYHt5PX2bU9FufivlFUKyYuCXw/JAqZluc804XejwizKMsj5WCrCwk5uSvrpnKe3RHank+Ooi
-	d3qmsCPF3mjHVmx3uqMRaEsskeneTPkspQukxdZr2mJDOOcu/7gkz/0WGnSfpqw7chm1d2ZXJ253B
-	Is/yhmJMrwy+johgB37yNIxIjDUHBHjYYxse0g2v2SVp63XKOeI9oEm1gmySI0ac6k/rG+cJ9nCup
-	0BsTpiyDUu4RQk3LoOHzNdHC58JJ/zS7MrHAk1KLxEd0qKrWbOZ8bxGRvgaIgsBfHi/WzUdHq/gK+
-	m/Ol3ECQ==;
+	bh=+OxDHwQ+LwgR6Jb7OIDjCgKY879pFmYdyYNHXVCDwog=; b=sCw9hXQS91P4WYPBC3Ka4BSYwK
+	lW3gorTlmyL4xVvDKuI2NpW6KePrNgtQWii8OGZzx9CPMxwmCdvq1uDPSFai9OOpHP8jkz+rRWLyX
+	GiBrpyEDug3q/0cCXtCqjX7DHKlwUsuMfCTszgxtEvKjd0B8E6o05UYILXpuP/YKmrZgB+U2WP5C/
+	2vROsw62ja54cpLZceJCpqfzbmTikzXtKnE66YDriQCR2UBc0MzI9KnM57PYrb3kZTvbQNFhJpsdw
+	ndQQndVUQ7Ln1G8opw6TjUCPFj92+zFNPAarwFJUn9PttTg2KEeeOBy4Pohpz4f8fyhtLzdf9rSZY
+	YNcA4e3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDAke-0000000AoKB-2Uup;
-	Mon, 18 Nov 2024 23:01:48 +0000
+	id 1tDApO-0000000ApZa-3iu9;
+	Mon, 18 Nov 2024 23:06:42 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDAjj-0000000Ao8N-2WmK
+	id 1tDAoS-0000000ApR0-3hzy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 23:00:52 +0000
+	Mon, 18 Nov 2024 23:05:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1731970843;
-	bh=CW49FFGZM5+j6JkPSwK06UkPkZUwSK4a4tgqhadqsvo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=AWsAMyOL4ww5MLzWMdBiuoq16eacUcwGCB4EJfGlASqLw5onf1XZWjU+TSR+5r65A
-	 L21wiDtUH0+4JAPb9Q7n2JyMCIz/hFjXmJkP2nhGzaWdWwpCL7TUcfgxsw3N+EDEO7
-	 wJIsEoTTuEGXwN4pYPNvAyjvC2UKkBGNqwZFLO53LPHr5XMQLjleBX/07sokLdZ9+L
-	 f/NBKIGuudfF7EBws2c1vynq3F+R+dZwuxa8LUTeqtp9B+CtOPXqotfB93PYj/Ffwz
-	 37upcwgVHFz+BNypFFIVp1Tcg99Nlbo/6EyDwcZ9R4jLOrZ1DvL6724bflFzplUFf9
-	 P8B4cBUlUquRw==
+	d=codeconstruct.com.au; s=2022a; t=1731971143;
+	bh=+OxDHwQ+LwgR6Jb7OIDjCgKY879pFmYdyYNHXVCDwog=;
+	h=Subject:From:To:Date:In-Reply-To:References;
+	b=eQ9tesHA9Iuny+nyiRBUQMhg56mp5yBbcOvuBP4P9VvuulUB1B9pwUMqTLaOflq0p
+	 NWDJi2a7YW8/K7l8nTmi3QzuEmCyzVAwcVp49VZIR81EtCuMPkLpCRzcl753hR29K3
+	 pkKEs3a/l2+6kwP9QvQlURg8KqmhuTK1LLZr91FOh4QABe2/a+EO1weSdgRCby8tfk
+	 fOIX7v+tKMQ+5Nq+oTf6pZkUJJDlsp/MuGX6FPDmA5JsuS1COoy+NHGiQ+Crb/r28d
+	 JtxDWS5h2ntqSglCcnDvK4y4/VHvLEyOOvqX5VqN0cxjOq7hg00ktmJL2gH/j8RhvB
+	 T9rwNRyKA6KzQ==
 Received: from [192.168.68.112] (ppp118-210-181-13.adl-adc-lon-bras34.tpg.internode.on.net [118.210.181.13])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 3AC8F68D9B;
-	Tue, 19 Nov 2024 07:00:40 +0800 (AWST)
-Message-ID: <219607ab74764f3d47659fb5ab3223b3034152e5.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus handling
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 76E9668D9B;
+	Tue, 19 Nov 2024 07:05:40 +0800 (AWST)
+Message-ID: <0d53f5fbb6b3f1eb01e601255f7e5ee3d1c45f93.camel@codeconstruct.com.au>
+Subject: Re: [net-next 3/3] net: mdio: aspeed: Add dummy read for fire
+ control
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Guenter Roeck <linux@roeck-us.net>, Chin-Ting Kuo
-	 <chin-ting_kuo@aspeedtech.com>, Patrick Williams <patrick@stwcx.xyz>, 
-	"wim@linux-watchdog.org"
-	 <wim@linux-watchdog.org>
-Cc: "joel@jms.id.au" <joel@jms.id.au>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
- <linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-watchdog@vger.kernel.org"
- <linux-watchdog@vger.kernel.org>, "Peter.Yin@quantatw.com"
- <Peter.Yin@quantatw.com>, "Patrick_NC_Lin@wiwynn.com"
- <Patrick_NC_Lin@wiwynn.com>, "Bonnie_Lo@wiwynn.com" <Bonnie_Lo@wiwynn.com>,
-  "DELPHINE_CHIU@wiwynn.com" <DELPHINE_CHIU@wiwynn.com>, BMC-SW
- <BMC-SW@aspeedtech.com>,  "chnguyen@amperecomputing.com"
- <chnguyen@amperecomputing.com>
-Date: Tue, 19 Nov 2024 09:30:39 +1030
-In-Reply-To: <2531f830-6a36-4bd5-ba1e-9e19f0f66496@roeck-us.net>
-References: <20241101121201.2464091-1-chin-ting_kuo@aspeedtech.com>
-	 <20241101121201.2464091-2-chin-ting_kuo@aspeedtech.com>
-	 <ZyUcIIb1dtoNhX00@heinlein.vulture-banana.ts.net>
-	 <a0faca9a6ec7f4acdfa2f29b4ffb94b5392aea6b.camel@codeconstruct.com.au>
-	 <TYZPR06MB5203053A004676F51322DECFB25C2@TYZPR06MB5203.apcprd06.prod.outlook.com>
-	 <ed77d57facaaef0be796b4c6a742dc7bf3bff479.camel@codeconstruct.com.au>
-	 <TYZPR06MB52039B02B6D3053355F30489B25D2@TYZPR06MB5203.apcprd06.prod.outlook.com>
-	 <9a1e64ef-81d9-48b0-b871-ce4ff792eae4@roeck-us.net>
-	 <TYZPR06MB52039DB39B62E6FA5220103AB2272@TYZPR06MB5203.apcprd06.prod.outlook.com>
-	 <2531f830-6a36-4bd5-ba1e-9e19f0f66496@roeck-us.net>
+To: Jacky Chou <jacky_chou@aspeedtech.com>, andrew+netdev@lunn.ch, 
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com,  robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, joel@jms.id.au,  hkallweit1@gmail.com,
+ linux@armlinux.org.uk, netdev@vger.kernel.org,  devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,  linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
+Date: Tue, 19 Nov 2024 09:35:39 +1030
+In-Reply-To: <20241118104735.3741749-4-jacky_chou@aspeedtech.com>
+References: <20241118104735.3741749-1-jacky_chou@aspeedtech.com>
+	 <20241118104735.3741749-4-jacky_chou@aspeedtech.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_150051_853212_0B8B8EE5 
-X-CRM114-Status: GOOD (  25.92  )
+X-CRM114-CacheID: sfid-20241118_150545_132409_A6D9F4C0 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,55 +76,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2024-11-18 at 12:50 -0800, Guenter Roeck wrote:
-> On 11/18/24 04:46, Chin-Ting Kuo wrote:
-> > Hi Guenter,
-> >=20
-> > Thanks for the reply.
-> >=20
-> > > -----Original Message-----
-> > > From: Guenter Roeck <groeck7@gmail.com> On Behalf Of Guenter
-> > > Roeck
-> > > Sent: Friday, November 8, 2024 10:08 PM
-> > > Subject: Re: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus
-> > > handling
-> > >=20
-> > > On 11/7/24 21:42, Chin-Ting Kuo wrote:
-> > >=20
-> > > > But now, I think it will be better to add a patch for creating
-> > > > a new
-> > > > reset reason, e.g., WDIOF_REBOOT or WDIOF_RESTART, in
-> > > > watchdog.h of
-> > > > uapi. Can I include this change, creating a new reset reason,
-> > > > in this
-> > > > patch series? Or, should I create an extra new patch series for
-> > > > this
-> > > > purpose?
-> > > >=20
-> > >=20
-> > > This is a UAPI change. That is a major change. It needs to be
-> > > discussed
-> > > separately, on its own, and can not be sneaked in like this.
-> > >=20
-> >=20
-> > Agree. However, how to trigger this discussion? Can I just send a
-> > new
-> > patch separately with only this UAPI modification? This is the
-> > first time
-> > I change such common source code.
-> >=20
->=20
-> Yes. That needs to include arguments explaining why this specific new
-> flag
-> even adds value. I for my part don't immediately see that value.
+Hi Jacky,
 
-So maybe I was derailed with my WDIOF_REBOOT suggestion by the proposal
-to repurpose WDIOF_EXTERN1 to indicate a regular reboot. I still don't
-think repurposing WDIOF_EXTERN1 is the right direction. But, perhaps
-the thing to do for a regular reboot is to not set any reason flags at
-all? It just depends on whether we're wanting to separate a cold boot
-from a reboot (as they _may_ behave differently on Aspeed hardware), as
-on a cold boot we wouldn't set any reason flags either.
+On Mon, 2024-11-18 at 18:47 +0800, Jacky Chou wrote:
+> Add a dummy read to ensure triggering mdio controller before starting
+> polling the status of mdio controller.
+>=20
+> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+> ---
+> =C2=A0drivers/net/mdio/mdio-aspeed.c | 2 ++
+> =C2=A01 file changed, 2 insertions(+)
+>=20
+> diff --git a/drivers/net/mdio/mdio-aspeed.c b/drivers/net/mdio/mdio-
+> aspeed.c
+> index 4d5a115baf85..feae30bc3e78 100644
+> --- a/drivers/net/mdio/mdio-aspeed.c
+> +++ b/drivers/net/mdio/mdio-aspeed.c
+> @@ -62,6 +62,8 @@ static int aspeed_mdio_op(struct mii_bus *bus, u8
+> st, u8 op, u8 phyad, u8 regad,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0| FIELD_PREP(ASPEED_MDIO_DATA_MIIRDATA, data);
+> =C2=A0
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0iowrite32(ctrl, ctx->base=
+ + ASPEED_MDIO_CTRL);
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/* Add dummy read to ensure tr=
+iggering mdio controller */
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0(void)ioread32(ctx->base + ASP=
+EED_MDIO_CTRL);
+
+Why do this when the same register is immediately read by
+readl_poll_timeout() below?
+
+If there is a reason, I'd like some more explanation in the comment
+you've added, discussing the details of the problem it's solving when
+taking into account the readl_poll_timeout() call.
+
+> =C2=A0
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0return readl_poll_timeout=
+(ctx->base + ASPEED_MDIO_CTRL, ctrl,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0!(ctrl & ASPEED_MDIO_CTRL_FIRE=
+),
+
+Cheers,
 
 Andrew
 
