@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAFA6D4923B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 15:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9567D4923B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 15:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yM1hknJVFS7HCJh8Bw8WhrGpM3PfCvn6SKwbNFv5FAY=; b=vScfcFXI00UN2yGLa1WYUAzLls
-	UJB0I99xKGbbKdA/zR8R7E84kutvN88jiN8R4RR7hMt9Onzb1E++OLZLgCszuaoyXNRoyQwy+ym1k
-	ITxEryGWMzzETACx119Uo8TFWntRXcdFC+5F0bdhISUlhNgjY5zNuUuBmq2yO7sJdr34wUqtSj037
-	qFOiehdl4HjSPNTv35zf2nLF9vKPULr1jmZ0fUBsyzH5Y1SarqOmiR14Z2in86z/MJ5DpwMqpbTnj
-	b3dtFmfG6oBzNC5gfsEU7kXXL73ob8bZw3ZkNmWATrDKr/o4jcfEeIqcbFcTCpaLuJmebSPfS+gbI
-	SJGwLLfg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rEKo1LnFlWDTdn6dZMAURbf9LKsxfQWrYSaiKgMPlwU=; b=y2IFNXglMErrNfL9xdmX20BGvJ
+	C6Hawg/E9nqjwgU9BsT+Kpk1Q67dC/FbZ2UQK9L40UZpQ1wMM/GH5KdVsJu1wsaSS7HJmvZGTGpCc
+	rbLwUGuuUeHIcRjWWriCVad1aZpMLIQw4ORdzzCiuDThg2MQSe88UGyN+3rr4ZR42+Nm1nEOL923T
+	4bSvdNTNe81VmpdL84pwmIAvhdyWTFQAxEYvopW9SVxpMMl2uU3pgdrOi0kcpcdmyR+sfZ6UVAaxv
+	bPn3/y99rghk9EuxFVt5tvXquAjqSKhe4Sb1Yx4N7OAkPW/igOO15w7riULmxQVhC+dwEzMSPQYQr
+	Qh29Uqdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD3oR-00000009wcg-0x0h;
-	Mon, 18 Nov 2024 15:37:15 +0000
-Received: from out-187.mta1.migadu.com ([95.215.58.187])
+	id 1tD3pL-00000009woR-3RQJ;
+	Mon, 18 Nov 2024 15:38:11 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD3nV-00000009wQs-1Mf8
+	id 1tD3ny-00000009wWU-2MCp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 15:36:19 +0000
-Message-ID: <0e5f84c7-40fc-42e9-8521-f0f1e82e4d9c@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1731944171;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yM1hknJVFS7HCJh8Bw8WhrGpM3PfCvn6SKwbNFv5FAY=;
-	b=fU5Svm76Z/VZZbJo2p5VhsyP12LlV0UA1Uytbdbxy5qBssiZCK13lQN3MOK/zoFdS+uU9G
-	I3syYlgTcuRE22SKlpaP5MlmAvh7dYl2WxZtJ21mGibK/OZDMcOIbb20oLwWufXOX6lNQA
-	ue+93MK0iQfvxGMWu5tkJxE2eNsOtrE=
-Date: Mon, 18 Nov 2024 10:36:02 -0500
+	Mon, 18 Nov 2024 15:36:47 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-6d42518f493so5196316d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 07:36:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731944203; x=1732549003; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rEKo1LnFlWDTdn6dZMAURbf9LKsxfQWrYSaiKgMPlwU=;
+        b=lxF3jrVKn07RVfKfcflTHxXyhmdsArEHxEPSRFadzKDyV0gtYkD6D0oXHvoxKr9vp2
+         TFmnHnHqydfammpt2H9zTLu2OEaIkVl9wdzaXTH7qS7ZZAWM6ceyK5MhQK8lKe0BE7uw
+         +4sI2nMHBUfpi2+NFLJTJfwkh0sM4k918Nj4E18TL1+QLTlaKtmTZQkkNIkzNql/NSUO
+         hGM74KLxfSANUqLTJwsGJoq3s34Tv4oW98dk6BRWUzLincrwB3EkOnmdWR0c/9I7OCD0
+         rf/sZhUFeEKw5U2dRFMzq6SbOkyZSaugMsvIIVXdNQ7JSElnaMIGACReRBUhFusnO/MU
+         DYlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731944203; x=1732549003;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rEKo1LnFlWDTdn6dZMAURbf9LKsxfQWrYSaiKgMPlwU=;
+        b=blcNHYcor3h8NYwnRLa62CAhKb+OJaQ1wmQX9Nrs5rAtaO9X6+g7hmgSU+14WCwILG
+         aP9x4QBwKAZyny8Hl+2wZVP0XnymcgI9/fYvVy+pnUYHbcRvatAiZQKM57+B9U7ZbH4Q
+         pk3NWfE+hjxgvfanEzoWsW8OzDVMZRpbM7EaCpw8bJxhQkXpzEgWiW73HMmAzNVxdaRd
+         8FfRL/Wk72K2YucfsUITvGTLCHSgI9mVqx/bMaPpMn23ix7B/LbtBHXV4iqMh6aH6i7E
+         q/hBBI8cU4v5vQuPv4bubHYxcx7clDuAo2kCl5wB6BZIdS8CH/a0P+SPq84k75Brw8pT
+         wKtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW/o+6d96Fbouvw9sN6RWNmkyHlPhyePVrgb4ZgQ1Y4hXmT5I4JqgVx214ibH637ZR5QyoUUw6esyPPumbj2yxM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHta31Ql8CnMShQyaLUuuu0aNqWlBbuPN3ikXPI1USKtwuCCU2
+	IXGmIFdfBhWOHweb/M0lSqZn1uxtiyfVa1eHa0gB3rpaUTmRC4Ib
+X-Google-Smtp-Source: AGHT+IEcd95ubIBL37xxzdGe7timBRl38iQzblD35wsDcgC8b8s1bMJjKf/cNrXEIvob+2HTG/uadQ==
+X-Received: by 2002:a05:6214:c68:b0:6d4:10b0:c23a with SMTP id 6a1803df08f44-6d410b0c389mr93755366d6.3.1731944202927;
+        Mon, 18 Nov 2024 07:36:42 -0800 (PST)
+Received: from jesse-desktop.. (pool-108-26-179-17.bstnma.fios.verizon.net. [108.26.179.17])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d40dbffff5sm37044146d6.34.2024.11.18.07.36.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 Nov 2024 07:36:42 -0800 (PST)
+From: Jesse Taube <mr.bossman075@gmail.com>
+X-Google-Original-From: Jesse Taube <jesse@rivosinc.com>
+To: devicetree@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jesse Taube <Mr.Bossman075@gmail.com>
+Subject: [PATCH v2] ARM: dts: imxrt1050: Fix clocks for mmc
+Date: Mon, 18 Nov 2024 10:36:41 -0500
+Message-ID: <20241118153641.3775085-1-jesse@rivosinc.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next 1/2] dt-bindings: net: xlnx,axi-ethernet: Add
- bindings for AXI 2.5G MAC
-To: Suraj Gupta <suraj.gupta2@amd.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, michal.simek@amd.com, radhey.shyam.pandey@amd.com,
- horms@kernel.org
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, git@amd.com, harini.katakam@amd.com
-References: <20241118081822.19383-1-suraj.gupta2@amd.com>
- <20241118081822.19383-2-suraj.gupta2@amd.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20241118081822.19383-2-suraj.gupta2@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_073618_242057_945D9755 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20241118_073646_597735_079E0493 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,126 +99,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/18/24 03:18, Suraj Gupta wrote:
-> AXI 1G/2.5G Ethernet subsystem supports 1G and 2.5G speeds. "max-speed"
-> property is used to distinguish 1G and 2.5G MACs of AXI 1G/2.5G IP.
-> max-speed is made a required property, and it breaks DT ABI but driver
-> implementation ensures backward compatibility and assumes 1G when this
-> property is absent.
-> Modify existing bindings description for 2.5G MAC.
-> 
-> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> ---
->  .../bindings/net/xlnx,axi-ethernet.yaml       | 44 +++++++++++++++++--
->  1 file changed, 40 insertions(+), 4 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml b/Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml
-> index fb02e579463c..69e84e2e2b63 100644
-> --- a/Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml
-> +++ b/Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml
-> @@ -9,10 +9,12 @@ title: AXI 1G/2.5G Ethernet Subsystem
->  description: |
->    Also called  AXI 1G/2.5G Ethernet Subsystem, the xilinx axi ethernet IP core
->    provides connectivity to an external ethernet PHY supporting different
-> -  interfaces: MII, GMII, RGMII, SGMII, 1000BaseX. It also includes two
-> +  interfaces: MII, GMII, RGMII, SGMII, 1000BaseX and 2500BaseX. It also includes two
->    segments of memory for buffering TX and RX, as well as the capability of
->    offloading TX/RX checksum calculation off the processor.
->  
-> +  AXI 2.5G MAC is incremental speed upgrade of AXI 1G and supports 2.5G speed.
-> +
->    Management configuration is done through the AXI interface, while payload is
->    sent and received through means of an AXI DMA controller. This driver
->    includes the DMA driver code, so this driver is incompatible with AXI DMA
-> @@ -62,6 +64,7 @@ properties:
->        - rgmii
->        - sgmii
->        - 1000base-x
-> +      - 2500base-x
->  
->    xlnx,phy-type:
->      description:
-> @@ -118,9 +121,9 @@ properties:
->      type: object
->  
->    pcs-handle:
-> -    description: Phandle to the internal PCS/PMA PHY in SGMII or 1000Base-X
-> -      modes, where "pcs-handle" should be used to point to the PCS/PMA PHY,
-> -      and "phy-handle" should point to an external PHY if exists.
-> +    description: Phandle to the internal PCS/PMA PHY in SGMII or 1000base-x/
-> +      2500base-x modes, where "pcs-handle" should be used to point to the
-> +      PCS/PMA PHY, and "phy-handle" should point to an external PHY if exists.
->      maxItems: 1
->  
->    dmas:
-> @@ -137,12 +140,17 @@ properties:
->      minItems: 2
->      maxItems: 32
->  
-> +  max-speed:
-> +    description:
-> +      Indicates max MAC rate. 1G and 2.5G MACs of AXI 1G/2.5G IP are distinguished using it.
-> +
+From: Jesse Taube <Mr.Bossman075@gmail.com>
 
-Can't you read this from the TEMAC ability register?
+One of the usdhc1 controller's clocks should be IMXRT1050_CLK_AHB_PODF not
+IMXRT1050_CLK_OSC.
 
---Sean
+Fixes: 1c4f01be3490 ("ARM: dts: imx: Add i.MXRT1050-EVK support")
+Signed-off-by: Jesse Taube <Mr.Bossman075@gmail.com>
+---
+ arch/arm/boot/dts/nxp/imx/imxrt1050.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
->  required:
->    - compatible
->    - interrupts
->    - reg
->    - xlnx,rxmem
->    - phy-handle
-> +  - max-speed
->  
->  allOf:
->    - $ref: /schemas/net/ethernet-controller.yaml#
-> @@ -164,6 +172,7 @@ examples:
->          xlnx,rxmem = <0x800>;
->          xlnx,txcsum = <0x2>;
->          phy-handle = <&phy0>;
-> +        max-speed = <1000>;
->  
->          mdio {
->              #address-cells = <1>;
-> @@ -188,6 +197,7 @@ examples:
->          xlnx,txcsum = <0x2>;
->          phy-handle = <&phy1>;
->          axistream-connected = <&dma>;
-> +        max-speed = <1000>;
->  
->          mdio {
->              #address-cells = <1>;
-> @@ -198,3 +208,29 @@ examples:
->              };
->          };
->      };
-> +
-> +# AXI 2.5G MAC
-> +  - |
-> +    axi_ethernet_eth2: ethernet@a4000000 {
-> +        compatible = "xlnx,axi-ethernet-1.00.a";
-> +        interrupts = <0>;
-> +        clock-names = "s_axi_lite_clk", "axis_clk", "ref_clk", "mgt_clk";
-> +        clocks = <&axi_clk>, <&axi_clk>, <&pl_enet_ref_clk>, <&mgt_clk>;
-> +        phy-mode = "2500base-x";
-> +        reg = <0x40000000 0x40000>;
-> +        xlnx,rxcsum = <0x2>;
-> +        xlnx,rxmem = <0x800>;
-> +        xlnx,txcsum = <0x2>;
-> +        phy-handle = <&phy1>;
-> +        axistream-connected = <&dma>;
-> +        max-speed = <2500>;
-> +
-> +        mdio {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +            phy2: ethernet-phy@1 {
-> +                device_type = "ethernet-phy";
-> +                reg = <1>;
-> +            };
-> +        };
-> +    };
+diff --git a/arch/arm/boot/dts/nxp/imx/imxrt1050.dtsi b/arch/arm/boot/dts/nxp/imx/imxrt1050.dtsi
+index dd714d235d5f..b0bad0d1ba36 100644
+--- a/arch/arm/boot/dts/nxp/imx/imxrt1050.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imxrt1050.dtsi
+@@ -87,7 +87,7 @@ usdhc1: mmc@402c0000 {
+ 			reg = <0x402c0000 0x4000>;
+ 			interrupts = <110>;
+ 			clocks = <&clks IMXRT1050_CLK_IPG_PDOF>,
+-				<&clks IMXRT1050_CLK_OSC>,
++				<&clks IMXRT1050_CLK_AHB_PODF>,
+ 				<&clks IMXRT1050_CLK_USDHC1>;
+ 			clock-names = "ipg", "ahb", "per";
+ 			bus-width = <4>;
+-- 
+2.45.2
 
 
