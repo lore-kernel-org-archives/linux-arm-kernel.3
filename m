@@ -4,157 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25AC6D591AD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 19:29:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FAC4D591AE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 19:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2FolX0CGG9qcDIxHC14oupH4m4iMCogn4SBJwVAIfdU=; b=AUXhe7imGIVk1drchjATXR0iNY
-	p/xbvfrKMjwS64h+UD8SM0MrI1MrHZ4qzYfMwuAeReAzxtyXtmCPGVp2nTxYaGCmsMf+IjKU2GuY4
-	6fqKyVoqx0OrivX/URFftQSdd8iy8NO7L04Ny5AKsGWeSQO6Iamo30T01IXeIqNypQizriQP6/SfB
-	BjJZvltj1PZI1uJPaNpX/U2DagCdsuY3hxfa0EbDrHR/3QKW7FOBn9Vlw2nrclmpWpEDlz0qDGRlC
-	3m5kPPfY5bKLj2mcCDIv+cPRfc59XH/mEgBfGaRzyNQkuRq3u0m+vTuhEqEbMuQulYUKv8rlq3KBe
-	0uXhpH9Q==;
+	bh=Ch9g1xvXWHfnC8QbBYmpT0Nbkpyf73TTNFt0J/RmQMM=; b=hj3OxiEHkNdsmszkT7g+xFzXz2
+	Ta8OCto21sdzOfsGRbwKVIG/g1gwtT7Czuy6Gn9Q/LyHzBbBDOSwmp6h5NlzTA0CqlZxW4HRFx+An
+	R2oAwG14yS/s2kf2ECjK+7V+eJQhXpdl8TQCPBHJcgcOdyfPsBofaVEUJYUWNcsM+1ddPrPp5zVsb
+	PvqVxOT4AXx7axR9gsfHFEcxhQgrZu3J1wSthggxEqvtT69PQnM2Q8VU353zlH9sKXg6b49AJwhtw
+	f7yT/KjInY4L/zB/ojm/nBGMj92qHFI6Sn8e2QqMWV9N5gvu1lNlU60skJESF/l1rLdivK01/5xCR
+	tSkmo8OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD7Qm-0000000ASNY-20Ev;
-	Mon, 18 Nov 2024 19:29:04 +0000
-Received: from mail-db8eur05on20600.outbound.protection.outlook.com ([2a01:111:f403:2614::600] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tD7Sp-0000000ASj7-0xFm;
+	Mon, 18 Nov 2024 19:31:11 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD7Pr-0000000ASFS-03VX
+	id 1tD7Rs-0000000ASX5-3YRe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 19:28:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SM9MoXEia/awXMgxjAymH3HUPKL9cxpIgePuFjruf8PGd7SP9Lmvgad1PnnT29lh6WdoqgTZyStSya4QVf/HHYJBQ0DoSHyu+dD8hIDRsgs8U8MztAombG7jX7h3Mb+VTqWGOD1QR2bzQ2wjvaFrAjiKtphluEKN7FzaWOkekiy8tGmU+9hLowurt3MwfXLWBjIpeXLIQAfxF/YyI28ISPjH5I83lpZXzlPH0IvUcZF+VyrgYoguhmWIf8a/X+uyHjbVrM0Kko3r5PtsuGlD2+FgpRgMTxz2dx15aIPb8jDMQlaniIGUxcaR0iEYdZuPm2LARzHtqKa35545rDJxmQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2FolX0CGG9qcDIxHC14oupH4m4iMCogn4SBJwVAIfdU=;
- b=crns2itTPE75rJn74L1SN5dTulDkO2SeSk/IZrOBmzx5SogIK2A9rZ4Vqc7Gl5X869ed/0qdqn2YxdalupXKz6iuDElg8I5WKChRUXWaioSprskYd8wlYOPW3QQ+EVO/xDOF33zRl1b2fFubKiA04+Oxx7xlRgs1V+X5ZzqbEa5a6oWWRGTCStM/+M26mCt90feO6VVC79QVT7b1g3lmn3RTZthgL6n6KOyElefEZYkNefcq0nMJ5oYLEmidSjsVQbEtxQ80JdWVY+8E0CxnI8D3fOHlHq5DDlbp7ncafLJtKB9D3kslCqbWHqd1VpKmNvP8g5TFuXu/Fs+7VFjh5g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2FolX0CGG9qcDIxHC14oupH4m4iMCogn4SBJwVAIfdU=;
- b=F1PwLN9Lbp5Ng6pCHwdKv2LglVf/MkzcuEpe54Qj3lu996xGcwTZ47Wvtx9djx+O7RkBDgGOQpoHbH5NhIAiqtdROpEb0Q3HhnwifVINAoVS6LiOsehzlY1BfbcynNUkMp/26r49txrdTiWLA04vn+1tMOXTkXkjbId/NdbQmZbQN9gpVyYfik0xEDWyzicvfSs7Kogvh+fR50hwZsnZZrKcmjCIM71ODr4TmFS4D8tT8YrA5p+4fEpeNuGDYpTUX0y3mYjTeAewubL2L8ArFvvxaScXqBpSIVndyq9bu1pAdHjqYcDLHaDsLTdbdne/FILGGZH96ga4Dn5IRFRybQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PR3PR04MB7321.eurprd04.prod.outlook.com (2603:10a6:102:82::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.23; Mon, 18 Nov
- 2024 19:27:59 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8158.021; Mon, 18 Nov 2024
- 19:27:59 +0000
-Date: Mon, 18 Nov 2024 14:27:50 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Pengfei Li <pengfei.li_1@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de,
-	catalin.marinas@arm.com, will@kernel.org, kernel@pengutronix.de,
-	festevam@gmail.com, francesco.dolcini@toradex.com,
-	joao.goncalves@toradex.com, marex@denx.de, hvilleneuve@dimonoff.com,
-	peng.fan@nxp.com, hiago.franco@toradex.com,
-	frieder.schrempf@kontron.de, alexander.stein@ew.tq-group.com,
-	mwalle@kernel.org, m.othacehe@gmail.com,
-	Max.Merchel@ew.tq-group.com, tharvey@gateworks.com,
-	quic_bjorande@quicinc.com, geert+renesas@glider.be,
-	dmitry.baryshkov@linaro.org, konradybcio@kernel.org,
-	neil.armstrong@linaro.org, arnd@arndb.de, nfraprado@collabora.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	ping.bai@nxp.com, ye.li@nxp.com, aisheng.dong@nxp.com
-Subject: Re: [PATCH v2 1/4] dt-bindings: arm: fsl: Add i.MX91 11x11 evk board
-Message-ID: <ZzuVNnCMF/PAIwu5@lizhi-Precision-Tower-5810>
-References: <20241118051541.2621360-1-pengfei.li_1@nxp.com>
- <20241118051541.2621360-2-pengfei.li_1@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241118051541.2621360-2-pengfei.li_1@nxp.com>
-X-ClientProxiedBy: SA1PR05CA0001.namprd05.prod.outlook.com
- (2603:10b6:806:2d2::6) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 18 Nov 2024 19:30:14 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AIGLnb7011441;
+	Mon, 18 Nov 2024 19:30:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=Ch9g1xvXWHfnC8QbBYmpT0Nb
+	kpyf73TTNFt0J/RmQMM=; b=eQLxlO6hymPS3O3mNb2kcthKG2rd9unt4wgpewwm
+	Sts+wtgmsWvmn4gqRz/+DcEgyVuykl+x/lFmkDyPPZesKpO6hoDH0M5eaRH82fJ0
+	fNxKVbCntCwj7Ssn+mp732IIIctuwtqOlJQb7M88MhhkAGqvPWljNWoFPLyJMikE
+	uKdWMS8NuPiGFaZKbZ6qZsKZZaka755cp0jI4zHsGEkNDVeNQEfmoSpgAbwbD8Vb
+	OokGecy8Yiu7VUV8FMuMJtLaptZpK51uzD9oHoeBFCPl0RpNaa/NuFPtvUB4FmIv
+	SwI66cbv08iKiyXR5dODOMLdJFo/dehxc4mHOt6JzWzIvQ==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43091m8dq1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 Nov 2024 19:30:00 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AIJTxC6011016
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 Nov 2024 19:29:59 GMT
+Received: from hu-eberman-lv.qualcomm.com (10.49.16.6) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Mon, 18 Nov 2024 11:27:53 -0800
+Date: Mon, 18 Nov 2024 11:27:53 -0800
+From: Elliot Berman <quic_eberman@quicinc.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+CC: Stephen Boyd <swboyd@chromium.org>, Andy Yan <andy.yan@rock-chips.com>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Bartosz Golaszewski
+	<bartosz.golaszewski@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>,
+        Mark Rutland <mark.rutland@arm.com>, Olof Johansson <olof@lixom.net>,
+        Rob Herring <robh@kernel.org>, "Sebastian
+ Reichel" <sre@kernel.org>,
+        Vinod Koul <vkoul@kernel.org>, Will Deacon
+	<will@kernel.org>,
+        <cros-qcom-dts-watchers@chromium.org>,
+        "Satya Durga
+ Srinivasu Prabhala" <quic_satyap@quicinc.com>,
+        Melody Olvera
+	<quic_molvera@quicinc.com>,
+        Shivendra Pratap <quic_spratap@quicinc.com>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Florian Fainelli
+	<florian.fainelli@broadcom.com>,
+        <linux-pm@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>
+Subject: Re: [PATCH v6 3/5] firmware: psci: Read and use vendor reset types
+Message-ID: <20241118104725157-0800.eberman@hu-eberman-lv.qualcomm.com>
+References: <20241018-arm-psci-system_reset2-vendor-reboots-v6-0-50cbe88b0a24@quicinc.com>
+ <20241018-arm-psci-system_reset2-vendor-reboots-v6-3-50cbe88b0a24@quicinc.com>
+ <CAE-0n515sUkmTWptgY8pOaMDBPfDp5pZBy9Nby+4cMdMAnAZfA@mail.gmail.com>
+ <20241023092251529-0700.eberman@hu-eberman-lv.qualcomm.com>
+ <ZzdOOP0KuMMdo64W@lpieralisi>
+ <20241115101401666-0800.eberman@hu-eberman-lv.qualcomm.com>
+ <ZztZq1ksXCkyLOvj@lpieralisi>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PR3PR04MB7321:EE_
-X-MS-Office365-Filtering-Correlation-Id: 44f870f0-a2f1-49ed-651d-08dd08071c83
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/8cp12z7Hpu+em7KCWYHk2EVYG8BB1UrDyhK4SZjZnFjGJPlaYSZ2IqRcJRK?=
- =?us-ascii?Q?Y5tUpruM96INdIZprUM04nhko5QVEpH2IOe81JJuc0Zu7nnjv4IlYTVG1TyU?=
- =?us-ascii?Q?0t52wPdz7prTHpw1zyfjbOohdK7ryYlScmOPZE5Jp1KGMR589+d6ldw+0eal?=
- =?us-ascii?Q?+6iedNkdFkT+XUPZ8zF9peotyF9fITowQEqhK/HX7vfw0T0fxQ6Bch6cn4MT?=
- =?us-ascii?Q?+ff2bzYWNQ8LzXym2r3d1agX9lZr3g0Ty3Pgd7X7qXNyWKl8eBYoA4NBQnkQ?=
- =?us-ascii?Q?SP/1uUhIKyO2Fe2RtnE2/qsyb/P/Nj32rxBXiav1QbTUOJevmb3K02MIsuEB?=
- =?us-ascii?Q?Lmheiu7D1mss9xrtiBpnUa4Mg2rUd1SMPiBdRwddRLYBBVU2GDylRRIlgaH9?=
- =?us-ascii?Q?IISQON8sAWMfa/uNyx60zb6bftagczpOQuEdLi41Um6GW5ftf76gr4jBGILn?=
- =?us-ascii?Q?iZrJzt+Swohfdc0i5vIjoELCBQMupsFT6SU0pXFCiT/JGkdtp/3q4wLy7wYq?=
- =?us-ascii?Q?TSee0idKg/7EY+/C9bi4zCf3aomNwakum0U17m0+wPX0YVs7ktf6X3AxyFe8?=
- =?us-ascii?Q?ioVUYy5kOy4+HNEY6Qu4JMxYC1wZrwjMvv8DXidmPWKJhflUm2/ilFIaAzII?=
- =?us-ascii?Q?HR6cEwa4LVbXYMbs5NyswVzvWFnRbpczrJn+8VBYOjBN+hWJNVXm/I8yQKzX?=
- =?us-ascii?Q?2Sg55zAbLGptv8Uln3xzTsT08Xo1LKBY+4eI3gB7Oi9ppV3nONojtvl0EL93?=
- =?us-ascii?Q?LMBLUfFbts0olY7u68/Q2nyWQavTn+yfN3tfoAUW7fH8r7UeGBtqTqSBFBhP?=
- =?us-ascii?Q?fnTpsoDXwo/+AJKBd/s9c86k9XSmJriMJmVwGaK6cBhI66Wa91YFSpM2r6fT?=
- =?us-ascii?Q?A6z695VKOpB42fGBCkSDIpHJxW7Q4WsyP2CUb2Jwk9DGALNv8chHRZAxxeH5?=
- =?us-ascii?Q?T72jmbqB236O9HetRFgxt9FwHXJnTkNiY/QWBtfRvlBW+5TJ25aYxMD/WUPX?=
- =?us-ascii?Q?SrkNOhauN3t/dNWE4IgTukzJFPlCmCZU8KE8tR3gxPFzzCSq13vQwPBcYB+N?=
- =?us-ascii?Q?rlue5R7ZNEJEjki5Kj4XHpIhL7IvaoVYd0+t0athfIguenfDd4aVy92UQj0x?=
- =?us-ascii?Q?RSD8oCR6Mv18aU1Y8maf5NgkPdvztaGTvCitf2fcyVHTNEsDj2wn5ZohmvE8?=
- =?us-ascii?Q?dKDw8Rs2eQ3pIoMG0Bx+SVBOoZV7YM85nPg2ZdVUMwjCLYI7uuglkXfoVAI1?=
- =?us-ascii?Q?9L5yailFR1QPWf7Jbah12CIqjxKfWayogMJ3y4HAREl+KWVvPwQXSP67l/6D?=
- =?us-ascii?Q?AIDWHHjjKPXpIsdJtDazC34Y1w5u1cFj5rmAnANcdds0imidezXYxE/ogJx+?=
- =?us-ascii?Q?Roswd7g=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qzwAzSXSB0iyeZk/DaqPk1GasMeWc0Zgwzw4Vgfj17hU0GfOlcfVU7iLFwp5?=
- =?us-ascii?Q?3mLmc+jWUr++Se6/th7PvI8Hd8X+3XoIvphspacyzJGGKdWRkPCoI5tUm53D?=
- =?us-ascii?Q?5S6JiY63ZYYu8k/JaikcFtnad/gY5w+Op580o1qE+8HwA+1TJCc7ZqDylny3?=
- =?us-ascii?Q?Sv2t8YFVHsiwV1628elFGMtjhUUDIMt9QTy+/LOpIwH41qoBKSwCC2P6mhJo?=
- =?us-ascii?Q?K5I+G/i8xko5VyDltLe2O/ss3kIsz1Py76SCuwmIpzW4h0PGVf/ua1w+0QjH?=
- =?us-ascii?Q?hxb4wLYTTM40fOjBiqNcWSX5H7TjO5S6p8vPtmJTUjTK59Bx0ZtpibVfdwxm?=
- =?us-ascii?Q?ynyhoGbQLCUzGbrs4CoUFCuYXTmPWp2VVda0Nu35n4pxQgjq1JEF6b8aUVIW?=
- =?us-ascii?Q?mT1HrS24VBXAUyJ0u8KCUcuK97TD8nASg7xhALiQjsVDQK9viFW6K70HUjkv?=
- =?us-ascii?Q?TzI9jie8zLBGJFlYIbzq6NTZsdKdWxXzXl3Vqw1cKOCKtvhq260klvBZJvl4?=
- =?us-ascii?Q?yCI29NYIb0OzDBVfuRWXFh7of+EIMorZkxRYp/BHptixzH4fVyb9LmJ+413w?=
- =?us-ascii?Q?W++Tw/xxh0dboVdwPk5dzjljmJ3ExavZv2e1I563R2mPDUlpp5uIQe25Vyl+?=
- =?us-ascii?Q?Qe2ow3touSL6kOpqErcQTl4VH5jHAX9/oZfhFi/hr6NK+g6eLFQGPx+SvI1/?=
- =?us-ascii?Q?GJurmivUZ375St+bUSd8mFV133c41nhR/P7RhL5UtkCbcI/FI8PkNaYSEYIK?=
- =?us-ascii?Q?7KxevuAW0rT1sCM5rgqgcuwBkXzrKx5t5gkdYtaENprHXr2DXoT9uVQn6eny?=
- =?us-ascii?Q?7o76oENQ4oUjJkKEUSpA9ENyDprVs1olsib8AJ+Ps2u+92RVrSEGDXTxfiIi?=
- =?us-ascii?Q?k9TwJlPrRe7gs7fT2TfkoLn/W+H7xjjjGGBpqzKEej6b5tIAc3nhVp0ukBUM?=
- =?us-ascii?Q?X4YNAy5uT9YnjiOhyQz4p3ZHvD040QqTjJcTltWD1gIu9oeQq0pJRkrOxnlN?=
- =?us-ascii?Q?AthIZ7wGeo7FvsGVLUjFuQnFs3dJM2aiEA62jy2Xgal3iosM0eltpGauhN2d?=
- =?us-ascii?Q?SXSX1gUgtpslHuBc/rCrF80A6i993vxnPHTaxk4byaYJK9r2q5L3Vaie6qV6?=
- =?us-ascii?Q?imrVZdOATYJSuy2SKUvdr5r7T8kJtccnYcu9jY8aoMzxybBJaqlbZO/QzXM4?=
- =?us-ascii?Q?G1Oac1DZ6GNauaEP3ee3WtGj5MJHxJuS/V+gvNP3QrVmR6Dq2gqnCF/IjSgk?=
- =?us-ascii?Q?ICJU2GvtqoZxDE1wy0BSm+udQoeXAM6JmdHQabJtV/pHa7PXWcrORYNbuIPY?=
- =?us-ascii?Q?z+xcMwzJH+n1bbPk5SD9q0vIZGubSuq1i/65McquD8XroA0dzZi6D0KYpJ8r?=
- =?us-ascii?Q?IG8BRmnuQmiCsmKSTLRLNNt3/8KiD+/3oO0OUVm1isTH7olhWAw+1UV2NVbl?=
- =?us-ascii?Q?psZvt2kI2FGqnvQAmNKEMlP+t23LNLdf5bXH+XDrmX8UEPhh8cM75O8yIfn1?=
- =?us-ascii?Q?fG9brWqtYeWlFJ12nQekNjblsbVER4vJhzb+a0husasZCJMpfRlJVtligulM?=
- =?us-ascii?Q?4tRj0a7OkfomzTvJjck=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44f870f0-a2f1-49ed-651d-08dd08071c83
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2024 19:27:59.3949
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OOLaa8MzXDHu8ZKIZYf8oP/h12/rIR4QK7HRlMY/A1fcKVBSZ5xbETx6QuoLkhmeBWFF3JH988Tt/KmZ+ALAqg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7321
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <ZztZq1ksXCkyLOvj@lpieralisi>
+X-Originating-IP: [10.49.16.6]
+X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: XItZRysGkyZ-UJyI7NkUjXCXCsSwFEnA
+X-Proofpoint-GUID: XItZRysGkyZ-UJyI7NkUjXCXCsSwFEnA
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
+ impostorscore=0 spamscore=0 priorityscore=1501 phishscore=0 malwarescore=0
+ clxscore=1015 bulkscore=0 mlxlogscore=999 lowpriorityscore=0 adultscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411180160
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_112807_053158_4BE0E14B 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20241118_113013_010218_286E5853 
+X-CRM114-Status: GOOD (  59.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,34 +128,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 18, 2024 at 01:15:38PM +0800, Pengfei Li wrote:
-> Add the board imx91-11x11-evk in the binding docuemnt.
->
-> Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
+On Mon, Nov 18, 2024 at 04:13:47PM +0100, Lorenzo Pieralisi wrote:
+> On Fri, Nov 15, 2024 at 11:08:22AM -0800, Elliot Berman wrote:
+> > On Fri, Nov 15, 2024 at 02:35:52PM +0100, Lorenzo Pieralisi wrote:
+> > > On Wed, Oct 23, 2024 at 09:30:21AM -0700, Elliot Berman wrote:
+> > > > On Fri, Oct 18, 2024 at 10:42:46PM -0700, Stephen Boyd wrote:
+> > > > > Quoting Elliot Berman (2024-10-18 12:39:48)
+> > > > > > diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+> > > > > > index 2328ca58bba6..60bc285622ce 100644
+> > > > > > --- a/drivers/firmware/psci/psci.c
+> > > > > > +++ b/drivers/firmware/psci/psci.c
+> > > > > > @@ -29,6 +29,8 @@
+> > > > > >  #include <asm/smp_plat.h>
+> > > > > >  #include <asm/suspend.h>
+> > > > > >
+> > > > > > +#define REBOOT_PREFIX "mode-"
+> > > > > 
+> > > > > Maybe move this near the function that uses it.
+> > > > > 
+> > > > > > +
+> > > > > >  /*
+> > > > > >   * While a 64-bit OS can make calls with SMC32 calling conventions, for some
+> > > > > >   * calls it is necessary to use SMC64 to pass or return 64-bit values.
+> > > > > > @@ -305,9 +315,29 @@ static int get_set_conduit_method(const struct device_node *np)
+> > > > > >         return 0;
+> > > > > >  }
+> > > > > >
+> > > > > > +static void psci_vendor_sys_reset2(unsigned long action, void *data)
+> > > > > > +{
+> > > > > > +       const char *cmd = data;
+> > > > > > +       unsigned long ret;
+> > > > > > +       size_t i;
+> > > > > > +
+> > > > > > +       for (i = 0; i < num_psci_reset_params; i++) {
+> > > > > > +               if (!strcmp(psci_reset_params[i].mode, cmd)) {
+> > > > > > +                       ret = invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
+> > > > > > +                                            psci_reset_params[i].reset_type,
+> > > > > > +                                            psci_reset_params[i].cookie, 0);
+> > > > > > +                       pr_err("failed to perform reset \"%s\": %ld\n",
+> > > > > > +                               cmd, (long)ret);
+> > > > > 
+> > > > > Do this intentionally return? Should it be some other function that's
+> > > > > __noreturn instead and a while (1) if the firmware returns back to the
+> > > > > kernel?
+> > > > > 
+> > > > 
+> > > > Yes, I think it's best to make sure we fall back to the architectural
+> > > > reset (whether it's the SYSTEM_RESET or architectural SYSTEM_RESET2)
+> > > > since device would reboot then.
+> > > 
+> > > Well, that's one of the doubts I have about enabling this code. From
+> > > userspace we are requesting a reboot (I don't even think that user
+> > > space knows which reboot modes are actually implemented (?)) and we may
+> > > end up issuing one with completely different semantics ?
+> > 
+> > You're right here, userspace issue a "reboot bootloader" and if kernel
+> > doesn't have the support to set up the right cookie, the device would do
+> > a normal reboot and not stop at the bootloader. This problem exists
+> > today and I think whether this is an issue to solve is out of scope here.
+> 
+> That's true. It is the same issue we have with reboot_mode anyway.
+> 
+> Is it a fair statement to say that currently when we request a reboot,
+> the reboot mode is the one set through /sys/kernel/reboot/mode ?
+> 
+> Does user space use that file today ?
+> 
+> I guess userspace does not take specific actions according to the
+> reset it thinks it issues - it is a question.
+> 
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-> index 6e0dcf4307f1..5951317ce900 100644
-> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
-> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-> @@ -1332,6 +1332,12 @@ properties:
->                - fsl,imx8ulp-evk           # i.MX8ULP EVK Board
->            - const: fsl,imx8ulp
->
-> +      - description: i.MX91 based Boards
-> +        items:
-> +          - enum:
-> +              - fsl,imx91-11x11-evk       # i.MX91 11x11 EVK Board
-> +          - const: fsl,imx91
-> +
->        - description: i.MX93 based Boards
->          items:
->            - enum:
-> --
-> 2.34.1
->
+Yes, user space can write to that file. User space has to configure both
+the mode and command to get the desired reboot configuration. I view the
+vendor reset types as replacing "both", in the sense userspace may not
+need to configure the reboot mode anymore. If "reboot bootloader" or
+"reboot edl" requires a warm reset, the firmware knows that's how the
+PMIC needs to be configured. I don't currently see any need for Linux to
+be aware that a particular vendor reset type is "like a soft" or "like a
+warm" or "like a cold" reset.
+
+> > > Are these "reset types" exported to user space ?
+> > > 
+> > 
+> > No mechanism exists to do that. We could do something specific for PSCI
+> > or do something generic for everybody. I don't think something specific
+> > for PSCI is the right approach because it's a general problem. I don't
+> > think there's enough interest to change reboot command plumbing to
+> > advertise valid reset types to userspace.
+> 
+> That's for sure. I suppose the most important bit is making sure that
+> all resets comply with the kernel semantics expected from a *reset*;
+> I appreciate that's a vague statement (and I have no idea how to enforce
+> it) but that's the gist of this discussion.
+> 
+> Another thing I am worried about is device drivers restart handlers
+> (ie having to parse a command that might be platform specific in a
+> generic driver to grok what reset was actually issued and what action
+> should be taken).
+
+Right, I got your point! I haven't seen any drivers that care about it,
+besides the ones that actually do the resetting.
+
+I'm okay to say that all vendor SYSTEM_RESET2 need to be treated like a
+REBOOT_COLD, but we might run into issue in future where we might want
+some vendor SYSTEM_RESET2 to act be closer to some other mode. I suppose
+then a device-specific driver is needed there.
+
+In the hypothetical situation where we need reboot_mode to be a specific
+value for a vendor SYSTEM_RESET2, I like my current approach.  Userspace
+already needs to align the mode and command without the kernel enforcing
+it, so it's possible we could still use the generic PSCI driver without
+needing to write a device-specific driver to issue the vendor
+SYSTEM_RESET2. If we hard-code that vendor SYSTEM_RESET2 must be like a
+cold reset, then we definitely need a device-specific driver if we'd
+rather it be like a warm or soft mode.
+
+> I admit it is a tough nut to crack this one - apologies for the time
+> it is taking to reach an agreement.
+> 
+
+This is a weird one :) It seems simple at first but it flexes the design
+of reboot mode and command. I appreciate the time you've taken to look
+at this!
+
+- Elliot
 
