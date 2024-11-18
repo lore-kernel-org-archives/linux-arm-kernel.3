@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDC6D49206
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 09:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B653D49206
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 10:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uEgTaSrjRJrt/6lHl8mmgAg+AgrfuXIwXwwlw8xETQg=; b=F4y4TTZ16qk1Jtb/eG2GuzX7/Q
-	BZYfm0X/asVCVZyW6yUVU56YfXDhCCcon0bINOSLvD18NXGgxzp79jinkcAcgU7NdOKIukdndKSki
-	jdcrSCSU6rdB1FvpTM9lz6UTn0zXILhFqBnqVuFVPD7C2W96z0ik4OC5X32mhVjlJRK1VeYnw2jlU
-	SXY7e4ibkndWM/wXWq0IAlQ16hfm0umBtTl92Bmyftz6U9UQRmF+HsSvf7E231vyZnTv6tkI1ur6A
-	RnM50PYpt/XmLd+m3Jlm3udFkez8lRmoRgdxoZu5ZQkqte4j0Fd+0s5sFn3Ni94ABP20ncgPt1fdl
-	W+TbwrdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MZ2uPcMwugiZJT4SwPgnJiQdeoEx/ijyjEhzPQFF+h8=; b=yijUsaAjoSUeX7OwBY6lqnLSQi
+	1KVyiD/wOqi3jct9YR4Q1nFuyJW9SBcQEEeXTst9jxR4xIeXrF8JTIzdABN3DLP7wlTFiaZK0VRBf
+	8KWQiAiYQaB9FcYFdp0NlMxRHTV54+SSzFkfgLuNHU4IIi+Z8bhv+7L60ec9Lt9tWaEdi5IZ1w+tS
+	H1T0j21rodJlxAavx07aDnaJs3VsT8HzQNkRnNMm1AK72o4lQB8l/edgvgdx5ptWt7Axhy1c/mC41
+	1n7gV7WglUCThAmAnIlO1POxVtmQMoW0Wfk4SUwKg49Ijz6RWXKX7Mb2Axa+VVTQzTmPuGfmWFTnS
+	Kz4ZBdHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCyVS-00000008yys-3zTe;
-	Mon, 18 Nov 2024 09:57:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCyUR-00000008yp6-0e3d
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 09:56:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 754611682;
-	Mon, 18 Nov 2024 01:56:42 -0800 (PST)
-Received: from [10.57.67.249] (unknown [10.57.67.249])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0769D3F5A1;
-	Mon, 18 Nov 2024 01:56:09 -0800 (PST)
-Message-ID: <94096b6e-1a4c-4fc4-8294-316b38b35e99@arm.com>
-Date: Mon, 18 Nov 2024 09:56:09 +0000
+	id 1tCyY7-00000008zKv-2p9G;
+	Mon, 18 Nov 2024 10:00:03 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tCyX7-00000008zBP-2LBD;
+	Mon, 18 Nov 2024 09:59:06 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 31B645B3;
+	Mon, 18 Nov 2024 10:58:43 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1731923923;
+	bh=qN1yEu+NGkQCj48gFcQZwFz/XJ1FgWBwwPxbDANCw9w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pe+JC0uwHPx+KOIPFxnimZbp3cuJ5ps5rS7lyqpoJtge1Iqdqikxwb+BSL28geDV+
+	 IaKD8BXbVEoGzjYZ+p2+/8KNA4EziQkPFZuU+fx8vLVpU8J+6LLtZlRGQ2w444o2vV
+	 hH0A5MAAgtUWa4DitvxCT3NmVJhbzlfOJwCxgFzI=
+Date: Mon, 18 Nov 2024 11:58:50 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: CK Hu =?utf-8?B?KOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+Cc: "sumit.semwal@linaro.org" <sumit.semwal@linaro.org>,
+	"christian.koenig@amd.com" <christian.koenig@amd.com>,
+	"mchehab@kernel.org" <mchehab@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Shu-hsiang Yang =?utf-8?B?KOaliuiIkue/lCk=?= <Shu-hsiang.Yang@mediatek.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"yunkec@chromium.org" <yunkec@chromium.org>,
+	"linaro-mm-sig@lists.linaro.org" <linaro-mm-sig@lists.linaro.org>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	Yaya Chang =?utf-8?B?KOW8tembhea4hSk=?= <Yaya.Chang@mediatek.com>,
+	Project_Global_Chrome_Upstream_Group <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	Teddy Chen =?utf-8?B?KOmZs+S5vuWFgyk=?= <Teddy.Chen@mediatek.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"hidenorik@chromium.org" <hidenorik@chromium.org>,
+	Shun-Yi Wang =?utf-8?B?KOeOi+mghuWEhCk=?= <Shun-Yi.Wang@mediatek.com>
+Subject: Re: [PATCH v1 10/10] uapi: linux: add mediatek isp_7x camsys user api
+Message-ID: <20241118095850.GA30268@pendragon.ideasonboard.com>
+References: <20241009111551.27052-1-Shu-hsiang.Yang@mediatek.com>
+ <20241009111551.27052-11-Shu-hsiang.Yang@mediatek.com>
+ <ff96b314cdd3d52a14a5e91f79ec3097d04c4380.camel@mediatek.com>
+ <20241106130437.GA16791@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/4] coresight: Add support for trace filtering by
- source
-Content-Language: en-GB
-To: Tao Zhang <quic_taozha@quicinc.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>,
- Leo Yan <leo.yan@linux.dev>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-msm@vger.kernel.org
-References: <20241030093255.26915-1-quic_taozha@quicinc.com>
- <20241030093255.26915-4-quic_taozha@quicinc.com>
- <c39a844e-d0a8-46ac-ab52-530dae741751@arm.com>
- <6bbdd8dd-a5ab-4b51-8152-595331cdd58b@quicinc.com>
- <f2221c21-b891-413f-8adb-e76921da1fb1@arm.com>
- <939c3461-c092-4901-ac06-2173547858ad@quicinc.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <939c3461-c092-4901-ac06-2173547858ad@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241106130437.GA16791@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_015615_287229_B595EB24 
-X-CRM114-Status: GOOD (  23.99  )
+X-CRM114-CacheID: sfid-20241118_015901_736843_B0CD74F7 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,435 +89,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/11/2024 09:28, Tao Zhang wrote:
+On Wed, Nov 06, 2024 at 03:04:37PM +0200, Laurent Pinchart wrote:
+> On Mon, Oct 14, 2024 at 05:56:40AM +0000, CK Hu (胡俊光) wrote:
+> > Hi, Shu-hsiang:
+> > 
+> > On Wed, 2024-10-09 at 19:15 +0800, Shu-hsiang Yang wrote:
+> > > Add UAPI for MediaTek ISP platform, providing user-space
+> > > interfaces for the new camsys driver.
+> > > 
+> > > Signed-off-by: Shu-hsiang Yang <Shu-hsiang.Yang@mediatek.com>
+> > > ---
+> > 
+> > [snip]
+> > 
+> > > +
+> > > +/* MTK ISP camsys controls */
+> > > +#define V4L2_CID_MTK_CAM_USED_ENGINE_LIMIT	(V4L2_CID_USER_MTK_CAM_BASE + 1)
+> > > +#define V4L2_CID_MTK_CAM_BIN_LIMIT		(V4L2_CID_USER_MTK_CAM_BASE + 2)
+> > > +#define V4L2_CID_MTK_CAM_FRZ_LIMIT		(V4L2_CID_USER_MTK_CAM_BASE + 3)
+> > > +#define V4L2_CID_MTK_CAM_RESOURCE_PLAN_POLICY	(V4L2_CID_USER_MTK_CAM_BASE + 4)
+> > > +#define V4L2_CID_MTK_CAM_USED_ENGINE		(V4L2_CID_USER_MTK_CAM_BASE + 5)
+> > > +#define V4L2_CID_MTK_CAM_BIN			(V4L2_CID_USER_MTK_CAM_BASE + 6)
+> > > +#define V4L2_CID_MTK_CAM_FRZ			(V4L2_CID_USER_MTK_CAM_BASE + 7)
+> > > +#define V4L2_CID_MTK_CAM_USED_ENGINE_TRY	(V4L2_CID_USER_MTK_CAM_BASE + 8)
+> > > +#define V4L2_CID_MTK_CAM_BIN_TRY		(V4L2_CID_USER_MTK_CAM_BASE + 9)
+> > > +#define V4L2_CID_MTK_CAM_FRZ_TRY		(V4L2_CID_USER_MTK_CAM_BASE + 10)
+> > > +#define V4L2_CID_MTK_CAM_PIXEL_RATE		(V4L2_CID_USER_MTK_CAM_BASE + 11)
+> > > +#define V4L2_CID_MTK_CAM_FEATURE		(V4L2_CID_USER_MTK_CAM_BASE + 12)
+> > > +#define V4L2_CID_MTK_CAM_SYNC_ID		(V4L2_CID_USER_MTK_CAM_BASE + 13)
+> > > +#define V4L2_CID_MTK_CAM_RAW_PATH_SELECT	(V4L2_CID_USER_MTK_CAM_BASE + 14)
+> > > +#define V4L2_CID_MTK_CAM_HSF_EN			(V4L2_CID_USER_MTK_CAM_BASE + 15)
+> > > +#define V4L2_CID_MTK_CAM_PDE_INFO		(V4L2_CID_USER_MTK_CAM_BASE + 16)
+> > > +#define V4L2_CID_MTK_CAM_MSTREAM_EXPOSURE	(V4L2_CID_USER_MTK_CAM_BASE + 17)
+> > > +#define V4L2_CID_MTK_CAM_RAW_RESOURCE_CALC	(V4L2_CID_USER_MTK_CAM_BASE + 18)
+> > > +#define V4L2_CID_MTK_CAM_TG_FLASH_CFG		(V4L2_CID_USER_MTK_CAM_BASE + 19)
+> > > +#define V4L2_CID_MTK_CAM_RAW_RESOURCE_UPDATE	(V4L2_CID_USER_MTK_CAM_BASE + 20)
+> > > +#define V4L2_CID_MTK_CAM_CAMSYS_HW_MODE		(V4L2_CID_USER_MTK_CAM_BASE + 21)
+> > > +
+> > 
+> > Please give introduction of how to use these user space interface.
 > 
-> On 11/15/2024 5:40 PM, Suzuki K Poulose wrote:
->> On 15/11/2024 09:18, Tao Zhang wrote:
->>>
->>> On 11/13/2024 9:39 PM, Suzuki K Poulose wrote:
->>>> On 30/10/2024 09:32, Tao Zhang wrote:
->>>>> Some replicators have hard coded filtering of "trace" data, based 
->>>>> on the
->>>>> source device. This is different from the trace filtering based on
->>>>> TraceID, available in the standard programmable replicators. e.g.,
->>>>> Qualcomm replicators have filtering based on custom trace protocol
->>>>> format and is not programmable.
->>>>>
->>>>> The source device could be connected to the replicator via 
->>>>> intermediate
->>>>> components (e.g., a funnel). Thus we need platform information from
->>>>> the firmware tables to decide the source device corresponding to a
->>>>> given output port from the replicator. Given this affects "trace
->>>>> path building" and traversing the path back from the sink to source,
->>>>> add the concept of "filtering by source" to the generic coresight
->>>>> connection.
->>>>>
->>>>> The specified source will be marked like below in the Devicetree.
->>>>> test-replicator {
->>>>>      ... ... ... ...
->>>>>      out-ports {
->>>>>          ... ... ... ...
->>>>>          port@0 {
->>>>>              reg = <0>;
->>>>>              xyz: endpoint {
->>>>>                  remote-endpoint = <&zyx>;
->>>>>                  filter-source = <&source_1>; <-- To specify the 
->>>>> source to
->>>>>              };                           be filtered out here.
->>>>>          };
->>>>>
->>>>>          port@1 {
->>>>>              reg = <1>;
->>>>>              abc: endpoint {
->>>>>                  remote-endpoint = <&cba>;
->>>>>                  filter-source = <&source_2>; <-- To specify the 
->>>>> source to
->>>>>              };                           be filtered out here.
->>>>>          };
->>>>>      };
->>>>> };
->>>>>
->>>>> Signed-off-by: Tao Zhang <quic_taozha@quicinc.com>
->>>>> ---
->>>>>   drivers/hwtracing/coresight/coresight-core.c  | 113 +++++++++++++ 
->>>>> ++---
->>>>>   .../hwtracing/coresight/coresight-platform.c  |  18 +++
->>>>>   include/linux/coresight.h                     |   5 +
->>>>>   3 files changed, 117 insertions(+), 19 deletions(-)
->>>>>
->>>>> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/ 
->>>>> drivers/hwtracing/coresight/coresight-core.c
->>>>> index ea38ecf26fcb..0a9380350fb5 100644
->>>>> --- a/drivers/hwtracing/coresight/coresight-core.c
->>>>> +++ b/drivers/hwtracing/coresight/coresight-core.c
->>>>> @@ -75,22 +75,54 @@ struct coresight_device 
->>>>> *coresight_get_percpu_sink(int cpu)
->>>>>   }
->>>>>   EXPORT_SYMBOL_GPL(coresight_get_percpu_sink);
->>>>>   +static struct coresight_device *coresight_get_source(struct 
->>>>> list_head *path)
->>>>> +{
->>>>> +    struct coresight_device *csdev;
->>>>> +
->>>>> +    if (!path)
->>>>> +        return NULL;
->>>>> +
->>>>> +    csdev = list_first_entry(path, struct coresight_node, link)- 
->>>>> >csdev;
->>>>> +    if (!coresight_is_device_source(csdev))
->>>>> +        return NULL;
->>>>> +
->>>>> +    return csdev;
->>>>> +}
->>>>> +
->>>>> +/**
->>>>> + * coresight_blocks_source - checks whether the connection matches 
->>>>> the source
->>>>> + * of path if connection is bound to specific source.
->>>>> + * @src:    The source device of the trace path
->>>>> + * @conn:    The connection of one outport
->>>>> + *
->>>>> + * Return false if the connection doesn't have a source binded or 
->>>>> source of the
->>>>> + * path matches the source binds to connection.
->>>>> + */
->>>>> +static bool coresight_blocks_source(struct coresight_device *src,
->>>>> +                    struct coresight_connection *conn)
->>>>> +{
->>>>> +    return conn->filter_src_fwnode && (conn->filter_src_dev != src);
->>>>> +}
->>>>> +
->>>>>   static struct coresight_connection *
->>>>> -coresight_find_out_connection(struct coresight_device *src_dev,
->>>>> -                  struct coresight_device *dest_dev)
->>>>> +coresight_find_out_connection(struct coresight_device *csdev,
->>>>> +                  struct coresight_device *out_dev,
->>>>> +                  struct coresight_device *trace_src)
->>>>>   {
->>>>>       int i;
->>>>>       struct coresight_connection *conn;
->>>>>   -    for (i = 0; i < src_dev->pdata->nr_outconns; i++) {
->>>>> -        conn = src_dev->pdata->out_conns[i];
->>>>> -        if (conn->dest_dev == dest_dev)
->>>>> +    for (i = 0; i < csdev->pdata->nr_outconns; i++) {
->>>>> +        conn = csdev->pdata->out_conns[i];
->>>>> +        if (coresight_blocks_source(trace_src, conn))
->>>>> +            continue;
->>>>> +        if (conn->dest_dev == out_dev)
->>>>>               return conn;
->>>>>       }
->>>>>   -    dev_err(&src_dev->dev,
->>>>> -        "couldn't find output connection, src_dev: %s, dest_dev: 
->>>>> %s\n",
->>>>> -        dev_name(&src_dev->dev), dev_name(&dest_dev->dev));
->>>>> +    dev_err(&csdev->dev,
->>>>> +        "couldn't find output connection, csdev: %s, out_dev: %s\n",
->>>>> +        dev_name(&csdev->dev), dev_name(&out_dev->dev));
->>>>>         return ERR_PTR(-ENODEV);
->>>>>   }
->>>>> @@ -251,7 +283,8 @@ static void coresight_disable_sink(struct 
->>>>> coresight_device *csdev)
->>>>>     static int coresight_enable_link(struct coresight_device *csdev,
->>>>>                    struct coresight_device *parent,
->>>>> -                 struct coresight_device *child)
->>>>> +                 struct coresight_device *child,
->>>>> +                 struct coresight_device *source)
->>>>>   {
->>>>>       int link_subtype;
->>>>>       struct coresight_connection *inconn, *outconn;
->>>>> @@ -259,8 +292,8 @@ static int coresight_enable_link(struct 
->>>>> coresight_device *csdev,
->>>>>       if (!parent || !child)
->>>>>           return -EINVAL;
->>>>>   -    inconn = coresight_find_out_connection(parent, csdev);
->>>>> -    outconn = coresight_find_out_connection(csdev, child);
->>>>> +    inconn = coresight_find_out_connection(parent, csdev, source);
->>>>> +    outconn = coresight_find_out_connection(csdev, child, source);
->>>>>       link_subtype = csdev->subtype.link_subtype;
->>>>>         if (link_subtype == CORESIGHT_DEV_SUBTYPE_LINK_MERG && 
->>>>> IS_ERR(inconn))
->>>>> @@ -273,15 +306,16 @@ static int coresight_enable_link(struct 
->>>>> coresight_device *csdev,
->>>>>     static void coresight_disable_link(struct coresight_device *csdev,
->>>>>                      struct coresight_device *parent,
->>>>> -                   struct coresight_device *child)
->>>>> +                   struct coresight_device *child,
->>>>> +                   struct coresight_device *source)
->>>>>   {
->>>>>       struct coresight_connection *inconn, *outconn;
->>>>>         if (!parent || !child)
->>>>>           return;
->>>>>   -    inconn = coresight_find_out_connection(parent, csdev);
->>>>> -    outconn = coresight_find_out_connection(csdev, child);
->>>>> +    inconn = coresight_find_out_connection(parent, csdev, source);
->>>>> +    outconn = coresight_find_out_connection(csdev, child, source);
->>>>>         link_ops(csdev)->disable(csdev, inconn, outconn);
->>>>>   }
->>>>> @@ -375,7 +409,8 @@ static void coresight_disable_path_from(struct 
->>>>> list_head *path,
->>>>>           case CORESIGHT_DEV_TYPE_LINK:
->>>>>               parent = list_prev_entry(nd, link)->csdev;
->>>>>               child = list_next_entry(nd, link)->csdev;
->>>>> -            coresight_disable_link(csdev, parent, child);
->>>>> +            coresight_disable_link(csdev, parent, child,
->>>>> +                           coresight_get_source(path));
->>>>>               break;
->>>>>           default:
->>>>>               break;
->>>>> @@ -418,7 +453,9 @@ int coresight_enable_path(struct list_head 
->>>>> *path, enum cs_mode mode,
->>>>>       u32 type;
->>>>>       struct coresight_node *nd;
->>>>>       struct coresight_device *csdev, *parent, *child;
->>>>> +    struct coresight_device *source;
->>>>>   +    source = coresight_get_source(path);
->>>>>       list_for_each_entry_reverse(nd, path, link) {
->>>>>           csdev = nd->csdev;
->>>>>           type = csdev->type;
->>>>> @@ -456,7 +493,7 @@ int coresight_enable_path(struct list_head 
->>>>> *path, enum cs_mode mode,
->>>>>           case CORESIGHT_DEV_TYPE_LINK:
->>>>>               parent = list_prev_entry(nd, link)->csdev;
->>>>>               child = list_next_entry(nd, link)->csdev;
->>>>> -            ret = coresight_enable_link(csdev, parent, child);
->>>>> +            ret = coresight_enable_link(csdev, parent, child, 
->>>>> source);
->>>>>               if (ret)
->>>>>                   goto err;
->>>>>               break;
->>>>> @@ -619,6 +656,7 @@ static void coresight_drop_device(struct 
->>>>> coresight_device *csdev)
->>>>>   /**
->>>>>    * _coresight_build_path - recursively build a path from a @csdev 
->>>>> to a sink.
->>>>>    * @csdev:    The device to start from.
->>>>> + * @source:    The trace source device of the path.
->>>>>    * @sink:    The final sink we want in this path.
->>>>>    * @path:    The list to add devices to.
->>>>>    *
->>>>> @@ -628,6 +666,7 @@ static void coresight_drop_device(struct 
->>>>> coresight_device *csdev)
->>>>>    * the source is the first device and the sink the last one.
->>>>>    */
->>>>>   static int _coresight_build_path(struct coresight_device *csdev,
->>>>> +                 struct coresight_device *source,
->>>>>                    struct coresight_device *sink,
->>>>>                    struct list_head *path)
->>>>>   {
->>>>> @@ -641,7 +680,7 @@ static int _coresight_build_path(struct 
->>>>> coresight_device *csdev,
->>>>>         if (coresight_is_percpu_source(csdev) && 
->>>>> coresight_is_percpu_sink(sink) &&
->>>>>           sink == per_cpu(csdev_sink, source_ops(csdev)- 
->>>>> >cpu_id(csdev))) {
->>>>> -        if (_coresight_build_path(sink, sink, path) == 0) {
->>>>> +        if (_coresight_build_path(sink, source, sink, path) == 0) {
->>>>>               found = true;
->>>>>               goto out;
->>>>>           }
->>>>> @@ -652,8 +691,12 @@ static int _coresight_build_path(struct 
->>>>> coresight_device *csdev,
->>>>>           struct coresight_device *child_dev;
->>>>>             child_dev = csdev->pdata->out_conns[i]->dest_dev;
->>>>> +
->>>>> +        if (coresight_blocks_source(source, csdev->pdata- 
->>>>> >out_conns[i]))
->>>>> +            continue;
->>>>> +
->>>>>           if (child_dev &&
->>>>> -            _coresight_build_path(child_dev, sink, path) == 0) {
->>>>> +            _coresight_build_path(child_dev, source, sink, path) 
->>>>> == 0) {
->>>>>               found = true;
->>>>>               break;
->>>>>           }
->>>>> @@ -698,7 +741,7 @@ struct list_head *coresight_build_path(struct 
->>>>> coresight_device *source,
->>>>>         INIT_LIST_HEAD(path);
->>>>>   -    rc = _coresight_build_path(source, sink, path);
->>>>> +    rc = _coresight_build_path(source, source, sink, path);
->>>>>       if (rc) {
->>>>>           kfree(path);
->>>>>           return ERR_PTR(rc);
->>>>> @@ -927,6 +970,16 @@ static int coresight_orphan_match(struct 
->>>>> device *dev, void *data)
->>>>>       for (i = 0; i < src_csdev->pdata->nr_outconns; i++) {
->>>>>           conn = src_csdev->pdata->out_conns[i];
->>>>>   +        /* Fix filter source device before skip the port */
->>>>> +        if (conn->filter_src_fwnode && !conn->filter_src_dev) {
->>>>> +            if (dst_csdev &&
->>>>> +                (conn->filter_src_fwnode == dst_csdev->dev.fwnode) &&
->>>>> + !WARN_ON_ONCE(!coresight_is_device_source(dst_csdev)))
->>>>> +                conn->filter_src_dev = dst_csdev;
->>>>> +            else
->>>>> +                still_orphan = true;
->>>>> +        }
->>>>> +
->>>>>           /* Skip the port if it's already connected. */
->>>>>           if (conn->dest_dev)
->>>>>               continue;
->>>>> @@ -977,18 +1030,40 @@ static int 
->>>>> coresight_fixup_orphan_conns(struct coresight_device *csdev)
->>>>>                csdev, coresight_orphan_match);
->>>>>   }
->>>>>   +static int coresight_clear_filter_source(struct device *dev, 
->>>>> void *data)
->>>>> +{
->>>>> +    int i;
->>>>> +    struct coresight_device *source = data;
->>>>> +    struct coresight_device *csdev = to_coresight_device(dev);
->>>>> +
->>>>> +    for (i = 0; i < csdev->pdata->nr_outconns; ++i) {
->>>>> +        if (csdev->pdata->out_conns[i]->filter_src_dev == source)
->>>>> + csdev->pdata->out_conns[i]->filter_src_dev = NULL;
->>>>> +    }
->>>>> +    return 0;
->>>>> +}
->>>>> +
->>>>>   /* coresight_remove_conns - Remove other device's references to 
->>>>> this device */
->>>>>   static void coresight_remove_conns(struct coresight_device *csdev)
->>>>>   {
->>>>>       int i, j;
->>>>>       struct coresight_connection *conn;
->>>>>   +    if (coresight_is_device_source(csdev))
->>>>> +        bus_for_each_dev(&coresight_bustype, NULL, csdev,
->>>>> +                 coresight_clear_filter_source);
->>>>> +
->>>>>       /*
->>>>>        * Remove the input connection references from the 
->>>>> destination device
->>>>>        * for each output connection.
->>>>>        */
->>>>>       for (i = 0; i < csdev->pdata->nr_outconns; i++) {
->>>>>           conn = csdev->pdata->out_conns[i];
->>>>> +        if (conn->filter_src_fwnode) {
->>>>> +            conn->filter_src_dev = NULL;
->>>>> +            fwnode_handle_put(conn->filter_src_fwnode);
->>>>> +        }
->>>>> +
->>>>>           if (!conn->dest_dev)
->>>>>               continue;
->>>>>   diff --git a/drivers/hwtracing/coresight/coresight-platform.c b/ 
->>>>> drivers/hwtracing/coresight/coresight-platform.c
->>>>> index 64e171eaad82..d5532caa9e92 100644
->>>>> --- a/drivers/hwtracing/coresight/coresight-platform.c
->>>>> +++ b/drivers/hwtracing/coresight/coresight-platform.c
->>>>> @@ -243,6 +243,24 @@ static int of_coresight_parse_endpoint(struct 
->>>>> device *dev,
->>>>>           conn.dest_fwnode = fwnode_handle_get(rdev_fwnode);
->>>>>           conn.dest_port = rendpoint.port;
->>>>>   +        /*
->>>>> +         * Get the firmware node of the filter source through the
->>>>> +         * reference. This could be used to filter the source in
->>>>> +         * building path.
->>>>> +         */
->>>>> +        conn.filter_src_fwnode =
->>>>> +            fwnode_find_reference(&ep->fwnode, "filter-source", 0);
->>>>> +        if (IS_ERR(conn.filter_src_fwnode)) {
->>>>> +            conn.filter_src_fwnode = NULL;
->>>>> +        } else {
->>>>> +            conn.filter_src_dev =
->>>>> + coresight_find_csdev_by_fwnode(conn.filter_src_fwnode);
->>>>> +            if (conn.filter_src_dev &&
->>>>> + !coresight_is_device_source(conn.filter_src_dev))
->>>>> +                dev_warn(&conn.filter_src_dev->dev,
->>>>> +                  "Filter source is not a source device\n");
->>>>
->>>> Do we need to reset the conn.filter_src_fwnode ? Otherwise, we can 
->>>> warn from other places too.
->>>
->>> Agree, we need to reset conn.filter_src_fwnode and 
->>> conn.filter_src_dev here if it is not a SOURCE
->>>
->>> type device.
->>>
->>> I will update the following code to the next patch series. Could you 
->>> help check if it is fine to you?
->>
->> This looks good.
->>
->>>
->>> +            if (conn.filter_src_dev &&
->>> + !coresight_is_device_source(conn.filter_src_dev)) {
->>> +                dev_warn(&conn.filter_src_dev->dev,
->>> +                  "Filter source is not a source device\n");
->>
->> minor nit: It would be good to indicate which device has this 
->> "filtering". i.e,
->>           dev_warn(dev, "Filter source is not a trace source : %s\n", 
->> dev_name(&conn.filter_src_dev->dev));
-> Sure, I will update this to the next patch series.
+> I'm very, very *not* thrilled by all this. It looks like a big pile of
+> hacks really. Every single parameter used by those controls needs to be
+> clearly documented, including explaining how they are used, in order for
+> us to review the API. I suspect that many of the parameters should
+> instead be handled through the ISP parameters buffers, or be controlled
+> from standard V4L2 APIs.
 
-Also, it may be helpful, if we specify the "port number" which has this
-wrong handle. I guess something like:
+While on the topic of documentation, we also need a high-level
+architecture document. This patch series adds 30000 lines of code, it's
+very hard for reviewers to understand the architecture of the driver
+just by looking at the code. At the very least, a high-level description
+of the hardware (at least from the view point of the interface the
+firmware exposes) is needed.
 
-dev_warn(dev, "port %d: Filter handle is not a trace source : %s\n",
-	 conn.src_port, dev_name(&conn.filter_src_dev->dev));
+-- 
+Regards,
 
-Suzuki
-	
->>
->>> +                conn.filter_src_dev = NULL；
->>> +                conn.filter_src_dev = NULL;
-> 
-> Sorry for my mistake here. I also want to set "filter_src_fwnode " to 
-> NULL if it is not a trace source.
-> 
-> conn.filter_src_fwnode = NULL;
-
-
-> 
-> 
-> Best,
-> 
-> Tao
-> 
->>
->> Duplicated line ^
->>
->> Suzuki
->>
->>> +            }
->>>
->>> Best,
->>>
->>> Tao
->>>
->>>>
->>>> Suzuki
->>>>
->>>>> +        }
->>>>> +
->>>>>           new_conn = coresight_add_out_conn(dev, pdata, &conn);
->>>>>           if (IS_ERR_VALUE(new_conn)) {
->>>>>               fwnode_handle_put(conn.dest_fwnode);
->>>>> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
->>>>> index 9311df8538fc..f372c01ae2fc 100644
->>>>> --- a/include/linux/coresight.h
->>>>> +++ b/include/linux/coresight.h
->>>>> @@ -172,6 +172,9 @@ struct coresight_desc {
->>>>>    * @dest_dev:    a @coresight_device representation of the component
->>>>>           connected to @src_port. NULL until the device is created
->>>>>    * @link: Representation of the connection as a sysfs link.
->>>>> + * @filter_src_fwnode: filter source component's fwnode handle.
->>>>> + * @filter_src_dev: a @coresight_device representation of the 
->>>>> component that
->>>>> +        needs to be filtered.
->>>>>    *
->>>>>    * The full connection structure looks like this, where in_conns 
->>>>> store
->>>>>    * references to same connection as the source device's out_conns.
->>>>> @@ -200,6 +203,8 @@ struct coresight_connection {
->>>>>       struct coresight_device *dest_dev;
->>>>>       struct coresight_sysfs_link *link;
->>>>>       struct coresight_device *src_dev;
->>>>> +    struct fwnode_handle *filter_src_fwnode;
->>>>> +    struct coresight_device *filter_src_dev;
->>>>>       atomic_t src_refcnt;
->>>>>       atomic_t dest_refcnt;
->>>>>   };
->>>>
->>
-
+Laurent Pinchart
 
