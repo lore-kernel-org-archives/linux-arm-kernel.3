@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84EBED49221
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 13:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C05D49223
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 13:47:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rc3oBPTl0l/qKEzDpFWg02aAFeNOrXK/95DogEMtNjc=; b=nLbZV5IJDzMMmGZ7zjm5/aDPkU
-	xY5yY/ZwzqTzURZxjObE7/f0dGaIh6CoYUibV8dfha5FnqTGMdgnzvPCqU7P4rAaz5qJljD/Y/VXz
-	zS37yxgZZ43YZchyVmRhHFtDRbDgPMRxNHiQb4yDS0FE3RvCpWt5/gh0uOiXhdtvWf0Ke3AMUnEiD
-	pyig17ykOSpMOEBrtVxJ6vAEIfk5t+s9oqG0dzGxkb8aPviqAHbIkkcKWDggl5CQUB1DeddRvHwlM
-	Uj2yU92GrFzPifcgPXx7Q0uUJeJKND1onK6WCxjht2dqCanqf3kTrEICJvBSbLWXEZGyCwai2S05E
-	FQfgKRoQ==;
+	bh=iHx2eom3Akmcm5QWtlSVlU1UQOIIrq4QkF16il1vv7A=; b=RGjvKLLtCXsnCYhQ0gYlccvPin
+	oQFbRbSBekaPxCpQRMivSYQ13sxK7dadwALfQUyw3PxzPvb6ZK4IxOw2ambxhI1DJAJ5M6cqqfqli
+	AbHIGAJ6ct68zpPZMUhJ9yr2DNQrIFpEeOSRzR5YLnTc42RQB96QigG3p9IULKPh2tImJ6DMGCeV2
+	lsoZD1cf04DrpxiV63pFLcURdt8ezexzcY7GYNT09iIpCOlANYOuTyqUWDH5aMBhscnBbO1wlt80/
+	JoEccufppmbR1CHRMYbg+RoQnwgjJG51QM9x+0zgFf6ff+asuCjVAfTTN4HHAyQ6aKe3z6Pn46pK3
+	LDXOAszg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD25E-00000009eVG-01pp;
-	Mon, 18 Nov 2024 13:46:28 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1tD268-00000009ejk-3Jht;
+	Mon, 18 Nov 2024 13:47:24 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD1yz-00000009cpX-2GTG
+	id 1tD1z0-00000009cqc-0a3d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 13:40:04 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AIBMjHi001561;
+	Mon, 18 Nov 2024 13:40:09 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AIDRGIJ015951;
 	Mon, 18 Nov 2024 14:39:52 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Rc3oBPTl0l/qKEzDpFWg02aAFeNOrXK/95DogEMtNjc=; b=hHX18/pzqzEtNDLZ
-	OioOCVtEpHzYFSL+MCdUINOfBfWaIvaffrCyu4+0lnZ5HGLAlkPPtRUbTg3XCmGv
-	J7IQc8zUqM1gCBZ+CCM51KywpVFffC28lvhDP4QM0jM42wD3XPX6pHTJs22xc6nj
-	t+M1zWHfzrZ4nk+lwp8EXKtgzkAmmH+95Xcwdx81yQBlwP7dYnH8i7AZow9SXqxI
-	fhqg/75pY+WsQrFxQ536aoyGNJjQc0VRy9M7r2phOUuHYv3pVAQxutf5r4zzXJN2
-	QrOmuZpjeBGPPVPyGEfT/XkEoGxiM0R7yc0rIXQy0DT/jxdk5KEpcnzaHoag21pd
-	YAURpA==
+	iHx2eom3Akmcm5QWtlSVlU1UQOIIrq4QkF16il1vv7A=; b=JktS9fUbe+jM9X4Q
+	BYOYGWCBrPHf7Fc3IEQinBlqw7ri5yRdFwbR7xgj6CxqvKfc6WTzJpeqwRJOrOyJ
+	Jl2yor/X1MGBRojo2YVN4fA7uHNZ/Dv7+j6V063migsgMmuWg1rf0wJNyrYRYdPL
+	pgXDLi+gLF5cwc6LOqBlQmrf0oeWvFNxLfdrF3OM9HpktgNVnweJp5UvjkqZqPNs
+	/fEiRrVBwVK6BCbAZBwwgc4o7ALloTXRCzcn4q/pHHPK/FFOLNYo4E+gzimotp+x
+	tPIMUvUhJpRwxuIT3Dy1AnUasDAdzxUhl7YlNjt/lpAWjUM5eYwqu5LDp2eDyVyP
+	cJbbew==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42y77n504q-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42xkqh77pe-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Mon, 18 Nov 2024 14:39:52 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E334C4005A;
-	Mon, 18 Nov 2024 14:38:32 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 153614005F;
+	Mon, 18 Nov 2024 14:38:33 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BDF352721D0;
-	Mon, 18 Nov 2024 14:35:26 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 91F38275645;
+	Mon, 18 Nov 2024 14:35:30 +0100 (CET)
 Received: from localhost (10.129.178.213) by SHFDAG1NODE1.st.com
  (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 18 Nov
- 2024 14:35:26 +0100
+ 2024 14:35:30 +0100
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Mon, 18 Nov 2024 14:35:24 +0100
-Subject: [PATCH v3 01/15] media: stm32: dcmipp: correct
- dma_set_mask_and_coherent mask value
+Date: Mon, 18 Nov 2024 14:35:30 +0100
+Subject: [PATCH v3 07/15] media: stm32: dcmipp: add support for csi input
+ into dcmipp-input
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241118-csi_dcmipp_mp25-v3-1-c1914afb0a0f@foss.st.com>
+Message-ID: <20241118-csi_dcmipp_mp25-v3-7-c1914afb0a0f@foss.st.com>
 References: <20241118-csi_dcmipp_mp25-v3-0-c1914afb0a0f@foss.st.com>
 In-Reply-To: <20241118-csi_dcmipp_mp25-v3-0-c1914afb0a0f@foss.st.com>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
@@ -81,8 +81,7 @@ To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
         Philipp Zabel <p.zabel@pengutronix.de>
 CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, Alain Volmat <alain.volmat@foss.st.com>,
-        <stable@vger.kernel.org>
+        <devicetree@vger.kernel.org>, Alain Volmat <alain.volmat@foss.st.com>
 X-Mailer: b4 0.14.2
 X-Originating-IP: [10.129.178.213]
 X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
@@ -91,8 +90,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_054001_895795_90F20A5F 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20241118_054002_482976_0F15CBE6 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,29 +106,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct the call to dma_set_mask_and_coherent which should be set
-to DMA_BIT_MASK(32).
+On stm32mp25, the dcmipp can accept data coming from a CSI bus in
+addition to the parallel interface.  Add this support into
+dcmipp-input subdev.
 
-Fixes: 28e0f3772296 ("media: stm32-dcmipp: STM32 DCMIPP camera interface driver")
-Cc: stable@vger.kernel.org
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
- drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-input.c  | 134 +++++++++++++++++----
+ 1 file changed, 110 insertions(+), 24 deletions(-)
 
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-index 9f768f011fa25a0981cd0d1d3f114b02e58223d4..0f6918f4db383f4e0762030218101f759f375e95 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-@@ -893,7 +893,7 @@ struct dcmipp_ent_device *dcmipp_bytecap_ent_init(struct device *dev,
- 	q->dev = dev;
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c
+index 689eb4c72e1808bc30a2a175d907229c0910542d..7e5311b67d7ea4e84dec1456c58491153d69ef17 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c
+@@ -9,6 +9,7 @@
+  */
  
- 	/* DCMIPP requires 16 bytes aligned buffers */
--	ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(32) & ~0x0f);
-+	ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(32));
- 	if (ret) {
- 		dev_err(dev, "Failed to set DMA mask\n");
- 		goto err_mutex_destroy;
+ #include <linux/v4l2-mediabus.h>
++#include <media/mipi-csi2.h>
+ #include <media/v4l2-event.h>
+ #include <media/v4l2-subdev.h>
+ 
+@@ -19,6 +20,9 @@
+ #define DCMIPP_PRCR_FORMAT_YUV422	0x1e
+ #define DCMIPP_PRCR_FORMAT_RGB565	0x22
+ #define DCMIPP_PRCR_FORMAT_RAW8		0x2a
++#define DCMIPP_PRCR_FORMAT_RAW10	0x2b
++#define DCMIPP_PRCR_FORMAT_RAW12	0x2c
++#define DCMIPP_PRCR_FORMAT_RAW14	0x2d
+ #define DCMIPP_PRCR_FORMAT_G8		0x4a
+ #define DCMIPP_PRCR_FORMAT_BYTE_STREAM	0x5a
+ #define DCMIPP_PRCR_ESS			BIT(4)
+@@ -31,43 +35,75 @@
+ #define DCMIPP_PRESCR	0x108
+ #define DCMIPP_PRESUR	0x10c
+ 
++#define DCMIPP_CMCR	0x204
++#define DCMIPP_CMCR_INSEL	BIT(0)
++
++#define DCMIPP_P0FSCR	0x404
++#define DCMIPP_P0FSCR_DTMODE_MASK	GENMASK(17, 16)
++#define DCMIPP_P0FSCR_DTMODE_SHIFT	16
++#define DCMIPP_P0FSCR_DTMODE_DTIDA	0x00
++#define DCMIPP_P0FSCR_DTMODE_ALLDT	0x03
++#define DCMIPP_P0FSCR_DTIDA_MASK	GENMASK(5, 0)
++#define DCMIPP_P0FSCR_DTIDA_SHIFT	0
++
+ #define IS_SINK(pad) (!(pad))
+ #define IS_SRC(pad)  ((pad))
+ 
+ struct dcmipp_inp_pix_map {
+ 	unsigned int code_sink;
+ 	unsigned int code_src;
++	/* Parallel related information */
+ 	u8 prcr_format;
+ 	u8 prcr_swapcycles;
++	/* CSI related information */
++	unsigned int dt;
+ };
+ 
+-#define PIXMAP_SINK_SRC_PRCR_SWAP(sink, src, prcr, swap)	\
++#define PIXMAP_SINK_SRC_PRCR_SWAP(sink, src, prcr, swap, data_type)	\
+ 	{							\
+ 		.code_sink = MEDIA_BUS_FMT_##sink,		\
+ 		.code_src = MEDIA_BUS_FMT_##src,		\
+ 		.prcr_format = DCMIPP_PRCR_FORMAT_##prcr,	\
+ 		.prcr_swapcycles = swap,			\
++		.dt = data_type,				\
+ 	}
+ static const struct dcmipp_inp_pix_map dcmipp_inp_pix_map_list[] = {
+ 	/* RGB565 */
+-	PIXMAP_SINK_SRC_PRCR_SWAP(RGB565_2X8_LE, RGB565_2X8_LE, RGB565, 1),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(RGB565_2X8_BE, RGB565_2X8_LE, RGB565, 0),
++	PIXMAP_SINK_SRC_PRCR_SWAP(RGB565_2X8_LE, RGB565_2X8_LE, RGB565, 1, MIPI_CSI2_DT_RGB565),
++	PIXMAP_SINK_SRC_PRCR_SWAP(RGB565_2X8_BE, RGB565_2X8_LE, RGB565, 0, MIPI_CSI2_DT_RGB565),
++	PIXMAP_SINK_SRC_PRCR_SWAP(RGB565_1X16, RGB565_1X16, RGB565, 0, MIPI_CSI2_DT_RGB565),
+ 	/* YUV422 */
+-	PIXMAP_SINK_SRC_PRCR_SWAP(YUYV8_2X8, YUYV8_2X8, YUV422, 1),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(YUYV8_2X8, UYVY8_2X8, YUV422, 0),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(UYVY8_2X8, UYVY8_2X8, YUV422, 1),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(UYVY8_2X8, YUYV8_2X8, YUV422, 0),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(YVYU8_2X8, YVYU8_2X8, YUV422, 1),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(VYUY8_2X8, VYUY8_2X8, YUV422, 1),
++	PIXMAP_SINK_SRC_PRCR_SWAP(YUYV8_2X8, YUYV8_2X8, YUV422, 1, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(YUYV8_1X16, YUYV8_1X16, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(YUYV8_2X8, UYVY8_2X8, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(UYVY8_2X8, UYVY8_2X8, YUV422, 1, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(UYVY8_1X16, UYVY8_1X16, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(UYVY8_2X8, YUYV8_2X8, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(YVYU8_2X8, YVYU8_2X8, YUV422, 1, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(YVYU8_1X16, YVYU8_1X16, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(VYUY8_2X8, VYUY8_2X8, YUV422, 1, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(VYUY8_1X16, VYUY8_1X16, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
+ 	/* GREY */
+-	PIXMAP_SINK_SRC_PRCR_SWAP(Y8_1X8, Y8_1X8, G8, 0),
++	PIXMAP_SINK_SRC_PRCR_SWAP(Y8_1X8, Y8_1X8, G8, 0, MIPI_CSI2_DT_RAW8),
+ 	/* Raw Bayer */
+-	PIXMAP_SINK_SRC_PRCR_SWAP(SBGGR8_1X8, SBGGR8_1X8, RAW8, 0),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(SGBRG8_1X8, SGBRG8_1X8, RAW8, 0),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(SGRBG8_1X8, SGRBG8_1X8, RAW8, 0),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(SRGGB8_1X8, SRGGB8_1X8, RAW8, 0),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SBGGR8_1X8, SBGGR8_1X8, RAW8, 0, MIPI_CSI2_DT_RAW8),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SGBRG8_1X8, SGBRG8_1X8, RAW8, 0, MIPI_CSI2_DT_RAW8),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SGRBG8_1X8, SGRBG8_1X8, RAW8, 0, MIPI_CSI2_DT_RAW8),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SRGGB8_1X8, SRGGB8_1X8, RAW8, 0, MIPI_CSI2_DT_RAW8),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SBGGR10_1X10, SBGGR10_1X10, RAW10, 0, MIPI_CSI2_DT_RAW10),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SGBRG10_1X10, SGBRG10_1X10, RAW10, 0, MIPI_CSI2_DT_RAW10),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SGRBG10_1X10, SGRBG10_1X10, RAW10, 0, MIPI_CSI2_DT_RAW10),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SRGGB10_1X10, SRGGB10_1X10, RAW10, 0, MIPI_CSI2_DT_RAW10),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SBGGR12_1X12, SBGGR12_1X12, RAW12, 0, MIPI_CSI2_DT_RAW12),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SGBRG12_1X12, SGBRG12_1X12, RAW12, 0, MIPI_CSI2_DT_RAW12),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SGRBG12_1X12, SGRBG12_1X12, RAW12, 0, MIPI_CSI2_DT_RAW12),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SRGGB12_1X12, SRGGB12_1X12, RAW12, 0, MIPI_CSI2_DT_RAW12),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SBGGR14_1X14, SBGGR14_1X14, RAW14, 0, MIPI_CSI2_DT_RAW14),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SGBRG14_1X14, SGBRG14_1X14, RAW14, 0, MIPI_CSI2_DT_RAW14),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SGRBG14_1X14, SGRBG14_1X14, RAW14, 0, MIPI_CSI2_DT_RAW14),
++	PIXMAP_SINK_SRC_PRCR_SWAP(SRGGB14_1X14, SRGGB14_1X14, RAW14, 0, MIPI_CSI2_DT_RAW14),
+ 	/* JPEG */
+-	PIXMAP_SINK_SRC_PRCR_SWAP(JPEG_1X8, JPEG_1X8, BYTE_STREAM, 0),
++	PIXMAP_SINK_SRC_PRCR_SWAP(JPEG_1X8, JPEG_1X8, BYTE_STREAM, 0, 0),
+ };
+ 
+ /*
+@@ -260,8 +296,8 @@ static int dcmipp_inp_set_fmt(struct v4l2_subdev *sd,
+ 	return 0;
+ }
+ 
+-static int dcmipp_inp_configure(struct dcmipp_inp_device *inp,
+-				struct v4l2_subdev_state *state)
++static int dcmipp_inp_configure_parallel(struct dcmipp_inp_device *inp,
++					 struct v4l2_subdev_state *state)
+ {
+ 	u32 val = 0;
+ 	const struct dcmipp_inp_pix_map *vpix;
+@@ -315,6 +351,52 @@ static int dcmipp_inp_configure(struct dcmipp_inp_device *inp,
+ 
+ 	reg_write(inp, DCMIPP_PRCR, val);
+ 
++	/* Select the DCMIPP parallel interface */
++	reg_write(inp, DCMIPP_CMCR, 0);
++
++	/* Enable parallel interface */
++	reg_set(inp, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
++
++	return 0;
++}
++
++static int dcmipp_inp_configure_csi(struct dcmipp_inp_device *inp,
++				    struct v4l2_subdev_state *state)
++{
++	const struct dcmipp_inp_pix_map *vpix;
++	struct v4l2_mbus_framefmt *sink_fmt;
++	struct v4l2_mbus_framefmt *src_fmt;
++
++	/* Get format information */
++	sink_fmt = v4l2_subdev_state_get_format(state, 0);
++	src_fmt = v4l2_subdev_state_get_format(state, 1);
++
++	vpix = dcmipp_inp_pix_map_by_code(sink_fmt->code, src_fmt->code);
++	if (!vpix) {
++		dev_err(inp->dev, "Invalid sink/src format configuration\n");
++		return -EINVAL;
++	}
++
++	/* Apply configuration on each input pipe */
++	reg_clear(inp, DCMIPP_P0FSCR,
++		  DCMIPP_P0FSCR_DTMODE_MASK | DCMIPP_P0FSCR_DTIDA_MASK);
++
++	/* In case of JPEG we don't know the DT so we allow all data */
++	/*
++	 * TODO - check instead dt == 0 for the time being to allow other
++	 * unknown data-type
++	 */
++	if (!vpix->dt)
++		reg_set(inp, DCMIPP_P0FSCR,
++			DCMIPP_P0FSCR_DTMODE_ALLDT << DCMIPP_P0FSCR_DTMODE_SHIFT);
++	else
++		reg_set(inp, DCMIPP_P0FSCR,
++			vpix->dt << DCMIPP_P0FSCR_DTIDA_SHIFT |
++			DCMIPP_P0FSCR_DTMODE_DTIDA);
++
++	/* Select the DCMIPP CSI interface */
++	reg_write(inp, DCMIPP_CMCR, DCMIPP_CMCR_INSEL);
++
+ 	return 0;
+ }
+ 
+@@ -326,7 +408,7 @@ static int dcmipp_inp_enable_streams(struct v4l2_subdev *sd,
+ 				container_of(sd, struct dcmipp_inp_device, sd);
+ 	struct v4l2_subdev *s_subdev;
+ 	struct media_pad *s_pad;
+-	int ret;
++	int ret = 0;
+ 
+ 	/* Get source subdev */
+ 	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
+@@ -334,13 +416,14 @@ static int dcmipp_inp_enable_streams(struct v4l2_subdev *sd,
+ 		return -EINVAL;
+ 	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
+ 
+-	ret = dcmipp_inp_configure(inp, state);
++	if (inp->ved.bus_type == V4L2_MBUS_PARALLEL ||
++	    inp->ved.bus_type == V4L2_MBUS_BT656)
++		ret = dcmipp_inp_configure_parallel(inp, state);
++	else if (inp->ved.bus_type == V4L2_MBUS_CSI2_DPHY)
++		ret = dcmipp_inp_configure_csi(inp, state);
+ 	if (ret)
+ 		return ret;
+ 
+-	/* Enable parallel interface */
+-	reg_set(inp, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
+-
+ 	ret = v4l2_subdev_enable_streams(s_subdev, s_pad->index, BIT_ULL(0));
+ 	if (ret < 0) {
+ 		dev_err(inp->dev,
+@@ -374,8 +457,11 @@ static int dcmipp_inp_disable_streams(struct v4l2_subdev *sd,
+ 		return ret;
+ 	}
+ 
+-	/* Disable parallel interface */
+-	reg_clear(inp, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
++	if (inp->ved.bus_type == V4L2_MBUS_PARALLEL ||
++	    inp->ved.bus_type == V4L2_MBUS_BT656) {
++		/* Disable parallel interface */
++		reg_clear(inp, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
++	}
+ 
+ 	return 0;
+ }
 
 -- 
 2.25.1
