@@ -4,71 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFCAD591B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 20:42:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B664D591B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 20:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2taa0UsiDaOJXoR9CITESohKEOrxoakSVH3g+gRS8Vs=; b=O25U/LRW5AnlWdOzUyzA1ofM3x
-	GO64iCDBPam1lGqxAW6C90MTNNYKSo8gjY78d8EmvwZbujDWfZErDybiAvxfb5LNnJGnSOS533BOR
-	BKEUZGvwI34GjNe2D1qp27XGiZllUVeuYUgseLOvTF4aRKXYk7JffCiZhi32p2EnczndHZIFxrw0R
-	PhOuq/cAVMbUTiJKhf+mIpXN973vRvy4ro0RBX65kZrQ0TE9lmuut3ZSsLINisWnPzj81z7IDDBtw
-	+t0OjTH8/lm69anyc0ddNDVeb8CxbJQNDFa3xd3a1HXPh8Zz9CaMzP4wBPu1SmfFkoGF5z27yTV+4
-	nivPwmew==;
+	bh=zN+bUiQqeLZkfJRJ9+YCG9oiPYIcbnKHtPDA9jY75Tc=; b=yIO8ZA/qrkTda8w+nYv7+3jIUa
+	1SaxapPXnvUjFcntP/39Jocyq8XqStieZnHBCXmbEN88gLrYiSM4wHVbT6xArhT4TDZYt+cEWI8zt
+	ugultG/QVYNcmzgxghOw4Pv84dDOGXPhJ3YokV2qx9uxo5Y2VfQLH7REFSqcupY0FBCeA6nIyu7QR
+	Mlbd0hNwouXeUeH4430MT+42oQxpkfxxmeX9bTHnTRLCzcLYsstEda/uMYYHuOiKSgTjRRYr1QIyh
+	crf6HmvdBRaid57RQIu5P7Sx5+FRtYIgXuBE3NIGbi8Bj2l9jwSZ5OWGgNT0/Fb+9A4E8w7h4qzzT
+	OraqC2bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD8ZU-0000000AafC-1QbI;
-	Mon, 18 Nov 2024 20:42:08 +0000
-Received: from smtp-19.smtpout.orange.fr ([80.12.242.19] helo=smtp.smtpout.orange.fr)
+	id 1tD8ig-0000000Abhj-3dQe;
+	Mon, 18 Nov 2024 20:51:38 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD8YX-0000000AaU6-0H0X
+	id 1tD8hl-0000000AbZC-1Qno
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 20:41:11 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id D8YLtJy3aW6lUD8YLtdjd8; Mon, 18 Nov 2024 21:41:05 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1731962465;
-	bh=2taa0UsiDaOJXoR9CITESohKEOrxoakSVH3g+gRS8Vs=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=Z87tQCm2pAyVE5hS3osvEjqtFlDYtFmWWvZMd8pDyCk0/4P753RBg0TM4yBfGfiKb
-	 IYDXx/GSbiYWXZF0D0xAJ7eHfHdv11FkvtklAenfc2M0LZ+p8r8XIs0vg4kpqqUm9b
-	 zIwBSGzZ/0n7Niwb3Jk5rRTRpXOJYQlyLX0bxxtev2I+Fq9GmUIQ6biRxY3OMmpsze
-	 N5R5VlrsO9hxVoPPewrR+jhgO6l9nCNx6H+ZfmsCeJ7SxqqO4TvL/xGGcht0itQmO4
-	 JOvepPKaQhRPjZxpGyVIKx7ZGVZ2cksnFSj+aIwwFauyLqBsiKPBroFSL9dN3UM3u3
-	 Lu+A4FwUcKT+g==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Mon, 18 Nov 2024 21:41:05 +0100
-X-ME-IP: 90.11.132.44
-Message-ID: <c8358dc9-24e0-40f9-b559-18cf7b93f5c3@wanadoo.fr>
-Date: Mon, 18 Nov 2024 21:40:57 +0100
+	Mon, 18 Nov 2024 20:50:42 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-211c1bd70f6so34581975ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 12:50:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731963040; x=1732567840; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=zN+bUiQqeLZkfJRJ9+YCG9oiPYIcbnKHtPDA9jY75Tc=;
+        b=ldxCx7Bw07J6Sk6EMZbKBUZyaVeE3lHVi0NoUHd6JwKI1zWNxeY2b57Aq0gcLuG9un
+         lpX2YPlBE+ReK/e+5ACp3/kpexvOt3PHJ0f2xuOUPuP0xiaS4PXu82inUekc+hpkXT6T
+         Ze1LaQL8scMrqXkn3ZNoxe1CLyoJq0+jIYU5gLgaqZ2ZU91/OCB0nEZZ5lL43SOJo4TT
+         Yucbw43BPyzzpaKa4TpX2YuuSQlehJkeozIr1MVXyXRXu68KhVHV2MbRJrdwwkCiPqKz
+         5ppzWsArYV44Rk7EEC72zlQmpMBTLnQkZEyphCOPmTEUK7a2vuNDPFrAqaSbrVsYoaky
+         4HxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731963040; x=1732567840;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zN+bUiQqeLZkfJRJ9+YCG9oiPYIcbnKHtPDA9jY75Tc=;
+        b=Lx6xq024BpZgLkKZ5H00pGDs8kuIkyvChtfTXEQJr6YZbZRbtupIehRjqTSBDQeF8a
+         +/agy7jc5VaMgLD4EDpBLganCKiNWpeqsIHqL/23mt7d9plzLRY5vCkmUKxayIgr75WK
+         YgxXsPqryp49xaYZK0QmI71BkMNy2h2QdqjaCf5eZGJJn70QI5gjrOOhVPI0ScL0DbTv
+         keC4grUdE1aUkwKeEibKo1jpsxGJimThVqRaWDJtajvOU0K5MBI8OVvB7o+1564Psr6e
+         6zI2ulrM8gNOmqrmKz2uXG4vGdFaglq2dFPKVq/W0UppAuqsybLiSYiyqqC5bOdyFscC
+         FDBA==
+X-Forwarded-Encrypted: i=1; AJvYcCWJ3B/gMoCk5+Y+j5aIA8JVyh3g/YT8shBRs0d/whKCFdTiumGaP7aXc5qeKaPGzBYDBQI0WzSC2xuiCq7QFUtX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbSwhWS9Susk7jbE8Zyd+hq5RpCEMFgfKOvGm86L1taPBzuPT5
+	aRVF4oNevX9h2lBb1VS/M1YA1QP5Uy7aoVeBaiAT5dElZ/WctkzSVFB60w==
+X-Google-Smtp-Source: AGHT+IGyyzQmXsqsIiN8cwd43QwOwlYfwTgqs7xHpY4c9Aqhjpv2gi0Ky1jo7W6DZCxUxOIT2PoRyQ==
+X-Received: by 2002:a17:903:185:b0:20c:7196:a1e9 with SMTP id d9443c01a7336-2124cfb38f8mr6713045ad.13.1731963039815;
+        Mon, 18 Nov 2024 12:50:39 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f48070sm60895455ad.212.2024.11.18.12.50.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 18 Nov 2024 12:50:38 -0800 (PST)
+Message-ID: <2531f830-6a36-4bd5-ba1e-9e19f0f66496@roeck-us.net>
+Date: Mon, 18 Nov 2024 12:50:36 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pinctrl: samsung: Fix irq handling if an error occurs in
- exynos_irq_demux_eint16_31()
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-gpio@vger.kernel.org
-References: <f148d823acfb3326a115bd49a0eed60f2345f909.1731844995.git.christophe.jaillet@wanadoo.fr>
- <939800a57d356771b405de49bc198d33327b4fe8.camel@linaro.org>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <939800a57d356771b405de49bc198d33327b4fe8.camel@linaro.org>
+Subject: Re: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus handling
+To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Patrick Williams <patrick@stwcx.xyz>,
+ "wim@linux-watchdog.org" <wim@linux-watchdog.org>
+Cc: "joel@jms.id.au" <joel@jms.id.au>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-watchdog@vger.kernel.org" <linux-watchdog@vger.kernel.org>,
+ "Peter.Yin@quantatw.com" <Peter.Yin@quantatw.com>,
+ "Patrick_NC_Lin@wiwynn.com" <Patrick_NC_Lin@wiwynn.com>,
+ "Bonnie_Lo@wiwynn.com" <Bonnie_Lo@wiwynn.com>,
+ "DELPHINE_CHIU@wiwynn.com" <DELPHINE_CHIU@wiwynn.com>,
+ BMC-SW <BMC-SW@aspeedtech.com>,
+ "chnguyen@amperecomputing.com" <chnguyen@amperecomputing.com>
+References: <20241101121201.2464091-1-chin-ting_kuo@aspeedtech.com>
+ <20241101121201.2464091-2-chin-ting_kuo@aspeedtech.com>
+ <ZyUcIIb1dtoNhX00@heinlein.vulture-banana.ts.net>
+ <a0faca9a6ec7f4acdfa2f29b4ffb94b5392aea6b.camel@codeconstruct.com.au>
+ <TYZPR06MB5203053A004676F51322DECFB25C2@TYZPR06MB5203.apcprd06.prod.outlook.com>
+ <ed77d57facaaef0be796b4c6a742dc7bf3bff479.camel@codeconstruct.com.au>
+ <TYZPR06MB52039B02B6D3053355F30489B25D2@TYZPR06MB5203.apcprd06.prod.outlook.com>
+ <9a1e64ef-81d9-48b0-b871-ce4ff792eae4@roeck-us.net>
+ <TYZPR06MB52039DB39B62E6FA5220103AB2272@TYZPR06MB5203.apcprd06.prod.outlook.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ xsFNBE6H1WcBEACu6jIcw5kZ5dGeJ7E7B2uweQR/4FGxH10/H1O1+ApmcQ9i87XdZQiB9cpN
+ RYHA7RCEK2dh6dDccykQk3bC90xXMPg+O3R+C/SkwcnUak1UZaeK/SwQbq/t0tkMzYDRxfJ7
+ nyFiKxUehbNF3r9qlJgPqONwX5vJy4/GvDHdddSCxV41P/ejsZ8PykxyJs98UWhF54tGRWFl
+ 7i1xvaDB9lN5WTLRKSO7wICuLiSz5WZHXMkyF4d+/O5ll7yz/o/JxK5vO/sduYDIlFTvBZDh
+ gzaEtNf5tQjsjG4io8E0Yq0ViobLkS2RTNZT8ICq/Jmvl0SpbHRvYwa2DhNsK0YjHFQBB0FX
+ IdhdUEzNefcNcYvqigJpdICoP2e4yJSyflHFO4dr0OrdnGLe1Zi/8Xo/2+M1dSSEt196rXaC
+ kwu2KgIgmkRBb3cp2vIBBIIowU8W3qC1+w+RdMUrZxKGWJ3juwcgveJlzMpMZNyM1jobSXZ0
+ VHGMNJ3MwXlrEFPXaYJgibcg6brM6wGfX/LBvc/haWw4yO24lT5eitm4UBdIy9pKkKmHHh7s
+ jfZJkB5fWKVdoCv/omy6UyH6ykLOPFugl+hVL2Prf8xrXuZe1CMS7ID9Lc8FaL1ROIN/W8Vk
+ BIsJMaWOhks//7d92Uf3EArDlDShwR2+D+AMon8NULuLBHiEUQARAQABzTJHdWVudGVyIFJv
+ ZWNrIChMaW51eCBhY2NvdW50KSA8bGludXhAcm9lY2stdXMubmV0PsLBgQQTAQIAKwIbAwYL
+ CQgHAwIGFQgCCQoLBBYCAwECHgECF4ACGQEFAlVcphcFCRmg06EACgkQyx8mb86fmYFg0RAA
+ nzXJzuPkLJaOmSIzPAqqnutACchT/meCOgMEpS5oLf6xn5ySZkl23OxuhpMZTVX+49c9pvBx
+ hpvl5bCWFu5qC1jC2eWRYU+aZZE4sxMaAGeWenQJsiG9lP8wkfCJP3ockNu0ZXXAXwIbY1O1
+ c+l11zQkZw89zNgWgKobKzrDMBFOYtAh0pAInZ9TSn7oA4Ctejouo5wUugmk8MrDtUVXmEA9
+ 7f9fgKYSwl/H7dfKKsS1bDOpyJlqhEAH94BHJdK/b1tzwJCFAXFhMlmlbYEk8kWjcxQgDWMu
+ GAthQzSuAyhqyZwFcOlMCNbAcTSQawSo3B9yM9mHJne5RrAbVz4TWLnEaX8gA5xK3uCNCeyI
+ sqYuzA4OzcMwnnTASvzsGZoYHTFP3DQwf2nzxD6yBGCfwNGIYfS0i8YN8XcBgEcDFMWpOQhT
+ Pu3HeztMnF3HXrc0t7e5rDW9zCh3k2PA6D2NV4fews9KDFhLlTfCVzf0PS1dRVVWM+4jVl6l
+ HRIAgWp+2/f8dx5vPc4Ycp4IsZN0l1h9uT7qm1KTwz+sSl1zOqKD/BpfGNZfLRRxrXthvvY8
+ BltcuZ4+PGFTcRkMytUbMDFMF9Cjd2W9dXD35PEtvj8wnEyzIos8bbgtLrGTv/SYhmPpahJA
+ l8hPhYvmAvpOmusUUyB30StsHIU2LLccUPPOwU0ETofVZwEQALlLbQeBDTDbwQYrj0gbx3bq
+ 7kpKABxN2MqeuqGr02DpS9883d/t7ontxasXoEz2GTioevvRmllJlPQERVxM8gQoNg22twF7
+ pB/zsrIjxkE9heE4wYfN1AyzT+AxgYN6f8hVQ7Nrc9XgZZe+8IkuW/Nf64KzNJXnSH4u6nJM
+ J2+Dt274YoFcXR1nG76Q259mKwzbCukKbd6piL+VsT/qBrLhZe9Ivbjq5WMdkQKnP7gYKCAi
+ pNVJC4enWfivZsYupMd9qn7Uv/oCZDYoBTdMSBUblaLMwlcjnPpOYK5rfHvC4opxl+P/Vzyz
+ 6WC2TLkPtKvYvXmdsI6rnEI4Uucg0Au/Ulg7aqqKhzGPIbVaL+U0Wk82nz6hz+WP2ggTrY1w
+ ZlPlRt8WM9w6WfLf2j+PuGklj37m+KvaOEfLsF1v464dSpy1tQVHhhp8LFTxh/6RWkRIR2uF
+ I4v3Xu/k5D0LhaZHpQ4C+xKsQxpTGuYh2tnRaRL14YMW1dlI3HfeB2gj7Yc8XdHh9vkpPyuT
+ nY/ZsFbnvBtiw7GchKKri2gDhRb2QNNDyBnQn5mRFw7CyuFclAksOdV/sdpQnYlYcRQWOUGY
+ HhQ5eqTRZjm9z+qQe/T0HQpmiPTqQcIaG/edgKVTUjITfA7AJMKLQHgp04Vylb+G6jocnQQX
+ JqvvP09whbqrABEBAAHCwWUEGAECAA8CGwwFAlVcpi8FCRmg08MACgkQyx8mb86fmYHNRQ/+
+ J0OZsBYP4leJvQF8lx9zif+v4ZY/6C9tTcUv/KNAE5leyrD4IKbnV4PnbrVhjq861it/zRQW
+ cFpWQszZyWRwNPWUUz7ejmm9lAwPbr8xWT4qMSA43VKQ7ZCeTQJ4TC8kjqtcbw41SjkjrcTG
+ wF52zFO4bOWyovVAPncvV9eGA/vtnd3xEZXQiSt91kBSqK28yjxAqK/c3G6i7IX2rg6pzgqh
+ hiH3/1qM2M/LSuqAv0Rwrt/k+pZXE+B4Ud42hwmMr0TfhNxG+X7YKvjKC+SjPjqp0CaztQ0H
+ nsDLSLElVROxCd9m8CAUuHplgmR3seYCOrT4jriMFBtKNPtj2EE4DNV4s7k0Zy+6iRQ8G8ng
+ QjsSqYJx8iAR8JRB7Gm2rQOMv8lSRdjva++GT0VLXtHULdlzg8VjDnFZ3lfz5PWEOeIMk7Rj
+ trjv82EZtrhLuLjHRCaG50OOm0hwPSk1J64R8O3HjSLdertmw7eyAYOo4RuWJguYMg5DRnBk
+ WkRwrSuCn7UG+qVWZeKEsFKFOkynOs3pVbcbq1pxbhk3TRWCGRU5JolI4ohy/7JV1TVbjiDI
+ HP/aVnm6NC8of26P40Pg8EdAhajZnHHjA7FrJXsy3cyIGqvg9os4rNkUWmrCfLLsZDHD8FnU
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <TYZPR06MB52039DB39B62E6FA5220103AB2272@TYZPR06MB5203.apcprd06.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_124109_241563_EBCD4011 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20241118_125041_382584_C7C8E17E 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,51 +159,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 18/11/2024 à 10:40, André Draszik a écrit :
-> On Sun, 2024-11-17 at 13:03 +0100, Christophe JAILLET wrote:
->> chained_irq_enter(() should be paired with a corresponding
->> chained_irq_exit().
+On 11/18/24 04:46, Chin-Ting Kuo wrote:
+> Hi Guenter,
+> 
+> Thanks for the reply.
+> 
+>> -----Original Message-----
+>> From: Guenter Roeck <groeck7@gmail.com> On Behalf Of Guenter Roeck
+>> Sent: Friday, November 8, 2024 10:08 PM
+>> Subject: Re: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus handling
 >>
->> Here, if clk_enable() fails, a early return occurs and chained_irq_exit()
->> is not called.
+>> On 11/7/24 21:42, Chin-Ting Kuo wrote:
 >>
->> Add a new label and a goto for fix it.
+>>> But now, I think it will be better to add a patch for creating a new
+>>> reset reason, e.g., WDIOF_REBOOT or WDIOF_RESTART, in watchdog.h of
+>>> uapi. Can I include this change, creating a new reset reason, in this
+>>> patch series? Or, should I create an extra new patch series for this
+>>> purpose?
+>>>
 >>
->> Fixes: f9c744747973 ("pinctrl: samsung: support a bus clock")
->> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
->> ---
->> Compile tested only.
+>> This is a UAPI change. That is a major change. It needs to be discussed
+>> separately, on its own, and can not be sneaked in like this.
 >>
->> Review with care, irq handling is sometimes tricky...
 > 
-> Well spotted, thanks.
+> Agree. However, how to trigger this discussion? Can I just send a new
+> patch separately with only this UAPI modification? This is the first time
+> I change such common source code.
 > 
-> It looks like there is a similar problem in exynos_irq_request_resources()
-> in same file. It should likely call gpiochip_unlock_as_irq() if clk_enable()
-> failed.
 
-Also wondering if it is needed in exynos_irq_release_resources() if 
-clk_enable() fails and we early return.
+Yes. That needs to include arguments explaining why this specific new flag
+even adds value. I for my part don't immediately see that value.
 
-I don't know how these callbacks are used and if we could dead-lock in 
-such a situation.
-
-What do you think?
-
-CJ
-
-> 
-> Care to fix that as well?
-> 
-> That said,
-> 
-> Reviewed-by: André Draszik <andre.draszik@linaro.org>
-> 
-> 
-> Cheers,
-> Andre'
-> 
-> 
-> 
+Guenter
 
 
