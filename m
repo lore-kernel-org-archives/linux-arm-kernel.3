@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0814D49209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 10:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 024D6D49205
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 10:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3VAHDTdSdnUcjMrmzQom8uUSDOBZ2weSAUyUK6y+NhY=; b=VgQtyiaq6XPgHd
-	G5bU4nAddptE167xfiBWeFvphiS7iAb6JKistW2p9PdMYQw/J3pkA8gTPtDONOWb4vRekYiVkFoEv
-	sei/76xy2i9fHFY8vaNcFZpjIBlKPHDMvBNaItRPChtpu1TQQA9RtoLqzmU0Yzr1Zzz/kgEtjlpgN
-	uoz2OXOqk0LIS4+uLx+moC4WPsh5ZgDnctAurhqHNanSbjeJeiAo9+w1eclumYd9D+ajqnyXKZt1y
-	x6Yq5nUbvDD3R0f/ZszejYObhy6Bj16ev3oKjDYIDeK0JtwelwJmEaOGdjCAl5E9zS0I/SjNYQaGI
-	pObvg/THX80w8tSKiHcg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yr1292EdCuKFfiA+4ZvZQTerR4Z3UgKV6lwrmxEoxeo=; b=vgb+YpuI38ntdnkqeT7+1SmPzF
+	QdSDUWBxP7aSm+ZiTG6MwJ8zvK7QOAgmXZTmOo0DdpdHURKrIVHrNozt2hyIPeErNwnwjrJUN1yHn
+	qkNyXfag5//CMxp0g8Tymuk8nwzMSJ6BgIcFf8m93gXNyqMbhe33hDN+wvSAoD1TQYOx6yfF2p6yt
+	PWFfAxKTs+9f/SMWiZgFOOE4H5xETRYMKv1qaRx3dbaa7cnXrBPnlm0awWrJmv50epnPHVKkgKAJd
+	xxzrzZK60yL07AHPGyyKM2MmuSpNw/rAWSszp5Ngz/THwP3ESOekxh9nrK6C05h0iezYCfIabmd7h
+	//YF5C7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCz6V-000000096YT-2Ual;
-	Mon, 18 Nov 2024 10:35:35 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tCz7Q-000000096m2-0mZf;
+	Mon, 18 Nov 2024 10:36:32 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCz5Z-000000096Ko-2mpq
+	id 1tCz5a-000000096L2-0sSb
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 18 Nov 2024 10:34:39 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4314fa33a35so33057975e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 02:34:36 -0800 (PST)
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-431616c23b5so22453655e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 02:34:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731926075; x=1732530875; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3VAHDTdSdnUcjMrmzQom8uUSDOBZ2weSAUyUK6y+NhY=;
-        b=RG+kSB9dspY5vWlRq20NkO+bzTYwtxuJ+uFlTCYqhKelHnWIphEJE3CyvxvZjxafWl
-         LSl+7hRzWgccoYlb0pCStbOyz1fRHU3sDs3ZC+FwYMPAuSdHTvC1HVn7kSPlO/gRL5TE
-         h36JTUGISsXDW1cLeidKyp1Bym9zLDjGiyjwcRep6Fei9v7SFz4AypBcLcMHKKE+b+LX
-         66l+xbglrZbM6E5gsui/KbuwJTIhoS/ahR9rZAitLzCcwGJY2GhI42KDHzOvaE82j/EK
-         i6rc/5XzJIZZuI3Bi6j6+dIvFXFTUs7xJc+gOSMHGQt8oNaBuUxMNA0D5d+rUM6b7L4P
-         L4OQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731926075; x=1732530875;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1731926076; x=1732530876; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=3VAHDTdSdnUcjMrmzQom8uUSDOBZ2weSAUyUK6y+NhY=;
-        b=aKpGBsIw5+bDVYIGpZUzIGS6M3C5GdzXawm/TzAYIOBv6qQN1uvZrdCPjK8kWTpNA3
-         9LWnAurtO6V8sMCanX2Dz1Dpqk2GkjLm0UX+pWc5Y6ICU4Qr+PC+tiqUBwDX0mVnvrXZ
-         S8SOJaYhTshbay9oaw6IqJ8oYatya7wZWGGMeXhyk8arZ8u7np5WOEsp8WQtVo3C4H7m
-         0TInjotiGRj6lsdlUn8WwXIvchLDLjUl/icwO6jilaoLQS97Mmmu/5cjGr5LB2QRQRxD
-         h/JFeuE5SAGh5T+8EmlMAwp90+e/TkbFyllWJi6AjR0iD5EJ33y+Y6yK8qeHgcXOkc9Z
-         tN8A==
-X-Forwarded-Encrypted: i=1; AJvYcCUO8jIqrH/W3rJlP/nTg8Cj8/eAe3GppooaHql0XV66nxGsiR/dykRDCJ7lvGceP4dWHieOVCOCqiF8R95tPTk/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzR9ixhBzgUi4DIGk/Y4cqqdQ7C43KYtlF9QI/Rd4a0hRRvlIDJ
-	srT8EcTBVNl0Oj83d877nDXHL7LDv019cokasS1aSdvYIwLj4QT1k98ErgRkkU8=
-X-Google-Smtp-Source: AGHT+IFxjSgWOZeMwBydjHIA/ty6oUxOJKnYUIUmBh0PHN55/0Q67i27jFciZxiAhLtnxqrGR+4o4w==
-X-Received: by 2002:a05:600c:35d1:b0:431:6153:a258 with SMTP id 5b1f17b1804b1-432df72c1cfmr100625065e9.13.1731926075377;
-        Mon, 18 Nov 2024 02:34:35 -0800 (PST)
+        bh=Yr1292EdCuKFfiA+4ZvZQTerR4Z3UgKV6lwrmxEoxeo=;
+        b=eo7P3VPtXRfAi6gunmYKe3OrdsQ9rzdAQM2ZwLccEaosHOGXnL0fmc25OPPe5GjB11
+         Lw0mudZLwss1s3SZuP66+Unrgg0bicIMVVrOAtvnr90bE6Urex+HoXPf+vAC72LwAfdU
+         SUPhXcGoIp3s3plsa8RxUnvx/+ZpMj0vC+MxIT0gQNr5sqrUDPnPrLZI7hIvnmAarM8+
+         hk+W0Db9KTPz0I1+tzlysWDWTuvdBS0d2VXs/ZZwIzvdNdewI7bfcS2E4P28xKjSQGUa
+         2bndh1ighvKqbHUBgP3EGQBQsM/rW8DWn6QNO4M45R/f4ujI6y2xwuKzbG8T69CHPUaV
+         5KjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731926076; x=1732530876;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Yr1292EdCuKFfiA+4ZvZQTerR4Z3UgKV6lwrmxEoxeo=;
+        b=CUGLYS96ReAecEOKT17icTEB6jbHMA4SGNThpDRXF6Ghx8Ai/Yl8djkFr5GjBNMZN/
+         g20EzXSgfUvIqhIAgh32aKkMoy4FIXBDCQ2uYYbGsF7p4sXhdZglDWyIm6BszMq6Bmlq
+         wHl/gtXFA3rhH4w2WIQ/MIWDzRuqJ/GBxylV1FXqeFFXmIQ21FBipQBBGnT0WcCAzZJl
+         6kLAplAACcxZAqYs51k3eWsfZeZIYdKgg4QZ5+oSvXlffONn/UcheZBV4LGwGkPBGZTP
+         FYGk6k2Rwpbv7vRGrK7FvR3kqVYbqwwALBO30fBXN19MDRbQOTQyOM6mrSFePMjCISqy
+         JNwg==
+X-Forwarded-Encrypted: i=1; AJvYcCUI97i2LDRp+VSsUxYf6bd/XGCa1euyJYT4OPaopmzlYztfASDz27drcWmCpg8E79f1/VTw1zBj8Vd0WIviX+Gj@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLiAue1n5TMMQKAgRGIgm6XuGyh0aQyqvu26flRD6HT42+ej6y
+	btBk7fneQHYrGIvyBIeJPA2l2j8jTj6LPQB2Ht9yN18PEyFgrm/JOW0XzvfMJHE=
+X-Google-Smtp-Source: AGHT+IEpR027bQwqgL+gWsLc+SHyyXqlwdyiwrb5NhXy2pdUH//X/toKtnp1aDwfHxO74fzhk6rBZg==
+X-Received: by 2002:a05:600c:1d1d:b0:431:3b80:6ca7 with SMTP id 5b1f17b1804b1-432d9767819mr147645655e9.13.1731926076147;
+        Mon, 18 Nov 2024 02:34:36 -0800 (PST)
 Received: from [127.0.0.2] ([2a02:2454:ff21:ef40:5b7a:75b3:1e72:6e3d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38245e95925sm3162979f8f.111.2024.11.18.02.34.34
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38245e95925sm3162979f8f.111.2024.11.18.02.34.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Mon, 18 Nov 2024 02:34:35 -0800 (PST)
 From: Stephan Gerhold <stephan.gerhold@linaro.org>
-Subject: [PATCH 0/2] arm64: dts: qcom: x1e80100-crd: Add USB multiport
+Date: Mon, 18 Nov 2024 11:34:29 +0100
+Subject: [PATCH 1/2] arm64: dts: qcom: x1e80100-crd: Add USB multiport
  fingerprint reader
-Date: Mon, 18 Nov 2024 11:34:28 +0100
-Message-Id: <20241118-x1e80100-crd-fp-v1-0-ec6b553a2e53@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADQYO2cC/x3MTQqAIBBA4avIrBtwpB/rKtFCdKrZWChEIN49a
- fkt3iuQOQlnWFSBxI9kuWIDdQr86eLBKKEZjDY9EQ34EltNWqNPAfcbrTXWezdPYRyhVXfiXd7
- /uG61fg4ipKFhAAAA
+Message-Id: <20241118-x1e80100-crd-fp-v1-1-ec6b553a2e53@linaro.org>
+References: <20241118-x1e80100-crd-fp-v1-0-ec6b553a2e53@linaro.org>
+In-Reply-To: <20241118-x1e80100-crd-fp-v1-0-ec6b553a2e53@linaro.org>
 To: Bjorn Andersson <andersson@kernel.org>, 
  Konrad Dybcio <konradybcio@kernel.org>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -83,9 +83,8 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Abel Vesa <abel.vesa@linaro.org>, Johan Hovold <johan@kernel.org>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_023437_708343_DEA55503 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241118_023438_251722_95C71E19 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,24 +100,88 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 The X1E80100 CRD has a Goodix fingerprint reader connected to the USB
-multiport controller. Set it up in the device tree and enable the needed
-driver for the NXP PTN3222 eUSB2 to USB2 redriver in the arm64 defconfig.
+multiport controller on eUSB6. All other ports (including USB super-speed
+pins) are unused.
+
+Set it up in the device tree together with the NXP PTN3222 repeater.
 
 Signed-off-by: Stephan Gerhold <stephan.gerhold@linaro.org>
 ---
-Stephan Gerhold (2):
-      arm64: dts: qcom: x1e80100-crd: Add USB multiport fingerprint reader
-      arm64: defconfig: enable NXP PTN3222 eUSB2 to USB2 redriver driver
-
  arch/arm64/boot/dts/qcom/x1e80100-crd.dts | 48 +++++++++++++++++++++++++++++++
- arch/arm64/configs/defconfig              |  1 +
- 2 files changed, 49 insertions(+)
----
-base-commit: 30eb6f0b08b13fd25ea12a3a6fa0a85915190c1c
-change-id: 20241115-x1e80100-crd-fp-8828cca97d66
+ 1 file changed, 48 insertions(+)
 
-Best regards,
+diff --git a/arch/arm64/boot/dts/qcom/x1e80100-crd.dts b/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
+index 39f9d9cdc10d..44942931c18f 100644
+--- a/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
++++ b/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
+@@ -735,6 +735,26 @@ keyboard@3a {
+ 	};
+ };
+ 
++&i2c5 {
++	clock-frequency = <400000>;
++
++	status = "okay";
++
++	eusb6_repeater: redriver@4f {
++		compatible = "nxp,ptn3222";
++		reg = <0x4f>;
++		#phy-cells = <0>;
++
++		vdd3v3-supply = <&vreg_l13b_3p0>;
++		vdd1v8-supply = <&vreg_l4b_1p8>;
++
++		reset-gpios = <&tlmm 184 GPIO_ACTIVE_LOW>;
++
++		pinctrl-0 = <&eusb6_reset_n>;
++		pinctrl-names = "default";
++	};
++};
++
+ &i2c8 {
+ 	clock-frequency = <400000>;
+ 
+@@ -1047,6 +1067,14 @@ edp_reg_en: edp-reg-en-state {
+ 		bias-disable;
+ 	};
+ 
++	eusb6_reset_n: eusb6-reset-n-state {
++		pins = "gpio184";
++		function = "gpio";
++		drive-strength = <2>;
++		bias-disable;
++		output-low;
++	};
++
+ 	hall_int_n_default: hall-int-n-state {
+ 		pins = "gpio92";
+ 		function = "gpio";
+@@ -1260,3 +1288,23 @@ &usb_1_ss2_dwc3_hs {
+ &usb_1_ss2_qmpphy_out {
+ 	remote-endpoint = <&pmic_glink_ss2_ss_in>;
+ };
++
++&usb_mp {
++	status = "okay";
++};
++
++&usb_mp_dwc3 {
++	/* Limit to USB 2.0 and single port */
++	maximum-speed = "high-speed";
++	phys = <&usb_mp_hsphy1>;
++	phy-names = "usb2-1";
++};
++
++&usb_mp_hsphy1 {
++	vdd-supply = <&vreg_l2e_0p8>;
++	vdda12-supply = <&vreg_l3e_1p2>;
++
++	phys = <&eusb6_repeater>;
++
++	status = "okay";
++};
+
 -- 
-Stephan Gerhold <stephan.gerhold@linaro.org>
+2.44.2
 
 
