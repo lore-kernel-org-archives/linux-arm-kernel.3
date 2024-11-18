@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFDC0D43FEE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 08:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D18E9D43FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 08:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=22eBrCOuw0pL18pceraGOlsxlVBeZpCNoSmGSYgXMW8=; b=QaAs8J8Vgxu9wrTxb3v1Yw2UXy
-	5aG82vXJUpafdWWynrmqUL5/gkpN6hElNQY51XIzzvCMnj73PwKhl2JzDXbXdOJLz3ZoVCjL0iMg4
-	8jnz1tqUYM6va+5xvlylUT1hcWy6Y0DwzY7O7H6LLDDFyIxXkpaEII2IpCxlotwDWwHFYEoQhcNxx
-	ghdrgq7ILGOcSK0JbASJdDxX5Jgtu/LTpeg6cC66B4l+xllFy+OfPeYrU2No3pJmkgQqoF6yrlpEH
-	ZLEJXWpObXizsYya+w7ZG3q9Pl7UFRtbwru2UFs0KdpBQbgGxJdo5BznWYlVkcx2d0mFbz/jceo3v
-	RGY3eocg==;
+	bh=Js4XwaykndxmdA7yiX8pwiKscaOEEt+IBgrF0wpJ000=; b=0S6Qo9O301vbjtYnFkzwrHJU6e
+	5MnKBzyuUl0ZYZZ6GMNagAuE2YsvKCuY6JoggN+m9p0zu4tgVPDqt7v7J+I71Gau87dheVpqLSHfq
+	t3XMFgxCvrfOFDdHEbzg3REKr8aVD0tHvCoemLXzVAjFcBvyq5HfxdRbodwIMRDAY8qnrs0aFQiAq
+	POb2zJ4rNjmM92Dzq32sDGe7JOBGIuls9BlFsbBVbpyBIHSdD+bf5dMeAnxD01RlZA/qdo2KbE+SE
+	nwEODQLtW0fkr5zCWrUpIv4dGGIdhAaWayDk2YFjAgQTXvXoIKtjF2NshcZn8/inMKsU4XQoe1U8/
+	FH51oTmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCx9h-00000008mg8-2J8V;
-	Mon, 18 Nov 2024 08:30:45 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tCxAc-00000008mwQ-18f4;
+	Mon, 18 Nov 2024 08:31:42 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCx6e-00000008lrg-0Dij
+	id 1tCx6h-00000008lsh-2TlD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 08:27:37 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21207f0d949so11210545ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 00:27:35 -0800 (PST)
+	Mon, 18 Nov 2024 08:27:40 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-211a4682fcaso25508005ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 00:27:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731918455; x=1732523255; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1731918458; x=1732523258; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=22eBrCOuw0pL18pceraGOlsxlVBeZpCNoSmGSYgXMW8=;
-        b=kLLHsQtnFZO2Q+56qKA6PBMuwUFCOdyA9kFZMDPjCoelVjClsIkG9GYh9UqzPhUiRf
-         q7dT40TnGRQWl5Na6WYGt7EwLVEaQqFUDseITbewTfAONA2so692uKGhxxeHfI/FOvt8
-         JFqg8+gzsagEZapp4WMXXgPGKfYzfr9PXg6E/7Ogrn5/dxyewh6gnBEYTSU0ojndPGMU
-         b54OcK7qW3l3jcNIBHG0Sr+b3xpLXA4pGKvMkM/S/9+oLcvcdtk6oGapS62UDrvosTRs
-         hdFaGAdHBRYusGVFsp/9w9UQ1fOazmdhreLhvBFAo3x5EJf5lUkKsjXCMrEXe7s0p7yl
-         J+xg==
+        bh=Js4XwaykndxmdA7yiX8pwiKscaOEEt+IBgrF0wpJ000=;
+        b=Ozd6NL+deldJvPgYIhW9USXsBF+evr3e8DT2kLrCmnA7/u8xfGkCQ/mhdwp0inj4D5
+         YKHtg2knGFV59HBLBQ7mOh8Geg3SBsMHyHIlOBPlMqOxxA7bnGnvNJx4VLk2nP8HX/QG
+         IWnrqGXdMiVrPlQBUlkw9zcFf1FtLzNq3e2sofw3dOmTgbBcIDtKXb2IdoVGEcrgKVhe
+         OPtOm52ChclpTxa3Ka2RkeChSChwyMOcmKyNFmuFiQ+OWal+aoSIuSfkMQCsVGLyc146
+         gtks4gKnI7/mY3H3IS5K3vy/TA9OFE/2RraxYBpAk/0xDc4Yi1UydeZVucULzZsgFShA
+         z7Xw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731918455; x=1732523255;
+        d=1e100.net; s=20230601; t=1731918458; x=1732523258;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=22eBrCOuw0pL18pceraGOlsxlVBeZpCNoSmGSYgXMW8=;
-        b=bFTSxiPhpl+ngEkwHpiIWCGT+pTI42Cr7BLJYsltKKhXWmjkmICM22pQH9qbhCXU1I
-         wWGQdIn/4FGI4NSGkwc7eVy+Z7PzuSUNDpYyOxMrVta11mFceZ76QT0SVzMmaYdEprZ+
-         42F9nFefBL3txBVJNiTAGvT2CU/iDtL0q3TaVbJmmUKzOaJ0+y7eWhoy+VmwK4itkUkJ
-         +cUsogDvpuDG5+RPmbbL4KqY89meYhKFE2fR/fdiwv0RxTAEKMfC2U4YFMSthd+8vHlA
-         mnKhupBwO/ROeoebNceZj4o8t9oL+oG6sx92VLP5d0+d3NUCNR5BFq4MYAXLhpImwWvu
-         6dlA==
-X-Forwarded-Encrypted: i=1; AJvYcCWOIdV8jI++65fsulb+ar4ca08Jv/tNAkohBY4zBlHojd4sQ7oZI6F+ZYj2s/2+gRgby1nkFU8LlpbVHtpYUta6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5tofXDgszPyvg4I4fGSzTKhFJOlx+gjG94xanmX26mf4VjLps
-	mbrbCDekthv8sO7P5/9ed7z1uH+ZOZ9vwelOFS3uLTJTzl2rM9aE
-X-Google-Smtp-Source: AGHT+IFCMhGgX1xOfQNJJSKDX6LuB6StegDr2eFKaxNLfiSTIGrTwq5g52HdTmoiFI6ckWKVxwhnng==
-X-Received: by 2002:a17:903:22c4:b0:20b:861a:25c7 with SMTP id d9443c01a7336-211d0f1183dmr160198245ad.54.1731918454839;
-        Mon, 18 Nov 2024 00:27:34 -0800 (PST)
+        bh=Js4XwaykndxmdA7yiX8pwiKscaOEEt+IBgrF0wpJ000=;
+        b=Cy2jwSZ9j0KKoPpsIa4PYB4V63wRj4C2PVrh1iaAOsC2L2FcASTIhSMX8Umomc5N3Z
+         O5/vI+DJ6ryowxaYCRDn1lRSGYLq/eeXd+x/s0WqezgysZy1lzyBJSbP/wkQHlPpg93w
+         wOHsexvzmVw4YJTAu59T8ZKdpcpgbFohysTBPUN5Uydx9WBOjxrgnBY4ATRn/o9FImeD
+         OmNbCIiv+eQOyLviah76scxANDXyjGYXeAkdoy4a5IyXRv8eHNyNnw0i0mwXlukt/+PR
+         e3gJmwbQd1LmxobPjR4GBDUFtCeKtIQvOAZvisW2r2msz1Md/57HuzD5OjGpPWat2+rw
+         Y08A==
+X-Forwarded-Encrypted: i=1; AJvYcCXJe8vXF0pCw+eWHxGApALEaXWhQtTW0O5ZpzlSi5Mi8O5JcBrvuxd1rHonIz5sg6Pmeo4gzHrhqmnM7CcNuniv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRaQLhhRtGsmUON5fIGvoCT5dgC+lZ6ig0bPD6qnQ2H4ysj4R5
+	aUEus/ky26iygP62mab4W03D/zjyMXF0V4KeCWJOslkniaRzcIRs
+X-Google-Smtp-Source: AGHT+IHsm3Txde2aN86FKECvf2CdflmYt/JDCEML/U6tfMKKmqNWqaQEFWe+BBbYl2dbFEA2ZfGw1Q==
+X-Received: by 2002:a17:902:f710:b0:212:c9d:5f62 with SMTP id d9443c01a7336-2120c9d604amr71094745ad.52.1731918458392;
+        Mon, 18 Nov 2024 00:27:38 -0800 (PST)
 Received: from yclu-ubuntu.. (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0ebbf9esm51883815ad.45.2024.11.18.00.27.31
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0ebbf9esm51883815ad.45.2024.11.18.00.27.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Nov 2024 00:27:34 -0800 (PST)
+        Mon, 18 Nov 2024 00:27:38 -0800 (PST)
 From: Joey Lu <a0987203069@gmail.com>
 To: andrew+netdev@lunn.ch,
 	davem@davemloft.net,
@@ -87,17 +87,17 @@ Cc: alexandre.torgue@foss.st.com,
 	openbmc@lists.ozlabs.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH v3 1/3] dt-bindings: net: nuvoton: Add schema for Nuvoton MA35 family GMAC
-Date: Mon, 18 Nov 2024 16:27:05 +0800
-Message-Id: <20241118082707.8504-2-a0987203069@gmail.com>
+Subject: [PATCH v3 2/3] arm64: dts: nuvoton: Add Ethernet nodes
+Date: Mon, 18 Nov 2024 16:27:06 +0800
+Message-Id: <20241118082707.8504-3-a0987203069@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241118082707.8504-1-a0987203069@gmail.com>
 References: <20241118082707.8504-1-a0987203069@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_002736_092420_31C13383 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20241118_002739_629247_D18EA2B4 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,206 +112,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Create initial schema for Nuvoton MA35 family Gigabit MAC.
+Add GMAC nodes for our MA35D1 development boards:
+two RGMII interfaces for SOM board, and one RGMII and one RMII
+interface for IoT board.
 
 Signed-off-by: Joey Lu <a0987203069@gmail.com>
 ---
- .../bindings/net/nuvoton,ma35d1-dwmac.yaml    | 173 ++++++++++++++++++
- .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
- 2 files changed, 174 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
+ .../boot/dts/nuvoton/ma35d1-iot-512m.dts      | 12 +++++
+ .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 10 ++++
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 52 +++++++++++++++++++
+ 3 files changed, 74 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml b/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
-new file mode 100644
-index 000000000000..92cbbcc72f2b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
-@@ -0,0 +1,173 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/nuvoton,ma35d1-dwmac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
+index 9482bec1aa57..5cc712ae92d8 100644
+--- a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
++++ b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
+@@ -18,6 +18,8 @@ aliases {
+ 		serial12 = &uart12;
+ 		serial13 = &uart13;
+ 		serial14 = &uart14;
++		ethernet0 = &gmac0;
++		ethernet1 = &gmac1;
+ 	};
+ 
+ 	chosen {
+@@ -126,3 +128,13 @@ &uart14 {
+ 	pinctrl-0 = <&pinctrl_uart14>;
+ 	status = "okay";
+ };
 +
-+title: Nuvoton DWMAC glue layer controller
++&gmac0 {
++	phy-mode = "rgmii-id";
++	status = "okay";
++};
 +
-+maintainers:
-+  - Joey Lu <yclu4@nuvoton.com>
++&gmac1 {
++	phy-mode = "rmii";
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
+index f6f20a17e501..1d9ac350a1f1 100644
+--- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
++++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
+@@ -18,6 +18,8 @@ aliases {
+ 		serial12 = &uart12;
+ 		serial14 = &uart14;
+ 		serial16 = &uart16;
++		ethernet0 = &gmac0;
++		ethernet1 = &gmac1;
+ 	};
+ 
+ 	chosen {
+@@ -129,3 +131,11 @@ &uart16 {
+ 	pinctrl-0 = <&pinctrl_uart16>;
+ 	status = "okay";
+ };
 +
-+description:
-+  Nuvoton 10/100/1000Mbps Gigabit Ethernet MAC Controller is based on
-+  Synopsys DesignWare MAC (version 3.73a).
++&gmac0 {
++	status = "okay";
++};
 +
-+# We need a select here so we don't match all nodes with 'snps,dwmac'
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - nuvoton,ma35d1-dwmac
-+  required:
-+    - compatible
++&gmac1 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+index e51b98f5bdce..2e0071329309 100644
+--- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
++++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+@@ -379,5 +379,57 @@ uart16: serial@40880000 {
+ 			clocks = <&clk UART16_GATE>;
+ 			status = "disabled";
+ 		};
 +
-+allOf:
-+  - $ref: snps,dwmac.yaml#
++		gmac0: ethernet@40120000 {
++			compatible = "nuvoton,ma35d1-dwmac";
++			reg = <0x0 0x40120000 0x0 0x10000>;
++			interrupts = <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq";
++			clocks = <&clk EMAC0_GATE>, <&clk EPLL_DIV8>;
++			clock-names = "stmmaceth", "ptp_ref";
 +
-+properties:
-+  compatible:
-+    oneOf:
-+      - enum:
-+          - nuvoton,ma35d1-dwmac
-+      - const: snps,dwmac-3.70a
++			nuvoton,sys = <&sys 0>;
++			resets = <&sys MA35D1_RESET_GMAC0>;
++			reset-names = "stmmaceth";
++			status = "disabled";
 +
-+  reg:
-+    description:
-+      Register range should be one of the GMAC interface.
++			phy-mode = "rgmii-id";
++			phy-handle = <&eth_phy0>;
++			mdio0: mdio {
++				compatible = "snps,dwmac-mdio";
++				#address-cells = <1>;
++				#size-cells = <0>;
 +
-+  interrupts:
-+    maxItems: 1
++				eth_phy0: ethernet-phy@0 {
++					reg = <0>;
++				};
++			};
++		};
 +
-+  clocks:
-+    items:
-+      - description: MAC clock
-+      - description: PTP clock
++		gmac1: ethernet@40130000 {
++			compatible = "nuvoton,ma35d1-dwmac";
++			reg = <0x0 0x40130000 0x0 0x10000>;
++			interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq";
++			clocks = <&clk EMAC1_GATE>, <&clk EPLL_DIV8>;
++			clock-names = "stmmaceth", "ptp_ref";
 +
-+  clock-names:
-+    items:
-+      - const: stmmaceth
-+      - const: ptp_ref
++			nuvoton,sys = <&sys 1>;
++			resets = <&sys MA35D1_RESET_GMAC1>;
++			reset-names = "stmmaceth";
++			status = "disabled";
 +
-+  nuvoton,sys:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to access syscon registers.
-+          - description: GMAC interface ID.
-+            enum:
-+              - 0
-+              - 1
-+    description:
-+      A phandle to the syscon with one argument that configures system registers
-+      for MA35D1's two GMACs. The argument specifies the GMAC interface ID.
++			phy-mode = "rgmii-id";
++			phy-handle = <&eth_phy1>;
++			mdio1: mdio {
++				compatible = "snps,dwmac-mdio";
++				#address-cells = <1>;
++				#size-cells = <0>;
 +
-+  resets:
-+    maxItems: 1
-+
-+  reset-names:
-+    items:
-+      - const: stmmaceth
-+
-+  phy-mode:
-+    enum:
-+      - rmii
-+      - rgmii
-+      - rgmii-id
-+      - rgmii-txid
-+      - rgmii-rxid
-+
-+  phy-handle:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Specifies a reference to a node representing a PHY device.
-+
-+  tx-internal-delay-ps:
-+    enum: [0, 2000]
-+    default: 0
-+    description:
-+      RGMII TX path delay used only when PHY operates in RGMII mode with
-+      internal delay (phy-mode is 'rgmii-id' or 'rgmii-txid') in pico-seconds.
-+
-+  rx-internal-delay-ps:
-+    enum: [0, 2000]
-+    default: 0
-+    description:
-+      RGMII RX path delay used only when PHY operates in RGMII mode with
-+      internal delay (phy-mode is 'rgmii-id' or 'rgmii-rxid') in pico-seconds.
-+
-+  mdio:
-+    $ref: /schemas/net/mdio.yaml#
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - interrupt-names
-+  - clocks
-+  - clock-names
-+  - nuvoton,sys
-+  - resets
-+  - reset-names
-+  - phy-mode
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
-+    #include <dt-bindings/reset/nuvoton,ma35d1-reset.h>
-+    //Example 1
-+    gmac0: ethernet@40120000 {
-+        compatible = "nuvoton,ma35d1-dwmac";
-+        reg = <0x0 0x40120000 0x0 0x10000>;
-+        interrupts = <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "macirq";
-+        clocks = <&clk EMAC0_GATE>, <&clk EPLL_DIV8>;
-+        clock-names = "stmmaceth", "ptp_ref";
-+
-+        nuvoton,sys = <&sys 0>;
-+        resets = <&sys MA35D1_RESET_GMAC0>;
-+        reset-names = "stmmaceth";
-+
-+        phy-mode = "rgmii-id";
-+        phy-handle = <&eth_phy0>;
-+        mdio0: mdio {
-+            compatible = "snps,dwmac-mdio";
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            eth_phy0: ethernet-phy@0 {
-+                reg = <0>;
-+            };
-+        };
-+    };
-+
-+  - |
-+    //Example 2
-+    gmac1: ethernet@40130000 {
-+        compatible = "nuvoton,ma35d1-dwmac";
-+        reg = <0x0 0x40130000 0x0 0x10000>;
-+        interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "macirq";
-+        clocks = <&clk EMAC1_GATE>, <&clk EPLL_DIV8>;
-+        clock-names = "stmmaceth", "ptp_ref";
-+
-+        nuvoton,sys = <&sys 1>;
-+        resets = <&sys MA35D1_RESET_GMAC1>;
-+        reset-names = "stmmaceth";
-+
-+        phy-mode = "rmii";
-+        phy-handle = <&eth_phy1>;
-+        mdio1: mdio {
-+            compatible = "snps,dwmac-mdio";
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            eth_phy1: ethernet-phy@1 {
-+                reg = <1>;
-+            };
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 4e2ba1bf788c..aecdb3d37b53 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -66,6 +66,7 @@ properties:
-         - ingenic,x2000-mac
-         - loongson,ls2k-dwmac
-         - loongson,ls7a-dwmac
-+        - nuvoton,ma35d1-dwmac
-         - qcom,qcs404-ethqos
-         - qcom,sa8775p-ethqos
-         - qcom,sc8280xp-ethqos
++				eth_phy1: ethernet-phy@1 {
++					reg = <1>;
++				};
++			};
++		};
+ 	};
+ };
 -- 
 2.34.1
 
