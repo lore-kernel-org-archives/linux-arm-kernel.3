@@ -4,64 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6520D49232
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 15:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2AFED49231
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 15:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gnNl9eTQS3pdG97o+C7UUy/EYU1iigl7G8WTnk4JT/I=; b=ADoliWGgyo+IaNxGX6lcsAVpIZ
-	EUOu8phPELTtDoUHZDBjkhLSkDC1GMc7K4lWlxtUc3R9j/EcQOJyLQpgDMyRepPmjf9p7PcSGtNUS
-	iVHMLLCJIhLHZWOjs+1hown8mzz5PhWGt7E/WHdRvdeNXK7jAxYoWT7adLxUlR0wsYH0GZcvdV54D
-	j0gyILpQyhQh/uOXe97Q6OIz7GAj8eYF9swZ+0V6aUX66msvRYfSs9DbhH5j2o0wuALDXYYntlzAJ
-	FvKsRhNUSsepkt58ZeJ1rWidd5Kidn284rb05taZqE8HL2kmvBAudcfY5impxX5b5D8S6TR1knNuD
-	pxNu+CHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pqX/+YS8HQkrgSLStWGErKa2bZe5H7aZiEUmfPnTz0o=; b=GIjWwa7F06hMgHG9CUK7pQ+rWR
+	Shc6etOFxoOxqW/qYsbhPBcyl5ZVnjwPjXYgmth8TOjU4BLYaCzWISQ8aGBSjVVwY1wc3Li14HDwJ
+	XCI7NQIFlJO58DuVfFS9YkyS5lMtRiS3zz+0GiRiqPoFXJZUmuE/qjE5T6HyMuAJv0AxmccLSUx/U
+	MEfP970KC0bs4/PHDz7ltKedEhEs8IIGMPEImce3+xXTCpIrV1yiITwwNpbzAXBT7KgrUag3510i4
+	oRaq3WJRaoxeY3Q0tLKg2QaJE9nsXWDsajljFixfk1WELWzAudCkVmZvAbyxI2iaDY/CgMlWpmm1Z
+	CfPIokJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD3Mx-00000009sVE-2F4t;
-	Mon, 18 Nov 2024 15:08:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD3Kc-00000009ruQ-1z5U
+	id 1tD3Nr-00000009shz-0xrf;
+	Mon, 18 Nov 2024 15:09:47 +0000
+Received: from mail-bn8nam12on20619.outbound.protection.outlook.com ([2a01:111:f403:2418::619] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tD3Ml-00000009sQt-24VO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 15:06:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 378BA1063;
-	Mon, 18 Nov 2024 07:06:54 -0800 (PST)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.34])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F0BDC3F5A1;
-	Mon, 18 Nov 2024 07:06:21 -0800 (PST)
-Date: Mon, 18 Nov 2024 15:06:16 +0000
-From: Dave Martin <Dave.Martin@arm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, akpm@linux-foundation.org,
-	anshuman.khandual@arm.com, aruna.ramakrishna@oracle.com,
-	broonie@kernel.org, dave.hansen@linux.intel.com,
-	jeffxu@chromium.org, joey.gouly@arm.com, pierre.langlois@arm.com,
-	shuah@kernel.org, sroettger@google.com, will@kernel.org,
-	linux-kselftest@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v2 3/5] arm64: signal: Improve POR_EL0 handling to avoid
- uaccess failures
-Message-ID: <ZztX6AZqG0/g9D5l@e133380.arm.com>
-References: <20241023150511.3923558-1-kevin.brodsky@arm.com>
- <20241023150511.3923558-4-kevin.brodsky@arm.com>
- <ZxoooqtuqTK5CAMR@arm.com>
- <80688edf-83dd-43c6-a1a8-b69acd30f5c3@arm.com>
- <Zxpq0k3b9q8nWrYa@arm.com>
- <ZxpzexqNIfys3MnJ@e133380.arm.com>
- <d7d00ffc-2e92-46cb-95c2-c877723bcb5d@arm.com>
- <ZxuB/M7qMDPtLRuk@e133380.arm.com>
- <f2bef169-6ca4-4715-89bf-3680e8ea6153@arm.com>
+	Mon, 18 Nov 2024 15:08:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s4o48sTMClG3uiB8X+A5XnimMgqIfmmbI+jjSgFzvwnaNo7IH1xGIdoR62xHMDl9s7ODh6thIi4eUfg2JwKrUsN+TKCo9EergMP1RdRzmI4DS66NtfEn9V78rdRBgZq+S9QzUZMsmjGAYXrhncVWC0hZWuToV5cHS4cdbQUXmYphovOVMnU8ZX5Za3jQ/zc3+XmVk0TkfspqVkaqQAMlR8kieyLRM3B/zuhcu8L7sgar064mDxlH9VUqXsj4xUDx9iQK077TE9cEaKzOLodhaHcwKPK4KGO3gU1tIrYXvI9a1Gg3cXiRpAU+CPPbyuJ42W4dVdo12b6KxN+h5q8HiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pqX/+YS8HQkrgSLStWGErKa2bZe5H7aZiEUmfPnTz0o=;
+ b=p3BjVIcyWy8IRd5p2Egh6OIyTWABe9TZxOaLagRa6nkY1LJ9m39j/MOzWvOud2PrdN+BffG1uaSWYS6b5P2wt4ORcWjsstEZ6Rw6/QMHVAM8KaaZwiRL7dFOGb2R0YeN/wzUDdYWANqLSknK4hGQP6hNWC5CLPUf7tAuxRCG32G2c5K8Kb9o0Ll9oSkxfbA/oP3BZt2foPHvSC91rE1HK7gEeqTEVJ6UbEDkuTalIlSqzq9ZekfM8l1n4yqi/jzla2j/wyue/Vupo8EeftC2oYmzM5LeDE2d0eCeIrLDTarMt6jw5fzvzl4LMJ/o9UAkfQVMrEPqVhdgQ5WeYIhroQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.12) smtp.rcpttodomain=synopsys.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pqX/+YS8HQkrgSLStWGErKa2bZe5H7aZiEUmfPnTz0o=;
+ b=KDt8Icr12nonU1LSzjLT9+q287xNWa9IFUCo86qd18SeOCKAJhGQDbfNJh9563JUdS32syfolzuz1eqMlIY3IKNIe9eRmLJiaiMLkZfhqw2f7VNt24ATutNFaiErjqHHorwzujxeZirRJh7ar5CqPOIcCJ1i+XEK+BSAkAsIy/c=
+Received: from SA9PR13CA0161.namprd13.prod.outlook.com (2603:10b6:806:28::16)
+ by LV2PR12MB5968.namprd12.prod.outlook.com (2603:10b6:408:14f::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.17; Mon, 18 Nov
+ 2024 15:08:33 +0000
+Received: from SN1PEPF0002BA4E.namprd03.prod.outlook.com
+ (2603:10b6:806:28:cafe::bf) by SA9PR13CA0161.outlook.office365.com
+ (2603:10b6:806:28::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.12 via Frontend
+ Transport; Mon, 18 Nov 2024 15:08:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.12)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.12 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.12; helo=SATLEXMB03.amd.com; pr=C
+Received: from SATLEXMB03.amd.com (165.204.84.12) by
+ SN1PEPF0002BA4E.mail.protection.outlook.com (10.167.242.71) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8158.14 via Frontend Transport; Mon, 18 Nov 2024 15:08:30 +0000
+Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 18 Nov
+ 2024 09:08:28 -0600
+Received: from xhdradheys41.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Mon, 18 Nov 2024 09:08:25 -0600
+From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+To: <Thinh.Nguyen@synopsys.com>, <gregkh@linuxfoundation.org>,
+	<michal.simek@amd.com>, <robert.hancock@calian.com>
+CC: <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <git@amd.com>, Neal Frager
+	<neal.frager@amd.com>, <stable@vger.kernel.org>, Radhey Shyam Pandey
+	<radhey.shyam.pandey@amd.com>
+Subject: [PATCH v2] usb: dwc3: xilinx: make sure pipe clock is deselected in usb2 only mode
+Date: Mon, 18 Nov 2024 20:38:11 +0530
+Message-ID: <1731942491-1992368-1-git-send-email-radhey.shyam.pandey@amd.com>
+X-Mailer: git-send-email 2.1.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f2bef169-6ca4-4715-89bf-3680e8ea6153@arm.com>
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB03.amd.com: radhey.shyam.pandey@amd.com does not
+ designate permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA4E:EE_|LV2PR12MB5968:EE_
+X-MS-Office365-Filtering-Correlation-Id: 640baccf-39e5-4184-66da-08dd07e2dcc4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?J8E7SIFkWV31nFHa8l/AurmIl3dvFa4qrJLXnC3/tzungbJtRgS09MV3yDE3?=
+ =?us-ascii?Q?x/uoR2IqHhKmFCGxOKNe9R1ZL7HIsGRSw3PWJFQMX5gv6aX34aEyyAbKjizl?=
+ =?us-ascii?Q?7xQLT7pIxEOR/TQ/HYGyY0Tr2dvNHP83435GFjqv+KaJ0OvY2tRTEkUVkY+W?=
+ =?us-ascii?Q?w3wfBMVndoiIAXkvC75J2Wf2MaOQ1n3cuAEmXdaghw67eN/1bwEZGpHLsOjb?=
+ =?us-ascii?Q?XXQBnnReHpYYlijcz9KPb7DjUOjFRx8uD1cSySSJg5cRM5+3FUJcKpry/FiX?=
+ =?us-ascii?Q?/hEOe2FKLUvNhZjGCjoNyOV1PfV7BfxJC5QKUEEUllTZO3sw3voBmy7EC03g?=
+ =?us-ascii?Q?/Qv0BlgOBhYGwgfkva4wGRnij9vcRSIEVxoTz2DSLUKHPLOumH8qaXwv2iPj?=
+ =?us-ascii?Q?HVYRZtRth4VXfe4HuqNsAud5dJ5d6U+eSJ3whKSPE/lbYb/YKfceVsJ3gFWw?=
+ =?us-ascii?Q?WrGeNHIupbYDofPItXJBlMCb92+ZdkwV6wBhHZUJ3XkHNJIejEZOAEziSRF6?=
+ =?us-ascii?Q?S48B/WRx2dFJzoZAfxgKW7Dptzue0uwYlMrcAKTw2UzuRdRB8MXt7t61uOC5?=
+ =?us-ascii?Q?9+FRdXwzy7szmsv5C4rdqX7lyzt+RXZpUdhJwlSqDIeJemJKwMvwp4ZQ9L3+?=
+ =?us-ascii?Q?bQoJEL7dGQNK/MOnAuQM1JQnRmTIQV+4iNVrdGDFAzFMc47Uluycso+jr3xs?=
+ =?us-ascii?Q?7V7aRG61lmSK04RdXhFbJmiOzCveEvK3YXTZH/fkDxKMsphAQy9oUOMI8x6t?=
+ =?us-ascii?Q?UnteN00yPUP1iqlUB9v19rfYwvfN1x4i8YPonfyJRQXZTxrxfN2UC/u5lcbL?=
+ =?us-ascii?Q?hZrgEH5v8B8JJys327k4t5lP82kZsuXMDMPFPfYADP8OldmUVlB1kWQpH4jR?=
+ =?us-ascii?Q?MYZ3aQ0f7JUZ/ovtn0wmca7rjGsp4ErlgHWsqoNoL69A8c7jhZUv/3XUOgLc?=
+ =?us-ascii?Q?na78Pf1CK3fRu3K4pOAfrSgVt1wBJ9nRB7xvSD9DGVcywhbgNQaXuWHKFUep?=
+ =?us-ascii?Q?bu8G8AUrQxFjN8Ut0TnCY3cOOkd0U+3P8bUmNcqy0Z5FZrpJvrD8/WHgB1ee?=
+ =?us-ascii?Q?IaRLScGsG+LKkd5P4GMae93yagfvesVtSRf5IUY7SjhXLL1pQs6eDwVmR5nY?=
+ =?us-ascii?Q?LXQKkCox+I+TOnDh5svewy0O2KkY4te4Gr4EYG33qSYxzR6zPKpWymv4lq30?=
+ =?us-ascii?Q?NzNVamQESBA50XxXJONNzYRM12lYPbM8B/SXR2YgCU3b2MWzHaxTpm+V8CA6?=
+ =?us-ascii?Q?I3hVqcw7uYqRPIv9qXMYQuYcDoHKoCH34+bfNqOHAf+Fxy3V96EV+j+Cku7T?=
+ =?us-ascii?Q?o5Hx2QueScUMDZauIXkJXlHxznrL8fqXjanYjlqcCBxjV7bl8tPI4gDJqF44?=
+ =?us-ascii?Q?p0sp22vODTMhMhmtY1Idokl171cZABeX1Rt5gmL2jIdzwjUUJQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.12;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:atlvpn-bp.amd.com;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2024 15:08:30.3403
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 640baccf-39e5-4184-66da-08dd07e2dcc4
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.12];Helo=[SATLEXMB03.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA4E.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5968
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_070626_620952_A903C7E6 
-X-CRM114-Status: GOOD (  54.10  )
+X-CRM114-CacheID: sfid-20241118_070839_535761_8DC451B2 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,157 +143,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 05:34:24PM +0200, Kevin Brodsky wrote:
-> On 25/10/2024 13:33, Dave Martin wrote:
-> > On Fri, Oct 25, 2024 at 10:24:41AM +0200, Kevin Brodsky wrote:
-> >>>>>>> @@ -907,6 +964,7 @@ SYSCALL_DEFINE0(rt_sigreturn)
-> >>>>>>>  {
-> >>>>>>>  	struct pt_regs *regs = current_pt_regs();
-> >>>>>>>  	struct rt_sigframe __user *frame;
-> >>>>>>> +	struct user_access_state ua_state;
-> >>>>>>>  
-> >>>>>>>  	/* Always make any pending restarted system calls return -EINTR */
-> >>>>>>>  	current->restart_block.fn = do_no_restart_syscall;
-> >>>>>>> @@ -923,12 +981,14 @@ SYSCALL_DEFINE0(rt_sigreturn)
-> >>>>>>>  	if (!access_ok(frame, sizeof (*frame)))
-> >>>>>>>  		goto badframe;
-> >>>>>>>  
-> >>>>>>> -	if (restore_sigframe(regs, frame))
-> >>>>>>> +	if (restore_sigframe(regs, frame, &ua_state))
-> >>>>>>>  		goto badframe;
-> >>>>>>>  
-> >>>>>>>  	if (restore_altstack(&frame->uc.uc_stack))
-> >>>>>>>  		goto badframe;
-> >>>>>>>  
-> >>>>>>> +	restore_user_access_state(&ua_state);
-> >>>>>>> +
-> >>>>>>>  	return regs->regs[0];
-> >>>>>>>  
-> >>>>>>>  badframe:
-> >>>>>> The saving part I'm fine with. For restoring, I was wondering whether we
-> >>>>>> can get a more privileged POR_EL0 if reading the frame somehow failed.
-> >>>>>> This is largely theoretical, there are other ways to attack like
-> >>>>>> writing POR_EL0 directly than unmapping/remapping the signal stack.
-> >>>>>>
-> >>>>>> What I'd change here is always restore_user_access_state() to
-> >>>>>> POR_EL0_INIT. Maybe just initialise ua_state above and add the function
-> >>>>>> call after the badframe label.
-> >>>>> I'm not sure I understand. When we enter this function, POR_EL0 is set
-> >>>>> to whatever the signal handler set it to (POR_EL0_INIT by default).
-> >>>>> There are then two cases:
-> >>>>> 1) Everything succeeds, including reading the saved POR_EL0 from the
-> >>>>> frame. We then call restore_user_access_state(), setting POR_EL0 to the
-> >>>>> value we've read, and return to userspace.
-> >>>>> 2) Any uaccess fails (for instance reading POR_EL0). In that case we
-> >>>>> leave POR_EL0 unchanged and deliver SIGSEGV.
-> >>>>>
-> >>>>> In case 2 POR_EL0 is most likely already set to POR_EL0_INIT, or
-> >>>>> whatever the signal handler set it to. It's not clear to me that forcing
-> >>>>> it to POR_EL0_INIT helps much. Either way it's doubtful that the SIGSEGV
-> >>>>> handler will be able to recover, since the new signal frame we will
-> >>>>> create for it may be a mix of interrupted state and signal handler state
-> >>>>> (depending on exactly where we fail).
-> >>>> If the SIGSEGV delivery succeeds, returning would restore the POR_EL0
-> >>>> set up by the previous signal handler, potentially more privileged. Does
-> >>>> it matter? Can it return all the way to the original context?
-> >> What we store into the signal frame when delivering that SIGSEGV is a
-> >> mixture of the original state (up to the point of failure) and the
-> >> signal handler's state (what we couldn't restore). It's hard to reason
-> >> about how that SIGSEGV handler could possibly handle this, but in any
-> >> case it would have to massage its signal frame so that the next
-> >> sigreturn does the right thing. Restoring only part of the frame records
-> >> is bound to cause trouble and that's true for POR_EL0 as well - I doubt
-> >> there's much value in special-casing it.
-> > This feels like a simplification?
-> >
-> > We can leave a mix of restored and unrestored state when generating the
-> > SIGSEGV signal frame, providing that those changes will make no
-> > difference when the rt_sigreturn is replayed.
-> 
-> I'm not sure I understand what this means. If the SIGSEGV handler were
-> to sigreturn without touching its signal frame, things are likely to
-> explode: it may be returning to the point where the original handler
-> called sigreturn, for instance (if the first uaccess failed during that
-> sigreturn call).
+From: Neal Frager <neal.frager@amd.com>
 
-Not sure if this still matters, but the scenario I was thinking of is
-where the initial sigreturn fails due to something under process
-control (such mprotect()) that the SIGSEGV may patch up before
-returning.
+When the USB3 PHY is not defined in the Linux device tree, there could
+still be a case where there is a USB3 PHY is active on the board and
+enabled by the first stage bootloader.  If serdes clock is being used
+then the USB will fail to enumerate devices in 2.0 only mode.
 
-If the initial sigreturn has restored X0, say, before it blows up, this
-iwon't affect what the sigreturn does on the second pass after the
-SIGSEGV handler fixes up whatever needs fixing up.
+To solve this, make sure that the PIPE clock is deselected whenever the
+USB3 PHY is not defined and guarantees that the USB2 only mode will work
+in all cases.
 
-It does matter if sigreturn can blow up and trigger a SIGSEGV after
-restoring parts of the thread state that will themselves affect the
-replay of the interrupted sigreturn.
+Fixes: 9678f3361afc ("usb: dwc3: xilinx: Skip resets and USB3 register settings for USB2.0 mode")
+Cc: stable@vger.kernel.org
+Signed-off-by: Neal Frager <neal.frager@amd.com>
+Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+---
+Changes for v2:
+- Add stable@vger.kernel.org in CC.
+---
+ drivers/usb/dwc3/dwc3-xilinx.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-This use case is pretty marginal; I don't know how much software really
-relies on it.
+diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
+index e3738e1610db..a33a42ba0249 100644
+--- a/drivers/usb/dwc3/dwc3-xilinx.c
++++ b/drivers/usb/dwc3/dwc3-xilinx.c
+@@ -121,8 +121,11 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
+ 	 * in use but the usb3-phy entry is missing from the device tree.
+ 	 * Therefore, skip these operations in this case.
+ 	 */
+-	if (!priv_data->usb3_phy)
++	if (!priv_data->usb3_phy) {
++		/* Deselect the PIPE Clock Select bit in FPD PIPE Clock register */
++		writel(PIPE_CLK_DESELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
+ 		goto skip_usb3_phy;
++	}
+ 
+ 	crst = devm_reset_control_get_exclusive(dev, "usb_crst");
+ 	if (IS_ERR(crst)) {
 
+base-commit: 744cf71b8bdfcdd77aaf58395e068b7457634b2c
+-- 
+2.34.1
 
-It does look there are potential issues here: I think that we may be
-able to barf after destructively restoring SP, which would mean that a
-replay of the sigreturn would go wrong.
-
-The POE support doesn't seem to make this worse though (the ua_state
-restoration is done after confirming that the sigreturn can succeed,
-if I understand right).
-
-> 
-> > POR_EL0 will make a difference, though.
-> >
-> > The POR_EL0 image in the SIGSEGV signal frame needs be the same value
-> > that caused the original rt_sigreturn to barf (if this is what caused
-> > the barf).  It should be up to the SIGSEGV handler to decide what (if
-> > anything) to do about that.  The kernel can't know what userspace
-> > intended.
-> 
-> Unless I'm missing something this is exactly what happens now: what we
-> store in the SIGSEGV frame is the POR_EL0 value the original handler was
-> using.
-
-Yep, I had forgotten how the SIGSEGV injection works with regard to this.
-
-> 
-> > Note that for this to work, the SIGSEGV stack (whether main or
-> > alternate) must be accessible with POR_EL0_INIT permissions, or the
-> > SIGSEGV handler must start with a (gross) asm shim to establish a
-> > usable POR_EL0.  But that's not really our problem here.
-> 
-> This is indeed orthogonal - the SIGSEGV handler will be run with
-> POR_EL0_INIT, like any other handler. The value we store in the frame is
-> unrelated.
-> 
-> > (I'm not saying that the kernel necessarily fails to do this -- I
-> > haven't checked -- but just trying to understand the problem here.)
-> >
-> >
-> > The actual problem here is that if the SIGSEGV handler wants to bail
-> > out with a siglongjmp(), there is no way to determine the correct value
-> > of POR_EL0 to restore.
-> 
-> Correct, but again this is true of any other record - for instance TPIDR2.
-> 
-> > I wonder whether POR_EL0 should be saved in sigjmp_buf (depending on
-> > whether sigjmp_buf is horribly inextensible and also full up, or merely
-> > horribly inextensible).
-> 
-> It very much feels that this is the case - if a handler relies on
-> longjmp() or setcontext() to restore a known state, then POR_EL0 should
-> be part of that state.
-
-Oh well.  This ship sailed a while ago.
-
-Jumping out of a signal handler with siglongjmp() is non-portable in
-most practical situations anyway.
-
-For POR_EL0 specifically though, it should be a non-issue if no SIGSEGV
-can be generated after sigreturn destroys the failing handler's POR_EL0.
-
-[...]
-
-Cheers
----Dave
 
