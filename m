@@ -4,53 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 729C8D49211
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 11:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28754D4920F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 11:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nwrVOismUmLZnOKe8mn5G9TiQjJySHN79V870JBkWgA=; b=jmQQtiVNZKQ/uq8YzmPdN3B1kO
-	YkHAmsJcrfYPa5qgzxRq6OpgfbXFLEKBrrbsBJ9mDJlankRNYGo/AtpXyJ49n026IYxEvcyUkbi9U
-	8tcutroRyI8eJp6FCvGpWoyGsPu6W5g8ZTgl8483HXUUARzXTQYVbWj8jb7QvpT0jOFi/aswo29I0
-	UuyOIwXXEXBZMAwZiqDfouXbAwhC8ZNjUzOkOhbD6QWO7ZSD4lUbWcIPp3kUedN4blICGsOwn/YHB
-	4qSuEe/E7opiFUPn+TwWkIfqtaojX3lpw0mc+s21goMG1MJGas4Fq6l8wd/P9f15x/1NNOcp+wbqO
-	MdincuAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3DkSUVJZ6u6JrGCcnVNQfAy6eJw+uQUm24vGODUv3z4=; b=RitaMmzzCWoPkHuSAklnFJZ15z
+	xZt+viTBkEoe5UpkNm7MKCjvbIX7A4iYFaenTgTvzA5z0Kj2yGxZP+cJkDN3jTqaA3W3R8lbh7KJY
+	FbFValWl9+bfcd7X9Fs7fW3TJSayQocx6IP9hQfd3Svnp2rN9M7F9oEXgyG7LQxn8E0AJXCvj/hod
+	8MCiWmQ0b+10PMrjUzGMOSou51DO4xgJITIjIUBeWAHPDFvponmu7C7CwhEdVefCStzR3tezN7O4Z
+	XcY9BbaEiS4grNUfRLkSQcSv+0/mW2uH3SzCVyOaQSdgxjiYHnMAaDM/bwlYylWLPHl5N3EwHpM+6
+	rC1XK0IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD0Me-00000009KZx-3PZb;
-	Mon, 18 Nov 2024 11:56:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD0Li-00000009KUC-1joP
+	id 1tD0OH-00000009Klp-1xZO;
+	Mon, 18 Nov 2024 11:58:01 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tD0NJ-00000009KgX-3so5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 11:55:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD21B1682;
-	Mon, 18 Nov 2024 03:55:49 -0800 (PST)
-Received: from [10.57.91.28] (unknown [10.57.91.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7F253F6A8;
-	Mon, 18 Nov 2024 03:55:18 -0800 (PST)
-Message-ID: <fc308d9b-9b8b-4932-9f24-1756f5c089db@arm.com>
-Date: Mon, 18 Nov 2024 11:55:17 +0000
+	Mon, 18 Nov 2024 11:57:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3B09AA40CB4;
+	Mon, 18 Nov 2024 11:55:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03432C4CED6;
+	Mon, 18 Nov 2024 11:56:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731931020;
+	bh=q64Cj5gfNQRbm22pEVpRN+2YfLJFUaDCOEu7yxyDpjc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KizvJHfFWezkiBD+AQdhr9vC6oTyUJ8HX5Thl81gGGqJ1GE899miak+4/8zMn/jPi
+	 Zjd+qCINlEfZBtnny2Z3UH57R2G8tKIURo3tYjmQTdhGlT3yI6EnYo1RCkRLVNFyd4
+	 EXEcjc2WDIeFO5pjRqiw7W5VIpsVtdhA6b1OGVEGMVC9JvsS7nakHBQ/uY/U8id8kG
+	 8naWjvNILiXv/R3lL8xP5qHNCVE+Br8d2eaF89Qgt+aQTjmt8LAhxxT9sGyz4l26UK
+	 1eOLG6NU42hm5GpC+pp/DLpmmSzY7ucuukSZtfmRhtozM55+2x2y7yPr4KlMMkHuU8
+	 Y0WTu85KQhGgg==
+Date: Mon, 18 Nov 2024 11:56:55 +0000
+From: Will Deacon <will@kernel.org>
+To: Gax-c <zichenxie0106@gmail.com>
+Cc: catalin.marinas@arm.com, robin.murphy@arm.com, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, chenyuan0y@gmail.com,
+	zzjas98@gmail.com, stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: uaccess: Restrict user access to kernel memory in
+ __copy_user_flushcache()
+Message-ID: <20241118115654.GA27696@willie-the-truck>
+References: <20241115205206.17678-1-zichenxie0106@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf: arm-ni: Fix attribute_group definition syntax
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20241117-arm-ni-syntax-v1-1-1894efca38ac@weissschuh.net>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20241117-arm-ni-syntax-v1-1-1894efca38ac@weissschuh.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241115205206.17678-1-zichenxie0106@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_035522_493314_43815572 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20241118_035702_022482_06152A31 
+X-CRM114-Status: GOOD (  19.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,50 +74,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-11-17 10:20 am, Thomas Weißschuh wrote:
-> The sentinel NULL value does not make sense and is a syntax error in a
-> structure definition.
-
-What error? It's an initialiser following a designator in a structure 
-*declaration*, and the corresponding bin_attrs member is a pointer, so 
-NULL is a perfectly appropriate value to initialise it with.
-
-Of course that is redundant when it's static anyway, and indeed wasn't 
-actually intentional, but it's also not doing any harm - the cosmetic 
-cleanup is welcome, but is not a stable-worthy fix.
-
-Thanks,
-Robin.
-
-> Remove it.
+On Fri, Nov 15, 2024 at 02:52:07PM -0600, Gax-c wrote:
+> From: Zichen Xie <zichenxie0106@gmail.com>
 > 
-> Fixes: 4d5a7680f2b4 ("perf: Add driver for Arm NI-700 interconnect PMU")
+> raw_copy_from_user() do not call access_ok(), so this code allowed
+> userspace to access any virtual memory address. Change it to
+> copy_from_user().
+
+How can you access *any* virtual memory address, given that we force the
+address to map userspace via __uaccess_mask_ptr()?
+
+> Fixes: 9e94fdade4d8 ("arm64: uaccess: simplify __copy_user_flushcache()")
+
+I don't think that commit changed the semantics of the code, so if it's
+broken then I think it was broken before that change as well.
+
+> Signed-off-by: Zichen Xie <zichenxie0106@gmail.com>
 > Cc: stable@vger.kernel.org
-> Signed-off-by: Thomas Weißschuh <linux@weissschuh.net>
 > ---
-> Cc stable because although this commit is not yet released, it most
-> likely will be by the time it hits mainline.
-> ---
->   drivers/perf/arm-ni.c | 1 -
->   1 file changed, 1 deletion(-)
+>  arch/arm64/lib/uaccess_flushcache.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
-> index 90fcfe693439ef3e18e23c6351433ac3c5ea78b5..fd7a5e60e96302fada29cd44e7bf9c582e93e4ce 100644
-> --- a/drivers/perf/arm-ni.c
-> +++ b/drivers/perf/arm-ni.c
-> @@ -247,7 +247,6 @@ static struct attribute *arm_ni_other_attrs[] = {
->   
->   static const struct attribute_group arm_ni_other_attr_group = {
->   	.attrs = arm_ni_other_attrs,
-> -	NULL
->   };
->   
->   static const struct attribute_group *arm_ni_attr_groups[] = {
-> 
-> ---
-> base-commit: 4a5df37964673effcd9f84041f7423206a5ae5f2
-> change-id: 20241117-arm-ni-syntax-250a83058529
-> 
-> Best regards,
+> diff --git a/arch/arm64/lib/uaccess_flushcache.c b/arch/arm64/lib/uaccess_flushcache.c
+> index 7510d1a23124..fb138a3934db 100644
+> --- a/arch/arm64/lib/uaccess_flushcache.c
+> +++ b/arch/arm64/lib/uaccess_flushcache.c
+> @@ -24,7 +24,7 @@ unsigned long __copy_user_flushcache(void *to, const void __user *from,
+>  {
+>  	unsigned long rc;
+>  
+> -	rc = raw_copy_from_user(to, from, n);
+> +	rc = copy_from_user(to, from, n);
 
+Does anybody actually call this with an unchecked user address?
+
+From a quick look, there are two callers of _copy_from_iter_flushcache():
+
+  1. pmem_recovery_write() - looks like it's using a kernel address?
+
+  2. dax_copy_from_iter() - has a comment saying the address was already
+                            checked in vfs_write().
+
+What am I missing? It also looks like x86 elides the check.
+
+Will
 
