@@ -4,79 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A18FD4921E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 13:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4DFDD4921C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 13:11:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/vMygJr6rw4wRr5TRYAgAEyq17T9m+FPr9QZXVoLxqk=; b=359FqX9vljxM8o+P6LYuOVP4RY
-	Y69Diy+VUpKCqdYvP+MZKMYv5bavSefiIs6gw5TCFJCfh/Yyqw46MiUXGJo5UMtt/GXofoX6XAuwg
-	tI484qzUFO9NfGtYajyBmvHYt04IcrXbbV4+ZrZlvvWu0t7Kxd+L8WuZk7Qus4U2GOy/duXIwE1+y
-	nmbvJ14Nd5Uc5RH3+HzHHzvtpRLOnrZMw+cYGKvT0ENK4H/N1UlZ143fQBUyC7kNatp/tOE/uD0C3
-	tAdlTufcxzawlXKuHcdZRIk5ddMmP0EeWaF77Lwam5Z22vwkeowlPms8UEDw+U4qtfFRB7tfyJmyf
-	yCoVUNxQ==;
+	bh=G5uz6bT4S5ti8LYkYMrA0j9MoSl+xz3DdBrZ3ZH5+LE=; b=xbodKTrfB+F+A7bcg3vr6QfJvu
+	W95i+9i68ZVAVaUHnjmrj7zPmhYb+4tTCVnAbtYZtkSqUnYWkKLObHMzzVCesme1qdWGrJePP3u70
+	qTom/Xwax84R9oPkBdsMWMRpmpNohaSQa0wjgenEn5eOX2YEcxI7FhBoC2n96YfbOkVTlahLWWZXB
+	nUxeL6I7p70Ia1Dfc1R2D/zy3ZUMadxjo+uiT5bOZel1y5P9GL2CfI2GO4K2wf46PDJXg+95c3Ly1
+	DjsHSvnsbdChlAt16aAV2Wjki/MFAaB/1UzbBhbGBeF1amCumVKuTjXD83CSIooVXSDQPPNdTv4QN
+	pyubPd8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD1Vp-00000009VfM-0JuT;
-	Mon, 18 Nov 2024 13:09:53 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tD1Wj-00000009Vsr-36x1;
+	Mon, 18 Nov 2024 13:10:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD1OB-00000009TUL-3Cl9
+	id 1tD1PA-00000009ToY-1CgD
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 Nov 2024 13:03:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=G5uz6bT4S5ti8LYkYMrA0j9MoSl+xz3DdBrZ3ZH5+LE=; b=BXgFli0AkOJluwv6Zdpb44E2nf
+	AJv0l+4lypraLzbAFt1t4Xw1mNe2w5mvRs1SLy8crvfDQjH5EZcUKNGur1+x4+Qvp5Zaa61+DLoLP
+	stx+/k5MXMbvaw+gnG9x3stt0TPCY9w2WP1slBGHIzFsBEUrs3/bBquI/v0kUn9AwV5OiAyWVSE47
+	hfd8DZQg2lNdSwnSZlR6yEnBA4kzB+iQQq8/77b8RZqWl9/0Ymm6SpFjDPhDh/31s/4tVrSQPoSKq
+	g/PzarwETSRo4GL4/8A6qwFw9BHfnVW7LfIxamA7p3vbHF/s418S2+zBFT5xQV35AJITYhsHY08VM
+	h8+G3xJQ==;
+Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tD1P6-00000000Dq0-2zPI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 13:02:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1731934920; x=1763470920;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=h4D5btGy5kihmOJSvaIKWsas6azeQ61m+hrSSyqKtPM=;
-  b=bKsxufxtU/UdlWkMBCoehuAvDeUKiC40QH1bMwSYnsJwqXVpVbpHzMRg
-   WwX12g4l2OXcZQc4vYUyqDo8yFJJBi2fKER73a8CvkJ1Pm4Z9Na85jyjP
-   NC6+J3gk4hoaVdBunNfQCG6E+vEpIv8pJtWv2iu/xgnM8p1iHgBUrx+Zy
-   NaBI7gaEsClcBIYn4JCgRQSSoETeph4tR5JN38jtDT/zGRZz19zBVHoWa
-   QHbsLRibtoY4dWLO/436vWLg2PGMmDiFyaTMDobSDv+bTQpF6ntYCkdYN
-   eYdiDcUrmT+H7bca9tr0ScNrAo+kO9C6XXOD/ujk6UiNIWG5K7h0yA+Va
-   Q==;
-X-CSE-ConnectionGUID: g2vvCXh5RbO6yYbb2c5uYA==
-X-CSE-MsgGUID: X/YolwvHTMaAho/qQUvU1Q==
-X-IronPort-AV: E=Sophos;i="6.12,164,1728975600"; 
-   d="scan'208";a="265603792"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Nov 2024 06:02:00 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 18 Nov 2024 06:01:18 -0700
-Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Mon, 18 Nov 2024 06:01:15 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Mon, 18 Nov 2024 14:00:53 +0100
-Subject: [PATCH net-next v3 7/8] net: lan969x: add RGMII implementation
+	Mon, 18 Nov 2024 13:02:58 +0000
+Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AICJqTR027657;
+	Mon, 18 Nov 2024 13:02:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=G
+	5uz6bT4S5ti8LYkYMrA0j9MoSl+xz3DdBrZ3ZH5+LE=; b=Ec9DuVnqQqDT5nCAW
+	G5YyVYGw2WG3M3XSqqINHTELzalQq+0H48R6saBolGgCvLuWYqZ2kvD0Z7nI8Rf3
+	w0tmJo+XLadImlva4CBY4sLwjX5tbSV9+oT//uFMf+Gb43aDnQ6haGwWihQ21VFz
+	2AWM0HBu761/G6MkgwfxvyJ46vgCFFu+f0maAiXprRnDDXuvHgm8j2HIwhuNDrbQ
+	4YOdI7sLHFfIw0l0mYfB1WM7wT74shcj8/eZImYpxnpPvNZnNdSh3f/J2XkrmrCU
+	TMUt8r3ocWbyXAAsoklWmWY5X+LuV6sfxVWB95Br5dONu+ZkCnCgwKkXDz6ECueY
+	dJ/dw==
+Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 42xmc1hmj5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Mon, 18 Nov 2024 13:02:41 +0000 (GMT)
+Received: from
+ 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+ (172.25.16.114) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.37; Mon, 18 Nov 2024 13:02:39 +0000
+From: Matt Coster <matt.coster@imgtec.com>
+Date: Mon, 18 Nov 2024 13:02:05 +0000
+Subject: [PATCH v2 13/21] drm/imagination: Use a lookup table for fw defs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241118-sparx5-lan969x-switch-driver-4-v3-7-3cefee5e7e3a@microchip.com>
-References: <20241118-sparx5-lan969x-switch-driver-4-v3-0-3cefee5e7e3a@microchip.com>
-In-Reply-To: <20241118-sparx5-lan969x-switch-driver-4-v3-0-3cefee5e7e3a@microchip.com>
-To: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Lars
- Povlsen" <lars.povlsen@microchip.com>, Steen Hegelund
-	<Steen.Hegelund@microchip.com>, Horatiu Vultur
-	<horatiu.vultur@microchip.com>, Russell King <linux@armlinux.org.uk>,
-	<jacob.e.keller@intel.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>
-CC: <devicetree@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-X-Mailer: b4 0.14-dev
+Message-ID: <20241118-sets-bxs-4-64-patch-v1-v2-13-3fd45d9fb0cf@imgtec.com>
+References: <20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com>
+In-Reply-To: <20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com>
+To: Frank Binns <frank.binns@imgtec.com>,
+        Matt Coster
+	<matt.coster@imgtec.com>,
+        David Airlie <airlied@gmail.com>, Simona Vetter
+	<simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+        "Vignesh
+ Raghavendra" <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3368;
+ i=matt.coster@imgtec.com; h=from:subject:message-id;
+ bh=k9c5VTM7RWNwn1UTnKr9XL+LzgxXMJarwH5+lJvVnCk=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaRbWz190z7l74Fe5V9PIs48YzYK2NfostJZryJaRmTa8
+ j/xDEGnO0pZGMQ4GGTFFFl2rLBcofZHTUvixq9imDmsTCBDGLg4BWAiN0sZGbpvyLvfXD9flOXk
+ MY+5HzfM9tfgTj+/7KzCCeaut6u/siYyMnw4baXKbSh0LFq3/Og1z59zxRKmXhZqDjtV3aLytFF
+ pLxcA
+X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
+ fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
+X-Originating-IP: [172.25.16.114]
+X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
+X-Proofpoint-ORIG-GUID: iW23UQbhrEUdpdXA6M1t8dytHfwoXfpO
+X-Authority-Analysis: v=2.4 cv=E4efprdl c=1 sm=1 tr=0 ts=673b3af1 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=iYL5nd4a90DRai7o0HQA:9
+ a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: iW23UQbhrEUdpdXA6M1t8dytHfwoXfpO
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_050159_818263_DFCE31DE 
-X-CRM114-Status: GOOD (  25.30  )
+X-CRM114-CacheID: sfid-20241118_130257_070576_DF358133 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,330 +122,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The lan969x switch device includes two RGMII interfaces (port 28 and 29)
-supporting data speeds of 1 Gbps, 100 Mbps and 10 Mbps. MAC level delays
-are configurable through the HSIO_WRAP target, by choosing a phase shift
-selector, corresponding to a certain time delay in nano seconds.
+With more than two firmware processor types, the if/else chain in
+pvr_fw_init() gets a bit ridiculous. Use a static array indexed on
+pvr_fw_processor_type (which is now a proper enum instead of #defines)
+instead.
 
-Add new file: lan969x_rgmii.c that contains the implementation for
-configuring the RGMII port devices. MAC level delays are configured
-using the "{rx,tx}-internal-delay-ps" properties. These properties must
-be specified independently of the phy-mode. If missing, or set to zero,
-the MAC will not apply any delay.
-
-Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
-Reviewed-by: Horatiu Vultur <horatiu.vultur@microchip.com>
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
- drivers/net/ethernet/microchip/lan969x/Makefile    |   2 +-
- drivers/net/ethernet/microchip/lan969x/lan969x.c   |   1 +
- drivers/net/ethernet/microchip/lan969x/lan969x.h   |   5 +
- .../net/ethernet/microchip/lan969x/lan969x_rgmii.c | 224 +++++++++++++++++++++
- .../net/ethernet/microchip/sparx5/sparx5_main.h    |   2 +
- .../net/ethernet/microchip/sparx5/sparx5_port.c    |   6 +
- 6 files changed, 239 insertions(+), 1 deletion(-)
+Changes in v2:
+- None
+- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-13-4ed30e865892@imgtec.com
+---
+ drivers/gpu/drm/imagination/pvr_device.h |  4 ----
+ drivers/gpu/drm/imagination/pvr_fw.c     | 21 ++++++++++++++++-----
+ drivers/gpu/drm/imagination/pvr_fw.h     |  7 +++++++
+ 3 files changed, 23 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/net/ethernet/microchip/lan969x/Makefile b/drivers/net/ethernet/microchip/lan969x/Makefile
-index 316405cbbc71..5db884d67318 100644
---- a/drivers/net/ethernet/microchip/lan969x/Makefile
-+++ b/drivers/net/ethernet/microchip/lan969x/Makefile
-@@ -6,7 +6,7 @@
- obj-$(CONFIG_SPARX5_SWITCH) += lan969x-switch.o
+diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
+index 930129334807168cf11ee843f446eb5063464d55..ec5eb78af82a3f3c32d6c89b68b7bc0fcee0b9d2 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.h
++++ b/drivers/gpu/drm/imagination/pvr_device.h
+@@ -738,8 +738,4 @@ pvr_ioctl_union_padding_check(void *instance, size_t union_offset,
+ 					      __union_size, __member_size);  \
+ 	})
  
- lan969x-switch-y := lan969x_regs.o lan969x.o lan969x_calendar.o \
-- lan969x_vcap_ag_api.o lan969x_vcap_impl.o
-+ lan969x_vcap_ag_api.o lan969x_vcap_impl.o lan969x_rgmii.o
+-#define PVR_FW_PROCESSOR_TYPE_META  0
+-#define PVR_FW_PROCESSOR_TYPE_MIPS  1
+-#define PVR_FW_PROCESSOR_TYPE_RISCV 2
+-
+ #endif /* PVR_DEVICE_H */
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.c b/drivers/gpu/drm/imagination/pvr_fw.c
+index 808844eb10b5ccb29ed2b8e9bdfe3be829cc57d1..b77c4a42caf2f208f6289160e5cec36c683b1e65 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.c
++++ b/drivers/gpu/drm/imagination/pvr_fw.c
+@@ -926,16 +926,27 @@ pvr_fw_validate_init_device_info(struct pvr_device *pvr_dev)
+ int
+ pvr_fw_init(struct pvr_device *pvr_dev)
+ {
++	static const struct pvr_fw_defs *fw_defs[PVR_FW_PROCESSOR_TYPE_COUNT] = {
++		[PVR_FW_PROCESSOR_TYPE_META] = &pvr_fw_defs_meta,
++		[PVR_FW_PROCESSOR_TYPE_MIPS] = &pvr_fw_defs_mips,
++		[PVR_FW_PROCESSOR_TYPE_RISCV] = NULL,
++	};
++
+ 	u32 kccb_size_log2 = ROGUE_FWIF_KCCB_NUMCMDS_LOG2_DEFAULT;
+ 	u32 kccb_rtn_size = (1 << kccb_size_log2) * sizeof(*pvr_dev->kccb.rtn);
+ 	struct pvr_fw_device *fw_dev = &pvr_dev->fw_dev;
+ 	int err;
  
- # Provide include files
- ccflags-y += -I$(srctree)/drivers/net/ethernet/microchip/fdma
-diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x.c b/drivers/net/ethernet/microchip/lan969x/lan969x.c
-index 4dce88e23a24..aaa5d4dc1d52 100644
---- a/drivers/net/ethernet/microchip/lan969x/lan969x.c
-+++ b/drivers/net/ethernet/microchip/lan969x/lan969x.c
-@@ -340,6 +340,7 @@ static const struct sparx5_ops lan969x_ops = {
- 	.set_port_mux            = &lan969x_port_mux_set,
- 	.ptp_irq_handler         = &lan969x_ptp_irq_handler,
- 	.dsm_calendar_calc       = &lan969x_dsm_calendar_calc,
-+	.port_config_rgmii       = &lan969x_port_config_rgmii,
- };
- 
- const struct sparx5_match_data lan969x_desc = {
-diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x.h b/drivers/net/ethernet/microchip/lan969x/lan969x.h
-index 4b91c47d6d21..9a7ddebecf1e 100644
---- a/drivers/net/ethernet/microchip/lan969x/lan969x.h
-+++ b/drivers/net/ethernet/microchip/lan969x/lan969x.h
-@@ -67,4 +67,9 @@ static inline bool lan969x_port_is_rgmii(int portno)
- /* lan969x_calendar.c */
- int lan969x_dsm_calendar_calc(struct sparx5 *sparx5, u32 taxi,
- 			      struct sparx5_calendar_data *data);
-+
-+/* lan969x_rgmii.c */
-+int lan969x_port_config_rgmii(struct sparx5_port *port,
-+			      struct sparx5_port_config *conf);
-+
- #endif
-diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x_rgmii.c b/drivers/net/ethernet/microchip/lan969x/lan969x_rgmii.c
-new file mode 100644
-index 000000000000..4e422ca50828
---- /dev/null
-+++ b/drivers/net/ethernet/microchip/lan969x/lan969x_rgmii.c
-@@ -0,0 +1,224 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/* Microchip lan969x Switch driver
-+ *
-+ * Copyright (c) 2024 Microchip Technology Inc. and its subsidiaries.
-+ */
-+
-+#include "lan969x.h"
-+
-+/* Tx clock selectors */
-+#define LAN969X_RGMII_TX_CLK_SEL_125MHZ 1  /* 1000Mbps */
-+#define LAN969X_RGMII_TX_CLK_SEL_25MHZ  2  /* 100Mbps */
-+#define LAN969X_RGMII_TX_CLK_SEL_2M5MHZ 3  /* 10Mbps */
-+
-+/* Port speed selectors */
-+#define LAN969X_RGMII_SPEED_SEL_10 0   /* Select 10Mbps speed */
-+#define LAN969X_RGMII_SPEED_SEL_100 1  /* Select 100Mbps speed */
-+#define LAN969X_RGMII_SPEED_SEL_1000 2 /* Select 1000Mbps speed */
-+
-+/* Clock delay selectors */
-+#define LAN969X_RGMII_CLK_DELAY_SEL_1_0_NS 2  /* Phase shift 45deg */
-+#define LAN969X_RGMII_CLK_DELAY_SEL_1_7_NS 3  /* Phase shift 77deg */
-+#define LAN969X_RGMII_CLK_DELAY_SEL_2_0_NS 4  /* Phase shift 90deg */
-+#define LAN969X_RGMII_CLK_DELAY_SEL_2_5_NS 5  /* Phase shift 112deg */
-+#define LAN969X_RGMII_CLK_DELAY_SEL_3_0_NS 6  /* Phase shift 135deg */
-+#define LAN969X_RGMII_CLK_DELAY_SEL_3_3_NS 7  /* Phase shift 147deg */
-+
-+#define LAN969X_RGMII_PORT_START_IDX 28 /* Index of the first RGMII port */
-+#define LAN969X_RGMII_IFG_TX 4          /* TX Inter Frame Gap value */
-+#define LAN969X_RGMII_IFG_RX1 5         /* RX1 Inter Frame Gap value */
-+#define LAN969X_RGMII_IFG_RX2 1         /* RX2 Inter Frame Gap value */
-+
-+#define RGMII_PORT_IDX(port) ((port)->portno - LAN969X_RGMII_PORT_START_IDX)
-+
-+/* Get the tx clock selector based on the port speed. */
-+static int lan969x_rgmii_get_clk_sel(int speed)
-+{
-+	return (speed == SPEED_10  ? LAN969X_RGMII_TX_CLK_SEL_2M5MHZ :
-+		speed == SPEED_100 ? LAN969X_RGMII_TX_CLK_SEL_25MHZ :
-+				     LAN969X_RGMII_TX_CLK_SEL_125MHZ);
-+}
-+
-+/* Get the port speed selector based on the port speed. */
-+static int lan969x_rgmii_get_speed_sel(int speed)
-+{
-+	return (speed == SPEED_10  ? LAN969X_RGMII_SPEED_SEL_10 :
-+		speed == SPEED_100 ? LAN969X_RGMII_SPEED_SEL_100 :
-+				     LAN969X_RGMII_SPEED_SEL_1000);
-+}
-+
-+/* Get the clock delay selector based on the clock delay in picoseconds. */
-+static int lan969x_rgmii_get_clk_delay_sel(struct sparx5_port *port,
-+					   u32 delay_ps, u32 *clk_delay_sel)
-+{
-+	switch (delay_ps) {
-+	case 0:
-+		/* Hardware default selector. */
-+		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_2_5_NS;
-+		break;
-+	case 1000:
-+		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_1_0_NS;
-+		break;
-+	case 1700:
-+		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_1_7_NS;
-+		break;
-+	case 2000:
-+		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_2_0_NS;
-+		break;
-+	case 2500:
-+		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_2_5_NS;
-+		break;
-+	case 3000:
-+		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_3_0_NS;
-+		break;
-+	case 3300:
-+		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_3_3_NS;
-+		break;
-+	default:
-+		dev_err(port->sparx5->dev, "Invalid RGMII delay: %u", delay_ps);
+-	if (fw_dev->processor_type == PVR_FW_PROCESSOR_TYPE_META)
+-		fw_dev->defs = &pvr_fw_defs_meta;
+-	else if (fw_dev->processor_type == PVR_FW_PROCESSOR_TYPE_MIPS)
+-		fw_dev->defs = &pvr_fw_defs_mips;
+-	else
++	if (fw_dev->processor_type >= PVR_FW_PROCESSOR_TYPE_COUNT)
 +		return -EINVAL;
-+	}
 +
-+	return 0;
-+}
++	fw_dev->defs = fw_defs[fw_dev->processor_type];
 +
-+/* Configure the RGMII tx clock frequency. */
-+static void lan969x_rgmii_tx_clk_config(struct sparx5_port *port,
-+					struct sparx5_port_config *conf)
-+{
-+	u32 clk_sel = lan969x_rgmii_get_clk_sel(conf->speed);
-+	u32 idx = RGMII_PORT_IDX(port);
-+
-+	/* Take the RGMII clock domain out of reset and set tx clock
-+	 * frequency.
++	/*
++	 * Not all firmware processor types are currently supported.
++	 * Once they are, this check can be removed.
 +	 */
-+	spx5_rmw(HSIO_WRAP_RGMII_CFG_TX_CLK_CFG_SET(clk_sel) |
-+		 HSIO_WRAP_RGMII_CFG_RGMII_TX_RST_SET(0) |
-+		 HSIO_WRAP_RGMII_CFG_RGMII_RX_RST_SET(0),
-+		 HSIO_WRAP_RGMII_CFG_TX_CLK_CFG |
-+		 HSIO_WRAP_RGMII_CFG_RGMII_TX_RST |
-+		 HSIO_WRAP_RGMII_CFG_RGMII_RX_RST,
-+		 port->sparx5, HSIO_WRAP_RGMII_CFG(idx));
-+}
-+
-+/* Configure the RGMII port device. */
-+static void lan969x_rgmii_port_device_config(struct sparx5_port *port,
-+					     struct sparx5_port_config *conf)
-+{
-+	u32 dtag, dotag, etype, speed_sel, idx = RGMII_PORT_IDX(port);
-+
-+	speed_sel = lan969x_rgmii_get_speed_sel(conf->speed);
-+
-+	etype = (port->vlan_type == SPX5_VLAN_PORT_TYPE_S_CUSTOM ?
-+		 port->custom_etype :
-+		 port->vlan_type == SPX5_VLAN_PORT_TYPE_C ?
-+		 ETH_P_8021Q : ETH_P_8021AD);
-+
-+	dtag = port->max_vlan_tags == SPX5_PORT_MAX_TAGS_TWO;
-+	dotag = port->max_vlan_tags != SPX5_PORT_MAX_TAGS_NONE;
-+
-+	/* Enable the MAC. */
-+	spx5_wr(DEVRGMII_MAC_ENA_CFG_RX_ENA_SET(1) |
-+		DEVRGMII_MAC_ENA_CFG_TX_ENA_SET(1),
-+		port->sparx5, DEVRGMII_MAC_ENA_CFG(idx));
-+
-+	/* Configure the Inter Frame Gap. */
-+	spx5_wr(DEVRGMII_MAC_IFG_CFG_TX_IFG_SET(LAN969X_RGMII_IFG_TX) |
-+		DEVRGMII_MAC_IFG_CFG_RX_IFG1_SET(LAN969X_RGMII_IFG_RX1) |
-+		DEVRGMII_MAC_IFG_CFG_RX_IFG2_SET(LAN969X_RGMII_IFG_RX2),
-+		port->sparx5, DEVRGMII_MAC_IFG_CFG(idx));
-+
-+	/* Configure port data rate. */
-+	spx5_wr(DEVRGMII_DEV_RST_CTRL_SPEED_SEL_SET(speed_sel),
-+		port->sparx5, DEVRGMII_DEV_RST_CTRL(idx));
-+
-+	/* Configure VLAN awareness. */
-+	spx5_wr(DEVRGMII_MAC_TAGS_CFG_TAG_ID_SET(etype) |
-+		DEVRGMII_MAC_TAGS_CFG_PB_ENA_SET(dtag) |
-+		DEVRGMII_MAC_TAGS_CFG_VLAN_AWR_ENA_SET(dotag) |
-+		DEVRGMII_MAC_TAGS_CFG_VLAN_LEN_AWR_ENA_SET(dotag),
-+		port->sparx5,
-+		DEVRGMII_MAC_TAGS_CFG(idx));
-+}
-+
-+/* Configure the RGMII delay lines in the MAC.
-+ *
-+ * We use the rx-internal-delay-ps" and "tx-internal-delay-ps" properties to
-+ * configure the rx and tx delays for the MAC. If these properties are missing
-+ * or set to zero, the MAC will not apply any delay.
-+ *
-+ * The PHY side delays are determined by the PHY mode
-+ * (e.g. PHY_INTERFACE_MODE_RGMII_{ID, RXID, TXID}), and ignored by the MAC side
-+ * entirely.
-+ */
-+static int lan969x_rgmii_delay_config(struct sparx5_port *port,
-+				      struct sparx5_port_config *conf)
-+{
-+	u32 tx_clk_sel, rx_clk_sel, tx_delay_ps = 0, rx_delay_ps = 0;
-+	u32 idx = RGMII_PORT_IDX(port);
-+	int err;
-+
-+	of_property_read_u32(port->of_node, "rx-internal-delay-ps",
-+			     &rx_delay_ps);
-+
-+	of_property_read_u32(port->of_node, "tx-internal-delay-ps",
-+			     &tx_delay_ps);
-+
-+	err = lan969x_rgmii_get_clk_delay_sel(port, rx_delay_ps, &rx_clk_sel);
-+	if (err)
-+		return err;
-+
-+	err = lan969x_rgmii_get_clk_delay_sel(port, tx_delay_ps, &tx_clk_sel);
-+	if (err)
-+		return err;
-+
-+	/* Configure rx delay. */
-+	spx5_rmw(HSIO_WRAP_DLL_CFG_DLL_RST_SET(0) |
-+		 HSIO_WRAP_DLL_CFG_DLL_ENA_SET(1) |
-+		 HSIO_WRAP_DLL_CFG_DLL_CLK_ENA_SET(!!rx_delay_ps) |
-+		 HSIO_WRAP_DLL_CFG_DLL_CLK_SEL_SET(rx_clk_sel),
-+		 HSIO_WRAP_DLL_CFG_DLL_RST |
-+		 HSIO_WRAP_DLL_CFG_DLL_ENA |
-+		 HSIO_WRAP_DLL_CFG_DLL_CLK_ENA |
-+		 HSIO_WRAP_DLL_CFG_DLL_CLK_SEL,
-+		 port->sparx5, HSIO_WRAP_DLL_CFG(idx, 0));
-+
-+	/* Configure tx delay. */
-+	spx5_rmw(HSIO_WRAP_DLL_CFG_DLL_RST_SET(0) |
-+		 HSIO_WRAP_DLL_CFG_DLL_ENA_SET(1) |
-+		 HSIO_WRAP_DLL_CFG_DLL_CLK_ENA_SET(!!tx_delay_ps) |
-+		 HSIO_WRAP_DLL_CFG_DLL_CLK_SEL_SET(tx_clk_sel),
-+		 HSIO_WRAP_DLL_CFG_DLL_RST |
-+		 HSIO_WRAP_DLL_CFG_DLL_ENA |
-+		 HSIO_WRAP_DLL_CFG_DLL_CLK_ENA |
-+		 HSIO_WRAP_DLL_CFG_DLL_CLK_SEL,
-+		 port->sparx5, HSIO_WRAP_DLL_CFG(idx, 1));
-+
-+	return 0;
-+}
-+
-+/* Configure GPIO's to be used as RGMII interface. */
-+static void lan969x_rgmii_gpio_config(struct sparx5_port *port)
-+{
-+	u32 idx = RGMII_PORT_IDX(port);
-+
-+	/* Enable the RGMII on the GPIOs. */
-+	spx5_wr(HSIO_WRAP_XMII_CFG_GPIO_XMII_CFG_SET(1), port->sparx5,
-+		HSIO_WRAP_XMII_CFG(!idx));
-+}
-+
-+int lan969x_port_config_rgmii(struct sparx5_port *port,
-+			      struct sparx5_port_config *conf)
-+{
-+	int err;
-+
-+	err = lan969x_rgmii_delay_config(port, conf);
-+	if (err)
-+		return err;
-+
-+	lan969x_rgmii_tx_clk_config(port, conf);
-+	lan969x_rgmii_gpio_config(port);
-+	lan969x_rgmii_port_device_config(port, conf);
-+
-+	return 0;
-+}
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-index c58d7841638e..3ae760da17e2 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-@@ -324,6 +324,8 @@ struct sparx5_ops {
- 	irqreturn_t (*ptp_irq_handler)(int irq, void *args);
- 	int (*dsm_calendar_calc)(struct sparx5 *sparx5, u32 taxi,
- 				 struct sparx5_calendar_data *data);
-+	int (*port_config_rgmii)(struct sparx5_port *port,
-+				 struct sparx5_port_config *conf);
- };
++	if (!fw_dev->defs)
+ 		return -EINVAL;
  
- struct sparx5_main_io_resource {
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-index 9f0f687bd994..3d5026460e94 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-@@ -1012,6 +1012,12 @@ int sparx5_port_config(struct sparx5 *sparx5,
- 	if (err)
- 		return err;
+ 	err = fw_dev->defs->init(pvr_dev);
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
+index 180d310074e3585c641e540a9e2576b5ab2a5705..88ad713468ce3a1ee459b04dde5363c24791a4f1 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.h
++++ b/drivers/gpu/drm/imagination/pvr_fw.h
+@@ -402,6 +402,13 @@ struct pvr_fw_device {
+ #define pvr_fw_irq_clear(pvr_dev) \
+ 	pvr_fw_irq_write_reg(pvr_dev, clear, (pvr_dev)->fw_dev.defs->irq.clear_mask)
  
-+	if (rgmii) {
-+		err = ops->port_config_rgmii(port, conf);
-+		if (err)
-+			return err;
-+	}
++enum pvr_fw_processor_type {
++	PVR_FW_PROCESSOR_TYPE_META = 0,
++	PVR_FW_PROCESSOR_TYPE_MIPS,
++	PVR_FW_PROCESSOR_TYPE_RISCV,
++	PVR_FW_PROCESSOR_TYPE_COUNT,
++};
 +
- 	/* high speed device is already configured */
- 	if (!rgmii && !high_speed_dev)
- 		sparx5_port_config_low_set(sparx5, port, conf);
+ extern const struct pvr_fw_defs pvr_fw_defs_meta;
+ extern const struct pvr_fw_defs pvr_fw_defs_mips;
+ 
 
 -- 
-2.34.1
+2.47.0
 
 
