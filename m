@@ -4,61 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D8FD49211
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 12:03:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B44D4920F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 12:06:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wsFjAMVldNn/v1v49LvqvAIhTRoXi8nGjKhi2/7/JCA=; b=ZCf5A5GXqjpWhdt31DweuI+uBJ
-	n/yXG97n6ZSir1uoGVWpAYy5CfLBDzOVFGuz/h3MNmGiYElaedlWilz0eVDkmHI3ZGQKMJ45boptU
-	kbMJOkfB3RntCEHVimvtiySt/rCS2CgSHiyH9iVfRA5NY7m6/FFBmDBi5rNM+kQPgP1RyM5gxjp31
-	OTtZY3g96baWAkLPNsj5CwbtilSucLU6KEbD7GCoCSu5cdYHU5fZo3cik/d2aJXE/pxidoj0TRWup
-	nGoHVuMWetY4kX3ZkWH00+qg0K8zrRS0a41F4zRHRiJP16Mmb8Pn8cqtCojrR78NbV1VKF85frthr
-	58OpY7qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dT0210/vTOZFYSLIMcONKk7Kp1Y49ER7EWvlsmiZEXU=; b=NL0bB/xNAJTpW6Vy99D7SWtF7N
+	DSNEflqUMMoNJfDlKx+Cdl6jTLe4tLQsq7mqhrQbowAsCp5+g9W8ws1FXcYg257tEnzy+/3uC/kTD
+	gKZuSwrc+mkYdIOVtCHk2TM4ff53/fmPvOW3u2NaU30ciBVRMY7JFZ2hf2teP8RremW7/1mU+RvPH
+	HWv4Rq9Sd3UIRv1iypy+BbkgDcWYEdCBGMqIwPWu4I4ISRZNTUyy5BWVyL1hbl2N3/APYrrR8D/Ds
+	wLTEEXfZouU2KO1aDys7PmCSgQYTVCJ8PcWYmOBIjZaUuNQAYziD3TPKLMbu0kOdQu0O/fyrj473V
+	rggEiokQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD0TN-00000009LXO-2H1z;
-	Mon, 18 Nov 2024 12:03:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD0SR-00000009LP9-1tpu
+	id 1tD0Vw-00000009Ltq-1CW9;
+	Mon, 18 Nov 2024 12:05:56 +0000
+Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tD0Uz-00000009Ljk-3P2m
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 12:02:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AB201682;
-	Mon, 18 Nov 2024 04:02:48 -0800 (PST)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D3F0F3F6A8;
-	Mon, 18 Nov 2024 04:02:15 -0800 (PST)
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: ardb@kernel.org,
-	broonie@kernel.org,
-	catalin.marinas@arm.com,
-	jpoimboe@kernel.org,
-	kaleshsingh@google.com,
-	kristina.martsenko@arm.com,
-	linux-kernel@vger.kernel.org,
-	madvenka@linux.microsoft.com,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	mbenes@suse.cz,
-	mhiramat@kernel.org,
-	puranjay12@gmail.com,
-	rostedt@goodmis.org,
-	will@kernel.org
-Subject: [PATCH] arm64: disable ARCH_CORRECT_STACKTRACE_ON_KRETPROBE tests
-Date: Mon, 18 Nov 2024 12:02:04 +0000
-Message-Id: <20241118120204.3961548-1-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
+	Mon, 18 Nov 2024 12:04:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1731931492;
+	bh=SJM0ho/3D4sWt0Ay5bp6OufDOilYcKEaL63lve+VGPA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r9h46YPhvdrf0l1i4Wew5j1uXas2mF7c5Da2uX+xtlsnOclY+oEkXcZlky8i5RwxC
+	 pmCShqYjEGsdHdlZDIfmAptJMAR4gEpQvsAVQA01BzcR8IaeT1ZQjmh2P4AjA9Y86V
+	 nidui5IbPf5ufWtxc9dtWQtmOnYF5I9nNdVBoEdg=
+Date: Mon, 18 Nov 2024 13:04:51 +0100
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] perf: arm-ni: Fix attribute_group definition syntax
+Message-ID: <b09e1bec-f42c-4f36-8548-b912f59a88f4@t-8ch.de>
+References: <20241117-arm-ni-syntax-v1-1-1894efca38ac@weissschuh.net>
+ <fc308d9b-9b8b-4932-9f24-1756f5c089db@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <fc308d9b-9b8b-4932-9f24-1756f5c089db@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_040219_575236_9FB6C3B3 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20241118_040457_993198_85A57009 
+X-CRM114-Status: GOOD (  23.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,142 +65,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kprobes_test suite's test_stacktrace_on_nested_kretprobe() test
-currently fails on arm64, e.g.
+On 2024-11-18 11:55:17+0000, Robin Murphy wrote:
+> On 2024-11-17 10:20 am, Thomas Weißschuh wrote:
+> > The sentinel NULL value does not make sense and is a syntax error in a
+> > structure definition.
+> 
+> What error? It's an initialiser following a designator in a structure
+> *declaration*, and the corresponding bin_attrs member is a pointer, so NULL
+> is a perfectly appropriate value to initialise it with.
 
-| KTAP version 1
-| 1..1
-|     KTAP version 1
-|     # Subtest: kprobes_test
-|     # module: test_kprobes
-|     1..7
-|     ok 1 test_kprobe
-|     ok 2 test_kprobes
-|     ok 3 test_kprobe_missed
-|     ok 4 test_kretprobe
-|     ok 5 test_kretprobes
-|     ok 6 test_stacktrace_on_kretprobe
-|     # test_stacktrace_on_nested_kretprobe: EXPECTATION FAILED at lib/test_kprobes.c:327
-|     Expected stack_buf[i + 1] == target_return_address[1], but
-|         stack_buf[i + 1] == -96519936577004 (0xffffa83733777214)
-|         target_return_address[1] == -96519936577136 (0xffffa83733777190)
-|     # test_stacktrace_on_nested_kretprobe: EXPECTATION FAILED at lib/test_kprobes.c:338
-|     Expected stack_buf[1] == target_return_address[1], but
-|         stack_buf[1] == -96519936577004 (0xffffa83733777214)
-|         target_return_address[1] == -96519936577136 (0xffffa83733777190)
-|     not ok 7 test_stacktrace_on_nested_kretprobe
-| # kprobes_test: pass:6 fail:1 skip:0 total:7
-| # Totals: pass:6 fail:1 skip:0 total:7
-| not ok 1 kprobes_test
+Yes, you are correct. The warning only occurs in my series which changes
+bin_attrs to a union [0] and I got confused due to some missing and
+inconsisteny build bot feedback.
 
-The test assumes that when a stacktrace straddles an exception boundary,
-no necessary entries will be omitted and no extraneous entries will be
-reported, and when unwinding from a kretprobed callee, the next entry in
-the trace will be its immediate caller (whether kretprobed or not).
+> Of course that is redundant when it's static anyway, and indeed wasn't
+> actually intentional, but it's also not doing any harm - the cosmetic
+> cleanup is welcome, but is not a stable-worthy fix.
 
-Recently the arm64 stacktrace code was changed to always report the LR
-at an exception boundary, where we don't know whether the LR is live.
-In the case of the kretprobe trampoline the LR is not live at the time
-the stacktrace is performed, and so the entry in the trace for the LR is
-extraneous. This can be seen if a call to show_stack() is added to
-stacktrace_internal_return_handler():
+Agreed, it's not worthy for stable.
+Actually I want to make this patch part of a series, so please ignore
+it for now.
 
-| Call trace:
-|  show_stack+0x18/0x30 (C)
-|  stacktrace_internal_return_handler+0x130/0x43c
-|  __kretprobe_trampoline_handler+0xa0/0x130
-|  kretprobe_breakpoint_handler+0x50/0x70
-|  call_break_hook+0x74/0x8c
-|  brk_handler+0x1c/0x60
-|  do_debug_exception+0x68/0x114
-|  el1_dbg+0x70/0x94
-|  el1h_64_sync_handler+0xc4/0xe4
-|  el1h_64_sync+0x6c/0x70
-|  kprobe_stacktrace_target+0x34/0x48 (P)
-|  kprobe_stacktrace_target+0x34/0x48 (LK) <-------- extra entry here
-|  kprobe_stacktrace_driver+0x24/0x40 (K)
-|  test_stacktrace_on_nested_kretprobe+0x84/0x160
-|  kunit_try_run_case+0x6c/0x160
-|  kunit_generic_run_threadfn_adapter+0x28/0x4c
-|  kthread+0x110/0x114
-|  ret_from_fork+0x10/0x20
+> Thanks,
+> Robin.
 
-This breaks test_stacktrace_on_nested_kretprobe() because while the
-caller (kprobe_stacktrace_driver()) appears in the trace, it doesn't
-occur *immediately* after the first instance of callee
-(kprobe_stacktrace_target()).
+[0] https://lore.kernel.org/lkml/20241115-b4-sysfs-const-bin_attr-group-v1-1-2c9bb12dfc48@weissschuh.net/
 
-While this behaviour is unfortunate for the kretprobes tests, the
-behaviour is desirable elsewhere (e.g. anywhere a human will read the
-trace), and is otherwise not harmful.
-
-For the moment, deselect ARCH_CORRECT_STACKTRACE_ON_KRETPROBE on arm64
-to disable the tests which depend on this behaviour. With
-ARCH_CORRECT_STACKTRACE_ON_KRETPROBE deselected, the remaining tests
-work as expected, e.g.
-
-| KTAP version 1
-| 1..1
-|     KTAP version 1
-|     # Subtest: kprobes_test
-|     # module: test_kprobes
-|     1..5
-|     ok 1 test_kprobe
-|     ok 2 test_kprobes
-|     ok 3 test_kprobe_missed
-|     ok 4 test_kretprobe
-|     ok 5 test_kretprobes
-| # kprobes_test: pass:5 fail:0 skip:0 total:5
-| # Totals: pass:5 fail:0 skip:0 total:5
-| ok 1 kprobes_test
-
-In future we have several options to improve matters, e.g.
-
-* Add metadata and update arm64's unwinder to skip the LR in this case.
-  This is likely to happen as part of work for RELIABLE_STACKTRACE for
-  other reasons, and might solve this case by coincidence.
-
-* Modify the kretprobes tests to only require that the caller appears in
-  the trace after the callee, rather than requiring that it is
-  *immediately* after the callee. We might want separate
-  strict/not-strict options for this.
-
-* Use reliable stacktrace for these tests, so that architectures which
-  cannot unwind across exception boundaries can explicitly handle this
-  by returning an error.
-
-Fixes: c2c6b27b5aa1 ("arm64: stacktrace: unwind exception boundaries")
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reported-by: Kristina Martsenko <kristina.martsenko@arm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: Kalesh Singh <kaleshsingh@google.com>
-Cc: Madhavan T. Venkataraman <madvenka@linux.microsoft.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Miroslav Benes <mbenes@suse.cz>
-Cc: Puranjay Mohan <puranjay12@gmail.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/Kconfig | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 3e29b44d2d7bd..234d926290731 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -14,7 +14,6 @@ config ARM64
- 	select ARCH_HAS_DEBUG_WX
- 	select ARCH_BINFMT_ELF_EXTRA_PHDRS
- 	select ARCH_BINFMT_ELF_STATE
--	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
- 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
- 	select ARCH_ENABLE_MEMORY_HOTPLUG
- 	select ARCH_ENABLE_MEMORY_HOTREMOVE
--- 
-2.30.2
-
+> > Remove it.
+> > 
+> > Fixes: 4d5a7680f2b4 ("perf: Add driver for Arm NI-700 interconnect PMU")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Thomas Weißschuh <linux@weissschuh.net>
+> > ---
+> > Cc stable because although this commit is not yet released, it most
+> > likely will be by the time it hits mainline.
+> > ---
+> >   drivers/perf/arm-ni.c | 1 -
+> >   1 file changed, 1 deletion(-)
+> > 
+> > diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
+> > index 90fcfe693439ef3e18e23c6351433ac3c5ea78b5..fd7a5e60e96302fada29cd44e7bf9c582e93e4ce 100644
+> > --- a/drivers/perf/arm-ni.c
+> > +++ b/drivers/perf/arm-ni.c
+> > @@ -247,7 +247,6 @@ static struct attribute *arm_ni_other_attrs[] = {
+> >   static const struct attribute_group arm_ni_other_attr_group = {
+> >   	.attrs = arm_ni_other_attrs,
+> > -	NULL
+> >   };
+> >   static const struct attribute_group *arm_ni_attr_groups[] = {
+> > 
+> > ---
+> > base-commit: 4a5df37964673effcd9f84041f7423206a5ae5f2
+> > change-id: 20241117-arm-ni-syntax-250a83058529
+> > 
+> > Best regards,
+> 
 
