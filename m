@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EBF8D60CF8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 23:06:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33DD7D60CF8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 23:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+OxDHwQ+LwgR6Jb7OIDjCgKY879pFmYdyYNHXVCDwog=; b=sCw9hXQS91P4WYPBC3Ka4BSYwK
-	lW3gorTlmyL4xVvDKuI2NpW6KePrNgtQWii8OGZzx9CPMxwmCdvq1uDPSFai9OOpHP8jkz+rRWLyX
-	GiBrpyEDug3q/0cCXtCqjX7DHKlwUsuMfCTszgxtEvKjd0B8E6o05UYILXpuP/YKmrZgB+U2WP5C/
-	2vROsw62ja54cpLZceJCpqfzbmTikzXtKnE66YDriQCR2UBc0MzI9KnM57PYrb3kZTvbQNFhJpsdw
-	ndQQndVUQ7Ln1G8opw6TjUCPFj92+zFNPAarwFJUn9PttTg2KEeeOBy4Pohpz4f8fyhtLzdf9rSZY
-	YNcA4e3Q==;
+	bh=AC5W63EVXbL3nFpbcC7MmYDZqzOQPctz3elXQ3wHYxQ=; b=J/ymn3WqQdcvlOb1KxTRB/nb9P
+	G88Mfz3c8iD1TG55Nb/44w4LrDbbtc2ANmHfw1g2/pqiiH4y9NtYJup8/DCgYuHwGtxQc4OvmFeXU
+	46FrDP3YuWsL7dCmpvUTYlpCVC071HrhnUDP8lW4ybdPjMevd0fw1rMqUcFPEBqWZM6Y4C+Z2Lp2V
+	lwcp0+cDKa8XfGEzzA8h5ussjTtoM9P3TZyHGszi2LAS9WK2CESyjjDROddP1uQe27Bg0GWTk676e
+	0hJ95oBeICgYSKdn8dw5gf/qZHH+BGYBqkJephVuyWsZwfdcjktzS0otEwkytqLM3wt0LWDL6qv4k
+	3t6ZvWEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDApO-0000000ApZa-3iu9;
-	Mon, 18 Nov 2024 23:06:42 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1tDAqj-0000000Apn2-2B0P;
+	Mon, 18 Nov 2024 23:08:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDAoS-0000000ApR0-3hzy
+	id 1tDApn-0000000ApdO-1SfA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 23:05:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1731971143;
-	bh=+OxDHwQ+LwgR6Jb7OIDjCgKY879pFmYdyYNHXVCDwog=;
-	h=Subject:From:To:Date:In-Reply-To:References;
-	b=eQ9tesHA9Iuny+nyiRBUQMhg56mp5yBbcOvuBP4P9VvuulUB1B9pwUMqTLaOflq0p
-	 NWDJi2a7YW8/K7l8nTmi3QzuEmCyzVAwcVp49VZIR81EtCuMPkLpCRzcl753hR29K3
-	 pkKEs3a/l2+6kwP9QvQlURg8KqmhuTK1LLZr91FOh4QABe2/a+EO1weSdgRCby8tfk
-	 fOIX7v+tKMQ+5Nq+oTf6pZkUJJDlsp/MuGX6FPDmA5JsuS1COoy+NHGiQ+Crb/r28d
-	 JtxDWS5h2ntqSglCcnDvK4y4/VHvLEyOOvqX5VqN0cxjOq7hg00ktmJL2gH/j8RhvB
-	 T9rwNRyKA6KzQ==
-Received: from [192.168.68.112] (ppp118-210-181-13.adl-adc-lon-bras34.tpg.internode.on.net [118.210.181.13])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 76E9668D9B;
-	Tue, 19 Nov 2024 07:05:40 +0800 (AWST)
-Message-ID: <0d53f5fbb6b3f1eb01e601255f7e5ee3d1c45f93.camel@codeconstruct.com.au>
-Subject: Re: [net-next 3/3] net: mdio: aspeed: Add dummy read for fire
- control
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Jacky Chou <jacky_chou@aspeedtech.com>, andrew+netdev@lunn.ch, 
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com,  robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joel@jms.id.au,  hkallweit1@gmail.com,
- linux@armlinux.org.uk, netdev@vger.kernel.org,  devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,  linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-Date: Tue, 19 Nov 2024 09:35:39 +1030
-In-Reply-To: <20241118104735.3741749-4-jacky_chou@aspeedtech.com>
-References: <20241118104735.3741749-1-jacky_chou@aspeedtech.com>
-	 <20241118104735.3741749-4-jacky_chou@aspeedtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Mon, 18 Nov 2024 23:07:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 384B65C039E;
+	Mon, 18 Nov 2024 23:06:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94574C4CECC;
+	Mon, 18 Nov 2024 23:07:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731971226;
+	bh=fh5vfCSCeb43TV7A2AsjLqNdJNOU6PnEihKyQ0nQZ/o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qEQ8vphvSV9M2xhI6pJFo+o1vvf60WfjuFvPo06MLXAoQWvNgLjQsZQv6s7hL7dG0
+	 /iGDEI24WczNIPkOvUaTut/JsIddtlTRH5bZFKvAbo7rNNvIpNV7vGYzoDhxy24biS
+	 8SdnWloKmuOQheu5jeJtBiYGiFGyS5YolagUrg6nULepY/zCecRROUIJHdC4IphWwZ
+	 6j6y9G4fAr5d6FhpBiP2ZzY1rHIGF4QmpGCP0pTK+rjjUtctlcEfkh/IKg01pgJyfK
+	 S07nUMpToQ+jdVF2fOF94bK/bCzj66k40aaLWWQNarkVYo+6573W4fpYOHaX6pq/Gj
+	 68Sb9Cyti4UvA==
+Date: Tue, 19 Nov 2024 00:07:02 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Gregory CLEMENT <gregory.clement@bootlin.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org
+Subject: Re: [PATCH 05/14] dt-bindings: i2c: mv64xxx: Add Allwinner A523
+ compatible string
+Message-ID: <vwwxve2juvplj7m6tvdmhmui32nrmjxslpxs26jyyb5r3mvspr@5xvvn5edr5bw>
+References: <20241111013033.22793-1-andre.przywara@arm.com>
+ <20241111013033.22793-6-andre.przywara@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241111013033.22793-6-andre.przywara@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_150545_132409_A6D9F4C0 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20241118_150707_435337_FDE76651 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,50 +76,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacky,
+Hi Andre,
 
-On Mon, 2024-11-18 at 18:47 +0800, Jacky Chou wrote:
-> Add a dummy read to ensure triggering mdio controller before starting
-> polling the status of mdio controller.
->=20
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
-> ---
-> =C2=A0drivers/net/mdio/mdio-aspeed.c | 2 ++
-> =C2=A01 file changed, 2 insertions(+)
->=20
-> diff --git a/drivers/net/mdio/mdio-aspeed.c b/drivers/net/mdio/mdio-
-> aspeed.c
-> index 4d5a115baf85..feae30bc3e78 100644
-> --- a/drivers/net/mdio/mdio-aspeed.c
-> +++ b/drivers/net/mdio/mdio-aspeed.c
-> @@ -62,6 +62,8 @@ static int aspeed_mdio_op(struct mii_bus *bus, u8
-> st, u8 op, u8 phyad, u8 regad,
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0| FIELD_PREP(ASPEED_MDIO_DATA_MIIRDATA, data);
-> =C2=A0
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0iowrite32(ctrl, ctx->base=
- + ASPEED_MDIO_CTRL);
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/* Add dummy read to ensure tr=
-iggering mdio controller */
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0(void)ioread32(ctx->base + ASP=
-EED_MDIO_CTRL);
+On Mon, Nov 11, 2024 at 01:30:24AM +0000, Andre Przywara wrote:
+> The I2C controller IP used in the Allwinner A523/T527 SoCs is
+> compatible with the ones used in the other recent Allwinner SoCs.
+> 
+> Add the A523 specific compatible string to the list of existing names
+> falling back to the allwinner,sun8i-v536-i2c string.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
-Why do this when the same register is immediately read by
-readl_poll_timeout() below?
+Just this patch 5, pushed to i2c/i2c-host.
 
-If there is a reason, I'd like some more explanation in the comment
-you've added, discussing the details of the problem it's solving when
-taking into account the readl_poll_timeout() call.
-
-> =C2=A0
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0return readl_poll_timeout=
-(ctx->base + ASPEED_MDIO_CTRL, ctrl,
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0!(ctrl & ASPEED_MDIO_CTRL_FIRE=
-),
-
-Cheers,
-
-Andrew
+Thanks,
+Andi
 
