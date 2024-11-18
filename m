@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D8E9D49221
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 13:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C86FD49223
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 13:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mh3X05T5H06SX13NOd/vtfLsw3De2vyHd/Fa/OGJ4zs=; b=kNUCwfaHgZCp4wsq0b9D01klnc
-	GM+4SyaKtVWy9P/OQp3+uyPmTh4H6JBKKjAwGl/m37jmWMgbWM+71aI9OjhRwAfPJ8+dsV+xhb16o
-	GK7mx/6flJu4yC6hM6cNTYDIyqUmQ4hbizgYkdL2REfJSbe6XxJ2am/Fc7zoF5taR41uSAAHQkxjs
-	FbyYJ5RRqraGwQJavksXsbZQFXU8aunDxifIPbU1I0b6aJFGxgOkH9qyeFP4cCDGzTyX50Qygmh1O
-	lGkQZOmpTU4xYsM5soYciMZ/bISrJIX+sLszvwskLNiL6PIbTpgmvVMlKtj+iHwfym6uE+OHJAVBC
-	LcShENaw==;
+	bh=K2o8RWIwZHcDnCoRZbJ0AgekAHRjrD6szKnoYOlNjHE=; b=4yyQsuQT/5/5HK8XLipggX9SSL
+	myM/OR7lEv21HLhdQjdnKYURL18A1ZhqXue6sKB6PGGkawRYZejxpJ/eI2z9N79LBJu3YxpJtwOPu
+	j/nP8zwcr0B4lfgqL8LhaZwWkvthpbv2kyndrR324WNupV/hHFjrDz4yXxg7fo1cDO1Q7uhNza3mH
+	yVRjZQVqFHjksKN5TuCXZSNhH1AlCz7D9hbWFdZQdbvsyoF11ygi83/tlGO/e2gfWSrCAv+WJUjci
+	GRpJJcYnMhuUgxY60qbuMF3YajKE93YDvZ/KzZOi4xTnAK9gTIWogrFLLX+bkLNr7hd5ysojG6wxZ
+	Khu2oOkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD29k-00000009fTQ-26Q1;
-	Mon, 18 Nov 2024 13:51:08 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tD2Ad-00000009faZ-0V5u;
+	Mon, 18 Nov 2024 13:52:03 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD1z0-00000009crP-2h5W
+	id 1tD1z1-00000009csN-1RtO
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 18 Nov 2024 13:40:10 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AICwI7j006812;
-	Mon, 18 Nov 2024 14:39:53 +0100
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AIBhWMD021684;
+	Mon, 18 Nov 2024 14:39:52 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	mh3X05T5H06SX13NOd/vtfLsw3De2vyHd/Fa/OGJ4zs=; b=rFGUqcwNgUiAptGe
-	sanaZS8s0ItbmGKx5VaJUOBcQCJCOdVp0yXcotsDR7lvXv7jNEo5QNRJMlRTuw6j
-	ak+LXoB40E8YTCseITlAKsP7Mj9PE0U7WoXL0JBYMp/3thXQFgtM2TPD6RDT0t6L
-	3ijlyP+8JiuJdXGR/i8BbZ4Df4X/t3Isi8RI2nTJNOPR6SSggoux7mlc1o4WAi2h
-	vXoL8/ugVnWFSOukBiOCaNS74vAyhG/QD4iTnzj7wy/esxp7QRxGKapETIFLMLvE
-	nBUoQpKQ26XpcXjRAdRklyBsYqCcp3onl+Jz5gWfHQLIk9yexiawMXIxoqMskq34
-	9a2mLA==
+	K2o8RWIwZHcDnCoRZbJ0AgekAHRjrD6szKnoYOlNjHE=; b=s8rC4xfCBxwrPn82
+	T3VMocSMSWD4Zu5iyWVL5wFsLeF/s5ku/Yup4cGOGw50sRaKHd9c9RFbCBSE4mUz
+	ijOt2nq6wnbTBAC3WhmYYVIab5DBk1YCZ26yumhbt0LLM41oreh3qPMiDKtn1pJV
+	DtrO0w0YTDqWftSGYkyPJNCXnkODNjoIuiNzLdXnVy3zIApKVKc2fK2zba4dEsGy
+	zaet3Rt79jDOr12XuMZaFvXZ2QwkblgXqh5VlMF6/W1as2hhjsXSz17wKvNJVATy
+	WKu3qpiZhfZhVpaKjqm520YzvejJXsG1EBTdNbGjiriPYeHRUEIzMji66W1eBXUQ
+	DrwIOw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42xkqh77pf-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42xkq5qhhn-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Mon, 18 Nov 2024 14:39:52 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A93C140064;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 06CE84005D;
 	Mon, 18 Nov 2024 14:38:33 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3351A276F07;
-	Mon, 18 Nov 2024 14:35:34 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 555BC2747D8;
+	Mon, 18 Nov 2024 14:35:29 +0100 (CET)
 Received: from localhost (10.129.178.213) by SHFDAG1NODE1.st.com
  (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 18 Nov
- 2024 14:35:33 +0100
+ 2024 14:35:29 +0100
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Mon, 18 Nov 2024 14:35:36 +0100
-Subject: [PATCH v3 13/15] media: stm32: dcmipp: add core support for the
- stm32mp25
+Date: Mon, 18 Nov 2024 14:35:28 +0100
+Subject: [PATCH v3 05/15] media: stm32: dcmipp: replace s_stream with
+ enable/disable_streams
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241118-csi_dcmipp_mp25-v3-13-c1914afb0a0f@foss.st.com>
+Message-ID: <20241118-csi_dcmipp_mp25-v3-5-c1914afb0a0f@foss.st.com>
 References: <20241118-csi_dcmipp_mp25-v3-0-c1914afb0a0f@foss.st.com>
 In-Reply-To: <20241118-csi_dcmipp_mp25-v3-0-c1914afb0a0f@foss.st.com>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
@@ -90,8 +90,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_054003_000927_7853487C 
-X-CRM114-Status: GOOD (  23.86  )
+X-CRM114-CacheID: sfid-20241118_054003_685508_44710BED 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,205 +106,403 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The stm32mp25 supports both parallel & csi inputs.
-An additional clock control is necessary.
-Skeleton of the subdev structures for the stm32mp25 is added,
-identical for the time being to the stm32mp13 however more subdeves
-will be added in further commits.
+Replace s_stream ops with enable_streams and disable_streams.
+At the same time, use v4l2_subdev_enable_streams and
+v4l2_subdev_disable_streams functions instead of
+direct s_stream calls.
 
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
----
- .../platform/st/stm32/stm32-dcmipp/dcmipp-core.c   | 98 ++++++++++++++++++----
- 1 file changed, 80 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
-index d2cc19bb40d77f67a1f5fe565bc62f45eff2d266..0087f9017f024ba6b918b99c1ef39212ad6b881a 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
-@@ -40,6 +40,7 @@ struct dcmipp_device {
+---
+v2: add missing state argument within dcmipp_par_configure call
+---
+ .../st/stm32/stm32-dcmipp/dcmipp-bytecap.c         |  49 ++++------
+ .../st/stm32/stm32-dcmipp/dcmipp-byteproc.c        |  98 +++++++++++--------
+ .../st/stm32/stm32-dcmipp/dcmipp-parallel.c        | 107 ++++++++++++---------
+ 3 files changed, 139 insertions(+), 115 deletions(-)
+
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
+index 0f6918f4db383f4e0762030218101f759f375e95..48596592bfd517b9d46946d27f154f0d17ebed78 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
+@@ -112,6 +112,7 @@ struct dcmipp_bytecap_device {
+ 	u32 sequence;
+ 	struct media_pipeline pipe;
+ 	struct v4l2_subdev *s_subdev;
++	u32 s_subdev_pad_nb;
  
- 	/* Hardware resources */
- 	void __iomem			*regs;
-+	struct clk			*mclk;
- 	struct clk			*kclk;
+ 	enum dcmipp_state state;
  
- 	/* The pipeline configuration */
-@@ -132,6 +133,40 @@ static const struct dcmipp_pipeline_config stm32mp13_pipe_cfg = {
- 	.hw_revision	= DCMIPP_STM32MP13_VERR
+@@ -337,33 +338,6 @@ static const struct v4l2_ioctl_ops dcmipp_bytecap_ioctl_ops = {
+ 	.vidioc_streamoff = vb2_ioctl_streamoff,
  };
  
-+static const struct dcmipp_ent_config stm32mp25_ent_config[] = {
-+	{
-+		.name = "dcmipp_input",
-+		.init = dcmipp_inp_ent_init,
-+		.release = dcmipp_inp_ent_release,
-+	},
-+	{
-+		.name = "dcmipp_dump_postproc",
-+		.init = dcmipp_byteproc_ent_init,
-+		.release = dcmipp_byteproc_ent_release,
-+	},
-+	{
-+		.name = "dcmipp_dump_capture",
-+		.init = dcmipp_bytecap_ent_init,
-+		.release = dcmipp_bytecap_ent_release,
-+	},
-+};
-+
-+static const struct dcmipp_ent_link stm32mp25_ent_links[] = {
-+	DCMIPP_ENT_LINK(ID_INPUT, 1, ID_DUMP_BYTEPROC, 0,
-+			MEDIA_LNK_FL_ENABLED | MEDIA_LNK_FL_IMMUTABLE),
-+	DCMIPP_ENT_LINK(ID_DUMP_BYTEPROC, 1, ID_DUMP_CAPTURE,  0,
-+			MEDIA_LNK_FL_ENABLED | MEDIA_LNK_FL_IMMUTABLE),
-+};
-+
-+#define DCMIPP_STM32MP25_VERR  0x30
-+static const struct dcmipp_pipeline_config stm32mp25_pipe_cfg = {
-+	.ents		= stm32mp25_ent_config,
-+	.num_ents	= ARRAY_SIZE(stm32mp25_ent_config),
-+	.links		= stm32mp25_ent_links,
-+	.num_links	= ARRAY_SIZE(stm32mp25_ent_links),
-+	.hw_revision    = DCMIPP_STM32MP25_VERR
-+};
-+
- #define LINK_FLAG_TO_STR(f) ((f) == 0 ? "" :\
- 			     (f) == MEDIA_LNK_FL_ENABLED ? "ENABLED" :\
- 			     (f) == MEDIA_LNK_FL_IMMUTABLE ? "IMMUTABLE" :\
-@@ -212,6 +247,7 @@ static int dcmipp_create_subdevs(struct dcmipp_device *dcmipp)
- 
- static const struct of_device_id dcmipp_of_match[] = {
- 	{ .compatible = "st,stm32mp13-dcmipp", .data = &stm32mp13_pipe_cfg },
-+	{ .compatible = "st,stm32mp25-dcmipp", .data = &stm32mp25_pipe_cfg },
- 	{ /* end node */ },
- };
- MODULE_DEVICE_TABLE(of, dcmipp_of_match);
-@@ -261,13 +297,22 @@ static int dcmipp_graph_notify_bound(struct v4l2_async_notifier *notifier,
+-static int dcmipp_pipeline_s_stream(struct dcmipp_bytecap_device *vcap,
+-				    int state)
+-{
+-	struct media_pad *pad;
+-	int ret;
+-
+-	/*
+-	 * Get source subdev - since link is IMMUTABLE, pointer is cached
+-	 * within the dcmipp_bytecap_device structure
+-	 */
+-	if (!vcap->s_subdev) {
+-		pad = media_pad_remote_pad_first(&vcap->vdev.entity.pads[0]);
+-		if (!pad || !is_media_entity_v4l2_subdev(pad->entity))
+-			return -EINVAL;
+-		vcap->s_subdev = media_entity_to_v4l2_subdev(pad->entity);
+-	}
+-
+-	ret = v4l2_subdev_call(vcap->s_subdev, video, s_stream, state);
+-	if (ret < 0) {
+-		dev_err(vcap->dev, "failed to %s streaming (%d)\n",
+-			state ? "start" : "stop", ret);
+-		return ret;
+-	}
+-
+-	return 0;
+-}
+-
+ static void dcmipp_start_capture(struct dcmipp_bytecap_device *vcap,
+ 				 struct dcmipp_buf *buf)
  {
- 	struct dcmipp_device *dcmipp = notifier_to_dcmipp(notifier);
- 	unsigned int ret;
--	int src_pad;
-+	int src_pad, i;
- 	struct dcmipp_ent_device *sink;
--	struct v4l2_fwnode_endpoint vep = { .bus_type = V4L2_MBUS_PARALLEL };
-+	struct v4l2_fwnode_endpoint vep = { 0 };
- 	struct fwnode_handle *ep;
-+	enum v4l2_mbus_type supported_types[] = {
-+		V4L2_MBUS_PARALLEL, V4L2_MBUS_BT656, V4L2_MBUS_CSI2_DPHY
-+	};
-+	int supported_types_nb = ARRAY_SIZE(supported_types);
+@@ -395,11 +369,24 @@ static int dcmipp_bytecap_start_streaming(struct vb2_queue *vq,
+ 	struct dcmipp_bytecap_device *vcap = vb2_get_drv_priv(vq);
+ 	struct media_entity *entity = &vcap->vdev.entity;
+ 	struct dcmipp_buf *buf;
++	struct media_pad *pad;
+ 	int ret;
  
- 	dev_dbg(dcmipp->dev, "Subdev \"%s\" bound\n", subdev->name);
+ 	vcap->sequence = 0;
+ 	memset(&vcap->count, 0, sizeof(vcap->count));
  
-+	/* Only MP25 supports CSI input */
-+	if (!of_device_is_compatible(dcmipp->dev->of_node,
-+				     "st,stm32mp25-dcmipp"))
-+		supported_types_nb--;
++	/*
++	 * Get source subdev - since link is IMMUTABLE, pointer is cached
++	 * within the dcmipp_bytecap_device structure
++	 */
++	if (!vcap->s_subdev) {
++		pad = media_pad_remote_pad_first(&vcap->vdev.entity.pads[0]);
++		if (!pad || !is_media_entity_v4l2_subdev(pad->entity))
++			return -EINVAL;
++		vcap->s_subdev = media_entity_to_v4l2_subdev(pad->entity);
++		vcap->s_subdev_pad_nb = pad->index;
++	}
 +
- 	/*
- 	 * Link this sub-device to DCMIPP, it could be
- 	 * a parallel camera sensor or a CSI-2 to parallel bridge
-@@ -284,21 +329,23 @@ static int dcmipp_graph_notify_bound(struct v4l2_async_notifier *notifier,
- 		return -ENODEV;
+ 	ret = pm_runtime_resume_and_get(vcap->dev);
+ 	if (ret < 0) {
+ 		dev_err(vcap->dev, "%s: Failed to start streaming, cannot get sync (%d)\n",
+@@ -414,7 +401,8 @@ static int dcmipp_bytecap_start_streaming(struct vb2_queue *vq,
+ 		goto err_pm_put;
  	}
  
--	/* Check for parallel bus-type first, then bt656 */
--	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
--	if (ret) {
--		vep.bus_type = V4L2_MBUS_BT656;
-+	/* Check for supported MBUS type */
-+	for (i = 0; i < supported_types_nb; i++) {
-+		vep.bus_type = supported_types[i];
- 		ret = v4l2_fwnode_endpoint_parse(ep, &vep);
--		if (ret) {
--			dev_err(dcmipp->dev, "Could not parse the endpoint\n");
--			fwnode_handle_put(ep);
+-	ret = dcmipp_pipeline_s_stream(vcap, 1);
++	ret = v4l2_subdev_enable_streams(vcap->s_subdev,
++					 vcap->s_subdev_pad_nb, BIT_ULL(0));
+ 	if (ret)
+ 		goto err_media_pipeline_stop;
+ 
+@@ -482,7 +470,10 @@ static void dcmipp_bytecap_stop_streaming(struct vb2_queue *vq)
+ 	int ret;
+ 	u32 status;
+ 
+-	dcmipp_pipeline_s_stream(vcap, 0);
++	ret = v4l2_subdev_disable_streams(vcap->s_subdev,
++					  vcap->s_subdev_pad_nb, BIT_ULL(0));
++	if (ret)
++		dev_warn(vcap->dev, "Failed to disable stream\n");
+ 
+ 	/* Stop the media pipeline */
+ 	media_pipeline_stop(vcap->vdev.entity.pads);
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+index 50500112eab9a7b10a0c5e29773e31ded1a66628..a19c8235af565fb5f673ba90b37ebfcadf03d72e 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+@@ -380,30 +380,19 @@ static int dcmipp_byteproc_set_selection(struct v4l2_subdev *sd,
+ 	return 0;
+ }
+ 
+-static const struct v4l2_subdev_pad_ops dcmipp_byteproc_pad_ops = {
+-	.enum_mbus_code		= dcmipp_byteproc_enum_mbus_code,
+-	.enum_frame_size	= dcmipp_byteproc_enum_frame_size,
+-	.get_fmt		= v4l2_subdev_get_fmt,
+-	.set_fmt		= dcmipp_byteproc_set_fmt,
+-	.get_selection		= dcmipp_byteproc_get_selection,
+-	.set_selection		= dcmipp_byteproc_set_selection,
+-};
+-
+ static int dcmipp_byteproc_configure_scale_crop
+-			(struct dcmipp_byteproc_device *byteproc)
++			(struct dcmipp_byteproc_device *byteproc,
++			 struct v4l2_subdev_state *state)
+ {
+ 	const struct dcmipp_byteproc_pix_map *vpix;
+-	struct v4l2_subdev_state *state;
+ 	struct v4l2_mbus_framefmt *sink_fmt;
+ 	u32 hprediv, vprediv;
+ 	struct v4l2_rect *compose, *crop;
+ 	u32 val = 0;
+ 
+-	state = v4l2_subdev_lock_and_get_active_state(&byteproc->sd);
+ 	sink_fmt = v4l2_subdev_state_get_format(state, 0);
+ 	compose = v4l2_subdev_state_get_compose(state, 0);
+ 	crop = v4l2_subdev_state_get_crop(state, 1);
+-	v4l2_subdev_unlock_state(state);
+ 
+ 	/* find output format bpp */
+ 	vpix = dcmipp_byteproc_pix_map_by_code(sink_fmt->code);
+@@ -458,46 +447,73 @@ static int dcmipp_byteproc_configure_scale_crop
+ 	return 0;
+ }
+ 
+-static int dcmipp_byteproc_s_stream(struct v4l2_subdev *sd, int enable)
++static int dcmipp_byteproc_enable_streams(struct v4l2_subdev *sd,
++					  struct v4l2_subdev_state *state,
++					  u32 pad, u64 streams_mask)
+ {
+ 	struct dcmipp_byteproc_device *byteproc = v4l2_get_subdevdata(sd);
+ 	struct v4l2_subdev *s_subdev;
+-	struct media_pad *pad;
+-	int ret = 0;
++	struct media_pad *s_pad;
++	int ret;
+ 
+ 	/* Get source subdev */
+-	pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
+-	if (!pad || !is_media_entity_v4l2_subdev(pad->entity))
++	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
++	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
+ 		return -EINVAL;
+-	s_subdev = media_entity_to_v4l2_subdev(pad->entity);
+-
+-	if (enable) {
+-		ret = dcmipp_byteproc_configure_scale_crop(byteproc);
+-		if (ret)
+-			return ret;
+-
+-		ret = v4l2_subdev_call(s_subdev, video, s_stream, enable);
+-		if (ret < 0) {
+-			dev_err(byteproc->dev,
+-				"failed to start source subdev streaming (%d)\n",
+-				ret);
 -			return ret;
 -		}
-+		if (!ret)
-+			break;
- 	}
- 
- 	fwnode_handle_put(ep);
- 
--	if (vep.bus.parallel.bus_width == 0) {
-+	if (ret) {
-+		dev_err(dcmipp->dev, "Could not parse the endpoint\n");
+-	} else {
+-		ret = v4l2_subdev_call(s_subdev, video, s_stream, enable);
+-		if (ret < 0) {
+-			dev_err(byteproc->dev,
+-				"failed to stop source subdev streaming (%d)\n",
+-				ret);
+-			return ret;
+-		}
++	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
++
++	ret = dcmipp_byteproc_configure_scale_crop(byteproc, state);
++	if (ret)
 +		return ret;
-+	}
 +
-+	if (vep.bus_type != V4L2_MBUS_CSI2_DPHY &&
-+	    vep.bus.parallel.bus_width == 0) {
- 		dev_err(dcmipp->dev, "Invalid parallel interface bus-width\n");
- 		return -ENODEV;
++	ret = v4l2_subdev_enable_streams(s_subdev, s_pad->index, BIT_ULL(0));
++	if (ret < 0) {
++		dev_err(byteproc->dev,
++			"failed to start source subdev streaming (%d)\n", ret);
++		return ret;
  	}
-@@ -311,11 +358,13 @@ static int dcmipp_graph_notify_bound(struct v4l2_async_notifier *notifier,
- 		return -ENODEV;
- 	}
- 
--	/* Parallel input device detected, connect it to parallel subdev */
-+	/* Connect input device to the dcmipp_input subdev */
- 	sink = dcmipp->entity[ID_INPUT];
--	sink->bus.flags = vep.bus.parallel.flags;
--	sink->bus.bus_width = vep.bus.parallel.bus_width;
--	sink->bus.data_shift = vep.bus.parallel.data_shift;
-+	if (vep.bus_type != V4L2_MBUS_CSI2_DPHY) {
-+		sink->bus.flags = vep.bus.parallel.flags;
-+		sink->bus.bus_width = vep.bus.parallel.bus_width;
-+		sink->bus.data_shift = vep.bus.parallel.data_shift;
-+	}
- 	sink->bus_type = vep.bus_type;
- 	ret = media_create_pad_link(&subdev->entity, src_pad, sink->ent, 0,
- 				    MEDIA_LNK_FL_IMMUTABLE |
-@@ -414,7 +463,7 @@ static int dcmipp_graph_init(struct dcmipp_device *dcmipp)
- static int dcmipp_probe(struct platform_device *pdev)
- {
- 	struct dcmipp_device *dcmipp;
--	struct clk *kclk;
-+	struct clk *kclk, *mclk;
- 	const struct dcmipp_pipeline_config *pipe_cfg;
- 	struct reset_control *rstc;
- 	int irq;
-@@ -474,12 +523,20 @@ static int dcmipp_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	kclk = devm_clk_get(&pdev->dev, NULL);
-+	kclk = devm_clk_get(&pdev->dev, "kclk");
- 	if (IS_ERR(kclk))
- 		return dev_err_probe(&pdev->dev, PTR_ERR(kclk),
- 				     "Unable to get kclk\n");
- 	dcmipp->kclk = kclk;
- 
-+	if (!of_device_is_compatible(pdev->dev.of_node, "st,stm32mp13-dcmipp")) {
-+		mclk = devm_clk_get(&pdev->dev, "mclk");
-+		if (IS_ERR(mclk))
-+			return dev_err_probe(&pdev->dev, PTR_ERR(mclk),
-+					     "Unable to get mclk\n");
-+		dcmipp->mclk = mclk;
-+	}
-+
- 	dcmipp->entity = devm_kcalloc(&pdev->dev, dcmipp->pipe_cfg->num_ents,
- 				      sizeof(*dcmipp->entity), GFP_KERNEL);
- 	if (!dcmipp->entity)
-@@ -542,6 +599,7 @@ static int dcmipp_runtime_suspend(struct device *dev)
- 	struct dcmipp_device *dcmipp = dev_get_drvdata(dev);
- 
- 	clk_disable_unprepare(dcmipp->kclk);
-+	clk_disable_unprepare(dcmipp->mclk);
  
  	return 0;
  }
-@@ -551,6 +609,10 @@ static int dcmipp_runtime_resume(struct device *dev)
- 	struct dcmipp_device *dcmipp = dev_get_drvdata(dev);
- 	int ret;
  
-+	ret = clk_prepare_enable(dcmipp->mclk);
-+	if (ret)
-+		dev_err(dev, "%s: Failed to prepare_enable mclk\n", __func__);
++static int dcmipp_byteproc_disable_streams(struct v4l2_subdev *sd,
++					   struct v4l2_subdev_state *state,
++					   u32 pad, u64 streams_mask)
++{
++	struct dcmipp_byteproc_device *byteproc = v4l2_get_subdevdata(sd);
++	struct v4l2_subdev *s_subdev;
++	struct media_pad *s_pad;
++	int ret;
 +
- 	ret = clk_prepare_enable(dcmipp->kclk);
- 	if (ret)
- 		dev_err(dev, "%s: Failed to prepare_enable kclk\n", __func__);
++	/* Get source subdev */
++	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
++	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
++		return -EINVAL;
++	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
++
++	ret = v4l2_subdev_disable_streams(s_subdev, s_pad->index, BIT_ULL(0));
++	if (ret < 0) {
++		dev_err(byteproc->dev,
++			"failed to start source subdev streaming (%d)\n", ret);
++		return ret;
++	}
++
++	return 0;
++}
++
++static const struct v4l2_subdev_pad_ops dcmipp_byteproc_pad_ops = {
++	.enum_mbus_code		= dcmipp_byteproc_enum_mbus_code,
++	.enum_frame_size	= dcmipp_byteproc_enum_frame_size,
++	.get_fmt		= v4l2_subdev_get_fmt,
++	.set_fmt		= dcmipp_byteproc_set_fmt,
++	.get_selection		= dcmipp_byteproc_get_selection,
++	.set_selection		= dcmipp_byteproc_set_selection,
++	.enable_streams		= dcmipp_byteproc_enable_streams,
++	.disable_streams	= dcmipp_byteproc_disable_streams,
++};
++
+ static const struct v4l2_subdev_video_ops dcmipp_byteproc_video_ops = {
+-	.s_stream = dcmipp_byteproc_s_stream,
++	.s_stream = v4l2_subdev_s_stream_helper,
+ };
+ 
+ static const struct v4l2_subdev_ops dcmipp_byteproc_ops = {
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c
+index 05e8897ae37a4b6c8e16c066e83ff5b1d1e07635..823c9da336a7fc63dca2aeeb2ac9377821bf6371 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c
+@@ -260,18 +260,11 @@ static int dcmipp_par_set_fmt(struct v4l2_subdev *sd,
+ 	return 0;
+ }
+ 
+-static const struct v4l2_subdev_pad_ops dcmipp_par_pad_ops = {
+-	.enum_mbus_code		= dcmipp_par_enum_mbus_code,
+-	.enum_frame_size	= dcmipp_par_enum_frame_size,
+-	.get_fmt		= v4l2_subdev_get_fmt,
+-	.set_fmt		= dcmipp_par_set_fmt,
+-};
+-
+-static int dcmipp_par_configure(struct dcmipp_par_device *par)
++static int dcmipp_par_configure(struct dcmipp_par_device *par,
++				struct v4l2_subdev_state *state)
+ {
+ 	u32 val = 0;
+ 	const struct dcmipp_par_pix_map *vpix;
+-	struct v4l2_subdev_state *state;
+ 	struct v4l2_mbus_framefmt *sink_fmt;
+ 	struct v4l2_mbus_framefmt *src_fmt;
+ 
+@@ -305,10 +298,8 @@ static int dcmipp_par_configure(struct dcmipp_par_device *par)
+ 	}
+ 
+ 	/* Set format */
+-	state = v4l2_subdev_lock_and_get_active_state(&par->sd);
+ 	sink_fmt = v4l2_subdev_state_get_format(state, 0);
+ 	src_fmt = v4l2_subdev_state_get_format(state, 1);
+-	v4l2_subdev_unlock_state(state);
+ 
+ 	vpix = dcmipp_par_pix_map_by_code(sink_fmt->code, src_fmt->code);
+ 	if (!vpix) {
+@@ -327,53 +318,79 @@ static int dcmipp_par_configure(struct dcmipp_par_device *par)
+ 	return 0;
+ }
+ 
+-static int dcmipp_par_s_stream(struct v4l2_subdev *sd, int enable)
++static int dcmipp_par_enable_streams(struct v4l2_subdev *sd,
++				     struct v4l2_subdev_state *state,
++				     u32 pad, u64 streams_mask)
+ {
+ 	struct dcmipp_par_device *par =
+ 				container_of(sd, struct dcmipp_par_device, sd);
+ 	struct v4l2_subdev *s_subdev;
+-	struct media_pad *pad;
+-	int ret = 0;
++	struct media_pad *s_pad;
++	int ret;
+ 
+ 	/* Get source subdev */
+-	pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
+-	if (!pad || !is_media_entity_v4l2_subdev(pad->entity))
++	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
++	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
+ 		return -EINVAL;
+-	s_subdev = media_entity_to_v4l2_subdev(pad->entity);
+-
+-	if (enable) {
+-		ret = dcmipp_par_configure(par);
+-		if (ret)
+-			return ret;
+-
+-		/* Enable parallel interface */
+-		reg_set(par, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
+-
+-		ret = v4l2_subdev_call(s_subdev, video, s_stream, enable);
+-		if (ret < 0) {
+-			dev_err(par->dev,
+-				"failed to start source subdev streaming (%d)\n",
+-				ret);
+-			return ret;
+-		}
+-	} else {
+-		ret = v4l2_subdev_call(s_subdev, video, s_stream, enable);
+-		if (ret < 0) {
+-			dev_err(par->dev,
+-				"failed to stop source subdev streaming (%d)\n",
+-				ret);
+-			return ret;
+-		}
++	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
++
++	ret = dcmipp_par_configure(par, state);
++	if (ret)
++		return ret;
++
++	/* Enable parallel interface */
++	reg_set(par, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
+ 
+-		/* Disable parallel interface */
+-		reg_clear(par, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
++	ret = v4l2_subdev_enable_streams(s_subdev, s_pad->index, BIT_ULL(0));
++	if (ret < 0) {
++		dev_err(par->dev,
++			"failed to start source subdev streaming (%d)\n", ret);
++		return ret;
+ 	}
+ 
+-	return ret;
++	return 0;
+ }
+ 
++static int dcmipp_par_disable_streams(struct v4l2_subdev *sd,
++				      struct v4l2_subdev_state *state,
++				      u32 pad, u64 streams_mask)
++{
++	struct dcmipp_par_device *par =
++				container_of(sd, struct dcmipp_par_device, sd);
++	struct v4l2_subdev *s_subdev;
++	struct media_pad *s_pad;
++	int ret;
++
++	/* Get source subdev */
++	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
++	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
++		return -EINVAL;
++	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
++
++	ret = v4l2_subdev_disable_streams(s_subdev, s_pad->index, BIT_ULL(0));
++	if (ret < 0) {
++		dev_err(par->dev,
++			"failed to stop source subdev streaming (%d)\n", ret);
++		return ret;
++	}
++
++	/* Disable parallel interface */
++	reg_clear(par, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
++
++	return 0;
++}
++
++static const struct v4l2_subdev_pad_ops dcmipp_par_pad_ops = {
++	.enum_mbus_code		= dcmipp_par_enum_mbus_code,
++	.enum_frame_size	= dcmipp_par_enum_frame_size,
++	.get_fmt		= v4l2_subdev_get_fmt,
++	.set_fmt		= dcmipp_par_set_fmt,
++	.enable_streams		= dcmipp_par_enable_streams,
++	.disable_streams	= dcmipp_par_disable_streams,
++};
++
+ static const struct v4l2_subdev_video_ops dcmipp_par_video_ops = {
+-	.s_stream = dcmipp_par_s_stream,
++	.s_stream = v4l2_subdev_s_stream_helper,
+ };
+ 
+ static const struct v4l2_subdev_ops dcmipp_par_ops = {
 
 -- 
 2.25.1
