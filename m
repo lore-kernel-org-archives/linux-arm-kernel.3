@@ -4,89 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89996D43FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 09:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C388D43FF5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 09:05:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d9Qt+VbksJSzYU8yOYTLDYWvBV0qoRaTem+nkVDx9W4=; b=DCBOKrFoYvhKlv7ny/gvdBxb2T
-	CGw8WxpnyDSawqwXncxPACQ2FkEgZ4OC2t2xqSbbfcqMuxh/zUHncBtPdY5J90BVF5jrZevGH/jTb
-	YLINhfn+zFeTCN2JUwD7qNm8BS3+3iLTcHutUTI6a2yuf6X/ZLyjxFnNBWbgrYD7sO17/riAf5T5q
-	XysRtUZtF5U7eLVJ90pr3US9ZLw+vMleaisUSk49FfrNXmhYpL/AXdVwBHA+ktFQkG0AV9mSzjORv
-	gieKaBz4Om9J5PoRaub9FgO9gc81fUCKohsgg6XNe2EBJEEJMWsSs+eAWedTWtPaVMpoURpfIeAM6
-	WkiElsew==;
+	bh=GeKhPCZl6Wlt7zHeNRgAX3Um/fWLm252kst2JLNcWms=; b=qVvx4sMC5ucfz997z7ODIJTUMt
+	CgiLzK2OOzBxxQ0rPfDQihotD2qugRq1YH3TtTSKK0CZzwqzLUydh7Jrhi/n2VXs+eEnoPz1YrW2d
+	pMnEKdmpqV8GpdYKM0TTPRSucjfEHUEn6p6yrN7nZyB16G3PqFFlZefJ8ELwrsQ9CA9C1PdpKUWWP
+	VhR5rEwo/VAaMUtWAsmgwcKz/ZN1gYPbrzm54XfjHpz/etCgTSCFFqWpJlfo7yoC7cB7IBdsFG0QS
+	mXGP2MLfvuPSLrpubVU3Ucnk5TRg9lCUGyldDGROxfYB3/ao8joQDk8DYBeScdHrBxJ5WTAMIlrdy
+	b9DEulEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCxdf-00000008r5T-1gSm;
-	Mon, 18 Nov 2024 09:01:43 +0000
+	id 1tCxgq-00000008rgI-17u8;
+	Mon, 18 Nov 2024 09:05:00 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCxcj-00000008qxs-3q6G
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 09:00:47 +0000
+	id 1tCxft-00000008rUL-1Iuv;
+	Mon, 18 Nov 2024 09:04:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B512E5C57C8;
-	Mon, 18 Nov 2024 09:00:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75D65C4CECC;
-	Mon, 18 Nov 2024 09:00:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9C0005C4649;
+	Mon, 18 Nov 2024 09:03:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12A98C4CECC;
+	Mon, 18 Nov 2024 09:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731920444;
-	bh=l9ycbKZl1O/s1sF56Ep8snxmvqADeI+bcDjz6IkJLv0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=c49nwjN+w56fry5JQGdarHi3gUObH15Pz3ygCTCD1AeLwBk0UzbSt7GG82voagb9m
-	 b6p7HrUmv4IKHyMFwVhMvlti5emv544Ui/NNAflz5s4fxRCQ+tr1zP1/S8xYMDnrAy
-	 9+GD470KnTPoM1uXR9NY+BLyCBAudVfE1UExiN62dKmPaNaEmAFhq3n7JYqVyXP9hd
-	 eFysR+mBaCRxsWUypPCmdQ3S26ih93uP38MG8X+ihVgND7RRy7laohzQ35DVLYMa7z
-	 iIVwrPT28Awn7BS7y+6YdnsUYqNwA8CKAUYP/BNLsGGFA7Vwa7s8H/g9VxoJNC+EZp
-	 gzZ0uxaLjok+w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tCxcf-00DiQT-SA;
-	Mon, 18 Nov 2024 09:00:42 +0000
-Date: Mon, 18 Nov 2024 09:00:41 +0000
-Message-ID: <86y11gvruu.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: suzuki.poulose@arm.com,
-	oliver.upton@linux.dev,
-	coresight@lists.linaro.org,
-	kvmarm@lists.linux.dev,
-	Joey Gouly <joey.gouly@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Shiqi Liu <shiqiliu@hust.edu.cn>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 04/12] KVM: arm64: Make vcpu flag macros more generic
-In-Reply-To: <20241112103717.589952-5-james.clark@linaro.org>
-References: <20241112103717.589952-1-james.clark@linaro.org>
-	<20241112103717.589952-5-james.clark@linaro.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: james.clark@linaro.org, suzuki.poulose@arm.com, oliver.upton@linux.dev, coresight@lists.linaro.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mike.leach@linaro.org, alexander.shishkin@linux.intel.com, mark.rutland@arm.com, broonie@kernel.org, anshuman.khandual@arm.com, james.morse@arm.com, tabba@google.com, shiqiliu@hust.edu.cn, rananta@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1731920640;
+	bh=P5sIKzs/KRb7twfVQbeFNIj0OlBGFYmJTsbOaM700Gg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=j1awaDW7I2HmOorHfgieEGe08kt3rRmR2JuTKMHI/weyLcE46tVGp3iY/KX3veLYb
+	 5YmLhsGnyM1ifpdu95apl0CrzhRADRVLR1rBmP2kVk4gw5y6C1iZhw5YtX0uelsRpb
+	 cXNlIuJwNVJ0nLC1tHkvFaSfpf/3as3a1xrGTNGOWCjM+mFC6k8oPYJw/v9EwjYXiU
+	 zhk3c2aods5K+1EXoBNrkQgslC6/d1KygJXzncEsvmEhijlZhr2p1h1nP+eaBI9R7T
+	 pBKgOpdACdUB2nNV50Z6VAhN3zwaYcWSZa+aAu1n0oZ4ioX9jvY2XxrLeyjxB6xK+p
+	 rhdZN4peeGZIg==
+Date: Mon, 18 Nov 2024 10:03:58 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v4 3/6] PCI: mediatek-gen3: Move reset/assert callbacks
+ in .power_up()
+Message-ID: <ZzsC_hW-w6WSMYSO@lore-desk>
+References: <20241118-pcie-en7581-fixes-v4-0-24bb61703ad7@kernel.org>
+ <20241118-pcie-en7581-fixes-v4-3-24bb61703ad7@kernel.org>
+ <2d7e1e5e09babb468199ac44520683fcb87d697c.camel@pengutronix.de>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mYzXfOMc+FsagSoK"
+Content-Disposition: inline
+In-Reply-To: <2d7e1e5e09babb468199ac44520683fcb87d697c.camel@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_010046_041500_73DBA130 
-X-CRM114-Status: GOOD (  27.69  )
+X-CRM114-CacheID: sfid-20241118_010401_436535_DF0BD2A7 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,101 +84,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Nov 2024 10:37:03 +0000,
-James Clark <james.clark@linaro.org> wrote:
-> 
-> Rename vcpu_* to kvm_* so that the same flags mechanism can be used in
-> places other than vcpu without being confusing. Wherever macros are
-> still related to vcpu like vcpu_get_flag() with hard coded v->arch, keep
-> the vcpu_* name, otherwise change it.
-> 
-> Also move the "v->arch" access one macro higher for the same reason.
-> 
-> This will be used for moving flags to host_data in a later commit.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  arch/arm64/include/asm/kvm_host.h | 88 +++++++++++++++----------------
->  arch/arm64/kvm/hyp/exception.c    | 12 ++---
->  arch/arm64/kvm/inject_fault.c     |  4 +-
->  arch/arm64/kvm/mmio.c             | 10 ++--
->  4 files changed, 57 insertions(+), 57 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index f333b189fb43..34aa59f498c4 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -790,22 +790,22 @@ struct kvm_vcpu_arch {
->  /*
->   * Each 'flag' is composed of a comma-separated triplet:
->   *
-> - * - the flag-set it belongs to in the vcpu->arch structure
-> + * - the flag-set it belongs to in the structure pointed to by 'v'
->   * - the value for that flag
->   * - the mask for that flag
->   *
-> - *  __vcpu_single_flag() builds such a triplet for a single-bit flag.
-> - * unpack_vcpu_flag() extract the flag value from the triplet for
-> + *  __kvm_single_flag() builds such a triplet for a single-bit flag.
-> + * unpack_kvm_flag() extract the flag value from the triplet for
->   * direct use outside of the flag accessors.
->   */
-> -#define __vcpu_single_flag(_set, _f)	_set, (_f), (_f)
-> +#define __kvm_single_flag(_set, _f)	_set, (_f), (_f)
->  
->  #define __unpack_flag(_set, _f, _m)	_f
-> -#define unpack_vcpu_flag(...)		__unpack_flag(__VA_ARGS__)
-> +#define unpack_kvm_flag(...)		__unpack_flag(__VA_ARGS__)
->  
->  #define __build_check_flag(v, flagset, f, m)			\
->  	do {							\
-> -		typeof(v->arch.flagset) *_fset;			\
-> +		typeof(v.flagset) *_fset;			\
->  								\
->  		/* Check that the flags fit in the mask */	\
->  		BUILD_BUG_ON(HWEIGHT(m) != HWEIGHT((f) | (m)));	\
-> @@ -813,11 +813,11 @@ struct kvm_vcpu_arch {
->  		BUILD_BUG_ON((sizeof(*_fset) * 8) <= __fls(m));	\
->  	} while (0)
->  
-> -#define __vcpu_get_flag(v, flagset, f, m)			\
-> +#define __kvm_get_flag(v, flagset, f, m)			\
->  	({							\
->  		__build_check_flag(v, flagset, f, m);		\
->  								\
-> -		READ_ONCE(v->arch.flagset) & (m);		\
-> +		READ_ONCE(v.flagset) & (m);		\
->  	})
->  
->  /*
-> @@ -826,64 +826,64 @@ struct kvm_vcpu_arch {
->   */
->  #ifdef __KVM_NVHE_HYPERVISOR__
->  /* the nVHE hypervisor is always non-preemptible */
-> -#define __vcpu_flags_preempt_disable()
-> -#define __vcpu_flags_preempt_enable()
-> +#define __kvm_flags_preempt_disable()
-> +#define __kvm_flags_preempt_enable()
->  #else
-> -#define __vcpu_flags_preempt_disable()	preempt_disable()
-> -#define __vcpu_flags_preempt_enable()	preempt_enable()
-> +#define __kvm_flags_preempt_disable()	preempt_disable()
-> +#define __kvm_flags_preempt_enable()	preempt_enable()
->  #endif
->  
-> -#define __vcpu_set_flag(v, flagset, f, m)			\
-> +#define __kvm_set_flag(v, flagset, f, m)			\
 
-Hell no. Never. The whole point of this naming is that we know what
-this applies to. Here, you might as well have replaced 'vcpu' with
-'carrot', and the result would be the same.
+--mYzXfOMc+FsagSoK
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Not to mention the insane churn this generates.
+On Nov 18, Philipp Zabel wrote:
+> On Mo, 2024-11-18 at 09:04 +0100, Lorenzo Bianconi wrote:
+> > In order to make the code more readable, the reset_control_bulk_assert()
+> > for PHY reset lines is moved to make it pair with
+> > reset_control_bulk_deassert() in mtk_pcie_power_up() and
+> > mtk_pcie_en7581_power_up(). The same change is done for
+> > reset_control_assert() used to assert MAC reset line.
+> >=20
+> > Introduce PCIE_MTK_RESET_TIME_US macro for the time needed to
+> > complete PCIe reset on MediaTek controller.
+> >=20
+> > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> >  drivers/pci/controller/pcie-mediatek-gen3.c | 27 +++++++++++++++++++--=
+------
+> >  1 file changed, 19 insertions(+), 8 deletions(-)
+> >=20
+> > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/=
+controller/pcie-mediatek-gen3.c
+> > index 3cfcb45d31508142d28d338ff213f70de9b4e608..2b80edd4462ad4e9f2a5d19=
+2db7f99307113eb8a 100644
+> > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> > @@ -125,6 +125,8 @@
+> > =20
+> >  #define MAX_NUM_PHY_RESETS		3
+> > =20
+> > +#define PCIE_MTK_RESET_TIME_US		10
+> > +
+> >  /* Time in ms needed to complete PCIe reset on EN7581 SoC */
+> >  #define PCIE_EN7581_RESET_TIME_MS	100
+> > =20
+> > @@ -912,6 +914,14 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen=
+3_pcie *pcie)
+> >  	int err;
+> >  	u32 val;
+> > =20
+> > +	/*
+> > +	 * The controller may have been left out of reset by the bootloader
+> > +	 * so make sure that we get a clean start by asserting resets here.
+> > +	 */
+> > +	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
+> > +				  pcie->phy_resets);
+> > +	reset_control_assert(pcie->mac_reset);
+> > +
+> >  	/*
+> >  	 * Wait for the time needed to complete the bulk assert in
+> >  	 * mtk_pcie_setup for EN7581 SoC.
+>=20
+> This comment is not correct anymore.
 
-So no, not happening.
+I agree naming is hard, but I guess we can assume with 'bulk' we refer to b=
+oth
+phy and mac reset (similar to what we have in mtk_pcie_power_up()),
+what do you think?
 
-	M.
+Regards,
+Lorenzo
 
--- 
-Without deviation from the norm, progress is not possible.
+>=20
+>=20
+> regards
+> Philipp
+
+--mYzXfOMc+FsagSoK
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZzsC/QAKCRA6cBh0uS2t
+rNbVAP9GogJHVFI9oDywFF8WM3UumsuYzIPMFozrmAv43ScovAEA1Kpt3C0B2zdJ
+PR0FSxnt4lm7ujysgm0no3wwfOXN8ws=
+=CRKQ
+-----END PGP SIGNATURE-----
+
+--mYzXfOMc+FsagSoK--
 
