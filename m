@@ -4,88 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F934D591A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 17:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2511D591A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 18:07:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fCr0sYPsogCz+quxodgEQ3ar7fg9yYSS/OcvrMaer1g=; b=B81TyT7M7Wkrj1Qf7/4v0fJXpK
-	+rTn8WtqQ0zNrmRvYnPEnXHCbWzDfuAzP4XsgPDxtsrDu85LMpDcAW6aysZYQXMEFrdsYZt5bDtyx
-	BZvonGdsuE+DKy627fUbojjQopE9/aQG3uYRKsgn0SXVLB8SY/zX3rwzbscww7djMnDHTt51uxBha
-	Ms8hvNbKiHINEG860qQoa4b8+hlFAvljuH5qHT99JFLJE+bMd7U3VKlBTq1yfit5wjWfUOP4cgAMK
-	pm2pDXdhNGug4t3sdMRQiDdQGqREr6LTECA+8VQ/M8ssuBZGmxrUDYPFfUPTb+0MkewutEhkff4j7
-	VP7SXczQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q6rBItO1+LMlZXY/zjK2NQx3TDfcWpijIGgAJ5L3lkw=; b=CA3R00SzHzVXHbvaK0VpCBcHwW
+	nl13Iy90oqBtf+qdQ6lzYvjDKrCJLF04EYqH687Hf1RDI9lKPpYTUgLywaHWzW3qnjreej+/YsjX8
+	f07nLGgPb7lt23Jr05oNnmnXLqeWKckEKs9Ym76KHqhQH5j/+/rqfVuXUxwNWeipBZUyutTJzKeMA
+	8JZeW11i0vbkAcXBKruaDu4DTNUaA0CxDMF7T5Y+eIQ6E5dfCkor5Y0gsRKeWY4lvGgyVKXgUpjr5
+	Ua6k1+eEcSA5DHQ/F4Bt20URqpXX6j+Wh4UaWmzl4iog5nolmWQZ9cBtZw7kob6p9jmvTs0OehYXA
+	k+fxhFWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD5wY-0000000AGAh-3bwW;
-	Mon, 18 Nov 2024 17:53:46 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1tD69B-0000000AHvm-0fCX;
+	Mon, 18 Nov 2024 18:06:49 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD5vd-0000000AG0k-2NFa
+	id 1tD68F-0000000AHnY-17KS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 17:52:50 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-7f450f7f11dso1662235a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 09:52:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731952368; x=1732557168; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fCr0sYPsogCz+quxodgEQ3ar7fg9yYSS/OcvrMaer1g=;
-        b=p68fG19p7xpbXEd7LwyIVdappHYSRbkhABSrRjwwDDRQ/ozxr2G/x4uD693PgOSz1v
-         NG2gEexghnY4iMxkBQUYYY2sTKd3p39f8moGQWhF6cCNFCUOKHq7ff6kxbVMllkm/188
-         eXI0YeE+G3MOlpeDGCpyIO/kAMA/OHHLc1RKpIyVwHC/A2LphNZsyP6OJgo5gR17osvZ
-         Lr85yCui1v4g3YZKmvt1/Z0orT3/veOASNzpVfS3QdrF2B6lKfrNuocydAWaqPpZbF+O
-         rcW8kCqVm0XMwAZxpS58W+GmUg7Aa43acxR0Zom1uZaxArr+L4ZAz5FRZ9PK7jvStHBK
-         Z5OA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731952368; x=1732557168;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fCr0sYPsogCz+quxodgEQ3ar7fg9yYSS/OcvrMaer1g=;
-        b=f/xxCp3NGcCAxn+/R01Acg/d6PxYq9HdBKLcuBLK0r9XsXpmp42EUKe9U38Yprmy8K
-         ZLIBTBe7rfx2Tpl2QFDuEyjVbrGRAlt4oGWrwr7mGImmXGoKw4fLcmcSO6CBWWT4dkmv
-         MZZ6n4dcpVX5dPCtJRZjpnYNd7+7lmgKBjoeBdpNFctKd+jJ3n2NUIcUX4eHdFXMur+N
-         1NPla9UeokF2Q89hllU4jYuu5+2dNzN/Uk/nbHVTWJThovUAL9WMIDy8L+43dqBCnEOs
-         KFlBJLqXdBLzSdkYnBu9DldCEULpAN6MuXK/2o90B7UAdMS+bePT55kRKLzuh/BveULj
-         4v2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUzrGFpVRgmR/shQOpuMt/wlrA6AAs5b7YbBNKuJrhgjJDCWWixPSosquB1Z30irCpr02fzLja6Xx1hvqEGxugb@lists.infradead.org
-X-Gm-Message-State: AOJu0YyV0E7qpI4BhlPyrJJQmYlG5nZ0G9apoguXz1+nyZ8Lr759aGGQ
-	imePW3E8HsJTBKl5g0OIUQOjwGoouZkTV2fEKEL8joooIgWqJtn7ZDit1x9FeF8=
-X-Google-Smtp-Source: AGHT+IEJRNX9bZE0xzeLu7+8kcJ+xIr7Kwr2Ag4WKPpTArbvdH5l5IPyQ32YkKJbAIpbhDtnUqCUSw==
-X-Received: by 2002:a05:6a20:43ab:b0:1db:e508:cf68 with SMTP id adf61e73a8af0-1dc90b4bbebmr18325105637.24.1731952368452;
-        Mon, 18 Nov 2024 09:52:48 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:ced4:eca8:f5e9:9a5c])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724770f9d0asm6707357b3a.26.2024.11.18.09.52.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Nov 2024 09:52:47 -0800 (PST)
-Date: Mon, 18 Nov 2024 10:52:44 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v13 4/7] remoteproc: Introduce release_fw optional
- operation
-Message-ID: <Zzt+7NBdNjyzWZIb@p14s>
-References: <20241104133515.256497-1-arnaud.pouliquen@foss.st.com>
- <20241104133515.256497-5-arnaud.pouliquen@foss.st.com>
+	Mon, 18 Nov 2024 18:05:52 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4AII5iJl030342;
+	Mon, 18 Nov 2024 12:05:44 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1731953144;
+	bh=q6rBItO1+LMlZXY/zjK2NQx3TDfcWpijIGgAJ5L3lkw=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=UdiKph1NAIMYetAY3c0v7fjZAhUQou6X5vrqpYCUxRTrf+M3Z7tOvhO6Qkj/7WXFp
+	 XlE3dgFGpiw84fJcYicPDAsbbATJGhzlQxJEkYv9m/WGg2N4z+mTtHXxEC3qZ6ivAo
+	 /MTXVz79erQFAYnaj9sKY+k/3g9zvRQAixtPjZKg=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4AII5ikl000774
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 18 Nov 2024 12:05:44 -0600
+Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 18
+ Nov 2024 12:05:44 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 18 Nov 2024 12:05:44 -0600
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4AII5h19076713;
+	Mon, 18 Nov 2024 12:05:43 -0600
+Message-ID: <19223ad9-1f92-4688-9efd-b6aadb250d9d@ti.com>
+Date: Mon, 18 Nov 2024 12:05:43 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241104133515.256497-5-arnaud.pouliquen@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: ti: k3-am62l: add initial infrastructure
+To: Bryan Brattlof <bb@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20241117-am62lx-v1-0-4e71e42d781d@ti.com>
+ <20241117-am62lx-v1-1-4e71e42d781d@ti.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20241117-am62lx-v1-1-4e71e42d781d@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_095249_643895_9A502E0C 
-X-CRM114-Status: GOOD (  26.64  )
+X-CRM114-CacheID: sfid-20241118_100551_441847_1CD77E0E 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,98 +92,348 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 04, 2024 at 02:35:12PM +0100, Arnaud Pouliquen wrote:
-> This patch updates the rproc_ops struct to include an optional
-> release_fw function.
+On 11/17/24 11:34 PM, Bryan Brattlof wrote:
+> From: Vignesh Raghavendra <vigneshr@ti.com>
 > 
-> The release_fw ops is responsible for releasing the remote processor
-> firmware image. The ops is called in the following cases:
+> Add the initial infrastructure needed for the AM62L. All of which can be
+> found in the Technical Reference Manual (TRM) located here:
 > 
->  - An error occurs in rproc_start() between the loading of the segments and
->       the start of the remote processor.
->  - after stopping the remote processor.
+>      https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
+
+We usually use the non-direct links, that way they can be updated
+to the latest, so here and everywhere below:
+
+https://www.ti.com/lit/pdf/sprujb4
+
+Also might be good to get the TRM folks to now drop the
+"Confidential NDA" watermarks..
+
 > 
-> Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+> Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
+> Signed-off-by: Bryan Brattlof <bb@ti.com>
 > ---
-> Updates from version V11:
-> - fix typo in @release_fw comment
-> ---
->  drivers/remoteproc/remoteproc_core.c | 5 +++++
->  include/linux/remoteproc.h           | 3 +++
->  2 files changed, 8 insertions(+)
+>   Documentation/devicetree/bindings/arm/ti/k3.yaml |  6 ++
+>   arch/arm64/boot/dts/ti/Makefile                  |  3 +
+>   arch/arm64/boot/dts/ti/k3-am62l-main.dtsi        | 52 ++++++++++++++
+>   arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi      | 33 +++++++++
+>   arch/arm64/boot/dts/ti/k3-am62l.dtsi             | 89 ++++++++++++++++++++++++
+>   arch/arm64/boot/dts/ti/k3-am62l3.dtsi            | 67 ++++++++++++++++++
+>   arch/arm64/boot/dts/ti/k3-pinctrl.h              |  2 +
+>   7 files changed, 252 insertions(+)
 > 
-> diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
-> index 7694817f25d4..46863e1ca307 100644
-> --- a/drivers/remoteproc/remoteproc_core.c
-> +++ b/drivers/remoteproc/remoteproc_core.c
-> @@ -1258,6 +1258,9 @@ static int rproc_alloc_registered_carveouts(struct rproc *rproc)
->  
->  static void rproc_release_fw(struct rproc *rproc)
->  {
-> +	if (rproc->ops->release_fw)
-> +		rproc->ops->release_fw(rproc);
+> diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> index 18f155cd06c84..b109e854879cb 100644
+> --- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> +++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> @@ -31,6 +31,12 @@ properties:
+>             - const: phytec,am62a-phycore-som
+>             - const: ti,am62a7
+>   
+> +      - description: K3 AM62L3 SoC and Boards
+> +        items:
+> +          - enum:
+> +              - ti,am62l3-evm
+> +          - const: ti,am62l3
 > +
->  	/* Free the copy of the resource table */
->  	kfree(rproc->cached_table);
->  	rproc->cached_table = NULL;
-> @@ -1377,6 +1380,8 @@ static int rproc_start(struct rproc *rproc, const struct firmware *fw)
->  unprepare_subdevices:
->  	rproc_unprepare_subdevices(rproc);
->  reset_table_ptr:
-> +	if (rproc->ops->release_fw)
-> +		rproc->ops->release_fw(rproc);
->  	rproc->table_ptr = rproc->cached_table;
+>         - description: K3 AM62P5 SoC and Boards
+>           items:
+>             - enum:
+> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+> index f71360f14f233..6745f779b1e6e 100644
+> --- a/arch/arm64/boot/dts/ti/Makefile
+> +++ b/arch/arm64/boot/dts/ti/Makefile
+> @@ -32,6 +32,9 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk-nand.dtbo
+>   dtb-$(CONFIG_ARCH_K3) += k3-am62a7-sk.dtb
+>   dtb-$(CONFIG_ARCH_K3) += k3-am62a7-phyboard-lyra-rdk.dtb
+>   
+> +# Boards with AM62Lx SoCs
+> +dtb-$(CONFIG_ARCH_K3) += k3-am62l3-evm.dtb
+> +
+>   # Boards with AM62Px SoC
+>   dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
+>   
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi
+> new file mode 100644
+> index 0000000000000..bdc6cb26a86d3
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi
+> @@ -0,0 +1,52 @@
+> +// SPDX-License-Identifier: GPL-2.0-only or MIT
+> +/*
+> + * Device Tree file for the AM62L main domain peripherals
+> + * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
+> + *
+> + * Technical Reference Manual: https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
+> + */
+> +
+> +&cbass_main {
+> +	gic500: interrupt-controller@1800000 {
+> +		compatible = "arm,gic-v3";
+> +		reg = <0x00 0x01800000 0x00 0x10000>,	/* GICD */
+> +		      <0x00 0x01840000 0x00 0xc0000>,	/* GICR */
+> +		      <0x01 0x00000000 0x00 0x2000>,    /* GICC */
+> +		      <0x01 0x00010000 0x00 0x1000>,    /* GICH */
+> +		      <0x01 0x00020000 0x00 0x2000>;    /* GICV */
+> +		ranges;
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		#interrupt-cells = <3>;
+> +		interrupt-controller;
+> +		/*
+> +		 * vcpumntirq:
+> +		 * virtual CPU interface maintenance interrupt
+> +		 */
+> +		interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+> +
+> +		gic_its: msi-controller@1820000 {
+> +			compatible = "arm,gic-v3-its";
+> +			reg = <0x00 0x01820000 0x00 0x10000>;
+> +			socionext,synquacer-pre-its = <0x1000000 0x400000>;
+> +			msi-controller;
+> +			#msi-cells = <1>;
+> +		};
+> +	};
+> +
+> +	main_uart0: serial@2800000 {
+> +		compatible = "ti,am64-uart", "ti,am654-uart";
+> +		reg = <0x00 0x02800000 0x00 0x100>;
+> +		interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
+> +		clock-frequency = <48000000>;
+> +		status = "disabled";
+> +	};
+> +
+> +	oc_sram: sram@70800000 {
+> +		compatible = "mmio-sram";
+> +		reg = <0x00 0x70800000 0x00 0x10000>;
+> +		ranges = <0x0 0x00 0x70800000 0x10000>;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
+> new file mode 100644
+> index 0000000000000..070ba71110f0f
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
+> @@ -0,0 +1,33 @@
+> +// SPDX-License-Identifier: GPL-2.0-only or MIT
+> +/*
+> + * Device Tree file for the AM62L wakeup domain peripherals
+> + * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
+> + *
+> + * Technical Reference Manual: https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
+> + */
+> +
+> +&cbass_wakeup {
+> +	pmx0: pinctrl@4084000 {
+> +		compatible = "pinctrl-single";
+> +		reg = <0x00 0x4084000 0x00 0x8000>;
+> +		pinctrl-single,register-width = <32>;
+> +		pinctrl-single,function-mask = <0xffffffff>;
+> +		#pinctrl-cells = <1>;
+> +		bootph-all;
+> +	};
+> +
+> +	wkup_conf: bus@43000000 {
+> +		compatible = "simple-bus";
+> +		reg = <0x00 0x43000000 0x00 0x20000>;
+> +		ranges = <0x0 0x00 0x43000000 0x20000>;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +
+> +		chipid: chipid@14 {
+> +			compatible = "ti,am654-chipid";
+> +			reg = <0x14 0x4>;
+> +			bootph-all;
+> +		};
+> +	};
+> +};
+> +
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62l.dtsi b/arch/arm64/boot/dts/ti/k3-am62l.dtsi
+> new file mode 100644
+> index 0000000000000..43da8e52278ce
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/ti/k3-am62l.dtsi
+> @@ -0,0 +1,89 @@
+> +// SPDX-License-Identifier: GPL-2.0-only or MIT
+> +/*
+> + * Device Tree Source for AM62L SoC Family
+> + * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
+> + *
+> + * Tecnical Reference Manual: https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +#include "k3-pinctrl.h"
+> +
+> +/ {
+> +	model = "Texas Instruments K3 AM62L3 SoC";
+> +	compatible = "ti,am62l3";
+> +	interrupt-parent = <&gic500>;
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +
+> +	firmware {
+> +		optee {
+> +			compatible = "linaro,optee-tz";
+> +			method = "smc";
+> +		};
+> +	};
+> +
+> +	a53_timer0: timer-cl0-cpu0 {
+> +		compatible = "arm,armv8-timer";
+> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>, /* cntpsirq */
+> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>, /* cntpnsirq */
+> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>, /* cntvirq */
+> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>; /* cnthpirq */
+> +	};
+> +
+> +	pmu: pmu {
+> +		compatible = "arm,cortex-a53-pmu";
+> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+> +	};
+> +
+> +	cbass_main: bus@f0000 {
+> +		compatible = "simple-bus";
+> +		ranges = <0x00 0x00600000 0x00 0x00600000 0x00 0x00001100>, /* GPIO */
+> +			 <0x00 0x00a40000 0x00 0x00a40000 0x00 0x00000800>, /* Timesync router */
+> +			 <0x00 0x00a80000 0x00 0x00a80000 0x00 0x00040000>, /* GTC */
+> +			 <0x00 0x01000000 0x00 0x01000000 0x00 0x01b28400>, /* First peripheral window */
+> +			 <0x00 0x08000000 0x00 0x08000000 0x00 0x00200000>, /* CPSW */
+> +			 <0x00 0x09000000 0x00 0x09000000 0x00 0x00400000>, /* CTRL MMRs */
+> +			 <0x00 0x0e000000 0x00 0x0e000000 0x00 0x0bd28000>, /* Second peripheral window */
+> +			 <0x00 0x30200000 0x00 0x30200000 0x00 0x00400000>, /* DSS */
+> +			 <0x00 0x31000000 0x00 0x31000000 0x00 0x00050000>, /* USB0 DWC3 Core window */
+> +			 <0x00 0x31100000 0x00 0x31100000 0x00 0x00050000>, /* USB1 DWC3 Core window */
+> +			 <0x00 0x3b000000 0x00 0x3b000000 0x00 0x00001000>, /* GPMC0 */
+> +			 <0x00 0x47000000 0x00 0x47000000 0x00 0x02000000>, /* DMSS */
+> +			 <0x00 0x50000000 0x00 0x50000000 0x00 0x08000000>, /* GPMC DATA */
+> +			 <0x00 0x60000000 0x00 0x60000000 0x00 0x08000000>, /* FSS0 DAT1 */
+> +			 <0x00 0x70800000 0x00 0x70800000 0x00 0x00010000>, /* OCSRAM */
+> +			 <0x01 0x00000000 0x01 0x00000000 0x00 0x00310000>, /* A53 PERIPHBASE */
+> +			 <0x05 0x00000000 0x05 0x00000000 0x01 0x00000000>, /* FSS0 DAT3 */
+> +
+> +			 /* Wakeup Domain Range */
+> +			 <0x00 0x00b00000 0x00 0x00b00000 0x00 0x00001400>, /* VTM */
+> +			 <0x00 0x04080000 0x00 0x04080000 0x00 0x00008000>, /* PDCFG */
+> +			 <0x00 0x04201000 0x00 0x04201000 0x00 0x00008000>, /* GPIO */
+> +			 <0x00 0x2b100000 0x00 0x2b000000 0x00 0x00200400>, /* TIMER */
+> +			 <0x00 0x40800000 0x00 0x40800000 0x00 0x00014000>, /* DMA */
+> +			 <0x00 0x43000000 0x00 0x43000000 0x00 0x00080000>; /* CTRL MMRs */
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +
+> +		 cbass_wakeup:  bus@43000000 {
 
-I suggest the following:
+Some odd whitespace indent here and below in this node.
 
-1) Create two new functions, i.e rproc_load_fw() and rproc_release_fw().  The
-only thing those would do is call rproc->ops->load_fw() and
-rproc->ops->release_fw(), if they are present.  When a TEE interface is
-available, ->load_fw() and ->release_fw() become rproc_tee_load_fw() and
-rproc_tee_release_fw().
+Andrew
 
-2) Call rproc_load_fw() in rproc_boot(), just before rproc_fw_boot().  If the
-call to rproc_fw_boot() fails, call rproc_release_fw().
-
-3) The same logic applies to rproc_boot_recovery(), i.e call rproc_load_fw()
-before rproc_start() and call rproc_release_fw() if rproc_start() fails.
-
-4) Take rproc_tee_load_fw() out of rproc_tee_parse_fw().  It will now be called
-in rproc_load_fw().
-
-5) As stated above function rproc_release_fw() now calls rproc_tee_release_fw().
-The former is already called in rproc_shutdown() so we are good in that front.
-
-With the above the cached_table management within the core remains the same and
-we can get rid of patch 3.7.
-
-Thanks,
-Mathieu
-
->  
->  	return ret;
-> diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
-> index 2e0ddcb2d792..08e0187a84d9 100644
-> --- a/include/linux/remoteproc.h
-> +++ b/include/linux/remoteproc.h
-> @@ -381,6 +381,8 @@ enum rsc_handling_status {
->   * @panic:	optional callback to react to system panic, core will delay
->   *		panic at least the returned number of milliseconds
->   * @coredump:	  collect firmware dump after the subsystem is shutdown
-> + * @release_fw:	optional function to release the firmware image from ROM memories.
-> + *		This function is called after stopping the remote processor or in case of an error
->   */
->  struct rproc_ops {
->  	int (*prepare)(struct rproc *rproc);
-> @@ -403,6 +405,7 @@ struct rproc_ops {
->  	u64 (*get_boot_addr)(struct rproc *rproc, const struct firmware *fw);
->  	unsigned long (*panic)(struct rproc *rproc);
->  	void (*coredump)(struct rproc *rproc);
-> +	void (*release_fw)(struct rproc *rproc);
->  };
->  
->  /**
-> -- 
-> 2.25.1
+> +			 compatible = "simple-bus";
+> +			 ranges = <0x00 0x00b00000 0x00 0x00b00000 0x00 0x00001400>, /* VTM */
+> +				  <0x00 0x04080000 0x00 0x04080000 0x00 0x00008000>, /* PDCFG */
+> +				  <0x00 0x04201000 0x00 0x04201000 0x00 0x00008000>, /* GPIO */
+> +				  <0x00 0x2b100000 0x00 0x2b000000 0x00 0x00200400>, /* TIMER */
+> +				  <0x00 0x40800000 0x00 0x40800000 0x00 0x00014000>, /* DMA */
+> +				  <0x00 0x43000000 0x00 0x43000000 0x00 0x00080000>; /* CTRL MMRs */
+> +			 #address-cells = <2>;
+> +			 #size-cells = <2>;
+> +			 bootph-all;
+> +		 };
+> +	};
+> +};
+> +
+> +/* Now include peripherals for each bus segment */
+> +#include "k3-am62l-main.dtsi"
+> +#include "k3-am62l-wakeup.dtsi"
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62l3.dtsi b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
+> new file mode 100644
+> index 0000000000000..7dfc869fbce08
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
+> @@ -0,0 +1,67 @@
+> +// SPDX-License-Identifier: GPL-2.0-only or MIT
+> +/*
+> + * Device Tree file for the AM62L3 SoC family (Dual Core A53)
+> + * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
+> + *
+> + * Technical Reference Manual: https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "k3-am62l.dtsi"
+> +
+> +/ {
+> +	cpus {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		cpu-map {
+> +			cluster0: cluster0 {
+> +				core0 {
+> +					cpu = <&cpu0>;
+> +				};
+> +
+> +				core1 {
+> +					cpu = <&cpu1>;
+> +				};
+> +			};
+> +		};
+> +
+> +		cpu0: cpu@0 {
+> +			compatible = "arm,cortex-a53";
+> +			reg = <0x000>;
+> +			device_type = "cpu";
+> +			enable-method = "psci";
+> +			i-cache-size = <0x8000>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <256>;
+> +			d-cache-size = <0x8000>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <128>;
+> +			next-level-cache = <&l2_0>;
+> +		};
+> +
+> +		cpu1: cpu@1 {
+> +			compatible = "arm,cortex-a53";
+> +			reg = <0x001>;
+> +			device_type = "cpu";
+> +			enable-method = "psci";
+> +			i-cache-size = <0x8000>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <256>;
+> +			d-cache-size = <0x8000>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <128>;
+> +			next-level-cache = <&l2_0>;
+> +		};
+> +	};
+> +
+> +	l2_0: l2-cache0 {
+> +		compatible = "cache";
+> +		cache-unified;
+> +		cache-level = <2>;
+> +		cache-size = <0x40000>;
+> +		cache-line-size = <64>;
+> +		cache-sets = <256>;
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+> index 22b8d73cfd326..56abfe1790bee 100644
+> --- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
+> +++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+> @@ -47,6 +47,8 @@
+>   #define AM62PX_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
+>   #define AM62PX_MCU_IOPAD(pa, val, muxmode)	(((pa) & 0x1fff)) ((val) | (muxmode))
+>   
+> +#define AM62LX_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
+> +
+>   #define AM62X_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
+>   #define AM62X_MCU_IOPAD(pa, val, muxmode)	(((pa) & 0x1fff)) ((val) | (muxmode))
+>   
 > 
 
