@@ -4,101 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B2FBD49205
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 10:13:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 510DED49209
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 10:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9fOyYhW/88qHGGmM9QOYNQJqLo1yTsoyhwIyniU1DSY=; b=fhLwSInkG3rZzSiK4zdVV+SVAX
-	oNKjQBr1trQPJ8ZyOFQy46wAZtaG0ziA5I9ns+p6/fqfCD18OBD5mo6LRhp2UEzqqj0ew8XaHN6NM
-	cFRdHkRFzN2yr6tCqo46GE4JBXNfWt5y3ERENr5NiSB+HVCwjomgTTTtT84BvJjVE6aeiWfj0hCRS
-	mVonpr/uUizM372Rn455a46p2IXBDW2zoB7dGver1nv9BnKI9FBzUBVPp/J+UAU+aQrojpd27aunS
-	JmL8RKGvcOB9CHEoUl0G4q5w6gLXeqHNzb/r2HsD7qlb5ppW5EKUOgOfzG+xMAv858RLI2yO5yJ4m
-	WbduqIag==;
+	bh=XLCGYl7aeIAUgHUj7JXGwXqKfANL+dqFqE4tm+aKFvw=; b=1wxkhFKaBgQVwIfHc+hE9ypPRw
+	YeQ+cfnC8L+H8kiK8JdihgZwGoa33uq4vfJhvENJM7CmBHXqy421kgbwMh8NKSWqDVWIWDBIatFW/
+	tbSTp3q594Y2Dcsk4ZzmQIvKXZoCIY7uEP0u/0d7CTuXYDI7YiQaJZiKnowM/d5j9ujPyokp2v/Ha
+	1PLJAGmCr6fstu5vIFT3Vkepf2X4zSnxi1Xc3AmInvvxqX5SrY73BHIHlklmbnox/knJhpwL/47c+
+	5bpB70zYtxJqZYGE3TrTz3PZ8ZTrUJmpHfHAOpMwxLwCfRrl9s1ZYXss13sV9wnBNUxhiaHq2+hor
+	/Jpt+LtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCykY-000000092BY-0LdM;
-	Mon, 18 Nov 2024 10:12:54 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1tCynP-000000092oD-2qnx;
+	Mon, 18 Nov 2024 10:15:51 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCyhp-000000091Pp-11W1
+	id 1tCymT-000000092cD-115i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 10:10:06 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-53b13ea6b78so2427506e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 02:10:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731924603; x=1732529403; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9fOyYhW/88qHGGmM9QOYNQJqLo1yTsoyhwIyniU1DSY=;
-        b=VwqwQKZUaFjNy+1FKlVUwx/9hA5i+q0FFzL09WvyYkcCLMw7Bwe1Gl00mfeMReqOSH
-         Xhz4ii+ainRA32HkQ0YaQU8sNFruKfbY8/ivzFus2kGGKW8haUJoewj8ElF2LEXlGSC1
-         xdc70JmsC61Q4IQRp0gSj8s9aPzoLks0+QuY+uQNtu2j9w6l5FrlsMl8EQtZ1iPiW8tC
-         ZEPM+CpY7zKzCr6QV5qTwJH0sJxsWyNtH0FKKh57s/GR3y0046nzWl8OTPr+sPUZg9vc
-         7W2duPt/pJtAcOY/hf7He3/lt1xhItnZwNhPf8KHZEcApwd4IIJXhC2N3enHDYjAOz5z
-         SqaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731924603; x=1732529403;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9fOyYhW/88qHGGmM9QOYNQJqLo1yTsoyhwIyniU1DSY=;
-        b=EzQ7CrpSQAdOlCFkg02jfWoRT7N3COYwG60YxnoY8hhpJiJlM+XHrgNZLMTtJcQOU0
-         4xpxNS7Ui2w5S6+/aYA+6ND/hjpPse/2taUBFKSwmWCHSQDtR8aNdQ1DJGM/ogBr4/pf
-         Ng6K6NuaQyFRGOAeXtyIvlqkP7tspMkYdgWaQEvtAbqNrHxiN9BqEuSpzeNAGym4IaSJ
-         h75zOzfi16EQe/Mlx0a5C/dLX2Ys/PSkR3Nmxor6xbo8x9gzwBHdDerKmVm5SzE1guBa
-         T8rZgsvUm/+mY2WGOGVvbYR9tuPXyo0LzorBjr/LWtvS+wPju1JgDHWsPKBozJlQ8O15
-         FwRw==
-X-Forwarded-Encrypted: i=1; AJvYcCW6HZOX08D6msxycAfqL5H+fh1cR15XSaAqNw49fAsvC+kEsTzI9gm6uGGQc/E9X5oa5c8YFbKh/criEx+5Z2Yn@lists.infradead.org
-X-Gm-Message-State: AOJu0YwidFHh79rjJlrL/dM77OKdtqiVuBhBQEMDQ11bqZEngyW0d153
-	bUHuAWoxRUTA7H9R+0myBqk0FA6XkbJFiL0xs7xySRbvNrrIzRF6
-X-Google-Smtp-Source: AGHT+IEsM+bEYVWPcdxMX4ty+jlvxNzXr16PKephGvFY1LmTwDkGEiU9Vu06vwaLgV1jjEKcvAJWkw==
-X-Received: by 2002:a05:6512:2391:b0:53d:a6c8:fb95 with SMTP id 2adb3069b0e04-53dab29efffmr5766910e87.19.1731924602776;
-        Mon, 18 Nov 2024 02:10:02 -0800 (PST)
-Received: from [127.0.1.1] ([46.53.242.72])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-aa20e046932sm518546366b.170.2024.11.18.02.10.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Nov 2024 02:10:02 -0800 (PST)
-From: Dzmitry Sankouski <dsankouski@gmail.com>
-Date: Mon, 18 Nov 2024 13:09:54 +0300
-Subject: [PATCH v3 2/2] power: supply: max17042: add platform driver
- variant
+	Mon, 18 Nov 2024 10:14:55 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AI5ReHp009605;
+	Mon, 18 Nov 2024 10:14:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	XLCGYl7aeIAUgHUj7JXGwXqKfANL+dqFqE4tm+aKFvw=; b=oPyh/LeJPpOhsj8h
+	9zXGrb/WGQwOnBVyKewrBPyVD0KEghqdYU/HGxDFWiSL5IOtRQ2zeZXellbYK3BM
+	FkebV4PLjS64xrDy2823PA1LF1knjQrvgStosBS91eJlIhnHIsBBTox5FdFLjN2Z
+	PYWltA3Gc5PQ9rFatvgMUG+dnJuMEfc72ePoTI7pWMrlUUsbh4jWidlNQc79jZ05
+	v6EWh/14Hf7RhJvLr98ul+7iw30T+WqCGs1pGlsJ0pv+RHvI7+BDAboOrfh6TcNP
+	mJDdE5KICcXojxbFDzzhDWWPQZT07WuVHVCzPNLYw0MNuClZaWpc8GWAAltwCTYN
+	8UR9Pw==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42xkrm44rn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 Nov 2024 10:14:43 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AIAEgKZ014729
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 Nov 2024 10:14:42 GMT
+Received: from [10.239.133.49] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 18 Nov
+ 2024 02:14:38 -0800
+Message-ID: <6a8e10fc-a231-467a-8056-d291e237fec1@quicinc.com>
+Date: Mon, 18 Nov 2024 18:14:36 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241118-b4-max17042-v3-2-9bcaeda42a06@gmail.com>
-References: <20241118-b4-max17042-v3-0-9bcaeda42a06@gmail.com>
-In-Reply-To: <20241118-b4-max17042-v3-0-9bcaeda42a06@gmail.com>
-To: Hans de Goede <hdegoede@redhat.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>, 
- Purism Kernel Team <kernel@puri.sm>, Sebastian Reichel <sre@kernel.org>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-msm@vger.kernel.org, Dzmitry Sankouski <dsankouski@gmail.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1731924598; l=7718;
- i=dsankouski@gmail.com; s=20240619; h=from:subject:message-id;
- bh=08avkvJXc6YpLMi35Ewq9sInOmvPK/XUfpBoJCW4Zgo=;
- b=Tb5f0aAMBx2MGt3QTrkgclj08UpXH0InARdTWId9PBKICIi4GRNuva4CIHo0xUUNPX4OG64yq
- tgZv4Ji6Oe6DCAShAYu8XgKwIixcAaIg1oTLpWOdRFCFDU6SObAAzr3
-X-Developer-Key: i=dsankouski@gmail.com; a=ed25519;
- pk=YJcXFcN1EWrzBYuiE2yi5Mn6WLn6L1H71J+f7X8fMag=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/3] coresight: Add support to get static id for system
+ trace sources
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>
+References: <20241104115604.14522-1-quic_jinlmao@quicinc.com>
+ <20241104115604.14522-3-quic_jinlmao@quicinc.com>
+ <6424c536-2f2c-4a59-8b6d-f610201dc7a7@arm.com>
+Content-Language: en-US
+From: Jinlong Mao <quic_jinlmao@quicinc.com>
+In-Reply-To: <6424c536-2f2c-4a59-8b6d-f610201dc7a7@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 9OnMXSI3uNOE7pXzGCrZsVlLR6dzIOpY
+X-Proofpoint-ORIG-GUID: 9OnMXSI3uNOE7pXzGCrZsVlLR6dzIOpY
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 phishscore=0
+ spamscore=0 adultscore=0 mlxlogscore=999 malwarescore=0 impostorscore=0
+ clxscore=1015 bulkscore=0 priorityscore=1501 lowpriorityscore=0 mlxscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
+ definitions=main-2411180084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_021005_288363_CB3F6734 
-X-CRM114-Status: GOOD (  24.27  )
+X-CRM114-CacheID: sfid-20241118_021453_438834_A4F8181A 
+X-CRM114-Status: GOOD (  26.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,239 +111,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Maxim PMICs may include fuel gauge with additional features, which is
-out of single Linux power supply driver scope.
 
-For example, in max77705 PMIC fuelgauge has additional registers,
-like IIN_REG, VSYS_REG, ISYS_REG. Those needed to measure PMIC input
-current, system voltage and current respectively. Those measurements
-cannot be bound to any of fuelgauge properties.
 
-The solution here add and option to use max17042 driver as a MFD
-sub device, thus allowing any additional functionality be implemented as
-another sub device. This will help to reduce code duplication in MFD
-fuel gauge drivers.
+On 2024/11/13 21:27, Suzuki K Poulose wrote:
+> On 04/11/2024 11:56, Mao Jinlong wrote:
+>> Dynamic trace id was introduced in coresight subsystem, so trace id is
+>> allocated dynamically. However, some hardware ATB source has static trace
+>> id and it cannot be changed via software programming. For such source,
+>> it can call coresight_get_static_trace_id to get the fixed trace id from
+>> device node and pass id to coresight_trace_id_get_static_system_id to
+>> reserve the id.
+>>
+>> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+>> Reviewed-by: Mike Leach <mike.leach@linaro.org>
+>> ---
+>>   .../hwtracing/coresight/coresight-platform.c  |  6 +++
+>>   .../hwtracing/coresight/coresight-trace-id.c  | 39 +++++++++++++------
+>>   .../hwtracing/coresight/coresight-trace-id.h  |  9 +++++
+>>   include/linux/coresight.h                     |  1 +
+>>   4 files changed, 44 insertions(+), 11 deletions(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-platform.c b/ 
+>> drivers/hwtracing/coresight/coresight-platform.c
+>> index 64e171eaad82..633d96b9577a 100644
+>> --- a/drivers/hwtracing/coresight/coresight-platform.c
+>> +++ b/drivers/hwtracing/coresight/coresight-platform.c
+>> @@ -796,6 +796,12 @@ int coresight_get_cpu(struct device *dev)
+>>   }
+>>   EXPORT_SYMBOL_GPL(coresight_get_cpu);
+>> +int coresight_get_static_trace_id(struct device *dev, u32 *id)
+>> +{
+>> +    return fwnode_property_read_u32(dev_fwnode(dev), "arm,static- 
+>> trace-id", id);
+>> +}
+>> +EXPORT_SYMBOL_GPL(coresight_get_static_trace_id);
+>> +
+>>   struct coresight_platform_data *
+>>   coresight_get_platform_data(struct device *dev)
+>>   {
+>> diff --git a/drivers/hwtracing/coresight/coresight-trace-id.c b/ 
+>> drivers/hwtracing/coresight/coresight-trace-id.c
+>> index d98e12cb30ec..df8fe50b413f 100644
+>> --- a/drivers/hwtracing/coresight/coresight-trace-id.c
+>> +++ b/drivers/hwtracing/coresight/coresight-trace-id.c
+>> @@ -12,6 +12,12 @@
+>>   #include "coresight-trace-id.h"
+>> +enum trace_id_flags {
+>> +    TRACE_ID_ANY = 0x0,
+>> +    TRACE_ID_PREFER_ODD = 0x1,
+>> +    TRACE_ID_REQ_STATIC = 0x2,
+>> +};
+>> +
+>>   /* Default trace ID map. Used in sysfs mode and for system sources */
+>>   static DEFINE_PER_CPU(atomic_t, id_map_default_cpu_ids) = 
+>> ATOMIC_INIT(0);
+>>   static struct coresight_trace_id_map id_map_default = {
+>> @@ -74,16 +80,18 @@ static int coresight_trace_id_find_odd_id(struct 
+>> coresight_trace_id_map *id_map)
+>>    * Otherwise allocate next available ID.
+>>    */
+>>   static int coresight_trace_id_alloc_new_id(struct 
+>> coresight_trace_id_map *id_map,
+>> -                       int preferred_id, bool prefer_odd_id)
+>> +                       int preferred_id, unsigned int flags)
+>>   {
+>>       int id = 0;
+>>       /* for backwards compatibility, cpu IDs may use preferred value */
+>> -    if (IS_VALID_CS_TRACE_ID(preferred_id) &&
+>> -        !test_bit(preferred_id, id_map->used_ids)) {
+>> -        id = preferred_id;
+>> -        goto trace_id_allocated;
+>> -    } else if (prefer_odd_id) {
+>> +    if (IS_VALID_CS_TRACE_ID(preferred_id)) {
+>> +        if (!test_bit(preferred_id, id_map->used_ids)) {
+>> +            id = preferred_id;
+>> +            goto trace_id_allocated;
+>> +        } else if (flags & TRACE_ID_REQ_STATIC)
+>> +            return -EINVAL;
+> 
+> nit: EBUSY sounds like a better choice here ? Requested ID is not
+> available.
+> 
+> Additionally, do we need to handle a case where the preferred_id is
+> not valid ? I think we silently allocate a new trace id in such case ?
+> 
+> Rest looks good to me.
+> 
+> Suzuki
+> 
+> 
 
-Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
----
-Changes in v3:
-- pass dev pointer in max17042_probe
-- remove prints
----
- drivers/power/supply/max17042_battery.c | 114 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++------------------------
- 1 file changed, 90 insertions(+), 24 deletions(-)
+If preferred_id is not valid, a random id will be allocated for the 
+source. For the normal source, 0 is provided here as preferred_id.
 
-diff --git a/drivers/power/supply/max17042_battery.c b/drivers/power/supply/max17042_battery.c
-index 99bf6915aa23..d11bf37aaae2 100644
---- a/drivers/power/supply/max17042_battery.c
-+++ b/drivers/power/supply/max17042_battery.c
-@@ -16,6 +16,7 @@
- #include <linux/i2c.h>
- #include <linux/delay.h>
- #include <linux/interrupt.h>
-+#include <linux/platform_device.h>
- #include <linux/pm.h>
- #include <linux/mod_devicetable.h>
- #include <linux/power_supply.h>
-@@ -1029,14 +1030,12 @@ static const struct power_supply_desc max17042_no_current_sense_psy_desc = {
- 	.num_properties	= ARRAY_SIZE(max17042_battery_props) - 2,
- };
- 
--static int max17042_probe(struct i2c_client *client)
-+static int max17042_probe(struct i2c_client *client, struct device *dev,
-+			  enum max170xx_chip_type chip_type)
- {
--	const struct i2c_device_id *id = i2c_client_get_device_id(client);
- 	struct i2c_adapter *adapter = client->adapter;
- 	const struct power_supply_desc *max17042_desc = &max17042_psy_desc;
- 	struct power_supply_config psy_cfg = {};
--	const struct acpi_device_id *acpi_id = NULL;
--	struct device *dev = &client->dev;
- 	struct max17042_chip *chip;
- 	int ret;
- 	int i;
-@@ -1045,33 +1044,24 @@ static int max17042_probe(struct i2c_client *client)
- 	if (!i2c_check_functionality(adapter, I2C_FUNC_SMBUS_WORD_DATA))
- 		return -EIO;
- 
--	chip = devm_kzalloc(&client->dev, sizeof(*chip), GFP_KERNEL);
-+	chip = devm_kzalloc(dev, sizeof(*chip), GFP_KERNEL);
- 	if (!chip)
- 		return -ENOMEM;
- 
- 	chip->client = client;
--	if (id) {
--		chip->chip_type = id->driver_data;
--	} else {
--		acpi_id = acpi_match_device(dev->driver->acpi_match_table, dev);
--		if (!acpi_id)
--			return -ENODEV;
--
--		chip->chip_type = acpi_id->driver_data;
--	}
- 	chip->regmap = devm_regmap_init_i2c(client, &max17042_regmap_config);
- 	if (IS_ERR(chip->regmap)) {
--		dev_err(&client->dev, "Failed to initialize regmap\n");
-+		dev_err(dev, "Failed to initialize regmap\n");
- 		return -EINVAL;
- 	}
- 
- 	chip->pdata = max17042_get_pdata(chip);
- 	if (!chip->pdata) {
--		dev_err(&client->dev, "no platform data provided\n");
-+		dev_err(dev, "no platform data provided\n");
- 		return -EINVAL;
- 	}
- 
--	i2c_set_clientdata(client, chip);
-+	dev_set_drvdata(dev, chip);
- 	psy_cfg.drv_data = chip;
- 	psy_cfg.of_node = dev->of_node;
- 
-@@ -1095,17 +1085,17 @@ static int max17042_probe(struct i2c_client *client)
- 		regmap_write(chip->regmap, MAX17042_LearnCFG, 0x0007);
- 	}
- 
--	chip->battery = devm_power_supply_register(&client->dev, max17042_desc,
-+	chip->battery = devm_power_supply_register(dev, max17042_desc,
- 						   &psy_cfg);
- 	if (IS_ERR(chip->battery)) {
--		dev_err(&client->dev, "failed: power supply register\n");
-+		dev_err(dev, "failed: power supply register\n");
- 		return PTR_ERR(chip->battery);
- 	}
- 
- 	if (client->irq) {
- 		unsigned int flags = IRQF_ONESHOT | IRQF_SHARED | IRQF_PROBE_SHARED;
- 
--		ret = devm_request_threaded_irq(&client->dev, client->irq,
-+		ret = devm_request_threaded_irq(dev, client->irq,
- 						NULL,
- 						max17042_thread_handler, flags,
- 						chip->battery->desc->name,
-@@ -1118,7 +1108,7 @@ static int max17042_probe(struct i2c_client *client)
- 		} else {
- 			client->irq = 0;
- 			if (ret != -EBUSY)
--				dev_err(&client->dev, "Failed to get IRQ\n");
-+				dev_err(dev, "Failed to get IRQ\n");
- 		}
- 	}
- 	/* Not able to update the charge threshold when exceeded? -> disable */
-@@ -1127,7 +1117,7 @@ static int max17042_probe(struct i2c_client *client)
- 
- 	regmap_read(chip->regmap, MAX17042_STATUS, &val);
- 	if (val & STATUS_POR_BIT) {
--		ret = devm_work_autocancel(&client->dev, &chip->work,
-+		ret = devm_work_autocancel(dev, &chip->work,
- 					   max17042_init_worker);
- 		if (ret)
- 			return ret;
-@@ -1139,6 +1129,38 @@ static int max17042_probe(struct i2c_client *client)
- 	return 0;
- }
- 
-+static int max17042_i2c_probe(struct i2c_client *client)
-+{
-+	const struct i2c_device_id *id = i2c_client_get_device_id(client);
-+	const struct acpi_device_id *acpi_id = NULL;
-+	struct device *dev = &client->dev;
-+	enum max170xx_chip_type chip_type;
-+
-+	if (id) {
-+		chip_type = id->driver_data;
-+	} else {
-+		acpi_id = acpi_match_device(dev->driver->acpi_match_table, dev);
-+		if (!acpi_id)
-+			return -ENODEV;
-+
-+		chip_type = acpi_id->driver_data;
-+	}
-+
-+	return max17042_probe(client, dev, chip_type);
-+}
-+
-+static int max17042_platform_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct i2c_client *i2c = dev_get_platdata(dev);
-+	const struct platform_device_id *id = platform_get_device_id(pdev);
-+
-+	if (!i2c)
-+		return -EINVAL;
-+
-+	return max17042_probe(i2c, dev, id->driver_data);
-+}
-+
- #ifdef CONFIG_PM_SLEEP
- static int max17042_suspend(struct device *dev)
- {
-@@ -1204,6 +1226,16 @@ static const struct i2c_device_id max17042_id[] = {
- };
- MODULE_DEVICE_TABLE(i2c, max17042_id);
- 
-+static const struct platform_device_id max17042_platform_id[] = {
-+	{ "max17042", MAXIM_DEVICE_TYPE_MAX17042 },
-+	{ "max17047", MAXIM_DEVICE_TYPE_MAX17047 },
-+	{ "max17050", MAXIM_DEVICE_TYPE_MAX17050 },
-+	{ "max17055", MAXIM_DEVICE_TYPE_MAX17055 },
-+	{ "max77849-battery", MAXIM_DEVICE_TYPE_MAX17047 },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(platform, max17042_platform_id);
-+
- static struct i2c_driver max17042_i2c_driver = {
- 	.driver	= {
- 		.name	= "max17042",
-@@ -1211,10 +1243,44 @@ static struct i2c_driver max17042_i2c_driver = {
- 		.of_match_table = of_match_ptr(max17042_dt_match),
- 		.pm	= &max17042_pm_ops,
- 	},
--	.probe		= max17042_probe,
-+	.probe		= max17042_i2c_probe,
- 	.id_table	= max17042_id,
- };
--module_i2c_driver(max17042_i2c_driver);
-+
-+static struct platform_driver max17042_platform_driver = {
-+	.driver	= {
-+		.name	= "max17042",
-+		.acpi_match_table = ACPI_PTR(max17042_acpi_match),
-+		.of_match_table = of_match_ptr(max17042_dt_match),
-+		.pm	= &max17042_pm_ops,
-+	},
-+	.probe		= max17042_platform_probe,
-+	.id_table	= max17042_platform_id,
-+};
-+
-+static int __init __driver_max17042_platform_init(void)
-+{
-+	int ret = 0;
-+
-+	ret = platform_driver_register(&max17042_platform_driver);
-+
-+	if (ret) {
-+		platform_driver_unregister(&max17042_platform_driver);
-+		return ret;
-+	}
-+
-+	ret = i2c_add_driver(&max17042_i2c_driver);
-+
-+	return ret;
-+}
-+module_init(__driver_max17042_platform_init);
-+
-+static void __exit __driver_max17042_platform_exit(void)
-+{
-+	i2c_del_driver(&max17042_i2c_driver);
-+	platform_driver_unregister(&max17042_platform_driver);
-+}
-+module_exit(__driver_max17042_platform_exit);
- 
- MODULE_AUTHOR("MyungJoo Ham <myungjoo.ham@samsung.com>");
- MODULE_DESCRIPTION("MAX17042 Fuel Gauge");
-
--- 
-2.39.2
+> 
+> 
+>> +    } else if (flags & TRACE_ID_PREFER_ODD) {
+>>       /* may use odd ids to avoid preferred legacy cpu IDs */
+>>           id = coresight_trace_id_find_odd_id(id_map);
+>>           if (id)
+>> @@ -153,7 +161,7 @@ static int _coresight_trace_id_get_cpu_id(int cpu, 
+>> struct coresight_trace_id_map
+>>        */
+>>       id = coresight_trace_id_alloc_new_id(id_map,
+>>                            CORESIGHT_LEGACY_CPU_TRACE_ID(cpu),
+>> -                         false);
+>> +                         TRACE_ID_ANY);
+>>       if (!IS_VALID_CS_TRACE_ID(id))
+>>           goto get_cpu_id_out_unlock;
+>> @@ -188,14 +196,14 @@ static void _coresight_trace_id_put_cpu_id(int 
+>> cpu, struct coresight_trace_id_ma
+>>       DUMP_ID_MAP(id_map);
+>>   }
+>> -static int coresight_trace_id_map_get_system_id(struct 
+>> coresight_trace_id_map *id_map)
+>> +static int coresight_trace_id_map_get_system_id(struct 
+>> coresight_trace_id_map *id_map,
+>> +                    int preferred_id, unsigned int traceid_flags)
+>>   {
+>>       unsigned long flags;
+>>       int id;
+>>       spin_lock_irqsave(&id_map->lock, flags);
+>> -    /* prefer odd IDs for system components to avoid legacy CPU IDS */
+>> -    id = coresight_trace_id_alloc_new_id(id_map, 0, true);
+>> +    id = coresight_trace_id_alloc_new_id(id_map, preferred_id, 
+>> traceid_flags);
+>>       spin_unlock_irqrestore(&id_map->lock, flags);
+>>       DUMP_ID(id);
+>> @@ -255,10 +263,19 @@ 
+>> EXPORT_SYMBOL_GPL(coresight_trace_id_read_cpu_id_map);
+>>   int coresight_trace_id_get_system_id(void)
+>>   {
+>> -    return coresight_trace_id_map_get_system_id(&id_map_default);
+>> +    /* prefer odd IDs for system components to avoid legacy CPU IDS */
+>> +    return coresight_trace_id_map_get_system_id(&id_map_default, 0,
+>> +            TRACE_ID_PREFER_ODD);
+>>   }
+>>   EXPORT_SYMBOL_GPL(coresight_trace_id_get_system_id);
+>> +int coresight_trace_id_get_static_system_id(int trace_id)
+>> +{
+>> +    return coresight_trace_id_map_get_system_id(&id_map_default,
+>> +            trace_id, TRACE_ID_REQ_STATIC);
+>> +}
+>> +EXPORT_SYMBOL_GPL(coresight_trace_id_get_static_system_id);
+>> +
+>>   void coresight_trace_id_put_system_id(int id)
+>>   {
+>>       coresight_trace_id_map_put_system_id(&id_map_default, id);
+>> diff --git a/drivers/hwtracing/coresight/coresight-trace-id.h b/ 
+>> drivers/hwtracing/coresight/coresight-trace-id.h
+>> index 9aae50a553ca..db68e1ec56b6 100644
+>> --- a/drivers/hwtracing/coresight/coresight-trace-id.h
+>> +++ b/drivers/hwtracing/coresight/coresight-trace-id.h
+>> @@ -116,6 +116,15 @@ int coresight_trace_id_read_cpu_id_map(int cpu, 
+>> struct coresight_trace_id_map *i
+>>    */
+>>   int coresight_trace_id_get_system_id(void);
+>> +/**
+>> + * Allocate a CoreSight static trace ID for a system component.
+>> + *
+>> + * Used to allocate static IDs for system trace sources such as dummy 
+>> source.
+>> + *
+>> + * return: Trace ID or -EINVAL if allocation is impossible.
+>> + */
+>> +int coresight_trace_id_get_static_system_id(int id);
+>> +
+>>   /**
+>>    * Release an allocated system trace ID.
+>>    *
+>> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+>> index c13342594278..129795873072 100644
+>> --- a/include/linux/coresight.h
+>> +++ b/include/linux/coresight.h
+>> @@ -662,6 +662,7 @@ void coresight_relaxed_write64(struct 
+>> coresight_device *csdev,
+>>   void coresight_write64(struct coresight_device *csdev, u64 val, u32 
+>> offset);
+>>   extern int coresight_get_cpu(struct device *dev);
+>> +extern int coresight_get_static_trace_id(struct device *dev, u32 *id);
+>>   struct coresight_platform_data *coresight_get_platform_data(struct 
+>> device *dev);
+>>   struct coresight_connection *
+> 
 
 
