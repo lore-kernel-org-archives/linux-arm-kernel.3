@@ -4,85 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD443D10F5C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 06:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99293D10F5C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 06:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K7vRR3PICpmX4+NW+QKL36XvwQqMOpMiqtREAJo3mCo=; b=t3jUfRLtXru2SsuThgs6VXC+mv
-	mvdld67LYaW+AHJyU7PGbU188iRK5+3IyxgSvxqGmti7fJVNCRJBp6y/89satgyZrzaWsrxL8LdKE
-	EA+1Ng9KpPEKeLUz2aY9Hu7eHPTO/F10fP0IDyPmcWUrigLkmf5wOgMBlEagUxZfmJtq6QFzbElKF
-	o0XmFwWfznCV8kf95UjTzFMe+1XW7ZzVlA6PjawGdi4yiNNP9Oa64p4UAXSxCYts5VSPZTmy4N3yN
-	ZvarbMnf3UdQ2SiEYo2K1NWRGUxMMUmREsIMJmwAQLNPS3jsbWqt6Sb7Xjfmnx1l1MSDELj8WvmYM
-	sAp/CsRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AR8vRiyQWafhkwLMuApVW/fxma/Zo6ed3zIRAdgzhAY=; b=a9HpIAB9BHgh+x3FdetxR2bL+7
+	gYWSeBJM3Lrygtv6k17rJsddHuXZjNLYcCeIMeAPNq6Jpkr0kkKD6hBwzi70GuHO7amH/aw4yB1fi
+	nr/1zV0rqPvT8ijlP92NAFbfms44+rdb2wPYZgl00/W3TnKCS06kCMQkkDjJz7//LTVM2j6MD6pH1
+	wjl4SXnlwgTN9W3+SytM2z+B6iTGKgIrSUjxvMphrXL71I9nwFT0IaWTHnWemulOF/Oedc4lVbaYi
+	KPN6IeHLmjf+Inbz5Psk1TzLz2PwTUEIa10rfRoYR4j2FippbuPv25ADsUoubFiCI/bPXO1cQE0tj
+	uIZa4uCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCuqk-00000008T2M-0DZj;
-	Mon, 18 Nov 2024 06:03:02 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1tCus7-00000008TP8-0VZt;
+	Mon, 18 Nov 2024 06:04:27 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCupn-00000008Srz-2KK5
+	id 1tCur9-00000008T8S-3pZW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 06:02:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1731909715; x=1732514515; i=wahrenst@gmx.net;
-	bh=K7vRR3PICpmX4+NW+QKL36XvwQqMOpMiqtREAJo3mCo=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=HxyE6IXTtlFxApFrih9mES0rN4BW2vHr8HivWUeUjGAy04ZgjqWs21cUuVJpi/7j
-	 77ltcXX2cfG/G5WRDKNz255Mf+6dWOrmQjaUfEgLfqsZ5jbBB3rAgUklwoU/5Ycp4
-	 7g2DtXh7SBceCv9IbEOGWmjW/vklCUj7VRPU4XhxYVxyWSKYTH2ETQHRSvUUOD0eu
-	 GSKQ6gGRGGyYjJ43rT6b9gTGZPFF9FPlorLhHxAvFs7oFRN2PI4qHKWcn6LexQxtf
-	 wdfHag75YgpncPSTVsnvE9TX1ta8gnT0vZVuCiIGSxFEXKk/wX7s1y1TKe5mr27lp
-	 tNvJNualfxEoTrNOzQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MTRMi-1tKZnb1g7Q-00RsRv; Mon, 18
- Nov 2024 07:01:55 +0100
-Message-ID: <70188a17-cf5d-4b0d-a575-900dad8f9c66@gmx.net>
-Date: Mon, 18 Nov 2024 07:01:54 +0100
+	Mon, 18 Nov 2024 06:03:29 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-432d866f70fso32961695e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 Nov 2024 22:03:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731909805; x=1732514605; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=AR8vRiyQWafhkwLMuApVW/fxma/Zo6ed3zIRAdgzhAY=;
+        b=kqvk9c33AaE5wif8vbLQOmbimcvvr23Y3Ce9wRT5qsYC8x+W563ZYLDJCS34sQnoV5
+         OdYVojgWJrchyiixpF10OAouzyC2+XxK+teYtH3w9F5Evo9LU9+EXEv9qGa+snQvyyMU
+         H/4JewXym6uGSQoovJCnBYJBolRYaDYwqoniqrcu0AFz/I3//tuEopMhiMi+4mGfAHQh
+         sd+yCJTHUmDzn/W4xG/ANH+9z1i9dCb1x7mN9dVGXuWctIMIrUAUfhtfhf/RTmttRvKn
+         OOyBseDEy6kIWXwGALrIj4gu1mvet6dNgnPmM25gvY7w4zFoa72El9eHlLksstukplMU
+         zAow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731909805; x=1732514605;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AR8vRiyQWafhkwLMuApVW/fxma/Zo6ed3zIRAdgzhAY=;
+        b=bYiZAVjx0aG7KK1Vi4ZBwSWvDMkK5thZazBtrN+0LMxMhBDY7qyrsF7BYrAKQYU3wl
+         UeMYhXBC19SKqcpcDhYWJHgZ5cecLH29xzW75vXxSroNiUY+Soz+lu/KW+8QrVpQL1Dk
+         mrVxyrhr+0LbrytJwKVFnHB4lifpg9dSXIoOD+egf9zmG+2jNcHrWAGzkPEBbAr7W/Qj
+         l9eFOUO+ENhHOL92paRWeZF2kipTvjfM2I/Te8ikseo4OWXwNvBTkIW13bY+OzqB30S1
+         2HbDv136n5HGN6dZg8RyQLXKpqm7m+Bn49phUZImNyuLwQ05C+39WQPnyLyPaeQv2P1W
+         cFvw==
+X-Forwarded-Encrypted: i=1; AJvYcCXAM04zq1L23Gg8GSo2D86w5UxXNUvlLKfScmVhGTpMZhtW/Z67vvZRmvsHuJ0fuI4RGTTvlXW8i5Bs6adgUf2d@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbG8O21iVfa4tWh0pydOilp4G36pue+3t9jIa2JLziIkMclok3
+	g2sRPCE5MFG0z8GEBiDifVJikLhMrMPvlyD8xdVO0Vo7ckgw9mSOKPUrx05XmP0=
+X-Google-Smtp-Source: AGHT+IGbozm5imyvI1diBD8cPltGKKe70Wh5xUrFEtI3IIMcZHzRvhf6hhocFPZiJAaaikEibw1ZfQ==
+X-Received: by 2002:a05:600c:1382:b0:431:5d4f:73a3 with SMTP id 5b1f17b1804b1-432df74f0d4mr84755155e9.18.1731909805553;
+        Sun, 17 Nov 2024 22:03:25 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3823ef97042sm4424753f8f.35.2024.11.17.22.03.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 17 Nov 2024 22:03:25 -0800 (PST)
+Date: Mon, 18 Nov 2024 09:03:21 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>, Kalle Valo <kvalo@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
+	linux-wireless@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] wifi: mt76: mt7915: Fix an error handling path in
+ mt7915_add_interface()
+Message-ID: <98b8f06d-e8b7-4a49-8508-ea87c385bd30@stanley.mountain>
+References: <b9d8fbfc19360bfe60b9cea1cb0f735ab3b4bc26.1727639596.git.christophe.jaillet@wanadoo.fr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6] soc: imx: Add SoC device register for i.MX9
-To: alice.guo@oss.nxp.com, alexander.stein@ew.tq-group.com,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, "alice.guo" <alice.guo@nxp.com>
-References: <20241118021716.396001-1-alice.guo@oss.nxp.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-In-Reply-To: <20241118021716.396001-1-alice.guo@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:rLk4OWx6ljgfKFCL1ZiTAiqssGrPxUkR15IXSqDOTfOg3xbBvOE
- 4Nbtq4AFQ8TyIv6dmAe4gaLgHr+lLvmergPk2s9UUQejZvMKTVlqJW1inMySCcne3Zmb4if
- d4got78nvMCDM9bT1lT6/lFbukxjB9Js/1XFinUfp9yOWyzgFJLIUFO1lfohW3GDdjCerMp
- Y7NaPK/tY2mM7Va/nEU8A==
-UI-OutboundReport: notjunk:1;M01:P0:zzK4fJzHw4Q=;4YihpUZvk/BUGl5vFAVpjYBSqC1
- fZIs3Ih4QtGM1QFE/Uo4pNikVLNxr9P54uXNd9VJHjPrLnJgT0jzZqEmM77srypLhyXfv/+BJ
- sb9sr8TawDG4Ua19VIzyLI4zm8awXJGiTBLq35JwKFHQD//mkrPz6MAwWFtEAjbcD1/261PCg
- qXidRnGIhslRUOW0r7uXCsyAu+OZPooi1G466phMGC1qWtY83sUnlBpQAQFDm83PrwndXyt73
- 516pF8iLJBy8WDu4s1b/LPzklCCzE/sa6IVjOHsYdonjFNlUZtKLsnAFKNFWM4sF1crNF6x/+
- UzeqprIdIbv4UsD6fAHnv9AbanaBBuWjYCgeAA7QCu0224AunRXZ+1319pz1ZWLWYZ/q7sh3b
- u94mqX2u7nYAj4U/IkMByY4tKJppl8j5tyzewWhpVZyJI+bINzZMTd589VZp9Ie3lZBSgWT8l
- S7jXqGVBYQu6eo4IVoAkAvCABGjPOuYnSZ3UUBsbMWeOw6baclklwXRmAI7kKwONFLYLCnbs8
- bMs5GKimEOkjn8PbkGappkb3vmAIieKBgty1uK9RtJeY7LgwXKKsxY8A3RUU3dOQfeHg7Tpi1
- OpcA3UqdbSc0NWBrGukBhv7fTYHcLOEOGQ9q/oWDnmL5Oofy48PyRyNrdU5KthZGDldysHLzF
- 3Z2NQ+yWpPVq0kIhRWmeLunBW02YhAcl6DYO+k/jcx0ekutRpDmPY1uWm5gh+FxCNzXI2rzRr
- YOlsw0hdLpVEx1IkmfUCTDaR97100Go5tWwqfx901qSLdNHbxrZUu9/YU2S0uHUouIdnTtF7+
- QQ8mz3YGyKkA0mI6STFNQm2+QEFQBXeh3CFo4KgHn5BjOdd19mOj3o3FMkUIMtgg/T/MG2uWQ
- GZx63ezRqPERoagwNGBNX41bfZPg9iFpFOw3YJx9+xbMBWXUvIowOpMFU
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b9d8fbfc19360bfe60b9cea1cb0f735ab3b4bc26.1727639596.git.christophe.jaillet@wanadoo.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241117_220203_886767_EE8540A1 
-X-CRM114-Status: UNSURE (   8.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241117_220328_005762_A310113B 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,18 +100,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 18.11.24 um 03:17 schrieb alice.guo@oss.nxp.com:
-> From: "alice.guo" <alice.guo@nxp.com>
->
-> i.MX9 SoCs have SoC ID, SoC revision number and chip unique identifier
-> which are provided by the corresponding ARM trusted firmware API. This
-> patch intends to use SMC call to obtain these information and then
-> register i.MX9 SoC as a device.
->
-> Signed-off-by: Alice Guo <alice.guo@nxp.com>
-> Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
-Looks good to me
+On Sun, Sep 29, 2024 at 09:53:40PM +0200, Christophe JAILLET wrote:
+> If mt76_wcid_alloc() fails, the "mt76.mutex" mutex needs to be released as
+> done in the other error handling path of mt7915_add_interface().
+> 
+> Fixes: f3049b88b2b3 ("wifi: mt76: mt7915: allocate vif wcid in the same range as stations")
+> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+> ---
+> Compile tested only
 
-Thanks
+Reviewed-by: Dan Carpenter <dan.carpenter@linaro.org>
+
+This fix is still required.
+
+regards,
+dan carpenter
+
 
