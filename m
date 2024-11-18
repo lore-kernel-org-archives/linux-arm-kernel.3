@@ -4,88 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99293D10F5C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 06:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E63E1D10F57
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 06:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AR8vRiyQWafhkwLMuApVW/fxma/Zo6ed3zIRAdgzhAY=; b=a9HpIAB9BHgh+x3FdetxR2bL+7
-	gYWSeBJM3Lrygtv6k17rJsddHuXZjNLYcCeIMeAPNq6Jpkr0kkKD6hBwzi70GuHO7amH/aw4yB1fi
-	nr/1zV0rqPvT8ijlP92NAFbfms44+rdb2wPYZgl00/W3TnKCS06kCMQkkDjJz7//LTVM2j6MD6pH1
-	wjl4SXnlwgTN9W3+SytM2z+B6iTGKgIrSUjxvMphrXL71I9nwFT0IaWTHnWemulOF/Oedc4lVbaYi
-	KPN6IeHLmjf+Inbz5Psk1TzLz2PwTUEIa10rfRoYR4j2FippbuPv25ADsUoubFiCI/bPXO1cQE0tj
-	uIZa4uCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CpCdAQqS4w3V1Exr745zFNJoIIAlh+Y7MPwMKhJZx18=; b=Y95ZY52NPnAgAH
+	ENNhGJHYtKjMJ60H/zpiViPQJX/XGkOQYFUtvOYYtS8cVsysOqKUoig+ipRvk1PDuz5PlvDjVSTS0
+	CJCJC1Rn086vpO8P3tVW9Wynk6/BCyThKU2k01T6Z09TyR/0Z0Z+4t8Qo3hqBw3ZFO28vJF/1sdGT
+	kp3V9sKjDX/FiGfP3AK1HIDHxcysh9zwI3fY3DYkUh+aTyFS786uJUKDwXX/Wxm9AeRhEmfsaqx58
+	0D/gjROrJLCQgHO1MAfGc/RPzclQYp+iiB24BfAhfavXdX/A9WgfBeoE0kBmCn3eAX0gr2iFy/6Zi
+	P8kFOcLxcHXc1+k6KP2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCus7-00000008TP8-0VZt;
-	Mon, 18 Nov 2024 06:04:27 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tCv6V-00000008V1B-45uH;
+	Mon, 18 Nov 2024 06:19:19 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCur9-00000008T8S-3pZW
+	id 1tCv5b-00000008UtA-16Gk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 06:03:29 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-432d866f70fso32961695e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 Nov 2024 22:03:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731909805; x=1732514605; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=AR8vRiyQWafhkwLMuApVW/fxma/Zo6ed3zIRAdgzhAY=;
-        b=kqvk9c33AaE5wif8vbLQOmbimcvvr23Y3Ce9wRT5qsYC8x+W563ZYLDJCS34sQnoV5
-         OdYVojgWJrchyiixpF10OAouzyC2+XxK+teYtH3w9F5Evo9LU9+EXEv9qGa+snQvyyMU
-         H/4JewXym6uGSQoovJCnBYJBolRYaDYwqoniqrcu0AFz/I3//tuEopMhiMi+4mGfAHQh
-         sd+yCJTHUmDzn/W4xG/ANH+9z1i9dCb1x7mN9dVGXuWctIMIrUAUfhtfhf/RTmttRvKn
-         OOyBseDEy6kIWXwGALrIj4gu1mvet6dNgnPmM25gvY7w4zFoa72El9eHlLksstukplMU
-         zAow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731909805; x=1732514605;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AR8vRiyQWafhkwLMuApVW/fxma/Zo6ed3zIRAdgzhAY=;
-        b=bYiZAVjx0aG7KK1Vi4ZBwSWvDMkK5thZazBtrN+0LMxMhBDY7qyrsF7BYrAKQYU3wl
-         UeMYhXBC19SKqcpcDhYWJHgZ5cecLH29xzW75vXxSroNiUY+Soz+lu/KW+8QrVpQL1Dk
-         mrVxyrhr+0LbrytJwKVFnHB4lifpg9dSXIoOD+egf9zmG+2jNcHrWAGzkPEBbAr7W/Qj
-         l9eFOUO+ENhHOL92paRWeZF2kipTvjfM2I/Te8ikseo4OWXwNvBTkIW13bY+OzqB30S1
-         2HbDv136n5HGN6dZg8RyQLXKpqm7m+Bn49phUZImNyuLwQ05C+39WQPnyLyPaeQv2P1W
-         cFvw==
-X-Forwarded-Encrypted: i=1; AJvYcCXAM04zq1L23Gg8GSo2D86w5UxXNUvlLKfScmVhGTpMZhtW/Z67vvZRmvsHuJ0fuI4RGTTvlXW8i5Bs6adgUf2d@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbG8O21iVfa4tWh0pydOilp4G36pue+3t9jIa2JLziIkMclok3
-	g2sRPCE5MFG0z8GEBiDifVJikLhMrMPvlyD8xdVO0Vo7ckgw9mSOKPUrx05XmP0=
-X-Google-Smtp-Source: AGHT+IGbozm5imyvI1diBD8cPltGKKe70Wh5xUrFEtI3IIMcZHzRvhf6hhocFPZiJAaaikEibw1ZfQ==
-X-Received: by 2002:a05:600c:1382:b0:431:5d4f:73a3 with SMTP id 5b1f17b1804b1-432df74f0d4mr84755155e9.18.1731909805553;
-        Sun, 17 Nov 2024 22:03:25 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3823ef97042sm4424753f8f.35.2024.11.17.22.03.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 Nov 2024 22:03:25 -0800 (PST)
-Date: Mon, 18 Nov 2024 09:03:21 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>, Kalle Valo <kvalo@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
-	linux-wireless@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] wifi: mt76: mt7915: Fix an error handling path in
- mt7915_add_interface()
-Message-ID: <98b8f06d-e8b7-4a49-8508-ea87c385bd30@stanley.mountain>
-References: <b9d8fbfc19360bfe60b9cea1cb0f735ab3b4bc26.1727639596.git.christophe.jaillet@wanadoo.fr>
+	Mon, 18 Nov 2024 06:18:24 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AI5SF22003568;
+	Mon, 18 Nov 2024 06:18:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=CpCdAQqS4w3V1Exr745zFN
+	JoIIAlh+Y7MPwMKhJZx18=; b=KbPe1YiTWzVvfqMQPhhVrLEgdhB3b3+QrBaUI3
+	9Uu3iTaACIm2p4oenpp6zfL0YSA3Fssodw9gn4DfVHyMMAYISp4nvJvJzAmjzg6j
+	gsLhbZxrDuZKdiF9Qxegbf8lpFPh6cOGgcQa/BPrJKN5X+cbPJU4J5TvvziTu4nd
+	/dQ7Jj8nS+0XVtAzO6e2SwZL2YmlLK7O7EUP/DmL+yqfS+K2Tqh7E10Ta2udNi5U
+	JsXt1HwZXpoRXcmep3yEDtXQsiX25aE+GxL8x+K5UuHKjZBg4p1TfBwtz91BUcBZ
+	szgmMGBJmQaYtSNB1WIVqajadCbbn25q4BMovMCQyB9DOUDA==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42xkv9ujqg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 Nov 2024 06:18:13 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AI6IBjN014966
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 Nov 2024 06:18:12 GMT
+Received: from yijiyang-gv.ap.qualcomm.com (10.80.80.8) by
+ nalasex01c.na.qualcomm.com (10.47.97.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Sun, 17 Nov 2024 22:18:04 -0800
+From: Yijie Yang <quic_yijiyang@quicinc.com>
+Subject: [PATCH 0/3] Add standalone ethernet MAC entries for qcs615
+Date: Mon, 18 Nov 2024 14:16:49 +0800
+Message-ID: <20241118-schema-v1-0-11b7c1583c0c@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b9d8fbfc19360bfe60b9cea1cb0f735ab3b4bc26.1727639596.git.christophe.jaillet@wanadoo.fr>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANLbOmcC/1WOyw6CMBREf4V0bU1fyGPlfxgXpVykC4q22GAI/
+ +7lodHZTTJnZiYSwFsIpEwm4iHaYHuHhh8SYlrtbkBtjZ4IJhRH0WBa6DTNCp5mWcEEa1KC4bu
+ Hxo5r0eWKvtIBaOW1M+2Cb9Qe9PB44tCwpbeo6bvODmXiYBzoNsZysjS1Ngy9f60PI1+J/Yz4n
+ ImcMqpUfspSXeWFqs84YKwzR6xdS6L4BeUXFAhKcdKNVKnUuvkH53l+A/If+s8hAQAA
+X-Change-ID: 20241111-schema-7915779020f5
+To: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David
+ S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>,
+        "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Bhupesh Sharma <bhupesh.sharma@linaro.org>,
+        "Alexandre
+ Torgue" <alexandre.torgue@foss.st.com>,
+        Giuseppe Cavallaro
+	<peppe.cavallaro@st.com>,
+        Jose Abreu <joabreu@synopsys.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>
+CC: <quic_yijiyang@quicinc.com>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>,
+        <netdev@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <quic_tingweiz@quicinc.com>,
+        <quic_aiquny@quicinc.com>, <quic_tengfan@quicinc.com>,
+        <quic_jiegan@quicinc.com>, <quic_jingyw@quicinc.com>,
+        <quic_jsuraj@quicinc.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1731910683; l=824;
+ i=quic_yijiyang@quicinc.com; s=20240408; h=from:subject:message-id;
+ bh=Zm9tehsSs7BLjNfhUeRO8pHHmppIjYVtYgtpVwgrIP4=;
+ b=4WX46OMtEAR1pPzx/Y36ezeXe0o/tfSt3fX7rS2RoXdlQD+kvx0bcmg6YudNXySJ1bdQJKPnD
+ Oy9KbJMqD9TBJUqYOil9GB6sUDLz7YLJDmU3UPUxNMCj4WzU9wHLPco
+X-Developer-Key: i=quic_yijiyang@quicinc.com; a=ed25519;
+ pk=XvMv0rxjrXLYFdBXoFjTdOdAwDT5SPbQ5uAKGESDihk=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: GfrKfr-53M1u1xTlWARFwCoWmY_EveUL
+X-Proofpoint-GUID: GfrKfr-53M1u1xTlWARFwCoWmY_EveUL
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ adultscore=0 mlxlogscore=635 priorityscore=1501 suspectscore=0
+ malwarescore=0 phishscore=0 impostorscore=0 mlxscore=0 bulkscore=0
+ clxscore=1011 spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411180051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241117_220328_005762_A310113B 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20241117_221823_437646_9BB47ED5 
+X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,20 +133,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 29, 2024 at 09:53:40PM +0200, Christophe JAILLET wrote:
-> If mt76_wcid_alloc() fails, the "mt76.mutex" mutex needs to be released as
-> done in the other error handling path of mt7915_add_interface().
-> 
-> Fixes: f3049b88b2b3 ("wifi: mt76: mt7915: allocate vif wcid in the same range as stations")
-> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-> ---
-> Compile tested only
+Add separate EMAC entries for qcs615 since its core version is 2.3.1,
+compared to sm8150's 2.1.2.
 
-Reviewed-by: Dan Carpenter <dan.carpenter@linaro.org>
+Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
+---
+Yijie Yang (3):
+      dt-bindings: net: qcom,ethqos: revise description for qcs615
+      dt-bindings: net: snps,dwmac: add description for qcs615
+      net: stmmac: dwmac-qcom-ethqos: add support for EMAC on qcs615 platforms
 
-This fix is still required.
+ Documentation/devicetree/bindings/net/qcom,ethqos.yaml  |  5 +----
+ Documentation/devicetree/bindings/net/snps,dwmac.yaml   |  2 ++
+ drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 17 +++++++++++++++++
+ 3 files changed, 20 insertions(+), 4 deletions(-)
+---
+base-commit: 3664e6c4f4d07fa51834cd59d94b42b7f803e79b
+change-id: 20241111-schema-7915779020f5
 
-regards,
-dan carpenter
+Best regards,
+-- 
+Yijie Yang <quic_yijiyang@quicinc.com>
 
 
