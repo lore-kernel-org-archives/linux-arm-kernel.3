@@ -4,178 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D542D10F5A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 05:24:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 773B4D10F57
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 05:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLxLopONr+bmQwpXzOgzgGmVd0/gY8kF1qAL7keGdT8=; b=evtPlqAHm8POOG/dX7B+DkRKEL
-	YQIYcMone/ocCtryX+RM6c4+te/Ul01ExPaaE5X4Xcr77Txxxsmi8IJkb5tyE2Umm2DCbcuac4TVd
-	jlu30M1o2Z7gHNrPD5ajiIORTaYY+B8NFpIOdPJBGBAZkZqZd31MNfjq0GWpi5d/kEx9zG24BITE5
-	yu03bijfv+GWAv4Wom5pJeATFx7kGFm0UKB6vBYqon1YUpPsoM54C+d2XwhD/eJ0u09i+KOa4sCET
-	ZaP3Ksge2vr2kXzJ9d8CoLoVfWIHwnunBWRBfWhRAiHKMN0OP8WzMGCtEFP+44GQw1AULPLbgudTa
-	5UROT1KQ==;
+	bh=/Y/5O/DaG+qseUM4co6lv9seYRVyO4Z+4HtVpQlw/vA=; b=xFXI7wJKg2l9vcg/NdYPKepFv1
+	FI+0L0u/m4bnVW2gQT66dRrtmFly6f2wEGlzU7X9R45m5rmUv+MbqFkNjigfN2rZQHmv2GesIxFmy
+	E5RjnZOrhX9is5UvJbyPX+gjbL7ZWPVv3yrQXhAcB0PSPRNev6Ks4WkuVc6e1M9G4p7aq8qUja7Ya
+	C3s9XyJONBNetZeZ10EB8+nZ0VQusd5w8+wdNlN1ow9NAyA8fbWXdV3zgVM4SwD4f+67GwFHc09SH
+	+w6HV1KIbBeYxjKUN94Oeou6HnwJy0/qJMnZcfq4O2739RYS6u/pd65itI6z3CzDRnx3RGIBnhQ0d
+	FVa3/bZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCuF7-00000008O80-4A6p;
-	Mon, 18 Nov 2024 05:24:09 +0000
-Received: from mail-am7eur03on2062b.outbound.protection.outlook.com ([2a01:111:f403:260e::62b] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1tCuIm-00000008OmF-1jpi;
+	Mon, 18 Nov 2024 05:27:56 +0000
+Received: from mail-ua1-x933.google.com ([2607:f8b0:4864:20::933])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCuB6-00000008N6b-3MIe
+	id 1tCuHq-00000008Oai-45Cp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 05:20:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uI92kW1F5LZ2fmctnhqn1YXQ0uGH6pGlSILBmqlNtnyGGCP8qFZfyjYPpR/s2uOlgHZkl9pqaLeF+u+ognnJVkpkbDWnL2EhmFxvBUNPoXsMbh93t6b15pTqaDMENyCpwqu4G70XlG2ZLl833jiXVmsFUqNmdhoPjhbcnwpQFKIbbcdA8MxXSJptBCLUt5e9gtyXkyG4JlQVGDsZgjPinzHrxQvb+iwEVW9/PJvZtCjhPwZwMZKg932J2J42juqbpsHG9wnPXCcz14DLup9LQsCOXxzGwtHbgbp+G5MNnndRxN0mQZQlKXvlWTUmXXSTKZz+pnALNvIHPF7xdxK2lg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nLxLopONr+bmQwpXzOgzgGmVd0/gY8kF1qAL7keGdT8=;
- b=udMf5HUqfoPGOSt07o1Lf/zowjOZ6JTv85/SvT7cuV84yr+fnRu8PCJ89DQl3c57FdzqERnZQLJMvZvg2tlK8SHAQhGm+ocDDyFkVQZTvAaqX/QuNbtdQPSqQ3D60+FKMvsJGvd77d/mjON2RObhRJE3phn17fFBY3/q/fgFbpmame+RO/zJEstQIMbha+7TkeZ2ITjAuTXoAtm+t/WySMdpOk8iz3SYqEG9jWdvNhX3wAR3aKto//6DBzr3pLp09DJ0iUufeigEbWEJbZw8I+Ui8+1ONZIx9FOWd6IdG2O8PEjxgCu2x2usJbtYZ21C5n1VZHUsWRT35WvPo9ttZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nLxLopONr+bmQwpXzOgzgGmVd0/gY8kF1qAL7keGdT8=;
- b=TdaimFtjL6VWhKeuvuEY7t5yasIJAxJJ7YaZ+zy8fpEVe4Sv8ZNQKCDiUnMQQX149QGUTsE9NNz2woUoZkLZCPKRtQEeN5LtLNwrU9mSFDgFjqax2EgyqAfSoUrSkClL+NrR0spg1+48H7kOPSBfmEg+tyi5jKMzdeZa5Q55DaNWzSdZX2dlJMoR1ziEr0wmS3UOB0xhazXU7foF2gvoTxWPwu4xud1XQz5Jo2WFE5otnSQBH864heUD2KGbllTaymkdRDwHig15vzWdBZn7PxY/g74J9UakfPuK0nAY94L9wH9P3trMaTG/rInag/vZBveUFz2/hQ4fgc90i19E6g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB7058.eurprd04.prod.outlook.com (2603:10a6:208:195::24)
- by AM9PR04MB7508.eurprd04.prod.outlook.com (2603:10a6:20b:283::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.23; Mon, 18 Nov
- 2024 05:19:57 +0000
-Received: from AM0PR04MB7058.eurprd04.prod.outlook.com
- ([fe80::d7ed:56bd:30e4:4ed5]) by AM0PR04MB7058.eurprd04.prod.outlook.com
- ([fe80::d7ed:56bd:30e4:4ed5%3]) with mapi id 15.20.8158.023; Mon, 18 Nov 2024
- 05:19:57 +0000
-From: Pengfei Li <pengfei.li_1@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: francesco.dolcini@toradex.com,
-	joao.goncalves@toradex.com,
-	marex@denx.de,
-	hvilleneuve@dimonoff.com,
-	peng.fan@nxp.com,
-	hiago.franco@toradex.com,
-	frieder.schrempf@kontron.de,
-	alexander.stein@ew.tq-group.com,
-	mwalle@kernel.org,
-	m.othacehe@gmail.com,
-	Max.Merchel@ew.tq-group.com,
-	tharvey@gateworks.com,
-	quic_bjorande@quicinc.com,
-	geert+renesas@glider.be,
-	dmitry.baryshkov@linaro.org,
-	konradybcio@kernel.org,
-	neil.armstrong@linaro.org,
-	arnd@arndb.de,
-	nfraprado@collabora.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	ping.bai@nxp.com,
-	ye.li@nxp.com,
-	aisheng.dong@nxp.com,
-	frank.li@nxp.com
-Subject: [PATCH v2 4/4] arm64: defconfig: enable i.MX91 pinctrl
-Date: Mon, 18 Nov 2024 13:15:41 +0800
-Message-Id: <20241118051541.2621360-5-pengfei.li_1@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241118051541.2621360-1-pengfei.li_1@nxp.com>
-References: <20241118051541.2621360-1-pengfei.li_1@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0040.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::7) To AM0PR04MB7058.eurprd04.prod.outlook.com
- (2603:10a6:208:195::24)
+	Mon, 18 Nov 2024 05:27:00 +0000
+Received: by mail-ua1-x933.google.com with SMTP id a1e0cc1a2514c-856a084088bso1603404241.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 Nov 2024 21:26:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1731907617; x=1732512417; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/Y/5O/DaG+qseUM4co6lv9seYRVyO4Z+4HtVpQlw/vA=;
+        b=Omj7QEYVDWrWxw5zpa8O982FfAiIWKKBtSUezEfPVBiWQW9LKzABCN/+BfHQGM3Rf3
+         Xm7Xo4jYNnAYdluO6MycQVMosvWqXDjnhSfkOG+xxukIzyFh3F02fzlsf+cjE10oyO0G
+         YInykxJPeLz36UnHXgQZIcnZOWSlniV/D6eCI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731907617; x=1732512417;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/Y/5O/DaG+qseUM4co6lv9seYRVyO4Z+4HtVpQlw/vA=;
+        b=IFbWt1gn0TyK6iLHcnJp7dHu5ElIyyv3ADZayRHXRO8nhbBI7viuMiwWVne3ucU8e1
+         UyOMWRX/WagfdtiYNmesSc+uMeEx+Ctx9qQvIwdER/gzA/Lzm5WJtwwuVAz8QpBwvZW+
+         jWqm+xEOjDTiv1kLtK1ASgLS8B+BX4UlhRBX7IIgVZI024T7GcfCUV4E94L7XrTtJKpv
+         izOCJw6tI8PH9K2r2ktxjZX1+BYS/TGcy+n8c4BxyjuR6hFy4E2C3qURKo1to14WRxUF
+         CNxyrJOCPvHwFxa9XuiqZ8a4PjNLyaPcxyEhlyTBWRe20WwqZ+jH41FCUA+eKrzlE5xk
+         xEVA==
+X-Forwarded-Encrypted: i=1; AJvYcCXx7OEZBe6wdrX3lZ2tgqxBy5KnyqyabgBw35EFiU/68EVcWt9WuHSzgKKs7ndEZK4zeoRvoy+ox7BedoZa7rPk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+NFjNCw1/MjAW6jP3cjRTyM6XDn2Z1FavkNnF18SCFHQxfnYt
+	nHwFqBN9YLOjbOi8VnDP5BwSN9mb1o2u99bG/4w3edhmDs8dspS5JOX2NWhu0hjjmjHwmB4udsA
+	=
+X-Google-Smtp-Source: AGHT+IGyK39X3BuoxVBCrow5xSLZOAuSczb84ZTmlyl9+Oz/RCpGl8NIsx4kIcqzwSt28aT4dGCDQw==
+X-Received: by 2002:a05:6102:3749:b0:4a5:e5e5:f929 with SMTP id ada2fe7eead31-4ad630bd9f0mr9157836137.13.1731907616934;
+        Sun, 17 Nov 2024 21:26:56 -0800 (PST)
+Received: from mail-vk1-f178.google.com (mail-vk1-f178.google.com. [209.85.221.178])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4ad64904802sm1012011137.27.2024.11.17.21.26.56
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 17 Nov 2024 21:26:56 -0800 (PST)
+Received: by mail-vk1-f178.google.com with SMTP id 71dfb90a1353d-513d1a9552cso1646677e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 Nov 2024 21:26:56 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWou8W1y/6LvdBLBYgJ6mSZ1oqakVUVoG/MvD34p3cLpZ6Bwvu1FIbcPFrKwJN5LlUCGEFs1zRQUzDU5qhNbozF@lists.infradead.org
+X-Received: by 2002:a05:6122:3d12:b0:50d:6d53:fedf with SMTP id
+ 71dfb90a1353d-5147863e751mr10322690e0c.8.1731907615744; Sun, 17 Nov 2024
+ 21:26:55 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB7058:EE_|AM9PR04MB7508:EE_
-X-MS-Office365-Filtering-Correlation-Id: cb0d50cc-1724-4922-8aec-08dd0790a48d
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PVgOHraS2NDMeKX2mDABIXI8so/ajzxibwvYlvz9IP4l7A9WVjnuoz3KXM2r?=
- =?us-ascii?Q?w1qFR33Ibrl41YZE2E53LX4io23V9SiQZn8fjqe1ZMplIug96POHyW1Mqbnk?=
- =?us-ascii?Q?FB1DbcHnQQo3zZ6Oe9k/hKa874Y0hc26XG6iY2/QsftJ9F6CFpdpJTvtayV7?=
- =?us-ascii?Q?ECJM5npQgHuXRGOM+MohJIc02pGIeY/1Tz324vUWjPXs1c9yWC2smBKDRJg2?=
- =?us-ascii?Q?dozyM43KswYFL9xXpW9y50ERAbe6PZ/j9Y5DO0u+KqOT+ETNksFmKAoxPSH4?=
- =?us-ascii?Q?haXa+uO+tmjfKmDn8hTmySZdM3gPsVSDq+Mx2yLO6ljM2/Ide/20C5WM79mA?=
- =?us-ascii?Q?DZsMqwFiajB9YhwJbM3Ayftu9C+vH5AD0H5YYqNfEaud+vvHnnKx5+yQdOkW?=
- =?us-ascii?Q?cyRTGfHxgk5MBHq5m7svAUzgdckdbuomZiCelal/uzdN2F0QpqvEf96yw8rp?=
- =?us-ascii?Q?i8hLAB59EjOkQmzCNJKe5OVI9QrfE5ttNh1k1HK7+EN7RKmRADLEzpcmooMj?=
- =?us-ascii?Q?5ImWbIhWQqDmHZoy7AGok+0QRgzhN4+8jmmLFBHDuM/zS030zzeH2IcWCsoa?=
- =?us-ascii?Q?mjvLBZGd6TlyHvjSGpkhFxU/g/yJBKNF1NJye1uoxMpC0ztw+q17jlJHuArS?=
- =?us-ascii?Q?q6Ew5wuDeqpnJUA2osztd/KUjP899xvDsJonaCmmQblmfmlSeCVAwJhEEfgI?=
- =?us-ascii?Q?cE5QNaMXmHyt+Vg7/sTEoi77Nj3b8tz8E32elobcosiKsOBG43G1jGx1v7CI?=
- =?us-ascii?Q?LR5OD6PnsD/IFaPotgbzAhinfRH4qzpDSmG3shBVPoVX3KwXGYd6tkEx661G?=
- =?us-ascii?Q?WCxiXYTPdec/RlGqWCH1H5OnbxNpb2nYJFTSqg2SWIRSsoNgXo+RGDXj2MWi?=
- =?us-ascii?Q?Gdz7R6HePuQt+BII3k6sIc0Kt2XUyTai3mgjhfIwqUtdUxCBKqV62ElVDOBU?=
- =?us-ascii?Q?fNSWpStElzziimWIDoJdcjWrTFXuGDzaAIuwyLujO3emU1wjiGumF+yZwp+e?=
- =?us-ascii?Q?UvV9UZpk61XTrK/rJTZUbF3Wt5AgkfvMdAaP/8oPpvSUkrZb6ylc+DVRm+C6?=
- =?us-ascii?Q?jLNI1NTY52CbxYcc3BZ5CC2s2DAwO8SAFMfSjphJVWpGOQF+io8kAg5+ad9g?=
- =?us-ascii?Q?+QlKa4+7G7FX2TJwD+WnXdPfKY26wQmUw1h8LOdBCgzLsAhUjakKp4/fU+wU?=
- =?us-ascii?Q?gp/cshkcFd/6mfsqkUmL1WO077PJhssSUM6fDERsQ0VaMfRd0h+XlmiyzaOu?=
- =?us-ascii?Q?qMkUpG00lj+m1z56DidVmpSePy5muKp6LXuI36K6qWeoHcWmlapdyTw6i0Z9?=
- =?us-ascii?Q?omJTNCEulIqt3t+5fboZW4AKCFWI/4BTJw2rJWmijwG43Ey2ED0FgbcFOXnd?=
- =?us-ascii?Q?ZrlzBv8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7058.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mXAXfi6kMix/kJrNApmMs4qFH8gNE6TIaHdxgO79xhTQ/2f73Kj9J6IHPsNr?=
- =?us-ascii?Q?ozeY37PiqvlYj1Q/zzdqlehnsBmqYHHogYitv23zbnU9dNghnBqBnA5Ns26g?=
- =?us-ascii?Q?OND1oa9v74RbbRq8NV3nK2rXRjC4oGb5q2IPrNswZbOKF2BTuUd1OSdV4/Wj?=
- =?us-ascii?Q?IbTGmU1egQsps0LJVwek4tdj2pRr5VDpeDQKhn/h20nC0vdDvx7fEVASda6h?=
- =?us-ascii?Q?igNBcNchohCFQxIeSwMuO1LNIVAapT/phwUmVPyhuprtDPFgQYMLIRfFngob?=
- =?us-ascii?Q?XcePCSy8ja+wrPpvIYuwEOnX6PvAOjCh4Y3RWDeBpHcUyAtBVa31nWntbPvj?=
- =?us-ascii?Q?RMuPeqtznnSW8Eh126XeKWM2EP2xfG/fIKrmwXhXnHKQtu5JogmNZAOEvpEb?=
- =?us-ascii?Q?gfvyu7rfw/MIS4lOXhxP80HowSDG+YLylpCku/z4kAxh7psH850aKr2ouoeG?=
- =?us-ascii?Q?DKHhWVvFpakzn3YZsLfomrvjngnCD6XEHInKq0hkx043MaIeGNaijbtK9wsJ?=
- =?us-ascii?Q?mLvQe3IwUzVXXjoJDDTKwEvJ4VF1Fp3Q/WhnEmf9thQoGnFC/CCsSGVI8uqt?=
- =?us-ascii?Q?iNLajZLOLhhA+jiYwuSuNQ/lGhZD9Xab1+weQ1900k5VHMheSJZzGeDe/Xe9?=
- =?us-ascii?Q?+x5873wbGIPl67grsWfRDT5yjM/jkw0GVusz4ul8dJ+o0bIuFEteKTWY/4LC?=
- =?us-ascii?Q?XrxsqsF57BSxBT36q1hJGh5JwGALN2zRDPm9Z77aEce4vFk7l3Gd1aSXiAYJ?=
- =?us-ascii?Q?sl51iEu0v5Z4IdckJ6aK90vGgpSF/hs+2rtGQ8g2i1xMXaj8O9KSKAwOHNf7?=
- =?us-ascii?Q?7TG/bjphkBGKUNpGrLDaRpONPdJaDxq/M3VAO7r19Ht80HhhN2AgQVfBMB8l?=
- =?us-ascii?Q?n8vyDBR7HZWG2UDi4wAcih1ZWHg84YDAuU33cnXaLSRt6WvOLurn4OFuWIfl?=
- =?us-ascii?Q?Cxd5gXoFuQqYKMWxnpDANIWqBemoy+ZjgwI8ZM+fgy/HYTpQG+9rDApm6pqb?=
- =?us-ascii?Q?bIOapjR0gllgflUkzCSq2UI5RM3So/Mmw1pYNxzG/lhuan5OluPPkVQ2x5sX?=
- =?us-ascii?Q?CSzZEMILcXOG4xh1/1TRxQHJva3CGNzp9DqoolDpd42gHK8G78CGEtG9X4tc?=
- =?us-ascii?Q?4jumgtMtHAXQo3e1im+s+tuQV7P3pmuNU7aEFAqEaZtzei1iYlmQ47kMthpX?=
- =?us-ascii?Q?8ecfabZyNfwaQu8C3MGFfHT34BkV4NJ+pEcZfBqRLD1/KhQX06prb7+k8SKy?=
- =?us-ascii?Q?zS80VeuuXRtx1y/a2IQ29dMwF/RhuzYBciYuMyjBxEOA1ZXOjBhiDm23CGLy?=
- =?us-ascii?Q?izznQ5iAolyrqAyh0pH/XRfzL0qWjSDabCVP0Pg6AgkJWcll4F2eIAu57nH9?=
- =?us-ascii?Q?eFZmn01ZkMQG/rvnn3Y45ESi1oMFM9p1foZW4njQxErHk5C5dutfSYuWaEDP?=
- =?us-ascii?Q?LNbeH3stkYtkMviJeZ/N6CcB5VHZ2RVmVZh47yuwSmS71nAAfNjFG5/faFQd?=
- =?us-ascii?Q?6xPx+jOEqkr6r/HXQuGwUj9bygIf9kRXztkmTI0CwFqFL8uB3QSfSnaNfRwP?=
- =?us-ascii?Q?FiE6N2HTNjQHCTtNEim3vNbxfMueq8Jzusvz9mp4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cb0d50cc-1724-4922-8aec-08dd0790a48d
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7058.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2024 05:19:57.7311
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /sdooHqKt9r6zO5uaw3McJrwImJwKXITuQIXlyLGMC5XHz8qM6OU9SB+2y1oq2YyOE7Mh3qhsVawAI8t7GaO6g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7508
+References: <20241105093222.4055774-1-fshao@chromium.org> <20241105093222.4055774-3-fshao@chromium.org>
+ <b66dbf9e-b35b-482c-9eb7-112ef1f398d6@collabora.com> <CAC=S1ngozo11g1vF2jnHjTLcNmP8tOMsQhK+LR0QWqoeXwSJjg@mail.gmail.com>
+ <59f4bcc1-c752-4f2f-8e55-349cc2432b8a@collabora.com> <CAC=S1nhhfwHU5K5ZyUhZBhvz38LOZGLnGN-Rc1ZAup_VTfkpvA@mail.gmail.com>
+ <CAC=S1nj5PVJ=zwZiBLoOCHzsspaRw9ddAH_dXfPayD=LyW5wNA@mail.gmail.com> <545b6db8-c7d7-4a28-a040-12088f9002df@collabora.com>
+In-Reply-To: <545b6db8-c7d7-4a28-a040-12088f9002df@collabora.com>
+From: Fei Shao <fshao@chromium.org>
+Date: Mon, 18 Nov 2024 13:26:19 +0800
+X-Gmail-Original-Message-ID: <CAC=S1nhX88aaQ6dusab1qM2_noaSjTMdhJ9t5o4L_Nri9dWPVw@mail.gmail.com>
+Message-ID: <CAC=S1nhX88aaQ6dusab1qM2_noaSjTMdhJ9t5o4L_Nri9dWPVw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: mediatek: Introduce MT8188 Geralt
+ platform based Ciri
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241117_212000_862313_BE2DB99B 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241117_212659_011240_D0013CB7 
+X-CRM114-Status: GOOD (  47.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,26 +103,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable i.MX91 pinctrl driver for booting the system
+On Thu, Nov 14, 2024 at 6:09=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> Il 11/11/24 08:10, Fei Shao ha scritto:
+> > On Fri, Nov 8, 2024 at 12:11=E2=80=AFPM Fei Shao <fshao@chromium.org> w=
+rote:
+> >>
+> >> On Thu, Nov 7, 2024 at 6:37=E2=80=AFPM AngeloGioacchino Del Regno
+> >> <angelogioacchino.delregno@collabora.com> wrote:
+> >>>
+> >>> Il 07/11/24 07:58, Fei Shao ha scritto:
+> >>>> On Wed, Nov 6, 2024 at 9:19=E2=80=AFPM AngeloGioacchino Del Regno
+> >>>> <angelogioacchino.delregno@collabora.com> wrote:
+> >>>>>
+> >>>>> Il 05/11/24 10:30, Fei Shao ha scritto:
+> >>>>>> Introduce MT8188-based Chromebook Ciri, also known commercially as
+> >>>>>> Lenovo Chromebook Duet (11", 9).
+> >>>>>>
+> >>>>>> Ciri is a detachable device based on the Geralt design, where Gera=
+lt is
+> >>>>>> the codename for the MT8188 platform. Ciri offers 8 SKUs to accomm=
+odate
+> >>>>>> different combinations of second-source components, including:
+> >>>>>> - audio codecs (RT5682S and ES8326)
+> >>>>>> - speaker amps (TAS2563 and MAX98390)
+> >>>>>> - MIPI-DSI panels (BOE nv110wum-l60 and IVO t109nw41)
+> >>>>>>
+> >>>>>> Signed-off-by: Fei Shao <fshao@chromium.org>
+> >>>>>> ---
+> > [...]
+> >>>>>> +&pmic {
+> >>>>>> +     interrupts-extended =3D <&pio 222 IRQ_TYPE_LEVEL_HIGH>;
+> >>>>>> +};
+> >>>>>> +
+> >>>>>> +&scp {
+> >>>>>
+> >>>>> Is this SCP-dual or SCP?
+> >>>>> I see SCP, but I also see a SCP-Dual memory region... what's going =
+on here?
+> >>>>>
+> >>>>> Of course, the SCP-Dual won't work if you don't override the compat=
+ible string...
+> >>>>
+> >>>> To clarify, the second SCP core is used for MIPI camera in downstrea=
+m,
+> >>>> and I deliberately only describe the first SCP core here since the M=
+TK
+> >>>> camera ISP driver isn't in upstream at the moment.
+> >>>> I had a fixup patch for removing the scp-dual reserved memory region=
+,
+> >>>> but likely it was missing during the rebase... let me check again if
+> >>>> it can be removed, just in case there's firmware protecting the regi=
+on
+> >>>> and the kernel shouldn't access it.
+> >>>>
+> >>>
+> >>> Hmm... but the second SCP core can still be brought up, even if the M=
+IPI Camera
+> >>> driver is not upstreamed yet, right?
+> >>
+> >> Well, that's true... and it should pave the way for validating the
+> >> driver with the upstreamed DT whenever that becomes available.
+> >>
+> >>>
+> >>> That shouldn't cause lockups and/or other kinds of bad behavior, and =
+should
+> >>> bring up a core and just never use it, without any particular issues.
+> >>>
+> >>> If we can enable the secondary core, let's just go for it.. as that w=
+ill help
+> >>> specifying the exact memory layout of this board (and failing to do t=
+hat may
+> >>> create some other issues, that's why I'm proposing to enable that eve=
+n if it
+> >>> is not really used in this case).
+> >>>
+> >>> What do you think? :-)
+> >>>
+> >>
+> >> Sure, that sounds good to me, too.
+> >> I started only with the essential DT bits to ensure the device can
+> >> boot, which it does, so I guess it's time to bring that back. I'll
+> >> incorporate that in v3.
+> >> I plan to fix up the single SCP core node to SCP-dual directly, so
+> >> please let me know if you prefer seeing that as an individual patch on
+> >> top (either option works for me).
+> >>
+> >
+> > In fact, I noticed that it seems to require modifying mt8188.dtsi (and
+> > potentially mt8390-genio-700-evk.dts) to support the second SCP core,
+> > but I want to avoid doing so in this series if possible to keep this
+> > as a pure new .dts introduction (if that makes sense).
+> >
+> > I can think of 3 options here:
+> > 1. I resend this series *with* the single SCP core enabled in
+> > -geralt.dtsi. And then I send a follow-up series to introduce the
+> > second SCP core and update the affected .dts{,i}.
+> > 2. I resend this series *without* any SCP cores in -geralt.dtsi. And
+> > then I send a follow-up series to introduce both of the SCP cores at
+> > once, and update the affected .dts{,i}.
+> > 3. I delete the parent (mt8188) scp declaration and re-describe the
+> > dual-core SCP structure in -geralt.dtsi. This avoids touching
+> > mt8188.dtsi and mt8390-genio-700-evk but leaves the dual-core SCP
+> > stuff exclusively to geralt/ciri. I don't know if MT8390 wants to
+> > utilize the second SCP core or not.
+> >
+> > I guess (3) is less likely what we want down the line, but that's just
+> > for reference. Any preference/suggestion?
+> >
+>
+> I want to verify with MediaTek whether the Genio 700 EVK can make use of =
+the
+> dual-core SCP first, as it is highly possible that it indeed can and, if =
+that
+> is the case, counting that any product development would be anyway based =
+on
+> the EVK.... we will probably never see single-core SCP in MT8188 devicetr=
+ees
+> ever again.
+>
+> Please send the Geralt/Ciri devicetrees without SCP support for now, so t=
+hat
+> we can get the vast majority of the code upstream - which anyway is likel=
+y
+> 95% of what you have right now... then I will either notify you for how t=
+o
+> proceed with the SCP (especially if I come to a conclusion before you sen=
+d
+> the new series), or I will just send the SCP DT series on my own.
 
-Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Noted. This is currently on the back burner as I have other tasks at
+hand, but I'll get back to it ASAP (hopefully later this week).
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index c62831e61586..82dd0875052d 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -592,6 +592,7 @@ CONFIG_PINCTRL_IMX8QM=y
- CONFIG_PINCTRL_IMX8QXP=y
- CONFIG_PINCTRL_IMX8DXL=y
- CONFIG_PINCTRL_IMX8ULP=y
-+CONFIG_PINCTRL_IMX91=y
- CONFIG_PINCTRL_IMX93=y
- CONFIG_PINCTRL_MSM=y
- CONFIG_PINCTRL_IPQ5018=y
--- 
-2.34.1
+Thanks,
+Fei
 
+>
+> Cheers,
+> Angelo
+>
 
