@@ -4,73 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BE5ED591B1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 20:08:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4079AD591B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 20:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ndSoR+0OhUwkKwnTH5YxnYyz2I37z5cHRZE/CYVXZMA=; b=0jInCE0nVk3stm9QsxWaA17IL3
-	WioJZ3k0U+hhLGciGjyqNJqKFDyVKuOSVY2lp/jevjyCXD9tq/yUAgtpfcYefC5RvO8SzHntjU/vy
-	oRJSQZNEMGemYHP7qy2265yFl6Mkcm08LHG0yWcE5dXbLcaiDEsRq2DiW4KzwY/++Uha9GrivQikv
-	iCQqViMMLlJKwzsbjMKbFbkdVhQl4VrollZ+thucaIzPRq+7RyC0cAh5NvGultkzRRKj6K840go6B
-	TvQcW500KuieXorOLAcD4wSwKAcHw+QL1g55IU1X5aQoIabaZfD+aNuQaUEG95E4YUqxwa/sS41cP
-	3TuJN4Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/ctd9rq8+up8tE/cKwovb7rQnGBRkyqQmzuqP/b9Qs4=; b=vXrG5D9dybTGM3Hn+lAk7OJibU
+	GctwcfWI0kALhGM7ADqGweo3tbASx544KcY5zKEnwe+k3VneRD3i/Tg41i4gFbPWMOVx0PV6Tm08J
+	6GQ0R+3dBUuQpdmlgqvpTxq1GnMw36sYZx2OcT7A9gY6pIaQ5nPCqYOR6aTJM1cd//0v3K3T1KbQV
+	MVtkICAZGH+I9kSEs2cFNdL7asYBt6avzDB9B++zDHkRfLXqL8FX3sGD4JTTk69ef8HAMX1T9SCmj
+	X8vi4gOHGZ1kKdWMpjs+83htmlNeOR++PakwUIrmATQrY/QLYsnwLvZ5IAq9bqmYaohYNDP9LugIC
+	yqQkBzZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD82C-0000000AXRb-01nL;
-	Mon, 18 Nov 2024 20:07:44 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tD8Jo-0000000AZ7W-17tv;
+	Mon, 18 Nov 2024 20:25:56 +0000
+Received: from mail-westeuropeazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c201::] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD81G-0000000AXK5-0kSm;
-	Mon, 18 Nov 2024 20:06:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 47504A41BEA;
-	Mon, 18 Nov 2024 20:04:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E787C4CECC;
-	Mon, 18 Nov 2024 20:06:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731960404;
-	bh=BZLFINsMS8pPfEa2wS5Xd+1akLeYv9BQloWJ6y92+qs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p8xchKHWTiB7DLpXpMZ/rokpIHqbjnduyfTKuCNXQEAf8AeSOLePjc+Vz+G2TUAL4
-	 bpBKb6XqAuQNCqFX71br72A+J0DklZhUq/degpMQJQGgb2vb8XA6KKCowg04xS8aP9
-	 9GTvY56pB99209v+dvdbbNjXAb79yBrula6Js7cz390kTxZLT+qxkPy1pYX0HGQq6c
-	 0QVFz2Ighd7iypAIMlF7glyswIWxYg32oKez0Dq9SDXou1+K7vLbJeBLnVe1HGSK2L
-	 kQArLC61iaOrvMcnTbSZeEkWLfCv6VWoAqoktmiFSkES/ka9EAobpzLoBIWgMGz1Qn
-	 quba2HIWN95Sw==
-Date: Mon, 18 Nov 2024 13:06:41 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Tiffany Lin <tiffany.lin@mediatek.com>,
-	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
-	Yunfei Dong <yunfei.dong@mediatek.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Sebastian Fricke <sebastian.fricke@collabora.com>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
-Subject: Re: [PATCH] media: mediatek: vcodec: mark
- vdec_vp9_slice_map_counts_eob_coef noinline
-Message-ID: <20241118200641.GA768549@thelio-3990X>
-References: <20241018151448.3694052-1-arnd@kernel.org>
+	id 1tD8Ip-0000000AYrl-2IZz
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Nov 2024 20:24:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VSVFxc5r25+Ic5kL7dBLlEcLZwxzQQonbTNY+j33RsM8uOwlDWJRI+XEM6JI2Kbf+s9o7hcq+wd2GXp80Q4ARF1ptlqt/J3FwpZS5rPKz68Nl2JsuVcggOeniP90Xm/g9y2Z+C4fv7pe0r8+ETDZHzohz6qPZ+U0ELpaeHrgocDKuxB315vkxv2KUC/le9MPPsIsdEdnXQtbVMY9Go5BPsrqzY87nPQ80lsVpqNUsA4SrDLdQh7/91dyhTBhVYvIdAvsUg6ALRQeS8VMyjGSQJ/aD8ceXkcWF4kMmMyUstXL8AP8c4yrlhOxxLH8JJnI1gywtg7Jlw/uNJHlAejp1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/ctd9rq8+up8tE/cKwovb7rQnGBRkyqQmzuqP/b9Qs4=;
+ b=LBFXh2H0EOB/F6LXV7OtqLNLzB//yS2tk59ERG5ymBwGq522C0fF2hcMhi4Z8HCsTPd5P1NKLbZ0BjWnSkl0Ka2VpfJuPtcTpTsXbCi7N8VXcDkGIwjrIrxHKSgyKA2WElrxk8FCnQyZnvFjsRVDHPOjAYVjRhAdH+flxlKyefbb/Kiv8Gb1ccsaQJMVOJwhB5cFIygE6zawe+3fTAdmE0cau3zfmfpKoP3DGX3nlq8OGrnevh38FfZcVmn9Qoi6J4C8SjwrmCs/FyLFBNM3xq39YiLY7D5UtiAOjgTKpv4vTdy/JWj/iM6Btiz0AgBs3eBn21vio6DXaKl2RIWKxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/ctd9rq8+up8tE/cKwovb7rQnGBRkyqQmzuqP/b9Qs4=;
+ b=f2jh6ILOZt1aATYiB09ajOg7z6++xvSmO6u7sNHi8Wrlsfv4PixIQfj/Xd520GyTEFyMUP19jLjVll7QkpBQvpFEWrGCydoF6pogesnJ+GGOlVvbGY8oMnmp1rtd/+rldnOqNK52vRWlQ5YergiL3wx1nHG+35VsBRaE1AMpqy6Kvhvl2ANy3hLnnr7adcxzcj1SNfEQe3osJRY9zzW8mhrMREiTlrXJVwqSwDAxQtwRsnhffpFbD4/f+BPICapxNuwd87FFv6ElBFzVLoG34C8PHJrrVQ7oKeisJYIN0FC+IZc/Tr2CIhzQUTxtOGUBe9OqwIPgl2qA2yQKGAMIDw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB8PR04MB6858.eurprd04.prod.outlook.com (2603:10a6:10:113::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.21; Mon, 18 Nov
+ 2024 20:24:48 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8158.021; Mon, 18 Nov 2024
+ 20:24:48 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v6 0/2] PCI: add enabe(disable)_device() hook for bridge
+Date: Mon, 18 Nov 2024 15:24:26 -0500
+Message-Id: <20241118-imx95_lut-v6-0-a2951ba13347@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAHuiO2cC/23PTWrDMBAF4KsErasyGv1ZWfUeJQRJlhJBYxs7M
+ Q7Bd+8ki1aGLGbxBn1v0INNaSxpYvvdg41pLlPpOwrmY8fi2XenxEtLmSGgAoeGl8vi9PHnduU
+ imgYREzilGL0fxpTL8ur6PlA+l+naj/dX9Sye23cts+DAW4gGobFt8OGrW4bP2F/Ys2PGykmoH
+ ZKTwShjg9fS+a2Tf07Q1E6SsxpcdIGuNWbr1L8TIGqnyEFus/OYk9Vq63TtNvc0uZyCs5hlFrL
+ 637quv8IXGSuAAQAA
+To: Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, Frank.li@nxp.com, 
+ alyssa@rosenzweig.io, bpf@vger.kernel.org, broonie@kernel.org, jgg@ziepe.ca, 
+ joro@8bytes.org, l.stach@pengutronix.de, lgirdwood@gmail.com, 
+ maz@kernel.org, p.zabel@pengutronix.de, robin.murphy@arm.com, 
+ will@kernel.org, Robin Murphy <robin.murphy@arm.com>, 
+ Marc Zyngier <maz@kernel.org>, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1731961482; l=4360;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=B6Qvgai/0tOcMkxFzyH2I0EpTr4YlSqtbUmvgLx2K7I=;
+ b=b8mNdwCrFzqpA3a/97X2FaTJL4EtWmYSaGCNZC3IT3asp13XODoWHbg+IaIdfH64iHXiTTrcC
+ N4MHQi6M3Q9ACF+Db/T6mP48ckB7TwJvLOmPhSHvbcoynNgV/kmNjyJ
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: BYAPR02CA0048.namprd02.prod.outlook.com
+ (2603:10b6:a03:54::25) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241018151448.3694052-1-arnd@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB8PR04MB6858:EE_
+X-MS-Office365-Filtering-Correlation-Id: daa7deb1-20c6-4ca2-5d0e-08dd080f0c57
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RWRFNVpBMDdLL0hhSUVRZXBKWU1ZTlZmNWlDS3lXK1p0WDUxY1NudjRWM3hQ?=
+ =?utf-8?B?VTJpT0dlWldPKzVTQlJsS09iQUE4YlZyWjgyOHJ1TGFSa0VuNzU2SE1IUzdL?=
+ =?utf-8?B?UzN5aTVpL1FmVklKR2hWMGE5WGhjcEh6S2RSdVJueXRLczJpMk93QVJXbkxw?=
+ =?utf-8?B?RlJCbktha2tGSytUT0F1cUNuM2JMb0tvcTcxUC9jSS9idVRKZXF2Wkdld054?=
+ =?utf-8?B?dzFUSDRoVC9rcldJTHlHV3ZYMFJ2bExOcEg1U25qSmo4NmFvdnlwOTFxTDVr?=
+ =?utf-8?B?WGU3RU9yL0xybGtLdjJ2QmZGZEhYYXp3a2k0OC9VeUJzMVNpaThMaGNhc0Fm?=
+ =?utf-8?B?eE52WnBLazdIQnh5QTlNa29uelgzTUxjeitOSXlrRXorM0JjVXZLdkZtRHZ0?=
+ =?utf-8?B?aTk1d0QzWUlGZHg4V283YnhoV0MvWnVEM1pPN2ZFa1Q1NzZ0dGpPS2tJRldH?=
+ =?utf-8?B?WThRMDBrV1RjWnhOZ29vbHNOOWhZVGNmRGxlcTVjNDkvSlFReG5NelJnTkNs?=
+ =?utf-8?B?TUY5QTc1Y2x2cklidDlaY0dnSXRITldkYy9ZMU9FVVVWZ1hwS3Q3cmRRSUt5?=
+ =?utf-8?B?TGdFU1VkSFJlR2VrZEVMQzkrVDNvTUN0cGlDc3dpelZnQ1BGVVl1czRzSDNw?=
+ =?utf-8?B?NHcyaUFaU01yVVZYT3dvTFpBa3dUNWJKcW9MRXg4SUcxUWdlaDV2QTJyOWtB?=
+ =?utf-8?B?QjdJcm5BTk9RbytGYm1rWDNDMThqakhLWG9Jd0FnN1ZsUEl1blZxNDFDTXd4?=
+ =?utf-8?B?L0FYRE10Q1FYdFRBTUdxanNUcHFvR1hQaTRkN1duanQ4MHlCSEpkaDNvdFNz?=
+ =?utf-8?B?WjEzZkFCYS8xNUdWZS9zbHFUMnlsSVRMVTdFL3c1d0F5MjlaeDRiS014Um9G?=
+ =?utf-8?B?ZGgvcHF2S1M5dm52ZnpiQ3dpNXhsUFlmUFBjTDJQNEtrUXJ6aVZtOHAzcGRH?=
+ =?utf-8?B?VzlLZ2NLMU5CTkd6Sm1uZDRPdlBxYUtHV2FSK2lsVGdsYVVCQURZdnh3TE1T?=
+ =?utf-8?B?c250eWRnWjJKVzljMUFlN0xZM2xKR2JNcGN4Ri9OSldaN3BBUTU5OWdRc3pJ?=
+ =?utf-8?B?OHF6VDQ5VFBkbmZqcDg0WmszeEZ6Yk1CSW5BUlM4TWtORTVvaE5reVYzMFpp?=
+ =?utf-8?B?UlBRcHZMeW5TbVZlZUxJTnNlc2MvTERDNWxIWTBHT3RsQjVpa3hDYVROVGFP?=
+ =?utf-8?B?WW5DYS9EUC9GSmNhdThhK1orbFpqb0QxUk8wNUNicEdtWTduWndFdVNLd200?=
+ =?utf-8?B?d3Excks4bzk0aWJsa0JMY2tHcC9RMWFXam1pKzIwRGJrcHpFOFZZWmN2a212?=
+ =?utf-8?B?ajN1d0hodWhhcXVSTVpTblFxOEFhVnQ0YWdCaFlaTkVVVklucFR5dzZMd1c4?=
+ =?utf-8?B?Y2JEYTEzZ0I5bzlJd0pNak9wZmVrTzFNMGtYakx1QkUwYXh1b1lkRGdJMTU4?=
+ =?utf-8?B?eExnMzhBMzZzMkFTQlcwZzN0bFRsT0VPYWdIUExEOEUzY2RWN3ZJbHE4OVkv?=
+ =?utf-8?B?ZnN4dnhjbTV1WU1ia3lOcjFSZm40R2NyTmZnUll4NElERG5lYStaYitSZUth?=
+ =?utf-8?B?ci93RnRQeW9aeGR1bG9MN3VCSjhCMTlOSk01THN2c1pCRURkeVQ3NTJVM0dr?=
+ =?utf-8?B?cllpeHFCSkV6bmVjcGNrUm82Y2RhSFVwZ0p2M1RsZ1FwWVlKNEVCSnRpWjJD?=
+ =?utf-8?B?S3dHcUE0RjllNy8yenNFZFUzM3dkNWZOaGpyeGRTeU9xVWZ1N29kSk10RHg1?=
+ =?utf-8?B?OFg4bXBudGdHb2J0NTQzSnJOM1FGRG1uZFd2RFJVSzBlbVQwdklSeWFoanlT?=
+ =?utf-8?B?TnEyTjJJU2ZnNVVObjFkRUx1a25GakNXMDFPTmdnZGIycktxS1VMNmM0QjQ2?=
+ =?utf-8?B?MzdBWDJhRUZFMER5bVhMLzdRd0N1V2lMRlN6YkF3MFJxNEE9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RzJBNVE5MkJBRzdmTjQyLzAzRU96UGgzQWZ4ckJSOHM1OFRySGZNLzJNUlVq?=
+ =?utf-8?B?U1pLU21JNi9xQnUrWmxEUWhtS0dxLzI2dDIwRisrWTZQK0IvVFdEUEtQeGc4?=
+ =?utf-8?B?dW5hc2RhSHhkZE0vaG44RlAxcExMZThBUU9JaHFYSHltTlk0c1U4WXBBMk04?=
+ =?utf-8?B?QUFjZDVqU0krSkVVZE4wbVhtUFpRaFJNV21KZjBmcmlrcUdtMGRuQXFOempk?=
+ =?utf-8?B?cm1IcXZOWlUrL3kzNS9SdHhKY0ViU3orVXBwdVRRNVVqaG8yWjBuOFJHSVox?=
+ =?utf-8?B?N2JHMjAzeCtHa2tXWlh3bVlZWGxJUUVQZ3M4STd1Vlcyc3dQM2xPUEVLd3dj?=
+ =?utf-8?B?VmFPOURMd0dJSEVvdFdqWFJEempTaVVHaWRiaFQ0YnFJenN4UlFmNUIvN1Vm?=
+ =?utf-8?B?dTFGRjM5Z25tcVREbDdjL1E4SGpnRW5vYmpYY2t6WlNrRkoxWFJBVnYzMC9q?=
+ =?utf-8?B?Zk4yS3ZWRUtLa3BHeTNrT3dPNS9teXRWRm0yZDRGeFZRUVF0VGMzVW00UHYw?=
+ =?utf-8?B?YTA2ZnhoRHBXb3FBeFhwNEVxd2sxQUZKbEhWR1hFOEwvZTA1SjB1VE92L1VL?=
+ =?utf-8?B?NzJBUEdDMEI2MUhUb0hGY1pVSkl1ZjlkTjFGbGRhOVFTd3BHbFoveGVYTkxR?=
+ =?utf-8?B?WjN5V0VKV3FxWGpmb2JLcjhRSzhoOFJIYjZ1ZC9SKzFGcnA5ek9TTXR1TEFs?=
+ =?utf-8?B?TjhWY00xanBQc1Z2TTJ2NzdaSGQ2d2JIa0JuZ08wdDVaSnZ2dzB5VU5mNmNF?=
+ =?utf-8?B?Qmx4czhOY3hERDNXU0E0QklZcVZzVGxaTHkyN3RDTTRmM25HSHltN0ZpTW04?=
+ =?utf-8?B?UkhPdlZxVXM1QXQrd3pDUEI3TE5jekMzVmtkeG1tQ3VwQXgvMTZmZXFSejlU?=
+ =?utf-8?B?WTRMK09XZlhQMUZVSXpIVTJHLzM0RXdXN3p6dkpUVHQxY0tzQS9GUnZmV29u?=
+ =?utf-8?B?d2RpYnhZSWJsR0tvaGJsc1B6NzkvUUNFV0MveDVaVk5JM2xaTlA0QnByOXU1?=
+ =?utf-8?B?bWpIdGgzeG9Tajh3M1hXNkg0MDRJRE0zYU15UUlqWVJreldmS0U3Qm9xUXAr?=
+ =?utf-8?B?eVZvajB6eDJGWXJNSlR5MEUyUlgveW40dy9tNks0UUFZWWpGbkU0ZXIveXF2?=
+ =?utf-8?B?b0NGMUdjTjVtUkJQbms2N3diVyttUTB0YklzRUZwdUhqaE9YUm51WTJsWWpY?=
+ =?utf-8?B?STh2cDE5OHhoRXVWSzMrRHBOZ0tZckNqZ1c1R2JaYXpub0llNUdtRmNPOXN3?=
+ =?utf-8?B?VkxkZ1pmYVhlczJ3K1ROMFJiaUtDdXd2S0tCM29WUWN6M09xZmtFWmdvSlVY?=
+ =?utf-8?B?ZkNiaFVyNTZJQzQ5TVprTFFyd2thZDEyVHhlUDZJOUpoQUljbSt2dlg3dTJW?=
+ =?utf-8?B?aWFNZ1pucUFGL2RIYW1BajRlYzBMNmNvV1BLb1ZVY2gyZnkyYitQekhmTjA2?=
+ =?utf-8?B?WFNieW4rTkNPaTRUZUlHQ2czcW5iVm1uTkQrUGRZa1VQYjF1bFcrV01JZDgr?=
+ =?utf-8?B?RXZvZ1J6ZE1qaU1kbEF1TFRGVnBRcVNzWjB6K1hQNkZ3c1MvaUVTRll3dEw2?=
+ =?utf-8?B?VkRwdGJ2UFV6U0kvMCtrUXl4R0ZRWk1oNDRwQno2MW92TVFhdWc4QkpVYWcx?=
+ =?utf-8?B?bUdmT0VKcDlkQlV5ZXZFN2xwTTlOKytuYVFwWXVuWmk2cUw5bVBwdE0yMnhu?=
+ =?utf-8?B?c2trM2JSYm56R2VDYUNhMnE4RHVMbU5DN0JiRDNhVEVXbE1LeVhKQW9mTnVo?=
+ =?utf-8?B?UVZSTEVreStWWGFNaXJmbDVaVEtnd1Bvd2xBTkZlQWZSeEZmOEdYcXVYVnIv?=
+ =?utf-8?B?NFI2NGJPM3JJcS9DWHVQUzBjRms2QURuVlFFajBheWdkNHZVMVNFbE1EWHRP?=
+ =?utf-8?B?cEN6b3cyclRVNnUwSDl3ZGV1YXFjT0FkbGtaTStXKzNWdk9PYnh2MEUzOTl3?=
+ =?utf-8?B?Vk1Pbk9aQWJnNHUyTyt5R0ZMcWJkZ0V4cmd0N2RFeEtuYVF3NWdVTDgzc2wr?=
+ =?utf-8?B?blpuejNBMHlIZVRkOTVZR0YweEJyWGgxWkUwTXlnQ0NPc1FpOWo0UXJzQXI1?=
+ =?utf-8?B?RTV4Y0JqRXRrUWFEM3pjdlBOcXlhR0o0L0VjSjJJbFNRV2FDaVBpRTA1QkVq?=
+ =?utf-8?Q?lIes=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: daa7deb1-20c6-4ca2-5d0e-08dd080f0c57
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2024 20:24:48.2306
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yZpuAqTdziX1xf6Vf/Gk80CCZbpGB/ejh+XEdJHCMBjxH5Zhh5Pca8bKtyrHgq1bwhAjlgbU5elf7qam4leZmA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6858
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_120646_336389_62090608 
-X-CRM114-Status: GOOD (  23.55  )
+X-CRM114-CacheID: sfid-20241118_122455_738560_0B085857 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,52 +195,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 18, 2024 at 03:14:42PM +0000, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> With KASAN enabled, clang fails to optimize the inline version of
-> vdec_vp9_slice_map_counts_eob_coef() properly, leading to kilobytes
-> of temporary values spilled to the stack:
-> 
-> drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c:1526:12: error: stack frame size (2160) exceeds limit (2048) in 'vdec_vp9_slice_update_prob' [-Werror,-Wframe-larger-than]
-> 
-> This seems to affect all versions of clang including the latest (clang-20),
-> but the degree of stack overhead is different per release.
-> 
-> Marking the function as noinline_for_stack is harmless here and avoids
-> the problem completely.
-> 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Some system's IOMMU stream(master) ID bits(such as 6bits) less than
+pci_device_id (16bit). It needs add hardware configuration to enable
+pci_device_id to stream ID convert.
 
-Unfortunately, I have seen no moment on my upstream report and this
-warning is breaking allmodconfig builds because of -Werror. Can this be
-applied as a workaround for now (preferrably with a Cc: stable on it)?
+https://lore.kernel.org/imx/20240622173849.GA1432357@bhelgaas/
+This ways use pcie bus notifier (like apple pci controller), when new PCIe
+device added, bus notifier will call register specific callback to handle
+look up table (LUT) configuration.
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+https://lore.kernel.org/imx/20240429150842.GC1709920-robh@kernel.org/
+which parse dt's 'msi-map' and 'iommu-map' property to static config LUT
+table (qcom use this way). This way is rejected by DT maintainer Rob.
 
-> ---
-> I have not come to a conclusion on how exactly clang fails to do this
-> right, but can provide the .config and/or preprocessed source files
-> and command line if we think this should be fixed in clang.
-> ---
->  .../mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c         | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
-> index eea709d93820..47c302745c1d 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
-> @@ -1188,7 +1188,8 @@ static int vdec_vp9_slice_setup_lat(struct vdec_vp9_slice_instance *instance,
->  	return ret;
->  }
->  
-> -static
-> +/* clang stack usage explodes if this is inlined */
-> +static noinline_for_stack
->  void vdec_vp9_slice_map_counts_eob_coef(unsigned int i, unsigned int j, unsigned int k,
->  					struct vdec_vp9_slice_frame_counts *counts,
->  					struct v4l2_vp9_frame_symbol_counts *counts_helper)
-> -- 
-> 2.39.5
-> 
+Above ways can resolve LUT take or stream id out of usage the problem. If
+there are not enough stream id resource, not error return, EP hardware
+still issue DMA to do transfer, which may transfer to wrong possition.
+
+Add enable(disable)_device() hook for bridge can return error when not
+enough resource, and PCI device can't enabled.
+
+Basicallly this version can match Bjorn's requirement:
+1: simple, because it is rare that there are no LUT resource.
+2: EP driver probe failure when no LUT, but lspci can see such device.
+
+[    2.164415] nvme nvme0: pci function 0000:01:00.0
+[    2.169142] pci 0000:00:00.0: Error enabling bridge (-1), continuing
+[    2.175654] nvme 0000:01:00.0: probe with driver nvme failed with error -12
+
+> lspci
+0000:00:00.0 PCI bridge: Philips Semiconductors Device 0000
+0000:01:00.0 Non-Volatile memory controller: Micron Technology Inc 2100AI NVMe SSD [Nitro] (rev 03)
+
+To: Bjorn Helgaas <bhelgaas@google.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+To: Lucas Stach <l.stach@pengutronix.de>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Krzysztof Wilczyński <kw@linux.com>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Rob Herring <robh@kernel.org>
+To: Shawn Guo <shawnguo@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: linux-pci@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: imx@lists.linux.dev
+Cc: Frank.li@nxp.com \
+Cc: alyssa@rosenzweig.io \
+Cc: bpf@vger.kernel.org \
+Cc: broonie@kernel.org \
+Cc: jgg@ziepe.ca \
+Cc: joro@8bytes.org \
+Cc: l.stach@pengutronix.de \
+Cc: lgirdwood@gmail.com \
+Cc: maz@kernel.org \
+Cc: p.zabel@pengutronix.de \
+Cc: robin.murphy@arm.com \
+Cc: will@kernel.org \
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v6:
+- Bjorn give review tags at v4, but v5 have big change, drop Bjorn's review
+tag.
+- Add back Marc Zyngier't review and test tags
+- Add mani's ack at first patch
+- Mini change for patch 2 according to mani's feedback
+- Link to v5: https://lore.kernel.org/r/20241104-imx95_lut-v5-0-feb972f3f13b@nxp.com
+
+Changes in v5:
+- Add help function of pci_bridge_enable(disable)_device
+- Because big change, removed Bjorn's review tags and have not
+added
+Marc Zyngier't review and test tags
+- Fix pci-imx6.c according to Mani's feedback
+- Link to v4: https://lore.kernel.org/r/20241101-imx95_lut-v4-0-0fdf9a2fe754@nxp.com
+
+Changes in v4:
+- Add Bjorn Helgaas review tag for patch1
+- check 'target' value for patch2
+- detail see each patches
+- Link to v3: https://lore.kernel.org/r/20241024-imx95_lut-v3-0-7509c9bbab86@nxp.com
+
+Changes in v3:
+- disable_device when error happen
+- use target for of_map_id
+- Check if rid already in lut table when enable deviced
+- Link to v2: https://lore.kernel.org/r/20240930-imx95_lut-v2-0-3b6467ba539a@nxp.com
+
+Changes in v2:
+- see each patch
+- Link to v1: https://lore.kernel.org/r/20240926-imx95_lut-v1-0-d0c62087dbab@nxp.com
+
+---
+Frank Li (2):
+      PCI: Add enable_device() and disable_device() callbacks for bridges
+      PCI: imx6: Add IOMMU and ITS MSI support for i.MX95
+
+ drivers/pci/controller/dwc/pci-imx6.c | 178 +++++++++++++++++++++++++++++++++-
+ drivers/pci/pci.c                     |  36 ++++++-
+ include/linux/pci.h                   |   2 +
+ 3 files changed, 214 insertions(+), 2 deletions(-)
+---
+base-commit: 06fb071a1aefbe4c6cc8fd41aacd0b9422361721
+change-id: 20240926-imx95_lut-1c68222e0944
+
+Best regards,
+---
+Frank Li <Frank.Li@nxp.com>
+
 
