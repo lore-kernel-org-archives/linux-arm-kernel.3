@@ -4,62 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FDCBD4922E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 14:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56809D4922F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 15:04:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=orMLRxEgPaCVt+DUcYSRwYW0pCq8JjJqS0YZ0bC7OiQ=; b=3yJiMTLc/vOxbqN7Se/TzME+VY
-	reJ+QG3DzR350COblHNK28aQcKe/KYB4SX3ocK3JSvr1B5C1dRFh4pGeB0p8WDI3E8rCPlW8RwTYy
-	7ZqntYEOJ67m08/2PT1K9ODNHGRmI2NG/20tdmHPcVuUTCE26OPo7IzbtSLEJeJX4EQ3zfnmST14P
-	NjnoAzwApXTKLw2e7wVsCsxWbQxdaIbJC9AILDJ+CZOb76CJJ4rRNMmEDGhWDKDcpDAMWXikACGFX
-	bxRXClDTPhry0pGS0WfJFrAz407/ebzZxmfxeg/R4QNUSWq9T54n0kHK56inWBU4KhvyOs5xg7K+2
-	W8/Se/fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pV7qTF4c6gy8Bebla12zHdT3Rs1r7AjWpLzwiE7t0Ao=; b=SBhkY55A6hsCrMaLbv1Tbd7LO0
+	i91UaY+os0lIQC9+2hKz/yXnQ83DM+iKtty5JCHNAp6J9CDGbBs7oKgNcWQ2ZGQGn5VK9A5TKEg2Q
+	mzXQiCEpZgzE7kg2vICYzZNUJmnNf2+YO2DmCmpnViGQG86pEmT8kdqdNg+BNr3SEJuYd8HLEcPQT
+	6p17C5OhLvoBhjtfqDuqPfPR+F+fEFA3HVxsD5vGo6vH2fwP5lOIUMM+pDJdNmTk3jwIpFPZucgkJ
+	oM+LynV1e5HPtH2YsL2mUSuQoFTfOEPrJOSjzWJqygpMJflrrADNj05/i8a4AI1lZbvZX2sBzsRKy
+	1ZzmVAAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD3CU-00000009pyV-2bPw;
-	Mon, 18 Nov 2024 14:58:02 +0000
-Received: from mail-m121150.qiye.163.com ([115.236.121.150])
+	id 1tD3IP-00000009rMA-0kst;
+	Mon, 18 Nov 2024 15:04:09 +0000
+Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD3BX-00000009pnA-2IUi;
-	Mon, 18 Nov 2024 14:57:05 +0000
-Received: from rockchip.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 317a7f35;
-	Mon, 18 Nov 2024 22:56:48 +0800 (GMT+08:00)
-From: Jon Lin <jon.lin@rock-chips.com>
-To: broonie@kernel.org
-Cc: linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	heiko@sntech.de,
-	jon.lin@rock-chips.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-spi@vger.kernel.org
-Subject: [PATCH] spi: rockchip-sfc: Embedded DMA only support 4B aligned address
-Date: Mon, 18 Nov 2024 22:56:46 +0800
-Message-Id: <20241118145646.2609039-1-jon.lin@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tD3HS-00000009r9i-1Dev
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Nov 2024 15:03:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1731942187;
+	bh=Y6IKnnnehrgtsOGYcC4soeo5EMiO1x9gQENuPzItkvw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=qKVE/HsoamW7WBskfH/JsFzqNNnUf/9fRciYOl7BrVHQXChEVo/w4I3wRgSQ5AUAW
+	 Vb4vvj5ITSI/+WNv+Q2iQ2YgzjhvabKGVsAscoMYItGIak7OwlNAzTS6UQVDerSbli
+	 NC2t654mYZuILJ2S2lxjBfPZgTIirWgI1p6S96sk=
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Date: Mon, 18 Nov 2024 16:02:49 +0100
+Subject: [PATCH 3/3] cpu: Remove spurious NULL in attribute_group
+ definition
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhoaTFZCT01PTh4ZSEpOSk5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a933fc6ba8d09d9kunm317a7f35
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6P006SBw*SzIhQ1ELSzkPMyov
-	GBgwCkxVSlVKTEhKQk9KQ0tCTU1PVTMWGhIXVREUFVUXEhU7CRQYEFYYExILCFUYFBZFWVdZEgtZ
-	QVlOQ1VJSVVMVUpKT1lXWQgBWUFDQ083Bg++
-DKIM-Signature: a=rsa-sha256;
-	b=fhKzbRWaLMBVXGi5F1pcCy/LUI0n+JSbCyVA5a8UCaMGcee5HZb4Zw3KEK74/cUF6oOxDzAJB/Mo6VzGT9cTygrEXl87Deas3Xwkx9wSNw/7e1NFRQ/Xtnf5UsA+posFPdKhOsGodusVnV5SmP5C8KpDEs1ICFKYMi+tNV6vXCQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=orMLRxEgPaCVt+DUcYSRwYW0pCq8JjJqS0YZ0bC7OiQ=;
-	h=date:mime-version:subject:message-id:from;
+Message-Id: <20241118-sysfs-const-attribute_group-fixes-v1-3-48e0b0ad8cba@weissschuh.net>
+References: <20241118-sysfs-const-attribute_group-fixes-v1-0-48e0b0ad8cba@weissschuh.net>
+In-Reply-To: <20241118-sysfs-const-attribute_group-fixes-v1-0-48e0b0ad8cba@weissschuh.net>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, 
+ Peter Zijlstra <peterz@infradead.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-s390@vger.kernel.org, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1731942187; l=1161;
+ i=linux@weissschuh.net; s=20221212; h=from:subject:message-id;
+ bh=Y6IKnnnehrgtsOGYcC4soeo5EMiO1x9gQENuPzItkvw=;
+ b=SSps8DBII7qesqAsv+xf0NzLA2Q2RkAGnWvq5dXhTqti/ZR3bY+tTVFcPUvGfpHjOTATQg1/u
+ H3o+/TmtbdRCrrDyEimbS9Q1Keupowt8TUyAnhPOvDjwEHLC8qQl6tc
+X-Developer-Key: i=linux@weissschuh.net; a=ed25519;
+ pk=KcycQgFPX2wGR5azS7RhpBqedglOZVgRPfdFSPB1LNw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_065704_142802_81DA00F1 
-X-CRM114-Status: UNSURE (   9.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241118_070310_484942_1B03F370 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +81,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Controller limitations.
+This NULL value is most-likely a copy-paste error from an array
+definition. The NULL doesn't have any effect.
 
-Signed-off-by: Jon Lin <jon.lin@rock-chips.com>
+Signed-off-by: Thomas Weißschuh <linux@weissschuh.net>
 ---
+ kernel/cpu.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
- drivers/spi/spi-rockchip-sfc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/kernel/cpu.c b/kernel/cpu.c
+index d293d52a3e00e1e8d7c82bdf2f1365bb459f8bb6..f3ee615d2274f161857ef0180454f30b54477cc1 100644
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -2866,7 +2866,6 @@ static struct attribute *cpuhp_cpu_attrs[] = {
+ static const struct attribute_group cpuhp_cpu_attr_group = {
+ 	.attrs = cpuhp_cpu_attrs,
+ 	.name = "hotplug",
+-	NULL
+ };
+ 
+ static ssize_t states_show(struct device *dev,
+@@ -2898,7 +2897,6 @@ static struct attribute *cpuhp_cpu_root_attrs[] = {
+ static const struct attribute_group cpuhp_cpu_root_attr_group = {
+ 	.attrs = cpuhp_cpu_root_attrs,
+ 	.name = "hotplug",
+-	NULL
+ };
+ 
+ #ifdef CONFIG_HOTPLUG_SMT
+@@ -3020,7 +3018,6 @@ static struct attribute *cpuhp_smt_attrs[] = {
+ static const struct attribute_group cpuhp_smt_attr_group = {
+ 	.attrs = cpuhp_smt_attrs,
+ 	.name = "smt",
+-	NULL
+ };
+ 
+ static int __init cpu_smt_sysfs_init(void)
 
-diff --git a/drivers/spi/spi-rockchip-sfc.c b/drivers/spi/spi-rockchip-sfc.c
-index 316e3db88492..69d0f2175568 100644
---- a/drivers/spi/spi-rockchip-sfc.c
-+++ b/drivers/spi/spi-rockchip-sfc.c
-@@ -503,7 +503,7 @@ static int rockchip_sfc_exec_mem_op(struct spi_mem *mem, const struct spi_mem_op
- 	rockchip_sfc_adjust_op_work((struct spi_mem_op *)op);
- 	rockchip_sfc_xfer_setup(sfc, mem, op, len);
- 	if (len) {
--		if (likely(sfc->use_dma) && len >= SFC_DMA_TRANS_THRETHOLD) {
-+		if (likely(sfc->use_dma) && len >= SFC_DMA_TRANS_THRETHOLD && !(len & 0x3)) {
- 			init_completion(&sfc->cp);
- 			rockchip_sfc_irq_unmask(sfc, SFC_IMR_DMA);
- 			ret = rockchip_sfc_xfer_data_dma(sfc, op, len);
 -- 
-2.34.1
+2.47.0
 
 
