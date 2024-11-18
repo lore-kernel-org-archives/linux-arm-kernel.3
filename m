@@ -4,151 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF83CD10F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 02:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 971DFD10F55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 02:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hNTMjPt4AYPGKA9Eesy5gEC3dQkzdfBH+5BtdUNs/hA=; b=EBN0EBYbfTO+tvdxavArjMJJ0b
-	JQRV/CVEAW89q9zHwLK6/CVteLq7+63SbCOUZ8ZjGECHBPpw6SgRyAhJVUkz8cEdrLPVznCYQAY94
-	5Gah8sxD+KDCBeKYT82OiXozbuOVuKP5WfV6tBhChogp1fzT+tFdu/rfUiG0Tij6Yl4zsuagAIvMX
-	JsXdcO6R5k/xh/C2hgz3+rmzOjZj+aryNxogv/xoM6JesPrTB4+pbVfqgg/S/qntgUdT1ilurrX78
-	Cl20Mn1/gB8PvvYsUQjYk1S86Yugo2ql4UCGf1/zsULeg7dMPd48DzYweBUicC8jyW+lMg5TdG5X0
-	tO87L6wQ==;
+	bh=ki8fJJIWNxnS2xxoAMPYMHgwxzquLA7ElLASLJuZBXc=; b=w9vlJsGNYMJ+gZ3YGuBMJPAenT
+	3Ja2XK2joGesWSmc8jEVQqT3kRqjEov5Ad7x/cfOobNkF5kobDDStO6vbmlByrbiFj6be4ff2eGRf
+	DRmPojk0GRKtxfw7wJzqzgxBUHHnu63fLCuMc1H5qprXOHhUbgvmDNiW6feOce05GM3oVTTcN/LQh
+	yVqv7gjXtPPJqpclpmU1+dpcLRj3whvp/EljpldKvuuRVl71/mNdHT9ul8/2/tLodoXYx7OcY0wVj
+	DLOVU0eZrK7ryFI18iOq71pQE1NAh+gLhBdASD5ywRCW6Sy7A/1QArWH/aVnsM7ZxY07EiE0b0XOF
+	hFighdzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCrN3-000000089PZ-0EsL;
-	Mon, 18 Nov 2024 02:20:09 +0000
-Received: from mail-am6eur05on20631.outbound.protection.outlook.com ([2a01:111:f403:2612::631] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tCrsP-00000008BSc-3sCT;
+	Mon, 18 Nov 2024 02:52:33 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCrM6-000000089HO-3kpG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 02:19:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WOCNQ6LYrtFw0iLe6v5hcOUSGK+zx4J7IPN5fEo/GT3AQ8PYBio+XcELdaB3oAK3RpBUyU4P8cXB14NF5C80q0gm2lkirLEWEtwiG6kUcDKRYh+PfAOp/SBXKuPKSpntPTpsbuaOZm7m4y4bed7ZmzFxNMOyxPM6xowHAtqRra4oE6RlYUO7rLs4H4kE6s40nZyEr7j90tdmeB6sWBp7Nf7L9uL7L9UVKSo5JJMYycwpEb0thw9hxkD+xx9XKUSiVM0lgTanqhGpRKmN1YNMkcof1jUxyFWG0tJ57P95sKASMSKVEZGfPvuGebRfj1yLcPC6OqdsJOSf2u2NunE8cg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hNTMjPt4AYPGKA9Eesy5gEC3dQkzdfBH+5BtdUNs/hA=;
- b=VK9RHQ0aSNT0Ob25+Wr3vTmFPzD/lFddHsWeb6hcY7/IyZ3xBWLhGL0IaF9ymmRZpoaW39/esDFaF5FiJS4yxbd/vQMDYX/6Lkh8hVrS8lNN2b+u9yzrbo3y8go5tFc/w7jDA5/9DG0hjNhTuew6P0sFUGq58xaPAUzHhPGVuWX5nKeTiw7Dp1oQaog0EFJL8/4QBJ4b39BqBTDGOf4Cnf91IgVuY7CiqbTUy5Llu9TT2UbaunkfUvXTty2YxbTOFojSHwhcuBJGrAlZ3lROry2ZzNI8huaUjDqHzO4aKYu/HBCQ7bS8S39zU5Lht0l8OQFHKPPbm8afXzHmbA7AYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hNTMjPt4AYPGKA9Eesy5gEC3dQkzdfBH+5BtdUNs/hA=;
- b=C4ae/oWr/HtzzDvQ52ffTXp0tRWAlCCDc6y4FzxyQshkhC7R3kQnfHAWJuWlGOKxwcQkFeiBOcxkr204RYdPDBY5ES8VntDjgKPXiXCuqmQFsR1aBIMacSzMY375o2SoeUFMbs+Up4Ghctm7FfuFya6muj1sE7j3/8UiVY6pteiORQ2r3RO2SYyfD56wu5HqwGlwAcsQ3R925bs+qrFTNEpXSPJP/8U/yh0MK+oxttOzRKuw38mf8OBc28R9F4n2tRaawXnPzVoqmRaKkmfv7h3XcOQfPAXKiK3CLqtOq245w8PXb3TWq/UZrF/kI6WQL5ZIvXHBqoIxzTvSVNUJzA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com (2603:10a6:102:242::11)
- by AM0PR04MB7009.eurprd04.prod.outlook.com (2603:10a6:208:19b::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.23; Mon, 18 Nov
- 2024 02:19:01 +0000
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::6979:311a:bf0c:1a49]) by PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::6979:311a:bf0c:1a49%5]) with mapi id 15.20.8158.021; Mon, 18 Nov 2024
- 02:19:01 +0000
-From: alice.guo@oss.nxp.com
-To: alexander.stein@ew.tq-group.com,
-	wahrenst@gmx.net,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"alice.guo" <alice.guo@nxp.com>
-Subject: [PATCH v6] soc: imx: Add SoC device register for i.MX9
-Date: Mon, 18 Nov 2024 10:17:16 +0800
-Message-Id: <20241118021716.396001-1-alice.guo@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0021.apcprd02.prod.outlook.com
- (2603:1096:4:195::10) To PAXPR04MB9644.eurprd04.prod.outlook.com
- (2603:10a6:102:242::11)
+	id 1tCrrU-00000008BMB-11gM;
+	Mon, 18 Nov 2024 02:51:37 +0000
+X-UUID: 03157042a55811ef82ff63e91e7eb18c-20241117
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=ki8fJJIWNxnS2xxoAMPYMHgwxzquLA7ElLASLJuZBXc=;
+	b=dvlQInZcazLi3AaBZzogLFrk/8PVdzy7o7E2zplx3ib1p5drm5PIBQY1QskMnsUB3BT8JZg23NWmphjhDbN/Y/p6AMMz3M0mFL/nTzDyhcRUb8kkjGmuGo/0xQqDJN5fX/l3wjUPkOPm/jdebe6GAt+uaYtBdnKiUIrGf0zIDvc=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.43,REQID:65358b03-dd6b-4c34-9f60-cfb4fea45679,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:ce19b8a,CLOUDID:3947ca5c-f18b-4d56-b49c-93279ee09144,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 03157042a55811ef82ff63e91e7eb18c-20241117
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 642475642; Sun, 17 Nov 2024 19:51:29 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Mon, 18 Nov 2024 10:51:27 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Mon, 18 Nov 2024 10:51:27 +0800
+From: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+CC: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Shawn Sung <shawn.sung@mediatek.com>, <dri-devel@lists.freedesktop.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, "Jason-JH . Lin"
+	<jason-jh.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, Nancy
+ Lin <nancy.lin@mediatek.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Fei Shao
+	<fshao@chromium.org>
+Subject: [PATCH] drm/mediatek: Add support for 180-degree rotation in the display driver
+Date: Mon, 18 Nov 2024 10:51:26 +0800
+Message-ID: <20241118025126.30808-1-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.18.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9644:EE_|AM0PR04MB7009:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5b476bb4-dfab-467f-a6db-08dd07775d72
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Rh03rhDkGk+lcIYEKAf7eTPYD7iRl6K0bPSqjCwBhRxJJy0KkV9VBLS4B7e0?=
- =?us-ascii?Q?6/az9BWVGER9oBDSwl293czSALwhO8/bRkCzILsrSt45vbyQMYO0eK5plY1Z?=
- =?us-ascii?Q?Qy9RsHZkWz39dbRLls3+WSVSmbLD6EouWCWV3LLfiIVKJSaYEQWMyYvhYglZ?=
- =?us-ascii?Q?dGhzYwgxJjHlaJkcxOP+zAiaz2RpGsTZz0wXx0BpXgPn9IXOa5bY3dFLBG0/?=
- =?us-ascii?Q?5Puey9Lys+ov4aA0NRInAozfHskQ7G+d7wBtbEyLzJKzWlFB35ccAkC3qFrp?=
- =?us-ascii?Q?pGrmBtQf3LiF266rSnGUde4I4zH/kVasnML6cIc9QwIYrIdmFQsCZG/JM+G5?=
- =?us-ascii?Q?NHUcQKFGasAIV26I4JOOpTAUOHPN3aaPhQUh8PufYRKF9lFQdKyMDDTSF9GG?=
- =?us-ascii?Q?bTGfhdYD/6zSpCGKGeDHQ9jdXLawvnVMJFLGV1idwX3KELhMFEnp0XIXXk74?=
- =?us-ascii?Q?4w5KvOf17KqXDoJ3hI+A8SwbD06XwwFkf7frY2qvXsApNOqoHqYcIIWJxgJP?=
- =?us-ascii?Q?0hTp4FPZNceKWjy0FRsUqvaSC9V7zEdumfXGjmqYBt7lqsfPmXnngg9W9Tjm?=
- =?us-ascii?Q?zHoG5hqelN4KA40rjr0wQ7O7T/O4jhAoJmkcaQPh5en0t4VU4T2Vj8besNJO?=
- =?us-ascii?Q?OrEIqVsu2JqeHJZ2DnKqSbJLh2kYrR22USbjJqp4M+Mf0MZCIv4NQ+jkbJVW?=
- =?us-ascii?Q?qsuldAqxp/FmzEmXM6+WW1iPZ8ovUYcHwJNITvcCjiIfLHd8CgMGLMHanojt?=
- =?us-ascii?Q?pzBJowxRvHWRQ8wG8rd86/moWGASV6At6AilJuZ1jZSoa85Wi3qQUyTliYeU?=
- =?us-ascii?Q?xmhw+tsysl42hFbonZ39nbgfiMrmQ/Z78ukB8lHgCvyrumlooNk6p2D8xi81?=
- =?us-ascii?Q?C9GQ9g5cO88U3Ns/lWYD/hH6HegtPonvpxgTrpPlgvir3+9WBnUtDTh7H/Kg?=
- =?us-ascii?Q?gT9q9kukRd+H3WbWm3x14AlYUJ3FYk5puWXJtk5k/TV5dYnLBuiTXu0ijj3w?=
- =?us-ascii?Q?/RPFcGOlvCxPuoZbd9wiCDYCV1rvTgtB7hiNQpGNTF/pwIGC8wvc9u15+mRg?=
- =?us-ascii?Q?OM+3gif3P+JI8ICWxjo4Z0LmmzUEsdFDzJH8hf/2JyRIIEutuySIv3HiYm7Y?=
- =?us-ascii?Q?pDcVRXEkgzfG2T56jjzdJWmGTFwnuD7Fa80i3Ij5a3moCOQXtqlFAPwyjsMb?=
- =?us-ascii?Q?XiQJcr2L5f5TyiWAlpHvOhoUGClRA+3klCxsXQf2VpDGqm1OOXrE5DBPuk1L?=
- =?us-ascii?Q?BsYmztCVBQXygzm69pmazNA+b7O9PK9NlBX4IO6dx+lx7detrN3/B4JbEQIM?=
- =?us-ascii?Q?RqABW5OgsZBH1ZiqkiRdbUwQfY8/1JE2iA1lijGw/I2YuG6ImpfRwP5M7jLb?=
- =?us-ascii?Q?XZi+jSg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uSw7Er7BdeDhI0yjwjHu08rvmDGzRdZW9AQ9/xdFLGd5bXl9aVgIIQYlII4m?=
- =?us-ascii?Q?miTK+3Fqqo0VXHqXaSTKLw7FLoe3zhxHzhoIwMw2WzJM+rDwY6uEE4CqYKdu?=
- =?us-ascii?Q?6kuEgH/J2I2X3YRrDEohzZ2pvmY4aKg/puvGQdZBX4NlBkETiYxsx07nFHef?=
- =?us-ascii?Q?eLBqjQFOPLtwHku6C3P5Y5NkQF2umbAa6ZcdnuO7nIc+y1Ez5VKCx67n9sbA?=
- =?us-ascii?Q?sdPRsdlEvCDxpGvZ9NQC9epH2wkINb7QjlDkRRWJs1YMbpOhSRUUKOkODU6u?=
- =?us-ascii?Q?/JgAkPiMy9dEJxXzb52BGqPGjIg1PYr6QcQ2jVLPWRDKW0Yd+7+EVVagZsI0?=
- =?us-ascii?Q?cCLWSSeHAER/Jd9XlbHl8Pjdvukclj8M2S+o9TwNF2CW9q1Wq7GG2kR0JGHd?=
- =?us-ascii?Q?hdBi32cqsMVjcUB8xj43GhKzwqxNOY63d7Ca0ucdBFHJTQ1Ybu80ExbnjbaI?=
- =?us-ascii?Q?rNftK3Rj9Nwx1OSjupFZjx5rWZuwceJbxSJVRW8sc4zlSyrNB8Krs+B8NTXp?=
- =?us-ascii?Q?eIsi+ShWxOFRsHjM5QiOnnsH3BIm7D4F66KC0sGsurCrgaQmjJX70gj7Sjzz?=
- =?us-ascii?Q?+AlafGhpmr0k4d2E6VwA3id/HsDijskl1XE9vsy85vcZc6OEKmulizIFtOQY?=
- =?us-ascii?Q?Who62rIAj38QGcS3Xpi5o+WftoI9ZU5jJS6NVn25bheVGDcb2Mnon56CfI86?=
- =?us-ascii?Q?KnaVrA2Ye8likLfwRAC8f2H9zGSNfidpBrqjOJDKzdMtmZFg2oxzI/zerzZ6?=
- =?us-ascii?Q?ZnWOc0eyt9mvWClOuZ7zYsXGUrsTX70yFNvPEojGj4MUi4yEWMHKsO3F8sDC?=
- =?us-ascii?Q?ATn1lAPTDnD6Ol8wcH39yIdFZNPOudkZYynbCc5+oRojpkqwg3p0P7/v9Oq3?=
- =?us-ascii?Q?l8IvUwjn5s4lMtjnzu681F664ZLKUq0AVmAj1suyPKw/3PDLVmuzutgdyYyG?=
- =?us-ascii?Q?DuqnD2hR7+HItXKJiJnejWreJAURMS5y+9Tl6Kia4BHuD8hEFKXBRL/o+Hnf?=
- =?us-ascii?Q?Exbn+XsCdzQQSf5VsWHPTmZhhJP+gto+aMuOsGChacQeK+zRq7g/rrglSEYh?=
- =?us-ascii?Q?vFLQh0Wlv+7XByQH1PsM0mLvORDwZnMHHu5pQwxQq9BtVN+WFYfgRU3mye7r?=
- =?us-ascii?Q?Mg/OaKpW/99TINsUVPYQ0WtuovBeSvxpYGdbxlC638NBXDFabwf0xtC7WBFp?=
- =?us-ascii?Q?SInM/s1TP+zDoj/OJpB5gZoFHbjoAJzYsKyT/HMizfthij/i486dYtwPAqWb?=
- =?us-ascii?Q?h+yvTQ0fcJphEigHapsCJLn34UGd+63LE4mMcG8Vj2XDTebMN/3uWl0IsR3K?=
- =?us-ascii?Q?Vo9cP2OpUFPMkpjWpwc4l2F0dpHFu1hFbhZA7wLjx80E7BjBhXYDB5eiz3wu?=
- =?us-ascii?Q?sTL5O8IyCAvOhLAectmHj3FkCuACxPgRsVQ/siNHg9WTPS2IFZOPo9jQTA+Z?=
- =?us-ascii?Q?XcJNpH5WXCdlYPZ/dcJiUHEFe3YpzHtu8aDXzxoDuULU4XVVUsFcF800RLdB?=
- =?us-ascii?Q?crtoJB6cnlCdTkCJGcAKXehLiQAiKJdcSGXzDEUplXKfx7eZdiGq+a7cziXL?=
- =?us-ascii?Q?s0u72wVKxDP9A8GoEjQ5939FctujckxJwhNHarvZ?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5b476bb4-dfab-467f-a6db-08dd07775d72
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9644.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2024 02:19:01.0359
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LftIGTWNbCSl+SAD4kTbN7Y6DuWhhZbDGflf50Eam9RnUQmyQg3gHoF79Cy6Jltd/iQ82wfxLqBBL199G15j+w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7009
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241117_181910_960206_92F83C26 
-X-CRM114-Status: GOOD (  22.79  )
+X-CRM114-CacheID: sfid-20241117_185136_291321_3DA2C1AF 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,184 +87,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "alice.guo" <alice.guo@nxp.com>
+mediatek-drm driver reported the capability of 180-degree rotation by
+adding `DRM_MODE_ROTATE_180` to the plane property, as flip-x combined
+with flip-y equals a 180-degree rotation. However, we did not handle
+the rotation property in the driver and lead to rotation issues.
 
-i.MX9 SoCs have SoC ID, SoC revision number and chip unique identifier
-which are provided by the corresponding ARM trusted firmware API. This
-patch intends to use SMC call to obtain these information and then
-register i.MX9 SoC as a device.
-
-Signed-off-by: Alice Guo <alice.guo@nxp.com>
-Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+Fixes: 74608d8feefd ("drm/mediatek: Add DRM_MODE_ROTATE_0 to rotation property")
+Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
 ---
+ drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-Changes for v2:
- - refine error log print
-Changes for v3:
- - return -EINVAL when arm_smccc_smc failed
- - fix the build warning caused by pr_err("%s: SMC failed: %d\n", __func__, res.a0);
- - drop the pr_err in imx9_soc_init
- - free the memory in the reverse order of allocation
- - use of_match_node instead of of_machine_is_compatible
-Changes for v4:
- - fix the build warning: 'imx9_soc_match' defined but not used [-Wunused-const-variable=]
- - add Tested-by and Reviewed-by
-Changes for v5:
- - probe imx9 soc driver as a platform driver
-Changes for v6:
- - use a define for "imx9-soc"
-
- drivers/soc/imx/Makefile   |   2 +-
- drivers/soc/imx/soc-imx9.c | 128 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 129 insertions(+), 1 deletion(-)
- create mode 100644 drivers/soc/imx/soc-imx9.c
-
-diff --git a/drivers/soc/imx/Makefile b/drivers/soc/imx/Makefile
-index 3ad321ca608a..ca6a5fa1618f 100644
---- a/drivers/soc/imx/Makefile
-+++ b/drivers/soc/imx/Makefile
-@@ -3,4 +3,4 @@ ifeq ($(CONFIG_ARM),y)
- obj-$(CONFIG_ARCH_MXC) += soc-imx.o
- endif
- obj-$(CONFIG_SOC_IMX8M) += soc-imx8m.o
--obj-$(CONFIG_SOC_IMX9) += imx93-src.o
-+obj-$(CONFIG_SOC_IMX9) += imx93-src.o soc-imx9.o
-diff --git a/drivers/soc/imx/soc-imx9.c b/drivers/soc/imx/soc-imx9.c
-new file mode 100644
-index 000000000000..b46d22cf0212
---- /dev/null
-+++ b/drivers/soc/imx/soc-imx9.c
-@@ -0,0 +1,128 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright 2024 NXP
-+ */
-+
-+#include <linux/arm-smccc.h>
-+#include <linux/init.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+#include <linux/sys_soc.h>
-+
-+#define IMX_SIP_GET_SOC_INFO	0xc2000006
-+#define SOC_ID(x)		(((x) & 0xFFFF) >> 8)
-+#define SOC_REV_MAJOR(x)	((((x) >> 28) & 0xF) - 0x9)
-+#define SOC_REV_MINOR(x)	(((x) >> 24) & 0xF)
-+
-+static int imx9_soc_probe(struct platform_device *pdev)
-+{
-+	struct soc_device_attribute *attr;
-+	struct arm_smccc_res res;
-+	struct soc_device *sdev;
-+	u32 soc_id, rev_major, rev_minor;
-+	u64 uid127_64, uid63_0;
-+	int err;
-+
-+	attr = kzalloc(sizeof(*attr), GFP_KERNEL);
-+	if (!attr)
-+		return -ENOMEM;
-+
-+	err = of_property_read_string(of_root, "model", &attr->machine);
-+	if (err) {
-+		pr_err("%s: missing model property: %d\n", __func__, err);
-+		goto attr;
-+	}
-+
-+	attr->family = kasprintf(GFP_KERNEL, "Freescale i.MX");
-+
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+index e0c0bb01f65a..cc825c4f2e09 100644
+--- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
++++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+@@ -472,6 +472,7 @@ void mtk_ovl_layer_config(struct device *dev, unsigned int idx,
+ 	unsigned int hdr_pitch = pending->hdr_pitch;
+ 	unsigned int fmt = pending->format;
+ 	unsigned int offset = (pending->y << 16) | pending->x;
++	unsigned int rotation = pending->rotation;
+ 	unsigned int src_size = (pending->height << 16) | pending->width;
+ 	unsigned int blend_mode = state->base.pixel_blend_mode;
+ 	unsigned int ignore_pixel_alpha = 0;
+@@ -513,12 +514,19 @@ void mtk_ovl_layer_config(struct device *dev, unsigned int idx,
+ 			ignore_pixel_alpha = OVL_CONST_BLEND;
+ 	}
+ 
+-	if (pending->rotation & DRM_MODE_REFLECT_Y) {
 +	/*
-+	 * Retrieve the soc id, rev & uid info:
-+	 * res.a1[31:16]: soc revision;
-+	 * res.a1[15:0]: soc id;
-+	 * res.a2: uid[127:64];
-+	 * res.a3: uid[63:0];
++	 * Treat rotate 180 as flip x + flip y, and XOR the original rotation value
++	 * to flip x + flip y to support both in the same time.
 +	 */
-+	arm_smccc_smc(IMX_SIP_GET_SOC_INFO, 0, 0, 0, 0, 0, 0, 0, &res);
-+	if (res.a0 != SMCCC_RET_SUCCESS) {
-+		pr_err("%s: SMC failed: 0x%lx\n", __func__, res.a0);
-+		err = -EINVAL;
-+		goto family;
-+	}
++	if (rotation & DRM_MODE_ROTATE_180)
++		rotation ^= DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y;
 +
-+	soc_id = SOC_ID(res.a1);
-+	rev_major = SOC_REV_MAJOR(res.a1);
-+	rev_minor = SOC_REV_MINOR(res.a1);
-+
-+	attr->soc_id = kasprintf(GFP_KERNEL, "i.MX%2x", soc_id);
-+	attr->revision = kasprintf(GFP_KERNEL, "%d.%d", rev_major, rev_minor);
-+
-+	uid127_64 = res.a2;
-+	uid63_0 = res.a3;
-+	attr->serial_number = kasprintf(GFP_KERNEL, "%016llx%016llx", uid127_64, uid63_0);
-+
-+	sdev = soc_device_register(attr);
-+	if (IS_ERR(sdev)) {
-+		err = PTR_ERR(sdev);
-+		pr_err("%s failed to register SoC as a device: %d\n", __func__, err);
-+		goto serial_number;
-+	}
-+
-+	return 0;
-+
-+serial_number:
-+	kfree(attr->serial_number);
-+	kfree(attr->revision);
-+	kfree(attr->soc_id);
-+family:
-+	kfree(attr->family);
-+attr:
-+	kfree(attr);
-+	return err;
-+}
-+
-+static __maybe_unused const struct of_device_id imx9_soc_match[] = {
-+	{ .compatible = "fsl,imx93", },
-+	{ .compatible = "fsl,imx95", },
-+	{ }
-+};
-+
-+#define IMX_SOC_DRIVER	"imx9-soc"
-+
-+static struct platform_driver imx9_soc_driver = {
-+	.probe = imx9_soc_probe,
-+	.driver = {
-+		.name = IMX_SOC_DRIVER,
-+	},
-+};
-+
-+static int __init imx9_soc_init(void)
-+{
-+	int ret;
-+	struct platform_device *pdev;
-+
-+	/* No match means it is not an i.MX 9 series SoC, do nothing. */
-+	if (!of_match_node(imx9_soc_match, of_root))
-+		return 0;
-+
-+	ret = platform_driver_register(&imx9_soc_driver);
-+	if (ret) {
-+		pr_err("failed to register imx9_soc platform driver: %d\n", ret);
-+		return ret;
-+	}
-+
-+	pdev = platform_device_register_simple(IMX_SOC_DRIVER, -1, NULL, 0);
-+	if (IS_ERR(pdev)) {
-+		pr_err("failed to register imx9_soc platform device: %ld\n", PTR_ERR(pdev));
-+		platform_driver_unregister(&imx9_soc_driver);
-+		return PTR_ERR(pdev);
-+	}
-+
-+	return 0;
-+}
-+device_initcall(imx9_soc_init);
-+
-+MODULE_AUTHOR("NXP");
-+MODULE_DESCRIPTION("NXP i.MX9 SoC");
-+MODULE_LICENSE("GPL");
++	if (rotation & DRM_MODE_REFLECT_Y) {
+ 		con |= OVL_CON_VIRT_FLIP;
+ 		addr += (pending->height - 1) * pending->pitch;
+ 	}
+ 
+-	if (pending->rotation & DRM_MODE_REFLECT_X) {
++	if (rotation & DRM_MODE_REFLECT_X) {
+ 		con |= OVL_CON_HORZ_FLIP;
+ 		addr += pending->pitch - 1;
+ 	}
 -- 
-2.34.1
+2.43.0
 
 
