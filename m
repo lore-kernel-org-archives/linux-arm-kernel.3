@@ -4,59 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA3FD4921E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 13:12:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E11D4921E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 13:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cPZ9rm162er/TnZeptBWDE184JcGib5AQramdw2qhZY=; b=Ra2+bSrKXGQWW8wwrAq0yXyEGS
-	K8HYU2TRLmze6+polbRAGjHrJ58WOdU/25IAY8BIu1tUvcLo6FYL0iH2XEPA5lf+sQnY3WoVaDb02
-	OFqL1EM3K4D6rkHHJB6R5RoBrdnFzqBq27zK9Xck+I1UjffvZOsXwLDrNrWUZ2+2Gbp9fVcHm7NTn
-	YwoyathUh+TY2g54Phz8bTW43oABtWTeHJ7pTxevLOlMY5yKM8NlVorUsu/VL7GDCP4CFqfonsJWk
-	R7dIprnAvHUPVs1vl2NphclUBdkz0f/PO7sUA5AQ24PWCVDb9pyx25lWyDoMKi0vwHJyFx0O3hIAA
-	Um+01/3w==;
+	bh=qw6gtVJUdrXXMRs5xp3KkXtkpAjzUo4QWq4DNgvsSt8=; b=qAoVSg54OwPs93eW9YDcy5Mj1D
+	yo5PDscMrbX8QGqUwx7VGOScALEBzKcKyEl8fdjGtesQTwh1Q8gR2PFBvXfe4Iz+4O5FoGa9eN7aF
+	Jx+yuYnH/cynh4grBSbO31g+INYAsQprDtqyd5vRiowro5tXIpCavvtyMqNz67ujGc8n4XfI6CnqE
+	8WeUyBFnozjwoYb0eg13s4IcL0dU6hWynTZ2SOaHABXm0VpY42k1RhX9Irs+sVzNuv2PHQ4gAo+2m
+	u0Kjl9D5U9TxEr6s/WtamkoCjsKZlYTGsI0uyipGkN1wTSgLh2q66VNVVUGxjtKGYl1UNx/3CdL+d
+	kBo7Wimg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD1YY-00000009WDQ-0Cqx;
-	Mon, 18 Nov 2024 13:12:42 +0000
-Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	id 1tD1ZR-00000009WW9-3PvQ;
+	Mon, 18 Nov 2024 13:13:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD1P5-00000009Tio-0UxQ
-	for linux-arm-kernel@lists.infradead.org;
+	id 1tD1PB-00000009Tp8-2fXu
+	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 18 Nov 2024 13:03:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=qw6gtVJUdrXXMRs5xp3KkXtkpAjzUo4QWq4DNgvsSt8=; b=cYE+IrjIaR0VGZyQa+6dKatJGO
+	33zI7IxgXeSa48hHq19pqDUVWmGLlbCz4WU2Vg9IF22CRwlSJJcb569K2lXRo406YmkBWZJABZQTK
+	OfEWlDDFCDpU9Fuf633Rr4GaZp4ImnogDjSO090hjZ4JvBvfO8DVY+bfW8UzZzA4xcjs0GH4lG5GS
+	6aq79T0r/ZbRrlrZ0tMEnJnKKlJUz5toxT3/Wph1sJaf6MHDsYjkrVBQRGEbFZKpJTCXF8dsttr+u
+	pOE9idGZ33JGgJJWZ943bAtVycJZ4dDiVCZE38yERcub38v8JOgFmWshUo8gZzuNyYT8FM8j7r0YO
+	ayR6wxnQ==;
+Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tD1P6-00000000Dq5-3847
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Nov 2024 13:03:00 +0000
 Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AICKePf029230;
-	Mon, 18 Nov 2024 13:02:33 GMT
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AICK2An027968;
+	Mon, 18 Nov 2024 13:02:44 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=c
-	PZ9rm162er/TnZeptBWDE184JcGib5AQramdw2qhZY=; b=KLmj6G1B62d5vd/Yp
-	lZApZzjFw857dc2BOuEcFjNhS1NCIitB1DUzuFdprxTbc1QIMYrypcrNKZA8tqDs
-	7Y6t19r7f605skEpQgzsNrHpMVH7cITrV3LxXDUraKNchlJrbDhhyAwB1ksoha+O
-	+bQtwW9Te8B8KTgULEw2jTYouZ0oGO23tW3hp3KqPbRLzwF2aXn0R/axLjjqp2tl
-	u4l/h4pE/MCtMwqzTkLF3JSuB8KltzlyLNXal9SJ/cxbfWrojmkQV3fQCsyJav7Z
-	we7Jnhy9oqr78BgUVKR17jZKlHddUvhAMT1LLl9cxsnZVbavUMbalRhBTRrwJW7N
-	DwFLw==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=q
+	w6gtVJUdrXXMRs5xp3KkXtkpAjzUo4QWq4DNgvsSt8=; b=UYlbSBHHo/Cke1amw
+	dtHOqj5DMsL6XcHPPnAAencc2+n9qdg3n2BfMBUpiZNZt+n46J0mly7ed9tE7tkb
+	CYb0x7xihrqe3joGg/Lq7Z4yUCgfpqnyk0L8KO7zk7wIWQwX1qdzS6AptEDc+8x8
+	CtfLXTMnaBu75tZ9JwVECKSoZk+FcktWq3+PRR4ZoDcFyn7Mk+FhuFqDCgaBVJ4O
+	BKdRTXns+dqyK6KSZJahgV2cRWJ6eRuIjSS8TgRkexqlToYl1ZFS/jYUot8aF5oa
+	/j4tDoqKhJcIbgfc1alTodZtBID5Np5yVoXVN94/wf4o36USr6xx9EEytKzZBync
+	h3BcQ==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 42xmc1hmhv-2
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 42xmc1hmj6-2
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 18 Nov 2024 13:02:32 +0000 (GMT)
+	Mon, 18 Nov 2024 13:02:44 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.16.114) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.37; Mon, 18 Nov 2024 13:02:31 +0000
+ 15.1.2507.37; Mon, 18 Nov 2024 13:02:43 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Mon, 18 Nov 2024 13:01:53 +0000
-Subject: [PATCH v2 01/21] dt-bindings: gpu: img: More explicit compatible
- strings
+Date: Mon, 18 Nov 2024 13:02:10 +0000
+Subject: [PATCH v2 18/21] drm/imagination: Add platform overrides
+ infrastructure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241118-sets-bxs-4-64-patch-v1-v2-1-3fd45d9fb0cf@imgtec.com>
+Message-ID: <20241118-sets-bxs-4-64-patch-v1-v2-18-3fd45d9fb0cf@imgtec.com>
 References: <20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com>
 In-Reply-To: <20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -76,24 +91,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3013;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7481;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=DpicsLvRYco/Cskx2EYJLwUk9He6m1kHonPNsF2bICE=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaRbWz2pnuv2+B/H0/LcrAMqPS39Sw3SdGLX3nkSeXav0
- iOdyYx+HaUsDGIcDLJiiiw7VliuUPujpiVx41cxzBxWJpAhDFycAjCRuoUM/+zi5t1WT93/lXu7
- tVJIt95dni9tsoc+1D30mfr0KI/Yi0CGf5ZF5vO9HuXdmPhVrjj44+usm/y7Z/FEx4Zwd35ceuv
- gd34A
+ bh=VAAm9NNUHNCdfIZ/puO043Muv9ZbHxTrP8A3DF7x5Jc=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaRbWz3rkZy6bN+89ed8jKeeMDDbKnpvmu7Cr7c95WO21
+ P2f2M9V1FHKwiDGwSArpsiyY4XlCrU/aloSN34Vw8xhZQIZwsDFKQATSZnGyDD7QOXn+QEie9um
+ rn3uuepReIfg3XdHn8hwBeWr/KwJ1t7MyPBB7MVv9gUNTsp5sqxfq/afOP08YO8fgQ2hx/ICLdM
+ f9HMCAA==
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.16.114]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Proofpoint-ORIG-GUID: 7MkrfIZQhJbBM942VtzARgiKbgOx9A6Q
-X-Authority-Analysis: v=2.4 cv=E4efprdl c=1 sm=1 tr=0 ts=673b3ae8 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=nBKxard2HoEgs5BrZHgA:9
+X-Proofpoint-ORIG-GUID: jpPhY4ad37ebojwRrk4BFu2tbd67bVX9
+X-Authority-Analysis: v=2.4 cv=E4efprdl c=1 sm=1 tr=0 ts=673b3af4 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=NJLOqUG6SynMPaEuFzYA:9
  a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: 7MkrfIZQhJbBM942VtzARgiKbgOx9A6Q
+X-Proofpoint-GUID: jpPhY4ad37ebojwRrk4BFu2tbd67bVX9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_050255_516585_F1D2FB22 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20241118_130257_078016_717102C7 
+X-CRM114-Status: GOOD (  27.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,75 +123,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current compatible strings are not specific enough to constrain the
-hardware in devicetree. For example, the current "img,img-axe" string
-refers to the entire family of Series AXE GPUs. The more specific
-"img,img-axe-1-16m" string refers to the AXE-1-16M GPU which, unlike the
-rest of its family, only uses a single power domain.
+This infrastructure will be used in cases where a specific GPU integration
+or implementation requires some special handling in the driver. The first
+use case is the device cached memory override added in the next patch.
 
-While in this instance there is already "ti,am62-gpu" for the more
-specific case, the intent here is to draw a line between properties
-inherent to the IP core and choices made by the silicon vendor at
-integration time. For example, the number of power domains is a property
-of the IP core, whereas the decision to use one or three clocks (see
-next patch) is a vendor one.
-
-Work is currently underway to add support for volcanic-based Imagination
-GPUs, for which bindings will be added in "img,powervr-volcanic.yaml".
-The split between rogue and volcanic cores is non-obvious at times, so
-add a generic top-level "img,img-rogue" compatible string here to allow
-for simpler differentiation in devicetrees without referring back to the
-bindings.
-
-Make these changes now before introducing more compatible strings to keep
-the legacy versions to a minimum.
+The infrastructure is built out in this separate commit to make it
+clear which specific changes refer to the workaround added there.
 
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
 Changes in v2:
-- Clarified justification for compatible strings
-- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-1-4ed30e865892@imgtec.com
+- None
+- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-18-4ed30e865892@imgtec.com
 ---
- .../devicetree/bindings/gpu/img,powervr-rogue.yaml    | 19 ++++++++++++++-----
- 1 file changed, 14 insertions(+), 5 deletions(-)
+ drivers/gpu/drm/imagination/pvr_device.c | 26 ++++++++++++++++++++++++
+ drivers/gpu/drm/imagination/pvr_device.h | 26 ++++++++++++++++++++++++
+ drivers/gpu/drm/imagination/pvr_drv.c    | 34 ++++++++++++++++++++++++--------
+ 3 files changed, 78 insertions(+), 8 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-index 256e252f8087fa0d6081f771a01601d34b66fe19..ef7070daf213277d0190fe319e202fdc597337d4 100644
---- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-+++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-@@ -12,10 +12,19 @@ maintainers:
- 
- properties:
-   compatible:
--    items:
--      - enum:
--          - ti,am62-gpu
--      - const: img,img-axe # IMG AXE GPU model/revision is fully discoverable
-+    oneOf:
-+      - items:
-+          - enum:
-+              - ti,am62-gpu
-+          - const: img,img-axe-1-16m
-+          - const: img,img-rogue
+diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
+index 52d7641a1a0c62a9c4029092e846472d82950a61..2ce46b9a8ab7609faebeeb4e7820751b00047806 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.c
++++ b/drivers/gpu/drm/imagination/pvr_device.c
+@@ -621,3 +621,29 @@ pvr_device_has_feature(struct pvr_device *pvr_dev, u32 feature)
+ 		return false;
+ 	}
+ }
 +
-+      # This legacy combination of compatible strings was introduced early on before the more
-+      # specific GPU identifiers were used. Keep it around here for compatibility, but never use
-+      # "img,img-axe" in new devicetrees.
-+      - items:
-+          - const: ti,am62-gpu
-+          - const: img,img-axe
++/**
++ * pvr_device_overrides_validate() - Ensure the overrides specified are compatible with a device.
++ * @pvr_dev: Target PowerVR device.
++ * @overrides: Device overrides to validate.
++ *
++ * Return:
++ *  * %true if every override specified in @overrides is compatible with the current device, or
++ *  * %false otherwise; as many incompatibilities as possible will be reported in the kernel log.
++ */
++bool
++pvr_device_overrides_validate(struct pvr_device *pvr_dev,
++			      const struct pvr_device_overrides *overrides)
++{
++	bool ret = true;
++
++	/*
++	 * Where possible, avoid early returns in this function. This allows for as
++	 * many errors to be reported at once as possible.
++	 *
++	 * Note that this function may be called early during device initialization
++	 * so it should not be assumed that @pvr_dev is ready for normal use yet.
++	 */
++
++	return ret;
++}
+diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
+index 76f79b18af354f0e0070530dfc5c8fe0f6a41ce1..ad0a02a37154099542247dfc62f411c10f4e41f4 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.h
++++ b/drivers/gpu/drm/imagination/pvr_device.h
+@@ -16,6 +16,7 @@
+ #include <drm/drm_mm.h>
  
-   reg:
-     maxItems: 1
-@@ -64,7 +73,7 @@ examples:
-     #include <dt-bindings/soc/ti,sci_pm_domain.h>
+ #include <linux/bits.h>
++#include <linux/compiler.h>
+ #include <linux/compiler_attributes.h>
+ #include <linux/compiler_types.h>
+ #include <linux/device.h>
+@@ -56,6 +57,13 @@ struct pvr_fw_version {
+ 	u16 major, minor;
+ };
  
-     gpu@fd00000 {
--        compatible = "ti,am62-gpu", "img,img-axe";
-+        compatible = "ti,am62-gpu", "img,img-axe-1-16m", "img,img-rogue";
-         reg = <0x0fd00000 0x20000>;
-         clocks = <&k3_clks 187 0>;
-         clock-names = "core";
++/**
++ * struct pvr_device_overrides - Hardware-level overrides loaded from
++ * MODULE_DEVICE_TABLE() or similar.
++ */
++struct pvr_device_overrides {
++};
++
+ /**
+  * struct pvr_device - powervr-specific wrapper for &struct drm_device
+  */
+@@ -94,6 +102,13 @@ struct pvr_device {
+ 	 */
+ 	struct pvr_device_enhancements enhancements;
+ 
++	/**
++	 * @overrides: Platform-specific overrides required for this device.
++	 *
++	 * Do not access this member directly, instead use PVR_HAS_OVERRIDE().
++	 */
++	struct pvr_device_overrides overrides;
++
+ 	/** @fw_version: Firmware version detected at runtime. */
+ 	struct pvr_fw_version fw_version;
+ 
+@@ -436,6 +451,13 @@ struct pvr_file {
+  */
+ #define PVR_HAS_ENHANCEMENT(pvr_dev, enhancement) ((pvr_dev)->enhancements.has_ern##enhancement)
+ 
++/**
++ * PVR_HAS_OVERRIDE() - Tests whether a physical device requires a given override
++ * @pvr_dev: [IN] Target PowerVR device.
++ * @override: [IN] Override name.
++ */
++#define PVR_HAS_OVERRIDE(pvr_dev, override) unlikely((pvr_dev)->overrides.override)
++
+ #define from_pvr_device(pvr_dev) (&(pvr_dev)->base)
+ 
+ #define to_pvr_device(drm_dev) container_of_const(drm_dev, struct pvr_device, base)
+@@ -516,6 +538,10 @@ pvr_device_has_uapi_enhancement(struct pvr_device *pvr_dev, u32 enhancement);
+ bool
+ pvr_device_has_feature(struct pvr_device *pvr_dev, u32 feature);
+ 
++bool
++pvr_device_overrides_validate(struct pvr_device *pvr_dev,
++			      const struct pvr_device_overrides *overrides);
++
+ /**
+  * PVR_CR_FIELD_GET() - Extract a single field from a PowerVR control register
+  * @val: Value of the target register.
+diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
+index 1ab97933e14f20ee3fbf603c23b8dde2d33572c2..b56ee2cda9b54c4388a6eef38b0ff81acdb05874 100644
+--- a/drivers/gpu/drm/imagination/pvr_drv.c
++++ b/drivers/gpu/drm/imagination/pvr_drv.c
+@@ -31,6 +31,7 @@
+ #include <linux/mod_devicetable.h>
+ #include <linux/module.h>
+ #include <linux/moduleparam.h>
++#include <linux/of.h>
+ #include <linux/of_device.h>
+ #include <linux/of_platform.h>
+ #include <linux/platform_device.h>
+@@ -1396,11 +1397,13 @@ static struct drm_driver pvr_drm_driver = {
+ static int
+ pvr_probe(struct platform_device *plat_dev)
+ {
++	const struct pvr_device_overrides *overrides;
++	struct device *dev = &plat_dev->dev;
+ 	struct pvr_device *pvr_dev;
+ 	struct drm_device *drm_dev;
+ 	int err;
+ 
+-	pvr_dev = devm_drm_dev_alloc(&plat_dev->dev, &pvr_drm_driver,
++	pvr_dev = devm_drm_dev_alloc(dev, &pvr_drm_driver,
+ 				     struct pvr_device, base);
+ 	if (IS_ERR(pvr_dev))
+ 		return PTR_ERR(pvr_dev);
+@@ -1409,6 +1412,15 @@ pvr_probe(struct platform_device *plat_dev)
+ 
+ 	platform_set_drvdata(plat_dev, drm_dev);
+ 
++	overrides = of_device_get_match_data(dev);
++	if (!overrides)
++		return -EINVAL;
++
++	if (!pvr_device_overrides_validate(pvr_dev, overrides))
++		return -EINVAL;
++
++	pvr_dev->overrides = *overrides;
++
+ 	err = pvr_power_domains_init(pvr_dev);
+ 	if (err)
+ 		goto err_context_fini;
+@@ -1421,11 +1433,11 @@ pvr_probe(struct platform_device *plat_dev)
+ 	if (err)
+ 		goto err_power_domains_fini;
+ 
+-	devm_pm_runtime_enable(&plat_dev->dev);
+-	pm_runtime_mark_last_busy(&plat_dev->dev);
++	devm_pm_runtime_enable(dev);
++	pm_runtime_mark_last_busy(dev);
+ 
+-	pm_runtime_set_autosuspend_delay(&plat_dev->dev, 50);
+-	pm_runtime_use_autosuspend(&plat_dev->dev);
++	pm_runtime_set_autosuspend_delay(dev, 50);
++	pm_runtime_use_autosuspend(dev);
+ 	pvr_watchdog_init(pvr_dev);
+ 
+ 	err = pvr_device_init(pvr_dev);
+@@ -1478,18 +1490,24 @@ static void pvr_remove(struct platform_device *plat_dev)
+ 	pvr_power_domains_fini(pvr_dev);
+ }
+ 
++static const struct pvr_device_overrides pvr_device_overrides_default = {};
++
++/*
++ * Always specify &pvr_device_overrides_default instead of %NULL for &struct of_device_id->data so
++ * that we know of_device_get_match_data() returning %NULL is an error.
++ */
+ static const struct of_device_id dt_match[] = {
+-	{ .compatible = "img,img-rogue", .data = NULL },
++	{ .compatible = "img,img-rogue", .data = &pvr_device_overrides_default },
+ 
+ 	/* All supported GPU models */
+-	{ .compatible = "img,img-axe-1-16m", .data = NULL },
++	{ .compatible = "img,img-axe-1-16m", .data = &pvr_device_overrides_default },
+ 
+ 	/*
+ 	 * This legacy compatible string was introduced early on before the more specific GPU
+ 	 * identifiers were used. Keep it around here for compatibility, but never use
+ 	 * "img,img-axe" in new devicetrees.
+ 	 */
+-	{ .compatible = "img,img-axe", .data = NULL },
++	{ .compatible = "img,img-axe", .data = &pvr_device_overrides_default },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, dt_match);
 
 -- 
 2.47.0
