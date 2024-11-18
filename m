@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8583AD49206
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 09:38:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 603DED49205
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 09:41:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QW2IfhgsXhjkhuWBMY7B99CaNdpS5A7CGa3sZv7P9ac=; b=NEB8hOO1zd4KWPJW+6HSfkaA5K
-	WwSVQ8hGiTboc72Z/R86Gmj4f+8RPc0NNHUJSxok5liOCTORbKU/fThKhC7AXwzYSkFQt7gh5Gx+D
-	umJtVOwzz5sdjJHDIkBsytdASn4zkPMaXmmghOX7Cf8xSsQy/qwHPenzjRE6meCRU1l7PvKWFvfz5
-	GttKV+WUvCJ1NkWwJpsYFfZh4dznRQ3EOkijMBMq0ZoCB7j2MjKabLx9vZ9aAFStc2v2mXAq187CY
-	LNnyWfwGAs5tn/j3i+nZB4IR6CxOwET/mNHeSVV5CC+9rB/XjyMuML+EHoQjiLTmoqjw4aR//6gmi
-	VSVEHb6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sCgDf9HmfpnPuFGw6HgxCSG4fFokGM5DQWc7VQ0OyAY=; b=NUbvP2eHwB6VZKOpk8wbBcqKt7
+	90Fi/50DM1D8C+t6UR2NhmDDQs1DgSEDvg96HIoTYTAe2tnv4ncAjqilLusJPeI/3sR+jDN1ohSSf
+	jXowh9iPkezoyXuX1Jt1U7vxPkng09hpct1LLzzCnIK3uMSoFOW32/6/eWwLK2Aa3FhJSCL3rkCxS
+	XLGC1OYXLG+YrP/HambDob+sOPJXvZjzivgH1U4aAJeYKRxnC9+8295hemXhnt4V1J4CzlUJBJuxE
+	QnuTHAbTQBagh86zWrzCJ7c2zNGdh2q9Nb8roFTVLQ3ci0u5ySY9mHVh/Ebtne34NT3nKxehq2uAa
+	P1vrp4LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCyDF-00000008wLe-0QUY;
-	Mon, 18 Nov 2024 09:38:29 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1tCyFy-00000008wsF-1yKq;
+	Mon, 18 Nov 2024 09:41:18 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCyCI-00000008w8u-3F5A;
-	Mon, 18 Nov 2024 09:37:31 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-71e49ad46b1so2896444b3a.1;
-        Mon, 18 Nov 2024 01:37:30 -0800 (PST)
+	id 1tCyF3-00000008wjh-0ULx
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Nov 2024 09:40:22 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-38231f84dccso1888015f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 01:40:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731922650; x=1732527450; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QW2IfhgsXhjkhuWBMY7B99CaNdpS5A7CGa3sZv7P9ac=;
-        b=OwaBArFn1QgYXqzfBi8l1BXLmITOH7BYyGZ13Kbb0Ii+S8jVMmxx4AF9rVPg0W3rm/
-         ZzUqHO20tWqomsKBJ6GdTphd/i6z6BtCYh1UGv1CvelhMI6IW1euJM1tWOPTzL1KWuL8
-         AfL+VmNIujvODI+jo3gLwmJy/3OOafE3R39cnPCp3p5DS2h6YyBJlejSVEQlzzGMJPTX
-         6nLRFQLmsoC/EksMZkYQ3LQohjnzOsMMvnDby89xivso4Czy+5Ek2YPjM0jxppoGiR8j
-         z+wAyHFeXIMM7+1Upm+69t3cV6qObRe9c7IJfkKW15cGKxGZVQmyLTwjU3lEOmTrJUO/
-         1RZA==
+        d=linaro.org; s=google; t=1731922819; x=1732527619; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=sCgDf9HmfpnPuFGw6HgxCSG4fFokGM5DQWc7VQ0OyAY=;
+        b=UNrtI0p956xaMaybyWqZaboE9bWK6fKc/TEkV7Osywi+x4ltQXjIO7Da7CdtsLC/yi
+         UWqO5kz4UtbTjReS9iU4rSU1e0V9T77PVMOdf/qx+Z2FMc9JXU7DJVqQI4cV9i3Bll0G
+         vst5zbscm6qatXimSoZ4qUt70SVQQiHdpv7EroEDrLl0ttRxHzD4tvQFo2KR3L8njytC
+         mB2t/CUcKPJKOy+GfYxz9vXRyx5JAYolyQwj2wamY5IKna2aKdVAMyzN9UGfzEHtzqkg
+         gHqB5UVGkD4/16uzY0Msg/r+81GUVTzraVDkX3IoTm3e0tYEh/HKNidlfAcLW4ZvXh7V
+         1Eug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731922650; x=1732527450;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QW2IfhgsXhjkhuWBMY7B99CaNdpS5A7CGa3sZv7P9ac=;
-        b=CP+iTTufLEakLPNiHsmEoFFs4X26cxYJFZW7WWr584Mxzh9W7F/+t7JbLvl0oPOB+D
-         oyY/VJfwddwKNfmZnwcTyHzFaZSUQbvl2e+om0l3t1zJhHg98Pmk+5zNaxrlgPRw9CFC
-         2q/glJPDSEccXtsBwCpbE6Bhk4COWBCi0LZKMj59JezxRh8BUpDxo5gVcjDaLRR55svK
-         5/cyh5AXlxsUHTKIPTx5srCC7E+gZzXsK/CQfK5/Uwzy082H+Icb2Zj3qO/dbaEA9X1N
-         3A6FyTiGWV1vz1vA0OQPUsREYskaHaMLmOjmDDhRJ4OO4vSMw3E+Kw9N69gyfCyWifRD
-         0rfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV/TyOTmvULURXH0Jj4QTkPqpkVkcI18maoqRDhEYSdJNu/b2QPMzkZdbnpgn6aS5BjIxiryCrApxsRrnPHSLc=@lists.infradead.org, AJvYcCXNXRqdiIN5bBpS4cs0p1TPMUZW5y76GjPwWedd0l/FwVqVFbzX2vsHBx+XbgBv1Kj/C7YZd2xQDgF5piTDx8qe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yysx16R7nreLYrdr5VJTUIBxE6tbMEN7e939B2hxgvZiErPmcUV
-	tfSgqconfQNVRjCFjwVQKJax1DQ4HbTm4iwat1blWfDTQy9iBjqN
-X-Google-Smtp-Source: AGHT+IFnG8Al6NvOlovgTgrF7vExh8IbHZLAN5WSBXRN88bM7aNfyvAEiT0oobaDYvExVOElAobNIg==
-X-Received: by 2002:a05:6a00:4f8e:b0:71e:7887:81ac with SMTP id d2e1a72fcca58-72476d1764cmr13964427b3a.16.1731922649762;
-        Mon, 18 Nov 2024 01:37:29 -0800 (PST)
-Received: from HOME-PC ([223.185.133.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724772010f6sm5716632b3a.195.2024.11.18.01.37.28
+        d=1e100.net; s=20230601; t=1731922819; x=1732527619;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sCgDf9HmfpnPuFGw6HgxCSG4fFokGM5DQWc7VQ0OyAY=;
+        b=c7qh749K8H2jlEJxBzuFlpKzqotz1l9pKR4/yY769FWqHNi/fL+p0PRVwCCp5wdOnT
+         WzqAEuRJGlSwgcjP6aDnqsk3wxTE/+GCkXoa6A2J4z7EV8KqQEOhLd5MpEzUcJYg0Tet
+         EvJeWHrioL/Q6bTlijo0g0Wn23Vl3P6fw6yziO07jOHQhKW6naWjcfG4KflOnYirC9Cx
+         RU7VHQngCG0G++KmqAO3zsf1psSWL1Yh3igPNgscV8EcDFITE9ilfHrDOBMVjq/07CW0
+         fgAr6ix0NnQ2RQYFGK3375wKnv5yi9wRK460FW+zzpHrjn5+B5HfJYJaaMY2tmFk1d25
+         rDYw==
+X-Forwarded-Encrypted: i=1; AJvYcCWAR6Zf5w/oz+BgvzMlFXUG65YcsfsuDYHE1kUIG/WxodVbNSA02sEh0Lb2bbcU+ZowQ2anpmdpml23lQ4gSxaF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxnx6IaydbbzVhkRtKsc+zEsaqUkjelINQsxaBStUOrkiuw5ZJI
+	TMfOFceA5TdvM7IQmPO+uHBoGPfUtQXP19VZ/y/mb5Bdo2epG5bvn4424g5Vw0M=
+X-Google-Smtp-Source: AGHT+IGHa7gc48NoS0q6ZGoDNAksIkFsU8teJxL7tX5AMyhsKg2Sq4IjQbIZKZWs65VOlUxgPKn/cw==
+X-Received: by 2002:a05:6000:2c6:b0:374:c3e4:d6de with SMTP id ffacd0b85a97d-38225aa8607mr8472740f8f.41.1731922818924;
+        Mon, 18 Nov 2024 01:40:18 -0800 (PST)
+Received: from [10.1.1.109] ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-382456ba017sm3220899f8f.97.2024.11.18.01.40.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Nov 2024 01:37:29 -0800 (PST)
-From: Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
-To: dafna@fastmail.com,
-	laurent.pinchart@ideasonboard.com,
-	linux-media@vger.kernel.org
-Cc: mchehab@kernel.org,
-	heiko@sntech.de,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
-Subject: [PATCH v2 media-next] media: rkisp1: Fix unused value issue
-Date: Mon, 18 Nov 2024 15:07:21 +0530
-Message-Id: <20241118093721.55982-1-dheeraj.linuxdev@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        Mon, 18 Nov 2024 01:40:18 -0800 (PST)
+Message-ID: <939800a57d356771b405de49bc198d33327b4fe8.camel@linaro.org>
+Subject: Re: [PATCH] pinctrl: samsung: Fix irq handling if an error occurs
+ in exynos_irq_demux_eint16_31()
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>, Krzysztof Kozlowski
+ <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar
+ <alim.akhtar@samsung.com>, Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org, Krzysztof
+ Kozlowski <krzysztof.kozlowski@linaro.org>,
+ linux-arm-kernel@lists.infradead.org,  linux-samsung-soc@vger.kernel.org,
+ linux-gpio@vger.kernel.org
+Date: Mon, 18 Nov 2024 09:40:17 +0000
+In-Reply-To: <f148d823acfb3326a115bd49a0eed60f2345f909.1731844995.git.christophe.jaillet@wanadoo.fr>
+References: <f148d823acfb3326a115bd49a0eed60f2345f909.1731844995.git.christophe.jaillet@wanadoo.fr>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.1-4 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_013730_809221_897B7E80 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20241118_014021_159411_C2426AD2 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,30 +98,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit fixes an unused value issue detected by Coverity (CID
-1519008). If ret is set to an error value in the switch statement, it is
-not handled before being overwritten later.
+On Sun, 2024-11-17 at 13:03 +0100, Christophe JAILLET wrote:
+> chained_irq_enter(() should be paired with a corresponding
+> chained_irq_exit().
+>=20
+> Here, if clk_enable() fails, a early return occurs and chained_irq_exit()
+> is not called.
+>=20
+> Add a new label and a goto for fix it.
+>=20
+> Fixes: f9c744747973 ("pinctrl: samsung: support a bus clock")
+> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+> ---
+> Compile tested only.
+>=20
+> Review with care, irq handling is sometimes tricky...
 
-Signed-off-by: Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
----
- drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c | 3 +++
- 1 file changed, 3 insertions(+)
+Well spotted, thanks.
 
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-index dd114ab77800..9ad5026ab10a 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-@@ -228,6 +228,9 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
- 			break;
- 		}
- 
-+		if (ret)
-+			break;
-+
- 		/* Parse the endpoint and validate the bus type. */
- 		ret = v4l2_fwnode_endpoint_parse(ep, &vep);
- 		if (ret) {
--- 
-2.34.1
+It looks like there is a similar problem in exynos_irq_request_resources()
+in same file. It should likely call gpiochip_unlock_as_irq() if clk_enable(=
+)
+failed.
+
+Care to fix that as well?
+
+That said,
+
+Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+
+
+Cheers,
+Andre'
 
 
