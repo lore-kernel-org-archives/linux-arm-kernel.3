@@ -4,147 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B664D591B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 20:51:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E15F5D60CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 22:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zN+bUiQqeLZkfJRJ9+YCG9oiPYIcbnKHtPDA9jY75Tc=; b=yIO8ZA/qrkTda8w+nYv7+3jIUa
-	1SaxapPXnvUjFcntP/39Jocyq8XqStieZnHBCXmbEN88gLrYiSM4wHVbT6xArhT4TDZYt+cEWI8zt
-	ugultG/QVYNcmzgxghOw4Pv84dDOGXPhJ3YokV2qx9uxo5Y2VfQLH7REFSqcupY0FBCeA6nIyu7QR
-	Mlbd0hNwouXeUeH4430MT+42oQxpkfxxmeX9bTHnTRLCzcLYsstEda/uMYYHuOiKSgTjRRYr1QIyh
-	crf6HmvdBRaid57RQIu5P7Sx5+FRtYIgXuBE3NIGbi8Bj2l9jwSZ5OWGgNT0/Fb+9A4E8w7h4qzzT
-	OraqC2bw==;
+	bh=kcH3+IZuZK1qnngzkreQNJY7FjEkRWjei4AjNFCS8Jo=; b=xlghvj64o3zc7EQUQRoCaefsph
+	TeOmUYi9hfvFmbMQPrRsRDI6kUJtZqEs619+GYF3Dy1EsUTOA0Tm7TUoyxjExRF8800VS3s5oZIc/
+	8StkpNKN0DnA1Dt4HPpiq/WdLx5GOFA2k37jg31L0oxIRO9R/0Xfq10i7rCNEWKR3YpZ8Xg32oQ0X
+	bsc50vXz6CkeuJnVV5amVSicYXEsCBYkKGQpqHEChMWUrgMXJDkVZTreyBBmhYi0wr82YOY9A05SH
+	U/R8siBCPh8DAnJPWLIko9i5TbVyVM7eWiOInVgY2pQfA+qChRhcfl9S9761NkL3QDwMsUm8sE9ZH
+	EZNeK1NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD8ig-0000000Abhj-3dQe;
-	Mon, 18 Nov 2024 20:51:38 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1tD9zW-0000000AjcU-39ad;
+	Mon, 18 Nov 2024 22:13:06 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD8hl-0000000AbZC-1Qno
+	id 1tD9yZ-0000000AjVi-3RFA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 20:50:42 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-211c1bd70f6so34581975ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 12:50:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731963040; x=1732567840; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=zN+bUiQqeLZkfJRJ9+YCG9oiPYIcbnKHtPDA9jY75Tc=;
-        b=ldxCx7Bw07J6Sk6EMZbKBUZyaVeE3lHVi0NoUHd6JwKI1zWNxeY2b57Aq0gcLuG9un
-         lpX2YPlBE+ReK/e+5ACp3/kpexvOt3PHJ0f2xuOUPuP0xiaS4PXu82inUekc+hpkXT6T
-         Ze1LaQL8scMrqXkn3ZNoxe1CLyoJq0+jIYU5gLgaqZ2ZU91/OCB0nEZZ5lL43SOJo4TT
-         Yucbw43BPyzzpaKa4TpX2YuuSQlehJkeozIr1MVXyXRXu68KhVHV2MbRJrdwwkCiPqKz
-         5ppzWsArYV44Rk7EEC72zlQmpMBTLnQkZEyphCOPmTEUK7a2vuNDPFrAqaSbrVsYoaky
-         4HxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731963040; x=1732567840;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zN+bUiQqeLZkfJRJ9+YCG9oiPYIcbnKHtPDA9jY75Tc=;
-        b=Lx6xq024BpZgLkKZ5H00pGDs8kuIkyvChtfTXEQJr6YZbZRbtupIehRjqTSBDQeF8a
-         +/agy7jc5VaMgLD4EDpBLganCKiNWpeqsIHqL/23mt7d9plzLRY5vCkmUKxayIgr75WK
-         YgxXsPqryp49xaYZK0QmI71BkMNy2h2QdqjaCf5eZGJJn70QI5gjrOOhVPI0ScL0DbTv
-         keC4grUdE1aUkwKeEibKo1jpsxGJimThVqRaWDJtajvOU0K5MBI8OVvB7o+1564Psr6e
-         6zI2ulrM8gNOmqrmKz2uXG4vGdFaglq2dFPKVq/W0UppAuqsybLiSYiyqqC5bOdyFscC
-         FDBA==
-X-Forwarded-Encrypted: i=1; AJvYcCWJ3B/gMoCk5+Y+j5aIA8JVyh3g/YT8shBRs0d/whKCFdTiumGaP7aXc5qeKaPGzBYDBQI0WzSC2xuiCq7QFUtX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbSwhWS9Susk7jbE8Zyd+hq5RpCEMFgfKOvGm86L1taPBzuPT5
-	aRVF4oNevX9h2lBb1VS/M1YA1QP5Uy7aoVeBaiAT5dElZ/WctkzSVFB60w==
-X-Google-Smtp-Source: AGHT+IGyyzQmXsqsIiN8cwd43QwOwlYfwTgqs7xHpY4c9Aqhjpv2gi0Ky1jo7W6DZCxUxOIT2PoRyQ==
-X-Received: by 2002:a17:903:185:b0:20c:7196:a1e9 with SMTP id d9443c01a7336-2124cfb38f8mr6713045ad.13.1731963039815;
-        Mon, 18 Nov 2024 12:50:39 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f48070sm60895455ad.212.2024.11.18.12.50.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Nov 2024 12:50:38 -0800 (PST)
-Message-ID: <2531f830-6a36-4bd5-ba1e-9e19f0f66496@roeck-us.net>
-Date: Mon, 18 Nov 2024 12:50:36 -0800
+	Mon, 18 Nov 2024 22:12:09 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AIGGm0l005668;
+	Mon, 18 Nov 2024 22:11:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	kcH3+IZuZK1qnngzkreQNJY7FjEkRWjei4AjNFCS8Jo=; b=UrUerMNSZUNJN22F
+	OGTIt9T+199Vab3qGGz8wBxz7pcd8UlNfyegfBqfJxoyhtC1pTrwQXvpQe4GpTSY
+	lW/7AoDvaCVeRidT2bGrv1gIpSxsvjeZY73Aiaz+4umY8H7MHaCb4CtbE5DPaeNT
+	R7YZPxRarq+l4ycC+vokQVjCWSULivIS2ttsL7lMLtPvXtUC4DCmHe0cB3Gz9VQM
+	Su3elaj0aVT82w5zM75D82NFgQtcmRRlEi0Yj+XLvzAe7XZf5dwqxng0dYMyVVn3
+	qCQO+tz2qmBUQkyerI1uV0dj+YVNclQCNkzAJKLUNWbDlK9dW98ddPDIXONSPVxD
+	0q8CEQ==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4308y8grbm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 Nov 2024 22:11:47 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AIMBj1K029882
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 Nov 2024 22:11:46 GMT
+Received: from [10.71.108.63] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 18 Nov
+ 2024 14:08:00 -0800
+Message-ID: <f919974e-b98b-48a5-88a4-dd42798542a5@quicinc.com>
+Date: Mon, 18 Nov 2024 14:08:00 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus handling
-To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Patrick Williams <patrick@stwcx.xyz>,
- "wim@linux-watchdog.org" <wim@linux-watchdog.org>
-Cc: "joel@jms.id.au" <joel@jms.id.au>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-watchdog@vger.kernel.org" <linux-watchdog@vger.kernel.org>,
- "Peter.Yin@quantatw.com" <Peter.Yin@quantatw.com>,
- "Patrick_NC_Lin@wiwynn.com" <Patrick_NC_Lin@wiwynn.com>,
- "Bonnie_Lo@wiwynn.com" <Bonnie_Lo@wiwynn.com>,
- "DELPHINE_CHIU@wiwynn.com" <DELPHINE_CHIU@wiwynn.com>,
- BMC-SW <BMC-SW@aspeedtech.com>,
- "chnguyen@amperecomputing.com" <chnguyen@amperecomputing.com>
-References: <20241101121201.2464091-1-chin-ting_kuo@aspeedtech.com>
- <20241101121201.2464091-2-chin-ting_kuo@aspeedtech.com>
- <ZyUcIIb1dtoNhX00@heinlein.vulture-banana.ts.net>
- <a0faca9a6ec7f4acdfa2f29b4ffb94b5392aea6b.camel@codeconstruct.com.au>
- <TYZPR06MB5203053A004676F51322DECFB25C2@TYZPR06MB5203.apcprd06.prod.outlook.com>
- <ed77d57facaaef0be796b4c6a742dc7bf3bff479.camel@codeconstruct.com.au>
- <TYZPR06MB52039B02B6D3053355F30489B25D2@TYZPR06MB5203.apcprd06.prod.outlook.com>
- <9a1e64ef-81d9-48b0-b871-ce4ff792eae4@roeck-us.net>
- <TYZPR06MB52039DB39B62E6FA5220103AB2272@TYZPR06MB5203.apcprd06.prod.outlook.com>
+Subject: Re: [PATCH v2 1/6] dt-bindings: arm: qcom: Document sm8750 SoC and
+ boards
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+CC: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio
+	<konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Geert Uytterhoeven
+	<geert+renesas@glider.be>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        "Arnd
+ Bergmann" <arnd@arndb.de>,
+        =?UTF-8?Q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?=
+	<nfraprado@collabora.com>,
+        Trilok Soni <quic_tsoni@quicinc.com>,
+        "Satya Durga
+ Srinivasu Prabhala" <quic_satyap@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20241112004936.2810509-1-quic_molvera@quicinc.com>
+ <20241112004936.2810509-2-quic_molvera@quicinc.com>
+ <6xz7tuzxxkda4h5se4wep4krja2pq63lyq2uh6f5m2ywtnumgc@dctwjxngrkzp>
 Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <TYZPR06MB52039DB39B62E6FA5220103AB2272@TYZPR06MB5203.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Melody Olvera <quic_molvera@quicinc.com>
+In-Reply-To: <6xz7tuzxxkda4h5se4wep4krja2pq63lyq2uh6f5m2ywtnumgc@dctwjxngrkzp>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: FEhTYpTw9KXL2nRnUkpigRGN85lwik7-
+X-Proofpoint-GUID: FEhTYpTw9KXL2nRnUkpigRGN85lwik7-
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ mlxlogscore=999 lowpriorityscore=0 clxscore=1015 malwarescore=0
+ adultscore=0 impostorscore=0 mlxscore=0 spamscore=0 phishscore=0
+ suspectscore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411180182
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_125041_382584_C7C8E17E 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20241118_141207_871660_3DF79FB6 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,37 +121,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/18/24 04:46, Chin-Ting Kuo wrote:
-> Hi Guenter,
-> 
-> Thanks for the reply.
-> 
->> -----Original Message-----
->> From: Guenter Roeck <groeck7@gmail.com> On Behalf Of Guenter Roeck
->> Sent: Friday, November 8, 2024 10:08 PM
->> Subject: Re: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus handling
->>
->> On 11/7/24 21:42, Chin-Ting Kuo wrote:
->>
->>> But now, I think it will be better to add a patch for creating a new
->>> reset reason, e.g., WDIOF_REBOOT or WDIOF_RESTART, in watchdog.h of
->>> uapi. Can I include this change, creating a new reset reason, in this
->>> patch series? Or, should I create an extra new patch series for this
->>> purpose?
->>>
->>
->> This is a UAPI change. That is a major change. It needs to be discussed
->> separately, on its own, and can not be sneaked in like this.
->>
-> 
-> Agree. However, how to trigger this discussion? Can I just send a new
-> patch separately with only this UAPI modification? This is the first time
-> I change such common source code.
-> 
 
-Yes. That needs to include arguments explaining why this specific new flag
-even adds value. I for my part don't immediately see that value.
 
-Guenter
+On 11/15/2024 6:49 AM, Dmitry Baryshkov wrote:
+> On Mon, Nov 11, 2024 at 04:49:31PM -0800, Melody Olvera wrote:
+>> Document the SM8750 SoC binding and the boards which use it.
+> Nit: In subject you have 'sm8750'. Please use single style for all SoC
+> names (I think it's preferred to use uppercase).
+
+Sure thing. Will use upper case.
+
+Thanks,
+Melody
+
+>
+>> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
+>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>> ---
+>>   Documentation/devicetree/bindings/arm/qcom.yaml | 7 +++++++
+>>   1 file changed, 7 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/arm/qcom.yaml b/Documentation/devicetree/bindings/arm/qcom.yaml
+>> index 7c8c3a97506a..f4e8f8821405 100644
+>> --- a/Documentation/devicetree/bindings/arm/qcom.yaml
+>> +++ b/Documentation/devicetree/bindings/arm/qcom.yaml
+>> @@ -86,6 +86,7 @@ description: |
+>>           sm8450
+>>           sm8550
+>>           sm8650
+>> +        sm8750
+>>           x1e80100
+>>   
+>>     There are many devices in the list below that run the standard ChromeOS
+>> @@ -1077,6 +1078,12 @@ properties:
+>>                 - qcom,sm8650-qrd
+>>             - const: qcom,sm8650
+>>   
+>> +      - items:
+>> +          - enum:
+>> +              - qcom,sm8750-mtp
+>> +              - qcom,sm8750-qrd
+>> +          - const: qcom,sm8750
+>> +
+>>         - items:
+>>             - enum:
+>>                 - qcom,x1e001de-devkit
+>> -- 
+>> 2.46.1
+>>
 
 
