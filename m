@@ -4,111 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60338D591AD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 19:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DCBDD591AD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 19:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Q3ojtv7fWl5gl6mcxAf+43nDGDMTVQEx0St1RjFirI=; b=fNyrM6gn/W1ZZP5qZjL8GVhURW
-	6ZnzFUjVjvZCFnAchsnjNnEULMJhudODhnNmBubhYZ+h016jcif/MaxGvH9GClQLOdpqlM23x68/E
-	UKIQLAEkqToFwP4mwClCJLEYAZKGZQCk7zupS0apbCEcpjklDVshDpWTxMHLyK0Y+t8iOh+OzwbXa
-	OV7QxeOFScsAQgaJXpHX1CKY8rDhgkYuZqDnpooAsTacoXbD7Ni4vRJ2gC2OJTtCmtej12rZARM4p
-	hlj1IpnLSJEW4HFzDVP+n4sC+SBGs3OCUJCYKmCgLno5K0UkD6wsddNeZo/8fmhbUVnPW2pUIiIpx
-	aNxijesA==;
+	bh=4IQ+/qlAPIVtK5c7UjGrT6bzGc6QP7fuCo5yCioqtvA=; b=hTXtUDOUwx8Li3M2aUyAOm5Xr6
+	gSINFUxXh3uGViQkqf5IwlBPYhmXgJ3BjKy6zUUaakgINNeHFy88Z3AVEPwMDV7uUXFDjxhURaBOx
+	Vob/FUIdZ6T76cGMXL9HtvKCNvTvXkIEJWdfeni8NJV6aVDrCqOn5dVjV176Wo2VfpPh0kcnAZsBk
+	5CxjEvVV8nIWZWxpQM3kaLQhGPi3mYoT6WEE6Amyh7uL4gjHPNY0LiN8RBu2YwUXoiY2d9m3Ngscc
+	SjPkbUTR1rI4jBKAw3euwgVkpf6egPCcLA2ftdXT4EI85C7p+9BrhER6KuLeWQZGhZv9+78+GywD2
+	2P9r6G1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD7VR-0000000ATGf-2MwK;
-	Mon, 18 Nov 2024 19:33:53 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tD7XK-0000000ATX6-14c1;
+	Mon, 18 Nov 2024 19:35:50 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD7UV-0000000AT31-0clW
+	id 1tD7WM-0000000ATMm-0jPm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 19:32:56 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AIGGdGi028408;
-	Mon, 18 Nov 2024 19:32:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=3Q3ojtv7fWl5gl6mcxAf+43n
-	DGDMTVQEx0St1RjFirI=; b=K1ryGqmBynkPz6iVL9YpcWVuGImfqiLKJdG2hwZa
-	KJc/ivpgJ5X362hjpsQkKKBnQLaJublpN9tPubB+24wvQSC5GmqCoGf+19nvEDPx
-	BTRQhvJJIrqZmAWQE/FYxahg0yUxAli2/D+40E6Ry146llZZRuricqTF9lSWT0U7
-	dKgRTw1gjhblu3Pa+JzfQ8WLS/AYaOvlLD6J0T/LLkmusuqZApBdwrg5G8nsfrQ1
-	tnI4UyshotU3MRYbXoDztkoTYDh1qWaMEkdjQFsphDHkOVpL5T/GUxkW5kO7Gic9
-	0REUZll1DfQl8iSVyB23CuQGjKllclTnWsmq6E7/euQyNQ==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4308y5reng-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 Nov 2024 19:32:44 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AIJWgkD018501
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 Nov 2024 19:32:42 GMT
-Received: from hu-eberman-lv.qualcomm.com (10.49.16.6) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Mon, 18 Nov 2024 11:30:38 -0800
-Date: Mon, 18 Nov 2024 11:30:38 -0800
-From: Elliot Berman <quic_eberman@quicinc.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-CC: Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel
-	<sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Andy Yan
-	<andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        "Bartosz
- Golaszewski" <bartosz.golaszewski@linaro.org>,
-        Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, <cros-qcom-dts-watchers@chromium.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>,
-        Satya Durga Srinivasu Prabhala
-	<quic_satyap@quicinc.com>,
-        Melody Olvera <quic_molvera@quicinc.com>,
-        Shivendra Pratap <quic_spratap@quicinc.com>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Stephen Boyd
-	<swboyd@chromium.org>, <linux-pm@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>
-Subject: Re: [PATCH v8 3/6] firmware: psci: Read and use vendor reset types
-Message-ID: <20241118112859866-0800.eberman@hu-eberman-lv.qualcomm.com>
-References: <20241107-arm-psci-system_reset2-vendor-reboots-v8-0-e8715fa65cb5@quicinc.com>
- <20241107-arm-psci-system_reset2-vendor-reboots-v8-3-e8715fa65cb5@quicinc.com>
- <ZzdR1HuTpnU1OL/i@lpieralisi>
- <20241115103434410-0800.eberman@hu-eberman-lv.qualcomm.com>
- <ZzsyiC/dwv8dgySN@lpieralisi>
+	Mon, 18 Nov 2024 19:34:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=4IQ+
+	/qlAPIVtK5c7UjGrT6bzGc6QP7fuCo5yCioqtvA=; b=ZJWU0pTsUmezyoO4QRFD
+	ksMkot+jJiGIlXObDkvBnyK5AKBRDtoUalHtoVVqTCuuK7roE93EuoikoAUgV0MV
+	GDhFoF9RswTk+f+bRYrXq3R8Jn1J/ky9yiYt3i0jq8G7Nx8bUzl5KSPba4mc783B
+	jpALQMKrUTYSBbTJoqifzjqNiMQApvYN6Ql0DDFbXuJy5GZNH6WlFgiHNXoKzhsa
+	puMblOHBgIFuz+csH+LOYOZ7gXrGpHje6pl2MgMr3W+6H2mm0GtRYwB2sbdhs6LB
+	DO4+ZwZD8jTCCPs1YktaaZeMioDVoaPflm6m0PoGBPIZ/TlKUPNUTtsXcXH5aZQq
+	hg==
+Received: (qmail 320855 invoked from network); 18 Nov 2024 20:34:45 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 18 Nov 2024 20:34:45 +0100
+X-UD-Smtp-Session: l3s3148p1@zKZMAjUngr4ujntT
+Date: Mon, 18 Nov 2024 20:34:44 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: linux-kernel@vger.kernel.org, Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 04/15] coresight: etm4x: don't include 'pm_wakeup.h'
+ directly
+Message-ID: <ZzuW1Gh8ULYurUKH@ninjato>
+Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	linux-kernel@vger.kernel.org, Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20241118072917.3853-1-wsa+renesas@sang-engineering.com>
+ <20241118072917.3853-5-wsa+renesas@sang-engineering.com>
+ <ea311a21-959d-4985-9364-7c85d256ab09@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WVupqj1J1l+LAVq0"
 Content-Disposition: inline
-In-Reply-To: <ZzsyiC/dwv8dgySN@lpieralisi>
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 8DhnPeyG1GwH2tJoJnJsQTe0EWGLKIxH
-X-Proofpoint-ORIG-GUID: 8DhnPeyG1GwH2tJoJnJsQTe0EWGLKIxH
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- bulkscore=0 suspectscore=0 malwarescore=0 mlxscore=0 adultscore=0
- clxscore=1015 spamscore=0 impostorscore=0 priorityscore=1501
- mlxlogscore=999 phishscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2409260000 definitions=main-2411180160
+In-Reply-To: <ea311a21-959d-4985-9364-7c85d256ab09@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_113255_199981_1C31D948 
-X-CRM114-Status: GOOD (  65.53  )
+X-CRM114-CacheID: sfid-20241118_113451_073775_A327E066 
+X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,236 +82,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 18, 2024 at 01:26:48PM +0100, Lorenzo Pieralisi wrote:
-> On Fri, Nov 15, 2024 at 11:08:13AM -0800, Elliot Berman wrote:
-> > On Fri, Nov 15, 2024 at 02:51:16PM +0100, Lorenzo Pieralisi wrote:
-> > > On Thu, Nov 07, 2024 at 03:38:27PM -0800, Elliot Berman wrote:
-> > > > SoC vendors have different types of resets and are controlled through
-> > > > various registers. For instance, Qualcomm chipsets can reboot to a
-> > > > "download mode" that allows a RAM dump to be collected. Another example
-> > > > is they also support writing a cookie that can be read by bootloader
-> > > > during next boot. PSCI offers a mechanism, SYSTEM_RESET2, for these
-> > > > vendor reset types to be implemented without requiring drivers for every
-> > > > register/cookie.
-> > > > 
-> > > > Add support in PSCI to statically map reboot mode commands from
-> > > > userspace to a vendor reset and cookie value using the device tree.
-> > > > 
-> > > > A separate initcall is needed to parse the devicetree, instead of using
-> > > > psci_dt_init because mm isn't sufficiently set up to allocate memory.
-> > > 
-> > > Nit: information below this point is more a cover letter than for the
-> > > commit log.
-> > > 
-> > > > Reboot mode framework is close but doesn't quite fit with the
-> > > > design and requirements for PSCI SYSTEM_RESET2. Some of these issues can
-> > > > be solved but doesn't seem reasonable in sum:
-> > > >  1. reboot mode registers against the reboot_notifier_list, which is too
-> > > >     early to call SYSTEM_RESET2. PSCI would need to remember the reset
-> > > >     type from the reboot-mode framework callback and use it
-> > > >     psci_sys_reset.
-> > > >  2. reboot mode assumes only one cookie/parameter is described in the
-> > > >     device tree. SYSTEM_RESET2 uses 2: one for the type and one for
-> > > >     cookie.
-> > > >  3. psci cpuidle driver already registers a driver against the
-> > > >     arm,psci-1.0 compatible. Refactoring would be needed to have both a
-> > > >     cpuidle and reboot-mode driver.
-> > > > 
-> > > > Tested-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> > > > Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
-> > > > ---
-> > > >  drivers/firmware/psci/psci.c | 104 +++++++++++++++++++++++++++++++++++++++++++
-> > > >  1 file changed, 104 insertions(+)
-> > > > 
-> > > > diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-> > > > index 2328ca58bba61fdb677ac20a1a7447882cd0cf22..e60e3f8749c5a6732c51d23a2c1f453361132d9a 100644
-> > > > --- a/drivers/firmware/psci/psci.c
-> > > > +++ b/drivers/firmware/psci/psci.c
-> > > > @@ -79,6 +79,14 @@ struct psci_0_1_function_ids get_psci_0_1_function_ids(void)
-> > > >  static u32 psci_cpu_suspend_feature;
-> > > >  static bool psci_system_reset2_supported;
-> > > >  
-> > > > +struct psci_reset_param {
-> > > > +	const char *mode;
-> > > > +	u32 reset_type;
-> > > > +	u32 cookie;
-> > > > +};
-> > > > +static struct psci_reset_param *psci_reset_params __ro_after_init;
-> > > > +static size_t num_psci_reset_params __ro_after_init;
-> > > > +
-> > > >  static inline bool psci_has_ext_power_state(void)
-> > > >  {
-> > > >  	return psci_cpu_suspend_feature &
-> > > > @@ -305,9 +313,38 @@ static int get_set_conduit_method(const struct device_node *np)
-> > > >  	return 0;
-> > > >  }
-> > > >  
-> > > > +static void psci_vendor_system_reset2(const char *cmd)
-> > > > +{
-> > > > +	unsigned long ret;
-> > > > +	size_t i;
-> > > > +
-> > > > +	for (i = 0; i < num_psci_reset_params; i++) {
-> > > > +		if (!strcmp(psci_reset_params[i].mode, cmd)) {
-> > > > +			ret = invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
-> > > > +					     psci_reset_params[i].reset_type,
-> > > > +					     psci_reset_params[i].cookie, 0);
-> > > > +			/*
-> > > > +			 * if vendor reset fails, log it and fall back to
-> > > > +			 * architecture reset types
-> > > > +			 */
-> > > > +			pr_err("failed to perform reset \"%s\": %ld\n", cmd,
-> > > > +			       (long)ret);
-> > > > +			return;
-> > > > +		}
-> > > > +	}
-> > > > +}
-> > > > +
-> > > >  static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
-> > > >  			  void *data)
-> > > >  {
-> > > > +	/*
-> > > > +	 * try to do the vendor system_reset2
-> > > > +	 * If the reset fails or there wasn't a match on the command,
-> > > > +	 * fall back to architectural resets
-> > > > +	 */
-> > > > +	if (data && num_psci_reset_params)
-> > > > +		psci_vendor_system_reset2(data);
-> > > > +
-> > > >  	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
-> > > >  	    psci_system_reset2_supported) {
-> > > 
-> > > This is a mess. To issue architectural warm reset we check reboot_mode,
-> > > for vendor resets we ignore it - there is no rationale, that's the point
-> > > I am making.
-> > 
-> > If I expand the comment to:
-> > 
-> > 
-> >  * try todo the vendor system_reset2
-> >  * If the reset fails or there wasn't a match on the command,
-> >  * fall back to architectural resets.
-> >  * Ignore reboot_mode enum to behave like setting a cookie, which don't
-> >  * care about the reboot_mode.
-> 
-> /*
->  * Check if the system supports vendor resets and issue
->  * SYSTEM_RESET2 if the reboot command matches a vendor reset.
->  * Ignore reboot_mode and execute SYSTEM_RESET2 with type and
->  * cookie as defined by the firmware bindings.
->  *
->  * If the reset fails or there is not a match for the command
->  * fall back to architectural resets; reset type detection in
->  * this case will be done using reboot_mode.
->  */
-> 
-> ?
-> 
-> > Help to address this concern?
-> 
-> Not entirely, sorry, I will get back to this.
-> 
-> > > Also see my question on the other thread re: user space and reset
-> > > "modes".
-> > > 
-> > > I appreciate we are not making progress but I don't want to pick up
-> > > the pieces later after merging this code - it is unclear to me what's
-> > > the best path forward - I would like to understand how other
-> > > platforms/arches behave in this respect.
-> > > 
-> > 
-> > I went through the couple hundred drivers which register reboot and
-> > restart handlers. The majority don't care about reboot command nor
-> > reboot_mode enum. The few that do:
-> > 
-> > Two drivers which I could find which care about the reboot command don't
-> > look at the reboot_mode argument.
-> > 
-> > [1]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/firmware/efi/efibc.c?h=v6.11#n35
-> > [2]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/power/reset/reboot-mode.c?h=v6.11#n42
-> > 
-> > One driver looks at the reboot command overrides the reboot_mode
-> > argument:
-> > 
-> > [3]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/watchdog/pnx4008_wdt.c?h=v6.11#n125
-> 
-> Thanks for doing that, that helps.
-> 
-> > I wasn't able to find any platform/arches which check the reboot_mode
-> > before reading the reboot command.
-> > 
-> > > >  		/*
-> > > > @@ -750,6 +787,73 @@ static const struct of_device_id psci_of_match[] __initconst = {
-> > > >  	{},
-> > > >  };
-> > > >  
-> > > > +#define REBOOT_PREFIX "mode-"
-> > > > +
-> > > > +static int __init psci_init_system_reset2_modes(void)
-> > > > +{
-> > > > +	const size_t len = strlen(REBOOT_PREFIX);
-> > > > +	struct psci_reset_param *param;
-> > > > +	struct device_node *psci_np __free(device_node) = NULL;
-> > > > +	struct device_node *np __free(device_node) = NULL;
-> > > > +	struct property *prop;
-> > > > +	size_t count = 0;
-> > > > +	u32 magic[2];
-> > > > +	int num;
-> > > > +
-> > > > +	if (!psci_system_reset2_supported)
-> > > > +		return 0;
-> > > > +
-> > > > +	psci_np = of_find_matching_node(NULL, psci_of_match);
-> > > > +	if (!psci_np)
-> > > > +		return 0;
-> > > > +
-> > > > +	np = of_find_node_by_name(psci_np, "reset-types");
-> > > > +	if (!np)
-> > > > +		return 0;
-> > > > +
-> > > > +	for_each_property_of_node(np, prop) {
-> > > > +		if (strncmp(prop->name, REBOOT_PREFIX, len))
-> > > > +			continue;
-> > > > +		num = of_property_count_u32_elems(np, prop->name);
-> > > > +		if (num != 1 && num != 2)
-> > > > +			continue;
-> > > > +
-> > > > +		count++;
-> > > > +	}
-> > > > +
-> > > > +	param = psci_reset_params =
-> > > > +		kcalloc(count, sizeof(*psci_reset_params), GFP_KERNEL);
-> > > > +	if (!psci_reset_params)
-> > > > +		return -ENOMEM;
-> > > > +
-> > > > +	for_each_property_of_node(np, prop) {
-> > > > +		if (strncmp(prop->name, REBOOT_PREFIX, len))
-> > > > +			continue;
-> > > > +
-> > > > +		param->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
-> > > 
-> > > FWIW - I think you need to keep the logic in the previous loop into account
-> > > because that's what is used to allocate param, it is not a given that
-> > > param is valid at this stage if I am not mistaken - the previous loop
-> > > checked:
-> > > 
-> > > 	num = of_property_count_u32_elems(np, prop->name);
-> > > 	if (num != 1 && num != 2)
-> > > 		continue;
-> > 
-> > of_property_read_variable_u32_array() performs effectively the same
-> > check.  It returns -EOVERFLOW if it couldn't find enough (== 0) or too
-> > many values (>2). I currently have the added bonus of complaining in
-> > dmesg about the bad reboot mode property, instead of silently ignoring.
-> 
-> Right but we are dereferencing param (param->mode) before carrying out that
-> check.
-> 
 
-Ah, right, I see the problem. I'll send out another version after
-settling on the other part of the discussion!
+--WVupqj1J1l+LAVq0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-Elliot
 
+> If you plan to take this as a collection outside of CoreSight tree,
+>=20
+> Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>=20
+> Otherwise, I can pick this up.
+
+As stated in the cover letter, please pick it up. There are no
+dependencies.
+
+
+--WVupqj1J1l+LAVq0
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmc7ltAACgkQFA3kzBSg
+KbajBw/+Iw5lYdddTN921JDSBexKi7CMET5BgZ+xmLzXHFZG94SwxZazKIKgLGRj
+jKdD91uGgFgxZo+W092wF+rMcA1AhCzwFhwIeJbf+yOXJuDUKtlqsD/PypPyWZkK
+2OhNgbM+czo6FLrBGpwYdRjmmhRwkGJVzpNxJiK6EEK14e5ih5h0u9cbri2YZxe/
+XU2cQ7KrbMenAum5xy/t3dBIWBQRNbaAVWVuf25vGta0dKC1+MrAd4vxvz0sQlVc
+r9m+uC05Y8rzvOvi33KijYkwF2Tv6/S0onG5zE9ODUAMT5VqCAht+DBwbIEwc+D6
+uUvzcGxnfYv5x77JnCgnf5oPeoJGe6u4xSq7xZ9NsdL+SN9TumpBrlA6wp3Ue/te
+Fy0mFcKOfkrfuDRYFrfczsew5KJ4Gj5CBVxgbw1/860Fs/gKZ4uu5cU5Pgl0+GbX
+92nXHFMAoIYQ/XOFH6AdxbEfloI42kbDxTeIZ+AmanY1eCMcAZ2l3eQxMCX9gMTM
+dRRAZPkO7PtJwRCCcsbxR9Wq0VXKQ4dvaRB6NOl/C53IiI/lJTzw96jlYG70ne6c
+MQp6lbm7xbUA2VrdZayFbE/A5Ym9rMG1XNCaFPcNU+c5HjqZB93EB8SRmYjlj7SS
+2j9RkQP9YoyIn2sBcc+fInrTH71/V3koiAMKOQdT2kZh2PKjWcw=
+=madr
+-----END PGP SIGNATURE-----
+
+--WVupqj1J1l+LAVq0--
 
