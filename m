@@ -4,63 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AA2D49207
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 16:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF24D4923C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 16:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hZI0ToznCzhjHwYsDSDb01BcP4KuLMwEBrhHNS7BIoc=; b=Ql8aCgpZIstrUTJ1KBykmhAG3h
-	NAqeKeJ7o/5eF0F/TZp0oxsRDk8So/MjJ+aj+V/ArQuG9Np9P/tPc09DgRHzGJgew2CwYihHJkfsL
-	LlDiVKW8jY0eeJHXQEsaltGTZlGLpg15ezB8Octe+qi5ZC/aHQspB63/rb1Ze4UZOhXKppk/rAuFG
-	KU5JlZJzSkH7UYvBUbOvL9zu6OEgorWwJXcTz+45LiP2bnUIFBWMi81lru5VYdiQPuHaV25RybluX
-	MjjiPQbpOyu4nKXIbAWMFutEPN8RWJH4Ym4/bX+aiJbIlHOKjXjiB/CEyUwgemsksK62BMjuYr5EK
-	9VppoRHA==;
+	bh=+FJ/y1hwLv7jcpGEhdKgqRE0J3ZJWVPbAe/kdhme5J4=; b=piywUmaNAmTUVVJPVG3exYlV6x
+	+MlyXODoOnc+cGXZcZ9K4IXiIwhCtexW9zlbciBqm46r/MuzdFhX3xlSMu8LFiNKJhvYEt82CcZJq
+	b0WG59IN9fIr+wt0cRSXKSD2KyW092mze88N6uIvT0hEyiGcGJDjB/Lx1JDx88SVVyZToF3Ttu91M
+	1MrGy3gvzOGUa2l0yZ1u6D0krOHNayKzSC7YjfsMGYlHpTs3PxJ1Z1GF6lcsfIsFbcmIWPo+tgaKU
+	vaSLfYKEomvM7r8OOBAAX65yCHiCRjz1B5lK/aRidu+hV5HBeFnyKmjOsMdIoJkn950ukIV8M0fEJ
+	kUwOrjMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD4Bs-0000000A0ZC-14mX;
-	Mon, 18 Nov 2024 16:01:28 +0000
-Received: from out-180.mta0.migadu.com ([91.218.175.180])
+	id 1tD4Cm-0000000A0ob-3w6o;
+	Mon, 18 Nov 2024 16:02:24 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD4Av-0000000A0MQ-2stu
+	id 1tD4B1-0000000A0O3-3hOY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 16:00:30 +0000
-Message-ID: <657764fd-68a1-4826-b832-3bda91a0c13b@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1731945627;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hZI0ToznCzhjHwYsDSDb01BcP4KuLMwEBrhHNS7BIoc=;
-	b=WRZ32geYK58tbEOuvHdtvVxm1DNs9niOmZol4nD0+3Mp8Dh6xJRI+uVBqTQza9gc5xn31a
-	72onjs3SehhdwbFfty9nLDSfYnnlGGc+e29TYEanwsJgvAy5RVSwrmcCrNMPECyUdxetI4
-	aEM2/YUCYARPqIpYkKl9Nf1sh+X0xtg=
-Date: Mon, 18 Nov 2024 11:00:22 -0500
+	Mon, 18 Nov 2024 16:00:37 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B72082000B;
+	Mon, 18 Nov 2024 16:00:30 +0000 (UTC)
+Message-ID: <a35ba8dc-fd4a-41ae-9ad7-7702f4f48980@korsgaard.com>
+Date: Mon, 18 Nov 2024 17:00:30 +0100
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next 2/2] net: axienet: Add support for AXI 2.5G MAC
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
- Suraj Gupta <suraj.gupta2@amd.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
- radhey.shyam.pandey@amd.com, horms@kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- git@amd.com, harini.katakam@amd.com
-References: <20241118081822.19383-1-suraj.gupta2@amd.com>
- <20241118081822.19383-3-suraj.gupta2@amd.com>
- <ZztjvkxbCiLER-PJ@shell.armlinux.org.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] usb: dwc3: xilinx: make sure pipe clock is deselected
+ in usb2 only mode
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org, michal.simek@amd.com,
+ robert.hancock@calian.com
+Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, git@amd.com, Neal Frager
+ <neal.frager@amd.com>, stable@vger.kernel.org
+References: <1731942491-1992368-1-git-send-email-radhey.shyam.pandey@amd.com>
 Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <ZztjvkxbCiLER-PJ@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
+From: Peter Korsgaard <peter@korsgaard.com>
+In-Reply-To: <1731942491-1992368-1-git-send-email-radhey.shyam.pandey@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+X-GND-Sasl: peter@korsgaard.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_080029_870155_F5AAFC21 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20241118_080036_071092_8DE602B9 
+X-CRM114-Status: GOOD (  25.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,40 +65,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/18/24 10:56, Russell King (Oracle) wrote:
-> On Mon, Nov 18, 2024 at 01:48:22PM +0530, Suraj Gupta wrote:
->> Add AXI 2.5G MAC support, which is an incremental speed upgrade
->> of AXI 1G MAC and supports 2.5G speed only. "max-speed" DT property
->> is used in driver to distinguish 1G and 2.5G MACs of AXI 1G/2.5G IP.
->> If max-speed property is missing, 1G is assumed to support backward
->> compatibility.
->> 
->> Co-developed-by: Harini Katakam <harini.katakam@amd.com>
->> Signed-off-by: Harini Katakam <harini.katakam@amd.com>
->> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
->> ---
+On 11/18/24 16:08, Radhey Shyam Pandey wrote:
+> From: Neal Frager <neal.frager@amd.com>
 > 
-> ...
-> 
->> -	lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE |
->> -		MAC_10FD | MAC_100FD | MAC_1000FD;
->> +	lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE;
->> +
->> +	/* Set MAC capabilities based on MAC type */
->> +	if (lp->max_speed == SPEED_1000)
->> +		lp->phylink_config.mac_capabilities |= MAC_10FD | MAC_100FD | MAC_1000FD;
->> +	else
->> +		lp->phylink_config.mac_capabilities |= MAC_2500FD;
-> 
-> The MAC can only operate at (10M, 100M, 1G) _or_ 2.5G ?
+> When the USB3 PHY is not defined in the Linux device tree, there could
+> still be a case where there is a USB3 PHY is active on the board and
 
-It's a PCS limitation. It either does (1000Base-X and/or SGMII) OR
-(2500Base-X). The MAC itself doesn't have this limitation AFAIK.
+2nd "is " should be dropped. This sounds a bit confusing to me as the 
+PHY is on-chip on zynqmp, maybe you are referring to a reference clock 
+input to the PS-GTR instead?
 
---Sean
 
-> Normally, max speeds can be limited using phylink_limit_mac_speed()
-> which will clear any MAC capabilities for speeds faster than the
-> speed specified.
+> enabled by the first stage bootloader.  If serdes clock is being used
+> then the USB will fail to enumerate devices in 2.0 only mode.
 > 
+> To solve this, make sure that the PIPE clock is deselected whenever the
+> USB3 PHY is not defined and guarantees that the USB2 only mode will work
+> in all cases.
+> 
+> Fixes: 9678f3361afc ("usb: dwc3: xilinx: Skip resets and USB3 register settings for USB2.0 mode")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Neal Frager <neal.frager@amd.com>
+> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> ---
+> Changes for v2:
+> - Add stable@vger.kernel.org in CC.
+
+Other than that looks good, thanks.
+
+Acked-by: Peter Korsgaard <peter@korsgaard.com>
+
+
+> ---
+>   drivers/usb/dwc3/dwc3-xilinx.c | 5 ++++-
+>   1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
+> index e3738e1610db..a33a42ba0249 100644
+> --- a/drivers/usb/dwc3/dwc3-xilinx.c
+> +++ b/drivers/usb/dwc3/dwc3-xilinx.c
+> @@ -121,8 +121,11 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
+>   	 * in use but the usb3-phy entry is missing from the device tree.
+>   	 * Therefore, skip these operations in this case.
+>   	 */
+> -	if (!priv_data->usb3_phy)
+> +	if (!priv_data->usb3_phy) {
+> +		/* Deselect the PIPE Clock Select bit in FPD PIPE Clock register */
+> +		writel(PIPE_CLK_DESELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
+>   		goto skip_usb3_phy;
+> +	}
+>   
+>   	crst = devm_reset_control_get_exclusive(dev, "usb_crst");
+>   	if (IS_ERR(crst)) {
+> 
+> base-commit: 744cf71b8bdfcdd77aaf58395e068b7457634b2c
+
+-- 
+Bye, Peter Korsgaard
+
 
