@@ -4,48 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C21ED49206
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 10:07:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B653FD49205
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 10:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UP+cGMiLyQoM6t312p80oC88/Byvz0A3gtMKZbWUG7o=; b=cMmgZwCTcvu3rud0e8GjBDIANY
-	+6pfE0QiBj6nniMYCt5FpgWvSwydhUiXRoASku2R82ap9raVpTJzamWYdtyMRzs15vfZ2pejN+HBv
-	9VLZhbfiHtMShAflztaS7pdeWgUlMBpdS4etV0P3Jq1bqtRIy1etYIk9pMHsNxUfHmJwmXGe49b9F
-	h0xtm0j6caL/R7IE6KgQ1yjbq2QSoQiQExRvU7KNa1VKC0LxWyUVY4azGwMmn0LIvfQwOdLkeGeZX
-	N9+uO6bjcT4kbQ0apCC8khFUUrheWG0hWA5GqlgbRQdfaOSLCw2JN06huaA/L/EKFmFHDQZPiHH8q
-	0TjYq/WQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n7VSA4VpES10XaA8gB1WdvZsXgmDNfsDCe5+S5WIIkA=; b=IToXExvKwH/ShBxG6tpZtc3eKl
+	IBbOfDoivy15deave2j1uipT90J2hsX6lSrZtNYsVIOJjsFW+k2wsqUGBkxse8hHExsOdREVTzESW
+	C7XSMEcS4ROo3fFIsiZ/wMxsj1J8GuuqdkgKMCA2BpvpyGnkhnS4SFZCOtVi7hGd/n4+LXPXh61Yw
+	HWh47M0gvKeT8oskHE7f4O4KFum9R0wmLI35u6+U5G0hp75D6na0bVCMC/YTiPa+cLIcZMQKx5Zxb
+	lc6ACswqUxWxdnLOynQtENbbLXBZXeO23Dms5mbsiVUQRz1lvSPdiDtaigTws+klVDKRrMtKkZ7Dp
+	9qEwdYoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCyfM-000000090w9-3ji7;
-	Mon, 18 Nov 2024 10:07:32 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tCyii-000000091bK-3A39;
+	Mon, 18 Nov 2024 10:11:00 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCyeM-000000090fC-0lVJ
+	id 1tCyhm-000000091Om-3nuF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 10:06:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 41342A41957;
-	Mon, 18 Nov 2024 10:04:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DC7FC4CED9;
-	Mon, 18 Nov 2024 10:06:25 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] arm64 updates for 6.13-rc1
-Date: Mon, 18 Nov 2024 10:06:23 +0000
-Message-Id: <20241118100623.2674026-1-catalin.marinas@arm.com>
-X-Mailer: git-send-email 2.39.5
+	Mon, 18 Nov 2024 10:10:04 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aa1e51ce601so367757566b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 02:10:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731924601; x=1732529401; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=n7VSA4VpES10XaA8gB1WdvZsXgmDNfsDCe5+S5WIIkA=;
+        b=RuT7dIHdu0yPmxySdxPbRsv0A4R5R+IbVJPAuP+tM59EeDy9havTs9BZQG9cu1kWHR
+         pinRYa5lybUpDcVOIYpk2SXO563YtjuLgAg/pFGnO/P+elJMWFm+I5/eoQSFvaf5yHDB
+         sQBWEywi5/vbQaHzLxQraUEkoi/KlGPuNi75nJLDxu9EOX0FRjhZ6/XZxIXx6Os7QFpm
+         QRLzCBztBImGaCSlO4kWw12Ag4KF8So9tuLRXKtLOfS3IhJ0Y2yA9fU7EKdI+byCM6ML
+         YrW4SkECQ21FjiVS0Ai/cxE7Y/ZXZhZa41+35MtVunjFF6KKQDnnfu7AdSTULDRcxlw8
+         4TVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731924601; x=1732529401;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=n7VSA4VpES10XaA8gB1WdvZsXgmDNfsDCe5+S5WIIkA=;
+        b=wU7a6O3AKT04fPHgsJn+ILZUh/4WEDZTn+G2PxhI+bG4XG8MxqKSEnSZyRdyAUAGJy
+         D8YYePcz4VLgNa9bbp/alZ11VL3sf2T6wqhEBuKih59vcFPa6iTYNj8+Yf/3m/cLgb51
+         ohYb+wlnsuG8zcZsCQMSGtZaIYNZo6SbgJBp40tdVOFlpG1QLPtGh0zDmEznVW/VJt9c
+         KjdM4orZSSD0mUaaUSsvfzvGY9RBWTbCDX/2OBINq7se7FtNGKSFFaC8LfHVc1npLu/f
+         ZKjpRx9hfwwQzNHdlqwg3u7ErOLNY1WI9pDN/oXV+HH7INnhArOR2KcAb0MWTz286oSh
+         pqOA==
+X-Forwarded-Encrypted: i=1; AJvYcCUaBDB/vN3UdXC/zQzHwAj7qX8Xfd/5WDmo3UN2qc0WYMu6QnykvaErASqdNWwqJjPmBqd0UhnzYss/t/eI7wbD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1GNV2Ba9JWaRW5tiiK0ov3xcj8G4yYMLhSgnVExVlH4OTPmHA
+	ns+ISfB0gKnvhVrXazz1nqHk008KRtm9pZtiEWhi+HUd0mvraMCY
+X-Google-Smtp-Source: AGHT+IFVn+W6t7IcvDHzZ8JEBQMCSTtIpGFYZyel7ibDDUcP897/DW1p4IYqqtYfdKiVpsTwnCY1Iw==
+X-Received: by 2002:a17:906:daca:b0:a99:88ab:c7cb with SMTP id a640c23a62f3a-aa48347e0fbmr879397366b.33.1731924601276;
+        Mon, 18 Nov 2024 02:10:01 -0800 (PST)
+Received: from [127.0.1.1] ([46.53.242.72])
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-aa20e046932sm518546366b.170.2024.11.18.02.09.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 Nov 2024 02:10:00 -0800 (PST)
+From: Dzmitry Sankouski <dsankouski@gmail.com>
+Date: Mon, 18 Nov 2024 13:09:53 +0300
+Subject: [PATCH v3 1/2] power: supply: max17042: make interrupt shared
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241118-b4-max17042-v3-1-9bcaeda42a06@gmail.com>
+References: <20241118-b4-max17042-v3-0-9bcaeda42a06@gmail.com>
+In-Reply-To: <20241118-b4-max17042-v3-0-9bcaeda42a06@gmail.com>
+To: Hans de Goede <hdegoede@redhat.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>, 
+ Purism Kernel Team <kernel@puri.sm>, Sebastian Reichel <sre@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-msm@vger.kernel.org, Dzmitry Sankouski <dsankouski@gmail.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1731924598; l=1055;
+ i=dsankouski@gmail.com; s=20240619; h=from:subject:message-id;
+ bh=gES/YI8J+uY43qFcYFJFQDdZCjIIvFKdVHt8Cx7j4Ks=;
+ b=r/k4DDMvo/iWEzDXWTNKTdhAJ+2yN2gMZDbBBo0/+qpXaIxtBxrxlSbcICNM9WInILIvXpnR+
+ +H8C6RzzOzvBbSTtw42c+JXXlJIvIZMBNAH/oZfjB9gXGMlrJC/ZiNZ
+X-Developer-Key: i=dsankouski@gmail.com; a=ed25519;
+ pk=YJcXFcN1EWrzBYuiE2yi5Mn6WLn6L1H71J+f7X8fMag=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_020630_359224_5179A60C 
-X-CRM114-Status: GOOD (  21.46  )
+X-CRM114-CacheID: sfid-20241118_021002_954664_3E0B7052 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,344 +112,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+Fuelgauge blocks often are incorporated in bigger chip,
+which may use only 1 line for interrupts. Make interrupt
+shared.
 
-Here are the arm64 updates for 6.13. The major features are support to
-run Linux in a protected VM (a.k.a. realm) under the Arm CCA and the
-user Guarded Control Stack (GCS). There are a few smaller scale
-additions for in-kernel memcpy instructions, MTE hugetlbfs support,
-optimised CRC32, non-leaf pmd_young(), the usual perf/PMU updates and
-various fixes and cleanups. We are also introducing HWCAP3 as we'll
-likely run out of HWCAP2 bits in a year or so.
+Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
+---
+ drivers/power/supply/max17042_battery.c | 9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
 
-There's a trivial conflict with mainline due to a recent upstream fix:
-commit 5baf8b037deb ("mm: refactor arch_calc_vm_flag_bits() and arm64
-MTE handling") and the MTE hugetlbfs support. My fixup:
+diff --git a/drivers/power/supply/max17042_battery.c b/drivers/power/supply/max17042_battery.c
+index 496c3e1f2ee6..99bf6915aa23 100644
+--- a/drivers/power/supply/max17042_battery.c
++++ b/drivers/power/supply/max17042_battery.c
+@@ -1103,14 +1103,7 @@ static int max17042_probe(struct i2c_client *client)
+ 	}
+ 
+ 	if (client->irq) {
+-		unsigned int flags = IRQF_ONESHOT;
+-
+-		/*
+-		 * On ACPI systems the IRQ may be handled by ACPI-event code,
+-		 * so we need to share (if the ACPI code is willing to share).
+-		 */
+-		if (acpi_id)
+-			flags |= IRQF_SHARED | IRQF_PROBE_SHARED;
++		unsigned int flags = IRQF_ONESHOT | IRQF_SHARED | IRQF_PROBE_SHARED;
+ 
+ 		ret = devm_request_threaded_irq(&client->dev, client->irq,
+ 						NULL,
 
-diff --cc arch/arm64/include/asm/mman.h
-index 798d965760d4,1dbfb56cb313..e1572482fae8
---- a/arch/arm64/include/asm/mman.h
-+++ b/arch/arm64/include/asm/mman.h
-@@@ -42,7 -39,7 +42,7 @@@ static inline unsigned long arch_calc_v
-  	 * filesystem supporting MTE (RAM-based).
-  	 */
-  	if (system_supports_mte() &&
-- 	    ((flags & MAP_ANONYMOUS) || shmem_file(file)))
- -	    (flags & (MAP_ANONYMOUS | MAP_HUGETLB)))
-++	    ((flags & (MAP_ANONYMOUS | MAP_HUGETLB)) || shmem_file(file)))
-  		return VM_MTE_ALLOWED;
-  
-  	return 0;
+-- 
+2.39.2
 
-Depending on the order you pull other requests in, there are a couple
-more conflicts with the trace and KVM trees. The slightly more
-complicated one is in arch/arm64/kvm/guest.c - the MTE hugetlbfs support
-in the arm64 tree conflicting with the __gfn_to_page() use in
-kvm_vm_ioctl_mte_copy_tags() from the KVM tree. The resolution in -next
-is correct.
-
-Since the arm64 tree has two bases, -rc1 mostly but -rc3 for the perf
-branch, the diffstat below is generated against 6.12.
-
-Thanks.
-
-The following changes since commit 2e8a1acea8597ff42189ea94f0a63fa58640223d:
-
-  arm64: signal: Improve POR_EL0 handling to avoid uaccess failures (2024-10-29 17:59:12 +0000)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-upstream
-
-for you to fetch changes up to 83ef4a378e563d085ddd7214c2a393116b5f3435:
-
-  Merge branch 'for-next/pkey-signal' into for-next/core (2024-11-14 12:07:30 +0000)
-
-----------------------------------------------------------------
-arm64 updates for 6.13:
-
-* Support for running Linux in a protected VM under the Arm Confidential
-  Compute Architecture (CCA)
-
-* Guarded Control Stack user-space support. Current patches follow the
-  x86 ABI of implicitly creating a shadow stack on clone(). Subsequent
-  patches (already on the list) will add support for clone3() allowing
-  finer-grained control of the shadow stack size and placement from libc
-
-* AT_HWCAP3 support (not running out of HWCAP2 bits yet but we are
-  getting close with the upcoming dpISA support)
-
-* Other arch features:
-
-  - In-kernel use of the memcpy instructions, FEAT_MOPS (previously only
-    exposed to user; uaccess support not merged yet)
-
-  - MTE: hugetlbfs support and the corresponding kselftests
-
-  - Optimise CRC32 using the PMULL instructions
-
-  - Support for FEAT_HAFT enabling ARCH_HAS_NONLEAF_PMD_YOUNG
-
-  - Optimise the kernel TLB flushing to use the range operations
-
-  - POE/pkey (permission overlays): further cleanups after bringing the
-    signal handler in line with the x86 behaviour for 6.12
-
-* arm64 perf updates:
-
-  - Support for the NXP i.MX91 PMU in the existing IMX driver
-
-  - Support for Ampere SoCs in the Designware PCIe PMU driver
-
-  - Support for Marvell's 'PEM' PCIe PMU present in the 'Odyssey' SoC
-
-  - Support for Samsung's 'Mongoose' CPU PMU
-
-  - Support for PMUv3.9 finer-grained userspace counter access control
-
-  - Switch back to platform_driver::remove() now that it returns 'void'
-
-  - Add some missing events for the CXL PMU driver
-
-* Miscellaneous arm64 fixes/cleanups:
-
-  - Page table accessors cleanup: type updates, drop unused macros,
-    reorganise arch_make_huge_pte() and clean up pte_mkcont(), sanity
-    check addresses before runtime P4D/PUD folding
-
-  - Command line override for ID_AA64MMFR0_EL1.ECV (advertising the
-    FEAT_ECV for the generic timers) allowing Linux to boot with
-    firmware deployments that don't set SCTLR_EL3.ECVEn
-
-  - ACPI/arm64: tighten the check for the array of platform timer
-    structures and adjust the error handling procedure in
-    gtdt_parse_timer_block()
-
-  - Optimise the cache flush for the uprobes xol slot (skip if no
-    change) and other uprobes/kprobes cleanups
-
-  - Fix the context switching of tpidrro_el0 when kpti is enabled
-
-  - Dynamic shadow call stack fixes
-
-  - Sysreg updates
-
-  - Various arm64 kselftest improvements
-
-----------------------------------------------------------------
- Documentation/admin-guide/kernel-parameters.txt    |   3 +
- Documentation/admin-guide/perf/index.rst           |   1 +
- Documentation/admin-guide/perf/mrvl-pem-pmu.rst    |  56 ++
- Documentation/arch/arm64/arm-cca.rst               |  69 ++
- Documentation/arch/arm64/booting.rst               |  38 ++
- Documentation/arch/arm64/elf_hwcaps.rst            |  10 +-
- Documentation/arch/arm64/gcs.rst                   | 227 +++++++
- Documentation/arch/arm64/index.rst                 |   3 +
- Documentation/arch/arm64/mops.rst                  |  44 ++
- Documentation/arch/arm64/sme.rst                   |   4 +
- Documentation/arch/arm64/sve.rst                   |   4 +
- Documentation/devicetree/bindings/arm/pmu.yaml     |   1 +
- .../devicetree/bindings/perf/fsl-imx-ddr.yaml      |   4 +-
- Documentation/filesystems/proc.rst                 |   2 +-
- MAINTAINERS                                        |   6 +
- arch/arm/include/asm/arm_pmuv3.h                   |   8 +
- arch/arm64/Kconfig                                 |  43 ++
- arch/arm64/include/asm/arm_pmuv3.h                 |  10 +
- arch/arm64/include/asm/assembler.h                 |   7 -
- arch/arm64/include/asm/cpucaps.h                   |   2 +
- arch/arm64/include/asm/cpufeature.h                |  18 +-
- arch/arm64/include/asm/daifflags.h                 |   2 +-
- arch/arm64/include/asm/debug-monitors.h            |   1 +
- arch/arm64/include/asm/el2_setup.h                 |  30 +
- arch/arm64/include/asm/esr.h                       |  28 +-
- arch/arm64/include/asm/exception.h                 |   3 +
- arch/arm64/include/asm/gcs.h                       | 107 +++
- arch/arm64/include/asm/hugetlb.h                   |   8 +
- arch/arm64/include/asm/hwcap.h                     |   7 +-
- arch/arm64/include/asm/insn.h                      |   6 +
- arch/arm64/include/asm/io.h                        |   8 +
- arch/arm64/include/asm/kernel-pgtable.h            |   1 -
- arch/arm64/include/asm/mem_encrypt.h               |   9 +
- arch/arm64/include/asm/mman.h                      |  25 +-
- arch/arm64/include/asm/mmu_context.h               |   9 +
- arch/arm64/include/asm/mte.h                       |  67 ++
- arch/arm64/include/asm/pgalloc.h                   |  12 +-
- arch/arm64/include/asm/pgtable-hwdef.h             |   4 +
- arch/arm64/include/asm/pgtable-prot.h              |  19 +-
- arch/arm64/include/asm/pgtable.h                   |  31 +-
- arch/arm64/include/asm/probes.h                    |  11 +-
- arch/arm64/include/asm/processor.h                 |  57 +-
- arch/arm64/include/asm/ptrace.h                    |  22 +-
- arch/arm64/include/asm/rsi.h                       |  68 ++
- arch/arm64/include/asm/rsi_cmds.h                  | 160 +++++
- arch/arm64/include/asm/rsi_smc.h                   | 193 ++++++
- arch/arm64/include/asm/scs.h                       |   8 +-
- arch/arm64/include/asm/set_memory.h                |   3 +
- arch/arm64/include/asm/stacktrace/common.h         |  74 ++-
- arch/arm64/include/asm/stacktrace/frame.h          |  48 ++
- arch/arm64/include/asm/sysreg.h                    |  20 +
- arch/arm64/include/asm/tlbflush.h                  |  43 +-
- arch/arm64/include/asm/uaccess.h                   |  40 ++
- arch/arm64/include/uapi/asm/hwcap.h                |   7 +-
- arch/arm64/include/uapi/asm/ptrace.h               |   8 +
- arch/arm64/include/uapi/asm/sigcontext.h           |   9 +
- arch/arm64/kernel/Makefile                         |   3 +-
- arch/arm64/kernel/asm-offsets.c                    |  27 +-
- arch/arm64/kernel/cpufeature.c                     |  45 ++
- arch/arm64/kernel/cpuinfo.c                        |   1 +
- arch/arm64/kernel/debug-monitors.c                 |  10 +-
- arch/arm64/kernel/efi.c                            |  12 +-
- arch/arm64/kernel/entry-common.c                   |  35 +
- arch/arm64/kernel/entry.S                          |  16 +-
- arch/arm64/kernel/fpsimd.c                         |   2 +-
- arch/arm64/kernel/head.S                           |   3 +
- arch/arm64/kernel/hibernate.c                      |   6 +
- arch/arm64/kernel/module.c                         |  10 +-
- arch/arm64/kernel/mte.c                            |  27 +-
- arch/arm64/kernel/pi/idreg-override.c              |  12 +
- arch/arm64/kernel/pi/map_range.c                   |   2 +-
- arch/arm64/kernel/pi/patch-scs.c                   |  95 ++-
- arch/arm64/kernel/probes/decode-insn.c             |  22 +-
- arch/arm64/kernel/probes/decode-insn.h             |   2 +-
- arch/arm64/kernel/probes/kprobes.c                 |  39 +-
- arch/arm64/kernel/probes/simulate-insn.c           |   6 +
- arch/arm64/kernel/probes/simulate-insn.h           |   1 +
- arch/arm64/kernel/probes/uprobes.c                 |  12 +-
- arch/arm64/kernel/process.c                        | 101 ++-
- arch/arm64/kernel/ptrace.c                         |  74 ++-
- arch/arm64/kernel/rsi.c                            | 142 ++++
- arch/arm64/kernel/setup.c                          |   3 +
- arch/arm64/kernel/signal.c                         | 235 ++++++-
- arch/arm64/kernel/stacktrace.c                     | 176 ++++-
- arch/arm64/kernel/traps.c                          |  18 +
- arch/arm64/kernel/vmlinux.lds.S                    |   6 +-
- arch/arm64/kvm/guest.c                             |  16 +-
- arch/arm64/kvm/mmu.c                               |  11 +
- arch/arm64/lib/Makefile                            |   2 +-
- arch/arm64/lib/clear_page.S                        |  13 +
- arch/arm64/lib/copy_page.S                         |  13 +
- arch/arm64/lib/crc32-glue.c                        |  82 +++
- arch/arm64/lib/crc32.S                             | 346 ++++++++--
- arch/arm64/lib/memcpy.S                            |  19 +-
- arch/arm64/lib/memset.S                            |  20 +-
- arch/arm64/mm/Makefile                             |   1 +
- arch/arm64/mm/copypage.c                           |  27 +-
- arch/arm64/mm/fault.c                              |  40 ++
- arch/arm64/mm/fixmap.c                             |   9 +-
- arch/arm64/mm/gcs.c                                | 254 +++++++
- arch/arm64/mm/hugetlbpage.c                        |  21 +-
- arch/arm64/mm/init.c                               |  10 +-
- arch/arm64/mm/mmap.c                               |   9 +-
- arch/arm64/mm/mmu.c                                |  10 +-
- arch/arm64/mm/pageattr.c                           |  98 ++-
- arch/arm64/mm/proc.S                               |  19 +-
- arch/arm64/mm/ptdump.c                             |   8 +-
- arch/arm64/tools/cpucaps                           |   2 +
- arch/arm64/tools/sysreg                            |  12 +
- arch/x86/Kconfig                                   |   1 +
- arch/x86/include/uapi/asm/mman.h                   |   3 -
- drivers/acpi/arm64/gtdt.c                          |  33 +-
- drivers/perf/Kconfig                               |   7 +
- drivers/perf/Makefile                              |   1 +
- drivers/perf/alibaba_uncore_drw_pmu.c              |   2 +-
- drivers/perf/amlogic/meson_g12_ddr_pmu.c           |   2 +-
- drivers/perf/arm-cci.c                             |   2 +-
- drivers/perf/arm-ccn.c                             |   2 +-
- drivers/perf/arm-cmn.c                             |   2 +-
- drivers/perf/arm_cspmu/arm_cspmu.c                 |   2 +-
- drivers/perf/arm_dmc620_pmu.c                      |   2 +-
- drivers/perf/arm_dsu_pmu.c                         |   2 +-
- drivers/perf/arm_pmuv3.c                           |  32 +-
- drivers/perf/arm_smmuv3_pmu.c                      |   2 +-
- drivers/perf/arm_spe_pmu.c                         |   2 +-
- drivers/perf/cxl_pmu.c                             |   9 +-
- drivers/perf/dwc_pcie_pmu.c                        |  16 +-
- drivers/perf/fsl_imx8_ddr_perf.c                   |   2 +-
- drivers/perf/fsl_imx9_ddr_perf.c                   |   7 +-
- drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c       |   2 +-
- drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c      |   2 +-
- drivers/perf/hisilicon/hisi_uncore_hha_pmu.c       |   2 +-
- drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c       |   2 +-
- drivers/perf/hisilicon/hisi_uncore_pa_pmu.c        |   2 +-
- drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c      |   2 +-
- drivers/perf/marvell_cn10k_ddr_pmu.c               |   2 +-
- drivers/perf/marvell_cn10k_tad_pmu.c               |   2 +-
- drivers/perf/marvell_pem_pmu.c                     | 425 ++++++++++++
- drivers/perf/qcom_l2_pmu.c                         |   2 +-
- drivers/perf/thunderx2_pmu.c                       |   2 +-
- drivers/perf/xgene_pmu.c                           |   2 +-
- drivers/virt/coco/Kconfig                          |   2 +
- drivers/virt/coco/Makefile                         |   1 +
- drivers/virt/coco/arm-cca-guest/Kconfig            |  11 +
- drivers/virt/coco/arm-cca-guest/Makefile           |   2 +
- drivers/virt/coco/arm-cca-guest/arm-cca-guest.c    | 224 +++++++
- fs/binfmt_elf.c                                    |   6 +
- fs/binfmt_elf_fdpic.c                              |   6 +
- fs/compat_binfmt_elf.c                             |  10 +
- fs/hugetlbfs/inode.c                               |   2 +-
- fs/proc/task_mmu.c                                 |   2 +-
- include/linux/cpuhotplug.h                         |   1 +
- include/linux/mm.h                                 |  18 +-
- include/linux/perf/arm_pmuv3.h                     |   1 +
- include/uapi/asm-generic/mman.h                    |   4 +
- include/uapi/linux/elf.h                           |   1 +
- include/uapi/linux/prctl.h                         |  22 +
- kernel/sys.c                                       |  30 +
- mm/Kconfig                                         |   6 +
- tools/testing/selftests/arm64/Makefile             |   2 +-
- tools/testing/selftests/arm64/abi/hwcap.c          |  25 +-
- tools/testing/selftests/arm64/abi/syscall-abi.c    |   8 +-
- tools/testing/selftests/arm64/fp/assembler.h       |  15 +
- tools/testing/selftests/arm64/fp/fp-ptrace-asm.S   |  41 +-
- tools/testing/selftests/arm64/fp/fp-ptrace.c       | 161 ++++-
- tools/testing/selftests/arm64/fp/fp-ptrace.h       |  12 +
- tools/testing/selftests/arm64/fp/fp-stress.c       |  49 +-
- tools/testing/selftests/arm64/fp/fpsimd-test.S     |   6 +-
- tools/testing/selftests/arm64/fp/kernel-test.c     |   4 +
- tools/testing/selftests/arm64/fp/sme-inst.h        |   2 +
- tools/testing/selftests/arm64/fp/sve-ptrace.c      |  16 +-
- tools/testing/selftests/arm64/fp/sve-test.S        |  10 +-
- tools/testing/selftests/arm64/fp/za-ptrace.c       |   8 +-
- tools/testing/selftests/arm64/fp/za-test.S         |  15 +-
- tools/testing/selftests/arm64/fp/zt-ptrace.c       |   8 +-
- tools/testing/selftests/arm64/fp/zt-test.S         |  15 +-
- tools/testing/selftests/arm64/gcs/.gitignore       |   7 +
- tools/testing/selftests/arm64/gcs/Makefile         |  30 +
- tools/testing/selftests/arm64/gcs/asm-offsets.h    |   0
- tools/testing/selftests/arm64/gcs/basic-gcs.c      | 357 ++++++++++
- tools/testing/selftests/arm64/gcs/gcs-locking.c    | 200 ++++++
- .../selftests/arm64/gcs/gcs-stress-thread.S        | 311 +++++++++
- tools/testing/selftests/arm64/gcs/gcs-stress.c     | 530 +++++++++++++++
- tools/testing/selftests/arm64/gcs/gcs-util.h       | 100 +++
- tools/testing/selftests/arm64/gcs/gcspushm.S       |  96 +++
- tools/testing/selftests/arm64/gcs/gcsstr.S         |  99 +++
- tools/testing/selftests/arm64/gcs/libc-gcs.c       | 728 +++++++++++++++++++++
- .../selftests/arm64/mte/check_buffer_fill.c        |   4 +-
- .../selftests/arm64/mte/check_hugetlb_options.c    | 285 ++++++++
- tools/testing/selftests/arm64/mte/check_prctl.c    |   2 +-
- .../selftests/arm64/mte/check_tags_inclusion.c     |   4 +-
- .../testing/selftests/arm64/mte/mte_common_util.c  |  29 +-
- .../testing/selftests/arm64/mte/mte_common_util.h  |   6 +-
- tools/testing/selftests/arm64/pauth/Makefile       |   6 +
- tools/testing/selftests/arm64/pauth/pac.c          |   5 +-
- tools/testing/selftests/arm64/signal/.gitignore    |   1 +
- tools/testing/selftests/arm64/signal/Makefile      |   2 +-
- tools/testing/selftests/arm64/signal/sve_helpers.h |  13 +
- .../testing/selftests/arm64/signal/test_signals.c  |  17 +-
- .../testing/selftests/arm64/signal/test_signals.h  |   6 +
- .../selftests/arm64/signal/test_signals_utils.c    |  32 +-
- .../selftests/arm64/signal/test_signals_utils.h    |  39 ++
- .../arm64/signal/testcases/gcs_exception_fault.c   |  62 ++
- .../selftests/arm64/signal/testcases/gcs_frame.c   |  88 +++
- .../arm64/signal/testcases/gcs_write_fault.c       |  67 ++
- .../selftests/arm64/signal/testcases/ssve_regs.c   |   5 +
- .../selftests/arm64/signal/testcases/testcases.c   |   7 +
- .../selftests/arm64/signal/testcases/testcases.h   |   1 +
- .../selftests/arm64/signal/testcases/za_regs.c     |   5 +
- tools/testing/selftests/mm/Makefile                |   8 +-
- tools/testing/selftests/mm/pkey-arm64.h            |   3 +-
- tools/testing/selftests/mm/pkey-helpers.h          |   7 +
- tools/testing/selftests/mm/pkey-x86.h              |   2 +
- tools/testing/selftests/mm/pkey_sighandler_tests.c | 115 +++-
- 214 files changed, 7911 insertions(+), 585 deletions(-)
 
