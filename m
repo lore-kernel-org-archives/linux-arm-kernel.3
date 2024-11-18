@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E82BD10F58
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 15:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A8FD10F58
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 15:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KWjaldySSsYfQCb+Fv1nXh6FZAdhvSHeg1RBQdsBVf8=; b=QSnsFYI8pjx9oNf3i3409bRv5+
-	kKUttqLP+2BIzQyWk5vIa3lS3QuqAlazLBSSKSuuPOBdKXlc/hNQviYUUqvQ7+ydALZdYslYmBhCs
-	lb23oSlSgBUTlcju0ZmoO8LxPC9qqSPd7EQQhn9HVkc2izFv8rVD2myS6nfO7wB6bjsqwQqGcQiY8
-	CkqBNR7OBc7CGRZd8l+Svn/LvegKa9V4T1EjP/6c+q9sOMpvwDEkaEJI+H8CnQMgieFpHa+GyuBQ/
-	FZjzOzRGw1S9YvqxUQHydaUtFW9gcYfaR7tabm+7HWQ2BzdgJQPSp09lil6SW/NKPCqViL2h5AjZ7
-	XwTIM6JQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sz1jHbHlp8QHDI8p6axcNSLoVuizF3hYscPtQCpLJQk=; b=j8BR9oVfAizEgafl7V/igjApJL
+	GxMohgP4ABdKDyClwyVBmvOLjAsY6MBnhyBtiF/04Qw0hgkjizReervakuhDiiOhRrEMVXDAcRjF0
+	Rl9cphaLwIgPOqIjnQIlne0ZA8fbjucdiJEIvtVmnkdbrZgGpauljw7mPTkf+SKjkBvKC9TOwFXSx
+	cP5Kdv9sWunU/AVA1tgaRcj7mepVJUUaPSghRJXj80fg8iIIG30aMJnv1VeBou++0n+HQ+WI/0x2e
+	/FsqlPzDc/fFQaSuq3nSRHWXAbsGMO2XtzOBgtEiCH2BSTc0H4zgJ3C/SNDcaXFE4a7ctWqypGZgL
+	kME87T4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD46X-00000009z3H-1wMw;
-	Mon, 18 Nov 2024 15:55:57 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1tD48c-00000009zLP-13xP;
+	Mon, 18 Nov 2024 15:58:06 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD45Z-00000009yoy-2C1G
+	id 1tD47g-00000009zDh-0LQP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 15:54:58 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6CF4F20005;
-	Mon, 18 Nov 2024 15:54:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1731945293;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KWjaldySSsYfQCb+Fv1nXh6FZAdhvSHeg1RBQdsBVf8=;
-	b=o2BM5QHwOM9jIig3NLGd5FDgFvDpNzcM36wQa5NARzekPb/pj7gB0mOSC9JaANGhYCcY9q
-	qpM/6ojDZQaViCYcreN+FL/vQO4v8MTzQXp35MtLGOpKh5zGVCm6MMnhZ6FOH7/1ZyY/Mh
-	zberEPyKb2XCgNUmA4SPa3Xd9Vj7+avL4asbVL2OdGT7rOTl/H2POaDseg6ktW5mG1w6C7
-	PbpQKkKU44v1Ms8pA5luj0l1q4IxcJmYGQiQDpYpNFHR97HeM0x7qOO2ixZ2z+iwedaBcA
-	lXKynAIpWHh1at+lCyTcWXnpIWC3ERtrHrDusEfmGaRnNdrQrMlO6eycPqTOLA==
-Date: Mon, 18 Nov 2024 16:54:51 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+	Mon, 18 Nov 2024 15:57:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Sz1jHbHlp8QHDI8p6axcNSLoVuizF3hYscPtQCpLJQk=; b=biXQoHyBnaIUDYP3xC0QYwCpdL
+	tBc+spdPnAfSbQvxnCkiL4+VaZQeQfDT+/2kMJaP6vsKf0wzOVR3Bh08pg8cvUfKVW1uHTYUZyP4p
+	fJ+09bOWxGRUaLYeM5y6sNeofl4PchDZxCmBORt/9uJ5KdewChMjorjwQOrEXPPf3fLVeUm6lmIvg
+	LEiMAa+AdDz+6fhQsFaEDQV2D37zPoeR+tDeP5u+FLW2ICRlN7wojvq8EYaflu2lnx4EmfGnbgQVH
+	BJdH7Ec5wqBy6J/l8dFXMWVlqvCd8aE0L2o1EzysPs80B6MPR2uGMgACkoVMoqdTmfE4gqqFlyOxQ
+	ILV4N1Vg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35228)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tD47O-00024l-0K;
+	Mon, 18 Nov 2024 15:56:50 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tD47K-0005CP-2Y;
+	Mon, 18 Nov 2024 15:56:46 +0000
+Date: Mon, 18 Nov 2024 15:56:46 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Suraj Gupta <suraj.gupta2@amd.com>
-Cc: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
- <kuba@kernel.org>, <pabeni@redhat.com>, <michal.simek@amd.com>,
- <sean.anderson@linux.dev>, <radhey.shyam.pandey@amd.com>,
- <horms@kernel.org>, <netdev@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <git@amd.com>, <harini.katakam@amd.com>
-Subject: Re: [PATCH net-next 1/2] dt-bindings: net: xlnx,axi-ethernet: Add
- bindings for AXI 2.5G MAC
-Message-ID: <20241118165451.6a8b53ed@fedora.home>
-In-Reply-To: <20241118081822.19383-2-suraj.gupta2@amd.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
+	sean.anderson@linux.dev, radhey.shyam.pandey@amd.com,
+	horms@kernel.org, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	git@amd.com, harini.katakam@amd.com
+Subject: Re: [PATCH net-next 2/2] net: axienet: Add support for AXI 2.5G MAC
+Message-ID: <ZztjvkxbCiLER-PJ@shell.armlinux.org.uk>
 References: <20241118081822.19383-1-suraj.gupta2@amd.com>
-	<20241118081822.19383-2-suraj.gupta2@amd.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+ <20241118081822.19383-3-suraj.gupta2@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241118081822.19383-3-suraj.gupta2@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_075457_718386_5FE8E1C9 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20241118_075708_116372_6BEEB8E9 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +83,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Mon, Nov 18, 2024 at 01:48:22PM +0530, Suraj Gupta wrote:
+> Add AXI 2.5G MAC support, which is an incremental speed upgrade
+> of AXI 1G MAC and supports 2.5G speed only. "max-speed" DT property
+> is used in driver to distinguish 1G and 2.5G MACs of AXI 1G/2.5G IP.
+> If max-speed property is missing, 1G is assumed to support backward
+> compatibility.
+> 
+> Co-developed-by: Harini Katakam <harini.katakam@amd.com>
+> Signed-off-by: Harini Katakam <harini.katakam@amd.com>
+> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> ---
 
-On Mon, 18 Nov 2024 13:48:21 +0530
-Suraj Gupta <suraj.gupta2@amd.com> wrote:
+...
 
-> AXI 1G/2.5G Ethernet subsystem supports 1G and 2.5G speeds. "max-speed"
-> property is used to distinguish 1G and 2.5G MACs of AXI 1G/2.5G IP.
-> max-speed is made a required property, and it breaks DT ABI but driver
-> implementation ensures backward compatibility and assumes 1G when this
-> property is absent.
-> Modify existing bindings description for 2.5G MAC.
+> -	lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE |
+> -		MAC_10FD | MAC_100FD | MAC_1000FD;
+> +	lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE;
+> +
+> +	/* Set MAC capabilities based on MAC type */
+> +	if (lp->max_speed == SPEED_1000)
+> +		lp->phylink_config.mac_capabilities |= MAC_10FD | MAC_100FD | MAC_1000FD;
+> +	else
+> +		lp->phylink_config.mac_capabilities |= MAC_2500FD;
 
-That may be a silly question, but as this is another version of the IP
-that behaves differently than the 1G version, could you use instead a
-dedicated compatible string for the 2.5G variant ?
+The MAC can only operate at (10M, 100M, 1G) _or_ 2.5G ?
 
-As the current one is :
+Normally, max speeds can be limited using phylink_limit_mac_speed()
+which will clear any MAC capabilities for speeds faster than the
+speed specified.
 
-compatible = "xlnx,axi-ethernet-1.00.a";
-
-it seems to already contain some version information.
-
-But I might also be missing something :)
-
-Best regards,
-
-Maxime
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
