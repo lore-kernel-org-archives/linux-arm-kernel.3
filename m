@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EBCD49228
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 14:50:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FDCBD4922E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 14:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sKPU7OueWbmOZ0vLDtsCLawk5Pg/j927rqgWt1B9QqA=; b=ylP3IU1GnjOyDShpFnbkvViBgW
-	R2sd72dAnk86sicpEGZya3lKoEiNm9lRrauPTpi6vpQ1R0q2jC1vHznyWppdTMeuxWl6w5gMJekz3
-	Td6XWYJvt2rbtCbdv6y/O2KBmAQeQ5PPZaP9Ld9+VrpwvQdk6kg5pFZu/YcsGrSuZEbRtu8Dy7Zng
-	F8M1nPrat7Jv0V08974UIjmDEChiGCJPm/LpGpHX3R9sAEtMB43XwkEinjKidi0ASqWqbgCtb44m/
-	OwmcJAZj/GriHwV951PaMvkdAUERkRyNeWWyXq/o/Q/EJYTMOpcOmVEiaVxuggsk8PWyAFThYIQCI
-	10xBtI2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=orMLRxEgPaCVt+DUcYSRwYW0pCq8JjJqS0YZ0bC7OiQ=; b=3yJiMTLc/vOxbqN7Se/TzME+VY
+	reJ+QG3DzR350COblHNK28aQcKe/KYB4SX3ocK3JSvr1B5C1dRFh4pGeB0p8WDI3E8rCPlW8RwTYy
+	7ZqntYEOJ67m08/2PT1K9ODNHGRmI2NG/20tdmHPcVuUTCE26OPo7IzbtSLEJeJX4EQ3zfnmST14P
+	NjnoAzwApXTKLw2e7wVsCsxWbQxdaIbJC9AILDJ+CZOb76CJJ4rRNMmEDGhWDKDcpDAMWXikACGFX
+	bxRXClDTPhry0pGS0WfJFrAz407/ebzZxmfxeg/R4QNUSWq9T54n0kHK56inWBU4KhvyOs5xg7K+2
+	W8/Se/fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD34k-00000009oer-34H7;
-	Mon, 18 Nov 2024 14:50:02 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tD3CU-00000009pyV-2bPw;
+	Mon, 18 Nov 2024 14:58:02 +0000
+Received: from mail-m121150.qiye.163.com ([115.236.121.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD33p-00000009oRt-1YeQ;
-	Mon, 18 Nov 2024 14:49:06 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-382377822b9so254293f8f.3;
-        Mon, 18 Nov 2024 06:49:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731941343; x=1732546143; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=sKPU7OueWbmOZ0vLDtsCLawk5Pg/j927rqgWt1B9QqA=;
-        b=QV6HdEqknIbv7kXjLaXhHecMuTIgyfQZUpgOgkOWs3qruIqczmNAcUEpIPnxpyBxVo
-         TEjipeg6Mi+b9JLmpeldqepaRUFqxO2ajrHiOT8i23J9WEsp36m47Na4a+pG8YHSIues
-         10ff70tT7wvI8ohrNBq4L37rBg0gGQqSvDBZOymwZEGibj52T4zIlFtFv7bbvLiZJQrk
-         ZjZc4LdP/GrjrQlasxVLMFP4U4phyUHeGinr9xD17Hr48xGU4TaFr/ZtIUDvV29R/kt7
-         I3wtBVMtOUb8CIAX+Nn6KxpAjOAxIQ/FVbKqZrdxphmCrMMFrsnOFjrvdran0+o84PV1
-         Nxwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731941343; x=1732546143;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sKPU7OueWbmOZ0vLDtsCLawk5Pg/j927rqgWt1B9QqA=;
-        b=HR1dr1R/a46VnDYCii3UVKBKhrdCjyuJ/6l6Id7olyE+cbjGyjTSbQYn2ckwHKLAr0
-         /Z+6Hj/6VeEOogM0vnTgWpQ35wNlii+X9N+yUPbcTy6B8tR/lwwpe/PfKkxD1ZZCXQ7x
-         hCzeUqFfhWkocH6FjGhxuaVx8Nu9ZNkk/VSb6VnL+ZCWFb8vA/kNVuhoq9jsjjnjzhYG
-         LeEk0L/M+gOH4NnQWJNwC0ewSqmroioPgGbgHbObA+WIHG3jlJr0s2kmPjMvz9ArpTo4
-         XD5ccWYif6/5fSvJdG6enP0Ea1ll11TuktY/hXODg5RHLTGXyQU6omPBoSoqGymYaeSx
-         ZsBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXcyFQs62c6HjXTbb+CEWrGPMJbP07obfbgiHnJoSYhI+aBgwKNMFJr/qp/1HL5tog61nzBUObg+PDmEABvF24=@lists.infradead.org, AJvYcCXnG+bQvumF9BvfCavh1hRspyXNG2RW+uVvVvtVZpottoYjXLum4XCQCa6mfEvuSeDByTqZ8zTa+HVH5CR85p3c@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQYwbaZbGer21tB1EhFwisEx6j3esGBw0O/ZLYfsG0m6WLunSH
-	ydngye6wI78apWWTqgQWzO4kvysdbRz7dzKdrzJs3eMZoYl2BnMe
-X-Google-Smtp-Source: AGHT+IE012wnk28ETZsyQ8SITxH5vWI1jMJO1ED40DmOrjl3fn2iD7Eo7QE/jKPdNaugtPxI9JxYbg==
-X-Received: by 2002:a5d:598f:0:b0:382:4378:464b with SMTP id ffacd0b85a97d-38243784b86mr1535185f8f.10.1731941343057;
-        Mon, 18 Nov 2024 06:49:03 -0800 (PST)
-Received: from skbuf ([188.25.135.117])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3821adad619sm12908879f8f.27.2024.11.18.06.49.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Nov 2024 06:49:02 -0800 (PST)
-Date: Mon, 18 Nov 2024 16:48:59 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	id 1tD3BX-00000009pnA-2IUi;
+	Mon, 18 Nov 2024 14:57:05 +0000
+Received: from rockchip.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 317a7f35;
+	Mon, 18 Nov 2024 22:56:48 +0800 (GMT+08:00)
+From: Jon Lin <jon.lin@rock-chips.com>
+To: broonie@kernel.org
+Cc: linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	heiko@sntech.de,
+	jon.lin@rock-chips.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v7 0/4] net: dsa: Add Airoha AN8855 support
-Message-ID: <20241118144859.4hwgpxtql5fplcyt@skbuf>
-References: <20241117132811.67804-1-ansuelsmth@gmail.com>
+	linux-spi@vger.kernel.org
+Subject: [PATCH] spi: rockchip-sfc: Embedded DMA only support 4B aligned address
+Date: Mon, 18 Nov 2024 22:56:46 +0800
+Message-Id: <20241118145646.2609039-1-jon.lin@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241117132811.67804-1-ansuelsmth@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhoaTFZCT01PTh4ZSEpOSk5WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a933fc6ba8d09d9kunm317a7f35
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6P006SBw*SzIhQ1ELSzkPMyov
+	GBgwCkxVSlVKTEhKQk9KQ0tCTU1PVTMWGhIXVREUFVUXEhU7CRQYEFYYExILCFUYFBZFWVdZEgtZ
+	QVlOQ1VJSVVMVUpKT1lXWQgBWUFDQ083Bg++
+DKIM-Signature: a=rsa-sha256;
+	b=fhKzbRWaLMBVXGi5F1pcCy/LUI0n+JSbCyVA5a8UCaMGcee5HZb4Zw3KEK74/cUF6oOxDzAJB/Mo6VzGT9cTygrEXl87Deas3Xwkx9wSNw/7e1NFRQ/Xtnf5UsA+posFPdKhOsGodusVnV5SmP5C8KpDEs1ICFKYMi+tNV6vXCQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=orMLRxEgPaCVt+DUcYSRwYW0pCq8JjJqS0YZ0bC7OiQ=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_064905_405785_F5309EEA 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20241118_065704_142802_81DA00F1 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,24 +74,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
+Controller limitations.
 
-On Sun, Nov 17, 2024 at 02:27:55PM +0100, Christian Marangi wrote:
-> This small series add the initial support for the Airoha AN8855 Switch.
-> 
-> It's a 5 port Gigabit Switch with SGMII/HSGMII upstream port.
-> 
-> This is starting to get in the wild and there are already some router
-> having this switch chip.
-> 
-> It's conceptually similar to mediatek switch but register and bits
-> are different. And there is that massive Hell that is the PCS
-> configuration.
-> Saddly for that part we have absolutely NO documentation currently.
-> 
-> There is this special thing where PHY needs to be calibrated with values
-> from the switch efuse. (the thing have a whole cpu timer and MCU)
+Signed-off-by: Jon Lin <jon.lin@rock-chips.com>
+---
 
-Have you run the scripts in tools/testing/selftests/drivers/net/dsa/?
-Could you post the results?
+ drivers/spi/spi-rockchip-sfc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/spi/spi-rockchip-sfc.c b/drivers/spi/spi-rockchip-sfc.c
+index 316e3db88492..69d0f2175568 100644
+--- a/drivers/spi/spi-rockchip-sfc.c
++++ b/drivers/spi/spi-rockchip-sfc.c
+@@ -503,7 +503,7 @@ static int rockchip_sfc_exec_mem_op(struct spi_mem *mem, const struct spi_mem_op
+ 	rockchip_sfc_adjust_op_work((struct spi_mem_op *)op);
+ 	rockchip_sfc_xfer_setup(sfc, mem, op, len);
+ 	if (len) {
+-		if (likely(sfc->use_dma) && len >= SFC_DMA_TRANS_THRETHOLD) {
++		if (likely(sfc->use_dma) && len >= SFC_DMA_TRANS_THRETHOLD && !(len & 0x3)) {
+ 			init_completion(&sfc->cp);
+ 			rockchip_sfc_irq_unmask(sfc, SFC_IMR_DMA);
+ 			ret = rockchip_sfc_xfer_data_dma(sfc, op, len);
+-- 
+2.34.1
+
 
