@@ -4,79 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8EF4D60CEC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 22:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A94D60CF8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 22:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=14OsMhdGfdcpS80IHQ9XNfdJp63ZxqrrUOpqJIR6RjE=; b=ZvJFvmWpWib2fP28NsUOhxPz5r
-	2xDKy4hi8BHC/c/KuWX9cZHKmtqZ1Osi0yleLjLkG3fFOVwPyMkJCu/UTkdPtk5fF4qz5gVMyxRmX
-	tWKujDCBeS4QkF1JTx/05/n90r/U3xtEPaXZMB7BtngMgLP9oXFk0uzV/jMgYs59FwrVE/iYBcUSN
-	bj4kC1NVuUpQbFbewrRrYiXM6WEwKbJS84NtJZJeIS+Ue0LCpHaPijgRBTzTC8QrDstO0QjA9zejj
-	cPCeskMucu8jp1xZm3GIxfZWDNRbMWLDGIjZ5s9yX5+NwA00s/poEAq7PYy+uV4ibPId9m+0AdlbP
-	559f3Nsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x1MrAjucewY12Q379yzg+ry5RVZKlVViQuKVvFxefR8=; b=AzEooXwRpjnAf9Zo535C083D0I
+	aeSwOUmFqUOae1WdoY6pFIpw4aijuJo62GNmnqg+ee3w3tqzaLmL8LWuHlmI4+77m5HMBqsR7tn6f
+	27d8M5BncL9Ue6BCCKZUn09qRCvBD38mjtBZAqKucBdlVYz4fqz4kpf+y8RXxp1RB20bT0RoOhX57
+	n5/Yn1CcCkmUbFufDn4Am2SI6+XfLFUkxa+eEYID2ka3bDz/oQ6vtRLrni0A/hk0xxSG6ltmodgSa
+	l6M4WT7L5mxii2nTH1F9NqUhmxDZb4t7HdShcxeEvVWbEEmZCEroQi0321mzAvc8nUd3AtrXMVTra
+	E2zLFj+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDACi-0000000Al2u-0zr8;
-	Mon, 18 Nov 2024 22:26:44 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1tDAiG-0000000AnxN-3j1t;
+	Mon, 18 Nov 2024 22:59:20 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDABm-0000000AkuK-1hr8
+	id 1tDAhK-0000000Anp3-0lnU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Nov 2024 22:25:47 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6eea70c89cbso7400587b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 14:25:45 -0800 (PST)
+	Mon, 18 Nov 2024 22:58:23 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2fb59652cb9so32871481fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 14:58:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731968745; x=1732573545; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=14OsMhdGfdcpS80IHQ9XNfdJp63ZxqrrUOpqJIR6RjE=;
-        b=cfHw5yOPkLupbMLxbC9iGBpcLO+dvHfOtEQb9nl9nkV5+PPehPktQV3G1oZEi8g/k2
-         CtEHp9xBTOcJ0QtpGzGan5FQcUlqIU86FO8SEZUU18xqHjpehFtGy72jAPWNid2ZraxQ
-         1ZqeaWNhGKpraVWyX5acFPEZxKtkoYS5yPGg7Mlj4NxjxVLsr1cUEhdyGgZgDZHSOarS
-         FwInYyR5CULJvSFERAEyV58iYKztjgmueC96zshGyl7oLfLCil39LoyzVbmnEOwRYYsE
-         V/pBakrom4fq4NSNa4tHwxyAlE1h+7UJf8R76oML/FOb4UZircOiEpGQxoFU+kemsUWH
-         905Q==
+        d=linaro.org; s=google; t=1731970700; x=1732575500; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=x1MrAjucewY12Q379yzg+ry5RVZKlVViQuKVvFxefR8=;
+        b=bDU/r5I9Ed5LWytylSbdan5CrFrK39OYkn5cZ8k3jAgbuHb/hJthvr28Lu4AjYSyGG
+         j6/L9y3true0U63s4rQRsP18nTCkWvCsmfhIeP7TTUUMkWp2KCFuAReGLZrnm68Gg4/e
+         oA+HimVs9J41J5sbpwL4kDxfZ3z7WnjpIAjP7qTYtTH+jMQtsiJLpfiXzE6EAwM2GPbG
+         FJvda4fU5mHbZg3d3PHN24bKe2nvFKfK3uoLHWXDe/lVtjONB7DTdDySRjfyomlPc/Vn
+         jLla05Ycy3L0Ov+ulstF7KXQK8pntiu0rY12SiyRPEaTnYfWuAOGD5KTSmEAJGl18rw/
+         ctPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731968745; x=1732573545;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=14OsMhdGfdcpS80IHQ9XNfdJp63ZxqrrUOpqJIR6RjE=;
-        b=GcCbT1ryogrJw2WogvNizng8PA4sKAU4WfT0tT8z1Rjq3nq8omjZRVLOEEfcpxR53m
-         86muzYwzbgUR9s2iHi5UgvBYbHB+4CVtHuWLAe6a4mC3AKiDmIJgBtteJLEkOd7TgFxv
-         zYBV0TwkMIxlGY6dRLKQNomDYj+U4K8PQfa2xDgCEmgv5O3erjkWukaNScrUl8FSRKoV
-         fuhWiIg5jf6kBADiVsEvl2pZl7rkbQsgJYpvVmXVTKFDbnwiD+tsdsOLRErPH/q8hCtC
-         NcLNlzlR0Az22ka5tHz+dJj5Ys4aSB03Wo74L/2RoPWwkXd6dNC2o98O8FiRKqIJNXQx
-         tFAw==
-X-Forwarded-Encrypted: i=1; AJvYcCVqv0a302vjiWFdy7WdRTiVcXDJwonhTJMdbNbmHBZztT2LDwzgcB+CLWcnbLkogssL17VH3olWTQ7f4HBBsECk@lists.infradead.org
-X-Gm-Message-State: AOJu0YxT2Ep3je6alW8zlQJd/H5u+j1txyygwZq2wQJJi6DwAT6xcEQ2
-	YCzuPLbe8Qa0jZv+opPaWnfK6ok5mAxBcsXvwqq17PGRGpQgFCmWCN0750OgcpCZg3cvJtTgxrY
-	2
-X-Google-Smtp-Source: AGHT+IHaqSLX7qNc1UhlL7DMMonDFnZRihYI5SIMh0lBI+T2x10S5W6DAGbzQyiEudeWnrky5v96GHNZfoI=
-X-Received: from yabinc-desktop.mtv.corp.google.com ([2a00:79e0:2e3f:8:bc56:3202:f6e1:c119])
- (user=yabinc job=sendgmr) by 2002:a05:690c:2e08:b0:6ee:9a08:7686 with SMTP id
- 00721157ae682-6eeaa3a3e90mr127907b3.4.1731968744961; Mon, 18 Nov 2024
- 14:25:44 -0800 (PST)
-Date: Mon, 18 Nov 2024 14:25:40 -0800
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241118222540.27495-1-yabinc@google.com>
-Subject: [PATCH v2] arm64: Allow CONFIG_AUTOFDO_CLANG to be selected
-From: Yabin Cui <yabinc@google.com>
-To: Rong Xu <xur@google.com>, Han Shen <shenhan@google.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, workflows@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Cc: Yabin Cui <yabinc@google.com>
+        d=1e100.net; s=20230601; t=1731970700; x=1732575500;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=x1MrAjucewY12Q379yzg+ry5RVZKlVViQuKVvFxefR8=;
+        b=Q4e1ISqmRDOMv7GuSVbn139JXjocLUxII3o9+bNXG5RxdW2mNnTDOIOezMAoUo5//M
+         6ZCFfnouROBGQnABoXlqknfOYcQQM5QdqManZqRtiMgcrBAe00bRXhsehQLxCSOodRbQ
+         zPcK2S/VL9T3xTpyAZIczHgvdavWlsY/Z8BT2v3qschjDyIh0r6w56PDJX8Mksmk8Yb1
+         ZzdJijMuff2oPj3S7QMhPYmy8GY2kfxNkiEOiRJ0kourHh9ZIo0hjyJN58B97iO0jS5G
+         UED12pmX03pUYKTW/Vxg9o3q8xrY4DPIVb65f/jvrgR3yRO21XQ9sxotvgOQjR+8E+9Q
+         YN9A==
+X-Forwarded-Encrypted: i=1; AJvYcCXGAC2MiaSiZNT30d+9e7RCzQQdF2qinoVMuv2Sm5XbLCg5PLMtNNdkElWuX4yTUB/3NeD5GtFDxoUL6eKnMyWL@lists.infradead.org
+X-Gm-Message-State: AOJu0YxipuXClBWjrypa1wXC/j1xY+kL4bR6aDEuuh39Jl8+OP00JV52
+	li7SfWBRStV9ApmA+3o12MWHc3Wbckcz2Pj43qETTdic3PWQY8nbDLUuK0lNAx7gltBnpZ6FxUm
+	fG6IR0cW6iuiB2vg2OYAs988TEIgNiwq8vp5RcA==
+X-Google-Smtp-Source: AGHT+IEFiYb4rFpuGVaBbq8epNGwPhP6IH9nm6hyP3jkslxVQLOCjV/16xaXHTQ8qSTvbVzxGCpcSv4sYGDo3Nb1YqM=
+X-Received: by 2002:a05:651c:1b05:b0:2ff:4ce0:d268 with SMTP id
+ 38308e7fff4ca-2ff6064e25fmr63970731fa.2.1731970700292; Mon, 18 Nov 2024
+ 14:58:20 -0800 (PST)
+MIME-Version: 1.0
+References: <20241117114534.work.292-kees@kernel.org>
+In-Reply-To: <20241117114534.work.292-kees@kernel.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 18 Nov 2024 23:58:09 +0100
+Message-ID: <CACRpkdaBErgRrFDWu2FSrnX9Hr=PnHvfccLgAzhOOwTdXuRjTg@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: airoha: Use unsigned long for bit search
+To: Kees Cook <kees@kernel.org>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_142546_443984_911AF84F 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20241118_145822_222544_95BD0D54 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,76 +93,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Select ARCH_SUPPORTS_AUTOFDO_CLANG to allow AUTOFDO_CLANG to be
-selected.
+On Sun, Nov 17, 2024 at 12:45=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
 
-On ARM64, ETM traces can be recorded and converted to AutoFDO profiles.
-Experiments on Android show 4% improvement in cold app startup time
-and 13% improvement in binder benchmarks.
+> Instead of risking alignment problems and causing (false positive) array
+> bound warnings when casting a u32 to (64-bit) unsigned long, just use a
+> native unsigned long for doing bit searches. Avoids warning with GCC 15's
+> -Warray-bounds -fdiagnostics-details:
+>
+> In file included from ../include/linux/bitmap.h:11,
+>                  from ../include/linux/cpumask.h:12,
+>                  from ../arch/x86/include/asm/paravirt.h:21,
+>                  from ../arch/x86/include/asm/irqflags.h:80,
+>                  from ../include/linux/irqflags.h:18,
+>                  from ../include/linux/spinlock.h:59,
+>                  from ../include/linux/irq.h:14,
+>                  from ../include/linux/irqchip/chained_irq.h:10,
+>                  from ../include/linux/gpio/driver.h:8,
+>                  from ../drivers/pinctrl/mediatek/pinctrl-airoha.c:11:
+> In function 'find_next_bit',
+>     inlined from 'airoha_irq_handler' at ../drivers/pinctrl/mediatek/pinc=
+trl-airoha.c:2394:3:
+> ../include/linux/find.h:65:23: error: array subscript 'long unsigned int[=
+0]' is partly outside array bounds of 'u32[1]' {aka 'unsigned int[1]'} [-We=
+rror=3Darray-bounds=3D]
+>    65 |                 val =3D *addr & GENMASK(size - 1, offset);
+>       |                       ^~~~~
+> ../drivers/pinctrl/mediatek/pinctrl-airoha.c: In function 'airoha_irq_han=
+dler':
+> ../drivers/pinctrl/mediatek/pinctrl-airoha.c:2387:21: note: object 'statu=
+s' of size 4
+>  2387 |                 u32 status;
+>       |                     ^~~~~~
+>
+> Signed-off-by: Kees Cook <kees@kernel.org>
 
-Signed-off-by: Yabin Cui <yabinc@google.com>
----
+Patch applied, thanks Kees!
 
-Change-Logs in V2:
-
-1. Use "For ARM platforms with ETM trace" in autofdo.rst.
-2. Create an issue and a change to use extbinary format in instructions:
-   https://github.com/Linaro/OpenCSD/issues/65
-   https://android-review.googlesource.com/c/platform/system/extras/+/3362107
-
- Documentation/dev-tools/autofdo.rst | 18 +++++++++++++++++-
- arch/arm64/Kconfig                  |  1 +
- 2 files changed, 18 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/dev-tools/autofdo.rst b/Documentation/dev-tools/autofdo.rst
-index 1f0a451e9ccd..a890e84a2fdd 100644
---- a/Documentation/dev-tools/autofdo.rst
-+++ b/Documentation/dev-tools/autofdo.rst
-@@ -55,7 +55,7 @@ process consists of the following steps:
-    workload to gather execution frequency data. This data is
-    collected using hardware sampling, via perf. AutoFDO is most
-    effective on platforms supporting advanced PMU features like
--   LBR on Intel machines.
-+   LBR on Intel machines, ETM traces on ARM machines.
- 
- #. AutoFDO profile generation: Perf output file is converted to
-    the AutoFDO profile via offline tools.
-@@ -141,6 +141,22 @@ Here is an example workflow for AutoFDO kernel:
- 
-       $ perf record --pfm-events RETIRED_TAKEN_BRANCH_INSTRUCTIONS:k -a -N -b -c <count> -o <perf_file> -- <loadtest>
- 
-+   - For ARM platforms with ETM trace:
-+
-+     Follow the instructions in the `Linaro OpenCSD document
-+     https://github.com/Linaro/OpenCSD/blob/master/decoder/tests/auto-fdo/autofdo.md`_
-+     to record ETM traces for AutoFDO::
-+
-+      $ perf record -e cs_etm/@tmc_etr0/k -a -o <etm_perf_file> -- <loadtest>
-+      $ perf inject -i <etm_perf_file> -o <perf_file> --itrace=i500009il
-+
-+     For ARM platforms running Android, follow the instructions in the
-+     `Android simpleperf document
-+     <https://android.googlesource.com/platform/system/extras/+/main/simpleperf/doc/collect_etm_data_for_autofdo.md>`_
-+     to record ETM traces for AutoFDO::
-+
-+      $ simpleperf record -e cs-etm:k -a -o <perf_file> -- <loadtest>
-+
- 4) (Optional) Download the raw perf file to the host machine.
- 
- 5) To generate an AutoFDO profile, two offline tools are available:
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index fd9df6dcc593..c3814df5e391 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -103,6 +103,7 @@ config ARM64
- 	select ARCH_SUPPORTS_PER_VMA_LOCK
- 	select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
- 	select ARCH_SUPPORTS_RT
-+	select ARCH_SUPPORTS_AUTOFDO_CLANG
- 	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
- 	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
- 	select ARCH_WANT_DEFAULT_BPF_JIT
--- 
-2.47.0.338.g60cca15819-goog
-
+Yours,
+Linus Walleij
 
