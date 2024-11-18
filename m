@@ -4,69 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8DED6DDC4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 06:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60F83D43FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Nov 2024 06:58:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=74TOSSDm+PS8FEqf6ClWuGbANBPqdjyv4qB8j32Po7M=; b=o6QbOOPo9iVxhAbuJR+giZ3hB4
-	utJxkO0AEP2gBLz+uBCxIoPjMhFBLRH3hlLx3Dmg1AtZag3oE5xyrBEpk98M5rXaKwdT6WxUTBuLR
-	0evLoBAyxnMfE+fVDaGP1aellIsYJfbJFhhHyqMzdJkeKKv7F/SwFXyyM4MDJFfZjsEdYJ6AQ9keq
-	dW9the4PwAeL5CaXsm92BxjEUQMz1rQKWi5dBU0oiCvO1kTBc8BToEBPmJb59RFmCoAVAYrpRF8e7
-	s8zRaYq0M9N0vDOvV4AGgl3Fwp80WhbtD1ohtVVpBONCVBog19h9PozDCJipOB6ff9EJ/JOU7SRH1
-	abNcXatw==;
+	bh=/Enk6OigKE9HeDXJAojnMi3vDdZMDLytoyuoacIrOFI=; b=gQTgNN/r6sSJ8H1llGVvCVdxWP
+	cDYkQSgfXHfjJZmmZ8wOIJ6fJoge/CAP8OAhNFErdTPvrCTeLwCwbue46W4Yz22smyplHztvv+cLH
+	tfGAGR9RJb6EEyRnq9X/hvfdnBpONQvzV5Yi8selVwI7eohVqIWjf9e0Cvedgz08OEN/jeiOc1Syx
+	85TID9LmcWF3zHWxN82WBY6Dq/pbQSU2ezcNpprCdDHjzLSK6KtymjViM0lmROHc1dIiiSlXRCr5u
+	V00dolYq2+HA/Ka1dbVfiBlZBpn/tETJlsyGPkIQ8THn21UVMmoNIpJED4RTjjulW6pV5ic52cxaS
+	/5EZ/v8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCvgY-00000008aDB-1aeA;
-	Mon, 18 Nov 2024 06:56:34 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tCviX-00000008afv-1vSW;
+	Mon, 18 Nov 2024 06:58:37 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCveI-00000008ZoZ-03jp;
-	Mon, 18 Nov 2024 06:54:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1731912852;
-	bh=Z2davH3euLXzw7+JmOS0iNFu1RheIVz/v10S5oNSC4Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JB1zCxRJ1gz78ADZYPJCeXUPq2IUttOwtcq8qjfQb5rGvUyPrtrq9zUFt6DDS+RRr
-	 reKB0vfBrersIUELTShL1XDxmj08OzGzQc4hctFlBYvlShoo13vy0H7u1axYVdRINo
-	 h99kkC36MLN2ARcdb+kRgLmvHPlioMhRtRdB7cRIhQibvtBmGX3PQJdnclABpHP2h6
-	 KS8MVRVFguZJQY2WZrLMluCmWAiuG5lSdFJmS+e5J0dlE0MxQ/ULqcMZPfeMuVuZW4
-	 awlmPNGnq3aS8mpfl90fjMCV+w/x2mFfXB/zGGqSIhbLL0hhpLj8qOcfQ49WF/eUYZ
-	 L/Zvr7WDM0frw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EE3E217E1245;
-	Mon, 18 Nov 2024 07:54:11 +0100 (CET)
-Message-ID: <f6fe51d5-eb16-45ae-b85d-c89ad874b65d@collabora.com>
-Date: Mon, 18 Nov 2024 07:54:11 +0100
+	id 1tCvhb-00000008aQv-27Tm
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Nov 2024 06:57:40 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AI5RdZu001081;
+	Mon, 18 Nov 2024 06:57:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/Enk6OigKE9HeDXJAojnMi3vDdZMDLytoyuoacIrOFI=; b=AzLLkMc/M1NeqmJX
+	+2cC3KmRFuFRYzk0cQ9Ah8IOZNNufmh/X/Nx7ItkkPiQDP2Q6iOZkMrVCWdaBIgc
+	ywlVzBH6fvw4XNVjzdXwyU7CurYWB8qQezXuD+fGSTLjn2Lzrri4Smay9wMLYr4j
+	sgi7KEHYAS0zUff+53a2WKuzIpTkJ7oTDulXVnP6EwZAQSgHj9eDnusx26lh/hB+
+	VrBsct6efXjKkQ1q+9V5zVEkEaET2lWrYgsGF3+Jq6XGhEnZcE2R7Csc/W3lv7MZ
+	XVWaS8Oi5lKD/RXokEneN4tUoFlqOGBrhrQtvrXQuC1uSXxj1UFjbK3XlIKaa7XE
+	sc/dNg==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42ycuf9n84-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 Nov 2024 06:57:30 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AI6vTCj021226
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 Nov 2024 06:57:29 GMT
+Received: from [10.64.16.151] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 17 Nov
+ 2024 22:57:22 -0800
+Message-ID: <0f5a1ce9-060b-44d3-b6f0-da88b26fc57d@quicinc.com>
+Date: Mon, 18 Nov 2024 14:57:19 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/mediatek: Add support for 180-degree rotation in the
- display driver
-To: "Jason-JH.Lin" <jason-jh.lin@mediatek.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Cc: Shawn Sung <shawn.sung@mediatek.com>, dri-devel@lists.freedesktop.org,
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Singo Chang
- <singo.chang@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>,
- Project_Global_Chrome_Upstream_Group@mediatek.com,
- Fei Shao <fshao@chromium.org>
-References: <20241118025126.30808-1-jason-jh.lin@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v2 9/9] arm64: defconfig: Enable SX150X for QCS615 ride
+ board
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+CC: Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar
+	<quic_abhinavk@quicinc.com>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten
+	<marijn.suijten@somainline.org>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Krishna
+ Manikandan" <quic_mkrishn@quicinc.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        "Catalin
+ Marinas" <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Li Liu
+	<quic_lliu6@quicinc.com>,
+        Xiangxu Yin <quic_xiangxuy@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20241113-add-display-support-for-qcs615-platform-v2-0-2873eb6fb869@quicinc.com>
+ <20241113-add-display-support-for-qcs615-platform-v2-9-2873eb6fb869@quicinc.com>
+ <CAA8EJpok20-7HXJJbcJi8YZYCU68g_DGThR_ckjBEz0e+gGBSA@mail.gmail.com>
 Content-Language: en-US
-In-Reply-To: <20241118025126.30808-1-jason-jh.lin@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: fange zhang <quic_fangez@quicinc.com>
+In-Reply-To: <CAA8EJpok20-7HXJJbcJi8YZYCU68g_DGThR_ckjBEz0e+gGBSA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: VOJNeQms_kWtpsHJqazuKTbSkYBfIOw2
+X-Proofpoint-GUID: VOJNeQms_kWtpsHJqazuKTbSkYBfIOw2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 clxscore=1015
+ mlxlogscore=999 phishscore=0 spamscore=0 impostorscore=0 adultscore=0
+ bulkscore=0 lowpriorityscore=0 priorityscore=1501 mlxscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411180057
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241117_225414_234916_72E5DA1B 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241117_225739_555378_4D95EAE8 
+X-CRM114-Status: GOOD (  17.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,16 +127,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 18/11/24 03:51, Jason-JH.Lin ha scritto:
-> mediatek-drm driver reported the capability of 180-degree rotation by
-> adding `DRM_MODE_ROTATE_180` to the plane property, as flip-x combined
-> with flip-y equals a 180-degree rotation. However, we did not handle
-> the rotation property in the driver and lead to rotation issues.
+
+
+On 2024/11/13 20:21, Dmitry Baryshkov wrote:
+> On Wed, 13 Nov 2024 at 13:53, Fange Zhang <quic_fangez@quicinc.com> wrote:
+>>
+>> From: Li Liu <quic_lliu6@quicinc.com>
+>>
+>> For the QCS615 ride board, enable the SX150X to activate the ANX7625
+>> allowing the DSI to output to the mDP through the external bridge.
+>> The ANX7625 relies on the SX150X chip to perform reset and HPD.
+>>
+>> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+>> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+>> ---
+>>   arch/arm64/configs/defconfig | 1 +
+>>   1 file changed, 1 insertion(+)
+>>
+>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+>> index c0b8482ac6ad7498487718ba01d11b1c95e7543d..599a339a19435efbee7a5ef80c093b0e8c65f7ff 100644
+>> --- a/arch/arm64/configs/defconfig
+>> +++ b/arch/arm64/configs/defconfig
+>> @@ -631,6 +631,7 @@ CONFIG_PINCTRL_SM8350=y
+>>   CONFIG_PINCTRL_SM8450=y
+>>   CONFIG_PINCTRL_SM8550=y
+>>   CONFIG_PINCTRL_SM8650=y
+>> +CONFIG_PINCTRL_SX150X=y
 > 
-> Fixes: 74608d8feefd ("drm/mediatek: Add DRM_MODE_ROTATE_0 to rotation property")
-> Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+> Your commit message doesn't describe why it needs to be disabled as a
+> built-in. You are trying to enable it for all defconfig users.
+> Also the placement of the symbol is not correct. You've added it to
+> the section with msm pinctrl drivers, while the chip has nothing to do
+> with msm.
+ok, will remove it from the patch series
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
+> 
+>>   CONFIG_PINCTRL_X1E80100=y
+>>   CONFIG_PINCTRL_QCOM_SPMI_PMIC=y
+>>   CONFIG_PINCTRL_LPASS_LPI=m
+>>
+>> --
+>> 2.34.1
+>>
+> 
+> 
 
 
