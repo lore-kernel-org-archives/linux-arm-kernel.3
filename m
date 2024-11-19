@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74525D4922B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 16:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CEC0D4922B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 16:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C+Qt6EjBDEkKeMFf4ta2E1LIPHmdu2R422nOjIVPZUg=; b=XeuYPkdNG6PdZqT0QxAjFBp9zd
-	POQ9lBJUqR7oFj7+CDsqK7/HCSC3oednMRdDkWi9fycdxgF52mbJBMESY5mTHww+uA3ZpesCCaEl8
-	NGs5UBy76GLMjQzRXFxIMT6LJA7M02nJuDiVOpeuyViD4n5anFnGYuQL4nAU3/HPGt7B1HcYvnDJt
-	UNCS1DAdaeE3nlsucvwJ48ErXaEtZ/CL8gtpdLQ4nZIpsex6Z5v4jzx9P3o1ea5u3w0JW9ic3hKS/
-	BOd/Dpy0kAjPw9p2kNGwL+PTnVWP5BqJwizdOEyNBVyTtRTSvxX675mYI1vJCVFEw21PiAb6eu5IP
-	Ow8RNLJg==;
+	bh=PoybmkSvArWSCaYJGRgHWKY875PYokVmxA7zgdGNzuI=; b=rxPgZ8jrsgP74qEggXomrnxnDk
+	/pa7eQVKKwRHM2BqmTUhcW6a00NaIHogLN62Dl1WBP8qJIURMyxaE/Vy0IO1EgQQY/dThL1mw0zMZ
+	I1r+1bZwGPGhxvokQkOIRLdSquKL3/R4sJYiPxgxvHyg2KuT22J3HnipljTD3OVYkBE3yjY8uV+RF
+	Zq64kVgXQRNKQzx3q+U0bsPyWlfKiapDFb1GuEKvs1fHQbR6LaUe7wyX8w+PbHwqeeMyLEWnl5J6l
+	Je2b0PM4Vr3hgzhtRk2ud8tpX+Z9rWvk6p1J7dARXw8OvWPzVxV9MybYnzaLFTwSj9Heh08Qoq1TE
+	2spvHxIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDRNy-0000000D5XC-3gCK;
-	Tue, 19 Nov 2024 16:47:30 +0000
+	id 1tDROs-0000000D5jd-2KWq;
+	Tue, 19 Nov 2024 16:48:26 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDRHw-0000000D3dm-3zD0
+	id 1tDRHx-0000000D3d4-1uMg
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 19 Nov 2024 16:41:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
@@ -32,21 +32,21 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   t=1732034477; x=1763570477;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=O1LysEK1gA0KqWwNcJjs5vmDTCtXftl3SN5wZwkjZac=;
-  b=xlSBCkrOu72o7KWxm94ZrIl9KO0Xebt8f9CX1MnDoXukGISmW8ZZrMN+
-   vdINqECvOuHQlV+jgSNHTK+9CdkR0LBiWbtEcdStDBmz9leGEivkVzhW6
-   +7vcMS3f+Ujp8suln/Leh+C1EnUa0r+Ed2C9zoZfideg7sJByLBE0BpYp
-   Vi6WQYXNh5xgSzR9hqpEs5GFiep59lzUDJUHrJaR40a2y/88EzZ5VA/ca
-   +P6Hb2EPGR2IYo2If2yufavx2dtixkU5pDYtsvG/exkkOOO/L4ajtKen1
-   Lhms9TIYNDABHpVDC2ITQ8+LNkG6Ed0yOjslydTgFuK0vBG5pSvM2lBRe
-   w==;
+  bh=D1w3fbm8e3Es3RxtNnaQAKzLQacCVlrjQpY190KB4GM=;
+  b=PfuGkhOW/JERyVl2aE2rXpMJtrGRu/LzFH9TAIMo33ktFJLCUf1glNvB
+   aGqgGjC4v73XwTer+fowneINZ0HKiChG7In/DNvnwItQ+t+vbZN+iEvfH
+   RDneO3k/OCuCbUCGwQmSHnvBLPBJl1xaQNB/2RMAgy0MYYHjlt70AoZ1V
+   VUfbWe716kqazABBnhq/l/T842yOaOuMUrUZEUesH1/C4/IkweE6GmJyT
+   Yp0QQjhBShxlBLxhhqHfrv/LwDk2nr3p0uQnp1EfQd7/9MrL2bsWYFAZ8
+   WWl58nWto9o/j6jRvGq8W00oh0D5U0zdr1r9O+FQW6lzVJH9Y/hWhC553
+   g==;
 X-CSE-ConnectionGUID: jnnvkeRdTYaD0RwnHEXOug==
-X-CSE-MsgGUID: F/MAK/FnSdakK2YORUvS0w==
+X-CSE-MsgGUID: oiUv6abVTZSVzBcuRfkPEg==
 X-IronPort-AV: E=Sophos;i="6.12,166,1728975600"; 
-   d="scan'208";a="35018892"
+   d="scan'208";a="35018894"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 Nov 2024 09:41:13 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 Nov 2024 09:41:14 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
@@ -64,10 +64,11 @@ CC: <dharma.b@microchip.com>, <mihai.sain@microchip.com>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<linux-mmc@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-	<linux-spi@vger.kernel.org>, <linux-serial@vger.kernel.org>
-Subject: [PATCH 05/15] dt-bindings: serial: atmel,at91-usart: add microchip,sama7d65-usart
-Date: Tue, 19 Nov 2024 09:40:11 -0700
-Message-ID: <59c3ac14fe134b24c99cb467295008da24d57bb0.1732030972.git.Ryan.Wanner@microchip.com>
+	<linux-spi@vger.kernel.org>, <linux-serial@vger.kernel.org>, Conor Dooley
+	<conor.dooley@microchip.com>
+Subject: [PATCH 07/15] dt-bindings: clocks: atmel,at91sam9x5-sckc: add sama7d65
+Date: Tue, 19 Nov 2024 09:40:13 -0700
+Message-ID: <6f74c94a16c71c5ec19c71eea7779905642ab1aa.1732030972.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1732030972.git.Ryan.Wanner@microchip.com>
 References: <cover.1732030972.git.Ryan.Wanner@microchip.com>
@@ -75,8 +76,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_084117_089830_B4C375BF 
-X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-CacheID: sfid-20241119_084117_564293_A5E99DD7 
+X-CRM114-Status: UNSURE (   7.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,25 +95,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dharma Balasubiramani <dharma.b@microchip.com>
 
-Add SAMA7D65 USART compatible to DT bindings documentation.
+Add bindings for SAMA7D65's slow clock controller.
 
 Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml | 1 +
+ .../devicetree/bindings/clock/atmel,at91sam9x5-sckc.yaml         | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml b/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml
-index f466c38518c4..087a8926f8b4 100644
---- a/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml
-+++ b/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml
-@@ -26,6 +26,7 @@ properties:
-           - enum:
-               - microchip,sam9x60-usart
-               - microchip,sam9x7-usart
-+              - microchip,sama7d65-usart
-           - const: atmel,at91sam9260-usart
+diff --git a/Documentation/devicetree/bindings/clock/atmel,at91sam9x5-sckc.yaml b/Documentation/devicetree/bindings/clock/atmel,at91sam9x5-sckc.yaml
+index c2283cd07f05..d4cf8ae2961e 100644
+--- a/Documentation/devicetree/bindings/clock/atmel,at91sam9x5-sckc.yaml
++++ b/Documentation/devicetree/bindings/clock/atmel,at91sam9x5-sckc.yaml
+@@ -20,6 +20,7 @@ properties:
        - items:
-           - const: microchip,sam9x60-dbgu
+           - enum:
+               - microchip,sam9x7-sckc
++              - microchip,sama7d65-sckc
+               - microchip,sama7g5-sckc
+           - const: microchip,sam9x60-sckc
+ 
 -- 
 2.43.0
 
