@@ -4,75 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E35D4417A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B37E5D4417A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qnQRqocn/VRT/81Ql3s0QeMFooHZBkWosHmPORCjQhA=; b=g7vZgD51QCeI4svlRPLUej5b4x
-	40dvpa7b4jYE3A2OD7wYAgeAAe0ci10PBz/lhFsfQ1kGiLzdQ5YN0ylo6gzujpLrUYpDhaDZOLAhZ
-	PToxzNPxCMt0hIRsFKU1EXqXspsxjFQ9TVcEKuhDZcxwnKT7UHrGe0lPnS8sjSOble9GU7d3fubNM
-	N5lqxRydOPbucjSGWNKFMZ2HkQsuzCHaMrp66hQcQMxTQgkC9MMZA7txSNFWkN5E03aCY731XcUyf
-	DIzs5LOGwiwQmz0jY/HUdJCLsDRNUXF5IKyHFFi6yMklWujuEQZJ0vXMrt59h5upFOGGaXwZrzmyl
-	+lsAay0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4c0uaeJCW1z7UgaztU8Blksc5bkxM0ZSQZmEkP0jN0g=; b=PbvUcus8NHE0jbnQJAS4ZpSZpa
+	+UFes8s8k4nhkVXJPKx9tlz2Dzajplmy4w/9C211L7BAQjrgc9NBk4ZZkn00TmlQioKN08mNsMDwD
+	1JjWBG+9qGAx5z33PxoyFVm6crW9tdVEWBXf1aNZozrHeUluzgCW2N1eCoX9egpYl21vbidTGU286
+	qHnoOEKBIcJ9DWlYA72haKvjfJxsDQAlCOJEKCpS5hDt5Cvgv2W0DVm9f5UT4MpAZMfhtYG/3X2kL
+	nNlrqNCT81z+fgvmOsvOIuxDdVoiX7/eEDCqheiN+Auugh+if5EVVw83LuDr9CousFzgEOpDPTd29
+	tjXDfqJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDQUw-0000000CvkN-17KI;
-	Tue, 19 Nov 2024 15:50:38 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tDQXZ-0000000CwJN-3x6d;
+	Tue, 19 Nov 2024 15:53:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDQU0-0000000CvWC-0pNg
+	id 1tDQWd-0000000Cw7W-0Zqu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 15:49:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=qnQRqocn/VRT/81Ql3s0QeMFooHZBkWosHmPORCjQhA=; b=nyQm/C7/PauPVNEBcpCuSxF7q4
-	aPVRUgpsV908uUmyAlEBhyWBM37HjkDLD6/0nPF98GBKVYheUF2PL1stCIJgYpoY7acJ1Do+0EEhr
-	sEGkrWgEj8fg249awdbsUtKlB/met1b4Pavt8UcTtdrx3VsaTu7jc4Yd8BGqtVKoE23RulUZPqfyR
-	CmibYEdiY4SfR/9pcTF/gNkmpDsalkxhC3TJXsDuMPzIUdBfvB8qch/DhFDk8ndTcJZldNI/jZifI
-	FojM7t7Ns944esyRn50m4fJVDg81mFr+dtx2ivmmQ+k40xCXudGkJ1rvpStA5Pl7g7rvQJJ5AsVgG
-	aHGm10QQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40134)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tDQTn-0003qf-20;
-	Tue, 19 Nov 2024 15:49:28 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tDQTk-0006AN-2Y;
-	Tue, 19 Nov 2024 15:49:24 +0000
-Date: Tue, 19 Nov 2024 15:49:24 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: Andrew Lunn <andrew@lunn.ch>, Suraj Gupta <suraj.gupta2@amd.com>,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
-	radhey.shyam.pandey@amd.com, horms@kernel.org,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, git@amd.com, harini.katakam@amd.com
-Subject: Re: [PATCH net-next 2/2] net: axienet: Add support for AXI 2.5G MAC
-Message-ID: <ZzyzhCVBgXtQ_Aop@shell.armlinux.org.uk>
-References: <20241118081822.19383-1-suraj.gupta2@amd.com>
- <20241118081822.19383-3-suraj.gupta2@amd.com>
- <ZztjvkxbCiLER-PJ@shell.armlinux.org.uk>
- <657764fd-68a1-4826-b832-3bda91a0c13b@linux.dev>
- <9d26a588-d9ac-43c5-bedc-22cb1f0923dd@lunn.ch>
- <72ded972-cd16-4124-84af-8d8ddad049f0@linux.dev>
+	Tue, 19 Nov 2024 15:52:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E9289A42BBE;
+	Tue, 19 Nov 2024 15:50:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 970C2C4CECF;
+	Tue, 19 Nov 2024 15:52:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732031542;
+	bh=o3gR352LlahW4bYiGh6jq+M0jHwfyE3mWNihgjlkCUE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VoGi3W86V+BMkH0orN9SkrRWfbsYPYKG/tSszh+qlid2zkITVa5CjS/EAW4cm1Sns
+	 ceAZXjMs8YXNtMFAsN3010zvGc/ft4755EO5ULbjJRJ+6ps+AChjULBn2nZ0mbNObo
+	 f0CMWiuslHEpxx87lRQIgmOjfVqKBQikWUiOfPV516zXihuyEJ5/LLTF9linKGzj8x
+	 FQwRxfxvYlWi+G6+IvtuuLMdtwQLqyDSQiL9bNQb5WVLpgO9hh8YrYQ50nxkuTR2g6
+	 5d68SaiyRkzGOOqXymwyWlHCK0FxkbqdbtQftiY68gh+mMaskLzFcsFhEyNOT9KKyP
+	 trq35+XPAB4/g==
+Message-ID: <38c2c941-42e1-4d7c-aaa2-3c11dcea4e05@kernel.org>
+Date: Tue, 19 Nov 2024 16:52:15 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <72ded972-cd16-4124-84af-8d8ddad049f0@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/6] dt-bindings: Add Blaize vendor prefix
+To: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, James Cowgill
+ <james.cowgill@blaize.com>, Matt Redfearn <matthew.redfearn@blaize.com>,
+ Neil Jones <neil.jones@blaize.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "soc@lists.linux.dev" <soc@lists.linux.dev>
+References: <20241115-blaize-blzp1600_init_board_support-v5-0-c09094e63dc5@blaize.com>
+ <20241115-blaize-blzp1600_init_board_support-v5-1-c09094e63dc5@blaize.com>
+ <c1885e24-8051-4c91-9870-18eb4218a2ff@kernel.org>
+ <bc471aeb-e9fd-4aa9-9bcc-a59d3c2e47b8@blaize.com>
+ <c866d4e8-77ee-48ca-b6a8-5f56896b072e@kernel.org>
+ <09170fdb-018a-401e-a186-ccd0f5e993d8@blaize.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <09170fdb-018a-401e-a186-ccd0f5e993d8@blaize.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_074940_232650_5C960FDC 
-X-CRM114-Status: GOOD (  25.93  )
+X-CRM114-CacheID: sfid-20241119_075223_309854_9E1EB113 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,74 +130,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 10:26:52AM -0500, Sean Anderson wrote:
-> On 11/18/24 20:35, Andrew Lunn wrote:
-> > On Mon, Nov 18, 2024 at 11:00:22AM -0500, Sean Anderson wrote:
-> >> On 11/18/24 10:56, Russell King (Oracle) wrote:
-> >> > On Mon, Nov 18, 2024 at 01:48:22PM +0530, Suraj Gupta wrote:
-> >> >> Add AXI 2.5G MAC support, which is an incremental speed upgrade
-> >> >> of AXI 1G MAC and supports 2.5G speed only. "max-speed" DT property
-> >> >> is used in driver to distinguish 1G and 2.5G MACs of AXI 1G/2.5G IP.
-> >> >> If max-speed property is missing, 1G is assumed to support backward
-> >> >> compatibility.
-> >> >> 
-> >> >> Co-developed-by: Harini Katakam <harini.katakam@amd.com>
-> >> >> Signed-off-by: Harini Katakam <harini.katakam@amd.com>
-> >> >> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> >> >> ---
-> >> > 
-> >> > ...
-> >> > 
-> >> >> -	lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE |
-> >> >> -		MAC_10FD | MAC_100FD | MAC_1000FD;
-> >> >> +	lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE;
-> >> >> +
-> >> >> +	/* Set MAC capabilities based on MAC type */
-> >> >> +	if (lp->max_speed == SPEED_1000)
-> >> >> +		lp->phylink_config.mac_capabilities |= MAC_10FD | MAC_100FD | MAC_1000FD;
-> >> >> +	else
-> >> >> +		lp->phylink_config.mac_capabilities |= MAC_2500FD;
-> >> > 
-> >> > The MAC can only operate at (10M, 100M, 1G) _or_ 2.5G ?
-> >> 
-> >> It's a PCS limitation. It either does (1000Base-X and/or SGMII) OR
-> >> (2500Base-X). The MAC itself doesn't have this limitation AFAIK.
-> > 
-> > 
-> > And can the PCS change between these modes? It is pretty typical to
-> > use SGMII for 10/100/1G and then swap to 2500BaseX for 2.5G.
+On 19/11/2024 16:23, Nikolaos Pasaloukos wrote:
+> Hi Krzysztof,
 > 
-> Not AFAIK. There's only a bit for switching between 1000Base-X and
-> SGMII. 2500Base-X is selected at synthesis time, and AIUI the serdes
-> settings are different.
+> That's a very tricky error to pick it up. `checkpatch` on my end doesn't produce
+> an error. The header file on my patches starts as:
+> 'From: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>'
+> I had set the mail account as Forname: Nikolaos, Surname: Pasaloukos and
+> preferred name as Niko. It is an Outlook365 issue I think.
+> 
+> That said, when I was trying to send my patches, the mail server was converting
+> my name 'Nikolaos Pasaloukos' to the preferred name 'Niko Pasaloukos'.
 
-Okay. First it was a PCS limitation. Then it was a MAC limitation. Now
-it's a synthesis limitation.
+Usually it is not a problem to commit patches with one name and send
+with other - git send-email will properly add two From headers like:
+https://lore.kernel.org/all/20241119154245.442961-4-pablo@netfilter.org/
 
-I'm coming to the conclusion that those I'm communicating with don't
-actually know, and are just throwing random thoughts out there.
+If your git history has correct From matching SoB, then indeed
+checkpatch on your end will not complain.
 
-Please do the research, and come back to me with a real and complete
-answer, not some hand-wavey "it's a limitation of X, no it's a
-limitation of Y, no it's a limitation of Z" which looks like no one
-really knows the correct answer.
+If that is the case, it means your SMTP server *rewrites* the From
+header. Not nice... but what to expect from Microsoft? They learnt open
+source just recently and before open source was communism for them...
 
-Just because the PCS doesn't have a bit that selects 2500base-X is
-meaningless. 2500base-X is generally implemented by upclocking
-1000base-X by 2.5x. Marvell does this at their Serdes, there is
-no configuration at the MAC/PCS for 2.5G speeds.
+You can change your local name to match whatever Microsoft wants to set
+or you can use b4 relay to send the patches.
 
-The same is true of 10GBASE-R vs 5GBASE-R in Marvell - 5GBASE-R is
-just the serdes clocking the MAC/PCS at half the rate that 10GBASE-R
-would run at.
+https://b4.docs.kernel.org/en/latest/contributor/send.html
 
-I suspect this Xilinx hardware is just the same - clock the transmit
-path it at 62.5MHz, and you get 1G speeds. Clock it at 156.25MHz,
-and you get 2.5G speeds.
+> 
+> Do I need to resend v5 again after this is fixed, having applied all the
+> additional Reviewed-by? What would be my next step here?
 
-Thanks.
+Yes, please resend a v5 with tags applied and fixed problem with From/SoB.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+
+Best regards,
+Krzysztof
 
