@@ -4,73 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5605ED44161
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:57:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F16D44160
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:57:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EBFA36f9mwneGLAymy33gOv/5Yduj/hhKC3md9CBVt8=; b=eHdYMW8f/FeyH4daj0XHqv/TAi
-	t1VfoqRwmgJD+0hNPU62UHtXHvEzX4vPo6zb/5ZiadN+q6JDrpt+MN/INKYytNgEGVbHXQSLk041N
-	MYL9Kj3DejwqTBLnr7Q0RqQCl6e3V7ASH3+B7Zy2BRAsSejLIZZq5TnmdwDOc25grvp5j/LRnA5iE
-	RuKYzyT2fllw7QSp6Jd817LP9OkudX/gS/WAKuh3rkhbwmIp3jd2myaLpLalNY06A9HMKgFp2k8IL
-	blccgCIuYlPqqFtjMdgmOn8K+LmGMvx9YEOkTxqRxrtntCvxw0CoPGlo+C7VlbRj7lyLc81Knhp8A
-	CAK5TeOA==;
+	bh=8phBlKnPGyquZpUR4CtoI5JKyG39N4jtaX8T9/dhoVE=; b=VsThKWR5xV0UGGUXz2mlthNRhN
+	0TC4dP2EDzrrt60zV2ZvubeIb8/qy4riAuWerSuzZYYbxndvWoU0Rf2mJVm0jP6BRJf5+gFSdTlsa
+	s6ZwcjeZanHoa9/G5VsgpWjQ7pZqbjBZlOYeCUuhJ5rg2PyCYIzYOO3g4xOw5AHtrv7H/gN6mS11+
+	/2tDuoXRGRLMpoAknIdvP4C1GS5qt3atWmk9spVKOgm8I4ZPQ3RXlIONjUUaUe/tbDTXWwLvnVDBJ
+	hRIjSTh9pFItnbEsdglhg/9pgxTJqSkLH/ertY/f6TVEMNQyft6ZPV7BL2xvKjp+B4DzFD2ZoFg03
+	ujecLYXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDOir-0000000CbIf-3ZjN;
-	Tue, 19 Nov 2024 13:56:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tDOjm-0000000CbUu-23Bt;
+	Tue, 19 Nov 2024 13:57:50 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDOhl-0000000Cb1U-0hoF
+	id 1tDOi7-0000000Cb8Z-1G1O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 13:55:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8513D5C5537;
-	Tue, 19 Nov 2024 13:55:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0853BC4CECF;
-	Tue, 19 Nov 2024 13:55:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732024544;
-	bh=9LG7YsYWIp1ZG6/QT8ybq/ypWUP4L1y8uQRWVVB9QP0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YsJTgP7OUZXIMWJKyeMZcw4oMRTjB1QzhjHU/XJieZKkFtaSxjcm9jGsL7QOnJKKP
-	 9wsiTgZtAdfc5ex+Z8lcLcYfEiEn+9Afb5BCY2x10kZlXSoxFZp83/ZWqLdJ2aCf1K
-	 CuJLa+09f/K/pMwUbFhndD9j3Ot270HHENLdGagME3rJY+CzSLulnnciXpoC1OoZgn
-	 xu0c5/sedTXc9/qCF4BgPlYIVeZ3JAIs+Lx12ixMbYd8anoM0NBDZ5EghYg51zSHl1
-	 YWKHDpfs9BTixmrv5H4BiUZOx0uFpLhD31mnpCZS8gn0RBoLVY9jc8Cul0SbE+PMSw
-	 hB8/YN7rz4kiA==
-Date: Tue, 19 Nov 2024 07:55:42 -0600
-From: Rob Herring <robh@kernel.org>
-To: Pengfei Li <pengfei.li_1@nxp.com>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, catalin.marinas@arm.com, will@kernel.org,
-	kernel@pengutronix.de, festevam@gmail.com,
-	francesco.dolcini@toradex.com, joao.goncalves@toradex.com,
-	marex@denx.de, hvilleneuve@dimonoff.com, peng.fan@nxp.com,
-	hiago.franco@toradex.com, frieder.schrempf@kontron.de,
-	alexander.stein@ew.tq-group.com, mwalle@kernel.org,
-	m.othacehe@gmail.com, Max.Merchel@ew.tq-group.com,
-	tharvey@gateworks.com, quic_bjorande@quicinc.com,
-	geert+renesas@glider.be, dmitry.baryshkov@linaro.org,
-	konradybcio@kernel.org, neil.armstrong@linaro.org, arnd@arndb.de,
-	nfraprado@collabora.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, ping.bai@nxp.com,
-	ye.li@nxp.com, aisheng.dong@nxp.com, frank.li@nxp.com
-Subject: Re: [PATCH v2 1/4] dt-bindings: arm: fsl: Add i.MX91 11x11 evk board
-Message-ID: <20241119135542.GA1076739-robh@kernel.org>
-References: <20241118051541.2621360-1-pengfei.li_1@nxp.com>
- <20241118051541.2621360-2-pengfei.li_1@nxp.com>
+	Tue, 19 Nov 2024 13:56:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=8phBlKnPGyquZpUR4CtoI5JKyG39N4jtaX8T9/dhoVE=; b=Omq3yR3iFFtSeRX03YohOOeDTb
+	Gvg7+hksVB7P1htaGtkk6FzzVzmP3tupywqmcA63m9N43s5GhqyReBJQnh+N+x8nqk6ke8y8ERILN
+	argxdK/h76qHrS1QPe1K5JU3+NV5pjuvjo9SR+lXP9m3Hg667DTYA97EPvWt2iA9tWFc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tDOhu-00DoDg-Nf; Tue, 19 Nov 2024 14:55:54 +0100
+Date: Tue, 19 Nov 2024 14:55:54 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	joel@jms.id.au, andrew@codeconstruct.com.au, f.fainelli@gmail.com,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2] net: mdio: aspeed: Add dummy read for fire control
+Message-ID: <27a39b05-3029-4b31-ada7-542e23e4de8b@lunn.ch>
+References: <20241119095141.1236414-1-jacky_chou@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241118051541.2621360-2-pengfei.li_1@nxp.com>
+In-Reply-To: <20241119095141.1236414-1-jacky_chou@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_055545_249875_574356D1 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20241119_055607_333693_B2D1D4A7 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +70,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 18, 2024 at 01:15:38PM +0800, Pengfei Li wrote:
-> Add the board imx91-11x11-evk in the binding docuemnt.
-> 
-> Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
+On Tue, Nov 19, 2024 at 05:51:41PM +0800, Jacky Chou wrote:
+> When the command bus is sometimes busy, it may cause the command is not
+> arrived to MDIO controller immediately. On software, the driver issues a
+> write command to the command bus does not wait for command complete and
+> it returned back to code immediately. But a read command will wait for
+> the data back, once a read command was back indicates the previous write
+> command had arrived to controller.
+> Add a dummy read to ensure triggering mdio controller before starting
+> polling the status of mdio controller to avoid polling unexpected timeout.
 
-You missed Conor's ack. Please add tags when sending out new versions.
+Please have another attempt at writing the commit message.
 
+> Fixes: a9770eac511a ("net: mdio: Move MDIO drivers into a new subdirectory")
+> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 > ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
+>  drivers/net/mdio/mdio-aspeed.c | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-> index 6e0dcf4307f1..5951317ce900 100644
-> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
-> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-> @@ -1332,6 +1332,12 @@ properties:
->                - fsl,imx8ulp-evk           # i.MX8ULP EVK Board
->            - const: fsl,imx8ulp
+> diff --git a/drivers/net/mdio/mdio-aspeed.c b/drivers/net/mdio/mdio-aspeed.c
+> index c2170650415c..373902d33b96 100644
+> --- a/drivers/net/mdio/mdio-aspeed.c
+> +++ b/drivers/net/mdio/mdio-aspeed.c
+> @@ -62,6 +62,8 @@ static int aspeed_mdio_op(struct mii_bus *bus, u8 st, u8 op, u8 phyad, u8 regad,
+>  		| FIELD_PREP(ASPEED_MDIO_DATA_MIIRDATA, data);
 >  
-> +      - description: i.MX91 based Boards
-> +        items:
-> +          - enum:
-> +              - fsl,imx91-11x11-evk       # i.MX91 11x11 EVK Board
-> +          - const: fsl,imx91
-> +
->        - description: i.MX93 based Boards
->          items:
->            - enum:
-> -- 
-> 2.34.1
-> 
+>  	iowrite32(ctrl, ctx->base + ASPEED_MDIO_CTRL);
+> +	/* Add dummy read to ensure triggering mdio controller */
+> +	(void)ioread32(ctx->base + ASPEED_MDIO_CTRL);
+
+Maybe: /* Dummy read to flush previous write to controller */
+
+
+    Andrew
+
+---
+pw-bot: cr
 
