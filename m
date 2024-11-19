@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B258AD6207C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 17:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B54FBD6207F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 17:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=K0RXe7OY4ND4a9c8hoc0IFt67SoT99sFnUyI6dvppj0=; b=MTVVymL9hb0JPX
-	CL+B4CaEQueh7J7SdSuDQ3X8o7dkZ7K2nkUIuApm+sE7vhVcPxbetgpKhYsnKfqGZdeww2Dg1Tre9
-	O3MMPRV1yEMcGmy8qLnvtwCjMpWCQp8zLaM/quR4dmQ6h/cb9TTPJyzx2KaPlVRP4zToeviQU2MU3
-	QmgDpd2UXJzB6W5sywufFCzAhmjNKcHY/j7WuSheCpG1imaeO0aRO9IVvSxL9syxy8ZCe0Vh04h2X
-	jZMq6zvFHZfdibEtshGZ/3tcKoJ/ycacN+DbXBpwhOnHEFreFRv93rrZVVJi8lAiR0b6FPQZ/TScW
-	MK6sgyJZWKkezjDeb+5Q==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AwPBMZwWY6jHnSKaBzPlAhC7dfxBZhFkz57ZZP2TaXA=; b=skRl/kZueSsdqHVnapno9fMD0T
+	ACRTgiuPY04SRk9nOmmAD+FOAz0k5Wvn+fwpOuTkGvMCsu8TtGyFLq7yiDE/r9au8EEERMiQuMMwN
+	8tj1H6omde7E56TuFrMe8Zo8LG9qdyDW5ZZs3DwVaB+w1ss/CKM7NezJaxioIuFGbG54FXW31zNCj
+	GXEj0L/dMCeFnYDDn7XRzbi30fZTO/Se9W26oziJA+VdcMg+oKBgYlMgWAKjaj22n86mNIZAx+yVS
+	EmXl1tUqg/wzHl+XciwRYEPNV1DrYmI3Mag3HAxMHkGmkpzIjRDGNUR8fD/Ix3LVYNRxTRYX1WDeV
+	GK9FFLqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDSHU-0000000DFtD-3cPz;
-	Tue, 19 Nov 2024 17:44:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tDSKH-0000000DGRS-3qbs;
+	Tue, 19 Nov 2024 17:47:45 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDSGZ-0000000DFod-1ITA;
-	Tue, 19 Nov 2024 17:43:56 +0000
+	id 1tDSJM-0000000DGEn-0kUl
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Nov 2024 17:46:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 832CBA42D84;
-	Tue, 19 Nov 2024 17:42:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F7E3C4CECF;
-	Tue, 19 Nov 2024 17:43:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4256C5C4B4D;
+	Tue, 19 Nov 2024 17:46:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF441C4CECF;
+	Tue, 19 Nov 2024 17:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732038233;
-	bh=DfqCGNefCcKmP6DPPWDli0AleKCJ/UH5pUDeWYvOCU8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=Q3XwbMrWKLIBZkrrWAhuCIyZYPIqgRBVVzGZwOeWGcf9RjiG/R+oMyT4RY/17sem3
-	 /dkAIPreUYkERepr+D9OZ+PlniGxBnhcXfJ2dMHVVKMR3EvVGCYsSNUqciKoLDR6c7
-	 WUOv4nhKYijmdATwZas5eejTBdDVEPKiFwkAq+BfVqD+jQ5J62Ro1Lt/R1KYqcqOVw
-	 8GwkREL9vYX+8Zt2kLp5lYhARdrb21j/T3Ce5lO1IS3menJv/I3upwGOmW1DjYcqdl
-	 l3uUPyLdJZdaXlg4Pnq8LhULpFXqFgo17R9K392y11NBYX7yOJL988Z68n+V7fku6K
-	 roJl6CkXRB/CQ==
-Date: Tue, 19 Nov 2024 11:43:50 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Christian Marangi <ansuelsmth@gmail.com>, linux-pci@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, upstream@airoha.com,
-	Hui Ma <hui.ma@airoha.com>
-Subject: Re: [PATCH v3] PCI: mediatek-gen3: Avoid PCIe resetting via
- PCIE_RSTB for Airoha EN7581 SoC
-Message-ID: <20241119174350.GA2269929@bhelgaas>
+	s=k20201202; t=1732038407;
+	bh=cGtCgxtTHF3Jbl8CduYT2IKTHC6lkZmDimREyxkO6Bc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=V2UCjFOf9RDujcsGXFkSgILPdDp2C8acwBMEtyau482WWnyiXTsgmeQk5nVGwjo1i
+	 610w9HbKzBJMpKfxwrf/myk3hq5iWjkdG2poBltU2rXucE7Xkk3rR59lH3G60wwYVt
+	 DoeV5kC3wKpi1dEUEWjZcuPKznWSEVjOlOyuVVQ43WKHAEaB8Qn4idItnNDyvR38YN
+	 XUlL2+henqEhFtNCJSmOZuhsMzCztdQLbZyaHXZFYBVc2I3L2Y/19wCfOFzdzAxiKD
+	 4kr/eGdcGRTVfAdDdOFDy7Fk89GN7FgH35PyStCaqETmgVhl0qGiTnX5ZP8h4g1uTi
+	 x2rH1JZld25Qw==
+Date: Tue, 19 Nov 2024 17:46:45 +0000
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
+	Zhihang Shao <zhihang.shao.iscas@gmail.com>
+Subject: Re: [PATCH 00/11] Wire up CRC-T10DIF library functions to
+ arch-optimized code
+Message-ID: <20241119174645.GA3833976@google.com>
+References: <20241117002244.105200-1-ebiggers@kernel.org>
+ <CAMj1kXFA15AuT5wd0vMJ3X94uysvnGLy42FAQt8fxJsW31UdAg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ZzxJMbWkV1OELEID@lore-desk>
+In-Reply-To: <CAMj1kXFA15AuT5wd0vMJ3X94uysvnGLy42FAQt8fxJsW31UdAg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_094355_473172_B571D8D9 
-X-CRM114-Status: GOOD (  32.68  )
+X-CRM114-CacheID: sfid-20241119_094648_256428_2867C234 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,156 +75,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 09:15:45AM +0100, Lorenzo Bianconi wrote:
-> > Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
-> > causing occasional PCIe link down issues. In order to overcome the
-> > problem, PCIE_RSTB signals are not asserted/released during device probe or
-> > suspend/resume phase and the PCIe block is reset using REG_PCI_CONTROL
-> > (0x88) and REG_RESET_CONTROL (0x834) registers available in the clock
-> > module running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
-> > 
-> > Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
-> > specify per-SoC capabilities.
-> > 
-> > Tested-by: Hui Ma <hui.ma@airoha.com>
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+On Tue, Nov 19, 2024 at 09:59:53AM +0100, Ard Biesheuvel wrote:
+> > Eric Biggers (11):
+> >   lib/crc-t10dif: stop wrapping the crypto API
+> >   lib/crc-t10dif: add support for arch overrides
+> >   crypto: crct10dif - expose arch-optimized lib function
+> >   x86/crc-t10dif: expose CRC-T10DIF function through lib
+> >   arm/crc-t10dif: expose CRC-T10DIF function through lib
+> >   arm64/crc-t10dif: expose CRC-T10DIF function through lib
+> >   powerpc/crc-t10dif: expose CRC-T10DIF function through lib
+> >   lib/crc_kunit.c: add KUnit test suite for CRC library functions
+> >   lib/crc32test: delete obsolete crc32test.c
+> >   powerpc/crc: delete obsolete crc-vpmsum_test.c
+> >   MAINTAINERS: add entry for CRC library
+> >
 > 
-> Hi Jianjun and Bjorn,
+> Nice work. The shash API glue was particularly nasty, so good riddance.
 > 
-> any news about this patch? Thanks in advance.
+> For the series,
+> 
+> Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+> 
+> Happy to take a R: or M: as well, if you need the help.
 
-The v6.13 merge window is open now, so we will merge new content for
-v6.14 soon after v6.13-rc1 is tagged, which will probably be Dec 1.
+Thanks Ard.  I will add an R: entry for you in MAINTAINERS.
 
-> > ---
-> > Changes in v3:
-> > - cosmetics
-> > - Link to v2: https://lore.kernel.org/r/20241104-pcie-en7581-rst-fix-v2-1-ffe5839c76d8@kernel.org
-> > 
-> > Changes in v2:
-> > - introduce flags field in mtk_gen3_pcie_flags struct instead of adding
-> >   reset callback
-> > - fix the leftover case in mtk_pcie_suspend_noirq routine
-> > - add more comments
-> > - Link to v1: https://lore.kernel.org/r/20240920-pcie-en7581-rst-fix-v1-1-1043fb63ffc9@kernel.org
-> > ---
-> >  drivers/pci/controller/pcie-mediatek-gen3.c | 60 ++++++++++++++++++++---------
-> >  1 file changed, 42 insertions(+), 18 deletions(-)
-> > 
-> > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-> > index 16a55711a7f3bdc8d6620029e3d2cfdd40b537b7..443072adb9b52a6934a5d1e38eb6fca5f86a1e13 100644
-> > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
-> > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-> > @@ -128,10 +128,18 @@
-> >  
-> >  struct mtk_gen3_pcie;
-> >  
-> > +enum mtk_gen3_pcie_flags {
-> > +	SKIP_PCIE_RSTB	= BIT(0), /* skip PCIE_RSTB signals configuration
-> > +				   * during device probing or suspend/resume
-> > +				   * phase in order to avoid hw bugs/issues.
-> > +				   */
-> > +};
-> > +
-> >  /**
-> >   * struct mtk_gen3_pcie_pdata - differentiate between host generations
-> >   * @power_up: pcie power_up callback
-> >   * @phy_resets: phy reset lines SoC data.
-> > + * @flags: pcie device flags.
-> >   */
-> >  struct mtk_gen3_pcie_pdata {
-> >  	int (*power_up)(struct mtk_gen3_pcie *pcie);
-> > @@ -139,6 +147,7 @@ struct mtk_gen3_pcie_pdata {
-> >  		const char *id[MAX_NUM_PHY_RESETS];
-> >  		int num_resets;
-> >  	} phy_resets;
-> > +	u32 flags;
-> >  };
-> >  
-> >  /**
-> > @@ -405,22 +414,34 @@ static int mtk_pcie_startup_port(struct mtk_gen3_pcie *pcie)
-> >  	val |= PCIE_DISABLE_DVFSRC_VLT_REQ;
-> >  	writel_relaxed(val, pcie->base + PCIE_MISC_CTRL_REG);
-> >  
-> > -	/* Assert all reset signals */
-> > -	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-> > -	val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB;
-> > -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> > -
-> >  	/*
-> > -	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
-> > -	 * and 2.2.1 (Initial Power-Up (G3 to S0)).
-> > -	 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
-> > -	 * for the power and clock to become stable.
-> > +	 * Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
-> > +	 * causing occasional PCIe link down. In order to overcome the issue,
-> > +	 * PCIE_RSTB signals are not asserted/released at this stage and the
-> > +	 * PCIe block is reset configuting REG_PCI_CONTROL (0x88) and
-> > +	 * REG_RESET_CONTROL (0x834) registers available in the clock module
-> > +	 * running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
-> >  	 */
-> > -	msleep(100);
-> > -
-> > -	/* De-assert reset signals */
-> > -	val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB);
-> > -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> > +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
-> > +		/* Assert all reset signals */
-> > +		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-> > +		val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
-> > +		       PCIE_PE_RSTB;
-> > +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> > +
-> > +		/*
-> > +		 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
-> > +		 * and 2.2.1 (Initial Power-Up (G3 to S0)).
-> > +		 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
-> > +		 * for the power and clock to become stable.
-> > +		 */
-> > +		msleep(PCIE_T_PVPERL_MS);
-> > +
-> > +		/* De-assert reset signals */
-> > +		val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
-> > +			 PCIE_PE_RSTB);
-> > +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> > +	}
-> >  
-> >  	/* Check if the link is up or not */
-> >  	err = readl_poll_timeout(pcie->base + PCIE_LINK_STATUS_REG, val,
-> > @@ -1179,10 +1200,12 @@ static int mtk_pcie_suspend_noirq(struct device *dev)
-> >  		return err;
-> >  	}
-> >  
-> > -	/* Pull down the PERST# pin */
-> > -	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-> > -	val |= PCIE_PE_RSTB;
-> > -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> > +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
-> > +		/* Pull down the PERST# pin */
-> > +		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-> > +		val |= PCIE_PE_RSTB;
-> > +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> > +	}
-> >  
-> >  	dev_dbg(pcie->dev, "entered L2 states successfully");
-> >  
-> > @@ -1233,6 +1256,7 @@ static const struct mtk_gen3_pcie_pdata mtk_pcie_soc_en7581 = {
-> >  		.id[2] = "phy-lane2",
-> >  		.num_resets = 3,
-> >  	},
-> > +	.flags = SKIP_PCIE_RSTB,
-> >  };
-> >  
-> >  static const struct of_device_id mtk_pcie_of_match[] = {
-> > 
-> > ---
-> > base-commit: ff80d707f3cb5e8d9ec0739e0e5ed42dea179125
-> > change-id: 20240920-pcie-en7581-rst-fix-8161658c13c4
-> > 
-> > Best regards,
-> > -- 
-> > Lorenzo Bianconi <lorenzo@kernel.org>
-> > 
-
-
+- Eric
 
