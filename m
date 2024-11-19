@@ -4,90 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D84CD60D00
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 01:02:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1DA7D60D00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 01:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Dy+y/Sg7BxkuaJRt8lN8ekR1rY4pdHsedbh1qGx8MM=; b=FO9gYQwCd2s+smjh5WoCq1Jr4F
-	Va/opt0lJ3hGTsDnfVuPsOw5g4ca2bjNtj/0FLBXfUcN4C/VgHfHvaUxyQAoW9LczSBXTywsWDrUs
-	rPys5ToY+yERTxwNaaDOFZ4zzkVs4bT7Z+srugu0V4t1gfFesNKthCLdZpbKk0+CUpeI/tVYDCFgW
-	Y679Gv85uyS5D0NxB9MZUf0gOqoW9qj90sDglbk9cDvHRUvozH8r2yWaFZUcDZ9HO06HjRZL5OmH+
-	T+EqGRI6nBpslp1zODsItQ9Mz1QtqYaA2EhFQiQtLsE9R9GC+SaneXcShlzjSdvBsvk2ZL4uMLaE7
-	wWxE/CMQ==;
+	bh=Cb5xA4QrPjObXEuVAQV9BTBo9P9lF0LPOif/OFc8/Ys=; b=p/Yg4ZWHSSKAp6zKwFl9acrx4/
+	lJ/kFbqQDvQLatPWi4AEOHvCCLu7OokKHk3nE/b0LFnGwYBYGh7B+TxlkVrl3aqrYIsj3dhAIMas5
+	4TJTgI1nQ2iHgwKd0cZ0tRqxnXXPuDDrqCNNUQZrwG4jwr3VNXqgmZPdign+zJ6rqtCRh1KKYMhjL
+	3pwsT5M/ZAdNRmgdbkMAEICgn3V+PeU2VRwGBTETKS13sv9SaFRrc4zpUjYN5O75m5bXggtR9eZEN
+	NohkJ78kWqK8pYyqwYUjRTz9qx835gTujtWrUigjFNdNDdajxkT+pLVrx58uKy5ITtE9WOyT3zQhF
+	YYCwjRuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDCdD-0000000B05z-21Jz;
-	Tue, 19 Nov 2024 01:02:15 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tDCqY-0000000B1aC-0b1E;
+	Tue, 19 Nov 2024 01:16:02 +0000
+Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDCcH-0000000Azv7-4BTu;
-	Tue, 19 Nov 2024 01:01:19 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4314fa33a35so40325485e9.1;
-        Mon, 18 Nov 2024 17:01:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731978076; x=1732582876; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=1Dy+y/Sg7BxkuaJRt8lN8ekR1rY4pdHsedbh1qGx8MM=;
-        b=loEPPHnDpWTSz8YzMXu3m7+20lBcDu59cL7VnJCWv3mG+t8J3UVMbgAC8Jjzim4id4
-         td6DhATlMybQndTC8DEQoEkxrceb0z/Rs6Db/361sf+Hf2fDAcAzrAmzT1M5QaAWOhAI
-         R6Ch/czTQy5TtNNhP6jqLGN2oxla6wGDZHykfGdIHYnCrl+u7QWDVpOUyTDRba+x5AnE
-         loWmUISOdDhwwUIkwpxPY1kWHx5juVLcrUWzFNUOdCvwUEvvueKVSKa+2r5SdVJwVcCV
-         faIcCOrvvNMFKJBBQ/XtVhrDV2KlkXUIDcKbubECkZvi8Vr2oFZXOOnucQ93O/1kPt+4
-         KeWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731978076; x=1732582876;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1Dy+y/Sg7BxkuaJRt8lN8ekR1rY4pdHsedbh1qGx8MM=;
-        b=PDNHG8yUq0d4DnU8HbaeXdBSQtcuLD1JvNMUkGGMp5UVVtLl1O7cdih9CUhhwihKaV
-         gR6GEH37O2jfUQwX1I3Xx4js29Bq+kUfncsWLbX1myzdydjTYzSuL0Zgqy2uZ44IcBgh
-         arJrHYcHFgc0vUBkEPM74URaCWR28skzj/CXTBu0j3OEZ9DnojOTOiKmhUGRhyOpL/Yj
-         +I5/0OXUHgS5NkL/fbZIol4JKl7eskjdaO9Fr+Tp0jlnZ412lrY3nk2hAP4KeEpw+DGP
-         YJKrrlERnB7tfcGsUJVOVgu7+aeQpvXEGXLjVgwOGk9/DzAiG4CZ9kWEXBvgmtMyIerF
-         mX2g==
-X-Forwarded-Encrypted: i=1; AJvYcCUyNXPkJEdm3Fwlvb3vkCi2jc2PXUWsJH9OjVHXOtnJ7ZI7Ev2uUo6rttlBwql6ZqplYB6coWUS6KBtrihw84E6@lists.infradead.org, AJvYcCWoKDBdhq7QaEkYqG4KTbjJ4UGjGPrwWqUqvy8ffoEw8CMcMi5Uv8HjfhKsYct6ifuktwFDmTKQ6Nt4vEhrRgc=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxk2nrgTNvsq0BzM/hL4R80OpxJRL637r9k05T9Oycuuy0ACoY5
-	HuSayM8ogjxTG7na/d3hsnxR5I1AJJp/LksXgIyX+vVoNcHFuMPu
-X-Google-Smtp-Source: AGHT+IEizM8QYmdo4n+yxWV+vTQ5NKdtCjht1TWjEzKwHsEwScR3M5pGs6mWJKIG4P+ZrrDw5YPuqw==
-X-Received: by 2002:a05:600c:190c:b0:431:55af:a230 with SMTP id 5b1f17b1804b1-432df798ea0mr108474025e9.33.1731978075857;
-        Mon, 18 Nov 2024 17:01:15 -0800 (PST)
-Received: from [192.168.0.2] ([69.6.8.124])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432dab76dafsm172723215e9.10.2024.11.18.17.01.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Nov 2024 17:01:14 -0800 (PST)
-Message-ID: <7e5e2bda-e80d-46ec-816a-613c5808222e@gmail.com>
-Date: Tue, 19 Nov 2024 03:01:47 +0200
+	id 1tDCpb-0000000B1RJ-3qTQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Nov 2024 01:15:05 +0000
+Received: from [127.0.0.1] (p578adb1c.dip0.t-ipconnect.de [87.138.219.28])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
+	(No client certificate requested)
+	(Authenticated sender: marex@denx.de)
+	by phobos.denx.de (Postfix) with ESMTPSA id 238A589274;
+	Tue, 19 Nov 2024 02:14:57 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
+	s=phobos-20191101; t=1731978901;
+	bh=Cb5xA4QrPjObXEuVAQV9BTBo9P9lF0LPOif/OFc8/Ys=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=Iqz03f8A8ntVLExJdbOWEpa7BOXFN14gRPriudv2xawTis3YDMwOrO5fX9QGdUKyc
+	 6VC1Q/FLuIrRIi0Cq9j4vmt9Lefazx84nEZVSnQe5Vg3DrU15cFGZV9oKRlL5ohaKs
+	 2mpi1xkoP75X8XyH/KzFzpp1b1xnr0Q0u5ifDtVLLhP9gk7wOOpsVs7k1beL24Wi8j
+	 W39TWSLAJXIpsXfn2590fguoCdogUDafNR1fv3EubZJc2wnAPObxYAG9tIxDUo12lp
+	 KNSV4DMxPohhUvStuZlDdMaaGfmTqVrhzEKctC3T8Uxj7iFtjWL6z7RRtAh3MiXAUk
+	 JWc5Pl1j62nhg==
+Message-ID: <8a4fd234-4c7b-4a04-990d-3222aaa5172d@denx.de>
+Date: Tue, 19 Nov 2024 02:13:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next,v2] [PATCH net-next v2] net: wwan: t7xx: Change
- PM_AUTOSUSPEND_MS to 5000
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: wojackbb@gmail.com, netdev@vger.kernel.org,
- chandrashekar.devegowda@intel.com, chiranjeevi.rapolu@linux.intel.com,
- haijun.liu@mediatek.com, m.chetan.kumar@linux.intel.com,
- ricardo.martinez@linux.intel.com, loic.poulain@linaro.org,
- johannes@sipsolutions.net, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- angelogioacchino.delregno@collabora.com, linux-mediatek@lists.infradead.org,
- matthias.bgg@gmail.com
-References: <20241114102002.481081-1-wojackbb@gmail.com>
- <6835fde6-0863-49e8-90e8-be88e86ef346@gmail.com>
- <20241115152153.5678682f@kernel.org>
+From: Marek Vasut <marex@denx.de>
+Subject: Re: [PATCH v7 2/7] Revert "clk: imx: clk-imx8mp: Allow media_disp
+ pixel clock reconfigure parent rate"
+To: Ying Liu <victor.liu@nxp.com>, "imx@lists.linux.dev"
+ <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>
+Cc: "shawnguo@kernel.org" <shawnguo@kernel.org>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>, "robh@kernel.org"
+ <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>,
+ "abelvesa@kernel.org" <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ "mturquette@baylibre.com" <mturquette@baylibre.com>,
+ "sboyd@kernel.org" <sboyd@kernel.org>,
+ "andrzej.hajda@intel.com" <andrzej.hajda@intel.com>,
+ "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+ "rfoss@kernel.org" <rfoss@kernel.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ "jonas@kwiboo.se" <jonas@kwiboo.se>,
+ "jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "mripard@kernel.org" <mripard@kernel.org>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "airlied@gmail.com" <airlied@gmail.com>, "simona@ffwll.ch"
+ <simona@ffwll.ch>, "quic_bjorande@quicinc.com" <quic_bjorande@quicinc.com>,
+ "geert+renesas@glider.be" <geert+renesas@glider.be>,
+ "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
+ "arnd@arndb.de" <arnd@arndb.de>,
+ "nfraprado@collabora.com" <nfraprado@collabora.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>
+References: <20241114065759.3341908-1-victor.liu@nxp.com>
+ <20241114065759.3341908-3-victor.liu@nxp.com>
+ <df6ebdde-65f8-4aad-93c7-b1df695bd2ef@denx.de>
+ <AM7PR04MB7046546A882A8D48E135D84698272@AM7PR04MB7046.eurprd04.prod.outlook.com>
 Content-Language: en-US
-From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
-In-Reply-To: <20241115152153.5678682f@kernel.org>
+In-Reply-To: <AM7PR04MB7046546A882A8D48E135D84698272@AM7PR04MB7046.eurprd04.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_170118_038333_EB123877 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20241118_171504_269260_CD6A0CF8 
+X-CRM114-Status: GOOD (  39.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,45 +113,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16.11.2024 01:21, Jakub Kicinski wrote:
-> On Thu, 14 Nov 2024 20:54:20 +0200 Sergey Ryazanov wrote:
->>> We tested Fibocom FM350 and our products using the t7xx and they all
->>> benefited from this.
+On 11/18/24 4:54 AM, Ying Liu wrote:
+> Hi Marek,
+
+Hi,
+
+>>> media_disp1_pix clock is the pixel clock of the first i.MX8MP LCDIFv3
+>>> display controller, while media_disp2_pix clock is the pixel clock of
+>>> the second i.MX8MP LCDIFv3 display controller.  The two display
+>>> controllers connect with Samsung MIPI DSI controller and LVDS Display
+>>> Bridge(LDB) respectively.  Since the two display controllers are driven
+>>> by separate DRM driver instances and the two pixel clocks may be derived
+>>> from the same video_pll1_out clock(sys_pll3_out clock could be already
+>>> used to derive audio_axi clock), there is no way to negotiate a dynamically
+>>> changeable video_pll1_out clock rate to satisfy both of the two display
+>>> controllers.  In this case, the only solution to drive them with the
+>>> single video_pll1_out clock is to assign a sensible/unchangeable clock
+>>> rate for video_pll1_out clock.  Thus, there is no need to set the
+>>> CLK_SET_RATE_PARENT flag for media_disp{1,2}_pix clocks, drop it then.
+>>>
+>>> Fixes: ff06ea04e4cf ("clk: imx: clk-imx8mp: Allow media_disp pixel clock
+>> reconfigure parent rate")
+>>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+>> Uh, I almost missed this revert between all the LDB patches.
 >>
->> Possible negative outcomes for data transmission still need
->> clarification. Let me repeat it here.
->>
->> On 06.11.2024 13:10, 吳逼逼 wrote:
->>> Receiving or sending data will cause PCIE to change D3 Cold to D0 state.
->>
->> Am I understand it correctly that receiving IP packets on downlink will
->> cause PCIe link re-activation?
->>
->>
->> I am concerned about a TCP connection that can be idle for a long period
->> of time. For example, an established SSH connection can stay idle for
->> minutes. If I connected to a server and execute something like this:
->>
->> user@host$ sleep 20 && echo "Done"
->>
->> Will I eventually see the "Done" message or will the autosuspended modem
->> effectively block any incoming traffic? And how long does it take for
->> the modem to wake up and deliver a downlink packet to the host? Have you
->> measured StDev change?
+>> This revert will break my usecase on MX8MP where I need to operate two
+>> disparate panels attached to LVDS and TC358767 DSI-to-DP bridge and I
+>> need accurate pixel clock for both. Not being able to configure accurate
+>> pixel clock will make the displays not work, so from my side, this is a
+>> NAK, sorry.
 > 
-> He's decreasing the sleep timer from 20 to 5 sec, both of which
-> are very high for networking, anyway. You appear to be questioning
-> autosuspend itself but it seems to have been added 2 years ago already.
+> Is your usecase in upstream kernel? If yes, which DT file implements the
+> usecase?  I guess it's im8mp-dhcom-som.dtsi authored by you, but it only
+> contains the DT node for TC358767, but not LVDS panel.
 > 
-> What am I missing?
+> Can you please elaborate about the failure case?
 
-Some possible funny side-effect of sleeping with this chipset. Like 
-loosing network connection and dropping TCP sessions. I hope that 20 
-seconds was putted on purpose.
+The TC9595 can drive an DP output, for that the clock which have to be 
+set on the LCDIF cannot be predicted, as that information comes from the 
+monitor EDID/DPCD. That is why the LCDIF has to be able to configure the 
+Video PLL1 clock to accurate clock frequency.
 
-Suddenly, I don't have this modem at hand and want to be sure that we 
-are not going to receive a stream of bug reports.
+For the LVDS LDB, the use case is the other way around -- the pixel 
+clock which should be generated by LCDIF and fed to LDB are known from 
+the panel type listed in DT, but they should still be accurate.
 
---
-Sergey
+> You still may assign an accurate PLL rate in DT.
+> This patch only makes the PLL rate be unchangeable dynamically in
+> runtime.  That means the existing imx8m-dhcom-som.dtsi would use
+> IMX8MP_VIDEO_PLL1_OUT(running at 1.0395GHz) as the parent clock
+> of IMX8MP_CLK_MEDIA_DISP1_PIX (for LCDIF1/DSI), since it includes
+> imx8mp.dsti.  I assume it should be able to support typical video modes
+> like 1080p60 video mode with 148.5MHz pixel clock at least with 1.0395GHz
+> PLL rate.
+
+This will break multiple DP monitors I tested so far I'm afraid. And I 
+spent a LOT of time wrestling with the TC9595 bridge to make sure it 
+actually does work well.
+
+> Granted that less video modes read from DP monitor would
+> be supported without dynamically changeable PLL rates, this is something
+> we have to accept because some i.MX8MP platforms(like i.MX8MP EVK)
+> have to share IMX8MP_VIDEO_PLL1_OUT between LVDS and MIPI DSI
+> display pipelines.
+
+What I need is the use of two full PLL1443x (like Video PLL and Audio 
+PLL1/2) , one for each display output, and those PLLs have to be fully 
+configurable to produce accurate pixel clock for each connected panel. 
+Otherwise I cannot make proper use of the video output capabilities of 
+the MX8MP SoC.
+
+> The missing part is that we need to do mode validation
+> for the MIPI DSI display pipeline either in samsung-dsim.c or lcdif_kms.c
+> to filter unsupported video mode out.  Is this missing mode validation
+> the cause of your failure case?
+
+I do want to support the various modes, I do not want to filter them 
+out. They can be supported, the only "problem" is the shared Video PLL 
+which is not really an actual problem in my case, because I do not use 
+shared Video PLL, I use two separate PLLs.
+
+I think what is needed is for the LCDIF1/LCDIF2/LDB to figure out 
+whether they share the Video PLL at all (you already suggested the clock 
+subsystem can provide that information), and then if:
+- yes, agree on some sort of middle-ground frequency to configure into
+   the Video PLL, frequency which somehow fits all three consumers
+   (LCDIF1,LCDIF2,LDB)
+- no, configure each consumer upstream clock to generate accurate pixel
+   clock for that consumer
+
+Something like ^ would make MX8MP EVK (the "yes" case) with shared Video 
+PLL work, without breaking my use case (the "no" case), right ? (*)
+
+>> There has to be some better solution which still allows the PLL
+>> reconfiguration to achieve accurate pixel clock.
+> 
+> As I mentioned in cover letter, the only solution to support LVDS and
+> MIPI DSI displays on all i.MX8MP platforms is to assign a sensible and
+> unchangeable PLL rate in DT.
+
+I am currently using Video PLL and Audio PLL to drive DSI and LVDS 
+outputs from each, so no, fixed Video PLL assignment in DT is not the 
+only solution.
+
+> Some platforms may use two separate
+> PLLs for the LVDS and MIPI DSI display pipelines, while some others
+> have to use only the single IMX8MP_VIDEO_PLL1_OUT because
+> all other eligible PLLs are used up.  That's all fine, just being platforms
+> dependent.  The only limitation of the solution is that some platforms
+> couldn't support some particular LVDS and MIPI DSI displays at the
+> same time due to lack of PLLs, but this has to be accepted since
+> the shared IMX8MP_VIDEO_PLL1_OUT case needs to be supported and
+> the two display pipelines are not aware of each other from kernel's
+> point of view.
+
+Can something like (*) above be implemented instead, so both Shared and 
+separate PLLs would be supported ? That should solve both of our use 
+cases, right ?
+
+> I hope that we can agree on this solution first before spreading
+> discussions across different threads and eventually the NAK can be
+> taken back.
+
+I cannot really agree on a solution which breaks one of my use cases, 
+but maybe there is an alternative how to support both options, see (*) 
+above ?
 
