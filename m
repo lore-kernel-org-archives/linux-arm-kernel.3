@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFACDD6204A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB7AFD6204A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eT9ehpC27Empwjzz06ubBiUcVNpxqyH7mcV/SCau0jI=; b=uMBwYXr+wZGO+aPbgD43vkHbaR
-	7x8IE+lYpqcvQwp0OjjvCvS6fzKwbM7dGysaq9yUaU4Lm2i7QzFGeEf/d1QZ/hHE3gT5pBMX61Sp0
-	qPCrutjnJQQWPY9DaoqiHaaWmkhwJFtAO7U9GuEC3VgTVQ01ep4gfWxeF2DE9S3uOMAJRs8Kxth9W
-	DpWQQKs7cpYQekdK8+eStWgY9359mIW+N2td+Dts3VqtvWudy0n85IG/xiNwn5deDEVHjazDDEDPL
-	gf1cmfQiI/chopDJdW0wm6R7CDRS2juRIjYJbZRGMEuZBSyarkVnl78dZxImVoDXCC+ApOS62B0Ji
-	BpEU4Cvw==;
+	bh=giUBjK7zMBSmVZAl4b2WCFdE+4xZILtHNot9CqqS+/A=; b=J9LvkvUg5BJoPCabjfmmnfbk/8
+	jLDVWG6ylxA2ICTdimwkFDNwGYlO2LIzMa6RvL67GLlz9aun5DKrVd1XT8gnY1XbHGfnMrnnKenwy
+	a3nlGi/GbuoBhwu+626LCJNHHfMG9yDCYNWDxsDYOcTm2Ft2wPTgtZWo3n5EmRVfEzCkCEZ/ew5P3
+	Wb+xp/i8/dd42nedzgACKfEg8DXNQtBqsTl98YxfEj0xHDC6IjxksydreeBe3bCzyIOnzVVAvlyXd
+	pnf9zrit5BjB7aUXm5ZIyqpB0bxjRPCb3rW1FotGFk+uC5OueI7pGzP+qQtCtsl/SSFfc+d7QddmH
+	1y85p0EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKP4-0000000Brv6-2PLi;
-	Tue, 19 Nov 2024 09:20:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tDKRy-0000000BsaI-2L2G;
+	Tue, 19 Nov 2024 09:23:10 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKO9-0000000BrnA-2wSf
+	id 1tDKR2-0000000BsJL-0rsM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 09:19:14 +0000
+	Tue, 19 Nov 2024 09:22:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 083165C4B72;
-	Tue, 19 Nov 2024 09:18:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60FC2C4CECF;
-	Tue, 19 Nov 2024 09:19:04 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AB380A426A6;
+	Tue, 19 Nov 2024 09:20:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 443D5C4CECF;
+	Tue, 19 Nov 2024 09:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732007952;
-	bh=dLoqgQ28+EsOYwZxU05o3vr76OzyIdbjKLn5VStdDQM=;
+	s=k20201202; t=1732008130;
+	bh=otKua02jAeNlNSGxTqaWXT14ODl0eEvT6E1rePN2ac8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EhERa4W0HcT+pgpQe32ab/+4rXA9rbT0F/R4WlvG6fps7jBkeldeKaySO5RZL7+z9
-	 jzNBf6y2NY/oMbYDdcg27cn2sC5UOgcyWjS+4YZ1k8+aX3pHAwIExsE0x/t7n9IvI7
-	 VfEYLwcBMfR6xMttpRAI4Lut8fmq42bjJse5hmdyIsMBc28aDYsgIUeFzrjBG3pgXd
-	 8DQ4CwRxuvdF3u7o6Ji7tvbPtl9ZWgOKx2fyftfmvN/W0eHB5jrZQP+5ViB4oysssc
-	 6RHnwKd8HKKIbbifbHfpL18h4mrA8mgEuoIzr5zgtS5KrwcjvEz3/1GWNDwDsHyUbA
-	 C0HKenlIaOouw==
-Message-ID: <ece372c8-f667-468d-9a80-b27154342f9f@kernel.org>
-Date: Tue, 19 Nov 2024 10:19:02 +0100
+	b=nz3EaCAGpxUWm5KBvWbBNUqVh5POJTVqhagezRvEJGHLQSbilt5H3Esug8q0Lxs7N
+	 jgGggeudPMYctQbf/D8Zp/rpLronqn323I30tIaiP0uJ/h3vQdjj0BlVJPA0n7guuh
+	 oKMi5sKhSvssjNXfJ/ZaMBOP27oa8cfcSrfQ8oz/IP9daUfGjizywOBEBgrhh+TddF
+	 hD3oL8RcdomkG8P+mujOJAHGtSHzViQzmbRzj4rjRDEbwkcnItRryfNlgTycD5zvTA
+	 ru72xfuQeGYPz8Dp7vF0EAyQeAWyNL6QSGOx+cDCDMSwJFA8q4UCY3BCxsHMjkAATL
+	 qfUp0k/OWHGFg==
+Message-ID: <18e7a32c-a8de-4e5a-80aa-248b2090e346@kernel.org>
+Date: Tue, 19 Nov 2024 10:21:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/7] mfd: nxp-siul2: add support for NXP SIUL2
-To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v6 1/7] dt-bindings: mfd: add support for the NXP SIUL2
+ module
+To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
+ <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Chester Lin <chester62515@gmail.com>,
  Matthias Brugger <mbrugger@suse.com>,
@@ -59,16 +60,14 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
  "Rafael J. Wysocki" <rafael@kernel.org>, Lee Jones <lee@kernel.org>,
  Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
  Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, NXP S32 Linux Team <s32@nxp.com>,
- Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
- Enric Balletbo <eballetb@redhat.com>,
+ Jacky Bai <ping.bai@nxp.com>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
+ Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>,
  Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev
-References: <20241101080614.1070819-1-andrei.stefanescu@oss.nxp.com>
- <20241101080614.1070819-3-andrei.stefanescu@oss.nxp.com>
- <z5ky5g46tsdmrabplgjbt3ahlnkn7gljkwsxjshwpkdqqnirwr@wavvhc2wudlh>
- <c00566a9-3a3e-4c12-ab83-5e006d9273dc@oss.nxp.com>
+References: <20241113101124.1279648-1-andrei.stefanescu@oss.nxp.com>
+ <20241113101124.1279648-2-andrei.stefanescu@oss.nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -114,12 +113,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <c00566a9-3a3e-4c12-ab83-5e006d9273dc@oss.nxp.com>
+In-Reply-To: <20241113101124.1279648-2-andrei.stefanescu@oss.nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_011913_833922_59E45473 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20241119_012212_373928_91A3F1C8 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,48 +133,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/11/2024 12:29, Andrei Stefanescu wrote:
-> Hi Krzysztof,
-> 
-> On 02/11/2024 10:52, Krzysztof Kozlowski wrote:
->> On Fri, Nov 01, 2024 at 10:06:08AM +0200, Andrei Stefanescu wrote:
->>> +static int nxp_siul2_probe(struct platform_device *pdev)
->>> +{
->>> +	struct nxp_siul2_mfd *priv;
->>> +	int ret;
->>> +
->>> +	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
->>> +	if (!priv)
->>> +		return -ENOMEM;
->>> +
->>> +	priv->num_siul2 = S32G_NUM_SIUL2;
->>> +	priv->siul2 = devm_kcalloc(&pdev->dev, priv->num_siul2,
->>> +				   sizeof(*priv->siul2), GFP_KERNEL);
->>> +	if (!priv->siul2)
->>> +		return -ENOMEM;
->>> +
->>> +	platform_set_drvdata(pdev, priv);
->>> +	ret = nxp_siul2_parse_dtb(pdev);
->>> +	if (ret)
->>> +		return ret;
->>> +
->>> +	return devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO,
->>> +				    nxp_siul2_devs, ARRAY_SIZE(nxp_siul2_devs),
->>> +				    NULL, 0, NULL);
->>> +}
->>> +
->>> +static const struct of_device_id nxp_siul2_dt_ids[] = {
->>> +	{ .compatible = "nxp,s32g2-siul2" },
->>> +	{ .compatible = "nxp,s32g3-siul2" },
->>
->> So devices are comaptible? Why doesn't your binding express it?
-> 
-> Yes, as far as I know, there is no difference in the integration
-> of the SIUL2 module for S32G2 and S32G3 SoCs. I am not sure how
-> to express this compatibility. Should I mention the "nxp,s32g3-siul2"
-> compatible as a fallback one?
+On 13/11/2024 11:10, Andrei Stefanescu wrote:
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - nxp,s32g2-siul2
+> +      - nxp,s32g3-siul2
 
-See example schema. Or any other recent NXP IMX binding.
+Not much improved. See other NXP bindings how they do this.
+
+> +
+> +  reg:
+> +    maxItems: 2
+> +
+> +  reg-names:
+> +    items:
+> +      - const: siul20
+> +      - const: siul21
+> +
+> +  gpio-controller: true
+> +
+> +  "#gpio-cells":
+> +    const: 2
+> +
+> +  gpio-ranges:
+> +    maxItems: 2
+> +
+> +  gpio-reserved-ranges:
+> +    maxItems: 2
+
+That's odd to always require two reserved ranges. Does this mean all
+devices have exactly the same reserved GPIOs? Then the driver should not
+export them.
+
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  interrupt-controller: true
+> +
+> +  "#interrupt-cells":
+> +    const: 2
+> +
+> +  nvmem-layout:
+> +    $ref: /schemas/nvmem/layouts/nvmem-layout.yaml#
+> +    description:
+> +      This container may reference an NVMEM layout parser.
+> +
+> +patternProperties:
+> +  "-hog(-[0-9]+)?$":
+> +    required:
+> +      - gpio-hog
+> +
+> +  "-pins$":
+> +    type: object
+> +    additionalProperties: false
+> +
+> +    patternProperties:
+> +      "-grp[0-9]$":
+> +        type: object
+> +        allOf:
+> +          - $ref: /schemas/pinctrl/pinmux-node.yaml#
+> +          - $ref: /schemas/pinctrl/pincfg-node.yaml#
+> +        description:
+> +          Pinctrl node's client devices specify pin muxes using subnodes,
+> +          which in turn use the standard properties below.
+> +
+> +        properties:
+> +          bias-disable: true
+> +          bias-high-impedance: true
+> +          bias-pull-up: true
+> +          bias-pull-down: true
+> +          drive-open-drain: true
+> +          input-enable: true
+> +          output-enable: true
+> +
+> +          pinmux:
+> +            description: |
+> +              An integer array for representing pinmux configurations of
+> +              a device. Each integer consists of a PIN_ID and a 4-bit
+> +              selected signal source(SSS) as IOMUX setting, which is
+> +              calculated as: pinmux = (PIN_ID << 4 | SSS)
+> +
+> +          slew-rate:
+> +            description: Supported slew rate based on Fmax values (MHz)
+> +            enum: [83, 133, 150, 166, 208]
+> +        required:
+> +          - pinmux
+> +
+> +        additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - gpio-controller
+> +  - "#gpio-cells"
+> +  - gpio-ranges
+> +  - gpio-reserved-ranges
+> +  - interrupts
+> +  - interrupt-controller
+> +  - "#interrupt-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    siul2@4009c000 {
+
+<form letter>
+This is a friendly reminder during the review process.
+
+It seems my or other reviewer's previous comments were not fully
+addressed. Maybe the feedback got lost between the quotes, maybe you
+just forgot to apply it. Please go back to the previous discussion and
+either implement all requested changes or keep discussing them.
+
+Thank you.
+</form letter>
+
+
 
 Best regards,
 Krzysztof
