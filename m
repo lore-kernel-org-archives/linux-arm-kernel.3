@@ -4,54 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9F0D62060
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:53:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F137D62060
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BVXUBve+E1W0wWXAnIyKvnXTF5QZM8J1LQfuTRm8BNQ=; b=iT4GMS1MoZeuRLCScNHTi63XQS
-	JY+a2R6KnI8tUZIHccrjkQvw9OM2ooUGW0Q/PllwA4cnjd6v/vHNJYXx0EYO9yWJWEcl5ev7y2cLI
-	DGupKWk03zoNYdgrfx0W0IUsvmg4Xwq4tqBOq7tt34R6fACNYRhLxNyiH2Uvfx1PKGVkLDxwgP3ty
-	Sn2S7en3XsTjSCgtY88/0UxpI+uCZy+TQqlQfhusHfCpB11QLUkL9GWOVc/udVBBO2OIU7y4IPZ0E
-	JoAfvKnlRqUVXva81B/q6S6PH1NICfBP4+E5GPWdA5ce4p6ay75qw6Qq3VtJLS6SYYQXE6q6IQNSM
-	mBdMlHqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xUe7R8XKsYNv0mClyqfH8J2phEvtwivmUTM75Fl3Sl8=; b=glkgxu/OI8tsRg8p6gtQ4bebLN
+	111eUOs67H4FmdFhAwbXhlpKs9RZm0Hmk1d7SFDLryR+Nl0q2v6iceXiCnHCj4Sl/8szsx5L0ZzDP
+	o+lHGcSosCmfANVDu2nluTnp8fDOaGezj+1beFojEsX5oXIahZMMZgMl6TuT/02ShlaZ2KQDdvneO
+	Ksim2pmQfd+qOhZmwXfPpUX+tGJK/p19wI+xfRrZEyKrNf2e0VyK/o2XepXqN30VwjxiUSpl4M3Xs
+	JVngWFWVIH/GyIBCdeBELNleodplJ9Qt+wHtGhYvGsCkV6dfawihj8eGtKwT3+RjISZUeTuMBKkjc
+	nZ0rItEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKuj-0000000BxUs-1Lrw;
-	Tue, 19 Nov 2024 09:52:53 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1tDKzM-0000000By0y-49b2;
+	Tue, 19 Nov 2024 09:57:40 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKtl-0000000Bx8d-1KVN
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 09:51:54 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Tue, 19 Nov
- 2024 17:51:42 +0800
-Received: from mail.aspeedtech.com (192.168.10.10) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12 via Frontend
- Transport; Tue, 19 Nov 2024 17:51:42 +0800
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: <andrew@lunn.ch>, <hkallweit1@gmail.com>, <linux@armlinux.org.uk>,
-	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
-	<f.fainelli@gmail.com>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <jacky_chou@aspeedtech.com>
-Subject: [PATCH net v2] net: mdio: aspeed: Add dummy read for fire control
-Date: Tue, 19 Nov 2024 17:51:41 +0800
-Message-ID: <20241119095141.1236414-1-jacky_chou@aspeedtech.com>
-X-Mailer: git-send-email 2.25.1
+	id 1tDKyQ-0000000Bxqi-1F6d;
+	Tue, 19 Nov 2024 09:56:43 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AJ7j9vW023070;
+	Tue, 19 Nov 2024 09:56:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=xUe7R8XKsYNv0mClyqfH8J2phEvtwivmUTM
+	75Fl3Sl8=; b=XmwM+75yx8vwq362E0EAxe7Nj8gbnArVN1vp5vnt7LcQ0CLfxQD
+	4gRrw6SNCoGu6DvWkB0s8qwF0w0RKUO7npp3O/V42s4kVZ8Op55YhONH7rtv6PzN
+	lRbiYgNnfpKmh/8cWRm8KfSuJzJkS/IaMiK91NG6y2wT1LiYsgpuAEawVSboFePC
+	hFQB4J/+cxWSrp0UytIgPAkRmnlVhXTn4eDAOIo9MhnycR7/gaQEn/vtuEq5kDAV
+	l1BMde0/Wbfjoq3VRsm2b/8tBfn6fDHea+ycaRk7iiVes78VqCKgOa1x54r+A/UF
+	hh8kyJi9fTp1QFGDZ0iqGEEriv3C9CXx43g==
+Received: from aptaippmta01.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com [103.229.16.4])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4308y623up-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 19 Nov 2024 09:56:20 +0000 (GMT)
+Received: from pps.filterd (APTAIPPMTA01.qualcomm.com [127.0.0.1])
+	by APTAIPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 4AJ9uJsm002711;
+	Tue, 19 Nov 2024 09:56:19 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 42xmfkpvgr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 19 Nov 2024 09:56:18 +0000
+Received: from APTAIPPMTA01.qualcomm.com (APTAIPPMTA01.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 4AJ9uIhG002706;
+	Tue, 19 Nov 2024 09:56:18 GMT
+Received: from cbsp-sh-gv.ap.qualcomm.com (CBSP-SH-gv.ap.qualcomm.com [10.231.249.68])
+	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 4AJ9uIe3002705
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 19 Nov 2024 09:56:18 +0000
+Received: by cbsp-sh-gv.ap.qualcomm.com (Postfix, from userid 393357)
+	id CA91640BED; Tue, 19 Nov 2024 17:56:16 +0800 (CST)
+From: Ziqi Chen <quic_ziqichen@quicinc.com>
+To: quic_cang@quicinc.com, bvanassche@acm.org, mani@kernel.org,
+        beanhuo@micron.com, avri.altman@wdc.com, junwoo80.lee@samsung.com,
+        martin.petersen@oracle.com, quic_ziqichen@quicinc.com,
+        quic_nguyenb@quicinc.com, quic_nitirawa@quicinc.com,
+        quic_rampraka@quicinc.com
+Cc: linux-scsi@vger.kernel.org, Peter Wang <peter.wang@mediatek.com>,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        John Garry <john.g.garry@oracle.com>,
+        Johannes Thumshirn <johannes.thumshirn@wdc.com>,
+        Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+        Andrew Halaney <ahalaney@redhat.com>,
+        Maramaina Naresh <quic_mnaresh@quicinc.com>,
+        linux-kernel@vger.kernel.org (open list),
+        linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek),
+        linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek)
+Subject: [PATCH v3] scsi: ufs: core: Add ufshcd_send_bsg_uic_cmd() for UFS BSG
+Date: Tue, 19 Nov 2024 17:56:04 +0800
+Message-Id: <20241119095613.121385-1-quic_ziqichen@quicinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: thBaN9mIu8qL1VUAK4TurLRrwtF8AqJz
+X-Proofpoint-ORIG-GUID: thBaN9mIu8qL1VUAK4TurLRrwtF8AqJz
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ spamscore=0 clxscore=1011 malwarescore=0 priorityscore=1501 mlxscore=0
+ mlxlogscore=999 impostorscore=0 bulkscore=0 suspectscore=0 phishscore=0
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411190070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_015153_359160_277FB70C 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20241119_015642_338950_A51ADA7B 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,35 +114,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the command bus is sometimes busy, it may cause the command is not
-arrived to MDIO controller immediately. On software, the driver issues a
-write command to the command bus does not wait for command complete and
-it returned back to code immediately. But a read command will wait for
-the data back, once a read command was back indicates the previous write
-command had arrived to controller.
-Add a dummy read to ensure triggering mdio controller before starting
-polling the status of mdio controller to avoid polling unexpected timeout.
+User layer applications can send UIC GET/SET commands via the BSG
+framework, and if the user layer application sends a UIC SET command
+to the PA_PWRMODE attribute, a power mode change shall be initiated
+in UniPro and two interrupts shall be triggered if the power mode is
+successfully changed, i.e., UIC Command Completion interrupt and UIC
+Power Mode interrupt.
 
-Fixes: a9770eac511a ("net: mdio: Move MDIO drivers into a new subdirectory")
-Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+The current UFS BSG code calls ufshcd_send_uic_cmd() directly, with
+which the second interrupt, i.e., UIC Power Mode interrupt, shall be
+treated as unhandled interrupt. In addition, after the UIC command is
+completed, user layer application has to poll UniPro and/or M-PHY state
+machine to confirm the power mode change is finished.
+
+Add a new wrapper function ufshcd_send_bsg_uic_cmd() and call it from
+ufs_bsg_request() so that if a UIC SET command is targeting the PA_PWRMODE
+attribute it can be redirected to ufshcd_uic_pwr_ctrl().
+
+Fixes: e77044c5a842 ("scsi: ufs-bsg: Add support for uic commands in ufs_bsg_request()")
+Signed-off-by: Can Guo <quic_cang@quicinc.com>
+Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
+Reviewed-by: Bean Huo <beanhuo@micron.com>
+Reviewed-by: Avri Altman <avri.altman@wdc.com>
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
 ---
- drivers/net/mdio/mdio-aspeed.c | 2 ++
- 1 file changed, 2 insertions(+)
+V2 -> V3: Added Fixes tag
+V1 -> V2: Rebased on Linux 6.13
+---
+ drivers/ufs/core/ufs_bsg.c     |  2 +-
+ drivers/ufs/core/ufshcd-priv.h |  1 +
+ drivers/ufs/core/ufshcd.c      | 36 ++++++++++++++++++++++++++++++++++
+ 3 files changed, 38 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/mdio/mdio-aspeed.c b/drivers/net/mdio/mdio-aspeed.c
-index c2170650415c..373902d33b96 100644
---- a/drivers/net/mdio/mdio-aspeed.c
-+++ b/drivers/net/mdio/mdio-aspeed.c
-@@ -62,6 +62,8 @@ static int aspeed_mdio_op(struct mii_bus *bus, u8 st, u8 op, u8 phyad, u8 regad,
- 		| FIELD_PREP(ASPEED_MDIO_DATA_MIIRDATA, data);
+diff --git a/drivers/ufs/core/ufs_bsg.c b/drivers/ufs/core/ufs_bsg.c
+index 433d0480391e..6c09d97ae006 100644
+--- a/drivers/ufs/core/ufs_bsg.c
++++ b/drivers/ufs/core/ufs_bsg.c
+@@ -170,7 +170,7 @@ static int ufs_bsg_request(struct bsg_job *job)
+ 		break;
+ 	case UPIU_TRANSACTION_UIC_CMD:
+ 		memcpy(&uc, &bsg_request->upiu_req.uc, UIC_CMD_SIZE);
+-		ret = ufshcd_send_uic_cmd(hba, &uc);
++		ret = ufshcd_send_bsg_uic_cmd(hba, &uc);
+ 		if (ret)
+ 			dev_err(hba->dev, "send uic cmd: error code %d\n", ret);
  
- 	iowrite32(ctrl, ctx->base + ASPEED_MDIO_CTRL);
-+	/* Add dummy read to ensure triggering mdio controller */
-+	(void)ioread32(ctx->base + ASPEED_MDIO_CTRL);
+diff --git a/drivers/ufs/core/ufshcd-priv.h b/drivers/ufs/core/ufshcd-priv.h
+index 7aea8fbaeee8..9ffd94ddf8c7 100644
+--- a/drivers/ufs/core/ufshcd-priv.h
++++ b/drivers/ufs/core/ufshcd-priv.h
+@@ -84,6 +84,7 @@ int ufshcd_read_string_desc(struct ufs_hba *hba, u8 desc_index,
+ 			    u8 **buf, bool ascii);
  
- 	return readl_poll_timeout(ctx->base + ASPEED_MDIO_CTRL, ctrl,
- 				!(ctrl & ASPEED_MDIO_CTRL_FIRE),
+ int ufshcd_send_uic_cmd(struct ufs_hba *hba, struct uic_command *uic_cmd);
++int ufshcd_send_bsg_uic_cmd(struct ufs_hba *hba, struct uic_command *uic_cmd);
+ 
+ int ufshcd_exec_raw_upiu_cmd(struct ufs_hba *hba,
+ 			     struct utp_upiu_req *req_upiu,
+diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+index e338867bc96c..c01f4b0c1b4f 100644
+--- a/drivers/ufs/core/ufshcd.c
++++ b/drivers/ufs/core/ufshcd.c
+@@ -4319,6 +4319,42 @@ static int ufshcd_uic_pwr_ctrl(struct ufs_hba *hba, struct uic_command *cmd)
+ 	return ret;
+ }
+ 
++/**
++ * ufshcd_send_bsg_uic_cmd - Send UIC commands requested via BSG layer and retrieve the result
++ * @hba: per adapter instance
++ * @uic_cmd: UIC command
++ *
++ * Return: 0 only if success.
++ */
++int ufshcd_send_bsg_uic_cmd(struct ufs_hba *hba, struct uic_command *uic_cmd)
++{
++	int ret;
++
++	if (hba->quirks & UFSHCD_QUIRK_BROKEN_UIC_CMD)
++		return 0;
++
++	ufshcd_hold(hba);
++
++	if (uic_cmd->argument1 == UIC_ARG_MIB(PA_PWRMODE) &&
++	    uic_cmd->command == UIC_CMD_DME_SET) {
++		ret = ufshcd_uic_pwr_ctrl(hba, uic_cmd);
++		goto out;
++	}
++
++	mutex_lock(&hba->uic_cmd_mutex);
++	ufshcd_add_delay_before_dme_cmd(hba);
++
++	ret = __ufshcd_send_uic_cmd(hba, uic_cmd);
++	if (!ret)
++		ret = ufshcd_wait_for_uic_cmd(hba, uic_cmd);
++
++	mutex_unlock(&hba->uic_cmd_mutex);
++
++out:
++	ufshcd_release(hba);
++	return ret;
++}
++
+ /**
+  * ufshcd_uic_change_pwr_mode - Perform the UIC power mode chage
+  *				using DME_SET primitives.
 -- 
-2.25.1
+2.34.1
 
 
