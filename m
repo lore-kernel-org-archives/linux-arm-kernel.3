@@ -4,149 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86315D60D1B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 10:11:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B1BD60D1B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 10:12:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1og3xBx3TcLGOM0hgrhkwz0AE9BJdmvnl46cNmpAhTo=; b=3SLBFSyXDD2wlf346WEA+mhmih
-	vMpLZ/v4E2hqPcN6G8RcVvXJ951iIXWODrxg9UDcBTmFNGOgvPl/ZMiSjHtvbbvQOTerHF41SheIO
-	uhRxma09zNmqDjPUgLTaM7QUcTvqdUPrtxq+lbVwqAbv3EChgeN0MifDYMFDMLquOOgbU1AqnDRcv
-	RAdhvgN7JFE7ieTz3woVPzH0Kt666GIJrJzFrsGy/pxnIPpHyHKOQeAJiLteuKYEpkplPv4RrOdhs
-	dFnWkTITMqnmttuaP5lBWRk4o3HXGJTRZMCaI7OA6BSVyklc5qttPUynhbAkJOeNwPR8N81m9SrVV
-	rDkSdLdQ==;
+	bh=CnyTQoucjCJF6wmIwhYG5inOePLfmtO8FEJdC34/wtE=; b=0wSykFd0l2dJicuLUDXZkaVV1f
+	PY2jT/txTjxeosPW2ue0ko/KMWjecYGa9Psd84bdPF7fcT5W2J5LbadW4lMkbIxu9LsmQTnO7WkSw
+	vcPBNZ+BR4X/m5/zsf+wuqmMflIAWYqWZPkxC5okbHYdQ+GfLCnigt9oAirXfujfm7cZ1yVHfCieh
+	5rdID4vP/4KM7f5PavKJTIywJqkq+Tn3jqkeIDAqhtUm06xAAWhmcZvHsbefFq8eY8J64IP+SOU/d
+	x73MnZa3JSvAHQnQXrTazXrdNHNp40MZkBFxdjXC2E4JtUx9mQFdrwGvoQRKauifcOiDNCR9eyOoo
+	HfOKL6tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDLCE-0000000BzyE-1FFm;
-	Tue, 19 Nov 2024 10:10:58 +0000
-Received: from mail-db8eur05on20618.outbound.protection.outlook.com ([2a01:111:f403:2614::618] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tDLDi-0000000C0DU-0GET;
+	Tue, 19 Nov 2024 10:12:30 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDLBG-0000000Bzg4-3h5E;
-	Tue, 19 Nov 2024 10:10:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fxvr7P0prZ+WdD24393gHrQwxZsj0j73Lv1n5u/147qRamIbbLRvuvdxJTd0M9r3M9T1JmrpQhJo4PsvM27kZYH2efGIyCgdYnDdjZ07PuY+bMNhV4x8m9RiKjjiuBboIlNUg9d3IFVwYoTHbT2yULeNivjX7L67nOqXgzZzoht/Yqkc9wKpqLgY6vi2tstpJRqvdUa/rXV6fLDjBOVE3MW8sP/q5NNBTbiVfPuFz8+thye9aIibup3vhzc6i+/Hnxc59n4GFAwRPqjCGm+mvCD+Oc4Xdni/EOMF6prSjKbRdYKzxTxSq6Mnu9kXedJ1uKGd1hKa1bWVnGAjhjz4LQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1og3xBx3TcLGOM0hgrhkwz0AE9BJdmvnl46cNmpAhTo=;
- b=nng8IRVJWtXaqUU5UvUJpR0kFrHR2SqmULCbRJZ1NVVbpB9npl2XNOTIsit4+hqyeYAoZor5tjb0L6OJqH0nUMdAfZXJ/f126UtEKxWsNzJPLR1Tkp086YsQOg6mVg2R6wRZy42dW+UOeLB/xC70KwDLT4yGJmwmyO8LZw3kRPreUiHd9lUWkJfgGybagcC0NFxd5sDy4YAfTYqb+F8Fx/4RXdeGzPva3Lhj9kznJxR6vHCHTbfnrPxztqJLVTr9PD4veyM3mOgttoSDbsTMMhNstCy4r9xuGAqr+96esI++0tsuL88Md1GK5gTwFTw4XMZ3Sg1GEN4zZHAuWmDJkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1og3xBx3TcLGOM0hgrhkwz0AE9BJdmvnl46cNmpAhTo=;
- b=a5EVKKayjPw7WSVJ/5e38UCvKhSW6mYhNFietRAQ0jfkBKPa3IujaaC8c3vD9i23FRrzwckN1jd7sWetnOw3aSshEWl6IrdUY4z2r0Z5jfRoffmFMLpZC6twxHr6q3EoP5SZzKZFr/7yzYnvXhoAsi1jalL4gkUl8bQ156CK4rs78SrhuVqSYj9qdk+s9FEjxccMJciiRciSrgzE+Buz2THJxYyT1rtTI1+fQ4UTnlwI7lTvHg9cgFXcvEfRvbOogmA/QzsX8KskJJke6mxZvf5zYwUjZuEJqZa/doucB1QLEuwVuQITQKTbuLCff/xR8x8tWBKAuqcePLJ5PKqjIg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by GV1PR04MB9215.eurprd04.prod.outlook.com (2603:10a6:150:2a::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.23; Tue, 19 Nov
- 2024 10:09:51 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7%6]) with mapi id 15.20.8158.023; Tue, 19 Nov 2024
- 10:09:50 +0000
-Date: Tue, 19 Nov 2024 18:07:29 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	jun.li@nxp.com, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: phy: imx8mq-usb: optionally refer to
- usb-switch.yaml
-Message-ID: <20241119100729.cjol44ozd55vcter@hippo>
-References: <20241114102203.4065533-1-xu.yang_2@nxp.com>
- <20241114-marmalade-bottling-8fe656515ee7@spud>
- <20241115020045.qlrkyrelpgdwpxxk@hippo>
- <20241115-bladder-legislate-7daef7a750ad@spud>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241115-bladder-legislate-7daef7a750ad@spud>
-X-ClientProxiedBy: AM9P250CA0021.EURP250.PROD.OUTLOOK.COM
- (2603:10a6:20b:21c::26) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	id 1tDLCl-0000000C05F-1xdC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Nov 2024 10:11:32 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-72041ff06a0so2086217b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 02:11:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1732011090; x=1732615890; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=CnyTQoucjCJF6wmIwhYG5inOePLfmtO8FEJdC34/wtE=;
+        b=KogpWRLMkQcBMvQ6dqCT+CUzEnf/GOkSMIO3PkeKj0dTsASaSZ/oz7ChUgfO8w9Dc4
+         j7/nrLc8aQd/OE7s7WMJre3bUAMTLoO4hLtmNWx4UV59ng9aEk9T73zlhF1X4A7ucDCG
+         BYnbw5s3508SijgxpgIk7dcOuTAzdvLBZ/XoqVmPCgdGFj/3Wr2bU9pIzXIpePKnqQBH
+         NMzVM9oAWadWHnN7g9HSLK6ij3x5574XtcvufvHJco76N5ByNmjMXuSAnSI6l1SDWjyF
+         QUejuxC1P5NZsjxQqqaDC0quT0/zPwv0Gz73Bg+LCTlJHycVcgn/wDgkDWWtlurhOhNx
+         BXSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732011090; x=1732615890;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CnyTQoucjCJF6wmIwhYG5inOePLfmtO8FEJdC34/wtE=;
+        b=q3FE29cvgyknwk79RxPDVsFWDbRPJiFzNvQm8vGYBjYaPefvcpZcrYLkOp6eqMAS6K
+         l2QbZYxPr5FXmbzf7r2sGR/rqu6GZiAoiDFjzPGeF+FGRgCSvqvGHuO3wf7n1LVg4Spm
+         i/iJ558VKDISNOAsgxmL0te2D87jOJrbsxNQbkhS7R8E/YDyL5+VzurX/KxwiigA0vXf
+         /MGMNn03a+UQYerXdq3IeiVo3dMbPh+QXY47wFOCYlZdyDIQwkl0TT17jRSVe49puYmq
+         q100e1vRvm0zIEgXfCjfUiHg4PLt/GzpN3jIfj0KTmRI5Ks8rc2oq0RoVt3DKvVFAGEq
+         /QrA==
+X-Forwarded-Encrypted: i=1; AJvYcCUBFkZUX0/wyf9IJmnnHXJfqUXFuVTs2bSnOWu3kxnpTR74uiXwVHKrauOB2RJn4bleIWb15eDQOCEwy+up16eH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyt5vlf9jsW0LKiFJh3qOJb11p9xNw/VtDAt9oMU3098eyDbE6v
+	BEN4SuDTow1p4t4S2Dpdjpkzu8p2BLldcqDHD6DvBeNirm0/7VGLuSqaZS6jdw==
+X-Google-Smtp-Source: AGHT+IESlkjEE6zH0kn+oCxIKUTmqhbcdMhskn/HWsahaCPc0PrMTVIaTfJQLiOkn57Z+JD1MOMz3Q==
+X-Received: by 2002:a05:6a00:9294:b0:71d:f15e:d026 with SMTP id d2e1a72fcca58-72476b7271emr20918708b3a.3.1732011090344;
+        Tue, 19 Nov 2024 02:11:30 -0800 (PST)
+Received: from thinkpad ([117.213.96.14])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72477120a13sm8051655b3a.60.2024.11.19.02.11.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 Nov 2024 02:11:29 -0800 (PST)
+Date: Tue, 19 Nov 2024 15:41:21 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH v7 2/7] PCI: dwc: Using parent_bus_addr in of_range to
+ eliminate cpu_addr_fixup()
+Message-ID: <20241119101121.t4kaaeuvj37scmxm@thinkpad>
+References: <20241029-pci_fixup_addr-v7-0-8310dc24fb7c@nxp.com>
+ <20241029-pci_fixup_addr-v7-2-8310dc24fb7c@nxp.com>
+ <20241115175148.tqzqiv53mccz52tq@thinkpad>
+ <ZzeejnBC4KrJoHqm@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|GV1PR04MB9215:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2089a5e9-e93c-447e-178d-08dd08824dca
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?aIaZJ3QPgV3jC7xhWbTyheyIDQCAYqVSvrt/w1H3ABUrLLQKVzurx3WmKuCv?=
- =?us-ascii?Q?b0eK9BbE5G+yOqYaAvg0NKxWPlJ9AA8RKJlHwu1mCUnEe8g6EmpJQLO9g0Em?=
- =?us-ascii?Q?fk4OXqav3LRHbxTSRj7mkdP3PDC8L/BzeM84HhClPGQo/r2KFsFax7vCqWX5?=
- =?us-ascii?Q?O0xS1dBLtYjNFeqIbJIJiLtxZc274MWOD2XFh/IAYDXbU8Uj5FWXQfQunu6f?=
- =?us-ascii?Q?T0KdqNSuSkWzQ/1hIi1hir0D8C+MLY3PO1GuF5Nbv72NK/Y+BosFcqkcdcWC?=
- =?us-ascii?Q?QqIv6anqWbp84ryfPi5VVC7urVGcoSpZubGyJOXQGY+wlnuAncfCN1y5k/4t?=
- =?us-ascii?Q?7nWVedCwLUhIQ7EeSbhnqfGcNTH0kWciBD36bkRLzUv6glFab8qLxhiJ7L/q?=
- =?us-ascii?Q?NAaelQDAsCv1JtGPqz2bO7Zr7We7PSmvuDv1Q9XhFZxiz2Sso9fbDIl+Wu6r?=
- =?us-ascii?Q?qDSec/08gF1vv9XH9uz8Arx35XoK1Zz7np+IRxzcgsPXEkmK9I8asGng41/v?=
- =?us-ascii?Q?jh06WlvpMV6ob1tbx8GmIy29d/j/JUudv2wHvF1svnw3+r9o8c8NVA4cU+6t?=
- =?us-ascii?Q?S17g6itOGaRmo/aVqyzoW/QTqDw+I/s3NlQe3CHbzL42HogiGBvCqwWVCwcV?=
- =?us-ascii?Q?kSwdjSbqk1xsFhBACiatVNGyaUVMA+bLct45pAxmZ2NEjC67oI69y/Vse+bP?=
- =?us-ascii?Q?UF+w1yiAr8AhXkS/yTRifQXYhKskLgal/NUjjERTe2XuC0+EqfEDzWsrIYIu?=
- =?us-ascii?Q?jM/PWmESQI4HH1CHNjsAHQwNNhnL1VSVkafhNwWHE5I4vtZZuMZ7cwiJR6eh?=
- =?us-ascii?Q?TSDYTRTUOyaHZKanGoxLjG9Hbsc2/ap+ZUFmk+mg8uz9eC8vs/c16aYQ82lR?=
- =?us-ascii?Q?2IfYZJR4/RaXxItLqQ4FuVnc1y6P18hbJotcNjT6P1ATSxGnPu3Zhc8iSyVR?=
- =?us-ascii?Q?fJEMP2hrx6vLcf3E0+gvtzchOg6l66nHI9YylY1BFzF2Nc+7qLI+6GBIUTU2?=
- =?us-ascii?Q?zhMkrnQpXuYNSn6hQBOQzjhQvm1HcX/ErHxyoG9twTCxUKYjU3a+B03pIFZp?=
- =?us-ascii?Q?MSLVx0SC2kNh4W45WeaGOqrctfxWWairrt4qpUns33ExGkRF51ubHcnudKHg?=
- =?us-ascii?Q?f8BWBjQpBRmcqbsBbaK/dt5lo39itboFc/CiMkwaDjp8NSvXmfC60cRT+R/q?=
- =?us-ascii?Q?1Rth09h3273xHQXo1VShC2qwgjzyXoU4hnD1IUU7iRu86L89lkZaZEc8Qh7f?=
- =?us-ascii?Q?somv2bRWpiG8mbTPZwgblIJ4DCHCRDBCluCplqG3uYj4qjJ2y5CGLdjj8PD3?=
- =?us-ascii?Q?mPoMj5RwpM6Kqnv+AKFf1fdY7UMQRLTygcuVsUSx1vDVZtk41KLplwRtT0Nq?=
- =?us-ascii?Q?ss4Iw4JP5JNraaSOIiaUPOpT46pc?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hxcyZbJdCYs2NCHTHcGy/ea69A+1DSPTH7MrRoC7l05+aax76t7gk+OnQD2z?=
- =?us-ascii?Q?S9Q8hQZt8H6LJUvGQP6GSuA8/vq+HZG6gVW0UMavQkQURcr6x9CsyN2TRzFs?=
- =?us-ascii?Q?/WTPLYzams6iI1oijRdOud+wyVcPA+aY1iQK6QzysSqwpgqPba3NZD+6iqHX?=
- =?us-ascii?Q?AgvcYDx0eXX4eQe6gC7Ufl6T99lu3k7t2uCGFNUoeJtaVlcTDNnFKeIKq/cf?=
- =?us-ascii?Q?BS6OD1ONUgeoubqkT7QI+bYpKNfbqYetyAG7oAnwRmVD9OgqBQw3mFu3MAs/?=
- =?us-ascii?Q?HQ2PBZzxdK1Iz4bVpfTJ9EUaxNLQy8AUTo44pva94928sp1rQalWk2EMiUul?=
- =?us-ascii?Q?T7hJbLjl+F0PSk1tyz1Ur1zQcQwr4usf/N0YKb9+h8cTrv4o+tDpdQ+hDUGe?=
- =?us-ascii?Q?POFM2TikitOpGfOzH6xX7hOJbh+lZV2KTBp86cWl65lcC5SkQhpCtVcPZKPd?=
- =?us-ascii?Q?iRn+abm92nArqQirTc8SkemoCEU510bLbKqXgHzEHKxIdF2VJlAVneLWSzdK?=
- =?us-ascii?Q?4VNYnyOQpvx6A6XWbBWEWQtHOIzquU/LrcAoXD9MVpr5ffizBGFlz+MgoIjX?=
- =?us-ascii?Q?bjTSkAKtTAvuEnJNPP4c7Q3U0Wavfh1rWHVm9v8/Ffyj7mcZz3zF2H6y97hb?=
- =?us-ascii?Q?5mqzknWG1d+T0wzZCtHrrRG8iSSxwRLLoqw0KvZQubZ6YBBBbL98fuhOvWpT?=
- =?us-ascii?Q?uxyTkYoaNQWdomgQsalOVN8MImquMEltlgKAkgGNKMaLM/JwgpTOuVKdu3+K?=
- =?us-ascii?Q?TMLh9/NbEHTGuTy7voXtqVYVdHs1HyQ2wOoirregRveBivWGYXYkiuRI13l8?=
- =?us-ascii?Q?h6tcNmtMONkvfNBYr3J/oSVmQozpA7aU3o1+QwR+STq4LUwn12RcGZm7YD03?=
- =?us-ascii?Q?X0sfMHHTkwSrMsLQEHQIx2x5OVVLX3eUg3NqbVCtaJF3ejCUjXGKlooBCih2?=
- =?us-ascii?Q?0iYI9EBqNDuRwNOTFe1ezAYKh0aHizMovCaJrgkJsJvMvqZqbiV9RN8ygO0a?=
- =?us-ascii?Q?pjj/W7SMoi6D5SbV63bbcWyy0DJ4iYZexlWDFb267z518vOCL2DSI5MRx2i7?=
- =?us-ascii?Q?4BJ4KY+nCwfIjedCk8BRk73QGqSaMeaRq5QSXuhRLhJ9nbUb99986XWvIKWY?=
- =?us-ascii?Q?i1wM/N+PduN4KyJawTyJumzlj+EorkTgoyzF10VIQN5fqF42da2KRRfuqq8a?=
- =?us-ascii?Q?tzbgt4iyf20sSnvG6+ErOnlP8DGnW3mZBRDZmR/E+X8qG6aHICgvLTorHFLZ?=
- =?us-ascii?Q?jcwyxTnepvtMLEIJ9JahAX0n/+0WVU1zquCaLb8JRDYIW83ZBstvk38JQmpr?=
- =?us-ascii?Q?rcKJwAWnS9fpWNRam+4g5xWXFXZrZA4ytnCZEpQDAbpL3pAT9VyM7wjqS+L5?=
- =?us-ascii?Q?J/jwTaWIqJthbfFRf84SX4z2oDJp2pGUn9qjAhHQjD2zy8w0Lm+J9EQcN4Bj?=
- =?us-ascii?Q?V70JpZjXDjfF7GwqQr5jYmFWwgE0f3UCtJX1eP1G/KCYjP/Rqyi0sPe/aPUO?=
- =?us-ascii?Q?b1eO01gCbFF+BT392RdrywgnrIreS1fZUbZVnURdtmuiapnKvyzYgRPr6Y2O?=
- =?us-ascii?Q?up02QKhVYFtXSFY2SFlXtXURLyRU0vi9yD5lMKNT?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2089a5e9-e93c-447e-178d-08dd08824dca
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2024 10:09:50.8357
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: C2wN7cHta/kJgaK+Xr6dN0lNZcnEDPKfzKJTSnOkOmpaAodvfg9lwo+46Mrgn/GUh16TjVw6WkhZPMhz2Si68Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9215
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ZzeejnBC4KrJoHqm@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_020958_919306_CF90A6A0 
-X-CRM114-Status: GOOD (  34.81  )
+X-CRM114-CacheID: sfid-20241119_021131_511010_C5FFA95E 
+X-CRM114-Status: GOOD (  35.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,100 +108,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 15, 2024 at 06:34:50PM +0000, Conor Dooley wrote:
-> On Fri, Nov 15, 2024 at 10:00:45AM +0800, Xu Yang wrote:
-> > On Thu, Nov 14, 2024 at 05:45:07PM +0000, Conor Dooley wrote:
-> > > On Thu, Nov 14, 2024 at 06:22:03PM +0800, Xu Yang wrote:
-> > > > The i.MX95 usb-phy can work with or without orientation-switch. With
-> > > > current setting, if usb-phy works without orientation-switch, the
-> > > > dt-schema check will show below error:
-> > > > 
-> > > > phy@4c1f0040: 'oneOf' conditional failed, one must be fixed:
-> > > >         'port' is a required property
-> > > >         'ports' is a required property
-> > > >         from schema $id: http://devicetree.org/schemas/phy/fsl,imx8mq-usb-phy.yaml#
-> > > > 
-> > > > This will add a condition to optionally refer to usb-switch.yaml.
-> > > > 
-> > > > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> > > 
-> > > $subject is not what the patch does.
-> > 
-> > I look through other yaml and find below format could achieve the
-> > restriction on one property:
-> > 
-> > https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/tree/Documentation/devicetree/bindings/usb/gpio-sbu-mux.yaml?h=usb-testing#n54
-> > 
-> >   - if:
-> >       required:
-> >         - mode-switch
-> >     then:
-> >       required:
-> >         - enable-gpios
-> > 
-> > If mode-switch is present, then enable-gpios is required. If not, then
-> > enable-gpios is not required.
-> > 
-> > For my case, if compatible contains "fsl,imx95-usb-phy" and orientation-switch
-> > is present, then this schema needs to refer to usb-switch.yaml. If not. then
-> > this schema will not refer to usb-switch.yaml. So the subject could reflect
-> > the thing this patch does.
-> > 
-> > Is this feasible? If not, could you give some advices? 
+On Fri, Nov 15, 2024 at 02:18:38PM -0500, Frank Li wrote:
+
+[...]
+
+> > > +		if (pci->using_dtbus_info) {
+> > > +			index = of_property_match_string(np, "reg-names", "config");
+> > > +			if (index < 0)
+> > > +				return -EINVAL;
+> > > +			/*
+> > > +			 * Retrieve the parent bus address of PCI config space.
+> > > +			 * If the parent bus ranges in the device tree provide
+> > > +			 * the correct address conversion information, set
+> > > +			 * 'using_dtbus_info' to true, The 'cpu_addr_fixup()'
+> > > +			 * can be eliminated.
+> > > +			 */
+> >
+> > Nobody will switch to 'ranges' property if you mention it in comments. We
+> > usually add dev_warn_once() to print a warning for broken DT so that the users
+> > will try to fix it. You can use below diff (as a separate patch ofc):
+> >
+> > ```
+> > diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
+> > index 6d6cbc8b5b2c..d1e5395386fe 100644
+> > --- a/drivers/pci/controller/dwc/pcie-designware.c
+> > +++ b/drivers/pci/controller/dwc/pcie-designware.c
+> > @@ -844,6 +844,9 @@ void dw_pcie_iatu_detect(struct dw_pcie *pci)
+> >                  dw_pcie_cap_is(pci, IATU_UNROLL) ? "T" : "F",
+> >                  pci->num_ob_windows, pci->num_ib_windows,
+> >                  pci->region_align / SZ_1K, (pci->region_limit + 1) / SZ_1G);
+> > +
+> > +       if (pci->ops && pci->ops->cpu_addr_fixup)
+> > +               dev_warn_once(pci->dev, "Broken \"ranges\" property detected. Please fix DT!\n");
 > 
-> Hmm, I guess I can now see an interpretation of the wording that
-> reflects what the patch contents contains. However, you need a hardware
-> based justification for the condition you're adding since it disables
-> mode-switch and defining port nodes etc if orientation-switch isn't present.
-
-Okay. You are right. Based on current schema, it does disable mode-switch and
-port. However, the initial intention of referring usb-switch.yaml is only to
-support orientation switching.
-
-> That's fine if that hardware doesn't support mode switching or ports
-> without orientation switching, but not if it does.
-
-Yes, the hardware doesn't support mode swiching for now. Therefore, it should
-be fine to add such condition. Maybe the future hardware will need mode-switch
-and this schema needs update accordingly.
-
-I find the condition of judging compatible "fsl,imx95-usb-phy" and orientation-switch
-present is a little complicated. I plan to send v2 to simply the condition.
-
-Thanks,
-Xu Yang
-
+> How about "Detect use old method "cpu_addr_fixup()", it should correct DT's
+> 'ranges' and remove cpu_addr_fixup()?
 > 
-> Cheers,
-> Conor.
+
+Hmm, yeah makes sense:
+
+	/*
+	 * If the parent 'ranges' property in DT correctly describes the address
+	 * translation, cpu_addr_fixup() callback is not needed.
+	 */
+	dev_warn_once(pci->dev, "cpu_addr_fixup() usage detected. Please fix DT!\n";
+
+But then the drivers need to be smart enough to detect the valid parent 'ranges'
+property and then only use the callback. Because, callback has to be present to
+support older DTs.
+
+> >  }
+> >
+> >  static u32 dw_pcie_readl_dma(struct dw_pcie *pci, u32 reg)
+> > ```
+> >
+> > > +			of_property_read_reg(np, index, &pp->cfg0_base, NULL);
+> >
+> > Can you explain what is going on here?
 > 
-> > 
-> > Thanks,
-> > Xu Yang
-> > 
-> > > 
-> > > > ---
-> > > >  Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml | 2 ++
-> > > >  1 file changed, 2 insertions(+)
-> > > > 
-> > > > diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> > > > index 6d6d211883ae..1238792157f8 100644
-> > > > --- a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> > > > +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> > > > @@ -118,6 +118,8 @@ allOf:
-> > > >            contains:
-> > > >              enum:
-> > > >                - fsl,imx95-usb-phy
-> > > > +      required:
-> > > > +        - orientation-switch
-> > > >      then:
-> > > >        $ref: /schemas/usb/usb-switch.yaml#
-> > > >  
-> > > > -- 
-> > > > 2.34.1
-> > > > 
-> > 
-> > 
+> Because dwc use reg-name 'config' to get config space,
+> of_property_read_reg() will get untranslate address 'parent' bus address.
+> <0x8ff00000 0x80000> at example address.
+> 
+> cfg0_base is used to set outbound ATU.
+> 
 
+Ok, please add a comment like this:
 
+	/* Get the untranslated 'config' address */
+
+Same for other usage of of_property_read_reg().
+
+> >
+> > > +		}
+> > > +
+> > >  		pp->va_cfg0_base = devm_pci_remap_cfg_resource(dev, res);
+> > >  		if (IS_ERR(pp->va_cfg0_base))
+> > >  			return PTR_ERR(pp->va_cfg0_base);
+> > > @@ -462,6 +505,9 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
+> > >  		pp->io_base = pci_pio_to_address(win->res->start);
+> > >  	}
+> > >
+> > > +	if (dw_pcie_get_untranslate_addr(pci, pp->io_bus_addr, &pp->io_base))
+> > > +		return -ENODEV;
+> >
+> > Use actual return value here and below.
+> >
+> > > +
+> > >  	/* Set default bus ops */
+> > >  	bridge->ops = &dw_pcie_ops;
+> > >  	bridge->child_ops = &dw_child_pcie_ops;
+> > > @@ -722,6 +768,8 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
+> > >
+> > >  	i = 0;
+> > >  	resource_list_for_each_entry(entry, &pp->bridge->windows) {
+> > > +		resource_size_t parent_bus_addr;
+> > > +
+> > >  		if (resource_type(entry->res) != IORESOURCE_MEM)
+> > >  			continue;
+> > >
+> > > @@ -730,9 +778,14 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
+> > >
+> > >  		atu.index = i;
+> > >  		atu.type = PCIE_ATU_TYPE_MEM;
+> > > -		atu.cpu_addr = entry->res->start;
+> > > +		parent_bus_addr = entry->res->start;
+> > >  		atu.pci_addr = entry->res->start - entry->offset;
+> > >
+> > > +		if (dw_pcie_get_untranslate_addr(pci, entry->res->start, &parent_bus_addr))
+> > > +			return -EINVAL;
+> > > +
+> > > +		atu.cpu_addr = parent_bus_addr;
+> > > +
+> > >  		/* Adjust iATU size if MSG TLP region was allocated before */
+> > >  		if (pp->msg_res && pp->msg_res->parent == entry->res)
+> > >  			atu.size = resource_size(entry->res) -
+> > > diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> > > index 347ab74ac35aa..f8067393ad35a 100644
+> > > --- a/drivers/pci/controller/dwc/pcie-designware.h
+> > > +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> > > @@ -463,6 +463,14 @@ struct dw_pcie {
+> > >  	struct reset_control_bulk_data	core_rsts[DW_PCIE_NUM_CORE_RSTS];
+> > >  	struct gpio_desc		*pe_rst;
+> > >  	bool			suspended;
+> > > +	/*
+> > > +	 * Use device tree 'ranges' property of bus node instead using
+> > > +	 * cpu_addr_fixup(). Some old platform dts 'ranges' in bus node may not
+> > > +	 * reflect real hardware's behavior. In case break these platform back
+> > > +	 * compatibility, add below flags. Set it true if dts already correct
+> > > +	 * indicate bus fabric address convert.
+> >
+> > 	/*
+> > 	 * This flag indicates that the vendor driver uses devicetree 'ranges'
+> > 	 * property to allow iATU to use the Intermediate Address (IA) for
+> > 	 * outbound mapping. Using this flag also avoids the usage of
+> > 	 * 'cpu_addr_fixup' callback implementation in the driver.
+> > 	 */
+> >
+> > > +	 */
+> > > +	bool			using_dtbus_info;
+> >
+> > 'use_dt_ranges'?
+> 
+> It will be confused because pcie node alreadys use ranges, just parent bus
+> 's ranges is wrong.
+> 
+> 'use_dtbus_ranges' ?
+> 
+
+There is nothing called 'dtbus'. How about, "use_parent_dt_ranges"?
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
