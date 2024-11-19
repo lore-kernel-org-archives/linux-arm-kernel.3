@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16445D60074
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69866D62040
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:07:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ut9J7dfNWbIAZvs1QiNuTESwaFmTM/irq+5AWRZgbAY=; b=md8iAdqp2Pov8CpsgI7V06jpIs
-	7tKYoZ60Qdyk1sj4loI6LKSlNwYJHFhf9JMDqIqs2BhAQJu8P5hTjtrS10jf3iLvRO/jAlfqQzV9e
-	YVV42eUWk3Nd0KX002XD1crN4OH2nwnuL9yri6X4f8FvNcjHCiB/xeEIVdG0o8ZPBsEbsfcp139ST
-	FNd399bKLlnnhsHW8S16InX0Tt7fkR8+LPfhAYl318Fqf9NV5PDMIC+gyOGTFNhQmPhJjvVEutgBU
-	0ms8CjVjb0xrXk2uRODoSP8HrQSOCbuaveIVuILyFKhh3ZWgzsoHIn/9sIP5lfnW10GWbdtA2EicK
-	TIdxa0uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8nslOnfEsidr7hcS2PGm1GMlaVvkbcFEiOpbvPxiS7s=; b=VxZxYKs3ipi8huG1XM/UdCY5R5
+	CEG+w0U9oW9+nhs7RlWwFdWATQK01wq2U3WaqvDgrHerfxkGj8+a0Ik9fg2P/bipMsodXTbdPqd+6
+	Y/EErwINZMmpo7gfSQejo6MvL/MUU6nqL4j503ya3juoFRLjIrTGewAoC+cSPu/zucIutLOrMxxFj
+	h0lgt8pmkhFzCdcryobjiAkv45PvpgNrjF3KPn8MnHCpPw7PiwlleS9xIub1qCcvYu2LdQfiEsKCM
+	pjSKLfSfxF9Cy6WHidJ12/Wg/bqP/Di7vkqtdAHhpdTikYlMt8lV39H3ylVhwt4X+lFypDgssIWDj
+	G9+/EenA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDK6h-0000000BpGK-1lzw;
-	Tue, 19 Nov 2024 09:01:11 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tDKCy-0000000BqBs-2qpb;
+	Tue, 19 Nov 2024 09:07:40 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDK5g-0000000Bp4U-0FMO
+	id 1tDKC1-0000000Bq1w-2NQG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 09:00:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 21EDEA42772
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 08:58:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55EC0C4CECF
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 09:00:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732006806;
-	bh=s8xwzMSQqRRhgWbEzyj1PJULHTCex8PmVGVdqmaYwow=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=GlziSZGmgL17KEpUWxgzaWOsXBlCH5SlK3CTGZSKb3Kjzg46uJCRjm55rJ5VEKQgX
-	 RazWTGA7VUdOd0vadOXm/Ei4Npvau9DSDhZBxgdhcsTEFLqwUSto2eS6g84Kksg8Yf
-	 ud9m/WvWYQEu8/yjHjxlYLvAO3qkruoPRf9PbcYkd19M0wRaag7acSN+i8eMkSyOy7
-	 3Vm1PyCJE9iHlAr761csU/bDq2lB/s20SLZaAfOcioYyigqdG4wX8ti2HFKy9y2tx0
-	 ZPuMpYMyj85QId7YFztdUxnRwiIeYe8nfTuFcnW6ZPUz5ESS7rSRd/iWkIfUjW67Wq
-	 gH3SFim+Vt1/Q==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-53a007743e7so4465918e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 01:00:06 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXR45RfsUjkhb26/8q66Ld0ejdq/oWrCqQ+uAUh6NX0041/pJRsBM5iSCcQ3sEa8Waft2Qo/GOZaUl5Ks86I/Jh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPJjzKwLjurhUixSVHxuXG9zWOjEbc8S3751BzeCF18MWAskkD
-	bpeoJTBSw0m3NJf0erHoLrgj+NdTBGWAWigVnhQZ3gopBKcMMZV/VYs9jCumuCYvCZNlhFkizjZ
-	BYHV/RmoKGaCnYFhHqieNeDmF6gI=
-X-Google-Smtp-Source: AGHT+IGB5F8WlM471SFc1V5UKClWXgSP36FaXp9LSspKRLXsBt4jIufb/Zaq1Z6bYkALOF5/F3wzsN456cYehpKsaQs=
-X-Received: by 2002:a05:6512:31ca:b0:539:fb30:1f75 with SMTP id
- 2adb3069b0e04-53dab2a659dmr6164698e87.24.1732006804616; Tue, 19 Nov 2024
- 01:00:04 -0800 (PST)
+	Tue, 19 Nov 2024 09:06:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1732007202; x=1763543202;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=HtjEr6MyQAiTzXqILd1meE2GmGtMVF3rg86A6w3dlq4=;
+  b=gWHlImR8fhb91KMk8M1uwht27cVCF48lu9xyelIlUZR0eCsCryr4a96Y
+   HVjPFspZqV00tVl7EAoZ5agr2CmiFcjxbGPtB3Odik1hNunnh0N5Vl9Es
+   Z23FjriF8YGfTLu//1qGoqRfpvMZb7MKm2P4Vhao1po7ENlXKX7vGeeSO
+   iZVAtugiZY3IctH19F1lvcQEG28Kvppuaif2ZJDmbiTgqw/B9oUW4A5ZW
+   vnFNeMzlF4vM4PfgTkJqWFFdACCrt3EEu7kuI5/zWabTVd2q4TIt087l5
+   th6yv3Ehef1P9WuNRihAbyURdTu2F8SO4TwUEZPdXo6rWMoArIz1pCdGj
+   A==;
+X-CSE-ConnectionGUID: 842uCxJzS6+q8jBvLEInNQ==
+X-CSE-MsgGUID: vXngEw9mRCOmY3IJ1aC8Fg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11260"; a="19605058"
+X-IronPort-AV: E=Sophos;i="6.12,165,1728975600"; 
+   d="scan'208";a="19605058"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2024 01:06:39 -0800
+X-CSE-ConnectionGUID: zsvHZ+PwTi68k0a9K6UDpA==
+X-CSE-MsgGUID: 4tKkEW0eSyiBbNpB7+8d9g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,165,1728975600"; 
+   d="scan'208";a="89905283"
+Received: from choongyo-mobl.gar.corp.intel.com (HELO [10.247.75.104]) ([10.247.75.104])
+  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2024 01:06:36 -0800
+Message-ID: <c1bb831c-fd88-4b03-bda6-d8f4ec4a1681@linux.intel.com>
+Date: Tue, 19 Nov 2024 17:06:33 +0800
 MIME-Version: 1.0
-References: <20241117002244.105200-1-ebiggers@kernel.org>
-In-Reply-To: <20241117002244.105200-1-ebiggers@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 19 Nov 2024 09:59:53 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXFA15AuT5wd0vMJ3X94uysvnGLy42FAQt8fxJsW31UdAg@mail.gmail.com>
-Message-ID: <CAMj1kXFA15AuT5wd0vMJ3X94uysvnGLy42FAQt8fxJsW31UdAg@mail.gmail.com>
-Subject: Re: [PATCH 00/11] Wire up CRC-T10DIF library functions to
- arch-optimized code
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, x86@kernel.org, 
-	Zhihang Shao <zhihang.shao.iscas@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2 1/2] net: phy: replace phydev->eee_enabled with
+ eee_cfg.eee_enabled
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Oleksij Rempel <o.rempel@pengutronix.de>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20241115111151.183108-1-yong.liang.choong@linux.intel.com>
+ <20241115111151.183108-2-yong.liang.choong@linux.intel.com>
+ <ZzdOkE0lqpl6wx2d@shell.armlinux.org.uk>
+Content-Language: en-US
+From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+In-Reply-To: <ZzdOkE0lqpl6wx2d@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_010008_248964_4CDAD750 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20241119_010641_654342_58DB15BA 
+X-CRM114-Status: GOOD (  27.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,44 +96,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 17 Nov 2024 at 01:23, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> This patchset is also available in git via:
->
->     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git crc-t10dif-lib-v1
->
-> This patchset updates the kernel's CRC-T10DIF library functions to be
-> directly optimized for x86, arm, arm64, and powerpc without taking an
-> unnecessary and inefficient detour through the crypto API.  It follows
-> the same approach that I'm taking for CRC32 in the patchset
-> https://lore.kernel.org/linux-crypto/20241103223154.136127-1-ebiggers@kernel.org
->
-> This patchset also adds a CRC KUnit test suite that covers multiple CRC
-> variants, and deletes some older ad-hoc tests that are obsoleted by it.
->
-> This patchset has several dependencies including my CRC32 patchset and
-> patches queued in several trees for 6.13.  It can be retrieved from git
-> using the command given above.  This is targeting 6.14.
->
-> Eric Biggers (11):
->   lib/crc-t10dif: stop wrapping the crypto API
->   lib/crc-t10dif: add support for arch overrides
->   crypto: crct10dif - expose arch-optimized lib function
->   x86/crc-t10dif: expose CRC-T10DIF function through lib
->   arm/crc-t10dif: expose CRC-T10DIF function through lib
->   arm64/crc-t10dif: expose CRC-T10DIF function through lib
->   powerpc/crc-t10dif: expose CRC-T10DIF function through lib
->   lib/crc_kunit.c: add KUnit test suite for CRC library functions
->   lib/crc32test: delete obsolete crc32test.c
->   powerpc/crc: delete obsolete crc-vpmsum_test.c
->   MAINTAINERS: add entry for CRC library
->
 
-Nice work. The shash API glue was particularly nasty, so good riddance.
 
-For the series,
+On 15/11/2024 9:37 pm, Russell King (Oracle) wrote:
+> On Fri, Nov 15, 2024 at 07:11:50PM +0800, Choong Yong Liang wrote:
+>> Not all PHYs have EEE enabled by default. For example, Marvell PHYs are
+>> designed to have EEE hardware disabled during the initial state.
+>>
+>> In the initial stage, phy_probe() sets phydev->eee_enabled to be disabled.
+>> Then, the MAC calls phy_support_eee() to set eee_cfg.eee_enabled to be
+>> enabled. However, when phy_start_aneg() is called,
+>> genphy_c45_an_config_eee_aneg() still refers to phydev->eee_enabled.
+>> This causes the 'ethtool --show-eee' command to show that EEE is enabled,
+>> but in actuality, the driver side is disabled.
+>>
+>> This patch will remove phydev->eee_enabled and replace it with
+>> eee_cfg.eee_enabled. When performing genphy_c45_an_config_eee_aneg(),
+>> it will follow the master configuration to have software and hardware
+>> in sync.
+> 
+> Hmm. I'm not happy with how you're handling my patch. I would've liked
+> some feedback on it (thanks for spotting that the set_eee case needed
+> to pass the state to genphy_c45_an_config_eee_aneg()).
+> 
+> However, what's worse is, that the bulk of this patch is my work, yet
+> you've effectively claimed complete authorship of it in the way you
+> are submitting this patch. Moreover, you are violating the kernel
+> submission rules, as the Signed-off-by does not include one for me
+> (which I need to explicitly give.) I was waiting for the results of
+> your testing before finalising the patch.
+> 
+> The patch needs to be authored by me, the first sign-off needs to be
+> me, then optionally Co-developed-by for you, and then your sign-off.
+> 
+> See Documentation/process/submitting-patches.rst
+> 
+> Thanks.
+> 
+> pw-bot: cr
+> 
 
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Sorry for the late reply; I just got back from my sick leave. I wasn't 
+aware that you had already submitted a patch. I thought I should include it 
+in my patch series. However, I think I messed up the "Signed-off" part. 
+Sorry about that.
 
-Happy to take a R: or M: as well, if you need the help.
+The testing part actually took quite some time to complete, and I was 
+already sick last Friday. I was only able to complete the patch series and 
+resubmit the patch, and I thought we could discuss the test results from 
+the patch series. The issue was initially found with EEE on GPY PHY working 
+together with ptp4l, and it did not meet the expected results. There are 
+many things that need to be tested, as it is not only Marvell PHY that has 
+the issue.
+
+With your patch, most of the issues were resolved based on the testing. 
+However, the set_eee was using the old value of eee_enabled and was not 
+able to turn EEE on or off. I think Heiner's patch already solved that part.
+
+With all the solutions provided, I think the only patch left that I need to 
+submit is the one calling 'phy_support_eee()' from stmmac.
 
