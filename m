@@ -4,116 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ED15D4415F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23183D4415F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=57cYHmj07F56+osUN6ycElPOyeE+pI4hsPBDSYR2wDU=; b=sI3+qGxxduu+/zoAOVoggeSdql
-	AaN6u0dypciVJrHck0letTIvFd8nrM6UGjPTWcw+E3h5OZ+0M0OQQqqOncdtX6PtKojwUZOHzFKGc
-	Yz7VM7hQ9Tc/jxA0qqquVYJb6F7b8rqi9tUKAh9EEUTeLdf9fc7+JZI9aeQktG/iK1EYTmZYHGW0K
-	g0puZnGTAdZe+odVi5rT13SKyw/ahzqh9SQx6ks1S2OYsZvyF38evuavLRpqrNItFO8NLn7mn1243
-	xjJ2cG3Aw3MTakxDORanJL1ch6p2ahCLEhPPmeG6LQCtyKN4vtzcolxg6Hr1S7JlDmuWuQSA9LlzK
-	8E/5XdHQ==;
+	bh=4Bzk1m8Aa2VHrRKPa+fHTJmxNEk78xhjjH1mCgmPl8s=; b=qcsUSWzaSuXzRBrPda9utgHk62
+	gGhn59VJBhTYa9xWaEAWWlikBOh/jdCZKSbVKVjrztsEMkpppCM3yhLlWFVpDkcnZvHo++HfY0++L
+	W7A23W6IHo+NlJb8TEcReiPZR6iiweHpNsJPPG9paktFTSmt4hwS0uTkRmNV7dhbWX7/QEQqbQbms
+	GQLjW6QiRnkUyUCrOatasxh/k0+e1b5ycaefuJ7XUxfIO2RM653Fc/L1Fs3tINJtbEh/PSID9Kjek
+	MwN6XonpfMgLW9mGyHWJSmtV3rkHGPi6eR4bVS8NbGDGMs574BP6WcT3C7/O8C3OsVLNqqwit0OFp
+	PwlLaPVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDORF-0000000CXZE-1qiP;
-	Tue, 19 Nov 2024 13:38:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tDOSA-0000000CXrR-1evt;
+	Tue, 19 Nov 2024 13:39:38 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDOQJ-0000000CXJB-1B6t
+	id 1tDOQz-0000000CXRO-0frE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 13:37:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C3CA45C42ED;
-	Tue, 19 Nov 2024 13:36:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B11E1C4CECF;
-	Tue, 19 Nov 2024 13:37:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732023462;
-	bh=ldrLny7m9zWLOfNs9Mdv+UEH/RirVr4Bi67bGFQ7X4k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=o5MgsftBBDny6JdLDHKHUXiJJluAs2Kyv8QQePxyziKfgLWm0TQYuJb6ayeQiMFeO
-	 IWEywiMPpEsJNjfGzaQ6hG/Fs3zfrHEpG10g5nJAwGcoq9X0mz0J9f4IqnFAFtW9x1
-	 rOP9VaJy2k/fkmpN+nm6liZr6F8f6iuAAjLfGtrgQTbNvRBB4grTv1iCb9QNLucMun
-	 SOYcOvmv6Io8qWvLuO/6HYr4uUDY+6T8kqxDrZA8TI7S8RErHe4mmJUms7hr4b2v2+
-	 uS1OgZkdB/aNgQhwrMJ3bIvuQbdrL2t7JMhpoXK/h7hm7MlCrcxS3CjlP6w64x8MGc
-	 FsmguYFIXCLTw==
-Message-ID: <c866d4e8-77ee-48ca-b6a8-5f56896b072e@kernel.org>
-Date: Tue, 19 Nov 2024 14:37:35 +0100
+	Tue, 19 Nov 2024 13:38:27 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Xt59655nCz1V4j6;
+	Tue, 19 Nov 2024 21:35:38 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id C77161800CF;
+	Tue, 19 Nov 2024 21:38:15 +0800 (CST)
+Received: from huawei.com (10.175.103.91) by kwepemf100008.china.huawei.com
+ (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 19 Nov
+ 2024 21:38:15 +0800
+From: Zeng Heng <zengheng4@huawei.com>
+To: <james.morse@arm.com>, <Dave.Martin@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <jonathan.cameron@huawei.com>,
+	<xiexiuqi@huawei.com>, <linux-arm-kernel@lists.infradead.org>
+Subject: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v2 3/6] arm_mpam: Enhance the rmid allocation strategy
+Date: Tue, 19 Nov 2024 21:51:01 +0800
+Message-ID: <20241119135104.595630-4-zengheng4@huawei.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241119135104.595630-1-zengheng4@huawei.com>
+References: <20241119135104.595630-1-zengheng4@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/6] dt-bindings: Add Blaize vendor prefix
-To: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, James Cowgill
- <james.cowgill@blaize.com>, Matt Redfearn <matthew.redfearn@blaize.com>,
- Neil Jones <neil.jones@blaize.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "soc@lists.linux.dev" <soc@lists.linux.dev>
-References: <20241115-blaize-blzp1600_init_board_support-v5-0-c09094e63dc5@blaize.com>
- <20241115-blaize-blzp1600_init_board_support-v5-1-c09094e63dc5@blaize.com>
- <c1885e24-8051-4c91-9870-18eb4218a2ff@kernel.org>
- <bc471aeb-e9fd-4aa9-9bcc-a59d3c2e47b8@blaize.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <bc471aeb-e9fd-4aa9-9bcc-a59d3c2e47b8@blaize.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.175.103.91]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_053743_411646_A3C76266 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20241119_053825_581728_3BECBB96 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,41 +70,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/11/2024 14:33, Nikolaos Pasaloukos wrote:
-> On 19/11/2024 13:05, Krzysztof Kozlowski wrote:
->> On 15/11/2024 15:58, Niko Pasaloukos wrote:
->>> Blaize, Inc. (www.blaize.com) is a SoC manufacturer with integrated
->>> programmable Graph-Streaming-Processors for AI and ML.
->>>
->>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
->>> Signed-off-by: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
->> Here and in all other patches - you still have the same checkpatch
->> warning I asked to fix.
->>
->>
->> git format-patch -6 -v5
->> scripts/checkpatch.pl v5*
->>
->> Your SoB does not match From. This MUST be fixed.
->>
->> Best regards,
->> Krzysztof
-> 
-> Hi Krzysztof,
-> 
-> Just to be certain and fix it properly, do you mean that the issue that you
-> are talking about is that the 'From' appears as 'Niko Pasaloukos' and I am
-> signing with SoB as 'Nikolaos Pasaloukos'?
+resctrl_arch_alloc_rmid() provides the similar functionality as
+alloc_rmid(), but it is an enhanced version based on different architecture
+implementations.
 
-Yes
+For the new rmid allocation strategy, it will check whether there is an
+available rmid of any reqPARTID which belongs to the input intPARTID.
 
-> I'm really sorry, if that's the case, I will fix it and yes, there must be
-> a misconfiguration on my system. Would I need to prepare a v6 for this?
-> If it is not that, then I am really sorry but I will need more information.
-Just run checkpatch. I am repeating this over and over. If you run it
-like above and there is no error, then provide some details.
+The MPAM driver statically assigns all reqPARTIDs to respective intPARTIDs,
+with a specific illustration as follows:
 
+m - Indicates the number of reqPARTIDs per intPARTID
+n - Indicates the total number of intPARTIDs
+(m * n) - Represents the total number of reqPARTIDs
 
-Best regards,
-Krzysztof
+intPARTID_1 = 0
+    ├── reqPARTID_1_1 = 0
+    ├── reqPARTID_1_2 = 0 + n
+    ├── ...
+    └── reqPARTID_1_m = 0 + n * (m - 1)
+
+intPARTID_2 = 1
+    ├── reqPARTID_2_1 = 1
+    ├── reqPARTID_2_2 = 1 + n
+    ├── ...
+    └── reqPARTID_2_m = 1 + n * (m - 1)
+
+...
+
+intPARTID_n = (n - 1)
+
+Each intPARTID has m reqPARTIDs, which are used to expand the number of
+monitoring groups under the control group. Therefore, the number of
+monitoring groups is no longer limited by the range of MPAM PMG, which
+enhances the extensibility of the system's monitoring capabilities.
+
+Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+---
+ arch/x86/kernel/cpu/resctrl/core.c         | 15 ++++++++
+ drivers/platform/arm64/mpam/mpam_resctrl.c | 41 ++++++++++++++++++++--
+ fs/resctrl/internal.h                      |  2 --
+ fs/resctrl/pseudo_lock.c                   |  3 +-
+ fs/resctrl/rdtgroup.c                      |  3 +-
+ include/linux/resctrl.h                    | 16 +++++++++
+ 6 files changed, 71 insertions(+), 9 deletions(-)
+
+diff --git a/arch/x86/kernel/cpu/resctrl/core.c b/arch/x86/kernel/cpu/resctrl/core.c
+index 816d9af6b36b..f9195f1bece0 100644
+--- a/arch/x86/kernel/cpu/resctrl/core.c
++++ b/arch/x86/kernel/cpu/resctrl/core.c
+@@ -697,6 +697,21 @@ static void domain_remove_cpu(int cpu, struct rdt_resource *r)
+ 		domain_remove_cpu_mon(cpu, r);
+ }
+ 
++int resctrl_arch_alloc_rmid(u32 *closid, u32 *rmid)
++{
++	int ret;
++
++	if (!closid || !rmid)
++		return -EINVAL;
++
++	ret = alloc_rmid(*closid);
++	if (ret < 0)
++		return ret;
++
++	*rmid = ret;
++	return 0;
++}
++
+ static void clear_closid_rmid(int cpu)
+ {
+ 	struct resctrl_pqr_state *state = this_cpu_ptr(&pqr_state);
+diff --git a/drivers/platform/arm64/mpam/mpam_resctrl.c b/drivers/platform/arm64/mpam/mpam_resctrl.c
+index dfd4125875d7..f0fb76b2424a 100644
+--- a/drivers/platform/arm64/mpam/mpam_resctrl.c
++++ b/drivers/platform/arm64/mpam/mpam_resctrl.c
+@@ -171,6 +171,11 @@ static u32 get_num_reqpartid(void)
+ 	return mpam_partid_max + 1;
+ }
+ 
++static u32 get_num_reqpartid_per_closid(void)
++{
++	return get_num_reqpartid() / resctrl_arch_get_num_closid(NULL);
++}
++
+ u32 resctrl_arch_system_num_rmid_idx(void)
+ {
+ 	u8 closid_shift = fls(mpam_pmg_max);
+@@ -182,10 +187,11 @@ u32 resctrl_arch_system_num_rmid_idx(void)
+ u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid)
+ {
+ 	u8 closid_shift = fls(mpam_pmg_max);
++	u32 pmg_mask = ~(~0 << closid_shift);
+ 
+ 	BUG_ON(closid_shift > 8);
+ 
+-	return (closid << closid_shift) | rmid;
++	return (closid << closid_shift) | (rmid & pmg_mask);
+ }
+ 
+ void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid)
+@@ -195,8 +201,10 @@ void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid)
+ 
+ 	BUG_ON(closid_shift > 8);
+ 
+-	*closid = idx >> closid_shift;
+-	*rmid = idx & pmg_mask;
++	if (closid)
++		*closid = idx >> closid_shift;
++	if (rmid)
++		*rmid = idx & pmg_mask;
+ }
+ 
+ void resctrl_arch_sched_in(struct task_struct *tsk)
+@@ -1032,6 +1040,33 @@ static void reqpartid_destroy(void)
+ 	bitmap_free(reqpartid_free_map);
+ }
+ 
++int resctrl_arch_alloc_rmid(u32 *closid, u32 *rmid)
++{
++	int closid_num = resctrl_arch_get_num_closid(NULL);
++	int i, reqpartid, pmg;
++
++	if (!closid || !rmid)
++		return -EINVAL;
++
++	/* The closid is out of the range of intPARTIDs */
++	if (*closid >= closid_num)
++		return -EINVAL;
++
++	for (i = 0; i < get_num_reqpartid_per_closid(); i++) {
++		reqpartid = i * closid_num + *closid;
++		pmg = alloc_rmid(reqpartid);
++		if (pmg >= 0)
++			break;
++	}
++
++	if (pmg < 0)
++		return pmg;
++
++	*closid = reqpartid;
++	*rmid = pmg;
++	return 0;
++}
++
+ int mpam_resctrl_setup(void)
+ {
+ 	int err = 0;
+diff --git a/fs/resctrl/internal.h b/fs/resctrl/internal.h
+index a4288997fb93..f817e67a8cfc 100644
+--- a/fs/resctrl/internal.h
++++ b/fs/resctrl/internal.h
+@@ -325,8 +325,6 @@ int closids_supported(void);
+ 
+ void closid_free(int closid);
+ 
+-int alloc_rmid(u32 closid);
+-
+ void free_rmid(u32 closid, u32 rmid);
+ 
+ void resctrl_mon_resource_exit(void);
+diff --git a/fs/resctrl/pseudo_lock.c b/fs/resctrl/pseudo_lock.c
+index 65f3ae15cdfa..ab8d7a36d303 100644
+--- a/fs/resctrl/pseudo_lock.c
++++ b/fs/resctrl/pseudo_lock.c
+@@ -582,12 +582,11 @@ int rdtgroup_locksetup_exit(struct rdtgroup *rdtgrp)
+ 	int ret;
+ 
+ 	if (resctrl_arch_mon_capable()) {
+-		ret = alloc_rmid(rdtgrp->closid);
++		ret = resctrl_arch_alloc_rmid(&rdtgrp->closid, &rdtgrp->mon.rmid);
+ 		if (ret < 0) {
+ 			rdt_last_cmd_puts("Out of RMIDs\n");
+ 			return ret;
+ 		}
+-		rdtgrp->mon.rmid = ret;
+ 	}
+ 
+ 	ret = rdtgroup_locksetup_user_restore(rdtgrp);
+diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
+index 30f1dd05e10b..7a71fc0b76b5 100644
+--- a/fs/resctrl/rdtgroup.c
++++ b/fs/resctrl/rdtgroup.c
+@@ -3272,12 +3272,11 @@ static int mkdir_rdt_prepare_rmid_alloc(struct rdtgroup *rdtgrp)
+ 	if (!resctrl_arch_mon_capable())
+ 		return 0;
+ 
+-	ret = alloc_rmid(rdtgrp->closid);
++	ret = resctrl_arch_alloc_rmid(&rdtgrp->closid, &rdtgrp->mon.rmid);
+ 	if (ret < 0) {
+ 		rdt_last_cmd_puts("Out of RMIDs\n");
+ 		return ret;
+ 	}
+-	rdtgrp->mon.rmid = ret;
+ 
+ 	ret = mkdir_mondata_all(rdtgrp->kn, rdtgrp, &rdtgrp->mon.mon_data_kn);
+ 	if (ret) {
+diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
+index be9d9f4c7b81..4fffbe8cd22e 100644
+--- a/include/linux/resctrl.h
++++ b/include/linux/resctrl.h
+@@ -506,6 +506,22 @@ static inline void resctrl_arch_rmid_read_context_check(void)
+ 		might_sleep();
+ }
+ 
++int alloc_rmid(u32 closid);
++/**
++ * resctrl_arch_alloc_rmid() - Providing the similar functionality as
++ *			       alloc_rmid, but this function is an
++ *			       enhanced version based on different
++ *			       architecture implementations.
++ * @closid:	closid that matches the rmid. Depending on the
++ *		architecture, may update new closid and return by the
++ *		pointer.
++ * @rmid:	update available rmid by the pointer.
++ *
++ * Return:
++ * 0 on success, or -EINVAL, -ENOSPC etc on error.
++ */
++int resctrl_arch_alloc_rmid(u32 *closid, u32 *rmid);
++
+ /**
+  * resctrl_arch_reset_rmid() - Reset any private state associated with rmid
+  *			       and eventid.
+-- 
+2.25.1
+
 
