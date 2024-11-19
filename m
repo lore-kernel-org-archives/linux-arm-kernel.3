@@ -4,129 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 359ADD44160
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5605ED44161
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0fOlgptjf+VAFac4caWewdZHfkZSPHGqBYTLWBCnWO0=; b=J/4GW+TC6n+Lx0ZJ9fG27C7e3E
-	4Oy1ia3WXvKiHXqbRzD7r2/oXyn/hKWtT9tX9+VkxRkpT/vmEo1jvcVF19bwJewUchZGGNY0Cy+lB
-	+YPbWLl57wbHtFV/JeIohtQ+WZA4eefXzPpcIUYKc+Zw5REhkvlVB0E805RMtdGe9HUXd60BAGbLn
-	fYZHVPdxRz4aZBblUDDJVghIi3kLBCJXoeXzIdySuVbN6p0qe1soMrTEz3ePaR5GMWA2G7Vow7lgi
-	PADXMVGSGcccKwHi+9tABNztlD5bDzXEyw28DXNWwiUk169yqjQrJuMOrcrFkhLDirfUjDwBuWwE5
-	7hHvqUoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EBFA36f9mwneGLAymy33gOv/5Yduj/hhKC3md9CBVt8=; b=eHdYMW8f/FeyH4daj0XHqv/TAi
+	t1VfoqRwmgJD+0hNPU62UHtXHvEzX4vPo6zb/5ZiadN+q6JDrpt+MN/INKYytNgEGVbHXQSLk041N
+	MYL9Kj3DejwqTBLnr7Q0RqQCl6e3V7ASH3+B7Zy2BRAsSejLIZZq5TnmdwDOc25grvp5j/LRnA5iE
+	RuKYzyT2fllw7QSp6Jd817LP9OkudX/gS/WAKuh3rkhbwmIp3jd2myaLpLalNY06A9HMKgFp2k8IL
+	blccgCIuYlPqqFtjMdgmOn8K+LmGMvx9YEOkTxqRxrtntCvxw0CoPGlo+C7VlbRj7lyLc81Knhp8A
+	CAK5TeOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDOhj-0000000Cb0u-0aO5;
-	Tue, 19 Nov 2024 13:55:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tDOir-0000000CbIf-3ZjN;
+	Tue, 19 Nov 2024 13:56:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDOfn-0000000CaZP-1oBl
+	id 1tDOhl-0000000Cb1U-0hoF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 13:53:44 +0000
+	Tue, 19 Nov 2024 13:55:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E2CB05C01FE;
-	Tue, 19 Nov 2024 13:52:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38C6AC4CECF;
-	Tue, 19 Nov 2024 13:53:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8513D5C5537;
+	Tue, 19 Nov 2024 13:55:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0853BC4CECF;
+	Tue, 19 Nov 2024 13:55:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732024422;
-	bh=ZaeUTzkw4cqujbNOAx/dScYSg3b3LlW/20U9wg/ZYns=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=J7rD09N7zmx7nf9mtIwwlqIkk33oaUPdZ0N6gmr0KhmrWqqy7Y9JK11aLi6+qogN+
-	 hweWqktjf3I0ZZ+YdJ3lcnZbvaxZ1HFhAmK3gD+qakqm9wp+u71SPxbxKBIOsrzAOG
-	 PZRL7C8DTuIRVj77STPbyfgxEPWlAEp0x5Jam/dTJCkvpwXO2IGFsGH7Wpg/SIXSST
-	 BN6q/COk78cY83/UF8d+ru3x+bhDiF8oGci83Dxdx3ZRNgrguT6rG37nNPsBJ1jjmi
-	 uOXCMDgexOQ3Z2SHyOdiO5A2UWDJWxEnf0yvjwS7BG+Dw6/3+AsR+6+FLiaS7uflEW
-	 NHCNqAEuLgYyA==
-Message-ID: <3c2d9f76-12bf-4d9f-afcd-9c4ae3a4d2a0@kernel.org>
-Date: Tue, 19 Nov 2024 14:53:35 +0100
+	s=k20201202; t=1732024544;
+	bh=9LG7YsYWIp1ZG6/QT8ybq/ypWUP4L1y8uQRWVVB9QP0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YsJTgP7OUZXIMWJKyeMZcw4oMRTjB1QzhjHU/XJieZKkFtaSxjcm9jGsL7QOnJKKP
+	 9wsiTgZtAdfc5ex+Z8lcLcYfEiEn+9Afb5BCY2x10kZlXSoxFZp83/ZWqLdJ2aCf1K
+	 CuJLa+09f/K/pMwUbFhndD9j3Ot270HHENLdGagME3rJY+CzSLulnnciXpoC1OoZgn
+	 xu0c5/sedTXc9/qCF4BgPlYIVeZ3JAIs+Lx12ixMbYd8anoM0NBDZ5EghYg51zSHl1
+	 YWKHDpfs9BTixmrv5H4BiUZOx0uFpLhD31mnpCZS8gn0RBoLVY9jc8Cul0SbE+PMSw
+	 hB8/YN7rz4kiA==
+Date: Tue, 19 Nov 2024 07:55:42 -0600
+From: Rob Herring <robh@kernel.org>
+To: Pengfei Li <pengfei.li_1@nxp.com>
+Cc: krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, catalin.marinas@arm.com, will@kernel.org,
+	kernel@pengutronix.de, festevam@gmail.com,
+	francesco.dolcini@toradex.com, joao.goncalves@toradex.com,
+	marex@denx.de, hvilleneuve@dimonoff.com, peng.fan@nxp.com,
+	hiago.franco@toradex.com, frieder.schrempf@kontron.de,
+	alexander.stein@ew.tq-group.com, mwalle@kernel.org,
+	m.othacehe@gmail.com, Max.Merchel@ew.tq-group.com,
+	tharvey@gateworks.com, quic_bjorande@quicinc.com,
+	geert+renesas@glider.be, dmitry.baryshkov@linaro.org,
+	konradybcio@kernel.org, neil.armstrong@linaro.org, arnd@arndb.de,
+	nfraprado@collabora.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, ping.bai@nxp.com,
+	ye.li@nxp.com, aisheng.dong@nxp.com, frank.li@nxp.com
+Subject: Re: [PATCH v2 1/4] dt-bindings: arm: fsl: Add i.MX91 11x11 evk board
+Message-ID: <20241119135542.GA1076739-robh@kernel.org>
+References: <20241118051541.2621360-1-pengfei.li_1@nxp.com>
+ <20241118051541.2621360-2-pengfei.li_1@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock: support spread
- spectrum clocking
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- Peng Fan <peng.fan@nxp.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-amarula@amarulasolutions.com" <linux-amarula@amarulasolutions.com>,
- Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
-References: <20241106090549.3684963-1-dario.binacchi@amarulasolutions.com>
- <20241106090549.3684963-2-dario.binacchi@amarulasolutions.com>
- <4bix7me5vaoyhcuffyp4btajmhy7no6ltczoesopaz2fqupyaw@fensx4nn472u>
- <b7c1499b-8337-421c-9734-6e518d678ff8@kernel.org>
- <CABGWkvrYJL9=zrPSFuEAgKO+9gDHD6RmCJM6Br6Le_eh578ETQ@mail.gmail.com>
- <54dd6ae6-b992-451e-b1c6-8a1968955f4a@kernel.org>
- <PAXPR04MB8459BE3474EFD4FCC28E0E82885D2@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <8c310eca-d695-418c-82cb-a89351d83887@kernel.org>
- <PAXPR04MB8459B6F8D5C623D19CCF6B39885E2@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <bc02327b-dea8-48c9-b036-4a0eda0c4cb9@kernel.org>
- <9f6b243b-0642-41db-85ed-d020bfa3e6e2@kernel.org>
- <PAXPR04MB845978F4D3C6E887E0DE8D5488582@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <CABGWkvqXOg=Y7K+oc6Q-3UWGC-WLEK_tmQzyRBW6x0fvQTsqvw@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <CABGWkvqXOg=Y7K+oc6Q-3UWGC-WLEK_tmQzyRBW6x0fvQTsqvw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241118051541.2621360-2-pengfei.li_1@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_055343_559076_930010E9 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20241119_055545_249875_574356D1 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,65 +85,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2024 12:57, Dario Binacchi wrote:
+On Mon, Nov 18, 2024 at 01:15:38PM +0800, Pengfei Li wrote:
+> Add the board imx91-11x11-evk in the binding docuemnt.
 > 
-> Thank you Peng, for the information.
-> 
-> Do you think it would make sense to add the PLL nodes with SSCG to the
-> anatop node?
-> 
-> anatop: clock-controller@30360000 {
->     compatible = "fsl,imx8mn-anatop", "fsl,imx8mm-anatop";
->     reg = <0x30360000 0x10000>;
->     #clock-cells = <1>;
-> 
->     clk_video_pll1_ref_sel: clock-video-pll1-ref-sel@28 {
->         compatible = "fsl,imx8mn-mux-clock";
+> Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
 
-No. Nodes per clock were long time ago NAKed.
+You missed Conor's ack. Please add tags when sending out new versions.
 
->         #clock-cells = <0>;
->         clocks = <&osc_24m>, <&clk_dummy>, <&clk_dummy>, <&clk_dummy>;
->         fsl,anatop = <&anatop 0x28>;
->         fsl,bit-shift = <0>;
->         clock-output-names = "video_pll1_ref_sel";
->     };
+> ---
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
->     clk_video_pll1: clock-video-pll1@28 {
->         compatible = "fsl,pll14xx-clock";
->         #clock-cells = <0>;
->         clocks = <&clk_video_pll1_ref_sel>;
->         ...
->         fsl,ssc-modfreq-hz = <6000>;
->         fsl,ssc-modrate-percent = <3>;
->         fsl,ssc-modmethod = "down-spread";
->     };
-> };
+> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+> index 6e0dcf4307f1..5951317ce900 100644
+> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
+> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+> @@ -1332,6 +1332,12 @@ properties:
+>                - fsl,imx8ulp-evk           # i.MX8ULP EVK Board
+>            - const: fsl,imx8ulp
+>  
+> +      - description: i.MX91 based Boards
+> +        items:
+> +          - enum:
+> +              - fsl,imx91-11x11-evk       # i.MX91 11x11 EVK Board
+> +          - const: fsl,imx91
+> +
+>        - description: i.MX93 based Boards
+>          items:
+>            - enum:
+> -- 
+> 2.34.1
 > 
-> This example only considers the video PLL, so to be complete, it
-> should also add the clk_audio_pll1,
-> clk_audio_pll2 and clk_dram_pll nodes. It is based on an RFC series
-> that I sent about a year ago,
-> which was not accepted. In this way, the SSCG properties (i.e.,
-> "fsl,ssc-modfreq-hz", "fsl,ssc-modrate-percent"
-> and "fsl,ssc-modmethod") would be added to the relevant nodes, and I
-> would take only the essential parts
-> from that series. This would still mean implementing the PLL driver
-> ("fsl,pll14xx-clock") and its mux ("fsl,imx8mn-mux-clock").
-> 
-> These clocks can then be added to the "clocks" list of the "ccm" node:
-> 
-> clk: clock-controller@30380000 {
->     compatible = "fsl,imx8mn-ccm";
->     ...
->     clocks = <&osc_32k>, <&osc_24m>, <&clk_ext1>, <&clk_ext2>,
->                   <&clk_ext3>, <&clk_ext4>, <&clk_video_pll1>,
->                   <&clk_audio_pll1>, <&clk_audio_pll2>, <&clk_dram_pll>;
->     ...
-> }
-> 
-These clocks can be added anyway.
-
-Best regards,
-Krzysztof
 
