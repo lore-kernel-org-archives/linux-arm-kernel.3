@@ -4,102 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F137D62060
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5016FD60D1B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:58:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xUe7R8XKsYNv0mClyqfH8J2phEvtwivmUTM75Fl3Sl8=; b=glkgxu/OI8tsRg8p6gtQ4bebLN
-	111eUOs67H4FmdFhAwbXhlpKs9RZm0Hmk1d7SFDLryR+Nl0q2v6iceXiCnHCj4Sl/8szsx5L0ZzDP
-	o+lHGcSosCmfANVDu2nluTnp8fDOaGezj+1beFojEsX5oXIahZMMZgMl6TuT/02ShlaZ2KQDdvneO
-	Ksim2pmQfd+qOhZmwXfPpUX+tGJK/p19wI+xfRrZEyKrNf2e0VyK/o2XepXqN30VwjxiUSpl4M3Xs
-	JVngWFWVIH/GyIBCdeBELNleodplJ9Qt+wHtGhYvGsCkV6dfawihj8eGtKwT3+RjISZUeTuMBKkjc
-	nZ0rItEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xvEH3irLMRxmIuj0YCN/fumEl4x2MW0SKR1mopQ3RXs=; b=lAgRUALa880W5RVKWp8M8bMbD7
+	Xs8yEdlq4BL1SCyTC9blxwrplfJB4MGngPvTOM+SdKV+BjDZZsUcxkCp/J+vpLfjVs0DAf+rq3BGE
+	uqiKv7PNAs8wofEFUxiCq19UESSRWP50zclBSMmeBauTVPY2CqteWBk2JLfz+2nWOQS4U7NHHSfJw
+	JgPzZWYtdHO+QC5b9uqEHo3UTNp8d6MmuELnSjAkw4TK49CvbuhqBaK+vokLw18VPE8ELNi6n5x07
+	hSo5ED0wuKeSb5eeGRm3fjNKLTYNCBjKkVPy6JKNepR4Qo+e8chv3c/FcSXagVdGjOkHFwyxZVir/
+	er7XXD4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKzM-0000000By0y-49b2;
-	Tue, 19 Nov 2024 09:57:40 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tDL0G-0000000ByBw-2Sdt;
+	Tue, 19 Nov 2024 09:58:36 +0000
+Received: from mail-am6eur05on2062b.outbound.protection.outlook.com ([2a01:111:f403:2612::62b] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKyQ-0000000Bxqi-1F6d;
-	Tue, 19 Nov 2024 09:56:43 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AJ7j9vW023070;
-	Tue, 19 Nov 2024 09:56:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=xUe7R8XKsYNv0mClyqfH8J2phEvtwivmUTM
-	75Fl3Sl8=; b=XmwM+75yx8vwq362E0EAxe7Nj8gbnArVN1vp5vnt7LcQ0CLfxQD
-	4gRrw6SNCoGu6DvWkB0s8qwF0w0RKUO7npp3O/V42s4kVZ8Op55YhONH7rtv6PzN
-	lRbiYgNnfpKmh/8cWRm8KfSuJzJkS/IaMiK91NG6y2wT1LiYsgpuAEawVSboFePC
-	hFQB4J/+cxWSrp0UytIgPAkRmnlVhXTn4eDAOIo9MhnycR7/gaQEn/vtuEq5kDAV
-	l1BMde0/Wbfjoq3VRsm2b/8tBfn6fDHea+ycaRk7iiVes78VqCKgOa1x54r+A/UF
-	hh8kyJi9fTp1QFGDZ0iqGEEriv3C9CXx43g==
-Received: from aptaippmta01.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com [103.229.16.4])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4308y623up-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 19 Nov 2024 09:56:20 +0000 (GMT)
-Received: from pps.filterd (APTAIPPMTA01.qualcomm.com [127.0.0.1])
-	by APTAIPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 4AJ9uJsm002711;
-	Tue, 19 Nov 2024 09:56:19 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 42xmfkpvgr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 19 Nov 2024 09:56:18 +0000
-Received: from APTAIPPMTA01.qualcomm.com (APTAIPPMTA01.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 4AJ9uIhG002706;
-	Tue, 19 Nov 2024 09:56:18 GMT
-Received: from cbsp-sh-gv.ap.qualcomm.com (CBSP-SH-gv.ap.qualcomm.com [10.231.249.68])
-	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 4AJ9uIe3002705
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 19 Nov 2024 09:56:18 +0000
-Received: by cbsp-sh-gv.ap.qualcomm.com (Postfix, from userid 393357)
-	id CA91640BED; Tue, 19 Nov 2024 17:56:16 +0800 (CST)
-From: Ziqi Chen <quic_ziqichen@quicinc.com>
-To: quic_cang@quicinc.com, bvanassche@acm.org, mani@kernel.org,
-        beanhuo@micron.com, avri.altman@wdc.com, junwoo80.lee@samsung.com,
-        martin.petersen@oracle.com, quic_ziqichen@quicinc.com,
-        quic_nguyenb@quicinc.com, quic_nitirawa@quicinc.com,
-        quic_rampraka@quicinc.com
-Cc: linux-scsi@vger.kernel.org, Peter Wang <peter.wang@mediatek.com>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        John Garry <john.g.garry@oracle.com>,
-        Johannes Thumshirn <johannes.thumshirn@wdc.com>,
-        Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-        Andrew Halaney <ahalaney@redhat.com>,
-        Maramaina Naresh <quic_mnaresh@quicinc.com>,
-        linux-kernel@vger.kernel.org (open list),
-        linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek),
-        linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek)
-Subject: [PATCH v3] scsi: ufs: core: Add ufshcd_send_bsg_uic_cmd() for UFS BSG
-Date: Tue, 19 Nov 2024 17:56:04 +0800
-Message-Id: <20241119095613.121385-1-quic_ziqichen@quicinc.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tDKyy-0000000Bxwf-43ki
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Nov 2024 09:57:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I7Z8qS+t++QKHEE9H9iDXdxJygYBm8acUJtkfRtXPcMuCcKhcTrTJKvJSTLyOW3XyAZhbFkPQ/iYJvjOMF1UvJ1KcSFsDNNqbTG7cI00dX7YISr+zGsrxrq4/SJin5GmENaqraA1cUHUcHnh+WER6Myy1Qm/NMYAcpIMih11ek6F1EX6Z7C/WAQQyhy16UOQfL2vL4YpuJDhub+qj9dNKkRIolk3GBI2OSU6pX4Djpnj7x++dc5CpWXJDtChG8ZTmGDGwFNx6s00jYzZTAN7+XqycIuIbnHUkn0B//JyjdUouFHznXKXH9ReTPpBMErvQEwWo+CWE97rpoLj/eRY6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xvEH3irLMRxmIuj0YCN/fumEl4x2MW0SKR1mopQ3RXs=;
+ b=G01pT3kKrbigz7efc/ztaFOodMiY2jphAMfHWaFUynZy3yfXEavz8rLvzAdKSlxZDg4w3YZdErKMqt4Wb14x2joj4xAZnZV3wafLGPN95Dph8tK31RNXOzzK8q3wGXvLsjvBbTXAyg7EhuYYsMcuQJeiGWknGqOFUihheyuFFQTYV4lEzJP7ViztwvPQUbhtNeDGQzZha/5aVorYDNtSC24WlVYb7GB5AQADEO2pHXk6RprunFIaWjAFlaMaNdKkMFhkjEXDJimJq6aGj6zP+COI5bAmirZEW0BfLQHhJQdf3l5FVQlsgj6vLk4WnSeTM9TgjCl0H5q0IsXmtg8Xjg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xvEH3irLMRxmIuj0YCN/fumEl4x2MW0SKR1mopQ3RXs=;
+ b=Kun/PVnaUmm33wI6IzeyKpz+RrzuWpOm1eo8ACtQqHhVb960BVV7DDEw6r/cgHuIBL6LF0jcPUGCBlTHJUJEHV/VYd8JvMx/wnhMa/wcOzkWu2JOwGNED81BbLR48R7IiNm+nStjRUeUsmhvNdMW23di3U9OjNkTEAmE/J38aT38AT09SimO7/xKD8nGrZzvMRLDXf5g/FFTIqQCVMVRIzev59Xg+Boj4hRGIFDsRqGRLoU8DFsyCI5KLuWZwxSlHFaIsKAPQD57xslA+7OITqMobBupLfaods5Jxazd3JAIIxIck4ik0JniK8TGfF1BK/gm0kd+Rzl7HgwPnD7A+A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8487.eurprd04.prod.outlook.com (2603:10a6:20b:41a::6)
+ by GV1PR04MB10845.eurprd04.prod.outlook.com (2603:10a6:150:20d::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.23; Tue, 19 Nov
+ 2024 09:57:10 +0000
+Received: from AM9PR04MB8487.eurprd04.prod.outlook.com
+ ([fe80::6d7a:8d2:f020:455]) by AM9PR04MB8487.eurprd04.prod.outlook.com
+ ([fe80::6d7a:8d2:f020:455%5]) with mapi id 15.20.8182.013; Tue, 19 Nov 2024
+ 09:57:10 +0000
+Message-ID: <34ec26f5-25c1-4510-a4df-caffb75a3d9e@oss.nxp.com>
+Date: Tue, 19 Nov 2024 11:57:05 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/7] pinctrl: s32: convert the driver into an mfd cell
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
+ <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chester Lin <chester62515@gmail.com>,
+ Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Lee Jones <lee@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Jacky Bai <ping.bai@nxp.com>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
+ Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev
+References: <20241113101124.1279648-1-andrei.stefanescu@oss.nxp.com>
+ <20241113101124.1279648-5-andrei.stefanescu@oss.nxp.com>
+ <2ccbf862-2b3e-4c08-b6bd-d9571e88a675@kernel.org>
+Content-Language: en-US
+From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+In-Reply-To: <2ccbf862-2b3e-4c08-b6bd-d9571e88a675@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AM4PR0302CA0035.eurprd03.prod.outlook.com
+ (2603:10a6:205:2::48) To AM9PR04MB8487.eurprd04.prod.outlook.com
+ (2603:10a6:20b:41a::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: thBaN9mIu8qL1VUAK4TurLRrwtF8AqJz
-X-Proofpoint-ORIG-GUID: thBaN9mIu8qL1VUAK4TurLRrwtF8AqJz
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- spamscore=0 clxscore=1011 malwarescore=0 priorityscore=1501 mlxscore=0
- mlxlogscore=999 impostorscore=0 bulkscore=0 suspectscore=0 phishscore=0
- adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411190070
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8487:EE_|GV1PR04MB10845:EE_
+X-MS-Office365-Filtering-Correlation-Id: c0c02705-4872-4605-8fff-08dd088088cd
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y1haazZ4N25WT2tOR0lkaFYxR3I5UUhBbWtIS2x6OGUrRlpYS01kY1JJV1lZ?=
+ =?utf-8?B?bTJhUXFsb3Y0NHhqdlpZbVBSUFFnYlA5djdpVDBlS213cmd6VGtoa2h2TVlR?=
+ =?utf-8?B?alEvMXJqQndCN0hXZnM5K3M4b1NCb0owYUFrMDN2TDBXZGdRU2RVbW9xWmNP?=
+ =?utf-8?B?ampiYmtneGhHWlIxRWtCSnVWT1FiT3M1SVpFdGc1bzRBc3puTzdHbzlPdGk3?=
+ =?utf-8?B?ME9ZeTBQQm95QjhVU3dERFd3SG5ldkpTRmJuWWgxYU9RTC9lQWE0U1NFWDZZ?=
+ =?utf-8?B?VWJsTkEwL1QwbnU2aUtjRkllSWV0OVQva1kxeXJlTnMyOTkxVjVRU21veS9D?=
+ =?utf-8?B?d0pxN0xNUWpzZUh0V1B2SGpTYnNWaXpQWVhXK0s5cGt3RDVuQWovRGhXcCtP?=
+ =?utf-8?B?bmxuSm44UkZMTysvc29FQnRjM09Wc05Ubms4MEQyb0R4aVl2ZVppbSsyVnlH?=
+ =?utf-8?B?S2ZwUG9lN1ZmWm1uZjMwNFB0MUJIaWo4cG0zZW5mOEMyM2pjVUlEQ2VIUnlp?=
+ =?utf-8?B?YzlqU3F3MWxDenR5aXpzZ3FsQkl2aW56bC9LdmRXc3ZRZWlveGEwbEJkNGpK?=
+ =?utf-8?B?Vk5jSER6KzJ6bi9RakNJM2cyTy8yOTJlbmQ3eTlsYzU0VzZPRThQbG8yNURL?=
+ =?utf-8?B?QklGV1MrM3l2MWQzdkM0NFpkN09RelZlYWZwMmZqdHorV2swSXp0a0hiNlg2?=
+ =?utf-8?B?Y1VHUHp5Q012b2NUelNZZG0xT3dlNjVPaHdNSHhWVVNUTG5uTXhvbFpyMVZP?=
+ =?utf-8?B?dXhJdHVkcmd2eXRCb0swQjRkSFVCbVFZRTFINE1wNFNGK1lZMFRFWGpUTFBv?=
+ =?utf-8?B?MjE3U3gwWFRpWEpISVlweWxUaktRdUlzQithV1I2Y3p2S2UzRmZOM2k3U1lm?=
+ =?utf-8?B?cVArNE51WFYyemh6NVBUeTVHR1p2eGJiRk1DTSs2ZUgwN3BJK2lBQWVpVlZZ?=
+ =?utf-8?B?ZFdwQm5xWWpVRmJudkFCYkkvU1hoMDFIcFc0ZElIYW04WnVNcGRWQ25xcUhq?=
+ =?utf-8?B?SHBEQkNyWVdaeGpIbzNMMXlHR0xGcSt5Ym44M1NCSkFvTi9rVmkvMk9iRUJU?=
+ =?utf-8?B?SCtTZ2dZTFh4SytnbWZ2OGViUVpTL0Z0QXZhVzkrRk55U1M3R2FlQzNteVNl?=
+ =?utf-8?B?WHVQaUZVN1I4amtLdU5CWGdjVWQwVHFNNmcwbk1TMVV0Qy9HTjgwK0ZIa2dy?=
+ =?utf-8?B?VVpGdWpERFdaUXgvUFNHOVlBN1dEbnNZZHp1V09OS2NnUnZIMjd5aEJ5UUdh?=
+ =?utf-8?B?eit5NXN5UjlzZldPZmJWZUIxcVZpandzN1o2T2krek5Rdk5jSDVQd3RIZWpM?=
+ =?utf-8?B?eDE1MXNaKzUvZ2cxRmRmaElFY0N1VlZiNWhJUDZZTng2MEh0dGR0aWxYQnJ2?=
+ =?utf-8?B?WGxWMStzeFZpZUU3MGdZbWIwZHJTUVoyenl3N0w3OFdUMVZoOG1Lc3J2NkY2?=
+ =?utf-8?B?aDIyQ1pMYmp2bzJtUld6bWM0ck5DSzJWWWZUeEcvQXdEaW9jVU4rMmlIdEtG?=
+ =?utf-8?B?Z2pUSy9MRW02R3dOendTLzF3Tloxa3BmWGo5VkZ2NGh3SVhXcGxlaERLZnFY?=
+ =?utf-8?B?bytBMnhpVm0yQWVKWjNjaVl4Y2d4T3h5azY1ZHg0ZlV3Y2lFMEpXZnNoUDh4?=
+ =?utf-8?B?Q0lXbDJUSXF5TTdHMER0TFBiZXlvYnY2anNsVHozTWRQeFlER09jaHJ2MWpq?=
+ =?utf-8?B?WTF4NTA4ZGxrRkFNb0dRSjBQdXVLVEFqZ2pXR1FGYVUzZWhXaEpYNER1Q09s?=
+ =?utf-8?B?Vk5YcFFPWDFHamZ5aW1tYmZhcVRLOVM5SkZiZ3VHRDZOTTF0TEkxb1RmNTRJ?=
+ =?utf-8?Q?qYcwaJt622NTSa4oL80ojL/z8exnhyMyFW9to=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8487.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MCtRc0JhTDNFWi9KWEp3bXluRFZJaXFsYllTRytJRVM1cUQzYXJmeHlWclo4?=
+ =?utf-8?B?cy8wVUNxZWcrbEsza2w3ekp0VVB0MVhYL2tWZDZjdTE2OVh1YVZxVjRFYUNM?=
+ =?utf-8?B?VllGNEU4Kzg2d3Q5ajNENi9zaC8yU0k1K3V1WlFkaUlHWkl5cnNSNU5Ic1RF?=
+ =?utf-8?B?K21sL1p1dWpmU3N0LzFucHRxYm9ZU29LL3lXNjdXN2NtcXlKYnBBVng4Nk9L?=
+ =?utf-8?B?MUdnKzRUVHkyQVZBbEQ3MUVIS051dCtZSmpxK1Nsd3JXa2FxYUJsN3FveFEy?=
+ =?utf-8?B?ZDNrbkIyQkp0d0ptWGVtT3J0dVJRMzlOcnFUWjUvWDF0U3FRd3hEOTR4OE0z?=
+ =?utf-8?B?TUhwYjRMai9DUG85eHRzcXEvNU8wRDdKdTl2aktUSkRnUUlUck5uRnFYYW1q?=
+ =?utf-8?B?b1ErUTFuMU5qYU9IU3FyblNIb2xhMmlFRG1QS1VvS3dBVGNxWXgzS3pNQndM?=
+ =?utf-8?B?Tysxc0NWUTlsMGRMYklTTStBNE5wc29GZndZOFllMERXSXlwRHBvRUpWTmFh?=
+ =?utf-8?B?L3IrVXZzWmk4Q1BMK293NTkxMDNVZUNNVVBQeEZjUFg4TEpRMFVYc3BHdm5S?=
+ =?utf-8?B?R0x5TVBNMmtNa1ozVit4dFBaTVZnaGMrMlVFY0ZORHdsS1d1LzRXSVg5QVV1?=
+ =?utf-8?B?bjVoNUpqcklrVUxuSU9FRllxM0NRZko3WHFDRU5Ud3lOZytPN1NPWEMvWE12?=
+ =?utf-8?B?NWljMXVBS2NZSmNUWEdzOXJxSCt0ai9CbmQvVVdqTUV0MStiOEFNRjQ4OE1p?=
+ =?utf-8?B?aXYrSUJDU0NRd05qOU5XckhzWkN3NXY1U2xzWE5lV1h6aE5qYUhPMDY2M3hD?=
+ =?utf-8?B?SmNRT3p6OHFFKzhtbkQ1dnhvZmlQakIyS242NzA1cG0zT0V3SDA2N09vc01l?=
+ =?utf-8?B?QWRXS3pBaTR2ODlKVmkxMnBYcW5aTUJrY0dGMEhvQ2E1ZG9VZnA4UUQ3eFds?=
+ =?utf-8?B?T0dqYWlGWUtkM1lXdWR3RHg4NUJ2c3VhaWlkcUhLU00vaEw0YU1jN0tMR3d2?=
+ =?utf-8?B?YzdZT21nblFZdTI0Mjhjak5kVEppZU8yL2dGcitvcXZqUEthS2pGTklPWm9R?=
+ =?utf-8?B?SlBpa3BUMHBORVJLa2VQT2lobHRqNkxCbXBEZ1lveXlpY0RORlpYL21uWXpV?=
+ =?utf-8?B?djUrQ0R2STYwRGNOd3BoZVlJQXVvV0srdDRBOGVVTG1MbC9INGdlNTVjeFIz?=
+ =?utf-8?B?VllBTmhzbkJsUzBGM2oxWTFoMVFzcDRtcWVJMGhiWFNKbzBOTi9sc215UkZU?=
+ =?utf-8?B?bTFBQmJPelVDTE9Id1g4VU92YVhYQzJKRHBvam43bUp1bVZJc3VWRlR6NVY5?=
+ =?utf-8?B?S1NUd1Uyb2JzZlJTdmZ2Rld6YnJOeVFKb2R2d3dtbVNCY1U5aGIycDV4OVRM?=
+ =?utf-8?B?VlphV1Q2Z2l5VTdienNYaFoxSk1oSXFKQVRwL0hVV2dYb1RDYkFNWURSRHlJ?=
+ =?utf-8?B?VnE1SDBFL1VoenV6YWhseVBWMEtVT3FsSjEvNzQyMmdGc2JGcHBVQXVXeVhv?=
+ =?utf-8?B?eC9xSTF2dmloRlZtNUJwQkhZZGxNUi9Dajl5VnpIcWZUS3BjQi9PZ0paYmh6?=
+ =?utf-8?B?Y08wdFE2VmxabG5wV1RsQmNja0dBdjU1cmlvMERYQ0tRcThvMWFpRS9LWGgx?=
+ =?utf-8?B?UG1qWXI5OFhOQW9YOEJDR0o2VHhwcXVKc24rSGFIdnRjODFUamxmRWtUY3hS?=
+ =?utf-8?B?ODMzc2FRNmF4alZZbFQ3RDVIZnhQNTdNa0dlZzVZb3BPQWVocVFmSVdEZXR1?=
+ =?utf-8?B?R1ZMdE5sVE5hR3J6NXlSMG40cWN5UEF5MzlBaFZVbmFXaW1sUWFpOWVuN1Zl?=
+ =?utf-8?B?ekNFZHRKTTN2N1pPQ2ZMcU84U0UvcVh0ZG4xaHJ1YVRVMGp1dG10M1E4U0Nx?=
+ =?utf-8?B?djRISEpaK0hHbmVkMWZ3RVZ3d0RyeC9tZzRiQnRtL3dNYUU4MUcvclRXcmly?=
+ =?utf-8?B?ZjNmNi9CeFJkcW02NXZGRWRuK2k0SGJLS01WRlpoaWtHQmV3czMrRjJ5TmxS?=
+ =?utf-8?B?eDdoYUFwUFFpd3BPV21kZHF5Y3JRYmNTd2llQVB4TStLdVVqTDB4WmtsekIv?=
+ =?utf-8?B?MHFpbTF2dXdPTVQ3RG90VmQzZmxabzhMa1poSlpadnRUTVo0ZDZGMzBTMU9C?=
+ =?utf-8?B?cVUyb1hDdzhzQWFQbVJodmFLSVZIbUJTRmlucXNIb0ExNEZJNlcrUkVVT3BB?=
+ =?utf-8?B?UGc9PQ==?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c0c02705-4872-4605-8fff-08dd088088cd
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8487.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2024 09:57:10.1907
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Zv/67ARK8s5GFEhKjhdadHhT1bT/tdVtDzI6Q6IoTuErjByOb59APeb0YUgbFR4e5ZiWvPfGX1o64aJ9WaLPze5uDHaTkTbsWOIthNXoh+M=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10845
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_015642_338950_A51ADA7B 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20241119_015717_008170_EA08B491 
+X-CRM114-Status: GOOD (  22.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,111 +193,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-User layer applications can send UIC GET/SET commands via the BSG
-framework, and if the user layer application sends a UIC SET command
-to the PA_PWRMODE attribute, a power mode change shall be initiated
-in UniPro and two interrupts shall be triggered if the power mode is
-successfully changed, i.e., UIC Command Completion interrupt and UIC
-Power Mode interrupt.
+Hi Krzysztof,
 
-The current UFS BSG code calls ufshcd_send_uic_cmd() directly, with
-which the second interrupt, i.e., UIC Power Mode interrupt, shall be
-treated as unhandled interrupt. In addition, after the UIC command is
-completed, user layer application has to poll UniPro and/or M-PHY state
-machine to confirm the power mode change is finished.
+>> +	if (npins < 0)
+>> +		return dev_err_probe(dev, -EINVAL,
+>> +				     "Failed to read 'pinmux' in node %s\n",
+>> +				     grp->data.name);
+> 
+> I do not see how this change is related. Looks you are mixing cleanups
+> with refactoring into MFD cell. These are two different things.
 
-Add a new wrapper function ufshcd_send_bsg_uic_cmd() and call it from
-ufs_bsg_request() so that if a UIC SET command is targeting the PA_PWRMODE
-attribute it can be redirected to ufshcd_uic_pwr_ctrl().
+Yes, I also included some small refactoring changes. I didn't think they were
+important enough to include them in a separate commit. Would you like me to separate
+them in another commit?
 
-Fixes: e77044c5a842 ("scsi: ufs-bsg: Add support for uic commands in ufs_bsg_request()")
-Signed-off-by: Can Guo <quic_cang@quicinc.com>
-Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
-Reviewed-by: Bean Huo <beanhuo@micron.com>
-Reviewed-by: Avri Altman <avri.altman@wdc.com>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
----
-V2 -> V3: Added Fixes tag
-V1 -> V2: Rebased on Linux 6.13
----
- drivers/ufs/core/ufs_bsg.c     |  2 +-
- drivers/ufs/core/ufshcd-priv.h |  1 +
- drivers/ufs/core/ufshcd.c      | 36 ++++++++++++++++++++++++++++++++++
- 3 files changed, 38 insertions(+), 1 deletion(-)
+>> -	if (mem_regions == 0 || mem_regions >= 10000) {
+>> -		dev_err(&pdev->dev, "mem_regions is invalid: %u\n", mem_regions);
+>> -		return -EINVAL;
+>> -	}
+>> +	/* one MSCR and one IMCR region per SIUL2 module */
+> 
+> How is this related to converion into MFD cell?
 
-diff --git a/drivers/ufs/core/ufs_bsg.c b/drivers/ufs/core/ufs_bsg.c
-index 433d0480391e..6c09d97ae006 100644
---- a/drivers/ufs/core/ufs_bsg.c
-+++ b/drivers/ufs/core/ufs_bsg.c
-@@ -170,7 +170,7 @@ static int ufs_bsg_request(struct bsg_job *job)
- 		break;
- 	case UPIU_TRANSACTION_UIC_CMD:
- 		memcpy(&uc, &bsg_request->upiu_req.uc, UIC_CMD_SIZE);
--		ret = ufshcd_send_uic_cmd(hba, &uc);
-+		ret = ufshcd_send_bsg_uic_cmd(hba, &uc);
- 		if (ret)
- 			dev_err(hba->dev, "send uic cmd: error code %d\n", ret);
- 
-diff --git a/drivers/ufs/core/ufshcd-priv.h b/drivers/ufs/core/ufshcd-priv.h
-index 7aea8fbaeee8..9ffd94ddf8c7 100644
---- a/drivers/ufs/core/ufshcd-priv.h
-+++ b/drivers/ufs/core/ufshcd-priv.h
-@@ -84,6 +84,7 @@ int ufshcd_read_string_desc(struct ufs_hba *hba, u8 desc_index,
- 			    u8 **buf, bool ascii);
- 
- int ufshcd_send_uic_cmd(struct ufs_hba *hba, struct uic_command *uic_cmd);
-+int ufshcd_send_bsg_uic_cmd(struct ufs_hba *hba, struct uic_command *uic_cmd);
- 
- int ufshcd_exec_raw_upiu_cmd(struct ufs_hba *hba,
- 			     struct utp_upiu_req *req_upiu,
-diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
-index e338867bc96c..c01f4b0c1b4f 100644
---- a/drivers/ufs/core/ufshcd.c
-+++ b/drivers/ufs/core/ufshcd.c
-@@ -4319,6 +4319,42 @@ static int ufshcd_uic_pwr_ctrl(struct ufs_hba *hba, struct uic_command *cmd)
- 	return ret;
- }
- 
-+/**
-+ * ufshcd_send_bsg_uic_cmd - Send UIC commands requested via BSG layer and retrieve the result
-+ * @hba: per adapter instance
-+ * @uic_cmd: UIC command
-+ *
-+ * Return: 0 only if success.
-+ */
-+int ufshcd_send_bsg_uic_cmd(struct ufs_hba *hba, struct uic_command *uic_cmd)
-+{
-+	int ret;
-+
-+	if (hba->quirks & UFSHCD_QUIRK_BROKEN_UIC_CMD)
-+		return 0;
-+
-+	ufshcd_hold(hba);
-+
-+	if (uic_cmd->argument1 == UIC_ARG_MIB(PA_PWRMODE) &&
-+	    uic_cmd->command == UIC_CMD_DME_SET) {
-+		ret = ufshcd_uic_pwr_ctrl(hba, uic_cmd);
-+		goto out;
-+	}
-+
-+	mutex_lock(&hba->uic_cmd_mutex);
-+	ufshcd_add_delay_before_dme_cmd(hba);
-+
-+	ret = __ufshcd_send_uic_cmd(hba, uic_cmd);
-+	if (!ret)
-+		ret = ufshcd_wait_for_uic_cmd(hba, uic_cmd);
-+
-+	mutex_unlock(&hba->uic_cmd_mutex);
-+
-+out:
-+	ufshcd_release(hba);
-+	return ret;
-+}
-+
- /**
-  * ufshcd_uic_change_pwr_mode - Perform the UIC power mode chage
-  *				using DME_SET primitives.
--- 
-2.34.1
+We no longer parse the device tree to configure the regmaps, we instead
+get them from the mfd driver. This is the main point of converting this
+driver into an mfd cell. 
+
+> 
+> Still looks like an ABI break.
+> 
+
+Yes, the driver no longer adheres to the nxp,s32g2-siul2-pinctrl.yaml binding.
+
+The intention is to deprecate that binding since it doesn't correctly describe
+the hardware. I am not sure on how to do this. I thought that changing this
+driver and removing the old compatible would be enough.
+
+Would it be better to add another file which would contain the old probing
+function(and match the old binding) so clients would be able to select the
+old implementation?
+
+> 
+> Best regards,
+> Krzysztof
+> 
+
+Best regards,
+Andrei
 
 
