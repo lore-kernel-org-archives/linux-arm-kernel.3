@@ -4,86 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17B89D6C291
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 20:11:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F6ED6C295
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 20:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IuBF/jyZa1fWhByoPH2uDt0SCQ6NW4jeLx2e8mQF3JU=; b=CqGCli0SlZG4l3wD5WjzZgcG4h
-	3iq5mwiRRbcXt+N6tRR5nmhq114koO/gVsgdIYzyvZA/k9e33s8lnMouTz4ddfI1UiM1Ghes9yk5A
-	mHlAUrodubYG+zYzzhxNb4HlHXVi4yQGGyTiIQ7hLkdLDgNEHsTnw7FFHxoBAGWh++017W8hvYsD+
-	dg3ffjioUxFkys4E/RozRSA2pHPcbhI41FcozzZB5BtLtNkbeSGfuKNMWY/UdqaSf0UfYzkFxtnj4
-	QtF8JThf7iHljkb08Tyn+dvmRkiEZuf/9GyL74d6pas/iYUZM9eagp5bsWDHWvhTq2dXKaGK+p6JG
-	r2f/onpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=c7pVc5JoetXII2KdB/NlP4OQnm3jFWw4yJ8lHbJ+BI8=; b=Yz4SwdpygvF79T
+	5GvsfUMRmObiMI/eDKP9gwARFa7NeShO/f2CrkOHRYQUtexig4tVFWzetqr9nWG8Jsery1pWzatN5
+	xSFFC9kcRsjdyvFXBq6ouH16STdolXAQpoukFv4wP7jCTp2+m+lMKi5xQgVks0vDSdPmo7Evw7VmG
+	KHsKm05S8H9JYUlJ/vj31Qd1ImTbWPNy+EI6K0/KS4M0NSSLSntsxPlOLfCsIUFrnr6zJj8Ev5+GE
+	xJl4TxMQvtTn5btsIAIHEV49aGsbDLoCwwQGOd+JuQppcJfMTZiekfrxaQFKkQZ3KyO5ERuy6a712
+	0l05oJvS2tdaFgrkKKeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDUZT-0000000Debn-0eEm;
-	Tue, 19 Nov 2024 20:11:35 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tDUt5-0000000DhQZ-1CqD;
+	Tue, 19 Nov 2024 20:31:51 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDUXp-0000000DeEa-0gCn
+	id 1tDUs6-0000000Dgxg-1oi5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 20:09:54 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-21262a191a5so7310455ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 12:09:52 -0800 (PST)
+	Tue, 19 Nov 2024 20:30:52 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2e91403950dso1027796a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 12:30:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732046992; x=1732651792; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=IuBF/jyZa1fWhByoPH2uDt0SCQ6NW4jeLx2e8mQF3JU=;
-        b=AWAUQvXpI9jUg+bscgLZbT4u2mA2HVZc1Akw9eeYQE0XP9N1rKRwmoIu/YhbBOCIil
-         fr4QiOFkytkEJa0ZQ9j5dsJc+/I1rWATGXgnddtrWCt7xPeHoU6dtMe9uBWUhOicCFQN
-         MSue/CwBkj3ab9U3RLtCGh1GCj0I8rN9qr56yeBcNfl81VAUXedy2hCo9BFnfRo/5BQP
-         miFMUjEiXaKXEyIYVN6h35cjD+vIsIFfXcJfW/aDjirtK4olRxHXkb2vZWWcQw2qBdAu
-         TZ/ekavj+oqJr/YblW6Chg4TnUsWrQ5yrzU9mpRCmIDN8Lok293HgFZdAIvjdZWdY4Ix
-         nH7w==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1732048249; x=1732653049; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=c7pVc5JoetXII2KdB/NlP4OQnm3jFWw4yJ8lHbJ+BI8=;
+        b=TT2eC5QhPzEaZ+UdXBMYIKWotTcLd29F6vmshkVX9N2yHvB8YoV+WHS0ic5qC3M/TM
+         kCqy1fQHE9JcYRYnMgJFeU5aU8oD6rCZGCvMsciMX8aph/7W+RIbajOmPm8npMTFX4OU
+         ZnajBpuTjckXkULz0YIn0Zz0CkNN8SAl1HZKqOxyhNfkM9nyzgD8ZoeThba20Ojcwu4U
+         N0XRpKQm0B4ksvKjBuzr3uCgvhisTZAvCFPdOtGDTwhlZIkj2vpxw5W5wrX3R4hXduuX
+         u6Ku49dDtSqp5CxHke0sIBTWY2EFSYLjnvr6DNHYOeb6zgYX2dK8+1DBQCI1NNG2+Qdz
+         ZSMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732046992; x=1732651792;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IuBF/jyZa1fWhByoPH2uDt0SCQ6NW4jeLx2e8mQF3JU=;
-        b=DNEvwnl76ob1+DauOCXLX+wK+OCL0wsCRCK3SY77hrcNlZ76c9z/lswQc+lIyh18Dd
-         H++p3ClpochzND1e4zWrCMgU+ddECspkDJK7QrDuwjrxmT5zxHuYjcekRwHGh/JKS+Wk
-         wnENytnN7YbktxHosaIiAK8CjliZlnPcSz3dj1Xi1KWCU/ugV/ArJNdu5aCY77O7k9/a
-         biK0uOIAXh1QrdATUBlJAIE7md/uPldmAoUQv7jKmYBom9qB8xI213SuJzJEXZ0GzgfC
-         rZz1UscMOm9z6hh4jIBwh7ubhcWM5eWcxXB/8zoyXVGHeHeP6MmsFhGlE07KpsjIGLU/
-         3i5A==
-X-Forwarded-Encrypted: i=1; AJvYcCXySDpbgZ+9qDgA36UCn+0cEFmklSbPpyNPb6QgHDA3fYTLdJ+gM3RBO3b06uNgsKLHHl78bSQmGxvcPI83sgN6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgPKe3tYnzVImU4S48ySygRjO4wShBmErhJgDo2NGkpr9NVdhB
-	Y8le3owXNOTLJQiO7PipWnp+lm8CjnnO3Rqy1CSOvNCyU/Q0AB/h
-X-Google-Smtp-Source: AGHT+IHSJbQQzEacbk+aDI0c9br9UZqfXoKQDJaJdc4lpo48KzIVZ5DrNO8mFyN2NrkRl9vX6v2KYQ==
-X-Received: by 2002:a17:902:f549:b0:20c:ab33:f8b8 with SMTP id d9443c01a7336-2126b10c8eamr362545ad.15.1732046992126;
-        Tue, 19 Nov 2024 12:09:52 -0800 (PST)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2120c7224f5sm49006665ad.189.2024.11.19.12.09.50
+        d=1e100.net; s=20230601; t=1732048249; x=1732653049;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=c7pVc5JoetXII2KdB/NlP4OQnm3jFWw4yJ8lHbJ+BI8=;
+        b=VlTQcs5D9gNmXCgRHSPF6X8br9zgCAcOmVcZyozjGJkzIfZTAmPAmopF+WageVf3H2
+         96ftKSwvPLKcLKq9B3YcWqLVSAgLeHRRD+rJ8T+iEtm9POJkLpturCCGW9pGGsYusYoN
+         jSm8mH8CtnsVxsHoS2FBrdj3I/i9KWMSWKkwiNzyCJ3DkXR0PUVc9mM84W+nHzGRHKNP
+         ZLOLnm651xu8X6yyUvRcjSftSN+/snBECNKDmc7C7SMiB0g2HX/zBLi3UzxuSXXJeZLf
+         f9var3QkcVoSYBYFSPxBEDCHT/ZPSlY/jI2MY9TKXVurRZJnJgkHnG7qRFNhxDm61wjC
+         5qdg==
+X-Forwarded-Encrypted: i=1; AJvYcCVEzA18APb2oOM3MGr/94/+ampJay/d9Htv+ZgGCg4uEdDuBP5M7dDFQ4rtrhVXNk0scBC0vmxrbqLtIajyu+dK@lists.infradead.org
+X-Gm-Message-State: AOJu0YweKLovEHrG2gFkYYZYS5H4lJCpP8AvZSUjWF/lsAqihCnrT4CX
+	m6fyKBrDh4m0BeBXPNJAEl6NJ1+YhLuKvt9tv/RnRbGQ3I1+MsFKBIn8V0ot8Ho=
+X-Google-Smtp-Source: AGHT+IEGqDbbCzCtdsEZW2eFYW9EW+r2eubpzXN5mXs90RA5OdnIHgt1XlLafqwuVADVSx84uXt6IA==
+X-Received: by 2002:a17:90b:1dce:b0:2ea:956b:deb9 with SMTP id 98e67ed59e1d1-2eaca7e8b27mr126213a91.37.1732048249221;
+        Tue, 19 Nov 2024 12:30:49 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f34f2fsm79001315ad.159.2024.11.19.12.30.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Nov 2024 12:09:51 -0800 (PST)
-From: Guenter Roeck <linux@roeck-us.net>
-To: Lars Povlsen <lars.povlsen@microchip.com>
-Cc: Steen Hegelund <Steen.Hegelund@microchip.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	UNGLinuxDriver@microchip.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Guenter Roeck <linux@roeck-us.net>,
-	Steen Hegelund <steen.hegelund@microchip.com>
-Subject: [PATCH] net: microchip: vcap: Add typegroup table terminators in kunit tests
-Date: Tue, 19 Nov 2024 12:09:49 -0800
-Message-ID: <20241119200949.2865160-1-linux@roeck-us.net>
-X-Mailer: git-send-email 2.45.2
+        Tue, 19 Nov 2024 12:30:48 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+Subject: [PATCH 0/8] Add SBI v3.0 PMU enhancements
+Date: Tue, 19 Nov 2024 12:29:48 -0800
+Message-Id: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAD31PGcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxNDA0ML3YLc0vjUstS8kvjMvLR8XUsLs1Qjw+RUs6QUYyWgpoKi1LTMCrC
+ B0bG1tQC3PSxyYAAAAA==
+To: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Mayuresh Chitale <mchitale@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+ Atish Patra <atishp@rivosinc.com>
+X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_120953_196697_02739B3C 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20241119_123050_474181_4CD5E664 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,124 +99,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VCAP API unit tests fail randomly with errors such as
+SBI v3.0 specification[1] added two new improvements to the PMU chaper.
 
-   # vcap_api_iterator_init_test: EXPECTATION FAILED at drivers/net/ethernet/microchip/vcap/vcap_api_kunit.c:387
-   Expected 134 + 7 == iter.offset, but
-       134 + 7 == 141 (0x8d)
-       iter.offset == 17214 (0x433e)
-   # vcap_api_iterator_init_test: EXPECTATION FAILED at drivers/net/ethernet/microchip/vcap/vcap_api_kunit.c:388
-   Expected 5 == iter.reg_idx, but
-       iter.reg_idx == 702 (0x2be)
-   # vcap_api_iterator_init_test: EXPECTATION FAILED at drivers/net/ethernet/microchip/vcap/vcap_api_kunit.c:389
-   Expected 11 == iter.reg_bitpos, but
-       iter.reg_bitpos == 15 (0xf)
-   # vcap_api_iterator_init_test: pass:0 fail:1 skip:0 total:1
+1. Added an additional get_event_info function to query event availablity
+in bulk instead of individual SBI calls for each event. This helps in
+improving the boot time.
 
-Comments in the code state that "A typegroup table ends with an all-zero
-terminator". Add the missing terminators.
+2. Raw event width allowed by the platform is widened to have 56 bits
+with RAW event v2 as per new clarification in the priv ISA[2].
 
-Some of the typegroups did have a terminator of ".offset = 0, .width = 0,
-.value = 0,". Replace those terminators with "{ }" (no trailing ',') for
-consistency and to excplicitly state "this is a terminator".
+Apart from implementing these new features, this series adds a fix
+in firmware event mapping and updates the kvm SBI implementation to
+SBI v3.0.
 
-Fixes: 67d637516fa9 ("net: microchip: sparx5: Adding KUNIT test for the VCAP API")
-Cc: Steen Hegelund <steen.hegelund@microchip.com>
-Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+The opensbi patches can be found at [3]. This series can be found at [4].
+
+[1] https://github.com/riscv-non-isa/riscv-sbi-doc/releases/download/vv3.0-rc2/riscv-sbi.pdf
+[2] https://github.com/riscv/riscv-isa-manual/issues/1578
+[3] https://github.com/atishp04/opensbi/tree/b4/pmu_event_info
+[4] https://github.com/atishp04/linux/tree/b4/pmu_event_info
+
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- .../ethernet/microchip/vcap/vcap_api_kunit.c    | 17 ++++++++++-------
- 1 file changed, 10 insertions(+), 7 deletions(-)
+Atish Patra (8):
+      drivers/perf: riscv: Add SBI v3.0 flag
+      drivers/perf: riscv: Fix Platform firmware event data
+      drivers/perf: riscv: Add raw event v2 support
+      RISC-V: KVM: Add support for Raw event v2
+      drivers/perf: riscv: Implement PMU event info function
+      drivers/perf: riscv: Export PMU event info function
+      RISC-V: KVM: Implement get event info function
+      RISC-V: KVM: Upgrade the supported SBI version to 3.0
 
-diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api_kunit.c b/drivers/net/ethernet/microchip/vcap/vcap_api_kunit.c
-index 7251121ab196..16eb3de60eb6 100644
---- a/drivers/net/ethernet/microchip/vcap/vcap_api_kunit.c
-+++ b/drivers/net/ethernet/microchip/vcap/vcap_api_kunit.c
-@@ -366,12 +366,13 @@ static void vcap_api_iterator_init_test(struct kunit *test)
- 	struct vcap_typegroup typegroups[] = {
- 		{ .offset = 0, .width = 2, .value = 2, },
- 		{ .offset = 156, .width = 1, .value = 0, },
--		{ .offset = 0, .width = 0, .value = 0, },
-+		{ }
- 	};
- 	struct vcap_typegroup typegroups2[] = {
- 		{ .offset = 0, .width = 3, .value = 4, },
- 		{ .offset = 49, .width = 2, .value = 0, },
- 		{ .offset = 98, .width = 2, .value = 0, },
-+		{ }
- 	};
- 
- 	vcap_iter_init(&iter, 52, typegroups, 86);
-@@ -399,6 +400,7 @@ static void vcap_api_iterator_next_test(struct kunit *test)
- 		{ .offset = 147, .width = 3, .value = 0, },
- 		{ .offset = 196, .width = 2, .value = 0, },
- 		{ .offset = 245, .width = 1, .value = 0, },
-+		{ }
- 	};
- 	int idx;
- 
-@@ -433,7 +435,7 @@ static void vcap_api_encode_typegroups_test(struct kunit *test)
- 		{ .offset = 147, .width = 3, .value = 5, },
- 		{ .offset = 196, .width = 2, .value = 2, },
- 		{ .offset = 245, .width = 5, .value = 27, },
--		{ .offset = 0, .width = 0, .value = 0, },
-+		{ }
- 	};
- 
- 	vcap_encode_typegroups(stream, 49, typegroups, false);
-@@ -463,6 +465,7 @@ static void vcap_api_encode_bit_test(struct kunit *test)
- 		{ .offset = 147, .width = 3, .value = 5, },
- 		{ .offset = 196, .width = 2, .value = 2, },
- 		{ .offset = 245, .width = 1, .value = 0, },
-+		{ }
- 	};
- 
- 	vcap_iter_init(&iter, 49, typegroups, 44);
-@@ -489,7 +492,7 @@ static void vcap_api_encode_field_test(struct kunit *test)
- 		{ .offset = 147, .width = 3, .value = 5, },
- 		{ .offset = 196, .width = 2, .value = 2, },
- 		{ .offset = 245, .width = 5, .value = 27, },
--		{ .offset = 0, .width = 0, .value = 0, },
-+		{ }
- 	};
- 	struct vcap_field rf = {
- 		.type = VCAP_FIELD_U32,
-@@ -538,7 +541,7 @@ static void vcap_api_encode_short_field_test(struct kunit *test)
- 		{ .offset = 0, .width = 3, .value = 7, },
- 		{ .offset = 21, .width = 2, .value = 3, },
- 		{ .offset = 42, .width = 1, .value = 1, },
--		{ .offset = 0, .width = 0, .value = 0, },
-+		{ }
- 	};
- 	struct vcap_field rf = {
- 		.type = VCAP_FIELD_U32,
-@@ -608,7 +611,7 @@ static void vcap_api_encode_keyfield_test(struct kunit *test)
- 	struct vcap_typegroup tgt[] = {
- 		{ .offset = 0, .width = 2, .value = 2, },
- 		{ .offset = 156, .width = 1, .value = 1, },
--		{ .offset = 0, .width = 0, .value = 0, },
-+		{ }
- 	};
- 
- 	vcap_test_api_init(&admin);
-@@ -671,7 +674,7 @@ static void vcap_api_encode_max_keyfield_test(struct kunit *test)
- 	struct vcap_typegroup tgt[] = {
- 		{ .offset = 0, .width = 2, .value = 2, },
- 		{ .offset = 156, .width = 1, .value = 1, },
--		{ .offset = 0, .width = 0, .value = 0, },
-+		{ }
- 	};
- 	u32 keyres[] = {
- 		0x928e8a84,
-@@ -732,7 +735,7 @@ static void vcap_api_encode_actionfield_test(struct kunit *test)
- 		{ .offset = 0, .width = 2, .value = 2, },
- 		{ .offset = 21, .width = 1, .value = 1, },
- 		{ .offset = 42, .width = 1, .value = 0, },
--		{ .offset = 0, .width = 0, .value = 0, },
-+		{ }
- 	};
- 
- 	vcap_encode_actionfield(&rule, &caf, &rf, tgt);
--- 
-2.45.2
+ arch/riscv/include/asm/kvm_vcpu_pmu.h |   3 +
+ arch/riscv/include/asm/kvm_vcpu_sbi.h |   2 +-
+ arch/riscv/include/asm/sbi.h          |  12 +++
+ arch/riscv/kvm/vcpu_pmu.c             |  71 +++++++++++++
+ arch/riscv/kvm/vcpu_sbi_pmu.c         |   3 +
+ drivers/perf/riscv_pmu_sbi.c          | 184 +++++++++++++++++++++++++---------
+ include/linux/perf/riscv_pmu.h        |   2 +
+ 7 files changed, 228 insertions(+), 49 deletions(-)
+---
+base-commit: acb481ddd977ab669128bab61024d05e7dc1654f
+change-id: 20241018-pmu_event_info-986e21ce6bd3
+--
+Regards,
+Atish patra
 
 
