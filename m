@@ -4,107 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB614D44144
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 11:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8612D44146
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 11:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WSBouoRatInqJbfUCy4gUiCHF5kDVST7sA6zTlqHn1A=; b=N0OFtZk0uC2W17IAEzWkrSz0VX
-	AZuvOs010sAMrUgORaUq1gSS4evPWAhVrNMkJJqLRcis3NPlNs7BUSda74B8z37SbRztwWk583/5z
-	j8WY43cmf5pWACsjXB10uHh5wzPLXA5/FrU1GGGdtVEd1XszdxENqE9vWIG68Iy/uDsU+4bOJir9c
-	L+PRyM0DkSzbEXW6EtafNkroaX9qfwKpn72lJ1y7fi6foFnmuKjlLGDPX6YCHE/N45hNtkDLtd8LN
-	hj26FylbuFqyqG4e+0N60gWJ0YSfEQselqneGKbv4O6+bdPc4M9DASvtKWNnp86xQRY30c2SdAUyB
-	3TrfAraA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mvNs9jTFC+vvsWUY8Alhqtf1e8UARS1YpFbeMu7TsYc=; b=kOaU/OxKLv6IIvJa1EtUgEooG4
+	9HQGrza5PI52AQ7hiLgPnhJrOpK41ogjYhAiPU3DZutIRfMRumF+OUmp6ScYFprpQ74wOkTzFhsNV
+	J1e3iu+SVtTC7r0aa0gt97P9RyMGQzRUTFL1WrEsvmxEv7plneYVCX/bv5PCbuDLp75ZVni7L1MP2
+	dP2f7acAmhoxVpsBeXo1NkfXP6QjIDUj8ywBTQwPjWwzhJoMT4rFKzmHztqmA8lT8u97I1hMUu0zf
+	KLhbwW7ezdwk4BhwUZEdlFtI5BQZddS+kSB72vM5/XMXuKs3rBcaJrtYza1s5rZMMvlts1x/YsOy4
+	yFqLzNug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDMGD-0000000CC15-4Bzk;
-	Tue, 19 Nov 2024 11:19:10 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tDMP8-0000000CDQB-1fr6;
+	Tue, 19 Nov 2024 11:28:22 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDMFH-0000000CBu9-2pZ8
+	id 1tDMOA-0000000CDH3-3pfH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 11:18:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1732015090;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WSBouoRatInqJbfUCy4gUiCHF5kDVST7sA6zTlqHn1A=;
-	b=IwTp4ote9IueFqjdrOqb80yFNlFWNE3R/MdBi+Baga4oH+PXOF22U5lC6FaMH2IY4DEowY
-	o7+3RiYKCOybspGmokhMBGYA0xQZDWKGaQ/Zle8JPF0vDv27PljrvIB/ruzFOrye4U623d
-	CCo0KKx2KmSpzXOg2PbchL0FHH+41Io=
-Received: from mail-yb1-f198.google.com (mail-yb1-f198.google.com
- [209.85.219.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-304-i7iOARFIMbuwM3Zn4B5jxg-1; Tue, 19 Nov 2024 06:18:08 -0500
-X-MC-Unique: i7iOARFIMbuwM3Zn4B5jxg-1
-X-Mimecast-MFC-AGG-ID: i7iOARFIMbuwM3Zn4B5jxg
-Received: by mail-yb1-f198.google.com with SMTP id 3f1490d57ef6-e38aae1bdb8so2248136276.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 03:18:08 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732015088; x=1732619888;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WSBouoRatInqJbfUCy4gUiCHF5kDVST7sA6zTlqHn1A=;
-        b=bxFgFwj4RiZzyPMnIFBHe5phSirha2w9Y/2dRdYNSdMPHD+ZvhrMCJsLDJpEtLQju1
-         u8FnsBRtld3z9iFX/ZvBNw4C5TeAOdavios5AOmI7QV8GGWB55sSBsEpMyg0WK0DxUAR
-         JzzOaKYCjn1KfRZoOUrLwKnUBaBbI0M1qYJoCk1cCahHtH/AeU1qNQEErWSGc+c5FyI3
-         b0FqiCrJQiNpOMfEdX8OsZLfp/oVSs9jU7pmeg/iwW/PFPDM9CaXz4iy6wHEeMP4SPow
-         cNG0AU3c1QZiCGh5WU1wYr3prbA6fiZSr+Dcs7JQwtXN5sS9IWefrK262HvtCr29kysr
-         ERyA==
-X-Forwarded-Encrypted: i=1; AJvYcCUIpEzVBRcG0Jnc7CYaBguBKxJLwYafQ89ssX1KYFsmQ4FzbZ0n5XQrqkzij6JRtmnxDrMGKzk1xsdToKjBpDk9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRQY7bS1mRlAaZO2E73jIlTLQxMUn6iB4uwtAEiGstouRCxsg7
-	nIbBluSOMwT7UyA4H+MV1bGQPfLmthtQZxOM4s8wJlJP8YxvmD/PHiv4ukbSSlIG/j9Rl8p+ptX
-	51JvEdi7kaDndVN0HPs6ImM07cY6R2NmLtfujSV4Z63yCRHuiapgiyF8jaed444IRiXFlood/
-X-Received: by 2002:a05:6902:298a:b0:e30:cc00:b010 with SMTP id 3f1490d57ef6-e382614f9c8mr10200272276.25.1732015088324;
-        Tue, 19 Nov 2024 03:18:08 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IE96zkhRwyQeB2qy8231vJaIKfZPGcGVKna3QNScGbU8jvugvr7WKVQycq/NpiNX4wDg/wBiQ==
-X-Received: by 2002:a05:6902:298a:b0:e30:cc00:b010 with SMTP id 3f1490d57ef6-e382614f9c8mr10200247276.25.1732015088026;
-        Tue, 19 Nov 2024 03:18:08 -0800 (PST)
-Received: from [192.168.1.14] (host-79-55-200-170.retail.telecomitalia.it. [79.55.200.170])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46392c44142sm9845691cf.85.2024.11.19.03.18.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Nov 2024 03:18:07 -0800 (PST)
-Message-ID: <3cfc2e90-c9b4-425d-80f4-ddace9aff021@redhat.com>
-Date: Tue, 19 Nov 2024 12:18:00 +0100
+	Tue, 19 Nov 2024 11:27:25 +0000
+Received: from francesco-nb (31-10-206-125.static.upc.ch [31.10.206.125])
+	by mail11.truemail.it (Postfix) with ESMTPA id 9F36C1FCB5;
+	Tue, 19 Nov 2024 12:22:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1732015330;
+	bh=mvNs9jTFC+vvsWUY8Alhqtf1e8UARS1YpFbeMu7TsYc=; h=From:To:Subject;
+	b=ob7uqVwpl3w5QJgm2XonVBAtDi8g/P7wzlNRRlWJe8OQ8+X6mHMaq7p/C66JfdhAa
+	 oXkD76CvIqGPdLHHhQ2FTzZRTntGF8iojjTcD56jMl7MgkSTN5FtBwOId1dNQl/I/x
+	 Du8Ap2xftzojyF5N22CeDJRycbdWd/pqyJuGUZgMk/2lRCBkr7bPF5pHHzYSTuD1XX
+	 7uIlg0rJPJQSLHZcRux9IbbQnkARE/87HTtNmECe7Eljq+Ctb0t4f+R2wVFvL+YhCI
+	 X0DYb7ajtYeIw3TFa4UHJ76fXt/QAiuuvxRmRu+sgkTROyvjsMznSywwRonOVXe+vg
+	 7MdqR+3Mcon6Q==
+Date: Tue, 19 Nov 2024 12:22:01 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Shengjiu Wang <shengjiu.wang@gmail.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <frank.li@nxp.com>,
+	abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
+	sboyd@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, regressions@lists.linux.dev,
+	Adam Ford <aford173@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Mark Brown <broonie@kernel.org>, ulf.hansson@linaro.org
+Subject: Re: clk_imx8mp_audiomix_runtime_resume Kernel panic regression on
+ v6.12
+Message-ID: <20241119112201.GA17768@francesco-nb>
+References: <20241007132555.GA53279@francesco-nb>
+ <20241112075958.GA8092@francesco-nb>
+ <20241112092054.GA18139@francesco-nb>
+ <CAA+D8AO3a5WsZ4=V-9CDifDZYjJjwQmQQDDQM7ZKgZ6_-CNDPA@mail.gmail.com>
+ <Zzde9xS0zGJhcoUb@gaggiata.pivistrello.it>
+ <CAA+D8AMx14hp51aH7Y=Sgu+X+_KxQ8zdJdrQHFY84nKtQsKKrw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] Add standalone ethernet MAC entries for qcs615
-To: Yijie Yang <quic_yijiyang@quicinc.com>, Vinod Koul <vkoul@kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bhupesh Sharma <bhupesh.sharma@linaro.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, quic_tingweiz@quicinc.com,
- quic_aiquny@quicinc.com, quic_tengfan@quicinc.com, quic_jiegan@quicinc.com,
- quic_jingyw@quicinc.com, quic_jsuraj@quicinc.com
-References: <20241118-schema-v1-0-11b7c1583c0c@quicinc.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20241118-schema-v1-0-11b7c1583c0c@quicinc.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: LG7D-gphEDocu_OyOiksWl45eiPTbPIsDX5-N-D0AXI_1732015088
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAA+D8AMx14hp51aH7Y=Sgu+X+_KxQ8zdJdrQHFY84nKtQsKKrw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_031811_790258_2FB295F5 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241119_032723_793485_0B844E0D 
+X-CRM114-Status: GOOD (  31.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,23 +83,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/18/24 07:16, Yijie Yang wrote:
-> Add separate EMAC entries for qcs615 since its core version is 2.3.1,
-> compared to sm8150's 2.1.2.
+Hello Shengjiu,
+
+On Tue, Nov 19, 2024 at 05:35:36PM +0800, Shengjiu Wang wrote:
+> On Fri, Nov 15, 2024 at 10:47 PM Francesco Dolcini <francesco@dolcini.it> wrote:
+> >
+> > On Fri, Nov 15, 2024 at 11:13:58AM +0800, Shengjiu Wang wrote:
+> > > On Tue, Nov 12, 2024 at 5:20 PM Francesco Dolcini <francesco@dolcini.it> wrote:
+> > > >
+> > > > On Tue, Nov 12, 2024 at 08:59:58AM +0100, Francesco Dolcini wrote:
+> > > > > On Mon, Oct 07, 2024 at 03:25:55PM +0200, Francesco Dolcini wrote:
+> > > > > > it seems that an old regression is back on v6.12, reproduced on -rc2
+> > > > > > (not sure about rc1).
+> > > > > >
+> > > > > > The original report is from https://lore.kernel.org/all/20240424164725.GA18760@francesco-nb/
+> > > > > > and it was fixed with https://lore.kernel.org/all/1715396125-3724-1-git-send-email-shengjiu.wang@nxp.com/.
+> > > > > >
+> > > > > > Is it now back?
+> > > > >
+> > > > > I was able to reproduce this issue once more, this time with 6.11.7.
+> > > > > As I wrote in another email the issue is not systematic as it used to
+> > > > > be.
+> > > > >
+> > > > > Any idea?
+> > > >
+> > > > Frank, Shengjiu, could it be that the udelay(5) in imx_pgc_power_up() is
+> > > > too short and therefore we have such non-systematic failures?
+> > > >
+> > >
+> > > Francesco,  it seems hard to reproduce it on my i.MX8MP-EVK board.
+> > >
+> > > If it is easy to reproduce on your side, you can try to enlarge the delay
+> > > time to see if there is any improvement.
+> >
+> > It's hard also for me to reproduce, we just have a relatively extensive
+> > test farm and 2 times it happened while doing unrelated tests. I was hoping we
+> > could have some idea on what's going on, I'll see if I can put together some
+> > kind of stress test, being able to reproduce it more systematically would
+> > certainly help.
+> >
 > 
-> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
-## Form letter - net-next-closed
+> With my test,  the issue reproduced with delay 5us/6us. but hard reproduced
+> with 7us.
+> I think we may need to use a delay of 10us for safety.
 
-The merge window for v6.13 has begun and net-next is closed for new
-drivers, features, code refactoring and optimizations. We are currently
-accepting bug fixes only.
+Great that you were able to narrow this down and confirm the issue.
+I wonder if you would have any information on what is the actual delay
+that the HW would need, instead of guessing numbers. If not, well, let's
+go with 15usec, or 10usec, your call in the end.
 
-Please repost when net-next reopens after Dec 2nd.
+Will you send a patch?
 
-RFC patches sent for review only are welcome at any time.
-
-See:
-https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#development-cycle
-
+Francesco
 
 
