@@ -4,101 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1DA7D60D00
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 01:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5878D60D08
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 01:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cb5xA4QrPjObXEuVAQV9BTBo9P9lF0LPOif/OFc8/Ys=; b=p/Yg4ZWHSSKAp6zKwFl9acrx4/
-	lJ/kFbqQDvQLatPWi4AEOHvCCLu7OokKHk3nE/b0LFnGwYBYGh7B+TxlkVrl3aqrYIsj3dhAIMas5
-	4TJTgI1nQ2iHgwKd0cZ0tRqxnXXPuDDrqCNNUQZrwG4jwr3VNXqgmZPdign+zJ6rqtCRh1KKYMhjL
-	3pwsT5M/ZAdNRmgdbkMAEICgn3V+PeU2VRwGBTETKS13sv9SaFRrc4zpUjYN5O75m5bXggtR9eZEN
-	NohkJ78kWqK8pYyqwYUjRTz9qx835gTujtWrUigjFNdNDdajxkT+pLVrx58uKy5ITtE9WOyT3zQhF
-	YYCwjRuQ==;
+	bh=4ZorpfKuUeGuivvgx/Z+J1Gge5l/P7+qrV0/mMG9I6Q=; b=q7XjwZ01C7isJPZp/glS1gdkLN
+	zHOgDiIQaTkbNrVTavWOKlauBbCNDRLiaQ9W2zk+ncJIKNOweIXgQI5irBDH5jIHYgbTo0tM7IOqG
+	tTh5DLv88vT0Foj3i9Cu629zKysCUFSRE/y3hWj7VAFBRml73w/ElUh3e2BWCoLFBlcPUBeQy3J0c
+	VHZCrJvUTYCZQPeN3h99zGK0fM2ZoTuMbi7pcQjmzpOFUqCmhhdnh5vTBffIu9fK6p2D0j4UP8l5z
+	ue5/CPKBGQ1nUEUE/LlHZ729XQzGD63tAdEkt1XppOJWnM+kV62mfOAfRYzJQjVZak1eyh4qlmeEX
+	7tnwbgsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDCqY-0000000B1aC-0b1E;
-	Tue, 19 Nov 2024 01:16:02 +0000
-Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
+	id 1tDD2t-0000000B3sM-21dc;
+	Tue, 19 Nov 2024 01:28:47 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDCpb-0000000B1RJ-3qTQ
+	id 1tDD1x-0000000B3le-1fSD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 01:15:05 +0000
-Received: from [127.0.0.1] (p578adb1c.dip0.t-ipconnect.de [87.138.219.28])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
-	(No client certificate requested)
-	(Authenticated sender: marex@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 238A589274;
-	Tue, 19 Nov 2024 02:14:57 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1731978901;
-	bh=Cb5xA4QrPjObXEuVAQV9BTBo9P9lF0LPOif/OFc8/Ys=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=Iqz03f8A8ntVLExJdbOWEpa7BOXFN14gRPriudv2xawTis3YDMwOrO5fX9QGdUKyc
-	 6VC1Q/FLuIrRIi0Cq9j4vmt9Lefazx84nEZVSnQe5Vg3DrU15cFGZV9oKRlL5ohaKs
-	 2mpi1xkoP75X8XyH/KzFzpp1b1xnr0Q0u5ifDtVLLhP9gk7wOOpsVs7k1beL24Wi8j
-	 W39TWSLAJXIpsXfn2590fguoCdogUDafNR1fv3EubZJc2wnAPObxYAG9tIxDUo12lp
-	 KNSV4DMxPohhUvStuZlDdMaaGfmTqVrhzEKctC3T8Uxj7iFtjWL6z7RRtAh3MiXAUk
-	 JWc5Pl1j62nhg==
-Message-ID: <8a4fd234-4c7b-4a04-990d-3222aaa5172d@denx.de>
-Date: Tue, 19 Nov 2024 02:13:18 +0100
+	Tue, 19 Nov 2024 01:27:50 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-20cdbe608b3so47847535ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 17:27:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731979668; x=1732584468; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=4ZorpfKuUeGuivvgx/Z+J1Gge5l/P7+qrV0/mMG9I6Q=;
+        b=XWn/nw9YUruPMuLHFW/TWD6kt7DdFCa4ouSwvkJlxyo6uSLF05i9fwxW0SqNkBKt+i
+         mVpN3YHh4ikl6WvdqBqAb7fWav220HO2kyNN5YGj4JdUfOdj9V4I+ZF+ZLjDD2rQ0++m
+         wy8yRJY6GbKUlsbCnF1aUCyCVAbUQhQ2odQUPURje/9DXnIgo9xTDM0CM/KAsOdXg241
+         TafFF28DCMpldfL78jnPOQOBEjSoTiXz094TxmgIjr064l8JJybbkpPJ45SKV+HJLx2G
+         /RzMWS+tzvnnLtNfGtAzQl71maioTQpfbCBjT7xfKCBaguCOoKkd+gzjSGZ8QO+Q5G32
+         7oxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731979668; x=1732584468;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4ZorpfKuUeGuivvgx/Z+J1Gge5l/P7+qrV0/mMG9I6Q=;
+        b=Wj8ATGUdADfVujx9RbowEeR1cBq1wyXOr2g0JItIcfGcAsQszfVMIJ1xdrtODX0CEV
+         NPVvUfcyBf7cZXY4iYBZyqs/9mODHY707NX+HtwOSJuGkFCZHpAwlEXRGhh3t6kudNVn
+         HiY5i1gEycKAY52RFukoYVOHbG4eXLBjQaICCA5ZD+LNoCSnY8dmFMZnAAUzlgSJ2qEJ
+         VN796oyQJoTSRdnAHHSGUn3zbLsBQQxZNhDpsCmP1lhRIIMWZpZ9fGaFQvzyIGaTq6rN
+         xPsZIBlxxOOc1whFvdD1Re/zL05+xSE2LoLl4aR3fHjukzL0WouBBLnnFrwo5wu6Gj/r
+         lEWw==
+X-Forwarded-Encrypted: i=1; AJvYcCUkAY8jb36Gwj2Kwo2+3yAO1kQJU/nhCone1dhWL+he+vQRzDPXB4N2OhSVSFqKVwaSkmJohBndeYtlNnf6OYZ2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6p6r98P/jTSCHJAuyGpiFUlv6SzEFOyuSAeq1v0R0Njh+gcFp
+	oQkcSZFu3tbVYwdzBFjlBCSw6fuQjQtMKaqh6AiLpthm65aAYC5D
+X-Google-Smtp-Source: AGHT+IGVmuyorAWRkpmodzfyjWX00rOtHkl4LsRbCrNu/DpwLEEoRin3/dPBpX0eN9YNURbS8cJqhA==
+X-Received: by 2002:a17:902:d4d0:b0:20c:5bdc:c228 with SMTP id d9443c01a7336-211d0d6e7d6mr161345145ad.13.1731979668390;
+        Mon, 18 Nov 2024 17:27:48 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ea3394287fsm5682773a91.31.2024.11.18.17.27.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 18 Nov 2024 17:27:47 -0800 (PST)
+Message-ID: <9565c496-44d8-4214-8038-931926210d0f@roeck-us.net>
+Date: Mon, 18 Nov 2024 17:27:45 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Marek Vasut <marex@denx.de>
-Subject: Re: [PATCH v7 2/7] Revert "clk: imx: clk-imx8mp: Allow media_disp
- pixel clock reconfigure parent rate"
-To: Ying Liu <victor.liu@nxp.com>, "imx@lists.linux.dev"
- <imx@lists.linux.dev>,
+Subject: Re: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus handling
+To: Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
+ Patrick Williams <patrick@stwcx.xyz>,
+ "wim@linux-watchdog.org" <wim@linux-watchdog.org>
+Cc: "joel@jms.id.au" <joel@jms.id.au>,
  "linux-arm-kernel@lists.infradead.org"
  <linux-arm-kernel@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>
-Cc: "shawnguo@kernel.org" <shawnguo@kernel.org>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>, "robh@kernel.org"
- <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>,
- "abelvesa@kernel.org" <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- "mturquette@baylibre.com" <mturquette@baylibre.com>,
- "sboyd@kernel.org" <sboyd@kernel.org>,
- "andrzej.hajda@intel.com" <andrzej.hajda@intel.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
- "rfoss@kernel.org" <rfoss@kernel.org>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- "jonas@kwiboo.se" <jonas@kwiboo.se>,
- "jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "mripard@kernel.org" <mripard@kernel.org>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "airlied@gmail.com" <airlied@gmail.com>, "simona@ffwll.ch"
- <simona@ffwll.ch>, "quic_bjorande@quicinc.com" <quic_bjorande@quicinc.com>,
- "geert+renesas@glider.be" <geert+renesas@glider.be>,
- "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
- "arnd@arndb.de" <arnd@arndb.de>,
- "nfraprado@collabora.com" <nfraprado@collabora.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>
-References: <20241114065759.3341908-1-victor.liu@nxp.com>
- <20241114065759.3341908-3-victor.liu@nxp.com>
- <df6ebdde-65f8-4aad-93c7-b1df695bd2ef@denx.de>
- <AM7PR04MB7046546A882A8D48E135D84698272@AM7PR04MB7046.eurprd04.prod.outlook.com>
+ "linux-watchdog@vger.kernel.org" <linux-watchdog@vger.kernel.org>,
+ "Peter.Yin@quantatw.com" <Peter.Yin@quantatw.com>,
+ "Patrick_NC_Lin@wiwynn.com" <Patrick_NC_Lin@wiwynn.com>,
+ "Bonnie_Lo@wiwynn.com" <Bonnie_Lo@wiwynn.com>,
+ "DELPHINE_CHIU@wiwynn.com" <DELPHINE_CHIU@wiwynn.com>,
+ BMC-SW <BMC-SW@aspeedtech.com>,
+ "chnguyen@amperecomputing.com" <chnguyen@amperecomputing.com>
+References: <20241101121201.2464091-1-chin-ting_kuo@aspeedtech.com>
+ <20241101121201.2464091-2-chin-ting_kuo@aspeedtech.com>
+ <ZyUcIIb1dtoNhX00@heinlein.vulture-banana.ts.net>
+ <a0faca9a6ec7f4acdfa2f29b4ffb94b5392aea6b.camel@codeconstruct.com.au>
+ <TYZPR06MB5203053A004676F51322DECFB25C2@TYZPR06MB5203.apcprd06.prod.outlook.com>
+ <ed77d57facaaef0be796b4c6a742dc7bf3bff479.camel@codeconstruct.com.au>
+ <TYZPR06MB52039B02B6D3053355F30489B25D2@TYZPR06MB5203.apcprd06.prod.outlook.com>
+ <9a1e64ef-81d9-48b0-b871-ce4ff792eae4@roeck-us.net>
+ <TYZPR06MB52039DB39B62E6FA5220103AB2272@TYZPR06MB5203.apcprd06.prod.outlook.com>
+ <2531f830-6a36-4bd5-ba1e-9e19f0f66496@roeck-us.net>
+ <219607ab74764f3d47659fb5ab3223b3034152e5.camel@codeconstruct.com.au>
 Content-Language: en-US
-In-Reply-To: <AM7PR04MB7046546A882A8D48E135D84698272@AM7PR04MB7046.eurprd04.prod.outlook.com>
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <219607ab74764f3d47659fb5ab3223b3034152e5.camel@codeconstruct.com.au>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_171504_269260_CD6A0CF8 
-X-CRM114-Status: GOOD (  39.01  )
+X-CRM114-CacheID: sfid-20241118_172749_443017_6FDC0E88 
+X-CRM114-Status: GOOD (  24.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,129 +161,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/18/24 4:54 AM, Ying Liu wrote:
-> Hi Marek,
-
-Hi,
-
->>> media_disp1_pix clock is the pixel clock of the first i.MX8MP LCDIFv3
->>> display controller, while media_disp2_pix clock is the pixel clock of
->>> the second i.MX8MP LCDIFv3 display controller.  The two display
->>> controllers connect with Samsung MIPI DSI controller and LVDS Display
->>> Bridge(LDB) respectively.  Since the two display controllers are driven
->>> by separate DRM driver instances and the two pixel clocks may be derived
->>> from the same video_pll1_out clock(sys_pll3_out clock could be already
->>> used to derive audio_axi clock), there is no way to negotiate a dynamically
->>> changeable video_pll1_out clock rate to satisfy both of the two display
->>> controllers.  In this case, the only solution to drive them with the
->>> single video_pll1_out clock is to assign a sensible/unchangeable clock
->>> rate for video_pll1_out clock.  Thus, there is no need to set the
->>> CLK_SET_RATE_PARENT flag for media_disp{1,2}_pix clocks, drop it then.
+On 11/18/24 15:00, Andrew Jeffery wrote:
+> On Mon, 2024-11-18 at 12:50 -0800, Guenter Roeck wrote:
+>> On 11/18/24 04:46, Chin-Ting Kuo wrote:
+>>> Hi Guenter,
 >>>
->>> Fixes: ff06ea04e4cf ("clk: imx: clk-imx8mp: Allow media_disp pixel clock
->> reconfigure parent rate")
->>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
->> Uh, I almost missed this revert between all the LDB patches.
+>>> Thanks for the reply.
+>>>
+>>>> -----Original Message-----
+>>>> From: Guenter Roeck <groeck7@gmail.com> On Behalf Of Guenter
+>>>> Roeck
+>>>> Sent: Friday, November 8, 2024 10:08 PM
+>>>> Subject: Re: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus
+>>>> handling
+>>>>
+>>>> On 11/7/24 21:42, Chin-Ting Kuo wrote:
+>>>>
+>>>>> But now, I think it will be better to add a patch for creating
+>>>>> a new
+>>>>> reset reason, e.g., WDIOF_REBOOT or WDIOF_RESTART, in
+>>>>> watchdog.h of
+>>>>> uapi. Can I include this change, creating a new reset reason,
+>>>>> in this
+>>>>> patch series? Or, should I create an extra new patch series for
+>>>>> this
+>>>>> purpose?
+>>>>>
+>>>>
+>>>> This is a UAPI change. That is a major change. It needs to be
+>>>> discussed
+>>>> separately, on its own, and can not be sneaked in like this.
+>>>>
+>>>
+>>> Agree. However, how to trigger this discussion? Can I just send a
+>>> new
+>>> patch separately with only this UAPI modification? This is the
+>>> first time
+>>> I change such common source code.
+>>>
 >>
->> This revert will break my usecase on MX8MP where I need to operate two
->> disparate panels attached to LVDS and TC358767 DSI-to-DP bridge and I
->> need accurate pixel clock for both. Not being able to configure accurate
->> pixel clock will make the displays not work, so from my side, this is a
->> NAK, sorry.
+>> Yes. That needs to include arguments explaining why this specific new
+>> flag
+>> even adds value. I for my part don't immediately see that value.
 > 
-> Is your usecase in upstream kernel? If yes, which DT file implements the
-> usecase?  I guess it's im8mp-dhcom-som.dtsi authored by you, but it only
-> contains the DT node for TC358767, but not LVDS panel.
+> So maybe I was derailed with my WDIOF_REBOOT suggestion by the proposal
+> to repurpose WDIOF_EXTERN1 to indicate a regular reboot. I still don't
+> think repurposing WDIOF_EXTERN1 is the right direction. But, perhaps
+> the thing to do for a regular reboot is to not set any reason flags at
+> all? It just depends on whether we're wanting to separate a cold boot
+> from a reboot (as they _may_ behave differently on Aspeed hardware), as
+> on a cold boot we wouldn't set any reason flags either.
 > 
-> Can you please elaborate about the failure case?
 
-The TC9595 can drive an DP output, for that the clock which have to be 
-set on the LCDIF cannot be predicted, as that information comes from the 
-monitor EDID/DPCD. That is why the LCDIF has to be able to configure the 
-Video PLL1 clock to accurate clock frequency.
 
-For the LVDS LDB, the use case is the other way around -- the pixel 
-clock which should be generated by LCDIF and fed to LDB are known from 
-the panel type listed in DT, but they should still be accurate.
+Thew point here is that this is just a warm reboot which happens to use
+the watchdog as vehicle trigger a reset. A UAPI change along that line
+would tell the user just that, and I don't see the value in it.
 
-> You still may assign an accurate PLL rate in DT.
-> This patch only makes the PLL rate be unchangeable dynamically in
-> runtime.  That means the existing imx8m-dhcom-som.dtsi would use
-> IMX8MP_VIDEO_PLL1_OUT(running at 1.0395GHz) as the parent clock
-> of IMX8MP_CLK_MEDIA_DISP1_PIX (for LCDIF1/DSI), since it includes
-> imx8mp.dsti.  I assume it should be able to support typical video modes
-> like 1080p60 video mode with 148.5MHz pixel clock at least with 1.0395GHz
-> PLL rate.
+FWIW, the only really valuable flag is WDIOF_CARDRESET. All others are
+at best misleading since the watchdog isn't typically involved in
+making policy decisions such as WDIOF_OVERHEAT or WDIOF_FANFAULT and thus
+can not report such reasons to userspace.
 
-This will break multiple DP monitors I tested so far I'm afraid. And I 
-spent a LOT of time wrestling with the TC9595 bridge to make sure it 
-actually does work well.
+Unfortunately we can at best deprecate all those existing flags. At the same
+time I really don't want to introduce new ones unless they provide real value.
+While it might be valuable to know if a reboot was a cold or a warm reboot,
+the watchdog subsystem is not involved in this either on almost all
+platforms, meaning userspace can not really rely on it. Yes, Aspeed
+hardware may behave differently, but typically all those differences
+would need to be handled in the kernel when (re-)initializing the hardware,
+not in userspace.
 
-> Granted that less video modes read from DP monitor would
-> be supported without dynamically changeable PLL rates, this is something
-> we have to accept because some i.MX8MP platforms(like i.MX8MP EVK)
-> have to share IMX8MP_VIDEO_PLL1_OUT between LVDS and MIPI DSI
-> display pipelines.
+So, again, what exactly would userspace do with the information that this
+was a watchdog triggered warm reboot ? Why would it need that information ?
 
-What I need is the use of two full PLL1443x (like Video PLL and Audio 
-PLL1/2) , one for each display output, and those PLLs have to be fully 
-configurable to produce accurate pixel clock for each connected panel. 
-Otherwise I cannot make proper use of the video output capabilities of 
-the MX8MP SoC.
+Thanks,
+Guenter
 
-> The missing part is that we need to do mode validation
-> for the MIPI DSI display pipeline either in samsung-dsim.c or lcdif_kms.c
-> to filter unsupported video mode out.  Is this missing mode validation
-> the cause of your failure case?
-
-I do want to support the various modes, I do not want to filter them 
-out. They can be supported, the only "problem" is the shared Video PLL 
-which is not really an actual problem in my case, because I do not use 
-shared Video PLL, I use two separate PLLs.
-
-I think what is needed is for the LCDIF1/LCDIF2/LDB to figure out 
-whether they share the Video PLL at all (you already suggested the clock 
-subsystem can provide that information), and then if:
-- yes, agree on some sort of middle-ground frequency to configure into
-   the Video PLL, frequency which somehow fits all three consumers
-   (LCDIF1,LCDIF2,LDB)
-- no, configure each consumer upstream clock to generate accurate pixel
-   clock for that consumer
-
-Something like ^ would make MX8MP EVK (the "yes" case) with shared Video 
-PLL work, without breaking my use case (the "no" case), right ? (*)
-
->> There has to be some better solution which still allows the PLL
->> reconfiguration to achieve accurate pixel clock.
-> 
-> As I mentioned in cover letter, the only solution to support LVDS and
-> MIPI DSI displays on all i.MX8MP platforms is to assign a sensible and
-> unchangeable PLL rate in DT.
-
-I am currently using Video PLL and Audio PLL to drive DSI and LVDS 
-outputs from each, so no, fixed Video PLL assignment in DT is not the 
-only solution.
-
-> Some platforms may use two separate
-> PLLs for the LVDS and MIPI DSI display pipelines, while some others
-> have to use only the single IMX8MP_VIDEO_PLL1_OUT because
-> all other eligible PLLs are used up.  That's all fine, just being platforms
-> dependent.  The only limitation of the solution is that some platforms
-> couldn't support some particular LVDS and MIPI DSI displays at the
-> same time due to lack of PLLs, but this has to be accepted since
-> the shared IMX8MP_VIDEO_PLL1_OUT case needs to be supported and
-> the two display pipelines are not aware of each other from kernel's
-> point of view.
-
-Can something like (*) above be implemented instead, so both Shared and 
-separate PLLs would be supported ? That should solve both of our use 
-cases, right ?
-
-> I hope that we can agree on this solution first before spreading
-> discussions across different threads and eventually the NAK can be
-> taken back.
-
-I cannot really agree on a solution which breaks one of my use cases, 
-but maybe there is an alternative how to support both options, see (*) 
-above ?
 
