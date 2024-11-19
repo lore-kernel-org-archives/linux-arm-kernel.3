@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB37D44167
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:42:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B817DD44176
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+KJPrpVSpjlMsljEONMGLhUb9kDFkewDTz7vO3IORSI=; b=JfjVFCn9EtEG+sLJCumS5CY2lF
-	jfJqR7tes2tj44HstTshC49wR3BCWP3vVRYwkkQ65tPfKqFzwS17sASwBVU+po5hFDs+vCsxonVyd
-	dm9TblVd9ZOogq1lE19wGOYzCCIHVjFL7G4fsaxt4VelDssiPWOpG32+faTcQtVaJF5cNWMjfw+OY
-	sYJK3xKyo45PG3csU5vjvdKVoZ9RhVuuY4Ks5ubZtFEnSTun6O33TrnFEGXIJQqN/fvqFjkPopexl
-	i9/YrPWLRlaRyf7V07ApjlH08+YEnIfvo8qKpQ7luoJsMEkKVA//A7aEQ90+F1Ym+NK7NdRbBw8Ed
-	C5v5m0/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CECoxezUYafx0d26HXgDwD1dl9DFkiisNtmVFn2OYyI=; b=GKuYro7nH6bNi/cm94z8U7griH
+	lmRSvmrlnYDrCVTWjRcCA+P5D9U4wUvCnKjSZqago9h5hY10GaDD1zkg3mFEmTwUIXPwYIHFjpp7h
+	ANmVeoYzY7uAU1oics/f+Tk12rApzGpZe7WwQDOIVufJPdlFJWUSzmf9XxlaC6nuVNex/z4Y5+Erb
+	8etsmaDscFf4N3VX9qExrpUeyjom9BxZjZMf7F366sS92QeGYmnGhvl1Ti4bO6uUhF4/NUxftxrUk
+	GkA2btzcUNIe00JGmej0eYs7m+yP7ZK+AeuBp1KlCDUO+6wlgaxeUNUfVpTeBmENcOc6vddS7rC8i
+	qlf490zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDQN4-0000000CtqM-3R97;
-	Tue, 19 Nov 2024 15:42:30 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1tDQPL-0000000CuML-2RO5;
+	Tue, 19 Nov 2024 15:44:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDQM9-0000000CtfA-0PAi
+	id 1tDQOO-0000000Cu9S-3Xwp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 15:41:34 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DCE0B1BF20C;
-	Tue, 19 Nov 2024 15:41:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1732030889;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+KJPrpVSpjlMsljEONMGLhUb9kDFkewDTz7vO3IORSI=;
-	b=io9RKrrlUJ5LfS28I+zGTgdXazwkVChYn/JjjVqtb5QYNC9yIXDAhmkzunCCdpOx3BIUOX
-	0FhAT9sqGU1TAcPeslSlemLGuz4nik2+LXLN7Syk/AHbOpnn7v7qKEC5BGXk600IObMBUJ
-	k5tnn3K6hWPGJO+yM8BXvIE/TDFTToxotzYUcxhavwFJs+BT9FsI3Ea8sJOhRtTpL+rsnA
-	npx/M+CQj9Okjc85fwF1w20qH0V3N2uLAzbBzdL0KwjsgZzQHfpVjaMDCEo6lrUaktYqa0
-	PuqjD4weYeHzqovr/76QnUG6wc4hvn1b8VxXm8nGwZFrpSm7uBxu3FmF3d2tJA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Marek Vasut <marex@denx.de>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,  Abel Vesa
- <abelvesa@kernel.org>,  linux-clk@vger.kernel.org,  Fabio Estevam
- <festevam@gmail.com>,  "Lukas F . Hartmann" <lukas@mntmn.com>,  Michael
- Turquette <mturquette@baylibre.com>,  Peng Fan <peng.fan@nxp.com>,
-  Pengutronix Kernel Team <kernel@pengutronix.de>,  Sascha Hauer
- <s.hauer@pengutronix.de>,  Shawn Guo <shawnguo@kernel.org>,  Stephen Boyd
- <sboyd@kernel.org>,  imx@lists.linux.dev,  kernel@dh-electronics.com,
-  linux-arm-kernel@lists.infradead.org,  Anson Huang <Anson.Huang@nxp.com>
-Subject: Re: [PATCH] clk: imx: clk-imx8mp: Allow media_disp pixel clock
- reconfigure parent rate
-In-Reply-To: <c3da6311-1eb7-4a67-977e-32c28897f0e0@denx.de> (Marek Vasut's
-	message of "Mon, 18 Nov 2024 15:30:04 +0100")
-References: <20240531202648.277078-1-marex@denx.de>
-	<20241112234206.558d5d5e@booty>
-	<79f21303-b0ba-45ed-a842-7e5364fd4efc@denx.de>
-	<20241113120622.3501db73@booty>
-	<130fe140-e70d-4c45-aaab-e22762c58c88@denx.de>
-	<20241115180936.4ab56be3@booty>
-	<6bc5b8d7-ff10-4860-ac46-1460a7d850da@denx.de>
-	<871pz9c606.fsf@bootlin.com>
-	<c3da6311-1eb7-4a67-977e-32c28897f0e0@denx.de>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Tue, 19 Nov 2024 16:41:28 +0100
-Message-ID: <87cyirz0wn.fsf@bootlin.com>
+	Tue, 19 Nov 2024 15:43:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 58C4F5C5607;
+	Tue, 19 Nov 2024 15:43:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90B58C4CECF;
+	Tue, 19 Nov 2024 15:43:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732031032;
+	bh=CECoxezUYafx0d26HXgDwD1dl9DFkiisNtmVFn2OYyI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XnjbVoaawrVemEyB9fOP4Psg6A6NszoeHZLrAoptoUkIfNXmORulvI4A9US32oRjm
+	 dYS9gco728411BliZWaAgswKvPhqvpook0Zapyz5pu2drbnxNI7f73bgSbccZph7cD
+	 w11pN00D428g+SCnG4P0pNS8Q/hvPEkgd9RJHVhR3TW2MQafLvCndi1daU/YavsIZO
+	 olXxj7OsYsr9bTaFpG0fzj7OuOmQSKwSIdLg4BPF1sYsHqBOjV9E5vq+RoWB2FrkjE
+	 x4fn/aCHExEUOZojfxyRziZ/LVucAOhxmXYazUs7/2PL8wzVfFZf5yDtZgjj/0oQvO
+	 f74O4+S4CHVvQ==
+Date: Tue, 19 Nov 2024 16:43:49 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Paul Kocialkowski <contact@paulk.fr>
+Subject: Re: [PATCH] pinctrl: sunxi: Use minimal debouncing period as default
+Message-ID: <20241119-vivacious-optimistic-squirrel-a2f3c5@houat>
+References: <20241119140805.3345412-1-paulk@sys-base.io>
+ <20241119-prudent-jasmine-lizard-195cef@houat>
+ <ZzyoIABRArkGoZBn@collins>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: miquel.raynal@bootlin.com
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="l2xikqg7suvl7kdm"
+Content-Disposition: inline
+In-Reply-To: <ZzyoIABRArkGoZBn@collins>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_074133_421291_79CDBD9A 
-X-CRM114-Status: GOOD (  31.96  )
+X-CRM114-CacheID: sfid-20241119_074352_969119_43467D35 
+X-CRM114-Status: GOOD (  42.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,94 +77,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
 
-On 18/11/2024 at 15:30:04 +01, Marek Vasut <marex@denx.de> wrote:
+--l2xikqg7suvl7kdm
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] pinctrl: sunxi: Use minimal debouncing period as default
+MIME-Version: 1.0
 
-> On 11/18/24 9:15 AM, Miquel Raynal wrote:
->> Hi Marek,
+On Tue, Nov 19, 2024 at 04:00:48PM +0100, Paul Kocialkowski wrote:
+> Hi Maxime,
+>=20
+> Le Tue 19 Nov 24, 15:43, Maxime Ripard a =E9crit :
+> > On Tue, Nov 19, 2024 at 03:08:05PM +0100, Paul Kocialkowski wrote:
+> > > From: Paul Kocialkowski <contact@paulk.fr>
+> > >=20
+> > > The sunxi external interrupts (available from GPIO pins) come with a
+> > > built-in debouncing mechanism that cannot be disabled. It can be
+> > > configured to use either the low-frequency oscillator (32 KHz) or the
+> > > high-frequency oscillator (24 MHz), with a pre-scaler.
+> > >=20
+> > > The pinctrl code supports an input-debounce device-tree property to s=
+et
+> > > a specific debouncing period and choose which clock source is most
+> > > relevant. However the property is specified in microseconds, which is
+> > > longer than the minimal period achievable from the high-frequency
+> > > oscillator without a pre-scaler.
+> >=20
+> > That can be fixed by introducing a new property with a ns resolution.
+>=20
+> Sure but my point here is rather about what should be default behavior.
+>=20
+> The issue I had will remain unsolved by default even with a new property,
+> since people will still need to patch their device-tree to apply it.
+>=20
+> > > When the property is missing, the reset configuration is kept, which
+> > > selects the low-frequency oscillator without pre-scaling. This severe=
+ly
+> > > limits the possible interrupt periods that can be detected.
+> > >=20
+> > > Instead of keeping this default, use the minimal debouncing period fr=
+om
+> > > the high-frequency oscillator without a pre-scaler to allow the large=
+st
+> > > possible range of interrupt periods.
+> > >=20
+> > > This issue was encountered with a peripheral that generates active-low
+> > > interrupts for 1 us. No interrupt was detected with the default setup,
+> > > while it is now correctly detected with this change.
+> >=20
+> > I don't think it's wise. If the debouncing is kept as is, the worst case
+> > scenario is the one you had: a device doesn't work, you change it,
+> > everything works.
+>=20
+> I think this worst-case scenario is very bad and not what people will
+> expect. In addition it is difficult to debug the issue without specific
+> knowledge about the SoC.
 >
-> Hello Miquel,
->
->>>>> If you really want accurate pixel clock for your panel, you need simi=
-lar
->>>>> change to 4fbb73416b10 and configure the Video PLL such that the
->>>>> accurate pixel clock can be derived from it. The Video PLL cannot be =
-set
->>>>> to pixel clock, because the LDB serializer clock are either 7x the pi=
-xel
->>>>> clock, or 3.5x the pixel clock (for dual link LVDS), so the Video PLL
->>>>> has to be set to 7x or 3.5x pixel clock of the panel, then you should
->>>>> get accurate pixel clock and a working panel again.
->>>> I found that I'm having the same issue that has been discussed in some
->>>> related threads: the lcdif2 configures the video_pll1 to ~72 MHz, and
->>>> later LDB tries to set it to 7x that value, failing.
->>>
->>> Right, which is solved by configuring the Video PLL to the correct
->>> frequency in DT up front ... unless you have more than one output
->>> supplied by that Video PLL.
->> No, this looks like a bug in the imx8 clock driver. I would expect the
->> core to handle such case without DT hack. It is not okay to fix clock
->> frequencies in DT because drivers are failing to do it properly. I
->> understand there are advanced/dual cases with very specific frequencies
->> where you don't expect it to magically work and giving hints with DT
->> assigned-clocks* properties makes sense, but here I don't think we
->> should consider it as a proper fix.
->
-> It is not a proper fix, it is the best we can do right now. I already
+> My use-case here was hooking up a sparkfun sensor board by the way,
+> not some very advanced corner-case.
 
-I am sorry I probably misunderstood your previous reply then. I am fine
-with the assigned-clocks workaround.
+Are you really arguing that a single sparkfun sensor not working is a
+worse outcome than the system not booting?
 
-> replied to Luca with a bunch of patches where I tried to come up with a
-> way to negotiate the pixel clock in drivers ... I need to get back to
-> those.
+> > If we set it up as fast as it can however, then our risk becomes
+> > thousands of spurious interrupts, which is much more detrimental to the
+> > system.
+>=20
+> Keep in mind that this only concerns external GPIO-based interrupts,
+> which have to be explicitely hooked to a device. If a device or circuit
+> does generate such spurious interrupts, I think it makes sense that it
+> would be reflected by default.
 
-Indeed, thanks to your feedback we got it fixed locally, so short term
-is okay for us (but people not reading this thread might still suffer
-from the problem though).
+I mean... debouncing is here for a reason. Any hardware button will
+generate plenty of interrupts when you press it precisely because it
+bounces.
 
->> If I may recap:
->> 1- a simple display pipeline works
->> 2- the pixel frequency could be more precise so the video_pll1 parent is
->>     used to dynamically compute a better frequency
->> 3- the video_pll1 parent is too low in some cases which breaks the
->>     pipeline
->> 4- we need to force video_pll1 to a value in DT
->> How possibly 4 could be a relevant answer to 2, seriously? May I
->> return
->> you the advice, if you want a better video_pll1 value in the first
->> place, why not assigning it up front in DT?
->
-> Because I have DSI-to-(e)DP bridge on the DSI bus and I do not know the
-> pixel clock needed by attached panel up front.
->
-> I already included a link to DTO which allowed me to operate both this
-> DSI-to-(e)DP bridge and LVDS panel with accurate pixel clock, I was
-> hoping that would also let you solve 3 and 4. 4fbb73416b10 ("arm64: dts:
-> imx8mp-phyboard-pollux: Set Video PLL1 frequency to 506.8 MHz") fixed
-> 3. for Isaac at least.
->
->> I understand your goal, and I agree with it, but please acknowledge that
->> even though the current patch looks fine per-se, it is exposing a real
->> bug that is now visible. Hiding it with DT properties feels really wrong.
-> I do fully agree the whole DT Video PLL1 clock frequency configuration
-> is not good and it should not be in the DT at all. That is my goal in
-> the very end.
->
-> The drivers (in this case, LCDIF1 + LCDIF2 + LDB) should negotiate the
-> Video PLL1 frequency that fits them all best and configure it
-> accordingly, without any DT assign-clock* workarounds.
+> Also the notion of spurious interrupt is pretty vague. Having lots of
+> interrupts happening may be the desired behavior in many cases.
 
-Ok, good to know we are aligned :-)
+Which cases?
 
-> I just didn't figure out a way to do that ^ yet.
+> In any case I don't think it makes sense for the platform code to impose
+> what a reasonable period for interrupts is (especially with such a large
+> period as default).
 
-Of course, getting rid of the DT workarounds is probably a long term
-goal, unlike the mid-term goal which is: "fixing" today's situation for
-"everyone with a simple setup". We are also looking into this and
-willing to find a proper solution.
+So you don't think it makes sense for the platform code to impose a
+reasonable period, so you want to impose a (more, obviously) reasonable
+period?
 
-Cheers,
-Miqu=C3=A8l
+If anything, the status quo doesn't impose anything, it just rolls with
+the hardware default. Yours would impose one though.
+
+> Some drivers also have mechanisms to detect spurious interrupts based
+> on their specific use case.
+>=20
+> > And that's without accounting the fact that devices might have relied on
+> > that default for years
+>=20
+> They definitely shouldn't have. This feels much closer to a bug, and rely=
+ing
+> on a bug not being fixed is not a reasonable expectation.
+
+No, it's not a bug, really. It might be inconvenient to you, and that's
+fine, but it's definitely not a bug.
+
+Maxime
+
+--l2xikqg7suvl7kdm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZzyyNAAKCRAnX84Zoj2+
+dmqPAYCz3OlaegQIjO8q5Z1cDBAWz7oPwfWFGo/q0gFfV22l/VsEDJ0mPduztKMZ
+LA/MqcYBgNoS/NtqeAuvUfzbpwVfY3mU2cnb2T+WgMNeI6ZX1krA1GRWcKXbB75e
+NaJriFIirA==
+=C1nd
+-----END PGP SIGNATURE-----
+
+--l2xikqg7suvl7kdm--
 
