@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B486FD60D0D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 03:01:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9C76D60D0D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 03:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=J1hOThp0u4KkIhCVtLoJEiqxjdPOsJLC7BccGXL9jCE=; b=HH5rF1rV2EvRe4FduhPsc6wMHw
-	VLHEugypdCLQwDgPZKd1IuPMoSu8lhr8PNCEB3CnuZQZkxXZ61h0muzSK+WELvsF3+tQMJf0Yv+CC
-	6Q83bthXYEvHUeTMRMlOvypKLTjXnXLgBX3U6FrOxmuBNck/GAS877vJUn6bCrg8eHrFcnd+2Gy/s
-	QUnPk+qxLaRkZ7lrvEgFhL/k6QCAF3c7txZX1tYJm60Ns39q37uevKNwzVUEdhwcMxizV1NwgxBin
-	iUCJDdFPuutavzxcLCeqK7sJOcWfX0Ak0FGX+psC/nTei0ifNy/25nv+iHWlW4yRRFjgG33BcvuDS
-	w4HNJGkQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+vaaAwP82EEkak3EibruVYmycrwaT2pwi3dqccRnO+0=; b=F/os0TrweyV5JCmScaZZrVymaP
+	qlHlOVX9gy0W65CP3szjGaUEf64knGYuh4UtH0VhDFeN2tXJxEPqFpWNH/1sF/j/W6yGPJSW0JA5/
+	i3lWTdLuLIHhJGbsBPEaE0oQZ9huqf4yUoeK44do+9hdeo2lYZyaAFKpodTRKtpY3YweYVA6XNitL
+	ZsUdKnygai6+gB27+Ob/b0p2guo+wI6UqBxYH3CevOmH4JLrWZgwhrLk5/25IiNEj3kwD8e+I32yB
+	jXZDOx6Vjxv4mbHQjBIs/MuybPbtUBSPq4SuN8lOg23VioDV+v1M0VMyFc+8b5Wey5EL+wzMPngp7
+	UYarjyoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDEUi-0000000BEpf-0YDN;
-	Tue, 19 Nov 2024 03:01:36 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1tDEVb-0000000BEzV-37o5;
+	Tue, 19 Nov 2024 03:02:31 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDETk-0000000BEaq-3kKA
+	id 1tDETn-0000000BEcA-1D2G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 03:00:38 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-20ce65c8e13so39989905ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 19:00:36 -0800 (PST)
+	Tue, 19 Nov 2024 03:00:40 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2ea568d8216so1612211a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 19:00:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731985236; x=1732590036; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=J1hOThp0u4KkIhCVtLoJEiqxjdPOsJLC7BccGXL9jCE=;
-        b=T4TUmXwcZwSIxOWRguRS/qBZFCwEJxnB+pxxTxRJHqyBTtIV8VubTAsqqh9c+TP/sM
-         lR8LDBtVwssVb6pDMtdZUfvxcgEH7dhDefBbDuDC6M50r6yGpWljAwidSXeexiVomRsK
-         fxB45dH9nKnQRTqsiwrX7lRPH8TouRRGCmMkczkzpptL9PZOJDfAAIvVkReHdYdyIfsE
-         2Ynl6q4ISOH3sR5KCGuyx2XwPR1XjBBuowVrUL56BEUP0iU4hR9y8CE0LEw1YDTwEgBH
-         C275OzIu5jruFwIcsqyly1tVZcSTeyYsaKjilbZLwDb4mALz6vj0us2OSqxQYLq6pARf
-         WD/Q==
+        d=gmail.com; s=20230601; t=1731985238; x=1732590038; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+vaaAwP82EEkak3EibruVYmycrwaT2pwi3dqccRnO+0=;
+        b=XRHk1KiQv/ZRA/uAs+SqRA4bAFWRZiRkBE6XcMllMPfS1OGQQcB81wVqLXq4D1jbWR
+         fzO9VPbi3NR3azd8G3aoOhyPduAcns0MrabPdplW/MgD17PJDjj1MuTuOojT0G6Fq8r9
+         2HT2r+imbDmvPJ7uHR0Nny3fiXmA495ZwldJ6pheYrV7BtGzSaz9uX8tv7qRCk7hUPaI
+         JbldVGH/7S30+sxXzXxJD5qrhrCYwWxmzGTZBNeZ+eDY1/W3bz2Loly9FXmnccla+sgz
+         ParfmFTmlGw4fxY0mXmvq4bq71VU4UvqI4tVHy1Sxk3WiYZIQ8EwnckiFPIcCLdd41rO
+         p4Mw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731985236; x=1732590036;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=J1hOThp0u4KkIhCVtLoJEiqxjdPOsJLC7BccGXL9jCE=;
-        b=YFHu1yZr2nT/8W9sS7ou4Tdhzcs0LMLHzshqJNO28NAwalNaNdOJ8t4MMt6mr8LDTA
-         UQ3DZ5+pnHQoiwG0NLRiYyHLKY5ClV85UR/bOkSMqKm8tt3kGAvdqVo2BovVYp4UyuMt
-         o81kV+UTGF8TppAboMl+k/n9oO99oatuQMhs4IqB3qLqf4rBa196pbd8FokUARHO62lx
-         SaNtXY2iH47iREye7dEavwyiCTHXzy+8NNmwp+ksLiUVko1iCibCAxFMQsCe3Af6dQnl
-         916iDIVLiqD2zZnlIfSs93u/VVoZ25Lh9//oKZVJOj3tt1KktcD5N8iGhHrixACbpiHu
-         +U4A==
-X-Forwarded-Encrypted: i=1; AJvYcCWM/cTu0nzFOgmdcupu4RHBKtHWZWyeQm/jbiAFnHwWEaBCSbXC1pNmvSFb8IPgGLJZILUe/H/yeTk42Al1KIHk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEq053cicdZqjiu8ydTv0FwKaGBDmSgXVetqaMYj75SY1RSEUb
-	K1cfMW5wNsfz51RR5vQZ42R2plnDMxI7tcFUAyumF2NssMllGxSN
-X-Google-Smtp-Source: AGHT+IGKlIRFA/JCEBusSyrc7OfG6NQ5YDS4enGmbxctQfmlSsnccIVXGFL1ug5k6eDj8VaeOzV7bA==
-X-Received: by 2002:a17:902:d4ca:b0:20c:f3cf:50eb with SMTP id d9443c01a7336-211d0ebd3e9mr222502395ad.44.1731985235603;
-        Mon, 18 Nov 2024 19:00:35 -0800 (PST)
+        d=1e100.net; s=20230601; t=1731985238; x=1732590038;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+vaaAwP82EEkak3EibruVYmycrwaT2pwi3dqccRnO+0=;
+        b=jCU6NKKCi1ydnBo969fVekcPAaB17+x9UNacsfgibSL3Kt7XCQSIYDNwyBDupOYVhc
+         XBXyVC8gcpdB5UC7AjdPVkvtitKaJBx18kqk7u8hUw3JJPcIG4j5HGFkmWp450tNcL+l
+         +1je/UU2VrNOXLTRvo8c3tePbdxSW94FV8vYnus8RpUEyQWGPWWOYzuWITeEF9WsLYkB
+         bn5GbLv9Wg1viO5Kp//Xg6jRmre8EGZR5JKbp5hndZ41hBBQ6eyM8mufCPOBuN/s6061
+         /9c3+kR46Xy+etOe5JuASMct7rS6VQRtCy0GWOCkM19ItrInTw6ERI7hxk2w7d0Oard4
+         sH8A==
+X-Forwarded-Encrypted: i=1; AJvYcCXiqaSfbmy36hmXD6vM820abK5E9Aie+NVPXcJdvZahXHRru/1iK/fbdT8QmocUqEm48v6/vKoyom5uimVrwFE0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFwQ4VA+WBDThIdXXM9ObV2ElEDLRtvulBg9U6l+SV0oP/83bo
+	WMGaKnaHF6nSv+fOIWMfckjE/4SfwLGhgGixicEBNiVpB/pbJUZfsplyElJZ
+X-Google-Smtp-Source: AGHT+IFVHX6iGXJ6c8Im0zcXAzR6FVVI8K8MQVMSFY/Le+InvoR1Xuwz3DMH5i/H8I5J9enh6cMEHw==
+X-Received: by 2002:a17:90b:3a43:b0:2ea:3d61:1848 with SMTP id 98e67ed59e1d1-2ea3d612074mr10645022a91.34.1731985238131;
+        Mon, 18 Nov 2024 19:00:38 -0800 (PST)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21210fe87f8sm32760785ad.29.2024.11.18.19.00.33
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21210fe87f8sm32760785ad.29.2024.11.18.19.00.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Nov 2024 19:00:35 -0800 (PST)
+        Mon, 18 Nov 2024 19:00:37 -0800 (PST)
 From: Ming-Jen Chen <mjchen0829@gmail.com>
 To: linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -74,15 +76,17 @@ To: linux-kernel@vger.kernel.org,
 	krzk+dt@kernel.org,
 	robh@kernel.org,
 	dmitry.torokhov@gmail.com
-Subject: [PATCH v3 0/2] Add support for nuvoton ma35d1 keypad controller
-Date: Tue, 19 Nov 2024 02:59:52 +0000
-Message-Id: <20241119025954.4161-1-mjchen0829@gmail.com>
+Subject: [PATCH 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
+Date: Tue, 19 Nov 2024 02:59:53 +0000
+Message-Id: <20241119025954.4161-2-mjchen0829@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241119025954.4161-1-mjchen0829@gmail.com>
+References: <20241119025954.4161-1-mjchen0829@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_190036_930284_7F0E9C6C 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20241118_190039_330156_163FF0E8 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,43 +101,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds keypad driver for the nuvoton ma35 ARMv8 SoC.
-It includes DT binding documentation and the ma35d1 keypad driver.
+Add YAML bindings for MA35D1 SoC keypad.
 
-v3:
-  - Update nuvoton,ma35d1-keypad.yaml
-    - Removed vendor-specific properties and replaced them with common properties
-  - Update ma35d1_keypad.c
-    - Modified the driver to reflect changes in the YAML properties
-v2:
-  - Update nuvoton,ma35d1-keypad.yaml
-    - Fixed warnings and errors generated by running checkpatch.pl
-    - Removed the previous version's properties and rewrote the
-      properties in the Device Tree schema.
-    - Renamed the Device Tree binding file to nuvoton,ma35d1-keypad.yaml
-  - Update Kconfig
-    - Added COMPILE_TEST to the depends on line in the Kconfig
-  - Update ma35d1_keypad.c
-    - Refactored error handling within the probe function.
-    - Fixed the mixed use of devm and non-devm resource management.
-    - Corrected alignment issues in the code.
-    - Updated suspend and resume handling methods.
-    - Fixed variable naming to remove camel casing.
-    - Used for_each_set_bit() to check key states.
-    - Modified the code to align with updates in the device tree binding
-
-Ming-Jen Chen (2):
-  dt-bindings: input: Add Nuvoton MA35D1 keypad
-  input: keypad: add new keypad driver for MA35D1
-
- .../bindings/input/nuvoton,ma35d1-keypad.yaml |  69 ++++
- drivers/input/keyboard/Kconfig                |  10 +
- drivers/input/keyboard/Makefile               |   1 +
- drivers/input/keyboard/ma35d1_keypad.c        | 386 ++++++++++++++++++
- 4 files changed, 466 insertions(+)
+Signed-off-by: Ming-Jen Chen <mjchen0829@gmail.com>
+---
+ .../bindings/input/nuvoton,ma35d1-keypad.yaml | 69 +++++++++++++++++++
+ 1 file changed, 69 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
- create mode 100644 drivers/input/keyboard/ma35d1_keypad.c
 
+diff --git a/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+new file mode 100644
+index 000000000000..9ccd81a2574d
+--- /dev/null
++++ b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+@@ -0,0 +1,69 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/input/nuvoton,ma35d1-keypad.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Nuvoton MA35D1 Keypad
++
++maintainers:
++  - Ming-jen Chen <mjchen0829@gmail.com>
++
++allOf:
++  - $ref: /schemas/input/matrix-keymap.yaml#
++
++properties:
++  compatible:
++    const: nuvoton,ma35d1-kpi
++
++  debounce-delay-ms:
++    description: Debounce delay time in milliseconds.
++    maxItems: 1
++
++  scan-interval-ms:
++    description: Scan interval time in milliseconds.
++    maxItems: 1
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - linux,keymap
++  - keypad,num-rows
++  - keypad,num-columns
++  - debounce-delay-ms
++  - scan-interval-ms
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/input/input.h>
++    keypad@404A0000 {
++      compatible = "nuvoton,ma35d1-kpi";
++      reg = <0x404A0000 0x10000>;
++      interrupts = <79>;
++      clocks = <&clk>;
++      keypad,num-rows = <2>;
++      keypad,num-columns = <2>;
++
++      linux,keymap = <
++         MATRIX_KEY(0, 0, KEY_ENTER)
++         MATRIX_KEY(0, 1, KEY_ENTER)
++         MATRIX_KEY(1, 0, KEY_SPACE)
++         MATRIX_KEY(1, 1, KEY_Z)
++      >;
++
++      debounce-delay-ms = <1>;
++      scan-interval-ms = <20>;
++    };
 -- 
 2.25.1
 
