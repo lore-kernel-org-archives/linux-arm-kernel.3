@@ -4,177 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324ADD6C290
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 19:52:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA985D6C290
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 19:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L02xQI8CqGMvu/Xott6SAD1YcJnHf27P2jsLGw+ynKY=; b=zrtxpcnDjP6jK5yeAdLPwNgC3R
-	/4/rkNtj2lfqv+WgM7DgMG3BDss5Qom8dlsZfXQx/h5DY9I4hfK0S+wX78nCuqoZbuwWmId4qXd8R
-	5Q+oBp/uVH1WXgAIRV8GG3tiobJpD64DIZXEC7PEsPyo9RfScCZYW7PywvF94g2u39DwZOOPkrpmw
-	IMIxnR4ta99lE+XcVMgGv3rMe+R5lTTgRTFNbK2yyfo7bq1AEkxvxInsruTUds1xvW36LiNGr4dPq
-	GP/neoatzcfD9LhQbUo4komtlXuxM5GeeZBREqIVhysSGWlnFW2uKRK15g5ScIcOSpjY+FaN5FMYy
-	lEbHpuEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=psRyF88Lgs3hRSIlO7wrFe0tOotT7zyqin9CJPdcNE4=; b=XMRuDPU0+9W0eiauAQhduiq6qV
+	341tr49P6RaemXdgEdgdYz2C7tEWHSs6YxiKEM+4pan0ciTlMentE8Xqhl6kDxvdthntMRU+jmrwo
+	LEdaLqnGnqBMMAdoeuWFyGvbzwPsBK88+L3xSprWqqE8nww2oHOT2F/OcFnCMexGLDEa3n2mRiSUs
+	gjnFQzNrMqEeYAoDpWnutMELwy2QjcCwVKCb2wPK7kx0FTg1DqCdoZ9pgnEaKyUx7SMTjQTk8sSnC
+	/U6ms2tQaxu2u+/yK7fRIhOo+QDayXKqf0J4FETrAeOLM+BJNr/wjjYFZACZDdwiBlkqJffeC+zkx
+	eWkQ0wKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDUGp-0000000DbDg-1Cni;
-	Tue, 19 Nov 2024 19:52:19 +0000
-Received: from mail-dbaeur03on20612.outbound.protection.outlook.com ([2a01:111:f403:260d::612] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tDUHi-0000000DbP2-3nIi;
+	Tue, 19 Nov 2024 19:53:14 +0000
+Received: from mout.perfora.net ([74.208.4.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDU9x-0000000DZZW-36Kp
+	id 1tDUCg-0000000DaHS-3ceu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 19:45:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qMyUQHftAbEqaz4D3/FUQTGQzGzCzf62tVdlP0tPB6rhWdWFsle8ZiFlfp/z82eZfnhsGvnhGmhcKxJVBOkWoAOrN4KddEHZpFWWwvsAoNNGNfs7A7f0DceEhMSdiL7XWsU9SBgaAQj6FBEPpAa2GFftaCoG4Fzctyi+H33W9W4qO7Wbm79HyN3bkyMjjdOMLBzSAYhb6QS75yZYULryP06P0S6xS00b9I1bCtZIFaqDJFm9u5FYR1iQfotcEFsIb/uVEeT3wvd83VPAOKQjIgtz5mV0N8BCIbEcADbzbxm3JeBETUE5FDIQns1pXaSA9WNTiQAP50gTiLVZ77iIag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L02xQI8CqGMvu/Xott6SAD1YcJnHf27P2jsLGw+ynKY=;
- b=sPHpX0Hq1E/5XgiCIqkk/+GZsdLipcZ09aTKO7fd2+bFf2gyAi25t//9p8f4swT2yQM9oM0vN97xxOS6+8KNx2AsCWwZmflDOaJ5gVrlogIHYPr73xoNFFNDA/TbKGCltvBiuGeuUh2QHlC6/4xcsz2GCfGLc8SHhsh5oKZwOu3Nc6WIYtffdAZ35Nyht1nSOaKXJ3nG5CJ1rk1HNAH5y1h70tcJqdQrkFWEVUA1/mwmLdqrvn6kPeHZvYM7NH5CEivoELup95Sx4Fj+xxqAK098VIBbakmdBu0CIM4VVfiRo2SZFNR8s9qE4knfV6Uj4xaH1lJ0R3dKmE5amZ6kmw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L02xQI8CqGMvu/Xott6SAD1YcJnHf27P2jsLGw+ynKY=;
- b=iId3zEjRBJIpCymv3E28zXpQYv5o3XkQRx25nvmzsAHPi3J8anUdcc7YtsWop+PDqC5P2Mj/PR2ZR+5/Q7CiOoKgZQjV9MNl426Pf+URC9wNvOp4nNgwfJnnK9z9uYbSX/lnvE6sj14vKN5g1kdcAaRKuNDDhj+GlE52rjXNPBnIJ3BQmcra5K9jC6o1RJQfQSLPQtzFiFBgOuyDlaTcAjm96kI+j0lce5LxMU8g7suX7mj572bmd78uq8kxKaXKNHOcKfWV38c0BzCEdgujEMoJolckscA+cdVAdmOjD5A/GPGqAlji1lFy/bJk2JKbIaXASXgQb9TMnv0240cvdw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DUZPR04MB10014.eurprd04.prod.outlook.com (2603:10a6:10:4db::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.23; Tue, 19 Nov
- 2024 19:45:09 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8158.021; Tue, 19 Nov 2024
- 19:45:09 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Tue, 19 Nov 2024 14:44:25 -0500
-Subject: [PATCH v8 7/7] PCI: imx6: Add i.MX8Q PCIe Endpoint (EP) support
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241119-pci_fixup_addr-v8-7-c4bfa5193288@nxp.com>
-References: <20241119-pci_fixup_addr-v8-0-c4bfa5193288@nxp.com>
-In-Reply-To: <20241119-pci_fixup_addr-v8-0-c4bfa5193288@nxp.com>
-To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
- Jingoo Han <jingoohan1@gmail.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
- Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732045469; l=2548;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=mbHe59tkIpbHTtvY3w/H80mU68bHhQgeFO0tnBttso8=;
- b=s8zSC1wVV41AI86MzbTvnNDCe+Z8XvF9S85E+UaQQbDhYDbZkgOb+t8zjBVPlKUYzwzLYX+1y
- hYuk1VmUiZvCBQjEUR43aRvHcrRiY+707uRzoIMZKJgS7iCtVRIH1Ob
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0PR05CA0009.namprd05.prod.outlook.com
- (2603:10b6:a03:33b::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Tue, 19 Nov 2024 19:48:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=finest.io;
+	s=s1-ionos; t=1732045652; x=1732650452; i=parker@finest.io;
+	bh=psRyF88Lgs3hRSIlO7wrFe0tOotT7zyqin9CJPdcNE4=;
+	h=X-UI-Sender-Class:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=zPOMX9BAZd8AS/wZR7mhpcqxF14qxHW90ALGb8ayWPTS+e4qc81jXbmECGzo79zg
+	 +JfzIH6KsljVW5VeXYaskddQ1xOn1myr3o7zMXP6lon/l62vIe5O7COHLNixq9oVr
+	 e+9ebK/nZPDJOPgBQBFR3T2sjBB45FZhgLHRo2EZm7iI0+5euJc7bsSVJBFg6cubv
+	 nL59nc6KOMs2hbZ//kWtBDkJF3aoBslkGOFCX+aIGMry/P2ro6xVtg1VUPPclnRnT
+	 yuRrfWgRjgq7LpigRZVidECyM1Bs/xQ7BXWGDGQV/UlEv6CE5UnPywNvthTPw23Wh
+	 E5qdSmRouICUNH1J6A==
+X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
+Received: from SWDEV2.connecttech.local ([98.159.241.229]) by
+ mrelay.perfora.net (mreueus003 [74.208.5.2]) with ESMTPSA (Nemesis) id
+ 0MUpdy-1tEUmm1ruW-00Uouj; Tue, 19 Nov 2024 20:47:32 +0100
+Date: Tue, 19 Nov 2024 14:47:29 -0500
+From: Parker Newman <parker@finest.io>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Paolo Abeni <pabeni@redhat.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jose Abreu <joabreu@synopsys.com>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Thierry Reding
+ <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Parker Newman <pnewman@connecttech.com>
+Subject: Re: [PATCH v1 1/1] net: stmmac: dwmac-tegra: Read iommu stream id
+ from device tree
+Message-ID: <20241119144729.72e048a5.parker@finest.io>
+In-Reply-To: <f00bccd3-62d5-46a9-b448-051894267c7a@lunn.ch>
+References: <cover.1731685185.git.pnewman@connecttech.com>
+	<f2a14edb5761d372ec939ccbea4fb8dfd1fdab91.1731685185.git.pnewman@connecttech.com>
+	<ed2ec1c2-65c7-4768-99f1-987e5fa39a54@redhat.com>
+	<20241115135940.5f898781.parker@finest.io>
+	<bb52bdc1-df2e-493d-a58f-df3143715150@lunn.ch>
+	<20241118084400.35f4697a.parker@finest.io>
+	<984a8471-7e49-4549-9d8a-48e1a29950f6@lunn.ch>
+	<20241119131336.371af397.parker@finest.io>
+	<f00bccd3-62d5-46a9-b448-051894267c7a@lunn.ch>
+Organization: Connect Tech Inc.
+X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DUZPR04MB10014:EE_
-X-MS-Office365-Filtering-Correlation-Id: 97664a82-7382-4f8c-661c-08dd08d2aceb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cjVJektGV3dkdG9GK3RBZEcvL0FBUmFNRkRSbDFqS2RPbkE4R0ozTE5DNjJu?=
- =?utf-8?B?RDFjRU45VS9qMXhiaHJvcWtXVnd4ODgxL00zL1hLWE53dVJ0THJSNmZtQUlB?=
- =?utf-8?B?VGZwTHN6Nk5NVDlSTTVETTltVFdiSHhGZytBN28vS0lmdmJuSXlDMDllb2Yx?=
- =?utf-8?B?dTJwbU5sRlEyUjRBQ2diQ0FMVGVqNUFVeUhjUFNBWVNoUEFQZEYwYWJGZGVx?=
- =?utf-8?B?TmVGWVBvdTdSQ3hybGF5ZGRaUlhlNk9BWG9mYTNTVlRtSlpSN2Q1aUNuMUVn?=
- =?utf-8?B?ZjM5bVBzNURpZTVZSU0yTXNCcjFkL0ZLL3NBRWF6OGM3RVFFL3JUWnFEWFRZ?=
- =?utf-8?B?Y2VKWjZYaXpjdW9PM3RFT00ySHNkMHdrTlo5N2VzN0VPR3JrWlJlZy9uelNI?=
- =?utf-8?B?Z2RRV21GdnBwRkk0bkRBTXVXZytLb1daOUV0Z1V1VlZUenV0Q01lU1c0ZFN5?=
- =?utf-8?B?WXpHS3RhdmhiNDlJME1NRWVsTHJsWCtHcHNJbHhwYkpRQVdSQW10aXo4SXkv?=
- =?utf-8?B?SGFLUlo5UUU0VHVYdGpFOHhhN0pmNWtRV3JqS2Fhc2V2R0sycXorQ0J0bHFm?=
- =?utf-8?B?enJLdGFOWlN1eFZ5eWNyL0VJRlRmVGYxMFgvTXlweGtIMzZVbDRteFR4YzNM?=
- =?utf-8?B?UDdsVklZRE0zY01KYURGd0Z1Q0F4N1huRlFOUUdZMFJUZUJ0dnZFQzdINzhq?=
- =?utf-8?B?QjQ4bHNkaTB0TWsrWUQ3UzJLbG1qSEl4SWRqRlRFbnRYZFpHYU9ReTdaMU9n?=
- =?utf-8?B?VC9KMVRvSkplU25ZTXUyV3FyMUlueWw3cG5mM3NPVmNRblBJbkx0OEpQcHhC?=
- =?utf-8?B?Y3NRWVRpS0V1MTdXZm0wSTY1ZFNUMHQ3ZUYraFFXWU1NakNXSCtNczZZUndG?=
- =?utf-8?B?M0tiRzU1U0U5QjNBc2UvTHltbDZjU0NXVEdId3ZFQThqUDhmb3hudHNMSnlm?=
- =?utf-8?B?V2lJVUw3M1kzSXBLWko1ejJoeTFSdTZqVFBYcDlSMjFZRVJ3WTB5TTZ3WDk3?=
- =?utf-8?B?OEovVTh1WVBTOEM3ZzdVYktqSjgzRlByVVRsajFROUN1VDFOM3MwMkpKcHp5?=
- =?utf-8?B?VTZLTHoxNnVWSmxhS3J3U1RHSGtQUkp2UW1xZ0lhcFJJNjdNNjBnV2NiSjAy?=
- =?utf-8?B?cmJoeUVBaWhHckpDMEtpZElnUmFsYkJBM3FGWFlGVXRFZGxsajU3eUpNU2ht?=
- =?utf-8?B?WkhPdStOd2o5SGtpc3VLb1dWZlR6SERsWS9PWjZaQmFLcnNUZnFVaWZ2ZHZU?=
- =?utf-8?B?cWw5aWZFV1BMcDN0R2MwOENKdUd3NzllbUVrNit6VlZhalNoQVQrcWtjVVlV?=
- =?utf-8?B?a0xpdzFkYUM2RDlsajV4UHpySzdGZDl0NVZMVDd6M20za1R2RlVMYTRCTE9S?=
- =?utf-8?B?S0REWGE2NDlmUWI1N0VvZFk1bmxTKzhwa3pJVW9HVkp3WnVLSmdrQ0Z4M3ox?=
- =?utf-8?B?eThZZlBTMnpOTWxqNnhqSERWY3hnQkhobW9nL0N3SEdiZWkwcVkxWTVCVWNR?=
- =?utf-8?B?TDRnZWlDc1l4dEJnTDZYUnRvb2JML0d2bURsQWxYSTFqOXkrcUtIeVdiV1pQ?=
- =?utf-8?B?T2NOcHlWTDlmTGVMTW5sbzB1TWg5WmtwcGsxc1RzcjJYSlc4UTdBSHhPeVRz?=
- =?utf-8?B?bjJ0b2pQVHEwV284WG9yeXJlK1RFektTNjA1dmVjUVpCM2loOWJ4OWNvMUZT?=
- =?utf-8?B?aXVsTnpFSXcwTFhPVU43UlYrS04ySThGOHFPMEUxRHlyYkNHczRpWXdWdm80?=
- =?utf-8?B?QVZwdGJEeUc1S29tUUpReVMzOWNLYmo3eWl3MzBLZlBVOVM5eExYZHJKdy9q?=
- =?utf-8?B?TDhQaEd5RzE3M1E5emV2R0E1UUl3MlZBQ3k1QUFKa1ozb1RIa2t6RWNaM3VK?=
- =?utf-8?Q?MAw3ArUFJQKd8?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SHgvRHlqK1h1ZU5nNitsc2ZXeUt0MzQ4OCtWVXJRT3gvTWxzVENFNDdSN3lR?=
- =?utf-8?B?SkhybW9FVjFaVWJMcWRuakZtdzA3ZTEyaE0ybzZVUkZ1d2pUNlIzUnViaU0x?=
- =?utf-8?B?R0J0VWxvdDRvODFEVlV5T1g4SXp4UGN3L3hGSExUbFlNNUdvOWt3cXpIRnhr?=
- =?utf-8?B?RlpCOHhxUkxpOU0rdWJSaW95b1hoWUU3L2JJZGUydVgrZ1NqRC9zTkE0eE1K?=
- =?utf-8?B?emVGVHM5NlMvaE1oZ0NOYU9PQ3B4a2hOTWVncVpZTk9CaGllSVJzUm9DUENX?=
- =?utf-8?B?cXhNM3M0ZkhvdStsbFNUTWZFdzNucnBmbVcxekxqU0tDVjZTdlNvSU8xOEZx?=
- =?utf-8?B?djV0ZHZ5ckRaMVlDUVBpU2hCVWdLbEpUNzBoOTZWb0VUSUROYlhlQU85R3hR?=
- =?utf-8?B?VUJjM1Z5ZGV1S2pmcmhsVXY0cUlOV29HZTJxeFdoSG0vNlJtNzVIMThiVnFs?=
- =?utf-8?B?RGhqMDlmRmNOZzVJdHdxejZGRFFqREJFYWhmM014Z1B0OHU5eXJjZUFvUDc3?=
- =?utf-8?B?OHdRK2FnWGdLNWw1a3dMajJFaUV3TXRtQ0pQcERMdklWRlV2cVRiVjV3UHl5?=
- =?utf-8?B?c09nUWx2bG5XVFRiTktTZGVFRUdPbW9yOEVGbGVWWHkrcUFYOVdRMmxiVVZs?=
- =?utf-8?B?eUJNNldtU3JNd0piNGFFRVlLRVBlSjM2K05KMXdLa0o4aERSdTBZVVFGVXRG?=
- =?utf-8?B?WTRHRW1BaGhJdDNGZ3RiRUIwemxXUkM1cGhvOXRxOHp2aXdTb1UrNHk4MFdJ?=
- =?utf-8?B?ODdOWXFvc041emw0OHlMdS9HR3FUZWc2TVhMVEhNbkdaTW00ZHZ4ZlQ1YVgx?=
- =?utf-8?B?QWo3SUpoMHJPREFNK2NBclBOTzZBaklvY1M1S3VkMmI2WDVCRXJ4OE9BT01S?=
- =?utf-8?B?azdkbW9JL3d0SVpWWlZHVjBzSzlqQWxxK0xoUnJ2dEcwOGxCSklMNHlaMWtL?=
- =?utf-8?B?STFvcmovYldaUmZNNkh3eEJzb1BUZWZETUNZYzlGVWtvSTZnWjlmdi9kYjd4?=
- =?utf-8?B?b1lhZHREMHlSUzVxUm9DdGYrbUhFdDVVTWtkZVAzaFZEUENpSUh5SzdvelND?=
- =?utf-8?B?K05aK3NLM0RSVjVvZ2N1eG4wZG9hckQ2QXNUK3VRTmphdFpvVFBqclA1akVL?=
- =?utf-8?B?MWgzMnNRRGxuV05ScGVQTzVSd0c5a0NFMThVcW5MYVArTkZKZENTWlcvM3V4?=
- =?utf-8?B?ZGM1cE5NRklpUEMrV200U2d3cUUzTkxNRWQ4Wk5LcXU5bEl1ODZsRTN2dCs3?=
- =?utf-8?B?YThwS2IzVENrTmRnampRazI1c1dRanN3TktnRWliY0Yza1FSWC9tYnBhR2o3?=
- =?utf-8?B?OHVELzRWUFZZcTFvWjRRYkdkdEM3N3FyQXVwcUQzQUwyNDcyVmZBVTc4eGt1?=
- =?utf-8?B?TDFXOW1sdjJiVm8vTmFFcUY1TGtIeE1MNkZSRE9Ja2h5ZUtFZktOVFdYRkxa?=
- =?utf-8?B?NC9tb29DUkZ5U3QxRk54Um8xb0doazhjcis3MXl5aG9VWGhWRlpNNndqRTdr?=
- =?utf-8?B?N0o2SnRaT29FemJ1SXBGcXJaL3IrUGZlcy9ZMkpIaFkrYWI4K1pRQzZhelJY?=
- =?utf-8?B?RjhuMzRwYktQZURBUi9HWk85empVVFh2b0liRUxWaWVzZTdyK3BEN1dHVyts?=
- =?utf-8?B?VDh4K1NSdCtsZmJnZ0NVV1h2T00xOHA4UDRKYnhJR3hVVFhldTdvM3lxS1Bo?=
- =?utf-8?B?ZlZCZTFwd2dzN1ozYmo3RVRVbHhUa1lPSDlULzJNTmxZY2xSTXlzYWdJTkRq?=
- =?utf-8?B?bHVIWVp4djdzZGdUcjZISVFmSUZEeDM0V2xVUnBYdVUxODVXQkM2VENMWHgw?=
- =?utf-8?B?MFc4emwyUWhqeDBMY0JCL0srZFlsTHlHTHlkY2FHcDVvVWt5ZElBTEs0MDZx?=
- =?utf-8?B?UkJhRmc5T1lwSFVSVTNuRHlTRWhScUp1UzlKR09kRHFjTjFaS1E4Yndua1Nn?=
- =?utf-8?B?ZE1WaTl4MzJqMXBuV3E3WDNuVHFqYzJNSG40b0kvTmlTNmNyd01qVW9uSGpn?=
- =?utf-8?B?WXlGbmhRZE8rNno5bE5kbkVNSTNOVW8yQmRsN0wybU1FdGsyS0ovTWMyczhX?=
- =?utf-8?B?RHM4QnJ3Y3dGdTl2UnBiVjh4Z3RERmZhR29kT1FWcWtaM0w4eFZoT2lzcmpj?=
- =?utf-8?Q?awv8=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 97664a82-7382-4f8c-661c-08dd08d2aceb
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2024 19:45:09.5248
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: d1/zzoPF1jcGfQUTur3z25o48loXrecIP4G7FWte5TGJr/KqpsHaxD1XXtmiBG52vTubhOrrYs/yx/JJPd2nMQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB10014
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Nxu9rCdnIdW3P3qv7y+GUlOIPEyiicHtMkFAMxXbfvmXszGgWhq
+ gytl6783/qhiYLAevL+5SRNu1dIjK8X5lDnRB5bmAt5lUmQ8G5PUYRElqKIxTnncpv8lskl
+ FY1iHU9NHFl+nmPHbXA+tUrcMj1jNYH7GHtd+fQpalFRF1WKk5isUyPVv/GkblnDpTpe0j+
+ ySk7+CTMlKlcg9c9UylKA==
+UI-OutboundReport: notjunk:1;M01:P0:IeTAM+Wzek0=;+TNVcZ5NOiYCiXgQHseq8IgxQmL
+ KvE5z0B4ZyftUxgXFHiU/EYakeRN04yXl9IUYPk2UeEH1AV7tFa2piWIFRWtH12w9eB/mcu2G
+ JZg7GKMM8YGFiqc5yfiVGzeM4CFFyeAAqxDYWbn9WoQjNe1C8eMaiw0XajULmJZDe4uX7Njnm
+ /KN8VbIJtx1LhD9pkcyJyqHgBmlltSw6WxL6LmQcmhHaBXXSqjqZLqYpUPbUzkoonOpS+F12m
+ Ryh+0fqnG6vae3EC0SmcfFhpBW++7bYP65crB3MfGHGP77favBbt0+Bphslji26RTjm9y3JoU
+ RiY8fBnxXDa6RwKy1/5sXozMg29yXACBK3NrKoRv4Lni5lrORgllTzUmz52e/1eXclKYE/RsD
+ bKZXwmFSJZpKwfqMr+NFhEihBI4vRuZRKMhwWcLnX1SQ1v5+4x1dtgWxPKI9M1uMF06MyNqq2
+ W6hQYuepFsvgfk1vFx5R28US59P2ZdJND38etpcOj5E1OznyMK/WcnTEDtCvzpeDVkVgZfj4y
+ O1EBrfifSgZ+502mc21SyPdbljqlUjrishtaFvP83VTm/8JpPBCrPdZM7CK2OP6p3D6VVWyxG
+ uMjCuvQMgIsu8rPoIFjEOPEew7/8dbmHEglfBOtxZDHhnFQ/Jv+r6MsGMVu1Krv50jK1PAVay
+ K00UWgJtI4/O7O7LJeygh5dfEtGaFL9a2kilgvQs+ejuPADFX76WChAGmDgVeLtvOy6TbNpQy
+ lXpgxC2mcOZd0/TBjHvRHDu5pWdS5xUQmhDWR3FoKUyXQXF7rn8rpg/6jVFwTuwB8cC3yi4tS
+ ziVHN/ZisJoo2SVXdEcKOj30zDgmqFlSwL6QFOIA8chB9ZCJgMPH3wOyTvJ6y9deJ2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_114513_786261_EBD1FCA7 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20241119_114803_138235_B2EDE8D3 
+X-CRM114-Status: GOOD (  22.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,78 +108,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for i.MX8Q series (i.MX8QM, i.MX8QXP, and i.MX8DXL) PCIe
-Endpoint (EP). On i.MX8Q platforms, the PCI bus addresses differ from the
-CPU addresses. The DesignWare (DWC) driver already handles this in the
-common code.
+On Tue, 19 Nov 2024 20:18:00 +0100
+Andrew Lunn <andrew@lunn.ch> wrote:
 
-Reviewed-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-Chagne from v3 to v8
-- none
-change from v2 to v3
-- add Mani's review tag
-- Add pci->using_dtbus_info = true;
----
- drivers/pci/controller/dwc/pci-imx6.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+> > I think there is some confusion here. I will try to summarize:
+> > - Ihe iommu is supported by the Tegra SOC.
+> > - The way the mgbe driver is written the iommu DT property is REQUIRED=
+.
+>
+> If it is required, please also include a patch to
+> nvidia,tegra234-mgbe.yaml and make iommus required.
+>
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 5303dfc3dbb41..d457514d17485 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -70,6 +70,7 @@ enum imx_pcie_variants {
- 	IMX8MQ_EP,
- 	IMX8MM_EP,
- 	IMX8MP_EP,
-+	IMX8Q_EP,
- 	IMX95_EP,
- };
- 
-@@ -1061,6 +1062,16 @@ static const struct pci_epc_features imx8m_pcie_epc_features = {
- 	.align = SZ_64K,
- };
- 
-+static const struct pci_epc_features imx8q_pcie_epc_features = {
-+	.linkup_notifier = false,
-+	.msi_capable = true,
-+	.msix_capable = false,
-+	.bar[BAR_1] = { .type = BAR_RESERVED, },
-+	.bar[BAR_3] = { .type = BAR_RESERVED, },
-+	.bar[BAR_5] = { .type = BAR_RESERVED, },
-+	.align = SZ_64K,
-+};
-+
- /*
-  * BAR#	| Default BAR enable	| Default BAR Type	| Default BAR Size	| BAR Sizing Scheme
-  * ================================================================================================
-@@ -1627,6 +1638,14 @@ static const struct imx_pcie_drvdata drvdata[] = {
- 		.epc_features = &imx8m_pcie_epc_features,
- 		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
- 	},
-+	[IMX8Q_EP] = {
-+		.variant = IMX8Q_EP,
-+		.flags = IMX_PCIE_FLAG_HAS_PHYDRV,
-+		.mode = DW_PCIE_EP_TYPE,
-+		.epc_features = &imx8q_pcie_epc_features,
-+		.clk_names = imx8q_clks,
-+		.clks_cnt = ARRAY_SIZE(imx8q_clks),
-+	},
- 	[IMX95_EP] = {
- 		.variant = IMX95_EP,
- 		.flags = IMX_PCIE_FLAG_HAS_SERDES |
-@@ -1656,6 +1675,7 @@ static const struct of_device_id imx_pcie_of_match[] = {
- 	{ .compatible = "fsl,imx8mq-pcie-ep", .data = &drvdata[IMX8MQ_EP], },
- 	{ .compatible = "fsl,imx8mm-pcie-ep", .data = &drvdata[IMX8MM_EP], },
- 	{ .compatible = "fsl,imx8mp-pcie-ep", .data = &drvdata[IMX8MP_EP], },
-+	{ .compatible = "fsl,imx8q-pcie-ep", .data = &drvdata[IMX8Q_EP], },
- 	{ .compatible = "fsl,imx95-pcie-ep", .data = &drvdata[IMX95_EP], },
- 	{},
- };
+I will add this when I submit a v2 of the patch.
 
--- 
-2.34.1
+> > - "iommus" is a SOC DT property and is defined in tegra234.dtsi.
+> > - The mgbe device tree nodes in tegra234.dtsi DO have the iommus prope=
+rty.
+> > - There are no device tree changes required to to make this patch work=
+.
+> > - This patch works fine with existing device trees.
+> >
+> > I will add the fallback however in case there is changes made to the i=
+ommu
+> > subsystem in the future.
+>
+> I would suggest you make iommus a required property and run the tests
+> over the existing .dts files.
+>
+> I looked at the history of tegra234.dtsi. The ethernet nodes were
+> added in:
+>
+> 610cdf3186bc604961bf04851e300deefd318038
+> Author: Thierry Reding <treding@nvidia.com>
+> Date:   Thu Jul 7 09:48:15 2022 +0200
+>
+>     arm64: tegra: Add MGBE nodes on Tegra234
+>
+> and the iommus property is present. So the requires is safe.
+>
+> Please expand the commit message. It is clear from all the questions
+> and backwards and forwards, it does not provide enough details.
+>
 
+I will add more details when I submit V2.
+
+> I just have one open issue. The code has been like this for over 2
+> years. Why has it only now started crashing?
+>
+
+It is rare for Nvidia Jetson users to use the mainline kernel. Nvidia
+provides a custom kernel package with many out of tree drivers including a
+driver for the mgbe controllers.
+
+Also, while the Orin AGX SOC (tegra234) has 4 instances of the mgbe contro=
+ller,
+the Nvidia Orin AGX devkit only uses mgbe0. Connect Tech has carrier board=
+s
+that use 2 or more of the mgbe controllers which is why we found the bug.
+
+Thanks,
+Parker
 
