@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3CFCD62073
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 17:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEBABD62073
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 17:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xags3HtajwzYB8rFWwD2d3OARgWaMuwfOJ9fZStPGaE=; b=0yLQhd5hO35k8pXX9lxrf6rR3m
-	Rk2rqLq+01ewQ/HoiDw9Kx2BMHV5zRwxJXk44kNNwhG/ioh3G4WzC0us4KSyc1ANdgnERxmw/cAT6
-	U0nvxC5Nir42yuQvgloTtQ3XtUYDulIWGfH9CL9ogDzijm7MIIuqpBpijWgw+uJyX44MLp4MQJiEY
-	GPSMipgsvuls2vfLjZDhmwVMgQqOfEPLXScZ0A0JRFiUkg/Tm8KF/2U4bdmBqoueqeJtpr+bI1emQ
-	AZ+k68bzN5tSzI2toZiOCm27RWZ3R7Il7ebAj1loxz7KmwV7JAzD7hUIu2gGM2CfJmuGUNLUnwiAF
-	N/U/5nyg==;
+	bh=3fvujAh94U3kGDVymnc9jtTk3gFEdDGf2+Wqo/Pnpo4=; b=FQ3XuGWcCAJTESAdYgZW7a4gzY
+	uZyIR2QVh48cOMMhQnb5c/80lm8UoBjdi+Nuz1NL+S0OYRbj2L6ShhJbnKlgS7m55kmp2aHGApMyw
+	R7yiCqO1GCJ/RpiYyvuU/6MZcXCOJVaYDFHUscYANigGr/NYTU4xducLziERChTkZ5XdTfP+eYQP+
+	5G/izyQ1ZWXeP+rcyZ9Mjj57RQb2GBDx8XhKzvqMVsLXuxIvmsR8TMby3Xa0wWj3qykU3F3iEBU2q
+	zTft92F7gku1TTPTMrTtg4dx01oMN2CPPFqijjt+XGK+1rsMpAR7KwZusMcto0FMRrtGpicmsSmVx
+	qNZxwtOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDRfA-0000000D9ho-1lMa;
-	Tue, 19 Nov 2024 17:05:16 +0000
+	id 1tDRg4-0000000D9rI-07aF;
+	Tue, 19 Nov 2024 17:06:12 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDROP-0000000D5ca-0Mrv
+	id 1tDRPJ-0000000D5q5-2Grt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 16:47:58 +0000
+	Tue, 19 Nov 2024 16:48:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Xags3HtajwzYB8rFWwD2d3OARgWaMuwfOJ9fZStPGaE=; b=t/oTHkHKBekuP5igqonGSGdXJP
-	pNYwmeQqJIwNnP/RdK4eerbSnmVRcfTAGntCxGDyYLzOIJipMTDNAq+VLEhi6TWNnoRcZVtNDHCo7
-	FQAgv2qO6L48/7AdcWssllMXqjDChe/4vUehUIl9YTUO2jvvfSlROmdzd1ry6A3nbIWPYT56OUevz
-	q2WrHO0kfnJsvuJgBAEJM+GfmIi0d47MDih8mUXBGmALB5A6qJtN+647aG7k/tPnfNRPtyM4hSTtZ
-	jpGh+H4jH1bPzXOc5Thp6Y75vUyaLnaFIMiTvV5/qXNP6lZU9BqL89WsxsygkiLF6zsRxMpXr1q7f
-	To13eOXw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51288)
+	bh=3fvujAh94U3kGDVymnc9jtTk3gFEdDGf2+Wqo/Pnpo4=; b=gJuC4oUgF5yfaJf1hVqxnO4d/l
+	nZwoni126YdD7HgeHlxvmxyw3d9qn8oLF6+lLaH8yFtFxQ3bgaydz3ByUBjOZZ7q3YMvIV1Wx4sAF
+	oEWKn3V19Wxmg2ukOUOqO8sBYsaX7CIPNsHoAK0oKCEGSb1hZB2jj4dWmbdIvbFEiGmBBBJfK7OpE
+	sinVcRn/ed+ur58P4MZhOaA3Z8X8cTstuwmTfMZHY9DXB+7ZSUN7EKaknxuyPlR3Q6jIWDWnrs2C/
+	XbI7MA4r4eoXjzkLYZgcHMeyoLajQph4dcBob6+CslmzxPyUL0Cat1OoFgxeF06+8dZMT34FL+pcV
+	tJEL/xjA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36672)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1tDRO5-000426-0a;
-	Tue, 19 Nov 2024 16:47:37 +0000
+	id 1tDROz-00042u-34;
+	Tue, 19 Nov 2024 16:48:34 +0000
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tDRO2-0006Dq-2y;
-	Tue, 19 Nov 2024 16:47:34 +0000
-Date: Tue, 19 Nov 2024 16:47:34 +0000
+	id 1tDROx-0006Dy-36;
+	Tue, 19 Nov 2024 16:48:32 +0000
+Date: Tue, 19 Nov 2024 16:48:31 +0000
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: jan.petrous@oss.nxp.com
-Subject: Re: [PATCH v5 11/16] net: xgene_enet: Use helper rgmii_clock
-Message-ID: <ZzzBJqbmBPsL_E5U@shell.armlinux.org.uk>
+Subject: Re: [PATCH v5 12/16] net: dwmac-sti: Use helper rgmii_clock
+Message-ID: <ZzzBXwZNpCTKvSTp@shell.armlinux.org.uk>
 References: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
- <20241119-upstream_s32cc_gmac-v5-11-7dcc90fcffef@oss.nxp.com>
+ <20241119-upstream_s32cc_gmac-v5-12-7dcc90fcffef@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241119-upstream_s32cc_gmac-v5-11-7dcc90fcffef@oss.nxp.com>
+In-Reply-To: <20241119-upstream_s32cc_gmac-v5-12-7dcc90fcffef@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_084757_146177_7F047C54 
+X-CRM114-CacheID: sfid-20241119_084853_584773_A950BA43 
 X-CRM114-Status: UNSURE (   7.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -79,7 +79,7 @@ Cc: Andrew Lunn <andrew@lunn.ch>, NXP S32 Linux Team <s32@nxp.com>, Emil Renner 
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 04:00:17PM +0100, Jan Petrous via B4 Relay wrote:
+On Tue, Nov 19, 2024 at 04:00:18PM +0100, Jan Petrous via B4 Relay wrote:
 > From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 > 
 > Utilize a new helper function rgmii_clock().
