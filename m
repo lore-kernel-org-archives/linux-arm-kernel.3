@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E53CD62073
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 17:11:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF02D591A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 17:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2g7o3qX8HNqQpFdW0w76lQBmquzjn2sh9zKqXbBe8z0=; b=ITyXuAbTBvcWlNVEvvIXRGw4h6
-	0P06V+nT+LZx+vQZeC71/vF+mQ5hZldtebrPJR62EKH4l5vWTWZe3eZHwpZ5NXAaEl23CBChXBInV
-	jwn/AMJEYMX+2PeuCOiT3L3YCsQgu2m7HVIzBCMElDMzY4kf3nEsv4QxlA+wJFNa87WYH6hMD98FD
-	psbNVcrk9wjxM60TsBZyCfatjNaJspWP7si4+VZvtMW/IKPUd8n4OAlB2CjZUtxUc0t70067Ep3eA
-	hIEu/0AXAMwehYaBcuC6gzoAiP8WcG8AoifFeeEowhCQzW9a2xtU1E2gxJqSj2wssUgvN/JpBRtwd
-	+j5o3Mag==;
-Received: from localhost ([::1] helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDRkb-0000000DAvm-2kPv;
-	Tue, 19 Nov 2024 17:10:53 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDRjW-0000000DAl8-0dtG
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 17:09:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=2g7o3qX8HNqQpFdW0w76lQBmquzjn2sh9zKqXbBe8z0=; b=V+EI5x9fdojHa+anMP+6+G+WQt
-	Jn4L/qLS3VTeYjRZ+pBRZLjIEE8enEx4vn2xbr/luVIYyY6m9nDcQs7pVPOy0lxeGqPvCVMDwAx1A
-	HNMs0PYLQYjSkhPD62Wcj+J4sjXT4LxLIBdYIae6PZhJXGxRDEemHRtx/4aHCAQ2U5jKJM19Crozs
-	y1PG0S6Sjr3H0yCuZN1ohVwOfvvn6D6b2OSeWmvplezsngcROc8iU9+ti2ZvRZoKjtCUwAgXct6vj
-	nVcTMFHA5wpxhl9NB2eNsLGxBwYL4S+6y61wRoLiSm7qyddvniWDjQaqO9JSFFo4xRL+lYoQLvQPF
-	R973z1sQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33436)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tDRj6-00047C-1y;
-	Tue, 19 Nov 2024 17:09:21 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tDRj1-0006En-2U;
-	Tue, 19 Nov 2024 17:09:15 +0000
-Date: Tue, 19 Nov 2024 17:09:15 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: jan.petrous@oss.nxp.com
-Subject: Re: [PATCH v5 16/16] net: stmmac: platform: Fix PTP clock rate
- reading
-Message-ID: <ZzzGO5zgDvIK6JJ_@shell.armlinux.org.uk>
-References: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
- <20241119-upstream_s32cc_gmac-v5-16-7dcc90fcffef@oss.nxp.com>
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=16EZmdeTzu5aRGy0htdqP7z91MkqEv1juDEX8/3VCLY=; b=e+nz34+G1fam1Ji3dnc3vv08ev
+	7ahLezELAN57wGze+DmsmMvudEUdwBRVc0Ya+JiU5QQr3h08pL3hS5sN0KCtL9cOo3Koa7lnVN/KE
+	AhDeOCziP50rXRRgv6R6jJPBB3gO7TRBsrDu5YZqCLsCDKxwgc2D6lBNeqOx28g1/idNtnpoeSWKN
+	2SdYh+HwWJjcCWQHgc5NIz9+lMbTNjUtOPQ2q/qw6/ebkmVASxrDyFMajVNJjPQ2nmyJy7RCjNC5G
+	sZPsHOuw1VwwMnBYGdSfZxflj7WSRBky2V5M6F5rtuMeoc7Fd5FrC6RALWNS2BXfCTv6mvgBbP6s3
+	qe1PF7LA==;
+Received: from localhost ([::1] helo=bombadil.infradead.org)
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tDRpW-0000000DBcl-2mWD;
+	Tue, 19 Nov 2024 17:15:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tDRoa-0000000DBSC-2yvU;
+	Tue, 19 Nov 2024 17:15:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 34EBE5C551B;
+	Tue, 19 Nov 2024 17:14:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A576AC4CECF;
+	Tue, 19 Nov 2024 17:14:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732036499;
+	bh=GN8+TZ7dF+OVIe4W1EKDcGDnhm2IukYPViQYE4iYxxI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mFkNmuFI0VPYtiVbAwXPrbGkTuTUbPU6g9oXTqPo6Unhg+izBDfYIR4zM3nkFGI1k
+	 oOxQL0b5JS3pJjPUiOjTrjYWA2LhN6xCyZYG2TZVtBzk08qRTJM0kJhbVJFuLT+VW/
+	 TbQmcC8SQGV4WUvDYF6C76olltJCaKuhUdRU6eyQk3iiOFpM4i+xYfMVLKPrr1JBk1
+	 S6/0JvVCpvknj1HblDsNHhUpBKeWvNX/SUyXyROAFV6tuaA2b25rdu9Im3V+XdZ+xt
+	 GSV3+QDX00RH+S8AdpGtW6W0XHTOBzM5+xJt7+kqMmhoHHX1k5Tkh3vfidy5b+PNTa
+	 KhiQvZ+qcSIcA==
+Date: Tue, 19 Nov 2024 11:14:58 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>,
+	Maxime Ripard <mripard@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	David Airlie <airlied@gmail.com>, devicetree@vger.kernel.org,
+	kernel@collabora.com, Sandy Huang <hjc@rock-chips.com>,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Simona Vetter <simona@ffwll.ch>
+Subject: Re: [PATCH 1/5] dt-bindings: display: vop2: Add optional PLL clock
+ properties
+Message-ID: <173203649757.1839089.16877007589155949446.robh@kernel.org>
+References: <20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com>
+ <20241116-vop2-hdmi0-disp-modes-v1-1-2bca51db4898@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241119-upstream_s32cc_gmac-v5-16-7dcc90fcffef@oss.nxp.com>
+In-Reply-To: <20241116-vop2-hdmi0-disp-modes-v1-1-2bca51db4898@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_090946_205621_236FF98C 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20241119_091500_788828_8C2A108D 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,61 +80,23 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Andrew Lunn <andrew@lunn.ch>, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, imx@lists.linux.dev, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, Jose Abreu <joabreu@synopsys.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 04:00:22PM +0100, Jan Petrous via B4 Relay wrote:
-> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+
+On Sat, 16 Nov 2024 20:22:32 +0200, Cristian Ciocaltea wrote:
+> On RK3588, HDMI PHY PLL can be used as an alternative and more accurate
+> pixel clock source for VOP2 video ports 0, 1 and 2.
 > 
-> The stmmac driver supports many vendors SoCs using Synopsys-licensed
-> Ethernet controller IP. Most of these vendors reuse the stmmac_platform
-> codebase, which has a potential PTP clock initialization issue.
-> The PTP clock rate reading might require ungating what is not provided.
+> Document the optional PLL clock properties corresponding to the two HDMI
+> PHYs available on the SoC.
 > 
-> Fix the PTP clock initialization by enabling it immediately.
-> 
-> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> index b1e4df1a86a0..db3e8ef4fc3a 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> @@ -632,7 +632,7 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
->  	clk_prepare_enable(plat->pclk);
->  
->  	/* Fall-back to main clock in case of no PTP ref is passed */
-> -	plat->clk_ptp_ref = devm_clk_get(&pdev->dev, "ptp_ref");
-> +	plat->clk_ptp_ref = devm_clk_get_enabled(&pdev->dev, "ptp_ref");
->  	if (IS_ERR(plat->clk_ptp_ref)) {
->  		plat->clk_ptp_rate = clk_get_rate(plat->stmmac_clk);
->  		plat->clk_ptp_ref = NULL;
 
-Looking at where the driver makes use of clk_ptp_ref, it currently
-prepares and enables this clock via stmmac_open(), disables and
-unprepares via stmmac_release().
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-There could be a platform where this is being used as a power saving
-measure, and replacing devm_clk_get() with devm_clk_get_enabled() will
-defeat that.
-
-I would suggest that if you need the clock to be enabled in order to
-get its rate, then the call to clk_get_rate() should have the
-enable/disable around it to allow these other sites to work as they
-have done.
-
-Alternatively, we may take the view that the power saving is not
-necessary, or stopping the clock is not a good idea (loss of time
-in the 1588 block?) so the above changed would be sensible but only
-if the clk_prepare_enable() and clk_disable_unprepare() calls on
-this particular clock are also removed.
-
-I can't say which is the correct way forward.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
