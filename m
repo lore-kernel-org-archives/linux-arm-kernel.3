@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C541D44162
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:04:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B9F7D44162
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zKsLwDZYSF6lY7BlJsp1DW17wGZMg2zz7Ho7vT+uEPQ=; b=LV7Xxm6QAk7sbfHH8J37ViW2zq
-	Jved40BO+UpsU5ZgXPJVR6E+CuLwGFNc/i7abs8RItpaWr5T9COHK7JCpGISS5r81W/5LY53ElqUf
-	JfMkOM+yZbexNcmgSxBNmxz+iRBe3i00CPCOrjp3zFotedJTJJrlblszLKQdIbTMRatAB5SWTqWyh
-	wbOJpKRe6BjpX6+q/6CHRSXRZwrxoK/qDjJ+KlxTpznvVcL2KW5C0Ecpo99Ch2hAt9xnPBdvlTU8V
-	Q8l/8hTB8yKFgSkLtrZo6M/cJfUK/34ssy508KB/1EDn9ewcx4DSBSi+2h1nlDIem6uvUxFPFL3+K
-	PGFrgdTA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CGNlAokFjmhN1EyWyvNQ13rV62s826Uf7N3aP5+qRgI=; b=nX8uMK1easLejmA1Vbc+cEwV3a
+	JbBWTn2AEc94G4kgH6/Pyy352VX1e+RUz72daP1Yc0mhyuE9LMLb/Ml48wBjjRJIN2IB2tf8V79bR
+	dB0Iksq6ye5q/oeF7NHxYpC5bD6W7k7i/x6E/rtttcp+8Ycqn8pUuIqjaVHXNPvj2LiXTWpwZC32v
+	lNFUW0UQDltrRtMWHcVW7j5HJRQsRvw4fvyB1f3YFY2Tt5RgXzpHN8ZCw7r+N9puJs05y53Ale/Qi
+	PK8uJfZb7jb/PNPXsX70MEZZlf4jnFjFwfql4XlZ6TtGY3/8JeMCbFDYEjrwvernCtQ1b5mhtNjto
+	EvUTis3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDPm0-0000000CmBG-2gsi;
-	Tue, 19 Nov 2024 15:04:12 +0000
+	id 1tDPmv-0000000CmSQ-1JpK;
+	Tue, 19 Nov 2024 15:05:09 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDPiz-0000000ClKc-28a7
+	id 1tDPiz-0000000ClKk-37Oh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 15:01:07 +0000
+	Tue, 19 Nov 2024 15:01:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BA4CEA42B45;
+	by nyc.source.kernel.org (Postfix) with ESMTP id E1264A42B3D;
 	Tue, 19 Nov 2024 14:59:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 08FE6C4CEDA;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1A2D2C4CECF;
 	Tue, 19 Nov 2024 15:01:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1732028464;
-	bh=pVAFeeVG2DCukahRjWJuvO3U02Z08EkvjUFFYYALKE0=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=s3Li6UnuNT5RQYo/zUciXhnbKgHOYayZxKFJg6AN5phjZ3W58eCYbJMyPvc2yik9h
-	 sHyrgpgbrknOu+KmoM2hXXiAkFbggH3vbPHFPS7pcSEVbojTBDF08HPzSKpLNfX/8/
-	 oQ5mNGzVi9mr9Hfxfo8ROoSHNdipKBrhAJOMpict3KLTjCGiViaWJBE9y6oQyD9/1P
-	 b6e8C3GQ/6Xwa2S1KcOOJaAfCnlN2eAAKN8CGdg7W8AAaY3YYmglX6zUKz5FMB+FR9
-	 CUxT0fziszG+iB8iqr8V2TZ6S/ybDU5MNbeRqmRQGU/ZK5W1SoeqcwM9bHipK3N+M5
-	 8fE7tQfEnNIWA==
+	bh=zonr3mCcTyCgwR7d1gZNImuy1doROORC9hQH8Wi0Qyg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=RDVV4hcp4eUvDGQRhU6ETJwU7idAdmiPrXhEQm3KRR2JFLdvXHySvFjXt8qMtdUFK
+	 3Rpa3MfFQZz0rNn0H7wzOhA3lgFTB/MjvEY8ZrfFQ0GnfHeB9fzuSvqpyenAtIGYsh
+	 U7Mm6t/ucrRB4o2m0jViNqV8oDd8dKtexoPdpWK7FNWOW1HZdJqcrsBCicje4HUdbC
+	 UhqPX0+ELsZ18Yegy5Dvim62OJF4efTFvqnIcORXD43zR5FeR3xMS/SZLNrw4dmmh8
+	 NG0ONGaBcNi6iqqg75GB6FCVKAB/Lx4ouJs9dQLP5TTSPHY4jT8ply9Zu/3GUJTZ+N
+	 tJKFo5q/FiRIQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E7BC2D44166;
-	Tue, 19 Nov 2024 15:01:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 09662D44165;
+	Tue, 19 Nov 2024 15:01:04 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Subject: [PATCH v5 00/16] Add support for Synopsis DWMAC IP on NXP
- Automotive SoCs S32G2xx/S32G3xx/S32R45
-Date: Tue, 19 Nov 2024 16:00:06 +0100
-Message-Id: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
+Date: Tue, 19 Nov 2024 16:00:07 +0100
+Subject: [PATCH v5 01/16] net: driver: stmmac: Fix CSR divider comment
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPanPGcC/23NTQ6DIBCG4asY1sXwp2JXvUfTGMBRWSgGLLEx3
- r3oqk1cvl8yz2wogLcQ0D3bkIdog3VTiuKWITOoqQds29SIESZIzTh+z2HxoMYmcGZM04/K4FL
- WFHRVaMpKlC5nD51dT/X5Sj3YsDj/OZ9EfqynRwm99iLHBLdS6EKVla45ebgQ8mmdc+NGdIhR/
- ChMXisiKYSXVHaUAAf2r+z7/gXRWiNL/gAAAA==
+Message-Id: <20241119-upstream_s32cc_gmac-v5-1-7dcc90fcffef@oss.nxp.com>
+References: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
+In-Reply-To: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
 To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
  Alexandre Torgue <alexandre.torgue@foss.st.com>, 
  Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>, 
@@ -82,23 +79,21 @@ Cc: linux-stm32@st-md-mailman.stormreply.com,
  netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, 
  devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
  "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
- Jacob Keller <jacob.e.keller@intel.com>, 
- Serge Semin <fancer.lancer@gmail.com>, 
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+ Jacob Keller <jacob.e.keller@intel.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732028461; l=4698;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1732028461; l=958;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=pVAFeeVG2DCukahRjWJuvO3U02Z08EkvjUFFYYALKE0=;
- b=Vj3ROUS5xQl+NqauDwLdZGqJP2dxkT/zv8Qbu47euONS50UQW0jbAAQWFqlbgLGeN/5P57lNq
- kfxiCPqFF7aAWdBimViMevvgY0CZHwKckLHBarZAtknSzU1CtvbBsv0
+ bh=2KaIHv/oSTo3FOtKPvkHjEF7Z3D3rI5ymtYbTqdzAuo=;
+ b=VzXyPPkdD5MNgXPIsgGgKyikwTPOcuqi1aJQqTrQ5YJTNgwosCPyciyjVICWmxvJfZ5ZXqQFd
+ YttUk4CqsfaBSEM3a7vTlKy8vS6gzRhr2Z4pcsxZrVfQdEZZrLOBg1+
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
  auth_id=217
 X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_070105_686938_08BD1982 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20241119_070105_969864_A63D4C5F 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,108 +109,35 @@ Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SoC series S32G2xx and S32G3xx feature one DWMAC instance,
-the SoC S32R45 has two instances. The devices can use RGMII/RMII/MII
-interface over Pinctrl device or the output can be routed
-to the embedded SerDes for SGMII connectivity.
+From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-The provided stmmac glue code implements only basic functionality,
-interface support is restricted to RGMII only. More, including
-SGMII/SerDes support will come later.
-
-This patchset adds stmmac glue driver based on downstream NXP git [0].
-
-[0] https://github.com/nxp-auto-linux/linux
-
-v5:
-- yaml: refactored compatible string to use fallback
-- yaml: fix indention in example
-- fix xmas tree formating in local variable declarations
-- removed lazy rx clk setup
-- drop PTP clock reading patch and replace it with stmmac_platform fix
-
-v4:
-- fixed empty commit messages for rgmi_clock() helper patches
-- fixed yaml path in MAINTAINERS
-- switched to platform_driver::remove() as suggested Uwe
-- yaml: returned back all compatibility sting values
-- added better commit description for rgmii_clock() helper
-- Link to v3: https://lore.kernel.org/r/20241013-upstream_s32cc_gmac-v3-0-d84b5a67b930@oss.nxp.com
-
-v3:
-- switched to b4 WoW to overcome threading issue with b4
-- extracted the hunk with the typo fix from v2 patch#1 to separate patch
-  as Jacob suggested
-- removed dead code for RMII/MII support, which will be added alter
-- used new rgmii_clock() helper in other stmmac:dwmac glue drivers
-- yaml: compatible strings compressed to simple one "nxp,s32-dwmac",
-  removed duplicated required properties, already defined in snps,dwmac,
-  fixed example
-
-v2:
-- send to wider audience as first version missed many maintainers
-- created rgmi_clk() helper as Russell suggested (see patch#4)
-- address Andrew's, Russell's, Serge's and Simon's comments
-
-Message-ID: <AM9PR04MB85066576AD6848E2402DA354E2832@AM9PR04MB8506.eurprd04.prod.outlook.com>
-
-Cc: 
+The comment in declaration of STMMAC_CSR_250_300M
+incorrectly describes the constant as '/* MDC = clk_scr_i/122 */'
+but the DWC Ether QOS Handbook version 5.20a says it is
+CSR clock/124.
 
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
 ---
-Changes in v5:
-- EDITME: describe what is new in this series revision.
-- EDITME: use bulletpoints and terse descriptions.
-- Link to v4: https://lore.kernel.org/r/20241028-upstream_s32cc_gmac-v4-0-03618f10e3e2@oss.nxp.com
+ include/linux/stmmac.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
----
-Jan Petrous (OSS) (16):
-      net: driver: stmmac: Fix CSR divider comment
-      net: driver: stmmac: Extend CSR calc support
-      net: stmmac: Fix clock rate variables size
-      net: phy: Add helper for mapping RGMII link speed to clock rate
-      net: dwmac-dwc-qos-eth: Use helper rgmii_clock
-      net: dwmac-imx: Use helper rgmii_clock
-      net: dwmac-intel-plat: Use helper rgmii_clock
-      net: dwmac-rk: Use helper rgmii_clock
-      net: dwmac-starfive: Use helper rgmii_clock
-      net: macb: Use helper rgmii_clock
-      net: xgene_enet: Use helper rgmii_clock
-      net: dwmac-sti: Use helper rgmii_clock
-      dt-bindings: net: Add DT bindings for DWMAC on NXP S32G/R SoCs
-      net: stmmac: dwmac-s32: add basic NXP S32G/S32R glue driver
-      MAINTAINERS: Add Jan Petrous as the NXP S32G/R DWMAC driver maintainer
-      net: stmmac: platform: Fix PTP clock rate reading
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index d79ff252cfdc..75cbfb576358 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -33,7 +33,7 @@
+ #define	STMMAC_CSR_20_35M	0x2	/* MDC = clk_scr_i/16 */
+ #define	STMMAC_CSR_35_60M	0x3	/* MDC = clk_scr_i/26 */
+ #define	STMMAC_CSR_150_250M	0x4	/* MDC = clk_scr_i/102 */
+-#define	STMMAC_CSR_250_300M	0x5	/* MDC = clk_scr_i/122 */
++#define	STMMAC_CSR_250_300M	0x5	/* MDC = clk_scr_i/124 */
+ 
+ /* MTL algorithms identifiers */
+ #define MTL_TX_ALGORITHM_WRR	0x0
 
- .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 105 +++++++++++
- .../devicetree/bindings/net/snps,dwmac.yaml        |   3 +
- MAINTAINERS                                        |   7 +
- drivers/net/ethernet/apm/xgene/xgene_enet_hw.c     |  16 +-
- drivers/net/ethernet/cadence/macb_main.c           |  14 +-
- drivers/net/ethernet/stmicro/stmmac/Kconfig        |  12 ++
- drivers/net/ethernet/stmicro/stmmac/Makefile       |   1 +
- drivers/net/ethernet/stmicro/stmmac/common.h       |   2 +
- .../ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c    |  11 +-
- drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c    |  15 +-
- .../net/ethernet/stmicro/stmmac/dwmac-intel-plat.c |  20 +-
- .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    |   2 +-
- drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c     |  30 +--
- drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c    | 204 +++++++++++++++++++++
- .../net/ethernet/stmicro/stmmac/dwmac-starfive.c   |  19 +-
- drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c    |  18 +-
- drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c  |   2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  |   6 +-
- .../net/ethernet/stmicro/stmmac/stmmac_platform.c  |   4 +-
- include/linux/phy.h                                |  23 +++
- include/linux/stmmac.h                             |  10 +-
- 21 files changed, 404 insertions(+), 120 deletions(-)
----
-base-commit: 158f238aa69d91ad74e535c73f552bd4b025109c
-change-id: 20240923-upstream_s32cc_gmac-6891eb75b126
-
-Best regards,
 -- 
-Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+2.47.0
 
 
 
