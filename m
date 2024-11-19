@@ -4,73 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E341ED44157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D323BD44157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=10XFHA4WlKYuCUuXVeCcAEgWg2V+Sh14geel43tsfcc=; b=Q7n2RQ6U7ndhyi5WFpWpuxJwcY
-	ccxBR5WUPsSQrtVmhwK407DIoyXsmroQ6D5U3p83OLz3PrNHCY9wZRhDQq1n+jLYxdYmMI/9QQcqi
-	ahzdLSFoZKgqBaM5jnnOAdtRSTRkks2GCisT5ghGVhBMV+txZnNIqcNeUKA0vTJTMVmnmlyUbqEba
-	grcu6KGSnf+ZGQOGOmviTpyjozHBLvRKORx+Uil+GMX1Tw9iQ74Ckmm9zRqyvzy+e4Dkb6/KU2FLh
-	ykK5FX0pNvlJ62OUi5URcUvsJPFZMdXpfILvQl6yeluUOsgFlNRkgQS+ObEd/iJm7kO1eaeXaq9gw
-	HJiXyFvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+UKNcQIuo4FZ8hxEao64XciZrGRc+1MsKNkIDwCCJxM=; b=lZSbwKu8DK9dxR8o3nWuYpmsaF
+	UDCFF2VoWScv4Mh3e0n/gZ8FW9hXMGmya2D0dURfWjFmQfIseB7HNoPrX11TKnnXkWVZGwaFO+wrF
+	jjys6CZy85sKBRGPT0NptwjjWToDqg0yAxav9zy+Rv+7E10oYVjYD5Frcifa4nSH1AAGuTwzL28Wd
+	Z7nItmXQ2+GutvFV0HhqiXTu1NlXCPHLhYNY5EWE23P5ci5ol+jiVVWersKQjj+aZ/SRJnNrBJ7km
+	2/ikxAW4yEKDh9139722xnWUM9G4bA1bsXk8bAmdcz6ZP5PD+5s/UuErXeef7Jetc3ifyVmEPCL8U
+	b/dY3Juw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDOGF-0000000CVMG-2Ls5;
-	Tue, 19 Nov 2024 13:27:19 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tDOJn-0000000CVod-1yub;
+	Tue, 19 Nov 2024 13:30:59 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDOFJ-0000000CVDI-1VBK
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 13:26:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=10XFHA4WlKYuCUuXVeCcAEgWg2V+Sh14geel43tsfcc=; b=v9EloRtNMXlEcEg5euoahINDxU
-	BsgU65QlQD3uKoH2Qfbws9YV99RKTqGhbNFfLlHJdXiMqeRGVZPP9EN3NhIszhvO2b7U1cHNOl8TB
-	Uf2vRBK/g7+XhmdmS+DtqxOBlvzGNzx5wQ9oYLv7nfbV0tIxHs9aYDTptdocqbXumWkc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tDOEv-00DnnA-DP; Tue, 19 Nov 2024 14:25:57 +0100
-Date: Tue, 19 Nov 2024 14:25:57 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>,
-	"kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"joel@jms.id.au" <joel@jms.id.au>,
-	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
-	"hkallweit1@gmail.com" <hkallweit1@gmail.com>,
-	"linux@armlinux.org.uk" <linux@armlinux.org.uk>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: =?utf-8?B?5Zue6KaG?= =?utf-8?Q?=3A?= [net-next 0/3] Add Aspeed
- G7 MDIO support
-Message-ID: <6ae91aae-5939-4ffd-a430-181fb88d259b@lunn.ch>
-References: <20241118104735.3741749-1-jacky_chou@aspeedtech.com>
- <7368c77e-08fe-4130-9b62-f1008cb5a0dc@lunn.ch>
- <SEYPR06MB513475D2B233EA9BDF52AD259D202@SEYPR06MB5134.apcprd06.prod.outlook.com>
+	id 1tDOIr-0000000CVcE-1GjC;
+	Tue, 19 Nov 2024 13:30:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=+UKNcQIuo4FZ8hxEao64XciZrGRc+1MsKNkIDwCCJxM=; b=r3Bs4ypdJP+mBkMHoea9Fg4XJV
+	dJxNSut5tgxSYfCPlY/Fporh7OKiz4iHxa2VkGYuP5ayzzOrJTffwWrs45zmX3vbHhJ8aEh1o/+uP
+	6r3itTHRmryFSWU4F8DxRxWJSpUGftfRW517zIEh4nCN+caSyhEF4DHqZjQSKiPQ9JITvEBZYrtdT
+	49XD/7YEhPZLawfvDlnIhYq+JuMO9QFz/4+GZJxaTtxLkoJvVrf7uKXaer8Tv052CqJAaaKZIRhnd
+	p/n4Ft1Ul1YpjLTsFTSd0C0FYITt91w3gCQMJhegr2cqRZqB5wLgepJTczU7O8KU3of6IiktSjtBp
+	G0YwrBvw==;
+Received: from i53875a30.versanet.de ([83.135.90.48] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tDOIn-0006z1-Uu; Tue, 19 Nov 2024 14:29:58 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: srinivas.kandagatla@linaro.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	detlev.casanova@collabora.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	sebastian.reichel@collabora.com
+Subject: [PATCH 2/5] nvmem: rockchip-otp: Move read-offset into variant-data
+Date: Tue, 19 Nov 2024 14:29:13 +0100
+Message-ID: <20241119132916.1057797-3-heiko@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241119132916.1057797-1-heiko@sntech.de>
+References: <20241119132916.1057797-1-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <SEYPR06MB513475D2B233EA9BDF52AD259D202@SEYPR06MB5134.apcprd06.prod.outlook.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_052621_398977_A382F4E7 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20241119_053001_377729_33EF9231 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,22 +81,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 05:35:40AM +0000, Jacky Chou wrote:
-> Hi Andrew Lunn
-> 
-> Thank you for your reply.
-> 
-> > > The Aspeed 7th generation SoC features three MDIO controllers.
-> > > The design of AST2700 MDIO controller is the same as AST2600.
-> > 
-> > If they are identical, why do you need a new compatible?
-> 
-> We want consistent naming in the DTS of the new SoC, even if Its 
-> design is the same as the older SoC.
+The RK3588 has an offset into the OTP area where the readable area begins
+and automatically adds this to the start address.
+Other variants are very much similar to rk3588, just with a different
+offset, so move that value into variant-data.
 
-You might find the DT Maintainers push back against this. What you
-want is effectively a Marketing game, it has little to do with
-technology, describing the hardware.
+To match the size in bytes, store this value also in bytes and not in
+number of blocks.
 
-	Andrew
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ drivers/nvmem/rockchip-otp.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/nvmem/rockchip-otp.c b/drivers/nvmem/rockchip-otp.c
+index ebc3f0b24166..3edfbfc2d722 100644
+--- a/drivers/nvmem/rockchip-otp.c
++++ b/drivers/nvmem/rockchip-otp.c
+@@ -59,7 +59,6 @@
+ #define RK3588_OTPC_AUTO_EN		0x08
+ #define RK3588_OTPC_INT_ST		0x84
+ #define RK3588_OTPC_DOUT0		0x20
+-#define RK3588_NO_SECURE_OFFSET		0x300
+ #define RK3588_NBYTES			4
+ #define RK3588_BURST_NUM		1
+ #define RK3588_BURST_SHIFT		8
+@@ -69,6 +68,7 @@
+ 
+ struct rockchip_data {
+ 	int size;
++	int read_offset;
+ 	const char * const *clks;
+ 	int num_clks;
+ 	nvmem_reg_read_t reg_read;
+@@ -196,7 +196,7 @@ static int rk3588_otp_read(void *context, unsigned int offset,
+ 	addr_start = round_down(offset, RK3588_NBYTES) / RK3588_NBYTES;
+ 	addr_end = round_up(offset + bytes, RK3588_NBYTES) / RK3588_NBYTES;
+ 	addr_len = addr_end - addr_start;
+-	addr_start += RK3588_NO_SECURE_OFFSET;
++	addr_start += otp->data->read_offset / RK3588_NBYTES;
+ 
+ 	buf = kzalloc(array_size(addr_len, RK3588_NBYTES), GFP_KERNEL);
+ 	if (!buf)
+@@ -280,6 +280,7 @@ static const char * const rk3588_otp_clocks[] = {
+ 
+ static const struct rockchip_data rk3588_data = {
+ 	.size = 0x400,
++	.read_offset = 0xc00,
+ 	.clks = rk3588_otp_clocks,
+ 	.num_clks = ARRAY_SIZE(rk3588_otp_clocks),
+ 	.reg_read = rk3588_otp_read,
+-- 
+2.45.2
+
 
