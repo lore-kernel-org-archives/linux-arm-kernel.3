@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FB6CD44157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:13:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D27E4D4415D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ewyDYtdkrySUZBXm+3V/A88CjcALgKhqSqPYvg0yYxo=; b=BHMTIDHKh/MPVj7bnpKvt+71jL
-	pl8rTYcHKuwLpnxwWsm1ORG8FkqV/vAUt2OHQCRKattO37adpY1E07x6DmRWQmhTdV9npa9Slz1+1
-	mrcAcaE67SMWnQP4V+wf98dCuHRLdUlzrMnzyoPUtIib4rA1vPoJtnwWUu3MEDKiJHPVINBhPMb4S
-	tZNky5o3rnQ/Hil7wQGvqKpxc9YoLKoSr8DoI6nqBei/T2RlPj6nzvvu2hg9Z1Sf68Wzao0MFScXB
-	TDKySFSgYYgAvFxJLH34c9u+UkfBa6TXiNHyfVL3xYESubW/9SJO4YNnt0exXGb/0Lkd3oil1MJHw
-	QU7X3SSw==;
+	bh=1KfrneJwcEYheNMfrfNjo9ZS+UmR5Cm/dBZt4GtnUto=; b=CzPl5Vxm9fLrLvFu7i3MX41SZL
+	hIuW2tIwZ1ZSOHkOqak4JUcXZo2egLk4+DMt1kBrV9el8V4XeOGnHDaprxoz7+YsQ2OVCOs52sh/Z
+	w/u+iuD0zIvPdjAoORfOt81yqdQNsnF95rtF3Zt5GllYXpaK0Va7iqoXng1oQEzvIcbEXAD2pqvBd
+	h2+qE5FuGqDDg5yQWCgNQqOoEb0NmwyD/TuLt0xlCunjqRNVbJdvk4Wj0aWBNtcoZNtz10Pls9KwA
+	xotcogJidscX9UZUXRNuEZMUcxTGVamp2Zw0SLKJuqdmItezXE3W+vH4zG8FWHqkGeUdyWvhB+Yai
+	aRURttiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDO2q-0000000CTeU-3M13;
-	Tue, 19 Nov 2024 13:13:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tDO9P-0000000CUTp-3fgR;
+	Tue, 19 Nov 2024 13:20:15 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDO1u-0000000CTVn-496K
+	id 1tDO8T-0000000CUKL-0Qww
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 13:12:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 68DE85C4688;
-	Tue, 19 Nov 2024 13:11:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D1ABC4CECF;
-	Tue, 19 Nov 2024 13:12:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732021950;
-	bh=26iJ7jE78hzbeXxIg5NyK0lcpo0yHtsHxP/H6F/2BwM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ps+uVD/+GOPfygU1hJYy3tD5S1APowDUjJqo/p9zABIUSdwNLCQjTTIbt80W1xxHS
-	 2JaHdZH52qD+52q6E2z9JaNb92w5T1CoZ2MViCXNXbiSBcL9+lUTYXqIp24KngQzGp
-	 aGvwNKBhupQe3ZXGYiLHDN8gFR9DVCDHiSy0Xgh621wSUUugE1KZIo8kJNarVH96Mr
-	 gPUcQxd45bO03tgAg0beRVlRxt4XvGk+axS0JHr2frC1fOit0h2fR/PMJA4SM8etj3
-	 49wTJ3LdgnCVv4D2hYjO+Lf9NWujujk71OKyBU6U7Oj0e1g+wuJM8YMIM5LR/TTFVX
-	 KSXe9iRo8DvCg==
-Date: Tue, 19 Nov 2024 14:12:26 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
-	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, NXP S32 Linux Team <s32@nxp.com>, 
-	Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>, 
-	Enric Balletbo <eballetb@redhat.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	imx@lists.linux.dev
-Subject: Re: [PATCH v6 1/7] dt-bindings: mfd: add support for the NXP SIUL2
- module
-Message-ID: <gqzwfe6wucn57plnte3g7c5xiri45mnatieviewgchkpeh562t@gha4sfrutjuh>
-References: <20241113101124.1279648-1-andrei.stefanescu@oss.nxp.com>
- <20241113101124.1279648-2-andrei.stefanescu@oss.nxp.com>
- <18e7a32c-a8de-4e5a-80aa-248b2090e346@kernel.org>
- <72b3b5e7-739f-4f03-ac40-a9cbd37972b8@oss.nxp.com>
+	Tue, 19 Nov 2024 13:19:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=1KfrneJwcEYheNMfrfNjo9ZS+UmR5Cm/dBZt4GtnUto=; b=Yuo+S+ABzgWzxo66fZkvUu6o27
+	vfWE9FjKlYV+KJ8wcwM7CebRfvCMx7OARYV8OdeXQavI+GSleh17Vu3BiH1aJQDg9HYMutx4QxydA
+	x8YYT4e4um83vyek8UCkxqm0MKotYh/If+v/TadtBVchaqBqNjZ7F4UpO4iMdQ+itOG9kou99WkT5
+	8+Sudruhf7TBRjsVtyaqMYTn4OQWENzMYAAfVbGP+KKSgydLanki238hkjHHo7/0ZmNYhv9aC8Jht
+	Wy2vsk4WBAYk5DeDwse5jm5kepiHqpr1AGiOKAFjS9iRM1AkF7LnrZF7dmVix9kCeFKuLtXGss+Pa
+	XZsl+D4A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38246)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tDO8B-0003a0-2D;
+	Tue, 19 Nov 2024 13:19:00 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tDO89-00065G-0t;
+	Tue, 19 Nov 2024 13:18:57 +0000
+Date: Tue, 19 Nov 2024 13:18:57 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
+Cc: Sean Anderson <sean.anderson@linux.dev>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"Simek, Michal" <michal.simek@amd.com>,
+	"Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+	"horms@kernel.org" <horms@kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"git (AMD-Xilinx)" <git@amd.com>,
+	"Katakam, Harini" <harini.katakam@amd.com>
+Subject: Re: [PATCH net-next 2/2] net: axienet: Add support for AXI 2.5G MAC
+Message-ID: <ZzyQQV4qM_fTrpMf@shell.armlinux.org.uk>
+References: <20241118081822.19383-1-suraj.gupta2@amd.com>
+ <20241118081822.19383-3-suraj.gupta2@amd.com>
+ <ZztjvkxbCiLER-PJ@shell.armlinux.org.uk>
+ <657764fd-68a1-4826-b832-3bda91a0c13b@linux.dev>
+ <Zztml-Te38P3M7cM@shell.armlinux.org.uk>
+ <BL3PR12MB65716077E66F2141CC618DD9C9202@BL3PR12MB6571.namprd12.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <72b3b5e7-739f-4f03-ac40-a9cbd37972b8@oss.nxp.com>
+In-Reply-To: <BL3PR12MB65716077E66F2141CC618DD9C9202@BL3PR12MB6571.namprd12.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_051231_063981_23BD2EC3 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20241119_051917_427310_19CB6C7E 
+X-CRM114-Status: GOOD (  25.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,47 +95,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 11:44:23AM +0200, Andrei Stefanescu wrote:
-> Hi Krzysztof,
-> 
-> Thank you for your review!
-> 
-> On 19/11/2024 11:21, Krzysztof Kozlowski wrote:
-> > On 13/11/2024 11:10, Andrei Stefanescu wrote:
-> >> +
-> >> +properties:
-> >> +  compatible:
-> >> +    enum:
-> >> +      - nxp,s32g2-siul2
-> >> +      - nxp,s32g3-siul2
+On Tue, Nov 19, 2024 at 10:28:48AM +0000, Gupta, Suraj wrote:
+> > -----Original Message-----
+> > From: Russell King <linux@armlinux.org.uk>
 > > 
-> > Not much improved. See other NXP bindings how they do this.
+> > On Mon, Nov 18, 2024 at 11:00:22AM -0500, Sean Anderson wrote:
+> > > On 11/18/24 10:56, Russell King (Oracle) wrote:
+> > > > On Mon, Nov 18, 2024 at 01:48:22PM +0530, Suraj Gupta wrote:
+> > > >> Add AXI 2.5G MAC support, which is an incremental speed upgrade of
+> > > >> AXI 1G MAC and supports 2.5G speed only. "max-speed" DT property is
+> > > >> used in driver to distinguish 1G and 2.5G MACs of AXI 1G/2.5G IP.
+> > > >> If max-speed property is missing, 1G is assumed to support backward
+> > > >> compatibility.
+> > > >>
+> > > >> Co-developed-by: Harini Katakam <harini.katakam@amd.com>
+> > > >> Signed-off-by: Harini Katakam <harini.katakam@amd.com>
+> > > >> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> > > >> ---
+> > > >
+> > > > ...
+> > > >
+> > > >> -  lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE |
+> > MAC_ASYM_PAUSE |
+> > > >> -          MAC_10FD | MAC_100FD | MAC_1000FD;
+> > > >> +  lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE |
+> > > >> + MAC_ASYM_PAUSE;
+> > > >> +
+> > > >> +  /* Set MAC capabilities based on MAC type */  if (lp->max_speed
+> > > >> + == SPEED_1000)
+> > > >> +          lp->phylink_config.mac_capabilities |= MAC_10FD |
+> > > >> + MAC_100FD | MAC_1000FD;  else
+> > > >> +          lp->phylink_config.mac_capabilities |= MAC_2500FD;
+> > > >
+> > > > The MAC can only operate at (10M, 100M, 1G) _or_ 2.5G ?
+> > >
+> > > It's a PCS limitation. It either does (1000Base-X and/or SGMII) OR
+> > > (2500Base-X). The MAC itself doesn't have this limitation AFAIK.
 > > 
-> 
-> Do you mean to have the "nxp,s32g3-siul2" compatible fall back to the g2 one?
-
-Yes, compatibility between devices means fallback.
-
-> 
-> >> +
-> >> +  gpio-reserved-ranges:
-> >> +    maxItems: 2
+> > That means the patch is definitely wrong, and the proposed DT change is also
+> > wrong.
 > > 
-> > That's odd to always require two reserved ranges. Does this mean all
-> > devices have exactly the same reserved GPIOs? Then the driver should not
-> > export them.
-> 
-> Yes, the driver exports GPIOs from two hardware modules because they are
-> tightly coupled. I export two gpio-ranges, each one corresponding to a
-> hardware module. If I were to export more gpio-ranges, thus avoiding
-> gpio-reserved-ranges, it would be hard to know to which hardware module
-> a gpio-range belongs. I would like to keep the current implementation
-> regarding this problem. Would that be ok?
+> > If it's a limitation of the PCS, that limitation should be applied via the PCS's
+> > .pcs_validate() method, not at the MAC level.
+> > 
+> As mentioned in IP PG (https://docs.amd.com/r/en-US/pg051-tri-mode-eth-mac/Ethernet-Overview#:~:text=Typical%20Ethernet%20Architecture-,MAC,-For%2010/100), it's limitation in MAC also.
 
-I don't understand why this is needed then. If you always export same
-set of GPIOs, why do you export something which is unusable/reserved?
+I'm not reading it as a limitation of the MAC.
 
-Best regards,
-Krzysztof
+The limitation stated there is that internal mode (GMII) is only
+supported for 2.5Gbps speeds. At 2.5Gbps speeds, the clock rate is
+increased from 125MHz to 312.5MHz (which makes it non-compliant
+with 802.3-2008, because that version doesn't define 2.5Gbps speeds.)
 
+So long as the clock rate and interface can be safely switched, I
+don't see any reason to restrict the MAC itself to be either
+10/100/1G _or_ 2.5G.
+
+Note that 2.5G will only become available if it is supported by one
+of the supported interface modes (e.g. 2500base-X). If the supported
+interface modes do not include a mode that supports >1G, then 2.5G
+won't be available even if MAC_2500FD is set in mac_capabilities.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
