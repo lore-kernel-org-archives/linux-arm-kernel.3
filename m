@@ -4,106 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0305D60D1B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 10:33:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 644A9D6206A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 10:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=93tHMoq61etCefqeI7/L8ZHaQMS3jaPhjtyND24xOo0=; b=wfVG5hppLW8WvHaR1vr9X7zjJ0
-	24VoNirpTTE+HSgSvO4TJWmsAMsRLqNfB8jQ/o1SJKGiwFbPedl4J4fcOSKuREGWg9mF6Zu+3IQYN
-	kvtbEdlgHlWj+uAxNEZgd5wUv8aap4ub+hAuxkRbx2xLESqfgvhaGhWSaKRYb3R1OAi0rFKqi2cJX
-	D3sTsCECL4LdWgvhE2fxV/4U7UZPj2QaAdh5sliKJe/j76aJVunD1Bhr1sKp5RHRuci/0ffv3g7yt
-	QkUlbWY7T/dGtBc6p5YQbwyZPpFaPP3S9supUhc31O44nRk7ZghE2KrCeAi8G5Ks+0/R2AwCBp5qu
-	UVIqGttg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BggdQOSekUIBIjAdQGRr1aYLYgr7T5ZPx5X8SEl/Spk=; b=x+nLg+jE3H3XVJp6qHTaKLapSG
+	5iDQI9bywMA5paZ+f0XfJowX9jmehorir5li5T+VDb/rFx6LZ7QDDr300Y2/05uCOo5o69NyTni4G
+	2VsA1eYFlesLM2KVUVT5HuJOJXc8EUyWiL+5ncP4irMMhii55Wd/0tI1YgSE8ljV8zNRVbWZT1d/K
+	SgOvW31X5+3bHpbbMxXFbUBbCGmWl+q8HQEe9YeL8+fUAon4thzAzJ1AjoLUFK9s7b/V1qpOhvVCa
+	CspqQm0/OULLhsipWRgPCBzmBqBAH4b2C9ysG8zx4ZPGCmHgMHX318yv/dYMMELglulCrbLCYzRek
+	jqmRUJEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDLY4-0000000C4ZP-1gww;
-	Tue, 19 Nov 2024 10:33:32 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1tDLYy-0000000C4gr-2baY;
+	Tue, 19 Nov 2024 10:34:28 +0000
+Received: from mail-dm3nam02on2062c.outbound.protection.outlook.com ([2a01:111:f403:2405::62c] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDLKc-0000000C15r-34Xb;
-	Tue, 19 Nov 2024 10:19:39 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-a9a6acac4c3so124380966b.0;
-        Tue, 19 Nov 2024 02:19:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732011577; x=1732616377; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=93tHMoq61etCefqeI7/L8ZHaQMS3jaPhjtyND24xOo0=;
-        b=JOocquu7cd4COSd8JwAQqc+ajdvD2JulSfGIQGUNUH/HqdadlrVuQAU0ky9OBuSaBt
-         sTG7xci5OnRFJcJkNjV+U034dpRSDY4efyv8rPbIqR3GPnYBWI/Rn9mYLQehUr1hBqP1
-         1NH+f/lLDvDudHUcCdk0bljfyQBnz5JykdQgLFze7sYbwRLHNx/tO19g4I5qt8F7aGcM
-         oecJB4qw2+c64gSn/2RaFhYN9pIaPYM/nurZgwr8MXhoLzsolE5KNYZy7Q2+XiwafRms
-         O74b4aspOEvC1YbwIvI0ht4g2IOuIgCaTEQhnnR/J90x0fb6+MNcGjqaallbKMFb4aEi
-         JCUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732011577; x=1732616377;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=93tHMoq61etCefqeI7/L8ZHaQMS3jaPhjtyND24xOo0=;
-        b=bvwAKbT2tX4n8A3qWqjbBPc2hkDV//0JrZYenBnpCp6s1I4s5eXGNOJsm+Z0cjwUpx
-         YJTx7UUfW3q7oz7lEPwzDpcQSrTrSoy6hY8nbtPAaEJeq07DIj+HxorXpdND0wL+Q3UV
-         tOHKxk7ui8ksZvZu/pPnXOcv84kyRJibWvmSk6v6+tl/1HLQ+kfwYP2CQZwwsScJRYG6
-         bif8DH+AVyLX1VfjADNjlM697u7m25vaE+rOGyy3QEGOTThhSsLj/MWeXYTgVyjKjvAl
-         jm4xUJoxTaG5iT/Zv/HESoEwvH239eVneYRH4yNchEPjzJpkto8XXY4kwIqs3gEICUbw
-         L3kg==
-X-Forwarded-Encrypted: i=1; AJvYcCWu0DaK0JNGHYvKoWNRcwe16xmBMtBNwNjnYw7Jnt9wqliuTi7YlYiMP69v1UxKQV0RU0RJSJXtznecr6DJ/tox@lists.infradead.org, AJvYcCXwIxrCsT74FhH894C5G22CaUdcmdi5f78VnOUPZ7gac0RqMLJ3uYqF3CnJm6EiFwNIGDnBxdZfiNECjVNVmd4=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwO3z/5893DexJJu/PfCDQx9gaPWBXDEON5N8SaJ584maugJOnl
-	HvX6tyJMwILiqWnPCgCLaN9AgPcLSrceitsWzXHeL7IAd/BlKg4V
-X-Google-Smtp-Source: AGHT+IHFjm7z288du+sLPkPh9NWZ67RgYD8wK05AuA3EyPac75+11d1DSFwwXFLi3Yq64iVpPPRciw==
-X-Received: by 2002:a17:907:a4e:b0:a99:c9a4:a4d5 with SMTP id a640c23a62f3a-aa483482762mr1446252966b.29.1732011576580;
-        Tue, 19 Nov 2024 02:19:36 -0800 (PST)
-Received: from corebook.localdomain (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa20e081574sm634875566b.179.2024.11.19.02.19.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Nov 2024 02:19:36 -0800 (PST)
-From: Eric Woudstra <ericwouds@gmail.com>
-To: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Jozsef Kadlecsik <kadlec@netfilter.org>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Ivan Vecera <ivecera@redhat.com>,
-	Roopa Prabhu <roopa@nvidia.com>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	David Ahern <dsahern@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Joe Damato <jdamato@fastly.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"Frank Wunderlich" <frank-w@public-files.de>,
-	Daniel Golle <daniel@makrotopia.org>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	bridge@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Eric Woudstra <ericwouds@gmail.com>
-Subject: [PATCH RFC v2 net-next 14/14] netfilter: nft_flow_offload: Add bridgeflow to nft_flow_offload_eval()
-Date: Tue, 19 Nov 2024 11:19:06 +0100
-Message-ID: <20241119101906.862680-15-ericwouds@gmail.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241119101906.862680-1-ericwouds@gmail.com>
-References: <20241119101906.862680-1-ericwouds@gmail.com>
+	id 1tDLTe-0000000C3XF-48jN
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Nov 2024 10:29:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=d0xjVhDFUedB6UH/VVlHE40zDNE1StxZW6BpetK3TYIb1LNg17VszhmQlKMa/70c/zSK8FHSO1lqVGNPJ+9RMY15OkE/Fh/Bh2VWqjlcuc/LzwS4B0s5ns9iUgCDtp+aaon1nkhpUk8Znroqmmio/SdRlq1njCZegXUYhw8smzKLX/5VIwnc2TN46HU40k/oSsE97wYDzq/UGiuvjBWLKjiSttUJKdMogVpUVd1Wb991xQVZSTJ7JQ2JBsZsOLtHFXRDfB23q67OGAg9Q6PtnL++eAEh1RajRFPaMrQComV8TTdPK+EoA/aOBA90sqkz4mK6D/1MtlOAbwWE81bC3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BggdQOSekUIBIjAdQGRr1aYLYgr7T5ZPx5X8SEl/Spk=;
+ b=XI7D+UvcLTuNpSh/eApwqm1UwXxm/NNfRj+QHfGSPflxevqT0VwrQvG+1WnhN/1khbn6LAPyhhuQIqnJP50ATBbuHaTGdLyvQboLssSq/UEVWXS5/+jzxQ4icEvPEyO2hhaeox/ohsjxjelQKNoTqsu4R/gJTpowkwkex+3hqF2yBP2S196cGubAEHLAb0NHIM9vcpKUUR6y2DDl79Hn+DIYGowUyIqypl+WX/Fyz3CgmHicR9Kp/MZvWtLqR0iiDsRTcJWHJBnh57xkqCQzirvtesZhjzQljN3PyM1mnZHxPS+WSy3QVwhgdi/qd9QI7XUuwlR/33/v28p2mK+YJA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BggdQOSekUIBIjAdQGRr1aYLYgr7T5ZPx5X8SEl/Spk=;
+ b=mMcKf6ophYFAgqImCYZRDIkaEOpflH9GpLs0hMg1sw0SjOB1mjbH5pzqneRh+N04gDp6GdGcYVgaR0RprqN8t4YtMHIUAowFlaDnQSjmt7/b8dYeWVCBrJF9QnGsVVB0bzMkEymdlPtVEBBhUrJK+6XOK0kQLsP0l6PxSXSxKvQ=
+Received: from BL3PR12MB6571.namprd12.prod.outlook.com (2603:10b6:208:38e::18)
+ by CH3PR12MB9249.namprd12.prod.outlook.com (2603:10b6:610:1bc::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.23; Tue, 19 Nov
+ 2024 10:28:48 +0000
+Received: from BL3PR12MB6571.namprd12.prod.outlook.com
+ ([fe80::4cf2:5ba9:4228:82a6]) by BL3PR12MB6571.namprd12.prod.outlook.com
+ ([fe80::4cf2:5ba9:4228:82a6%6]) with mapi id 15.20.8158.021; Tue, 19 Nov 2024
+ 10:28:48 +0000
+From: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
+To: Russell King <linux@armlinux.org.uk>, Sean Anderson
+	<sean.anderson@linux.dev>
+CC: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"Simek, Michal" <michal.simek@amd.com>, "Pandey, Radhey Shyam"
+	<radhey.shyam.pandey@amd.com>, "horms@kernel.org" <horms@kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "git (AMD-Xilinx)" <git@amd.com>, "Katakam,
+ Harini" <harini.katakam@amd.com>
+Subject: RE: [PATCH net-next 2/2] net: axienet: Add support for AXI 2.5G MAC
+Thread-Topic: [PATCH net-next 2/2] net: axienet: Add support for AXI 2.5G MAC
+Thread-Index: AQHbOZPrN4QoHKQMl0i3DrWTLLaCrLK9McgAgAABAgCAAAJjgIABMZUw
+Date: Tue, 19 Nov 2024 10:28:48 +0000
+Message-ID: <BL3PR12MB65716077E66F2141CC618DD9C9202@BL3PR12MB6571.namprd12.prod.outlook.com>
+References: <20241118081822.19383-1-suraj.gupta2@amd.com>
+ <20241118081822.19383-3-suraj.gupta2@amd.com>
+ <ZztjvkxbCiLER-PJ@shell.armlinux.org.uk>
+ <657764fd-68a1-4826-b832-3bda91a0c13b@linux.dev>
+ <Zztml-Te38P3M7cM@shell.armlinux.org.uk>
+In-Reply-To: <Zztml-Te38P3M7cM@shell.armlinux.org.uk>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BL3PR12MB6571:EE_|CH3PR12MB9249:EE_
+x-ms-office365-filtering-correlation-id: 27082154-5d69-493c-e3bb-08dd0884f47b
+x-ld-processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?9w/DFOT64tfbUruCiA94n7gSCkZfheT+8vSqwQGliVPvD4/lxrx+dOr9Ze/O?=
+ =?us-ascii?Q?LvZePVPyVBIY83JWcqhpYzCwrWGBqOGku6nfXlEPIHtfYnIw3joNeVu0rK1p?=
+ =?us-ascii?Q?zJ9xR0O+QWXU6zwDW77gNxGa2TomUKbSdpOsGqeyqfcUuvvMKRCvssF2ZTfO?=
+ =?us-ascii?Q?FNo8LUM/bxSpMT6ET5HBOs7+hnzqgz7Uiu+hoNf6bqYGafCXQI850pt00JHY?=
+ =?us-ascii?Q?I6M4xFHbJ85+hQczeqPFX+GcucNxhne7gV5LdkvvPgUZ96+rivXFQrRgAm+w?=
+ =?us-ascii?Q?+DvqXwvojWKPqnnhZPptl9jae1bVKX/g4xxuQpMfHtAWIsTNOF5TXazVS+Z/?=
+ =?us-ascii?Q?GRcyegdjw0e0hUGj0qLg2Gp2UxgzoUwkDr8LmvfkAEMJ2puH0R+QjrD5Dz3G?=
+ =?us-ascii?Q?qT4Kp+WzwdLkGJuysJBxmOB05/J24Ud+kPicEsXFTCuwAkid0f1Y42VTq3qD?=
+ =?us-ascii?Q?a0GZCc0VZqKisnpTMAT+xiLDjXvwsaknnJGV81+LDi7clrUK8XO6GKAmI+6Y?=
+ =?us-ascii?Q?mvn3CT7nceXkNoKOulmxBxk5KN6+VqJV2tgc2YAnx/EJPH5uZmpFJoq9PziK?=
+ =?us-ascii?Q?Dfp7ntmjIKGtlPyaYxNVdLczmhCfR7wPMIxBU8VMUQUslUJvWkj7venOmm5Q?=
+ =?us-ascii?Q?qEfuQl0R8YFhNgs3BgUQaCA31mgYim/zTBgMTkOsSPsV9FnZ25sayaSlhu66?=
+ =?us-ascii?Q?dKEa4sQn/QpJkKGxwrk6TGVY0MMpEQDnJTtBRLtRtpQiNasZsUckOFdBPwna?=
+ =?us-ascii?Q?GZwik/fRYr74Uijo8TOEGEt6y7gJsEcM0uLAwnL7HBXFbpZG/0gLf3fYFPUv?=
+ =?us-ascii?Q?qq3krEZllWlA83vSQCKrXSovXpkEzQ1KPCkyVXuXAUx/C+/00RbVtMQva3Dk?=
+ =?us-ascii?Q?XUIhfJnbAGinGRhmKG/nKSHMQbe6/cJNA/DuEegoD/jmZ7/AErP8v7Uj2/Jn?=
+ =?us-ascii?Q?VwtqNhW5QjGaUSNma5oVfE4d1e1UbicAhQNHUObXt5MyMFzP/zVRUL8UtU2p?=
+ =?us-ascii?Q?k40shLqQr52VyDOhxcPJdaLZ+0xwSYRqsGU51JEJ2KP7YoMYT5JufCihqTgE?=
+ =?us-ascii?Q?j6EWwpxS3BeNO0h1M9hmqVoqxYBILkflATYE8y3M2hs9O32PwPcCOdc9SuCL?=
+ =?us-ascii?Q?LE08gDxv2DvGH8FR8i0zp03F2VhRieS+ddyx5ErS2y11XqNKuzQZh6SqcOne?=
+ =?us-ascii?Q?ePHN/VMoa4PSDA9vWt7gGkdgec3k12kl97DqvqjpYeStDP8MCQM+ulHENphV?=
+ =?us-ascii?Q?MEIfBebV1QIsIqUL2tibjjbHWvuPpcIk4ULQ7390egVYbcqTr0WwUPhQ31zM?=
+ =?us-ascii?Q?Fm7ePyF/1qKOy9cK36f1ZN3j?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL3PR12MB6571.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?1WJPYaaMuGkzLmiC9kggDLCWiXvqmD1ZKrzlXfKc9SSCKqmGb+iFtnxut/ZJ?=
+ =?us-ascii?Q?SEvuo2wySvJ9c53O2raZ/gX0GATKtnfQPVNJknlGioGi+W6uA3H9+JLsFPBn?=
+ =?us-ascii?Q?k6I8JCZWl86VEjFk3iAaya/bBf1C645v0QNqG/ctJsgSjzlGtItygDcu1I6i?=
+ =?us-ascii?Q?og7YpN3yJwvCUkU8IzybyWosBoMmJn2sYy4U8x314gwrlQL8eim8rEJ1hEds?=
+ =?us-ascii?Q?BUoWVyrDyVcDUoBmnA0i3H1IfQ6e9vA4BMpHStFAChR7zVQ+3hMXaMDOwgGY?=
+ =?us-ascii?Q?0+TWEPZcFp6nUUId1yY3dUrvPDFWviuDQThfFw1xFhCky9dwktmHRipKNrzS?=
+ =?us-ascii?Q?wW4nzKZr7aH0eelHAsTRgBWzmAoL/uE41oJ+kdkICjN0OMSLh5WcGjho60gk?=
+ =?us-ascii?Q?uP+krWc8+w4YZvTEN+IxIfWMaDkICTffrabLH8GJJ/jMG98ubP/Xdnbvi7Ki?=
+ =?us-ascii?Q?mtK55oYauLEbKhofvF4f0jF04/RZPf4BtBcawyIGWnBLZNA9GffqnmbY9Fgh?=
+ =?us-ascii?Q?UxbIzvzl7KxVO+A7SZ0OPVX/4sFiRIbzWuknlJk2MBwcvwcyOYQxhogNh35r?=
+ =?us-ascii?Q?5fdlj99RhzMjzlFIXeVbM5xgWGnQ85wuUSe9btQrRG/Jc0KGc8Wt/oxWewHp?=
+ =?us-ascii?Q?ExBtGfBLAwBRcCXDYQePyhzMhd3rmPeCtjsUeMjaj/OztqE7NxRqsTfG970i?=
+ =?us-ascii?Q?EtTAQo3EPhD5kZUYMhbq3HHHPRsD94X4wnAcY5CaEpp7SwmzUXDQRv37sN3G?=
+ =?us-ascii?Q?8IatrNNcAsMipOsHNM+gTUVIX2vyoB3IKmH1gj+p3Vs6xyAH3qOmHLe9Zwl+?=
+ =?us-ascii?Q?nUgJ2SwWaDlnHNKBxfcccJZ1bT92xa7YcSv1bQmmcmpg1nc2b3kdwxUml22Y?=
+ =?us-ascii?Q?8tPHxPlT9/I84NSuLQQHXvEcFzRhWv0oArT3M3W3o71hmYIRGy0atzpqAEJe?=
+ =?us-ascii?Q?+KVaAylP3UaIGI4U1emyXaU0P2EdxItkEk/oiOPRHWQZylo5ucJHoeYHZ7ws?=
+ =?us-ascii?Q?KmJngDZ00nT0Fjr4n7ODsGKRKRPL+ps+IQVAxBMSSmjDt/XLS/WDg7lE2BTn?=
+ =?us-ascii?Q?MdHOWqvvSribgeCWj1EVOEHhlUBe+HDvFM2TTvQkQtheO0wJ76sNvokLTuGU?=
+ =?us-ascii?Q?dwaFZrK9QyUgt6T4Oz/MpskXG0fbB6O6TC8rYWO8gO6Ij9NWxjPsIy+tljRH?=
+ =?us-ascii?Q?znxRHIwuePIayhvg7b/CKr5qmILw7xV5qIisXgoQ1H3KZsPddZ9RznJ8nk/8?=
+ =?us-ascii?Q?zaQPzWPK6P4TfwpyA1HvrUVv66yuHYXcd+lTb+RoTVqYKeAkwN36p37HJh/z?=
+ =?us-ascii?Q?29OBGLRY7vF1CHDF8WXS6YS9v09fthWI0Z19yzf5FsaBke/swKCjbEchv6FT?=
+ =?us-ascii?Q?o1T9ZWmd/TVHEs8oZEBhKHAgLcXIIKVur1hzuJ6J+Et/yrpumR/QgLgWbuMb?=
+ =?us-ascii?Q?k9HCzexPNYnT11ZTReh8Ie3hIgr1tvB9sBlj+WfCQQLImhsDhczDcr3dUa+n?=
+ =?us-ascii?Q?zupu1qHQ3T3bop6Ru6H1RD+v8tBSM0KMMgbuNFDEFUbNpCrDiDjAuYCY9RiT?=
+ =?us-ascii?Q?RpurPjvTi57MmYUQZpw=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL3PR12MB6571.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 27082154-5d69-493c-e3bb-08dd0884f47b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Nov 2024 10:28:48.6803
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: DsNJHNgNAKjqrGBf/eC/Rep4+yzi/KCBmJCH7qq6RrfIzN1kBr7FZn21HJ+NtKdk4UfhO1ofkT4Gz/DFf429TQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9249
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_021938_770444_63CD12D8 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20241119_022900_028382_1718A07F 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,199 +170,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Edit nft_flow_offload_eval() to make it possible to handle a flowtable of
-the nft bridge family.
 
-Use nft_flow_offload_bridge_init() to fill the flow tuples. It uses
-nft_dev_fill_bridge_path() in each direction.
 
-Signed-off-by: Eric Woudstra <ericwouds@gmail.com>
----
- net/netfilter/nft_flow_offload.c | 144 +++++++++++++++++++++++++++++--
- 1 file changed, 139 insertions(+), 5 deletions(-)
+> -----Original Message-----
+> From: Russell King <linux@armlinux.org.uk>
+> Sent: Monday, November 18, 2024 9:39 PM
+> To: Sean Anderson <sean.anderson@linux.dev>
+> Cc: Gupta, Suraj <Suraj.Gupta2@amd.com>; andrew+netdev@lunn.ch;
+> davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
+> pabeni@redhat.com; Simek, Michal <michal.simek@amd.com>; Pandey, Radhey
+> Shyam <radhey.shyam.pandey@amd.com>; horms@kernel.org;
+> netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+> kernel@vger.kernel.org; git (AMD-Xilinx) <git@amd.com>; Katakam, Harini
+> <harini.katakam@amd.com>
+> Subject: Re: [PATCH net-next 2/2] net: axienet: Add support for AXI 2.5G =
+MAC
+>=20
+> Caution: This message originated from an External Source. Use proper caut=
+ion
+> when opening attachments, clicking links, or responding.
+>=20
+>=20
+> On Mon, Nov 18, 2024 at 11:00:22AM -0500, Sean Anderson wrote:
+> > On 11/18/24 10:56, Russell King (Oracle) wrote:
+> > > On Mon, Nov 18, 2024 at 01:48:22PM +0530, Suraj Gupta wrote:
+> > >> Add AXI 2.5G MAC support, which is an incremental speed upgrade of
+> > >> AXI 1G MAC and supports 2.5G speed only. "max-speed" DT property is
+> > >> used in driver to distinguish 1G and 2.5G MACs of AXI 1G/2.5G IP.
+> > >> If max-speed property is missing, 1G is assumed to support backward
+> > >> compatibility.
+> > >>
+> > >> Co-developed-by: Harini Katakam <harini.katakam@amd.com>
+> > >> Signed-off-by: Harini Katakam <harini.katakam@amd.com>
+> > >> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> > >> ---
+> > >
+> > > ...
+> > >
+> > >> -  lp->phylink_config.mac_capabilities =3D MAC_SYM_PAUSE |
+> MAC_ASYM_PAUSE |
+> > >> -          MAC_10FD | MAC_100FD | MAC_1000FD;
+> > >> +  lp->phylink_config.mac_capabilities =3D MAC_SYM_PAUSE |
+> > >> + MAC_ASYM_PAUSE;
+> > >> +
+> > >> +  /* Set MAC capabilities based on MAC type */  if (lp->max_speed
+> > >> + =3D=3D SPEED_1000)
+> > >> +          lp->phylink_config.mac_capabilities |=3D MAC_10FD |
+> > >> + MAC_100FD | MAC_1000FD;  else
+> > >> +          lp->phylink_config.mac_capabilities |=3D MAC_2500FD;
+> > >
+> > > The MAC can only operate at (10M, 100M, 1G) _or_ 2.5G ?
+> >
+> > It's a PCS limitation. It either does (1000Base-X and/or SGMII) OR
+> > (2500Base-X). The MAC itself doesn't have this limitation AFAIK.
+>=20
+> That means the patch is definitely wrong, and the proposed DT change is a=
+lso
+> wrong.
+>=20
+> If it's a limitation of the PCS, that limitation should be applied via th=
+e PCS's
+> .pcs_validate() method, not at the MAC level.
+>=20
+As mentioned in IP PG (https://docs.amd.com/r/en-US/pg051-tri-mode-eth-mac/=
+Ethernet-Overview#:~:text=3DTypical%20Ethernet%20Architecture-,MAC,-For%201=
+0/100), it's limitation in MAC also.
 
-diff --git a/net/netfilter/nft_flow_offload.c b/net/netfilter/nft_flow_offload.c
-index ed0e9b499971..b17a3ef79852 100644
---- a/net/netfilter/nft_flow_offload.c
-+++ b/net/netfilter/nft_flow_offload.c
-@@ -196,6 +196,131 @@ static bool nft_flowtable_find_dev(const struct net_device *dev,
- 	return found;
- }
- 
-+static int nft_dev_fill_bridge_path(struct flow_offload *flow,
-+				    struct nft_flowtable *ft,
-+				    const struct nft_pktinfo *pkt,
-+				    enum ip_conntrack_dir dir,
-+				    const struct net_device *src_dev,
-+				    const struct net_device *dst_dev,
-+				    unsigned char *src_ha,
-+				    unsigned char *dst_ha)
-+{
-+	struct flow_offload_tuple_rhash *th = flow->tuplehash;
-+	struct net_device_path_stack stack;
-+	struct net_device_path_ctx ctx = {};
-+	struct nft_forward_info info = {};
-+	int i, j = 0;
-+
-+	for (i = th[dir].tuple.encap_num - 1; i >= 0 ; i--) {
-+		if (info.num_encaps >= NF_FLOW_TABLE_ENCAP_MAX)
-+			return -1;
-+
-+		if (th[dir].tuple.in_vlan_ingress & BIT(i))
-+			continue;
-+
-+		info.encap[info.num_encaps].id = th[dir].tuple.encap[i].id;
-+		info.encap[info.num_encaps].proto = th[dir].tuple.encap[i].proto;
-+		info.num_encaps++;
-+
-+		if (th[dir].tuple.encap[i].proto == htons(ETH_P_PPP_SES))
-+			continue;
-+
-+		if (ctx.num_vlans >= NET_DEVICE_PATH_VLAN_MAX)
-+			return -1;
-+		ctx.vlan[ctx.num_vlans].id = th[dir].tuple.encap[i].id;
-+		ctx.vlan[ctx.num_vlans].proto = th[dir].tuple.encap[i].proto;
-+		ctx.num_vlans++;
-+	}
-+	ctx.dev = src_dev;
-+	ether_addr_copy(ctx.daddr, dst_ha);
-+
-+	if (dev_fill_bridge_path(&ctx, &stack) < 0)
-+		return -1;
-+
-+	nft_dev_path_info(&stack, &info, dst_ha, &ft->data);
-+
-+	if (!info.indev || info.indev != dst_dev)
-+		return -1;
-+
-+	th[!dir].tuple.iifidx = info.indev->ifindex;
-+	for (i = info.num_encaps - 1; i >= 0; i--) {
-+		th[!dir].tuple.encap[j].id = info.encap[i].id;
-+		th[!dir].tuple.encap[j].proto = info.encap[i].proto;
-+		if (info.ingress_vlans & BIT(i))
-+			th[!dir].tuple.in_vlan_ingress |= BIT(j);
-+		j++;
-+	}
-+	th[!dir].tuple.encap_num = info.num_encaps;
-+
-+	th[dir].tuple.mtu = dst_dev->mtu;
-+	ether_addr_copy(th[dir].tuple.out.h_source, src_ha);
-+	ether_addr_copy(th[dir].tuple.out.h_dest, dst_ha);
-+	th[dir].tuple.out.ifidx = info.outdev->ifindex;
-+	th[dir].tuple.out.hw_ifidx = info.hw_outdev->ifindex;
-+	th[dir].tuple.xmit_type = FLOW_OFFLOAD_XMIT_DIRECT;
-+
-+	return 0;
-+}
-+
-+static int nft_flow_offload_bridge_init(struct flow_offload *flow,
-+					const struct nft_pktinfo *pkt,
-+					enum ip_conntrack_dir dir,
-+					struct nft_flowtable *ft)
-+{
-+	struct ethhdr *eth = eth_hdr(pkt->skb);
-+	struct flow_offload_tuple *tuple;
-+	const struct net_device *out_dev;
-+	const struct net_device *in_dev;
-+	struct pppoe_hdr *phdr;
-+	struct vlan_hdr *vhdr;
-+	int err, i = 0;
-+
-+	in_dev = nft_in(pkt);
-+	if (!in_dev || !nft_flowtable_find_dev(in_dev, ft))
-+		return -1;
-+
-+	out_dev = nft_out(pkt);
-+	if (!out_dev || !nft_flowtable_find_dev(out_dev, ft))
-+		return -1;
-+
-+	tuple =  &flow->tuplehash[!dir].tuple;
-+
-+	if (skb_vlan_tag_present(pkt->skb)) {
-+		tuple->encap[i].id = skb_vlan_tag_get(pkt->skb);
-+		tuple->encap[i].proto = pkt->skb->vlan_proto;
-+		i++;
-+	}
-+	switch (pkt->skb->protocol) {
-+	case htons(ETH_P_8021Q):
-+		vhdr = (struct vlan_hdr *)skb_network_header(pkt->skb);
-+		tuple->encap[i].id = ntohs(vhdr->h_vlan_TCI);
-+		tuple->encap[i].proto = pkt->skb->protocol;
-+		i++;
-+		break;
-+	case htons(ETH_P_PPP_SES):
-+		phdr = (struct pppoe_hdr *)skb_network_header(pkt->skb);
-+		tuple->encap[i].id = ntohs(phdr->sid);
-+		tuple->encap[i].proto = pkt->skb->protocol;
-+		i++;
-+		break;
-+	}
-+	tuple->encap_num = i;
-+
-+	err = nft_dev_fill_bridge_path(flow, ft, pkt, !dir, out_dev, in_dev,
-+				       eth->h_dest, eth->h_source);
-+	if (err < 0)
-+		return err;
-+
-+	memset(tuple->encap, 0, sizeof(tuple->encap));
-+
-+	err = nft_dev_fill_bridge_path(flow, ft, pkt, dir, in_dev, out_dev,
-+				       eth->h_source, eth->h_dest);
-+	if (err < 0)
-+		return err;
-+
-+	return 0;
-+}
-+
- static void nft_dev_forward_path(struct nf_flow_route *route,
- 				 const struct nf_conn *ct,
- 				 enum ip_conntrack_dir dir,
-@@ -306,6 +431,7 @@ static void nft_flow_offload_eval(const struct nft_expr *expr,
- {
- 	struct nft_flow_offload *priv = nft_expr_priv(expr);
- 	struct nf_flowtable *flowtable = &priv->flowtable->data;
-+	bool routing = (flowtable->type->family != NFPROTO_BRIDGE);
- 	struct tcphdr _tcph, *tcph = NULL;
- 	struct nf_flow_route route = {};
- 	enum ip_conntrack_info ctinfo;
-@@ -359,14 +485,20 @@ static void nft_flow_offload_eval(const struct nft_expr *expr,
- 		goto out;
- 
- 	dir = CTINFO2DIR(ctinfo);
--	if (nft_flow_route(pkt, ct, &route, dir, priv->flowtable) < 0)
--		goto err_flow_route;
-+	if (routing) {
-+		if (nft_flow_route(pkt, ct, &route, dir, priv->flowtable) < 0)
-+			goto err_flow_route;
-+	}
- 
- 	flow = flow_offload_alloc(ct);
- 	if (!flow)
- 		goto err_flow_alloc;
- 
--	flow_offload_route_init(flow, &route);
-+	if (routing)
-+		flow_offload_route_init(flow, &route);
-+	else
-+		if (nft_flow_offload_bridge_init(flow, pkt, dir, priv->flowtable) < 0)
-+			goto err_flow_route;
- 
- 	if (tcph) {
- 		ct->proto.tcp.seen[0].flags |= IP_CT_TCP_FLAG_BE_LIBERAL;
-@@ -419,8 +551,10 @@ static void nft_flow_offload_eval(const struct nft_expr *expr,
- err_flow_add:
- 	flow_offload_free(flow);
- err_flow_alloc:
--	dst_release(route.tuple[dir].dst);
--	dst_release(route.tuple[!dir].dst);
-+	if (routing) {
-+		dst_release(route.tuple[dir].dst);
-+		dst_release(route.tuple[!dir].dst);
-+	}
- err_flow_route:
- 	clear_bit(IPS_OFFLOAD_BIT, &ct->status);
- out:
--- 
-2.45.2
-
+> --
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
