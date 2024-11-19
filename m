@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D01D6207F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 17:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4043D6C282
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 17:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=AdKf+NWnk9+whGHJ/hk/PgxG+IEXbwjzGjd9H8RzFuA=; b=JAG2UYmvFqpEYb
-	NUtZ7n9QTJNeWgvHRLuQZSMmsta5tqEt2sNIWvbBUO5d9ZGUADcCL0rj2I0hjEi4yfcJ5cJyrGcPA
-	aXzWe1mg4/LopRukYPYZZjIEPf9KVAwooJCOQNJ40n9FAqOdXSmnxaoXdJ+XZvNEs8842GwHakfNf
-	B51LrtT0NmmXrZrM+Io5qAjYzdKVwtOOJ1deS6nYBbYXUfDk2I/eT4G28rwBWwgJAOp7ljeuqeMcm
-	cGRdduiCjRmbtoMgZ5p2Y6nfdcLSjqAusrFORKdpM28+rqqUN34ctqNumN/uM6PQhIIyhKfRsJ5kj
-	vWq21XaWmiPdeU0jnr6Q==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sr9L5/9uMLYoOCbtjpfQCh02kNZLNfjp7kspe4awzRQ=; b=f+Ndx1HQlFJDy3olCkR9w6pY4p
+	s9rU2gk0/XNWr7b0Z2bfyZoZfVeBihPnpfx4T7yoNZ9y8W8Ji9tvf9M8Sta6/bigQrusi7vY0QY8k
+	BXSemISP0IV0e4jbYhgwBsNYr0lz5oVME8DpDezjYrBt4tWTERKxIt/+4zsKPBL50AYqRUgdfOKtg
+	Da3a68sOGQgTJAj9ZiXKrF80GHVGwkeZ0lkIatF2YM6pzzvGfkilZDxvmJtd+W1WX3ulQbG/9M7Uu
+	5dQBHIyyjJblYNNXJUdj2Z4SEx1L5U7pDPDaw0/R1F7SqYs689vt9kuqvS6zaLFG/fCTZsQpERIzA
+	Kjzw3x/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDSMx-0000000DGpM-3809;
-	Tue, 19 Nov 2024 17:50:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tDSQl-0000000DHZe-2Yi0;
+	Tue, 19 Nov 2024 17:54:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDSM1-0000000DGff-313G
+	id 1tDSPo-0000000DHQB-0vr9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 17:49:34 +0000
+	Tue, 19 Nov 2024 17:53:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4336B5C5741;
-	Tue, 19 Nov 2024 17:48:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB4C4C4CECF;
-	Tue, 19 Nov 2024 17:49:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B0C5E5C57C9;
+	Tue, 19 Nov 2024 17:52:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A786C4CECF;
+	Tue, 19 Nov 2024 17:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732038573;
-	bh=Zwb06hTnOtFrHP7uC9zV5bZQcN0CA4khs24iBIrl7+I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=JCdnclNQlZXxVToquWNgU1QlEZt47JOaYSV2UA2ypZ04fzpSqN5brOnWcWT69lKjE
-	 lB8kUeTCoZi81CNNjdMfzbPMrAsfjP/aUNURVo7kCrRdWF053YIXoji9UiGIZZz+fO
-	 Iv3/r/qbDC3jgZFZhzfDC+wdDG3ufIPlzh1FRGEjADIslzI/ecq8i+yL0vCKNIUOWT
-	 B5NZSYuIRoEe0J+4OM9Aaq4zYf90IKVOauUUsiTQS6F1Q+BqRk+GIIHP4PPW4nvCD5
-	 L65IW39bNU85JM/O1D7uR4iL+oSHrMbR+WMFNEkheFY2Mf7omE0LYD8hPaIDiUVgjb
-	 Qt8Ik+W7FW3TA==
-Date: Tue, 19 Nov 2024 11:49:31 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
-	"open list:PCI DRIVER FOR GENERIC OF HOSTS" <linux-pci@vger.kernel.org>,
-	"moderated list:PCI DRIVER FOR GENERIC OF HOSTS" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH] PCI: check bridge->bus in pci_host_common_remove
-Message-ID: <20241119174931.GA2270058@bhelgaas>
+	s=k20201202; t=1732038807;
+	bh=xHBKbFoZ07Ku7Y6Que2kbEg3CxhDB6sSiE/pmczIBCE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dgq5vDPYfQEAp9QcRlppUahsKWsHleIu2nooD2vWUTECini7qwskFf71OtQlAgHob
+	 VgwbxcfTrGcj6SaEE0IA3KEVSJVN8o4buBI87cUyTlsrNa829jFX3FU+5LZ4z9dhQq
+	 q6cDXdYeeLPq+875LdXusF+1Tdk/dUSpHerioqelqy+4g0QhpIBJX399a7cdJLXkZD
+	 6pgVXWvXdZzIwmUu3NbsF9WYzW1YemgHn9pcK3UbbCT0WEWvTXNFg7dC+guUY8i+xq
+	 PXnxAuCla2s+P3m8m0/Vmg800NCXq6a16c5ZNJy6umQgOI/GxDr2MKprgwfgns6Q7i
+	 /E/BHKcA5Fe2A==
+Date: Tue, 19 Nov 2024 17:53:25 +0000
+From: Eric Biggers <ebiggers@kernel.org>
+To: Zhihang Shao <zhihang.shao.iscas@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH 00/11] Wire up CRC-T10DIF library functions to
+ arch-optimized code
+Message-ID: <20241119175325.GB3833976@google.com>
+References: <20241117002244.105200-1-ebiggers@kernel.org>
+ <860a6acc-2c39-4eb1-8113-a3753f6531fc@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241028084644.3778081-1-peng.fan@oss.nxp.com>
+In-Reply-To: <860a6acc-2c39-4eb1-8113-a3753f6531fc@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_094933_796012_312F4A3F 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20241119_095328_300915_1CE06D61 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,43 +75,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 04:46:43PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
+Hi Zhihang,
+
+On Tue, Nov 19, 2024 at 06:05:58PM +0800, Zhihang Shao wrote:
 > 
-> When PCI node was created using an overlay and the overlay is
-> reverted/destroyed, the "linux,pci-domain" property no longer exists,
-> so of_get_pci_domain_nr will return failure. Then
-> of_pci_bus_release_domain_nr will actually use the dynamic IDA, even
-> if the IDA was allocated in static IDA. So the flow is as below:
-> A: of_changeset_revert
->     pci_host_common_remove
->      pci_bus_release_domain_nr
->        of_pci_bus_release_domain_nr
->          of_get_pci_domain_nr      # fails because overlay is gone
->          ida_free(&pci_domain_nr_dynamic_ida)
+> I still want to submit an optimization patchabout CRC-T10DIFfor RISC-V.
 > 
-> With driver calls pci_host_common_remove explicity, the flow becomes:
-> B pci_host_common_remove
->    pci_bus_release_domain_nr
->     of_pci_bus_release_domain_nr
->      of_get_pci_domain_nr      # succeeds in this order
->       ida_free(&pci_domain_nr_static_ida)
-> A of_changeset_revert
->    pci_host_common_remove
+> I don't know if it would be more appropriate for me to rewrite a patch after
+> your patch is officially applied.
 > 
-> With updated flow, the pci_host_common_remove will be called twice,
-> so need to check 'bridge->bus' to avoid accessing invalid pointer.
+> What do you think?
 
-If/when you post a v2 of this, please:
+Please go ahead and rebase your patch on top of this patchset, i.e. on top of
+the git branch I gave at the beginning of the cover letter.  You'll need to move
+your code into arch/riscv/lib/ and drop the shash stuff.  You can test it using
+the new KUnit test I added (CONFIG_CRC_KUNIT_TEST=y).
 
-  - Update the subject to say *why* this change is desirable.
+After that I'll be glad to apply your patch when I apply this patchset for 6.14.
 
-  - Follow the capitalization convention (use "git log --oneline" to
-    discover it).
+Thanks!
 
-  - Add "()" after function names in the text (no need in the call
-    tree because that's obviously all functions).
-
-  - Mention the user-visible problem this fixes, e.g., do you see an
-    oops because of a NULL pointer dereference?
+- Eric
 
