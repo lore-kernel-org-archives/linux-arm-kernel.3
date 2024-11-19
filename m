@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92229D44167
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:11:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13BE9D44167
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tHJiBQnkpCjdr6LxnC+t42J+J3qvjTNQmsRwiXvtYjg=; b=zgDHNV+Ez2kbp90nTUnFD1/s0S
-	q0iM5XT7g444H5F0Kr1+JbaD47y0+PKJi6FRQUadlmDib3MZmmDF5T252QMryQSAUeoeGJzZyQNhC
-	ttx9xPlnql7WRUS9YkwTJlm67PS6datCskbBqZDFK4W4HjoN05HJBOQEzscDrfeLJ8HBtwqzCZMBl
-	sjbTgJIWrJlLcA5YJ561maEowvk+u+ijLlGxwTpbd6I0HJSZVn6/bCA79zuZ44YXfVRLDckbDmD7m
-	i/ui+30+4clvGJ4bvcHz3ISesCpvi+U067/LmUA+Skg8B9jz6+Q/uEX1QqHyFR6PUHQYmYxYCxdp3
-	3SSCvYOQ==;
+	bh=94DDxj5BJZNIJbJYm3EHADr20hsCK2+Cj0MNftm+6n8=; b=kg3biIbSpiri1B+Y4lgTP72/Sz
+	gq2M1g+cMXtyBE3eijT+BvEEfXrVTZL+xtKwBQfMcj2+CwrFyOdyKsmcIx8C7aOLFvxBArMvSYK9x
+	4jCq7BOBUuWqa8PXmkw3jp3U8vcOCczTuxmkdifWU0IEth7b7T3pbbLyDkmlK9NoFK4wxTGLj8re7
+	T7j+35nKKfwSzH0LIrzDbaLDpFmmeePiOB7QhA7nsw0SaJBnk/wOtzXtUM3TAtfVIQuhXRi/kY/rs
+	sYC+sDW6e6LK9SAFrejifcrI3s8LcHG1DwF/5ew57dYBcZ+VrOGoT4VL7UtSAfY3uXewWDQa3gwNm
+	b0XLIUqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDPtH-0000000Co0V-3xu7;
-	Tue, 19 Nov 2024 15:11:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tDPuD-0000000CoCo-2ujC;
+	Tue, 19 Nov 2024 15:12:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDPj1-0000000ClMs-26wU
+	id 1tDPj1-0000000ClNG-3GPT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 15:01:09 +0000
+	Tue, 19 Nov 2024 15:01:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1B7B35C55AF;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 296D45C5609;
 	Tue, 19 Nov 2024 15:00:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B7051C4CECF;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C3455C4CEE4;
 	Tue, 19 Nov 2024 15:01:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1732028464;
-	bh=iVihXo58CtO4IGuy+SiR8hXCaTbK3CdRsA01yVjIYGk=;
+	bh=yiJTTdbSCBehVA/L/eEZohJ92LRA5AN12VTV8Lrt+K8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=PvIvqPmMxmJo18fVQIHoXLMG6dyx0Xb0jHu5FCH6LGuuKkEgNwCzZwelJZlcE8PbH
-	 yNIDD4OQKXlDu8zXMshJC4cwJJXnwvYic/nKEYrO80F2UuLLFXF3cA/Y6ZELWCzEPR
-	 1/nEaYetKnDif2UR6qAYoMxPDlk1jH5G3h04//cmfR+oe0lROlFYeMG6tsPB1N9ckJ
-	 b8gY+lmD1bRukfVXReCXxm/pikN6CSVMEIKn3hw3+WSkZD7DBWb9aJ1AVMU9KhREFE
-	 1RQRN3mrSXvNKrpDyFYD9qySS1KU55TTFRILoV2u4WG14kIwVEdHaBQOuPTX8/z1qt
-	 9EWLuwKCiJr0Q==
+	b=h1d8HCI9MTIQdG0KAGKuo6f8fNNEVireKaBtDcaxUs6jPHbcHBbsq9B/rIDEPyYDW
+	 TPmytZcAFTZ2m74CJvXHlkagHICv6s5u1ArQ+i39mEwQ5JXpEZunIG8/Ee/XyFvTtn
+	 QrCIcwi34y69U/VF79m34fRUD62rJGSc3VbUsI2r8tsW16/EWsuIebm0jMNS8g5Gsc
+	 Nbk53MinSIiWXey4Cp+daV9dRaydDnk6B/pQA9zSA3fRvJx8XAEi1FZVyuQqVbO8uV
+	 EhPUYu4MPslPzcthqao4v/vzqnSBY5CJCUKDs1QCUPRAyam4CF+j6eLQ2ZwYsDtfeK
+	 xV/tL0c4YYOHQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A4BCBD44167;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B9C90D44162;
 	Tue, 19 Nov 2024 15:01:04 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Tue, 19 Nov 2024 16:00:15 +0100
-Subject: [PATCH v5 09/16] net: dwmac-starfive: Use helper rgmii_clock
+Date: Tue, 19 Nov 2024 16:00:16 +0100
+Subject: [PATCH v5 10/16] net: macb: Use helper rgmii_clock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241119-upstream_s32cc_gmac-v5-9-7dcc90fcffef@oss.nxp.com>
+Message-Id: <20241119-upstream_s32cc_gmac-v5-10-7dcc90fcffef@oss.nxp.com>
 References: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
 In-Reply-To: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
 To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
@@ -80,19 +80,19 @@ Cc: linux-stm32@st-md-mailman.stormreply.com,
  devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
  "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732028461; l=1227;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1732028461; l=996;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=bBoQpMQEMIZkvVLzY+cPIJeDILU+K5uktEDmkyEIirY=;
- b=VykuawcU4fgIfqEBtyRRZ3cazgs4UBBxKbDLVqgpAhgUdP/6Qn1gegY5BEGZUKsyvr94YnXk7
- rww5Y7nRP/7BWX2sZ6Amd/iuP7+bGvy0dogXTu0If44pwpnfdW8qdEO
+ bh=U+5Hu4M7x0TrRD8qVcOZhTAwOuugFLfhyCNLJdF27x8=;
+ b=LhgGR7PHLpII+75vmV9SAGzHIxvTr1dj0O5nQgbUB25EX1V8sKH1Tz+8pNTq4LLulryU/A+Ne
+ svTyjwEjOpFAaGvIR5A4ZF6+vfU41ysuUW6JmQ35/SZFMujM54+Iueq
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
  auth_id=217
 X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_070107_654234_0BF71E9C 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20241119_070107_908242_EC63847B 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,42 +115,35 @@ Utilize a new helper function rgmii_clock().
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c | 19 ++++---------------
- 1 file changed, 4 insertions(+), 15 deletions(-)
+ drivers/net/ethernet/cadence/macb_main.c | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-index 4e1076faee0c..d80461a721c1 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-@@ -34,24 +34,13 @@ struct starfive_dwmac {
- static void starfive_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
- {
- 	struct starfive_dwmac *dwmac = priv;
--	unsigned long rate;
-+	long rate;
- 	int err;
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index 56901280ba04..ba9d9567a3ec 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -530,19 +530,9 @@ static void macb_set_tx_clk(struct macb *bp, int speed)
+ 	if (bp->phy_interface == PHY_INTERFACE_MODE_MII)
+ 		return;
  
--	rate = clk_get_rate(dwmac->clk_tx);
--
 -	switch (speed) {
--	case SPEED_1000:
--		rate = 125000000;
+-	case SPEED_10:
+-		rate = 2500000;
 -		break;
 -	case SPEED_100:
 -		rate = 25000000;
 -		break;
--	case SPEED_10:
--		rate = 2500000;
+-	case SPEED_1000:
+-		rate = 125000000;
 -		break;
 -	default:
 +	rate = rgmii_clock(speed);
-+	if (rate < 0) {
- 		dev_err(dwmac->dev, "invalid speed %u\n", speed);
--		break;
-+		return;
- 	}
++	if (rate < 0)
+ 		return;
+-	}
  
- 	err = clk_set_rate(dwmac->clk_tx, rate);
+ 	rate_rounded = clk_round_rate(bp->tx_clk, rate);
+ 	if (rate_rounded < 0)
 
 -- 
 2.47.0
