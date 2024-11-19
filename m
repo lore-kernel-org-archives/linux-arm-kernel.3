@@ -4,96 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1EF8D44167
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B100D44172
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vGtEjXFFPGgSGR6uoliE7zhMQXg9IXngvNmYhs/Ds0U=; b=4ENPHHDB3jhVHoI8XIVvl/uH+h
-	y2jcUZW9X8qi+gazVxvHyKZOTJ1X+sJHadfbkAGm7rEVCK11kr1ZP53uayupYgz5EwY+AAKZzw3NI
-	7XnFklGEBpscwtvrA8QtcjnZp1YmN/7drattgUemCqNnOFOX6sw71LeeNnL9Badnqfv9kOxkcwCO/
-	a8fX1dhinvKFe2eJKgZpdn6reH4yp9hpsfybKkGZDsj2hcG7Wf1yMCr0LyT+j3M4MyxsCxiZtOMSB
-	bClAIbVZN5aCQ1QJvMwIaIgzn2TAFAen5XPzr7MD7NFlHu2x1WBy7p95yRq4cpjJQCCPH6SY1EcHj
-	9LzJhizg==;
+	bh=PxoTwElUI8LmFBJvIdIcO4Ch6bWOQR0Us7a6+HQCal0=; b=4awMBplGT58a4OFygd/yObmZvB
+	us6q1tU5HThenQ2khVwnkMWI989smDqIbmmGBdrstR75U5CMD0Jv2MQqvKweWu+EE3Vsp8MDs9GNZ
+	T/OfUpwI42L/l9Y2jsSXKeK2U3InBFwccs29aKWlp7WrfMzzROjpXnIzJ2gplCQ09vQ6FoLf+RvSE
+	tBcvEX9EPKHxLui4aUeS7JD8varaO1xfkx8ocuKycs34S8asUJNYrnB6mpNYeyMXDJ8U2L3MN1SNP
+	LoRykGuBhhbYiU7yrjnVu0VZVVofmoEEisZrq/lJO+2lCDcsxzCbMfTaqOSa6W8FtUSuTbOvpk1Gq
+	SPI/rAYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDPze-0000000CpXA-2eIq;
-	Tue, 19 Nov 2024 15:18:18 +0000
+	id 1tDQ0Z-0000000CpjT-1lsX;
+	Tue, 19 Nov 2024 15:19:15 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDPj3-0000000ClP9-2Tsu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 15:01:12 +0000
+	id 1tDPnJ-0000000CmXJ-3SMd;
+	Tue, 19 Nov 2024 15:05:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3CC59A42B89;
-	Tue, 19 Nov 2024 14:59:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5FB55C4CEF9;
-	Tue, 19 Nov 2024 15:01:05 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 07296A42B41;
+	Tue, 19 Nov 2024 15:03:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04AB1C4CED2;
+	Tue, 19 Nov 2024 15:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732028465;
-	bh=Jr5TibAxKlW6LPtn2UpIAws+Jljaxx/IUAbIela8acc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=u/68oNb7CkfZKhPlsIU9LN0uIefJVa3Rem3KlFpTm4daxg27ET7sDvfths89ghFmH
-	 6vRrhosKyqz411NyZ/PRV0DOOD/bGD2LPTzHDfys+DXN79as9MC2/6HsnN9DCo5gin
-	 gTwC81LNAKGlESVBN49n9vWaaeodJ5T5NhFpYlprr13ZW62l960G2f8NXeyi1xss4a
-	 nqmFCOloDhqOuV1rUrhrpDHhfqwGXwAK8NcM9xIo53QEm/HduKBjsWUFCzcLdYs+gt
-	 qj3UfE0gks/mFpjAluiyUQoL2BLxhuEplo+O8L2kJo48vr1V/ZAqGhcqX/k9euCqHu
-	 BWKZM0DvKWPiw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 56486D44162;
-	Tue, 19 Nov 2024 15:01:05 +0000 (UTC)
-From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Tue, 19 Nov 2024 16:00:21 +0100
-Subject: [PATCH v5 15/16] MAINTAINERS: Add Jan Petrous as the NXP S32G/R
- DWMAC driver maintainer
+	s=k20201202; t=1732028732;
+	bh=omKQ1LXz60S6HxBgblXKZPTRNsNAVHlmyvMzW5gHqZI=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=H77Cyo5BofT2Mo7U07KbqxmaNWxSV4hXPpQ0DwTbvqnnQCsF13MsdlDphEyJE8xod
+	 MSwHsn4XMe1f5J+5iZN0ln9IAaSuTBtoEzELQPLJQPQAl2tVlfo5RT2+ylHIEt8aZ2
+	 zSzWnGqSVOwWRbSs1BeJjN9pRuEbwggP3L8Wc+Qgh29SxKGOA85b4YgghDaKfq75A4
+	 QyrpwI1LDYJa1gjr01Q2XgtfBeHy2ByCbfGQ2aUcewiEp9zkuuaPgDKeo/vuj1+HpO
+	 KhUCoijwlQDUHrg8uVAk2iGkFEzVeKtz30NJ11GSWPohoiglqhhqPFYrP0xnOaBZfN
+	 rZ5w7qR1oB7zw==
+From: Mark Brown <broonie@kernel.org>
+To: Jon Lin <jon.lin@rock-chips.com>
+Cc: linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ heiko@sntech.de, linux-arm-kernel@lists.infradead.org, 
+ linux-spi@vger.kernel.org
+In-Reply-To: <20241118145646.2609039-1-jon.lin@rock-chips.com>
+References: <20241118145646.2609039-1-jon.lin@rock-chips.com>
+Subject: Re: [PATCH] spi: rockchip-sfc: Embedded DMA only support 4B
+ aligned address
+Message-Id: <173202873074.60406.1798640869476341414.b4-ty@kernel.org>
+Date: Tue, 19 Nov 2024 15:05:30 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241119-upstream_s32cc_gmac-v5-15-7dcc90fcffef@oss.nxp.com>
-References: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
-In-Reply-To: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
- Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
- Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
- Minda Chen <minda.chen@starfivetech.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Iyappan Subramanian <iyappan@os.amperecomputing.com>, 
- Keyur Chudgar <keyur@os.amperecomputing.com>, 
- Quan Nguyen <quan@os.amperecomputing.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>
-Cc: linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, 
- devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732028461; l=915;
- i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=pHfq2w2j/SBgXCktQF2QqXPe5W6F70KOUcF5p5w2GsQ=;
- b=kg29ciDxOYgCtpwUA3BwC8OyW9MWH36GrRkyP2aoXLaiP8YzLpujxXXK+dVU1O7XUH5tRKMmO
- 50nCIVDiH+9CkW1LffGBetnJYKNNZxBRWJIyA9rTWuO9O0z8R/ZHoE1
-X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
- pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
-X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
- auth_id=217
-X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+X-Mailer: b4 0.15-dev-9b746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_070109_780502_8D8EAE97 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20241119_070533_927453_9E84CF80 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,41 +71,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+On Mon, 18 Nov 2024 22:56:46 +0800, Jon Lin wrote:
+> Controller limitations.
+> 
+> 
 
-Add myself as NXP S32G/R DWMAC Ethernet driver maintainer.
+Applied to
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
----
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 82161bc70b51..c65d8f904871 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2791,6 +2791,13 @@ S:	Maintained
- F:	arch/arm64/boot/dts/freescale/s32g*.dts*
- F:	drivers/pinctrl/nxp/
- 
-+ARM/NXP S32G/S32R DWMAC ETHERNET DRIVER
-+M:	Jan Petrous <jan.petrous@oss.nxp.com>
-+L:	NXP S32 Linux Team <s32@nxp.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
-+F:	drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-+
- ARM/Orion SoC/Technologic Systems TS-78xx platform support
- M:	Alexander Clouter <alex@digriz.org.uk>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+Thanks!
 
--- 
-2.47.0
+[1/1] spi: rockchip-sfc: Embedded DMA only support 4B aligned address
+      commit: c752e87b9c3982b78dddcdd70dcb826df3cfd75d
 
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
