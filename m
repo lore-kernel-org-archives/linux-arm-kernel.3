@@ -4,182 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27715D6204F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F64D6204F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7zlJyr9rXMNTHhVC7e5Cn7xESlHXcyJK/9I5YvpcEVc=; b=RpmuZoOXWrVlE/djTk7UD9KddB
-	3ff4ACXj5ayqHdqvwA8sJzoL8k8lxzVlVuUruyc6FEw3GDlf3Wo4keiytR968e+jiwtVC0gI9Xx4h
-	bq4eXW5PeRggP4s73MsB1r5YGb8QTi0Sg7YhlMniw9+HyPK0xVAVEk+Sm1o2PIJwkL5sHIRfMcntX
-	fRI8Ybbagsw/AEu5z0VxEN3YgONlWThv2PdD4gAucV6bhoPqsOavegVZxLbL8yeyWiRKYRqX0Fqbw
-	Qn50iLHPu8YOSfwhkHhx1j8WOBdAk9oLY9qqVVS62RU+DO/5QjZJryZw1DOJmXTK1YBkSJFguQttx
-	Fojs4wDw==;
+	bh=Lehm2E2Ghd4Klp9dMDc9xaKx+hfA1vHJJkOnPu9oa0s=; b=IEyN1XQKuvp/sjgKGnU+xKa3Ga
+	FmAKkt6MO3fohOr0fHBBw6eHr+9WaYkg+4khUIN6UIDGq0PBENHpeeWAzwNXehn/xDgciBj+bSMPs
+	NwLwaR2fMfZK2Gy5Tbe73brultbR9OHHx0P2e7ErFizxp1Ud1LKut8IS1hTgdP4uB9fhNadtwqL9K
+	OzCZof7jD6aSP+IPnOzhhGgx0lJ1qrS90P3uG44jB6UUYSy3Rfzwk5ATw0Li5+CZTfs32egDzvBHF
+	e7MBG6jZEPxsOmeR6Qv7vXCMYjOOL6MVxG6cqqSDkffTRnF40Tr0Z2PHzEXUcgct8/Akr1UefHRlC
+	weHjWkiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKnn-0000000Bvuf-2mw6;
-	Tue, 19 Nov 2024 09:45:43 +0000
-Received: from mail-vi1eur05on20619.outbound.protection.outlook.com ([2a01:111:f403:2613::619] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tDKqn-0000000BwaC-2Jml;
+	Tue, 19 Nov 2024 09:48:49 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKmr-0000000BviC-2Btt
+	id 1tDKpr-0000000BwOj-1sQM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 09:44:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZHc+HEm0kXd9Wahlb9VexpnwmLV4g2jHDzVDNeXogkG2b9aq7k+MpMceMZvr9IlIHSVPmG9bvpvacKD1pYoXmBH5HL40gkppk4tgsnTS15ma08vhqG6rsX9M02dkC7j5OYwfpJXjrwbSnwckB82qU/E7vBgg0bad72pi38ELN+unoJ1s3vC3s2APu7xB2UGIvjn95ucvT026IvVtcS6phovJJbwl7hYsHCuUiQZ4dWQsuHkjeYJhSWkYoCP66aSVGfAEzF2N4ScQxTuHv63/dmT6tCb04ccfoLfGYE0/HyViffRgjwc3NCxHAbS6JJUxYJTbS1AjOwsKfLaLDfneow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7zlJyr9rXMNTHhVC7e5Cn7xESlHXcyJK/9I5YvpcEVc=;
- b=rDN7kfF7bz/iFaGe6hk070zbaBk6KdoAeMqR51uE5U7m7UhMMMRB1NlBgDyf6gkobmhXOD5Z9RUIAtTshNItLSr/Kn5Uz8pUXsCcedQdiwcrzmySYCZczqc9grcHUaE+++YK6EiqqXuaxEIFqQVd0K+/HohdnXc53gnM4UW17lytexJqPbUqjnDppmhbHGzpo8/CggPHVejBbbEH6Zjboje9dTYhWJZyPc8kDoiS+eQqbvmXwxHMmSTOndt8FFV0NbrFzIj7+ItR+TXNvx6ttgZzX+FQgXgMbzcLKODZINXIEN+kyHRsNB4+fwrEEAAP9Vm29LS94kVnOpYS+KKntQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7zlJyr9rXMNTHhVC7e5Cn7xESlHXcyJK/9I5YvpcEVc=;
- b=q44lySChJmRxkdgxilLgta/3dXLbHjx8kA01LZVfzu851nh+lAnyPIPYRq86Ks6SZbK61I9px5dWJ8ppbml0gmZpPH/skkASdVWPNhBr77kIcxG07Yk4lpPT0FTZaT9wvP4PCHeX6VjawQls/gaqUdDe+WwVIGgCmqVFDVHyvp1czGJv6FgC9uSDJG+Ka4DfZDOXNp6LZ0qIwTxwSMUtVrv2V+HgMbwxkhpITr7M7F98DzcGJpOwh4DFMfLzMlqDjiYMhlZkXv3f/DJwOY59JapcUh50a3EWAxzEkwjskqt/o8JW88KEcRAJ4STaflhy+wYbjYxmwldSxSz8Cf47IQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8487.eurprd04.prod.outlook.com (2603:10a6:20b:41a::6)
- by AM7PR04MB6952.eurprd04.prod.outlook.com (2603:10a6:20b:107::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.23; Tue, 19 Nov
- 2024 09:44:35 +0000
-Received: from AM9PR04MB8487.eurprd04.prod.outlook.com
- ([fe80::6d7a:8d2:f020:455]) by AM9PR04MB8487.eurprd04.prod.outlook.com
- ([fe80::6d7a:8d2:f020:455%5]) with mapi id 15.20.8182.013; Tue, 19 Nov 2024
- 09:44:35 +0000
-Message-ID: <72b3b5e7-739f-4f03-ac40-a9cbd37972b8@oss.nxp.com>
-Date: Tue, 19 Nov 2024 11:44:23 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/7] dt-bindings: mfd: add support for the NXP SIUL2
- module
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
- <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chester Lin <chester62515@gmail.com>,
- Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>,
- Larisa Grigore <larisa.grigore@nxp.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Lee Jones <lee@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
- Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev
-References: <20241113101124.1279648-1-andrei.stefanescu@oss.nxp.com>
- <20241113101124.1279648-2-andrei.stefanescu@oss.nxp.com>
- <18e7a32c-a8de-4e5a-80aa-248b2090e346@kernel.org>
-Content-Language: en-US
-From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-In-Reply-To: <18e7a32c-a8de-4e5a-80aa-248b2090e346@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AM9P193CA0018.EURP193.PROD.OUTLOOK.COM
- (2603:10a6:20b:21e::23) To AM9PR04MB8487.eurprd04.prod.outlook.com
- (2603:10a6:20b:41a::6)
+	Tue, 19 Nov 2024 09:47:52 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tDKpT-0005uf-6K; Tue, 19 Nov 2024 10:47:27 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tDKpQ-001Xed-1N;
+	Tue, 19 Nov 2024 10:47:24 +0100
+Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tDKpQ-003HSG-10;
+	Tue, 19 Nov 2024 10:47:24 +0100
+Date: Tue, 19 Nov 2024 10:47:24 +0100
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net v2 1/2] net: phy: replace phydev->eee_enabled with
+ eee_cfg.eee_enabled
+Message-ID: <ZzxerMEiUYUhdDIy@pengutronix.de>
+References: <20241115111151.183108-1-yong.liang.choong@linux.intel.com>
+ <20241115111151.183108-2-yong.liang.choong@linux.intel.com>
+ <ZzdOkE0lqpl6wx2d@shell.armlinux.org.uk>
+ <c1bb831c-fd88-4b03-bda6-d8f4ec4a1681@linux.intel.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8487:EE_|AM7PR04MB6952:EE_
-X-MS-Office365-Filtering-Correlation-Id: 07ef77f5-ec9f-438a-8130-08dd087ec6ce
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y2lKUTlVbEV6N3RCb1A1b2kzYy9tOVRIZGpJTFVOQ1dQeUFOSW05bEVQU1V1?=
- =?utf-8?B?NTlGZEVmRlhFa0drS1R0MjUxQnNOVEZkRy81THpoSjFDc3RUcC94Y1VQaVJS?=
- =?utf-8?B?WW93L240bFNPUWxYMzB3em1CeVlqMlV1akovaWR5dDkyUXVnaXh6ZnFadUlm?=
- =?utf-8?B?bGxKMm54bDljZGxLd25KTk5rQjRKRTk5aXRZdEg5YlpGcE1zUjNBZFVvSXdh?=
- =?utf-8?B?dW9JRm1JOW1uUzNsSVpVWVpQeTNzOEdHSngvOXBPaWJhM2p0MDl5RlZkNElq?=
- =?utf-8?B?Y0lwOWsvNjFmMisrUjQyK2V6VWdzMzZUMFdXOWs1TzczaTlCaEVnek1LbCtr?=
- =?utf-8?B?MHNpMHRncWpDZ3lJWUNRQUV0Z3U1YndCcW5LaHMxVDBJcU80aG4rS0daK2dB?=
- =?utf-8?B?YnBkSWtONTF4cjRsUUFSU0lmUjFybHVkdDd4TytUakkwTVMxQXpjL0xzOW1Y?=
- =?utf-8?B?NVRRYUM5Y0pEdm9scHBsdk1zZVZ5TTl4elB1QkZma3hmOGRocVFVTWgvZmt0?=
- =?utf-8?B?QzUvK3dlcS9GeGM0ZVZ1cHhwNXFDNy8yeE5iZ20yekpveGxMR1Fsek51QzJE?=
- =?utf-8?B?NzhjSW1GdE9OK09XWUtaVS9zT3k1YmM5aHB2VFlOMjQvMk43ZWk2dC9wT1BD?=
- =?utf-8?B?a1FkT2NZOU5LMnNzTXNyM3gvV21jVW9mazB5dHA2Ky9uM0d3TzBNSEMwNFZ1?=
- =?utf-8?B?cGRKUGxhUWlTN24yVE41eCs4YVVnUUdHdlo2ak1UcVVlUnZQb0lvV3N5cEls?=
- =?utf-8?B?SGRWSFVlYVNRUlFpY1dHeGI2cStEM2VHTThOeVJVbGlNbWsyUXpBcmx3QXI2?=
- =?utf-8?B?VytlVmVVVHMzeWVXYlQ3aEZiaG1LNzNtVUFyQlhmWElTZ0Ezc2x1V01YUjIw?=
- =?utf-8?B?OVV3clZqb2IwMmxMbFhDRWtVc1FDZm9yYXVhTjBtTlNLd29SZDFsWXpDY0Ji?=
- =?utf-8?B?OXNsR1F6K0dVRFl0bUlrakhLZ01HZDI0MktmSW03aW1SVkVWanB6V25OWmpq?=
- =?utf-8?B?NXUwMDJPZUhmYjJVU3VUUHIyaDljYVJZWkZ0TXdYL3BVYWJUbFRmN2tHOUsr?=
- =?utf-8?B?L1RHdzBXaUtjSkFseEk1N0pHTmlrOGtmUlFwR0JaTi9Ha3gvKzNFaWlaTE9L?=
- =?utf-8?B?T1Juck81L0JRKzlpdjU4bWFzeFljSkUveXp6TjQ3WTRTczNuOXQ3a2JmT0lJ?=
- =?utf-8?B?MWlQRjhzM3I4ckczZzdjalZJOEpBY0ZiMHVLSktYSjJPclpkUHc5dERXUEVS?=
- =?utf-8?B?OWUxbHBMTEFOZDV4UTAvUjFWZ0VYUHdQenRzQVNnOHJHR1k0SXdYZFI2b1U2?=
- =?utf-8?B?ejdaako4K01YTlYwbVc4dzNVTEczV2xTT004bVFJNnpPc0JCbzByVDJKK2tZ?=
- =?utf-8?B?dFBPY3F1RFNjaGRGRHp2eDNHZE5CRlZqbDgvUjY0TUVKRnp6ODZlVDNQbWJW?=
- =?utf-8?B?Q2IwczZ6T0R6K3dUMmFUejFJVUlJVy9QcGVLTVI2Z1NLYUFPamFneDd1ajBj?=
- =?utf-8?B?SUtMaStMdldMeE5zbDlMR003a0JrUWhOdk5sNmpZVlgvK0FKRWtQVWJoMVJy?=
- =?utf-8?B?eW95WFJlNGdyclJabjBwSXd4b25zUVY0RlIyYWpycEgzVnRQTWZMb1QzL0dx?=
- =?utf-8?B?d3ptWmtKYnRNbFdsOFlYNWZNSko5SW1pdGptbXBNRnh2L3FpYnplSXlTYzFF?=
- =?utf-8?B?TVpya2JibmtydFdGT1RNczF0YURlWVdsWngyVlVwdkFLSXBhL0NKYXQ5YmRj?=
- =?utf-8?B?MmNTdUlxNEdHS2lTUkVTVVFyQ1JjRTA1cW1uRG02Ui9CTEFoSmpheWZUVXc4?=
- =?utf-8?Q?xrqPvDFRs1Voud5SOS7s9thsSHnS4N0ggQg7k=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8487.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MjRJb3RPdlhhdE9MZVk4bnRpUmI3ejZ2ZkVOWktsQ2lkVVdsYjluNkM4T2pp?=
- =?utf-8?B?b29VVWEybzZFaTMwNSs3WDJPNzh4bGM1TXkrSFU4QXkxcVFOV3Y0U2o5eHFW?=
- =?utf-8?B?REg0NFBMYVJSK1RyT3RSQ2h6MlkzN09PejhmZGhNS2VyRFNDOW02TFY5OHI1?=
- =?utf-8?B?RTFocFIyQnc4N21Oc0o1QXRweStNTWRMaHEwZ2JWQzlDeTRlUTJZbFVieVJj?=
- =?utf-8?B?ejNlNlpNVUNLTTNVZVFaKzdEUThMVjk2a0pOcGVYY3ptL29kK3BRMmpGWXda?=
- =?utf-8?B?U3pPdXV0dzNFenRZVThmWkp4ZG1OS0d2RE9HWDh2UXI5alZMMGUvRFpHK1BW?=
- =?utf-8?B?eUVuYnQvZmcwT3NHRUhDNkRzNmxPWlkrUTcvYXgwUG0yU0UvWks4SmVDYytN?=
- =?utf-8?B?TGlKVyt1RGZvQ3FIUDVNZTBRR1VkY05RQk8wMXNZaXl5M0dWeGpaU0NLbC8y?=
- =?utf-8?B?ekFhMXlxQmlhYXV2aUpjMXFhVms4Q2U3dlNQY0xlaHN1SEFrL3NZeTlObXd1?=
- =?utf-8?B?K3JvMEFCcXpKb2Nzd3FWYVVrWWVzZjAwYXkxWUhBUWNLN1cvWDUzNVJiampG?=
- =?utf-8?B?WThyWjYrTXNCWWlMcytwNER5MjdERjBLMitaOHFlSXk4a3FnY3ZuOGFGWnd6?=
- =?utf-8?B?LytZWE0wS2kzMUVIbFpwemU2aTQ5cVJ2OWxpMnp6QmtZTjNQclRGYk1BblVJ?=
- =?utf-8?B?OVZKQ1NXNGNpNk9UYWlFUm1VblltMjh2ZXNXUDNOWDdSaUlsNnhPaGNMN3U5?=
- =?utf-8?B?N0ZWUU9sSEozRFNYd05JKzhLVVRSZXA5Z29sVGpPeHUrbVkyNVpUazlXRGpE?=
- =?utf-8?B?TlRBaHJqREpYaVhqaGIyL0RybHhwL2xCZkg4akZJSDUyOWh6cFBtV0RNYjVZ?=
- =?utf-8?B?bTBsbnRkMkhLWFBOUVZZbDE4ODVaaUIranRqTXVUcktsdHU0Uys2SDJRbFJN?=
- =?utf-8?B?YlFzQ3grdlVScENLRUt3WFVJRHJNWTVZVTM1bXplT1pYNkNOS1dPVVJYVDJJ?=
- =?utf-8?B?bXBseU1SdjJBYUtiektISlArRzVKU3JuQ2ExVWM0akFrUGEwakVOSXBnVXRQ?=
- =?utf-8?B?NTV4MkxXSWhlZlp0U1JNckhueTRLY29hM2RnMlUyYmJyR3ppSG5hREtOd0Nv?=
- =?utf-8?B?bmpGVjRCWmJic3greGFQL1pHNDAwSVc1MHlGMEtQSnZiQXVCSmhBVE5RSnRq?=
- =?utf-8?B?c1dWVnNCaTN4K1FWZ21IWlJoeXhNbGY2ekhWb3ZmRjZTL1JweEduc1JYbm5x?=
- =?utf-8?B?ZnVBa1ZtaENGMnQvQzhSUVBzV3lqVTZOV3FzTlhITk94V2tqWGw4S2xianpG?=
- =?utf-8?B?T2VKV2FiOFcrZGNYUGFvcHI0QVhRWkxKak14UWtHVmdyajRCa1ZpcndINS91?=
- =?utf-8?B?SXBiS0h1aFFVb0tLOW1FTDBqNFNiYTcrelVaQWRPbXYxcW9vZ1J6OW1OSHZG?=
- =?utf-8?B?RzNDcjRHZXg4Z21YZ3NsZWR0bmpsQlU3T05PRVZ0MnlvREQrenBaVVgzemMw?=
- =?utf-8?B?MXU2WEZYK3ZCbUpOMm5aR0pkcXhnUGNnU1k4MnRMRklkeFVsMDZGbE5Wa1RM?=
- =?utf-8?B?Mkg4d0h1TUtRUnFKb0xwcnoxdkF5VHJzdU1MREpRS1psYmRab1ZIQk1TclF3?=
- =?utf-8?B?Mjdla0VIWGRFZXo2dzQ0TUlvZ3RKS2JUNHFnWmxWa1dOd3RpS29zbVFwMlp3?=
- =?utf-8?B?SGtTbzZZdElOYkxjUlA0VDRaWHk5eU1BZ1M1VnB4VXVJNjFHTjdMMkpFS0x0?=
- =?utf-8?B?bVRoeW9XRTkrOGU2UVREWkorMTFYWllDRkdWWFN2c2RyTzVRVUFtY2Z3U1JV?=
- =?utf-8?B?dk9sSUJJMldYNWpGUjJrVHMxYmFZaHNQSTl2OWh4Wjh3QnBpbGpEYVF6WDVv?=
- =?utf-8?B?NVhQQS9RWTNUWnNCUE40QVR5RDVrTmZvSkMxNW1YK1Qya3Y0d3ZXSFZDTjQ5?=
- =?utf-8?B?WE9NSUJYcndlTVFDRlJUVVBPQ2RCRnJqRy80QnhEQTFMMTJMcGF2cHFvR2Fo?=
- =?utf-8?B?cVVDMVR2cnd6d2s3VENFOGYvNjlFZ3Fsa3dUT09ObnNYdjFHdnBIYThCMFRm?=
- =?utf-8?B?U0xEK096S2dKaWRXdnhkeUkwVklqYytSbUV4TnByVHZ4Q2EzR2RDNHBLRzQw?=
- =?utf-8?B?UWNJbHhqT25HMTlhOEcva3hMeFl4Ni92SEdqbUMzMzYwODFReUJPODc5YUFh?=
- =?utf-8?B?L2c9PQ==?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 07ef77f5-ec9f-438a-8130-08dd087ec6ce
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8487.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2024 09:44:35.3543
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: I1ZqIDii1BDifLMLFvvw5VZDDcMl9xrnNtNbZYYRfqSZ6nSRUTkFAVUK1gxMTwFEot41UnKOApM9KLUCZfss5N+B8S7qe2i5dmsJ/JS7rIc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6952
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <c1bb831c-fd88-4b03-bda6-d8f4ec4a1681@linux.intel.com>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ore@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_014445_567568_7C5226F0 
-X-CRM114-Status: GOOD (  21.85  )
+X-CRM114-CacheID: sfid-20241119_014751_482297_AB164E8B 
+X-CRM114-Status: GOOD (  41.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,62 +93,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Tue, Nov 19, 2024 at 05:06:33PM +0800, Choong Yong Liang wrote:
+> 
+> 
+> On 15/11/2024 9:37 pm, Russell King (Oracle) wrote:
+> > On Fri, Nov 15, 2024 at 07:11:50PM +0800, Choong Yong Liang wrote:
+> > > Not all PHYs have EEE enabled by default. For example, Marvell PHYs are
+> > > designed to have EEE hardware disabled during the initial state.
+> > > 
+> > > In the initial stage, phy_probe() sets phydev->eee_enabled to be disabled.
+> > > Then, the MAC calls phy_support_eee() to set eee_cfg.eee_enabled to be
+> > > enabled. However, when phy_start_aneg() is called,
+> > > genphy_c45_an_config_eee_aneg() still refers to phydev->eee_enabled.
+> > > This causes the 'ethtool --show-eee' command to show that EEE is enabled,
+> > > but in actuality, the driver side is disabled.
+> > > 
+> > > This patch will remove phydev->eee_enabled and replace it with
+> > > eee_cfg.eee_enabled. When performing genphy_c45_an_config_eee_aneg(),
+> > > it will follow the master configuration to have software and hardware
+> > > in sync.
+> > 
+> > Hmm. I'm not happy with how you're handling my patch. I would've liked
+> > some feedback on it (thanks for spotting that the set_eee case needed
+> > to pass the state to genphy_c45_an_config_eee_aneg()).
+> > 
+> > However, what's worse is, that the bulk of this patch is my work, yet
+> > you've effectively claimed complete authorship of it in the way you
+> > are submitting this patch. Moreover, you are violating the kernel
+> > submission rules, as the Signed-off-by does not include one for me
+> > (which I need to explicitly give.) I was waiting for the results of
+> > your testing before finalising the patch.
+> > 
+> > The patch needs to be authored by me, the first sign-off needs to be
+> > me, then optionally Co-developed-by for you, and then your sign-off.
+> > 
+> > See Documentation/process/submitting-patches.rst
+> > 
+> > Thanks.
+> > 
+> > pw-bot: cr
+> > 
+> 
+> Sorry for the late reply; I just got back from my sick leave. I wasn't aware
+> that you had already submitted a patch. I thought I should include it in my
+> patch series. However, I think I messed up the "Signed-off" part. Sorry
+> about that.
+> 
+> The testing part actually took quite some time to complete, and I was
+> already sick last Friday. I was only able to complete the patch series and
+> resubmit the patch, and I thought we could discuss the test results from the
+> patch series. The issue was initially found with EEE on GPY PHY working
+> together with ptp4l, and it did not meet the expected results. There are
+> many things that need to be tested, as it is not only Marvell PHY that has
+> the issue.
 
-Thank you for your review!
+Hm, the PTP issue with EEE is usually related to PHYs implementing the
+EEE without MAC/LPI support. This PHYs are buffering frames and changing
+the transmission time, so if the time stamp is made by MAC it will have
+different real transmission time. So far i know, Atheros and Realtek
+implement it, even if it is not always officially documented, it can be
+tested.
 
-On 19/11/2024 11:21, Krzysztof Kozlowski wrote:
-> On 13/11/2024 11:10, Andrei Stefanescu wrote:
->> +
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - nxp,s32g2-siul2
->> +      - nxp,s32g3-siul2
-> 
-> Not much improved. See other NXP bindings how they do this.
-> 
-
-Do you mean to have the "nxp,s32g3-siul2" compatible fall back to the g2 one?
-
->> +
->> +  gpio-reserved-ranges:
->> +    maxItems: 2
-> 
-> That's odd to always require two reserved ranges. Does this mean all
-> devices have exactly the same reserved GPIOs? Then the driver should not
-> export them.
-
-Yes, the driver exports GPIOs from two hardware modules because they are
-tightly coupled. I export two gpio-ranges, each one corresponding to a
-hardware module. If I were to export more gpio-ranges, thus avoiding
-gpio-reserved-ranges, it would be hard to know to which hardware module
-a gpio-range belongs. I would like to keep the current implementation
-regarding this problem. Would that be ok?
-
-> 
-> <form letter>
-> This is a friendly reminder during the review process.
-> 
-> It seems my or other reviewer's previous comments were not fully
-> addressed. Maybe the feedback got lost between the quotes, maybe you
-> just forgot to apply it. Please go back to the previous discussion and
-> either implement all requested changes or keep discussing them.
-> 
-> Thank you.
-> </form letter>
-
-Yes, sorry for this. I initially thought you were referring to the
-label name. I now realize that I misread it. It will be changed
-to pinctrl in the next version.
-> 
-> 
-> 
-> Best regards,
-> Krzysztof
-> 
-
-Best regards,
-Andrei
-
+Regards,
+Oleksij
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
