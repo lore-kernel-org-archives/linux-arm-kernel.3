@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F34AD6C29B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 21:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6714D6C2B5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 21:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lkxeQUfNljLvLRiRZhalC+n4lyNit8qK2o0nRa/RK2k=; b=FbnH1xK9aYhxRLowdYjGgGtI8i
-	YK2JVYR9TXMJjS/5Qy2ykLmzZTjsKc1bWs3uYgVMJiJ6AJdL8bDEvHeKrTZ75nPyjoj3eGZK9u6hz
-	oZIUySL+IrwcjDjA0X93ADsHKtjWpLR+JY3wMIdKQuGdFaAF1zkFAp8XyzeSAM4ZDw7nneIaAYJ7F
-	wdPNYM4ABCI6sNww7Xj9rADyG9gjsiUlR+kNPj+HlL7J1HUZV+kI+1whmViRguYqakRXMSxdJljVK
-	dOWYINXsv/gf/Visue2T91emyG11ARSxERVPEgPNf+pXeXVIpgrcBaLbpd9QuEqKYSlhp5qSdd04E
-	PKsNqCxA==;
+	bh=bs99zjzT6d12gvM6MWyIJ6XWCfETAhHft1AvWE2UFvk=; b=sjR4PCZJYS58HUwpPAzSOZB/zJ
+	4V8faI8AYpp+j3mgm/VZxiTAe4mfiAJOyq+zxiS9DO0gczRrySZkIgQjka3swcCEG4earOpTq6Ny0
+	wY9FYQd6jJQyaPJqD0DKTGoc9diY8TGCV41ZaFOMhjUX+XRT8eT9+XI5LCMZ05woACaY+cGx9VfVD
+	vQyHbGr/FzXeGiN7uDDevIxWd9QVYT5s6DHm/WyxLdEK67CMc6VkAWFte7ywK4rS6a214Vl9bTe3D
+	G8zLK9shZiMn66wdvODhDEcD/r3rzNHNWBRVrHVFUKSZk2hDKhiNGo58sR7HzL9IQOypUCmPtlxD7
+	q5jCOW/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDVyn-0000000Dpcr-0JrC;
-	Tue, 19 Nov 2024 21:41:49 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1tDW3w-0000000Dpxx-0DrZ;
+	Tue, 19 Nov 2024 21:47:08 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDVxq-0000000DpW4-1gjK
+	id 1tDUsD-0000000Dh4x-28sL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 21:40:52 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3823eaad37aso145758f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 13:40:49 -0800 (PST)
+	Tue, 19 Nov 2024 20:30:59 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-20cdb889222so45832805ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 12:30:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732052448; x=1732657248; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=lkxeQUfNljLvLRiRZhalC+n4lyNit8qK2o0nRa/RK2k=;
-        b=cLWkZPxdJRGJJ9m/iINzIfYMd8Y7fa05fWg2cuBOoj0b1T/SfTynhxDuryyrGL2R8i
-         EZTUA8nnFVXvQhDo18rzU4UCb+qm57XJD1QdycI0whxUQ4RG0e4CPTSg3Dcr78ojoWBU
-         HmJaLW7XJrDDKLC1PUGrKh9x2NTd1WsadARSDdw8lLGN+1Qj2MPNEaBAsWfKrOCWPq+8
-         dOnUEOClXyFgeOB4ZtBgVRUT3v6Lfdm8gHauZ2z2ClymnqlE9PGrpgq6HaV3daGKxIPO
-         qqIwPPZ/CAC3833GQh9uA9nF96DjLP9456Gcp6OeC796eusgDh5cBBV/cIA0a4KmBZHE
-         fQtA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1732048257; x=1732653057; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bs99zjzT6d12gvM6MWyIJ6XWCfETAhHft1AvWE2UFvk=;
+        b=QbaO1ltNH38dL/h1ymHazE9QJLCEcGTMkuCFX8obZtZ7gu7P2zUcrsS/RWFiPlGmL6
+         h2j+gnS4B1yFQFvQTdEU69Ysk/27aA1AkFIRSkTzzbFNkK1HVddckj9TgqS838Mtclu7
+         oafdheyBdZ/AM0zKLg5/7NKBg5OG5rCv42spWk6QCwsF2mDZjrOnIsPC7ne5BTIEoE79
+         OQsIX9bb29r6PSRkyC7pJdwKXrRJmiX69ntyXdrIE1DIiWrd/1/jHWH2rPWuAT7ko3+3
+         chkPA+PCtgfHsW45T2vbeZUhkjPZH4A5NEZeYE90RiYnTRLVKDzFX0tl8BWr+sA/JbxW
+         R80g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732052448; x=1732657248;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lkxeQUfNljLvLRiRZhalC+n4lyNit8qK2o0nRa/RK2k=;
-        b=AxpN8KTAnQGT6b1tYRDm8fvTNCQsbb1o5b9QFEMklBFpvMfwUnDOCtSB9HmE+UGEyj
-         Ad37xi1XcNgWAlniCQKwmXbuwooyRI9W0G7Y3F1UwevUamGAbIgIF4qvM62Hw8o7FPMv
-         Vm4s+rFnFUGrXRbuO/yS5rMnLuozhTS2rhcGuoFvFqCllQIxz/BiaCc7IYyf1rzLuy0x
-         trJvnWrIkk1E2dcR5GRYqzOZm2Yr/bknxxbSbei7m3exdwtyo7JWu3pByfW2iz0uW9tZ
-         8TdCobcULcoc3E0dkEraaYYBKGEp4f1H3HjmizX60tV7KfIw4gkKP9IvknsMngdAum6M
-         sGzg==
-X-Forwarded-Encrypted: i=1; AJvYcCV69RFXHtFolV8DaRxeUuzvIU7gKih7qzbSivmq9YP8IFDiETPpVqqCDdKeRkhKBn2R6st6J2EeDwqq0Nt7UeWh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3YnxLx0/Gd4E5sWs5jpWdbYNEB/hkbl8GVE+iDuyCVAavDX5B
-	kIs8B9gPyHmoSjKmGWOOOWEgt+M9p1TcGZNkvD9xubVb9gG3WLEojgPy/34CrX4=
-X-Google-Smtp-Source: AGHT+IG6bv5/VShXyjrdqEjy+T/UO+kLOX7JIB5cP3VCGPfmzISuivqKLJjNxAIIX4ocGdqh24oTtw==
-X-Received: by 2002:a5d:5f91:0:b0:37d:47eb:b586 with SMTP id ffacd0b85a97d-3824cb30e45mr4340383f8f.4.1732052447252;
-        Tue, 19 Nov 2024 13:40:47 -0800 (PST)
-Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-382549055f2sm366236f8f.16.2024.11.19.13.40.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Nov 2024 13:40:46 -0800 (PST)
-Message-ID: <cfca677b-bc74-49bb-a031-6f52629edd2b@linaro.org>
-Date: Tue, 19 Nov 2024 22:40:45 +0100
+        d=1e100.net; s=20230601; t=1732048257; x=1732653057;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bs99zjzT6d12gvM6MWyIJ6XWCfETAhHft1AvWE2UFvk=;
+        b=APdtpBDl6q9qXdCDQzv1vlf1ZzjYLPkZw3/oBwsTKSQYrFl46fgG1dzksfeYXie3Zq
+         Q517lVOrcOsdLqQG9TPBChy3AmCosdPQ0KetBfns/X99wk3O9FSuTr4Zh7DHFVLZ6Bgt
+         i4zOvTwTUrOFl+64AOvT+D2HQKIJHJINkY/qcYoigxpgjzHMM594o+kV42qon0Bxz/nt
+         sje+vflb/3dNgD7PjetlNvw+3QUie4W2E6OIVe3LshQvCUDV9nDCYnzLQuSqGbU+tjjg
+         lupn1kXnD4NsohWcKfyq4REL42a7XlNKsD83S+fSpdG0NvFLbsahH22sl6b8r/VyUxba
+         Owxg==
+X-Forwarded-Encrypted: i=1; AJvYcCXFnUtsXZuCK1WAkhY46gSYv+siFkKyPs8rIHb2hfx7V6ikrqoAXkbLy6h9q0FOrSH+Zagn0PqUYq5ToxUN7nAU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyjt6NMChwqlU/CB2U173s3OR6m6itqILAyhC0guiZjnG4g++vJ
+	b1drTdOkVmAatZ0/RPaqxqIjwRtGv5E/5IIuH9CEX4cIRb0boB5UqzZpksyHs3c=
+X-Google-Smtp-Source: AGHT+IESHBYfIB+Rw/ycY/laHoMRI9Uw6Iu8jOPbVMITks5jvKXyAK0AlmSBcZiVndbkDkPBOO2Y/A==
+X-Received: by 2002:a17:903:230d:b0:211:ee35:830c with SMTP id d9443c01a7336-2126a34d311mr3124645ad.15.1732048256798;
+        Tue, 19 Nov 2024 12:30:56 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f34f2fsm79001315ad.159.2024.11.19.12.30.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 Nov 2024 12:30:56 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+Date: Tue, 19 Nov 2024 12:29:55 -0800
+Subject: [PATCH 7/8] RISC-V: KVM: Implement get event info function
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14] thermal/drivers/mediatek/auxadc_thermal: expose all
- thermal sensors
-To: Hsin-Te Yuan <yuanhsinte@chromium.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- James Lo <james.lo@mediatek.com>, Michael Kao <michael.kao@mediatek.com>,
- Hsin-Yi Wang <hsinyi@chromium.org>, Ben Tseng <ben.tseng@mediatek.com>
-References: <20241025-auxadc_thermal-v14-1-96ab5b60c02e@chromium.org>
- <5dd2d2a3-6eff-45fb-8af8-593945235dd3@linaro.org>
- <CAHc4DNKSsrdSjqunhk+oyWw_+oKY9BgzPcqag5QrmLJqjVsE1Q@mail.gmail.com>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <CAHc4DNKSsrdSjqunhk+oyWw_+oKY9BgzPcqag5QrmLJqjVsE1Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241119-pmu_event_info-v1-7-a4f9691421f8@rivosinc.com>
+References: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
+In-Reply-To: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
+To: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Mayuresh Chitale <mchitale@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+ Atish Patra <atishp@rivosinc.com>
+X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_134050_449668_8B67D283 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20241119_123057_659055_C9B1E06F 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,68 +99,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/11/2024 08:38, Hsin-Te Yuan wrote:
-> On Fri, Nov 15, 2024 at 12:48 AM Daniel Lezcano
-> <daniel.lezcano@linaro.org> wrote:
->>
->>
->> Hi,
->>
->> On 25/10/2024 14:05, Hsin-Te Yuan wrote:
->>> From: James Lo <james.lo@mediatek.com>
->>>
->>> Previously, the driver only supported reading the temperature from all
->>> sensors and returning the maximum value. This update adds another
->>> get_temp ops to support reading the temperature from each sensor
->>> separately.
->>>
->>> Especially, some thermal zones registered by this patch are needed by
->>> MT8183 since those thermal zones are necessary for mtk-svs driver.
->>
->> The DT for the mt8183 describes the sensor id = 0 as the CPU. On this,
->> there is a cooling device with trip points.
->>
->> The driver registers the id=0 as an aggregator for the sensors which
->> overloads the CPU thermal zone above.
->>
->> Why do you need to aggregate all the sensors to retrieve the max value ?
->>
->> They are all contributing differently to the heat and they should be
->> tied with their proper cooling device.
->>
->> I don't think the thermal configuration is correct and I suggest to fix
->> this aggregator by removing it.
->>
->>
->>
->   As far as I know the thermal design of Mediatek's board is based on
-> the highest temperature of the whole board. Also, removing the
-> aggregator will break all the boards using this driver.
+The new get_event_info funciton allows the guest to query the presence
+of multiple events with single SBI call. Currently, the perf driver
+in linux guest invokes it for all the standard SBI PMU events. Support
+the SBI function implementation in KVM as well.
 
-AFAICT, it is not a thermal design but a thermal configuration.
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ arch/riscv/include/asm/kvm_vcpu_pmu.h |  3 ++
+ arch/riscv/kvm/vcpu_pmu.c             | 67 +++++++++++++++++++++++++++++++++++
+ arch/riscv/kvm/vcpu_sbi_pmu.c         |  3 ++
+ 3 files changed, 73 insertions(+)
 
-What is the rational of using power numbers related to the CPU but 
-aggregate all temperatures as an input to the governor ?
-
-And for example, the mt8173 has 4 banks and 4 sensors per banks, so 16 
-sensors. And they are all grouped together under the thermal zone 
-"cpu-thermal" with the cpu cooling device.
-
-So if the GPU is getting hot, we cool down the CPU ?
-
-
-> By the way, I heard that baylibre is working on multi-sensor
-> aggregation support, which can be the alternative solution for the
-> aggregator in this driver, but that should be another story and is
-> unrelated to this patch.
-
-Right.
-
+diff --git a/arch/riscv/include/asm/kvm_vcpu_pmu.h b/arch/riscv/include/asm/kvm_vcpu_pmu.h
+index 1d85b6617508..9a930afc8f57 100644
+--- a/arch/riscv/include/asm/kvm_vcpu_pmu.h
++++ b/arch/riscv/include/asm/kvm_vcpu_pmu.h
+@@ -98,6 +98,9 @@ void kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu);
+ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long saddr_low,
+ 				      unsigned long saddr_high, unsigned long flags,
+ 				      struct kvm_vcpu_sbi_return *retdata);
++int kvm_riscv_vcpu_pmu_event_info(struct kvm_vcpu *vcpu, unsigned long saddr_low,
++				  unsigned long saddr_high, unsigned long num_events,
++				  unsigned long flags, struct kvm_vcpu_sbi_return *retdata);
+ void kvm_riscv_vcpu_pmu_deinit(struct kvm_vcpu *vcpu);
+ void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu);
+ 
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index efd66835c2b8..a30f7ec31479 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -456,6 +456,73 @@ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long s
+ 	return 0;
+ }
+ 
++int kvm_riscv_vcpu_pmu_event_info(struct kvm_vcpu *vcpu, unsigned long saddr_low,
++				  unsigned long saddr_high, unsigned long num_events,
++				  unsigned long flags, struct kvm_vcpu_sbi_return *retdata)
++{
++	unsigned long hva;
++	struct riscv_pmu_event_info *einfo;
++	int shmem_size = num_events * sizeof(*einfo);
++	bool writable;
++	gpa_t shmem;
++	u32 eidx, etype;
++	u64 econfig;
++	int ret;
++
++	if (flags != 0 || (saddr_low & (SZ_16 - 1))) {
++		ret = SBI_ERR_INVALID_PARAM;
++		goto out;
++	}
++
++	shmem = saddr_low;
++	if (saddr_high != 0) {
++		if (IS_ENABLED(CONFIG_32BIT)) {
++			shmem |= ((gpa_t)saddr_high << 32);
++		} else {
++			ret = SBI_ERR_INVALID_ADDRESS;
++			goto out;
++		}
++	}
++
++	hva = kvm_vcpu_gfn_to_hva_prot(vcpu, shmem >> PAGE_SHIFT, &writable);
++	if (kvm_is_error_hva(hva) || !writable) {
++		ret = SBI_ERR_INVALID_ADDRESS;
++		goto out;
++	}
++
++	einfo = kzalloc(shmem_size, GFP_KERNEL);
++	if (!einfo)
++		return -ENOMEM;
++
++	ret = kvm_vcpu_read_guest(vcpu, shmem, einfo, shmem_size);
++	if (ret) {
++		ret = SBI_ERR_FAILURE;
++		goto free_mem;
++	}
++
++	for (int i = 0; i < num_events; i++) {
++		eidx = einfo[i].event_idx;
++		etype = kvm_pmu_get_perf_event_type(eidx);
++		econfig = kvm_pmu_get_perf_event_config(eidx, einfo[i].event_data);
++		ret = riscv_pmu_get_event_info(etype, econfig, NULL);
++		if (ret > 0)
++			einfo[i].output = 1;
++	}
++
++	kvm_vcpu_write_guest(vcpu, shmem, einfo, shmem_size);
++	if (ret) {
++		ret = SBI_ERR_FAILURE;
++		goto free_mem;
++	}
++
++free_mem:
++	kfree(einfo);
++out:
++	retdata->err_val = ret;
++
++	return 0;
++}
++
+ int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu,
+ 				struct kvm_vcpu_sbi_return *retdata)
+ {
+diff --git a/arch/riscv/kvm/vcpu_sbi_pmu.c b/arch/riscv/kvm/vcpu_sbi_pmu.c
+index e4be34e03e83..a020d979d179 100644
+--- a/arch/riscv/kvm/vcpu_sbi_pmu.c
++++ b/arch/riscv/kvm/vcpu_sbi_pmu.c
+@@ -73,6 +73,9 @@ static int kvm_sbi_ext_pmu_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	case SBI_EXT_PMU_SNAPSHOT_SET_SHMEM:
+ 		ret = kvm_riscv_vcpu_pmu_snapshot_set_shmem(vcpu, cp->a0, cp->a1, cp->a2, retdata);
+ 		break;
++	case SBI_EXT_PMU_EVENT_GET_INFO:
++		ret = kvm_riscv_vcpu_pmu_event_info(vcpu, cp->a0, cp->a1, cp->a2, cp->a3, retdata);
++		break;
+ 	default:
+ 		retdata->err_val = SBI_ERR_NOT_SUPPORTED;
+ 	}
 
 -- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+2.34.1
 
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
 
