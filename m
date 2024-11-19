@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44085D6C285
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 18:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46CC6D6C281
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 18:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SsDjHGWgXn8+Qejkkkz91XL7Qc6C+S3k4I/UjMbsnvU=; b=efmuqFaZcnxpbxuJA80tHWHsnI
-	E4XUtKP1F1sioU/zRvaz1ELyg6c4LUXLhpLc/kZE/uy19XLrLC4l6QUEC91wToZU/XkDK871UHkJR
-	5/Ez2GwJ/gyKqvHzHw7vkXhagVjk9+FxZFZeCWmCIhsBE7bTdSpKo+8DSSWI/NJgcEVYNL6+whIXk
-	4GOpzC++QVV3aXdTXj8IXb6r33F6aESqCHubX+hPSIJEEYOBnWNpwI6/3i1NokLknRR9Ci+OSzWMj
-	+Oaty8NR03vo+90b1O1WjbOvF5T0nV3gs18H1Elfa1CRrt6F7g/LIipZmJQlmohus46y3fqLpoE42
-	Mda8keQQ==;
+	bh=QNN2UsDWlNXg3V2WgYv3ox138O7Ap6NXhrG7kHJklgc=; b=OgvG6H0X3L+tZcBiA0b7hvkDH1
+	IE1GWzqdey2kfKmIclPItJxV/Bk8ansxY4F+bxtt7v+hE7ycr61cNszmLJABBN5UgaYJsnGYnnkMv
+	yCQdPomUs6Qt+2MkmTGP+OcXiwkUZBbYBozHMnqk17j6BCEa52Q1NJ4hRWjsFZltlFZ/GhdTvdIcL
+	ceNOEQbXz/Fclo11Nh4WeYUy31xZ7uCazv7YIl4sgy5jyhvylBeuSNy0d055TTGGRumGHSgu3GaZN
+	Q6F3yqWfWG/LuixJhRw8oTZyQUg6HzoKNa/+jhwVeufE3uywy5Qwk3sdxKcvd4ptAjHrzJpGNnqSk
+	zYP1AFgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDSr9-0000000DMzq-01X7;
-	Tue, 19 Nov 2024 18:21:43 +0000
+	id 1tDStI-0000000DNM9-2vwy;
+	Tue, 19 Nov 2024 18:23:56 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDSqC-0000000DMro-3DJW
+	id 1tDSsM-0000000DNAj-47ic
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 18:20:45 +0000
+	Tue, 19 Nov 2024 18:23:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 515ADA42DC8;
-	Tue, 19 Nov 2024 18:18:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BE00C4CECF;
-	Tue, 19 Nov 2024 18:20:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AAD38A42DD2;
+	Tue, 19 Nov 2024 18:21:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3913C4CECF;
+	Tue, 19 Nov 2024 18:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732040443;
-	bh=c+7h9hMMGMohgWVCuK5JjLU4dDG65LxAL3SOLXCksaU=;
+	s=k20201202; t=1732040577;
+	bh=H+g7KtGZVKeFClzWJ6E9sLHyjgEpc8Kl/xs6k2Oomfs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GVokfRufVjDiWMFrIV55YKvPnfOCikKXfcvMiewwhF33add4VLpqtW2Vw73JsSO6U
-	 lG0gVdZtQPV2hEd++iZVLkGGH2ybiE8tTGlQLa3B0Cf5PXekrVqWM4e3HI3D0ISO8k
-	 B5dNVHpg6C5CKEDtmFmKP19CRhwsCx4U4f63Q75/WUejr+WA5MrtUjxzotiK3IYDuR
-	 EsaZGNjbNghgBAncGOvTEbS7vB0UtIRAN+LJ952CDPNaoLPxDsdEVgpPnyIs02NbL2
-	 yZjidGgpE7dl5XTFe9VPst0RAyKogAIP3Xwp9Z00HQmes+vrFF2X6CyJRuxfTWgL7x
-	 iBu44xmlHpqFw==
-Date: Tue, 19 Nov 2024 12:20:41 -0600
+	b=klRdFrLUo7vC2s64ErxhsqLMBiAAqDKLzqloFX+Z82AgvFl8Uzxha69clYR4sSuZ1
+	 t/LzpL3zrD/m/aYdQTCNiez/T64V2rlZBgpxpYudrtDDgm2Eb409gWOaSeF7FJKr48
+	 zqw6wTSko2rKTg/D9H/3aeKPT7xAuWDbXMifiwXY3i+xyIrrtrd8BDtPL0xfDPvXqA
+	 RcerYNuVRXMRo88IjKv4sCFdiFDCL6ZLmgkZxK/Qb1ZJCqssKSYapKSv3inaBhjTpR
+	 UFsyDpQfyRFni+XE7/X8/0ovla3H+pwjyXwvcwxYRIiZnPIUEpn72ICbBOu9qWzdjS
+	 +EZTZtx6FvY2w==
+Date: Tue, 19 Nov 2024 12:22:55 -0600
 From: Rob Herring <robh@kernel.org>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, krzk+dt@kernel.org,
-	conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
-	hkallweit1@gmail.com, linux@armlinux.org.uk, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [net-next 2/3] net: mdio: aspeed: Add support for AST2700
-Message-ID: <20241119182041.GB1962443-robh@kernel.org>
-References: <20241118104735.3741749-1-jacky_chou@aspeedtech.com>
- <20241118104735.3741749-3-jacky_chou@aspeedtech.com>
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lars Povlsen <lars.povlsen@microchip.com>,
+	Steen Hegelund <Steen.Hegelund@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Russell King <linux@armlinux.org.uk>, jacob.e.keller@intel.com,
+	krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next v3 8/8] dt-bindings: net: sparx5: document RGMII
+ delays
+Message-ID: <20241119182255.GA1967508-robh@kernel.org>
+References: <20241118-sparx5-lan969x-switch-driver-4-v3-0-3cefee5e7e3a@microchip.com>
+ <20241118-sparx5-lan969x-switch-driver-4-v3-8-3cefee5e7e3a@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241118104735.3741749-3-jacky_chou@aspeedtech.com>
+In-Reply-To: <20241118-sparx5-lan969x-switch-driver-4-v3-8-3cefee5e7e3a@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_102044_867301_65516B49 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20241119_102259_155560_BE317199 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,34 +82,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 18, 2024 at 06:47:34PM +0800, Jacky Chou wrote:
-> The Aspeed 7th generation SoC features three Aspeed MDIO.
-> The design of AST2700 MDIO controller is the same as AST2600.
-> Therefore, just add AST2700 compatible here.
+On Mon, Nov 18, 2024 at 02:00:54PM +0100, Daniel Machon wrote:
+> The lan969x switch device supports two RGMII port interfaces that can be
+> configured for MAC level rx and tx delays.
+> 
+> Document two new properties {rx,tx}-internal-delay-ps. Make them
+> required properties, if the phy-mode is one of: rgmii, rgmii_id,
+> rgmii-rxid or rgmii-txid. Also specify accepted values.
 
-If they are "the same", you don't need to add the compatible here. You 
-still need to add it to the binding, but make ast2600 a fallback 
-compatible.
+Doesn't look like they are required to me.
 
 > 
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 > ---
->  drivers/net/mdio/mdio-aspeed.c | 1 +
->  1 file changed, 1 insertion(+)
+>  .../bindings/net/microchip,sparx5-switch.yaml          | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
 > 
-> diff --git a/drivers/net/mdio/mdio-aspeed.c b/drivers/net/mdio/mdio-aspeed.c
-> index e55be6dc9ae7..4d5a115baf85 100644
-> --- a/drivers/net/mdio/mdio-aspeed.c
-> +++ b/drivers/net/mdio/mdio-aspeed.c
-> @@ -188,6 +188,7 @@ static void aspeed_mdio_remove(struct platform_device *pdev)
+> diff --git a/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml b/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml
+> index dedfad526666..2e9ef0f7bb4b 100644
+> --- a/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml
+> +++ b/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml
+> @@ -129,6 +129,24 @@ properties:
+>              minimum: 0
+>              maximum: 383
 >  
->  static const struct of_device_id aspeed_mdio_of_match[] = {
->  	{ .compatible = "aspeed,ast2600-mdio", },
-> +	{ .compatible = "aspeed,ast2700-mdio", },
->  	{ },
->  };
->  MODULE_DEVICE_TABLE(of, aspeed_mdio_of_match);
+> +          rx-internal-delay-ps:
+> +            description: |
+
+Don't need '|' if there is not formatting to preserve.
+
+> +              RGMII Receive Clock Delay defined in pico seconds, used to select
+> +              the DLL phase shift between 1000 ps (45 degree shift at 1Gbps) and
+> +              3300 ps (147 degree shift at 1Gbps). A value of 0 ps will disable
+> +              any delay. The Default is no delay.
+> +            enum: [0, 1000, 1700, 2000, 2500, 3000, 3300]
+> +            default: 0
+> +
+> +          tx-internal-delay-ps:
+> +            description: |
+> +              RGMII Transmit Clock Delay defined in pico seconds, used to select
+> +              the DLL phase shift between 1000 ps (45 degree shift at 1Gbps) and
+> +              3300 ps (147 degree shift at 1Gbps). A value of 0 ps will disable
+> +              any delay. The Default is no delay.
+> +            enum: [0, 1000, 1700, 2000, 2500, 3000, 3300]
+> +            default: 0
+> +
+>          required:
+>            - reg
+>            - phys
+> 
 > -- 
-> 2.25.1
+> 2.34.1
 > 
 
