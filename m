@@ -4,93 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D875ED6C287
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 19:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1CED6C287
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 19:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qvJZJYlr4ofMU2eWu9kCWSUe/IBq5FvnROZrVKBAaMg=; b=U/gih3aFlM3uCd6VL0L8KBpsrL
-	motOFbsd5MDjaT72fzarExcTjp0pkUFEjMp5Atv6lti+gYJnLN7EO/QEgcO046XfdzM+pX7JpqWFS
-	x22XMfsGYRUm7eoaqyptAWSgyKOvZ6AvyVE5G/BKZ8m2Wq/r8icNNSWkLHAed6RZLUwjynXcgWwL1
-	lnXnB/91QayKt40IsoRjQWsDlpUtrgJZdAbtxpBMpyFQXFaNxckF+ODSOncGWXlE2Zifj7ghvi46I
-	Iv0UOUhs9k2w/hi4Zjj/5KOT4C+znpVsfR+lwft78yRCpe/aH0pJ6ICjEGGdJw2FkssYoI4TPvgMk
-	o9KbXm9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2X4+40w6EI+JnEcsSnqxwoW536xienx35hbqOEEbSFU=; b=JMMONM9tGmXJUlYI87iyjEZ14z
+	8RmHUYFPWZhj35jTO63fYfqYXCVknpdycrvjKEUmlbjNsAZCbgVnVcS/Sfdx3iv6V8dNRU4wAz5E1
+	yX1driNDjeDBeVSk3Su35YNanjuIK0QzF7YX+NOIuJYZDWhPPCIA2rcbEVSeDY+6EjTcuafaqbBzu
+	LwNwYeqOy0HRyghErBoE8qaEPjYA1t+02eMegiMok5aC4zoQ7Y8ZylBZBN+DrHn+mBfdAYEjFnNTW
+	/LZY8wtwcLHfXe26Bqjawt6KaSDBXZOBJa0Q8AbKth0Q9yVUECON/OIh4n/hzgf60lARcS85lApEx
+	zIZ58Nmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDTdM-0000000DUPc-2mSv;
-	Tue, 19 Nov 2024 19:11:32 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tDTkv-0000000DVLG-3Wyw;
+	Tue, 19 Nov 2024 19:19:21 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDTcQ-0000000DUF1-3MND
+	id 1tDTk0-0000000DVCv-1eIr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 19:10:36 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AJIJl32006450;
-	Tue, 19 Nov 2024 19:10:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	qvJZJYlr4ofMU2eWu9kCWSUe/IBq5FvnROZrVKBAaMg=; b=mPE3L15psAH4iI5Z
-	jtVUrPRizNiY412xmrPLZuMDsvfr/phRVqnzI8kwrlKrxy91m4LgsDeMPVv6h9Me
-	9OEq6BGA4zzZ+hDBntsN3wIv+jBdC1ijmqKc8auW0yBAFcDDEYkitmtYr5XH/SBR
-	frzyxX/v7Xrz9IVLq92O95CymMRSVZ4tQQHVUE685dwf8KW28kFwK0tYqa5yRGk4
-	flZabYzEbrNCYxwFOTL3DvkuRE3HK9tPxnG4uQkR4KlVdD0P4KjJPL4rMN/C0fBQ
-	Jvo/2dXCaQot2/VkYwd7T+rAD7WRAO9dh6qDUiE7P5wd+ZLIoe1MIHXRQCiN+kKf
-	yNmlMA==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4308y8knrb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 19 Nov 2024 19:10:19 +0000 (GMT)
-Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AJJAIlp009303
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 19 Nov 2024 19:10:18 GMT
-Received: from [10.216.1.253] (10.80.80.8) by nasanex01c.na.qualcomm.com
- (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 19 Nov
- 2024 11:10:13 -0800
-Message-ID: <1d3dcd91-d246-4db3-9717-9edfe405f431@quicinc.com>
-Date: Wed, 20 Nov 2024 00:40:10 +0530
+	Tue, 19 Nov 2024 19:18:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=2X4+40w6EI+JnEcsSnqxwoW536xienx35hbqOEEbSFU=; b=NhQRvIb4fNLj4T14/RjuJxrS8k
+	LpRulsEWgF3DuGI8R/XphFLccOJK1Rhpde/15j3e1vabb4f3UFcMVJxpxWstW0HaWSGcRQqEE4jn9
+	XKGzlquHd6CzJvI9bO2L/hpOTdDj2hj6Mpc4MBxdDg2gHocUKqliC/PlSe8LoteBJTMA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tDTjc-00Ds82-9R; Tue, 19 Nov 2024 20:18:00 +0100
+Date: Tue, 19 Nov 2024 20:18:00 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Parker Newman <parker@finest.io>
+Cc: Paolo Abeni <pabeni@redhat.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Parker Newman <pnewman@connecttech.com>
+Subject: Re: [PATCH v1 1/1] net: stmmac: dwmac-tegra: Read iommu stream id
+ from device tree
+Message-ID: <f00bccd3-62d5-46a9-b448-051894267c7a@lunn.ch>
+References: <cover.1731685185.git.pnewman@connecttech.com>
+ <f2a14edb5761d372ec939ccbea4fb8dfd1fdab91.1731685185.git.pnewman@connecttech.com>
+ <ed2ec1c2-65c7-4768-99f1-987e5fa39a54@redhat.com>
+ <20241115135940.5f898781.parker@finest.io>
+ <bb52bdc1-df2e-493d-a58f-df3143715150@lunn.ch>
+ <20241118084400.35f4697a.parker@finest.io>
+ <984a8471-7e49-4549-9d8a-48e1a29950f6@lunn.ch>
+ <20241119131336.371af397.parker@finest.io>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iommu/arm-smmu: Defer probe of clients after smmu
- device bound
-To: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>
-CC: <catalin.marinas@arm.com>, <kernel-team@android.com>, <joro@8bytes.org>,
-        <jgg@ziepe.ca>, <jsnitsel@redhat.com>, <robdclark@chromium.org>,
-        <quic_c_gdjako@quicinc.com>, <dmitry.baryshkov@linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-        <linux-kernel@vger.kernel.org>, <quic_charante@quicinc.com>,
-        <stable@vger.kernel.org>, Prakash Gupta <quic_guptap@quicinc.com>
-References: <20241004090428.2035-1-quic_pbrahma@quicinc.com>
- <173021496151.4097715.14758035881649445798.b4-ty@kernel.org>
- <0952ca36-c5d9-462a-ab7b-b97154c56919@arm.com>
-Content-Language: en-US
-From: Pratyush Brahma <quic_pbrahma@quicinc.com>
-In-Reply-To: <0952ca36-c5d9-462a-ab7b-b97154c56919@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01c.na.qualcomm.com (10.45.79.139)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 1n5i_xALx5GpD_AaKbafE5KeFkL-Ada7
-X-Proofpoint-GUID: 1n5i_xALx5GpD_AaKbafE5KeFkL-Ada7
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- mlxlogscore=999 lowpriorityscore=0 clxscore=1011 malwarescore=0
- adultscore=0 impostorscore=0 mlxscore=0 spamscore=0 phishscore=0
- suspectscore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411190143
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241119131336.371af397.parker@finest.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_111034_862225_4FC2365E 
-X-CRM114-Status: GOOD (  27.82  )
+X-CRM114-CacheID: sfid-20241119_111824_429202_7271A8BB 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,133 +87,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> I think there is some confusion here. I will try to summarize:
+> - Ihe iommu is supported by the Tegra SOC.
+> - The way the mgbe driver is written the iommu DT property is REQUIRED.
 
-On 11/7/2024 8:31 PM, Robin Murphy wrote:
-> On 29/10/2024 4:15 pm, Will Deacon wrote:
->> On Fri, 04 Oct 2024 14:34:28 +0530, Pratyush Brahma wrote:
->>> Null pointer dereference occurs due to a race between smmu
->>> driver probe and client driver probe, when of_dma_configure()
->>> for client is called after the iommu_device_register() for smmu driver
->>> probe has executed but before the driver_bound() for smmu driver
->>> has been called.
->>>
->>> Following is how the race occurs:
->>>
->>> [...]
->>
->> Applied to will (for-joerg/arm-smmu/updates), thanks!
->>
->> [1/1] iommu/arm-smmu: Defer probe of clients after smmu device bound
->>        https://git.kernel.org/will/c/229e6ee43d2a
->
-> I've finally got to the point of proving to myself that this isn't the
-> right fix, since once we do get __iommu_probe_device() working properly
-> in the correct order, iommu_device_register() then runs into the same
-> condition itself. Diff below should make this issue go away - I'll write
-> up proper patches once I've tested it a little more.
->
-> Thanks,
-> Robin.
->
-> ----->8-----
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c 
-> b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 737c5b882355..b7dcb1494aa4 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -3171,8 +3171,8 @@ static struct platform_driver arm_smmu_driver;
->  static
->  struct arm_smmu_device *arm_smmu_get_by_fwnode(struct fwnode_handle 
-> *fwnode)
->  {
-> -    struct device *dev = 
-> driver_find_device_by_fwnode(&arm_smmu_driver.driver,
-> -                              fwnode);
-> +    struct device *dev = 
-> bus_find_device_by_fwnode(&platform_bus_type, fwnode);
-> +      put_device(dev);
->      return dev ? dev_get_drvdata(dev) : NULL;
->  }
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c 
-> b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> index 8321962b3714..aba315aa6848 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> @@ -1411,8 +1411,8 @@ static bool arm_smmu_capable(struct device *dev, 
-> enum iommu_cap cap)
->  static
->  struct arm_smmu_device *arm_smmu_get_by_fwnode(struct fwnode_handle 
-> *fwnode)
->  {
-> -    struct device *dev = 
-> driver_find_device_by_fwnode(&arm_smmu_driver.driver,
-> -                              fwnode);
-> +    struct device *dev = 
-> bus_find_device_by_fwnode(&platform_bus_type, fwnode);
-I think it would still follow this path:
+If it is required, please also include a patch to
+nvidia,tegra234-mgbe.yaml and make iommus required.
 
-bus_find_device_by_fwnode() -> bus_find_device() -> next_device()
+> - "iommus" is a SOC DT property and is defined in tegra234.dtsi.
+> - The mgbe device tree nodes in tegra234.dtsi DO have the iommus property.
+> - There are no device tree changes required to to make this patch work.
+> - This patch works fine with existing device trees.
+> 
+> I will add the fallback however in case there is changes made to the iommu
+> subsystem in the future.
 
-next_device() would always return null until the driver is bound to the 
-device which
-happens much later in really_probe() after the iommu_device_register() 
-would be called
-even as per this patch. That way the race would still occur, wouldn't it?
-Can you please help me understand what I may be missing here?
-Are you saying that these additional patches are required along with the 
-fix I've
-posted?
-> +
->      put_device(dev);
->      return dev ? dev_get_drvdata(dev) : NULL;
->  }
-> @@ -2232,21 +2232,6 @@ static int arm_smmu_device_probe(struct 
-> platform_device *pdev)
->                      i, irq);
->      }
->
-> -    err = iommu_device_sysfs_add(&smmu->iommu, smmu->dev, NULL,
-> -                     "smmu.%pa", &smmu->ioaddr);
-> -    if (err) {
-> -        dev_err(dev, "Failed to register iommu in sysfs\n");
-> -        return err;
-> -    }
-> -
-> -    err = iommu_device_register(&smmu->iommu, &arm_smmu_ops,
-> -                    using_legacy_binding ? NULL : dev);
-> -    if (err) {
-> -        dev_err(dev, "Failed to register iommu\n");
-> -        iommu_device_sysfs_remove(&smmu->iommu);
-> -        return err;
-> -    }
-> -
->      platform_set_drvdata(pdev, smmu);
->
->      /* Check for RMRs and install bypass SMRs if any */
-> @@ -2255,6 +2240,18 @@ static int arm_smmu_device_probe(struct 
-> platform_device *pdev)
->      arm_smmu_device_reset(smmu);
->      arm_smmu_test_smr_masks(smmu);
->
-> +    err = iommu_device_sysfs_add(&smmu->iommu, smmu->dev, NULL,
-> +                     "smmu.%pa", &smmu->ioaddr);
-> +    if (err)
-> +        return dev_err_probe(dev, err, "Failed to register iommu in 
-> sysfs\n");
-> +
-> +    err = iommu_device_register(&smmu->iommu, &arm_smmu_ops,
-> +                    using_legacy_binding ? NULL : dev);
-> +    if (err) {
-> +        iommu_device_sysfs_remove(&smmu->iommu);
-> +        return dev_err_probe(dev, err, "Failed to register iommu\n");
-> +    }
-> +
->      /*
->       * We want to avoid touching dev->power.lock in fastpaths unless
->       * it's really going to do something useful - pm_runtime_enabled()
+I would suggest you make iommus a required property and run the tests
+over the existing .dts files.
 
--- 
-Thanks and Regards
-Pratyush Brahma
+I looked at the history of tegra234.dtsi. The ethernet nodes were
+added in:
 
+610cdf3186bc604961bf04851e300deefd318038
+Author: Thierry Reding <treding@nvidia.com>
+Date:   Thu Jul 7 09:48:15 2022 +0200
+
+    arm64: tegra: Add MGBE nodes on Tegra234
+
+and the iommus property is present. So the requires is safe.
+
+Please expand the commit message. It is clear from all the questions
+and backwards and forwards, it does not provide enough details.
+
+I just have one open issue. The code has been like this for over 2
+years. Why has it only now started crashing?
+
+	Andrew
 
