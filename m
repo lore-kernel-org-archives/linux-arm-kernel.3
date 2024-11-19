@@ -4,90 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9249D62058
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D18D62060
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:42:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LyU2YPdB1kr8XxqEwlHtntSAmk6XMOArrT5KicpwMfQ=; b=3w2N02m79uLQdNckSkC2EdXZ8E
-	vq23dbga6U/1DHgcxiN7KY0jJgjXUKTzmsov2fgDqiVQ7vc2VObXoRM2BXJP6jSDV00H+8aV/KW0A
-	hJ5b62+EsE4GbBVyzuzzbUh55a+wliANHJF8mjsNxJv8CXjunhcY5GvjbsIMy+Mho4kyjaODctB9c
-	AB31H+nkwUjKbu7SrBrBTqPvUyeMaeRa/fJ35c6tDQy84/2d4RociMDWN9XVoB/yRiwhJkFaLaixo
-	hOhB+G0BGf7piloYfghGHklY7FjBR8i5BBuA+svmVzXZ3ORnqH9+yzTV/cmKu7gAX8yP2JZPO0k6/
-	Fk4bvA8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZHx4LjeQL+js3vVn3zL0hfwY8jEjIfaS6UKxQR0viOE=; b=BP6hN8OijKgHtDHt0eeSUXNJcn
+	zaLeMyXsmkYuXOLMLHg8JwBLSArPGosm1IekXyQuW31B/uHH5aueOL1EeOqYYqzUOjpMB5gcu/ned
+	Qm6OiKQRJcealdTzbTPeP3Rq74kNSlVldsO4XAz6XO8VV6TYjIazITjnspM3sNzXuGNlECHxHzosS
+	ylnEhttVsHlGNbRMDmIkgYEeyGCqRm0jZhJxa/wmqS+hWjVHwDEpUYb4u4FRCxvn92X8f3eP5GM2u
+	4UqrpjYKznfgUHoFpoqIpG3JXG9zGwq4xkKda7Lhr/vRHzWVK5MCcs21IQBM36OIIMZlvuNWCARny
+	l2D3JTvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKjD-0000000Bv53-37bv;
-	Tue, 19 Nov 2024 09:40:59 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tDKkE-0000000BvJs-3Zyr;
+	Tue, 19 Nov 2024 09:42:02 +0000
+Received: from mail-mw2nam10on20610.outbound.protection.outlook.com ([2a01:111:f403:2412::610] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKiH-0000000BuyG-3WAC;
-	Tue, 19 Nov 2024 09:40:02 +0000
-X-UUID: 3b7f3b7ca65a11ef82ff63e91e7eb18c-20241119
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=LyU2YPdB1kr8XxqEwlHtntSAmk6XMOArrT5KicpwMfQ=;
-	b=r3NghBTbFN4VIIDC1hSjmkjRgnisFAlw255pkVMWhmC0cLg/e4JN8n+R6Vobs62LvbrFwMEX0OpqZLNIoV3yzFrMSFpXQF5ob+aX25aLQuWzNvWIkiK2ZxWLApxObfeO2yojc4BcLIeyNP2pw6IaalrfVNwWNDle5yB4GSS9HdM=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.44,REQID:cdd64d97-76b4-45e1-ae6c-d90612262f63,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:464815b,CLOUDID:9d4de15c-f18b-4d56-b49c-93279ee09144,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
-	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 3b7f3b7ca65a11ef82ff63e91e7eb18c-20241119
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
-	(envelope-from <skylake.huang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 494564571; Tue, 19 Nov 2024 02:39:54 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Tue, 19 Nov 2024 17:39:50 +0800
-Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Tue, 19 Nov 2024 17:39:50 +0800
-From: Sky Huang <SkyLake.Huang@mediatek.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>, Miquel Raynal
-	<miquel.raynal@bootlin.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Richard Weinberger
-	<richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, Daniel Golle
-	<daniel@makrotopia.org>, Chia-Lin Kao <acelan.kao@canonical.com>, "Cheng Ming
- Lin" <chengminglin@mxic.com.tw>, Christophe JAILLET
-	<christophe.jaillet@wanadoo.fr>, Pratyush Yadav <pratyush@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-mtd@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Steven Liu <Steven.Liu@mediatek.com>, Sky Huang
-	<skylake.huang@mediatek.com>
-Subject: [PATCH nand/next] mtd: nand: spi: Use write_cache first and then update_cache in write operation
-Date: Tue, 19 Nov 2024 17:39:49 +0800
-Message-ID: <20241119093949.3014-1-SkyLake.Huang@mediatek.com>
-X-Mailer: git-send-email 2.18.0
+	id 1tDKjI-0000000Bv5o-1PJ8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Nov 2024 09:41:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NxC4BtKo316mCNj5V6l/Ndn1LVs+ixCBsrSaVBfuWlypWHGEu51BbPzhh9wr683HeJiXbi5bH4U4EF4iEu3gTeF265ZDjopZezpcJ6HArh0fp8KjyhCSpDZSqZEcJ4rDuqE/BG3ILg4pUaWLojwkGtgvW0Tk9hRC0cLRmX77Ry2Rd17c6iWxhMlvImSK0zF5DucGrovNaLlvuat+BTfl4f1PD10XJzqCkqroxNsXlz/iSmoFOV3qoO6F2H/PTcwKAWaK/bL5mf4S9YNMW9WtuuUZv+WuZlj9s30Ff1HmV7Vr9H3nNPbRQW0D3aEa6eKVx4528GTBvYNDOHIStT7DMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZHx4LjeQL+js3vVn3zL0hfwY8jEjIfaS6UKxQR0viOE=;
+ b=kRbMNZipx9YjU6u9wGxEaCQ5D/0+xZGDa7e5hp9EzlgrJEJp/N+bZJif/x61W0+VvNX9OSH51jgp8unBJ+NRkSw2XpOqhmsbValnRjjpqK9zEzftNru8ruMTAhCKqEzZZe1UFCYiEWzmEMm/kCoLo33IO9uOD65PQ8sYMWtzJeXXkoFRqfj67MxeBoPahr+UHxh9lCVRvvcjwuY/ozqtYRwKqOWoc9ixRlU1A0vy5chPnNX8Frfiaktz+u2Ehlb5wuZIbN3hl+UxCQHeS8AUSQFbazZ5UIcOlLOL2saW7dKfV4IKS1k1v0w2uUzjRUXpMTYIHhtyUcccqfKdwvZR7w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZHx4LjeQL+js3vVn3zL0hfwY8jEjIfaS6UKxQR0viOE=;
+ b=zLlWqomMiIq3raUPuaHxz7jsKou7ywAZDFYuihy2INSSZzQT82V5n0Wn6gDXFZzR0Bpwpae10L3VhQNxKfgK+n/1HqTg8lSgsTACP7rHl62n7cZ6r/hxFA5ZfrrnzrimjY9aiQeaFCvYN+GXFZrbi+3ftlY6B7xIkcXj7WG8n/k=
+Received: from BL3PR12MB6571.namprd12.prod.outlook.com (2603:10b6:208:38e::18)
+ by DS7PR12MB6288.namprd12.prod.outlook.com (2603:10b6:8:93::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8158.23; Tue, 19 Nov 2024 09:40:56 +0000
+Received: from BL3PR12MB6571.namprd12.prod.outlook.com
+ ([fe80::4cf2:5ba9:4228:82a6]) by BL3PR12MB6571.namprd12.prod.outlook.com
+ ([fe80::4cf2:5ba9:4228:82a6%6]) with mapi id 15.20.8158.021; Tue, 19 Nov 2024
+ 09:40:56 +0000
+From: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
+To: Andrew Lunn <andrew@lunn.ch>, Sean Anderson <sean.anderson@linux.dev>
+CC: Maxime Chevallier <maxime.chevallier@bootlin.com>, "andrew+netdev@lunn.ch"
+	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
+	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>, "Simek, Michal"
+	<michal.simek@amd.com>, "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+	"horms@kernel.org" <horms@kernel.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "git (AMD-Xilinx)" <git@amd.com>, "Katakam,
+ Harini" <harini.katakam@amd.com>
+Subject: RE: [PATCH net-next 1/2] dt-bindings: net: xlnx,axi-ethernet: Add
+ bindings for AXI 2.5G MAC
+Thread-Topic: [PATCH net-next 1/2] dt-bindings: net: xlnx,axi-ethernet: Add
+ bindings for AXI 2.5G MAC
+Thread-Index: AQHbOZKESLv/ZUD9Z02pSi5VFRh/TbK9MUKAgAAAz4CAAKJcgIAAf8pg
+Date: Tue, 19 Nov 2024 09:40:56 +0000
+Message-ID: <BL3PR12MB657106F2B29FE44123C672EEC9202@BL3PR12MB6571.namprd12.prod.outlook.com>
+References: <20241118081822.19383-1-suraj.gupta2@amd.com>
+ <20241118081822.19383-2-suraj.gupta2@amd.com>
+ <20241118165451.6a8b53ed@fedora.home>
+ <410bf89c-7218-463d-9edf-f43fc1047c89@linux.dev>
+ <ce534b32-7363-4433-8b1d-4e01c3d92084@lunn.ch>
+In-Reply-To: <ce534b32-7363-4433-8b1d-4e01c3d92084@lunn.ch>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BL3PR12MB6571:EE_|DS7PR12MB6288:EE_
+x-ms-office365-filtering-correlation-id: 343ec834-128d-4a5c-496e-08dd087e44b3
+x-ld-processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?KCn0LYhv1gRB2HgacCeTxLMVMLdptmXpAAzpuDLraoihu3rtfKKtOmkdr82B?=
+ =?us-ascii?Q?nTWPmI1rUbLtEb+dFC756z6hQSINDoCb/lUVicsHVIWIHnHwRy6tcDtsSHl8?=
+ =?us-ascii?Q?HYLVCgN+ZBX/3b7AdtB1RbuxOjio6ek0TEVno+UkhqWJXi1iL0Cs8+35WBN1?=
+ =?us-ascii?Q?aP9OSiKbBvd9Lf87RaIBkMrWTNMnDiapM1DCMbuy9vRf3NZH+ehuvAuSlUFF?=
+ =?us-ascii?Q?KLGnRtcdfihzKkD9SjpKV0Fr0bmbzo6GCMmN2VfI1Ua3Msjklp3Lz1CK+G+L?=
+ =?us-ascii?Q?NmKjq36Bv8GCIIfCparPwLzd8B7CYBoeR7poT+8ndGUN6Pcq9CEacY08efKy?=
+ =?us-ascii?Q?jDbTK4y+1UIJF/LNnVsAIDE7DjYpoPJ99zB6EkEFzCHUiKVz5LjppPSObqvI?=
+ =?us-ascii?Q?4t2IWSx2oZI1umyLepkPfACkAVvgt+DJTzlODe8nAJXZnWBoun357B+X73PH?=
+ =?us-ascii?Q?s9NtOVUtPDzWh4UwxMskE+NuXdvbtK0hI7w9g2ZvRkgFR3NG+CymDoVgkIBR?=
+ =?us-ascii?Q?mDB3nNgDLSD20RPJygnqg+KvxhcLQn/rP/4+9LZJ9EXUvWSa348DCLFl/a/T?=
+ =?us-ascii?Q?pm75nz/2e8oyIRKrCuQ94fnXWVg6moExbBhj9WS93eUovN70Ksc/JMhvhT9b?=
+ =?us-ascii?Q?vqDVHkjO2fo6rhPvpCN5JLiqWx3+a9v0h1XIRpEfJMeoDPoOGWuLg52LfCNZ?=
+ =?us-ascii?Q?a4Pnz2OVbw6WZ/qisQ4YXDR3plT7lGC7n63lToHv1Jvq9qoJJUKNJG9lHdTc?=
+ =?us-ascii?Q?M9PKtDrctyoc5EkLIcU6Y9rZ+6Eh3ow0E/2kdlWhV+k83Km6gUnR5kG8POLR?=
+ =?us-ascii?Q?cAo6TsMoIqwIKY/suf4WUw96xritbRWM5Dc6mpik7y3xJLXRZGqJzWWrHgib?=
+ =?us-ascii?Q?vwH8VXPZsF4yJOUutJAQfLsGp9995Vc6hOXS97ugS9hwmio/TKrzgOYkdGti?=
+ =?us-ascii?Q?FEL7MTeTonfroEuFhXvlktlYNr/XzPiMNpmj+n3dWne1HUWu1sRG+FP+GQkn?=
+ =?us-ascii?Q?rvDHFytPO17HBtwT9fVqGq4FWgwWTuySqSm0IIIHl7QDun/AVek5/0ZGMrNH?=
+ =?us-ascii?Q?WmR8WvVBGmY2DglgmhULPbQz8zF1NmCszo+HoQjeHv4dwRfN9cZn4gRLaFoY?=
+ =?us-ascii?Q?lvfTe3Twd+py9Z4RB0T30WPTPKcqHOSHL9r441qh1U/dpNaXuCs97MjV0keg?=
+ =?us-ascii?Q?Ef3ah6SHor+YRHCfIQQ86uVjC+R82rbvZIUIQa1U2geUB6w4s3oDXk709LR7?=
+ =?us-ascii?Q?maQq0yuAbvH+HbKIdS1pX3kHS7I1/hD0CqUxe5PIpaSkz087D508w73veEzG?=
+ =?us-ascii?Q?M+udKedCSQ+JpT8hBBdz2NqGYla1oGJ0+a9DtYh1nAWVHEdPcc6LvFP9xNhh?=
+ =?us-ascii?Q?veK3u/o=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL3PR12MB6571.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?QJIQOVaS3B045Wg4iGmrrpyNvUlCxCV1vryXFvRByCHYqj7eTCcywgIV0eJp?=
+ =?us-ascii?Q?TbalN4tpJH7vnN53cTVxVSEy2qQpLv9Vs/ivCpVgnuGQfBdQcTwSRoXWsklw?=
+ =?us-ascii?Q?hRLTM84PHvhaFLBvB4p8noUizsAcYD2gUjZjsSKUHY41cxIxBX47v/sBHDld?=
+ =?us-ascii?Q?YopLtoidVM0Gkt1wgNN5swrAkxkTLELsbL4i0Yksx4YGuxjCcW6aWXCMb00U?=
+ =?us-ascii?Q?KPkTV7c7XmMhCpmxq/xPj8DNuGfH7TMXZy5AYZp5HIQd3Pmbfgks1Fqgp2ym?=
+ =?us-ascii?Q?ZyB7YeYHR9TrNmiaDqtl/fZIm1Esa5/t9G86yrJMMvlYkEo5D7N888/3w7lk?=
+ =?us-ascii?Q?WiWFhDjimBr9JGX/H3fV2G2mom9LBaq4qVhovyyxCFZvxNi8lahcsS6Yjvyo?=
+ =?us-ascii?Q?ed06SmjUVn5MubhlTm1p2pwbU45VcfP8DeFBYb3SPqrBlCNjO+JYCopxEnl3?=
+ =?us-ascii?Q?47FqehRXNQAgnieHHDNQ+IE2HaD1ncgdtO35IvODEQ8FWE0SY8/XRjJn2E51?=
+ =?us-ascii?Q?EPvnQFmgeX6ATirN4tfW/sNFKMCbtjHz8Fs+YAQ9t3Fm1t74HovR0HjXTXUp?=
+ =?us-ascii?Q?0daEHr15r1jccuNOqtsFTGQXMEKXtgN7OL2zQiBFt+5wAj7nL9MFYu4Dj0jS?=
+ =?us-ascii?Q?LIY+iHKaCbdBdlnj0COtMASpLLfn+PVC870gqTLF4edyJp9AnXz7BZ4+8+34?=
+ =?us-ascii?Q?OBd9aozCGiM5OrmL/TlrFpe7tYC1/R0XGALExmtNcYaqTOqoajIgHKGrAo5c?=
+ =?us-ascii?Q?nCiC/Nh+2VJq0RV3wmA3ulx5H84p6d6C3hV/j8o4Q5j1iKE1yTjQms7wBY0w?=
+ =?us-ascii?Q?ZEvp/BXnjbR8MJgXj0BoBzMGM3TDZxLqVEYXhv4sASMXrC7jI1mzjYUA7NuA?=
+ =?us-ascii?Q?gvy0Y0LDqZiiasSDmwEhb0jmu9BdmfspiNlp24QMQe6mnywGX1gZUdYUmbMX?=
+ =?us-ascii?Q?GX2lHBkG3Mh790OkDLIWL7vsNt0dCCbq0+9M5Mqt/UXtxUGwOjLd9d6DJvPt?=
+ =?us-ascii?Q?D0MBBRokVV28yJlRyS80RhpYOf5eavDc4fe3u2O8nN0X3oYvOWc2FTgZnGH/?=
+ =?us-ascii?Q?8hEC8JI8VL4LIZoUOBTKX3NMm1f3J3OAWMjzV/o6FIpbtvsiAHa0a7eWuAUr?=
+ =?us-ascii?Q?Dr8EfayqmuepwqWbgASxVSvtTlm2KpjbXd+aVdmabfp2jPNrMvkvUx894sG0?=
+ =?us-ascii?Q?sjOk2hkztdTb2jYIjqE0xvDAtsziUWHk9rOHJAeXtIb2R0T5I5m/qSsfpyp1?=
+ =?us-ascii?Q?tL82neC/jBAiEou66afUNVsqrLN3mHTwzmXpzmr5/vWwdv+YX3yh0PBe/zfu?=
+ =?us-ascii?Q?sYF4j3XPr6V9Soz9pnuQk/XgJI3M0G2IOo7pKVPAO6tEmQ0lOHE5EkjsyNas?=
+ =?us-ascii?Q?M5+8BpMrXuM/Fo9OrkE+V0N7fcbzWsPG9I5xfqBip/m2M+5c4ohGoIXTcOZd?=
+ =?us-ascii?Q?Ip/eq4h1SO5VaaEHlOQVpxiMyTlbsJRxRIICvPnJvmQ+X981AF/RMCsEhZtq?=
+ =?us-ascii?Q?a8A5zbqU+Rn14A/+SgepD/8ecC5Cu5E5BXS7V1olwZBANUDTrRoHsKZY53Wu?=
+ =?us-ascii?Q?fx09WvO4spN3Wdm9MCQ=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain
-X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-AS-Result: No-10--10.994400-8.000000
-X-TMASE-MatchedRID: Grs8OcNgfTYAc7Km7SS5rLMjW/sniEQKZj7cdTNjJqrSson97gLrTB9f
-	0PZQRw85DwLdtHQx/o9yKzLF6OyLjjHoq5wq7Ry6A5rdNgLWPkIz9evPqUqyggJJmsCdNLQG9wE
-	vJvmkUrYXgylTWKbaIoLit5KSZa4MDnEaSBk1PhBbuDP8ZuCmXp3n0rxnhHdW33Nl3elSfsr/iO
-	OUPB/h/jn/lGhGJBfpjjA42R3Nyx008UV4fwLv3+G5dRZCgxC3c3ewuwbSaG6iXe5nNnUYt4E+B
-	y7AERtbwX0f1lPumDh+6n5OByhL/2Z3TdeUr6dv5O5PclyYqqp9LQinZ4QefPcjNeVeWlqY+gtH
-	j7OwNO2J8YJgRrgXF0PMs1c7EX2ofGtDRuVm5TUST3X2z7WLVb3I6B4tbPu2
-X-TM-AS-User-Approved-Sender: No
-X-TM-AS-User-Blocked-Sender: No
-X-TMASE-Result: 10--10.994400-8.000000
-X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-SNTS-SMTP: 0FD9FABFDC989E24D22AF3B9448F7958B296713C98C66F5D0B7AFD44AF1603992000:8
-X-MTK: N
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL3PR12MB6571.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 343ec834-128d-4a5c-496e-08dd087e44b3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Nov 2024 09:40:56.7582
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: BbYM0p3NWYx13O75B+buPqZF1TDbQXWTXfhDOLqHGVTT0uGkeu64k1Qta+mXhKECa8d4C2rGQ+uQEwLvb5hJTQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6288
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_014001_895551_287464DF 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20241119_014104_377417_3DF4295D 
+X-CRM114-Status: GOOD (  28.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,109 +171,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sky Huang <skylake.huang@mediatek.com>
 
-According to discussion with Miquel Raynal <miquel.raynal@bootlin.com>
-and Chuanhong Guo <gch981213@gmail.com> on FORESEE F35SQA002G patch,
-Chuanhong recommmends that we can use the following sequence in
-spinand_write_to_cache_op():
 
-x1 mode:
-02H(program data load) -> 84H(random program data load) -> 84H ...
+> -----Original Message-----
+> From: Andrew Lunn <andrew@lunn.ch>
+> Sent: Tuesday, November 19, 2024 7:09 AM
+> To: Sean Anderson <sean.anderson@linux.dev>
+> Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>; Gupta, Suraj
+> <Suraj.Gupta2@amd.com>; andrew+netdev@lunn.ch; davem@davemloft.net;
+> edumazet@google.com; kuba@kernel.org; pabeni@redhat.com; Simek, Michal
+> <michal.simek@amd.com>; Pandey, Radhey Shyam
+> <radhey.shyam.pandey@amd.com>; horms@kernel.org; netdev@vger.kernel.org;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; git (=
+AMD-Xilinx)
+> <git@amd.com>; Katakam, Harini <harini.katakam@amd.com>
+> Subject: Re: [PATCH net-next 1/2] dt-bindings: net: xlnx,axi-ethernet: Ad=
+d bindings
+> for AXI 2.5G MAC
+>=20
+> Caution: This message originated from an External Source. Use proper caut=
+ion
+> when opening attachments, clicking links, or responding.
+>=20
+>=20
+> On Mon, Nov 18, 2024 at 10:57:45AM -0500, Sean Anderson wrote:
+> > On 11/18/24 10:54, Maxime Chevallier wrote:
+> > > Hello,
+> > >
+> > > On Mon, 18 Nov 2024 13:48:21 +0530
+> > > Suraj Gupta <suraj.gupta2@amd.com> wrote:
+> > >
+> > >> AXI 1G/2.5G Ethernet subsystem supports 1G and 2.5G speeds. "max-spe=
+ed"
+> > >> property is used to distinguish 1G and 2.5G MACs of AXI 1G/2.5G IP.
+> > >> max-speed is made a required property, and it breaks DT ABI but
+> > >> driver implementation ensures backward compatibility and assumes 1G
+> > >> when this property is absent.
+> > >> Modify existing bindings description for 2.5G MAC.
+> > >
+> > > That may be a silly question, but as this is another version of the
+> > > IP that behaves differently than the 1G version, could you use
+> > > instead a dedicated compatible string for the 2.5G variant ?
+> > >
+> > > As the current one is :
+> > >
+> > > compatible =3D "xlnx,axi-ethernet-1.00.a";
+> > >
+> > > it seems to already contain some version information.
+> > >
+> > > But I might also be missing something :)
+> >
+> > As it happens, this is not another version of the same IP but a
+> > different configuration. It's just that no one has bothered to add
+> > 2.5G support yet.
+>=20
+> Do you mean 2.5G is a synthesis option? Or are you saying it has always b=
+een able
+> to do 2.5G, but nobody has added the needed code?
+>=20
+> This is a pretty unusual use of max-speed, so i would like to fully under=
+stand why it
+> is being used before allowing it.
+>=20
+>         Andrew
 
-x4 mode:
-32H(program data load x4) -> 34H(random program data load x4) -> 34H ...
+2.5G support was already there in hardware, driver is getting upstream now.=
+ 1G or 2.5G configuration needs to be selected before synthesis. In 2.5G co=
+nfiguration it supports only 2.5G speed.
+I'm exploring registers to get 1G / 2.5G selections information instead of =
+using max-speed. Will send next series soon.
 
-02H or 32H commands will clear cache buffer on SPI-NAND and load
-data to it. For those SPI controllers which can't finish transmission
-in single step, 84H or 34H will be triggered for the rest data.
-
-We observe that some current SPI-NANDs, including FORESEE F35SQA001G and
-F35SQA002G, must use 02H or 32H to reset cache buffer in flash before
-using 84H or 34H. Or users may encounter program failure issue. This issue
-is not always reproducible, but it may occur and cause system instability.
-
-This sequence should work on all SPI-NANDs nowadays. I also check with
-Foresee that the sequence can solve the above program failure issue.
-
-On my test platform (MT7988), SPI driver is drivers/spi/spi-mt65xx.c.
-And I limit MTK_SPI_IPM_PACKET_SIZE to SZ_1K to simulate lightweight SPI
-controller which can only transmit 1024 bytes.
-
-The test step is the following:
-- mtd erase /dev/mtd2
-- dd if=/dev/zero bs=2048 count=1 | tr '\0' '\xA5' > output.bin
-- mtd write output.bin /dev/mtd2
-
-Before applying this patch, write operation uses only 34H(update_cache):
-[78.937720] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st byte: 0xa5
-[78.945297] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st byte: 0xa5
-[78.954251] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st byte: 0xa5
-[78.962966] OP code: 0x10, addr val: 0x300
-[78.968816] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st byte: 0xff
-[78.977233] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st byte: 0xff
-[78.985124] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st byte: 0xff
-[78.992527] OP code: 0x10, addr val: 0x301
-[78.996981] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st byte: 0xff
-[79.004416] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st byte: 0xff
-[79.012031] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st byte: 0xff
-[79.019435] OP code: 0x10, addr val: 0x302
-...
-
-After applying this patch, write operation will use 32H and then 34H:
-[ 5380.911269] OP code: 0x32, addr val: 0x0, data nbytes: 1020, data 1st byte: 0xa5
-[ 5380.918889] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st byte: 0xa5
-[ 5380.927836] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st byte: 0xa5
-[ 5380.936558] OP code: 0x10, addr val: 0x300
-[ 5380.942411] OP code: 0x32, addr val: 0x0, data nbytes: 1020, data 1st byte: 0xff
-[ 5380.950831] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st byte: 0xff
-[ 5380.958722] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st byte: 0xff
-[ 5380.966129] OP code: 0x10, addr val: 0x301
-[ 5380.970376] OP code: 0x32, addr val: 0x0, data nbytes: 1020, data 1st byte: 0xff
-[ 5380.977810] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st byte: 0xff
-[ 5380.985424] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st byte: 0xff
-[ 5380.992826] OP code: 0x10, addr val: 0x302
-...
-
-Signed-off-by: Sky Huang <skylake.huang@mediatek.com>
----
- drivers/mtd/nand/spi/core.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/mtd/nand/spi/core.c b/drivers/mtd/nand/spi/core.c
-index b1df7f627161..351bd14d8e06 100644
---- a/drivers/mtd/nand/spi/core.c
-+++ b/drivers/mtd/nand/spi/core.c
-@@ -506,7 +506,10 @@ static int spinand_write_to_cache_op(struct spinand_device *spinand,
- 		nbytes -= ret;
- 		column += ret;
- 		buf += ret;
-+
-+		wdesc->info.op_tmpl = *spinand->op_templates.update_cache;
- 	}
-+	wdesc->info.op_tmpl = *spinand->op_templates.write_cache;
- 
- 	return 0;
- }
-@@ -1037,7 +1040,7 @@ static int spinand_create_dirmap(struct spinand_device *spinand,
- 	/* The plane number is passed in MSB just above the column address */
- 	info.offset = plane << fls(nand->memorg.pagesize);
- 
--	info.op_tmpl = *spinand->op_templates.update_cache;
-+	info.op_tmpl = *spinand->op_templates.write_cache;
- 	desc = devm_spi_mem_dirmap_create(&spinand->spimem->spi->dev,
- 					  spinand->spimem, &info);
- 	if (IS_ERR(desc))
-@@ -1060,7 +1063,7 @@ static int spinand_create_dirmap(struct spinand_device *spinand,
- 		return 0;
- 	}
- 
--	info.op_tmpl = *spinand->op_templates.update_cache;
-+	info.op_tmpl = *spinand->op_templates.write_cache;
- 	info.op_tmpl.data.ecc = true;
- 	desc = devm_spi_mem_dirmap_create(&spinand->spimem->spi->dev,
- 					  spinand->spimem, &info);
--- 
-2.45.2
-
+Just for my understanding, could you please share the use of max-speed DT p=
+roperty if possible?
 
