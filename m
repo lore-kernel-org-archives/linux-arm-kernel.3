@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAF5D44159
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65738D44159
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:05:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A3m9wQItCPztJIIpvMXTp8m6PzgtI4K7Et2HQQIVEVk=; b=QyGTIGuMCpuz7OFfAc/KLBQzhJ
-	j+zZ/WlcLwp0PhYoK34q/jlhqyplKV5Znr1TgM8FRsgplX9LFAEGtTDeuCoOLR+yk7va1STrAvhN8
-	UjDOuT98zcBbIw2fjebaVSWL/1lG2krR3JE1GI/fBcglDz7RIy21uv3ok3bFu6nTfpOwN33+wjIzR
-	A6PCSXGhjFzefQooVchotY804nkUtbIkmrlUI5OWjrRd4PIkkstUIkWb7kDBWrRlViARJ1Dy1V6qG
-	POF8pqZXJ2NC2K7qx53ZB60QA6Vf2O9nITLH2bT+VuKWAgUkKJEqr0DLtsHlPL/F1R7IRZQMdI291
-	diAO1Izw==;
+	bh=zBNh0V1ZgJIlU3TWG4MIs3UIA1+5LVq80r6EHeOj8fI=; b=xUcPzvvG9Mb0gDTi5mVNpuMyln
+	cS04xwGfTDOB9B47eMpbeijzhmNm5nml6Vpk+DInYLt7yOg/xaTRgdNTGT0wk/HDGd2SADiNBD4WY
+	cXUaPdaIUT0Dx/MA/+O0HfMt71xJnSO/W1yJisE37B3P6kFUhAspfH2Zt63Wz/GNw5HMBhLURzFJ/
+	rwOUI1tnzNpFJn0OPikHoXz1k7PBUSoNflfn7o/ohv7+F0S4UVmiXr/cM2mqKF95tb0DAjeXCvBoE
+	Rk64AP+/CzqXhqEN3Swcas2p2uPaSkIVRVgYqWVVfQ+KcDSnCxygZq6tWNIe3hPa0Jg/7KwRjUEUU
+	DBdSj4qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDNtc-0000000CS2O-1R9u;
-	Tue, 19 Nov 2024 13:03:56 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tDNuW-0000000CSCy-402F;
+	Tue, 19 Nov 2024 13:04:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDNsg-0000000CRv5-3FHh
+	id 1tDNtK-0000000CRzj-3ghc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 13:02:59 +0000
+	Tue, 19 Nov 2024 13:03:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 76D2AA428A9;
-	Tue, 19 Nov 2024 13:01:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A4EDC4CECF;
+	by dfw.source.kernel.org (Postfix) with ESMTP id AE04F5C5498;
 	Tue, 19 Nov 2024 13:02:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2E3DC4CECF;
+	Tue, 19 Nov 2024 13:03:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732021377;
-	bh=Oko1rEt3dtzKKBgHam+sRiRzrDAc/6gM3AC+HQ1fjNM=;
+	s=k20201202; t=1732021417;
+	bh=HTszvGrwpjyTL9+iGA7mvd53ntCBLk0NpCko+gGtv5A=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DEnCgRTYjsdcrkIArl78Yqj81YJLF81Jx4xMGgMF4MiuVY8OYH3Szab1eCnIbu3zv
-	 3qEzMxSiQax10wi/IUnOoiwgevA7eJh6Xj8ir5qbFgLM+eSTHza/g8KYbemxVLLKLC
-	 E/IhenTGo04xl1au93Q3gRGZ2MZRgWWKGHn1ompy06ZseOFfCsp8BhmdtLoXl2cQUS
-	 Atfth+AmOO8dhS+bsnqPs0VjPEsoj12Agz00zhhhyU76S1cYLxivArOUCTHlvG5C0U
-	 vtU/b5HALKb5gtoZqLCBXIjuvWJ3dHyvGkHpr0r9xNpGvqqckEShuspqT685jRF5E2
-	 bZM6jXNjURsFQ==
-Message-ID: <4483a757-db62-4489-aac0-7a33d44a4cba@kernel.org>
-Date: Tue, 19 Nov 2024 14:02:51 +0100
+	b=OqemSTaKvU+OxUIRWX0YQ/BtHkSlekw7NC/BJ0idtZUD3vYCZXcElWCImGjuhFT5F
+	 rHZPZHXa/G/PxGI/Fa56ZrHlNjCVbSxRy6JhWqUuD7U+F65ggp8MQAX/QIVhewNXzV
+	 Zb32j46zVNcANK+ymspAm1eXWJrpspZyNXzWbU2GM1els3OKzuYtHaMXtUKKL/PVAH
+	 M22vG2TC8QPkPgWQKMp0iHkzfnVJUzrIUCeO/waocuAFKFlgf3x0vzoY9EXCfIYm3W
+	 +7j6R280UqPOeD3AGdxc84nXnMV+wInkqQNDChoCbE80nzm1279OwoBCTCRfE34duI
+	 zygqO+nf1EdjQ==
+Message-ID: <8b4508fe-01d9-49c5-817e-49955db0dadc@kernel.org>
+Date: Tue, 19 Nov 2024 14:03:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/6] arm64: Add initial support for Blaize BLZP1600 CB2
+Subject: Re: [PATCH v5 5/6] arm64: defconfig: Enable Blaize BLZP1600 platform
 To: Niko Pasaloukos <nikolaos.pasaloukos@blaize.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, James Cowgill
@@ -60,7 +60,7 @@ Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
  <linux-arm-kernel@lists.infradead.org>,
  "soc@lists.linux.dev" <soc@lists.linux.dev>
 References: <20241115-blaize-blzp1600_init_board_support-v5-0-c09094e63dc5@blaize.com>
- <20241115-blaize-blzp1600_init_board_support-v5-4-c09094e63dc5@blaize.com>
+ <20241115-blaize-blzp1600_init_board_support-v5-5-c09094e63dc5@blaize.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +106,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241115-blaize-blzp1600_init_board_support-v5-4-c09094e63dc5@blaize.com>
+In-Reply-To: <20241115-blaize-blzp1600_init_board_support-v5-5-c09094e63dc5@blaize.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_050258_939740_9A06B517 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20241119_050339_007545_26039FFB 
+X-CRM114-Status: UNSURE (   7.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,35 +128,10 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 15/11/2024 15:58, Niko Pasaloukos wrote:
-> Add support for the Blaize CB2 development board based on
-> the BLZP1600 SoC. This consists of a Carrier-Board-2 and a
-> System-on-Module.
+> Enable ARCH_BLAIZE to support the BLZP1600 SoC and the CB2
+> development board.
 > 
-> Both BLZP1600 SoM and CB2 are available as products.
-> CB2 (Pathfinder) has multiple peripherals like UART, I2C,
-> SPI, GPIO, CSI (camera), DSI (display), USB-3.0 and Ethernet.
-> 
-> Enable support for the Cryptocell, UART and I2C which are
-> already fully supported by the drivers.
-> 
-> The blaize-blzp1600.dtsi is the common part for the SoC,
-> blaize-blzp1600-som.dtsi is the common part for the SoM and
-> blaize-blzp1600-cb2.dts is the board specific file.
-> 
-> Co-developed-by: James Cowgill <james.cowgill@blaize.com>
-> Signed-off-by: James Cowgill <james.cowgill@blaize.com>
-> Co-developed-by: Matt Redfearn <matt.redfearn@blaize.com>
-> Signed-off-by: Matt Redfearn <matt.redfearn@blaize.com>
-> Co-developed-by: Neil Jones <neil.jones@blaize.com>
-> Signed-off-by: Neil Jones <neil.jones@blaize.com>
 > Signed-off-by: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
-
-Subject prefix should be:
-arm64: dts:
-or
-
-arm64: dts: blaize:
-
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
