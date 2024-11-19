@@ -4,94 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B6AD6C281
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 18:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EABC4D6C285
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 18:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VGT8AsS8Us1spIq9IkDtJaus5/uzjZbOrMzyLjeFCNQ=; b=mq8Rprew4KdHQygNSVxH1WV/5b
-	017hI0KTHBoevjSVsarogtxHhhAnYE2mIIrH+vGxd6e2giKI+65iCtedLybu1JVlPsDAyb4X2y82a
-	V5lFBI9DVzB1mplUI812tzK1eXaybRkyTisAYNaLyk6JmP2bMCffeM0GQR0AzYtEHfpdONIN+YEMs
-	DIm9hq+2gg/gDS4lEX4t7nnarqHrvnmS0F1uv6c5q8zwJvHa7qryX7vbyIYQIsKkNChESJp6vp/og
-	E/0pYkq4r1GNanti6xmlbzoe4nf4qEEdx5OD6P0guCxPgqO8GBlqFQ4sUudAPyCk9/0apJrX6kdkd
-	H+G9rVCw==;
+	bh=U5WAuWYpPyf6x8hsSizrHjQGWA6SpwYTf0LqyhF0bQg=; b=CikXFVfT4TV5iHiF9lZebvvV04
+	vRdaJXHFQKTZTzBzNYYJDe9Ayq09steWh+Ddg5N5y8asdQveunELNgomzWeU/21AiQnnjmfJWG30z
+	ZeYgiESp3eTvd1a1D+PI+ULHC3D2Vaah6HyMX8DKE40+Y9qKkda+/G6FUrj32bWAXB1pOso8a0FVe
+	+SNzpypf5jMCiXjXmbAzibZSvdrvK37BauyMqIb7/HmNg8I/wb4oV0m0t1SjJkiKHyXCY7joGiodR
+	8kCgUZkMFzGWiP1tIsZcrKzwczr2HD9XLxop7LaJVPZf+7bkDTi3u1C9eqIMWgNsrJyZBA18wzh7r
+	8rXKFbuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDSkj-0000000DLmE-3dEG;
-	Tue, 19 Nov 2024 18:15:05 +0000
-Received: from mout.perfora.net ([74.208.4.194])
+	id 1tDSld-0000000DLyH-2FBF;
+	Tue, 19 Nov 2024 18:16:01 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDSjn-0000000DLbJ-1F1g
+	id 1tDSkU-0000000DLhr-16Jh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 18:14:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=finest.io;
-	s=s1-ionos; t=1732040021; x=1732644821; i=parker@finest.io;
-	bh=VGT8AsS8Us1spIq9IkDtJaus5/uzjZbOrMzyLjeFCNQ=;
-	h=X-UI-Sender-Class:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=uONjaW2FblG/6peh9CrwJ8XfF2tDFqYzBm0/FVmh1cbgSJvIV2STyvLj609t1bSm
-	 j7E/90mYpc6DFcdH5K9kuPE3fUdGViS6Cyl6s1yfiCoGy9nC4AC4TkMrLJAUGfjjL
-	 3ot+Uio1KuKJL+Z/ZvUa3rTw6BIU3zYv+vqnDj2PdMsw5bMvTVF0s9ljozJwLRCYK
-	 9kps61qMxknCaPTMQhBQQIpKxV0Kxu+q5zMTHlPhgS6ApViyesHEvdDvip9csBZZ5
-	 RNhiHzIZMnFFRvQSWLWX6iiniXgWEvZNSZ/zqVjzvO6+UxgVk5O4HlvAX1sQ+0Z6z
-	 pqMzG4BBklMvP2R+zg==
-X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
-Received: from SWDEV2.connecttech.local ([98.159.241.229]) by
- mrelay.perfora.net (mreueus004 [74.208.5.2]) with ESMTPSA (Nemesis) id
- 1N95Jb-1tqap93LVv-017uyx; Tue, 19 Nov 2024 19:13:40 +0100
-Date: Tue, 19 Nov 2024 13:13:36 -0500
-From: Parker Newman <parker@finest.io>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Paolo Abeni <pabeni@redhat.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Jose Abreu <joabreu@synopsys.com>, Andrew
- Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Thierry Reding
- <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
- linux-kernel@vger.kernel.org, Parker Newman <pnewman@connecttech.com>
-Subject: Re: [PATCH v1 1/1] net: stmmac: dwmac-tegra: Read iommu stream id
- from device tree
-Message-ID: <20241119131336.371af397.parker@finest.io>
-In-Reply-To: <984a8471-7e49-4549-9d8a-48e1a29950f6@lunn.ch>
-References: <cover.1731685185.git.pnewman@connecttech.com>
-	<f2a14edb5761d372ec939ccbea4fb8dfd1fdab91.1731685185.git.pnewman@connecttech.com>
-	<ed2ec1c2-65c7-4768-99f1-987e5fa39a54@redhat.com>
-	<20241115135940.5f898781.parker@finest.io>
-	<bb52bdc1-df2e-493d-a58f-df3143715150@lunn.ch>
-	<20241118084400.35f4697a.parker@finest.io>
-	<984a8471-7e49-4549-9d8a-48e1a29950f6@lunn.ch>
-Organization: Connect Tech Inc.
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+	Tue, 19 Nov 2024 18:14:52 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AJGMaPP032500;
+	Tue, 19 Nov 2024 19:14:38 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	U5WAuWYpPyf6x8hsSizrHjQGWA6SpwYTf0LqyhF0bQg=; b=L+vT/u5ko/LfoxQO
+	Hv0gs33R0cqdctuSkF3hOC1J5R6S3xX4jKCAwrHiZvrTxKdusx2+nI+042A9B7Jj
+	djACs834r+T+VjR8xhovwoJKq4t1PTeMyZkqM6cldKRgiTDt3JzG8Hz2SI2Gkd4z
+	tEnf1M1FmjJUTuVawpUwfNo7tz24J432RApl95bWBIxd0qdEaxWEpQDwvgitwe8l
+	aS0G0Gwt7DkBngRNr8EDjuJwylsxECmlJqf08yisUtqwSJl2namTrcncTwQpN+ot
+	NUkGUlJwqR44z87LRRGS4mkmQBTrX18NsvWIDoSaeKK4d/NqkwmY7/xZDhfDF78w
+	tB30pA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42y5u3ud1b-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 19 Nov 2024 19:14:37 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B84A440048;
+	Tue, 19 Nov 2024 19:13:26 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id AC9ED29ADCD;
+	Tue, 19 Nov 2024 19:10:59 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
+ (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 19 Nov
+ 2024 19:10:59 +0100
+Received: from [10.48.86.121] (10.48.86.121) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 19 Nov
+ 2024 19:10:58 +0100
+Message-ID: <0d9075cd-68c2-49ec-9b9c-4315aa8c8517@foss.st.com>
+Date: Tue, 19 Nov 2024 19:10:58 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:AtKqw0Z1I7mrrYJHxTfQz5F8hUNeBM14Cog+yV7Z7kBlruzLoEq
- 52aV4ZlzIPc1OCm+IfwqymFQaKhYt2ZbqHTJJjIQtpu18McO2js+UUUqNozSyFiYvq1vMor
- j9qgYJ9/bNlYyTzSt2XcktTKgokGqx4GQXdAyJty1dbl52/eaXikcxB5rMLKxb3u1DoDau0
- uxB9RThgXBNB/H6oziE3g==
-UI-OutboundReport: notjunk:1;M01:P0:GuLdzSAGVIo=;t3EYDXONAZMT2F7a5+doMXWtZjV
- cuPGr3pdRSaNEJ3lO0C0RnOVAEH+I4kv7Lt9MhqlfkkCa3ctc+Eru00Tvng2hrD7aEvbKEGR2
- Wxyg76vJ6IzKEaeRWP3H3PilJZHve7T0xqTYrl4X+RFBxF0FUOCgF0uVCOpxr05CLxuqxNEas
- VajBnbVq1GKwPOo2s/J0ZPsxei8RaO2/NhtbJXrgLf/V/EbYVkcs35rr5pRNmoKc1jsUL30rH
- IaLCS6xT3Dca9e8ZYpX37p1rpT2e8/SW3jqZLCRwHXVmYAbOZST1WD/1qEaDr32EPl8do+Pf5
- bhkB01vomsqhSSD2kGW+APTP3QA4z+Aqp0dYn3FbAr+ASMgt+PmghUV/CIcjnIrHPBj8Df/vz
- dCWIDSC8goGPB2aLNJDsjWNC1cLOk/Xyy0d3RDAJjiMA/uPMJWuw6yoLc7YTCZJS8JYlbgt3x
- m61c4e5SHkb3lafflPNLQEPo1FTEWpWu95VWbn4csRoo7XQT1IiOvdslMd58YVN1BSef89qeZ
- lq1sbzE9+tlg25Rwx9S+Gflbq/R9ZmIQw/c2Rmxqaed4CTVyFf5e68kln99SAMq6chzOpaDRe
- quTSx0TaDCaw0bgcavSAWYkcmgkAqk3o9WZh5huC+o70gGK/RQ1jgIw/7cHXdJCJDIory/dYH
- PCc+TioN+rhYatstwunHIshLdhPvLA06Pv5/+UoaoaRAe07nfdcvITa8EQvzi/y6d9WEjCHx/
- 07d1BJrVCRQjXE+kBDRQ4+SaZ4M9Zc9yqrnc1Ofo5ii8rBGvcZ0o0ABKOh8S65HiZdboh2e4b
- IpA4NlLSNMrMLav9j14WctihV02FYT81m/4Y+QtzPNYTAqfOHznU1Z4E0I1KmubFto
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 4/7] remoteproc: Introduce release_fw optional
+ operation
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+CC: Bjorn Andersson <andersson@kernel.org>,
+        Jens Wiklander
+	<jens.wiklander@linaro.org>,
+        Rob Herring <robh+dt@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>
+References: <20241104133515.256497-1-arnaud.pouliquen@foss.st.com>
+ <20241104133515.256497-5-arnaud.pouliquen@foss.st.com>
+ <Zzt+7NBdNjyzWZIb@p14s>
+Content-Language: en-US
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Organization: STMicroelectronics
+In-Reply-To: <Zzt+7NBdNjyzWZIb@p14s>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.121]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_101407_561850_6F163146 
-X-CRM114-Status: GOOD (  27.58  )
+X-CRM114-CacheID: sfid-20241119_101450_820675_54E80FE0 
+X-CRM114-Status: GOOD (  28.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,78 +109,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 Nov 2024 01:50:18 +0100
-Andrew Lunn <andrew@lunn.ch> wrote:
+Hello Mathieu,
 
-> > This is not a new dt property, the "iommus" property is an existing pr=
-operty
-> > that is parsed by the Nvidia implementation of the arm-smmu driver.
-> >
-> > Here is a snippet from the device tree:
-> >
-> > smmu_niso0: iommu@12000000 {
-> >         compatible =3D "nvidia,tegra234-smmu", "nvidia,smmu-500";
-> > ...
-> > }
-> >
-> > /* MGBE0 */
-> > ethernet@6800000 {
-> > 	compatible =3D "nvidia,tegra234-mgbe";
-> > ...
-> > 	iommus =3D <&smmu_niso0 TEGRA234_SID_MGBE>;
-> > ...
-> > }
-> >
-> > /* MGBE1 */
-> > ethernet@6900000 {
-> > 	compatible =3D "nvidia,tegra234-mgbe";
-> > ...
-> > 	iommus =3D <&smmu_niso0 TEGRA234_SID_MGBE_VF1>;
-> > ...
-> > }
->
-> What i was meaning does the nvidia,tegra234-mgbe binding allow iommus?
-> I just checked, yes it does.
->
-> > If the iommus property is missing completely from the MGBE's device tr=
-ee node it
-> > causes secure read/write errors which spam the kernel log and can caus=
-e crashes.
-> >
-> > I can add the fallback in V2 with a warning if that is preferred.
->
-> The fact it crashed makes me think it is optional. Any existing users
-> must work, otherwise it would crash, and then be debugged. I guess you
-> are pushing the usage further, and so have come across this condition.
->
-> Is the iommus a SoC property, or a board property? If it is a SoC
-> property, could you review all the SoC .dtsi files and fix up any
-> which are missing the property?
->
-> Adding a warning is O.K, but ideally the missing property should be
-> added first.
-
-I think there is some confusion here. I will try to summarize:
-- Ihe iommu is supported by the Tegra SOC.
-- The way the mgbe driver is written the iommu DT property is REQUIRED.
-- "iommus" is a SOC DT property and is defined in tegra234.dtsi.
-- The mgbe device tree nodes in tegra234.dtsi DO have the iommus property.
-- There are no device tree changes required to to make this patch work.
-- This patch works fine with existing device trees.
-
-I will add the fallback however in case there is changes made to the iommu
-subsystem in the future.
-
-> The merge window is open now, so patches will need to wait two weeks.
->
-
-Ok thanks, I will wait a couple weeks to resend.
-Parker
+On 11/18/24 18:52, Mathieu Poirier wrote:
+> On Mon, Nov 04, 2024 at 02:35:12PM +0100, Arnaud Pouliquen wrote:
+>> This patch updates the rproc_ops struct to include an optional
+>> release_fw function.
+>>
+>> The release_fw ops is responsible for releasing the remote processor
+>> firmware image. The ops is called in the following cases:
+>>
+>>  - An error occurs in rproc_start() between the loading of the segments and
+>>       the start of the remote processor.
+>>  - after stopping the remote processor.
+>>
+>> Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+>> ---
+>> Updates from version V11:
+>> - fix typo in @release_fw comment
+>> ---
+>>  drivers/remoteproc/remoteproc_core.c | 5 +++++
+>>  include/linux/remoteproc.h           | 3 +++
+>>  2 files changed, 8 insertions(+)
+>>
+>> diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
+>> index 7694817f25d4..46863e1ca307 100644
+>> --- a/drivers/remoteproc/remoteproc_core.c
+>> +++ b/drivers/remoteproc/remoteproc_core.c
+>> @@ -1258,6 +1258,9 @@ static int rproc_alloc_registered_carveouts(struct rproc *rproc)
+>>  
+>>  static void rproc_release_fw(struct rproc *rproc)
+>>  {
+>> +	if (rproc->ops->release_fw)
+>> +		rproc->ops->release_fw(rproc);
+>> +
+>>  	/* Free the copy of the resource table */
+>>  	kfree(rproc->cached_table);
+>>  	rproc->cached_table = NULL;
+>> @@ -1377,6 +1380,8 @@ static int rproc_start(struct rproc *rproc, const struct firmware *fw)
+>>  unprepare_subdevices:
+>>  	rproc_unprepare_subdevices(rproc);
+>>  reset_table_ptr:
+>> +	if (rproc->ops->release_fw)
+>> +		rproc->ops->release_fw(rproc);
+>>  	rproc->table_ptr = rproc->cached_table;
+> 
+> I suggest the following:
+> 
+> 1) Create two new functions, i.e rproc_load_fw() and rproc_release_fw().  The
+> only thing those would do is call rproc->ops->load_fw() and
+> rproc->ops->release_fw(), if they are present.  When a TEE interface is
+> available, ->load_fw() and ->release_fw() become rproc_tee_load_fw() and
+> rproc_tee_release_fw().
 
 
+I'm wondering if it should be ->preload_fw() instead of ->load_fw() ops, as the
+->load() op already exists.
+
+> 
+> 2) Call rproc_load_fw() in rproc_boot(), just before rproc_fw_boot().  If the
+> call to rproc_fw_boot() fails, call rproc_release_fw().
+> 
+> 3) The same logic applies to rproc_boot_recovery(), i.e call rproc_load_fw()
+> before rproc_start() and call rproc_release_fw() if rproc_start() fails.
 
 
+I implemented this and I'm currently testing it.
+Thise second part requires a few adjustments to work. The ->load() ops needs to
+becomes optional to not be called if the "->preload_fw()" is used.
+
+For that, I propose to return 0 in rproc_load_segments if rproc->ops->load is
+NULL and compensate by checking that at least "->preload_fw()" or ->load() is
+non-null in rproc_alloc_ops.
+
+Thanks,
+Arnaud
 
 
+> 
+> 4) Take rproc_tee_load_fw() out of rproc_tee_parse_fw().  It will now be called
+> in rproc_load_fw().
+> 
+> 5) As stated above function rproc_release_fw() now calls rproc_tee_release_fw().
+> The former is already called in rproc_shutdown() so we are good in that front.
+> 
+> With the above the cached_table management within the core remains the same and
+> we can get rid of patch 3.7.
 
+> 
+> Thanks,
+> Mathieu
+> 
+>>  
+>>  	return ret;
+>> diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
+>> index 2e0ddcb2d792..08e0187a84d9 100644
+>> --- a/include/linux/remoteproc.h
+>> +++ b/include/linux/remoteproc.h
+>> @@ -381,6 +381,8 @@ enum rsc_handling_status {
+>>   * @panic:	optional callback to react to system panic, core will delay
+>>   *		panic at least the returned number of milliseconds
+>>   * @coredump:	  collect firmware dump after the subsystem is shutdown
+>> + * @release_fw:	optional function to release the firmware image from ROM memories.
+>> + *		This function is called after stopping the remote processor or in case of an error
+>>   */
+>>  struct rproc_ops {
+>>  	int (*prepare)(struct rproc *rproc);
+>> @@ -403,6 +405,7 @@ struct rproc_ops {
+>>  	u64 (*get_boot_addr)(struct rproc *rproc, const struct firmware *fw);
+>>  	unsigned long (*panic)(struct rproc *rproc);
+>>  	void (*coredump)(struct rproc *rproc);
+>> +	void (*release_fw)(struct rproc *rproc);
+>>  };
+>>  
+>>  /**
+>> -- 
+>> 2.25.1
+>>
 
