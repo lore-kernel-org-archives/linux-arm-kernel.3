@@ -4,53 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B7FD44167
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:33:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB37D44167
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HYtPFqDBrsIXWeM6Bj2yn9iL8d0RcBuroM9tYLE1h/Y=; b=ZiFK4XRLDTA9C05fN3OQBg/kIS
-	V9JRozNp9wV8Qj+Z1vZOQm2xzgAYy93FOlMFXXuwfqlKr+c9UoT18FG8GEsFdx0i7JRlfTKWZYvqD
-	3f+RQbn03hOMcT+wjRZEQvn0lV1+fj0WRn14uFjtm9Hdx9CHLSJIkVQPAA3apSeAm9MVhQddtgOdm
-	lZJOvIH1k8ZR8WSpvv8wIbwELVtIn7CpbZYKoxAYnAfzAb5TJHHYvpZdfb3+dYQ5Ha2jUkODVGyFz
-	cOqbq/LSgn6hIIN5muCmSoHOIrMv9nECeyzFIDqB3dVm+v+FvcH/een/K8RDVx6urbVNLh0yVR7tA
-	wX/wCDFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+KJPrpVSpjlMsljEONMGLhUb9kDFkewDTz7vO3IORSI=; b=JfjVFCn9EtEG+sLJCumS5CY2lF
+	jfJqR7tes2tj44HstTshC49wR3BCWP3vVRYwkkQ65tPfKqFzwS17sASwBVU+po5hFDs+vCsxonVyd
+	dm9TblVd9ZOogq1lE19wGOYzCCIHVjFL7G4fsaxt4VelDssiPWOpG32+faTcQtVaJF5cNWMjfw+OY
+	sYJK3xKyo45PG3csU5vjvdKVoZ9RhVuuY4Ks5ubZtFEnSTun6O33TrnFEGXIJQqN/fvqFjkPopexl
+	i9/YrPWLRlaRyf7V07ApjlH08+YEnIfvo8qKpQ7luoJsMEkKVA//A7aEQ90+F1Ym+NK7NdRbBw8Ed
+	C5v5m0/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDQDx-0000000CruI-3ms0;
-	Tue, 19 Nov 2024 15:33:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDQD1-0000000Crnq-1T5N
+	id 1tDQN4-0000000CtqM-3R97;
+	Tue, 19 Nov 2024 15:42:30 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tDQM9-0000000CtfA-0PAi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 15:32:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B17A20E3;
-	Tue, 19 Nov 2024 07:32:33 -0800 (PST)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.34])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6C1D93F5A1;
-	Tue, 19 Nov 2024 07:32:02 -0800 (PST)
-Date: Tue, 19 Nov 2024 15:31:59 +0000
-From: Dave Martin <Dave.Martin@arm.com>
-To: Zeng Heng <zengheng4@huawei.com>
-Cc: james.morse@arm.com, linux-kernel@vger.kernel.org,
-	jonathan.cameron@huawei.com, xiexiuqi@huawei.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v2 0/6] arm_mpam:
- Introduce the Narrow-PARTID feature for MPAM driver
-Message-ID: <Zzyvbx9uubrLNv1C@e133380.arm.com>
-References: <20241119135104.595630-1-zengheng4@huawei.com>
+	Tue, 19 Nov 2024 15:41:34 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id DCE0B1BF20C;
+	Tue, 19 Nov 2024 15:41:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1732030889;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+KJPrpVSpjlMsljEONMGLhUb9kDFkewDTz7vO3IORSI=;
+	b=io9RKrrlUJ5LfS28I+zGTgdXazwkVChYn/JjjVqtb5QYNC9yIXDAhmkzunCCdpOx3BIUOX
+	0FhAT9sqGU1TAcPeslSlemLGuz4nik2+LXLN7Syk/AHbOpnn7v7qKEC5BGXk600IObMBUJ
+	k5tnn3K6hWPGJO+yM8BXvIE/TDFTToxotzYUcxhavwFJs+BT9FsI3Ea8sJOhRtTpL+rsnA
+	npx/M+CQj9Okjc85fwF1w20qH0V3N2uLAzbBzdL0KwjsgZzQHfpVjaMDCEo6lrUaktYqa0
+	PuqjD4weYeHzqovr/76QnUG6wc4hvn1b8VxXm8nGwZFrpSm7uBxu3FmF3d2tJA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Marek Vasut <marex@denx.de>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,  Abel Vesa
+ <abelvesa@kernel.org>,  linux-clk@vger.kernel.org,  Fabio Estevam
+ <festevam@gmail.com>,  "Lukas F . Hartmann" <lukas@mntmn.com>,  Michael
+ Turquette <mturquette@baylibre.com>,  Peng Fan <peng.fan@nxp.com>,
+  Pengutronix Kernel Team <kernel@pengutronix.de>,  Sascha Hauer
+ <s.hauer@pengutronix.de>,  Shawn Guo <shawnguo@kernel.org>,  Stephen Boyd
+ <sboyd@kernel.org>,  imx@lists.linux.dev,  kernel@dh-electronics.com,
+  linux-arm-kernel@lists.infradead.org,  Anson Huang <Anson.Huang@nxp.com>
+Subject: Re: [PATCH] clk: imx: clk-imx8mp: Allow media_disp pixel clock
+ reconfigure parent rate
+In-Reply-To: <c3da6311-1eb7-4a67-977e-32c28897f0e0@denx.de> (Marek Vasut's
+	message of "Mon, 18 Nov 2024 15:30:04 +0100")
+References: <20240531202648.277078-1-marex@denx.de>
+	<20241112234206.558d5d5e@booty>
+	<79f21303-b0ba-45ed-a842-7e5364fd4efc@denx.de>
+	<20241113120622.3501db73@booty>
+	<130fe140-e70d-4c45-aaab-e22762c58c88@denx.de>
+	<20241115180936.4ab56be3@booty>
+	<6bc5b8d7-ff10-4860-ac46-1460a7d850da@denx.de>
+	<871pz9c606.fsf@bootlin.com>
+	<c3da6311-1eb7-4a67-977e-32c28897f0e0@denx.de>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Tue, 19 Nov 2024 16:41:28 +0100
+Message-ID: <87cyirz0wn.fsf@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241119135104.595630-1-zengheng4@huawei.com>
+Content-Transfer-Encoding: quoted-printable
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_073207_480791_B3E3A637 
-X-CRM114-Status: GOOD (  37.31  )
+X-CRM114-CacheID: sfid-20241119_074133_421291_79CDBD9A 
+X-CRM114-Status: GOOD (  31.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,133 +88,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Marek,
 
-On Tue, Nov 19, 2024 at 09:50:58PM +0800, Zeng Heng wrote:
-> The patch set is applied for mpam/snapshot/v6.12-rc1 branch of
-> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git
-> repository.
-> 
-> This patch set is fully compatible with x86 RDT functionality.
-> 
-> The narrow-partid feature in MPAM allows for a more efficient use of
-> PARTIDs by enabling a many-to-one mapping of reqpartids (requested PARTIDs)
-> to intpartids (internal PARTIDs). This mapping reduces the number of unique
-> PARTIDs needed, thus allowing more tasks or processes to be monitored and
-> managed with the available resources.
-> 
-> Intpartid(Internal PARTID) is an internal identifier used by the hardware
-> to represent a specific resource partition. It is a low-level identifier
-> that the hardware uses to track and manage resource allocation and
-> monitoring.
-> 
-> Reqpartid(Request PARTID) is an identifier provided by the software when
-> requesting resources from the memory system. It indicates the desired
-> partition for resource monitoring. By using reqpartids, software can
-> monitor specific resources or allow the system to subdivide smaller
-> granularity partitions within existing partitions to serve as monitoring
-> partitions.
-> 
-> For the new rmid allocation strategy, it will check whether there is an
-> available rmid of any reqPARTID which belongs to the input intPARTID.
-> 
-> The MPAM driver statically assigns all reqPARTIDs to respective intPARTIDs,
-> with a specific illustration as follows:
-> 
-> m - Indicates the number of reqPARTIDs per intPARTID
-> n - Indicates the total number of intPARTIDs
-> (m * n) - Represents the total number of reqPARTIDs
-> 
-> intPARTID_1 = 0
->     ├── reqPARTID_1_1 = 0
->     ├── reqPARTID_1_2 = 0 + n
->     ├── ...
->     └── reqPARTID_1_m = 0 + n * (m - 1)
-> 
-> intPARTID_2 = 1
->     ├── reqPARTID_2_1 = 1
->     ├── reqPARTID_2_2 = 1 + n
->     ├── ...
->     └── reqPARTID_2_m = 1 + n * (m - 1)
-> 
-> ...
-> 
-> intPARTID_n = (n - 1)
-> 
-> Each intPARTID has m reqPARTIDs, which are used to expand the number of
-> monitoring groups under the control group. Therefore, the number of
-> monitoring groups is no longer limited by the range of MPAM PMG, which
-> enhances the extensibility of the system's monitoring capabilities.
+On 18/11/2024 at 15:30:04 +01, Marek Vasut <marex@denx.de> wrote:
 
+> On 11/18/24 9:15 AM, Miquel Raynal wrote:
+>> Hi Marek,
+>
+> Hello Miquel,
+>
+>>>>> If you really want accurate pixel clock for your panel, you need simi=
+lar
+>>>>> change to 4fbb73416b10 and configure the Video PLL such that the
+>>>>> accurate pixel clock can be derived from it. The Video PLL cannot be =
+set
+>>>>> to pixel clock, because the LDB serializer clock are either 7x the pi=
+xel
+>>>>> clock, or 3.5x the pixel clock (for dual link LVDS), so the Video PLL
+>>>>> has to be set to 7x or 3.5x pixel clock of the panel, then you should
+>>>>> get accurate pixel clock and a working panel again.
+>>>> I found that I'm having the same issue that has been discussed in some
+>>>> related threads: the lcdif2 configures the video_pll1 to ~72 MHz, and
+>>>> later LDB tries to set it to 7x that value, failing.
+>>>
+>>> Right, which is solved by configuring the Video PLL to the correct
+>>> frequency in DT up front ... unless you have more than one output
+>>> supplied by that Video PLL.
+>> No, this looks like a bug in the imx8 clock driver. I would expect the
+>> core to handle such case without DT hack. It is not okay to fix clock
+>> frequencies in DT because drivers are failing to do it properly. I
+>> understand there are advanced/dual cases with very specific frequencies
+>> where you don't expect it to magically work and giving hints with DT
+>> assigned-clocks* properties makes sense, but here I don't think we
+>> should consider it as a proper fix.
+>
+> It is not a proper fix, it is the best we can do right now. I already
 
-The idea of mapping multiple reqPARTIDs to each resctrl control group
-looks like it can work, but I think that there are some issues that
-need to be considered:
+I am sorry I probably misunderstood your previous reply then. I am fine
+with the assigned-clocks workaround.
 
+> replied to Luca with a bunch of patches where I tried to come up with a
+> way to negotiate the pixel clock in drivers ... I need to get back to
+> those.
 
-1) There may be a mixture of MSCs in the system, some of which support
-PARTID Narrowing and some of which do not.  Affected MSCs will not be
-able to regulate resource consumption for a single resctrl control
-group as a single unit, if multiple reqPARTIDs are used.
+Indeed, thanks to your feedback we got it fixed locally, so short term
+is okay for us (but people not reading this thread might still suffer
+from the problem though).
 
-This matters when an MSC that does not support PARTID Narrowing also
-has resource controls that are not of the "partition bitmap" type.
+>> If I may recap:
+>> 1- a simple display pipeline works
+>> 2- the pixel frequency could be more precise so the video_pll1 parent is
+>>     used to dynamically compute a better frequency
+>> 3- the video_pll1 parent is too low in some cases which breaks the
+>>     pipeline
+>> 4- we need to force video_pll1 to a value in DT
+>> How possibly 4 could be a relevant answer to 2, seriously? May I
+>> return
+>> you the advice, if you want a better video_pll1 value in the first
+>> place, why not assigning it up front in DT?
+>
+> Because I have DSI-to-(e)DP bridge on the DSI bus and I do not know the
+> pixel clock needed by attached panel up front.
+>
+> I already included a link to DTO which allowed me to operate both this
+> DSI-to-(e)DP bridge and LVDS panel with accurate pixel clock, I was
+> hoping that would also let you solve 3 and 4. 4fbb73416b10 ("arm64: dts:
+> imx8mp-phyboard-pollux: Set Video PLL1 frequency to 506.8 MHz") fixed
+> 3. for Isaac at least.
+>
+>> I understand your goal, and I agree with it, but please acknowledge that
+>> even though the current patch looks fine per-se, it is exposing a real
+>> bug that is now visible. Hiding it with DT properties feels really wrong.
+> I do fully agree the whole DT Video PLL1 clock frequency configuration
+> is not good and it should not be in the DT at all. That is my goal in
+> the very end.
+>
+> The drivers (in this case, LCDIF1 + LCDIF2 + LDB) should negotiate the
+> Video PLL1 frequency that fits them all best and configure it
+> accordingly, without any DT assign-clock* workarounds.
 
-(Consider a resctrl control partition that throttles the partition to
-30% of memory bandwidth.  How can the same behaviour be achieved if the
-partition is split arbitrarily across multiple reqPARTIDs?)
+Ok, good to know we are aligned :-)
 
-Because the MPAM driver needs to be as general as possible, it may be
-hard to make the "right" decision about whether to group reqPARTIDs to
-provide more monitoring groups.  because different use cases may have
-different requirments (e.g., number of control groups versus number of
-monitoring groups, and which types of control are useful).
+> I just didn't figure out a way to do that ^ yet.
 
+Of course, getting rid of the DT workarounds is probably a long term
+goal, unlike the mid-term goal which is: "fixing" today's situation for
+"everyone with a simple setup". We are also looking into this and
+willing to find a proper solution.
 
-2) The resctrl core code uses CLOSIDs and RMIDs to identify control
-groups and monitoring groups.  If a particular driver wants to
-translate these into other values (reqPARTID, intPARTID, PMG) then it
-can do so, but this mapping logic should be encapsulated in the driver.
-This should be better for maintainability, since the details of the
-remapping will be arch-specific -- and in general not all arches are
-going to require it.  With this in mind, I think that changes in the
-resctrl core code would be minimal (perhaps no changes at all).
-
-
-3) How should the amount of reqPARTID grouping (your "n" parameter) be
-determined, in general?
-
-As with (1), the right answer may depend on the use case as well as on
-the hardware.
-
-From my investigations into this, I feel that some configuration
-parameters will probably be needed, at least at boot time.
-
-
-4) If the mapping between reqPARTIDs and (CLOSID,RMID) pairs is static,
-is it necessary to track which reqPARTIDs are in use?  Would it be
-simpler to treat all n reqPARTIDs as permanently assigned to the
-corresponding CLOSID?
-
-If reqPARTID usage is not tracked, then every control change on MSCs
-that do not support PARTID Narrowing would need to be replicated across
-all reqPARTIDs corresponding to the affected resctrl control partition.
-But control changes are a relatively rare event, so this approach feels
-acceptable as a way of keeping the driver complexity down.  It partly
-depends on how large the "n" parameter can become.
-
-
-(Since PARTID Narrowing allows any arbitrary set of reqPARTIDs to be
-mapped to a given intPARTID, it might be possible to allocate
-reqPARTIDs completely dynamically.  But this probably would require a
-change to the resctrl core interface.  It is also not clear to me
-whether the "num_closids" and "num_rmids" values advertised to
-userspace can be satisfied.  For now, static allocation seems the most
-straightforward way to to get better monitoring, but perhaps it could
-be enhanced later on.)
-
-[...]
-
-Cheers
----Dave
+Cheers,
+Miqu=C3=A8l
 
