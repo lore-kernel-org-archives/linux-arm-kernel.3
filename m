@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEBA4D44158
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 12:57:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D39F9D44157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 12:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=059kkIYqpn0ehFSmAg/GBS0dpyJTqN0Io9RSk7P5TWk=; b=wZvgipbx4XACBHUI9DiTc3zuLI
-	lb1FQNQDobFvKO4H3ZymOL+LsGlbFQIhvBkFjLgA4jO2J0o5l5MnjNl359vfBNHgavGjnFPPDULSw
-	fUkzmnXuHYF/GjRhdjX9AGnd8A2ZPBm8HLAUCsyRfMnIPORRas/dZO5XocG3VzsLJ9nNMLKR4mzlC
-	T9V9UhN0sIuhvHoq6ebYxh+IRZbAtVHabUFbq32X+RuP32NgMp3coLa3POOX1+cvI4qrCt/43GaAt
-	mKYZEboEt7gDOePrc+5IVyGil0X+X+UXb7+rudxeddpgEILsERFI4Sfh5btfV5xrM2JvxSy+qo0Uv
-	XVXTG58A==;
+	bh=SlfMZQ4DgQrFKcas76Ke7AUU5dNNyOcvl5kzGZtWTCQ=; b=AHzLamx2A4SiLt4j8A3NOn/gql
+	Cojn0twSx07YovlniiZSlFGNsPjYf6QYBqNNhhKoq22TAcQW8gPMyqWOuEfhQyA3W1lDCCO0I35XF
+	ZM+Y2fI1Lpwva6S+u1fCPXvAEdmb6XDZeKG0x/p0q3ffdv6TfaaYuQawdxox5tw4ZNywp1252HIZw
+	8FNACnxAHP278q+o/i23qbAxsrjOPdYkT4vhcTwiL6IebD88BPHbmPHevXAVIx089b3ENfADmBNoz
+	Qz8UdjFhZxVgKeUxDp1j/9yXs0aKKXakmYxIdcLrkc6Cg2vzxrt79o9Kz9h0J10WlK9O8QliAs0Z+
+	lftBo0nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDNn9-0000000CR8b-2vfa;
-	Tue, 19 Nov 2024 12:57:15 +0000
+	id 1tDNo3-0000000CRGo-3Eo9;
+	Tue, 19 Nov 2024 12:58:11 +0000
 Received: from mx1.sberdevices.ru ([37.18.73.165])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDNjU-0000000CQHQ-0p6g;
+	id 1tDNjU-0000000CQHS-1gOx;
 	Tue, 19 Nov 2024 12:53:30 +0000
 Received: from p-infra-ksmg-sc-msk01.sberdevices.ru (localhost [127.0.0.1])
-	by mx1.sberdevices.ru (Postfix) with ESMTP id CA5DF10000D;
-	Tue, 19 Nov 2024 15:53:26 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru CA5DF10000D
+	by mx1.sberdevices.ru (Postfix) with ESMTP id 08FD610000E;
+	Tue, 19 Nov 2024 15:53:27 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 08FD610000E
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
-	s=mail; t=1732020806;
-	bh=059kkIYqpn0ehFSmAg/GBS0dpyJTqN0Io9RSk7P5TWk=;
+	s=mail; t=1732020807;
+	bh=SlfMZQ4DgQrFKcas76Ke7AUU5dNNyOcvl5kzGZtWTCQ=;
 	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=J2QL3MacK0LO38lqp+Mn2nOqlMhnD3C5Jy3wWygH3YzHN+LdkY4ng5B6CcFHdTW8K
-	 83SlWByFK9r9t2i/V/mDjXSlvMlApCd25GkRsM56zvM5lNaQACeKUYUExAF8k2E+xV
-	 1kUuX6C6/mmNcI7F4lJnShg7tiVhpfhMtoOn6dmTWbDOQOTw8jYJ3CvBomCTwko48G
-	 PN5t1KtnArh+fYjgrAxqPUehQmSpy8I1+/bmRF6c4BoZXQ81osIg6zuUvsB5Ak2+Yg
-	 quWYJ3owHbkOpxpTC0X+cqh4UQQn7ApruiosqAJ5hMhAvtXO+wEfOXy4JpiZQ28InJ
-	 AFetk3gw5NdGg==
+	b=XfaAxOt8xJL0o2bn3DElg0ZCWAij29HHkhbit0ttw7XFteLn4SLBOOabt9Utnrg9I
+	 mvmE3/7E5yo5OC+7Fjqf4udXGCU4t4iAzLaLeokoP9hMl68/eByu7jIa4Si4E/dUdY
+	 i2gkFFEWBUXx+o1Vu+bBxWr+5gaIOsM5huoaCx40/DohYEV6OrXAl1tQRgOMwij+Xx
+	 9cSlxWWUKO1EgytpoeIzmSibeuvaJenxNFtz6XU35t02ZUZbbVDNC4OOiNKnazpJwa
+	 Hrot9p1bJZufuaXF7KW3w5Sfa2Bq7wm1P7g6gLaUeJBeJbPYzSP5g/DrV57BEeXa/2
+	 QHNemeT/uGfDQ==
 Received: from smtp.sberdevices.ru (p-i-exch-sc-m01.sberdevices.ru [172.16.192.107])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
@@ -52,9 +52,9 @@ To: <ukleinek@kernel.org>, <neil.armstrong@linaro.org>,
 CC: <linux-pwm@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<kernel@salutedevices.com>, George Stark <gnstark@salutedevices.com>
-Subject: [PATCH v3 3/4] pwm: meson: Use separate device id data for axg and g12
-Date: Tue, 19 Nov 2024 15:53:17 +0300
-Message-ID: <20241119125318.3492261-4-gnstark@salutedevices.com>
+Subject: [PATCH v3 4/4] pwm: meson: Enable constant and polarity features for g12, axg, s4
+Date: Tue, 19 Nov 2024 15:53:18 +0300
+Message-ID: <20241119125318.3492261-5-gnstark@salutedevices.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241119125318.3492261-1-gnstark@salutedevices.com>
 References: <20241119125318.3492261-1-gnstark@salutedevices.com>
@@ -81,8 +81,8 @@ X-KSMG-LinksScanning: Clean
 X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2024/11/19 08:41:00 #26886618
 X-KSMG-AntiVirus-Status: Clean, skipped
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_045328_572489_98A8EFA4 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20241119_045328_806007_71FC9DED 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,67 +97,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add separate devce id data for compatibles: amlogic,meson-g12a-ee-pwm,
-amlogic,meson-axg-pwm-v2, amlogic,meson-g12-pwm-v2 due to those PWM
-modules have different set of features than meson8.
+g12, axg and s4 SoC families support constant and polarity bits
+so enable those features in corresponding chip data structs.
 
 Signed-off-by: George Stark <gnstark@salutedevices.com>
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 ---
- drivers/pwm/pwm-meson.c | 19 ++++++++++++++++++-
- 1 file changed, 18 insertions(+), 1 deletion(-)
+ drivers/pwm/pwm-meson.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
 diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
-index d7335efa3db7..3cc48c3dde5e 100644
+index 3cc48c3dde5e..806e06c2b92e 100644
 --- a/drivers/pwm/pwm-meson.c
 +++ b/drivers/pwm/pwm-meson.c
-@@ -561,6 +561,11 @@ static const struct meson_pwm_data pwm_axg_ao_data = {
+@@ -554,26 +554,36 @@ static const struct meson_pwm_data pwm_gxbb_ao_data = {
+ static const struct meson_pwm_data pwm_axg_ee_data = {
+ 	.parent_names = { "xtal", "fclk_div5", "fclk_div4", "fclk_div3" },
  	.channels_init = meson_pwm_init_channels_meson8b_legacy,
++	.has_constant = true,
++	.has_polarity = true,
  };
  
-+static const struct meson_pwm_data pwm_g12a_ee_data = {
-+	.parent_names = { "xtal", NULL, "fclk_div4", "fclk_div3" },
-+	.channels_init = meson_pwm_init_channels_meson8b_legacy,
-+};
-+
+ static const struct meson_pwm_data pwm_axg_ao_data = {
+ 	.parent_names = { "xtal", "axg_ao_clk81", "fclk_div4", "fclk_div5" },
+ 	.channels_init = meson_pwm_init_channels_meson8b_legacy,
++	.has_constant = true,
++	.has_polarity = true,
+ };
+ 
+ static const struct meson_pwm_data pwm_g12a_ee_data = {
+ 	.parent_names = { "xtal", NULL, "fclk_div4", "fclk_div3" },
+ 	.channels_init = meson_pwm_init_channels_meson8b_legacy,
++	.has_constant = true,
++	.has_polarity = true,
+ };
+ 
  static const struct meson_pwm_data pwm_g12a_ao_ab_data = {
  	.parent_names = { "xtal", "g12a_ao_clk81", "fclk_div4", "fclk_div5" },
  	.channels_init = meson_pwm_init_channels_meson8b_legacy,
-@@ -575,6 +580,10 @@ static const struct meson_pwm_data pwm_meson8_v2_data = {
- 	.channels_init = meson_pwm_init_channels_meson8b_v2,
++	.has_constant = true,
++	.has_polarity = true,
  };
  
-+static const struct meson_pwm_data pwm_meson_axg_v2_data = {
-+	.channels_init = meson_pwm_init_channels_meson8b_v2,
-+};
-+
+ static const struct meson_pwm_data pwm_g12a_ao_cd_data = {
+ 	.parent_names = { "xtal", "g12a_ao_clk81", NULL, NULL },
+ 	.channels_init = meson_pwm_init_channels_meson8b_legacy,
++	.has_constant = true,
++	.has_polarity = true,
+ };
+ 
+ static const struct meson_pwm_data pwm_meson8_v2_data = {
+@@ -582,10 +592,14 @@ static const struct meson_pwm_data pwm_meson8_v2_data = {
+ 
+ static const struct meson_pwm_data pwm_meson_axg_v2_data = {
+ 	.channels_init = meson_pwm_init_channels_meson8b_v2,
++	.has_constant = true,
++	.has_polarity = true,
+ };
+ 
  static const struct meson_pwm_data pwm_s4_data = {
  	.channels_init = meson_pwm_init_channels_s4,
++	.has_constant = true,
++	.has_polarity = true,
  };
-@@ -584,6 +593,14 @@ static const struct of_device_id meson_pwm_matches[] = {
- 		.compatible = "amlogic,meson8-pwm-v2",
- 		.data = &pwm_meson8_v2_data
- 	},
-+	{
-+		.compatible = "amlogic,meson-axg-pwm-v2",
-+		.data = &pwm_meson_axg_v2_data
-+	},
-+	{
-+		.compatible = "amlogic,meson-g12-pwm-v2",
-+		.data = &pwm_meson_axg_v2_data
-+	},
- 	/* The following compatibles are obsolete */
- 	{
- 		.compatible = "amlogic,meson8b-pwm",
-@@ -607,7 +624,7 @@ static const struct of_device_id meson_pwm_matches[] = {
- 	},
- 	{
- 		.compatible = "amlogic,meson-g12a-ee-pwm",
--		.data = &pwm_meson8b_data
-+		.data = &pwm_g12a_ee_data
- 	},
- 	{
- 		.compatible = "amlogic,meson-g12a-ao-pwm-ab",
+ 
+ static const struct of_device_id meson_pwm_matches[] = {
 -- 
 2.25.1
 
