@@ -4,69 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82105D6007B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 08:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F9DD6007B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 08:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nVX7RkSMCWqEzuoSHbqp8RLQVffpCyQRTHH1DBr09w4=; b=Bjzx0gbOndi4QKPjs0GskeG6OQ
-	HdPEI0Qj6NzG923qoLAPaEz4Wqs3mTVb+HEhWq2/MbJ0JTSOsindr3KXlSZYv7ygThUNMOiy61Oq8
-	+WTyo/aCISbF0oQJCD0Qlkr+kk4pTe+ekzq6B9UF6+jNsxVsJ2XVTMC6X4JopXa1wRfjsn7r4IXxQ
-	O3AsEOa+nEbcj/OXz5QFLB/qudpoBbf5SuxWfwCzp1H6Moz47ohUcICb/HXBrhmW4zt2GhFo4azlw
-	/OUAOHDJujMdULQMzehsCJeil3oNSGmndLWi9KBn8lk4MDFm35/fTAcEF5/OeIyazJue4zuGyWfq3
-	Sx9FeT/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rfRPeJv9b+5MklHMVSrCiVgH+hmaDNicfWnfjxpRi08=; b=OvtEoPtuFxZn1weQW+7cXtEm21
+	W/UC4a3qgM8NBi9AsEz5s7F0yEIPr9Yy3M62TfSHseAGpAUJG7hPPXRkAcKiKS+w2RqI5Vx5Iav3U
+	OOhaK2GDy6SKkaz808OEyu+jS0p6JblzELlTlXIAxs7VNdlfgoq6SLGtAUhLbvqiZGt4mKVKwdpB4
+	dO1kC73YcS2FrCCEa65PEyTRbD0QiosWujx/A+W6sHqOgZ9f1v89bIhCSCOX24bWDj9Rg37vUP2fM
+	n509lGqpPBi7Oyg1qsfKedO557eHqVFb0+5ABkB8nyZ4PCY2bnh/jwEaTmoj3P/l/A+DNG/bvCIF9
+	fDYowFYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDJPk-0000000BjFN-0YJ6;
-	Tue, 19 Nov 2024 08:16:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tDJR5-0000000BjSc-0gO2;
+	Tue, 19 Nov 2024 08:18:11 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDJOn-0000000Bj7h-1hxD;
-	Tue, 19 Nov 2024 08:15:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9037A5C3F98;
-	Tue, 19 Nov 2024 08:15:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9CD0C4CECF;
-	Tue, 19 Nov 2024 08:15:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732004148;
-	bh=ejBrNZZPHW9XhE6WU+WW7+dWvdcRTPCPgQ6keHGeN8Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XMqtFtQMQ7GJofz2J1aN+IQ8uJX2UE4HAUA443syTNnq6pNXp1NwWZb9+3HTRYbnS
-	 4GeVy4YKnB4gMVTyLk1enflzHoqzDpoyUKuPsF6P0JUsCefkkRxIeXtHxpHU80Rb/W
-	 oOI1rdKrjVWGWBw1yb+A51Knat6r4STg2kdCPQQqDYsw8176RZMnem9QkKSDDeBx2L
-	 9T91sno/xAFl15q+oPDsHvXm/hhC8sq4uEL54uMPwROROHZ+cJezsniWOk2JX1YOql
-	 HsJPfHElGMj58qHJCawxtN468ji3lyXZM3xbVY8pxMPG+r8j77klXtWvF725qoCQbn
-	 nsU57w3VxIVIw==
-Date: Tue, 19 Nov 2024 09:15:45 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	id 1tDJQ7-0000000BjJ3-3s0n
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Nov 2024 08:17:14 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-382411ea5eeso1318012f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 00:17:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1732004230; x=1732609030; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rfRPeJv9b+5MklHMVSrCiVgH+hmaDNicfWnfjxpRi08=;
+        b=0Nsm/IpyQuL2p6iLCm1KoBDrn4A8tOMEyjTT8fFeF6uHiErbGL0Nc3wrzM8tgSZ0ys
+         7Y4Jav+nDZjUrumSzvsxgbWCwM/rSKFsC7UZcGLuErogT6fNWPCYKM9xVmpHV/2lUA3k
+         BcpEwZ7MLA5dt2m5gsTjtVSMOJiPMqA1SDpE9Wq5yCE+jZHDu531C0+tU7oZKzkK2efG
+         jlVpuLOk1tSb+3Itvoa5fXmJ5M3YdfRMf8bdjiLkxSOIub7MzMOHXMte3f1Uh+m8cJxS
+         Mxhngv4Q1qqiLhcq6V2OwoZkbO+Q4hMs2bfVPB1ioIS4m0vZbuUIoKOzT0Jym4luUEGq
+         vNIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732004230; x=1732609030;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rfRPeJv9b+5MklHMVSrCiVgH+hmaDNicfWnfjxpRi08=;
+        b=RU3BujGhhdsK2jo6QbcOpdJL1r8ZldPXBUQwecBHL17HrKG3qkNyiRa/YFY/bXYAxK
+         S3xQZak31WrHJx0xrCfI92uDSK/onTnLwjXiht+KXvI5DVX+0aLS9DigQpLM/DS5t3Eh
+         X1dON2b40z34Ji9Pkr2VTo2KHI58TxBUdS5nTQyi9oQCxmTrleqefMQqbZht/DK6a7xb
+         w2OWbS2+oAFT0zVDMiMItrKjQNYZpNgodKmz+/q/izKfyiQumXhNV1rQmEP9FO07NHqA
+         Cbrz1jZYmrVxgoHJjei5v17Dww6Y5TNmzbzsGC7r3ngAIVZJMO+DS7bkjte+PRjzqsGF
+         uuzg==
+X-Forwarded-Encrypted: i=1; AJvYcCVpQOPNfpXuL/2nk7/qdAZtiWGwL3inJBrEmnvYubPzyKcDnT8pyne9XodtneSv9MppAqxcwyKl53DLVxOhdpVE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyockJvoNHMZ7NQJCADw3jEyLaO9Q3e+wqxXCcLWlRPktjNxu3V
+	xr6NDEHip56xCrnnE5dAJY1aoTpCmiM5nItPBNi6ZEVDxyTiwO6Kl/wDmPfJL6o=
+X-Google-Smtp-Source: AGHT+IE8UC5xo/EXauIpi30O/6QpEs3dvAFOyd1qOQ9SCqrRP4JGzhvWxQ0rNGF/bwnRQGTw1YZ6JQ==
+X-Received: by 2002:a5d:6d82:0:b0:382:484d:45da with SMTP id ffacd0b85a97d-3824cb30e81mr1673211f8f.6.1732004228585;
+        Tue, 19 Nov 2024 00:17:08 -0800 (PST)
+Received: from localhost ([2a02:8071:b783:6940:9b70:ed4b:d274:54e5])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38244220183sm6495288f8f.99.2024.11.19.00.17.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 Nov 2024 00:17:08 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>
+Cc: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>, linux-pci@vger.kernel.org,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, upstream@airoha.com,
-	Hui Ma <hui.ma@airoha.com>
-Subject: Re: [PATCH v3] PCI: mediatek-gen3: Avoid PCIe resetting via
- PCIE_RSTB for Airoha EN7581 SoC
-Message-ID: <ZzxJMbWkV1OELEID@lore-desk>
-References: <20241113-pcie-en7581-rst-fix-v3-1-23c5082335f7@kernel.org>
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org
+Subject: [PATCH] mailbox: Switch back to struct platform_driver::remove()
+Date: Tue, 19 Nov 2024 09:16:51 +0100
+Message-ID: <6f0297ba884c670d604232c2861347940082c8e6.1732004078.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="oWqVrS/inJW1ZEom"
-Content-Disposition: inline
-In-Reply-To: <20241113-pcie-en7581-rst-fix-v3-1-23c5082335f7@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7380; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=BnCPo5Jv3ffjYxxYM7XQApvz+ShJZ5fwcjW9lNQ732I=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnPEl0l82yWH4cD9PUDIPfKIE/RnbW2FKHwIBNo NRXP1KykqyJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZzxJdAAKCRCPgPtYfRL+ ToaTCACO97vvz1RQ3OfeVhaCoF9jIByuwurbxrlo/e4TXGjXh2MD85LTlsW7X/pdlEpXrP7LStP rubeC1o9FEsFEJDpzNVhMoNb2mBLHniaqeivaaIITO1C7iOgf/7l6bUdNF6szQsgsyIOa7eK+h4 6Evgz1M3LBYLhtZcwyCg8pysblUX/f+7Bpgdzo1ijgQjhinFHE0K8ep6xD7n3F0gZTUEt/9QWEa fgoFuQD5sY05UOOOvRjFNRAkpP+8qV6HYJ8eSFoFVoVvAsSuYcnfHR1oaeC82Zdgm4c4nHE4sye cAgefJza5W4P8GCaVvE9A7L2tHfGs7DQoQm1AUVXBMxOcDDU
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_001549_538522_847353F9 
-X-CRM114-Status: GOOD (  29.15  )
+X-CRM114-CacheID: sfid-20241119_001712_232195_A2AC9D61 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,182 +113,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+return void") .remove() is (again) the right callback to implement for
+platform drivers.
 
---oWqVrS/inJW1ZEom
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Convert all platform drivers below drivers/mailbox to use .remove(),
+with the eventual goal to drop struct platform_driver::remove_new(). As
+.remove() and .remove_new() have the same prototypes, conversion is done
+by just changing the structure member name in the driver initializer.
 
-> Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
-> causing occasional PCIe link down issues. In order to overcome the
-> problem, PCIE_RSTB signals are not asserted/released during device probe =
-or
-> suspend/resume phase and the PCIe block is reset using REG_PCI_CONTROL
-> (0x88) and REG_RESET_CONTROL (0x834) registers available in the clock
-> module running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
->=20
-> Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
-> specify per-SoC capabilities.
->=20
-> Tested-by: Hui Ma <hui.ma@airoha.com>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Make a few indentions consistent while touching these struct
+initializers.
 
-Hi Jianjun and Bjorn,
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+Hello,
 
-any news about this patch? Thanks in advance.
+I did a single patch for all of drivers/mailbox. While I usually prefer
+to do one logical change per patch, this seems to be overengineering
+here as the individual changes are really trivial and shouldn't be much
+in the way for stable backports. But I'll happily split the patch if you
+prefer it split.
 
-Regards,
-Lorenzo
+This is based on today's next, if conflicts arise when you apply it at
+some later time and don't want to resolve them, feel free to just drop
+the changes to the conflicting files. I'll notice and followup at a
+later time then. Or ask me for a fixed resend.
 
-> ---
-> Changes in v3:
-> - cosmetics
-> - Link to v2: https://lore.kernel.org/r/20241104-pcie-en7581-rst-fix-v2-1=
--ffe5839c76d8@kernel.org
->=20
-> Changes in v2:
-> - introduce flags field in mtk_gen3_pcie_flags struct instead of adding
->   reset callback
-> - fix the leftover case in mtk_pcie_suspend_noirq routine
-> - add more comments
-> - Link to v1: https://lore.kernel.org/r/20240920-pcie-en7581-rst-fix-v1-1=
--1043fb63ffc9@kernel.org
-> ---
->  drivers/pci/controller/pcie-mediatek-gen3.c | 60 ++++++++++++++++++++---=
-------
->  1 file changed, 42 insertions(+), 18 deletions(-)
->=20
-> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/co=
-ntroller/pcie-mediatek-gen3.c
-> index 16a55711a7f3bdc8d6620029e3d2cfdd40b537b7..443072adb9b52a6934a5d1e38=
-eb6fca5f86a1e13 100644
-> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
-> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-> @@ -128,10 +128,18 @@
-> =20
->  struct mtk_gen3_pcie;
-> =20
-> +enum mtk_gen3_pcie_flags {
-> +	SKIP_PCIE_RSTB	=3D BIT(0), /* skip PCIE_RSTB signals configuration
-> +				   * during device probing or suspend/resume
-> +				   * phase in order to avoid hw bugs/issues.
-> +				   */
-> +};
-> +
->  /**
->   * struct mtk_gen3_pcie_pdata - differentiate between host generations
->   * @power_up: pcie power_up callback
->   * @phy_resets: phy reset lines SoC data.
-> + * @flags: pcie device flags.
->   */
->  struct mtk_gen3_pcie_pdata {
->  	int (*power_up)(struct mtk_gen3_pcie *pcie);
-> @@ -139,6 +147,7 @@ struct mtk_gen3_pcie_pdata {
->  		const char *id[MAX_NUM_PHY_RESETS];
->  		int num_resets;
->  	} phy_resets;
-> +	u32 flags;
->  };
-> =20
->  /**
-> @@ -405,22 +414,34 @@ static int mtk_pcie_startup_port(struct mtk_gen3_pc=
-ie *pcie)
->  	val |=3D PCIE_DISABLE_DVFSRC_VLT_REQ;
->  	writel_relaxed(val, pcie->base + PCIE_MISC_CTRL_REG);
-> =20
-> -	/* Assert all reset signals */
-> -	val =3D readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-> -	val |=3D PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB;
-> -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> -
->  	/*
-> -	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
-> -	 * and 2.2.1 (Initial Power-Up (G3 to S0)).
-> -	 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
-> -	 * for the power and clock to become stable.
-> +	 * Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
-> +	 * causing occasional PCIe link down. In order to overcome the issue,
-> +	 * PCIE_RSTB signals are not asserted/released at this stage and the
-> +	 * PCIe block is reset configuting REG_PCI_CONTROL (0x88) and
-> +	 * REG_RESET_CONTROL (0x834) registers available in the clock module
-> +	 * running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
->  	 */
-> -	msleep(100);
-> -
-> -	/* De-assert reset signals */
-> -	val &=3D ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB=
-);
-> -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
-> +		/* Assert all reset signals */
-> +		val =3D readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-> +		val |=3D PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
-> +		       PCIE_PE_RSTB;
-> +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> +
-> +		/*
-> +		 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
-> +		 * and 2.2.1 (Initial Power-Up (G3 to S0)).
-> +		 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
-> +		 * for the power and clock to become stable.
-> +		 */
-> +		msleep(PCIE_T_PVPERL_MS);
-> +
-> +		/* De-assert reset signals */
-> +		val &=3D ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
-> +			 PCIE_PE_RSTB);
-> +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> +	}
-> =20
->  	/* Check if the link is up or not */
->  	err =3D readl_poll_timeout(pcie->base + PCIE_LINK_STATUS_REG, val,
-> @@ -1179,10 +1200,12 @@ static int mtk_pcie_suspend_noirq(struct device *=
-dev)
->  		return err;
->  	}
-> =20
-> -	/* Pull down the PERST# pin */
-> -	val =3D readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-> -	val |=3D PCIE_PE_RSTB;
-> -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
-> +		/* Pull down the PERST# pin */
-> +		val =3D readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-> +		val |=3D PCIE_PE_RSTB;
-> +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> +	}
-> =20
->  	dev_dbg(pcie->dev, "entered L2 states successfully");
-> =20
-> @@ -1233,6 +1256,7 @@ static const struct mtk_gen3_pcie_pdata mtk_pcie_so=
-c_en7581 =3D {
->  		.id[2] =3D "phy-lane2",
->  		.num_resets =3D 3,
->  	},
-> +	.flags =3D SKIP_PCIE_RSTB,
->  };
-> =20
->  static const struct of_device_id mtk_pcie_of_match[] =3D {
->=20
-> ---
-> base-commit: ff80d707f3cb5e8d9ec0739e0e5ed42dea179125
-> change-id: 20240920-pcie-en7581-rst-fix-8161658c13c4
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo@kernel.org>
->=20
+Best regards
+Uwe
 
---oWqVrS/inJW1ZEom
-Content-Type: application/pgp-signature; name="signature.asc"
+ drivers/mailbox/bcm-flexrm-mailbox.c    | 2 +-
+ drivers/mailbox/bcm-pdc-mailbox.c       | 2 +-
+ drivers/mailbox/imx-mailbox.c           | 2 +-
+ drivers/mailbox/mailbox-test.c          | 4 ++--
+ drivers/mailbox/mtk-cmdq-mailbox.c      | 2 +-
+ drivers/mailbox/qcom-apcs-ipc-mailbox.c | 2 +-
+ drivers/mailbox/qcom-ipcc.c             | 2 +-
+ drivers/mailbox/stm32-ipcc.c            | 2 +-
+ drivers/mailbox/sun6i-msgbox.c          | 4 ++--
+ drivers/mailbox/tegra-hsp.c             | 2 +-
+ drivers/mailbox/zynqmp-ipi-mailbox.c    | 2 +-
+ 11 files changed, 13 insertions(+), 13 deletions(-)
 
------BEGIN PGP SIGNATURE-----
+diff --git a/drivers/mailbox/bcm-flexrm-mailbox.c b/drivers/mailbox/bcm-flexrm-mailbox.c
+index b1abc2a0c971..41f79e51d9e5 100644
+--- a/drivers/mailbox/bcm-flexrm-mailbox.c
++++ b/drivers/mailbox/bcm-flexrm-mailbox.c
+@@ -1675,7 +1675,7 @@ static struct platform_driver flexrm_mbox_driver = {
+ 		.of_match_table = flexrm_mbox_of_match,
+ 	},
+ 	.probe		= flexrm_mbox_probe,
+-	.remove_new	= flexrm_mbox_remove,
++	.remove		= flexrm_mbox_remove,
+ };
+ module_platform_driver(flexrm_mbox_driver);
+ 
+diff --git a/drivers/mailbox/bcm-pdc-mailbox.c b/drivers/mailbox/bcm-pdc-mailbox.c
+index a873672a9082..406bc41cba60 100644
+--- a/drivers/mailbox/bcm-pdc-mailbox.c
++++ b/drivers/mailbox/bcm-pdc-mailbox.c
+@@ -1618,7 +1618,7 @@ static void pdc_remove(struct platform_device *pdev)
+ 
+ static struct platform_driver pdc_mbox_driver = {
+ 	.probe = pdc_probe,
+-	.remove_new = pdc_remove,
++	.remove = pdc_remove,
+ 	.driver = {
+ 		   .name = "brcm-iproc-pdc-mbox",
+ 		   .of_match_table = pdc_mbox_of_match,
+diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
+index f815dab3be50..9889e4d0d9da 100644
+--- a/drivers/mailbox/imx-mailbox.c
++++ b/drivers/mailbox/imx-mailbox.c
+@@ -1120,7 +1120,7 @@ static const struct dev_pm_ops imx_mu_pm_ops = {
+ 
+ static struct platform_driver imx_mu_driver = {
+ 	.probe		= imx_mu_probe,
+-	.remove_new	= imx_mu_remove,
++	.remove		= imx_mu_remove,
+ 	.driver = {
+ 		.name	= "imx_mu",
+ 		.of_match_table = imx_mu_dt_ids,
+diff --git a/drivers/mailbox/mailbox-test.c b/drivers/mailbox/mailbox-test.c
+index 3386b4e72551..c9dd8c42c0cd 100644
+--- a/drivers/mailbox/mailbox-test.c
++++ b/drivers/mailbox/mailbox-test.c
+@@ -441,8 +441,8 @@ static struct platform_driver mbox_test_driver = {
+ 		.name = "mailbox_test",
+ 		.of_match_table = mbox_test_match,
+ 	},
+-	.probe  = mbox_test_probe,
+-	.remove_new = mbox_test_remove,
++	.probe = mbox_test_probe,
++	.remove = mbox_test_remove,
+ };
+ module_platform_driver(mbox_test_driver);
+ 
+diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
+index 4bff73532085..bac5b8eaa665 100644
+--- a/drivers/mailbox/mtk-cmdq-mailbox.c
++++ b/drivers/mailbox/mtk-cmdq-mailbox.c
+@@ -796,7 +796,7 @@ MODULE_DEVICE_TABLE(of, cmdq_of_ids);
+ 
+ static struct platform_driver cmdq_drv = {
+ 	.probe = cmdq_probe,
+-	.remove_new = cmdq_remove,
++	.remove = cmdq_remove,
+ 	.driver = {
+ 		.name = "mtk_cmdq",
+ 		.pm = &cmdq_pm_ops,
+diff --git a/drivers/mailbox/qcom-apcs-ipc-mailbox.c b/drivers/mailbox/qcom-apcs-ipc-mailbox.c
+index 7d91e7c016ba..f0d1fc0fb9ff 100644
+--- a/drivers/mailbox/qcom-apcs-ipc-mailbox.c
++++ b/drivers/mailbox/qcom-apcs-ipc-mailbox.c
+@@ -167,7 +167,7 @@ MODULE_DEVICE_TABLE(of, qcom_apcs_ipc_of_match);
+ 
+ static struct platform_driver qcom_apcs_ipc_driver = {
+ 	.probe = qcom_apcs_ipc_probe,
+-	.remove_new = qcom_apcs_ipc_remove,
++	.remove = qcom_apcs_ipc_remove,
+ 	.driver = {
+ 		.name = "qcom_apcs_ipc",
+ 		.of_match_table = qcom_apcs_ipc_of_match,
+diff --git a/drivers/mailbox/qcom-ipcc.c b/drivers/mailbox/qcom-ipcc.c
+index d537cc9c4d4b..14c7907c6632 100644
+--- a/drivers/mailbox/qcom-ipcc.c
++++ b/drivers/mailbox/qcom-ipcc.c
+@@ -346,7 +346,7 @@ static const struct dev_pm_ops qcom_ipcc_dev_pm_ops = {
+ 
+ static struct platform_driver qcom_ipcc_driver = {
+ 	.probe = qcom_ipcc_probe,
+-	.remove_new = qcom_ipcc_remove,
++	.remove = qcom_ipcc_remove,
+ 	.driver = {
+ 		.name = "qcom-ipcc",
+ 		.of_match_table = qcom_ipcc_of_match,
+diff --git a/drivers/mailbox/stm32-ipcc.c b/drivers/mailbox/stm32-ipcc.c
+index 1442f275782b..4f63f1a14ca6 100644
+--- a/drivers/mailbox/stm32-ipcc.c
++++ b/drivers/mailbox/stm32-ipcc.c
+@@ -379,7 +379,7 @@ static struct platform_driver stm32_ipcc_driver = {
+ 		.of_match_table = stm32_ipcc_of_match,
+ 	},
+ 	.probe		= stm32_ipcc_probe,
+-	.remove_new	= stm32_ipcc_remove,
++	.remove		= stm32_ipcc_remove,
+ };
+ 
+ module_platform_driver(stm32_ipcc_driver);
+diff --git a/drivers/mailbox/sun6i-msgbox.c b/drivers/mailbox/sun6i-msgbox.c
+index 3dcc54dc83b2..6ba6920f4645 100644
+--- a/drivers/mailbox/sun6i-msgbox.c
++++ b/drivers/mailbox/sun6i-msgbox.c
+@@ -307,8 +307,8 @@ static struct platform_driver sun6i_msgbox_driver = {
+ 		.name = "sun6i-msgbox",
+ 		.of_match_table = sun6i_msgbox_of_match,
+ 	},
+-	.probe  = sun6i_msgbox_probe,
+-	.remove_new = sun6i_msgbox_remove,
++	.probe = sun6i_msgbox_probe,
++	.remove = sun6i_msgbox_remove,
+ };
+ module_platform_driver(sun6i_msgbox_driver);
+ 
+diff --git a/drivers/mailbox/tegra-hsp.c b/drivers/mailbox/tegra-hsp.c
+index 19ef56cbcfd3..8d5e2d7dc03b 100644
+--- a/drivers/mailbox/tegra-hsp.c
++++ b/drivers/mailbox/tegra-hsp.c
+@@ -951,7 +951,7 @@ static struct platform_driver tegra_hsp_driver = {
+ 		.pm = &tegra_hsp_pm_ops,
+ 	},
+ 	.probe = tegra_hsp_probe,
+-	.remove_new = tegra_hsp_remove,
++	.remove = tegra_hsp_remove,
+ };
+ 
+ static int __init tegra_hsp_init(void)
+diff --git a/drivers/mailbox/zynqmp-ipi-mailbox.c b/drivers/mailbox/zynqmp-ipi-mailbox.c
+index 521d08b9ab47..91365acd334d 100644
+--- a/drivers/mailbox/zynqmp-ipi-mailbox.c
++++ b/drivers/mailbox/zynqmp-ipi-mailbox.c
+@@ -1015,7 +1015,7 @@ MODULE_DEVICE_TABLE(of, zynqmp_ipi_of_match);
+ 
+ static struct platform_driver zynqmp_ipi_driver = {
+ 	.probe = zynqmp_ipi_probe,
+-	.remove_new = zynqmp_ipi_remove,
++	.remove = zynqmp_ipi_remove,
+ 	.driver = {
+ 		   .name = "zynqmp-ipi",
+ 		   .of_match_table = of_match_ptr(zynqmp_ipi_of_match),
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZzxJMQAKCRA6cBh0uS2t
-rODiAQCGocPFNzuQfGPZrdtN1u3PEY2gdZEL4k92plmNdYqaFwD/YOgoQZifIClN
-PzTooz0Twz8NFgekhlISf3wT485sFwk=
-=oXff
------END PGP SIGNATURE-----
+base-commit: 414c97c966b69e4a6ea7b32970fa166b2f9b9ef0
+-- 
+2.45.2
 
---oWqVrS/inJW1ZEom--
 
