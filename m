@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB2F4D591A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 16:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0222D591A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 16:45:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ytIGD57l/qU7ka2HlL/AE1aRNZJi09zvc8h/pN3YoZ0=; b=xKe/3ujcVf0h94dqOPh4Tz7YgK
-	gjIQNbtCTi9JVOBkTgnd3jtULe/yQ2oiVJpH6k1pNOm8T5wXF0T7kqOsogmEb1FLa0uqtGXGAo0sd
-	O99fCaVA1o/bdUPHrpOCmiqYue0sdEL4vx58QvbszbvzUTBDHTUwCs0HNyRhgEo9iePBkidKJTm3W
-	Z0fp7T+RMtWyGeAHsafWBue6TuXZy3UK7h1npu7LF0lRpJrUA0YhFDuUcGDOdey/UrS8M6VX9VWUR
-	xHB3gqQxcd5hau8u3C3kxRlaQk7hxpTzNZu3CicL2Fl47cSKJbViyfAKB52UzhQk4oipjHmynUX0h
-	JXIBTt4Q==;
+	bh=v0V0J/E/RjNl0KTISTP+7TTsnJmN+to4bHIFsKZKjDs=; b=vlwq1tVQhUqZcP6B6OGc+ks+P8
+	gU1mvvhEGrKsGAyf7beeU4w59sn/+9+/Pb4LlVt661vGchXrGSWjScrlp1MfhbOtPowA6w+nZMSzy
+	iTYAegMNgtzCdUNTXm2C9UNNz3hXE8HIn9hXHR8JXWSeNeM2G81kzIq8hwa3hh0hlOp5DL0Wt7CnK
+	88YoLOMP7PHWW0VLF/xtzNfEWgMYUDhCdz3lKYCo47wDJOdEv2FA5bxtn7076JXylUdguW/eG0Atn
+	MjN3Y8aGUAVe79DKuB25dtBFuPtzwM/NLlmOKvCcT8iUIj9WDR4W8RyJ8AJNr/MPh9QQ9y3nt2lYZ
+	ydWBed2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDRLF-0000000D4bR-3RAg;
-	Tue, 19 Nov 2024 16:44:41 +0000
+	id 1tDRMA-0000000D53j-23Ej;
+	Tue, 19 Nov 2024 16:45:38 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDRHv-0000000D3dm-0SLd
+	id 1tDRHv-0000000D3dG-3MY9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 16:41:16 +0000
+	Tue, 19 Nov 2024 16:41:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
   t=1732034475; x=1763570475;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=MThjkfqzIvdJ/MOCxrc2C9byUTY7JWU+MQRrj67qh1w=;
-  b=ZWGDEEaHbgOZc78FO42qSncu8/3a/S1G3fy/CP6G2b3qIkmvWyLC+fcV
-   iWl9ZTye50JmmuZb9vMvPuQgLJujtrBkI+OAz1kCjpUI2CqSwlgEPUi9l
-   JVDuLTBFffQ7o79hjzKTCg3UB2uKxdbdx8g3Wam/MWYdzVy4I4bSRDXNb
-   rcUa89ARINlVUfIjff1NQbAS/F9IzY6+J4SnO600pnVeOy+Eh7ash7bCR
-   TZ4ZltsvBYGhGa2noBZ611ZNBlL/MSLHFDHOU8bGfVluJti5OOeBqskLT
-   7kijDP+U/HN1tcMolX0gNM1DbA0wF0PjoQY5CoJrxorpSbwqAlu8nzmm0
-   g==;
+  bh=Nomp0y3IWPu5mrhOnyPqc6ct3IesvKLO2yuE2yCdDwU=;
+  b=Idupk5nvrijKDlV+22kiDnZp4RETaAIlltzG6VambjMWUhfete56roDF
+   IuVfwZf8QLfp9uN9DLQUF2kqLq09/9KNxfCYWVDUT0b2KBL8TRKAC3JyZ
+   DmIHVgFCl/ZAKeKaG0TDMSPT0XQ8VtvXiPzrgsIXh9w2gGz4TMDhB7uY0
+   G2T/ssNALwhuwrthCs9iNJ5G9srdeHpEq2r3IcJG5rb7BgskXDbfZ3Pqz
+   d1nDezPMVREunpzsQCiamDXLxtg+WE3QqR/7GvhLkxQtW34RQY/a46TW5
+   krfudMvN2WVJ+5RrnSUZgt1lYGPgSlJkWOwgCSJlENlaSlOtmz90OsPIL
+   A==;
 X-CSE-ConnectionGUID: jnnvkeRdTYaD0RwnHEXOug==
-X-CSE-MsgGUID: ijX61MEpTlmKU0GPrYl64w==
+X-CSE-MsgGUID: 6yPcMWbeTRi68yPOKxbpdQ==
 X-IronPort-AV: E=Sophos;i="6.12,166,1728975600"; 
-   d="scan'208";a="35018888"
+   d="scan'208";a="35018889"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 Nov 2024 09:41:12 -0700
@@ -65,9 +65,9 @@ CC: <dharma.b@microchip.com>, <mihai.sain@microchip.com>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<linux-mmc@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
 	<linux-spi@vger.kernel.org>, <linux-serial@vger.kernel.org>
-Subject: [PATCH 02/15] dt-bindings: mfd: atmel,sama5d2-flexcom: add microchip,sama7d65-flexcom
-Date: Tue, 19 Nov 2024 09:40:08 -0700
-Message-ID: <46928aa2d15d05fa3046c270a51a10cd56c2e919.1732030972.git.Ryan.Wanner@microchip.com>
+Subject: [PATCH 03/15] dt-bindings: atmel-sysreg: add sama7d65 RAM and PIT
+Date: Tue, 19 Nov 2024 09:40:09 -0700
+Message-ID: <01cf1bbae5949cbceb2768f2044377bc2479986b.1732030972.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1732030972.git.Ryan.Wanner@microchip.com>
 References: <cover.1732030972.git.Ryan.Wanner@microchip.com>
@@ -75,8 +75,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_084115_203313_0D68E10B 
-X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-CacheID: sfid-20241119_084115_937002_CF749EAF 
+X-CRM114-Status: UNSURE (   8.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,34 +94,45 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dharma Balasubiramani <dharma.b@microchip.com>
 
-Add flexcom binding documentation for sama7d65.
+Add SAMA7D65 RAM controller, PIT64 DT bindings.
 
 Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
 ---
- .../devicetree/bindings/mfd/atmel,sama5d2-flexcom.yaml   | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ .../devicetree/bindings/arm/atmel-sysregs.txt      | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/mfd/atmel,sama5d2-flexcom.yaml b/Documentation/devicetree/bindings/mfd/atmel,sama5d2-flexcom.yaml
-index 0dc6a40b63f4..c7d6cf96796c 100644
---- a/Documentation/devicetree/bindings/mfd/atmel,sama5d2-flexcom.yaml
-+++ b/Documentation/devicetree/bindings/mfd/atmel,sama5d2-flexcom.yaml
-@@ -19,12 +19,11 @@ properties:
-     oneOf:
-       - const: atmel,sama5d2-flexcom
-       - items:
--          - const: microchip,sam9x7-flexcom
-+          - enum:
-+              - microchip,sam9x7-flexcom
-+              - microchip,sama7d65-flexcom
-+              - microchip,sama7g5-flexcom
-           - const: atmel,sama5d2-flexcom
--      - items:
--          - const: microchip,sama7g5-flexcom
--          - const: atmel,sama5d2-flexcom
--
+diff --git a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
+index 76e2b7978250..93c2a5a341f3 100644
+--- a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
++++ b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
+@@ -13,6 +13,7 @@ PIT Timer required properties:
+ PIT64B Timer required properties:
+ - compatible: Should be "microchip,sam9x60-pit64b" or
+ 			"microchip,sam9x7-pit64b", "microchip,sam9x60-pit64b"
++			"microchip,sama7d65-pit64b", "microchip,sam9x60-pit64b"
+ - reg: Should contain registers location and length
+ - interrupts: Should contain interrupt for PIT64B timer
+ - clocks: Should contain the available clock sources for PIT64B timer.
+@@ -27,12 +28,13 @@ Its subnodes can be:
+ - watchdog: compatible should be "atmel,at91rm9200-wdt"
  
-   reg:
-     maxItems: 1
+ RAMC SDRAM/DDR Controller required properties:
+-- compatible: Should be "atmel,at91rm9200-sdramc", "syscon"
+-			"atmel,at91sam9260-sdramc",
+-			"atmel,at91sam9g45-ddramc",
+-			"atmel,sama5d3-ddramc",
+-			"microchip,sam9x60-ddramc",
+-			"microchip,sama7g5-uddrc",
++- compatible: Should be "atmel,at91rm9200-sdramc", "syscon" or
++			"atmel,at91sam9260-sdramc" or
++			"atmel,at91sam9g45-ddramc" or
++			"atmel,sama5d3-ddramc" or
++			"microchip,sam9x60-ddramc" or
++			"microchip,sama7g5-uddrc" or
++			"microchip,sama7d65-uddrc","microchip,sama7g5-uddrc" or
+ 			"microchip,sam9x7-ddramc", "atmel,sama5d3-ddramc".
+ - reg: Should contain registers location and length
+ 
 -- 
 2.43.0
 
