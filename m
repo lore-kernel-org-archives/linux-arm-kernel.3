@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9344FD591A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 17:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0666D62068
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 17:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mdLgeAl4sTOGLbDwzJxkXQU16k/1XsYWsAMS1Ga0JUM=; b=mXGNAtI8tHd3uZe2skYzg0lnIm
-	7T3w84sdymFxyx3nvOC0r/BFziDQTaU1IQsIBG1ABGKFXrNUHGwT0WVeU0TNxSgZNGatE/G2WBuGB
-	pe5T4pENX7G3DJXXnlmRBiWOWTWW7Y47BM81bEE7S8tRgi4b7NUZHuh6jWYU0WWy0uzW3UKSc5BhO
-	P2G0CmuSiLgr04aLKuNpkroEBiM0K6hp6Fo2kcXmwReC2oxg9H5LKaVxmEQyZxtLdo2Hiv2tPxpRp
-	bwoGf0rmSsbnIZYvaVrdYY7axRAojCTjB0fWs1vPCO5bp1xo30ZtSzGHBIccNg7N/ieOUmyRJf7iv
-	4Ngfod+A==;
+	bh=UYp2EhsrOy+fm7DQ5XYuyvMYHISzNVIRGVyJH9Vl8BI=; b=RtwN4gs2mbWpd7tWqIi/McQPi0
+	vAP5rwsjcNjFo3p4O3tygsR/9iwEc34rAAzo33rb8kHP2stk2wEf0CKwDcL8j25ExvD9scPLQluuK
+	T5xkBNbila4A2a8kiReibanx2T1vimOuZT5a7nciQFXSr5rTH/uUKAAq5ygueCrQ1FxMYWQ29U5is
+	x5UGfGowxDPWkdqFH6ichJRlbfuij7Y7BIgWYg8xki7ceb73AGJTfbt3Spk58M6xrgxGDHPW7PDkt
+	TwstTJee48Hh6oX+l4Zw6J+s0KKQPuU2pGobMYsTxTZLT9+HqjZnLgi348rX2WvdzT+RCt0KdH9NL
+	oMKMoqvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDRad-0000000D8fF-2wCv;
-	Tue, 19 Nov 2024 17:00:35 +0000
+	id 1tDRbY-0000000D8u5-1e31;
+	Tue, 19 Nov 2024 17:01:32 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDRJr-0000000D4E2-3kA7
+	id 1tDRLg-0000000D4qI-2dY5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 16:43:17 +0000
+	Tue, 19 Nov 2024 16:45:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=mdLgeAl4sTOGLbDwzJxkXQU16k/1XsYWsAMS1Ga0JUM=; b=zn99iGt/lq4Uuh+s97m9zSH8p3
-	Q8LonByanwad7aH4gDuYJ3DbPfQlgAVoKvOdLCj3xqBHFEiX8uPUoHMjZZwcDUqlZX5DZnBjBaCji
-	qoHiRbxhbsLZ/jRCdx8nuAWe9jLPNIE8k/8K+zpq5JeRVvrxXBhk6iCyShkEzY3crJL8IvdD7Vwr3
-	A00Px4X2PIPip0YBTzbv9Z46msruBS98GaiP1HMfvOTgnpS2/MMhsjboseHsc69VbTOfY9wuU/qeU
-	rxzI8C58Dq5aora7slkQxnmuJhVtEqwM9SU1vaFyxst4QkwIy28zED84d/7Qr3U8ThlamoGPkyuPT
-	1GgUG80Q==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34956)
+	bh=UYp2EhsrOy+fm7DQ5XYuyvMYHISzNVIRGVyJH9Vl8BI=; b=Zmv3nVP0B0d3Sm1BxqXb2DIPt4
+	alK7Wh8STHt1wmp0zhZjw7IdsZInbIzrFuprq3YjeSq88L1RFEP4SDHCDzLLiijbBCdjRCB4VaKE1
+	DOL61uLfQMok5ZGT6CXliwmaGQVNTzdH0CczIK2Dv4dHwr5XLTddCO9YmPXJbHSMLvrP/mZpe0Ulj
+	R6vfVR2G7c2L/9Ti+RR9GcXe3TaLDgFxfDY7b7uGzFy4TAsEtiRWA3zSjG94vlwwpb+43buH7X4af
+	3EYFu2p7OqtT9XWyMMb4tYEGCrRQQ0Q6JP614+QFmpPcEP4LPgoGZARKCeo/69Hji0aJH278xGN4V
+	dT2XJiZg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37470)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1tDRJX-0003yO-1s;
-	Tue, 19 Nov 2024 16:42:56 +0000
+	id 1tDRLK-0003zE-2T;
+	Tue, 19 Nov 2024 16:44:47 +0000
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tDRJV-0006DA-1y;
-	Tue, 19 Nov 2024 16:42:53 +0000
-Date: Tue, 19 Nov 2024 16:42:53 +0000
+	id 1tDRLI-0006DJ-0E;
+	Tue, 19 Nov 2024 16:44:44 +0000
+Date: Tue, 19 Nov 2024 16:44:43 +0000
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: jan.petrous@oss.nxp.com
-Subject: Re: [PATCH v5 06/16] net: dwmac-imx: Use helper rgmii_clock
-Message-ID: <ZzzADeIBYos6fgtQ@shell.armlinux.org.uk>
+Subject: Re: [PATCH v5 07/16] net: dwmac-intel-plat: Use helper rgmii_clock
+Message-ID: <ZzzAe8s2UgPYHnkv@shell.armlinux.org.uk>
 References: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
- <20241119-upstream_s32cc_gmac-v5-6-7dcc90fcffef@oss.nxp.com>
+ <20241119-upstream_s32cc_gmac-v5-7-7dcc90fcffef@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241119-upstream_s32cc_gmac-v5-6-7dcc90fcffef@oss.nxp.com>
+In-Reply-To: <20241119-upstream_s32cc_gmac-v5-7-7dcc90fcffef@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_084315_926927_3C752920 
-X-CRM114-Status: UNSURE (   7.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241119_084508_666012_53891830 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,17 +78,31 @@ Cc: Andrew Lunn <andrew@lunn.ch>, NXP S32 Linux Team <s32@nxp.com>, Emil Renner 
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 04:00:12PM +0100, Jan Petrous via B4 Relay wrote:
-> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-> 
-> Utilize a new helper function rgmii_clock().
-> 
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+On Tue, Nov 19, 2024 at 04:00:13PM +0100, Jan Petrous via B4 Relay wrote:
+> @@ -31,27 +31,15 @@ struct intel_dwmac_data {
+>  static void kmb_eth_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
+>  {
+>  	struct intel_dwmac *dwmac = priv;
+> -	unsigned long rate;
+> +	long rate;
+>  	int ret;
 
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+So the following becomes:
 
-Thanks!
+>  
+>  	rate = clk_get_rate(dwmac->tx_clk);
+>  
+> +	rate = rgmii_clock(speed);
+> +	if (rate < 0) {
+>  		dev_err(dwmac->dev, "Invalid speed\n");
+> +		return;
+>  	}
+
+Now that I've removed the deleted lines, we can see that the
+clk_get_rate() call there is now redundant. Please remove in
+this change.
+
+Thanks.
 
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
