@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFBC1D6207F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 17:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B258AD6207C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 17:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uymq2hJ1K6hg+gKANx0iVhR1Pmu3mEXXieKn7zz3mao=; b=Ce2qPdHd46IfIBJH8HFmA7c79b
-	Y7Huwl8JT4T/EoTecQwe2zuSyIUW/2Zr8djnmDjcVof4V7kvvAKHHTO8N4HrGY0JJWeUN+iHnXByc
-	AcXInFoUtsO/KTP/WKJbXyr/gaoA09IilrbEUQ+1IRH/SOWUYhv8AqLDCSGszcv2bPrECb3QRqMwh
-	1pmhexTMCVdiNoH1UngiTOERktpQIPHAYZrFrnE30O+idqUwO48ZBbd5RwQ6+4/fbM0XWajaGO+yg
-	fBHyJJ7T2MDnaorziTSVbk/d2u+rtk4aC56WZ3ZFaaV7VhCOCGDHf9GpiZLlh3BNOUaHEj5E6+zp7
-	MCEHT8iQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=K0RXe7OY4ND4a9c8hoc0IFt67SoT99sFnUyI6dvppj0=; b=MTVVymL9hb0JPX
+	CL+B4CaEQueh7J7SdSuDQ3X8o7dkZ7K2nkUIuApm+sE7vhVcPxbetgpKhYsnKfqGZdeww2Dg1Tre9
+	O3MMPRV1yEMcGmy8qLnvtwCjMpWCQp8zLaM/quR4dmQ6h/cb9TTPJyzx2KaPlVRP4zToeviQU2MU3
+	QmgDpd2UXJzB6W5sywufFCzAhmjNKcHY/j7WuSheCpG1imaeO0aRO9IVvSxL9syxy8ZCe0Vh04h2X
+	jZMq6zvFHZfdibEtshGZ/3tcKoJ/ycacN+DbXBpwhOnHEFreFRv93rrZVVJi8lAiR0b6FPQZ/TScW
+	MK6sgyJZWKkezjDeb+5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDSFf-0000000DFfw-0l3N;
-	Tue, 19 Nov 2024 17:42:59 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tDSHU-0000000DFtD-3cPz;
+	Tue, 19 Nov 2024 17:44:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDSEh-0000000DFWL-3U5G
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 17:42:01 +0000
+	id 1tDSGZ-0000000DFod-1ITA;
+	Tue, 19 Nov 2024 17:43:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8FD96A42D80;
-	Tue, 19 Nov 2024 17:40:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83357C4CED0;
-	Tue, 19 Nov 2024 17:41:58 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 832CBA42D84;
+	Tue, 19 Nov 2024 17:42:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F7E3C4CECF;
+	Tue, 19 Nov 2024 17:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732038118;
-	bh=fC4Iu6ZTvWHVn0mAs02BF67Zmknk558M9DVYXjCgc4A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ss2liA1CbtHjZtbxReG294xHb1gK7mWNfZcPAT3S6IoLVxeHOZMI+N76tfRN18dpw
-	 L0tCD/2wgFXBxM1qWJDBHnZDl/jeJfSvEHTX64KLSF1Eqd1AT5HZnLaeeEifiYC+XE
-	 lzfgTvx/U3s/CbkjsUN/v/hPdBPOhRs0AnlvtVG0F7ff9y+iQ7JyaMYz5BzwDNwaqL
-	 Y6jZEput4/yxkde6XPdP7J7qVCn3OVSJuYQ8YpwqS3PL3KAOPep8m8CF2eRqxyswUn
-	 9TkeeWfUkuZBtlY/nZGfs6xrY9pj0jxfGmYU/5GRXFRCYHDkZzQmhcg24iyx4m/WQX
-	 y+yEn6R3bYzJw==
-Date: Tue, 19 Nov 2024 11:41:56 -0600
-From: Rob Herring <robh@kernel.org>
-To: Yijie Yang <quic_yijiyang@quicinc.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bhupesh Sharma <bhupesh.sharma@linaro.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, quic_tingweiz@quicinc.com,
-	quic_aiquny@quicinc.com, quic_tengfan@quicinc.com,
-	quic_jiegan@quicinc.com, quic_jingyw@quicinc.com,
-	quic_jsuraj@quicinc.com
-Subject: Re: [PATCH 1/3] dt-bindings: net: qcom,ethqos: revise description
- for qcs615
-Message-ID: <20241119174156.GA1862978-robh@kernel.org>
-References: <20241118-schema-v1-0-11b7c1583c0c@quicinc.com>
- <20241118-schema-v1-1-11b7c1583c0c@quicinc.com>
+	s=k20201202; t=1732038233;
+	bh=DfqCGNefCcKmP6DPPWDli0AleKCJ/UH5pUDeWYvOCU8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Q3XwbMrWKLIBZkrrWAhuCIyZYPIqgRBVVzGZwOeWGcf9RjiG/R+oMyT4RY/17sem3
+	 /dkAIPreUYkERepr+D9OZ+PlniGxBnhcXfJ2dMHVVKMR3EvVGCYsSNUqciKoLDR6c7
+	 WUOv4nhKYijmdATwZas5eejTBdDVEPKiFwkAq+BfVqD+jQ5J62Ro1Lt/R1KYqcqOVw
+	 8GwkREL9vYX+8Zt2kLp5lYhARdrb21j/T3Ce5lO1IS3menJv/I3upwGOmW1DjYcqdl
+	 l3uUPyLdJZdaXlg4Pnq8LhULpFXqFgo17R9K392y11NBYX7yOJL988Z68n+V7fku6K
+	 roJl6CkXRB/CQ==
+Date: Tue, 19 Nov 2024 11:43:50 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Christian Marangi <ansuelsmth@gmail.com>, linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, upstream@airoha.com,
+	Hui Ma <hui.ma@airoha.com>
+Subject: Re: [PATCH v3] PCI: mediatek-gen3: Avoid PCIe resetting via
+ PCIE_RSTB for Airoha EN7581 SoC
+Message-ID: <20241119174350.GA2269929@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241118-schema-v1-1-11b7c1583c0c@quicinc.com>
+In-Reply-To: <ZzxJMbWkV1OELEID@lore-desk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_094159_999913_9A820E8A 
-X-CRM114-Status: GOOD (  19.66  )
+X-CRM114-CacheID: sfid-20241119_094355_473172_B571D8D9 
+X-CRM114-Status: GOOD (  32.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,50 +80,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 18, 2024 at 02:16:50PM +0800, Yijie Yang wrote:
-> The core version of EMAC on qcs615 has minor differences compared to that
-> on sm8150. During the bring-up routine, the loopback bit needs to be set,
-> and the Power-On Reset (POR) status of the registers isn't entirely
-> consistent with sm8150 either.
-> Therefore, it should be treated as a separate entity rather than a
-> fallback option.
+On Tue, Nov 19, 2024 at 09:15:45AM +0100, Lorenzo Bianconi wrote:
+> > Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
+> > causing occasional PCIe link down issues. In order to overcome the
+> > problem, PCIE_RSTB signals are not asserted/released during device probe or
+> > suspend/resume phase and the PCIe block is reset using REG_PCI_CONTROL
+> > (0x88) and REG_RESET_CONTROL (0x834) registers available in the clock
+> > module running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
+> > 
+> > Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
+> > specify per-SoC capabilities.
+> > 
+> > Tested-by: Hui Ma <hui.ma@airoha.com>
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> 
+> Hi Jianjun and Bjorn,
+> 
+> any news about this patch? Thanks in advance.
 
-'revise description' is not very specific. 'Drop fallback compatible for 
-qcom,qcs615-ethqos' would be better.
+The v6.13 merge window is open now, so we will merge new content for
+v6.14 soon after v6.13-rc1 is tagged, which will probably be Dec 1.
 
-However, this is an ABI change. You could leave the binding/dts alone 
-and only change the kernel driver to match on qcom,qcs615-ethqos to 
-achieve what you need. If there's a reason why the ABI change is okay, 
-then you need to detail that. Did the driver never work? Are there no 
-users yet?
+> > ---
+> > Changes in v3:
+> > - cosmetics
+> > - Link to v2: https://lore.kernel.org/r/20241104-pcie-en7581-rst-fix-v2-1-ffe5839c76d8@kernel.org
+> > 
+> > Changes in v2:
+> > - introduce flags field in mtk_gen3_pcie_flags struct instead of adding
+> >   reset callback
+> > - fix the leftover case in mtk_pcie_suspend_noirq routine
+> > - add more comments
+> > - Link to v1: https://lore.kernel.org/r/20240920-pcie-en7581-rst-fix-v1-1-1043fb63ffc9@kernel.org
+> > ---
+> >  drivers/pci/controller/pcie-mediatek-gen3.c | 60 ++++++++++++++++++++---------
+> >  1 file changed, 42 insertions(+), 18 deletions(-)
+> > 
+> > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+> > index 16a55711a7f3bdc8d6620029e3d2cfdd40b537b7..443072adb9b52a6934a5d1e38eb6fca5f86a1e13 100644
+> > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> > @@ -128,10 +128,18 @@
+> >  
+> >  struct mtk_gen3_pcie;
+> >  
+> > +enum mtk_gen3_pcie_flags {
+> > +	SKIP_PCIE_RSTB	= BIT(0), /* skip PCIE_RSTB signals configuration
+> > +				   * during device probing or suspend/resume
+> > +				   * phase in order to avoid hw bugs/issues.
+> > +				   */
+> > +};
+> > +
+> >  /**
+> >   * struct mtk_gen3_pcie_pdata - differentiate between host generations
+> >   * @power_up: pcie power_up callback
+> >   * @phy_resets: phy reset lines SoC data.
+> > + * @flags: pcie device flags.
+> >   */
+> >  struct mtk_gen3_pcie_pdata {
+> >  	int (*power_up)(struct mtk_gen3_pcie *pcie);
+> > @@ -139,6 +147,7 @@ struct mtk_gen3_pcie_pdata {
+> >  		const char *id[MAX_NUM_PHY_RESETS];
+> >  		int num_resets;
+> >  	} phy_resets;
+> > +	u32 flags;
+> >  };
+> >  
+> >  /**
+> > @@ -405,22 +414,34 @@ static int mtk_pcie_startup_port(struct mtk_gen3_pcie *pcie)
+> >  	val |= PCIE_DISABLE_DVFSRC_VLT_REQ;
+> >  	writel_relaxed(val, pcie->base + PCIE_MISC_CTRL_REG);
+> >  
+> > -	/* Assert all reset signals */
+> > -	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> > -	val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB;
+> > -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > -
+> >  	/*
+> > -	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
+> > -	 * and 2.2.1 (Initial Power-Up (G3 to S0)).
+> > -	 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
+> > -	 * for the power and clock to become stable.
+> > +	 * Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
+> > +	 * causing occasional PCIe link down. In order to overcome the issue,
+> > +	 * PCIE_RSTB signals are not asserted/released at this stage and the
+> > +	 * PCIe block is reset configuting REG_PCI_CONTROL (0x88) and
+> > +	 * REG_RESET_CONTROL (0x834) registers available in the clock module
+> > +	 * running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
+> >  	 */
+> > -	msleep(100);
+> > -
+> > -	/* De-assert reset signals */
+> > -	val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB);
+> > -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
+> > +		/* Assert all reset signals */
+> > +		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> > +		val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
+> > +		       PCIE_PE_RSTB;
+> > +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +
+> > +		/*
+> > +		 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
+> > +		 * and 2.2.1 (Initial Power-Up (G3 to S0)).
+> > +		 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
+> > +		 * for the power and clock to become stable.
+> > +		 */
+> > +		msleep(PCIE_T_PVPERL_MS);
+> > +
+> > +		/* De-assert reset signals */
+> > +		val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
+> > +			 PCIE_PE_RSTB);
+> > +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +	}
+> >  
+> >  	/* Check if the link is up or not */
+> >  	err = readl_poll_timeout(pcie->base + PCIE_LINK_STATUS_REG, val,
+> > @@ -1179,10 +1200,12 @@ static int mtk_pcie_suspend_noirq(struct device *dev)
+> >  		return err;
+> >  	}
+> >  
+> > -	/* Pull down the PERST# pin */
+> > -	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> > -	val |= PCIE_PE_RSTB;
+> > -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
+> > +		/* Pull down the PERST# pin */
+> > +		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> > +		val |= PCIE_PE_RSTB;
+> > +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +	}
+> >  
+> >  	dev_dbg(pcie->dev, "entered L2 states successfully");
+> >  
+> > @@ -1233,6 +1256,7 @@ static const struct mtk_gen3_pcie_pdata mtk_pcie_soc_en7581 = {
+> >  		.id[2] = "phy-lane2",
+> >  		.num_resets = 3,
+> >  	},
+> > +	.flags = SKIP_PCIE_RSTB,
+> >  };
+> >  
+> >  static const struct of_device_id mtk_pcie_of_match[] = {
+> > 
+> > ---
+> > base-commit: ff80d707f3cb5e8d9ec0739e0e5ed42dea179125
+> > change-id: 20240920-pcie-en7581-rst-fix-8161658c13c4
+> > 
+> > Best regards,
+> > -- 
+> > Lorenzo Bianconi <lorenzo@kernel.org>
+> > 
 
-> 
-> Fixes: 32535b9410b8 ("dt-bindings: net: qcom,ethqos: add description for qcs615")
-> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
-> ---
->  Documentation/devicetree/bindings/net/qcom,ethqos.yaml | 5 +----
->  1 file changed, 1 insertion(+), 4 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/net/qcom,ethqos.yaml b/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
-> index 0bcd593a7bd093d4475908d82585c36dd6b3a284..576a52742ff45d4984388bbc0fcc91fa91bab677 100644
-> --- a/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
-> +++ b/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
-> @@ -23,12 +23,9 @@ properties:
->            - enum:
->                - qcom,qcs8300-ethqos
->            - const: qcom,sa8775p-ethqos
-> -      - items:
-> -          - enum:
-> -              - qcom,qcs615-ethqos
-> -          - const: qcom,sm8150-ethqos
->        - enum:
->            - qcom,qcs404-ethqos
-> +          - qcom,qcs615-ethqos
->            - qcom,sa8775p-ethqos
->            - qcom,sc8280xp-ethqos
->            - qcom,sm8150-ethqos
-> 
-> -- 
-> 2.34.1
-> 
+
 
