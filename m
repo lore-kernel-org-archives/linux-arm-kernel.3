@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E97D7D6C299
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 20:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 833FCD6C29A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 20:43:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oS1moOcp9ct9rXCWQSjf/GhpQtGR0rWY3wjXVfG0zao=; b=HFKH62ymw8ma0pdm7u7NP16eGd
-	1oKlX46KsTwEOtY3ieKR9OuutblihBcJu4ROOLp+h04fsU8ATc9xmu0IRrcG6vbNKFRIhUWMT99qZ
-	iiaQuwT8pZCVy8EvTkzCMj0Y6DaBDr8WDatwK6Vr1Fu3DN6vvL+Cmd+59GjJofmDgKHSZ8qT5Jlxo
-	M0LKIb+DQzTd45AuGz5UdeGKVnLzyAhyMFAjnI6tEWKaFFOeTXslYqtjqLZU2dgKkZhZey4jN/jfE
-	Iqa0M7Hu8a/Np3VMronYhWPLgEZLY0MN+FG/H933VwlY0RI/MrJBSdw73c8/dm1Sa5NJf2GUWetN2
-	FzctlXpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oTvpCQq8alGc1ZL61S7t0BIfplAY2aaCla8sSIriT5I=; b=AwcOumxNIbWIJZc/tE2jqcDwu0
+	g365e1RqR8Z0uakZmzZvvpQJpo9obh3yJuNuiu8ilWksuIPJGwHSV1+tq3X7m0cYAFOjny8oQ/ghj
+	DK+z9yARXZBLW/zEZU4zJIv+ucbPFVTGb6vLGCRaucHWG97ORj5pvXbqSWnSYjG/WIAmsEEWQz60I
+	d7ko6+Nw4VGo1ambVNY3g2pWVvvfOjHVUxnIaFHd/ZwvOiOjmU0BxTD56F+0ukDv5zXw1sfjSUNjo
+	PnWQU/7INqzWhsipsEvgVod2kcXwOr88VgLIPub+57ZTyTaDWWKjf1j7J8o3eUBQ6dh5gWeQm4mDj
+	Hwu22dmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDV0Y-0000000DjkV-0FQO;
-	Tue, 19 Nov 2024 20:39:34 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1tDV4Z-0000000DkNU-3izN;
+	Tue, 19 Nov 2024 20:43:43 +0000
+Received: from smtp-17.smtpout.orange.fr ([80.12.242.17] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDUsE-0000000Dh66-1h1m
+	id 1tDV3e-0000000DkHV-0PId
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 20:30:59 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-211fcadd960so26416085ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 12:30:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1732048258; x=1732653058; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oS1moOcp9ct9rXCWQSjf/GhpQtGR0rWY3wjXVfG0zao=;
-        b=Kte/GkmCE5Mi6EpnNj22KWh3g9gh10YScRU51ikZuNdwAZOVYQ1irIMbHyx6lal76y
-         PJefummeKrZi9qpaJDLB4TPpGCqEGOv9XnkdvOZOo1bUUHYfDkrq1THItLTvXXKGFVLR
-         hM4EAVpMDwzHKakYMutE1/J7xZepxd1tC9cp8Wu0Tidl9FJx7krHd5Wd3hKk+XO3qOlX
-         mUQ6P/SFjkHRoisYxW9mD4qdZ16ibaAfpN5KTu31bPbY4rTo7tnhPwiMt7ImD53ECsIb
-         5s+yVdPhMqUHMc6cTVqXu7gTyJXBoqtdwj/p+Y5X/8JvOHFXfabm/tFLEIK4RgeUtOov
-         oP1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732048258; x=1732653058;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=oS1moOcp9ct9rXCWQSjf/GhpQtGR0rWY3wjXVfG0zao=;
-        b=mQEYHpzRQvbJVrxxsdQMzNsA9jtQCWSVbCroSeicW9nMQ3IMAo2kF65l0aStdWD+XG
-         2IOoV068Um5Xgyom6jneAihZokqBvozUHeBzJhfj/S2EBvvWvWOsrlofGAISXxw6Il6J
-         n7ANtoCmJSiDdZPGkek0CS7UXF+EQ74tawlrrEjNnqMEkjgC7TKylL9Ap/msneIibaIF
-         5eklyZ7nGHj27PJgpZ3Url3duj1t2Rtr0yQB75cYAKXiYSgVjjqa2dwV9HX5a0Y3ivIj
-         PxR986/NUZQTCkYQlSrouA2YFbXmjeuNypL3+z16sXqMbBYQT33KwI5igJ82gYKHyU9U
-         cPow==
-X-Forwarded-Encrypted: i=1; AJvYcCXzsdGnDV08E2nT3UH/aAMevgBK4kXvtodsAc8KJt4C0RXcNLFYhsiZsauQd7cZKDxyULsVZ8Syr05/Lwjv9WFf@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVoNL6esXP5AZQNBh4KDQCHAl0nQGglfwXVIMuCfg5YYeMlIbT
-	/YKyWPP98FJzkZ0Pdif6qkFzy9V6z3zwv0UX2fqeQBGLa2aJIFMisSltNZD8RYw=
-X-Google-Smtp-Source: AGHT+IHJJKUj/G9a1vcUatY4x43+GcKI1AsZDcQ+KjFbu3ubgI0Q6fpviZE7gWtG38yqh7oUq4m8sw==
-X-Received: by 2002:a17:902:dad0:b0:20b:7210:5859 with SMTP id d9443c01a7336-2126b07a574mr1668385ad.38.1732048257883;
-        Tue, 19 Nov 2024 12:30:57 -0800 (PST)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f34f2fsm79001315ad.159.2024.11.19.12.30.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Nov 2024 12:30:57 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Tue, 19 Nov 2024 12:29:56 -0800
-Subject: [PATCH 8/8] RISC-V: KVM: Upgrade the supported SBI version to 3.0
+	Tue, 19 Nov 2024 20:42:47 +0000
+Received: from localhost.localdomain ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id DV3WtqL3lt7pwDV3Wt8WJd; Tue, 19 Nov 2024 21:42:41 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1732048961;
+	bh=oTvpCQq8alGc1ZL61S7t0BIfplAY2aaCla8sSIriT5I=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=VbKHY+mlpgskjUyX+wxpYcuC1c/8GQQ+E5Enw/i0AuZkoWr1oQbGbExT7uhBNkz00
+	 bQqT2jvlf4lhLEsZsvW6KqO39EFWrxzo2lus8pANKgVycmVgEpkOvFYDKvjRP5F2AY
+	 xm9JACV6Nad6i7jZi+pS8C0qW16nvijQq39k4sle2GIN378TguFs7ElzPhqO/tvTBj
+	 QZuyzfQbsoLgW59qrdar5uiWMH+xK9OH/X01kYXX2egrEpQD9XDPUZMOo63r+TfFBB
+	 R9hJiemZsljz8f6+9rnCEUUvHLQ4rD3DfAeqGIgHG1lrDGBqe4gFuxBqnDtrWjJdEc
+	 GNgkuLSgKhk9Q==
+X-ME-Helo: localhost.localdomain
+X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
+X-ME-Date: Tue, 19 Nov 2024 21:42:41 +0100
+X-ME-IP: 90.11.132.44
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+To: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-media@vger.kernel.org
+Subject: [PATCH] media: s5p-mfc: Fix an error handling path s5p_mfc_open()
+Date: Tue, 19 Nov 2024 21:42:28 +0100
+Message-ID: <b486e0ede5803258464c97d702f6588e7e7d3077.1732048929.git.christophe.jaillet@wanadoo.fr>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241119-pmu_event_info-v1-8-a4f9691421f8@rivosinc.com>
-References: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
-In-Reply-To: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
-To: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Mayuresh Chitale <mchitale@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-13183
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_123058_469309_E66B1207 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20241119_124246_267193_852FAA2B 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,29 +76,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Upgrade the SBI version to v3.0 so that corresponding features
-can be enabled in the guest.
+A mfc_debug_enter() is not balanced by a corresponding mfc_debug_leave().
+Add the missing call.
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
+Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
 ---
- arch/riscv/include/asm/kvm_vcpu_sbi.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Compile tested only.
 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-index b96705258cf9..239457b864d7 100644
---- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-@@ -11,7 +11,7 @@
- 
- #define KVM_SBI_IMPID 3
- 
--#define KVM_SBI_VERSION_MAJOR 2
-+#define KVM_SBI_VERSION_MAJOR 3
- #define KVM_SBI_VERSION_MINOR 0
- 
- enum kvm_riscv_sbi_ext_status {
+Apparently, only a debug message was missing, so don't bother with a
+Fixes tag, it is not really a bug.
+---
+ drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c
+index 2fe3c9228ac5..5f80931f056d 100644
+--- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c
++++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c
+@@ -774,8 +774,10 @@ static int s5p_mfc_open(struct file *file)
+ 	int ret = 0;
+ 
+ 	mfc_debug_enter();
+-	if (mutex_lock_interruptible(&dev->mfc_mutex))
+-		return -ERESTARTSYS;
++	if (mutex_lock_interruptible(&dev->mfc_mutex)) {
++		ret = -ERESTARTSYS;
++		goto err_enter;
++	}
+ 	dev->num_inst++;	/* It is guarded by mfc_mutex in vfd */
+ 	/* Allocate memory for context */
+ 	ctx = kzalloc(sizeof(*ctx), GFP_KERNEL);
+@@ -946,6 +948,7 @@ static int s5p_mfc_open(struct file *file)
+ err_alloc:
+ 	dev->num_inst--;
+ 	mutex_unlock(&dev->mfc_mutex);
++err_enter:
+ 	mfc_debug_leave();
+ 	return ret;
+ }
 -- 
-2.34.1
+2.47.0
 
 
