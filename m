@@ -4,80 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC50D62057
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:35:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4EA4D6204F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pPExtlge3msjkZF91Z4CEG8tmqsBNvouLTtNJroiSf4=; b=j4E33/F2/mdMbx+8L4uTaPmBiD
-	YmAl1OKX7MLlqRnDaN/e4NhzZNyhqLyf4HBlt8CwGMI1OqgM5GYkTGXW5GlGTyLT8kqu3E9bKjNcY
-	D0P5OwfJB6qY9I6zaajhA0zzMbMyoEdxXH37KJkzDw6oQ3buw3jNZMefThRpwJguc3WfdTRudUP9g
-	uO0wvnGfmSfwU1tgWDe0ZgNct5++nX9q7LqqNbjX/9R3v/SCRkprS1DIYNraS7t5KvUUsVrEjdAz8
-	90+u73Lwjv8tJR+RwsX1MhWnAdKCu28OXZT61qPqUYjbvGN+24CqSukTdlyGHzXlK2FTXrOtPan6K
-	amf8FTVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZnYFnM2sFhC5wfCK+6fZ2Ja9fZiE3XOnCzCCHGI4GG0=; b=f3oTcNStnFCLXkJ/2iuGRvuFKT
+	7vivFYs25/UuTM1Ihl2ExqWWS1cbs3Rt/5T+2Vpo3v33AZLQ5a1kx6YOzwP2rlE2p/UEag/3O3EuK
+	XAUxjixMg1TIjc6LRWkG4ZSw5iPzR2tX4Am45cDfZo2rFHg2UuKZKhV0Gvf6pvXurgmDu9miyRMen
+	+3gHTFHr9zbwUrPWyqNS7lQqRk3tTKyiucpnW184bvoe2XzL1peN7ojq8i6+gXuQyrSH47wK6ggIE
+	U1hegPZxZYpYDDYX1i+TJ3fG92c/wBp3Mnmiuflvd19vEl1dGIOGynX85Eg4J6VR/uPAsCF0WmNhY
+	quUvyV8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKdp-0000000BuMp-3Qka;
-	Tue, 19 Nov 2024 09:35:25 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tDKfA-0000000Bucu-1pDZ;
+	Tue, 19 Nov 2024 09:36:48 +0000
+Received: from mail-io1-xd32.google.com ([2607:f8b0:4864:20::d32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKct-0000000BuD5-0bi5;
-	Tue, 19 Nov 2024 09:34:28 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-20e576dbc42so43278095ad.0;
-        Tue, 19 Nov 2024 01:34:26 -0800 (PST)
+	id 1tDKeE-0000000BuSL-0Fdv
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Nov 2024 09:35:51 +0000
+Received: by mail-io1-xd32.google.com with SMTP id ca18e2360f4ac-83ab694ebe5so22623339f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 01:35:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732008866; x=1732613666; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pPExtlge3msjkZF91Z4CEG8tmqsBNvouLTtNJroiSf4=;
-        b=XjxF89ayLVj2adZP48kdh+TwAeUAYKkYiwSybT15r9CplLGJ50PZWvbXP7U+eiHSZR
-         3ftc7pRdsDdYtKWM/JI4BpssBAC9lkBwDTbRWh3SIjgNXfGYrW5PWr5viVdw5350u7cK
-         YroINo2KETf0Ih+poJsblww/G3GuRhF8JDM3GFkoRi+5+vyooxD79QqoX17WzgqXLVN4
-         QfzFpedNfI1B8NTX0Cj+AHK0LEzh+zk8gl8/eXGfeeGnOQNz6ufbTcXFEINQJ9PygeY4
-         2mkTfQgjeTNfaR5weNSw8Frv3AwdGNaEVdq9GlshFKZ9r3Y0byF3ig8e8MXjoeYNbH6L
-         y2+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732008866; x=1732613666;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1732008948; x=1732613748; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pPExtlge3msjkZF91Z4CEG8tmqsBNvouLTtNJroiSf4=;
-        b=VBJTOT4RCgQPpA6CKRSYvLL6Jorrcw6KzgogSoWpHi+QAZiXEz7GbTSYuOkpIgUzFt
-         MBOlPFfk6egvrCPj+bPP8sk3fEpMxJGSHNZZzAtDowBZJnSyf0cTRoKD8J44WJmik29c
-         GzdQ7Pkmk6tTZRj7LyX5XSpgJYzUOLOMRf2Tb9qVs2sMOCSGaJs/a5cov21AWB4rLoED
-         2hYRsWS/C0HcfE+tEcILA3JyACz0KmrQBXB7b6BtVgNNLRhDVzExfoQnbWg3EqiBUOp+
-         gdQQx2+ICt1Pylmkt3XdQTdUUxjtcbMO5C/nyU8Ej9WWDfdvTTU6vuMlbQxAdI6o7UaP
-         RSnA==
-X-Forwarded-Encrypted: i=1; AJvYcCVUuih4DYfky4SHhVY3DyNukhDEDDiO6vyRRV19e6UId+tUA2HQ2vb71CYjPOwT6gZrhg+KjtBlmSQ7yURN/CcJ@lists.infradead.org, AJvYcCWQfyfcYW6C0rVnF1fQDBfWldEce1re0o1pPoglo29rC/7fbe4lz2Yyi1uzsNupNAC4AeaWlBTj0z2H+hsNSlk=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxszPqFIRKFP8A4C7nbkQATxfVA9pByQPOeslnKumgasrd2VowI
-	RuVpFQ3NGoljRscMH7lnoMXtNBHw8xM587EcKV76NYoHl9M7FS3g
-X-Google-Smtp-Source: AGHT+IGk0ioib0jianP/JWeRLCWZdzMBOeRSZzyDXcvD2UaEgV8gbzUU0BUTO/h3v2TJ3Zgql38YQA==
-X-Received: by 2002:a17:903:186:b0:211:e66d:7450 with SMTP id d9443c01a7336-211e66d78d8mr206006795ad.32.1732008865846;
-        Tue, 19 Nov 2024 01:34:25 -0800 (PST)
-Received: from HOME-PC ([223.185.132.211])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-212134ab989sm38763335ad.17.2024.11.19.01.34.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Nov 2024 01:34:25 -0800 (PST)
-Date: Tue, 19 Nov 2024 15:04:22 +0530
-From: Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: dafna@fastmail.com, linux-media@vger.kernel.org, mchehab@kernel.org,
-	heiko@sntech.de, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 media-next] media: rkisp1: Fix unused value issue
-Message-ID: <Zzxbnkq86EKEWwFf@HOME-PC>
-References: <20241119072653.72260-1-dheeraj.linuxdev@gmail.com>
- <20241119075944.GA31681@pendragon.ideasonboard.com>
+        bh=ZnYFnM2sFhC5wfCK+6fZ2Ja9fZiE3XOnCzCCHGI4GG0=;
+        b=LFkF5/xuxl++/Cc4ur5beADvuDWs/XYroYJa9zcz2ix7PMHK3nMIlizJyDWlJ/ILFt
+         BXSDWmQc3zPvaM1PW4Er5WHtuPLn/CaXAHZkW7ydhJG6cZ8Fq5KdItaGZt8fNea2mgKG
+         mCYPTs6APwb141zmAI9l0KGGXzlDjEWaWnX1FIVt0G4K6RM2INcWipQZlSawnMrvbYPF
+         k8CLOAgjpHxyKOxkwEjycAqbvttzMMDN/0vySOYpk6FkuTX1rCXPaKFm2ENQrnikwVab
+         YSzmi/Wp+VDM6rG+J3Jafc3A4RvLN9RD3StPe1KbgKN6T5bwnIAAcgWfDL2r0C8EHpF3
+         XoRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732008948; x=1732613748;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZnYFnM2sFhC5wfCK+6fZ2Ja9fZiE3XOnCzCCHGI4GG0=;
+        b=ofkm5T8A+RlCpWIg4NqJh6U8TykXGn2AazxV/QRVzb5HjoZOfJoZ2fmAzqaejqHxua
+         dHeCGc+GV/H4jvI7tgGg6key0NDIyrh9J1Hl24Jd0ImilSB29pgG7f4q7jsSbWMG/HEr
+         hiztOz/8KF+PeLFETEo6Ea4axx4rh8BqcZ+YQ9fhXoZQkZguiipNebXoBhnn0n3lhAx1
+         yFVa5yTLcYPwNdE1Q53Le5UxIujNtUefzg2XoMiLh8y4sOirwsRYivVm7rdrhlTKwzAN
+         lz2RdBqHyvm2nhgInHVnXLp0/nLjHPvtkn4PeqabiAYvkozzgjnfEzBOfYs95tUOmruP
+         tz4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVv88yLU9e8/h0fAF2007UDt+mkULcVFkfLwYCI4gOrTHaGvDXHY6vx37eXVo0fgk1JPifBlrO1nEOaNt/Ryuw3@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuTWkLhQPrVqjeGJrIvuR5Db4tV1TOSpswAbWNLy0kev7e/Uhn
+	7kwYL12wWrnjc6fTK6c3TK7pLF0jlnPKeFKEa8wS6ozMgfzPDDJ/IRILX3uxfx63vchYnTfhraz
+	YnF5htwIXnhXnKQsFTM4xfmpGHhc=
+X-Google-Smtp-Source: AGHT+IHbK7ZHvwSeOtWJ3a+S2WJZt3wsFdIwJInxf7s6NhG7VuTWPA8z9cbCUhbcQ9pqfV4z4beW5CW/veyMnZgCR10=
+X-Received: by 2002:a05:6602:3403:b0:82a:3552:6b26 with SMTP id
+ ca18e2360f4ac-83e6c2ea511mr1433295139f.15.1732008948402; Tue, 19 Nov 2024
+ 01:35:48 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241119075944.GA31681@pendragon.ideasonboard.com>
+References: <20241007132555.GA53279@francesco-nb> <20241112075958.GA8092@francesco-nb>
+ <20241112092054.GA18139@francesco-nb> <CAA+D8AO3a5WsZ4=V-9CDifDZYjJjwQmQQDDQM7ZKgZ6_-CNDPA@mail.gmail.com>
+ <Zzde9xS0zGJhcoUb@gaggiata.pivistrello.it>
+In-Reply-To: <Zzde9xS0zGJhcoUb@gaggiata.pivistrello.it>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Tue, 19 Nov 2024 17:35:36 +0800
+Message-ID: <CAA+D8AMx14hp51aH7Y=Sgu+X+_KxQ8zdJdrQHFY84nKtQsKKrw@mail.gmail.com>
+Subject: Re: clk_imx8mp_audiomix_runtime_resume Kernel panic regression on v6.12
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <frank.li@nxp.com>, abelvesa@kernel.org, 
+	peng.fan@nxp.com, mturquette@baylibre.com, sboyd@kernel.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-imx@nxp.com, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	regressions@lists.linux.dev, Adam Ford <aford173@gmail.com>, 
+	Alexander Stein <alexander.stein@ew.tq-group.com>, Mark Brown <broonie@kernel.org>, 
+	ulf.hansson@linaro.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_013427_184718_5ABEE4A6 
-X-CRM114-Status: GOOD (  30.71  )
+X-CRM114-CacheID: sfid-20241119_013550_098816_4E2321EF 
+X-CRM114-Status: GOOD (  26.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,70 +98,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 09:59:44AM +0200, Laurent Pinchart wrote:
-> Hi Dheeraj,
-> 
-> Thank you for the patch.
-> 
-> On Tue, Nov 19, 2024 at 12:56:53PM +0530, Dheeraj Reddy Jonnalagadda wrote:
-> > This commit fixes an unused value issue detected by Coverity (CID
-> > 1519008). The error condition for the invalid MIPI CSI-2 is not
-> > properly handled as the break statement would only exit the switch block
-> > and not the entire loop. Fixed this by returning the error immediately
-> > after the switch block.
-> 
-> The patch doesn't "return immediately". You can write "Fix this by
-> breaking from the look immediately after the switch block when an error
-> occurs." or something similar.
-> 
-> > 
-> > 'Fixes: 8d4f126fde89 ("media: rkisp1: Make the internal CSI-2 receiver
-> > optional")'
-> 
-> The Fixes tag should be formatted on a single line, without outer
-> quotes, and without a blank line between it and the Signed-off-by line:
-> 
-> Fixes: 8d4f126fde89 ("media: rkisp1: Make the internal CSI-2 receiver optional")
-> 
-> > Signed-off-by: Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
-> 
-> I can update the commit message when applying the patch, there's no need
-> to submit a v5, unless if you want to. Please let me know if I should
-> take this version and update the commit message, or if you will send a
-> v5.
-> 
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> 
-> > ---
-> >  drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c | 3 +++
-> >  1 file changed, 3 insertions(+)
-> > 
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-> > index dd114ab77800..9ad5026ab10a 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-> > @@ -228,6 +228,9 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
-> >  			break;
-> >  		}
-> >  
-> > +		if (ret)
-> > +			break;
-> > +
-> >  		/* Parse the endpoint and validate the bus type. */
-> >  		ret = v4l2_fwnode_endpoint_parse(ep, &vep);
-> >  		if (ret) {
-> 
-> -- 
-> Regards,
-> 
-> Laurent Pinchart
-Hi Laurent,
+On Fri, Nov 15, 2024 at 10:47=E2=80=AFPM Francesco Dolcini <francesco@dolci=
+ni.it> wrote:
+>
+> On Fri, Nov 15, 2024 at 11:13:58AM +0800, Shengjiu Wang wrote:
+> > On Tue, Nov 12, 2024 at 5:20=E2=80=AFPM Francesco Dolcini <francesco@do=
+lcini.it> wrote:
+> > >
+> > > On Tue, Nov 12, 2024 at 08:59:58AM +0100, Francesco Dolcini wrote:
+> > > > On Mon, Oct 07, 2024 at 03:25:55PM +0200, Francesco Dolcini wrote:
+> > > > > it seems that an old regression is back on v6.12, reproduced on -=
+rc2
+> > > > > (not sure about rc1).
+> > > > >
+> > > > > The original report is from https://lore.kernel.org/all/202404241=
+64725.GA18760@francesco-nb/
+> > > > > and it was fixed with https://lore.kernel.org/all/1715396125-3724=
+-1-git-send-email-shengjiu.wang@nxp.com/.
+> > > > >
+> > > > > Is it now back?
+> > > >
+> > > > I was able to reproduce this issue once more, this time with 6.11.7=
+.
+> > > > As I wrote in another email the issue is not systematic as it used =
+to
+> > > > be.
+> > > >
+> > > > Any idea?
+> > >
+> > > Frank, Shengjiu, could it be that the udelay(5) in imx_pgc_power_up()=
+ is
+> > > too short and therefore we have such non-systematic failures?
+> > >
+> >
+> > Francesco,  it seems hard to reproduce it on my i.MX8MP-EVK board.
+> >
+> > If it is easy to reproduce on your side, you can try to enlarge the del=
+ay
+> > time to see if there is any improvement.
+>
+> It's hard also for me to reproduce, we just have a relatively extensive
+> test farm and 2 times it happened while doing unrelated tests. I was hopi=
+ng we
+> could have some idea on what's going on, I'll see if I can put together s=
+ome
+> kind of stress test, being able to reproduce it more systematically would
+> certainly help.
+>
 
-Please go ahead and take this version and apply the patch with the updated 
-commit message.
+With my test,  the issue reproduced with delay 5us/6us. but hard reproduced
+with 7us.
+I think we may need to use a delay of 10us for safety.
 
-Thank you and Jacopo for your valuable comments. As a new contributor, 
-your feedback is extremely helpful.
-
--Dheeraj
+Best regards
+Shengjiu Wang
 
