@@ -4,60 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D2CD44166
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:02:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E054FD44162
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ro4AT1dy3+fn9DWFhz4fu0FRRDOujrJK2DSxFWLtzgE=; b=tkCDaddUspjY0kMnxF6LyUQ6gK
-	I1ybBiOCp4N6YmUVDWJ5wrh0IySGlzXwYjo4D+xrlULaNapx6R72FUGJ40vPkSEf0qi/LpvUPy05+
-	hPoNavExYwvASb6Nqyg95fcQAaCKwq3hkRqiZRH4+EylUiQzn4nfphkGS/OXskjqAsvEUxXb/L6Ps
-	PRSsFmXhct9CYmBStLx1m1Mx8xK1bDqcCxH2hL4KuQLcVCoJudTL3mbSlXR5WRQe19dbAuBtt9o1d
-	DH6Z03BIseq/2fXAWm9cBtWhUjMtngtOwlZiIq1d4HFAlFhSxbBbA3g7RQ1oDkdoS2Gufo/YP/xpN
-	EspdBvbA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rxtVF9UbgVK/gR08zH914V0jERFFompQ7meDhoRfm6A=; b=w+bTk0W+muwMuDKGVfGjailvMZ
+	4JAawugxDvS9OE5czqQDe6E/0WNurO+kVYl8lVO46O+pPz54ZpGTECUi0jbauEL05RIhyZg1OoiJn
+	g/iU8dv+66ofbBmLNF0UYjzHu3e1AG/dn4a4Jtexax2HxsXqJpHOtqEZZ9730KzsPPCUCUDouFkH+
+	xtHmWEyKTudit0kJz1KouNGsSC4lTRXq6yuW4lhWqjT5h2i+M1TwquN6j7OxMmM/d1gA5lof74TlB
+	gBgxkweUldUi/Qhwyz84ID9DyJm2ru353oXU93gv7Nd6rIW+2pqhOQlwmEOt/kcDVs4uZp6YT+LhY
+	QXax7W2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDPkB-0000000ClfW-1Q76;
-	Tue, 19 Nov 2024 15:02:19 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1tDPl6-0000000ClvY-42tk;
+	Tue, 19 Nov 2024 15:03:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDPir-0000000ClJc-3rLp
+	id 1tDPiz-0000000ClKj-2HY2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 15:00:59 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id D5B9F1F0004F
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 15:00:53 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 7D996A47028; Tue, 19 Nov 2024 15:00:52 +0000 (UTC)
-Received: from collins (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id 5D5C7A46FDB;
-	Tue, 19 Nov 2024 15:00:51 +0000 (UTC)
-Date: Tue, 19 Nov 2024 16:00:48 +0100
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Paul Kocialkowski <contact@paulk.fr>
-Subject: Re: [PATCH] pinctrl: sunxi: Use minimal debouncing period as default
-Message-ID: <ZzyoIABRArkGoZBn@collins>
-References: <20241119140805.3345412-1-paulk@sys-base.io>
- <20241119-prudent-jasmine-lizard-195cef@houat>
+	Tue, 19 Nov 2024 15:01:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 984AA5C55C0;
+	Tue, 19 Nov 2024 15:00:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3F918C4CED8;
+	Tue, 19 Nov 2024 15:01:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732028464;
+	bh=axOruUYC/TxQCwOqg+9pJVARKk+8imeW6v4uMk1inlc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=d7cqK3zqTfRZuxLTPRJByUqJ6m02je2wZS0CYbmb/bt1RARGkW9pwzvpoy/OAzUCT
+	 sPh1SJKFmBN/Cwww/hmpWbewq9osjbudpHf30jTPnrz2EBHjrjQS3K6BqGiOeDsDtk
+	 npfF0RyNi8KlXAYxS1v6VPI4ScOkMwIucv+GCj+cYRYCaRfhgbxXquBLjaW9E3ccXY
+	 Ud0HGjphdj+oBR2WdOWAdv0VwERadjjXe9VD+yVTOFhO/7fvyiMkhzBUleQRAYq1Mk
+	 oFMT91/dWNrpP3B96751ynGYsxw72JoxYFwRflt3OMCc6xZ4G68202mC16RfVGxY82
+	 CwXhu2o3BwfSw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 31DD8D44162;
+	Tue, 19 Nov 2024 15:01:04 +0000 (UTC)
+From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
+Date: Tue, 19 Nov 2024 16:00:09 +0100
+Subject: [PATCH v5 03/16] net: stmmac: Fix clock rate variables size
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="nRr05HQbsjo+d+pA"
-Content-Disposition: inline
-In-Reply-To: <20241119-prudent-jasmine-lizard-195cef@houat>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241119-upstream_s32cc_gmac-v5-3-7dcc90fcffef@oss.nxp.com>
+References: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
+In-Reply-To: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
+ Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
+ Minda Chen <minda.chen@starfivetech.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Iyappan Subramanian <iyappan@os.amperecomputing.com>, 
+ Keyur Chudgar <keyur@os.amperecomputing.com>, 
+ Quan Nguyen <quan@os.amperecomputing.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, 
+ devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
+ "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
+ Serge Semin <fancer.lancer@gmail.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1732028461; l=4015;
+ i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
+ bh=2zBIP1pqWbxljDYVW6XJp7WZLnEFiMk2GjNFgE+0EQQ=;
+ b=WKYcQ/jJlzzzivMKrlny4nPDPO+laFcQ6yCq1HdncJmHKRIdn5VtMEEtXnhHjsbS79ApUS//Z
+ JDAIj8BSSNBC4Gg9d7xoROCmB8sOjyOpce2lTZj7WNy4Rv4deaQrHPy
+X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
+ pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
+X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
+ auth_id=217
+X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_070058_286981_826CC509 
-X-CRM114-Status: GOOD (  37.30  )
+X-CRM114-CacheID: sfid-20241119_070105_683900_3C7C5C1A 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,116 +105,107 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
---nRr05HQbsjo+d+pA
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The clock API clk_get_rate() returns unsigned long value.
+Expand affected members of stmmac platform data and
+convert the stmmac_clk_csr_set() and dwmac4_core_init() methods
+to defining the unsigned long clk_rate local variables.
 
-Hi Maxime,
+Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Reviewed-by: Serge Semin <fancer.lancer@gmail.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c       | 2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c       | 2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c   | 2 +-
+ include/linux/stmmac.h                                  | 6 +++---
+ 5 files changed, 7 insertions(+), 7 deletions(-)
 
-Le Tue 19 Nov 24, 15:43, Maxime Ripard a =C3=A9crit :
-> On Tue, Nov 19, 2024 at 03:08:05PM +0100, Paul Kocialkowski wrote:
-> > From: Paul Kocialkowski <contact@paulk.fr>
-> >=20
-> > The sunxi external interrupts (available from GPIO pins) come with a
-> > built-in debouncing mechanism that cannot be disabled. It can be
-> > configured to use either the low-frequency oscillator (32 KHz) or the
-> > high-frequency oscillator (24 MHz), with a pre-scaler.
-> >=20
-> > The pinctrl code supports an input-debounce device-tree property to set
-> > a specific debouncing period and choose which clock source is most
-> > relevant. However the property is specified in microseconds, which is
-> > longer than the minimal period achievable from the high-frequency
-> > oscillator without a pre-scaler.
->=20
-> That can be fixed by introducing a new property with a ns resolution.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+index 901a3c1959fa..2a5b38723635 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+@@ -777,7 +777,7 @@ static void ethqos_ptp_clk_freq_config(struct stmmac_priv *priv)
+ 		netdev_err(priv->dev, "Failed to max out clk_ptp_ref: %d\n", err);
+ 	plat_dat->clk_ptp_rate = clk_get_rate(plat_dat->clk_ptp_ref);
+ 
+-	netdev_dbg(priv->dev, "PTP rate %d\n", plat_dat->clk_ptp_rate);
++	netdev_dbg(priv->dev, "PTP rate %lu\n", plat_dat->clk_ptp_rate);
+ }
+ 
+ static int qcom_ethqos_probe(struct platform_device *pdev)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+index e65a65666cc1..ac0b02783889 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+@@ -26,7 +26,7 @@ static void dwmac4_core_init(struct mac_device_info *hw,
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+ 	void __iomem *ioaddr = hw->pcsr;
+ 	u32 value = readl(ioaddr + GMAC_CONFIG);
+-	u32 clk_rate;
++	unsigned long clk_rate;
+ 
+ 	value |= GMAC_CORE_INIT;
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 85fa75fa6abe..5eeff3ef7095 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -300,7 +300,7 @@ static void stmmac_global_err(struct stmmac_priv *priv)
+  */
+ static void stmmac_clk_csr_set(struct stmmac_priv *priv)
+ {
+-	u32 clk_rate;
++	unsigned long clk_rate;
+ 
+ 	clk_rate = clk_get_rate(priv->plat->stmmac_clk);
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+index ad868e8d195d..b1e4df1a86a0 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+@@ -639,7 +639,7 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+ 		dev_info(&pdev->dev, "PTP uses main clock\n");
+ 	} else {
+ 		plat->clk_ptp_rate = clk_get_rate(plat->clk_ptp_ref);
+-		dev_dbg(&pdev->dev, "PTP rate %d\n", plat->clk_ptp_rate);
++		dev_dbg(&pdev->dev, "PTP rate %lu\n", plat->clk_ptp_rate);
+ 	}
+ 
+ 	plat->stmmac_rst = devm_reset_control_get_optional(&pdev->dev,
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 865d0fe26f98..c9878a612e53 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -252,8 +252,8 @@ struct plat_stmmacenet_data {
+ 	struct clk *stmmac_clk;
+ 	struct clk *pclk;
+ 	struct clk *clk_ptp_ref;
+-	unsigned int clk_ptp_rate;
+-	unsigned int clk_ref_rate;
++	unsigned long clk_ptp_rate;
++	unsigned long clk_ref_rate;
+ 	unsigned int mult_fact_100ns;
+ 	s32 ptp_max_adj;
+ 	u32 cdc_error_adj;
+@@ -265,7 +265,7 @@ struct plat_stmmacenet_data {
+ 	int mac_port_sel_speed;
+ 	int has_xgmac;
+ 	u8 vlan_fail_q;
+-	unsigned int eee_usecs_rate;
++	unsigned long eee_usecs_rate;
+ 	struct pci_dev *pdev;
+ 	int int_snapshot_num;
+ 	int msi_mac_vec;
 
-Sure but my point here is rather about what should be default behavior.
+-- 
+2.47.0
 
-The issue I had will remain unsolved by default even with a new property,
-since people will still need to patch their device-tree to apply it.
 
-> > When the property is missing, the reset configuration is kept, which
-> > selects the low-frequency oscillator without pre-scaling. This severely
-> > limits the possible interrupt periods that can be detected.
-> >=20
-> > Instead of keeping this default, use the minimal debouncing period from
-> > the high-frequency oscillator without a pre-scaler to allow the largest
-> > possible range of interrupt periods.
-> >=20
-> > This issue was encountered with a peripheral that generates active-low
-> > interrupts for 1 us. No interrupt was detected with the default setup,
-> > while it is now correctly detected with this change.
->=20
-> I don't think it's wise. If the debouncing is kept as is, the worst case
-> scenario is the one you had: a device doesn't work, you change it,
-> everything works.
-
-I think this worst-case scenario is very bad and not what people will
-expect. In addition it is difficult to debug the issue without specific
-knowledge about the SoC.
-
-My use-case here was hooking up a sparkfun sensor board by the way,
-not some very advanced corner-case.
-
-> If we set it up as fast as it can however, then our risk becomes
-> thousands of spurious interrupts, which is much more detrimental to the
-> system.
-
-Keep in mind that this only concerns external GPIO-based interrupts,
-which have to be explicitely hooked to a device. If a device or circuit
-does generate such spurious interrupts, I think it makes sense that it
-would be reflected by default.
-
-Also the notion of spurious interrupt is pretty vague. Having lots of
-interrupts happening may be the desired behavior in many cases.
-
-In any case I don't think it makes sense for the platform code to impose
-what a reasonable period for interrupts is (especially with such a large
-period as default). Some drivers also have mechanisms to detect spurious
-interrupts based on their specific use case.
-
-> And that's without accounting the fact that devices might have relied on
-> that default for years
-
-They definitely shouldn't have. This feels much closer to a bug, and relying
-on a bug not being fixed is not a reasonable expectation.
-
-Cheers,
-
-Paul
-
---=20
-Paul Kocialkowski,
-
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
-
-Specialist in multimedia, graphics and embedded hardware support with Linux.
-
---nRr05HQbsjo+d+pA
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCAAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmc8qCAACgkQhP3B6o/u
-lQyNqA//fhpdAVQqvylMo3Gk1qRhGxC1NmnJ/zDVaQLE/LckTaAdUDZ/pjbZrZW2
-QKEsyYqTPGMtFLPcVOSEcgQqSFN66NF8VlgD87+nve80O9cLhK+aaTqs82+Llnvu
-4TITELiMmX42AIBSyG4mRJwl65hC00gKLO8FjL27yFUpeOTcH9xwBlBugQCYuFkO
-Z9kx+j8VOvEyHpPbAHKm8nxxFXO+Xvx08kTgId2+geSFA+xFRq7P+m3Ae+ua3MoU
-2CmrZpoE0A0rGZgWhP0N/l20EiiBn2OSZYPpDZhtItHhkRbN5vZDsp6VXjtTUAVO
-QRoG1yj+Kpto2TDc1qq6ZhoDug4nQNhjo9JTHUoGsLckxmfAoqbWNYxEYEAEPcd8
-6K5HliuDSPlWdRh189E8QwP/GYXBB0MBm0fJIXS52K1KH5m2nCMSu2i1BFBld6U0
-yM2kPU2CTrty+GFdA/QTwbA4IdOxLJMpO7qT0SNlsBDEno8Ce1vOxUbtduMLtz8/
-wnKVgdOF2VCnhh8BALSWB8tNcLgsktgmzLHqc4Q86QKaSQkxd2oMX0HlQyDBTnox
-cdvAPrO4Mj62BNvlxrmFFzwl9wtnuy33qhylxrDo/ZVnfQBUCQGjp+L0+oXYRM5C
-rM7L73RZeCVAS10PxqpsBx6pSlwng2TGJ8m/OEmMWdTYFeKF0fc=
-=s7ew
------END PGP SIGNATURE-----
-
---nRr05HQbsjo+d+pA--
 
