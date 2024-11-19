@@ -4,187 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 068BAD44153
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 12:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD52D44155
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 12:52:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xjpRayvJlHjyXJ7KO97gkaSrz6uuwYAJ2wiJyJBgnmo=; b=ZHSBHb2KfNiARJ2Kik1Zyc5N5Y
-	36PZKJ0PnQm3LtwGn1DZIMLJKTcnsKCeyElQiVWVZxmpS9EKuXK6mjvQ6fo9iNWXVQ9OlO1dPw2GC
-	kGdHUCUP3yMh930VvhgqPmSi3hma5eGqIOVptQB3lhKyUkD2zYMee5vk562AX/nIjMH/1eZP1GGOC
-	Y716UcwE4r6LQsbGlmpi9Hk1/l+APL9Cqyt8VTXp8dLTDKtyeRHZw23Yv6aWJadRw3KVDrazNcYw2
-	OxmWcvwWSGtqEEzHnQkiOYR/S0CqNvQAxCjxkA1cL6ELe+S8eN6SGzOXGn7YU854ZHGvDmYxJzV+Q
-	7fcFixnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ii7nhdIGuTiZ2Cjp6gNaEeAPJj6qad8DWD7J3M9rl2U=; b=wpGDizFwkciFNu7Txy0SOFzw4E
+	kZdEyQ7nV1MS0VIPLMENBPsk4eV8PpKU6Tz/HknETsjI2JwtjOVWB/Lg0/HlzLcawa7MKgARk02ee
+	5LGfdxSi+yeNcbi94cIdvUZcwIpqClNkxH+Xau3OfKmFGqkHtRNJWPA9a/OSjQ2yxAXx+WtX9FzkT
+	lZdsLBy/wZc1kRO5chv2mjSGn7n4RQdvSXmmukBnVrbDItj1f4Wztn4kbXTNQFTkdLsKKZMYsH4gB
+	Xe/kC23dc3cBVIkFYrfZdMqMISRIGFpl5VaayRbiHBM0WZgpYMzrPUHwCTl5BEj1tGWOWShS2H4jr
+	mz20/Fjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDNfQ-0000000CPZw-36KB;
-	Tue, 19 Nov 2024 12:49:16 +0000
-Received: from mx08-0063e101.pphosted.com ([185.183.31.155])
+	id 1tDNii-0000000CQ5m-2MFA;
+	Tue, 19 Nov 2024 12:52:40 +0000
+Received: from mx1.sberdevices.ru ([37.18.73.165])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDNeV-0000000CPVT-1N6p
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 12:48:20 +0000
-Received: from pps.filterd (m0247494.ppops.net [127.0.0.1])
-	by mx08-0063e101.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AJBnvpR012331;
-	Tue, 19 Nov 2024 12:47:58 GMT
-Received: from ma0pr01cu009.outbound.protection.outlook.com (mail-southindiaazlp17010003.outbound.protection.outlook.com [40.93.131.3])
-	by mx08-0063e101.pphosted.com (PPS) with ESMTPS id 42xhkxh9b9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 19 Nov 2024 12:47:57 +0000 (GMT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mY4PZJBIcHGDEQcXJG2jI4IDlaGj9rUMerKJqBFjjhysnl246t5HVYj/yP+zZNy6qXoGQDRQbErJ4rrg0cATyPXaXmXEjvQ7QiBs6CHIFmQQDpApPx0oukXk/+zllo1sBDksxr2kwWx1od1ICqnIpRtlCN5QYZn2nV9Y9gs4dgoiJlyTT2v0ZAJULTT44FRisd5cW1i4pNi25dp3tpSpqIpSXu61Dc+SBH1PAEQr5N3TJrjf4D3fxZn6fqBoTqzuH1jbNSOl7F3SCk23ofUU8Rg8WrCUtOgFFhIzqct8TcZZJCWUuDmn9VYpXkOH+lfoZEeBOlWI4/yCLQ+es127JQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xjpRayvJlHjyXJ7KO97gkaSrz6uuwYAJ2wiJyJBgnmo=;
- b=Ct1pbDQnzLbECi8tn/YBHuog3ejCNs7sa0horq7GtudTllgfbvjS2cWpbCEgOKDAIsM5Sjz4kQudX+2HsM6wHLGm9E7G9GckXQELtb7J4ppYotc6nrMUSoHKkOy5rmBfbmhWrHrbEpfoIzYoAmz1Yu+4yj0uYIijY0ko6EtDa7ocTKUlzBsf9oJp5i17iO8S6siUtjHLuXHwxN91xPzoLYmxwC73xvYfCbBIYuX6RiPVv9PR8zcNcS5LKwZP0KRG388Rh2fphYjXRXAz/eKLyHDy/3IiQrhm8hUYeHBQkqJmTqXdqIxRM3Kv2JVsNVFIqXFYl5CKBPpZEKVMf9Li4g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=blaize.com; dmarc=pass action=none header.from=blaize.com;
- dkim=pass header.d=blaize.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=BLAIZE.COM;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xjpRayvJlHjyXJ7KO97gkaSrz6uuwYAJ2wiJyJBgnmo=;
- b=cbHhid8SZMyjpxl/pgQDmF2JOXhpE44GlPkVitErRL/wnlMNENVFbakQezPTJ5wdgMXhQsJ43I4Ih6wSVdEnt6X6aRq86Zue6unaM13aWUUiAW42CszGpd7x/BDJJ2LxEBW8Zo0SyLHpQY13zVKIXiqDTzCd5mRhBlIzhP76Jjs=
-Received: from MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:12a::5)
- by PNXPR01MB7204.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:a0::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.23; Tue, 19 Nov
- 2024 12:47:50 +0000
-Received: from MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::309a:12cf:74a4:5655]) by MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::309a:12cf:74a4:5655%3]) with mapi id 15.20.8158.023; Tue, 19 Nov 2024
- 12:47:50 +0000
-Message-ID: <0c3063f2-1a5d-4ada-a813-7e18a681510e@blaize.com>
-Date: Tue, 19 Nov 2024 12:47:44 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/6] Add support for Blaize BLZP1600 SoC
-To: Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        James Cowgill <james.cowgill@blaize.com>,
-        Matt Redfearn <matthew.redfearn@blaize.com>,
-        Neil Jones <neil.jones@blaize.com>,
-        Catalin Marinas
- <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Olof Johansson <olof@lixom.net>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
-        "soc@lists.linux.dev" <soc@lists.linux.dev>
-References: <20241115-blaize-blzp1600_init_board_support-v5-0-c09094e63dc5@blaize.com>
- <141c7d39-9f0e-4c1c-86c5-149328ab979a@app.fastmail.com>
-Content-Language: en-US
-From: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
-In-Reply-To: <141c7d39-9f0e-4c1c-86c5-149328ab979a@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO2P265CA0330.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:a4::30) To MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:12a::5)
+	id 1tDNhl-0000000CPwS-0Ogn;
+	Tue, 19 Nov 2024 12:51:43 +0000
+Received: from p-infra-ksmg-sc-msk01.sberdevices.ru (localhost [127.0.0.1])
+	by mx1.sberdevices.ru (Postfix) with ESMTP id 754AF10000A;
+	Tue, 19 Nov 2024 15:51:35 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 754AF10000A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
+	s=mail; t=1732020695;
+	bh=Ii7nhdIGuTiZ2Cjp6gNaEeAPJj6qad8DWD7J3M9rl2U=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
+	b=V3a3QIqc1iepwiiqH1aWfprboJYKy+tnR6chs74FjkRi9un1lzCESgB2sigYqsgfJ
+	 W74e9xhXtC17Po3WC5U7pu2oWMcB3pOftWJxDnFwBh/t/4/5Dwm34DRHuRtIZJjZBl
+	 4HChdB9wOoMRWyYOgAmiOD76xPXdtxX5YpTGO0t4eyauoHqkhpsxgZg/sB4i6ElURn
+	 i+hOPRKiHjVIpvRq8tQHijglvNu3uzltqa1zfUSiyrv1gSBMBz1xihOSnZDRF3JqBQ
+	 dt3YccXGJ+XJrvZOE0E+IxLUt01Z4H34BenH3wd+QuMGSlP6I8hYPCNjxADh1NYGq4
+	 XgKUi+NpIqMQQ==
+Received: from smtp.sberdevices.ru (p-i-exch-sc-m01.sberdevices.ru [172.16.192.107])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.sberdevices.ru (Postfix) with ESMTPS;
+	Tue, 19 Nov 2024 15:51:35 +0300 (MSK)
+Message-ID: <ed5cdef1-aaa7-4ff3-a427-87eae4c90f18@salutedevices.com>
+Date: Tue, 19 Nov 2024 15:51:34 +0300
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0PR01MB10184:EE_|PNXPR01MB7204:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2ccb93ee-361a-44cb-92bb-08dd08986077
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Sk5jOGhWNHA0b2Q1UFZES3VaWWw5UjlscVUzbDFlU3BKUEJJNG1rRllkTGdW?=
- =?utf-8?B?WFQ3N29HdWphT3hSakswZHV2cWQ3b2VDVitRWU9qNkRsS0pjZGk4azhieVhj?=
- =?utf-8?B?cXRkRGlWS3lFSzJvTm81NlN5a3Myd3ZxREpFdmwreENsS2FHbzFXNXJ3MjZI?=
- =?utf-8?B?TnR2bzB5WjAwMG56K0tibHBWSllXUWc5RWRlVWl1Q3hibFhORkFrcDJQSXVp?=
- =?utf-8?B?Slp4Uk1zL2dNZFFPMXlKaU1aQ1QvRTR4VStNT0ordURTMFlqVWJnMHFKOTBB?=
- =?utf-8?B?VmxnVm9JNHcva09FNGxSd25JQUZ4WmJtTXp4Z1RBdjZSa2ZOc3FDSGdMWm1z?=
- =?utf-8?B?Y3V6VHRZelp4V3pwUDU2Z3l2Tk1wcXo3a25BaUkydjFnUW4zRVdNTVpmVlZC?=
- =?utf-8?B?STNvcjNBUkx0V1V6TWZPcUxxQ2JES2VNckFqcHlxTWJqS2VmQnFJR0xZcTdK?=
- =?utf-8?B?eXlqR0l0N3JKalU3Y1FHNVpBYmlFeWo4UzF6c2tzbWUrcW5jNlo2T1UzaEdH?=
- =?utf-8?B?NE1QMjNGUGlsckYzWmw4Wi9pK0xUNnp2cmlaZDVIUjRLdGZHTzNZdXhzNm9P?=
- =?utf-8?B?cWZnS3BTZkJlVDd3NVl5dXJOMWsyVHlwTU4yM0FLdlhPaEEyMkxCWDI5bnlR?=
- =?utf-8?B?Q3M5UTg3bDR4bjcxZHZ1OUg3VVBPUmJySDRnK3lvb09NSUhUek41a1MyNzRh?=
- =?utf-8?B?NlRSSzUvVUZuUmRZMDJub1VnVUI0dHh1dXU4ZXZad0RZQ1Y1ZHJKcnVqQm9j?=
- =?utf-8?B?MitvK2NzZHo0OWI2UFNrRjlWNVpQREQvR1NMeGVMbVd3Wll2eHNLVjkyOTN5?=
- =?utf-8?B?aHVPL3EzOWw1TlFaOFVCQ0xsbExQTHRwWWNIZlJ1WTI3VC82WWZNVFlSOSsr?=
- =?utf-8?B?VSt5dmxQZWQzc2FDUHNRYTBRdTBNZWVSeXBCUkh2Y3BkbUlKWXdaUE5Hblg3?=
- =?utf-8?B?cEtnQ3k1Z1pFZWFCeWtKblF4ZGU4SHY4a0JiRzFQekR3Wmw3OVdzZXB1SmVB?=
- =?utf-8?B?aklSY2ZEODdRSnZYcVdJSnM2NU1kZkZxdUdod2pMSXpPT0FnbmNhRVUrMWJO?=
- =?utf-8?B?b2REMVFCNW1SLzR4WkJpeWdBUzFXc0t1N0d0SjlacGZTSnVxbW9zQkp3WnhT?=
- =?utf-8?B?WFNlZkplVk1rRnFKWGI1RmlxZkhsQ3VDNjh3aHFkNTRleHRURU0yVnE3NE96?=
- =?utf-8?B?UEw5YTVvMDhVVVZrcHhONFlNNm41TGtoT2ZVb3JmT3FhUHNvL25QbWFQeXN6?=
- =?utf-8?B?bWZPeTh2b2hPWElnS3k1YXRLNnNlaS9rVlBIWC80ZHoxS05JRWc1VDJFZGN4?=
- =?utf-8?B?WVdKTG5CN3I4TFBwTnRzNGxOd2dnZU5zV3dUZ0pIY1ZFdUNjdGxONThaU29r?=
- =?utf-8?B?ZUdiczFpUzBsQ3JRTEtZNFZicG9PZDA1dVlFZkVqS3ZWb3ZOUUsxeVNka0Fz?=
- =?utf-8?B?ZjhNd3dJRjNYNVFhVFR2MHRFZWswWWxtcnRoU1hiZzE0ZnViUzF2K0Z4SkNa?=
- =?utf-8?B?enY0TDBMdnhQY0VFSVgyY0Y1MEg4ZEduUUlvY21xNEF1SWZhMTVwZStSSmph?=
- =?utf-8?B?ZU1VV0NHY0dSeG05aHJjYk1ESjBheDJhcEgvaUo5c1V0K1djWk1GOWF2UTJX?=
- =?utf-8?B?TVZ0ZC8wbmhJZmFVNkxJbU12OUx3QjFLUDlJVjVjTEhVMHd5WDhzMERiTzl5?=
- =?utf-8?B?Y3dueHRUT0MzbjFpb3NhRSt3QTBudTBRRm04VDFhYzVxQy9EVzVjZnhMVUdH?=
- =?utf-8?Q?L/3ksybSvp2rFxkjOA=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TkN4M3BBcEVpdkU4emZwVEh6K0Q2bGwyVTROZlIyZ25BUDZlV0RNKzQ1a0Za?=
- =?utf-8?B?NzY3VWVkVFA5MlZreW0ydmJwbUVWRUxKdWRHZFNKMmZ1MzZHNW80VGFrZmVr?=
- =?utf-8?B?S29VR2dqb01BZzVDdkYwcm5ycnNtbHAza0QxK0F4N01iWW9yL2EzTFlXZmtI?=
- =?utf-8?B?ZGVoRHZTbGpiQnpJZ3R6eEViTHludm9HZUxpUFdNQ2N2Z2RrQ0lENm9GUWJj?=
- =?utf-8?B?dFdGb3BmbjVQM3l0bEdVMGRxSWR5QzhxT3F6c0U5QU94VjVObVo3US9na2xl?=
- =?utf-8?B?MjN5TzlraXd2b1ZWSFE2b3JwTTY3bitoczZXZ1Fab3E1d1E4UHRYR2tBMGpJ?=
- =?utf-8?B?VFJkck92bnVqTnlQVGJET1V5TWVLN2pRYmlwR0JiWGg3UmlzWGVLM1VEOW1T?=
- =?utf-8?B?VXZjdTJhV1R1QnZweUtYMEFUamJ2ZFN5UVlsSUMyTlJuajlNMWRPeUVGbndF?=
- =?utf-8?B?aWFvOENDZUM3NVNqcEF6ZEZWR0I3c0kzVytKS09EODhremlhOFJrKzR3VkJj?=
- =?utf-8?B?TWJ4c2hrOHZQM3hZZ1FLME5JNGZpTDFmMzVTcXFJMGU0YWhsaDc4akpXdUZD?=
- =?utf-8?B?NnY4Y0ZvRlVMWlN0OWk4cGtjazF1VFkvQkVpUkNQQm1VNjZYa3VUUlU1NG4x?=
- =?utf-8?B?SW4xeENJdFF2dGVtUjdodzhRRzR3SnExNzRrNEdhcHppbmRBbHhld2IvS0E0?=
- =?utf-8?B?ZWFycHBYZC9scGdsbzFBVDN2ZXppeVlZbFcyeVRVL2ZvQVhhejBvalhzbUdn?=
- =?utf-8?B?OXNuSFN0a2l5eFBGbXlsL3ZzNDdkOUxqR0Y2NDlibjZCZHU0aElEdE51YThn?=
- =?utf-8?B?ZUUxSXZqc2E1Rk9tenF4UU9yQjRaNFB6SWFnZEIybDY0REh6Mlc1dStUYTM0?=
- =?utf-8?B?ZUFEUkwzdndHbzFES05OV1REM0hnUEFzeU9ZYUVVeEdGa2RMRnlKeDNQcWls?=
- =?utf-8?B?NU1oaHlVUkZYbzlYV3N2dTZDMk5vYzN2RUNUV1BJNnVwRCt1ZjFDZFBzQXV4?=
- =?utf-8?B?b3VabUdzb0cwWmxySm9mQzBIUkYxVDV2U3RuSXRyY0Ewc2d6dnZnUkQxTm1N?=
- =?utf-8?B?ZklQNHpJTXMvMmZtR3BmbnpQdVNPYTY1OENnbUpPdTgvRU0zSzRCUGVQSTlS?=
- =?utf-8?B?cEF3YUNzTnhhSG5KamF5UTM3L1A4ckcyaFBtY2NqWjlpbDRKd2pOZkluaU1w?=
- =?utf-8?B?RjFUVHZJeEVLd09vMUtZZDQzdkhVRGtJbDVGcnpVL240OW4vSmYxQS9IWUh5?=
- =?utf-8?B?Qzd5WG5qTTRMQjhyQy9sakd3RXFWbGtONnNmQXpFQjJNeGd5a1RjR3ZVZDQx?=
- =?utf-8?B?ekZscE1xUE9Sa0Z2QXh3d1ozcE9kSUdySHJNOHVXd2JzSFhsbjJLbExJNDdY?=
- =?utf-8?B?WnN6cmVLLzd0MHppM053b3FOV0czUEpCWDZVVytwYXBvQk4zaUR4eFBTdjc5?=
- =?utf-8?B?QUlzaXJ0OWlqanVrTkpZSkdOTjh6eTZWaE5HUFV2QlpMUUJWTktnSUVJYmk0?=
- =?utf-8?B?WnVKeElZN2d2cXNlTUJwOVQ0U2xZeHhhc3RVOFNoTWJIUzk2OHRKZFZyaGdH?=
- =?utf-8?B?cjhJdWtTN1ZNeElQNENiSzUzK1lPdWxFeXRpRmVyek1PbFlWWDRsbTZrdG1p?=
- =?utf-8?B?cEdKYmEzdE1IM1BlTVB4QmtOTEpVZXF5YmY5NjZrSDdjTmQ3L1ZwV2VURVFv?=
- =?utf-8?B?VmMrT3FWazlrZUZHejhJcDRtQ0NmQWNiU1k3WmU5ZFBrNnY3Y1pPUHFGOTRy?=
- =?utf-8?B?aUYrcG1vWExORDBuK3ZxM0EwT0NRejJoSDdHUEVQdmtpWUdWODBmQWR4ZnJz?=
- =?utf-8?B?SUU2QjN4dWQwcUs0czZKNldtQ2hvQjlFSy92blJZa25kbDFqQkQyNUNWTjhE?=
- =?utf-8?B?Kzh6R3R1b2NhbFdXS0RmYXlBb042M2FVVDZ1WnFOM2hhSU1WUWdJWVZZdlBK?=
- =?utf-8?B?SDhKc0tKamczSmJMbnpUMER5ZlpFL0c4VzNOUngrSmN3UDU2b1k2MnlFQXFY?=
- =?utf-8?B?QTdjZ0FuMmJXVVFLaUlrRmVobDJYWUdzbThNdlBRVkpQb1FEaldDMjliRTEy?=
- =?utf-8?B?dnI1aHZmVVJueGt4UnJZZFJIZE1EYlo5Yk52Q05JeG1MRldubTNqOThTMy9O?=
- =?utf-8?B?ak1EUXZnK00yazFyVTY1SUIvZnREK2svdW5kQTRMdWdrd3JHb1ZldE1QVlVx?=
- =?utf-8?Q?48V1inhazaK8HERkcWtwJVs=3D?=
-X-OriginatorOrg: blaize.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ccb93ee-361a-44cb-92bb-08dd08986077
-X-MS-Exchange-CrossTenant-AuthSource: MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2024 12:47:50.5572
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 9d1c3c89-8615-4064-88a7-bb1a8537c779
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rDILy1DonaayMfMnMzfO8ASx5BosYuKC9rtqDN8z8yVExAiypueTH9qfn82xRb1ogxvpNU5frnWXJpWhuVuyOMnSJIGObSRgRSBrYvLwH84=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PNXPR01MB7204
-X-Authority-Analysis: v=2.4 cv=EPtU0EZC c=1 sm=1 tr=0 ts=673c88fd cx=c_pps a=4gqXieoWB9RDLA/+jw4MSQ==:117 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=4MthsM0t3ikA:10
- a=-5LYVjoNHPMA:10 a=SrsycIMJAAAA:8 a=VwQbUJbxAAAA:8 a=FHrv_42d3wVIYeB7chIA:9 a=QEXdDO2ut3YA:10 a=Dzz9xnhHhD8A:10 a=zapPnUM7SFj2ezx6rUw-:22
-X-Proofpoint-ORIG-GUID: XLiioK0uUoj05IbEVyogyujf08pysLq8
-X-Proofpoint-GUID: XLiioK0uUoj05IbEVyogyujf08pysLq8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-11-19_04,2024-11-18_01,2024-09-30_01
-X-Proofpoint-Spam-Reason: orgsafe
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] pwm: meson: Support constant and polarity bits
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+CC: <neil.armstrong@linaro.org>, <khilman@baylibre.com>,
+	<jbrunet@baylibre.com>, <martin.blumenstingl@googlemail.com>,
+	<linux-pwm@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<kernel@salutedevices.com>
+References: <20241016152553.2321992-1-gnstark@salutedevices.com>
+ <20241016152553.2321992-3-gnstark@salutedevices.com>
+ <w3igi2jmva6mfa7anlieyp3iiwfzhsvi3t37wwcqqtzdy42fqn@btmdsfsmpw7r>
+ <f08513c8-56d6-4551-8ac6-84641c134552@salutedevices.com>
+ <l5xvdndysdvtil472it6ylthcfam5jp7lh3son45mezq7dh2yk@3yj557k2o5k5>
+Content-Language: en-US
+From: George Stark <gnstark@salutedevices.com>
+In-Reply-To: <l5xvdndysdvtil472it6ylthcfam5jp7lh3son45mezq7dh2yk@3yj557k2o5k5>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [176.57.76.73]
+X-ClientProxiedBy: p-i-exch-a-m1.sberdevices.ru (172.24.196.116) To
+ p-i-exch-sc-m01.sberdevices.ru (172.16.192.107)
+X-KSMG-Rule-ID: 10
+X-KSMG-Message-Action: clean
+X-KSMG-AntiSpam-Lua-Profiles: 189267 [Nov 19 2024]
+X-KSMG-AntiSpam-Version: 6.1.1.7
+X-KSMG-AntiSpam-Envelope-From: gnstark@salutedevices.com
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: not_detected
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Auth: dkim=none
+X-KSMG-AntiSpam-Info: LuaCore: 41 0.3.41 623e98d5198769c015c72f45fabbb9f77bdb702b, {Tracking_from_domain_doesnt_match_to}, 127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;salutedevices.com:7.1.1;smtp.sberdevices.ru:5.0.1,7.1.1, FromAlignment: s
+X-MS-Exchange-Organization-SCL: -1
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiPhishing: Clean
+X-KSMG-LinksScanning: Clean
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2024/11/19 08:41:00 #26886618
+X-KSMG-AntiVirus-Status: Clean, skipped
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_044819_671595_0AC57938 
-X-CRM114-Status: GOOD (  25.97  )
+X-CRM114-CacheID: sfid-20241119_045141_473885_11BE1541 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -199,61 +102,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/11/2024 15:09, Arnd Bergmann wrote:
+Hello Uwe
 
-> On Fri, Nov 15, 2024, at 15:58, Niko Pasaloukos wrote:
->> Blaize, Inc. (http://www.blaize.com) is a SoC designer and manufacturer
->> with integrated programmable Graph-Streaming-Processors for AI
->> and ML. This series adds support for the Blaize BLZP1600 SoC.
+On 11/7/24 11:41, Uwe Kleine-König wrote:
+> On Wed, Nov 06, 2024 at 04:54:41PM +0300, George Stark wrote:
+>> On 11/4/24 12:32, Uwe Kleine-König wrote:
+>>>> @@ -68,6 +72,8 @@ static struct meson_pwm_channel_data {
+>>>>    	u8		clk_div_shift;
+>>>>    	u8		clk_en_shift;
+>>>>    	u32		pwm_en_mask;
+>>>> +	u32		const_en_mask;
+>>>> +	u32		inv_en_mask;
+>>>>    } meson_pwm_per_channel_data[MESON_NUM_PWMS] = {
+>>>>    	{
+>>>>    		.reg_offset	= REG_PWM_A,
+>>>> @@ -75,6 +81,8 @@ static struct meson_pwm_channel_data {
+>>>>    		.clk_div_shift	= MISC_A_CLK_DIV_SHIFT,
+>>>>    		.clk_en_shift	= MISC_A_CLK_EN_SHIFT,
+>>>>    		.pwm_en_mask	= MISC_A_EN,
+>>>> +		.const_en_mask	= MISC_A_CONSTANT_EN,
+>>>> +		.inv_en_mask	= MISC_A_INVERT_EN,
+>>>>    	},
+>>>>    	{
+>>>>    		.reg_offset	= REG_PWM_B,
+>>>> @@ -82,6 +90,8 @@ static struct meson_pwm_channel_data {
+>>>>    		.clk_div_shift	= MISC_B_CLK_DIV_SHIFT,
+>>>>    		.clk_en_shift	= MISC_B_CLK_EN_SHIFT,
+>>>>    		.pwm_en_mask	= MISC_B_EN,
+>>>> +		.const_en_mask	= MISC_B_CONSTANT_EN,
+>>>> +		.inv_en_mask	= MISC_B_INVERT_EN,
+>>>>    	}
+>>>>    };
+
+...
+
+>>> Personally I'd prefer:
+>>>
+>>> 	value &= ~MESON_PWM_REG_MISC_CONST_EN(pwm->hwpwm);
+>>> 	if (meson->data->has_constant && channel->constant)
+>>> 		value |= MESON_PWM_REG_MISC_CONST_EN(pwm->hwpwm);
+>>>
+>>> even though your variant only mentions the mask once. While it has this
+>>> repetition, it's clear what happens without having to know what
+>>> meson_pwm_assign_bit() does. Maybe that's subjective?
 >>
->> The SoC can run as either a PCIe based accelerator in a host
->> system, or as a stand alone SoC running Linux on its integrated
->> dual core ARM Cortex A53 cluster.
+>> Actually I also don't like meson_pwm_assign_bit() too match and I'm
+>> surprised there's no something like this in the kernel already.
+>> I again objdumped versions meson_pwm_assign_bit() vs double mask repetition.
+>> Unconditional bit clearing takes only a single instruction:
 >>
->> The SoC includes a suite of peripherals, support for which will
->> be added later.
+>> // value &= ~channel_data->const_en_mask;
+>> 9ac:	0a250040 	bic	w0, w2, w5
 >>
->> This first series is just the basics to get the upstream
->> kernel to boot with a UART console and ARM SCMI based
->> clocks and resets.
+>> So in the current series I could drop meson_pwm_assign_bit() and use:
 >>
-> Hi Niko,
->
-> This version looks good to me, but it's likely that others
-> still have review comments. Either way I should let you know
-> of the next steps for merging the series.
->
-> Since the 6.13 development cycle is now over (the
-> merge window starts once Linus publishes 6.12
-> this weekend), the earliest release to merge this
-> into is now 6.14.
->
-> Once 6.13-rc1 is out and the patch review is complete,
-> you can submit the patches for inclusion by sending
-> to:soc@lists.linux.dev (formerly soc@kernel.org).
-> This is usually done as a pull request, but separate
-> patches are fine as well, especially if you don't yet
-> have a kernel.org account.
->
-> After the entry to the MAINTAINERS file is merged,
-> I suggest you also apply for a kernel.org account,
-> see [1]. You probably also read the documentation at
-> [2] about the usual process, let me know if you
-> have questions about that.
->
->         Arnd
->
-> [1] https://urldefense.com/v3/__https://korg.docs.kernel.org/accounts.html__;!!FddXBOku!ny-gN1hGaRTxNpi1ADJf_s3xLmuIdAZzGy4uj6kacOw-p3lLhZfSFLF2Mb9UcuIbd1By_ERGVnHqEbEiXhbK1g$
-> [2] https://urldefense.com/v3/__https://www.kernel.org/doc/Documentation/process/maintainer-soc.rst__;!!FddXBOku!ny-gN1hGaRTxNpi1ADJf_s3xLmuIdAZzGy4uj6kacOw-p3lLhZfSFLF2Mb9UcuIbd1By_ERGVnHqEbHSKH7PdA$
+>> value &= ~channel_data->const_en_mask;
+>> if (meson->data->has_constant && channel->constant)
+>> 	value |= channel_data->const_en_mask;
+>>
+>> If it's decided now or later to drop meson_pwm_channel_data then
+>> w\o meson_pwm_assign_bit() future patch will be line-to-line change.
+>>
+>> What you think?
+> 
+> Sounds sensible.
 
-Hi Arnd,
+While changing the patch to drop meson_pwm_assign_bit() one thing
+concerned me on the approach:
 
-Thank you very much for the detailed explanation of the merging process and release
-cycles.
-Also, I would like to thank all the people who help me during the review process
-and for their helpful comments.
+value &= ~channel_data->const_en_mask;
+if (meson->data->has_constant && channel->constant)
+	value |= channel_data->const_en_mask;
 
-Best regards,
-Niko
+that we reset bit in the value var even if that bit is not supported on
+the current SoC. I checked several datasheets for old SoCs and those 
+bits are marked as unused (not even reserved) and I've never seen those
+bits set. Still I'd offer to use precise condition for changing those 
+bit. I'll send v3 let's discuss it again if you think I bother too much.
 
+> 
+> Best regards
+> Uwe
+
+-- 
+Best regards
+George
 
