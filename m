@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2022D60D0D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 03:05:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDB94D60D15
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 03:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UAJZCZU7/qPDcl2NoaRmXeUmbk1vh+x3G7C6PlBcxNQ=; b=D01Q8tGPtkZ8e/CVTjJlz3vBcT
-	PDKDYhpnHHmtedhsph8h/QqAUys5TsFX1IRS4WHjlJmRjIzq4f6h+Me4pvqEuCIkGQKqztCwzklzv
-	xatyETzG7ZlOOYj1WveTACELGeE9RI5Ar59LpSil8tHzjNNelTiI40by/h101qwXzZN69/ey7pjJF
-	hj9r+nbJPctLhiPLnufGQNBlKZ6n3jrD5KVXibT+DWhuyv+5xPbEgs8fLJkQMdprUuXxPk+Yi3E0F
-	jjwUeK+vQxyKnztIirTsS+nei3Fjl9wUuYG4T/hicE+vxRwR8bBWH6L/EAKQ598a621XEMqG7alkG
-	7AWaHZPw==;
+	bh=qyYD6eML22QhKHsF1CHeRsnOHX4JqzA+icG3EtNc4Po=; b=UzxpvRPNp/nDxOReAH+KCAj1Ip
+	v8BWpwJsFycnmVo1kpfy+l9+kzTpN1x21Pva1NKmaHEZr5j6hli+rErFR9y9Ipid5UcBcmW7aio6O
+	aPcTKqqsDT4kgR0dfmbSKmBCB6C8T0gXaXbXe1A/PUTJkZQAWBbnxDVuhPOjLNDizNyPYaalOj7MY
+	WjNmRdd0bp1yk12UIJBFMuK4VVDwdHwWYb68pzC1gCr6UfM/Ca2SHVp5DxRG6K4YtEjmSX52KGIgJ
+	NBM/nXYLyTT6mDBm2mNZuYSzGlF2VrKEOu7lQQBHBUKWlUiuqjB2uWk5Ld0p2o35R37NXBQBcldns
+	8y1gF1aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDEYB-0000000BFLS-0Fm5;
-	Tue, 19 Nov 2024 03:05:11 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tDFE2-0000000BJ0q-061e;
+	Tue, 19 Nov 2024 03:48:26 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDEXE-0000000BFD8-3gJS
+	id 1tDFD5-0000000BIxF-3RwY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 03:04:14 +0000
+	Tue, 19 Nov 2024 03:47:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9F033A40FF7;
-	Tue, 19 Nov 2024 03:02:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15713C4CECC;
-	Tue, 19 Nov 2024 03:04:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 91B075C10D8;
+	Tue, 19 Nov 2024 03:46:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40E8FC4CECF;
+	Tue, 19 Nov 2024 03:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731985451;
-	bh=8UnIt6nf6xlNgw20k3rqUKdl+epAp0Ho80SLBcAHygQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=YgRc5s+1hk8UrAiA9YpkiUisBj3YXqSWEoab1ujN/3Scj/17f5noFnouTbd1cTjZv
-	 FhCUQG1w37JR/eIrCTWMhwDdx4tSHsY3dEPBloF9oIwR5UpRxnCrpI1Z69+ecbPzYf
-	 gtaPmVA3bOGJ3QtN6gHTaxQwNcN7lDodFfAw4hZ+C1lQtaWK74Q3fwHdCG+orufoZB
-	 kxOaSOMl2xPrTIr5RZS52CXHoOP8dZxQAGzsFKas2OPDEBuRNBUXnFNnrdj7cc0w5f
-	 uCoNsYMaWnajB9DWP5P7bgb4wahVsOJIvNdl/wtxWw90f5GkdWsOAaXTShW9chNYSe
-	 BFeiOnHNrnH9w==
-Date: Mon, 18 Nov 2024 19:04:10 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, "Lars Povlsen"
- <lars.povlsen@microchip.com>, Steen Hegelund
- <Steen.Hegelund@microchip.com>, Horatiu Vultur
- <horatiu.vultur@microchip.com>, Russell King <linux@armlinux.org.uk>,
- <jacob.e.keller@intel.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
- <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
- <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH net-next v3 0/8] net: lan969x: add RGMII support
-Message-ID: <20241118190410.4b576c45@kernel.org>
-In-Reply-To: <20241118-sparx5-lan969x-switch-driver-4-v3-0-3cefee5e7e3a@microchip.com>
-References: <20241118-sparx5-lan969x-switch-driver-4-v3-0-3cefee5e7e3a@microchip.com>
+	s=k20201202; t=1731988046;
+	bh=RKLamRwBayIwDIcA2zlPwWfk0nYyiCevvGVdQc4QLko=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=Mwj0WlTaEgRMpDPDtyTSjZOeUQcjAwlai3euRxpBQC60iZWIwFkvZLfkkYog8Hinr
+	 8oSF/VuT3hVS5mc2pxiP/FhekFtNtkMZlcqBIAxXPGOB+l/kAAv36f98R+d3mw8MPD
+	 he6/XCTP65tMud2UizHNrSK4ngrQmwx275y1ErGrxCmo+JxefpVmYcqI0f+DmWCdZs
+	 +yGG1C8jYh0/+iDsVa/Lz3NiWQEfV6+yx1BdD5pEeFsori/W1/dYGSaREdbrwEHDcC
+	 LXfRDX9IuwWh+O/fWwp++CRXJWcy7JwAuVHQJomzOoydIYelUIuoguSbL5+cDdnofu
+	 4xmioD0tsxWDg==
+Message-ID: <943d74eeb9ef087832404a583f4f7d86.sboyd@kernel.org>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20241116163854.122610-1-andersson@kernel.org>
+References: <20241116163854.122610-1-andersson@kernel.org>
+Subject: Re: [GIT PULL] Qualcomm clock updates for v6.13
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Danila Tikhonov <danila@jiaxyga.com>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Taniya Das <quic_tdas@quicinc.com>, Manikanta Mylavarapu <quic_mmanikan@quicinc.com>, Imran Shaik <quic_imrashai@quicinc.com>, Johan Hovold <johan+linaro@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, Sricharan Ramabadhran <quic_srichara@quicinc.com>, Arnd Bergmann <arnd@arndb.de>, Devi Priya <quic_devipriy@quicinc.com>, Gabor Juhos <j4g8y7@gmail.com>, Jonathan Marek <jonathan@marek.ca>, Konrad Dybcio <quic_kdybcio@quicinc.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Bjorn Andersson <andersson@kernel.org>, linux-clk@vger.kernel.org
+Date: Mon, 18 Nov 2024 19:47:24 -0800
+User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_190412_983177_8190877D 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20241118_194727_904315_23485CD0 
+X-CRM114-Status: UNSURE (   7.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,36 +72,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 Nov 2024 14:00:46 +0100 Daniel Machon wrote:
-> This series is the fourth of a multi-part series, that prepares and adds
-> support for the new lan969x switch driver.
-> 
-> The upstreaming efforts is split into multiple series (might change a
-> bit as we go along):
-> 
->         1) Prepare the Sparx5 driver for lan969x (merged)
-> 
->         2) Add support for lan969x (same basic features as Sparx5
->            provides excl. FDMA and VCAP, merged).
-> 
->         3) Add lan969x VCAP functionality (merged).
-> 
->     --> 4) Add RGMII support.  
-> 
->         5) Add FDMA support.
+Quoting Bjorn Andersson (2024-11-16 08:38:53)
+>=20
+> The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758e=
+dc:
+>=20
+>   Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+>=20
+> are available in the Git repository at:
+>=20
+>   https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qco=
+m-clk-for-6.13
+>=20
+> for you to fetch changes up to f1f49cc505bc998d7c13e5a518d027419a21fbae:
+>=20
+>   clk: qcom: remove unused data from gcc-ipq5424.c (2024-11-11 21:57:38 -=
+0600)
+>=20
+> ----------------------------------------------------------------
 
-## Form letter - net-next-closed
-
-The merge window for v6.13 has begun and net-next is closed for new drivers,
-features, code refactoring and optimizations. We are currently accepting
-bug fixes only.
-
-Please repost when net-next reopens after Dec 2nd.
-
-RFC patches sent for review only are welcome at any time.
-
-See: https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#development-cycle
--- 
-pw-bot: defer
-
+Thanks. Pulled into clk-next
 
