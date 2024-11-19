@@ -4,58 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B1AD4415F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA8F2D4415E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=apNEKqsLDM4Ri7hgob0Yhdw/qa3kz4niROBe5J4FIJ0=; b=DF4bz024GE1179WIXkowlAA+1G
-	eC7kVrUNwD2eqj92ERLDfac3gOWjVp9yMdSweMBsi/jrIxY1uo6jF9agWmgh875NsucxT6RUifu1+
-	FnVXer4xANL7rTqDgAIeLAzBkXEm48bj053eFuGWwkg4VYIr4fEXo6qorksMlHgzmkmxpyAKoQowd
-	3S+ZXorqXxhF9xH6XIFKcRg8ICYFrP47OGuiewx+wA1bwMae07vECIcv8uCJxx+mpuK/aLabO0nQ9
-	p1MuSg085o0hlsOaWHRunrc4pZ2etUYclHmgsHi4JLmnJw1k3Sul/SnbCamaCtXwE9bWB8VtwNvoP
-	/kZOG6nA==;
+	bh=n/8L6jiP0MMCe6YnhTtuyP2MV88r7Yd1I8/6RUdDlQk=; b=aP1GzzyBBuvalQOU+pgx1spBM4
+	r4ZjHJ86rFDrBdC99P/x5T6zZZz4G7NC8A/wa0xx2k5zoZgme0F9kFs2tpZNTzodgNitTrQSyZ8as
+	smJrlRhoSbwHo0pMwXbd0pq2B8CuwNKq8MYkvxo7+nNikk8E1dzX8HLSS/60BHjXQVa5nDTMtEoYP
+	ntCfdHIAo1ykdp+wdm/5Pw5MUkn2gWTErSRuao2tsfEpmrj2nHTcJ2pFfSW4kEHU6dX5/etJvU+vz
+	UQt/VPAEYoc0/AV2pWeSNQv4it0XB5eBUQwnqAFfMSVHFh7ClNIUvDy/AgKxiCI1wVafjgxkIf768
+	na0i7iCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDOXg-0000000CZ1U-1JZG;
-	Tue, 19 Nov 2024 13:45:20 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1tDOYZ-0000000CZCw-3xVs;
+	Tue, 19 Nov 2024 13:46:15 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDOQz-0000000CXRZ-1Iuu
+	id 1tDOR5-0000000CXWl-40vn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 13:38:29 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Xt5BY1XngzQtwp;
-	Tue, 19 Nov 2024 21:36:53 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 95FF6180064;
-	Tue, 19 Nov 2024 21:38:14 +0800 (CST)
-Received: from huawei.com (10.175.103.91) by kwepemf100008.china.huawei.com
- (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 19 Nov
- 2024 21:38:13 +0800
-From: Zeng Heng <zengheng4@huawei.com>
-To: <james.morse@arm.com>, <Dave.Martin@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <jonathan.cameron@huawei.com>,
-	<xiexiuqi@huawei.com>, <linux-arm-kernel@lists.infradead.org>
-Subject: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v2 1/6] arm_mpam: Introduce the definitions of intPARTID and reqPARTID
-Date: Tue, 19 Nov 2024 21:50:59 +0800
-Message-ID: <20241119135104.595630-2-zengheng4@huawei.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241119135104.595630-1-zengheng4@huawei.com>
-References: <20241119135104.595630-1-zengheng4@huawei.com>
+	Tue, 19 Nov 2024 13:38:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=n/8L6jiP0MMCe6YnhTtuyP2MV88r7Yd1I8/6RUdDlQk=; b=jyBeVuQ8YgM7rp6UTaSBQbCsgi
+	mUDUUxwYRmnKMSB5N+E5ZWXUQtgvZnVfVaMnKw9RSolP/Xuy6ITn6EpVwkHvrwO0uhs9acKbe1Zl+
+	irmKSRLWDJuTQJCPamsfM/q/N7vUSwxctESCXcYB0NwMaTmDJIbAF78zYiq4Ckk2mP4c=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tDOQx-00Dnxs-62; Tue, 19 Nov 2024 14:38:23 +0100
+Date: Tue, 19 Nov 2024 14:38:23 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
+Cc: Sean Anderson <sean.anderson@linux.dev>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"Simek, Michal" <michal.simek@amd.com>,
+	"Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+	"horms@kernel.org" <horms@kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"git (AMD-Xilinx)" <git@amd.com>,
+	"Katakam, Harini" <harini.katakam@amd.com>
+Subject: Re: [PATCH net-next 1/2] dt-bindings: net: xlnx,axi-ethernet: Add
+ bindings for AXI 2.5G MAC
+Message-ID: <d25ad78f-a009-4a0e-9052-ed247e6a2afc@lunn.ch>
+References: <20241118081822.19383-1-suraj.gupta2@amd.com>
+ <20241118081822.19383-2-suraj.gupta2@amd.com>
+ <20241118165451.6a8b53ed@fedora.home>
+ <410bf89c-7218-463d-9edf-f43fc1047c89@linux.dev>
+ <ce534b32-7363-4433-8b1d-4e01c3d92084@lunn.ch>
+ <BL3PR12MB657106F2B29FE44123C672EEC9202@BL3PR12MB6571.namprd12.prod.outlook.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.175.103.91]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemf100008.china.huawei.com (7.202.181.222)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <BL3PR12MB657106F2B29FE44123C672EEC9202@BL3PR12MB6571.namprd12.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_053825_780202_5A9CF8F4 
-X-CRM114-Status: GOOD (  20.16  )
+X-CRM114-CacheID: sfid-20241119_053831_992917_73FA892F 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,144 +86,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The narrow-partid feature in MPAM allows for a more efficient use of
-PARTIDs by enabling a many-to-one mapping of reqpartids (requested PARTIDs)
-to intpartids (internal PARTIDs). This mapping reduces the number of unique
-PARTIDs needed, thus allowing more tasks or processes to be monitored and
-managed with the available resources.
+> > Do you mean 2.5G is a synthesis option? Or are you saying it has always been able
+> > to do 2.5G, but nobody has added the needed code?
+> > 
+> > This is a pretty unusual use of max-speed, so i would like to fully understand why it
+> > is being used before allowing it.
+> > 
+> >         Andrew
+> 
 
-Intpartid(Internal PARTID) is an internal identifier used by the hardware
-to represent a specific resource partition. It is a low-level identifier
-that the hardware uses to track and manage resource allocation and
-monitoring.
+> 2.5G support was already there in hardware, driver is getting
+> upstream now. 1G or 2.5G configuration needs to be selected before
+> synthesis. In 2.5G configuration it supports only 2.5G speed.
 
-Reqpartid(Request PARTID) is an identifier provided by the software when
-requesting resources from the memory system. It indicates the desired
-partition for resource monitoring. By using reqpartids, software can
-monitor specific resources or allow the system to subdivide smaller
-granularity partitions within existing partitions to serve as monitoring
-partitions.
+So when the PCS is fixed to 2.5G, are you planning on using rate
+adaptation to support lower speeds? There are a few systems doing
+this, mostly by using pause frames between the PHY and the MAC.
 
-Regarding intPARTID, MPAM uses it as the unit for control group
-configuration delivery. MPAM will synchronize the delivered configuration
-to all reqPARTIDs mapped to the same intPARTIDs. The number of intPARTIDs
-is indicated by MPAMF_PARTID_NRW_IDR.INTPARTID_MAX if implemented, or
-directly use the number of PARTID as intpartid_max.
+> I'm exploring registers to get 1G / 2.5G selections information
+> instead of using max-speed. Will send next series soon.
 
-reqPARTIDs can be used to expand the number of monitors, for each control
-group is no longer simply restricted by the range of PMG. By mapping
-between intPARTID and reqPARTID, the number of monitors would be greatly
-expanded and more fine-grained monitoring under a control group will be
-achieved.
+That would be best. The PCS might itself report its
+capabilities. Sometimes there is the equivalent of the BMSR.
 
-After initialization, MPAM driver would select the minimum intpartid_max
-among all classes of MSCs as the number of CLOSIDs, and use partid_max as
-the number of reqPARTIDs.
+> Just for my understanding, could you please share the use of
+> max-speed DT property if possible?
 
-Signed-off-by: Zeng Heng <zengheng4@huawei.com>
----
- drivers/platform/arm64/mpam/mpam_devices.c  | 12 +++++++++++-
- drivers/platform/arm64/mpam/mpam_internal.h |  2 ++
- drivers/platform/arm64/mpam/mpam_resctrl.c  |  9 +++++++--
- 3 files changed, 20 insertions(+), 3 deletions(-)
+It is generally used to remove higher speed operation because they are
+broken for a particular board. It should be considered a board
+property, not a SoC property.
 
-diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
-index 9463045c0011..ca621bb132e9 100644
---- a/drivers/platform/arm64/mpam/mpam_devices.c
-+++ b/drivers/platform/arm64/mpam/mpam_devices.c
-@@ -67,6 +67,7 @@ static DEFINE_MUTEX(mpam_cpuhp_state_lock);
-  * Generating traffic outside this range will result in screaming interrupts.
-  */
- u16 mpam_partid_max;
-+u16 mpam_intpartid_max;
- u8 mpam_pmg_max;
- static bool partid_max_init, partid_max_published;
- static DEFINE_SPINLOCK(partid_max_lock);
-@@ -222,10 +223,16 @@ int mpam_register_requestor(u16 partid_max, u8 pmg_max)
- 	spin_lock(&partid_max_lock);
- 	if (!partid_max_init) {
- 		mpam_partid_max = partid_max;
-+		/*
-+		 * Update mpam_intpartid_max here, in case the
-+		 * system doesn't have narrow-partid feature.
-+		 */
-+		mpam_intpartid_max = partid_max;
- 		mpam_pmg_max = pmg_max;
- 		partid_max_init = true;
- 	} else if (!partid_max_published) {
- 		mpam_partid_max = min(mpam_partid_max, partid_max);
-+		mpam_intpartid_max = min(mpam_intpartid_max, partid_max);
- 		mpam_pmg_max = min(mpam_pmg_max, pmg_max);
- 	} else {
- 		/* New requestors can't lower the values */
-@@ -984,7 +991,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 		u16 partid_max = FIELD_GET(MPAMF_PARTID_NRW_IDR_INTPARTID_MAX, nrwidr);
- 
- 		mpam_set_feature(mpam_feat_partid_nrw, props);
--		msc->partid_max = min(msc->partid_max, partid_max);
-+		msc->intpartid_max = min(msc->partid_max, partid_max);
-+	} else {
-+		msc->intpartid_max = msc->partid_max;
- 	}
- 
- 	mpam_mon_sel_outer_unlock(msc);
-@@ -1046,6 +1055,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 
- 	spin_lock(&partid_max_lock);
- 	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
-+	mpam_intpartid_max = min(mpam_intpartid_max, msc->intpartid_max);
- 	mpam_pmg_max = min(mpam_pmg_max, msc->pmg_max);
- 	spin_unlock(&partid_max_lock);
- 
-diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
-index 5af6ed60272e..5fc9f09b6945 100644
---- a/drivers/platform/arm64/mpam/mpam_internal.h
-+++ b/drivers/platform/arm64/mpam/mpam_internal.h
-@@ -86,6 +86,7 @@ struct mpam_msc
- 	bool			error_irq_requested;
- 	bool			error_irq_hw_enabled;
- 	u16			partid_max;
-+	u16			intpartid_max;
- 	u8			pmg_max;
- 	unsigned long		ris_idxs[128 / BITS_PER_LONG];
- 	u32			ris_max;
-@@ -466,6 +467,7 @@ static inline void mpam_assert_srcu_read_lock_held(void)
- 
- /* System wide partid/pmg values */
- extern u16 mpam_partid_max;
-+extern u16 mpam_intpartid_max;
- extern u8 mpam_pmg_max;
- 
- /* Scheduled work callback to enable mpam once all MSC have been probed */
-diff --git a/drivers/platform/arm64/mpam/mpam_resctrl.c b/drivers/platform/arm64/mpam/mpam_resctrl.c
-index 76ddbce0ea9c..ac3d228befcf 100644
---- a/drivers/platform/arm64/mpam/mpam_resctrl.c
-+++ b/drivers/platform/arm64/mpam/mpam_resctrl.c
-@@ -162,6 +162,11 @@ static bool mpam_resctrl_hide_cdp(enum resctrl_res_level rid)
-  * only the system wide safe value is safe to use.
-  */
- u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
-+{
-+	return mpam_intpartid_max + 1;
-+}
-+
-+static u32 get_num_reqpartid(void)
- {
- 	return mpam_partid_max + 1;
- }
-@@ -169,9 +174,9 @@ u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
- u32 resctrl_arch_system_num_rmid_idx(void)
- {
- 	u8 closid_shift = fls(mpam_pmg_max);
--	u32 num_partid = resctrl_arch_get_num_closid(NULL);
-+	u32 num_reqpartid = get_num_reqpartid();
- 
--	return num_partid << closid_shift;
-+	return num_reqpartid << closid_shift;
- }
- 
- u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid)
--- 
-2.25.1
-
+	Andrew
 
