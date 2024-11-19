@@ -4,103 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90C20D6C285
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 18:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B17A7D6C281
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 18:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TjjEcmv2liyk/XEk1ss5lodHgFTZTAwHIgNTYP/SyTw=; b=J9YZcciqUQ7Eqb857aglg16Yu9
-	P1bFmErF16dbuRWB76w4cgE2LUxZpSjhdjGUemO87KgUtv64218pI10XlC2PuKjDNFNAxoyipUShu
-	pni29x3vJ34dloMQzEKgImhObDGPtS/2tCr9JsjZxn8v5ArwScxQ79/eP3r4wm2d9qa5Fvwx95C2C
-	hyal6e0o/JPMrAsjMmkzBAEgYMwTixZciID4YGrqlIZW4RnTd7bJ4oonwVxW1wADVYFym0n2eMXkk
-	FNTkhjI7slj8ploshGf4oO4Bhbu5yzMJOPnz+/P31vYG2a4R/EWwXxku6CKO3PFWpN6mqPIoos7OY
-	IaDr8sdw==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UuK3p+uvjZvx0HNezvGzX9HUjU835mI4PLZS0cKZ5GI=; b=ch53EUpRPJkkukZ7bsvCevcV0O
+	RAievXakmhyvO+iZ1zS8xE9t8YcllOqpgSDLwQBQiM53bkKf4cAYlxbCAAmv3MfGDxVZvmpGWSzGt
+	Gi2KeyH6eCpl9Osou7aM0pDe0hGx3psBavGbEKEkNmSrMRSzEz4FNun0dQ2iPi2IsZB7xQs/ELWKA
+	Z/A4Tp9Sos1ws3oDENqc+aEuV73X4KI++TEmv+nRnTToVzfU5cuCb/ECK35K8wk/zJO2830nhDdsp
+	kPgfuV9jVNJ4U/nxh8cfuI55PHFdZYxlh5KU0fSio76zg6lUFMseee2XVBJcF0Ag1w5rysbz2WkCI
+	YEdLD05A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDSzE-0000000DOOU-35M8;
-	Tue, 19 Nov 2024 18:30:04 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1tDTDY-0000000DQer-47xP;
+	Tue, 19 Nov 2024 18:44:52 +0000
+Received: from [198.47.23.234] (helo=lelvem-ot01.ext.ti.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDSyH-0000000DOCn-3sKr
+	id 1tDTCc-0000000DQR3-0sRh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 18:29:08 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3824aef833bso1581271f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 10:29:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1732040943; x=1732645743; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TjjEcmv2liyk/XEk1ss5lodHgFTZTAwHIgNTYP/SyTw=;
-        b=h4NXqiSUZwQLZUbCr4f9N7V57Rt+CKHZTgfPmiC5swvI57iy++gmpzH6GhBQFjNymq
-         VWGgNWKa2WMvXwGxKxrZqlmCOD2qlIJtOfcCqdPW+1jCMGKjBfjnYavGszKvPeFA1AhX
-         UeAzukvb3JdLDWS6jcho9MsHDzsK97YjrgUrWD+yBAJ9ZdGvBo564qfGBmuHRYW33Cqy
-         Fr5IDzr4xeDXj+XXGvB8/TDTjAPWsc0kGb6G13EUy8kS4d+5rz5mSjgHtQTzAzjvsLCM
-         GLFLoPeDzKCJzICPyOTDpBVBZWT4A3vbwkK36dk96kuGQmPgi/8arNIPjja0zo+mrZob
-         6OVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732040943; x=1732645743;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TjjEcmv2liyk/XEk1ss5lodHgFTZTAwHIgNTYP/SyTw=;
-        b=uWIjIcIwfdhKOegLK/8IhuLX+dPSgnHhXjtAS/bJgFD83pH1e16VzvECOdKeGYRjfr
-         QSWpMA60RN4kpmbBLh2MxEq9caf61oGdJIp3vtAUjj9+H7IIfHcW0R9wipo2VZeUh9nv
-         6iRPeKeeXeGi6PuilJCVqYE81474d+Ed2eLO0MosjHzIO+ikLVo8CeVQrU8ekpZqpouR
-         9P8MbX56hxPG7+uVWHE3ROQdY47QpLOVZEfBTLVcOQdhJPXXBEXhWT66z+XoHocB8ql3
-         mr2O9zLa6NLukRfhzRR4VHkMndYncXTjfPR6Ri+uMAjiW0TjcDHflLCjLF7J9Z6Yqq2f
-         dNKA==
-X-Forwarded-Encrypted: i=1; AJvYcCXIegmH6RSBui0LWW2AKe7Qnx0KUjugPEVZtnCC5QcLLMbMmm4loXHh0/rVT2/H/jYQ4SX5iOvMcdhdlEby8GhQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzswqDftkEopKe3CSYUVXRuZTbBYKYJ0C1xE10UNJIRikmCfw1c
-	XXbh1cQ52Js7zWcMC3HEUPJgYJ7w9Vt3/fEr8DGr/dhnIKlU+50oYGoRwJo+6gE=
-X-Google-Smtp-Source: AGHT+IFnY/REEdmz7YD1WEr3CSS+CDWUtex9JzX1ZdzW4zdq0+PcYDiFyHyYLuR7W7cpAOYMYdli5w==
-X-Received: by 2002:a5d:6c62:0:b0:382:40cc:5057 with SMTP id ffacd0b85a97d-38240cc530dmr8023061f8f.8.1732040943004;
-        Tue, 19 Nov 2024 10:29:03 -0800 (PST)
-Received: from localhost (p509159f1.dip0.t-ipconnect.de. [80.145.89.241])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38244220183sm7893379f8f.99.2024.11.19.10.29.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Nov 2024 10:29:02 -0800 (PST)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>
-Cc: Pedro Sousa <pedrom.sousa@synopsys.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Wang <peter.wang@mediatek.com>,
-	Stanley Jhu <chu.stanley@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Nitin Rawat <quic_nitirawa@quicinc.com>,
-	Can Guo <quic_cang@quicinc.com>,
-	linux-scsi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH] scsi: ufs: Switch back to struct platform_driver::remove()
-Date: Tue, 19 Nov 2024 19:28:56 +0100
-Message-ID: <20241119182856.55743-2-u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.45.2
+	Tue, 19 Nov 2024 18:43:55 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4AJIhgR53940163
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 19 Nov 2024 12:43:42 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1732041822;
+	bh=UuK3p+uvjZvx0HNezvGzX9HUjU835mI4PLZS0cKZ5GI=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=JDxsZznjAeiVuc3iO528f+gil5Dwm/iVAHoV0AYU+B/MEtqtiSp1NB+5TcnCfwi59
+	 OOD/qT2xs46tshVVkx57znNNQPdLNgbZ/ftRwwKJr5NlRuXnEXF5svsvnpmAG0EW1W
+	 9mukOz6QBaZ9SC8gk86caBKojEu6A4vB5Y5gYYPg=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4AJIhgVr059033
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 19 Nov 2024 12:43:42 -0600
+Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 19
+ Nov 2024 12:43:42 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 19 Nov 2024 12:43:41 -0600
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4AJIhe7m084569;
+	Tue, 19 Nov 2024 12:43:41 -0600
+Message-ID: <2cbfe287-d05f-4c7a-9512-deb9b84050f9@ti.com>
+Date: Tue, 19 Nov 2024 12:43:40 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6400; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=7EkmoYAIwgLMOya3DiDGaKKRi9eJcRdqgo7aEZsiTP4=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnPNjp6LSiAa1I5FOmgMRNs6RRlpfp1I+WXQ5Jy kT+1b+r+OmJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZzzY6QAKCRCPgPtYfRL+ TpXpB/0e48BSclKJNk79t2QAL7ya486g/ZENqVkbV84wvxtryeeYwTupocnq00111eq5K0/DmGn 5N4obnl0Yz0e3KeGMA7JfzxJvPrPYGOGz28YyBN6Sd3hOEd6ySenM2sNKhrDFRa+ryLgbBtM+0r t1goFmLAz1bCbMLKdKob3arBzK0CJUYeBB/jgaipkO2eqyCWlNSt+pteiri4uI2flz9pqWJALQL QXPOzQck5OYwjzyutjQCb/e5xiDGpJriITfqlnsNsdFM2WKgrZ/R+MvqLn6nnyNroBHFtNX80WU 7OIgmZQqPyjlHlnMRJJPpcenrvoEatHfp2PJ/iqzncWGiZ5D
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 19/21] drm/imagination: Add
+ device_memory_force_cpu_cached override
+To: Matt Coster <matt.coster@imgtec.com>,
+        Frank Binns
+	<frank.binns@imgtec.com>,
+        David Airlie <airlied@gmail.com>, Simona Vetter
+	<simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
+References: <20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com>
+ <20241118-sets-bxs-4-64-patch-v1-v2-19-3fd45d9fb0cf@imgtec.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20241118-sets-bxs-4-64-patch-v1-v2-19-3fd45d9fb0cf@imgtec.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_102906_226856_9C09662E 
-X-CRM114-Status: GOOD (  20.65  )
+X-CRM114-CacheID: sfid-20241119_104354_414274_7CDD8692 
+X-CRM114-Status: GOOD (  36.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,167 +100,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
-return void") .remove() is (again) the right callback to implement for
-platform drivers.
+On 11/18/24 7:02 AM, Matt Coster wrote:
+> The TI k3-j721s2 platform has a bug relating to cache snooping on the AXI
 
-Convert all platform drivers below drivers/ufs to use .remove(), with
-the eventual goal to drop struct platform_driver::remove_new(). As
-.remove() and .remove_new() have the same prototypes, conversion is done
-by just changing the structure member name in the driver initializer.
+Well we don't really know it is the bug on our side until we root cause it..
 
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
----
-Hello,
+Anyway, why do need such a complex work around here? GEM buffer objects
+only need to be coherent, cached or uncached is not a concern for userspace.
+For a device marked dma-coherent, both uncached and cached memory is coherent.
 
-I did a single patch for all of drivers/ufs. While I usually prefer to
-do one logical change per patch, this seems to be overengineering here
-as the individual changes are really trivial and shouldn't be much in
-the way for stable backports. But I'll happily split the patch if you
-prefer it split. Also if you object the indentation stuff, I can rework
-that.
+So, you could skip remapping these buffers as writecombine always when the
+device is marked dma-coherent. Nothing J721s2 specific to that, and you
+could drop all this PVR_HAS_OVERRIDE stuff here and in the previous patch.
 
-This is based on today's next, if conflicts arise when you apply it at
-some later time and don't want to resolve them, feel free to just drop
-the changes to the conflicting files. I'll notice and followup at a
-later time then. Or ask me for a fixed resend. (Having said that, I
-recommend b4 am -3 + git am -3 which should resolve most conflicts just
-fine.)
+Andrew
 
-Best regards
-Uwe
-
- drivers/ufs/host/cdns-pltfrm.c        | 2 +-
- drivers/ufs/host/tc-dwc-g210-pltfrm.c | 2 +-
- drivers/ufs/host/ti-j721e-ufs.c       | 2 +-
- drivers/ufs/host/ufs-exynos.c         | 2 +-
- drivers/ufs/host/ufs-hisi.c           | 2 +-
- drivers/ufs/host/ufs-mediatek.c       | 2 +-
- drivers/ufs/host/ufs-qcom.c           | 2 +-
- drivers/ufs/host/ufs-renesas.c        | 2 +-
- drivers/ufs/host/ufs-sprd.c           | 2 +-
- 9 files changed, 9 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/ufs/host/cdns-pltfrm.c b/drivers/ufs/host/cdns-pltfrm.c
-index 66811d8d1929..c80f770a6285 100644
---- a/drivers/ufs/host/cdns-pltfrm.c
-+++ b/drivers/ufs/host/cdns-pltfrm.c
-@@ -321,7 +321,7 @@ static const struct dev_pm_ops cdns_ufs_dev_pm_ops = {
- 
- static struct platform_driver cdns_ufs_pltfrm_driver = {
- 	.probe	= cdns_ufs_pltfrm_probe,
--	.remove_new = cdns_ufs_pltfrm_remove,
-+	.remove = cdns_ufs_pltfrm_remove,
- 	.driver	= {
- 		.name   = "cdns-ufshcd",
- 		.pm     = &cdns_ufs_dev_pm_ops,
-diff --git a/drivers/ufs/host/tc-dwc-g210-pltfrm.c b/drivers/ufs/host/tc-dwc-g210-pltfrm.c
-index a3877592604d..9bfaa36cc898 100644
---- a/drivers/ufs/host/tc-dwc-g210-pltfrm.c
-+++ b/drivers/ufs/host/tc-dwc-g210-pltfrm.c
-@@ -89,7 +89,7 @@ static const struct dev_pm_ops tc_dwc_g210_pltfm_pm_ops = {
- 
- static struct platform_driver tc_dwc_g210_pltfm_driver = {
- 	.probe		= tc_dwc_g210_pltfm_probe,
--	.remove_new	= tc_dwc_g210_pltfm_remove,
-+	.remove		= tc_dwc_g210_pltfm_remove,
- 	.driver		= {
- 		.name	= "tc-dwc-g210-pltfm",
- 		.pm	= &tc_dwc_g210_pltfm_pm_ops,
-diff --git a/drivers/ufs/host/ti-j721e-ufs.c b/drivers/ufs/host/ti-j721e-ufs.c
-index 250c22df000d..21214e5d5896 100644
---- a/drivers/ufs/host/ti-j721e-ufs.c
-+++ b/drivers/ufs/host/ti-j721e-ufs.c
-@@ -83,7 +83,7 @@ MODULE_DEVICE_TABLE(of, ti_j721e_ufs_of_match);
- 
- static struct platform_driver ti_j721e_ufs_driver = {
- 	.probe	= ti_j721e_ufs_probe,
--	.remove_new = ti_j721e_ufs_remove,
-+	.remove = ti_j721e_ufs_remove,
- 	.driver	= {
- 		.name   = "ti-j721e-ufs",
- 		.of_match_table = ti_j721e_ufs_of_match,
-diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index 6548f7a8562f..c4098011c4b4 100644
---- a/drivers/ufs/host/ufs-exynos.c
-+++ b/drivers/ufs/host/ufs-exynos.c
-@@ -2166,7 +2166,7 @@ static const struct dev_pm_ops exynos_ufs_pm_ops = {
- 
- static struct platform_driver exynos_ufs_pltform = {
- 	.probe	= exynos_ufs_probe,
--	.remove_new = exynos_ufs_remove,
-+	.remove = exynos_ufs_remove,
- 	.driver	= {
- 		.name	= "exynos-ufshc",
- 		.pm	= &exynos_ufs_pm_ops,
-diff --git a/drivers/ufs/host/ufs-hisi.c b/drivers/ufs/host/ufs-hisi.c
-index 5ee73ff05251..494f593702a3 100644
---- a/drivers/ufs/host/ufs-hisi.c
-+++ b/drivers/ufs/host/ufs-hisi.c
-@@ -590,7 +590,7 @@ static const struct dev_pm_ops ufs_hisi_pm_ops = {
- 
- static struct platform_driver ufs_hisi_pltform = {
- 	.probe	= ufs_hisi_probe,
--	.remove_new = ufs_hisi_remove,
-+	.remove = ufs_hisi_remove,
- 	.driver	= {
- 		.name	= "ufshcd-hisi",
- 		.pm	= &ufs_hisi_pm_ops,
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 06ab1e5e8b6f..6fc848d0ada8 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -1962,7 +1962,7 @@ static const struct dev_pm_ops ufs_mtk_pm_ops = {
- 
- static struct platform_driver ufs_mtk_pltform = {
- 	.probe      = ufs_mtk_probe,
--	.remove_new = ufs_mtk_remove,
-+	.remove = ufs_mtk_remove,
- 	.driver = {
- 		.name   = "ufshcd-mtk",
- 		.pm     = &ufs_mtk_pm_ops,
-diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
-index 3b592492e152..d2b8d97b480e 100644
---- a/drivers/ufs/host/ufs-qcom.c
-+++ b/drivers/ufs/host/ufs-qcom.c
-@@ -1897,7 +1897,7 @@ static const struct dev_pm_ops ufs_qcom_pm_ops = {
- 
- static struct platform_driver ufs_qcom_pltform = {
- 	.probe	= ufs_qcom_probe,
--	.remove_new = ufs_qcom_remove,
-+	.remove = ufs_qcom_remove,
- 	.driver	= {
- 		.name	= "ufshcd-qcom",
- 		.pm	= &ufs_qcom_pm_ops,
-diff --git a/drivers/ufs/host/ufs-renesas.c b/drivers/ufs/host/ufs-renesas.c
-index 3ff97112e1f6..f404019dc5d9 100644
---- a/drivers/ufs/host/ufs-renesas.c
-+++ b/drivers/ufs/host/ufs-renesas.c
-@@ -404,7 +404,7 @@ static void ufs_renesas_remove(struct platform_device *pdev)
- 
- static struct platform_driver ufs_renesas_platform = {
- 	.probe	= ufs_renesas_probe,
--	.remove_new = ufs_renesas_remove,
-+	.remove = ufs_renesas_remove,
- 	.driver	= {
- 		.name	= "ufshcd-renesas",
- 		.of_match_table	= of_match_ptr(ufs_renesas_of_match),
-diff --git a/drivers/ufs/host/ufs-sprd.c b/drivers/ufs/host/ufs-sprd.c
-index d8b165908809..b1ffb9b05fa7 100644
---- a/drivers/ufs/host/ufs-sprd.c
-+++ b/drivers/ufs/host/ufs-sprd.c
-@@ -442,7 +442,7 @@ static const struct dev_pm_ops ufs_sprd_pm_ops = {
- 
- static struct platform_driver ufs_sprd_pltform = {
- 	.probe = ufs_sprd_probe,
--	.remove_new = ufs_sprd_remove,
-+	.remove = ufs_sprd_remove,
- 	.driver = {
- 		.name = "ufshcd-sprd",
- 		.pm = &ufs_sprd_pm_ops,
-
-base-commit: 414c97c966b69e4a6ea7b32970fa166b2f9b9ef0
--- 
-2.45.2
-
+> ACE-Lite interface. Disabling cache snooping altogether would also resolve
+> the issue, but is considered more of a performance hit.
+> 
+> Given the platform is dma-coherent, forcing all device-accessible memory
+> allocations through the CPU cache is the preferred solution.
+> 
+> Implement this workaround so that it can later be enabled for the TI
+> k3-j721s2 platform.
+> 
+> Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+> ---
+> Changes in v2:
+> - None
+> - Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-19-4ed30e865892@imgtec.com
+> ---
+>   drivers/gpu/drm/imagination/pvr_device.c | 11 ++++++++++-
+>   drivers/gpu/drm/imagination/pvr_device.h | 11 +++++++++++
+>   drivers/gpu/drm/imagination/pvr_drv.c    |  2 +-
+>   drivers/gpu/drm/imagination/pvr_gem.c    |  3 +++
+>   drivers/gpu/drm/imagination/pvr_gem.h    |  7 +++++--
+>   drivers/gpu/drm/imagination/pvr_mmu.c    |  7 ++++++-
+>   6 files changed, 36 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
+> index 2ce46b9a8ab7609faebeeb4e7820751b00047806..ffc177c383c1be16061eff0290c347918b0991f7 100644
+> --- a/drivers/gpu/drm/imagination/pvr_device.c
+> +++ b/drivers/gpu/drm/imagination/pvr_device.c
+> @@ -24,6 +24,7 @@
+>   #include <linux/gfp.h>
+>   #include <linux/interrupt.h>
+>   #include <linux/platform_device.h>
+> +#include <linux/property.h>
+>   #include <linux/pm_runtime.h>
+>   #include <linux/slab.h>
+>   #include <linux/stddef.h>
+> @@ -635,6 +636,7 @@ bool
+>   pvr_device_overrides_validate(struct pvr_device *pvr_dev,
+>   			      const struct pvr_device_overrides *overrides)
+>   {
+> +	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
+>   	bool ret = true;
+>   
+>   	/*
+> @@ -643,7 +645,14 @@ pvr_device_overrides_validate(struct pvr_device *pvr_dev,
+>   	 *
+>   	 * Note that this function may be called early during device initialization
+>   	 * so it should not be assumed that @pvr_dev is ready for normal use yet.
+> -	 */
+> +	*/
+> +
+> +	if (overrides->device_memory_force_cpu_cached &&
+> +	    device_get_dma_attr(drm_dev->dev) != DEV_DMA_COHERENT) {
+> +		drm_err(drm_dev,
+> +			"Specifying device_memory_force_cpu_cached override without dma-coherent attribute is unsupported.");
+> +		ret = false;
+> +	}
+>   
+>   	return ret;
+>   }
+> diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
+> index ad0a02a37154099542247dfc62f411c10f4e41f4..7ae14899db24f4c747e8cf4d61d252eb403713f4 100644
+> --- a/drivers/gpu/drm/imagination/pvr_device.h
+> +++ b/drivers/gpu/drm/imagination/pvr_device.h
+> @@ -60,8 +60,19 @@ struct pvr_fw_version {
+>   /**
+>    * struct pvr_device_overrides - Hardware-level overrides loaded from
+>    * MODULE_DEVICE_TABLE() or similar.
+> + *
+> + * @device_memory_force_cpu_cached: By default, all device memory buffer objects
+> + * are mapped write-combined on the CPU (see %PVR_BO_CPU_CACHED) including MMU
+> + * page table backing pages which do not use the regular device memory objects.
+> + * This override forces all CPU mappings to be mapped cached instead. Since this
+> + * could require additional cache maintenance operations to be performed,
+> + * pvr_device_overrides_validate() ensures that the dma-coherent attribute is
+> + * set when this override is specified. Required on some TI platforms where a
+> + * bug causes device-to-cpu cache snooping to behave incorrectly when
+> + * interacting with cpu-uncached memory.
+>    */
+>   struct pvr_device_overrides {
+> +	bool device_memory_force_cpu_cached;
+>   };
+>   
+>   /**
+> diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
+> index b56ee2cda9b54c4388a6eef38b0ff81acdb05874..e074cfb0d2055b5387dbb142ca972108977f9854 100644
+> --- a/drivers/gpu/drm/imagination/pvr_drv.c
+> +++ b/drivers/gpu/drm/imagination/pvr_drv.c
+> @@ -1490,7 +1490,7 @@ static void pvr_remove(struct platform_device *plat_dev)
+>   	pvr_power_domains_fini(pvr_dev);
+>   }
+>   
+> -static const struct pvr_device_overrides pvr_device_overrides_default = {};
+> +static const struct pvr_device_overrides pvr_device_overrides_default = { 0 };
+>   
+>   /*
+>    * Always specify &pvr_device_overrides_default instead of %NULL for &struct of_device_id->data so
+> diff --git a/drivers/gpu/drm/imagination/pvr_gem.c b/drivers/gpu/drm/imagination/pvr_gem.c
+> index 6a8c81fe8c1e85c2130a4fe90fce35b6a2be35aa..c67c30518f89af3de2e617a9b65e5cd78870fa2c 100644
+> --- a/drivers/gpu/drm/imagination/pvr_gem.c
+> +++ b/drivers/gpu/drm/imagination/pvr_gem.c
+> @@ -345,6 +345,9 @@ pvr_gem_object_create(struct pvr_device *pvr_dev, size_t size, u64 flags)
+>   	if (size == 0 || !pvr_gem_object_flags_validate(flags))
+>   		return ERR_PTR(-EINVAL);
+>   
+> +	if (PVR_HAS_OVERRIDE(pvr_dev, device_memory_force_cpu_cached))
+> +		flags |= PVR_BO_CPU_CACHED;
+> +
+>   	shmem_obj = drm_gem_shmem_create(from_pvr_device(pvr_dev), size);
+>   	if (IS_ERR(shmem_obj))
+>   		return ERR_CAST(shmem_obj);
+> diff --git a/drivers/gpu/drm/imagination/pvr_gem.h b/drivers/gpu/drm/imagination/pvr_gem.h
+> index e0e5ea509a2e88a437b8d241ea13c7bab2220f56..9b3cbcbe48dfbbc8be211a8a409699a43452e178 100644
+> --- a/drivers/gpu/drm/imagination/pvr_gem.h
+> +++ b/drivers/gpu/drm/imagination/pvr_gem.h
+> @@ -44,8 +44,11 @@ struct pvr_file;
+>    * Bits not defined anywhere are "undefined".
+>    *
+>    * CPU mapping options
+> - *    :PVR_BO_CPU_CACHED: By default, all GEM objects are mapped write-combined on the CPU. Set this
+> - *       flag to override this behaviour and map the object cached.
+> + *    :PVR_BO_CPU_CACHED: By default, all GEM objects are mapped write-combined on the CPU. Set
+> + *       this flag to override this behaviour and map the object cached. If
+> + *       &struct pvr_device_overrides->device_memory_force_cpu_cached is specified, all allocations
+> + *       will be mapped as if this flag was set. This does not require any additional consideration
+> + *       at allocation time since the override is only valid if the dma-coherent attribute is set.
+>    *
+>    * Firmware options
+>    *    :PVR_BO_FW_NO_CLEAR_ON_RESET: By default, all FW objects are cleared and reinitialised on hard
+> diff --git a/drivers/gpu/drm/imagination/pvr_mmu.c b/drivers/gpu/drm/imagination/pvr_mmu.c
+> index 4fe70610ed94cf707e631f8148af081a94f97327..7c7deb29b735308eaed26900f2f54a838382c255 100644
+> --- a/drivers/gpu/drm/imagination/pvr_mmu.c
+> +++ b/drivers/gpu/drm/imagination/pvr_mmu.c
+> @@ -259,6 +259,7 @@ pvr_mmu_backing_page_init(struct pvr_mmu_backing_page *page,
+>   	struct device *dev = from_pvr_device(pvr_dev)->dev;
+>   
+>   	struct page *raw_page;
+> +	pgprot_t prot;
+>   	int err;
+>   
+>   	dma_addr_t dma_addr;
+> @@ -268,7 +269,11 @@ pvr_mmu_backing_page_init(struct pvr_mmu_backing_page *page,
+>   	if (!raw_page)
+>   		return -ENOMEM;
+>   
+> -	host_ptr = vmap(&raw_page, 1, VM_MAP, pgprot_writecombine(PAGE_KERNEL));
+> +	prot = PAGE_KERNEL;
+> +	if (!PVR_HAS_OVERRIDE(pvr_dev, device_memory_force_cpu_cached))
+> +		prot = pgprot_writecombine(prot);
+> +
+> +	host_ptr = vmap(&raw_page, 1, VM_MAP, prot);
+>   	if (!host_ptr) {
+>   		err = -ENOMEM;
+>   		goto err_free_page;
+> 
 
