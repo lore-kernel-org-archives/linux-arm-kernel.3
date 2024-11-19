@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE49D62068
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 16:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D311DD591A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 16:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9CfPndcwSpFi9hNnsDG4kxLyrPKMJDc10lVqC9dCYk8=; b=aSVxh28CDEAr3W/uzrv+mw8fM4
-	H3YYx9bq11eamfo2oUp0Boj7dx+9q69MvP+LiRQjmWWBh9yqKmG4gM5L+0ms8wdw0VlWSmgDjh2yU
-	j69/yCafhARLCDtBxF90QL8g+Z5ogH8gcXXPPinxbunZ3HERX9YrrbrrXSFFxI0OuD0ogWbO5MzeT
-	GJi2R1LspIa0ZUdhy5lx0fV6/dqZqgTBDkJjnGqcPm5yBujflC79N5IrJbM2gd2cmWWJAnUglj1HF
-	DFNgDB5pC7sdar9cS06A6Y5b00qc9tUC8u9uYwSfnt5nnCBMAR/17rwi4sea0oXR8isC/aS3nErxi
-	uMZo2LWg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7l0JgKEgxnC8jk86kuocY0fjlpXe94Bsa3OSgU7iB+E=; b=z/1KO1/vFLh0AplH384N/FLJNc
+	lK90lmnEIkw/jX6F9UVIgSglUi+UNk4SFyk7DekiFj9BLjiJSIbPJoGLf25NvAW6l59Absg5ooGG9
+	EQPsEgr9HV/IYAQiN2pWhCF5aUxgBm7wYxkY6PElIpXO0Hf8J6toSitCmIZKtwo1vQo4Fq2BsooNZ
+	AueB2z9p5bZcWJzES6nO9z0N/z0zzgnLSr9eEA6NUEfvQmWkj8YFJckGLVqHtON4QHDrcZ/fUHP9B
+	88UPSzwKadkgHpNM4AyPT2SC715LzqDS1vA/3OHaCMN8MCzqKpobp+2qGq5QLni+/WFWdmdOQTS9/
+	Zhm7mW6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDRYp-0000000D89i-1vAg;
-	Tue, 19 Nov 2024 16:58:43 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tDRZj-0000000D8RZ-0LZz;
+	Tue, 19 Nov 2024 16:59:39 +0000
+Received: from out-175.mta0.migadu.com ([2001:41d0:1004:224b::af])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDRJG-0000000D440-3NwZ
+	id 1tDRJJ-0000000D40x-307b
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 16:42:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=9CfPndcwSpFi9hNnsDG4kxLyrPKMJDc10lVqC9dCYk8=; b=A7hN0Hk2Zmz++TCr166toktatF
-	QMPEZVC82D1Ar0ySXseMynMwTLhF/vcBbhlABFqUEu9L4eCj1U24tFezSQjboOjXr0KlR+5uCuRiO
-	EJobuVaIyjCRpa9LBc5x5xINgqCT8OcIyidFIZADkKSv2WF493PAEgXGYcBv0iO5uy0SpegRc7G0e
-	wRNDj/cmJAl9GBp14UuDrtXgQoRMSrT/AQxRR1//A2480LLuw0R5CyIGBOejVkJmXOTjtAFG/qDRU
-	p5lFom6osZKvaZtE1IFpYqP6WMDyk+3bho82AE/7oE4NLirBOjK4wtg9+uvfXzSnVlETckHXJe2Ht
-	aH9YLbkw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34792)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tDRIv-0003xe-1j;
-	Tue, 19 Nov 2024 16:42:18 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tDRIt-0006D0-1B;
-	Tue, 19 Nov 2024 16:42:15 +0000
-Date: Tue, 19 Nov 2024 16:42:15 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: jan.petrous@oss.nxp.com
-Subject: Re: [PATCH v5 05/16] net: dwmac-dwc-qos-eth: Use helper rgmii_clock
-Message-ID: <Zzy_5wl1IRy7taow@shell.armlinux.org.uk>
-References: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
- <20241119-upstream_s32cc_gmac-v5-5-7dcc90fcffef@oss.nxp.com>
+	Tue, 19 Nov 2024 16:42:43 +0000
+Message-ID: <6d2cdd37-f2d7-4537-a7e7-8e525c4378dd@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1732034541;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7l0JgKEgxnC8jk86kuocY0fjlpXe94Bsa3OSgU7iB+E=;
+	b=vCBFAFK9N11a8pykhD5s/Z3QIsimgWs+/LGk8r7ZPpr+OSIAmH4uK3sEuADOXoE5VWI2th
+	4ZCb11WmXmg39Cr5sJg+Zk+uFyBb4Rjop9ilizf5KbFtiyVZg/SFq6m0m7P1k2t5kWHdgQ
+	4vpM1ofFiZOYdzTR3Ftm2pPdKS/7VrE=
+Date: Tue, 19 Nov 2024 11:42:15 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241119-upstream_s32cc_gmac-v5-5-7dcc90fcffef@oss.nxp.com>
+Subject: Re: [PATCH net-next 2/2] net: axienet: Add support for AXI 2.5G MAC
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Suraj Gupta <suraj.gupta2@amd.com>,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
+ radhey.shyam.pandey@amd.com, horms@kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ git@amd.com, harini.katakam@amd.com
+References: <20241118081822.19383-1-suraj.gupta2@amd.com>
+ <20241118081822.19383-3-suraj.gupta2@amd.com>
+ <ZztjvkxbCiLER-PJ@shell.armlinux.org.uk>
+ <657764fd-68a1-4826-b832-3bda91a0c13b@linux.dev>
+ <9d26a588-d9ac-43c5-bedc-22cb1f0923dd@lunn.ch>
+ <72ded972-cd16-4124-84af-8d8ddad049f0@linux.dev>
+ <ZzyzhCVBgXtQ_Aop@shell.armlinux.org.uk>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <ZzyzhCVBgXtQ_Aop@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_084238_840631_B6B7223D 
-X-CRM114-Status: UNSURE (   7.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241119_084242_279694_A82A938F 
+X-CRM114-Status: GOOD (  29.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,23 +76,100 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Andrew Lunn <andrew@lunn.ch>, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, imx@lists.linux.dev, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, Jose Abreu <joabreu@synopsys.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 04:00:11PM +0100, Jan Petrous via B4 Relay wrote:
-> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+On 11/19/24 10:49, Russell King (Oracle) wrote:
+> On Tue, Nov 19, 2024 at 10:26:52AM -0500, Sean Anderson wrote:
+>> On 11/18/24 20:35, Andrew Lunn wrote:
+>> > On Mon, Nov 18, 2024 at 11:00:22AM -0500, Sean Anderson wrote:
+>> >> On 11/18/24 10:56, Russell King (Oracle) wrote:
+>> >> > On Mon, Nov 18, 2024 at 01:48:22PM +0530, Suraj Gupta wrote:
+>> >> >> Add AXI 2.5G MAC support, which is an incremental speed upgrade
+>> >> >> of AXI 1G MAC and supports 2.5G speed only. "max-speed" DT property
+>> >> >> is used in driver to distinguish 1G and 2.5G MACs of AXI 1G/2.5G IP.
+>> >> >> If max-speed property is missing, 1G is assumed to support backward
+>> >> >> compatibility.
+>> >> >> 
+>> >> >> Co-developed-by: Harini Katakam <harini.katakam@amd.com>
+>> >> >> Signed-off-by: Harini Katakam <harini.katakam@amd.com>
+>> >> >> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+>> >> >> ---
+>> >> > 
+>> >> > ...
+>> >> > 
+>> >> >> -	lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE |
+>> >> >> -		MAC_10FD | MAC_100FD | MAC_1000FD;
+>> >> >> +	lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE;
+>> >> >> +
+>> >> >> +	/* Set MAC capabilities based on MAC type */
+>> >> >> +	if (lp->max_speed == SPEED_1000)
+>> >> >> +		lp->phylink_config.mac_capabilities |= MAC_10FD | MAC_100FD | MAC_1000FD;
+>> >> >> +	else
+>> >> >> +		lp->phylink_config.mac_capabilities |= MAC_2500FD;
+>> >> > 
+>> >> > The MAC can only operate at (10M, 100M, 1G) _or_ 2.5G ?
+>> >> 
+>> >> It's a PCS limitation. It either does (1000Base-X and/or SGMII) OR
+>> >> (2500Base-X). The MAC itself doesn't have this limitation AFAIK.
+>> > 
+>> > 
+>> > And can the PCS change between these modes? It is pretty typical to
+>> > use SGMII for 10/100/1G and then swap to 2500BaseX for 2.5G.
+>> 
+>> Not AFAIK. There's only a bit for switching between 1000Base-X and
+>> SGMII. 2500Base-X is selected at synthesis time, and AIUI the serdes
+>> settings are different.
 > 
-> Utilize a new helper function rgmii_clock().
+> Okay. First it was a PCS limitation. Then it was a MAC limitation. Now
+> it's a synthesis limitation.
 > 
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+> I'm coming to the conclusion that those I'm communicating with don't
+> actually know, and are just throwing random thoughts out there.
+> 
+> Please do the research, and come back to me with a real and complete
+> answer, not some hand-wavey "it's a limitation of X, no it's a
+> limitation of Y, no it's a limitation of Z" which looks like no one
+> really knows the correct answer.
+> 
+> Just because the PCS doesn't have a bit that selects 2500base-X is
+> meaningless. 2500base-X is generally implemented by upclocking
+> 1000base-X by 2.5x. Marvell does this at their Serdes, there is
+> no configuration at the MAC/PCS for 2.5G speeds.
+> 
+> The same is true of 10GBASE-R vs 5GBASE-R in Marvell - 5GBASE-R is
+> just the serdes clocking the MAC/PCS at half the rate that 10GBASE-R
+> would run at.
+> 
+> I suspect this Xilinx hardware is just the same - clock the transmit
+> path it at 62.5MHz, and you get 1G speeds. Clock it at 156.25MHz,
+> and you get 2.5G speeds.
 
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Hey, I'm just a l^Huser.
 
-Thanks!
+In the synthesis settings for the PCS, you can select
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+  - 1G
+    - 1000BASEX
+    - SGMII
+    - BOTH
+  - 2 5G
+    - 2500 BASEX
+    - 2.5G SGMII
+
+(all of the above being exclusive choices)
+
+In the synthesis settings for the MAC, you can select
+
+  - 1 Gbps
+    - Tri speed
+    - 1000 Mbps
+  - 2.5 Gbps
+    - 2500 Mbps
+
+(ditto)
+
+I can't comment on what happens when you over/underclock the MAC or PCS.
+
+--Sean
 
