@@ -4,70 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E4DD44177
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:54:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB2DED4417A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 15:55:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zsNppn3YucN3DBw14lFNPOF9uTRowuRcJGN9lxVvyk8=; b=y6Y6rOL2d0gOOO03QPC4BUCWSF
-	skbrI6kGtwMtgMwRQTz3XJiecxutWur2zjd2MvELjRa6ESjMGO3ATCRMpjLVP3jYL3g/zmV7KGWy3
-	jWlI2AZBrbaZwOSy9In/lW6b41OQwzi0G782Kn7hSS4kDLeE/8HNxcexXp6gy+XwPpnLvG8gdtACt
-	gVWU6Ah/CZVQnhkCeCgfj1/Qy8imoNVb9f+22L8FL7jXuD5W6bTqB1ShAkOpGV17WOplqxiOqS4Vu
-	8LIgo5G3ZKyDFD005XUQZ/6cvpRPrh94b5UC5FwyPInr6487cbznGEJGdF/YwMzyRinYFDwc68A1T
-	HUiwkxjg==;
+	bh=DyRxPuRzp7MtuHBFSujz/tG1Z1/nbHP5FzWRe5C7ltM=; b=hLlgEXZynBjN8j8NeP4VEcpGzJ
+	irxVE5YtCsyYvCpIyqiQwGW99PUQl3xtFuvrgT2TBq8kJYPjgfQH1Hk9688oZAixdi3Em4G6/r7Wu
+	YlRFZmBCuh3P3/mi575NgbllvxaIVLZcXWlqds28QZ2a4SuPzqpQ/gf+Kj6GL9Go8T1sJ6Lxvlvz/
+	4vXjKnwHVEdIVNXnxnSA5gbCohOZN9YHLszI+IHX2oiGLLd6wH9V/OafMCU0dOVQSbZQ/cjeqZzNn
+	irKl46VtrxPkW9ZPCrlrVEz1g/50Irv2VQHaODbUCXvVrQBHZQ5tccQxqlkjdp49LZavvRIrGotjy
+	d6TM51Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDQYT-0000000CwUz-31Rq;
-	Tue, 19 Nov 2024 15:54:17 +0000
-Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
+	id 1tDQZO-0000000Cwhz-1RW3;
+	Tue, 19 Nov 2024 15:55:14 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDQWu-0000000CwBA-3bBJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 15:52:42 +0000
-Received: from wsk (85-222-111-42.dynamic.chello.pl [85.222.111.42])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: lukma@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 89D8388D9B;
-	Tue, 19 Nov 2024 16:52:37 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1732031558;
-	bh=zsNppn3YucN3DBw14lFNPOF9uTRowuRcJGN9lxVvyk8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=CN3w7l08fLldTUgMBYkKZ4hiKg62bFrkxOj69bRDcVU0NgLuGDAojMZIZlqboh2Jv
-	 0x4Pgi8Yp6zGsxAhk8VZ79HgujVCgnKw1zk1IYD8RqBGjyU5cQi9O0j1fzZMd5Rwi0
-	 JjEb+Tz+OPDF8A2nbHQh1QNn9C6rpamxK2xAPvOMBE0uON546W2FkcTH7JcLuIZfaI
-	 H+pdHdH/XTE2UGWg3QlFFK+pDPkmQVk+nJwWCwPGuf1URkefp/E2GWAaWe+mGL28a5
-	 7WCMCpsp0wictqk26dlNVzmM9rotG4+xDvUs3QPoyDWvF1OQNQLMuwytubvVXghwCr
-	 MgA/gOc3vHaeg==
-Date: Tue, 19 Nov 2024 16:52:36 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
- <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Stefan
- Wahren <wahrenst@gmx.net>
-Subject: Re: [PATCH v11 3/3] ARM: dts: mxs: Add descriptions for imx287
- based btt3-[012] devices
-Message-ID: <20241119165236.69438f75@wsk>
-In-Reply-To: <20241107085705.490940-3-lukma@denx.de>
-References: <20241107085705.490940-1-lukma@denx.de>
-	<20241107085705.490940-3-lukma@denx.de>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1tDQYC-0000000CwQM-3Cy6;
+	Tue, 19 Nov 2024 15:54:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1732031641; x=1763567641;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=oerxtD3nEVi4XTue4l49odCUQx6jpGjoapzMXc667oY=;
+  b=ObhXSfh5lk3os5WfofSNwb5vPvxol17J3NKW2bVIeVyWxbMf+hhTke/8
+   haOctIkri33i/NaI2t2xi1q0p2ryv8jX4ynsPN1RSlK9rUac4xZPqYaDN
+   +LZM5kWKBSeGraFlUdZf7xuph1mpPkgo94zkLNI5MkWIl6xtUF9E2CTTq
+   yhn1LP8I4o29qDM7Z+OyvOX0TLJvInUMcaLtgy19wH1PFbrAcWcMNkE0C
+   tLN4hHdYFhmJENrI/oBZqEIB946tpUU7yndISlMm9bGgtf+3M7ad7gDEB
+   iXTOLF0Hs9NTMe467vGoAl9rIxPZAsNZGH1dVcH7IymfNvoS0hE0LqypO
+   Q==;
+X-CSE-ConnectionGUID: CjIJ6p00SPWFE4bdpv/vYA==
+X-CSE-MsgGUID: swVnlp5JSh2+uv2HquqXwg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11261"; a="31420438"
+X-IronPort-AV: E=Sophos;i="6.12,166,1728975600"; 
+   d="scan'208";a="31420438"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2024 07:53:59 -0800
+X-CSE-ConnectionGUID: 2vowImP2Qoe5lB+Anw/K8Q==
+X-CSE-MsgGUID: brq/mmlnTOm8eWaPpVdyzQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,166,1728975600"; 
+   d="scan'208";a="89535173"
+Received: from kuha.fi.intel.com ([10.237.72.152])
+  by orviesa010.jf.intel.com with SMTP; 19 Nov 2024 07:53:57 -0800
+Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Tue, 19 Nov 2024 17:53:55 +0200
+Date: Tue, 19 Nov 2024 17:53:55 +0200
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: linux-kernel@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 14/15] usb: typec: tcpci_mt6370: don't include
+ 'pm_wakeup.h' directly
+Message-ID: <Zzy0kz54bW3Xe0Al@kuha.fi.intel.com>
+References: <20241118072917.3853-1-wsa+renesas@sang-engineering.com>
+ <20241118072917.3853-15-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/40inb2lnEtEeFDRdPJ5UPqd";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241118072917.3853-15-wsa+renesas@sang-engineering.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_075241_195736_C136CAE1 
-X-CRM114-Status: GOOD (  35.23  )
+X-CRM114-CacheID: sfid-20241119_075400_809160_A529951A 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,526 +89,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/40inb2lnEtEeFDRdPJ5UPqd
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On Mon, Nov 18, 2024 at 08:29:13AM +0100, Wolfram Sang wrote:
+> The header clearly states that it does not want to be included directly,
+> only via 'device.h'. 'platform_device.h' works equally well. Remove the
+> direct inclusion.
+> 
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
-Dear Community,
+Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
 
-> The btt3 device' HW revisions from 0 to 2 use imx287 SoC and are to
-> some extend similar to already upstreamed XEA devices, hence are
-> using common imx28-lwe.dtsi file.
->=20
-> New, imx28-btt3.dtsi has been added to embrace common DTS
-> properties for different HW revisions for this device.
->=20
-> As a result - changes introduced in imx28-btt3-[012].dts are
-> minimal.
->=20
-
-Are there any more comments / suggestions for this patch set?
-
-> Signed-off-by: Lukasz Majewski <lukma@denx.de>
->=20
 > ---
-> Changes for v2:
-> - Rename dts file from btt3-[012] to imx28-btt3-[012] to match current
->   linux kernel naming convention
-> - Remove 'wlf,wm8974' from compatible for codec@1a
->=20
-> Changes for v3:
-> - Keep alphabethical order for Makefile entries
->=20
-> Changes for v4:
-> - Change compatible for btt3 board (to 'lwn,imx28-btt3')
->=20
-> Changes for v5:
-> - Combine patch, which adds btt3-[012] with one adding board entry to
->   fsl.yaml
->=20
-> Changes for v6:
-> - Make the patch series for adding entry in fsl.yaml and btt3
->=20
-> Changes for v7:
-> - Use "panel" property as suggested by the community
-> - Use panel-timing to specify the display parameters
-> - Update subject line with correct tags
->=20
-> Changes for v8:
-> - Use GPIO_ACTIVE_HIGH instead of '0'
-> - Add the comment regarding mac address specification
-> - Remove superfluous comment
-> - Change wifi-en-pin node name
->=20
-> Changes for v9:
-> - Remove not used 'pm-ignore-notify'
-> - Add display names for 'panel-dpi' compatible to avoid Schema
-> warnings
->=20
-> Changes for v10:
-> - Drop new line with panel-timing definitions
-> - Add new lines with 'sound' node
-> - Change 'codec' to 'audio-codec'
-> - Change order of properties for saif1 node
->=20
-> Changes for v11:
-> - None
-> ---
->  arch/arm/boot/dts/nxp/mxs/Makefile         |   3 +
->  arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts |  12 +
->  arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts |   8 +
->  arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts |  39 +++
->  arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi  | 313
-> +++++++++++++++++++++ 5 files changed, 375 insertions(+)
->  create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts
->  create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts
->  create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts
->  create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi
->=20
-> diff --git a/arch/arm/boot/dts/nxp/mxs/Makefile
-> b/arch/arm/boot/dts/nxp/mxs/Makefile index a430d04f9c69..96dd31ea19ba
-> 100644 --- a/arch/arm/boot/dts/nxp/mxs/Makefile
-> +++ b/arch/arm/boot/dts/nxp/mxs/Makefile
-> @@ -8,6 +8,9 @@ dtb-$(CONFIG_ARCH_MXS) +=3D \
->  	imx28-apf28.dtb \
->  	imx28-apf28dev.dtb \
->  	imx28-apx4devkit.dtb \
-> +	imx28-btt3-0.dtb \
-> +	imx28-btt3-1.dtb \
-> +	imx28-btt3-2.dtb \
->  	imx28-cfa10036.dtb \
->  	imx28-cfa10037.dtb \
->  	imx28-cfa10049.dtb \
-> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts
-> b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts new file mode 100644
-> index 000000000000..6ac46e4b21bb
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts
-> @@ -0,0 +1,12 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-> +/*
-> + * Copyright 2024
-> + * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
-> + */
-> +
-> +/dts-v1/;
-> +#include "imx28-btt3.dtsi"
-> +
-> +&hog_pins_rev {
-> +	fsl,pull-up =3D <MXS_PULL_ENABLE>;
-> +};
-> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts
-> b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts new file mode 100644
-> index 000000000000..213fe931c58b
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts
-> @@ -0,0 +1,8 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-> +/*
-> + * Copyright 2024
-> + * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
-> + */
-> +
-> +/dts-v1/;
-> +#include "imx28-btt3.dtsi"
-> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts
-> b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts new file mode 100644
-> index 000000000000..4bccd784d065
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts
-> @@ -0,0 +1,39 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-> +/*
-> + * Copyright 2024
-> + * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
-> + */
-> +
-> +/dts-v1/;
-> +#include "imx28-btt3.dtsi"
-> +
-> +/ {
-> +	panel {
-> +		compatible =3D "powertip,st7272", "panel-dpi";
-> +		power-supply =3D <&reg_3v3>;
-> +		width-mm =3D <70>;
-> +		height-mm =3D <52>;
-> +
-> +		panel-timing {
-> +			clock-frequency =3D <6500000>;
-> +			hactive =3D <320>;
-> +			vactive =3D <240>;
-> +			hfront-porch =3D <20>;
-> +			hback-porch =3D <68>;
-> +			hsync-len =3D <30>;
-> +			vfront-porch =3D <4>;
-> +			vback-porch =3D <14>;
-> +			vsync-len =3D <4>;
-> +			hsync-active =3D <0>;
-> +			vsync-active =3D <0>;
-> +			de-active =3D <1>;
-> +			pixelclk-active =3D <1>;
-> +		};
-> +
-> +		port {
-> +			panel_in: endpoint {
-> +				remote-endpoint =3D <&display_out>;
-> +			};
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi
-> b/arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi new file mode 100644
-> index 000000000000..2c52e67e5c14
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi
-> @@ -0,0 +1,313 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-> +/*
-> + * Copyright 2024
-> + * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
-> + */
-> +/dts-v1/;
-> +#include "imx28-lwe.dtsi"
-> +
-> +/ {
-> +	model =3D "BTT3";
-> +
-> +	compatible =3D "lwn,imx28-btt3", "fsl,imx28";
-> +
-> +	chosen {
-> +	       bootargs =3D "root=3D/dev/mmcblk0p2 rootfstype=3Dext4 ro
-> rootwait console=3DttyAMA0,115200 panic=3D1 quiet";
-> +	};
-> +
-> +	memory@40000000 {
-> +		reg =3D <0x40000000 0x10000000>;
-> +		device_type =3D "memory";
-> +	};
-> +
-> +	panel {
-> +		compatible =3D "powertip,hx8238a", "panel-dpi";
-> +		power-supply =3D <&reg_3v3>;
-> +		width-mm =3D <70>;
-> +		height-mm =3D <52>;
-> +
-> +		panel-timing {
-> +			clock-frequency =3D <6500000>;
-> +			hactive =3D <320>;
-> +			vactive =3D <240>;
-> +			hfront-porch =3D <20>;
-> +			hback-porch =3D <38>;
-> +			hsync-len =3D <30>;
-> +			vfront-porch =3D <4>;
-> +			vback-porch =3D <14>;
-> +			vsync-len =3D <4>;
-> +			hsync-active =3D <0>;
-> +			vsync-active =3D <0>;
-> +			de-active =3D <0>;
-> +			pixelclk-active =3D <1>;
-> +		};
-> +
-> +		port {
-> +			panel_in: endpoint {
-> +				remote-endpoint =3D <&display_out>;
-> +			};
-> +		};
-> +	};
-> +
-> +	poweroff {
-> +		compatible =3D "gpio-poweroff";
-> +		gpios =3D <&gpio0 24 GPIO_ACTIVE_HIGH>;
-> +	};
-> +
-> +	sound {
-> +		compatible =3D "simple-audio-card";
-> +		simple-audio-card,name =3D "BTTC Audio";
-> +		simple-audio-card,widgets =3D "Speaker", "BTTC
-> Speaker";
-> +		simple-audio-card,routing =3D "BTTC Speaker",
-> "SPKOUTN", "BTTC Speaker", "SPKOUTP"; +
-> +		simple-audio-card,dai-link@0 {
-> +			format =3D "left_j";
-> +			bitclock-master =3D <&dai0_master>;
-> +			frame-master =3D <&dai0_master>;
-> +			mclk-fs =3D <256>;
-> +
-> +			dai0_master: cpu {
-> +				sound-dai =3D <&saif0>;
-> +			};
-> +
-> +			codec {
-> +				sound-dai =3D <&wm89xx>;
-> +				clocks =3D <&saif0>;
-> +			};
-> +		};
-> +	};
-> +
-> +	wifi_pwrseq: sdio-pwrseq {
-> +		compatible =3D "mmc-pwrseq-simple";
-> +		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&wifi_en_pin_bttc>;
-> +		reset-gpios =3D <&gpio0 27 GPIO_ACTIVE_LOW>;
-> +		/* W1-163 needs 60us for WL_EN to be low and */
-> +		/* 150ms after high before downloading FW is
-> possible */
-> +		post-power-on-delay-ms =3D <200>;
-> +		power-off-delay-us =3D <100>;
-> +	};
-> +};
-> +
-> +&auart0 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&auart0_2pins_a>;
-> +	status =3D "okay";
-> +};
-> +
-> +&auart3 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&auart3_pins_a>;
-> +	uart-has-rtscts;
-> +	status =3D "okay";
-> +};
-> +
-> +&i2c0 {
-> +	wm89xx: audio-codec@1a {
-> +		compatible =3D "wlf,wm8940";
-> +		reg =3D <0x1a>;
-> +		#sound-dai-cells =3D <0>;
-> +	};
-> +};
-> +
-> +&lcdif {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&lcdif_24bit_pins_a>, <&lcdif_sync_pins_bttc>,
-> +		    <&lcdif_reset_pins_bttc>;
-> +	status =3D "okay";
-> +
-> +	port {
-> +		display_out: endpoint {
-> +			remote-endpoint =3D <&panel_in>;
-> +		};
-> +	};
-> +};
-> +
-> +&mac0 {
-> +	clocks =3D <&clks 57>, <&clks 57>, <&clks 64>;
-> +	clock-names =3D "ipg", "ahb", "enet_out";
-> +	phy-handle =3D <&mac0_phy>;
-> +	phy-mode =3D "rmii";
-> +	phy-supply =3D <&reg_3v3>;
-> +	/*
-> +	 * This MAC address is adjusted during production.
-> +	 * Value specified below is used as a fallback during
-> recovery.
-> +	 */
-> +	local-mac-address =3D [ 00 11 B8 00 BF 8A ];
-> +	status =3D "okay";
-> +
-> +	mdio {
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <0>;
-> +
-> +		mac0_phy: ethernet-phy@0 {
-> +			/* LAN8720Ai - PHY ID */
-> +			compatible =3D
-> "ethernet-phy-id0007.c0f0","ethernet-phy-ieee802.3-c22";
-> +			reg =3D <0>;
-> +			smsc,disable-energy-detect;
-> +			max-speed =3D <100>;
-> +			reset-gpios =3D <&gpio4 12 GPIO_ACTIVE_LOW>;
-> +			reset-assert-us =3D <1000>;
-> +			reset-deassert-us =3D <1000>;
-> +		};
-> +	};
-> +};
-> +
-> +&pinctrl {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&hog_pins_a>, <&hog_pins_rev>;
-> +
-> +	hog_pins_a: hog@0 {
-> +		reg =3D <0>;
-> +		fsl,pinmux-ids =3D <
-> +			MX28_PAD_GPMI_RDY2__GPIO_0_22
-> +			MX28_PAD_GPMI_RDY3__GPIO_0_23
-> +			MX28_PAD_GPMI_RDN__GPIO_0_24
-> +			MX28_PAD_LCD_VSYNC__GPIO_1_28
-> +			MX28_PAD_SSP2_SS1__GPIO_2_20
-> +			MX28_PAD_SSP2_SS2__GPIO_2_21
-> +			MX28_PAD_AUART2_CTS__GPIO_3_10
-> +			MX28_PAD_AUART2_RTS__GPIO_3_11
-> +			MX28_PAD_GPMI_WRN__GPIO_0_25
-> +			MX28_PAD_ENET0_RXD2__GPIO_4_9
-> +			MX28_PAD_ENET0_TXD2__GPIO_4_11
-> +		>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> +	};
-> +
-> +	hog_pins_rev: hog@1 {
-> +		reg =3D <1>;
-> +		fsl,pinmux-ids =3D <
-> +			MX28_PAD_ENET0_RXD3__GPIO_4_10
-> +			MX28_PAD_ENET0_TX_CLK__GPIO_4_5
-> +			MX28_PAD_ENET0_COL__GPIO_4_14
-> +			MX28_PAD_ENET0_CRS__GPIO_4_15
-> +		>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> +	};
-> +
-> +	keypad_pins_bttc: keypad-bttc@0 {
-> +		reg =3D <0>;
-> +		fsl,pinmux-ids =3D <
-> +			MX28_PAD_GPMI_D00__GPIO_0_0
-> +			MX28_PAD_AUART0_CTS__GPIO_3_2
-> +			MX28_PAD_AUART0_RTS__GPIO_3_3
-> +			MX28_PAD_GPMI_D03__GPIO_0_3
-> +			MX28_PAD_GPMI_D04__GPIO_0_4
-> +			MX28_PAD_GPMI_D05__GPIO_0_5
-> +			MX28_PAD_GPMI_D06__GPIO_0_6
-> +			MX28_PAD_GPMI_D07__GPIO_0_7
-> +			MX28_PAD_GPMI_CE1N__GPIO_0_17
-> +			MX28_PAD_GPMI_CE2N__GPIO_0_18
-> +			MX28_PAD_GPMI_CE3N__GPIO_0_19
-> +			MX28_PAD_GPMI_RDY0__GPIO_0_20
-> +		>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> +	};
-> +
-> +	lcdif_sync_pins_bttc: lcdif-bttc@0 {
-> +		reg =3D <0>;
-> +		fsl,pinmux-ids =3D <
-> +			MX28_PAD_LCD_DOTCLK__LCD_DOTCLK
-> +			MX28_PAD_LCD_ENABLE__LCD_ENABLE
-> +			MX28_PAD_LCD_HSYNC__LCD_HSYNC
-> +			MX28_PAD_LCD_RD_E__LCD_VSYNC
-> +		>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> +	};
-> +
-> +	lcdif_reset_pins_bttc: lcdif-bttc@1 {
-> +		reg =3D <1>;
-> +		fsl,pinmux-ids =3D <
-> +			MX28_PAD_LCD_RESET__GPIO_3_30
-> +		>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_ENABLE>;
-> +	};
-> +
-> +	ssp1_sdio_pins_a: ssp1-sdio@0 {
-> +		reg =3D <0>;
-> +		fsl,pinmux-ids =3D <
-> +			MX28_PAD_SSP1_DATA0__SSP1_D0
-> +			MX28_PAD_GPMI_D01__SSP1_D1
-> +			MX28_PAD_GPMI_D02__SSP1_D2
-> +			MX28_PAD_SSP1_DATA3__SSP1_D3
-> +			MX28_PAD_SSP1_CMD__SSP1_CMD
-> +			MX28_PAD_SSP1_SCK__SSP1_SCK
-> +		>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_8mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_ENABLE>;
-> +	};
-> +
-> +	wifi_en_pin_bttc: wifi-en-pin@0 {
-> +		reg =3D <0>;
-> +		fsl,pinmux-ids =3D <
-> +			MX28_PAD_GPMI_CLE__GPIO_0_27
-> +		>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_8mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_ENABLE>;
-> +	};
-> +};
-> +
-> +&pwm {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pwm3_pins_a>;
-> +	status =3D "okay";
-> +};
-> +
-> +&reg_usb_5v {
-> +	gpio =3D <&gpio1 28 GPIO_ACTIVE_HIGH>;
-> +};
-> +
-> +&saif0 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&saif0_pins_a>;
-> +	#sound-dai-cells =3D <0>;
-> +	assigned-clocks =3D <&clks 53>;
-> +	assigned-clock-rates =3D <12000000>;
-> +	status =3D "okay";
-> +};
-> +
-> +&saif1 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&saif1_pins_a>;
-> +	#sound-dai-cells =3D <0>;
-> +	fsl,saif-master =3D <&saif0>;
-> +	status =3D "okay";
-> +};
-> +
-> +&ssp1 {
-> +	compatible =3D "fsl,imx28-mmc";
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&ssp1_sdio_pins_a>;
-> +	bus-width =3D <4>;
-> +	no-1-8-v;       /* force 3.3V VIO */
-> +	non-removable;
-> +	vmmc-supply =3D <&reg_3v3>;
-> +	mmc-pwrseq =3D <&wifi_pwrseq>;
-> +	keep-power-in-suspend;
-> +	status =3D "okay";
-> +
-> +	wlan@1 {
-> +		reg =3D <1>;
-> +		compatible =3D "brcm,bcm4329-fmac";
-> +	};
-> +};
-> +
-> +&ssp2 {
-> +	compatible =3D "fsl,imx28-spi";
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&spi2_pins_a>;
-> +	status =3D "okay";
-> +};
+>  drivers/usb/typec/tcpm/tcpci_mt6370.c | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/drivers/usb/typec/tcpm/tcpci_mt6370.c b/drivers/usb/typec/tcpm/tcpci_mt6370.c
+> index 9cda1005ef01..bc5fd2557e6f 100644
+> --- a/drivers/usb/typec/tcpm/tcpci_mt6370.c
+> +++ b/drivers/usb/typec/tcpm/tcpci_mt6370.c
+> @@ -11,7 +11,6 @@
+>  #include <linux/mod_devicetable.h>
+>  #include <linux/module.h>
+>  #include <linux/platform_device.h>
+> -#include <linux/pm_wakeup.h>
+>  #include <linux/pm_wakeirq.h>
+>  #include <linux/regmap.h>
+>  #include <linux/regulator/consumer.h>
+> -- 
+> 2.39.2
 
-
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/40inb2lnEtEeFDRdPJ5UPqd
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmc8tEQACgkQAR8vZIA0
-zr2+OAf+L+8lYughwT0hXx9UXA/+B682+71ZBRd/T/4zdAzEiNUi0c2ZMEE4IZPk
-CdbnkOj+7vbJDgbcjqVfMtxZrAFEtkrjY6HdBeYLI4m4IFUpqQ+aCUFIzFDGIYx/
-8/5ot3KH577UuP55tcxb8Gqu1lxtNm/T14o8n9tRMql8Wqm713qmji/4ma5dn4UG
-8nGZuoWnuC+d6vjELDK4nJ0BN1XJs4kUO3QqBB9eGBC4etX2dBeElJfS1ycYQgDr
-fh1c/pV5MFuVnYCLfTtbSkY69R+hXLIvOIwC8rfLb/DBylM6O3eqPXY5MPqWRpAk
-r9lkeeeTc+Mo8EM9V4xyE/ExUspTXw==
-=EKdD
------END PGP SIGNATURE-----
-
---Sig_/40inb2lnEtEeFDRdPJ5UPqd--
+-- 
+heikki
 
