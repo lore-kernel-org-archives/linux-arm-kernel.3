@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B17A7D6C281
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 18:45:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7331CD6C287
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 18:48:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UuK3p+uvjZvx0HNezvGzX9HUjU835mI4PLZS0cKZ5GI=; b=ch53EUpRPJkkukZ7bsvCevcV0O
-	RAievXakmhyvO+iZ1zS8xE9t8YcllOqpgSDLwQBQiM53bkKf4cAYlxbCAAmv3MfGDxVZvmpGWSzGt
-	Gi2KeyH6eCpl9Osou7aM0pDe0hGx3psBavGbEKEkNmSrMRSzEz4FNun0dQ2iPi2IsZB7xQs/ELWKA
-	Z/A4Tp9Sos1ws3oDENqc+aEuV73X4KI++TEmv+nRnTToVzfU5cuCb/ECK35K8wk/zJO2830nhDdsp
-	kPgfuV9jVNJ4U/nxh8cfuI55PHFdZYxlh5KU0fSio76zg6lUFMseee2XVBJcF0Ag1w5rysbz2WkCI
-	YEdLD05A==;
+	bh=UBYWGpjQPLsx4MqQVn9RTX35vK2sjzBZKj9YylR+AGg=; b=zGfDdVQTXfG/up0N+eGmf3JjWv
+	UwiPzQ46/LCE3IU8m4lxaunL9Av58X8EDupxQF14CqmiJ2ciBDJkDW82nNuqasIJN252peQ7qsti8
+	uZ/PyxuOszh9byqNitPNgQNvrV8dbkBO+Hk45Tky7Xk5KYxInezkLr8fZnGHbI5XK5VuCgia5N2zc
+	L9gd60By9AMpRuttzDs8Yard3Wa73vq6rzmBF8ii7nakiMdORT0zb9hyd/Ll+8JOMPne7Y5tgDM8O
+	9QyXVfk2ZyBMGVlPV8ZLmP8NOx9WfyAGDJGNAuPxi1oSowc0MSTovHTeD8m478tV2l0G/TGYyDIlk
+	lDEXxEGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDTDY-0000000DQer-47xP;
-	Tue, 19 Nov 2024 18:44:52 +0000
-Received: from [198.47.23.234] (helo=lelvem-ot01.ext.ti.com)
+	id 1tDTGb-0000000DR5e-37cG;
+	Tue, 19 Nov 2024 18:48:01 +0000
+Received: from smtp-15.smtpout.orange.fr ([80.12.242.15] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDTCc-0000000DQR3-0sRh
+	id 1tDTFf-0000000DQxo-1voT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 18:43:55 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4AJIhgR53940163
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 19 Nov 2024 12:43:42 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1732041822;
-	bh=UuK3p+uvjZvx0HNezvGzX9HUjU835mI4PLZS0cKZ5GI=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=JDxsZznjAeiVuc3iO528f+gil5Dwm/iVAHoV0AYU+B/MEtqtiSp1NB+5TcnCfwi59
-	 OOD/qT2xs46tshVVkx57znNNQPdLNgbZ/ftRwwKJr5NlRuXnEXF5svsvnpmAG0EW1W
-	 9mukOz6QBaZ9SC8gk86caBKojEu6A4vB5Y5gYYPg=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4AJIhgVr059033
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 19 Nov 2024 12:43:42 -0600
-Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 19
- Nov 2024 12:43:42 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 19 Nov 2024 12:43:41 -0600
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4AJIhe7m084569;
-	Tue, 19 Nov 2024 12:43:41 -0600
-Message-ID: <2cbfe287-d05f-4c7a-9512-deb9b84050f9@ti.com>
-Date: Tue, 19 Nov 2024 12:43:40 -0600
+	Tue, 19 Nov 2024 18:47:05 +0000
+Received: from [192.168.1.37] ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id DTFWt5CAGmK41DTFWt0cNu; Tue, 19 Nov 2024 19:46:57 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1732042017;
+	bh=UBYWGpjQPLsx4MqQVn9RTX35vK2sjzBZKj9YylR+AGg=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=G8R6rIHKsbms6vIV7zgAO/inZ9vm1EVYuy2Z5rB/ETZDH5P5yO+qLWDlYU/Oq8t/7
+	 bJb5nMYG9PzrGTEey3AtYoPae7m161jXr9WiJKHPhGzBvdBpdZE7eOJXlsO3m0YFIU
+	 FbxiR7efvdVCKbH27twFI+0UrZ1wiCcYvqAq7plh/NpRsaNj4zZy8SH9/gYcUTdYUQ
+	 24GvLPk7HwBNRHF5ldMUli4HVKGbHDMWxvxysppZZ+MiCgUXUw6rpOv+RYt3C9QphJ
+	 rUSIzFy1lali9z0U3swn6NwN6XSfMZ1Np6c8X4R4KqGXDxPr0TF1OVOGvajvlj2wk/
+	 D/l6hOGSmSErA==
+X-ME-Helo: [192.168.1.37]
+X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
+X-ME-Date: Tue, 19 Nov 2024 19:46:57 +0100
+X-ME-IP: 90.11.132.44
+Message-ID: <4e351cd7-cc34-4fb2-bce4-1612e46e285b@wanadoo.fr>
+Date: Tue, 19 Nov 2024 19:46:53 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 19/21] drm/imagination: Add
- device_memory_force_cpu_cached override
-To: Matt Coster <matt.coster@imgtec.com>,
-        Frank Binns
-	<frank.binns@imgtec.com>,
-        David Airlie <airlied@gmail.com>, Simona Vetter
-	<simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
-        Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
-References: <20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com>
- <20241118-sets-bxs-4-64-patch-v1-v2-19-3fd45d9fb0cf@imgtec.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20241118-sets-bxs-4-64-patch-v1-v2-19-3fd45d9fb0cf@imgtec.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Subject: Re: [PATCH 15/15] clk: at91: sama7d65: add sama7d65 pmc driver
+To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
+ mturquette@baylibre.com, sboyd@kernel.org, arnd@arndb.de
+Cc: dharma.b@microchip.com, mihai.sain@microchip.com,
+ romain.sioen@microchip.com, varshini.rajendran@microchip.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-mmc@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-serial@vger.kernel.org
+References: <cover.1732030972.git.Ryan.Wanner@microchip.com>
+ <0b7af2a91d4d58cfd4909d338f1879e14f61f77f.1732030972.git.Ryan.Wanner@microchip.com>
+Content-Language: en-US, fr-FR
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+In-Reply-To: <0b7af2a91d4d58cfd4909d338f1879e14f61f77f.1732030972.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_104354_414274_7CDD8692 
-X-CRM114-Status: GOOD (  36.35  )
+X-CRM114-CacheID: sfid-20241119_104704_048103_4E7120DA 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,173 +83,336 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/18/24 7:02 AM, Matt Coster wrote:
-> The TI k3-j721s2 platform has a bug relating to cache snooping on the AXI
-
-Well we don't really know it is the bug on our side until we root cause it..
-
-Anyway, why do need such a complex work around here? GEM buffer objects
-only need to be coherent, cached or uncached is not a concern for userspace.
-For a device marked dma-coherent, both uncached and cached memory is coherent.
-
-So, you could skip remapping these buffers as writecombine always when the
-device is marked dma-coherent. Nothing J721s2 specific to that, and you
-could drop all this PVR_HAS_OVERRIDE stuff here and in the previous patch.
-
-Andrew
-
-> ACE-Lite interface. Disabling cache snooping altogether would also resolve
-> the issue, but is considered more of a performance hit.
+Le 19/11/2024 à 17:40, Ryan.Wanner@microchip.com a écrit :
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
 > 
-> Given the platform is dma-coherent, forcing all device-accessible memory
-> allocations through the CPU cache is the preferred solution.
+> Add clock support for SAMA7D65 SoC.
 > 
-> Implement this workaround so that it can later be enabled for the TI
-> k3-j721s2 platform.
-> 
-> Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 > ---
-> Changes in v2:
-> - None
-> - Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-19-4ed30e865892@imgtec.com
-> ---
->   drivers/gpu/drm/imagination/pvr_device.c | 11 ++++++++++-
->   drivers/gpu/drm/imagination/pvr_device.h | 11 +++++++++++
->   drivers/gpu/drm/imagination/pvr_drv.c    |  2 +-
->   drivers/gpu/drm/imagination/pvr_gem.c    |  3 +++
->   drivers/gpu/drm/imagination/pvr_gem.h    |  7 +++++--
->   drivers/gpu/drm/imagination/pvr_mmu.c    |  7 ++++++-
->   6 files changed, 36 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
-> index 2ce46b9a8ab7609faebeeb4e7820751b00047806..ffc177c383c1be16061eff0290c347918b0991f7 100644
-> --- a/drivers/gpu/drm/imagination/pvr_device.c
-> +++ b/drivers/gpu/drm/imagination/pvr_device.c
-> @@ -24,6 +24,7 @@
->   #include <linux/gfp.h>
->   #include <linux/interrupt.h>
->   #include <linux/platform_device.h>
-> +#include <linux/property.h>
->   #include <linux/pm_runtime.h>
->   #include <linux/slab.h>
->   #include <linux/stddef.h>
-> @@ -635,6 +636,7 @@ bool
->   pvr_device_overrides_validate(struct pvr_device *pvr_dev,
->   			      const struct pvr_device_overrides *overrides)
->   {
-> +	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
->   	bool ret = true;
->   
->   	/*
-> @@ -643,7 +645,14 @@ pvr_device_overrides_validate(struct pvr_device *pvr_dev,
->   	 *
->   	 * Note that this function may be called early during device initialization
->   	 * so it should not be assumed that @pvr_dev is ready for normal use yet.
-> -	 */
-> +	*/
+
+Hi,
+
+> +enum pll_ids {
+> +	PLL_ID_CPU,
+> +	PLL_ID_SYS,
+> +	PLL_ID_DDR,
+> +	PLL_ID_GPU,
+> +	PLL_ID_BAUD,
+> +	PLL_ID_AUDIO,
+> +	PLL_ID_ETH,
+> +	PLL_ID_LVDS,
+> +	PLL_ID_USB,
+> +	PLL_ID_MAX,
+
+Maybe the last comma could be removed to show that nothing is expected 
+after it?
+
+> +};
 > +
-> +	if (overrides->device_memory_force_cpu_cached &&
-> +	    device_get_dma_attr(drm_dev->dev) != DEV_DMA_COHERENT) {
-> +		drm_err(drm_dev,
-> +			"Specifying device_memory_force_cpu_cached override without dma-coherent attribute is unsupported.");
-> +		ret = false;
+> +/*
+> + * PLL component identifier
+> + * @PLL_COMPID_FRAC: Fractional PLL component identifier
+> + * @PLL_COMPID_DIV0: 1st PLL divider component identifier
+> + * @PLL_COMPID_DIV1: 2nd PLL divider component identifier
+> + */
+> +enum pll_component_id {
+> +	PLL_COMPID_FRAC,
+> +	PLL_COMPID_DIV0,
+> +	PLL_COMPID_DIV1,
+> +	PLL_COMPID_MAX,
+
+Maybe the last comma could be removed to show that nothing is expected 
+after it?
+
+> +};
+...
+
+> +static void __init sama7d65_pmc_setup(struct device_node *np)
+> +{
+> +	const char *main_xtal_name = "main_xtal";
+> +	struct pmc_data *sama7d65_pmc;
+> +	const char *parent_names[11];
+> +	void **alloc_mem = NULL;
+> +	int alloc_mem_size = 0;
+> +	struct regmap *regmap;
+> +	struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
+> +	struct clk_hw *td_slck_hw, *md_slck_hw;
+> +	static struct clk_parent_data parent_data;
+> +	struct clk_hw *parent_hws[10];
+> +	bool bypass;
+> +	int i, j;
+> +
+> +	td_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "td_slck"));
+> +	md_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "md_slck"));
+> +	main_xtal_hw = __clk_get_hw(of_clk_get_by_name(np, main_xtal_name));
+> +
+> +	if (!td_slck_hw || !md_slck_hw || !main_xtal_hw)
+> +		return;
+> +
+> +	regmap = device_node_to_regmap(np);
+> +	if (IS_ERR(regmap))
+> +		return;
+> +
+> +	sama7d65_pmc = pmc_data_allocate(PMC_INDEX_MAX,
+> +					 nck(sama7d65_systemck),
+> +					 nck(sama7d65_periphck),
+> +					 nck(sama7d65_gck), 8);
+> +	if (!sama7d65_pmc)
+> +		return;
+> +
+> +	alloc_mem = kmalloc(sizeof(void *) *
+> +			    (ARRAY_SIZE(sama7d65_mckx) + ARRAY_SIZE(sama7d65_gck)),
+> +			    GFP_KERNEL);
+> +	if (!alloc_mem)
+> +		goto err_free;
+> +
+> +	main_rc_hw = at91_clk_register_main_rc_osc(regmap, "main_rc_osc", 12000000,
+> +						   50000000);
+> +	if (IS_ERR(main_rc_hw))
+> +		goto err_free;
+> +
+> +	bypass = of_property_read_bool(np, "atmel,osc-bypass");
+> +
+> +	parent_data.name = main_xtal_name;
+> +	parent_data.fw_name = main_xtal_name;
+> +	main_osc_hw = at91_clk_register_main_osc(regmap, "main_osc", NULL,
+> +						 &parent_data, bypass);
+> +	if (IS_ERR(main_osc_hw))
+> +		goto err_free;
+> +
+> +	parent_hws[0] = main_rc_hw;
+> +	parent_hws[1] = main_osc_hw;
+> +	hw = at91_clk_register_sam9x5_main(regmap, "mainck", NULL, parent_hws, 2);
+> +	if (IS_ERR(hw))
+> +		goto err_free;
+> +
+> +	sama7d65_pmc->chws[PMC_MAIN] = hw;
+> +
+> +	for (i = 0; i < PLL_ID_MAX; i++) {
+> +		for (j = 0; j < PLL_COMPID_MAX; j++) {
+> +			struct clk_hw *parent_hw;
+> +
+> +			if (!sama7d65_plls[i][j].n)
+> +				continue;
+> +
+> +			switch (sama7d65_plls[i][j].t) {
+> +			case PLL_TYPE_FRAC:
+> +				switch (sama7d65_plls[i][j].p) {
+> +				case SAMA7D65_PLL_PARENT_MAINCK:
+> +					parent_hw = sama7d65_pmc->chws[PMC_MAIN];
+> +					break;
+> +				case SAMA7D65_PLL_PARENT_MAIN_XTAL:
+> +					parent_hw = main_xtal_hw;
+> +					break;
+> +				default:
+> +					/* Should not happen. */
+> +					parent_hw = NULL;
+> +					break;
+> +				}
+> +
+> +				hw = sam9x60_clk_register_frac_pll(regmap,
+> +					&pmc_pll_lock, sama7d65_plls[i][j].n,
+> +					NULL, parent_hw, i,
+> +					sama7d65_plls[i][j].c,
+> +					sama7d65_plls[i][j].l,
+> +					sama7d65_plls[i][j].f);
+> +				break;
+> +
+> +			case PLL_TYPE_DIV:
+> +				hw = sam9x60_clk_register_div_pll(regmap,
+> +					&pmc_pll_lock, sama7d65_plls[i][j].n,
+> +					NULL, sama7d65_plls[i][0].hw, i,
+> +					sama7d65_plls[i][j].c,
+> +					sama7d65_plls[i][j].l,
+> +					sama7d65_plls[i][j].f,
+> +					sama7d65_plls[i][j].safe_div);
+> +				break;
+> +
+> +			default:
+> +				continue;
+> +			}
+> +
+> +			if (IS_ERR(hw))
+> +				goto err_free;
+> +
+> +			sama7d65_plls[i][j].hw = hw;
+> +			if (sama7d65_plls[i][j].eid)
+> +				sama7d65_pmc->chws[sama7d65_plls[i][j].eid] = hw;
+> +		}
 > +	}
->   
->   	return ret;
->   }
-> diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
-> index ad0a02a37154099542247dfc62f411c10f4e41f4..7ae14899db24f4c747e8cf4d61d252eb403713f4 100644
-> --- a/drivers/gpu/drm/imagination/pvr_device.h
-> +++ b/drivers/gpu/drm/imagination/pvr_device.h
-> @@ -60,8 +60,19 @@ struct pvr_fw_version {
->   /**
->    * struct pvr_device_overrides - Hardware-level overrides loaded from
->    * MODULE_DEVICE_TABLE() or similar.
-> + *
-> + * @device_memory_force_cpu_cached: By default, all device memory buffer objects
-> + * are mapped write-combined on the CPU (see %PVR_BO_CPU_CACHED) including MMU
-> + * page table backing pages which do not use the regular device memory objects.
-> + * This override forces all CPU mappings to be mapped cached instead. Since this
-> + * could require additional cache maintenance operations to be performed,
-> + * pvr_device_overrides_validate() ensures that the dma-coherent attribute is
-> + * set when this override is specified. Required on some TI platforms where a
-> + * bug causes device-to-cpu cache snooping to behave incorrectly when
-> + * interacting with cpu-uncached memory.
->    */
->   struct pvr_device_overrides {
-> +	bool device_memory_force_cpu_cached;
->   };
->   
->   /**
-> diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
-> index b56ee2cda9b54c4388a6eef38b0ff81acdb05874..e074cfb0d2055b5387dbb142ca972108977f9854 100644
-> --- a/drivers/gpu/drm/imagination/pvr_drv.c
-> +++ b/drivers/gpu/drm/imagination/pvr_drv.c
-> @@ -1490,7 +1490,7 @@ static void pvr_remove(struct platform_device *plat_dev)
->   	pvr_power_domains_fini(pvr_dev);
->   }
->   
-> -static const struct pvr_device_overrides pvr_device_overrides_default = {};
-> +static const struct pvr_device_overrides pvr_device_overrides_default = { 0 };
->   
->   /*
->    * Always specify &pvr_device_overrides_default instead of %NULL for &struct of_device_id->data so
-> diff --git a/drivers/gpu/drm/imagination/pvr_gem.c b/drivers/gpu/drm/imagination/pvr_gem.c
-> index 6a8c81fe8c1e85c2130a4fe90fce35b6a2be35aa..c67c30518f89af3de2e617a9b65e5cd78870fa2c 100644
-> --- a/drivers/gpu/drm/imagination/pvr_gem.c
-> +++ b/drivers/gpu/drm/imagination/pvr_gem.c
-> @@ -345,6 +345,9 @@ pvr_gem_object_create(struct pvr_device *pvr_dev, size_t size, u64 flags)
->   	if (size == 0 || !pvr_gem_object_flags_validate(flags))
->   		return ERR_PTR(-EINVAL);
->   
-> +	if (PVR_HAS_OVERRIDE(pvr_dev, device_memory_force_cpu_cached))
-> +		flags |= PVR_BO_CPU_CACHED;
 > +
->   	shmem_obj = drm_gem_shmem_create(from_pvr_device(pvr_dev), size);
->   	if (IS_ERR(shmem_obj))
->   		return ERR_CAST(shmem_obj);
-> diff --git a/drivers/gpu/drm/imagination/pvr_gem.h b/drivers/gpu/drm/imagination/pvr_gem.h
-> index e0e5ea509a2e88a437b8d241ea13c7bab2220f56..9b3cbcbe48dfbbc8be211a8a409699a43452e178 100644
-> --- a/drivers/gpu/drm/imagination/pvr_gem.h
-> +++ b/drivers/gpu/drm/imagination/pvr_gem.h
-> @@ -44,8 +44,11 @@ struct pvr_file;
->    * Bits not defined anywhere are "undefined".
->    *
->    * CPU mapping options
-> - *    :PVR_BO_CPU_CACHED: By default, all GEM objects are mapped write-combined on the CPU. Set this
-> - *       flag to override this behaviour and map the object cached.
-> + *    :PVR_BO_CPU_CACHED: By default, all GEM objects are mapped write-combined on the CPU. Set
-> + *       this flag to override this behaviour and map the object cached. If
-> + *       &struct pvr_device_overrides->device_memory_force_cpu_cached is specified, all allocations
-> + *       will be mapped as if this flag was set. This does not require any additional consideration
-> + *       at allocation time since the override is only valid if the dma-coherent attribute is set.
->    *
->    * Firmware options
->    *    :PVR_BO_FW_NO_CLEAR_ON_RESET: By default, all FW objects are cleared and reinitialised on hard
-> diff --git a/drivers/gpu/drm/imagination/pvr_mmu.c b/drivers/gpu/drm/imagination/pvr_mmu.c
-> index 4fe70610ed94cf707e631f8148af081a94f97327..7c7deb29b735308eaed26900f2f54a838382c255 100644
-> --- a/drivers/gpu/drm/imagination/pvr_mmu.c
-> +++ b/drivers/gpu/drm/imagination/pvr_mmu.c
-> @@ -259,6 +259,7 @@ pvr_mmu_backing_page_init(struct pvr_mmu_backing_page *page,
->   	struct device *dev = from_pvr_device(pvr_dev)->dev;
->   
->   	struct page *raw_page;
-> +	pgprot_t prot;
->   	int err;
->   
->   	dma_addr_t dma_addr;
-> @@ -268,7 +269,11 @@ pvr_mmu_backing_page_init(struct pvr_mmu_backing_page *page,
->   	if (!raw_page)
->   		return -ENOMEM;
->   
-> -	host_ptr = vmap(&raw_page, 1, VM_MAP, pgprot_writecombine(PAGE_KERNEL));
-> +	prot = PAGE_KERNEL;
-> +	if (!PVR_HAS_OVERRIDE(pvr_dev, device_memory_force_cpu_cached))
-> +		prot = pgprot_writecombine(prot);
+> +	hw = at91_clk_register_master_div(regmap, "mck0", NULL,
+> +					  sama7d65_plls[PLL_ID_CPU][1].hw,
+> +					  &mck0_layout, &mck0_characteristics,
+> +					  &pmc_mck0_lock, CLK_GET_RATE_NOCACHE, 5);
+> +	if (IS_ERR(hw))
+> +		goto err_free;
 > +
-> +	host_ptr = vmap(&raw_page, 1, VM_MAP, prot);
->   	if (!host_ptr) {
->   		err = -ENOMEM;
->   		goto err_free_page;
-> 
+> +	sama7d65_pmc->chws[PMC_MCK] = hw;
+> +	sama7d65_mckx[PCK_PARENT_HW_MCK0].hw = hw;
+> +
+> +	parent_hws[0] = md_slck_hw;
+> +	parent_hws[1] = td_slck_hw;
+> +	parent_hws[2] = sama7d65_pmc->chws[PMC_MAIN];
+> +	for (i = PCK_PARENT_HW_MCK1; i < ARRAY_SIZE(sama7d65_mckx); i++) {
+> +		u8 num_parents = 3 + sama7d65_mckx[i].ep_count;
+> +		struct clk_hw *tmp_parent_hws[8];
+> +		u32 *mux_table;
+> +
+> +		mux_table = kmalloc_array(num_parents, sizeof(*mux_table),
+> +					  GFP_KERNEL);
+> +		if (!mux_table)
+> +			goto err_free;
+> +
+> +		PMC_INIT_TABLE(mux_table, 3);
+> +		PMC_FILL_TABLE(&mux_table[3], sama7d65_mckx[i].ep_mux_table,
+> +			       sama7d65_mckx[i].ep_count);
+> +		for (j = 0; j < sama7d65_mckx[i].ep_count; j++) {
+> +			u8 pll_id = sama7d65_mckx[i].ep[j].pll_id;
+> +			u8 pll_compid = sama7d65_mckx[i].ep[j].pll_compid;
+> +
+> +			tmp_parent_hws[j] = sama7d65_plls[pll_id][pll_compid].hw;
+> +		}
+> +		PMC_FILL_TABLE(&parent_hws[3], tmp_parent_hws,
+> +			       sama7d65_mckx[i].ep_count);
+> +
+> +		hw = at91_clk_sama7g5_register_master(regmap, sama7d65_mckx[i].n,
+> +						      num_parents, NULL, parent_hws,
+> +						      mux_table, &pmc_mckX_lock,
+> +						      sama7d65_mckx[i].id,
+> +						      sama7d65_mckx[i].c,
+> +						      sama7d65_mckx[i].ep_chg_id);
+> +		if (IS_ERR(hw))
+
+Missing kfree(mux_table);
+(or move "alloc_mem[alloc_mem_size++] = mux_table;" before this test to 
+have in done by the error handling path)
+
+> +			goto err_free;
+> +
+> +		alloc_mem[alloc_mem_size++] = mux_table;
+> +
+> +		sama7d65_mckx[i].hw = hw;
+> +		if (sama7d65_mckx[i].eid)
+> +			sama7d65_pmc->chws[sama7d65_mckx[i].eid] = hw;
+> +	}
+> +
+> +	parent_names[0] = "syspll_divpmcck";
+> +	parent_names[1] = "usbpll_divpmcck";
+> +	parent_names[2] = "main_osc";
+> +	hw = sam9x60_clk_register_usb(regmap, "usbck", parent_names, 3);
+> +	if (IS_ERR(hw))
+> +		goto err_free;
+> +
+> +	parent_hws[0] = md_slck_hw;
+> +	parent_hws[1] = td_slck_hw;
+> +	parent_hws[2] = sama7d65_pmc->chws[PMC_MAIN];
+> +	parent_hws[3] = sama7d65_plls[PLL_ID_SYS][PLL_COMPID_DIV0].hw;
+> +	parent_hws[4] = sama7d65_plls[PLL_ID_DDR][PLL_COMPID_DIV0].hw;
+> +	parent_hws[5] = sama7d65_plls[PLL_ID_GPU][PLL_COMPID_DIV0].hw;
+> +	parent_hws[6] = sama7d65_plls[PLL_ID_BAUD][PLL_COMPID_DIV0].hw;
+> +	parent_hws[7] = sama7d65_plls[PLL_ID_AUDIO][PLL_COMPID_DIV0].hw;
+> +	parent_hws[8] = sama7d65_plls[PLL_ID_ETH][PLL_COMPID_DIV0].hw;
+> +
+> +	for (i = 0; i < 8; i++) {
+> +		char name[6];
+> +
+> +		snprintf(name, sizeof(name), "prog%d", i);
+> +
+> +		hw = at91_clk_register_programmable(regmap, name, NULL, parent_hws,
+> +						    9, i,
+> +						    &programmable_layout,
+> +						    sama7d65_prog_mux_table);
+> +		if (IS_ERR(hw))
+> +			goto err_free;
+> +
+> +		sama7d65_pmc->pchws[i] = hw;
+> +	}
+> +
+> +	for (i = 0; i < ARRAY_SIZE(sama7d65_systemck); i++) {
+> +		hw = at91_clk_register_system(regmap, sama7d65_systemck[i].n,
+> +					      sama7d65_systemck[i].p, NULL,
+> +					      sama7d65_systemck[i].id, 0);
+> +		if (IS_ERR(hw))
+> +			goto err_free;
+> +
+> +		sama7d65_pmc->shws[sama7d65_systemck[i].id] = hw;
+> +	}
+> +
+> +	for (i = 0; i < ARRAY_SIZE(sama7d65_periphck); i++) {
+> +		hw = at91_clk_register_sam9x5_peripheral(regmap, &pmc_pcr_lock,
+> +							 &sama7d65_pcr_layout,
+> +							 sama7d65_periphck[i].n,
+> +							 NULL,
+> +							 sama7d65_mckx[sama7d65_periphck[i].p].hw,
+> +							 sama7d65_periphck[i].id,
+> +							 &sama7d65_periphck[i].r,
+> +							 sama7d65_periphck[i].chgp ? 0 :
+> +							 INT_MIN, 0);
+> +		if (IS_ERR(hw))
+> +			goto err_free;
+> +
+> +		sama7d65_pmc->phws[sama7d65_periphck[i].id] = hw;
+> +	}
+> +
+> +	parent_hws[0] = md_slck_hw;
+> +	parent_hws[1] = td_slck_hw;
+> +	parent_hws[2] = sama7d65_pmc->chws[PMC_MAIN];
+> +	parent_hws[3] = sama7d65_pmc->chws[PMC_MCK1];
+> +	for (i = 0; i < ARRAY_SIZE(sama7d65_gck); i++) {
+> +		u8 num_parents = 4 + sama7d65_gck[i].pp_count;
+> +		struct clk_hw *tmp_parent_hws[8];
+> +		u32 *mux_table;
+> +
+> +		mux_table = kmalloc_array(num_parents, sizeof(*mux_table),
+> +					  GFP_KERNEL);
+> +		if (!mux_table)
+> +			goto err_free;
+> +
+> +		PMC_INIT_TABLE(mux_table, 4);
+> +		PMC_FILL_TABLE(&mux_table[4], sama7d65_gck[i].pp_mux_table,
+> +			       sama7d65_gck[i].pp_count);
+> +		for (j = 0; j < sama7d65_gck[i].pp_count; j++) {
+> +			u8 pll_id = sama7d65_gck[i].pp[j].pll_id;
+> +			u8 pll_compid = sama7d65_gck[i].pp[j].pll_compid;
+> +
+> +			tmp_parent_hws[j] = sama7d65_plls[pll_id][pll_compid].hw;
+> +		}
+> +		PMC_FILL_TABLE(&parent_hws[4], tmp_parent_hws,
+> +			       sama7d65_gck[i].pp_count);
+> +
+> +		hw = at91_clk_register_generated(regmap, &pmc_pcr_lock,
+> +						 &sama7d65_pcr_layout,
+> +						 sama7d65_gck[i].n, NULL,
+> +						 parent_hws, mux_table,
+> +						 num_parents,
+> +						 sama7d65_gck[i].id,
+> +						 &sama7d65_gck[i].r,
+> +						 sama7d65_gck[i].pp_chg_id);
+> +		if (IS_ERR(hw))
+> +			goto err_free;
+> +
+> +		sama7d65_pmc->ghws[sama7d65_gck[i].id] = hw;
+> +		alloc_mem[alloc_mem_size++] = mux_table;
+> +	}
+> +
+> +	of_clk_add_hw_provider(np, of_clk_hw_pmc_get, sama7d65_pmc);
+> +	kfree(alloc_mem);
+> +
+> +	return;
+> +
+> +err_free:
+> +	if (alloc_mem) {
+> +		for (i = 0; i < alloc_mem_size; i++)
+> +			kfree(alloc_mem[i]);
+> +		kfree(alloc_mem);
+> +	}
+> +
+> +	kfree(sama7d65_pmc);
+> +}
+> +
+> +/* Some clks are used for a clocksource */
+> +CLK_OF_DECLARE(sama7d65_pmc, "microchip,sama7d65-pmc", sama7d65_pmc_setup);
+
 
