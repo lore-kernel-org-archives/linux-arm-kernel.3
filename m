@@ -4,71 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 571CAD591D4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 07:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC08D591C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 07:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fYHxGu57Vd/67w2lE6iMGTcHGQWrzFlObyNHWuPMT1k=; b=1h3JYp6Z1FQ5p5sYOxoiNVYVUY
-	0d6EpNeVfTLClQduLSRdhWI/aySXJY4zosv3X99gfekLWtQiOkS7movpqXwx+8O6ijuMYf37aoTZs
-	ibttwOvoj6aglco0SWVI2e5/O53uTe5Ftyiu55I/cMFCxbLi5YQGW9rHm5jx9L//+w96GNgStzTl3
-	jEFOgZkVAxwf4QYvJe5VDae2evZmwwq3aBJNRPUPDG1vifqWlP2RoRXYbdhEVKQtfiwleJ0YomtjH
-	wX23dIxk2d0U5B3MHGKfDVv2RQolb70fXe2aolZkM5gjm/x8WFXfm7zX8ULpGpJYPQ0D2x1ssQekR
-	/kIABQPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xNSzNCYfMVVqwmNC/dkjD9KuK0iM34sxaAeB6M/XILU=; b=35LOQyLWVDW+Rhf/l8pLXBhzl2
+	LbKsU8KYyVunTvzHczPHwr9QQ/CjvbkyLUGg5uJaBo4P5FrX8F/kFlpRzlIfdqx4xtX6isvHes2nx
+	axRW+evJY0tDspFoHWsX2AID1vDQf1y5YCBnp4VsgsJ86DT2Q/AmsdcmP4iW+jPfvKpt4ohHTugch
+	3oY5+Asd6YCezr23hkxicLFUl4etflfIWfCaS87UGfjiZ47SuVx/3klSFix+CMCd2SjXyYQt+pLQr
+	rTGHKvX+R01M0qGFcHvjWMTZvcWO3TFm1LuubtxFBQEMY6s1XZvz5zp3HIBXHAYolhHSC4AfiOj+T
+	UoyLXp8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDIT8-0000000Bc1r-1RxR;
-	Tue, 19 Nov 2024 07:16:14 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tDIeZ-0000000BdgS-4AUD;
+	Tue, 19 Nov 2024 07:28:03 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDISC-0000000BbvU-2NTY
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 07:15:17 +0000
-Date: Tue, 19 Nov 2024 08:15:10 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1732000512;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fYHxGu57Vd/67w2lE6iMGTcHGQWrzFlObyNHWuPMT1k=;
-	b=3cVL8lf0Gb/HWJXsnjzFswzLt0MXmK8lKTNk9B1V6rvcJzSfEH0dIAcQDVWOb/QV8D+n4N
-	m2tr85+9HY+P6/ldmAvE0kL4WeImVJfRxmdgR3TlpxfwEy0BNb4Sra7pqoZ/JA0nnFSrUG
-	fJQBSiIAHYNinfY3VZJUu1tnfBSiZaKAMFo2+JXjk3OFVFvv6uh3S08VU8fKEFo7SF9Pso
-	jDHRSExl7S5om4W8x+H5JWcyREh0XXZi8+aT1P57YPp/LOdAaWmf2edApTYzZDXkrXycEa
-	O5XK8VT1P9wqL2H5XnlvMCG4r+tnuLoYaNCEOyzfVCcUF/9ZLMfL1Om1H44dTQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1732000512;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fYHxGu57Vd/67w2lE6iMGTcHGQWrzFlObyNHWuPMT1k=;
-	b=fbjdjWM/UYcRFULLa6J86gF2bgO/IHXOCZ7BVYjO3x41u7LqH+rG9jZZt7xRzKioJfCTOf
-	xkNWFejviIZuH4Cw==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	Steven Rostedt <rostedt@goodmis.org>,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH] iommu/tegra241-cmdqv: do not call smp_processor_id in
- preemptible context
-Message-ID: <20241119071510.-6OKEw2q@linutronix.de>
-References: <ZzvZkMKhwmJESpdM@uudg.org>
+	id 1tDIde-0000000Bdb1-1mQk;
+	Tue, 19 Nov 2024 07:27:07 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2e3686088c3so3841138a91.0;
+        Mon, 18 Nov 2024 23:27:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732001226; x=1732606026; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xNSzNCYfMVVqwmNC/dkjD9KuK0iM34sxaAeB6M/XILU=;
+        b=NXpfF14L+ZZWJ8i4sXFRh3U9YQebK/LslHqaqC8iDuT3Bba/Lh9xG/tamSiFrgBpMQ
+         UUpvMXCVY3TCp95Q9IKCFpbu0GYKbuxgAybKFWE801rNEA2T0fUAdiBPfMd1s/rpm4tP
+         yoS7Ba//GIgRxaCGiqRipbYRkWxScLfAN/rWI18IIS0McsstKBNqQC+94fDyw9r3OSAG
+         2JgFg3rfSdPlIY4VrzMKDQYR3kEM2ioMgCmy3hUqLYKIfscNGuC2l9J44oY6pKzL52Nc
+         0vwLU+AP/+Nv/n9DONFQIon+LC2SSqm0uterMh7jgGhDciyfjc9X7xFvWRgtxw1dXpEs
+         8SdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732001226; x=1732606026;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xNSzNCYfMVVqwmNC/dkjD9KuK0iM34sxaAeB6M/XILU=;
+        b=ee/qRvCqfqyafUfwGOVN1K/H4rOaj7bMeveJzCvVrQSw7mygYfFVY7kNCioIIrzkGB
+         3IHhQWUAzMVCp87TTqAIGhFjIESPTDt7/L8a7jSoK9B6agkmpfZj9eCMb4mJHJHrj6xO
+         fsTZxtfk5gJdKOwSXJjGzq8CF5endYgvqBtLfDRhjykKM2vi+c/i2oAIpdLn1uUo1piN
+         wfCuKyt+/weIpP46WPH4JYJBFJbmthmnfUFiyB22iTVxEaYXDX3rV7A84QdUbWYVUpPq
+         yX6L3t82u+AhvP+F/XvutCNWMvBMdQ6zqqQssppi+ddnh/Kh0uv//nsewVWlnb/U62gx
+         nR/w==
+X-Forwarded-Encrypted: i=1; AJvYcCX5KJyJe6xa0SAHOBmCgqF5y/po/TXPkKG/OexsvG6dkvY/RpSmeiXsAvLXbAI+mnmw+ldKo7blHRamVht7Zox+@lists.infradead.org, AJvYcCXkYNR5VcgHIxpy2dfikP7oXvJm4OGM2hL76BEw9V9flZTQ0Jwi9YPEZlTpesT4cWZy/KvYe+F5SJmAE1d7P1U=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHnk05+3yUS+bv+OYRCBwX589GaHOHVHZe2XDO+/c5RCw+pV+c
+	uRfpeZ0CAPL4mqqQtR3yYzZEZ3YZHn89M4N7bu3ZXyWrYDxGmhNY
+X-Google-Smtp-Source: AGHT+IEA/iTsZZHtlCuUDTuhDZRJe4+zgwhrGD2wA/t1BYs6ZH3429oBnqwQmKCFm9ZWFlUypW/zRw==
+X-Received: by 2002:a17:90b:390e:b0:2ea:4578:46d8 with SMTP id 98e67ed59e1d1-2ea4578787dmr12919293a91.9.1732001225619;
+        Mon, 18 Nov 2024 23:27:05 -0800 (PST)
+Received: from HOME-PC ([223.185.133.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ea8f04c67fsm2423849a91.43.2024.11.18.23.27.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 Nov 2024 23:27:05 -0800 (PST)
+From: Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
+To: dafna@fastmail.com,
+	laurent.pinchart@ideasonboard.com,
+	linux-media@vger.kernel.org
+Cc: mchehab@kernel.org,
+	heiko@sntech.de,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
+Subject: [PATCH v4 media-next] media: rkisp1: Fix unused value issue
+Date: Tue, 19 Nov 2024 12:56:53 +0530
+Message-Id: <20241119072653.72260-1-dheeraj.linuxdev@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <ZzvZkMKhwmJESpdM@uudg.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_231516_758385_32995DE9 
-X-CRM114-Status: UNSURE (   9.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241118_232706_462671_B83950AC 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,20 +94,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-11-18 21:19:28 [-0300], Luis Claudio R. Goncalves wrote:
-> With PREEMPT_RT enabled some of the calls to tegra241_cmdqv_get_cmdq()
-> during boot will happen in preemptible context. As this function calls
-> smp_processor_id(), these calls will trigger a "BUG: using smp_processor_id()
-> in preemptible" backtrace if DEBUG_PREEMPT is enabled.
+This commit fixes an unused value issue detected by Coverity (CID
+1519008). The error condition for the invalid MIPI CSI-2 is not
+properly handled as the break statement would only exit the switch block
+and not the entire loop. Fixed this by returning the error immediately
+after the switch block.
 
-If this is only on PREEMPT_RT, where is the disabled preemption coming
-from on !PREEMPT_RT?
+'Fixes: 8d4f126fde89 ("media: rkisp1: Make the internal CSI-2 receiver
+optional")'
 
-> As tegra241_cmdqv_get_cmdq() only calls smp_processor_id() to use the
-> CPU number as a factor to balance out traffic on cmdq usage, it is safe
-> to use raw_smp_processor_id() here.
-> 
-> Signed-off-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
+Signed-off-by: Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
+---
+ drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Sebastian
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+index dd114ab77800..9ad5026ab10a 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+@@ -228,6 +228,9 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
+ 			break;
+ 		}
+ 
++		if (ret)
++			break;
++
+ 		/* Parse the endpoint and validate the bus type. */
+ 		ret = v4l2_fwnode_endpoint_parse(ep, &vep);
+ 		if (ret) {
+-- 
+2.34.1
+
 
