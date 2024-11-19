@@ -4,115 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB5DD44159
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:06:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F5B3D4415C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/bFyG/aBlQNDXGp89LD72g3q/+OJrz3u3vn7xASjD+I=; b=rJMXSXtUQBS2iQyihOr8rAz2fB
-	9VC/4KqSh4louj8PMnNwH7VCYNN4iEincuTzIhBttZBNF8tT835ks9EBxrQmopwCkZRpEY7A5EVPo
-	m3NWCkj0I+JLiuRZdzMn1dsHLMgTJaiw0yqAwChiH4WEPqFxdYjdVDBtCTaSOBkZxYSCmCKTpQbZr
-	IhE3dBHiFq0/dVQmDR2VGYV9SNE0fuF3gfCQEWBx9aegCNWx1q3Sh5pcb2AE7vDc2AFYMSe6oNduT
-	ncqevz3nmPWWyoHtMS3N9UHzc/dI5pGNJMh440pBVLr3fqJ9TmCDL+jJNAdZLwQCkFJm19ytFPrkG
-	YVqGIJVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=r5SnbOSPJM2xbQk5uUW2SdrCV3aSiK5t/lke9tIy5ZM=; b=YZ0sramcZ6ewL2
+	xuiZOiwClsBmK1KO45DT8P+KqWbYTynJc5TbjVsrGwGmSVSAkz+iqb2/Be9hwtFVHHV1D3zZIZ4+T
+	D3bf2RdjiE/SK4GZMRal7aM5RzEANADhhuXkWLph6Ru3BmK3i8klBu2pIE9Z6v7B31zwoW2XhzXfJ
+	x8nhvZlT/WxLzHU/ldbZG0SI2H2YLQxuTtVfNnKlG0NtCQHtZ0ho0YGW/iiKk7hAURVr0yowQMA5Z
+	GiOrxXb9R44HvQLJXWp45mEDOgmucGV391DVdnTianS02D6t2vZOKJYShHf0tLCet5DiyL/uMuLfq
+	jBEKnoX280L4mMhQRYOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDNwL-0000000CSZe-10Hs;
-	Tue, 19 Nov 2024 13:06:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tDNxF-0000000CSlw-3hWa;
+	Tue, 19 Nov 2024 13:07:41 +0000
+Received: from mail-lj1-f170.google.com ([209.85.208.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDNv4-0000000CSJp-45pX
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 13:05:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 797105C5538;
-	Tue, 19 Nov 2024 13:04:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40F07C4CED0;
-	Tue, 19 Nov 2024 13:05:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732021526;
-	bh=p/IHHok2wOrODlJQF1SeqZvtvKHUNu8+gXKwDk4gZmI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=V5lrCnmc85yOXxzYRP047GcfnOrR9baMhy9S6fxFEVTM3b0tGlYvrdnH9PwGX3SUI
-	 ILCj13sbymkIVQ+AhuVQ/70GqoRKmmsu+Zo9kGLQvG42pNnv9E1kT6Ul87aV0eET7C
-	 jty7w7tkWNrIhKPPJsfako2AC6iQbyUfrjntmA2d3arCLihOnziPCAGAjT1qp3pjxY
-	 oZ2a1jqiCVmwghZyTk9pjZiRzC+pUhEIRJ4S/Iyjx1rIqapwT+dfnuCiwDcoWpdmcP
-	 TrgTc1sdSJ8w9gTIjkgKFZSJseR1jnnPwTkwG9XYN3l2/nbE6rfSM1frlptFnfGxi1
-	 FYDzWrVidox1g==
-Message-ID: <c1885e24-8051-4c91-9870-18eb4218a2ff@kernel.org>
-Date: Tue, 19 Nov 2024 14:05:20 +0100
+	id 1tDNvh-0000000CSRw-1DHC;
+	Tue, 19 Nov 2024 13:06:06 +0000
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-2fb5014e2daso26590001fa.0;
+        Tue, 19 Nov 2024 05:06:04 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732021561; x=1732626361;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=r5SnbOSPJM2xbQk5uUW2SdrCV3aSiK5t/lke9tIy5ZM=;
+        b=w95RELE+0nDSecZriPzutDPYkFy/mxo37Gn78M2tlk1nDdYnXeG0yr0/DXTh/H8C7J
+         e+jIYTzpL4o7DGcUXNu/guUsNkZ63VYaxrEQIe7GzdaAUfSDucnh2auuLEbUYNHYJybd
+         /hCIVJWqbkwaFIMb6iRYEDlKf9sGr9kUhow6mOhADwGoQ2ypMoGXVtnArBWD8A6VV5hX
+         ck51/qnAMYCH8mCPzltCL4TI0QfSGdXq5/izkpbykBtZoOQ20EgWjC6uUyFADhYppB7L
+         0qnxQlGu5sY9MhbMVFEF03yqhHpFNhS1JHeN60UIccx2W4JTcGjzsJRj+enOtyU/3oq8
+         ZiXA==
+X-Forwarded-Encrypted: i=1; AJvYcCVfI0iG5kOItmHwKLu+CW8wDed2peifygU1TBiq8nwk0aZVKw8f3coa4m4ak/rn4HTGaR8i5LOD2dKUurT6SdBL@lists.infradead.org, AJvYcCWlIn3FMVlIjNSC0tEpzBUMw6W0ZpKcewqf/e9Jh+cT4iK64CCklDl4+tEdUxwZii4HS+2VBW4OQEt9FJ/nHXk=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHLSdanxRmibyhBWRzFBJbfdOq3lNhNyLHiBGX92JSzGPC0CBY
+	X1Fwm4WnCelqo0tNtHynmAVP4rx8+HbihtIbEePwhVY2ycDGrCLsrlA2DKMw
+X-Google-Smtp-Source: AGHT+IFRSTz1dh+uLST2WRk1SId0URyEzSlJ6HSvWi/q0vYP7Gmvz1Oo+juT0CA+A5d2p2fuLdvgPQ==
+X-Received: by 2002:a05:651c:1542:b0:2fb:5014:c998 with SMTP id 38308e7fff4ca-2ff606e4b3emr87636821fa.28.1732021561201;
+        Tue, 19 Nov 2024 05:06:01 -0800 (PST)
+Received: from mail-lj1-f172.google.com (mail-lj1-f172.google.com. [209.85.208.172])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ff6996869asm12170831fa.68.2024.11.19.05.05.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 19 Nov 2024 05:05:55 -0800 (PST)
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-2fb3da341c9so27931981fa.2;
+        Tue, 19 Nov 2024 05:05:54 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCU1q7j/LtR8KfJAuLMbxEHTTufz8SE3EEcj1uZrbuzy++VqciNvTHMKlLapA6viZZqE2jlFf6nqAQKFdY5OpZAG@lists.infradead.org, AJvYcCVdPz/7h4xww07bYB5V5gcTOGv+ytdZ1bFzLUMF6V1i9zfszGAH9IAoFVCsgqkPmRqvYanOCX1XKnr1D2W3Pcg=@lists.infradead.org
+X-Received: by 2002:a05:651c:1582:b0:2f7:4cf1:d6b1 with SMTP id
+ 38308e7fff4ca-2ff606226a5mr76184521fa.1.1732021553921; Tue, 19 Nov 2024
+ 05:05:53 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/6] dt-bindings: Add Blaize vendor prefix
-To: Niko Pasaloukos <nikolaos.pasaloukos@blaize.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, James Cowgill
- <james.cowgill@blaize.com>, Matt Redfearn <matthew.redfearn@blaize.com>,
- Neil Jones <neil.jones@blaize.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "soc@lists.linux.dev" <soc@lists.linux.dev>
-References: <20241115-blaize-blzp1600_init_board_support-v5-0-c09094e63dc5@blaize.com>
- <20241115-blaize-blzp1600_init_board_support-v5-1-c09094e63dc5@blaize.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241115-blaize-blzp1600_init_board_support-v5-1-c09094e63dc5@blaize.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <6f0297ba884c670d604232c2861347940082c8e6.1732004078.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <6f0297ba884c670d604232c2861347940082c8e6.1732004078.git.u.kleine-koenig@baylibre.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Tue, 19 Nov 2024 22:05:42 +0900
+X-Gmail-Original-Message-ID: <CAGb2v66f6WEYYVm+UQzmz_V87Vqt4BSUkoW5S_qqr_arczc6ug@mail.gmail.com>
+Message-ID: <CAGb2v66f6WEYYVm+UQzmz_V87Vqt4BSUkoW5S_qqr_arczc6ug@mail.gmail.com>
+Subject: Re: [PATCH] mailbox: Switch back to struct platform_driver::remove()
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Michal Simek <michal.simek@amd.com>, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_050527_181737_F855C96A 
-X-CRM114-Status: UNSURE (   7.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241119_050605_323767_17251D25 
+X-CRM114-Status: GOOD (  22.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,24 +93,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/11/2024 15:58, Niko Pasaloukos wrote:
-> Blaize, Inc. (www.blaize.com) is a SoC manufacturer with integrated
-> programmable Graph-Streaming-Processors for AI and ML.
-> 
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
-Here and in all other patches - you still have the same checkpatch
-warning I asked to fix.
+On Tue, Nov 19, 2024 at 5:17=E2=80=AFPM Uwe Kleine-K=C3=B6nig
+<u.kleine-koenig@baylibre.com> wrote:
+>
+> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+> return void") .remove() is (again) the right callback to implement for
+> platform drivers.
+>
+> Convert all platform drivers below drivers/mailbox to use .remove(),
+> with the eventual goal to drop struct platform_driver::remove_new(). As
+> .remove() and .remove_new() have the same prototypes, conversion is done
+> by just changing the structure member name in the driver initializer.
+>
+> Make a few indentions consistent while touching these struct
+> initializers.
+>
+> Signed-off-by: Uwe Kleine-K=C3=B6nig <u.kleine-koenig@baylibre.com>
+> ---
+> Hello,
+>
+> I did a single patch for all of drivers/mailbox. While I usually prefer
+> to do one logical change per patch, this seems to be overengineering
+> here as the individual changes are really trivial and shouldn't be much
+> in the way for stable backports. But I'll happily split the patch if you
+> prefer it split.
+>
+> This is based on today's next, if conflicts arise when you apply it at
+> some later time and don't want to resolve them, feel free to just drop
+> the changes to the conflicting files. I'll notice and followup at a
+> later time then. Or ask me for a fixed resend.
+>
+> Best regards
+> Uwe
+>
+>  drivers/mailbox/bcm-flexrm-mailbox.c    | 2 +-
+>  drivers/mailbox/bcm-pdc-mailbox.c       | 2 +-
+>  drivers/mailbox/imx-mailbox.c           | 2 +-
+>  drivers/mailbox/mailbox-test.c          | 4 ++--
+>  drivers/mailbox/mtk-cmdq-mailbox.c      | 2 +-
+>  drivers/mailbox/qcom-apcs-ipc-mailbox.c | 2 +-
+>  drivers/mailbox/qcom-ipcc.c             | 2 +-
+>  drivers/mailbox/stm32-ipcc.c            | 2 +-
 
 
-git format-patch -6 -v5
-scripts/checkpatch.pl v5*
+>  drivers/mailbox/sun6i-msgbox.c          | 4 ++--
 
-Your SoB does not match From. This MUST be fixed.
+Acked-by: Chen-Yu Tsai <wens@csie.org>
 
-Best regards,
-Krzysztof
+>  drivers/mailbox/tegra-hsp.c             | 2 +-
+>  drivers/mailbox/zynqmp-ipi-mailbox.c    | 2 +-
+>  11 files changed, 13 insertions(+), 13 deletions(-)
+>
 
