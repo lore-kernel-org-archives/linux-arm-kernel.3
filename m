@@ -4,60 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7623D44160
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 359ADD44160
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 13:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P6w1NYF8WE9oCK29HzL7wNhnNMzb0A2JIzP/NO8X6No=; b=lnbDqZPBG+8+1fsg1QRndl1mvP
-	++X+5jZq7PlGSmL0zabP8KyUtOWS8dIaGAcnR32XWRt+SiW1P2lMh+ZiKcUd594Ct+xABs+7s0IN7
-	RmcBRiw5y2vyoCvKFOrGeegIv1fC+wVUkL7GeDsJWT4opn8QXoPcyOR7I0eagD4KOIaWvNYqBUHkB
-	R7jrczHgTnbl1k5nXk9WZhHYdlygaPd9UTeZMoK5eezo5ayiPhTUtI5rsAfTs9Euws0M/nxnIcPYs
-	lsuR4U5zQQHpy3U9HHhm6zxpbl7EsOvl+v3Gx9Ks02yx4i21HZi7bmIcIyEHe/miUC+Vb6cXRnHGe
-	IYdOb2mQ==;
+	bh=0fOlgptjf+VAFac4caWewdZHfkZSPHGqBYTLWBCnWO0=; b=J/4GW+TC6n+Lx0ZJ9fG27C7e3E
+	4Oy1ia3WXvKiHXqbRzD7r2/oXyn/hKWtT9tX9+VkxRkpT/vmEo1jvcVF19bwJewUchZGGNY0Cy+lB
+	+YPbWLl57wbHtFV/JeIohtQ+WZA4eefXzPpcIUYKc+Zw5REhkvlVB0E805RMtdGe9HUXd60BAGbLn
+	fYZHVPdxRz4aZBblUDDJVghIi3kLBCJXoeXzIdySuVbN6p0qe1soMrTEz3ePaR5GMWA2G7Vow7lgi
+	PADXMVGSGcccKwHi+9tABNztlD5bDzXEyw28DXNWwiUk169yqjQrJuMOrcrFkhLDirfUjDwBuWwE5
+	7hHvqUoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDOgn-0000000CaqO-1wyD;
-	Tue, 19 Nov 2024 13:54:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDOeY-0000000CaGD-3PUK
+	id 1tDOhj-0000000Cb0u-0aO5;
+	Tue, 19 Nov 2024 13:55:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tDOfn-0000000CaZP-1oBl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 13:52:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66F971480;
-	Tue, 19 Nov 2024 05:52:53 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 046CE3F5A1;
-	Tue, 19 Nov 2024 05:52:21 -0800 (PST)
-Message-ID: <eb993437-f83a-4148-89ad-db6134fa32f2@arm.com>
-Date: Tue, 19 Nov 2024 13:52:20 +0000
+	Tue, 19 Nov 2024 13:53:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E2CB05C01FE;
+	Tue, 19 Nov 2024 13:52:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38C6AC4CECF;
+	Tue, 19 Nov 2024 13:53:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732024422;
+	bh=ZaeUTzkw4cqujbNOAx/dScYSg3b3LlW/20U9wg/ZYns=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=J7rD09N7zmx7nf9mtIwwlqIkk33oaUPdZ0N6gmr0KhmrWqqy7Y9JK11aLi6+qogN+
+	 hweWqktjf3I0ZZ+YdJ3lcnZbvaxZ1HFhAmK3gD+qakqm9wp+u71SPxbxKBIOsrzAOG
+	 PZRL7C8DTuIRVj77STPbyfgxEPWlAEp0x5Jam/dTJCkvpwXO2IGFsGH7Wpg/SIXSST
+	 BN6q/COk78cY83/UF8d+ru3x+bhDiF8oGci83Dxdx3ZRNgrguT6rG37nNPsBJ1jjmi
+	 uOXCMDgexOQ3Z2SHyOdiO5A2UWDJWxEnf0yvjwS7BG+Dw6/3+AsR+6+FLiaS7uflEW
+	 NHCNqAEuLgYyA==
+Message-ID: <3c2d9f76-12bf-4d9f-afcd-9c4ae3a4d2a0@kernel.org>
+Date: Tue, 19 Nov 2024 14:53:35 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] coresight: tmc: Don't change the buffer size if it's
- in use
-To: Yicong Yang <yangyicong@huawei.com>, James Clark
- <james.clark@linaro.org>, mike.leach@linaro.org, coresight@lists.linaro.org
-Cc: yangyicong@hisilicon.com, jonathan.cameron@huawei.com,
- prime.zeng@hisilicon.com, hejunhao3@huawei.com, linuxarm@huawei.com,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20241114081653.24328-1-yangyicong@huawei.com>
- <9a637e74-d81d-405c-bad0-c97ec1aa4b77@linaro.org>
- <0cfbd546-ee9a-da6e-904a-c1da4e59e286@huawei.com>
- <658fec30-af5e-4a90-bf5a-426aedb55e50@linaro.org>
- <df8967cd-2157-46a2-97d9-a1aea883cf63@arm.com>
- <7e2a3ff5-885e-f20c-6cd7-61ff9ff7ab04@huawei.com>
+Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock: support spread
+ spectrum clocking
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+ Peng Fan <peng.fan@nxp.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-amarula@amarulasolutions.com" <linux-amarula@amarulasolutions.com>,
+ Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+References: <20241106090549.3684963-1-dario.binacchi@amarulasolutions.com>
+ <20241106090549.3684963-2-dario.binacchi@amarulasolutions.com>
+ <4bix7me5vaoyhcuffyp4btajmhy7no6ltczoesopaz2fqupyaw@fensx4nn472u>
+ <b7c1499b-8337-421c-9734-6e518d678ff8@kernel.org>
+ <CABGWkvrYJL9=zrPSFuEAgKO+9gDHD6RmCJM6Br6Le_eh578ETQ@mail.gmail.com>
+ <54dd6ae6-b992-451e-b1c6-8a1968955f4a@kernel.org>
+ <PAXPR04MB8459BE3474EFD4FCC28E0E82885D2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <8c310eca-d695-418c-82cb-a89351d83887@kernel.org>
+ <PAXPR04MB8459B6F8D5C623D19CCF6B39885E2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <bc02327b-dea8-48c9-b036-4a0eda0c4cb9@kernel.org>
+ <9f6b243b-0642-41db-85ed-d020bfa3e6e2@kernel.org>
+ <PAXPR04MB845978F4D3C6E887E0DE8D5488582@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <CABGWkvqXOg=Y7K+oc6Q-3UWGC-WLEK_tmQzyRBW6x0fvQTsqvw@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <7e2a3ff5-885e-f20c-6cd7-61ff9ff7ab04@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <CABGWkvqXOg=Y7K+oc6Q-3UWGC-WLEK_tmQzyRBW6x0fvQTsqvw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_055226_940598_4D2FEBC5 
-X-CRM114-Status: GOOD (  40.47  )
+X-CRM114-CacheID: sfid-20241119_055343_559076_930010E9 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,194 +141,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
-
-On 19/11/2024 12:40, Yicong Yang wrote:
-> On 2024/11/15 1:20, Suzuki K Poulose wrote:
->> Hi,
->>
->> Thanks for the report, see my comments inline.
->>
->> On 14/11/2024 15:26, James Clark wrote:
->>>
->>>
->>> On 14/11/2024 2:51 pm, Yicong Yang wrote:
->>>> On 2024/11/14 18:30, James Clark wrote:
->>>>>
->>>>>
->>>>> On 14/11/2024 8:16 am, Yicong Yang wrote:
->>>>>> From: Yicong Yang <yangyicong@hisilicon.com>
->>>>>>
->>>>>> Enable the trace in below steps will crash the kernel by NULL pointer
->>>>>> dereferencing:
->>>>>> echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
->>>>>> echo 1 > /sys/bus/coresight/devices/etm0/enable_source
->>>>>> echo 0x400000 > /sys/bus/coresight/devices/tmc_etr0/buffer_size
->>>>>> echo 1 > /sys/bus/coresight/devices/etm2/enable_source
->>>>>> dd if=/dev/tmc_etr0 of=test_etm_sysfs_etr_030.data
->>>>>>
->>>>>> The call trace will be like:
->>>>>>     WARNING: CPU: 39 PID: 8586 at drivers/hwtracing/coresight/ coresight-tmc-etr.c:1123 __tmc_etr_disable_hw+0x108/0x140 [coresight_tmc]
->>>>>>     [...]
->>>>>>     Call trace:
->>>>>>      __tmc_etr_disable_hw+0x108/0x140 [coresight_tmc]
->>>>>>      tmc_read_prepare_etr+0xc0/0xd0 [coresight_tmc]
->>>>>>      tmc_open+0x60/0xa0 [coresight_tmc]
->>>>>>      misc_open+0x11c/0x170
->>>>>>      chrdev_open+0xcc/0x2b0
->>>>>>      do_dentry_open+0x140/0x4e0
->>>>>>      vfs_open+0x34/0xf8
->>>>>>      path_openat+0x2b0/0xf58
->>>>>>      do_filp_open+0x8c/0x148
->>>>>>      do_sys_openat2+0xb8/0xe8
->>>>>>      __arm64_sys_openat+0x70/0xc0
->>>>>>      el0_svc_common.constprop.0+0x64/0x148
->>>>>>      do_el0_svc+0x24/0x38
->>>>>>      el0_svc+0x40/0x140
->>>>>>      el0t_64_sync_handler+0xc0/0xc8
->>>>>>      el0t_64_sync+0x1a4/0x1a8
->>>>>>     ---[ end trace 0000000000000000 ]---
->>>>>>     Unable to handle kernel NULL pointer dereference at virtual address 0000000000000028
->>>>>>     [...]
->>>>>>     Call trace:
->>>>>>      tmc_etr_get_sysfs_trace+0x10/0x80 [coresight_tmc]
->>>>>>      vfs_read+0xcc/0x310
->>>>>>      ksys_read+0x74/0x108
->>>>>>      __arm64_sys_read+0x24/0x38
->>>>>>      el0_svc_common.constprop.0+0x64/0x148
->>>>>>      do_el0_svc+0x24/0x38
->>>>>>      el0_svc+0x40/0x140
->>>>>>
->>>>>> Due to the buffer size changed, the buffer will be reallocated in
->>>>>> tmc_etr_get_sysfs_buffer() when the second source enabled. At trace
->>>>>> end tmc_etr_sync_sysfs_buf() will reset the drvdata->sysfs_buf and
->>>>>> trigger the later NULL pointer dereference when reading out the
->>>>>> data.
->>>>>>
->>>>>> But it doesn't make sense to change the buffer size when it's
->>>>>> already in use. So block such behavior.
->>>>>>
->>>>>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
->>>>>> ---
->>>>>>     drivers/hwtracing/coresight/coresight-tmc-core.c | 5 +++++
->>>>>>     1 file changed, 5 insertions(+)
->>>>>>
->>>>>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/ drivers/hwtracing/coresight/coresight-tmc-core.c
->>>>>> index 475fa4bb6813..9660af63e9bc 100644
->>>>>> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
->>>>>> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
->>>>>> @@ -319,6 +319,11 @@ static ssize_t buffer_size_store(struct device *dev,
->>>>>>         if (drvdata->config_type != TMC_CONFIG_TYPE_ETR)
->>>>>>             return -EPERM;
->>>>>>     +    /* Don't change the buffer size if it's in use */
->>>>>> +    guard(spinlock)(&drvdata->spinlock);
->>>>>> +    if (coresight_get_mode(drvdata->csdev) != CS_MODE_DISABLED)
->>
->> Could we do something like this below ?
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> index a48bb85d0e7f..863a645fa88a 100644
->> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> @@ -1178,7 +1178,9 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
->>           */
->>          spin_lock_irqsave(&drvdata->spinlock, flags);
->>          sysfs_buf = READ_ONCE(drvdata->sysfs_buf);
->> -       if (!sysfs_buf || (sysfs_buf->size != drvdata->size)) {
->> +       if (!sysfs_buf ||
->> +           ((sysfs_buf->size != drvdata->size) &&
->> +             coresight_get_mode(csdev) != CS_MODE_SYSFS))
->>                  spin_unlock_irqrestore(&drvdata->spinlock, flags);
->>
->>                  /* Allocate memory with the locks released */
->>
->> i.e., do not allocate a new buffer if the sysfs mode is active. The new
->> size can be set when the new session starts
->>
+On 11/11/2024 12:57, Dario Binacchi wrote:
 > 
-> tested with steps in the commit and perf (below) simultaneously and don't see the
-> problem mentioned.
-> perf record -e cs_etm// -C 0 -- sleep 1 2>&1 > /dev/null
-
-Thanks for the testing !
+> Thank you Peng, for the information.
 > 
-> It's a bit confusing with this fix since we actually discard/delay the user's request
-> of changing the buffer size but no error/information returned to user. If this is not
-> a problem the fix is fine for me.
-
-We do not discard the users request. Also, for all practical purposes
-there is no "delay" in the new buffer size usage, since the existing
-session (of the "sink") cannot change the buffer size while it is
-active. It will only be effective when a new session starts, which is
-the case with this patch.
-
-Suzuki
-
-
+> Do you think it would make sense to add the PLL nodes with SSCG to the
+> anatop node?
 > 
-> Thanks.
+> anatop: clock-controller@30360000 {
+>     compatible = "fsl,imx8mn-anatop", "fsl,imx8mm-anatop";
+>     reg = <0x30360000 0x10000>;
+>     #clock-cells = <1>;
 > 
->>
->>>>>
->>>>> Size isn't used in perf mode is it? So it can be -EBUSY only when mode == CS_MODE_SYSFS.
->>>>>
->>>>
->>>> alloc_etr_buf() on the perf path will read drvdata->size, not sure it matters if user
->>>> change it through sysfs in the meanwhile. Will test and have a check if there are any
->>>> other places using size on the perf path.
->>
->> That was there to make sure the user can allocate a bigger buffer (of
->> the AUX size vs sysfs configured size) and possibly collect more trace
->> (i.e., in multiple aux buffers). But looks like that is not useful,
->> given we can only ever collect to one AUX (the last one turning ETR off).
->>
->> So we could remove that check.
->>
->> Suzuki
->>
->>
->>>>
->>>
->>> Hmmm I assumed that Perf mode completely ignored anything from sysfs mode. I see that alloc_etr_buf() does sometimes use the sysfs value. I don't really see why that's necessary because that means it sometimes ignores the buffer size from the perf command line depending on what's in sysfs, but the modes should be mutually exclusive.
->>>
->>> Unless we fix that then I think you do need to use the device spinlock. But I think we should tidy up alloc_etr_buf() to only try to allocate from the Perf size down to TMC_ETR_PERF_MIN_BUF_SIZE, ignoring drvdata-  >size. Then the behavior is less surprising to users and also anyone reading the code. And rename it to alloc_etr_buf_perf().
->>>
->>> Unless Suzuki knows of a reason it was done that way to begin with? I checked the commit message but it just says that it was like that but not why.
->>>
->>>>>> +        return -EBUSY;
->>>>>> +
->>>>>>         ret = kstrtoul(buf, 0, &val);
->>>>>>         if (ret)
->>>>>>             return ret;
->>>>>
->>>>> Looks ok to me. Although for consistency it might be worth changing to guard(mutex)(&coresight_mutex) because this is about sysfs mode only and other usages of mode and comments point to coresight_mutex. Using the device's spinlock will technically work but it did make me go and double check the code. And there are other cases of reading the mode like this:
->>>>>
->>>>
->>>> ok, I thought to also serialize the use of drvdata->size. But as you mentioned
->>>> use coresight_mutex is enough and will be consistenct with other places.
->>>>
->>>>> static ssize_t enable_source_show(struct device *dev,
->>>>>                     struct device_attribute *attr,
->>>>>                     char *buf)
->>>>> {
->>>>>       struct coresight_device *csdev = to_coresight_device(dev);
->>>>>
->>>>>       guard(mutex)(&coresight_mutex);
->>>>>       return scnprintf(buf, PAGE_SIZE, "%u\n",
->>>>>                coresight_get_mode(csdev) == CS_MODE_SYSFS);
->>>>> }
->>>>>
->>>>> Mode can change to CS_MODE_PERF while inside coresight_mutex but the device would end up not being enabled for sysfs, so it's still ok to update the sysfs size value in that case.
->>>>>
->>>>> With that change:
->>>>>
->>>>> Reviewed-by: James Clark <james.clark@linaro.org>
->>>>
->>>> Thanks.
->>>>
->>>
->>
->>
->> .
+>     clk_video_pll1_ref_sel: clock-video-pll1-ref-sel@28 {
+>         compatible = "fsl,imx8mn-mux-clock";
 
+No. Nodes per clock were long time ago NAKed.
+
+>         #clock-cells = <0>;
+>         clocks = <&osc_24m>, <&clk_dummy>, <&clk_dummy>, <&clk_dummy>;
+>         fsl,anatop = <&anatop 0x28>;
+>         fsl,bit-shift = <0>;
+>         clock-output-names = "video_pll1_ref_sel";
+>     };
+> 
+>     clk_video_pll1: clock-video-pll1@28 {
+>         compatible = "fsl,pll14xx-clock";
+>         #clock-cells = <0>;
+>         clocks = <&clk_video_pll1_ref_sel>;
+>         ...
+>         fsl,ssc-modfreq-hz = <6000>;
+>         fsl,ssc-modrate-percent = <3>;
+>         fsl,ssc-modmethod = "down-spread";
+>     };
+> };
+> 
+> This example only considers the video PLL, so to be complete, it
+> should also add the clk_audio_pll1,
+> clk_audio_pll2 and clk_dram_pll nodes. It is based on an RFC series
+> that I sent about a year ago,
+> which was not accepted. In this way, the SSCG properties (i.e.,
+> "fsl,ssc-modfreq-hz", "fsl,ssc-modrate-percent"
+> and "fsl,ssc-modmethod") would be added to the relevant nodes, and I
+> would take only the essential parts
+> from that series. This would still mean implementing the PLL driver
+> ("fsl,pll14xx-clock") and its mux ("fsl,imx8mn-mux-clock").
+> 
+> These clocks can then be added to the "clocks" list of the "ccm" node:
+> 
+> clk: clock-controller@30380000 {
+>     compatible = "fsl,imx8mn-ccm";
+>     ...
+>     clocks = <&osc_32k>, <&osc_24m>, <&clk_ext1>, <&clk_ext2>,
+>                   <&clk_ext3>, <&clk_ext4>, <&clk_video_pll1>,
+>                   <&clk_audio_pll1>, <&clk_audio_pll2>, <&clk_dram_pll>;
+>     ...
+> }
+> 
+These clocks can be added anyway.
+
+Best regards,
+Krzysztof
 
