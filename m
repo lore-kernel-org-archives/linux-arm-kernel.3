@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43770D60CEF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 04:02:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87705D60D1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 05:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CTCR6OujVcn8D6O+erxHy9XL6uZejS5mDZXoi52pa1g=; b=RzxzJ4wg2hJXVpRZJe5F1PflPA
-	iBkMOOdgwqwMXV4aVMTn/8mftfF2b5Je3AUW5fbQajwyK15MdtQu1l1BAEFTD6F4tvk2n2rRGWeQ5
-	kfTYrGSoStsW2qyRWrejjbaVIntieBoriFVEt2Znr+GI6bSDf8b0ulLKCkrN1FpIeavyMug7acSGq
-	qJoebqVZegfsF1sEIUKovRwX3+XEBKsqQukhjJmXFdVj3UOkQ3RjFHxH7p3kZe2TVT+gB5mNhcnPb
-	gfkjWSLDYnUf2tYpUoDbwteWRMa1MBzYvDTc3tIZc88QcupDjUGZTpgxL5rIaqjUTQ/Nu+m+y7YcO
-	ZpOk/BNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hv1D952XZu0INoj8er13xPaMFhIq6jJe13wta8/S16o=; b=4FnPxw5N+WB4VhDAptIr8BpV5y
+	zOqTmLP6e8+qB8+c9puxiUzJJIEA3vOddXnptPiSLRf3tpnZDEcOWq2VzrOJpcqp8dld+doEFfSoJ
+	aXQ6WfSomFaeWgw4DVPr6suceijJD3EIWFwO4tqQub+nLcHv9rZKangrPjjPUrP/zHwvy0o8oqlqI
+	JuLuEn5igPenPQe+45VcCO21lfuSuak0vPeW6xDxrc1ggv/hGFrJb2nlg0Ygo06T7m+C7OWqnpjsH
+	HTQrBXZCuEWirYg3PNhlBbAfvbSffnksDt6YY3zJ7A4C64BusppnfaRRCpEQY5sYM19jIeI4pWuH+
+	dZoWEFJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDFRY-0000000BKIA-36fo;
-	Tue, 19 Nov 2024 04:02:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tDGRf-0000000BOwe-0CYV;
+	Tue, 19 Nov 2024 05:06:35 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDFQd-0000000BK5k-1sR9
+	id 1tDGQi-0000000BOqQ-41wl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 04:01:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 88A5F5C51B6;
-	Tue, 19 Nov 2024 04:00:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7FA4C4AF10;
-	Tue, 19 Nov 2024 04:00:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731988830;
-	bh=JrpMfsKiDZUzM7MMCPOjRLPifcbKsuTDdbLhPJ/UQv4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=CilEPpN08lK6k+DFDXsB/MI1uxKH0CVI2IPgWbB/mvx+lBXHxuzrocohGPlPTsLGl
-	 OvRWB1vlcvTq5cF+6kB/NGA2PAXS2TEUf1sVwDeN6Vy92L+n9Ii3K/z5W0vwReRWip
-	 upXlXRl9SvzdJIJEVO5n5TwFDpjZ059BGeYEjQ83TBuhO8HiEBfevse91Bb0xAL/4i
-	 G8CTQs2+uTPkm05oOshvU1i7wq3wHEW3yFDGqKtx9GToUWnmW4OT29TlNIdu+JKkhm
-	 +Y7lUe2AIj+xpc40DLRa7Fw7gqGc+JzD1q4XHVeFhHi8hhLF+sabk7F5QXFw2enIW3
-	 dSo5Ap89rDG7A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7167C3809A80;
-	Tue, 19 Nov 2024 04:00:43 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Tue, 19 Nov 2024 05:05:38 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2ea527ae14aso337159a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Nov 2024 21:05:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731992736; x=1732597536; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Hv1D952XZu0INoj8er13xPaMFhIq6jJe13wta8/S16o=;
+        b=cv5we7SZlL0Prrbt1dUq2zFOVO3d01qoTjlcejTTchWUU1ocmbB/IlBf325SKi8oOy
+         jsJFM7RTdg0b+DHs0seQMPpwkjEorMdxpWODiABBFwKRPNXe+2XAa+VOPW7mMephl4N+
+         rKzJBr0+I6xQWPL9rawOKXqy+tOFm2U+wjf7NK1tEyo7oNdgBwBhPv/X+rKkizt+1DLW
+         nesTxh1ZfE7vGs1gUyeWjsc2u0yVsL020BdmSLXrUylk1N98HrKA2fD5xKoN1lK6aa5K
+         QGGgrWStxRHue1AVKaABcbnFvEonJf/bKa9/NPA2pGW2bqnfuo+zAe/MvfSrVvCjVwE+
+         3TPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731992736; x=1732597536;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Hv1D952XZu0INoj8er13xPaMFhIq6jJe13wta8/S16o=;
+        b=EDQnIpwtrh+d9X2hIfqvoUUlOjXcMI79y/m5buxh7sYc3ovOvHl2RprupxhftIaYtZ
+         SI3k2Jy13o5WZd2F9fsON4zXNwFKgS1uiv/pI3s2B+z1WwBKDJ7ssRnarRF5yVfS/a9C
+         ODE+SfNQ9HNbuFKQ6AjZs8oPoavJtO7GrzsVWVoU67n+TSL0tSpLa91ym0wqWGgS8Q7C
+         D1FWD1mabLK1nFCBxehgPkOpI1QsrkqivQcl2dk7VVV/JD5b++X5eFsI8otoY6DHVtBD
+         uaGkWcxEMKPacxlTFeIv4f9tOB9pdwHTMeXpB83Bs+cp0k+FxBCsjaD19tzI8m9P/gz5
+         HXAA==
+X-Forwarded-Encrypted: i=1; AJvYcCW5Y7S8418b9+xIgNrAIA0lN7SfucscBy1Jdxf04k3sdidOCV8Sfuorl+pJ8QSUdH98vdMbk90Pp8JK2b5QgDKY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7O0MKQxZbEV4SvdymKwOQ9KmSdCyFro52LB+U91FqHUfWSvMa
+	rVn8vUIRYkztxeEgFqDa4+yd2QO5I7iZl881GnoD7bdlXdtsMPpU
+X-Google-Smtp-Source: AGHT+IFCnOMGgi+h5K1zmS9n4KartDEt6KlxQsyf77WKX1/k4ZXu/194Qh9Es/obgXJXAWt9Olaxbg==
+X-Received: by 2002:a17:90b:3ec8:b0:2ea:aa69:1067 with SMTP id 98e67ed59e1d1-2eaaa691107mr2340690a91.3.1731992735860;
+        Mon, 18 Nov 2024 21:05:35 -0800 (PST)
+Received: from [172.19.1.43] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ea2dd87897sm5559361a91.24.2024.11.18.21.05.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 18 Nov 2024 21:05:35 -0800 (PST)
+Message-ID: <9e7d23b2-4228-4694-b455-b32e4be7b1f9@gmail.com>
+Date: Tue, 19 Nov 2024 13:05:31 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
+To: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ sudeep.holla@arm.com, arnd@arndb.de, peng.fan@nxp.com, conor+dt@kernel.org,
+ krzk+dt@kernel.org, robh@kernel.org, dmitry.torokhov@gmail.com
+References: <20241119025954.4161-1-mjchen0829@gmail.com>
+ <20241119025954.4161-2-mjchen0829@gmail.com>
+Content-Language: en-US
+From: Ming-Jen Chen <mjchen0829@gmail.com>
+In-Reply-To: <20241119025954.4161-2-mjchen0829@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v3] stmmac: dwmac-intel-plat: remove redundant
- dwmac->data check in probe
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173198884200.97799.10181079932395577855.git-patchwork-notify@kernel.org>
-Date: Tue, 19 Nov 2024 04:00:42 +0000
-References: <20241115132632.599188-1-mordan@ispras.ru>
-In-Reply-To: <20241115132632.599188-1-mordan@ispras.ru>
-To: Vitalii Mordan <mordan@ispras.ru>
-Cc: alexandre.torgue@foss.st.com, joabreu@synopsys.com, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lvc-project@linuxtesting.org, pchelkin@ispras.ru, khoroshilov@ispras.ru,
- mutilin@ispras.ru, andrew@lunn.ch
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_200127_521721_F8D1C526 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20241118_210537_000588_E5969BD9 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,29 +96,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Hi:
 
-On Fri, 15 Nov 2024 16:26:32 +0300 you wrote:
-> The driver’s compatibility with devices is confirmed earlier in
-> platform_match(). Since reaching probe means the device is valid,
-> the extra check can be removed to simplify the code.
-> 
-> Signed-off-by: Vitalii Mordan <mordan@ispras.ru>
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> 
-> [...]
+I apologize for the oversight in my previous patch where I forget to 
+include v3 in the subject line.
 
-Here is the summary with links:
-  - [net-next,v3] stmmac: dwmac-intel-plat: remove redundant dwmac->data check in probe
-    https://git.kernel.org/netdev/net-next/c/cc84d89ad8d4
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+The content of the patch remains the same, only the version label has 
+been corrected.
 
 
+On 2024/11/19 上午 10:59, Ming-Jen Chen wrote:
+> Add YAML bindings for MA35D1 SoC keypad.
+>
+> Signed-off-by: Ming-Jen Chen <mjchen0829@gmail.com>
+> ---
+>   .../bindings/input/nuvoton,ma35d1-keypad.yaml | 69 +++++++++++++++++++
+>   1 file changed, 69 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+> new file mode 100644
+> index 000000000000..9ccd81a2574d
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+> @@ -0,0 +1,69 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/input/nuvoton,ma35d1-keypad.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Nuvoton MA35D1 Keypad
+> +
+> +maintainers:
+> +  - Ming-jen Chen <mjchen0829@gmail.com>
+> +
+> +allOf:
+> +  - $ref: /schemas/input/matrix-keymap.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: nuvoton,ma35d1-kpi
+> +
+> +  debounce-delay-ms:
+> +    description: Debounce delay time in milliseconds.
+> +    maxItems: 1
+> +
+> +  scan-interval-ms:
+> +    description: Scan interval time in milliseconds.
+> +    maxItems: 1
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - linux,keymap
+> +  - keypad,num-rows
+> +  - keypad,num-columns
+> +  - debounce-delay-ms
+> +  - scan-interval-ms
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/input/input.h>
+> +    keypad@404A0000 {
+> +      compatible = "nuvoton,ma35d1-kpi";
+> +      reg = <0x404A0000 0x10000>;
+> +      interrupts = <79>;
+> +      clocks = <&clk>;
+> +      keypad,num-rows = <2>;
+> +      keypad,num-columns = <2>;
+> +
+> +      linux,keymap = <
+> +         MATRIX_KEY(0, 0, KEY_ENTER)
+> +         MATRIX_KEY(0, 1, KEY_ENTER)
+> +         MATRIX_KEY(1, 0, KEY_SPACE)
+> +         MATRIX_KEY(1, 1, KEY_Z)
+> +      >;
+> +
+> +      debounce-delay-ms = <1>;
+> +      scan-interval-ms = <20>;
+> +    };
 
