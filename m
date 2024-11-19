@@ -4,120 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C98ED6204A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC50D62057
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Nov 2024 09:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hO01J4uiai6Bdm6iCmgSXEAxegyNC+z3dTZp0lYTxj4=; b=sCxdEQ4yIAAn9I9w5sFG0smeEc
-	l8bX2rfa9mQ7XQa/p72QEE/FOkUExn+YeeIpumbA/+MMwUpNkT1NL8i2q/1YLnk71Dsq7qmpd8vVB
-	jdEKT629il129Asv9VET1MQg1xmN7i3db0cQhC5kHJKCTz74tTBmA1OLX3mk7NKwkbhB+ee457uya
-	vZiWFq8eJF5P4+Eoed6KRAybPG8uCXxa/LSZ0eI8KTPSY20pmnyUswMfyUlaUs0CyFO8ZdzN3PMe4
-	pjfkvFlvYGO4kVSiz4Yl5dnGPHd6SgA5ThRA1ncRtjAzbRdor6Zz/ZqHVuilJ3iquYarZp9OVIclL
-	9ZuNklEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pPExtlge3msjkZF91Z4CEG8tmqsBNvouLTtNJroiSf4=; b=j4E33/F2/mdMbx+8L4uTaPmBiD
+	YmAl1OKX7MLlqRnDaN/e4NhzZNyhqLyf4HBlt8CwGMI1OqgM5GYkTGXW5GlGTyLT8kqu3E9bKjNcY
+	D0P5OwfJB6qY9I6zaajhA0zzMbMyoEdxXH37KJkzDw6oQ3buw3jNZMefThRpwJguc3WfdTRudUP9g
+	uO0wvnGfmSfwU1tgWDe0ZgNct5++nX9q7LqqNbjX/9R3v/SCRkprS1DIYNraS7t5KvUUsVrEjdAz8
+	90+u73Lwjv8tJR+RwsX1MhWnAdKCu28OXZT61qPqUYjbvGN+24CqSukTdlyGHzXlK2FTXrOtPan6K
+	amf8FTVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKVw-0000000BtSL-2OBp;
-	Tue, 19 Nov 2024 09:27:16 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tDKdp-0000000BuMp-3Qka;
+	Tue, 19 Nov 2024 09:35:25 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDKV0-0000000BtKD-1LTe
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Nov 2024 09:26:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C177EA427B4;
-	Tue, 19 Nov 2024 09:24:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CCD8C4CECF;
-	Tue, 19 Nov 2024 09:26:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732008377;
-	bh=7mePgQRSkpmfIveXMK9lb5lPmV+fFAPKdLmVe2Fi60A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GHfigUYs7mnM49q4h+91RIdknDmcVyeysT+2BAWJW5HgPzkbL01OM+N8KUiqTTQwR
-	 gIpcLQPuilmBvDRcjlo6g1idMTOyNOjyS2MFOaEfaYDBaYekxgCiCr9m4Oe2kDowh4
-	 B3hmjuH6pqBJiHSYsfju8/mhCcbfKEtZEHuBR1587M5gkhEJuuTCb0rmdtsMy5UjBM
-	 +a185obDtQ/DDZ85J79VFpJGTYyYnPPKAF76eIUJIE9qlzzngnQvk588ApeOAaNdOa
-	 Juu7yfodN5ccE3sk/ztOa12A1TX0aAml6kPVo6cTsf289SGESEUQb7Y3WjJi96blk+
-	 OZu0t1Td0ClDQ==
-Message-ID: <2ccbf862-2b3e-4c08-b6bd-d9571e88a675@kernel.org>
-Date: Tue, 19 Nov 2024 10:26:07 +0100
+	id 1tDKct-0000000BuD5-0bi5;
+	Tue, 19 Nov 2024 09:34:28 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-20e576dbc42so43278095ad.0;
+        Tue, 19 Nov 2024 01:34:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732008866; x=1732613666; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pPExtlge3msjkZF91Z4CEG8tmqsBNvouLTtNJroiSf4=;
+        b=XjxF89ayLVj2adZP48kdh+TwAeUAYKkYiwSybT15r9CplLGJ50PZWvbXP7U+eiHSZR
+         3ftc7pRdsDdYtKWM/JI4BpssBAC9lkBwDTbRWh3SIjgNXfGYrW5PWr5viVdw5350u7cK
+         YroINo2KETf0Ih+poJsblww/G3GuRhF8JDM3GFkoRi+5+vyooxD79QqoX17WzgqXLVN4
+         QfzFpedNfI1B8NTX0Cj+AHK0LEzh+zk8gl8/eXGfeeGnOQNz6ufbTcXFEINQJ9PygeY4
+         2mkTfQgjeTNfaR5weNSw8Frv3AwdGNaEVdq9GlshFKZ9r3Y0byF3ig8e8MXjoeYNbH6L
+         y2+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732008866; x=1732613666;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pPExtlge3msjkZF91Z4CEG8tmqsBNvouLTtNJroiSf4=;
+        b=VBJTOT4RCgQPpA6CKRSYvLL6Jorrcw6KzgogSoWpHi+QAZiXEz7GbTSYuOkpIgUzFt
+         MBOlPFfk6egvrCPj+bPP8sk3fEpMxJGSHNZZzAtDowBZJnSyf0cTRoKD8J44WJmik29c
+         GzdQ7Pkmk6tTZRj7LyX5XSpgJYzUOLOMRf2Tb9qVs2sMOCSGaJs/a5cov21AWB4rLoED
+         2hYRsWS/C0HcfE+tEcILA3JyACz0KmrQBXB7b6BtVgNNLRhDVzExfoQnbWg3EqiBUOp+
+         gdQQx2+ICt1Pylmkt3XdQTdUUxjtcbMO5C/nyU8Ej9WWDfdvTTU6vuMlbQxAdI6o7UaP
+         RSnA==
+X-Forwarded-Encrypted: i=1; AJvYcCVUuih4DYfky4SHhVY3DyNukhDEDDiO6vyRRV19e6UId+tUA2HQ2vb71CYjPOwT6gZrhg+KjtBlmSQ7yURN/CcJ@lists.infradead.org, AJvYcCWQfyfcYW6C0rVnF1fQDBfWldEce1re0o1pPoglo29rC/7fbe4lz2Yyi1uzsNupNAC4AeaWlBTj0z2H+hsNSlk=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxszPqFIRKFP8A4C7nbkQATxfVA9pByQPOeslnKumgasrd2VowI
+	RuVpFQ3NGoljRscMH7lnoMXtNBHw8xM587EcKV76NYoHl9M7FS3g
+X-Google-Smtp-Source: AGHT+IGk0ioib0jianP/JWeRLCWZdzMBOeRSZzyDXcvD2UaEgV8gbzUU0BUTO/h3v2TJ3Zgql38YQA==
+X-Received: by 2002:a17:903:186:b0:211:e66d:7450 with SMTP id d9443c01a7336-211e66d78d8mr206006795ad.32.1732008865846;
+        Tue, 19 Nov 2024 01:34:25 -0800 (PST)
+Received: from HOME-PC ([223.185.132.211])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-212134ab989sm38763335ad.17.2024.11.19.01.34.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 Nov 2024 01:34:25 -0800 (PST)
+Date: Tue, 19 Nov 2024 15:04:22 +0530
+From: Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: dafna@fastmail.com, linux-media@vger.kernel.org, mchehab@kernel.org,
+	heiko@sntech.de, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 media-next] media: rkisp1: Fix unused value issue
+Message-ID: <Zzxbnkq86EKEWwFf@HOME-PC>
+References: <20241119072653.72260-1-dheeraj.linuxdev@gmail.com>
+ <20241119075944.GA31681@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/7] pinctrl: s32: convert the driver into an mfd cell
-To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>,
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
- <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chester Lin <chester62515@gmail.com>,
- Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>,
- Larisa Grigore <larisa.grigore@nxp.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Lee Jones <lee@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
- Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev
-References: <20241113101124.1279648-1-andrei.stefanescu@oss.nxp.com>
- <20241113101124.1279648-5-andrei.stefanescu@oss.nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241113101124.1279648-5-andrei.stefanescu@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241119075944.GA31681@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_012618_488870_9C763CA5 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20241119_013427_184718_5ABEE4A6 
+X-CRM114-Status: GOOD (  30.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,94 +92,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/11/2024 11:10, Andrei Stefanescu wrote:
->  
-> -static inline void s32_pin_set_pull(enum pin_config_param param,
-> -				   unsigned int *mask, unsigned int *config)
-> +static void s32_pin_set_pull(enum pin_config_param param,
-> +			     unsigned int *mask, unsigned int *config)
->  {
->  	switch (param) {
->  	case PIN_CONFIG_BIAS_DISABLE:
-> @@ -762,15 +757,15 @@ static int s32_pinctrl_parse_groups(struct device_node *np,
->  	grp->data.name = np->name;
->  
->  	npins = of_property_count_elems_of_size(np, "pinmux", sizeof(u32));
-> -	if (npins < 0) {
-> -		dev_err(dev, "Failed to read 'pinmux' property in node %s.\n",
-> -			grp->data.name);
-> -		return -EINVAL;
-> -	}
-> -	if (!npins) {
-> -		dev_err(dev, "The group %s has no pins.\n", grp->data.name);
-> -		return -EINVAL;
-> -	}
-> +	if (npins < 0)
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "Failed to read 'pinmux' in node %s\n",
-> +				     grp->data.name);
+On Tue, Nov 19, 2024 at 09:59:44AM +0200, Laurent Pinchart wrote:
+> Hi Dheeraj,
+> 
+> Thank you for the patch.
+> 
+> On Tue, Nov 19, 2024 at 12:56:53PM +0530, Dheeraj Reddy Jonnalagadda wrote:
+> > This commit fixes an unused value issue detected by Coverity (CID
+> > 1519008). The error condition for the invalid MIPI CSI-2 is not
+> > properly handled as the break statement would only exit the switch block
+> > and not the entire loop. Fixed this by returning the error immediately
+> > after the switch block.
+> 
+> The patch doesn't "return immediately". You can write "Fix this by
+> breaking from the look immediately after the switch block when an error
+> occurs." or something similar.
+> 
+> > 
+> > 'Fixes: 8d4f126fde89 ("media: rkisp1: Make the internal CSI-2 receiver
+> > optional")'
+> 
+> The Fixes tag should be formatted on a single line, without outer
+> quotes, and without a blank line between it and the Signed-off-by line:
+> 
+> Fixes: 8d4f126fde89 ("media: rkisp1: Make the internal CSI-2 receiver optional")
+> 
+> > Signed-off-by: Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
+> 
+> I can update the commit message when applying the patch, there's no need
+> to submit a v5, unless if you want to. Please let me know if I should
+> take this version and update the commit message, or if you will send a
+> v5.
+> 
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> 
+> > ---
+> >  drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c | 3 +++
+> >  1 file changed, 3 insertions(+)
+> > 
+> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> > index dd114ab77800..9ad5026ab10a 100644
+> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> > @@ -228,6 +228,9 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
+> >  			break;
+> >  		}
+> >  
+> > +		if (ret)
+> > +			break;
+> > +
+> >  		/* Parse the endpoint and validate the bus type. */
+> >  		ret = v4l2_fwnode_endpoint_parse(ep, &vep);
+> >  		if (ret) {
+> 
+> -- 
+> Regards,
+> 
+> Laurent Pinchart
+Hi Laurent,
 
-I do not see how this change is related. Looks you are mixing cleanups
-with refactoring into MFD cell. These are two different things.
+Please go ahead and take this version and apply the patch with the updated 
+commit message.
 
-> +
-> +	if (!npins)
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "The group %s has no pins\n",
-> +				     grp->data.name);
->  
->  	grp->data.npins = npins;
->  
-> @@ -811,11 +806,9 @@ static int s32_pinctrl_parse_functions(struct device_node *np,
->  	/* Initialise function */
->  	func->name = np->name;
->  	func->ngroups = of_get_child_count(np);
-> -	if (func->ngroups == 0) {
-> -		dev_err(info->dev, "no groups defined in %pOF\n", np);
-> -		return -EINVAL;
-> -	}
-> -
-> +	if (func->ngroups == 0)
-> +		return dev_err_probe(info->dev, -EINVAL,
-> +				     "No groups defined in %pOF\n", np);
->  	groups = devm_kcalloc(info->dev, func->ngroups,
->  				    sizeof(*func->groups), GFP_KERNEL);
->  	if (!groups)
-> @@ -838,57 +831,42 @@ static int s32_pinctrl_parse_functions(struct device_node *np,
->  static int s32_pinctrl_probe_dt(struct platform_device *pdev,
->  				struct s32_pinctrl *ipctl)
->  {
-> +	struct nxp_siul2_mfd *mfd = dev_get_drvdata(pdev->dev.parent);
->  	struct s32_pinctrl_soc_info *info = ipctl->info;
-> -	struct device_node *np = pdev->dev.of_node;
-> -	struct resource *res;
-> -	struct regmap *map;
-> -	void __iomem *base;
-> -	unsigned int mem_regions = info->soc_data->mem_regions;
-> +	unsigned int mem_regions;
-> +	struct device_node *np;
-> +	u32 nfuncs = 0, i = 0, j;
-> +	u8 regmap_type;
->  	int ret;
-> -	u32 nfuncs = 0;
-> -	u32 i = 0;
->  
-> +	np = pdev->dev.parent->of_node;
->  	if (!np)
->  		return -ENODEV;
->  
-> -	if (mem_regions == 0 || mem_regions >= 10000) {
-> -		dev_err(&pdev->dev, "mem_regions is invalid: %u\n", mem_regions);
-> -		return -EINVAL;
-> -	}
-> +	/* one MSCR and one IMCR region per SIUL2 module */
+Thank you and Jacopo for your valuable comments. As a new contributor, 
+your feedback is extremely helpful.
 
-How is this related to converion into MFD cell?
-
-Still looks like an ABI break.
-
-
-Best regards,
-Krzysztof
-
+-Dheeraj
 
