@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F080D63923
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 10:41:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B0A1D63925
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 10:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=708lF0/Jojraq9ZYjmgZqP6VuUiWjXWMVt2AJNYyt28=; b=qS9IBZGjsdfy1C3WvINa5u1LlT
-	pPH+OsqZ9DWTKd+FRDtasErmXuEpZ38l7uJeUdIAqK3x28MHEz2lXxm18pNI/43gJd8yUfkbrKir9
-	VgGdBjxII9B/c/YcSI009ts/RZaySLI/lfjauPv1PirxfxmLtvPV0sdbdWS6Iy+eXQt4tx+FzraAh
-	pn2lQPs4US06v/UKzyEyoLFHJna0jfdRkpC292dG4NO/Vv2OGBi3I49Wl5ObG2n0tHNiyzYjl62Cf
-	qxGG57niSCwctoj7foxrMMRZGzwwwqYO00IUdCZf+7ze6Mpgmbt3b/I8CmWEDVzED0q0nwFSiZsML
-	KuSTIqmA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KcRy9ENgI4dw0UlDdOV5tCi4tXBKLKbiq7w57FjAmcA=; b=Sms5if1eHgmOigG2Mv3f0TYNFp
+	JpjsAnC9cY750c+d87UNzHMFjeZZ8K/yq6uYnuu4sMf1qFxL2D7ZncQ2apqBDRJHrz4fsv9x4Toku
+	aylBJF3XOixahxbY34bMrmwKvaVf78iaA7GhIcBfr83jbkFPWC9S+m6g93PAu1k4Kd/YNZowXOf8h
+	HCR9xC7fdADnOPm/xudHnb2H8SA7c8L/6sd4YIx4hW+H/AuToQXDch890dW9xpnTads+q8Z+kHnlo
+	YdkCJyUe/NlbnPaVAc3kasBtZZdPEyvzVk8vd1kp4Nsa3DKojqnJ/BqWBPMeDILg1s6i+vbDjdcwz
+	8wSBhD4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDi97-0000000F4pQ-3PLo;
-	Wed, 20 Nov 2024 10:41:17 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tDiGw-0000000F5pz-0SGn;
+	Wed, 20 Nov 2024 10:49:22 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDi8B-0000000F4jD-2VhZ
+	id 1tDiFz-0000000F5f4-0wNY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 10:40:21 +0000
+	Wed, 20 Nov 2024 10:48:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1732099219; x=1763635219;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=fTRY04llbBVBWiEO+xunTY1d92zdPHAjRvFRVXTHeok=;
-  b=X1CZSjvKLYwb5dOTgJ33ltv0+30lLHnaut1Rt3Kyk4Z4RT7dw0YhvscJ
-   bM9xZCOJOb5/vZFuVXRmtGZaA8NzMRLbD+woG2YkiCdElGliEmY9Nw40v
-   isgW961aHVQw8Mv110q6iQDjbnGVaLUzpzpxDyfQbmOYHF8bTtAAoQhOc
-   vyMlWRqFWAIlaETB00mH3xAKDMHiKd+Ulv5IZ9cM50ddHn+3DQVJpd8ot
-   JmcbYlyqfsPGhumC6A45+VRwJM/awbaqSYpZFm2hflFm8DIJhknAS/zwq
-   g1Uki994ojeM7kqmbslTUPE9b3L+wYFCrWP2kmP/nB+dI4nHMFgpK0hf1
-   w==;
-X-CSE-ConnectionGUID: J7Gote/ISpu5A3XFNDgkXw==
-X-CSE-MsgGUID: ab5CMNlNT0mpNAYCosVE3w==
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1732099703; x=1763635703;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=DdnwLC1nlOOJXfXe14SuzanZGrbtUU6kyE6ng30glmk=;
+  b=N8fua/nL7N1mEBKiJlYDMHAgHBTTvsl0BEChJKfJm3IfiWGDkmgbdKgg
+   JvvGx0BGIWLqI0uT2ZB30urO6vCsJ48l9on+IdUVQFCp/NflxDXSvefUe
+   sMYY7wNDVjqyompbHveIuvQQzDfM34hHuZ55wT5eeKHPlwMJvZxQk9Xm2
+   CFwkTqMdjkMInaioKoDQfWKE53cLd4E83S1Z+H+9KwKGB9legwPv6n10c
+   bRNwbMqYUxoYOVa7JK3UyCOMr0rQs+QPWA4KxoTpmUp6SdpYiEMBOu1XV
+   l8soevPRIGYRCK4LLQvQm/hWbG47ipGTMQsRpp7gwzjdakeboKD1gbUPc
+   A==;
+X-CSE-ConnectionGUID: eD0y585SQemU/MowAZJDcg==
+X-CSE-MsgGUID: ClHEgQlOSb6sBgRt2GZEdg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11261"; a="31521010"
 X-IronPort-AV: E=Sophos;i="6.12,169,1728975600"; 
-   d="scan'208";a="38122779"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Nov 2024 03:40:18 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 20 Nov 2024 03:40:11 -0700
-Received: from ROB-ULT-M76677.microchip.com (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Wed, 20 Nov 2024 03:40:07 -0700
-From: Andrei Simion <andrei.simion@microchip.com>
-To: <cristian.birsan@microchip.com>
-Subject: Re: [PATCH 2/2] ARM: dts: microchip: sama5d27_wlsom1_ek: Add no-1-8-v property to sdmmc0 node
-Date: Wed, 20 Nov 2024 12:39:47 +0200
-Message-ID: <20241120103946.49779-1-andrei.simion@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241119160107.598411-3-cristian.birsan@microchip.com>
-References: <20241119160107.598411-3-cristian.birsan@microchip.com>
+   d="scan'208";a="31521010"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2024 02:48:17 -0800
+X-CSE-ConnectionGUID: W48YHOZpTiGL35DWyTxvhg==
+X-CSE-MsgGUID: BIrFOaQ7Sv+bsw9FnoXbDA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,169,1728975600"; 
+   d="scan'208";a="89677797"
+Received: from choongyo-mobl.gar.corp.intel.com (HELO [10.247.82.175]) ([10.247.82.175])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2024 02:48:13 -0800
+Message-ID: <14202f42-5408-4127-8664-8ad958fb2046@linux.intel.com>
+Date: Wed, 20 Nov 2024 18:48:10 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2 1/2] net: phy: replace phydev->eee_enabled with
+ eee_cfg.eee_enabled
+To: Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20241115111151.183108-1-yong.liang.choong@linux.intel.com>
+ <20241115111151.183108-2-yong.liang.choong@linux.intel.com>
+ <ZzdOkE0lqpl6wx2d@shell.armlinux.org.uk>
+ <c1bb831c-fd88-4b03-bda6-d8f4ec4a1681@linux.intel.com>
+ <ZzxerMEiUYUhdDIy@pengutronix.de>
+Content-Language: en-US
+From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+In-Reply-To: <ZzxerMEiUYUhdDIy@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_024019_638067_77E6B7D4 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20241120_024823_278309_B3ACC943 
+X-CRM114-Status: GOOD (  17.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,47 +95,44 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, conor+dt@kernel.org, robh@kernel.org, linux-kernel@vger.kernel.org, alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, mihai.sain@microchip.com, Andrei Simion <andrei.simion@microchip.com>, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Cristian Birsan <cristian.birsan@microchip.com>
->
-> Add no-1-8-v property to sdmmc0 node to keep VDDSDMMC power rail at 3.3V.
-> This property will stop the LDO regulator from switching to 1.8V when the
-> MMC core detects an UHS SD Card. VDDSDMMC power rail is used by all the
-> SDMMC interface pins in GPIO mode (PA0 - PA13).
->
-> On this board, PA10 is used as GPIO to enable the power switch controlling
-> USB Vbus for the USB Host. The change is needed to fix the PA10 voltage
-> level to 3.3V instead of 1.8V.
->
-> Fixes: 5d4c3cfb63fe ("ARM: dts: at91: sama5d27_wlsom1: add SAMA5D27 wlsom1 and wlsom1-ek")
-> Suggested-by: Mihai Sain <mihai.sain@microchip.com>
-> Signed-off-by: Cristian Birsan <cristian.birsan@microchip.com>
 
-Hi,
 
-Tested-by: Andrei Simion <andrei.simion@microchip.com>
+On 19/11/2024 5:47 pm, Oleksij Rempel wrote:
+>> Sorry for the late reply; I just got back from my sick leave. I wasn't aware
+>> that you had already submitted a patch. I thought I should include it in my
+>> patch series. However, I think I messed up the "Signed-off" part. Sorry
+>> about that.
+>>
+>> The testing part actually took quite some time to complete, and I was
+>> already sick last Friday. I was only able to complete the patch series and
+>> resubmit the patch, and I thought we could discuss the test results from the
+>> patch series. The issue was initially found with EEE on GPY PHY working
+>> together with ptp4l, and it did not meet the expected results. There are
+>> many things that need to be tested, as it is not only Marvell PHY that has
+>> the issue.
+> 
+> Hm, the PTP issue with EEE is usually related to PHYs implementing the
+> EEE without MAC/LPI support. This PHYs are buffering frames and changing
+> the transmission time, so if the time stamp is made by MAC it will have
+> different real transmission time. So far i know, Atheros and Realtek
+> implement it, even if it is not always officially documented, it can be
+> tested.
+> 
+> Regards,
+> Oleksij
 
-> ---
->  arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dts | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dts b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dts
-> index 15239834d886..35a933eec573 100644
-> --- a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dts
-> +++ b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dts
-> @@ -197,6 +197,7 @@ qspi1_flash: flash@0 {
->
->  &sdmmc0 {
->  	bus-width = <4>;
-> +	no-1-8-v;
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_sdmmc0_default>;
->  	status = "okay";
+Thanks, Oleksij, for the suggestion.
+The actual problem we are facing is that the software and hardware 
+configuration is not in sync.
 
-Best Regards,
---
-Andrei Simion
+With the following patches applied, the issues were fixed:
+- 
+https://patchwork.kernel.org/project/netdevbpf/patch/E1tBXAF-00341F-EQ@rmk-PC.armlinux.org.uk/
+- 
+https://patchwork.kernel.org/project/netdevbpf/patch/a5efc274-ce58-49f3-ac8a-5384d9b41695@gmail.com/
+- 
+https://patchwork.kernel.org/project/netdevbpf/patch/20241120083818.1079456-1-yong.liang.choong@linux.intel.com/
 
