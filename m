@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 115C6D743C6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 19:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9885FD743C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 19:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QgfFBue2AkaNv5wDd17S+yzXIWjDIT3WyGaTAc0rklw=; b=vtZChRfSItZS+cEm2W3BE7TjJR
-	kO6IS1aDq/wNb5w+ZpM79ucZDN5wRyp9591hGprtip8UgvbpGY2KVNQMoEfeC3iSytQHTPuy78pS7
-	IFK9aMbUUEZJTht8Rd1ZvAWyXek+seTYVeCnIEReOMyAtAtSjkkbp7eEo51IAISzNq4soTT3Bt7j3
-	OUzcIvFI/ykkG9JImC803GN58DHYZ7LcEJqxdnJT35Ed50p/TbGc+8rCsDxP2/3FqdoN4RNyZgPhy
-	XQnI/M1TT4u8kxcNkfxs1vzrJyxW+rRzdremNTIVGzGLFKPrx8U+ocJmPiD/V/fcWpSqebYDbo+L2
-	H1/Y7C0A==;
+	bh=w9/cR/dqviroqX2VCS26LbceoYUIdqbcsui+WHfkKVw=; b=feT0mZchKGKgvfDS/MDVCnDWVC
+	f4ZA9PiCAXmA3Q8524jSQvpGiiDblzSmjpz5FIcByUuzYcJX3rFcc7wIhWtOCFn4z+RGCWEbZirLf
+	ZYA6A0op6MJfgKwCnkyXuXdSUqQkLhH3hOvtH6Dt2JszJSP/0zPxdvR4YWWXyt2o3iS0YAiWCHQFq
+	ngai6Ite60UcaL366Optd4bloLmG4QoRACMtw4xDRgz9Kz1SCZRv1TvnCbpQTW8OgRT6TiFNT33GA
+	ntXzk0OzCy00FtKvtHsMpFpQPb2bV5XL8TqLIOipM4kqGkHka6S0SZR1NM1JEtBsWM3B+kIx2iZDh
+	n8UCtNaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDqEc-0000000G6Pd-0YyH;
-	Wed, 20 Nov 2024 19:19:30 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1tDqFW-0000000G6nm-3CHT;
+	Wed, 20 Nov 2024 19:20:26 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDqCi-0000000G60t-2GOk
+	id 1tDqCi-0000000G61A-3gj1
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 20 Nov 2024 19:17:33 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3823eaad37aso816703f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 11:17:31 -0800 (PST)
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3822ec43fb0so23130f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 11:17:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1732130250; x=1732735050; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1732130251; x=1732735051; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=QgfFBue2AkaNv5wDd17S+yzXIWjDIT3WyGaTAc0rklw=;
-        b=b/eJ5vY3vLCSu2ZTbGAWZRPc+6cMlHsnQ9oy9hJWZdmMq2hACj01a5Dv9LCsxoRJAv
-         u3eDyisd4ZewkKaPi0ZqG5SEy86bT+PiizEHg1H3NT3xDucTtXDKIgjH+gWbR5geroIG
-         4bE5xoeVzF5CDNlV2BZ0RbXe0qLqPFuUtCOyBJFrm+rnD5Lyq/70Y/TU1JDpcwY1pSdI
-         x1LyCt5hg3vVuGOT4JYn79lXHVOSK0IBlPXpKfel/mYNHEuflmMnuOoFzAd8BPT+Gp6E
-         tayS+AQS+zQ6VCQimqcev+dvuu3hKDZw7pVRC2MwJT34qrR+HW+/43b9OoW6Tx1ZVugV
-         c4Dw==
+        bh=w9/cR/dqviroqX2VCS26LbceoYUIdqbcsui+WHfkKVw=;
+        b=Qyn5smVmkrmJa7SfP/s3/XxLA4DScDuNRxd52jv4RFPZiNea20ViG0UH3ar7K7AirC
+         EK0P00wtZ/X6Mm7Op//R2EYg3xlb4Ujw8xwLe9Qbm+nDxJBDTfYK3GPjytg3rViTEpcw
+         qJLg9jT9hjVidNX54Qm7XOqvsxQaqHS8Mz5ToQ0AThCjK+CX7Ahu8BM7xhZAn55MLu4h
+         a1+NTHiOFgp2qhT89wMWSXYSDsM/2Vxjp6Q+z6hDQa5zaxz7mjuACmH1QQVvsgAFNZUU
+         OI0Eyqg8T371OmzPytpeyi1jwHpVKmZAwPWHZytyRUWQrnCs+tvWDkIAZ+YqRoiev2K3
+         sclQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732130250; x=1732735050;
+        d=1e100.net; s=20230601; t=1732130251; x=1732735051;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=QgfFBue2AkaNv5wDd17S+yzXIWjDIT3WyGaTAc0rklw=;
-        b=lRDeavaF13JVfwhKGHb6DezgPIvlIOR6dH3pY+BjclgBGWYSGxaGRctoS29p2lMIkc
-         mzUfOa7F0L/skJKKtJHDiLNm6HQZuH3cPVwMmUsw4b5EMH6DE0j72okGtAnppz0ADwUq
-         k6TENFX6nFnRErRtbu8PDT84iu7SuqlauTMTkF9wM4lw/pVbRGw5ZzNdqJTWFnMRuDfU
-         7Ev4EUPPRrp3UFdbQ0gF6J+kFJY7l2l+JgtEOzwrElgJMzmMevzeoIGOnf19YposCNVX
-         /PCKdY9XuwQTmZs3HNi7lwSyTG6YttbyYDsCEGPBaXS56avkM/t3YsYMSJPXxLR0ado6
-         4nKw==
-X-Forwarded-Encrypted: i=1; AJvYcCWRpp/dQQtHR7B9b4CiCbo358M92W9xFvHyAj2PeIqO+d74QubwlziCXtIsTM0wkHlzfTxJ+xUsjomLJ/IbT+mA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8OnZVZxlxmbtMZL3Kvvh6fN4qQWhAbzxpvVBscCb+WQYaHc6B
-	bzAffWq9TNaTOs4AhuxWp5LKf8qOT+OwopqLOmjphv5m3Rpbk0g4MVDzy1Kj5pQ=
-X-Google-Smtp-Source: AGHT+IGRjU3aR6hDFtQjH3HQ8wJcv1fdKmnNHnvgyBmRdYlp1FR7+auWuZyFrR8i92B4uErsUqc05A==
-X-Received: by 2002:a5d:584f:0:b0:381:ed32:d604 with SMTP id ffacd0b85a97d-38259ccea2fmr432108f8f.10.1732130249896;
-        Wed, 20 Nov 2024 11:17:29 -0800 (PST)
+        bh=w9/cR/dqviroqX2VCS26LbceoYUIdqbcsui+WHfkKVw=;
+        b=BwSFcTedVGzXRYWhuiMaO1EFbdPlIJPxJqdXLbVy6a9/M72I+vQE1+MgkssMGA2h9I
+         gCH8zPRPBapKb7zcSoGzR5fNEbU+zsJwqvUCdPa32/ONxHcZ390yU6u/H2tt8aowpx01
+         n7niPuVoaM9D5XrP3+y5I3cfm7S7HwVhtj3rxNR0aa+wy7k3Qvk3ywDvbPo99pkQ8nbS
+         86hevril3MbdlLnsm+a+yugek+dfsPyS6j0DdvZWFZV5Oxd8yZR/hYldxOMLxMdwvFWB
+         GnQadYz7pQTuPe1bnyq6g9bfIo6O+PQh2lKw8fCL+TdAzqW0Cwd+zG4QIIKvol6ONSUX
+         qZRA==
+X-Forwarded-Encrypted: i=1; AJvYcCXEY63CSurYeNuvlGOm6yKJu8lOrvg29b6lje7+XIa2vXuVvbve+wT0qs1kUWM7OGf2pM7QanzXXFoOJ591cWaT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtNt+V3zRUq+yQTm1/U5JD6+GmIjEmGJXLxWtjH21GKdoveM6a
+	gori13MILnF/WhNj8CUcbrvmOY0Lj97bZg0ONGBs8T0gYBVh+izpm28gKvdgApE=
+X-Google-Smtp-Source: AGHT+IHPj9lIQrPiRfD7rVN0tVOtOkEexmIO3vjJFqQ8BVd0pibyDdS6UXNk2coAs2i3XgIY5wW6Sw==
+X-Received: by 2002:a5d:5f52:0:b0:382:47d0:64be with SMTP id ffacd0b85a97d-38254afc606mr2848672f8f.29.1732130250837;
+        Wed, 20 Nov 2024 11:17:30 -0800 (PST)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3825a2c5ef2sm172457f8f.53.2024.11.20.11.17.29
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3825a2c5ef2sm172457f8f.53.2024.11.20.11.17.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Nov 2024 11:17:29 -0800 (PST)
+        Wed, 20 Nov 2024 11:17:30 -0800 (PST)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Wed, 20 Nov 2024 19:17:03 +0000
-Subject: [PATCH v2 1/4] media: i2c: imx290: Limit analogue gain according
- to module
+Date: Wed, 20 Nov 2024 19:17:04 +0000
+Subject: [PATCH v2 2/4] media: i2c: imx290: Register 0x3011 varies between
+ imx327 and imx290
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241120-media-imx290-imx462-v2-1-7e562cf191d8@raspberrypi.com>
+Message-Id: <20241120-media-imx290-imx462-v2-2-7e562cf191d8@raspberrypi.com>
 References: <20241120-media-imx290-imx462-v2-0-7e562cf191d8@raspberrypi.com>
 In-Reply-To: <20241120-media-imx290-imx462-v2-0-7e562cf191d8@raspberrypi.com>
 To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
@@ -89,8 +89,8 @@ Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_111732_581097_4103605E 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20241120_111732_920070_19296E13 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,69 +105,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx327 only supports up to 29.4dB of analogue gain, vs
-the imx290 going up to 30dB. Both are in 0.3dB steps.
+Reviewing the datasheets, register 0x3011 is meant to be 0x02 on imx327
+and 0x00 on imx290.
 
-As we now have model specific config, fix this mismatch,
-and delete the comment referencing it.
+Move it out of the common registers, and set it appropriately in the
+sensor specific sections. (Included for imx290 to be explicit, rather
+than relying on the default value).
 
+Fixes: 2d41947ec2c0 ("media: i2c: imx290: Add support for imx327 variant")
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 ---
- drivers/media/i2c/imx290.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ drivers/media/i2c/imx290.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/media/i2c/imx290.c b/drivers/media/i2c/imx290.c
-index ee698c99001d..da654deb444a 100644
+index da654deb444a..7d794a509670 100644
 --- a/drivers/media/i2c/imx290.c
 +++ b/drivers/media/i2c/imx290.c
-@@ -176,6 +176,7 @@ struct imx290_model_info {
- 	enum imx290_colour_variant colour_variant;
- 	const struct cci_reg_sequence *init_regs;
- 	size_t init_regs_num;
-+	unsigned int max_analog_gain;
- 	const char *name;
+@@ -268,7 +268,6 @@ static const struct cci_reg_sequence imx290_global_init_settings[] = {
+ 	{ IMX290_WINWV, 1097 },
+ 	{ IMX290_XSOUTSEL, IMX290_XSOUTSEL_XVSOUTSEL_VSYNC |
+ 			   IMX290_XSOUTSEL_XHSOUTSEL_HSYNC },
+-	{ CCI_REG8(0x3011), 0x02 },
+ 	{ CCI_REG8(0x3012), 0x64 },
+ 	{ CCI_REG8(0x3013), 0x00 },
+ };
+@@ -276,6 +275,7 @@ static const struct cci_reg_sequence imx290_global_init_settings[] = {
+ static const struct cci_reg_sequence imx290_global_init_settings_290[] = {
+ 	{ CCI_REG8(0x300f), 0x00 },
+ 	{ CCI_REG8(0x3010), 0x21 },
++	{ CCI_REG8(0x3011), 0x00 },
+ 	{ CCI_REG8(0x3016), 0x09 },
+ 	{ CCI_REG8(0x3070), 0x02 },
+ 	{ CCI_REG8(0x3071), 0x11 },
+@@ -329,6 +329,7 @@ static const struct cci_reg_sequence xclk_regs[][IMX290_NUM_CLK_REGS] = {
  };
  
-@@ -876,14 +877,10 @@ static int imx290_ctrl_init(struct imx290 *imx290)
- 	 * up to 72.0dB (240) add further digital gain. Limit the range to
- 	 * analog gain only, support for digital gain can be added separately
- 	 * if needed.
--	 *
--	 * The IMX327 and IMX462 are largely compatible with the IMX290, but
--	 * have an analog gain range of 0.0dB to 29.4dB and 42dB of digital
--	 * gain. When support for those sensors gets added to the driver, the
--	 * gain control should be adjusted accordingly.
- 	 */
- 	v4l2_ctrl_new_std(&imx290->ctrls, &imx290_ctrl_ops,
--			  V4L2_CID_ANALOGUE_GAIN, 0, 100, 1, 0);
-+			  V4L2_CID_ANALOGUE_GAIN, 0,
-+			  imx290->model->max_analog_gain, 1, 0);
- 
- 	/*
- 	 * Correct range will be determined through imx290_ctrl_update setting
-@@ -1441,18 +1438,21 @@ static const struct imx290_model_info imx290_models[] = {
- 		.colour_variant = IMX290_VARIANT_COLOUR,
- 		.init_regs = imx290_global_init_settings_290,
- 		.init_regs_num = ARRAY_SIZE(imx290_global_init_settings_290),
-+		.max_analog_gain = 100,
- 		.name = "imx290",
- 	},
- 	[IMX290_MODEL_IMX290LLR] = {
- 		.colour_variant = IMX290_VARIANT_MONO,
- 		.init_regs = imx290_global_init_settings_290,
- 		.init_regs_num = ARRAY_SIZE(imx290_global_init_settings_290),
-+		.max_analog_gain = 100,
- 		.name = "imx290",
- 	},
- 	[IMX290_MODEL_IMX327LQR] = {
- 		.colour_variant = IMX290_VARIANT_COLOUR,
- 		.init_regs = imx290_global_init_settings_327,
- 		.init_regs_num = ARRAY_SIZE(imx290_global_init_settings_327),
-+		.max_analog_gain = 98,
- 		.name = "imx327",
- 	},
- };
+ static const struct cci_reg_sequence imx290_global_init_settings_327[] = {
++	{ CCI_REG8(0x3011), 0x02 },
+ 	{ CCI_REG8(0x309e), 0x4A },
+ 	{ CCI_REG8(0x309f), 0x4A },
+ 	{ CCI_REG8(0x313b), 0x61 },
 
 -- 
 2.34.1
