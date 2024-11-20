@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A638FD711A7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 14:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A47D711A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 14:59:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/WhX7sy9ylH8oB54T8NmaXKVtwnhmbfEVEz1XB5edX8=; b=T1W8Qj+DZXoV6F4OuiGTr60Let
-	XtpdaXffrtQXSwCs15hDa2EHGf82R1mZO9AnhqR4faV5jlF9REDcTiByTgkbburz1bxOxsLbGJU6t
-	/AeKZegQgF06FLcYCsvwpf5kTdpMM/fkVhPeRN7mob6/kcNxvzxZMH7Epfyb0eCa15e+a4ofN/tTr
-	Ip5EYc+r3/g9bpM0UR/YAnR+Pt5vdKiMwpFeuPBaXu1+GhWa/57jK/G2A9MeJEYDIPVj9WO4dvaBQ
-	oxDtYuLc7aaUUum5pJOLTHeDSTh9jBGy3cowIazPVVNNMH9MJ3O/21Bxcca39MpD0t4vHS/NE1ikC
-	pADA6tDw==;
+	bh=V5tRs5SDxCA6uVSrjq3npJTWFM0ZTaUuFsUk1yMWVPU=; b=dtM+QYNYyTnSQ5eK/8Ctta+qX5
+	nFCcNBdzIN9ePN23bWVkSXjobbccWUevRIAr2LFCkKC7SPDKsgtyHMnmYoonmKShSFqwpWw8Qqjwl
+	pmqli7/9WmOlYvYZO53Q3ZTyyVuNKn+/V9Pg3K90Bdf2GlwiPZMe80cJGIeEGVIWZRlnYWm/aHpbZ
+	vGsW2rAZQLwJ2vrc2HiA6zHZHb4jwXVB1AxDbWsOPMh+0BvOkKxp0piiuPM/TBufpZAqRK9znCuPD
+	hFKc3kegRpnfO5um1tAIUVIFyYD3uOHWgV7mXh5jrw76Gp97ADQUleTtVQgHoCdM+SvJGSu4NxJ3V
+	c9/5RJjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDm9M-0000000FcJK-2Fhm;
-	Wed, 20 Nov 2024 14:57:48 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tDmAY-0000000FcYQ-0eou;
+	Wed, 20 Nov 2024 14:59:02 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDm8P-0000000FcB3-3b8B
+	id 1tDm9b-0000000FcMu-3B8T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 14:56:51 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-431688d5127so18847785e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 06:56:49 -0800 (PST)
+	Wed, 20 Nov 2024 14:58:04 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2ea6f821decso1907418a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 06:58:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1732114608; x=1732719408; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1732114683; x=1732719483; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/WhX7sy9ylH8oB54T8NmaXKVtwnhmbfEVEz1XB5edX8=;
-        b=u1DRC/ukdq3Tauc7X3+j7SnAEEheq/gtH3scqNdd0qYIbkK9PidEPwOZukeeQUia1V
-         EGHKQ8XY0y9DsuR/pfUL9qP0kBhoLnh5MV9Jv6xgLeX2xnRaCb0k1dxNeQtL+Q/ejWKk
-         D5tlv1VTdXCcyahraqYvMSzgFBsn9OoIS4m1R6g5wi2wICFP3P7npJIn0ppOpE4E3br1
-         2vvOD4rxJ8FIIM6D8Iu439aEudO/znvzacMpUecEPGwQoRPRTUttgYpI+vqCQU/VRG3s
-         OjPCiFwhNw1YlH7pdaA/AhCfdh/Faic+dQ2ngG7dDphc0rzb9UmiouWjndN6biGKDqEA
-         aMuA==
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=V5tRs5SDxCA6uVSrjq3npJTWFM0ZTaUuFsUk1yMWVPU=;
+        b=h7sBy7KvWBiRaojkqOMWj7aksAC37pz8KiXwqh9XtjcoVZMqfQ0Lj1OPn07VGVJ4Ic
+         ldYPAJd2GNMMDokmpJEsY4ruzcuCY+nWytpqkpQ2sA60Yv4ZjmqZBlvfTab4KcbsxJhn
+         NSTMIm/mPA2sJuKZcpZ9d0vbUt+3iSMOcHnFd8qVbmX3JhtWj0Tb8QgCZDrpo+p0vk08
+         9UK1n7JDi26PVLnejy5XeGDsnfbTnN8FF6NoLOhnpL/G0X564iRbc6oj05OoHqW2Q/X/
+         nPq0YztdI662ILFs1vlwtwUBljnwrs8MUxT5Tr5OqtyVWJyvNnvoTRi2pFX/00RNuFzD
+         GDCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732114608; x=1732719408;
+        d=1e100.net; s=20230601; t=1732114683; x=1732719483;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/WhX7sy9ylH8oB54T8NmaXKVtwnhmbfEVEz1XB5edX8=;
-        b=kSV/067wqN1O6Qy1bcxXKiGRMS3ZToItC1Re8c0G9AD4BolmpAjVgHpjGbeHhOmtJt
-         hSpXenE3I7a6oPxNm6SWoQ9mWnA1ghO18ZRlGqFLhROk0dawr46DhZmchShwmK6RNWz/
-         jNvJ4SEi5U7nx6tQqJCy9ZibkJFPVNh6foDR4T1QY9dhJSloTIHRsX5jv7W6o6rfYwOu
-         jSDcOLlRvL6am++tRDdIDnzxiNvrWN9yXqUV/bzOY0+aNkTIXGjxQmevIrbiJs7rAKUS
-         lxB34T76uHx2t2z99Ruhgb0ZWzSn4AIu/fn3phMCtWJaakr+DBArAJUz6Oar55RmPucg
-         INEA==
-X-Forwarded-Encrypted: i=1; AJvYcCUFFhqAh9a8XyNPdmCGpMipdGQLWQFzg9xAyPaX8IJzlaez2tc4HLYqz0fCSNIH1tmsGitsSGF5G0LYJedfhb1H@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8i1V5yjhe2JWCMmis7WEaiRmXObn3EvebEeWiti5GTBijvFKs
-	tHjDUnVbqeo6QJAj9ogS4wfRfVvQudSIsXtzbeHnVi83eDSs+AWRGvDWC6jT4og=
-X-Google-Smtp-Source: AGHT+IHrKfGLOGxnCvfbK0rlizot2Xe7bNWUl7+WlgkZB4qaV364sHZfb2rsYw8BE+EFPgwo4ike+Q==
-X-Received: by 2002:a05:600c:4f83:b0:431:50fa:89c4 with SMTP id 5b1f17b1804b1-433489868e5mr29893195e9.3.1732114608102;
-        Wed, 20 Nov 2024 06:56:48 -0800 (PST)
-Received: from localhost (p509159f1.dip0.t-ipconnect.de. [80.145.89.241])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3825493ea7fsm2279732f8f.90.2024.11.20.06.56.47
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=V5tRs5SDxCA6uVSrjq3npJTWFM0ZTaUuFsUk1yMWVPU=;
+        b=lml3Ue738i49vjKMREP1Lm/yYB83P5tM+RIzA/KC5Xsa3ypcBBClhSHfATwvC/6/EA
+         +irqoHnexMpRphkkDwmbSCSkjv5RhKM4U3D+J3Oj7X3opOy3XePZ3kpQ6z0mhYcgKy0/
+         OHHJHZxnyG0s7rawT+iVo6WZ/tz9GvJLuxrmh7fXUUfIEiQDIlRo37h+IsvBS2MzNung
+         kMkAq8pjysRjQ6Brawimini75t89e4CWXZciZbtCa5UBpJ964IN3q7MnZyIzmzizVODs
+         vG9kAt/dcGvvc+CLZRmWe/lJN8tgvZnGoGMwew7hINYbkrXE7EiZ0HMamw1ejEB36hpn
+         v1VA==
+X-Forwarded-Encrypted: i=1; AJvYcCUmw1U9ImujqoD/d00PENmUxRN7OE/nnsn9TeEaDM4DuMUEA1kG7nWNB/iqoG5KppFgNq32PZI1ZDP4aJs19K+E@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJrQDCe+sdwGG7GZMoDMq2+4PeHZW6coYxnkbOLaFmnt5c3RMm
+	vt8QT2P+KWkhphXnL3/Zkq7YuxDKvdQ35Y67Kk2OoISg1yOrPPmHovxSzw==
+X-Google-Smtp-Source: AGHT+IFV7iRAEgSa8oH8+7AoTvx0uOegkgCNlN1vBcrbCPN/pmNqJi3DO6BRx8wXmhFSKq6G9fmCIQ==
+X-Received: by 2002:a17:90b:4d0a:b0:2ea:94a1:f653 with SMTP id 98e67ed59e1d1-2eaca7ddfd1mr3149652a91.31.1732114682861;
+        Wed, 20 Nov 2024 06:58:02 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ead02ea238sm1404275a91.10.2024.11.20.06.58.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Nov 2024 06:56:47 -0800 (PST)
-Date: Wed, 20 Nov 2024 15:56:46 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Joey Lu <a0987203069@gmail.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, mcoquelin.stm32@gmail.com, richardcochran@gmail.com, 
-	alexandre.torgue@foss.st.com, joabreu@synopsys.com, ychuang3@nuvoton.com, schung@nuvoton.com, 
-	yclu4@nuvoton.com, peppe.cavallaro@st.com, linux-arm-kernel@lists.infradead.org, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v3 3/3] net: stmmac: dwmac-nuvoton: Add dwmac glue for
- Nuvoton MA35 family
-Message-ID: <klp4a7orsswfvh7s33575glcxhlwql2b7otrpchvucajydihsi@dqdkugwf5ze5>
-References: <20241118082707.8504-1-a0987203069@gmail.com>
- <20241118082707.8504-4-a0987203069@gmail.com>
+        Wed, 20 Nov 2024 06:58:02 -0800 (PST)
+Date: Wed, 20 Nov 2024 06:58:01 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: Lars Povlsen <lars.povlsen@microchip.com>,
+	Steen Hegelund <Steen.Hegelund@microchip.com>,
+	UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RESEND PATCH] net: microchip: vcap: Add typegroup table
+ terminators in kunit tests
+Message-ID: <24a5975e-a022-4bf4-a2ec-76012f977806@roeck-us.net>
+References: <20241119213202.2884639-1-linux@roeck-us.net>
+ <20241120105202.cvmhyfzvaz6bdkfd@DEN-DL-M70577>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xlycwx5h2jmtpvei"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241118082707.8504-4-a0987203069@gmail.com>
+In-Reply-To: <20241120105202.cvmhyfzvaz6bdkfd@DEN-DL-M70577>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_065649_891744_86F97679 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20241120_065803_794356_17642B3F 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,40 +100,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Nov 20, 2024 at 10:52:02AM +0000, Daniel Machon wrote:
+> Hi Guenter,
+> 
+> > Comments in the code state that "A typegroup table ends with an all-zero
+> > terminator". Add the missing terminators.
+> > 
+> > Some of the typegroups did have a terminator of ".offset = 0, .width = 0,
+> > .value = 0,". Replace those terminators with "{ }" (no trailing ',') for
+> > consistency and to excplicitly state "this is a terminator".
+> > 
+> > Fixes: 67d637516fa9 ("net: microchip: sparx5: Adding KUNIT test for the VCAP API")
+> > Cc: Steen Hegelund <steen.hegelund@microchip.com>
+> > Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+> > ---
+> > resend: forgot to copy netdev@.
+> 
+> You are missing the target tree in the subject - in this case it should be
+> 'net'
 
---xlycwx5h2jmtpvei
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v3 3/3] net: stmmac: dwmac-nuvoton: Add dwmac glue for
- Nuvoton MA35 family
-MIME-Version: 1.0
+Sorry, I seem to be missing something. The subject starts with
+"net: microchip: vcap: Add ...". How should it look like instead ?
 
-Hello,
-
-On Mon, Nov 18, 2024 at 04:27:07PM +0800, Joey Lu wrote:
-> +static struct platform_driver nuvoton_dwmac_driver = {
-> +	.probe  = nuvoton_gmac_probe,
-> +	.remove_new = stmmac_pltfr_remove,
-
-Please use .remove instead of .remove_new.
-
-Thanks
-Uwe
-
---xlycwx5h2jmtpvei
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmc9+KwACgkQj4D7WH0S
-/k7LQgf9Gwj9QyarYndFEA5e8v9OUMxfn6Cu7vJ3gmwOZLcBm0Oi+KHCfrK/5oMe
-BYJvIWmrL6AbSFQqaIp38aZmWH2UiKV3KCeRx2kikFou49njcPVyqAKzwpCCi5TE
-6XTZpAg/OHN3kJOiLwN4RZVsnsA4pR1VQVIdch+oGFMyKEgyu85MLpjeQecxRCT/
-RP/bgKRO/OTWrrtnIewHNV2YsehEzx/+wY9gCh6lEVzBJYDGNNkZf49WdTO5nF1G
-KB/pOfKMX4LrldyqelhrRyOOkqDa2mtB5gVdJf5vGP64XwbyxPhzUbblHk/cc5O3
-wThAhMtIKX1kBcxmm20loeBenE3nrg==
-=CCaY
------END PGP SIGNATURE-----
-
---xlycwx5h2jmtpvei--
+Thanks,
+Guenter
 
