@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878CAD6E2B2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 04:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005BAD6E2B2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 04:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zvTYpT8q1jc8sS0GImfUQ096d0hfXDGsD5wyPCtbq1k=; b=YN58GArryCLG5A6oYmk+o0rEZF
-	5K8aZZRl9FBryjxnVyU9USJlkHKutxnTHyzZSfgFqNYi7w45kExQEcmW42uyi6K+rffgRvlzqQBk9
-	pUJ5HDSw+XrpVRK9AhhWy4U6IPHyD0GT2KmP6YAWdH19PqMCjd4sJg04l9oo76iY2GI7Gi329tPS3
-	OxWrwa02nfVZ4oKFzGSQr5JqID/pota89Hw7aZhqftyLSMcVXBk0xjNwk8muodBX/559jD34qUvxP
-	GUtqF4MqxzwkkSlE8YPuzzIVqI5yVWeW91Rw/FghdS1tXXAw2CL+OI1w2L63m5DDjlSOWhfTy+6X/
-	dcgpYQ+g==;
+	bh=Nr9bDWpFW06TWsiAwkTdInEtC48T7Y3ALsBXGGbhmbY=; b=zzEj2jtU9JBTIAolJX1ZuGx7nP
+	5m2dd1byx5C8SJOBIuepNam+uh+vuBW3fSzoB/XHjEk/kAJNjHXUvMT5Z1HdIXmKrarClsM0zyfBj
+	4FKk4P0I9jmmkb0ciaU0BQZ4esFmpSXHKZI40y+kq9zcYCkdqgpm2Bvxj03PYefAqnfsWphlwUEGe
+	pgNlHhxJxLNAbhAphi4zn7ULP3rMJ1TzGGHcTItNmqtKc0ALUgwkGymiQoQp9mPKR5ASFmbiu/kLf
+	NqvzPmH6v29NS+MTLOweN943KA/TMS9Gozx7F4+advbVpNXZ5PuRb17g0gkyLwhm/ovZ3zMgMTHTZ
+	/m0muGYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDcf0-0000000EO6e-2mTW;
-	Wed, 20 Nov 2024 04:49:50 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1tDckC-0000000EOV5-2jbY;
+	Wed, 20 Nov 2024 04:55:12 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDce5-0000000EO1G-0Yxn
+	id 1tDcjG-0000000EOKd-1j11
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 04:48:54 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-7ea7e2ff5ceso4747650a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 20:48:52 -0800 (PST)
+	Wed, 20 Nov 2024 04:54:15 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2e9ff7a778cso367028a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 20:54:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732078132; x=1732682932; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1732078453; x=1732683253; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zvTYpT8q1jc8sS0GImfUQ096d0hfXDGsD5wyPCtbq1k=;
-        b=kWVfkKLiBXLvd+IgzvHPhwuHav6DGXrM33uVFn5aepymrtZsrVC0HmpIrMZObwmZdn
-         9kr2mgSFJkhzJcWpMsN2CbW5M9jrRnfkmxXt13naEVM6SIITe2u9X9GG11Yn0r+mh9Ga
-         bM9ta0M1jNF35oFuD7fGV3r/lGZ8MCSmbfLsMSHWkz+waR+KYm1FCknkwtdvk/250Fbj
-         GlY9U82uMYRMMVFaAdjzpZZYkcOJ1fWFMrwM5ezBD9Iz7yCyqjWJyIYIKMgF0A1zJe1Y
-         XaBNUjm38lI6h19AL9BA5OTmuledNcSUstHvsyMgM1ZPH7b8iBCAkjWCZ+czOCTr3AhT
-         41kg==
+        bh=Nr9bDWpFW06TWsiAwkTdInEtC48T7Y3ALsBXGGbhmbY=;
+        b=T+URq0CgwCK7lb89DPelbNal3DjySTnmWkIk0hcwFZm3jqsX1P0ARTKj8ofYqJ0r20
+         7bJTaY8rSd9KxhG9GjGtSmk6iu4MZn0EIdh/he5UWH/Frvs5q/95XFyyDZsr/ycL+Ir0
+         ckioPuQuWNrtuJOQ6lyPwQoz5u7IAx4raXVgQ/8QV4/xecS5H+owXkogu8yUDbIgPnOh
+         e7at+fJKss8SyviXiUyKamieJR5RvlIrPBTZZsu24HV390r2LsECzLSCJZINKMAAdoh9
+         crb0Z/Jakn/ZZW7xEw8MLr8u5cDTFLEpBQ0nB1dazcV8dutRSziurCh+KOfV/ZOZw4/1
+         gAUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732078132; x=1732682932;
+        d=1e100.net; s=20230601; t=1732078453; x=1732683253;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=zvTYpT8q1jc8sS0GImfUQ096d0hfXDGsD5wyPCtbq1k=;
-        b=xNKWObGH8WW+ypR050vcw7B/IHlt5so8y4LykuQslG/Y0c5I5aQyGqA9R+y3FDoTYU
-         hQ86D3WZAowN/rC1fs5QJ2dJgBU4CgDsX3HSPQityBcJCSeHvCeCwF8vR9T7Mb80QOTV
-         WLFT7XMewXws78nBl9rG+9dJUpgz5pYmCKE1Woy4TRUNOVPpAZfQ1fbPpezt+oZK7bhC
-         +S+khvC3w8Byq26FRlypmsEAREqIKCmJjd2yAGtgwonwbiMt6slewt5CA5BNsUy60T0L
-         SBRxnTZif/PD+MqY/85sYap+uHEI1VhaMWB0PiW6FMNlLwIoPP1BQJTNOEVY8PDf51aK
-         OIIg==
-X-Forwarded-Encrypted: i=1; AJvYcCX9y/SFFY567c5dv9Ua8q8zSwYlVtg0rZW/Kchke7VcZbfa6SopNbBId5OShqIQsI4SqNIycxl6dvFeUF2yldD5@lists.infradead.org
-X-Gm-Message-State: AOJu0YytZGK9U1hwXBPj54pbodNUyJT3+rCP+7k4Beqm4fxqsEis9RUb
-	wC+r20EazutmWwMQesCmTNxnYePEjPQjmyg6p6ZOO+5k115RkVAH
-X-Google-Smtp-Source: AGHT+IGESoz5zqVHuhK+DhIBeFZeRtPWUPmGOFgTAJvyOlJPhz5Ckl7f+Q0aMYsQuL4Ny9Hy+WpTqQ==
-X-Received: by 2002:a05:6a20:9152:b0:1dc:151e:d800 with SMTP id adf61e73a8af0-1ddae5e01e7mr2471464637.16.1732078132254;
-        Tue, 19 Nov 2024 20:48:52 -0800 (PST)
+        bh=Nr9bDWpFW06TWsiAwkTdInEtC48T7Y3ALsBXGGbhmbY=;
+        b=Jq/8LtvkFkw1NzeLglm1Cj+xjlnGXUgmKzR9vZ23bH/aQWyerhfsFjEjvGZ8/pUTZu
+         DeUOhmFyvdAYMAG7TehqTQjaLMUxaEAxmXnra2c2JL9YIuKxXI8KiAyMZgQn2+4zH9B8
+         AI/iXvZDcEuKmskAnDyDanJg5Wbl9X9T2ZZWGQB5LKj20YXAkzeu3l1CdarWyoGqkv5P
+         y+oySGajS8G0KTeMlV4ir77WTjeeyST7or/7U8BV73RM/Ue3+G1nN89BSG1w795/ZS8C
+         a9s473ArmUFkV5+FujYYjsHJCzWwt8xWxa4dGndBNYeirMWMbbEeCiO6AlIabOIo89oX
+         uV3g==
+X-Forwarded-Encrypted: i=1; AJvYcCU1IJsJhLyM9xou5QLB/TSKBP5mzYU6EJB5JEoYg1t9uysl8dD6pCmOHlxIZ0yNK1Htn2deFnYWU8kZ3IT70itE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgI+FYCWOkIOVsBfGwiCtVEpFrSQCsHw+b/jnVGEMcwMN8JB1k
+	rOhh864coIbEW0TGRu4hcANHdigV0ditRwXQONbwFVDyUV/q7A/b
+X-Google-Smtp-Source: AGHT+IHcXpG4JC6BlYjXdB2KJFxOFKlbKLdS2H6Lq/TlBRndmGYk/bd8MqYjQjQSxSLDifqguTxRug==
+X-Received: by 2002:a17:90b:3ec8:b0:2ea:9f3a:7d9 with SMTP id 98e67ed59e1d1-2eaaa73c00amr8834300a91.3.1732078453533;
+        Tue, 19 Nov 2024 20:54:13 -0800 (PST)
 Received: from localhost.localdomain ([175.112.156.113])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724befe9a91sm614924b3a.183.2024.11.19.20.48.50
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0dc305dsm83194625ad.44.2024.11.19.20.54.11
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 19 Nov 2024 20:48:52 -0800 (PST)
+        Tue, 19 Nov 2024 20:54:13 -0800 (PST)
 From: Ruffalo Lavoisier <ruffalolavoisier@gmail.com>
 X-Google-Original-From: Ruffalo Lavoisier <RuffaloLavoisier@gmail.com>
-To: Russell King <linux@armlinux.org.uk>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
 Cc: Ruffalo Lavoisier <RuffaloLavoisier@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] unwind: remove duplicate word
-Date: Wed, 20 Nov 2024 13:48:43 +0900
-Message-ID: <20241120044843.10492-1-RuffaloLavoisier@gmail.com>
+Subject: [PATCH] arm64: remove duplicate word
+Date: Wed, 20 Nov 2024 13:54:04 +0900
+Message-ID: <20241120045406.21537-1-RuffaloLavoisier@gmail.com>
 X-Mailer: git-send-email 2.46.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_204853_167479_495E4574 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20241119_205414_449389_B3398E5F 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,24 +92,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Remove duplicate word, 'the'.
+- Remove duplicate word, 'to'.
 ---
- arch/arm/include/asm/unwind.h | 2 +-
+ arch/arm64/include/asm/pgtable-prot.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/include/asm/unwind.h b/arch/arm/include/asm/unwind.h
-index d60b09a5acfc..a75da9a01f91 100644
---- a/arch/arm/include/asm/unwind.h
-+++ b/arch/arm/include/asm/unwind.h
-@@ -10,7 +10,7 @@
+diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+index 9f9cf13bbd95..1d6970efeb6d 100644
+--- a/arch/arm64/include/asm/pgtable-prot.h
++++ b/arch/arm64/include/asm/pgtable-prot.h
+@@ -131,7 +131,7 @@ static inline bool __pure lpa2_is_enabled(void)
  
- #ifndef __ASSEMBLY__
- 
--/* Unwind reason code according the the ARM EABI documents */
-+/* Unwind reason code according the ARM EABI documents */
- enum unwind_reason_code {
- 	URC_OK = 0,			/* operation completed successfully */
- 	URC_CONTINUE_UNWIND = 8,
+ /*
+  * Page types used via Permission Indirection Extension (PIE). PIE uses
+- * the USER, DBM, PXN and UXN bits to to generate an index which is used
++ * the USER, DBM, PXN and UXN bits to generate an index which is used
+  * to look up the actual permission in PIR_ELx and PIRE0_EL1. We define
+  * combinations we use on non-PIE systems with the same encoding, for
+  * convenience these are listed here as comments as are the unallocated
 -- 
 2.46.1
 
