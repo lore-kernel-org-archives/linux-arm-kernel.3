@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E14A7D743ED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 23:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0221D743F5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 23:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xs+SrsC9IUbgaKcIlQpBc93FEGDcRI3usKuzpnz5nwQ=; b=ZuLe9Xbfrwdxj+PLe8QNHk0pMt
-	IntN1nqAJsb34bC7AWRy61xW83NrVxkEfGeqJNlj71tmuIUNdGrcpZXGiH5wFWW81hr2KjkC3Fn2q
-	n3vyRChSo55xyCS1p88xE5wPk9+dX6/OIkJsZS1lxxBnT1kXKaJYYBZ2SIYmqgG3+2WtfifaWthv7
-	FVxXDd/CWPadzwulPq/H92+NTnl85R/C68yi0bs3n2qkjy9Z4a/ZihZ/57yotuAuTE9JJ+rsjjcGe
-	tnGVKlmD6UGht6mKrIfJ4WAAcCxiLayP7zdf18TciLFJiuAWHyXLiU0y0cNUqb+mDijHmxSmKeIOM
-	WkQAGj5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ucvipiwxl9XpBZdoqxuKAz5fGqg5zWO7QZ1l9yg5aE0=; b=M7dY2JpXMe7MWT7JQuvC4eaFF7
+	ipc4x/BP62z72Z2eayBc2bU4IpSx//VmrQ/7hKYDiEYOJXJ/U59wns+Nc62Rw0BIguKg89WxPezpr
+	2mUeV/t3hK95Sk7mgco67m+Z1P+pxKgJGgExxxVkNpMHKY/J+Vi+X+e1Pof5FQLitaiFW2CjBB2KR
+	Ru4QTggCYkiX8bZuP24nswjS31f8GhXk1hR5W5nGt/7EoazkZ8x/N0jS0qrX3O3Z+V3DakAWPa83H
+	06NQFxY/LoP2SQTZAlb+pmtGmIC3rNIdSgar4g7LWXObbW5yhsSVtu3o7ndozSjI6Z41ev953gZC+
+	l+5IuoWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDtzS-0000000GPK7-45Ad;
-	Wed, 20 Nov 2024 23:20:06 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1tDuTV-0000000GRUE-2qMK;
+	Wed, 20 Nov 2024 23:51:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDtyW-0000000GPCk-3OhG
+	id 1tDuSZ-0000000GRLm-1J0s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 23:19:09 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-a9a68480164so41733166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 15:19:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1732144746; x=1732749546; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xs+SrsC9IUbgaKcIlQpBc93FEGDcRI3usKuzpnz5nwQ=;
-        b=Tj/fh0TPNyBbiRm3Nlkoaz30yG2Q9EsiwezPeitTjpncuiEnaNYjV0dSrbZiyBJQCn
-         o3tjiIK4cjOxUJrYpb8Vj4BMOYrLt8bBXd69DFB9ibqG0t7yeUG9aeBv3fsazn59s6KW
-         RtRCLx6bB41Rcjc78erQYCE3x0/yF7wgWqm5U=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732144746; x=1732749546;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xs+SrsC9IUbgaKcIlQpBc93FEGDcRI3usKuzpnz5nwQ=;
-        b=vy1RKH1jd5/kQH9804QOOp6s8JOmNGF7Q5sy0exxth1tTFwKxEuV8CjwWXmy/4g9fr
-         9AcY8bjp2F0YEs0Qtogojf1r0QnBfpzZlrUVZ2pkq/XA+Qr08Rf773bkxG4Qyb0TpLiT
-         apS5tJvWy5v8Iro3B0eQ1sKrE1LVG9MSWvdX3tE6P1S6zctk48/nu99E2qrD5DYqvhqU
-         w28TdwSlkdDpz4vQ2nm/9I3lCHbfEAOvQr/8IsweqI1h1P11Cji53RzEL9PLnQDQBgFJ
-         VevH35q+MvO19hArmsY0BaJypzwzHXs6cbWjRmJMF+NdZQRFuIblWfNb/jGHoyACve6+
-         NPiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW3wwkfiPulwffqUkA7CGB1Mc01crMfFi68N04ENncfx30BcqG1QOFtxyggLnE5w0R6PYOXNZbgsx8KfxWHpiEO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpOuBpDefnK0Ymn6cqtD1wJV30iluAm/0SrUoymX+fCyLI6N73
-	5ccHzYbC6mFfvEhEzNq9yrJLHCLV0BMWlr/1hWQaOGxpzMEGUqx5CeTSQtpZwpdd3cAJafUfiRr
-	AVEb6/Q==
-X-Gm-Gg: ASbGnctuJT/HJPZw5yxyjbKGQeK3yqgs1r/bzi1kRpHi5A4hnbLLDJYKs9qxq0ZbDAk
-	IS/vBHPO4GGXEC+YkL0DKPa+BNpDpatDiaEF2mMn8m6S2PVA8eLeBMD74/4Zwv+wigsmvMI2RFZ
-	zTB0yc00H8WchcnGNjC6/qG8+3hiB41h7Uyl9mkxWuvAuzKl9dqjtuUwwCyDKX5mk13AkAkJIxn
-	zHaqpG7ltbR7eFvR0wzippYN2JGxspDKpZmN+OizEmPAbIQRxrJCHIVxJlMeqgXq3lDsqysYZPc
-	2k5ajff2w7hQslo0udvW9+tX
-X-Google-Smtp-Source: AGHT+IE+KFFgQApcvijMX4MhOMkvHItFufyXEc1Q5huu5P5taw6T+yanHF1jhst2bwmbXpc0+beDTw==
-X-Received: by 2002:a17:907:1ca8:b0:aa1:94bb:c475 with SMTP id a640c23a62f3a-aa4dd5522demr463688366b.24.1732144746100;
-        Wed, 20 Nov 2024 15:19:06 -0800 (PST)
-Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com. [209.85.208.48])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa4f431b3b6sm10553566b.171.2024.11.20.15.19.05
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 Nov 2024 15:19:05 -0800 (PST)
-Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-5cfaa02c716so323513a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 15:19:05 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWHBUd5tx1+NAEHaRAK3frTHrvcFZexblNRMFYKZz7B6SQEvoWQRuU7hxt7W304A+lj+Q5MBgAigQwcJJLZijMt@lists.infradead.org
-X-Received: by 2002:a17:907:2d08:b0:a99:ecaf:4543 with SMTP id
- a640c23a62f3a-aa4dd57a0c5mr426803466b.25.1732144744981; Wed, 20 Nov 2024
- 15:19:04 -0800 (PST)
-MIME-Version: 1.0
-References: <d58cbbc9-e5b0-49c3-8cf7-d0726e796e92@app.fastmail.com>
-In-Reply-To: <d58cbbc9-e5b0-49c3-8cf7-d0726e796e92@app.fastmail.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 20 Nov 2024 15:18:48 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wi=GZ7766ZBoT11aAp=Nqw6Uf8eVvuyQAycXJ1TR=5e2Q@mail.gmail.com>
-Message-ID: <CAHk-=wi=GZ7766ZBoT11aAp=Nqw6Uf8eVvuyQAycXJ1TR=5e2Q@mail.gmail.com>
-Subject: Re: [GIT PULL 0/4] soc updates for 6.13
+	Wed, 20 Nov 2024 23:50:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 966565C5BB9;
+	Wed, 20 Nov 2024 23:49:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3228FC4CECE;
+	Wed, 20 Nov 2024 23:50:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732146610;
+	bh=K0kp5tuf+SSXDFO60de17alvWz9vZ9z4wreFG2rIQ8U=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=L5czxUKUUcd3GweV91+TAWRp1vWiS5zqyynUN6TjbTw+n12jH6rF/B7cVhiNAGFzC
+	 nxTkRG3djaNHI5Kh8SgPxHLg0X35Sja49/EQyc0QCLK+abHciPM37ffLR7a9b2PdhS
+	 Cna5hsnplt55CjAWpPlR6yaDtbhewYDeIgrZs2b4sEqsSFqwkV73exXQfQ6HKguE6E
+	 9pijnHbNI5qwWlJAdVj29iTr9cqDWNb29TSu8Ku/8lN2JvDF7C0pAXnwE6HC9O4J5Y
+	 Wz1vZaFLeZ1GQL6gGySPNe43HPRf9idlGnpnkvXGwV8zGxcTheiLLp9ssb7zt33+wQ
+	 HN//T3Fsqx/5g==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 1B9B13809A81;
+	Wed, 20 Nov 2024 23:50:23 +0000 (UTC)
+Subject: Re: [GIT PULL 1/4] soc: devicetree updates for 6.13
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <8fa23f93-385f-4996-8298-2271d259b352@app.fastmail.com>
+References: <d58cbbc9-e5b0-49c3-8cf7-d0726e796e92@app.fastmail.com> <8fa23f93-385f-4996-8298-2271d259b352@app.fastmail.com>
+X-PR-Tracked-List-Id: <soc.lists.linux.dev>
+X-PR-Tracked-Message-Id: <8fa23f93-385f-4996-8298-2271d259b352@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-dt-6.13
+X-PR-Tracked-Commit-Id: 9f5cbdaae5f760c218c82e0a5e0f9c58bac56f0c
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 9c39d5ab450f7181775957000f4aff33bfef9f7b
+Message-Id: <173214662175.1393168.2564138699259242655.pr-tracker-bot@kernel.org>
+Date: Wed, 20 Nov 2024 23:50:21 +0000
 To: Arnd Bergmann <arnd@arndb.de>
-Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_151908_864774_D1195E32 
-X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-CacheID: sfid-20241120_155011_392670_C6A8FD04 
+X-CRM114-Status: UNSURE (   4.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,14 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Nov 2024 at 14:58, Arnd Bergmann <arnd@arndb.de> wrote:
->
->      12 Jo=EF=BF=BD=EF=BF=BDo Paulo Gon=EF=BF=BD=EF=BF=BDalves
+The pull request you sent on Wed, 20 Nov 2024 23:59:30 +0100:
 
-The name "Jo=C3=A3o Paulo Gon=C3=A7alves" seems to be correct in your actua=
-l
-pull requests and in the git tree, but you have something seriously
-wrong with your summary generation locale.
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-dt-6.13
 
-              Linus
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/9c39d5ab450f7181775957000f4aff33bfef9f7b
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
