@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4179D6E2D8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 08:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B081D6E2D2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 08:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SQOvDfr3bfYWUYrjs6ePQeZq1ylkM5KrjurJEuHBrvw=; b=wVVaW1DBFbOwMmOyyKfcnL3hQv
-	mbbkelYY51tgVcBDLed5Ln6jvDJzrUvDu8bugHFqAd0YQ3TI0kLHNsnBibe/yKLSjlOZdnxjBJ/M3
-	495NJzhIMtKsICIBcDSiXIaN8OGtfCzsJ+QeQCa91ujps7SoN1p7BFMIks7MQrAyXzB3IaIUkPp3P
-	cbB6Dw3vAITWMvrLw8JbUC2theVLFHbQ42DHjYYCyA+US4eH5yfMKErn8eUZxT4WUDIB/ZPhw5vlI
-	kdiDKBBKSq4mz+kUnPpVtcEKGGaZ7rFnSLPHoBgAjGSmKbn9ratKhkOiNuqieu6pV7SRSchwdXrH5
-	YBe6ZWNA==;
+	bh=ej/d4nMJ9Jx+tWkMXMZRjfMLMLobRxDLUyBn5+eprxA=; b=LZ6/Ctq7NDZWUTm1Qc3yCwIw3X
+	JS1P8vQuRMMI4Qr501A9SRiVEpXjXeS+d1sj7xvaBIHyGTwqykeCQGZcAR+hFsj7doe+agdx7Xnmn
+	y13tkBrUnH/wQvb1kvPC4w7tjAx1bLQCRJuxw+4NwyFq3DsuIQrCe+J3BUGC2N+oNZImjHFEW8DaP
+	HwoCv58dM7aWj0+GYImjqxRt/Z+HRDd39FkHEclcg0uYapphHyGmbIAmXVl2a6IXLiy6g2n1Hmb8A
+	8G2jbJpoS2xlPOu44NNjZP/0PT4QFB646NwxIl73yKLA3Nar/G5EbmptzTSJUtuAo2nHLVKB4RDnB
+	fxInKWqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDg31-0000000EkPG-0xC6;
-	Wed, 20 Nov 2024 08:26:51 +0000
+	id 1tDg4I-0000000Ekfo-3agq;
+	Wed, 20 Nov 2024 08:28:10 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDg24-0000000Ek56-3ODC
+	id 1tDg3M-0000000EkRd-1mFM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 08:25:54 +0000
+	Wed, 20 Nov 2024 08:27:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8F31BA42CAC;
-	Wed, 20 Nov 2024 08:23:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBC96C4CECD;
-	Wed, 20 Nov 2024 08:25:50 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 29184A41DD0;
+	Wed, 20 Nov 2024 08:25:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78A8CC4CECD;
+	Wed, 20 Nov 2024 08:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732091151;
-	bh=4g2jYdwDFVMXNP1wEEU61wC8oYt/WiBu8Ec1k44MiQY=;
+	s=k20201202; t=1732091231;
+	bh=tEs7YJheOg0akvlILu5xk9FyaMQ6VUNo0eHv9oq3w4g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FyJET/A3qqX0Ig94Sej1L4KJxIx6MBcWHlXRQzQ/QC00uTg7Kz4e2SDgschEiztX0
-	 qsUmBlXJgyP1HWfE5y3sBYXn7BLtUZmFgjTwp478T8s7UmWHccCQdcfWhfKZ0qynWY
-	 is/JtZQYF6sjGdLFNYMgISflbcs25A5q0FM20rGE40Re7yvRaXAsBCZsmVfagB/Rgf
-	 MbRW5knUVzpY48jn9zCps6xlShXCK39P3iO/lt/0gz7N+qyleFmaQMzbwUku+d30uv
-	 C/lJ15TzHlVWDyRk6ZXsN8+yecETDan/501CADHfXMPF4B67ifFQp2p4nxJXeCcC8q
-	 5JWC9UMtALyVA==
-Date: Wed, 20 Nov 2024 09:25:48 +0100
+	b=PXUEDCpmmpMU+pYHL5B2xnvX8L+ZLDO78IR5GrI80GSCqnU0A7IAIyd8GLm58asmY
+	 b9kjn2BxnvYtCv4oKmU4ySEQFHrDSZ04K633yrqh7O6y40D0Av8GlM8OwFGrKAw+ZP
+	 cSivLMggDdz2C6DvQLriGKk3dAdUQYnEY8d2XvYAhugJHB3KyDYCHH5QF0DScC2ZF6
+	 8Ar5KEJ4ZD8VhFq1RoSN/VnBUY+/bVvv2nOmPT1vRCP4Og0sjj+Zt1WxC1xnsjsc6X
+	 bp33MQusXdO7wlDnNSN4J3B88wdCrgTcJQjBQAgPghOlGlvU4fHqSDizT9kcLMvWjB
+	 DdAoYIcyVpuOQ==
+Date: Wed, 20 Nov 2024 09:27:08 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Matt Coster <matt.coster@imgtec.com>
 Cc: Frank Binns <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>, 
@@ -53,17 +53,17 @@ Cc: Frank Binns <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, dri-devel@lists.freedesktop.org, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
-Subject: Re: [PATCH v2 02/21] dt-bindings: gpu: img: Further constrain clocks
-Message-ID: <rdo2aye6lzlxtwxashbftwytyfa54gea2jmv3ww3hxuokdj3rk@pza4lgqlfa6l>
+Subject: Re: [PATCH v2 03/21] dt-bindings: gpu: img: Power domain details
+Message-ID: <756y5ahz6oko32uqymdc4umdzl747gi6gpei6cjdotix5mkofp@q6cxo2ldt5dh>
 References: <20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com>
- <20241118-sets-bxs-4-64-patch-v1-v2-2-3fd45d9fb0cf@imgtec.com>
+ <20241118-sets-bxs-4-64-patch-v1-v2-3-3fd45d9fb0cf@imgtec.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241118-sets-bxs-4-64-patch-v1-v2-2-3fd45d9fb0cf@imgtec.com>
+In-Reply-To: <20241118-sets-bxs-4-64-patch-v1-v2-3-3fd45d9fb0cf@imgtec.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_002552_975791_17E2DD86 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20241120_002712_592133_C1D56F0D 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,76 +78,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 18, 2024 at 01:01:54PM +0000, Matt Coster wrote:
-> All Imagination GPUs use three clocks: core, mem and sys. All reasonably
-> modern Imagination GPUs also support a single-clock mode where the SoC
-> only hooks up core and the other two are derived internally. On GPUs which
-> support this mode, it is the default and most commonly used integration.
-> 
-> Codify this "1 or 3" constraint in our bindings and hang the specifics off
-> the vendor compatible string to mirror the integration-time choice.
+On Mon, Nov 18, 2024 at 01:01:55PM +0000, Matt Coster wrote:
+> The single existing GPU (AXE-1-16M) only requires a single power domain.
+> Subsequent patches will add support for BXS-4-64 MC1, which has two power
+> domains. Add infrastructure now to allow for this.
 > 
 > Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 > ---
 > Changes in v2:
-> - Simplified clocks constraints (P2)
-> - Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-2-4ed30e865892@imgtec.com
+> - Simplified power-domains constraints P3
+> - Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-3-4ed30e865892@imgtec.com
 > ---
->  .../devicetree/bindings/gpu/img,powervr-rogue.yaml   | 20 +++++++++++---------
->  1 file changed, 11 insertions(+), 9 deletions(-)
+>  .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 25 ++++++++++++++++++++--
+>  1 file changed, 23 insertions(+), 2 deletions(-)
 > 
 > diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> index ef7070daf213277d0190fe319e202fdc597337d4..3b5a5b966585ac29ad104c7aef19881eca73ce80 100644
+> index 3b5a5b966585ac29ad104c7aef19881eca73ce80..c629f54c86c441b4cc9e57925f1d65129cbe285b 100644
 > --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
 > +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> @@ -29,16 +29,16 @@ properties:
->    reg:
->      maxItems: 1
->  
-> -  clocks:
-> -    minItems: 1
-> -    maxItems: 3
-> +  clocks: true
-
-NAK. Widest constraints always stay here.
-
->  
->    clock-names:
-> -    items:
-> -      - const: core
-> -      - const: mem
-> -      - const: sys
-> -    minItems: 1
-> +    oneOf:
-> +      - items:
-> +          - const: core
-> +      - items:
-> +          - const: core
-> +          - const: mem
-> +          - const: sys
-
-Why? Sorry, this is just wrong. This deviec has specific, one clock.
-
-Anyway, this needs to use old syntax. You change here nothing.
-
-NAK
-
->  
+> @@ -43,8 +43,15 @@ properties:
 >    interrupts:
 >      maxItems: 1
-> @@ -56,11 +56,13 @@ required:
+>  
+> -  power-domains:
+> -    maxItems: 1
+> +  power-domains: true
+
+NAK for the same reasons.
+
+> +
+> +  power-domain-names:
+> +    oneOf:
+> +      - items:
+> +          - const: a
+> +      - items:
+> +          - const: a
+> +          - const: b
+
+No, list items and use minItems.
+
+But what's more: there is no user of it. Sorry, that's a no go. You
+probably organized patches incorrectly, but this on its own is just
+incorrect.
+
+
+>  
+>  required:
+>    - compatible
+> @@ -52,10 +59,23 @@ required:
+>    - clocks
+>    - clock-names
+>    - interrupts
+> +  - power-domains
+> +  - power-domain-names
+
+That's an ABI break. Explain in commit msg why and its impact on users.
+
+>  
 >  additionalProperties: false
 >  
 >  allOf:
-> +  # Vendor integrations using a single clock domain
->    - if:
->        properties:
->          compatible:
->            contains:
-> -            const: ti,am62-gpu
+> +  # Cores with a single power domain
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
 > +            anyOf:
 
-Nope. That's not needed, not explained.
+No, drop.
 
 Best regards,
 Krzysztof
