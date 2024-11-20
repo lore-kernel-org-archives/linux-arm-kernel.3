@@ -4,146 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F4A2D6E2A3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 03:22:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D55ED6E2A6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 03:47:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VGPmNe7c3/3/mfKwQHXXJtQb3HyCvcAMQP7Jcac/ctE=; b=poi1H0o0Z82giHB2yeV2ifaKYc
-	d4I/9VTpRPWhqXp33QrwGojEgz1E7t7+Sm9rZ4OtirNLh2+MLt3awfZkQpKrqsAaffDYfBTL/GrT8
-	5WpOfm/NTV622HbK4PLzs73q09tTKNJZeDvg8oj192xgpsJZUVjGrOmA28Igxt709Lun3Ncjg5FzD
-	qQzfZig6bPSnq2s32fxafHW1QafSdTxFdMkDl2U4z4QaxdF8mdX2sIa0SwbpzAP66iILs2cFGwDVe
-	bWdvdP4IoQq+PkEInxQ5eQgBB2hfxrqyn5dbTck8xxzW4ulEqS6htVDCBeXOVJwL1QfaqZWaJ4MJw
-	7Usl8prQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1jtk1zl4aSk9+lvWPZY5UumKAQmiBiNYz2jEHrbWkiE=; b=p6nRxDm+LK5rOEW4MrvuIaGZ3W
+	7aR4CSwyYugGSlkvZNYvxl1ph6FFI6OU7Unr3er0jwATA+Nn4bK/rv2o+YV5IAQAWM4Khn2j3WUC+
+	Jxi9XRmd+nyG7ebpcNbhDTtFYsCyFMHf58paSmabrecVVjnoA4y39adbkgm+VsK48ifPJ2/LK/ara
+	3IeEMOg/JLDB5n9xQHRGekEo7xqxEwIXrJaSiHGHoASPnuy6jDqK/IoBpmGAYOFPXd/9uYWwjD6cX
+	sBSTmXsnLtBcQQF56NV8C5RiUYdIA2tg1q3GTCIJOnjbkuG8SqX7TYrP1CzUQwlfeRnQflPamQp5w
+	nGmEzWDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDbIV-0000000EHhc-1AqY;
-	Wed, 20 Nov 2024 03:22:31 +0000
-Received: from mail-vi1eur05on20607.outbound.protection.outlook.com ([2a01:111:f403:2613::607] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tDbgN-0000000EJX2-2C8U;
+	Wed, 20 Nov 2024 03:47:11 +0000
+Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDbHZ-0000000EHdt-3Luz
+	id 1tDbfQ-0000000EJQG-2WD7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 03:21:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yV0RI+0v8lkXOAYtcd2rw0bQuFozjWmFzMQaYaYbKKQKWjnrruFPZ7h8Jdv49BpWT9gZta3BrA1OiCiAQKeH/BDyeQoFSXXvXgRHRO2WswO0j8yZSJS5/fI6j++31kbPaFQWATohqx1P+beULEBPy3w69S2hrB59rvY9bfP9fuRvD2zc1k5zSzheCr5OeRVsw1TSnEKdhaPv/oqewTu0rHP1bLnM0SPUMD0G36+eNlByeyuWJUWuZBj9whLvkOCy4+RrOq9iQMsckjZzcVIlZybj1G+VB2Z8g/QZxGyaWsJ396qaBUBkjRaN2KAV/FwvJCBEuCmfErvZ6WJ7TSOxtw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VGPmNe7c3/3/mfKwQHXXJtQb3HyCvcAMQP7Jcac/ctE=;
- b=Qx31ODM6XLmRgESl2yC52+14bBSvICss+eZDngNvldU/1aCQe1iahZmPdKxjkEsH9g0MhUgT1jcLtfOmD4RMp7f6ghcmJJyqhNNKjfj3w2zEpTwBnEaWn+Xni/H9EdO/8VNKvGWYi3WIHH0+nBK1mQzB2H5qYtT/Q6e2pX37bkEd3D2PeExNHb6u3xfw3VucoWrJhIAQlS5LTdxqeLRRAmUgag0b1ygISZwt8q9rGX86VTCgsLsWJpsmSvs5TcCl1Va96fDCEZ5RL7v8xhq+BfDlxqeBESkMb54rG6H6sXzy00xttSSr4LSkSoxpa0wvOpbJVrLr7xyI2M1b0TD3QA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VGPmNe7c3/3/mfKwQHXXJtQb3HyCvcAMQP7Jcac/ctE=;
- b=FAxdRoSO3+LMlSJAJky+Lntb75fmPe4qKIDPUsE5W+lOu6OTfXBSnjz6BIJ12qi5rh0RSyEnOOuQJef4sznbcRa5YYZh7YqEe9rqZtLhQrRlGuLlKLTzUkY9gU+aq/bVRI5T3EPIstjPFhlb+JDDP+E6D3MjIps/GTJWH4p3XVAgA9FV+5LqPDi4GtFay2DbL58g+ol99rNIJbLdCLweW8mtGvUpSARoK77ILhQ18U+sfA0KEWCg2siNsxLc+SBqPExzvhUbmfq5A8c6leRd6by1DwKxg26eGWIMbiyMbUr71+lX6mpqWHg6puqhRtyL1CbTwl6HN2LqD11XW4z7ew==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by AS4PR04MB9361.eurprd04.prod.outlook.com (2603:10a6:20b:4e6::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.14; Wed, 20 Nov
- 2024 03:21:22 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7%6]) with mapi id 15.20.8158.023; Wed, 20 Nov 2024
- 03:21:21 +0000
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Frank.li@nxp.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	shawnguo@kernel.org,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: [PATCH] perf: imx9_perf: introduce axi filter version
-Date: Wed, 20 Nov 2024 11:21:09 +0800
-Message-Id: <20241120032109.1163146-1-xu.yang_2@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR01CA0155.apcprd01.prod.exchangelabs.com
- (2603:1096:4:8f::35) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	Wed, 20 Nov 2024 03:46:13 +0000
+Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-83aac75fcceso122196439f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Nov 2024 19:46:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732074371; x=1732679171; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1jtk1zl4aSk9+lvWPZY5UumKAQmiBiNYz2jEHrbWkiE=;
+        b=Tn8GvTxfMkfATurDAgavkBwadkjQG+wwBbsDrXZBPVLh52iPQBmuHWPwLAtPd+7n8v
+         PZ2BeuP4WCtXOlJbI08v+MpKPCjKj11sE2XI0/363BxRpHVzIHVJ8tlhClmAJ8V5DeOh
+         8k/k+pRFzsxYAvUWZaTXrkfFGhzzc3Tv6T05CeYGdoDYK4j/7iEiAfiMPoJYRyc8yrbm
+         D9PGPlHmFUugxDdfaZPoHZtAvAjlB9GPFDCtL4sYZHtu8coRUB7SjHRNqlu17IxN2gbR
+         3xOKcKFFlLueHk79Mzav5m7x4TtGTO9ksMw5TIC94GVnrplze1JKmC+0Tf+/I+4O+g2T
+         LuDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732074371; x=1732679171;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1jtk1zl4aSk9+lvWPZY5UumKAQmiBiNYz2jEHrbWkiE=;
+        b=fwYTyOLz5H33zd7O5lnYZtClZpV6HyZrsMgBjEsvYRBfpAajxWNsr+Q4lpCgXvWBTt
+         YZcKplmjH2b2shWUY2rtRuIXMBj1WpkRKILrJgC0ZCVZXfj35AW7+ZMzqqtyC1EIvAdd
+         pXnuXBXE74oFVoDlWphcpJwzAUeLEpV0r64x+uDEzg9GVr8U9pRHirpe8t0I8YcAbVCH
+         1JURHdkHSGUCF1HhEnCnbRVTbsleiM4MorvrcZ+b6dqBjIBv4ip8EorJ93cEfT2JmFaa
+         CDzi4/LuigGK+n1pDjYakjIqP58msiT8d9kbEfFbSa1URRu7mDqhUSVZMzlbqXXw19OZ
+         bfSw==
+X-Forwarded-Encrypted: i=1; AJvYcCWzS5ByneMULot+hwAaGMJk4YlFQfShsdJnohYitO+15sxq/fmksWZSRs4/r56GFj5Sui5V77AVxuS+e0yeMdQp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOVCEAxeG+cjJAZefOgAyQgPO4mAPfWpKSjkty2Ri7zA2g0LeV
+	+UEPyeFzeTsPS8ZAkRVDAbwB/OyjMUcx7RYNnz/f9hdHZ9It7J0YX+Lc62YKu4XWXxCXcAkHCuy
+	x05fWDfmKYiK47i6lBiLZ1L0lpmM=
+X-Google-Smtp-Source: AGHT+IGhh4aSgpURVT3OET61N9X1zKakDzkHXxCrO7/9x2Fw8GYnbqDbAbC3nVPeDgWEHh7NOxcLBWPVrQEE4C9TbXU=
+X-Received: by 2002:a05:6602:1645:b0:82c:d768:aa4d with SMTP id
+ ca18e2360f4ac-83eb5fefbefmr225028639f.9.1732074371282; Tue, 19 Nov 2024
+ 19:46:11 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|AS4PR04MB9361:EE_
-X-MS-Office365-Filtering-Correlation-Id: 58af18d5-0431-4ebb-bfae-08dd091267e0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?knafvlDVf5UxIs1kq+8XVMYnzShdw/PM7fSLqzab2ySemeP0ckJytdXDZzCv?=
- =?us-ascii?Q?37Zgdn41t9dKwoxbJ3GmUH7c/k4OXusL53xG7MxK5f6dXopymFMxPYBDPu1Q?=
- =?us-ascii?Q?skT1Hk0kv7nEHeoJlTZQ2nsRKSP8SB5rUd9ss/71+QSaukVWYdB5BGU+HU4s?=
- =?us-ascii?Q?6IvzNVK+Iss1HcNacTHqpvM5VRzXaFGLL9DwJGNlE/NKu0fWjZPCK14Tu6p6?=
- =?us-ascii?Q?fVAWhfqzbXladbnUsNWnZJJOw8rNL+nj+IfMyI7R+pE8COrJDLbkJwChjtVc?=
- =?us-ascii?Q?9jsOop3jb1SvjnjVSypYuDeEhFkwXSRguOICd7CYQhxK1QrPr5bK8Csz+pjT?=
- =?us-ascii?Q?S/Oj/3adfzBfQ+UyNxqC5FyQTG1pvdGjHAzbBDgf3n6nES73HySVr5KUjuvf?=
- =?us-ascii?Q?S2egGYrRCfd7pXmhRCKLUA1koHhlMWJm6LeL6Wu0CoWkFl4m1CXEWbhBCtjH?=
- =?us-ascii?Q?Cjk8xYKG2+hT8JGa5KNWhD1bGqbCsyYrNd/BVdB9q2ZE88WRVLqlYZH0GJPy?=
- =?us-ascii?Q?m8P4zHMmpgVBusT3S/qvQzV9HVAoMT/2dGnXCY/LJGv6TFRBT7ClAZmv4BjW?=
- =?us-ascii?Q?sZeF1MFDa91bMOm0YESGuQB+88UyU+tzQyi1gM02POBJLHvY6gU8x6hUhd8S?=
- =?us-ascii?Q?UdHz8+uY8zXfnlKfE6NfwLioWszhWe5zdGpi72DsheUT9+Lf17S0tK83Kvlo?=
- =?us-ascii?Q?4/644VbcUe3U+Nrxu872Om7inv/V8qhTANqTUR2Q7s9i1jS5hshTfQnDGCfP?=
- =?us-ascii?Q?cw+zuAn9I0wIeNevm32X8LZxnioSjx7mZJp7dIUY5M17ZwZqdXEKqqGYVSH2?=
- =?us-ascii?Q?6+V5/nMNVrU6PUpPoQyKOujwB281CkoAqx4sEBWP1u9N01VdAx9BKtjHexID?=
- =?us-ascii?Q?zk8qSRPCdK3nympBJnTuKShA49OjCtpyBTiWtVXKLbWoaQF2nOLNH4uIueD/?=
- =?us-ascii?Q?16XG7VAznINyvpq1ZC5yjYFOaNLKuHf4/8XnEwSsYoSPxffQenYqT+K9KQ+Z?=
- =?us-ascii?Q?pSOG/dGZJfQnaogzgxWWSWQUXSYonh08B71iKbVRd6m5rLICm3hCxNOCcFSH?=
- =?us-ascii?Q?JJqd2jHzsfV+Mlg9CiumjpVPj8Q8/1ATF1isgdkZftn8VzZjzKXf9t3s2530?=
- =?us-ascii?Q?3kYNXqcNaHtmSOTrrlgMDSzPEEIhkK0/msiP1CehaqGcPHN0VbIlUEwfWUWs?=
- =?us-ascii?Q?ofMKKR2K6/sALsGwSkSe4LnseKEcqzCp539/4CisloJ4lDFmmVH2Zfvd89Vo?=
- =?us-ascii?Q?PLLDEKmnn3TIVGfvXq8x0rep8N4mnu/WSoM0pDkOW/udysI4C9d7wo+t9YHc?=
- =?us-ascii?Q?kWUehiyRQmIlmTlBxOF6QlCxL3rtk/sbQS8nwcXYxT/EByj4X1RRIUXyb3dL?=
- =?us-ascii?Q?/rFZqIU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?z1kdB4AcKpTQTLYjqweP9zqXdzyROxXP3VdEfS0WoCdfbJzLbYRbLyl9go5R?=
- =?us-ascii?Q?RA2FMIqLWlnZI2SlLfepBg0I/5GdHARbo0zTUiSYh0CJ2IUCu1rN77kznn2H?=
- =?us-ascii?Q?l5kXGqnzQKE4G9dTJ4fpjgMOED26mjpe4zAYzEwd0EPRB5NsvQk6IMLfQgMo?=
- =?us-ascii?Q?I/vXs2lHYxte1TqFEmNeebIRNUa99PtWTT5W6P/SN8de2WmpKgZBJDp8/TMU?=
- =?us-ascii?Q?OrKcQIvoiLkwPcrZBUqp1mBlKzIrX02gsiiVkXKpzkQa3Wfjxw1fJ2pi/9Hh?=
- =?us-ascii?Q?eoyyz8c1TvsMfxlQ4W4TGQBcJA/F8Fg40CyfY8P3SQxF49TcER9gvibHJawR?=
- =?us-ascii?Q?lmuXHCEEI5uK9g0nMgljKT5prCyNnUGtCOJNNvi0inJkeSruWeOKTKOBe2qv?=
- =?us-ascii?Q?acuyBBSNNXugiuTGwTqO+PI/IqRFoKcIeedPOIL9a5yAo4Al+fs3yMND6RKb?=
- =?us-ascii?Q?YikyzaDXMWQcfwFLu71gGLOVibzh8NyOncO9Sa8Rzdkh0mif06fCwzT2KQZu?=
- =?us-ascii?Q?g2kzWLbeo6y9PtZdRzxWx2yNU906XHPgJtN4bFbd36WqPqYzwi3xg4B1ItEo?=
- =?us-ascii?Q?ytgOjHZoXVBH0rphocvX4l4Lbivf+dop0f8QuZFcAEMQ4P+km36HiOyOfy0W?=
- =?us-ascii?Q?hofEcFj++GTGfPOcUtRb0Vg4X7DYjIHETmnXKYPXYvH826bFQZ2qEkqytWm1?=
- =?us-ascii?Q?2o4TBMjkbwXeDz4TO+P0wBrufXCZydmdGL8GSZvyb8o6gBn+E8EBKXQgTSEc?=
- =?us-ascii?Q?HAqxyhfliQaF6gNCKHh0iO34jL5XB3DIUhhENU7QNFBNldzSXz/msn9WlfZe?=
- =?us-ascii?Q?nXTPgjIzRp+AHBUzTrQL6NMLcpfHcr7y+1cAxNYrp/WWh6xVpkEIXf3drtUH?=
- =?us-ascii?Q?jpDBBdKwVAoDUCiN7yCdNoKGKBnx0V7cNxwcCaB6UYtO1DwTvaCBtGjUnFfU?=
- =?us-ascii?Q?gp6fNhwPmnA5n+YZH0dPdVD3nlsJGqaQZrTRhNaTlXC1AVGWQnO0WYQvU3i6?=
- =?us-ascii?Q?vc2SxmU58X1FOtQWExKLHG/0o+KuRHN6r1HkyRzrmjFXDSp0H5Y7lZpUbPS9?=
- =?us-ascii?Q?UX+Sv0Iotkr9kdFdiMiF4hHyNjmLBT+YvEDqNc7wtJ/GLcWDgrIB2lSIpEeO?=
- =?us-ascii?Q?STktpUNvTbogt8OYal3iJxRRQ+H4JckNWUQCuF00xLqZBtV7yzmGu9+23/Ol?=
- =?us-ascii?Q?8YdmMo5tMiBVDVUuiBHBd3NGJdgeDzBJMxL9pOz6eHPZyAy3BeAYgWDBsZdT?=
- =?us-ascii?Q?U9KJGW1XhPpFkBP/ZhPisSrl9Kx5xjLTN2EUkIUfpDFHOdG1JI4sg+6tA5AE?=
- =?us-ascii?Q?36l9yLia+XwgDjrr86RZUSFc9jKxf6BlBsVGKbH6Ycdaca+pk2/MZu1BfdRX?=
- =?us-ascii?Q?t4z4stYjgH8oW7VcUbocLdHifAl7qebSudXF+FBFDaB7kKicj3Ke6Weco8gr?=
- =?us-ascii?Q?9v0e8QFt8tbW762udfWnnTi+Y3a9uXNdDZCZyV8kOyXeSIHcADujZrACPX/w?=
- =?us-ascii?Q?zpy+Y1obFfKRd4J5eF5D6qzdorgXZTryBl71zcdI1orZNW7aUV76Zti+dLlh?=
- =?us-ascii?Q?tlyP61xTsrxfA73R4ZPeETmgwXTwTaXKI7JvGI+y?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 58af18d5-0431-4ebb-bfae-08dd091267e0
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2024 03:21:21.5555
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: peHTNTlh3lKNrVK5c0P4qlvca8Z6X8QdJYSk6JAcj04tf2Hn7gNWYQAdfVRkh/6b9uD9nEzHrKv/z6CE1Islvw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9361
+References: <20241115230555.2435004-1-arnd@kernel.org>
+In-Reply-To: <20241115230555.2435004-1-arnd@kernel.org>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Wed, 20 Nov 2024 11:45:59 +0800
+Message-ID: <CAA+D8AO8=NaNM0jPuSa68yvNa5pJQ7r207_-y06sxB__kqWdGw@mail.gmail.com>
+Subject: Re: [PATCH] firmware: arm_scmi: fix i.MX build dependency
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Mark Brown <broonie@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Cristian Marussi <cristian.marussi@arm.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Peng Fan <peng.fan@nxp.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_192133_837677_56D2AD2A 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20241119_194612_657531_DD2A7C03 
+X-CRM114-Status: GOOD (  33.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,111 +96,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx93 is the first supported DDR PMU that supports read transaction,
-write transaction and read beats events which corresponding respecitively
-to counter 2, 3 and 4.
+On Sat, Nov 16, 2024 at 7:08=E2=80=AFAM Arnd Bergmann <arnd@kernel.org> wro=
+te:
+>
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> The newly added SCMI vendor driver references functions in the
+> protocol driver but needs a Kconfig dependency to ensure it can link,
+> essentially the Kconfig dependency needs to be reversed to match the
+> link time dependency:
+>
+> arm-linux-gnueabi-ld: sound/soc/fsl/fsl_mqs.o: in function `fsl_mqs_sm_wr=
+ite':
+> fsl_mqs.c:(.text+0x1aa): undefined reference to `scmi_imx_misc_ctrl_set'
+> arm-linux-gnueabi-ld: sound/soc/fsl/fsl_mqs.o: in function `fsl_mqs_sm_re=
+ad':
+> fsl_mqs.c:(.text+0x1ee): undefined reference to `scmi_imx_misc_ctrl_get'
+>
+> This however only works after changing the dependency in the SND_SOC_FSL_=
+MQS
+> driver as well, which uses 'select IMX_SCMI_MISC_DRV' to turn on a
+> driver it depends on. This is generally a bad idea, so the best solution
+> is to change that into a dependency.
+>
+> To allow the ASoC driver to keep building with the SCMI support, this
+> needs to be an optional dependency that enforces the link-time
+> dependency if IMX_SCMI_MISC_DRV is a loadable module but not
+> depend on it if that is disabled.
+>
+> Fixes: 61c9f03e22fc ("firmware: arm_scmi: Add initial support for i.MX MI=
+SC protocol")
+> Fixes: 101c9023594a ("ASoC: fsl_mqs: Support accessing registers by scmi =
+interface")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-However, transaction-based AXI match has low accuracy when get total bits
-compared to beats-based. And imx93 doesn't assign AXI_ID to each master.
-So axi filter is not used widely on imx93. This could be regards as AXI
-filter version 1.
+Acked-by: Shengjiu Wang <shengjiu.wang@gmail.com>
 
-To improve the AXI filter capability, imx95 supports 1 read beats and 3
-write beats event which corresponding respecitively to counter 2-5. imx95
-also detailed AXI_ID allocation so that most of the master could be count
-individually. This could be regards as AXI filter version 2.
-
-This will introduce AXI filter version to refactor the driver and support
-better extension, such as coming imx943.
-
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
----
- drivers/perf/fsl_imx9_ddr_perf.c | 24 ++++++++++++++++--------
- 1 file changed, 16 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/perf/fsl_imx9_ddr_perf.c b/drivers/perf/fsl_imx9_ddr_perf.c
-index 3c856d9a4e97..965345d78f7a 100644
---- a/drivers/perf/fsl_imx9_ddr_perf.c
-+++ b/drivers/perf/fsl_imx9_ddr_perf.c
-@@ -63,8 +63,12 @@
- 
- static DEFINE_IDA(ddr_ida);
- 
-+#define DDR_PERF_AXI_FILTER_V1          0x1
-+#define DDR_PERF_AXI_FILTER_V2          0x2
-+
- struct imx_ddr_devtype_data {
- 	const char *identifier;		/* system PMU identifier for userspace */
-+	unsigned int type;		/* AXI filter version */
- };
- 
- struct ddr_pmu {
-@@ -83,24 +87,27 @@ struct ddr_pmu {
- 
- static const struct imx_ddr_devtype_data imx91_devtype_data = {
- 	.identifier = "imx91",
-+	.type = DDR_PERF_AXI_FILTER_V1
- };
- 
- static const struct imx_ddr_devtype_data imx93_devtype_data = {
- 	.identifier = "imx93",
-+	.type = DDR_PERF_AXI_FILTER_V1
- };
- 
- static const struct imx_ddr_devtype_data imx95_devtype_data = {
- 	.identifier = "imx95",
-+	.type = DDR_PERF_AXI_FILTER_V2
- };
- 
--static inline bool is_imx93(struct ddr_pmu *pmu)
-+static inline bool axi_filter_v1(struct ddr_pmu *pmu)
- {
--	return pmu->devtype_data == &imx93_devtype_data;
-+	return pmu->devtype_data->type == DDR_PERF_AXI_FILTER_V1;
- }
- 
--static inline bool is_imx95(struct ddr_pmu *pmu)
-+static inline bool axi_filter_v2(struct ddr_pmu *pmu)
- {
--	return pmu->devtype_data == &imx95_devtype_data;
-+	return pmu->devtype_data->type == DDR_PERF_AXI_FILTER_V2;
- }
- 
- static const struct of_device_id imx_ddr_pmu_dt_ids[] = {
-@@ -155,7 +162,7 @@ static const struct attribute_group ddr_perf_cpumask_attr_group = {
- struct imx9_pmu_events_attr {
- 	struct device_attribute attr;
- 	u64 id;
--	const void *devtype_data;
-+	const struct imx_ddr_devtype_data *devtype_data;
- };
- 
- static ssize_t ddr_pmu_event_show(struct device *dev,
-@@ -307,7 +314,8 @@ ddr_perf_events_attrs_is_visible(struct kobject *kobj,
- 	if (!eattr->devtype_data)
- 		return attr->mode;
- 
--	if (eattr->devtype_data != ddr_pmu->devtype_data)
-+	if ((eattr->devtype_data != ddr_pmu->devtype_data) &&
-+		(eattr->devtype_data->type != ddr_pmu->devtype_data->type))
- 		return 0;
- 
- 	return attr->mode;
-@@ -624,11 +632,11 @@ static int ddr_perf_event_add(struct perf_event *event, int flags)
- 	hwc->idx = counter;
- 	hwc->state |= PERF_HES_STOPPED;
- 
--	if (is_imx93(pmu))
-+	if (axi_filter_v1(pmu))
- 		/* read trans, write trans, read beat */
- 		imx93_ddr_perf_monitor_config(pmu, event_id, counter, cfg1, cfg2);
- 
--	if (is_imx95(pmu))
-+	if (axi_filter_v2(pmu))
- 		/* write beat, read beat2, read beat1, read beat */
- 		imx95_ddr_perf_monitor_config(pmu, event_id, counter, cfg1, cfg2);
- 
--- 
-2.34.1
-
+Best regards
+Shengjiu Wang
+> ---
+> I'm not sure this is the version we want to go with in the end, without
+> having read the code in detail, but the version in linux-next is clearly
+> wrong in multiple ways and this is the best I could come up with so far.
+>
+> If we can agree on this approach, it needs to go through the ASoC tree
+> as that contains the 101c9023594a commit at the moment.
+> ---
+>  drivers/firmware/arm_scmi/vendors/imx/Kconfig | 1 +
+>  drivers/firmware/imx/Kconfig                  | 1 -
+>  sound/soc/fsl/Kconfig                         | 2 +-
+>  3 files changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/firmware/arm_scmi/vendors/imx/Kconfig b/drivers/firm=
+ware/arm_scmi/vendors/imx/Kconfig
+> index 2883ed24a84d..a01bf5e47301 100644
+> --- a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> +++ b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> @@ -15,6 +15,7 @@ config IMX_SCMI_BBM_EXT
+>  config IMX_SCMI_MISC_EXT
+>         tristate "i.MX SCMI MISC EXTENSION"
+>         depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
+> +       depends on IMX_SCMI_MISC_DRV
+>         default y if ARCH_MXC
+>         help
+>           This enables i.MX System MISC control logic such as gpio expand=
+er
+> diff --git a/drivers/firmware/imx/Kconfig b/drivers/firmware/imx/Kconfig
+> index 477d3f32d99a..907cd149c40a 100644
+> --- a/drivers/firmware/imx/Kconfig
+> +++ b/drivers/firmware/imx/Kconfig
+> @@ -25,7 +25,6 @@ config IMX_SCU
+>
+>  config IMX_SCMI_MISC_DRV
+>         tristate "IMX SCMI MISC Protocol driver"
+> -       depends on IMX_SCMI_MISC_EXT || COMPILE_TEST
+>         default y if ARCH_MXC
+>         help
+>           The System Controller Management Interface firmware (SCMI FW) i=
+s
+> diff --git a/sound/soc/fsl/Kconfig b/sound/soc/fsl/Kconfig
+> index 8e88830e8e57..678540b78280 100644
+> --- a/sound/soc/fsl/Kconfig
+> +++ b/sound/soc/fsl/Kconfig
+> @@ -29,8 +29,8 @@ config SND_SOC_FSL_SAI
+>  config SND_SOC_FSL_MQS
+>         tristate "Medium Quality Sound (MQS) module support"
+>         depends on SND_SOC_FSL_SAI
+> +       depends on IMX_SCMI_MISC_DRV || !IMX_SCMI_MISC_DRV
+>         select REGMAP_MMIO
+> -       select IMX_SCMI_MISC_DRV if IMX_SCMI_MISC_EXT !=3Dn
+>         help
+>           Say Y if you want to add Medium Quality Sound (MQS)
+>           support for the Freescale CPUs.
+> --
+> 2.39.5
+>
+>
 
