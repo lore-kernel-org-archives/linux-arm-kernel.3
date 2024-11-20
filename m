@@ -4,75 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA8FD63920
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 10:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80C8CD63923
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 10:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rund3eXE33gunWroliBrDttepEeQJ9PST86ln98CDmg=; b=1SOju9b5F8x9WcRwKIrwo+SN35
-	hLrF0Xo87WI2ZWLubR0SUr8hzrurHdtB3qG2K+Ta3Q+N/h8tYXqzqqHshUZK3p5TlxcNwLL9MJKz0
-	/2+ZRV8qpPPxO9nMb9uz5O3XlxCaDsaoLf4r+Simj9AEYH7AuAI/GhPp6p1HsuT5Ds08QpDNjxTdL
-	JAz/YRb+8u6keSw9UfZRr/RHyCCvmyCRhL/+EZYhB10FgXepYH1+iFBOb8Vd64DP8NJgdavHgJ2vc
-	Q0R/PBUZjPfsWM0GXBjxgzmPEp4E17p157Ii0gR7GJE0BqBLLONU3ZLpSuYcVcv2Qw/aUWnIemATD
-	7lRXv4rQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D9roJnZwwWv8+ZgGYI+S5MQKlpoizdoQUP7oPX+hGrg=; b=snP80ek8gnDAkVaPdtLUHdLOib
+	CP2831aj3fq7djSgPt2jaCmjVZVIxBZA8cYA7W9trQpP3aKht0nkjDobQqttl3Gr6+b+QgB3pl/jX
+	Jfk/BuyGNmgcUXCzfqglLuYJ2TlQZIdHyGtCrp78kFFaR5LqP1io/wIyq3hcl8BGDUKtqDCwRMEA4
+	7+rW76QPg4rcCrOq57QtDtYn1PPMqvA1Cf7GhBJb1vzTupn3oBkI8mNBkfow04cpbYI28q+o3XeGw
+	pJdk7wzLFunC+EOfqjNdSac1SqNlsZoFKDdjcBeciOWEB8t9YPFzhphwUH8uX9JoWWEZaMfZFir6R
+	u/oCEmkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDhja-0000000F240-2CkW;
-	Wed, 20 Nov 2024 10:14:54 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1tDi00-0000000F3vb-2Wwj;
+	Wed, 20 Nov 2024 10:31:52 +0000
+Received: from michel.telenet-ops.be ([2a02:1800:110:4::f00:18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDhic-0000000F1rn-3wKr;
-	Wed, 20 Nov 2024 10:13:56 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E611E6000F;
-	Wed, 20 Nov 2024 10:13:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1732097632;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Rund3eXE33gunWroliBrDttepEeQJ9PST86ln98CDmg=;
-	b=DsZxB6BaaT/0Ww5LZyO6h+V9XleVnpsXjDfY5zxvRIDAwQW65PwtYmnLLAljfjYyKGqlgp
-	bDLfpZ0E5Izwtgcvl3CS26oT6kV64zOBR2tL8huPCdjRhieUxdgmx0U64xscJhvY/qhmHT
-	6DWzyH79UKH5SDm8+Gb24BHpLaImXVuG9GI39rx4uFGHD+GwvM2scmQf1yVUbVttX8ociB
-	+YxLVHELGy/vnzGmEfR7uxMvGxsGHrs8Qqs7yoJO7GnNhOffwe3+kocUgQF8b2CI5HD0si
-	V8tyweBYu8Aty8g6hVSki1wddilYdWjwsg9QU3+m+G2Xz3OxrtsktTnlz6frOw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: SkyLake Huang (=?utf-8?B?6buD5ZWf5r6k?=) <SkyLake.Huang@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-  "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
-  "linux-mediatek@lists.infradead.org"
- <linux-mediatek@lists.infradead.org>,  "acelan.kao@canonical.com"
- <acelan.kao@canonical.com>,  "chengminglin@mxic.com.tw"
- <chengminglin@mxic.com.tw>,  "mika.westerberg@linux.intel.com"
- <mika.westerberg@linux.intel.com>,  "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,  Steven Liu
- <steven.liu@mediatek.com>,  "matthias.bgg@gmail.com"
- <matthias.bgg@gmail.com>,  "daniel@makrotopia.org"
- <daniel@makrotopia.org>,  "vigneshr@ti.com" <vigneshr@ti.com>,
-  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-  "richard@nod.at" <richard@nod.at>
-Subject: Re: [RFC PATCH nand/next 0/4] mtd: nand: spi: Add CASN page support
-In-Reply-To: <9880b3b2f71afd1b020c393fd5d4c0c5673df187.camel@mediatek.com>
-	("SkyLake Huang =?utf-8?B?KOm7g+WVn+a+pCkiJ3M=?= message of "Wed, 20 Nov
- 2024 07:24:28
-	+0000")
-References: <20241020132722.20565-1-SkyLake.Huang@mediatek.com>
-	<87jzd0zuc0.fsf@bootlin.com>
-	<9880b3b2f71afd1b020c393fd5d4c0c5673df187.camel@mediatek.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Wed, 20 Nov 2024 11:13:48 +0100
-Message-ID: <87ldxew6ub.fsf@bootlin.com>
+	id 1tDhz4-0000000F3sc-2ylO
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Nov 2024 10:30:56 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:35da:ab43:467b:7991])
+	by michel.telenet-ops.be with cmsmtp
+	id eyWn2D00f3gUftr06yWnEw; Wed, 20 Nov 2024 11:30:48 +0100
+Received: from rox.of.borg ([192.168.97.57])
+	by ramsan.of.borg with esmtp (Exim 4.95)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tDhya-007bk2-8e;
+	Wed, 20 Nov 2024 11:30:47 +0100
+Received: from geert by rox.of.borg with local (Exim 4.95)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tDhyx-005W42-Hn;
+	Wed, 20 Nov 2024 11:30:47 +0100
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Chris Brandt <chris.brandt@renesas.com>
+Cc: linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] ARM: dts: renesas: r7s72100: Add DMA support to RSPI
+Date: Wed, 20 Nov 2024 11:30:46 +0100
+Message-Id: <dfafc16b840630f20e75292d419479294558e173.1732098491.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: miquel.raynal@bootlin.com
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_021355_267836_A9141724 
-X-CRM114-Status: GOOD (  28.53  )
+X-CRM114-CacheID: sfid-20241120_023054_884179_87DEA6DD 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,145 +69,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/11/2024 at 07:24:28 GMT, SkyLake Huang (=E9=BB=83=E5=95=9F=E6=BE=A4) =
-<SkyLake.Huang@mediatek.com> wrote:
+Add DMA properties to the device nodes for Renesas Serial Peripheral
+Interfaces.
 
-> On Mon, 2024-11-18 at 11:53 +0100, Miquel Raynal wrote:
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>=20
->>=20
->> On 20/10/2024 at 21:27:18 +08, Sky Huang <SkyLake.Huang@mediatek.com>
->> wrote:
->>=20
->> > From: "Sky Huang" <skylake.huang@mediatek.com>
->> >=20
->> > Hi, this is Qi-Ze Huang(Sky Huang) from MediaTek. On our router
->> > platforms
->> > chips, we have to quality lots of SPI-NAND devices and are eager
->> > for
->> > a standard so that we don't need to maintain trivial flash ID table
->> > anymore. I also noticed a talk in 2019 Embedded Linux Conference,
->> > Memory Technology Devices: what's new, which mentioned "ONFI for
->> > SPI-NANDs? Maybe, maybe not".
->> >=20
->> > So earlier this year, I proposed a bold idea, CASN page (Common
->> > Attributes
->> > for SPI-NAND). I worked together with top 3 SPI-NAND market share
->> > flash
->> > vendors and other vendors to integrate CASN page on their SPI-NAND
->> > devices
->> > including but not limited to:
->> > [ESMT]
->> > F50L1G41LB
->> > F50L2G41KA
->> >=20
->> > [Etron]
->> > EM73C044VCF-H
->> > EM73D044VCO-H
->> > EM73E044VCE-H
->> > EM73F044VCA-H
->> >=20
->> > [GigaDevice]
->> > GD5F1GM7UE
->> > GD5F1GQ5UEYIG
->> > GD5F2GM7UE
->> > GD5F2GQ5UEYIG
->> > GD5F4GM8UE
->> > GD5F4GQ6UEYIG
->> >=20
->> > [Macronix (MXIC)]
->> > MX35LF1GE4ABZ4IG
->> >=20
->> > [Winbond]
->> > W25N01GV
->> > W25N01KV
->> > W25N02KV
->> > W25N04KV
->> >=20
->> > A document of CASN is hosted on github(
->> > https://urldefense.com/v3/__https://github.com/mtk-openwrt/__;!!CTRNKA=
-9wMg0ARbw!j_TES7dJ_An-9wtyQqWgGBE9ovPnUA-tDNlZ-pGpUdYv4gphzW4v54Fal8i_nLwSm=
-PAzK9ApgSBG1XQ_mREdTS0ZwrBWRA$
->> > doc/blob/main/CASN%20Page%20Introduction.pdf) So I'll try to keep
->> > it
->> > simple here.
->> >=20
->> > With CASN page, we don't need to maintain SPI-NAND flash ID table
->> > anymore.
->> > Currently, it's integrated in 3.3V SPI-NANDs of small density and
->> > it's not
->> > JEDEC standard yet. But it should be able to handle 1.8V and can be
->> > easily
->> > integrated by flash vendors.
->> >=20
->> > I believe this idea and implementation have room for improvement.
->> > Hope to
->> > hear you open source community's comments soon.
->>=20
->> I think this is a bright initiative. I'd welcome some standardisation
->> on
->> the discovery indeed.
->>=20
->> But to be really useful, I believe this table must be really
->> complete,
->> otherwise ID's will remain. For instance SDR/DDR modes are not
->> entirely
->> defined as we already have mixed modes. There is also no information
->> about what maximum frequencies can be used with each operation.=20
->
-> Maximum frequencies are limited by SPI controller's max freq now, I
-> guess?
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+To be queued in renesas-devel for v6.14.
 
-No, this is just the PCB/controller limitation. But there are chips with
-frequency limitations depending on the type of command (see for instance
-Winbond AC timings tables for DDR capable devices).
+Tested on RSK+RZA1 with Renesas YRSK-LCD-PMOD (Okaya 1.44" 128x128 Color
+TFT LCD) expansion on PMOD2, using r7s72100-rskrza1-pmod-spi.dtso and
+r7s72100-rskrza1-pmod2-lcd.dtso from my renesas-overlays branch[1].
 
->> As
->> another example, there is no read retry information.
-> What will retry information look like?
+Without DMA:
+  - Screen refresh is visible and takes ca. 1s,
+  - "modetest -s" causes 163930 interrupts,
+  - workqueue: drm_fb_helper_damage_work hogged CPU for >50000us 19
+    times, consider switching to WQ_UNBOUND.
 
-Number of retry modes, how to enable retry mode (which is maybe
-standardized per manufacturer, in this case we can just get the right
-hook from the manufacturer information, but otherwise if there are
-differences inside production lines from a single manufacturer, we'll
-still need either a table or some extension of CASN.
+With DMA:
+  - Screen refresh is instantaneous,
+  - "modetest -s" causes 100 RSPI and 14 DMAC interrupts.
 
->> Nor anything about
->> the fact that the on-die ECC engine might not be disabled.
-> As far as I know, only SkyHigh's SPI-NAND's ECC engine can't be
-> disabled since its on-die ECC engine contains randomizer.
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-drivers.git/log/?h=topic/renesas-overlays
+---
+ arch/arm/boot/dts/renesas/r7s72100.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-Randomizer and ECC engine are two different things, there are many raw
-NAND controllers with a programmable ECC engine *and* randomizer. They
-just choose to hide the controls.
+diff --git a/arch/arm/boot/dts/renesas/r7s72100.dtsi b/arch/arm/boot/dts/renesas/r7s72100.dtsi
+index b831bbc431efb93e..1a866dbaf5e93423 100644
+--- a/arch/arm/boot/dts/renesas/r7s72100.dtsi
++++ b/arch/arm/boot/dts/renesas/r7s72100.dtsi
+@@ -238,6 +238,8 @@ spi0: spi@e800c800 {
+ 				     <GIC_SPI 240 IRQ_TYPE_LEVEL_HIGH>;
+ 			interrupt-names = "error", "rx", "tx";
+ 			clocks = <&mstp10_clks R7S72100_CLK_SPI0>;
++			dmas = <&dmac 0x2d21>, <&dmac 0x2d22>;
++			dma-names = "tx", "rx";
+ 			power-domains = <&cpg_clocks>;
+ 			num-cs = <1>;
+ 			#address-cells = <1>;
+@@ -253,6 +255,8 @@ spi1: spi@e800d000 {
+ 				     <GIC_SPI 243 IRQ_TYPE_LEVEL_HIGH>;
+ 			interrupt-names = "error", "rx", "tx";
+ 			clocks = <&mstp10_clks R7S72100_CLK_SPI1>;
++			dmas = <&dmac 0x2d25>, <&dmac 0x2d26>;
++			dma-names = "tx", "rx";
+ 			power-domains = <&cpg_clocks>;
+ 			num-cs = <1>;
+ 			#address-cells = <1>;
+@@ -268,6 +272,8 @@ spi2: spi@e800d800 {
+ 				     <GIC_SPI 246 IRQ_TYPE_LEVEL_HIGH>;
+ 			interrupt-names = "error", "rx", "tx";
+ 			clocks = <&mstp10_clks R7S72100_CLK_SPI2>;
++			dmas = <&dmac 0x2d29>, <&dmac 0x2d2a>;
++			dma-names = "tx", "rx";
+ 			power-domains = <&cpg_clocks>;
+ 			num-cs = <1>;
+ 			#address-cells = <1>;
+@@ -283,6 +289,8 @@ spi3: spi@e800e000 {
+ 				     <GIC_SPI 249 IRQ_TYPE_LEVEL_HIGH>;
+ 			interrupt-names = "error", "rx", "tx";
+ 			clocks = <&mstp10_clks R7S72100_CLK_SPI3>;
++			dmas = <&dmac 0x2d2d>, <&dmac 0x2d2e>;
++			dma-names = "tx", "rx";
+ 			power-domains = <&cpg_clocks>;
+ 			num-cs = <1>;
+ 			#address-cells = <1>;
+@@ -298,6 +306,8 @@ spi4: spi@e800e800 {
+ 				     <GIC_SPI 252 IRQ_TYPE_LEVEL_HIGH>;
+ 			interrupt-names = "error", "rx", "tx";
+ 			clocks = <&mstp10_clks R7S72100_CLK_SPI4>;
++			dmas = <&dmac 0x2d31>, <&dmac 0x2d32>;
++			dma-names = "tx", "rx";
+ 			power-domains = <&cpg_clocks>;
+ 			num-cs = <1>;
+ 			#address-cells = <1>;
+-- 
+2.34.1
 
-Today it is SkyHigh. What about tomorrow?
-
-> There are some reserved fields. We can handle above requirements in
-> CASN V1.2 or V2. But may I ask what's the purpose of involving above
-> information in CASN? Are there any practical application scenarios?
-
-You claim you want to replace the ID tables. These tables are filled
-with all the relevant data to make the chips supported in Linux. If one
-of these fields is missing from CASN, it means we need to keep the
-tables. So it kind of defeats the CASN purpose. Yes we may have dynamic
-vendor hooks to adapt these parameters "on the fly", but we still need
-internal tables for that.
-
->> Overall I think this is an interesting initiative but I would like it
->> to
->> be more advanced.
-> Agree.
->
->> Is there a plan on getting this standardized through
->> eg. a JEDEC spec?
->>=20
->> Thanks,
->> Miqu=C3=A8l
-> Yes. We're working on it. But it will take some time. Your opinions
-> mean a lot to CASN page standardisation.
-
-Thanks,
-Miqu=C3=A8l
 
