@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F47ED63935
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 12:46:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF900D63933
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 12:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZafOV1rLcshFkYPDVxRXorINKQa2W5ZQG3bILVP+KFo=; b=WRsWMSXMDzOHB097uXayxDxRLl
-	tCfDoQFSwLAHvl8qmKlrqP/1McOSlqCde9G57HxIj+ojhw8S6x3qJ3EIqoIsOYTlyjHaVZUHBB/DZ
-	tNBMCYDDbPCul/JM+0/1N5WuExRuLTX+E+rY0U5GSMQjxl7Y72lA6wAq08v4SVM4k806uIZC5wuiI
-	d6EhVnw+n0PHpCqGZ1ZjTxxd/+/ke9cKc8FXYoWHA5g/u5LFIqbl6ircEELuv8aafeNemUmqwmwHL
-	+9QQlfmpnG1Iohqr6rlSFw+/6YWL22onlr4VjQxUwrRgJGTrbd89LEKijlZUw1lW0cvYbIhQAnw7Z
-	v0m3kk1Q==;
+	bh=6w+o+Tv0myZ4O/VM4r6Mss2z1i0s6ux/mQjQyxbeE0M=; b=PXb3ObX2wnWC+aKXwTqwwi1loD
+	wDLAn2pBlAo6yWqGkV0Pa5uYCoCRTnIdThLS+AWiULvzUUJjXdgMlPWypkRXKgXJS/34SrvIZOsuX
+	V84jtc4kdLKOIkr+jXS2SpBTDijSXOoHm/t0Ya0BAAqAX/B/9VLnYxmtNCb8c4Vj+4CjHAdZkq0qj
+	hupGOhoBza+bqh08gC4xtyJhcsOco4oj5mjSpasCgovZ6zyZ/otFirmdpDIJTpLxRPUE4GglAwp24
+	RnEONJeQndziNUszOzredhfnHmpNG7wwRUy+g59vyX4ftOApQc7yPd9eo/y599R3kNCTnW83uNcLL
+	aMVAPUyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDk6Q-0000000FKUZ-00k6;
-	Wed, 20 Nov 2024 12:46:38 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tDk7K-0000000FKjv-3y9k;
+	Wed, 20 Nov 2024 12:47:34 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDk4X-0000000FJpd-4B3G;
-	Wed, 20 Nov 2024 12:44:43 +0000
+	id 1tDk4Z-0000000FJq6-36Yd;
+	Wed, 20 Nov 2024 12:44:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1732106680;
-	bh=i448cFtcuhFiX//8q881VLg5Bc0fchJEJBXloDqr4Aw=;
+	s=mail; t=1732106681;
+	bh=NjH8EP09VbKKDIG64VGrM+xcGaFVh1++dLu/UlLae00=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=marBnGrlcvoYHZozMrpkuivsG3MpTpdR8Om8xaYBFcDIDTbj9jTn/qJ1/O7ArFMKX
-	 GnPfRHbt7Ur7yZSBJdxdz4ZmUyPaGZWX0/aUZquSWNF8ehJsE66FMqc3zyX0gnmwXZ
-	 aB6ELJbn/mneIA3r67Cu69gOwpelqTLrOCh4MZ7r0MtBsmfLRyCzGwPHfOpAQe1eN4
-	 B9xnhsyKpSGWIJNKNW4lTMq1d7mSuhd5Q4S1llIadi4rVgThQJZyH+ZGHYzRePG9Iw
-	 U1BAK5gI5fe/5nA/9XTtmS+8ixH5Ja4CNenF06Mz8lqNn/3BYZ9wX1kIMSdhg2lSvs
-	 /UmyW3M1G+BUg==
+	b=jrVKUW4GPaIHMv73YR4PjSXVpYC9xvy9nT5gJ8MFBy/nBzTsvfJMzJRqd2W/wMhDH
+	 ydkLTQlylc8jR8l+ZQS4GSRVVVA8ONZDtQ+Q8stj2L+MoZuuUoEuoI5P1b3ImHhvyK
+	 bRRVcqZ/2yb8Z/2ruFyBSoZy/n9pRRRr2A/9D9Pw4NgAlg0XaVVA7ENAFd4/6c5xkK
+	 8IezVBjk/L2Sxjz+4dhPERsjOmWHHmpk7TDp0XoeQXj/FCMSbxjZrigyoxa5VQFsBI
+	 t51MmH8U+vP20HIqXWO3t0yaoQJXBJDvmUpxpXVaLk/43oefF/F9INZAN6Sa6eGVMn
+	 GdvkkGxGEtKog==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9898817E3663;
-	Wed, 20 Nov 2024 13:44:39 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CDF8917E367B;
+	Wed, 20 Nov 2024 13:44:40 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -64,18 +64,17 @@ Cc: p.zabel@pengutronix.de,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v1 1/6] dt-bindings: display: mediatek: dpi: Add MT8195 and MT8188 compat
-Date: Wed, 20 Nov 2024 13:44:15 +0100
-Message-ID: <20241120124420.133914-2-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v1 2/6] drm/mediatek: mtk_dpi: Add support for Pattern Generator in debugfs
+Date: Wed, 20 Nov 2024 13:44:16 +0100
+Message-ID: <20241120124420.133914-3-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241120124420.133914-1-angelogioacchino.delregno@collabora.com>
 References: <20241120124420.133914-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_044442_173496_CF29BA19 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241120_044443_926363_071D18A1 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,38 +89,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatibles for the Digital Parallel Interface (DPI) block
-found in the MT8195 and MT8188 SoCs: inside of the chip, this one
-is directly connected to the HDMI block.
+This IP includes a Pattern Generator which is useful for debugging
+and testing purposes: add the relevant register and bits to the
+mtk_dpi_regs.h header, and implement support for it in mtk_dpi.
+
+Adding this required to introduce a .debugfs_init() callback for
+the DPI bridge, which creates a "dpi_test_pattern" file in the
+directory of the appropriate connector.
+
+The pattern generator can generate various internal patterns and
+this submission includes support for:
+ - 256 or 1024 shades of gray in a Vertical or Horizontal Pattern
+ - Vertical Color Bars
+ - Frame border
+ - Dot Moire
+
+This generator also supports filling the entire screen with one
+custom color, but support for that is not included in this commit.
+
+Enabling and disabling this generator can be done by sending a
+string to the dpi_test_pattern debugfs file; the pattern is
+expected to be formatted as follows:
+
+         <enable (1) or disable (0)> <pattern number>
+
+where the pattern number can be a number from 0 to 7, excluding 5.
+
+Of course 5 is excluded because that activates custom color fill
+which, again, is not supported in this commit.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../devicetree/bindings/display/mediatek/mediatek,dpi.yaml   | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/gpu/drm/mediatek/mtk_dpi.c      | 107 ++++++++++++++++++++++++
+ drivers/gpu/drm/mediatek/mtk_dpi_regs.h |   4 +
+ 2 files changed, 111 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
-index b567e3d58aa1..ef180a63ee72 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
-@@ -27,6 +27,7 @@ properties:
-           - mediatek,mt8188-dp-intf
-           - mediatek,mt8192-dpi
-           - mediatek,mt8195-dp-intf
-+          - mediatek,mt8195-dpi
-       - items:
-           - enum:
-               - mediatek,mt6795-dpi
-@@ -35,6 +36,10 @@ properties:
-           - enum:
-               - mediatek,mt8365-dpi
-           - const: mediatek,mt8192-dpi
-+      - items:
-+          - enum:
-+              - mediatek,mt8188-dpi
-+          - const: mediatek,mt8195-dpi
+diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediatek/mtk_dpi.c
+index 20a9d589fd75..c7143184e5de 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dpi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
+@@ -6,6 +6,7 @@
  
-   reg:
-     maxItems: 1
+ #include <linux/clk.h>
+ #include <linux/component.h>
++#include <linux/debugfs.h>
+ #include <linux/interrupt.h>
+ #include <linux/kernel.h>
+ #include <linux/media-bus-format.h>
+@@ -166,6 +167,18 @@ static void mtk_dpi_mask(struct mtk_dpi *dpi, u32 offset, u32 val, u32 mask)
+ 	writel(tmp, dpi->regs + offset);
+ }
+ 
++static void mtk_dpi_test_pattern_en(struct mtk_dpi *dpi, u8 type, bool enable)
++{
++	u32 val;
++
++	if (enable)
++		val = FIELD_PREP(DPI_PAT_SEL, type) | DPI_PAT_EN;
++	else
++		val = 0;
++
++	mtk_dpi_mask(dpi, DPI_PATTERN0, val, DPI_PAT_SEL | DPI_PAT_EN);
++}
++
+ static void mtk_dpi_sw_reset(struct mtk_dpi *dpi, bool reset)
+ {
+ 	mtk_dpi_mask(dpi, DPI_RET, reset ? RST : 0, RST);
+@@ -767,6 +780,99 @@ mtk_dpi_bridge_mode_valid(struct drm_bridge *bridge,
+ 	return MODE_OK;
+ }
+ 
++static int mtk_dpi_debug_tp_show(struct seq_file *m, void *arg)
++{
++	struct mtk_dpi *dpi = m->private;
++	bool en;
++	u32 val;
++
++	if (!dpi)
++		return -EINVAL;
++
++	val = readl(dpi->regs + DPI_PATTERN0);
++	en = val & DPI_PAT_EN;
++	val = FIELD_GET(DPI_PAT_SEL, val);
++
++	seq_printf(m, "DPI Test Pattern: %s\n", en ? "Enabled" : "Disabled");
++
++	if (en) {
++		seq_printf(m, "Internal pattern %d: ", val);
++		switch (val) {
++		case 0:
++			seq_puts(m, "256 Vertical Gray\n");
++			break;
++		case 1:
++			seq_puts(m, "1024 Vertical Gray\n");
++			break;
++		case 2:
++			seq_puts(m, "256 Horizontal Gray\n");
++			break;
++		case 3:
++			seq_puts(m, "1024 Horizontal Gray\n");
++			break;
++		case 4:
++			seq_puts(m, "Vertical Color bars\n");
++			break;
++		case 6:
++			seq_puts(m, "Frame border\n");
++			break;
++		case 7:
++			seq_puts(m, "Dot moire\n");
++			break;
++		default:
++			seq_puts(m, "Invalid selection\n");
++			break;
++		}
++	}
++
++	return 0;
++}
++
++static ssize_t mtk_dpi_debug_tp_write(struct file *file, const char __user *ubuf,
++				      size_t len, loff_t *offp)
++{
++	struct seq_file *m = file->private_data;
++	u32 en, type;
++	char buf[6];
++
++	if (!m || !m->private || *offp || len > sizeof(buf) - 1)
++		return -EINVAL;
++
++	memset(buf, 0, sizeof(buf));
++	if (copy_from_user(buf, ubuf, len))
++		return -EFAULT;
++
++	if (sscanf(buf, "%u %u", &en, &type) != 2)
++		return -EINVAL;
++
++	if (en < 0 || en > 1 || type < 0 || type > 7)
++		return -EINVAL;
++
++	mtk_dpi_test_pattern_en((struct mtk_dpi *)m->private, type, en);
++	return len;
++}
++
++static int mtk_dpi_debug_tp_open(struct inode *inode, struct file *file)
++{
++	return single_open(file, mtk_dpi_debug_tp_show, inode->i_private);
++}
++
++static const struct file_operations mtk_dpi_debug_tp_fops = {
++	.owner = THIS_MODULE,
++	.open = mtk_dpi_debug_tp_open,
++	.read = seq_read,
++	.write = mtk_dpi_debug_tp_write,
++	.llseek = seq_lseek,
++	.release = single_release,
++};
++
++static void mtk_dpi_debugfs_init(struct drm_bridge *bridge, struct dentry *root)
++{
++	struct mtk_dpi *dpi = bridge_to_dpi(bridge);
++
++	debugfs_create_file("dpi_test_pattern", 0640, root, dpi, &mtk_dpi_debug_tp_fops);
++}
++
+ static const struct drm_bridge_funcs mtk_dpi_bridge_funcs = {
+ 	.attach = mtk_dpi_bridge_attach,
+ 	.mode_set = mtk_dpi_bridge_mode_set,
+@@ -779,6 +885,7 @@ static const struct drm_bridge_funcs mtk_dpi_bridge_funcs = {
+ 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+ 	.atomic_reset = drm_atomic_helper_bridge_reset,
++	.debugfs_init = mtk_dpi_debugfs_init,
+ };
+ 
+ void mtk_dpi_start(struct device *dev)
+diff --git a/drivers/gpu/drm/mediatek/mtk_dpi_regs.h b/drivers/gpu/drm/mediatek/mtk_dpi_regs.h
+index 62bd4931b344..a0b1d18bbbf7 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dpi_regs.h
++++ b/drivers/gpu/drm/mediatek/mtk_dpi_regs.h
+@@ -235,4 +235,8 @@
+ #define MATRIX_SEL_RGB_TO_JPEG		0
+ #define MATRIX_SEL_RGB_TO_BT601		2
+ 
++#define DPI_PATTERN0		0xf00
++#define DPI_PAT_EN			BIT(0)
++#define DPI_PAT_SEL			GENMASK(6, 4)
++
+ #endif /* __MTK_DPI_REGS_H */
 -- 
 2.47.0
 
