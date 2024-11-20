@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98DD1D60D17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 10:01:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1AC3D44171
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 10:07:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:
-	References:In-Reply-To:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=BJBQhOJJKyJIub486+xY+tIqICKMJsQpiwZBKO1U4e0=; b=z9ipBd9Ue/kLmHDr2O21w8BPex
-	ON3r2R+P0WfWt0WhURJoXPImIBo6BP7Zyzi+kF+zmzG6bgFSmSztVLcSPWniRi9uFSWekcnZxVCWB
-	4dLKsvYz4uY7iqPrRWT8OV99bbiR8B6S0MEAdRx2PpCUt9SCGvPWrIdFbSkT5mb0Tv/w6REKQhyOt
-	jKsgCaZNVR+eBD4SHORwbR5per5UfGdmkh6sV9QyCMr6+1QjaGMYYPatnCp6xNRrlKJJmKqVOBH9f
-	gvFReYRn0zI1iA1zTneE22GDbEarC6CDrafXYMLYeGCLRC1pxP9ucxj6q6vCQ5SnLrpng99U5QJLk
-	+/SxLqGQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dd428CXBDTjHrrnAJZKziNKjueoKbD3ItkypPONoNGk=; b=w4/O33LsL77Gd1vtZWCptujAS/
+	yxx4iQ4V4cCaumn3ijoSFHnA5pU1uXnMCgC2sZOWT/z2d7UGYGx3CIXFiaXJNoIXrilqEnAI8T18E
+	Wmr5VFYsiwaR4QvGk6iT1eU7LLYFS6A1ZWRFMfYSmvYq21EIA4jj/frK8OHgwVSAEFHJPn6lubUmg
+	KeJCkEsO3nIuxGO4DJ39e3lwUEmUbr9rjkORjq4c9E2HbPduORlxCFl61lTxOjQ2ffne7GZhyFsPs
+	LPX2kjGmVM00D0OpRln1mqgPuun14vdhozOIXHsriXZju0dBqKS/BEEilagCwheFF87YFLzogKOVQ
+	VBKJ6M1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDhWS-0000000Ezu0-28mA;
-	Wed, 20 Nov 2024 10:01:20 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1tDhbs-0000000F0wG-2mNU;
+	Wed, 20 Nov 2024 10:06:56 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDhTN-0000000EzEh-3iXY;
-	Wed, 20 Nov 2024 09:58:11 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 888561C0002;
-	Wed, 20 Nov 2024 09:58:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1732096687;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BJBQhOJJKyJIub486+xY+tIqICKMJsQpiwZBKO1U4e0=;
-	b=YcKYT+X/kbeYr3xub2kdu7gZpNiUBE1WFtfL/o3SWpxY9P8YR+407tw5COM81yOdPrP6K2
-	2ZoMCniU3Qy9u2MJM8Ob7NpPPDhkgZgemPcI80cDgnlO/mORHAm+4UiQwMkOIlY5zlJoh0
-	yK4BxEiqBGdzXECuq9OfzL1Bnl5DvppHJU7GWXt6OEJmDUtS/fxkoKBYQn5SaVV7DZ0B2d
-	3olI/snl8pzs4+vdP4ehSjTuBkFb6TIqKTWQSVvC5NERf8tS/NWGRhSPJJkUvDbAAr3woO
-	JOgupd7SKHZVJGnlvu8k6LqtZgnN/4KRQU8kfcQw2paLjzSnMvwu9UrohouTfg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: "Mahapatra, Amit Kumar" <amit.kumar-mahapatra@amd.com>
-Subject: Re: [RFC PATCH 2/2] dt-bindings: spi: Update stacked and parallel
- bindings
-In-Reply-To: <IA0PR12MB769947EEA7AB4D9DFF0B2510DC202@IA0PR12MB7699.namprd12.prod.outlook.com>
-	(Amit Kumar Mahapatra's message of "Tue, 19 Nov 2024 17:02:45 +0000")
-References: <20241026075347.580858-1-amit.kumar-mahapatra@amd.com>
-	<20241026075347.580858-3-amit.kumar-mahapatra@amd.com>
-	<87y11gwtij.fsf@bootlin.com>
-	<IA0PR12MB769947EEA7AB4D9DFF0B2510DC202@IA0PR12MB7699.namprd12.prod.outlook.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Wed, 20 Nov 2024 10:58:05 +0100
-Message-ID: <87bjyaxm4y.fsf@bootlin.com>
+	id 1tDhaw-0000000F0rd-1C38
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Nov 2024 10:06:00 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 0493F1F0004F
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 10:05:51 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 72FC7A472AF; Wed, 20 Nov 2024 10:05:50 +0000 (UTC)
+Received: from collins (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id 18C00A472AD;
+	Wed, 20 Nov 2024 10:05:49 +0000 (UTC)
+Date: Wed, 20 Nov 2024 11:05:42 +0100
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Paul Kocialkowski <contact@paulk.fr>
+Subject: Re: [PATCH] pinctrl: sunxi: Use minimal debouncing period as default
+Message-ID: <Zz20dquzl5_2_3TQ@collins>
+References: <20241119140805.3345412-1-paulk@sys-base.io>
+ <20241119-prudent-jasmine-lizard-195cef@houat>
+ <ZzyoIABRArkGoZBn@collins>
+ <20241119-vivacious-optimistic-squirrel-a2f3c5@houat>
+ <ZzzdT0wr0u1ApVgV@collins>
+ <20241120-wild-stimulating-prawn-ffefb7@houat>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: miquel.raynal@bootlin.com
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="6ghTuBK8ae4AVwyp"
+Content-Disposition: inline
+In-Reply-To: <20241120-wild-stimulating-prawn-ffefb7@houat>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_015810_184303_9AA8B5FE 
-X-CRM114-Status: GOOD (  34.86  )
+X-CRM114-CacheID: sfid-20241120_020558_649133_5E40160F 
+X-CRM114-Status: GOOD (  30.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,196 +73,104 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: "alexandre.belloni@bootlin.com" <alexandre.belloni@bootlin.com>, "vigneshr@ti.com" <vigneshr@ti.com>, "amitrkcian2002@gmail.com" <amitrkcian2002@gmail.com>, "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>, "claudiu.beznea@tuxon.dev" <claudiu.beznea@tuxon.dev>, "beanhuo@micron.com" <beanhuo@micron.com>, "git \(AMD-Xilinx\)" <git@amd.com>, "robh@kernel.org" <robh@kernel.org>, "richard@nod.at" <richard@nod.at>, "tudor.ambarus@linaro.org" <tudor.ambarus@linaro.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, "alsa-devel@alsa-project.org" <alsa-devel@alsa-project.org>, "broonie@kernel.org" <broonie@kernel.org>, "Abbarapu, Venkatesh" <venkatesh.abbarapu@amd.com>, "Simek, Michal" <michal.simek@amd.com>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "patches@opensource.cirrus.com" <patches@opensource.cirrus.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>, "michael@walle.cc" <michael@walle.cc>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "pratyush@kernel.org" <pratyush@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/11/2024 at 17:02:45 GMT, "Mahapatra, Amit Kumar" <amit.kumar-mahapatr=
-a@amd.com> wrote:
 
-> Hello Miquel,
->
->> >         flash@1 {
->> >                 compatible =3D "jedec,spi-nor"
->> >                 reg =3D <0x01>;
->> >                 stacked-memories =3D <&flash@0 &flash@1>;
->> >                 spi-max-frequency =3D <50000000>;
->> >                 ...
->> >                         partitions {
->>=20
->> Same comment as before here.
->
-> Sorry again=20
->
-> spi@0 {
-> 	...
-> 	flash@0 {
-> 		compatible =3D "jedec,spi-nor"
-> 		reg =3D <0x00>;
-> 		stacked-memories =3D <&flash@0 &flash@1>;
-> 		spi-max-frequency =3D <50000000>;
-> 		...
-> 		partitions {
-> 			compatible =3D "fixed-partitions";
-> 			concat-partition =3D <&flash0_part0 &flash1_part0>;
->=20=09=09=09
-> 			flash0_part0: partition@0 {
-> 				label =3D "part0_0";
-> 				reg =3D <0x0 0x800000>;
-> 			};
-> 		};
-> 	};
-> 	flash@1 {
-> 		compatible =3D "jedec,spi-nor"
-> 		reg =3D <0x01>;
-> 		stacked-memories =3D <&flash@0 &flash@1>;
-> 		spi-max-frequency =3D <50000000>;
-> 		...
-> 		partitions {
-> 			compatible =3D "fixed-partitions";
-> 			concat-partition =3D <&flash0_part0 &flash1_part0>;
->=20=09=09=09
-> 			flash1_part0: partition@0 {
-> 				label =3D "part0_1";
-> 				reg =3D <0x0 0x800000>;
-> 			};
-> 		};
-> 	};
-> };
->
->>=20
->> >                         compatible =3D "fixed-partitions";
->> >                                 concat-partition =3D <&flash0_partitio=
-n &flash1_partition>;
->> >                                 flash1_partition: partition@0 {
->> >                                         label =3D "part0_1";
->> >                                         reg =3D <0x0 0x800000>;
->> >                                 }
->> >                         }
->> >         }
->> >
->> > }
->> >
->> > parallel-memories binding changes:
->> > - Remove the size information from the bindings and change the type to
->> >   boolen.
->> > - Each flash connected in parallel mode should be identical and will h=
-ave
->> >   one flash node for both the flash devices.
->> > - The =E2=80=9Creg=E2=80=9D prop will contain the physical CS number f=
-or both the connected
->> >   flashes.
->> >
->> > The new layer will double the mtd-> size and register it with the mtd
->> > layer.
->>=20
->> Not so sure about that, you'll need a new mtd device to capture the whol=
-e device.
->> But this is implementation related, not relevant for binding.
->>=20
->> >
->> > spi@1 {
->> >         ...
->> >         flash@3 {
->> >                 compatible =3D "jedec,spi-nor"
->> >                 reg =3D <0x00 0x01>;
->> >                 paralle-memories ;
->>=20
->> Please fix the typos and the spacing (same above).
->>=20
->> >                 spi-max-frequency =3D <50000000>;
->> >                 ...
->> >                         partitions {
->> >                         compatible =3D "fixed-partitions";
->> >                                 flash0_partition: partition@0 {
->> >                                         label =3D "part0_0";
->> >                                         reg =3D <0x0 0x800000>;
->> >                                 }
->> >                         }
->> >         }
->> > }
->> >
->> > Signed-off-by: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
->> > ---
->> >  .../bindings/spi/spi-controller.yaml          | 23 +++++++++++++++++--
->> >  .../bindings/spi/spi-peripheral-props.yaml    |  9 +++-----
->> >  2 files changed, 24 insertions(+), 8 deletions(-)
->> >
->> > diff --git a/Documentation/devicetree/bindings/spi/spi-controller.yaml
->> > b/Documentation/devicetree/bindings/spi/spi-controller.yaml
->> > index 093150c0cb87..2d300f98dd72 100644
->> > --- a/Documentation/devicetree/bindings/spi/spi-controller.yaml
->> > +++ b/Documentation/devicetree/bindings/spi/spi-controller.yaml
->> > @@ -185,7 +185,26 @@ examples:
->> >          flash@2 {
->> >              compatible =3D "jedec,spi-nor";
->> >              spi-max-frequency =3D <50000000>;
->> > -            reg =3D <2>, <3>;
->> > -            stacked-memories =3D /bits/ 64 <0x10000000 0x10000000>;
->> > +            reg =3D <2>;
->> > +            stacked-memories =3D <&flash0 &flash1>;
->> >          };
->>=20
->> I'm sorry but this is not what you've talked about in this series.
->> Either you have flash0 and flash1 and use the stacked-memories property =
-in both of
->> them (which is what you described) or you create a third virtual device =
-which points
->> to two other flashes. This example allows for an easier use of the parti=
-tions
->
-> If I understand your point correctly, you're suggesting that we should=20
-> avoid using stacked-memories and concat-partition properties together and=
-=20
-> instead choose one approach. Between the two, I believe concat-partition=
-=20
-> would be the better option.
+--6ghTuBK8ae4AVwyp
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-That's not exactly it, look at the reg properties above, they do not
-match the flash devices. Your example above invalid but it is not clear
-whether this is another typo or voluntary.
+Le Wed 20 Nov 24, 09:01, Maxime Ripard a =C3=A9crit :
+> On Tue, Nov 19, 2024 at 07:47:43PM +0100, Paul Kocialkowski wrote:
+> > > > In any case I don't think it makes sense for the platform code to i=
+mpose
+> > > > what a reasonable period for interrupts is (especially with such a =
+large
+> > > > period as default).
+> > >=20
+> > > So you don't think it makes sense for the platform code to impose a
+> > > reasonable period, so you want to impose a (more, obviously) reasonab=
+le
+> > > period?
+> >=20
+> > Yes absolutely. Anything that brings us closer to "you get what is real=
+ly
+> > happening with the hardware". The sunxi controller doesn't allow disabl=
+ing
+> > debouncing entirely, so the next best thing is to have it with the smal=
+lest
+> > period.
+>=20
+> That's an opinion, not a fact.
 
-> While looking into your mtdconcat patch [1], I noticed that it creates a=
-=20
-> virtual MTD device that points to partitions on two different flash nodes=
-,=20
-> which aligns perfectly with our requirements.
->
-> However, there are two key concerns that, if addressed, could make this=20
-> patch suitable for the stacked mode:
->
-> 1/ The creation of a virtual device that does not have a physical=20
-> existence.
+Yes and I'm trying to explain why I believe this is the most sensible opini=
+on
+here. I'm not saying everyone *has to* agree with me.
 
-We do already have:
-- the master mtd device (disabled by default for historical reasons, but
-  can be enabled with a Kconfig option).
-- an mtd device per partition
+> > > If anything, the status quo doesn't impose anything, it just rolls wi=
+th
+> > > the hardware default. Yours would impose one though.
+> >=20
+> > The result is that it puts a strong limitation and breaks many use case=
+s by
+> > default. I don't think we have to accept whatever register default was =
+chosen
+> > by hardware engineers as the most sensible default choice and pretend t=
+hat this
+> > is not a policy decision.
+>=20
+> You're making it much worse than it is. It doesn't "break many use
+> cases" it broke one, by default, with a supported way to unbreak it, in
+> 12 years.
 
-I don't see a problem in creating virtual mtd devices in the kernel.
+I think this is exaggerated. Like I mentioned previously there are *many*
+situations that are not covered by the default. The fact that I'm the first
+person to bring it up in 12 years doesn't change that.
 
-> 2/ The creation of individual MTD devices that are concatenated to form=20
-> the virtual MTD device, which may not be needed by the user.
+Sofar the downside you brought up boils down to: badly-designed hardware may
+have relied on this mechanism to avoid interrupt storms that could prevent
+the system from booting.
 
-You can also get rid of them by default (or perhaps do the opposite and
-let a Kconfig option for that).
+If that happens people can always increase the debouncing time with the
+property as they need.
 
-> Regarding the first point, I currently cannot think of a better generic=20
-> way to support the stacked feature than creating a virtual device.
-> Please let me know you thoughts on this.
->
-> For the second point, one possible solution is to hide the individual MTD=
-=20
-> devices (that form the concatenated virtual MTD device) from the user onc=
-e=20
-> the virtual device is created. Please let us know if you have any other=20
-> suggestions to address this issue.
+My point here is that the property should be used to accommodate for
+broken hardware and that the default should work for most use cases,
+including things as simple as an off-the-shelf sensor board.
 
-That is what is done with the master device by default.
+That's all.
 
-> [1] https://lore.kernel.org/linux-mtd/20191127105522.31445-5-miquel.rayna=
-l@bootlin.com/=20
+Paul
 
-Thanks,
-Miqu=C3=A8l
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Specialist in multimedia, graphics and embedded hardware support with Linux.
+
+--6ghTuBK8ae4AVwyp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmc9tHYACgkQhP3B6o/u
+lQwTwQ//b5/fEXs5MceVNZECSEGGRsRCPeXKBJxJTKSzzU0G/5fYb7pOYwBALMUU
+hNwu6/naY9STcTWXw7JcnwiLucbB+cUfdMM2E+9wIZjGX1SqDVi2AETX+tfDXSqz
+/zenXv9tc0lNJdaF+eTp+zW4tNANIQIqtcUe8jn5EojzjBJNNBBulY5PeCqQxSpM
+c+UZZDC2NGfy3wKkXw2uIbxBref4/qINz/QCkREUX9pX9nVJAPVl2an0lDgeHGu0
+8VvQCMyVyaqjWcqhD8FvNoVCmP2r48Mg9suyyLiNyl94icWXCsLnqDgT380VeMuW
+or/3YRfFNmyxc0UmKybEjiVyDv4EZNPnbgoTLzuNHeYs3k+jAQVxjH8SzEuKf/+Z
+WO1ujWuv9nF/w7Q+sUiChNu+fqsVF7V+Zk0SyHsznUczy6OdND4dsIA8k+lv6Nhj
+sOHl83QakOsLyFbQaSYfagfqVchkhChrLmYwpR++Je3zGBKJvP+1piLSq8LiBDQT
+f6t6KScCJAqw7JN8dFbKuo51EUX5iW5niBe7Dwx5+CjumXQUFZHjRxqEiVUzGJ1e
+d/iOHVO0eFV/HWrWOORE2GnhOcx2UPyudpfPQJoMoa+b2o0v4znCv3icaDwN0NaD
+Kkr365Oez56+9DGeZiy5jTGd5PUEZCJrGaJdPjPMZ4JJL4/y/dg=
+=PmWt
+-----END PGP SIGNATURE-----
+
+--6ghTuBK8ae4AVwyp--
 
