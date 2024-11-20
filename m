@@ -4,85 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB681D711BE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 15:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 442B2D711BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 16:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0HZ/7okpvF8kJm+od0U53QPJgTd3pjujVw1MRvI0jek=; b=cWBsuHwcW1Y5P2WA85wMnKTxI+
-	WdoSx8YNRZ8P9r91CGr/DAjTJVbK1vSrAs0x7FlUlcb2OUwGk7qb4bQMAdH/yHDRV4oIVe0He+khA
-	17PUsehDHTVYDfbl6p8rinbQa+w22xLKM0or0hXQI4/TrbFcT0ikV9Lg41waXJ7V2zpSqo9WHHveN
-	bk7FFUBq7MeFbVyDwtslIJRrx+p0y8maaaVVjVy/JfQb0hBjlxg8EAqSZ2eqv3Gi+ol4aKx0ZWC5l
-	PJeMnaGjZ9PFQSU/yWd9OH17ub+SgJ/TyPf38G3bBkJeLhZlq8jdeEe8ooBariLiOHKHa6RkW1d/3
-	epsiRjRw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IFxd+34gtPKYwO9Uag/vVG3JJfD1hSCCapyyxz7Hi5s=; b=FTx9NestYS/adhZRLc7+RkcCAT
+	dyLwVAJDJSPqlDJeBDqEwKLsHUPlHQb74AZHQ0bjOk3wyh0m2TrHWPG78LY+w4Uth2Jb0oKfMJg0v
+	nnrlY+EIOetu/evxSjrm756wOTfngN9Me6PFVSQRdwcHrcqyiOKD4DPwAA1NhLxJuXJWlM80A7krK
+	5Yn8yVWfuOA9AKw8hqAz/sgVgIMdGb4/1AaeaQMPf3fippE943lRUJBepCCO278JzxP9o+Dth0JTE
+	1UAJ1nbl0u/Yf65a/ETcu85jSdbsZkI9uqrHjLMefvT9cgBPdhMD2L4q58gAjjezWYjRxT4GxLc4c
+	DL9yjcBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDn4E-0000000Fk1V-1sgC;
-	Wed, 20 Nov 2024 15:56:34 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1tDnBC-0000000FlO6-2VZN;
+	Wed, 20 Nov 2024 16:03:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDn3G-0000000FjlQ-2Kx6
+	id 1tDnAF-0000000Fl9K-0yRq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 15:55:35 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-53da2483e60so18859e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 07:55:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1732118132; x=1732722932; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0HZ/7okpvF8kJm+od0U53QPJgTd3pjujVw1MRvI0jek=;
-        b=ZzHd7IqdCj7t0vlPAjZUeOxOO9UmpwWQN1ShakAxOqs9uvGG2k/KYGdc9Y0ZHOiFYT
-         fVraChqbF11d/mKzzsQrDkgC+a4C0T7Y5oL0A/qiz+hiLdmSIxC8mpbAqVuB3ozK94EE
-         l54yc7CgSfRU0m1G0LnAOyeGQrRkzaYbiKYjQXCtIEpn4WleOXWny4ZUueugfmI6vurs
-         Qd1SLzJHvq7d8KIOJR8fLhFNsVQcb/ABgWRxp1ItDctzpB+5AgcwjIlsM0T1yvc8s32D
-         tglej4aeFzOog47YsxXavfC03kzjdkV4Fsez3cF44dyVIKk+3C5FpTId3MGupTZ2pi4O
-         UzOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732118132; x=1732722932;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0HZ/7okpvF8kJm+od0U53QPJgTd3pjujVw1MRvI0jek=;
-        b=RfLELlA9660t2KAm5Yi/tFwc3H1gQYtC8pg1Wz/Hm+vSR7kZUx5zlrCR4j5cnz5Wz6
-         w0NbV1kOXGaBeNcIfxecWhVdOdB1cbr6LReJx4WBH1lw3wvZv0SfSI8aYG4eJ49eU57X
-         G6cDB76o2ShzA3D7NNLRr8Kek8mjrAR4JRcNZOkbBsfhdecaWc3l1Quh3jWoeuZYUX/D
-         zM2hZ19im9OvXc26J/xsLVSVO8xoWoRYq/OIjH7yVQyxedU0W9eZikm3PnqkJbhPQwMD
-         ntFEN+8cWUUX9kr6jkbZuX9/QGIx0guKGtMbyEwj1Ol/LAAKu/9QqvF8iPL7gdF775Bq
-         qogw==
-X-Forwarded-Encrypted: i=1; AJvYcCWAwsecgJTSV/0BtFXU2EfgPIWjNOTtJdbRL6CNj2hTvXPpy3N7zE1J6wlkiqsXN3JdLfJKL7Md+WzgwssDrNmW@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywk8PV1LOF/XMgiLUvlkKpQe5Mf86zdBKP6E8h8h4MqpsE+CpdW
-	0URPENmuGcpjFuwIAxd3kT80nMIDbgXdjyaWMntYMGsOlgUPc0GRwf0PdKk5UBInYPSRF5UpgGp
-	Z3iSzyi67RpYuPDalzcRJXYfhd87QkRzIdF+v
-X-Gm-Gg: ASbGncsu9KgbINketjMRm+a3e9lQdKbHFC/lzozRAGeeMiy8rSgOqdjLtTUU6QFxQyP
-	GRrLYgUoDn8ztW6fTPejnwsakjohWiorI3lDL3xzycEozPSk6aTYwVxkklqX3gg==
-X-Google-Smtp-Source: AGHT+IEc30uHJ15peKbExAOlopJi9zOAJvjK/e1IPVFyzeYPJXr6/KY0udRIEGSXxmCwxAdPwiPJWLAerB5KhSDy6PU=
-X-Received: by 2002:a05:6512:2089:b0:52e:934c:1cc0 with SMTP id
- 2adb3069b0e04-53dc2766aeemr158817e87.7.1732118131804; Wed, 20 Nov 2024
- 07:55:31 -0800 (PST)
+	Wed, 20 Nov 2024 16:02:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 935EC5C5D35;
+	Wed, 20 Nov 2024 16:02:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3CA3C4AF09;
+	Wed, 20 Nov 2024 16:02:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732118566;
+	bh=P/vnb+Nr34kWtE18wQ+8aAGDYW1lN43eC/nTy0Zff3c=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=oVE5U1/3u0nTTxlWof5ZfzuSpBSABXhmx902ZQ35mMdmt/sUxMisc1MnKS9awYxwn
+	 T1sFfJ+U5Wc77BHyojJ8i6bJgfAJ7kT5U5KESrcAwA1STxNpZIojsaeD8w8gfT4N9v
+	 FKBqC1/15Gj3M201zdDWlS3mYihs4GBrfHX9QttLzcqO67TR4Mq02dZwgpIz8hZpsY
+	 SRMxuZYoIQLpwWhdGTaUnV5XSd6j7IUNqiIVWFSkNiWbXIZpN6umL/3290sT2VcGL3
+	 zvntfaUxRfbQVdJ4rDPTVVyVHmTeNIKaI41Zn/9+Ghyc4tsdzKuGZJXTIGrDfJlm/7
+	 wrLEw1KhRrp6w==
+Date: Wed, 20 Nov 2024 10:02:44 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20241118222540.27495-1-yabinc@google.com> <CAF1bQ=SwtGDpOJeQwhbnO6Md=kFbcmkM4iVgXUgjzNXu+d8cEA@mail.gmail.com>
- <CALJ9ZPMNrZW0TYxEVRMJo2FkvOfmGxSODwsV9cA1jUZUz-Q2aw@mail.gmail.com>
-In-Reply-To: <CALJ9ZPMNrZW0TYxEVRMJo2FkvOfmGxSODwsV9cA1jUZUz-Q2aw@mail.gmail.com>
-From: George Burgess <gbiv@google.com>
-Date: Wed, 20 Nov 2024 08:54:54 -0700
-Message-ID: <CA+rzOE=r-kCMPytBVFzU9f5FUdA7BRn35fTL6SZXbo6p9cBLGA@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: Allow CONFIG_AUTOFDO_CLANG to be selected
-To: Yabin Cui <yabinc@google.com>
-Cc: Rong Xu <xur@google.com>, Han Shen <shenhan@google.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, workflows@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: cristian.birsan@microchip.com
+In-Reply-To: <20241119160107.598411-1-cristian.birsan@microchip.com>
+References: <20241119160107.598411-1-cristian.birsan@microchip.com>
+Message-Id: <173211839995.1123874.16146391934927637121.robh@kernel.org>
+Subject: Re: [PATCH 0/2] ARM: dts: microchip: Add no-1-8-v property to
+ sdmmc0 node
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_075534_593700_E42932C4 
-X-CRM114-Status: GOOD (  31.14  )
+X-CRM114-CacheID: sfid-20241120_080247_359324_3632969F 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,138 +67,162 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, conor+dt@kernel.org, linux-kernel@vger.kernel.org, alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We've used ETM in ChromeOS for a while now. Hardware
-requirements make it unfortunately less ubiquitous than LBR, but:
-- we first launched it on 5.15,
-- it's still humming along nicely today on 6.6, so:
 
-Tested-by: George Burgess IV <gbiv@google.com>
-
-IIRC, with a baseline of "using x86_64 AFDO profiles on ARM kernels,"
-we saw a perf win on the order of a few (3? 4?) percentage points when
-we made the switch.
-
-On Tue, Nov 19, 2024 at 5:04=E2=80=AFPM Yabin Cui <yabinc@google.com> wrote=
-:
->
-> Add George from ChromeOS.
->
-> On Mon, Nov 18, 2024 at 3:49=E2=80=AFPM Rong Xu <xur@google.com> wrote:
-> >
-> > This patch looks good to me.
-> >
-> > I assume the profile format change in the Android doc will be submitted=
- soon.
-> > Since "extbinary" is a superset of "binary", using the "extbinary"
-> > format profile
-> > in Android shouldn't cause any compatibility issues.
-> >
-> > Reviewed-by: Rong Xu <xur.google.com>
-> >
-> > -Rong
-> >
-> > On Mon, Nov 18, 2024 at 2:25=E2=80=AFPM Yabin Cui <yabinc@google.com> w=
-rote:
-> > >
-> > > Select ARCH_SUPPORTS_AUTOFDO_CLANG to allow AUTOFDO_CLANG to be
-> > > selected.
-> > >
-> > > On ARM64, ETM traces can be recorded and converted to AutoFDO profile=
-s.
-> > > Experiments on Android show 4% improvement in cold app startup time
-> > > and 13% improvement in binder benchmarks.
-> > >
-> > > Signed-off-by: Yabin Cui <yabinc@google.com>
-> > > ---
-> > >
-> > > Change-Logs in V2:
-> > >
-> > > 1. Use "For ARM platforms with ETM trace" in autofdo.rst.
-> > > 2. Create an issue and a change to use extbinary format in instructio=
-ns:
-> > >    https://github.com/Linaro/OpenCSD/issues/65
-> > >    https://android-review.googlesource.com/c/platform/system/extras/+=
-/3362107
-> > >
-> > >  Documentation/dev-tools/autofdo.rst | 18 +++++++++++++++++-
-> > >  arch/arm64/Kconfig                  |  1 +
-> > >  2 files changed, 18 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/Documentation/dev-tools/autofdo.rst b/Documentation/dev-=
-tools/autofdo.rst
-> > > index 1f0a451e9ccd..a890e84a2fdd 100644
-> > > --- a/Documentation/dev-tools/autofdo.rst
-> > > +++ b/Documentation/dev-tools/autofdo.rst
-> > > @@ -55,7 +55,7 @@ process consists of the following steps:
-> > >     workload to gather execution frequency data. This data is
-> > >     collected using hardware sampling, via perf. AutoFDO is most
-> > >     effective on platforms supporting advanced PMU features like
-> > > -   LBR on Intel machines.
-> > > +   LBR on Intel machines, ETM traces on ARM machines.
-> > >
-> > >  #. AutoFDO profile generation: Perf output file is converted to
-> > >     the AutoFDO profile via offline tools.
-> > > @@ -141,6 +141,22 @@ Here is an example workflow for AutoFDO kernel:
-> > >
-> > >        $ perf record --pfm-events RETIRED_TAKEN_BRANCH_INSTRUCTIONS:k=
- -a -N -b -c <count> -o <perf_file> -- <loadtest>
-> > >
-> > > +   - For ARM platforms with ETM trace:
-> > > +
-> > > +     Follow the instructions in the `Linaro OpenCSD document
-> > > +     https://github.com/Linaro/OpenCSD/blob/master/decoder/tests/aut=
-o-fdo/autofdo.md`_
-> > > +     to record ETM traces for AutoFDO::
-> > > +
-> > > +      $ perf record -e cs_etm/@tmc_etr0/k -a -o <etm_perf_file> -- <=
-loadtest>
-
-FWIW, CrOS spells the event 'cs_etm/autofdo/u'.
-
-I'm not familiar enough with perf event syntax (or downstream patches
-that CrOS has to its kernel) to say whether that should motivate a
-change here. Happy to find out more if there's interest.
+On Tue, 19 Nov 2024 18:01:05 +0200, cristian.birsan@microchip.com wrote:
+> From: Cristian Birsan <cristian.birsan@microchip.com>
+> 
+> Add no-1-8-v property to sdmmc0 node to keep VDDSDMMC power rail at 3.3V.
+> This property will stop the LDO regulator from switching to 1.8V when the
+> MMC core detects an UHS SD Card. VDDSDMMC power rail is used by all the
+> SDMMC interface pins in GPIO mode (PA0 - PA13).
+> 
+> PA6 and PA10 GPIOs are used to enable the power switch controlling USB
+> Vbus for the USB Host.
+> 
+> Cristian Birsan (2):
+>   ARM: dts: microchip: sama5d29_curiosity: Add no-1-8-v property to
+>     sdmmc0 node
+>   ARM: dts: microchip: sama5d27_wlsom1_ek: Add no-1-8-v property to
+>     sdmmc0 node
+> 
+>  arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dts | 1 +
+>  arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dts | 1 +
+>  2 files changed, 2 insertions(+)
+> 
+> 
+> base-commit: 158f238aa69d91ad74e535c73f552bd4b025109c
+> --
+> 2.34.1
+> 
+> 
+> 
 
 
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y microchip/at91-sama5d27_wlsom1_ek.dtb microchip/at91-sama5d29_curiosity.dtb' for 20241119160107.598411-1-cristian.birsan@microchip.com:
+
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: etm@73c000: 'cpu' is a required property
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-etm.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/gadget@300000: failed to match any schema with compatible: ['atmel,sama5d3-udc']
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: ohci@400000: compatible: 'oneOf' conditional failed, one must be fixed:
+	['atmel,at91rm9200-ohci', 'usb-ohci'] is too long
+	'atmel,at91rm9200-ohci' is not one of ['allwinner,sun4i-a10-ohci', 'allwinner,sun50i-a100-ohci', 'allwinner,sun50i-a64-ohci', 'allwinner,sun50i-h6-ohci', 'allwinner,sun50i-h616-ohci', 'allwinner,sun55i-a523-ohci', 'allwinner,sun5i-a13-ohci', 'allwinner,sun6i-a31-ohci', 'allwinner,sun7i-a20-ohci', 'allwinner,sun8i-a23-ohci', 'allwinner,sun8i-a83t-ohci', 'allwinner,sun8i-h3-ohci', 'allwinner,sun8i-r40-ohci', 'allwinner,sun8i-v3s-ohci', 'allwinner,sun9i-a80-ohci', 'allwinner,sun20i-d1-ohci', 'brcm,bcm3384-ohci', 'brcm,bcm63268-ohci', 'brcm,bcm6328-ohci', 'brcm,bcm6358-ohci', 'brcm,bcm6362-ohci', 'brcm,bcm6368-ohci', 'brcm,bcm7125-ohci', 'brcm,bcm7346-ohci', 'brcm,bcm7358-ohci', 'brcm,bcm7360-ohci', 'brcm,bcm7362-ohci', 'brcm,bcm7420-ohci', 'brcm,bcm7425-ohci', 'brcm,bcm7435-ohci', 'hpe,gxp-ohci', 'ibm,476gtr-ohci', 'ingenic,jz4740-ohci', 'rockchip,rk3588-ohci', 'snps,hsdk-v1.0-ohci']
+	'atmel,at91rm9200-ohci' is not one of ['generic-ohci', 'ti,ohci-omap3']
+	'atmel,at91rm9200-ohci' is not one of ['cavium,octeon-6335-ohci', 'nintendo,hollywood-usb-ohci', 'nxp,ohci-nxp', 'st,spear600-ohci']
+	'generic-ohci' was expected
+	from schema $id: http://devicetree.org/schemas/usb/generic-ohci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: ohci@400000: $nodename:0: 'ohci@400000' does not match '^usb(@.*)?'
+	from schema $id: http://devicetree.org/schemas/usb/generic-ohci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: ohci@400000: Unevaluated properties are not allowed ('atmel,vbus-gpio', 'clock-names', 'compatible' were unexpected)
+	from schema $id: http://devicetree.org/schemas/usb/generic-ohci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/ohci@400000: failed to match any schema with compatible: ['atmel,at91rm9200-ohci', 'usb-ohci']
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: ehci@500000: $nodename:0: 'ehci@500000' does not match '^usb(@.*)?'
+	from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: ehci@500000: Unevaluated properties are not allowed ('clock-names', 'phy_type' were unexpected)
+	from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/ebi@10000000: failed to match any schema with compatible: ['atmel,sama5d3-ebi']
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: nand-controller: #address-cells: 1 was expected
+	from schema $id: http://devicetree.org/schemas/mtd/nand-controller.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: nand-controller: #size-cells: 0 was expected
+	from schema $id: http://devicetree.org/schemas/mtd/nand-controller.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/ebi@10000000/nand-controller: failed to match any schema with compatible: ['atmel,sama5d3-nand-controller']
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: sdio-host@a0000000: $nodename:0: 'sdio-host@a0000000' does not match '^mmc(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/mmc/atmel,sama5d2-sdhci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: sdio-host@a0000000: Unevaluated properties are not allowed ('bus-width', 'no-1-8-v' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mmc/atmel,sama5d2-sdhci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: sdio-host@b0000000: $nodename:0: 'sdio-host@b0000000' does not match '^mmc(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/mmc/atmel,sama5d2-sdhci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: sdio-host@b0000000: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'bus-width', 'mmc-pwrseq', 'no-1-8-v', 'non-removable', 'wifi@0' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mmc/atmel,sama5d2-sdhci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: hlcdc@f0000000: 'hlcdc-display-controller', 'hlcdc-pwm' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/atmel,hlcdc.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/apb/ramc@f000c000: failed to match any schema with compatible: ['atmel,sama5d3-ddramc']
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/apb/dma-controller@f0010000: failed to match any schema with compatible: ['atmel,sama5d4-dma']
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/apb/dma-controller@f0004000: failed to match any schema with compatible: ['atmel,sama5d4-dma']
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: flash@0: Unevaluated properties are not allowed ('spi-cs-setup-ns' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mtd/jedec,spi-nor.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/apb/ssc@f8004000: failed to match any schema with compatible: ['atmel,at91sam9g45-ssc']
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/apb/hsmc@f8014000: failed to match any schema with compatible: ['atmel,sama5d2-smc', 'syscon', 'simple-mfd']
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/apb/hsmc@f8014000/ecc-engine@f8014070: failed to match any schema with compatible: ['atmel,sama5d2-pmecc']
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: pwm@f802c000: Unevaluated properties are not allowed ('clocks', 'interrupts' were unexpected)
+	from schema $id: http://devicetree.org/schemas/pwm/atmel,at91sam-pwm.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/apb/sfr@f8030000: failed to match any schema with compatible: ['atmel,sama5d2-sfr', 'syscon']
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/apb/timer@f8048030: failed to match any schema with compatible: ['atmel,at91sam9260-pit']
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: watchdog@f8048040: Unevaluated properties are not allowed ('clocks' was unexpected)
+	from schema $id: http://devicetree.org/schemas/watchdog/atmel,sama5d4-wdt.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: etm@73c000: 'cpu' is a required property
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-etm.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/apb/pinctrl@fc038000: failed to match any schema with compatible: ['atmel,sama5d2-pinctrl']
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/apb/secumod@fc040000: failed to match any schema with compatible: ['atmel,sama5d2-secumod', 'syscon']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/gadget@300000: failed to match any schema with compatible: ['atmel,sama5d3-udc']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: ohci@400000: compatible: 'oneOf' conditional failed, one must be fixed:
+	['atmel,at91rm9200-ohci', 'usb-ohci'] is too long
+	'atmel,at91rm9200-ohci' is not one of ['allwinner,sun4i-a10-ohci', 'allwinner,sun50i-a100-ohci', 'allwinner,sun50i-a64-ohci', 'allwinner,sun50i-h6-ohci', 'allwinner,sun50i-h616-ohci', 'allwinner,sun55i-a523-ohci', 'allwinner,sun5i-a13-ohci', 'allwinner,sun6i-a31-ohci', 'allwinner,sun7i-a20-ohci', 'allwinner,sun8i-a23-ohci', 'allwinner,sun8i-a83t-ohci', 'allwinner,sun8i-h3-ohci', 'allwinner,sun8i-r40-ohci', 'allwinner,sun8i-v3s-ohci', 'allwinner,sun9i-a80-ohci', 'allwinner,sun20i-d1-ohci', 'brcm,bcm3384-ohci', 'brcm,bcm63268-ohci', 'brcm,bcm6328-ohci', 'brcm,bcm6358-ohci', 'brcm,bcm6362-ohci', 'brcm,bcm6368-ohci', 'brcm,bcm7125-ohci', 'brcm,bcm7346-ohci', 'brcm,bcm7358-ohci', 'brcm,bcm7360-ohci', 'brcm,bcm7362-ohci', 'brcm,bcm7420-ohci', 'brcm,bcm7425-ohci', 'brcm,bcm7435-ohci', 'hpe,gxp-ohci', 'ibm,476gtr-ohci', 'ingenic,jz4740-ohci', 'rockchip,rk3588-ohci', 'snps,hsdk-v1.0-ohci']
+	'atmel,at91rm9200-ohci' is not one of ['generic-ohci', 'ti,ohci-omap3']
+	'atmel,at91rm9200-ohci' is not one of ['cavium,octeon-6335-ohci', 'nintendo,hollywood-usb-ohci', 'nxp,ohci-nxp', 'st,spear600-ohci']
+	'generic-ohci' was expected
+	from schema $id: http://devicetree.org/schemas/usb/generic-ohci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: ohci@400000: $nodename:0: 'ohci@400000' does not match '^usb(@.*)?'
+	from schema $id: http://devicetree.org/schemas/usb/generic-ohci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: ohci@400000: Unevaluated properties are not allowed ('atmel,vbus-gpio', 'clock-names', 'compatible' were unexpected)
+	from schema $id: http://devicetree.org/schemas/usb/generic-ohci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/ohci@400000: failed to match any schema with compatible: ['atmel,at91rm9200-ohci', 'usb-ohci']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: ehci@500000: $nodename:0: 'ehci@500000' does not match '^usb(@.*)?'
+	from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: /ahb/apb/chipid@fc069000: failed to match any schema with compatible: ['atmel,sama5d2-chipid']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: ehci@500000: Unevaluated properties are not allowed ('clock-names' was unexpected)
+	from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/ebi@10000000: failed to match any schema with compatible: ['atmel,sama5d3-ebi']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: nand-controller: #address-cells: 1 was expected
+	from schema $id: http://devicetree.org/schemas/mtd/nand-controller.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: nand-controller: #size-cells: 0 was expected
+	from schema $id: http://devicetree.org/schemas/mtd/nand-controller.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/ebi@10000000/nand-controller: failed to match any schema with compatible: ['atmel,sama5d3-nand-controller']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: sdio-host@a0000000: $nodename:0: 'sdio-host@a0000000' does not match '^mmc(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/mmc/atmel,sama5d2-sdhci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: sdio-host@a0000000: Unevaluated properties are not allowed ('bus-width', 'disable-wp', 'no-1-8-v' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mmc/atmel,sama5d2-sdhci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: sdio-host@b0000000: $nodename:0: 'sdio-host@b0000000' does not match '^mmc(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/mmc/atmel,sama5d2-sdhci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: sdio-host@b0000000: Unevaluated properties are not allowed ('bus-width', 'disable-wp' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mmc/atmel,sama5d2-sdhci.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: hlcdc@f0000000: 'hlcdc-display-controller', 'hlcdc-pwm' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/atmel,hlcdc.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/apb/ramc@f000c000: failed to match any schema with compatible: ['atmel,sama5d3-ddramc']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/apb/dma-controller@f0010000: failed to match any schema with compatible: ['atmel,sama5d4-dma']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/apb/dma-controller@f0004000: failed to match any schema with compatible: ['atmel,sama5d4-dma']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/apb/ssc@f8004000: failed to match any schema with compatible: ['atmel,at91sam9g45-ssc']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/apb/hsmc@f8014000: failed to match any schema with compatible: ['atmel,sama5d2-smc', 'syscon', 'simple-mfd']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/apb/hsmc@f8014000/ecc-engine@f8014070: failed to match any schema with compatible: ['atmel,sama5d2-pmecc']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: pwm@f802c000: Unevaluated properties are not allowed ('clocks', 'interrupts' were unexpected)
+	from schema $id: http://devicetree.org/schemas/pwm/atmel,at91sam-pwm.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/apb/sfr@f8030000: failed to match any schema with compatible: ['atmel,sama5d2-sfr', 'syscon']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/apb/timer@f8048030: failed to match any schema with compatible: ['atmel,at91sam9260-pit']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: watchdog@f8048040: Unevaluated properties are not allowed ('clocks' was unexpected)
+	from schema $id: http://devicetree.org/schemas/watchdog/atmel,sama5d4-wdt.yaml#
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/apb/pinctrl@fc038000: failed to match any schema with compatible: ['atmel,sama5d2-pinctrl']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/apb/secumod@fc040000: failed to match any schema with compatible: ['atmel,sama5d2-secumod', 'syscon']
+arch/arm/boot/dts/microchip/at91-sama5d29_curiosity.dtb: /ahb/apb/chipid@fc069000: failed to match any schema with compatible: ['atmel,sama5d2-chipid']
 
 
 
 
 
-
-
-> > > +      $ perf inject -i <etm_perf_file> -o <perf_file> --itrace=3Di50=
-0009il
-> > > +
-> > > +     For ARM platforms running Android, follow the instructions in t=
-he
-> > > +     `Android simpleperf document
-> > > +     <https://android.googlesource.com/platform/system/extras/+/main=
-/simpleperf/doc/collect_etm_data_for_autofdo.md>`_
-> > > +     to record ETM traces for AutoFDO::
-> > > +
-> > > +      $ simpleperf record -e cs-etm:k -a -o <perf_file> -- <loadtest=
->
-> > > +
-> > >  4) (Optional) Download the raw perf file to the host machine.
-> > >
-> > >  5) To generate an AutoFDO profile, two offline tools are available:
-> > > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > > index fd9df6dcc593..c3814df5e391 100644
-> > > --- a/arch/arm64/Kconfig
-> > > +++ b/arch/arm64/Kconfig
-> > > @@ -103,6 +103,7 @@ config ARM64
-> > >         select ARCH_SUPPORTS_PER_VMA_LOCK
-> > >         select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
-> > >         select ARCH_SUPPORTS_RT
-> > > +       select ARCH_SUPPORTS_AUTOFDO_CLANG
-> > >         select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
-> > >         select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
-> > >         select ARCH_WANT_DEFAULT_BPF_JIT
-> > > --
-> > > 2.47.0.338.g60cca15819-goog
-> > >
 
