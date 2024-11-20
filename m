@@ -4,99 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A980D743ED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 23:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E14A7D743ED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 23:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uw22jCZoEwcjBnN6PMmaEAXVlXl4VGvOeXE3IOt4lBQ=; b=btyj/BNhdIEH2mFvp87qfgSKT+
-	QmJLRIu/EjYwGCHJHgiWiEQert2Yl0Da0UXzMOK9a1RpodudLtatNafjN7sOmlTEnCdZUfplhzbKL
-	wP2mjW6HzCNEdt3aggYUe/mjuwthliJ97SdaA30lMN+QPThamCVZxcFM65mKL6VxAJ89qEwDEIsz1
-	f5WlJxGnI3HdItAYrSnSTPCfOjv3nQcYPX/xNlgmXXrFli5IKsnb2grM65xiG7Uivf1WlvGRHiwRN
-	NM1/pTYDYmGkO2e63eEAkhbww+c0ENJODOV4xvbqLdSLxZO/sQqK+yEfnxigB7ehp3zQvxdgJVHkV
-	DgeZA75Q==;
+	bh=xs+SrsC9IUbgaKcIlQpBc93FEGDcRI3usKuzpnz5nwQ=; b=ZuLe9Xbfrwdxj+PLe8QNHk0pMt
+	IntN1nqAJsb34bC7AWRy61xW83NrVxkEfGeqJNlj71tmuIUNdGrcpZXGiH5wFWW81hr2KjkC3Fn2q
+	n3vyRChSo55xyCS1p88xE5wPk9+dX6/OIkJsZS1lxxBnT1kXKaJYYBZ2SIYmqgG3+2WtfifaWthv7
+	FVxXDd/CWPadzwulPq/H92+NTnl85R/C68yi0bs3n2qkjy9Z4a/ZihZ/57yotuAuTE9JJ+rsjjcGe
+	tnGVKlmD6UGht6mKrIfJ4WAAcCxiLayP7zdf18TciLFJiuAWHyXLiU0y0cNUqb+mDijHmxSmKeIOM
+	WkQAGj5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDtkT-0000000GODB-1D7m;
-	Wed, 20 Nov 2024 23:04:37 +0000
-Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
+	id 1tDtzS-0000000GPK7-45Ad;
+	Wed, 20 Nov 2024 23:20:06 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDtj8-0000000GNwq-2oWr
+	id 1tDtyW-0000000GPCk-3OhG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 23:03:16 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id 0F38F1380258;
-	Wed, 20 Nov 2024 18:03:14 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Wed, 20 Nov 2024 18:03:14 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1732143794;
-	 x=1732230194; bh=uw22jCZoEwcjBnN6PMmaEAXVlXl4VGvOeXE3IOt4lBQ=; b=
-	QVIDEKoykCePUFIMau2BLuR/h6CXcPW3iPjwQ5CJ5JiP5goYY7rusWEgfey4ll4/
-	BMxAYY86w4gFghoUDrUwHfuxCMrtOTgKc2BfM+oeRDS6KC5E9k/TyuX3vhCQ2mGy
-	+z4NqKCK8Fq5DVKuiWJ2vy4tleJR6q9Dz5TGISDXBQ4HMAQstxybeif/l2KcMdj8
-	zBwY5v9aDYWlmxROj3ChEXYAkEzjr0oQqJYM5Evg9SRV+kxq2EH1p0w9a2iJF6Xr
-	mS8ZGNueiuK9C1pvklE7w7MWdIjK3/vzy90wkBOeC/T8kfBlByzPLbFoill5bSYM
-	3c5QJLTJmm9KyqpKDLSUcw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1732143794; x=
-	1732230194; bh=uw22jCZoEwcjBnN6PMmaEAXVlXl4VGvOeXE3IOt4lBQ=; b=n
-	eYVqGiY5FThxgfSF9/JJudYQrtegp4os+CN4oxRGyCs1ANrUc50M/ynyKNhdGqrx
-	m6ORtZJIiCS5XjAVjSdzkCOjpBQEKmthXS9JZKwHIUbZlgfaAQUnJ9e3te6wAxsk
-	nTAqdIo20bLwT5p6xfVnLxyd4Wsp8JTF6mriZ3o0XuIu7Gx+zdz0IEyH675rFpZh
-	VYiH4Z8q2EV4Y33najW2koX2tXYu7VFEkrYJsSaGNmQBJTQBmbPLlXCdwcv9rNwo
-	4+JBUZV1eKZOUAGWapXYyKS2sOz/iOlCqWsnaLGctFzhmfFdkbqTlaNQHPh1AMI2
-	SHCkFlSSkfUST+jhdAHVA==
-X-ME-Sender: <xms:sWo-Z0uCJzowT7wwMiKnnv0du0X-N_SjlpdG00t1vIUMpEw11SzKiw>
-    <xme:sWo-Zxf4-7DQKNjzEZR8CGda55Hx0N_5Bwcwnpk1lPNgvY3IwCl4PKx7N0iIPxEt8
-    O57AlOMaa4Pw2NL5Pg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrfeehgddthecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
-    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
-    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
-    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
-    gvqeenucggtffrrghtthgvrhhnpeefffelleduheehleejtdfhheegtdffhedtffeileeh
-    keetffevtdegheduhfeiudenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhgihhthh
-    husgdrtghomhenucevlhhushhtvghrufhiiigvpedunecurfgrrhgrmhepmhgrihhlfhhr
-    ohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeegpdhmohguvgepsh
-    hmthhpohhuthdprhgtphhtthhopehtohhrvhgrlhgusheslhhinhhugidqfhhouhhnuggr
-    thhiohhnrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlih
-    hsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhotgeslhhishhtshdr
-    lhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrd
-    hkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:sWo-Z_yjwVr4KDvB_9vFLBQBR3dklP8tD9xEJNO7Z0egnYVD9Irv-A>
-    <xmx:sWo-Z3Om-pbqlKu7vhb01kq6hOZTT88epZpnIdShIFE_rI-2H_0cdg>
-    <xmx:sWo-Z0_1i-LzvTFOcR4evUM_37c027Mdb2stv9sDeGp_ksyu3EZdrw>
-    <xmx:sWo-Z_UIt1shYvLxqB-eEtaHndgyln9jvmw1NA8DqMibs-fkx6YgTQ>
-    <xmx:smo-Zza4Od35ggJaClJXMoxcbt9RYPzQAIDzqr0dB-YtcF8rDI7bfxbb>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id BC5522220071; Wed, 20 Nov 2024 18:03:13 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 20 Nov 2024 23:19:09 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-a9a68480164so41733166b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 15:19:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1732144746; x=1732749546; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xs+SrsC9IUbgaKcIlQpBc93FEGDcRI3usKuzpnz5nwQ=;
+        b=Tj/fh0TPNyBbiRm3Nlkoaz30yG2Q9EsiwezPeitTjpncuiEnaNYjV0dSrbZiyBJQCn
+         o3tjiIK4cjOxUJrYpb8Vj4BMOYrLt8bBXd69DFB9ibqG0t7yeUG9aeBv3fsazn59s6KW
+         RtRCLx6bB41Rcjc78erQYCE3x0/yF7wgWqm5U=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732144746; x=1732749546;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xs+SrsC9IUbgaKcIlQpBc93FEGDcRI3usKuzpnz5nwQ=;
+        b=vy1RKH1jd5/kQH9804QOOp6s8JOmNGF7Q5sy0exxth1tTFwKxEuV8CjwWXmy/4g9fr
+         9AcY8bjp2F0YEs0Qtogojf1r0QnBfpzZlrUVZ2pkq/XA+Qr08Rf773bkxG4Qyb0TpLiT
+         apS5tJvWy5v8Iro3B0eQ1sKrE1LVG9MSWvdX3tE6P1S6zctk48/nu99E2qrD5DYqvhqU
+         w28TdwSlkdDpz4vQ2nm/9I3lCHbfEAOvQr/8IsweqI1h1P11Cji53RzEL9PLnQDQBgFJ
+         VevH35q+MvO19hArmsY0BaJypzwzHXs6cbWjRmJMF+NdZQRFuIblWfNb/jGHoyACve6+
+         NPiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW3wwkfiPulwffqUkA7CGB1Mc01crMfFi68N04ENncfx30BcqG1QOFtxyggLnE5w0R6PYOXNZbgsx8KfxWHpiEO@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpOuBpDefnK0Ymn6cqtD1wJV30iluAm/0SrUoymX+fCyLI6N73
+	5ccHzYbC6mFfvEhEzNq9yrJLHCLV0BMWlr/1hWQaOGxpzMEGUqx5CeTSQtpZwpdd3cAJafUfiRr
+	AVEb6/Q==
+X-Gm-Gg: ASbGnctuJT/HJPZw5yxyjbKGQeK3yqgs1r/bzi1kRpHi5A4hnbLLDJYKs9qxq0ZbDAk
+	IS/vBHPO4GGXEC+YkL0DKPa+BNpDpatDiaEF2mMn8m6S2PVA8eLeBMD74/4Zwv+wigsmvMI2RFZ
+	zTB0yc00H8WchcnGNjC6/qG8+3hiB41h7Uyl9mkxWuvAuzKl9dqjtuUwwCyDKX5mk13AkAkJIxn
+	zHaqpG7ltbR7eFvR0wzippYN2JGxspDKpZmN+OizEmPAbIQRxrJCHIVxJlMeqgXq3lDsqysYZPc
+	2k5ajff2w7hQslo0udvW9+tX
+X-Google-Smtp-Source: AGHT+IE+KFFgQApcvijMX4MhOMkvHItFufyXEc1Q5huu5P5taw6T+yanHF1jhst2bwmbXpc0+beDTw==
+X-Received: by 2002:a17:907:1ca8:b0:aa1:94bb:c475 with SMTP id a640c23a62f3a-aa4dd5522demr463688366b.24.1732144746100;
+        Wed, 20 Nov 2024 15:19:06 -0800 (PST)
+Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com. [209.85.208.48])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa4f431b3b6sm10553566b.171.2024.11.20.15.19.05
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 20 Nov 2024 15:19:05 -0800 (PST)
+Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-5cfaa02c716so323513a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 15:19:05 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWHBUd5tx1+NAEHaRAK3frTHrvcFZexblNRMFYKZz7B6SQEvoWQRuU7hxt7W304A+lj+Q5MBgAigQwcJJLZijMt@lists.infradead.org
+X-Received: by 2002:a17:907:2d08:b0:a99:ecaf:4543 with SMTP id
+ a640c23a62f3a-aa4dd57a0c5mr426803466b.25.1732144744981; Wed, 20 Nov 2024
+ 15:19:04 -0800 (PST)
 MIME-Version: 1.0
-Date: Thu, 21 Nov 2024 00:02:53 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <8eb10ff6-08f3-4efc-8839-1d7559bb8c6f@app.fastmail.com>
-In-Reply-To: <d58cbbc9-e5b0-49c3-8cf7-d0726e796e92@app.fastmail.com>
 References: <d58cbbc9-e5b0-49c3-8cf7-d0726e796e92@app.fastmail.com>
-Subject: [GIT PULL 3/4] ARM: soc updates for 6.13
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <d58cbbc9-e5b0-49c3-8cf7-d0726e796e92@app.fastmail.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Wed, 20 Nov 2024 15:18:48 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wi=GZ7766ZBoT11aAp=Nqw6Uf8eVvuyQAycXJ1TR=5e2Q@mail.gmail.com>
+Message-ID: <CAHk-=wi=GZ7766ZBoT11aAp=Nqw6Uf8eVvuyQAycXJ1TR=5e2Q@mail.gmail.com>
+Subject: Re: [GIT PULL 0/4] soc updates for 6.13
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_150314_780221_EBAFCB6B 
-X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-CacheID: sfid-20241120_151908_864774_D1195E32 
+X-CRM114-Status: UNSURE (   7.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,54 +104,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 42f7652d3eb527d03665b09edac47f85fb600924:
+On Wed, 20 Nov 2024 at 14:58, Arnd Bergmann <arnd@arndb.de> wrote:
+>
+>      12 Jo=EF=BF=BD=EF=BF=BDo Paulo Gon=EF=BF=BD=EF=BF=BDalves
 
-  Linux 6.12-rc4 (2024-10-20 15:19:38 -0700)
+The name "Jo=C3=A3o Paulo Gon=C3=A7alves" seems to be correct in your actua=
+l
+pull requests and in the git tree, but you have something seriously
+wrong with your summary generation locale.
 
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-arm-6.13
-
-for you to fetch changes up to 9c6cb0377534e77265ea673fd4834f858d5d1a6f:
-
-  Merge tag 'imx-soc-6.13' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into soc/arm (2024-11-12 23:14:50 +0100)
-
-----------------------------------------------------------------
-ARM: soc updates for 6.13
-
-The SoC specific code updates for 6.13 are fairly minimal. One Broadcom
-SoC model gains automatic configuration for the debug uarg as we have
-on many other machines, the remaining changes are trivial cleanups.
-
-----------------------------------------------------------------
-Andrew Davis (1):
-      ARM: imx: Switch to new sys-off handler API
-
-Arnd Bergmann (4):
-      Merge tag 'arm-soc/for-6.13/soc' of https://github.com/Broadcom/stblinux into soc/arm
-      Merge tag 'samsung-soc-6.13' of https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux into soc/arm
-      Merge tag 'zynq-soc-for-6.13' of https://github.com/Xilinx/linux-xlnx into soc/arm
-      Merge tag 'imx-soc-6.13' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into soc/arm
-
-Florian Fainelli (1):
-      ARM: bcm: brcmstb: Drop custom init_irq callback
-
-Gaosheng Cui (3):
-      ARM: samsung: Remove obsoleted declaration for s3c_hwmon_set_platdata
-      ASoC: samsung: Remove obsoleted declaration for s3c64xx_ac97_setup_gpio
-      ARM: zynq: Remove unused zynq_slcr_init() declaration
-
-Linus Walleij (1):
-      ARM: bcm: Support BCMBCA debug UART
-
- arch/arm/Kconfig.debug                  | 12 +++++++++---
- arch/arm/mach-bcm/Makefile              |  1 +
- arch/arm/mach-bcm/board_bcmbca.c        | 31 +++++++++++++++++++++++++++++++
- arch/arm/mach-bcm/brcmstb.c             |  6 ------
- arch/arm/mach-imx/pm-imx6.c             |  6 ++----
- arch/arm/mach-zynq/common.h             |  1 -
- include/linux/platform_data/asoc-s3c.h  |  2 --
- include/linux/platform_data/hwmon-s3c.h | 10 ----------
- 8 files changed, 43 insertions(+), 26 deletions(-)
- create mode 100644 arch/arm/mach-bcm/board_bcmbca.c
+              Linus
 
