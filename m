@@ -4,59 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1BED6E2DD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 09:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE06D6E2DD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 09:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iWBS9aScdR6D+NEblJxoeaGWLTaC7n5iTgmxM+tXxIk=; b=k6cHzUMcTOfoj/SyPS4+H/jJN+
-	fgv8WBjUffOjMoy/FI+8G5lpqEOwPi0su2T7FBirMYTNJfWjWu9uwf28Il6Bhv55YbbcFzTN73zZQ
-	/cXq7QLDVX0OCHhubYXudKweGk75m9BUy/5qOprZ75U//C6MHBfuE2amt0hMjHKyaoLzVE5fiEtZm
-	3B7yNgsjPx/aXPkWuLRxIrBzC8YvcpnjDmYRfIdNxQqjH7pOdTC3tsfJkA16ByY9RtH+UryjH2/8S
-	3Gjk/x5EMxH31pLcOA9NtQOjvzfHHCrd+gjDtx4IzJPKmzKbLrF3sQROMHrgj0IA/W9ZYp/rCojuL
-	a7ySWwnw==;
+	bh=87A6jKjdMykUuhoirE5rfPzwyr1ZepiBZiSgzp+TUbw=; b=TLAN3I4hF0WCaPltLYpo6zbDNR
+	TTc2ZWd/P3YfWUFMV7ZUP1NhAQ6NGyDhsZOTSUoPJM6dmxHPR0fYY8Sk1U5PEdbi7IM5QIiyFCxCi
+	kkeXz8z2k9mVdPikdlFUKbLSA91qclOqkZRxi+QHOc8p4bVqEM1g0YapmT6kukNN1FPHao/AeB2UG
+	JtfVMOheBcqTuxaf8ymI7OujQnsez3AlJf8ZNbvfMHO3AuGGIwI8XW3FuPPOqkwA/Ayeywbafii8c
+	K2EXWpyRmoLo3Yr3FN9sw1W0ua4vNZIMaJ+0Yq0/Djk57J1VoBgjaLzKfUSSmoLm1kUc2YMz6JdSx
+	S5SFw4og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDgaa-0000000Epzh-2lnT;
-	Wed, 20 Nov 2024 09:01:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tDgbU-0000000EqC1-1W0o;
+	Wed, 20 Nov 2024 09:02:28 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDgYt-0000000Epcp-2Dbi
+	id 1tDgaH-0000000Epva-1Muw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 08:59:48 +0000
+	Wed, 20 Nov 2024 09:01:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 047D75C55CF;
-	Wed, 20 Nov 2024 08:59:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E937BC4CED7;
-	Wed, 20 Nov 2024 08:59:45 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2153EA42E3F;
+	Wed, 20 Nov 2024 08:59:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 409A0C4CECD;
+	Wed, 20 Nov 2024 09:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732093186;
-	bh=OPxTtvi9bEw4jt5RVpouDO/nbmR61bu/6KIe3jgDYWY=;
+	s=k20201202; t=1732093272;
+	bh=cXF+85jJaXoTpaetQcfN+ouYOFAfHJvV0CrdvqEAJWA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LO4hbBPhN7wipq33TWL7xfJXJl7Ur+4M2+kfkGL/weB5onfT2Wt0z76ycZ5g/mvF1
-	 cYoQjD/ZsUtOvIKYCxEPMcRm3VfcEyHcdEcSdbZQLVA/L0GEv1DjWoSS4x/L6mREj4
-	 8eSDSoCL/mJawiZqZtKTi34YQ3eY4RmVIACVY1oGFbYRfvdlkqpGyxseIJ9LdLHhCC
-	 h0LWYuthg49LxsVbi2uPGJDq/btAdCT6wTTMoyaM2XbLNxWWMusJEUnVJaauJn4WgR
-	 jO9IRmr+PO1jUwnKq8IDKiAIhBfUw+M68EAWObL/AvhwUPkhEo352XTI2XXpQX3Jmr
-	 AG99BupmZRLEA==
-Date: Wed, 20 Nov 2024 09:59:42 +0100
+	b=r7Q7gOiFKqHq29LdQjzhkBkVjanwxYRRhyiY1zRfG4Ap4lhzKiuuoGvs2nhiWWuuC
+	 F+U9PPetCiJdR/CtyG2H3T6VuAz2mZNzmZB2LW630ugkQOTzcVwUWZkr4txVej/kLQ
+	 oaCOzBB4K6hP6CDmw5o0NND4yOHaFZArpTXhJHrR6hRdmdDkYR7oFGX2LduZFFfge5
+	 ilEeYps1apekLptPxR7pr4Z2whma4cLEyaS8T6iCYknohmyOL7lfKrgmVvkoCfJoZ8
+	 eRLL824FKNGCeYKpYWvvh5u67mdjLaU1EHSbV79VzGqZm8eJv3LoeTpcW0ecyO/eNu
+	 FTg3Su8R/hsbw==
+Date: Wed, 20 Nov 2024 10:01:08 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Ryan.Wanner@microchip.com
-Subject: Re: [PATCH 03/15] dt-bindings: atmel-sysreg: add sama7d65 RAM and PIT
-Message-ID: <szwayqsq3zw3nc37fb3comys2wj5vdtv6peb7icwne4cxnraeb@uzpq3oxbhj6b>
+Subject: Re: [PATCH 00/15] Add support for SAMA7D65
+Message-ID: <uskwi3uzowtbm6o4y2blcnktacvymasf53ppzxg5su4shvt6e6@bpuejjtwuczw>
 References: <cover.1732030972.git.Ryan.Wanner@microchip.com>
- <01cf1bbae5949cbceb2768f2044377bc2479986b.1732030972.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <01cf1bbae5949cbceb2768f2044377bc2479986b.1732030972.git.Ryan.Wanner@microchip.com>
+In-Reply-To: <cover.1732030972.git.Ryan.Wanner@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_005947_607237_6EC9C310 
-X-CRM114-Status: UNSURE (   7.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241120_010113_428211_450962BF 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,16 +70,24 @@ Cc: robh@kernel.org, conor+dt@kernel.org, arnd@arndb.de, alexandre.belloni@bootl
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 09:40:09AM -0700, Ryan.Wanner@microchip.com wrote:
-> From: Dharma Balasubiramani <dharma.b@microchip.com>
+On Tue, Nov 19, 2024 at 09:40:06AM -0700, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
 > 
-> Add SAMA7D65 RAM controller, PIT64 DT bindings.
+> This series adds support for the SAMA7D65 SoC.
 > 
-> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+> There have been patches in this series that have been tagged as
+> Reviewed-by or Acked-by, I will link these threads below.
+> 
+> 1) https://lore.kernel.org/lkml/20240829-sama7d65-core-dt-v1-1-e5d882886f59@microchip.com/
+> 2) https://lore.kernel.org/lkml/20240829-sama7d65-sck-v1-1-3e7b19e3cbf9@microchip.com/
+> 3) https://lore.kernel.org/lkml/20240829-sama7d65-next-v1-1-53d4e50b550d@microchip.com/
+> 4) https://lore.kernel.org/lkml/1da0abbb-94e5-42fd-a2d2-71d5d7d253fb@microchip.com/
 
-Missing SoB.
+Merging everything into one thread makes it more difficult for
+maintainers to apply patches. Some maintainers don't like cherry
+picking.
 
-This applies to all your patches probably.
+In any case, this is at least v2.
 
 Best regards,
 Krzysztof
