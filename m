@@ -4,63 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845C7D44171
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 09:54:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF72D60D17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 09:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:
-	References:In-Reply-To:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=CjSe/U+nzv9GiQYKnA55TJmWIVaBLG17HklLuP9BQuo=; b=HyC4YlxbZtIjNWV4YRCGAUNqj7
-	sk3keC37OO9qF5dCXajP3LUYz1s6V7cCUaaC9nW7Nh9DvE1PMExd//+HbpmaJQloNuPvmWV995jLJ
-	NLdfoGxaLz6rVzmlHAPG1pJLE/BEu4gQaheVwi1AXM6xtOe3ySvpgcDIUVZod2w3M5MO1Gow/l2qk
-	33rbDUpJhV2BPLBj7iCzQAXy+wkqJsTrCVzi8//SAzSGIn6Q4nJz4Q/1Z01ncKgD60GUrG4k5nloR
-	bzONw2EUq5tTrLmEDP4PjRtd1NBRvCZG/zH8/8L5FDHBqkSUMOw6RjHCRUN0hgya5knW1IkOydy/B
-	akM43jPw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B6qaWb14HL+Knbhffdql1dw5GhccHqJwbBK1crGOS+8=; b=ffwsiT6b7NwNFnh9jZ8x7w5kn3
+	w59EcmAz6o6K2eQq2MClUbiqnQsRAA+acbA9963ROi+7ifqa2Y+I+H8zAPsdR8u7eI2ILjf9a167f
+	gGW7jGYfcJOCbXcB35Pif06/PvPwqKR407vA+q4w3wCFd9v5kRpK3vHGUIuk6XdMpEsfd9x6Rmj57
+	aNkNUhObYtT+MxViEjpRJME82RPDjAFRJQEPCJPgp/Lv9/lwhjoja+WPBIgGCuVluuZYnjq5oAcKG
+	a0tdEO4OCnk14w9FUf4HxwKNvvBflAwOXoRKcEkIqSW920QErj17GssnRTpgUzT0Mep+cLcLh9n7r
+	zhbYuNuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDhQ0-0000000EyPy-0xnd;
-	Wed, 20 Nov 2024 09:54:40 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1tDhR1-0000000EymF-1hxr;
+	Wed, 20 Nov 2024 09:55:43 +0000
+Received: from mail-dbaeur03on20613.outbound.protection.outlook.com ([2a01:111:f403:260d::613] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDhOA-0000000Ey4c-18mK;
-	Wed, 20 Nov 2024 09:52:47 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 2BCCB60005;
-	Wed, 20 Nov 2024 09:52:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1732096361;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CjSe/U+nzv9GiQYKnA55TJmWIVaBLG17HklLuP9BQuo=;
-	b=UMsqcLqizhfjcdodWKdRRxIHV/G24AKIsGNrdAAq4ZT9e/a9MVuhkV/AOZQ0kRe+iAF131
-	xWlc7VGm++AIHwxvSi1cFpq8y3AfypDdpXPHg+R8zytnvRnc/lXI4CndJZ+clFyZkMNUkB
-	K4rSmJ+GW3cgI/j0F0Ziev7Q82q8O/t9yiUr50dDIellFUW7jQcHAjB3R7E1NepRa1KImD
-	zdXTwbQ4eOAIk2e9JAty7V91bo9Bvg3JKqBs7gJs9pV6bIjkqcrbzasIiMFj3N6nPUXPjS
-	hwLeJt9Ro2U3gRa7a/vAyOWgyPSCxvuhhqafKFS9d0uH3b3+344AeSnRRue/Ig==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: "Mahapatra, Amit Kumar" <amit.kumar-mahapatra@amd.com>
-Subject: Re: [RFC PATCH 1/2] dt-bindings: mtd: Add bindings for describing
- concatinated MTD devices
-In-Reply-To: <IA0PR12MB76994483BBB757BD9F691513DC202@IA0PR12MB7699.namprd12.prod.outlook.com>
-	(Amit Kumar Mahapatra's message of "Tue, 19 Nov 2024 17:02:33 +0000")
-References: <20241026075347.580858-1-amit.kumar-mahapatra@amd.com>
-	<20241026075347.580858-2-amit.kumar-mahapatra@amd.com>
-	<87frnoy8na.fsf@bootlin.com>
-	<IA0PR12MB76994483BBB757BD9F691513DC202@IA0PR12MB7699.namprd12.prod.outlook.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Wed, 20 Nov 2024 10:52:38 +0100
-Message-ID: <87sermxme1.fsf@bootlin.com>
+	id 1tDhOF-0000000Ey6f-36tS
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Nov 2024 09:52:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Wm7n05rZA2tPkNsfEw6yaAqsLgkRw7YpVMZ3kmEh26ux7YDYapNeVjVLDyfR1T2YT+lNnaAmB56mknBGD8DpQn9KBy/RwI7zjAHKF6xNtFz4My++QxSTc3tehK3nEnyHZ8ryHR5KPScJosf1bXO408z1n95N/DQ1eNnCmtKmIc+mip4N37NmgiciRqGIlzaiNVZtso2FJkVDz1ycfGy+klxWounX5dqXDuTwyykixxZ4cR9A12ZTK+TqyFX0q5QXarF+7DrQkRoAj5L6sctxXHH75bGfC3EThBGV6H1PBl2QwaNyvRpE3MpuJSZN03pESwK9C1pMNM4gwNiTOuy4cg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=B6qaWb14HL+Knbhffdql1dw5GhccHqJwbBK1crGOS+8=;
+ b=iGa2oGbs3T06UdlVHvgE+l1bZHcZc+dDDKCgAbRWfZ4iYDEidTMcK3TBV8kbb6KNwZLG9GTcMUdoB2pwNqdZ+pOSHctgFL76X+8EXEJkW6nxMKMBEw6rbv2VOHtVqRwUUY2B4fzQ7Nf8NzVQH5luB45Zybhh8gSBEHQ6XmOeR43snlFyFtm4ZitSZ09XZ6puE/x7D5E4Eim9Iinx6oOI5kSDHBzoh4kZKfT3Sz5lgLyA3G8Vee8oniptpnrmLeWHYWoCtEl6w99DP2xjEsRktnqQudezlJsE6iN4v5wu5Ugrh+S6fNZt5379abLZXVOOsiM3OIWdYTY/eWy6/cE28g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=B6qaWb14HL+Knbhffdql1dw5GhccHqJwbBK1crGOS+8=;
+ b=I83z2fdQdph5vkDOsw3ciCW5wcR2hYjyJ4lSMUAr34awAMB5qZZl2k0UTLb8kbFKMAIU3mnYhLVq1tTphwhIG2Ja9+bFxMNPOClAA9R0HH0KaTiIvhZEN9eQlgQ/NPP1fqtEd515mkt76coLFMxm68ABlwrUjc1nHXRVk31n43c+X1beFNLUNqShi+4tH6StRBDe+M5NCyOiVHYQfj4GZY2h+W7WS0UlKANH6exDH1jWTmafvnj6cKr90adP9Zv7GjvdCQJ7rW7+oxkfp7jgHakIUmLOnptQfkQTuw7Rsw9bSDDiz84nJeQlXoM+Py2hrHL6QE7RTIzhmdD5sSeWDQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB8PR04MB7065.eurprd04.prod.outlook.com (2603:10a6:10:127::9)
+ by GV1PR04MB10128.eurprd04.prod.outlook.com (2603:10a6:150:1af::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.23; Wed, 20 Nov
+ 2024 09:52:47 +0000
+Received: from DB8PR04MB7065.eurprd04.prod.outlook.com
+ ([fe80::8af7:8659:9d42:bd84]) by DB8PR04MB7065.eurprd04.prod.outlook.com
+ ([fe80::8af7:8659:9d42:bd84%4]) with mapi id 15.20.8158.023; Wed, 20 Nov 2024
+ 09:52:46 +0000
+From: Pengfei Li <pengfei.li_1@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: joao.goncalves@toradex.com,
+	marex@denx.de,
+	hvilleneuve@dimonoff.com,
+	hiago.franco@toradex.com,
+	peng.fan@nxp.com,
+	frieder.schrempf@kontron.de,
+	alexander.stein@ew.tq-group.com,
+	m.othacehe@gmail.com,
+	mwalle@kernel.org,
+	Max.Merchel@ew.tq-group.com,
+	quic_bjorande@quicinc.com,
+	geert+renesas@glider.be,
+	dmitry.baryshkov@linaro.org,
+	neil.armstrong@linaro.org,
+	arnd@arndb.de,
+	nfraprado@collabora.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	ping.bai@nxp.com,
+	ye.li@nxp.com,
+	aisheng.dong@nxp.com,
+	frank.li@nxp.com,
+	carlos.song@nxp.com
+Subject: [PATCH v3 1/4] dt-bindings: arm: fsl: Add i.MX91 11x11 evk board
+Date: Wed, 20 Nov 2024 17:49:42 +0800
+Message-Id: <20241120094945.3032663-2-pengfei.li_1@nxp.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241120094945.3032663-1-pengfei.li_1@nxp.com>
+References: <20241120094945.3032663-1-pengfei.li_1@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0035.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::8) To DB8PR04MB7065.eurprd04.prod.outlook.com
+ (2603:10a6:10:127::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: miquel.raynal@bootlin.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB8PR04MB7065:EE_|GV1PR04MB10128:EE_
+X-MS-Office365-Filtering-Correlation-Id: ca48edde-35e8-404d-7b44-08dd094915aa
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dH/9IJflrxinoOHBD+J4KiSjEg5DNhwfsbCBX3sSUykNhVs/i7BvKAj+4Nsh?=
+ =?us-ascii?Q?JBlpUPmHVk7YFpn/byelK5JY8Sm+Wb7Y+3lATmoMw2ZHvC8gGmemIr0a/vrf?=
+ =?us-ascii?Q?Glu/eSefYhKxDcWNPdCUR5bWxUNN6L3Ry284WpXxWDFyaW40ZA8ZXYR+huar?=
+ =?us-ascii?Q?jj2TucfFFKkmZTEsiIjIbBdhvS4zavyur6VjSnmGgSI1YU5C+YMCJ4G9Ga6x?=
+ =?us-ascii?Q?jcy70tGA0Tg7edwn6VtMUxv6rQDrmiweNDDE3+u91Iltonfohm/9onb6haOv?=
+ =?us-ascii?Q?MedvwXGpQ9yHPeCTaYddeboQrV+7q3jyjt65wRqnueCqOqUin69mnY5t6++2?=
+ =?us-ascii?Q?apJ3a0qJwTxdyA+89EHD//cmKgW6QNzhgn+UNXgnlu4YvtuIiHfk+iFCZP2n?=
+ =?us-ascii?Q?H71MlGLKNJfSVbxQ74H2zruUIgt0vf2cZUVm4Mg2JVgxZOV5udYaPmltf469?=
+ =?us-ascii?Q?ica4/NbxAIyYikV5zC6jPRiKUHGKqRut8sZlgSg1sEqCq9J9a3Jv8bIq2/ei?=
+ =?us-ascii?Q?Mn9MB0vkqWkpTM71SB+jytqoelXBxaJQNrhqCXsuvmlvucnfZ+bU8D1l/w9J?=
+ =?us-ascii?Q?Gy9jvOwrYHfoCFr7qXvCovb9QCz06YpdtuW2f9b/wVQaXKDbGVF88Kw0W3Na?=
+ =?us-ascii?Q?Z11sq3khUxhlQWm8+KQKqQ7Zrzy1tV2/SPSc/rX9vfJg3sls5Bm9TEFo5yJ7?=
+ =?us-ascii?Q?AJnhwQYCuizUPr2v1Ev+J1bYQyrOlA+nkJzjunFdVWFPH/EivTGp54Xs7QCB?=
+ =?us-ascii?Q?t/IBn/dHo3DHh/4OEHszDnkjunMIO3EUMJAA1iSH6r1OgieZbOpNhh2TTpIB?=
+ =?us-ascii?Q?891+D5ItGdTTW1LaUmvXPG1vbJSMEhy3xeGwl/iUUdvp4esX6uIYXqIhD0c+?=
+ =?us-ascii?Q?ZKyCxPMri9sCg5/9xwj55n4t8WqYcnoJZmdybuSFBWwORBbH2jO24t0I1pIy?=
+ =?us-ascii?Q?0l2uTSOhQmXcesoCWK1j5KoukBGAN81gi509LGFlUEmTE2m7tXNfPkzf3dAT?=
+ =?us-ascii?Q?qeUfrOfHZYLkULspMue6oUFNrwoROm7LmDVjGBebvQzgGQfZl1mYX8v2fy2G?=
+ =?us-ascii?Q?TUDAlN0MDKycfbtR+OMLUJwchlH453SXLl3vWssGJj0mXJUWCpYRgCWZYZOD?=
+ =?us-ascii?Q?Kva7zVOpmuVOfrT5cPswCBi8IZZkGID+Bv0/gPChRdd5xihIT8i5ewGUoKUR?=
+ =?us-ascii?Q?BIscw4/RXFnlZ9xjhhdlq8UfuADsW5r6fHfvSC4l6ueeC3lZFyDPhhMCiJ1t?=
+ =?us-ascii?Q?/dZnfaEdl7Op79eTfB1Z4U+V/v4lLeq1vMzQuHIDHSC6WdCN3mjn74JGwtjE?=
+ =?us-ascii?Q?u/jopwamSRZRSlyRFhMLXqiqkmbOIOhrrsOh77yebb7iuyMDyyrPh54SpLVY?=
+ =?us-ascii?Q?ypGjcYs=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB7065.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tY4LarMxgZ2O8gjTCMt4AGIxgGGhcMfopsKaHnQs2zvuH47j+Y700FA5RGxc?=
+ =?us-ascii?Q?4edW4glwrSFtrLHs/BXx9BfnI/fSHC/up2SSu86UKPpkyCSEWnTzb5UOa3Yj?=
+ =?us-ascii?Q?32cc8FRt+qG6ihpDPdv5lbAuktrk0AArBjrFZ7J/HCsA8sJYNtsPm0Unern/?=
+ =?us-ascii?Q?T89NB7+dcO/0YRPaIlTkbcOJcoqcjAM30ul/JYnqpej6uQQd+x6I2388rJGV?=
+ =?us-ascii?Q?EVLw/HS9nM+IoC38FsVBIrXntqiU+TN4aEx9d9pOYEiBtveJcOeqRaS++IYF?=
+ =?us-ascii?Q?O7/XJun/cmbXNh1B3dhsg+xmIubBbFu/d1hJBqQuVVdJyD5e9nPfFG8Dx4/U?=
+ =?us-ascii?Q?E5l0/mhbNlhYVSstEigJ70jRIMQCeg8u7Z3gAWD3OR5QYyasBqJqUaJkxDnJ?=
+ =?us-ascii?Q?IgEHwKkzhOwGvv95p0zzJU6u/pNtjvgeeum33KXdgyCocNXUkK/dNdjYImt7?=
+ =?us-ascii?Q?/rbMnD8tTu71jhE2BdPTmRdufx4ix/ZIMAXrdGFq5rGTUXCdSkRzYEdOfFJu?=
+ =?us-ascii?Q?lkF+6qSTmiQh005ytOTy9fSRjRFzkYGpccwTATbpKQFOGYy0zyv6jEOMJ+m4?=
+ =?us-ascii?Q?yBTOJ37aMFfxZCAMqno1HMA6QosaWCICgHHsOqVhau+a0eaqCYynPHoBWjkh?=
+ =?us-ascii?Q?Zn24qD6nCEsXk2Afcds8s0shDnmqc700go1nZ1d5vtJLYGuL4sjEL2SrEVaR?=
+ =?us-ascii?Q?UsGQam4r5vfOG4Xl4Oe+h3GLy213NzFH3XFCAVSha639DEOQHIJiwsVxeXkU?=
+ =?us-ascii?Q?iHDqvUlAcGJETcQtIHqRltEvzoCoCKaM/kANHLVgj/wAA6XhMSKoDFq04BoY?=
+ =?us-ascii?Q?AJfoDNIjF8488BPh3qAaMDA6HkjEgNfepRrLKba+qYteRyQsEtUX3zKgpaqC?=
+ =?us-ascii?Q?L2QQP029gB53DV7pKso+oRhqoqWB8Pe3T5ADVFgkj+cGfaMQf/Rz75BPJ/aq?=
+ =?us-ascii?Q?l+H7LD8M2OYQkuSLGgRA/Q3Y7170x07GzA1JJSAisKEIhcy261Ib3iB793Nm?=
+ =?us-ascii?Q?9EyDeOh0ZQOFw4L5XdFaQqvsqANvbz7i1r4ATA6P5dwvhmyUb8FaL4WRrHcD?=
+ =?us-ascii?Q?CItOuMwOAvgnBRvYcxE4VR4ie6P+GzqdpDYrZJtNteEQZGZfT/S/FNNExGge?=
+ =?us-ascii?Q?ZQlV9UmL7QYrjB85vqK0xebzhCvcKjBcoUrU7S0UY7P02sOCB2bzPC3vQNK9?=
+ =?us-ascii?Q?aVOJxaqVeA+9f/FmQAasNHsA7h2Ey+aQC7NifoZ2TAFeC2n8OQtF2ymINPzh?=
+ =?us-ascii?Q?scgFWJts61rMhSGIyKM9pVC3E5NdRLLHTYJUcaQoS2ZuMgZ1sKJodN5vvl7S?=
+ =?us-ascii?Q?yBLB9CtycHSy4+XtJEtcLsb7Z4fGFBgON1TD1ZxKCBsVz/yQIpBnd9GskNSZ?=
+ =?us-ascii?Q?eI6ITrZmGkFC6OWxhejEZrexsS1qD/G/M73wLhVdDxz96vn2iljiWWzdfLpW?=
+ =?us-ascii?Q?lVQep1xRcbIsibsWs6WcnvGE568T8Olc1IIndtJgKlc8oXDVBlQuBbDeWsC2?=
+ =?us-ascii?Q?jMwiZK+3HYuS3JBDLzP77X/W48Yl/gJVEicYEj9eIacuNAUsPyAjzs/QVJwD?=
+ =?us-ascii?Q?t98/Oclu+ECEI+AYlX5L233BdjgZgsVmw9zINTRw?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ca48edde-35e8-404d-7b44-08dd094915aa
+X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB7065.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2024 09:52:46.0963
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3ICxbFUMocQGGft9XioHHhtSUx/FPjM4pWBXxMLHVFwdHiXfbxlNdENJLBKrR9aS60WW+liMHk6aL1ZeUZcKWA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10128
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_015246_738141_411C87EA 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20241120_015251_778749_E36EC018 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,101 +184,35 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: "alexandre.belloni@bootlin.com" <alexandre.belloni@bootlin.com>, "vigneshr@ti.com" <vigneshr@ti.com>, "amitrkcian2002@gmail.com" <amitrkcian2002@gmail.com>, "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>, "claudiu.beznea@tuxon.dev" <claudiu.beznea@tuxon.dev>, "beanhuo@micron.com" <beanhuo@micron.com>, "git \(AMD-Xilinx\)" <git@amd.com>, "robh@kernel.org" <robh@kernel.org>, "richard@nod.at" <richard@nod.at>, "tudor.ambarus@linaro.org" <tudor.ambarus@linaro.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, "alsa-devel@alsa-project.org" <alsa-devel@alsa-project.org>, "broonie@kernel.org" <broonie@kernel.org>, "Abbarapu, Venkatesh" <venkatesh.abbarapu@amd.com>, "Simek, Michal" <michal.simek@amd.com>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "patches@opensource.cirrus.com" <patches@opensource.cirrus.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>, "michael@walle.cc" <michael@walle.cc>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "pratyush@kernel.org" <pratyush@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/11/2024 at 17:02:33 GMT, "Mahapatra, Amit Kumar" <amit.kumar-mahapatr=
-a@amd.com> wrote:
+Add the board imx91-11x11-evk in the binding docuemnt.
 
-> Hello Miquel,
->=20=20
->> > This approach was suggested by Rob [1] during a discussion on Miquel's
->> > initial approach [2] to extend the MTD-CONCAT driver to support
->> > stacked memories.
->> > Define each flash node separately with its respective partitions, and
->> > add a 'concat-parts' binding to link the partitions of the two flash
->> > nodes that need to be concatenated.
->> >
->> > flash@0 {
->> >         compatible =3D "jedec,spi-nor"
->> >         ...
->> >                 partitions {
->>=20
->> Wrong indentation here and below which makes the example hard to read.
->
-> Sorry about that. I am redefining both the flash nodes here with proper=20
-> indentation.
->
-> flash@0 {
-> 	compatible =3D "jedec,spi-nor"
-> 	...
-> 	partitions {
-> 		compatible =3D "fixed-partitions";
-> 		concat-partition =3D <&flash0_partition &flash1_partition>;
->=20=09=09
-> 		flash0_partition: partition@0 {
-> 			label =3D "part0_0";
-> 			reg =3D <0x0 0x800000>;
-> 		};
-> 	};
-> };
->
-> flash@1 {
-> 	compatible =3D "jedec,spi-nor"
-> 	...
-> 	partitions {
-> 		compatible =3D "fixed-partitions";
-> 		concat-partition =3D <&flash0_partition &flash1_partition>;
->=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
-> 		flash1_partition: partition@0 {
-> 			label =3D "part0_1";
-> 			reg =3D <0x0 0x800000>;
-> 		};
-> 	};
-> };
->
->>=20
->> >                 compatible =3D "fixed-partitions";
->> >                         concat-partition =3D <&flash0_partition &flash=
-1_partition>;
->> >                         flash0_partition: partition@0 {
->> >                                 label =3D "part0_0";
->> >                                 reg =3D <0x0 0x800000>;
->> >                         }
->> >                 }
->> > }
->> > flash@1 {
->> >         compatible =3D "jedec,spi-nor"
->> >         ...
->> >                 partitions {
->> >                 compatible =3D "fixed-partitions";
->> >                         concat-partition =3D <&flash0_partition &flash=
-1_partition>;
->> >                         flash1_partition: partition@0 {
->> >                                 label =3D "part0_1";
->> >                                 reg =3D <0x0 0x800000>;
->> >                         }
->> >                 }
->> > }
->>=20
->> This approach has a limitation I didn't think about before: you cannot u=
-se anything
->> else than fixed partitions as partition parser.
->
-> Yes, that's correct=E2=80=94it won't function when partitions are defined=
- via the=20
-> command line. In my opinion, we should start by adding support for fixed=
-=20
-> partitions, add comments in code stating the same. If needed, we can late=
-r=20
-> extend the support to dynamic partitions as well.
+Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-New thought. What if it was a pure fixed-partition capability? That's
-actually what we want: defining fixed partitions through device
-boundaries. It automatically removes the need for further dynamic
-partition extensions.
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 6e0dcf4307f1..5951317ce900 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1332,6 +1332,12 @@ properties:
+               - fsl,imx8ulp-evk           # i.MX8ULP EVK Board
+           - const: fsl,imx8ulp
+ 
++      - description: i.MX91 based Boards
++        items:
++          - enum:
++              - fsl,imx91-11x11-evk       # i.MX91 11x11 EVK Board
++          - const: fsl,imx91
++
+       - description: i.MX93 based Boards
+         items:
+           - enum:
+-- 
+2.34.1
 
-Thanks,
-Miqu=C3=A8l
 
