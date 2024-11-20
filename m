@@ -4,203 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60EE5D743C6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 19:49:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEFE4D743D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 20:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=745UOAP2+MF5mTpJd+RtAUIFrC55sdzVWckk4JLZS6o=; b=S8zGJhfqb4m/vhn7c7ORerOCop
-	zgXygZnAF8ZsWRpKBdqGYmlp6x7IvwPlRBCC7nbRNTa5bDMMiftFfT85m6PBuUq2ezrz3BcIufl9v
-	MW47m2fJ284W6Z9YvlfWGbL+H5EgcRjKX8vPc7N3fl+IUdV4GXvdMa/q8SgxMQcGqEI6Z2ArWlcV9
-	Uy4lRVlxMLDPeTAa2jgQopH/Uzg3vzFDh5sRTuhghaOy9dZLBICJrzZ/OeschhoezibO5rMdm+J3A
-	r1Aip0431twXr0TT+NX06XJPXIx015ecRd5Mom7/QRGmN0p4+6l4u5XCpUcakV5GBgcx9S8ShxExy
-	qLnIELeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RMa9FYKJpapUBH2UPjLfcSTTq3ILiaq7oyOfIRPv2aQ=; b=wJUvSHMpXuevsksWxpyX+WiRPj
+	3XOO1rfIzD0nm5CoTZ8zO+cpVMDRlfF+e5yqshNzmtFAhbDMsABnjGpi7Ggyn+tK6C0lxY95xRLuA
+	/d/rofj6lNlVPHZnFfb9ZQTslmeiouBtDuxgXrnY2SNZ69sj1aoNxRJjyVnZdrF9eQa+aRNSy3zsu
+	ptPhOE07jckQGdsQpQxKMPm2OMUQYvmYqwqaiP2dJc1qzJywdEs1WOV1NPWdwQVFEU3/0klLAKXis
+	DQSVQPMll1c4jpDjRmfqEvj0+MwFW8oEeh7137aU3LzxKID5elb2zmiyEC1nQVXmAFuuhItl7GgH+
+	otTN7doA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDqhf-0000000G9AQ-14og;
-	Wed, 20 Nov 2024 19:49:31 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1tDr9u-0000000GCEM-2QFY;
+	Wed, 20 Nov 2024 20:18:42 +0000
+Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDqgi-0000000G92e-3sMM
+	id 1tDr8y-0000000GCA1-1sFj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 19:48:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732132113; x=1763668113;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=KCyEvHaas/CtiV8qzM+vptXcbFv6MKaQWZrj+yX5A04=;
-  b=Hncoweofiq3IbyVrgOH2tenwdbCGQxAsuEygV85ntxK98A3HQM1r37ZZ
-   HYtP6kmZVhHHdj8I+1RKwvzAZPQFArZwhtvYWPxd5CQmhRNgyNB4dbE3C
-   zLBLd+EfqbG7LFqwqToYodZcYFEK83Ztexc/z9Eg11xdaMkd7kuxQD3XD
-   ibEF71kT6n7JZWdp44VgocLhteI9Z7cuIBmzVAskapDl9fZXnw/F5BEZo
-   VGSXopd6lKURqculkZI81wfU/c64p/OPBuW5+vccesPxZhOdtW/BePUE1
-   uzBymbyhroE0EYPjhv4k5G+DbHJGKkym9YGmMwh16LP723SS42hu0RkM5
-   Q==;
-X-CSE-ConnectionGUID: xJtiOagXTu+oV0La/pRLkg==
-X-CSE-MsgGUID: xsmnhbhhQEqEcQpQTs75XQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11262"; a="31607868"
-X-IronPort-AV: E=Sophos;i="6.12,170,1728975600"; 
-   d="scan'208";a="31607868"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2024 11:48:30 -0800
-X-CSE-ConnectionGUID: YsTjfRIORkirO1/0NwqHfA==
-X-CSE-MsgGUID: cgQ+qS2gRBCLJSC2i2F2xg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,170,1728975600"; 
-   d="scan'208";a="127552876"
-Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
-  by orviesa001.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 20 Nov 2024 11:48:30 -0800
-Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
- fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Wed, 20 Nov 2024 11:48:29 -0800
-Received: from FMSEDG603.ED.cps.intel.com (10.1.192.133) by
- fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39 via Frontend Transport; Wed, 20 Nov 2024 11:48:29 -0800
-Received: from NAM11-DM6-obe.outbound.protection.outlook.com (104.47.57.174)
- by edgegateway.intel.com (192.55.55.68) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Wed, 20 Nov 2024 11:48:29 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZKV0DA3ByQ4hnofAy6LxgczcO12qPS2KORPIzbSWezX8Nt5KebqJ8G+QKvM3pogP15286mrFz2hXn0dpSyA4dnCRS/TQixeFoJF95emgqkJHgANx/tM0Lt/NeQstSl/KWxgBbXCVuV0MK+KrcLWrEvUGvPj6jJfF1LjPNC8PUQWohIkscvX8lCWKKIhmqxsmc5eXdg7uOMmpYDgXS8mBD1CZ0c4Q9GHiEJngmG5FzCVv9xyXU2pmKNDzgMT5es0CwNOUG8sdx59IOW7VSGXKf6Nqeuc+TNRhQa9XUKqJ1zQWzFcGsCphTY9ZDUkivVKVeforsSRHf0/zoqHtzh2STg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=745UOAP2+MF5mTpJd+RtAUIFrC55sdzVWckk4JLZS6o=;
- b=hslAqfpXWJDw7UL+3nsV3+4oaOJQlg9T34BUArQ1LncTSQdIl5jejli4o0MKWkaZUP5eWBSN4zHBEOwVl+PP3RoJ72OrHCfloUX/FxNrNnD74iD/0AGUMFLlEyXxhhPojBJ8YRjT8Kr+DO5+I3UDQJjnAU/LcViYiGxMcTOEJlAxx3BIjQNQwx+QaovcWRIInnPc3RdKPEzq++gOCZ0m4ZWYbJ5cAgV/3RLUpwiZlvE05VLsFHfFCjG+PMN82P614Pb7puFUR4hDtrHKHYaAXW7Op9fpnEA+zp6IhBiFih8XFUSxM1Cdspjq9xoyhOmXiLGahSot9ew9PC7splALhA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
- by IA1PR11MB6345.namprd11.prod.outlook.com (2603:10b6:208:38b::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.22; Wed, 20 Nov
- 2024 19:48:23 +0000
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8]) by CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8%4]) with mapi id 15.20.8158.023; Wed, 20 Nov 2024
- 19:48:23 +0000
-Message-ID: <9b768de9-5404-4efb-be17-86dcef21dbd9@intel.com>
-Date: Wed, 20 Nov 2024 11:48:22 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/1] net: stmmac: set initial EEE policy configuration
-To: Choong Yong Liang <yong.liang.choong@linux.intel.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, Russell King <linux@armlinux.org.uk>, "David S .
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Jose Abreu <joabreu@synopsys.com>,
-	"Maxime Coquelin" <mcoquelin.stm32@gmail.com>, Oleksij Rempel
-	<o.rempel@pengutronix.de>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20241120083818.1079456-1-yong.liang.choong@linux.intel.com>
-Content-Language: en-US
-From: Jacob Keller <jacob.e.keller@intel.com>
-In-Reply-To: <20241120083818.1079456-1-yong.liang.choong@linux.intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR03CA0282.namprd03.prod.outlook.com
- (2603:10b6:303:b5::17) To CO1PR11MB5089.namprd11.prod.outlook.com
- (2603:10b6:303:9b::16)
+	Wed, 20 Nov 2024 20:17:45 +0000
+Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e388c3b0b76so93493276.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 12:17:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1732133862; x=1732738662; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RMa9FYKJpapUBH2UPjLfcSTTq3ILiaq7oyOfIRPv2aQ=;
+        b=kUWmrco82pry/bwwneJu+aCeuSsCZqhV1guymC1D6l/hw4oAUSJRXy9zgYjcVkSWD1
+         M5jwp8Hdd7ZYAP/HH3IwSjmX72z1lsD2SSIWuARN4xFG3MZSFJDNOtHA/QCKHWeDwjMV
+         1u/45tSIXziqC66kJh1eDq+IuZZm36O/2EmMo=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732133862; x=1732738662;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RMa9FYKJpapUBH2UPjLfcSTTq3ILiaq7oyOfIRPv2aQ=;
+        b=Gs8BzeLMN9hXCPFD099DmFLfKZEMhQaNFRc9xgYfJaPEai5BrKj5pn364WMv1/Aj6X
+         DlCFkeQdEg12QG7iNkgnVHGpEnVjUd+221+tdhC2OCdkVYq9mW6EuJ+FcEB2VMxEL+6v
+         1CL1HD27xl69Cux8KhNDD5w/O/tvMukgalzLRwOunO4BqIwGaw4szWOTHilAYM6+ewZN
+         Jb1XhU26/rP1TbypzMuVXSdrc1emvRezzz+dZpobCPwNn+EUXxGG4nt7AF50g8lqs4p7
+         ncosh3saiaOujltiwpgzFY+Z0YjNc7NkvOHohXKLRRKBeOAACPRGRuumVB4jbzLvS/Qy
+         Pitg==
+X-Forwarded-Encrypted: i=1; AJvYcCXmLkoGoe5ajfT2jTBEMTL67BtJFwF/SGTslHK/IfzEDV3UiJnIrL6aUaIhZviqm3Sn0o5rsJP/aIh05Eb5yXIy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyj56cmkXoGqgWLavNWm4k1S9eYi+GUS4Sg5QEJvOLUlGwj3wUc
+	oJtGQFfu0InIDMN1Owjyj6eEF1s6Ypw9Vsg5flUw3OCrb4mUmozL6IxTAJSPPmSWBotnqwA8fPE
+	q64dnEFUiUp5szfC/fZKExDIPz/qcjNV0x/ou1g==
+X-Google-Smtp-Source: AGHT+IF0g3Ptb5CLxq4yJba6jhB+UOLyiwDyEyI0UH4grlCm4nU7An8bN0jBRYmxFsEclY7z1nInn74Y3LLHHdjtUkY=
+X-Received: by 2002:a05:6902:2507:b0:e29:1b94:ef67 with SMTP id
+ 3f1490d57ef6-e38cb57ec60mr4226122276.19.1732133861150; Wed, 20 Nov 2024
+ 12:17:41 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR11MB5089:EE_|IA1PR11MB6345:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7cfa1061-2def-427d-5205-08dd099c4b28
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?OHVnVEhaQllSQXRXd2QwbWx1aUVsekxBTitCMVVlcmMyRFJMeGtrNG5ZcVIw?=
- =?utf-8?B?K3RGdjZrRDBRbHdrK281bDQ0S3IyMlNRaFBFN3NwY2JxbEt1TjB2aTIvVWFn?=
- =?utf-8?B?bHJ6eCtieUhJL2JmYkF3T24xcjhnZncyQ3VrU0swVm91bjIxbXp1VUtTM2Zk?=
- =?utf-8?B?Qm0reDlkR3pMV21YaUZkc1A4N2F3LzBKQ2NBV1lYYXE5QU16M3hCZjZWbktp?=
- =?utf-8?B?dUtkUVkyWXBuOWVJcDlTL3F6NlVvaUQrWmVGYUhMSWhyb1hLbUZvMDgvOGpB?=
- =?utf-8?B?ZjZFS3VyaVZTWmJ6aGZXSTNURlVEQzJTci9GSkY3UmsrZXIrTG5XSm1jV3Fa?=
- =?utf-8?B?ZnViMDNCSWw4WGtyNU9tZkZ3RGdiUzNTYkgwVkdoMSszdnMxYjl2VnFtbHRs?=
- =?utf-8?B?NEw4NXpETzgxMDFxSzJ1MVFvQ3Q1ZnV3UG1vU3hNckY1cEdWRVYvdHk5WE91?=
- =?utf-8?B?TDRua1Z1TGxUY2lMbEExcHRUSmZPRVM3MUhTT0dLZHdZSURlMStvcG93eVhp?=
- =?utf-8?B?SVg0MC8vTkpYOU9VanM4alBEVGdEMXpBcklXd1JORndiRzE2WThRL2VlZ1hp?=
- =?utf-8?B?bXVYU21YRDlhOUZrY0dKbHYrNHhRcXFWMlM2VjJPRVlFMHdTOEloMEZ4NUty?=
- =?utf-8?B?b3liUjNobkd3OXpaWWUyeENLUHB1aXYwOWp3aVZmUUprOG9naW5JS3hEL3cy?=
- =?utf-8?B?NUlGaXdTRzlCQmNySkdKc1RpTjZ3ajN3c3RQU0U2TEkreGErVWZZU3hpQ1RR?=
- =?utf-8?B?Tmh6V2srNW1VdjVOMzJGR1BSQ2ZkNUcxOElDWk5NbFB1SlJDY1k0Vm5iTzdX?=
- =?utf-8?B?OWg0OGliQ3IwMWM3TVBjS1dYdVFMeGdYQWpOOW1McHcydnJ3QStQK1RSNmMy?=
- =?utf-8?B?bXFKU2JLRW43YXRTQmJWbnZUUUlESXhVdS91RTFGc3ZycGhvc2dlVXRLSS9V?=
- =?utf-8?B?NWVlUmVDdm1HTGxoVDNLT2xpTTVMeXRLL00zZWRoS3JRNlhUM1lwazdxT05U?=
- =?utf-8?B?MzBkeGxXZ0xwemU5TXg2YUkvbUFpM3J1K1M2QzhscWJLblNTV3JwQUNHOWo4?=
- =?utf-8?B?Yk15OWlqbms5REVZejZ2RUhUbGtlTzNTbnMramNNYzdVVTV5cGk5enVpVEdM?=
- =?utf-8?B?VmFjWEdLdDhhdmpTTmppR0dZc092T0lWZGk2eFhYQXo1MTh5NkNsaHhtKzhP?=
- =?utf-8?B?a1pKSmRLZlhZTkMrL2M1dzdVaGZLS3hWclA2ZWhtVnJydmY3NUtRY1dOYlJa?=
- =?utf-8?B?WlBVYllXM1VHWVBnL2d2VEFLbmI1QkQ3aC9ycmhwWjhMNkhiVkRhWWQrdVBE?=
- =?utf-8?B?WVJ2RUFCcHRFU1pqM1g2YlNYU3lFMHU1b0hzNmdkczVhK0lLcTVYUHdmeU05?=
- =?utf-8?B?bUxRY1owbWFob1FtV0JTRnpPb2hsQ3Q4V1VHSDg2UGRJV1V4KzZ4bGlPQm5k?=
- =?utf-8?B?UHpuT0EzSElwNEJSOTViN3p1Mjg0UHQyWXlBSGxvZXJlYkxLb2E4VmZjNlhV?=
- =?utf-8?B?RUI2WmZHYjdmUlEyTVNPbFhNaSswc1ZwQXRGTFBxTU5FQ1ZUUHNPRHBzN3M1?=
- =?utf-8?B?SE1qSnN2Z1I2NDR0eTAwVFJwbEtFMWI4NFo0T3BIa3drMDU0d0hWNnJyWXpM?=
- =?utf-8?B?dTJLNXl3enJKSE1ucVE1Tjc1RlFCUGJ0bzVOUjlyaktaUGJMWHhJL1R0NGVQ?=
- =?utf-8?B?Q0lzZzJNMjZhQ3VHVEduVWpySnVoNUZ0MXl1REJCbGo2cFlpYUxYZnczMXRa?=
- =?utf-8?B?UmtmT1NwUHhYRlRsSktqaXV3Rk9NeURnSHd6UXh5WU9NNk56OXlyUXNJZ3Zw?=
- =?utf-8?Q?oudfHVADaSXNw5s53XQ3jfjSKQOQ5O1kaecBI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V05xTFhIVm9KWnVWR2xkeDRHTVVpOXZNVmdWRnZGZlBiWDBPaVcvMFZDWWFF?=
- =?utf-8?B?ak90ZEErZmVJQXJtUmdOVmppVWh2RGV0b2dTbk5XMHV2cGYwNHVJdzF0ZTRV?=
- =?utf-8?B?ZktZSTlkUHFQc1orYm03M2piM1k3VlhENEVLK0FsNEhiMWQzaHZrendxdDJs?=
- =?utf-8?B?Rm5LeUxYZDBabFpRUUxaeEU2eE0vcnFjR1FDd0NhZDF6Q0dHM3JPMWJjUUcy?=
- =?utf-8?B?MVlTZG5sazRwMndjSmpyaXl4a0RHM1lFcmR1TGlCNCtWZ00vTTNKVkgrWUpB?=
- =?utf-8?B?Ty9BbGdQN3JqeGtad3VkejNDU3VUeisvVk9CUXZpU2JXSnJnOFF6ZEo1SHhL?=
- =?utf-8?B?NUJGbGlTSUdDNUR0bFowTkR3VEptK3pWcFRhV1JINFY1K1JqQm9YU21LNXJM?=
- =?utf-8?B?YS9iTnBLVjlqUXkwY0pSZWFBM1h4VElVSEl4Y2x1WC9UdUxMbU9FWlVMR1d0?=
- =?utf-8?B?VWlQN05YT1pjVE9IdHdUQTIyZDJXdzVQaWZwMTRqNnJMRTg5TTd0ckJoNVV4?=
- =?utf-8?B?Rk52T2xqL1JKSkIvWDVXTzh5VnNiSlJtb3lsRktJSTlES2xoT0ZBdlU0VWxW?=
- =?utf-8?B?aHNhWVgvSjBaNnNOb3pwb3BnQ3Uyd0RYQ2hlK2hZVmJnQThxNnRlcVJ6RnZG?=
- =?utf-8?B?cnBad1g4VHVLZ1k4aTNFa1hpcjZrenRsLzh5UjhDL0l5Z2d3cldTalhxNHJW?=
- =?utf-8?B?NWJhb0lRNWo4SWRZd2lqYWJTMVlrZG5QejFraVBlcFE2cVAyb3FGcG9HMzBi?=
- =?utf-8?B?MVBnVmRUNThrcmJNUzJIM3dhWTZkeHQxOFZHVkxVa0hhTW1PZ3c4a0NGUy9P?=
- =?utf-8?B?MWR3cWE3dHMySG4vTy9YMFRydCtRK2VxNGJJRHkzeWVtbVo0QW1VWU93Y2JZ?=
- =?utf-8?B?dVdlaTRDUXNUU0kxd3VDaXlFS3VGMU43L05nNzZxOHJrZW9PQUlvaVB0bTJZ?=
- =?utf-8?B?L1gvSG90dkg0VjV5VCtNbXVibEtUalFzSWxSdjl3S0o0aEhkUm5GazdraWhz?=
- =?utf-8?B?My9jd2NwYWRwNGFtQVpyOWFxeXpPMVYxeTRxUEs5Q3pSVnlsd2diYnl5V0VM?=
- =?utf-8?B?WVRMMjVNRkFqbzJVcmZzNFF4b3Q1L1BYRTBNZ0N0cGE3OWV2cHdjbzV0Z1Yv?=
- =?utf-8?B?Uyt5ZUloZzNaVTJWcUdrZXR1cE4wQXVZc1hMQTJFTnM0MFdBd3hSMVp6K0JK?=
- =?utf-8?B?RE5sY3Q2YldlQXhDZ0hqcWxxeXo3Z25TVkdSeWE0Nm9BcFl1cnJGZC9UQmM1?=
- =?utf-8?B?YURUWHNyS1RJNDhMN1U1d3JjS0Q5eThWZ1g5Y3hxLy9kMkJFUWNhb3Rtakc1?=
- =?utf-8?B?WU9vdGFVV3JqVzhYTjVkeUd3YlFham1scVdORDl0RkhYMktDaGMxN01iN3NR?=
- =?utf-8?B?NGkvZzl1cGRoRTJJUGdqeG1nZy9EOHhKZ0U3Q2xMNnZ1c3JiN05oSndjZEJz?=
- =?utf-8?B?UEw3TWh3bzNKUWVBL1NEZkpUOHNYS0dac3J0Q3JCWTNrTUMrakFkUFlmaW5E?=
- =?utf-8?B?dUliOGhKYThKWm9VSEl4T0NYL2E1VnZ1VUNpMFcvcVJEbVpsekhsdXNZeHgy?=
- =?utf-8?B?RzJPcEt0czVYUkhidkpUdHZhcVY3VjNUano4eVBzS1padXZISGZXc0FXVXNU?=
- =?utf-8?B?M2pDL2ppMUQ2K040MERvRUE4SHJsR1orNFZMdzU0aEpNQjJ2NTZITjBhQnZv?=
- =?utf-8?B?d1lpNTlnSXVveDJmOEZJejdxUllPVENKeXdEZHBBSzhGN0RBaWc0Yk03bXp4?=
- =?utf-8?B?cC82NWg2WjNoWWd6dE0rempRQUxDUWQwSm56L3FsZTYwajN2bkUyQTJFdlpX?=
- =?utf-8?B?UlhZU2tYalJiL3dOZEtoV1hBdDNnM1I3eG94MC9mRUE3Tm1sRHhpRHRNMlRl?=
- =?utf-8?B?RXMzc0JoNVVRY1dKaEhVLzkyWnBRSVhhM0UyOWZ1eFVSWTgzdVBMZE85Mldh?=
- =?utf-8?B?SnYzYmtzUjZFM1VaNlczUUVISmNnQUlVblI4NlNxei9yeTFxR0M0ZnFGUCtO?=
- =?utf-8?B?dlhvaHRlU3hnMURhMVBDcE9wOVNXTmNQaDFDc1NuNnJvUVN2c2xTMGdYU2lN?=
- =?utf-8?B?YUNweWZjY2RBYzBBOHFTNm9BcE84TmhWUDVtRHBub0NCV29ZSG9OR1pmOVds?=
- =?utf-8?B?RERxZndpR3ljcU9BcEplaDVQcThRWXY3UHRIOXJGZWtwWHJiVjJvK3BJcTQr?=
- =?utf-8?B?eWc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7cfa1061-2def-427d-5205-08dd099c4b28
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2024 19:48:23.8322
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hvBKpCEbccpcyqnkl+juEOnnAaAVlkQx1wAlABUxEBRlH/pZ+9QG5gAJgEjV2UApqkLfEr0JSsGabdlR69II9kDn0E6hrUSG/M1T9YqiEyA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB6345
-X-OriginatorOrg: intel.com
+References: <20241106090549.3684963-1-dario.binacchi@amarulasolutions.com>
+ <20241106090549.3684963-2-dario.binacchi@amarulasolutions.com>
+ <4bix7me5vaoyhcuffyp4btajmhy7no6ltczoesopaz2fqupyaw@fensx4nn472u>
+ <b7c1499b-8337-421c-9734-6e518d678ff8@kernel.org> <CABGWkvrYJL9=zrPSFuEAgKO+9gDHD6RmCJM6Br6Le_eh578ETQ@mail.gmail.com>
+ <54dd6ae6-b992-451e-b1c6-8a1968955f4a@kernel.org> <PAXPR04MB8459BE3474EFD4FCC28E0E82885D2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <8c310eca-d695-418c-82cb-a89351d83887@kernel.org> <PAXPR04MB8459B6F8D5C623D19CCF6B39885E2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <bc02327b-dea8-48c9-b036-4a0eda0c4cb9@kernel.org> <9f6b243b-0642-41db-85ed-d020bfa3e6e2@kernel.org>
+ <PAXPR04MB845978F4D3C6E887E0DE8D5488582@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <d137cc7e-9b78-4cfb-ac50-023d1ea4c82b@kernel.org> <PAXPR04MB8459695A42922E52FCC9295488212@PAXPR04MB8459.eurprd04.prod.outlook.com>
+In-Reply-To: <PAXPR04MB8459695A42922E52FCC9295488212@PAXPR04MB8459.eurprd04.prod.outlook.com>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Wed, 20 Nov 2024 21:17:30 +0100
+Message-ID: <CABGWkvrrXb7v_k=ZWoYj8sXSPPK4_2qh-98QJ8WqWAuR3RAdyA@mail.gmail.com>
+Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock: support spread
+ spectrum clocking
+To: Peng Fan <peng.fan@nxp.com>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-amarula@amarulasolutions.com" <linux-amarula@amarulasolutions.com>, Abel Vesa <abelvesa@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_114832_981020_50AB2369 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20241120_121744_513868_48BA24BF 
+X-CRM114-Status: GOOD (  46.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -215,41 +104,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Nov 20, 2024 at 11:11=E2=80=AFAM Peng Fan <peng.fan@nxp.com> wrote:
+>
+> > Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock: support
+> > spread spectrum clocking
+> >
+> > On 11/11/2024 02:49, Peng Fan wrote:
+> > >>> I don't understand now even more. Or I understand even less now.
+> > >> Why
+> > >>> binding references its own clocks via phandle? This makes no sense
+> > >> at
+> > >>> all, except of course assigned clocks, but that's because we have
+> > >>> one property for multiple cases.
+> > >>
+> > >> And BTW if that was the point then the example is confusing
+> > because
+> > >> the &clk phandle is not the device node in the example but it should=
+.
+> > >> Neither description says which device's clocks are these.
+> > >>
+> > >> This is expressed very poorly in the binding, look:
+> > >> "Phandles of the PLL" - it clearly suggests some other clocks, not
+> > >> its own, that's so obvious I did not even think of asking. Patchset
+> > >> goes slow also because of poor explanation, lack of diagrams and
+> > >> expecting me to remember your clock hierarchy.
+> > >
+> > >
+> > > Dario may improve the patchset in new version. But let me just try to
+> > > explain a bit more about the hardware logic, I hope this could give
+> > > you some knowledge on i.MX clock and we could get some
+> > suggestions on
+> > > next:
+> > >
+> > >
+> > > OSC will generate 24MHz clock to Anatop module.
+> > > Anatop module takes 24MHz as input and produces various PLLs.
+> > > Clock Control Module(CCM) takes PLLs as input, and outputs the final
+> > > clocks to various IPs, saying video IPs.
+> > >
+> > > The Anatop module could produce PLLs with spread spectrum
+> > enabled.
+> > > The Clock Control module just divides the freq and output the end IPs=
+.
+> > > The end IPs cares about spread spectrum for high quality clock, the
+> > > Clock Control modules does not care. Now back to binding,
+> >
+> > All above makes sense. The previous message:
+> > "Because in current design, ccm is taken as producer of
+> > CLK_IMX8M_VIDEO_PLL, not consumer. "
+> >
+> > confused me a lot because it suggests that these PLLs are provided by
+> > CCM. It turns out not... so the answer is like I said long time ago: yo=
+u
+> > must take these clocks as inputs and this is done via clocks property.
+> > Not fsl,clocks or fsc,i-want-more-properties-clocks.
+> >
+> > >
+> > > There is a imx8m-anatop binding fsl,imx8m-anatop.yaml for anatop
+> > and a
+> > > imx8m-clock.yaml binding for clock control module.
+> > >
+> > > I think the patchset is to enable spread spectrum of a PLL globally,
+> > > not for a specific device saying video IP here. So the patchset put
+> > > the properties under the clock control module.
+> >
+> > I understand. This looks however as misrepresentation. If you do not
+> > have the video IP block enabled, why would you configure spread
+> > spectrum? IOW, spread spectrum as you described is needed for the
+> > final IP block and this final IP block should configure it. Properties
+> > belong there.
+>
+> Multiple IPs use same PLLs as source and share same pll settings,
+> it is better to configure Spread Spectrum(SS) at clock producer side,
+> I think.
+
+I agree with you, and based on what has been discussed and understood
+so far, the correct place to add the properties for spread spectrum seems
+to be the CCM node.
+So, is it correct to think of a CCM node like this?
+
+clk: clock-controller@30380000 {
+    compatible =3D "fsl,imx8mn-ccm";
+    reg =3D <0x30380000 0x10000>;
+    interrupts =3D <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>,
+                       <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
+     #clock-cells =3D <1>;
+
+     clocks =3D <&osc_32k>, <&osc_24m>, <&clk_ext1>, <&clk_ext2>,
+                   <&clk_ext3>, <&clk_ext4>,
+                   <&anatop IMX8MN_ANATOP_AUDIO_PLL1>,
+                   <&anatop IMX8MN_ANATOP_AUDIO_PLL2>,
+                   <&anatop IMX8MN_ANATOP_DRAM_PLL>,
+                   <&anatop IMX8MN_ANATOP_VIDEO_PLL>,
+     clock-names =3D "osc_32k", "osc_24m", "clk_ext1", "clk_ext2",
+                              "clk_ext3", "clk_ext4", "pll_audio1",
+"pll_audio2",
+                              "pll_dram", "pll_video";
+   ...
+};
+
+And if I want to set the spread spectrum for audio1 and video PLLs,
+should I apply the
+following configurations?
+
+&clk {
+    fsl,ssc-modfreq-hz =3D <0>, <0>, <0>, <0>,
+                                      <0>, <0>,
+                                      <6800>,
+                                      <0>,
+                                      <0>,
+                                      <8000>;
+    fsl,ssc-modrate-percent =3D <0>, <0>, <0>, <0>,
+                                      <0>, <0>,
+                                      <3>,
+                                      <0>,
+                                      <0>,
+                                      <5>;
+    fsl,ssc-modmethod =3D "", "", "",
+                                       "", "",
+                                       "down-spread",
+                                       "",
+                                       "",
+                                      "center-spread";
+};
+
+>
+> Dario,
+>
+> Without talking about dt-bindings, another approach to enable SS
+> is to enable SS for Video/Audio PLLs using driver parameters,
+> and the parameter that needs for the PLLs could be passed
+> from module parameter, such as clk_imx8mm.audio_ss_xx=3D.
+>
+> Then you no need bindings.
+
+As far as I know, I think it=E2=80=99s better to proceed with the dt-bindin=
+gs approach.
+
+Thanks and regards,
+Dario
+
+>
+> Regards,
+> Peng.
+>
+> >
+> > It's kind of similar for some OPP/performance/bandwidth requests.
+> > Even more similar to clock frequencies. Which device requests to
+> > configure given clock frequencies? Final consumer, not clock controller=
+.
+> >
+> >
+> > >
+> > > For example, there are VPU_JPEG, VPU_DECODE, both will use video
+> > PLL
+> > > with high quality. So the clock producer just produce PLLs with
+> > Spread
+> > > Spectrum(SS) enabled, and put the SS properties under CCM or
+> > anatop
+> > > node, not video IP nodes.
+> > >
+> > >
+> > > We could have a talk on IRC if Dario, Abel and you are available to
+> > > discuss on this topic.
+> >
+> >
+> >
+> > Best regards,
+> > Krzysztof
 
 
-On 11/20/2024 12:38 AM, Choong Yong Liang wrote:
-> Set the initial eee_cfg values to have 'ethtool --show-eee ' display
-> the initial EEE configuration.
-> 
-> Fixes: 49168d1980e2 ("net: phy: Add phy_support_eee() indicating MAC support EEE")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 7bf275f127c9..766213ee82c1 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -1205,6 +1205,9 @@ static int stmmac_init_phy(struct net_device *dev)
->  			return -ENODEV;
->  		}
->  
-> +		if (priv->dma_cap.eee)
-> +			phy_support_eee(phydev);
-> +
 
-Ok, so priv->dma_cap.eee is true, then this device supports EEE, and we
-call phy_support_eee which will initialize the values indicating that we
-support the feature for ethtool.
+--=20
 
-Makes sense.
+Dario Binacchi
 
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+Senior Embedded Linux Developer
 
->  		ret = phylink_connect_phy(priv->phylink, phydev);
->  	} else {
->  		fwnode_handle_put(phy_fwnode);
+dario.binacchi@amarulasolutions.com
 
+__________________________________
+
+
+Amarula Solutions SRL
+
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
+
+T. +39 042 243 5310
+info@amarulasolutions.com
+
+www.amarulasolutions.com
 
