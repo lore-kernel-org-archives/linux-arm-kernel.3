@@ -4,98 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26688D711BC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 16:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4644DD711C0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 16:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9eQlFCNQ6D5bVENGrHZ2ywRcIPNqAYRplKluLwt9MvI=; b=k86wUIQikL3uPDUPE0w4dTC9sr
-	bBX9FZXDEp+WW2g3H6cZLLu65PQ3J4ylknf/iFy/Squ46HU2bEVkh3W9A3keOZHxily29B8KrmXbp
-	OltZEqWAIKjKHE9d+FArMHJNoJEc5/TnuLWTdot+d9Bkt/3xtM68ZGsMaemgSQhMHQimeCOMyc6IT
-	Uez9jjkTrNk1yhvs6BFAlKN5mTiBUfMIKRZml+8d46mgVo21GJF7hc1MUEpPFPZEMW4j1JHpVzqbl
-	0oQS8LHjBxm5CbPICCHDGEU4CU3v5E7dbtvvIBWpeEVRQH1B/xTZxLKkk7hCFUQ7qH1hp0Q+ZK99/
-	tmReQw9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rQntTKwUtOPAB6DhcVwNtZ+5//TkY+h5F5WU5U8MxUI=; b=YaVEl68ymQobUgbk4BzzJyCgu9
+	VTn+slXPDzk7cygnFODYYrpb93Hv5KkWhGVoHW3v0JqK5R8bGZKICI1i+xZTgPH2vi31/2JBVwMmA
+	HiSZmB4cTUTy1Die4VqFuIFcHOlC7FVN118qoYijm5xKe3PODZWxUYMS3JLK+t1DuDZTommKGpFua
+	WJXspdK5IUy9HAiUEHIr4JpelkDptAj+5Qoh4ERldSTVD+Jxl06kMXP5JDgzc4H4By19+FK+uej+Q
+	V3rTiybpbjv4WKl8iAMPKZqw76pvKpE1ttC9smEtutYv/tp5f1q0rP+gFahE+3Ox9eb65Ofr9LRmE
+	gRBM8Ldg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDnIf-0000000Fmca-2xBC;
-	Wed, 20 Nov 2024 16:11:29 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tDngo-0000000FpHS-0KwS;
+	Wed, 20 Nov 2024 16:36:26 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDnHi-0000000FmUO-3jjl
+	id 1tDnfr-0000000FpB9-0M5r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 16:10:32 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AKElasO023498;
-	Wed, 20 Nov 2024 17:10:15 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	9eQlFCNQ6D5bVENGrHZ2ywRcIPNqAYRplKluLwt9MvI=; b=dSAp+LbUurtI1+Z5
-	wefQV53HDmnwQyoh4GCMTbLtPoQbAoAooxuE34RZZYGrriBNEPlYMJBPnm8oM2+T
-	p7PAEFq8f0lCFmUAGFyXT7KCDpTpu+Ty+0z9UACqahBgC1SRO3y+m2UgZ+5SkIzz
-	IjG1SYs55WeHK2co7HUQYX1k5Le/J0OcMRJAk5zSyfVd284GfkjGGytaaMy+YDo+
-	q9BB+mx6Z686At5E8UG6D/fg1eAFVcud6Mt13fnk7czNVq55dgbUckWBq+LuxmA1
-	qQ+NNj6IUAUeTHta0dFX9SKg5fvUt6KF31QJ3JglpKJsIO0ZAQN42xAxjdOs9CRe
-	LydB5A==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42xkqf2fvy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 20 Nov 2024 17:10:14 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8228340047;
-	Wed, 20 Nov 2024 17:08:59 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id EF9D42928BC;
-	Wed, 20 Nov 2024 17:08:09 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
- (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Wed, 20 Nov
- 2024 17:08:09 +0100
-Received: from [10.48.86.121] (10.48.86.121) by SAFDAG1NODE1.st.com
- (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Wed, 20 Nov
- 2024 17:08:09 +0100
-Message-ID: <b3fd3231-3b09-4eef-9ea6-c11b54c712c4@foss.st.com>
-Date: Wed, 20 Nov 2024 17:08:08 +0100
+	Wed, 20 Nov 2024 16:35:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eFPF4Cv8W4vJS0vNg2B9F+vFDDBiCeD7qbp5ZK6XQiyiRnvukmvTsADVjXc3R91GQdTeIEfZp7M2+oqJV00uwYhPzhiG4/dlfOK06KbiCMDdoTFXZgqRQ5kSR/MuWwsJMf+CRdnabGl0EUVGRcjplWcTgHmTBxLHK/xuDwE7spwI0n+9n9F8pzKm4wtyq6GM+8p0HO9gPsiSrePHT7FWmMcIkLw1Z2QDaPWrXHF76AbzyxipsU7cnPpTAHLYvhAkuDePqHcgVNG3cLxh3SLldQIpGp7Z99BvCpM45D0jKSQZ7O3RHTe9dh6pFMGXbnNWnu59WVNBQ1ERg4wCi21AJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rQntTKwUtOPAB6DhcVwNtZ+5//TkY+h5F5WU5U8MxUI=;
+ b=Qqz0FgMtJBQNbqf81fk3zBToLJS0DtHn97mZuCIwj4oIvO+8Ivz6VG/C8gb5Mh1v73EvWnjnKjQUPolXo8a4EtXytQl+sNe/dzHtLbdiIFlfHvzGMSNd1maK1PekGPj90iLy5amsFVZVXDAokFNn3mepKyWY01QyZtQiPImuI1PmWV9sQyUnmyjBEqQZkItlVkOL5yNQuXqU3JDirjuNgpJ2+2jiJi8ofWDLXxdkqygU64fGWgXdeSYcZHZb4isL6lboUfhWYnHp6G/jVTyf1V6odWYYyN8lzX7rVlNo34pNs0TSQ3FW5iQA67cphQ67mYsNMpuqNQljYjl2FSZSiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rQntTKwUtOPAB6DhcVwNtZ+5//TkY+h5F5WU5U8MxUI=;
+ b=iyT23AtWEGZsV+ozzEjUGRDwzSiRBPI99JQx8gm25CqcfDb08DpiQBX078sdkBNpQ7yB7aRRvCD7iRtN1CLHW307vvP7PsTiYbtqF2b8spxVCPXeavLn/eNWGxHONWMM66qOkNkuq2EE2KNly7F8mOzyiljI/f9TVphYJ4LiMKkGYAcHm5RHAR6zQqCajMe9inmV23tzr/8b5zFQjxp8BDnYH36nP4ERjHimb122ao072y/VEIlQuuIyjFP6WaJSXuhz7XWvt7p1t9EAe4VRKzxPeEAC7jufvD0AHb6bacuHgzIUB2J20+KEGeF9NHVI+gKQa2LWGMBx5SDX5DM7Ag==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB9PR04MB9628.eurprd04.prod.outlook.com (2603:10a6:10:30b::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.23; Wed, 20 Nov
+ 2024 16:35:18 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8158.021; Wed, 20 Nov 2024
+ 16:35:17 +0000
+Date: Wed, 20 Nov 2024 11:35:10 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: will@kernel.org, mark.rutland@arm.com, shawnguo@kernel.org,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH] perf: imx9_perf: introduce axi filter version
+Message-ID: <Zz4PvoCj0ziNzU3w@lizhi-Precision-Tower-5810>
+References: <20241120032109.1163146-1-xu.yang_2@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241120032109.1163146-1-xu.yang_2@nxp.com>
+X-ClientProxiedBy: SJ0PR05CA0164.namprd05.prod.outlook.com
+ (2603:10b6:a03:339::19) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 4/7] remoteproc: Introduce release_fw optional
- operation
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-CC: Bjorn Andersson <andersson@kernel.org>,
-        Jens Wiklander
-	<jens.wiklander@linaro.org>,
-        Rob Herring <robh+dt@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>
-References: <20241104133515.256497-1-arnaud.pouliquen@foss.st.com>
- <20241104133515.256497-5-arnaud.pouliquen@foss.st.com>
- <Zzt+7NBdNjyzWZIb@p14s> <0d9075cd-68c2-49ec-9b9c-4315aa8c8517@foss.st.com>
- <CANLsYkxvTuLv8Omw-UeyPaA9g9QokmtMaMYD0eoUPo20wUuONQ@mail.gmail.com>
-Content-Language: en-US
-From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-Organization: STMicroelectronics
-In-Reply-To: <CANLsYkxvTuLv8Omw-UeyPaA9g9QokmtMaMYD0eoUPo20wUuONQ@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.121]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB9628:EE_
+X-MS-Office365-Filtering-Correlation-Id: eb68a519-be5d-4f75-e19b-08dd0981515e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Bd0hYePi56NNoWwplaD2z8AtvsVhghvEoLFYui+5QXzUcS0Xo0MwqfkiHVJM?=
+ =?us-ascii?Q?FwSyGa/4Bo6w8qilN5eDiGkhyKX62w/2mjZoy6od/Ya3FJg+58Wlxvoy2Bib?=
+ =?us-ascii?Q?CDDgZiy4wEi87Zll8fUxPhkKsFsZdj0tMVqDO2WEszRrgFQtZExPMukMjUNv?=
+ =?us-ascii?Q?eiushQmWc2ejl4CHK7XyNG52a5XvLo1+X3ynOiuSs9uUsBNlfHWtab5KDPtq?=
+ =?us-ascii?Q?Y/6Eu1MJq6o96/3DOBM1QhCCl0NiG54UdxOlfYal4p6OnksCVFZis32Tao/f?=
+ =?us-ascii?Q?xUvtjk7O79ggqdemBqLmYWTghoQexu8vvzSfXWnuu0XXlsIYg3jjnQD23HFK?=
+ =?us-ascii?Q?Xw5f8XtqvcFDV0wFFtwi3HjJxMNhAGF1MEOkoVXrAiKZGL4QbRX6uEApMted?=
+ =?us-ascii?Q?WkTJVQLNqNdJaAZphtmB0z/dktiLg9BsFD24YJMk7lXYWkwi8ayUuycLjJNh?=
+ =?us-ascii?Q?f2CuJQMEW06LrpFS9dKz8nCxlP5YjBEUfQY8oyRwKcLe6DXAKi/4mX+6Vh6x?=
+ =?us-ascii?Q?QwhvlDr2X8UsN14I+zr5J6op7fWw2k5UF04W8xYrMFzE8F0S+s6yopLBiL4T?=
+ =?us-ascii?Q?YkP4pK6KrZMFOhgky/1/nXm93ZUmE0zGtKkL7XvfUQSfrxG/HN+8NEq0oRlw?=
+ =?us-ascii?Q?I6ywIDAAS+TY3pomte2d6cw124QxcqvFqvAbK3hBU1xKpFEn+fWzT0QHDNaa?=
+ =?us-ascii?Q?4NmHvyp0XuD/oNruH7n7re5WoSD+JsG5hXTfa/WydGTuB8zlLS6G5Jit4LCQ?=
+ =?us-ascii?Q?qrJAzlZBYn3reJFdKVsj5b9OsUR0atGA+N8VaWjT3Yf9BS2uGcZ298vFZHZb?=
+ =?us-ascii?Q?svXDeylHPSgELHgOGz463VDAsCXOvutp1vo/hy4smmSy04jJDKAdUEo5UFrJ?=
+ =?us-ascii?Q?Eg+NXmnfwUo//skDGY9nchUAc0n3BFMJG4Csr+V5DbxUw7u9jcgn9qgw9dvO?=
+ =?us-ascii?Q?/suVQxARfuJtj+CYn/JpBI4xbuvIfq0p4s/2+0j6kLAlXE5qaVmkAoHEGBm+?=
+ =?us-ascii?Q?AKaylibNMctFmsk40kgxfU/5L0JPoDb9y2HktLzWeLP0sMzJZuuWYwO8wXY5?=
+ =?us-ascii?Q?Xv6b//5+cNZaGre1qSE9jGXJcMdQQgO0sfy0RIO3gyfBKU18UtCDVcxpZstX?=
+ =?us-ascii?Q?ut/SRHFZR3fPsEsq+YIN0XG+I4moKiUK32EKT9QyNHDCVzr2EbxPn7R/wec2?=
+ =?us-ascii?Q?bIao1bwq4zCazQLpg1uqDg7rzQLqjDPtxQkdCdLi7dHmiF7JxU9KGl4cn1RP?=
+ =?us-ascii?Q?OAmNCIvJ8dDC6pKJt5ec1NBM6JQ2tlrpDrfGhW40AY8BojOSSViZaQTjrv9K?=
+ =?us-ascii?Q?jm1lUTNg75MckH3fvc9EhoYqkeI9KSQMlA14leOx4ROOV/LLXIex0hVQPuSt?=
+ =?us-ascii?Q?oL7vdVU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MERZUGx2BQ0yEbpuuD89LJfoN2cn+w3gfZYp8gmu1qcyovjMsSfEljrDKPO5?=
+ =?us-ascii?Q?QmE0kv+0l8HDjuS3TiqKaS5qzFbzLH83uabCocloWebQI+PSvvO1zsBbtVx9?=
+ =?us-ascii?Q?tKH2i9/Ytr7diCx1pjr4M/u9GYXRBnmNwcnaehavbhH22FTz5Q2HvsAlQscH?=
+ =?us-ascii?Q?haZmNTzZFKyaArA+cf0VIGADF6TeH5HLwlMbUNVDa2qL8RCVFZGnIUjSBKC1?=
+ =?us-ascii?Q?198Hg9jnVl+zqgTvGuTtDCF1SdCiH+Um9UfRHpbSGrWM9LnXTTjiQH9ldSwG?=
+ =?us-ascii?Q?MclWah2O1dvH9LVTfr1iPVJeWu2rAxrQRO5/3AcGqTV7cTIz6sYyR/v7UIfG?=
+ =?us-ascii?Q?aLr/9/v0EbEF2R8YxNjBFLVY6AwjW+ImSvW2LKANduDm9FqdDpHinqSXTEiA?=
+ =?us-ascii?Q?RwmBxItVVFWDXhqwLj0RVWp/YRxSaBG+nQgN3jN+K15aXdgxdYnWHtbkrXtU?=
+ =?us-ascii?Q?5RKarIlt0sWs8Z5Us3pRRey9azfmvABXDIOJxQqdncdoHcxDE/XrfCCBRB3i?=
+ =?us-ascii?Q?YAPmzXIs5RF2HX5TyPvb0Os+TICmXync5eb0m+RWPVlLtegSF9DIrbGVAntQ?=
+ =?us-ascii?Q?9b2d/8c0sNOY0Rs7moIwwoWS3m1HPFrp2DxnzPgeV4gugfo1vmiGRj5YDh9O?=
+ =?us-ascii?Q?iGs4FpDlA6I/JfD/yoPkDgYFDPb0YetDuaOT4d6jLVFseX/k/05dmq+lRu+3?=
+ =?us-ascii?Q?Re7nKsFlw8ZaSPmt+XcDemamrjQDyau+A8a6bo4t8yCQjspVjHKnypcIPlzI?=
+ =?us-ascii?Q?+FfPXCNrkXjXQrlXJBerYOVZUaxvkjH7d/i7N1gRWB29PBbhZx/mE69cLerY?=
+ =?us-ascii?Q?TSyJMPH3dhyvyZEr2Ulcl45ampTO7Dz9Jtqh11Z3mARr3joIvHHPaAINXpKw?=
+ =?us-ascii?Q?cakCp2WuwVSNNkYUN+x+T6FAn+yCyxIMiGjMLakJwkGKuq6P4L0+D4KZKWBy?=
+ =?us-ascii?Q?tvRHvR7GyUR5ytm05luZA6cxTDneNEfbbdyLhyy1hw0bbw2e6bgcILR+yJ3n?=
+ =?us-ascii?Q?q+5O1K+Zg2zJgBY/fil+Qn+80qfRqzkU0Kz+hB5ughkWR/xg2Tx21AMpkWbV?=
+ =?us-ascii?Q?uva0jEGtb5KQ+6yZHhldST1xIFr/ws+zXxaUp+jNvwmAb+P0Jsib3HuBufGM?=
+ =?us-ascii?Q?SbtKcpG2its9Ig9s/Bo4PYzWqWRXyrMd/nomRKpLXbGP2VULLs3Oyb5lO1b9?=
+ =?us-ascii?Q?4eHM2tksfrLdNVV/vcrSrx7Ke85MdKGHXjMn5JL5Jlej0ysLTl/rIyopDpaL?=
+ =?us-ascii?Q?y2Ll2MMvgNzKQfNcajhYdhRi2cB8bzjuF8oCi08Y6tuNsZFiwQlXRX/aQUmp?=
+ =?us-ascii?Q?jBq/OQ040UF67MjECLt3PIOut6vbkaU9Zdu8wPmmcqtlrKKHWFNAIfwFAGLq?=
+ =?us-ascii?Q?Z1lGW+LEtSG6jh50d2/lGQ5vGm+39cwY195bv57nS5IVlY+i62hMVNPUhWyE?=
+ =?us-ascii?Q?8TlqCqQW/Lx67UUsX8aE/4t45XNqMyE2sgMCPoxjxFL1zRhkbviKqSJK/Opo?=
+ =?us-ascii?Q?F2ryXFt1SxUXZmIhMUcKSbGTBgTRl5UhpMVKXlhzdDPiwu+2ADMJKH1WW8Ld?=
+ =?us-ascii?Q?q+W8mhYsk/Roq9kdFdI=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eb68a519-be5d-4f75-e19b-08dd0981515e
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2024 16:35:17.8328
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qmvUqPk6Gr8IgzOqm8npOT18Dvp+Iph2h3UXZz2nW9LzURH08bXh+096PIls0Qd7+o+DxUa0jxhsEYYh4QQXkA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9628
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_081031_423620_587F0048 
-X-CRM114-Status: GOOD (  27.78  )
+X-CRM114-CacheID: sfid-20241120_083527_180615_7BBAAA6C 
+X-CRM114-Status: GOOD (  29.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,181 +155,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Nov 20, 2024 at 11:21:09AM +0800, Xu Yang wrote:
+> The imx93 is the first supported DDR PMU that supports read transaction,
+> write transaction and read beats events which corresponding respecitively
+> to counter 2, 3 and 4.
 
+Introduce AXI filter version to refactor the driver and better extension.
 
-On 11/19/24 21:38, Mathieu Poirier wrote:
-> On Tue, 19 Nov 2024 at 11:14, Arnaud POULIQUEN
-> <arnaud.pouliquen@foss.st.com> wrote:
->>
->> Hello Mathieu,
->>
->> On 11/18/24 18:52, Mathieu Poirier wrote:
->>> On Mon, Nov 04, 2024 at 02:35:12PM +0100, Arnaud Pouliquen wrote:
->>>> This patch updates the rproc_ops struct to include an optional
->>>> release_fw function.
->>>>
->>>> The release_fw ops is responsible for releasing the remote processor
->>>> firmware image. The ops is called in the following cases:
->>>>
->>>>  - An error occurs in rproc_start() between the loading of the segments and
->>>>       the start of the remote processor.
->>>>  - after stopping the remote processor.
->>>>
->>>> Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
->>>> ---
->>>> Updates from version V11:
->>>> - fix typo in @release_fw comment
->>>> ---
->>>>  drivers/remoteproc/remoteproc_core.c | 5 +++++
->>>>  include/linux/remoteproc.h           | 3 +++
->>>>  2 files changed, 8 insertions(+)
->>>>
->>>> diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
->>>> index 7694817f25d4..46863e1ca307 100644
->>>> --- a/drivers/remoteproc/remoteproc_core.c
->>>> +++ b/drivers/remoteproc/remoteproc_core.c
->>>> @@ -1258,6 +1258,9 @@ static int rproc_alloc_registered_carveouts(struct rproc *rproc)
->>>>
->>>>  static void rproc_release_fw(struct rproc *rproc)
->>>>  {
->>>> +    if (rproc->ops->release_fw)
->>>> +            rproc->ops->release_fw(rproc);
->>>> +
->>>>      /* Free the copy of the resource table */
->>>>      kfree(rproc->cached_table);
->>>>      rproc->cached_table = NULL;
->>>> @@ -1377,6 +1380,8 @@ static int rproc_start(struct rproc *rproc, const struct firmware *fw)
->>>>  unprepare_subdevices:
->>>>      rproc_unprepare_subdevices(rproc);
->>>>  reset_table_ptr:
->>>> +    if (rproc->ops->release_fw)
->>>> +            rproc->ops->release_fw(rproc);
->>>>      rproc->table_ptr = rproc->cached_table;
->>>
->>> I suggest the following:
->>>
->>> 1) Create two new functions, i.e rproc_load_fw() and rproc_release_fw().  The
->>> only thing those would do is call rproc->ops->load_fw() and
->>> rproc->ops->release_fw(), if they are present.  When a TEE interface is
->>> available, ->load_fw() and ->release_fw() become rproc_tee_load_fw() and
->>> rproc_tee_release_fw().
->>
->>
->> I'm wondering if it should be ->preload_fw() instead of ->load_fw() ops, as the
->> ->load() op already exists.
->>
-> 
-> I agree that ->load() and ->load_fw() will lead to confusion.  I would
-> support ->preload_fw() but there is no obvious antonyme.
-> 
-> Since we already have rproc_ops::prepare() and rproc_prepare_device()
-> I suggest rproc_ops::prepare_fw() and rproc_prepare_fw().  The
-> corollary would be rproc_ops::unprepare_fw() and rproc_unprepare_fm().
-> That said, I'm open to other ideas should you be interested in finding
-> other alternatives.
-> 
+>
+> However, transaction-based AXI match has low accuracy when get total bits
+> compared to beats-based. And imx93 doesn't assign AXI_ID to each master.
+> So axi filter is not used widely on imx93. This could be regards as AXI
+> filter version 1.
+>
+> To improve the AXI filter capability, imx95 supports 1 read beats and 3
+> write beats event which corresponding respecitively to counter 2-5. imx95
+> also detailed AXI_ID allocation so that most of the master could be count
+> individually. This could be regards as AXI filter version 2.
 
+Such informaiton is not related with your this change. I suggest put it
+to comment for DDR_PERF_AXI_FILTER_V1 and DDR_PERF_AXI_FILTER_V2.
 
-1) Using ops::prepare_fw/unprepare_fw:
-My concern is that it could also lead to confusion as we would load the firmware
-on ops::prepare_fw and do nothing on ops::load(). That would not match with the
-ops action. look to me that in this option, ops::load() must be kept as
-mandatory ops for consistence.
+>
+> This will introduce AXI filter version to refactor the driver and support
+> better extension, such as coming imx943.
+>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> ---
+>  drivers/perf/fsl_imx9_ddr_perf.c | 24 ++++++++++++++++--------
+>  1 file changed, 16 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/perf/fsl_imx9_ddr_perf.c b/drivers/perf/fsl_imx9_ddr_perf.c
+> index 3c856d9a4e97..965345d78f7a 100644
+> --- a/drivers/perf/fsl_imx9_ddr_perf.c
+> +++ b/drivers/perf/fsl_imx9_ddr_perf.c
+> @@ -63,8 +63,12 @@
+>
+>  static DEFINE_IDA(ddr_ida);
+>
+> +#define DDR_PERF_AXI_FILTER_V1          0x1
+> +#define DDR_PERF_AXI_FILTER_V2          0x2
 
+V1 V2 is quite difficult to know the difference. Please add comments to
+show the more detail about V1 and V2, you can resue from commit message.
 
-2) Using ops::preload_fw:
-This seems to better reflect the use case. Concerning the antonym choice , could
-we consider that ops::release_fw() is the antonym of both ops;;preload_fw and
-ops::load?
-some other antonym proposal:
- - unload_fw
- - postunload_fw
+> +
+>  struct imx_ddr_devtype_data {
+>  	const char *identifier;		/* system PMU identifier for userspace */
+> +	unsigned int type;		/* AXI filter version */
 
+variable name is better match function
+	"filter_ver"
 
-3) Other alternatives:
-
-3-a) using ops::rproc_prepare/unprepare_device.
-Same concern that prepare_fw/unprepare_fw
-another drawbackis that rproc_tee_load_fw() would be not directly mapped to an
-rproc ops but platform
-driver should need to call rproc_tee_load_fw() into its ops::prepare() function
-(a.e stm32_rproc_prepare).
-
-
-3-b) Another alternative I can see is the one I proposed in version 3 [1]. The
-principle was to keep existing ops but propose an alternative boot sequence.
-Perhaps a backup solution is to reanalyze this option if no other is suitable.
-
-[1]
-https://lore.kernel.org/lkml/8af59b01-53cf-4fc4-9946-6c630fb7b38e@quicinc.com/T/
-
-Please just tell/confirm me your prefered solution that I propose it in next
-revision.
-
-Regards,
-Arnaud
-
->>>
->>> 2) Call rproc_load_fw() in rproc_boot(), just before rproc_fw_boot().  If the
->>> call to rproc_fw_boot() fails, call rproc_release_fw().
->>>
->>> 3) The same logic applies to rproc_boot_recovery(), i.e call rproc_load_fw()
->>> before rproc_start() and call rproc_release_fw() if rproc_start() fails.
->>
->>
->> I implemented this and I'm currently testing it.
->> Thise second part requires a few adjustments to work. The ->load() ops needs to
->> becomes optional to not be called if the "->preload_fw()" is used.
->>
->> For that, I propose to return 0 in rproc_load_segments if rproc->ops->load is
->> NULL and compensate by checking that at least "->preload_fw()" or ->load() is
->> non-null in rproc_alloc_ops.
->>
-> 
-> I agree.
-> 
->> Thanks,
->> Arnaud
->>
->>
->>>
->>> 4) Take rproc_tee_load_fw() out of rproc_tee_parse_fw().  It will now be called
->>> in rproc_load_fw().
->>>
->>> 5) As stated above function rproc_release_fw() now calls rproc_tee_release_fw().
->>> The former is already called in rproc_shutdown() so we are good in that front.
->>>
->>> With the above the cached_table management within the core remains the same and
->>> we can get rid of patch 3.7.
->>
->>>
->>> Thanks,
->>> Mathieu
->>>
->>>>
->>>>      return ret;
->>>> diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
->>>> index 2e0ddcb2d792..08e0187a84d9 100644
->>>> --- a/include/linux/remoteproc.h
->>>> +++ b/include/linux/remoteproc.h
->>>> @@ -381,6 +381,8 @@ enum rsc_handling_status {
->>>>   * @panic:  optional callback to react to system panic, core will delay
->>>>   *          panic at least the returned number of milliseconds
->>>>   * @coredump:         collect firmware dump after the subsystem is shutdown
->>>> + * @release_fw:     optional function to release the firmware image from ROM memories.
->>>> + *          This function is called after stopping the remote processor or in case of an error
->>>>   */
->>>>  struct rproc_ops {
->>>>      int (*prepare)(struct rproc *rproc);
->>>> @@ -403,6 +405,7 @@ struct rproc_ops {
->>>>      u64 (*get_boot_addr)(struct rproc *rproc, const struct firmware *fw);
->>>>      unsigned long (*panic)(struct rproc *rproc);
->>>>      void (*coredump)(struct rproc *rproc);
->>>> +    void (*release_fw)(struct rproc *rproc);
->>>>  };
->>>>
->>>>  /**
->>>> --
->>>> 2.25.1
->>>>
+>  };
+>
+>  struct ddr_pmu {
+> @@ -83,24 +87,27 @@ struct ddr_pmu {
+>
+>  static const struct imx_ddr_devtype_data imx91_devtype_data = {
+>  	.identifier = "imx91",
+> +	.type = DDR_PERF_AXI_FILTER_V1
+>  };
+>
+>  static const struct imx_ddr_devtype_data imx93_devtype_data = {
+>  	.identifier = "imx93",
+> +	.type = DDR_PERF_AXI_FILTER_V1
+>  };
+>
+>  static const struct imx_ddr_devtype_data imx95_devtype_data = {
+>  	.identifier = "imx95",
+> +	.type = DDR_PERF_AXI_FILTER_V2
+>  };
+>
+> -static inline bool is_imx93(struct ddr_pmu *pmu)
+> +static inline bool axi_filter_v1(struct ddr_pmu *pmu)
+>  {
+> -	return pmu->devtype_data == &imx93_devtype_data;
+> +	return pmu->devtype_data->type == DDR_PERF_AXI_FILTER_V1;
+>  }
+>
+> -static inline bool is_imx95(struct ddr_pmu *pmu)
+> +static inline bool axi_filter_v2(struct ddr_pmu *pmu)
+>  {
+> -	return pmu->devtype_data == &imx95_devtype_data;
+> +	return pmu->devtype_data->type == DDR_PERF_AXI_FILTER_V2;
+>  }
+>
+>  static const struct of_device_id imx_ddr_pmu_dt_ids[] = {
+> @@ -155,7 +162,7 @@ static const struct attribute_group ddr_perf_cpumask_attr_group = {
+>  struct imx9_pmu_events_attr {
+>  	struct device_attribute attr;
+>  	u64 id;
+> -	const void *devtype_data;
+> +	const struct imx_ddr_devtype_data *devtype_data;
+>  };
+>
+>  static ssize_t ddr_pmu_event_show(struct device *dev,
+> @@ -307,7 +314,8 @@ ddr_perf_events_attrs_is_visible(struct kobject *kobj,
+>  	if (!eattr->devtype_data)
+>  		return attr->mode;
+>
+> -	if (eattr->devtype_data != ddr_pmu->devtype_data)
+> +	if ((eattr->devtype_data != ddr_pmu->devtype_data) &&
+> +		(eattr->devtype_data->type != ddr_pmu->devtype_data->type))
+>  		return 0;
+>
+>  	return attr->mode;
+> @@ -624,11 +632,11 @@ static int ddr_perf_event_add(struct perf_event *event, int flags)
+>  	hwc->idx = counter;
+>  	hwc->state |= PERF_HES_STOPPED;
+>
+> -	if (is_imx93(pmu))
+> +	if (axi_filter_v1(pmu))
+>  		/* read trans, write trans, read beat */
+>  		imx93_ddr_perf_monitor_config(pmu, event_id, counter, cfg1, cfg2);
+>
+> -	if (is_imx95(pmu))
+> +	if (axi_filter_v2(pmu))
+>  		/* write beat, read beat2, read beat1, read beat */
+>  		imx95_ddr_perf_monitor_config(pmu, event_id, counter, cfg1, cfg2);
+>
+> --
+> 2.34.1
+>
 
