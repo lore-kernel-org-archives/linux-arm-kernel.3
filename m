@@ -4,93 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE3CD711C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 17:25:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6575D711CF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 17:32:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K82r1s3WallUAKq8xTbVEjB6g6JIYaNpg7uvLlAPkQw=; b=SbWLv9oSAitEfCw3Xn3LL9EyrI
-	pJgIyZ/GZqnvI4M6424fYfKWx3CjTJRmJqLflSFd/It4AdlynP82m9iu/mPdhQlBWG+0mW61Wglxs
-	jLvcFK7KrdW34LV+D9YZeRCdHCxisOyhSsDpilOpDIddhOibiWCWMwyeOsXyCIbLoI5LXArUc3UD6
-	62rXblY4wNcvDLwbvueZ0hCVNlLk6mT+P8d8BCf4/1xC3vZZcKMwPPmKNJ0ibM1m7Ma7twe1jmaQ6
-	0nRkSdNA3axFSNmQIWkKSoOtcopRcmuXTsE5IDN7s+jdUsbAzEPIowolsVxhaRUgcsV5M2fbUIO/s
-	AQOiNA8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tnHduo24AdOoAdI77IZf7s1iLW4IzFa8VA+z+Tg/Y28=; b=pUV8ou5eAc4ZGrWERSA6jMSUS6
+	TJla/ckRYlytTDVB/lN7QmlM79q8ra89gIZEk2FOkfBtI61Jpm8fYG5uB23h62DLYOJbpl0DJ0GNf
+	YP0n+sO/eGGCPIst33HcOLlCvSAnZYy2cW4gdAU4E6RsCn3wNMSv4l3aVtPsJe98ifQFrFNXWkrgr
+	huXZN8PFCp/EOBlh5h1zfXuxLRV++KY0pFCtFzc8DXxSaw5t0weMBl3GuOmaoHfwhFkSwzPv9aExn
+	DDlWMyHdoTNF2CsxJmqrFbXoEznzWvbeeaf2oBKfJ6pHdZLpGV/hoCF24JwOQBERZBrrMB64D6IBG
+	XKCTidaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDoSB-0000000FvAY-42Oe;
-	Wed, 20 Nov 2024 17:25:23 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1tDoZ1-0000000FwAb-0aBs;
+	Wed, 20 Nov 2024 17:32:27 +0000
+Received: from out-175.mta1.migadu.com ([2001:41d0:203:375::af])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDoQg-0000000Fuuj-1aZR
+	id 1tDoY3-0000000Fw6q-33CD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 17:23:51 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2ea499f264fso921212a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 09:23:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732123429; x=1732728229; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K82r1s3WallUAKq8xTbVEjB6g6JIYaNpg7uvLlAPkQw=;
-        b=cDcEuMch1sepgk//gghVv/5FFKk6I9BpsH+ZBMzS6JS5YDVTwdO8M/MlCC+x6fx3am
-         WPeUcpuAADL8moK3vZaRCVae2tujidt1c+j+xxiV6O6JUfFEZj3wVRYrxap8yobUVLHq
-         1xN2p8TqItfgmN2oiKhUt2n1BCtfz/3KI75oUWdt6Iq2wrWJ1bC6v1tPirdP9OfB9TtZ
-         n3S2xz+n+sJtGoGS3INWcZBF73+bHh6xYkA13yCdmFROSug0rmuNMJ7Kt/rPlCOUdxk7
-         /Kx3PjXsxUIftiHP2YE5s3d7LtmTbYO+p0/vZhZSjdnEh/oG11WVwZDEdKyfcprOjfBz
-         5DNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732123429; x=1732728229;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=K82r1s3WallUAKq8xTbVEjB6g6JIYaNpg7uvLlAPkQw=;
-        b=XHOt7FwLZfqeD548SQCat0EkM1E6wm4L2QUB6H7HbO2T2WTLhg3skLVB6uDTbz3xQB
-         kGW+MgZkg3yBDYS1Grw1LJW/LS9AuCPOvHNHJMhndFq2ha/JvazYPjC12v3kaP8Vx+fj
-         GjtcFORAoEI6WCWFZu5Mc9q5LnTqxiLOCu1oktAErkRbl3UO6vR5MpJpnh82IMw2Du9A
-         KzE0iQ3P3/8wn7DyzMCBPJ+eKkqYNW50uHl8fHkeQptamg/mGp5nx22n40C4RAcJ30KR
-         RhmGjI4ixVvPZsz9TkdZcJffbDNAlq6dQQje10u/1yDgdn9/x6z9jtffw7OWxyYKCsJX
-         ZPRg==
-X-Forwarded-Encrypted: i=1; AJvYcCX9lIb1J1wr52AHJkwW/iMtT4U0iAvpagFWgLMJZYsTu5WUJtluH7rGxPTX/GmR3US9ed/m1AlPMluCXXWMNhLW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzvrhHs4GeNi99B2gUMjEhaIytF37OTgM22Lx6IbgLiMWqKLLE
-	iHAqPNuLvSYqZdFXLUmM08o78JyiKOIDAJAdKQiVzqgmrLX1Tk6hoW4fBTIE3KwUz6I0+6D5zFm
-	9pleh3cN885EzuQ7GBiHFrdwr+Q0=
-X-Google-Smtp-Source: AGHT+IHP7MwwbUafLVgAIa430YYzk55icxxelHryoONobsnY3WSgX4XWdMcnoyaJxl1EXEi6b8slsuO4SxdmbK2qy18=
-X-Received: by 2002:a17:90a:ae0e:b0:2ea:9f3a:7d9 with SMTP id
- 98e67ed59e1d1-2eaebd1a85emr235585a91.3.1732123429227; Wed, 20 Nov 2024
- 09:23:49 -0800 (PST)
+	Wed, 20 Nov 2024 17:31:29 +0000
+Date: Wed, 20 Nov 2024 17:31:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1732123885;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tnHduo24AdOoAdI77IZf7s1iLW4IzFa8VA+z+Tg/Y28=;
+	b=O/wq2KL5Z4g46tyl35oMSphCNZCGWzeMbieD+t20CV6A6f2SqjodzFgD/GhtOEJIk3dJk/
+	UKVmbib2LnSuMj/Z2ga8+AMytY/UiXA7lZOwSE88ZuYHRBhzkesDozYmEeBzGudItwH5ST
+	lKzeWILaG+QtwK18R45dAx/ba18969Q=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: James Clark <james.clark@linaro.org>
+Cc: suzuki.poulose@arm.com, coresight@lists.linaro.org,
+	kvmarm@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>, Fuad Tabba <tabba@google.com>,
+	James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 11/12] KVM: arm64: Swap TRFCR on guest switch
+Message-ID: <Zz4c5LmQnK2SD5HO@linux.dev>
+References: <20241112103717.589952-1-james.clark@linaro.org>
+ <20241112103717.589952-12-james.clark@linaro.org>
 MIME-Version: 1.0
-References: <20241028010818.2487581-1-andrii@kernel.org> <CAEf4BzYPajbgyvcvm7z1EiPgkee1D1r=a8gaqxzd7k13gh9Uzw@mail.gmail.com>
- <CAEf4Bza=pwrZvd+3dz-a7eiAQMk9rwBDO1Kk_iwXSCM70CAARw@mail.gmail.com>
- <CAEf4BzbiZT5mZrQp3EDY688PzAnLV5DrqGQdx6Pzo6oGZ2KCXQ@mail.gmail.com>
- <20241120154323.GA24774@noisy.programming.kicks-ass.net> <Zz4IQaF9CCfjS28S@gmail.com>
-In-Reply-To: <Zz4IQaF9CCfjS28S@gmail.com>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Wed, 20 Nov 2024 09:23:36 -0800
-Message-ID: <CAEf4BzYR44BgfAjKAvppmyG_hjojBL7XZe75C0qBTPoE7WXzHg@mail.gmail.com>
-Subject: Re: [PATCH v4 tip/perf/core 0/4] uprobes,mm: speculative lockless
- VMA-to-uprobe lookup
-To: Ingo Molnar <mingo@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	linux-trace-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	akpm@linux-foundation.org, oleg@redhat.com, rostedt@goodmis.org, 
-	mhiramat@kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	jolsa@kernel.org, paulmck@kernel.org, willy@infradead.org, surenb@google.com, 
-	mjguzik@gmail.com, brauner@kernel.org, jannh@google.com, mhocko@kernel.org, 
-	Andrii Nakryiko <andrii@kernel.org>, vbabka@suse.cz, shakeel.butt@linux.dev, 
-	hannes@cmpxchg.org, Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, 
-	david@redhat.com, arnd@arndb.de, richard.weiyang@gmail.com, 
-	zhangpeng.00@bytedance.com, linmiaohe@huawei.com, viro@zeniv.linux.org.uk, 
-	hca@linux.ibm.com, Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Kernel Team <kernel-team@meta.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241112103717.589952-12-james.clark@linaro.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_092350_416073_D3C0738E 
-X-CRM114-Status: GOOD (  23.76  )
+X-CRM114-CacheID: sfid-20241120_093127_966490_F845EEFD 
+X-CRM114-Status: GOOD (  25.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,74 +79,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 20, 2024 at 8:03=E2=80=AFAM Ingo Molnar <mingo@kernel.org> wrot=
-e:
->
->
-> * Peter Zijlstra <peterz@infradead.org> wrote:
->
-> > On Wed, Nov 20, 2024 at 07:40:15AM -0800, Andrii Nakryiko wrote:
-> > > Linus,
-> > >
-> > > I'm not sure what's going on here, this patch set seems to be in some
-> > > sort of "ignore list" on Peter's side with no indication on its
-> > > destiny.
-> >
-> > *sigh* it is not, but my inbox is like drinking from a firehose :/
->
-> And I've been considering that particular series WIP for two reasons:
->
->  1) Oleg was still unconvinced about patch 5/5 in the v2 discussion.
->     Upon re-reading it I think he might have come around and has agreed
->     to the current approach - but sending a v3 & not seeing Oleg object
->     would ascertain that.
+On Tue, Nov 12, 2024 at 10:37:10AM +0000, James Clark wrote:
+> +void kvm_set_trfcr(u64 host_trfcr, u64 guest_trfcr)
+> +{
+> +	if (kvm_arm_skip_trace_state())
+> +		return;
+> +
+> +	if (has_vhe())
+> +		write_sysreg_s(guest_trfcr, SYS_TRFCR_EL12);
+> +	else
+> +		if (host_trfcr != guest_trfcr) {
+> +			*host_data_ptr(host_debug_state.trfcr_el1) = guest_trfcr;
 
-Is this about Liao's siglock patch set? We are at v4 (!) already (see
-[0]) with Oleg's Acked-by added.
+Huh? That's going into host_debug_state, which is the dumping grounds
+for *host* context when entering a guest.
 
->
->  2) There was a build failure reported against -v2 at:
->
->        https://lore.kernel.org/all/202410050745.2Nuvusy4-lkp@intel.com/t.=
-mbox.gz
->
->     We cannot and will not merge patches with build failures.
+Not sure why we'd stick a *guest* value in there...
 
-This one is about this patch set (speculative uprobe lookup), right?
-It is already at v4 ([1]), while you are mentioning v2 as the reason
-for this to not yet be applied. Those build failures were fixed *a
-long time ago*, v4 itself has been sitting idle for almost a month
-(since Oct 27). If there are any other problems, do bring them up,
-don't wait for weeks.
+> +			host_data_set_flag(HOST_STATE_SWAP_TRFCR);
+> +		} else
+> +			host_data_clear_flag(HOST_STATE_SWAP_TRFCR);
+> +}
+> +EXPORT_SYMBOL_GPL(kvm_set_trfcr);
 
->
-> Andrii did get some other uprobes scalability work merged in v6.13:
->
->     - Switch to RCU Tasks Trace flavor for better performance (Andrii Nak=
-ryiko)
->
->     - Massively increase uretprobe SMP scalability by SRCU-protecting
->       the uretprobe lifetime (Andrii Nakryiko)
->
-> So we've certainly not been ignoring his patches, to the contrary ...
+I have a rather strong distaste for this interface, both with the
+coresight driver and internally with the hypervisor. It'd be better if
+the driver actually told KVM what the *intent* is rather than throwing a
+pile of bits over the fence and forcing KVM to interpret what that
+configuration means.
 
-Yes, and as I mentioned, this one is a) ready, reviewed, tested and b)
-complements the other work you mention. It removes mmap_lock which
-limits scalability of the rest of the work. Is there some rule that I
-get to land only two patch sets in a single release?
+> +static void __debug_swap_trace(void)
+> +{
+> +	u64 trfcr = read_sysreg_el1(SYS_TRFCR);
+> +
+> +	write_sysreg_el1(*host_data_ptr(host_debug_state.trfcr_el1), SYS_TRFCR);
+> +	*host_data_ptr(host_debug_state.trfcr_el1) = trfcr;
+> +	host_data_set_flag(HOST_STATE_RESTORE_TRFCR);
+> +}
+> +
 
->
-> Thanks,
->
->         Ingo
+What if trace is disabled in the guest or in the host? Do we need to
+synchronize when transitioning from an enabled -> disabled state like we
+do today?
 
+I took a stab at this, completely untested of course && punts on
+protected mode. But this is _generally_ how I'd like to see everything
+fit together.
 
-[0] https://lore.kernel.org/linux-trace-kernel/20241022073141.3291245-1-lia=
-ochang1@huawei.com/
-[1] https://lore.kernel.org/linux-trace-kernel/20241028010818.2487581-1-and=
-rii@kernel.org/
-[2] https://lore.kernel.org/linux-trace-kernel/CAEf4BzYPajbgyvcvm7z1EiPgkee=
-1D1r=3Da8gaqxzd7k13gh9Uzw@mail.gmail.com/
-[3] https://lore.kernel.org/linux-trace-kernel/CAEf4Bza=3DpwrZvd+3dz-a7eiAQ=
-Mk9rwBDO1Kk_iwXSCM70CAARw@mail.gmail.com/
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 8bc0ec151684..b4714cece5f0 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -611,7 +611,7 @@ struct cpu_sve_state {
+  */
+ struct kvm_host_data {
+ #define KVM_HOST_DATA_FLAG_HAS_SPE			0
+-#define KVM_HOST_DATA_FLAG_HAS_TRBE			1
++#define KVM_HOST_DATA_FLAG_HOST_TRBE_ENABLED		1
+ #define KVM_HOST_DATA_FLAG_HOST_SVE_ENABLED		2
+ #define KVM_HOST_DATA_FLAG_HOST_SME_ENABLED		3
+ 	unsigned long flags;
+@@ -659,6 +659,9 @@ struct kvm_host_data {
+ 		u64 mdcr_el2;
+ 	} host_debug_state;
+ 
++	/* Guest trace filter value */
++	u64 guest_trfcr_el1;
++
+ 	/* Number of programmable event counters (PMCR_EL0.N) for this CPU */
+ 	unsigned int nr_event_counters;
+ 
+@@ -1381,6 +1384,8 @@ static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
+ void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
+ void kvm_clr_pmu_events(u64 clr);
+ bool kvm_set_pmuserenr(u64 val);
++void kvm_enable_trbe(u64 guest_trfcr);
++void kvm_disable_trbe(void);
+ #else
+ static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
+ static inline void kvm_clr_pmu_events(u64 clr) {}
+@@ -1388,6 +1393,8 @@ static inline bool kvm_set_pmuserenr(u64 val)
+ {
+ 	return false;
+ }
++void kvm_enable_trbe(u64 guest_trfcr) {}
++void kvm_disable_trbe(void) {}
+ #endif
+ 
+ void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu);
+diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+index 46dbeabd6833..6ef8d8f4b452 100644
+--- a/arch/arm64/kvm/debug.c
++++ b/arch/arm64/kvm/debug.c
+@@ -72,10 +72,6 @@ void kvm_init_host_debug_data(void)
+ 	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_PMSVer_SHIFT) &&
+ 	    !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P))
+ 		host_data_set_flag(HAS_SPE);
+-
+-	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_TraceBuffer_SHIFT) &&
+-	    !(read_sysreg_s(SYS_TRBIDR_EL1) & TRBIDR_EL1_P))
+-		host_data_set_flag(HAS_TRBE);
+ }
+ 
+ /*
+@@ -215,3 +211,27 @@ void kvm_debug_handle_oslar(struct kvm_vcpu *vcpu, u64 val)
+ 	kvm_arch_vcpu_load(vcpu, smp_processor_id());
+ 	preempt_enable();
+ }
++
++void kvm_enable_trbe(u64 guest_trfcr)
++{
++	if (WARN_ON_ONCE(preemptible()))
++		return;
++
++	if (has_vhe()) {
++		write_sysreg_s(guest_trfcr, SYS_TRFCR_EL12);
++		return;
++	}
++
++	*host_data_ptr(guest_trfcr_el1) = guest_trfcr;
++	host_data_set_flag(HOST_TRBE_ENABLED);
++}
++EXPORT_SYMBOL_GPL(kvm_enable_trbe);
++
++void kvm_disable_trbe(void)
++{
++	if (has_vhe() || WARN_ON_ONCE(preemptible()))
++		return;
++
++	host_data_clear_flag(HOST_TRBE_ENABLED);
++}
++EXPORT_SYMBOL_GPL(kvm_disable_trbe);
+diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+index 858bb38e273f..d36cbce75bee 100644
+--- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
++++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+@@ -51,32 +51,33 @@ static void __debug_restore_spe(u64 pmscr_el1)
+ 	write_sysreg_el1(pmscr_el1, SYS_PMSCR);
+ }
+ 
+-static void __debug_save_trace(u64 *trfcr_el1)
++static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
+ {
+-	*trfcr_el1 = 0;
++	*saved_trfcr = read_sysreg_el1(SYS_TRFCR);
++	write_sysreg_el1(new_trfcr, SYS_TRFCR);
+ 
+-	/* Check if the TRBE is enabled */
+-	if (!(read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E))
++	/* Nothing left to do if going to an enabled state */
++	if (new_trfcr)
+ 		return;
++
+ 	/*
+-	 * Prohibit trace generation while we are in guest.
+-	 * Since access to TRFCR_EL1 is trapped, the guest can't
+-	 * modify the filtering set by the host.
++	 * Switching to a context with trace generation disabled. Drain the
++	 * trace buffer to memory.
+ 	 */
+-	*trfcr_el1 = read_sysreg_el1(SYS_TRFCR);
+-	write_sysreg_el1(0, SYS_TRFCR);
+ 	isb();
+-	/* Drain the trace buffer to memory */
+ 	tsb_csync();
+ }
+ 
+-static void __debug_restore_trace(u64 trfcr_el1)
++static void __trace_switch_to_guest(void)
+ {
+-	if (!trfcr_el1)
+-		return;
++	__trace_do_switch(host_data_ptr(host_debug_state.trfcr_el1),
++			  *host_data_ptr(guest_trfcr_el1));
++}
+ 
+-	/* Restore trace filter controls */
+-	write_sysreg_el1(trfcr_el1, SYS_TRFCR);
++static void __trace_switch_to_host(void)
++{
++	__trace_do_switch(host_data_ptr(guest_trfcr_el1),
++			  *host_data_ptr(host_debug_state.trfcr_el1));
+ }
+ 
+ void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu)
+@@ -84,9 +85,13 @@ void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu)
+ 	/* Disable and flush SPE data generation */
+ 	if (host_data_test_flag(HAS_SPE))
+ 		__debug_save_spe(host_data_ptr(host_debug_state.pmscr_el1));
+-	/* Disable and flush Self-Hosted Trace generation */
+-	if (host_data_test_flag(HAS_TRBE))
+-		__debug_save_trace(host_data_ptr(host_debug_state.trfcr_el1));
++
++	/*
++	 * Switch the trace filter, potentially disabling and flushing trace
++	 * data generation
++	 */
++	if (host_data_test_flag(HOST_TRBE_ENABLED))
++		__trace_switch_to_guest();
+ }
+ 
+ void __debug_switch_to_guest(struct kvm_vcpu *vcpu)
+@@ -98,8 +103,8 @@ void __debug_restore_host_buffers_nvhe(struct kvm_vcpu *vcpu)
+ {
+ 	if (host_data_test_flag(HAS_SPE))
+ 		__debug_restore_spe(*host_data_ptr(host_debug_state.pmscr_el1));
+-	if (host_data_test_flag(HAS_TRBE))
+-		__debug_restore_trace(*host_data_ptr(host_debug_state.trfcr_el1));
++	if (host_data_test_flag(HOST_TRBE_ENABLED))
++		__trace_switch_to_host();
+ }
+ 
+ void __debug_switch_to_host(struct kvm_vcpu *vcpu)
+
+-- 
+Thanks,
+Oliver
 
