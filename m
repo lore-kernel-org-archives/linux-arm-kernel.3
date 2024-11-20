@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DAC7D63926
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 10:58:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E6C1D6392B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 10:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QHY9Vu/v9jt8ddodiBMVqHtuBE3iJsXdI0KJMy4Gh7I=; b=V1huEWtMkt329nWi5btYxY67/b
-	h+GszNgDQQaVury/ecqklJiIaZ5z2KUv7P7rnLq0xiiKYR+h3hww+cm8HnKI1WubqfOcbzM91jw3E
-	gE4358Ny9Kjh2/sSLyzRFoje1SSZfTtu9qRca9k0Uiulu1XipETnT5X7i56Ot4iZHnXQrLudtjYOW
-	A5cdhh4JEQj0wVP1uK6kvlcP2GE6reiWQAVJz25UQFLSV8KGn62d+WN2XHNnZr6hIqgx7Bvz7gM6V
-	ja7hX0f4UxjdC2821dqzG/PgsxqxkZDYKpuGKKkbBS1lV2Zanes4cTNiKjVh3bvMNPMm+27Ivbtht
-	6yoZyk3Q==;
+	bh=PWlwh2r5cUbjy38z0tNtKmZ/nFgnEt+ibYLfDrO6zBU=; b=M27y95otclh+LPzUjO6PawrOz5
+	p1YH/nsE/hiSk+nk6mwED9p03SWxNoNPrE6bDJCf/SV0ex4yzVncaLwROWuHJuzUWwHGzpraFP85q
+	gJGaZcdhWOBggji4ukfP2s3PpwIAPMG3sb93Kp8aGIdZYEf+degAO8oCevbMucn1el8RXYlZq1vG7
+	8d0BjIFC40Un0oZdne7LZl1iazYJxk01Jj6Mu/njiNYsQSc1ce7EhRq7gf2sgVR2rjexKKZDkyNc3
+	cW/3XX0An2j0PD9dw3EfGl//873ZdE+39JTO/qjOyPi6g9SEYsfdUZs5CHVpUc62vsfkMLynYZ6Uf
+	obNbppww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDiQ1-0000000F7ZG-48Rk;
-	Wed, 20 Nov 2024 10:58:45 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1tDiQx-0000000F7kU-2jbB;
+	Wed, 20 Nov 2024 10:59:43 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDiKc-0000000F6Rw-2mVI
+	id 1tDiKf-0000000F6T1-0OXx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 10:53:11 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-382450d158fso2024527f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 02:53:09 -0800 (PST)
+	Wed, 20 Nov 2024 10:53:14 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43164f21063so40987925e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 02:53:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1732099988; x=1732704788; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1732099991; x=1732704791; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QHY9Vu/v9jt8ddodiBMVqHtuBE3iJsXdI0KJMy4Gh7I=;
-        b=JjnBeCNBfS7wJBdM0TN//ExRDtMv8z7EnfXgQwMj+9nNCwgo7uHcwm+VnECxz48NeN
-         WL96HOmi0DZKVWtIEEZcRwAGoNkseUu3OqZbVb5J1EmCsfF5iVI6noeio7HfCllnuy8U
-         WBkE2iqrfudhMF2loRS9njPb98TpKqVGlC60U6X61pv/GURtE2lPb1slma4/Zy9SeIVR
-         /n+51YDzbaV5YkzRVkPs87TgFJEHKr3BSuWVXBH+0pX+FWo8CIpXCQMLoJsVVhgtlV7Y
-         7B4ahCpXqDmr183Ia80PsLNEcGFv4bEkZQgk4uKgltkpRpDzM58YZ24fhFA/UFOkvwV/
-         TPJw==
+        bh=PWlwh2r5cUbjy38z0tNtKmZ/nFgnEt+ibYLfDrO6zBU=;
+        b=0/6PKDQ0aDrElLIZUz9D2sPkhc2jgBeXbdFNS/LSv6fXMJGTxXI6TEfI44rFDb8L6h
+         6dzvUIFA3IiDdrHtrIVklnyK8pCCzKNZx1dXI0oVu6H4F+2Po50tTfeey3Ocj6kCleAl
+         8ZVywFe5Uusb3x0KeojbipiiPGP5I/5X8zBcNOhKxcq6wVpZJwWAdDtlOagF0/Eyz8Ea
+         rQEQuF/fJbiQ+BFVWP/PdwSLBwj+omSmBGRpQ6yFC+mmt7WLrMHhx0FJyol4whd+cC7X
+         1oFsTDLxmA/7aH0DwPs0D28X9/Utb9mARJMH2XUt2TsjXJukrOPX43NCK7QOHTlGzWDX
+         b8Og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732099988; x=1732704788;
+        d=1e100.net; s=20230601; t=1732099991; x=1732704791;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QHY9Vu/v9jt8ddodiBMVqHtuBE3iJsXdI0KJMy4Gh7I=;
-        b=podgdHKz6W+ScGFqfwZWpjdMaXmFPqNLKEg2kmyN5eWOKCE+8xb1HpLQVNrASNKDgQ
-         /vX4COHb69/hSdl5fLJnPgr5lKJApYtrhbMdzx4+p9ft7Ue1yxtiL0Vi1uf69IWGf4fG
-         G1LXkTTthHN1ET/sKHVgrjpLUh6chS6E53RH6BcdAHD5u1VQjEmNzHbgiG9ncZCxfy5b
-         UpFJgYgz+Xw26HULfSaO2QvwyyJJKIstV+BbItCM+l/njJ7IdgvNZ+QIex4GkRHvYtNz
-         /klK/rr6zluB6VpVqTxJrrl+LtKCW1mClxmOOYpKI+PI3Nmr7z9n2fkJzQWjtO/xrGbf
-         1j/A==
-X-Forwarded-Encrypted: i=1; AJvYcCVWfSAu0GkIhG1N14gWqsvVjtZsA/O68zWmafhO3TlYUvZId4ww1leMsAGfd4y6dQCUQYf8X8dl15LteuDCECKN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxrt06/DPrSytnA3VIQFWJXFHDr183cMRLD7JHMaLGwHHba6GRF
-	rfZ4LUUD85j2fUk/b568zvb6KttoypQIBCPO37ctLdF+DTGSE6hb7mn5x/Lt0BXXaUO6REnDcQ=
+        bh=PWlwh2r5cUbjy38z0tNtKmZ/nFgnEt+ibYLfDrO6zBU=;
+        b=szRlIm8aWf3Mo6UjGfFek5GeqWZokKQ5gC4cMsXmKouH6SWezYN503hgZ6XsletfCR
+         t7rGRoR2hRZ74q0B1Toub6SS73zSSJLLeUHL1maMsfMRuNZ7o8ODw8nNcSzJ6pyZAexz
+         Nxbf6TsZrpYSXwlYKHi2O/JZ16gwzHrr2W8VgkbiX7qP/jkxpebZn55lU7b6lq1ZoZsJ
+         CHSuDabmRcRE0JOqepTWEvW2i8fUKd0HoKvKfBk78V/T7WcV6EH5zbRQVOH2eI29FDH/
+         XOyZWWdTjXgHX7fYAkfbus2MG6zaUS8kZWz7cZd2LruHsPvJnnKgqITJWra1KJ5JXDjN
+         VOjg==
+X-Forwarded-Encrypted: i=1; AJvYcCXR82NgLZlUm6RUBP+nqn3WtFepX6Ig2Spvw5Ez+CysztFWk4lnfBoTluyCionBLo31x/7FJSLFGr7lQP1JeDNI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPmmbTnuHye+ZIzTpiniPgkf//ncoRoE+6oUSJJRVMRKHfMnPx
+	7UGTFHqFPn0CQr4Aq/3mLVnsnaK9tdZG0sKpIc3WOKgVajNYj3vpYssmYyrs8PC0pxsrB2JqmQ=
 	=
-X-Google-Smtp-Source: AGHT+IEMk0vO8gq+mc70KsQSZzwvEYnnws8eHzciVbWjEdDjZE/bNjDj1WTwx+dXuNEtkZhkolH+TswqhQ==
+X-Google-Smtp-Source: AGHT+IEXNbbI1O87PbXXkDhI1ShdAS8KOgYKyaigDalZlZ0rlyWI+emoWowwU79vnio8CPc46ZjhK8kL3g==
 X-Received: from fuad.c.googlers.com ([fda3:e722:ac3:cc00:28:9cb1:c0a8:1613])
- (user=tabba job=sendgmr) by 2002:a5d:4dcb:0:b0:37d:5299:c401 with SMTP id
- ffacd0b85a97d-38254b24bd4mr612f8f.7.1732099988221; Wed, 20 Nov 2024 02:53:08
+ (user=tabba job=sendgmr) by 2002:a05:600c:3542:b0:431:93c2:9573 with SMTP id
+ 5b1f17b1804b1-43348904faamr10885e9.0.1732099990776; Wed, 20 Nov 2024 02:53:10
  -0800 (PST)
-Date: Wed, 20 Nov 2024 10:52:47 +0000
+Date: Wed, 20 Nov 2024 10:52:48 +0000
 In-Reply-To: <20241120105254.2842020-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20241120105254.2842020-1-tabba@google.com>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241120105254.2842020-6-tabba@google.com>
-Subject: [PATCH v1 05/12] KVM: arm64: Initialize feature id registers for
- protected VMs
+Message-ID: <20241120105254.2842020-7-tabba@google.com>
+Subject: [PATCH v1 06/12] KVM: arm64: Set protected VM traps based on its view
+ of feature registers
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org, 
@@ -75,8 +75,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org,
 	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_025310_717267_94008ABA 
-X-CRM114-Status: GOOD (  18.96  )
+X-CRM114-CacheID: sfid-20241120_025313_133231_A9F8155B 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,135 +91,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hypervisor maintains the state of protected VMs. Initialize
-the values for feature ID registers for protected VMs, to be used
-when setting traps and when advertising features to protected
-VMs.
+Now that the VM's feature id registers are initialized with the
+values of the supported features, use those values to determine
+which traps to set using kvm_has_feature().
 
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- .../arm64/kvm/hyp/include/nvhe/fixed_config.h |  1 +
- arch/arm64/kvm/hyp/nvhe/pkvm.c                |  4 ++
- arch/arm64/kvm/hyp/nvhe/sys_regs.c            | 55 ++++++++++++++++++-
- 3 files changed, 57 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/pkvm.c     | 85 +++++++++++-------------------
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c |  7 ---
+ 2 files changed, 30 insertions(+), 62 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
-index d1e59b88ff66..69e26d1a0ebe 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
-@@ -201,6 +201,7 @@
- u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id);
- bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
- bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
-+void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
- int kvm_check_pvm_sysreg_table(void);
- 
- #endif /* __ARM64_KVM_FIXED_CONFIG_H__ */
 diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 59ff6aac514c..4ef03294b2b4 100644
+index 4ef03294b2b4..3b4ea97148b9 100644
 --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
 +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -381,6 +381,7 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
- 	hyp_vm->kvm.created_vcpus = nr_vcpus;
- 	hyp_vm->kvm.arch.mmu.vtcr = host_mmu.arch.mmu.vtcr;
- 	hyp_vm->kvm.arch.pkvm.enabled = READ_ONCE(host_kvm->arch.pkvm.enabled);
-+	hyp_vm->kvm.arch.flags = 0;
- 	pkvm_init_features_from_host(hyp_vm, host_kvm);
- }
+@@ -52,9 +52,7 @@ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
  
-@@ -419,6 +420,9 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
- 	hyp_vcpu->vcpu.arch.cflags = READ_ONCE(host_vcpu->arch.cflags);
- 	hyp_vcpu->vcpu.arch.mp_state.mp_state = KVM_MP_STATE_STOPPED;
+ static void pvm_init_traps_hcr(struct kvm_vcpu *vcpu)
+ {
+-	const u64 id_aa64pfr0 = pvm_read_id_reg(vcpu, SYS_ID_AA64PFR0_EL1);
+-	const u64 id_aa64pfr1 = pvm_read_id_reg(vcpu, SYS_ID_AA64PFR1_EL1);
+-	const u64 id_aa64mmfr1 = pvm_read_id_reg(vcpu, SYS_ID_AA64MMFR1_EL1);
++	struct kvm *kvm = vcpu->kvm;
+ 	u64 val = vcpu->arch.hcr_el2;
  
-+	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-+		kvm_init_pvm_id_regs(&hyp_vcpu->vcpu);
+ 	/* No support for AArch32. */
+@@ -70,25 +68,20 @@ static void pvm_init_traps_hcr(struct kvm_vcpu *vcpu)
+ 	 */
+ 	val |= HCR_TACR | HCR_TIDCP | HCR_TID3 | HCR_TID1;
+ 
+-	/* Trap RAS unless all current versions are supported */
+-	if (FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_RAS), id_aa64pfr0) <
+-	    ID_AA64PFR0_EL1_RAS_V1P1) {
++	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, IMP)) {
+ 		val |= HCR_TERR | HCR_TEA;
+ 		val &= ~(HCR_FIEN);
+ 	}
+ 
+-	/* Trap AMU */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_AMU), id_aa64pfr0))
++	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, AMU, IMP))
+ 		val &= ~(HCR_AMVOFFEN);
+ 
+-	/* Memory Tagging: Trap and Treat as Untagged if not supported. */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE), id_aa64pfr1)) {
++	if (!kvm_has_feat(kvm, ID_AA64PFR1_EL1, MTE, IMP)) {
+ 		val |= HCR_TID5;
+ 		val &= ~(HCR_DCT | HCR_ATA);
+ 	}
+ 
+-	/* Trap LOR */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64MMFR1_EL1_LO), id_aa64mmfr1))
++	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, LO, IMP))
+ 		val |= HCR_TLOR;
+ 
+ 	vcpu->arch.hcr_el2 = val;
+@@ -96,9 +89,7 @@ static void pvm_init_traps_hcr(struct kvm_vcpu *vcpu)
+ 
+ static void pvm_init_traps_cptr(struct kvm_vcpu *vcpu)
+ {
+-	const u64 id_aa64pfr0 = pvm_read_id_reg(vcpu, SYS_ID_AA64PFR0_EL1);
+-	const u64 id_aa64pfr1 = pvm_read_id_reg(vcpu, SYS_ID_AA64PFR1_EL1);
+-	const u64 id_aa64dfr0 = pvm_read_id_reg(vcpu, SYS_ID_AA64DFR0_EL1);
++	struct kvm *kvm = vcpu->kvm;
+ 	u64 val = vcpu->arch.cptr_el2;
+ 
+ 	if (!has_hvhe()) {
+@@ -106,12 +97,11 @@ static void pvm_init_traps_cptr(struct kvm_vcpu *vcpu)
+ 		val &= ~(CPTR_NVHE_EL2_RES0);
+ 	}
+ 
+-	/* Trap AMU */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_AMU), id_aa64pfr0))
++	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, AMU, IMP))
+ 		val |= CPTR_EL2_TAM;
+ 
+-	/* Trap SVE */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_SVE), id_aa64pfr0)) {
++	/* SVE can be disabled by userspace even if supported. */
++	if (!vcpu_has_sve(vcpu)) {
+ 		if (has_hvhe())
+ 			val &= ~(CPACR_ELx_ZEN);
+ 		else
+@@ -119,14 +109,13 @@ static void pvm_init_traps_cptr(struct kvm_vcpu *vcpu)
+ 	}
+ 
+ 	/* No SME support in KVM. */
+-	BUG_ON(FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_SME), id_aa64pfr1));
++	BUG_ON(kvm_has_feat(kvm, ID_AA64PFR1_EL1, SME, IMP));
+ 	if (has_hvhe())
+ 		val &= ~(CPACR_ELx_SMEN);
+ 	else
+ 		val |= CPTR_EL2_TSM;
+ 
+-	/* Trap Trace */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_TraceVer), id_aa64dfr0)) {
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceVer, IMP)) {
+ 		if (has_hvhe())
+ 			val |= CPACR_EL1_TTA;
+ 		else
+@@ -138,40 +127,33 @@ static void pvm_init_traps_cptr(struct kvm_vcpu *vcpu)
+ 
+ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
+ {
+-	const u64 id_aa64dfr0 = pvm_read_id_reg(vcpu, SYS_ID_AA64DFR0_EL1);
+-	const u64 id_aa64mmfr0 = pvm_read_id_reg(vcpu, SYS_ID_AA64MMFR0_EL1);
++	struct kvm *kvm = vcpu->kvm;
+ 	u64 val = vcpu->arch.mdcr_el2;
+ 
+-	/* Trap/constrain PMU */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_PMUVer), id_aa64dfr0)) {
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMUVer, IMP)) {
+ 		val |= MDCR_EL2_TPM | MDCR_EL2_TPMCR;
+ 		val &= ~(MDCR_EL2_HPME | MDCR_EL2_MTPME | MDCR_EL2_HPMN_MASK);
+ 	}
+ 
+-	/* Trap Debug */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_DebugVer), id_aa64dfr0))
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, DebugVer, IMP))
+ 		val |= MDCR_EL2_TDRA | MDCR_EL2_TDA;
+ 
+-	/* Trap OS Double Lock */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_DoubleLock), id_aa64dfr0))
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, DoubleLock, IMP))
+ 		val |= MDCR_EL2_TDOSA;
+ 
+-	/* Trap SPE */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_PMSVer), id_aa64dfr0)) {
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMSVer, IMP)) {
+ 		val |= MDCR_EL2_TPMS;
+ 		val &= ~(MDCR_EL2_E2PB_MASK << MDCR_EL2_E2PB_SHIFT);
+ 	}
+ 
+-	/* Trap Trace Filter */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_TraceFilt), id_aa64dfr0))
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceFilt, IMP))
+ 		val |= MDCR_EL2_TTRF;
+ 
+-	/* Trap External Trace */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_ExtTrcBuff), id_aa64dfr0))
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, ExtTrcBuff, IMP))
+ 		val |= MDCR_EL2_E2TB_MASK << MDCR_EL2_E2TB_SHIFT;
+ 
+ 	/* Trap Debug Communications Channel registers */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64MMFR0_EL1_FGT), id_aa64mmfr0))
++	if (!kvm_has_feat(kvm, ID_AA64MMFR0_EL1, FGT, IMP))
+ 		val |= MDCR_EL2_TDCC;
+ 
+ 	vcpu->arch.mdcr_el2 = val;
+@@ -183,31 +165,24 @@ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
+  */
+ static int pkvm_check_pvm_cpu_features(struct kvm_vcpu *vcpu)
+ {
+-	/*
+-	 * PAuth is allowed if supported by the system and the vcpu.
+-	 * Properly checking for PAuth requires checking various fields in
+-	 * ID_AA64ISAR1_EL1 and ID_AA64ISAR2_EL1. The way that fixed config
+-	 * is controlled now in pKVM does not easily allow that. This will
+-	 * change later to follow the changes upstream wrt fixed configuration
+-	 * and nested virt.
+-	 */
+-	BUILD_BUG_ON(!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_GPI),
+-				PVM_ID_AA64ISAR1_ALLOW));
++	struct kvm *kvm = vcpu->kvm;
+ 
+ 	/* Protected KVM does not support AArch32 guests. */
+-	BUILD_BUG_ON(FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_EL0),
+-		PVM_ID_AA64PFR0_ALLOW) != ID_AA64PFR0_EL1_EL0_IMP);
+-	BUILD_BUG_ON(FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_EL1),
+-		PVM_ID_AA64PFR0_ALLOW) != ID_AA64PFR0_EL1_EL1_IMP);
++	if (kvm_has_feat(kvm, ID_AA64PFR0_EL1, EL0, AARCH32) ||
++	    kvm_has_feat(kvm, ID_AA64PFR0_EL1, EL1, AARCH32))
++		return -EINVAL;
+ 
+ 	/*
+ 	 * Linux guests assume support for floating-point and Advanced SIMD. Do
+ 	 * not change the trapping behavior for these from the KVM default.
+ 	 */
+-	BUILD_BUG_ON(!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_FP),
+-				PVM_ID_AA64PFR0_ALLOW));
+-	BUILD_BUG_ON(!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_AdvSIMD),
+-				PVM_ID_AA64PFR0_ALLOW));
++	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, FP, IMP) ||
++	    !kvm_has_feat(kvm, ID_AA64PFR0_EL1, AdvSIMD, IMP))
++		return -EINVAL;
 +
- 	ret = pkvm_vcpu_init_traps(hyp_vcpu);
- 	if (ret)
- 		goto done;
++	/* No SME support in KVM right now. Check to catch if it changes. */
++	if (kvm_has_feat(kvm, ID_AA64PFR1_EL1, SME, IMP))
++		return -EINVAL;
+ 
+ 	return 0;
+ }
 diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-index 59fb2f056177..7e93850a426f 100644
+index 7e93850a426f..cc6a57455b20 100644
 --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
 +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-@@ -204,8 +204,7 @@ static u64 get_pvm_id_aa64mmfr2(const struct kvm_vcpu *vcpu)
- 	return id_aa64mmfr2_el1_sys_val & PVM_ID_AA64MMFR2_ALLOW;
- }
- 
--/* Read a sanitized cpufeature ID register by its encoding */
--u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
-+static u64 pvm_calc_id_reg(const struct kvm_vcpu *vcpu, u32 id)
- {
- 	switch (id) {
- 	case SYS_ID_AA64PFR0_EL1:
-@@ -240,10 +239,25 @@ u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+@@ -285,13 +285,6 @@ static bool pvm_access_id_aarch32(struct kvm_vcpu *vcpu,
+ 		return false;
  	}
+ 
+-	/*
+-	 * No support for AArch32 guests, therefore, pKVM has no sanitized copy
+-	 * of AArch32 feature id registers.
+-	 */
+-	BUILD_BUG_ON(FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_EL1),
+-		     PVM_ID_AA64PFR0_ALLOW) > ID_AA64PFR0_EL1_EL1_IMP);
+-
+ 	return pvm_access_raz_wi(vcpu, p, r);
  }
  
-+/* Read a sanitized cpufeature ID register by its encoding */
-+u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
-+{
-+	return pvm_calc_id_reg(vcpu, id);
-+}
-+
- static u64 read_id_reg(const struct kvm_vcpu *vcpu,
- 		       struct sys_reg_desc const *r)
- {
--	return pvm_read_id_reg(vcpu, reg_to_encoding(r));
-+	struct kvm *kvm = vcpu->kvm;
-+	u32 reg = reg_to_encoding(r);
-+
-+	if (WARN_ON_ONCE(!test_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags)))
-+		return 0;
-+
-+	if (reg >= sys_reg(3, 0, 0, 4, 0) && reg <= sys_reg(3, 0, 0, 7, 7))
-+		return kvm->arch.id_regs[IDREG_IDX(reg)];
-+
-+	return 0;
- }
- 
- /* Handler to RAZ/WI sysregs */
-@@ -448,6 +462,41 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
- 	/* Performance Monitoring Registers are restricted. */
- };
- 
-+/*
-+ * Initializes feature registers for protected vms.
-+ */
-+void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu)
-+{
-+	/* List of feature registers to reset for protected VMs. */
-+	const u32 pvm_feat_id_regs[] = {
-+		SYS_ID_AA64PFR0_EL1,
-+		SYS_ID_AA64PFR1_EL1,
-+		SYS_ID_AA64ISAR0_EL1,
-+		SYS_ID_AA64ISAR1_EL1,
-+		SYS_ID_AA64ISAR2_EL1,
-+		SYS_ID_AA64ZFR0_EL1,
-+		SYS_ID_AA64MMFR0_EL1,
-+		SYS_ID_AA64MMFR1_EL1,
-+		SYS_ID_AA64MMFR2_EL1,
-+		SYS_ID_AA64MMFR4_EL1,
-+		SYS_ID_AA64DFR0_EL1,
-+	};
-+	struct kvm *kvm = vcpu->kvm;
-+	unsigned long i;
-+
-+	if (WARN_ON_ONCE(test_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags)))
-+		return;
-+
-+	for (i = 0; i < ARRAY_SIZE(pvm_feat_id_regs); i++) {
-+		struct kvm_arch *ka = &kvm->arch;
-+		u32 reg = pvm_feat_id_regs[i];
-+
-+		ka->id_regs[IDREG_IDX(reg)] = pvm_calc_id_reg(vcpu, reg);
-+	}
-+
-+	set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags);
-+}
-+
- /*
-  * Checks that the sysreg table is unique and in-order.
-  *
 -- 
 2.47.0.338.g60cca15819-goog
 
