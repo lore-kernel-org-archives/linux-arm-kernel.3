@@ -4,59 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E7B7D6C2B5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 10:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA8FD63920
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 10:15:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1YQD9rRlLG0DM4hjnRHdFsOHuYASoCc9q0/q+jmN3Fk=; b=KN1Jd3t77MQfwATglzAVgq2ndt
-	vwAQj4H1XSnGlROGtYsO/fsXYp9ktxq+ra44uFODuEmcI3Tvr5Zxg4w4/ixCWqawsHylwAgpHehFq
-	RLm6JEHzF9lgLtCcoO1oIh2mdWSTJWcUWy1A4YOQnKmUD3wWyPE8Jv9jera8X45kV/uudL3hwIQvv
-	JqmT9aCswvauzZplDbGitHXCcFGjYYzHvQcX47d/35ShBLm/lG+naYbuhu9BU230WwUOqCxsAaCc3
-	4QSTXDqYrKeRblzoJwUaXhHb+eTE9rEouhEizrIvWPi/13nDUpBHEaupshRqv9mu5XBTeQeEcmCtF
-	Tux9sUfA==;
+	bh=Rund3eXE33gunWroliBrDttepEeQJ9PST86ln98CDmg=; b=1SOju9b5F8x9WcRwKIrwo+SN35
+	hLrF0Xo87WI2ZWLubR0SUr8hzrurHdtB3qG2K+Ta3Q+N/h8tYXqzqqHshUZK3p5TlxcNwLL9MJKz0
+	/2+ZRV8qpPPxO9nMb9uz5O3XlxCaDsaoLf4r+Simj9AEYH7AuAI/GhPp6p1HsuT5Ds08QpDNjxTdL
+	JAz/YRb+8u6keSw9UfZRr/RHyCCvmyCRhL/+EZYhB10FgXepYH1+iFBOb8Vd64DP8NJgdavHgJ2vc
+	Q0R/PBUZjPfsWM0GXBjxgzmPEp4E17p157Ii0gR7GJE0BqBLLONU3ZLpSuYcVcv2Qw/aUWnIemATD
+	7lRXv4rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDhiU-0000000F1ql-3lFz;
-	Wed, 20 Nov 2024 10:13:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDhhX-0000000F1gi-2Kln
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 10:12:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B517612FC;
-	Wed, 20 Nov 2024 02:13:14 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D9EA83F5A1;
-	Wed, 20 Nov 2024 02:12:42 -0800 (PST)
-Date: Wed, 20 Nov 2024 10:12:28 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/7] dt-bindings: pinctrl: add compatible for Allwinner
- A523/T527
-Message-ID: <20241120101228.26bbf100@donnerap.manchester.arm.com>
-In-Reply-To: <CAGb2v64x_QE8w_4h10waG33xNpkd9QLt_B=xSPMMe0M=6bqsJw@mail.gmail.com>
-References: <20241111005750.13071-1-andre.przywara@arm.com>
-	<20241111005750.13071-6-andre.przywara@arm.com>
-	<CAGb2v64x_QE8w_4h10waG33xNpkd9QLt_B=xSPMMe0M=6bqsJw@mail.gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1tDhja-0000000F240-2CkW;
+	Wed, 20 Nov 2024 10:14:54 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tDhic-0000000F1rn-3wKr;
+	Wed, 20 Nov 2024 10:13:56 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E611E6000F;
+	Wed, 20 Nov 2024 10:13:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1732097632;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Rund3eXE33gunWroliBrDttepEeQJ9PST86ln98CDmg=;
+	b=DsZxB6BaaT/0Ww5LZyO6h+V9XleVnpsXjDfY5zxvRIDAwQW65PwtYmnLLAljfjYyKGqlgp
+	bDLfpZ0E5Izwtgcvl3CS26oT6kV64zOBR2tL8huPCdjRhieUxdgmx0U64xscJhvY/qhmHT
+	6DWzyH79UKH5SDm8+Gb24BHpLaImXVuG9GI39rx4uFGHD+GwvM2scmQf1yVUbVttX8ociB
+	+YxLVHELGy/vnzGmEfR7uxMvGxsGHrs8Qqs7yoJO7GnNhOffwe3+kocUgQF8b2CI5HD0si
+	V8tyweBYu8Aty8g6hVSki1wddilYdWjwsg9QU3+m+G2Xz3OxrtsktTnlz6frOw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: SkyLake Huang (=?utf-8?B?6buD5ZWf5r6k?=) <SkyLake.Huang@mediatek.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+  "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
+  "linux-mediatek@lists.infradead.org"
+ <linux-mediatek@lists.infradead.org>,  "acelan.kao@canonical.com"
+ <acelan.kao@canonical.com>,  "chengminglin@mxic.com.tw"
+ <chengminglin@mxic.com.tw>,  "mika.westerberg@linux.intel.com"
+ <mika.westerberg@linux.intel.com>,  "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,  Steven Liu
+ <steven.liu@mediatek.com>,  "matthias.bgg@gmail.com"
+ <matthias.bgg@gmail.com>,  "daniel@makrotopia.org"
+ <daniel@makrotopia.org>,  "vigneshr@ti.com" <vigneshr@ti.com>,
+  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+  "richard@nod.at" <richard@nod.at>
+Subject: Re: [RFC PATCH nand/next 0/4] mtd: nand: spi: Add CASN page support
+In-Reply-To: <9880b3b2f71afd1b020c393fd5d4c0c5673df187.camel@mediatek.com>
+	("SkyLake Huang =?utf-8?B?KOm7g+WVn+a+pCkiJ3M=?= message of "Wed, 20 Nov
+ 2024 07:24:28
+	+0000")
+References: <20241020132722.20565-1-SkyLake.Huang@mediatek.com>
+	<87jzd0zuc0.fsf@bootlin.com>
+	<9880b3b2f71afd1b020c393fd5d4c0c5673df187.camel@mediatek.com>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Wed, 20 Nov 2024 11:13:48 +0100
+Message-ID: <87ldxew6ub.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_021247_689953_8CC5C5F8 
-X-CRM114-Status: GOOD (  28.45  )
+X-CRM114-CacheID: sfid-20241120_021355_267836_A9141724 
+X-CRM114-Status: GOOD (  28.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,148 +87,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Nov 2024 16:50:19 +0800
-Chen-Yu Tsai <wens@csie.org> wrote:
+On 20/11/2024 at 07:24:28 GMT, SkyLake Huang (=E9=BB=83=E5=95=9F=E6=BE=A4) =
+<SkyLake.Huang@mediatek.com> wrote:
 
-Hi Chen-Yu,
+> On Mon, 2024-11-18 at 11:53 +0100, Miquel Raynal wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
+>>=20
+>>=20
+>> On 20/10/2024 at 21:27:18 +08, Sky Huang <SkyLake.Huang@mediatek.com>
+>> wrote:
+>>=20
+>> > From: "Sky Huang" <skylake.huang@mediatek.com>
+>> >=20
+>> > Hi, this is Qi-Ze Huang(Sky Huang) from MediaTek. On our router
+>> > platforms
+>> > chips, we have to quality lots of SPI-NAND devices and are eager
+>> > for
+>> > a standard so that we don't need to maintain trivial flash ID table
+>> > anymore. I also noticed a talk in 2019 Embedded Linux Conference,
+>> > Memory Technology Devices: what's new, which mentioned "ONFI for
+>> > SPI-NANDs? Maybe, maybe not".
+>> >=20
+>> > So earlier this year, I proposed a bold idea, CASN page (Common
+>> > Attributes
+>> > for SPI-NAND). I worked together with top 3 SPI-NAND market share
+>> > flash
+>> > vendors and other vendors to integrate CASN page on their SPI-NAND
+>> > devices
+>> > including but not limited to:
+>> > [ESMT]
+>> > F50L1G41LB
+>> > F50L2G41KA
+>> >=20
+>> > [Etron]
+>> > EM73C044VCF-H
+>> > EM73D044VCO-H
+>> > EM73E044VCE-H
+>> > EM73F044VCA-H
+>> >=20
+>> > [GigaDevice]
+>> > GD5F1GM7UE
+>> > GD5F1GQ5UEYIG
+>> > GD5F2GM7UE
+>> > GD5F2GQ5UEYIG
+>> > GD5F4GM8UE
+>> > GD5F4GQ6UEYIG
+>> >=20
+>> > [Macronix (MXIC)]
+>> > MX35LF1GE4ABZ4IG
+>> >=20
+>> > [Winbond]
+>> > W25N01GV
+>> > W25N01KV
+>> > W25N02KV
+>> > W25N04KV
+>> >=20
+>> > A document of CASN is hosted on github(
+>> > https://urldefense.com/v3/__https://github.com/mtk-openwrt/__;!!CTRNKA=
+9wMg0ARbw!j_TES7dJ_An-9wtyQqWgGBE9ovPnUA-tDNlZ-pGpUdYv4gphzW4v54Fal8i_nLwSm=
+PAzK9ApgSBG1XQ_mREdTS0ZwrBWRA$
+>> > doc/blob/main/CASN%20Page%20Introduction.pdf) So I'll try to keep
+>> > it
+>> > simple here.
+>> >=20
+>> > With CASN page, we don't need to maintain SPI-NAND flash ID table
+>> > anymore.
+>> > Currently, it's integrated in 3.3V SPI-NANDs of small density and
+>> > it's not
+>> > JEDEC standard yet. But it should be able to handle 1.8V and can be
+>> > easily
+>> > integrated by flash vendors.
+>> >=20
+>> > I believe this idea and implementation have room for improvement.
+>> > Hope to
+>> > hear you open source community's comments soon.
+>>=20
+>> I think this is a bright initiative. I'd welcome some standardisation
+>> on
+>> the discovery indeed.
+>>=20
+>> But to be really useful, I believe this table must be really
+>> complete,
+>> otherwise ID's will remain. For instance SDR/DDR modes are not
+>> entirely
+>> defined as we already have mixed modes. There is also no information
+>> about what maximum frequencies can be used with each operation.=20
+>
+> Maximum frequencies are limited by SPI controller's max freq now, I
+> guess?
 
-sorry for the late reply, I was away for a week.
+No, this is just the PCB/controller limitation. But there are chips with
+frequency limitations depending on the type of command (see for instance
+Winbond AC timings tables for DDR capable devices).
 
-> On Mon, Nov 11, 2024 at 8:58=E2=80=AFAM Andre Przywara <andre.przywara@ar=
-m.com> wrote:
-> >
-> > The A523 contains a pin controller similar to previous SoCs, although
-> > using 10 GPIO banks (PortB-PortK), all of them being IRQ capable.
-> > This introduces a new style of binding, where the pinmux values for each
-> > pin group is stored in the new "allwinner,pinmux" property in the DT
-> > node, instead of requiring every driver to store a mapping between the
-> > function names and the required pinmux.
-> >
-> > Add the new name to the list of compatible strings, and required it to
-> > have 10 interrupts described. Also add the new pinmux property.
-> >
-> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > ---
-> >  .../pinctrl/allwinner,sun4i-a10-pinctrl.yaml  | 23 +++++++++++++++++--
-> >  1 file changed, 21 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-=
-a10-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4=
-i-a10-pinctrl.yaml
-> > index 4502405703145..6fc18e92e1e94 100644
-> > --- a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pin=
-ctrl.yaml
-> > +++ b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pin=
-ctrl.yaml
-> > @@ -56,6 +56,8 @@ properties:
-> >        - allwinner,sun50i-h6-r-pinctrl
-> >        - allwinner,sun50i-h616-pinctrl
-> >        - allwinner,sun50i-h616-r-pinctrl
-> > +      - allwinner,sun55i-a523-pinctrl
-> > +      - allwinner,sun55i-a523-r-pinctrl
-> >        - allwinner,suniv-f1c100s-pinctrl
-> >        - nextthing,gr8-pinctrl
-> >
-> > @@ -64,7 +66,7 @@ properties:
-> >
-> >    interrupts:
-> >      minItems: 1
-> > -    maxItems: 8
-> > +    maxItems: 10
-> >      description:
-> >        One interrupt per external interrupt bank supported on the
-> >        controller, sorted by bank number ascending order.
-> > @@ -119,13 +121,17 @@ patternProperties:
-> >          $ref: /schemas/types.yaml#/definitions/uint32
-> >          enum: [10, 20, 30, 40]
-> >
-> > +      allwinner,pinmux:
-> > +        $ref: /schemas/types.yaml#/definitions/uint32-array
-> > +        description: pinmux selector for each pin
-> > + =20
->=20
-> Why not just the standard "pinmux" property, as given in
-> Documentation/devicetree/bindings/pinctrl/pinmux-node.yaml
+>> As
+>> another example, there is no read retry information.
+> What will retry information look like?
 
-I had it like this in my last post two years ago, but learned from
-LinusW [1] that the generic pinmux property has a slightly different
-meaning, and abusing it for just the pinmux index values would not match
-the generic definition.
-We *could* use the generic definition, but then this would include what's
-in the "pins" property, like I sketched out in the cover letter, as an
-alternative to this approach:
-	pinmux =3D <SUNXI_PIN(PB, 9, 2)>, <SUNXI_PIN(PB, 10, 2)>;
-Where the SUNXI_PIN macro would combine the pin number and the pinmux into
-one 32-bit cell. See the Apple GPIO DT nodes for an example.
-This looks indeed nicer, but requires quite some rewrite of the existing
-pinctrl driver, AFAICS.
+Number of retry modes, how to enable retry mode (which is maybe
+standardized per manufacturer, in this case we can just get the right
+hook from the manufacturer information, but otherwise if there are
+differences inside production lines from a single manufacturer, we'll
+still need either a table or some extension of CASN.
 
-[1] Previous reply from LinusW:
-https://lore.kernel.org/linux-sunxi/CACRpkdbMc-Q6wjgsiddu6-tWC1dt2uFk+4Lyer=
-MdgFk2KRGK4w@mail.gmail.com/
+>> Nor anything about
+>> the fact that the on-die ECC engine might not be disabled.
+> As far as I know, only SkyHigh's SPI-NAND's ECC engine can't be
+> disabled since its on-die ECC engine contains randomizer.
 
->=20
-> >      required:
-> >        - pins
-> >        - function =20
->=20
-> This section should be made to apply only to the existing
-> compatibles? Maybe we could just split the files and have
-> a clean slate for sun55i?
+Randomizer and ECC engine are two different things, there are many raw
+NAND controllers with a programmable ECC engine *and* randomizer. They
+just choose to hide the controls.
 
-Yeah, I couldn't find a good example how to make it *required* for one
-compatible and *not allowed* for all the others. But creating a whole new
-file is actually a good idea, as this also avoids adding another case to
-the already quite indented if-else cascade.
+Today it is SkyHigh. What about tomorrow?
 
-Cheers,
-Andre
+> There are some reserved fields. We can handle above requirements in
+> CASN V1.2 or V2. But may I ask what's the purpose of involving above
+> information in CASN? Are there any practical application scenarios?
 
-> ChenYu
->=20
-> >      additionalProperties: false
-> >
-> > -  "^vcc-p[a-ilm]-supply$":
-> > +  "^vcc-p[a-klm]-supply$":
-> >      description:
-> >        Power supplies for pin banks.
-> >
-> > @@ -156,6 +162,17 @@ allOf:
-> >          - interrupts
-> >          - interrupt-controller
-> >
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          enum:
-> > +            - allwinner,sun55i-a523-pinctrl
-> > +
-> > +    then:
-> > +      properties:
-> > +        interrupts:
-> > +          minItems: 10
-> > +
-> >    - if:
-> >        properties:
-> >          compatible:
-> > @@ -166,6 +183,7 @@ allOf:
-> >        properties:
-> >          interrupts:
-> >            minItems: 8
-> > +          maxItems: 8
-> >
-> >    - if:
-> >        properties:
-> > @@ -244,6 +262,7 @@ allOf:
-> >              - allwinner,sun8i-v3s-pinctrl
-> >              - allwinner,sun9i-a80-r-pinctrl
-> >              - allwinner,sun50i-h6-r-pinctrl
-> > +            - allwinner,sun55i-a523-r-pinctrl
-> >
-> >      then:
-> >        properties:
-> > --
-> > 2.46.2
-> > =20
+You claim you want to replace the ID tables. These tables are filled
+with all the relevant data to make the chips supported in Linux. If one
+of these fields is missing from CASN, it means we need to keep the
+tables. So it kind of defeats the CASN purpose. Yes we may have dynamic
+vendor hooks to adapt these parameters "on the fly", but we still need
+internal tables for that.
 
+>> Overall I think this is an interesting initiative but I would like it
+>> to
+>> be more advanced.
+> Agree.
+>
+>> Is there a plan on getting this standardized through
+>> eg. a JEDEC spec?
+>>=20
+>> Thanks,
+>> Miqu=C3=A8l
+> Yes. We're working on it. But it will take some time. Your opinions
+> mean a lot to CASN page standardisation.
+
+Thanks,
+Miqu=C3=A8l
 
