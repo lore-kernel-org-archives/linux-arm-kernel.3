@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83E37D6E2DB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 08:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B7ED44171
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 08:58:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hoz2rjJPiJI28RwPRedme3YnclaiihMgxotq/IbOaYQ=; b=zEKkcBqKgrF5P5CChDWpSCpeMb
-	UA0DyiqhsFOOdnrBDGOs+yg2TB2/oYx0yKuwD3Z5CjmaOTEqZT9GeH9WXYKbHaEq2/RmvmhFC3xob
-	7JoCsSZNDfzvVJAlJU47Xh7N0ZabqZtzO9EEumj1UX3GjnjdoiSGK3Vhyyy1EYNCxaZejDeoEG8sJ
-	bJP3MNxlUCGErUrnShDLVulDQ3DUYFx5n07ZgUHTQL7/MVq/x0IuGJvcQbYbReWo/WJk66pnisLiL
-	R0vThsdVia/ADsx+aQkA2PfABtXkS9xkLSm0Od511a0HLIqgmyqGdiKLXYGHuHY3fjRKpbcZXjjO/
-	mg6Mkwig==;
+	bh=2avuB1cXEdsBY6xDBsOAWpLxFYrs1fdZNjj9n+RuuZY=; b=FjSjyMclYoSy363sgV8J3xs4uN
+	nw0w0/S9679WRI4RlJ0zSXV94UsoTdQhDmFUPL66iLy7RCB7vz3VGLLcdkYMp8zvxj2tiwY6Jmf14
+	QHLKs9K6pquQjeTnwzwU/a1tIngFleSC+LtBnXJFJ7YkQ/pZ1UhVhzpLaHPUDu7eLaOy/0t2vlpoQ
+	SULnX9ixeo88gVIKRzr1WGdZLrNgwMeSBBa3dawhADKxJ6li9Go/GaSmCouAO7GfYREXuXpRHFxuG
+	lHdmEZReipAl0dcR8DcIClXecmraN3lXtpJDYEbvivztsRNCE9Aw5KYuim4S2KYvrYVeddBnwff3W
+	ouLys1Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDgM8-0000000Enk0-3rt2;
-	Wed, 20 Nov 2024 08:46:36 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tDgXR-0000000EpKb-2sV4;
+	Wed, 20 Nov 2024 08:58:17 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDgLD-0000000EnfQ-2bgm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 08:45:40 +0000
+	id 1tDgWV-0000000EpBD-1WDf;
+	Wed, 20 Nov 2024 08:57:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 147F45C4E71;
-	Wed, 20 Nov 2024 08:44:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45B2CC4CECD;
-	Wed, 20 Nov 2024 08:45:38 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 20241A42DF8;
+	Wed, 20 Nov 2024 08:55:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A7FBC4CED0;
+	Wed, 20 Nov 2024 08:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732092338;
-	bh=o708dW0zpekdr4qHK55sfqdl8wG5Nu/+g3DIktqbevs=;
+	s=k20201202; t=1732093038;
+	bh=NZWLHSmz7z/5yxwdahzySA58S6IipEOZgQkNj1QBZoE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ENQOLDc9QlSnqdhpi5D3zXCMMfPjp+W242ba0E8V20RP4FD0uAEbL1XjgeTcXw5rR
-	 ZMp+mkKdTDwaJb+uuhLbkI46ajEPAR0PxWOa1Y9DBLiZwYLDxmgm3aVHjRuUJgJ6cZ
-	 HH0Y146jPZ/3JXkBZq00o7riCQaKfAlKMv/kealJDq7YwCkng/jvMRZwe00H5ALxcy
-	 q4XVXfT7XYRXqF7hWjeRbsKFRWXxNAxv1eQduNpqx7Qv2G0DjLSEMSEDUoXKvGrKNo
-	 ob7Yi6O+uC6vp4o+QggxaLzv+gAUjuy8A39xd2Ji1AdUisDBgDv/9cnXcugH6FL4bH
-	 bw3j4mq4W04WA==
-Date: Wed, 20 Nov 2024 09:45:35 +0100
+	b=OoeKGvDaprjf76dmMdBAlNpU2M7hSfpNcB5GHqeXIhiwgROPYsijW1r9yn1ZsskmX
+	 Dp9fDygOYV+8xnJjV4FeWiYbxU7msG4gezmHvRp0lNnO+0KGOgi0GPiARxcjImLFeD
+	 xzIhOxZAodkRSgmNRd96bh6ohyUJhFp5A2o+P++4uWN1lfwU7ea7yRQ1vkta2/xWXp
+	 oCFEvEDmhzykOLJr/hg7erK2Gll0nlHkDrDPPEUI52IU9YhhtNaT/XVLZIIRqfFhJr
+	 uZgo8HFuJ9rVup/zWjbBi9f34Gd+BxHk769dtF98lzFaaLWQ5HuyBvxXRAOGXKRIMs
+	 7tpgsjKfUwhlw==
+Date: Wed, 20 Nov 2024 09:57:14 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	kernel@pengutronix.de, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Leonard =?utf-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>
-Subject: Re: [PATCH 4/6] dt-bindings: arm: stm32: add compatible strings for
- Linux Automation LXA TAC gen 3
-Message-ID: <4t2tmuntv24lffk3ikgbsz7tbvkqosmd2xwurnzvk346daah22@wegcc3wreqpr>
-References: <20241119-lxa-tac-gen3-v1-0-e0ab0a369372@pengutronix.de>
- <20241119-lxa-tac-gen3-v1-4-e0ab0a369372@pengutronix.de>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: srinivas.kandagatla@linaro.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, detlev.casanova@collabora.com, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org, sebastian.reichel@collabora.com
+Subject: Re: [PATCH 3/5] dt-bindings: nvmem: rockchip,otp: Add compatible for
+ RK3576
+Message-ID: <uzqdch4xiesvc3wq6fcpv7ulw3g7olvyxed7s5payhlddgubiq@apnlq7xgzrjo>
+References: <20241119132916.1057797-1-heiko@sntech.de>
+ <20241119132916.1057797-4-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20241119-lxa-tac-gen3-v1-4-e0ab0a369372@pengutronix.de>
+In-Reply-To: <20241119132916.1057797-4-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_004539_704781_76EEB7DF 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20241120_005719_460463_999CD58C 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,24 +74,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 12:35:01PM +0100, Marc Kleine-Budde wrote:
-> From: Leonard G=C3=B6hrs <l.goehrs@pengutronix.de>
->=20
-> The Linux Automation LXA TAC generation 3 is built around an
-> OSD32MP153x SiP with CPU, RAM, PMIC, Oscillator and EEPROM.
->=20
-> LXA TACs are a development tool for embedded devices with a focus on
-> embedded Linux devices.
->=20
-> Add compatible for the generation 3 based on the STM32MP153c.
->=20
-> Signed-off-by: Leonard G=C3=B6hrs <l.goehrs@pengutronix.de>
-> Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
+On Tue, Nov 19, 2024 at 02:29:14PM +0100, Heiko Stuebner wrote:
+> Document the OTP memory found on Rockchip RK3576 SoC.
+> 
+> The RK3576 uses the same set of clocks as the px30/rk3308
+> but has one reset more, so adapt the binding to handle this
+> variant as well.
+> 
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 > ---
->  Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 7 +++++++
->  1 file changed, 7 insertions(+)
+>  .../bindings/nvmem/rockchip,otp.yaml           | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml b/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml
+> index a44d44b32809..dae7543a0179 100644
+> --- a/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml
+> +++ b/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml
+> @@ -14,6 +14,7 @@ properties:
+>      enum:
+>        - rockchip,px30-otp
+>        - rockchip,rk3308-otp
+> +      - rockchip,rk3576-otp
+>        - rockchip,rk3588-otp
+>  
+>    reg:
+> @@ -68,6 +69,23 @@ allOf:
+>            items:
+>              - const: phy
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - rockchip,rk3576-otp
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 3
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+That's redundant. 3 is there already. You wanted maxItems?
+
+Missing constraint on clock-names (existing binding should be fixed as
+well, separate patch).
+
+> +        resets:
+> +          minItems: 2
+
+missing maxItems
+
+> +        reset-names:
+> +          items:
+> +            - const: otp
+> +            - const: apb
 
 Best regards,
 Krzysztof
