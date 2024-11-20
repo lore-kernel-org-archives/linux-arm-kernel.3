@@ -4,66 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC56D6E2CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 07:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B01D6E2CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 07:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KIsoxDDC/xIkUZ9OKR1VL27Mws23rhY0ZxT1YiRdli0=; b=A/lGe2E+R6BJbK+6RKBekYHk59
-	KB7DiWOk/i0rSqJpqjNUs/8FGUzbs6j66BaypB183TYAVGIUtQtF4//FRB+KQPb/ZrUEd0mIDx2VR
-	0xfESLm576bfxCzoAukGIeaRVJ7BnpklxZOHAuKfWYsA/4xK8iQeOSj2oTTnHSNIDNmv0H5AAB9Y8
-	i82pSesmDJKhHGfEgtTqyOhzfEi6Vmi4IfoeK+uNc7yJuFTuxr97dWY8lFxnzd6+AWNzzjZzeeTGW
-	yIsA5rDy7LNYBlKkGpQGPVKkctNHEVGHGTqtN94VMG9MVGmjCpqNhBiPolYwvDaEyF2boNsm+j0Ik
-	MT5F2sKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=etUkPfwUZkhxBeSebU1Nd5cxUwLkkwC5kV21nhtC96s=; b=CYUCs/5OGfPbLa2Kfwufun5r1j
+	KrwZXk+wOlTWGOwoccrN+EfYbjTvLEyqx12K8NbUwB/J0Q4eDZIqzmvNueRO2Yg5lMZD4CYqJ3PeT
+	C/KeWKFf7z+KtoHXR1kCp6K1fBZe7ZeqdmLRD/N6wXOyA7+HXiY0ezAllJzqmp/cJPbt25hT4EkoR
+	vLIkku7fGZeQlkoMZjIlrzPiOYpcDmvjPrRrpwtOr5gAxTA2gBDwVxMQgNvOuIJPmZ8b63cTpf5sD
+	JI0HpFDTfqSe0IWnwBscVjjxmNlyEC/MmRpToA4GeleBDBCJtVdzFbJye6LwnT6RJDGF/dbQ/1eRf
+	KJ0IPWag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDfRB-0000000EeKP-3qyc;
-	Wed, 20 Nov 2024 07:47:45 +0000
-Received: from out-184.mta1.migadu.com ([95.215.58.184])
+	id 1tDfU0-0000000Eexq-3FlD;
+	Wed, 20 Nov 2024 07:50:40 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDfPx-0000000Ee1v-41e9
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 07:46:32 +0000
-Date: Wed, 20 Nov 2024 07:46:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1732088785;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KIsoxDDC/xIkUZ9OKR1VL27Mws23rhY0ZxT1YiRdli0=;
-	b=fDFDC9C2DqymuzFllq+n19yMNcf+28i/sHmTgmy6MJfcbpAZ3gwJXnhX0eOxufNpPEs3nA
-	HtdLctFaUhG4K6TSJD15JPDmM6YxJQKMlDDhJRWLgUL/YBFyScQV4/AFQE+VnyJrHd/U8f
-	9iXtXmt2ISTJR7eLTzDqZ3FSrOlfCDs=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Jiaqi Yan <jiaqiyan@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, duenwen@google.com, rananta@google.com,
-	James Houghton <jthoughton@google.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: [RFC PATCH v1] KVM: arm64: Introduce KVM_CAP_ARM_SIGBUS_ON_SEA
-Message-ID: <Zz2TyC9-zNQ3D-KB@linux.dev>
-References: <20241031212104.1429609-1-jiaqiyan@google.com>
- <86r07v1g2z.wl-maz@kernel.org>
- <CACw3F51FbzkkX_DcCVCieZ=408oP_Fy3sXYk5AjWRX3RJO2Fzg@mail.gmail.com>
- <878qtou96b.wl-maz@kernel.org>
- <CACw3F50gB40dqQ4CZ7f4X4aRkxHQhjiYunAhqbmVtcGnd5g3bA@mail.gmail.com>
+	id 1tDfT3-0000000Eemi-3cGa;
+	Wed, 20 Nov 2024 07:49:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AD5FDA42BDA;
+	Wed, 20 Nov 2024 07:47:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4423EC4CECD;
+	Wed, 20 Nov 2024 07:49:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732088980;
+	bh=9znmQf+6tAWf0be3BtDWelVJW/OEynrZro3lePlfJaU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tP6d7+P7+YIgBEQwoiPFx+SP/d8veC3W9rUPCIcmsg5EdQRpxzfAEFxJTUANno8pf
+	 w4CC/fc2a1lHh/5YLYJ6ognn5hkOWilDU8fXhh6p9aB/CGhg2Ah7D91KJQ2bic3u/q
+	 aUiT8eva8TFIsoEF+XADqBs84RL7uAQa/AB8Kl3wytajpqK1S8gETO+GpE8Dkr4Ano
+	 cM+NMsFOFXwFYtOwOuJI2WfRPHrGONnE9gPr4l/uzoN2Kjjclhekdcc7DAxkIhFvzb
+	 uuq9I51vhc3VTsUdvnHPZ73FwBLsk8RlMAJvxv+bBWai++XoKFCuFhIA2PX7Mw18VM
+	 7DjyfHQJIJnZg==
+Message-ID: <5bf3bdab-8614-4024-a9da-f7f58414c0af@kernel.org>
+Date: Wed, 20 Nov 2024 08:49:34 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CACw3F50gB40dqQ4CZ7f4X4aRkxHQhjiYunAhqbmVtcGnd5g3bA@mail.gmail.com>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] memory: mtk-smi: mt8188: Add SMI clamp function
+To: Friday Yang <friday.yang@mediatek.com>, Yong Wu <yong.wu@mediatek.com>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20241120063701.8194-1-friday.yang@mediatek.com>
+ <20241120063701.8194-3-friday.yang@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241120063701.8194-3-friday.yang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_234630_621117_2F07B231 
-X-CRM114-Status: GOOD (  27.03  )
+X-CRM114-CacheID: sfid-20241119_234942_038349_022C5F01 
+X-CRM114-Status: GOOD (  26.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +121,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 03:57:46PM -0800, Jiaqi Yan wrote:
->
-> While continuing the discussion here, I think it may make sense I sent
-> out a V2 with 2 major updates:
->   - add documentation for new SIGBUS feature
->   - remove KVM_CAP_ARM_SIGBUS_ON_SEA
-
-Just wanted to add that QEMU already has a functioning "MCE" injection
-implemenation based on signals that deals with the sloppy mess of
-coordinating w/ vCPU threads [*].
-
-I completely agree with Marc that the UAPI around using signals for this
-sort of thing is a giant pile of crap, but it seems to be a semi-understood
-pile of crap. And from that perspective, wiring unclaimed SEAs into the
-existing infrastructure at least makes the UAPI consistent.
-
-[*]: https://elixir.bootlin.com/qemu/v9.1.1/C/ident/kvm_on_sigbus_vcpu
-
-> On Tue, Nov 12, 2024 at 12:51 AM Marc Zyngier <maz@kernel.org> wrote:
-> > > Do you mean a CAP that VMM can tell KVM the VM guest has RAS ability?
-> > > I don't know if there is one for arm64. On x86 there is
-> > > KVM_X86_SETUP_MCE. KVM_CAP_ARM_INJECT_EXT_DABT maybe a revelant one
-> > > but I don't think it is exactly the one for "RAS ability".
-> >
-> > Having though about this a bit more, I now think this is independent
-> > of the guest supporting RAS. This really is about the VMM asking to be
-> > made aware of RAS errors affecting the guest, and it is the signalling
-> > back to the guest that needs to be gated by ID_AA64PFR0_EL1.RAS.
+On 20/11/2024 07:36, Friday Yang wrote:
+> In order to avoid handling glitch signal when MTCMOS on/off, SMI need
+> clamp and reset operation. Parse power reset settings for LARBs which
+> need to reset. Register genpd callback for SMI LARBs and apply reset
+> operations in the callback.
 > 
-> Just to make sure I fully catch you. I think ID_AA64PFR0_EL1.RAS
-> translates to ARM64_HAS_RAS_EXTN in the kernel. If VMM signals RAS
-> error back to the guest with SEA, are you suggesting
-> __kvm_arm_vcpu_set_events should check
-> cpus_have_final_cap(ARM64_HAS_RAS_EXTN) before it
-> kvm_inject_dabt(vcpu)?
+> Signed-off-by: Friday Yang <friday.yang@mediatek.com>
+> ---
+>  drivers/memory/mtk-smi.c | 175 ++++++++++++++++++++++++++++++++++++++-
+>  1 file changed, 171 insertions(+), 4 deletions(-)
 > 
-> If so, how could __kvm_arm_vcpu_set_events know if the error is about
-> RAS (e.g. memory error) vs about accessing memory not in a memslot
-> (i.e. KVM_EXIT_ARM_NISV)? I guess KVM needs to look at ESR_EL2 again
-> (e.g. kvm_vcpu_abt_issea vs kvm_vcpu_dabt_isvalid)?
+> diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
+> index 2bc034dff691..c7119f655350 100644
+> --- a/drivers/memory/mtk-smi.c
+> +++ b/drivers/memory/mtk-smi.c
+> @@ -10,15 +10,21 @@
+>  #include <linux/err.h>
+>  #include <linux/io.h>
+>  #include <linux/iopoll.h>
+> +#include <linux/mfd/syscon.h>
 
-Good point. I don't think we can lock down this UAPI after the fact
-given the existing use cases. It is ultimately up to the VMM what to do.
+Where do you use it?
 
-I don't see anything that would stop an implementation without FEAT_RAS
-from generating an SEA in this situation. The lack of FEAT_RAS (to me at
-least) implies:
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/of_platform.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
 
- - No ESR injection for vSErrors (already enforced in UAPI)
- - No deferral of SErrors / ESBs
- - No error record registers in the PE
+Where do you use it?
 
-Of course, it is very likely you've thought about this more than I have,
-Marc.
+>  #include <linux/pm_runtime.h>
+> +#include <linux/regmap.h>
 
--- 
-Thanks,
-Oliver
+Where do you use it?
+
+> +#include <linux/reset.h>
+> +#include <linux/reset-controller.h>
+>  #include <linux/soc/mediatek/mtk_sip_svc.h>
+>  #include <soc/mediatek/smi.h>
+>  #include <dt-bindings/memory/mt2701-larb-port.h>
+>  #include <dt-bindings/memory/mtk-memory-port.h>
+> +#include <dt-bindings/reset/mt8188-resets.h>
+>  
+
+...
+
+>  
+> +static int mtk_smi_larb_parse_clamp_info(struct mtk_smi_larb *larb)
+> +{
+> +	struct device *dev = larb->dev;
+> +	const struct mtk_smi_larb_gen *larb_gen = larb->larb_gen;
+> +	struct device_node *smi_node;
+> +	struct of_phandle_args args;
+> +	int ret, index;
+> +
+> +	/* Only SMI LARBs located in camera and image subsys need to
+
+Use Linux coding style.
+
+> +	 * apply clamp and reset operation, others can be skipped.
+> +	 */
+> +	ret = of_parse_phandle_with_fixed_args(dev->of_node,
+> +					       "resets", 1, 0, &args);
+
+NAK
+
+> +	if (ret)
+> +		return 0;
+> +
+> +	smi_node = of_parse_phandle(dev->of_node, "mediatek,smi", 0);
+> +	if (!smi_node)
+> +		return -EINVAL;
+> +
+> +	index = args.args[0];
+
+That's reset, not clamp port. NAK.
+
+> +	larb->sub_comm_inport = larb_gen->clamp_port[index];
+> +	larb->sub_comm_syscon = device_node_to_regmap(smi_node);
+> +	of_node_put(smi_node);
+> +
+> +	if (IS_ERR(larb->sub_comm_syscon) ||
+> +	    larb->sub_comm_inport >= SMI_SUB_COMM_INPORT_NR) {
+> +		larb->sub_comm_syscon = NULL;
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtk_smi_larb_parse_reset_info(struct mtk_smi_larb *larb)
+> +{
+> +	struct device *dev = larb->dev;
+> +	int ret;
+> +
+> +	/* Only SMI LARBs located in camera and image subsys need to
+
+Use Linux coding style. This applies to all your patches and all places
+in this patch.
+
+> +	 * apply clamp and reset operation, others can be skipped.
+> +	 */
+> +	if (!of_find_property(dev->of_node, "resets", NULL))
+
+That's not how you use reset framework API. Use proper optional API.
+
+> +		return 0;
+> +
+> +	larb->rst_con = devm_reset_control_get(dev, "larb");
+> +	if (IS_ERR(larb->rst_con))
+> +		return dev_err_probe(dev, PTR_ERR(larb->rst_con),
+> +				     "Can not get larb reset controller\n");
+> +
+> +	larb->nb.notifier_call = mtk_smi_genpd_callback;
+> +	ret = dev_pm_genpd_add_notifier(dev, &larb->nb);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to add genpd callback %d\n", ret);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static int mtk_smi_larb_probe(struct platform_device *pdev)
+>  {
+>  	struct mtk_smi_larb *larb;
+> @@ -538,6 +685,7 @@ static int mtk_smi_larb_probe(struct platform_device *pdev)
+>  	if (!larb)
+>  		return -ENOMEM;
+>  
+> +	larb->dev = dev;
+>  	larb->larb_gen = of_device_get_match_data(dev);
+>  	larb->base = devm_platform_ioremap_resource(pdev, 0);
+>  	if (IS_ERR(larb->base))
+> @@ -554,15 +702,29 @@ static int mtk_smi_larb_probe(struct platform_device *pdev)
+>  	if (ret < 0)
+>  		return ret;
+>  
+> -	pm_runtime_enable(dev);
+> +	/* find sub common to clamp larb for ISP software reset */
+> +	ret = mtk_smi_larb_parse_clamp_info(larb);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to get clamp setting for larb\n");
+> +		goto err_link_remove;
+> +	}
+> +
+> +	ret = mtk_smi_larb_parse_reset_info(larb);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to get power setting for larb\n");
+> +		goto err_link_remove;
+> +	}
+> +
+>  	platform_set_drvdata(pdev, larb);
+>  	ret = component_add(dev, &mtk_smi_larb_component_ops);
+>  	if (ret)
+> -		goto err_pm_disable;
+> +		goto err_link_remove;
+> +
+> +	pm_runtime_enable(dev);
+> +
+>  	return 0;
+>  
+> -err_pm_disable:
+> -	pm_runtime_disable(dev);
+> +err_link_remove:
+>  	device_link_remove(dev, larb->smi_common_dev);
+>  	return ret;
+>  }
+> @@ -686,6 +848,10 @@ static const struct mtk_smi_common_plat mtk_smi_common_mt8188_vpp = {
+>  	.init     = mtk_smi_common_mt8195_init,
+>  };
+>  
+> +static const struct mtk_smi_common_plat mtk_smi_sub_common_mt8188 = {
+> +	.type     = MTK_SMI_GEN2_SUB_COMM,
+> +};
+> +
+>  static const struct mtk_smi_common_plat mtk_smi_common_mt8192 = {
+>  	.type     = MTK_SMI_GEN2,
+>  	.has_gals = true,
+> @@ -729,6 +895,7 @@ static const struct of_device_id mtk_smi_common_of_ids[] = {
+>  	{.compatible = "mediatek,mt8186-smi-common", .data = &mtk_smi_common_mt8186},
+>  	{.compatible = "mediatek,mt8188-smi-common-vdo", .data = &mtk_smi_common_mt8188_vdo},
+>  	{.compatible = "mediatek,mt8188-smi-common-vpp", .data = &mtk_smi_common_mt8188_vpp},
+> +	{.compatible = "mediatek,mt8188-smi-sub-common", .data = &mtk_smi_sub_common_mt8188},
+>  	{.compatible = "mediatek,mt8192-smi-common", .data = &mtk_smi_common_mt8192},
+>  	{.compatible = "mediatek,mt8195-smi-common-vdo", .data = &mtk_smi_common_mt8195_vdo},
+>  	{.compatible = "mediatek,mt8195-smi-common-vpp", .data = &mtk_smi_common_mt8195_vpp},
+
+
+Best regards,
+Krzysztof
 
