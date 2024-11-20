@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E94D743E8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 22:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A97D743E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 22:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oj68rROPCBfhOofMzF+vgqIX+eOFOYFLFVPliPTOCjc=; b=xKc/EbyeI9WUuOrsa+nILfM+kn
-	8i/yyMAuwveLHZVTLBFRfxH2INurYwxrrh7WOjAYTChHlwiR/SvvP99x8micNhhOw5mLIF1x1UG8t
-	rOLOucK2AGUhPFU/ut5ZLzOFb5F7qCHRDMfSPXUJm0Uw9l64XRHZmQzKheqV2lOQ5woG5ufhrLoJV
-	F8wpnJtwTp/Xfnv3XKSaIkX/GVG6almc5tuJRYNMPLArFJMyoHw0M68EXj0WIB92Zs4EholNfbvwq
-	eu2v7P6d3ssV5zW3nAa3cGTBsWn/oMl3o6UitfzAEhXxBwDZFANkSKoMA5hA9+hvSn0EKZV04MwsJ
-	t0K8wl8g==;
+	bh=OiZmRzLup4l2B/nnfT2VHybHkJJHyhJNLS0Jr7mwp3I=; b=skx6tjwQbiCaPM+1oxuknVQH9e
+	pgqxdxisuY85x91+qcOX9DnwSS/fnsyyU/spYIPxaugulEekuOqjkRE7NMbZYxeIBhQu8hONcFokm
+	BrAEzVuySz3QzeCVbfGj26aCFvyDIeTkQJZhbknJSmTWI54JcD0TYWNS5McmxVzIjn+SynNgBgyaj
+	FGF8Y12DDrptVey7J7oT0gTS7oSxDs0rgOSqLw+65HXeRwjvWN+gkt+amqe3RBJFVqTLoRMQDNVOg
+	maKXLWRGzs7jSw6b4E+C4IRJFpM0PJ2pLuJB++f6VPTt6LcNxvZ5sFJhmX5MFSHhw0yQw0mYWEROF
+	grxXRNwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDsux-0000000GKAs-2Q4L;
-	Wed, 20 Nov 2024 22:11:23 +0000
-Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
+	id 1tDt13-0000000GKdR-2SN1;
+	Wed, 20 Nov 2024 22:17:41 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDsu1-0000000GK2D-3AXE
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 22:10:26 +0000
-Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-83e5dc9af36so45868239f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 14:10:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732140624; x=1732745424; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Oj68rROPCBfhOofMzF+vgqIX+eOFOYFLFVPliPTOCjc=;
-        b=YPkRaOkpYRtADONOICEOtCb2anZI6FXeX4evdY6vezG+nl2opDpWHhieds8Ob1YR6Y
-         qKZ0rseTcAaQRKUUD3fHUGDiVr88ujpH0oJShph2oua1lJEtRYUuY1OnMfBo7PdOQDEE
-         dy2ZfL2CqxmXppno+cDM6jNm/t1badDIJLImVwAB8RV74ULf7tviC+8YftWoIbBsdQbp
-         RHv8AY2y3eWUbrcF42Hp5xyKlj5nqUfvUmuS6hDVuk1NzJINTY991rLbP7z5Q0k0yOLn
-         TSIWIM9ip6D+mMNrtNdf0V1FSjFVKcGAST5Qggxp6lJ1df8LeuuBXOBbddb1mibpCNjW
-         QT+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732140624; x=1732745424;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Oj68rROPCBfhOofMzF+vgqIX+eOFOYFLFVPliPTOCjc=;
-        b=D+5JSPs9HMJlmVzAgprRWW3JurcJBH61HsdIC4nWFwdiWgFYm6HvBFJRqdmfbgqx2D
-         hW7zamqugB8IXrrDsA4hTZBjRDt95DmFyvwzgzvwdlULKIT3wTullB3Ne666q//pJMyV
-         C+ikOzDADdzJcLEj+SRWETe/dfdNgJYMU5Nf3am8nFNJO8iGwVUh8L29HJXlPZ/V9La0
-         cISChfBRK5BRj7g/tgypnbyedA+rED6SNINQZ4vOwE385j4WMuISQOLSnZNTFFEBawk2
-         Y0sW/DqA6fuTk4bPJaOr1vIWdggXpAN0/EankuEHJS7sDXMrwD9gZ4zhdc6NUFr2fY08
-         4CRw==
-X-Forwarded-Encrypted: i=1; AJvYcCXjbLb1oCdlCpqH1UUA2uzkgAqDmb2bsk9Cn90d6AIQ/siH7cwexJO53B5kO70C32pdVarSpgVoD0RlUY1g22Nr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOD6h5Z+GoXP6mG40NQBZCdihjdQk2vschj3tAa+/QeGOmd415
-	0jlcHPSpAXPI/V6wprF/L84G+4a6Vg+CzfQ1b2rQqsDBhLAJs/4Buci3GrweyKsJn8IWOIT6eOR
-	8MBArXw/xjpK6TtIMLuthLZ/sz0I=
-X-Google-Smtp-Source: AGHT+IGuVZ1dJ1gwWHwE+ibNXQ30tV5NkQ0D32i+bC6B7TXkVCP4oPgAhzkfkKLWoBFXcoeascjrA0ngfjkjC79FGkE=
-X-Received: by 2002:a05:6602:1692:b0:83a:a7ec:cc0e with SMTP id
- ca18e2360f4ac-83ec195213cmr100399539f.0.1732140624359; Wed, 20 Nov 2024
- 14:10:24 -0800 (PST)
+	id 1tDt06-0000000GKYA-1D4D;
+	Wed, 20 Nov 2024 22:16:45 +0000
+X-QQ-mid: bizesmtpip2t1732140984tymev5i
+X-QQ-Originating-IP: VFS7TXKFCL86VDvZbg+yeZ74TOGFmsQaL+ekJyN6cIk=
+Received: from [IPV6:240f:10b:7440:1:c3e4:b91c ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 21 Nov 2024 06:16:20 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 8514301682738835123
+Message-ID: <2664D23C9E354B20+5fb967f9-348d-4508-8e3e-b979e4e44b15@radxa.com>
+Date: Thu, 21 Nov 2024 07:16:20 +0900
 MIME-Version: 1.0
-References: <20241114160721.1527934-1-quic_bibekkum@quicinc.com>
- <20241114160721.1527934-4-quic_bibekkum@quicinc.com> <CAF6AEGuwWsAkRyF-h5Aj3KzM7iksb12HsfJ5Ks+-P8hv60MWFg@mail.gmail.com>
-In-Reply-To: <CAF6AEGuwWsAkRyF-h5Aj3KzM7iksb12HsfJ5Ks+-P8hv60MWFg@mail.gmail.com>
-From: Rob Clark <robdclark@gmail.com>
-Date: Wed, 20 Nov 2024 14:10:12 -0800
-Message-ID: <CAF6AEGvVteuOOMod6yw9_6eOn2PxAx+BR8sVOHAHp7Ts8XigBw@mail.gmail.com>
-Subject: Re: [PATCH RESEND v17 3/5] iommu/arm-smmu: add support for PRR bit setup
-To: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca, 
-	jsnitsel@redhat.com, robh@kernel.org, krzysztof.kozlowski@linaro.org, 
-	quic_c_gdjako@quicinc.com, dmitry.baryshkov@linaro.org, iommu@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Connor Abbott <cwabbott0@gmail.com>, 
-	Rob Clark <robdclark@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/5] Improve Rockchip VOP2 display modes handling on
+ RK3588 HDMI0
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com>
+Content-Language: en-US
+From: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: NTznjAszAYlzZCkTA1LBjxVmPSqCfhy9wWIoOTAUAwRVwzgwNmFb0/PC
+	2to8mUOPqu+T6Cqii5rMgHmPlzB1+Z9kJLUH0y3BKP7TYuit2XIxF4tNLxkiuYZmNnjvJqS
+	0TPMA1llGaRbGTdx0SVupSLY/TlSgILI80Au/jstu1s/AvtMbs8LrTAjG0ydzYR73CZWPUK
+	r3y/xQwnOfSu5wgMBrLZ3nQJ9M8pbpPHsZ71sVrxToFyt9QpCA7U8exQ2x8fv+EKXDZCXPu
+	jEUSCkAvKjNs6zWWGhJx7cZchH734cZv4hGH5wi7dWb2W6+aCZUlWgdIOIse0VcIIVu+O0K
+	U19GfRk5ME+ycbEvfRmkx7AwKUVYUxhlU+3+3tdvgkbxh6UGxwHdhE7FQO5Vzy0cwBNK6Pd
+	yJ5hfBa4bzA4jIQj2rGMkaCyFfrazDQpQY/AZ3iLj9qJbfUnX4/SaVj5jJ8yzxEIPAXPbTG
+	qo/l0aNag/oLaR2M3qebVPEWv9yeDgsp2CBavcvaw2xllfGkhONgDTb9RsmTnW+iicUHHMK
+	6QeaLbpAaLl8NqC+0n3/v+hW8jwwKtClmBFD1ur8tB6nTjTN5k65mYCi/Zq8oF0Cfmkb4K7
+	RTrP+Kbq77fpOm+2DDaCj7xY/X1GMmFaBDmOjnVgKYLkou0rBIyEsUHOgEyOZvHoV8S/4co
+	T87Kl2FrQoBFlh/o5HMNPhDrFhepOTMQL/Bvaq2Ypjrp7QevzZKPqgp8Vjeyn3jVhR3h3PC
+	33EzMHmQ5hevAOdeBskNYBz8zFx4O6jD6Voz2XJ8aF5BJqx0F/66C5zuxfB+b3ZL/RqRbB0
+	wIF//IIKiZIVa7gjrQgNR3pHII6WuEe3ZqMssA2lHSOoyvaYeD+VKNOQ7JuQ7R69pfBgVWS
+	b0dIyFO3WHdzpWKkuvtuG8cCltvVUF1FPUIHvY3fPE0=
+X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_141025_799211_BE76DF33 
-X-CRM114-Status: GOOD (  32.29  )
+X-CRM114-CacheID: sfid-20241120_141642_857553_331152BF 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,181 +92,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 20, 2024 at 9:17=E2=80=AFAM Rob Clark <robdclark@gmail.com> wro=
-te:
->
-> On Thu, Nov 14, 2024 at 8:10=E2=80=AFAM Bibek Kumar Patro
-> <quic_bibekkum@quicinc.com> wrote:
-> >
-> > Add an adreno-smmu-priv interface for drm/msm to call
-> > into arm-smmu-qcom and initiate the PRR bit setup or reset
-> > sequence as per request.
-> >
-> > This will be used by GPU to setup the PRR bit and related
-> > configuration registers through adreno-smmu private
-> > interface instead of directly poking the smmu hardware.
-> >
-> > Suggested-by: Rob Clark <robdclark@gmail.com>
-> > Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-> > ---
-> >  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 37 ++++++++++++++++++++++
-> >  drivers/iommu/arm/arm-smmu/arm-smmu.h      |  2 ++
-> >  include/linux/adreno-smmu-priv.h           | 14 ++++++++
-> >  3 files changed, 53 insertions(+)
-> >
-> > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu=
-/arm/arm-smmu/arm-smmu-qcom.c
-> > index d26f5aea248e..0e4f3fbda961 100644
-> > --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> > @@ -16,6 +16,8 @@
-> >
-> >  #define QCOM_DUMMY_VAL -1
-> >
-> > +#define GFX_ACTLR_PRR          (1 << 5)
-> > +
-> >  static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
-> >  {
-> >         return container_of(smmu, struct qcom_smmu, smmu);
-> > @@ -99,6 +101,32 @@ static void qcom_adreno_smmu_resume_translation(con=
-st void *cookie, bool termina
-> >         arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_RESUME, reg);
-> >  }
-> >
-> > +static void qcom_adreno_smmu_set_prr_bit(const void *cookie, bool set)
-> > +{
-> > +       struct arm_smmu_domain *smmu_domain =3D (void *)cookie;
-> > +       struct arm_smmu_device *smmu =3D smmu_domain->smmu;
-> > +       struct arm_smmu_cfg *cfg =3D &smmu_domain->cfg;
-> > +       u32 reg =3D 0;
-> > +
-> > +       reg =3D  arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_ACTLR);
-> > +       reg &=3D ~GFX_ACTLR_PRR;
-> > +       if (set)
-> > +               reg |=3D FIELD_PREP(GFX_ACTLR_PRR, 1);
-> > +       arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_ACTLR, reg);
-> > +}
-> > +
-> > +static void qcom_adreno_smmu_set_prr_addr(const void *cookie, phys_add=
-r_t page_addr)
-> > +{
-> > +       struct arm_smmu_domain *smmu_domain =3D (void *)cookie;
-> > +       struct arm_smmu_device *smmu =3D smmu_domain->smmu;
-> > +
-> > +       writel_relaxed(lower_32_bits(page_addr),
-> > +                               smmu->base + ARM_SMMU_GFX_PRR_CFG_LADDR=
-);
-> > +
-> > +       writel_relaxed(upper_32_bits(page_addr),
-> > +                               smmu->base + ARM_SMMU_GFX_PRR_CFG_UADDR=
-);
-> > +}
-> > +
-> >  #define QCOM_ADRENO_SMMU_GPU_SID 0
-> >
-> >  static bool qcom_adreno_smmu_is_gpu_device(struct device *dev)
-> > @@ -210,6 +238,7 @@ static bool qcom_adreno_can_do_ttbr1(struct arm_smm=
-u_device *smmu)
-> >  static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_=
-domain,
-> >                 struct io_pgtable_cfg *pgtbl_cfg, struct device *dev)
-> >  {
-> > +       const struct device_node *np =3D smmu_domain->smmu->dev->of_nod=
-e;
-> >         struct adreno_smmu_priv *priv;
-> >
-> >         smmu_domain->cfg.flush_walk_prefer_tlbiasid =3D true;
-> > @@ -239,6 +268,14 @@ static int qcom_adreno_smmu_init_context(struct ar=
-m_smmu_domain *smmu_domain,
-> >         priv->get_fault_info =3D qcom_adreno_smmu_get_fault_info;
-> >         priv->set_stall =3D qcom_adreno_smmu_set_stall;
-> >         priv->resume_translation =3D qcom_adreno_smmu_resume_translatio=
-n;
-> > +       priv->set_prr_bit =3D NULL;
-> > +       priv->set_prr_addr =3D NULL;
-> > +
-> > +       if (of_device_is_compatible(np, "qcom,smmu-500") &&
-> > +                       of_device_is_compatible(np, "qcom,adreno-smmu")=
-) {
->
-> fwiw, it seems like PRR actually works on sc7180, which is _not_
-> mmu-500, so I guess the support actually goes back further.
->
-> I'm curious if we can just rely on this being supported by any hw that
-> has a6xx or newer?
+Hi,
+
+On 11/17/24 03:22, Cristian Ciocaltea wrote:
+> VOP2 support for RK3588 SoC is currently not capable to handle the full
+> range of display modes advertised by the connected screens, e.g. it
+> doesn't cope well with non-integer refresh rates like 59.94, 29.97,
+> 23.98, etc.
+> 
+> There are two HDMI PHYs available on RK3588, each providing a PLL that
+> can be used by three out of the four VOP2 video ports as an alternative
+> and more accurate pixel clock source. This is able to correctly handle
+> all display modes up to 4K@60Hz.
+> 
+> As for the moment HDMI1 output is not supported upstream, the patch
+> series targets HDMI0 only.
+> 
+> Additionally, note that testing any HDMI 2.0 specific modes, e.g.
+> 4K@60Hz, requires high TMDS clock ratio and scrambling support [1]. The
+> patch is usable but not yet ready to be submitted - I will handle this
+> soon.
+> 
+> Thanks,
+> Cristian
+> 
+> [1] https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/commits/rk3588-hdmi-bridge-next-20241115
+> 
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+
+for whole series
+
+Tested-by: FUKAUMI Naoki <naoki@radxa.com>
+
+Diginnos DG-NP09D 8.9inch 1920x1200 display works with your patch!
+
+Name: HSE
+EISA ID: ___0001
+EDID version: 1.3
+EDID extension blocks: 1
+Screen size: 120.0 cm x 68.0 cm (54.30 inches, aspect ratio 16/9 = 1.76)
+Gamma: 2.2
+Digital signal
+Max video bandwidth: 160 MHz
+
+	HorizSync 14-91
+	VertRefresh 22-80
+
+	# Monitor preferred modeline (59.9 Hz vsync, 74.6 kHz hsync, ratio 
+16/10, 40x44 dpi)
+	ModeLine "1920x1200" 193.25 1920 2008 2052 2592 1200 1204 1209 1245 
++hsync +vsync
+
+	# Monitor supported modeline (59.9 Hz vsync, 33.7 kHz hsync, 
+interlaced, ratio 16/9, 40 dpi)
+	ModeLine "1920x1080" 74.18 1920 2008 2052 2200 1080 1084 1094 1125 
++hsync +vsync Interlace
+
+	# Monitor supported CEA modeline (59.9 Hz vsync, 31.5 kHz hsync, ratio 
+4/3, 13x17 dpi) (bad ratio)
+	ModeLine "640x480" 25.175 640 656 752 800 480 490 492 525 -hsync -vsync
+
+	# Monitor supported CEA modeline (59.9 Hz vsync, 31.5 kHz hsync, ratio 
+3/2, 15x17 dpi) (bad ratio)
+	ModeLine "720x480" 27 720 736 798 858 480 489 495 525 -hsync -vsync
+
+	# Monitor supported CEA modeline (59.9 Hz vsync, 31.5 kHz hsync, ratio 
+3/2, 15x17 dpi) (bad ratio)
+	ModeLine "720x480" 27 720 736 798 858 480 489 495 525 -hsync -vsync
+
+	# Monitor supported CEA modeline (60.0 Hz vsync, 45.0 kHz hsync, ratio 
+16/9, 27 dpi)
+	ModeLine "1280x720" 74.25 1280 1390 1430 1650 720 725 730 750 +hsync +vsync
+
+	# Monitor supported CEA modeline (60.0 Hz vsync, 33.8 kHz hsync, 
+interlaced, ratio 16/9, 40 dpi)
+	ModeLine "1920x1080" 74.25 1920 2008 2052 2200 1080 1084 1094 1125 
++hsync +vsync Interlace
+
+	# Monitor supported CEA modeline (60.0 Hz vsync, 67.5 kHz hsync, ratio 
+16/9, 40 dpi)
+	ModeLine "1920x1080" 148.5 1920 2008 2052 2200 1080 1084 1089 1125 
++hsync +vsync
+
+	# Monitor supported CEA modeline (50.0 Hz vsync, 31.2 kHz hsync, ratio 
+5/4, 15x21 dpi) (bad ratio)
+	ModeLine "720x576" 27 720 732 796 864 576 581 586 625 -hsync -vsync
+
+	# Monitor supported CEA modeline (50.0 Hz vsync, 37.5 kHz hsync, ratio 
+16/9, 27 dpi)
+	ModeLine "1280x720" 74.25 1280 1720 1760 1980 720 725 730 750 +hsync +vsync
+
+	# Monitor supported CEA modeline (50.0 Hz vsync, 28.1 kHz hsync, 
+interlaced, ratio 16/9, 40 dpi)
+	ModeLine "1920x1080" 74.25 1920 2448 2492 2640 1080 1084 1094 1125 
++hsync +vsync Interlace
+
+	# Monitor supported CEA modeline (50.0 Hz vsync, 56.2 kHz hsync, ratio 
+16/9, 40 dpi)
+	ModeLine "1920x1080" 148.5 1920 2448 2492 2640 1080 1084 1089 1125 
++hsync +vsync
+
+	# Monitor supported modeline (85.4 Hz vsync, 44.9 kHz hsync, ratio 
+0.97, 9x17 dpi) (bad ratio)
+	ModeLine "464x480" 27 464 480 542 602 480 489 495 525 -hsync -vsync
+
+	# Monitor supported modeline (50.0 Hz vsync, 37.5 kHz hsync, ratio 
+16/9, 27 dpi)
+	ModeLine "1280x720" 74.25 1280 1720 1760 1980 720 725 730 750 +hsync +vsync
+
+	# Monitor supported modeline (50.0 Hz vsync, 28.1 kHz hsync, 
+interlaced, ratio 16/9, 40 dpi)
+	ModeLine "1920x1080" 74.25 1920 2448 2492 2640 1080 1084 1094 1125 
++hsync +vsync Interlace
+
+	# Monitor supported modeline (59.9 Hz vsync, 31.5 kHz hsync, ratio 3/2, 
+15x17 dpi) (bad ratio)
+	ModeLine "720x480" 27 720 736 798 858 480 489 495 525 -hsync -vsync
+
+	# Monitor supported modeline (50.0 Hz vsync, 31.2 kHz hsync, ratio 5/4, 
+15x21 dpi) (bad ratio)
+	ModeLine "720x576" 27 720 732 796 864 576 581 586 625 -hsync -vsync
 
 
-Also, unrelated, but we can't assume the smmu is powered when drm
-driver calls set_prr_bit/addr, could you add in runpm get/put around
-the register access?
+Best regards,
 
-Otherwise Conner and I have vk sparse residency working now
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
 
-BR,
--R
+> ---
+> Cristian Ciocaltea (5):
+>        dt-bindings: display: vop2: Add optional PLL clock properties
+>        drm/rockchip: vop2: Drop unnecessary if_pixclk_rate computation
+>        drm/rockchip: vop2: Improve display modes handling on RK3588 HDMI0
+>        arm64: dts: rockchip: Enable HDMI0 PHY clk provider on RK3588
+>        arm64: dts: rockchip: Add HDMI0 PHY PLL clock source to VOP2 on RK3588
+> 
+>   .../bindings/display/rockchip/rockchip-vop2.yaml   |  4 +++
+>   arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  7 +++--
+>   drivers/gpu/drm/rockchip/rockchip_drm_vop2.c       | 36 +++++++++++++++++++++-
+>   3 files changed, 44 insertions(+), 3 deletions(-)
+> ---
+> base-commit: 744cf71b8bdfcdd77aaf58395e068b7457634b2c
+> change-id: 20241116-vop2-hdmi0-disp-modes-b39e3619768f
 
->
-> > +               priv->set_prr_bit =3D qcom_adreno_smmu_set_prr_bit;
-> > +               priv->set_prr_addr =3D qcom_adreno_smmu_set_prr_addr;
-> > +       }
-> >
-> >         return 0;
-> >  }
-> > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/=
-arm-smmu/arm-smmu.h
-> > index e2aeb511ae90..2dbf3243b5ad 100644
-> > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> > @@ -154,6 +154,8 @@ enum arm_smmu_cbar_type {
-> >  #define ARM_SMMU_SCTLR_M               BIT(0)
-> >
-> >  #define ARM_SMMU_CB_ACTLR              0x4
-> > +#define ARM_SMMU_GFX_PRR_CFG_LADDR     0x6008
-> > +#define ARM_SMMU_GFX_PRR_CFG_UADDR     0x600C
-> >
-> >  #define ARM_SMMU_CB_RESUME             0x8
-> >  #define ARM_SMMU_RESUME_TERMINATE      BIT(0)
-> > diff --git a/include/linux/adreno-smmu-priv.h b/include/linux/adreno-sm=
-mu-priv.h
-> > index c637e0997f6d..614665153b3e 100644
-> > --- a/include/linux/adreno-smmu-priv.h
-> > +++ b/include/linux/adreno-smmu-priv.h
-> > @@ -50,6 +50,18 @@ struct adreno_smmu_fault_info {
-> >   *                 the GPU driver must call resume_translation()
-> >   * @resume_translation: Resume translation after a fault
-> >   *
-> > + * *CAUTION* : PRR callbacks (set_prr_bit/set_prr_addr) are NULL termi=
-nated for
-> > + *             targets without PRR support. Exercise caution and verif=
-y target
-> > + *             capabilities before invoking these callbacks to prevent=
- potential
-> > + *             runtime errors or unexpected behavior.
-> > + *
-> > + * @set_prr_bit:   Extendible interface to be used by GPU to modify th=
-e
-> > + *                ACTLR register bits, currently used to configure
-> > + *                Partially-Resident-Region (PRR) bit for feature's
-> > + *                setup and reset sequence as requested.
-> > + * @set_prr_addr:  Configure the PRR_CFG_*ADDR register with the
-> > + *                physical address of PRR page passed from
-> > + *                GPU driver.
-> >   *
-> >   * The GPU driver (drm/msm) and adreno-smmu work together for controll=
-ing
-> >   * the GPU's SMMU instance.  This is by necessity, as the GPU is direc=
-tly
-> > @@ -67,6 +79,8 @@ struct adreno_smmu_priv {
-> >      void (*get_fault_info)(const void *cookie, struct adreno_smmu_faul=
-t_info *info);
-> >      void (*set_stall)(const void *cookie, bool enabled);
-> >      void (*resume_translation)(const void *cookie, bool terminate);
-> > +    void (*set_prr_bit)(const void *cookie, bool set);
-> > +    void (*set_prr_addr)(const void *cookie, phys_addr_t page_addr);
-> >  };
-> >
-> >  #endif /* __ADRENO_SMMU_PRIV_H */
-> > --
-> > 2.34.1
-> >
 
