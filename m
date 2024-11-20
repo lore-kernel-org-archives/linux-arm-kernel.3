@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51ADCD6E2D2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 08:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC3FFD6E2D2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 08:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SnrNpt481bFjFOWYHOj8+5+1Y/gn4MZcw71jG86uXjQ=; b=hVf2U+WP8fNHxtJdap7ELXb7Jn
-	KAXkyFXVxai9vbPG7nWiOdrTK1BrmrkmkB4tHhO8Sh1w7MBDGVXGko5H+4fFYgAGeO1ihRXniaZZM
-	MqBCeUb2q/WgzaVcyjwqEMKqQ44m9pwYPJdfnM2h3crhtNRGfvQ+79W5444gLZpwTW9QAeT5SvTyF
-	CPPYayg5yOvlaCbhyKTLtwwJwy2czbKV1T6Q2iMAKBpy2SJXpvvpHVHuavCLM+KUld3NHPjNkxzfb
-	DDEBEblvmT3teAOzPJX52hYAHRdJesTaQ/AafJvZ9JiJafrnCEo5gYJzGqP5bwamSH5o6AezH1JY8
-	J/Wqr7NQ==;
+	bh=AEfPtkEKJuXggR/KERhjH5OU2nzKGXLOKKuAQxhX9cM=; b=0W7SBu5+aD8mTUvO5wcsrss4ds
+	/uzoTMOuV7l0cEc5h9xGDB5Nr1ATxvQhwfyU6wcHcDYB5iicuAFCWUJml4mJaY1scbEkjamBpIbc3
+	QlQbhe5q5hOqnDNKFub4M0yMgKwm2vNi4guE3j+nWHnEW8WdOFryi49zzOl3bRt+1QQoQYxOtwMLG
+	6JZ9lOvjB++63SRUvMkXzFAwvHVUdohAmEssHUZGkiL+6sxPa/4W0iMcJD3v7ZBTdsLQhbRYRCV1Y
+	UWlRNbrSq03NiGBGC6tjgdJW+OJcNBV/EeYOtyRAUsT93GJixYc/uPn+MHTZCKoeaRa62ko23rFy+
+	JFAwfSTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDg5D-0000000EkrF-2Ft0;
-	Wed, 20 Nov 2024 08:29:07 +0000
+	id 1tDg67-0000000El0i-0dOg;
+	Wed, 20 Nov 2024 08:30:03 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDg49-0000000EkcV-0DHU
+	id 1tDg55-0000000EkpI-0v9q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 08:28:02 +0000
+	Wed, 20 Nov 2024 08:29:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DFA23A42D62;
-	Wed, 20 Nov 2024 08:26:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CBE5C4CECD;
-	Wed, 20 Nov 2024 08:27:59 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 12C51A41DD0;
+	Wed, 20 Nov 2024 08:27:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35851C4CECD;
+	Wed, 20 Nov 2024 08:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732091280;
-	bh=SnrNpt481bFjFOWYHOj8+5+1Y/gn4MZcw71jG86uXjQ=;
+	s=k20201202; t=1732091338;
+	bh=r5LJKMh22+WU9zlQmk8oS8zbTaFxi6bJT9D41aUjabE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hyf4p+jLqWNpvWPhWsWUyWiof86UtkM/be6WhrO+1+y5UMS67WXaDKys1sJA6+HBM
-	 Sc+z7k88o1jfLp4f5vtKYeMmcQK4oKh+0tPhkEI+MsqxjEjaAImZdPM3+FMQm9y+L8
-	 vPtNW+AZ5gNudF8x+iF176dMQaAnnmqfS98tBXGiUW7fCs2g9fannURoEHNBC/K5MT
-	 496Oazw3dBaYyxuvWY/Cus/hp/LYFVM5TlHQVjJaM8DnQxTMofj9TuLMq+ccauGtZc
-	 UubDdP3qE/EYhdQKxaxxr12R0wM8sIM3Zx599eXzqQ9pHYBCq6m/9mCXc+6N7u3dQk
-	 EYNV+7pspIVXw==
-Date: Wed, 20 Nov 2024 09:27:56 +0100
+	b=ObZu/x8cTiiCQ4uqMKDf8ML2Grv1dygO0z0nUV6xGSv4CMHxYvsSXb+2EFsBETV+G
+	 FaGn6ZOeJrnlqxCzNBCUHWS8cOIGbHBM8fL6I0sMPB7eUbNft3TOnAxkY3fxFSupAw
+	 J+ivIPke741EE6xaoP6O9r8F3kUjiGamyl73MLjbd3+Sskmy9hs2l89lT83t+xVPz3
+	 8B86Wg3oI6XSPJl0I8/lfOjJmvY0xXU9DdK/UzvH75IzeDwBplqzw7Gz/89+5v+3p0
+	 RKbD7dN8nSBukFimzgS/D0m8fVMucJQBKlu+9lbhfFak6N9t74tporu/FT5z2DYMh7
+	 1ZGOGoq3ikZfQ==
+Date: Wed, 20 Nov 2024 09:28:54 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Matt Coster <matt.coster@imgtec.com>
 Cc: Frank Binns <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>, 
@@ -53,18 +53,18 @@ Cc: Frank Binns <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, dri-devel@lists.freedesktop.org, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
-Subject: Re: [PATCH v2 04/21] dt-bindings: gpu: img: Allow dma-coherent
-Message-ID: <dvqeqopwztjk2odgtdzsncklj36aaii3wsmzsf4b2qlsv55ru5@wplvvf6oqmvz>
+Subject: Re: [PATCH v2 08/21] dt-bindings: gpu: img: Add BXS-4-64 devicetree
+ bindings
+Message-ID: <jgabneyvumignjvgy3l7bmjccyxradhl4fguocrynymn5ii7uh@zpdvdsizpm3c>
 References: <20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com>
- <20241118-sets-bxs-4-64-patch-v1-v2-4-3fd45d9fb0cf@imgtec.com>
+ <20241118-sets-bxs-4-64-patch-v1-v2-8-3fd45d9fb0cf@imgtec.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241118-sets-bxs-4-64-patch-v1-v2-4-3fd45d9fb0cf@imgtec.com>
+In-Reply-To: <20241118-sets-bxs-4-64-patch-v1-v2-8-3fd45d9fb0cf@imgtec.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_002801_155435_26DA26BE 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241120_002859_381641_4E176E14 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,13 +79,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 18, 2024 at 01:01:56PM +0000, Matt Coster wrote:
-> This attribute will be required for the BXS-4-64 MC1 and will be enabled in
-> the DTS for the TI k3-j721s2 in a subsequent patch; add it now so
-> dtbs_check doesn't complain later.
+On Mon, Nov 18, 2024 at 01:02:00PM +0000, Matt Coster wrote:
+> Like the existing AXE-1-16M integration, BXS-4-64 uses the single clock
+> integration in the TI k3-j721s2.
+> 
+> Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+> ---
+> Changes in v2:
+> - Use normal reg syntax for 64-bit values
+> - Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-8-4ed30e865892@imgtec.com
+> ---
+>  .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 41 ++++++++++++++++++++++
+>  1 file changed, 41 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> index 9dc55a6d0d4023983a3fc480340351f3fa974ce5..b620baa56a4caa41246f7b53064d0e3309bdda8e 100644
+> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> @@ -18,6 +18,11 @@ properties:
+>                - ti,am62-gpu
+>            - const: img,img-axe-1-16m
+>            - const: img,img-rogue
+> +      - items:
+> +          - enum:
+> +              - ti,j721s2-gpu
+> +          - const: img,img-bxs-4-64
+> +          - const: img,img-rogue
+>  
+>        # This legacy combination of compatible strings was introduced early on before the more
+>        # specific GPU identifiers were used. Keep it around here for compatibility, but never use
+> @@ -78,6 +83,18 @@ allOf:
+>        properties:
+>          power-domains:
+>            maxItems: 1
+> +  # Cores with two power domains
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            anyOf:
 
-That's not a reason. You add it because device is DMA coherent, not for
-some imaginary future checker errors.
+Nope
+
+> +              - const: img,img-bxs-4-64
+> +    then:
+> +      properties:
+> +        power-domains:
+> +          minItems: 2
+> +          maxItems: 2
+
+You need to constrain power-domain-names. Same for other variants.
+
+
+>    # Vendor integrations using a single clock domain
+>    - if:
+>        properties:
+> @@ -85,6 +102,7 @@ allOf:
+>            contains:
+>              anyOf:
+>                - const: ti,am62-gpu
+> +              - const: ti,j721s2-gpu
+>      then:
+>        properties:
+>          clocks:
+> @@ -105,3 +123,26 @@ examples:
+>          power-domains = <&k3_pds 187 TI_SCI_PD_EXCLUSIVE>;
+>          power-domain-names = "a";
+>      };
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/soc/ti,sci_pm_domain.h>
+
+Drop. No difference in this example.
 
 Best regards,
 Krzysztof
