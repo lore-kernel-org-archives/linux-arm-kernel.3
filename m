@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FEEAD63954
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 14:17:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8A4D6395B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 14:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gKuipzOz9Aim028aT41umlfj0Pvs58Oqz4cJSkEWA4o=; b=aZemXDeDFu/f+3TO5Uhu60pxmM
-	HoUssZUup/mmb1KKdpYQHD8f8nIGMboFG1eO+ge0ORygNiR4P4Myp05uZW7r/lOczgJWFyqjnePt7
-	czLynlrVS8gQmcXT8CX6NyoY/iOIZzuRQHV5ck19fIEVbWScsRM1KD8w/NAY/WPY2F8RlYxJUtDX8
-	C1cAAZfbWTB3hcgbCVtmwq+ayFZd5FmwDLG1DedaJ8HL2LiKUjEb2v+wY6a3DqjkZWlQ5FYdVPjd/
-	lNEU5UtoX7jEOQu/N1uvaDhkhTxbBXFP5qyPdjqXqeK16rjz56rHoz9yk3eDUtJmrJmrFz6PnqnN5
-	EAP3c3Bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fp03UXlWUp80zh5X5NfC9E8RX3265tg4hBXR/7XNbhM=; b=S9JZEqpn4aPfa2Q3Kme7k0LV5j
+	R6P72sYz7Tr970w3idefwvvKt5MQG6R+IlOyTBPlpc391VPmE+yzKnasKaMaGi5fMEqqI59sWep46
+	Z6AQ+V5W6/RtNm2Ot2YhW8guznQh7lWanEl1vppCLlFXP+ASYtZUWTMj0ncen6y5ULFr9I4vsf2XL
+	CZS8OZv2CuNPr2Jh9KjXRF2zDYO4Bc4qQhfHBK9iClZp7L9K04hvcxZXdZSBQSJyT+nqCx2AcmaDP
+	b+TM7pJCghLU3d6LzXRAIdWzK5nicDka/ec/hyQwH6pPUX0LByNnbEKocvXDCwcr+E6QZWsz197LE
+	PBMjnzDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDlVl-0000000FW1e-194G;
-	Wed, 20 Nov 2024 14:16:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tDljE-0000000FYUZ-3lRS;
+	Wed, 20 Nov 2024 14:30:48 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDlNu-0000000FUZX-0aWv
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 14:08:47 +0000
+	id 1tDliI-0000000FYKP-17sW;
+	Wed, 20 Nov 2024 14:29:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B5B265C554B;
-	Wed, 20 Nov 2024 14:08:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D411C4CECD;
-	Wed, 20 Nov 2024 14:08:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C0261A43123;
+	Wed, 20 Nov 2024 14:27:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A82D1C4CECD;
+	Wed, 20 Nov 2024 14:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732111725;
-	bh=0rtD2vJdBwhaemkw4RhjcLdbZDRuId21Y8WhxOGrsfg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=e/GIiMW3YK9CtbqIkAF38GLeYiPscyNrsYQYm90iYs2U8fsWF19Q3DqiqwBIElMyJ
-	 jJs9aA9N1vFPVPu5j1ApXmaXJu9XXtO0LZCbOxX7J/LM8yGRjVJZl5l0kmFT1dBSJM
-	 fDWbsy8T7880tGHEqhRFEn+QVYbC4e1zj5WPRXtEafNdSQkWIR5Ng1im/jwnaxr3rh
-	 MrIz6c5KV4432vNAyGl79U8c0vwNLDgJ5PY8n23SxdYOkigi0VFDAhpK6goFkT53Hk
-	 Rpk3BXAYiwcgkR5gwMAHEdNd2/PY6q+8Dhk8uTGvdNF5yyV50RFURmXRnX67C+kz3X
-	 6blfReAhZ3s/w==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	kernel test robot <lkp@intel.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Sasha Levin <sashal@kernel.org>,
-	linux@armlinux.org.uk,
-	arnd@arndb.de,
-	samitolvanen@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	llvm@lists.linux.dev
-Subject: [PATCH AUTOSEL 4.19] ARM: 9434/1: cfi: Fix compilation corner case
-Date: Wed, 20 Nov 2024 09:08:38 -0500
-Message-ID: <20241120140842.1769864-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 4.19.324
+	s=k20201202; t=1732112988;
+	bh=E3SCFt2aP8soC2dbkMLFMLoGhCfGpNlFOSTRpOtTPrE=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Y2v+6I6SsDvnrNk8t/oeMHqMxN6BB6bya1x4af5bacX9K1VRoCuOCrdbxeXywPhlj
+	 +Kfun/G8dCd7C/UXNWavt9g7BWaJOCX0adhXbd0PV3UedjjlP2uNfAyBtPxlWqn33i
+	 zdw8J+j2mPeiq7V2dcdk2t+upnzSN7JYYnXgAokVSOLikqsTjbczWCwjqXW8NH6Iag
+	 wP9TDlAU+NNk+G4jaOQfXeVEFFaCMhGi7w0KRKbQtHP0PI5VT1k46CvVZFdpmXogLB
+	 1PaQbAGdOC4DWu714UMmgdt+4zW48n+bZ1lKHAoe8a4AdIulorZ4Z/GbxXSbCg/VmR
+	 TnmKzPb3FSaQQ==
+Date: Wed, 20 Nov 2024 08:29:47 -0600
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: tzimmermann@suse.de, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+ airlied@gmail.com, simona@ffwll.ch, linux-mediatek@lists.infradead.org, 
+ p.zabel@pengutronix.de, mripard@kernel.org, chunkuang.hu@kernel.org, 
+ ck.hu@mediatek.com, linux-arm-kernel@lists.infradead.org, 
+ kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, krzk+dt@kernel.org, 
+ maarten.lankhorst@linux.intel.com, dri-devel@lists.freedesktop.org
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20241120124512.134278-3-angelogioacchino.delregno@collabora.com>
+References: <20241120124512.134278-1-angelogioacchino.delregno@collabora.com>
+ <20241120124512.134278-3-angelogioacchino.delregno@collabora.com>
+Message-Id: <173211298701.771700.9734039519570659117.robh@kernel.org>
+Subject: Re: [PATCH v1 2/7] dt-bindings: display: mediatek: Add binding for
+ MT8195 HDMI-TX v2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_060846_231011_5DB2C43C 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20241120_062950_434789_5681D2D9 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,60 +77,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Linus Walleij <linus.walleij@linaro.org>
 
-[ Upstream commit 4aea16b7cfb76bd3361858ceee6893ef5c9b5570 ]
+On Wed, 20 Nov 2024 13:45:07 +0100, AngeloGioacchino Del Regno wrote:
+> Add a binding for the HDMI TX v2 Encoder found in MediaTek MT8195
+> and MT8188 SoCs.
+> 
+> This fully supports the HDMI Specification 2.0b, hence it provides
+> support for 3D-HDMI, Polarity inversion, up to 16 bits Deep Color,
+> color spaces including RGB444, YCBCR420/422/444 (ITU601/ITU709) and
+> xvYCC, with output resolutions up to 3840x2160p@60Hz.
+> 
+> Moreover, it also supports HDCP 1.4 and 2.3, Variable Refresh Rate
+> (VRR) and Consumer Electronics Control (CEC).
+> 
+> This IP also includes support for HDMI Audio, including IEC60958
+> and IEC61937 SPDIF, 8-channel PCM, DSD, and other lossless audio
+> according to HDMI 2.0.
+> 
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../mediatek/mediatek,mt8195-hdmi.yaml        | 150 ++++++++++++++++++
+>  1 file changed, 150 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi.yaml
+> 
 
-When enabling expert mode CONFIG_EXPERT and using that power
-user mode to disable the branch prediction hardening
-!CONFIG_HARDEN_BRANCH_PREDICTOR, the assembly linker
-in CLANG notices that some assembly in proc-v7.S does
-not have corresponding C call sites, i.e. the prototypes
-in proc-v7-bugs.c are enclosed in ifdef
-CONFIG_HARDEN_BRANCH_PREDICTOR so this assembly:
+My bot found errors running 'make dt_binding_check' on your patch:
 
-SYM_TYPED_FUNC_START(cpu_v7_smc_switch_mm)
-SYM_TYPED_FUNC_START(cpu_v7_hvc_switch_mm)
+yamllint warnings/errors:
 
-Results in:
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi.example.dtb: hdmi-tx@1c300000: Additional properties are not allowed ('#sound-dai-cells' was unexpected)
+	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,mt8195-hdmi.yaml#
 
-ld.lld: error: undefined symbol: __kcfi_typeid_cpu_v7_smc_switch_mm
->>> referenced by proc-v7.S:94 (.../arch/arm/mm/proc-v7.S:94)
->>> arch/arm/mm/proc-v7.o:(.text+0x108) in archive vmlinux.a
+doc reference errors (make refcheckdocs):
 
-ld.lld: error: undefined symbol: __kcfi_typeid_cpu_v7_hvc_switch_mm
->>> referenced by proc-v7.S:105 (.../arch/arm/mm/proc-v7.S:105)
->>> arch/arm/mm/proc-v7.o:(.text+0x124) in archive vmlinux.a
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241120124512.134278-3-angelogioacchino.delregno@collabora.com
 
-Fix this by adding an additional requirement that
-CONFIG_HARDEN_BRANCH_PREDICTOR has to be enabled to compile
-these assembly calls.
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-Closes: https://lore.kernel.org/oe-kbuild-all/202411041456.ZsoEiD7T-lkp@intel.com/
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-Reported-by: kernel test robot <lkp@intel.com>
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/arm/mm/proc-v7.S | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+pip3 install dtschema --upgrade
 
-diff --git a/arch/arm/mm/proc-v7.S b/arch/arm/mm/proc-v7.S
-index e351d682c2e36..8bde80b31a861 100644
---- a/arch/arm/mm/proc-v7.S
-+++ b/arch/arm/mm/proc-v7.S
-@@ -94,7 +94,7 @@ ENTRY(cpu_v7_dcache_clean_area)
- 	ret	lr
- ENDPROC(cpu_v7_dcache_clean_area)
- 
--#ifdef CONFIG_ARM_PSCI
-+#if defined(CONFIG_ARM_PSCI) && defined(CONFIG_HARDEN_BRANCH_PREDICTOR)
- 	.arch_extension sec
- ENTRY(cpu_v7_smc_switch_mm)
- 	stmfd	sp!, {r0 - r3}
--- 
-2.43.0
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
