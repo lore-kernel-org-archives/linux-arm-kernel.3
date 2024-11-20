@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C58D6E2D8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 08:31:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 216C1D6E2D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 08:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l6ukLGPK+kJ22jwwn1sSYQ86KMVAnU85ZE4cd4alkss=; b=01j8qISZboAvoxjeoCJSimzKQv
-	3ulrZ24ysQsSWCpvoa1FwBJ2lBz0j/45gcNQ4bZxzxdFVHx1jc33vPdlvuBJ72VonCwH8Au/eDHqg
-	zc3mS9cqX5lRDK+Xu4Kx+mILwa1ycSzaCuDs/m8KsX0E2rikslX9XpNZE5apfaAQzPuExOrDjpKay
-	eNcKpyYdrRsei9U6eoX+EedXK9j0SEVtRXFSIl2ZWtFcYDgCL5fpAXGXtih6gHoVCgFZYlDDIf2VM
-	F2vfXCVuKdp6FHzxZHxqCojGJw1laRX2a6AttDHf7eSbgbPdtWEWy1cvqUyXDoPHn+TNY6JQ9m39o
-	wigbyxng==;
+	bh=3uvAktHGznhaaZ8CheCStd+3mDozXqq8U1j9UB+n7HQ=; b=WKwSkokNnFiCai46Qf6EzeyVtW
+	6gJJW28rq9HS9Yaf7YlGzlWiC1Z/Lxrb+SPMfkI3CoWCa+siylNZ86SsJFEY2eA2bnNMXt/ZcI6i8
+	GWsZqkck8bQoWLmaVePl2ddpjxcI3+qUv1tIpQZMPf85svnp/GgdEUfmCIDYS+NOV7W/ipwtJYyVO
+	h07nRKbdW1dOYdKsDUDASZ4a+Y97hd096FVQjfMRd18OS4Sb0XUMNrfWaEH2ndQeMkmXwjQYPcbhw
+	vbMf+cS1WKp+SBEP53yaqpwcPPvM03Uc/DeDYWATsIw6AdZYwvj3pZL/ICkd7bBs3126eXY6SOlL7
+	ocbr6nHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDg7A-0000000ElAf-3XlV;
-	Wed, 20 Nov 2024 08:31:08 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tDg9C-0000000ElPG-2JDF;
+	Wed, 20 Nov 2024 08:33:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDg6F-0000000El2U-018o
+	id 1tDg8F-0000000ElHF-2eKt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 08:30:12 +0000
+	Wed, 20 Nov 2024 08:32:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AD3B95C340D;
-	Wed, 20 Nov 2024 08:29:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23B62C4CECD;
-	Wed, 20 Nov 2024 08:30:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0F28D5C0755;
+	Wed, 20 Nov 2024 08:31:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AA6EC4CECD;
+	Wed, 20 Nov 2024 08:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732091409;
-	bh=Rs1/sSTqbSE/GeIRCfJw8WXtT97wPKIGNq5RaY9rXmY=;
+	s=k20201202; t=1732091534;
+	bh=6UHD4CiLpylVStYrvd1VFQTVTBZ0TOL/9FX4hXr4mkg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qOKLWq7v2HasZs/2YuQmmx6rkLfJf00JqgWSy1/c2L0yh22mpDgvDnOEk70Ioq66g
-	 ugWQsldop2Z+17vOL1qaX+3+zZNUFUjQ3O9F9Cv+8CqAoe83IYGzz/UvbOFlQWfbAi
-	 PyGVbkHPRdaPFEDkCrfqFAhNVWZ+BU6YdPict2lZvgv0UubbBN7lsZzYH3ikEgnxnc
-	 H+rf92XZ8Rc3nXznc35HOegIbv2mhrJOjzTfUyV8RLcRpi2SqSi/ifWgaodvgJZr4g
-	 AchgnaIUkS4uVTqF+RQophE/5LCboo8qBfUZr5564JT1L3Y2pLEtAfd4XTftin2eVI
-	 E9u/kpR49sq8A==
-Message-ID: <ea0bc7ea-eaf7-492a-b412-dc86baba23ff@kernel.org>
-Date: Wed, 20 Nov 2024 09:30:00 +0100
+	b=WU/cpYpOOcqNHSD9QhlnIQlVGYNlqDCgoto/vDyNP9GNbZSScYgIEhtXmGhIJKbA0
+	 GLxhlS2DTg+VEQQ3kMXjp4HE0Q27QBkGr2Rnd3+CZIV99+PCRKwOubtSCGDAMhPPiH
+	 nWoQ2aUlDcVe5chjSGfVyLq5iZPSt2trgy5wPXzBlFfNN4ZpFb54V14xbShOpf+sQO
+	 Cypsd/WszFjGw1WAKLeVVg41ln0Qed8R4/Hm1pmBKZsho5XdkwctKnXAI0y4ZLs6yS
+	 6ToyM+Ovhn5vyveZA8jwgFf6dlOhp2xqKrprBhBXVCmv+m7NPe7oQXRju/1kQ0HQrq
+	 B15eYDKn99X7w==
+Message-ID: <e7974001-227e-4224-a895-21be5a1a3e3a@kernel.org>
+Date: Wed, 20 Nov 2024 09:32:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/21] drm/imagination: Use more specific compatible
- strings
+Subject: Re: [PATCH v2 07/21] arm64: dts: ti: k3-am62: New GPU binding details
 To: Matt Coster <matt.coster@imgtec.com>, Frank Binns
  <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>,
  Simona Vetter <simona@ffwll.ch>,
@@ -60,7 +59,7 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
 References: <20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com>
- <20241118-sets-bxs-4-64-patch-v1-v2-5-3fd45d9fb0cf@imgtec.com>
+ <20241118-sets-bxs-4-64-patch-v1-v2-7-3fd45d9fb0cf@imgtec.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241118-sets-bxs-4-64-patch-v1-v2-5-3fd45d9fb0cf@imgtec.com>
+In-Reply-To: <20241118-sets-bxs-4-64-patch-v1-v2-7-3fd45d9fb0cf@imgtec.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_003011_137498_A66DE53A 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20241120_003215_757000_10B088ED 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,35 +126,41 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 18/11/2024 14:01, Matt Coster wrote:
-> Follow-on from the companion dt-bindings change ("dt-bindings: gpu: img:
-> More explicit compatible strings"), deprecating "img,img-axe" in favour of
-> the more specific "img,img-axe-1-16m".
-> 
-> Keep the previous compatible string around for backwards compatibility.
+> Use the new compatible string introduced earlier (in "dt-bindings: gpu:
+> img: More explicit compatible strings") and add a name to the single power
+> domain for this GPU (introduced in "dt-bindings: gpu: img: Power domain
+> details").
 > 
 > Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 > ---
 > Changes in v2:
 > - None
-> - Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-5-4ed30e865892@imgtec.com
-> ---
->  drivers/gpu/drm/imagination/pvr_drv.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
-> index 684a9b9a2247b8f5b0f4a91ec984af2cff5a4c29..fbd8802abcf1271e260209957d95ea705dbe7f14 100644
-> --- a/drivers/gpu/drm/imagination/pvr_drv.c
-> +++ b/drivers/gpu/drm/imagination/pvr_drv.c
-> @@ -1471,6 +1471,16 @@ static void pvr_remove(struct platform_device *plat_dev)
->  }
->  
->  static const struct of_device_id dt_match[] = {
-> +	{ .compatible = "img,img-rogue", .data = NULL },
-> +
-> +	/* All supported GPU models */
-> +	{ .compatible = "img,img-axe-1-16m", .data = NULL },
+> - Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-7-4ed30e865892@imgtec.com
 
-This makes no sense. It's the same as rogue. Use compatibility properly.
+Do not mix DTS with code. It always goes either to end of patchset or
+entirely separate.
+
+To be clear: this cannot be merged into DRM.
+
+
+> ---
+>  arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
+> index 5b92aef5b284b78749a01d44184b66e7776a124d..93dcc67c3138ad5b4a7ad6c9bcabb71a2b7e408d 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
+> @@ -693,12 +693,13 @@ ospi0: spi@fc40000 {
+>  	};
+>  
+>  	gpu: gpu@fd00000 {
+> -		compatible = "ti,am62-gpu", "img,img-axe";
+> +		compatible = "ti,am62-gpu", "img,img-axe-1-16m", "img,img-rogue";
+
+Definitely NAK, breaks users and nothing in commit msg provides any help
+on that, including why or how it affects potential users.
+
 
 Best regards,
 Krzysztof
