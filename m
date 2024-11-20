@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F8AD63930
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 11:09:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 103A5D6392C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 11:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=noKpNbsu/8J3MQcJ0MB00uooJSIdAZ7N8CsX2/H7nrg=; b=l0OcghimSRFSLqUMtald5Gsgh0
-	p325gQxztMpf4NipNlWbkD3S0J5zajhs6f1ZKWPsO4CydA4HwxvHFnthJfCp7T5SGYAqIA52sc0jE
-	rfpPDTdfZ+1dIBVHewH4OBR+XUGlRDHWm7dCWGxc1VwZ47WpudyywENtsTJVoeBx28RLTeaJapgxj
-	ZjYrzEBx5m/ToKw87n238bftY4h7KZ+smduNkpZpgUzBfDxAJ5IaQe7W+EO44zqgyTX4twhHQOP3M
-	KXzZpx47cZBH6SqTKo9wjKWkQ0rmzTecq3K4KH3XMsNWcgsrPYCnmjcQQ0ebauuqbx+IZu0tO0Z7O
-	+qLCmfQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yQNaHXn3qCwlh8Qw2ggqUiYIkbYpQ8F4Fxqa41fVjls=; b=5EM/Bkqrm99bcrYhoK4laTaE6I
+	3YBXYP1JN4dsFmpKQiFwf7iN2WHtSu45MC2DPrwUe6EdlssImilEHvV4+7lJ28qyMrTgDLnTlD0Cv
+	64lQ+fuiNhYiPtg+ISuLCreKXRVRa5shrKFmZg/Dkzy5krgjQb9EQp83zCCUdktxO+VZYf10gx/im
+	oVDpiH1rDLZQ4qwqafDHqB4ABJtOZQA5XoOFJtC4LSFEb4znhoMqrVlUq1dUSgbcGXGzIbk/Jbj+v
+	7hdFRvpPTo6z7tpCPGi7GpRfHMNptC89NT/g6F8L4gnQ9T/BYS0uWeF/v76nuE+VkfIl+aLHAZHXD
+	JyVcZpMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDia5-0000000F9vA-3PAM;
-	Wed, 20 Nov 2024 11:09:09 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tDihV-0000000FAo0-47xf;
+	Wed, 20 Nov 2024 11:16:49 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDiTh-0000000F8Ox-0R8T
+	id 1tDigZ-0000000FAlp-46DB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 11:02:34 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4315ee633dcso108945e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 03:02:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1732100550; x=1732705350; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=noKpNbsu/8J3MQcJ0MB00uooJSIdAZ7N8CsX2/H7nrg=;
-        b=jy94GN5Be/852r2Cx2gomtkQrSHhJKRvbU7V6pidEnLb7D1fj2GkHscHXWKzaokpYA
-         wiqt9ZW+cLjr0pKNY0nphrwE067mpMFHEWi3i7gWcdVeNCTPux76jx5/kmyCXR2v+7oI
-         dTTI7CEkkx/JKqIno2TFrnV2wLGZm3u0KgPXtugCzgGfgWqiWdYexizvsJXFBEVS6U29
-         GOMZNHqUOghD+9P3NUPVnV/qHIwwYBsoYzC1bCbtYh4xA42nUTc2QBTcT1QkuzvvHUX2
-         0XLEhXGqFq48FSCn23MLwhyLXogrnnX663Tc1UCbhegdAvCeNS4j5h8Iw9Hnbrlk5/f1
-         858g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732100550; x=1732705350;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=noKpNbsu/8J3MQcJ0MB00uooJSIdAZ7N8CsX2/H7nrg=;
-        b=H/z6KI26mwwozNP0pDmIH/KWLZjuAwm9NW+fC32Vd7GlHnQ+/BaY1ns2oBOoBYnCIJ
-         WprT3NKmg4jm/cwVVj82PlaT53Mdl2ryqf4b4mdtTPtA5bqWWOgJN1kIFuY1OFyr3En+
-         Y5rKUxlNv+o8AEWq3EkDnZiYfSljk9hS4vYK9yVhkm7o09Ybm3fwCeg82Y7AakHGBXer
-         IDXd6TyGM4uMtckACuAmoSvNhkPh3Vf7UyDIhDHpKQEsg1nNUHdTRz+W0d3Xx48OYkE6
-         DTulDXPHcM/lKWhBelaheUytEtQCFXNiBqAbIsSO/8FVzXErDR2ge5dTSRJ1VT4SwP4B
-         oGJg==
-X-Forwarded-Encrypted: i=1; AJvYcCXICa26jNe1bL63g4liWxfEsvWL6FNfzX65WW6Qs9BoOkazwB38ydG9SLvoixqMCl4DEEA4uinOA0ZAVV0R8XWL@lists.infradead.org
-X-Gm-Message-State: AOJu0YygB/dMXf7QbYPAFDV+o9c5N9WvQcfoGJYko0eIzeMc2G0DVi4o
-	JGaAxHXU8TjATXeuAksQYRjJvLBnhJnn7q0jy//7k6aJfUyA6lSfF6S+KQn9YhPzdYpQXnpOy0w
-	EwKCLTlGpR0hOsWRgQ+RPnHqEzn8mQPSD51da
-X-Gm-Gg: ASbGncvkcHrvE7Sy8mP7lYT5OAL0b4Gs6hK/hlF1eKy4ddjd8+Stim/gJDkuXuFukYU
-	U1uDn6OZfIXHvE+rKxvdgGpUspZoKJTmyJ+7C2PQb/rF0H7baNtfnWgAyyqD5
-X-Google-Smtp-Source: AGHT+IFWapXmeo6Cj0T9528tM07HHvM3xMoQi/T027qGlMPAxMjPrqnczz9/mYUi1PPvJ9NTm45LmkIXT7oK3OkNXIk=
-X-Received: by 2002:a05:600c:1c0d:b0:42b:a8fc:3937 with SMTP id
- 5b1f17b1804b1-4334899de42mr997515e9.4.1732100550453; Wed, 20 Nov 2024
- 03:02:30 -0800 (PST)
+	Wed, 20 Nov 2024 11:15:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 46800A42FA7;
+	Wed, 20 Nov 2024 11:13:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ECD2C4CECD;
+	Wed, 20 Nov 2024 11:15:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732101350;
+	bh=y91D5lNm6Hn+KYnuzFx7xHJP7wTqgmllPYaNjCLOtWQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=pdgnMg/rm5GOHulqQkgg7EWKGzUG0G3SImGxkHV7Z7p1+LasS9rmM+rDBXrw4vIYC
+	 5V41yRvcjk7k0rGDdaEDnmUc0lGmBcqNuPRNHWZ82WToo2+E9RxxOa6Y+OHuJzyunH
+	 pgJaLgEkb14OWxndLR8OXc8UhQkqXjVQXtmCRwo3e5Q7i+DsVWRge2BmMnmtO4sl/r
+	 HdamNxnYfVm7BeFyQbd/aLOqcMTs8TR3ALz4DS/BJEBZDoRVBsRiQoq80nZ0h9pn9u
+	 NEs6L6oO1asFsmSg83E+wevVT6fF7HHnXb9wueb15L94Oj9xzKzrkUskwpinn/f1P2
+	 71wUqcuCPQfRg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tDigW-00ES7R-2F;
+	Wed, 20 Nov 2024 11:15:48 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] KVM: arm64: Mark set_sysreg_masks() as inline to avoid build failure
+Date: Wed, 20 Nov 2024 11:15:16 +0000
+Message-Id: <20241120111516.304250-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-References: <20241120105254.2842020-1-tabba@google.com> <20241120105254.2842020-13-tabba@google.com>
-In-Reply-To: <20241120105254.2842020-13-tabba@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Wed, 20 Nov 2024 11:01:53 +0000
-Message-ID: <CA+EHjTz=i2YAoh=CVG57YtP23JK1VJ=5JuvF1Gm92_wUJKmrzg@mail.gmail.com>
-Subject: Re: [PATCH v1 12/12] fixup! KVM: arm64: Initialize feature id
- registers for protected VMs
-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org, 
-	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, lkp@intel.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_030233_158183_05044EF3 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20241120_031552_076167_C0F3E553 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,31 +83,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apologies for this patch. I made a mistake when generating the latest
-set of patches.
+When compiling with CONFIG_CC_OPTIMIZE_FOR_SIZE=y, set_sysreg_masks()
+fails to compile thanks to:
 
-Cheers,
-/fuad
+	BUILD_BUG_ON(!__builtin_constant_p(sr));
 
-On Wed, 20 Nov 2024 at 10:53, Fuad Tabba <tabba@google.com> wrote:
->
-> ---
->  arch/arm64/kvm/hyp/nvhe/sys_regs.c | 1 -
->  1 file changed, 1 deletion(-)
->
-> diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> index 54f23d9fea18..62d06d5f5bca 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> @@ -477,7 +477,6 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
->   */
->  void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu)
->  {
-> -       /* List of feature registers to reset for protected VMs. */
->         const u32 pvm_feat_id_regs[] = {
->                 SYS_ID_AA64PFR0_EL1,
->                 SYS_ID_AA64PFR1_EL1,
-> --
-> 2.47.0.338.g60cca15819-goog
->
+as the compiler doesn't identify sr as a constant, despite all the
+callers passing constants.
+
+Fix the issue by always inlining this function, which allows GCC to
+do the right thing.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202411201857.ZNudtGJl-lkp@intel.com/
+Fixes: a0162020095e2 ("KVM: arm64: Extend masking facility to arbitrary registers")
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/nested.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index aeaa6017ffd89..9b36218b48def 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -951,7 +951,7 @@ u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *vcpu,
+ 	return v;
+ }
+ 
+-static void set_sysreg_masks(struct kvm *kvm, int sr, u64 res0, u64 res1)
++static __always_inline void set_sysreg_masks(struct kvm *kvm, int sr, u64 res0, u64 res1)
+ {
+ 	int i = sr - __SANITISED_REG_START__;
+ 
+-- 
+2.39.2
+
 
