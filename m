@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B6CD6E2DD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 09:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA792D6E2DE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 09:07:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JwOfrBoDy3gDK70XWPMNOZai60/KfUqRxwEKrHorOHk=; b=UBKLhanC69ARNh9ps3z7xn9aKb
-	GmdJttmnycKUhQpow4ae93Y1Uay6HpkSPYL7LnAON2ez9Ax+kjapuv73M7GOd95qYdhHTWBZ3n/AK
-	8BdLLgVWaYCG2A/eXnJ8emOOF11U9gwcCeJA1x3snSbCX8lsexiG1XofzwP4/WlDh4P1Xa6dN7T4B
-	+roup8y7s6sUjoJYwoQZnl2fF0IQhvJKOO7aiH82ERcykCYdfnqR4f0Ln9d0Bm5fAamnjUXqK9Mmi
-	4gvqM4CxeKKYGqkrhZ3EbsN5RYrMZ7mlCwHoyl33EuLXJOImyMoI+9knFyp4ZKW6WTyevwC0PZw6F
-	ucyKCxqw==;
+	bh=WmSLOnJ9YiAUDPzDcM8gNFFVE7Xl+R4ypqzuFT8RiAc=; b=yJ3YT/v2QqtrdEnE+fGHGE0nnb
+	8s+/D4qamnGw0gTw3x5Aq5zqJZzMchR3RCIS5SulfGYsXyXfw8kLCktrjl3NB2CvpYoKDOtKrySco
+	ugM+cZxfJh14tdJMK73s8g5JltlQ1rKSqs7HONtPAWVzW/xzIzSAb1GDQzHyOjxvy7EZ5F93zCmQG
+	YzhTzOiWS+YgY8VxZh9siPupZpuNTJWW5y8PLVELX6yfHM/qj6oIrNa7XQeP2nQkHOQpd1iuR3fzG
+	BsIjugzFQvtxyzkWiJbDwYOEVYKfe1CESgDBIecIQRc314nMGtd+04FuWTDpe1QLS79usLKnUI2M0
+	XW+d8QAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDgcO-0000000EqQY-49e7;
-	Wed, 20 Nov 2024 09:03:24 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tDgfk-0000000Equo-3LpR;
+	Wed, 20 Nov 2024 09:06:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDgap-0000000Eq1x-0chv
+	id 1tDgen-0000000Eqml-2ubG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 09:01:48 +0000
+	Wed, 20 Nov 2024 09:05:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E1E88A42E3C;
-	Wed, 20 Nov 2024 08:59:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2056EC4CECD;
-	Wed, 20 Nov 2024 09:01:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4245D5C5742;
+	Wed, 20 Nov 2024 09:05:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09AF6C4CECD;
+	Wed, 20 Nov 2024 09:05:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732093306;
-	bh=vQmb3ozX2WozvazAM/jZQXfMfq96gf5MaCAgcdpd67I=;
+	s=k20201202; t=1732093552;
+	bh=WO8hLANsPSWfDRTdCVZPGdNfpBAAEwfxq1h8xg7OMPU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bYmZIND2yOy1iFWp44uBlwJOLVf2cM+qLsT5Knw64J0vnTm1tdn4jUbjLVg5PpuEH
-	 Z+xFcQk6f0GW5SkJD8wGG2Bs6wOqKjfmKc1yIe6ksRpt+0k7NGZsTe/1zBDhcw+/G5
-	 q4ihjk/S58QajLWEEsCakj+NzPMWMk//UIdmaWAghRS3oqEbIPAxfAWzqW1qjkKcGR
-	 pPqou6gVBDdbJ0l5V8r39OY66vzyKVS+Bi/txfDim9GHMllrmc0zN39j/jFDSh8usX
-	 WV2uLixBcLVFgrN16s+U/hZnmEHpgjbzYrQCIretzIJTVI7c7renQf2RYltj5K72lZ
-	 NeF8f5Z5ohiKw==
-Date: Wed, 20 Nov 2024 10:01:42 +0100
+	b=shP2YrDa5nyalGUXibhQWcwYsUUNXbIj4uyAddSvqI5tmNh5dCNMhtiD/aGVjDFHU
+	 YM/VgyV1Gh3MJKOWEyXgKw+p/xPIpDctrAEO4ZxmR0XSLmX40tWuhDV4Y6jRFOr95M
+	 TZ2yas7y5h04TMGAdjLnxRGHPtKIncbiezxSDI/AuFiLPLhdTK0Bh0Lvfxo+RWTiaY
+	 DUajAqUNQtIvsjTlwVKFxmVlGyE43h8D6FSWbUQGhzQqIkldyPQR1/o6Tpds1Ay3XW
+	 5LsRiDQ4PWxBmfJ/A/44Ft/GF9ZCOoMwm58G2wEQtfTMuhIV1SxeVIz+cDvJc38m3I
+	 vVH/iGeUNsztw==
+Date: Wed, 20 Nov 2024 10:05:49 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Ryan.Wanner@microchip.com
-Subject: Re: [PATCH 09/15] dt-bindings: clock: at91: Allow MCKs to be
- exported and referenced in DT
-Message-ID: <cxcurxzeiygafcmrieqvsmt6f6svplzya2qxtltgnbj3t7s3av@xdpnuf5eohlu>
+Subject: Re: [PATCH 00/15] Add support for SAMA7D65
+Message-ID: <qfdr5ef6dc4v46x5bhuz4smyxfwreudmaou557s6be6ipejbyv@g62lm3syt2rf>
 References: <cover.1732030972.git.Ryan.Wanner@microchip.com>
- <726533dbd5663e95b768bd19d2d544a197e5781d.1732030972.git.Ryan.Wanner@microchip.com>
+ <uskwi3uzowtbm6o4y2blcnktacvymasf53ppzxg5su4shvt6e6@bpuejjtwuczw>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <726533dbd5663e95b768bd19d2d544a197e5781d.1732030972.git.Ryan.Wanner@microchip.com>
+In-Reply-To: <uskwi3uzowtbm6o4y2blcnktacvymasf53ppzxg5su4shvt6e6@bpuejjtwuczw>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_010147_255293_3591B473 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20241120_010553_774179_E1789251 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +71,28 @@ Cc: robh@kernel.org, conor+dt@kernel.org, arnd@arndb.de, alexandre.belloni@bootl
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 09:40:15AM -0700, Ryan.Wanner@microchip.com wrote:
-> From: Varshini Rajendran <varshini.rajendran@microchip.com>
+On Wed, Nov 20, 2024 at 10:01:08AM +0100, Krzysztof Kozlowski wrote:
+> On Tue, Nov 19, 2024 at 09:40:06AM -0700, Ryan.Wanner@microchip.com wrote:
+> > From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> > 
+> > This series adds support for the SAMA7D65 SoC.
+> > 
+> > There have been patches in this series that have been tagged as
+> > Reviewed-by or Acked-by, I will link these threads below.
+> > 
+> > 1) https://lore.kernel.org/lkml/20240829-sama7d65-core-dt-v1-1-e5d882886f59@microchip.com/
+> > 2) https://lore.kernel.org/lkml/20240829-sama7d65-sck-v1-1-3e7b19e3cbf9@microchip.com/
+> > 3) https://lore.kernel.org/lkml/20240829-sama7d65-next-v1-1-53d4e50b550d@microchip.com/
+> > 4) https://lore.kernel.org/lkml/1da0abbb-94e5-42fd-a2d2-71d5d7d253fb@microchip.com/
 > 
-> Export MCK3 and MCK5 to be accessed and referenced in DT to assign to
-> the clocks property for sama7d65 SoC.
-> 
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
-> ---
->  include/dt-bindings/clock/at91.h | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/include/dt-bindings/clock/at91.h b/include/dt-bindings/clock/at91.h
-> index 6ede88c3992d..e37f1b9cdabf 100644
-> --- a/include/dt-bindings/clock/at91.h
-> +++ b/include/dt-bindings/clock/at91.h
-> @@ -42,6 +42,10 @@
->  #define PMC_PLLADIV2		(PMC_MAIN + 11)
->  #define PMC_LVDSPLL		(PMC_MAIN + 12)
->  
-> +/* SAMA7D65 */
-> +#define PMC_MCK3               (PMC_MAIN + 13)
-> +#define PMC_MCK5               (PMC_MAIN + 14)
+> Merging everything into one thread makes it more difficult for
+> maintainers to apply patches. Some maintainers don't like cherry
+> picking.
 
-This goes with the clock binding.
+https://lore.kernel.org/lkml/4962c133-50e7-4d3f-998a-b8d853ab1425@kernel.org/
+
+I asked to put bindings with its users. Primary user is the driver and
+this is explained in submitting bindings patches document.
 
 Best regards,
 Krzysztof
