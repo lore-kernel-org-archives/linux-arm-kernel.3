@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 216C1D6E2D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 08:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D984CD6E2D8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 08:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3uvAktHGznhaaZ8CheCStd+3mDozXqq8U1j9UB+n7HQ=; b=WKwSkokNnFiCai46Qf6EzeyVtW
-	6gJJW28rq9HS9Yaf7YlGzlWiC1Z/Lxrb+SPMfkI3CoWCa+siylNZ86SsJFEY2eA2bnNMXt/ZcI6i8
-	GWsZqkck8bQoWLmaVePl2ddpjxcI3+qUv1tIpQZMPf85svnp/GgdEUfmCIDYS+NOV7W/ipwtJYyVO
-	h07nRKbdW1dOYdKsDUDASZ4a+Y97hd096FVQjfMRd18OS4Sb0XUMNrfWaEH2ndQeMkmXwjQYPcbhw
-	vbMf+cS1WKp+SBEP53yaqpwcPPvM03Uc/DeDYWATsIw6AdZYwvj3pZL/ICkd7bBs3126eXY6SOlL7
-	ocbr6nHQ==;
+	bh=P/3hWpf5QW/251XfTz1hlfTzoqGoSvbSTWRYi8po+KE=; b=ANHAknwaK5CQ9FJVt6HcrDJg6K
+	ABrNcKWuSlQsEBvtwCngpcaeXYbfBm8IFfO3W4+mYyRAy7kslXPXFglIhmq24H534LrIXahiJD20K
+	PwxhxDvVqnPDhfRmlFWiaK+zUbkmr8UH1LNUxkYti3hvMpTDbMyYmvQulcGMkspr1fOlMTjXj2Vn5
+	et4nBe3ImDr3ZDt1oafrSu1AziLGcNPigjjaaMx/5jnzx6id1wBfUR0uPUso7qKKQTP+68HdQp3tw
+	X4AB3WOI4BG1uxUriL5y22bJFNtS4wYjBydwp3DLcJghN0R6o4XyXuV8v6Rj9LKa0zEiWA3/eOIqF
+	N0b+pjLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDg9C-0000000ElPG-2JDF;
-	Wed, 20 Nov 2024 08:33:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tDgAX-0000000Elod-0z0v;
+	Wed, 20 Nov 2024 08:34:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDg8F-0000000ElHF-2eKt
+	id 1tDg9b-0000000ElW0-0GtP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 08:32:16 +0000
+	Wed, 20 Nov 2024 08:33:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0F28D5C0755;
-	Wed, 20 Nov 2024 08:31:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AA6EC4CECD;
-	Wed, 20 Nov 2024 08:32:07 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 95BC65C41E5;
+	Wed, 20 Nov 2024 08:32:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5EC2C4CED7;
+	Wed, 20 Nov 2024 08:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732091534;
-	bh=6UHD4CiLpylVStYrvd1VFQTVTBZ0TOL/9FX4hXr4mkg=;
+	s=k20201202; t=1732091618;
+	bh=sNtuOK9HVJ9DnFTRNBCJVHA+kqaGYSHimWq98ReJCMA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WU/cpYpOOcqNHSD9QhlnIQlVGYNlqDCgoto/vDyNP9GNbZSScYgIEhtXmGhIJKbA0
-	 GLxhlS2DTg+VEQQ3kMXjp4HE0Q27QBkGr2Rnd3+CZIV99+PCRKwOubtSCGDAMhPPiH
-	 nWoQ2aUlDcVe5chjSGfVyLq5iZPSt2trgy5wPXzBlFfNN4ZpFb54V14xbShOpf+sQO
-	 Cypsd/WszFjGw1WAKLeVVg41ln0Qed8R4/Hm1pmBKZsho5XdkwctKnXAI0y4ZLs6yS
-	 6ToyM+Ovhn5vyveZA8jwgFf6dlOhp2xqKrprBhBXVCmv+m7NPe7oQXRju/1kQ0HQrq
-	 B15eYDKn99X7w==
-Message-ID: <e7974001-227e-4224-a895-21be5a1a3e3a@kernel.org>
-Date: Wed, 20 Nov 2024 09:32:06 +0100
+	b=ZM2ZEazwM2VNBcYOBF3N0VKxstsoiXEAJUSPKGMHUIjJZU2sAQpZTmxtkxOFSdV59
+	 G74Dj/AiidFe9sYADnZapz4YlVx4OJwOIF86VMaWWgTHnMAn3U/zbcMFn0CQsB1Nza
+	 rNxgSTlfXTzbI2mjJBhrdsFrBLSESRWsjzROxdi9+mDDF5boKQ95rH9nQZaBVFGQ/C
+	 EMzys2tWOmJNn7JoxzVoSDI5wW6v3udK6jAW8a/rqKTqzBdwWenFxiZWEIXrT9ye9c
+	 KaUovoENyoNd44qvha+QzYJrhfD2ZoRPx5Wors3XR8IJPRn+nPw5cQtAfkTg/KjjuJ
+	 EHvsNgmdIc+Dw==
+Message-ID: <01b7d6f8-bb60-4d61-a5e5-0f1c52bbb463@kernel.org>
+Date: Wed, 20 Nov 2024 09:33:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/21] arm64: dts: ti: k3-am62: New GPU binding details
+Subject: Re: [PATCH v2 21/21] arm64: dts: ti: k3-j721s2: Add GPU node
 To: Matt Coster <matt.coster@imgtec.com>, Frank Binns
  <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>,
  Simona Vetter <simona@ffwll.ch>,
@@ -59,7 +59,7 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
 References: <20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com>
- <20241118-sets-bxs-4-64-patch-v1-v2-7-3fd45d9fb0cf@imgtec.com>
+ <20241118-sets-bxs-4-64-patch-v1-v2-21-3fd45d9fb0cf@imgtec.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241118-sets-bxs-4-64-patch-v1-v2-7-3fd45d9fb0cf@imgtec.com>
+In-Reply-To: <20241118-sets-bxs-4-64-patch-v1-v2-21-3fd45d9fb0cf@imgtec.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_003215_757000_10B088ED 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20241120_003339_195682_C4634794 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,42 +125,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/11/2024 14:01, Matt Coster wrote:
-> Use the new compatible string introduced earlier (in "dt-bindings: gpu:
-> img: More explicit compatible strings") and add a name to the single power
-> domain for this GPU (introduced in "dt-bindings: gpu: img: Power domain
-> details").
+On 18/11/2024 14:02, Matt Coster wrote:
+> The J721S2 binding is based on the TI downstream binding in 54b0f2a00d92
+> ("arm64: dts: ti: k3-j721s2-main: add gpu node") from [1] but with updated
+> compatible strings.
+> 
+> The clock[2] and power[3] indices were verified from docs, but the
+> source of the interrupt index remains elusive.
+> 
+> References for indices: clocks[1], interrupts[2], power[3].
+> 
+> [1]: https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel
+> [2]: https://downloads.ti.com/tisci/esd/latest/5_soc_doc/j721s2/clocks.html
+> [3]: https://downloads.ti.com/tisci/esd/latest/5_soc_doc/j721s2/devices.html
 > 
 > Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 > ---
 > Changes in v2:
-> - None
-> - Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-7-4ed30e865892@imgtec.com
+> - Use normal reg syntax for 64-bit values
+> - Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-21-4ed30e865892@imgtec.com
 
-Do not mix DTS with code. It always goes either to end of patchset or
-entirely separate.
-
-To be clear: this cannot be merged into DRM.
+For DRM maintainers:
+This patch cannot be merged into DRM tree.
 
 
 > ---
->  arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+>  arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-> index 5b92aef5b284b78749a01d44184b66e7776a124d..93dcc67c3138ad5b4a7ad6c9bcabb71a2b7e408d 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-> @@ -693,12 +693,13 @@ ospi0: spi@fc40000 {
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+> index 9ed6949b40e9dfafdaf6861944b0b128b053a44f..9adc2c704ba4b38d1a0e7c9ded035fe79630451d 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+> @@ -2047,4 +2047,16 @@ watchdog8: watchdog@23f0000 {
+>  		/* reserved for MAIN_R5F1_1 */
+>  		status = "reserved";
 >  	};
->  
->  	gpu: gpu@fd00000 {
-> -		compatible = "ti,am62-gpu", "img,img-axe";
-> +		compatible = "ti,am62-gpu", "img,img-axe-1-16m", "img,img-rogue";
-
-Definitely NAK, breaks users and nothing in commit msg provides any help
-on that, including why or how it affects potential users.
-
+> +
+> +	gpu: gpu@4e20000000 {
+Drop unused label.
 
 Best regards,
 Krzysztof
