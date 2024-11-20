@@ -4,80 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A97D743E9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 22:17:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8249D743ED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 22:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OiZmRzLup4l2B/nnfT2VHybHkJJHyhJNLS0Jr7mwp3I=; b=skx6tjwQbiCaPM+1oxuknVQH9e
-	pgqxdxisuY85x91+qcOX9DnwSS/fnsyyU/spYIPxaugulEekuOqjkRE7NMbZYxeIBhQu8hONcFokm
-	BrAEzVuySz3QzeCVbfGj26aCFvyDIeTkQJZhbknJSmTWI54JcD0TYWNS5McmxVzIjn+SynNgBgyaj
-	FGF8Y12DDrptVey7J7oT0gTS7oSxDs0rgOSqLw+65HXeRwjvWN+gkt+amqe3RBJFVqTLoRMQDNVOg
-	maKXLWRGzs7jSw6b4E+C4IRJFpM0PJ2pLuJB++f6VPTt6LcNxvZ5sFJhmX5MFSHhw0yQw0mYWEROF
-	grxXRNwg==;
+	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xeOHpXlzAJD44WoT0DuFPbZEIKnuN7VOKl/I9OA3OcQ=; b=ySwfoGXZA8GYRa4oqRpQ+8Fzd4
+	6HEM2ZVzdPBd99BJD61ruFqpcAV2aAjrBzU8UhbDG1mJRaVYy0mJpYV/xvf2ChmlKMzbRHaaHi8qp
+	5c6jAlhOnGB2OSd1j2zB9pVfSyPDCLyPanXLx5bNg+Xc8ZL+7gNr9OT5HS/UUqtg5QIeElbaSeDCb
+	X0OsYP5zs+ekG2SCI2MB79CfNXM01b+pG4mb+sYPewLS0bzMMmwrKPrPFfsYCkTZBfL6clGY38Ra6
+	r4SLM0N6A1iL9blWTozKkK3vOvcLe6DCh7hhVp5vk1iY4jMUiZAVoauqtMiMMR3l1vkMXmPIsx2ue
+	//iBfZWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDt13-0000000GKdR-2SN1;
-	Wed, 20 Nov 2024 22:17:41 +0000
-Received: from smtpbg150.qq.com ([18.132.163.193])
+	id 1tDtfH-0000000GNNx-1YpX;
+	Wed, 20 Nov 2024 22:59:15 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDt06-0000000GKYA-1D4D;
-	Wed, 20 Nov 2024 22:16:45 +0000
-X-QQ-mid: bizesmtpip2t1732140984tymev5i
-X-QQ-Originating-IP: VFS7TXKFCL86VDvZbg+yeZ74TOGFmsQaL+ekJyN6cIk=
-Received: from [IPV6:240f:10b:7440:1:c3e4:b91c ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 21 Nov 2024 06:16:20 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8514301682738835123
-Message-ID: <2664D23C9E354B20+5fb967f9-348d-4508-8e3e-b979e4e44b15@radxa.com>
-Date: Thu, 21 Nov 2024 07:16:20 +0900
+	id 1tDteL-0000000GNLc-0aUL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Nov 2024 22:58:18 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id B4B6A11400EA;
+	Wed, 20 Nov 2024 17:58:13 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Wed, 20 Nov 2024 17:58:13 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm3; t=1732143493; x=1732229893; bh=xe
+	OHpXlzAJD44WoT0DuFPbZEIKnuN7VOKl/I9OA3OcQ=; b=H4yNQuaQ2j2CuaTNNo
+	VgaIn0oq35XnNt3KdxrlCoMGJOdbtA5d5ZbguUtTIbAwrXiMs+lQZCpX2BoRNLyo
+	xv0M4BmXpbBjUiDswJN+gfMcm6jv0pQPObsBvPzZ9dQWenI1mDXgM8Oe3biyPRkE
+	N9QFW2yAG9LvTUV9KPNi2881sf1rwpS2IfEW/8mvkZlajVQoFfl9r7e4n2XFVh4/
+	aAS7w/9XmM4i404Vzvob3cSPk2Df8caeS6Djl9L9jLfwn+iO8uZZafoOK4fRtQeB
+	m6xQ16/SeVeYIi9ukkt3y96g3t/Z60ZCv09j6NGflskoUjEUOJb8NUx/zANSp/ez
+	mxmQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1732143493; x=1732229893; bh=xeOHpXlzAJD44WoT0DuFPbZEIKnu
+	N7VOKl/I9OA3OcQ=; b=QAGB7CUhPbO502RxEZiQeaRBDysiqntvudgLdZaDxHo+
+	A9ZV2QnNwL5MoSz4zcgGLadqd1qh3vGViXrviT5KrN0zhbAlUw6v3no3gdwL3Tj6
+	n3bRvTqdx9ZcjnlIknTWUCevFkNxmPSRkVjOyFIDUHEGCn7KdHm+N3IsYf4WF3qs
+	sF/4+cz4lQNaZVDGKWr/NAtaRnBayHRr8rKwq5oVpXsY0IrxYLNDL+RDMx7GTZF4
+	EWp6BWBlpINek8hPB2wgSAGDN+Win2kYzNW+b6PjxkA1tFa4UIb7f/rz+tNkjaG+
+	6R6Q0dxLgQxHTlhjwPwm+nx4IB5jh1ZGC1KIUIpY/w==
+X-ME-Sender: <xms:hWk-Z1wGWmyq0jnK0nYtrYkvK4nnyDtG7YXbOAaHGd84XGwTlAYIug>
+    <xme:hWk-Z1R50fDZbCHL_uby1cMkbA3Gpql6lSYnlpmnYEvJUZsUnWux1h7zVWDU4ap0L
+    fZ71YaYA61VvS4H8Fw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrfeehgddtgecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
+    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
+    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkufgtgfesthhqredtredtjeenucfh
+    rhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqe
+    enucggtffrrghtthgvrhhnpeelveehkeffgfdtheekveehhfdtheefkefggeekheeuhffg
+    heejteevgfdtuddvkeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrih
+    hlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeegpdhmohgu
+    vgepshhmthhpohhuthdprhgtphhtthhopehtohhrvhgrlhgusheslhhinhhugidqfhhouh
+    hnuggrthhiohhnrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghl
+    sehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhotgeslhhish
+    htshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhg
+    vghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:hWk-Z_V4AmXAYSjsWklDl99CZ-SU_kMp0lirRUX5ZrjcpoF56Dij9Q>
+    <xmx:hWk-Z3gKeXeeamCe_HawyrCuTVg_DvYNc--dd5njSkBh6Dzpwet8nA>
+    <xmx:hWk-Z3AJ1ZAXfWo74g_AGalaie9wqRSdBjmVDCULPahowE1w36wXXw>
+    <xmx:hWk-ZwJBVmUd-w7XbM6jzD_q_ZhYC-NM-jMpg3W1NUlm6AAM0Do62w>
+    <xmx:hWk-Z-MEcSte231BCKXp6Y6hn5nTJIc6NVOY4T1vjfSRxezlmT4an02M>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 77E822220071; Wed, 20 Nov 2024 17:58:13 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/5] Improve Rockchip VOP2 display modes handling on
- RK3588 HDMI0
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com>
-Content-Language: en-US
-From: FUKAUMI Naoki <naoki@radxa.com>
-In-Reply-To: <20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: NTznjAszAYlzZCkTA1LBjxVmPSqCfhy9wWIoOTAUAwRVwzgwNmFb0/PC
-	2to8mUOPqu+T6Cqii5rMgHmPlzB1+Z9kJLUH0y3BKP7TYuit2XIxF4tNLxkiuYZmNnjvJqS
-	0TPMA1llGaRbGTdx0SVupSLY/TlSgILI80Au/jstu1s/AvtMbs8LrTAjG0ydzYR73CZWPUK
-	r3y/xQwnOfSu5wgMBrLZ3nQJ9M8pbpPHsZ71sVrxToFyt9QpCA7U8exQ2x8fv+EKXDZCXPu
-	jEUSCkAvKjNs6zWWGhJx7cZchH734cZv4hGH5wi7dWb2W6+aCZUlWgdIOIse0VcIIVu+O0K
-	U19GfRk5ME+ycbEvfRmkx7AwKUVYUxhlU+3+3tdvgkbxh6UGxwHdhE7FQO5Vzy0cwBNK6Pd
-	yJ5hfBa4bzA4jIQj2rGMkaCyFfrazDQpQY/AZ3iLj9qJbfUnX4/SaVj5jJ8yzxEIPAXPbTG
-	qo/l0aNag/oLaR2M3qebVPEWv9yeDgsp2CBavcvaw2xllfGkhONgDTb9RsmTnW+iicUHHMK
-	6QeaLbpAaLl8NqC+0n3/v+hW8jwwKtClmBFD1ur8tB6nTjTN5k65mYCi/Zq8oF0Cfmkb4K7
-	RTrP+Kbq77fpOm+2DDaCj7xY/X1GMmFaBDmOjnVgKYLkou0rBIyEsUHOgEyOZvHoV8S/4co
-	T87Kl2FrQoBFlh/o5HMNPhDrFhepOTMQL/Bvaq2Ypjrp7QevzZKPqgp8Vjeyn3jVhR3h3PC
-	33EzMHmQ5hevAOdeBskNYBz8zFx4O6jD6Voz2XJ8aF5BJqx0F/66C5zuxfB+b3ZL/RqRbB0
-	wIF//IIKiZIVa7gjrQgNR3pHII6WuEe3ZqMssA2lHSOoyvaYeD+VKNOQ7JuQ7R69pfBgVWS
-	b0dIyFO3WHdzpWKkuvtuG8cCltvVUF1FPUIHvY3fPE0=
-X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
-X-QQ-RECHKSPAM: 0
+Date: Wed, 20 Nov 2024 23:57:49 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Message-Id: <d58cbbc9-e5b0-49c3-8cf7-d0726e796e92@app.fastmail.com>
+Subject: [GIT PULL 0/4] soc updates for 6.13
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_141642_857553_331152BF 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20241120_145817_655258_18D6BD7C 
+X-CRM114-Status: UNSURE (   7.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,148 +108,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The SoC tree this time has a moderate 840 patches from 203
+contributors. There is not much remarkable in there, overall
+we have a lot of new SoCs and board files in the devicetree
+updates, but not as many changes to the Snapdragon platform
+as we've had most of last year.
 
-On 11/17/24 03:22, Cristian Ciocaltea wrote:
-> VOP2 support for RK3588 SoC is currently not capable to handle the full
-> range of display modes advertised by the connected screens, e.g. it
-> doesn't cope well with non-integer refresh rates like 59.94, 29.97,
-> 23.98, etc.
-> 
-> There are two HDMI PHYs available on RK3588, each providing a PLL that
-> can be used by three out of the four VOP2 video ports as an alternative
-> and more accurate pixel clock source. This is able to correctly handle
-> all display modes up to 4K@60Hz.
-> 
-> As for the moment HDMI1 output is not supported upstream, the patch
-> series targets HDMI0 only.
-> 
-> Additionally, note that testing any HDMI 2.0 specific modes, e.g.
-> 4K@60Hz, requires high TMDS clock ratio and scrambling support [1]. The
-> patch is usable but not yet ready to be submitted - I will handle this
-> soon.
-> 
-> Thanks,
-> Cristian
-> 
-> [1] https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/commits/rk3588-hdmi-bridge-next-20241115
-> 
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+The most active contributors by number of patches this
+time were:
 
-for whole series
+     32 Geert Uytterhoeven
+     29 Krzysztof Kozlowski
+     26 Marek Vasut
+     26 Konrad Dybcio
+     23 Frank Li
+     22 Dmitry Baryshkov
+     21 Fei Shao
+     18 Wolfram Sang
+     18 Fabio Estevam
+     17 Manorit Chawdhry
+     14 Andreas Kemnade
+     12 Nick Chan
+     12 Neil Armstrong
+     12 Jo=EF=BF=BD=EF=BF=BDo Paulo Gon=EF=BF=BD=EF=BF=BDalves
+     12 Ivaylo Ivanov
 
-Tested-by: FUKAUMI Naoki <naoki@radxa.com>
+and the overall dirstat shows nxp, qualcomm, rockchip
+and ti as the largest changes, with only NXP i.MX6
+still seeing a lot of work on 32-bit boards.
 
-Diginnos DG-NP09D 8.9inch 1920x1200 display works with your patch!
-
-Name: HSE
-EISA ID: ___0001
-EDID version: 1.3
-EDID extension blocks: 1
-Screen size: 120.0 cm x 68.0 cm (54.30 inches, aspect ratio 16/9 = 1.76)
-Gamma: 2.2
-Digital signal
-Max video bandwidth: 160 MHz
-
-	HorizSync 14-91
-	VertRefresh 22-80
-
-	# Monitor preferred modeline (59.9 Hz vsync, 74.6 kHz hsync, ratio 
-16/10, 40x44 dpi)
-	ModeLine "1920x1200" 193.25 1920 2008 2052 2592 1200 1204 1209 1245 
-+hsync +vsync
-
-	# Monitor supported modeline (59.9 Hz vsync, 33.7 kHz hsync, 
-interlaced, ratio 16/9, 40 dpi)
-	ModeLine "1920x1080" 74.18 1920 2008 2052 2200 1080 1084 1094 1125 
-+hsync +vsync Interlace
-
-	# Monitor supported CEA modeline (59.9 Hz vsync, 31.5 kHz hsync, ratio 
-4/3, 13x17 dpi) (bad ratio)
-	ModeLine "640x480" 25.175 640 656 752 800 480 490 492 525 -hsync -vsync
-
-	# Monitor supported CEA modeline (59.9 Hz vsync, 31.5 kHz hsync, ratio 
-3/2, 15x17 dpi) (bad ratio)
-	ModeLine "720x480" 27 720 736 798 858 480 489 495 525 -hsync -vsync
-
-	# Monitor supported CEA modeline (59.9 Hz vsync, 31.5 kHz hsync, ratio 
-3/2, 15x17 dpi) (bad ratio)
-	ModeLine "720x480" 27 720 736 798 858 480 489 495 525 -hsync -vsync
-
-	# Monitor supported CEA modeline (60.0 Hz vsync, 45.0 kHz hsync, ratio 
-16/9, 27 dpi)
-	ModeLine "1280x720" 74.25 1280 1390 1430 1650 720 725 730 750 +hsync +vsync
-
-	# Monitor supported CEA modeline (60.0 Hz vsync, 33.8 kHz hsync, 
-interlaced, ratio 16/9, 40 dpi)
-	ModeLine "1920x1080" 74.25 1920 2008 2052 2200 1080 1084 1094 1125 
-+hsync +vsync Interlace
-
-	# Monitor supported CEA modeline (60.0 Hz vsync, 67.5 kHz hsync, ratio 
-16/9, 40 dpi)
-	ModeLine "1920x1080" 148.5 1920 2008 2052 2200 1080 1084 1089 1125 
-+hsync +vsync
-
-	# Monitor supported CEA modeline (50.0 Hz vsync, 31.2 kHz hsync, ratio 
-5/4, 15x21 dpi) (bad ratio)
-	ModeLine "720x576" 27 720 732 796 864 576 581 586 625 -hsync -vsync
-
-	# Monitor supported CEA modeline (50.0 Hz vsync, 37.5 kHz hsync, ratio 
-16/9, 27 dpi)
-	ModeLine "1280x720" 74.25 1280 1720 1760 1980 720 725 730 750 +hsync +vsync
-
-	# Monitor supported CEA modeline (50.0 Hz vsync, 28.1 kHz hsync, 
-interlaced, ratio 16/9, 40 dpi)
-	ModeLine "1920x1080" 74.25 1920 2448 2492 2640 1080 1084 1094 1125 
-+hsync +vsync Interlace
-
-	# Monitor supported CEA modeline (50.0 Hz vsync, 56.2 kHz hsync, ratio 
-16/9, 40 dpi)
-	ModeLine "1920x1080" 148.5 1920 2448 2492 2640 1080 1084 1089 1125 
-+hsync +vsync
-
-	# Monitor supported modeline (85.4 Hz vsync, 44.9 kHz hsync, ratio 
-0.97, 9x17 dpi) (bad ratio)
-	ModeLine "464x480" 27 464 480 542 602 480 489 495 525 -hsync -vsync
-
-	# Monitor supported modeline (50.0 Hz vsync, 37.5 kHz hsync, ratio 
-16/9, 27 dpi)
-	ModeLine "1280x720" 74.25 1280 1720 1760 1980 720 725 730 750 +hsync +vsync
-
-	# Monitor supported modeline (50.0 Hz vsync, 28.1 kHz hsync, 
-interlaced, ratio 16/9, 40 dpi)
-	ModeLine "1920x1080" 74.25 1920 2448 2492 2640 1080 1084 1094 1125 
-+hsync +vsync Interlace
-
-	# Monitor supported modeline (59.9 Hz vsync, 31.5 kHz hsync, ratio 3/2, 
-15x17 dpi) (bad ratio)
-	ModeLine "720x480" 27 720 736 798 858 480 489 495 525 -hsync -vsync
-
-	# Monitor supported modeline (50.0 Hz vsync, 31.2 kHz hsync, ratio 5/4, 
-15x21 dpi) (bad ratio)
-	ModeLine "720x576" 27 720 732 796 864 576 581 586 625 -hsync -vsync
-
-
-Best regards,
-
---
-FUKAUMI Naoki
-Radxa Computer (Shenzhen) Co., Ltd.
-
-> ---
-> Cristian Ciocaltea (5):
->        dt-bindings: display: vop2: Add optional PLL clock properties
->        drm/rockchip: vop2: Drop unnecessary if_pixclk_rate computation
->        drm/rockchip: vop2: Improve display modes handling on RK3588 HDMI0
->        arm64: dts: rockchip: Enable HDMI0 PHY clk provider on RK3588
->        arm64: dts: rockchip: Add HDMI0 PHY PLL clock source to VOP2 on RK3588
-> 
->   .../bindings/display/rockchip/rockchip-vop2.yaml   |  4 +++
->   arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  7 +++--
->   drivers/gpu/drm/rockchip/rockchip_drm_vop2.c       | 36 +++++++++++++++++++++-
->   3 files changed, 44 insertions(+), 3 deletions(-)
-> ---
-> base-commit: 744cf71b8bdfcdd77aaf58395e068b7457634b2c
-> change-id: 20241116-vop2-hdmi0-disp-modes-b39e3619768f
-
+   0.4% Documentation/devicetree/bindings/arm/
+   0.5% Documentation/devicetree/bindings/clock/
+   0.1% Documentation/devicetree/bindings/soc/mediatek/
+   0.2% Documentation/devicetree/bindings/
+   0.2% arch/arm/boot/dts/allwinner/
+   0.1% arch/arm/boot/dts/amlogic/
+   1.9% arch/arm/boot/dts/microchip/
+  17.7% arch/arm/boot/dts/nxp/imx/
+   0.5% arch/arm/boot/dts/qcom/
+   0.4% arch/arm/boot/dts/renesas/
+   0.7% arch/arm/boot/dts/rockchip/
+   0.2% arch/arm/boot/dts/st/
+   0.3% arch/arm/boot/dts/ti/omap/
+   0.3% arch/arm/
+   0.2% arch/arm64/boot/dts/allwinner/
+   0.4% arch/arm64/boot/dts/amlogic/
+   3.0% arch/arm64/boot/dts/apple/
+   4.5% arch/arm64/boot/dts/exynos/
+   8.2% arch/arm64/boot/dts/freescale/
+   2.1% arch/arm64/boot/dts/mediatek/
+   1.0% arch/arm64/boot/dts/nvidia/
+  12.6% arch/arm64/boot/dts/qcom/
+   0.7% arch/arm64/boot/dts/renesas/
+  19.6% arch/arm64/boot/dts/rockchip/
+   0.1% arch/arm64/boot/dts/st/
+  11.4% arch/arm64/boot/dts/ti/
+   0.1% arch/arm64/boot/dts/xilinx/
+   0.2% arch/riscv/boot/dts/sophgo/
+   0.4% arch/riscv/boot/dts/thead/
+   0.1% arch/
+   0.1% drivers/firmware/arm_scmi/transports/
+   0.2% drivers/firmware/arm_scmi/
+   0.4% drivers/firmware/xilinx/
+   0.8% drivers/firmware/
+   0.4% drivers/misc/
+   0.4% drivers/reset/amlogic/
+   0.4% drivers/reset/
+   0.5% drivers/soc/hisilicon/
+   0.1% drivers/soc/imx/
+   0.8% drivers/soc/mediatek/
+   3.4% drivers/soc/qcom/
+   0.1% drivers/soc/
+   0.1% drivers/
+   1.1% include/dt-bindings/clock/
+   0.1% include/linux/soc/
+   0.6% include/linux/
 
