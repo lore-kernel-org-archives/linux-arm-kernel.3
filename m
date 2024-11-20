@@ -4,60 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE959D63939
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 13:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C2FD63954
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 13:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vwDPiYIBxwEmAaxai1DgMFwF8LB6iOUHjsbt/QR1yko=; b=e8N47nv/u3yKRnzpzCkwC6iNNY
-	SVCOo5vb88oYiTa1af6glrtlEl4zprjYMNsf505snVRLkTAoYfui9aU3yLhj3aJ3YchXZb486D1uE
-	35wm2pweUYspc2fun81GHzxNFxi2H3CyLAKHFAWGPFEai6Q/buqoRvuUPIwsWnGGtkseEPA5qMYmj
-	vgFlBN2lmx0xiLYKI7RnLW2FTHkrZGY/4okgxFKPJDz3kjfCYuqtPMZl6ps3cCGEqNli3dAC6Su/k
-	VoRCdjfee8CyFLf/515pUk77/nBBGjuZO8HcXekZaXiyRlTgajj8sHd5ekQ89fH26GxbqdcVFu/gZ
-	6HCEOW4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6dXZUIP/423XuxeOFQB90YScfnXBOfZSQWHFaXvoVGA=; b=dDXdpuaN7OsqrPMP1B249vmm05
+	X1hsJcujd6rxXQtZLNhD1ptGIwcoAWCVHJeN204IA0s6xQQ4RRpSBAgo2A1zudDP/RuSZp9cK5Cqn
+	9X26/eyc3lQBR3ooRqdM2ypd12RfGCytlFAHQ6Z6MLINF6WSYbqFLK2xCs1C56ZyDQZz31ZCtyjik
+	4J+pHehsexqqb4TQhIi0sGPEeU6oF6Rpk1oMS7hBV4mrbeCBBADWVb+1Qez6mAFSOxoAqvJZ3VW1E
+	/Je3fnwr3ex5m/oRHGVh5y12JennaWILnJ0Jz9ga8l13Qbf+kC/2WBKo7CvteQ6ReN+FnPL+7ddOn
+	PXX1RRiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDl1L-0000000FQlj-1UfS;
-	Wed, 20 Nov 2024 13:45:27 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tDlEU-0000000FSoF-12VS;
+	Wed, 20 Nov 2024 13:59:02 +0000
+Received: from mail-vi1eur05on2062d.outbound.protection.outlook.com ([2a01:111:f403:2613::62d] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDl0P-0000000FQeZ-0czF
+	id 1tDlDX-0000000FSay-1fWq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 13:44:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=vwDPiYIBxwEmAaxai1DgMFwF8LB6iOUHjsbt/QR1yko=; b=dwQ/7DzWt63C6SmfRoK5OrKV1l
-	jRvx7JKVfjETzd8RbU+63a98l6A5iM/YrQfGnE+V3inVGUYSkESBNpTPj2Ig8sYuN1yDBXsL9ck6L
-	8ILcrrEBhA5M3tzqu6J9pbDVSrda9UiViBg6CDjvGe5SID+sFJDX2PtAzet4YPzlLJNw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tDkzw-00DxOS-NA; Wed, 20 Nov 2024 14:44:00 +0100
-Date: Wed, 20 Nov 2024 14:44:00 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Jacky Chou <jacky_chou@aspeedtech.com>, hkallweit1@gmail.com,
-	linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, joel@jms.id.au,
-	f.fainelli@gmail.com, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] net: mdio: aspeed: Add dummy read for fire control
-Message-ID: <b6155c5f-3012-42d1-90dc-8ef39d1eef2d@lunn.ch>
-References: <20241119095141.1236414-1-jacky_chou@aspeedtech.com>
- <d28177c9152408d77840992f2b76efe3cb675b7a.camel@codeconstruct.com.au>
+	Wed, 20 Nov 2024 13:58:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LdxJhLSCL5eiEpsBNct1sfmPdp5QOLsfroG8gr8HSmI4azDmb3Yi72QPNJ9pJSZZOwTfOQN7iLM9f2jLZ/a51a3uF+bSJqOPSNKyZ0MLcxhdyQAGae9vb/tlG2ZEYdzIjcoqmm0da/YOoduKZoQOJqfD3aNeNwqELBXYjhgVTUIYONd5ecDHhn0A8Np2ewbZQIF0kgnSDgf/yI9fnCCvWKoX9bUMJaIdDrxvvDQAhiYtKfKvW02C5RPwEFli9m9TO+Psp3nwotq9QaO6Jgf2+RF51xkkzdXXlq/EwYfGqLaONZGMY+94ea/cqcfaJwtG3qL+ByMvfn2ojWDfds4TsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6dXZUIP/423XuxeOFQB90YScfnXBOfZSQWHFaXvoVGA=;
+ b=T5MttDWRdmSZAVkmn7WeAxxt3833V3bCtE5AGfZUfMekTRM/2LTDBMCHlLz+awBDbcE1q2Yh7sQt7g/djSIsSqODDGrgVqEcsmhYS/gdcDmDq4HSR+OxKaXB/RyIw0Y37kcK0jOB2s6t051rHiwaJr9DT9nBVOvXHufPrnJiC1iyXntR/1ZvZ6foT2F4YwEsM+0g6KmmaUvHhoFZp7jD7yHRrO46HLvY64Z/WEVRP9zfyeR9i7/Q5zaP3O2ykSO6ZUCld/Z0Xw9T7/qGuSBJWp5kzXnNpfQNlNqqPhkuLrgO4FZmuuaZtEnha9VWYXQjEvRujYYfeYdXCNqnSHavLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6dXZUIP/423XuxeOFQB90YScfnXBOfZSQWHFaXvoVGA=;
+ b=DVrCyIKmj7ajVJWUh3G+M9uBF723fuZn2pU8z1P3Pa+4ZpUr8QkbVnMdjLiZ8hl6ai0svVOh8z98CbLBVPPH+eCbTVH77nOeB8rnhA3kF1cs2VMmLUf59GwXkgUKwHTQRaBUj0er8iSYP9qXUaYctfz322y0ofAQOtZ6by9xd89aZz5kRU0ZdEshYtsAmQDTSmZhHFTK+6hxsRpB3Bbdd2++niWVtsIrOFNmUsAvLmEJ2NLitL37IdHIhePb4KnRtiqAPHZH7zBEqh1ykQ9le90vtsWHZ20kFtVaT8Vo1CcVEv+GDZsR+SeLUml22mQRQe2pJG0RadBx70gd65sZNg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
+ by DB8PR04MB6825.eurprd04.prod.outlook.com (2603:10a6:10:112::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.23; Wed, 20 Nov
+ 2024 13:57:56 +0000
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::84f7:e2c3:ceed:c0a6]) by AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::84f7:e2c3:ceed:c0a6%4]) with mapi id 15.20.8158.023; Wed, 20 Nov 2024
+ 13:57:56 +0000
+From: Daniel Baluta <daniel.baluta@nxp.com>
+To: shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	festevam@gmail.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	frank.li@nxp.com,
+	aisheng.dong@nxp.com,
+	daniel.baluta@gmail.com,
+	laurentiu.mihalcea@nxp.com,
+	shengjiu.wang@nxp.com,
+	iuliana.prodan@nxp.com,
+	Daniel Baluta <daniel.baluta@nxp.com>
+Subject: [PATCH 0/5] Configure imx8mp dsp node for rproc usage
+Date: Wed, 20 Nov 2024 15:58:53 +0200
+Message-ID: <20241120135859.3133984-1-daniel.baluta@nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AM8P190CA0002.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:219::7) To AS8PR04MB8247.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3f2::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d28177c9152408d77840992f2b76efe3cb675b7a.camel@codeconstruct.com.au>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|DB8PR04MB6825:EE_
+X-MS-Office365-Filtering-Correlation-Id: 52c5a9f4-63dd-4636-22ba-08dd096b55e3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LKbIMv2WhNjifBWMmdg1NLYH28v9rtV0mn09+Z5TmI32W6OsJW6mnuOqFI6O?=
+ =?us-ascii?Q?XGU0yBcqE5wYL3SPsKty2Fx3ml0Np1K9/Hvl8cPaQcqVH6oSbuYr2eaOjVZc?=
+ =?us-ascii?Q?zNh17pfdUIREuVvUh1GQ5qy5FQSrhgmDRYT/CIXQma8gbOdHCkjAfCAqSZRH?=
+ =?us-ascii?Q?3iLrj/XUsq8ZW8DZVL1kBbuy/U/kgZVYa4zv5P4aCc2elUJb3+l+kZTuG48f?=
+ =?us-ascii?Q?4sPxTAM3m3lL9dt4xWdtjsvZW3mbi1m2IjbYMH1AJ2MFSySk7qJF9jOhxsG8?=
+ =?us-ascii?Q?VRfMSbq9C6j0o+n5J2Z+d06e5rR5iKwaBV+2Us1O6zN7XuSWSt3fwCnrNk8S?=
+ =?us-ascii?Q?EJLSvL4b+UMoMUBl0eHAyyiwvRAtOm50PEZPNO7/RsVJDyxI2rVqhAV2m416?=
+ =?us-ascii?Q?mpwJ5bXbU4vTj+nXL2dxSlf8Adr7FilH3i1nVbKC8jGizOvK5DO931IdsyZR?=
+ =?us-ascii?Q?dAnV1V0C0ceb5gG0AkZwLKHIPa0izTGS7Inh1ZQPTlisu0QIwtc7th3vhKw0?=
+ =?us-ascii?Q?gMVXYb7scnr2dfG51JizsRpTPuJo/tV5/zksH/dHKAKo+lONSYpjN3We2rTa?=
+ =?us-ascii?Q?DNBmSceEcJ6HbqIluvgWtd0xXkY+xiqNOCoBo9d4cata+DPez/EBse2N8eBD?=
+ =?us-ascii?Q?gi99TXjRhvfT4CoCnllIAO8mrrMxFrePupTr1tZHmR3ZU3dRVf5oAVh9ntdO?=
+ =?us-ascii?Q?wUzWNRjRXPYPBgzsC6HebRe7ih2MXFWn5yFQmUy9LVUgDW4vHdlnbwUVmv4l?=
+ =?us-ascii?Q?z9zDPKI1wv3b0S/NdWOiIAleGjer94cY/6gsUDB4PIo2X5WK7WA4CSfMb3yp?=
+ =?us-ascii?Q?NkcWQ1vNJXI+fP5rt4PyJgmqjMc4ZC1Cu0mXAqP3oyDsswJkijvM2pC10mDB?=
+ =?us-ascii?Q?pxLQW7uivvZLxp5upxPZvEAXXgCkn4pi7czIY+tVZBLBooh3KU7/GdOiZnJY?=
+ =?us-ascii?Q?APr9Q2rHiFCTHfgjFh7e1D9bNnnVDx+j7i50jvcsZsrWMT+4Ms7e//dped+N?=
+ =?us-ascii?Q?zrTQM9atsQhMmOOaZboiyRX+mFhbaW9zn5CusCER/5sA1tUs2tJa03M3CvFS?=
+ =?us-ascii?Q?zVTqcglH+YSmVaDDyI5yxGdVGtTD/R8Eoc36XoHYIb6W+kBtJAlXZ9sofLDH?=
+ =?us-ascii?Q?UJbPPC1liM+cbX7JLHzzX0N/lFr7Y0GEPQplw/pVzVKv9CNXhqeh05CMlwE7?=
+ =?us-ascii?Q?5hdUtBheDB0FkV46I7YDSrK/vOVP6vzzxWrr7rKOaTteDDPQXOD1dpN/ba+Z?=
+ =?us-ascii?Q?cKSvHClG/tsSLsTOiF+MaE1F/UH1n4GIo26nddPSuUZ5iR2MgHEn3xyLYzlH?=
+ =?us-ascii?Q?QBruvmy+tct6tqlAy6zS7e7jRC4aRrQReDH5MntS8VL0ja5c2JSNjmiHX0cd?=
+ =?us-ascii?Q?4fQ40FE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dlFTD+W24d2Wh/YkXHBxvRUIQSDayWc7YLpedi0u5rDp+JaN2MhESkwy1OZ+?=
+ =?us-ascii?Q?iyI7cAg9zJYPvE+htl7SUQilJwgrmnrziChXfrJf0ipLTnQQRr6NkqWLOnoI?=
+ =?us-ascii?Q?RkonF/eKSbtrJGtBtBsSSaHds0y09IPe/W4mPHF2HJfW9TEltwViRQU+itJ6?=
+ =?us-ascii?Q?PVM7tKur+FWOcgfyX5cKa1EHA31T8UY+pr9127nI5Eo86S9bwVAWVHD5N96w?=
+ =?us-ascii?Q?vPpJZvLHBYOjK9kwqSL+83k0AY/KMvqIWAw8+yKuFf/dcT3w+6XqdxvVg7AF?=
+ =?us-ascii?Q?9FqzuxzYZoOMuZd+7ddf75gs+9qddu8LAoFdB+l4CASPkBe6KhC+3QBuwR4Y?=
+ =?us-ascii?Q?LObFN3StUDlquda18Ca6SsQAZcDkZHuetODs6PAHFtdC+2epbLciSI4F63iG?=
+ =?us-ascii?Q?mUXx0VrOnN0C4dMlg6zwJVsC3TCy+i/90xkUV3vOpPOYEPQpiKS4SV59mXoD?=
+ =?us-ascii?Q?J4PntbFQJbL7hW5Kt97Wh5qxneqH/TFn40CVImx6UQ94+TKJrJomSgCA5l6w?=
+ =?us-ascii?Q?H1OLjriUTBc2HQxK0htpJSOnjD+fBIHwWmQJQG1F4XAzMlO6TmM82aBYvpjO?=
+ =?us-ascii?Q?tVIdpdnuOB+sSePKcGoPLDDCX5U7xFMOYFPJy/i8tObL+Mv4B4Gqda8GqFlh?=
+ =?us-ascii?Q?5IKx/l9KQ1vyrlrhWIW2LOHCNgvhHfTD5iK9xtqKp7q2suyhmxDCQ9zw4JIY?=
+ =?us-ascii?Q?kcw76SSYp3jVj1aAS2qR0KwAoHS8hUKl2ds9V3MVBYSXruWy7aZH2IuItaMg?=
+ =?us-ascii?Q?IFHn/+TXRUPl25C4UPYEgcsR1TrVtac5utBuchF0+Z+SHBpUmMWjiHyiJu0S?=
+ =?us-ascii?Q?FwdH+2RBlgV5Q2F+AwM/XdeJH/ooQc6HJTDmRRj5AQCZvZrQ35P+SMZNw5Qe?=
+ =?us-ascii?Q?S0C22NYo/evdybBm+8ZFERDVM8Sqcm0LrFdOyMZUCx5F8yrhpxtZh/luNreE?=
+ =?us-ascii?Q?kUzClIgkyuFdMKm16LskeKi+dwNfiqCo0EA3il8HhyFKWG6aXjQXlQcZmrTO?=
+ =?us-ascii?Q?eFqQVxWPfj5X5cJLTEVtIzyKNTUOBaq9QpTR6GhkOfRH7Mp4INZgTT64Dhme?=
+ =?us-ascii?Q?YQ8ZIKg6ygyMUFRztWEtwIzgJn0Tln2WV7WdO3XEpoHzByCgMU0Y9/L3DpcP?=
+ =?us-ascii?Q?V4zcQ3hbspNiusIpS2blJo3GGMu26R3YSXE+q+wSBu7gYLRkMYU4KiO3NA3U?=
+ =?us-ascii?Q?XNBEVy2yT57hWRMjdSHiROSwBK1Doryk+/1VoPbZxdxctdf6nv0rxiVQytv+?=
+ =?us-ascii?Q?oqSStW/zNVWTYEBgSFZa4q2zvXhGHTIgxhxnSYS0y10BJ7GX9aCJfP3y/ghw?=
+ =?us-ascii?Q?psJcqk4KFnFgCnUTMGkdUWDnWdTqJOg6IGXd0eoN2xvPU3FOpX6X1BbzZCqt?=
+ =?us-ascii?Q?eK9hCCP78iOYv/ZncHPLcjsAxD8tv3xP8dXWxh8mPl2DYw3oVPz6ocInOmZ4?=
+ =?us-ascii?Q?ZaqGyCfuSPdYBh72vREeH1RbMDAoikJKoL+2KObX+IOoLCTjwXte1O8e1j/R?=
+ =?us-ascii?Q?wtQdFL7LczpXVEz+Cij1T9AL8i4RpaFHcCz37KCjS3BDhS7uF+p/tSBcr3Rq?=
+ =?us-ascii?Q?9uzJw0AyQNpAd4RgcDiXcpLFxP0fqVygCE1qlQvF?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 52c5a9f4-63dd-4636-22ba-08dd096b55e3
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2024 13:57:56.6491
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Dc0V7fCUBwXlAJIIvYd687G0x53od+lQY9WHFdI8y8UUpTAGGl+pI6Cv7jYsvRUbNf9RhG0mc6C3NPttuC0hsQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6825
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_054429_188328_3BC4227A 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20241120_055803_461157_7B5F0597 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,36 +168,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 20, 2024 at 03:13:11PM +1030, Andrew Jeffery wrote:
-> On Tue, 2024-11-19 at 17:51 +0800, Jacky Chou wrote:
-> > When the command bus is sometimes busy, it may cause the command is
-> > not
-> > arrived to MDIO controller immediately. On software, the driver
-> > issues a
-> > write command to the command bus does not wait for command complete
-> > and
-> > it returned back to code immediately. But a read command will wait
-> > for
-> > the data back, once a read command was back indicates the previous
-> > write
-> > command had arrived to controller.
-> > Add a dummy read to ensure triggering mdio controller before starting
-> > polling the status of mdio controller to avoid polling unexpected
-> > timeout.
-> 
-> Why use the explicit dummy read rather than adjust the poll interval or
-> duration? I still don't think that's been adequately explained given
-> the hardware-clear of the fire bit on completion, which is what we're
-> polling for.
+DSP found in i.MX8MP SOC can be used by multiple frameworks in order to
+enable various applications:
+	- rproc/rpmsg framework, used to load for example Zephyr samples
+	- Sound Open Firmware, used to enable various audio processing
+	  pipelines.
 
-I'm guessing here, but if the hardware has not received the write, the
-read could return an indication that the hardware is idle, and so the
-poll exits immediately. The returned value of the first read need to
-be ignored. It is simpler and more reliable to do that with an
-explicit read, rather than try to play with the poll timing.
+Current dsp node was configured with SOF in mind but it doesn't work
+well with imx8mp-evk dts. SOF controls audio IPs from firmware side
+while imx8mp-evk preffers to control audio IPs from Linux side.
 
-AS i said, a guess. We need a good commit message explaining the
-reality of what is happening here.
+So, configure 'dsp' node to be used with rproc scenario and later will
+add a separate dts or an overlay to configure the node for SOF.
 
-	Andrew
+This patch series configures and enables dsp node to be used with rproc.
+
+Daniel Baluta (5):
+  arm64: dts: imx8mp: Add mu2 root clock
+  arm64: dts: imx8mp: Configure dsp node for rproc usage
+  arm64: dts: imx8mp: Add DSP clocks
+  arm64: dts: imx8mp: Add fsl,dsp-ctrl property for dsp
+  arm64: dts: Add dsp rproc related mem regions
+
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts |  6 +++++
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi    | 23 ++++++++++++--------
+ 2 files changed, 20 insertions(+), 9 deletions(-)
+
+-- 
+2.43.0
+
 
