@@ -4,112 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 259F5D711D6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 18:15:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FC5D711DA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 18:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MtvIHRMqRlU4csVxVxWvL25EMsNBDz08abqpKN6Snmw=; b=tEBFoqSgntXMQzvkn9tEskblsG
-	X4YLz7QO0VnSYDcWWTOu2ml2xKq81/xjEs9d8JEp7DvFbFDR8AqYMZk9lD3ngWhQ1s0W1/ORYyA4v
-	MuYC99W7VLfcRZD3do2HgMUdU52CaA4/SiZfIpQfSNVuqUwoJVkY2YfbgAqcka0JEsjFXZIcGpbeY
-	LnXF1JeoM2Txsp0XNqAI9v8htFq4wnxFWFO0HmpDf791DrPzZvkLFWNP/Ug9LkbjiQwW7UecmXO1u
-	/b2fBzbhjYXOAQTL5zpiIieztWPIu2TcAuvElkdr6IEtpH9gkKBpiTUfTCgdK8EVoE8g4Mo2IE2Mz
-	wR+KkIWA==;
+	bh=/ugJHkDpsY7uo2BMtMUNuZXkhDGH2iu3OzoVjlOG0w0=; b=gXPqw8dc3NT+nlXKy0rACZANDm
+	o/rF0F1yjCw6MhxjXZbRanKy6hGVeNG6tLBcswhYZKTSd1debs9PKmhPIFGl7a19+yHyqOBHbXZhC
+	7RWQcUZh5u6BiRIQ8xHvx9TrwcaTFbTGakYhOh2/xxbQjgunK+C8EFSr+Kh6RwK0JEncdP0MhkKFb
+	RXnmOc2zvBuqUqzC8Fl9hjDtvjjXSK5gbQKbHuWlG6OM00A6bMG63Rkz7+fa1cKAN2ZImuYHTN0+e
+	4uDOvE2HiaRAICfik5S3Q1U3U8F/J1htswm7LeZ3/OMxF88ruPplse6y3hZQhkEz3VfSFHBTsCfiZ
+	Pb7ldglA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDpEa-0000000G0hR-3kk9;
-	Wed, 20 Nov 2024 18:15:24 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tDpVk-0000000G2B8-3PHi;
+	Wed, 20 Nov 2024 18:33:08 +0000
+Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDpBp-0000000G006-2wpH
+	id 1tDpUm-0000000G21M-3JmY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 18:12:34 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AK9FV4r005827;
-	Wed, 20 Nov 2024 18:12:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	MtvIHRMqRlU4csVxVxWvL25EMsNBDz08abqpKN6Snmw=; b=SQYwid7C/skEkvxZ
-	YtSACdd2/pGI/dkIC0iLKlUQc48k/oaQF39UikGVMgifaYdslx4VjqWP9MTYsJ6k
-	1gEPZ+ctuQdVSnKVbVyTtku5Y/7+yHOMY2smogXFtulHMSbSpYzzH2Mk7jMk3inN
-	9kwgf3tUJmdfJPOD3Bcu1N2Nf7KonF69jppBi6FJTRzBC2PhzyN1qL93afKL8nb8
-	jvtPxF/JX3mZG0KarcuJ1U5tbpTABxnQxo0kAbnmyozE4cQogOWU8Zf5671ujzhn
-	+HcP7ORJJEm3cHrvRJFWPdbmIyAXg2kIh9yQsXf6c9PvLJj8DTZ1BcrIUFDqVHMc
-	08HlzQ==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4308y7xt21-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 20 Nov 2024 18:12:16 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AKICFqW020037
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 20 Nov 2024 18:12:15 GMT
-Received: from hu-eberman-lv.qualcomm.com (10.49.16.6) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 20 Nov 2024 10:12:14 -0800
-From: Elliot Berman <quic_eberman@quicinc.com>
-Date: Wed, 20 Nov 2024 10:12:08 -0800
-Subject: [PATCH v4 2/2] mm: guestmem: Convert address_space operations to
- guestmem library
+	Wed, 20 Nov 2024 18:32:10 +0000
+Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-3a781e908a7so10445ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 10:32:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1732127527; x=1732732327; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/ugJHkDpsY7uo2BMtMUNuZXkhDGH2iu3OzoVjlOG0w0=;
+        b=PbCMGa4UHrppuTori95kA6kV+j6HpSy8RXJH2ti3FIRNz0YHALx4/4xpWlmjtVTR7N
+         w3RTlleJGAL5lJAgHcUePF+yFkj8U5LjuTissPbefi9Hiu8JkNogIksJQPlbb6vwyRZa
+         DPLUDCsgudQMVY4jkV1qTMkprfE9pdEYweUMDhsPYO5t4mfWLi94nMoYAHbcvk+kws3R
+         GQlwE9Hi5ktqRH8G/mUvfyz/Va7awFnlrd9Dbkgb2M6VRU8Q4j1HUhepGjV0YNuPoIt4
+         uhstZwqaqCY5GEDD4J+nR0fL4pOISuxL3T0gJB5p5P4Mjo5Zf5I0CSmvGSmqE7oY3WhL
+         M0eA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732127527; x=1732732327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/ugJHkDpsY7uo2BMtMUNuZXkhDGH2iu3OzoVjlOG0w0=;
+        b=ds2PErITT2/uqFV0p7eulmq2IWN9R6m5tRO5HYHeFfX/jwAm8zQeF4dBLvK9nyJUKl
+         p+apazVqLi5l6aW3QHZx2NzFv/WzZtmcVNMH8vAewdPDPV8Z37dy7XmUURgH4T5zzpIN
+         8/YlywMn1ttPWgH1Vk2SGWKaXeXpd2NpjN3tEoY2jxa4X/WPZQfTRjvjtY2JuNTPNaTu
+         psGJxCr2kQCqQjpI3v0bZZXPMdZS7/m9wcvh+hH6jvxbndwKXmwAV8JgdZGLCvDyQ6Vh
+         nYrTnfVKMzSxqjYMtGocBxA1pqWKE3Yp42ExMnAeTNJaUXwiFUBKzndVEcbgkcwCO8Py
+         IsyA==
+X-Forwarded-Encrypted: i=1; AJvYcCUaAynFws4JOos3CZm/MF//HO7HQsdeaj7CMsO9qko6j2SpQuu028n8Huybtdb8slqFrmO32XhsKVDNjcmt5N7u@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTYDqa14I4W9x8yJgEvxIaHyh7NxsU8RP8TZLsTE8mbwS/y8FM
+	7zgJ7S30Hw0eEN0g06wjt1DHXxDRf/RQMgsFEBfrTcrREgkOv++/KcYCOUwqv99dT4Agl50CiUY
+	kSZ1R2XkeXy9lnDQ2w/A4eZaqmDBGLoNRt2sA
+X-Gm-Gg: ASbGncsP4KSKwUTbDigZpA399Dn2130btNpF9AhkmhH2SNux69of3E7VTJAMDaDf4sa
+	53tYPOQD5aUYm4kmG9p57G4GvclISiXkMy6ucqU202sXIHQci0Tm5h3YAi+CJFWw=
+X-Google-Smtp-Source: AGHT+IGeQRCH3dXFPHh0ltBccwVzwRP5kJ7XFbHBqDOTpQ4XPXi+XsQWtfsFa1SkeOfm6E9zhST9qfoiQnkMd48ULwY=
+X-Received: by 2002:a05:6e02:1ca5:b0:3a7:8b05:4beb with SMTP id
+ e9e14a558f8ab-3a78b054c50mr3017205ab.15.1732127526638; Wed, 20 Nov 2024
+ 10:32:06 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20241120-guestmem-library-v4-2-0c597f733909@quicinc.com>
-References: <20241120-guestmem-library-v4-0-0c597f733909@quicinc.com>
-In-Reply-To: <20241120-guestmem-library-v4-0-0c597f733909@quicinc.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-        Andrew Morton
-	<akpm@linux-foundation.org>,
-        Sean Christopherson <seanjc@google.com>,
-        "Fuad
- Tabba" <tabba@google.com>,
-        Ackerley Tng <ackerleytng@google.com>,
-        "Mike
- Rapoport" <rppt@kernel.org>,
-        David Hildenbrand <david@redhat.com>,
-        "H. Peter
- Anvin" <hpa@zytor.com>,
-        "Matthew Wilcox (Oracle)" <willy@infradead.org>,
-        Jonathan Corbet <corbet@lwn.net>, Trond Myklebust <trondmy@kernel.org>,
-        "Anna
- Schumaker" <anna@kernel.org>,
-        Mike Marshall <hubcap@omnibond.com>,
-        "Martin
- Brandenburg" <martin@omnibond.com>,
-        Alexander Viro <viro@zeniv.linux.org.uk>,
-        Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>
-CC: James Gowans <jgowans@amazon.com>, Mike Day <michael.day@amd.com>,
-        <linux-fsdevel@vger.kernel.org>, <kvm@vger.kernel.org>,
-        <linux-coco@lists.linux.dev>, <linux-arm-msm@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
-        <linux-doc@vger.kernel.org>, <linux-nfs@vger.kernel.org>,
-        <devel@lists.orangefs.org>, <linux-arm-kernel@lists.infradead.org>,
-        "Elliot
- Berman" <quic_eberman@quicinc.com>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01a.na.qualcomm.com (10.47.209.196) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: qsgK9y7XP2ghMX9s0JVz96fQQxe7YamK
-X-Proofpoint-GUID: qsgK9y7XP2ghMX9s0JVz96fQQxe7YamK
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 spamscore=0
- mlxlogscore=999 clxscore=1015 suspectscore=0 adultscore=0
- priorityscore=1501 phishscore=0 impostorscore=0 bulkscore=0
- lowpriorityscore=0 malwarescore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2409260000 definitions=main-2411200125
+References: <20241120143739.243728-1-james.clark@linaro.org>
+In-Reply-To: <20241120143739.243728-1-james.clark@linaro.org>
+From: Ian Rogers <irogers@google.com>
+Date: Wed, 20 Nov 2024 10:31:55 -0800
+Message-ID: <CAP-5=fWeJYf4mbSKSonwNhc5smw6_OktRBG2bCObcQiDjy2iAQ@mail.gmail.com>
+Subject: Re: [PATCH] perf vendor events arm64: Update N2/V2 events from source
+To: James Clark <james.clark@linaro.org>
+Cc: linux-perf-users@vger.kernel.org, John Garry <john.g.garry@oracle.com>, 
+	Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, "Liang, Kan" <kan.liang@linux.intel.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_101233_856014_DCF37A31 
-X-CRM114-Status: GOOD (  31.96  )
+X-CRM114-CacheID: sfid-20241120_103208_850012_1D6627AD 
+X-CRM114-Status: GOOD (  26.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,511 +98,865 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A few near-term features are coming to guest_memfd which make sense to
-create a built-in library.
- - pKVM will introduce MMU-based protection for guests and allow guest
-   memory to be switched between "guest-private" and "accessible to
-   host". Additional tracking is needed to manage the state of pages as
-   accessing "guest-private" pages crashes the host.
- - Introduction of large folios requires tracking since guests will not
-   have awareness whether the memory backing a page is huge or not.
-   Guests may wish to share only a partial page.
- - Gunyah hypervisor support will be added and also make use of guestmem
-   for its MMU-based protection.
+On Wed, Nov 20, 2024 at 6:38=E2=80=AFAM James Clark <james.clark@linaro.org=
+> wrote:
+>
+> Update using the new data [1] for these changes:
+>
+>   * Scale some metrics like dtlb_walk_ratio to percent so they display
+>     better with Perf's 2 dp precision
+>   * Description typos, grammar and clarifications
+>   * Unnecessary metric formula brackets seem to have been removed in the
+>     source but this is not a functional change
+>   * New sve_all_percentage metric
+>
+> The following command was used to generate this commit:
+>
+> $ telemetry-solution/tools/perf_json_generator/generate.py \
+>   tools/perf/ --telemetry-files \
+>   telemetry-solution/data/pmu/cpu/neoverse/neoverse-v2.json:neoverse-n2-v=
+2
+>
+> [1]: https://gitlab.arm.com/telemetry-solution/telemetry-solution/-/blob/=
+main/data/pmu/cpu/neoverse/neoverse-v2.json
+>
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-The address_space is targeted for the guestmem library.  KVM still
-"owns" the inode and file.
+Reviewed-by: Ian Rogers <irogers@google.com>
 
-MAINTAINERS is updated with explicit references to guestmem files
-else the stm maintainers are automatically added.
+Thanks,
+Ian
 
-Tested with:
-run_kselftest.sh -t kvm:guest_memfd_test -t kvm:set_memory_region_test
+> ---
+>  .../arm64/arm/neoverse-n2-v2/exception.json   |  2 +-
+>  .../arm64/arm/neoverse-n2-v2/general.json     |  2 +-
+>  .../arm64/arm/neoverse-n2-v2/l1d_cache.json   |  6 +-
+>  .../arm64/arm/neoverse-n2-v2/l2_cache.json    | 14 +--
+>  .../arm64/arm/neoverse-n2-v2/l3_cache.json    |  4 +-
+>  .../arm64/arm/neoverse-n2-v2/ll_cache.json    |  4 +-
+>  .../arch/arm64/arm/neoverse-n2-v2/memory.json |  2 +-
+>  .../arm64/arm/neoverse-n2-v2/metrics.json     | 93 ++++++++++---------
+>  .../arm64/arm/neoverse-n2-v2/retired.json     |  4 +-
+>  .../arm/neoverse-n2-v2/spec_operation.json    | 14 +--
+>  .../arch/arm64/arm/neoverse-n2-v2/stall.json  |  8 +-
+>  .../arch/arm64/arm/neoverse-n2-v2/tlb.json    |  4 +-
+>  12 files changed, 82 insertions(+), 75 deletions(-)
+>
+> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/exceptio=
+n.json b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/exception.json
+> index 4404b8e91690..7126fbf292e0 100644
+> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/exception.json
+> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/exception.json
+> @@ -5,7 +5,7 @@
+>      },
+>      {
+>          "ArchStdEvent": "EXC_RETURN",
+> -        "PublicDescription": "Counts any architecturally executed except=
+ion return instructions. Eg: AArch64: ERET"
+> +        "PublicDescription": "Counts any architecturally executed except=
+ion return instructions. For example: AArch64: ERET"
+>      },
+>      {
+>          "ArchStdEvent": "EXC_UNDEF",
+> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/general.=
+json b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/general.json
+> index 428810f855b8..c5dcdcf43c58 100644
+> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/general.json
+> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/general.json
+> @@ -5,6 +5,6 @@
+>      },
+>      {
+>          "ArchStdEvent": "CNT_CYCLES",
+> -        "PublicDescription": "Counts constant frequency cycles"
+> +        "PublicDescription": "Increments at a constant frequency equal t=
+o the rate of increment of the System Counter, CNTPCT_EL0."
+>      }
+>  ]
+> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/l1d_cach=
+e.json b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/l1d_cache.json
+> index da7c129f2569..799d106d5173 100644
+> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/l1d_cache.json
+> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/l1d_cache.json
+> @@ -1,11 +1,11 @@
+>  [
+>      {
+>          "ArchStdEvent": "L1D_CACHE_REFILL",
+> -        "PublicDescription": "Counts level 1 data cache refills caused b=
+y speculatively executed load or store operations that missed in the level =
+1 data cache. This event only counts one event per cache line. This event d=
+oes not count cache line allocations from preload instructions or from hard=
+ware cache prefetching."
+> +        "PublicDescription": "Counts level 1 data cache refills caused b=
+y speculatively executed load or store operations that missed in the level =
+1 data cache. This event only counts one event per cache line."
 
-Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
----
- MAINTAINERS              |   2 +
- include/linux/guestmem.h |  33 ++++++++
- mm/Kconfig               |   3 +
- mm/Makefile              |   1 +
- mm/guestmem.c            | 196 +++++++++++++++++++++++++++++++++++++++++++++++
- virt/kvm/Kconfig         |   1 +
- virt/kvm/guest_memfd.c   |  98 +++++++-----------------
- 7 files changed, 264 insertions(+), 70 deletions(-)
+nit/fwiw: old description looked to have useful information
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 391fe4b106f8cb7e1cc0b4184dc121ac74d8e00a..c684248ce65d99d62dc616c8bc6c1a7419bd6f4d 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -14888,6 +14888,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
- T:	quilt git://git.kernel.org/pub/scm/linux/kernel/git/akpm/25-new
- F:	include/linux/gfp.h
- F:	include/linux/gfp_types.h
-+F:	include/linux/guestmem.h
- F:	include/linux/memfd.h
- F:	include/linux/memory.h
- F:	include/linux/memory_hotplug.h
-@@ -14903,6 +14904,7 @@ F:	include/linux/pagewalk.h
- F:	include/linux/rmap.h
- F:	include/trace/events/ksm.h
- F:	mm/
-+F:	mm/guestmem.c
- F:	tools/mm/
- F:	tools/testing/selftests/mm/
- N:	include/linux/page[-_]*
-diff --git a/include/linux/guestmem.h b/include/linux/guestmem.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..4beb37adb5e541015fcc12a45930613c686c5580
---- /dev/null
-+++ b/include/linux/guestmem.h
-@@ -0,0 +1,33 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _LINUX_GUESTMEM_H
-+#define _LINUX_GUESTMEM_H
-+
-+struct address_space;
-+struct list_head;
-+
-+/**
-+ * struct guestmem_ops - Hypervisor-specific maintenance operations to perform on folios
-+ * @release_folio - Try to bring the folio back to fully owned by Linux
-+ *		    for instance: about to free the folio [optional]
-+ * @invalidate_begin - start invalidating mappings between start and end offsets
-+ * @invalidate_end - paired with ->invalidate_begin() [optional]
-+ */
-+struct guestmem_ops {
-+	bool (*release_folio)(struct list_head *entry, struct folio *folio);
-+	int (*invalidate_begin)(struct list_head *entry, pgoff_t start,
-+				pgoff_t end);
-+	void (*invalidate_end)(struct list_head *entry, pgoff_t start,
-+			       pgoff_t end);
-+};
-+
-+int guestmem_attach_mapping(struct address_space *mapping,
-+			    const struct guestmem_ops *const ops,
-+			    struct list_head *data);
-+void guestmem_detach_mapping(struct address_space *mapping,
-+			     struct list_head *data);
-+
-+struct folio *guestmem_grab_folio(struct address_space *mapping, pgoff_t index);
-+int guestmem_punch_hole(struct address_space *mapping, loff_t offset,
-+			loff_t len);
-+
-+#endif
-diff --git a/mm/Kconfig b/mm/Kconfig
-index 4c9f5ea13271d1f90163e75a35adf619ada3a5cd..48c911d3dbc1645b478d0626a5d86f5fec154b15 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -1190,6 +1190,9 @@ config SECRETMEM
- 	  memory areas visible only in the context of the owning process and
- 	  not mapped to other processes and other kernel page tables.
- 
-+config GUESTMEM
-+	bool
-+
- config ANON_VMA_NAME
- 	bool "Anonymous VMA name support"
- 	depends on PROC_FS && ADVISE_SYSCALLS && MMU
-diff --git a/mm/Makefile b/mm/Makefile
-index d5639b03616636e4d49913f76865e24edb270f73..4d5f003d69c8969aaae0615106b90600ef638719 100644
---- a/mm/Makefile
-+++ b/mm/Makefile
-@@ -136,6 +136,7 @@ obj-$(CONFIG_PERCPU_STATS) += percpu-stats.o
- obj-$(CONFIG_ZONE_DEVICE) += memremap.o
- obj-$(CONFIG_HMM_MIRROR) += hmm.o
- obj-$(CONFIG_MEMFD_CREATE) += memfd.o
-+obj-$(CONFIG_GUESTMEM) += guestmem.o
- obj-$(CONFIG_MAPPING_DIRTY_HELPERS) += mapping_dirty_helpers.o
- obj-$(CONFIG_PTDUMP_CORE) += ptdump.o
- obj-$(CONFIG_PAGE_REPORTING) += page_reporting.o
-diff --git a/mm/guestmem.c b/mm/guestmem.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..19dd7e5d498f07577ec5cec5b52055f7435980f4
---- /dev/null
-+++ b/mm/guestmem.c
-@@ -0,0 +1,196 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * guestmem library
-+ *
-+ * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
-+ */
-+
-+#include <linux/fs.h>
-+#include <linux/guestmem.h>
-+#include <linux/mm.h>
-+#include <linux/pagemap.h>
-+
-+struct guestmem {
-+	const struct guestmem_ops *ops;
-+};
-+
-+static inline struct guestmem *folio_to_guestmem(struct folio *folio)
-+{
-+	struct address_space *mapping = folio->mapping;
-+
-+	return mapping->i_private_data;
-+}
-+
-+static inline bool __guestmem_release_folio(struct address_space *mapping,
-+					    struct folio *folio)
-+{
-+	struct guestmem *gmem = mapping->i_private_data;
-+	struct list_head *entry;
-+
-+	if (gmem->ops->release_folio) {
-+		list_for_each(entry, &mapping->i_private_list) {
-+			if (!gmem->ops->release_folio(entry, folio))
-+				return false;
-+		}
-+	}
-+
-+	return true;
-+}
-+
-+static inline int
-+__guestmem_invalidate_begin(struct address_space *const mapping, pgoff_t start,
-+			    pgoff_t end)
-+{
-+	struct guestmem *gmem = mapping->i_private_data;
-+	struct list_head *entry;
-+	int ret = 0;
-+
-+	list_for_each(entry, &mapping->i_private_list) {
-+		ret = gmem->ops->invalidate_begin(entry, start, end);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static inline void
-+__guestmem_invalidate_end(struct address_space *const mapping, pgoff_t start,
-+			  pgoff_t end)
-+{
-+	struct guestmem *gmem = mapping->i_private_data;
-+	struct list_head *entry;
-+
-+	if (gmem->ops->invalidate_end) {
-+		list_for_each(entry, &mapping->i_private_list)
-+			gmem->ops->invalidate_end(entry, start, end);
-+	}
-+}
-+
-+static void guestmem_free_folio(struct address_space *mapping,
-+				struct folio *folio)
-+{
-+	WARN_ON_ONCE(!__guestmem_release_folio(mapping, folio));
-+}
-+
-+static int guestmem_error_folio(struct address_space *mapping,
-+				struct folio *folio)
-+{
-+	pgoff_t start, end;
-+	int ret;
-+
-+	filemap_invalidate_lock_shared(mapping);
-+
-+	start = folio->index;
-+	end = start + folio_nr_pages(folio);
-+
-+	ret = __guestmem_invalidate_begin(mapping, start, end);
-+	if (ret)
-+		goto out;
-+
-+	/*
-+	 * Do not truncate the range, what action is taken in response to the
-+	 * error is userspace's decision (assuming the architecture supports
-+	 * gracefully handling memory errors).  If/when the guest attempts to
-+	 * access a poisoned page, kvm_gmem_get_pfn() will return -EHWPOISON,
-+	 * at which point KVM can either terminate the VM or propagate the
-+	 * error to userspace.
-+	 */
-+
-+	__guestmem_invalidate_end(mapping, start, end);
-+
-+out:
-+	filemap_invalidate_unlock_shared(mapping);
-+	return ret ? MF_DELAYED : MF_FAILED;
-+}
-+
-+static int guestmem_migrate_folio(struct address_space *mapping,
-+				  struct folio *dst, struct folio *src,
-+				  enum migrate_mode mode)
-+{
-+	WARN_ON_ONCE(1);
-+	return -EINVAL;
-+}
-+
-+static const struct address_space_operations guestmem_aops = {
-+	.dirty_folio = noop_dirty_folio,
-+	.free_folio = guestmem_free_folio,
-+	.error_remove_folio = guestmem_error_folio,
-+	.migrate_folio = guestmem_migrate_folio,
-+};
-+
-+int guestmem_attach_mapping(struct address_space *mapping,
-+			    const struct guestmem_ops *const ops,
-+			    struct list_head *data)
-+{
-+	struct guestmem *gmem;
-+
-+	if (mapping->a_ops == &guestmem_aops) {
-+		gmem = mapping->i_private_data;
-+		if (gmem->ops != ops)
-+			return -EINVAL;
-+
-+		goto add;
-+	}
-+
-+	gmem = kzalloc(sizeof(*gmem), GFP_KERNEL);
-+	if (!gmem)
-+		return -ENOMEM;
-+
-+	gmem->ops = ops;
-+
-+	mapping->a_ops = &guestmem_aops;
-+	mapping->i_private_data = gmem;
-+
-+	mapping_set_gfp_mask(mapping, GFP_HIGHUSER);
-+	mapping_set_inaccessible(mapping);
-+	/* Unmovable mappings are supposed to be marked unevictable as well. */
-+	WARN_ON_ONCE(!mapping_unevictable(mapping));
-+
-+add:
-+	list_add(data, &mapping->i_private_list);
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(guestmem_attach_mapping);
-+
-+void guestmem_detach_mapping(struct address_space *mapping,
-+			     struct list_head *data)
-+{
-+	list_del(data);
-+
-+	if (list_empty(&mapping->i_private_list)) {
-+		kfree(mapping->i_private_data);
-+		mapping->i_private_data = NULL;
-+		mapping->a_ops = &empty_aops;
-+	}
-+}
-+EXPORT_SYMBOL_GPL(guestmem_detach_mapping);
-+
-+struct folio *guestmem_grab_folio(struct address_space *mapping, pgoff_t index)
-+{
-+	/* TODO: Support huge pages. */
-+	return filemap_grab_folio(mapping, index);
-+}
-+EXPORT_SYMBOL_GPL(guestmem_grab_folio);
-+
-+int guestmem_punch_hole(struct address_space *mapping, loff_t offset,
-+			loff_t len)
-+{
-+	pgoff_t start = offset >> PAGE_SHIFT;
-+	pgoff_t end = (offset + len) >> PAGE_SHIFT;
-+	int ret;
-+
-+	filemap_invalidate_lock(mapping);
-+	ret = __guestmem_invalidate_begin(mapping, start, end);
-+	if (ret)
-+		goto out;
-+
-+	truncate_inode_pages_range(mapping, offset, offset + len - 1);
-+
-+	__guestmem_invalidate_end(mapping, start, end);
-+
-+out:
-+	filemap_invalidate_unlock(mapping);
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(guestmem_punch_hole);
-diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-index fd6a3010afa833e077623065b80bdbb5b1012250..1339098795d2e859b2ee0ef419b29045aedc8487 100644
---- a/virt/kvm/Kconfig
-+++ b/virt/kvm/Kconfig
-@@ -106,6 +106,7 @@ config KVM_GENERIC_MEMORY_ATTRIBUTES
- 
- config KVM_PRIVATE_MEM
-        select XARRAY_MULTI
-+       select GUESTMEM
-        bool
- 
- config KVM_GENERIC_PRIVATE_MEM
-diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-index 24dcbad0cb76e353509cf4718837a1999f093414..edf57d5662cb8634bbd9ca3118b293c4f7ca229a 100644
---- a/virt/kvm/guest_memfd.c
-+++ b/virt/kvm/guest_memfd.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <linux/backing-dev.h>
- #include <linux/falloc.h>
-+#include <linux/guestmem.h>
- #include <linux/kvm_host.h>
- #include <linux/pagemap.h>
- #include <linux/anon_inodes.h>
-@@ -98,8 +99,7 @@ static int kvm_gmem_prepare_folio(struct kvm *kvm, struct kvm_memory_slot *slot,
-  */
- static struct folio *kvm_gmem_get_folio(struct inode *inode, pgoff_t index)
- {
--	/* TODO: Support huge pages. */
--	return filemap_grab_folio(inode->i_mapping, index);
-+	return guestmem_grab_folio(inode->i_mapping, index);
- }
- 
- static void kvm_gmem_invalidate_begin(struct kvm_gmem *gmem, pgoff_t start,
-@@ -151,28 +151,7 @@ static void kvm_gmem_invalidate_end(struct kvm_gmem *gmem, pgoff_t start,
- 
- static long kvm_gmem_punch_hole(struct inode *inode, loff_t offset, loff_t len)
- {
--	struct list_head *gmem_list = &inode->i_mapping->i_private_list;
--	pgoff_t start = offset >> PAGE_SHIFT;
--	pgoff_t end = (offset + len) >> PAGE_SHIFT;
--	struct kvm_gmem *gmem;
--
--	/*
--	 * Bindings must be stable across invalidation to ensure the start+end
--	 * are balanced.
--	 */
--	filemap_invalidate_lock(inode->i_mapping);
--
--	list_for_each_entry(gmem, gmem_list, entry)
--		kvm_gmem_invalidate_begin(gmem, start, end);
--
--	truncate_inode_pages_range(inode->i_mapping, offset, offset + len - 1);
--
--	list_for_each_entry(gmem, gmem_list, entry)
--		kvm_gmem_invalidate_end(gmem, start, end);
--
--	filemap_invalidate_unlock(inode->i_mapping);
--
--	return 0;
-+	return guestmem_punch_hole(inode->i_mapping, offset, len);
- }
- 
- static long kvm_gmem_allocate(struct inode *inode, loff_t offset, loff_t len)
-@@ -277,7 +256,7 @@ static int kvm_gmem_release(struct inode *inode, struct file *file)
- 	kvm_gmem_invalidate_begin(gmem, 0, -1ul);
- 	kvm_gmem_invalidate_end(gmem, 0, -1ul);
- 
--	list_del(&gmem->entry);
-+	guestmem_detach_mapping(inode->i_mapping, &gmem->entry);
- 
- 	filemap_invalidate_unlock(inode->i_mapping);
- 
-@@ -318,63 +297,42 @@ void kvm_gmem_init(struct module *module)
- 	kvm_gmem_fops.owner = module;
- }
- 
--static int kvm_gmem_migrate_folio(struct address_space *mapping,
--				  struct folio *dst, struct folio *src,
--				  enum migrate_mode mode)
-+static int kvm_guestmem_invalidate_begin(struct list_head *entry, pgoff_t start,
-+					 pgoff_t end)
- {
--	WARN_ON_ONCE(1);
--	return -EINVAL;
--}
-+	struct kvm_gmem *gmem = container_of(entry, struct kvm_gmem, entry);
- 
--static int kvm_gmem_error_folio(struct address_space *mapping, struct folio *folio)
--{
--	struct list_head *gmem_list = &mapping->i_private_list;
--	struct kvm_gmem *gmem;
--	pgoff_t start, end;
--
--	filemap_invalidate_lock_shared(mapping);
--
--	start = folio->index;
--	end = start + folio_nr_pages(folio);
--
--	list_for_each_entry(gmem, gmem_list, entry)
--		kvm_gmem_invalidate_begin(gmem, start, end);
--
--	/*
--	 * Do not truncate the range, what action is taken in response to the
--	 * error is userspace's decision (assuming the architecture supports
--	 * gracefully handling memory errors).  If/when the guest attempts to
--	 * access a poisoned page, kvm_gmem_get_pfn() will return -EHWPOISON,
--	 * at which point KVM can either terminate the VM or propagate the
--	 * error to userspace.
--	 */
-+	kvm_gmem_invalidate_begin(gmem, start, end);
- 
--	list_for_each_entry(gmem, gmem_list, entry)
--		kvm_gmem_invalidate_end(gmem, start, end);
-+	return 0;
-+}
- 
--	filemap_invalidate_unlock_shared(mapping);
-+static void kvm_guestmem_invalidate_end(struct list_head *entry, pgoff_t start,
-+					pgoff_t end)
-+{
-+	struct kvm_gmem *gmem = container_of(entry, struct kvm_gmem, entry);
- 
--	return MF_DELAYED;
-+	kvm_gmem_invalidate_end(gmem, start, end);
- }
- 
- #ifdef CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE
--static void kvm_gmem_free_folio(struct address_space *mapping,
--				struct folio *folio)
-+static bool kvm_gmem_release_folio(struct list_head *entry, struct folio *folio)
- {
- 	struct page *page = folio_page(folio, 0);
- 	kvm_pfn_t pfn = page_to_pfn(page);
- 	int order = folio_order(folio);
- 
- 	kvm_arch_gmem_invalidate(pfn, pfn + (1ul << order));
-+
-+	return true;
- }
- #endif
- 
--static const struct address_space_operations kvm_gmem_aops = {
--	.dirty_folio = noop_dirty_folio,
--	.migrate_folio	= kvm_gmem_migrate_folio,
--	.error_remove_folio = kvm_gmem_error_folio,
-+static const struct guestmem_ops kvm_guestmem_ops = {
-+	.invalidate_begin = kvm_guestmem_invalidate_begin,
-+	.invalidate_end = kvm_guestmem_invalidate_end,
- #ifdef CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE
--	.free_folio = kvm_gmem_free_folio,
-+	.release_folio = kvm_gmem_release_folio,
- #endif
- };
- 
-@@ -430,22 +388,22 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
- 
- 	inode->i_private = (void *)(unsigned long)flags;
- 	inode->i_op = &kvm_gmem_iops;
--	inode->i_mapping->a_ops = &kvm_gmem_aops;
- 	inode->i_mode |= S_IFREG;
- 	inode->i_size = size;
--	mapping_set_gfp_mask(inode->i_mapping, GFP_HIGHUSER);
--	mapping_set_inaccessible(inode->i_mapping);
--	/* Unmovable mappings are supposed to be marked unevictable as well. */
--	WARN_ON_ONCE(!mapping_unevictable(inode->i_mapping));
-+	err = guestmem_attach_mapping(inode->i_mapping, &kvm_guestmem_ops,
-+				      &gmem->entry);
-+	if (err)
-+		goto err_putfile;
- 
- 	kvm_get_kvm(kvm);
- 	gmem->kvm = kvm;
- 	xa_init(&gmem->bindings);
--	list_add(&gmem->entry, &inode->i_mapping->i_private_list);
- 
- 	fd_install(fd, file);
- 	return fd;
- 
-+err_putfile:
-+	fput(file);
- err_gmem:
- 	kfree(gmem);
- err_fd:
-
--- 
-2.34.1
-
+>      },
+>      {
+>          "ArchStdEvent": "L1D_CACHE",
+> -        "PublicDescription": "Counts level 1 data cache accesses from an=
+y load/store operations. Atomic operations that resolve in the CPUs caches =
+(near atomic operations) count as both a write access and read access. Each=
+ access to a cache line is counted including the multiple accesses caused b=
+y single instructions such as LDM or STM. Each access to other level 1 data=
+ or unified memory structures, for example refill buffers, write buffers, a=
+nd write-back buffers, are also counted."
+> +        "PublicDescription": "Counts level 1 data cache accesses from an=
+y load/store operations. Atomic operations that resolve in the CPUs caches =
+(near atomic operations) counts as both a write access and read access. Eac=
+h access to a cache line is counted including the multiple accesses caused =
+by single instructions such as LDM or STM. Each access to other level 1 dat=
+a or unified memory structures, for example refill buffers, write buffers, =
+and write-back buffers, are also counted."
+>      },
+>      {
+>          "ArchStdEvent": "L1D_CACHE_WB",
+> @@ -17,7 +17,7 @@
+>      },
+>      {
+>          "ArchStdEvent": "L1D_CACHE_RD",
+> -        "PublicDescription": "Counts level 1 data cache accesses from an=
+y load operation. Atomic load operations that resolve in the CPUs caches co=
+unt as both a write access and read access."
+> +        "PublicDescription": "Counts level 1 data cache accesses from an=
+y load operation. Atomic load operations that resolve in the CPUs caches co=
+unts as both a write access and read access."
+>      },
+>      {
+>          "ArchStdEvent": "L1D_CACHE_WR",
+> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/l2_cache=
+.json b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/l2_cache.json
+> index 0e31d0daf88b..ed8291ab9737 100644
+> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/l2_cache.json
+> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/l2_cache.json
+> @@ -1,11 +1,11 @@
+>  [
+>      {
+>          "ArchStdEvent": "L2D_CACHE",
+> -        "PublicDescription": "Counts level 2 cache accesses. level 2 cac=
+he is a unified cache for data and instruction accesses. Accesses are for m=
+isses in the first level caches or translation resolutions due to accesses.=
+ This event also counts write back of dirty data from level 1 data cache to=
+ the L2 cache."
+> +        "PublicDescription": "Counts accesses to the level 2 cache due t=
+o data accesses. Level 2 cache is a unified cache for data and instruction =
+accesses. Accesses are for misses in the first level data cache or translat=
+ion resolutions due to accesses. This event also counts write back of dirty=
+ data from level 1 data cache to the L2 cache."
+>      },
+>      {
+>          "ArchStdEvent": "L2D_CACHE_REFILL",
+> -        "PublicDescription": "Counts cache line refills into the level 2=
+ cache. level 2 cache is a unified cache for data and instruction accesses.=
+ Accesses are for misses in the level 1 caches or translation resolutions d=
+ue to accesses."
+> +        "PublicDescription": "Counts cache line refills into the level 2=
+ cache. Level 2 cache is a unified cache for data and instruction accesses.=
+ Accesses are for misses in the level 1 data cache or translation resolutio=
+ns due to accesses."
+>      },
+>      {
+>          "ArchStdEvent": "L2D_CACHE_WB",
+> @@ -13,23 +13,23 @@
+>      },
+>      {
+>          "ArchStdEvent": "L2D_CACHE_ALLOCATE",
+> -        "PublicDescription": "TBD"
+> +        "PublicDescription": "Counts level 2 cache line allocates that d=
+o not fetch data from outside the level 2 data or unified cache."
+>      },
+>      {
+>          "ArchStdEvent": "L2D_CACHE_RD",
+> -        "PublicDescription": "Counts level 2 cache accesses due to memor=
+y read operations. level 2 cache is a unified cache for data and instructio=
+n accesses, accesses are for misses in the level 1 caches or translation re=
+solutions due to accesses."
+> +        "PublicDescription": "Counts level 2 data cache accesses due to =
+memory read operations. Level 2 cache is a unified cache for data and instr=
+uction accesses, accesses are for misses in the level 1 data cache or trans=
+lation resolutions due to accesses."
+>      },
+>      {
+>          "ArchStdEvent": "L2D_CACHE_WR",
+> -        "PublicDescription": "Counts level 2 cache accesses due to memor=
+y write operations. level 2 cache is a unified cache for data and instructi=
+on accesses, accesses are for misses in the level 1 caches or translation r=
+esolutions due to accesses."
+> +        "PublicDescription": "Counts level 2 cache accesses due to memor=
+y write operations. Level 2 cache is a unified cache for data and instructi=
+on accesses, accesses are for misses in the level 1 data cache or translati=
+on resolutions due to accesses."
+>      },
+>      {
+>          "ArchStdEvent": "L2D_CACHE_REFILL_RD",
+> -        "PublicDescription": "Counts refills for memory accesses due to =
+memory read operation counted by L2D_CACHE_RD. level 2 cache is a unified c=
+ache for data and instruction accesses, accesses are for misses in the leve=
+l 1 caches or translation resolutions due to accesses."
+> +        "PublicDescription": "Counts refills for memory accesses due to =
+memory read operation counted by L2D_CACHE_RD. Level 2 cache is a unified c=
+ache for data and instruction accesses, accesses are for misses in the leve=
+l 1 data cache or translation resolutions due to accesses."
+>      },
+>      {
+>          "ArchStdEvent": "L2D_CACHE_REFILL_WR",
+> -        "PublicDescription": "Counts refills for memory accesses due to =
+memory write operation counted by L2D_CACHE_WR. level 2 cache is a unified =
+cache for data and instruction accesses, accesses are for misses in the lev=
+el 1 caches or translation resolutions due to accesses."
+> +        "PublicDescription": "Counts refills for memory accesses due to =
+memory write operation counted by L2D_CACHE_WR. Level 2 cache is a unified =
+cache for data and instruction accesses, accesses are for misses in the lev=
+el 1 data cache or translation resolutions due to accesses."
+>      },
+>      {
+>          "ArchStdEvent": "L2D_CACHE_WB_VICTIM",
+> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/l3_cache=
+.json b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/l3_cache.json
+> index 45bfba532df7..4a2e72fc5ada 100644
+> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/l3_cache.json
+> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/l3_cache.json
+> @@ -9,11 +9,11 @@
+>      },
+>      {
+>          "ArchStdEvent": "L3D_CACHE",
+> -        "PublicDescription": "Counts level 3 cache accesses. level 3 cac=
+he is a unified cache for data and instruction accesses. Accesses are for m=
+isses in the lower level caches or translation resolutions due to accesses.=
+"
+> +        "PublicDescription": "Counts level 3 cache accesses. Level 3 cac=
+he is a unified cache for data and instruction accesses. Accesses are for m=
+isses in the lower level caches or translation resolutions due to accesses.=
+"
+>      },
+>      {
+>          "ArchStdEvent": "L3D_CACHE_RD",
+> -        "PublicDescription": "TBD"
+> +        "PublicDescription": "Counts level 3 cache accesses caused by an=
+y memory read operation. Level 3 cache is a unified cache for data and inst=
+ruction accesses. Accesses are for misses in the lower level caches or tran=
+slation resolutions due to accesses."
+>      },
+>      {
+>          "ArchStdEvent": "L3D_CACHE_LMISS_RD",
+> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/ll_cache=
+.json b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/ll_cache.json
+> index bb712d57d58a..fd5a2e0099b8 100644
+> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/ll_cache.json
+> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/ll_cache.json
+> @@ -1,10 +1,10 @@
+>  [
+>      {
+>          "ArchStdEvent": "LL_CACHE_RD",
+> -        "PublicDescription": "Counts read transactions that were returne=
+d from outside the core cluster. This event counts when the system register=
+ CPUECTLR.EXTLLC bit is set. This event counts read transactions returned f=
+rom outside the core if those transactions are either hit in the system lev=
+el cache or missed in the SLC and are returned from any other external sour=
+ces."
+> +        "PublicDescription": "Counts read transactions that were returne=
+d from outside the core cluster. This event counts for external last level =
+cache  when the system register CPUECTLR.EXTLLC bit is set, otherwise it co=
+unts for the L3 cache. This event counts read transactions returned from ou=
+tside the core if those transactions are either hit in the system level cac=
+he or missed in the SLC and are returned from any other external sources."
+>      },
+>      {
+>          "ArchStdEvent": "LL_CACHE_MISS_RD",
+> -        "PublicDescription": "Counts read transactions that were returne=
+d from outside the core cluster but missed in the system level cache. This =
+event counts when the system register CPUECTLR.EXTLLC bit is set. This even=
+t counts read transactions returned from outside the core if those transact=
+ions are missed in the System level Cache. The data source of the transacti=
+on is indicated by a field in the CHI transaction returning to the CPU. Thi=
+s event does not count reads caused by cache maintenance operations."
+> +        "PublicDescription": "Counts read transactions that were returne=
+d from outside the core cluster but missed in the system level cache. This =
+event counts for external last level cache when the system register CPUECTL=
+R.EXTLLC bit is set, otherwise it counts for L3 cache. This event counts re=
+ad transactions returned from outside the core if those transactions are mi=
+ssed in the System level Cache. The data source of the transaction is indic=
+ated by a field in the CHI transaction returning to the CPU. This event doe=
+s not count reads caused by cache maintenance operations."
+>      }
+>  ]
+> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/memory.j=
+son b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/memory.json
+> index 106a97f8b2e7..bb3491012a8f 100644
+> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/memory.json
+> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/memory.json
+> @@ -33,7 +33,7 @@
+>      },
+>      {
+>          "ArchStdEvent": "MEM_ACCESS_CHECKED",
+> -        "PublicDescription": "Counts the number of memory read and write=
+ accesses in a cycle that are tag checked by the Memory Tagging Extension (=
+MTE)."
+> +        "PublicDescription": "Counts the number of memory read and write=
+ accesses counted by MEM_ACCESS that are tag checked by the Memory Tagging =
+Extension (MTE). This event is implemented as the sum of MEM_ACCESS_CHECKED=
+_RD and MEM_ACCESS_CHECKED_WR"
+>      },
+>      {
+>          "ArchStdEvent": "MEM_ACCESS_CHECKED_RD",
+> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/metrics.=
+json b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/metrics.json
+> index 5f449270b448..97d352f94323 100644
+> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/metrics.json
+> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/metrics.json
+> @@ -5,7 +5,7 @@
+>      },
+>      {
+>          "MetricName": "backend_stalled_cycles",
+> -        "MetricExpr": "((STALL_BACKEND / CPU_CYCLES) * 100)",
+> +        "MetricExpr": "STALL_BACKEND / CPU_CYCLES * 100",
+>          "BriefDescription": "This metric is the percentage of cycles tha=
+t were stalled due to resource constraints in the backend unit of the proce=
+ssor.",
+>          "MetricGroup": "Cycle_Accounting",
+>          "ScaleUnit": "1percent of cycles"
+> @@ -16,45 +16,45 @@
+>      },
+>      {
+>          "MetricName": "branch_misprediction_ratio",
+> -        "MetricExpr": "(BR_MIS_PRED_RETIRED / BR_RETIRED)",
+> +        "MetricExpr": "BR_MIS_PRED_RETIRED / BR_RETIRED",
+>          "BriefDescription": "This metric measures the ratio of branches =
+mispredicted to the total number of branches architecturally executed. This=
+ gives an indication of the effectiveness of the branch prediction unit.",
+>          "MetricGroup": "Miss_Ratio;Branch_Effectiveness",
+> -        "ScaleUnit": "1per branch"
+> +        "ScaleUnit": "100percent of branches"
+>      },
+>      {
+>          "MetricName": "branch_mpki",
+> -        "MetricExpr": "((BR_MIS_PRED_RETIRED / INST_RETIRED) * 1000)",
+> +        "MetricExpr": "BR_MIS_PRED_RETIRED / INST_RETIRED * 1000",
+>          "BriefDescription": "This metric measures the number of branch m=
+ispredictions per thousand instructions executed.",
+>          "MetricGroup": "MPKI;Branch_Effectiveness",
+>          "ScaleUnit": "1MPKI"
+>      },
+>      {
+>          "MetricName": "branch_percentage",
+> -        "MetricExpr": "(((BR_IMMED_SPEC + BR_INDIRECT_SPEC) / INST_SPEC)=
+ * 100)",
+> +        "MetricExpr": "(BR_IMMED_SPEC + BR_INDIRECT_SPEC) / INST_SPEC * =
+100",
+>          "BriefDescription": "This metric measures branch operations as a=
+ percentage of operations speculatively executed.",
+>          "MetricGroup": "Operation_Mix",
+>          "ScaleUnit": "1percent of operations"
+>      },
+>      {
+>          "MetricName": "crypto_percentage",
+> -        "MetricExpr": "((CRYPTO_SPEC / INST_SPEC) * 100)",
+> +        "MetricExpr": "CRYPTO_SPEC / INST_SPEC * 100",
+>          "BriefDescription": "This metric measures crypto operations as a=
+ percentage of operations speculatively executed.",
+>          "MetricGroup": "Operation_Mix",
+>          "ScaleUnit": "1percent of operations"
+>      },
+>      {
+>          "MetricName": "dtlb_mpki",
+> -        "MetricExpr": "((DTLB_WALK / INST_RETIRED) * 1000)",
+> +        "MetricExpr": "DTLB_WALK / INST_RETIRED * 1000",
+>          "BriefDescription": "This metric measures the number of data TLB=
+ Walks per thousand instructions executed.",
+>          "MetricGroup": "MPKI;DTLB_Effectiveness",
+>          "ScaleUnit": "1MPKI"
+>      },
+>      {
+>          "MetricName": "dtlb_walk_ratio",
+> -        "MetricExpr": "(DTLB_WALK / L1D_TLB)",
+> +        "MetricExpr": "DTLB_WALK / L1D_TLB",
+>          "BriefDescription": "This metric measures the ratio of data TLB =
+Walks to the total number of data TLB accesses. This gives an indication of=
+ the effectiveness of the data TLB accesses.",
+>          "MetricGroup": "Miss_Ratio;DTLB_Effectiveness",
+> -        "ScaleUnit": "1per TLB access"
+> +        "ScaleUnit": "100percent of TLB accesses"
+>      },
+>      {
+>          "ArchStdEvent": "frontend_bound",
+> @@ -62,147 +62,147 @@
+>      },
+>      {
+>          "MetricName": "frontend_stalled_cycles",
+> -        "MetricExpr": "((STALL_FRONTEND / CPU_CYCLES) * 100)",
+> +        "MetricExpr": "STALL_FRONTEND / CPU_CYCLES * 100",
+>          "BriefDescription": "This metric is the percentage of cycles tha=
+t were stalled due to resource constraints in the frontend unit of the proc=
+essor.",
+>          "MetricGroup": "Cycle_Accounting",
+>          "ScaleUnit": "1percent of cycles"
+>      },
+>      {
+>          "MetricName": "integer_dp_percentage",
+> -        "MetricExpr": "((DP_SPEC / INST_SPEC) * 100)",
+> +        "MetricExpr": "DP_SPEC / INST_SPEC * 100",
+>          "BriefDescription": "This metric measures scalar integer operati=
+ons as a percentage of operations speculatively executed.",
+>          "MetricGroup": "Operation_Mix",
+>          "ScaleUnit": "1percent of operations"
+>      },
+>      {
+>          "MetricName": "ipc",
+> -        "MetricExpr": "(INST_RETIRED / CPU_CYCLES)",
+> +        "MetricExpr": "INST_RETIRED / CPU_CYCLES",
+>          "BriefDescription": "This metric measures the number of instruct=
+ions retired per cycle.",
+>          "MetricGroup": "General",
+>          "ScaleUnit": "1per cycle"
+>      },
+>      {
+>          "MetricName": "itlb_mpki",
+> -        "MetricExpr": "((ITLB_WALK / INST_RETIRED) * 1000)",
+> +        "MetricExpr": "ITLB_WALK / INST_RETIRED * 1000",
+>          "BriefDescription": "This metric measures the number of instruct=
+ion TLB Walks per thousand instructions executed.",
+>          "MetricGroup": "MPKI;ITLB_Effectiveness",
+>          "ScaleUnit": "1MPKI"
+>      },
+>      {
+>          "MetricName": "itlb_walk_ratio",
+> -        "MetricExpr": "(ITLB_WALK / L1I_TLB)",
+> +        "MetricExpr": "ITLB_WALK / L1I_TLB",
+>          "BriefDescription": "This metric measures the ratio of instructi=
+on TLB Walks to the total number of instruction TLB accesses. This gives an=
+ indication of the effectiveness of the instruction TLB accesses.",
+>          "MetricGroup": "Miss_Ratio;ITLB_Effectiveness",
+> -        "ScaleUnit": "1per TLB access"
+> +        "ScaleUnit": "100percent of TLB accesses"
+>      },
+>      {
+>          "MetricName": "l1d_cache_miss_ratio",
+> -        "MetricExpr": "(L1D_CACHE_REFILL / L1D_CACHE)",
+> +        "MetricExpr": "L1D_CACHE_REFILL / L1D_CACHE",
+>          "BriefDescription": "This metric measures the ratio of level 1 d=
+ata cache accesses missed to the total number of level 1 data cache accesse=
+s. This gives an indication of the effectiveness of the level 1 data cache.=
+",
+>          "MetricGroup": "Miss_Ratio;L1D_Cache_Effectiveness",
+> -        "ScaleUnit": "1per cache access"
+> +        "ScaleUnit": "100percent of cache accesses"
+>      },
+>      {
+>          "MetricName": "l1d_cache_mpki",
+> -        "MetricExpr": "((L1D_CACHE_REFILL / INST_RETIRED) * 1000)",
+> +        "MetricExpr": "L1D_CACHE_REFILL / INST_RETIRED * 1000",
+>          "BriefDescription": "This metric measures the number of level 1 =
+data cache accesses missed per thousand instructions executed.",
+>          "MetricGroup": "MPKI;L1D_Cache_Effectiveness",
+>          "ScaleUnit": "1MPKI"
+>      },
+>      {
+>          "MetricName": "l1d_tlb_miss_ratio",
+> -        "MetricExpr": "(L1D_TLB_REFILL / L1D_TLB)",
+> +        "MetricExpr": "L1D_TLB_REFILL / L1D_TLB",
+>          "BriefDescription": "This metric measures the ratio of level 1 d=
+ata TLB accesses missed to the total number of level 1 data TLB accesses. T=
+his gives an indication of the effectiveness of the level 1 data TLB.",
+>          "MetricGroup": "Miss_Ratio;DTLB_Effectiveness",
+> -        "ScaleUnit": "1per TLB access"
+> +        "ScaleUnit": "100percent of TLB accesses"
+>      },
+>      {
+>          "MetricName": "l1d_tlb_mpki",
+> -        "MetricExpr": "((L1D_TLB_REFILL / INST_RETIRED) * 1000)",
+> -        "BriefDescription": "This metric measures the number of level 1 =
+instruction TLB accesses missed per thousand instructions executed.",
+> +        "MetricExpr": "L1D_TLB_REFILL / INST_RETIRED * 1000",
+> +        "BriefDescription": "This metric measures the number of level 1 =
+data TLB accesses missed per thousand instructions executed.",
+>          "MetricGroup": "MPKI;DTLB_Effectiveness",
+>          "ScaleUnit": "1MPKI"
+>      },
+>      {
+>          "MetricName": "l1i_cache_miss_ratio",
+> -        "MetricExpr": "(L1I_CACHE_REFILL / L1I_CACHE)",
+> +        "MetricExpr": "L1I_CACHE_REFILL / L1I_CACHE",
+>          "BriefDescription": "This metric measures the ratio of level 1 i=
+nstruction cache accesses missed to the total number of level 1 instruction=
+ cache accesses. This gives an indication of the effectiveness of the level=
+ 1 instruction cache.",
+>          "MetricGroup": "Miss_Ratio;L1I_Cache_Effectiveness",
+> -        "ScaleUnit": "1per cache access"
+> +        "ScaleUnit": "100percent of cache accesses"
+>      },
+>      {
+>          "MetricName": "l1i_cache_mpki",
+> -        "MetricExpr": "((L1I_CACHE_REFILL / INST_RETIRED) * 1000)",
+> +        "MetricExpr": "L1I_CACHE_REFILL / INST_RETIRED * 1000",
+>          "BriefDescription": "This metric measures the number of level 1 =
+instruction cache accesses missed per thousand instructions executed.",
+>          "MetricGroup": "MPKI;L1I_Cache_Effectiveness",
+>          "ScaleUnit": "1MPKI"
+>      },
+>      {
+>          "MetricName": "l1i_tlb_miss_ratio",
+> -        "MetricExpr": "(L1I_TLB_REFILL / L1I_TLB)",
+> +        "MetricExpr": "L1I_TLB_REFILL / L1I_TLB",
+>          "BriefDescription": "This metric measures the ratio of level 1 i=
+nstruction TLB accesses missed to the total number of level 1 instruction T=
+LB accesses. This gives an indication of the effectiveness of the level 1 i=
+nstruction TLB.",
+>          "MetricGroup": "Miss_Ratio;ITLB_Effectiveness",
+> -        "ScaleUnit": "1per TLB access"
+> +        "ScaleUnit": "100percent of TLB accesses"
+>      },
+>      {
+>          "MetricName": "l1i_tlb_mpki",
+> -        "MetricExpr": "((L1I_TLB_REFILL / INST_RETIRED) * 1000)",
+> +        "MetricExpr": "L1I_TLB_REFILL / INST_RETIRED * 1000",
+>          "BriefDescription": "This metric measures the number of level 1 =
+instruction TLB accesses missed per thousand instructions executed.",
+>          "MetricGroup": "MPKI;ITLB_Effectiveness",
+>          "ScaleUnit": "1MPKI"
+>      },
+>      {
+>          "MetricName": "l2_cache_miss_ratio",
+> -        "MetricExpr": "(L2D_CACHE_REFILL / L2D_CACHE)",
+> +        "MetricExpr": "L2D_CACHE_REFILL / L2D_CACHE",
+>          "BriefDescription": "This metric measures the ratio of level 2 c=
+ache accesses missed to the total number of level 2 cache accesses. This gi=
+ves an indication of the effectiveness of the level 2 cache, which is a uni=
+fied cache that stores both data and instruction. Note that cache accesses =
+in this cache are either data memory access or instruction fetch as this is=
+ a unified cache.",
+>          "MetricGroup": "Miss_Ratio;L2_Cache_Effectiveness",
+> -        "ScaleUnit": "1per cache access"
+> +        "ScaleUnit": "100percent of cache accesses"
+>      },
+>      {
+>          "MetricName": "l2_cache_mpki",
+> -        "MetricExpr": "((L2D_CACHE_REFILL / INST_RETIRED) * 1000)",
+> +        "MetricExpr": "L2D_CACHE_REFILL / INST_RETIRED * 1000",
+>          "BriefDescription": "This metric measures the number of level 2 =
+unified cache accesses missed per thousand instructions executed. Note that=
+ cache accesses in this cache are either data memory access or instruction =
+fetch as this is a unified cache.",
+>          "MetricGroup": "MPKI;L2_Cache_Effectiveness",
+>          "ScaleUnit": "1MPKI"
+>      },
+>      {
+>          "MetricName": "l2_tlb_miss_ratio",
+> -        "MetricExpr": "(L2D_TLB_REFILL / L2D_TLB)",
+> +        "MetricExpr": "L2D_TLB_REFILL / L2D_TLB",
+>          "BriefDescription": "This metric measures the ratio of level 2 u=
+nified TLB accesses missed to the total number of level 2 unified TLB acces=
+ses. This gives an indication of the effectiveness of the level 2 TLB.",
+>          "MetricGroup": "Miss_Ratio;ITLB_Effectiveness;DTLB_Effectiveness=
+",
+> -        "ScaleUnit": "1per TLB access"
+> +        "ScaleUnit": "100percent of TLB accesses"
+>      },
+>      {
+>          "MetricName": "l2_tlb_mpki",
+> -        "MetricExpr": "((L2D_TLB_REFILL / INST_RETIRED) * 1000)",
+> +        "MetricExpr": "L2D_TLB_REFILL / INST_RETIRED * 1000",
+>          "BriefDescription": "This metric measures the number of level 2 =
+unified TLB accesses missed per thousand instructions executed.",
+>          "MetricGroup": "MPKI;ITLB_Effectiveness;DTLB_Effectiveness",
+>          "ScaleUnit": "1MPKI"
+>      },
+>      {
+>          "MetricName": "ll_cache_read_hit_ratio",
+> -        "MetricExpr": "((LL_CACHE_RD - LL_CACHE_MISS_RD) / LL_CACHE_RD)"=
+,
+> +        "MetricExpr": "(LL_CACHE_RD - LL_CACHE_MISS_RD) / LL_CACHE_RD",
+>          "BriefDescription": "This metric measures the ratio of last leve=
+l cache read accesses hit in the cache to the total number of last level ca=
+che accesses. This gives an indication of the effectiveness of the last lev=
+el cache for read traffic. Note that cache accesses in this cache are eithe=
+r data memory access or instruction fetch as this is a system level cache."=
+,
+>          "MetricGroup": "LL_Cache_Effectiveness",
+> -        "ScaleUnit": "1per cache access"
+> +        "ScaleUnit": "100percent of cache accesses"
+>      },
+>      {
+>          "MetricName": "ll_cache_read_miss_ratio",
+> -        "MetricExpr": "(LL_CACHE_MISS_RD / LL_CACHE_RD)",
+> +        "MetricExpr": "LL_CACHE_MISS_RD / LL_CACHE_RD",
+>          "BriefDescription": "This metric measures the ratio of last leve=
+l cache read accesses missed to the total number of last level cache access=
+es. This gives an indication of the effectiveness of the last level cache f=
+or read traffic. Note that cache accesses in this cache are either data mem=
+ory access or instruction fetch as this is a system level cache.",
+>          "MetricGroup": "Miss_Ratio;LL_Cache_Effectiveness",
+> -        "ScaleUnit": "1per cache access"
+> +        "ScaleUnit": "100percent of cache accesses"
+>      },
+>      {
+>          "MetricName": "ll_cache_read_mpki",
+> -        "MetricExpr": "((LL_CACHE_MISS_RD / INST_RETIRED) * 1000)",
+> +        "MetricExpr": "LL_CACHE_MISS_RD / INST_RETIRED * 1000",
+>          "BriefDescription": "This metric measures the number of last lev=
+el cache read accesses missed per thousand instructions executed.",
+>          "MetricGroup": "MPKI;LL_Cache_Effectiveness",
+>          "ScaleUnit": "1MPKI"
+>      },
+>      {
+>          "MetricName": "load_percentage",
+> -        "MetricExpr": "((LD_SPEC / INST_SPEC) * 100)",
+> +        "MetricExpr": "LD_SPEC / INST_SPEC * 100",
+>          "BriefDescription": "This metric measures load operations as a p=
+ercentage of operations speculatively executed.",
+>          "MetricGroup": "Operation_Mix",
+>          "ScaleUnit": "1percent of operations"
+> @@ -213,21 +213,21 @@
+>      },
+>      {
+>          "MetricName": "scalar_fp_percentage",
+> -        "MetricExpr": "((VFP_SPEC / INST_SPEC) * 100)",
+> +        "MetricExpr": "VFP_SPEC / INST_SPEC * 100",
+>          "BriefDescription": "This metric measures scalar floating point =
+operations as a percentage of operations speculatively executed.",
+>          "MetricGroup": "Operation_Mix",
+>          "ScaleUnit": "1percent of operations"
+>      },
+>      {
+>          "MetricName": "simd_percentage",
+> -        "MetricExpr": "((ASE_SPEC / INST_SPEC) * 100)",
+> +        "MetricExpr": "ASE_SPEC / INST_SPEC * 100",
+>          "BriefDescription": "This metric measures advanced SIMD operatio=
+ns as a percentage of total operations speculatively executed.",
+>          "MetricGroup": "Operation_Mix",
+>          "ScaleUnit": "1percent of operations"
+>      },
+>      {
+>          "MetricName": "store_percentage",
+> -        "MetricExpr": "((ST_SPEC / INST_SPEC) * 100)",
+> +        "MetricExpr": "ST_SPEC / INST_SPEC * 100",
+>          "BriefDescription": "This metric measures store operations as a =
+percentage of operations speculatively executed.",
+>          "MetricGroup": "Operation_Mix",
+>          "ScaleUnit": "1percent of operations"
+> @@ -300,5 +300,12 @@
+>          "MetricGroup": "Operation_Mix",
+>          "MetricName": "branch_indirect_spec_rate",
+>          "ScaleUnit": "100%"
+> +    },
+> +    {
+> +        "MetricName": "sve_all_percentage",
+> +        "MetricExpr": "SVE_INST_SPEC / INST_SPEC * 100",
+> +        "BriefDescription": "This metric measures scalable vector operat=
+ions, including loads and stores, as a percentage of operations speculative=
+ly executed.",
+> +        "MetricGroup": "Operation_Mix",
+> +        "ScaleUnit": "1percent of operations"
+>      }
+>  ]
+> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/retired.=
+json b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/retired.json
+> index f297b049b62f..337e6a916f2b 100644
+> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/retired.json
+> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/retired.json
+> @@ -9,7 +9,7 @@
+>      },
+>      {
+>          "ArchStdEvent": "CID_WRITE_RETIRED",
+> -        "PublicDescription": "Counts architecturally executed writes to =
+the CONTEXTIDR register, which usually contain the kernel PID and can be ou=
+tput with hardware trace."
+> +        "PublicDescription": "Counts architecturally executed writes to =
+the CONTEXTIDR_EL1 register, which usually contain the kernel PID and can b=
+e output with hardware trace."
+>      },
+>      {
+>          "ArchStdEvent": "TTBR_WRITE_RETIRED",
+> @@ -17,7 +17,7 @@
+>      },
+>      {
+>          "ArchStdEvent": "BR_RETIRED",
+> -        "PublicDescription": "Counts architecturally executed branches, =
+whether the branch is taken or not. Instructions that explicitly write to t=
+he PC are also counted."
+> +        "PublicDescription": "Counts architecturally executed branches, =
+whether the branch is taken or not. Instructions that explicitly write to t=
+he PC are also counted. Note that exception generating instructions, except=
+ion return instructions and context synchronization instructions are not co=
+unted."
+>      },
+>      {
+>          "ArchStdEvent": "BR_MIS_PRED_RETIRED",
+> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/spec_ope=
+ration.json b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/spec_oper=
+ation.json
+> index 1af961f8a6c8..a7ea0d4c4ea4 100644
+> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/spec_operation.=
+json
+> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/spec_operation.=
+json
+> @@ -5,7 +5,7 @@
+>      },
+>      {
+>          "ArchStdEvent": "BR_PRED",
+> -        "PublicDescription": "Counts branches speculatively executed and=
+ were predicted right."
+> +        "PublicDescription": "Counts all speculatively executed branches=
+."
+>      },
+>      {
+>          "ArchStdEvent": "INST_SPEC",
+> @@ -29,7 +29,7 @@
+>      },
+>      {
+>          "ArchStdEvent": "LDREX_SPEC",
+> -        "PublicDescription": "Counts Load-Exclusive operations that have=
+ been speculatively executed. Eg: LDREX, LDX"
+> +        "PublicDescription": "Counts Load-Exclusive operations that have=
+ been speculatively executed. For example: LDREX, LDX"
+>      },
+>      {
+>          "ArchStdEvent": "STREX_PASS_SPEC",
+> @@ -73,15 +73,15 @@
+>      },
+>      {
+>          "ArchStdEvent": "BR_IMMED_SPEC",
+> -        "PublicDescription": "Counts immediate branch operations which a=
+re speculatively executed."
+> +        "PublicDescription": "Counts direct branch operations which are =
+speculatively executed."
+>      },
+>      {
+>          "ArchStdEvent": "BR_RETURN_SPEC",
+> -        "PublicDescription": "Counts procedure return operations (RET) w=
+hich are speculatively executed."
+> +        "PublicDescription": "Counts procedure return operations (RET, R=
+ETAA and RETAB) which are speculatively executed."
+>      },
+>      {
+>          "ArchStdEvent": "BR_INDIRECT_SPEC",
+> -        "PublicDescription": "Counts indirect branch operations includin=
+g procedure returns, which are speculatively executed. This includes operat=
+ions that force a software change of the PC, other than exception-generatin=
+g operations.  Eg: BR Xn, RET"
+> +        "PublicDescription": "Counts indirect branch operations includin=
+g procedure returns, which are speculatively executed. This includes operat=
+ions that force a software change of the PC, other than exception-generatin=
+g operations and direct branch instructions. Some examples of the instructi=
+ons counted by this event include BR Xn, RET, etc..."
+>      },
+>      {
+>          "ArchStdEvent": "ISB_SPEC",
+> @@ -97,11 +97,11 @@
+>      },
+>      {
+>          "ArchStdEvent": "RC_LD_SPEC",
+> -        "PublicDescription": "Counts any load acquire operations that ar=
+e speculatively executed. Eg: LDAR, LDARH, LDARB"
+> +        "PublicDescription": "Counts any load acquire operations that ar=
+e speculatively executed. For example: LDAR, LDARH, LDARB"
+>      },
+>      {
+>          "ArchStdEvent": "RC_ST_SPEC",
+> -        "PublicDescription": "Counts any store release operations that a=
+re speculatively executed. Eg: STLR, STLRH, STLRB'"
+> +        "PublicDescription": "Counts any store release operations that a=
+re speculatively executed. For example: STLR, STLRH, STLRB"
+>      },
+>      {
+>          "ArchStdEvent": "ASE_INST_SPEC",
+> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/stall.js=
+on b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/stall.json
+> index bbbebc805034..1fcba19dfb7d 100644
+> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/stall.json
+> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/stall.json
+> @@ -1,7 +1,7 @@
+>  [
+>      {
+>          "ArchStdEvent": "STALL_FRONTEND",
+> -        "PublicDescription": "Counts cycles when frontend could not send=
+ any micro-operations to the rename stage because of frontend resource stal=
+ls caused by fetch memory latency or branch prediction flow stalls. All the=
+ frontend slots were empty during the cycle when this event counts."
+> +        "PublicDescription": "Counts cycles when frontend could not send=
+ any micro-operations to the rename stage because of frontend resource stal=
+ls caused by fetch memory latency or branch prediction flow stalls. STALL_F=
+RONTEND_SLOTS counts SLOTS during the cycle when this event counts."
+>      },
+>      {
+>          "ArchStdEvent": "STALL_BACKEND",
+> @@ -9,11 +9,11 @@
+>      },
+>      {
+>          "ArchStdEvent": "STALL",
+> -        "PublicDescription": "Counts cycles when no operations are sent =
+to the rename unit from the frontend or from the rename unit to the backend=
+ for any reason (either frontend or backend stall)."
+> +        "PublicDescription": "Counts cycles when no operations are sent =
+to the rename unit from the frontend or from the rename unit to the backend=
+ for any reason (either frontend or backend stall). This event is the sum o=
+f STALL_FRONTEND and STALL_BACKEND"
+>      },
+>      {
+>          "ArchStdEvent": "STALL_SLOT_BACKEND",
+> -        "PublicDescription": "Counts slots per cycle in which no operati=
+ons are sent from the rename unit to the backend due to backend resource co=
+nstraints."
+> +        "PublicDescription": "Counts slots per cycle in which no operati=
+ons are sent from the rename unit to the backend due to backend resource co=
+nstraints. STALL_BACKEND counts during the cycle when STALL_SLOT_BACKEND co=
+unts at least 1."
+>      },
+>      {
+>          "ArchStdEvent": "STALL_SLOT_FRONTEND",
+> @@ -21,7 +21,7 @@
+>      },
+>      {
+>          "ArchStdEvent": "STALL_SLOT",
+> -        "PublicDescription": "Counts slots per cycle in which no operati=
+ons are sent to the rename unit from the frontend or from the rename unit t=
+o the backend for any reason (either frontend or backend stall)."
+> +        "PublicDescription": "Counts slots per cycle in which no operati=
+ons are sent to the rename unit from the frontend or from the rename unit t=
+o the backend for any reason (either frontend or backend stall). STALL_SLOT=
+ is the sum of STALL_SLOT_FRONTEND and STALL_SLOT_BACKEND."
+>      },
+>      {
+>          "ArchStdEvent": "STALL_BACKEND_MEM",
+> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/tlb.json=
+ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/tlb.json
+> index b550af1831f5..5704f1e83af9 100644
+> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/tlb.json
+> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n2-v2/tlb.json
+> @@ -25,11 +25,11 @@
+>      },
+>      {
+>          "ArchStdEvent": "DTLB_WALK",
+> -        "PublicDescription": "Counts data memory translation table walks=
+ caused by a miss in the L2 TLB driven by a memory access. Note that partia=
+l translations that also cause a table walk are counted. This event does no=
+t count table walks caused by TLB maintenance operations."
+> +        "PublicDescription": "Counts number of demand data translation t=
+able walks caused by a miss in the L2 TLB and performing at least one memor=
+y access. Translation table walks are counted even if the translation ended=
+ up taking a translation fault for reasons different than EPD, E0PD and NFD=
+. Note that partial translations that cause a translation table walk are al=
+so counted. Also note that this event counts walks triggered by software pr=
+eloads, but not walks triggered by hardware prefetchers, and that this even=
+t does not count walks triggered by TLB maintenance operations."
+>      },
+>      {
+>          "ArchStdEvent": "ITLB_WALK",
+> -        "PublicDescription": "Counts instruction memory translation tabl=
+e walks caused by a miss in the L2 TLB driven by a memory access. Partial t=
+ranslations that also cause a table walk are counted. This event does not c=
+ount table walks caused by TLB maintenance operations."
+> +        "PublicDescription": "Counts number of instruction translation t=
+able walks caused by a miss in the L2 TLB and performing at least one memor=
+y access. Translation table walks are counted even if the translation ended=
+ up taking a translation fault for reasons different than EPD, E0PD and NFD=
+. Note that partial translations that cause a translation table walk are al=
+so counted. Also note that this event does not count walks triggered by TLB=
+ maintenance operations."
+>      },
+>      {
+>          "ArchStdEvent": "L1D_TLB_REFILL_RD",
+> --
+> 2.34.1
+>
 
