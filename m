@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6575D711CF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 17:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99C4D711D1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 17:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tnHduo24AdOoAdI77IZf7s1iLW4IzFa8VA+z+Tg/Y28=; b=pUV8ou5eAc4ZGrWERSA6jMSUS6
-	TJla/ckRYlytTDVB/lN7QmlM79q8ra89gIZEk2FOkfBtI61Jpm8fYG5uB23h62DLYOJbpl0DJ0GNf
-	YP0n+sO/eGGCPIst33HcOLlCvSAnZYy2cW4gdAU4E6RsCn3wNMSv4l3aVtPsJe98ifQFrFNXWkrgr
-	huXZN8PFCp/EOBlh5h1zfXuxLRV++KY0pFCtFzc8DXxSaw5t0weMBl3GuOmaoHfwhFkSwzPv9aExn
-	DDlWMyHdoTNF2CsxJmqrFbXoEznzWvbeeaf2oBKfJ6pHdZLpGV/hoCF24JwOQBERZBrrMB64D6IBG
-	XKCTidaw==;
+	bh=JuG/t14Tv3X37Ob4Ms89aNG0DEMlfwNKBfzw1PpnaLs=; b=oJpCaOLj3pxKfTqRBwcXQnO0Sb
+	EjSTRGMihCrjF90AJtTBhNzPEpFllI9wVnX0KXgbNfCQIR+umxSTlTEqdvBNULJQO+A/usXsr/hEl
+	jeTtOMPL29mMbj/oDj7e0M3PEpeFm+uK1p3Yjy8mM7hlI7ESOrui3DcB+y++DNwg8MBmSfZ8vX5YV
+	G6ADHR6ihTnHWIQhjM75xpzqAPFAgBXvbEXdvMmn7XvDIqEXZ75JdPi5il6/GxTZAKviQH4md6/Ht
+	jvWBAdbO1L63/zowUpH5QWCBWqfi4r7sAWs5ezlGu2xezAi7x6zj8pMQmN994mWZfZwc45Kc6sajT
+	FjqY9lrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDoZ1-0000000FwAb-0aBs;
-	Wed, 20 Nov 2024 17:32:27 +0000
-Received: from out-175.mta1.migadu.com ([2001:41d0:203:375::af])
+	id 1tDonl-0000000FxX2-39z5;
+	Wed, 20 Nov 2024 17:47:41 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDoY3-0000000Fw6q-33CD
+	id 1tDomp-0000000FxRD-436X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 17:31:29 +0000
-Date: Wed, 20 Nov 2024 17:31:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1732123885;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tnHduo24AdOoAdI77IZf7s1iLW4IzFa8VA+z+Tg/Y28=;
-	b=O/wq2KL5Z4g46tyl35oMSphCNZCGWzeMbieD+t20CV6A6f2SqjodzFgD/GhtOEJIk3dJk/
-	UKVmbib2LnSuMj/Z2ga8+AMytY/UiXA7lZOwSE88ZuYHRBhzkesDozYmEeBzGudItwH5ST
-	lKzeWILaG+QtwK18R45dAx/ba18969Q=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: James Clark <james.clark@linaro.org>
-Cc: suzuki.poulose@arm.com, coresight@lists.linaro.org,
-	kvmarm@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Shiqi Liu <shiqiliu@hust.edu.cn>, Fuad Tabba <tabba@google.com>,
-	James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 11/12] KVM: arm64: Swap TRFCR on guest switch
-Message-ID: <Zz4c5LmQnK2SD5HO@linux.dev>
-References: <20241112103717.589952-1-james.clark@linaro.org>
- <20241112103717.589952-12-james.clark@linaro.org>
+	Wed, 20 Nov 2024 17:46:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 21445A42F90;
+	Wed, 20 Nov 2024 17:44:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CABC3C4CECD;
+	Wed, 20 Nov 2024 17:46:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732124802;
+	bh=IWeGbqt/aP9Z+v83QQBIzJ9NOFn4vM22aA07hXlz+O8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gSFv0Y6h9roeAEtyMm+CahvnA61YwGAfn2GL1NT6D5Dol5PpgWDvHpEbkANV3/JS/
+	 ZbfUsCr+U68Z+/PZC7eKpcFv775sS6FOx/XsHpm/+39eIIV19kE0W8Luw+h4i73eT5
+	 Lbne7PV83ScJaDjpPtFIi3t2SZtQaOWF22TFNOsrmE+FwH7nggerTsaXyU9DWRVg/s
+	 yxA3ZQtGLdEkguak8xMiO3MDDI9zhMTPeXza9nWg50o965QZ9m6h9i2qA5HbSAuj+b
+	 0kB/AmTtpUvV1jkUS6SwZignCm1uf/9pcsrV2hv8iuGx5R0bB2XxCUxDQsSDf51484
+	 M7rNnaCLHdYhQ==
+Date: Wed, 20 Nov 2024 17:46:36 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lars Povlsen <lars.povlsen@microchip.com>,
+	Steen Hegelund <Steen.Hegelund@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Russell King <linux@armlinux.org.uk>, jacob.e.keller@intel.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	devicetree@vger.kernel.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next v2 8/8] dt-bindings: net: sparx5: document RGMII
+ MAC delays
+Message-ID: <20241120-decrease-wired-f6f21af817ce@spud>
+References: <20241113-sparx5-lan969x-switch-driver-4-v2-0-0db98ac096d1@microchip.com>
+ <20241113-sparx5-lan969x-switch-driver-4-v2-8-0db98ac096d1@microchip.com>
+ <20241114-liquefy-chasing-a85e284f14b9@spud>
+ <20241118105025.hjtji5cnl75rcrb4@DEN-DL-M70577>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="2zHSNTjBPABr97aC"
 Content-Disposition: inline
-In-Reply-To: <20241112103717.589952-12-james.clark@linaro.org>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <20241118105025.hjtji5cnl75rcrb4@DEN-DL-M70577>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_093127_966490_F845EEFD 
-X-CRM114-Status: GOOD (  25.42  )
+X-CRM114-CacheID: sfid-20241120_094644_126649_77639705 
+X-CRM114-Status: GOOD (  26.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,220 +85,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 12, 2024 at 10:37:10AM +0000, James Clark wrote:
-> +void kvm_set_trfcr(u64 host_trfcr, u64 guest_trfcr)
-> +{
-> +	if (kvm_arm_skip_trace_state())
-> +		return;
-> +
-> +	if (has_vhe())
-> +		write_sysreg_s(guest_trfcr, SYS_TRFCR_EL12);
-> +	else
-> +		if (host_trfcr != guest_trfcr) {
-> +			*host_data_ptr(host_debug_state.trfcr_el1) = guest_trfcr;
 
-Huh? That's going into host_debug_state, which is the dumping grounds
-for *host* context when entering a guest.
+--2zHSNTjBPABr97aC
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Not sure why we'd stick a *guest* value in there...
+On Mon, Nov 18, 2024 at 10:50:25AM +0000, Daniel Machon wrote:
+> Hi Conor,
+>=20
+> > > The lan969x switch device supports two RGMII port interfaces that can=
+ be
+> > > configured for MAC level rx and tx delays.
+> > >=20
+> > > Document two new properties {rx,tx}-internal-delay-ps. Make them
+> > > required properties, if the phy-mode is one of: rgmii, rgmii_id,
+> > > rgmii-rxid or rgmii-txid. Also specify accepted values.
+> > >=20
+> > > Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+> > > ---
+> > >  .../bindings/net/microchip,sparx5-switch.yaml        | 20 ++++++++++=
+++++++++++
+> > >  1 file changed, 20 insertions(+)
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/net/microchip,sparx5-s=
+witch.yaml b/Documentation/devicetree/bindings/net/microchip,sparx5-switch.=
+yaml
+> > > index dedfad526666..a3f2b70c5c77 100644
+> > > --- a/Documentation/devicetree/bindings/net/microchip,sparx5-switch.y=
+aml
+> > > +++ b/Documentation/devicetree/bindings/net/microchip,sparx5-switch.y=
+aml
+> > > @@ -129,6 +129,26 @@ properties:
+> > >              minimum: 0
+> > >              maximum: 383
+> > > =20
+> > > +        allOf:
+> > > +          - if:
+> > > +              properties:
+> > > +                phy-mode:
+> > > +                  contains:
+> > > +                    enum:
+> > > +                      - rgmii
+> > > +                      - rgmii-rxid
+> > > +                      - rgmii-txid
+> > > +                      - rgmii-id
+> > > +            then:
+> > > +              properties:
+> > > +                rx-internal-delay-ps:
+> > > +                  enum: [0, 1000, 1700, 2000, 2500, 3000, 3300]
+> > > +                tx-internal-delay-ps:
+> > > +                  enum: [0, 1000, 1700, 2000, 2500, 3000, 3300]
+> >=20
+> > Properties should be define at the top level and constrained in the
+> > if/then parts. Please move the property definitions out, and just leave
+> > the required: bit here.
+> >=20
+> > > +              required:
+> > > +                - rx-internal-delay-ps
+> > > +                - tx-internal-delay-ps
+> >=20
+> > You've got no else, so these properties are valid even for !rgmii?
+> >=20
+> > > +
+> > >          required:
+> > >            - reg
+> > >            - phys
+> >=20
+> > Additionally, please move the conditional bits below the required
+> > property list.
+> >=20
+> > Cheers,
+> > Conor.
+>=20
+> I will be getting rid of the 'required' constraints in v3. What I hear
+> you say, is that the two {rx,tx}-internal-delay-ps properties (incl.
+> their enum values) should be moved out of the if/else and to the
+> top-level - can you confirm this?
 
-> +			host_data_set_flag(HOST_STATE_SWAP_TRFCR);
-> +		} else
-> +			host_data_clear_flag(HOST_STATE_SWAP_TRFCR);
-> +}
-> +EXPORT_SYMBOL_GPL(kvm_set_trfcr);
+> Is specifying the values
+> a property can take not considered a constraint?
 
-I have a rather strong distaste for this interface, both with the
-coresight driver and internally with the hypervisor. It'd be better if
-the driver actually told KVM what the *intent* is rather than throwing a
-pile of bits over the fence and forcing KVM to interpret what that
-configuration means.
+Actually, in this case the property isn't even defined (per
+ethernet-controller.yaml) if the phy-mode wasn't an rgmii one, so what
+you had here was probably fine. Ordinarily, that's not the case, so you'd
+have been setting constraints for only rgmii phy-modes and no
+constraints at all for non-rgmii phy-modes.
 
-> +static void __debug_swap_trace(void)
-> +{
-> +	u64 trfcr = read_sysreg_el1(SYS_TRFCR);
-> +
-> +	write_sysreg_el1(*host_data_ptr(host_debug_state.trfcr_el1), SYS_TRFCR);
-> +	*host_data_ptr(host_debug_state.trfcr_el1) = trfcr;
-> +	host_data_set_flag(HOST_STATE_RESTORE_TRFCR);
-> +}
-> +
 
-What if trace is disabled in the guest or in the host? Do we need to
-synchronize when transitioning from an enabled -> disabled state like we
-do today?
 
-I took a stab at this, completely untested of course && punts on
-protected mode. But this is _generally_ how I'd like to see everything
-fit together.
+--2zHSNTjBPABr97aC
+Content-Type: application/pgp-signature; name="signature.asc"
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 8bc0ec151684..b4714cece5f0 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -611,7 +611,7 @@ struct cpu_sve_state {
-  */
- struct kvm_host_data {
- #define KVM_HOST_DATA_FLAG_HAS_SPE			0
--#define KVM_HOST_DATA_FLAG_HAS_TRBE			1
-+#define KVM_HOST_DATA_FLAG_HOST_TRBE_ENABLED		1
- #define KVM_HOST_DATA_FLAG_HOST_SVE_ENABLED		2
- #define KVM_HOST_DATA_FLAG_HOST_SME_ENABLED		3
- 	unsigned long flags;
-@@ -659,6 +659,9 @@ struct kvm_host_data {
- 		u64 mdcr_el2;
- 	} host_debug_state;
- 
-+	/* Guest trace filter value */
-+	u64 guest_trfcr_el1;
-+
- 	/* Number of programmable event counters (PMCR_EL0.N) for this CPU */
- 	unsigned int nr_event_counters;
- 
-@@ -1381,6 +1384,8 @@ static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
- void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
- void kvm_clr_pmu_events(u64 clr);
- bool kvm_set_pmuserenr(u64 val);
-+void kvm_enable_trbe(u64 guest_trfcr);
-+void kvm_disable_trbe(void);
- #else
- static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
- static inline void kvm_clr_pmu_events(u64 clr) {}
-@@ -1388,6 +1393,8 @@ static inline bool kvm_set_pmuserenr(u64 val)
- {
- 	return false;
- }
-+void kvm_enable_trbe(u64 guest_trfcr) {}
-+void kvm_disable_trbe(void) {}
- #endif
- 
- void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu);
-diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
-index 46dbeabd6833..6ef8d8f4b452 100644
---- a/arch/arm64/kvm/debug.c
-+++ b/arch/arm64/kvm/debug.c
-@@ -72,10 +72,6 @@ void kvm_init_host_debug_data(void)
- 	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_PMSVer_SHIFT) &&
- 	    !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P))
- 		host_data_set_flag(HAS_SPE);
--
--	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_TraceBuffer_SHIFT) &&
--	    !(read_sysreg_s(SYS_TRBIDR_EL1) & TRBIDR_EL1_P))
--		host_data_set_flag(HAS_TRBE);
- }
- 
- /*
-@@ -215,3 +211,27 @@ void kvm_debug_handle_oslar(struct kvm_vcpu *vcpu, u64 val)
- 	kvm_arch_vcpu_load(vcpu, smp_processor_id());
- 	preempt_enable();
- }
-+
-+void kvm_enable_trbe(u64 guest_trfcr)
-+{
-+	if (WARN_ON_ONCE(preemptible()))
-+		return;
-+
-+	if (has_vhe()) {
-+		write_sysreg_s(guest_trfcr, SYS_TRFCR_EL12);
-+		return;
-+	}
-+
-+	*host_data_ptr(guest_trfcr_el1) = guest_trfcr;
-+	host_data_set_flag(HOST_TRBE_ENABLED);
-+}
-+EXPORT_SYMBOL_GPL(kvm_enable_trbe);
-+
-+void kvm_disable_trbe(void)
-+{
-+	if (has_vhe() || WARN_ON_ONCE(preemptible()))
-+		return;
-+
-+	host_data_clear_flag(HOST_TRBE_ENABLED);
-+}
-+EXPORT_SYMBOL_GPL(kvm_disable_trbe);
-diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-index 858bb38e273f..d36cbce75bee 100644
---- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-+++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-@@ -51,32 +51,33 @@ static void __debug_restore_spe(u64 pmscr_el1)
- 	write_sysreg_el1(pmscr_el1, SYS_PMSCR);
- }
- 
--static void __debug_save_trace(u64 *trfcr_el1)
-+static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
- {
--	*trfcr_el1 = 0;
-+	*saved_trfcr = read_sysreg_el1(SYS_TRFCR);
-+	write_sysreg_el1(new_trfcr, SYS_TRFCR);
- 
--	/* Check if the TRBE is enabled */
--	if (!(read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E))
-+	/* Nothing left to do if going to an enabled state */
-+	if (new_trfcr)
- 		return;
-+
- 	/*
--	 * Prohibit trace generation while we are in guest.
--	 * Since access to TRFCR_EL1 is trapped, the guest can't
--	 * modify the filtering set by the host.
-+	 * Switching to a context with trace generation disabled. Drain the
-+	 * trace buffer to memory.
- 	 */
--	*trfcr_el1 = read_sysreg_el1(SYS_TRFCR);
--	write_sysreg_el1(0, SYS_TRFCR);
- 	isb();
--	/* Drain the trace buffer to memory */
- 	tsb_csync();
- }
- 
--static void __debug_restore_trace(u64 trfcr_el1)
-+static void __trace_switch_to_guest(void)
- {
--	if (!trfcr_el1)
--		return;
-+	__trace_do_switch(host_data_ptr(host_debug_state.trfcr_el1),
-+			  *host_data_ptr(guest_trfcr_el1));
-+}
- 
--	/* Restore trace filter controls */
--	write_sysreg_el1(trfcr_el1, SYS_TRFCR);
-+static void __trace_switch_to_host(void)
-+{
-+	__trace_do_switch(host_data_ptr(guest_trfcr_el1),
-+			  *host_data_ptr(host_debug_state.trfcr_el1));
- }
- 
- void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu)
-@@ -84,9 +85,13 @@ void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu)
- 	/* Disable and flush SPE data generation */
- 	if (host_data_test_flag(HAS_SPE))
- 		__debug_save_spe(host_data_ptr(host_debug_state.pmscr_el1));
--	/* Disable and flush Self-Hosted Trace generation */
--	if (host_data_test_flag(HAS_TRBE))
--		__debug_save_trace(host_data_ptr(host_debug_state.trfcr_el1));
-+
-+	/*
-+	 * Switch the trace filter, potentially disabling and flushing trace
-+	 * data generation
-+	 */
-+	if (host_data_test_flag(HOST_TRBE_ENABLED))
-+		__trace_switch_to_guest();
- }
- 
- void __debug_switch_to_guest(struct kvm_vcpu *vcpu)
-@@ -98,8 +103,8 @@ void __debug_restore_host_buffers_nvhe(struct kvm_vcpu *vcpu)
- {
- 	if (host_data_test_flag(HAS_SPE))
- 		__debug_restore_spe(*host_data_ptr(host_debug_state.pmscr_el1));
--	if (host_data_test_flag(HAS_TRBE))
--		__debug_restore_trace(*host_data_ptr(host_debug_state.trfcr_el1));
-+	if (host_data_test_flag(HOST_TRBE_ENABLED))
-+		__trace_switch_to_host();
- }
- 
- void __debug_switch_to_host(struct kvm_vcpu *vcpu)
+-----BEGIN PGP SIGNATURE-----
 
--- 
-Thanks,
-Oliver
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZz4gfAAKCRB4tDGHoIJi
+0u2lAQD4xPN6l1CFgILsMQlm4WvjtBORrt9dFeneTtKWr3k3AgD/e6O6OVSW6HTS
+wF4lBPCGhNRpUc4Ab2cECyQ2ZBI8cgQ=
+=fiLn
+-----END PGP SIGNATURE-----
+
+--2zHSNTjBPABr97aC--
 
