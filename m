@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A2FD6E2DB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 08:42:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83E37D6E2DB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Nov 2024 08:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qGrblXr7GVP96MrEeg8MHrHXTUdXTBT9h5NPE4/Y8Og=; b=oJzaghnMQiGakDkRImGLJHyjhu
-	TAK9Lkzm6G5u6vW9mDuKGt+5lZGcJoFkOc9YrzOqpbisD735jW357RIeG1xtwqy2WSTm8/EFm0RvQ
-	+F0hF2io88BVufDtvF5JvvCnKKY9QIN8FdZF8IemCdoWiZ+PiO+6GwHPMmZZrBxtgjtZZDJiLyW2Y
-	+dS1Y9AqVOH46XD0xsPYPJ7pV0UKVJkv/PBvm4blzsVednF+d0twzCfAUOhp4zNeAveWGPZ+kQ+Ns
-	XrssXECbzFFk0NTpvsiSZ9XSiaAXopHQmPZ22R8EwTBHIk9aop9+YfkpMkAjMyJx1+DkAZcep9V11
-	D6W00p2A==;
+	bh=Hoz2rjJPiJI28RwPRedme3YnclaiihMgxotq/IbOaYQ=; b=zEKkcBqKgrF5P5CChDWpSCpeMb
+	UA0DyiqhsFOOdnrBDGOs+yg2TB2/oYx0yKuwD3Z5CjmaOTEqZT9GeH9WXYKbHaEq2/RmvmhFC3xob
+	7JoCsSZNDfzvVJAlJU47Xh7N0ZabqZtzO9EEumj1UX3GjnjdoiSGK3Vhyyy1EYNCxaZejDeoEG8sJ
+	bJP3MNxlUCGErUrnShDLVulDQ3DUYFx5n07ZgUHTQL7/MVq/x0IuGJvcQbYbReWo/WJk66pnisLiL
+	R0vThsdVia/ADsx+aQkA2PfABtXkS9xkLSm0Od511a0HLIqgmyqGdiKLXYGHuHY3fjRKpbcZXjjO/
+	mg6Mkwig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDgIQ-0000000EnEe-04BU;
-	Wed, 20 Nov 2024 08:42:46 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tDgM8-0000000Enk0-3rt2;
+	Wed, 20 Nov 2024 08:46:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDgHU-0000000En8E-02a9
+	id 1tDgLD-0000000EnfQ-2bgm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Nov 2024 08:41:49 +0000
+	Wed, 20 Nov 2024 08:45:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B8FFBA42D7B;
-	Wed, 20 Nov 2024 08:39:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38CE1C4CECD;
-	Wed, 20 Nov 2024 08:41:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 147F45C4E71;
+	Wed, 20 Nov 2024 08:44:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45B2CC4CECD;
+	Wed, 20 Nov 2024 08:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732092106;
-	bh=4rfnlRucQnUgzLpd0n5nAO1dDQNhlvEJVooFv39keHQ=;
+	s=k20201202; t=1732092338;
+	bh=o708dW0zpekdr4qHK55sfqdl8wG5Nu/+g3DIktqbevs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VECQN232ULMNimccmpdbW1C1om6Kf4R7RvMR84F0yabWNow5lQfMHwQ/B6A/cjjh/
-	 UTmHEGpksoGNB/8wgoqDIzJJCbZYoeQwWe1tHY4n1GhQIWdzN9vQHhUe9pnYv2EXBI
-	 04Va3NGM4V+Z9XdwOoGO4GvfIvRBH3Yp4ZV1fCPvieTBvJIGpUd0qALi7JnI5WJe7y
-	 IN2N//7VtZGwQBw8ViTaIssdg459szyR6JkL2rT0D6zpKKahEL3Mb5l8zhxKn5bm1V
-	 kfaZcCnx0AsUpe5LmLvnv5gspYU6GRVNzfEqeoIz7N9GDVsF8CcW/GAFywkDJUYziB
-	 NFfsHLsgZJJhw==
-Date: Wed, 20 Nov 2024 09:41:43 +0100
+	b=ENQOLDc9QlSnqdhpi5D3zXCMMfPjp+W242ba0E8V20RP4FD0uAEbL1XjgeTcXw5rR
+	 ZMp+mkKdTDwaJb+uuhLbkI46ajEPAR0PxWOa1Y9DBLiZwYLDxmgm3aVHjRuUJgJ6cZ
+	 HH0Y146jPZ/3JXkBZq00o7riCQaKfAlKMv/kealJDq7YwCkng/jvMRZwe00H5ALxcy
+	 q4XVXfT7XYRXqF7hWjeRbsKFRWXxNAxv1eQduNpqx7Qv2G0DjLSEMSEDUoXKvGrKNo
+	 ob7Yi6O+uC6vp4o+QggxaLzv+gAUjuy8A39xd2Ji1AdUisDBgDv/9cnXcugH6FL4bH
+	 bw3j4mq4W04WA==
+Date: Wed, 20 Nov 2024 09:45:35 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ming-Jen Chen <mjchen0829@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org, sudeep.holla@arm.com, 
-	arnd@arndb.de, peng.fan@nxp.com, conor+dt@kernel.org, krzk+dt@kernel.org, 
-	robh@kernel.org, dmitry.torokhov@gmail.com
-Subject: Re: [PATCH 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
-Message-ID: <ql6m6qrdokwfu4iizn6wmvovawuc7kgg6jfzxebkmac5muz66e@myrjvq5jm7gg>
-References: <20241119025954.4161-1-mjchen0829@gmail.com>
- <20241119025954.4161-2-mjchen0829@gmail.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	kernel@pengutronix.de, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Leonard =?utf-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>
+Subject: Re: [PATCH 4/6] dt-bindings: arm: stm32: add compatible strings for
+ Linux Automation LXA TAC gen 3
+Message-ID: <4t2tmuntv24lffk3ikgbsz7tbvkqosmd2xwurnzvk346daah22@wegcc3wreqpr>
+References: <20241119-lxa-tac-gen3-v1-0-e0ab0a369372@pengutronix.de>
+ <20241119-lxa-tac-gen3-v1-4-e0ab0a369372@pengutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241119025954.4161-2-mjchen0829@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20241119-lxa-tac-gen3-v1-4-e0ab0a369372@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_004148_114567_17D613AF 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20241120_004539_704781_76EEB7DF 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,87 +78,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 02:59:53AM +0000, Ming-Jen Chen wrote:
-> Add YAML bindings for MA35D1 SoC keypad.
-> 
-> Signed-off-by: Ming-Jen Chen <mjchen0829@gmail.com>
+On Tue, Nov 19, 2024 at 12:35:01PM +0100, Marc Kleine-Budde wrote:
+> From: Leonard G=C3=B6hrs <l.goehrs@pengutronix.de>
+>=20
+> The Linux Automation LXA TAC generation 3 is built around an
+> OSD32MP153x SiP with CPU, RAM, PMIC, Oscillator and EEPROM.
+>=20
+> LXA TACs are a development tool for embedded devices with a focus on
+> embedded Linux devices.
+>=20
+> Add compatible for the generation 3 based on the STM32MP153c.
+>=20
+> Signed-off-by: Leonard G=C3=B6hrs <l.goehrs@pengutronix.de>
+> Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
 > ---
->  .../bindings/input/nuvoton,ma35d1-keypad.yaml | 69 +++++++++++++++++++
->  1 file changed, 69 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
-> new file mode 100644
-> index 000000000000..9ccd81a2574d
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+>  Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 7 +++++++
+>  1 file changed, 7 insertions(+)
 
-Filename matching compatible. You got this comment already.
-
-
-> @@ -0,0 +1,69 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/input/nuvoton,ma35d1-keypad.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Nuvoton MA35D1 Keypad
-> +
-> +maintainers:
-> +  - Ming-jen Chen <mjchen0829@gmail.com>
-> +
-> +allOf:
-> +  - $ref: /schemas/input/matrix-keymap.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: nuvoton,ma35d1-kpi
-> +
-> +  debounce-delay-ms:
-> +    description: Debounce delay time in milliseconds.
-> +    maxItems: 1
-> +
-> +  scan-interval-ms:
-> +    description: Scan interval time in milliseconds.
-> +    maxItems: 1
-> +
-> +  reg:
-> +    maxItems: 1
-
-Keep the same order of properties as in required: block.
-
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - linux,keymap
-> +  - keypad,num-rows
-> +  - keypad,num-columns
-> +  - debounce-delay-ms
-> +  - scan-interval-ms
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/input/input.h>
-> +    keypad@404A0000 {
-
-Lowercase hex
-
-> +      compatible = "nuvoton,ma35d1-kpi";
-> +      reg = <0x404A0000 0x10000>;
-
-Lowercase hex
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
