@@ -4,81 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 342BFD75BBB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 06:02:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD10D75BC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 06:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pXBYO7IREaqcFC1AY+U6gH0DW+PukJ6oZRwSeQifutI=; b=WNwUIl5DzP3Iy0ozDw2Rak3CZb
-	iBDmw2ll25l6ouWQWdsNCPEc23mOWShtgiw1rkJwVYmqxI+6uEDNasKE4QeNdFrqr4XJOkui+kcZj
-	6vQV0y41vHURb7havwM3GTlE4u/kDRjIKJNq/MrdDiFLTpX1MbWD9ylmHgOvCRojkqy8CA1JQDzx5
-	RkFikULF1siMuLxgk2oa1tjLUbyBm9qJQiTR2zsEyQiTkGJqWNOyoeulPeppe9DmaeJ+hVnPBLpes
-	yLP2Lk5UtxFjurPFyWTdiCbFsB/ijabsjJmYcpoilS/nKdaibZoO4YlynikxGloeJ5r5UDAnDsm07
-	Iy+3zuYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4ut5+nCISlmsl3N5249soTZ7S8Hl0F8iDKCNX0DkTMs=; b=X0IZl0GU6gliXEyyhaw9IyLQ3C
+	A/7ss2QYOFfyhY/D110Pm1IkRXNe2AzcTOKzSX8lDX1E/zwtrSIMZLa2zglPuay3YdxIRSBG/ZTRi
+	pe5DIaBX+t1f2nEhJtfeDZz3Jm29aYXpmxQPn8qE1/p6bfgJsrXKrJOh5PIrSozgmet61b17/HlaT
+	xNNpOc14nm40CqiWX/mBejzVWGUlVh1iajCmoTK1ClF4xwJZ7x0BgS+a3QXT7l5hzsxKUlIbtUkhd
+	Nel8sPEzS7oAqqAy2oGTfHu+TnZvgh087ymZBrfjZsEyj6+zCHYTpfUFy0iJzsBGBgubOv5G0d6Eh
+	o5M7udRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE0Gw-0000000GtZM-0QmN;
-	Thu, 21 Nov 2024 06:02:34 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1tE0i4-0000000GvOE-3GCV;
+	Thu, 21 Nov 2024 06:30:36 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE0Fz-0000000GtUU-0Twb
+	id 1tE0h8-0000000GvDn-1Lp6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 06:01:36 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5cf9ef18ae9so3108726a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 22:01:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nigauri-org.20230601.gappssmtp.com; s=20230601; t=1732168892; x=1732773692; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pXBYO7IREaqcFC1AY+U6gH0DW+PukJ6oZRwSeQifutI=;
-        b=aWU0jSn/2f5XMmWUrfShcbvdTTvirFIJhiMG3gFMnL4LD2Pz93pTjoH7PHNZZvjZS2
-         MiDKap8MUinNR+9Ezuh3/Fd8HEYRycD2Ho8bQqSwcBY9/IvQ/hyQxgSMlK9p9FN4qDci
-         xjBfWmRxmtaIA6VAOcTyyahLP7sKAIcCK5YC85Hx4POGfBZp1gbJy9IhW4zTFD/2sC9R
-         ePnevD57EkEK/uVH47Yh0vGNhkK5J5uLe+zavlGjl/k9j36Y3XzyUQBbqjyG5EJcmxMC
-         AWQA0jML0higvzqX+q9ts96xuVMBs90h9dlCg5IWIJr91zXJAri9IbVRbYss8sATWypB
-         7AxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732168892; x=1732773692;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pXBYO7IREaqcFC1AY+U6gH0DW+PukJ6oZRwSeQifutI=;
-        b=a5fGXeNslUtsmgy8VoB/kiYFkhshaQQX13hokIScCeYHh2TZcQpnSwAPCPe+FaV0Q9
-         nFuvUhFue8II1Se7hkbs6gXC8KkRS5m6NCoOzEiwvy1IhEGqJt+rDGu3T+dwjETZCEBX
-         jLDtp/HeJOZfk2ZSxKWpEwxfPvbvLO5aRlpVFUP2aMCiSXZnmzFEEygUwsPomPR7p/w6
-         JzBrUedz4dT9Qj43qDoi/ySDqtvdxeTuHhH4QXvvwDFUa2YrceZiTbT4wYbC3obCrvgj
-         6ZyzBz9xxNRUYdElMvhft1JCw+dymjkvfa/FZupbcLclayJMPQkpkOBf2lcVuWTp99tf
-         /R+w==
-X-Forwarded-Encrypted: i=1; AJvYcCXFpclZOLSunatHhi60iwTolwzPhQI2nsEaBUbCnuNUSI6UynmEpcwpwfpseXW/468TSBkXa7JluK49k/N3ZN5N@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVmXxB3V/hgPfPbS2ZMmRtmxjF21+k9LyzReqs7Osc89mw5RIV
-	nwZZJW9CrR1v0KTSarrCgGJRsKF5ghU5ZdnSrBFUVdg3RJPkl809ASCxelM895OgsdCe7ooDK0V
-	l+O32z/RImg/SNHepCENTdLmYz/+/gZl5zjI=
-X-Google-Smtp-Source: AGHT+IErmyO6Auj29nMzsQsciAeQieUSQ40mWvouilmqn2J8jN6CWiJnyXtOkmFurSkWnL1C/48LjVI6yqaWSkbNQBg=
-X-Received: by 2002:a17:907:3d92:b0:a9e:85f8:2a6d with SMTP id
- a640c23a62f3a-aa4ef969eedmr214855766b.11.1732168892228; Wed, 20 Nov 2024
- 22:01:32 -0800 (PST)
+	Thu, 21 Nov 2024 06:29:39 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AKKaRaK007992;
+	Thu, 21 Nov 2024 06:29:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-type:date:from:message-id:mime-version:subject:to; s=
+	qcppdkim1; bh=4ut5+nCISlmsl3N5249soTZ7S8Hl0F8iDKCNX0DkTMs=; b=dF
+	06L/Zi60ERJRO0+T63Yyq5C9uv2Jbtm4BNKw6/m8xoBPk+PNJ8ApXb2liInUxAzx
+	jSPnmdVen04JMU0HJhJfxPJzUwIXMX68BDioZ2tvSIuduc9rYzPtyqwRdMmt68Af
+	4zuRCKlQIxaY8ZLTQnmMmnbibMpGkVP5jKGBnqBW8Z/FwbyjkoPF4SGzY/YWej+K
+	BFfZJVry2ChZFLkLrsiXznpp0VEZqxvlMMoOypjE+JCg+N1IO6iGlPlCVKu8tVP5
+	Ikt0f89R52bVOplnzKdYsIPFAc6KpgXrFB/gKY9cYp85y51zCJIV8mSLUa6vAUU+
+	WyekIuLpMlGnzRPGaLeA==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4318uvkerq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 21 Nov 2024 06:29:23 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AL6TMa9019219
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 21 Nov 2024 06:29:22 GMT
+Received: from jinlmao-gv.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 20 Nov 2024 22:29:17 -0800
+From: Mao Jinlong <quic_jinlmao@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Mao Jinlong <quic_jinlmao@quicinc.com>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>
+Subject: [PATCH v7 0/3] coresight: Add static trace id support
+Date: Thu, 21 Nov 2024 14:28:26 +0800
+Message-ID: <20241121062829.11571-1-quic_jinlmao@quicinc.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-References: <20241004061541.1666280-1-nobuhiro1.iwamatsu@toshiba.co.jp>
- <CABMQnVK_RUC84QQ5zb+ZpuMOZcFMNV6HzEYAfmX4bOrRm+rvTw@mail.gmail.com> <90978892-2086-4c70-9698-0957cc71abb8@lunn.ch>
-In-Reply-To: <90978892-2086-4c70-9698-0957cc71abb8@lunn.ch>
-From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
-Date: Thu, 21 Nov 2024 15:01:06 +0900
-Message-ID: <CABMQnVJES+VoqNYNgo3zxFkTJVYkR=ZCwWsEFEe=QhKyaYie9w@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: socfpga: sodia: Fix mdio bus probe and PHY ID
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: dinguyen@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org, robh+dt@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: tv4B5aru_P-Dcw4LZV1CwpD5gDwdYWdo
+X-Proofpoint-GUID: tv4B5aru_P-Dcw4LZV1CwpD5gDwdYWdo
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 bulkscore=0
+ priorityscore=1501 phishscore=0 adultscore=0 malwarescore=0 mlxscore=0
+ lowpriorityscore=0 mlxlogscore=999 spamscore=0 suspectscore=0
+ clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411210047
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_220135_428724_2AD8C6CE 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20241120_222938_479525_F4D054E5 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,53 +104,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Some HW has static trace id which cannot be changed via
+software programming. For this case, configure the trace id
+in device tree with "arm,static-trace-id = <xxx>", and
+call coresight_trace_id_get_static_system_id with the trace id value
+in device probe function. The id will be reserved for the HW
+all the time if the device is probed.
 
-Thanks for your review.
+Changes since V6:
+1. Add code to handle a case where the preferred_id is not valid when
+use static id.
+2. Returen busy when static id is not freed.
 
-2024=E5=B9=B411=E6=9C=8818=E6=97=A5(=E6=9C=88) 5:06 Andrew Lunn <andrew@lun=
-n.ch>:
->
-> On Sun, Nov 17, 2024 at 05:53:51PM +0900, Nobuhiro Iwamatsu wrote:
-> > Hi Dinh,
-> >
-> > Please check and apply this patch?
-> >
-> > Thanks,
-> >   Nobuhiro
-> >
-> > 2024=E5=B9=B410=E6=9C=884=E6=97=A5(=E9=87=91) 15:16 Nobuhiro Iwamatsu <=
-iwamatsu@nigauri.org>:
-> > >
-> > > From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
-> > >
-> > > On SoCFPGA/Sodia board, mdio bus cannot be probed, so the PHY cannot =
-be
-> > > found and the network device does not work.
-> > >
-> > > ```
-> > > stmmaceth ff702000.ethernet eth0: __stmmac_open: Cannot attach to PHY=
- (error: -19)
-> > > ```
-> > >
-> > > To probe the mdio bus, add "snps,dwmac-mdio" as compatible string of =
-the
-> > > mdio bus. Also the PHY ID connected to this board is 4. Therefore, ch=
-ange
-> > > to 4.
->
-> It is the address which is 4, not the ID.
+Changes since V5:
+1. Remove the warn for staic id not available.
+2. Drop the system_id if registering the coresight device fails.
+3. Return busy when static id is not available in dummy driver.
 
-Thanks, I will fix it.
+Changes since V4:
+1. Use fwnode_property_read_u32 in fwnode_property_read_u32.
+2. Update date and version in sysfs-bus-coresight-devices-dummy-source
 
->
->         Andrew
+Changes since V3:
+1. Adda new API function
+int coresight_trace_id_get_system_static_id(int trace_id).
+2. Use the term "static trace id" for these devices where
+the hardware sets a non-programmable trace ID. 
 
-Best regards,
-  Nobuhiro
+Changes since V2:
+1. Change "trace-id" to "arm,trace-id".
+2. Add trace id flag for getting preferred id or ODD id.
 
---=20
-Nobuhiro Iwamatsu
-   iwamatsu at {nigauri.org / debian.org / kernel.org}
-   GPG ID: 32247FBB40AD1FA6
+Changes since V1:
+1. Add argument to coresight_trace_id_get_system_id for preferred id
+instead of adding new function coresight_trace_id_reserve_system_id.
+2. Add constraint to trace-id in dt-binding file.
+
+Mao Jinlong (3):
+  dt-bindings: arm: Add arm,static-trace-id for coresight dummy source
+  coresight: Add support to get static id for system trace sources
+  coresight: dummy: Add static trace id support for dummy source
+
+ .../sysfs-bus-coresight-devices-dummy-source  | 15 ++++
+ .../arm/arm,coresight-dummy-source.yaml       |  6 ++
+ drivers/hwtracing/coresight/coresight-dummy.c | 81 ++++++++++++++++---
+ .../hwtracing/coresight/coresight-platform.c  |  6 ++
+ .../hwtracing/coresight/coresight-trace-id.c  | 43 +++++++---
+ .../hwtracing/coresight/coresight-trace-id.h  |  9 +++
+ include/linux/coresight.h                     |  1 +
+ 7 files changed, 140 insertions(+), 21 deletions(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
+
+-- 
+2.17.1
+
 
