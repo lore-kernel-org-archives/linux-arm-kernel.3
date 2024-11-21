@@ -4,89 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC0DD7877B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 15:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AB68D7877B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 15:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LYaD+vIxRvyp4MCsUv1xsGtNN9FeP7FHLUrmhzNgycg=; b=mIGcQPydsbx2EESyvLYvg6YuIW
-	k9TdwbTtsUPiukamYRd8aPpK4pQfh1V7zKI+jfcngL0q4QiPGza9omb/77DQm3euzjQwmSfrLo+5w
-	iIiD+PzFVVLQ+yZCT7HfPvGu7lovAiHzf/aCW26orWgG8w3iq2p4QTjQkFn8BZAokM7Kl4RvMfuHJ
-	InC6w9lR4Z5AXZKVi0Wfh7qjYKwl5FbmmIwXIJl558286KnjNxXC5l9nM83iSrJBarW4K5DeYWudr
-	z4BdCfhU6sDskOkU09lFP3aiX5ty65z0fsWqEqMWUHqafQyLm85vFAzoKC0aQZlXu6qtr8x72hOTT
-	iJkRRrzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kP6pOE3po/1ziJMcsJhojsNldXrvD7NcZzZfzxDnn2Q=; b=wawBl3yiLcfnbCKrxeG/POFAXw
+	we/Ej/S+vR2BIjNZmvKORaaH9M7/QSPwGzL9FYlpJgpRbOuFLQWWeeRdykaaweq+MCiYf+Whg+XU5
+	inVOkm18EKi3U5MAREN0CiqooCSqXaG85QRkjCN4te3zQcKG72bmxMPyj7a6VDjpECmv/wDbuP7Nu
+	0/T9D+RGXNNaNsxekfOvEEPiZDuYWONuUrX4/AbIk1/71oK+/DWYJRPD/blbBdXmWx0Kbpt77vJdJ
+	w/YaUleDQoVrApmaplciZl9lri8Uiovk62IvAlyMEWHGL5WJOeYV59YEMBhSXFrXlIpxjhVPziwpY
+	W5C2c1QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE8wc-00000000Jar-2F7C;
-	Thu, 21 Nov 2024 15:18:10 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1tE9G8-00000000Lol-49p6;
+	Thu, 21 Nov 2024 15:38:20 +0000
+Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE8vf-00000000JUT-3mhy
+	id 1tE9FA-00000000La6-1qSY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 15:17:13 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-2ff5d2b8f0eso9173671fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Nov 2024 07:17:11 -0800 (PST)
+	Thu, 21 Nov 2024 15:37:22 +0000
+Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-6ee8e894deeso10298957b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Nov 2024 07:37:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732202230; x=1732807030; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=LYaD+vIxRvyp4MCsUv1xsGtNN9FeP7FHLUrmhzNgycg=;
-        b=fS5FcbMZu8hqBnAeArSIYDCw1qUapEy2m8a/G2I/rAbJfVSZ4w0gecNp5x2vf6nojq
-         W+FKWAYpCzURfBcJT00LwffVWJpj536qLgSmBOd52a5L1QFITlnzsmziNAdGF4exQac6
-         uPYLVgVUrz0GBQjRcGda0T7DLJfwL5vErdHyT+AsUkERmzlDlEIuBbZFC0l00eVJd3K1
-         eAoJFxu6HeRS0CsLk9vK9RZTwRhfeDRe/Jj9zGyChbp9ZaCOZlq+mASZwaCd6UMfUNEp
-         ADvBaw1no+uGB/2V1/OCXFQBWOw1F7HZvurLsp8aJWNv7aFWu43IkmXBMS2fbvLDrCRu
-         9sJA==
+        d=raspberrypi.com; s=google; t=1732203439; x=1732808239; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=kP6pOE3po/1ziJMcsJhojsNldXrvD7NcZzZfzxDnn2Q=;
+        b=V6etmKaF0mvRm82MfY+kXTMnJoobzKH7isxILcvDqss6usce8LAlJePoRbi9rDNo+I
+         K1LLuTO+NJ00dnY2xg2guWKejopc9KaZouhBlm9Gf2E6v8gTtY6Zlrgrx95cjEgj23iI
+         1RcarJeMv4HgqIvGJkszfHL9Ps9FYpFTPz8Af+DuDGNmP97BsEgu9pKv7JebeQD3LN4h
+         iGQ6gKfU+WgGNZk3YG91R6a/WkB4EPPkzBrfYcyJ6gnofRxOGHYw9ppF+DZJB5/vdB+X
+         30x9PEKOsrwU1euN8EP9y0fpaY1v9To2fI6jLTVxYMrtiLgMeLpaLxu5+NMEdgnHvAG6
+         xEbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732202230; x=1732807030;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LYaD+vIxRvyp4MCsUv1xsGtNN9FeP7FHLUrmhzNgycg=;
-        b=jBvwVsgrwdELDmDWkADeStY7N5ecG9JKzyW3eU9JKJ3D14zLjKcD+adePe8PWVHO3C
-         SdiaBF3EwLSzthVZt3t28/CEs1oszRg4oYW4RagXrMIrL/n2RmtOQAqzGOSMAifRNvRW
-         ZApvFJBbaQMNBO1GDo6RSWxFd8guWsTOIPd40j35XEzp1kfYSzwuMROyzQuhOLD93vGe
-         iLoulq0LcQtQNW29U2SCckaZp1xoyWW7f8jX5iDZ+xLYkekyLHdMBSYAw1iGJO23s7+j
-         t2Jptep0NAyhArmlxtH07Df/bUenSbelSaRQOiRxtreFztrhp/bMJqrUDEA6/YU2776Y
-         lpug==
-X-Forwarded-Encrypted: i=1; AJvYcCVpl8RrWNUz6Aev5/hrOeMHBGiEzL9z6A1kLhqXBop1LbzpjCZSJHD8hIOhapd2jXcvQPMvjiwPkNvUcH7Bm+kt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfLNg2FhlmoCjgatF3LRPFsNbfZ+3bYwXdASCEGJ01/hLgdpUQ
-	tf8JRddve6/6daeA132GQtuciK3spqWw+ItBifqmWNfTGK6j45xl7mfp2Y+L4q8=
-X-Gm-Gg: ASbGncvfNjFbykLO5DTfc3VCO/0Sf/pzGB7Aa1PGffY4AhBdmjXv1f4g7rxAS8RfX8w
-	bcNw4wE7KRMhiwXl4Kh33+NmHvSACI9pvG+iyT6wbM6g3ix8a8Pd4lJLRhxJa7yMNYAERIVXbt9
-	ZBFcGY0BGciwvDoiHe/GWUbAdW1J8HJ2T7qk2eOdGnuBjV/oj1VjfPGhuGJeMLtPIiNrqMBQzI+
-	fqkkIk8Ey8OKMToZ2RBxe4Qh2uU15mUG6LYy8I2zuNdNHa0bKIJFEsFoBCm
-X-Google-Smtp-Source: AGHT+IGuGkDWEGa66FRHfJwCBFniq/w48rL31cV/pcGtRhPh4zpF/rbVtHIdfpipVfcQosiMjkCEvQ==
-X-Received: by 2002:a05:651c:4017:b0:2fb:382e:410b with SMTP id 38308e7fff4ca-2ff8dcc9c22mr36130851fa.32.1732202229431;
-        Thu, 21 Nov 2024 07:17:09 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.90.249])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cff453e2f8sm1962653a12.68.2024.11.21.07.17.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Nov 2024 07:17:08 -0800 (PST)
-Message-ID: <55469393-551f-4ad6-ae03-56306e474f58@linaro.org>
-Date: Thu, 21 Nov 2024 15:17:07 +0000
+        d=1e100.net; s=20230601; t=1732203439; x=1732808239;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kP6pOE3po/1ziJMcsJhojsNldXrvD7NcZzZfzxDnn2Q=;
+        b=baum5oO8n+Ebu6ZIv9vgdPhM+CTbRs2pfeiWlAZwMCeoI6FZIdE5K2SOrPlFHhynyh
+         d1jz3IgdEIuhAus95xnuefhm0zQDmTSo5B19IWoI0IEXb1fldXaedBy3eSaVobYHdWi2
+         npR9j7PHMs/dVGdtozavlOHUEA+LHgs+0I/4KzZg9irdP8DRLluKBeveyZq35Yb+8yo1
+         9wbbIX7nAb7kdg14r52oAImTxODoBgVXzLprGKx0y4uSzSmuRMo7z3RQXTnvl/W2sVI5
+         TrQyTEmjf9X11t4T14SLgxiEGK/Xq/x+tnH4RTwu1cdkbamiFxYaDr50B78wcepXRjoH
+         UD4g==
+X-Forwarded-Encrypted: i=1; AJvYcCUn7hJfweqWFOk4EzYhYwEHzGeUEaC1qwhCYKSaJzzzZUFm0FnxsbjqhH5IBfwvJ60CtsmfPCLM6RWggQLaImZr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzahl6eiwbU5SS8iS/2tkfbvs/4V4iObYl1cSMKHAsSz4cZo+Nl
+	23xKyMW54dfDtynjeuyWA0Zs5Z0tgcwd9jLePjXHvJlb6qNl+34jeDzLu4FyT2WtEijbE5yOyOj
+	KKfL/fdbexLrsrQotKMEmFp1NAhe41KaBinLKrQ==
+X-Gm-Gg: ASbGncvrusj2zwaVcqcx3wSJRJHQdh02yqfQSr2LXFMr22YzUZ6ynQxhmTmIbNrngzK
+	SWZ3tArze8lEgGTYcOrwCsjF+lsA7QCU=
+X-Google-Smtp-Source: AGHT+IF8UTnU+5p7nKbdKVjbrthoiYcBYTuLfXNVkQGbQk0KfLyktr9CA5uLVCOTpHwOyzUd5aASTSTl99WTmj5pohI=
+X-Received: by 2002:a05:690c:6283:b0:6ee:9cb7:dc24 with SMTP id
+ 00721157ae682-6eebd2b24cemr74692547b3.38.1732203438928; Thu, 21 Nov 2024
+ 07:37:18 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: Fix dsb_mode_store() unsigned val is never
- less than zero
-To: Pei Xiao <xiaopei01@kylinos.cn>, suzuki.poulose@arm.com
-Cc: kernel test robot <lkp@intel.com>, mike.leach@linaro.org,
- alexander.shishkin@linux.intel.com, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <202410150702.UaZ7kvet-lkp@intel.com>
- <122503017ada249fbf12be3fa4ee6ccb8f8c78cc.1732156624.git.xiaopei01@kylinos.cn>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <122503017ada249fbf12be3fa4ee6ccb8f8c78cc.1732156624.git.xiaopei01@kylinos.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
+In-Reply-To: <20241023-drm-vc4-2712-support-v1-0-1cc2d5594907@raspberrypi.com>
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Thu, 21 Nov 2024 15:37:00 +0000
+Message-ID: <CAPY8ntBM=34pTiQ=t-CjtYEE5Ax6D=EtiY-sLT1keUkUMXuLeA@mail.gmail.com>
+Subject: Re: [PATCH 00/37] drm/vc4: Add support for BCM2712 / Pi5 display hardware
+To: Maxime Ripard <mripard@kernel.org>, =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Javier Martinez Canillas <javierm@redhat.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Stefan Wahren <wahrenst@gmx.net>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	Dom Cobley <popcornmix@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_071711_966194_2BBD7E29 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20241121_073720_542987_5CE67C8D 
+X-CRM114-Status: GOOD (  25.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,34 +102,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 23 Oct 2024 at 17:50, Dave Stevenson
+<dave.stevenson@raspberrypi.com> wrote:
+>
+> This series adds the required DRM, clock, and DT changes
+> required to support the display hardware on Pi5.
+> There are a couple of minor fixes first before the main patches.
+>
+> Many of the patches were authored by Maxime whilst working
+> for us, however there have been a number of fixes squashed
+> into his original patches as issues have been found. I also
+> reworked the way UBM allocations are done to avoid double
+> buffering of the handles as they are quite a limited resource.
+>
+> There are 2 variants of the IP. Most Pi5's released to date
+> have used the C1 step of the SoC, whilst the 2GB Pi5 released
+> in August is using the D0 step, as will other boards in future.
+>
+> Due to various reasons the register map got reworked between
+> the steps, so there is extra code to handle the differences.
+> Which step is in use is read out of the hardware, so they
+> share a compatible string.
 
+A gentle ping on the patches for clk-raspberrypi (patches 29-33) and
+Broadcom DT (patches 34-36).
 
-On 21/11/2024 2:40 am, Pei Xiao wrote:
-> dsb_mode_store() warn: unsigned 'val' is never less than zero.
-> 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202410150702.UaZ7kvet-lkp@intel.com/
-> Fixes: 018e43ad1eee ("coresight-tpdm: Add node to set dsb programming mode")
-> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+All the DRM and dtbinding ones are reviewed or acked (thank you!).
+
+Thanks
+  Dave
+
+> Thanks!
+>
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 > ---
->   drivers/hwtracing/coresight/coresight-tpdm.c | 3 +--
->   1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
-> index b7d99e91ab84..158950243d83 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
-> @@ -640,8 +640,7 @@ static ssize_t dsb_mode_store(struct device *dev,
->   	struct tpdm_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	unsigned long val;
->   
-> -	if ((kstrtoul(buf, 0, &val)) || (val < 0) ||
-> -			(val & ~TPDM_DSB_MODE_MASK))
-> +	if ((kstrtoul(buf, 0, &val)) || (val & ~TPDM_DSB_MODE_MASK))
->   		return -EINVAL;
->   
->   	spin_lock(&drvdata->spinlock);
-
-Reviewed-by: James Clark <james.clark@linaro.org>
-
+> Dave Stevenson (12):
+>       drm/vc4: Limit max_bpc to 8 on Pi0-3
+>       drm/vc4: Use of_device_get_match_data to set generation
+>       drm/vc4: Fix reading of frame count on GEN5 / Pi4
+>       drm/vc4: drv: Add support for 2712 D-step
+>       drm/vc4: hvs: Add in support for 2712 D-step.
+>       drm/vc4: plane: Add support for 2712 D-step.
+>       drm/vc4: hdmi: Support 2712 D-step register map
+>       drm/vc4: Enable bg_fill if there are no planes enabled
+>       drm/vc4: Drop planes that are completely off-screen or 0 crtc size
+>       arm64: dts: broadcom: Add firmware clocks and power nodes to Pi5 DT
+>       arm64: dts: broadcom: Add display pipeline support to BCM2712
+>       arm64: dts: broadcom: Add DT for D-step version of BCM2712
+>
+> Dom Cobley (3):
+>       clk: bcm: rpi: Add ISP to exported clocks
+>       clk: bcm: rpi: Allow cpufreq driver to also adjust gpu clocks
+>       clk: bcm: rpi: Enable minimize for all firmware clocks
+>
+> Maxime Ripard (22):
+>       dt-bindings: display: Add BCM2712 HDMI bindings
+>       dt-bindings: display: Add BCM2712 HVS bindings
+>       dt-bindings: display: Add BCM2712 PixelValve bindings
+>       dt-bindings: display: Add BCM2712 MOP bindings
+>       dt-bindings: display: Add BCM2712 MOPLET bindings
+>       dt-bindings: display: Add BCM2712 KMS driver bindings
+>       drm/vc4: drv: Support BCM2712
+>       drm/vc4: hvs: Add support for BCM2712 HVS
+>       drm/vc4: crtc: Add support for BCM2712 PixelValves
+>       drm/vc4: hdmi: Add support for BCM2712 HDMI controllers
+>       drm/vc4: txp: Introduce structure to deal with revision differences
+>       drm/vc4: txp: Rename TXP data structure
+>       drm/vc4: txp: Add byte enable toggle bit
+>       drm/vc4: txp: Add horizontal and vertical size offset toggle bit
+>       drm/vc4: txp: Handle 40-bits DMA Addresses
+>       drm/vc4: txp: Move the encoder type in the variant structure
+>       drm/vc4: txp: Add a new TXP encoder type
+>       drm/vc4: txp: Add support for BCM2712 MOP
+>       drm/vc4: txp: Add BCM2712 MOPLET support
+>       drm/vc4: Add additional warn_on for incorrect revisions
+>       clk: bcm: rpi: Create helper to retrieve private data
+>       clk: bcm: rpi: Add disp clock
+>
+>  .../bindings/display/brcm,bcm2711-hdmi.yaml        |   2 +
+>  .../bindings/display/brcm,bcm2835-hvs.yaml         |   5 +-
+>  .../bindings/display/brcm,bcm2835-pixelvalve0.yaml |   3 +
+>  .../bindings/display/brcm,bcm2835-txp.yaml         |   5 +-
+>  .../bindings/display/brcm,bcm2835-vc4.yaml         |   1 +
+>  arch/arm64/boot/dts/broadcom/Makefile              |   1 +
+>  arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts |  37 +
+>  arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts   |  42 +
+>  arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 188 +++++
+>  drivers/clk/bcm/clk-raspberrypi.c                  |  34 +-
+>  drivers/gpu/drm/vc4/tests/vc4_mock.c               |   8 +-
+>  drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c     | 106 +--
+>  drivers/gpu/drm/vc4/vc4_crtc.c                     |  96 ++-
+>  drivers/gpu/drm/vc4/vc4_drv.c                      |  19 +-
+>  drivers/gpu/drm/vc4/vc4_drv.h                      |  54 +-
+>  drivers/gpu/drm/vc4/vc4_hdmi.c                     | 112 ++-
+>  drivers/gpu/drm/vc4/vc4_hdmi.h                     |   4 +
+>  drivers/gpu/drm/vc4/vc4_hdmi_phy.c                 | 640 +++++++++++++++
+>  drivers/gpu/drm/vc4/vc4_hdmi_regs.h                | 217 ++++++
+>  drivers/gpu/drm/vc4/vc4_hvs.c                      | 737 ++++++++++++++++--
+>  drivers/gpu/drm/vc4/vc4_kms.c                      | 102 ++-
+>  drivers/gpu/drm/vc4/vc4_plane.c                    | 866 ++++++++++++++++++++-
+>  drivers/gpu/drm/vc4/vc4_regs.h                     | 297 +++++++
+>  drivers/gpu/drm/vc4/vc4_txp.c                      |  91 ++-
+>  include/soc/bcm2835/raspberrypi-firmware.h         |   1 +
+>  25 files changed, 3464 insertions(+), 204 deletions(-)
+> ---
+> base-commit: 91e21479c81dd4e9e22a78d7446f92f6b96a7284
+> change-id: 20241002-drm-vc4-2712-support-9ad3236e3caf
+>
+> Best regards,
+> --
+> Dave Stevenson <dave.stevenson@raspberrypi.com>
+>
 
