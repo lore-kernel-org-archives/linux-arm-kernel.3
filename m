@@ -4,63 +4,201 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31CF3E64007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 19:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A01AE64010
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 20:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PoVeBMk4kKudlJ+K1M+9ypkywmQ2NmKwvJnRDBsYgis=; b=xubIbnGgD7Na0frGMH91ivKaGg
-	ViK0pYc3/hYbjUophQJV4+k9tebMoYdgzHhVAUUUeknPpSJOYLDlqwi8wy3S9tSfhmR6Pe+1GLARP
-	deZPvITypDsIN0/z5EfgcSe1XY+f4ocD+Q1hRv3W5IihPULpfD7UIoGaeR0krH6SLnESo65teBNsn
-	WcxjAoZRr8QTVP2D27bdAkfJaWmuIWc5WPpBFBn87IA1nbMIeckbhtDcb/+V7B0+5T75XL6slIjLI
-	1jIs4+pHB2EBeLDh59X1JYYAVnM7QG/t3CtRao0+i8AJm7JNp6pRdo93kqBL6sMYPydPJh7y++OnX
-	Me+AByAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xJ8HO4bgVdFBe4oHB7gv14O6N2gBJM1Zhu1txIWA3Aw=; b=1D/Y1plgkXI2thgyeX03pO5a+r
+	fH9maiMn86J3TBDodZBhxCgyBHfYcAZULEjnLvghCFkQXCASFY7xi9RZUts/oy0EMC/X2l+Ujd+I9
+	GWRj8fTw2am+royx3MOdTLop5o4knIR9kVbs9ZeHSSOeXCUMhJ7UEOBHRj9/hN+j6EAccGzspfHOJ
+	7UJg3875yXysr9Eux9TqZclOdsYXgpylIR90Bw6e0YAyUtUbKL3+pIbLKYbB1BWmmkgYKpUtm25z2
+	iui1v2307YExNBpCvdufB9cgXz0KXLVqQcwHiguIVaME2prlerstZfRxm3iTVYmvj1f7+7K3D+f9T
+	PiSL9zoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tECm5-00000000lQj-2iY3;
-	Thu, 21 Nov 2024 19:23:33 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tEDvZ-00000000sbb-03dO;
+	Thu, 21 Nov 2024 20:37:25 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tECl9-00000000lG5-2A1G
+	id 1tEDuP-00000000sRY-2XX6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 19:22:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CE9385C4A3C;
-	Thu, 21 Nov 2024 19:21:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67DB3C4CECC;
-	Thu, 21 Nov 2024 19:22:31 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>
-Cc: Will Deacon <will@kernel.org>,
-	ardb@kernel.org,
-	broonie@kernel.org,
-	jpoimboe@kernel.org,
-	kaleshsingh@google.com,
-	kristina.martsenko@arm.com,
-	linux-kernel@vger.kernel.org,
-	madvenka@linux.microsoft.com,
-	maz@kernel.org,
-	mbenes@suse.cz,
-	mhiramat@kernel.org,
-	rostedt@goodmis.org,
-	Puranjay Mohan <puranjay@kernel.org>
-Subject: Re: [PATCH] arm64: disable ARCH_CORRECT_STACKTRACE_ON_KRETPROBE tests
-Date: Thu, 21 Nov 2024 19:22:29 +0000
-Message-Id: <173221694242.390240.12306680698453955259.b4-ty@arm.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20241118120204.3961548-1-mark.rutland@arm.com>
-References: <20241118120204.3961548-1-mark.rutland@arm.com>
+	Thu, 21 Nov 2024 20:36:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1732221373; x=1763757373;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=fpftyKphrOqQEgoDfRjShErfyOyrHRngfqKEJUumfj4=;
+  b=Q3tGg3xEjr8GO1WQWjncTQ3S8SIiRM2e6S1NiYOIPgko7sMpvqkS5Gf+
+   qZyFVNQQIiddFXfoKuZjcNhuaAqS4qLwu7Vd/MjyhNod61heCRURuCCYO
+   R/cFmSCSZ3A0OifYV8Pk595DsSou9H3RlUUYKtsdbRPLeYIBQ/cEv6J0s
+   8GzJXo89SVzKhKbk5zAcZnYWt5QAgJHbzKkCppvM/IO0Ee/x6Nbc5uLRe
+   8rSlOD730241W7wK+cJEG7vCo99f13lfS4yQzT9uArQJkieMxRLGFYASH
+   Z7eD98hPWmDubbV+feOoKpMUPp25elgPyy3rlC3WaqxRwSjEbflq3hLug
+   g==;
+X-CSE-ConnectionGUID: Dm81AgruRjObFbAddOmphA==
+X-CSE-MsgGUID: HVsB0injSfyB8M9tT6m/7g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11263"; a="32108606"
+X-IronPort-AV: E=Sophos;i="6.12,173,1728975600"; 
+   d="scan'208";a="32108606"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2024 12:36:07 -0800
+X-CSE-ConnectionGUID: L9KSOjB+TgOEKqO9HikNng==
+X-CSE-MsgGUID: Bd/zNdgSS5y3J4Crpwc4tg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,173,1728975600"; 
+   d="scan'208";a="94454946"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 21 Nov 2024 12:36:07 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Thu, 21 Nov 2024 12:36:06 -0800
+Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39 via Frontend Transport; Thu, 21 Nov 2024 12:36:06 -0800
+Received: from NAM11-CO1-obe.outbound.protection.outlook.com (104.47.56.169)
+ by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Thu, 21 Nov 2024 12:36:06 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NVadFvAbfGo+BF5CNtlcDEHzyfDWsR/N6pOhpzMXujJsG96xd2xr2uDfJwcqQR76eFT5Z16Wn31ECx71UHFH4OyFcSqecEiLNFjh8I5lNkMy10Bob5VaWrKjtPh3yPuZKN26+UwTHGKJ8iA26P1FXY7rgrlSoirvlVO0Iozyn4LXpIHuXSpn7ylX52fTL7GQHZegUUkWf5eIfjxtLkFKI4YPEP2IqhMNkFM/ke04KpRXM9+6CD1FZFDM4J6YRmi7JAc75wAFz636vwTFO8ZMk+aIryltExq4Wvw8bM75JckPAFt4ydzflYGr6ZIT/lDJiCZB7n58Vh0fqCbSHa99Ww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xJ8HO4bgVdFBe4oHB7gv14O6N2gBJM1Zhu1txIWA3Aw=;
+ b=I94qQf5oFRotxy6odnabla5hwbA+SM0a0dJ69DSSrZfMKknAgNVHuJZxK28QXryW7BXZiyn1t4tW3KB7J2BzXZfs3EjP0UHLhJCrN4JeBk3oJbwyfIJRwTDxbCxjBU2PU7vGufUTOKzHYq2J8wVKB6fYtNXoYnhQyVHoOt8NzatSKBq3QkN03UY16xFIQpOYVmZlf4GSKFNmHpQ/au7y1mBVLQ+Kr0CepLZ1vtiw8J+pG6YRqrzvx6x/bM5h0wV+BkR/Tmku0j4iWIPyS1wfH0lDbaaFEzaUXi9a78Z+DiBP5G1X+TdiaYuL32ZJpAdn6WZTyHweZ7nZii3kuk50gQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
+ by MW6PR11MB8440.namprd11.prod.outlook.com (2603:10b6:303:242::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.17; Thu, 21 Nov
+ 2024 20:36:04 +0000
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::7de8:e1b1:a3b:b8a8]) by CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::7de8:e1b1:a3b:b8a8%4]) with mapi id 15.20.8158.024; Thu, 21 Nov 2024
+ 20:36:04 +0000
+Message-ID: <2b28f8bf-3327-41a4-95bb-858f07fcfcfb@intel.com>
+Date: Thu, 21 Nov 2024 12:35:53 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH] net: microchip: vcap: Add typegroup table
+ terminators in kunit tests
+To: Guenter Roeck <linux@roeck-us.net>, Lars Povlsen
+	<lars.povlsen@microchip.com>
+CC: Steen Hegelund <Steen.Hegelund@microchip.com>, Daniel Machon
+	<daniel.machon@microchip.com>, <UNGLinuxDriver@microchip.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, <linux-arm-kernel@lists.infradead.org>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20241119213202.2884639-1-linux@roeck-us.net>
+Content-Language: en-US
+From: Jacob Keller <jacob.e.keller@intel.com>
+In-Reply-To: <20241119213202.2884639-1-linux@roeck-us.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR04CA0097.namprd04.prod.outlook.com
+ (2603:10b6:303:83::12) To CO1PR11MB5089.namprd11.prod.outlook.com
+ (2603:10b6:303:9b::16)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PR11MB5089:EE_|MW6PR11MB8440:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6e2105f9-c456-48e2-4206-08dd0a6c1e4a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z1U4N2l5UW03SFFjeUZLMEplQkpsWGZ2dGtpUU5JNXZTaGZXc21ObnFvS1FG?=
+ =?utf-8?B?bE5BU3BOTkY1VldwRkV0YWJXTmxBL3RuODUxMk8rZ2VLd1VrbUEwZjJtMW5i?=
+ =?utf-8?B?WFZEWFhhYmlCMXdJZFk1dHpvTjZvNm5BR1BVSVA0Y3huUW5EZENxS2h4bDhw?=
+ =?utf-8?B?Z3VJeTZOdXc4Qnk5bVQ2QkdRYXU5UEtnSFZybGoydkI2Zy9jVnNXU0JHM3Bn?=
+ =?utf-8?B?aVRDWlY3U0txZmJTdHRxVzNiL2YvUHhyL3VGajVOdzhWM3RqbHhpM2lxMnJk?=
+ =?utf-8?B?bnlseTR2MzcxY0p3Vy8zWDQwSnZSc1NGdmplNDZCT1RkV2dyVVdvcVNQTms3?=
+ =?utf-8?B?M3RScXR4UTR3cWYza3ViV2NZVk4wUkd0YU5zbHhWdUpNTDJTL0VLOHA3a0o0?=
+ =?utf-8?B?V3U3VGE4V0NXMm5xWk55cWY2bzErZG5ReThGbE9GR29PVEthNytlMG9VMnFu?=
+ =?utf-8?B?MklSSzh2ZjFhMXFRemV6cG1CMDN0cDBLUmorM2lRL1RTK3JMWHFjNlErTDZ5?=
+ =?utf-8?B?Sm52Yis4WGpqL1pkMUUrSDhlOEtjTlJ3Qy9JWEs3Mi95eEx3QkdPRFNSd0hF?=
+ =?utf-8?B?M1JwNHZpSFI1ZHhUNC9QSGRpbTBsZGVBMTlBZXo4bUhNdWRBajBsd2ZzZThs?=
+ =?utf-8?B?YmxNMVNHblE5d1BMdjNvWVdvcjRSM3VFNitVOWhjdW9KRXFBdlppTCtNYnN2?=
+ =?utf-8?B?dHVwR01ydVNBczBTT3k5UTQwV0JkT2VySE8yN05XelBNYzVaRTBzSGhsMVZk?=
+ =?utf-8?B?M3drOE4wWXhpOVdTcXlGQVpUb2p4WnFVcDYyTWpDVFFXSittazRjcHp1RGJS?=
+ =?utf-8?B?VHNueGRIMUIySEVudTB0NTByTC9uRXhtSTAvekM1YnQyTVB2T2F6RWE5a05W?=
+ =?utf-8?B?V3R5bjdnZEtGcGtLVzJpaytDV29jWXRRZ21rb1VtRGFjbTQzY0RYZE5OSS9U?=
+ =?utf-8?B?OEt6MU9pZmh4dFFWRzlXdk9ubGd3QkpYYklxRjJoMzFUTE9STFIyNEJLVFg4?=
+ =?utf-8?B?NzBtOWg3WmVQQVlpNGFDTXdBSk9CSVE1QjIzV2l6MCtuQ2RUR1dONnlTeGRO?=
+ =?utf-8?B?SXREN2VGbzdqRVQwaEdPTEQzbUJMMlpYVXoxdE81bk9FeG1hM2xxcEk5L0NK?=
+ =?utf-8?B?UlVXRjl1T29oZkVJdnc5d052ZmRKS0k5aVllZnR5YzF5YzdYT0VFbDQvR2dl?=
+ =?utf-8?B?QWJFcGRxKzhMUkFXWTU4U2FubzNnU2JZSFBEZ0ZtQnJSZTNiZ2VxcTUzcG04?=
+ =?utf-8?B?K1RTMnZhSjJYVUplTDUzVm8rdU9HRWhGKzdhRS9HdzlOYjg3RGxiUWlBNXJq?=
+ =?utf-8?B?V1lKU0VpVWp4dXE1SkhBU2k4QnlTVCtUQ2Z1TmVuVE9zRHZzRzdWd1QxTDZE?=
+ =?utf-8?B?WHh1cTdCcXlnenlmdEFjWVpiR2I0U3RQTHp3UjA1Um5pQ2JRVUxlNTdEZGZv?=
+ =?utf-8?B?ZGdTN1c3aUxzc1hCcEU4NS9JTlcza2djSmUxSmZDUmFxVEJQRFRBSm91dHU1?=
+ =?utf-8?B?QVJGQWYveERPcTNHbEtoN00rSWRsKzVpYk1nSTEybytMUEdiL0xFR2t6Zzdz?=
+ =?utf-8?B?bTV1MnI5UUhUNUlPY1Y2eFBBSzlnTFg5dkVydVZKQitqc2pSU0o2cFh6SUZz?=
+ =?utf-8?B?WUIzenJSTDMyT0Q3YVQyK3FvZ2VpNkVwK0tGa1VlVjV6T3NlR1pmYzVINStw?=
+ =?utf-8?B?VjlaV010bjErMWZBb2xnY2VWU3NsVWVBU1k1T3JNRFl1U3E0MDVkemdUbmpr?=
+ =?utf-8?Q?CWKtpvuTzGNF4paiAs=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z1VFRFlnNzVCUTlHdHdSeWJTVEUra1NxMlhreWUwN1ZIbGZDOGlXMWFkSXN5?=
+ =?utf-8?B?YW9TZ0hKTGo1cUlkbmxZcTJ5NnorUFVGMXpWN3FncWtCZ1hHRjlSM3VkbWFh?=
+ =?utf-8?B?ZVF1L1JBVTEvNnlIb3ZtRHlqRkV0RG1PdjNVV3Q0MjFod0RibTVTWlltTmlN?=
+ =?utf-8?B?ZWtzZjl2M0NiQTlFc0wzQ3F1RXBhMWFRa01NUWd2cXZhV0NBSWNJVjl6a2hk?=
+ =?utf-8?B?QndoV0w5NTBoL2NnUy9yQzh5UGJmREFaV1FUYkk1SU8wN0dZYmNiRWlWcWJP?=
+ =?utf-8?B?aXlrbkczR085c09mZXp5clVWZG9KSHQ1cGR3RGxwL0daMFRFYjM5SWJxOUFj?=
+ =?utf-8?B?VVdnY3hZcEVWOCs1ODNHQ2xvSDJTOTRYUVIxYVBBRFYyUE9VQUFjZ0pFdXh2?=
+ =?utf-8?B?ZFEwUFlXNExzM0VsRGFQNml0Tzl2Z0tsVFVnL29sUDJJRSt2d1F3Y3VNN2h2?=
+ =?utf-8?B?bmduSXoweFBhRU55U3F2NTFqays2eitwQkhNT045Y0hkczladk9IdzNJWlVx?=
+ =?utf-8?B?RmFacGZqeGFoL2pwSnFKdzFXNDFFRUVsaVZjdUxwNkdyWTlBUDdXbzA4RW1Z?=
+ =?utf-8?B?QkQrYTZJaUdRRWxucWhWWW41bVduRFpHUWNJb3VXc0VMNDRETzlhUld3QTFw?=
+ =?utf-8?B?V3ZsZHJTQm1mR3RjNVJlNDhkY3RDcEFhaEZTdUhoc0tiVDY3ZkZFazJhZUgx?=
+ =?utf-8?B?dW1QbGFzdEk4L2JBd3gvZU9vRTd5NExGQVZDemVNYnFBVHU4Vm1VY0duRmcy?=
+ =?utf-8?B?ejlRWUQyUVRIM0tpZHlDR051SCtUWDczVHJWdW9ja0NzZGFKWDV5cFFxK3Rw?=
+ =?utf-8?B?VWlEeEdJYmJSUlhXYUl1cXFENjd1QWxsOHRxdGtubHlqMlhIbE9uUDdkYk1w?=
+ =?utf-8?B?WkVwQTZHUyswV0RiSHRGY0FTRjgyekdjb0hkMlVuZERjWi96SVlnZkh6SFBM?=
+ =?utf-8?B?eWs1VTBmMVg5c3U4ekx3RXk5dkRWZ0VVMldJU0I2K1FHNFk2OFY5MDFOQTc5?=
+ =?utf-8?B?cFU3MllmTkFaTmZpeUs1RVZlU09iY21iVjVsM0o2YnFLZ0EwbHhKUTFnQllk?=
+ =?utf-8?B?RDVaK3lMa0ZFWGxpZUJ3OTFDZXB1anBkczVEdkZJc3Q2V1dKc1VTYkgwV2d2?=
+ =?utf-8?B?V216VDd3cjZESW9vQUhad0pJQ2pPQllmNE4vbFdMdFRVR1B5M0d0UWhJZ1kw?=
+ =?utf-8?B?RXhuSWJvc1BqQ1NGMEZDYWk3ekNZenJhazREL2RENWVnNXlNdml0ZUlQYkRG?=
+ =?utf-8?B?WHR3b1V5K2x1T2MrWTRoaDdOTTdtc3orVTJwSEJKekg0U1RRK0FrS1JTWFQx?=
+ =?utf-8?B?VzREamlsVTRWMHMyamIyWEhmdlRJK3NUNnIwbFZBSDczUTFLYVo2NDF3NWdL?=
+ =?utf-8?B?TVROcFB1UGJNMldhNEliclhPYmFtSlJDV3FySE5CdjVuZXBtdHhTeFRUeHZx?=
+ =?utf-8?B?emxPMTZCYW5YeCtpMG10RW5mWS9QeHhmV015WDE3dGR6U0FPak9MTG1ZR29R?=
+ =?utf-8?B?Z3lVQUJrZzlRSHhLZDRwT3JLalJJY1dRYmJJa0FPUFoxOXlHTzNTaEtFeUE5?=
+ =?utf-8?B?S2lOb1VPN3BmdFJsbmpqWnhGdTBXQy9LK3dKVlV4S2JsUnAwQzVwR0RHTFF5?=
+ =?utf-8?B?L2FqbndpcVFBejJoMUxLNXFmVXhiWlZ6ODdLc2xiYXpqQUxIMkhEL0FMTGNn?=
+ =?utf-8?B?Z0JmVFgyZmZQUWs3dUZZRS95ckVLUXQ5MUNRcVRUWW5TMSt6WVBhQTJUY3lu?=
+ =?utf-8?B?RjFtcnZpQkVjMDdnVHJ4UUsrYkdTRk5MMlZkdVgreG1VOGwrTE40TGdiY3h5?=
+ =?utf-8?B?bEVZQ09GTnRFejMvQThpZ0hlcEJMWjhOZkZCZlJrdlFRcVRWMWFwVThDMDBW?=
+ =?utf-8?B?UU1EaDJNTlJwbFdjS2pqajJqVlFYMkMrclRUOEZiQm5oVEhCNVhkY2VTSUtq?=
+ =?utf-8?B?aU1IZDZXOVFNYW1od3F5cEZiQUhSd3hLYUhNTXdzdHUrWlpGNTd2NnR5c0NK?=
+ =?utf-8?B?YytvU05YNTI2bkVaTWtwdXZYMDN3T0YzY3B1TlFLK2pkSS9uLy9DT25ucW1q?=
+ =?utf-8?B?ekxPUi9VQjhOV1FsQkhLT0FmSUVWMlRsRzkrZmNNMGVmbUJEUHE0K3pzUmxU?=
+ =?utf-8?B?eVdTdDZYN2V5YlRMdWlkMEx4bk9XNE5KVWRmWTIzbGhIYjlBalBobmk3QVRY?=
+ =?utf-8?B?WlE9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e2105f9-c456-48e2-4206-08dd0a6c1e4a
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2024 20:36:04.1731
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4kdabCx00XQ1A1qI/Dhx6KyU195EAiPDx6AZSazN8w39qcIgGUjqk7YAKcwPvOgb2tiT6hPGq851kHQNg+g0HXmv8e3g84sLrZ04cdBwLcc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR11MB8440
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_112235_598354_9090EB44 
-X-CRM114-Status: UNSURE (   8.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241121_123613_718446_2AF334C6 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,43 +213,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 Nov 2024 12:02:04 +0000, Mark Rutland wrote:
-> The kprobes_test suite's test_stacktrace_on_nested_kretprobe() test
-> currently fails on arm64, e.g.
+
+
+On 11/19/2024 1:32 PM, Guenter Roeck wrote:
+> VCAP API unit tests fail randomly with errors such as
 > 
-> | KTAP version 1
-> | 1..1
-> |     KTAP version 1
-> |     # Subtest: kprobes_test
-> |     # module: test_kprobes
-> |     1..7
-> |     ok 1 test_kprobe
-> |     ok 2 test_kprobes
-> |     ok 3 test_kprobe_missed
-> |     ok 4 test_kretprobe
-> |     ok 5 test_kretprobes
-> |     ok 6 test_stacktrace_on_kretprobe
-> |     # test_stacktrace_on_nested_kretprobe: EXPECTATION FAILED at lib/test_kprobes.c:327
-> |     Expected stack_buf[i + 1] == target_return_address[1], but
-> |         stack_buf[i + 1] == -96519936577004 (0xffffa83733777214)
-> |         target_return_address[1] == -96519936577136 (0xffffa83733777190)
-> |     # test_stacktrace_on_nested_kretprobe: EXPECTATION FAILED at lib/test_kprobes.c:338
-> |     Expected stack_buf[1] == target_return_address[1], but
-> |         stack_buf[1] == -96519936577004 (0xffffa83733777214)
-> |         target_return_address[1] == -96519936577136 (0xffffa83733777190)
-> |     not ok 7 test_stacktrace_on_nested_kretprobe
-> | # kprobes_test: pass:6 fail:1 skip:0 total:7
-> | # Totals: pass:6 fail:1 skip:0 total:7
-> | not ok 1 kprobes_test
+>    # vcap_api_iterator_init_test: EXPECTATION FAILED at drivers/net/ethernet/microchip/vcap/vcap_api_kunit.c:387
+>    Expected 134 + 7 == iter.offset, but
+>        134 + 7 == 141 (0x8d)
+>        iter.offset == 17214 (0x433e)
+>    # vcap_api_iterator_init_test: EXPECTATION FAILED at drivers/net/ethernet/microchip/vcap/vcap_api_kunit.c:388
+>    Expected 5 == iter.reg_idx, but
+>        iter.reg_idx == 702 (0x2be)
+>    # vcap_api_iterator_init_test: EXPECTATION FAILED at drivers/net/ethernet/microchip/vcap/vcap_api_kunit.c:389
+>    Expected 11 == iter.reg_bitpos, but
+>        iter.reg_bitpos == 15 (0xf)
+>    # vcap_api_iterator_init_test: pass:0 fail:1 skip:0 total:1
 > 
-> [...]
+> Comments in the code state that "A typegroup table ends with an all-zero
+> terminator". Add the missing terminators.
+> 
+> Some of the typegroups did have a terminator of ".offset = 0, .width = 0,
+> .value = 0,". Replace those terminators with "{ }" (no trailing ',') for
+> consistency and to excplicitly state "this is a terminator".
+> 
+> Fixes: 67d637516fa9 ("net: microchip: sparx5: Adding KUNIT test for the VCAP API")
+> Cc: Steen Hegelund <steen.hegelund@microchip.com>
+> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+> ---
 
-Applied to arm64 (for-next/fixes), thanks!
-
-[1/1] arm64: disable ARCH_CORRECT_STACKTRACE_ON_KRETPROBE tests
-      https://git.kernel.org/arm64/c/a63d7408afbd
-
--- 
-Catalin
-
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
 
