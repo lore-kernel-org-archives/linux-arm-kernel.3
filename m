@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91111D75BD9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 08:54:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD93ED75BD9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 08:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nGgcMQOyoNutpsDucpx7WNm5gsRWQCIIP5hQUFlLet0=; b=E+uOaG8O5TUbt5
-	JGYrMViL0wwKUEkeXmg/q8nEACVA/BQJckrV3eyKLdgVk9rgtN/vQLYacRMiYlQ1OkDoenwmRnjdj
-	culJGToJyJ6pZaJ5WoTLLWOz/fxnxh7XGDVj9tT5ij9vMsJwfLWqvu1Y9bGXqfTV2cfwhUVSGItDG
-	9TjjHXSZKk/RwS52oTQXsBf5gwY+aJeWDoOrXKrzecwJ1OypX3NxhQg2Qjoj3aHm0baJxmgZOUj86
-	7D7PHPGoHXst3fq1RyLifVZd4TBndSMKgvmtcDpsO7DOPnnLafbZ49y2U6pq/F9Z8HCya4o2t0YF4
-	/+pTZN2crn+EnHMK+mzA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5MCyWyyuLRYxP0oH9ltkOsqfvK0CBscNjWxECImzBCc=; b=CfpEpS3CYZzJo6T0NmAmLq6Xe2
+	qvIU/bUIVsQ7SfZkVUgs21bTIUhnmFwLYBLBSD1JRpRuXI96sV41y5ehUaUqT2QzdUSoaMpMZX5fO
+	sKWL9RkEgd5Qotbqpdf8Ga7sSw77zzIbAW3N2G9fhtphhob10ZECw2KBupMyLhuVh7x5uk7EJRfXS
+	OcGCGGTPYUNmoC+p4TncZr5nz5a76U2W7xnhbhMO2I/DcImY7iKpiEfI8mVtLgLa6ovTX/uhtMTjO
+	5mlVwRLftgeCQ5Vig2IeKMSl9dSbNZfmsgGnvGf4WUtkQb1uXd0JgV4TNJ8VoTM6KX85gVrKMJdw8
+	kW93Z3Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE2x9-0000000H9Al-0A15;
-	Thu, 21 Nov 2024 08:54:19 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tE2y3-0000000H9P5-25Dl;
+	Thu, 21 Nov 2024 08:55:15 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE2wB-0000000H8vQ-0ms9
+	id 1tE2wB-0000000H8vV-1f8j
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 08:53:21 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3822ba3cdbcso446926f8f.0
+	Thu, 21 Nov 2024 08:53:22 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-37ed3bd6114so374544f8f.2
         for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Nov 2024 00:53:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1732179197; x=1732783997; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=nGgcMQOyoNutpsDucpx7WNm5gsRWQCIIP5hQUFlLet0=;
-        b=rEqmtHL1icOh1pGEV17a5sx4YaaCQGP2hgoJ8pQHSqJQ5u7ardsf2aacDYC1QfI/Y1
-         yKz88FgWvNLinR5o/QYAegifrqX3FCb7KTPLZPHRhpeL1R758qGmembrWfAEUnOEUNrA
-         DnNzZTtTw+E8UncLqeS1lJnhFza/vSGm/6FFxd3mfBkdAN4txneEeh9RSmDbntrwGLND
-         Ex4U2yVv0enFa6xuUHu1uIPcYeTRE3KqTzPkeYy5Agqfi/co3GomeOAX+XlJ3mdOG3Ay
-         DQjM3fbCRB5MSQOVr2iQg6JFRU0U1/iJplJyfIgdab4KdxEfrzWH51h2uQJCvF/cHFV6
-         3DPg==
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5MCyWyyuLRYxP0oH9ltkOsqfvK0CBscNjWxECImzBCc=;
+        b=xXIgiUf0rSevbYSQa2MUIOriUNpLza2DBkfAhBCtrWsqh5bqs2uzLqQ0SM21qII8Y1
+         DIXrFFKTxQzc//JZkVkgI/okiPLdPpm3cqL7ABFFhcGRjpwEVHoMRyFO9qSAv/RK+LB2
+         mfqjFe3XTi41/qTdC/mBzE9g9kMPSpldDpbH9T8yeIdyAw9zpLCvv6sxGrSqQoEJ9B0a
+         PnR6adG0i0aV1zpZgw66amcfH4GAir+WXrxWkiLUgnFbb9TMvNzb6c/JwgdWXjK887JN
+         m/CPN/x2g+PVhEt6nW2N5Vrwc/qiaAnh0t6m8txgzgV4hvhxJ0bBeJkFobocJ4SVLq8z
+         4knw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1732179197; x=1732783997;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nGgcMQOyoNutpsDucpx7WNm5gsRWQCIIP5hQUFlLet0=;
-        b=QR5Kv3MyTRnELr9y4hGCQtmslv9bI7xjqLyH+FJx02tgGUrRCmHWRhzJh/U5LHJdSo
-         qC//PwBjAa1efr3hp6k2AdKQZTWlLqlza3HoRz0kTxb+vU/4fiXV22TWkRSEmui4N0iD
-         JEw+62YFJNopD2irFRM4LK5k4BjNj2jcwVy8BaAIsR71v7tFbaY/OmkXHT61vpWWIxf/
-         XQXp5U9H2BRB7Txb0Itmdx3JC/7tvzL8kGlNMVwAevqtGVnUDvfnF7OVU3bLN8SKlgzy
-         5++ICW+hnW0dwspHBUxpkYrV8Ui6WmpzHcAttxUYDsECqKKytoHXmKrjgU9MJEUv7RZB
-         HLIA==
-X-Forwarded-Encrypted: i=1; AJvYcCV/iqQgK5u7qgFhHXzfuMYNt9oOGu1MDAlUfX6kvq968CG75lZB9oB5wbdudwuG1LbR2CYrw/00keTMlYejGHvf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzqw/4aZaLRmvUPCB1wzldWiel4W/xuKrSJvQR4M3TyeRYhsWM4
-	kltbJNW5Y7DzaD01njOK6y7JmRlYcfUTypc64IrX3FUoqqk2tQlLGifLBHCG+m4=
-X-Google-Smtp-Source: AGHT+IFAFaehgq7cVhvvJuZ5zckDS9xKRaW5l8I8upDHgvwQgsaiHiJYFMDXc+q7s2hhmQYqh9r+Dw==
-X-Received: by 2002:a5d:5849:0:b0:382:4c36:e072 with SMTP id ffacd0b85a97d-38254afab8cmr3715943f8f.30.1732179196734;
-        Thu, 21 Nov 2024 00:53:16 -0800 (PST)
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5MCyWyyuLRYxP0oH9ltkOsqfvK0CBscNjWxECImzBCc=;
+        b=VjpoP7aCuc0kRApiwrSVF7npQ375zH8hOs1MSxjtE4Ow/4lqLQWlx5dlplNIiSzpew
+         IZ+WCAo0bFYjCQi3lkLtey1NooLmTp+yYuU2ILOR1kL6GvJhFUJL4jvItTk8B16Jn/3T
+         F/D0aY+egOfLxD/B6N6CIXpYQaLwCLMGmuMr+KJ6Dq35u5dcwyESSPw/3D8q0zh8Q8dr
+         BmvwXIbTz3dvcKK5j0kauxAP6vlImqNljG9bzac0CdGzmCsBOnxcGY4Bfng1bjZHl26c
+         MOAZkWQ5DJQ6rZKBmqpE6CP83j1zCroDibXzN+YZAbDaJoCAOwn07VfWX/GmSvcxpanS
+         M4Iw==
+X-Forwarded-Encrypted: i=1; AJvYcCX8IKC0OY9DcIAhSRi+QGftxcSEhkouKP/W5M+sHdJOP94PkqqoayvFf6hmWSwBGzHNSSueT47IIr/UbNaHXWKw@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuXGxSA8VWwqph3yvdLBoK9A6FhLL5W8X5fk5HOizzXlgybIk0
+	uHaCRB6es7k8+mImp9n7/quvyDRELFAOjbHs36+FjxiTb7kk+U21J2AD9sbcK5k=
+X-Gm-Gg: ASbGnctgLO9yjkc92VS9J5Z3Q/b7QqL1/Q7j0OdpO10/p4L/Pud2DwNhfJMQr2agik+
+	j6u9OweiyU91zN0jTT8U41tkOFz4c1zZ2l6VM58mSqgRUPx578oZGktTA9U2spHejcfvjryjp4n
+	gPkVqHuNC1mrR3Qzu5JFZkdBkr3YgcfeB4LDb4M5/YvMfXQVl9tpemYmOlvts/IvrUtVaFq/v1B
+	yyDL6cfTlHzIE1tkmgrRBjMahrBY7Nn7dJqNN++vfIj2EgeodrVy8pZdIBiZZ7ckNAgrV9h0ZGb
+	pQVgHINqBPKg7lSp9+rA6AlenS+8sZnFr67B09BkDs8=
+X-Google-Smtp-Source: AGHT+IEMIkoLdPBEX/9Nv5t80VVjflIxCN9/zIPP7NEINBt57fCC+7zzZNTiyW6G4qkMw3XegNJTaQ==
+X-Received: by 2002:a5d:5985:0:b0:382:4a80:a616 with SMTP id ffacd0b85a97d-38254ae0006mr4981983f8f.9.1732179197597;
+        Thu, 21 Nov 2024 00:53:17 -0800 (PST)
 Received: from [192.168.42.0] (2a02-842a-d52e-6101-6fd0-06c4-5d68-f0a5.rev.sfr.net. [2a02:842a:d52e:6101:6fd0:6c4:5d68:f0a5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-382549111fdsm4219900f8f.58.2024.11.21.00.53.15
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-382549111fdsm4219900f8f.58.2024.11.21.00.53.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Nov 2024 00:53:16 -0800 (PST)
+        Thu, 21 Nov 2024 00:53:17 -0800 (PST)
 From: Julien Stephan <jstephan@baylibre.com>
-Subject: [PATCH v7 0/5] Add Mediatek ISP3.0
-Date: Thu, 21 Nov 2024 09:53:14 +0100
-Message-Id: <20241121-add-mtk-isp-3-0-support-v7-0-b04dc9610619@baylibre.com>
+Date: Thu, 21 Nov 2024 09:53:15 +0100
+Subject: [PATCH v7 1/5] dt-bindings: media: add mediatek ISP3.0 sensor
+ interface
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPr0PmcC/4XNwQ6CMAyA4VcxOzszB2zgyfcwHkYp0ihs2XCRE
- N7dwcmYGHv7m/TrzAJ6wsBOu5l5jBTIDin0fsegM8MNOTWpmRQyF1rk3DQN78c7p+B4xgUPT+e
- sH7kRpal0CQYyxdK189jSa5Mv19QdhdH6aXsUi3X734xFirqFdQoEeTzXZnpQ7fEAtmcrG9UHJ
- avflEoBmc6hQgFKyy9qWZY358tdBQwBAAA=
-X-Change-ID: 20240704-add-mtk-isp-3-0-support-a08a978cac36
+Message-Id: <20241121-add-mtk-isp-3-0-support-v7-1-b04dc9610619@baylibre.com>
+References: <20241121-add-mtk-isp-3-0-support-v7-0-b04dc9610619@baylibre.com>
+In-Reply-To: <20241121-add-mtk-isp-3-0-support-v7-0-b04dc9610619@baylibre.com>
 To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
  Andy Hsieh <andy.hsieh@mediatek.com>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -84,13 +88,11 @@ To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, Julien Stephan <jstephan@baylibre.com>, 
- Louis Kuo <louis.kuo@mediatek.com>, Phi-Bang Nguyen <pnguyen@baylibre.com>, 
- Florian Sylvestre <fsylvestre@baylibre.com>, 
- Paul Elder <paul.elder@ideasonboard.com>
+ Louis Kuo <louis.kuo@mediatek.com>, Phi-Bang Nguyen <pnguyen@baylibre.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_005319_238529_13817EAC 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20241121_005319_446877_481D1175 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,135 +107,308 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds the support of the Mediatek ISP3.0 found on some
-Mediatek SoCs such as the mt8365. The driver is divided into 2 parts:
+From: Louis Kuo <louis.kuo@mediatek.com>
 
-* SENINF: the sensor interface
-* CAMSV: this driver provides a path to bypass the SoC ISP so that image
-  data coming from the SENINF can go directly into memory without any
-  image processing. This allows the use of an external ISP or camera
-  sensor directly.
+This adds the bindings, for the mediatek ISP3.0 SENINF module embedded in
+some Mediatek SoC, such as the mt8365
 
-The SENINF driver is based on previous work done by Louis Kuo available
-as an RFC here: https://lore.kernel.org/all/20200708104023.3225-1-louis.kuo@mediatek.com/
-
-Changes in v7:
-- fix several comments from Laurent Pinchart and CK about style issues,
-  such as: sort Kconfig and Makefile alphabetically, remove unneeded headers,
-  use 80 char limits ...
-- add back I/O accessors around readl/writel
-- use enable_streams/disable_streams instead of s_stream
-- use v4l2_subdev_init_finalize and don't store active format
-- remove mtk_camsv30_regs.h file to merge it inside mtk_camsv30_hw.c
-- adding reviewed-by tag from robh and angelo
-- implement .has_pad_interdep callback to fix multistream error
-- fix mtk_seninf_get_clk_divider to give the correct pad number. This
-  caused an issue for multi camera
-- use hardware FBC (framce buffer control) instead of dummy buffer to
-  deal with underrruns
-- simplify directory architecture and remove isp_30, camsv and seninf
-  directories
-
-- Link to v6: https://lore.kernel.org/r/20240729-add-mtk-isp-3-0-support-v6-0-c374c9e0c672@baylibre.com
-
-Changes in v6:
-- remove unneeded "link" tag from commits
-
-bindings:
-- remove labels from example node
-- remove complexity for phy and phy-name properties
-
-driver:
-- fix some comments from CK :
-  - remove unneeded variables
-  - rename irqlock to buf_list_lock for clarity
-  - remove unneeded lock/unlock around hw_enable/hw_disable
-
-- Link to v5: https://lore.kernel.org/r/20240704-add-mtk-isp-3-0-support-v5-0-bfccccc5ec21@baylibre.com
-
-Changes on v5:
-drivers:
-- rebase on 6.10-rc1
-- fix various comments from all reviews (mostly style issues and minor
-  code refactor)
-- add a function to calculate the clock divider for the master sensor
-  clock: NOTE: setting this register seems to have no effect at all,
-  currently checking with mediatek apps engineer (OOO until 17/04)
-
-bindings:
-- camsv: update description
-- seninf: fix phy definition and example indentation
-- use generic name for node example
-
-dts:
-- sort nodes by addresses
-- use lower case for hexadecimal
-
-Changes in v4:
-- fix suspend/resume deadlock
-- fix various locking issues reported by Laurent Pinchart on v3
-- run LOCKDEP
-- add missing include reported by kernel-test-robot for non mediatek arch and COMPILE_TEST=y
-- use atomic poll inside mtk_camsv30_setup
-- drop second lane support as it was not used
-- remove useless members in structs
-- fix media entity initialization
-- initialize correct pad for camsv video device
-- add isp support in mt8365.dtsi
-- rebase on 6.7
-
-Changes in v3:
-- fix a lot of formatting issues/coding style issues found in camsv/seninf reported by Angelo on v2
-- fix camsv/seninf binding file error reported by Rob
-
-Changes in v2:
-- renamed clock `cam_seninf` to `camsys`
-- renamed clock `top_mux_seninf` to `top_mux`
-- moved phy properties from port nodes to top level
-- remove patternProperties
-- specify power management dependency in the cover letter description to fix
-  missing include in dt-binding example
-- change '$ref' properties on some endpoint nodes from
-  '$ref: video-interfaces.yaml#' to '$ref: /schemas/graph.yaml#/$defs/endpoint-base'
- where applicable
-
-Best
-Julien Stephan
-
+Signed-off-by: Louis Kuo <louis.kuo@mediatek.com>
+Signed-off-by: Phi-Bang Nguyen <pnguyen@baylibre.com>
+Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Julien Stephan <jstephan@baylibre.com>
 ---
-Julien Stephan (1):
-      arm64: dts: mediatek: mt8365: Add support for camera
+ .../bindings/media/mediatek,mt8365-seninf.yaml     | 259 +++++++++++++++++++++
+ MAINTAINERS                                        |   7 +
+ 2 files changed, 266 insertions(+)
 
-Louis Kuo (2):
-      dt-bindings: media: add mediatek ISP3.0 sensor interface
-      media: platform: mediatek: isp: add mediatek ISP3.0 sensor interface
+diff --git a/Documentation/devicetree/bindings/media/mediatek,mt8365-seninf.yaml b/Documentation/devicetree/bindings/media/mediatek,mt8365-seninf.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..8bd78ef424acf1ec207b527b4a84b6a535f37593
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/mediatek,mt8365-seninf.yaml
+@@ -0,0 +1,259 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++# Copyright (c) 2023 MediaTek, BayLibre
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/mediatek,mt8365-seninf.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek Sensor Interface 3.0
++
++maintainers:
++  - Laurent Pinchart <laurent.pinchart@ideasonboard.com>
++  - Julien Stephan <jstephan@baylibre.com>
++  - Andy Hsieh <andy.hsieh@mediatek.com>
++
++description:
++  The ISP3.0 SENINF is the CSI-2 and parallel camera sensor interface found in
++  multiple MediaTek SoCs. It can support up to three physical CSI-2 input ports,
++  configured in DPHY (2 or 4 data lanes) or CPHY depending on the SoC.
++  On the output side, SENINF can be connected either to CAMSV instance or
++  to the internal ISP. CAMSV is used to bypass the internal ISP processing
++  in order to connect either an external ISP, or a sensor (RAW, YUV).
++
++properties:
++  compatible:
++    const: mediatek,mt8365-seninf
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Seninf camsys clock
++      - description: Seninf top mux clock
++
++  clock-names:
++    items:
++      - const: camsys
++      - const: top_mux
++
++  phys:
++    minItems: 2
++    maxItems: 2
++    description:
++      phandle to the PHYs connected to CSI0/A, CSI1, CSI0B
++
++  phy-names:
++    description:
++      list of PHYs names
++    minItems: 2
++    maxItems: 2
++    items:
++      enum: [ csi0, csi1, csi0b]
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: CSI0 or CSI0A port
++
++        properties:
++          endpoint:
++            $ref: video-interfaces.yaml#
++            unevaluatedProperties: false
++
++            properties:
++              clock-lanes:
++                maxItems: 1
++              data-lanes:
++                minItems: 1
++                maxItems: 4
++
++      port@1:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: CSI1 port
++
++        properties:
++          endpoint:
++            $ref: video-interfaces.yaml#
++            unevaluatedProperties: false
++
++            properties:
++              clock-lanes:
++                maxItems: 1
++              data-lanes:
++                minItems: 1
++                maxItems: 4
++
++      port@2:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: CSI2 port
++
++        properties:
++          endpoint:
++            $ref: video-interfaces.yaml#
++            unevaluatedProperties: false
++
++            properties:
++              clock-lanes:
++                maxItems: 1
++              data-lanes:
++                minItems: 1
++                maxItems: 4
++
++      port@3:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: CSI0B port
++
++        properties:
++          endpoint:
++            $ref: video-interfaces.yaml#
++            unevaluatedProperties: false
++
++            properties:
++              clock-lanes:
++                maxItems: 1
++              data-lanes:
++                minItems: 1
++                maxItems: 2
++
++      port@4:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: connection point for cam0
++
++      port@5:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: connection point for cam1
++
++      port@6:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: connection point for camsv0
++
++      port@7:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: connection point for camsv1
++
++      port@8:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: connection point for camsv2
++
++      port@9:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: connection point for camsv3
++
++    required:
++      - port@0
++      - port@1
++      - port@2
++      - port@3
++      - port@4
++      - port@5
++      - port@6
++      - port@7
++      - port@8
++      - port@9
++
++required:
++  - compatible
++  - interrupts
++  - clocks
++  - clock-names
++  - power-domains
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/mediatek,mt8365-clk.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/phy/phy.h>
++    #include <dt-bindings/power/mediatek,mt8365-power.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        csi@15040000 {
++            compatible = "mediatek,mt8365-seninf";
++            reg = <0 0x15040000 0 0x6000>;
++            interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_LOW>;
++            clocks = <&camsys CLK_CAM_SENIF>,
++                     <&topckgen CLK_TOP_SENIF_SEL>;
++            clock-names = "camsys", "top_mux";
++
++            power-domains = <&spm MT8365_POWER_DOMAIN_CAM>;
++
++            phys = <&mipi_csi0 PHY_TYPE_DPHY>, <&mipi_csi1>;
++            phy-names = "csi0", "csi1";
++
++            ports {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                port@0 {
++                    reg = <0>;
++                    seninf_in1: endpoint {
++                        clock-lanes = <2>;
++                        data-lanes = <1 3 0 4>;
++                        remote-endpoint = <&isp1_out>;
++                    };
++                };
++
++                port@1 {
++                    reg = <1>;
++                };
++
++                port@2 {
++                    reg = <2>;
++                };
++
++                port@3 {
++                    reg = <3>;
++                };
++
++                port@4 {
++                    reg = <4>;
++                    seninf_camsv1_endpoint: endpoint {
++                        remote-endpoint = <&camsv1_endpoint>;
++                    };
++                };
++
++                port@5 {
++                    reg = <5>;
++                    seninf_camsv2_endpoint: endpoint {
++                        remote-endpoint = <&camsv2_endpoint>;
++                    };
++                };
++
++                port@6 {
++                    reg = <6>;
++                };
++
++                port@7 {
++                    reg = <7>;
++                };
++
++                port@8 {
++                    reg = <8>;
++                };
++
++                port@9 {
++                    reg = <9>;
++                };
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 4c7f9e37c5653664a11a2cb36aba942830b5a8d1..242c54c88a4a22fc0cbe5c4fc5d7b0d0f84b329e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -14565,6 +14565,13 @@ M:	Sean Wang <sean.wang@mediatek.com>
+ S:	Maintained
+ F:	drivers/char/hw_random/mtk-rng.c
+ 
++MEDIATEK ISP3.0 DRIVER
++M:	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
++M:	Julien Stephan <jstephan@baylibre.com>
++M:	Andy Hsieh <andy.hsieh@mediatek.com>
++S:	Supported
++F:	Documentation/devicetree/bindings/media/mediatek,mt8365-seninf.yaml
++
+ MEDIATEK SMI DRIVER
+ M:	Yong Wu <yong.wu@mediatek.com>
+ L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
 
-Phi-bang Nguyen (2):
-      dt-bindings: media: add mediatek ISP3.0 camsv
-      media: platform: mediatek: isp: add mediatek ISP3.0 camsv
-
- .../bindings/media/mediatek,mt8365-camsv.yaml      |  109 ++
- .../bindings/media/mediatek,mt8365-seninf.yaml     |  259 ++++
- MAINTAINERS                                        |    9 +
- arch/arm64/boot/dts/mediatek/mt8365.dtsi           |  125 ++
- drivers/media/platform/mediatek/Kconfig            |    1 +
- drivers/media/platform/mediatek/Makefile           |    1 +
- drivers/media/platform/mediatek/isp/Kconfig        |   35 +
- drivers/media/platform/mediatek/isp/Makefile       |    9 +
- drivers/media/platform/mediatek/isp/mtk_camsv.c    |  275 ++++
- drivers/media/platform/mediatek/isp/mtk_camsv.h    |  170 ++
- .../media/platform/mediatek/isp/mtk_camsv30_hw.c   |  539 +++++++
- .../media/platform/mediatek/isp/mtk_camsv_video.c  |  701 +++++++++
- drivers/media/platform/mediatek/isp/mtk_seninf.c   | 1636 ++++++++++++++++++++
- .../media/platform/mediatek/isp/mtk_seninf_reg.h   |  114 ++
- 14 files changed, 3983 insertions(+)
----
-base-commit: 00873e6fe91b77e9bbc82012fe6103080066fbfc
-change-id: 20240704-add-mtk-isp-3-0-support-a08a978cac36
-
-Best regards,
 -- 
-Julien Stephan <jstephan@baylibre.com>
+2.47.0
 
 
