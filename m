@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E64D75BA2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 02:22:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EABE7D75BA1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 02:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9kEGhgPMsQM8K8bGXZN9cSvs1hdDBG6uzi3+T3N2iUU=; b=nE0ORCu0CrE/UuQZAlVS3J8Xu4
-	I5IkqplPjXNCJc+d83vh45w8ZNOr8eUFycL4ZspmpMivesu24h+1g2GVC1ni6wePRfh0E5pLbEbvU
-	1vQJkAMahrcvuwRmEqQXHg+igToQUUikxGWwvM6Hhgyxl5ADQ9VFfeuOJT9B7HxIGFI8niD7aTQEx
-	i3PXxqhIwqrTOscAsZabqT3QUQHBDEBtiMj1QXEHN2wjCMt1jVH7DFDJxCU0GoIQWEzUCBpp19RNg
-	NMZs7IBBCCmalSukgvatGMOou6kmBF31c97rBmWTF1PhZj4b/HtWHE9AQ8abN3Ecv9YmHuliSYKyt
-	pQSTiOAg==;
+	bh=meHHH7M2j2wbPMYh1ML8vwpSTa9Bl+FhuoT5WN+J4RA=; b=vOaToTaC4sr2vrwGdnTIBb7wU9
+	fp3iGDo8gwCXuJiJT1NJCzNMrEJ6DJ5rjmEl22n3xvzyZKoveDt5RsviUEDGPyea6G2MX3pV0rXDi
+	dVSV6/FBQLi132ILAFvJzihpqlCSjnnHaCiu9Ip/SeG+bNqdeHfw6Om+3ifNDQfulq37qPuwOne4I
+	9/JB00pzsE/YT1rhk8ulKao9XugONuvsfFba6JSDaEa/awkH5AYlGJfzfxccdb/4uSPo6CjAfflfx
+	2nR3gSR2KOUXH0s+8oFB6L9FB3cNQU8Q3ifTZqKzU7hJ4mTE9/RQvMqQFLipVFg37uWz0y3pz/ugF
+	rHQoM6sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDwpj-0000000GauT-2gdO;
-	Thu, 21 Nov 2024 02:22:15 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1tDwqd-0000000GazC-0vzA;
+	Thu, 21 Nov 2024 02:23:11 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDwoo-0000000GasF-0JL3
+	id 1tDwos-0000000Gasc-1B7B
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 02:21:19 +0000
+	Thu, 21 Nov 2024 02:21:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732155678; x=1763691678;
+  t=1732155682; x=1763691682;
   h=date:from:to:cc:subject:message-id;
-  bh=N8FnIWiSZIJSFCVy+7lizgCMwGHK+ORpuJFLrsB1aIY=;
-  b=XxWchPOPojjs0mdnyCV9N5eS8fSjvCY7vNOdEhSVF78EUpmaFj4KsD+O
-   eNSkPklF6NgSL7akJMIqt69p3BzIY6/fI6GKKd0ZB6tZmi7NHyY7v5km8
-   7DtYz7HZ1Rm5zwBiZ9AogHUNKt+dMyTIsPiwawEb992EcDnGf8L05iKbk
-   3UAiXBD6zCbSRo3rgJyQpadrjHgO00+0IklexW6mOZaebw0OyBsoy0ukk
-   t7nZ0dEYitBR1dFhgX8Nh1etvp+niSzbcNUmOk//qPHEbuwIZnrzCwgoN
-   ia4ohCGX4y3/K3deiwXcrfVvywHy1mtrZuaMzF2jWt6Hfn0VZytb7AMzD
-   A==;
-X-CSE-ConnectionGUID: rja9SkogTgSxPH6w6xupCw==
-X-CSE-MsgGUID: rDb35eA7TemEtjh9vHHtQw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11262"; a="32379926"
+  bh=DVYd009tIVWNLCufRVlLLrL/Md5ptLHv0iwu+oWyQzE=;
+  b=AaIBN1NGJ+r4UdialQ9FSF91+UHp5zKdHjRJmeClf8O35gOTpGjH/CSI
+   J2b2qvauRR7XQ036TX6tvcWjPgAEZFWvM9R2slW2wIs2LrJUel5wTGeTR
+   XvbTlx73f2kLuYH4pXhBLYUmdvK+ifyt2kZ33UpPLQzfz0+rR5XT9rdE8
+   6W/36KI+DZG56doSRZJk/pw+O89wyjmoYrGZKfWCxpoFad0pJM519A/xk
+   f1C/jJj5wBKGlQEGZySxVnljIYZjeW7hLwPSwqPpWHQNmlu9Zl63/vpTO
+   cJDt6RIjbSd6jnx/5k9CB/qJAHi3wSIxfZZputcP7q041oD5jVCMDTGg+
+   w==;
+X-CSE-ConnectionGUID: tG3Qy1ufQT+bVoIyMv/y3A==
+X-CSE-MsgGUID: nVIoITGXT2ud48ZH6aLE0w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11262"; a="32302503"
 X-IronPort-AV: E=Sophos;i="6.12,171,1728975600"; 
-   d="scan'208";a="32379926"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2024 18:21:16 -0800
-X-CSE-ConnectionGUID: 2xjM8xSLSZagvzgjHMNHcw==
-X-CSE-MsgGUID: ysBE9V42Sw60WJNlqdUdLQ==
+   d="scan'208";a="32302503"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2024 18:21:16 -0800
+X-CSE-ConnectionGUID: pFENAvs4TB+9x3O0X78uxQ==
+X-CSE-MsgGUID: 3NNElqpkQMGJQ1EonzfA4A==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,171,1728975600"; 
-   d="scan'208";a="90226292"
+   d="scan'208";a="113374546"
 Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 20 Nov 2024 18:21:16 -0800
+  by fmviesa002.fm.intel.com with ESMTP; 20 Nov 2024 18:21:15 -0800
 Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1tDwoj-0001RL-06;
+	id 1tDwoj-0001RO-0A;
 	Thu, 21 Nov 2024 02:21:13 +0000
-Date: Thu, 21 Nov 2024 10:20:29 +0800
+Date: Thu, 21 Nov 2024 10:20:07 +0800
 From: kernel test robot <lkp@intel.com>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/drivers] BUILD SUCCESS
- b77587ac51d2fe4b9d5751662ddc083d19153662
-Message-ID: <202411211022.vk8580jQ-lkp@intel.com>
+Subject: [soc:soc/dt] BUILD SUCCESS
+ 9f5cbdaae5f760c218c82e0a5e0f9c58bac56f0c
+Message-ID: <202411211058.YJZIgEbB-lkp@intel.com>
 User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_182118_160643_0B501B1F 
-X-CRM114-Status: UNSURE (   5.42  )
+X-CRM114-CacheID: sfid-20241120_182122_358204_ABBD5883 
+X-CRM114-Status: UNSURE (   5.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,12 +83,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/drivers
-branch HEAD: b77587ac51d2fe4b9d5751662ddc083d19153662  Merge tag 'soc_fsl-6.13-1' of https://github.com/chleroy/linux into soc/drivers
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
+branch HEAD: 9f5cbdaae5f760c218c82e0a5e0f9c58bac56f0c  arm64: dts: apm: Remove unused and undocumented "bus_num" property
 
-elapsed time: 1450m
+elapsed time: 1449m
 
-configs tested: 85
+configs tested: 100
 configs skipped: 2
 
 The following configs have been built successfully.
@@ -123,16 +123,21 @@ hexagon                 allnoconfig    clang-20
 hexagon                allyesconfig    clang-20
 hexagon     randconfig-001-20241121    clang-20
 hexagon     randconfig-002-20241121    clang-15
+i386                   allmodconfig    gcc-12
+i386                    allnoconfig    gcc-12
+i386                      defconfig    clang-19
 loongarch              allmodconfig    gcc-14.2.0
 loongarch               allnoconfig    gcc-14.2.0
 loongarch   randconfig-001-20241121    gcc-14.2.0
 loongarch   randconfig-002-20241121    gcc-14.2.0
 m68k                   allmodconfig    gcc-14.2.0
+m68k                    allnoconfig    gcc-14.2.0
 m68k                   allyesconfig    gcc-14.2.0
 microblaze             allmodconfig    gcc-14.2.0
 microblaze              allnoconfig    gcc-14.2.0
 microblaze             allyesconfig    gcc-14.2.0
 mips                    allnoconfig    gcc-14.2.0
+nios2                   allnoconfig    gcc-14.2.0
 nios2       randconfig-001-20241121    gcc-14.2.0
 nios2       randconfig-002-20241121    gcc-14.2.0
 openrisc                allnoconfig    gcc-14.2.0
@@ -166,20 +171,30 @@ s390                      defconfig    clang-20
 s390        randconfig-001-20241121    gcc-14.2.0
 s390        randconfig-002-20241121    clang-20
 sh                     allmodconfig    gcc-14.2.0
+sh                      allnoconfig    gcc-14.2.0
 sh                     allyesconfig    gcc-14.2.0
 sh                        defconfig    gcc-14.2.0
 sh          randconfig-001-20241121    gcc-14.2.0
 sh          randconfig-002-20241121    gcc-14.2.0
 sparc                  allmodconfig    gcc-14.2.0
 sparc64                   defconfig    gcc-14.2.0
+sparc64     randconfig-001-20241121    gcc-14.2.0
+sparc64     randconfig-002-20241121    gcc-14.2.0
 um                     allmodconfig    clang-20
 um                      allnoconfig    clang-17
 um                     allyesconfig    gcc-12
 um                        defconfig    clang-20
 um                   i386_defconfig    gcc-12
+um          randconfig-001-20241121    gcc-12
+um          randconfig-002-20241121    gcc-12
 um                 x86_64_defconfig    clang-15
+x86_64                  allnoconfig    clang-19
+x86_64                    defconfig    gcc-11
 x86_64                        kexec    clang-19
 x86_64                     rhel-9.4    gcc-12
+xtensa                  allnoconfig    gcc-14.2.0
+xtensa      randconfig-001-20241121    gcc-14.2.0
+xtensa      randconfig-002-20241121    gcc-14.2.0
 
 --
 0-DAY CI Kernel Test Service
