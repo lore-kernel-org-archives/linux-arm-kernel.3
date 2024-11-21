@@ -4,107 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F48BD75BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 04:23:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B00E2D75BB2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 04:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cP3Um0hz7Gv16Gtk91dL7DlYT6sIqAVCB2yrXnpMevM=; b=b6xcR3jBzIoEDa4iAqXWDlBIVd
-	q3FrNsFzma1AO7uB21C9sIdITQHTYcZdir3emZPIZWUoqAMo44VrYJseFMaO7aAIH5ZU47YmNr6qC
-	e+jpaoYLPWsHkTQUvHmo3UVAZN2zdcoMO2j/bwpuimwjuD/VnXhctF1+WpXewKLhmihqtDxdYfOkf
-	sRMielobDBVV2GBvEnLjCA1VN2v1DYF7DWhzKjF2nYwsSwPLYz48wmkITo7TzGYntnyEB1PcDkaO9
-	iLQ9T9Up3lrBgYsbi0OZ5H8nkS3LbuhTfnK/70D2O8STHrhyKPS2yVBxXMUZFir0AX2lYBMM7A5Xq
-	Q3w+yM0A==;
+	bh=iYsVxPJwUafvgN3ouBHNxY+jbFDGOPc1851ZkHUAz0Q=; b=M14X97crh7RVHsEuq6yWlxiQEh
+	ym0ndRxZHEHu6qwa6X1h9NPta0pPmapqiTcEqVV6nW22nju5q05MV8vlUrIWLEB6piZJgnM2FRpOI
+	e8FCeBRle8pk30RNNvB/g1i2Jnn39nlqlS3NhgfEAVwVpVa796ahFHYQ+X6zfNRrNE+WoBN8rwjXx
+	M5/NbUV9Zau2Y/wpz5wjFeCOGuqUbg7IHwD+AJOJxuFd0dOe2JRp+OBBFcRC3MtTxd0t/8svcMotM
+	1xJSsQFB+Gg+atbj8WSLoYjily8+d0iQEOgtvz0H1lb/ARASgFcld/irt6kmiUwkaZ8wyq2IqMi4b
+	yy96drDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDyj1-0000000Gltv-2cSb;
-	Thu, 21 Nov 2024 04:23:27 +0000
-Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
+	id 1tDymd-0000000GmQs-3rO8;
+	Thu, 21 Nov 2024 04:27:11 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDyi4-0000000Glkr-1uly
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 04:22:30 +0000
-Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-6eea47d51aeso4117927b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 20:22:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1732162947; x=1732767747; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=cP3Um0hz7Gv16Gtk91dL7DlYT6sIqAVCB2yrXnpMevM=;
-        b=Qt+Pohig3fM9/2HYcf7m6nD9Il+Syqf7PoERE56KXA80TRcJHpnhFqfWjJDlGV7F35
-         XFFtDxvnrkqhKQrrSJqClrkJ19qfbW/L3lztSwvp0PsXjlMKuc3XigyEwrz8XyLIg95C
-         pMDuPyCkK9k6xIx382hWT/Iiy3YjxeaVFSgrKGfsVLeC8bZNtEXSbMaBI/WQvZhc45+7
-         ecy2tO62R4g2qfq2gXBRDTPZ/RLep/ZHXPgDDV7WQgSXSEz6ck+M45QaB/VV+8iedeKS
-         qDkDk0wyFsCaORvsb4+2KXyziWO612HZK9iHTnAHlDSeCSzVBZHGwX5wKdMH97e6coqQ
-         ds6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732162947; x=1732767747;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cP3Um0hz7Gv16Gtk91dL7DlYT6sIqAVCB2yrXnpMevM=;
-        b=dVmKWxvveEE6oFNVVann/KwR219acaVxw2IRmvFdlysjQcg5Y6ogafZMh/5iiQt/b1
-         stpujW4oqGb+6B3aEV31tVyO2l5kb3j2YOpzMNTlCrVqfn2td+vYxpe/5Djs4nG6d/0c
-         gB5EqgbX9J982QSy7qtS0ZsOMDj1cqOGoaIWix8cJFkY9QlomALeXygtnggXN85GcPEt
-         hK52oKka6/WXOf2KvpjYtH8EWAOTTd5Brr+KXx0ogy5eOf+7+E0wBLex9Jgl9lMiHrfW
-         u2NTLIJ2RkhjbVnY9zxa8MSkIZPjRD1TR1eieYqplWuL1KPP37WeFYksVQBvWAC8W9lR
-         R8LQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXXaFPz9k5ojtmuiTr9Dc2Eg3jwhYBEgmz771oM7NnFvBb9Mwgp25tvQZAGzgdXM1gtdw8lNNiZlnMWF+hjiYJG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yykgl6BVBqSTVIhLn0W6qKYr2FM+vY2YM/YMkTGkEY2rtqx3DJU
-	Liw8a59aZfPz5d/Ry1ywXwiwhcRbSPpqRsqSElPtfeMlQiiXpAUZw0wawjH6CwPCJzJdQmhQ7o8
-	w
-X-Google-Smtp-Source: AGHT+IFG/0lmdLf+PuJVUiUVDthedJQkU+yi8kvRYeLAcyp/RSQ9OGzeQL0b0Fr9yTqYmM0khQUKNg==
-X-Received: by 2002:a05:690c:5a15:b0:6ee:5068:7510 with SMTP id 00721157ae682-6eecc57b073mr20304047b3.26.1732162946630;
-        Wed, 20 Nov 2024 20:22:26 -0800 (PST)
-Received: from ghost ([50.146.0.9])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-6ee71341e4dsm25749277b3.90.2024.11.20.20.22.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Nov 2024 20:22:25 -0800 (PST)
-Date: Wed, 20 Nov 2024 20:22:23 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Ian Rogers <irogers@google.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
-	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
-	Christian Brauner <brauner@kernel.org>, guoren <guoren@kernel.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH RFT 00/16] perf tools: Use generic syscall scripts for
- all archs
-Message-ID: <Zz61f02p8s52G6ba@ghost>
-References: <20241104-perf_syscalltbl-v1-0-9adae5c761ef@rivosinc.com>
- <3b56fc50-4c6c-4520-adba-461797a3b5ec@app.fastmail.com>
- <Zyk9hX8CB_2rbWsi@ghost>
- <CAP-5=fUdZRbCp+2ghEUdp+qJ1BuMDuTtw9R+dFAaom+3oqQV_g@mail.gmail.com>
- <ZylaRaMqEsEjYjs6@ghost>
+	id 1tDylg-0000000Gm4Y-0jZh;
+	Thu, 21 Nov 2024 04:26:13 +0000
+X-UUID: bac95964a7c011ef82ff63e91e7eb18c-20241120
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=iYsVxPJwUafvgN3ouBHNxY+jbFDGOPc1851ZkHUAz0Q=;
+	b=R9meqaIdw4b5XPI2MkXlE8yc+zwpkHsvWKsCDpCtxSVgy5FRzv18FFvZkl9w2Ey3ADtk8CV7Z7rO+DZKMCnZ8jjDwj5E7Ui8/svATf3P20qLuKwrrvrBVXGrXt4Sn0uTTgXEUYtNDLuWgfA8aVukNrvaQS89zueIE0TP66/iOl4=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.44,REQID:50c4d98e-7766-4b1e-a4f5-23733d3603ea,IP:0,U
+	RL:0,TC:0,Content:54,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:54
+X-CID-META: VersionHash:464815b,CLOUDID:0b1b8fa0-f395-4dfc-8188-ce2682df7fd8,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|801,TC:nil,Content:3,EDM:-
+	3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,A
+	V:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: bac95964a7c011ef82ff63e91e7eb18c-20241120
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 897848466; Wed, 20 Nov 2024 21:26:08 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Thu, 21 Nov 2024 12:26:04 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Thu, 21 Nov 2024 12:26:04 +0800
+From: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Chun-Kuang Hu
+	<chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>
+CC: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, "Moudy
+ Ho" <moudy.ho@mediatek.com>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-media@vger.kernel.org>, "Jason-JH . Lin" <jason-jh.lin@mediatek.com>,
+	Singo Chang <singo.chang@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH 2/8] dt-bindings: mailbox: mediatek: Add MT8196 support for gce-mailbox
+Date: Thu, 21 Nov 2024 12:25:56 +0800
+Message-ID: <20241121042602.32730-3-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.18.0
+In-Reply-To: <20241121042602.32730-1-jason-jh.lin@mediatek.com>
+References: <20241121042602.32730-1-jason-jh.lin@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ZylaRaMqEsEjYjs6@ghost>
+Content-Type: text/plain
+X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-AS-Result: No-10--2.390200-8.000000
+X-TMASE-MatchedRID: hnk2xlnUc9YD2WXLXdz+ARbjReJSRusbpsZw4P6Q+TmjxYyRBa/qJQJj
+	6WxgWJYb5MIx11wv+CPGVuWouVipch3y9EPQ29hTS4QvMgPi4rT00uCJK/yUIdV+smgttBpwMA0
+	aaWeqSaKniFIa4757SbiNqDm+7pwF4HIrrZ284hLKTveX26lSvY6H7DI0GsVcMmI24qiENwrMpI
+	bcl3IoA+q1XYAYw09qIdY9jOi4lTI=
+X-TM-AS-User-Approved-Sender: No
+X-TM-AS-User-Blocked-Sender: No
+X-TMASE-Result: 10--2.390200-8.000000
+X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-SNTS-SMTP: 54E379BF026BF219D9EA77783C85C521D5323C141728D201CE6D173B3C59F7D52000:8
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_202228_766521_CEDCE309 
-X-CRM114-Status: GOOD (  41.61  )
+X-CRM114-CacheID: sfid-20241120_202612_215900_CCF4AE2A 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,75 +105,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 04, 2024 at 03:35:33PM -0800, Charlie Jenkins wrote:
-> On Mon, Nov 04, 2024 at 02:03:28PM -0800, Ian Rogers wrote:
-> > On Mon, Nov 4, 2024 at 1:32 PM Charlie Jenkins <charlie@rivosinc.com> wrote:
-> > >
-> > > On Mon, Nov 04, 2024 at 10:13:18PM +0100, Arnd Bergmann wrote:
-> > > > On Mon, Nov 4, 2024, at 22:06, Charlie Jenkins wrote:
-> > > > > Standardize the generation of syscall headers around syscall tables.
-> > > > > Previously each architecture independently selected how syscall headers
-> > > > > would be generated, or would not define a way and fallback onto
-> > > > > libaudit. Convert all architectures to use a standard syscall header
-> > > > > generation script and allow each architecture to override the syscall
-> > > > > table to use if they do not use the generic table.
-> > > > >
-> > > > > As a result of these changes, no architecture will require libaudit, and
-> > > > > so the fallback case of using libaudit is removed by this series.
-> > > > >
-> > > > > Testing:
-> > > > >
-> > > > > I have tested that the syscall mappings of id to name generation works
-> > > > > as expected for every architecture, but I have only validated that perf
-> > > > > trace compiles and runs as expected on riscv, arm64, and x86_64.
-> > > > >
-> > > > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > > >
-> > > > Thanks for doing this, I had plans to do this myself, but hadn't
-> > > > completed that bit so far. I'm travelling at the moment, so I'm
-> > > > not sure I have time to look at it in enough detail this week.
-> > > >
-> > > > One problem I ran into doing this previously was the incompatible
-> > > > format of the tables for x86 and s390, which have conflicting
-> > > > interpretations of what the '-' character means. It's possible
-> > > > that this is only really relevant for the in-kernel table,
-> > > > not the version in tools.
-> > > >
-> > >
-> > > I don't think that is an issue for this usecase because the only
-> > > information that is taken from the syscall table is the number and the
-> > > name of the syscall. '-' doesn't appear in either of these columns!
-> > 
-> > This is cool stuff. An area that may not be immediately apparent for
-> > improvement is that the x86-64 build only has access to the 64-bit
-> > syscall table. Perhaps all the syscall tables should always be built
-> > and then at runtime the architecture of the perf.data file, etc. used
-> > to choose the appropriate one. The cleanup to add an ELF host #define
-> > could help with this:
-> > https://lore.kernel.org/linux-perf-users/20241017002520.59124-1-irogers@google.com/
-> 
-> Oh that's a great idea! I think these changes will make it more seamless
-> to make that a reality.
-> 
-> > 
-> > Ultimately I'd like to see less arch code as it inherently makes cross
-> > platform worker harder. That doesn't impact this work which I'm happy
-> > to review.
-> 
-> Yeah I agree. Reducing arch code was the motivation for this change.
-> There was the issue a couple weeks ago that caused all architectures
-> that used libaudit to break from commit 7a2fb5619cc1fb53 ("perf trace:
-> Fix iteration of syscall ids in syscalltbl->entries"), so this change
-> will eliminate that source of difference between architectures.
-> 
-> - Charlie
-> 
-> > 
-> > Thanks,
-> > Ian
+Add compatible name and iommus property for MT8196.
 
-Let me know if you have any feedback on this series!
+Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+---
+ .../devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml     | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-- Charlie
+diff --git a/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml
+index cef9d7601398..73d6db34d64a 100644
+--- a/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml
++++ b/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml
+@@ -25,6 +25,7 @@ properties:
+           - mediatek,mt8188-gce
+           - mediatek,mt8192-gce
+           - mediatek,mt8195-gce
++          - mediatek,mt8196-gce
+       - items:
+           - const: mediatek,mt6795-gce
+           - const: mediatek,mt8173-gce
+@@ -49,6 +50,9 @@ properties:
+     items:
+       - const: gce
+ 
++  iommus:
++    maxItems: 1
++
+ required:
+   - compatible
+   - "#mbox-cells"
+-- 
+2.43.0
 
 
