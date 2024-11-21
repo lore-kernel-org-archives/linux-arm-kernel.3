@@ -4,57 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1ACDD75BD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 08:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26914D75BD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 08:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xyOXdCRDBjs5e/z0/LvgVhMu8edj3REOZ9UjsKDmyPs=; b=MuRmm6nDNEXFxFAL00u1KP6nff
-	AGZSrHFGe27GuXsN8TJp3ZXNQfA2ceryKPt5jOaBs+zexCJoxuCRFTPNKua3+D+5BOgD5wIDzqHRA
-	7Qn3ukQ55UzmqwbPq7WILFSBb++r0cjj8CP1JzoSoMnbfLLSE1lEN/xRQxg/nTUxQ51IfNw8FvfGO
-	jza7gdbbWxPYSH7MuDu5PdOBCWXPPnE6ujgoE8H/9AhaEN/Ze2ilD77OOgGye/4VGIUMmZzf36dzw
-	n8qVdom8MNAsUqHLY+rDXpWHDBd0AF4w2ET5FG0TOglNVsZN5tWEC+MBcI6TYdOfzx2pPIiu6/ncE
-	3ZCqjX1g==;
+	bh=1hREuEO5bVK0P8afBUPbQKjHm3+nA0mzaIkZSOu2Ro4=; b=J9JyzNVF8kENHXerKJsxfN9GYz
+	qutOn1IK6fCx3kqea1NZjThm+F9IXWCwwBEuHL+F/QdKzpCs37EV1EZx6j487i0pl5aiBegFu9s/v
+	o5kskN1B3hYTScB5zcjKSrf9nZuLp3asJBNkLFRzWA2yNBjAm4A6pzjjmokpx/rPS7N7RBfDvRAL3
+	fvIngL5sNGCCopt0eRpOVcE3IrfSfy2Z/YdVTFXSwn9R+2nwjPC+ngy/hcucqxXhdfL3BhCCz/cO1
+	5lw7vYMBujEXQqGPwk2stdFn/32cq3kXpd5ChaLHZF+evxF1MTkb32MbWCtVzr8+d8aZeUpu6slTq
+	pz5kFJpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE2Zn-0000000H6Bl-3KUF;
-	Thu, 21 Nov 2024 08:30:11 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tE2cf-0000000H6SH-2BW7;
+	Thu, 21 Nov 2024 08:33:09 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE2Yr-0000000H616-0m6S
+	id 1tE2bj-0000000H6Lr-2Irs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 08:29:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8E049A40266;
-	Thu, 21 Nov 2024 08:27:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D175CC4CECC;
-	Thu, 21 Nov 2024 08:29:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732177751;
-	bh=jI8NHi8G+Wq7vsn+8sraQFg2O7HBgJMMZWRRb1whbGk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PnAQzOn3eltLr61OwJdBkrNCp84VdxjhOaWdJj5jwupNmUAW+fgCxGdVYi1u+4Uf6
-	 w8sOx+eYMqedJv3IH2gCsx+oFCmhqf83fEonTvFR2KABkkaoKyMrxZxVeB8SnarRls
-	 lSjeeIR60e3P017SBClhSDCT0XlWz2jLT7UHgwvRcI6cqm0ElOcmI9uzssomnkPen+
-	 7mxq4usUuT8tUvZxpbE8QmBanM4sSFdvgybqCsKqrVoBV/CJCcoObnZNo57iFedZsl
-	 ZDFGRYk5DBdEXxT2OZlZn0eax+v1BITx3xy68frt9dmCSMGDmJWhA38aVqrm5mvxht
-	 AqarzOygFaqvA==
-Date: Thu, 21 Nov 2024 09:29:08 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Charan Pedumuru <charan.pedumuru@microchip.com>
-Subject: Re: [PATCH v3] dt-bindings: net: can: atmel: Convert to json schema
-Message-ID: <ahftyfnreh27z6jyvdf2wwhhp5rcbkydy6afnkct77ppqlko56@5cvw5bmzcjb6>
-References: <20241120-can-v3-1-da5bb4f6128d@microchip.com>
+	Thu, 21 Nov 2024 08:32:12 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-a9a6b4ca29bso97517266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Nov 2024 00:32:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1732177929; x=1732782729; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=1hREuEO5bVK0P8afBUPbQKjHm3+nA0mzaIkZSOu2Ro4=;
+        b=pHyKZw6AuZoHEqmtQLga/4cOw+Y+NxJMr6XfQS2zCKDgWcI5bGMae+W7xdQ82qwPDK
+         snZYZhtEw3P89z0JYRafmsEZUcXTjHjgv4+49Ar5Eb6bLI0sJ1BzqjAP4uaXEAdMBPWQ
+         Wh2tEY42lka85BxlsGj9sZaarlgq83Pjhs4dj5CPM1tmuRkIDOj2xdDRgxAF2aG+bDw9
+         D+/2SOkLq1cc/3pJ2zQ641QHomNQd7vdUBttkIkqtviHUZVg9lPYk2VNvWibgZImBze9
+         +zI0M2rDWd/Psu0B7E+SddZHtATtoXF0wrQggP4QJ0MHhuTCtg3w2oRKhconCDbZG7E/
+         1+uQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732177929; x=1732782729;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1hREuEO5bVK0P8afBUPbQKjHm3+nA0mzaIkZSOu2Ro4=;
+        b=pcQwu9nhnF8ugn+GwL7sOZIoYpWaj88Ze7a2ZWBUq5+mRo72ECHNcRibDLQ7ojTocZ
+         9sb4wivb0SJjjXJ1TiKR3StjN+zf+8qpkWPg1Jt0+DLH1wkA3t53cKhMGRnr0y4JvyFb
+         qGKIblY983S8C4xWuD9sKPiMjsAI1kW0Yz+SP9rKu35CoAdt1LzXlA2MCPi9lnw4Sp42
+         vjGyY+9xKJiGqTtS7/uKwvpG76V1v3HsopLhY1NO81HGXgRle8za4lqeyLwWB/hIF7i+
+         8NLFAwAGx1sMIbN+vXfu8DYJtTaycnZMc3yZs6GNG1ekBDdPsXdq5yOE75+e8zVx1ejs
+         lckQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWFTXfh+G472TrOcVuwG/1sUO427w0nWiP7HjOG7gYfJpImQMNUU/RaksE61CHZzNUvUSe/zpsewiAm73BROqZp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxt3DhKMZc62Zib3Hhjqgc9+5VCTrCU462YnXwvWw0oVWKSDTLP
+	/pw7hxnMWGEz7RtBG185kjAgZAqyc0ue/P60gushItpnsRTedxIEOF0l/j5TUg==
+X-Google-Smtp-Source: AGHT+IE4TKd5wDKmvQpBdEEu/xfgGiIKA3cuRbSFfnFXGKnL4yHVKF2Vc8v1y9VFoin4Md85lL2nLw==
+X-Received: by 2002:a17:907:86ac:b0:a9e:670e:38bc with SMTP id a640c23a62f3a-aa4dd52fd73mr593858266b.3.1732177928228;
+        Thu, 21 Nov 2024 00:32:08 -0800 (PST)
+Received: from google.com (40.162.204.35.bc.googleusercontent.com. [35.204.162.40])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa4f431a7absm52035166b.143.2024.11.21.00.32.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 Nov 2024 00:32:07 -0800 (PST)
+Date: Thu, 21 Nov 2024 08:32:05 +0000
+From: Quentin Perret <qperret@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org,
+	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org
+Subject: Re: [PATCH v1 10/12] KVM: arm64: Calculate cptr_el2 traps on
+ activating traps
+Message-ID: <Zz7wBU3BHW-XNnbr@google.com>
+References: <20241120105254.2842020-1-tabba@google.com>
+ <20241120105254.2842020-11-tabba@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241120-can-v3-1-da5bb4f6128d@microchip.com>
+In-Reply-To: <20241120105254.2842020-11-tabba@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_002913_288946_93FCC5D5 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20241121_003211_586990_1D366953 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,55 +93,24 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree@vger.kernel.org, netdev@vger.kernel.org, linux-can@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@google.com>, Marc Kleine-Budde <mkl@pengutronix.de>, linux-arm-kernel@lists.infradead.org, Jakub Kicinski <kuba@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "David S. Miller" <davem@davemloft.net>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 20, 2024 at 01:58:08PM +0530, Charan Pedumuru wrote:
-> Convert old text based binding to json schema.
-> Changes during conversion:
-> - Add a fallback for `microchip,sam9x60-can` as it is compatible with the
->   CAN IP core on `atmel,at91sam9x5-can`.
-> - Add the required properties `clock` and `clock-names`, which were
->   missing in the original binding.
-> - Update examples and include appropriate file directives to resolve
->   errors identified by `dt_binding_check` and `dtbs_check`.
+Hi Fuad,
 
-...
+On Wednesday 20 Nov 2024 at 10:52:52 (+0000), Fuad Tabba wrote:
+> -static void pvm_init_traps_cptr(struct kvm_vcpu *vcpu)
+> -{
+> -	struct kvm *kvm = vcpu->kvm;
+> -	u64 val = vcpu->arch.cptr_el2;
+> -
+> -	if (!has_hvhe()) {
+> -		val |= CPTR_NVHE_EL2_RES1;
+> -		val &= ~(CPTR_NVHE_EL2_RES0);
+> -	}
 
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +    #include <dt-bindings/clock/at91.h>
-> +    can@f000c000 {
-> +          compatible = "atmel,at91sam9263-can";
+To be on the safe side, should keep the RES1 stuff for nVHE?
 
-If there is going to be any resend - fix the indentation: Use 4 spaces
-for example indentation.
-
-No need to resend just for this.
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
----
-
-<form letter>
-This is an automated instruction, just in case, because many review tags
-are being ignored. If you know the process, you can skip it (please do
-not feel offended by me posting it here - no bad intentions intended).
-If you do not know the process, here is a short explanation:
-
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-versions, under or above your Signed-off-by tag. Tag is "received", when
-provided in a message replied to you on the mailing list. Tools like b4
-can help here. However, there's no need to repost patches *only* to add
-the tags. The upstream maintainer will do that for tags received on the
-version they apply.
-
-https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
-</form letter>
-
-Best regards,
-Krzysztof
-
+Thanks,
+Quentin
 
