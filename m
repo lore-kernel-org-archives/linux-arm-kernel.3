@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25A48D78797
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 16:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27AABD7879A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 17:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=2mw+8hAoMp0C0Lm+qGdX3W5fVuHY3fps4xwskLOhzjY=; b=Y0fgKeHclg/tbj
-	3yFHMX1jKhirmqAtOiJ1vVKXt1iXGDT7q/PEjNXxy6LfpAHRAhEUOmELq3/kK8PByXPEZukx0QZLF
-	Bzr3oHgX4GoLbpFRF0rWSD+egA5ehWx9S8+fxqeU24XK0nk3C/zVJnzpUVcHhUDOU2ktivjj+LCSt
-	fOt15deZz9arV2gY2wtL5Cq8dLRrjqKa5ki+RVETr7VOAaKsbnxDg0orkmbzIVm9vej9ig1oHzLel
-	UJ5a2mEGX+Q0ewzM9evatkgq9WhtuT78AUeZrgoMhOEkv7MRyL0ANcYr9x7BfLTAVWuqcdIUTPtRM
-	yymen06SM0D9xb4gtDPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cUaeZnXodr4qqbapSAi4V1pzc3bgliTm0boF7wqn2Qs=; b=XEOxmC+0wATAYNG74ou0KrOLTP
+	hm4jQDmC2Pn1/rM+Ems+bpzRjMbiZGoVb04o+DZ66GwXTJ7C0h7M20YMRRl6lAJjjmkqiq61h1Ks7
+	qeJJJeIzfKFlSw1XS6XoPikOLjYsfTO2nw6kzv3XnyagC3llAq7UzQ5z7Qf6E/yuWDEIrUaX13sqG
+	UbWDXJwS0STzdWiM3PkpoEc1tT6GUjEMzN7Mg8WWYTqcwXCjuzy2dPPlt23R8SI5AGmvGd6r7r8uz
+	yoL1IJQ/LFHuCsQSuUmH+dW/hEDnCUoXW5fnEGJbbdtYmTEsqlfDeQ/gPVtka1XcNR1JibYz/jt9O
+	xKmBA2YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEAQf-00000000UEe-3ept;
-	Thu, 21 Nov 2024 16:53:17 +0000
+	id 1tEAi1-00000000WHD-3XeL;
+	Thu, 21 Nov 2024 17:11:13 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEAPj-00000000U8i-0cCv
+	id 1tEAh5-00000000WAL-1yxH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 16:52:20 +0000
+	Thu, 21 Nov 2024 17:10:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9E0D5A4021F;
-	Thu, 21 Nov 2024 16:50:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 700DCC4CECD;
-	Thu, 21 Nov 2024 16:52:17 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id CB29BA40CFE;
+	Thu, 21 Nov 2024 17:08:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CE7EC4CED0;
+	Thu, 21 Nov 2024 17:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732207937;
-	bh=Y1mdkaWrTYBIUMxo9h4PUiMiMSW1f7efHaVFCg8rH+c=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=PYo2BJuZiGgGaGHKxMuoPyEkgU9X6/+IiLSg6tzkmfOcpyiJ4i0KZD0BHxqHyjA6F
-	 Mn3ln0UQl26TsQRjrnXkInQ5QY7ehMxAJ7ABgPWWoB5QR8MBzko9SqUGyD4AfbHeRQ
-	 46/ZWcq9NyMJ0vd3geu4IWg2lY0DDQtgeaeh2Pox3ykLSG5ubjQyZaRXvMz3uA1chp
-	 kdDBJXWejAMxmX1G+n2YBco2aT3L4hM2BYloZU+DaGXrZWa7HLOhzG4XVUxMWalAQy
-	 rgl6IKcDEQhiclOeA4Q+H47l7zBUby097H3Yi0olwltj1lEdNAUQnB6MAAibYqBOUC
-	 up7dS2LYAMc5A==
-Date: Thu, 21 Nov 2024 10:52:16 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Naresh Kamboju <naresh.kamboju@linaro.org>
-Cc: PCI <linux-pci@vger.kernel.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	lkft-triage@lists.linaro.org,
-	Linux Regressions <regressions@lists.linux.dev>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Anders Roxell <anders.roxell@linaro.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>
-Subject: Re: next-20241121: arm64: of_pci_supply_present
- (drivers/pci/of.c:746) - Unable to handle kernel NULL pointer dereference at
- virtual address 0000000000000058
-Message-ID: <20241121165216.GA2388449@bhelgaas>
+	s=k20201202; t=1732209013;
+	bh=wYClgF0Iox13p7cF2Hl6xnODjSXaiAYKYfj5D+CRGCg=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=N8Pu2BLvr8r3vF3r7Bz9bGjxDocymkQnHcCLPuTB5Z6gs93LrP+3A1KbKkFrBJq/J
+	 7mx4nIvYuCStVSNXd4/j78MqsaZXvO76rwhBLjvvm5OMSwC/FsNNfM1kVW/ZhwVz/G
+	 kU2vK/UC5/tQdTm8rxLCLrFDQeMFg257qffBn90mAOrDuNVfUYh4I8ari/rCE/oOPf
+	 IpjKPq0IQjKxXRUuE1+FRbDZ/C1o+f8OrqcXEP2IdrVGwv6kHLIc/BMurRO61XhcJU
+	 b+e1gRDPrronNqMqsb4NvK/tX2oGCYgQItjetuqquyZ9uVWuMpkOSS7B7aWTZNSdeS
+	 Q8CkBaGGDromQ==
+Date: Thu, 21 Nov 2024 11:10:12 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+G9fYurbY3B6ahZ+k+Syp5bZ3a+YQdeX8DRb6Twi4BDEFbUsw@mail.gmail.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Cosmo Chou <cosmo.chou@quantatw.com>, devicetree@vger.kernel.org, 
+ Joel Stanley <joel@jms.id.au>, linux-arm-kernel@lists.infradead.org, 
+ Potin Lai <potin.lai@quantatw.com>, Conor Dooley <conor+dt@kernel.org>, 
+ linux-aspeed@lists.ozlabs.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Patrick Williams <patrick@stwcx.xyz>, linux-kernel@vger.kernel.org, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Potin Lai <potin.lai.pt@gmail.com>
+In-Reply-To: <20241121-catalina-dts-20241120-v1-0-e4212502624b@gmail.com>
+References: <20241121-catalina-dts-20241120-v1-0-e4212502624b@gmail.com>
+Message-Id: <173220890742.3693012.4465896508594854570.robh@kernel.org>
+Subject: Re: [PATCH 0/2] ARM: dts: aspeed: catalina: revise catalina dts
+ file
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_085219_311711_5D026BE8 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20241121_091015_636657_E7EEFDF3 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,152 +76,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+cc Krzysztof]
 
-On Thu, Nov 21, 2024 at 08:21:38PM +0530, Naresh Kamboju wrote:
-> The juno-r2, qemu-arm64 and qemu-armv7 boot failed on the Linux-next tree.
-> Please find the crash log below.
-
-Thanks for the very detailed problem report!
-
-I think this should be fixed by
-https://git.kernel.org/cgit/linux/kernel/git/pci/pci.git/commit/?id=278dd091e95d,
-which added back the "if (!np)" check in of_pci_supply_present().
-
-> First seen on the next-20241121 tag.
-> Good: next-20241120
-> Bad:  next-20241121
+On Thu, 21 Nov 2024 12:34:03 +0800, Potin Lai wrote:
+> Add following patches to fix issues.
+> - revise ltc4287 shunt-resistor value
+> - remove interrupt of GPIOB4 form all IOEXP
 > 
-> Juno-r2, qemu-arm64:
-> * boot/gcc-13-lkftconfig
-> * boot/clang-nightly-lkftconfig
-> * boot/gcc-13-lkftconfig-perf
+> Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
+> ---
+> Potin Lai (2):
+>       ARM: dts: aspeed: catalina: revise ltc4287 shunt-resistor value
+>       ARM: dts: aspeed: catalina: remove interrupt of GPIOB4 form all IOEXP
 > 
-> qemu-armv7:
-> * boot/gcc-13-lkftconfig
-> * boot/clang-19-lkftconfig
+>  arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts | 10 ++--------
+>  1 file changed, 2 insertions(+), 8 deletions(-)
+> ---
+> base-commit: 59b723cd2adbac2a34fc8e12c74ae26ae45bf230
+> change-id: 20241120-catalina-dts-20241120-e341b907184e
 > 
-> 
-> Boot crash log on arm64:
-> -----------
-> [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x000f0510]
-> [    0.000000] Linux version 6.12.0-next-20241121 (tuxmake@tuxmake)
-> (aarch64-linux-gnu-gcc (Debian 13.3.0-5) 13.3.0, GNU ld (GNU Binutils
-> for Debian) 2.43.1) #1 SMP PREEMPT @1732169734
-> ...
-> [    2.118104] pci_bus 0000:08: resource 0 [io  0x2000-0x2fff]
-> [    2.123710] pci_bus 0000:08: resource 1 [mem 0x50100000-0x501fffff]
-> [    2.130054] Unable to handle kernel NULL pointer dereference at
-> virtual address 0000000000000058
-> [    2.138868] Mem abort info:
-> [    2.141672]   ESR = 0x0000000096000004
-> [    2.145435]   EC = 0x25: DABT (current EL), IL = 32 bits
-> [    2.150765]   SET = 0, FnV = 0
-> [    2.153832]   EA = 0, S1PTW = 0
-> [    2.156994]   FSC = 0x04: level 0 translation fault
-> [    2.161888] Data abort info:
-> [    2.164781]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-> [    2.170283]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-> [    2.175351]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> [    2.180680] [0000000000000058] user address but active_mm is swapper
-> [    2.187055] Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
-> [    2.193333] Modules linked in:
-> [    2.196393] CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Not tainted
-> 6.12.0-next-20241121 #1
-> [    2.204151] Hardware name: ARM Juno development board (r2) (DT)
-> [    2.210078] pstate: a0000005 (NzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> [    2.217053] pc : of_pci_supply_present (drivers/pci/of.c:746)
-> [    2.221685] lr : pci_bus_add_device (drivers/pci/bus.c:408 (discriminator 1))
-> [    2.226135] sp : ffff800082f5ba70
-> [    2.229450] x29: ffff800082f5ba70 x28: ffff8000827ce000 x27: ffff8000823e0118
-> [    2.236607] x26: ffff8000822f65c8 x25: ffff8000823be4f0 x24: ffff00082111a428
-> [    2.243762] x23: ffff0008218a8800 x22: 0000000000000000 x21: ffff000800a230c8
-> [    2.250916] x20: ffff000800a8a400 x19: ffff000800a23000 x18: ffffffffffffffff
-> [    2.258069] x17: 00000000f3b41269 x16: 000000006984274c x15: ffff800082f5b8c0
-> [    2.265224] x14: ffff800102f5ba47 x13: ffff800082f5ba4b x12: ffff800080b5dee0
-> [    2.272378] x11: ffff8000800171b0 x10: 000000000000002e x9 : ffff80008084b910
-> [    2.279532] x8 : ffff800082f5b8e8 x7 : 0000000000000000 x6 : 0000000000000001
-> [    2.286685] x5 : ffff000800a3a850 x4 : 0000000000000000 x3 : 0000000000000198
-> [    2.293839] x2 : 0000000000000000 x1 : ffff000800a8a400 x0 : 0000000000000000
-> [    2.300992] Call trace:
-> [    2.303438] of_pci_supply_present+0x18/0x78 P
-> [    2.308065] pci_bus_add_device+0x90/0x208 L
-> [    2.312515] pci_bus_add_device (drivers/pci/bus.c:408 (discriminator 1))
-> [    2.316616] pci_bus_add_devices (drivers/pci/bus.c:435 (discriminator 2))
-> [    2.320718] pci_host_probe (drivers/pci/probe.c:3362
-> drivers/pci/probe.c:3132)
-> [    2.324472] pci_host_common_probe
-> (drivers/pci/controller/pci-host-common.c:80)
-> [    2.328924] platform_probe (drivers/base/platform.c:1404)
-> [    2.332595] really_probe (drivers/base/dd.c:579 drivers/base/dd.c:658)
-> [    2.336176] __driver_probe_device (drivers/base/dd.c:800)
-> [    2.340540] driver_probe_device (drivers/base/dd.c:830)
-> [    2.344730] __driver_attach (drivers/base/dd.c:1217)
-> [    2.348572] bus_for_each_dev (drivers/base/bus.c:370)
-> [    2.352413] driver_attach (drivers/base/dd.c:1235)
-> [    2.355994] bus_add_driver (drivers/base/bus.c:675)
-> [    2.359835] driver_register (drivers/base/driver.c:246)
-> [    2.363677] __platform_driver_register (drivers/base/platform.c:868)
-> [    2.368391] gen_pci_driver_init
-> (drivers/pci/controller/pci-host-generic.c:87)
-> [    2.372495] do_one_initcall (init/main.c:1266)
-> [    2.376338] kernel_init_freeable (init/main.c:1327 (discriminator
-> 1) init/main.c:1344 (discriminator 1) init/main.c:1363 (discriminator
-> 1) init/main.c:1577 (discriminator 1))
-> [    2.380705] kernel_init (init/main.c:1470)
-> [    2.384200] ret_from_fork (arch/arm64/kernel/entry.S:863)
-> [ 2.387784] Code: d503233f a9be7bfd 910003fd a90153f3 (f9402c13)
-> All code
-> ========
->    0: d503233f paciasp
->    4: a9be7bfd stp x29, x30, [sp, #-32]!
->    8: 910003fd mov x29, sp
->    c: a90153f3 stp x19, x20, [sp, #16]
->   10:* f9402c13 ldr x19, [x0, #88] <-- trapping instruction
-> 
-> Code starting with the faulting instruction
-> ===========================================
->    0: f9402c13 ldr x19, [x0, #88]
-> [    2.393886] ---[ end trace 0000000000000000 ]---
-> [    2.398565] Kernel panic - not syncing: Attempted to kill init!
-> exitcode=0x0000000b
-> [    2.406234] SMP: stopping secondary CPUs
-> [    2.410169] Kernel Offset: disabled
-> [    2.413658] CPU features: 0x080,00020c3c,00800000,0200421b
-> [    2.419150] Memory Limit: none
-> [    2.422207] ---[ end Kernel panic - not syncing: Attempted to kill
-> init! exitcode=0x0000000b ]---
-> 
-> 
-> Links:
-> - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241121/testrun/25983314/suite/boot/test/gcc-13-lkftconfig-rcutorture/log
-> - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241121/testrun/25978784/suite/boot/test/gcc-13-lkftconfig/log
-> - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241121/testrun/25978784/suite/boot/test/gcc-13-lkftconfig/details/
-> - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241121/testrun/25978784/suite/boot/test/gcc-13-lkftconfig/history/
-> 
-> 
-> Build image:
-> -----------
-> - https://storage.tuxsuite.com/public/linaro/lkft/builds/2p9DUGD8S9fakSvceaAXMeGBRs7/
-> 
-> Steps to reproduce:
-> ------------
-> - https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2p9DVXtRiqTj7VZO9wnFlkwmU8g/reproducer
-> - https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2p9DVXtRiqTj7VZO9wnFlkwmU8g/tux_plan
-> 
-> metadata:
-> ----
-> Linux version: 6.12.0-next-20241121
-> git repo: https://git.kernel.org/pub/scm/linux/kernel/git/sashal/linus-next.git
-> git sha: decc701f41d07481893fdea942c0ac6b226e84cd
-> kernel config:
-> https://storage.tuxsuite.com/public/linaro/lkft/builds/2p9DUGD8S9fakSvceaAXMeGBRs7/config
-> build url: https://storage.tuxsuite.com/public/linaro/lkft/builds/2p9DUGD8S9fakSvceaAXMeGBRs7/
-> toolchain: gcc-13 and clang-19
-> config: gcc-13-lkftconfig
-> arch: arm64 and armv7
-> 
+> Best regards,
 > --
-> Linaro LKFT
-> https://lkft.linaro.org
+> Potin Lai <potin.lai.pt@gmail.com>
+> 
+> 
+> 
+
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y aspeed/aspeed-bmc-facebook-catalina.dtb' for 20241121-catalina-dts-20241120-v1-0-e4212502624b@gmail.com:
+
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: timer: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: bus@1e600000: compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
+	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: syscon@1e6e2000: 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^silicon-id@[0-9a-f]+$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/interrupt-controller@560: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic0']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/interrupt-controller@570: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic1']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: adc@1e6e9000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: adc@1e6e9100: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: crypto@1e6fa000: 'aspeed,ahbc' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/video@1e700000: failed to match any schema with compatible: ['aspeed,ast2600-video-engine']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: sdc@1e740000: sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: sdc@1e740000: sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: lpc@1e789000: lpc-snoop@80: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: lpc@1e789000: reg-io-width: 4 is not of type 'object'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: kcs@24: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: kcs@28: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: kcs@2c: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: kcs@114: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: fsi@1e79b000: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: fsi@1e79b100: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
+
+
+
+
+
 
