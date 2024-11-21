@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EAF8D743CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 17:45:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C81A4D743FD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 17:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZKTy8XWO2qgziAQ1aV4BgRlmD2JBLSeCDp8Nwyzn3qA=; b=ZuIc+8yoHsAOZGtWLWh6RSq4vP
-	JD6jmX2Tm2C6UcNg4LwWuQ1eykEzFDzXHzjiuP+GmxCr/nxWRwSZvKmgqhMhdRA3QPdM0/VYEJplB
-	EBgEBSjsEwmYRTh+vrqqgVO1lTs6kgUlL5GmCDGSt9+uT/FVwGtH7SPILd8SwmQuF8yWhznGvatil
-	wak0tjQ3cIFkHUAW0Y1Lz8GW+Ez31gzNVHjPmmaAIbREQYvgF4Ajc6UZzn0Blg2/nWRRKprpBBwEo
-	bbVTMBPK5VyY6UaTibJWpVjejRnxuebaxY2j0odvzntZ6A9IFaTOUpjj3IFA5LEWyDgnaDH+3mJij
-	hcYJ4hqw==;
+	bh=g9fPs0nLthnmbo8a6LrEY10rX186VeNy9SlwRtv5peU=; b=hCvOn7ar9OG6YrAx7fl9he7PRX
+	6tQfT0ToBgSse3KUpRuZ1hM9xbHpCF5OWjHihQ/Hi7t3gyYlgSjeXPT4L9iyS7kU5WJkZJ5H2O8HM
+	tz23ha4P+KHHntkJpW9KnH3LoqcFZ5vQQuxRKtu+4Ejczui6ONkUmM1MmwNnZ+HnBMoe/RiA/yiZI
+	GJIjbziJeQrQEvNAevqF239Q1Yog72goDZnrY0lAjW4+Fu9SyMYJtx8w99L1GW60pqiBhXg+FkHwa
+	fdyDFlq/G301tR/LjXMPiPFsUk8gYl7s5msjtYEtinspWjjSp9xa26oBsKjSPGvqYp+fVOhcZfJWu
+	dPqpD6Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEBEn-00000000a7d-1u1c;
-	Thu, 21 Nov 2024 17:45:05 +0000
+	id 1tEBFi-00000000aE9-0BYB;
+	Thu, 21 Nov 2024 17:46:02 +0000
 Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEBBU-00000000ZNN-1D1c
+	id 1tEBBV-00000000ZNw-1Uph
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 17:41:41 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D004620010;
-	Thu, 21 Nov 2024 17:41:37 +0000 (UTC)
+	Thu, 21 Nov 2024 17:41:42 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 017F020002;
+	Thu, 21 Nov 2024 17:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1732210898;
+	t=1732210900;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ZKTy8XWO2qgziAQ1aV4BgRlmD2JBLSeCDp8Nwyzn3qA=;
-	b=RWoZGU5fJqpTbXKi5tH+r+d1vmD3mjfhf6zksxyRpNa2uNYJqMxwWp/aivD8zuRYvbeVR6
-	HaBQw6HXteslHcYc5HeiakgI80i3lGL4NvA0dVR49fCXFMkNaqK2+x1vIMmPZyaCPYDUea
-	EiEcuu2XP80YdISzxDRiKnFalLoPHLRrs+BPSDuUxPflkp3mdDL0rueP/9UY9TKAsH6hhh
-	T3NGDcPuhqZ9mQTaTLd35fNleQXRbFnRYg12+0mlyMKpkFqtd7yXICaPQg7eEkmXvMJj/b
-	7qTCJNRPyQTqux8xlrxIUqgH9YKhnerMsJ+IDdSQuq/HEUrdwwCHfsYqkgdD3Q==
+	bh=g9fPs0nLthnmbo8a6LrEY10rX186VeNy9SlwRtv5peU=;
+	b=Y85agxXtRhcAxZzQaTYfg/Fqro4DYf58mDGp1y2m/tvKQcRgdR/TTvqBShF6rleawyFLVC
+	IL3KSEBqc9lFFlv8XSTrCWVE7Ya1BYJoyqXcfSCbfjV69dQjmX/PdKTVyRgr5zJeu7hK6G
+	8QIJEAuv3qhpsSXUiv6lQXu86m7nOjj0jX/WYxZmuwglh7Xnm6RtoJrgjNEVary+Nfx2Q6
+	D/XqaeYScbjs1uQ4vuWWzrVr1nPrz+Ys1W03dt9oE7tWDDdnFIpjlUXRQC1HDQ9GUDNqxZ
+	iK2+XlZEwiGBprWAfMHfqxvln9cn4lB0BmnJ+r6gkj4PK7WuOPUASa/oLCCeUQ==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Thu, 21 Nov 2024 18:41:12 +0100
-Subject: [PATCH 2/5] clk: Add a helper to determine a clock rate
+Date: Thu, 21 Nov 2024 18:41:13 +0100
+Subject: [PATCH 3/5] clk: Split clk_calc_subtree()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241121-ge-ian-debug-imx8-clk-tree-v1-2-0f1b722588fe@bootlin.com>
+Message-Id: <20241121-ge-ian-debug-imx8-clk-tree-v1-3-0f1b722588fe@bootlin.com>
 References: <20241121-ge-ian-debug-imx8-clk-tree-v1-0-0f1b722588fe@bootlin.com>
 In-Reply-To: <20241121-ge-ian-debug-imx8-clk-tree-v1-0-0f1b722588fe@bootlin.com>
 To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
@@ -68,8 +68,8 @@ Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 X-Mailer: b4 0.15-dev
 X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_094140_493881_F51F6002 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20241121_094141_692779_963A2500 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,43 +84,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the context of the clock core, "determine" means we calculate a
-possible clock rate based on its hardware capabilities and its current
-upstream parent frequency. This is opposed to "round" which tries to
-find the best parent and best rate and "recalc" which is about finding
-the next output clock based on a parent frequency change.
+This helper does two different things:
+- it calculates the new clock frequency
+    - as part of this task, it also handles a possible parent change
+- it walks the clock subtree to further update frequencies as well (but
+  the parent changes are no longer relevant there).
 
-The prototype is based on clk_recalc() which does exactly the same for
-the "recalc" situation.
+In order to ease the understanding of the next step, let's split this
+helper into:
+- clk_calc_core_and_subtree() which performs the top clock update (with
+  the parents handling) and then calls...
+- clk_calc_subtree() (which calls itself recursively) in order to
+  perform the subtree updates.
+
+There is no functional change intended.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/clk/clk.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/clk/clk.c | 22 +++++++++++++++-------
+ 1 file changed, 15 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
-index d02451f951cf057d068f980d985c95deb861a2d9..f171539bbb842f57698249a475c62f3f5719ccd1 100644
+index f171539bbb842f57698249a475c62f3f5719ccd1..adfc5bfb93b5a65b6f58c52ca2c432d651f7dd7d 100644
 --- a/drivers/clk/clk.c
 +++ b/drivers/clk/clk.c
-@@ -1927,6 +1927,18 @@ long clk_get_accuracy(struct clk *clk)
+@@ -2268,8 +2268,18 @@ static int __clk_speculate_rates(struct clk_core *core,
+ 	return ret;
  }
- EXPORT_SYMBOL_GPL(clk_get_accuracy);
  
-+__maybe_unused
-+static unsigned long clk_determine(struct clk_core *core, unsigned long rate)
+-static void clk_calc_subtree(struct clk_core *core, unsigned long new_rate,
+-			     struct clk_core *new_parent, u8 p_index)
++static void clk_calc_subtree(struct clk_core *core)
 +{
-+	struct clk_rate_request req = {};
++	struct clk_core *child;
 +
-+	clk_hw_init_rate_request(core->hw, &req, rate);
-+	if (__clk_determine_rate(core->hw, &req))
-+		return 0;
++	core->new_rate = clk_recalc(core, core->parent->new_rate);
 +
-+	return req.rate;
++	hlist_for_each_entry(child, &core->children, child_node)
++		clk_calc_subtree(child);
 +}
 +
- static unsigned long clk_recalc(struct clk_core *core,
- 				unsigned long parent_rate)
++static void clk_calc_core_and_subtree(struct clk_core *core, unsigned long new_rate,
++				      struct clk_core *new_parent, u8 p_index)
  {
+ 	struct clk_core *child;
+ 
+@@ -2281,10 +2291,8 @@ static void clk_calc_subtree(struct clk_core *core, unsigned long new_rate,
+ 	if (new_parent && new_parent != core->parent)
+ 		new_parent->new_child = core;
+ 
+-	hlist_for_each_entry(child, &core->children, child_node) {
+-		child->new_rate = clk_recalc(child, new_rate);
+-		clk_calc_subtree(child, child->new_rate, NULL, 0);
+-	}
++	hlist_for_each_entry(child, &core->children, child_node)
++		clk_calc_subtree(child);
+ }
+ 
+ /*
+@@ -2368,7 +2376,7 @@ static struct clk_core *clk_calc_new_rates(struct clk_core *core,
+ 		top = clk_calc_new_rates(parent, best_parent_rate);
+ 
+ out:
+-	clk_calc_subtree(core, new_rate, parent, p_index);
++	clk_calc_core_and_subtree(core, new_rate, parent, p_index);
+ 
+ 	return top;
+ }
 
 -- 
 2.47.0
