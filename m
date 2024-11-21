@@ -4,100 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA0EDD75BB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 04:40:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 342BFD75BBB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 06:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UevInCocN2jLKEDjfdowPnnjzWJX7MTz3LcpvW+drFw=; b=uS9P8w7lXRCm0N7yyhW2kljiVY
-	OOOHy4PvKPW4NsymgjOuNxnhaBzZvoaF+vTurgnt3P/cqb/BZIs9tROcl+xSPi610d0S5bhgqDrs3
-	wp7wlaXOlAf8pmQt1Pr12iOqxJ+4dW9RgF5wLzy2w8QQlNyh5jOksS48f6+UpgatONniRPXdsMush
-	ZiNQ6d1TNi+LMZ0TQeutk2FdzaNLElk2I4yW4uUvVaciqTSENxSzUUGec5sz3NSnLG8Z559KrFsus
-	WYzX2lp9v7kewEl5Us9syvbUgy01MJ1AL3FFiDG0g/uMMAzt86Ve2j67ksE+jP1VwUxkvnN3C2fNH
-	iUi5rUIw==;
+	bh=pXBYO7IREaqcFC1AY+U6gH0DW+PukJ6oZRwSeQifutI=; b=WNwUIl5DzP3Iy0ozDw2Rak3CZb
+	iBDmw2ll25l6ouWQWdsNCPEc23mOWShtgiw1rkJwVYmqxI+6uEDNasKE4QeNdFrqr4XJOkui+kcZj
+	6vQV0y41vHURb7havwM3GTlE4u/kDRjIKJNq/MrdDiFLTpX1MbWD9ylmHgOvCRojkqy8CA1JQDzx5
+	RkFikULF1siMuLxgk2oa1tjLUbyBm9qJQiTR2zsEyQiTkGJqWNOyoeulPeppe9DmaeJ+hVnPBLpes
+	yLP2Lk5UtxFjurPFyWTdiCbFsB/ijabsjJmYcpoilS/nKdaibZoO4YlynikxGloeJ5r5UDAnDsm07
+	Iy+3zuYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDyyv-0000000GoZd-3kR4;
-	Thu, 21 Nov 2024 04:39:53 +0000
-Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
+	id 1tE0Gw-0000000GtZM-0QmN;
+	Thu, 21 Nov 2024 06:02:34 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDyve-0000000Go7b-10wR
+	id 1tE0Fz-0000000GtUU-0Twb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 04:36:31 +0000
-Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-7181a8af549so220985a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 20:36:29 -0800 (PST)
+	Thu, 21 Nov 2024 06:01:36 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5cf9ef18ae9so3108726a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 22:01:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732163789; x=1732768589; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UevInCocN2jLKEDjfdowPnnjzWJX7MTz3LcpvW+drFw=;
-        b=mefvFw1MFS3ZE3BlFk8p7wHx6GE/MSatRTy3A1jiPPDofb2enw6LVPCSGNXiQ4nyC+
-         S+UwkJ6TB9utGP+wgMTIM9zSy7VDNeZvvg+p9x3FAM7tt0jNzQmpKZa5O83DFZjw6TeY
-         d00wGwEdJXfJQ5H/t/QanedAI9HfvsG8NzzM9HfDyB6uP4l5WBRFmCVAgWLimQ74m/Fv
-         K+h22eDbG4t1sarsiVSB3aW8/kZBDqmMv1hr6WdZ4UaUb2UcJfILNqOm5TCV5GE7AWX3
-         pff8S7NxGe32OOn7BeLx3FVkA/USxK5IGO5s+4Ga4gVU+uiHbttsugsGpNSMiEkS8oPE
-         7sPA==
+        d=nigauri-org.20230601.gappssmtp.com; s=20230601; t=1732168892; x=1732773692; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pXBYO7IREaqcFC1AY+U6gH0DW+PukJ6oZRwSeQifutI=;
+        b=aWU0jSn/2f5XMmWUrfShcbvdTTvirFIJhiMG3gFMnL4LD2Pz93pTjoH7PHNZZvjZS2
+         MiDKap8MUinNR+9Ezuh3/Fd8HEYRycD2Ho8bQqSwcBY9/IvQ/hyQxgSMlK9p9FN4qDci
+         xjBfWmRxmtaIA6VAOcTyyahLP7sKAIcCK5YC85Hx4POGfBZp1gbJy9IhW4zTFD/2sC9R
+         ePnevD57EkEK/uVH47Yh0vGNhkK5J5uLe+zavlGjl/k9j36Y3XzyUQBbqjyG5EJcmxMC
+         AWQA0jML0higvzqX+q9ts96xuVMBs90h9dlCg5IWIJr91zXJAri9IbVRbYss8sATWypB
+         7AxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732163789; x=1732768589;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1732168892; x=1732773692;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=UevInCocN2jLKEDjfdowPnnjzWJX7MTz3LcpvW+drFw=;
-        b=VYz0OXr1y+AD5dpTiqoBVQvWivTQHVzA6pWvT1PnStdPBYpV0GuzRuk5C7AVEvM0T7
-         MCXdlq84bUGsSf7cqTJsNGP4L6dcwdLtEKZLnxhxd6sXPMnYMAEteCZYlixYyq+X5RVT
-         reI9dGFnBqOoFvLIobWoVSBfRePgyJOJPBwrO6L9eVbWbwPOvPG2qq9V3fcFvX1wwZ8w
-         gQnnaXjncb8tsonUfP1hDwukUFl4xiV8rnnJqffpMSisiSCq8KoGVDmoh2VDLyhwbJy9
-         1zAwjC093UD+LxUl6K8uBsoA+2kqfIVH7vta3tzGpCo0U5AbIthBBQGDExD/gw+jAQII
-         tEfA==
-X-Forwarded-Encrypted: i=1; AJvYcCVbEUEGfTkJnKhw08zKsDChLq3ICKlYsQLB5FUMQdjkuqZp5voDcnsRkbdwSIIWwol23KVoHl2ApFbtBuAHai87@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZlBeyDJdCj/zGRPGZJOTHB/Xylgc8Y0Kver/DY28DFDQA6SES
-	UutmpwhP4u+6uWRzd1kVfsiP9W+H9Wqy7RsDv0+jEs/X8wOdD8Fm
-X-Gm-Gg: ASbGnct4ksAWx3fSaJwEXXCLrG0G8Np7QWd1SzDW2QWUl0j2mziSPG/ejs5OTfmbWWr
-	eRo50DxC/AYf1Dvw9uJBF0vSaDfPQ5FGj/QavVCD2avWCtYaxgXI83/b0xoDfd8Q8/IJCeCu+Ri
-	eADsYpUQZ0Mv1zrWF9swt4pi7GByzT7XCtnALNV+4OwboDrF6Le8b7DLdmBJeXsBZrTnotkW1FD
-	I6duJty8CMD19A8kstGwOcus9OA5nfGIeS5mUKcfsIwEQi73gQGGI0RAslJV3+Z2nsow6WYooOv
-	jUr73DkxBeINRPyDlVtRf9yzxtQ=
-X-Google-Smtp-Source: AGHT+IFYTyomNdCSLziTz63F7jtI4CB0+d1D5UH4XVfUDTPgCy5dwnmNsWJzd0JPw6TAiKDObmCxpw==
-X-Received: by 2002:a05:6830:1d9b:b0:718:9cc8:21db with SMTP id 46e09a7af769-71ab30c4f0amr5652274a34.2.1732163789165;
-        Wed, 20 Nov 2024 20:36:29 -0800 (PST)
-Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fbb64e11fcsm402013a12.15.2024.11.20.20.36.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Nov 2024 20:36:28 -0800 (PST)
-From: Potin Lai <potin.lai.pt@gmail.com>
-Date: Thu, 21 Nov 2024 12:34:05 +0800
-Subject: [PATCH 2/2] ARM: dts: aspeed: catalina: remove interrupt of GPIOB4
- form all IOEXP
+        bh=pXBYO7IREaqcFC1AY+U6gH0DW+PukJ6oZRwSeQifutI=;
+        b=a5fGXeNslUtsmgy8VoB/kiYFkhshaQQX13hokIScCeYHh2TZcQpnSwAPCPe+FaV0Q9
+         nFuvUhFue8II1Se7hkbs6gXC8KkRS5m6NCoOzEiwvy1IhEGqJt+rDGu3T+dwjETZCEBX
+         jLDtp/HeJOZfk2ZSxKWpEwxfPvbvLO5aRlpVFUP2aMCiSXZnmzFEEygUwsPomPR7p/w6
+         JzBrUedz4dT9Qj43qDoi/ySDqtvdxeTuHhH4QXvvwDFUa2YrceZiTbT4wYbC3obCrvgj
+         6ZyzBz9xxNRUYdElMvhft1JCw+dymjkvfa/FZupbcLclayJMPQkpkOBf2lcVuWTp99tf
+         /R+w==
+X-Forwarded-Encrypted: i=1; AJvYcCXFpclZOLSunatHhi60iwTolwzPhQI2nsEaBUbCnuNUSI6UynmEpcwpwfpseXW/468TSBkXa7JluK49k/N3ZN5N@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVmXxB3V/hgPfPbS2ZMmRtmxjF21+k9LyzReqs7Osc89mw5RIV
+	nwZZJW9CrR1v0KTSarrCgGJRsKF5ghU5ZdnSrBFUVdg3RJPkl809ASCxelM895OgsdCe7ooDK0V
+	l+O32z/RImg/SNHepCENTdLmYz/+/gZl5zjI=
+X-Google-Smtp-Source: AGHT+IErmyO6Auj29nMzsQsciAeQieUSQ40mWvouilmqn2J8jN6CWiJnyXtOkmFurSkWnL1C/48LjVI6yqaWSkbNQBg=
+X-Received: by 2002:a17:907:3d92:b0:a9e:85f8:2a6d with SMTP id
+ a640c23a62f3a-aa4ef969eedmr214855766b.11.1732168892228; Wed, 20 Nov 2024
+ 22:01:32 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241121-catalina-dts-20241120-v1-2-e4212502624b@gmail.com>
-References: <20241121-catalina-dts-20241120-v1-0-e4212502624b@gmail.com>
-In-Reply-To: <20241121-catalina-dts-20241120-v1-0-e4212502624b@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Patrick Williams <patrick@stwcx.xyz>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
- Potin Lai <potin.lai.pt@gmail.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732163781; l=1368;
- i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
- bh=I2TP3r7v3bLpFaASEk3sitwyGaaE/KErFzQTxqzcCSo=;
- b=1yz+R+1F2tRf1pVQwB6b7UeGDBov/eQD2XeNyCVW4Aclu7N2Co//7rjd8jIyruIhsTFPDzw8z
- z76ouhV+ffXA2njqam7obRW7ftWNKN7mOYdL3UeH1CCZx0L1vuDxXCO
-X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
- pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
+References: <20241004061541.1666280-1-nobuhiro1.iwamatsu@toshiba.co.jp>
+ <CABMQnVK_RUC84QQ5zb+ZpuMOZcFMNV6HzEYAfmX4bOrRm+rvTw@mail.gmail.com> <90978892-2086-4c70-9698-0957cc71abb8@lunn.ch>
+In-Reply-To: <90978892-2086-4c70-9698-0957cc71abb8@lunn.ch>
+From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+Date: Thu, 21 Nov 2024 15:01:06 +0900
+Message-ID: <CABMQnVJES+VoqNYNgo3zxFkTJVYkR=ZCwWsEFEe=QhKyaYie9w@mail.gmail.com>
+Subject: Re: [PATCH] ARM: dts: socfpga: sodia: Fix mdio bus probe and PHY ID
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: dinguyen@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org, robh+dt@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_203630_281846_20368410 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241120_220135_428724_2AD8C6CE 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,50 +93,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We notice this interrupt pin always keep low, it cause BMC stuck at boot
-up until kernel disabling IRQ of this GPIO pin.
+Hi Andrew,
 
-Remove the interrupt of GPIOB4 pin from all IOEXP for now to avoid BMC
-get stuck.
+Thanks for your review.
 
-Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts | 6 ------
- 1 file changed, 6 deletions(-)
+2024=E5=B9=B411=E6=9C=8818=E6=97=A5(=E6=9C=88) 5:06 Andrew Lunn <andrew@lun=
+n.ch>:
+>
+> On Sun, Nov 17, 2024 at 05:53:51PM +0900, Nobuhiro Iwamatsu wrote:
+> > Hi Dinh,
+> >
+> > Please check and apply this patch?
+> >
+> > Thanks,
+> >   Nobuhiro
+> >
+> > 2024=E5=B9=B410=E6=9C=884=E6=97=A5(=E9=87=91) 15:16 Nobuhiro Iwamatsu <=
+iwamatsu@nigauri.org>:
+> > >
+> > > From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+> > >
+> > > On SoCFPGA/Sodia board, mdio bus cannot be probed, so the PHY cannot =
+be
+> > > found and the network device does not work.
+> > >
+> > > ```
+> > > stmmaceth ff702000.ethernet eth0: __stmmac_open: Cannot attach to PHY=
+ (error: -19)
+> > > ```
+> > >
+> > > To probe the mdio bus, add "snps,dwmac-mdio" as compatible string of =
+the
+> > > mdio bus. Also the PHY ID connected to this board is 4. Therefore, ch=
+ange
+> > > to 4.
+>
+> It is the address which is 4, not the ID.
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-index 417c0d12635c..3822bb3c9243 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-@@ -593,8 +593,6 @@ io_expander0: gpio@20 {
- 		reg = <0x20>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
--		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(B, 4) IRQ_TYPE_LEVEL_LOW>;
- 	};
- 
- 	// Module 1 IOEXP
-@@ -603,8 +601,6 @@ io_expander1: gpio@21 {
- 		reg = <0x21>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
--		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(B, 4) IRQ_TYPE_LEVEL_LOW>;
- 	};
- 
- 	// HMC IOEXP
-@@ -613,8 +609,6 @@ io_expander2: gpio@27 {
- 		reg = <0x27>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
--		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(B, 4) IRQ_TYPE_LEVEL_LOW>;
- 	};
- 
- 	// Module 0 EEPROM
+Thanks, I will fix it.
 
--- 
-2.31.1
+>
+>         Andrew
 
+Best regards,
+  Nobuhiro
+
+--=20
+Nobuhiro Iwamatsu
+   iwamatsu at {nigauri.org / debian.org / kernel.org}
+   GPG ID: 32247FBB40AD1FA6
 
