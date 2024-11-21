@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B54F5D743CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 17:44:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EAF8D743CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 17:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HNSGIUDWKtHK2V3krzyRKB3CsE+LudVK/AtAMHaXQPM=; b=g0/sh0KiqCzK+FNu7gSlcAME0I
-	T4RH8SGltg2atxQSDYVoC/jXRIpfjN82SYwn1LS0j4uySmj7UQEOghU5yLfvoBToa76W02HctA7TB
-	NDKavsJB71fmuxwA2xM57EcA05HkrSJNNPLZKd5mF768svRCsWsmK36wgjUXIMjVZIWDgdFKvN6uO
-	9p9J1aSnyGOK9hlfZB7T30Jqu6WEScsZEBQNjLnHoezq5C295MApFQV/jWsT0Io3MlW/JvktysxBM
-	5gMRRslqnC0eYej1RwDOc2CPybywry3lDZFHqqgn6LgMx4kf/+IB+jEEPjzlzG/zy+bzyNie41IGO
-	yN0Uq4XQ==;
+	bh=ZKTy8XWO2qgziAQ1aV4BgRlmD2JBLSeCDp8Nwyzn3qA=; b=ZuIc+8yoHsAOZGtWLWh6RSq4vP
+	JD6jmX2Tm2C6UcNg4LwWuQ1eykEzFDzXHzjiuP+GmxCr/nxWRwSZvKmgqhMhdRA3QPdM0/VYEJplB
+	EBgEBSjsEwmYRTh+vrqqgVO1lTs6kgUlL5GmCDGSt9+uT/FVwGtH7SPILd8SwmQuF8yWhznGvatil
+	wak0tjQ3cIFkHUAW0Y1Lz8GW+Ez31gzNVHjPmmaAIbREQYvgF4Ajc6UZzn0Blg2/nWRRKprpBBwEo
+	bbVTMBPK5VyY6UaTibJWpVjejRnxuebaxY2j0odvzntZ6A9IFaTOUpjj3IFA5LEWyDgnaDH+3mJij
+	hcYJ4hqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEBDs-00000000Zx2-3QHd;
-	Thu, 21 Nov 2024 17:44:08 +0000
+	id 1tEBEn-00000000a7d-1u1c;
+	Thu, 21 Nov 2024 17:45:05 +0000
 Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEBBT-00000000ZN7-0i2v
+	id 1tEBBU-00000000ZNN-1D1c
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 21 Nov 2024 17:41:41 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id B06972000C;
-	Thu, 21 Nov 2024 17:41:36 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D004620010;
+	Thu, 21 Nov 2024 17:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1732210897;
+	t=1732210898;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=HNSGIUDWKtHK2V3krzyRKB3CsE+LudVK/AtAMHaXQPM=;
-	b=KwoxBPvC0Zrft6aR7f763oIRvd7CMINTpkCKQP/bHCyzyolyQ5scMkb+NAdB7DBIqOVf3u
-	Xlz3JO4Wu29Ce5OBWtm1j8aMzum1QQQ6tmCz2blMejXb6VzQH8b5aVoFgeLG2OtB4DAYTv
-	b4ldBapMLak5ZXgUDWFzMm6rhwlllZ0GY1J7NOF/ONOOOX5auLPJ0oY7llWLk6kC6V8KSc
-	8FQ5aUTIt8ouNKfTUAjx6M6otK8zTYlRYFrqVHYhu1UF4Oe7/Zkr717Dp1YXjZOQ8dH/kD
-	3jbvJcIzy3wSucOaOWnK/ywWQ5pJcTI74TZ+u4DV9UN+JGOKredQvaCh6C0F/A==
+	bh=ZKTy8XWO2qgziAQ1aV4BgRlmD2JBLSeCDp8Nwyzn3qA=;
+	b=RWoZGU5fJqpTbXKi5tH+r+d1vmD3mjfhf6zksxyRpNa2uNYJqMxwWp/aivD8zuRYvbeVR6
+	HaBQw6HXteslHcYc5HeiakgI80i3lGL4NvA0dVR49fCXFMkNaqK2+x1vIMmPZyaCPYDUea
+	EiEcuu2XP80YdISzxDRiKnFalLoPHLRrs+BPSDuUxPflkp3mdDL0rueP/9UY9TKAsH6hhh
+	T3NGDcPuhqZ9mQTaTLd35fNleQXRbFnRYg12+0mlyMKpkFqtd7yXICaPQg7eEkmXvMJj/b
+	7qTCJNRPyQTqux8xlrxIUqgH9YKhnerMsJ+IDdSQuq/HEUrdwwCHfsYqkgdD3Q==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Thu, 21 Nov 2024 18:41:11 +0100
-Subject: [PATCH 1/5] clk: imx: clk-imx8mp: Allow LDB serializer clock
- reconfigure parent rate
+Date: Thu, 21 Nov 2024 18:41:12 +0100
+Subject: [PATCH 2/5] clk: Add a helper to determine a clock rate
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241121-ge-ian-debug-imx8-clk-tree-v1-1-0f1b722588fe@bootlin.com>
+Message-Id: <20241121-ge-ian-debug-imx8-clk-tree-v1-2-0f1b722588fe@bootlin.com>
 References: <20241121-ge-ian-debug-imx8-clk-tree-v1-0-0f1b722588fe@bootlin.com>
 In-Reply-To: <20241121-ge-ian-debug-imx8-clk-tree-v1-0-0f1b722588fe@bootlin.com>
 To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
@@ -69,8 +68,8 @@ Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 X-Mailer: b4 0.15-dev
 X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_094139_484385_442E2FA3 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20241121_094140_493881_F51F6002 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,34 +84,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marek Vasut <marex@denx.de>
+In the context of the clock core, "determine" means we calculate a
+possible clock rate based on its hardware capabilities and its current
+upstream parent frequency. This is opposed to "round" which tries to
+find the best parent and best rate and "recalc" which is about finding
+the next output clock based on a parent frequency change.
 
-The media_ldb_root_clk supply LDB serializer. These clock are usually
-shared with the LCDIFv3 pixel clock and supplied by the Video PLL on
-i.MX8MP, but the LDB clock run at either x7 or x14 rate of the LCDIFv3
-pixel clock. Allow the LDB to reconfigure Video PLL as needed, as that
-results in accurate serializer clock.
+The prototype is based on clk_recalc() which does exactly the same for
+the "recalc" situation.
 
-Signed-off-by: Marek Vasut <marex@denx.de>
-Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/clk/imx/clk-imx8mp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/clk/clk.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/clk/imx/clk-imx8mp.c b/drivers/clk/imx/clk-imx8mp.c
-index 516dbd170c8a356f293621b371b9ef9b9bec90a4..2e61d340b8ab7f626155563c46e0d4142caf3fa9 100644
---- a/drivers/clk/imx/clk-imx8mp.c
-+++ b/drivers/clk/imx/clk-imx8mp.c
-@@ -611,7 +611,7 @@ static int imx8mp_clocks_probe(struct platform_device *pdev)
- 	hws[IMX8MP_CLK_MEDIA_MIPI_PHY1_REF] = imx8m_clk_hw_composite("media_mipi_phy1_ref", imx8mp_media_mipi_phy1_ref_sels, ccm_base + 0xbd80);
- 	hws[IMX8MP_CLK_MEDIA_DISP1_PIX] = imx8m_clk_hw_composite_bus_flags("media_disp1_pix", imx8mp_media_disp_pix_sels, ccm_base + 0xbe00, CLK_SET_RATE_PARENT);
- 	hws[IMX8MP_CLK_MEDIA_CAM2_PIX] = imx8m_clk_hw_composite("media_cam2_pix", imx8mp_media_cam2_pix_sels, ccm_base + 0xbe80);
--	hws[IMX8MP_CLK_MEDIA_LDB] = imx8m_clk_hw_composite("media_ldb", imx8mp_media_ldb_sels, ccm_base + 0xbf00);
-+	hws[IMX8MP_CLK_MEDIA_LDB] = imx8m_clk_hw_composite_bus_flags("media_ldb", imx8mp_media_ldb_sels, ccm_base + 0xbf00, CLK_SET_RATE_PARENT);
- 	hws[IMX8MP_CLK_MEMREPAIR] = imx8m_clk_hw_composite_critical("mem_repair", imx8mp_memrepair_sels, ccm_base + 0xbf80);
- 	hws[IMX8MP_CLK_MEDIA_MIPI_TEST_BYTE] = imx8m_clk_hw_composite("media_mipi_test_byte", imx8mp_media_mipi_test_byte_sels, ccm_base + 0xc100);
- 	hws[IMX8MP_CLK_ECSPI3] = imx8m_clk_hw_composite("ecspi3", imx8mp_ecspi3_sels, ccm_base + 0xc180);
+diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+index d02451f951cf057d068f980d985c95deb861a2d9..f171539bbb842f57698249a475c62f3f5719ccd1 100644
+--- a/drivers/clk/clk.c
++++ b/drivers/clk/clk.c
+@@ -1927,6 +1927,18 @@ long clk_get_accuracy(struct clk *clk)
+ }
+ EXPORT_SYMBOL_GPL(clk_get_accuracy);
+ 
++__maybe_unused
++static unsigned long clk_determine(struct clk_core *core, unsigned long rate)
++{
++	struct clk_rate_request req = {};
++
++	clk_hw_init_rate_request(core->hw, &req, rate);
++	if (__clk_determine_rate(core->hw, &req))
++		return 0;
++
++	return req.rate;
++}
++
+ static unsigned long clk_recalc(struct clk_core *core,
+ 				unsigned long parent_rate)
+ {
 
 -- 
 2.47.0
