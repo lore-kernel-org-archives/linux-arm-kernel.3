@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EABE7D75BA1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 02:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E378D75BA1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 02:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=meHHH7M2j2wbPMYh1ML8vwpSTa9Bl+FhuoT5WN+J4RA=; b=vOaToTaC4sr2vrwGdnTIBb7wU9
-	fp3iGDo8gwCXuJiJT1NJCzNMrEJ6DJ5rjmEl22n3xvzyZKoveDt5RsviUEDGPyea6G2MX3pV0rXDi
-	dVSV6/FBQLi132ILAFvJzihpqlCSjnnHaCiu9Ip/SeG+bNqdeHfw6Om+3ifNDQfulq37qPuwOne4I
-	9/JB00pzsE/YT1rhk8ulKao9XugONuvsfFba6JSDaEa/awkH5AYlGJfzfxccdb/4uSPo6CjAfflfx
-	2nR3gSR2KOUXH0s+8oFB6L9FB3cNQU8Q3ifTZqKzU7hJ4mTE9/RQvMqQFLipVFg37uWz0y3pz/ugF
-	rHQoM6sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zfR0TzUMvq7KDfEvPpiSoNUR3NrHiRq6/8t1PUDZT/A=; b=lvdX2Ns+fWM18pnu3DmNhnMB4Y
+	mtAsihTKk7d7wVN6Ny5yAIejj5VQYDDZd+08zpzOjMHo24ikHwpFkfJlLgmXSESm5jvszf58vZ5F6
+	3WIV1IjPiGZQo/gRfCrS2BUcRxOI5eek7+3gSpZw/Ki3TR1jyIdtlwVG//+0lm4GlCOH17zuqiz2/
+	xugKmbqUwtnWqPrI9Qnt0ESRxgXcbbvYw4aTN80GZbvk98vyvaqEFOnOj4Po14tyo2nPYGJ752ze6
+	6lMs7QkhSOCw1wUbgTMfwoi9Z+8lmBXbq2uz2uvAojb45zJ+LkEefcJX/ho6FuBxnQzaTUNoYZg8I
+	7Rljv1yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDwqd-0000000GazC-0vzA;
-	Thu, 21 Nov 2024 02:23:11 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1tDx8K-0000000Gc6L-2wcD;
+	Thu, 21 Nov 2024 02:41:28 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDwos-0000000Gasc-1B7B
+	id 1tDx7N-0000000Gbwx-3rAx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 02:21:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732155682; x=1763691682;
-  h=date:from:to:cc:subject:message-id;
-  bh=DVYd009tIVWNLCufRVlLLrL/Md5ptLHv0iwu+oWyQzE=;
-  b=AaIBN1NGJ+r4UdialQ9FSF91+UHp5zKdHjRJmeClf8O35gOTpGjH/CSI
-   J2b2qvauRR7XQ036TX6tvcWjPgAEZFWvM9R2slW2wIs2LrJUel5wTGeTR
-   XvbTlx73f2kLuYH4pXhBLYUmdvK+ifyt2kZ33UpPLQzfz0+rR5XT9rdE8
-   6W/36KI+DZG56doSRZJk/pw+O89wyjmoYrGZKfWCxpoFad0pJM519A/xk
-   f1C/jJj5wBKGlQEGZySxVnljIYZjeW7hLwPSwqPpWHQNmlu9Zl63/vpTO
-   cJDt6RIjbSd6jnx/5k9CB/qJAHi3wSIxfZZputcP7q041oD5jVCMDTGg+
-   w==;
-X-CSE-ConnectionGUID: tG3Qy1ufQT+bVoIyMv/y3A==
-X-CSE-MsgGUID: nVIoITGXT2ud48ZH6aLE0w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11262"; a="32302503"
-X-IronPort-AV: E=Sophos;i="6.12,171,1728975600"; 
-   d="scan'208";a="32302503"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2024 18:21:16 -0800
-X-CSE-ConnectionGUID: pFENAvs4TB+9x3O0X78uxQ==
-X-CSE-MsgGUID: 3NNElqpkQMGJQ1EonzfA4A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,171,1728975600"; 
-   d="scan'208";a="113374546"
-Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 20 Nov 2024 18:21:15 -0800
-Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tDwoj-0001RO-0A;
-	Thu, 21 Nov 2024 02:21:13 +0000
-Date: Thu, 21 Nov 2024 10:20:07 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/dt] BUILD SUCCESS
- 9f5cbdaae5f760c218c82e0a5e0f9c58bac56f0c
-Message-ID: <202411211058.YJZIgEbB-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Thu, 21 Nov 2024 02:40:31 +0000
+X-UUID: ebeacc80a7b111efa216b1d71e6e1362-20241121
+X-CTIC-Tags: HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CTE_8B, HR_CTT_MISS
+	HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_DIGIT_LEN, HR_FROM_NAME
+	HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM, HR_SJ_PHRASE
+	HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT, HR_TO_NO_NAME
+	IP_TRUSTED, SRC_TRUSTED, DN_TRUSTED, SA_TRUSTED, SA_EXISTED
+	SN_TRUSTED, SN_EXISTED, SPF_NOPASS, DKIM_NOPASS, DMARC_NOPASS
+	CIE_BAD, CIE_GOOD_SPF, GTI_FG_BS, GTI_C_CI, GTI_FG_IT
+	GTI_RG_INFO, GTI_C_BU, AMN_T1, AMN_GOOD, AMN_C_TI
+	AMN_C_BU
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.38,REQID:85a52618-bc1c-4517-88d6-fd6292af722f,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:-5,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:15
+X-CID-INFO: VERSION:1.1.38,REQID:85a52618-bc1c-4517-88d6-fd6292af722f,IP:0,URL
+	:0,TC:0,Content:-5,EDM:25,RT:0,SF:-5,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:15
+X-CID-META: VersionHash:82c5f88,CLOUDID:9141f5d206595f2c7eeb1c3031ef7f88,BulkI
+	D:241121104009WRZHCVZB,BulkQuantity:0,Recheck:0,SF:19|66|841|38|17|102,TC:
+	nil,Content:0,EDM:5,IP:nil,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,C
+	OL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD,TF_CID_SPAM_ULS
+X-UUID: ebeacc80a7b111efa216b1d71e6e1362-20241121
+X-User: xiaopei01@kylinos.cn
+Received: from xiaopei-pc.. [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 153133919; Thu, 21 Nov 2024 10:40:08 +0800
+From: Pei Xiao <xiaopei01@kylinos.cn>
+To: suzuki.poulose@arm.com,
+	mike.leach@linaro.org,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Pei Xiao <xiaopei01@kylinos.cn>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] coresight: Fix dsb_mode_store() unsigned val is never less than zero
+Date: Thu, 21 Nov 2024 10:40:03 +0800
+Message-Id: <122503017ada249fbf12be3fa4ee6ccb8f8c78cc.1732156624.git.xiaopei01@kylinos.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <202410150702.UaZ7kvet-lkp@intel.com>
+References: <202410150702.UaZ7kvet-lkp@intel.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_182122_358204_ABBD5883 
-X-CRM114-Status: UNSURE (   5.52  )
+X-CRM114-CacheID: sfid-20241120_184030_287926_C522F21B 
+X-CRM114-Status: UNSURE (   8.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,120 +93,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
-branch HEAD: 9f5cbdaae5f760c218c82e0a5e0f9c58bac56f0c  arm64: dts: apm: Remove unused and undocumented "bus_num" property
+dsb_mode_store() warn: unsigned 'val' is never less than zero.
 
-elapsed time: 1449m
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202410150702.UaZ7kvet-lkp@intel.com/
+Fixes: 018e43ad1eee ("coresight-tpdm: Add node to set dsb programming mode")
+Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+---
+ drivers/hwtracing/coresight/coresight-tpdm.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-configs tested: 100
-configs skipped: 2
+diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
+index b7d99e91ab84..158950243d83 100644
+--- a/drivers/hwtracing/coresight/coresight-tpdm.c
++++ b/drivers/hwtracing/coresight/coresight-tpdm.c
+@@ -640,8 +640,7 @@ static ssize_t dsb_mode_store(struct device *dev,
+ 	struct tpdm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	unsigned long val;
+ 
+-	if ((kstrtoul(buf, 0, &val)) || (val < 0) ||
+-			(val & ~TPDM_DSB_MODE_MASK))
++	if ((kstrtoul(buf, 0, &val)) || (val & ~TPDM_DSB_MODE_MASK))
+ 		return -EINVAL;
+ 
+ 	spin_lock(&drvdata->spinlock);
+-- 
+2.34.1
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
-
-tested configs:
-alpha                   allnoconfig    gcc-14.2.0
-alpha                  allyesconfig    gcc-14.2.0
-arc                    allmodconfig    gcc-13.2.0
-arc                     allnoconfig    gcc-13.2.0
-arc                    allyesconfig    gcc-13.2.0
-arc         randconfig-001-20241121    gcc-13.2.0
-arc         randconfig-002-20241121    gcc-13.2.0
-arm                    allmodconfig    gcc-14.2.0
-arm                     allnoconfig    clang-20
-arm                    allyesconfig    gcc-14.2.0
-arm         randconfig-001-20241121    clang-20
-arm         randconfig-002-20241121    gcc-14.2.0
-arm         randconfig-003-20241121    clang-20
-arm         randconfig-004-20241121    gcc-14.2.0
-arm64                  allmodconfig    clang-20
-arm64                   allnoconfig    gcc-14.2.0
-arm64       randconfig-001-20241121    clang-20
-arm64       randconfig-002-20241121    clang-20
-arm64       randconfig-003-20241121    gcc-14.2.0
-arm64       randconfig-004-20241121    gcc-14.2.0
-csky                    allnoconfig    gcc-14.2.0
-csky        randconfig-001-20241121    gcc-14.2.0
-csky        randconfig-002-20241121    gcc-14.2.0
-hexagon                allmodconfig    clang-20
-hexagon                 allnoconfig    clang-20
-hexagon                allyesconfig    clang-20
-hexagon     randconfig-001-20241121    clang-20
-hexagon     randconfig-002-20241121    clang-15
-i386                   allmodconfig    gcc-12
-i386                    allnoconfig    gcc-12
-i386                      defconfig    clang-19
-loongarch              allmodconfig    gcc-14.2.0
-loongarch               allnoconfig    gcc-14.2.0
-loongarch   randconfig-001-20241121    gcc-14.2.0
-loongarch   randconfig-002-20241121    gcc-14.2.0
-m68k                   allmodconfig    gcc-14.2.0
-m68k                    allnoconfig    gcc-14.2.0
-m68k                   allyesconfig    gcc-14.2.0
-microblaze             allmodconfig    gcc-14.2.0
-microblaze              allnoconfig    gcc-14.2.0
-microblaze             allyesconfig    gcc-14.2.0
-mips                    allnoconfig    gcc-14.2.0
-nios2                   allnoconfig    gcc-14.2.0
-nios2       randconfig-001-20241121    gcc-14.2.0
-nios2       randconfig-002-20241121    gcc-14.2.0
-openrisc                allnoconfig    gcc-14.2.0
-openrisc               allyesconfig    gcc-14.2.0
-openrisc                  defconfig    gcc-14.2.0
-parisc                 allmodconfig    gcc-14.2.0
-parisc                  allnoconfig    gcc-14.2.0
-parisc                 allyesconfig    gcc-14.2.0
-parisc                    defconfig    gcc-14.2.0
-parisc      randconfig-001-20241121    gcc-14.2.0
-parisc      randconfig-002-20241121    gcc-14.2.0
-powerpc                allmodconfig    gcc-14.2.0
-powerpc                 allnoconfig    gcc-14.2.0
-powerpc                allyesconfig    clang-20
-powerpc     randconfig-001-20241121    clang-15
-powerpc     randconfig-002-20241121    gcc-14.2.0
-powerpc     randconfig-003-20241121    clang-20
-powerpc64   randconfig-001-20241121    gcc-14.2.0
-powerpc64   randconfig-002-20241121    clang-20
-powerpc64   randconfig-003-20241121    clang-20
-riscv                  allmodconfig    clang-20
-riscv                   allnoconfig    gcc-14.2.0
-riscv                  allyesconfig    clang-20
-riscv                     defconfig    clang-20
-riscv       randconfig-001-20241121    gcc-14.2.0
-riscv       randconfig-002-20241121    gcc-14.2.0
-s390                   allmodconfig    clang-20
-s390                    allnoconfig    clang-20
-s390                   allyesconfig    gcc-14.2.0
-s390                      defconfig    clang-20
-s390        randconfig-001-20241121    gcc-14.2.0
-s390        randconfig-002-20241121    clang-20
-sh                     allmodconfig    gcc-14.2.0
-sh                      allnoconfig    gcc-14.2.0
-sh                     allyesconfig    gcc-14.2.0
-sh                        defconfig    gcc-14.2.0
-sh          randconfig-001-20241121    gcc-14.2.0
-sh          randconfig-002-20241121    gcc-14.2.0
-sparc                  allmodconfig    gcc-14.2.0
-sparc64                   defconfig    gcc-14.2.0
-sparc64     randconfig-001-20241121    gcc-14.2.0
-sparc64     randconfig-002-20241121    gcc-14.2.0
-um                     allmodconfig    clang-20
-um                      allnoconfig    clang-17
-um                     allyesconfig    gcc-12
-um                        defconfig    clang-20
-um                   i386_defconfig    gcc-12
-um          randconfig-001-20241121    gcc-12
-um          randconfig-002-20241121    gcc-12
-um                 x86_64_defconfig    clang-15
-x86_64                  allnoconfig    clang-19
-x86_64                    defconfig    gcc-11
-x86_64                        kexec    clang-19
-x86_64                     rhel-9.4    gcc-12
-xtensa                  allnoconfig    gcc-14.2.0
-xtensa      randconfig-001-20241121    gcc-14.2.0
-xtensa      randconfig-002-20241121    gcc-14.2.0
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
