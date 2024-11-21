@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5343D6ED2A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 13:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A93D6ED2B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 13:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zcbz2RZe19TKsqJ/WRoGlA+GN683d7b2Sedzfexr4xs=; b=w32QqWuhxNhGtP
-	xxt6LlGxByo04krB2d2d796TV4ENUZwcYCNU1ZIwqC6JYNLiUJxhA4MsUvlbgKU3DD/qmlN278XnR
-	mV4zNvQLWv56SIjeMoRUjqu1XSsIz94K1TKDWLMq5fZmKgTioGLMct7cD/trke12KLHieZhdFupow
-	cITj5PGeiuulcK5JAoCI6fD0VUOkNIc5a/u16i0LqPfQOO4dxR4SlrzuzswYKxptJx/NXpcf7BV1W
-	Zb9ECQWtsoVb68t799+vTsh1antKsF5OtcSeQsYAyez1XlobDdJ3MUD6tbFJUSgZmsQRkrVXLKmIw
-	T+1LUPmb+1vTEA04dU9Q==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oT58q45BHt1UL79xkKrgV9Ac9/94VjkagOmgL19rZm4=; b=mLfA5AaJtEbLJi8DwFJgMKyLm1
+	PpCSMwrBOnxaKUUO9RF6D6uPZMdKtD2Z5BjZrdiQTmw+p+AbAf8uRXdnj1AXIyL8yimewMSQ82NhI
+	qG7s2Zfsaz4zOEFRngSiBErYkL4YL5hXII05d71vO0O9P4I0gPagenKxNg9gbmwEqTYAZE60to0qg
+	qOV1PyimLR5G1l7a6yN+Z4CnreXY3LrbBAcsW1m8+Pa3yDk07iYMcvfprSIHP9TgId9Wd6TnFDIB3
+	FckU2MH9QqbpIU/oBgDylq25jrLM9+Ua2TrFwaeiTY03VgXoqgdGm0W1xuFZceNj6iAT4Xg7IlhLn
+	ZNXuT2LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE79A-0000000065l-1Fwv;
-	Thu, 21 Nov 2024 13:23:00 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tE7A5-000000006L0-18N6;
+	Thu, 21 Nov 2024 13:23:57 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE78D-000000005vL-2NeE;
-	Thu, 21 Nov 2024 13:22:03 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AL8uHZN023498;
-	Thu, 21 Nov 2024 14:21:44 +0100
+	id 1tE78P-000000005yD-21Jc;
+	Thu, 21 Nov 2024 13:22:14 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ALAlClX018947;
+	Thu, 21 Nov 2024 14:21:59 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=zcbz2RZe19TKsqJ/WRoGlA
-	+GN683d7b2Sedzfexr4xs=; b=xRlBS17GulkvBcIRw2A99BQ5bQfr9VXDJCe3xv
-	URB6gDpw/9bVL/bXicPoiRIphkg0g38zTXktA0KykKFIeadxXyOwvMCe7YzcgjVm
-	6UBVu01ArNDlNfj+E1rkWbyqbYEWL57FQEWYzD7+AxYWsovktOdBMp8Y9p57KWUA
-	wmc3XSPayp5XkFAGb+D/lStsx/IQ/vmKATVSZ1pbNbBeAPPOD8fGSvEfDU6ThGjZ
-	k5LXX3DKe7jPTakMTDPXbSEzYfY3GFINArDZyK9U8Uv16ToOXaRGJrZILZzXBXVB
-	gejQNNu0gv4yQ9WusAqFJNPYxRoD8v8CuFUK/F1vEoqApzlw==
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	oT58q45BHt1UL79xkKrgV9Ac9/94VjkagOmgL19rZm4=; b=Tc1cyOr+kEQ8YxTp
+	HvoE/Td6C19fL1PZqQlSY+e71y0kKXOPqibppW2GJHsaSO+ziXj7M0Uc0AvR1rIh
+	ckChbsoEMf11DuIJ7UT52+JQxHiSZubdAJok4pYh3zm9M0N0nUTrquHnuYnSStlg
+	rfPh9ipFADBeGN/Q17/r+KR7F19kM59gUt9W+PBKIOszH11q3wVdO5+VPW7kDi/u
+	vgU6HYVFyCOpl7MR06UEUC/koeIXg/Dd6v+wBovhnpB405TvPSxbjzTeLCwYa6cp
+	Tg8KlbL+JeBcsHZXLmjBxConU+kgwSyX3R/DsKkUILH9RGNzNmvf2LxLXvAWQ+Rf
+	Ob/LYA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42xkqf6rrc-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42y77nmea9-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 21 Nov 2024 14:21:44 +0100 (CET)
+	Thu, 21 Nov 2024 14:21:59 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2697640047;
-	Thu, 21 Nov 2024 14:19:56 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 22AB24004B;
+	Thu, 21 Nov 2024 14:20:19 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1DB422843CB;
-	Thu, 21 Nov 2024 14:19:07 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5B4972843D6;
+	Thu, 21 Nov 2024 14:19:09 +0100 (CET)
 Received: from localhost (10.48.86.208) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 21 Nov
- 2024 14:19:06 +0100
+ 2024 14:19:09 +0100
 From: Hugues Fruchet <hugues.fruchet@foss.st.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>,
         Ezequiel Garcia
@@ -76,10 +77,12 @@ To: Mauro Carvalho Chehab <mchehab@kernel.org>,
         <linux-rockchip@lists.infradead.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v3 0/3] Add WebP support to hantro decoder
-Date: Thu, 21 Nov 2024 14:19:01 +0100
-Message-ID: <20241121131904.261230-1-hugues.fruchet@foss.st.com>
+Subject: [PATCH v3 3/3] media: verisilicon: postproc: 4K support
+Date: Thu, 21 Nov 2024 14:19:04 +0100
+Message-ID: <20241121131904.261230-4-hugues.fruchet@foss.st.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241121131904.261230-1-hugues.fruchet@foss.st.com>
+References: <20241121131904.261230-1-hugues.fruchet@foss.st.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -90,8 +93,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_052201_881393_E0C54129 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20241121_052213_798472_C8547F35 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,70 +109,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add WebP image decoding support to stateless V4L2 VP8 decoder.
+Support input larger than 4096x2048 using extended input width/height
+fields of swreg92.
+This is needed to decode large WebP or JPEG pictures.
 
-This have been tested on STM32MP257-EV board using GStreamer.
+Signed-off-by: Hugues Fruchet <hugues.fruchet@foss.st.com>
+---
+ drivers/media/platform/verisilicon/hantro.h          | 2 ++
+ drivers/media/platform/verisilicon/hantro_g1_regs.h  | 2 +-
+ drivers/media/platform/verisilicon/hantro_postproc.c | 6 +++++-
+ 3 files changed, 8 insertions(+), 2 deletions(-)
 
-Simple basic test:
-$> wget https://www.gstatic.com/webp/gallery/1.webp
-$> gst-launch-1.0 filesrc location= 1.webp ! typefind ! v4l2slwebpdec ! imagefreeze num-buffers=20 ! waylandsink fullscreen=true
-
-Slideshow of a set of WebP pictures and WebM video files:
-$> wget https://www.gstatic.com/webp/gallery/2.webp
-$> wget https://www.gstatic.com/webp/gallery/3.webp
-$> wget https://www.gstatic.com/webp/gallery/4.webp
-$> wget https://www.gstatic.com/webp/gallery/5.webp
-$> wget https://samplemedia.linaro.org/VP8/big_buck_bunny_480p_VP8_VORBIS_25fps_1900K_short.WebM
-$> gst-play-1.0 *.webp *.webm *.WebM --wait-on-eos
-<hit key ">" to display next file >
-
-Large WebP image > 16777215 (size > 2^24)
-$> gst-launch-1.0 fakesrc num-buffers=1 format=4 do-timestamp=true filltype=3 sizetype=2 sizemax=25165824 blocksize=25165824 ! video/x-raw, format=I420, width=4096, height=3072, framerate=1/1 ! webpenc quality=100 ! filesink location=4096x3072_HQ_random.webp
-$> ls -l 4096x3072_HQ_random.webp
-[...] 16877404 Nov 20 11:40 4096x3072_HQ_random.webp
-$> gst-launch-1.0 filesrc location= 4096x3072_HQ_random.webp blocksize=16876610 ! image/webp, width=1, height=1, framerate=0/1 ! v4l2slwebpdec ! imagefreeze num-buffers=20 ! waylandsink fullscreen=true
-
-Large WebP image decoding using post-processor is untested because of lack
-of hardware support on this platform, nevertheless support is provided in
-this serie for further testing on another platform having post-processor
-support.
-
-===========
-= history =
-===========
-version 3:
-   - Fix remarks from Nicolas Dufresne:
-    - Document constraint about key frame only for WebP
-    - Fix rebase issue
-   - Fix typo detected by Diederik de Haas
-
-version 2:
-   - Fix remarks from Nicolas Dufresne:
-    - Use bytesperline helper to compute chroma size
-    - Introduce a new explicit WEBP frame compressed format
-      instead of relying on VP8 + WebP flag
-    - 4K support in both decoder and post-proc
-
-version 1:
-  - Initial submission
-
-Hugues Fruchet (3):
-  media: uapi: add WebP uAPI
-  media: verisilicon: add WebP decoding support
-  media: verisilicon: postproc: 4K support
-
- .../userspace-api/media/v4l/biblio.rst          |  9 +++++++++
- .../media/v4l/pixfmt-compressed.rst             | 17 +++++++++++++++++
- drivers/media/platform/verisilicon/hantro.h     |  2 ++
- .../media/platform/verisilicon/hantro_g1_regs.h |  3 ++-
- .../platform/verisilicon/hantro_g1_vp8_dec.c    | 14 ++++++++++++++
- .../platform/verisilicon/hantro_postproc.c      |  6 +++++-
- .../media/platform/verisilicon/hantro_v4l2.c    |  2 ++
- .../platform/verisilicon/stm32mp25_vpu_hw.c     | 17 +++++++++++++++--
- drivers/media/v4l2-core/v4l2-ioctl.c            |  1 +
- include/uapi/linux/videodev2.h                  |  1 +
- 10 files changed, 68 insertions(+), 4 deletions(-)
-
+diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
+index 811260dc3c77..d1337f7742e4 100644
+--- a/drivers/media/platform/verisilicon/hantro.h
++++ b/drivers/media/platform/verisilicon/hantro.h
+@@ -321,6 +321,8 @@ struct hantro_postproc_regs {
+ 	struct hantro_reg output_fmt;
+ 	struct hantro_reg orig_width;
+ 	struct hantro_reg display_width;
++	struct hantro_reg input_width_ext;
++	struct hantro_reg input_height_ext;
+ };
+ 
+ struct hantro_vp9_decoded_buffer_info {
+diff --git a/drivers/media/platform/verisilicon/hantro_g1_regs.h b/drivers/media/platform/verisilicon/hantro_g1_regs.h
+index e7d4db788e57..f6e5bbeb1914 100644
+--- a/drivers/media/platform/verisilicon/hantro_g1_regs.h
++++ b/drivers/media/platform/verisilicon/hantro_g1_regs.h
+@@ -351,7 +351,7 @@
+ #define     G1_REG_PP_CONTROL_OUT_WIDTH(v) (((v) << 4) & GENMASK(14, 4))
+ #define G1_REG_PP_MASK1_ORIG_WIDTH	G1_SWREG(88)
+ #define     G1_REG_PP_ORIG_WIDTH(v)	(((v) << 23) & GENMASK(31, 23))
+-#define G1_REG_PP_DISPLAY_WIDTH		G1_SWREG(92)
++#define G1_REG_PP_DISPLAY_WIDTH_IN_EXT	G1_SWREG(92)
+ #define G1_REG_PP_FUSE			G1_SWREG(99)
+ 
+ #endif /* HANTRO_G1_REGS_H_ */
+diff --git a/drivers/media/platform/verisilicon/hantro_postproc.c b/drivers/media/platform/verisilicon/hantro_postproc.c
+index 232c93eea7ee..84c8e287470d 100644
+--- a/drivers/media/platform/verisilicon/hantro_postproc.c
++++ b/drivers/media/platform/verisilicon/hantro_postproc.c
+@@ -49,7 +49,9 @@ static const struct hantro_postproc_regs hantro_g1_postproc_regs = {
+ 	.input_fmt = {G1_REG_PP_CONTROL, 29, 0x7},
+ 	.output_fmt = {G1_REG_PP_CONTROL, 26, 0x7},
+ 	.orig_width = {G1_REG_PP_MASK1_ORIG_WIDTH, 23, 0x1ff},
+-	.display_width = {G1_REG_PP_DISPLAY_WIDTH, 0, 0xfff},
++	.display_width = {G1_REG_PP_DISPLAY_WIDTH_IN_EXT, 0, 0xfff},
++	.input_width_ext = {G1_REG_PP_DISPLAY_WIDTH_IN_EXT, 26, 0x7},
++	.input_height_ext = {G1_REG_PP_DISPLAY_WIDTH_IN_EXT, 29, 0x7},
+ };
+ 
+ bool hantro_needs_postproc(const struct hantro_ctx *ctx,
+@@ -103,6 +105,8 @@ static void hantro_postproc_g1_enable(struct hantro_ctx *ctx)
+ 	HANTRO_PP_REG_WRITE(vpu, output_height, ctx->dst_fmt.height);
+ 	HANTRO_PP_REG_WRITE(vpu, orig_width, MB_WIDTH(ctx->dst_fmt.width));
+ 	HANTRO_PP_REG_WRITE(vpu, display_width, ctx->dst_fmt.width);
++	HANTRO_PP_REG_WRITE(vpu, input_width_ext, MB_WIDTH(ctx->dst_fmt.width) >> 9);
++	HANTRO_PP_REG_WRITE(vpu, input_height_ext, MB_HEIGHT(ctx->dst_fmt.height >> 8));
+ }
+ 
+ static int down_scale_factor(struct hantro_ctx *ctx)
 -- 
 2.25.1
 
