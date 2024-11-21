@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 641FFE64012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 21:06:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D61FE64014
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 21:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=un1FCtaOdcHIAYWQrVaVMRtafW+TeXyGpU1qCbD4cQU=; b=O3pa2ZZUemjElq5ApCTsb1jfCp
-	1kiQ2gK5GxbxwlzIzgfuG+BxAsrdpF+Mfw57CJ209qyyltCAkjiEb1KgoPxURoyMI4iOK0XO2AK+M
-	ggt3ulhD8AZD0btqXXKbyE6Z1QHgjXMcVeQ4gOwJUfQeOj9mEsSubjMgJ9LgxGLQNarC8tdPOugTR
-	P/6SZvJoxNn3UMXiXnNxpT2wBxiM5a7Kf0eC+GU0Ixax53SFe/uYUVqHoy6ym5Ln1kIB6IqI5vOup
-	YbcBAAOdBoUoMRi0h60HqCtG99pmjnv/R9FD3iLL7iAZVMjbtc5ybVk8bLj9LcdGMbrXu+/mAcW+r
-	A+hHDYiA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m8k+BU9sp4jwI3J04BZciS+UktHrfNJa8h5d00+WG0I=; b=YLBWwEEWw5M4UWqfWK7R/opdLh
+	9G4tRMSRLDvEEKtRckWs3KNXz9hzPkdX3WMJTBItSC1jp905t5BQS+mTWtlnxBgTRLaw04+lihj9x
+	p6a8g3xYW7qqtt1DNWpu+yoT10O0mOYwCxgQPvFaUOl/Pjuq+48uQC60DJXhc/FmLdsfwUw4An3Yk
+	8jvoPpWjx3VTt/NAvm28FcUHUcp+FEjX5zq1n7eeefO3R345xDavFtzmB6tlfKieVx58RQkIhv0SR
+	RIeTSn+suFpkvgnMczaguMcBrVb12ChzyfneWhicljr2AYDCNaVF4F5n8jvsEnfWDvutv8+4o6wT+
+	zb5glLQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEENo-00000000wVw-27Na;
-	Thu, 21 Nov 2024 21:06:36 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tEEOj-00000000wga-0SPR;
+	Thu, 21 Nov 2024 21:07:33 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEEMq-00000000wIg-2R1Y
+	id 1tEEN3-00000000wLO-2pZe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 21:05:38 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ALAVfa4019543;
-	Thu, 21 Nov 2024 21:05:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	un1FCtaOdcHIAYWQrVaVMRtafW+TeXyGpU1qCbD4cQU=; b=Iv2YFGKS4ChNkTql
-	g8iCYQuZrqDLbxlwuPivpxxigwj+Kmnm5ld9fUNXJaRbdeeiCEtqBej81IX/VhaH
-	jB5bm6YumqMz8XHyF28XTyvsFyjzaGa6iIqnyAXRsfekmuW9+FRWc4S2NFM0Lwaa
-	Bebuq/lfxeYlUHp14D3FccIrKMQwMzg1VGhP2eSELfmn85TiLfo3Oy60Jf/NWeto
-	qZDPr/Zhk+wDysMe1T3NjbZLZI+KwAlaKFQjQ3jY5e6w0MXZ22JI/ncfmfG8DBXT
-	8DR3Xs77uKBbQK+AQyY7ICMRtHXcpYfMhsuEpWXW3glWiHtzFAOQVpBJWtQWmKTN
-	+L60Ww==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 431sv2k4na-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 21 Nov 2024 21:05:24 +0000 (GMT)
-Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4ALL5MQm005703
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 21 Nov 2024 21:05:22 GMT
-Received: from [10.216.44.227] (10.80.80.8) by nasanex01c.na.qualcomm.com
- (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 21 Nov
- 2024 13:05:17 -0800
-Message-ID: <124a3aba-138c-41e8-abe0-e6b75f0d8aee@quicinc.com>
-Date: Fri, 22 Nov 2024 02:35:13 +0530
+	Thu, 21 Nov 2024 21:05:50 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-7b153047b29so78800885a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Nov 2024 13:05:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732223147; x=1732827947; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=m8k+BU9sp4jwI3J04BZciS+UktHrfNJa8h5d00+WG0I=;
+        b=Nx8KQyi1PLWloaGiacO2DMHTp/8kDA+JIa0ZkcvLttzFkrshRzhYzQtwx232Otiq4/
+         LhKzEcKNpw5UVIinYA8tFp9velFiEW1GSAPvp+vh8JeGhL6WonX/a9m2z6pq4nLGqqtW
+         52r38IbZ5eQl21UZhSpRMkQa7x3JPB0VlWTMgWNYusu6BdPjTUFlG1wpP22wcTP0ovTO
+         NrAfzvuS7Fh3onZsqPzGPOXqM0Ei83ZEOzFKaSlXxhLCcHPvo5N2LLHuihOUJOVTvUHn
+         oHlBy3JiVeagxbGgfVyw1myiXb3Nl1IDOKbL5IgQZ5PQLLsYWND3GAULQrg4DnWt0en+
+         TAZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732223147; x=1732827947;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=m8k+BU9sp4jwI3J04BZciS+UktHrfNJa8h5d00+WG0I=;
+        b=MrHD9TfKqD+8/DA/9zzjI57I7MbLQQ9DEB6GY7o1aQRZzphx6NLKCiVJU38MQc8cmA
+         rfMxDQ3Twt+bouyBW/p9bjmsdg42klp/n0ac2Pu8RR2DBzQipGP5++lESfeO7uq5O2Su
+         hszB6tJLyU2Ih90YHtDXYAoTS7sMEVQIsysWugSS6CRjDHXoEz9nVctZHX24Iswlp7DK
+         f+g3A1Lcn7fbGkRFJ6fxGvem+PZGOu3lEiFbXwYyCDiVosjfZ5t3Hl+pN1YTAtQY9zL9
+         LN1iZDAI7qPBK1F5dHgQwusWMjq2xf1CvtSe2MHLBIazCKhAZfIeVzJYs0KAOBPAUtNe
+         l7WQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXpUQIge4b5WvDdWCa7htX7Pc5M1RAUnVVW7ebzQU+amH/Mpkq5Z9yAOxvJCZWdJspDHXYuhb4tpGc3PLni6OTe@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAf29kC7O7F174y8huzTcqRfxgI1xPa7waF/G7fxo/CgR/qUc/
+	U8O9ad3m3dyB/SZoo+XbegWTMUIRv683cZXzi3TMfTww/68gYMED
+X-Gm-Gg: ASbGncuC6IJRd4fRtubQpt/2h5Ab3+epGU6AZaJSUFZMa6iJ0NcxRlDdT5+nSlkt+H5
+	kWd5GKiDxBvRClEmsNq2JcSsjhSKtJaLvARa/hiOf8srQBXLtBagOE2wXxR4foV+/r5OT1HStP1
+	aApX8ZG9pQUq5mR5jn6iUHtjBv4BXtdQgv5UPNDUPUYaP/PSvp9qzM2ssLJ45fGhkA/vGRs81WA
+	Y6nXw+tzgTpnh5y/nlQ2EluzUufxYI7s2aw8aCymzw9bF1SkgVYlBGgISQUe2GXRbrFNQ1g
+X-Google-Smtp-Source: AGHT+IFG6Tff0/6lSGz4mSGoJUTTqX9fqp3fbXsR49SyMJyG9/0yxbeEdav0LyDICHYyhjtCi5eHNQ==
+X-Received: by 2002:ad4:5c89:0:b0:6d4:35f5:1f98 with SMTP id 6a1803df08f44-6d450e9899dmr8796626d6.24.1732223146558;
+        Thu, 21 Nov 2024 13:05:46 -0800 (PST)
+Received: from newman.cs.purdue.edu ([128.10.127.250])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d451b4a11dsm1658506d6.102.2024.11.21.13.05.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 Nov 2024 13:05:46 -0800 (PST)
+From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+To: sylvester.nawrocki@gmail.com,
+	mchehab@kernel.org,
+	dron0gus@gmail.com,
+	tomasz.figa@gmail.com,
+	krzk@kernel.org,
+	alim.akhtar@samsung.com,
+	kyungmin.park@samsung.com,
+	laurent.pinchart@ideasonboard.com
+Cc: linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Subject: [PATCH 2/2] media: camif-core: Add check for clk_enable()
+Date: Thu, 21 Nov 2024 21:05:42 +0000
+Message-Id: <20241121210543.8190-1-jiashengjiangcool@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iommu/arm-smmu: Defer probe of clients after smmu
- device bound
-To: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>
-CC: <catalin.marinas@arm.com>, <kernel-team@android.com>, <joro@8bytes.org>,
-        <jgg@ziepe.ca>, <jsnitsel@redhat.com>, <robdclark@chromium.org>,
-        <quic_c_gdjako@quicinc.com>, <dmitry.baryshkov@linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-        <linux-kernel@vger.kernel.org>, <quic_charante@quicinc.com>,
-        <stable@vger.kernel.org>, Prakash Gupta <quic_guptap@quicinc.com>
-References: <20241004090428.2035-1-quic_pbrahma@quicinc.com>
- <173021496151.4097715.14758035881649445798.b4-ty@kernel.org>
- <0952ca36-c5d9-462a-ab7b-b97154c56919@arm.com>
- <1d3dcd91-d246-4db3-9717-9edfe405f431@quicinc.com>
- <57477eba-ef6a-454b-85d1-d0244f6116d1@arm.com>
-Content-Language: en-US
-From: Pratyush Brahma <quic_pbrahma@quicinc.com>
-In-Reply-To: <57477eba-ef6a-454b-85d1-d0244f6116d1@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01c.na.qualcomm.com (10.45.79.139)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: MawJVwAjKTK0gsoaaSF6X6yYMat8Kf2R
-X-Proofpoint-ORIG-GUID: MawJVwAjKTK0gsoaaSF6X6yYMat8Kf2R
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- lowpriorityscore=0 clxscore=1011 bulkscore=0 adultscore=0 suspectscore=0
- spamscore=0 malwarescore=0 mlxscore=0 mlxlogscore=999 phishscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411210157
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_130536_733703_34C54E0A 
-X-CRM114-Status: GOOD (  27.27  )
+X-CRM114-CacheID: sfid-20241121_130549_711759_8346B0BD 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,155 +103,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add check for the return value of clk_enable() to gurantee the success.
 
-On 11/21/2024 8:19 PM, Robin Murphy wrote:
-> On 2024-11-19 7:10 pm, Pratyush Brahma wrote:
->>
->> On 11/7/2024 8:31 PM, Robin Murphy wrote:
->>> On 29/10/2024 4:15 pm, Will Deacon wrote:
->>>> On Fri, 04 Oct 2024 14:34:28 +0530, Pratyush Brahma wrote:
->>>>> Null pointer dereference occurs due to a race between smmu
->>>>> driver probe and client driver probe, when of_dma_configure()
->>>>> for client is called after the iommu_device_register() for smmu 
->>>>> driver
->>>>> probe has executed but before the driver_bound() for smmu driver
->>>>> has been called.
->>>>>
->>>>> Following is how the race occurs:
->>>>>
->>>>> [...]
->>>>
->>>> Applied to will (for-joerg/arm-smmu/updates), thanks!
->>>>
->>>> [1/1] iommu/arm-smmu: Defer probe of clients after smmu device bound
->>>>        https://git.kernel.org/will/c/229e6ee43d2a
->>>
->>> I've finally got to the point of proving to myself that this isn't the
->>> right fix, since once we do get __iommu_probe_device() working properly
->>> in the correct order, iommu_device_register() then runs into the same
->>> condition itself. Diff below should make this issue go away - I'll 
->>> write
->>> up proper patches once I've tested it a little more.
->>>
->>> Thanks,
->>> Robin.
->>>
->>> ----->8-----
->>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/ 
->>> iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->>> index 737c5b882355..b7dcb1494aa4 100644
->>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->>> @@ -3171,8 +3171,8 @@ static struct platform_driver arm_smmu_driver;
->>>  static
->>>  struct arm_smmu_device *arm_smmu_get_by_fwnode(struct fwnode_handle 
->>> *fwnode)
->>>  {
->>> -    struct device *dev = 
->>> driver_find_device_by_fwnode(&arm_smmu_driver.driver,
->>> -                              fwnode);
->>> +    struct device *dev = 
->>> bus_find_device_by_fwnode(&platform_bus_type, fwnode);
->>> +      put_device(dev);
->>>      return dev ? dev_get_drvdata(dev) : NULL;
->>>  }
->>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/ 
->>> arm/arm-smmu/arm-smmu.c
->>> index 8321962b3714..aba315aa6848 100644
->>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
->>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
->>> @@ -1411,8 +1411,8 @@ static bool arm_smmu_capable(struct device 
->>> *dev, enum iommu_cap cap)
->>>  static
->>>  struct arm_smmu_device *arm_smmu_get_by_fwnode(struct fwnode_handle 
->>> *fwnode)
->>>  {
->>> -    struct device *dev = 
->>> driver_find_device_by_fwnode(&arm_smmu_driver.driver,
->>> -                              fwnode);
->>> +    struct device *dev = 
->>> bus_find_device_by_fwnode(&platform_bus_type, fwnode);
->> I think it would still follow this path:
->>
->> bus_find_device_by_fwnode() -> bus_find_device() -> next_device()
->>
->> next_device() would always return null until the driver is bound to 
->> the device which
->
-> No, this is traversing the bus list, *not* the driver list, that's the 
-> whole point. The SMMU device must exist on the platform bus before the 
-> driver can bind, since the bus is responsible for matching the driver 
-> in the first place.
-Ah I see. Thanks for the explanation. That makes sense.
->
->> happens much later in really_probe() after the 
->> iommu_device_register() would be called
->> even as per this patch. That way the race would still occur, wouldn't 
->> it?
->> Can you please help me understand what I may be missing here?
->> Are you saying that these additional patches are required along with 
->> the fix I've
->> posted?
->
-> I'm saying my change makes there be no race, i.e. the "if (!smmu)" 
-> case can never be true, and so no longer needs working around.
-Got it. Thanks.
->
-> Thanks,
-> Robin.
->
->>> +
->>>      put_device(dev);
->>>      return dev ? dev_get_drvdata(dev) : NULL;
->>>  }
->>> @@ -2232,21 +2232,6 @@ static int arm_smmu_device_probe(struct 
->>> platform_device *pdev)
->>>                      i, irq);
->>>      }
->>>
->>> -    err = iommu_device_sysfs_add(&smmu->iommu, smmu->dev, NULL,
->>> -                     "smmu.%pa", &smmu->ioaddr);
->>> -    if (err) {
->>> -        dev_err(dev, "Failed to register iommu in sysfs\n");
->>> -        return err;
->>> -    }
->>> -
->>> -    err = iommu_device_register(&smmu->iommu, &arm_smmu_ops,
->>> -                    using_legacy_binding ? NULL : dev);
->>> -    if (err) {
->>> -        dev_err(dev, "Failed to register iommu\n");
->>> -        iommu_device_sysfs_remove(&smmu->iommu);
->>> -        return err;
->>> -    }
->>> -
->>>      platform_set_drvdata(pdev, smmu);
->>>
->>>      /* Check for RMRs and install bypass SMRs if any */
->>> @@ -2255,6 +2240,18 @@ static int arm_smmu_device_probe(struct 
->>> platform_device *pdev)
->>>      arm_smmu_device_reset(smmu);
->>>      arm_smmu_test_smr_masks(smmu);
->>>
->>> +    err = iommu_device_sysfs_add(&smmu->iommu, smmu->dev, NULL,
->>> +                     "smmu.%pa", &smmu->ioaddr);
->>> +    if (err)
->>> +        return dev_err_probe(dev, err, "Failed to register iommu in 
->>> sysfs\n");
->>> +
->>> +    err = iommu_device_register(&smmu->iommu, &arm_smmu_ops,
->>> +                    using_legacy_binding ? NULL : dev);
->>> +    if (err) {
->>> +        iommu_device_sysfs_remove(&smmu->iommu);
->>> +        return dev_err_probe(dev, err, "Failed to register iommu\n");
->>> +    }
->>> +
->>>      /*
->>>       * We want to avoid touching dev->power.lock in fastpaths unless
->>>       * it's really going to do something useful - pm_runtime_enabled()
->>
->
+Fixes: babde1c243b2 ("[media] V4L: Add driver for S3C24XX/S3C64XX SoC series camera interface")
+Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+---
+ .../media/platform/samsung/s3c-camif/camif-core.c   | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/media/platform/samsung/s3c-camif/camif-core.c b/drivers/media/platform/samsung/s3c-camif/camif-core.c
+index de6e8f151849..221e3c447f36 100644
+--- a/drivers/media/platform/samsung/s3c-camif/camif-core.c
++++ b/drivers/media/platform/samsung/s3c-camif/camif-core.c
+@@ -527,10 +527,19 @@ static void s3c_camif_remove(struct platform_device *pdev)
+ static int s3c_camif_runtime_resume(struct device *dev)
+ {
+ 	struct camif_dev *camif = dev_get_drvdata(dev);
++	int ret;
++
++	ret = clk_enable(camif->clock[CLK_GATE]);
++	if (ret)
++		return ret;
+ 
+-	clk_enable(camif->clock[CLK_GATE]);
+ 	/* null op on s3c244x */
+-	clk_enable(camif->clock[CLK_CAM]);
++	ret = clk_enable(camif->clock[CLK_CAM]);
++	if (ret) {
++		clk_disable(camif->clock[CLK_GATE]);
++		return ret;
++	}
++
+ 	return 0;
+ }
+ 
 -- 
-Thanks and Regards
-Pratyush Brahma
+2.25.1
 
 
