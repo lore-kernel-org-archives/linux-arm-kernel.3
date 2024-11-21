@@ -4,97 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D6D7D6ED2B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 13:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF3BD6ED2B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 13:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q6VXupjnTEVVWDbEaH7UOHhbUPZqhwx1VwGrB1UH9yU=; b=eqprGZ/Ev79X9eFuBXPNhDsRTi
-	nmiPqb2ZsWKZwIu2aCIhsZkysZFDuz9FGEt1sIZ/b27raqoYo9Qc6/ZLsGYV/rn6oYY6tN044pp7Z
-	nR1DKlLpt4pQyaH1jsoCkYAg/xow20SJI/Z7MSS13r+PFL1kqV/tbep5mNfWNWspRySSzigVFdA4S
-	hatAtxqIrtESqQML2I3Rm2Ji8VLtfPqrVG1+Q3o/94uIKZzUbh965FMe/RMt9YRhmQia6CyqVYBtY
-	Zl9Z9ATt2ep0N93aII1SYRiOO9npA6ZlpA5tVTs/06RHYWWYTwJl+vFx5KIZ/Gc7sFgU1xIKbL4AF
-	tvrdWtKQ==;
+	bh=w8uJwMTi4570DKam76I3XnvJS8bhpJu1dkIBLmqzP84=; b=qoXozu0X3o8BbgFFZU8JKgtkl9
+	DnILPAPg5ffsIvpnnIij6f9+YpN+X9B+3putPLC4t7QTwD/ShWHBOXvnZjNBOWhrMwJ0GoJr8YmEA
+	UdjWLoBHWG1Sa5uOtC38fKtdee0WlFaBYe1C+NWlXQL3Tf23IF8Xrxdi5CXTZA00FHrcGXgHfbJFP
+	wZowdeOHR9J8bwwOpyTPLPA8UhLlPPgnma7zbEek/ZLmhcpEbckdQWwKFo9n9hFdoFooEWvJJlwY6
+	jbrc4yXEGENPw1+tgL3lfoF8Mrh8IE5cCIaJEkSSmDEFaPWWDV7RZDUOODxSpEAiWgzdC0GRfIBti
+	03d0gA+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE7Bu-000000006cw-3iZe;
-	Thu, 21 Nov 2024 13:25:50 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1tE7Hx-000000007Yy-3ZID;
+	Thu, 21 Nov 2024 13:32:05 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE78P-000000005yE-20ci;
-	Thu, 21 Nov 2024 13:22:15 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ALAXHH1002018;
-	Thu, 21 Nov 2024 14:21:59 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	q6VXupjnTEVVWDbEaH7UOHhbUPZqhwx1VwGrB1UH9yU=; b=wGNVmgNeT2/V4w9V
-	my1uP2fOyC4FGUIydvyH99C0JUWz4p8howTZsncn324xTCNAiuzWAsh8dcAlr1aq
-	krW/hVjCnP0wnl/1khp0bYYpOJcqganzOPGc+H9cUKNiAZiDgOejLfQhGOdEePxe
-	LtZgRxy3FVIjRMubb3j9RgHDXlPqhCU928UP/Ol4ZPkqJqWrzK4mswJ62zvKpyOX
-	Yqu6WZSkug3Q1Sq1RbHsXBMm7sOZ+LGcRVLvngbbwSvOkJvclt2Av5YBcyUFegqu
-	lZ4vhp+Cl9bG3lvSxpvTu7Ck+E2hgxTPEVeVHb6pWugFaktS4t+Vv2HuRU2tsfUg
-	Pjq7JA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42y77nmea8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 21 Nov 2024 14:21:59 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C5D484004A;
-	Thu, 21 Nov 2024 14:20:15 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9D9A32843CC;
-	Thu, 21 Nov 2024 14:19:08 +0100 (CET)
-Received: from localhost (10.48.86.208) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 21 Nov
- 2024 14:19:08 +0100
-From: Hugues Fruchet <hugues.fruchet@foss.st.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Ezequiel Garcia
-	<ezequiel@vanguardiasur.com.ar>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Hugues Fruchet
-	<hugues.fruchet@foss.st.com>,
-        Sebastian Fricke
-	<sebastian.fricke@collabora.com>,
-        Ricardo Ribalda <ribalda@chromium.org>,
-        Erling Ljunggren <hljunggr@cisco.com>,
-        Hans Verkuil <hverkuil@xs4all.nl>,
-        Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-        Sakari Ailus
-	<sakari.ailus@linux.intel.com>,
-        Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-        Jean-Michel Hautbois <jeanmichel.hautbois@ideasonboard.com>,
-        Benjamin
- Gaignard <benjamin.gaignard@collabora.com>,
-        <linux-media@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-rockchip@lists.infradead.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v3 2/3] media: verisilicon: add WebP decoding support
-Date: Thu, 21 Nov 2024 14:19:03 +0100
-Message-ID: <20241121131904.261230-3-hugues.fruchet@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241121131904.261230-1-hugues.fruchet@foss.st.com>
-References: <20241121131904.261230-1-hugues.fruchet@foss.st.com>
+	id 1tE7H1-000000007WF-2XJv
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 Nov 2024 13:31:08 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43150ea2db6so53695e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Nov 2024 05:31:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1732195864; x=1732800664; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=w8uJwMTi4570DKam76I3XnvJS8bhpJu1dkIBLmqzP84=;
+        b=VqTjl4mflYUJ5jTDeWAd+0pNFc5ZSTNeEn1TayE3sEfea10gFsqZ8I8tvKZQt+Qv0l
+         VUDeED2mQTD9/peDoWA7FJdQXnRIMYYi0POwKm88rZDKHQPbto9zFBBVsytgEDayDLzC
+         Sjd5yHeKsXPjPKbrW5/ujlBZmYnKInoe+chBYqAjhhIslhzaDWBkA9pDmcS0+rUIYEcl
+         DjVBlv5glnZEadUrkUt5/m/nVIW0MgbnsHjMlxaV0OsuBym3j4w6mACZbrg0tHviac50
+         vcaW1qJi5TzB9uU4ffS4BnjNiSEx2cDgyqLvAdvx1L8sbeMqksvEj3C0+B+iYHDyPrSh
+         7QNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732195864; x=1732800664;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=w8uJwMTi4570DKam76I3XnvJS8bhpJu1dkIBLmqzP84=;
+        b=P/sABDJWbrNs2Gn57J/Uf2MqMZEDELjzYWewlHjrVe9+lMfFZxHNBCIExLpVpcQ9gn
+         GXKK6JvmuI2V1Amq1tp+cQog/BIrEPQTtmeZGt2OncdxIU11ZcwOjDnwTUvBbtN206pC
+         iY3oIuMhyFJJUyUM9fBle2dIe8TDtNB6WoD7xLBu4WM5e3tg+ooP6Fm1Bt8Dq0jfULL0
+         J6cwqqSDRr5q0VFwQY3T8KDSTpO4Wl1If2pS6TY7P/GSKauLq5Y7p+UWmeApcuBgAum5
+         6DBnTVCaV0W0MrMQWz4UIfEznu2E/y4b2EzdTLxvZV/4CKxXSqXFF1eg3MIRwWCB0/9R
+         vtgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUn4KVDlA48mD/DkQJtFfEjT+K73azS50h5CYjkKTd6lhXxS9BPXk/PME+oFrOERwvCLxWzLBLtnTuvUQrIkmIC@lists.infradead.org
+X-Gm-Message-State: AOJu0YznGH1PhqUAbCtB1a+tNpIYLDWdojPI4tx8gcPHMDkZ1TZilee0
+	Xq3vJ6zWEb0h0uf7ZytFiQd1kRJn79fvJrRFZ/95qkd1MEikv17WffOV3SCBtqZPZ9e5DoYCnic
+	9Ppt23kY9gMzrL9VCxiz0DA+eBMw2rjASNO9f
+X-Gm-Gg: ASbGncvQUpJQvhedO+hK4gGMzGK/pWfK39DuqFjQC/xSjaf0GXc5P0h8cmMnN4EqYWO
+	tKLb7Gxbv7uSDS1F56buwhnPJi9G6ImQEOLiAqq+Oy6qpVUaMIYChdE3Nc+Ns
+X-Google-Smtp-Source: AGHT+IHrCfsQJARtvkGlSoORtXQ3uMbNnDwXIN5CoAh+JYQ8yNM3CL0C4nm/6GPxscmGMtMCji9BQilfxicJnaQd/q8=
+X-Received: by 2002:a05:600c:3b9c:b0:431:43a1:4cac with SMTP id
+ 5b1f17b1804b1-433c6ce6ad9mr927095e9.3.1732195863680; Thu, 21 Nov 2024
+ 05:31:03 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.48.86.208]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+References: <20241120105254.2842020-1-tabba@google.com> <20241120105254.2842020-11-tabba@google.com>
+ <Zz7wBU3BHW-XNnbr@google.com> <CA+EHjTyGzjOnVnyqfS6LO5=_EhQY3CS18HyrnSmnfNF483yz6w@mail.gmail.com>
+ <Zz8HB8KQtUyj8d9O@google.com>
+In-Reply-To: <Zz8HB8KQtUyj8d9O@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Thu, 21 Nov 2024 13:30:27 +0000
+Message-ID: <CA+EHjTw_NjrN63LXebPRha3tR6KjfXN-eh+eUeX7v5ksuVEG5g@mail.gmail.com>
+Subject: Re: [PATCH v1 10/12] KVM: arm64: Calculate cptr_el2 traps on
+ activating traps
+To: Quentin Perret <qperret@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org, 
+	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_052213_806903_1D8D1AA7 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20241121_053107_659604_5B7E41A3 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,125 +95,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add WebP picture decoding support to VP8 stateless decoder.
+Hi Quentin,
 
-Signed-off-by: Hugues Fruchet <hugues.fruchet@foss.st.com>
----
- .../media/platform/verisilicon/hantro_g1_regs.h |  1 +
- .../platform/verisilicon/hantro_g1_vp8_dec.c    | 14 ++++++++++++++
- .../media/platform/verisilicon/hantro_v4l2.c    |  2 ++
- .../platform/verisilicon/stm32mp25_vpu_hw.c     | 17 +++++++++++++++--
- 4 files changed, 32 insertions(+), 2 deletions(-)
+On Thu, 21 Nov 2024 at 10:10, Quentin Perret <qperret@google.com> wrote:
+>
+> On Thursday 21 Nov 2024 at 09:41:46 (+0000), Fuad Tabba wrote:
+> > Hi Quentin,
+> >
+> > On Thu, 21 Nov 2024 at 08:32, Quentin Perret <qperret@google.com> wrote:
+> > >
+> > > Hi Fuad,
+> > >
+> > > On Wednesday 20 Nov 2024 at 10:52:52 (+0000), Fuad Tabba wrote:
+> > > > -static void pvm_init_traps_cptr(struct kvm_vcpu *vcpu)
+> > > > -{
+> > > > -     struct kvm *kvm = vcpu->kvm;
+> > > > -     u64 val = vcpu->arch.cptr_el2;
+> > > > -
+> > > > -     if (!has_hvhe()) {
+> > > > -             val |= CPTR_NVHE_EL2_RES1;
+> > > > -             val &= ~(CPTR_NVHE_EL2_RES0);
+> > > > -     }
+> > >
+> > > To be on the safe side, should keep the RES1 stuff for nVHE?
+> >
+> > Sure. My thinking in removing this is that, once consolidated, it
+> > would be easy to spot whether we could be clearing the wrong bit. But
+> > I could reintroduce this when I respin.
+>
+> Actually, my bad, while checking how this worked for nVHE prior to your
+> patch I've realised kvm_get_reset_cptr_el2() was already setting those
+> bits correctly, which is arguably the right place to do it.
 
-diff --git a/drivers/media/platform/verisilicon/hantro_g1_regs.h b/drivers/media/platform/verisilicon/hantro_g1_regs.h
-index c623b3b0be18..e7d4db788e57 100644
---- a/drivers/media/platform/verisilicon/hantro_g1_regs.h
-+++ b/drivers/media/platform/verisilicon/hantro_g1_regs.h
-@@ -232,6 +232,7 @@
- #define     G1_REG_DEC_CTRL7_DCT7_START_BIT(x)		(((x) & 0x3f) << 0)
- #define G1_REG_ADDR_STR					0x030
- #define G1_REG_ADDR_DST					0x034
-+#define G1_REG_ADDR_DST_CHROMA				0x038
- #define G1_REG_ADDR_REF(i)				(0x038 + ((i) * 0x4))
- #define     G1_REG_ADDR_REF_FIELD_E			BIT(1)
- #define     G1_REG_ADDR_REF_TOPC_E			BIT(0)
-diff --git a/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c b/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c
-index 851eb67f19f5..c83ee6f5edc8 100644
---- a/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c
-+++ b/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c
-@@ -307,6 +307,12 @@ static void cfg_parts(struct hantro_ctx *ctx,
- 			   G1_REG_DEC_CTRL3_STREAM_LEN(dct_part_total_len),
- 			   G1_REG_DEC_CTRL3);
- 
-+	if (ctx->vpu_src_fmt->fourcc == V4L2_PIX_FMT_WEBP_FRAME)
-+		vdpu_write_relaxed(vpu,
-+				   G1_REG_DEC_CTRL3_STREAM_LEN_EXT
-+					(dct_part_total_len >> 24),
-+				   G1_REG_DEC_CTRL3);
-+
- 	/* DCT partitions base address */
- 	for (i = 0; i < hdr->num_dct_parts; i++) {
- 		u32 byte_offset = dct_part_offset + dct_size_part_size + count;
-@@ -427,6 +433,12 @@ static void cfg_buffers(struct hantro_ctx *ctx,
- 
- 	dst_dma = hantro_get_dec_buf_addr(ctx, &vb2_dst->vb2_buf);
- 	vdpu_write_relaxed(vpu, dst_dma, G1_REG_ADDR_DST);
-+
-+	if (ctx->vpu_src_fmt->fourcc == V4L2_PIX_FMT_WEBP_FRAME)
-+		vdpu_write_relaxed(vpu, dst_dma +
-+				   ctx->dst_fmt.plane_fmt[0].bytesperline *
-+				   ctx->dst_fmt.height,
-+				   G1_REG_ADDR_DST_CHROMA);
- }
- 
- int hantro_g1_vp8_dec_run(struct hantro_ctx *ctx)
-@@ -471,6 +483,8 @@ int hantro_g1_vp8_dec_run(struct hantro_ctx *ctx)
- 		reg |= G1_REG_DEC_CTRL0_SKIP_MODE;
- 	if (hdr->lf.level == 0)
- 		reg |= G1_REG_DEC_CTRL0_FILTERING_DIS;
-+	if (ctx->vpu_src_fmt->fourcc == V4L2_PIX_FMT_WEBP_FRAME)
-+		reg |= G1_REG_DEC_CTRL0_WEBP_E;
- 	vdpu_write_relaxed(vpu, reg, G1_REG_DEC_CTRL0);
- 
- 	/* Frame dimensions */
-diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c b/drivers/media/platform/verisilicon/hantro_v4l2.c
-index 2513adfbd825..7075b2ba1ec2 100644
---- a/drivers/media/platform/verisilicon/hantro_v4l2.c
-+++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
-@@ -470,6 +470,7 @@ hantro_update_requires_request(struct hantro_ctx *ctx, u32 fourcc)
- 		break;
- 	case V4L2_PIX_FMT_MPEG2_SLICE:
- 	case V4L2_PIX_FMT_VP8_FRAME:
-+	case V4L2_PIX_FMT_WEBP_FRAME:
- 	case V4L2_PIX_FMT_H264_SLICE:
- 	case V4L2_PIX_FMT_HEVC_SLICE:
- 	case V4L2_PIX_FMT_VP9_FRAME:
-@@ -492,6 +493,7 @@ hantro_update_requires_hold_capture_buf(struct hantro_ctx *ctx, u32 fourcc)
- 	case V4L2_PIX_FMT_JPEG:
- 	case V4L2_PIX_FMT_MPEG2_SLICE:
- 	case V4L2_PIX_FMT_VP8_FRAME:
-+	case V4L2_PIX_FMT_WEBP_FRAME:
- 	case V4L2_PIX_FMT_HEVC_SLICE:
- 	case V4L2_PIX_FMT_VP9_FRAME:
- 		vq->subsystem_flags &= ~(VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF);
-diff --git a/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c b/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c
-index 833821120b20..c291b1560e20 100644
---- a/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c
-+++ b/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c
-@@ -22,10 +22,10 @@ static const struct hantro_fmt stm32mp25_vdec_fmts[] = {
- 		.codec_mode = HANTRO_MODE_NONE,
- 		.frmsize = {
- 			.min_width = FMT_MIN_WIDTH,
--			.max_width = FMT_FHD_WIDTH,
-+			.max_width = FMT_4K_WIDTH,
- 			.step_width = MB_DIM,
- 			.min_height = FMT_MIN_HEIGHT,
--			.max_height = FMT_FHD_HEIGHT,
-+			.max_height = FMT_4K_HEIGHT,
- 			.step_height = MB_DIM,
- 		},
- 	},
-@@ -42,6 +42,19 @@ static const struct hantro_fmt stm32mp25_vdec_fmts[] = {
- 			.step_height = MB_DIM,
- 		},
- 	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_WEBP_FRAME,
-+		.codec_mode = HANTRO_MODE_VP8_DEC,
-+		.max_depth = 2,
-+		.frmsize = {
-+			.min_width = FMT_MIN_WIDTH,
-+			.max_width = FMT_4K_WIDTH,
-+			.step_width = MB_DIM,
-+			.min_height = FMT_MIN_HEIGHT,
-+			.max_height = FMT_4K_HEIGHT,
-+			.step_height = MB_DIM,
-+		},
-+	},
- 	{
- 		.fourcc = V4L2_PIX_FMT_H264_SLICE,
- 		.codec_mode = HANTRO_MODE_H264_DEC,
--- 
-2.25.1
+Actually, _my_ bad :) This patch is still not quite right,
+kvm_get_reset_cptr_el2()
+gets the reset value for the host, not for the guest, which the code
+in this patch just works around. I'll respin this before the end of
+the week, with a fix for this.
 
+Cheers,
+/fuad
+
+
+>
+> Thanks,
+> Quentin
 
