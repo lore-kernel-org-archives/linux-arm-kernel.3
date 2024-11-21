@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E85B4D75BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 08:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FFDDD75BD8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 08:43:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NM3ladxQGHFmtehcRtdN3eRX4S67+d0iraiByaKd4Sk=; b=0RI0LTlsOgliUSvDIhZS+l9Csk
-	DKHwtnaryZZ/ygJQAzCtuKIRnx8+HbonLqdR2k7GJPgZdmiN4r+3myXd+4EhLRCNDapT7y8rOY8Ir
-	3CBqG83oWJXQBfQMchpb81lBhlCpKOs7aw/tr0TP20dqzfsWm7DD9Jj+bg5UtnzDZCsyTS+5JpGy0
-	kJW0jAyyJUXmdwrVRQ15BV5tJKv6mmb8lip8U8xSJcOlZ4w4bV3jWXkLhjPx7BMDkNVVnJBvcU4WN
-	8pxqh2gbqXM7C/l2D3rW+bK0Ab7OwvyTUYi5FqorUEXliR6mulXtLFmeAgu9/15MwvezQTjxvfM+o
-	fBzP7w+A==;
+	bh=tRkY4ECIjpP67hY816uWjE+73gJb6EmdQQJy3du5r0k=; b=pNtc6+QNfrxWB/oiz0NsMipj1J
+	UucDfwB1ABExtbBQyFMVN0c5ucOuM6/KyHTQnxALNo4tOfaBeTLtUxQ0QKcSXIT1r6XxeUY2aE2b9
+	7NoqT1CTOSvb/AVQsTPAd9iPd1ZUuGSvhai7P1WP5i3tcGXSvywYhqLbsFZpjtmgQm0aYs62wkS1G
+	cw6B972aTdOAUaZUMY/NBd7Nl9ruO6GVm3ZXEJt9GOzbTp5kaIPl+7HTBDw8p3m2qFbu+atufmxF0
+	KEpYyLc790gbkSP/gBdCsnKgzhHvoNDIoaXB4c7jZLkB65s9w6nSRgOhgAAy5HovRV8DgjOQjO/kf
+	nnnaZouQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE2jo-0000000H7KS-2lYp;
-	Thu, 21 Nov 2024 08:40:32 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tE2mx-0000000H7yM-3uht;
+	Thu, 21 Nov 2024 08:43:47 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE2is-0000000H7C2-0sTP;
-	Thu, 21 Nov 2024 08:39:35 +0000
+	id 1tE2m0-0000000H7nV-3DlW;
+	Thu, 21 Nov 2024 08:42:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 10096A40311;
-	Thu, 21 Nov 2024 08:37:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E740C4CECC;
-	Thu, 21 Nov 2024 08:39:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3D2D65C3EF9;
+	Thu, 21 Nov 2024 08:42:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA7EAC4CECC;
+	Thu, 21 Nov 2024 08:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732178373;
-	bh=SUvWzbHGe7kApkeBmO6P2id2KlN/J7nuQhPn4eL2GIA=;
+	s=k20201202; t=1732178567;
+	bh=9Qn9Cr5JCK+4qWRIUMYaZH6DpbxN46AKQ4kwJoFcCxU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AKsvwfjAZ6SGQoFQEVeGNmAIkbQkY477sov7z1nGhsTVAXulxrk7umXUn1ZbJDzha
-	 e5YoQG1nbBXnmLiBCX6ASPmve/V5n3WjfecR2IO8hDKD9M0l4zmVk+iE1DOVaANvUr
-	 A2pHOMwTsvZRVr+/A/LK1XVstnPv+1cm06LIaGicbSL2uVIItj3HaVGtwVdpQT2DlT
-	 JtaizkXMAwgtphjzkdHVqijdl/q08BiE6MO4TfPraoP/zBgYWICw+bVE9iFumkAN+k
-	 2ZFsN93OCPMBkuJgnLxmpvxgVCd3z4l0b5/i4yToeGONZoLtxKTO2IiqCv7iFArc2l
-	 1Oog9ipylULig==
-Date: Thu, 21 Nov 2024 09:39:29 +0100
+	b=fLeksefilZqrfOa8sv725yVyhSiQH3UMWKyiLeM1ii++Y2aAdSY2MApGnqWlI8WQr
+	 ijxvlhbqvsUwlSzkoBJM3+Wp1OyKBRBlcJPKnxqSoy2wnTtPMlGuN14a8LY95/jrZH
+	 Cyu8ZTl3xFXfLrtzl0xpS3OR1Q+qutKUkpg/dLwuShdf5upH85E/T74guy1iwPwPAk
+	 xZwi6rZz1Xm79XSz2/slbGzO7oLTQYCdr37QZIv8nytJbOWVkoaHwFR7PWPsJZdF68
+	 OHXPZ/PhpCoFPS0RLarFwYVh2gs4r2w5jCTnORTgAxtBgdVHQXJyT7WWyi+ipwAuJs
+	 zb+aQFTSEVTNg==
+Date: Thu, 21 Nov 2024 09:42:44 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, 
-	simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH v1 1/6] dt-bindings: display: mediatek: dpi: Add MT8195
- and MT8188 compat
-Message-ID: <tutddhqzp37frzi7fkvljrjemfwfmcfgv44eetaalodc5pmauc@h4hklzisfyfk>
-References: <20241120124420.133914-1-angelogioacchino.delregno@collabora.com>
- <20241120124420.133914-2-angelogioacchino.delregno@collabora.com>
+To: "Jason-JH.Lin" <jason-jh.lin@mediatek.com>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Moudy Ho <moudy.ho@mediatek.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
+	Singo Chang <singo.chang@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH 1/8] dt-bindings: mailbox: mediatek: Add GCE header file
+ for MT8196
+Message-ID: <57kqls2wa67nh4a5yyr4amthmro3bjvrhnrdbdolrhr2lnmf6u@2h3cbl4jip4y>
+References: <20241121042602.32730-1-jason-jh.lin@mediatek.com>
+ <20241121042602.32730-2-jason-jh.lin@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241120124420.133914-2-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20241121042602.32730-2-jason-jh.lin@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_003934_308019_B8EC92C5 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241121_004248_845498_6E45EEF1 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,17 +81,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 20, 2024 at 01:44:15PM +0100, AngeloGioacchino Del Regno wrote:
-> Add compatibles for the Digital Parallel Interface (DPI) block
-> found in the MT8195 and MT8188 SoCs: inside of the chip, this one
-> is directly connected to the HDMI block.
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  .../devicetree/bindings/display/mediatek/mediatek,dpi.yaml   | 5 +++++
->  1 file changed, 5 insertions(+)
+On Thu, Nov 21, 2024 at 12:25:55PM +0800, Jason-JH.Lin wrote:
+> Add the Global Command Engine (GCE) header file to define the GCE
+> thread priority, GCE subsys ID, GCE events, and various constants
+> for MT8196.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+NAK, various constants are not bindings.
+
+> 
+> Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+> ---
+>  .../dt-bindings/mailbox/mediatek,mt8196-gce.h | 1449 +++++++++++++++++
+>  1 file changed, 1449 insertions(+)
+>  create mode 100755 include/dt-bindings/mailbox/mediatek,mt8196-gce.h
+
+Please run scripts/checkpatch.pl and fix reported warnings. Then please
+run 'scripts/checkpatch.pl --strict' and (probably) fix more warnings.
+Some warnings can be ignored, especially from --strict run, but the code
+here looks like it needs a fix. Feel free to get in touch if the warning
+is not clear.
+
+This goes with the binding.
 
 Best regards,
 Krzysztof
