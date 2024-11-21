@@ -4,105 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F08D75BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 04:18:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F48BD75BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 04:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2fodjiAgYPDtTdtLZpHcgtZf3CNy/SOSXhvCQwtxCgw=; b=U/lcpRv/n7EjobbfnPf5VxRdwA
-	mi+OD42RK+eD456aKJtxAV0QBUI6FEG5x9XPVCW/Va43wW/TC3CDhcx4HhTOG00o+VJrZl30Wno4i
-	0Ygl1DkDPIXjAIM+jNSJlKqGKrcaeIcHGmW+3N9Xb5PA6zK6D4yd4APtN93FUU0faLCTihC9Hq7a1
-	5145yOI5TfuUlo8IElrCznteRxGqiSdaD+8+LCYjC3ezh4yjEpDtloCHrghzJ5+gYpOgQNJHnGL3G
-	mbI7/9OHB3+HPYaVemwH3DxXzjsb9EzZ2Fby6FGvhhaQVfDz0E3Pue0qdAHELNAB5/S+fefXNZyik
-	XN75Pm6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cP3Um0hz7Gv16Gtk91dL7DlYT6sIqAVCB2yrXnpMevM=; b=b6xcR3jBzIoEDa4iAqXWDlBIVd
+	q3FrNsFzma1AO7uB21C9sIdITQHTYcZdir3emZPIZWUoqAMo44VrYJseFMaO7aAIH5ZU47YmNr6qC
+	e+jpaoYLPWsHkTQUvHmo3UVAZN2zdcoMO2j/bwpuimwjuD/VnXhctF1+WpXewKLhmihqtDxdYfOkf
+	sRMielobDBVV2GBvEnLjCA1VN2v1DYF7DWhzKjF2nYwsSwPLYz48wmkITo7TzGYntnyEB1PcDkaO9
+	iLQ9T9Up3lrBgYsbi0OZ5H8nkS3LbuhTfnK/70D2O8STHrhyKPS2yVBxXMUZFir0AX2lYBMM7A5Xq
+	Q3w+yM0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDye8-0000000GlWd-04DL;
-	Thu, 21 Nov 2024 04:18:24 +0000
-Received: from phobos.denx.de ([85.214.62.61])
+	id 1tDyj1-0000000Gltv-2cSb;
+	Thu, 21 Nov 2024 04:23:27 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDycH-0000000GlJf-4Aln
+	id 1tDyi4-0000000Glkr-1uly
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 04:16:32 +0000
-Received: from [127.0.0.1] (p578adb1c.dip0.t-ipconnect.de [87.138.219.28])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
-	(No client certificate requested)
-	(Authenticated sender: marex@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 634C089649;
-	Thu, 21 Nov 2024 05:16:24 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1732162587;
-	bh=2fodjiAgYPDtTdtLZpHcgtZf3CNy/SOSXhvCQwtxCgw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=wCBSNVwyMCtyV+EJz0s8mS+rd+v36qvA6mFZGmMq5phZpHsR8dVcwGXv1+Rb9y2at
-	 vsjlPVwrsU5S4f4P5xYBBa5K0xb+uVxFaxY7j/z/l1UpozYFVIqww/Udrm5fpNjGT/
-	 LbUI5mQUyf6oWpXEpUbfI2rEWAl3jIx6jj1pSecUModI1Te5cxyi0666k4EfbEdKsA
-	 KPriDe1TbHoQXl52Y/tIL/T5YMdrjSuQAZir/s1AX/Jg+yTV3aAHfGwikJ3zcX2RAq
-	 Vr5rmPHGPGtbL4MU9z4M22mTSqhbimd8GZkUQxOTzmD53oJgF6xTxjvAcB6aM3CuRO
-	 tWMS71DS4zVPw==
-Message-ID: <c5ab63da-21ec-4c0d-8ecc-3745943d806f@denx.de>
-Date: Thu, 21 Nov 2024 03:45:57 +0100
+	Thu, 21 Nov 2024 04:22:30 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-6eea47d51aeso4117927b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 20:22:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1732162947; x=1732767747; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=cP3Um0hz7Gv16Gtk91dL7DlYT6sIqAVCB2yrXnpMevM=;
+        b=Qt+Pohig3fM9/2HYcf7m6nD9Il+Syqf7PoERE56KXA80TRcJHpnhFqfWjJDlGV7F35
+         XFFtDxvnrkqhKQrrSJqClrkJ19qfbW/L3lztSwvp0PsXjlMKuc3XigyEwrz8XyLIg95C
+         pMDuPyCkK9k6xIx382hWT/Iiy3YjxeaVFSgrKGfsVLeC8bZNtEXSbMaBI/WQvZhc45+7
+         ecy2tO62R4g2qfq2gXBRDTPZ/RLep/ZHXPgDDV7WQgSXSEz6ck+M45QaB/VV+8iedeKS
+         qDkDk0wyFsCaORvsb4+2KXyziWO612HZK9iHTnAHlDSeCSzVBZHGwX5wKdMH97e6coqQ
+         ds6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732162947; x=1732767747;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cP3Um0hz7Gv16Gtk91dL7DlYT6sIqAVCB2yrXnpMevM=;
+        b=dVmKWxvveEE6oFNVVann/KwR219acaVxw2IRmvFdlysjQcg5Y6ogafZMh/5iiQt/b1
+         stpujW4oqGb+6B3aEV31tVyO2l5kb3j2YOpzMNTlCrVqfn2td+vYxpe/5Djs4nG6d/0c
+         gB5EqgbX9J982QSy7qtS0ZsOMDj1cqOGoaIWix8cJFkY9QlomALeXygtnggXN85GcPEt
+         hK52oKka6/WXOf2KvpjYtH8EWAOTTd5Brr+KXx0ogy5eOf+7+E0wBLex9Jgl9lMiHrfW
+         u2NTLIJ2RkhjbVnY9zxa8MSkIZPjRD1TR1eieYqplWuL1KPP37WeFYksVQBvWAC8W9lR
+         R8LQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXXaFPz9k5ojtmuiTr9Dc2Eg3jwhYBEgmz771oM7NnFvBb9Mwgp25tvQZAGzgdXM1gtdw8lNNiZlnMWF+hjiYJG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yykgl6BVBqSTVIhLn0W6qKYr2FM+vY2YM/YMkTGkEY2rtqx3DJU
+	Liw8a59aZfPz5d/Ry1ywXwiwhcRbSPpqRsqSElPtfeMlQiiXpAUZw0wawjH6CwPCJzJdQmhQ7o8
+	w
+X-Google-Smtp-Source: AGHT+IFG/0lmdLf+PuJVUiUVDthedJQkU+yi8kvRYeLAcyp/RSQ9OGzeQL0b0Fr9yTqYmM0khQUKNg==
+X-Received: by 2002:a05:690c:5a15:b0:6ee:5068:7510 with SMTP id 00721157ae682-6eecc57b073mr20304047b3.26.1732162946630;
+        Wed, 20 Nov 2024 20:22:26 -0800 (PST)
+Received: from ghost ([50.146.0.9])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6ee71341e4dsm25749277b3.90.2024.11.20.20.22.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 Nov 2024 20:22:25 -0800 (PST)
+Date: Wed, 20 Nov 2024 20:22:23 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Ian Rogers <irogers@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
+	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
+	Christian Brauner <brauner@kernel.org>, guoren <guoren@kernel.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH RFT 00/16] perf tools: Use generic syscall scripts for
+ all archs
+Message-ID: <Zz61f02p8s52G6ba@ghost>
+References: <20241104-perf_syscalltbl-v1-0-9adae5c761ef@rivosinc.com>
+ <3b56fc50-4c6c-4520-adba-461797a3b5ec@app.fastmail.com>
+ <Zyk9hX8CB_2rbWsi@ghost>
+ <CAP-5=fUdZRbCp+2ghEUdp+qJ1BuMDuTtw9R+dFAaom+3oqQV_g@mail.gmail.com>
+ <ZylaRaMqEsEjYjs6@ghost>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/7] Revert "clk: imx: clk-imx8mp: Allow media_disp
- pixel clock reconfigure parent rate"
-To: Ying Liu <victor.liu@nxp.com>, "imx@lists.linux.dev"
- <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>
-Cc: "shawnguo@kernel.org" <shawnguo@kernel.org>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>, "robh@kernel.org"
- <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>,
- "abelvesa@kernel.org" <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- "mturquette@baylibre.com" <mturquette@baylibre.com>,
- "sboyd@kernel.org" <sboyd@kernel.org>,
- "andrzej.hajda@intel.com" <andrzej.hajda@intel.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
- "rfoss@kernel.org" <rfoss@kernel.org>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- "jonas@kwiboo.se" <jonas@kwiboo.se>,
- "jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "mripard@kernel.org" <mripard@kernel.org>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "airlied@gmail.com" <airlied@gmail.com>, "simona@ffwll.ch"
- <simona@ffwll.ch>, "quic_bjorande@quicinc.com" <quic_bjorande@quicinc.com>,
- "geert+renesas@glider.be" <geert+renesas@glider.be>,
- "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
- "arnd@arndb.de" <arnd@arndb.de>,
- "nfraprado@collabora.com" <nfraprado@collabora.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>
-References: <20241114065759.3341908-1-victor.liu@nxp.com>
- <20241114065759.3341908-3-victor.liu@nxp.com>
- <df6ebdde-65f8-4aad-93c7-b1df695bd2ef@denx.de>
- <AM7PR04MB7046546A882A8D48E135D84698272@AM7PR04MB7046.eurprd04.prod.outlook.com>
- <8a4fd234-4c7b-4a04-990d-3222aaa5172d@denx.de>
- <AM7PR04MB7046E282FD702ACE5E288F8998202@AM7PR04MB7046.eurprd04.prod.outlook.com>
- <83be0a27-6b6c-4ba6-b9dc-f914a10abace@denx.de>
- <AM7PR04MB7046587167BF790549B8560F98212@AM7PR04MB7046.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <AM7PR04MB7046587167BF790549B8560F98212@AM7PR04MB7046.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ZylaRaMqEsEjYjs6@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_201630_335930_5796BC70 
-X-CRM114-Status: GOOD (  27.82  )
+X-CRM114-CacheID: sfid-20241120_202228_766521_CEDCE309 
+X-CRM114-Status: GOOD (  41.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,92 +119,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/20/24 7:38 AM, Ying Liu wrote:
-
-[...]
-
->>> If the DP monitors support typical video modes like 1080p60 with
->>> 148.5MHz pixel clock rate, I assume these typical video modes work
->>> still ok with this patch at least.  Please help confirm this, since if the
->>> alternative solution(*) doesn't stand, we would know those video
->>> modes still work ok with my solution(fixed PLL rate).
->>
->> They do not work with the fixed PLL setting.
+On Mon, Nov 04, 2024 at 03:35:33PM -0800, Charlie Jenkins wrote:
+> On Mon, Nov 04, 2024 at 02:03:28PM -0800, Ian Rogers wrote:
+> > On Mon, Nov 4, 2024 at 1:32 PM Charlie Jenkins <charlie@rivosinc.com> wrote:
+> > >
+> > > On Mon, Nov 04, 2024 at 10:13:18PM +0100, Arnd Bergmann wrote:
+> > > > On Mon, Nov 4, 2024, at 22:06, Charlie Jenkins wrote:
+> > > > > Standardize the generation of syscall headers around syscall tables.
+> > > > > Previously each architecture independently selected how syscall headers
+> > > > > would be generated, or would not define a way and fallback onto
+> > > > > libaudit. Convert all architectures to use a standard syscall header
+> > > > > generation script and allow each architecture to override the syscall
+> > > > > table to use if they do not use the generic table.
+> > > > >
+> > > > > As a result of these changes, no architecture will require libaudit, and
+> > > > > so the fallback case of using libaudit is removed by this series.
+> > > > >
+> > > > > Testing:
+> > > > >
+> > > > > I have tested that the syscall mappings of id to name generation works
+> > > > > as expected for every architecture, but I have only validated that perf
+> > > > > trace compiles and runs as expected on riscv, arm64, and x86_64.
+> > > > >
+> > > > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > > >
+> > > > Thanks for doing this, I had plans to do this myself, but hadn't
+> > > > completed that bit so far. I'm travelling at the moment, so I'm
+> > > > not sure I have time to look at it in enough detail this week.
+> > > >
+> > > > One problem I ran into doing this previously was the incompatible
+> > > > format of the tables for x86 and s390, which have conflicting
+> > > > interpretations of what the '-' character means. It's possible
+> > > > that this is only really relevant for the in-kernel table,
+> > > > not the version in tools.
+> > > >
+> > >
+> > > I don't think that is an issue for this usecase because the only
+> > > information that is taken from the syscall table is the number and the
+> > > name of the syscall. '-' doesn't appear in either of these columns!
+> > 
+> > This is cool stuff. An area that may not be immediately apparent for
+> > improvement is that the x86-64 build only has access to the 64-bit
+> > syscall table. Perhaps all the syscall tables should always be built
+> > and then at runtime the architecture of the perf.data file, etc. used
+> > to choose the appropriate one. The cleanup to add an ELF host #define
+> > could help with this:
+> > https://lore.kernel.org/linux-perf-users/20241017002520.59124-1-irogers@google.com/
 > 
-> Why?  Did you assign a sensible fixed PLL rate in DT?
-
-Whatever was in imx8mp.dtsi does not really work for all the panels.
-Please keep in mind that the use case I have does not include only 
-1920x1080 "standard" panels, but also other resolutions.
-
-> Can you please compare clk_summary output for the failing cases
-> before and after this patch is applied? I assume that if you use
-> the fixed PLL rate same to the rate which works before this patch is
-> applied, the typical video modes still just work after this patch is
-> applied.
-
-I'm afraid I do not need to support only typical video modes, but also 
-the other "atypical" modes.
-
-[...]
-
->> One really nasty way I can think of is -- use find_node_by_compatible(),
->> look up all the relevant DT nodes, parse their clock properties, and
->> check whether they all point to the Video PLL or not.
+> Oh that's a great idea! I think these changes will make it more seamless
+> to make that a reality.
 > 
-> That's nasty.  It looks even more nasty when considering the fact that
-> i.MX93 LCDIF is also driven by imx-lcdif DRM while only i.MX8MP LCDIF
-> needs the nasty check, because i.MX93 SoC embeds only one LCDIF.
-
-The check can be skipped based on compatible string.
-
-I agree it is nasty, but it is a start. Are there better ideas ?
-
->> Maybe the clock subsystem has a better way, like list "neighbor"
->> consumers of some specific parent clock or something like that.
+> > 
+> > Ultimately I'd like to see less arch code as it inherently makes cross
+> > platform worker harder. That doesn't impact this work which I'm happy
+> > to review.
 > 
-> What will imx-lcdif DRM look like by using this way? Get the ancestor PLL
-> clock of pixel clock(media_disp{1,2}_pix_root_clk), list all child clocks
-> (media_disp1_pix and/or media_disp2_pix + other possible clocks) of the
-> PLL clock in a string array and find media_disp1_pix + media_disp2_pix
-> in it?
+> Yeah I agree. Reducing arch code was the motivation for this change.
+> There was the issue a couple weeks ago that caused all architectures
+> that used libaudit to break from commit 7a2fb5619cc1fb53 ("perf trace:
+> Fix iteration of syscall ids in syscalltbl->entries"), so this change
+> will eliminate that source of difference between architectures.
 > 
-> Doesn't look nice, either.
-
-One other option came to my mind -- place a virtual clock between the 
-Video PLL and consumers (LCDIF1/2/LDB), and then have the virtual clock 
-driver do the clock rate negotiation in some .round_rate callback. That 
-is also nasty, but it is another idea. If there is a clock specifically 
-implemented to negotiate best upstream clock rate for all of its 
-consumers, and it is aware of the consumer behavior details and 
-requirements, maybe that could work ?
-
->> [...]
->>
->>>> Can something like (*) above be implemented instead, so both Shared
->> and
->>>> separate PLLs would be supported ? That should solve both of our use
->>>> cases, right ?
->>>
->>> I don't see any clear way to implement something like(*).
->>>
->>> Take the 3 i.MX8MP LCDIFs as one graphic card driven by one imx-lcdif
->>> DRM instance?  Would it be too intrusive?
->>
->> Yes, and I think unnecessary, one can simply traverse and parse the DT
->> to determine the clock assignment?
+> - Charlie
 > 
-> Yes, people can traverse and parse DT, but it's nasty.
-> 
-> In addition, one may argue that now that CLK_SET_RATE_PARENT flag
-> is set for the pixel clocks, all potential video modes read from EDID
-> should be supported when only either LVDS display pipeline or MIPI DSI
-> display pipeline is active in the shared PLL case.  This requires one
-> single DRM instance to detect single or dual active display pipelines
-> dynamically, hence this single DRM instance becomes necessary.
+> > 
+> > Thanks,
+> > Ian
 
-Would single virtual clock which do the frequency negotiation between 
-multiple DRM consumers work too ?
+Let me know if you have any feedback on this series!
 
-I do not have much to add to the points below.
+- Charlie
+
 
