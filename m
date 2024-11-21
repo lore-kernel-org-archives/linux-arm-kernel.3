@@ -4,88 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A074FD6ED0E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 11:48:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FE4BD6ED11
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 11:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+oKpoaoKlTteKRfatjC6kRGeLlyxZzmGL1dkD3YQ10E=; b=EjU93llJJaC4zxiItqeHp3wyQX
-	RehkkHvKOi9fAy7E6+lSv2+vCNJjfnp9jriWmFeWYBfA/VnRldNz77lu1cMajBsWpaDZlinMykGlx
-	2zRzVu60/pskpdc+0ndZsZmnByhBKJ3TP4CNsLq14sS7+Xr/68WLC1UT5Pli0RnU6FIqU/z24d2w7
-	4goZQ8SlhwV4/JtLfa0WLZ+E3RX8X43jBVaGK7UrzsEkaAaKoY+aBodiBNif3A2vcMPod3lSi25mN
-	V83Dyr3P+BN1ulTNWKzthOkZ96bJl7h2aU9P/HHUoPR5itPKlapX15zX15z0ANVgjSNQVnjtfa/OF
-	fJ6+uWRg==;
+	bh=9oi8lTShNUn6ovs0+7mk6EL3IlT8HCUgNaHDFX8ZauY=; b=X+H4owW9uQs5aoZbhyuGV24NFC
+	nSc4ow8rGJupOCzBWvZn+eoKLL5/X3BUq3DQcZwwyHsS/50fTftDYWP7Qc+6R6qUQAhMABEtAC8lH
+	46VJhJMfJgVldwz6ckvZV0lgWHk/7rAeerKN5JsVSIVH1WEATZ4YqHaGGQ0jbiqxgpM1d+oqKAtX5
+	7OaoJdK84BkTJ2IxZUaLQwPBOYhRCW7GwLMcGxxzvT3q5WW4m3fgVADO03SJrTWPR7rDXcu+vA21a
+	i7oEOXObJpg0DteD4HUwqbY8JtTYFQjzCCxPI/a8Cgi/HREREUJsI+1n10dKb4Vd30AEEeV26PI22
+	0VpoRn6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE5fL-0000000HW6H-1LEb;
-	Thu, 21 Nov 2024 11:48:07 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1tE5gF-0000000HWIY-3nx1;
+	Thu, 21 Nov 2024 11:49:03 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE5eP-0000000HVzA-1D6k
+	id 1tE5f8-0000000HW4X-0Xvk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 11:47:10 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-72410cc7be9so768141b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Nov 2024 03:47:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732189628; x=1732794428; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+oKpoaoKlTteKRfatjC6kRGeLlyxZzmGL1dkD3YQ10E=;
-        b=D0rjI6RMgaNOlTwSCmVCPiYi1zEGh0jsvhgoTuLzeJ29J/4Y5fMSC6PeSLcXwxA7T9
-         oL+ruCqYhvHlC6h/hRROn0C2oRzeZ9l1cObnJLcEladGl9GgcDj34ZeKdISWSQWBcrmz
-         cyVgvplyGtQTBsHOdH/dIFhsFgvRasVLwmWb9BbOq6OH0TQIKNUsqLGbcsn/pQkhpzqi
-         rIdgVzgGis6ucpiGqDHd8zQz2B1cM9FJZSReJcvAKpcthdy6zyBitK9FJ2P2KUj7hBGW
-         yyzUx8KNnmcR5eXbMNgatW9Tt6ZDttcA+ItBH9RmKj4iVuW5/mUbl9yr3JkUEKc3NY2X
-         c7cw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732189628; x=1732794428;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+oKpoaoKlTteKRfatjC6kRGeLlyxZzmGL1dkD3YQ10E=;
-        b=rhoVpYwbCCC9wARp7JkSXMm/NcxSvkgLFhsg27/ik9E/bDQMb9WJKVyjvbD7QAIOoS
-         j43japOeBzBkRmL1dvu+02veCNT+LfhxawqBpVJ4Qfvf+7tL5Cy/bkdtFyVhAG1RGtq0
-         qbz5zqkF+4DJsAaW7KQ2CyT4lz3vz/7NvZEUUURLYCrejzrCyaJa6ZvTEkfNMWuOawjS
-         NHhAttvmEdbzPWT7Xd5LIlDeNZ88KjYL3eYX5rQs2J+99Hnvww6tz6dATGayumJRKaur
-         lU/oVsMVlWHdSGIfRlYnLYy2HP2vXgGJSngMmdIVT5UtQ0zl8CFYuPkEE1P+niuzq11A
-         120w==
-X-Forwarded-Encrypted: i=1; AJvYcCXaEAGkBB+7phRZOEUpNQZnnELff4Sr4q35Y2StoJLDsALL8uPc9mTdPP4PUaJH0cG7O+RW4bGW/RMDrll9+JMN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxngEPa7m/KXSplBlJHV7nF+vIkeZD+3NVs6PJHqlStg/Diu7s9
-	jNBXbrzpuiPwtLgt+Tw/yxIDgOeThRBX0abiqAmI2QtR5jtMcjkmcKVpO3rIgAi6jk+B1tEqi9N
-	Pqv/q9XbDD9tuRjxnAYNvbk5ZSf4=
-X-Gm-Gg: ASbGncvXcpEYKwcZevBhJFbl/ZvPWK5Uen0Hu4cY5o+EbWYmQJHP4W3Kiyj7ZNSmHoL
-	Nn52/glDP6QA5jsowZr/VGtSPLvLw
-X-Google-Smtp-Source: AGHT+IE2h2M+qxLCspBarhNsj5yqwS/EMhkBWxXjcDD9u0KTCey5QLScBBICtmjBrds0ZAtA4MlEHX5fwedUO4F3uCA=
-X-Received: by 2002:a05:6a00:2284:b0:724:5d26:d904 with SMTP id
- d2e1a72fcca58-724bed2f146mr8063161b3a.18.1732189627973; Thu, 21 Nov 2024
- 03:47:07 -0800 (PST)
+	Thu, 21 Nov 2024 11:47:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 071BEA400BD;
+	Thu, 21 Nov 2024 11:46:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18B21C4CECC;
+	Thu, 21 Nov 2024 11:47:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732189673;
+	bh=9oi8lTShNUn6ovs0+7mk6EL3IlT8HCUgNaHDFX8ZauY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oo9zh+V3AoBEcSamfTJpVc2VOBrAre+y8KssEasXtkxblmHASYwad3a/g3qI10DMB
+	 ilL43XG8eS0TZ4VgWnoOBLpeGJJ3ZqR+g/CQvsJXgAkumi6Y1jjUW9nPjL51W5K6k0
+	 a6yJXI0j55KAwIxrjdKqxnTaBMEA9pqapqeuVnUEzXhfVc5IJK9EJWertWM/yKL2lU
+	 rMDZg2aFnMy4Qk35av1no0XdOAUxrgkZ+L4bPbGfIaoAEttxldjNsnkJfBcwASglK8
+	 aWjParcUa+ttPc+6lx+dVbYtcsBWWMRGOUePLH3T+UMitLSTk4j/1N0Rv0r4GXJk+m
+	 eCo9fbGxVbstA==
+Message-ID: <c5d6effa-bdcf-49e3-a4bf-3713db889b70@kernel.org>
+Date: Thu, 21 Nov 2024 12:47:47 +0100
 MIME-Version: 1.0
-References: <20241120135859.3133984-1-daniel.baluta@nxp.com>
- <20241120135859.3133984-5-daniel.baluta@nxp.com> <DB9PR04MB84616B3F5A76AA1C588DC0ED88222@DB9PR04MB8461.eurprd04.prod.outlook.com>
-In-Reply-To: <DB9PR04MB84616B3F5A76AA1C588DC0ED88222@DB9PR04MB8461.eurprd04.prod.outlook.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Thu, 21 Nov 2024 13:48:11 +0200
-Message-ID: <CAEnQRZCSvOE5jQtSoL0xGJNpx_94V29TbidR8iSDC5jOwy6xQw@mail.gmail.com>
-Subject: Re: [PATCH 4/5] arm64: dts: imx8mp: Add fsl,dsp-ctrl property for dsp
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Daniel Baluta <daniel.baluta@nxp.com>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Frank Li <frank.li@nxp.com>, 
-	Aisheng Dong <aisheng.dong@nxp.com>, Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, 
-	"S.J. Wang" <shengjiu.wang@nxp.com>, Iuliana Prodan <iuliana.prodan@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: zynqmp: add clock-output-names property in clock
+ nodes
+To: Naman Trivedi <naman.trivedimanojbhai@amd.com>, robh@kernel.org,
+ michal.simek@amd.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ senthilnathan.thangaraj@amd.com
+Cc: linux-kernel@vger.kernel.org
+References: <20241121113512.992747-1-naman.trivedimanojbhai@amd.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241121113512.992747-1-naman.trivedimanojbhai@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_034709_343741_98F3691B 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20241121_034754_308509_248FB69C 
+X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,38 +120,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 21, 2024 at 1:33=E2=80=AFPM Peng Fan <peng.fan@nxp.com> wrote:
->
-> > Subject: [PATCH 4/5] arm64: dts: imx8mp: Add fsl,dsp-ctrl property for
-> > dsp
-> >
-> > Audio block control contains a set of registers some of them used for
-> > DSP configuration.
-> >
-> > Drivers (rproc, SOF) are using fsl,dsp-ctrl property to access those
-> > registers in order to control the operations of the DSP (e.g for start,
-> > reset, etc).
-> >
-> > Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > index 41ff40ab5da2..fa4ff75af12d 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > @@ -1616,7 +1616,7 @@ sdma2: dma-controller@30e10000 {
-> >                       };
-> >
-> >                       audio_blk_ctrl: clock-controller@30e20000 {
-> > -                             compatible =3D "fsl,imx8mp-audio-blk-
-> > ctrl";
-> > +                             compatible =3D "fsl,imx8mp-audio-blk-
-> > ctrl", "syscon";
->
-> This requires binding update as I recall.
+On 21/11/2024 12:35, Naman Trivedi wrote:
+> Add clock-output-names property to all clock nodes, so that the resulting
+> clock name do not change when clock node name is changed.
 
-Yes, indeed. Will update in v2.
+So fix the node names here...
+
+Best regards,
+Krzysztof
 
