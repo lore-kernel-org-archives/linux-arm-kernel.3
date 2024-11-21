@@ -4,64 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27AABD7879A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 17:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D3ED7879A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 17:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cUaeZnXodr4qqbapSAi4V1pzc3bgliTm0boF7wqn2Qs=; b=XEOxmC+0wATAYNG74ou0KrOLTP
-	hm4jQDmC2Pn1/rM+Ems+bpzRjMbiZGoVb04o+DZ66GwXTJ7C0h7M20YMRRl6lAJjjmkqiq61h1Ks7
-	qeJJJeIzfKFlSw1XS6XoPikOLjYsfTO2nw6kzv3XnyagC3llAq7UzQ5z7Qf6E/yuWDEIrUaX13sqG
-	UbWDXJwS0STzdWiM3PkpoEc1tT6GUjEMzN7Mg8WWYTqcwXCjuzy2dPPlt23R8SI5AGmvGd6r7r8uz
-	yoL1IJQ/LFHuCsQSuUmH+dW/hEDnCUoXW5fnEGJbbdtYmTEsqlfDeQ/gPVtka1XcNR1JibYz/jt9O
-	xKmBA2YA==;
+	bh=H11NAOdOJNBsDXjvEYVyNW0dhh1waxP26uqrlwjdh7w=; b=NYYxc82dWi/lqZ75cSJ6cf7t9T
+	sAf4XPnjrPc0KuOTlETKM3UbzlaGNLVuDm0A5wCTNE9eM6oq9oKxx5uvFdGfULuNOW4OnD3DZqNz+
+	TPK9r9OGtNpIY5WxGJd/QY2s4qFIcgT0pbfrv+Oj+46fTbXiOQQtS67dfadniywU/6Ny9IgPhm+nQ
+	k4ta0rZMKoFgG1GM1Rk5YY4jTP10WfglzbtDNFR6BOV/pTQP6CV5smMrd/hq19OGVnkwY4/OI1aZ1
+	nzGPzR9pnNFEH4Hg7aFS9WyKYVb9L2ERpmiD0Z+/R8PuOvFvpRV1gOYkWpHUvLEgLsstIWzKr53vv
+	P9neYiQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEAi1-00000000WHD-3XeL;
-	Thu, 21 Nov 2024 17:11:13 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tEAkk-00000000WjY-2NVs;
+	Thu, 21 Nov 2024 17:14:02 +0000
+Received: from inva020.nxp.com ([92.121.34.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEAh5-00000000WAL-1yxH
+	id 1tEAjl-00000000WW6-3bLc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 17:10:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CB29BA40CFE;
-	Thu, 21 Nov 2024 17:08:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CE7EC4CED0;
-	Thu, 21 Nov 2024 17:10:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732209013;
-	bh=wYClgF0Iox13p7cF2Hl6xnODjSXaiAYKYfj5D+CRGCg=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=N8Pu2BLvr8r3vF3r7Bz9bGjxDocymkQnHcCLPuTB5Z6gs93LrP+3A1KbKkFrBJq/J
-	 7mx4nIvYuCStVSNXd4/j78MqsaZXvO76rwhBLjvvm5OMSwC/FsNNfM1kVW/ZhwVz/G
-	 kU2vK/UC5/tQdTm8rxLCLrFDQeMFg257qffBn90mAOrDuNVfUYh4I8ari/rCE/oOPf
-	 IpjKPq0IQjKxXRUuE1+FRbDZ/C1o+f8OrqcXEP2IdrVGwv6kHLIc/BMurRO61XhcJU
-	 b+e1gRDPrronNqMqsb4NvK/tX2oGCYgQItjetuqquyZ9uVWuMpkOSS7B7aWTZNSdeS
-	 Q8CkBaGGDromQ==
-Date: Thu, 21 Nov 2024 11:10:12 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 21 Nov 2024 17:13:04 +0000
+Received: from inva020.nxp.com (localhost [127.0.0.1])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 4748B1A063E;
+	Thu, 21 Nov 2024 18:12:58 +0100 (CET)
+Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 4441B1A063A;
+	Thu, 21 Nov 2024 18:12:58 +0100 (CET)
+Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
+	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 7BFFC2026C;
+	Thu, 21 Nov 2024 18:12:57 +0100 (CET)
+Date: Thu, 21 Nov 2024 18:12:58 +0100
+From: Jan Petrous <jan.petrous@oss.nxp.com>
+To: Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH v5 16/16] net: stmmac: platform: Fix PTP clock rate
+ reading
+Message-ID: <Zz9qGvb9v9+SXSev@lsv051416.swis.nl-cdc01.nxp.com>
+References: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
+ <20241119-upstream_s32cc_gmac-v5-16-7dcc90fcffef@oss.nxp.com>
+ <d6794550-07f2-46df-aa4f-c728b06d50bd@redhat.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Cosmo Chou <cosmo.chou@quantatw.com>, devicetree@vger.kernel.org, 
- Joel Stanley <joel@jms.id.au>, linux-arm-kernel@lists.infradead.org, 
- Potin Lai <potin.lai@quantatw.com>, Conor Dooley <conor+dt@kernel.org>, 
- linux-aspeed@lists.ozlabs.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Patrick Williams <patrick@stwcx.xyz>, linux-kernel@vger.kernel.org, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Potin Lai <potin.lai.pt@gmail.com>
-In-Reply-To: <20241121-catalina-dts-20241120-v1-0-e4212502624b@gmail.com>
-References: <20241121-catalina-dts-20241120-v1-0-e4212502624b@gmail.com>
-Message-Id: <173220890742.3693012.4465896508594854570.robh@kernel.org>
-Subject: Re: [PATCH 0/2] ARM: dts: aspeed: catalina: revise catalina dts
- file
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d6794550-07f2-46df-aa4f-c728b06d50bd@redhat.com>
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_091015_636657_E7EEFDF3 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20241121_091302_038015_76F1FFFE 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,100 +64,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Andrew Lunn <andrew@lunn.ch>, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, imx@lists.linux.dev, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, Jose Abreu <joabreu@synopsys.com>, Jakub Kicinski <kuba@kernel.org>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 21 Nov 2024 12:34:03 +0800, Potin Lai wrote:
-> Add following patches to fix issues.
-> - revise ltc4287 shunt-resistor value
-> - remove interrupt of GPIOB4 form all IOEXP
+On Thu, Nov 21, 2024 at 08:45:20AM +0100, Paolo Abeni wrote:
+> On 11/19/24 16:00, Jan Petrous (OSS) wrote:
+> > From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+> > 
+> > The stmmac driver supports many vendors SoCs using Synopsys-licensed
+> > Ethernet controller IP. Most of these vendors reuse the stmmac_platform
+> > codebase, which has a potential PTP clock initialization issue.
+> > The PTP clock rate reading might require ungating what is not provided.
+> > 
+> > Fix the PTP clock initialization by enabling it immediately.
+> > 
+> > Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 > 
-> Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
-> ---
-> Potin Lai (2):
->       ARM: dts: aspeed: catalina: revise ltc4287 shunt-resistor value
->       ARM: dts: aspeed: catalina: remove interrupt of GPIOB4 form all IOEXP
+> Side, process-related note: it would be great if you could trim the
+> patch series below 16 (currently off-by-one):
 > 
->  arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts | 10 ++--------
->  1 file changed, 2 insertions(+), 8 deletions(-)
-> ---
-> base-commit: 59b723cd2adbac2a34fc8e12c74ae26ae45bf230
-> change-id: 20241120-catalina-dts-20241120-e341b907184e
+> https://elixir.bootlin.com/linux/v6.11.8/source/Documentation/process/maintainer-netdev.rst#L14
 > 
-> Best regards,
-> --
-> Potin Lai <potin.lai.pt@gmail.com>
-> 
-> 
+> This patch looks like an independent fix, possibly worth the 'net' tree.
+> If so, please submit this patch separately, including a suitable fixes
+> tag and including the 'net' keyword in the patch subj prefix.
 > 
 
+Yeh, I also was a bit worried about patchwork fail check on patch series
+size. Thanks for your hint, I will remove this PTP clock rate patch from
+the series and resend it to the 'net' tree with fixes tag.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-New warnings running 'make CHECK_DTBS=y aspeed/aspeed-bmc-facebook-catalina.dtb' for 20241121-catalina-dts-20241120-v1-0-e4212502624b@gmail.com:
-
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: timer: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: bus@1e600000: compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: syscon@1e6e2000: 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^silicon-id@[0-9a-f]+$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/interrupt-controller@560: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic0']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/interrupt-controller@570: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic1']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: adc@1e6e9000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: adc@1e6e9100: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: crypto@1e6fa000: 'aspeed,ahbc' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/video@1e700000: failed to match any schema with compatible: ['aspeed,ast2600-video-engine']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: sdc@1e740000: sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: sdc@1e740000: sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: lpc@1e789000: lpc-snoop@80: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: lpc@1e789000: reg-io-width: 4 is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: kcs@24: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: kcs@28: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: kcs@2c: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: kcs@114: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: fsi@1e79b000: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: fsi@1e79b100: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
-
-
-
-
-
+BR.
+/Jan
 
