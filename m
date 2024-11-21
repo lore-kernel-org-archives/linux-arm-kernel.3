@@ -4,61 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D42D75BDD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 09:21:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6422BD75BDD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 09:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XhybviENqL1dG5XMA90Z+SaGGqKp5SKzHp6k+08G8Ss=; b=G1MICjc/1qLSqqzIPqK5ZQV52n
-	25aZYeHcB4tGrWo6hD/xo7G28aHCXPpQGG2P2YsaSXjOSW36rcZmWcnmq78RYcCPBIrmuVLC5VGaU
-	ZIA5HGVh57BjAEAVoRnrysuRpF8sMR63T9QXiYblbtTf1/W0Eg500SMYhBQ2kw5WBvA3Chmtm3US1
-	bbVsqOP4Q9IwwkUkrmHeRo73KNA/A6TBVWPuAiHcqtSPIZsba1pftvZkVykKhvAwNJqKkHUxslxPB
-	Y3JILLmgyN+PhfkYlZpWRxxUL5NuQjcO/6RRwkCI8Qdo8kxZjw0WIerktWjZBkEnYCMNHs18ZeQcE
-	HK43vOmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0/pOGJNL993DPyoMevAgdGrHFiNsXmQDI8AHiFFQmMs=; b=o0FnoJ1cnbs6MT1uHm0ydBzrZm
+	9dIhdGjzM2pUrlHBesq1JTNbE80kSMwM7SfRlaeogJKbdTBGrMAdmQ5UwTCNgZHsNjOZc2vkEb3tK
+	31jGyfOsMhiUAibOGm+8r4U+cabjy+nETotmOaz1sFThsIVUBcGIVOIYzWfn6VLZ8IjSLvXdGlDVm
+	PYbvL/CJYGoKxroqp0+Gc6XiB5mPME1OB5d1KUmrrKp4NyGCjjhWXxX9Af9PvfHQkbOg0bscep3zf
+	j9aZ/ctENPXpg2EPnxWwLgIE1t032nWz193MTTfi/toVPijdFT+jnQbdvW7VXAXQiMyOwkeUK2AgK
+	lyhCapCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE3Mm-0000000HEBy-0mM8;
-	Thu, 21 Nov 2024 09:20:48 +0000
-Received: from cmccmta2.chinamobile.com ([111.22.67.135])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE3Lo-0000000HE4I-1FMh
+	id 1tE3Py-0000000HEiZ-4BH0;
+	Thu, 21 Nov 2024 09:24:07 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tE3P1-0000000HEXU-0jSO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 09:19:50 +0000
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG: 00000000
-Received: from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app07-12007 (RichMail) with SMTP id 2ee7673efb29da5-5ddc2;
-	Thu, 21 Nov 2024 17:19:38 +0800 (CST)
-X-RM-TRANSID: 2ee7673efb29da5-5ddc2
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG: 00000000
-Received: from [172.20.230.59] (unknown[223.108.79.101])
-	by rmsmtp-syy-appsvr05-12005 (RichMail) with SMTP id 2ee5673efb2983a-cbd8c;
-	Thu, 21 Nov 2024 17:19:38 +0800 (CST)
-X-RM-TRANSID: 2ee5673efb2983a-cbd8c
-Message-ID: <bee10978-ce12-4813-957d-2d1288f49815@cmss.chinamobile.com>
-Date: Thu, 21 Nov 2024 17:19:37 +0800
+	Thu, 21 Nov 2024 09:23:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1732180987; x=1763716987;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=Sa8bPFHTaj9aW+dktFBUNt2YyId16vwK369IXtQxnwo=;
+  b=gSPtDtDmmHCHOqIXKNAfAnBYbfD3JS06diE1dqAzjq5Mho3mTLeBzYs6
+   yWfLMROXDkZOYgx+LpL8dMIdUAQHzuwF7Qeq11ri9td3StcOeHtXyZYe9
+   1mc2LpP2yYkvnzCMIikb4SnWSSQAtur0KYfeslHYt6ZMu1b3LV/c2pe5t
+   QsVGBzKTGNXRuVCaBd3gi5danIckl2GVYRof7l2XmzelI4l0UfiRKCIVj
+   Os6XiM6EqHTIN0eizbkjrzfe8Y0WdPy5E6wofXc9Kqukp8TX6ADDbH/Ht
+   1EI3Q2Kix4BJVtuRUpahosE6S7pmtwgR2EPNWhI90n3sdPWDzlTWZj5np
+   g==;
+X-CSE-ConnectionGUID: YiAoo1hURNCm0K6Jsadz8A==
+X-CSE-MsgGUID: jyCdARExQnCVU/SgCMKtbg==
+X-IronPort-AV: E=Sophos;i="6.12,172,1728975600"; 
+   d="scan'208";a="34608880"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 21 Nov 2024 02:23:05 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 21 Nov 2024 02:23:01 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Thu, 21 Nov 2024 02:22:56 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <sam@ravnborg.org>, <bbrezillon@kernel.org>,
+	<maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <lee@kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <manikandan.m@microchip.com>, Dharma Balasubiramani
+	<dharma.b@microchip.com>
+Subject: [PATCH 1/3] drm: atmel-hlcdc: add support for LVDS encoder type
+Date: Thu, 21 Nov 2024 14:53:06 +0530
+Message-ID: <20241121092308.130328-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] firewall: remove misplaced semicolon
- fromstm32_firewall_get_firewall
-To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
- Alexandre TORGUE <alexandre.torgue@foss.st.com>, mcoquelin.stm32@gmail.com
-Cc: linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241109055049.269163-1-guanjing@cmss.chinamobile.com>
- <cfb1caed-9402-4148-831d-57c50bdf6a27@foss.st.com>
- <1179b3a6-e430-4d9a-8f86-470e8cbe5738@foss.st.com>
-From: guanjing <guanjing@cmss.chinamobile.com>
-In-Reply-To: <1179b3a6-e430-4d9a-8f86-470e8cbe5738@foss.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_011948_879459_D5F2FB44 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20241121_012307_238002_36E61980 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,50 +88,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for your advice. I apologize for the omission. :)
+From: Dharma Balasubiramani <dharma.b@microchip.com>
 
+Add support for encoder type "DRM_MODE_ENCODER_LVDS" with the following
+bus formats:
+	- RGB888_1X7X4_SPWG
+	- RGB888_1X7X4_JEIDA
+	- RGB666_1X7X3_SPWG
+	- RGB666_1X18
 
-On 2024/11/12 17:40, Gatien CHEVALLIER wrote:
-> On 11/12/24 10:25, Alexandre TORGUE wrote:
->> Hi
->>
->> On 11/9/24 06:50, guanjing wrote:
->>> Remove misplaced colon in stm32_firewall_get_firewall()
->>> which results in a syntax error when the code is compiled
->>> without CONFIG_STM32_FIREWALL.
->>>
->>> Fixes: 5c9668cfc6d7 ("firewall: introduce stm32_firewall framework")
->>> Signed-off-by: guanjing <guanjing@cmss.chinamobile.com>
->>> ---
->>>   include/linux/bus/stm32_firewall_device.h | 2 +-
->>>   1 file changed, 1 insertion(+), 1 deletion(-)
->>>
->>> diff --git a/include/linux/bus/stm32_firewall_device.h 
->>> b/include/linux/bus/stm32_firewall_device.h
->>> index 18e0a2fc3816..5178b72bc920 100644
->>> --- a/include/linux/bus/stm32_firewall_device.h
->>> +++ b/include/linux/bus/stm32_firewall_device.h
->>> @@ -115,7 +115,7 @@ void stm32_firewall_release_access_by_id(struct 
->>> stm32_firewall *firewall, u32 su
->>>   #else /* CONFIG_STM32_FIREWALL */
->>>   int stm32_firewall_get_firewall(struct device_node *np, struct 
->>> stm32_firewall *firewall,
->>> -                unsigned int nb_firewall);
->>> +                unsigned int nb_firewall)
->>>   {
->>>       return -ENODEV;
->>>   }
->>
->> Acked-by: Alexandre Torgue <alexandre.torgue@foss.st.com>
->>
->> Thanks
->> Alex
->
-> Hi, please use get_maintainers.pl script next time so that
-> adequate people are put in To/CC.
-> Nevertheless, thanks for the patch!
->
-> Reviewed-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+[manikandan.m@microchip.com: move modifications inside the
+atmel_xlcdc_connector_output_lvds fn]
+Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+---
+ .../gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c    | 38 +++++++++++++++++++
+ 1 file changed, 38 insertions(+)
 
+diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
+index 0f7ffb3ced20..0e709047369a 100644
+--- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
++++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
+@@ -356,6 +356,42 @@ static int atmel_xlcdc_connector_output_dsi(struct drm_encoder *encoder,
+ 	return supported_fmts;
+ }
+ 
++static int atmel_xlcdc_connector_output_lvds(struct drm_encoder *encoder,
++					     struct drm_display_info *info)
++{
++	int j;
++	unsigned int supported_fmts = 0;
++
++	switch (atmel_hlcdc_encoder_get_bus_fmt(encoder)) {
++	case 0:
++		break;
++	case MEDIA_BUS_FMT_RGB666_1X7X3_SPWG:
++	case MEDIA_BUS_FMT_RGB666_1X18:
++		return ATMEL_HLCDC_RGB666_OUTPUT;
++	case MEDIA_BUS_FMT_RGB888_1X7X4_SPWG:
++	case MEDIA_BUS_FMT_RGB888_1X7X4_JEIDA:
++		return ATMEL_HLCDC_RGB888_OUTPUT;
++	default:
++		return -EINVAL;
++	}
++
++	for (j = 0; j < info->num_bus_formats; j++) {
++		switch (info->bus_formats[j]) {
++		case MEDIA_BUS_FMT_RGB666_1X7X3_SPWG:
++		case MEDIA_BUS_FMT_RGB666_1X18:
++			supported_fmts |= ATMEL_HLCDC_RGB666_OUTPUT;
++			break;
++		case MEDIA_BUS_FMT_RGB888_1X7X4_SPWG:
++		case MEDIA_BUS_FMT_RGB888_1X7X4_JEIDA:
++			supported_fmts |= ATMEL_HLCDC_RGB888_OUTPUT;
++			break;
++		default:
++			break;
++		}
++	}
++	return supported_fmts;
++}
++
+ static int atmel_hlcdc_connector_output_mode(struct drm_connector_state *state)
+ {
+ 	struct drm_connector *connector = state->connector;
+@@ -374,6 +410,8 @@ static int atmel_hlcdc_connector_output_mode(struct drm_connector_state *state)
+ 	 */
+ 	if (encoder->encoder_type == DRM_MODE_ENCODER_DSI)
+ 		return atmel_xlcdc_connector_output_dsi(encoder, info);
++	else if (encoder->encoder_type == DRM_MODE_ENCODER_LVDS)
++		return atmel_xlcdc_connector_output_lvds(encoder, info);
+ 
+ 	switch (atmel_hlcdc_encoder_get_bus_fmt(encoder)) {
+ 	case 0:
+-- 
+2.25.1
 
 
