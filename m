@@ -4,82 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE0D1D63959
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 09:43:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04360D6E2A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 10:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rP8Da8s2wnevMi29j7d8+2oFJbj2lRWCCDSZ4S6BMjE=; b=tYvTVsQixgovmipD/mdPDq0tSf
-	6UmncoEBntM3eNKBMkMK2iCRVsg/0GyruO6BVA5rEwDK91/i5A4O0wFl2cb6HfwqWjCknlKW3lFpl
-	FIHjLl3swlLz/uxZF0n8KqzPeermByjuyHeBJ7pJ7s403xvAiHrs+3AbHSv9V/xDeOi3ujgi3Gz/6
-	xS+9Zli0hmiS0FN0Plye4hptQgHpVc0bFZQigG9mkVNm7l/8ZpNo1dpcQexmP24rtjgXL0gGohAXr
-	hh1uaCMdABV/XjxUpM2lyEfs3lNEudTpaYklJ9h1OQM7BNUFfqB//AzS6vFBSb6NmjZiPQdF4yKmH
-	+mRpND6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fuo4xlzwRFkpTmlfDCH+D8j54FL6JCPfYeuh+E70jb4=; b=o4Ogzzku/0EACTkZr6I8+ycogT
+	Ab2mt8mkXnQHnH/p2lIIGA/SHFTG2540TKgAJ9akstLijduCGIHYqh7UpjBclY2II6swOD+ywxgHM
+	IR5X/b4nHPXOG8iJQ8ZATzrsHux+pt4PEu1RVSVCBVIx6gYOt05pwy9zUNAS6mTq92CWL24PmPc1y
+	qy2aHtkexKW7zUNjgBKjEyhtcIoUlfry/UxNE2H7hfgaEB22OWePBiwXqEvcU3zXLzOO0lO5jyuCl
+	uVz5yXmhf49FqOjNvm6TO/XTYmdEvLUrVlidue8gx95Y9O7Xnkz7s9B/yUGF26W+UJpoc3CVGyMkB
+	RluvSVPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE3ie-0000000HGpn-3RKI;
-	Thu, 21 Nov 2024 09:43:24 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE3hj-0000000HGn6-0BTu
+	id 1tE481-0000000HJlv-3I1G;
+	Thu, 21 Nov 2024 10:09:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tE475-0000000HJdJ-06AE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 09:42:28 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-460969c49f2so225081cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Nov 2024 01:42:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1732182145; x=1732786945; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=rP8Da8s2wnevMi29j7d8+2oFJbj2lRWCCDSZ4S6BMjE=;
-        b=sxvOyA9mBl/Xper+YDQHnw3+nnd2hxL8kX8bGfc/NILjkag5palWUiwJhFwBWSyOh0
-         od+Um27krB4Mg9x370UeuikzMRDtTkoNi/PD1Ept/tOLaxfONwtdl1Vkht2SNnDDrowv
-         LHWBln8LleY5jdiL6Q6y+0ph1If1glym7RS9wv0gdPwrwugwXmv4HBY8bsm7Y4smBfzA
-         Fd+Jov9bw5z6bcQiNwER8rFr2E8SS4qEIl6PDRsoHlx16pLnCOt/BYhwTewYcz2hvQdw
-         e+Qv+dHRXGOPpUfD6XHX6LqfDoH55g2rPainDI1+SCS/0IwRKHGQyZl2pSg+7a/Fo8Q0
-         LRZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732182145; x=1732786945;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rP8Da8s2wnevMi29j7d8+2oFJbj2lRWCCDSZ4S6BMjE=;
-        b=spdr929XagMVQvWkY/l6YIwpImp+2XWLrrnyW6K5LfaKNTdyKosaoKm9KvOYkE3Cmr
-         luNIa2/Hse9Pthi1OQbmh025YXCsNOnmWfIRmhIk+nvKWovHntATb5HJ01bcnhcRpYtc
-         Gt89u/u00cwJ2cUZ/jnyZEpzVtFZzJElaoTI1X4PAXAV0Mlz+Ge3UpW+X3phUos30rUM
-         3jLSa1b+M5NQVVRH76ePBjiM84X7DAxnWP4TDsZFCDBqXV1DwvFYszJgZk/YMUI2x0rp
-         UtlMjEbooBWw/46lcG0OjBt9oJySAaRCqFFgSP/S8Q1lnNaJuWUQ1rhME/Fu5L63S8Hv
-         5qBg==
-X-Forwarded-Encrypted: i=1; AJvYcCVqcTcc/K/qSAORO9DLiy/tUjbK+1LEIHTMSi+n6cmQ94IuJ93EHvxthmotwxZfU8B54kkYmMkEqEzIt5frh2NH@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZEoYvTts1E0tPGChUPmvap1miF90z0cDIBDfQ6yRvNnMY2q1t
-	TuuJN6N3Lda5l5QMRCrcbkkjoehu9AMDBuGLLf0u8EzcXfGDK9yI9nPOPXgmlBYfDZzYW57Z5DE
-	aD7EVeme7HpvvCMfhoxWezhfCC42AyG202pka
-X-Gm-Gg: ASbGncvQaGKMmQpQxjluxh6KleNnrXL1eLHRycHesIECPe864ywXYXTsBvBfF5nU/0M
-	qkQ2UIQ98zfxh/hC0SFSV0e4bdhId6MAX4HXWKrIGyNyDkLFKQ8Im2Jr7Oej8
-X-Google-Smtp-Source: AGHT+IFz6PCHpbrIIj+vbX5fqVx29xCyDAikIqlQtMrrnG5d6xsAZ47MPsinRyCZ06YWTiincJIRrcrRSIzCHKH7CHI=
-X-Received: by 2002:ac8:5989:0:b0:461:6e0a:6a27 with SMTP id
- d75a77b69052e-465300d14cfmr2591491cf.20.1732182144485; Thu, 21 Nov 2024
- 01:42:24 -0800 (PST)
+	Thu, 21 Nov 2024 10:08:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 617931480;
+	Thu, 21 Nov 2024 02:09:07 -0800 (PST)
+Received: from [10.57.92.130] (unknown [10.57.92.130])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 727303F6A8;
+	Thu, 21 Nov 2024 02:08:36 -0800 (PST)
+Message-ID: <b7636597-b72e-4bea-ab07-c6ad6caf2aac@arm.com>
+Date: Thu, 21 Nov 2024 10:08:35 +0000
 MIME-Version: 1.0
-References: <20241120105254.2842020-1-tabba@google.com> <20241120105254.2842020-11-tabba@google.com>
- <Zz7wBU3BHW-XNnbr@google.com>
-In-Reply-To: <Zz7wBU3BHW-XNnbr@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 21 Nov 2024 09:41:46 +0000
-Message-ID: <CA+EHjTyGzjOnVnyqfS6LO5=_EhQY3CS18HyrnSmnfNF483yz6w@mail.gmail.com>
-Subject: Re: [PATCH v1 10/12] KVM: arm64: Calculate cptr_el2 traps on
- activating traps
-To: Quentin Perret <qperret@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org, 
-	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] perf/arm-cmn: Ensure port and device id bits are set
+ properly
+To: Namhyung Kim <namhyung@kernel.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>
+Cc: Stephane Eranian <eranian@google.com>, LKML
+ <linux-kernel@vger.kernel.org>, linux-arm-kernel@lists.infradead.org
+References: <20241121001334.331334-1-namhyung@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20241121001334.331334-1-namhyung@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_014227_099770_80683AF4 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20241121_020839_109589_9D3C4035 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,32 +66,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Quentin,
+On 2024-11-21 12:13 am, Namhyung Kim wrote:
+> The portid_bits and deviceid_bits were set only for XP type nodes in
+> the arm_cmn_discover() and it confused other nodes to find XP nodes.
+> Copy the both bits from the XP nodes directly when it sets up a new
+> node.
 
-On Thu, 21 Nov 2024 at 08:32, Quentin Perret <qperret@google.com> wrote:
->
-> Hi Fuad,
->
-> On Wednesday 20 Nov 2024 at 10:52:52 (+0000), Fuad Tabba wrote:
-> > -static void pvm_init_traps_cptr(struct kvm_vcpu *vcpu)
-> > -{
-> > -     struct kvm *kvm = vcpu->kvm;
-> > -     u64 val = vcpu->arch.cptr_el2;
-> > -
-> > -     if (!has_hvhe()) {
-> > -             val |= CPTR_NVHE_EL2_RES1;
-> > -             val &= ~(CPTR_NVHE_EL2_RES0);
-> > -     }
->
-> To be on the safe side, should keep the RES1 stuff for nVHE?
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
 
-Sure. My thinking in removing this is that, once consolidated, it
-would be easy to spot whether we could be clearing the wrong bit. But
-I could reintroduce this when I respin.
+> Fixes: e79634b53e39 ("perf/arm-cmn: Refactor node ID handling. Again.")
+> Signed-off-by: Namhyung Kim <namhyung@kernel.org>
+> ---
+>   drivers/perf/arm-cmn.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+> index 49bd811c6fd6efdd..b20fa600e510c54f 100644
+> --- a/drivers/perf/arm-cmn.c
+> +++ b/drivers/perf/arm-cmn.c
+> @@ -2178,8 +2178,6 @@ static int arm_cmn_init_dtcs(struct arm_cmn *cmn)
+>   			continue;
+>   
+>   		xp = arm_cmn_node_to_xp(cmn, dn);
+> -		dn->portid_bits = xp->portid_bits;
+> -		dn->deviceid_bits = xp->deviceid_bits;
+>   		dn->dtc = xp->dtc;
+>   		dn->dtm = xp->dtm;
+>   		if (cmn->multi_dtm)
+> @@ -2420,6 +2418,8 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+>   			}
+>   
+>   			arm_cmn_init_node_info(cmn, reg & CMN_CHILD_NODE_ADDR, dn);
+> +			dn->portid_bits = xp->portid_bits;
+> +			dn->deviceid_bits = xp->deviceid_bits;
+>   
+>   			switch (dn->type) {
+>   			case CMN_TYPE_DTC:
+> 
+> base-commit: 43fb83c17ba2d63dfb798f0be7453ed55ca3f9c2
 
-Thanks!
-/fuad
-
-> Thanks,
-> Quentin
 
