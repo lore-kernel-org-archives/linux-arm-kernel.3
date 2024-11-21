@@ -4,88 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E297D75BCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 07:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DCFCD75BCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Nov 2024 07:47:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5vkRCAdghAGV/OZOlixTRMei5ZBVvBmCuVWIGEfSSu0=; b=QbhUUfdn27Rxo/w796SYXM7Zth
-	Y5v2/u8AmjjorvzUTLURH0cz6uyDhsinM5S4uBjyWcW8jcYhkk65APNS8BVmt57Fv1eAhCByvC0Gh
-	IgufE9w2LIVDWXlf7vzLjR4wJ2Bwi3fHrLyaiO4iKYZyxcdCHvv8alUgXclkDpggw0Eq+BZ+OFlGe
-	QJGf4n1ue7VcabS0YsSPnd6U5KQR+ndz0c3jd90Nx+68A9AJRkBppjndHmFwmLZ9bNgj18/aQ/5K8
-	EN2jLkKLswBJhx/7A/3uHSGGomV9ddXWoPqQezvtqujwVtzR0DatgQsLEXGQTHYkxkwplYgVHy48H
-	qu02tXhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QDdn0M+k8yyKr2FkBT1Y8LYWzdJLNp3idrs1OmCygfk=; b=PvX7pkTXSum19p2hmZM6NZzW3q
+	MjvaIitPAPmwLgd8+P89/C68yAPCf5BqmvcpGwnGMCBs7rNJ2u5k8nPxQ45Y6lZbG64RGv+jswmPl
+	pR7qfiVuWltHOx89bPgJQVyII75G3M8wH2UET/yMurOst43KKrj+fqzyKVZZhKF7KDEQn48rKHKKH
+	dgP4CIbdRniQ0gSMYIx6Dx32R8N1vqbr6P6mtGrw23+zCrnCjRAe+AYuDZtUlxh2KByoY8yURO6i6
+	eG1OeJvIbiJOAU02dN3UkB687ypMrEqhwvAcMoyLzdlHuCgVURHm6/zZDDHTcXv4wJ1mPV+GwzNTV
+	9rT1ZYUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE1RQ-0000000GzbS-2ABD;
-	Thu, 21 Nov 2024 07:17:28 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tE1uC-0000000H1tg-1OIs;
+	Thu, 21 Nov 2024 07:47:12 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE1Oc-0000000GzDG-3Pd8
+	id 1tE1tE-0000000H1mX-1VD5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Nov 2024 07:14:37 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AKLAvTZ029738;
-	Thu, 21 Nov 2024 07:14:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	5vkRCAdghAGV/OZOlixTRMei5ZBVvBmCuVWIGEfSSu0=; b=RZAcPA2SVXaUaFkq
-	/1rMx9njFLozm9kqShP8EwrwvTdZ3yyW1dPKFeWLm5t+yVu8bU9lCHNVpcLUCW3y
-	E/nXNSozVm/yFkJJfaOFt7ku/939OiMlcu6kMXUgmHkbPwi/GvJsp8vtZZSyAazk
-	zX/Sue40Fn80Mllo2DEo47ShsexCCHNihyfvtkhz9hGNwbiA9maGumwxeQ01A3u4
-	MebPnOMckZz6GX5QbmZG990rwURMG+x67M9Su67dwmklzG72hS1/fIev7ZJdmxYS
-	u4UIVCAz5e/eNmiu2ayr7RuS9Yg+vNSVAclb3ypVXINrWHDolo9JyEOkr8DM5DO4
-	u+oQtg==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 431952bjcu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 21 Nov 2024 07:14:26 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AL7EQNh022335
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 21 Nov 2024 07:14:26 GMT
-Received: from ap-kernel-sh01-lnx.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 20 Nov 2024 23:14:22 -0800
-From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <ardb@kernel.org>,
-        <ryan.roberts@arm.com>, <mark.rutland@arm.com>, <joey.gouly@arm.com>,
-        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
-        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Zhenhua Huang <quic_zhenhuah@quicinc.com>
-Subject: [PATCH 2/2] arm64: mm: implement vmemmap_check_pmd for arm64
-Date: Thu, 21 Nov 2024 15:12:56 +0800
-Message-ID: <20241121071256.487220-3-quic_zhenhuah@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241121071256.487220-1-quic_zhenhuah@quicinc.com>
-References: <20241121071256.487220-1-quic_zhenhuah@quicinc.com>
+	Thu, 21 Nov 2024 07:46:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1732175169;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QDdn0M+k8yyKr2FkBT1Y8LYWzdJLNp3idrs1OmCygfk=;
+	b=I49OEa1XckFPID6Ga4F9gLu1zYvy9HJi+JFsNclmXsNAyoMbjFUt1jX2Iv/D9hse3IiBmm
+	hzHv+3QrMSw4zmT1kDxvXQ1ghirwaUP2URDBPdYUCxNjGqFfyXsDLyGacTbUleU4BdyO5c
+	mwXeqY57w8+4o1EOgF9uH4ki7D5ijfw=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-379-bMhJR6eiOx6ZqEKBl4ON1A-1; Thu, 21 Nov 2024 02:45:26 -0500
+X-MC-Unique: bMhJR6eiOx6ZqEKBl4ON1A-1
+X-Mimecast-MFC-AGG-ID: bMhJR6eiOx6ZqEKBl4ON1A
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-382412f3e62so301883f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Nov 2024 23:45:25 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732175125; x=1732779925;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QDdn0M+k8yyKr2FkBT1Y8LYWzdJLNp3idrs1OmCygfk=;
+        b=DiL9nKgpps6qLuwn6nbqsqX/7wx5b5kBHox1oc0cWQymtaFDKntJGJjPwqWy7qaJHG
+         tn1OPVX6HhrfuNh96nSd+dMbBzSgcKfmE6gYz4HywTbo60BVNfCK+kHVJf+XleTzeiiw
+         YWlu+e/aj7kc6wtRJ+eUW9W7t6i92eXdqyG9uxvFtLd4e6rQvuu8c3NEPtj1x7JkZv1/
+         s46uU88OpqEukK9alCDu6udvqf9/znivc84RzcILSYj2jBBg6M6eSkHyTLLk43IVdZhE
+         kfzZN35fKp3nsYgSKlj1kXfO50dKsoy4jUsG/t4R868/0ManHFH42/cKeHnHpIdJyZZ3
+         +sdw==
+X-Forwarded-Encrypted: i=1; AJvYcCXLSa0+w6JwkKsUrBrh5MfiwudmhyYrGGH5IR2lLtA/JpswdZ20hddwqqkoLP21OarFjaGZQLRGpDXqdEtP64ka@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1rUv0vfTtkif2o8ACJySjEbupEeKa74+oQAVkvQMdHln4Vkkj
+	OktzZ1db88J8lYFieQpux/6QPROd5yXewTgV0zWl0CmrAj0ee1BNBXrVzplT5WtDHFqXTjl940e
+	PcO/TaCrFk/QocgcJzW6wkIVyzFl3uGTgHzzWmMKUETWxcWznt/Vk5qMfsruTJiEC8nsqxa1A
+X-Received: by 2002:a05:6000:796:b0:382:6d2:2aa9 with SMTP id ffacd0b85a97d-38254b14c09mr4474162f8f.37.1732175124859;
+        Wed, 20 Nov 2024 23:45:24 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IENjccaFYv9DnUII4IHVDnz1NtdHN+oocHRHWQvgpwzqO3y5Gm8BoZsAyaTjYXow73ws0CY0g==
+X-Received: by 2002:a05:6000:796:b0:382:6d2:2aa9 with SMTP id ffacd0b85a97d-38254b14c09mr4474144f8f.37.1732175124527;
+        Wed, 20 Nov 2024 23:45:24 -0800 (PST)
+Received: from [192.168.88.24] (146-241-6-75.dyn.eolo.it. [146.241.6.75])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-433b4634c9fsm45793895e9.34.2024.11.20.23.45.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 20 Nov 2024 23:45:24 -0800 (PST)
+Message-ID: <d6794550-07f2-46df-aa4f-c728b06d50bd@redhat.com>
+Date: Thu, 21 Nov 2024 08:45:20 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: r26VgHDOWkqgknP0jjAujSu1yuk8ENqN
-X-Proofpoint-GUID: r26VgHDOWkqgknP0jjAujSu1yuk8ENqN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 phishscore=0
- adultscore=0 priorityscore=1501 impostorscore=0 suspectscore=0
- lowpriorityscore=0 mlxscore=0 clxscore=1015 spamscore=0 malwarescore=0
- mlxlogscore=520 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411210055
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 16/16] net: stmmac: platform: Fix PTP clock rate
+ reading
+To: jan.petrous@oss.nxp.com, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, Richard Cochran <richardcochran@gmail.com>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>,
+ Minda Chen <minda.chen@starfivetech.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Iyappan Subramanian <iyappan@os.amperecomputing.com>,
+ Keyur Chudgar <keyur@os.amperecomputing.com>,
+ Quan Nguyen <quan@os.amperecomputing.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org, imx@lists.linux.dev,
+ devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>
+References: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
+ <20241119-upstream_s32cc_gmac-v5-16-7dcc90fcffef@oss.nxp.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20241119-upstream_s32cc_gmac-v5-16-7dcc90fcffef@oss.nxp.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 8uQGy-K5Ux1FnqFJP7BJpF2UiDHsllSGOvGsHeth034_1732175125
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241120_231434_862153_E2ABCA75 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20241120_234612_483697_E3480E0E 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,30 +125,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vmemmap_check_pmd() is used to determine if needs to populate to base
-pages. Implement it for arm64 arch.
+On 11/19/24 16:00, Jan Petrous (OSS) wrote:
+> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+> 
+> The stmmac driver supports many vendors SoCs using Synopsys-licensed
+> Ethernet controller IP. Most of these vendors reuse the stmmac_platform
+> codebase, which has a potential PTP clock initialization issue.
+> The PTP clock rate reading might require ungating what is not provided.
+> 
+> Fix the PTP clock initialization by enabling it immediately.
+> 
+> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 
-Fixes: 2045a3b8911b ("mm/sparse-vmemmap: generalise vmemmap_populate_hugepages()")
-Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
----
- arch/arm64/mm/mmu.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Side, process-related note: it would be great if you could trim the
+patch series below 16 (currently off-by-one):
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index bfecabac14a3..0e19dd1cfc0c 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1143,7 +1143,8 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
- 				unsigned long addr, unsigned long next)
- {
- 	vmemmap_verify((pte_t *)pmdp, node, addr, next);
--	return 1;
-+
-+	return pmd_sect(*pmdp);
- }
- 
- int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
--- 
-2.25.1
+https://elixir.bootlin.com/linux/v6.11.8/source/Documentation/process/maintainer-netdev.rst#L14
+
+This patch looks like an independent fix, possibly worth the 'net' tree.
+If so, please submit this patch separately, including a suitable fixes
+tag and including the 'net' keyword in the patch subj prefix.
+
+Thanks,
+
+Paolo
 
 
