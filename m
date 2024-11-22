@@ -4,109 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A8C6E65D3A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 09:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A8BE65D3B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 09:24:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L+pN3XKvVFmetq3YJbHAkykp748W6pEN5H4vcdcbZbk=; b=gCiz2X6JJf08gK9eVryTrXNLlJ
-	nf0pokO97qRsxLaIZ1PmT7SUmxFaWwFuRxTOV73f4T8XEUYhBaCMEbM0xhu/njAfG3SWX56Au3AGF
-	YQtLkuU9WzKKY6y31rm6FffMKyJOV8NSwynHDHclgAzIzHMCHqSvPilSr0YAYpuL96/UMq+VYgx+8
-	ES+kr4zMon2RUQ9Ft+ZYIEA+gS92mUnVP+BGl2VvBL17v6Hx6NDpRNHJVYoSmzIXu6aCUtSzmFpyS
-	EwBtxKF8EqNbpG1RrzC78S6RBkv+gH2nlpvRqjsbKdtjBCcRCTlNIghY95FLxqKj6wRLbPX00NIol
-	jRF5IiDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kGaMQHSpVVWvqnvmMZWLV4+TamxtFyRf0OI4Xto475w=; b=VsLpOL2eWaL3WDVkrR3q8+224a
+	2nbr++TkmGo43sqg1qRQgFYcw5jXJJe1hq4EM2eOSrH7L3ZUvts3lJEEBA4UAqWHZTRHk9j79bi6x
+	c1z++mNFBOPgWT70BA5idrmbWgSHTTrvXVc919anyuMF5UuYmhg4ZuJ+sv6ysghM/epu1gLqyORAe
+	hDbLXS+adXc9em6aSZXoffbKPJVCSuxm0ZoB5HNVQGmSNd9JG+/BbqGX6QuAerBhe3kI4hGVs48Bp
+	78bohUDXxVW+GePL1L0IpCbZYVvH5Kjmmyz2daLNqOG0AeF0ax8/07oaz66xmUHUOCdc4FWMLDvQE
+	e5c5XYaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEPtC-000000025EN-0Gmq;
-	Fri, 22 Nov 2024 09:23:46 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1tEPu6-000000025OB-2muK;
+	Fri, 22 Nov 2024 09:24:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEPjL-000000021pG-428S
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 09:13:37 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-53dd59a2bc1so365771e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 01:13:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732266814; x=1732871614; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=L+pN3XKvVFmetq3YJbHAkykp748W6pEN5H4vcdcbZbk=;
-        b=AnXm8KA3Jn4H3D38+yx3X5RSiZuMndu13/RwE7ZX01l1iiCXgPzY9HFldMh1cX3GYw
-         pCzD/DodVQAOOhg2Eu7wioqO+zWxur2LyqffpYXC7WgqvpLV0koGpXNiKUWYw2lzS9jk
-         Yoe2I7plHHgfzw3nbN9HrOqA3c/VszN47uxDYSIQDtaaC1/TcbxPCgP9JD1ZLnwTuXxR
-         4wkcyacSsl1PapfY3IV4IcKP0A/IDMpfm9Y92QSN8w4kaFbxxcvWBkYXaTBmIPs+AaYo
-         vApMBrjN1cedFNJs45rZgbf+N7NpEApx2b/XRKrAuCGB0gugiPaHbZQbFhfkEN6VzLcy
-         UFpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732266814; x=1732871614;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=L+pN3XKvVFmetq3YJbHAkykp748W6pEN5H4vcdcbZbk=;
-        b=a50v6kNsdxFoQOdnnMboeNJbKkizrXTsRpmySUo+mE8tegNXHaku6vtONde1q++h91
-         N6OKpiQvwLtn6+EtgaBHhq6c3KjkBcVDvMOo10JbtNtji0lhX+W6k6a4loqIldsWd7QA
-         Z4URj4Lcrc1BO6+Wgt8dw5No4poBT6yErbF2koY4lKdHIbrGnNggM/IilEi84P0B+qGH
-         roWM8KjP+wrF2vfmi9IHHOIV7ssrInVirsfKuYSl95YNjBa7vmn4hFK1D3YQeuG1r5RZ
-         smvVatwHGQd7l5hlyizXLPj4UKqBYw0tfgvvmBXMBbuTOhaPJP0ZxOI92PrjB9rM1pcB
-         t+gQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVxEvwV9CqV7/fb9giJE6/0p+VyybJSk/E4tBu5UNVimdvoF3UEPUDwReyisTvokXJo7FCy3bzskYztSsaOgPKh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4flMIq7QI5eEHgZiQUN2/KsBRsx2yFZPaFQ1cP+biHZwikLR0
-	+33B/YG4jLokXFc1NJyAjl9+IlCpfr6Adl9K8a51hlz6BYW9a7ZBa4GhEnzGRqU=
-X-Gm-Gg: ASbGncvU6weKt/ityw1qsfrsDrWkeOSxET32lCfwemiGtLmFeMlWnKFlRmk95J0pnbj
-	pX88O9tCbhb3GrU4PJwIE5pgUF5UMH863wnvsRr+2NaZYUcxJQBszUniVNfSms6oTVe/6S1trFx
-	SiVm4o7ZQy3kCcIfRfap5N7rVLNwnQuJh129UESU4eIO9ARBwHmTCzrJ3a/5PtjiCDPaRm9i638
-	6R/MwXyAb1xWGAtluTAuaXjY65GpFHG6Em++xjrEog5mXMn6BRf8G8PLA==
-X-Google-Smtp-Source: AGHT+IFuPDVVeiIBHBx+sqGVLigoH/J3FctzJhynNILKoVJRUYGgovyLxnstEYxyEorm8Lhl1P2kvQ==
-X-Received: by 2002:a05:6512:230b:b0:539:f6c4:c29d with SMTP id 2adb3069b0e04-53dd39b4d2bmr879301e87.54.1732266814401;
-        Fri, 22 Nov 2024 01:13:34 -0800 (PST)
-Received: from umbar.lan ([192.130.178.90])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53dd2451386sm299530e87.77.2024.11.22.01.13.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Nov 2024 01:13:33 -0800 (PST)
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Fri, 22 Nov 2024 11:13:06 +0200
-Subject: [PATCH v4 10/10] drm/sun4i: use
- drm_atomic_helper_connector_hdmi_check()
+	id 1tEPl0-000000022XA-3xDs;
+	Fri, 22 Nov 2024 09:15:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 639EA5C5A23;
+	Fri, 22 Nov 2024 09:14:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71F25C4CEDF;
+	Fri, 22 Nov 2024 09:15:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732266916;
+	bh=R6maSGuuOMKhhf9sSnHx8qiK51scqKOLehJIOotIrMo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O98FkhEaQQs9rPvqF+c1qXRvM9FG3+cAOYMCXCC7iq4k5sppI9C/IqigYL39LWwnW
+	 DI0BcG7znPyh6z1SvNA1nEPwhZuZeshfmOo6bAjSA6qKKLXN5YnRKDRcD+VrjY5py+
+	 FfVXgYLnMi47knyttXkw9NHZe7NTXLjzxCAenvbjLkgyCfkX5aub8KVSiUv1Ccm2gU
+	 pQsc9+7tom/pdoQdV+c5NwgomdmK7eQETs7gQc4eVXfsCZ6J86qnr3OHHaAHPmr0Iw
+	 2/sjiGf2JSjwBur4jRB7mVt/oCuIO2NuIra9SxkDxog4Ihc8roGk7FjWQLVHFT345b
+	 kox4weqSIuDJQ==
+Date: Fri, 22 Nov 2024 10:15:14 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Nathan Chancellor <nathan@kernel.org>, Arnd Bergmann <arnd@kernel.org>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Algea Cao <algea.cao@rock-chips.com>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Arnd Bergmann <arnd@arndb.de>, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/rockchip: avoid 64-bit division
+Message-ID: <20241122-rebel-donkey-of-atheism-a0b8b6@houat>
+References: <20241018151016.3496613-1-arnd@kernel.org>
+ <20241104172950.GA741087@thelio-3990X>
+ <CAMuHMdXrrCiLm2sQmpegtVHV8X5AUp-8E5BejDxRpMbeAfHhvQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241122-hdmi-mode-valid-v4-10-2fee4a83ab79@linaro.org>
-References: <20241122-hdmi-mode-valid-v4-0-2fee4a83ab79@linaro.org>
-In-Reply-To: <20241122-hdmi-mode-valid-v4-0-2fee4a83ab79@linaro.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2011;
- i=dmitry.baryshkov@linaro.org; h=from:subject:message-id;
- bh=NRpLumrdDZhSXCJcusWkwzHsBkwvkTsOwVSCIyGYQBU=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnQEsiTDOV2BoHyoyOts+0adMkGX+r4MYsJsnPa
- Far8OQb/72JATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ0BLIgAKCRCLPIo+Aiko
- 1UrVB/4mHUMcziWq1wY32ABnFkVrTROOJMHkHk+6+aK4dszHbnC762R/MtVLV2lOqnA6MnxSNW0
- EVuY2bQWv4PVDAZe+RPKyAm1fyLq9OizOUvRo1l12zL/O2139m41O4x3tI0r6uFqif8Pn4rZMCk
- t2ZMyaLmzPC6ufRtblUgk+VXVLehNTanDBHYRGga0siqsAnC662tRVl9Nf7/u1NOCILS6qYcKel
- P1sPNcHJSvULZIp9OJpXG/FZB4M7PHg/tR5MlTQzjrj0PWaj0798D+vDyF6eDysiUqnzifGcaGx
- giuaughGqZtani8SvGv0/wuVrNdnUepnAPAPfoATeqV2sc3E
-X-Developer-Key: i=dmitry.baryshkov@linaro.org; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="km5zocuqrx7s7sxg"
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdXrrCiLm2sQmpegtVHV8X5AUp-8E5BejDxRpMbeAfHhvQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_011336_019963_EB217CE9 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20241122_011519_069321_0831E386 
+X-CRM114-Status: GOOD (  26.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,56 +78,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace sun4i_hdmi_connector_atomic_check(), which performs just TMDS
-char rate check, with drm_atomic_helper_connector_hdmi_check(), which
-performs additional checks basing on the HDMI Connector's state.
 
-Suggested-by: Maxime Ripard <mripard@kernel.org>
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
----
- drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c | 20 +-------------------
- 1 file changed, 1 insertion(+), 19 deletions(-)
+--km5zocuqrx7s7sxg
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] drm/rockchip: avoid 64-bit division
+MIME-Version: 1.0
 
-diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-index 54b72fe220afacc208b3fd48d5160031127ea14a..b05fd77870b00aac97d003f3fb9c2b98cb73abc0 100644
---- a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-@@ -187,24 +187,6 @@ sun4i_hdmi_connector_clock_valid(const struct drm_connector *connector,
- 	return MODE_NOCLOCK;
- }
- 
--static int sun4i_hdmi_connector_atomic_check(struct drm_connector *connector,
--					     struct drm_atomic_state *state)
--{
--	struct drm_connector_state *conn_state =
--		drm_atomic_get_new_connector_state(state, connector);
--	struct drm_crtc *crtc = conn_state->crtc;
--	struct drm_crtc_state *crtc_state = crtc->state;
--	struct drm_display_mode *mode = &crtc_state->adjusted_mode;
--	enum drm_mode_status status;
--
--	status = sun4i_hdmi_connector_clock_valid(connector, mode,
--						  conn_state->hdmi.tmds_char_rate);
--	if (status != MODE_OK)
--		return -EINVAL;
--
--	return 0;
--}
--
- static int sun4i_hdmi_get_modes(struct drm_connector *connector)
- {
- 	struct sun4i_hdmi *hdmi = drm_connector_to_sun4i_hdmi(connector);
-@@ -258,7 +240,7 @@ static const struct drm_connector_hdmi_funcs sun4i_hdmi_hdmi_connector_funcs = {
- };
- 
- static const struct drm_connector_helper_funcs sun4i_hdmi_connector_helper_funcs = {
--	.atomic_check	= sun4i_hdmi_connector_atomic_check,
-+	.atomic_check	= drm_atomic_helper_connector_hdmi_check,
- 	.mode_valid	= drm_hdmi_connector_mode_valid,
- 	.get_modes	= sun4i_hdmi_get_modes,
- };
+On Fri, Nov 22, 2024 at 09:36:16AM +0100, Geert Uytterhoeven wrote:
+> On Mon, Nov 4, 2024 at 6:30=E2=80=AFPM Nathan Chancellor <nathan@kernel.o=
+rg> wrote:
+> > On Fri, Oct 18, 2024 at 03:10:10PM +0000, Arnd Bergmann wrote:
+> > > From: Arnd Bergmann <arnd@arndb.de>
+> > >
+> > > Dividing a 64-bit integer prevents building this for 32-bit targets:
+> > >
+> > > ERROR: modpost: "__aeabi_uldivmod" [drivers/gpu/drm/rockchip/rockchip=
+drm.ko] undefined!
+> > >
+> > > As this function is not performance criticial, just Use the div_u64()=
+ helper.
+> > >
+> > > Fixes: 128a9bf8ace2 ("drm/rockchip: Add basic RK3588 HDMI output supp=
+ort")
+> > > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> >
+> > Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+> >
+> > Can someone please pick this up? It is still broken in next-20241104...
+> >
+> > https://storage.tuxsuite.com/public/clangbuiltlinux/continuous-integrat=
+ion2/builds/2oNvJFRj8tkDieb6VfrMf4rh1Kn/build.log
+> >
+> > > ---
+> > >  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 2 +-
+> > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers=
+/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> > > index 9c796ee4c303..c8b362cc2b95 100644
+> > > --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> > > +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> > > @@ -82,7 +82,7 @@ static void dw_hdmi_qp_rockchip_encoder_enable(stru=
+ct drm_encoder *encoder)
+> > >                * comment in rk_hdptx_phy_power_on() from
+> > >                * drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+> > >                */
+> > > -             phy_set_bus_width(hdmi->phy, rate / 100);
+> > > +             phy_set_bus_width(hdmi->phy, div_u64(rate, 100));
+> > >       }
+> > >  }
+>=20
+> noreply@ellerman.id.au has just told me this build issue is now upstream:
+>=20
+>     FAILED linus/m68k-allmodconfig/m68k-gcc8.1 Fri Nov 22, 05:34
+>     http://kisskb.ellerman.id.au/kisskb/buildresult/15277242/
+>=20
+>     Commit:   Merge tag 'drm-next-2024-11-21' of
+> https://gitlab.freedesktop.org/drm/kernel
+>               28eb75e178d389d325f1666e422bc13bbbb9804c
+>     Compiler: m68k-linux-gcc (GCC) 8.1.0 / GNU ld (GNU Binutils) 2.30
+>=20
+>     ERROR: modpost: "__udivdi3"
+> [drivers/gpu/drm/rockchip/rockchipdrm.ko] undefined!
+>=20
+> Applying this patch fixes it, so
+> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+>=20
+> Do we really need +5 weeks to apply a fix for a reported build issue?
 
--- 
-2.39.5
+Do we really need that kind of comments?
 
+It was applied already, I made sure it's part of the next PR we send to
+Linus. And it should be in linux-next tomorrow.
+
+Maxime
+
+--km5zocuqrx7s7sxg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ0BLoQAKCRAnX84Zoj2+
+dvdpAYCvsOCxb45AeqggVGmNsnQVm/dPhE0CFCB0XgME96Ckt5GWCfvgvHHFGQ67
+DbeiNMsBfj0lX0BUOAJb43jsZ7t5pR3aQV2oQXOnvO4fBEweIdvhGYuMQ03s9rcE
+THskPa19zg==
+=YJ/Z
+-----END PGP SIGNATURE-----
+
+--km5zocuqrx7s7sxg--
 
