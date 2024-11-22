@@ -4,84 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA19D75E2B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 11:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD5DFD75E2D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 12:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jJAb2wfaEGwYjP5tGhyEnaRAxPwQNw0aCt1/mnNWsV8=; b=xVYqLk5p+FUk/ONNJRVVqDQLtM
-	M+2MmEK+bRVio+H83zm9m8K4rYMlqK78Q09z8qZIxQcQT5c0SXU2iegKwmwtVI3fNk7Xc52ECltby
-	et1YzABgqi1ZwjS1A1qUj7GvTjitttwUPGmZF0tdd7gVcFRQ3uynSeDlRXrvuA0UwNJbQUpitWxbr
-	s1Eat5NZcbKDxyTDOq9yP05rj51s1YVy3nCvFvyjHlQyrDan0QOYlI8zY5+yOHwyesNSWH8pYHfKg
-	gpXW/SBtjDc2SSDIh3ieB4/XhqN3t+weozCyUqvjoyyWag1URteHxdd492J0uNDCbuPcun2HZD4HN
-	W3DzFvOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4awdIKHOc9tiTWW/sGRWFK525oUkjPltfSOQCltNHK8=; b=vqoYMC738lwkXdneOmT1AZ1JXW
+	rMH5OozUw0Y1fc8PmmgtUHN9DYcP/tyNDdxVQYDLntePrqXeUr7BmIDiN0g3Qtl+cwRsk/o3sB44b
+	IsZRaW2hA5iEZY81trPGcveAhEj/co66AjWyZd2VtjtWKOBinLNNHitwHxBP0Nag86Sn2aCrokzg2
+	HCW82Azc0FXMR/ZQ5rhf3jJurGEFcdMlr7IZPVerNOZM3Vz7RlQito4fp+oWCU3UXL+3q1j/Qz7iC
+	Ci8LGSGfjAV9I6z2hgiMKKAl1ywGB12kS/WPFXoOiZvtts3KwBuTuJnNaoh/i6nHUjMZHNSGjh43B
+	/9fOAirw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tES30-00000002O6S-2PyK;
-	Fri, 22 Nov 2024 11:42:02 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1tESR1-00000002Pom-2GSX;
+	Fri, 22 Nov 2024 12:06:51 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tES22-00000002Nyl-2dUb
+	id 1tESQ4-00000002PjE-0n8M
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 11:41:03 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-dfdcda2bdbcso60510276.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 03:41:02 -0800 (PST)
+	Fri, 22 Nov 2024 12:05:53 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-aa2099efdc3so592906966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 04:05:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1732275662; x=1732880462; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=jJAb2wfaEGwYjP5tGhyEnaRAxPwQNw0aCt1/mnNWsV8=;
-        b=d+j8izIfM7GvwL+0hA1WvSQgKgsUGgjaKiAfbPGxFP1gPWhKHNgEFopBf2EiqVz6iL
-         eu6gsFcSdRczFs5LvsT5lMXmX5RjrfGT0ENoi2A+YvnB14Xseuf3KmaPADKjN1PYdFwx
-         sLagcUb61JDRrWhmUDc3nfFeVPL5d0rJf7T5OT7jZQAyK3tnJ6Cc/40gEJ3yZtEBscJf
-         XWQ1LzVfBUrqrZ4CxPHD7catoVhX/xhHJ40zxqauOYJPJr/faxmbRptQXW1Pd9TzaH2o
-         7jBEFZuxrhTN0+KehcKDWDdkvzmEDAHzwae1xfIDcOyDxovb866lLv5HvVm9LiP/NSBH
-         2svA==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1732277150; x=1732881950; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4awdIKHOc9tiTWW/sGRWFK525oUkjPltfSOQCltNHK8=;
+        b=QjdjcV+sEl6fo6xydgvIz735k353BPcQTc5sLfs29V7KUVTDKogkfUs2xKIEtpYPAz
+         3sK6g1OSPpjA3Imv91L5RD85qQQsTyT1+epUW0zu1R5heSo5gEdA+11DFR7uqdnnOyRB
+         dUpeuCCise+AoLQNp/dxFKI7nuw+QUOm3pnYcV53FZZRyQamIRo+ZFSGcUgJGK87WkKk
+         gpPSVa7oZWnTrhxoPcMNj9fHvIWD8lKecyYyz3tj46rQ/rYo0fVdEyhNqj301bK0tiRk
+         D/tSd5BQCsPGgUoog3Sco+M28yyEp0ddFSwG2QE3dR2+l9+LcEtY9YGg2ds7xDpRt7/C
+         ecnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732275662; x=1732880462;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jJAb2wfaEGwYjP5tGhyEnaRAxPwQNw0aCt1/mnNWsV8=;
-        b=Q5nsKswgxRZS0wDFt4X1Cjpi88WPcEJDRBcGxsTXek+SqFnrpl5HFc/q8WqgeBUoBz
-         3LN22NGtZrXTaNbY1i6+k4YPc61jjYFzmT7Pbujsq1pKzSw93aMZR1cUewci5je0oiNG
-         NSyLU7RAmM3uOs5nFeY5So4W8aoI3MINT3GW9ln8JSk1VhxdxLqqkTnujhWNEGw5RWuh
-         Sm0M9/rOk3lw4+MA+xopp959ZZAAjZQsrN84GwcFWOL03f85GLgazLAi9BgbNI6b1ryj
-         lP0INNCeKAAxNlYk37v9yoPFrqjsII8QYa6fzJwu+qPN9Xi9gcb1+p6xe3qARJama//o
-         H5oA==
-X-Forwarded-Encrypted: i=1; AJvYcCUmdG8TXlYKIY1NfcXxnUACn3nTg1Zi5iZADzDyqXpG8IOlBDrA8UhjDxuxxoMHPIZaDf2hD6efciYrF3QQVR5p@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVhH/SUBlrwpkHkt3ZoNszxEi7nHjLCB33D4W1Kzqypltjni3m
-	w5UgiaJmpIyKempSGUXafTDHDjSp8ELfckwCW3qNPV2KPoR2id+xrEkAto5mdQAddlcca4iFcai
-	PZCI5JihYSjJ9ddfiVw8j1gpv8AcoPhW/sOpaDA==
-X-Gm-Gg: ASbGncsBxZ8OCLhmPf1npPURQmHYML+bPM7ydnN7/wil4lVMDJD6Wxr1KyjG7NHht8y
-	peTGyVRg29K8RySw/lLtZFLJ8D3kERlW75BgwzdDCmeP9GAHzmedKXrH3LTsB/7k=
-X-Google-Smtp-Source: AGHT+IEi3ScDmwaL6BuNLPC9RVZ0SffHnlV2j182TkFRSvu6Ibvv0coqzDmjB1nUi4Vfhlt3vE6Ek0Qw1Jo4FhfXkvs=
-X-Received: by 2002:a05:690c:680d:b0:6dd:c828:485a with SMTP id
- 00721157ae682-6eee0b67b47mr11613407b3.8.1732275661801; Fri, 22 Nov 2024
- 03:41:01 -0800 (PST)
+        d=1e100.net; s=20230601; t=1732277150; x=1732881950;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4awdIKHOc9tiTWW/sGRWFK525oUkjPltfSOQCltNHK8=;
+        b=XaxeBlzPk3IJNvrTy/wi5w3vnzV3YtDHmBPMlegX/eDqhtyejtcilANFhtYY8wwRdj
+         Zbo0o3OuGzPsQ9HsJxm/pNq4cx2Agi1tMZNfT03HIdufcDpUORu5dDew11Hbj+6EYggY
+         YLRUdCJ26E1utIRnIsBr8Uj/S3W4YgFF+yvRXChdpWtkCH/vbyt5L8KJ+RP0SEINWOJo
+         oBtJAXO4SPbIsrMwjHCdeJG+zU6QEVGN8920HNYH15xNIXaX/8a9gIWSiPDPHnpyz4A9
+         Fd9yY3Bxk1cI58V1xX40Xol5yqoZ/gqhNmM7kmxbfjQa4QsHnQ8vMtBUAf8kNRBYZPCV
+         Vf4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUkR4QHrZLMh4NmnQ6sCrFMV23o6fBpmXqZDJtKw67ZCNxJjgitx4Gu6nThmaZ19U/SABE8OeEMAvjEAf5Hto5D@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9H3Wzhin2XmiYDuAzfnIhwtY5sWMttoqMWFoskiV0ce7YmGYW
+	IjQizcjALfO3r6XWcHZCRS5+k9EsrUMxvWduFLABZPyw//qFY2BFN1jAtXVFlBoBmBjB18NTCLk
+	U3s6szmXtqtE0MsKyqeYwfUmKHZJMiI1klP4OfQ==
+X-Gm-Gg: ASbGncsQNShaiN8R4hkWSrIantPw0CuUekT7O8VHO+TBb1nH9MSeNqg46H8fjpqa6Vd
+	jPaKouPveOEeYiipfeyU2H/f2wXeaFg==
+X-Google-Smtp-Source: AGHT+IFWFYdsVIpAWJgT1gtIynsJvUXbIXbPCzIef0ApS6AMShnnTq5vw0bsEUMO1YOnSWNsqqmfLQ4iMDl5v7PuDGo=
+X-Received: by 2002:a17:907:31c5:b0:a9a:e0b8:5bac with SMTP id
+ a640c23a62f3a-aa4efe2a1f6mr606014366b.23.1732277150378; Fri, 22 Nov 2024
+ 04:05:50 -0800 (PST)
 MIME-Version: 1.0
-References: <20241122084152.1841419-1-naush@raspberrypi.com>
- <20241122084152.1841419-6-naush@raspberrypi.com> <xy44zndazbw7ehpzbc6hexgptjymevvupjhuy2x6zxp54qtepm@vlbb6js62cq4>
-In-Reply-To: <xy44zndazbw7ehpzbc6hexgptjymevvupjhuy2x6zxp54qtepm@vlbb6js62cq4>
-From: Naushir Patuck <naush@raspberrypi.com>
-Date: Fri, 22 Nov 2024 11:40:26 +0000
-Message-ID: <CAEmqJPrrAhhukn2H4nUhe1njVi-dyW9q=u1h8YgafvJGbYRG6Q@mail.gmail.com>
-Subject: Re: [PATCH v1 5/5] drivers: media: bcm2835-unicam: Correctly handle
- FS + FE ISR condition
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, linux-media@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Dave Stevenson <dave.stevenson@raspberrypi.com>
+References: <20241121-add-mtk-isp-3-0-support-v7-0-b04dc9610619@baylibre.com>
+ <20241121-add-mtk-isp-3-0-support-v7-4-b04dc9610619@baylibre.com>
+ <767085562b5efb43f248e8528bb154a6c30d3999.camel@mediatek.com>
+ <CAEHHSvaePj2MUg+zgmkpZF4HTj_F9ED0RxuzQr2oOAUJgOieng@mail.gmail.com>
+ <bd73658d8ceac0ce236f08f31065350123056724.camel@mediatek.com>
+ <CAEHHSvZLx3MqzK_qheiXm1UsB=i=8f2QbGTpXPkdU2aqUJtvww@mail.gmail.com> <b234ccf388cfc933d7941cbe94ce6ae590ad17e1.camel@mediatek.com>
+In-Reply-To: <b234ccf388cfc933d7941cbe94ce6ae590ad17e1.camel@mediatek.com>
+From: Julien Stephan <jstephan@baylibre.com>
+Date: Fri, 22 Nov 2024 13:05:38 +0100
+Message-ID: <CAEHHSvbGKOV6x8B9Hr_8_-UJD_AoR3aX9acAtwg4Nkgjsf0yow@mail.gmail.com>
+Subject: Re: [PATCH v7 4/5] media: platform: mediatek: isp: add mediatek
+ ISP3.0 camsv
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"paul.elder@ideasonboard.com" <paul.elder@ideasonboard.com>, "mchehab@kernel.org" <mchehab@kernel.org>, 
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "robh@kernel.org" <robh@kernel.org>, 
+	=?UTF-8?B?QW5keSBIc2llaCAo6Kyd5pm655qTKQ==?= <Andy.Hsieh@mediatek.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, 
+	"laurent.pinchart@ideasonboard.com" <laurent.pinchart@ideasonboard.com>, 
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "fsylvestre@baylibre.com" <fsylvestre@baylibre.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	"pnguyen@baylibre.com" <pnguyen@baylibre.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_034102_666236_B4010115 
-X-CRM114-Status: GOOD (  33.69  )
+X-CRM114-CacheID: sfid-20241122_040552_261019_C9DCAEDC 
+X-CRM114-Status: GOOD (  41.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,108 +109,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo,
-
-On Fri, 22 Nov 2024 at 11:16, Jacopo Mondi
-<jacopo.mondi@ideasonboard.com> wrote:
+Le ven. 22 nov. 2024 =C3=A0 11:01, CK Hu (=E8=83=A1=E4=BF=8A=E5=85=89) <ck.=
+hu@mediatek.com> a =C3=A9crit :
 >
-> Hi Naush
+> On Fri, 2024-11-22 at 10:50 +0100, Julien Stephan wrote:
+> > External email : Please do not click links or open attachments until yo=
+u have verified the sender or the content.
+> >
+> >
+> > Le ven. 22 nov. 2024 =C3=A0 10:49, CK Hu (=E8=83=A1=E4=BF=8A=E5=85=89) =
+<ck.hu@mediatek.com> a =C3=A9crit :
+> > >
+> > > On Fri, 2024-11-22 at 10:25 +0100, Julien Stephan wrote:
+> > > > External email : Please do not click links or open attachments unti=
+l you have verified the sender or the content.
+> > > >
+> > > >
+> > > > Le ven. 22 nov. 2024 =C3=A0 09:41, CK Hu (=E8=83=A1=E4=BF=8A=E5=85=
+=89) <ck.hu@mediatek.com> a =C3=A9crit :
+> > > > >
+> > > > > Hi, Julien:
+> > > > >
+> > > > > On Thu, 2024-11-21 at 09:53 +0100, Julien Stephan wrote:
+> > > > > > External email : Please do not click links or open attachments =
+until you have verified the sender or the content.
+> > > > > >
+> > > > > >
+> > > > > > From: Phi-bang Nguyen <pnguyen@baylibre.com>
+> > > > > >
+> > > > > > This driver provides a path to bypass the SoC ISP so that image=
+ data
+> > > > > > coming from the SENINF can go directly into memory without any =
+image
+> > > > > > processing. This allows the use of an external ISP.
+> > > > > >
+> > > > > > Signed-off-by: Phi-bang Nguyen <pnguyen@baylibre.com>
+> > > > > > Signed-off-by: Florian Sylvestre <fsylvestre@baylibre.com>
+> > > > > > [Paul Elder fix irq locking]
+> > > > > > Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
+> > > > > > Co-developed-by: Laurent Pinchart <laurent.pinchart@ideasonboar=
+d.com>
+> > > > > > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.=
+com>
+> > > > > > Co-developed-by: Julien Stephan <jstephan@baylibre.com>
+> > > > > > Signed-off-by: Julien Stephan <jstephan@baylibre.com>
+> > > > > > ---
+> > > > >
+> > > > > [snip]
+> > > > >
+> > > > > > +static irqreturn_t isp_irq_camsv30(int irq, void *data)
+> > > > > > +{
+> > > > > > +       struct mtk_cam_dev *cam_dev =3D (struct mtk_cam_dev *)d=
+ata;
+> > > > > > +       struct mtk_cam_dev_buffer *buf;
+> > > > > > +       unsigned int irq_status;
+> > > > > > +
+> > > > > > +       spin_lock(&cam_dev->buf_list_lock);
+> > > > > > +
+> > > > > > +       irq_status =3D mtk_camsv30_read(cam_dev, CAMSV_INT_STAT=
+US);
+> > > > > > +
+> > > > > > +       if (irq_status & INT_ST_MASK_CAMSV_ERR)
+> > > > > > +               dev_err(cam_dev->dev, "irq error 0x%lx\n",
+> > > > > > +                       irq_status & INT_ST_MASK_CAMSV_ERR);
+> > > > > > +
+> > > > > > +       /* De-queue frame */
+> > > > > > +       if (irq_status & CAMSV_IRQ_PASS1_DON) {
+> > > > > > +               cam_dev->sequence++;
+> > > > > > +
+> > > > > > +               buf =3D list_first_entry_or_null(&cam_dev->buf_=
+list,
+> > > > > > +                                              struct mtk_cam_d=
+ev_buffer,
+> > > > > > +                                              list);
+> > > > > > +               if (buf) {
+> > > > > > +                       buf->v4l2_buf.sequence =3D cam_dev->seq=
+uence;
+> > > > > > +                       buf->v4l2_buf.vb2_buf.timestamp =3D
+> > > > > > +                               ktime_get_ns();
+> > > > > > +                       vb2_buffer_done(&buf->v4l2_buf.vb2_buf,
+> > > > > > +                                       VB2_BUF_STATE_DONE);
+> > > > > > +                       list_del(&buf->list);
+> > > > > > +               }
+> > > > > > +
+> > > > > > +               buf =3D list_first_entry_or_null(&cam_dev->buf_=
+list,
+> > > > > > +                                              struct mtk_cam_d=
+ev_buffer,
+> > > > > > +                                              list);
+> > > > > > +               if (buf)
+> > > > > > +                       mtk_camsv30_update_buffers_add(cam_dev,=
+ buf);
+> > > > >
+> > > > > If buf =3D=3D NULL, so hardware would automatically stop DMA?
+> > > > > I don't know how this hardware work.
+> > > > > Below is my imagine about this hardware.
+> > > > >
+> > > > > 1. Software use CAMSV_IMGO_FBC_RCNT_INC to increase software buff=
+er index.
+> > > > > 2. Hardware has a hardware buffer index. After hardware finish on=
+e frame, hardware buffer index increase.
+> > > > > 3. After software buffer index increase, hardware start DMA.
+> > > > > 4. When hardware buffer index is equal to software buffer index, =
+hardware automatically stop DMA.
+> > > > >
+> > > > > Does the hardware work as my imagine?
+> > > > > If hardware could automatically stop DMA, add comment to describe=
+.
+> > > > > If hardware could not automatically stop DMA, software should do =
+something to stop DMA when buf =3D=3D NULL.
+> > > > >
+> > > >
+> > > > You are right except that dma is not stopped but frames are
+> > > > automatically dropped by hardware until a new buffer is enqueued an=
+d
+> > > > software uses CAMSV_IMGO_FBC_RCNT_INC to increase the software buff=
+er
+> > > > index.
+> > > >
+> > > > What about adding the following comment:
+> > > >
+> > > > /*
+> > > > * If there is no user buffer available, hardware will drop automati=
+cally
+> > > > * frames until buf_queue is called
+> > > > */
+> > >
+> > > You say DMA is not stopped. Do you mean hardware still write data int=
+o latest buffer which would be dequeued to user space?
+> > > I think hardware should not write data into the buffer which has been=
+ take away by user space.
+> > > I think software should do something to stop DMA. Maybe use mtk_camsv=
+30_cmos_vf_hw_disable() to stop DMA.
+> > >
+> >
+> > No, I said frame is dropped.. It does not write any data.
 >
-> On Fri, Nov 22, 2024 at 08:41:52AM +0000, Naushir Patuck wrote:
-> > This change aligns the FS/FE interrupt handling with the Raspberry Pi
-> > kernel downstream Unicam driver.
-> >
-> > If we get a simultaneous FS + FE interrupt for the same frame, it cannot
-> > be marked as completed and returned to userland as the framebuffer will
-> > be refilled by Unicam on the next sensor frame. Additionally, the
-> > timestamp will be set to 0 as the FS interrupt handling code will not
-> > have run yet.
-> >
-> > To avoid these problems, the frame is considered dropped in the FE
-> > handler, and will be returned to userland on the subsequent sensor frame.
-> >
-> > Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
-> > ---
-> >  .../media/platform/broadcom/bcm2835-unicam.c  | 39 +++++++++++++++++--
-> >  1 file changed, 35 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > index f10064107d54..0d2aa25d483f 100644
-> > --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > @@ -773,10 +773,26 @@ static irqreturn_t unicam_isr(int irq, void *dev)
-> >                        * as complete, as the HW will reuse that buffer.
-> >                        */
-> >                       if (node->cur_frm && node->cur_frm != node->next_frm) {
-> > +                             /*
-> > +                              * This condition checks if FE + FS for the same
-> > +                              * frame has occurred. In such cases, we cannot
-> > +                              * return out the frame, as no buffer handling
-> > +                              * or timestamping has yet been done as part of
-> > +                              * the FS handler.
-> > +                              */
-> > +                             if (!node->cur_frm->vb.vb2_buf.timestamp) {
-> > +                                     dev_dbg(unicam->v4l2_dev.dev,
-> > +                                             "ISR: FE without FS, dropping frame\n");
-> > +                                     continue;
-> > +                             }
-> > +
-> >                               unicam_process_buffer_complete(node, sequence);
-> > +                             node->cur_frm = node->next_frm;
-> > +                             node->next_frm = NULL;
-> >                               inc_seq = true;
-> > +                     } else {
-> > +                             node->cur_frm = node->next_frm;
-> >                       }
-> > -                     node->cur_frm = node->next_frm;
-> >               }
-> >
-> >               /*
-> > @@ -812,10 +828,25 @@ static irqreturn_t unicam_isr(int irq, void *dev)
-> >                                       i);
-> >                       /*
-> >                        * Set the next frame output to go to a dummy frame
-> > -                      * if we have not managed to obtain another frame
-> > -                      * from the queue.
-> > +                      * if no buffer currently queued.
-> >                        */
-> > -                     unicam_schedule_dummy_buffer(node);
-> > +                     if (!node->next_frm ||
-> > +                         node->next_frm == node->cur_frm) {
-> > +                             unicam_schedule_dummy_buffer(node);
-> > +                     } else if (unicam->node[i].cur_frm) {
-> > +                             /*
-> > +                              * Repeated FS without FE. Hardware will have
-> > +                              * swapped buffers, but the cur_frm doesn't
-> > +                              * contain valid data. Return cur_frm to the
-> > +                              * queue.
+> OK, for me, DMA mean memory access. Not writing any data is equal to stop=
+ DMA for me.
+> The comment is OK for me now. But it may change after we discuss fbc_inc.
 >
-> So the buffer gets silently recycled ? Or should it be returned with
-> errors to userspace ?
 
-The buffer silently gets recycled and we dequeue when we are sure it
-is valid and will not get overwritten.  If we were to return to
-userspace with an error, there is still a race condition on the name
-frame/buffer which will also have to return as error.
+OK, sorry for confusion!
+Did you notice my previous reply about fbc_inc?
 
-Regards,
-Naush
+Cheers
+Julien
 
-
+> Regards,
+> CK
 >
-> > +                              */
-> > +                             spin_lock(&node->dma_queue_lock);
-> > +                             list_add_tail(&node->cur_frm->list,
-> > +                                           &node->dma_queue);
-> > +                             spin_unlock(&node->dma_queue_lock);
-> > +                             node->cur_frm = node->next_frm;
-> > +                             node->next_frm = NULL;
-> > +                     }
-> >               }
 > >
-> >               unicam_queue_event_sof(unicam);
-> > --
-> > 2.34.1
+> > > Regards,
+> > > CK
+> > >
+> > > >
+> > > > Let me know if that works for you
+> > > >
+> > > > Cheers
+> > > > Julien
+> > > >
+> > > > > Regards,
+> > > > > CK
+> > > > >
+> > > > > > +       }
+> > > > > > +
+> > > > > > +       spin_unlock(&cam_dev->buf_list_lock);
+> > > > > > +
+> > > > > > +       return IRQ_HANDLED;
+> > > > > > +}
+> > > > > > +
+> > > > >
+> > > > > ************* MEDIATEK Confidentiality Notice *******************=
+*
+> > > > > The information contained in this e-mail message (including any
+> > > > > attachments) may be confidential, proprietary, privileged, or oth=
+erwise
+> > > > > exempt from disclosure under applicable laws. It is intended to b=
+e
+> > > > > conveyed only to the designated recipient(s). Any use, disseminat=
+ion,
+> > > > > distribution, printing, retaining or copying of this e-mail (incl=
+uding its
+> > > > > attachments) by unintended recipient(s) is strictly prohibited an=
+d may
+> > > > > be unlawful. If you are not an intended recipient of this e-mail,=
+ or believe
+> > > > > that you have received this e-mail in error, please notify the se=
+nder
+> > > > > immediately (by replying to this e-mail), delete any and all copi=
+es of
+> > > > > this e-mail (including any attachments) from your system, and do =
+not
+> > > > > disclose the content of this e-mail to any other person. Thank yo=
+u!
+> > >
+> > > ************* MEDIATEK Confidentiality Notice ********************
+> > > The information contained in this e-mail message (including any
+> > > attachments) may be confidential, proprietary, privileged, or otherwi=
+se
+> > > exempt from disclosure under applicable laws. It is intended to be
+> > > conveyed only to the designated recipient(s). Any use, dissemination,
+> > > distribution, printing, retaining or copying of this e-mail (includin=
+g its
+> > > attachments) by unintended recipient(s) is strictly prohibited and ma=
+y
+> > > be unlawful. If you are not an intended recipient of this e-mail, or =
+believe
+> > > that you have received this e-mail in error, please notify the sender
+> > > immediately (by replying to this e-mail), delete any and all copies o=
+f
+> > > this e-mail (including any attachments) from your system, and do not
+> > > disclose the content of this e-mail to any other person. Thank you!
 > >
 > >
+>
+> ************* MEDIATEK Confidentiality Notice ********************
+> The information contained in this e-mail message (including any
+> attachments) may be confidential, proprietary, privileged, or otherwise
+> exempt from disclosure under applicable laws. It is intended to be
+> conveyed only to the designated recipient(s). Any use, dissemination,
+> distribution, printing, retaining or copying of this e-mail (including it=
+s
+> attachments) by unintended recipient(s) is strictly prohibited and may
+> be unlawful. If you are not an intended recipient of this e-mail, or beli=
+eve
+> that you have received this e-mail in error, please notify the sender
+> immediately (by replying to this e-mail), delete any and all copies of
+> this e-mail (including any attachments) from your system, and do not
+> disclose the content of this e-mail to any other person. Thank you!
 
