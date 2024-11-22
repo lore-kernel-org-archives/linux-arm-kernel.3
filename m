@@ -4,97 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51754E69184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 16:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB7A7E69184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 16:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fJeINAZHCBu2Qf4xyRN0jajeOXOn86gSYL/Mvl+4mzU=; b=DbtIXN/5UWzK5avbyG4BNsC9SP
-	N8qi6BrRQQOGbU5tm5aPTgvZkG1ZX4xpry+KLMy67Ljxw1S7oyZBxEtI1IQVvHhfS958X7QobpPc3
-	CSCdjLImgyDKbp4Z8COCis7owVVftiazQbwpA3y2oe8Ti8+RUolrSPus/+fjJnCgwWNJUhsxMtxmt
-	EtVPZnSMNmKfdduHyRUJJH2+9qoNx+i+9YpKvIIAO7EWD9b9EWG8qSzXZF9iFV5+PxrjK6Wpi41T7
-	fbjXmWUr1FKj/e5RBLQT8ieKRMJt2QHVnS22TFG4HIiEDhTJMS2iGav7/xWX1aYMGIqMLumnJJ3iz
-	ixc1q7kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kzq5xBGhrLm4GuYMaG3vOjkgbW2jTLhEik+B/AfpKr0=; b=Qp795I1WCQCY6kjTE2PCFpgWbm
+	EDn7cn3f91azrJsLs4OB3eSxdBrFpTblwLZYwZUHlTZJxzrbkLU7NJzoZ42Q4pqoE21wRaoQQyt5g
+	xY/Ey2fUFoAKDS2vNofbyaM5U8lyVDxmOFE89Y+jDSMSapgYZ47eZhZLE0RAOveiYlTzsk4kqb0rl
+	qIbHgPMcl+dutrXT+ZWwhaZgE2UwCssEjnF9+oY42dHWwZfWYGZivzd9gpL59XIEwzAPd/yBWgDWK
+	hNmD05g5B8Dotf33cMgH96pb5XEZoNbXpyCI4LBOI0tQNosTQpVLJsrsof9W0K9t63kORWgCIf5ov
+	9dTtBZEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEWpJ-00000002tFy-1l4m;
-	Fri, 22 Nov 2024 16:48:13 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tEWqE-00000002tMh-00Qf;
+	Fri, 22 Nov 2024 16:49:10 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEWoL-00000002t4y-3pif
+	id 1tEWoT-00000002t5t-1cDI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 16:47:15 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3823f1ed492so1919387f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 08:47:13 -0800 (PST)
+	Fri, 22 Nov 2024 16:47:22 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-7246c8b89b4so2545081b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 08:47:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732294032; x=1732898832; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fJeINAZHCBu2Qf4xyRN0jajeOXOn86gSYL/Mvl+4mzU=;
-        b=xqdFPtbZzRBtHadUZXDIYPu8BQwR3AzgX1aQaBilqGGxJFVVkyWaL/aF7E9aKW3nFn
-         ZsRR261STCxRUgLfYux7AxIx0yWi04yLVJoH5N6ua5pVsITzYBafLT4IBeDrfeb4nQcJ
-         s3NPMGtvM6qX5Ge1XffFXV63waPVfNiO0VOr1PQXGSb+EspNZvjRYjVWpOVA9ba5R95q
-         hXmwgb/ArEdVMXi7STawH6dhwG/VntOral15MTxu6hv8y+/sp8RhvqMN1PYuYx7alfwj
-         bx75b025FfFKIhtgD+CMvhkYlOo8acrbUlV4Bl3oy1lujBsu2O0jWl1Y82Z8Y1bQvffT
-         L67g==
+        d=linaro.org; s=google; t=1732294040; x=1732898840; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=kzq5xBGhrLm4GuYMaG3vOjkgbW2jTLhEik+B/AfpKr0=;
+        b=HKe1Gkkm+CBPi0EVJ6u1iVRo70tbxmhvb5MeWf2MWUFfxDzop0xqX2CvSWNkG7PMEI
+         5K3AtaLH17SHl/dY9OPq+9YZ4sNcH5qxyuDUl0t2FVEPvU4A7kn5of2N0QzCbKFdmqMz
+         o6cvMGNmkhWWNfRx6LSKozEpRWDc5GXZJm235tclX+epfKib+OnzIKN/mEqYVVsNQ6YD
+         34QBW/SKz17/xwB89fQtbiixjr3OHB4WpXHj4Btlm764zK+XlZ40VpoUOrjPO3dyPgsA
+         Inbp5i8DtUt1IcX41gAwlUAnYryBUUw6TxlCGakGlQZ1c7WctasFaoheAXdLL+dIF5Hz
+         /55w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732294032; x=1732898832;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fJeINAZHCBu2Qf4xyRN0jajeOXOn86gSYL/Mvl+4mzU=;
-        b=jN9iImoXRlwU3o/F4YrT9MtVtc7JbaCPoW6iBsFaV5hy0NqiPqC3A2imboT/ZnKjuG
-         i31SAeCfVO/Hn9JJhGvA6fR/9fHfUkP99BBdL2vB+2ownzvsNQqqs+IQkm39Eq5mrlie
-         EF7C9tSMv3YDV3RAbmzA2mbMNPPSHUW1GjvNFdqnBUaY5oOhnBoYuBU+dWT/72Fh/zmI
-         RCriuQFLplx/4i8jIprzoJyGEkbY6+Q9BAjwsKC4s77BuuKSUEFcCD1VtieVOv+OaU/f
-         dMY3w95wEiDoZqfewOo1b9/4BGVLDAJBhxZtlr+ptU4LSO+P2Z2p3+f1LCd6BtGM9JgG
-         b6yg==
-X-Forwarded-Encrypted: i=1; AJvYcCURP5H0V9p5DcirykKf0qG2jRbRU8jJtDagCrrKxjTGU82x/OgyIvS3GYTexyFVZ6QoqWhROb0PjiMiWkTr3tGt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9LxRY5uH6bl/puxTwYQD5wkCtpSh/2185bjBrJRBrUGEBmOy9
-	fFDbUx0lzJV+Ngj1jIuBPY4SVfLHJFV6/0KDLKgx5i2SVMYPiN8hdBmMAuxIEhE=
-X-Gm-Gg: ASbGnctNeonaWHsU5fzezeKOtEoAsytpj6ZQ3yY0el+FKsWkxK7i62+YmRVZja5/B5F
-	gwPUvdQdDsHglTf5KOjvk0gwO9461jpbOwSuIHOSgsMTB8p0gN26Wn/Mu3a1tSHIth+p7lnjalA
-	0gH+xIM/zn3lUBihALgjQQCt6c7e+FTlrL9XL+mc6kS5DFSx8R2KrXpD37swPjUMSeankf7AKCA
-	ACEkAQc3nh2ALuVEpAYCtWMJXggNL/J3fad2X6SBW1n7ig4Ex4=
-X-Google-Smtp-Source: AGHT+IHcQ74w3L8E5gBsmMqb9rkz/2NNvWSY9aaHifqJFdgHc67xg00mFf+1ZhdtlpPb45JX0tyD6g==
-X-Received: by 2002:a05:6000:1acc:b0:382:42d7:eec4 with SMTP id ffacd0b85a97d-382601132ccmr2984325f8f.4.1732294032116;
-        Fri, 22 Nov 2024 08:47:12 -0800 (PST)
-Received: from pop-os.. ([209.198.129.246])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3825fbe91a6sm2897458f8f.86.2024.11.22.08.47.10
+        d=1e100.net; s=20230601; t=1732294040; x=1732898840;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kzq5xBGhrLm4GuYMaG3vOjkgbW2jTLhEik+B/AfpKr0=;
+        b=C+c8zxrY2aAlvU8g2kEZS+MI/AaLH1/wIZth5n33xqlyvgtxRTWU2UD0G+jfQ9QqAL
+         kR6mLFUAL3IXCXOadOQk1CG+TwoP8DGcVmGOgKE6dFk+hhAhTrMFftjLrlj6QpS+o5DB
+         PedHA4/DD75+9W2IUqm5/vAY12P0//tam78DtqUkN5M2L5c8W+I0lin/BA1TeffmqeJa
+         YVeQEMhyD6YBIS26VS4Aj7VBeMVh07SmSWA0Eoxnjnz+oV8/uKlFIAf/BYxdsKYYPU0C
+         gXcvJBL4XmC3A2J6HDBTesp5Ltn3hGeD2kjFwCc6z+8iinDZELR+SWX3sxTF8b5eAB6y
+         0fkg==
+X-Forwarded-Encrypted: i=1; AJvYcCWpJ+aZBe6IMuDa4Vm0ru1t2o768a8KRLbn0yeW10a1SmGKcpgb2DZYynqUVJx9Yt4mDw5VCGan6wixnp6EkTjk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx06F9VJPOyjpTFM38IhmFVups/mPROL57nxkTzTev8hoKJ5wK7
+	SyqDjqCzD+ROV5rjAd2BnPPDJAy3oOMrM4VMK2cLoxBwn/48QEGi2go0xlmlpQ==
+X-Gm-Gg: ASbGncujKZI6fnkWw3WRkafkDxYLMUR6SKZRVhkMIBySCf1BHoefAOHl3B8UXFKvut4
+	X1y+jkNEEXHg4pHEEqBW+bjzb58mJ/uzCTWQMdHDqU9IEKpw3JS5fQkK6nB9oWEtgHnZYpQcqD8
+	ROrZuZugVmCZOcDT1PQGt4L/LqGpxxp0bxoy8MV/Qm/4qpI12bmmvpPKlx/GzSyYimSL8BBcdfw
+	TYR9409woQGl5WonX2QwM7MW5BKqi2NEsw7xXZq+DX9mUXPrUPbBs9xAkVl
+X-Google-Smtp-Source: AGHT+IH2RH2HUiPHMzLk35ACiz5SeB6Uib1iKjXQGa54thdOMDLFrThNUfglBoU0p2O84vxcD04wlg==
+X-Received: by 2002:a17:902:f70d:b0:212:35f5:b564 with SMTP id d9443c01a7336-2129fe2669emr56816865ad.7.1732294040271;
+        Fri, 22 Nov 2024 08:47:20 -0800 (PST)
+Received: from thinkpad ([49.207.202.49])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2129dba357bsm18336365ad.88.2024.11.22.08.47.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Nov 2024 08:47:11 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-To: will@kernel.org,
-	maz@kernel.org,
-	kvmarm@lists.linux.dev,
-	oliver.upton@linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: James Clark <james.clark@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	James Morse <james.morse@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Quentin Perret <qperret@google.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: Fix usage of new shifted MDCR_EL2 values
-Date: Fri, 22 Nov 2024 16:46:35 +0000
-Message-Id: <20241122164636.2944180-1-james.clark@linaro.org>
-X-Mailer: git-send-email 2.34.1
+        Fri, 22 Nov 2024 08:47:19 -0800 (PST)
+Date: Fri, 22 Nov 2024 22:17:14 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Hongxing Zhu <hongxing.zhu@nxp.com>
+Cc: "l.stach@pengutronix.de" <l.stach@pengutronix.de>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>,
+	Frank Li <frank.li@nxp.com>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v6 08/10] PCI: imx6: Use dwc common suspend resume method
+Message-ID: <20241122164714.aj4dzv32zixdj7pq@thinkpad>
+References: <20241101070610.1267391-1-hongxing.zhu@nxp.com>
+ <20241101070610.1267391-9-hongxing.zhu@nxp.com>
+ <20241115070932.vt4cqshyjtks2hq4@thinkpad>
+ <AS8PR04MB867625A97A43FE5352FC0E768C272@AS8PR04MB8676.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <AS8PR04MB867625A97A43FE5352FC0E768C272@AS8PR04MB8676.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_084713_950742_11EF2B6C 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20241122_084721_420724_AD2CE966 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,80 +114,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the linked fixes commit, these masks are already shifted so remove
-the shifts. One issue that this fixes is SPE and TRBE not being
-available anymore:
+On Mon, Nov 18, 2024 at 03:00:44AM +0000, Hongxing Zhu wrote:
 
- arm_spe_pmu arm,spe-v1: profiling buffer owned by higher exception level
+[...]
 
-Fixes: 641630313e9c ("arm64: sysreg: Migrate MDCR_EL2 definition to table")
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- arch/arm64/include/asm/el2_setup.h | 4 ++--
- arch/arm64/kernel/hyp-stub.S       | 4 ++--
- arch/arm64/kvm/hyp/nvhe/pkvm.c     | 4 ++--
- 3 files changed, 6 insertions(+), 6 deletions(-)
+> > > -static void imx_pcie_pm_turnoff(struct imx_pcie *imx_pcie) -{
+> > > -	struct device *dev = imx_pcie->pci->dev;
+> > > -
+> > > -	/* Some variants have a turnoff reset in DT */
+> > > -	if (imx_pcie->turnoff_reset) {
+> > > -		reset_control_assert(imx_pcie->turnoff_reset);
+> > > -		reset_control_deassert(imx_pcie->turnoff_reset);
+> > 
+> > Where these are handled in imx_pcie_pme_turn_off()? If you removed them
+> > intentionally for a reason, it should be mentioned in commit message.
+> > 
+> How about add the following descriptions into commit message?
+> SRC interface is used to do the PME_TURN_OFF operations before. It's not very
 
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 4cd41464be3f..f134907d3c08 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -79,7 +79,7 @@
- 		      1 << PMSCR_EL2_PA_SHIFT)
- 	msr_s	SYS_PMSCR_EL2, x0		// addresses and physical counter
- .Lskip_spe_el2_\@:
--	mov	x0, #(MDCR_EL2_E2PB_MASK << MDCR_EL2_E2PB_SHIFT)
-+	mov	x0, #MDCR_EL2_E2PB_MASK
- 	orr	x2, x2, x0			// If we don't have VHE, then
- 						// use EL1&0 translation.
- 
-@@ -92,7 +92,7 @@
- 	and	x0, x0, TRBIDR_EL1_P
- 	cbnz	x0, .Lskip_trace_\@		// If TRBE is available at EL2
- 
--	mov	x0, #(MDCR_EL2_E2TB_MASK << MDCR_EL2_E2TB_SHIFT)
-+	mov	x0, #MDCR_EL2_E2TB_MASK
- 	orr	x2, x2, x0			// allow the EL1&0 translation
- 						// to own it.
- 
-diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
-index 65f76064c86b..ae990da1eae5 100644
---- a/arch/arm64/kernel/hyp-stub.S
-+++ b/arch/arm64/kernel/hyp-stub.S
-@@ -114,8 +114,8 @@ SYM_CODE_START_LOCAL(__finalise_el2)
- 
- 	// Use EL2 translations for SPE & TRBE and disable access from EL1
- 	mrs	x0, mdcr_el2
--	bic	x0, x0, #(MDCR_EL2_E2PB_MASK << MDCR_EL2_E2PB_SHIFT)
--	bic	x0, x0, #(MDCR_EL2_E2TB_MASK << MDCR_EL2_E2TB_SHIFT)
-+	bic	x0, x0, #MDCR_EL2_E2PB_MASK
-+	bic	x0, x0, #MDCR_EL2_E2TB_MASK
- 	msr	mdcr_el2, x0
- 
- 	// Transfer the MM state from EL1 to EL2
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 01616c39a810..071993c16de8 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -126,7 +126,7 @@ static void pvm_init_traps_aa64dfr0(struct kvm_vcpu *vcpu)
- 	/* Trap SPE */
- 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_PMSVer), feature_ids)) {
- 		mdcr_set |= MDCR_EL2_TPMS;
--		mdcr_clear |= MDCR_EL2_E2PB_MASK << MDCR_EL2_E2PB_SHIFT;
-+		mdcr_clear |= MDCR_EL2_E2PB_MASK;
- 	}
- 
- 	/* Trap Trace Filter */
-@@ -143,7 +143,7 @@ static void pvm_init_traps_aa64dfr0(struct kvm_vcpu *vcpu)
- 
- 	/* Trap External Trace */
- 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_ExtTrcBuff), feature_ids))
--		mdcr_clear |= MDCR_EL2_E2TB_MASK << MDCR_EL2_E2TB_SHIFT;
-+		mdcr_clear |= MDCR_EL2_E2TB_MASK;
- 
- 	vcpu->arch.mdcr_el2 |= mdcr_set;
- 	vcpu->arch.mdcr_el2 &= ~mdcr_clear;
+What is SRC?
+
+>  suitable. Now DWC common driver can do the PME_TURN_OFF kick off. Switch to
+>  this common methods, and remove the useless turnoff_reset manipulate codes.
+> 
+
+Hmm, so 'turnoff_reset' is used to send PME_Turn_Off msg?
+
+If so, then you need to say in such a way that the reader should understand
+'turnoff_reset' was used to send PME_Turn_Off and since the DWC implementation
+is used, it is not needed now.
+
+- Mani
+
 -- 
-2.34.1
-
+மணிவண்ணன் சதாசிவம்
 
