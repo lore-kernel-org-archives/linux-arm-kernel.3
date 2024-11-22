@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBCBEE65D2F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 08:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE964E65D34
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 08:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A3SPKEgnk0/CKlGg8ZlQK9CMOXwXblPgVAtkOWHzh5A=; b=flSGOW+EfT7XKZkxS7eOjlmvCC
-	4ngBktXXjhxU/5JgeK6qjizalFlyridHDnthBuH/FjEX/CB0Pf4u+ImhceisLZLUlKCxEJH96RrUU
-	mV4LVbmNGOQVaEMYOKmzxE99Qb7o5l7J58KVaZNbiQUBeGPL3yw9R3feUQw5C8L30WZ8c7aX46UFC
-	WCrBPtaMZ8ErRrsxfjyZHQBbWME6Q1Ugp8HPsulO+uQQ1zfYte/vlP0VFeGwP8HILoqQ0ms/durxX
-	8U73NL2sRrzmpgF0l483RwcLsg6vPNj9SVkdpRqWZYm/Gv6ARuH1MBluS71KpuXSGOFw6HDZ7xwCL
-	3SevdYFg==;
+	bh=YEuuR+8psNj062NlDHnckyMnQqgbbgHkJzIBccpjbSA=; b=wrsD8W8yTTpEgXLe0GBmUugb6L
+	MFL/Kf5Wap6/vcvsaGNyT0jEza7ZYAZa7u8O4BFUgGkDgGXkoPW8zyhJ0yVhDo3uHPE3PG9+RExY6
+	EahaaR2wL30u02I5xZGcO9HdUkKZe32t0fmJx7jtoYkqsvc84JVgqmVBGHxFeye7mAxgKCf8ykTCM
+	ymu2kinZ6O3qbMc++lWm6rdDptUnZ1+9xlUENXWhI9RI8+2coY0Z0UOAa3SfzlTe0xlgaTthv+6WK
+	25GWrfCfNzZUeNJG7w+Fxcc+5vRlL4LwOWL5mOiQ6EHOwae7IZGbjeLaA9Dcve8Tyaj5QRTbXvQ0D
+	1r4CoQEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEPKD-00000001yLy-1829;
-	Fri, 22 Nov 2024 08:47:37 +0000
-Received: from mail-wr1-x462.google.com ([2a00:1450:4864:20::462])
+	id 1tEPL9-00000001yeq-1tlM;
+	Fri, 22 Nov 2024 08:48:35 +0000
+Received: from mail-lj1-x261.google.com ([2a00:1450:4864:20::261])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEPEt-00000001x4N-1usJ
+	id 1tEPEw-00000001x6H-0Kck
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 08:42:10 +0000
-Received: by mail-wr1-x462.google.com with SMTP id ffacd0b85a97d-3824446d2bcso1579209f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 00:42:07 -0800 (PST)
+	Fri, 22 Nov 2024 08:42:11 +0000
+Received: by mail-lj1-x261.google.com with SMTP id 38308e7fff4ca-2f7657f9f62so19547731fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 00:42:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1732264926; x=1732869726; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1732264928; x=1732869728; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=A3SPKEgnk0/CKlGg8ZlQK9CMOXwXblPgVAtkOWHzh5A=;
-        b=qK3SnXtEBkeJ4necz+v+QPW5ftOIoYtwGBq6UEeXIgl07z90sYFdvZL3YJNGwz7u/g
-         D7SHOH9iEQOgYLWduX5V4YYwxgBzBfv92a1aFZPj1/zYxPbqVjeOct1Hkxbju7EaTj0F
-         FwEl/f8KnE6Rz9D3afQnUdit9GdKXVQXGaYTo0SYn48XdlKI5sn6BeKUqgtlVPsD4Pvv
-         MvslzdN/HNOnhFMc3MGFpq8GScA/MYinKBUfj+Hxt6whdBQx7JcFuRSxmNp5WV5iyvzb
-         VE25W5TZlx2XGL9eCIRgALR+udu9nJ8oELbEtM7qnfW4d1TbC3AoliAfR+eMFNlSahtG
-         Z7hg==
+        bh=YEuuR+8psNj062NlDHnckyMnQqgbbgHkJzIBccpjbSA=;
+        b=JqF6JLjKMo28SXWI9aRn4uZFpAnKHXuLtinI0yxNQ/U0vWqpiWkhdCQ9oCrHSVYNoe
+         3Tvg8kO8yb4hr6dF8CWPRDfXkoAasWnC+x9aiF78OWyy45IpJrkKrdoTii3uxlqHUCSG
+         6Pwg2vWTasahlwUjjiZrpPsj27hBRhKNG15osZ88akuZXYi+do9Mm3CL0g94lfGUEa2I
+         DcB+iYyMTb23l/KGCkbfcExIBfz9EVNfHSOSFt0skeznPywe16avBmBiJj2eX95rkwLJ
+         IQlK8jnV6aScuuiRJdOfU+M3DkDr8rTFvK4VzmGHfZcME5GOUZqZi3hzLnNwNNmhTKjA
+         yH+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732264926; x=1732869726;
+        d=1e100.net; s=20230601; t=1732264928; x=1732869728;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=A3SPKEgnk0/CKlGg8ZlQK9CMOXwXblPgVAtkOWHzh5A=;
-        b=ZGFij1HyWSPEEsny2vhx7svzD2BIJ6SyAqCVnHMLDtv0tsWWDwT0thaIRGZacQk004
-         XBft4uOm6SRaRTjorImuPWv/1/OEoda4aZwPg/guhjuqKeGYo3yhTfjW6xIT07SLf4tc
-         2SxZPA5mV0K72N+SkJ0Oh3JGqby26vCFGPVWWYQV5yThPpuGGxVDbMRcvEgKaMer1ckS
-         mboXw5khkmrw0295DNgP2dxPzD6hStnMMf3bI/MYT3h8fYkYCpaHqQwlWDK72fFBDtdI
-         8pqN0AHRdLrQDAMKShA46P7Hs5N1YfE4GZ2JCagpxT5eagK9QraFkJCDydkYG8h4mEMI
-         /pBw==
-X-Forwarded-Encrypted: i=1; AJvYcCUJKhPvmjGf5D7RF/DKc/v+tn/E2ys+WFe6QDOE4oYT81nRwDo3YiEXw0xfJ5euuXFwK9zzPS0AbVhDrspqn+5g@lists.infradead.org
-X-Gm-Message-State: AOJu0YyspTUNSVwNWZLdcpTFSIWEuJ46O48/DpFhd9PxO+Z92I1uIlXe
-	W2EXGRO6dIarLwCkHNjwV0q8T/asGVxPsBQ7SB2YXzgPEUtl/M+IH6DDzO3ywu1bPG4fmKg99bj
-	xlB1hVXEpxjDfeohxvXj3i1yz7F9qv/u3
-X-Gm-Gg: ASbGncvP9effA9+y7rpsGR7wRmi58oRogIyl5f/a4WRj50a2u4v9iku8sv8soDeqo3s
-	PuvLPPZesGx1STGrfgiv199XpfjkUuw/RmFXjoDDkW10PPlYiPmrP8cuQTe/6mU11kDrseYFvBH
-	CgrJtd/QVBA0Ech0UVIgNBarjMcw99AMb2ARxBcWeU/Cwg4pUQ9wUXTxm8Wy0VZoo5jTPqnEI36
-	EsmA9rmH4KuKwb1M56Qs4ACmbBN66/0VlZ3zaLmsA0h0r3h81b8I6ycHPHwfLZOrg==
-X-Google-Smtp-Source: AGHT+IHmji/NlhW6PAvhLcBhuxCxYDetKytLXU6htY+yIaqQpm+gV+XdE8J9vax0xtcHo5/qC5bhqV9GxA4x
-X-Received: by 2002:a05:6000:4189:b0:382:40ad:44b2 with SMTP id ffacd0b85a97d-38260b8b4a4mr1324154f8f.34.1732264925767;
-        Fri, 22 Nov 2024 00:42:05 -0800 (PST)
+        bh=YEuuR+8psNj062NlDHnckyMnQqgbbgHkJzIBccpjbSA=;
+        b=DLMm0eI19e15QOeSeHdnKvarg08lD2lRrsNBSb2qOQcLdI2wtz85HcH5wuK2GwGC7c
+         qXe9jFwcQSdcuZddZBL/DdQXR4zC8+Lno7XKkkXfmB4NPjfeMRAEzN28OagipEnB3cum
+         WyhOcsbldAgsUuMOtkxuf8KvG9ZzDVzBV/T1oWYn6RdPrQYJSbzEGT52tNqbsMpgEMts
+         BAZdPxdqIlop9f84coPBDPjKf5WHVwxqKITrRIrIE1J7nEUdLLX+EWHs3NtqKUPSd9jQ
+         odd3KfP4mmXa4I1JAiLAU73fnNgROOFqmRf3WzvZ1xNmlJFtVwCB6iWSrr83rDJDUQO0
+         JmgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVp72vwEeJ+ztIxYdlInbgvdk9OpDQI2e/8f3TrqO0X02WzAOrAM+lJHfJOS0xHvbnXxtK+Nrt9P7CbVUQEzNVz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVMfaQNyBqbeH62nXB56W3ndTVcVd5zB8TJs07m5HaODw+V9r9
+	NmqPgVnJDhWaTnn90vZJRtLmZxxYse3fa+0admW9JJ0J/gFt5h9XRuwJAtO96+wYlcH7y+FSTBr
+	rlnfSGfX5sukIkA+98TWIivMIpxrWybMw
+X-Gm-Gg: ASbGncujJfEzwadSggaj15Bu7MjHmeDDCC2wngd9f7WQd8UpnyOBWEq0Qi57lhgCEZ7
+	POIWE/jeoO5iA5A+p08kNqJLUVdrC9IOIvNPAiZAKX42G6RUyJOEtm05Y5ZAKHVHr+KtT8VQz1r
+	F8m05CoUB3ps8SAAZF0peurFr7Gkpt+IL2FxJ79Ye6XMUuYWsU5QmVP7WMMdrKh2/ei5kLn7KW0
+	gelsRrNjcRGw0Avlr5QWetjyHqtZKzHu8s32RnybiUxBQL90rJDF0qfQU/hK3M1iA==
+X-Google-Smtp-Source: AGHT+IH59DQEKrXu+FgyMtFbQ1vxHpRwe3lqUuQy9ABiaFsiJEh89r7ztVYjLZAP7d2u3qmvDeDJw57zHVk6
+X-Received: by 2002:a05:6512:10ce:b0:539:ea0f:cc43 with SMTP id 2adb3069b0e04-53dd36a0f38mr982109e87.19.1732264927961;
+        Fri, 22 Nov 2024 00:42:07 -0800 (PST)
 Received: from raspberrypi.com ([93.93.133.154])
-        by smtp-relay.gmail.com with ESMTPS id 5b1f17b1804b1-433cde98a88sm1124745e9.36.2024.11.22.00.42.05
+        by smtp-relay.gmail.com with ESMTPS id 2adb3069b0e04-53dd243bb76sm31151e87.11.2024.11.22.00.42.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Nov 2024 00:42:05 -0800 (PST)
+        Fri, 22 Nov 2024 00:42:07 -0800 (PST)
 X-Relaying-Domain: raspberrypi.com
 From: Naushir Patuck <naush@raspberrypi.com>
 To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
@@ -83,17 +83,17 @@ Cc: linux-media@vger.kernel.org,
 	jacopo.mondi@ideasonboard.com,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	Naushir Patuck <naush@raspberrypi.com>
-Subject: [PATCH v1 4/5] drivers: media: bcm2835-unicam: Fix for possible dummy buffer overrun
-Date: Fri, 22 Nov 2024 08:41:51 +0000
-Message-Id: <20241122084152.1841419-5-naush@raspberrypi.com>
+Subject: [PATCH v1 5/5] drivers: media: bcm2835-unicam: Correctly handle FS + FE ISR condition
+Date: Fri, 22 Nov 2024 08:41:52 +0000
+Message-Id: <20241122084152.1841419-6-naush@raspberrypi.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241122084152.1841419-1-naush@raspberrypi.com>
 References: <20241122084152.1841419-1-naush@raspberrypi.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_004207_566184_B08B74D2 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20241122_004210_114779_170CA1AA 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,40 +108,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Unicam hardware has been observed to cause a buffer overrun when
-using the dummy buffer as a circular buffer. The conditions that cause
-the overrun are not fully known, but it seems to occur when the memory
-bus is heavily loaded.
+This change aligns the FS/FE interrupt handling with the Raspberry Pi
+kernel downstream Unicam driver.
 
-To avoid the overrun, program the hardware with a buffer size of 0 when
-using the dummy buffer. This will cause overrun into the allocated dummy
-buffer, but avoid out of bounds writes.
+If we get a simultaneous FS + FE interrupt for the same frame, it cannot
+be marked as completed and returned to userland as the framebuffer will
+be refilled by Unicam on the next sensor frame. Additionally, the
+timestamp will be set to 0 as the FS interrupt handling code will not
+have run yet.
+
+To avoid these problems, the frame is considered dropped in the FE
+handler, and will be returned to userland on the subsequent sensor frame.
 
 Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
 ---
- drivers/media/platform/broadcom/bcm2835-unicam.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ .../media/platform/broadcom/bcm2835-unicam.c  | 39 +++++++++++++++++--
+ 1 file changed, 35 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-index 550eb1b064f1..f10064107d54 100644
+index f10064107d54..0d2aa25d483f 100644
 --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
 +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-@@ -640,7 +640,14 @@ static inline void unicam_reg_write_field(struct unicam_device *unicam, u32 offs
- static void unicam_wr_dma_addr(struct unicam_node *node,
- 			       struct unicam_buffer *buf)
- {
--	dma_addr_t endaddr = buf->dma_addr + buf->size;
-+	/*
-+	 * Due to a HW bug causing buffer overruns in circular buffer mode under
-+	 * certain (not yet fully known) conditions, the dummy buffer allocation
-+	 * is set to a a single page size, but the hardware gets programmed with
-+	 * a buffer size of 0.
-+	 */
-+	dma_addr_t endaddr = buf->dma_addr +
-+			     (buf != &node->dummy_buf ? buf->size : 0);
+@@ -773,10 +773,26 @@ static irqreturn_t unicam_isr(int irq, void *dev)
+ 			 * as complete, as the HW will reuse that buffer.
+ 			 */
+ 			if (node->cur_frm && node->cur_frm != node->next_frm) {
++				/*
++				 * This condition checks if FE + FS for the same
++				 * frame has occurred. In such cases, we cannot
++				 * return out the frame, as no buffer handling
++				 * or timestamping has yet been done as part of
++				 * the FS handler.
++				 */
++				if (!node->cur_frm->vb.vb2_buf.timestamp) {
++					dev_dbg(unicam->v4l2_dev.dev,
++						"ISR: FE without FS, dropping frame\n");
++					continue;
++				}
++
+ 				unicam_process_buffer_complete(node, sequence);
++				node->cur_frm = node->next_frm;
++				node->next_frm = NULL;
+ 				inc_seq = true;
++			} else {
++				node->cur_frm = node->next_frm;
+ 			}
+-			node->cur_frm = node->next_frm;
+ 		}
  
- 	if (node->id == UNICAM_IMAGE_NODE) {
- 		unicam_reg_write(node->dev, UNICAM_IBSA0, buf->dma_addr);
+ 		/*
+@@ -812,10 +828,25 @@ static irqreturn_t unicam_isr(int irq, void *dev)
+ 					i);
+ 			/*
+ 			 * Set the next frame output to go to a dummy frame
+-			 * if we have not managed to obtain another frame
+-			 * from the queue.
++			 * if no buffer currently queued.
+ 			 */
+-			unicam_schedule_dummy_buffer(node);
++			if (!node->next_frm ||
++			    node->next_frm == node->cur_frm) {
++				unicam_schedule_dummy_buffer(node);
++			} else if (unicam->node[i].cur_frm) {
++				/*
++				 * Repeated FS without FE. Hardware will have
++				 * swapped buffers, but the cur_frm doesn't
++				 * contain valid data. Return cur_frm to the
++				 * queue.
++				 */
++				spin_lock(&node->dma_queue_lock);
++				list_add_tail(&node->cur_frm->list,
++					      &node->dma_queue);
++				spin_unlock(&node->dma_queue_lock);
++				node->cur_frm = node->next_frm;
++				node->next_frm = NULL;
++			}
+ 		}
+ 
+ 		unicam_queue_event_sof(unicam);
 -- 
 2.34.1
 
