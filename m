@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56777E6918F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 19:54:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77259E6918F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 19:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m8k+BU9sp4jwI3J04BZciS+UktHrfNJa8h5d00+WG0I=; b=AODAG6Mw4MQ35F3Xnt4VmIuh4t
-	hpPCX1+kze0r9hry8tg7uiTvHv/uaGRkFHr1u1wg5Fyk8mVi0WtuR5pvvQN1kZugwPQiADuMbfhf2
-	xRJQNSbkBWPxco+zSOFUsOEswm96ONi9oCCLRVEQh+10NCQk86IGEH+imaOOMQJtmqNi2pVV65ZMv
-	T+dPgZGBrr+YLi/Hx4J/GrDNpw2SVin4d4KkNxiQ2q6S8nXSyYrNTrhhZ3LLaXDQFUeEtxLnr2pZQ
-	q7zeiQfik2xLCQZzANul7Pfzy/goEfrMS7/jZsZrJQz0O3z51QgU0KF7UNWIME+qT8Y1j4SQwgmDc
-	l6F9GPBA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CF/HRhep9JBi7dLu2TPvpQtWrqcbCsu76aTE4DvPvS8=; b=ujFooHcqhuu7KdI6i3qg9SLTaM
+	fnMJfbfLBvi79sJcg35YB04OevqgMTEa1lYVdsDmWF0nDu+Rst8zXvw5nocTCwOY6l3ZhyF+L3/+A
+	zlUrds+ymaseQtbuRwZYXnLVONE2jP/l3W/vUKWhTe3lBKQO+iPFPSdtQJEI4dYlEsMoslVu6GmRs
+	i3BSjuCL107+GqQKvk22kv0qrqcLf8szWcXqloDpA7qBP8u4SZDWVcqhdBh9YqE+g7poCWHXRv6TA
+	fByvA3KGbXfxz5ypiPB59JoAIr/6HXdFCxtxGO5MT5DfxHVqd7tH/awRl7ih/Hd8RqmhmYHOX88uD
+	0Mon6Xvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEZjV-00000003EHT-32Jf;
-	Fri, 22 Nov 2024 19:54:25 +0000
-Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
+	id 1tEZkQ-00000003Efy-1Jgj;
+	Fri, 22 Nov 2024 19:55:22 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEZiY-00000003E8m-41ip
+	id 1tEZia-00000003E9A-2SSa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 19:53:28 +0000
-Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-5ebc5b4190eso1385448eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 11:53:26 -0800 (PST)
+	Fri, 22 Nov 2024 19:53:29 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-460963d6233so15262251cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 11:53:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732305205; x=1732910005; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=m8k+BU9sp4jwI3J04BZciS+UktHrfNJa8h5d00+WG0I=;
-        b=fHaTPwFFyit5WyPuy3wiU7488sM9k/zYQfS2aUXGNtB5AJGWhiQwnFtphclORjs9nc
-         fvd/5+n+u15wS2HnbA+SgDmLZ5MnR4dQeB1+6YUF1AlBn9o9nDPORErpQ1tU+xlgf57G
-         qKkl+dT4U2lRP+qZc38lyveG/BOsYQzJ3JObPsq0vfEcc1BpGi27gampxzskqGgrqZvY
-         EKu+F1n/DVWlnmBOfpR3ygxCqlyOaW2CuHGGh7C27vlkW0mFeMxEFB0VIYL6oKwkVfh7
-         +RBfjMydCZ7YFgIaDkv5o2w0XGpcCxyStphXIlFFqcgLhrkV9RhVNyIAlGjOnq110G+j
-         reug==
+        d=gmail.com; s=20230601; t=1732305207; x=1732910007; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CF/HRhep9JBi7dLu2TPvpQtWrqcbCsu76aTE4DvPvS8=;
+        b=QHD2dBdCuhLEyAbFJNNr8wIf6fjJdBN35IX10sLdRNlME/9eqIi+lk9I3/GJuXdW5N
+         rgtuJLAlaflUv0YTGEmByZE30MEpnxg4IEXUuH4GjQAtIZzXqfaxDcpXU/oCOiGO5Lsi
+         RFmMhnsGsf8m9h62r0ZfGGqkrQhtl2DlHfAXbOrPffnp7m/3vwp7cW5/XFvSG4lFvnK1
+         k3xZ0ygJkfmJLarcwsUq4dd/lsmsLLpWBZ/HdQshc2QyJTW0HgLb4DAb0S7G/CwerVmk
+         aMLpMlGUC116aO3q+ijm5uj4a+G2H9iyWB6khi6Fn39vOFAab7odTtjRdeTuf+xmlXSn
+         UQGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732305205; x=1732910005;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=m8k+BU9sp4jwI3J04BZciS+UktHrfNJa8h5d00+WG0I=;
-        b=qLjKAJD9zjzbouxq12ELr1iREV6OJArEQyX/t8PfbSpCPqXe0pwO5i3WFcekf3RkmT
-         Qu8j0UupHIki3Pveqv0z8U2OGqO0CjwbWnw57Beae1ZsBbJ3sSTtoeLTrWbBlNOjKjpv
-         sQu9ZMlIRlsZgi2OwlSPIGbrGDwMytwUIO7xBrHFF90cc3Q2jzIKXYyQFzzyNS+tGg78
-         ExsGefMmPrVvfpoKbr7U8MiNn/X9STMFSb4YayZZzG4nAaZ8/TKzYndMc+ikvKnX8/8Z
-         ISfVI/YLipEVypIvAYF2RA5LLcbr9p+NA6peisHZ1UoTDjyx3/CeVa/bsrr0lEqaEOok
-         RB1A==
-X-Forwarded-Encrypted: i=1; AJvYcCWjbZXPyHX+lZyVpPXX9fafmGhMxF1x39ownNADnGNiWf62SmgtNy5NqzFagAIrVIGEDMePxcIWOGaF1PZbkjGr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxnpGNqZS0oVHaBp4AoB93TfAfpPwUJ2E+alUQxRZOQSEGFVC3
-	n/hRgNpm8ObVxjPPPtrJpmoDblwj4Tkm+p7KT0siJCKa1y2Oe/hv
-X-Gm-Gg: ASbGncvRV2lWA07Uvr1Lst0+0gd/t5gzQ7yuNejhdJ7bqWFbM0utEoDGBuKoiIRE3HY
-	MrBsPs479y7Sa/kseO01wJTDwdW+d7lZ2s5u/IizAJvqIU+CV8gN8xj0/REgYjYPuEwbIANMF0P
-	nTDTUDs/1s2i5bkqnw12BpfwYOWhVH7zxj4Ah7hc2erd3uC9bZjHYTsSHJBEog5BzhLsDgJRFuZ
-	+z4OCK0KxH865Hi1LxNviuSCuZA9V0frNECVygmZFSprjtTDH3vFLxD7H9BCS9k4OQmkeob
-X-Google-Smtp-Source: AGHT+IGG9LZL6Q/86WX74N5XZj9qYPlo3OR250a6F4l7/ScFyw2yctiaAwQR6Ax+KIbBRfxQwQ330Q==
-X-Received: by 2002:a05:6358:42a0:b0:1c3:7b75:24ec with SMTP id e5c5f4694b2df-1ca7977c9a1mr446366855d.15.1732305205386;
-        Fri, 22 Nov 2024 11:53:25 -0800 (PST)
+        d=1e100.net; s=20230601; t=1732305207; x=1732910007;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CF/HRhep9JBi7dLu2TPvpQtWrqcbCsu76aTE4DvPvS8=;
+        b=KzEJgUG2unmx6RdZb9YejP56dRwbKrVfc+SIoGceSrX5x8TUMRGCVyGpYCn35DrvWT
+         +qDYilp2F4aI8xircyUZGOAFuRKnyzWS7eo20ffZdzTspBwqQpkY1IRksQlneB/FMacS
+         1Bl3k2d3pEoQnycq4YeWgJzM8f7vYLsAXjoYj9a+AIvUrX+yQ/JEZPcpczemWr7/6AC5
+         TqY+Qj3Z6WgnKW7AzXvAqTCopcXgLEf0e4FvtKSPIExBNBbBSkluaIoJprEnfOmWX/N1
+         rpD7PYdJJv90DCyPE2gjMJ7UNLkOJRK5DrrU+pUcCTldNRJhmjz5EiNfi32/1bz6FPTX
+         AazA==
+X-Forwarded-Encrypted: i=1; AJvYcCW+Kqzz6PqivTU04sp67CjBZGo6nT2YcosfQ2AndMLR7fmA14xSKIg27dmb/UlWhJf3wobgHjEkSCni7EOMtSgE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnTInhddygWHNT16kjB6yrzPrTUa/UzHbAfijvfB7d1iws0fNe
+	v2ElPulbLwTAU2Rw19HgepA4gjQFbmHtnB7S47Qv3H989VyAGtqs
+X-Gm-Gg: ASbGncv6rl3q7maoyCIFvFN0obr1moNC3mPQGjv23HrrkVZBpy7N39pc/KAY0Vt/yd3
+	gnRGqlwPepiU3V0SoPCvY2oTkORvI+NAHiO7uZZYDJyXLCP/GtHGFVGO4Mdn94SHvgLiGvIembP
+	xq5U4gXigR6xAVlcnEF3lk8zyy0BjsNpP0DJ9rN0XOKDIcwZXCT9r/xBR6laE2Xi+1j5NwZUpFE
+	rnL1fmgDyNdf9Z6Q9GiWyHyT9QOANtUQRhlgWFAKc7Rg0X2oXl5YXW31RjrflYS1FvVVXID
+X-Google-Smtp-Source: AGHT+IGWS/TRquPL6ThkLaNpCv/OoH1M5+ix8LlZG/vqWDvFWeRjvAxoJJc+WnPkQLUTQ/pMdaugqA==
+X-Received: by 2002:a05:622a:5c98:b0:462:ac16:e72f with SMTP id d75a77b69052e-4653d5302ecmr60216091cf.8.1732305207048;
+        Fri, 22 Nov 2024 11:53:27 -0800 (PST)
 Received: from newman.cs.purdue.edu ([128.10.127.250])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4653c3ee8cesm15535781cf.25.2024.11.22.11.53.24
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4653c3ee8cesm15535781cf.25.2024.11.22.11.53.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Nov 2024 11:53:25 -0800 (PST)
+        Fri, 22 Nov 2024 11:53:26 -0800 (PST)
 From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
 To: krzk@kernel.org
 Cc: sylvester.nawrocki@gmail.com,
@@ -80,15 +81,17 @@ Cc: sylvester.nawrocki@gmail.com,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Subject: [PATCH 2/2] media: camif-core: Add check for clk_enable()
-Date: Fri, 22 Nov 2024 19:53:21 +0000
-Message-Id: <20241122195322.42289-1-jiashengjiangcool@gmail.com>
+Subject: [PATCH v2 1/2] media: mipi-csis: Add check for clk_enable()
+Date: Fri, 22 Nov 2024 19:53:22 +0000
+Message-Id: <20241122195322.42289-2-jiashengjiangcool@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241122195322.42289-1-jiashengjiangcool@gmail.com>
+References: <20241122195322.42289-1-jiashengjiangcool@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_115326_995967_7E31DFEF 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20241122_115328_620757_91E7C8F2 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +108,45 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Add check for the return value of clk_enable() to gurantee the success.
 
-Fixes: babde1c243b2 ("[media] V4L: Add driver for S3C24XX/S3C64XX SoC series camera interface")
+Fixes: b5f1220d587d ("[media] v4l: Add v4l2 subdev driver for S5P/EXYNOS4 MIPI-CSI receivers")
 Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
 ---
- .../media/platform/samsung/s3c-camif/camif-core.c   | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
+Changelog:
 
-diff --git a/drivers/media/platform/samsung/s3c-camif/camif-core.c b/drivers/media/platform/samsung/s3c-camif/camif-core.c
-index de6e8f151849..221e3c447f36 100644
---- a/drivers/media/platform/samsung/s3c-camif/camif-core.c
-+++ b/drivers/media/platform/samsung/s3c-camif/camif-core.c
-@@ -527,10 +527,19 @@ static void s3c_camif_remove(struct platform_device *pdev)
- static int s3c_camif_runtime_resume(struct device *dev)
- {
- 	struct camif_dev *camif = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_enable(camif->clock[CLK_GATE]);
-+	if (ret)
-+		return ret;
+v1 -> v2:
+
+1. Power off the phy and disble regulators when clk_enable() fails.
+2. Remove a redundant space before the label "unlock".
+---
+ drivers/media/platform/samsung/exynos4-is/mipi-csis.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/media/platform/samsung/exynos4-is/mipi-csis.c b/drivers/media/platform/samsung/exynos4-is/mipi-csis.c
+index 63f3eecdd7e6..47b8e043aae9 100644
+--- a/drivers/media/platform/samsung/exynos4-is/mipi-csis.c
++++ b/drivers/media/platform/samsung/exynos4-is/mipi-csis.c
+@@ -940,13 +940,19 @@ static int s5pcsis_pm_resume(struct device *dev, bool runtime)
+ 					       state->supplies);
+ 			goto unlock;
+ 		}
+-		clk_enable(state->clock[CSIS_CLK_GATE]);
++		ret = clk_enable(state->clock[CSIS_CLK_GATE]);
++		if (ret) {
++			phy_power_off(state->phy);
++			regulator_bulk_disable(CSIS_NUM_SUPPLIES,
++							state->supplies);
++			goto unlock;
++		}
+ 	}
+ 	if (state->flags & ST_STREAMING)
+ 		s5pcsis_start_stream(state);
  
--	clk_enable(camif->clock[CLK_GATE]);
- 	/* null op on s3c244x */
--	clk_enable(camif->clock[CLK_CAM]);
-+	ret = clk_enable(camif->clock[CLK_CAM]);
-+	if (ret) {
-+		clk_disable(camif->clock[CLK_GATE]);
-+		return ret;
-+	}
-+
- 	return 0;
+ 	state->flags &= ~ST_SUSPENDED;
+- unlock:
++unlock:
+ 	mutex_unlock(&state->lock);
+ 	return ret ? -EAGAIN : 0;
  }
- 
 -- 
 2.25.1
 
