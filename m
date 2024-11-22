@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3875BE69189
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 18:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20534E69188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 18:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pXXGQ+H4K+o+xkKJh/Eib8vedMAVJhzcT61sVNMDK18=; b=qYteHu4/YSqQE98gnpa/U+o54v
-	pBqcVL0qcuFbbum2GugwpuVQUgJpizDcz9UkcExLie3wWszkTSQXbcloziSkARNdY9j7iSwvGayef
-	ztIib5PZe+ntsxexWKWWeOGP9ShQHM/6YRdGBZbn/tyZeSYzNQXF8gpVF0pk9ag930Li/TzhVfBn1
-	L9YTzRHpgJeRbUyClXxZdJv2Idw3s/yP4grIf/YjqWwY7ytjC419eJ6gBMsaHXpXm4CmTszFpSC8h
-	aG6wulzBhO3H4qud6/VfX5vkjrLnJOHBtNEgy5rj+jF33YQYJQdkHgyfKtP7BctYGGJ24Cwi15DTV
-	58FaaIZg==;
+	bh=S+FtLMtWNpKULLmd3K8NNsS/XMu6z2ERGdnDAQCM4cA=; b=AczYvAwtO+7yOisnDxCh3J5RDu
+	I/Vtou4zPkZb8HrKB03/QDOgOgQd+RUO2qKrzXrXJWGwtCkYj1bNajJXinoDwmBhkfMLVUHlA6cxx
+	BlhKVPZS01c04s5kVfgkO/oJFNOqm+yNWQzCr0ugnzvq2rC01BFEBABeiyDhAYxccm539TsA0oBxy
+	n8I+hyOJx8nRc7iVEpaFo3Mx3A2TeSlDwf0oHVqdyvfYsKuDWT9YvcM7LNqcMH+r6wwUmufBAKQsn
+	a247NDJ+k3SkyFiA66eAGfwDhV2cWWVtDOPW9P27eb4bObWcjYi42UIsdkKBrNW+yk7O10azEqiA+
+	oNUDTEqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEYjg-000000039Af-0Tu0;
-	Fri, 22 Nov 2024 18:50:32 +0000
+	id 1tEYlC-000000039Rv-2Os2;
+	Fri, 22 Nov 2024 18:52:06 +0000
 Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEYii-0000000396C-3kQR;
-	Fri, 22 Nov 2024 18:49:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1732301366; cv=none; 
+	id 1tEYkE-000000039Gg-3Aw2;
+	Fri, 22 Nov 2024 18:51:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1732301455; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=moKpI0Y1wfyp0zDTN+J7fb0RabdMywL/MPTswotmSA+KTZJOEPvVZBYQ6zlN8apO60/z20bkDuHLQxJubWsP7jRoV4xsV7QNCqg+80jltLdjdDda0kTAIZL3vDMQHPlV2WFnDD2LWuBbRhsVCShsnpHUtN2VdzQEjpbu7m2hVTI=
+	b=gInYdvLqG1o6ZdSbDYACNnLl1deipdaNI1bOigW4cNoq9DztwKU9D6lGf5ljEoKN/k6KH2+jyYN7/O/sb4AmkRSOi7TD2HF14ZqAX6JZnqQEELmNbcw/5F9yXbsvKAkgjKdMvG4dkGHm4vBpKmBj6CFH8pxhmrhgaU7GhXuh61U=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1732301366; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=pXXGQ+H4K+o+xkKJh/Eib8vedMAVJhzcT61sVNMDK18=; 
-	b=etErkPXOgA/o2PY0rmoNMNz5lETz28KLwWLF5s/Rw1o3luzgxPET4Dgn0jEHziDzE6ttWFJ6o8r3A3xNMwPA8kO3k4Wqc9Y2wGyjfxEo6t0sGz7UYHdKLEB0q5q4o67kD2mOD512rFtdfWGPIPcONMXpEKkZ8+2HtLBPtgVL7Nc=
+	t=1732301455; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=S+FtLMtWNpKULLmd3K8NNsS/XMu6z2ERGdnDAQCM4cA=; 
+	b=YWpOMkjCSC3NC6o9mlOv0L5H6UKGjOj5Plwth6zBMSgNigCCCZVNqGLkmyJLwneQcFzgOh17yOefN8v7GHxtYf28CZFGp/5jH+4c7loTnXTBbgFrZqyIM2M7b+iJQyXYslAp+87KLDU7SByHVx0DcI9HqjSdivmgtvpBvg8JVOU=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
 	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1732301366;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1732301455;
 	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
 	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=pXXGQ+H4K+o+xkKJh/Eib8vedMAVJhzcT61sVNMDK18=;
-	b=DWMis2ORyFa/Pf0JrjQCTPO8S503ZcLD+FfkCKMKyij0evInMtsSAmy5fdKNNYGL
-	iNdrxoVmBcowkrEe4U6TW1J044EnZKsdr4spTFkzL6Co2fTJU7vLCgHY059ZVFpB5mq
-	Qmq3JANa/lN+q8A4wTGp9SCU5s62xvQeokqdYkCM=
-Received: by mx.zohomail.com with SMTPS id 1732301365255675.6070960311865;
-	Fri, 22 Nov 2024 10:49:25 -0800 (PST)
+	bh=S+FtLMtWNpKULLmd3K8NNsS/XMu6z2ERGdnDAQCM4cA=;
+	b=hoIXMCZjIC3/A6uPhIPVnz2hIwmPI8EHKezy2lDoJp563zJwnFbGT+/vp29I/CKc
+	7Iyg/Na1WkChFoKtosaFO3wL8boU+5B6N8ul2wvSSHt7ge0MrupOVUF/2lKqDqfuzGl
+	xY51sefp+tDCV3JDIwtimuF3XNM2bT9ckfK7kYyA=
+Received: by mx.zohomail.com with SMTPS id 1732301451890468.4328585076563;
+	Fri, 22 Nov 2024 10:50:51 -0800 (PST)
 Received: by mercury (Postfix, from userid 1000)
-	id BF04A10604B0; Fri, 22 Nov 2024 19:49:20 +0100 (CET)
-Date: Fri, 22 Nov 2024 19:49:20 +0100
+	id 058D410604B0; Fri, 22 Nov 2024 19:50:47 +0100 (CET)
+Date: Fri, 22 Nov 2024 19:50:47 +0100
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
 To: Heiko Stuebner <heiko@sntech.de>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, quentin.schulz@cherry.de, 
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Heiko Stuebner <heiko.stuebner@cherry.de>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v3 1/2] dt-bindings: phy: Add Rockchip MIPI CSI/DSI PHY
- schema
-Message-ID: <udad4qf3o7kt45nuz6gxsvsmprh4rnyfxfogopmih6ucznizih@7oj2jrnlfonz>
-References: <20241113221018.62150-1-heiko@sntech.de>
- <20241113221018.62150-2-heiko@sntech.de>
+Cc: quentin.schulz@theobroma-systems.com, hjc@rock-chips.com, 
+	andy.yan@rock-chips.com, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Heiko Stuebner <heiko.stuebner@cherry.de>, Quentin Schulz <quentin.schulz@cherry.de>, 
+	Andy Yan <andyshrk@163.com>
+Subject: Re: [PATCH v2] drm/rockchip: vop2: fix rk3588 dp+dsi maxclk
+ verification
+Message-ID: <hmdbq56pv3hzzeewh2vy7khe3zr5yz7loas62antivuq2yl4lm@oyojcydl2u42>
+References: <20241115151131.416830-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ziaozgegtmqy67sl"
+	protocol="application/pgp-signature"; boundary="2eeu7mhffudy7uue"
 Content-Disposition: inline
-In-Reply-To: <20241113221018.62150-2-heiko@sntech.de>
+In-Reply-To: <20241115151131.416830-1-heiko@sntech.de>
 X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.3.1/232.230.92
+X-Zoho-AV-Stamp: zmail-av-1.3.1/232.275.92
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_104933_017361_40790B97 
-X-CRM114-Status: GOOD (  21.72  )
+X-CRM114-CacheID: sfid-20241122_105106_846100_3664AB3D 
+X-CRM114-Status: GOOD (  21.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,171 +86,99 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---ziaozgegtmqy67sl
+--2eeu7mhffudy7uue
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 1/2] dt-bindings: phy: Add Rockchip MIPI CSI/DSI PHY
- schema
+Subject: Re: [PATCH v2] drm/rockchip: vop2: fix rk3588 dp+dsi maxclk
+ verification
 MIME-Version: 1.0
 
 Hi,
 
-On Wed, Nov 13, 2024 at 11:10:17PM +0100, Heiko Stuebner wrote:
+On Fri, Nov 15, 2024 at 04:11:31PM +0100, Heiko Stuebner wrote:
 > From: Heiko Stuebner <heiko.stuebner@cherry.de>
 >=20
-> Add dt-binding schema for the MIPI CSI/DSI PHY found on
-> Rockchip RK3588 SoCs.
+> The clock is in Hz while the value checked against is in kHz, so
+> actual frequencies will never be able to be below to max value.
+> Fix this by specifying the max-value in Hz too.
 >=20
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Fixes: 5a028e8f062f ("drm/rockchip: vop2: Add support for rk3588")
 > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+> Acked-by: Andy Yan<andyshrk@163.com>
 > ---
->  .../phy/rockchip,rk3588-mipi-dcphy.yaml       | 82 +++++++++++++++++++
->  1 file changed, 82 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3588=
--mipi-dcphy.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-d=
-cphy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcph=
-y.yaml
-> new file mode 100644
-> index 000000000000..5ee8d7246fa0
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.ya=
-ml
-> @@ -0,0 +1,82 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/rockchip,rk3588-mipi-dcphy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Rockchip MIPI CSI/DSI PHY with Samsung IP block
-> +
-> +maintainers:
-> +  - Guochun Huang <hero.huang@rock-chips.com>
-> +  - Heiko Stuebner <heiko@sntech.de>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - rockchip,rk3576-mipi-dcphy
-> +      - rockchip,rk3588-mipi-dcphy
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#phy-cells":
-> +    const: 0
 
-I would expect an argument to select between D-PHY and C-PHY mode,
-so that the binding is ready for it even when the driver does not
-yet support it. E.g. something like
-
-  '#phy-cells':
-    const: 1
-    description: |
-      Supported modes are:
-        - PHY_TYPE_DPHY
-        - PHY_TYPE_CPHY
-      See include/dt-bindings/phy/phy.h for constants.
-
-This would match how it works for the naneng Combo PHY to switch
-between PCIe/SATA/USB3. Also Mediatek CSI DC-PHY handles it that
-way upstream (with just D-PHY being supported). I see that the
-driver stack you send upstream expects, that the PHY user (e.g.
-the DSI controller) instead manually calls phy_set_mode(phy, <mode>).
-To me it seems more sensible to just get this automaically from DT.
-
-Otherwise the whole series LGTM.
-
-Greetings,
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
 -- Sebastian
 
-> +  clocks:
-> +    maxItems: 2
-> +
-> +  clock-names:
-> +    items:
-> +      - const: pclk
-> +      - const: ref
-> +
-> +  resets:
-> +    maxItems: 4
-> +
-> +  reset-names:
-> +    items:
-> +      - const: m_phy
-> +      - const: apb
-> +      - const: grf
-> +      - const: s_phy
-> +
-> +  rockchip,grf:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Phandle to the syscon managing the 'mipi dcphy general register fi=
-les'.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +  - "#phy-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-> +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
-> +
-> +    soc {
-> +      #address-cells =3D <2>;
-> +      #size-cells =3D <2>;
-> +
-> +      phy@feda0000 {
-> +        compatible =3D "rockchip,rk3588-mipi-dcphy";
-> +        reg =3D <0x0 0xfeda0000 0x0 0x10000>;
-> +        clocks =3D <&cru PCLK_MIPI_DCPHY0>,
-> +                 <&cru CLK_USBDPPHY_MIPIDCPPHY_REF>;
-> +        clock-names =3D "pclk", "ref";
-> +        resets =3D <&cru SRST_M_MIPI_DCPHY0>,
-> +                 <&cru SRST_P_MIPI_DCPHY0>,
-> +                 <&cru SRST_P_MIPI_DCPHY0_GRF>,
-> +                 <&cru SRST_S_MIPI_DCPHY0>;
-> +        reset-names =3D "m_phy", "apb", "grf", "s_phy";
-> +        rockchip,grf =3D <&mipidcphy0_grf>;
-> +        #phy-cells =3D <0>;
-> +      };
-> +    };
+> changes in v2:
+> - drop the separate vp3-config patch, as vp3 will always get the leftover
+>   resources, so _should_ be fine (Andy)
+> - fix error output to also report Hz for the value in Hz (Quentin)
+> - add received Reviews+Acks
+>=20
+>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/d=
+rm/rockchip/rockchip_drm_vop2.c
+> index 9ad025aa9ab0..0c8ec7220fbe 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> @@ -1864,9 +1864,9 @@ static unsigned long rk3588_calc_cru_cfg(struct vop=
+2_video_port *vp, int id,
+>  		else
+>  			dclk_out_rate =3D v_pixclk >> 2;
+> =20
+> -		dclk_rate =3D rk3588_calc_dclk(dclk_out_rate, 600000);
+> +		dclk_rate =3D rk3588_calc_dclk(dclk_out_rate, 600000000);
+>  		if (!dclk_rate) {
+> -			drm_err(vop2->drm, "DP dclk_out_rate out of range, dclk_out_rate: %ld=
+ KHZ\n",
+> +			drm_err(vop2->drm, "DP dclk_out_rate out of range, dclk_out_rate: %ld=
+ Hz\n",
+>  				dclk_out_rate);
+>  			return 0;
+>  		}
+> @@ -1881,9 +1881,9 @@ static unsigned long rk3588_calc_cru_cfg(struct vop=
+2_video_port *vp, int id,
+>  		 * dclk_rate =3D N * dclk_core_rate N =3D (1,2,4 ),
+>  		 * we get a little factor here
+>  		 */
+> -		dclk_rate =3D rk3588_calc_dclk(dclk_out_rate, 600000);
+> +		dclk_rate =3D rk3588_calc_dclk(dclk_out_rate, 600000000);
+>  		if (!dclk_rate) {
+> -			drm_err(vop2->drm, "MIPI dclk out of range, dclk_out_rate: %ld KHZ\n",
+> +			drm_err(vop2->drm, "MIPI dclk out of range, dclk_out_rate: %ld Hz\n",
+>  				dclk_out_rate);
+>  			return 0;
+>  		}
 > --=20
 > 2.45.2
 >=20
->=20
 
---ziaozgegtmqy67sl
+--2eeu7mhffudy7uue
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmdA0iYACgkQ2O7X88g7
-+pqCVxAAjfX56csgOp+pRFu/Lzsmgy2PJnA+ahOcXVFpjer1P7y6mePQgwN4QfRt
-njnHJ9CdSLqwpOoBH3igShSlZ7Udd1gXzgigk3LsjpLOLqOe66L7Yzq/pS9LDPM0
-O6o5sAlvkDCMBwZx+NFzBK3FsVZ8w+yHPFw6pcIqBATAMsT5iC+7L6v1+VKbJ0Hj
-Rc9btYfxmUfUPGUvM/fDTEoAxK3b/R6hrrIzbp6mh+IFmU0Jg8pzCxdBbAJvHclP
-CTAFeXzNZ7t2mO20zp/ErvhR71e1zKsqVhddQWg5FkEb2hVAh6QqmdYaJmhzDSqN
-/7VC0nRX9Ck9Uj/XMAOo+u/QaVSrJp8uSfygtt8xjKac4KSbi8I1K8zUcPBhnESr
-LlsbjLKOYiXL9mDOcWcsNRwQCjofWviPUz571uchvhUNnDmZAS5tgD5AmI2Bfpor
-bfF63gY1/i+eAghsyIua091anZGpZfpUhghHHz9WP7Kr3ZrhIhe3fww29H0Z0gLa
-+pIS0BLCXjlzx/OYEV6JPou2zuFrMHIX4N4XaCx4oAi7S9Fh4c05yt4VljWMB0mr
-Kn4FHuM9Hf6z6ZrR70IeCtElmK/gXPXag5olucUIKy/x/cso++EDu05tXX7Rys6e
-USpG+9j6rfzZh49dTkgNU2ijnwpovTblFjae10YAMBVNlGturPk=
-=D23f
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmdA0ocACgkQ2O7X88g7
++pq+OA//auA09X+F19vqyltYszS4rFqnQHuB4VhXl2Tt3aPbMHzg0JHlYHZqdl8o
+hXEBxgTCOMULUc0+yK/mfTdeOYtFwrDjXrfTxNvkrKuUvkW59rlZK5+eFrINVoYB
++1B4/kAckcEBbuNuHEYm1IjDNZtQQ5cmidoX0X4BAcXpXU181JjVusfXbmZeryJW
+sTY/Dj3Uva0JGhUz1vghwpHxgOy8ZVGdNXcfu86ICF04/3bnTAmoZrDFNiX6qz57
+i5jLi9HtAs9gzgW4KNzX8TzRzlWGKZMxiTAc71AfZXrS0oReotkGFKr1MRQga16V
+94jQa1VrK2xUPXKl7XOjJN+29+N8pUFDqd8fVUW7+X6xaS9oD5axFADpEaLltfBT
+8bInVEuXx4g0/DWoA8/eLXwEo4p5XbZC0ZGCnE5GJ4eAGZnorSJPcC//I52DJzOt
+XPobbijNgdexFdPV9q+GEaDQ235fQosoCNeJ6YQbVZY7AgVZ8/QTUWNgEzI6Akrl
+084Lyf++bIYLk1Bxtp8J7AVs2t0HQ2LpZoB6TdbANkG7wbGKJxPXXBahk3KQchNq
+QkUczep6xS/gvZc57g8+4QEa0bHWN48dmBFXV8y9p8/oFpAbjOL9W+xogVoT20RL
+QKinHDk7Ucho/J9lyems96suStxkV70OhpF0vJ4jE4ey2eMDzwI=
+=oZX3
 -----END PGP SIGNATURE-----
 
---ziaozgegtmqy67sl--
+--2eeu7mhffudy7uue--
 
