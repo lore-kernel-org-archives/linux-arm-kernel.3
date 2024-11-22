@@ -4,118 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AABAE65D3F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 10:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3FD1E65D3F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 10:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xxqQpdm39Xz771FfwLGwF5tPSbSOQHA24wAD4LF4/0E=; b=b8bQCmLmZtjx//EIhErJNBy7FQ
-	quP5RkrxiRWUgCfrm4TLseqZ5zuxs6LyEPmSnnD+AJWiUj9dKVnOwZML/KDksFRdzm7vtpvbBSK6S
-	wlwHi9BrbGG8Q1wLdNrbKqKco1kCArrK0mnb1ltIvDRbHZmHBu3jpVm5xLmuvMuyLYaldGBQjSNb3
-	DTKLR8YvIwMh8YmbSkiw2Qt0khuqOTF8BXCgNSFCaLF3n7olXieeWwi6wCNK/7c4x7WN6ooI2JrhS
-	u4RLAb2eQHVhjw2XqPDAg4z093K08IG9Jup2O5poMK66iYohZUtuC8Fo/pCK0UbPHxjj26qGlEpE+
-	Ze0OqlBw==;
+	bh=jf5gPL5/Bh7wZhWt6hWuXy+jSVHcNsyTM1tG/9R767A=; b=jxMtEMImeteOVBzlI6W6/kM/4L
+	jHwa/m0F4UgIdgjHRdtAkvEzXNzH1CNjLaLgiful2/+7I0yhnNoOjCb7tQvlIHBQwMYFtMiFmNl+j
+	lgfe3VWKDyJkE40NVZwClPPCi3b4M/3hrn50cLfchZewksZ1Fh95ahSyac/Mo1kd1QCfYK9kE61w/
+	IcQs+Pxo4SsLBKw+iuldXFxWZl/ZwnyaUAgIU9Rey3xqcy542fL7Fjx697eVOaXm/QCR6g5LrnVbt
+	GeeoF2PCZeVSIr4T0Y1HKu2f+Y2ER8XurwRnBGEVdM+4r315Lm8h2RvkbTatyiP1vLkVvcjZ5nFWY
+	buZi3ZLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEQfX-00000002Djk-1WhM;
-	Fri, 22 Nov 2024 10:13:43 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tEQgS-00000002Dpz-48XS;
+	Fri, 22 Nov 2024 10:14:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEQRp-00000002Ar4-36aA
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 09:59:34 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AM2MoAJ027689;
-	Fri, 22 Nov 2024 09:59:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	xxqQpdm39Xz771FfwLGwF5tPSbSOQHA24wAD4LF4/0E=; b=hZkuOUOHTRvMBiDN
-	kJCNh2wg0GUM9t3kVzEI+cu5siA0+x96Tv487mMapa5iepeN+Ti9Y3r1EN+hduxK
-	i+V83HVoLqiZx3X0kf3LDvYMRpVM2VtdXxBBSpUY8/8Au7V8+0kbQQg0ZI1gpKf8
-	/lq1i/Vt9sgTcCTUkpOVtupQH7Wi5xvShR2j1t3gH91zDr0p9PaVYWguUzl7eCdJ
-	QSbsFbQRU1yk17fkaOK7SBsgrpmd3u8wVyFlw2kDGboBQ1jjhNZThPrLMGdmIOd9
-	uv9qdJJCiSNOnr0JxPfgsKYwCGqqFvrq47tWkOFui5xLKreGlQmJJ3YNphxGKwhn
-	0x9G6Q==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 432h4ds1p8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 22 Nov 2024 09:59:25 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AM9xOG3008434
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 22 Nov 2024 09:59:24 GMT
-Received: from robotics-lnxbld017.ap.qualcomm.com (10.80.80.8) by
- nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Fri, 22 Nov 2024 01:59:17 -0800
-From: Fange Zhang <quic_fangez@quicinc.com>
-Date: Fri, 22 Nov 2024 17:56:49 +0800
-Subject: [PATCH v3 6/9] drm/msm/dsi: Add dsi phy support for SM6150
+	id 1tEQRr-00000002Arm-0Vwx;
+	Fri, 22 Nov 2024 09:59:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4F4D45C5437;
+	Fri, 22 Nov 2024 09:58:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26B23C4CED7;
+	Fri, 22 Nov 2024 09:59:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732269573;
+	bh=0ftWDSX41M/H1Xuk75QeX8CBR8oUnrbEjm0UfJzEf30=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lLaU/E4eB91C5DQq/cwO3HkPlxay7OZkwOSTa4d+Mzc0NC6prGZaSYqckUGJjWvQC
+	 kRbyEKtNdCNNio3/5r5gfrRb9vOlDlPj9uoewaO7KFVBsV1EecD1O02gMGSY4E4kWO
+	 CXKO4x2IY0U1XGHA1fKCW5840MPSMVcTSqdKzU1Or846i20CoBAY9+DGbroYkenMkM
+	 nALzxJi+4E2tg5Lv6LnqKWO+ApZ76wyx6W7VpI+VDACfAgaEw3tCNjXn2kFJEbWWv+
+	 7+rJ+LMn0DPKZpUD9pFHqFZPqgvZZ39clgtj35x+PMg7OGuDOBW89YtIQGJKx1G10a
+	 pr7XgGGBDj9Ng==
+Message-ID: <34f5e893-bb52-4e48-a854-0967b39cae28@kernel.org>
+Date: Fri, 22 Nov 2024 10:59:27 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20241122-add-display-support-for-qcs615-platform-v3-6-35252e3a51fe@quicinc.com>
-References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
-In-Reply-To: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
-To: Rob Clark <robdclark@gmail.com>,
-        Abhinav Kumar
-	<quic_abhinavk@quicinc.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard
-	<mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Krishna Manikandan <quic_mkrishn@quicinc.com>,
-        "Bjorn
- Andersson" <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, "Li
- Liu" <quic_lliu6@quicinc.com>,
-        Fange Zhang <quic_fangez@quicinc.com>,
-        "Xiangxu Yin" <quic_xiangxuy@quicinc.com>
-CC: <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732269515; l=3211;
- i=quic_fangez@quicinc.com; s=20241014; h=from:subject:message-id;
- bh=jsFZ9XgO33jYsNR3v8jwDSfxgiPx/UVvTV/t9C3aAdI=;
- b=DFoG5wENE0Ng2dKni2I4FZkHPv1eBXfLE63JHiNwOeob9RwabIRtzK6jLuUJRbAsT6oHqI3UA
- BVxwA3iOhDRCxyTcqc5ONxXrGwpvMXTS3nQaZqR+7FiGytli3tvm+We
-X-Developer-Key: i=quic_fangez@quicinc.com; a=ed25519;
- pk=tJv8Cz0npA34ynt53o5GaQfBC0ySFhyb2FGj+V2Use4=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: xQcCC6LyUHgObMeNHRFwbrlA8zTYX9Dp
-X-Proofpoint-GUID: xQcCC6LyUHgObMeNHRFwbrlA8zTYX9Dp
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 suspectscore=0
- clxscore=1015 phishscore=0 malwarescore=0 impostorscore=0
- lowpriorityscore=0 mlxlogscore=999 spamscore=0 adultscore=0 mlxscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411220084
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] memory: mtk-smi: mt8188: Add SMI clamp function
+To: =?UTF-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>
+References: <20241120063701.8194-1-friday.yang@mediatek.com>
+ <20241120063701.8194-3-friday.yang@mediatek.com>
+ <5bf3bdab-8614-4024-a9da-f7f58414c0af@kernel.org>
+ <e18bf1ba05c86b26fb4f18c444a19b391df29c55.camel@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <e18bf1ba05c86b26fb4f18c444a19b391df29c55.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_015933_902683_34218515 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20241122_015935_253325_EDB3E5AA 
+X-CRM114-Status: GOOD (  22.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,81 +129,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Li Liu <quic_lliu6@quicinc.com>
+On 22/11/2024 10:41, Friday Yang (杨阳) wrote:
+> On Wed, 2024-11-20 at 08:49 +0100, Krzysztof Kozlowski wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
+>>
+>>
+>> On 20/11/2024 07:36, Friday Yang wrote:
+>>> In order to avoid handling glitch signal when MTCMOS on/off, SMI
+>>> need
+>>> clamp and reset operation. Parse power reset settings for LARBs
+>>> which
+>>> need to reset. Register genpd callback for SMI LARBs and apply
+>>> reset
+>>> operations in the callback.
+>>>
+>>> Signed-off-by: Friday Yang <friday.yang@mediatek.com>
+>>> ---
+>>>  drivers/memory/mtk-smi.c | 175
+>>> ++++++++++++++++++++++++++++++++++++++-
+>>>  1 file changed, 171 insertions(+), 4 deletions(-)
+>>>
+>>> diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
+>>> index 2bc034dff691..c7119f655350 100644
+>>> --- a/drivers/memory/mtk-smi.c
+>>> +++ b/drivers/memory/mtk-smi.c
+>>> @@ -10,15 +10,21 @@
+>>>  #include <linux/err.h>
+>>>  #include <linux/io.h>
+>>>  #include <linux/iopoll.h>
+>>> +#include <linux/mfd/syscon.h>
+>>
+>> Where do you use it?
+> 
+> device_node_to_regmap need this header file.
 
-Add phy configuration for SM6150
+Ah, indeed, but then I wonder why you parse phandle instead of using
+standard syscon API: syscon_regmap_lookup_by_phandle().
 
-Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
-Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
----
- drivers/gpu/drm/msm/dsi/phy/dsi_phy.c      |  2 ++
- drivers/gpu/drm/msm/dsi/phy/dsi_phy.h      |  1 +
- drivers/gpu/drm/msm/dsi/phy/dsi_phy_14nm.c | 21 +++++++++++++++++++++
- 3 files changed, 24 insertions(+)
 
-diff --git a/drivers/gpu/drm/msm/dsi/phy/dsi_phy.c b/drivers/gpu/drm/msm/dsi/phy/dsi_phy.c
-index dd58bc0a49eb5ca96370f7832d9251609ac0c552..c0bcc68289633fd7506ce4f1f963655d862e8f08 100644
---- a/drivers/gpu/drm/msm/dsi/phy/dsi_phy.c
-+++ b/drivers/gpu/drm/msm/dsi/phy/dsi_phy.c
-@@ -567,6 +567,8 @@ static const struct of_device_id dsi_phy_dt_match[] = {
- 	  .data = &dsi_phy_14nm_8953_cfgs },
- 	{ .compatible = "qcom,sm6125-dsi-phy-14nm",
- 	  .data = &dsi_phy_14nm_2290_cfgs },
-+	{ .compatible = "qcom,sm6150-dsi-phy-14nm",
-+	  .data = &dsi_phy_14nm_6150_cfgs },
- #endif
- #ifdef CONFIG_DRM_MSM_DSI_10NM_PHY
- 	{ .compatible = "qcom,dsi-phy-10nm",
-diff --git a/drivers/gpu/drm/msm/dsi/phy/dsi_phy.h b/drivers/gpu/drm/msm/dsi/phy/dsi_phy.h
-index 4953459edd636363614ecad85654614fc95cfa1d..8985818bb2e0934e9084a420c90e2269c2e1c414 100644
---- a/drivers/gpu/drm/msm/dsi/phy/dsi_phy.h
-+++ b/drivers/gpu/drm/msm/dsi/phy/dsi_phy.h
-@@ -46,6 +46,7 @@ extern const struct msm_dsi_phy_cfg dsi_phy_28nm_8937_cfgs;
- extern const struct msm_dsi_phy_cfg dsi_phy_28nm_8960_cfgs;
- extern const struct msm_dsi_phy_cfg dsi_phy_20nm_cfgs;
- extern const struct msm_dsi_phy_cfg dsi_phy_14nm_cfgs;
-+extern const struct msm_dsi_phy_cfg dsi_phy_14nm_6150_cfgs;
- extern const struct msm_dsi_phy_cfg dsi_phy_14nm_660_cfgs;
- extern const struct msm_dsi_phy_cfg dsi_phy_14nm_2290_cfgs;
- extern const struct msm_dsi_phy_cfg dsi_phy_14nm_8953_cfgs;
-diff --git a/drivers/gpu/drm/msm/dsi/phy/dsi_phy_14nm.c b/drivers/gpu/drm/msm/dsi/phy/dsi_phy_14nm.c
-index 1723f0e4faa4e4fd612d66f9976e80e045eafcc8..2c3cbe0f2870e7d68b9563957de8621f7cd36b78 100644
---- a/drivers/gpu/drm/msm/dsi/phy/dsi_phy_14nm.c
-+++ b/drivers/gpu/drm/msm/dsi/phy/dsi_phy_14nm.c
-@@ -1032,6 +1032,10 @@ static const struct regulator_bulk_data dsi_phy_14nm_73p4mA_regulators[] = {
- 	{ .supply = "vcca", .init_load_uA = 73400 },
- };
- 
-+static const struct regulator_bulk_data dsi_phy_14nm_36mA_regulators[] = {
-+	{ .supply = "vdda", .init_load_uA = 36000 },
-+};
-+
- const struct msm_dsi_phy_cfg dsi_phy_14nm_cfgs = {
- 	.has_phy_lane = true,
- 	.regulator_data = dsi_phy_14nm_17mA_regulators,
-@@ -1097,3 +1101,20 @@ const struct msm_dsi_phy_cfg dsi_phy_14nm_2290_cfgs = {
- 	.io_start = { 0x5e94400 },
- 	.num_dsi_phy = 1,
- };
-+
-+const struct msm_dsi_phy_cfg dsi_phy_14nm_6150_cfgs = {
-+	.has_phy_lane = true,
-+	.regulator_data = dsi_phy_14nm_36mA_regulators,
-+	.num_regulators = ARRAY_SIZE(dsi_phy_14nm_36mA_regulators),
-+	.ops = {
-+		.enable = dsi_14nm_phy_enable,
-+		.disable = dsi_14nm_phy_disable,
-+		.pll_init = dsi_pll_14nm_init,
-+		.save_pll_state = dsi_14nm_pll_save_state,
-+		.restore_pll_state = dsi_14nm_pll_restore_state,
-+	},
-+	.min_pll_rate = VCO_MIN_RATE,
-+	.max_pll_rate = VCO_MAX_RATE,
-+	.io_start = { 0xae94400 },
-+	.num_dsi_phy = 1,
-+};
+> 
+>>
+>>>  #include <linux/module.h>
+>>>  #include <linux/of.h>
+>>>  #include <linux/of_platform.h>
+>>>  #include <linux/platform_device.h>
+>>> +#include <linux/pm_domain.h>
+>>
+>> Where do you use it?
+> 
+> dev_pm_genpd_add_notifier need this header file.
 
--- 
-2.34.1
+ack
 
+> 
+>>
+>>>  #include <linux/pm_runtime.h>
+>>> +#include <linux/regmap.h>
+>>
+>> Where do you use it?
+> 
+> regmap_write need this header file.
+
+ack
+
+> 
+>>
+>>> +#include <linux/reset.h>
+>>> +#include <linux/reset-controller.h>
+>>>  #include <linux/soc/mediatek/mtk_sip_svc.h>
+>>>  #include <soc/mediatek/smi.h>
+>>>  #include <dt-bindings/memory/mt2701-larb-port.h>
+>>>  #include <dt-bindings/memory/mtk-memory-port.h>
+>>> +#include <dt-bindings/reset/mt8188-resets.h>
+>>>
+>>
+>> ...
+> 
+> reset_control_reset/devm_reset_control_get need reset.h
+> But reset-controller.h could be removed.
+> MT8188_SMI_RST_LARB10 and other index need mt8188-resets.h 
+> 
+>>
+>>>
+>>> +static int mtk_smi_larb_parse_clamp_info(struct mtk_smi_larb
+>>> *larb)
+>>> +{
+>>> +     struct device *dev = larb->dev;
+>>> +     const struct mtk_smi_larb_gen *larb_gen = larb->larb_gen;
+>>> +     struct device_node *smi_node;
+>>> +     struct of_phandle_args args;
+>>> +     int ret, index;
+>>> +
+>>> +     /* Only SMI LARBs located in camera and image subsys need to
+>>
+>> Use Linux coding style.
+> 
+> Sorry for the mistake, I will fix it.
+> 
+>>
+>>> +      * apply clamp and reset operation, others can be skipped.
+>>> +      */
+>>> +     ret = of_parse_phandle_with_fixed_args(dev->of_node,
+>>> +                                            "resets", 1, 0,
+>>> &args);
+>>
+>> NAK
+>>
+>>> +     if (ret)
+>>> +             return 0;
+>>> +
+>>> +     smi_node = of_parse_phandle(dev->of_node, "mediatek,smi", 0);
+>>> +     if (!smi_node)
+>>> +             return -EINVAL;
+>>> +
+>>> +     index = args.args[0];
+>>
+>> That's reset, not clamp port. NAK.
+> 
+> I could change from 'clamp_port' to 'reset_port'.
+> This index is used for getting the port id from the array
+> 'mtk_smi_larb_clamp_port_mt8188 ' in SMI driver.
+
+Index is for reset, not for port ID.
+
+> It could also be used for getting the reset signal in
+> SMI reset controller driver.
+> 
+
+Look at my comments from previous version - they were not under reset
+property. The argument for reset is for reset provider, not this reset
+consumer.
+
+BTW, when you link to previous versions of patchset, link to lore, not
+patchwork. Or just use b4.
+
+Best regards,
+Krzysztof
 
