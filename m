@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D9C3D75E53
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 14:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D513D75E58
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 14:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rS0h64lEvJkOELi9LIcTxMezSjA08oWQTk1+bZmTreU=; b=K0X6cMolj5IZ5R
-	zxp8Mufcba+ABrMyD6jevYKKNsE2rcaxArplNFIGnf40/nEvc+l7bkiXlvrxSmw60XLkvyrxysWHN
-	SIhp5X+GaTrAYqKNFMKYPMkBJ3BvkqDQjZYlOPiypJ5tppkCQI50Jwp1ncIl1xA1f5kmpLOAwRhf0
-	Z9lAs9u5mhLQexBULhqVfWAyvq/3WDZu4JAb+SZiG6IEXfudnrvy7ICQBKGf9Xl1mExmGevjNTtus
-	oxlQvMnnETqmtQ1yRtTfqUGhzl2UysDV4UMvQSLKCUb0X3vWDZNUVex6bPzQP3i/fg8RfgoRcR+gH
-	4GpzGTu4ATeIZyKzOtrQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ol/8URh2FBPj8F5l8LvLrhCsPIrfEw/h/Cx/SKJh1iY=; b=pKCgNShqwtYo8GfTp73/IxOcxa
+	AKjI5dcZw1QQqodS3nov3S++eudmUOuM1MiiVGmXuiKYgO5XEtm5kyhPDhJC0THVxnBVgtUZ82Y0r
+	PQZ6VtjInYHJla5+41UkL5j2xbm1R3JFxo18u7iYnO/C3qqDHjl/s/bkMStljo8RTpLMHZm0lOr+X
+	c+P819nmck9/HEVElYEv/pxe+cIvGyvLstGfYhAlafjXJjEqJUZeHl/RqL9/G3fqaooya2+USqY7/
+	BXCmrOpUDLB++iwcAgVTWh1QJkucZqi64jGe+9cCDcJwQWjpSkU2Jc2xRECoBxdmHpdgCGTHjONP/
+	qSVUccsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEUR6-00000002bDq-0rfu;
-	Fri, 22 Nov 2024 14:15:04 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1tEUce-00000002bmL-2YYs;
+	Fri, 22 Nov 2024 14:27:00 +0000
+Received: from mail.thorsis.com ([217.92.40.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEUPT-00000002awX-0bmN
+	id 1tEUbh-00000002bkL-2Bze
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 14:13:24 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 92386A03A7;
-	Fri, 22 Nov 2024 15:13:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=rS0h64lEvJkOELi9LIcTxMezSjA08oWQTk1+bZmTreU=; b=
-	sWtnn2baWensTrkkaHkuUpwJM2czdi1p2y9W4swtcx1CRcy3N/dv9XFnsZrKDsiB
-	PNpkUC1RR7hhJlrMV+KhD1QpZCaMKyyCWnqhhexQsSJU9lBc0iAgF7M+k/LZ0UBO
-	hiFOIQ3/fFsovTZVR8xNw2g1Yacdrj0nUBirDodQZhoFyZIPjDgk7w87KaZ+Ad6K
-	DX3NkAoLQ4kyjHD/P3IEbIHeYBcGi9HMswz9kKFIlvI23rnRqCmzM3VQAPP9aAtm
-	0QRBeZK64+1VA7WAkAQcVBZUeKsq2GgiYrYgxyLRMqQOjwc/9s9MuBGbv2v2kFuC
-	RMjrqgW8t6kBh65NXSETzEmRjw0RdW4Ie9inGhdjoNhMkdKTd91mhNXCp78df8sL
-	lxBsw1Ym+SNw5n9Aq+ZYSuLqN3bLCGbsJ3CujGAGToMIX19ruHLuk+MDtaLHk1m4
-	JzU7CJRuPiN36TnLjkBjnMI6/q5fMF8aYevNwd4PxHKMksKAgzZye37+yPlsoe34
-	ci30W4z4yMjP3R31RNgX6H9RC3gxsqz8oXFB1BItc7vlXjngNDyPL0DX/dxRpADZ
-	3kNUr7TrpEgMfvRHYgRtlLJgYFuPmTQUm/B3LXbWrUFKfBF+rE+LbYd/tuIvKUav
-	XEljaGDkoqiSCjKPLr/BNrHY6XYlg870uo9XUOLMjYU=
-From: =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, Mark Brown <broonie@kernel.org>,
-	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH] spi: atmel-quadspi: Fix register name in verbose logging function
-Date: Fri, 22 Nov 2024 15:13:02 +0100
-Message-ID: <20241122141302.2599636-1-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.34.1
+	Fri, 22 Nov 2024 14:26:03 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3A82F1483473;
+	Fri, 22 Nov 2024 15:25:53 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1732285556;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ol/8URh2FBPj8F5l8LvLrhCsPIrfEw/h/Cx/SKJh1iY=;
+	b=EOA1thI+YywyhD5Gc55IqLdgcCKKbxGqZZj+jb0dI9j/OcuZiq3mB15Y6w7pUOyr/1FNlT
+	RQ1iCXHuqzYZoiZW6TSoJnZ+Igdj78Gl/5H2hQegRM4SEeGJ2tqJaxbTsfJpS4XXrp5jHT
+	AD9/e/GTTn9npk/iCtHCnIpbcOILTH4eqDb9a8+afFZCzEesWZdPw+VmweixTH2IpgXA6n
+	jw363d4z1sm7z91MARmC1W4Vo+GQylJzS1XR99KHidV3Kp2M1E9+qCiubbqAW8IZtzjMgS
+	DbHNs9xo8Ek9zqAbn2hdugLPdhV6TihSbADEaLuK/ReRUd17mYWwSiL9HHj/wQ==
+Date: Fri, 22 Nov 2024 15:25:47 +0100
+From: Alexander Dahl <ada@thorsis.com>
+To: =?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>
+Subject: Re: [PATCH] spi: atmel-quadspi: Fix register name in verbose logging
+ function
+Message-ID: <20241122-zips-module-d0e6c6a1e69b@thorsis.com>
+Mail-Followup-To: =?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+References: <20241122141302.2599636-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1732284790;VERSION=7980;MC=2726538235;ID=74493;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A29ACD9485560736B
+In-Reply-To: <20241122141302.2599636-1-csokas.bence@prolan.hu>
+User-Agent: Mutt/2.2.12 (2023-09-09)
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_061323_638901_0522DA35 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241122_062602_016972_48F23577 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,36 +76,41 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-kernel@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>, Mark Brown <broonie@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-`atmel_qspi_reg_name()` is used for pretty-printing register offsets
-for verbose logging of register accesses. However, due to a typo
-(likely a copy-paste error), QSPI_RD's offset prnts as "MR", the
-name of the previous register. Fix this typo.
+Hello,
 
-Fixes: c528ecfbef04 ("spi: atmel-quadspi: Add verbose debug facilities to monitor register accesses")
-Signed-off-by: Cs√≥k√°s, Bence <csokas.bence@prolan.hu>
----
- drivers/spi/atmel-quadspi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Am Fri, Nov 22, 2024 at 03:13:02PM +0100 schrieb CsÛk·s, Bence:
+> `atmel_qspi_reg_name()` is used for pretty-printing register offsets
+> for verbose logging of register accesses. However, due to a typo
+> (likely a copy-paste error), QSPI_RD's offset prnts as "MR", the
+> name of the previous register. Fix this typo.
+> 
+> Fixes: c528ecfbef04 ("spi: atmel-quadspi: Add verbose debug facilities to monitor register accesses")
+> Signed-off-by: CsÛk·s, Bence <csokas.bence@prolan.hu>
+> ---
+>  drivers/spi/atmel-quadspi.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+> index 91108ddfaef2..316bce577081 100644
+> --- a/drivers/spi/atmel-quadspi.c
+> +++ b/drivers/spi/atmel-quadspi.c
+> @@ -183,7 +183,7 @@ static const char *atmel_qspi_reg_name(u32 offset, char *tmp, size_t sz)
+>  	case QSPI_MR:
+>  		return "MR";
+>  	case QSPI_RD:
+> -		return "MR";
+> +		return "RD";
+>  	case QSPI_TD:
+>  		return "TD";
+>  	case QSPI_SR:
 
-diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
-index 91108ddfaef2..316bce577081 100644
---- a/drivers/spi/atmel-quadspi.c
-+++ b/drivers/spi/atmel-quadspi.c
-@@ -183,7 +183,7 @@ static const char *atmel_qspi_reg_name(u32 offset, char *tmp, size_t sz)
- 	case QSPI_MR:
- 		return "MR";
- 	case QSPI_RD:
--		return "MR";
-+		return "RD";
- 	case QSPI_TD:
- 		return "TD";
- 	case QSPI_SR:
--- 
-2.34.1
+Reviewed-by: Alexander Dahl <ada@thorsis.com>
 
+Greets
+Alex
 
 
