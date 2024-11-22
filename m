@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 290A9E65D32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 08:02:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80282E65D32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 08:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OMD2mdjlpFqaHKrkK26yzFTEcmuAs55YSaXgREhafHw=; b=IrMzEyKSBfzQvhFSw6kRZUFwYq
-	EKSXvn2umRovyhNAaabISSPQxW8dF4pftYyz5A9pDHqR+DgujqlbRZpE4J3rbmnGaWHAjXtDsI1G0
-	zW1Q2caO1z9ZcWSoq+QhVNA48eRYz8gKkyfSqhiq01tngxvQ6DXt5Ds8TC7hjIUWogKQ/0hRN4N7u
-	g+VrRalR89tlG0d9vkGLCJ0pScaODlf4GqpUkv5S/O7gBEHnsG4NSrt7s0dq+4nQ9Tz2OP+aQp/mZ
-	3r56QJH1sE18Ew5VTlBDwSeAEBLstRKGG/23EWKOuSjqMX+8dsboLes7YhA1mpJETFPHm0p51JYao
-	k9xArKlA==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5u8Yd7srLzNICkwS5m0ozwf+Lruuo6AdtKu7LNheZWg=; b=nRvhiajprloAQwMPbeLaJIS+d/
+	FRC+cJqLdH5kJQwj+P5nQ+jMPIjVrpbRmFCBVYPnn5l2Y3XHiEr43N2WYZbtxjIaPUEtVP8ZsBVJp
+	x0EpjmsUdfAtP7jOK8qnk016kA2DQkM4aMxU/4mKvBCrJHfdPFPr9e7q3nphMQYbPL1efw+5I1hJ9
+	OX7ORirwuCZ8srPTxXF2bmgpPd11tfK4aN+c5mM5P5OPdYPng+FJ2OBg3iGeqbP+0gBn/0D7HEV51
+	PazPcfrdCrgvkDfkO8aZBb4ARraVaP3kXUlneJEmdevodiPe7kBLGWOKPrwLfhYepNwqmYjdqLXNS
+	8w8+LaNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEOcM-00000001sIk-2l1B;
-	Fri, 22 Nov 2024 08:02:18 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tEOgk-00000001spm-13AP;
+	Fri, 22 Nov 2024 08:06:50 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEObP-00000001s8e-40vr;
-	Fri, 22 Nov 2024 08:01:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=OMD2mdjlpFqaHKrkK26yzFTEcmuAs55YSaXgREhafHw=; b=ldO9/HYBBQJ0Obh5Yeds+F34kQ
-	wmUmZWEyvRzrKAlLf2IF3xED6dzrS34N6BGQeVACHNQvkgFWzsDJVcWyCdLrO30NHJABnHILB20hq
-	AcBToaqK84O1dDrlJCPVALnOilxNUmAAQiW0MTe318MDs9m95sOy7rFrpSpqQbzIDJL425Tskazxu
-	tlFQcEX7iiWL7kU5RK4bZaD9plyyUVL5DSAczRW3K4s/GmA5lO3wKG84Vz5X65kle2ZcTnbHP41gY
-	L8DDbXMFX8kmJgEg0XcGgC7cZC3DvmqUntVdfKd++6qlW8uZl+1HVlPKCr5oRmLM8rXlWRVgfZKX7
-	PuwYAq0g==;
-Received: from [185.156.123.69] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tEObJ-0004J3-G4; Fri, 22 Nov 2024 09:01:13 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Yifeng Zhao <yifeng.zhao@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, Chukun Pan <amadeus@jmu.edu.cn>,
- FUKAUMI Naoki <naoki@radxa.com>,
- Michael Zimmermann <sigmaepsilon92@gmail.com>
-Subject: Re: [PATCH 2/2] phy: rockchip: naneng-combphy: fix phy reset
-Date: Fri, 22 Nov 2024 09:01:12 +0100
-Message-ID: <6110148.lOV4Wx5bFT@phil>
-In-Reply-To: <20241122073006.99309-2-amadeus@jmu.edu.cn>
-References: <20241122073006.99309-1-amadeus@jmu.edu.cn>
- <20241122073006.99309-2-amadeus@jmu.edu.cn>
+	id 1tEOfn-00000001sf2-3nuK
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Nov 2024 08:05:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1732262752; x=1763798752;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=hux5Q8X2nef5Bcrui5OWpPRB1gIDoQFhpk4nkDN3EWQ=;
+  b=ePQpQUfa65rVB6tJ5D55GvGfuGAz2gTDC0rivil7v7/ZNaZZZ8qkx7uQ
+   8b2mc8I04FxhGOfLMV7BcPAi4pNCVSP6eUYvIbujP7wJIyfNYMRpQdoHM
+   KCrSWhcgzXHZ9uIvBQtbz/jfLINk6XkVHjZwfh1ixddeHwMPM6FSi0JxF
+   uOuWj8vOiq0u9LG9uGwHs+VcIWw6e26Pkq1JCwor4ebo0KYabnmHAly1Y
+   KpiVRoKy+U1V8QzxU8f2g3n/dvQqO08SewY66eYExbJJYrQjeEDgZ3Vb+
+   Yx+y8mzrRjkAAbzMhpkiQLHFbPbDpjOa0fdOKHytXBLSK8O0PKmTK5lGX
+   A==;
+X-CSE-ConnectionGUID: seBZEJAOQsKqub7xMw7SQA==
+X-CSE-MsgGUID: oX8kSjsmThqCFdMRVuwI9Q==
+X-IronPort-AV: E=Sophos;i="6.12,175,1728975600"; 
+   d="scan'208";a="34661804"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Nov 2024 01:05:50 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 22 Nov 2024 01:05:42 -0700
+Received: from archlinux.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Fri, 22 Nov 2024 01:05:40 -0700
+From: Mihai Sain <mihai.sain@microchip.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: Mihai Sain <mihai.sain@microchip.com>
+Subject: [PATCH 0/2] Add power monitor support on sam9x75-curiosity board
+Date: Fri, 22 Nov 2024 10:05:21 +0200
+Message-ID: <20241122080523.3941-1-mihai.sain@microchip.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_000119_995977_B0DF0652 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20241122_000552_055167_84FC33F8 
+X-CRM114-Status: UNSURE (   6.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,43 +85,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 22. November 2024, 08:30:06 CET schrieb Chukun Pan:
-> Currently, the USB port via combophy on the RK3528/RK3588 SoC is broken.
-> 
->   usb usb8-port1: Cannot enable. Maybe the USB cable is bad?
-> 
-> This is due to the combphy of RK3528/RK3588 SoC has multiple resets, but
-> only "phy resets" need assert and deassert, "apb resets" don't need.
-> So change the driver to only match the phy resets, which is also what
-> the vendor kernel does.
-> 
-> Fixes: 7160820d742a ("phy: rockchip: add naneng combo phy for RK3568")
-> Cc: FUKAUMI Naoki <naoki@radxa.com>
-> Cc: Michael Zimmermann <sigmaepsilon92@gmail.com>
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-> ---
->  drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> index 0a9989e41237..2eb3329ca23f 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> @@ -309,7 +309,7 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
->  
->  	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
->  
-> -	priv->phy_rst = devm_reset_control_array_get_exclusive(dev);
-> +	priv->phy_rst = devm_reset_control_get(dev, "phy");
->  	if (IS_ERR(priv->phy_rst))
->  		return dev_err_probe(dev, PTR_ERR(priv->phy_rst), "failed to get phy reset\n");
+This patch series adds power monitor support and moves i2c address/size to dtsi.
 
-That reset-control is deasserted in the driver in a place where
-already parts of the phy are supposed to be configured, so it
-wiggling the apb_reset at those places (i.e. after running
-priv->cfg->combphy_cfg()) probably causes strange effects, so
+[root@SAM9X75 ~]$ lsiio
+Device 001: pac1934
+Device 000: f804c000.adc
+Trigger 000: f804c000.adc-dev0-external_rising
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+[root@SAM9X75 ~]$ awk -f pac1934.awk
+VDD3V3 current:   15.7075 mA, voltage: 3298.34 mV
+VDDOUT4 current:    8.436 mA, voltage: 1205.08 mV
+VDDCORE current:  121.237 mA, voltage: 1250 mV
+VDDIODDR current: 34.3125 mA, voltage: 1354.49 mV
 
+Mihai Sain (2):
+  ARM: dts: microchip: sam9x7: Move i2c address/size to dtsi
+  ARM: dts: microchip: sam9x75_curiosity: Add power monitor support
+
+ .../dts/microchip/at91-sam9x75_curiosity.dts  | 54 ++++++++++++++++++-
+ arch/arm/boot/dts/microchip/sam9x7.dtsi       | 26 +++++++++
+ 2 files changed, 78 insertions(+), 2 deletions(-)
+
+
+base-commit: 28eb75e178d389d325f1666e422bc13bbbb9804c
+-- 
+2.47.0
 
 
