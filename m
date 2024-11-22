@@ -4,132 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E4BE65D3F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 10:07:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D92E65D3F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 10:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4rdeCnBSJluG5jTTgeN6PQcOlpDr2fg/d8wdCEXhE6s=; b=T+nW+XF7gczKq5RmuUArlcSBwU
-	wgkBL2vDJVsYkSJidxRS43HYOBZz5dScakj5jSAlYjuW/8q3EY7V+nITeie2X74h2He7FwtZzP5SR
-	+IB5qWbAkiiQfttvKzsOOUapt3PR20U1qhG3ooAAGJkA9hkX+OJCF+/501XJ4K9T5w9iJdma7kqM4
-	uUNxgJPDnXXQ3MMqVwpfI9e2zq73XhG/Can6xYm5KQYOO/qmCdstVv+BmjVv42ByVCJFzFv9zukmC
-	4af000ezOXntKxsCq5Lp/s2ah5lE9I+VsTfToCSORXXXxRmVoD0Lac2FsCe9zWiWz8g1jnQcOEW6x
-	TtD2iWYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Oo7HikWZjO7o4h8uvE+hBssvbZ8a0Y9HAjNRBm40WBc=; b=r4av6QZJSVmUja
+	C0dL5V4xBQKPg2EYsNQkvCqJCQpy+TGSTLw9YGEGSdWNiSqXUBQLkjsBKiNqdc0Lreyb3vlTAfwtu
+	pxnlX/YXGUVsWDImRT8V9Cm7MVQ2BSLZMLvjvMk97D1QGXpaofHP68IdUtFPqA5jjuPcaacSawioe
+	El1+GRmAr+CtU3IXUmcmnsA/Qr201lkKN0PXsqgmJgz6IpCBiCrnC/hZcSz7ebdsssrwMpP+pEdSg
+	dfM0t0gUdUyRBzAVc5h4D7tS6ZSAF9MzgyFClxDlmH14Q+S/LnXFTo3LTHdmL5oiwEaIWPqHZeV7i
+	HosKc+h7/LCV3hUHtaTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEQZ4-00000002CKA-3EQB;
-	Fri, 22 Nov 2024 10:07:02 +0000
-Received: from mail-dm3nam02on20607.outbound.protection.outlook.com ([2a01:111:f403:2405::607] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1tEQZz-00000002CYU-1dxt;
+	Fri, 22 Nov 2024 10:07:59 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEQPj-00000002AJv-0eUh
+	id 1tEQRE-00000002Af7-12Rj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 09:57:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Qzk54WaBoQIedqASaDVkDXo0htK1XfRUq8cEc3SASClcMw9meElj2NiCPVaMKin/VKLuvhPM3JJ6TB0E8Ht0bQY1LEWRHE04H6xA2nQaS7U6c1C+F1rXnsQTwtTYpE8E+B12Yxp1ClsrYhNkntuPQ5sTeK4VPdbPFDOh/c9Qd4oD8dPccGX+kzw09xNTO603bEEAfEpAA1iq9fDJIwzY/gy9KWiuHuVlmcuusaVkW4Y1RG71T76OdISqyct+GzVrXJEFdDk7+zgpIiXatFfivX4MIvXbeS/AIPZtD8J59nS5B6/EeNGS9kqIPuX3KHbDKuWgh2pvvdTgj1O64oKQHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4rdeCnBSJluG5jTTgeN6PQcOlpDr2fg/d8wdCEXhE6s=;
- b=NPX1ZchGw/ZW5WAyt3fN+okgumR5Wcl0hpC03QuFfhEv4rIe9EbVCaLWV/IXwGMCSayCruTGXj/xD3b5KKAWwmMrlXPJEmnqGEa1QA6yo9DcyQ+H5TWhHUna4vuFNPe7Cbh3fZqPfNkM3Rwkp32rDmse8YjF6r/H2npIoJbcKSP4rOhaP7LDzGBNce8C3tZrpOL67r+EVl1FTmsqAU7E/CaE2iHC2rPUduWi8rltmwXbEfiBDJxYx/mOLcNpr0gm84gaWYIHamiUT7VRaBUuOXenPodHWQIypYss7/cnERnknHSCkS4woJPeYyMutwRwtCNRmXws8nR95i6VLhKDAA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.12) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4rdeCnBSJluG5jTTgeN6PQcOlpDr2fg/d8wdCEXhE6s=;
- b=GKqnaG9pTWvFqFYXFsGiv+hHUctZ9RXgYTygHxgW633msBXnXK/CYI/rNcSuyRSEcGDRuesy/MOeZyR4m1bQsozk1CIt+IrxFqnOhTkFjffnwg//FbODgkOF3xwGoy1Zqa8UthGbQJMNvkFx1PbrzHhH3x6LjxQqH6qUXN0tXwI=
-Received: from BN7PR06CA0046.namprd06.prod.outlook.com (2603:10b6:408:34::23)
- by PH8PR12MB7327.namprd12.prod.outlook.com (2603:10b6:510:215::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.22; Fri, 22 Nov
- 2024 09:57:15 +0000
-Received: from BL6PEPF00022573.namprd02.prod.outlook.com
- (2603:10b6:408:34:cafe::20) by BN7PR06CA0046.outlook.office365.com
- (2603:10b6:408:34::23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.24 via Frontend
- Transport; Fri, 22 Nov 2024 09:57:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.12)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.12 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.12; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.12) by
- BL6PEPF00022573.mail.protection.outlook.com (10.167.249.41) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8182.16 via Frontend Transport; Fri, 22 Nov 2024 09:57:14 +0000
-Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Nov
- 2024 03:57:13 -0600
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB06.amd.com
- (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Nov
- 2024 03:57:13 -0600
-Received: from xsjwillw50.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Fri, 22 Nov 2024 03:57:13 -0600
-From: Naman Trivedi <naman.trivedimanojbhai@amd.com>
-To: <robh@kernel.org>, <michal.simek@amd.com>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <senthilnathan.thangaraj@amd.com>
-CC: <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2] arm64: zynqmp: add clock-output-names property in clock nodes
-Date: Fri, 22 Nov 2024 01:57:12 -0800
-Message-ID: <20241122095712.1166883-1-naman.trivedimanojbhai@amd.com>
-X-Mailer: git-send-email 2.25.1
+	Fri, 22 Nov 2024 09:58:57 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AM86MwS015290;
+	Fri, 22 Nov 2024 09:58:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=Oo7HikWZjO7o4h8uvE+hBs
+	svbZ8a0Y9HAjNRBm40WBc=; b=AEYLFD6b/ub2x+7u9ki5P2oe+NnhIz46nGyZ23
+	iTMy0KvCvufbCd89ztRohxYjzfupHXqWY1a7HhHCQPjBmI6LdnolwsU3p8lfI91e
+	23SfO8HG1C/Jxby+8210vGJfLLA6vL25a3tv+rfA2QZZJ9QnCaJWn3bqWj1JBlGa
+	SWRGIQkS/CBtMJ2SKwpvZ7I9Xma7K0nB77RJyeSYgKTVapzJOnipUmejEyp6Z+Q2
+	XarQ/pObcQKTV3Ki5mQGoddpsEHIaBkqoYeRjwwLcxzMmgfbwKiRmJ47eO5t/3WZ
+	sEeUy1impFOX4uNbzlF/XrqdPV6MDSA1x8pgjXpkjhy3BjwQ==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4320y9krgq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 22 Nov 2024 09:58:43 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AM9whGv007649
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 22 Nov 2024 09:58:43 GMT
+Received: from robotics-lnxbld017.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Fri, 22 Nov 2024 01:58:36 -0800
+From: Fange Zhang <quic_fangez@quicinc.com>
+Subject: [PATCH v3 0/9] Add display support for QCS615 platform
+Date: Fri, 22 Nov 2024 17:56:43 +0800
+Message-ID: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF00022573:EE_|PH8PR12MB7327:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7b243870-f736-4402-9d5e-08dd0adc0a98
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QvhdRRlLviOOleRwtcKWYnCvUpR5XUG+CFAfZURlXS78CeqxT1/FHqYtHBh9?=
- =?us-ascii?Q?xpPL80qEcGgWA5sDOhHJz+4EC0eQ8hWzew+25YGrfZFJ3qmaYKWaVr25Ex8U?=
- =?us-ascii?Q?ZLGTv2cQj7XeZBeWvsnB32sxYDlPEhNaE6iucJUwmDQcxD4TdQcojuZYr3Tu?=
- =?us-ascii?Q?AfO+4wsAtAS3nfmarYEjyG8E6SzW/eg4kDiUT/YM9Qc4+h0PwiWpfl8u1x+V?=
- =?us-ascii?Q?4LIZNj0nBjm/VASlAHyELziuiXPmbExPY+upq2XIdCwT63gwwt5XEMafKQG2?=
- =?us-ascii?Q?jvPDqG9guxZ1eM/HBfbVFPd58fvKCXeBUOIe8BRbVrqNcPtp1Bcvj+SfCWRN?=
- =?us-ascii?Q?67peBesXQDg03jsKz2zzQCevovbPJMav7g3VNL8zaZua9g9EYWzVrridxF8b?=
- =?us-ascii?Q?oRmdTqsDD/4wCSDzcBGYUQ5dNhFK9fS2xKG7QqH5psKyEMQiDrvTO0TpA3j+?=
- =?us-ascii?Q?TvlWUlhzXr+7hRhRXTc4IKucPDUZkzR48/XyvDE1xMKGTTZTkTstnfjAgVao?=
- =?us-ascii?Q?3ZhNM2CNxbgWhLMNF3KndX/qA1uu8UbOo1Rs4VcChF6iWWhhI1A4jD7j6NbM?=
- =?us-ascii?Q?2vAGGxYyHoWDCAukm1A+Hvhx6huaLmrQTdkBbkMJbG9ui22MuJNqfAFai6xv?=
- =?us-ascii?Q?lg5tHuULPbvFLCLntj+s9rRkU5R5dRE4hAQ/Sa7MWPqzJuFBujXMiE/LgRUV?=
- =?us-ascii?Q?pZnKzzGxxbDRYo05I6kqplemtaM7iyEpFmom6Ec+qg+rcxaBVoXi3LYjKtct?=
- =?us-ascii?Q?5SLlwgMbOcnCmTz1uJcpu1/UuRVE0aBoWZb/CJAHNBKRgSE+ycq9NdwTxc/h?=
- =?us-ascii?Q?J9NdHrCh38yxfA3/YeMAOFNwYLk2sGxBvQbpzbnYzP4EgpOg3s15AilrcdGz?=
- =?us-ascii?Q?EtCkbnlX0iUOs+ZoCDtryBQbsyMn7cTplvX+w2LUdRMkh7Aa5evAgwlrnAr4?=
- =?us-ascii?Q?A7+A00VdrWCkCmVgXlUEoPgTM1ZyBGn2kqxiEwB41RlT8TrZBDGxpXDuoXqq?=
- =?us-ascii?Q?hJQbo2I3VmTBxvJxmDUEKATfNIsE6yvYcsYVi9jYK383BfUTr9ekaDHmVn6Y?=
- =?us-ascii?Q?gihaZE3GMe41vIkn2VcVEqzl3szwKm7bmUde00tfdVHzzI8s4MKEgO9wbzMm?=
- =?us-ascii?Q?Dg5QzB1lZurnsozKjBEHTGp4TTkUeMxMqGI9ZaJ0bIe8iPSsmlMDgRcSrQ3w?=
- =?us-ascii?Q?sVeRe2+YauNXdZW4q2SuiVRWFtGFhHpyivJJRqvJHYikUGmWmMrBq5RWUdYI?=
- =?us-ascii?Q?4tcCOXgX2kWrkF+/OHurX/bumMY735dLV5WMb+n6xsxRjnGjhmcw46sGsfNc?=
- =?us-ascii?Q?ND0czxN+wXWtD8kecWNdU9GmNRA0hdO2gHmG3f148ySzQ5h32cXj4+AV/PEV?=
- =?us-ascii?Q?cdiqS14=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.12;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:atlvpn-bp.amd.com;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2024 09:57:14.2085
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7b243870-f736-4402-9d5e-08dd0adc0a98
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.12];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00022573.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7327
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGlVQGcC/52S3YrbMBCFXyX4ehX0LzuU0vdYFiNrRo2obSWSY
+ 7pd8u6V7SwltBdJL2dgvnN0dD6qjClgrg67jyrhHHKIYxnEy65yRzt+RxKgzBWnXDLGOLEABEI
+ +9fad5MvpFNNEfEzk7LJmipT9VMaBaCMRtKuRKVoV2imhDz9Xpde3bU54vhTBaVtWA+ZsV8HD7
+ suqRzn/5Lo+uh8EUpgxkVkSTgQYpi1QaGrzrYBcGN3exeHrovYUSz7LYlQuObRhDFOwfXvLoS0
+ Pb28asyKUNABYg+lq2tGHsIoKzqjZN0rxYms5ac/nX8d4eeS8AGopBNtzpaWWgrCNMIOF8pfhI
+ Qv1Z0rDsAXl4jil2PdLVqI8yoDoOHChPPiniTCRMQJmMrOC6rjWjbOOai7/QnU2IynDEKbDruF
+ Nh9Z3aKxzKLg25YgxhUwgFd5rVFTJ2lZLtY4hTzG9r52e2dqtW0Di4fqu/tCZhvHGSy/v/K0qM
+ /9DpmwrxI38z0IsQInesoZBB3APfNn9h0VeiLw2Ajvtu1o39xav1+tv7Z7s4d4DAAA=
+X-Change-ID: 20241112-add-display-support-for-qcs615-platform-674ed6c8e150
+To: Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar
+	<quic_abhinavk@quicinc.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard
+	<mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Krishna Manikandan <quic_mkrishn@quicinc.com>,
+        "Bjorn
+ Andersson" <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, "Li
+ Liu" <quic_lliu6@quicinc.com>,
+        Fange Zhang <quic_fangez@quicinc.com>,
+        "Xiangxu Yin" <quic_xiangxuy@quicinc.com>
+CC: <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1732269514; l=7370;
+ i=quic_fangez@quicinc.com; s=20241014; h=from:subject:message-id;
+ bh=hWA2D4wHps5pueio3pYCUA1Rqom0bBEVdMwteSrKAFs=;
+ b=VX+AvZl0xeQt3wxbfrrHLOeXezFOI+qIgfmeOuw82KJe1LMivhg1oXJhDRm/fYyv2BmRQaVjV
+ GyihA1icA6HDwQCQKyBYiFU6zKyenFkuuTem1QMEd6Haoy/VGiFu7BU
+X-Developer-Key: i=quic_fangez@quicinc.com; a=ed25519;
+ pk=tJv8Cz0npA34ynt53o5GaQfBC0ySFhyb2FGj+V2Use4=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: XGYdlXSlf7zHHntipg-iiUssa7r6MNeS
+X-Proofpoint-ORIG-GUID: XGYdlXSlf7zHHntipg-iiUssa7r6MNeS
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ phishscore=0 impostorscore=0 suspectscore=0 lowpriorityscore=0
+ mlxlogscore=999 spamscore=0 mlxscore=0 malwarescore=0 clxscore=1015
+ adultscore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411220084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_015723_193015_443B3317 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20241122_015856_300867_49232BD8 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,75 +136,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add clock-output-names property to clock nodes, so that the resulting
-clock name do not change when clock node name is changed.
-Also, replace underscores with hyphens in the clock node names as per
-dt-schema rule.
+This series aims to enable display on the QCS615 platform
 
-Signed-off-by: Naman Trivedi <naman.trivedimanojbhai@amd.com>
----
-v1: https://lore.kernel.org/all/c5d6effa-bdcf-49e3-a4bf-3713db889b70@kernel.org
-Changes v1 -> v2:
-- Fix the clock node names by replacing underscore with hyphen.
----
- arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
+1.Add MDSS & DPU support for QCS615
+2.Add DSI support for QCS615     
 
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi b/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi
-index 60d1b1acf9a0..385fed8a852a 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi
-@@ -10,39 +10,44 @@
- 
- #include <dt-bindings/clock/xlnx-zynqmp-clk.h>
- / {
--	pss_ref_clk: pss_ref_clk {
-+	pss_ref_clk: pss-ref-clk {
- 		bootph-all;
- 		compatible = "fixed-clock";
- 		#clock-cells = <0>;
- 		clock-frequency = <33333333>;
-+		clock-output-names = "pss_ref_clk";
- 	};
- 
--	video_clk: video_clk {
-+	video_clk: video-clk {
- 		bootph-all;
- 		compatible = "fixed-clock";
- 		#clock-cells = <0>;
- 		clock-frequency = <27000000>;
-+		clock-output-names = "video_clk";
- 	};
- 
--	pss_alt_ref_clk: pss_alt_ref_clk {
-+	pss_alt_ref_clk: pss-alt-ref-clk {
- 		bootph-all;
- 		compatible = "fixed-clock";
- 		#clock-cells = <0>;
- 		clock-frequency = <0>;
-+		clock-output-names = "pss_alt_ref_clk";
- 	};
- 
--	gt_crx_ref_clk: gt_crx_ref_clk {
-+	gt_crx_ref_clk: gt-crx-ref-clk {
- 		bootph-all;
- 		compatible = "fixed-clock";
- 		#clock-cells = <0>;
- 		clock-frequency = <108000000>;
-+		clock-output-names = "gt_crx_ref_clk";
- 	};
- 
--	aux_ref_clk: aux_ref_clk {
-+	aux_ref_clk: aux-ref-clk {
- 		bootph-all;
- 		compatible = "fixed-clock";
- 		#clock-cells = <0>;
- 		clock-frequency = <27000000>;
-+		clock-output-names = "aux_ref_clk";
- 	};
- };
- 
+QCS615 platform supports DisplayPort, and this feature will be added in a future patch
+
+This patch series depends on below patch series:
+- rpmhcc
+https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-2-3d716ad0d987@quicinc.com/
+- gcc
+https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-4-3d716ad0d987@quicinc.com/
+- base
+https://lore.kernel.org/all/20241104-add_initial_support_for_qcs615-v5-0-9dde8d7b80b0@quicinc.com/
+- Apps SMMU
+https://lore.kernel.org/all/20241105032107.9552-4-quic_qqzhou@quicinc.com/
+- I2C
+https://lore.kernel.org/all/20241111084331.2564643-1-quic_vdadhani@quicinc.com/
+- dispcc
+https://lore.kernel.org/all/20241108-qcs615-mm-clockcontroller-v3-0-7d3b2d235fdf@quicinc.com/
+- dispcc dts
+https://lore.kernel.org/lkml/20241108-qcs615-mm-dt-nodes-v1-0-b2669cac0624@quicinc.com/
+
+Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+---
+Changes in v3:
+- Add reg_bus_bw for sm6150_data [Dmitry]
+- Remove patch for SX150X defconfig [Dmitry]
+- Remove dsi0_hpd_cfg_pins from ioexp [Dmitry]
+- Remove dsi0_cdet_cfg_pins from ioexpa [Dmitry]
+- Remove tlmm node for ioexp_intr_active and ioAexp_reset_active [Dmitry]
+- Remove qcs615_dsi_regulators and reuse sdm845_dsi_cfg [Dmitry, Konrad]
+- Rename qcs615/QCS615 to sm6150/SM6150 for whole patch [Dmitry]
+- Rename qcom,dsi-phy-14nm-615 to qcom,sm6150-dsi-phy-14nm [Dmitry]
+- Rename qcom,qcs615-dsi-ctrl to qcom,sm6150-dsi-ctrl [Dmitry]
+- Rename qcom,qcs615-dpu to qcom,sm6150-dpu [Dmitry]
+- Rename qcom,qcs615-mdss to qcom,sm6150-mdss [Dmitry]
+- Split drm dsi patch to dsi and dsi phy [Dmitry]
+- Update yaml clocks node with ephemeral nodes and remove unsed include [Dmitry, Rob]
+- Link to v2: https://lore.kernel.org/r/20241113-add-display-support-for-qcs615-platform-v2-0-2873eb6fb869@quicinc.com
+
+Changes in v2:
+- Add QCS615 DP controller comment in commit message [Dmitry]
+- Add comments for dsi_dp_hpd_cfg_pins and dsi_dp_cdet_cfg_pins [Dmitry]
+- Add missing port@1 for connector for anx7625 [Dmitry]
+- Change 0 to QCOM_ICC_TAG_ALWAYS for mdss interconnects [Dmitry]
+- Change 0 to GPIO_ACTIVE_HIGH for GPIO flags [Dmitry]
+- Move anx_7625 to same node [Dmitry]
+- Move status to last in mdss_dsi0 [Dmitry]
+- Rename dsi0_hpd_cfg_pins to dsi_dp_hpd_cfg_pins in ioexp [Dmitry]
+- Rename dsi0_cdet_cfg_pins to dsi_dp_cdet_cfg_pins in ioexp [Dmitry]
+- Rename anx_7625_1 to dsi_anx_7625 in ioexp [Dmitry]
+- Remove absent block in qcs615_lm [Dmitry]
+- Remove merge_3d value in qcs615_pp [Dmitry]
+- Remove redundant annotation in qcs615_sspp [Dmitry]
+- Remove unsupported dsi clk from dsi0_opp_table [Dmitry]
+- Remove dp_hpd_cfg_pins node from ioexp [Dmitry]
+- Splite drm driver patches to mdss, dpu and dsi [Dmitry]
+- Link to v2: https://lore.kernel.org/r/20241014-add_display_support_for_qcs615-v1-0-4efa191dbdd4@quicinc.com
+
+---
+Li Liu (9):
+      dt-bindings: display/msm: Add SM6150 DSI phy
+      dt-bindings: display/msm: dsi-controller-main: Document SM6150
+      dt-bindings: display/msm: Add SM6150 MDSS & DPU
+      drm/msm: mdss: Add SM6150 support
+      drm/msm/dpu: Add SM6150 support
+      drm/msm/dsi: Add dsi phy support for SM6150
+      drm/msm/dsi: Add support for SM6150
+      arm64: dts: qcom: Add display support for QCS615
+      arm64: dts: qcom: Add display support for QCS615 RIDE board
+
+ .../bindings/display/msm/dsi-controller-main.yaml  |   1 +
+ .../bindings/display/msm/dsi-phy-14nm.yaml         |   1 +
+ .../bindings/display/msm/qcom,sm6150-dpu.yaml      | 113 +++++++++
+ .../bindings/display/msm/qcom,sm6150-mdss.yaml     | 250 ++++++++++++++++++++
+ arch/arm64/boot/dts/qcom/qcs615-ride.dts           |  76 ++++++
+ arch/arm64/boot/dts/qcom/qcs615.dtsi               | 186 ++++++++++++++-
+ .../gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h | 263 +++++++++++++++++++++
+ drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.c     |   1 +
+ drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.h     |   1 +
+ drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c            |   1 +
+ drivers/gpu/drm/msm/dsi/dsi_cfg.c                  |   4 +-
+ drivers/gpu/drm/msm/dsi/dsi_cfg.h                  |   1 +
+ drivers/gpu/drm/msm/dsi/phy/dsi_phy.c              |   2 +
+ drivers/gpu/drm/msm/dsi/phy/dsi_phy.h              |   1 +
+ drivers/gpu/drm/msm/dsi/phy/dsi_phy_14nm.c         |  21 ++
+ drivers/gpu/drm/msm/msm_mdss.c                     |   8 +
+ 16 files changed, 928 insertions(+), 2 deletions(-)
+---
+base-commit: 929beafbe7acce3267c06115e13e03ff6e50548a
+change-id: 20241112-add-display-support-for-qcs615-platform-674ed6c8e150
+prerequisite-message-id: <20241022-qcs615-clock-driver-v4-2-3d716ad0d987@quicinc.com>
+prerequisite-patch-id: cd9fc0a399ab430e293764d0911a38109664ca91
+prerequisite-patch-id: 07f2c7378c7bbd560f26b61785b6814270647f1b
+prerequisite-patch-id: a57054b890d767b45cca87e71b4a0f6bf6914c2f
+prerequisite-patch-id: 5a8e9ea15a2c3d60b4dbdf11b4e2695742d6333c
+prerequisite-message-id: <20241022-qcs615-clock-driver-v4-4-3d716ad0d987@quicinc.com>
+prerequisite-patch-id: cd9fc0a399ab430e293764d0911a38109664ca91
+prerequisite-patch-id: 07f2c7378c7bbd560f26b61785b6814270647f1b
+prerequisite-patch-id: a57054b890d767b45cca87e71b4a0f6bf6914c2f
+prerequisite-patch-id: 5a8e9ea15a2c3d60b4dbdf11b4e2695742d6333c
+prerequisite-message-id: <20241104-add_initial_support_for_qcs615-v5-0-9dde8d7b80b0@quicinc.com>
+prerequisite-patch-id: 09782474af7eecf1013425fd34f9d2f082fb3616
+prerequisite-patch-id: 04ca722967256efddc402b7bab94136a5174b0b9
+prerequisite-patch-id: 82481c82a20345548e2cb292d3098ed51843b809
+prerequisite-patch-id: 3bd8edd83297815fcb1b81fcd891d3c14908442f
+prerequisite-patch-id: fc1cfec4ecd56e669c161c4d2c3797fc0abff0ae
+prerequisite-message-id: <20241105032107.9552-4-quic_qqzhou@quicinc.com>
+prerequisite-patch-id: aaa7214fe86fade46ae5c245e0a44625fae1bad3
+prerequisite-patch-id: 4db9f55207af45c6b64fff4f8929648a7fb44669
+prerequisite-patch-id: 89ce719a863bf5e909989877f15f82b51552e449
+prerequisite-message-id: <20241111084331.2564643-1-quic_vdadhani@quicinc.com>
+prerequisite-patch-id: 3f9489c89f3e632abfc5c3ca2e8eca2ce23093b0
+prerequisite-message-id: <20241108-qcs615-mm-clockcontroller-v3-0-7d3b2d235fdf@quicinc.com>
+prerequisite-patch-id: 748a4e51bbedae9c6ebdbd642b2fd1badf958788
+prerequisite-patch-id: 72a894a3b19fdbd431e1cec9397365bc5b27abfe
+prerequisite-patch-id: da2b7a74f1afd58833c6a9a4544a0e271720641f
+prerequisite-patch-id: 40b79fe0b9101f5db3bddad23551c1123572aee5
+prerequisite-patch-id: cb93e5798f6bfe8cc3044c4ce973e3ae5f20dc6b
+prerequisite-patch-id: 13b0dbf97ac1865d241791afb4b46a28ca499523
+prerequisite-patch-id: 807019bedabd47c04f7ac78e9461d0b5a6e9131b
+prerequisite-patch-id: 8e2e841401fefbd96d78dd4a7c47514058c83bf2
+prerequisite-patch-id: 125bb8cb367109ba22cededf6e78754579e1ed03
+prerequisite-patch-id: b3cc42570d5826a4704f7702e7b26af9a0fe57b0
+prerequisite-patch-id: df8e2fdd997cbf6c0a107f1871ed9e2caaa97582
+prerequisite-message-id: <20241108-qcs615-mm-dt-nodes-v1-0-b2669cac0624@quicinc.com>
+prerequisite-patch-id: bcb1328b70868bb9c87c0e4c48e5c9d38853bc60
+prerequisite-patch-id: 8844a4661902eb44406639a3b7344416a0c88ed9
+
+Best regards,
 -- 
-2.25.1
+fangez <quic_fangez@quicinc.com>
 
 
