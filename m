@@ -4,83 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04240E6918E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 19:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33285E6918F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 19:09:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A7JoE3xnfHXm9tGe0s13CLcRmatUsE4PcTV3byaL90U=; b=cQyBruwxPvpIdv8CYyfPvu4WhF
-	2pQ+qwql4sQvbPf7OG9i+JcXONppTgEUrpl/msL6ZH7jaEJL3zq5OLpnwFtxOKkskkUA6/IU2rN4h
-	dFtSj5tu6zN7bmhSTNgOjc+8eUanHklzI3mS6vkro/dZYBIhvLr9Z+WRPir83jeQNuBxdKk7NZWrQ
-	g54XM5texAOiyPicRl9ZiqO5YFi/2YxRehLR4fqNlqwBsERvXxsWGDZ83hhPW3YpRNlTeOIO+rW8K
-	Wk6BWIFj+u80ypcAGwn99yaldH9mW8CCZbAAKmD2meDrkRU2S8RLqx5o6bO241+WXN8rFZSpI9bQn
-	qiHYf3gg==;
+	bh=0m9gNBW8BErsOg1T/NXBS8tqRAKGWNwvW4TuCYJaojk=; b=G2eaFBhdgfDftNeYQGW4cx3FC9
+	I5M1aYhoAPR5dOs6qGxTKtBOM7nZEh9siwxtVqVlEX8sWAVeXG2/jU98a+fi2zUjIifIo+sPqYYmG
+	Uxc5U1efNhH3Bo8G2rsXBF1wamwctOM9ytLB9HLIi/pK2O2+btykSTEPSgoaPro32js9bvKG6OOvT
+	JnV8oeEoXr4o8eDaa4gU/IKaTNfq/6RhkSZxgzdocAwEHQddV5kRdzPT4VzMqpJCoDnvrtMhwkh76
+	nWPUuaKZ/IfZdRek1VksJts2jsk4j3//oHP2z9SWa/kFWXClD8jBE+elrZLXWmKJQn7sULbsdHhU2
+	qp2tT5IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEYyW-00000003AQ1-0Td0;
-	Fri, 22 Nov 2024 19:05:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tEZ1x-00000003B0v-3z6M;
+	Fri, 22 Nov 2024 19:09:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEYxZ-00000003ALH-0N25
+	id 1tEZ11-00000003Aj0-30lx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 19:04:54 +0000
+	Fri, 22 Nov 2024 19:08:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 74D12A40E25;
-	Fri, 22 Nov 2024 19:02:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58CAAC4CECE;
-	Fri, 22 Nov 2024 19:04:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D6E805C5695;
+	Fri, 22 Nov 2024 19:07:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4731DC4CECE;
+	Fri, 22 Nov 2024 19:08:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732302291;
-	bh=faYDVHYbCK+LJyST0QsH6L1SLvl+Mr/iKpP9RzjH9Cs=;
+	s=k20201202; t=1732302506;
+	bh=O9mDDediH4K4E/cTbRFrAHnx1KNidjn+4JetK3PhtQY=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Aq4SPlMwR3x+CoOtEldhYhcd2eO80HxF3dqxNmR/L1MDH/Oqh/gzcQ/yuLuLe0JhX
-	 kQXTPjehi2PiquvCvl0ZejtsOn3/Aoh9ulq3JyWWDCbd4nWyWHl77il48BFcW9SecQ
-	 7x5NSAdeoIddE63SrStnfj2z8WKT2sJqK/pSICURabuW9AU4TJ0+vCGoA56i/ccgxv
-	 jDYDLgIUBzi9h/gozHayptOelvxosvjP5goWhSq6Jx4lQaWxna43yWQspiZAKqUz6x
-	 /jrkZk0YLypYly02ZyIn6blR5uKJHgfsrApwKhXI8c8nqFElKvcQcz3eo278nv4ip7
-	 +rUOH6Iv01+5w==
+	b=bKsZps7SRth7q+3LtAkqruMDSvzvzJUb4Tnh52EWZieYmMSB8PikHHv41+wvwaXt1
+	 cdYffmQMx0nLZqYSPLWmCJqUme3SnSpZirXtgY/2A+AUxfhBbcVIQbSqtIbpROXCaX
+	 kxdRMFiCUztajvOGdVinCVF6NLkNKPoRrwpIHWisNwt6ElS17MfklXMi6CwmxV/yy+
+	 CGIH+KlnAcG9R4areBgr6hKDCa2W5hRMr9FoTtjd+zcnbmqnefVI8/x7cpz8EtS/at
+	 mKV7ATEXv8tIG8suawuDOBgLS/KQPILpDAwzyVN+mfxbravzLqQXRdvQvf9qDaG3L1
+	 bFjy6KdoVnLXA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tEYxU-00F6BI-Mm;
-	Fri, 22 Nov 2024 19:04:48 +0000
-Date: Fri, 22 Nov 2024 19:04:47 +0000
-Message-ID: <86o727um28.wl-maz@kernel.org>
+	id 1tEZ0x-00F6Cs-TH;
+	Fri, 22 Nov 2024 19:08:23 +0000
+Date: Fri, 22 Nov 2024 19:08:23 +0000
+Message-ID: <86mshrulw8.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	kvm@vger.kernel.org,
+To: James Clark <james.clark@linaro.org>
+Cc: will@kernel.org,
 	kvmarm@lists.linux.dev,
+	oliver.upton@linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	James Morse <james.morse@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	Joey Gouly <joey.gouly@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v3 00/16] KVM: arm64: nv: Shadow stage-2 page table handling
-In-Reply-To: <38339ef8-6e69-43b5-8d16-b7fd66775c93@os.amperecomputing.com>
-References: <20240614144552.2773592-1-maz@kernel.org>
-	<171878647493.242213.9111337124987897859.b4-ty@linux.dev>
-	<46bea470-3a3b-4dcc-b4a8-a74830c66774@os.amperecomputing.com>
-	<86plmov8n3.wl-maz@kernel.org>
-	<38339ef8-6e69-43b5-8d16-b7fd66775c93@os.amperecomputing.com>
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	James Morse <james.morse@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Quentin Perret <qperret@google.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: Fix usage of new shifted MDCR_EL2 values
+In-Reply-To: <20241122164636.2944180-1-james.clark@linaro.org>
+References: <20241122164636.2944180-1-james.clark@linaro.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, oliver.upton@linux.dev, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, christoffer.dall@arm.com, suzuki.poulose@arm.com, alexandru.elisei@arm.com, james.morse@arm.com, joey.gouly@arm.com, yuzenghui@huawei.com
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, will@kernel.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, yangyicong@hisilicon.com, Dave.Martin@arm.com, tabba@google.com, james.morse@arm.com, mark.rutland@arm.com, anshuman.khandual@arm.com, vdonnefort@google.com, qperret@google.com, linux-kernel@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_110453_257945_9695353F 
-X-CRM114-Status: GOOD (  23.27  )
+X-CRM114-CacheID: sfid-20241122_110827_801284_E881F440 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,47 +98,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Nov 2024 16:54:16 +0000,
-Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+On Fri, 22 Nov 2024 16:46:35 +0000,
+James Clark <james.clark@linaro.org> wrote:
 > 
+> Since the linked fixes commit, these masks are already shifted so remove
+> the shifts. One issue that this fixes is SPE and TRBE not being
+> available anymore:
 > 
+>  arm_spe_pmu arm,spe-v1: profiling buffer owned by higher exception level
 > 
-> On 21-11-2024 10:14 pm, Marc Zyngier wrote:
-> > On Thu, 21 Nov 2024 08:11:00 +0000,
-> > Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
-> > 
-> > Hi Ganapatrao,
-> > 
-> >> IIRC, Most of the patches that are specific to NV have been merged
-> >> upstream. However I do see that, some of the vGIC and Timer related
-> >> patches are still in your private NV repository. Can these patches be
-> >> prioritized to upstream, so that we can have have the first working
-> >> version of NV on mainline.
-> > 
-> > Who is *we*?
-> > 
-> > Things get upstreamed when we (people doing the actual work) decide
-> > they are ready. At the moment, they are not.
-> > 
-> > Also, while I enjoy working on NV, this isn't *my* priority.
-> 
-> Sure, I understand that it's not your priority right now.  I'm happy
-> to spend some time on it, please do let us know in what areas/patches
-> needs attention before the code would be ready to merge?
+> Fixes: 641630313e9c ("arm64: sysreg: Migrate MDCR_EL2 definition to table")
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-Please understand that NV isn't special, and while there is still a
-bunch of things that need to be merged, it is the whole of KVM/arm64
-that needs attention.
+Huh, well spotted. This is doubleplusungood. Thankfully, the KVM/arm64
+tree hasn't reached Linus yet, but this needs quick fixing.
 
-For example, there is the debug series from Oliver, the feature
-handling from Fuad. They may not have NV written all over them, but
-they do have an impact on the NV behaviour one way or another.
-
-By paying attention to these series, you would help with the
-groundwork that is required before we can actually enable NV. This is
-what matters now, not the next 50 or so NV-specific patches.
-
-Thanks,
+Acked-by: Marc Zyngier <maz@kernel.org>
 
 	M.
 
