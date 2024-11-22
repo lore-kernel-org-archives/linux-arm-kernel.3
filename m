@@ -4,96 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE964E65D34
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 08:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78F95E65D35
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 09:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YEuuR+8psNj062NlDHnckyMnQqgbbgHkJzIBccpjbSA=; b=wrsD8W8yTTpEgXLe0GBmUugb6L
-	MFL/Kf5Wap6/vcvsaGNyT0jEza7ZYAZa7u8O4BFUgGkDgGXkoPW8zyhJ0yVhDo3uHPE3PG9+RExY6
-	EahaaR2wL30u02I5xZGcO9HdUkKZe32t0fmJx7jtoYkqsvc84JVgqmVBGHxFeye7mAxgKCf8ykTCM
-	ymu2kinZ6O3qbMc++lWm6rdDptUnZ1+9xlUENXWhI9RI8+2coY0Z0UOAa3SfzlTe0xlgaTthv+6WK
-	25GWrfCfNzZUeNJG7w+Fxcc+5vRlL4LwOWL5mOiQ6EHOwae7IZGbjeLaA9Dcve8Tyaj5QRTbXvQ0D
-	1r4CoQEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yPJBOfYSV90IcFVSxfOZG/ZLElTJvS62cOj1dS8TNSc=; b=V3DcOEY36mzWsu
+	CWFfBuPhICzov/6XWr7NFQi0Y5gd7abxfULX4ml4cjTolseBqEji+ppdusk/468u2N4JC9+x8eKb6
+	8mt4MK3rORs/PekSxAjuaGYSjYDM1hY5dkSVRjzP1eE5oYs6JExzrnfQHdcb10Q2v06qhFSpFw75f
+	p1ly047o51pyi9mT+RNdQF9cxpqPzL4NLfWjP0v9hfZEUMX4djLp0qYvLloRXzdgqRl0mjck6VHd8
+	qIMUWcsbsvI5TUMKF73g3Mx7qvASvlo4W3kL+S1uZSp2RD6dt/5OdQfFYD+KETba/fXTIpg80Mrpj
+	Ywto1FKZKWNscuXCxfBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEPL9-00000001yeq-1tlM;
-	Fri, 22 Nov 2024 08:48:35 +0000
-Received: from mail-lj1-x261.google.com ([2a00:1450:4864:20::261])
+	id 1tEPjv-00000002214-239A;
+	Fri, 22 Nov 2024 09:14:11 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEPEw-00000001x6H-0Kck
+	id 1tEPix-000000021dH-1n4R
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 08:42:11 +0000
-Received: by mail-lj1-x261.google.com with SMTP id 38308e7fff4ca-2f7657f9f62so19547731fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 00:42:09 -0800 (PST)
+	Fri, 22 Nov 2024 09:13:12 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-53d9ff92ee9so2108838e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 01:13:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1732264928; x=1732869728; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YEuuR+8psNj062NlDHnckyMnQqgbbgHkJzIBccpjbSA=;
-        b=JqF6JLjKMo28SXWI9aRn4uZFpAnKHXuLtinI0yxNQ/U0vWqpiWkhdCQ9oCrHSVYNoe
-         3Tvg8kO8yb4hr6dF8CWPRDfXkoAasWnC+x9aiF78OWyy45IpJrkKrdoTii3uxlqHUCSG
-         6Pwg2vWTasahlwUjjiZrpPsj27hBRhKNG15osZ88akuZXYi+do9Mm3CL0g94lfGUEa2I
-         DcB+iYyMTb23l/KGCkbfcExIBfz9EVNfHSOSFt0skeznPywe16avBmBiJj2eX95rkwLJ
-         IQlK8jnV6aScuuiRJdOfU+M3DkDr8rTFvK4VzmGHfZcME5GOUZqZi3hzLnNwNNmhTKjA
-         yH+Q==
+        d=linaro.org; s=google; t=1732266789; x=1732871589; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yPJBOfYSV90IcFVSxfOZG/ZLElTJvS62cOj1dS8TNSc=;
+        b=U4EkLplS/8VaYrOAa/C+2n5v0SlaesuYEwJQfE4mXMwpAXhso/431BhHTUEeBLrIZC
+         65ESl0wvjrH6+lsQKvZTM4FQ2osQ7mXZurWs+ER7yRh+zXEtzZVmQ+jA1DhjiYQtE+87
+         vLl56DY/s2l+1F7MDhC+pGAetfeVZCpSLHeqMNGL/d1AwrGuthp24SUha1bzzQNbRSzL
+         wmEKRFE1apgusLru71Z4VLKSYNwxwLaIWO/bH78ciuCcw+fKRZweMZGhkWMdwVICmJfz
+         x53L3DNWWKVUOGoHjlx8wxaCM/C3XfsC1g1eq1hkb6SsHfn4fysl8EocgpAuEi8JBR99
+         Leug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732264928; x=1732869728;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YEuuR+8psNj062NlDHnckyMnQqgbbgHkJzIBccpjbSA=;
-        b=DLMm0eI19e15QOeSeHdnKvarg08lD2lRrsNBSb2qOQcLdI2wtz85HcH5wuK2GwGC7c
-         qXe9jFwcQSdcuZddZBL/DdQXR4zC8+Lno7XKkkXfmB4NPjfeMRAEzN28OagipEnB3cum
-         WyhOcsbldAgsUuMOtkxuf8KvG9ZzDVzBV/T1oWYn6RdPrQYJSbzEGT52tNqbsMpgEMts
-         BAZdPxdqIlop9f84coPBDPjKf5WHVwxqKITrRIrIE1J7nEUdLLX+EWHs3NtqKUPSd9jQ
-         odd3KfP4mmXa4I1JAiLAU73fnNgROOFqmRf3WzvZ1xNmlJFtVwCB6iWSrr83rDJDUQO0
-         JmgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVp72vwEeJ+ztIxYdlInbgvdk9OpDQI2e/8f3TrqO0X02WzAOrAM+lJHfJOS0xHvbnXxtK+Nrt9P7CbVUQEzNVz@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVMfaQNyBqbeH62nXB56W3ndTVcVd5zB8TJs07m5HaODw+V9r9
-	NmqPgVnJDhWaTnn90vZJRtLmZxxYse3fa+0admW9JJ0J/gFt5h9XRuwJAtO96+wYlcH7y+FSTBr
-	rlnfSGfX5sukIkA+98TWIivMIpxrWybMw
-X-Gm-Gg: ASbGncujJfEzwadSggaj15Bu7MjHmeDDCC2wngd9f7WQd8UpnyOBWEq0Qi57lhgCEZ7
-	POIWE/jeoO5iA5A+p08kNqJLUVdrC9IOIvNPAiZAKX42G6RUyJOEtm05Y5ZAKHVHr+KtT8VQz1r
-	F8m05CoUB3ps8SAAZF0peurFr7Gkpt+IL2FxJ79Ye6XMUuYWsU5QmVP7WMMdrKh2/ei5kLn7KW0
-	gelsRrNjcRGw0Avlr5QWetjyHqtZKzHu8s32RnybiUxBQL90rJDF0qfQU/hK3M1iA==
-X-Google-Smtp-Source: AGHT+IH59DQEKrXu+FgyMtFbQ1vxHpRwe3lqUuQy9ABiaFsiJEh89r7ztVYjLZAP7d2u3qmvDeDJw57zHVk6
-X-Received: by 2002:a05:6512:10ce:b0:539:ea0f:cc43 with SMTP id 2adb3069b0e04-53dd36a0f38mr982109e87.19.1732264927961;
-        Fri, 22 Nov 2024 00:42:07 -0800 (PST)
-Received: from raspberrypi.com ([93.93.133.154])
-        by smtp-relay.gmail.com with ESMTPS id 2adb3069b0e04-53dd243bb76sm31151e87.11.2024.11.22.00.42.06
+        d=1e100.net; s=20230601; t=1732266789; x=1732871589;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yPJBOfYSV90IcFVSxfOZG/ZLElTJvS62cOj1dS8TNSc=;
+        b=E8Ahi9AlErlf4TwiUAOyp7FdRaby5c3218CSNhc62pwS1xg8/qhMtlwXnpAuBqCK/K
+         hwkexCAcGRxLLLDWd7mabnZRUNvy6DpwgPHIDpT8dMLEfBMDraHRXvX0moYBXQOnwrOH
+         pgISnFAwJAuzTjm5xGvUcY+ykOTIPMBQ63aglwIZQIxA3dyJNFc/94e9r1hBW5pmbGnO
+         iqYST5i3lJQpyqR8je/mqdQOr9affdPyzhon+m8XGdeSQ802nE4JxOkyuBPg2pQ674Vj
+         4ZXevTFm9wFwCIPjmS4L4aHFOmd0jFN3vkFM12ccKqXO9PECwpkuR5D1FILCCuNO1nGR
+         AgjA==
+X-Forwarded-Encrypted: i=1; AJvYcCU6EaooVM5JXJGWyAt+gXF+SKqa3x948DFls7LIyauHAl5Pwyb7KUj/t4rjMCzsOqQ4bCUCQuPUgIjFakSX5W/T@lists.infradead.org
+X-Gm-Message-State: AOJu0YygsfhWe4BXQMg47glB7lCJVyppJo1A+9UIhtmVhd8UBvsk+Pc/
+	n+ymK8hwcqDmO7dEBpQrYvefipMgwocu5lt32VzYEFqXmi6+fuWP5AIU3ikqeW4=
+X-Gm-Gg: ASbGncvlq3jZBgKXTgObPUyBujYWec0av7iJk+GWnJo5HQCh1g7C4yTGBybOXEt3dzy
+	LgbXOYM/ZDWG+EeROtJGSkYpIiv26IRs5VMPSNNe61NF4/+q2so+dPLRSXajcxDjcK4rlTXdEqU
+	LQXGco9jDylFNfwW4ZnNafNjg9MO4oz3Fu2frW4CsRnrtIFloiuUE4OZFexAv5QItrHxMJddigb
+	cwdVMxzkEPtNEPBPOvgCZQjKUk7ey3iZ7wO6ddj8Amb2t5oEFYjE+vayw==
+X-Google-Smtp-Source: AGHT+IGEb5tRInMFtVE9GZficnUTiVO1xCATodroM7GK3ZevvdEIuIB/MI+jMs/pCyFMTD+eeIO8JQ==
+X-Received: by 2002:a05:6512:10ca:b0:53d:a9b9:fdc0 with SMTP id 2adb3069b0e04-53dd389d8a1mr1112818e87.31.1732266789361;
+        Fri, 22 Nov 2024 01:13:09 -0800 (PST)
+Received: from umbar.lan ([192.130.178.90])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53dd2451386sm299530e87.77.2024.11.22.01.13.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Nov 2024 00:42:07 -0800 (PST)
-X-Relaying-Domain: raspberrypi.com
-From: Naushir Patuck <naush@raspberrypi.com>
-To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>
-Cc: linux-media@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	jacopo.mondi@ideasonboard.com,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Naushir Patuck <naush@raspberrypi.com>
-Subject: [PATCH v1 5/5] drivers: media: bcm2835-unicam: Correctly handle FS + FE ISR condition
-Date: Fri, 22 Nov 2024 08:41:52 +0000
-Message-Id: <20241122084152.1841419-6-naush@raspberrypi.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241122084152.1841419-1-naush@raspberrypi.com>
-References: <20241122084152.1841419-1-naush@raspberrypi.com>
+        Fri, 22 Nov 2024 01:13:08 -0800 (PST)
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Subject: [PATCH v4 00/10] drm/display: hdmi: add
+ drm_hdmi_connector_mode_valid()
+Date: Fri, 22 Nov 2024 11:12:56 +0200
+Message-Id: <20241122-hdmi-mode-valid-v4-0-2fee4a83ab79@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABhLQGcC/3XNTQrCMBCG4auUrI3kr2l05T3ERUim7UDbSCJBK
+ b27aTcqxeX7wTwzkwQRIZFzNZMIGROGqYQ6VMT1duqAoi9NBBOKM25o70ekY/BAsx3QU2vBKSV
+ Mzbgj5eoeocXnJl5vpXtMjxBf24PM1/W/lTllVIM6WVCG8ba5DDjZGI4hdmTFsvgARdgDogBWq
+ 8a0XrDW6h0gv4HTHpAFqKUyTkhtWPMLLMvyBlx47n8xAQAA
+X-Change-ID: 20241018-hdmi-mode-valid-aaec4428501c
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3023;
+ i=dmitry.baryshkov@linaro.org; h=from:subject:message-id;
+ bh=dAGoBfBZPrQ28ollGsFDqICLzpx3eGynrKY+liYfcfc=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnQEsh97cY2ewxrd1QdOkVWNxJCVibvExTdRJp9
+ 9bHLnJ6vOeJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ0BLIQAKCRCLPIo+Aiko
+ 1aIBB/9UOalIiiDyCESbhN5VK1zX78Q2v5Cu6GR9StRIoyHvHhPD2SZblaTT0rK2OUduQIaCzil
+ e43PDFRCRm4oTpATivZAvHM+yi203AUBJiwIOMAe3JA+lhIvMk3+ifawcrw9Cl72SEbVds3dBNt
+ BIFRNdKbfHdX7wqjMVc2sNYXaGiXlxNEvRrur+Q56Z5uoO+XYx/CdGPi1clyXilpj3fMjPiIs5o
+ dtyVnROt60CnOjUDof0ueLHTqnMk2Ydx3ZhtWbgLtC5avyxhU0xLPgjLAqQDjkW3BXf65sD++Ux
+ wdtO/dYUJ6BFYYLwt4PattfJC/Uz53ohOyAbm08X1xxiSoWn
+X-Developer-Key: i=dmitry.baryshkov@linaro.org; a=openpgp;
+ fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_004210_114779_170CA1AA 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20241122_011311_528437_09298F0A 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,85 +123,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This change aligns the FS/FE interrupt handling with the Raspberry Pi
-kernel downstream Unicam driver.
+Several HDMI drivers have common code pice in the .mode_valid function
+that validates RGB / 8bpc rate using the TMDS char rate callbacks.
 
-If we get a simultaneous FS + FE interrupt for the same frame, it cannot
-be marked as completed and returned to userland as the framebuffer will
-be refilled by Unicam on the next sensor frame. Additionally, the
-timestamp will be set to 0 as the FS interrupt handling code will not
-have run yet.
+Move this code piece to the common helper and remove the need to perform
+this check manually. In case of DRM_BRIDGE_OP_HDMI bridges, they can
+skip the check in favour of performing it in drm_bridge_connector.
 
-To avoid these problems, the frame is considered dropped in the FE
-handler, and will be returned to userland on the subsequent sensor frame.
-
-Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
+Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 ---
- .../media/platform/broadcom/bcm2835-unicam.c  | 39 +++++++++++++++++--
- 1 file changed, 35 insertions(+), 4 deletions(-)
+Changes in v4:
+- Fixed build warning in VC4 driver by adding .mode_valid to
+  vc4_hdmi_connector_helper_funcs (LKP)
+- Reworked HDMI test helpers (Maxime)
+- Expanded test descriptions and comments (Maxime)
+- Added new EDID to test info.max_tmds_clock filtering (Maxime)
+- Link to v3: https://lore.kernel.org/r/20241109-hdmi-mode-valid-v3-0-5348c2368076@linaro.org
 
-diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-index f10064107d54..0d2aa25d483f 100644
---- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-+++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-@@ -773,10 +773,26 @@ static irqreturn_t unicam_isr(int irq, void *dev)
- 			 * as complete, as the HW will reuse that buffer.
- 			 */
- 			if (node->cur_frm && node->cur_frm != node->next_frm) {
-+				/*
-+				 * This condition checks if FE + FS for the same
-+				 * frame has occurred. In such cases, we cannot
-+				 * return out the frame, as no buffer handling
-+				 * or timestamping has yet been done as part of
-+				 * the FS handler.
-+				 */
-+				if (!node->cur_frm->vb.vb2_buf.timestamp) {
-+					dev_dbg(unicam->v4l2_dev.dev,
-+						"ISR: FE without FS, dropping frame\n");
-+					continue;
-+				}
-+
- 				unicam_process_buffer_complete(node, sequence);
-+				node->cur_frm = node->next_frm;
-+				node->next_frm = NULL;
- 				inc_seq = true;
-+			} else {
-+				node->cur_frm = node->next_frm;
- 			}
--			node->cur_frm = node->next_frm;
- 		}
- 
- 		/*
-@@ -812,10 +828,25 @@ static irqreturn_t unicam_isr(int irq, void *dev)
- 					i);
- 			/*
- 			 * Set the next frame output to go to a dummy frame
--			 * if we have not managed to obtain another frame
--			 * from the queue.
-+			 * if no buffer currently queued.
- 			 */
--			unicam_schedule_dummy_buffer(node);
-+			if (!node->next_frm ||
-+			    node->next_frm == node->cur_frm) {
-+				unicam_schedule_dummy_buffer(node);
-+			} else if (unicam->node[i].cur_frm) {
-+				/*
-+				 * Repeated FS without FE. Hardware will have
-+				 * swapped buffers, but the cur_frm doesn't
-+				 * contain valid data. Return cur_frm to the
-+				 * queue.
-+				 */
-+				spin_lock(&node->dma_queue_lock);
-+				list_add_tail(&node->cur_frm->list,
-+					      &node->dma_queue);
-+				spin_unlock(&node->dma_queue_lock);
-+				node->cur_frm = node->next_frm;
-+				node->next_frm = NULL;
-+			}
- 		}
- 
- 		unicam_queue_event_sof(unicam);
+Changes in v3:
+- Moved drm_hdmi_connector_mode_valid() to drm_hdmi_state_helper.c
+  (Maxime)
+- Added commnt next to the preferred = list_first_entry() assignment
+  (Maxime)
+- Added comments to new tests, describing what is being tested (Maxime)
+- Replaced sun4i_hdmi_connector_atomic_check() with
+  drm_atomic_helper_connector_hdmi_check() (Maxime)
+- Link to v2: https://lore.kernel.org/r/20241101-hdmi-mode-valid-v2-0-a6478fd20fa6@linaro.org
+
+Changes in v2:
+- Switched drm_hdmi_connector_mode_valid() to use common helper
+  (ex-hdmi_clock_valid()) (Maxime)
+- Added simple unit tests for drm_hdmi_connector_mode_valid().
+- Link to v1: https://lore.kernel.org/r/20241018-hdmi-mode-valid-v1-0-6e49ae4801f7@linaro.org
+
+---
+Dmitry Baryshkov (10):
+      drm/tests: hdmi: handle empty modes in find_preferred_mode()
+      drm/tests: hdmi: rename connector creation function
+      drm/tests: hdmi: return meaningful value from set_connector_edid()
+      drm/display: hdmi: add generic mode_valid helper
+      drm/sun4i: use drm_hdmi_connector_mode_valid()
+      drm/vc4: use drm_hdmi_connector_mode_valid()
+      drm/display: bridge_connector: use drm_bridge_connector_mode_valid()
+      drm/bridge: lontium-lt9611: drop TMDS char rate check in mode_valid
+      drm/bridge: dw-hdmi-qp: replace mode_valid with tmds_char_rate
+      drm/sun4i: use drm_atomic_helper_connector_hdmi_check()
+
+ drivers/gpu/drm/bridge/lontium-lt9611.c            |   4 +-
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c       |  12 +-
+ drivers/gpu/drm/display/drm_bridge_connector.c     |  16 +-
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  21 ++
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |  32 +--
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 269 +++++++++++++++++----
+ drivers/gpu/drm/tests/drm_kunit_edid.h             | 102 ++++++++
+ drivers/gpu/drm/vc4/vc4_hdmi.c                     |   5 +-
+ include/drm/display/drm_hdmi_state_helper.h        |   4 +
+ 9 files changed, 371 insertions(+), 94 deletions(-)
+---
+base-commit: d80b5c5b9be6b2e1cdeaaeaa8259523b63cae292
+change-id: 20241018-hdmi-mode-valid-aaec4428501c
+
+Best regards,
 -- 
-2.34.1
+Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
 
