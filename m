@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8F6E69188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 18:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3875BE69189
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 18:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2+K2vO+YH28AbBPpcin8XCiUS+NS9nCewhxVz1hPnHs=; b=Cnvyz6EbhrGiSiYf4LzM8XRvoj
-	MV9dzOjpeloSwliwfcUN1Oym9vQ8L/u0PKDxFvSKkYhOGHwcUv7YbTOVtyhv494H6AtEwh/pEuh4V
-	WWux+W8i/fjdxt17OKFybEalpQf8suBgSZVncuxNxmLZY6WKgC6jEoGZwsA5fDDDlqtZtA7Enb+j9
-	DUxDqw3Ai3CnIQAo8MarSwhtBITv+OuG9QfTc6AKlxK0LgLVe7ingyAOF/4k/nNVS8WlTBxryTS8o
-	bBqV5Sq3Oh23ssvH6G2NVOuCwhdbrlWbR1EoVviWKcF0pVNJytBeQTPnON29N5x1viUGX8K+/HQgL
-	4IPjt/Ag==;
+	bh=pXXGQ+H4K+o+xkKJh/Eib8vedMAVJhzcT61sVNMDK18=; b=qYteHu4/YSqQE98gnpa/U+o54v
+	pBqcVL0qcuFbbum2GugwpuVQUgJpizDcz9UkcExLie3wWszkTSQXbcloziSkARNdY9j7iSwvGayef
+	ztIib5PZe+ntsxexWKWWeOGP9ShQHM/6YRdGBZbn/tyZeSYzNQXF8gpVF0pk9ag930Li/TzhVfBn1
+	L9YTzRHpgJeRbUyClXxZdJv2Idw3s/yP4grIf/YjqWwY7ytjC419eJ6gBMsaHXpXm4CmTszFpSC8h
+	aG6wulzBhO3H4qud6/VfX5vkjrLnJOHBtNEgy5rj+jF33YQYJQdkHgyfKtP7BctYGGJ24Cwi15DTV
+	58FaaIZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEYU6-000000037mE-1w1k;
-	Fri, 22 Nov 2024 18:34:26 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tEYjg-000000039Af-0Tu0;
+	Fri, 22 Nov 2024 18:50:32 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEYTA-000000037cW-1hYa
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 22 Nov 2024 18:33:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=2+K2vO+YH28AbBPpcin8XCiUS+NS9nCewhxVz1hPnHs=; b=dpKJyFBgo5rAV5bVvDqMFqw21z
-	93FmlQvXiYAcgtJHjPq0kqXWIrXVNMYT1cax3pXa5gTAso3KQf7Ghn79Vb31Od4P1ff0dWeEKdpa0
-	Nt0+RKtkYYTsePr9gI6Dx3LA2wxiz8eVxJbH1t6Gtcn18xAi8Sty91FlynmjrHllIjJoPhxwNPlvp
-	/TC4eJqkps4ZMjV7WYLXOMPMj5NVJWDFL6gA0mbrojQFdKYLQ9xhGcSS3ZW/I7dBh2CDxxQ5kCKm+
-	6S/k1wAeFJ1fQQFkViTvBF/zJ8qOleScAf0wLCPWMV+VhCEbsWqPqOyHNic4cpNwONVAtshrXeTo+
-	j+hifZaw==;
-Received: from willy by casper.infradead.org with local (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEYT7-000000088t7-1mo1;
-	Fri, 22 Nov 2024 18:33:25 +0000
-Date: Fri, 22 Nov 2024 18:33:25 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: Elliot Berman <quic_eberman@quicinc.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Sean Christopherson <seanjc@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	Ackerley Tng <ackerleytng@google.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	David Hildenbrand <david@redhat.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Jonathan Corbet <corbet@lwn.net>,
-	Trond Myklebust <trondmy@kernel.org>,
-	Anna Schumaker <anna@kernel.org>,
-	Mike Marshall <hubcap@omnibond.com>,
-	Martin Brandenburg <martin@omnibond.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	James Gowans <jgowans@amazon.com>, Mike Day <michael.day@amd.com>,
-	linux-fsdevel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-coco@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux-doc@vger.kernel.org, linux-nfs@vger.kernel.org,
-	devel@lists.orangefs.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 2/2] mm: guestmem: Convert address_space operations to
- guestmem library
-Message-ID: <Z0DOdTRAaK3whZKW@casper.infradead.org>
-References: <20241122-guestmem-library-v5-0-450e92951a15@quicinc.com>
- <20241122-guestmem-library-v5-2-450e92951a15@quicinc.com>
+	id 1tEYii-0000000396C-3kQR;
+	Fri, 22 Nov 2024 18:49:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1732301366; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=moKpI0Y1wfyp0zDTN+J7fb0RabdMywL/MPTswotmSA+KTZJOEPvVZBYQ6zlN8apO60/z20bkDuHLQxJubWsP7jRoV4xsV7QNCqg+80jltLdjdDda0kTAIZL3vDMQHPlV2WFnDD2LWuBbRhsVCShsnpHUtN2VdzQEjpbu7m2hVTI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1732301366; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=pXXGQ+H4K+o+xkKJh/Eib8vedMAVJhzcT61sVNMDK18=; 
+	b=etErkPXOgA/o2PY0rmoNMNz5lETz28KLwWLF5s/Rw1o3luzgxPET4Dgn0jEHziDzE6ttWFJ6o8r3A3xNMwPA8kO3k4Wqc9Y2wGyjfxEo6t0sGz7UYHdKLEB0q5q4o67kD2mOD512rFtdfWGPIPcONMXpEKkZ8+2HtLBPtgVL7Nc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1732301366;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=pXXGQ+H4K+o+xkKJh/Eib8vedMAVJhzcT61sVNMDK18=;
+	b=DWMis2ORyFa/Pf0JrjQCTPO8S503ZcLD+FfkCKMKyij0evInMtsSAmy5fdKNNYGL
+	iNdrxoVmBcowkrEe4U6TW1J044EnZKsdr4spTFkzL6Co2fTJU7vLCgHY059ZVFpB5mq
+	Qmq3JANa/lN+q8A4wTGp9SCU5s62xvQeokqdYkCM=
+Received: by mx.zohomail.com with SMTPS id 1732301365255675.6070960311865;
+	Fri, 22 Nov 2024 10:49:25 -0800 (PST)
+Received: by mercury (Postfix, from userid 1000)
+	id BF04A10604B0; Fri, 22 Nov 2024 19:49:20 +0100 (CET)
+Date: Fri, 22 Nov 2024 19:49:20 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, quentin.schulz@cherry.de, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Heiko Stuebner <heiko.stuebner@cherry.de>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v3 1/2] dt-bindings: phy: Add Rockchip MIPI CSI/DSI PHY
+ schema
+Message-ID: <udad4qf3o7kt45nuz6gxsvsmprh4rnyfxfogopmih6ucznizih@7oj2jrnlfonz>
+References: <20241113221018.62150-1-heiko@sntech.de>
+ <20241113221018.62150-2-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ziaozgegtmqy67sl"
 Content-Disposition: inline
-In-Reply-To: <20241122-guestmem-library-v5-2-450e92951a15@quicinc.com>
+In-Reply-To: <20241113221018.62150-2-heiko@sntech.de>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.3.1/232.230.92
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20241122_104933_017361_40790B97 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,32 +86,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 22, 2024 at 09:29:39AM -0800, Elliot Berman wrote:
-> A few near-term features are coming to guest_memfd which make sense to
-> create a built-in library.
 
-You haven't created a library, you've created a middle-layer.  This
-file primarily consists of functions which redispatch to a function
-pointer.  I think you'd be better off creating a library!  That is,
-have the consumers register their own address_space_operations and
-have functions in this library which provide useful implementations.
+--ziaozgegtmqy67sl
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 1/2] dt-bindings: phy: Add Rockchip MIPI CSI/DSI PHY
+ schema
+MIME-Version: 1.0
 
-That's, eg, how iomap works:
+Hi,
 
-const struct address_space_operations xfs_address_space_operations = {
-        .read_folio             = xfs_vm_read_folio,
-        .readahead              = xfs_vm_readahead,
-        .writepages             = xfs_vm_writepages,
-        .dirty_folio            = iomap_dirty_folio,
-        .release_folio          = iomap_release_folio,
-        .invalidate_folio       = iomap_invalidate_folio,
-        .bmap                   = xfs_vm_bmap,
-        .migrate_folio          = filemap_migrate_folio,
-        .is_partially_uptodate  = iomap_is_partially_uptodate,
-        .error_remove_folio     = generic_error_remove_folio,
-        .swap_activate          = xfs_iomap_swapfile_activate,
-};
+On Wed, Nov 13, 2024 at 11:10:17PM +0100, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+>=20
+> Add dt-binding schema for the MIPI CSI/DSI PHY found on
+> Rockchip RK3588 SoCs.
+>=20
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> ---
+>  .../phy/rockchip,rk3588-mipi-dcphy.yaml       | 82 +++++++++++++++++++
+>  1 file changed, 82 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3588=
+-mipi-dcphy.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-d=
+cphy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcph=
+y.yaml
+> new file mode 100644
+> index 000000000000..5ee8d7246fa0
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.ya=
+ml
+> @@ -0,0 +1,82 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/rockchip,rk3588-mipi-dcphy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip MIPI CSI/DSI PHY with Samsung IP block
+> +
+> +maintainers:
+> +  - Guochun Huang <hero.huang@rock-chips.com>
+> +  - Heiko Stuebner <heiko@sntech.de>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - rockchip,rk3576-mipi-dcphy
+> +      - rockchip,rk3588-mipi-dcphy
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#phy-cells":
+> +    const: 0
 
-Some of these functions are xfs specific, some are iomap specific and
-some are the generic VFS implementations.
+I would expect an argument to select between D-PHY and C-PHY mode,
+so that the binding is ready for it even when the driver does not
+yet support it. E.g. something like
+
+  '#phy-cells':
+    const: 1
+    description: |
+      Supported modes are:
+        - PHY_TYPE_DPHY
+        - PHY_TYPE_CPHY
+      See include/dt-bindings/phy/phy.h for constants.
+
+This would match how it works for the naneng Combo PHY to switch
+between PCIe/SATA/USB3. Also Mediatek CSI DC-PHY handles it that
+way upstream (with just D-PHY being supported). I see that the
+driver stack you send upstream expects, that the PHY user (e.g.
+the DSI controller) instead manually calls phy_set_mode(phy, <mode>).
+To me it seems more sensible to just get this automaically from DT.
+
+Otherwise the whole series LGTM.
+
+Greetings,
+
+-- Sebastian
+
+> +  clocks:
+> +    maxItems: 2
+> +
+> +  clock-names:
+> +    items:
+> +      - const: pclk
+> +      - const: ref
+> +
+> +  resets:
+> +    maxItems: 4
+> +
+> +  reset-names:
+> +    items:
+> +      - const: m_phy
+> +      - const: apb
+> +      - const: grf
+> +      - const: s_phy
+> +
+> +  rockchip,grf:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to the syscon managing the 'mipi dcphy general register fi=
+les'.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - reset-names
+> +  - "#phy-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
+> +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
+> +
+> +    soc {
+> +      #address-cells =3D <2>;
+> +      #size-cells =3D <2>;
+> +
+> +      phy@feda0000 {
+> +        compatible =3D "rockchip,rk3588-mipi-dcphy";
+> +        reg =3D <0x0 0xfeda0000 0x0 0x10000>;
+> +        clocks =3D <&cru PCLK_MIPI_DCPHY0>,
+> +                 <&cru CLK_USBDPPHY_MIPIDCPPHY_REF>;
+> +        clock-names =3D "pclk", "ref";
+> +        resets =3D <&cru SRST_M_MIPI_DCPHY0>,
+> +                 <&cru SRST_P_MIPI_DCPHY0>,
+> +                 <&cru SRST_P_MIPI_DCPHY0_GRF>,
+> +                 <&cru SRST_S_MIPI_DCPHY0>;
+> +        reset-names =3D "m_phy", "apb", "grf", "s_phy";
+> +        rockchip,grf =3D <&mipidcphy0_grf>;
+> +        #phy-cells =3D <0>;
+> +      };
+> +    };
+> --=20
+> 2.45.2
+>=20
+>=20
+
+--ziaozgegtmqy67sl
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmdA0iYACgkQ2O7X88g7
++pqCVxAAjfX56csgOp+pRFu/Lzsmgy2PJnA+ahOcXVFpjer1P7y6mePQgwN4QfRt
+njnHJ9CdSLqwpOoBH3igShSlZ7Udd1gXzgigk3LsjpLOLqOe66L7Yzq/pS9LDPM0
+O6o5sAlvkDCMBwZx+NFzBK3FsVZ8w+yHPFw6pcIqBATAMsT5iC+7L6v1+VKbJ0Hj
+Rc9btYfxmUfUPGUvM/fDTEoAxK3b/R6hrrIzbp6mh+IFmU0Jg8pzCxdBbAJvHclP
+CTAFeXzNZ7t2mO20zp/ErvhR71e1zKsqVhddQWg5FkEb2hVAh6QqmdYaJmhzDSqN
+/7VC0nRX9Ck9Uj/XMAOo+u/QaVSrJp8uSfygtt8xjKac4KSbi8I1K8zUcPBhnESr
+LlsbjLKOYiXL9mDOcWcsNRwQCjofWviPUz571uchvhUNnDmZAS5tgD5AmI2Bfpor
+bfF63gY1/i+eAghsyIua091anZGpZfpUhghHHz9WP7Kr3ZrhIhe3fww29H0Z0gLa
++pIS0BLCXjlzx/OYEV6JPou2zuFrMHIX4N4XaCx4oAi7S9Fh4c05yt4VljWMB0mr
+Kn4FHuM9Hf6z6ZrR70IeCtElmK/gXPXag5olucUIKy/x/cso++EDu05tXX7Rys6e
+USpG+9j6rfzZh49dTkgNU2ijnwpovTblFjae10YAMBVNlGturPk=
+=D23f
+-----END PGP SIGNATURE-----
+
+--ziaozgegtmqy67sl--
 
