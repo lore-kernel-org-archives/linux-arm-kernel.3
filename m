@@ -4,62 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CA9CE65D0B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 00:58:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AE1EE65D0A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 01:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NoFHxlk/MxXl8zn0QsJEzFEW9uJPQ9u0jXpK1xuLvzU=; b=STSlUqxfwQ01IS8z+nHQ5vKiBS
-	rBXcDoFeleDfhNnRNGoep/YtZZQEzrDcEJs7dpSm27dO5r5qhQBKd6yVJWmm5/u4fzmKR9zQaMQ3+
-	+BkAmRixhdRDK+z2seMDbCt+Cqr4FaC1fqwTeT34QMem/2DXJEfZZhT8s64HDRKYAaHYH0ME81ui7
-	ekS3+goQ/G2lz7XdYk2wzzssLrHN3qzDurTT82H5Nv+N8cdd4A1HwDeSFsWLVGBn7t6LCuerwL0Kb
-	YdZ3B27I3ManwXls7/4TWm8I63HPqKndhkbDdu/XqK674TBqzAhpn8sjBa+9d3BrNFmgHvRu3Egla
-	hhh5IBzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AMMWxQ4o4pGQfV+n7NM8+4Dhggh4FK+HGrIOyuR8t2E=; b=Tim21T3w4M3lKwyJQee1Hofxic
+	dJEYyUr4nQ8Qremhqz+7DcoMWlViYXIvzM6FRVPFQJgkLwhJBM9XroEDr4p1qzHiJmJeP6CyXj3Fz
+	C77URXKBLmnc81Jzh3O+NxkQPZNUu/exrGwHyM/VlVgvFQj1Fe3t8EZw8BC3W6PtYp6zuu5RhZ9Ke
+	qw6K5GOHFOjuBPa5qCfV9K9EhzFhdksBvtvNJC/CvG9CyfP2ooUbrUkz58M7zKAXdyhHfwO/3HJ9u
+	jKQQOA/mQDIlhRWGItAAZUBMEKUx9lW1BK8KpjNTC4/T7SKEod9VA60xLDvvEoz7yge+HEjwrSWSw
+	FBbBexCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEHzt-00000001HkJ-4ABv;
-	Fri, 22 Nov 2024 00:58:09 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1tEIJw-00000001Ir2-02SF;
+	Fri, 22 Nov 2024 01:18:52 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEHyy-00000001Hfz-0IrZ
+	id 1tEIIz-00000001Ilf-14Ge
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 00:57:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1732237030;
-	bh=NoFHxlk/MxXl8zn0QsJEzFEW9uJPQ9u0jXpK1xuLvzU=;
-	h=Subject:From:To:Date:In-Reply-To:References;
-	b=FIL2dtlr7AuN89P3H/wj7W1MsXCkQvugxo0jOhi4kklYgD9YIbu552Ex6Wfk8ZIKD
-	 j5tJJVKYcWGfxsKqHUJgJ3imk/K0OGO89bgnwrC2ORok8EbuTr+/vTe62yRfrv5PLv
-	 nXtCr6yPUsf4BiMbLY0E04ZUXNpwVqgRnrjEye8MkCkQS3rz7mU+SAUj4V7JQETGXF
-	 FNoCvU3y8Ial9m8D1vR1i9Uto7k8V6B96uvWvMc/mUGPDdIevtH7U/3VZ8E67Kbe5B
-	 B9HIIrIT1PJTnG+9GjZMbGAA8blAVN28WlJAeEgg6VMN2UUd5EumuMzpgE3RayKKK+
-	 s6NMQqjS+VKvA==
-Received: from [192.168.68.112] (ppp118-210-73-187.adl-adc-lon-bras32.tpg.internode.on.net [118.210.73.187])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 8C22268F88;
-	Fri, 22 Nov 2024 08:57:09 +0800 (AWST)
-Message-ID: <920e053a17d5f9a7d5805bcd674f036a9c7fb402.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v2 0/6] Revise Meta(Facebook) Harma BMC(AST2600)
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: PeterYin <peteryin.openbmc@gmail.com>, Rob Herring <robh+dt@kernel.org>,
-  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Date: Fri, 22 Nov 2024 11:27:08 +1030
-In-Reply-To: <b13e5063-3b07-43ec-a7cc-b19e73b7c9e0@gmail.com>
-References: <20241121025323.1403409-1-peteryin.openbmc@gmail.com>
-	 <b13e5063-3b07-43ec-a7cc-b19e73b7c9e0@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Fri, 22 Nov 2024 01:17:54 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ALLpqPE025682;
+	Fri, 22 Nov 2024 01:17:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	AMMWxQ4o4pGQfV+n7NM8+4Dhggh4FK+HGrIOyuR8t2E=; b=QhCYiUum1FQiL+0u
+	A6KGA1RfpXO7YNmQqpxv7JmEQnjQpMpbXrfx03E81cGB1snUVcjHa1P3QLcF1+lj
+	1KK+QJkylha7/NXs5t1OZjEYKxYqJDfMkAgqPpDTnob/LYvDbjgcQZ3dTijHFKA0
+	caUwzyNXT4b27PIXZqBeTNLLKkU6tqjkX/hjwGz6Wpl+WDM0KtqBSWLecbwWxodo
+	ZCt3Ui1Qg+hNYnSiJc5aep8c7gBdVod6uMCZLgUJ43cV3qQau0+kQajxWUrtbtS9
+	cp+j2mwuOSbJORDM0JEwqI3PZeeYgR/GvWQJezKKwCIvihjiC64hQkZd3hn+4ImX
+	RJTaoQ==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 432d5b0c7a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 22 Nov 2024 01:17:41 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AM1HeMe006525
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 22 Nov 2024 01:17:40 GMT
+Received: from [10.253.13.126] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 21 Nov
+ 2024 17:17:33 -0800
+Message-ID: <3a7d9e71-bc2f-49c1-a12f-b9c860493c25@quicinc.com>
+Date: Fri, 22 Nov 2024 09:17:31 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: net: qcom,ethqos: revise description for
+ qcs615
+To: Rob Herring <robh@kernel.org>
+CC: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David
+ S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>,
+        "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Bhupesh
+ Sharma" <bhupesh.sharma@linaro.org>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+        Jose Abreu <joabreu@synopsys.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>,
+        <netdev@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <quic_tingweiz@quicinc.com>,
+        <quic_aiquny@quicinc.com>, <quic_tengfan@quicinc.com>,
+        <quic_jiegan@quicinc.com>, <quic_jingyw@quicinc.com>,
+        <quic_jsuraj@quicinc.com>
+References: <20241118-schema-v1-0-11b7c1583c0c@quicinc.com>
+ <20241118-schema-v1-1-11b7c1583c0c@quicinc.com>
+ <20241119174156.GA1862978-robh@kernel.org>
+Content-Language: en-US
+From: Yijie Yang <quic_yijiyang@quicinc.com>
+In-Reply-To: <20241119174156.GA1862978-robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: VPtJT21gOif71Q4xsJj9Yehuzcvm0Drd
+X-Proofpoint-ORIG-GUID: VPtJT21gOif71Q4xsJj9Yehuzcvm0Drd
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ phishscore=0 adultscore=0 clxscore=1015 impostorscore=0 suspectscore=0
+ spamscore=0 bulkscore=0 lowpriorityscore=0 mlxlogscore=999 mlxscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411220009
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_165712_328955_4B6D1957 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241121_171753_306730_6EA006F4 
+X-CRM114-Status: GOOD (  21.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,21 +125,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
 
-On Thu, 2024-11-21 at 12:33 +0800, PeterYin wrote:
-> Hi Andrew,
-> =C2=A0=C2=A0 I believe this series' path will conflict with upstream due =
-to=20
-> version differences between OpenBMC and upstream. I will update to
-> the=20
-> latest version of the DTS from upstream and submit a new version=20
-> accordingly.
 
-Going forward, please make sure that patches you send upstream have
-been tested on upstream (in terms of whether they apply to the
-appropriate branch, and whether they have the right effect on the
-system at runtime).
+On 2024-11-20 01:41, Rob Herring wrote:
+> On Mon, Nov 18, 2024 at 02:16:50PM +0800, Yijie Yang wrote:
+>> The core version of EMAC on qcs615 has minor differences compared to that
+>> on sm8150. During the bring-up routine, the loopback bit needs to be set,
+>> and the Power-On Reset (POR) status of the registers isn't entirely
+>> consistent with sm8150 either.
+>> Therefore, it should be treated as a separate entity rather than a
+>> fallback option.
+> 
+> 'revise description' is not very specific. 'Drop fallback compatible for
+> qcom,qcs615-ethqos' would be better.
 
-Andrew
+I will fix it.
+
+> 
+> However, this is an ABI change. You could leave the binding/dts alone
+> and only change the kernel driver to match on qcom,qcs615-ethqos to
+> achieve what you need. If there's a reason why the ABI change is okay,
+> then you need to detail that. Did the driver never work? Are there no
+> users yet?
+> 
+
+Firstly, this patch addresses a correction to my earlier update on the 
+dts schema, which can be found here: 
+https://lore.kernel.org/all/20241017-schema-v2-1-2320f68dc126@quicinc.com/.
+As detailed in the description, the EMAC version present in qcs615 
+diverges from that in sm8150, leading me to conclude that the schema 
+should not fallback to sm8150, despite successful driver probing. 
+Lastly, there are currently no users for qcs615 yet.
+
+>>
+>> Fixes: 32535b9410b8 ("dt-bindings: net: qcom,ethqos: add description for qcs615")
+>> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
+>> ---
+>>   Documentation/devicetree/bindings/net/qcom,ethqos.yaml | 5 +----
+>>   1 file changed, 1 insertion(+), 4 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/net/qcom,ethqos.yaml b/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
+>> index 0bcd593a7bd093d4475908d82585c36dd6b3a284..576a52742ff45d4984388bbc0fcc91fa91bab677 100644
+>> --- a/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
+>> +++ b/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
+>> @@ -23,12 +23,9 @@ properties:
+>>             - enum:
+>>                 - qcom,qcs8300-ethqos
+>>             - const: qcom,sa8775p-ethqos
+>> -      - items:
+>> -          - enum:
+>> -              - qcom,qcs615-ethqos
+>> -          - const: qcom,sm8150-ethqos
+>>         - enum:
+>>             - qcom,qcs404-ethqos
+>> +          - qcom,qcs615-ethqos
+>>             - qcom,sa8775p-ethqos
+>>             - qcom,sc8280xp-ethqos
+>>             - qcom,sm8150-ethqos
+>>
+>> -- 
+>> 2.34.1
+>>
+
+-- 
+Best Regards,
+Yijie
+
 
