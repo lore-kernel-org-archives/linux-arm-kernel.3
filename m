@@ -4,86 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E073AE65D34
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 08:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DBF6E65D34
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 08:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gAZGdYy0kLNz/HWKiT5Wenkd6deM0b7lB87bgXf3/+U=; b=cm2dbddcP3wHwyt7Kot03W2IpG
-	lAdPgQQUHvaC51lgs72c3ByWThMku8r3rENwLwGZffi1uMV74gBOtLOA/ct0pCXGnaJuFJ4LidVUs
-	32YMn7S5SKpk1nmgFJveuTHGiz7U+rG4eY7qFntZ3YjmDUQCpUpiczy+4WCkee9mgAguU3wqxIvP8
-	7VJLHMA9ZdNm/5CXuA6T5/Pr0HzOrhQOKVQPfbSZ106gEHcjL3zLblqz/5bJcOXYpLMOpUWZsuu46
-	JCFJLJ0qJMkEHqTYFsBRq2v44NV1F2YVTd8ti2L8HnbLmPylaDwp06nMxboXuNWYDsoVUEm0WR6TP
-	zn5RZqkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hKL/YfMn3Db8wOJ15FBDjXTCEC8oukhMv/EgAq4D1Bw=; b=FHk1myBLBhLf6JVpY33MXlmQd8
+	/Z76/5sYkz/Db0uS23NAUJ4z9rvdOYbDqbSy2xEjDxDaAyaFANqRxe9FO2CpVvGlullzyxxyXGOqx
+	37ns4/lBfxxZoD/VXTVdHceuZaY6SGEDtZ3oeF82nZHGFCW62oQC0WPom6Ju1rIDDKVkK78wFOe5j
+	XT3XfQTEZ7Zhdad3oNP5kBTCLPn9FdGrWomFmZ+L1XdRvj4MPopsAWc5NWHkQxDBth2vUl3Kj3bwX
+	L8A/iv2QIIKrPPRCS1Ya9pGwbqB0NDA6J3fygM1FxgsjkDFnYlNCCvt25Si33ryK1d+PLbeyxZRm1
+	7bXOuhCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEPAS-00000001wS4-3IU6;
-	Fri, 22 Nov 2024 08:37:32 +0000
-Received: from mail-yw1-f178.google.com ([209.85.128.178])
+	id 1tEPBo-00000001wh6-1NCA;
+	Fri, 22 Nov 2024 08:38:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEP9W-00000001wJQ-0Mvu;
-	Fri, 22 Nov 2024 08:36:35 +0000
-Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-6ee745e3b2bso22258757b3.0;
-        Fri, 22 Nov 2024 00:36:33 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732264591; x=1732869391;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gAZGdYy0kLNz/HWKiT5Wenkd6deM0b7lB87bgXf3/+U=;
-        b=TILB2CEkt46HMSL7Zp+7zrUlcOGUIoQjjRVKJaBybyibl6Cj279CVsVmYxwk72In+J
-         Um+9AJF/YhZuE5tSioGFajEqtvPHpqmbTZ/Z6KvqpEufknT/z01y/b02HdS43Ey9+6ZY
-         u/2z7X7ndVPmI2PPqioHeZwc/F9HtL8xUHzqQXcI0HiiVOlkTHW64Qz/ClcgYefaw6nm
-         WyacEtlE7tk8t9bR/9Zu58aGG+/OBjYPvSv3SQFBxZjzIo26mte94sCcOJ1Cv97uWju4
-         /H6P9h+Nd5u5re4KuuoQfuR65aRVOG8bhInaV9OwEbt/bohZnPCFv7bqegkAtVoqqlRj
-         Z9jw==
-X-Forwarded-Encrypted: i=1; AJvYcCVgYdcnv3Nl7eTBWzIHvQ+3c/YlahTCc91d4YVMZ/hZr2KN1NhXC6qOMyEgppoaUw+bsSArgJXN+/syJIDzrJ6Z@lists.infradead.org, AJvYcCXHAvO+/Ke7AYanvfTieFWFY+wanJh9tZsN6lg5I0EY3hMRXx/OVl81peV+G/zUFpWOZg0vylbAMY4hBIi+jWk=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMEu5eo9FInLgcV8lfpgmZ23aceOQYfy6aHRL41wDgfUIqNs5a
-	/f7jrT8iJ6jdIHpKbxokNvZXh/SjJ9P+KKxltvVqGYFpIkbT07Yu2P4arHnI
-X-Gm-Gg: ASbGncv38qxJUuGhWO/PzU2R1KIM30apmW2rdaFVBIURhO+q+8HRIpa2axZQyasyG6D
-	pC7UsxhCPP5AbSVlXaRwjmkLllqcOJKqbP5TuOQB7dZqoKe5V+WqRtrvNCH01lYuTaW/USykO+1
-	63W0PJ8JuyxRUFJ7H5D0i0NovCZlBn7V2s8MZ05b3nEhepo/sY/vLkWLWkYgjif/5oOeqT1IF2k
-	0qfUFFexWFRHyaCR/rK4LufQUzDkgylmzBx/nnBgWOYDGvVuLMvwleuOf8LlHiYDjvg5YZsVXy8
-	08UtfjJ18+IUfXTg
-X-Google-Smtp-Source: AGHT+IGUtyxA6bHM3Tk/VbkIoPAjYzFnDu6Efq4waRa4NIr9slwpWucFtUdSLQ82l5dVwW17jfViSQ==
-X-Received: by 2002:a05:690c:4804:b0:6dd:f81a:80fb with SMTP id 00721157ae682-6eee08a9753mr17000657b3.1.1732264590909;
-        Fri, 22 Nov 2024 00:36:30 -0800 (PST)
-Received: from mail-yw1-f178.google.com (mail-yw1-f178.google.com. [209.85.128.178])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-6eee008cd94sm3543707b3.95.2024.11.22.00.36.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 Nov 2024 00:36:29 -0800 (PST)
-Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-6ee745e3b2bso22258487b3.0;
-        Fri, 22 Nov 2024 00:36:28 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVMtqI1c2VWzB4IEQIDtVZ9NUN2Zik0bgtI9p2TgFA3oBu+eE30jh8imv+KPxHDVAWJWakz/vQ+DD9AQUx7RNs=@lists.infradead.org, AJvYcCXBcRHUqScAxfnPQB0f5ktuuMgwqXS8jLsc+edDKGB7hUZbp/SI3hPGdhlfpWVzsEG1X/T+1GOj7ZBefJLdHC8G@lists.infradead.org
-X-Received: by 2002:a05:690c:7084:b0:6e2:2684:7f62 with SMTP id
- 00721157ae682-6eecd25bc15mr55712747b3.8.1732264588474; Fri, 22 Nov 2024
- 00:36:28 -0800 (PST)
+	id 1tEPAr-00000001wZY-0mab
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Nov 2024 08:37:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 891FB5C59AA;
+	Fri, 22 Nov 2024 08:37:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05D4EC4CECE;
+	Fri, 22 Nov 2024 08:37:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732264676;
+	bh=YRPhCjHnMkScpSE7BaUeWOkkkpQu14NpMm1EVAUeUFo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rlQOR6xrYCqf57fxGFgqbkaoiW1BaKannEDb205TFQx1q4XrT4atygpg02CUTkhbt
+	 yKx8LM9w9BfyWY0i7/ZahsUGTMa9e82/lPJGqF06WaOeCu/X8szTuzZNSNbU5ycDNa
+	 g+khhWqQU/l31l8uXwG2KrzX8K2RjrrOFBX/gR2dRVZBaVAo7fpGzVgaskVFVWTnRB
+	 MR0pN4Sl8EsiF1DN0Olfgm6pW05hHgIgEtAObkccCaAhDKHSaNA3U2Pm+rg/16zo8k
+	 kOACaBpv8P6xYDobnXQg9iKZEoI+p60M4YjZTdexeTx1Y6Gv/blg1hJ/jLfHbJ0sqF
+	 V/jMkIsTQILug==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1tEPAh-000000001y3-3Fnj;
+	Fri, 22 Nov 2024 09:37:47 +0100
+Date: Fri, 22 Nov 2024 09:37:47 +0100
+From: Johan Hovold <johan@kernel.org>
+To: Sibi Sankar <quic_sibis@quicinc.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, sudeep.holla@arm.com,
+	andersson@kernel.org, konrad.dybcio@linaro.org, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, quic_rgottimu@quicinc.com,
+	quic_kshivnan@quicinc.com, conor+dt@kernel.org,
+	arm-scmi@vger.kernel.org
+Subject: Re: [PATCH V4 0/5] arm_scmi: vendors: Qualcomm Generic Vendor
+ Extensions
+Message-ID: <Z0BC203BhGEmXcJi@hovoldconsulting.com>
+References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
+ <ZytnRc94iKUfMYH0@hovoldconsulting.com>
+ <ZyvLktLUZOGP-LH5@pluto>
+ <Zy4qvedrmkRdPR3x@hovoldconsulting.com>
+ <8d42682b-0fa7-3962-da12-728cfe64903b@quicinc.com>
 MIME-Version: 1.0
-References: <20241018151016.3496613-1-arnd@kernel.org> <20241104172950.GA741087@thelio-3990X>
-In-Reply-To: <20241104172950.GA741087@thelio-3990X>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 22 Nov 2024 09:36:16 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXrrCiLm2sQmpegtVHV8X5AUp-8E5BejDxRpMbeAfHhvQ@mail.gmail.com>
-Message-ID: <CAMuHMdXrrCiLm2sQmpegtVHV8X5AUp-8E5BejDxRpMbeAfHhvQ@mail.gmail.com>
-Subject: Re: [PATCH] drm/rockchip: avoid 64-bit division
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Arnd Bergmann <arnd@kernel.org>, Sandy Huang <hjc@rock-chips.com>, 
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Algea Cao <algea.cao@rock-chips.com>, 
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Arnd Bergmann <arnd@arndb.de>, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8d42682b-0fa7-3962-da12-728cfe64903b@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_003634_125305_976BAFED 
-X-CRM114-Status: GOOD (  27.02  )
+X-CRM114-CacheID: sfid-20241122_003757_308953_67DF34C5 
+X-CRM114-Status: GOOD (  22.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,79 +85,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 4, 2024 at 6:30=E2=80=AFPM Nathan Chancellor <nathan@kernel.org=
-> wrote:
-> On Fri, Oct 18, 2024 at 03:10:10PM +0000, Arnd Bergmann wrote:
-> > From: Arnd Bergmann <arnd@arndb.de>
-> >
-> > Dividing a 64-bit integer prevents building this for 32-bit targets:
-> >
-> > ERROR: modpost: "__aeabi_uldivmod" [drivers/gpu/drm/rockchip/rockchipdr=
-m.ko] undefined!
-> >
-> > As this function is not performance criticial, just Use the div_u64() h=
-elper.
-> >
-> > Fixes: 128a9bf8ace2 ("drm/rockchip: Add basic RK3588 HDMI output suppor=
-t")
-> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
->
-> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
->
-> Can someone please pick this up? It is still broken in next-20241104...
->
-> https://storage.tuxsuite.com/public/clangbuiltlinux/continuous-integratio=
-n2/builds/2oNvJFRj8tkDieb6VfrMf4rh1Kn/build.log
->
-> > ---
-> >  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/g=
-pu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> > index 9c796ee4c303..c8b362cc2b95 100644
-> > --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> > +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> > @@ -82,7 +82,7 @@ static void dw_hdmi_qp_rockchip_encoder_enable(struct=
- drm_encoder *encoder)
-> >                * comment in rk_hdptx_phy_power_on() from
-> >                * drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-> >                */
-> > -             phy_set_bus_width(hdmi->phy, rate / 100);
-> > +             phy_set_bus_width(hdmi->phy, div_u64(rate, 100));
-> >       }
-> >  }
+On Thu, Nov 14, 2024 at 09:52:12AM +0530, Sibi Sankar wrote:
+> On 11/8/24 20:44, Johan Hovold wrote:
 
-noreply@ellerman.id.au has just told me this build issue is now upstream:
+> >> On Wed, Nov 06, 2024 at 01:55:33PM +0100, Johan Hovold wrote:
 
-    FAILED linus/m68k-allmodconfig/m68k-gcc8.1 Fri Nov 22, 05:34
-    http://kisskb.ellerman.id.au/kisskb/buildresult/15277242/
+> >>> Second, after loading the protocol and client drivers manually (in that
+> >>> order, shouldn't the client driver pull in the protocol?), I got:
+> >>>
+> >>> 	scmi_module: Loaded SCMI Vendor Protocol 0x80 - Qualcomm  20000
+> >>> 	arm-scmi arm-scmi.0.auto: QCOM Generic Vendor Version 1.0
+> >>> 	scmi-qcom-generic-ext-memlat scmi_dev.5: error -EOPNOTSUPP: failed to configure common events
+> >>> 	scmi-qcom-generic-ext-memlat scmi_dev.5: probe with driver scmi-qcom-generic-ext-memlat failed with error -95
+> >>>
+> >>> which seems to suggest that the firmware on my CRD does not support this
+> >>> feature. Is that the way this should be interpreted? And does that mean
+> >>> that non of the commercial laptops supports this either?
 
-    Commit:   Merge tag 'drm-next-2024-11-21' of
-https://gitlab.freedesktop.org/drm/kernel
-              28eb75e178d389d325f1666e422bc13bbbb9804c
-    Compiler: m68k-linux-gcc (GCC) 8.1.0 / GNU ld (GNU Binutils) 2.30
+> > Yeah, hopefully Sibi can shed some light on this. I'm using the DT
+> > patch (5/5) from this series, which according to the commit message is
+> > supposed to enable bus scaling on the x1e80100 platform. So I guess
+> > something is missing in my firmware.
+> 
+> Nah, it's probably just because of the algo string used.
+> The past few series used caps MEMLAT string instead of
+> memlat to pass the tuneables, looks like all the laptops
+> havn't really switched to it yet. Will revert back to
+> using to lower case memlat so that all devices are
+> supported. Thanks for trying the series out!
 
-    ERROR: modpost: "__udivdi3"
-[drivers/gpu/drm/rockchip/rockchipdrm.ko] undefined!
+I have a Lenovo ThinkPad T14s set up now so I gave this series a spin
+there too, and there I do *not* see the above mentioned -EOPNOSUPP error
+and the memlat driver probes successfully.
 
-Applying this patch fixes it, so
-Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+On the other hand, this series seems to have no effect on a kernel
+compilation benchmark. Is that expected?
 
-Do we really need +5 weeks to apply a fix for a reported build issue?
-Thanks!
+And does this mean that you should stick with the uppercase "MEMLAT"
+string after all? The firmware on my CRD is not the latest one, but I am
+using the latest available firmware for the T14s.
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+Johan
 
