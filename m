@@ -4,80 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F118D75E25
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 11:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09760D75E29
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 11:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TmRVGUs6nkxwhsO2iucDTdvS5A9kO2wSDYZR/UjMPwg=; b=PpmsxHcEM6i4vUAcNyhr7UaUT3
-	g18GFK3TAUV5UPnjAGSOqGGoPX5QMxJJ+ESJnERZpVRsBXvSyAX24zsU5Y+3848cIqxWVunCodA+T
-	0gOjKHrm2z3v+DM1NxMaJmGIrLHzz54Mv/8s2RiAwaIgdOBk9S/03hcKpvnKEfZXdbpmBjeuJHxlu
-	5n8Qoh9IN8fUSRwMgusA2fKBhwc8KLxuilFw2ijUrvOWfdyiNeSSMDt46Nj30ooiSAYz2QzXX8a1v
-	30u2WeuVvjgSNwCH0fewhwyKIsHmTjMnORX8HL2jAEieuadSzSeA6ipWc9JPH1pAhKEl8lQIrDaWS
-	L1cwvLUg==;
+	bh=xQ+xtW3/AssdPwNsJLxPzmiinIjqrmpk8YsFrrCYBws=; b=DKhTnAvEiMGtWMXFhmTZYrsXBP
+	NRL2qGHbH6ycaWnxgvzgvE7O10Fn9NOAPslmuINqxnzUM1AkUxj6IpA8NmsW59deDaQf9DprTtHLg
+	zUtOUVovtL8U9qDfM4hOFLYey8qli3HBQeTp3xLSn5kcU5zFpVbPlB7nWT90P/jhNlwFcRsbgbGoP
+	zp4VzPim69rxhIFbGF3mnVfPa7P3XbKgPBvgJj34wtKWN6HN9rvBG7cCcYDfNl/Z9N9HszPMsaf+p
+	R7agJP5q20oxtakWbR8NPrmG8OPjGfU7N24n27pIFZWLq6Kn2LSpcsRki1aBWYAOXC26+li1IdScF
+	ffh3mZiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tERgY-00000002LTC-3jwM;
-	Fri, 22 Nov 2024 11:18:50 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1tERhU-00000002Lbp-25ze;
+	Fri, 22 Nov 2024 11:19:48 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tERV0-00000002JVr-25Cs
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 11:06:55 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6ee6c2b65b9so33768787b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 03:06:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1732273613; x=1732878413; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TmRVGUs6nkxwhsO2iucDTdvS5A9kO2wSDYZR/UjMPwg=;
-        b=pfMvitR7DvKFf1X4LA2el+rtnlpH/uOSddR46eVr0FLPA44GEBmQfj3PzKOiYtnay7
-         4T0gbmIK8ADl6058k21q27ZLsqbHnlpSuSZJ3qbTpgtm71j+65Sb36u+8Fp35DZdz8/A
-         AnNqk9nTQ+Eutd3zzSOBMoZ2tSE5Mriicsy+DWB8OM3vDoB0/J5auDPiE3Et+Cw+UWcz
-         Wj3WP+CB6c6lofuSnlCH6lc0D0wgJv870rNZzPa0C/P19U05kwnuhf9En8RlwlNwrg5P
-         i8sZyG4oXElPW9yQgosKJcSIxecy8l9uYysP3pVykg4MtvssdAVbMSjIKP0QpcvxnnTo
-         r3Gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732273613; x=1732878413;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TmRVGUs6nkxwhsO2iucDTdvS5A9kO2wSDYZR/UjMPwg=;
-        b=oGSTfrwNOfwLuX6TLTRD6Ys3CqF/uj54K6T3Xif7fcEvmG4yXKLSMZzfaG+bvTU+JJ
-         vCzOBYbZ5kRcnLxPq4Ho5iPRzAekZ1QDjPuSxTAn4J/knAlK/DNX736RjnM0HnAdJsto
-         16b0WTGcG5C2mzXISwFLiV5p3l61nBtfy09sSgevG8g81B8RFOYebgcnfvHapSoHI15l
-         0yB9QvEzuOImS4yVSemlt03QIwWIpyX1reKeqIsEjR4J9ZjgYowrcv7vi9rSt6KBIkZr
-         8AmG95voUibjOJSxoRgbPZEcVPFZ3PsUIn/obOj0xoU7+xiST+IveCkru7qfdyNGES4o
-         Ux2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU8W8Vx5yws5UHmi3VmVYpXcTXrKCb9UDT43a1nxtWo8dTY/wUVwJdq62cwcVRIh/fbGCg8fRNHqflDFZNuGxIU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+lMEg8uHt4ExwfNR5v+zaHgHK26EhSP9s/Lx+lus3UkkhNYOd
-	JRLXzfktbu/AFWs5KgjJ+tRm4hkPQytJJwVPFnxxeVEF+szEwnv+fmz6uJX5Hog9zimhJPgSDw=
-	=
-X-Google-Smtp-Source: AGHT+IFDY0g1fhzMzp9VrckEOC6u+svSMuwV073QrPa2hQhhHhGdZ5PW9AlHSxPAec4RYBV0SLxm6U1zdA==
-X-Received: from fuad.c.googlers.com ([fda3:e722:ac3:cc00:28:9cb1:c0a8:1613])
- (user=tabba job=sendgmr) by 2002:a81:d809:0:b0:6e2:12e5:356f with SMTP id
- 00721157ae682-6eee0a3cd59mr62337b3.3.1732273612814; Fri, 22 Nov 2024 03:06:52
- -0800 (PST)
-Date: Fri, 22 Nov 2024 11:06:22 +0000
-In-Reply-To: <20241122110622.3010118-1-tabba@google.com>
-Mime-Version: 1.0
-References: <20241122110622.3010118-1-tabba@google.com>
-X-Mailer: git-send-email 2.47.0.371.ga323438b13-goog
-Message-ID: <20241122110622.3010118-13-tabba@google.com>
-Subject: [PATCH v2 12/12] KVM: arm64: Fix the value of the CPTR_EL2 RES1
- bitmask for nVHE
-From: Fuad Tabba <tabba@google.com>
-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org, 
-	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, 
-	qperret@google.com, tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
+	id 1tEReS-00000002L5B-19yv;
+	Fri, 22 Nov 2024 11:16:41 +0000
+Received: from ideasonboard.com (93-46-82-201.ip106.fastwebnet.it [93.46.82.201])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 898F8514;
+	Fri, 22 Nov 2024 12:16:15 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1732274175;
+	bh=2UYjvw0kbuWH2STaQqc+3/rJxEjJ0oADODBPB38m5Uw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MSZC2h6VaO50/ceI9fbm/2ILQ7Mi8txsCYjesn2nubaSA5k4Gd/1/y7rZWk1S8/yM
+	 wkT/JOMVis6f5+/8mIcE1aWVG04ubol/qp+ijkIzTAq6AgHn+aT0/QxsFtvLqW4vwc
+	 AHAl6GKQX6YuUd4ajDLpQAgO6rdno4hnjE4/FU70=
+Date: Fri, 22 Nov 2024 12:16:32 +0100
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Naushir Patuck <naush@raspberrypi.com>
+Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, linux-media@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, jacopo.mondi@ideasonboard.com, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH v1 5/5] drivers: media: bcm2835-unicam: Correctly handle
+ FS + FE ISR condition
+Message-ID: <xy44zndazbw7ehpzbc6hexgptjymevvupjhuy2x6zxp54qtepm@vlbb6js62cq4>
+References: <20241122084152.1841419-1-naush@raspberrypi.com>
+ <20241122084152.1841419-6-naush@raspberrypi.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241122084152.1841419-6-naush@raspberrypi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_030654_533707_8D429C27 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20241122_031640_449954_8C1B2E80 
+X-CRM114-Status: GOOD (  28.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,48 +72,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the introduction of SME, bit 12 in CPTR_EL2 (nVHE) is TSM
-for trapping SME, instead of RES1, as per ARM ARM DDI 0487K.a,
-section D23.2.34.
+Hi Naush
 
-Fix the value of CPTR_NVHE_EL2_RES1 to reflect that, and adjust
-the code that relies on it accordingly.
+On Fri, Nov 22, 2024 at 08:41:52AM +0000, Naushir Patuck wrote:
+> This change aligns the FS/FE interrupt handling with the Raspberry Pi
+> kernel downstream Unicam driver.
+>
+> If we get a simultaneous FS + FE interrupt for the same frame, it cannot
+> be marked as completed and returned to userland as the framebuffer will
+> be refilled by Unicam on the next sensor frame. Additionally, the
+> timestamp will be set to 0 as the FS interrupt handling code will not
+> have run yet.
+>
+> To avoid these problems, the frame is considered dropped in the FE
+> handler, and will be returned to userland on the subsequent sensor frame.
+>
+> Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
+> ---
+>  .../media/platform/broadcom/bcm2835-unicam.c  | 39 +++++++++++++++++--
+>  1 file changed, 35 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> index f10064107d54..0d2aa25d483f 100644
+> --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
+> +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> @@ -773,10 +773,26 @@ static irqreturn_t unicam_isr(int irq, void *dev)
+>  			 * as complete, as the HW will reuse that buffer.
+>  			 */
+>  			if (node->cur_frm && node->cur_frm != node->next_frm) {
+> +				/*
+> +				 * This condition checks if FE + FS for the same
+> +				 * frame has occurred. In such cases, we cannot
+> +				 * return out the frame, as no buffer handling
+> +				 * or timestamping has yet been done as part of
+> +				 * the FS handler.
+> +				 */
+> +				if (!node->cur_frm->vb.vb2_buf.timestamp) {
+> +					dev_dbg(unicam->v4l2_dev.dev,
+> +						"ISR: FE without FS, dropping frame\n");
+> +					continue;
+> +				}
+> +
+>  				unicam_process_buffer_complete(node, sequence);
+> +				node->cur_frm = node->next_frm;
+> +				node->next_frm = NULL;
+>  				inc_seq = true;
+> +			} else {
+> +				node->cur_frm = node->next_frm;
+>  			}
+> -			node->cur_frm = node->next_frm;
+>  		}
+>
+>  		/*
+> @@ -812,10 +828,25 @@ static irqreturn_t unicam_isr(int irq, void *dev)
+>  					i);
+>  			/*
+>  			 * Set the next frame output to go to a dummy frame
+> -			 * if we have not managed to obtain another frame
+> -			 * from the queue.
+> +			 * if no buffer currently queued.
+>  			 */
+> -			unicam_schedule_dummy_buffer(node);
+> +			if (!node->next_frm ||
+> +			    node->next_frm == node->cur_frm) {
+> +				unicam_schedule_dummy_buffer(node);
+> +			} else if (unicam->node[i].cur_frm) {
+> +				/*
+> +				 * Repeated FS without FE. Hardware will have
+> +				 * swapped buffers, but the cur_frm doesn't
+> +				 * contain valid data. Return cur_frm to the
+> +				 * queue.
 
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- arch/arm64/include/asm/kvm_arm.h     | 2 +-
- arch/arm64/include/asm/kvm_emulate.h | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+So the buffer gets silently recycled ? Or should it be returned with
+errors to userspace ?
 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 3e0f0de1d2da..24e4ac7c50f2 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -300,7 +300,7 @@
- #define CPTR_EL2_TSM	(1 << 12)
- #define CPTR_EL2_TFP	(1 << CPTR_EL2_TFP_SHIFT)
- #define CPTR_EL2_TZ	(1 << 8)
--#define CPTR_NVHE_EL2_RES1	0x000032ff /* known RES1 bits in CPTR_EL2 (nVHE) */
-+#define CPTR_NVHE_EL2_RES1	(BIT(13) | BIT(9) | GENMASK(7, 0))
- #define CPTR_NVHE_EL2_RES0	(GENMASK(63, 32) |	\
- 				 GENMASK(29, 21) |	\
- 				 GENMASK(19, 14) |	\
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 7b3dc52248ce..6602a4c091ac 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -640,8 +640,8 @@ static __always_inline void kvm_reset_cptr_el2(struct kvm_vcpu *vcpu)
- 
- 		if (vcpu_has_sve(vcpu) && guest_owns_fp_regs())
- 			val |= CPTR_EL2_TZ;
--		if (cpus_have_final_cap(ARM64_SME))
--			val &= ~CPTR_EL2_TSM;
-+		if (!cpus_have_final_cap(ARM64_SME))
-+			val |= CPTR_EL2_TSM;
- 	}
- 
- 	kvm_write_cptr_el2(val);
--- 
-2.47.0.371.ga323438b13-goog
-
+> +				 */
+> +				spin_lock(&node->dma_queue_lock);
+> +				list_add_tail(&node->cur_frm->list,
+> +					      &node->dma_queue);
+> +				spin_unlock(&node->dma_queue_lock);
+> +				node->cur_frm = node->next_frm;
+> +				node->next_frm = NULL;
+> +			}
+>  		}
+>
+>  		unicam_queue_event_sof(unicam);
+> --
+> 2.34.1
+>
+>
 
