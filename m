@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DDBAE65D3F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 10:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC93E6403D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 10:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ISPB4u0k/IY3WdqyYBfvJI1MUBGbBsUm1AW/lweuam4=; b=W4af9W2q/VZ2ygrMib1U7OyvfE
-	VZd/5oYhJjyGQ93mLeFABDSWPwUGLy+Sq+WBDSgPO4lRrQIzPxu6WDMRw7CQ9CZGMhE6dreSrKDec
-	+ILZ7e1mfC2a36mRMoBQj9AugQqk9cvytv6BjkS0fdv3ekbY3LpJojoIlAgTX/bR2KD6iKP8rT/FN
-	T7RIlo5EeM6xlFDTrX6MkiMtJyHvo3MaIj41tpaPDy7RhJT2xMbhm99cielp/qWu+OQ/tspDzCLJY
-	dEprr8icoZCPwXJCbSDfNXPgboXpyfa7vgZEhLF2abHLGt/23QswfrkeSAht6NPeO0YddN9R5q1YS
-	aKA4joIg==;
+	bh=CaM32T9+cjWvYMHqhuUqWhjRL+hOdvCIE9xX19bPtjY=; b=4Cs09rYcJPkOGGp9aGTFsCgc/r
+	u+1gU6PC65qxXU2EbqlA03E6gYDP9TOP76NjdOqHNhNH7kJsktS/pUnVuVcdl+UxKm0qyXeNKIhKi
+	UVGMsdVNvhW1DyXmKVb4csZ7uWkMrJBsoqNS1BAC5VlRE+G2vVUTMuBdc9plBTRlLJhmLOtSXcux2
+	iJddTWhE+1iAsAhGYXhl5Qr2398CO+A4jrHOhUxZpZGHGyy8ksRpfqNBgfNaPwi0WCfGcMNlpCnfm
+	incVq3n9Vn22WyKhnTtGbz1RzFBXlrPSHX4YSQE841BGS9D3hrb3O7pP5N8FhvobjtIjS4UbvcaCQ
+	UjkMz8gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEQq1-00000002FIQ-3lGM;
-	Fri, 22 Nov 2024 10:24:33 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1tEQta-00000002Fb6-33Tw;
+	Fri, 22 Nov 2024 10:28:14 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEQoK-00000002F1v-2J0X
+	id 1tEQsb-00000002FV2-0OcZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 10:22:50 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-53d9ff92ee9so2189794e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 02:22:48 -0800 (PST)
+	Fri, 22 Nov 2024 10:27:15 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2ffa97d99d6so3655961fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 02:27:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732270967; x=1732875767; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1732271231; x=1732876031; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ISPB4u0k/IY3WdqyYBfvJI1MUBGbBsUm1AW/lweuam4=;
-        b=Horw5o6T6oDKwBOoB8NzfM1+g+P610LZ62suqVuX20AqDk+n5e74fN1iJVoCgu7ack
-         6MmWicoq9697MY5s0Eyv3pUHnLCB40MdqMfRIz5dc5lrSfahaFFM3xjZn3ae1rcOKHNE
-         b3+My3sQN1Xw3PTxZZOiGmWfhb6YWIRrvVcw6UTDggVXAS6AdHKqlijtHMwVotKDy+XQ
-         CzjXS7a2sYJETXtRngaDedK/oqBSFft0kLs/F6RF3JPNKqNFN23AlMdY1PA616tFFkjO
-         DyUX9fTssbMxyLNdW3XRjDVXtfJhstSlHxk5sxkk7R4nCi43wnjz7Wm2VMTqL/4MoLZR
-         p+vQ==
+        bh=CaM32T9+cjWvYMHqhuUqWhjRL+hOdvCIE9xX19bPtjY=;
+        b=t5yJiddpzj+2flB2jsRhy0t5nxuYoRydEnVrUcjyfAaLgKAkBm9E4yLj18s8MMt37c
+         cDZHnuqWQlls0yJlAniucZDSxRQ7BXUJHTJD0aLjuRF0An0ol2MFjoOn0fHa2bHg//em
+         fYw7V+h5+FOYP5l7N6h3RcHwydF4Ss5uAKOXDUhfX6PlXqogSVix+IkDcGqFKEn2WQ3P
+         WPmhsqk3l4u4eVEs2RzyXQ5cex2WfcFdADUM7ytuJcAd72RIhAzMkSOldmz8d3kxswEN
+         mHO4e4krUoLR2GNSxz82UiisHEPj37oM131iiIxh/jefb02y9kuGpKmPVDtSB9/FI3ag
+         oSaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732270967; x=1732875767;
+        d=1e100.net; s=20230601; t=1732271231; x=1732876031;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ISPB4u0k/IY3WdqyYBfvJI1MUBGbBsUm1AW/lweuam4=;
-        b=iyZkYhYUNYZgIzX3PHSk7a8xveMYThypdVUPKZ6RtmZvH5UG1ygS8aCWImQMBAClT8
-         lqGsy2DWnLqp2kwPeFJXKMbMr9tYCJKaTvIx/GULnQ+TOhhkMoI6ciIxN3bYDgBtr3p1
-         3h8IZUWEC3KxyclXAibVmyNRdWRd0m5E4aC7jgILQo5FbW2jCCd/kOaFPPBo68GLP8FG
-         4+klwlvCX/TwI8pYbenbrwQq2fYmj8oyCPdUBWbnNUEohaImY4lzza4Fn9xpq8cvr9mG
-         ZivVeQ6ZoVCeXdDzgUGDh0OtPhGbqJe4dkj2qLyvYncS5a50OuZ+DieS6ceGwcLfFUat
-         wLcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW2c9cev8cMjiDu68D/xTP506D56mc9DOIaUnXBwoKVfliiP28xKGgfH8dW3/04bbW8dsmbwM9JI6DjNaIwhwvt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzu+9WImtYqaevoBiaN0nHJKB1FMGZakualNJ0LtR+PDIiruGMp
-	CzcNbMwPudrZIheD7bSUvESwovN4KEFzZgwvbaMXxeo1hjwe5Ss2qwFKppvfvGw=
-X-Gm-Gg: ASbGncvhPim5h/qCN1i8tUQhZfJ5k5IjQFWASyvJ901DY+GRoY6fiyH+i0YFhIsys1z
-	Wr/Ivyc0YCFe7QrfXY/elpr4i+mPnTjY0zkNE5s/ImzNK8cXm5o+/ygzobEKqA0CR1ZBW0h1zy3
-	Ih/NfOValu8Oi62zjytbOZprUE2Z6wJzJNbzxgtWR6sa2IhUTLbwK+g2tZZXIlPcJQhNiYTjoSy
-	usoqtLOoSnWEOD9WUTzKpKxc+B7W6p4tnvjC4hXFxUxgy24El3SWM/M/n0jgTnBtX3U79Cjuk+N
-	MWxWa4/X/UTTzEzy1xxXrLJxQ7XuWw==
-X-Google-Smtp-Source: AGHT+IFS7C183Wt8hN7C/INKvkL1qt9YbaPn5aBu73dBkn87fnUOLWLXeKl+x6xSQFdRyLKoKS4qmA==
-X-Received: by 2002:ac2:51b5:0:b0:53d:d3ff:77f6 with SMTP id 2adb3069b0e04-53dd3ff77fdmr829792e87.46.1732270966827;
-        Fri, 22 Nov 2024 02:22:46 -0800 (PST)
+        bh=CaM32T9+cjWvYMHqhuUqWhjRL+hOdvCIE9xX19bPtjY=;
+        b=qpOWt7kW6u0jAJijNMJtisHcorwqMwykkJIDa4NnwMYj9p2uVBTUYyJFPIiPqdMDFP
+         iX1h5doeHhetn0P30BCzGxZ6E2ZA6yzmAFpwyLf4u5lF4RSjSOX0EYuGIGEsFJ1V+au4
+         UnfZGWz2okgPthkXy7BoIwVBrF1WpGlIZKN0u5dXXljJ2dGyX0xqsh40agHEgn+hDJX3
+         PQc6QxeZpCa05XKCRb4bT9Nb90rjQ/BSWvkrbzZZAJkku2A4D+T+wscVbjSvwn8S5zhj
+         J0R4FXtAdmxCIlN4GQ3iSNVOpjrF1zOlMscPqip2R/sgqZqAa9frC1WlNr+CtjLDzV3X
+         FVKg==
+X-Forwarded-Encrypted: i=1; AJvYcCV1JtdTa1RZDNtf0HJuSsdypZdWzIzbiZI+Cshu6XzoGkk+xEcfzbKtgVO5Bxk6SQ2JnZl/hZiOUrPta3Q0fhAY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKR4owBVH0lSTJIGBFC1HTM+dDEd8dEyfAVGwHenXDki0wU3yW
+	G+uGt0gENPSGAjbYLvlvsZYCoOODY04d1lwKRL7nDELRPwprVJ5OAuaitGZ71UY=
+X-Gm-Gg: ASbGncsrx8pz2/WJzB9bKcJTvNi/P+fuEP28b7m8SY1zqA8a9bkT1YK0ixWZo9QUiO3
+	j0BiYny8+MypgiFT+bCQX12uVUWANIKpP0m5Ye5prf0aDQVEYYuwGadF3m9UHnqmBjqV1J60Jfo
+	2MQy9TTcoF4IUhmTPOn/JzDhbrnl3oz2wjbKz7awZJm+0AMLbdlEGZthnhPs7HZQEIwwbjBEOmp
+	/x/j4IOiao+uygsj2TEc3Evlbq1Xh+/mSGcvGczN0zpp7/s5rdHGjzu5jJFJjod3TQDcgVePJ4X
+	ejfu/DKe0JjjlxpJxp9/dgGMLH+0sQ==
+X-Google-Smtp-Source: AGHT+IG3oQHashA6tpFb+9+NmJi4GpOI+M8h9JPqYyxeNcEzdxQdY5O2kg12XYaqyKtAV7A8h+5UvA==
+X-Received: by 2002:a05:651c:198d:b0:2fb:5b23:edba with SMTP id 38308e7fff4ca-2ffa712dcb8mr11465241fa.23.1732271231158;
+        Fri, 22 Nov 2024 02:27:11 -0800 (PST)
 Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53dd88b54cbsm62838e87.214.2024.11.22.02.22.44
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ffa7a65786sm2280291fa.63.2024.11.22.02.27.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Nov 2024 02:22:45 -0800 (PST)
-Date: Fri, 22 Nov 2024 12:22:43 +0200
+        Fri, 22 Nov 2024 02:27:09 -0800 (PST)
+Date: Fri, 22 Nov 2024 12:27:07 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 To: Fange Zhang <quic_fangez@quicinc.com>
 Cc: Rob Clark <robdclark@gmail.com>, 
@@ -82,18 +82,17 @@ Cc: Rob Clark <robdclark@gmail.com>,
 	Xiangxu Yin <quic_xiangxuy@quicinc.com>, linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
 	freedreno@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 9/9] arm64: dts: qcom: Add display support for QCS615
- RIDE board
-Message-ID: <azdmcs7uafw3n6cqbq4ei66oybzhtyvdyz2xl4wtaf3u5zextb@vdhbs6wnbeg4>
+Subject: Re: [PATCH v3 8/9] arm64: dts: qcom: Add display support for QCS615
+Message-ID: <n7mnldqd2td2cm4uup6mlnmbzyg7unbzvert6kyweopplbfssz@vm3egater24k>
 References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
- <20241122-add-display-support-for-qcs615-platform-v3-9-35252e3a51fe@quicinc.com>
+ <20241122-add-display-support-for-qcs615-platform-v3-8-35252e3a51fe@quicinc.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241122-add-display-support-for-qcs615-platform-v3-9-35252e3a51fe@quicinc.com>
+In-Reply-To: <20241122-add-display-support-for-qcs615-platform-v3-8-35252e3a51fe@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_022248_603699_49E0D962 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20241122_022714_752049_85215232 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,112 +107,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 22, 2024 at 05:56:52PM +0800, Fange Zhang wrote:
+On Fri, Nov 22, 2024 at 05:56:51PM +0800, Fange Zhang wrote:
 > From: Li Liu <quic_lliu6@quicinc.com>
 > 
-> Add display MDSS and DSI configuration for QCS615 RIDE board.
+> Add display MDSS and DSI configuration for QCS615 platform.
 > QCS615 has a DP port, and DP support will be added in a later patch.
 > 
 > Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
 > Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
 > ---
->  arch/arm64/boot/dts/qcom/qcs615-ride.dts | 76 ++++++++++++++++++++++++++++++++
->  1 file changed, 76 insertions(+)
+>  arch/arm64/boot/dts/qcom/qcs615.dtsi | 186 ++++++++++++++++++++++++++++++++++-
+>  1 file changed, 185 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/boot/dts/qcom/qcs615-ride.dts b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
-> index ee6cab3924a6d71f29934a8debba3a832882abdd..cc7dadc411ab79b9e60ccb15eaff84ea5f997c4c 100644
-> --- a/arch/arm64/boot/dts/qcom/qcs615-ride.dts
-> +++ b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
-> @@ -202,6 +202,82 @@ &gcc {
->  		 <&sleep_clk>;
->  };
->  
-> +&i2c2 {
-> +	clock-frequency = <400000>;
-> +	status = "okay";
-> +
-> +	ioexp: gpio@3e {
-> +		compatible = "semtech,sx1509q";
-> +		reg = <0x3e>;
-> +		interrupt-parent = <&tlmm>;
-> +		interrupts = <58 0>;
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +		semtech,probe-reset;
-> +	};
-> +
-> +	i2c-mux@77 {
-> +		compatible = "nxp,pca9542";
-> +		reg = <0x77>;
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		i2c@0 {
-> +			reg = <0>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			anx7625@58 {
-> +				compatible = "analogix,anx7625";
-> +				reg = <0x58>;
-> +				interrupt-parent = <&ioexp>;
-> +				interrupts = <0 0>;
-> +				enable-gpios = <&tlmm 4 GPIO_ACTIVE_HIGH>;
-> +				reset-gpios = <&tlmm 5 GPIO_ACTIVE_HIGH>;
-> +				wakeup-source;
-> +
-> +				ports {
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +
-> +					port@0 {
-> +						reg = <0>;
-> +						anx_7625_in: endpoint {
-> +							remote-endpoint = <&mdss_dsi0_out>;
-> +						};
-> +					};
-> +
-> +					port@1 {
-> +						reg = <1>;
-> +						anx_7625_out: endpoint {
-> +						};
 
-Where is it connected? Is it DP port? USB-C? eDP?
-
-> +					};
-> +				};
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&mdss {
-> +	status = "okay";
-> +};
-> +
-> +&mdss_dsi0 {
-> +	vdda-supply = <&vreg_l11a>;
-> +	status = "okay";
-> +};
-> +
-> +&mdss_dsi0_out {
-> +	remote-endpoint = <&anx_7625_in>;
-> +	data-lanes = <0 1 2 3>;
-> +};
-> +
-> +&mdss_dsi0_phy {
-> +	vdds-supply = <&vreg_l5a>;
-> +	status = "okay";
-> +};
-> +
->  &qupv3_id_0 {
->  	status = "okay";
->  };
-> 
-> -- 
-> 2.34.1
-> 
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
 -- 
 With best wishes
