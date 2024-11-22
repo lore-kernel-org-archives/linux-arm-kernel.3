@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC93E6403D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 10:28:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355B9D75E22
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 10:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CaM32T9+cjWvYMHqhuUqWhjRL+hOdvCIE9xX19bPtjY=; b=4Cs09rYcJPkOGGp9aGTFsCgc/r
-	u+1gU6PC65qxXU2EbqlA03E6gYDP9TOP76NjdOqHNhNH7kJsktS/pUnVuVcdl+UxKm0qyXeNKIhKi
-	UVGMsdVNvhW1DyXmKVb4csZ7uWkMrJBsoqNS1BAC5VlRE+G2vVUTMuBdc9plBTRlLJhmLOtSXcux2
-	iJddTWhE+1iAsAhGYXhl5Qr2398CO+A4jrHOhUxZpZGHGyy8ksRpfqNBgfNaPwi0WCfGcMNlpCnfm
-	incVq3n9Vn22WyKhnTtGbz1RzFBXlrPSHX4YSQE841BGS9D3hrb3O7pP5N8FhvobjtIjS4UbvcaCQ
-	UjkMz8gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4VCCZYEFyPvvi9pJLrfTrBaqaVLRyI5f0XR9dqSok6s=; b=1Xczq7zY8M+p8s1ivjNkAorFlT
+	uM906PW5B6f7mlwOsoT1csfT7kg+0PbkuK+GqpnUJQMaENUM2jdShhiyP7zlJ8z9bQFmU6mPzqF1l
+	h0E39EWqWMhlm1iTmw76XTD0F4C0N/2GVeYWb9Yh/b0rsSSWdjqhyHJhi1fFBzELN8QV5nPsiArDr
+	S/hmllvhJfBln7dD/jFYJlNTbMQ7d/JwTwzWZ57IjixlanoHiYmRw3J2Q+c9zwaBVInSkfnKZwXQ0
+	2qIyBbzlsK09o0KfYroBBBVrwjeO+Eq0QigklC0Q3YxL3yP3o3Y5MYc9LTc+i4DRPN1nE0pXGRhrw
+	SmkjzJLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEQta-00000002Fb6-33Tw;
-	Fri, 22 Nov 2024 10:28:14 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1tERFQ-00000002HLA-1Ro4;
+	Fri, 22 Nov 2024 10:50:48 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEQsb-00000002FV2-0OcZ
+	id 1tERET-00000002HAQ-2trV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 10:27:15 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2ffa97d99d6so3655961fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 02:27:12 -0800 (PST)
+	Fri, 22 Nov 2024 10:49:50 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5cf9ef18ae9so5842315a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 02:49:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732271231; x=1732876031; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CaM32T9+cjWvYMHqhuUqWhjRL+hOdvCIE9xX19bPtjY=;
-        b=t5yJiddpzj+2flB2jsRhy0t5nxuYoRydEnVrUcjyfAaLgKAkBm9E4yLj18s8MMt37c
-         cDZHnuqWQlls0yJlAniucZDSxRQ7BXUJHTJD0aLjuRF0An0ol2MFjoOn0fHa2bHg//em
-         fYw7V+h5+FOYP5l7N6h3RcHwydF4Ss5uAKOXDUhfX6PlXqogSVix+IkDcGqFKEn2WQ3P
-         WPmhsqk3l4u4eVEs2RzyXQ5cex2WfcFdADUM7ytuJcAd72RIhAzMkSOldmz8d3kxswEN
-         mHO4e4krUoLR2GNSxz82UiisHEPj37oM131iiIxh/jefb02y9kuGpKmPVDtSB9/FI3ag
-         oSaQ==
+        d=chromium.org; s=google; t=1732272588; x=1732877388; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4VCCZYEFyPvvi9pJLrfTrBaqaVLRyI5f0XR9dqSok6s=;
+        b=ZBeUrwg/9LU7jtZtzXN4ewUQeVrB1cLrCPxv+8d3Ejuw1k5zl7MIpHrlCIDzS5IGDe
+         bswR/Vm7COa3tIkNzbJF4ymE+cQe5Iwry3JeVnSrJDueXeKQtkx7qXmvIUjQwjMKxaQx
+         edFRfal2jIlNTBecNixQa7ZxLLBTd4bATlRnk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732271231; x=1732876031;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CaM32T9+cjWvYMHqhuUqWhjRL+hOdvCIE9xX19bPtjY=;
-        b=qpOWt7kW6u0jAJijNMJtisHcorwqMwykkJIDa4NnwMYj9p2uVBTUYyJFPIiPqdMDFP
-         iX1h5doeHhetn0P30BCzGxZ6E2ZA6yzmAFpwyLf4u5lF4RSjSOX0EYuGIGEsFJ1V+au4
-         UnfZGWz2okgPthkXy7BoIwVBrF1WpGlIZKN0u5dXXljJ2dGyX0xqsh40agHEgn+hDJX3
-         PQc6QxeZpCa05XKCRb4bT9Nb90rjQ/BSWvkrbzZZAJkku2A4D+T+wscVbjSvwn8S5zhj
-         J0R4FXtAdmxCIlN4GQ3iSNVOpjrF1zOlMscPqip2R/sgqZqAa9frC1WlNr+CtjLDzV3X
-         FVKg==
-X-Forwarded-Encrypted: i=1; AJvYcCV1JtdTa1RZDNtf0HJuSsdypZdWzIzbiZI+Cshu6XzoGkk+xEcfzbKtgVO5Bxk6SQ2JnZl/hZiOUrPta3Q0fhAY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKR4owBVH0lSTJIGBFC1HTM+dDEd8dEyfAVGwHenXDki0wU3yW
-	G+uGt0gENPSGAjbYLvlvsZYCoOODY04d1lwKRL7nDELRPwprVJ5OAuaitGZ71UY=
-X-Gm-Gg: ASbGncsrx8pz2/WJzB9bKcJTvNi/P+fuEP28b7m8SY1zqA8a9bkT1YK0ixWZo9QUiO3
-	j0BiYny8+MypgiFT+bCQX12uVUWANIKpP0m5Ye5prf0aDQVEYYuwGadF3m9UHnqmBjqV1J60Jfo
-	2MQy9TTcoF4IUhmTPOn/JzDhbrnl3oz2wjbKz7awZJm+0AMLbdlEGZthnhPs7HZQEIwwbjBEOmp
-	/x/j4IOiao+uygsj2TEc3Evlbq1Xh+/mSGcvGczN0zpp7/s5rdHGjzu5jJFJjod3TQDcgVePJ4X
-	ejfu/DKe0JjjlxpJxp9/dgGMLH+0sQ==
-X-Google-Smtp-Source: AGHT+IG3oQHashA6tpFb+9+NmJi4GpOI+M8h9JPqYyxeNcEzdxQdY5O2kg12XYaqyKtAV7A8h+5UvA==
-X-Received: by 2002:a05:651c:198d:b0:2fb:5b23:edba with SMTP id 38308e7fff4ca-2ffa712dcb8mr11465241fa.23.1732271231158;
-        Fri, 22 Nov 2024 02:27:11 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ffa7a65786sm2280291fa.63.2024.11.22.02.27.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Nov 2024 02:27:09 -0800 (PST)
-Date: Fri, 22 Nov 2024 12:27:07 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Fange Zhang <quic_fangez@quicinc.com>
-Cc: Rob Clark <robdclark@gmail.com>, 
-	Abhinav Kumar <quic_abhinavk@quicinc.com>, Sean Paul <sean@poorly.run>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krishna Manikandan <quic_mkrishn@quicinc.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Li Liu <quic_lliu6@quicinc.com>, 
-	Xiangxu Yin <quic_xiangxuy@quicinc.com>, linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 8/9] arm64: dts: qcom: Add display support for QCS615
-Message-ID: <n7mnldqd2td2cm4uup6mlnmbzyg7unbzvert6kyweopplbfssz@vm3egater24k>
-References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
- <20241122-add-display-support-for-qcs615-platform-v3-8-35252e3a51fe@quicinc.com>
+        d=1e100.net; s=20230601; t=1732272588; x=1732877388;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4VCCZYEFyPvvi9pJLrfTrBaqaVLRyI5f0XR9dqSok6s=;
+        b=SOU39A8gDIDV4yc5DHiJ8IgJAY5E2ZgxbCEu8OpyuAPQhXRFcEGbnDDmIu5ZZbLK+B
+         /XbwAjufBvtMEo6WmDH4V62gdeaAgNvJly0QKU0rv5kSMXf/ZuSeJjwmSdbHTEgnw1V0
+         0zQYWc7aA+WMoMJQkE/bT/dxAKbe6WQFlzHLUbO7RtwKCtuAfZSaZSWfaRBRo4mVMcbL
+         xXW0BmQVkuVRteWaKbKDQPX8yCzPMjk0+IWEaboJfavIwVrEIZab1s7PF7vQ0y6gkdfX
+         cwR1Ro+1y4J+7Mt1jJts7lqwwhe3dD324Gw69w1g9zzPC6GU7rHscYQRjzQRJ0Eszgar
+         4k1g==
+X-Forwarded-Encrypted: i=1; AJvYcCXIH6uB7E75e3xRiwAA6Q0DNP4nG7QxOAtN56IKcAyOFjrmW9bb8R3V5J/Hx/h08BtZEiDwl/bTeMc4SI9j4LXg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxn8mqXeywG3hXfOTaj1adWyRRqPpVGAQl/trKXytmA2U4aOzD1
+	ZjUk5V+1Eh/R5vhr5amCJP0F/cr7PdMVIFlFPvKOz3zp3ZA6RchS6BBgpxPSJA==
+X-Gm-Gg: ASbGncs/meI9TlYGbjceQg9qCgiBVTQuf02tV1XFdHIW46DXg/+Iy4mYY1epNd8jaVx
+	jc/ECsZs5j+6phA+1qCpiLr57PHhkvPeg6P8Qta9AMgIs6e3m1gv1yOJ0PF5W8trV/6ZbvVFdHl
+	lcJKPuZOE6AnjGgmd7QNmZNpzb86nqc0JgAO6lraSlCYmi5xAcADnBJUWuY7rFgXiZ8STKMw1BP
+	8BgBe1ao/XKbNQyQzJAwCqdWccam0tv9pgdHce9k9wS2mBiIFnaaDW/+87ljq4nWmPolvVyWnsX
+	ELzOQ8Jk
+X-Google-Smtp-Source: AGHT+IEtqFLgN4QldlEpfUVybXqSI/MRA5+30+n/3WXfgfU0sDT9bCvRjWg4moxr2vE/+F91ZGikZQ==
+X-Received: by 2002:a17:907:762f:b0:aa4:de84:3a23 with SMTP id a640c23a62f3a-aa509d09bb8mr253938966b.26.1732272587279;
+        Fri, 22 Nov 2024 02:49:47 -0800 (PST)
+Received: from localhost (30.171.91.34.bc.googleusercontent.com. [34.91.171.30])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-aa5175972f5sm55606966b.63.2024.11.22.02.49.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 22 Nov 2024 02:49:46 -0800 (PST)
+From: Wojciech Macek <wmacek@chromium.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Rafal Milecki <rafal@milecki.pl>,
+	Hsin-Yi Wang <hsinyi@chromium.org>,
+	Sean Wang <sean.wang@mediatek.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Wojciech Macek <wmacek@chromium.org>
+Subject: [PATCH v1 0/2] Add Starmie Chromebooks 
+Date: Fri, 22 Nov 2024 10:49:36 +0000
+Message-ID: <20241122104938.1437925-1-wmacek@chromium.org>
+X-Mailer: git-send-email 2.47.0.371.ga323438b13-goog
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241122-add-display-support-for-qcs615-platform-v3-8-35252e3a51fe@quicinc.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_022714_752049_85215232 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20241122_024949_758656_6849EF41 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,22 +103,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 22, 2024 at 05:56:51PM +0800, Fange Zhang wrote:
-> From: Li Liu <quic_lliu6@quicinc.com>
-> 
-> Add display MDSS and DSI configuration for QCS615 platform.
-> QCS615 has a DP port, and DP support will be added in a later patch.
-> 
-> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
-> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
-> ---
->  arch/arm64/boot/dts/qcom/qcs615.dtsi | 186 ++++++++++++++++++++++++++++++++++-
->  1 file changed, 185 insertions(+), 1 deletion(-)
-> 
+Add an entry for the MT8186 based Starmie Chromebooks, also
+known as the ASUS Chromebook Enterprise CM30 Detachable (CM3001).
+The device is a tablet style chromebook.
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Wojciech Macek (2):
+  dt-bindings: arm: mediatek: Add MT8186 Starmie Chromebooks
+  arm64: dts: mediatek: mt8186: Add Starmie device
+
+ .../devicetree/bindings/arm/mediatek.yaml     |   8 +
+ arch/arm64/boot/dts/mediatek/Makefile         |   2 +
+ .../mediatek/mt8186-corsola-starmie-sku0.dts  |  29 ++
+ .../mediatek/mt8186-corsola-starmie-sku1.dts  |  46 ++
+ .../dts/mediatek/mt8186-corsola-starmie.dtsi  | 480 ++++++++++++++++++
+ 5 files changed, 565 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/mediatek/
+     mt8186-corsola-starmie-sku0.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/
+     mt8186-corsola-starmie-sku1.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/
+     mt8186-corsola-starmie.dtsi
 
 -- 
-With best wishes
-Dmitry
+2.47.0.371.ga323438b13-goog
+
 
