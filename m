@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E684D75E59
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 14:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E23FD75E59
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 14:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sBPjOUvvmxe0f7XWXE6B6R/O4RyErRG5Mh3Jvasn+Bo=; b=RNmUxdJsVQMLtEeB+NOnpltHkH
-	la9GsdbedhAPAocoGDKg0O9GaJIXa7Exhe/WLoptjU6fkhqwHb7QjlqXiRtoJ0YwlHH4XaTO5H/Rb
-	c0wCQG3teRT4AMYKvsRH/Rd21isN2ew1RTldUUlEyK4+9jiwait+vPfcA1W5JIfvNh13Wbk/6kUhS
-	eZNhVyBlLwI423xwsIosIFxfB72GzvThOX502nX+nF4Jq9z/+BUCt08xsqO5Rkv2FLmCbEdXsisVY
-	snFlxI6loyiGb71LqQZziDdvkEZytJe8cSX4KoQ0gYYOu0dCIN/YSvIrcm9t46BkNFABH6gk6B00A
-	CFzTF4tg==;
+	bh=uknhb+ZqqVNQfqr335LaBKpGKLh7AyGgumHTFGMpwHk=; b=QN0o2dv34GXlCEnJscLK9ZifnR
+	bzqgd+Wd1biNIYg0VQHBZXg79Okm0sIz2itB/XlohD0XscpmaNlmYwch09MGgwM3UJlH0K3kB+b95
+	ROCbCMZtFfUZTcRH1fAqjJxR7iqbvszX72ZeOe+n3/nnMBEuOD1NStn45ug7zznmW2XJhB4QMjAi1
+	dGobA3uvv0EP8xRj/ZQRmBvJH8hJoJTRlvDvxtpMAejWH8u9NHk7py7OjEZ7IcNB7C8p+blx0Jf52
+	Dgaaw7Pb7fh971LCktDMvPeDAxcBOM76vphbhl1D4djUBuA5f9ERufCQEvFHgeo9htFkdI5AZa5Wm
+	09QC8AaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEUvy-00000002emj-1FMF;
-	Fri, 22 Nov 2024 14:46:58 +0000
+	id 1tEUyA-00000002f4k-32FL;
+	Fri, 22 Nov 2024 14:49:14 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEUv1-00000002eVW-0krK;
-	Fri, 22 Nov 2024 14:46:00 +0000
+	id 1tEUxD-00000002ex8-2LsH;
+	Fri, 22 Nov 2024 14:48:17 +0000
 Received: from ideasonboard.com (93-46-82-201.ip106.fastwebnet.it [93.46.82.201])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 852DB514;
-	Fri, 22 Nov 2024 15:45:38 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AC4BE514;
+	Fri, 22 Nov 2024 15:47:54 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1732286738;
-	bh=7Ay/3r+wW0JDRN5wnHDl+VfBwqOAMEjjkxIuQW5QdEA=;
+	s=mail; t=1732286874;
+	bh=TObrhQKNEUiuXryF/VVXCnbuKWGFbmaoIBG5kOJEtIU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Tn58/XiYKHc2bN3o5vJLZbbYGiGYg6GTxEPKhNaf63ycPKV3N6CiVULhi5dvmQaKQ
-	 lq6VAp0MKLn/yB0NelV2MaP6ZJ4GnLY4QvzJv0J10bFbDoM2TBLF5BGdj3F2ei3v1j
-	 AGq47shVfRQS4ChCYQ9fPASgUE2Sh/sLZhJWBgBs=
-Date: Fri, 22 Nov 2024 15:45:55 +0100
+	b=fE92jn07FfcHM245KyQkhpg3e94a5DnYsUyqYHEawr0qIotNAkI/RDrm4SjJGXqYq
+	 RDU1RrCp/8hBtu+zFuS+jJSojpBzS7/E6oUiklKr/B833Xcgq8zlQoDzmKR+a2oAk1
+	 cPv40J0/fJ5aZoOZJ/t9MmHmgigd4y4EfBuO3seg=
+Date: Fri, 22 Nov 2024 15:48:11 +0100
 From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Naushir Patuck <naush@raspberrypi.com>
-Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Hans Verkuil <hverkuil@xs4all.nl>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Naushir Patuck <naush@raspberrypi.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
 	Scott Branden <sbranden@broadcom.com>, linux-media@vger.kernel.org, 
 	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, jacopo.mondi@ideasonboard.com, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH v1 1/5] drivers: media: bcm2835-unicam: Improve frame
- sequence count handling
-Message-ID: <gl7qb2rqmqzd6tw7pei3ldbu6m4l3qiwld3ddhvn4pemdpgfjz@bvaf5prvmz3c>
+	linux-kernel@vger.kernel.org, Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH v1 5/5] drivers: media: bcm2835-unicam: Correctly handle
+ FS + FE ISR condition
+Message-ID: <deremuh7mawzt6ke3c67fvzfyuksmuwon3dhorxbm5mr5rllmf@fbj2f5qvfpjd>
 References: <20241122084152.1841419-1-naush@raspberrypi.com>
- <20241122084152.1841419-2-naush@raspberrypi.com>
+ <20241122084152.1841419-6-naush@raspberrypi.com>
+ <xy44zndazbw7ehpzbc6hexgptjymevvupjhuy2x6zxp54qtepm@vlbb6js62cq4>
+ <CAEmqJPrrAhhukn2H4nUhe1njVi-dyW9q=u1h8YgafvJGbYRG6Q@mail.gmail.com>
+ <xadxi6rjcnmgjiqhinqnawj3mgps4b3xp6ftozap4ps6q5xaz7@bsdwrrkyniwt>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241122084152.1841419-2-naush@raspberrypi.com>
+In-Reply-To: <xadxi6rjcnmgjiqhinqnawj3mgps4b3xp6ftozap4ps6q5xaz7@bsdwrrkyniwt>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_064559_358133_C3674089 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20241122_064815_738141_1B7627A1 
+X-CRM114-Status: GOOD (  41.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,93 +77,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Naush
 
-On Fri, Nov 22, 2024 at 08:41:48AM +0000, Naushir Patuck wrote:
-> Ensure that the frame sequence counter is incremented only if a previous
-> frame start interrupt has occurred, or a frame start + frame end has
-> occurred simultaneously.
->
-> This corresponds the sequence number with the actual number of frames
-> produced by the sensor, not the number of frame buffers dequeued back
-> to userland.
->
-> Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
+With Hans Sakari and Laurent in cc for real now
 
-
-Thanks, looks good to me
-Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-
-> ---
->  .../media/platform/broadcom/bcm2835-unicam.c  | 22 +++++++++++++++++--
->  1 file changed, 20 insertions(+), 2 deletions(-)
+On Fri, Nov 22, 2024 at 03:41:31PM +0100, Jacopo Mondi wrote:
+> Hi Naush
 >
-> diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> index 3aed0e493c81..36fb186a0421 100644
-> --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-> +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> @@ -199,6 +199,7 @@ struct unicam_device {
->  	/* subdevice async notifier */
->  	struct v4l2_async_notifier notifier;
->  	unsigned int sequence;
-> +	bool frame_started;
+> On Fri, Nov 22, 2024 at 11:40:26AM +0000, Naushir Patuck wrote:
+> > Hi Jacopo,
+> >
+> > On Fri, 22 Nov 2024 at 11:16, Jacopo Mondi
+> > <jacopo.mondi@ideasonboard.com> wrote:
+> > >
+> > > Hi Naush
+> > >
+> > > On Fri, Nov 22, 2024 at 08:41:52AM +0000, Naushir Patuck wrote:
+> > > > This change aligns the FS/FE interrupt handling with the Raspberry Pi
+> > > > kernel downstream Unicam driver.
+> > > >
+> > > > If we get a simultaneous FS + FE interrupt for the same frame, it cannot
+> > > > be marked as completed and returned to userland as the framebuffer will
+> > > > be refilled by Unicam on the next sensor frame. Additionally, the
+> > > > timestamp will be set to 0 as the FS interrupt handling code will not
+> > > > have run yet.
+> > > >
+> > > > To avoid these problems, the frame is considered dropped in the FE
+> > > > handler, and will be returned to userland on the subsequent sensor frame.
+> > > >
+> > > > Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
+> > > > ---
+> > > >  .../media/platform/broadcom/bcm2835-unicam.c  | 39 +++++++++++++++++--
+> > > >  1 file changed, 35 insertions(+), 4 deletions(-)
+> > > >
+> > > > diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> > > > index f10064107d54..0d2aa25d483f 100644
+> > > > --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
+> > > > +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> > > > @@ -773,10 +773,26 @@ static irqreturn_t unicam_isr(int irq, void *dev)
+> > > >                        * as complete, as the HW will reuse that buffer.
+> > > >                        */
+> > > >                       if (node->cur_frm && node->cur_frm != node->next_frm) {
+> > > > +                             /*
+> > > > +                              * This condition checks if FE + FS for the same
+> > > > +                              * frame has occurred. In such cases, we cannot
+> > > > +                              * return out the frame, as no buffer handling
+> > > > +                              * or timestamping has yet been done as part of
+> > > > +                              * the FS handler.
+> > > > +                              */
+> > > > +                             if (!node->cur_frm->vb.vb2_buf.timestamp) {
+> > > > +                                     dev_dbg(unicam->v4l2_dev.dev,
+> > > > +                                             "ISR: FE without FS, dropping frame\n");
+> > > > +                                     continue;
+> > > > +                             }
+> > > > +
+> > > >                               unicam_process_buffer_complete(node, sequence);
+> > > > +                             node->cur_frm = node->next_frm;
+> > > > +                             node->next_frm = NULL;
+> > > >                               inc_seq = true;
+> > > > +                     } else {
+> > > > +                             node->cur_frm = node->next_frm;
+> > > >                       }
+> > > > -                     node->cur_frm = node->next_frm;
+> > > >               }
+> > > >
+> > > >               /*
+> > > > @@ -812,10 +828,25 @@ static irqreturn_t unicam_isr(int irq, void *dev)
+> > > >                                       i);
+> > > >                       /*
+> > > >                        * Set the next frame output to go to a dummy frame
+> > > > -                      * if we have not managed to obtain another frame
+> > > > -                      * from the queue.
+> > > > +                      * if no buffer currently queued.
+> > > >                        */
+> > > > -                     unicam_schedule_dummy_buffer(node);
+> > > > +                     if (!node->next_frm ||
+> > > > +                         node->next_frm == node->cur_frm) {
+> > > > +                             unicam_schedule_dummy_buffer(node);
+> > > > +                     } else if (unicam->node[i].cur_frm) {
+> > > > +                             /*
+> > > > +                              * Repeated FS without FE. Hardware will have
+> > > > +                              * swapped buffers, but the cur_frm doesn't
+> > > > +                              * contain valid data. Return cur_frm to the
+> > > > +                              * queue.
+> > >
+> > > So the buffer gets silently recycled ? Or should it be returned with
+> > > errors to userspace ?
+> >
+> > The buffer silently gets recycled and we dequeue when we are sure it
+> > is valid and will not get overwritten.  If we were to return to
 >
->  	/* Sensor node */
->  	struct {
-> @@ -742,6 +743,8 @@ static irqreturn_t unicam_isr(int irq, void *dev)
->  	 * buffer forever.
->  	 */
->  	if (fe) {
-> +		bool inc_seq = unicam->frame_started;
-> +
->  		/*
->  		 * Ensure we have swapped buffers already as we can't
->  		 * stop the peripheral. If no buffer is available, use a
-> @@ -761,11 +764,24 @@ static irqreturn_t unicam_isr(int irq, void *dev)
->  			 * + FS + LS). In this case, we cannot signal the buffer
->  			 * as complete, as the HW will reuse that buffer.
->  			 */
-> -			if (node->cur_frm && node->cur_frm != node->next_frm)
-> +			if (node->cur_frm && node->cur_frm != node->next_frm) {
->  				unicam_process_buffer_complete(node, sequence);
-> +				inc_seq = true;
-> +			}
->  			node->cur_frm = node->next_frm;
->  		}
-> -		unicam->sequence++;
-> +
-> +		/*
-> +		 * Increment the sequence number conditionally on either a FS
-> +		 * having already occurred, or in the FE + FS condition as
-> +		 * caught in the FE handler above. This ensures the sequence
-> +		 * number corresponds to the frames generated by the sensor, not
-> +		 * the frames dequeued to userland.
-> +		 */
-> +		if (inc_seq) {
-> +			unicam->sequence++;
-> +			unicam->frame_started = false;
-> +		}
->  	}
+> I haven't find in the v4l2 specs any reference to what the behaviour
+> should be.
 >
->  	if (ista & UNICAM_FSI) {
-> @@ -795,6 +811,7 @@ static irqreturn_t unicam_isr(int irq, void *dev)
->  		}
+> If I can summarize it: When a frame capture is aborted after the DMA
+> transfer has already started, should the corresponding capture buffer
+> be returned to the user in error state or the frame drop can go
+> silently ignored ?
 >
->  		unicam_queue_event_sof(unicam);
-> +		unicam->frame_started = true;
->  	}
+> Cc-ing Hans Sakari and Laurent for opinions.
 >
->  	/*
-> @@ -1413,6 +1430,7 @@ static int unicam_sd_enable_streams(struct v4l2_subdev *sd,
->  		if (unicam->pipe.nodes & BIT(UNICAM_METADATA_NODE))
->  			unicam_start_metadata(unicam);
+> > userspace with an error, there is still a race condition on the name
+> > frame/buffer which will also have to return as error.
+> >
 >
-> +		unicam->frame_started = false;
->  		unicam_start_rx(unicam, state);
->  	}
+> I'm sorry I didn't get this part :)
 >
-> --
-> 2.34.1
->
->
+> > Regards,
+> > Naush
+> >
+> >
+> > >
+> > > > +                              */
+> > > > +                             spin_lock(&node->dma_queue_lock);
+> > > > +                             list_add_tail(&node->cur_frm->list,
+> > > > +                                           &node->dma_queue);
+> > > > +                             spin_unlock(&node->dma_queue_lock);
+> > > > +                             node->cur_frm = node->next_frm;
+> > > > +                             node->next_frm = NULL;
+> > > > +                     }
+> > > >               }
+> > > >
+> > > >               unicam_queue_event_sof(unicam);
+> > > > --
+> > > > 2.34.1
+> > > >
+> > > >
+> >
 
