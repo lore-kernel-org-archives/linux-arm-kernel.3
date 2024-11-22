@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E147D75E28
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 11:14:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7784D75E25
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Nov 2024 11:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uCXVCKDQTGyAYU6AmmroBCaYCVOBQ+j8/lDUk/CzRGk=; b=DVprmv+8MNEmnT+qpeDB6vRyXr
-	KxheiqQn45lcmS28VtTTrJt34nvRsHQl+7zVwjpzM+Fv0+vAHBDsTbx1zA8LBkIfpk4VCUgIGoB8P
-	tmDVjGL/fQao6l/D7e6SLtJZk2IhhM06E4EpyxZU5n09f9xRsBgNSyC0s1nvEARtbCVZ4PRimp7dt
-	JhnVEr93eIJc55BNSYr9So6z02JTlEZIQg96Mo8y4gaWjtigb/OLBB+yfwj1Fcg0gTgLuohukXVb4
-	cssiFrHBKRTmVbXaQ8/uPmAl2D3ocR4fdcbGR3lFxo3NCGCGAxEE57Fm0oHSZKCBWSKXKRqwY0IKA
-	GSqjAT4g==;
+	bh=oGuGk/OpliIcouOXkCuM9Gfx22ccMK3OyWc84pSHDQA=; b=Om8PqISHq2ttqHQzrS9IxtBANN
+	r57dxClRNjU4M6+Ebpd593lJAr8aOL4HhWvKRjFt+tTT9Rdly/SNgT/3WhHjzeypsSjFCBo5rFSqP
+	sYEzgte/m6FmHAmbadq681byq+lD5U7HRONypuELaCqPrnETCDcFrndj82xzwl0r5JCr6SZWuzH2Q
+	uJ/sKLeHUmcuUHQMr2lF7RKpNJ+ltkWxw3dps1lDCQ+EI3xkdekdab4RwkT2uCGOv3lFXvaLZ0UQi
+	P7Y4dgDbgUGbmQXe8swLJ5pIwngVL+lMkESMDuUqKqCzGn7BdjerQ4keAYA6YJz3XFJ26JiauNDeB
+	aS9kGrkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tERbx-00000002KkR-2CcA;
-	Fri, 22 Nov 2024 11:14:05 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1tERct-00000002Krn-0gH6;
+	Fri, 22 Nov 2024 11:15:03 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tERUp-00000002JSu-0baa
+	id 1tERUr-00000002JTl-1Q3w
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Nov 2024 11:06:44 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4316ac69e6dso15029225e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 03:06:42 -0800 (PST)
+	Fri, 22 Nov 2024 11:06:46 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e38100afa78so3759044276.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Nov 2024 03:06:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1732273601; x=1732878401; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1732273603; x=1732878403; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uCXVCKDQTGyAYU6AmmroBCaYCVOBQ+j8/lDUk/CzRGk=;
-        b=C0dMJzoQJEAPf0tKVzzKyCroMJSfjEvCe0tBOLaq5Tgv9imXrnLBlpRtjHg8phZsM9
-         qUWbMJOCy09nMWXYCTqkXMxsXzOWBs763BtdNoY0hhO/DXChfGYOF/MoRySZ3yvS6gC+
-         WKNoPwA5Qq7Dn5KU2ETslqDk/qXjPmf/666aSjyzQy28n0jLecPrBpDYEBBlMCOOdX3j
-         EAD2Oep/bT+1Ja+tounZKXoubip0KtW+8j/ZjIq2FmYFNuSal/WaggpavMliq3aGkqbV
-         rongg8TQqgcne+NmJOTb1uaMDE/Mw6agLdSim/31CB9lb22US0BZIDDji+7HhNqWzai1
-         VnDA==
+        bh=oGuGk/OpliIcouOXkCuM9Gfx22ccMK3OyWc84pSHDQA=;
+        b=p5WNfAATLaBi8QbDS7m4ODVEe0kBZocqwgYaZ4/CofedQ7gfQHt3fwsvM4ELpnmlMO
+         /BaIoBYHi/rAfy5isxieD4q6c4rhdLLhFDFb2yehUpqa3ynj9lR9USadXIdipDRsG5fV
+         8tER2XyyQEIF/S3NpDy9BHB7hl6DHdWQ/69L8e7Ep/r28RiIJ0gy4OM05aTG1UAgtJfb
+         KaudD3tbBzI1av/zKxn1+83crhvSzNMneBL5xSL1qAK15QPdGinm4oUhIdbo+D66dsWI
+         vhANot/1LHx5LfD48shRadptQSWjquOEeoNWtoS3JDSzraNWRCrsIHsX3rndaTJibE5E
+         ORmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732273601; x=1732878401;
+        d=1e100.net; s=20230601; t=1732273603; x=1732878403;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=uCXVCKDQTGyAYU6AmmroBCaYCVOBQ+j8/lDUk/CzRGk=;
-        b=Q3+GjzOdBZKC6Yl5vEEk4+E4tNjp38UcV9lXzd4Vq50AIjWnXbLHseM57EXpJrC1fa
-         Ys37auTt7IdfPFtD2C3SybllG8jiVHdvB6jb2fDdxEOPvOEeUzA7Kf4kS/qdMTxo0i/M
-         Ra3QBBJFJkCNN74262v3pvwo1VwyNYZwPob9B0Ft+nNfYPlWAndn1rJsahXMJs5B4ZRP
-         S+1W06nQSsJ7bWaeI+zTCM35MskrdRk5Dns27gPNnccXdHKYR0puF+22CRoBZfEixYlx
-         Wq/l/FWzzuovr+Z4/FHgCkV0H2W88SNdSfrHDXLDInCG3I6NEdXp5ztrOnJw+8HyJy8t
-         tUeg==
-X-Forwarded-Encrypted: i=1; AJvYcCUYCOZIoxfaGOZHE1UaiLqkBvNlHTtqlXQTmQnzYapMdcPAop5fddRLz4F+zTN/9WJUUF4ytrDzYMN+Pit0zzcd@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAvpN1A/jWILEHFhjvVWVRZYrWV8ahSWTLYZGExu8Y31tV+KPK
-	HuuRXJBvCkrRWPB7baNO10euTblX9QopvpIde2Phpxil/zwW+L4FGjSy+E7ca375k2NTVdPIsA=
+        bh=oGuGk/OpliIcouOXkCuM9Gfx22ccMK3OyWc84pSHDQA=;
+        b=PQeU5ZCtXKu+JqaJ0/qOvGFpPvQqx/I90FsTY9oWIu8XyxVVEUhWHLC1KkikuSd/Mr
+         oyRDejbz7DFEPgvrYNH1XKaZ3si0MZmWOJ/S3wR5SablqSvMje4iQGK3qgE2+7v8uDYD
+         nSuBwhp9IuDYjrdDXU/wm9qGeNG6NDGlbMyPeZuVX030WyB7Gkm8xcnaDf3F18ub7cKw
+         3/oPk2ujJOMiOZbllHtS7p6IfLepWVXA3tP1pIBC5yny9PDfcwZpmK1YCKPGFvTjYNMg
+         F0Yh1wWJ7KpeAV/glEeQJR4tMKiESttMDu09DAOWdqO4T63k9gsNS4hexQDurqFcm9tH
+         2QzA==
+X-Forwarded-Encrypted: i=1; AJvYcCX1NvtYtFawE2jWs9PQRGb60uL1NAo85pNrI/v5ZfCXfql/kYpQG1L0fYipRCyj5y2QPlfz4UK+FKOhT0p0mzE/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2/R34ct7NGGQLIZCoEUjT8FiE+XXD7+3Omv6IfM/AAqvIC7D1
+	JMhGsnLwsSq1UEMFS7WCbjZa8ihqK7PXyj2XS2ywMU5Ee3wg9lSJWdMTfGSmKfCnjU12DC5Ixw=
 	=
-X-Google-Smtp-Source: AGHT+IGWAyXY0Bh1E2MYCfi/KOe+LZQPdMWKfR6NfznITVmatROatXLwrChmHshc6ll/AiGuAf6h3sAxhA==
+X-Google-Smtp-Source: AGHT+IEHfm8aAphhrE8wOMAO7oupswXdHf+9swaEHi1h1t8UNMprA+ep0lq3gaYyKgE7EbK/2CY9rmP4vg==
 X-Received: from fuad.c.googlers.com ([fda3:e722:ac3:cc00:28:9cb1:c0a8:1613])
- (user=tabba job=sendgmr) by 2002:a05:600c:5102:b0:42c:b4ca:768c with SMTP id
- 5b1f17b1804b1-433ce4af47dmr10215e9.3.1732273601234; Fri, 22 Nov 2024 03:06:41
+ (user=tabba job=sendgmr) by 2002:a25:910f:0:b0:e38:8de0:f96b with SMTP id
+ 3f1490d57ef6-e38f8c09885mr1377276.9.1732273603700; Fri, 22 Nov 2024 03:06:43
  -0800 (PST)
-Date: Fri, 22 Nov 2024 11:06:17 +0000
+Date: Fri, 22 Nov 2024 11:06:18 +0000
 In-Reply-To: <20241122110622.3010118-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20241122110622.3010118-1-tabba@google.com>
 X-Mailer: git-send-email 2.47.0.371.ga323438b13-goog
-Message-ID: <20241122110622.3010118-8-tabba@google.com>
-Subject: [PATCH v2 07/12] KVM: arm64: Rework specifying restricted features
- for protected VMs
+Message-ID: <20241122110622.3010118-9-tabba@google.com>
+Subject: [PATCH v2 08/12] KVM: arm64: Remove fixed_config.h header
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org, 
@@ -76,8 +75,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org,
 	qperret@google.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241122_030643_184516_97C3BD58 
-X-CRM114-Status: GOOD (  24.55  )
+X-CRM114-CacheID: sfid-20241122_030645_398985_6063140C 
+X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,441 +91,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The existing code didn't properly distinguish between signed and
-unsigned features, and was difficult to read and to maintain.
-Rework it using the same method used in other parts of KVM when
-handling vcpu features.
+The few remaining items needed in fixed_config.h are better
+suited for pkvm.h. Move them there and delete it.
+
+No functional change intended.
 
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- .../arm64/kvm/hyp/include/nvhe/fixed_config.h |   1 -
- arch/arm64/kvm/hyp/nvhe/sys_regs.c            | 356 +++++++++---------
- 2 files changed, 186 insertions(+), 171 deletions(-)
+ .../arm64/kvm/hyp/include/nvhe/fixed_config.h | 206 ------------------
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |   5 +
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                |   1 -
+ arch/arm64/kvm/hyp/nvhe/setup.c               |   1 -
+ arch/arm64/kvm/hyp/nvhe/switch.c              |   1 -
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c            |   2 +-
+ 6 files changed, 6 insertions(+), 210 deletions(-)
+ delete mode 100644 arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
 
 diff --git a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
-index 69e26d1a0ebe..37a6d2434e47 100644
+deleted file mode 100644
+index 37a6d2434e47..000000000000
 --- a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
-@@ -198,7 +198,6 @@
- 	FIELD_PREP(ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_APA3), ID_AA64ISAR2_EL1_APA3_PAuth) \
- 	)
++++ /dev/null
+@@ -1,206 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- * Copyright (C) 2021 Google LLC
+- * Author: Fuad Tabba <tabba@google.com>
+- */
+-
+-#ifndef __ARM64_KVM_FIXED_CONFIG_H__
+-#define __ARM64_KVM_FIXED_CONFIG_H__
+-
+-#include <asm/sysreg.h>
+-
+-/*
+- * This file contains definitions for features to be allowed or restricted for
+- * guest virtual machines, depending on the mode KVM is running in and on the
+- * type of guest that is running.
+- *
+- * Each field in the masks represents the highest supported *unsigned* value for
+- * the feature, if supported by the system.
+- *
+- * If a feature field is not present in either, than it is not supported.
+- *
+- * The approach taken for protected VMs is to allow features that are:
+- * - Needed by common Linux distributions (e.g., floating point)
+- * - Trivial to support, e.g., supporting the feature does not introduce or
+- * require tracking of additional state in KVM
+- * - Cannot be trapped or prevent the guest from using anyway
+- */
+-
+-/*
+- * Allow for protected VMs:
+- * - Floating-point and Advanced SIMD
+- * - Data Independent Timing
+- * - Spectre/Meltdown Mitigation
+- *
+- * Restrict to the following *unsigned* features for protected VMs:
+- * - AArch64 guests only (no support for AArch32 guests):
+- *	AArch32 adds complexity in trap handling, emulation, condition codes,
+- *	etc...
+- * - RAS (v1)
+- *	Supported by KVM
+- */
+-#define PVM_ID_AA64PFR0_ALLOW (\
+-	ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_FP) | \
+-	ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_AdvSIMD) | \
+-	ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_DIT) | \
+-	ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_CSV2) | \
+-	ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_CSV3) | \
+-	SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, EL0, IMP) | \
+-	SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, EL1, IMP) | \
+-	SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, EL2, IMP) | \
+-	SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, EL3, IMP) | \
+-	SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, RAS, IMP) \
+-	)
+-
+-/*
+- * Allow for protected VMs:
+- * - Branch Target Identification
+- * - Speculative Store Bypassing
+- */
+-#define PVM_ID_AA64PFR1_ALLOW (\
+-	ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_BT) | \
+-	ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_SSBS) \
+-	)
+-
+-#define PVM_ID_AA64PFR2_ALLOW 0ULL
+-
+-/*
+- * Allow for protected VMs:
+- * - Mixed-endian
+- * - Distinction between Secure and Non-secure Memory
+- * - Mixed-endian at EL0 only
+- * - Non-context synchronizing exception entry and exit
+- *
+- * Restrict to the following *unsigned* features for protected VMs:
+- * - 40-bit IPA
+- * - 16-bit ASID
+- */
+-#define PVM_ID_AA64MMFR0_ALLOW (\
+-	ARM64_FEATURE_MASK(ID_AA64MMFR0_EL1_BIGEND) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR0_EL1_SNSMEM) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR0_EL1_BIGENDEL0) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR0_EL1_EXS) | \
+-	FIELD_PREP(ARM64_FEATURE_MASK(ID_AA64MMFR0_EL1_PARANGE), ID_AA64MMFR0_EL1_PARANGE_40) | \
+-	FIELD_PREP(ARM64_FEATURE_MASK(ID_AA64MMFR0_EL1_ASIDBITS), ID_AA64MMFR0_EL1_ASIDBITS_16) \
+-	)
+-
+-/*
+- * Allow for protected VMs:
+- * - Hardware translation table updates to Access flag and Dirty state
+- * - Number of VMID bits from CPU
+- * - Hierarchical Permission Disables
+- * - Privileged Access Never
+- * - SError interrupt exceptions from speculative reads
+- * - Enhanced Translation Synchronization
+- * - Control for cache maintenance permission
+- */
+-#define PVM_ID_AA64MMFR1_ALLOW (\
+-	ARM64_FEATURE_MASK(ID_AA64MMFR1_EL1_HAFDBS) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR1_EL1_VMIDBits) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR1_EL1_HPDS) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR1_EL1_PAN) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR1_EL1_SpecSEI) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR1_EL1_ETS) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR1_EL1_CMOW) \
+-	)
+-
+-/*
+- * Allow for protected VMs:
+- * - Common not Private translations
+- * - User Access Override
+- * - IESB bit in the SCTLR_ELx registers
+- * - Unaligned single-copy atomicity and atomic functions
+- * - ESR_ELx.EC value on an exception by read access to feature ID space
+- * - TTL field in address operations.
+- * - Break-before-make sequences when changing translation block size
+- * - E0PDx mechanism
+- */
+-#define PVM_ID_AA64MMFR2_ALLOW (\
+-	ARM64_FEATURE_MASK(ID_AA64MMFR2_EL1_CnP) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR2_EL1_UAO) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR2_EL1_IESB) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR2_EL1_AT) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR2_EL1_IDS) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR2_EL1_TTL) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR2_EL1_BBM) | \
+-	ARM64_FEATURE_MASK(ID_AA64MMFR2_EL1_E0PD) \
+-	)
+-
+-#define PVM_ID_AA64MMFR3_ALLOW (0ULL)
+-
+-/*
+- * No support for Scalable Vectors for protected VMs:
+- *	Requires additional support from KVM, e.g., context-switching and
+- *	trapping at EL2
+- */
+-#define PVM_ID_AA64ZFR0_ALLOW (0ULL)
+-
+-/*
+- * No support for debug, including breakpoints, and watchpoints for protected
+- * VMs:
+- *	The Arm architecture mandates support for at least the Armv8 debug
+- *	architecture, which would include at least 2 hardware breakpoints and
+- *	watchpoints. Providing that support to protected guests adds
+- *	considerable state and complexity. Therefore, the reserved value of 0 is
+- *	used for debug-related fields.
+- */
+-#define PVM_ID_AA64DFR0_ALLOW (0ULL)
+-#define PVM_ID_AA64DFR1_ALLOW (0ULL)
+-
+-/*
+- * No support for implementation defined features.
+- */
+-#define PVM_ID_AA64AFR0_ALLOW (0ULL)
+-#define PVM_ID_AA64AFR1_ALLOW (0ULL)
+-
+-/*
+- * No restrictions on instructions implemented in AArch64.
+- */
+-#define PVM_ID_AA64ISAR0_ALLOW (\
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_AES) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_SHA1) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_SHA2) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_CRC32) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_ATOMIC) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_RDM) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_SHA3) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_SM3) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_SM4) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_DP) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_FHM) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_TS) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_TLB) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_RNDR) \
+-	)
+-
+-/* Restrict pointer authentication to the basic version. */
+-#define PVM_ID_AA64ISAR1_ALLOW (\
+-	ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_DPB) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_JSCVT) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_FCMA) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_LRCPC) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_GPA) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_GPI) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_FRINTTS) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_SB) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_SPECRES) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_BF16) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_DGH) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_I8MM) | \
+-	FIELD_PREP(ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_APA), ID_AA64ISAR1_EL1_APA_PAuth) | \
+-	FIELD_PREP(ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_API), ID_AA64ISAR1_EL1_API_PAuth) \
+-	)
+-
+-#define PVM_ID_AA64ISAR2_ALLOW (\
+-	ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_ATS1A)| \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_GPA3) | \
+-	ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_MOPS) | \
+-	FIELD_PREP(ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_APA3), ID_AA64ISAR2_EL1_APA3_PAuth) \
+-	)
+-
+-bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
+-bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
+-void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
+-int kvm_check_pvm_sysreg_table(void);
+-
+-#endif /* __ARM64_KVM_FIXED_CONFIG_H__ */
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+index 24a9a8330d19..6ff7cbc33000 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+@@ -70,4 +70,9 @@ struct pkvm_hyp_vcpu *pkvm_load_hyp_vcpu(pkvm_handle_t handle,
+ 					 unsigned int vcpu_idx);
+ void pkvm_put_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu);
  
--u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id);
- bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
- bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
- void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
++bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
++bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
++void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
++int kvm_check_pvm_sysreg_table(void);
++
+ #endif /* __ARM64_KVM_NVHE_PKVM_H__ */
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 3b4ea97148b9..ffa500b500f2 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -9,7 +9,6 @@
+ 
+ #include <asm/kvm_emulate.h>
+ 
+-#include <nvhe/fixed_config.h>
+ #include <nvhe/mem_protect.h>
+ #include <nvhe/memory.h>
+ #include <nvhe/pkvm.h>
+diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+index cbdd18cd3f98..31bd729ea45c 100644
+--- a/arch/arm64/kvm/hyp/nvhe/setup.c
++++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+@@ -12,7 +12,6 @@
+ 
+ #include <nvhe/early_alloc.h>
+ #include <nvhe/ffa.h>
+-#include <nvhe/fixed_config.h>
+ #include <nvhe/gfp.h>
+ #include <nvhe/memory.h>
+ #include <nvhe/mem_protect.h>
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index cc69106734ca..7786a83d0fa8 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -26,7 +26,6 @@
+ #include <asm/debug-monitors.h>
+ #include <asm/processor.h>
+ 
+-#include <nvhe/fixed_config.h>
+ #include <nvhe/mem_protect.h>
+ 
+ /* Non-VHE specific context */
 diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-index 3aa76b018f70..cea3b099dc56 100644
+index cea3b099dc56..c6809390c6e6 100644
 --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
 +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-@@ -28,221 +28,237 @@ u64 id_aa64mmfr1_el1_sys_val;
- u64 id_aa64mmfr2_el1_sys_val;
- u64 id_aa64smfr0_el1_sys_val;
+@@ -11,7 +11,7 @@
  
--/*
-- * Inject an unknown/undefined exception to an AArch64 guest while most of its
-- * sysregs are live.
-- */
--static void inject_undef64(struct kvm_vcpu *vcpu)
--{
--	u64 esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT);
--
--	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
--	*vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
--
--	kvm_pend_exception(vcpu, EXCEPT_AA64_EL1_SYNC);
--
--	__kvm_adjust_pc(vcpu);
--
--	write_sysreg_el1(esr, SYS_ESR);
--	write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
--	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
--	write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
--}
-+struct pvm_feature {
-+	int shift;
-+	int width;
-+	u64 mask;
-+	u64 max_supported;
-+	bool is_signed;
-+	bool (*vcpu_supported)(const struct kvm_vcpu *vcpu);
-+};
+ #include <hyp/adjust_pc.h>
  
--/*
-- * Returns the restricted features values of the feature register based on the
-- * limitations in restrict_fields.
-- * A feature id field value of 0b0000 does not impose any restrictions.
-- * Note: Use only for unsigned feature field values.
-- */
--static u64 get_restricted_features_unsigned(u64 sys_reg_val,
--					    u64 restrict_fields)
--{
--	u64 value = 0UL;
--	u64 mask = GENMASK_ULL(ARM64_FEATURE_FIELD_BITS - 1, 0);
--
--	/*
--	 * According to the Arm Architecture Reference Manual, feature fields
--	 * use increasing values to indicate increases in functionality.
--	 * Iterate over the restricted feature fields and calculate the minimum
--	 * unsigned value between the one supported by the system, and what the
--	 * value is being restricted to.
--	 */
--	while (sys_reg_val && restrict_fields) {
--		value |= min(sys_reg_val & mask, restrict_fields & mask);
--		sys_reg_val &= ~mask;
--		restrict_fields &= ~mask;
--		mask <<= ARM64_FEATURE_FIELD_BITS;
-+#define __MAX_FEAT_FUNC(id, fld, max, func, sign)				\
-+	{									\
-+		.shift = id##_##fld##_SHIFT,					\
-+		.width = id##_##fld##_WIDTH,					\
-+		.mask = id##_##fld##_MASK,					\
-+		.max_supported = id##_##fld##_##max,				\
-+		.is_signed = sign,						\
-+		.vcpu_supported = func,						\
- 	}
+-#include <nvhe/fixed_config.h>
++#include <nvhe/pkvm.h>
  
--	return value;
--}
--
--/*
-- * Functions that return the value of feature id registers for protected VMs
-- * based on allowed features, system features, and KVM support.
-- */
--
--static u64 get_pvm_id_aa64pfr0(const struct kvm_vcpu *vcpu)
--{
--	u64 set_mask = 0;
--	u64 allow_mask = PVM_ID_AA64PFR0_ALLOW;
--
--	set_mask |= get_restricted_features_unsigned(id_aa64pfr0_el1_sys_val,
--		PVM_ID_AA64PFR0_ALLOW);
--
--	return (id_aa64pfr0_el1_sys_val & allow_mask) | set_mask;
--}
--
--static u64 get_pvm_id_aa64pfr1(const struct kvm_vcpu *vcpu)
--{
--	const struct kvm *kvm = (const struct kvm *)kern_hyp_va(vcpu->kvm);
--	u64 allow_mask = PVM_ID_AA64PFR1_ALLOW;
--
--	if (!kvm_has_mte(kvm))
--		allow_mask &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE);
-+#define MAX_FEAT_FUNC(id, fld, max, func)					\
-+	__MAX_FEAT_FUNC(id, fld, max, func, id##_##fld##_SIGNED)
+ #include "../../sys_regs.h"
  
--	return id_aa64pfr1_el1_sys_val & allow_mask;
--}
-+#define MAX_FEAT(id, fld, max)							\
-+	MAX_FEAT_FUNC(id, fld, max, NULL)
- 
--static u64 get_pvm_id_aa64zfr0(const struct kvm_vcpu *vcpu)
--{
--	/*
--	 * No support for Scalable Vectors, therefore, hyp has no sanitized
--	 * copy of the feature id register.
--	 */
--	BUILD_BUG_ON(PVM_ID_AA64ZFR0_ALLOW != 0ULL);
--	return 0;
--}
-+#define MAX_FEAT_ENUM(id, fld, max)						\
-+	__MAX_FEAT_FUNC(id, fld, max, NULL, false)
- 
--static u64 get_pvm_id_aa64dfr0(const struct kvm_vcpu *vcpu)
--{
--	/*
--	 * No support for debug, including breakpoints, and watchpoints,
--	 * therefore, pKVM has no sanitized copy of the feature id register.
--	 */
--	BUILD_BUG_ON(PVM_ID_AA64DFR0_ALLOW != 0ULL);
--	return 0;
--}
-+#define FEAT_END {	.shift = -1,	}
- 
--static u64 get_pvm_id_aa64dfr1(const struct kvm_vcpu *vcpu)
-+static bool _vcpu_has_ptrauth(const struct kvm_vcpu *vcpu)
- {
--	/*
--	 * No support for debug, therefore, hyp has no sanitized copy of the
--	 * feature id register.
--	 */
--	BUILD_BUG_ON(PVM_ID_AA64DFR1_ALLOW != 0ULL);
--	return 0;
-+	return vcpu_has_ptrauth(vcpu);
- }
- 
--static u64 get_pvm_id_aa64afr0(const struct kvm_vcpu *vcpu)
-+static bool _vcpu_has_sve(const struct kvm_vcpu *vcpu)
- {
--	/*
--	 * No support for implementation defined features, therefore, hyp has no
--	 * sanitized copy of the feature id register.
--	 */
--	BUILD_BUG_ON(PVM_ID_AA64AFR0_ALLOW != 0ULL);
--	return 0;
-+	return vcpu_has_sve(vcpu);
- }
- 
--static u64 get_pvm_id_aa64afr1(const struct kvm_vcpu *vcpu)
--{
--	/*
--	 * No support for implementation defined features, therefore, hyp has no
--	 * sanitized copy of the feature id register.
--	 */
--	BUILD_BUG_ON(PVM_ID_AA64AFR1_ALLOW != 0ULL);
--	return 0;
--}
--
--static u64 get_pvm_id_aa64isar0(const struct kvm_vcpu *vcpu)
--{
--	return id_aa64isar0_el1_sys_val & PVM_ID_AA64ISAR0_ALLOW;
--}
-+/*
-+ * Definitions for features to be allowed or restricted for protected guests.
-+ *
-+ * Each field in the masks represents the highest supported value for the
-+ * feature. If a feature field is not present, it is not supported. Moreover,
-+ * these are used to generate the guest's view of the feature registers.
-+ *
-+ * The approach for protected VMs is to at least support features that are:
-+ * - Needed by common Linux distributions (e.g., floating point)
-+ * - Trivial to support, e.g., supporting the feature does not introduce or
-+ * require tracking of additional state in KVM
-+ * - Cannot be trapped or prevent the guest from using anyway
-+ */
- 
--static u64 get_pvm_id_aa64isar1(const struct kvm_vcpu *vcpu)
--{
--	u64 allow_mask = PVM_ID_AA64ISAR1_ALLOW;
-+static const struct pvm_feature pvmid_aa64pfr0[] = {
-+	MAX_FEAT(ID_AA64PFR0_EL1, EL0, IMP),
-+	MAX_FEAT(ID_AA64PFR0_EL1, EL1, IMP),
-+	MAX_FEAT(ID_AA64PFR0_EL1, EL2, IMP),
-+	MAX_FEAT(ID_AA64PFR0_EL1, EL3, IMP),
-+	MAX_FEAT(ID_AA64PFR0_EL1, FP, FP16),
-+	MAX_FEAT(ID_AA64PFR0_EL1, AdvSIMD, FP16),
-+	MAX_FEAT(ID_AA64PFR0_EL1, GIC, IMP),
-+	MAX_FEAT_FUNC(ID_AA64PFR0_EL1, SVE, IMP, _vcpu_has_sve),
-+	MAX_FEAT(ID_AA64PFR0_EL1, RAS, IMP),
-+	MAX_FEAT(ID_AA64PFR0_EL1, DIT, IMP),
-+	MAX_FEAT(ID_AA64PFR0_EL1, CSV2, IMP),
-+	MAX_FEAT(ID_AA64PFR0_EL1, CSV3, IMP),
-+	FEAT_END
-+};
- 
--	if (!vcpu_has_ptrauth(vcpu))
--		allow_mask &= ~(ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_APA) |
--				ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_API) |
--				ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_GPA) |
--				ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_GPI));
-+static const struct pvm_feature pvmid_aa64pfr1[] = {
-+	MAX_FEAT(ID_AA64PFR1_EL1, BT, IMP),
-+	MAX_FEAT(ID_AA64PFR1_EL1, SSBS, SSBS2),
-+	MAX_FEAT_ENUM(ID_AA64PFR1_EL1, MTE_frac, NI),
-+	FEAT_END
-+};
- 
--	return id_aa64isar1_el1_sys_val & allow_mask;
--}
-+static const struct pvm_feature pvmid_aa64mmfr0[] = {
-+	MAX_FEAT_ENUM(ID_AA64MMFR0_EL1, PARANGE, 40),
-+	MAX_FEAT_ENUM(ID_AA64MMFR0_EL1, ASIDBITS, 16),
-+	MAX_FEAT(ID_AA64MMFR0_EL1, BIGEND, IMP),
-+	MAX_FEAT(ID_AA64MMFR0_EL1, SNSMEM, IMP),
-+	MAX_FEAT(ID_AA64MMFR0_EL1, BIGENDEL0, IMP),
-+	MAX_FEAT(ID_AA64MMFR0_EL1, EXS, IMP),
-+	FEAT_END
-+};
- 
--static u64 get_pvm_id_aa64isar2(const struct kvm_vcpu *vcpu)
--{
--	u64 allow_mask = PVM_ID_AA64ISAR2_ALLOW;
-+static const struct pvm_feature pvmid_aa64mmfr1[] = {
-+	MAX_FEAT(ID_AA64MMFR1_EL1, HAFDBS, DBM),
-+	MAX_FEAT_ENUM(ID_AA64MMFR1_EL1, VMIDBits, 16),
-+	MAX_FEAT(ID_AA64MMFR1_EL1, HPDS, HPDS2),
-+	MAX_FEAT(ID_AA64MMFR1_EL1, PAN, PAN3),
-+	MAX_FEAT(ID_AA64MMFR1_EL1, SpecSEI, IMP),
-+	MAX_FEAT(ID_AA64MMFR1_EL1, ETS, IMP),
-+	MAX_FEAT(ID_AA64MMFR1_EL1, CMOW, IMP),
-+	FEAT_END
-+};
- 
--	if (!vcpu_has_ptrauth(vcpu))
--		allow_mask &= ~(ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_APA3) |
--				ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_GPA3));
-+static const struct pvm_feature pvmid_aa64mmfr2[] = {
-+	MAX_FEAT(ID_AA64MMFR2_EL1, CnP, IMP),
-+	MAX_FEAT(ID_AA64MMFR2_EL1, UAO, IMP),
-+	MAX_FEAT(ID_AA64MMFR2_EL1, IESB, IMP),
-+	MAX_FEAT(ID_AA64MMFR2_EL1, AT, IMP),
-+	MAX_FEAT_ENUM(ID_AA64MMFR2_EL1, IDS, 0x18),
-+	MAX_FEAT(ID_AA64MMFR2_EL1, TTL, IMP),
-+	MAX_FEAT(ID_AA64MMFR2_EL1, BBM, 2),
-+	MAX_FEAT(ID_AA64MMFR2_EL1, E0PD, IMP),
-+	FEAT_END
-+};
- 
--	return id_aa64isar2_el1_sys_val & allow_mask;
--}
-+static const struct pvm_feature pvmid_aa64isar1[] = {
-+	MAX_FEAT(ID_AA64ISAR1_EL1, DPB, DPB2),
-+	MAX_FEAT_FUNC(ID_AA64ISAR1_EL1, APA, PAuth, _vcpu_has_ptrauth),
-+	MAX_FEAT_FUNC(ID_AA64ISAR1_EL1, API, PAuth, _vcpu_has_ptrauth),
-+	MAX_FEAT(ID_AA64ISAR1_EL1, JSCVT, IMP),
-+	MAX_FEAT(ID_AA64ISAR1_EL1, FCMA, IMP),
-+	MAX_FEAT(ID_AA64ISAR1_EL1, LRCPC, LRCPC3),
-+	MAX_FEAT(ID_AA64ISAR1_EL1, GPA, IMP),
-+	MAX_FEAT(ID_AA64ISAR1_EL1, GPI, IMP),
-+	MAX_FEAT(ID_AA64ISAR1_EL1, FRINTTS, IMP),
-+	MAX_FEAT(ID_AA64ISAR1_EL1, SB, IMP),
-+	MAX_FEAT(ID_AA64ISAR1_EL1, SPECRES, COSP_RCTX),
-+	MAX_FEAT(ID_AA64ISAR1_EL1, BF16, EBF16),
-+	MAX_FEAT(ID_AA64ISAR1_EL1, DGH, IMP),
-+	MAX_FEAT(ID_AA64ISAR1_EL1, I8MM, IMP),
-+	FEAT_END
-+};
- 
--static u64 get_pvm_id_aa64mmfr0(const struct kvm_vcpu *vcpu)
--{
--	u64 set_mask;
-+static const struct pvm_feature pvmid_aa64isar2[] = {
-+	MAX_FEAT_FUNC(ID_AA64ISAR2_EL1, GPA3, IMP, _vcpu_has_ptrauth),
-+	MAX_FEAT_FUNC(ID_AA64ISAR2_EL1, APA3, PAuth, _vcpu_has_ptrauth),
-+	MAX_FEAT(ID_AA64ISAR2_EL1, ATS1A, IMP),
-+	FEAT_END
-+};
- 
--	set_mask = get_restricted_features_unsigned(id_aa64mmfr0_el1_sys_val,
--		PVM_ID_AA64MMFR0_ALLOW);
-+/*
-+ * None of the features in ID_AA64DFR0_EL1 nor ID_AA64MMFR4_EL1 are supported.
-+ * However, both have Not-Implemented values that are non-zero. Define them
-+ * so they can be used when getting the value of these registers.
-+ */
-+#define ID_AA64DFR0_EL1_NONZERO_NI					\
-+(									\
-+	SYS_FIELD_PREP_ENUM(ID_AA64DFR0_EL1, DoubleLock, NI)	|	\
-+	SYS_FIELD_PREP_ENUM(ID_AA64DFR0_EL1, MTPMU, NI)			\
-+)
- 
--	return (id_aa64mmfr0_el1_sys_val & PVM_ID_AA64MMFR0_ALLOW) | set_mask;
--}
-+#define ID_AA64MMFR4_EL1_NONZERO_NI					\
-+	SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, E2H0, NI)
- 
--static u64 get_pvm_id_aa64mmfr1(const struct kvm_vcpu *vcpu)
-+/*
-+ * Returns the value of the feature registers based on the system register
-+ * value, the vcpu support for the revelant features, and the additional
-+ * restrictions for protected VMs.
-+ */
-+static u64 get_restricted_features(const struct kvm_vcpu *vcpu,
-+				   u64 sys_reg_val,
-+				   const struct pvm_feature restrictions[])
- {
--	return id_aa64mmfr1_el1_sys_val & PVM_ID_AA64MMFR1_ALLOW;
--}
-+	u64 val = 0UL;
-+	int i;
-+
-+	for (i = 0; restrictions[i].shift != -1; i++) {
-+		bool (*vcpu_supported)(const struct kvm_vcpu *) = restrictions[i].vcpu_supported;
-+		bool is_signed = restrictions[i].is_signed;
-+		int shift = restrictions[i].shift;
-+		int width = restrictions[i].width;
-+		u64 min_signed = (1UL << width) - 1UL;
-+		u64 sign_bit = 1UL << (width - 1);
-+		u64 mask = restrictions[i].mask;
-+		u64 sys_val = (sys_reg_val & mask) >> shift;
-+		u64 pvm_max = restrictions[i].max_supported;
-+
-+		if (vcpu_supported && !vcpu_supported(vcpu))
-+			val |= (is_signed ? min_signed : 0) << shift;
-+		else if (is_signed && (sys_val >= sign_bit || pvm_max >= sign_bit))
-+			val |= max(sys_val, pvm_max) << shift;
-+		else
-+			val |= min(sys_val, pvm_max) << shift;
-+	}
- 
--static u64 get_pvm_id_aa64mmfr2(const struct kvm_vcpu *vcpu)
--{
--	return id_aa64mmfr2_el1_sys_val & PVM_ID_AA64MMFR2_ALLOW;
-+	return val;
- }
- 
- static u64 pvm_calc_id_reg(const struct kvm_vcpu *vcpu, u32 id)
- {
- 	switch (id) {
- 	case SYS_ID_AA64PFR0_EL1:
--		return get_pvm_id_aa64pfr0(vcpu);
-+		return get_restricted_features(vcpu, id_aa64pfr0_el1_sys_val, pvmid_aa64pfr0);
- 	case SYS_ID_AA64PFR1_EL1:
--		return get_pvm_id_aa64pfr1(vcpu);
--	case SYS_ID_AA64ZFR0_EL1:
--		return get_pvm_id_aa64zfr0(vcpu);
--	case SYS_ID_AA64DFR0_EL1:
--		return get_pvm_id_aa64dfr0(vcpu);
--	case SYS_ID_AA64DFR1_EL1:
--		return get_pvm_id_aa64dfr1(vcpu);
--	case SYS_ID_AA64AFR0_EL1:
--		return get_pvm_id_aa64afr0(vcpu);
--	case SYS_ID_AA64AFR1_EL1:
--		return get_pvm_id_aa64afr1(vcpu);
-+		return get_restricted_features(vcpu, id_aa64pfr1_el1_sys_val, pvmid_aa64pfr1);
- 	case SYS_ID_AA64ISAR0_EL1:
--		return get_pvm_id_aa64isar0(vcpu);
-+		return id_aa64isar0_el1_sys_val;
- 	case SYS_ID_AA64ISAR1_EL1:
--		return get_pvm_id_aa64isar1(vcpu);
-+		return get_restricted_features(vcpu, id_aa64isar1_el1_sys_val, pvmid_aa64isar1);
- 	case SYS_ID_AA64ISAR2_EL1:
--		return get_pvm_id_aa64isar2(vcpu);
-+		return get_restricted_features(vcpu, id_aa64isar2_el1_sys_val, pvmid_aa64isar2);
- 	case SYS_ID_AA64MMFR0_EL1:
--		return get_pvm_id_aa64mmfr0(vcpu);
-+		return get_restricted_features(vcpu, id_aa64mmfr0_el1_sys_val, pvmid_aa64mmfr0);
- 	case SYS_ID_AA64MMFR1_EL1:
--		return get_pvm_id_aa64mmfr1(vcpu);
-+		return get_restricted_features(vcpu, id_aa64mmfr1_el1_sys_val, pvmid_aa64mmfr1);
- 	case SYS_ID_AA64MMFR2_EL1:
--		return get_pvm_id_aa64mmfr2(vcpu);
-+		return get_restricted_features(vcpu, id_aa64mmfr2_el1_sys_val, pvmid_aa64mmfr2);
-+	case SYS_ID_AA64DFR0_EL1:
-+		return ID_AA64DFR0_EL1_NONZERO_NI;
-+	case SYS_ID_AA64MMFR4_EL1:
-+		return ID_AA64MMFR4_EL1_NONZERO_NI;
- 	default:
- 		/* Unhandled ID register, RAZ */
- 		return 0;
- 	}
- }
- 
--/* Read a sanitized cpufeature ID register by its encoding */
--u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
-+/*
-+ * Inject an unknown/undefined exception to an AArch64 guest while most of its
-+ * sysregs are live.
-+ */
-+static void inject_undef64(struct kvm_vcpu *vcpu)
- {
--	return pvm_calc_id_reg(vcpu, id);
-+	u64 esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT);
-+
-+	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
-+	*vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
-+
-+	kvm_pend_exception(vcpu, EXCEPT_AA64_EL1_SYNC);
-+
-+	__kvm_adjust_pc(vcpu);
-+
-+	write_sysreg_el1(esr, SYS_ESR);
-+	write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
-+	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
-+	write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
- }
- 
- static u64 read_id_reg(const struct kvm_vcpu *vcpu,
 -- 
 2.47.0.371.ga323438b13-goog
 
