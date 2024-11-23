@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F029E6ADDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 16:29:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D5FD75E59
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 17:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BtE2Y/J5bwqOiQlvpjiP62bROA0RfyMK7PmtzJ5HNbc=; b=3+i31zyEu0lpCoLedjQwcOI9hT
-	ccmxXMYTKpbakmRXPU4g5R4e4z0LBYXOEMznX75XelJTeuMIWp+EWd885swKsnPvTcGsTgeF35PrQ
-	Dci/FHv+lrw3/BjvHUxLfmms7T9QK0ydBAVNZenAAnxNVTBz3Zp5pLmhuV9j+KfEnizqbxxj7Mf7k
-	ANmvb7OdUwC1KukoQWTlvyqqg9S1wMswQk59F+0k1Z+TiOgGLrZCv/IDc7ekZQliNi1GUPiFQQbpn
-	7qF2YdhzfzufUEXVDtk4uxhZ0z6e9TK6oIfu4/Dxr/Y9YjVN5zUbQFyk7Dv0+NE4uEnWmHi0UegKC
-	c5qOjWbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=imZsryVZFgIVOenQETWNzdw3ZU4ZiuM0kjSsig8Dlws=; b=rgxdVtkhmJlVo+E4dzghHc0/Re
+	OEndUIh2SXeVeKvcxE0Uv2OIhIErKJZLpJYplUPd9rVd/UWJ4RQB2LwwQN9o07WYm8+NCZC2ePyCi
+	VSOv01uHBuppWEaryiFpgIHrIkb+TI7FWEW0Z3goZZqCfzmjV2lsv4JFuQVXm+09UcjUOrUBDaFmd
+	TnjvvKLlCRtgC3s4w2hHMqi8G1xC5DSrRDQdwCq44q3QZPq2uv0anKBWMVYsKdOl17fc6UzOGJvdI
+	ql8qeCuP6y/kBx1F7opYLtLC71zBeSODnHKb15G7zJbm8VI3hn+I4ha9n0R7Y9A9+kUSIdOAYrveS
+	qtgAMUhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEt0P-00000004bdR-1NZe;
-	Sat, 23 Nov 2024 16:29:09 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tEtVX-00000004e7C-0OJq;
+	Sat, 23 Nov 2024 17:01:19 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEszN-00000004bRM-3p1s
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Nov 2024 16:28:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D4F83A4049E;
-	Sat, 23 Nov 2024 16:26:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17970C4CECD;
-	Sat, 23 Nov 2024 16:28:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732379284;
-	bh=4kW1hmaRcvlW822s40y2EmNJ6JjAbCgKF+oCMp92zm8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OdjP/2gm7hiTwtGDqfK0SBqJNDJFcKbVC0EY/2C+H0qYmNbeQAhvEUp+uf3cKSsFC
-	 zPn/BP7qIIsTA8dHcM9ToBBd5PpdR8mlERcZV1FK8mtkm46H4cPTY3y38RPRON6j/i
-	 qbY/RI3amOroUnQdw7QGiKrJH5usRR7lEYxY9NUhZ2IF89sE31ze9/tw1iLlv6ywVP
-	 NqbNZhFcWSDIgfIKczxfXRjY6HcGEWlev1BH+aFU4YowMy3oymW29pKSsOl1bXcoYQ
-	 dahDTEdSpMlH9U7qFuoZkvkmo4mnrPWaOyXUUluYTHg0HUrEXytlpLvRO8lcpLSnls
-	 gLqZpjYOC1OiA==
-Date: Sat, 23 Nov 2024 17:28:01 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Fange Zhang <quic_fangez@quicinc.com>
-Cc: Rob Clark <robdclark@gmail.com>, 
-	Abhinav Kumar <quic_abhinavk@quicinc.com>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
-	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krishna Manikandan <quic_mkrishn@quicinc.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Li Liu <quic_lliu6@quicinc.com>, 
-	Xiangxu Yin <quic_xiangxuy@quicinc.com>, linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/9] dt-bindings: display/msm: dsi-controller-main:
- Document SM6150
-Message-ID: <grizxfiq3zlquijtufhtjnnwlq2cl264ouzxrglroafreoujoz@lk2rjcaa6lxy>
-References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
- <20241122-add-display-support-for-qcs615-platform-v3-2-35252e3a51fe@quicinc.com>
+	id 1tEtUa-00000004dxE-39tr;
+	Sat, 23 Nov 2024 17:00:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1732381216;
+	bh=DM4//eNbZfyM12Q86uc6Jzb8gKZsqYiM1dGZdtheaPA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ntPQB099Xe19Nq1wv7qUNrHaeM30rWPpT/0tCTr7/2/I1VxyUxq4dzUB3X/Qx2+Pr
+	 ssWMaXRb+iQ6kHWhEjHjuleGLSzpFBbUC+FqcjTQ7N/+8YPv/MwyCCkPBlHrSv/C8c
+	 dcxMeVjxDntGglRfxBlg25WvG5lXuWkGpnqo5zvf2bRkr6nH+uZSDgtMEUmULmZzgK
+	 p6nm3MDAnTgVKHJAMP3rpPvnY77VDQeP0VzNqgiVoXDjw1C+SWVhm5g878K8EGyqWe
+	 n4Mb1x0NV9FbimSGm3PcNTJuw3AepCY0p1ydHcr8G8gnBrGPDON0nBZINGEDV3qJlk
+	 NB7JO8wocAd/Q==
+Received: from [192.168.1.90] (unknown [86.120.21.57])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3840417E376B;
+	Sat, 23 Nov 2024 18:00:15 +0100 (CET)
+Message-ID: <2c7fc07c-b431-4384-8dc6-3ae77b18367e@collabora.com>
+Date: Sat, 23 Nov 2024 19:00:14 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241122-add-display-support-for-qcs615-platform-v3-2-35252e3a51fe@quicinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v10,3/3] drm/rockchip: Add basic RK3588 HDMI output support
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Mark Yao <markyao0591@gmail.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Simona Vetter <simona@ffwll.ch>,
+ Simona Vetter <simona.vetter@ffwll.ch>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ kernel@collabora.com, Alexandre ARNOUD <aarnoud@me.com>,
+ Luis de Arquer <ldearquer@gmail.com>, Algea Cao <algea.cao@rock-chips.com>
+References: <20241016-b4-rk3588-bridge-upstream-v10-3-87ef92a6d14e@collabora.com>
+ <790091a1-00af-43bb-8cdf-814f4cc38d83@roeck-us.net>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Content-Language: en-US
+In-Reply-To: <790091a1-00af-43bb-8cdf-814f4cc38d83@roeck-us.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241123_082806_148591_BF0978C1 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20241123_090021_022862_9DF44DE9 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,31 +90,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 22, 2024 at 05:56:45PM +0800, Fange Zhang wrote:
-> From: Li Liu <quic_lliu6@quicinc.com>
+On 11/23/24 5:56 PM, Guenter Roeck wrote:
+> On Wed, Oct 16, 2024 at 11:06:53PM +0300, Cristian Ciocaltea wrote:
+>> The RK3588 SoC family integrates the newer Synopsys DesignWare HDMI 2.1
+>> Quad-Pixel (QP) TX controller IP and a HDMI/eDP TX Combo PHY based on a
+>> Samsung IP block.
+>>
+>> Add just the basic support for now, i.e. RGB output up to 4K@60Hz,
+>> without audio, CEC or any of the HDMI 2.1 specific features.
+>>
+>> Co-developed-by: Algea Cao <algea.cao@rock-chips.com>
+>> Signed-off-by: Algea Cao <algea.cao@rock-chips.com>
+>> Tested-by: Heiko Stuebner <heiko@sntech.de>
+>> Reviewed-by: Maxime Ripard <mripard@kernel.org>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+> [ ... ]
 > 
-> Document general compatibility of the DSI controller on SM6150.
+>> +static void dw_hdmi_qp_rockchip_encoder_enable(struct drm_encoder *encoder)
+>> +{
+>> +	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
+>> +	struct drm_crtc *crtc = encoder->crtc;
+>> +	unsigned long long rate;
+>> +
+>> +	/* Unconditionally switch to TMDS as FRL is not yet supported */
+>> +	gpiod_set_value(hdmi->enable_gpio, 1);
+>> +
+>> +	if (crtc && crtc->state) {
+>> +		rate = drm_hdmi_compute_mode_clock(&crtc->state->adjusted_mode,
+>> +						   8, HDMI_COLORSPACE_RGB);
+>> +		clk_set_rate(hdmi->ref_clk, rate);
+>> +		/*
+>> +		 * FIXME: Temporary workaround to pass pixel clock rate
+>> +		 * to the PHY driver until phy_configure_opts_hdmi
+>> +		 * becomes available in the PHY API. See also the related
+>> +		 * comment in rk_hdptx_phy_power_on() from
+>> +		 * drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+>> +		 */
+>> +		phy_set_bus_width(hdmi->phy, rate / 100);
 > 
-> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
-> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
-> ---
->  Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> On 32-bit systems:
 > 
-> diff --git a/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml b/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml
-> index b0fd96b76ed1376e429a6168df7e7aaa7aeff2d3..a7fbb5af4b0583e88ebcad07dd004046c38f95ee 100644
-> --- a/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml
-> +++ b/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml
-> @@ -30,6 +30,7 @@ properties:
->                - qcom,sdm845-dsi-ctrl
->                - qcom,sm6115-dsi-ctrl
->                - qcom,sm6125-dsi-ctrl
-> +              - qcom,sm6150-dsi-ctrl
+> ERROR: modpost: "__udivdi3" [drivers/gpu/drm/rockchip/rockchipdrm.ko] undefined!
+> 
+> in the mainline kernel.
 
-This is incomplete change. Where is the rest for clocks? See entire
-file.
+Yeah, that's a known issue and has been already fixed:
 
-Best regards,
-Krzysztof
+https://lore.kernel.org/lkml/20241018151016.3496613-1-arnd@kernel.org/
 
+Thanks,
+Cristian
 
