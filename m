@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 843DBE6688A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 22:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1368AE6688E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 22:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ggcfDzy4T2wd6OE/Z3K6o9nCDGY9SIX9C7Zth5qGkkw=; b=OKWEUqlTnHAv/lvSRCcE6yH5J6
-	m/Q0pkgaO1fikeqMDDjvz9xMv0SBX2s7eP7eBkAPba7GH7D7FDfrM46zn9T9v7y8/Slx6/3N1ndya
-	+D+suMFbhndRtpKTV4bPEkBdxx5Lya6BQvjVtp9ZYwe50sCYgZRayq/gz/5UVabZxNXBCGcm2HagI
-	eceKJZ2zgAVWrf40Ci0pjO8O9uMjIPIqADzq2m06DWV6MHmtMNXv/bQojNi8789T/jHeUXzhGxtGU
-	VPegGsNuKWhv5AX4NSsLzoaNiCvczh1gn1Ld8UvUC7cylGiCWZZA5bnQr0JLG1L3Ryobtysu5ety0
-	ygTKjFbA==;
+	bh=efE+M3yoqQcQA0x9oHs4amatdhibQCSN4MCbN8A7Lwg=; b=NDlG4unui7iZWNeYzxTTIvWa2l
+	qDeOjWdwbVhSZ6kbO0PVv0ddoAXsv+vaDkEbi9O3l8ekX18OS+sTH0OXcnWpq7L+W0AWvIZUVRfDr
+	p5PEBAMFWZA6fWGX6yILsyzyXXIgh3sJuu4xLe0DT9LZN3a5PZ+sU0rMHaMR8hKBB6ADMQI8rZ2SI
+	448ZlaPipns1INxxM+6MnQ4uQsQB3ZBKDO0T00asL6uSFvIMrhRizb7Sz3rMpKrr5rRI9R1FiqCII
+	GJLUTX7gE1i33NZUlzcuPcE931I88evWVovfFEAO7yqeM4RuVeu4BNWx5enxRqxyMKskOQhf1WYN4
+	wpuub9qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEyKm-00000004xAZ-2GMk;
-	Sat, 23 Nov 2024 22:10:32 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1tEyeH-00000004yQX-0VLE;
+	Sat, 23 Nov 2024 22:30:41 +0000
+Received: from [52.59.177.22] (helo=smtpbgeu1.qq.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEyJo-00000004x3p-1fIX
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Nov 2024 22:09:34 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 23AC3A037C;
-	Sat, 23 Nov 2024 23:09:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=ggcfDzy4T2wd6OE/Z3K6
-	o9nCDGY9SIX9C7Zth5qGkkw=; b=mrheDw3f9/c1M7uWYdSdjXZfspL54nuwPSA9
-	kwVUd78i8gy+792IM4dEZ/atzbyV3kg2iMPD5d00RenG5xkdYl8h6xGJq+Wo8m7O
-	tT4T34BCbLSC76luZhkGS6feezabh2pVoBdZawsTApjGI7FuWbf6ldS1garKQD7N
-	IDEfkrsDNg9UnaM/jjMOoc4Aph7eU93iBLB1nptj+oRrDTDAQZv/j3nGLFrt3zuB
-	74jY6EVfjBmm5NSUCgJbgxF9nGjjLKGRnhVlLVjNBOo5tYYz/3BVVkkDnnuo+fJK
-	3Cl6dXDOi+LOea+NXBaEBi4bx6pse5vDC1LUfjFvOuIFSn1xh07ul/hBvKmoeAmC
-	bfBjuQXB+OZYVT5RrCdIqrlGqC6hFo2IflskErKu2y8Cf/zSutPki9Cz5W84x8Yd
-	thpGg1uzT0Rwi+rLA0PyIcDNLOXXLljPowOxLa4ugzyfdgfmtgSKhEYlWRRJlH/J
-	8lra0RngSM8VIu1KwSs2U3tROUV+NzLiffS97CHf9k7NC5gQKgBsITbfrHU0NfnY
-	geAgpFHg67fBDpvHhOeN8AfCruIBapj8MJRrs5xtitJDYmDyv14QkG3J08YHgtwH
-	XHPkS3BYsUo1snyytbl3NHTpI1J04nZZIrJmdJVg2RiH84QU16rmZsqw2yeBAFnO
-	D4Sk4Vw=
-Message-ID: <f5f4be27-4d8c-4832-998f-8477030a21cb@prolan.hu>
-Date: Sat, 23 Nov 2024 23:09:18 +0100
+	id 1tEydC-00000004yFJ-44cS;
+	Sat, 23 Nov 2024 22:29:43 +0000
+X-QQ-mid: bizesmtpip4t1732400922t0vaiy3
+X-QQ-Originating-IP: lDJQcHGmgBgcXATVztEHXy/UIVbd5/CbMKaLCYIJt3Y=
+Received: from [IPV6:240f:10b:7440:1:bec2:7020 ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sun, 24 Nov 2024 06:28:39 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 16923298256935240573
+Message-ID: <7F8BEC114E3AF523+2ad7c5ce-ca20-4ea0-9a37-15b07ad2cbcc@radxa.com>
+Date: Sun, 24 Nov 2024 07:28:38 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/5] dt-bindings: sound: Add Allwinner suniv F1C100s
- Audio Codec
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Chen-Yu Tsai <wens@csie.org>, Maxime Ripard <mripard@kernel.org>,
-	<linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, "Mark
- Brown" <broonie@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
-References: <20241123123900.2656837-1-csokas.bence@prolan.hu>
- <20241123123900.2656837-3-csokas.bence@prolan.hu>
- <juzxtwlr5ayvjrrqem2hr3nbyem6oajwrvveio5brlzazdafov@r2aehknf4shv>
+Subject: Re: [PATCH 2/2] phy: rockchip: naneng-combphy: fix phy reset
+To: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Yifeng Zhao <yifeng.zhao@rock-chips.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, Michael Zimmermann <sigmaepsilon92@gmail.com>
+References: <20241122073006.99309-1-amadeus@jmu.edu.cn>
+ <20241122073006.99309-2-amadeus@jmu.edu.cn>
 Content-Language: en-US
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <juzxtwlr5ayvjrrqem2hr3nbyem6oajwrvveio5brlzazdafov@r2aehknf4shv>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.254.253.1]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D94855607D61
+From: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <20241122073006.99309-2-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: M5aCtjAndv5O13Z/VZi4XiKKD5ROoi6OTgPdUTAi8dPJWNIr+tNiTH2l
+	+Qob2Si7IonXxSHU+5BPbgviiuN/mkXXPPYo7ki4sdnRYYVBsOMxufxhv6Z8olgr9s1xCvS
+	Oy840M71xjlTz9X4U58tfrXIVTtgObY4FHaZtV3aBdFI1s+pC7c+Oh4reB/fjN2R9RYWR5B
+	C5YfsYHY9MldaBzUxHQ5u4V7J2elnQmwQ6tVWU9DBUKDgcLCVsARynko1ad99F6+k00/6F7
+	acvk99Dn1KSXZNdfJ/MxD9M4/fwxcxu4pUA8M8q/y6FWsa03MInDbqlL8up3GdDs+6cXwyO
+	dYfzDFJ6MA7XtxD3Fpl5zLgG04jNGKWfN/bbGV+45RUn7jTLHrbs3Fn/44vEZM5R9P85l5p
+	yq3rLqeODJMzOPWW6k85xi7L9UcQpqj0ahrfOPAwmim0ghw91d7drRTQRT/fiQwdO2pslve
+	YHafR7oRhqsXwwyvTicaptHc2zPtzxjXuvUV2c+ZbiMQYs76IbQYpOqUXAYa/lZlKrzfYSb
+	Ru5gt8DCFgdlJ4lM66NUKvJBtJhGmWmHOztRmydej/y0sYL+QbEsksYVHWx+rFnXAiPjmlP
+	SiRgb+3eXfVlwT3myizobfMIpScIXdK3zAEbLy/I4SQB8MklLT4zYurKgn7Y5OywmVvg0H2
+	qC1Eg1r0hq/LLPb7jrGRSJ5HWg6wNDhck4yIn2GN8XNGHmAZmEjBzl6OvCwSDg3Sm0U6vcL
+	uHIPheMOH4abOzoOPqRfuUnbDN0MZGlQS+L+XVP51882+r6zENgeYwlSFavs0X7dAwP/GUD
+	uSboF4as5mwdCaFNmo4Vf+nVj/Ma/qXBzEO1ohWe3aPN3Ovvjn4RnRLrckuDTEx45NeV8kS
+	kAoNgejVSHxRkKiCKPt1TgIRugLfS1Zm
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241123_140932_900145_ED6E8602 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20241123_142935_498933_3F0ED102 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,43 +92,46 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On 2024. 11. 23. 17:22, Krzysztof Kozlowski wrote:
-> On Sat, Nov 23, 2024 at 01:39:00PM +0100, Csókás, Bence wrote:
->> Add compatible string for Allwinner suniv F1C100s audio codec.
->>
->> [ csokas.bence: Reimplement Mesih Kilinc's binding in YAML ]
->> Signed-off-by: Csókás, Bence <csokas.bence@prolan.hu>
->> ---
->>   .../sound/allwinner,sun4i-a10-codec.yaml      | 31 +++++++++++++++++++
->>   1 file changed, 31 insertions(+)
->>
+On 11/22/24 16:30, Chukun Pan wrote:
+> Currently, the USB port via combophy on the RK3528/RK3588 SoC is broken.
 > 
-> Missing changelog - what happened here? If no changes, why ignoring
-> received tag?
+>    usb usb8-port1: Cannot enable. Maybe the USB cable is bad?
+> 
+> This is due to the combphy of RK3528/RK3588 SoC has multiple resets, but
+> only "phy resets" need assert and deassert, "apb resets" don't need.
+> So change the driver to only match the phy resets, which is also what
+> the vendor kernel does.
+> 
+> Fixes: 7160820d742a ("phy: rockchip: add naneng combo phy for RK3568")
+> Cc: FUKAUMI Naoki <naoki@radxa.com>
+> Cc: Michael Zimmermann <sigmaepsilon92@gmail.com>
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 
-Sorry, I just forgot to collect it, that's all.
+Tested-by: FUKAUMI Naoki <naoki@radxa.com>
 
-> <form letter>
-> This is a friendly reminder during the review process.
-> 
-> It looks like you received a tag and forgot to add it.
-> 
-> If you do not know the process, here is a short explanation: Please add
-> Acked-by/Reviewed-by/Tested-by tags when posting new versions, under
-> or above your Signed-off-by tag. Tag is "received", when provided
-> in a message replied to you on the mailing list. Tools like b4 can help
-> here. However, there's no need to repost patches *only* to add the tags.
-> The upstream maintainer will do that for tags received on the version
-> they apply.
-> 
-> https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
-> 
-> If a tag was not added on purpose, please state why and what changed.
-> </form letter>
-> 
-> Best regards,
-> Krzysztof
+Best regards,
 
-Bence
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
+
+> ---
+>   drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> index 0a9989e41237..2eb3329ca23f 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> @@ -309,7 +309,7 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
+>   
+>   	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
+>   
+> -	priv->phy_rst = devm_reset_control_array_get_exclusive(dev);
+> +	priv->phy_rst = devm_reset_control_get(dev, "phy");
+>   	if (IS_ERR(priv->phy_rst))
+>   		return dev_err_probe(dev, PTR_ERR(priv->phy_rst), "failed to get phy reset\n");
+>   
 
 
