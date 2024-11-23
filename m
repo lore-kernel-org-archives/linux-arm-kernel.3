@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD8DCE6ADE9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 14:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39534E6ADE9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 15:04:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4yxuxCJ4ORNbtsm4zJioUuknHgM7iBN9/8p1tWclHpQ=; b=hur/ekqDdBSmKZoLQEwX4m2TeE
-	KNjy+gb/9LXODd5ccdgKEFvxx91BO2VdCZj2KYGKbOVe5wIGERr2P5R2uC49yGog+0adO5Ea6xxfw
-	GtjPjJWnbKLRklbkaT2UcBkbhP8eBZ5muGOZGAjj1hzJ+NnoJV674tZ/Mf640j9IG8dd37F7nd63N
-	D20YHnv4Tzl7AemcS1DRYoIKDcMB6zOOBH4GxG8wQViXakhSO6PiMlhlgt+CaSydPXJitlhsoPT7D
-	dzlBtkY1H1ycTupTMSvywrxZEdng2FdNLny2BKoIlDt7B45rgJVoZ39LO3zS0CJNf1gTES18GOUSD
-	AU/iRevw==;
+	bh=eUE1pHJYwRUi/53EXVIpRsmhO21jBiLOCp1isJcz4iw=; b=Hutka1geSfY1XPeOj35rZyyIXW
+	QRq3Ya+QFqbvlTwI/RoSFuICd63gxjlxIeWwVKI4Z8p2LHxIzhCKaskBGOIn4vVmhEIV3UvN8PrlS
+	hC+4R0KuOxxs3aocL69IDAaUKqItmKUGBK6lK74xEU+Ij9uBdmSLCcuDXGy4rUF7EfjTCbri1UKhx
+	U/5RTrd95z5+RMKpW4XBkPpYR6lpMKAW3jJt/NepGJqnSb3vxSXIToG4uaBMnEIQoPEckShWv1oLG
+	09ECNiWKQKjUmf5OapTPJSvM2qu7NZGOijnaY8g7dwbv9T8FR5Chl8gO+46kml1OqBHmwpXPBq4SS
+	2qDRyFhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tErK6-00000004Seh-0RXh;
-	Sat, 23 Nov 2024 14:41:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tErfw-00000004TpX-47M1;
+	Sat, 23 Nov 2024 15:03:57 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tErJ9-00000004SZw-0MgD
+	id 1tErez-00000004Tl1-1iFy
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Nov 2024 14:40:24 +0000
+	Sat, 23 Nov 2024 15:02:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1F0B25C26F2;
-	Sat, 23 Nov 2024 14:39:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35FB6C4CECD;
-	Sat, 23 Nov 2024 14:40:14 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 180145C4BA3;
+	Sat, 23 Nov 2024 15:02:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3D12C4CECD;
+	Sat, 23 Nov 2024 15:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732372821;
-	bh=pzNGUf+6z/1XgHhq8qeQF67X0+VudCkDC0u/GMsWE/M=;
+	s=k20201202; t=1732374176;
+	bh=P157WcS5ohYQAn6edzPl90GuO3alev9bLB/aKLVAonA=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=NatNFwUuhkd8QXIVCUMLkkgfZGT0pXlHMRq7Z1IgGtHoNA3YbFJuwWNJ27WDlIdlL
-	 jrmXxEnatm1TjpnPl47ryyMpQcJwpYFqL9oDz/i2HNkYLKNgLohHdFIjNp4PL36hme
-	 BVj8Kpl4FXh9hCqgO75Df3RIf6lmbYPgTsvrjD43B5UFOaTKKr29/x/qhi+jH9MATQ
-	 gpox1EzJx7Nt+LkQki80jOrxZ70ZDkg4wuHwakOPFbqjNgm/sD27xkvxj8J2i4ftdR
-	 pD5wYd7Qf+ek6k3bdYglrb8P1iMSuhkecL8H12m767ULYpVh+dcHovQjPpJlYwOWmY
-	 Xie2/AQD89Kjg==
-Date: Sat, 23 Nov 2024 14:40:10 +0000
+	b=a2i9jlGpP4BY6M3sO6UvZGtTn48iTlYRswftLo6T216t08sIJe8jGSigKCHnMe0LP
+	 /DCUGBZ4MPSDbU/CS9GdyV1H+/prcZ+6O/6jrvC1YGrL0bHHcSF/vONpdWnZPC4Z70
+	 lQItjByFZ+PXk96ckzl6Nd2+ghTQQFeCZHJOKM/l0JKqmvnbnS2AHAk5gtOw77FGOk
+	 qYGE+/yHOTQjHX523ydlcgUTBD3L2156BZP9Glret02gBGijXBajFBY9ms9c5YIQeE
+	 ZcFlgRH4L8968l7+vzPNW5vlWIgf426zAhTWzlV+hiimoLcMnmEcZFEA8JX9peP0Mk
+	 +hDck6GqSJF7Q==
+Date: Sat, 23 Nov 2024 15:02:47 +0000
 From: Jonathan Cameron <jic23@kernel.org>
-To: Aren <aren@peacevolution.org>
-Cc: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>,
- Andy Shevchenko <andy.shevchenko@gmail.com>, Lars-Peter Clausen
- <lars@metafoo.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
- <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Kaustabh Chakraborty <kauschluss@disroot.org>,
- =?UTF-8?B?QmFybmFiw6FzIEN6w6ltw6Fu?= <trabarni@gmail.com>, Ondrej Jirman
- <megi@xff.cz>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>,
- phone-devel@vger.kernel.org
-Subject: Re: [PATCH v4 4/6] iio: light: stk3310: use dev_err_probe where
- possible
-Message-ID: <20241123144010.38871d3c@jic23-huawei>
-In-Reply-To: <6jwurbs27slfpsredvpxfgwjkurkqvfmzccaxnfgtuh4aks3c6@ciapprv3wsex>
-References: <20241102195037.3013934-3-aren@peacevolution.org>
-	<20241102195037.3013934-11-aren@peacevolution.org>
-	<ZyiIcDaANjxwtCz-@smile.fi.intel.com>
-	<m7x526sv5krgt4t2whn5ykyktoz5u7ihsxv3qa5yue3ucbk6lb@37spwsmlcylm>
-	<ZzEPACoblmcQD9yu@surfacebook.localdomain>
-	<xubjmxig4luag27ifnmqmv3x3bvzhwczwvw34kw6tssaa2d24t@ysnqh5e3g7sz>
-	<ZzHSE9Nrf4YySJrq@smile.fi.intel.com>
-	<4ibd5tgpt3uzbmouqdiiv5pvfxebo5qsmgn3xh6rlb73qevatv@cajznxqnlca3>
-	<6jwurbs27slfpsredvpxfgwjkurkqvfmzccaxnfgtuh4aks3c6@ciapprv3wsex>
+To: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Cc: lars@metafoo.de, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, u.kleine-koenig@baylibre.com,
+ tgamblin@baylibre.com, fabrice.gasnier@st.com,
+ benjamin.gaignard@linaro.org, lee@kernel.org, linux-iio@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] iio: trigger: stm32-timer-trigger: Add check for
+ clk_enable()
+Message-ID: <20241123150247.718ee116@jic23-huawei>
+In-Reply-To: <CANeGvZVxte61_FgrrYEt_oTRXXzCESrvq4q90xSWz4JqpMAtYg@mail.gmail.com>
+References: <20241108200900.44727-1-jiashengjiangcool@gmail.com>
+	<20241109133846.53d7ef06@jic23-huawei>
+	<CANeGvZVxte61_FgrrYEt_oTRXXzCESrvq4q90xSWz4JqpMAtYg@mail.gmail.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241123_064023_217919_7DB84837 
-X-CRM114-Status: GOOD (  39.96  )
+X-CRM114-CacheID: sfid-20241123_070257_551864_E960F7DD 
+X-CRM114-Status: GOOD (  36.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,94 +79,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Nov 2024 18:11:37 -0500
-Aren <aren@peacevolution.org> wrote:
+On Mon, 11 Nov 2024 14:15:43 -0500
+Jiasheng Jiang <jiashengjiangcool@gmail.com> wrote:
 
-> On Tue, Nov 12, 2024 at 11:15:54AM +0100, Uwe Kleine-K=C3=B6nig wrote:
-> > Hello Andy, hello Aren,
-> >=20
-> > On Mon, Nov 11, 2024 at 11:44:51AM +0200, Andy Shevchenko wrote: =20
-> > > On Sun, Nov 10, 2024 at 04:34:30PM -0500, Aren wrote: =20
-> > > > On Sun, Nov 10, 2024 at 09:52:32PM +0200, Andy Shevchenko wrote: =20
-> > > > > Sun, Nov 10, 2024 at 02:14:24PM -0500, Aren kirjoitti: =20
-> > >=20
-> > > You can do it differently
-> > >=20
-> > > #define STK3310_REGFIELD(name)							\
-> > > do {										\
-> > > 	data->reg_##name =3D							\
-> > > 		devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_##name);	\
-> > > 	if (IS_ERR(data->reg_##name))						\
-> > > 		return dev_err_probe(dev, PTR_ERR(data->reg_##name),		\
-> > > 				     "reg field alloc failed.\n");		\
-> > > } while (0)
-> > >  =20
-> > > > #define STK3310_REGFIELD(name) ({						\
-> > > > 	data->reg_##name =3D devm_regmap_field_alloc(dev, regmap,			\
-> > > > 						   stk3310_reg_field_##name);   \
-> > > > 	if (IS_ERR(data->reg_##name))						\
-> > > > 		return dev_err_probe(dev, PTR_ERR(data->reg_##name),		\
-> > > > 				     "reg field alloc failed\n");		\
-> > > > }) =20
-> > >=20
-> > > I am against unneeded use of GNU extensions.
-> > >  =20
-> > > > > > replacing "do { } while (0)" with "({ })" and deindenting could=
- make
-> > > > > > enough room to clean this up the formatting of this macro thoug=
-h. =20
-> > > > >=20
-> > > > > do {} while (0) is C standard, ({}) is not. =20
-> > > >=20
-> > > > ({ }) is used throughout the kernel, and is documented as such[1]. I
-> > > > don't see a reason to avoid it, if it helps readability. =20
-> > >=20
-> > > I don't see how it makes things better here, and not everybody is fam=
-iliar with
-> > > the concept even if it's used in the kernel here and there. Also if a=
- tool is
-> > > being used in one case it doesn't mean it's suitable for another. =20
-> >=20
-> > Just to throw in my subjective view here: I don't expect anyone with
-> > some base level knowledge of C will have doubts about the semantics of
-> > ({ ... }) and compared to that I find do { ... } while (0) less optimal,
-> > because it's more verbose and when spotting the "do {" part, the
-> > semantic only gets clear when you also see the "while (0)". Having said
-> > that I also dislike the "do" starting on column 0, IMHO the RHS of the
-> > #define should be intended. =20
+> On Sat, Nov 9, 2024 at 8:38=E2=80=AFAM Jonathan Cameron <jic23@kernel.org=
+> wrote:
+> >
+> > On Fri,  8 Nov 2024 20:09:00 +0000
+> > Jiasheng Jiang <jiashengjiangcool@gmail.com> wrote:
+> > =20
+> > > Add check for the return value of clk_enable() in order to catch the
+> > > potential exception.
+> > >
+> > > Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com> =20
+> > Hi,
+> >
+> > In principle this is fine, but I'd rather we made use of guard()
+> > / scoped_guard() rather than adding the explicit unlocks.
+> >
+> > If you do that as a precursor patch in appropriate places
+> > in the driver then this will be a little cleaner.
+> >
+> > Note I'll not be taking this until next cycle now anyway.
+> >
+> > Jonathan
+> > =20
+> > > ---
+> > > Changelog:
+> > >
+> > > v1 -> v2:
+> > >
+> > > 1. Remove unsuitable dev_err_probe().
+> > > ---
+> > >  drivers/iio/trigger/stm32-timer-trigger.c | 32 ++++++++++++++++++---=
+--
+> > >  1 file changed, 25 insertions(+), 7 deletions(-)
+> > >
+> > > diff --git a/drivers/iio/trigger/stm32-timer-trigger.c b/drivers/iio/=
+trigger/stm32-timer-trigger.c
+> > > index 0684329956d9..e1e077122f73 100644
+> > > --- a/drivers/iio/trigger/stm32-timer-trigger.c
+> > > +++ b/drivers/iio/trigger/stm32-timer-trigger.c
+> > > @@ -119,7 +119,7 @@ static int stm32_timer_start(struct stm32_timer_t=
+rigger *priv,
+> > >                            unsigned int frequency)
+> > >  {
+> > >       unsigned long long prd, div;
+> > > -     int prescaler =3D 0;
+> > > +     int prescaler =3D 0, ret;
+> > >       u32 ccer;
+> > >
+> > >       /* Period and prescaler values depends of clock rate */
+> > > @@ -153,7 +153,11 @@ static int stm32_timer_start(struct stm32_timer_=
+trigger *priv,
+> > >       mutex_lock(&priv->lock);
+> > >       if (!priv->enabled) {
+> > >               priv->enabled =3D true;
+> > > -             clk_enable(priv->clk);
+> > > +             ret =3D clk_enable(priv->clk);
+> > > +             if (ret) {
+> > > +                     mutex_unlock(&priv->lock); =20
+> >
+> > as below guard() for when the mutex is locked is cleaner.
+> > =20
+> > > +                     return ret;
+> > > +             }
+> > >       }
+> > >
+> > >       regmap_write(priv->regmap, TIM_PSC, prescaler);
+> > > @@ -307,7 +311,7 @@ static ssize_t stm32_tt_store_master_mode(struct =
+device *dev,
+> > >       struct stm32_timer_trigger *priv =3D dev_get_drvdata(dev);
+> > >       struct iio_trigger *trig =3D to_iio_trigger(dev);
+> > >       u32 mask, shift, master_mode_max;
+> > > -     int i;
+> > > +     int i, ret;
+> > >
+> > >       if (stm32_timer_is_trgo2_name(trig->name)) {
+> > >               mask =3D TIM_CR2_MMS2;
+> > > @@ -326,7 +330,11 @@ static ssize_t stm32_tt_store_master_mode(struct=
+ device *dev,
+> > >                       if (!priv->enabled) {
+> > >                               /* Clock should be enabled first */
+> > >                               priv->enabled =3D true;
+> > > -                             clk_enable(priv->clk);
+> > > +                             ret =3D clk_enable(priv->clk);
+> > > +                             if (ret) {
+> > > +                                     mutex_unlock(&priv->lock); =20
+> > As below. Prefer use of guard() so we don't have to handle the unlock m=
+anually. =20
+> > > +                                     return ret;
+> > > +                             }
+> > >                       }
+> > >                       regmap_update_bits(priv->regmap, TIM_CR2, mask,
+> > >                                          i << shift);
+> > > @@ -482,6 +490,7 @@ static int stm32_counter_write_raw(struct iio_dev=
+ *indio_dev,
+> > >                                  int val, int val2, long mask)
+> > >  {
+> > >       struct stm32_timer_trigger *priv =3D iio_priv(indio_dev);
+> > > +     int ret;
+> > >
+> > >       switch (mask) {
+> > >       case IIO_CHAN_INFO_RAW:
+> > > @@ -496,7 +505,11 @@ static int stm32_counter_write_raw(struct iio_de=
+v *indio_dev,
+> > >               if (val) {
+> > >                       if (!priv->enabled) {
+> > >                               priv->enabled =3D true;
+> > > -                             clk_enable(priv->clk);
+> > > +                             ret =3D clk_enable(priv->clk);
+> > > +                             if (ret) {
+> > > +                                     mutex_unlock(&priv->lock); =20
+> > Add include of cleanup.h and swithch the place where the mutex is locke=
+d to
+> > guard(mutex)(&priv->lock);
+> > then remember to drop the explicit unlocks. =20
 >=20
-> Thank you, this sums up my opinion on this better than I could have (and
-> some bits I hadn't considered).
+> I found that cleanup.h is already included.
 >=20
-> > So if you ask me, this is not an unneeded use of an extension. The
-> > extension is used to improve readabilty and I blame the C standard to
-> > not support this syntax.
-> >=20
-> > While I'm in critics mode: I consider hiding a return in a macro bad
-> > style. =20
->=20
-> Yeah... probably worse than any of the formatting options here. I guess
-> the proper way would be to use devm_regmap_field_bulk_alloc, but that's
-> well outside the scope of this series. Perhaps it would make sense to
-> move the macro definition to just before the function it's used in so
-> it's at least a little easier to spot?
+> Moreover, since labels cannot be followed by declarations,
+> I encountered a compilation error when using guard().
+> Therefore, I switched to using scoped_guard().
+Sometimes it is better to just add scope for blocks in switch statement
+with=20
+case XXX: {
+	guard()
+}
+because then we don't get the extra indent a scoped_guard() requires.
 
-It's only used 8 times.  I'd just get rid of the macro - which now
-has even less advantage as the change here reduces the length of the
-macro.
-
-Normally I'd argue it should be a precursor patch, but here I think it is
-fine to just do it in this patch to avoid a lot of churn.
-
-No macro, no disagreement on formatting ;)
-
-I'm not really sure why I let this macro in to begin with. I normally
-push back on this sort of thing. Must have been a low caffeine day :(
+I'll take a look at the result in this case though!
 
 Jonathan
 
-
+> > =20
+> > > +                                     return ret;
+> > > +                             }
+> > >                       }
+> > >                       regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1_=
+CEN);
+> > >               } else {
+> > > @@ -601,7 +614,7 @@ static int stm32_set_enable_mode(struct iio_dev *=
+indio_dev,
+> > >                                unsigned int mode)
+> > >  {
+> > >       struct stm32_timer_trigger *priv =3D iio_priv(indio_dev);
+> > > -     int sms =3D stm32_enable_mode2sms(mode);
+> > > +     int sms =3D stm32_enable_mode2sms(mode), ret;
+> > >
+> > >       if (sms < 0)
+> > >               return sms;
+> > > @@ -611,7 +624,12 @@ static int stm32_set_enable_mode(struct iio_dev =
+*indio_dev,
+> > >        */
+> > >       mutex_lock(&priv->lock); =20
+> >
+> > Perhaps scoped_guard() is  appropriate here.
+> > =20
+> > >       if (sms =3D=3D 6 && !priv->enabled) {
+> > > -             clk_enable(priv->clk);
+> > > +             ret =3D clk_enable(priv->clk);
+> > > +             if (ret) {
+> > > +                     mutex_unlock(&priv->lock);
+> > > +                     return ret;
+> > > +             }
+> > > +
+> > >               priv->enabled =3D true;
+> > >       }
+> > >       mutex_unlock(&priv->lock); =20
+> > =20
 >=20
->  - Aren
+> Thanks, I will submit a v2 to simplify code with cleanup helpers.
+>=20
+> -Jiasheng
 
 
