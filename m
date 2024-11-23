@@ -4,78 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1368AE6688E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 22:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BCACE6688E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 22:35:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=efE+M3yoqQcQA0x9oHs4amatdhibQCSN4MCbN8A7Lwg=; b=NDlG4unui7iZWNeYzxTTIvWa2l
-	qDeOjWdwbVhSZ6kbO0PVv0ddoAXsv+vaDkEbi9O3l8ekX18OS+sTH0OXcnWpq7L+W0AWvIZUVRfDr
-	p5PEBAMFWZA6fWGX6yILsyzyXXIgh3sJuu4xLe0DT9LZN3a5PZ+sU0rMHaMR8hKBB6ADMQI8rZ2SI
-	448ZlaPipns1INxxM+6MnQ4uQsQB3ZBKDO0T00asL6uSFvIMrhRizb7Sz3rMpKrr5rRI9R1FiqCII
-	GJLUTX7gE1i33NZUlzcuPcE931I88evWVovfFEAO7yqeM4RuVeu4BNWx5enxRqxyMKskOQhf1WYN4
-	wpuub9qw==;
+	bh=UVI84fOke9gLRZ0suzoYkdmP/Z7GYELBjts2k6DzJl0=; b=lJkJOA9G71IxpusivuKbJWdd0X
+	zi9MJOxhiDiLj1IyFeomrP21gycdJkbLrv953+M0F5o/GrM0qsjuo2mojR/d6RxPHZYF0PyZO3X/5
+	lcj5UVqFEiaviRwvMVfuKeXSpayC/Q7eBrAJJuwOt8tiA/SWhwywfrumoY+HW1E5osOa8TzndAtxd
+	ZCGPswuyRfjhkLGGLWczQ3P+xoKhfB1zlWJP6hL5ljZeY6TdrBLtm0KZsvMWJXMeOm+AH564SCwhj
+	xVPoNxUEREubGqHjLMRrsVeZXw9YObt4u24f3acMyzQ3yrEUpQljYOWQ2FMbXw2fcU/r3uas2zugZ
+	zirwuw7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEyeH-00000004yQX-0VLE;
-	Sat, 23 Nov 2024 22:30:41 +0000
-Received: from [52.59.177.22] (helo=smtpbgeu1.qq.com)
+	id 1tEyiy-00000004yuA-3o9Z;
+	Sat, 23 Nov 2024 22:35:32 +0000
+Received: from phobos.denx.de ([85.214.62.61])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEydC-00000004yFJ-44cS;
-	Sat, 23 Nov 2024 22:29:43 +0000
-X-QQ-mid: bizesmtpip4t1732400922t0vaiy3
-X-QQ-Originating-IP: lDJQcHGmgBgcXATVztEHXy/UIVbd5/CbMKaLCYIJt3Y=
-Received: from [IPV6:240f:10b:7440:1:bec2:7020 ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sun, 24 Nov 2024 06:28:39 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16923298256935240573
-Message-ID: <7F8BEC114E3AF523+2ad7c5ce-ca20-4ea0-9a37-15b07ad2cbcc@radxa.com>
-Date: Sun, 24 Nov 2024 07:28:38 +0900
+	id 1tEyi2-00000004ykc-1ndY
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 23 Nov 2024 22:34:35 +0000
+Received: from [127.0.0.1] (p578adb1c.dip0.t-ipconnect.de [87.138.219.28])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
+	(No client certificate requested)
+	(Authenticated sender: marex@denx.de)
+	by phobos.denx.de (Postfix) with ESMTPSA id 944DD89401;
+	Sat, 23 Nov 2024 23:34:25 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
+	s=phobos-20191101; t=1732401268;
+	bh=UVI84fOke9gLRZ0suzoYkdmP/Z7GYELBjts2k6DzJl0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cYxJwfmTaViuJOl0E6LpQm/Yli1C/FbRzss9eticyEKW0qVpN1ZSjg/mt+Jhflech
+	 xZPDZK/2aDIWkoZCayi0JfCMpOWINUNWavA6h3p2lCt5sGaekQVrM1Rh3lMJzDDT9I
+	 0P5uEXc/IOYzu8lRmA7IUMCIbDIOfeYVkTgl43z8X46shVEBMmRvaPIOo39o0Smn2y
+	 MzUfd3fB98Nx4L29dvoE4Wub78AS+8by0lY2Ld8CUxGFA2OhGcx/7eFtjUcbUiFYI6
+	 UDMn/y70IKCsE1VZzCaAq9TgOEH8XdQr2XrBNHm4cLfehwhtgt2Hdz4lEZNyzoctiu
+	 1lij3zQXXUpgw==
+Message-ID: <bd884164-3a38-446d-8a54-3d716a3e0360@denx.de>
+Date: Sat, 23 Nov 2024 21:11:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] phy: rockchip: naneng-combphy: fix phy reset
-To: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>
-Cc: Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Yifeng Zhao <yifeng.zhao@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, Michael Zimmermann <sigmaepsilon92@gmail.com>
-References: <20241122073006.99309-1-amadeus@jmu.edu.cn>
- <20241122073006.99309-2-amadeus@jmu.edu.cn>
+Subject: Re: [PATCH v7 2/7] Revert "clk: imx: clk-imx8mp: Allow media_disp
+ pixel clock reconfigure parent rate"
+To: Ying Liu <victor.liu@nxp.com>, "imx@lists.linux.dev"
+ <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>
+Cc: "shawnguo@kernel.org" <shawnguo@kernel.org>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>, "robh@kernel.org"
+ <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>,
+ "abelvesa@kernel.org" <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ "mturquette@baylibre.com" <mturquette@baylibre.com>,
+ "sboyd@kernel.org" <sboyd@kernel.org>,
+ "andrzej.hajda@intel.com" <andrzej.hajda@intel.com>,
+ "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+ "rfoss@kernel.org" <rfoss@kernel.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ "jonas@kwiboo.se" <jonas@kwiboo.se>,
+ "jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "mripard@kernel.org" <mripard@kernel.org>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "airlied@gmail.com" <airlied@gmail.com>, "simona@ffwll.ch"
+ <simona@ffwll.ch>, "quic_bjorande@quicinc.com" <quic_bjorande@quicinc.com>,
+ "geert+renesas@glider.be" <geert+renesas@glider.be>,
+ "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
+ "arnd@arndb.de" <arnd@arndb.de>,
+ "nfraprado@collabora.com" <nfraprado@collabora.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>
+References: <20241114065759.3341908-1-victor.liu@nxp.com>
+ <20241114065759.3341908-3-victor.liu@nxp.com>
+ <df6ebdde-65f8-4aad-93c7-b1df695bd2ef@denx.de>
+ <AM7PR04MB7046546A882A8D48E135D84698272@AM7PR04MB7046.eurprd04.prod.outlook.com>
+ <8a4fd234-4c7b-4a04-990d-3222aaa5172d@denx.de>
+ <AM7PR04MB7046E282FD702ACE5E288F8998202@AM7PR04MB7046.eurprd04.prod.outlook.com>
+ <83be0a27-6b6c-4ba6-b9dc-f914a10abace@denx.de>
+ <AM7PR04MB7046587167BF790549B8560F98212@AM7PR04MB7046.eurprd04.prod.outlook.com>
+ <c5ab63da-21ec-4c0d-8ecc-3745943d806f@denx.de>
+ <AM7PR04MB7046D404841394382324DE7198232@AM7PR04MB7046.eurprd04.prod.outlook.com>
 Content-Language: en-US
-From: FUKAUMI Naoki <naoki@radxa.com>
-In-Reply-To: <20241122073006.99309-2-amadeus@jmu.edu.cn>
+From: Marek Vasut <marex@denx.de>
+In-Reply-To: <AM7PR04MB7046D404841394382324DE7198232@AM7PR04MB7046.eurprd04.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: M5aCtjAndv5O13Z/VZi4XiKKD5ROoi6OTgPdUTAi8dPJWNIr+tNiTH2l
-	+Qob2Si7IonXxSHU+5BPbgviiuN/mkXXPPYo7ki4sdnRYYVBsOMxufxhv6Z8olgr9s1xCvS
-	Oy840M71xjlTz9X4U58tfrXIVTtgObY4FHaZtV3aBdFI1s+pC7c+Oh4reB/fjN2R9RYWR5B
-	C5YfsYHY9MldaBzUxHQ5u4V7J2elnQmwQ6tVWU9DBUKDgcLCVsARynko1ad99F6+k00/6F7
-	acvk99Dn1KSXZNdfJ/MxD9M4/fwxcxu4pUA8M8q/y6FWsa03MInDbqlL8up3GdDs+6cXwyO
-	dYfzDFJ6MA7XtxD3Fpl5zLgG04jNGKWfN/bbGV+45RUn7jTLHrbs3Fn/44vEZM5R9P85l5p
-	yq3rLqeODJMzOPWW6k85xi7L9UcQpqj0ahrfOPAwmim0ghw91d7drRTQRT/fiQwdO2pslve
-	YHafR7oRhqsXwwyvTicaptHc2zPtzxjXuvUV2c+ZbiMQYs76IbQYpOqUXAYa/lZlKrzfYSb
-	Ru5gt8DCFgdlJ4lM66NUKvJBtJhGmWmHOztRmydej/y0sYL+QbEsksYVHWx+rFnXAiPjmlP
-	SiRgb+3eXfVlwT3myizobfMIpScIXdK3zAEbLy/I4SQB8MklLT4zYurKgn7Y5OywmVvg0H2
-	qC1Eg1r0hq/LLPb7jrGRSJ5HWg6wNDhck4yIn2GN8XNGHmAZmEjBzl6OvCwSDg3Sm0U6vcL
-	uHIPheMOH4abOzoOPqRfuUnbDN0MZGlQS+L+XVP51882+r6zENgeYwlSFavs0X7dAwP/GUD
-	uSboF4as5mwdCaFNmo4Vf+nVj/Ma/qXBzEO1ohWe3aPN3Ovvjn4RnRLrckuDTEx45NeV8kS
-	kAoNgejVSHxRkKiCKPt1TgIRugLfS1Zm
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
-X-QQ-RECHKSPAM: 0
+X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241123_142935_498933_3F0ED102 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20241123_143434_752473_B0748F1D 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,48 +119,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 11/22/24 16:30, Chukun Pan wrote:
-> Currently, the USB port via combophy on the RK3528/RK3588 SoC is broken.
+On 11/22/24 4:39 AM, Ying Liu wrote:
+> On 11/22/24, Marek Vasut wrote:
+>> On 11/20/24 7:38 AM, Ying Liu wrote:
+>>
+>> [...]
+>>
+>>>>> If the DP monitors support typical video modes like 1080p60 with
+>>>>> 148.5MHz pixel clock rate, I assume these typical video modes work
+>>>>> still ok with this patch at least.  Please help confirm this, since if the
+>>>>> alternative solution(*) doesn't stand, we would know those video
+>>>>> modes still work ok with my solution(fixed PLL rate).
+>>>>
+>>>> They do not work with the fixed PLL setting.
+>>>
+>>> Why?  Did you assign a sensible fixed PLL rate in DT?
+>>
+>> Whatever was in imx8mp.dtsi does not really work for all the panels.
+>> Please keep in mind that the use case I have does not include only
+>> 1920x1080 "standard" panels, but also other resolutions.
 > 
->    usb usb8-port1: Cannot enable. Maybe the USB cable is bad?
+> It looks like you are still sticking to the idea of supporting all potentially
+> valid video modes by trying to find an "alternative" solution, while
+> neglecting that the solution *could be* never working.
+
+Reconfiguring the PLL to achieve accurate pixel clock is working 
+already, right now.
+
+>>> Can you please compare clk_summary output for the failing cases
+>>> before and after this patch is applied? I assume that if you use
+>>> the fixed PLL rate same to the rate which works before this patch is
+>>> applied, the typical video modes still just work after this patch is
+>>> applied.
+>>
+>> I'm afraid I do not need to support only typical video modes, but also
+>> the other "atypical" modes.
 > 
-> This is due to the combphy of RK3528/RK3588 SoC has multiple resets, but
-> only "phy resets" need assert and deassert, "apb resets" don't need.
-> So change the driver to only match the phy resets, which is also what
-> the vendor kernel does.
-> 
-> Fixes: 7160820d742a ("phy: rockchip: add naneng combo phy for RK3568")
-> Cc: FUKAUMI Naoki <naoki@radxa.com>
-> Cc: Michael Zimmermann <sigmaepsilon92@gmail.com>
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> If the "alternative" solution doesn't work, we'll end up using the "fixed
+> PLL rate" solution.  It that case, some video modes would be filtered
+> out as a sacrifice.
 
-Tested-by: FUKAUMI Naoki <naoki@radxa.com>
+Maybe it would be better to continue the discussion in
 
-Best regards,
+[PATCH 0/5] clk: Fix simple video pipelines on i.MX8
 
---
-FUKAUMI Naoki
-Radxa Computer (Shenzhen) Co., Ltd.
-
-> ---
->   drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> index 0a9989e41237..2eb3329ca23f 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> @@ -309,7 +309,7 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
->   
->   	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
->   
-> -	priv->phy_rst = devm_reset_control_array_get_exclusive(dev);
-> +	priv->phy_rst = devm_reset_control_get(dev, "phy");
->   	if (IS_ERR(priv->phy_rst))
->   		return dev_err_probe(dev, PTR_ERR(priv->phy_rst), "failed to get phy reset\n");
->   
-
+which seems close to the alternative solution I was looking for ?
 
