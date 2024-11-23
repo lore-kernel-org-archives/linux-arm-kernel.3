@@ -4,84 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 586C5E6ADEA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 09:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F06EE6ADEE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 10:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a6ZQ/NVRJvHz1K/Dpc7T2jRUtUx9YKX+PmZ8Ot2ToDo=; b=NjKSKW1U+Mb8ANPlfwLHKIasbA
-	P6Wnobj50f4cVNGx2Jveh7g0Cxf4tU0ohTmpStKJv0GeoOfL/h/fN3QlFgTKMe7Dz9QXto+dKvrWN
-	lTZDmiWO3CwvzMEWew/BpkghINQKN6bhv1qOsQB5uyg3AcmcS5BhRD4Az2MxK9KE1jm8Fm2R6yFX6
-	drL414HuxZ1nwwD4EKIAjFUfDreKIA9zmDutdwYBGw7dcsoV3qxMjOMEeI8Oi5klgOzh5iFET0GFO
-	IkEDJVBala6Lb2xGRatVdcZKCpbisdT/4kAJEEpJDC2OyzUOPWl1wZmWjZmdUkQyaeVDTCg2HxoX6
-	LMATyobQ==;
+	bh=9rCGE2Z7XuOgfdpz5s/gBeIIjxpK7dYso6rDiy74RCE=; b=hCgdTg67yH1L0Y6p39XbisjQIg
+	1jiFOVOGWGFz6mCX3T/teMpV9z946F7vrSwHjYw3ZotT/QmZK3GrpF7U5LlFbNn2caw9pgfqbBV19
+	HYlMEF4j+p/E9D/WEL32LO4gvmhZE7U9xmYtPz5koRiVjJIZu15OXctvWVTyA4j66MTWVKXi0Gzjx
+	dB4rFqvwr0PZyT5j4fdz9dYYV4cxVl6YxGUda1LGtkDsGmH+ODpOFtknhFZAim22scgDa4pO2wfcQ
+	JtHGYJOAf4kzk0SZTXYmO0YW6KLchn+1fxRzpQ/mwZ0ig8uqJeVxeDhnZ9lpDiCxlB+DFXpZOUxeb
+	fjdl6c6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEmmJ-0000000431H-0om0;
-	Sat, 23 Nov 2024 09:50:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tEnDx-000000044k2-1dBS;
+	Sat, 23 Nov 2024 10:18:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEmlM-000000042xk-3RPJ
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Nov 2024 09:49:13 +0000
+	id 1tEnD1-000000044dR-0emk;
+	Sat, 23 Nov 2024 10:17:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4EEB45C53F5;
-	Sat, 23 Nov 2024 09:48:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF0C0C4CECD;
-	Sat, 23 Nov 2024 09:49:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0F6CF5C53E9;
+	Sat, 23 Nov 2024 10:17:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5445C4CECD;
+	Sat, 23 Nov 2024 10:17:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732355351;
-	bh=6phUBFshQ9h5kWQbDNk7zQICz6nessUxYmiXU7gxfm8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=qe5aaS3S2P36Q1BBzo3qxlDqHcKGz8SnXPe2FGXXG2OfZ+8zmP37QmNpn9vQ+RcC+
-	 GsMRjDCsGNE+p6PnFuAh+l/xCxIcPgvb/75biamqHvk5IHrEVImNNqvdxDkl2K4o15
-	 StuOhPf1ey8sL9Mx6lILnZH6mtDSL9H3u4GA7IgQOJ3wJ/DXKbRcAgU9AYE/KW661P
-	 e6Eek8j70Zph+vW7fgJwSCDyRBf/gP9ziLd17pLa4oiEak85rSgXb/+FhrnlAl85Gv
-	 whpVNTCvoqFkxojgEUHQj0RenRW81QNV+gMFZYuik0gjVRmtBLKnTrRuRMlpGq6C8x
-	 mugMBhWAZ/U2A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tEmlJ-00FCMM-7j;
-	Sat, 23 Nov 2024 09:49:09 +0000
-Date: Sat, 23 Nov 2024 09:49:08 +0000
-Message-ID: <871pz2th4b.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v3 00/16] KVM: arm64: nv: Shadow stage-2 page table handling
-In-Reply-To: <86o727um28.wl-maz@kernel.org>
-References: <20240614144552.2773592-1-maz@kernel.org>
-	<171878647493.242213.9111337124987897859.b4-ty@linux.dev>
-	<46bea470-3a3b-4dcc-b4a8-a74830c66774@os.amperecomputing.com>
-	<86plmov8n3.wl-maz@kernel.org>
-	<38339ef8-6e69-43b5-8d16-b7fd66775c93@os.amperecomputing.com>
-	<86o727um28.wl-maz@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, oliver.upton@linux.dev, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, christoffer.dall@arm.com, suzuki.poulose@arm.com, alexandru.elisei@arm.com, james.morse@arm.com, joey.gouly@arm.com, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1732357065;
+	bh=0rdrQoLAvrP9GeeQDmFLTU4Ij1FObv0T5hb19RDhLLA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RAZDa2TRbmJsJZZUgFUdt69U8MLFL3b4DDD2bsUPLpQoO3ArmzULlLRg0xAd18+x5
+	 7cN2jmmiMt7ERQQ0w8v8esvzaP9D2yAm8JFpeG9O985fs1Mbcqobt/p9YMCNGkxg29
+	 RjuzFbJZO7XFx3GeZNbEbRTcElKBUz7FzkgsHUWq+pvBrC96TPPTl+AIRqDZR7hbB1
+	 7bLOZSrYeQRIi2y5VxNy7pNVEdrmy0zT3Mim2pBxBCnRjEy/AgMkPPeCRDYoOSFk3A
+	 bCuOAwQQF5zh+KlTXQ8Hxs9EwvRBb+EHmbYxsgNsiHPFSBsXt4769wYroQBrTE1O/M
+	 +TwVoJlUQwYYg==
+Date: Sat, 23 Nov 2024 11:17:42 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v4 5/6] PCI: mediatek-gen3: Add reset delay in
+ mtk_pcie_en7581_power_up()
+Message-ID: <Z0GrxtFsGbL08X7P@lore-desk>
+References: <20241118-pcie-en7581-fixes-v4-0-24bb61703ad7@kernel.org>
+ <20241118-pcie-en7581-fixes-v4-5-24bb61703ad7@kernel.org>
+ <20241123091026.qxoeb2qye7kcwikj@thinkpad>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jHZfs2ffVCIlHxKc"
+Content-Disposition: inline
+In-Reply-To: <20241123091026.qxoeb2qye7kcwikj@thinkpad>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241123_014912_941619_546E6D62 
-X-CRM114-Status: GOOD (  30.34  )
+X-CRM114-CacheID: sfid-20241123_021747_283744_EB61B86B 
+X-CRM114-Status: GOOD (  25.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,62 +84,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Nov 2024 19:04:47 +0000,
-Marc Zyngier <maz@kernel.org> wrote:
-> 
-> On Fri, 22 Nov 2024 16:54:16 +0000,
-> Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
-> > 
-> > 
-> > 
-> > On 21-11-2024 10:14 pm, Marc Zyngier wrote:
-> > > On Thu, 21 Nov 2024 08:11:00 +0000,
-> > > Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
-> > > 
-> > > Hi Ganapatrao,
-> > > 
-> > >> IIRC, Most of the patches that are specific to NV have been merged
-> > >> upstream. However I do see that, some of the vGIC and Timer related
-> > >> patches are still in your private NV repository. Can these patches be
-> > >> prioritized to upstream, so that we can have have the first working
-> > >> version of NV on mainline.
-> > > 
-> > > Who is *we*?
-> > > 
-> > > Things get upstreamed when we (people doing the actual work) decide
-> > > they are ready. At the moment, they are not.
-> > > 
-> > > Also, while I enjoy working on NV, this isn't *my* priority.
-> > 
-> > Sure, I understand that it's not your priority right now.  I'm happy
-> > to spend some time on it, please do let us know in what areas/patches
-> > needs attention before the code would be ready to merge?
-> 
-> Please understand that NV isn't special, and while there is still a
-> bunch of things that need to be merged, it is the whole of KVM/arm64
-> that needs attention.
-> 
-> For example, there is the debug series from Oliver, the feature
-> handling from Fuad. They may not have NV written all over them, but
-> they do have an impact on the NV behaviour one way or another.
-> 
-> By paying attention to these series, you would help with the
-> groundwork that is required before we can actually enable NV. This is
-> what matters now, not the next 50 or so NV-specific patches.
 
-And one last thing, while I think of it: NV is very unlikely to get
-merged without a testing infrastructure. Which means that the current
-selftests must run at EL2, and that *new* selftests must be created to
-test the NV implementation (all the trap behaviours, for example).
+--jHZfs2ffVCIlHxKc
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-So if you (and I assume your employer, as you keep using the plural)
-want to help moving NV support upstream, this is an area where you
-could help and make a massive difference.
+> On Mon, Nov 18, 2024 at 09:04:57AM +0100, Lorenzo Bianconi wrote:
+> > Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
+> > causing occasional PCIe link down issues. In order to overcome the
+> > problem, PCIe block is reset using REG_PCI_CONTROL (0x88) and
+> > REG_RESET_CONTROL (0x834) registers available in the clock module
+> > running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
+> > In order to make the code more readable, move the wait for the time
+> > needed to complete the PCIe reset from en7581_pci_enable() to
+> > mtk_pcie_en7581_power_up().
+> > Reduce reset timeout from 250ms to PCIE_T_PVPERL_MS (100ms).
+> >=20
+>=20
+> and this reduced timeout has no impact on the behavior? If so, it'd be go=
+od to
+> state it explicitly. But this information can be added while applying the=
+ patch,
+> so no need to resend just for this.
 
-Thanks,
+nope, we discussed this here:
+https://patchwork.kernel.org/project/linux-pci/patch/aca00bd672ee576ad96d27=
+9414fc0835ff31f637.1720022580.git.lorenzo@kernel.org/#26114968
 
-	M.
+no worries, I will fix it in v5 since I need to repost to address a
+comment in patch 3/6.
 
--- 
-Without deviation from the norm, progress is not possible.
+Regards,
+Lorenzo
+
+>=20
+> > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+>=20
+> Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+>=20
+> - Mani
+>=20
+> > ---
+> >  drivers/clk/clk-en7523.c                    | 1 -
+> >  drivers/pci/controller/pcie-mediatek-gen3.c | 7 +++++++
+> >  2 files changed, 7 insertions(+), 1 deletion(-)
+> >=20
+> > diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
+> > index 22fbea61c3dcc05e63f8fa37e203c62b2a6fe79e..bf9d9594bef8a54316e28e5=
+6a1642ecb0562377a 100644
+> > --- a/drivers/clk/clk-en7523.c
+> > +++ b/drivers/clk/clk-en7523.c
+> > @@ -393,7 +393,6 @@ static int en7581_pci_enable(struct clk_hw *hw)
+> >  	       REG_PCI_CONTROL_PERSTOUT;
+> >  	val =3D readl(np_base + REG_PCI_CONTROL);
+> >  	writel(val | mask, np_base + REG_PCI_CONTROL);
+> > -	msleep(250);
+> > =20
+> >  	return 0;
+> >  }
+> > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/=
+controller/pcie-mediatek-gen3.c
+> > index e4f890a73cb8ada7423301fa7a9acc3e177d0cad..f47c0f2995d94ea99bf4114=
+6657bd90b87781a7c 100644
+> > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> > @@ -980,6 +980,13 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen=
+3_pcie *pcie)
+> >  		goto err_clk_prepare_enable;
+> >  	}
+> > =20
+> > +	/*
+> > +	 * Airoha EN7581 performs PCIe reset via clk callabacks since it has a
+> > +	 * hw issue with PCIE_PE_RSTB signal. Add wait for the time needed to
+> > +	 * complete the PCIe reset.
+> > +	 */
+> > +	msleep(PCIE_T_PVPERL_MS);
+> > +
+> >  	return 0;
+> > =20
+> >  err_clk_prepare_enable:
+> >=20
+> > --=20
+> > 2.47.0
+> >=20
+>=20
+> --=20
+> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
+=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
+=E0=AF=8D
+
+--jHZfs2ffVCIlHxKc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ0GrxgAKCRA6cBh0uS2t
+rKMoAP93x075FJWNtocxh9wxnIcNLCF8UkTmdf1GPkTZaVez8QD/cjBj4ekttnp+
+gQmsMix69h2OLk1qTdpWWs3j91WJoQw=
+=AKOK
+-----END PGP SIGNATURE-----
+
+--jHZfs2ffVCIlHxKc--
 
