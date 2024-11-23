@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3629E6ADE3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 16:18:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2363E6ADE3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 16:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TMR950o+cKsHwEMLQCs+O87d46npTA9aiOspNd7mLX0=; b=nT/haOvsPRN/yjYuITyNltJSxC
-	atrjmb9uvV3S6Ry6qKkhEvrEGNvnrGnx8HzPkgXi3sjLRUOUULkVhbbZqSdVC7ViM5zV1kb2ZzWtM
-	MBhogOixBo/6oSDF1BQmi9qc12RyWJP4IqaZfo8LAlyYO7yaCDhwDP90CasPTdpCJAZZbSgZ4U+6/
-	SP6qaV/GgCsmT1GNn+outIeGdyY1LudP8GHhqh8NA6yoxO9ZmLv4jkxACcP31EIUkW9NkINynNvrZ
-	EVr8suLifF2N/0X4MWMMzsc7OH0VZKnrvwkrGTCvo5nofsLIa0w5B2+3T0ycb4aekNwioAEDAVHst
-	yZ0K+Maw==;
+	bh=TNHpUUCKsjbwdMFqVHuhT5oVdX8DswSwusTo146Sq88=; b=cwrsJEK9d8r21pM2O4OMYR589r
+	XrigR5H+3hB16qhCJjKS2oOeNTq+f8jIjp93dTFHTol4y4BbpAoTadBo6BTsZWiNDozvPvmyGN8Gi
+	du7VRLKSsj2Z99ViHhlhTELSR6JZ24BQ/Z5XdIIoZB7zSpBF6QbFBkiJKSaqYgosATwoTkUmpP+qf
+	8GuG7nm9tAU0qvMUuxDEEgQf159u8PrPC4IizxuAx4ywYS8wR1qp61XMB3exzboGLv6eP2GiSD6bb
+	2FItO5Zrl0nAxOqPWwkMnZgnGm1riwu4GvvrHmZZbFMCP1gAmgvcHIyiA0URzvHavzwhzmLunA47A
+	sjpc3u5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEsqQ-00000004aKp-2AnM;
-	Sat, 23 Nov 2024 16:18:50 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tEsub-00000004aqd-0frx;
+	Sat, 23 Nov 2024 16:23:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEspU-00000004aFU-0TDy;
-	Sat, 23 Nov 2024 16:17:53 +0000
+	id 1tEstf-00000004ahp-2W6B
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 23 Nov 2024 16:22:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 04D4AA404A4;
-	Sat, 23 Nov 2024 16:15:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA4BBC4CECD;
-	Sat, 23 Nov 2024 16:17:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 02CD95C5532;
+	Sat, 23 Nov 2024 16:21:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B7ADC4CECD;
+	Sat, 23 Nov 2024 16:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732378670;
-	bh=r7VawsBWko4JGKpwGiwsn4hr5Gg4jKmMEXWLC4Zu6jo=;
+	s=k20201202; t=1732378930;
+	bh=rqrZ3vjyZhrxtWn4EFzMu1EVgsI53q7sNaMFgE9p/0M=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cWRrf8Rz9VUSKtqdMeH5xQslmt3yr8WCrh/jUNlPQdAbDvLReCrQihlUtfMaW5Q/j
-	 mTCfSAepcwct5RLq9f2JqO7rmLDxqHOOxV24Wl8/5e3lWaIxb4Itl63lrFzSQ/4Kyn
-	 TB3dY4Hi/daPK6kwmAKgljw+MnRTyl9Cl8gpGlpvpo/3Fxhl4r3dr1L/+zDher1IDV
-	 WHdRMQRWSGlubx0u4lvCJ/27a2bDDzb9jVYRMRxHdE7BMtAn4ZFQhQl3YTx8Ya88JZ
-	 cpIsfDXnoJ1Kt2W9c+eCVQKo2ifTj907w124rZVEa35Qkge5La5CFaRpYZXdyzOPQr
-	 X099PezSbMmww==
-Date: Sat, 23 Nov 2024 17:17:47 +0100
+	b=M5hiMYu6E+Hf3BM+fN1iB3dHoPal/EV/V5lel/OfMXeL3mndSaoGXxkoiQmRNpVd0
+	 ThMRz38hrfgwelJ9y74Pe8STfKB3mMj4RsLXrcFf4BoL+fvnbeCw0LPxKrpLFtoBLU
+	 wx/1SLV39pofXw77R6KmJDqZacOCtI7SNv8L0+KrDVpuVJ0u3v9Qf1mzTdSf7OTRnN
+	 2xVMJMDozrK+WlAg0AKb8lopUSocby4LzGnd3DfzXyCbLVr48CB09Y4YWL+h1c0OWI
+	 uDf/jz/+qkWblxhPCiDG57hFpjJU6vK6oMxlXBQw+ep03CVOkL2c5fl+bmqCHbuZiI
+	 CptND575uG3FQ==
+Date: Sat, 23 Nov 2024 17:22:07 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Wojciech Macek <wmacek@chromium.org>
-Cc: Rob Herring <robh@kernel.org>, 
+To: =?utf-8?B?Q3PDs2vDoXMs?= Bence <csokas.bence@prolan.hu>
+Cc: Chen-Yu Tsai <wens@csie.org>, Maxime Ripard <mripard@kernel.org>, 
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Rafal Milecki <rafal@milecki.pl>, Hsin-Yi Wang <hsinyi@chromium.org>, 
-	Sean Wang <sean.wang@mediatek.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v1 1/2] dt-bindings: arm: mediatek: Add MT8186 Starmie
- Chromebooks
-Message-ID: <cxuf6dwyp5cyzcq3h4bgydg5fffc24bwfz3umifqnxqyyvuhc5@pbe3v5andnrr>
-References: <20241122104938.1437925-1-wmacek@chromium.org>
- <20241122104938.1437925-2-wmacek@chromium.org>
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH v6 2/5] dt-bindings: sound: Add Allwinner suniv F1C100s
+ Audio Codec
+Message-ID: <juzxtwlr5ayvjrrqem2hr3nbyem6oajwrvveio5brlzazdafov@r2aehknf4shv>
+References: <20241123123900.2656837-1-csokas.bence@prolan.hu>
+ <20241123123900.2656837-3-csokas.bence@prolan.hu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241122104938.1437925-2-wmacek@chromium.org>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20241123123900.2656837-3-csokas.bence@prolan.hu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241123_081752_212476_F9AFDD0F 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241123_082211_692222_DB18A5C5 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +78,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 22, 2024 at 10:49:37AM +0000, Wojciech Macek wrote:
-> Add an entry for the MT8186 based Starmie Chromebooks, also known as the
-> ASUS Chromebook Enterprise CM30 Detachable (CM3001). The device is
-> a tablet style chromebook.
-> 
-> Signed-off-by: Wojciech Macek <wmacek@chromium.org>
+On Sat, Nov 23, 2024 at 01:39:00PM +0100, Cs=C3=B3k=C3=A1s, Bence wrote:
+> Add compatible string for Allwinner suniv F1C100s audio codec.
+>=20
+> [ csokas.bence: Reimplement Mesih Kilinc's binding in YAML ]
+> Signed-off-by: Cs=C3=B3k=C3=A1s, Bence <csokas.bence@prolan.hu>
+> ---
+>  .../sound/allwinner,sun4i-a10-codec.yaml      | 31 +++++++++++++++++++
+>  1 file changed, 31 insertions(+)
+>
 
-This was absolutely never tested. You obiovusly miss some items or enum,
-but main point is that it neither looks like existing code nor it was
-tested BY YOU prior to sending.
+Missing changelog - what happened here? If no changes, why ignoring
+received tag?
+
+<form letter>
+This is a friendly reminder during the review process.
+
+It looks like you received a tag and forgot to add it.
+
+If you do not know the process, here is a short explanation: Please add
+Acked-by/Reviewed-by/Tested-by tags when posting new versions, under
+or above your Signed-off-by tag. Tag is "received", when provided
+in a message replied to you on the mailing list. Tools like b4 can help
+here. However, there's no need to repost patches *only* to add the tags.
+The upstream maintainer will do that for tags received on the version
+they apply.
+
+https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/subm=
+itting-patches.rst#L577
+
+If a tag was not added on purpose, please state why and what changed.
+</form letter>
 
 Best regards,
 Krzysztof
