@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3E77E6ADDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 16:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E9EE6ADDD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 16:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xYl9ghIS1FhFqB81Ll0TklCcrue4I0tAWBMqDk5wj3M=; b=YhLyomo4YEsNkwdVXy01qdjht+
-	rvdHzdPdtgj6G64tvxQiQVFeS3DF0+rqrSXMgstjry4J5S6rKtSwaQfYRXwDIjNQYeKQCYud9EXvD
-	1HDN616cZJoxMSRtxsYVgBwdIn1V9PTmfsn7rQy5tR7Dgi3sjIH31wLPgufdUBVxiGHrnjfBaqLk+
-	UYFAAyrutBM3JqMUoXX5j/aji1Q6DufzAxNX//37kN3u4ZSjnnt3l7wAhWjbyUA3le7nORs6XfIjc
-	IIQwcjB9CoyBrlLB98sk72ZGXSlIEihRV6gInk1fovLhSpfekKVgWiYMUk9eMLoBiUx8mE9y7lTg9
-	fpQO51/A==;
+	bh=/Fri3MDrTeM7wYILUHtZlorscc+2zp7g5opjd1aKlNM=; b=sHH7vaGMn46sNNcuPF+/APVauE
+	aq0IEXvQA/Z6Vs3ZFrIeqnHK/ft2hi+SlUebiG+iS4Tk7HbfPeyTzmejncZ710SLqD5pLl9PB/AAG
+	mm0lp6A1hPgcZjq4DBztRn+U4PxnKA6As5ysBHhPJjoXs63MP2vEqtGSbB8Mj1PaadFmmt+CaAr0y
+	mccOZepBuW5raiEzP4/+6narndVTas1FWORWbP9iqKRfV0/lX4oVF2Nb870e2p/B+FPzw7fJ84ahh
+	/xwfOTVMOmDVbav4YWMlXJXasyUZWGg3ytBXueKoDUAarIbyK0P0ghgakzegXXMb/SGT+UYiD0WTj
+	ha8HBNWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEsnG-00000004ZvG-0nTx;
-	Sat, 23 Nov 2024 16:15:34 +0000
+	id 1tEsoH-00000004a4Y-3SAK;
+	Sat, 23 Nov 2024 16:16:37 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEsmI-00000004Zo7-37qP
+	id 1tEsnD-00000004Zuj-3CnD
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Nov 2024 16:14:36 +0000
+	Sat, 23 Nov 2024 16:15:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 708175C5583;
-	Sat, 23 Nov 2024 16:13:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D9FDC4CECD;
-	Sat, 23 Nov 2024 16:14:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8216D5C0740;
+	Sat, 23 Nov 2024 16:14:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34638C4CECD;
+	Sat, 23 Nov 2024 16:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732378472;
-	bh=E02GaD6C2zW4KVX9ewnciYeUTWpwJEUwwnHlZ+OyWAA=;
+	s=k20201202; t=1732378530;
+	bh=aFqOexa4IuS4Qk6HkPBylQSk76DY92gyVsr7yse+4R0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fCgDdIaHZ/hdTwWsN6WgLvT5q0urJF4+Z5E/Sa8AebGnhIzjcjzdtMv6lQT0jgxWH
-	 9Q7kcXz2wXkEUfRPjU/pr/3HijAkVNFBs3IbCVREQlCA0kzZTm2OMGUqMa9nrIvTCG
-	 hI3w87j2uxmb/Ma4j2q79eV7AM1WYYzS09T+EEyci8RdtdOa9nExvQx4FwY5XA6eUw
-	 8uN9zRfIfcMu21Qbz5sBoLo0PgV+eFT0i4FhwAO1Pcyp/og3VKhJ2EegX/qVntPKbt
-	 yRoU4YqT7JkZL15r1sGVOapWJckzUEXe7c7UeTIlWOGJl3ol2qXdLF4+CY4EOYaRoM
-	 t31g5QM/vq8sA==
-Date: Sat, 23 Nov 2024 17:14:29 +0100
+	b=WlL8wfQIQ175OPh+ZQsI3Mbu5COm0FMjfoeeoe8OIAXddyOGZ9DNI7H+Sv2NqnmO4
+	 AWw7VHKrl1r1e134LWh6sixEKc+SO/74Ef2Om2bBmqKHN67VJR8ShdoZ73hKYJooWY
+	 j4FbxdNFTvcAJcV/0YLjJ4bJwg0m+rlRqMlqbGzfURFhaEC/jz+xjcRqJJc1A+c9vj
+	 0MZPozl9ujeR3Mi68h5iSTbMFgcBfKOj6u7996nTYOBXGi9CS5ZlZf9PbUHqrgd5wP
+	 QzdUMDD8qRQoX1zvywnF6MXRwiw68cEPPYvAf2MYejUnfFKquR6lbfKRk8oGqvBJB5
+	 vdeaoEqkN7B0Q==
+Date: Sat, 23 Nov 2024 17:15:27 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Fange Zhang <quic_fangez@quicinc.com>
 Cc: Rob Clark <robdclark@gmail.com>, 
@@ -58,16 +58,18 @@ Cc: Rob Clark <robdclark@gmail.com>,
 	Xiangxu Yin <quic_xiangxuy@quicinc.com>, linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
 	freedreno@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 0/9] Add display support for QCS615 platform
-Message-ID: <2ihy463xjiguluacmd3qhlskjtrpotk4mmflqdtgm3qhjzcrif@x2ckw5h6xqyj>
+Subject: Re: [PATCH v3 3/9] dt-bindings: display/msm: Add SM6150 MDSS & DPU
+Message-ID: <2nqtuatl63ajcahsmhvg3bmfipfhppfkygwh6as7zzwgxzipoo@hcvuv57sqpqu>
 References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
+ <20241122-add-display-support-for-qcs615-platform-v3-3-35252e3a51fe@quicinc.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
+In-Reply-To: <20241122-add-display-support-for-qcs615-platform-v3-3-35252e3a51fe@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241123_081434_838064_3BC74416 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20241123_081531_924182_F71F6A78 
+X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +84,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 22, 2024 at 05:56:43PM +0800, Fange Zhang wrote:
-> This series aims to enable display on the QCS615 platform
+On Fri, Nov 22, 2024 at 05:56:46PM +0800, Fange Zhang wrote:
+> From: Li Liu <quic_lliu6@quicinc.com>
 > 
-> 1.Add MDSS & DPU support for QCS615
-> 2.Add DSI support for QCS615     
+> Document the MDSS and DPU hardware found on the Qualcomm SM6150 platform.
 > 
-> QCS615 platform supports DisplayPort, and this feature will be added in a future patch
-> 
-> This patch series depends on below patch series:
-> - rpmhcc
-> https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-2-3d716ad0d987@quicinc.com/
-> - gcc
-> https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-4-3d716ad0d987@quicinc.com/
-> - base
-> https://lore.kernel.org/all/20241104-add_initial_support_for_qcs615-v5-0-9dde8d7b80b0@quicinc.com/
-> - Apps SMMU
-> https://lore.kernel.org/all/20241105032107.9552-4-quic_qqzhou@quicinc.com/
-> - I2C
-> https://lore.kernel.org/all/20241111084331.2564643-1-quic_vdadhani@quicinc.com/
-> - dispcc
-> https://lore.kernel.org/all/20241108-qcs615-mm-clockcontroller-v3-0-7d3b2d235fdf@quicinc.com/
-> - dispcc dts
-> https://lore.kernel.org/lkml/20241108-qcs615-mm-dt-nodes-v1-0-b2669cac0624@quicinc.com/
+> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+> ---
 
-Which makes it unmergeable and untestable. I suggest decouple
-dependencies.
+This has a build failure, but nothing here explains dependency.
+
+This cannot be merged and due to build failure cannot be tested by
+automation.
+
+Sorry, no review from me, please wait till dependencies come in or
+decouple series. Anyway otherwise this *CANNOT* be applied by
+maintainers...
 
 Best regards,
 Krzysztof
