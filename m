@@ -4,68 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E39E668A1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 07:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E035E668A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 08:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aBz61lTIVKBrw7COcK+ChSKptGrENqlkPf5qQzS7VGY=; b=Zu4u1v3Rm2ss4IyUO8y4BPwFga
-	pWEjx5Y9lQwWQR1cpCGOxYb2cWItQzo56srB7bPzGZtxhTONoTYdGcgJsT4stJITPV69zgH7hOJAi
-	BjYL7+0ZP7JnwHYFQsswEaynsf7xjx6CPba/b5NjX18gscENBqdqfMTjrseC0u0v8PZCsX9IQPZ1I
-	himpL0+M9yjYlYGIc0nooGKe3zlUg2vTvgJ0EIfYepZ+ZM0yGEYaYBJFkNFB4HP2XluPIee3HYpoa
-	bD2ReCNDzGVN1goXP/4Yc2tvXx3UNe3I57FrcAPeRJxTF7XLVOjaRUmz8AoBQ6mnY1o701bJ6MpE3
-	EEuzEaaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=r4wZNAYoXyTS6KWqhdId+e/j9up0DyZ5zMGlnmmsV7E=; b=hdHyEgecKBtA2yZU4vmOyZVEU+
+	qpTScEJgI1M/xYga+u/WDbOy/KQnBQCq+Vaw85WecFL0pIB6JwF8Ck8Z7+X/4H9VuJbUaHpHtTEsg
+	Pti4ZhZzemwR8PYNUrA9STuU03AHLYu4j77wdtTgCXoey0q/p558Ll06VuWw1xt++JBKthwse5af9
+	9NOQ7mn+9DsLii2XxgzIBekyQnwTQxSWr3VKY+4ChwOrTAz8C6Pnrj5h2LOEQr7SELpQcJlXhQOeA
+	N/gUEZnB/8l/D/qSXtD4fN+VyOF0nooNq94XAxLNa4EQ2uijZngSGfpgHxN2/Gum09KctfmHpBGnP
+	6iGqFWCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tF6gb-00000005OfD-2W9z;
-	Sun, 24 Nov 2024 07:05:37 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tF862-00000005U8H-3JzF;
+	Sun, 24 Nov 2024 08:35:58 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tF6fe-00000005OZ5-3xHt;
-	Sun, 24 Nov 2024 07:04:40 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 979F9129;
-	Sun, 24 Nov 2024 08:04:16 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1732431856;
-	bh=T3fbZXJ36wbjYidh3cGTZ7WKl7BVEtZ7NeY3axJeDu8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uCdWJKtd1y4P9sPbYAorA0HwhSFO6Af3ZmH5tCzziotGhkJKZGyVCjOA6p9NaPYjL
-	 6N4r4rdjiLEcTNUDUAHWD1h/FwXI9cGTf9xpcVEyGoqFQfc28NvSNlrWJUWFe+oprU
-	 Yubp6kF4e74V1+fhJunY218gwazbwDlsKOiw4gPg=
-Date: Sun, 24 Nov 2024 09:04:28 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: Hans Verkuil <hverkuil@xs4all.nl>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Naushir Patuck <naush@raspberrypi.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH v1 5/5] drivers: media: bcm2835-unicam: Correctly handle
- FS + FE ISR condition
-Message-ID: <20241124070428.GG19573@pendragon.ideasonboard.com>
-References: <20241122084152.1841419-1-naush@raspberrypi.com>
- <20241122084152.1841419-6-naush@raspberrypi.com>
- <xy44zndazbw7ehpzbc6hexgptjymevvupjhuy2x6zxp54qtepm@vlbb6js62cq4>
- <CAEmqJPrrAhhukn2H4nUhe1njVi-dyW9q=u1h8YgafvJGbYRG6Q@mail.gmail.com>
- <xadxi6rjcnmgjiqhinqnawj3mgps4b3xp6ftozap4ps6q5xaz7@bsdwrrkyniwt>
- <deremuh7mawzt6ke3c67fvzfyuksmuwon3dhorxbm5mr5rllmf@fbj2f5qvfpjd>
+	id 1tF856-00000005U2m-0sdK;
+	Sun, 24 Nov 2024 08:35:01 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3823eaad37aso2766307f8f.0;
+        Sun, 24 Nov 2024 00:34:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732437298; x=1733042098; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=r4wZNAYoXyTS6KWqhdId+e/j9up0DyZ5zMGlnmmsV7E=;
+        b=GYUNbtWP0tGorfR+dx+CyJq0SPgUxIN03F14vBHb4s7mmnl1zJoOwgkWY7iRkigEbo
+         0boEV/3U2AeYe+guwJArEbaxIzWgiO7XB2XBgsOIxdwVrbmzDlAiUjZqTrX0af+sKuUi
+         47RpC/NIXWWO6aHdOM+elJNpTXbjq3pBGW3UQJDHRIRmMLZTlkjEwE8NYi7fmelxxWXX
+         vjifAVHdKkoxQ6lMjmhrQYshSX0CD5K4EojL5N73GrvTMCspjLl0MFJOuTpbqKIxM+2W
+         xbVyXbf7uS85p+3w7MTN0mGrp1I7PhPo8EKDN4SSnA6m/GMk3tA/uQZPXknfztxkm18Z
+         Z4rA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732437298; x=1733042098;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=r4wZNAYoXyTS6KWqhdId+e/j9up0DyZ5zMGlnmmsV7E=;
+        b=OEY29VpFf4KylMcSyz2gu4DGdKqSRi9PLA1XCH/6sJZlescy2n3x4Jm+T945EWzcT2
+         4GuVGX55+7hPxmpQKHFpmVJ4UnGjUYH1kiX4Iz3Fg/ke4kGHXIPWuIECDVwOIS5v9BHV
+         faN4llRqLFE1MoVH2IseDoeW7czLFVhN+1olL1dJvpTV8S3n2otH/cxgCAeXKMn3O1KU
+         BqJ7eLpeRu2swU48OPw5JCbPIAj1F5fxVdpMRUmkkbueiDLAbJryOVViAsfa5/Ju6/Wi
+         puugPqJIuPut9UPcaiI2JWVJ9ZJTx/xmv/mO4Xjrh8Y6RuPJGBDfwuRN7bQkRy4Ya0dE
+         Kmsw==
+X-Forwarded-Encrypted: i=1; AJvYcCVt6FlaIuHuOegPa0C+oXrfT+dgc6Yg1ClOVagDUNSuWPWPGTvMnqBTTk3IxY6PzGdF7IurN82kbm1Hx611hfwqyQ==@lists.infradead.org, AJvYcCXk83gkE9NTQpS7W0P9SyZruv6o3zc0w95zQ8Unw4BdcMTIvs6EislfElgOq9zkyxtnt1Kbc9/ZV2ecleah@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRxhedDRgGY6UAOAWlyl98uzmextk5Cm+P7oAM5bHnfKdDrCxZ
+	4fMMYJDjF7Uee8SEbzt7TT+nwdKXPKLMBQNFSC/8ZZ2BkKGFPtMW
+X-Gm-Gg: ASbGncsTW+klIAF0xau7lOq4oUBliM+lKqcVdy/gEFq4udhhr4Z4dwU0RbmUYWY9EMZ
+	qVKX+pD5aJ4dKy9TJhMCbJDx98oU1+MFZs0l1OYYVmJ4uZFt0goEu9MsxTbhOt0qhsrIMMRkTCO
+	mmuahw+6ytQMvkP2icTjplaNOTt3Gs2Iz16pD0E5Ct7XwuDLAwFOsfwUXgQRMVznty8LJAiP0U3
+	wnqqyPbiVbOGJMwkyrQBCageonR3rCVD98qhqAI3JJAQX4tOvyDi5k=
+X-Google-Smtp-Source: AGHT+IF5cabE2Tx7RTeVKjrsbOyjk5UWacuIke+YxdcwrSskiev6s1JwXABaTjTX/jeVSCAVboeljw==
+X-Received: by 2002:a05:6000:79b:b0:384:ff3e:e0a6 with SMTP id ffacd0b85a97d-384ff3ee0b0mr3986555f8f.5.1732437297456;
+        Sun, 24 Nov 2024 00:34:57 -0800 (PST)
+Received: from toolbox.. ([87.200.95.144])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-433cde1151esm84949895e9.16.2024.11.24.00.34.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 24 Nov 2024 00:34:56 -0800 (PST)
+From: Christian Hewitt <christianshewitt@gmail.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Christian Hewitt <christianshewitt@gmail.com>
+Subject: [PATCH] WIP: arm64: dts: meson: drop broadcom compatible from reference board SDIO nodes
+Date: Sun, 24 Nov 2024 08:34:53 +0000
+Message-Id: <20241124083453.900368-1-christianshewitt@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <deremuh7mawzt6ke3c67fvzfyuksmuwon3dhorxbm5mr5rllmf@fbj2f5qvfpjd>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241123_230439_125770_C5ECFA17 
-X-CRM114-Status: GOOD (  42.41  )
+X-CRM114-CacheID: sfid-20241124_003500_268010_DC73A102 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,123 +101,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 22, 2024 at 03:48:11PM +0100, Jacopo Mondi wrote:
-> 
-> With Hans Sakari and Laurent in cc for real now
-> 
-> On Fri, Nov 22, 2024 at 03:41:31PM +0100, Jacopo Mondi wrote:
-> > On Fri, Nov 22, 2024 at 11:40:26AM +0000, Naushir Patuck wrote:
-> > > On Fri, 22 Nov 2024 at 11:16, Jacopo Mondi wrote:
-> > > > On Fri, Nov 22, 2024 at 08:41:52AM +0000, Naushir Patuck wrote:
-> > > > > This change aligns the FS/FE interrupt handling with the Raspberry Pi
-> > > > > kernel downstream Unicam driver.
-> > > > >
-> > > > > If we get a simultaneous FS + FE interrupt for the same frame, it cannot
-> > > > > be marked as completed and returned to userland as the framebuffer will
-> > > > > be refilled by Unicam on the next sensor frame. Additionally, the
-> > > > > timestamp will be set to 0 as the FS interrupt handling code will not
-> > > > > have run yet.
-> > > > >
-> > > > > To avoid these problems, the frame is considered dropped in the FE
-> > > > > handler, and will be returned to userland on the subsequent sensor frame.
-> > > > >
-> > > > > Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
-> > > > > ---
-> > > > >  .../media/platform/broadcom/bcm2835-unicam.c  | 39 +++++++++++++++++--
-> > > > >  1 file changed, 35 insertions(+), 4 deletions(-)
-> > > > >
-> > > > > diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > > > > index f10064107d54..0d2aa25d483f 100644
-> > > > > --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > > > > +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > > > > @@ -773,10 +773,26 @@ static irqreturn_t unicam_isr(int irq, void *dev)
-> > > > >                        * as complete, as the HW will reuse that buffer.
-> > > > >                        */
-> > > > >                       if (node->cur_frm && node->cur_frm != node->next_frm) {
-> > > > > +                             /*
-> > > > > +                              * This condition checks if FE + FS for the same
-> > > > > +                              * frame has occurred. In such cases, we cannot
-> > > > > +                              * return out the frame, as no buffer handling
-> > > > > +                              * or timestamping has yet been done as part of
-> > > > > +                              * the FS handler.
-> > > > > +                              */
-> > > > > +                             if (!node->cur_frm->vb.vb2_buf.timestamp) {
-> > > > > +                                     dev_dbg(unicam->v4l2_dev.dev,
-> > > > > +                                             "ISR: FE without FS, dropping frame\n");
-> > > > > +                                     continue;
-> > > > > +                             }
-> > > > > +
-> > > > >                               unicam_process_buffer_complete(node, sequence);
-> > > > > +                             node->cur_frm = node->next_frm;
-> > > > > +                             node->next_frm = NULL;
-> > > > >                               inc_seq = true;
-> > > > > +                     } else {
-> > > > > +                             node->cur_frm = node->next_frm;
-> > > > >                       }
-> > > > > -                     node->cur_frm = node->next_frm;
-> > > > >               }
-> > > > >
-> > > > >               /*
-> > > > > @@ -812,10 +828,25 @@ static irqreturn_t unicam_isr(int irq, void *dev)
-> > > > >                                       i);
-> > > > >                       /*
-> > > > >                        * Set the next frame output to go to a dummy frame
-> > > > > -                      * if we have not managed to obtain another frame
-> > > > > -                      * from the queue.
-> > > > > +                      * if no buffer currently queued.
-> > > > >                        */
-> > > > > -                     unicam_schedule_dummy_buffer(node);
-> > > > > +                     if (!node->next_frm ||
-> > > > > +                         node->next_frm == node->cur_frm) {
-> > > > > +                             unicam_schedule_dummy_buffer(node);
-> > > > > +                     } else if (unicam->node[i].cur_frm) {
-> > > > > +                             /*
-> > > > > +                              * Repeated FS without FE. Hardware will have
-> > > > > +                              * swapped buffers, but the cur_frm doesn't
-> > > > > +                              * contain valid data. Return cur_frm to the
-> > > > > +                              * queue.
-> > > >
-> > > > So the buffer gets silently recycled ? Or should it be returned with
-> > > > errors to userspace ?
-> > >
-> > > The buffer silently gets recycled and we dequeue when we are sure it
-> > > is valid and will not get overwritten.  If we were to return to
-> >
-> > I haven't find in the v4l2 specs any reference to what the behaviour
-> > should be.
-> >
-> > If I can summarize it: When a frame capture is aborted after the DMA
-> > transfer has already started, should the corresponding capture buffer
-> > be returned to the user in error state or the frame drop can go
-> > silently ignored ?
+Drop the Broadcom compatible and use a generic sdio identifier with the Amlogic
+reference boards. This allows a wider range of Android STB devices with QCA9377
+and RTL8189ES/FS chips to have working WiFi when booting from the reference dtb
+files. There is no observed impact on Broadcom devices.
 
-If the DMA tranfer is aborted, I would return the buffer to userspace.
-This will indicate a frame loss better than deducing it from a gap in
-the sequence numbers.
+Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+---
+ arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi      | 3 +--
+ arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts  | 3 +--
+ arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts  | 3 +--
+ arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi | 3 +--
+ arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts        | 3 +--
+ arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts        | 3 +--
+ 6 files changed, 6 insertions(+), 12 deletions(-)
 
-Is the DMA really aborted here though ?
-
-> > Cc-ing Hans Sakari and Laurent for opinions.
-> >
-> > > userspace with an error, there is still a race condition on the name
-> > > frame/buffer which will also have to return as error.
-> >
-> > I'm sorry I didn't get this part :)
-> >
-> > > > > +                              */
-> > > > > +                             spin_lock(&node->dma_queue_lock);
-> > > > > +                             list_add_tail(&node->cur_frm->list,
-> > > > > +                                           &node->dma_queue);
-> > > > > +                             spin_unlock(&node->dma_queue_lock);
-> > > > > +                             node->cur_frm = node->next_frm;
-> > > > > +                             node->next_frm = NULL;
-> > > > > +                     }
-> > > > >               }
-> > > > >
-> > > > >               unicam_queue_event_sof(unicam);
-
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi
+index 52d57773a77f..1736bd2e96e2 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi
+@@ -178,9 +178,8 @@ &sd_emmc_a {
+ 	vmmc-supply = <&vddao_3v3>;
+ 	vqmmc-supply = <&vddio_boot>;
+ 
+-	brcmf: wifi@1 {
++	sdio: wifi@1 {
+ 		reg = <1>;
+-		compatible = "brcm,bcm4329-fmac";
+ 	};
+ };
+ 
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
+index c1470416faad..7dffeb5931c9 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
+@@ -102,8 +102,7 @@ hdmi_tx_tmds_out: endpoint {
+ };
+ 
+ &sd_emmc_a {
+-	brcmf: wifi@1 {
++	sdio: wifi@1 {
+ 		reg = <1>;
+-		compatible = "brcm,bcm4329-fmac";
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts
+index 92c425d0259c..ff9145d49090 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts
+@@ -21,8 +21,7 @@ &ethmac {
+ };
+ 
+ &sd_emmc_a {
+-	brcmf: wifi@1 {
++	sdio: wifi@1 {
+ 		reg = <1>;
+-		compatible = "brcm,bcm4329-fmac";
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi
+index 7e7dc87ede2d..b52a830efcce 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi
+@@ -134,9 +134,8 @@ &sd_emmc_a {
+ 	vmmc-supply = <&vddao_3v3>;
+ 	vqmmc-supply = <&vddio_boot>;
+ 
+-	brcmf: wifi@1 {
++	sdio: wifi@1 {
+ 		reg = <1>;
+-		compatible = "brcm,bcm4329-fmac";
+ 	};
+ };
+ 
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts b/arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts
+index d4858afa0e9c..feb31207773f 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts
+@@ -72,8 +72,7 @@ external_phy: ethernet-phy@0 {
+ };
+ 
+ &sd_emmc_a {
+-	brcmf: wifi@1 {
++	sdio: wifi@1 {
+ 		reg = <1>;
+-		compatible = "brcm,bcm4329-fmac";
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts b/arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts
+index d02b80d77378..6c8bec1853ac 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts
+@@ -21,8 +21,7 @@ &ethmac {
+ };
+ 
+ &sd_emmc_a {
+-	brcmf: wifi@1 {
++	sdio: wifi@1 {
+ 		reg = <1>;
+-		compatible = "brcm,bcm4329-fmac";
+ 	};
+ };
 -- 
-Regards,
+2.34.1
 
-Laurent Pinchart
 
