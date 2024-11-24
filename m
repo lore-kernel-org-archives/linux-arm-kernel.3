@@ -4,77 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB3AE668BC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 19:44:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4C7CD75E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 20:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DjUH+o7Zc6/bi6ol9QFkyKV/TQAgUu2SDeonPt1aGT8=; b=lYZZ4ClwRD0Dmnq5mtwdpEjStr
-	2T1hJWVgQuWEgckO2iTXB+csRktnhxW9C1sPumvMSYTZJD8FdwOe1rtqYLkrEnRkHtQ37a4qj3eej
-	I4y9TTSps/FGnK7pS9P+jI/psI+9C6Tej/nAW75nM8waSbvjL/9fij9oYu3ycGvThmBoSfNyEgjfH
-	HleOEJyk+Ph6pp5kVFxHovDMIF2+KHjZo/4rU8DPUsO3D419qbdz5mDsNdx2DKjt6v9eYvdV+D8ap
-	9bHFG4s8ziH2Gjd/pQP0VPmcYFulXSRnLP8MnNmJArIQ4lULSfRyTcOCpWYCQ8BE+GbeKh0B4nS3m
-	pnju0+kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ywMSe1q/965v+eVkcNyBvT1Ac5yKe2OMwFLssD4KmtM=; b=ukLVkFpActlZNcYWyyvSmP0sDw
+	qxa94lsQnxqYEGViWdksV+XSLKRsP9Z5o1fh8RmJemkVM/UHGVJOCA5Jl6XkMo7A3+dhWsICi9emX
+	EvlthDGGUm58GpqdKKXBk44ppWi2Hms9M7QOw3frxd5rXynaii2B/5VzMvfXogDZ7CXo35qxlq1sr
+	slK+/ktHy28Yn96R/LO8G5PBdi1bQggOy+OPt8tMQhy1lOBSQynuj0fqSEt71GUWwv2Dga6pKcBZJ
+	txL5N2iHJOZvH+n6qY0abM039Rd3UPuNmKzyNaKsFnDOX9Mk6imAX0UXo9iCa2gxR3IWZmWLj9y5I
+	Tbo1NTow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFIWW-00000006al0-1IXI;
-	Sun, 24 Nov 2024 19:44:00 +0000
-Received: from [198.175.65.10] (helo=mgamail.intel.com)
+	id 1tFJPM-00000006d2M-2ndP;
+	Sun, 24 Nov 2024 20:40:40 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFIVZ-00000006ahA-01il
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Nov 2024 19:43:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732477381; x=1764013381;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=1h4BcuyvvEVLEHYpHlgsXSM2L17Jzh8Omzewenc3ugc=;
-  b=Amn5GGa2+gO53f2lLkNbDoWZoFaLNtE0Qm76vpfES6fcvAU1PL2MydlI
-   RwjhGCu6RPOHNRTyKY3gqh3xdLX/ih+0XwY7rgh7t78xIHu4m8avSxcCW
-   S5j11VyeHk3hjuzvfVJKMljt1Xeho8crAgeZZsaPy2HkX/eZPlpo3H3eZ
-   5ZbfgY5ReeoYLX2AvSG1R1OTRflrjfZUUhe+5LIUx4TDui+0UpcNpG77w
-   Vaq9RQTN+iu6s44GAWf0tlCQq8iMi+Pkpqwa9/Mlci1iOd7s438A92xWB
-   Jc/Z8tBGB9NPhSd9qxTsUhYIcFNpWPnf4CZ2DtvfwfJli9JUNxuRmAaOo
-   A==;
-X-CSE-ConnectionGUID: SlVk2fA4T1CkEHb6EwB3hA==
-X-CSE-MsgGUID: GGN7seh6SxqGJE9XYmH03A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11266"; a="49987877"
-X-IronPort-AV: E=Sophos;i="6.12,181,1728975600"; 
-   d="scan'208";a="49987877"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2024 11:42:59 -0800
-X-CSE-ConnectionGUID: TpHfrTAvS9mtiPtLW+Mivg==
-X-CSE-MsgGUID: jDw+b8GoRkCXktJH8PQJ1A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,181,1728975600"; 
-   d="scan'208";a="91867666"
-Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 24 Nov 2024 11:42:57 -0800
-Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tFIVT-0005C9-2V;
-	Sun, 24 Nov 2024 19:42:55 +0000
-Date: Mon, 25 Nov 2024 03:41:56 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Jintack Lim <jintack@cs.columbia.edu>,
-	Christoffer Dall <christoffer.dall@arm.com>
-Subject: [arm-platforms:kvm-arm64/nv-gic 4/11]
- arch/arm64/kvm/vgic/vgic-init.c:207: warning: expecting prototype for
- kvm_vgic_vcpu_init(). Prototype was for vgic_allocate_private_irqs_locked()
- instead
-Message-ID: <202411250324.1ah9afGm-lkp@intel.com>
+	id 1tFJOO-00000006cuU-3TqA;
+	Sun, 24 Nov 2024 20:39:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1732480764; x=1733085564; i=zillerbaer@gmx.de;
+	bh=ywMSe1q/965v+eVkcNyBvT1Ac5yKe2OMwFLssD4KmtM=;
+	h=X-UI-Sender-Class:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=UA139x6LtD0mAH7hsre7jh4hbLsV6B8Znrsa401xiAzPdGkO0Mi9rvVfSGsBvc6Z
+	 AgoSpIdHp7hKKrz4cVPfOJfTZ8H5SEipWIsyxBKLIUG5onbQvVJ9hlTECvWjhI6wH
+	 IIGGXT6k+hRK9OrXbgQTalCNJFKyrPYz+FMak1P5fKDPqHwmJFytO9zWg93CHhWNA
+	 +nKgYEnEurQjukAudlWBR4U+EoTFg1GEFWYwMNJNs16V4kSamp5GvZVROjl83BnTQ
+	 I36oucGiZ54Eain4YJlr6il9akOY4/jxH90Pdl+ZwFoiPOJeXgUEzUzDy1HXKC45y
+	 PoIchL3VQWNcQyIKcg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from book ([91.14.228.167]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MqaxU-1u1cce0YwS-00hooB; Sun, 24
+ Nov 2024 21:39:24 +0100
+Date: Sun, 24 Nov 2024 21:38:53 +0100
+From: Jens Ziller <zillerbaer@gmx.de>
+To: "CK Hu (=?UTF-8?B?6IOh5L+K5YWJ?=)" <ck.hu@mediatek.com>
+Cc: "Shuijing Li (=?UTF-8?B?5p2O5rC06Z2Z?=)" <Shuijing.Li@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, "Jitao Shi (
+ =?UTF-8?B?55+z6K6w5rab?=)" <jitao.shi@mediatek.com>, "daniel@ffwll.ch"
+ <daniel@ffwll.ch>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>, "airlied@gmail.com"
+ <airlied@gmail.com>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v2] mediatek: dsi: Correct calculation formula of PHY
+ Timing
+Message-ID: <20241124213853.06c1bd33@book>
+In-Reply-To: <4b9e27b50417d60eb32cd0ec782778f652656909.camel@mediatek.com>
+References: <20240412031208.30688-1-shuijing.li@mediatek.com>
+	<20241027143219.56e7b4d0@schleppi.lan>
+	<4b9e27b50417d60eb32cd0ec782778f652656909.camel@mediatek.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.41; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:HkxXrXpOsattdDkhnrvYIdDinULQaFyrzUNAc2LDZpldEAhh+QJ
+ bcuyHSa9BctP5nW+CrrhqtpstoObhJC2BKZlM99618KZgz0Pdu4YB9h38uM12SDex9IanhP
+ nmRL2B8Y4XX8HXWrotB3/24rdxEqY2vlNASTAY82INLUWEUEVj6zTC2JrsvAWYOlc0dkVvr
+ m2PdAfPWnwsjvyhtmONHw==
+UI-OutboundReport: notjunk:1;M01:P0:n9Y+PD3R9fI=;eQeqCGU5HdIPEZHFNsrJg8AN+ZU
+ e2coRFOYFkdl+aawOf/hSbyCuA2KiPAWJLnMTbusXyJhbgN633JGIoxbRqlpM7SppyioJzrOc
+ zRPglEpPwedoY2jQ/fMGHQqhKOwFb9cBm0YEGhPEMmfpGis2hlBL8daveaZg2mwQpdBmbwBbG
+ OrE3pnb4gtnkFIuJ0eljVzijD76tkQhSL7S67AID1twSAIuUYnaiUtFimXXn1iyi9AITIeODq
+ Hep9f0xvQKAZb2zXgG2FJgeYDospSq/ul4GewqRbVQV68xSVigu2ftxEVRPBfHBlGodwMcskB
+ JVLDwPekaSR6q6O6EQ3luqzOna8OX4XbqxFS5iNe+4vypv+CQxvz90iRIxuTkfpcIk9EMyalz
+ yc+d9di7GZrBrgrDS/Fb2cscN0au0bqeFIlhaEGLO2Y2pYBOsi05y7oWNd6slMFdBGaiUYp+I
+ gw5tydx08xnlysd5Iv6DuPXpjzk9PmSdFTFqz5OTPDuKqXmfkQY4oFf1epDEZWf9rKP2lnjXo
+ 7PG0knnQiU96VtmVSqt3IZ6BOe3VmQMA7fCSC/cxMgOlV8DZ5yQR27wYO/ir50xrQckV05jax
+ Rq+IQtsvGpMEJ+LyXt8wf8naPkMP//RVJtehxHIoi4vqssF/ytm20MzYjPuAUfcmsOCdi+4AQ
+ Kg897K0eHX9TovfyE2fJgNZNAkdHkiXNAbCRmq8wE32TTV4w0LZBRqT0cyiN2VCq2k5+L+I8g
+ Mq1dJyKkR+rfBby42dzog0rdfuSSABqag1MwpJKvovzUPwMyw0SGM+Y1SWRuWSZihGDCPSnSd
+ GSGarkalNWIrYA0tw58WCXGcXfwla2wn2gnyNJCZFYT8wXy1x1fvF9FySCJjpXo4nUM2DvoN0
+ pJdvGhoCa1PyJymk2nJVomhgQuMxWyOxe36bPZ4I1D//BIUv0XgpeQ3sT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_114301_122995_EA683B80 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20241124_123941_161471_95292867 
+X-CRM114-Status: GOOD (  27.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,86 +105,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/nv-gic
-head:   f02c94e64607418b939b5660440a826b405e383d
-commit: 05a6e17890c506952c27f53d3dd8ebabc83ab0ad [4/11] KVM: arm64: nv: Nested GICv3 Support
-config: arm64-randconfig-003-20241124 (https://download.01.org/0day-ci/archive/20241125/202411250324.1ah9afGm-lkp@intel.com/config)
-compiler: clang version 14.0.6 (https://github.com/llvm/llvm-project f28c006a5895fc0e329fe15fead81e37457cb1d1)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241125/202411250324.1ah9afGm-lkp@intel.com/reproduce)
+Am Thu, 21 Nov 2024 03:50:02 +0000
+schrieb CK Hu (=E8=83=A1=E4=BF=8A=E5=85=89) <ck.hu@mediatek.com>:
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411250324.1ah9afGm-lkp@intel.com/
+> Hi, Shuijing:
+>=20
+> On Sun, 2024-10-27 at 14:32 +0100, Jens Ziller wrote:
+> > External email : Please do not click links or open attachments
+> > until you have verified the sender or the content.
+> >=20
+> >=20
+> > Am Fri, 12 Apr 2024 11:11:39 +0800
+> > schrieb Shuijing Li <shuijing.li@mediatek.com>:
+> >=20
+> > > This patch correct calculation formula of PHY timing.
+> > > The spec define HS-PREPARE should be from 40ns+4*UI(44ns) to
+> > > 85ns+6*UI(91ns). But current duration is 88ns and is near the
+> > > boundary. So this patch make the duration to 64ns so it is near
+> > > the safe range.
+> >=20
+> > Hi Shuijing,
+> >=20
+> > with this patch the panel in the Tentacruel ASUS Chromebook CM14
+> > (CM1402F) flickers. There are 1 or 2 times per second a black panel.
+> > Stable Kernel 6.11.5 and mainline 6.12-rc4 works only when I reverse
+> > this patch. There's a bug inside. Can you please check that?
+>=20
+> Please help Jens to fix this bug.
+> Otherwise, I've to revert this patch.
+>
+> Regards,
+> CK
 
-All warnings (new ones prefixed by >>):
+I'am not be able to fix that. This patch must be reverted that the
+actual kernel runs on my Chromebook. Please revert this patch.
 
->> arch/arm64/kvm/vgic/vgic-init.c:207: warning: expecting prototype for kvm_vgic_vcpu_init(). Prototype was for vgic_allocate_private_irqs_locked() instead
+Regards
+Jens
 
+>=20
+> >=20
+> > Best regards
+> > Jens
+> >=20
+> > >=20
+> > > Signed-off-by: Shuijing Li <shuijing.li@mediatek.com>
+> > > ---
+> > > Changes in v2:
+> > > Add a commit to describe the improvements to this patch in detail,
+> > > per suggestion frome previous thread:
+> > > https://urldefense.com/v3/__https://patchwork.kernel.org/project/linu=
+x-mediatek/patch/20240315072945.19502-1-shuijing.li@mediatek.com/__;!!CTRNK=
+A9wMg0ARbw!nA3Auuq2W3qyf3a8OtzDvLICN_xfq5zUozp_-Wo7Q4jR9l6qKlxiWNC4TZPXQa8W=
+08veWhokHyRrvCodcpg$
+> > > ---
+> > >  drivers/gpu/drm/mediatek/mtk_dsi.c | 33
+> > > +++++++++++++++--------------- 1 file changed, 17 insertions(+),
+> > > 16 deletions(-)
+> > >=20
+> > > diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c
+> > > b/drivers/gpu/drm/mediatek/mtk_dsi.c index
+> > > a2fdfc8ddb15..d1bd7d671880 100644 ---
+> > > a/drivers/gpu/drm/mediatek/mtk_dsi.c +++
+> > > b/drivers/gpu/drm/mediatek/mtk_dsi.c @@ -235,22 +235,23 @@ static
+> > > void mtk_dsi_phy_timconfig(struct mtk_dsi *dsi) u32 data_rate_mhz
+> > > =3D DIV_ROUND_UP(dsi->data_rate, 1000000); struct mtk_phy_timing
+> > > *timing =3D &dsi->phy_timing;
+> > >=20
+> > > -     timing->lpx =3D (60 * data_rate_mhz / (8 * 1000)) + 1;
+> > > -     timing->da_hs_prepare =3D (80 * data_rate_mhz + 4 * 1000) /
+> > > 8000;
+> > > -     timing->da_hs_zero =3D (170 * data_rate_mhz + 10 * 1000) /
+> > > 8000 + 1 -
+> > > -                          timing->da_hs_prepare;
+> > > -     timing->da_hs_trail =3D timing->da_hs_prepare + 1;
+> > > -
+> > > -     timing->ta_go =3D 4 * timing->lpx - 2;
+> > > -     timing->ta_sure =3D timing->lpx + 2;
+> > > -     timing->ta_get =3D 4 * timing->lpx;
+> > > -     timing->da_hs_exit =3D 2 * timing->lpx + 1;
+> > > -
+> > > -     timing->clk_hs_prepare =3D 70 * data_rate_mhz / (8 * 1000);
+> > > -     timing->clk_hs_post =3D timing->clk_hs_prepare + 8;
+> > > -     timing->clk_hs_trail =3D timing->clk_hs_prepare;
+> > > -     timing->clk_hs_zero =3D timing->clk_hs_trail * 4;
+> > > -     timing->clk_hs_exit =3D 2 * timing->clk_hs_trail;
+> > > +     timing->lpx =3D (80 * data_rate_mhz / (8 * 1000)) + 1;
+> > > +     timing->da_hs_prepare =3D (59 * data_rate_mhz + 4 * 1000) /
+> > > 8000 + 1;
+> > > +     timing->da_hs_zero =3D (163 * data_rate_mhz + 11 * 1000) /
+> > > 8000 + 1 -
+> > > +             timing->da_hs_prepare;
+> > > +     timing->da_hs_trail =3D (78 * data_rate_mhz + 7 * 1000) / 8000
+> > > + 1; +
+> > > +     timing->ta_go =3D 4 * timing->lpx;
+> > > +     timing->ta_sure =3D 3 * timing->lpx / 2;
+> > > +     timing->ta_get =3D 5 * timing->lpx;
+> > > +     timing->da_hs_exit =3D (118 * data_rate_mhz / (8 * 1000)) + 1;
+> > > +
+> > > +     timing->clk_hs_prepare =3D (57 * data_rate_mhz / (8 * 1000)) +
+> > > 1;
+> > > +     timing->clk_hs_post =3D (65 * data_rate_mhz + 53 * 1000) /
+> > > 8000 + 1;
+> > > +     timing->clk_hs_trail =3D (78 * data_rate_mhz + 7 * 1000) /
+> > > 8000 + 1;
+> > > +     timing->clk_hs_zero =3D (330 * data_rate_mhz / (8 * 1000)) + 1
+> > > -
+> > > +             timing->clk_hs_prepare;
+> > > +     timing->clk_hs_exit =3D (118 * data_rate_mhz / (8 * 1000)) +
+> > > 1;
+> > >=20
+> > >       timcon0 =3D timing->lpx | timing->da_hs_prepare << 8 |
+> > >                 timing->da_hs_zero << 16 | timing->da_hs_trail <<
+> > > 24;
+> >=20
+> >=20
 
-vim +207 arch/arm64/kvm/vgic/vgic-init.c
-
-05a6e17890c5069 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2016-12-02  196  
-05a6e17890c5069 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2016-12-02  197  /**
-05a6e17890c5069 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2016-12-02  198   * kvm_vgic_vcpu_init() - Initialize static VGIC VCPU data
-05a6e17890c5069 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2016-12-02  199   * structures and register VCPU-specific KVM iodevs
-05a6e17890c5069 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2016-12-02  200   *
-05a6e17890c5069 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2016-12-02  201   * @vcpu: pointer to the VCPU being created and initialized
-05a6e17890c5069 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2016-12-02  202   *
-05a6e17890c5069 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2016-12-02  203   * Only do initialization, but do not actually enable the
-05a6e17890c5069 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2016-12-02  204   * VGIC CPU interface
-05a6e17890c5069 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2016-12-02  205   */
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  206  static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu)
-1aab6f468c10a1e virt/kvm/arm/vgic/vgic-init.c   Christoffer Dall 2017-05-08 @207  {
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  208  	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  209  	int i;
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  210  
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  211  	lockdep_assert_held(&vcpu->kvm->arch.config_lock);
-c011f4ea106b94e virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  212  
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  213  	if (vgic_cpu->private_irqs)
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  214  		return 0;
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  215  
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  216  	vgic_cpu->private_irqs = kcalloc(VGIC_NR_PRIVATE_IRQS,
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  217  					 sizeof(struct vgic_irq),
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  218  					 GFP_KERNEL_ACCOUNT);
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  219  
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  220  	if (!vgic_cpu->private_irqs)
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  221  		return -ENOMEM;
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  222  
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  223  	/*
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  224  	 * Enable and configure all SGIs to be edge-triggered and
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  225  	 * configure all PPIs as level-triggered.
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  226  	 */
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  227  	for (i = 0; i < VGIC_NR_PRIVATE_IRQS; i++) {
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  228  		struct vgic_irq *irq = &vgic_cpu->private_irqs[i];
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  229  
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  230  		INIT_LIST_HEAD(&irq->ap_list);
-8fa3adb8c6beee4 virt/kvm/arm/vgic/vgic-init.c   Julien Thierry   2019-01-07  231  		raw_spin_lock_init(&irq->irq_lock);
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  232  		irq->intid = i;
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  233  		irq->vcpu = NULL;
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  234  		irq->target_vcpu = vcpu;
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  235  		kref_init(&irq->refcount);
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  236  		if (vgic_irq_is_sgi(i)) {
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  237  			/* SGIs */
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  238  			irq->enabled = 1;
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  239  			irq->config = VGIC_CONFIG_EDGE;
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  240  		} else {
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  241  			/* PPIs */
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  242  			irq->config = VGIC_CONFIG_LEVEL;
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  243  		}
-5ec17fbac6713be virt/kvm/arm/vgic/vgic-init.c   Eric Auger       2018-05-22  244  	}
-1aab6f468c10a1e virt/kvm/arm/vgic/vgic-init.c   Christoffer Dall 2017-05-08  245  
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  246  	return 0;
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  247  }
-03b3d00a70b5585 arch/arm64/kvm/vgic/vgic-init.c Marc Zyngier     2024-05-02  248  
-
-:::::: The code at line 207 was first introduced by commit
-:::::: 1aab6f468c10a1ec3977fb6f7bc12869174d516e KVM: arm/arm64: Register iodevs when setting redist base and creating VCPUs
-
-:::::: TO: Christoffer Dall <cdall@linaro.org>
-:::::: CC: Christoffer Dall <cdall@linaro.org>
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
