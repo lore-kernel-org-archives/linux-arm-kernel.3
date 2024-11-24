@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 883ACE668AD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 12:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5642E668AB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 12:55:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RkBmtuBSH9BvnPmmOZ9GYZL8CdWojTswGqQr2sK4c1s=; b=QM7dWZzZ5fnvrCXfsiTNSg3Gcn
-	5+dJh1lD2ZRc3ZYd9s7QGbFCKnmiKm5+21fEhPvK509TZUvbp3YlH4SH0UmkEv/4C09Prv5RYhjGA
-	iBP1fiNOogX4YqABnjrrNQ53Kyw0HihdnTRze2vCC11mvuw3D8/PuguyCa7+4iuzV51+uewkeUUpB
-	Mw0H33VJKUVFMkXWXn27t2gRgtXcPnWtNrXWTKRmcu7U42GJE9ta8Iwn9NU6eCH5PdTpKs7CgPpF8
-	mTxbeIB3/WrSyM65YZONaibKIzkF3uwzy/gV6Hrf6V/h5zzZtDfgDkRJNRjYSowazUeQbuVrxt6OQ
-	1fVVryFw==;
+	bh=GlWsimqHI2a/8hP+8/JbfhknrN/8GQ6DXXLQKPI+RPE=; b=AfQH5bTszItF1miBe9QxoQZ2Pb
+	7UBqZuF7zMVSKWA2lX0fj56IpCWHKjHwwS7rrzAW5OSqcYcf45GttkI17RsoHSYG3Qft34OZW5jqO
+	UhnEYeunKojkRbKvHT43xoyQD0EKy4NZM2sG3U+NflPPNqqEeClWI/J3EPTXCe5MKo5Upen9QjXuj
+	DsBoFhLKJ9YKfl02au2tbQ3jxv54AvGAvICB9P/qYHwq4Xg5Hr4oxLpqqloBqhHeIQfwn6mZmoMlk
+	tyhnblrwKsUT4T07BrJTdtxBSplgroum64QQx6gKQ633NfWwMw/1eczt3YVat1gqn5qLwSmJ1mT4N
+	NC2vyfhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFC7l-00000005ndu-1FRK;
-	Sun, 24 Nov 2024 12:54:01 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tFC8g-00000005nsG-306Z;
+	Sun, 24 Nov 2024 12:54:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFBwU-00000005kIE-0svc
+	id 1tFC4I-00000005mbO-0QoW
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Nov 2024 12:42:23 +0000
+	Sun, 24 Nov 2024 12:50:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6A87FA4094D;
-	Sun, 24 Nov 2024 12:40:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37693C4CECC;
-	Sun, 24 Nov 2024 12:42:20 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 00E595C55B8;
+	Sun, 24 Nov 2024 12:49:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 097B1C4CED1;
+	Sun, 24 Nov 2024 12:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732452141;
-	bh=dStXZbOZ68pcA4OHVXBepn0T/jxDTGEotO0Yx2wAYpY=;
+	s=k20201202; t=1732452625;
+	bh=Q3vJFI8VEQ+dQP8mtJd2dsAUO29gicA9uABtQSdl9/Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bBayeVMtkjUiELPpvBOfDIG9iwsxIWqvX34DmIqw2KNGSht+uMdB9GySsdOqoHUsT
-	 7xGopjCeK417X14P5jk6CC1tOoW9zyLN5k7vby4C8I8xsLsuchPe0OdZb/31aZyrJz
-	 zaLHK09tBr2zzb8tuOBvIFVT1FW+6D6fcCsSXGtN8btgXL9oSTukcFV8qtLy70VFF+
-	 jcfJKme/u5oPZPqYXRdrjkIZKgzEFvkVG8OapDORu/5rgxng9xUEWsXj+f+5K2bvOX
-	 LVnaV8+I+rox3EQp3KTuYNlkJgvA1iHguvE9CwKxICOIP4c1oWdzkPUX69FvD/H89s
-	 mToacOWdF+68w==
+	b=EqALUym5NCAJad2wOVNljvX8jLzSTEqmUHfyaFBLfk3cMg+6P/aeF1yWKcgMZqDoC
+	 7Mk5gQygYTM87FXQ9DuAA5JJO5nazHCtciDgRDZpvyveCDZev+qWjZL8nDEDtMpQcC
+	 Ztd1CPHwGlgBdNv9/X1Sv6jnd3wrJ28rIGt7WYkxS0B7zQ9RmS8iUFj9wuW7E0gIq2
+	 qET0YPDOuZ8Cwdu484q2ofGt5KcZuSt23uv2bqzIDUyRBPGuyEnX/kGOpTZKJgviJj
+	 XSS7FKaDASqGwj9C3XoZIbhdZM62JDY7UM8MVSv9LhtKRTqv5x9CnkLnFJejHK/yrn
+	 6vHvTSvF5RIvQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Mark Brown <broonie@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+Cc: Peng Fan <peng.fan@nxp.com>,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
-	will@kernel.org,
-	shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.10 5/5] kselftest/arm64: Don't leak pipe fds in pac.exec_sign_all()
-Date: Sun, 24 Nov 2024 07:42:04 -0500
-Message-ID: <20241124124210.3337020-5-sashal@kernel.org>
+	shawnguo@kernel.org,
+	imx@lists.linux.dev,
+	linux-mmc@vger.kernel.org,
+	s32@nxp.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.12 15/23] mmc: sdhci-esdhc-imx: enable quirks SDHCI_QUIRK_NO_LED
+Date: Sun, 24 Nov 2024 07:48:26 -0500
+Message-ID: <20241124124919.3338752-15-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241124124210.3337020-1-sashal@kernel.org>
-References: <20241124124210.3337020-1-sashal@kernel.org>
+In-Reply-To: <20241124124919.3338752-1-sashal@kernel.org>
+References: <20241124124919.3338752-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.10.230
+X-stable-base: Linux 6.12.1
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_044222_306581_CEF8D48F 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241124_045026_248329_A18DD279 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,36 +83,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mark Brown <broonie@kernel.org>
+From: Peng Fan <peng.fan@nxp.com>
 
-[ Upstream commit 27141b690547da5650a420f26ec369ba142a9ebb ]
+[ Upstream commit 4dede2b76f4a760e948e1a49b1520881cb459bd3 ]
 
-The PAC exec_sign_all() test spawns some child processes, creating pipes
-to be stdin and stdout for the child. It cleans up most of the file
-descriptors that are created as part of this but neglects to clean up the
-parent end of the child stdin and stdout. Add the missing close() calls.
+Enable SDHCI_QUIRK_NO_LED for i.MX7ULP, i.MX8MM, i.MX8QXP and
+i.MXRT1050. Even there is LCTL register bit, there is no IOMUX PAD
+for it. So there is no sense to enable LED for SDHCI for these SoCs.
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Link: https://lore.kernel.org/r/20241111-arm64-pac-test-collisions-v1-1-171875f37e44@kernel.org
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Haibo Chen <haibo.chen@nxp.com>
+Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+Link: https://lore.kernel.org/r/20240923062016.1165868-1-peng.fan@oss.nxp.com
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- tools/testing/selftests/arm64/pauth/pac.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/mmc/host/sdhci-esdhc-imx.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/tools/testing/selftests/arm64/pauth/pac.c b/tools/testing/selftests/arm64/pauth/pac.c
-index b743daa772f55..5a07b3958fbf2 100644
---- a/tools/testing/selftests/arm64/pauth/pac.c
-+++ b/tools/testing/selftests/arm64/pauth/pac.c
-@@ -182,6 +182,9 @@ int exec_sign_all(struct signatures *signed_vals, size_t val)
- 		return -1;
- 	}
+diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+index 8f0bc6dca2b04..ef3a44f2dff16 100644
+--- a/drivers/mmc/host/sdhci-esdhc-imx.c
++++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+@@ -238,6 +238,7 @@ struct esdhc_platform_data {
  
-+	close(new_stdin[1]);
-+	close(new_stdout[0]);
-+
- 	return 0;
- }
+ struct esdhc_soc_data {
+ 	u32 flags;
++	u32 quirks;
+ };
+ 
+ static const struct esdhc_soc_data esdhc_imx25_data = {
+@@ -309,10 +310,12 @@ static struct esdhc_soc_data usdhc_imx7ulp_data = {
+ 			| ESDHC_FLAG_HAVE_CAP1 | ESDHC_FLAG_HS200
+ 			| ESDHC_FLAG_PMQOS | ESDHC_FLAG_HS400
+ 			| ESDHC_FLAG_STATE_LOST_IN_LPMODE,
++	.quirks = SDHCI_QUIRK_NO_LED,
+ };
+ static struct esdhc_soc_data usdhc_imxrt1050_data = {
+ 	.flags = ESDHC_FLAG_USDHC | ESDHC_FLAG_STD_TUNING
+ 			| ESDHC_FLAG_HAVE_CAP1 | ESDHC_FLAG_HS200,
++	.quirks = SDHCI_QUIRK_NO_LED,
+ };
+ 
+ static struct esdhc_soc_data usdhc_imx8qxp_data = {
+@@ -321,6 +324,7 @@ static struct esdhc_soc_data usdhc_imx8qxp_data = {
+ 			| ESDHC_FLAG_HS400 | ESDHC_FLAG_HS400_ES
+ 			| ESDHC_FLAG_STATE_LOST_IN_LPMODE
+ 			| ESDHC_FLAG_CLK_RATE_LOST_IN_PM_RUNTIME,
++	.quirks = SDHCI_QUIRK_NO_LED,
+ };
+ 
+ static struct esdhc_soc_data usdhc_imx8mm_data = {
+@@ -328,6 +332,7 @@ static struct esdhc_soc_data usdhc_imx8mm_data = {
+ 			| ESDHC_FLAG_HAVE_CAP1 | ESDHC_FLAG_HS200
+ 			| ESDHC_FLAG_HS400 | ESDHC_FLAG_HS400_ES
+ 			| ESDHC_FLAG_STATE_LOST_IN_LPMODE,
++	.quirks = SDHCI_QUIRK_NO_LED,
+ };
+ 
+ struct pltfm_imx_data {
+@@ -1687,6 +1692,7 @@ static int sdhci_esdhc_imx_probe(struct platform_device *pdev)
+ 
+ 	imx_data->socdata = device_get_match_data(&pdev->dev);
+ 
++	host->quirks |= imx_data->socdata->quirks;
+ 	if (imx_data->socdata->flags & ESDHC_FLAG_PMQOS)
+ 		cpu_latency_qos_add_request(&imx_data->pm_qos_req, 0);
  
 -- 
 2.43.0
