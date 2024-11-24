@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B58D75E34
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 19:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF74CE668BC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 19:42:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aKguNnI8qbCJPOk/0OUXKJn6KyDqP8gDSUIL96BzNMY=; b=LyuOl/Bxx1dmdedCPDjhX+v3kj
-	FfgVOl/4yVPwogSXYa9R6NZ+zr981fQfDx0o6dSITujh2N/XuBcMXGOgscHfNEBbvRSiQr10vjPPy
-	8tcWLmqrQIrCHCE8VAqLn0m8Bf+DF8lnjrMKlw0gNG/eTENL+eafIMXj3DADF6p6KsSvw6Qku78M9
-	pBJGE/S+R00zFkYYQfjCrKWOxvlMyfcAls8bSlr149lNJP8n18vwUFvc4zB+rTbBGQTLmKQf+SnUD
-	3E/gUG24S7eXU8zhEHhbojZD8W/g9+fdmu+ZL9oVzcHAwK46lhZ6tG2TEm1JzgxxJmN1m0UsCOyYF
-	CPz5EnsA==;
+	bh=+GykA3KcCgiZFrIubEllhonhwTqAWArBryLo6OL2K7A=; b=sk3elU0fyhAmok1KsR4SOTUw6T
+	n55yzyi2/e9h6plPB+ZxiJ8X3CZXh9XEBfnPrJYjLi8WTArQrY76M0BxawgGjxPZrwWXuGOWaB4ta
+	JagA+brtS1lGJcMPxJR/DlzLWsVStNyjHoEoIorL6GXVHbq9rElRI+R6Nfd/B+jhD7c7L9FqDFlhN
+	RPVv92s89+ZKX4mxcMH6aCJ91uJkFrk7rSsiRisD6cyLkXKvy5Dtko2GsoWt6+TDsrBVaD2L/aImO
+	kMCdJfFbDQEwUvkKFO2LjAqG32A6KrjwSra7IROhg38kfSTkfEwNWZlkTx87zW5Q9tz8YtsoG0DBX
+	nusY0kwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFINX-00000006aCw-2oaI;
-	Sun, 24 Nov 2024 19:34:43 +0000
+	id 1tFIV7-00000006acF-20Gy;
+	Sun, 24 Nov 2024 19:42:33 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFIMa-00000006a7L-374z;
-	Sun, 24 Nov 2024 19:33:45 +0000
+	id 1tFIUA-00000006aXW-38sl;
+	Sun, 24 Nov 2024 19:41:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=aKguNnI8qbCJPOk/0OUXKJn6KyDqP8gDSUIL96BzNMY=; b=WfzrmAZH10Da3X0YvlIGVnGs1c
-	ukUvvwBFmPwrzs5GOSMIJbyXbEFVbwyj4A23Aq7F272ZGcLhLQOQW9VuR41FGxEk6K4M+j72XpJHn
-	sWh2LrElJYN7f71/4/hQaWrD28n8ZePFMpMAhiA+9ZxPSfufRcZoN5H3RBrF8TUS7qFM=;
+	bh=+GykA3KcCgiZFrIubEllhonhwTqAWArBryLo6OL2K7A=; b=WsgF/ZrBh40RGoTDGIj8izylFB
+	NPbyHzySRoNccf9RLlCl2XoPoDVvbXBoebGwykMuVwg9ueGS2YkG8g82X51zwJaL/D2+7LhLWcyGs
+	nR2h1WCN9quegZbNlrYg7eYVo7OEBTeYR2dRZ70erM5Vf3JDpX2JU3z4XMYUc0zGdeXo=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1tFIMU-00EJXe-0H; Sun, 24 Nov 2024 20:33:38 +0100
-Date: Sun, 24 Nov 2024 20:33:37 +0100
+	id 1tFIU1-00EJYp-SE; Sun, 24 Nov 2024 20:41:25 +0100
+Date: Sun, 24 Nov 2024 20:41:25 +0100
 From: Andrew Lunn <andrew@lunn.ch>
 To: Andrea della Porta <andrea.porta@suse.com>
 Cc: Michael Turquette <mturquette@baylibre.com>,
@@ -66,17 +66,18 @@ Cc: Michael Turquette <mturquette@baylibre.com>,
 	Herve Codina <herve.codina@bootlin.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH v4 08/10] misc: rp1: RaspberryPi RP1 misc driver
-Message-ID: <e57c9c8b-2534-4d3a-b762-ca9c1f7dac40@lunn.ch>
+Subject: Re: [PATCH v4 09/10] arm64: dts: bcm2712: Add external clock for RP1
+ chipset on Rpi5
+Message-ID: <9abb376c-3399-4c2c-8e7c-cea1184ea370@lunn.ch>
 References: <cover.1732444746.git.andrea.porta@suse.com>
- <c48e6b9b178cdaa01b92ae82e8fd24c2ba5f170c.1732444746.git.andrea.porta@suse.com>
+ <8deccbd7ab8915957342a097410473445987b044.1732444746.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <c48e6b9b178cdaa01b92ae82e8fd24c2ba5f170c.1732444746.git.andrea.porta@suse.com>
+In-Reply-To: <8deccbd7ab8915957342a097410473445987b044.1732444746.git.andrea.porta@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_113344_778736_817AEAC1 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20241124_114134_787896_F97C8C73 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,23 +92,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +++ b/drivers/misc/rp1/rp1-pci.dtso
-> @@ -0,0 +1,8 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +
-> +/* the dts overlay is included from the dts directory so
-> + * it can be possible to check it with CHECK_DTBS while
-> + * also compile it from the driver source directory.
-> + */
-> +
-> +#include "arm64/broadcom/rp1.dtso"
+On Sun, Nov 24, 2024 at 11:51:46AM +0100, Andrea della Porta wrote:
+> The RP1 found on Raspberry Pi 5 board needs an external crystal at 50MHz.
+> Add clk_rp1_xosc node to provide that.
 
-This is probably O.K, for now, but really the tooling should be
-extended so that DT files can be checked anywhere in the tree. I can
-see more such embedded DT overlays appearing with time, and there is
-nothing actually arm64 specific here, it is architecture agnostic. It
-is just a PCIe device, there is no reason it could not be used on a
-S390, Risc-V, or loongarch.
+I'm wondering if this is the correct place for this clock. From your
+description, the bcm2712 itself does not provide the clock. There is a
+crystal on the board. So the board provides the clock. What happens
+when the RP1 is used on other boards? Also, does the RP1 need an
+actual crystal, or can you feed it a clock? Often such inputs are
+flexible, you can connect a crystal across two pins, or you can feed a
+clock into one pin.
 
-      Andrew
+If a crystal is the only choice, i would probably have it part of the
+RP1 overlay. If a clock can be used, i would make it a board property.
+
+	Andrew
 
