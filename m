@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E54E6919E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 22:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85020E69187
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 22:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q1u4vHfRvgCaoseia72BLlSFw0EyXowlhKIML+3dE3E=; b=JE+R5AdTCLJqYgKkPtb/ly2Gv2
-	PjETACV07uPfyT7jiyREpH7CjopfozQDfqMGHIRU78qup9XGOrQBdBr8ryZ4muvjvDjOjHVnJCeoI
-	9vFVLHbs5hA8hlerEWnx3VtVmY/+d4v2HEBziemaH0btarsc3nkiYcTHLWM994TtTnTPcjbvyzPTc
-	6MB3TmQC9tDzvcEkWuG8LacqcheNlXpm/0xSELuHM6t47ridA2b26p+Lh5OWdpfqiDcvmhpNKbr0d
-	RwOk+rsLkg+INdoQ+4QKJ9i/yn+adPoArL5Hbtij5n6ywTZ3Iqb+Ejco+cWCaNJbrfpzlCTx4Xosj
-	9jDKPrgA==;
+	bh=nDMyti0S9tEdlwS8YTVbNrnuNEH/o2gFe7SKRAIfAho=; b=op7TjQL9hRxHY7K34/u3reyQgv
+	JUYnEtkIwX4Ax4mCcqHPF3pmL3dxcfZH/9C4Y+Vtgy5/mJfygyRFli6HCLwXZoKvJ7oSQtjAKLITw
+	VUl8xa2m21ivjX5RiUZn6BMCv2oygNV4NufuHwjsHNI/IdO38uSUiH5bSqIf4S6EcQVgwUwaAswqb
+	24dXIGIi7iEAla2tj+8ammbKDgigNpYMzMUKseeDG6ug2S/RDJdgJDJvXe4Fz5WySS9iktztuVLO3
+	UnHoQ7a76zuk8NTfzHroN3HG9vHzu06l24CSQ/426j0L3iCP8sOxbuDeJqIJw0TtZ63SiW2pWidqX
+	M2NFa06A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFL9g-00000006iLF-1ndO;
-	Sun, 24 Nov 2024 22:32:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tFLAb-00000006iQU-3B9C;
+	Sun, 24 Nov 2024 22:33:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFL6s-00000006hqX-3sJL
+	id 1tFL6t-00000006hrD-1ktg
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 24 Nov 2024 22:29:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4E2EB5C5799;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6C20F5C57A0;
 	Sun, 24 Nov 2024 22:28:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 46EEBC4CED6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 55ADAC4CEDB;
 	Sun, 24 Nov 2024 22:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1732487381;
-	bh=OYgHLzwK1X/1X2eWrL/ohgxUYMdynk83KvlT+EAAHQ8=;
+	bh=IpGpOQfNOp5iiGnwHCRTZsOc8ArMyBSqfq5CPi6XwYE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=HeL5l4OGWQbHTXwsgzniDW1NHocmKDTXwuPqKlMJapZNfIYRiyLLbrYqYCe5VOVNd
-	 PoyAxQqruIzYW9+vcZTwnrDWaZF4xMV7IAqogbxuuvKqFmQwGAptFBUlgwySpMBW4y
-	 v7A9h2eGS882PHLYI7R9WYoqn9QigplBF+IfsLdzDL7fD1kHtnFOYfSEGtKN+aaQQV
-	 GUXsd2sfNbmetGHEucT+sBki26cVXssG70qfOBxlv1tcyZcG8MYATYuzUHmG7JtsCz
-	 iWag7ceqNioFl3bSge6vfL3zBC1w1XYFizHQsFwZ/cbAAlw2rezMjXIsMZ0zDzhe3N
-	 ifCXbH3Y4NWsQ==
+	b=U4ACMKuRKBxIS5LX554k5yvmThm19bVmC2wct5nTMSSyY1Izy2sFpM6ZY4aHV1giZ
+	 Zf7pwMWv97iOo96zIb7GH+YQ9rBqC+oC9qoLLN2hrmtRTJRJgUVzxJTQ8Yyj31RJOJ
+	 cOxRYURkDmL0vSCOBv3iWJVyfYuE3YJgOCjY+4fCd364J7KO1DSQXrguScuNJsugHO
+	 B3RGUU2yDJHVvnFi0RIEFJNMLLXiCBxiTgB8LwcNjG1PY1GymKpNAgk++He9/b51Is
+	 zm1EWdB0GLUHsjvOVpQ3b9oX/pnMsZRPzHxvOUZWeySZFH5MKg9u7r6VRavPwUx8sb
+	 xLYBoIgz2SJOw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 38EA4E6ADDF;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4A5EAE69187;
 	Sun, 24 Nov 2024 22:29:41 +0000 (UTC)
 From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Sun, 24 Nov 2024 23:29:26 +0100
-Subject: [PATCH 3/5] gpu: drm: adp: Add a backlight driver for the Summit
- LCD
+Date: Sun, 24 Nov 2024 23:29:27 +0100
+Subject: [PATCH 4/5] arm64: dts: apple: Add touchbar screen nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241124-adpdrm-v1-3-3191d8e6e49a@gmail.com>
+Message-Id: <20241124-adpdrm-v1-4-3191d8e6e49a@gmail.com>
 References: <20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com>
 In-Reply-To: <20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com>
 To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
@@ -66,22 +65,21 @@ To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
  Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Sasha Finkelstein <fnkl.kernel@gmail.com>, 
- Nick Chan <towinchenmi@gmail.com>
+ Sasha Finkelstein <fnkl.kernel@gmail.com>, Janne Grunau <j@jannau.net>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732487379; l=3305;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1732487379; l=4465;
  i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=sbnezbuFoF7i74RnvJBF1A8kSZMpFbcSuRY+EtYx+3c=;
- b=KmisXylwekMJhnG7GXCtk2uDcahe4QtLnC0hSFYM513rcUB/5aCzcquaCqlsygHwAwnzaTmyY
- f9xDvEydidsBO5WmK4DLmXuK0gRPNzgfqDNWb/xb/M94MTHeYrSgoE8
+ bh=/Z/q4ZVJ4fsMdrr5uOJvHeSbqY42cSj9gitq980wGIU=;
+ b=tMPX18T+Mc2Zftsm6YNPtbIp7sj8XBd/laV55C6OqIyQbFNCv8yOKB07ihqOE/mUKeuTEPcAo
+ UYK3LuUFhH2AYZpUGQAd6RLHTXqRFj9AWsBY7pvWa+P4xIN7mOx608+
 X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
  auth_id=283
 X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_142943_058402_D5223079 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20241124_142943_551244_1D2C8818 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,129 +97,133 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-This is the display panel used for the touchbar on laptops that have it.
+Adds device tree entries for the touchbar screen
 
-Co-developed-by: Nick Chan <towinchenmi@gmail.com>
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+Co-developed-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Janne Grunau <j@jannau.net>
 Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 ---
- drivers/gpu/drm/adp/panel-summit.c | 108 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 108 insertions(+)
+ arch/arm64/boot/dts/apple/t8103-j293.dts |  8 ++++++++
+ arch/arm64/boot/dts/apple/t8103.dtsi     | 26 ++++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8112-j493.dts | 15 +++++++++++++++
+ arch/arm64/boot/dts/apple/t8112.dtsi     | 25 +++++++++++++++++++++++++
+ 4 files changed, 74 insertions(+)
 
-diff --git a/drivers/gpu/drm/adp/panel-summit.c b/drivers/gpu/drm/adp/panel-summit.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..2dcbddd925ce3863742aa60164369ba9db0bbfff
---- /dev/null
-+++ b/drivers/gpu/drm/adp/panel-summit.c
-@@ -0,0 +1,108 @@
-+// SPDX-License-Identifier: GPL-2.0-only
+diff --git a/arch/arm64/boot/dts/apple/t8103-j293.dts b/arch/arm64/boot/dts/apple/t8103-j293.dts
+index 56b0c67bfcda321b60c621de092643017693ff91..349a8fce6b0b8ccf3305f940ba7242e2c1a67754 100644
+--- a/arch/arm64/boot/dts/apple/t8103-j293.dts
++++ b/arch/arm64/boot/dts/apple/t8103-j293.dts
+@@ -49,3 +49,11 @@ &i2c4 {
+ &fpwm1 {
+ 	status = "okay";
+ };
 +
-+#include <linux/backlight.h>
-+#include <drm/drm_mipi_dsi.h>
-+#include <video/mipi_display.h>
++&display_dfr {
++	status = "okay";
++	dfr_panel: panel@0 {
++		compatible = "apple,summit";
++		reg = <0>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
+index 9b0dad6b618444ac6b1c9735c50cccfc3965f947..b377c92c5db3cb4fea53ae2c5dd85acf038429a3 100644
+--- a/arch/arm64/boot/dts/apple/t8103.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103.dtsi
+@@ -356,6 +356,32 @@ cpufreq_p: performance-controller@211e20000 {
+ 			#performance-domain-cells = <0>;
+ 		};
+ 
++		display_dfr: display-pipe@228200000 {
++			compatible = "apple,t8103-display-pipe", "apple,h7-display-pipe";
++			reg-names = "be", "fe", "mipi";
++			reg = <0x2 0x28200000 0x0 0xc000>,
++				<0x2 0x28400000 0x0 0x4000>,
++				<0x2 0x28600000 0x0 0x100000>;
++			power-domains = <&ps_dispdfr_fe>, <&ps_dispdfr_be>, <&ps_mipi_dsi>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 502 IRQ_TYPE_LEVEL_HIGH>,
++				<AIC_IRQ 506 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "be", "fe";
++			status = "disabled";
++			iommus = <&displaydfr_dart 0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
 +
-+struct summit_data {
-+	struct mipi_dsi_device *dsi;
-+	struct backlight_device *bl;
++		displaydfr_dart: iommu@228304000 {
++			compatible = "apple,t8103-dart";
++			reg = <0x2 0x28304000 0x0 0x4000>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 504 IRQ_TYPE_LEVEL_HIGH>;
++			#iommu-cells = <1>;
++			power-domains = <&ps_dispdfr_fe>;
++		};
++
+ 		sio_dart: iommu@235004000 {
+ 			compatible = "apple,t8103-dart";
+ 			reg = <0x2 0x35004000 0x0 0x4000>;
+diff --git a/arch/arm64/boot/dts/apple/t8112-j493.dts b/arch/arm64/boot/dts/apple/t8112-j493.dts
+index 0ad908349f55406783942735a2e9dad54cda00ec..80e371495f3e097f91e94549c7ac2949609f566f 100644
+--- a/arch/arm64/boot/dts/apple/t8112-j493.dts
++++ b/arch/arm64/boot/dts/apple/t8112-j493.dts
+@@ -35,6 +35,21 @@ led-0 {
+ 	};
+ };
+ 
++&display_dfr {
++	status = "okay";
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	dfr_panel: panel@0 {
++		compatible = "apple,summit";
++		reg = <0>;
++	};
 +};
 +
-+static int summit_set_brightness(struct device *dev)
-+{
-+	struct summit_data *panel = dev_get_drvdata(dev);
-+	int level = backlight_get_brightness(panel->bl);
-+	int err = mipi_dsi_dcs_set_display_brightness(panel->dsi, level);
-+
-+	if (err < 0)
-+		return err;
-+	return 0;
-+}
-+
-+static int summit_bl_update_status(struct backlight_device *dev)
-+{
-+	return summit_set_brightness(&dev->dev);
-+}
-+
-+static int summit_bl_get_brightness(struct backlight_device *dev)
-+{
-+	return backlight_get_brightness(dev);
-+}
-+
-+static const struct backlight_ops summit_bl_ops = {
-+	.get_brightness = summit_bl_get_brightness,
-+	.update_status	= summit_bl_update_status,
++&displaydfr_dart {
++	status = "okay";
 +};
 +
-+static int summit_probe(struct mipi_dsi_device *dsi)
-+{
-+	struct backlight_properties props = { 0 };
-+	struct device *dev = &dsi->dev;
-+	struct summit_data *panel;
+ /*
+  * Force the bus number assignments so that we can declare some of the
+  * on-board devices and properties that are populated by the bootloader
+diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
+index 1666e6ab250bc0be9b8318e3c8fc903ccd3f3760..726b11376692580abb129b9be35107bee1550a93 100644
+--- a/arch/arm64/boot/dts/apple/t8112.dtsi
++++ b/arch/arm64/boot/dts/apple/t8112.dtsi
+@@ -379,6 +379,31 @@ cpufreq_p: cpufreq@211e20000 {
+ 			#performance-domain-cells = <0>;
+ 		};
+ 
++		display_dfr: display-pipe@228200000 {
++			compatible = "apple,t8112-display-pipe", "apple,h7-display-pipe";
++			reg-names = "be", "fe", "mipi";
++			reg = <0x2 0x28200000 0x0 0xc000>,
++				<0x2 0x28400000 0x0 0x4000>,
++				<0x2 0x28600000 0x0 0x100000>;
++			power-domains = <&ps_dispdfr_fe>, <&ps_dispdfr_be>, <&ps_mipi_dsi>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 614 IRQ_TYPE_LEVEL_HIGH>,
++				<AIC_IRQ 618 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "be", "fe";
++			status = "disabled";
++			iommus = <&displaydfr_dart 0>;
++		};
 +
-+	panel = devm_kzalloc(dev, sizeof(*panel), GFP_KERNEL);
-+	if (!panel)
-+		return -ENOMEM;
++		displaydfr_dart: iommu@228304000 {
++			compatible = "apple,t8110-dart";
++			reg = <0x2 0x28304000 0x0 0x4000>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 616 IRQ_TYPE_LEVEL_HIGH>;
++			#iommu-cells = <1>;
++			power-domains = <&ps_dispdfr_fe>;
++			status = "disabled";
++		};
 +
-+	mipi_dsi_set_drvdata(dsi, panel);
-+	panel->dsi = dsi;
-+
-+	int ret = device_property_read_u32(dev, "max-brightness", &props.max_brightness);
-+
-+	if (ret)
-+		props.max_brightness = 255;
-+	props.type = BACKLIGHT_RAW;
-+
-+	panel->bl = devm_backlight_device_register(dev, dev_name(dev),
-+						   dev, panel, &summit_bl_ops, &props);
-+	if (IS_ERR(panel->bl))
-+		return PTR_ERR(panel->bl);
-+
-+	return mipi_dsi_attach(dsi);
-+}
-+
-+static void summit_remove(struct mipi_dsi_device *dsi)
-+{
-+	mipi_dsi_detach(dsi);
-+}
-+
-+static int summit_resume(struct device *dev)
-+{
-+	return summit_set_brightness(dev);
-+}
-+
-+static int summit_suspend(struct device *dev)
-+{
-+	struct summit_data *panel = dev_get_drvdata(dev);
-+
-+	int err = mipi_dsi_dcs_set_display_brightness(panel->dsi, 0);
-+
-+	if (err < 0)
-+		return err;
-+	return 0;
-+}
-+
-+static DEFINE_SIMPLE_DEV_PM_OPS(summit_pm_ops, summit_suspend,
-+				summit_resume);
-+
-+static const struct of_device_id summit_of_match[] = {
-+	{ .compatible = "apple,summit" },
-+	{},
-+};
-+
-+MODULE_DEVICE_TABLE(of, summit_of_match);
-+
-+static struct mipi_dsi_driver summit_driver = {
-+	.probe = summit_probe,
-+	.remove = summit_remove,
-+	.driver = {
-+		.name = "panel-summit",
-+		.of_match_table = summit_of_match,
-+		.pm = pm_sleep_ptr(&summit_pm_ops),
-+	},
-+};
-+module_mipi_dsi_driver(summit_driver);
-+
-+MODULE_DESCRIPTION("Summit Display Panel Driver");
-+MODULE_LICENSE("GPL");
+ 		sio_dart: iommu@235004000 {
+ 			compatible = "apple,t8110-dart";
+ 			reg = <0x2 0x35004000 0x0 0x4000>;
 
 -- 
 2.47.0
