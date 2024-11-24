@@ -4,83 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0302E69187
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 22:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1112D3B7C3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 22:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5MoejeMAm9Z+Zwo5o/+Ddorw5vIWZRpTkMW/jJhfank=; b=J9JaIs6pN2o0/s4prVtQiuAdPa
-	OG+IXuyHySfsKZbxoxEXaqg+t0xU/pI0vLtjfauYH4Csi/lsv48S1AN1WtUQmXOAZOknf1doZMqpC
-	8btfV7k89UysPNiZYNCW/vORAEbCSLMjyFz9rJWTIVHCsplftuJE++31saOfuYKdVZaFZL1RwRO60
-	2p3XJvMi8xrvS2gCJDZoP32s1hKmida+LmPKO/YoLOZBgBOdbZaxM+fDXnYsvnKWA5Etanu+ZjAGV
-	GOtgMCZ40DbzkiX1V8T1Xk+QHAzN+pXXEQ9t52VJuasN+uXgx/QhMG/S4h4XYhlEZ9H4TzPn9yapA
-	rgGNyz9g==;
+	bh=CGNlAokFjmhN1EyWyvNQ13rV62s826Uf7N3aP5+qRgI=; b=ArKFJXL8aevk4VGbzhIUlEwsKQ
+	/K5QI/mUlcrLzUe2AKTOpGju3B3jTRavxf2wFtoUJQdFmPJ69B6b0uN0F4YGZ69UCo8tevy+lfBho
+	qvOhJ8wJJq7KL2kuM7aYw8TNrr5cSrAn/yRNW7+Ph26hxCsM8XSfP5lSvuHGrWlcruufJh4hkgfGj
+	07av5cCjfRL5mUBio6v4LUKDB0SjsRjEICkF7hx4rvAPsRgQoXA1knXBv/YE/7QBEtYL+TVPowSJi
+	8yxbvVIQNlmfUFLpDiGxIqNwOm1NdLamokqqG3xhdBEG3093F7IwukO02BNOCyixNfEokU5MqTs5a
+	WBwgPwSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFLCR-00000006ieL-49RD;
-	Sun, 24 Nov 2024 22:35:27 +0000
+	id 1tFLKx-00000006jKa-1wcy;
+	Sun, 24 Nov 2024 22:44:15 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFL6u-00000006hrm-0O98
+	id 1tFLJz-00000006j58-3YXi
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Nov 2024 22:29:45 +0000
+	Sun, 24 Nov 2024 22:43:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7C0D15C57B6;
-	Sun, 24 Nov 2024 22:28:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 68FCAC4CEDD;
-	Sun, 24 Nov 2024 22:29:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D76005C5788;
+	Sun, 24 Nov 2024 22:42:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B488BC4CED3;
+	Sun, 24 Nov 2024 22:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732487381;
-	bh=8Hp9HnlSkudhEMoVTtPB8Mqq7buNaH8Vu6szhwn5uHQ=;
+	s=k20201202; t=1732488193;
+	bh=zonr3mCcTyCgwR7d1gZNImuy1doROORC9hQH8Wi0Qyg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=UZGG7rOoUb2MQ5pq0RCgDVD0Uh4+J0lOKGx/2DGhvGu353804u3G9PeRttjYaaK1R
-	 sIlF8MKTx4qiCvWgR36Y51xcGHiMhJa7JnXv67wWN4UqUAdkIPRYNn1gXuX0Lba+AN
-	 MlPPclHkzD/1KRGxuZqeIy5rKh1m4xuYlUf6fnpXMfi+t4fV3nCen295fy9k3DVHKo
-	 qQ3A4PUhAsU5tYBrM1hZHEvusSiMR/gUJOr+ynwe795p5grgl5bzNkDa8qYXGDYJyP
-	 80SKszzwUJ6uNkIsTlDUeGscTpO79fnANpJsmGV1LCEpg6mSSDYQMDxaRiDXnZtagM
-	 65DlIgKz062ng==
+	b=dZyPbFAFDce1m//6kMr24W402SywT46yKFczk4gubVrswBIndWx8seqh3HGdY0ZpR
+	 h49r2/jEkTowjhbnJAwgSoL9uJ1NTn7/FoXUXi8NjJ9g61F6jL3IRajzDWO8q2noTq
+	 zE953E2RfK9yU8zfM9YyxRRiACGQU5Dpvvu1K2047SLCAYARr5wFL5k/3zIidiVFju
+	 RqMGt37MTrq/dvgOXqOWn5oLpJNJHmIfL6rVjeRPx18DhvXuXYyZDXYWd0MlSrPMI4
+	 WeKxUJ83QeRb9XBfqDJnm02xsyYd0DDf+FvinqFp8nyXekz+VjGGcXM8XEQdcRuTyM
+	 xyXl4JazeJ96Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A195E6ADEC;
-	Sun, 24 Nov 2024 22:29:41 +0000 (UTC)
-From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Sun, 24 Nov 2024 23:29:28 +0100
-Subject: [PATCH 5/5] MAINTAINERS: Add entries for touchbar display driver
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C1CCD3B7C1;
+	Sun, 24 Nov 2024 22:43:13 +0000 (UTC)
+From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
+Date: Sun, 24 Nov 2024 23:42:32 +0100
+Subject: [PATCH RFC net-next v6 01/15] net: driver: stmmac: Fix CSR divider
+ comment
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241124-adpdrm-v1-5-3191d8e6e49a@gmail.com>
-References: <20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com>
-In-Reply-To: <20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com>
-To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+Message-Id: <20241124-upstream_s32cc_gmac-v6-1-dc5718ccf001@oss.nxp.com>
+References: <20241124-upstream_s32cc_gmac-v6-0-dc5718ccf001@oss.nxp.com>
+In-Reply-To: <20241124-upstream_s32cc_gmac-v6-0-dc5718ccf001@oss.nxp.com>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
+ Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
+ Minda Chen <minda.chen@starfivetech.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Iyappan Subramanian <iyappan@os.amperecomputing.com>, 
+ Keyur Chudgar <keyur@os.amperecomputing.com>, 
+ Quan Nguyen <quan@os.amperecomputing.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Sasha Finkelstein <fnkl.kernel@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732487379; l=1179;
- i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=Zo6z/5ObW5tpoXAd3EL3OeGr9DmJcirQwYT2c5Ljs0k=;
- b=6a+DIWi9GClhX0WByRx54Ur2Q/eMDyfO7632pcDcXF4uq+86V0QRMTAU2VoDMJFZXp6aXA2vH
- AXSUleowlhlDLrepwdiuHmpzTO0gZBEA6pKVWIu+/+sOFSB104Z0Kju
-X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
- auth_id=283
-X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, 
+ devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
+ "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
+ Jacob Keller <jacob.e.keller@intel.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1732488190; l=958;
+ i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
+ bh=2KaIHv/oSTo3FOtKPvkHjEF7Z3D3rI5ymtYbTqdzAuo=;
+ b=VeQTUt7bpyeUnOUMlwx/qJ3/IOpuR0SPvnz4wyFi1qJmnGWXSSPrMgs+83RE4BxrJPpFPPRnc
+ mxLHaVNrZ6lBd8WddOX58/LTOeOjFih/Xh72VNtk8jiGb9VzP+/bLH0
+X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
+ pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
+X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
+ auth_id=217
+X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_142944_225421_A5CC2BBA 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241124_144315_981171_54B4CA58 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,39 +107,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: fnkl.kernel@gmail.com
+Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-Add the MAINTAINERS entries for the driver
+The comment in declaration of STMMAC_CSR_250_300M
+incorrectly describes the constant as '/* MDC = clk_scr_i/122 */'
+but the DWC Ether QOS Handbook version 5.20a says it is
+CSR clock/124.
 
-Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
 ---
- MAINTAINERS | 2 ++
- 1 file changed, 2 insertions(+)
+ include/linux/stmmac.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e7f0170977013889ca7c39b17727ba36d32e92dc..1964bb705cae0b0f12e2174fc96c5cd123d31520 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2164,6 +2164,7 @@ F:	Documentation/devicetree/bindings/arm/apple.yaml
- F:	Documentation/devicetree/bindings/arm/apple/*
- F:	Documentation/devicetree/bindings/clock/apple,nco.yaml
- F:	Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
-+F:	Documentation/devicetree/bindings/display/apple,display-pipe.yaml
- F:	Documentation/devicetree/bindings/dma/apple,admac.yaml
- F:	Documentation/devicetree/bindings/i2c/apple,i2c.yaml
- F:	Documentation/devicetree/bindings/interrupt-controller/apple,*
-@@ -2183,6 +2184,7 @@ F:	drivers/bluetooth/hci_bcm4377.c
- F:	drivers/clk/clk-apple-nco.c
- F:	drivers/cpufreq/apple-soc-cpufreq.c
- F:	drivers/dma/apple-admac.c
-+F:	drivers/gpu/drm/adp/
- F:	drivers/pmdomain/apple/
- F:	drivers/i2c/busses/i2c-pasemi-core.c
- F:	drivers/i2c/busses/i2c-pasemi-platform.c
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index d79ff252cfdc..75cbfb576358 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -33,7 +33,7 @@
+ #define	STMMAC_CSR_20_35M	0x2	/* MDC = clk_scr_i/16 */
+ #define	STMMAC_CSR_35_60M	0x3	/* MDC = clk_scr_i/26 */
+ #define	STMMAC_CSR_150_250M	0x4	/* MDC = clk_scr_i/102 */
+-#define	STMMAC_CSR_250_300M	0x5	/* MDC = clk_scr_i/122 */
++#define	STMMAC_CSR_250_300M	0x5	/* MDC = clk_scr_i/124 */
+ 
+ /* MTL algorithms identifiers */
+ #define MTL_TX_ALGORITHM_WRR	0x0
 
 -- 
 2.47.0
