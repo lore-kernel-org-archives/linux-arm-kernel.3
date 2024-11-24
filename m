@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E2BE668AB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 12:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CFE8E668AB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 12:58:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ROyoy5D3Apuc9bLeRfwSeN7g6RKmJPVj7/pjyR6FjdM=; b=v1tNsrYcQA4LQKYoQSC27F1UpG
-	Pchi9owfTKuHnF0hbVR6xmX+dlFWSREuZ8gfWGeddc7R4D3MN0j+uHktHodKv9u8c6z5H0wFwFvJd
-	i/gEjJJEtZ/evuhDG7pIXjH8DlW9Jdd1JvKW55aE/CjDBspjFWw+iFqv9xn9K2ZC21JpCNA9FoLZy
-	c+xzEL0FUsi0su/QR2iNuxHlCF8ZlY2C0s1Ek/kz3vZArhKdkSqVO/trt3+8/4Xe3Ffy+sx9pBrkA
-	6sR1qtp18lsIZ/L/2zpG41/PTNU7QJvLGyysHwNea9XCF5IRgbyiL+kmVg28TL/wIitjLulECLRZu
-	z15U9gfg==;
+	bh=GlWsimqHI2a/8hP+8/JbfhknrN/8GQ6DXXLQKPI+RPE=; b=eqUzGHWe/18hUhIOHJBQH3puo7
+	L8HiPVYziOelxmFMmGhFAz9iPLEoZTjH4vo5IKE9Bwpj9hv9KzPElqrLxffVHF7N/QL95LcCbMF7l
+	YFO5XzaSDl07vxr1omw+POmX752ldHxY2OzJ82tLKWHNsfkDP1km/UBnnzLQbLaWpLFiev9CPLVTT
+	MAzp2dPhgHvZ99nZfGQRfP5APMuOVxarDT+em66J4Zcd7lN67GCfd9CXlYXTqn3JaakAQPLIzqxKi
+	Srg4a5ZQQA1AdpkrPE6lx0SD9xCQ8YSPm2hNnL5ZHHY2x61OSRvVA5bpoRqCgP/rE8KrIvkgzGeE8
+	Xqdc1Gvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFCAY-00000005oPO-0RxB;
-	Sun, 24 Nov 2024 12:56:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tFCBT-00000005ocH-3WlR;
+	Sun, 24 Nov 2024 12:57:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFC4d-00000005miM-1MoS
+	id 1tFC5z-00000005nAT-06fo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Nov 2024 12:50:48 +0000
+	Sun, 24 Nov 2024 12:52:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 489165C56F6;
-	Sun, 24 Nov 2024 12:50:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 532C0C4CECC;
-	Sun, 24 Nov 2024 12:50:45 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E54F15C56BE;
+	Sun, 24 Nov 2024 12:51:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F10FBC4CED1;
+	Sun, 24 Nov 2024 12:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732452646;
-	bh=SUm48HcYKDKR6wUc3VpZvhgjuViI2lQ8T7bFKafhnSE=;
+	s=k20201202; t=1732452730;
+	bh=Q3vJFI8VEQ+dQP8mtJd2dsAUO29gicA9uABtQSdl9/Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cUyKN9lf8DT3NO8avNQAtAv9BwBjjzpmq3XLWuFPN4Mh+qtEfgYTj8SNn9bQRE+XQ
-	 0+0QzVjw7XLRM1GcBOQ7WMw3bcWxdAtCoCWuHad91x4lfFFHQ4SUOuxMU4WHf593tK
-	 zc53xG41gfOuPnM3qcU6vxgpBCt0dZuYWZKknIGB0jlvZASD7BUnBGL8dUNbOw/XJO
-	 aYCfunNqM+jP4//sCJGDPkgSJB5rQhPgms9dkzg0c39t+fu+4XEw8sq62lGadgjo+N
-	 rWoHfhbOc3g+cINCyiWuoZqV4JP9XrO9lXothzKiG1WPIK4zISwngxQrYwv/XuwcAr
-	 3Oirr1z4g6KJw==
+	b=mn8WSm9ZQt/eYmaY7S8KvMXEohLD32CSr1KBAAAa6P9i9yaUy0NQfnktX/dZ18B/h
+	 3zDfQI12bicpO65Z3d5wllDZ5enGtmBT0JGf16MrT7hXZgzknBtKjDVq1gaK/+u3g1
+	 dOMbumK5mASPl7yv39WuJIBo4N1ryyaJXFXuetgXr3pa36FoHny/pF2FlQayl3DF6u
+	 22ai6s92oONScHxHKGN0hJXSmy0rWG4UL/ODR3JSZ+oi3jb2PIL2Cadpws+CohPJC0
+	 5Y1tzUipyT4lFLc8zjCzWlpZvjrhX857k0lsdg4z+OcnjuAk19ByCE89HBtNaHx2Go
+	 3dpkq/LbEB6bA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+Cc: Peng Fan <peng.fan@nxp.com>,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
-	daniel@zonque.org,
-	haojian.zhuang@gmail.com,
-	robert.jarzmik@free.fr,
-	linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.12 21/23] USB: gadget: pxa27x_udc: Avoid using GPIOF_ACTIVE_LOW
-Date: Sun, 24 Nov 2024 07:48:32 -0500
-Message-ID: <20241124124919.3338752-21-sashal@kernel.org>
+	shawnguo@kernel.org,
+	imx@lists.linux.dev,
+	linux-mmc@vger.kernel.org,
+	s32@nxp.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.11 13/20] mmc: sdhci-esdhc-imx: enable quirks SDHCI_QUIRK_NO_LED
+Date: Sun, 24 Nov 2024 07:50:43 -0500
+Message-ID: <20241124125124.3339648-13-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241124124919.3338752-1-sashal@kernel.org>
-References: <20241124124919.3338752-1-sashal@kernel.org>
+In-Reply-To: <20241124125124.3339648-1-sashal@kernel.org>
+References: <20241124125124.3339648-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.12.1
+X-stable-base: Linux 6.11.10
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_045047_417183_D6279916 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20241124_045211_143057_E74DFEA9 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,49 +83,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+From: Peng Fan <peng.fan@nxp.com>
 
-[ Upstream commit 62d2a940f29e6aa5a1d844a90820ca6240a99b34 ]
+[ Upstream commit 4dede2b76f4a760e948e1a49b1520881cb459bd3 ]
 
-Avoid using GPIOF_ACTIVE_LOW as it's deprecated and subject to remove.
+Enable SDHCI_QUIRK_NO_LED for i.MX7ULP, i.MX8MM, i.MX8QXP and
+i.MXRT1050. Even there is LCTL register bit, there is no IOMUX PAD
+for it. So there is no sense to enable LED for SDHCI for these SoCs.
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-Link: https://lore.kernel.org/r/20241104093609.156059-6-andriy.shevchenko@linux.intel.com
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Haibo Chen <haibo.chen@nxp.com>
+Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+Link: https://lore.kernel.org/r/20240923062016.1165868-1-peng.fan@oss.nxp.com
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/usb/gadget/udc/pxa27x_udc.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ drivers/mmc/host/sdhci-esdhc-imx.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/usb/gadget/udc/pxa27x_udc.c b/drivers/usb/gadget/udc/pxa27x_udc.c
-index 1a6317e4b2a32..ea79f85f8e0bb 100644
---- a/drivers/usb/gadget/udc/pxa27x_udc.c
-+++ b/drivers/usb/gadget/udc/pxa27x_udc.c
-@@ -2355,18 +2355,19 @@ static int pxa_udc_probe(struct platform_device *pdev)
- 	struct pxa_udc *udc = &memory;
- 	int retval = 0, gpio;
- 	struct pxa2xx_udc_mach_info *mach = dev_get_platdata(&pdev->dev);
--	unsigned long gpio_flags;
+diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+index 8f0bc6dca2b04..ef3a44f2dff16 100644
+--- a/drivers/mmc/host/sdhci-esdhc-imx.c
++++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+@@ -238,6 +238,7 @@ struct esdhc_platform_data {
  
- 	if (mach) {
--		gpio_flags = mach->gpio_pullup_inverted ? GPIOF_ACTIVE_LOW : 0;
- 		gpio = mach->gpio_pullup;
- 		if (gpio_is_valid(gpio)) {
- 			retval = devm_gpio_request_one(&pdev->dev, gpio,
--						       gpio_flags,
-+						       GPIOF_OUT_INIT_LOW,
- 						       "USB D+ pullup");
- 			if (retval)
- 				return retval;
- 			udc->gpiod = gpio_to_desc(mach->gpio_pullup);
-+
-+			if (mach->gpio_pullup_inverted ^ gpiod_is_active_low(udc->gpiod))
-+				gpiod_toggle_active_low(udc->gpiod);
- 		}
- 		udc->udc_command = mach->udc_command;
- 	} else {
+ struct esdhc_soc_data {
+ 	u32 flags;
++	u32 quirks;
+ };
+ 
+ static const struct esdhc_soc_data esdhc_imx25_data = {
+@@ -309,10 +310,12 @@ static struct esdhc_soc_data usdhc_imx7ulp_data = {
+ 			| ESDHC_FLAG_HAVE_CAP1 | ESDHC_FLAG_HS200
+ 			| ESDHC_FLAG_PMQOS | ESDHC_FLAG_HS400
+ 			| ESDHC_FLAG_STATE_LOST_IN_LPMODE,
++	.quirks = SDHCI_QUIRK_NO_LED,
+ };
+ static struct esdhc_soc_data usdhc_imxrt1050_data = {
+ 	.flags = ESDHC_FLAG_USDHC | ESDHC_FLAG_STD_TUNING
+ 			| ESDHC_FLAG_HAVE_CAP1 | ESDHC_FLAG_HS200,
++	.quirks = SDHCI_QUIRK_NO_LED,
+ };
+ 
+ static struct esdhc_soc_data usdhc_imx8qxp_data = {
+@@ -321,6 +324,7 @@ static struct esdhc_soc_data usdhc_imx8qxp_data = {
+ 			| ESDHC_FLAG_HS400 | ESDHC_FLAG_HS400_ES
+ 			| ESDHC_FLAG_STATE_LOST_IN_LPMODE
+ 			| ESDHC_FLAG_CLK_RATE_LOST_IN_PM_RUNTIME,
++	.quirks = SDHCI_QUIRK_NO_LED,
+ };
+ 
+ static struct esdhc_soc_data usdhc_imx8mm_data = {
+@@ -328,6 +332,7 @@ static struct esdhc_soc_data usdhc_imx8mm_data = {
+ 			| ESDHC_FLAG_HAVE_CAP1 | ESDHC_FLAG_HS200
+ 			| ESDHC_FLAG_HS400 | ESDHC_FLAG_HS400_ES
+ 			| ESDHC_FLAG_STATE_LOST_IN_LPMODE,
++	.quirks = SDHCI_QUIRK_NO_LED,
+ };
+ 
+ struct pltfm_imx_data {
+@@ -1687,6 +1692,7 @@ static int sdhci_esdhc_imx_probe(struct platform_device *pdev)
+ 
+ 	imx_data->socdata = device_get_match_data(&pdev->dev);
+ 
++	host->quirks |= imx_data->socdata->quirks;
+ 	if (imx_data->socdata->flags & ESDHC_FLAG_PMQOS)
+ 		cpu_latency_qos_add_request(&imx_data->pm_qos_req, 0);
+ 
 -- 
 2.43.0
 
