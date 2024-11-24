@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8072AE668BC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 18:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4691D68BFE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 18:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nJbv8XLF2L0kTbdJQI/KPS0a4buS5AM1QyuGgQWSO4o=; b=q3byWAv7i3OdMwyor4+ps8iaqZ
-	qD/LnsX5JIsqgGXUFiLIQFcol95+o6EST+8uW8S1IhGb7f+d61z+L96J0D5i2aPlgQkN1R5ZEnaae
-	RTznmpGHrUTKLkje6v6xF3J7NWCr8yzXORhQGnRp/AgKm/XeragqVtNn4+1vy+J7bHe71vxtm3JH+
-	ljWs5obW2C9dn8m+M1A1QLiT4wyjzbc/JhE+zXuCoxFHwgpLhplRlDypjbyDX4ZDERlAK21Lyh0gv
-	BSupAjqd1GLG0fmOMfT/UjmC0mQrfmIgoqLIfGx1jA9hv4zHWIcVBu/Nk7JEevPSkdgszyc/1VMNJ
-	zCm5CsMw==;
+	bh=e2rhcVqQ3gOj0D2uwbGC/hSv3INJNZTunbq1oAlWn0w=; b=nIrEfkA9Rd1AAXw2/d/D7jFopN
+	dRXdiKesmrbwsFfx4b6Txx2zumxBFzLBcS7PaQUalX+J4/H+4z4cEDHd2ltaZf1NjPNsXlDBotiT6
+	Ck2IOaMWrFY9NIiujPUCTBKijw9iEqyrHrwSqvyaiV7mC0GUj1eKiQ5Ytf44p/TcNl5NIYh35joP4
+	lHZbqms74LHXwKLLv+ToFhy0Na65t+/Jx56veJFKtqgP0sh96Gx9T1GLtaEqcksJYMWrQq7yoAYDB
+	RkacePPP91OawK2bhNbCK7NWePoWgV9KPZzh/kJkXR2cum5bplRvp9kQQc/WZBAYLexZikV5TcdIf
+	RJL4doIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFGxX-00000006TVA-49j0;
-	Sun, 24 Nov 2024 18:03:47 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
+	id 1tFGyT-00000006Tb2-1qWo;
+	Sun, 24 Nov 2024 18:04:45 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.208])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFGqm-00000006SJW-1oxr
+	id 1tFGr2-00000006SOY-25Us
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Nov 2024 17:56:49 +0000
+	Sun, 24 Nov 2024 17:57:05 +0000
 Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id AA4E8C0005C8;
-	Sun, 24 Nov 2024 09:56:47 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com AA4E8C0005C8
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id B4057C0005C6;
+	Sun, 24 Nov 2024 09:57:03 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com B4057C0005C6
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1732471007;
-	bh=/SBvytuI9Z8C816Rqt15Wi0YXl1GGrYWQ5VrqPQ7zo4=;
+	s=dkimrelay; t=1732471023;
+	bh=N36m4qf0vHUJME/BGWozQi52Ppm7rtH1eadVRTL7itw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FumobubJ1/5491nB19drdCy132s7Rvt351SdSQ1/GvBUNODMl/Lq+X+xx0AUOdPdr
-	 GnsQKjVM4kaj9+yuEpYBZhVYU1YAwmTAcdWB5+p9AKD9uuR0u2TzdGRfCigMkM3qw4
-	 lXPcgUI/I0XGMxmjnu3XCKIcwK7eQOR4iv59OIGs=
+	b=IxpkEali8i4S2LiHQdJ1LYooXb3+eufGcBdQSgtKFEMm0PDE/wHPHHRhCxOt85Gn9
+	 kK6SYPAsZFy5PTL68GMe6qVy04/Tc5SXgGrHA1i+7M5/qXJ7mHL6DPfAHiVIaYGVU0
+	 lV+UzEg5gCqFzqdMCjraK0eldMAz5LdS3F526tUU=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 472C018041CAC6;
-	Sun, 24 Nov 2024 09:56:47 -0800 (PST)
+	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 4BF3D18041CAC6;
+	Sun, 24 Nov 2024 09:57:03 -0800 (PST)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: bcm-kernel-feedback-list@broadcom.com,
 	Sam Edwards <cfsworks@gmail.com>,
@@ -58,18 +58,19 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Sam Edwards <CFSworks@gmail.com>
-Subject: Re: [PATCH v2 2/2] arm64: dts: broadcom: bcmbca: bcm4908: Protect cpu-release-addr
-Date: Sun, 24 Nov 2024 09:56:47 -0800
-Message-ID: <20241124175647.718610-1-florian.fainelli@broadcom.com>
+	Sam Edwards <CFSworks@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm64: bcmbca: Add Zyxel EX3510-B based on BCM4906
+Date: Sun, 24 Nov 2024 09:57:02 -0800
+Message-ID: <20241124175703.718707-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241005050155.61103-3-CFSworks@gmail.com>
-References: <20241005050155.61103-1-CFSworks@gmail.com> <20241005050155.61103-3-CFSworks@gmail.com>
+In-Reply-To: <20241009215454.1449508-2-CFSworks@gmail.com>
+References: <20241009215454.1449508-1-CFSworks@gmail.com> <20241009215454.1449508-2-CFSworks@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_095648_543004_E3F41FF0 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20241124_095704_610067_BBBA8896 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,24 +87,16 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Florian Fainelli <f.fainelli@gmail.com>
 
-On Fri,  4 Oct 2024 22:01:55 -0700, Sam Edwards <cfsworks@gmail.com> wrote:
-> The `cpu-release-addr` property is relevant only when the "spin-table"
-> enable method is used. It is the physical address where the bootloader
-> expects Linux to write the secondary CPU entry point's physical address.
-> On this platform, only the CFE bootloader uses this method: U-Boot uses
-> PSCI instead.
-> 
-> CFE actually walks the FDT to learn this address, so we're free to put
-> it wherever we want. We only need to make sure that it goes in a
-> reserved-memory block so that writing to it during early boot does not
-> risk conflicting with an unrelated memory allocation: this was not done.
-> 
-> Since the previous patch reserved the first page of memory for CFE's
-> secondary-CPU init stub, which is actually much smaller than a page,
-> just put this address at the end of that page and it shall be so
-> protected.
+On Wed,  9 Oct 2024 14:54:53 -0700, Sam Edwards <cfsworks@gmail.com> wrote:
+> This is a series (EX3510-B0 and EX3510-B1) of residential gateways based
+> on BCM4906, a stripped-down version of the BCM4908 SoC. Although Zyxel's
+> marketing materials call this a "series," the EX3510-B1 appears to be a
+> very minor revision of the EX3510-B0, with only changes that are
+> transparent to software. As far as Linux is concerned, this "series"
+> effectively represents a single model.
 > 
 > Signed-off-by: Sam Edwards <CFSworks@gmail.com>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > ---
 
 Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
