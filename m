@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4C7CD75E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 20:40:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E6DE6780A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 21:11:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ywMSe1q/965v+eVkcNyBvT1Ac5yKe2OMwFLssD4KmtM=; b=ukLVkFpActlZNcYWyyvSmP0sDw
-	qxa94lsQnxqYEGViWdksV+XSLKRsP9Z5o1fh8RmJemkVM/UHGVJOCA5Jl6XkMo7A3+dhWsICi9emX
-	EvlthDGGUm58GpqdKKXBk44ppWi2Hms9M7QOw3frxd5rXynaii2B/5VzMvfXogDZ7CXo35qxlq1sr
-	slK+/ktHy28Yn96R/LO8G5PBdi1bQggOy+OPt8tMQhy1lOBSQynuj0fqSEt71GUWwv2Dga6pKcBZJ
-	txL5N2iHJOZvH+n6qY0abM039Rd3UPuNmKzyNaKsFnDOX9Mk6imAX0UXo9iCa2gxR3IWZmWLj9y5I
-	Tbo1NTow==;
+	bh=W07l0zNFrs+EFQwQdJy7SMIOa1ecWzPkN3V9gFJWiHk=; b=beEtGnqZvcldF6jh+LQKAi7aZt
+	QpWZycSYuSPFadnQithGzNL247FrRkycdBcFMOoY05silFIgc60LIWsnZUpHLHsk+RbfdXgYlyc9S
+	Hu1eGe4miaGjFKwytAYp4X0CzjZ/rIQBRSm2JaiZlo8Xk91uBGQUq1TNh+/mybiGvspGJ4TLkENwK
+	NdeL7j0dp3MOnNiz9Gm88El3d7VeUYMaj84DnLKsC+0HdUkG7WCLzRwytH1005tWxBeFDSLH3hI0h
+	CNfkqRu2SiYdx+nOx8TQVmRqvOIGiRLStpnbkzbdcV8aWKen3S3sMRbAE3o3XRUi3FEiz5JA3jGr9
+	r652ZL3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFJPM-00000006d2M-2ndP;
-	Sun, 24 Nov 2024 20:40:40 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1tFJtF-00000006eCJ-1JCO;
+	Sun, 24 Nov 2024 21:11:33 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFJOO-00000006cuU-3TqA;
-	Sun, 24 Nov 2024 20:39:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1732480764; x=1733085564; i=zillerbaer@gmx.de;
-	bh=ywMSe1q/965v+eVkcNyBvT1Ac5yKe2OMwFLssD4KmtM=;
-	h=X-UI-Sender-Class:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=UA139x6LtD0mAH7hsre7jh4hbLsV6B8Znrsa401xiAzPdGkO0Mi9rvVfSGsBvc6Z
-	 AgoSpIdHp7hKKrz4cVPfOJfTZ8H5SEipWIsyxBKLIUG5onbQvVJ9hlTECvWjhI6wH
-	 IIGGXT6k+hRK9OrXbgQTalCNJFKyrPYz+FMak1P5fKDPqHwmJFytO9zWg93CHhWNA
-	 +nKgYEnEurQjukAudlWBR4U+EoTFg1GEFWYwMNJNs16V4kSamp5GvZVROjl83BnTQ
-	 I36oucGiZ54Eain4YJlr6il9akOY4/jxH90Pdl+ZwFoiPOJeXgUEzUzDy1HXKC45y
-	 PoIchL3VQWNcQyIKcg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from book ([91.14.228.167]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MqaxU-1u1cce0YwS-00hooB; Sun, 24
- Nov 2024 21:39:24 +0100
-Date: Sun, 24 Nov 2024 21:38:53 +0100
-From: Jens Ziller <zillerbaer@gmx.de>
-To: "CK Hu (=?UTF-8?B?6IOh5L+K5YWJ?=)" <ck.hu@mediatek.com>
-Cc: "Shuijing Li (=?UTF-8?B?5p2O5rC06Z2Z?=)" <Shuijing.Li@mediatek.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, "Jitao Shi (
- =?UTF-8?B?55+z6K6w5rab?=)" <jitao.shi@mediatek.com>, "daniel@ffwll.ch"
- <daniel@ffwll.ch>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>, "airlied@gmail.com"
- <airlied@gmail.com>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v2] mediatek: dsi: Correct calculation formula of PHY
- Timing
-Message-ID: <20241124213853.06c1bd33@book>
-In-Reply-To: <4b9e27b50417d60eb32cd0ec782778f652656909.camel@mediatek.com>
-References: <20240412031208.30688-1-shuijing.li@mediatek.com>
-	<20241027143219.56e7b4d0@schleppi.lan>
-	<4b9e27b50417d60eb32cd0ec782778f652656909.camel@mediatek.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.41; aarch64-unknown-linux-gnu)
+	id 1tFJsI-00000006e7g-3ltz
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 24 Nov 2024 21:10:35 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-46686a258c2so8122771cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Nov 2024 13:10:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732482633; x=1733087433; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=W07l0zNFrs+EFQwQdJy7SMIOa1ecWzPkN3V9gFJWiHk=;
+        b=PcuJcOGhPBgNzSaVyVhoBbyMF0a8taQHVpBlqDsoJ85c27kOlg9tU8/lw0TCclj6bs
+         48sWMyBfJ181IKNZxdr3ci468VD3rScgthAivfyLCykcPE1aMy4w3NKlV82CTjSij2Ew
+         CdRETLs7x6rWyQpozLUq5xq5tkAc9izHwxev1s1VHlfqj1uronrdepyYepv374qnAUDj
+         VttXF5ktqthdMFgzOUd/iqaYPAIsyTiulqUR/rI8aAmvHT1WMUxNLamsELMRkxpU4LkV
+         AFMjlI77MnHwcQpN81EKBBobrEhZA5t0UArRVNT68rqH4uU/mJ+7Ul3lFQ79AxMAiHCU
+         3DYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732482633; x=1733087433;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=W07l0zNFrs+EFQwQdJy7SMIOa1ecWzPkN3V9gFJWiHk=;
+        b=Swsrcdo0t+Ppr7tgoHoMUZVFGpiHHukxH6Yay7UOyetyqu/5itdyhV2nt7lDoAJGT9
+         Ge3BSnTkvGSKqrzkgivEnBawUPMhwZMlXDNP3TZwZNgWzJv259f/mMDX5PBVPFSxd6z+
+         QcrHTcB0PRGZ3ZblF1OnOtmBPfelSHGz32S/mIfJ+SsqtcLo2AXygZM4tAXdlfeIuKLF
+         FimUI26K4YDWKHQqR7tKmWDsInYHTLhzKdIrkL6iciIYK1jJPt4Ngl1W1o/PxvLozqGw
+         Puc25CupGmwXx+oFv+zNFo7N2y16lbQeADuSsoJdXhb8HpL35+8MIzZbu/CZ+ALUN9Gl
+         C3Sw==
+X-Forwarded-Encrypted: i=1; AJvYcCXxB/wY1NcVXM45dmXzl6fgKArSPNK81fFfb6CGgPv7GbxQFztGw5i4v2s0++KgVqB17kvxIeX5D+WmbLhrCKUr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDdFkH2p9zwnEYt9XE6WqldpfQBdhcGEr6c7s7IDoTRkIE7pRd
+	iaApzEopSbLBrDr58HtprzhmzyBElm/cwK17bf+06tFzeD9M8TUKgxhro+6TRz7JmMf4NnuPm4u
+	i2OaeycPSGekG93p/wAFaCkXgT6k=
+X-Gm-Gg: ASbGncv6VOuoIfqhWz20tM7Bzt80A287bJ6BS+3fiST32hdOgUfr2LTPONgikklNdJc
+	bpLW7yN1ede7EVAGJJPCaS+1tmtIxVnud
+X-Google-Smtp-Source: AGHT+IFFGfCsnztfsLunwMxUWCnNQbocjlno2uE7RveujuTHAm4e0cTyGoyDHCbxuwKBXRaxOpeKeT6w++DlBbaz2BQ=
+X-Received: by 2002:ac8:7f16:0:b0:466:9003:aaf0 with SMTP id
+ d75a77b69052e-4669003adc7mr41252241cf.37.1732482633443; Sun, 24 Nov 2024
+ 13:10:33 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+References: <20241123212624.6237-1-jiashengjiangcool@gmail.com> <b3e2ed68-092f-4ccb-a945-19e19d5c8071@kernel.org>
+In-Reply-To: <b3e2ed68-092f-4ccb-a945-19e19d5c8071@kernel.org>
+From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Date: Sun, 24 Nov 2024 16:10:22 -0500
+Message-ID: <CANeGvZXjUUOhySGhMCXDp3yfTtuOKdXgMa7DTtZDpq1iXkkfhg@mail.gmail.com>
+Subject: Re: [PATCH 2/2] media: camif-core: Add check for clk_enable()
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: sylvester.nawrocki@gmail.com, mchehab@kernel.org, dron0gus@gmail.com, 
+	tomasz.figa@gmail.com, alim.akhtar@samsung.com, kyungmin.park@samsung.com, 
+	laurent.pinchart@ideasonboard.com, linux-media@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:HkxXrXpOsattdDkhnrvYIdDinULQaFyrzUNAc2LDZpldEAhh+QJ
- bcuyHSa9BctP5nW+CrrhqtpstoObhJC2BKZlM99618KZgz0Pdu4YB9h38uM12SDex9IanhP
- nmRL2B8Y4XX8HXWrotB3/24rdxEqY2vlNASTAY82INLUWEUEVj6zTC2JrsvAWYOlc0dkVvr
- m2PdAfPWnwsjvyhtmONHw==
-UI-OutboundReport: notjunk:1;M01:P0:n9Y+PD3R9fI=;eQeqCGU5HdIPEZHFNsrJg8AN+ZU
- e2coRFOYFkdl+aawOf/hSbyCuA2KiPAWJLnMTbusXyJhbgN633JGIoxbRqlpM7SppyioJzrOc
- zRPglEpPwedoY2jQ/fMGHQqhKOwFb9cBm0YEGhPEMmfpGis2hlBL8daveaZg2mwQpdBmbwBbG
- OrE3pnb4gtnkFIuJ0eljVzijD76tkQhSL7S67AID1twSAIuUYnaiUtFimXXn1iyi9AITIeODq
- Hep9f0xvQKAZb2zXgG2FJgeYDospSq/ul4GewqRbVQV68xSVigu2ftxEVRPBfHBlGodwMcskB
- JVLDwPekaSR6q6O6EQ3luqzOna8OX4XbqxFS5iNe+4vypv+CQxvz90iRIxuTkfpcIk9EMyalz
- yc+d9di7GZrBrgrDS/Fb2cscN0au0bqeFIlhaEGLO2Y2pYBOsi05y7oWNd6slMFdBGaiUYp+I
- gw5tydx08xnlysd5Iv6DuPXpjzk9PmSdFTFqz5OTPDuKqXmfkQY4oFf1epDEZWf9rKP2lnjXo
- 7PG0knnQiU96VtmVSqt3IZ6BOe3VmQMA7fCSC/cxMgOlV8DZ5yQR27wYO/ir50xrQckV05jax
- Rq+IQtsvGpMEJ+LyXt8wf8naPkMP//RVJtehxHIoi4vqssF/ytm20MzYjPuAUfcmsOCdi+4AQ
- Kg897K0eHX9TovfyE2fJgNZNAkdHkiXNAbCRmq8wE32TTV4w0LZBRqT0cyiN2VCq2k5+L+I8g
- Mq1dJyKkR+rfBby42dzog0rdfuSSABqag1MwpJKvovzUPwMyw0SGM+Y1SWRuWSZihGDCPSnSd
- GSGarkalNWIrYA0tw58WCXGcXfwla2wn2gnyNJCZFYT8wXy1x1fvF9FySCJjpXo4nUM2DvoN0
- pJdvGhoCa1PyJymk2nJVomhgQuMxWyOxe36bPZ4I1D//BIUv0XgpeQ3sT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_123941_161471_95292867 
-X-CRM114-Status: GOOD (  27.16  )
+X-CRM114-CacheID: sfid-20241124_131034_952195_3CED8DB4 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,120 +95,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Thu, 21 Nov 2024 03:50:02 +0000
-schrieb CK Hu (=E8=83=A1=E4=BF=8A=E5=85=89) <ck.hu@mediatek.com>:
+Hi Krzysztof,
 
-> Hi, Shuijing:
->=20
-> On Sun, 2024-10-27 at 14:32 +0100, Jens Ziller wrote:
-> > External email : Please do not click links or open attachments
-> > until you have verified the sender or the content.
-> >=20
-> >=20
-> > Am Fri, 12 Apr 2024 11:11:39 +0800
-> > schrieb Shuijing Li <shuijing.li@mediatek.com>:
-> >=20
-> > > This patch correct calculation formula of PHY timing.
-> > > The spec define HS-PREPARE should be from 40ns+4*UI(44ns) to
-> > > 85ns+6*UI(91ns). But current duration is 88ns and is near the
-> > > boundary. So this patch make the duration to 64ns so it is near
-> > > the safe range.
-> >=20
-> > Hi Shuijing,
-> >=20
-> > with this patch the panel in the Tentacruel ASUS Chromebook CM14
-> > (CM1402F) flickers. There are 1 or 2 times per second a black panel.
-> > Stable Kernel 6.11.5 and mainline 6.12-rc4 works only when I reverse
-> > this patch. There's a bug inside. Can you please check that?
->=20
-> Please help Jens to fix this bug.
-> Otherwise, I've to revert this patch.
+On Sun, Nov 24, 2024 at 5:50=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
 >
-> Regards,
-> CK
+> On 23/11/2024 22:26, Jiasheng Jiang wrote:
+> > Add check for the return value of clk_enable() to gurantee the success.
+> >
+> > Fixes: babde1c243b2 ("[media] V4L: Add driver for S3C24XX/S3C64XX SoC s=
+eries camera interface")
+> > Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+> > ---
+> >  .../media/platform/samsung/s3c-camif/camif-core.c   | 13 +++++++++++--
+> >  1 file changed, 11 insertions(+), 2 deletions(-)
+>
+> Nothing improved...
 
-I'am not be able to fix that. This patch must be reverted that the
-actual kernel runs on my Chromebook. Please revert this patch.
+Sorry for the confusion. This series consists of two patches.
+Only "PATCH 1/2" has been modified, while "PATCH 2/2" remains unchanged.
+As a result, there is no changelog for "PATCH 2/2".
 
-Regards
-Jens
-
->=20
-> >=20
-> > Best regards
-> > Jens
-> >=20
-> > >=20
-> > > Signed-off-by: Shuijing Li <shuijing.li@mediatek.com>
-> > > ---
-> > > Changes in v2:
-> > > Add a commit to describe the improvements to this patch in detail,
-> > > per suggestion frome previous thread:
-> > > https://urldefense.com/v3/__https://patchwork.kernel.org/project/linu=
-x-mediatek/patch/20240315072945.19502-1-shuijing.li@mediatek.com/__;!!CTRNK=
-A9wMg0ARbw!nA3Auuq2W3qyf3a8OtzDvLICN_xfq5zUozp_-Wo7Q4jR9l6qKlxiWNC4TZPXQa8W=
-08veWhokHyRrvCodcpg$
-> > > ---
-> > >  drivers/gpu/drm/mediatek/mtk_dsi.c | 33
-> > > +++++++++++++++--------------- 1 file changed, 17 insertions(+),
-> > > 16 deletions(-)
-> > >=20
-> > > diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c
-> > > b/drivers/gpu/drm/mediatek/mtk_dsi.c index
-> > > a2fdfc8ddb15..d1bd7d671880 100644 ---
-> > > a/drivers/gpu/drm/mediatek/mtk_dsi.c +++
-> > > b/drivers/gpu/drm/mediatek/mtk_dsi.c @@ -235,22 +235,23 @@ static
-> > > void mtk_dsi_phy_timconfig(struct mtk_dsi *dsi) u32 data_rate_mhz
-> > > =3D DIV_ROUND_UP(dsi->data_rate, 1000000); struct mtk_phy_timing
-> > > *timing =3D &dsi->phy_timing;
-> > >=20
-> > > -     timing->lpx =3D (60 * data_rate_mhz / (8 * 1000)) + 1;
-> > > -     timing->da_hs_prepare =3D (80 * data_rate_mhz + 4 * 1000) /
-> > > 8000;
-> > > -     timing->da_hs_zero =3D (170 * data_rate_mhz + 10 * 1000) /
-> > > 8000 + 1 -
-> > > -                          timing->da_hs_prepare;
-> > > -     timing->da_hs_trail =3D timing->da_hs_prepare + 1;
-> > > -
-> > > -     timing->ta_go =3D 4 * timing->lpx - 2;
-> > > -     timing->ta_sure =3D timing->lpx + 2;
-> > > -     timing->ta_get =3D 4 * timing->lpx;
-> > > -     timing->da_hs_exit =3D 2 * timing->lpx + 1;
-> > > -
-> > > -     timing->clk_hs_prepare =3D 70 * data_rate_mhz / (8 * 1000);
-> > > -     timing->clk_hs_post =3D timing->clk_hs_prepare + 8;
-> > > -     timing->clk_hs_trail =3D timing->clk_hs_prepare;
-> > > -     timing->clk_hs_zero =3D timing->clk_hs_trail * 4;
-> > > -     timing->clk_hs_exit =3D 2 * timing->clk_hs_trail;
-> > > +     timing->lpx =3D (80 * data_rate_mhz / (8 * 1000)) + 1;
-> > > +     timing->da_hs_prepare =3D (59 * data_rate_mhz + 4 * 1000) /
-> > > 8000 + 1;
-> > > +     timing->da_hs_zero =3D (163 * data_rate_mhz + 11 * 1000) /
-> > > 8000 + 1 -
-> > > +             timing->da_hs_prepare;
-> > > +     timing->da_hs_trail =3D (78 * data_rate_mhz + 7 * 1000) / 8000
-> > > + 1; +
-> > > +     timing->ta_go =3D 4 * timing->lpx;
-> > > +     timing->ta_sure =3D 3 * timing->lpx / 2;
-> > > +     timing->ta_get =3D 5 * timing->lpx;
-> > > +     timing->da_hs_exit =3D (118 * data_rate_mhz / (8 * 1000)) + 1;
-> > > +
-> > > +     timing->clk_hs_prepare =3D (57 * data_rate_mhz / (8 * 1000)) +
-> > > 1;
-> > > +     timing->clk_hs_post =3D (65 * data_rate_mhz + 53 * 1000) /
-> > > 8000 + 1;
-> > > +     timing->clk_hs_trail =3D (78 * data_rate_mhz + 7 * 1000) /
-> > > 8000 + 1;
-> > > +     timing->clk_hs_zero =3D (330 * data_rate_mhz / (8 * 1000)) + 1
-> > > -
-> > > +             timing->clk_hs_prepare;
-> > > +     timing->clk_hs_exit =3D (118 * data_rate_mhz / (8 * 1000)) +
-> > > 1;
-> > >=20
-> > >       timcon0 =3D timing->lpx | timing->da_hs_prepare << 8 |
-> > >                 timing->da_hs_zero << 16 | timing->da_hs_trail <<
-> > > 24;
-> >=20
-> >=20
-
+-Jiasheng
 
