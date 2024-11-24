@@ -4,90 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD1ADE668A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 08:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC515E668A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 09:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LmXw5x+IHnQ+uyZyOzsZS9Ul8CDlJvIGgeW1yGyy9es=; b=YQomCSUcZ1fM8q365iYSQGenP8
-	CzIscSCfCZcidcQ4iERH8NbqzM5Tnv+hEJ+8kx1d/BPlxNllUmF/FJOQal9kTNk8v+E5I6hXlwyt4
-	jZX+Y4YEup5vobxNDmThS+LtnxrFhRazAMr4O88hTufMKgcwnhU6JwpShyIF0daGw6ei8Wl02uHEG
-	FMtsywsAYYL9ckCiTsNG0JhV6KmYlG+5rxxUeZ17r6txqVdK3Us7ju+3s7IuEklRABrCkj14coJaQ
-	urr2jFssxPVYZgu23Yb3BC2PZhHZBHUppc/LwcTXM/6RxFWzG4mnBEYxI12vpuwtGq/QVGy7zcLrz
-	V1+l6T/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EF6KAe0aJXErRNe2gIgSW1j08V4k2/044lY06SL09oI=; b=qXiIr6RDuLHlESyG4G09cf9hna
+	MUPV6USRS0tkkGwzylAtLUwtksvRWuzQdfX3S6QQNptYypIdQ+H3LIGxrvAduFiZuWdDhNvO657Kp
+	/gVJ46MAipRT0aEjkxa8uGVbYnZzLKMK1klpdg99X9YjmhYpP9iuzwxVH99w9Y5q6oCkWrb7QOpv6
+	FCrUh2q56hw94FPWBjk1aurjPRYyenO+RMtnAE6uaGv0iqyhRDgXW9CU5rNQe1ZYHzfYtcjaVihED
+	7EgVe/fyZeGeDwOEQ+m2ntqAKEpunLPUhesR7AfjGj3rFuzsDyZJKXVG/DZRC4B2vOrzpXrHwi3mr
+	7CyM/Lgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tF8Jz-00000005VFS-2POM;
-	Sun, 24 Nov 2024 08:50:23 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1tF8Tb-00000005WJ4-0Zvt;
+	Sun, 24 Nov 2024 09:00:19 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tF8J1-00000005V6B-3NaP;
-	Sun, 24 Nov 2024 08:49:25 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2ed91d2a245so1197065a91.3;
-        Sun, 24 Nov 2024 00:49:23 -0800 (PST)
+	id 1tF8Sd-00000005VvK-1XET
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 24 Nov 2024 08:59:20 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-7ea8c4ce232so3171641a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Nov 2024 00:59:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732438162; x=1733042962; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LmXw5x+IHnQ+uyZyOzsZS9Ul8CDlJvIGgeW1yGyy9es=;
-        b=NSfC4l43wZM7SoPAXs+SYK4L1I5xzw++KyxNgwstHyfSf9i4x5rc55wbKBAL4xiEWx
-         5B7OCXbVoD//cEGmLsp8+VdkTmkRNhLFpGxJHVEdcyjYEgDoqcDJVUrKOcpEt7NZKRci
-         fk/28H21Ih+8rSE5ohcEmt4fzRKgp3JXmaUmRhlY5pARHmi8Jnp+UB6jav2aby5IUCV+
-         RUf06gCeFc2VMp83WGdm2pWweUr/sUndQIBjU6hFiKuVFiekVz/VeiA4CyAsZ2XsOS21
-         kLSTbLRt4u0ojYl1SZrB+PdvIsDy91UJZCa5dbq6i4lQ+k4+ysML8Efax1qJNAue4nFj
-         WxNg==
+        d=chromium.org; s=google; t=1732438758; x=1733043558; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=EF6KAe0aJXErRNe2gIgSW1j08V4k2/044lY06SL09oI=;
+        b=Z9aCCSiYCfdSrEAHSrxlYd7+LyTa+TF96a+9D0YIkTjRVzZ150XYCXGhMWqey9+mm5
+         QMAbExhgIVXJQFFmIiez1iRexjHy0ovQpbMvOVPOrTv81x39C7JnAiK6N3qBm9OvNEhD
+         9X7kjukJXwAocdIfpjRLqNwyyuu21APl3kkOU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732438162; x=1733042962;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LmXw5x+IHnQ+uyZyOzsZS9Ul8CDlJvIGgeW1yGyy9es=;
-        b=A4hbCr/F7UcJN69/RXkWkBbivq+FURdleBycvY3oNYIQwumLkMillTDCH0x253aVmI
-         bSgkNNwgyi3gt+T8IPCUVgR4DGmNZwdkyxEJbitdR5iAgSTDIzZMvLgRtrc+yhmX01J6
-         nxSXTqb5eJvR5kHEpdST+Ik3FyYunU1Tar5SdJxF07z6gpc0DQeaf3E0L6leh2rN7d+S
-         eAjHdLm8/ljS66cb7UVLC0IRToIsps/7uDu5Y1V8GeB3v0m4dSW8CsimEyvwi3SM9wXT
-         5DfAwBXJRQ8L8gvOiLMgR1a4VumWJm0SW60a8t+k8o3Awj3Yi76utrGmIdtDlwOIUMY8
-         PTfA==
-X-Forwarded-Encrypted: i=1; AJvYcCWfGl1ydh2AG8vToBe5difnZ/zmfDRuMFE459/E5UKctJRt8hxKm1zwT8K0+swtr+Vtck6zgDFfbxKexxJmhuQ0@lists.infradead.org, AJvYcCWtSX3rJejObN+yk3S5eHlB4TQMkWvMYOg8u3XXYB+UxyYBlcjW7/6TzczPJsd4kXn9R2vLETqZC/N7usjm1nmpdg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJYGbZ7KJmT64iv/VwMfPdX1zkrz1sXoKLU8FhoaUerZL+I/q5
-	ur+5cPJneCwGTsPcB/UzPSct72AWZEZkTAxBMOqCLqTpHvstG8Hv
-X-Gm-Gg: ASbGncu4SuIxa5Zc5xsv1AZH7qQZbei5Dv38FBd0Aj/kDVXmAxe8x2rY+P54IiNpfpX
-	vJWEUyeP8/g+eMHtsq+zbatBFbIte84ywxBE1qPrz9cjyA4Yb4sPTf/9x7kKZ88pEBE+ddgqm4b
-	WyZCIejtZdQHs5gc5By6WRSeQ1j5mvCXtqmjNt0N0N+SZ7XEOqY6o+8/76dM8JLEdcSRWCXGqbt
-	MpSN5NyEAfNrN5qJKjWDbJni8PWOBeE6KJNCbQGvQnMPYPi
-X-Google-Smtp-Source: AGHT+IEH3mMi3o2bStvSwRxcifpjaLZ8OllmWfCdTQV1ejr3K9yGIW+YcJaNskNnLTGCjTfUb7Zamw==
-X-Received: by 2002:a17:90b:1bc2:b0:2ea:819e:9126 with SMTP id 98e67ed59e1d1-2eb0e867634mr10258380a91.26.1732438162379;
-        Sun, 24 Nov 2024 00:49:22 -0800 (PST)
-Received: from Emma ([2401:4900:1c21:cadf:5054:ff:fe53:2787])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2eb0d048e94sm4460641a91.40.2024.11.24.00.49.17
+        d=1e100.net; s=20230601; t=1732438758; x=1733043558;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EF6KAe0aJXErRNe2gIgSW1j08V4k2/044lY06SL09oI=;
+        b=hDWst1e3Bog87jtphHJyL8Rjglsc8ZWBSXNg303C3g1qvVpIvvNCDsZ7aMQrxdnVa5
+         ciNJYQvBOocoqXhAMb4yGY4KI+w7+0hmhQRlatdZqprVo7Kd5U5VpY63bdMxo4kT8sw1
+         wH+KrSbg86ujdUW7QVY7qg09HdOEwupHelnnuIcSZ1krCtIm+U5t0oKTkVMiM1btIwvh
+         aF/dfMnUx/u4fknzHjZxvXX0f33MrcmV82YF29Kr0FCwmvFAoY7xQZRGBGcTlMwlWi17
+         DqDoE62gEM+g4P8dqeCsPrnKQP7j46H7s8DVQzc/VSM8EGHkOI3riAWdyDmVVl2vYxTS
+         9/hw==
+X-Forwarded-Encrypted: i=1; AJvYcCUwMh9VUM2ShSk80Z58JqjyHEtdFo9xsFePn12zOA8NBn1p/rfk+FRH2Or0D7Zmtjy+RiVL52ZVsce8ypUQHG9t@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEIwuGHOL/e4YUCoN8YZrgcwkDWWZaxW/QUrZbH8YRtnR1DiY0
+	n0geJtqEiFy5k5HtowIsGWZ2k5PtTipp3Zu2F7QoNliWgX+g3Q+hAwYflXwwwg==
+X-Gm-Gg: ASbGncuPWRgV+RFVVTqUiH++1u0v8hgJRvJdmiEKqK3VoeY1m7/jK3TO+2wdTe759I6
+	8IC97Nkh/isnu+RGo9w0R/OJ4QJfQ+sJzLAdPErsZnYCcMEE8dQwR7DCSJnrbfen2EjKK/kDooE
+	xNufSprDGqsGKYYf+wDl0PaLrnD8cb0+aTbzjHKcsmL7ukPooKiJRKHUYDrS3IpLlKKrtSyVDSL
+	XjOvwPKo8ZzLy+OXkGPMDhDAom6W4brYlIVa3jE1irr7p1gVpTtpIN+FV+lWTuA6z0xHQ==
+X-Google-Smtp-Source: AGHT+IFXc7VvlP/3gYWKOjTV8+v6xQUtU+qQkhGAveyBwDGTGonrlWWpAiyBkTbiDpTB33S9/XAxUg==
+X-Received: by 2002:a05:6a21:778f:b0:1e0:b51b:ac22 with SMTP id adf61e73a8af0-1e0b51bad66mr4211481637.30.1732438758063;
+        Sun, 24 Nov 2024 00:59:18 -0800 (PST)
+Received: from fshao-p620.tpe.corp.google.com ([2401:fa00:1:10:f699:9cb9:f928:9a14])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fbcbfc4c28sm4465890a12.3.2024.11.24.00.59.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 24 Nov 2024 00:49:21 -0800 (PST)
-Date: Sun, 24 Nov 2024 08:49:14 +0000
-From: Karan Sanghavi <karansanghvi98@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Shuah Khan <skhan@linuxfoundation.org>, Alexander Aring <alex.aring@gmail.com>, 
-	Eric Anholt <eric@anholt.net>
-Subject: Re: [PATCH v4] dt-bindings: power: Convert raspberrypi,bcm2835-power
- to Dt schema
-Message-ID: <qb5sdh55yj7est52netydaauazgluej6hvvtutmmiw2bhglnpw@lq2cyg3hjhlw>
-References: <20241028-raspberrypi-bcm2835-power-v4-1-acf44abd45ff@gmail.com>
- <bdze3425qwrtlvlairw2b4xiycpkmhirzhqn2jt6jngc3bu4ta@uo4nc2lnj4sf>
+        Sun, 24 Nov 2024 00:59:17 -0800 (PST)
+From: Fei Shao <fshao@chromium.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Fei Shao <fshao@chromium.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v3 0/2] Add device tree for MT8188-based Chromebook "Ciri"
+Date: Sun, 24 Nov 2024 16:52:36 +0800
+Message-ID: <20241124085739.290556-1-fshao@chromium.org>
+X-Mailer: git-send-email 2.47.0.371.ga323438b13-goog
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <bdze3425qwrtlvlairw2b4xiycpkmhirzhqn2jt6jngc3bu4ta@uo4nc2lnj4sf>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_004923_964775_1B642322 
-X-CRM114-Status: GOOD (  21.22  )
+X-CRM114-CacheID: sfid-20241124_005919_582164_3CA5F582 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,52 +94,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 08:10:23AM +0100, Krzysztof Kozlowski wrote:
-> On Mon, Oct 28, 2024 at 04:44:12PM +0000, Karan Sanghavi wrote:
-> > Convert the raspberrypi,bcm2835-power binding to Dt schema
-> > 
-> > Signed-off-by: Karan Sanghavi <karansanghvi98@gmail.com>
-> > ---
-> > Changes in v4:
-> > - Corrected misindentations and random differences.
-> > - Link to v3: https://lore.kernel.org/r/20241026-raspberrypi-bcm2835-power-v3-1-6621e075d33f@gmail.com
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> 
-> ---
-> 
-> <form letter>
-> This is an automated instruction, just in case, because many review tags
-> are being ignored. If you know the process, you can skip it (please do
-> not feel offended by me posting it here - no bad intentions intended).
-> If you do not know the process, here is a short explanation:
-> 
-> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-> versions, under or above your Signed-off-by tag. Tag is "received", when
-> provided in a message replied to you on the mailing list. Tools like b4
-> can help here. However, there's no need to repost patches *only* to add
-> the tags. The upstream maintainer will do that for tags received on the
-> version they apply.
-> 
-> https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
-> </form letter>
-> 
-> Best regards,
-> Krzysztof
->
+Hi,
 
-Dear Krzysztof,
+This is the v3 series to introduce the device trees for Ciri. Please
+refer to [v1] and [v2] cover letter for the detail introduction of Ciri
+if needed.
 
-I hope this email finds you well. 
-I'm following up on the patch I recently submitted linked below.
-https://lore.kernel.org/all/ZxEm-H-PjlQyXeOH@Emma/
-I noticed it hasn't been applied yet, and I wanted to see if there was 
-anything else needed from my end. 
-Please let me know if any further information or modifications are required.  
-I appreciate your time and feedback.  
+Note that there are patches for some known dtbs_check warnings:
+- sound: Unevaluated 'mediatek,adsp' property
+  https://lore.kernel.org/all/20241105091246.3944946-1-fshao@chromium.org/
 
-Thank you! 
+- amplifier: '#sound-dai-cells' does not match any of the regexes
+  https://lore.kernel.org/all/20241105091513.3963102-1-fshao@chromium.org/
 
-Sincerely,
-Karan.
+- dp-tx: '#sound-dai-cells' does not match any of the regexes
+  https://lore.kernel.org/all/20241105090207.3892242-1-fshao@chromium.org/
+
+- audio-codec: 'interrupts-extended' does not match any of the regexes
+  https://lore.kernel.org/all/20241105091910.3984381-1-fshao@chromium.org/
+
+- pmic: 'compatible' is a required property; 'adc', 'mt6359codec',
+  'mt6359rtc' do not match any of the regexes
+  https://lore.kernel.org/all/20241004030148.13366-2-macpaul.lin@mediatek.com/
+
+- power-controller: Unevaluated properties are not allowed
+  ('power-domain@31', 'power-domain@32' were unexpected)
+  https://lore.kernel.org/all/20241001113052.3124869-2-fshao@chromium.org/
+
+- mailbox: 'clock-names' is a required property
+  https://lore.kernel.org/all/20240911104327.123602-1-angelogioacchino.delregno@collabora.com/
+
+- jpeg-decoder: iommus: [[141, 685], [141, 686], [141, 690], [141, 691],
+  [141, 692], [141, 693]] is too long
+  https://lore.kernel.org/all/20241001113052.3124869-4-fshao@chromium.org/
+
+- amplifier@4f: reg:0:0: 79 is greater than the maximum of 63
+    >> ti,tas2781 binding specifies that ti,tas2563 register range is
+       0x4c-0x4f. The DT follows what the binding literally suggests.
+       I tried changing the binding locally but didn't help.
+
+[v1]:
+https://lore.kernel.org/all/20241025110111.1321704-1-fshao@chromium.org/
+[v2]:
+https://lore.kernel.org/all/20241105093222.4055774-1-fshao@chromium.org/
+
+Regards,
+Fei
+
+Changes in v3:
+- Multiple DT changes, refer to Patch 2/2 for all details
+
+Changes in v2:
+- remove invalid or undocumented properties
+    e.g. mediatek,dai-link, maxim,dsm_param_name etc.
+- remove touchscreen as the driver is not yet accepted in upstream
+- update sound DAI link node name to match the binding
+- add missing pinctrls in audio codec nodes
+
+Fei Shao (2):
+  dt-bindings: arm: mediatek: Add MT8188 Lenovo Chromebook Duet (11", 9)
+  arm64: dts: mediatek: Introduce MT8188 Geralt platform based Ciri
+
+ .../devicetree/bindings/arm/mediatek.yaml     |   13 +
+ arch/arm64/boot/dts/mediatek/Makefile         |    8 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku0.dts  |   32 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku1.dts  |   59 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku2.dts  |   59 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku3.dts  |   32 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku4.dts  |   48 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku5.dts  |   72 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku6.dts  |   72 +
+ .../dts/mediatek/mt8188-geralt-ciri-sku7.dts  |   48 +
+ .../boot/dts/mediatek/mt8188-geralt-ciri.dtsi |  316 +++++
+ .../boot/dts/mediatek/mt8188-geralt.dtsi      | 1156 +++++++++++++++++
+ 12 files changed, 1915 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri.dtsi
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+
+-- 
+2.47.0.371.ga323438b13-goog
+
 
