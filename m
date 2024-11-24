@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531FFE668AB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 12:39:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10BB1E668AB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 12:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/lU5Gzi2G07RfLfxnLHohf5ysjM+Vrh6sV1HUnA87g=; b=B/b5ZNILd0eTesWeBt0LczSDxN
-	K9TsPU3PD1O8LYZd9n7Aufr+Qqu4RVJ0Kozp3X1CET5bBuuvUvSSa7E8+s2OckSByDsH2eRqaSoMD
-	xJqRNxaEdX7UFuwENkRUYOGtcs+cAIUgjBPXVKDsE+mgMsbcG7RHnogyMgooepxF+P8bw48Mr95bC
-	+6Lpik/AwXrmkRT/rRnP+4Zvsy4eEANQQ9DHFF1YCf8lRJEFD7a23Tq7J4MeK1SWfPJEyNUVMN5vy
-	1gFdp4vaRS4psPERs5jubGgqPthndaepHu2DMfwTgu3KTtYRAcW/6d0kGcxVXi2dF4Ie0jU0CMHYR
-	bX2mvkCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=do6ZEZ1ZVjVIUeOmz7IRlLSKkAvZ8bDMezzm2euAbQk=; b=dgCDAgC+LVb6/oLV3yTVp9na6S
+	quwR78wXZxTg7hXenhkKrpE38dqhrv+K6K+MCeXK7TvNY452oZ9mj8OwqD4GxCMBqK6/edlANDsgq
+	HJPbf6gH03GxOVJ5sTyGGfx+66rdLB/gg9q+0/Q1lTwV6xlfCX/iGj7uUNE98GbAq5y8nH9ixkm6i
+	pfbDCcXeJhu4BE1Y/m+jPCI172F8FuKXlUeue8pYAuHPj0aCEuSc70eBoB6eZYmwXNYdBN+1nOdPA
+	kCccQHKpbPr6DDiG5h2cl/n+HbVpFMeIrMek2mfz5JbRqNyLsgU3VDJ8Q+D4NuOWrJcpQxlyJbtjx
+	sn7O49Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFBtq-00000005jYO-0fu9;
-	Sun, 24 Nov 2024 12:39:38 +0000
+	id 1tFBuk-00000005jpD-3I8C;
+	Sun, 24 Nov 2024 12:40:34 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFBss-00000005jTT-1gS6
+	id 1tFBtg-00000005jWT-3q9S
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Nov 2024 12:38:39 +0000
+	Sun, 24 Nov 2024 12:39:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5C923A405AC;
-	Sun, 24 Nov 2024 12:36:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05FFDC4CECC;
-	Sun, 24 Nov 2024 12:38:36 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A880FA40A0D;
+	Sun, 24 Nov 2024 12:37:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D896C4CED3;
+	Sun, 24 Nov 2024 12:39:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732451917;
-	bh=c0AWjVGSPIQTrbBVAKWsgeZOeUI/JWBeTCbKYwY10fw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=JtQH17UljZqsPeXc+7Vn6xhCPElJk9F/3ZZ1D2vy7l93SQovGa9h1fhiTwhdhC6+o
-	 CCa/u7Lv5Y4yqX0akJz8WJ6d+hGxKZq8mAegrYIN3RNP89zjpOnZYGTHUPf0TIr4WX
-	 s6oWVRIhXfOE1VoPZ3ySOKXpM8Iq4E/a8i2DJYkI5E4PTzcjN6lRkMY3O2aUC8tlzC
-	 HJaIr1UY20X/MkbPtm+NtnP5BhWjc2pjc38KGfimOosEfNn/nw+HGm6bAwjOa0TPoZ
-	 x0L21m38iOlxdlwMHRMMDm8cM/nG4UOs5OHMwqV5UHGad13Wu9cjIwyqGpK0ggvHwA
-	 +lTF2+L/0249g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tFBso-00FMXC-BH;
-	Sun, 24 Nov 2024 12:38:34 +0000
-Date: Sun, 24 Nov 2024 12:38:33 +0000
-Message-ID: <86jzcsvmba.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	oliver.upton@linux.dev,
-	james.clark@linaro.org,
+	s=k20201202; t=1732451967;
+	bh=isrIzBVpqEHXAWK+7dtrVVpLZiim/bjAv0AHGXA4NBc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=IfQQ9yt964FKdiiwgrC/Ff4WMo2r9YrEV5pig1XYQbjRRJljvKjiMf98JfNxghiYZ
+	 dKNfSSRgkNRBKNIpXKlaBxdRRw6WwdxiGHkARCCHocEzpAQ2oOtecNCq88xM6DVQ7m
+	 B15LDjd5A9Ajy5TkQswJSBegCftsf/CQRWhhjBZ0kchHtTP/X3vHcsRb3Ds9BLrLBB
+	 //jee0bfqhtQg0irySoX4u66RBHeWT6VWqPtwUPOBTzNI20X2vfwTGDi1S9TZpWSS1
+	 9N4iFR3QYudzSQFUBcYIX9A8RXhFoWO7FWFX4cmqVhwtN2fyA0uuzekXIdIBOrghqJ
+	 eo7Tjwtp64Exg==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sasha Levin <sashal@kernel.org>,
 	will@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	broonie@kernel.org,
-	qperret@google.com
-Subject: Re: [PATCH v2 07/12] KVM: arm64: Rework specifying restricted features for protected VMs
-In-Reply-To: <20241122110622.3010118-8-tabba@google.com>
-References: <20241122110622.3010118-1-tabba@google.com>
-	<20241122110622.3010118-8-tabba@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, james.clark@linaro.org, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	shuah@kernel.org,
+	mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.12 05/19] kselftest/arm64: Log fp-stress child startup errors to stdout
+Date: Sun, 24 Nov 2024 07:38:40 -0500
+Message-ID: <20241124123912.3335344-5-sashal@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241124123912.3335344-1-sashal@kernel.org>
+References: <20241124123912.3335344-1-sashal@kernel.org>
+MIME-Version: 1.0
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.12.1
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_043838_598972_6B8B896B 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20241124_043929_091410_2A008C51 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,84 +81,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Nov 2024 11:06:17 +0000,
-Fuad Tabba <tabba@google.com> wrote:
-> 
-> The existing code didn't properly distinguish between signed and
-> unsigned features, and was difficult to read and to maintain.
-> Rework it using the same method used in other parts of KVM when
-> handling vcpu features.
-> 
-> Signed-off-by: Fuad Tabba <tabba@google.com>
-> ---
->  .../arm64/kvm/hyp/include/nvhe/fixed_config.h |   1 -
->  arch/arm64/kvm/hyp/nvhe/sys_regs.c            | 356 +++++++++---------
->  2 files changed, 186 insertions(+), 171 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
-> index 69e26d1a0ebe..37a6d2434e47 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
-> @@ -198,7 +198,6 @@
->  	FIELD_PREP(ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_APA3), ID_AA64ISAR2_EL1_APA3_PAuth) \
->  	)
->  
-> -u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id);
->  bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
->  bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
->  void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> index 3aa76b018f70..cea3b099dc56 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> @@ -28,221 +28,237 @@ u64 id_aa64mmfr1_el1_sys_val;
->  u64 id_aa64mmfr2_el1_sys_val;
->  u64 id_aa64smfr0_el1_sys_val;
->  
-> -/*
-> - * Inject an unknown/undefined exception to an AArch64 guest while most of its
-> - * sysregs are live.
-> - */
-> -static void inject_undef64(struct kvm_vcpu *vcpu)
-> -{
-> -	u64 esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT);
-> -
-> -	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
-> -	*vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
-> -
-> -	kvm_pend_exception(vcpu, EXCEPT_AA64_EL1_SYNC);
-> -
-> -	__kvm_adjust_pc(vcpu);
-> -
-> -	write_sysreg_el1(esr, SYS_ESR);
-> -	write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
-> -	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
-> -	write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
-> -}
-> +struct pvm_feature {
-> +	int shift;
-> +	int width;
-> +	u64 mask;
-> +	u64 max_supported;
-> +	bool is_signed;
+From: Mark Brown <broonie@kernel.org>
 
-Most of this is very similar to struct arm64_ftr_bits. Can you align
-the types and names with it? And do you really need 'mask', which can
-be derived from shift and width?
+[ Upstream commit dca93d29845dfed60910ba13dbfb6ae6a0e19f6d ]
 
-max_supported as an unsigned value is also potentially troublesome for
-signed features. And does it need to be 64bit wide?
+Currently if we encounter an error between fork() and exec() of a child
+process we log the error to stderr. This means that the errors don't get
+annotated with the child information which makes diagnostics harder and
+means that if we miss the exit signal from the child we can deadlock
+waiting for output from the child. Improve robustness and output quality
+by logging to stdout instead.
 
-> +	bool (*vcpu_supported)(const struct kvm_vcpu *vcpu);
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Link: https://lore.kernel.org/r/20241023-arm64-fp-stress-exec-fail-v1-1-ee3c62932c15@kernel.org
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ tools/testing/selftests/arm64/fp/fp-stress.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
 
-We really need to find a way to kill this. The two features that stick
-out badly are SVE and PAuth, and I don't see why we can't eventually
-track them at the VM level instead (despite the userspace API).
-
-Thanks,
-
-	M.
-
+diff --git a/tools/testing/selftests/arm64/fp/fp-stress.c b/tools/testing/selftests/arm64/fp/fp-stress.c
+index faac24bdefeb9..80f22789504d6 100644
+--- a/tools/testing/selftests/arm64/fp/fp-stress.c
++++ b/tools/testing/selftests/arm64/fp/fp-stress.c
+@@ -79,7 +79,7 @@ static void child_start(struct child_data *child, const char *program)
+ 		 */
+ 		ret = dup2(pipefd[1], 1);
+ 		if (ret == -1) {
+-			fprintf(stderr, "dup2() %d\n", errno);
++			printf("dup2() %d\n", errno);
+ 			exit(EXIT_FAILURE);
+ 		}
+ 
+@@ -89,7 +89,7 @@ static void child_start(struct child_data *child, const char *program)
+ 		 */
+ 		ret = dup2(startup_pipe[0], 3);
+ 		if (ret == -1) {
+-			fprintf(stderr, "dup2() %d\n", errno);
++			printf("dup2() %d\n", errno);
+ 			exit(EXIT_FAILURE);
+ 		}
+ 
+@@ -107,16 +107,15 @@ static void child_start(struct child_data *child, const char *program)
+ 		 */
+ 		ret = read(3, &i, sizeof(i));
+ 		if (ret < 0)
+-			fprintf(stderr, "read(startp pipe) failed: %s (%d)\n",
+-				strerror(errno), errno);
++			printf("read(startp pipe) failed: %s (%d)\n",
++			       strerror(errno), errno);
+ 		if (ret > 0)
+-			fprintf(stderr, "%d bytes of data on startup pipe\n",
+-				ret);
++			printf("%d bytes of data on startup pipe\n", ret);
+ 		close(3);
+ 
+ 		ret = execl(program, program, NULL);
+-		fprintf(stderr, "execl(%s) failed: %d (%s)\n",
+-			program, errno, strerror(errno));
++		printf("execl(%s) failed: %d (%s)\n",
++		       program, errno, strerror(errno));
+ 
+ 		exit(EXIT_FAILURE);
+ 	} else {
 -- 
-Without deviation from the norm, progress is not possible.
+2.43.0
+
 
