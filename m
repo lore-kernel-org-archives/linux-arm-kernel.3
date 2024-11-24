@@ -4,89 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E035E668A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 08:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD1ADE668A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 08:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=r4wZNAYoXyTS6KWqhdId+e/j9up0DyZ5zMGlnmmsV7E=; b=hdHyEgecKBtA2yZU4vmOyZVEU+
-	qpTScEJgI1M/xYga+u/WDbOy/KQnBQCq+Vaw85WecFL0pIB6JwF8Ck8Z7+X/4H9VuJbUaHpHtTEsg
-	Pti4ZhZzemwR8PYNUrA9STuU03AHLYu4j77wdtTgCXoey0q/p558Ll06VuWw1xt++JBKthwse5af9
-	9NOQ7mn+9DsLii2XxgzIBekyQnwTQxSWr3VKY+4ChwOrTAz8C6Pnrj5h2LOEQr7SELpQcJlXhQOeA
-	N/gUEZnB/8l/D/qSXtD4fN+VyOF0nooNq94XAxLNa4EQ2uijZngSGfpgHxN2/Gum09KctfmHpBGnP
-	6iGqFWCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LmXw5x+IHnQ+uyZyOzsZS9Ul8CDlJvIGgeW1yGyy9es=; b=YQomCSUcZ1fM8q365iYSQGenP8
+	CzIscSCfCZcidcQ4iERH8NbqzM5Tnv+hEJ+8kx1d/BPlxNllUmF/FJOQal9kTNk8v+E5I6hXlwyt4
+	jZX+Y4YEup5vobxNDmThS+LtnxrFhRazAMr4O88hTufMKgcwnhU6JwpShyIF0daGw6ei8Wl02uHEG
+	FMtsywsAYYL9ckCiTsNG0JhV6KmYlG+5rxxUeZ17r6txqVdK3Us7ju+3s7IuEklRABrCkj14coJaQ
+	urr2jFssxPVYZgu23Yb3BC2PZhHZBHUppc/LwcTXM/6RxFWzG4mnBEYxI12vpuwtGq/QVGy7zcLrz
+	V1+l6T/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tF862-00000005U8H-3JzF;
-	Sun, 24 Nov 2024 08:35:58 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1tF8Jz-00000005VFS-2POM;
+	Sun, 24 Nov 2024 08:50:23 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tF856-00000005U2m-0sdK;
-	Sun, 24 Nov 2024 08:35:01 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3823eaad37aso2766307f8f.0;
-        Sun, 24 Nov 2024 00:34:59 -0800 (PST)
+	id 1tF8J1-00000005V6B-3NaP;
+	Sun, 24 Nov 2024 08:49:25 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2ed91d2a245so1197065a91.3;
+        Sun, 24 Nov 2024 00:49:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732437298; x=1733042098; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=r4wZNAYoXyTS6KWqhdId+e/j9up0DyZ5zMGlnmmsV7E=;
-        b=GYUNbtWP0tGorfR+dx+CyJq0SPgUxIN03F14vBHb4s7mmnl1zJoOwgkWY7iRkigEbo
-         0boEV/3U2AeYe+guwJArEbaxIzWgiO7XB2XBgsOIxdwVrbmzDlAiUjZqTrX0af+sKuUi
-         47RpC/NIXWWO6aHdOM+elJNpTXbjq3pBGW3UQJDHRIRmMLZTlkjEwE8NYi7fmelxxWXX
-         vjifAVHdKkoxQ6lMjmhrQYshSX0CD5K4EojL5N73GrvTMCspjLl0MFJOuTpbqKIxM+2W
-         xbVyXbf7uS85p+3w7MTN0mGrp1I7PhPo8EKDN4SSnA6m/GMk3tA/uQZPXknfztxkm18Z
-         Z4rA==
+        d=gmail.com; s=20230601; t=1732438162; x=1733042962; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LmXw5x+IHnQ+uyZyOzsZS9Ul8CDlJvIGgeW1yGyy9es=;
+        b=NSfC4l43wZM7SoPAXs+SYK4L1I5xzw++KyxNgwstHyfSf9i4x5rc55wbKBAL4xiEWx
+         5B7OCXbVoD//cEGmLsp8+VdkTmkRNhLFpGxJHVEdcyjYEgDoqcDJVUrKOcpEt7NZKRci
+         fk/28H21Ih+8rSE5ohcEmt4fzRKgp3JXmaUmRhlY5pARHmi8Jnp+UB6jav2aby5IUCV+
+         RUf06gCeFc2VMp83WGdm2pWweUr/sUndQIBjU6hFiKuVFiekVz/VeiA4CyAsZ2XsOS21
+         kLSTbLRt4u0ojYl1SZrB+PdvIsDy91UJZCa5dbq6i4lQ+k4+ysML8Efax1qJNAue4nFj
+         WxNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732437298; x=1733042098;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=r4wZNAYoXyTS6KWqhdId+e/j9up0DyZ5zMGlnmmsV7E=;
-        b=OEY29VpFf4KylMcSyz2gu4DGdKqSRi9PLA1XCH/6sJZlescy2n3x4Jm+T945EWzcT2
-         4GuVGX55+7hPxmpQKHFpmVJ4UnGjUYH1kiX4Iz3Fg/ke4kGHXIPWuIECDVwOIS5v9BHV
-         faN4llRqLFE1MoVH2IseDoeW7czLFVhN+1olL1dJvpTV8S3n2otH/cxgCAeXKMn3O1KU
-         BqJ7eLpeRu2swU48OPw5JCbPIAj1F5fxVdpMRUmkkbueiDLAbJryOVViAsfa5/Ju6/Wi
-         puugPqJIuPut9UPcaiI2JWVJ9ZJTx/xmv/mO4Xjrh8Y6RuPJGBDfwuRN7bQkRy4Ya0dE
-         Kmsw==
-X-Forwarded-Encrypted: i=1; AJvYcCVt6FlaIuHuOegPa0C+oXrfT+dgc6Yg1ClOVagDUNSuWPWPGTvMnqBTTk3IxY6PzGdF7IurN82kbm1Hx611hfwqyQ==@lists.infradead.org, AJvYcCXk83gkE9NTQpS7W0P9SyZruv6o3zc0w95zQ8Unw4BdcMTIvs6EislfElgOq9zkyxtnt1Kbc9/ZV2ecleah@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRxhedDRgGY6UAOAWlyl98uzmextk5Cm+P7oAM5bHnfKdDrCxZ
-	4fMMYJDjF7Uee8SEbzt7TT+nwdKXPKLMBQNFSC/8ZZ2BkKGFPtMW
-X-Gm-Gg: ASbGncsTW+klIAF0xau7lOq4oUBliM+lKqcVdy/gEFq4udhhr4Z4dwU0RbmUYWY9EMZ
-	qVKX+pD5aJ4dKy9TJhMCbJDx98oU1+MFZs0l1OYYVmJ4uZFt0goEu9MsxTbhOt0qhsrIMMRkTCO
-	mmuahw+6ytQMvkP2icTjplaNOTt3Gs2Iz16pD0E5Ct7XwuDLAwFOsfwUXgQRMVznty8LJAiP0U3
-	wnqqyPbiVbOGJMwkyrQBCageonR3rCVD98qhqAI3JJAQX4tOvyDi5k=
-X-Google-Smtp-Source: AGHT+IF5cabE2Tx7RTeVKjrsbOyjk5UWacuIke+YxdcwrSskiev6s1JwXABaTjTX/jeVSCAVboeljw==
-X-Received: by 2002:a05:6000:79b:b0:384:ff3e:e0a6 with SMTP id ffacd0b85a97d-384ff3ee0b0mr3986555f8f.5.1732437297456;
-        Sun, 24 Nov 2024 00:34:57 -0800 (PST)
-Received: from toolbox.. ([87.200.95.144])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-433cde1151esm84949895e9.16.2024.11.24.00.34.55
+        d=1e100.net; s=20230601; t=1732438162; x=1733042962;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LmXw5x+IHnQ+uyZyOzsZS9Ul8CDlJvIGgeW1yGyy9es=;
+        b=A4hbCr/F7UcJN69/RXkWkBbivq+FURdleBycvY3oNYIQwumLkMillTDCH0x253aVmI
+         bSgkNNwgyi3gt+T8IPCUVgR4DGmNZwdkyxEJbitdR5iAgSTDIzZMvLgRtrc+yhmX01J6
+         nxSXTqb5eJvR5kHEpdST+Ik3FyYunU1Tar5SdJxF07z6gpc0DQeaf3E0L6leh2rN7d+S
+         eAjHdLm8/ljS66cb7UVLC0IRToIsps/7uDu5Y1V8GeB3v0m4dSW8CsimEyvwi3SM9wXT
+         5DfAwBXJRQ8L8gvOiLMgR1a4VumWJm0SW60a8t+k8o3Awj3Yi76utrGmIdtDlwOIUMY8
+         PTfA==
+X-Forwarded-Encrypted: i=1; AJvYcCWfGl1ydh2AG8vToBe5difnZ/zmfDRuMFE459/E5UKctJRt8hxKm1zwT8K0+swtr+Vtck6zgDFfbxKexxJmhuQ0@lists.infradead.org, AJvYcCWtSX3rJejObN+yk3S5eHlB4TQMkWvMYOg8u3XXYB+UxyYBlcjW7/6TzczPJsd4kXn9R2vLETqZC/N7usjm1nmpdg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJYGbZ7KJmT64iv/VwMfPdX1zkrz1sXoKLU8FhoaUerZL+I/q5
+	ur+5cPJneCwGTsPcB/UzPSct72AWZEZkTAxBMOqCLqTpHvstG8Hv
+X-Gm-Gg: ASbGncu4SuIxa5Zc5xsv1AZH7qQZbei5Dv38FBd0Aj/kDVXmAxe8x2rY+P54IiNpfpX
+	vJWEUyeP8/g+eMHtsq+zbatBFbIte84ywxBE1qPrz9cjyA4Yb4sPTf/9x7kKZ88pEBE+ddgqm4b
+	WyZCIejtZdQHs5gc5By6WRSeQ1j5mvCXtqmjNt0N0N+SZ7XEOqY6o+8/76dM8JLEdcSRWCXGqbt
+	MpSN5NyEAfNrN5qJKjWDbJni8PWOBeE6KJNCbQGvQnMPYPi
+X-Google-Smtp-Source: AGHT+IEH3mMi3o2bStvSwRxcifpjaLZ8OllmWfCdTQV1ejr3K9yGIW+YcJaNskNnLTGCjTfUb7Zamw==
+X-Received: by 2002:a17:90b:1bc2:b0:2ea:819e:9126 with SMTP id 98e67ed59e1d1-2eb0e867634mr10258380a91.26.1732438162379;
+        Sun, 24 Nov 2024 00:49:22 -0800 (PST)
+Received: from Emma ([2401:4900:1c21:cadf:5054:ff:fe53:2787])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2eb0d048e94sm4460641a91.40.2024.11.24.00.49.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 24 Nov 2024 00:34:56 -0800 (PST)
-From: Christian Hewitt <christianshewitt@gmail.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Christian Hewitt <christianshewitt@gmail.com>
-Subject: [PATCH] WIP: arm64: dts: meson: drop broadcom compatible from reference board SDIO nodes
-Date: Sun, 24 Nov 2024 08:34:53 +0000
-Message-Id: <20241124083453.900368-1-christianshewitt@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        Sun, 24 Nov 2024 00:49:21 -0800 (PST)
+Date: Sun, 24 Nov 2024 08:49:14 +0000
+From: Karan Sanghavi <karansanghvi98@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Shuah Khan <skhan@linuxfoundation.org>, Alexander Aring <alex.aring@gmail.com>, 
+	Eric Anholt <eric@anholt.net>
+Subject: Re: [PATCH v4] dt-bindings: power: Convert raspberrypi,bcm2835-power
+ to Dt schema
+Message-ID: <qb5sdh55yj7est52netydaauazgluej6hvvtutmmiw2bhglnpw@lq2cyg3hjhlw>
+References: <20241028-raspberrypi-bcm2835-power-v4-1-acf44abd45ff@gmail.com>
+ <bdze3425qwrtlvlairw2b4xiycpkmhirzhqn2jt6jngc3bu4ta@uo4nc2lnj4sf>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <bdze3425qwrtlvlairw2b4xiycpkmhirzhqn2jt6jngc3bu4ta@uo4nc2lnj4sf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_003500_268010_DC73A102 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20241124_004923_964775_1B642322 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,108 +102,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop the Broadcom compatible and use a generic sdio identifier with the Amlogic
-reference boards. This allows a wider range of Android STB devices with QCA9377
-and RTL8189ES/FS chips to have working WiFi when booting from the reference dtb
-files. There is no observed impact on Broadcom devices.
+On Tue, Oct 29, 2024 at 08:10:23AM +0100, Krzysztof Kozlowski wrote:
+> On Mon, Oct 28, 2024 at 04:44:12PM +0000, Karan Sanghavi wrote:
+> > Convert the raspberrypi,bcm2835-power binding to Dt schema
+> > 
+> > Signed-off-by: Karan Sanghavi <karansanghvi98@gmail.com>
+> > ---
+> > Changes in v4:
+> > - Corrected misindentations and random differences.
+> > - Link to v3: https://lore.kernel.org/r/20241026-raspberrypi-bcm2835-power-v3-1-6621e075d33f@gmail.com
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> 
+> ---
+> 
+> <form letter>
+> This is an automated instruction, just in case, because many review tags
+> are being ignored. If you know the process, you can skip it (please do
+> not feel offended by me posting it here - no bad intentions intended).
+> If you do not know the process, here is a short explanation:
+> 
+> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+> versions, under or above your Signed-off-by tag. Tag is "received", when
+> provided in a message replied to you on the mailing list. Tools like b4
+> can help here. However, there's no need to repost patches *only* to add
+> the tags. The upstream maintainer will do that for tags received on the
+> version they apply.
+> 
+> https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
+> </form letter>
+> 
+> Best regards,
+> Krzysztof
+>
 
-Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
----
- arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi      | 3 +--
- arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts  | 3 +--
- arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts  | 3 +--
- arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi | 3 +--
- arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts        | 3 +--
- arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts        | 3 +--
- 6 files changed, 6 insertions(+), 12 deletions(-)
+Dear Krzysztof,
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi
-index 52d57773a77f..1736bd2e96e2 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi
-@@ -178,9 +178,8 @@ &sd_emmc_a {
- 	vmmc-supply = <&vddao_3v3>;
- 	vqmmc-supply = <&vddio_boot>;
- 
--	brcmf: wifi@1 {
-+	sdio: wifi@1 {
- 		reg = <1>;
--		compatible = "brcm,bcm4329-fmac";
- 	};
- };
- 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
-index c1470416faad..7dffeb5931c9 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
-@@ -102,8 +102,7 @@ hdmi_tx_tmds_out: endpoint {
- };
- 
- &sd_emmc_a {
--	brcmf: wifi@1 {
-+	sdio: wifi@1 {
- 		reg = <1>;
--		compatible = "brcm,bcm4329-fmac";
- 	};
- };
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts
-index 92c425d0259c..ff9145d49090 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts
-@@ -21,8 +21,7 @@ &ethmac {
- };
- 
- &sd_emmc_a {
--	brcmf: wifi@1 {
-+	sdio: wifi@1 {
- 		reg = <1>;
--		compatible = "brcm,bcm4329-fmac";
- 	};
- };
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi
-index 7e7dc87ede2d..b52a830efcce 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi
-@@ -134,9 +134,8 @@ &sd_emmc_a {
- 	vmmc-supply = <&vddao_3v3>;
- 	vqmmc-supply = <&vddio_boot>;
- 
--	brcmf: wifi@1 {
-+	sdio: wifi@1 {
- 		reg = <1>;
--		compatible = "brcm,bcm4329-fmac";
- 	};
- };
- 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts b/arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts
-index d4858afa0e9c..feb31207773f 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts
-@@ -72,8 +72,7 @@ external_phy: ethernet-phy@0 {
- };
- 
- &sd_emmc_a {
--	brcmf: wifi@1 {
-+	sdio: wifi@1 {
- 		reg = <1>;
--		compatible = "brcm,bcm4329-fmac";
- 	};
- };
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts b/arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts
-index d02b80d77378..6c8bec1853ac 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts
-@@ -21,8 +21,7 @@ &ethmac {
- };
- 
- &sd_emmc_a {
--	brcmf: wifi@1 {
-+	sdio: wifi@1 {
- 		reg = <1>;
--		compatible = "brcm,bcm4329-fmac";
- 	};
- };
--- 
-2.34.1
+I hope this email finds you well. 
+I'm following up on the patch I recently submitted linked below.
+https://lore.kernel.org/all/ZxEm-H-PjlQyXeOH@Emma/
+I noticed it hasn't been applied yet, and I wanted to see if there was 
+anything else needed from my end. 
+Please let me know if any further information or modifications are required.  
+I appreciate your time and feedback.  
 
+Thank you! 
+
+Sincerely,
+Karan.
 
