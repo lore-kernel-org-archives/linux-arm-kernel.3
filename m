@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF48E66894
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 10:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF6F2E66894
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 10:07:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rc/jEUsBswYkaNb52ief0DkwziwerNcpWx/rdhbBFpU=; b=Wbrlr1rkezuaaDKL4pKyRVJMCD
-	UW1lVgGRK6zbtSEwyf4Nb3xuYMSJvmgqajoCNlrdNMOQa2McInIQa7Rj7DK5fIZkYbJJEUq1jF3kz
-	meXjYQcKm3OevhPu+m+KevlVxDzZ3LWMNI7rXt8FmD5UYBGUBcS7g2UxzxIHKaZGRv/C+Fw7d8qTa
-	rRcE6BL9pGDcVu1azzpj0YmTqSvoc2QSdY9uOBQqaqEkH7gM//fIlO+P9jE1epdhJAlNinhJ2wQDA
-	Zg3LP00WwEma1OUF+GQR/H/+V3Jc5kJ7ujBxj5iBXHb33MAXcwpTnHrUNSWNqw2mf2RVpwwTj4H8y
-	5b2tKplA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lk2GE1arbul51a1ynLU7Q9xhqGMt1ZdTPnPwO47t9KY=; b=ipOrAxHK+akbr+7hNoC2QbSoyR
+	Pz+UaP/lAPrmhEh4MdBFHwUp4VIKa6DyXegaPIBMzHoP3XQK+Ny4S4rkbFMcDN8hfKBXJ+hbBYAwN
+	v22EoHxQbth3DmC9spywUnMNCudUiGnwuQdS6NQP93dpeDaYo0y77vqwkHKkmkh2HXh9NILKBEPBp
+	KE5GKn+BttSI+yi5lO7ZyZECPmkFLQIhMlZOLTxhYEJ7Ww37l/wZ+FS8Cv7nL63expJgGqQfRbiXf
+	101xpML6jw+v2QyhRLkKkKn9aCeNJ3ndnfXH0DJqBqTlqEvuS1S4ZjZDHDaG51gxpoSSaxWcS509I
+	qhGadWQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tF9VM-00000005bOw-1qMQ;
-	Sun, 24 Nov 2024 10:06:12 +0000
-Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
+	id 1tF9WH-00000005bU3-0831;
+	Sun, 24 Nov 2024 10:07:09 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tF9UN-00000005bBY-1uXK
+	id 1tF9UP-00000005bCa-2MxM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Nov 2024 10:05:13 +0000
-Received: by mail-ej1-x641.google.com with SMTP id a640c23a62f3a-aa5325af6a0so148277066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Nov 2024 02:05:10 -0800 (PST)
+	Sun, 24 Nov 2024 10:05:14 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aa51b8c5f4dso260096766b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Nov 2024 02:05:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1732442709; x=1733047509; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Rc/jEUsBswYkaNb52ief0DkwziwerNcpWx/rdhbBFpU=;
-        b=QUMf1b7tpaX8oSq1v97YF0Yr9i3X/rFw9TIF7vsmHZMT8ntxfaXkqZkeVP6w/oQZZD
-         CO4Nf6J+7TPfGP8EL8DZKuCRWWBQwhx1+xk0LL1e9SKwPp55FMUKrPmoPPBdJ5pEdKZ1
-         5UdLQGmuvS/Kh6mxdoTj2Y2K2IN1yKTO/iEMUuDKZvMwwQceEvM12O53+c241xfXmeH/
-         EySO9MU6HLL0KBSMJPRrnrB7WFittDXsuYwJL7y0zIPFT7Q2kAXszrYLucfRzDWpRlig
-         0T7R1a8kJZvEM4CpmCIVZ8jW7I08P7jWP1boKrU3nIN42d8dgqrNesm8GcUR+21x1C08
-         j2CA==
+        d=suse.com; s=google; t=1732442712; x=1733047512; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lk2GE1arbul51a1ynLU7Q9xhqGMt1ZdTPnPwO47t9KY=;
+        b=YV58xd+FcAHySJfGDsuTodtxspGZuT4+UFkXRjCML+mTeb3iBbqVcCHA667mAfKJ5h
+         PGtzMkL1PL05a+6BETS7yKDdXKHYuXJcEavYb3vJ2LOT8ECdXBSKsCMFcR73CfB2LpND
+         +TZz3x+v/MONcKi+j+Mp7IkaZe0MCNLMulK0pNAOBuLT+7ZsmjT+Qad2zMTXq2SMl8hj
+         SnR9JdcUs8ZBexPv3izTYQz0Zz9IkbVJshQoRJSdFh1ekGLbknqPdwbMoRxgBVgONlBM
+         sLeVHA5KQIX5ATzg78cFp2L8xvb8tfKiiWjrhZ8b6kI29rtiCAS7FlyO4IYrtFh7bJY7
+         uttg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732442709; x=1733047509;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Rc/jEUsBswYkaNb52ief0DkwziwerNcpWx/rdhbBFpU=;
-        b=FjvqlGTnFGyO4VZFZJbS7iq8j475UC92PHrZQrjMU+o7zUiA1ZipRbWHAnXApHXOTA
-         sbsnkqsFeSV33Yj0CivSdxAzT/Y/7JOZFOsfGDFd0IYrLYs/Lzg7KVMnO3TBxNy3FJeP
-         Yp35uwUXKOEMVMJmdtPTH/Y/d8+CptBPX6+FdGSv734gwS55kOJkG5M6tX97fNjAkMgH
-         trl1/f9Fl6rzrKtG1HfSqpuVwdtlPHnB/JUVqGt/tfS2sanoiUKD4CnSjDREapsFs6cr
-         8BNEzTjWb/AG53V8DOZs2htgYMG37hMlq4QRQthHD0eyG2hqPPHdudSZ84RUHUxVZvvv
-         HM6w==
-X-Forwarded-Encrypted: i=1; AJvYcCVGIkzxILio0aqwcoS+aX0DbKHKi56QmoJ0B+iwXkx2SJQFa8er0n0kvbGIdjMotA+RV9XVPeO8remdFuiWdR2u@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqDxpqlc5ehWOuOqSgP1Cn9IM7Cqreo7dsWWHWrIis16Pqdmlm
-	a8INKNPwqPdKN7/po8g5zB4JghD3iFMvasXF1w3ji88ELuVYCMB75jjhoQIHOAQ=
-X-Gm-Gg: ASbGncvZx6MJqVHvtpNYhkOLyR3Uiyy6bHkmbNoUmxpGadf4ANeFYNl053b8Vto+C2k
-	PaYb9Np8BqL1UQffimzbGKPE802qMW0t7agiG+/l9Uw+N2Z5EkD9bx/OCCWuDFReyCjgODfk6vP
-	bnDoWa9JsxX98J3Cp3dnymtSOjBVqT55lIAXi+Gn+IXixYIfUrqSemT2liF6Co7EtwLpROadrlL
-	Ht6EkW+Kk3rslFq1vCDP9qp9JoFJFRC6RshUV1orqTBaPJ17gnGvk3a8kThq8LfvdPKOGabN7I4
-	jjikTcJw57bHdumRZdf5
-X-Google-Smtp-Source: AGHT+IE6n1Sl2VjDnUF5IiR4wNGa1GDW8vw2+O+cu/s3Q+7FHS16Q8BL2O+lyk7mxoO9jBhc7KuPpQ==
-X-Received: by 2002:a17:907:77c9:b0:a9a:67aa:31f5 with SMTP id a640c23a62f3a-aa50990b2a9mr726045266b.10.1732442709155;
-        Sun, 24 Nov 2024 02:05:09 -0800 (PST)
+        d=1e100.net; s=20230601; t=1732442712; x=1733047512;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lk2GE1arbul51a1ynLU7Q9xhqGMt1ZdTPnPwO47t9KY=;
+        b=p9rPfxVXgkfVxyaqZfdoY9HXgaWyHUivVE6P0/CVEWHI6ubOc89uAC1zT+TTWXTjtp
+         XqedzIQ5+cT0xLq1zROFWrIcWjQHxq9oYJSvapwlveplSEDsZf217M0Kw5NgNEz4ygfL
+         rL9rOcuf7Ao5p2fljlAbYg+v4StQyCN5CgPkIztNZFszBEGU27jcTK0pyklx2TCKrYTq
+         4wplbXuP4SD9naqQe16xtyDtM5gTWzfCvCevFysYt1ywo7c1AyJfnwNsMCSd4TrUNXsc
+         i5MFde02V36M1EM598OlAgGh9rfkosqDldupBi+KW1yL2tx8272ToPCrEhi0riOWk4HW
+         4PNw==
+X-Forwarded-Encrypted: i=1; AJvYcCWekLAwOEMvOM29m8wshy5EpOs5Tk4ZNCz70HlIbHhPXQeQE3r8prpPcEGp5j1vy8WmNNbp2RwhaktpXrlpzE4W@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwmZ4YIr/oZ4hRhGfISeX5ujGG/5/fT4qi0L48T1YBKhkHEkrW
+	6RLZK8Vadbwy2/8FmGHekJE3Ku/cqti4XdK7P0oo/vCJmQ3OAo3wVpjFOxkMAks=
+X-Gm-Gg: ASbGncsSUPVcpxBzy/qWGha8S6DZ89s+qrAvVTtjX30FL/SRkduIq7cPMNJ2B3Cyw2S
+	5TjKW0OHNRhjF9SA9cw9eFJrxbIQ9b/QQLyIcf9GHxE/0u+hpxiqEg+sXNVqOw5z4RNdley18k0
+	EWzOC3wPo/T0CSAXZRuI5RAUU4NQ+BDXG96FbeEqUaw9GEy25P1AvLA+vdB8KAoVUiWQJAKdFFa
+	7fkxvH+CizfMlHMf1a4jnjvLQTnZIfel2grt6aSdOxNgc6Deqouzx/cgzMXMBDAbb3hS8+GMAH2
+	d7Oq4hyL7F+j92O4EDlp
+X-Google-Smtp-Source: AGHT+IHzhjRJgC4zyn46rADf4coPj01YWTVyf6AHNKqiCSQA366o1m7GZGOpC6OvPXD6QZ4IdkHEbQ==
+X-Received: by 2002:a17:907:770d:b0:aa5:29ef:3aa6 with SMTP id a640c23a62f3a-aa529ef3b9fmr468828366b.23.1732442711875;
+        Sun, 24 Nov 2024 02:05:11 -0800 (PST)
 Received: from localhost (host-79-49-220-127.retail.telecomitalia.it. [79.49.220.127])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa51759732asm295266666b.14.2024.11.24.02.05.08
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa50b57bda2sm325822466b.146.2024.11.24.02.05.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 24 Nov 2024 02:05:08 -0800 (PST)
+        Sun, 24 Nov 2024 02:05:11 -0800 (PST)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Andrea della Porta <andrea.porta@suse.com>,
 	Michael Turquette <mturquette@baylibre.com>,
@@ -101,15 +103,18 @@ To: Andrea della Porta <andrea.porta@suse.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH v2 0/2] Preserve the flags portion on 1:1 dma-ranges mapping
-Date: Sun, 24 Nov 2024 11:05:35 +0100
-Message-ID: <cover.1732441813.git.andrea.porta@suse.com>
+Cc: stable@vger.kernel.org
+Subject: [PATCH v2 2/2] of: address: Preserve the flags portion on 1:1 dma-ranges mapping
+Date: Sun, 24 Nov 2024 11:05:37 +0100
+Message-ID: <e51ae57874e58a9b349c35e2e877425ebc075d7a.1732441813.git.andrea.porta@suse.com>
 X-Mailer: git-send-email 2.44.0
+In-Reply-To: <cover.1732441813.git.andrea.porta@suse.com>
+References: <cover.1732441813.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_020511_519968_A2AF73F8 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20241124_020513_637776_AF2C60AB 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,38 +129,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Empty dma-ranges in DT nodes using 3-cell address spcifier cause the
-flag portion to be dropped by of_translate_one(), failing the translation
-chain. This patch aims at fixing this issue.
+A missing or empty dma-ranges in a DT node implies a 1:1 mapping for dma
+translations. In this specific case, the current behaviour is to zero out
+the entire specifier so that the translation could be carried on as an
+offset from zero. This includes address specifier that has flags (e.g.
+PCI ranges).
 
-Part of this patchset was originally preparatory for a bigger patchset
-(see [1]). It has been split in a standalone one for better management
-and because it contains a bugfix which is probably of interest to stable
-branch.
-I've also added new tests to unittest to prove it.
+Once the flags portion has been zeroed, the translation chain is broken
+since the mapping functions will check the upcoming address specifier
+against mismatching flags, always failing the 1:1 mapping and its entire
+purpose of always succeeding.
 
-Many thanks,
-Andrea
+Set to zero only the address portion while passing the flags through.
 
-References:
-[1] - https://lore.kernel.org/all/3029857353c9499659369c1540ba887d7860670f.1730123575.git.andrea.porta@suse.com/
+Fixes: dbbdee94734b ("of/address: Merge all of the bus translation code")
+Cc: stable@vger.kernel.org
+Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+Tested-by: Herve Codina <herve.codina@bootlin.com>
+---
+ drivers/of/address.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-
-Changes in V2:
-
-- Added blank lines between paragraphs in commit message for patch 2
-- Fixed a comment to explain the code behaviour in a straighter way
-
-
-Andrea della Porta (2):
-  of/unittest: Add empty dma-ranges address translation tests
-  of: address: Preserve the flags portion on 1:1 dma-ranges mapping
-
- drivers/of/address.c                        |  3 +-
- drivers/of/unittest-data/tests-address.dtsi |  2 ++
- drivers/of/unittest.c                       | 39 +++++++++++++++++++++
- 3 files changed, 43 insertions(+), 1 deletion(-)
-
+diff --git a/drivers/of/address.c b/drivers/of/address.c
+index 286f0c161e33..b3479586bd4d 100644
+--- a/drivers/of/address.c
++++ b/drivers/of/address.c
+@@ -455,7 +455,8 @@ static int of_translate_one(struct device_node *parent, struct of_bus *bus,
+ 	}
+ 	if (ranges == NULL || rlen == 0) {
+ 		offset = of_read_number(addr, na);
+-		memset(addr, 0, pna * 4);
++		/* set address to zero, pass flags through */
++		memset(addr + pbus->flag_cells, 0, (pna - pbus->flag_cells) * 4);
+ 		pr_debug("empty ranges; 1:1 translation\n");
+ 		goto finish;
+ 	}
 -- 
 2.35.3
 
