@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9546AE668AB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 13:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A4BE668AD
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 13:10:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3jhO9VUH6Et5fIdconOSnmX2TV4k0Jrfk9ixokIPYRI=; b=1orbpnKBfej0VelB6PohyHBeVB
-	zTQk9p4p+iUxi6pmwwKzAagQsvgju2pL4rtvbgu6fvUTqD465I1jnWlMbYnB3Ia8CxvSOJQ0u+hgC
-	HNu38mcfjInjaS1ZcMo1oJZRlTXwFna/lWD6w8uiiSWd1Aoj1PpiptbysZdeH+rfTpAqgB7Hz9mPq
-	Hkq+1lmRcNp8fYxQycVSSCz1j48BkUlbYz/lG4nmghvFyuUEnXv1slLW1f1BsM3J7lb1ddxgj3REf
-	GHBHtxN6tm2P8trXklEE1/n2i7cvJwIO1hcjpAlkGbj2gaJxlKOGw858qVObUiksJSHiMIudfkAV9
-	GVX/TKcA==;
+	bh=rsCroRDoP3xTxJMEPKznCXLu0YWs94ms/bzhIFDJJmg=; b=h2AAjW63TcOBfEvGXdQXjzu5c9
+	v2LYhNVRC4OdOr+osCvlEukxcUsHxybMmM4sDQD2Pe6tN6KSGk0pz9kg9cCMS9/5PGPRQ/nzKD6cS
+	W2eMeO9Xb1CoHhMoU+JQawQKDuuK5oN90cHvNw7Gsc3h2n5AHgWiS7QuMr1D16RXBMAukIzqQjwwX
+	tXSs4EaiibhY63jJZWWd0qYdwtvzaDiiH17tS4e/QRRDl2mqOLE5F17wDN86y0YvAIF1n7PHl8NNa
+	128/AQjlVkH3GbWPMa0gzdEQxfRSNoFr9ARcHur9loR8Sn19TRyP7MKZpcnmJJrRJUw6M9vesv/yp
+	E4jF5IPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFCMU-00000005r9i-36BC;
-	Sun, 24 Nov 2024 13:09:14 +0000
+	id 1tFCNP-00000005rNp-2OHr;
+	Sun, 24 Nov 2024 13:10:11 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFCCI-00000005oqF-3ghc
+	id 1tFCGJ-00000005phK-1gQi
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Nov 2024 12:58:44 +0000
+	Sun, 24 Nov 2024 13:02:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C4F4E5C0FF7;
-	Sun, 24 Nov 2024 12:57:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68850C4CECC;
-	Sun, 24 Nov 2024 12:58:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3A0FC5C432C;
+	Sun, 24 Nov 2024 13:02:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48B6DC4CECC;
+	Sun, 24 Nov 2024 13:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732453122;
-	bh=EYUPj0mv8QNgvzoMAVNtGMp7DumB52AqR8hSylp93w4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=d2j5507Zj6Y4CnZ40A6HiQfNzCrpFS9pYT19UUBzUBqWcKnhPaSHA1fuWDEOmx0PJ
-	 t1pkgNjMPIg7veZUzoe63GI7DjeRlpTiID8unNbWsj/Bg2VssqZvMlRqw2ezpZaWsV
-	 djBJo6bfiqDJc82QxX3OPuEbiKbJlmWwKaCLD4kGurouegQh9/BhXWXX6oSGKJPnec
-	 KI7NHhbaIZoIAnmdSfrG9BHyaFWxQ2xiakePNf0v/22PfGHA9RiK0zChL3IiIuc67R
-	 r4vqodvUdEKhyYqs6C3VCaaFTb1s1fhMxie9a3eMS34QktTE7lUWyLkYYpZMnFaNak
-	 wcQP33dCriEeA==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Sasha Levin <sashal@kernel.org>,
-	daniel@zonque.org,
-	haojian.zhuang@gmail.com,
-	robert.jarzmik@free.fr,
-	linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.4 5/5] USB: gadget: pxa27x_udc: Avoid using GPIOF_ACTIVE_LOW
-Date: Sun, 24 Nov 2024 07:58:05 -0500
-Message-ID: <20241124125817.3341248-5-sashal@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241124125817.3341248-1-sashal@kernel.org>
-References: <20241124125817.3341248-1-sashal@kernel.org>
+	s=k20201202; t=1732453370;
+	bh=V0Bs0Zy6s73HavYwwymncXPcs1ZrjCVcI3abEBI8kTo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=kvgsWMVFDc8l3JAe/gPaphm8u9pGpy8kBrXIHOyFRUMmn6TtyoMF6OCneBCQSdacj
+	 KsOz6wtjYSXlCCWByw1JHoT6gYN4b7nMm9eqnmYjV0Fs/A1T/1TnHU/oKnoimBro1o
+	 b66ii7FId/S2qyMAlFrgv75ppIOA9xULNGtQFbDvWPCB9K4Wh4PsjIpsBk1M5XxYeA
+	 oVYt2IYlIVlJNqnYIqF0Xvo5hUvGr1+9rQb2XrXncfUBrlJws11bdcxHg+rb8x7mXh
+	 yKF3kL+GqsXuWto+2Es8l38TQKx9RLFtZMNAznpgglzFk6rvQqdUTi26hNL+EAuF/a
+	 UkHh1s6pS05Sg==
+Date: Sun, 24 Nov 2024 13:02:41 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Olivier Moysan <olivier.moysan@foss.st.com>
+Cc: Lars-Peter Clausen <lars@metafoo.de>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jonathan Cameron
+ <Jonathan.Cameron@huawei.com>, <linux-iio@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] iio: adc: stm32-dfsdm: handle label as an optional
+ property
+Message-ID: <20241124130241.60e922ff@jic23-huawei>
+In-Reply-To: <20241114102459.2497178-1-olivier.moysan@foss.st.com>
+References: <20241114102459.2497178-1-olivier.moysan@foss.st.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.4.286
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_045842_974102_3909CDD7 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20241124_050251_485493_F98B9AA7 
+X-CRM114-Status: GOOD (  20.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,50 +77,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+On Thu, 14 Nov 2024 11:24:59 +0100
+Olivier Moysan <olivier.moysan@foss.st.com> wrote:
 
-[ Upstream commit 62d2a940f29e6aa5a1d844a90820ca6240a99b34 ]
+> The label property is defined as optional in the DFSDM binding.
+> Parse the label property only when it is defined in the device tree.
+> 
+> Fixes: 3208fa0cd919 ("iio: adc: stm32-dfsdm: adopt generic channels bindings")
+> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+This could be done by just ignoring the return of fw_node_property_read_string()
+but your fix will do a little more such as report an error if the property is
+the wrong type etc, so I'll take it.
 
-Avoid using GPIOF_ACTIVE_LOW as it's deprecated and subject to remove.
+Applied to the fixes-togreg branch of iio.git.
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-Link: https://lore.kernel.org/r/20241104093609.156059-6-andriy.shevchenko@linux.intel.com
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/usb/gadget/udc/pxa27x_udc.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+Thanks,
 
-diff --git a/drivers/usb/gadget/udc/pxa27x_udc.c b/drivers/usb/gadget/udc/pxa27x_udc.c
-index 014233252299c..43bb5c66b2b61 100644
---- a/drivers/usb/gadget/udc/pxa27x_udc.c
-+++ b/drivers/usb/gadget/udc/pxa27x_udc.c
-@@ -2360,18 +2360,19 @@ static int pxa_udc_probe(struct platform_device *pdev)
- 	struct pxa_udc *udc = &memory;
- 	int retval = 0, gpio;
- 	struct pxa2xx_udc_mach_info *mach = dev_get_platdata(&pdev->dev);
--	unsigned long gpio_flags;
- 
- 	if (mach) {
--		gpio_flags = mach->gpio_pullup_inverted ? GPIOF_ACTIVE_LOW : 0;
- 		gpio = mach->gpio_pullup;
- 		if (gpio_is_valid(gpio)) {
- 			retval = devm_gpio_request_one(&pdev->dev, gpio,
--						       gpio_flags,
-+						       GPIOF_OUT_INIT_LOW,
- 						       "USB D+ pullup");
- 			if (retval)
- 				return retval;
- 			udc->gpiod = gpio_to_desc(mach->gpio_pullup);
-+
-+			if (mach->gpio_pullup_inverted ^ gpiod_is_active_low(udc->gpiod))
-+				gpiod_toggle_active_low(udc->gpiod);
- 		}
- 		udc->udc_command = mach->udc_command;
- 	} else {
--- 
-2.43.0
+Jonathan
+
+> ---
+>  drivers/iio/adc/stm32-dfsdm-adc.c | 13 ++++++++-----
+>  1 file changed, 8 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/stm32-dfsdm-adc.c b/drivers/iio/adc/stm32-dfsdm-adc.c
+> index 2037f73426d4..e304e3714020 100644
+> --- a/drivers/iio/adc/stm32-dfsdm-adc.c
+> +++ b/drivers/iio/adc/stm32-dfsdm-adc.c
+> @@ -691,11 +691,14 @@ static int stm32_dfsdm_generic_channel_parse_of(struct stm32_dfsdm *dfsdm,
+>  		return -EINVAL;
+>  	}
+>  
+> -	ret = fwnode_property_read_string(node, "label", &ch->datasheet_name);
+> -	if (ret < 0) {
+> -		dev_err(&indio_dev->dev,
+> -			" Error parsing 'label' for idx %d\n", ch->channel);
+> -		return ret;
+> +	if (fwnode_property_present(node, "label")) {
+> +		/* label is optional */
+> +		ret = fwnode_property_read_string(node, "label", &ch->datasheet_name);
+> +		if (ret < 0) {
+> +			dev_err(&indio_dev->dev,
+> +				" Error parsing 'label' for idx %d\n", ch->channel);
+> +			return ret;
+> +		}
+>  	}
+>  
+>  	df_ch =  &dfsdm->ch_list[ch->channel];
 
 
