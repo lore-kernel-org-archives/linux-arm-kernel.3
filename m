@@ -4,107 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BCACE6688E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Nov 2024 22:35:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC6AE6688F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 03:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UVI84fOke9gLRZ0suzoYkdmP/Z7GYELBjts2k6DzJl0=; b=lJkJOA9G71IxpusivuKbJWdd0X
-	zi9MJOxhiDiLj1IyFeomrP21gycdJkbLrv953+M0F5o/GrM0qsjuo2mojR/d6RxPHZYF0PyZO3X/5
-	lcj5UVqFEiaviRwvMVfuKeXSpayC/Q7eBrAJJuwOt8tiA/SWhwywfrumoY+HW1E5osOa8TzndAtxd
-	ZCGPswuyRfjhkLGGLWczQ3P+xoKhfB1zlWJP6hL5ljZeY6TdrBLtm0KZsvMWJXMeOm+AH564SCwhj
-	xVPoNxUEREubGqHjLMRrsVeZXw9YObt4u24f3acMyzQ3yrEUpQljYOWQ2FMbXw2fcU/r3uas2zugZ
-	zirwuw7g==;
+	bh=4+SmZ5O1idyx9nxxUYpNJ/ay8b6RbqKKFo2QgDR4SSw=; b=VS6PP6OnKJP++d5ZfRTbkBXdo9
+	EpHQ3yEm7g0nG8LlBa3stZeAg7gnC5UABVMK195W6ke9Nln/cpms6ozkMr14am/niGu8G3HN5HrsF
+	AV46/elTyVuofXNJ70oDxPbPt8R44fLgWNIjrDSIJDLHrgSrN+3e2HUXCnkcyBCmaGEKhsWdzQIGd
+	kf6vax+ppa7hL7tzcXFdD55hYhTOfhoGBhrqMNjSft4SG9mzMahT+CA99XaWrimkJ0t+2//l9nn8/
+	GHCYqc5Sr0bJhidkH6XIii+JO0ZqQeNYn4qV+Z6cDwXvVNhy/PeYqHzEAh6Z5s5F7+6eeQ95yifyu
+	42rcVKxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEyiy-00000004yuA-3o9Z;
-	Sat, 23 Nov 2024 22:35:32 +0000
-Received: from phobos.denx.de ([85.214.62.61])
+	id 1tF319-00000005CrC-13cC;
+	Sun, 24 Nov 2024 03:10:35 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tEyi2-00000004ykc-1ndY
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Nov 2024 22:34:35 +0000
-Received: from [127.0.0.1] (p578adb1c.dip0.t-ipconnect.de [87.138.219.28])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
-	(No client certificate requested)
-	(Authenticated sender: marex@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 944DD89401;
-	Sat, 23 Nov 2024 23:34:25 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1732401268;
-	bh=UVI84fOke9gLRZ0suzoYkdmP/Z7GYELBjts2k6DzJl0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cYxJwfmTaViuJOl0E6LpQm/Yli1C/FbRzss9eticyEKW0qVpN1ZSjg/mt+Jhflech
-	 xZPDZK/2aDIWkoZCayi0JfCMpOWINUNWavA6h3p2lCt5sGaekQVrM1Rh3lMJzDDT9I
-	 0P5uEXc/IOYzu8lRmA7IUMCIbDIOfeYVkTgl43z8X46shVEBMmRvaPIOo39o0Smn2y
-	 MzUfd3fB98Nx4L29dvoE4Wub78AS+8by0lY2Ld8CUxGFA2OhGcx/7eFtjUcbUiFYI6
-	 UDMn/y70IKCsE1VZzCaAq9TgOEH8XdQr2XrBNHm4cLfehwhtgt2Hdz4lEZNyzoctiu
-	 1lij3zQXXUpgw==
-Message-ID: <bd884164-3a38-446d-8a54-3d716a3e0360@denx.de>
-Date: Sat, 23 Nov 2024 21:11:58 +0100
+	id 1tF30C-00000005CiG-06XA;
+	Sun, 24 Nov 2024 03:09:37 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-720c2db824eso3385257b3a.0;
+        Sat, 23 Nov 2024 19:09:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732417775; x=1733022575; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4+SmZ5O1idyx9nxxUYpNJ/ay8b6RbqKKFo2QgDR4SSw=;
+        b=PFvL+XKDBP3wtSdNvQvNFH33NuSZjOVqJzUdj7X6xC3asex0AORzWQF+3JIvGFP6eD
+         GcIf2wcKS26D2/5qusTkWSc7AOabuokQBLr2x7dAyUgw8chJCq/vERrtkoNjMVgPcWOd
+         dMU9rs5vB6O/uLJG3GEB3MqFJR2pPpZzKXf0j3vpPL3SL8Fd6MA8qOAcPCi21G64fcc3
+         LbnO+c8ffxVd67FkMKtQxQcmi7HyyxgZAK5FPMwJRmrUfbx9DUpcgXrUmv6YnzolFiP/
+         6+T/QrEUS12fiOPI4oa5tKUjAvu4aUQuGXGlqHPYOPpnGdpS1zo5LebsroEOR0QAcwKT
+         oBRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732417775; x=1733022575;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4+SmZ5O1idyx9nxxUYpNJ/ay8b6RbqKKFo2QgDR4SSw=;
+        b=DxDGKDs2vJObSBTA+VRz4GeJiT1kNT15EGx6OaSBIBnOK0NOTtDXYWLMS/S0qDE9Wx
+         SU3SOHp7pZZPw+PH2ddIsypTyTdZQrlztXSVLkfNUtSfIQ4fkwDj5j5de4A6cx6QqMmp
+         c4D5U8449stfy9mxcPAMOIbdtl69S1gD8+AA4Obmhf3JclvR2x5d1msuers14nUqBjrU
+         PUYsvSxBIlGRG+qbi3ak1zAgyV5a/ZA0dTg8OoS8/swOd6ZDisIaWIlSEyUkRIBEsA1t
+         KLdc2KWLqV65jM7dScaVgduFG45TwHj1mLXyy6ztAnnYRDRHs4bwt6xPyKwsn0Ho2jZp
+         p9eg==
+X-Forwarded-Encrypted: i=1; AJvYcCUlbNGfekHrTRYqQH5y6UI1SFAYfHkYtykuKwOPaHQDkxEI7e9YS3bWo1aURYULv4hKDJNAaGTzEBMysxMPYhQ=@lists.infradead.org, AJvYcCXuBCr3OKNgVckr4Yx2mmaqvlKuuN9TMj+w0SivJabhtQjQeQkaooqXRNLMcdNTkiPi0lRN8ts4iLy88xNUYkb4@lists.infradead.org
+X-Gm-Message-State: AOJu0YytC19g6SSzdlfFl2mbZML6LhBbMNcZanETT1gQkuu5zMKHU12j
+	P74eAkL/j5lKN6jkkKRW8jT+ubZx86MZ1n7nduFG+esObhea6XS8tkWoergFHiEc9XZP+aHJBJn
+	N9tSMRoW9IDLAOQ1OguEsyoy4sq4=
+X-Gm-Gg: ASbGncsx0LkbbJRcNL4O7ZNQcf0/9ElPlDnIcxmCWtV62AeSthPllMrzjmCbrKoLK3W
+	lRInied6eA7a8BBkBD1Q2h5HDg3l3n/8=
+X-Google-Smtp-Source: AGHT+IG0Y23MhsftEXKYRfu9HiZmUraCNXR69wteGncoeREYFexmu0TkcVsDHI751SLBgXR/i8ns8wQeV0KiejYebOU=
+X-Received: by 2002:a17:903:244b:b0:211:f6e4:d68e with SMTP id
+ d9443c01a7336-2129fce2e23mr120152755ad.10.1732417774793; Sat, 23 Nov 2024
+ 19:09:34 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/7] Revert "clk: imx: clk-imx8mp: Allow media_disp
- pixel clock reconfigure parent rate"
-To: Ying Liu <victor.liu@nxp.com>, "imx@lists.linux.dev"
- <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>
-Cc: "shawnguo@kernel.org" <shawnguo@kernel.org>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>, "robh@kernel.org"
- <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>,
- "abelvesa@kernel.org" <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- "mturquette@baylibre.com" <mturquette@baylibre.com>,
- "sboyd@kernel.org" <sboyd@kernel.org>,
- "andrzej.hajda@intel.com" <andrzej.hajda@intel.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
- "rfoss@kernel.org" <rfoss@kernel.org>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- "jonas@kwiboo.se" <jonas@kwiboo.se>,
- "jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "mripard@kernel.org" <mripard@kernel.org>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "airlied@gmail.com" <airlied@gmail.com>, "simona@ffwll.ch"
- <simona@ffwll.ch>, "quic_bjorande@quicinc.com" <quic_bjorande@quicinc.com>,
- "geert+renesas@glider.be" <geert+renesas@glider.be>,
- "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
- "arnd@arndb.de" <arnd@arndb.de>,
- "nfraprado@collabora.com" <nfraprado@collabora.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>
-References: <20241114065759.3341908-1-victor.liu@nxp.com>
- <20241114065759.3341908-3-victor.liu@nxp.com>
- <df6ebdde-65f8-4aad-93c7-b1df695bd2ef@denx.de>
- <AM7PR04MB7046546A882A8D48E135D84698272@AM7PR04MB7046.eurprd04.prod.outlook.com>
- <8a4fd234-4c7b-4a04-990d-3222aaa5172d@denx.de>
- <AM7PR04MB7046E282FD702ACE5E288F8998202@AM7PR04MB7046.eurprd04.prod.outlook.com>
- <83be0a27-6b6c-4ba6-b9dc-f914a10abace@denx.de>
- <AM7PR04MB7046587167BF790549B8560F98212@AM7PR04MB7046.eurprd04.prod.outlook.com>
- <c5ab63da-21ec-4c0d-8ecc-3745943d806f@denx.de>
- <AM7PR04MB7046D404841394382324DE7198232@AM7PR04MB7046.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <AM7PR04MB7046D404841394382324DE7198232@AM7PR04MB7046.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+References: <20241121131904.261230-1-hugues.fruchet@foss.st.com>
+In-Reply-To: <20241121131904.261230-1-hugues.fruchet@foss.st.com>
+From: Adam Ford <aford173@gmail.com>
+Date: Sat, 23 Nov 2024 21:09:23 -0600
+Message-ID: <CAHCN7xJr-sXPGMr7aPH=-Cg+-YQMYChY0u6UNuH5rH8g6cpXhg@mail.gmail.com>
+Subject: Re: [PATCH v3 0/3] Add WebP support to hantro decoder
+To: Hugues Fruchet <hugues.fruchet@foss.st.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Sebastian Fricke <sebastian.fricke@collabora.com>, Ricardo Ribalda <ribalda@chromium.org>, 
+	Erling Ljunggren <hljunggr@cisco.com>, Hans Verkuil <hverkuil@xs4all.nl>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Jean-Michel Hautbois <jeanmichel.hautbois@ideasonboard.com>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, linux-media@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241123_143434_752473_B0748F1D 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20241123_190936_085083_24D5A1A4 
+X-CRM114-Status: GOOD (  17.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,49 +100,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/22/24 4:39 AM, Ying Liu wrote:
-> On 11/22/24, Marek Vasut wrote:
->> On 11/20/24 7:38 AM, Ying Liu wrote:
->>
->> [...]
->>
->>>>> If the DP monitors support typical video modes like 1080p60 with
->>>>> 148.5MHz pixel clock rate, I assume these typical video modes work
->>>>> still ok with this patch at least.  Please help confirm this, since if the
->>>>> alternative solution(*) doesn't stand, we would know those video
->>>>> modes still work ok with my solution(fixed PLL rate).
->>>>
->>>> They do not work with the fixed PLL setting.
->>>
->>> Why?  Did you assign a sensible fixed PLL rate in DT?
->>
->> Whatever was in imx8mp.dtsi does not really work for all the panels.
->> Please keep in mind that the use case I have does not include only
->> 1920x1080 "standard" panels, but also other resolutions.
-> 
-> It looks like you are still sticking to the idea of supporting all potentially
-> valid video modes by trying to find an "alternative" solution, while
-> neglecting that the solution *could be* never working.
+On Thu, Nov 21, 2024 at 7:22=E2=80=AFAM Hugues Fruchet
+<hugues.fruchet@foss.st.com> wrote:
+>
+> Add WebP image decoding support to stateless V4L2 VP8 decoder.
+>
+> This have been tested on STM32MP257-EV board using GStreamer.
 
-Reconfiguring the PLL to achieve accurate pixel clock is working 
-already, right now.
+I want to test this on an i.MX8M Mini.  Is there a certain gstreamer
+version or branch I should use, or is 1.24 sufficient?
 
->>> Can you please compare clk_summary output for the failing cases
->>> before and after this patch is applied? I assume that if you use
->>> the fixed PLL rate same to the rate which works before this patch is
->>> applied, the typical video modes still just work after this patch is
->>> applied.
->>
->> I'm afraid I do not need to support only typical video modes, but also
->> the other "atypical" modes.
-> 
-> If the "alternative" solution doesn't work, we'll end up using the "fixed
-> PLL rate" solution.  It that case, some video modes would be filtered
-> out as a sacrifice.
-
-Maybe it would be better to continue the discussion in
-
-[PATCH 0/5] clk: Fix simple video pipelines on i.MX8
-
-which seems close to the alternative solution I was looking for ?
+adam
+>
+> Simple basic test:
+> $> wget https://www.gstatic.com/webp/gallery/1.webp
+> $> gst-launch-1.0 filesrc location=3D 1.webp ! typefind ! v4l2slwebpdec !=
+ imagefreeze num-buffers=3D20 ! waylandsink fullscreen=3Dtrue
+>
+> Slideshow of a set of WebP pictures and WebM video files:
+> $> wget https://www.gstatic.com/webp/gallery/2.webp
+> $> wget https://www.gstatic.com/webp/gallery/3.webp
+> $> wget https://www.gstatic.com/webp/gallery/4.webp
+> $> wget https://www.gstatic.com/webp/gallery/5.webp
+> $> wget https://samplemedia.linaro.org/VP8/big_buck_bunny_480p_VP8_VORBIS=
+_25fps_1900K_short.WebM
+> $> gst-play-1.0 *.webp *.webm *.WebM --wait-on-eos
+> <hit key ">" to display next file >
+>
+> Large WebP image > 16777215 (size > 2^24)
+> $> gst-launch-1.0 fakesrc num-buffers=3D1 format=3D4 do-timestamp=3Dtrue =
+filltype=3D3 sizetype=3D2 sizemax=3D25165824 blocksize=3D25165824 ! video/x=
+-raw, format=3DI420, width=3D4096, height=3D3072, framerate=3D1/1 ! webpenc=
+ quality=3D100 ! filesink location=3D4096x3072_HQ_random.webp
+> $> ls -l 4096x3072_HQ_random.webp
+> [...] 16877404 Nov 20 11:40 4096x3072_HQ_random.webp
+> $> gst-launch-1.0 filesrc location=3D 4096x3072_HQ_random.webp blocksize=
+=3D16876610 ! image/webp, width=3D1, height=3D1, framerate=3D0/1 ! v4l2slwe=
+bpdec ! imagefreeze num-buffers=3D20 ! waylandsink fullscreen=3Dtrue
+>
+> Large WebP image decoding using post-processor is untested because of lac=
+k
+> of hardware support on this platform, nevertheless support is provided in
+> this serie for further testing on another platform having post-processor
+> support.
+>
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> =3D history =3D
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> version 3:
+>    - Fix remarks from Nicolas Dufresne:
+>     - Document constraint about key frame only for WebP
+>     - Fix rebase issue
+>    - Fix typo detected by Diederik de Haas
+>
+> version 2:
+>    - Fix remarks from Nicolas Dufresne:
+>     - Use bytesperline helper to compute chroma size
+>     - Introduce a new explicit WEBP frame compressed format
+>       instead of relying on VP8 + WebP flag
+>     - 4K support in both decoder and post-proc
+>
+> version 1:
+>   - Initial submission
+>
+> Hugues Fruchet (3):
+>   media: uapi: add WebP uAPI
+>   media: verisilicon: add WebP decoding support
+>   media: verisilicon: postproc: 4K support
+>
+>  .../userspace-api/media/v4l/biblio.rst          |  9 +++++++++
+>  .../media/v4l/pixfmt-compressed.rst             | 17 +++++++++++++++++
+>  drivers/media/platform/verisilicon/hantro.h     |  2 ++
+>  .../media/platform/verisilicon/hantro_g1_regs.h |  3 ++-
+>  .../platform/verisilicon/hantro_g1_vp8_dec.c    | 14 ++++++++++++++
+>  .../platform/verisilicon/hantro_postproc.c      |  6 +++++-
+>  .../media/platform/verisilicon/hantro_v4l2.c    |  2 ++
+>  .../platform/verisilicon/stm32mp25_vpu_hw.c     | 17 +++++++++++++++--
+>  drivers/media/v4l2-core/v4l2-ioctl.c            |  1 +
+>  include/uapi/linux/videodev2.h                  |  1 +
+>  10 files changed, 68 insertions(+), 4 deletions(-)
+>
+> --
+> 2.25.1
+>
+>
 
