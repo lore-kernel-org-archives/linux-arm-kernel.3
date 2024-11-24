@@ -4,72 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19347E668BC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 18:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF18E668BC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 18:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XlFx12vBQGHDR9zpocYGant9l0zJdVzAb4Lso1/d6+Y=; b=HWkApjcJI2AM1c5KmLl9HOGaGM
-	hY4mr+O1vC9pW/vKH10XtN+cOQ5gfGyylqIs2+oCwEmnPWmlTy4BJ0cKSvnP7GdMpTrKk24VYMqN2
-	IWnTv0zypk2gdXc6ar42ktxPy4Ocse+uoCKvalAaPUXehviMXBPXRQrgJZtwegbec9LYbiOaC8Adc
-	NdBqSgWJ+IsOUTCvXCOtOcmaRtgak0X19UhVebvXGVzxiI2DTB/Ktgw43x/Yv2eU0g+VbImPsT70b
-	MHHwLTahqUw/c3/ByRVQdep1IjXjsDVTNw1nO/VFDVW62x5IUSPMkHNXCIK/hDHZHjBzW4kej3oOH
-	qlc3gvZw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PsTjrP/zN41TGyrwJbyG0aUjZNZR/ScZKsMHHcShUo0=; b=fjzQDMD2KQ2f+FrpU8pVCO/kjC
+	F7WrQYxbhMccEnIeP7+1Cpl8ajtWs3BAZirrVgc2YXZGAsWZsfZx6L9O4pBtErE7jLAgbeGTLjjCC
+	xH75hD4KPM773FNFDbOLHfNKv8XeuFyedHeXKUkCo0rz4icdlcRRwE9W9mJnAGIFXsu00lhSBQ5Kv
+	DruLHJpsYRP2Peak2eXiVFdZVpPGt4HtxDQrqJy084W/qooUac51Et7uuqJKReZ+GpbJRH9vR0Loe
+	vJdnYlkjZZGlYCXTz1w8dJsOllSQYcD+YXbKDsmDfEGuS+s1I5LddH7au3bBtZboG0eEC/3hpD35i
+	aYA42PyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFGzP-00000006TiK-08c6;
-	Sun, 24 Nov 2024 18:05:43 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.208])
+	id 1tFH0J-00000006ToI-2vMF;
+	Sun, 24 Nov 2024 18:06:39 +0000
+Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFGrC-00000006SRB-1azu
+	id 1tFGrC-00000006SQX-1vUL
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Nov 2024 17:57:15 +0000
-Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 9C130C0005C6;
-	Sun, 24 Nov 2024 09:57:13 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 9C130C0005C6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1732471033;
-	bh=kIYnn2IzSJmvPLrK5pTh+LsC/BnqqWEMG15Zd8OS2WA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sLe1+FO0EsVKy0VGXugmce2xefdYj4FvLkt67puwCWXAO7JIWIGHQ2KccbqrWzXNE
-	 EEw3hzepH9TVr3YihzdtMxlIHM5S5k5FlF+qhrwPBmKMEhXQabW0gCwYwazGA4v/H0
-	 JLr0r5DsQw+8uZbgMPnkg/q87uvLYXAHfnRAhNaM=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 3F76618041CAC6;
-	Sun, 24 Nov 2024 09:57:13 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: bcm-kernel-feedback-list@broadcom.com,
-	Sam Edwards <cfsworks@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	=?iso-8859-2?q?Rafa=B3_Mi=B3ecki?= <rafal@milecki.pl>,
-	William Zhang <william.zhang@broadcom.com>,
-	Anand Gore <anand.gore@broadcom.com>,
-	Kursad Oney <kursad.oney@broadcom.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
+	Sun, 24 Nov 2024 17:57:17 +0000
+Received: from phl-compute-03.internal (phl-compute-03.phl.internal [10.202.2.43])
+	by mailfout.phl.internal (Postfix) with ESMTP id 9D86213800F4;
+	Sun, 24 Nov 2024 12:57:10 -0500 (EST)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-03.internal (MEProxy); Sun, 24 Nov 2024 12:57:10 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alyssa.is; h=cc
+	:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=fm3; t=1732471030; x=1732557430; bh=PsTjrP/zN41TGyrwJbyG0
+	aUjZNZR/ScZKsMHHcShUo0=; b=SFcF02ZVRnIOjHXLkFXTZn+EW2a1u/wti3xDg
+	2RvIIcyXO9thMqNVLMK2lwt7Ww/NpKDTXZs0J0UjDIwobe8hrjycw9eHvMueSvkR
+	lp+jL1YnMnqygKtYhnR9vjvgAhPpOQuF530GDWrX5evp2w3fO5+wfi8xcoa6ZFDb
+	Mzn5XiMJK+i/0D25bZIVCVWgyJGLjIkL4Us9JV7mBjip2yA6kkqWGIjaHh6Viqq2
+	yKjq8fEnrmBvC9Ejd7zZ3/wQidgc8n7o1gKI8+DSfi96qAnYwpee1KVsHOVfLgav
+	EBJoxbb/xnnD6ohk4kWQhA/URPqCLG42dShCZaeModUUHyglA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1732471030; x=1732557430; bh=PsTjrP/zN41TGyrwJbyG0aUjZNZR/ScZKsM
+	HHcShUo0=; b=LVVY2pME1KMQV3KQQG1v6EV8YQvd5SZvu2FDqzaXuZQ21/VmeCS
+	S7MfPWUNLp1SrGGAwhH7Yks85zWJyXBtYfYdQBYe/BGiuVnSShErR31WQZwjSQMY
+	xWdZnpgokSDOjV7OzAFKcxvat30rSusowyzjzozFJjnzVUPe1+rK3qjHO/A3q26k
+	Yq745UKGuMMs7j61my3qVD7BfvUcs307XYHs8OPuVaStOtcSAQAfeZS0bUO8Iknr
+	g5brspR7zkT8ZYtzw1CGi0K2gtNm0hPPVbBYv4oEDnY9Z8VvU2XFH9lGKH2w/r3P
+	hUZFZwAMFFjnBjl1LizKr4VEBmg0/DYElOw==
+X-ME-Sender: <xms:9WhDZ7bvjRPO7TsMe6n7ByV65EORoxcBcaNSY1QYpyT9KIvgPlcpiA>
+    <xme:9WhDZ6awivCEXngBZKoSbyY-BEq8x2ITVPJQdfM-cjTq_bPmAhmTIrsmvl6IGMKxk
+    JWVXMqdqk68hFHEaQ>
+X-ME-Received: <xmr:9WhDZ9-yKsrHfAQmMvS8QxGF9v4SofKdBVzv0SL9_G26GRg24okIg71K_DWbrDlwqCkPid23v0QISFYEjARYu0DSbtfY>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrgeefgddutdeiucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhephffvvefufffkofgggfestdekredtredttdenucfh
+    rhhomheptehlhihsshgrucftohhsshcuoehhihesrghlhihsshgrrdhisheqnecuggftrf
+    grthhtvghrnhepheekgfdtveettdekuddugeeugfdujeehuefgleegtedthfffudfhhedu
+    hfduuefhnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
+    ephhhisegrlhihshhsrgdrihhspdhnsggprhgtphhtthhopedutddpmhhouggvpehsmhht
+    phhouhhtpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtph
+    htthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshhes
+    khgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlse
+    hlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheprghsrghhiheslhhi
+    shhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehmrghrtggrnhesmhgrrhgtrghnrd
+    hsthdprhgtphhtthhopegrlhihshhsrgesrhhoshgvnhiifigvihhgrdhiohdprhgtphht
+    thhopehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdprhgtphhtthhopeguvghvihgtvg
+    htrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:9WhDZxrvWf0HJPlprkcU5lnN4jwaTtUu-HI-ch8GLdVHVE23VT-u0Q>
+    <xmx:9WhDZ2ruV-BRnbplcVWHv0LzGdKc-ZDit0FyrJUQEtzVHG1EpQl_Jg>
+    <xmx:9WhDZ3RbQrw6auqmQRzCeO5WN1HKUllulWWELWDft4Ug-x4BgMh4NA>
+    <xmx:9WhDZ-q5-B_ZbCDiqAxRR8nm-2xmFgxaa87Yd5bW_baJ58ztK1dXDA>
+    <xmx:9mhDZzjvnv4bavyDmMnm8P7Cu4JUAH-O8IX-672Awuc0VwC_9rXz32Bn>
+Feedback-ID: i12284293:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 24 Nov 2024 12:57:08 -0500 (EST)
+Received: by mbp.qyliss.net (Postfix, from userid 1000)
+	id E2160A8A6; Sun, 24 Nov 2024 18:57:06 +0100 (CET)
+From: Alyssa Ross <hi@alyssa.is>
+To: Hector Martin <marcan@marcan.st>,
+	Sven Peter <sven@svenpeter.dev>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sam Edwards <CFSworks@gmail.com>
-Subject: Re: [PATCH v2 2/2] arm64: dts: broadcom: bcmbca: bcm4908: Add DT for Zyxel EX3510-B
-Date: Sun, 24 Nov 2024 09:57:12 -0800
-Message-ID: <20241124175713.718830-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241009215454.1449508-3-CFSworks@gmail.com>
-References: <20241009215454.1449508-1-CFSworks@gmail.com> <20241009215454.1449508-3-CFSworks@gmail.com>
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: apple: t8112: fix typo in comment
+Date: Sun, 24 Nov 2024 18:56:19 +0100
+Message-ID: <20241124175619.230330-1-hi@alyssa.is>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_095714_493928_6F184740 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20241124_095715_345390_8F107283 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +119,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florian Fainelli <f.fainelli@gmail.com>
+j493 is the M2 13-inch MacBook Pro, as specified in the model set below.
+The M1 13-inch MacBook Pro is j293, and is from 2020.
 
-On Wed,  9 Oct 2024 14:54:54 -0700, Sam Edwards <cfsworks@gmail.com> wrote:
-> Zyxel EX3510-B is a WiFi 6 capable home gateway (family) based on the
-> BCM4906 SoC, with 512MiB of RAM and 512MiB of NAND flash. WiFi support
-> consists of a BCM6710 and a BCM6715 attached to separate PCIe buses.
-> 
-> Add an initial devicetree for this system, with support for:
-> - Onboard UART (per base dtsi)
-> - USB (2.0 only; superspeed devices are treated as high-speed due to an
->     unknown cause)
-> - Both buttons (rear reset, front WPS)
-> - Almost all LEDs:
->   - Power (red/green)
->   - Internet (red/green)
->   - WAN (green)
->   - LAN (green; anode is connected to GPIO 13 so currently
->       nonfunctioning)
->   - USB (green)
->   - WPS button (red/green)
->   - Absent in DT: There are 2.4GHz/5.0GHz WiFi status LEDs connected to
->       the WiFi chips instead of the SoC.
-> - NAND flash
-> - Embedded Ethernet switch
-> - Factory-programmed Ethernet MAC address
-> 
-> WiFi cannot be enabled at this time due to Linux lacking drivers for
-> both the PCIe controllers and the PCIe WiFi peripherals.
-> 
-> Signed-off-by: Sam Edwards <CFSworks@gmail.com>
-> ---
+Fixes: 2d5ce3fbef32 ("arm64: dts: apple: t8112: Initial t8112 (M2) device trees")
+Signed-off-by: Alyssa Ross <hi@alyssa.is>
+---
+ arch/arm64/boot/dts/apple/t8112-j493.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
---
-Florian
+diff --git a/arch/arm64/boot/dts/apple/t8112-j493.dts b/arch/arm64/boot/dts/apple/t8112-j493.dts
+index 0ad908349f55..10f7c635e4d5 100644
+--- a/arch/arm64/boot/dts/apple/t8112-j493.dts
++++ b/arch/arm64/boot/dts/apple/t8112-j493.dts
+@@ -1,18 +1,18 @@
+ // SPDX-License-Identifier: GPL-2.0+ OR MIT
+ /*
+- * Apple MacBook Pro (13-inch, M1, 2022)
++ * Apple MacBook Pro (13-inch, M2, 2022)
+  *
+  * target-type: J493
+  *
+  * Copyright The Asahi Linux Contributors
+  */
+ 
+ /dts-v1/;
+ 
+ #include "t8112.dtsi"
+ #include "t8112-jxxx.dtsi"
+ #include <dt-bindings/leds/common.h>
+ 
+ / {
+ 	compatible = "apple,j493", "apple,t8112", "apple,arm-platform";
+ 	model = "Apple MacBook Pro (13-inch, M2, 2022)";
+
+base-commit: 9f16d5e6f220661f73b36a4be1b21575651d8833
+-- 
+2.47.0
+
 
