@@ -4,71 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02447E668AB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 13:41:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FEDEE668AB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 13:44:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EjDpsF8wjG9tmK6+KtUoiWT9TQ0r6XAVjRpwr624nMo=; b=hcKD5xb/mHRHWOqDPms9xOa+FD
-	U5plyCNxu/EiAhsrVRfR1yUhunGsB8Ts56Ihsuwy/Esldv2gYCOJOgtgZiymULeZSz5H/OJmazsAU
-	V0yxPxpp34R650kJ//5GFhWjz6PBMaSrvTn8rQQInN97WGXAkbLBMvsMu3PtG9OeKPhyoBBVduHAN
-	hhI2Uzn8UT/Py00RZSGcHByYGJNDREAgLmnTuIUm2wqHzUM1pSUCndbYeG0JVlC8zpLvqfJs3Fgdt
-	ZhbjMhn/t9bDzllRHskYSkMDZ9IJlu6pljZe1fYRU5r+JlpBYl1Kay+xGT3kC3xRpe2NnvXdOcuUV
-	BN3yc8WQ==;
+	bh=egzxxinsHmQKVgpxpPqxwKVEZG0t708x6HlwWYG8jQ8=; b=v/uT+QmtrmiHghjKs2LE8WZ6RM
+	63HKpu9tKq+goWo5aBBI3nJmePx/HkQ6dyNLSb5nojwbTfHYokED4JVVUtvpXaNPk8W7x+HzwZZw9
+	t8TDGBVK5XwYFMwS0EmufcJ/XAwmA2D0AbrPfgF7SL6vHzABN93KIGl6MEcgeIUDNVWv8dGeA5hqr
+	ykmZej5iZM1oNNS1ZY2HM8sIgVLmRwhS8cXW03oFlOD59RFz3uKW7eA74oFXoNLj1v/F2O/NcLKyh
+	N8aQ+R/+WkcY3EogG6K6Pb2tuu7wol1K0l56aSFrNf2kBifPkcUVEOiOp+zhww7eImj5Fji8s74EL
+	qOLMNLkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFCrm-00000005xoM-3Zmk;
-	Sun, 24 Nov 2024 13:41:34 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tFCuY-00000005yXY-2HaA;
+	Sun, 24 Nov 2024 13:44:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFCpA-00000005x48-2gcy;
-	Sun, 24 Nov 2024 13:38:53 +0000
+	id 1tFCta-00000005yJ2-2txl
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 24 Nov 2024 13:43:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 892B55C5613;
-	Sun, 24 Nov 2024 13:38:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88DECC4CED1;
-	Sun, 24 Nov 2024 13:38:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 993E35C56E6;
+	Sun, 24 Nov 2024 13:42:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B707C4CED3;
+	Sun, 24 Nov 2024 13:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732455531;
-	bh=jEb8q9faF808HFMBLN4NJXQ6d+H5TT+1yF2sXcH8ztY=;
+	s=k20201202; t=1732455806;
+	bh=qv5uR2tjx0Fy6RsqPV3TVLAUoC7db9QSAc69i5NeHZY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mnpdYw/vIHlq6mTYQW4otconACqrdsBterYppG98AwtxEtyifl+D19A4O14DCHmPL
-	 iLMBY3/e8nz0jKJc7UXoIPpO2o8FFPyL0YPd5lXefV6Dx4/DtFVHvYBBblYCm8N3hK
-	 fCDOHC3e+2Ol7CMVZqqcMhjs0bHA59S9ZCmr3kA8ec95XHaWcRHlPobtAyoI9hyBzR
-	 uu8jz1tMcqvcrl94uV4mjcxCu6aA3IXqnxNfnlgKMkBu1ER4sb/eYQxtnPIHUo0Wpg
-	 ky9xbp/HOQU8fh0asNfx3POpP9SMjaaV6CfSAOSwbBkrS/VB3slXJCMHtOucPLoqBF
-	 qtdkDz7l7IZxQ==
+	b=YmE4SycXFE8BWE2FWttHg3qN3oSgcrIjDlj5AsHvqyGnosE+2nmqIjhbp5tEgvM2h
+	 GfYJDlBT82kUiiTLtakKPxAcdDNb2eoOxfAxw27xv7rT3vxvvdNOheuoN0ayeHdFgn
+	 CZj0ebDm8TGGrymvhT5N/k4XjBJ1Rz6aR0+8lN0ehMPFLddhKXoso3BU+BDaJ3FanM
+	 IZo6E8VDmS2cdiPrQLMwbN5kNOINZybd0ZX3agYrh0xi2OQYZ4jcZPu0XELDSfnSx/
+	 LmqgTnCfuJHW5n9aEj6cIxYzEFgY5dD1GQVHN//GBNv82ZEpXfLrVsmL97OfBG7psM
+	 ePsLKXfyKePyw==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Jiande Lu <jiande.lu@mediatek.com>,
-	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
+Cc: Abhishek Chauhan <quic_abchauha@quicinc.com>,
+	Simon Horman <horms@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
 	Sasha Levin <sashal@kernel.org>,
-	marcel@holtmann.org,
-	luiz.dentz@gmail.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-bluetooth@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 103/107] Bluetooth: btusb: Add 3 HWIDs for MT7925
-Date: Sun, 24 Nov 2024 08:30:03 -0500
-Message-ID: <20241124133301.3341829-103-sashal@kernel.org>
+	alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.11 46/87] net: stmmac: Programming sequence for VLAN packets with split header
+Date: Sun, 24 Nov 2024 08:38:24 -0500
+Message-ID: <20241124134102.3344326-46-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241124133301.3341829-1-sashal@kernel.org>
-References: <20241124133301.3341829-1-sashal@kernel.org>
+In-Reply-To: <20241124134102.3344326-1-sashal@kernel.org>
+References: <20241124134102.3344326-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.12.1
+X-stable-base: Linux 6.11.10
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_053852_720358_1E0537F8 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241124_054326_822527_3536F5DE 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,60 +87,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jiande Lu <jiande.lu@mediatek.com>
+From: Abhishek Chauhan <quic_abchauha@quicinc.com>
 
-[ Upstream commit de7dcf9d1df4b0009735756d0a2adff09c3f21d4 ]
+[ Upstream commit d10f1a4e44c3bf874701f86f8cc43490e1956acf ]
 
-Add below HWIDs for MediaTek MT7925 USB Bluetooth chip.
-VID 0x0489, PID 0xe14f
-VID 0x0489, PID 0xe150
-VID 0x0489, PID 0xe151
+Currently reset state configuration of split header works fine for
+non-tagged packets and we see no corruption in payload of any size
 
-Patch has been tested successfully and controller is recognized
-device pair successfully.
+We need additional programming sequence with reset configuration to
+handle VLAN tagged packets to avoid corruption in payload for packets
+of size greater than 256 bytes.
 
-MT7925 module bring up message as below.
-Bluetooth: Core ver 2.22
-Bluetooth: HCI device and connection manager initialized
-Bluetooth: HCI socket layer initialized
-Bluetooth: L2CAP socket layer initialized
-Bluetooth: SCO socket layer initialized
-Bluetooth: hci0: HW/SW Version: 0x00000000, Build Time: 20240816133202
-Bluetooth: hci0: Device setup in 286558 usecs
-Bluetooth: hci0: HCI Enhanced Setup Synchronous Connection command is advertised, but not supported.
-Bluetooth: hci0: AOSP extensions version v1.00
-Bluetooth: BNEP (Ethernet Emulation) ver 1.3
-Bluetooth: BNEP filters: protocol multicast
-Bluetooth: BNEP socket layer initialized
-Bluetooth: MGMT ver 1.22
-Bluetooth: RFCOMM TTY layer initialized
-Bluetooth: RFCOMM socket layer initialized
-Bluetooth: RFCOMM ver 1.11
+Without this change ping application complains about corruption
+in payload when the size of the VLAN packet exceeds 256 bytes.
 
-Signed-off-by: Jiande Lu <jiande.lu@mediatek.com>
-Signed-off-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
+With this change tagged and non-tagged packets of any size works fine
+and there is no corruption seen.
+
+Current configuration which has the issue for VLAN packet
+----------------------------------------------------------
+
+Split happens at the position at Layer 3 header
+|MAC-DA|MAC-SA|Vlan Tag|Ether type|IP header|IP data|Rest of the payload|
+                         2 bytes            ^
+                                            |
+
+With the fix we are making sure that the split happens now at
+Layer 2 which is end of ethernet header and start of IP payload
+
+Ip traffic split
+-----------------
+
+Bits which take care of this are SPLM and SPLOFST
+SPLM = Split mode is set to Layer 2
+SPLOFST = These bits indicate the value of offset from the beginning
+of Length/Type field at which header split should take place when the
+appropriate SPLM is selected. Reset value is 2bytes.
+
+Un-tagged data (without VLAN)
+|MAC-DA|MAC-SA|Ether type|IP header|IP data|Rest of the payload|
+                  2bytes ^
+			 |
+
+Tagged data (with VLAN)
+|MAC-DA|MAC-SA|VLAN Tag|Ether type|IP header|IP data|Rest of the payload|
+                          2bytes  ^
+				  |
+
+Non-IP traffic split such AV packet
+------------------------------------
+
+Bits which take care of this are
+SAVE = Split AV Enable
+SAVO = Split AV Offset, similar to SPLOFST but this is for AVTP
+packets.
+
+|Preamble|MAC-DA|MAC-SA|VLAN tag|Ether type|IEEE 1722 payload|CRC|
+				    2bytes ^
+					   |
+
+Signed-off-by: Abhishek Chauhan <quic_abchauha@quicinc.com>
+Reviewed-by: Simon Horman <horms@kernel.org>
+Link: https://patch.msgid.link/20241016234313.3992214-1-quic_abchauha@quicinc.com
+Signed-off-by: Paolo Abeni <pabeni@redhat.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/bluetooth/btusb.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/dwmac4.h     | 5 +++++
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c | 5 +++++
+ 2 files changed, 10 insertions(+)
 
-diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
-index 2a90033c014b7..0dad2ac5914f4 100644
---- a/drivers/bluetooth/btusb.c
-+++ b/drivers/bluetooth/btusb.c
-@@ -654,6 +654,12 @@ static const struct usb_device_id quirks_table[] = {
- 						     BTUSB_WIDEBAND_SPEECH },
- 	{ USB_DEVICE(0x0489, 0xe139), .driver_info = BTUSB_MEDIATEK |
- 						     BTUSB_WIDEBAND_SPEECH },
-+	{ USB_DEVICE(0x0489, 0xe14f), .driver_info = BTUSB_MEDIATEK |
-+						     BTUSB_WIDEBAND_SPEECH },
-+	{ USB_DEVICE(0x0489, 0xe150), .driver_info = BTUSB_MEDIATEK |
-+						     BTUSB_WIDEBAND_SPEECH },
-+	{ USB_DEVICE(0x0489, 0xe151), .driver_info = BTUSB_MEDIATEK |
-+						     BTUSB_WIDEBAND_SPEECH },
- 	{ USB_DEVICE(0x13d3, 0x3602), .driver_info = BTUSB_MEDIATEK |
- 						     BTUSB_WIDEBAND_SPEECH },
- 	{ USB_DEVICE(0x13d3, 0x3603), .driver_info = BTUSB_MEDIATEK |
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
+index 93a78fd0737b6..28fff6cab812e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
+@@ -44,6 +44,7 @@
+ #define GMAC_MDIO_DATA			0x00000204
+ #define GMAC_GPIO_STATUS		0x0000020C
+ #define GMAC_ARP_ADDR			0x00000210
++#define GMAC_EXT_CFG1			0x00000238
+ #define GMAC_ADDR_HIGH(reg)		(0x300 + reg * 8)
+ #define GMAC_ADDR_LOW(reg)		(0x304 + reg * 8)
+ #define GMAC_L3L4_CTRL(reg)		(0x900 + (reg) * 0x30)
+@@ -284,6 +285,10 @@ enum power_event {
+ #define GMAC_HW_FEAT_DVLAN		BIT(5)
+ #define GMAC_HW_FEAT_NRVF		GENMASK(2, 0)
+ 
++/* MAC extended config 1 */
++#define GMAC_CONFIG1_SAVE_EN		BIT(24)
++#define GMAC_CONFIG1_SPLM(v)		FIELD_PREP(GENMASK(9, 8), v)
++
+ /* GMAC GPIO Status reg */
+ #define GMAC_GPO0			BIT(16)
+ #define GMAC_GPO1			BIT(17)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
+index 071f128aa4907..7805a66a0bc08 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
+@@ -534,6 +534,11 @@ static void dwmac4_enable_sph(struct stmmac_priv *priv, void __iomem *ioaddr,
+ 	value |= GMAC_CONFIG_HDSMS_256; /* Segment max 256 bytes */
+ 	writel(value, ioaddr + GMAC_EXT_CONFIG);
+ 
++	value = readl(ioaddr + GMAC_EXT_CFG1);
++	value |= GMAC_CONFIG1_SPLM(1); /* Split mode set to L2OFST */
++	value |= GMAC_CONFIG1_SAVE_EN; /* Enable Split AV mode */
++	writel(value, ioaddr + GMAC_EXT_CFG1);
++
+ 	value = readl(ioaddr + DMA_CHAN_CONTROL(dwmac4_addrs, chan));
+ 	if (en)
+ 		value |= DMA_CONTROL_SPH;
 -- 
 2.43.0
 
