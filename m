@@ -4,98 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2230D3B7C3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 22:58:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6790D3B7C3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 22:59:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vLOQaL4VwkGwmmyBjTxl0a8isrwBxSjC7W+8IS5dpbU=; b=5Ct/gEg3Gv9Kc5Zo03FhLUBShB
-	rCALtbCU79D6+oLvTQk8PpwbiAJ7zAf/J/bWKi3lalfo61pXON/5b3SbFFMSt5K6aaj6OhSzzTuB0
-	PklB2vGOo+UaNPpClUTGk3eA5HJDsA0jVaHZUN/+SmXnwaw/CGjvUsUoGd8Ost6jRAkZ6SQpRHZWO
-	+kHDJ2JomxJuGgatEMiky9DlcoU5sVDljhPocgNGx9QaV89JLkvpFMojR11/U83z8JYudnKEV7kyz
-	Vro3Ycq4xdl6pKr8czIac6cB5eLQm2bLVCOt4lf9EgCsHbQbQk1l2gBJOcgpkhpteMs3W7+0t3ZAX
-	NmshwngA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Message-ID:In-reply-to:Date:Subject:Cc:To:From:References:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u0QE3J1WdM7jKNj2BilNkmIsq6SZVH90JFNJu4ZcePI=; b=ihI3i6JGP+kOelCiGrf8CrLMrB
+	Z3DnQW5i1pRhbAJOGNNp2cdqloQ62AqD8K/jTIb8x6XfJNIMPvwTtMMPL2z7KZ3q6HtiR6TUvlXI2
+	Q7GulozhTuA09wpPHvpLcFfBnQIBUkmCJdOhHEiMDG87n0fbWxu+wz6FAhcmlAbyL6ZmS1rPdYqL5
+	Kn2z+jDwIGGMx8jhZhoSP1YyMv3kStD+DjW1VZYutztyWhfkrlfxkoeAmPsK3H61TWpU8PreojeUn
+	MdhiUGv8NPBf37C46JmQznYA8zCs/dp9/ApIUw1bwoN/mQAA1/tuROgtv9szgRPNXe3BtjxR4TJih
+	xYO/FdTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFLYq-00000006lZ3-3iko;
-	Sun, 24 Nov 2024 22:58:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tFLZm-00000006lgK-20KP;
+	Sun, 24 Nov 2024 22:59:34 +0000
+Received: from mail-dm6nam12on20620.outbound.protection.outlook.com ([2a01:111:f403:2417::620] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFLK3-00000006j8z-030B
+	id 1tFLLd-00000006jXL-1pXi
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Nov 2024 22:43:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DE1615C5824;
-	Sun, 24 Nov 2024 22:42:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B04F2C4CEFC;
-	Sun, 24 Nov 2024 22:43:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732488194;
-	bh=F4cbjF/9M6ITcKCkPhkzEDR5HNiIhwkdl+T79A6mE8Q=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=dO1OK+CHRIdhUEKNX152EQe6yz1gpuk0jYB+JYyrquDutn4mIgCzmZF5KRa6ECRNh
-	 Fmd3Hk2DeXmRmOQP1DbNFzjKNJoQtnvDObNd5On+Molg1phcI3N47JjdL6TbM7/fql
-	 v9Kj4L7VW6XOD9fVep1QrS0IQFs/DXmGe562rLof2JNgrKMSDIKDvF6wTlrNO/ynuG
-	 Tsi0atkBSVrdOIt+ZsIIQ4rxyzuPQuUF9qtvDSqb0hOZGoEvv1agNw8GJpo99IhXYx
-	 w6ZMjSs0S8jTfgeBZTMDUqOUafIRBdEt/IjdwtBAn3NRMMRo8tSai7tCCG62+A1z2X
-	 8bX2A+z4XhvoA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9DB7CD3B7C1;
-	Sun, 24 Nov 2024 22:43:14 +0000 (UTC)
-From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Sun, 24 Nov 2024 23:42:43 +0100
-Subject: [PATCH RFC net-next v6 12/15] net: dwmac-sti: Use helper
- rgmii_clock
+	Sun, 24 Nov 2024 22:44:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Gd1qo9j82+7xPlfB6txnunry9X2ATTDXG1e0xByAdqnZRG3qjv4d/ICVDKvEwhLI44dHpxPFiVP9VjRgR4L18gv8WD2GjfwogjONLAgNLOxZY+mofoM7QeziDcCg3J2NU/cpvQcLQxeDiBsEvZmqqOxfDHLDEWw6X6ybrSIntftkbRea3oihKtULWN0455EN/OZAQgniHHbJUdr+ewd445Ddk9D0X69HoY5RBtemaTIfQdEocF1NrBRR79/Zj7zSAzKxLIgLVdNayNKzVXl9BEC61k8GBcBOZ5h6YgT9XvJgX6Jm3Ka7YsQt3Ycb50pOtdWNRDjglO5puGCm9dFTkA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=u0QE3J1WdM7jKNj2BilNkmIsq6SZVH90JFNJu4ZcePI=;
+ b=qps/HECtnRQBM21U4zz5zyFg/5LtBTOax82pzbT5/CZiOV5GooHad9/Lt7aEpWZhq75EBPn2Pw6X4p4dvvBsB1O5ZjC8ci0fIHge2eF5lyEAc+cykUT11QSn8nf4m0cvigAtyy1o81MskbYKzCV4Pzk7GfOmggbx/D3aBZsPOkUTgSvcgA2p3Hv4CKv2zgPYfqtfzW/VRM8QrE93jAVnCkNvdCEIeskcK0hF4tHo9b0eppE1BOt2L3P1WPFXoqcvfYu/zbKi9qvTEoZ9URhnag4PmUwdCGzCHX4LAbQJDgqpnRpRTQWfMigaFsms9G4yDd+rIfNOXfWT5JzZjWpi4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=u0QE3J1WdM7jKNj2BilNkmIsq6SZVH90JFNJu4ZcePI=;
+ b=Oql5kt1Lvo5u9CHXKYDxpO0fdAo6Nocew8kf+oSQojVmZA6f15PIiX1qd22N4Nz6zF5H602BuaCDJW9Nn5bYlHcOyesA5K+Mb1P3ZXWZ8bJGohdiEc8ZGOPkPcLQTTBBqVe8EYCY4Q83io69LoeYWB7A1gV3LEzGFlahLB4lYTAGFSmPuuKbLcIE5DS98WjVHI0LRkjqnvysbcw87YfCrfI98C3S49FU0ElBxTqJY6sQS9Uc+YNCmbbWE+ZbANkQ6YYm1zJAiOgZVpLYdNrDap9ltX3xTSQ7n48Lj/ZLZf9leQBQSQYuVEHQfT9DhUb75SI/q1yDPLunGkzUOVQTLA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ CH3PR12MB9023.namprd12.prod.outlook.com (2603:10b6:610:17b::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.27; Sun, 24 Nov
+ 2024 22:44:49 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%4]) with mapi id 15.20.8182.018; Sun, 24 Nov 2024
+ 22:44:49 +0000
+References: <27381b50b65a218da99a2448023b774dd75540df.1732239628.git-series.apopple@nvidia.com>
+ <20241122182013.GA2435164@bhelgaas>
+User-agent: mu4e 1.10.8; emacs 29.4
+From: Alistair Popple <apopple@nvidia.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: dan.j.williams@intel.com, linux-mm@kvack.org, lina@asahilina.net,
+ zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
+ vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
+ bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, catalin.marinas@arm.com,
+ will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com,
+ dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org,
+ djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, david@redhat.com,
+ peterx@redhat.com, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev,
+ linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org,
+ jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com
+Subject: Re: [PATCH v3 10/25] pci/p2pdma: Don't initialise page refcount to one
+Date: Mon, 25 Nov 2024 09:39:54 +1100
+In-reply-to: <20241122182013.GA2435164@bhelgaas>
+Message-ID: <87ed30s142.fsf@nvdebian.thelocal>
+Content-Type: text/plain
+X-ClientProxiedBy: SY5P282CA0035.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:206::18) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241124-upstream_s32cc_gmac-v6-12-dc5718ccf001@oss.nxp.com>
-References: <20241124-upstream_s32cc_gmac-v6-0-dc5718ccf001@oss.nxp.com>
-In-Reply-To: <20241124-upstream_s32cc_gmac-v6-0-dc5718ccf001@oss.nxp.com>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
- Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
- Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
- Minda Chen <minda.chen@starfivetech.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Iyappan Subramanian <iyappan@os.amperecomputing.com>, 
- Keyur Chudgar <keyur@os.amperecomputing.com>, 
- Quan Nguyen <quan@os.amperecomputing.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>
-Cc: linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, 
- devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732488190; l=2017;
- i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=E3dKlyRUyP013sEwa3YoW1YOIguttVezMK0ReGNP/J8=;
- b=7TI9v5gtH2+5g+ELTpHWN8eoSrIn96kvVzQMjpQ1goz/OqMYGm8aibb0Nlkrxap2hSB6FoSZZ
- Jb5xHhKopt5ChRc+N67Pf6oDqDHiU6a3BPeD4hgYAmLLZ5Cbu+HtJX2
-X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
- pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
-X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
- auth_id=217
-X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|CH3PR12MB9023:EE_
+X-MS-Office365-Filtering-Correlation-Id: 41197f55-8e94-4596-83a4-08dd0cd99a3e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SQdupjQbXUDBKMP8At6jHBYgD4Dsp1Ekh/AlAOhycVowikOBhhRmzN1fpU/D?=
+ =?us-ascii?Q?mGB77mIjwCCTq2TyNvdVk1QsCBM03xcuJQ3oYKq8s4Q2oT8VpCgJTxA5b0I3?=
+ =?us-ascii?Q?wZ0hLrpTCAyyNvL3EhmRmNb+td+qy8LIhfyFhq1b+cIP5etXRCsNaLu6iPr0?=
+ =?us-ascii?Q?rGtnqSdIhaxPq+jMWEf4V8MZrkEKkCWbq/lhzVxCzkj0590QXV5vRLlmYzy9?=
+ =?us-ascii?Q?fqyky4CC6LXDvzIxjeOWnaLLigatwboOdZEijSrUrbB+cMN2zMsYONQ8YQtT?=
+ =?us-ascii?Q?fn8SFkpee2zynYVVSGY0lanssrGbPcnB5Vfbah5hCytCXhh2lrinYk23Tuy0?=
+ =?us-ascii?Q?t4ai2tXvnZDsZPWYUE2hKYC8yUt4qpg72B3a9m1m48p3GZLlwKv4vuLzLoFb?=
+ =?us-ascii?Q?zd854bBzL1Cw5xKvuY+DP9xC5x7oFo8ON5qQtJNnRRFd1KtZ4tmMZDua+UZC?=
+ =?us-ascii?Q?e3gpCY+BIkBYGfNtZUYv23R96EvARDEUIaAMiv+1dCQ77l4esG67xJ5e8e0c?=
+ =?us-ascii?Q?vPOPutqmDvoQa8XlF2QsE6/6a6zgFiABNbzZiPFi88k8ZSr2noP12CD9pM1T?=
+ =?us-ascii?Q?VvHSkD3vyRJteVJN02CKOW0YNqkV7ibqou1dU/s8YNxxcMtGpNNfFNwDWVsy?=
+ =?us-ascii?Q?qpESSCYPv5SHOSMcUjIf65U0aOxKgVEL3Qz9snXWb87UhOwFNZmXjjLtW1tm?=
+ =?us-ascii?Q?aa32PFAZ19hzl1l3uQdph8ELHQlHGNjKNi9UtV+YKQyFnuhWX5jFzhuDaejZ?=
+ =?us-ascii?Q?YUunuv97utO1ttmNXK4iliJNrrUUSY56jE7mGlBWikx0Ruje500zF4c+EqhD?=
+ =?us-ascii?Q?peTnn1lUWp/iGumLvRpCJ0k+jGZmybGzHSnKwkyHnJ1e3BvgSmmfkZpu2cdm?=
+ =?us-ascii?Q?vXI4K/oMboqlai8/RhOv3xBbhTI5SXkC9J8aWqh/uzK9GoWAPmPXGV2hCMHu?=
+ =?us-ascii?Q?v+GiAOYpKAdkTL+S1FidEvInLWUvXg+zKbML1pkL0uRgwx2RuKCxL1j/m6eN?=
+ =?us-ascii?Q?75vy+czvKAomJevQ4ky6ZMABsb0Ass9Pih+7qacfU+vkste2IHSfatMlhLoW?=
+ =?us-ascii?Q?NKdBC8SXxdvRQE/U8rLgQ+jzZhT5j0eoENxm5lXy54gB410bUFMY+4cMVMpa?=
+ =?us-ascii?Q?MrjF4dlEs53BXAv9811ezx0zyRfjcITDHFtgAobjC7t5mYKXempH9TLBlKFv?=
+ =?us-ascii?Q?fapRdja1cXRz17oXj3Qhqpoult4vwQPpmY1rLQ6OgIft7kEeUcStqNniPFiW?=
+ =?us-ascii?Q?n+gf2RkWcirj+U03DFjHu1CT6dnlOjakSyGWh8cSrXzKR8e5lFGqZtbJZT9v?=
+ =?us-ascii?Q?QxyWO1swRiXXmK5pAk6HiR0RHeG6drAceEooINXMouhV1GJ9wH2QH3ufjUEg?=
+ =?us-ascii?Q?Whu++pw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gzfwcbVtGjHfUlO1myAyhYK7Xk8LDiw1rPsr0EATWKyG/HwfFLAwppKvMbVK?=
+ =?us-ascii?Q?k1eErJuHq3ACCCIyIfK92woa4VUQhw1RW5qF4rbzi8r+jYnXybpfTfow3Mxk?=
+ =?us-ascii?Q?nuOU8CfFdBkoAQNy7YroY+SpUVmrKmKqnED5KHb6jlmfXUROaqMwJWTvrgzs?=
+ =?us-ascii?Q?jsBn5u6Ce8mtOzBPpHMiiW0U4TZRxG6RTo5hdl0XmkklP0gTYB7AU6fgdC+r?=
+ =?us-ascii?Q?UxgxZfCl7RVaCB2oZYbvP034OrcbsetDtB7kbLKbtwI08gIPvZcJh0d1F6Nx?=
+ =?us-ascii?Q?sJYPpngTmb6GJGrBC55K3nG5t7700LUC3UPuHVtHzwGvRuSpkfLKJkajg6uD?=
+ =?us-ascii?Q?xSsBi/aC8izVhndnF7+7n4KtsmS/uryo/htfvny+PdnHC1dK0hI4hqE40IAG?=
+ =?us-ascii?Q?Jim1NamIezu5yG7QwzVwHDsZAd4kowZpDNqPw8eVNetpzkCNZVet+Z5CEpnz?=
+ =?us-ascii?Q?sLMldADIzBuVJjy6ka2nxlZ2We7DdXo7dnjE6+xEzSBuKqD/6mIWpttiuBzi?=
+ =?us-ascii?Q?ChX4n1djkSNTI4c6C+B/YyaLjFzeX4hdfpDXRnVrN8uGxXGyZ5sxdQxx1NRg?=
+ =?us-ascii?Q?bMSNOe8SHg4/fOc7WYpr1n0/SJN7wEwrcIva4LcC0DiTn4V7ktsU20FdxmiM?=
+ =?us-ascii?Q?+8UnvBBpYRnX9tdQ8qn+n5/S1FMBLLX3Wt4FONgf0EblzW/dqFt2bhzv09kD?=
+ =?us-ascii?Q?di7BO87wz7J9nLGJw/Xjcya2bg/+UuxMvuGYRIgjUQxWKmoOhvsFkxC1JDy8?=
+ =?us-ascii?Q?A5U40OztCqj+MTkva1axApfJHUsBiJOj/epWgJWMnI7uCxerlJTy/SC1fZoV?=
+ =?us-ascii?Q?ro0fJsa9NitAwLUSQiRNFY9rmIq5TOy5aU8I8DZ08PcCekOgKM8QL7+9y6kq?=
+ =?us-ascii?Q?YYK/XyUA5XWNxARRjQsyohzVMSXlltyyG03renjRjQK2PwOQi6VTgF5AJJNm?=
+ =?us-ascii?Q?ju58FhDyz9FH6GgjgmcFLu+yFuKFf41mt+LfANyN1npSNcTYo4uAy5fnmTAV?=
+ =?us-ascii?Q?P6cMAqCybpNwLLsyFVEJgdYqTmW0TNVgdREAqutMmg42qgurcyqO6eztlBd5?=
+ =?us-ascii?Q?35iXZPcyOscEIqaIRJZIMj/X9X6CtPexLs8CInvwtUOdTO27vosdXAhv90sF?=
+ =?us-ascii?Q?ELB/5SFk7oUg72srSbNCRZJNzqNmg5KFRZNd5GlJYYlDdMpJt3QNIrdHupPo?=
+ =?us-ascii?Q?vMI3fsdl9/CoBfeeN9ePdhBq3RqB2IZak8uTwBuRa/qcxVIFkEDaQ6Y8FDjA?=
+ =?us-ascii?Q?ex65oVzawFKJlztbwSNQTVNhDqMFzE1UybkoRM0V33R/j6DExIMpczhPAvPX?=
+ =?us-ascii?Q?Mglh1+RtFbrbFDEI2DhTwL3q1RbslBSUPoRO8vlJn1TyPF4NdBfTPPwSpowR?=
+ =?us-ascii?Q?sbfCmGJ32/qGMu2sw98/kHYw3eXZmUco11VtTx+bjL/mMcqpIR6gsu4Ozzji?=
+ =?us-ascii?Q?1JUzS1mAJ7uPfSZbH1koPMgXo4dsVakhLtT2zZubieNOPtJKBoIy6mtfug3f?=
+ =?us-ascii?Q?tH8BhDN5VaZ9Hl100UKbCD87ca0pM43qiCQYJR1GXBd/zQ896iz7AKlkk0FK?=
+ =?us-ascii?Q?a2booJKTryCsUdOdoGyL7fRtnsNb3sM0T/ideNb6?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 41197f55-8e94-4596-83a4-08dd0cd99a3e
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2024 22:44:49.5571
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BC8pCDxCxdfKnPPrH/ZX+H1JtV0tDGsYYa/Gg9RF48lJ+M0NVAuyyZz+50q227Pw6KXv9eaoK3eLoW2lBmwVxQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9023
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_144319_144441_9ED67AD9 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20241124_144457_486699_CC25F288 
+X-CRM114-Status: GOOD (  30.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,72 +164,156 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-Utilize a new helper function rgmii_clock().
+Bjorn Helgaas <helgaas@kernel.org> writes:
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c | 18 +++++-------------
- 1 file changed, 5 insertions(+), 13 deletions(-)
+> On Fri, Nov 22, 2024 at 12:40:31PM +1100, Alistair Popple wrote:
+>> The reference counts for ZONE_DEVICE private pages should be
+>> initialised by the driver when the page is actually allocated by the
+>> driver allocator, not when they are first created. This is currently
+>> the case for MEMORY_DEVICE_PRIVATE and MEMORY_DEVICE_COHERENT pages
+>> but not MEMORY_DEVICE_PCI_P2PDMA pages so fix that up.
+>> 
+>> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+>> Reviewed-by: Dan Williams <dan.j.williams@intel.com>
+>
+> Previously suggested tweaks to subject line prefix and content:
+> https://lore.kernel.org/all/20240629212851.GA1484889@bhelgaas/
+> https://lore.kernel.org/all/20240910134745.GA577955@bhelgaas/
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c
-index a6ff02d905a9..eabc4da9e1a9 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c
-@@ -21,10 +21,7 @@
- 
- #include "stmmac_platform.h"
- 
--#define DWMAC_125MHZ	125000000
- #define DWMAC_50MHZ	50000000
--#define DWMAC_25MHZ	25000000
--#define DWMAC_2_5MHZ	2500000
- 
- #define IS_PHY_IF_MODE_RGMII(iface)	(iface == PHY_INTERFACE_MODE_RGMII || \
- 			iface == PHY_INTERFACE_MODE_RGMII_ID || \
-@@ -140,7 +137,7 @@ static void stih4xx_fix_retime_src(void *priv, u32 spd, unsigned int mode)
- 	struct sti_dwmac *dwmac = priv;
- 	u32 src = dwmac->tx_retime_src;
- 	u32 reg = dwmac->ctrl_reg;
--	u32 freq = 0;
-+	long freq = 0;
- 
- 	if (dwmac->interface == PHY_INTERFACE_MODE_MII) {
- 		src = TX_RETIME_SRC_TXCLK;
-@@ -153,19 +150,14 @@ static void stih4xx_fix_retime_src(void *priv, u32 spd, unsigned int mode)
- 		}
- 	} else if (IS_PHY_IF_MODE_RGMII(dwmac->interface)) {
- 		/* On GiGa clk source can be either ext or from clkgen */
--		if (spd == SPEED_1000) {
--			freq = DWMAC_125MHZ;
--		} else {
-+		freq = rgmii_clock(spd);
-+
-+		if (spd != SPEED_1000 && freq > 0)
- 			/* Switch to clkgen for these speeds */
- 			src = TX_RETIME_SRC_CLKGEN;
--			if (spd == SPEED_100)
--				freq = DWMAC_25MHZ;
--			else if (spd == SPEED_10)
--				freq = DWMAC_2_5MHZ;
--		}
- 	}
- 
--	if (src == TX_RETIME_SRC_CLKGEN && freq)
-+	if (src == TX_RETIME_SRC_CLKGEN && freq > 0)
- 		clk_set_rate(dwmac->clk, freq);
- 
- 	regmap_update_bits(dwmac->regmap, reg, STIH4XX_RETIME_SRC_MASK,
+Apologies Bjorn, I was so focussed on the DAX bits of this series which
+had grown significantly and forgot to update the P2PDMA stuff. It's
+largely independent of the DAX changes anyway, so unless you disagree I
+think it would be best if I split it out into a separate series. Thanks
+for taking a look.
 
--- 
-2.47.0
+> I had the impression that you agreed there was the potential for some
+> confusion here, but it doesn't look like it was addressed.
+>
+> So again, a PCI patch labeled "don't init refcount to one" where the
+> content initializes the refcount to one in p2pdma.c is still confusing
+> since (IIUC) the subject line refers to the NON-PCI code.
+>
+> Maybe some sort of "move refcount init from X to p2pdma" or addition
+> of *who* is no longer initializing refcount to one would clear this
+> up.
 
+To be clear I fully agree with the above, I just failed to do it.
+
+ - Alistair
+
+>> ---
+>> 
+>> Changes since v2:
+>> 
+>>  - Initialise the page refcount for all pages covered by the kaddr
+>> ---
+>>  drivers/pci/p2pdma.c | 13 +++++++++++--
+>>  mm/memremap.c        | 17 +++++++++++++----
+>>  mm/mm_init.c         | 22 ++++++++++++++++++----
+>>  3 files changed, 42 insertions(+), 10 deletions(-)
+>> 
+>> diff --git a/drivers/pci/p2pdma.c b/drivers/pci/p2pdma.c
+>> index 4f47a13..2c5ac4a 100644
+>> --- a/drivers/pci/p2pdma.c
+>> +++ b/drivers/pci/p2pdma.c
+>> @@ -140,13 +140,22 @@ static int p2pmem_alloc_mmap(struct file *filp, struct kobject *kobj,
+>>  	rcu_read_unlock();
+>>  
+>>  	for (vaddr = vma->vm_start; vaddr < vma->vm_end; vaddr += PAGE_SIZE) {
+>> -		ret = vm_insert_page(vma, vaddr, virt_to_page(kaddr));
+>> +		struct page *page = virt_to_page(kaddr);
+>> +
+>> +		/*
+>> +		 * Initialise the refcount for the freshly allocated page. As
+>> +		 * we have just allocated the page no one else should be
+>> +		 * using it.
+>> +		 */
+>> +		VM_WARN_ON_ONCE_PAGE(!page_ref_count(page), page);
+>> +		set_page_count(page, 1);
+>> +		ret = vm_insert_page(vma, vaddr, page);
+>>  		if (ret) {
+>>  			gen_pool_free(p2pdma->pool, (uintptr_t)kaddr, len);
+>>  			return ret;
+>>  		}
+>>  		percpu_ref_get(ref);
+>> -		put_page(virt_to_page(kaddr));
+>> +		put_page(page);
+>>  		kaddr += PAGE_SIZE;
+>>  		len -= PAGE_SIZE;
+>>  	}
+>> diff --git a/mm/memremap.c b/mm/memremap.c
+>> index 40d4547..07bbe0e 100644
+>> --- a/mm/memremap.c
+>> +++ b/mm/memremap.c
+>> @@ -488,15 +488,24 @@ void free_zone_device_folio(struct folio *folio)
+>>  	folio->mapping = NULL;
+>>  	folio->page.pgmap->ops->page_free(folio_page(folio, 0));
+>>  
+>> -	if (folio->page.pgmap->type != MEMORY_DEVICE_PRIVATE &&
+>> -	    folio->page.pgmap->type != MEMORY_DEVICE_COHERENT)
+>> +	switch (folio->page.pgmap->type) {
+>> +	case MEMORY_DEVICE_PRIVATE:
+>> +	case MEMORY_DEVICE_COHERENT:
+>> +		put_dev_pagemap(folio->page.pgmap);
+>> +		break;
+>> +
+>> +	case MEMORY_DEVICE_FS_DAX:
+>> +	case MEMORY_DEVICE_GENERIC:
+>>  		/*
+>>  		 * Reset the refcount to 1 to prepare for handing out the page
+>>  		 * again.
+>>  		 */
+>>  		folio_set_count(folio, 1);
+>> -	else
+>> -		put_dev_pagemap(folio->page.pgmap);
+>> +		break;
+>> +
+>> +	case MEMORY_DEVICE_PCI_P2PDMA:
+>> +		break;
+>> +	}
+>>  }
+>>  
+>>  void zone_device_page_init(struct page *page)
+>> diff --git a/mm/mm_init.c b/mm/mm_init.c
+>> index 4ba5607..0489820 100644
+>> --- a/mm/mm_init.c
+>> +++ b/mm/mm_init.c
+>> @@ -1015,12 +1015,26 @@ static void __ref __init_zone_device_page(struct page *page, unsigned long pfn,
+>>  	}
+>>  
+>>  	/*
+>> -	 * ZONE_DEVICE pages are released directly to the driver page allocator
+>> -	 * which will set the page count to 1 when allocating the page.
+>> +	 * ZONE_DEVICE pages other than MEMORY_TYPE_GENERIC and
+>> +	 * MEMORY_TYPE_FS_DAX pages are released directly to the driver page
+>> +	 * allocator which will set the page count to 1 when allocating the
+>> +	 * page.
+>> +	 *
+>> +	 * MEMORY_TYPE_GENERIC and MEMORY_TYPE_FS_DAX pages automatically have
+>> +	 * their refcount reset to one whenever they are freed (ie. after
+>> +	 * their refcount drops to 0).
+>>  	 */
+>> -	if (pgmap->type == MEMORY_DEVICE_PRIVATE ||
+>> -	    pgmap->type == MEMORY_DEVICE_COHERENT)
+>> +	switch (pgmap->type) {
+>> +	case MEMORY_DEVICE_PRIVATE:
+>> +	case MEMORY_DEVICE_COHERENT:
+>> +	case MEMORY_DEVICE_PCI_P2PDMA:
+>>  		set_page_count(page, 0);
+>> +		break;
+>> +
+>> +	case MEMORY_DEVICE_FS_DAX:
+>> +	case MEMORY_DEVICE_GENERIC:
+>> +		break;
+>> +	}
+>>  }
+>>  
+>>  /*
+>> -- 
+>> git-series 0.9.1
 
 
