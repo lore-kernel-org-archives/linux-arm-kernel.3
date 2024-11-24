@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC1C4D3B7C3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 22:53:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E23D3B7C2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 22:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ts35rcKCuatC08lXoSSuzq3DRWdEbfMfyrqLNSbugOw=; b=pf2ijRQ7/5is3uDlAkd3Fn5EXi
-	nXsMcIDP+dKtQZtcrHTgs3LdxNtRsFHLAHiIjcKHMEnfBEIghEeGCP/aQqJlwkLwnkfvc2c9tViaQ
-	UlPqFtqkVfB7C/L7d6+WjTt/Cu1PEMHAq7EwVdD30qIXolTdfp2rGeuHsR0RyOB/t/M0sYl+ptBpq
-	akd0QpgCionmuJi/OopbYqsJjbXWuNkZgDlYMgRAGDL5HAfckr3A3O1HFRNHFWfDSayFZgAmtXfsV
-	Iwpl6srRzn/6abxtwLuxdKJ7kt2/Q+S/x5IrRL/vOSZoFpYJ6Wf22901rxFgJe54ScZOr+f4QJhBl
-	1xJeHvDw==;
+	bh=a+HxGE/akY8xFsa0vByPOSLkEXZdmbwnQnIPbdbsMjw=; b=c5dBSZPVlDkh7LRoKiSoR07XDf
+	ECWgYZ33R8cwMSw9WpVFxUdliXfGgd4O3EPyqEA41itFeJXrmMbh1GR3zxYmDeeLKZS6P+My+GC5Z
+	zFIbjPzDBaqZWw5nh4bS0kp86sGTa/ZEAeo3e5YG59qNjAWscQXWknZFLdd+Oq2iBtDYUZAurnrjS
+	8chYA/dx6e+Lt1c6jzgongZ9uOXQrhBhfHI+AOBJMeTetp1qqHkxiPjG2cNWQmoYIggTPBhKiREo6
+	5RsRtaGqE7Gkvns8c6Gef7eMQ2pYci7xn2rXA5gzzDZhRsztImyHJX7DyRYNlumnhPQuPniF0S/x1
+	ErulLJ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFLTJ-00000006l3b-0Fa5;
-	Sun, 24 Nov 2024 22:52:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tFLUE-00000006l8s-2n2e;
+	Sun, 24 Nov 2024 22:53:50 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFLK1-00000006j71-1r8N
+	id 1tFLK1-00000006j6t-2AGn
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 24 Nov 2024 22:43:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 689455C57C8;
-	Sun, 24 Nov 2024 22:42:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1F2C5C4CEE9;
+	by nyc.source.kernel.org (Postfix) with ESMTP id C3349A4108C;
+	Sun, 24 Nov 2024 22:41:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EB421C4DDEE;
 	Sun, 24 Nov 2024 22:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732488194;
-	bh=2tMu+v0wz2kD7vp6+Ltgu032C6Y9FI2iXPc3O/OTgDs=;
+	s=k20201202; t=1732488195;
+	bh=AnO4R5j10w0FZih8smewfXdNr/fzYaVAE8TD7GxYUsA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=H9SZAW9zELbxIdRU9KWs7yzW7IBIUu6Khvb13uuuQz6rWhHsYZbcbK+s5REIMCR98
-	 Wf7IvR/rP1G7Bx4s0J33UBv28/UuVtt6Ujj/qt0ok6oAv09d5dTK3eF9rXWRKVDMjf
-	 gllUAYFswYlkTd7dm2T+O4Z9yXtIgZF5i8O/lm/ZfBtUkcmjQuAf7EiDgwgHPcnSh6
-	 whhgo6xlR2tfSFwP9xjnNgnKDOV48Bt5yff6m+RiofZLwRRuwSkKO2oitDdP4/RmbZ
-	 Mj0RXlcaz3uQ39ScsjV3POsbA7HTR0AR+0C/vYFv/0jdHw/Q/hyUcjOXyYbVaeVIo+
-	 kxnNS4ReV+x1Q==
+	b=MPguFaZSADD7Jdwoqp4SeJQnctrcUAkcHeVi98nHiL00sy5Su93jvVHEj/HMxZcXr
+	 ntP7k8zQXWqhatJRuxLTFIJTqhxvUeXYXIcYdqfa4yUwoHBHJmDZefXh8lsvFr5/31
+	 IN4Hk8+Y3zRO5gMvh0c1ZdM5caI0ukwQ4coFIcG1RnVwY4zS61NboLYiJzTJH+4U0h
+	 hVZ6zHFnpGsPnq1XjO9uR4CrfZ1wz6pEtnj2shM1Z9qrHVGZFuZtyDY+/cXlt3Zaeh
+	 fIgASDzCWRSzdRlR02yMjo/bWBRghtfBNaFSUTz/KtZPaiZY5+Vt0vCA3Q+DdX+jHe
+	 XIFV5IBw/mGjQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 14AD3D3B7C0;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CFA73D3B7C7;
 	Sun, 24 Nov 2024 22:43:14 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Sun, 24 Nov 2024 23:42:37 +0100
-Subject: [PATCH RFC net-next v6 06/15] net: dwmac-imx: Use helper
- rgmii_clock
+Date: Sun, 24 Nov 2024 23:42:45 +0100
+Subject: [PATCH RFC net-next v6 14/15] net: stmmac: dwmac-s32: add basic
+ NXP S32G/S32R glue driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241124-upstream_s32cc_gmac-v6-6-dc5718ccf001@oss.nxp.com>
+Message-Id: <20241124-upstream_s32cc_gmac-v6-14-dc5718ccf001@oss.nxp.com>
 References: <20241124-upstream_s32cc_gmac-v6-0-dc5718ccf001@oss.nxp.com>
 In-Reply-To: <20241124-upstream_s32cc_gmac-v6-0-dc5718ccf001@oss.nxp.com>
 To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
@@ -80,22 +80,21 @@ Cc: linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, 
  devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+ "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732488190; l=1376;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1732488190; l=7205;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=SsszkUP8I3NbcQMnOnyLygQGzFscaLh2fXkadRBQwQg=;
- b=SCSns3Qip+S8U2y2jO9SHEBK6YW4GKIwkZvJecmvH34A/QUaKJqmj67/CGbqjKMUpMz1GgqMe
- L1hL4ZOm+gYDJyeY+1mo5u69+NHXhGQ3t3EKpomRPVKe8Yz9zFDSNJZ
+ bh=qUYNPbDOjNkOyElyWl7BlSsQNIBb0+hkETF3fWGpFIs=;
+ b=2Ie4RB9PaId1khBTCg8rrz3vMbaIgM65drv1QHPsz435k4xW5wXVmNUGsaIP6ndamm37O5rD9
+ 4NEukT9tjXKCNBZcMdb/28s2TWkoB12y6xk82/TS+m/sdaKHh6AbkOk
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
  auth_id=217
 X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_144317_608870_CDACF6E7 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20241124_144317_709766_A2669E66 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,48 +112,248 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-Utilize a new helper function rgmii_clock().
+NXP S32G2xx/S32G3xx and S32R45 are automotive grade SoCs
+that integrate one or two Synopsys DWMAC 5.10/5.20 IPs.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+The basic driver supports only RGMII interface.
+
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c | 15 +++------------
- 1 file changed, 3 insertions(+), 12 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/Kconfig     |  12 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile    |   1 +
+ drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c | 189 ++++++++++++++++++++++++
+ 3 files changed, 202 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-index 641f3cd019a3..43e0fbba4f77 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-@@ -186,7 +186,7 @@ static void imx_dwmac_fix_speed(void *priv, unsigned int speed, unsigned int mod
- {
- 	struct plat_stmmacenet_data *plat_dat;
- 	struct imx_priv_data *dwmac = priv;
--	unsigned long rate;
-+	long rate;
- 	int err;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+index 6658536a4e17..4cc85a36a1ab 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
++++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+@@ -154,6 +154,18 @@ config DWMAC_RZN1
+ 	  the stmmac device driver. This support can make use of a custom MII
+ 	  converter PCS device.
  
- 	plat_dat = dwmac->plat_dat;
-@@ -196,17 +196,8 @@ static void imx_dwmac_fix_speed(void *priv, unsigned int speed, unsigned int mod
- 	    (plat_dat->mac_interface == PHY_INTERFACE_MODE_MII))
- 		return;
- 
--	switch (speed) {
--	case SPEED_1000:
--		rate = 125000000;
--		break;
--	case SPEED_100:
--		rate = 25000000;
--		break;
--	case SPEED_10:
--		rate = 2500000;
--		break;
--	default:
-+	rate = rgmii_clock(speed);
-+	if (rate < 0) {
- 		dev_err(dwmac->dev, "invalid speed %u\n", speed);
- 		return;
- 	}
++config DWMAC_S32
++	tristate "NXP S32G/S32R GMAC support"
++	default ARCH_S32
++	depends on OF && (ARCH_S32 || COMPILE_TEST)
++	help
++	  Support for ethernet controller on NXP S32CC SOCs.
++
++	  This selects NXP SoC glue layer support for the stmmac
++	  device driver. This driver is used for the S32CC series
++	  SOCs GMAC ethernet controller, ie. S32G2xx, S32G3xx and
++	  S32R45.
++
+ config DWMAC_SOCFPGA
+ 	tristate "SOCFPGA dwmac support"
+ 	default ARCH_INTEL_SOCFPGA
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+index 2389fd261344..b26f0e79c2b3 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Makefile
++++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+@@ -22,6 +22,7 @@ obj-$(CONFIG_DWMAC_MESON)	+= dwmac-meson.o dwmac-meson8b.o
+ obj-$(CONFIG_DWMAC_QCOM_ETHQOS)	+= dwmac-qcom-ethqos.o
+ obj-$(CONFIG_DWMAC_ROCKCHIP)	+= dwmac-rk.o
+ obj-$(CONFIG_DWMAC_RZN1)	+= dwmac-rzn1.o
++obj-$(CONFIG_DWMAC_S32)		+= dwmac-s32.o
+ obj-$(CONFIG_DWMAC_SOCFPGA)	+= dwmac-altr-socfpga.o
+ obj-$(CONFIG_DWMAC_STARFIVE)	+= dwmac-starfive.o
+ obj-$(CONFIG_DWMAC_STI)		+= dwmac-sti.o
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+new file mode 100644
+index 000000000000..1853a6b26e46
+--- /dev/null
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+@@ -0,0 +1,189 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * NXP S32G/R GMAC glue layer
++ *
++ * Copyright 2019-2024 NXP
++ *
++ */
++
++#include <linux/clk.h>
++#include <linux/clk-provider.h>
++#include <linux/device.h>
++#include <linux/ethtool.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of_mdio.h>
++#include <linux/of_address.h>
++#include <linux/phy.h>
++#include <linux/phylink.h>
++#include <linux/platform_device.h>
++#include <linux/stmmac.h>
++
++#include "stmmac_platform.h"
++
++#define GMAC_TX_RATE_125M	125000000	/* 125MHz */
++
++/* SoC PHY interface control register */
++#define PHY_INTF_SEL_MII	0x00
++#define PHY_INTF_SEL_SGMII	0x01
++#define PHY_INTF_SEL_RGMII	0x02
++#define PHY_INTF_SEL_RMII	0x08
++
++struct s32_priv_data {
++	void __iomem *ioaddr;
++	void __iomem *ctrl_sts;
++	struct device *dev;
++	phy_interface_t *intf_mode;
++	struct clk *tx_clk;
++	struct clk *rx_clk;
++};
++
++static int s32_gmac_write_phy_intf_select(struct s32_priv_data *gmac)
++{
++	writel(PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
++
++	dev_dbg(gmac->dev, "PHY mode set to %s\n", phy_modes(*gmac->intf_mode));
++
++	return 0;
++}
++
++static int s32_gmac_init(struct platform_device *pdev, void *priv)
++{
++	struct s32_priv_data *gmac = priv;
++	int ret;
++
++	ret = clk_set_rate(gmac->tx_clk, GMAC_TX_RATE_125M);
++	if (!ret)
++		ret = clk_prepare_enable(gmac->tx_clk);
++
++	if (ret) {
++		dev_err(&pdev->dev, "Can't set tx clock\n");
++		return ret;
++	}
++
++	ret = clk_prepare_enable(gmac->rx_clk);
++	if (ret) {
++		clk_disable_unprepare(gmac->tx_clk);
++		dev_err(&pdev->dev, "Can't set rx clock\n");
++		return ret;
++	}
++
++	ret = s32_gmac_write_phy_intf_select(gmac);
++	if (ret) {
++		clk_disable_unprepare(gmac->tx_clk);
++		clk_disable_unprepare(gmac->rx_clk);
++		dev_err(&pdev->dev, "Can't set PHY interface mode\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static void s32_gmac_exit(struct platform_device *pdev, void *priv)
++{
++	struct s32_priv_data *gmac = priv;
++
++	clk_disable_unprepare(gmac->tx_clk);
++	clk_disable_unprepare(gmac->rx_clk);
++}
++
++static void s32_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
++{
++	struct s32_priv_data *gmac = priv;
++	long tx_clk_rate;
++	int ret;
++
++	tx_clk_rate = rgmii_clock(speed);
++	if (tx_clk_rate < 0) {
++		dev_err(gmac->dev, "Unsupported/Invalid speed: %d\n", speed);
++		return;
++	}
++
++	dev_dbg(gmac->dev, "Set tx clock to %ld Hz\n", tx_clk_rate);
++	ret = clk_set_rate(gmac->tx_clk, tx_clk_rate);
++	if (ret)
++		dev_err(gmac->dev, "Can't set tx clock\n");
++}
++
++static int s32_dwmac_probe(struct platform_device *pdev)
++{
++	struct plat_stmmacenet_data *plat;
++	struct device *dev = &pdev->dev;
++	struct stmmac_resources res;
++	struct s32_priv_data *gmac;
++	int ret;
++
++	gmac = devm_kzalloc(&pdev->dev, sizeof(*gmac), GFP_KERNEL);
++	if (!gmac)
++		return -ENOMEM;
++
++	gmac->dev = &pdev->dev;
++
++	ret = stmmac_get_platform_resources(pdev, &res);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "Failed to get platform resources\n");
++
++	plat = devm_stmmac_probe_config_dt(pdev, res.mac);
++	if (IS_ERR(plat))
++		return dev_err_probe(dev, PTR_ERR(plat),
++				     "dt configuration failed\n");
++
++	/* PHY interface mode control reg */
++	gmac->ctrl_sts = devm_platform_get_and_ioremap_resource(pdev, 1, NULL);
++	if (IS_ERR(gmac->ctrl_sts))
++		return dev_err_probe(dev, PTR_ERR(gmac->ctrl_sts),
++				     "S32CC config region is missing\n");
++
++	/* tx clock */
++	gmac->tx_clk = devm_clk_get(&pdev->dev, "tx");
++	if (IS_ERR(gmac->tx_clk))
++		return dev_err_probe(dev, PTR_ERR(gmac->tx_clk),
++				     "tx clock not found\n");
++
++	/* rx clock */
++	gmac->rx_clk = devm_clk_get(&pdev->dev, "rx");
++	if (IS_ERR(gmac->rx_clk))
++		return dev_err_probe(dev, PTR_ERR(gmac->rx_clk),
++				     "rx clock not found\n");
++
++	gmac->intf_mode = &plat->phy_interface;
++	gmac->ioaddr = res.addr;
++
++	/* S32CC core feature set */
++	plat->has_gmac4 = true;
++	plat->pmt = 1;
++	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
++	plat->rx_fifo_size = 20480;
++	plat->tx_fifo_size = 20480;
++
++	plat->init = s32_gmac_init;
++	plat->exit = s32_gmac_exit;
++	plat->fix_mac_speed = s32_fix_mac_speed;
++
++	plat->bsp_priv = gmac;
++
++	return stmmac_pltfr_probe(pdev, plat, &res);
++}
++
++static const struct of_device_id s32_dwmac_match[] = {
++	{ .compatible = "nxp,s32g2-dwmac" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, s32_dwmac_match);
++
++static struct platform_driver s32_dwmac_driver = {
++	.probe = s32_dwmac_probe,
++	.remove = stmmac_pltfr_remove,
++	.driver = {
++		.name = "s32-dwmac",
++		.pm = &stmmac_pltfr_pm_ops,
++		.of_match_table = s32_dwmac_match,
++	},
++};
++module_platform_driver(s32_dwmac_driver);
++
++MODULE_AUTHOR("Jan Petrous (OSS) <jan.petrous@oss.nxp.com>");
++MODULE_DESCRIPTION("NXP S32G/R common chassis GMAC driver");
++MODULE_LICENSE("GPL");
++
 
 -- 
 2.47.0
