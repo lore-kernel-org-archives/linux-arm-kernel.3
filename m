@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96EDAE6688D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 11:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FB9E66894
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 12:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J3BQnHmMzJvRzOGoxvKw6fbWVPHb009ceAjCw5kM6Qk=; b=mzzOo57xB7F6Ny+g/Xbpy1gO3p
-	YKP75ONIs8Or42HRITIgCZsAZ5YD4TFOS8kOOSoMW9RWP69vaWlhDmslKhJlQRJb5GeEJKTDFm1Hj
-	E3DJnIt76K6j2gW4CYcnK/+kH5beNIdyOK+PUhVBT9ADgWAZKb7WVLOuHKje9uZ0eCi0qxexHljuL
-	V39FLszrEKuqmhpMzIsJSgoElb062ieu01U8rn+6MSqVm6ou9im61JB0ozKenyOSQjhZzN4CLSZEH
-	4jEfdfXSupeIbGy+/HCE2YSio84bcBGoT3zclpmqZAeS+w3sB6jmgQRghSuJ/csnVmPrUxGW+sAk6
-	eMoZPNXQ==;
+	bh=RQ6TC/caiuZSM7nzfZDPg3t03L77Xh3M7nclBTeg6KY=; b=0HglRqgd48yHzKrRpZRotY9qYV
+	T368ryw0ejVMTo8pskfa0V/+rUr3988fNrxQgw6JXuw+HggEQLufUZhNQSL4gFCj/m+79kZ/HVcGN
+	rZ645/t2ffVwwnq2KDE5nYHeC8CvjeujNV2yxbaIuQOKFzWe5Jo0faBI1bYMwVkDhEK78RoU0sHoR
+	qLgEQkVE7btOTESD9YdJzip5gAcdWtDFLsq02T6kO58W0Fk9+AyzU8P4clHoqnoLbjdzUKvJY2Po4
+	Rb0eCKvOTpmYxQzrBvbf5r4ybA2mbbW1kH2P/BbqB0cgRKtSmx1TRA6Tvcmm1zaVK2cHOoo+ZdGod
+	2i8SCYAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFAzJ-00000005h9U-4ARI;
-	Sun, 24 Nov 2024 11:41:14 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tFBUw-00000005iS0-3SrW;
+	Sun, 24 Nov 2024 12:13:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFAyL-00000005h46-3ggc;
-	Sun, 24 Nov 2024 11:40:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=J3BQnHmMzJvRzOGoxvKw6fbWVPHb009ceAjCw5kM6Qk=; b=FcQwNb1Nxc86U2alMAKKQijXNV
-	5BVPN2Tp0UqXl5qkKq7DIEA9jHHTZucMj98AqTokHXNRwUyIYA8rM24FF58r/vPu+ZYbRoW2jUbRl
-	h7dyNgeBbYFl5ytnPtVTFb5TOMurDcszoejPbvXlSH3IDz/1rhecHcctN4oSqyJSxx1KQkiHYRabV
-	R3lNBZcleSSsxMWX6EP2N66v1A0ZuQbbPNe5hE9Exqdhe/igS7mIls5fVDaWtfOL7AbPq3EuTaLm6
-	cNM67DvtSyO7z0aytWmPPOYY1Euod7ueersLrJYo2CMRdXIK5kD/BhUcsfPqzXHFMMB78ZsAzpwYl
-	vHoAjocQ==;
-Received: from i5e86190f.versanet.de ([94.134.25.15] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tFAyF-00047c-Or; Sun, 24 Nov 2024 12:40:07 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, quentin.schulz@cherry.de, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Heiko Stuebner <heiko.stuebner@cherry.de>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v3 1/2] dt-bindings: phy: Add Rockchip MIPI CSI/DSI PHY schema
-Date: Sun, 24 Nov 2024 12:40:06 +0100
-Message-ID: <8454190.T7Z3S40VBb@diego>
-In-Reply-To: <udad4qf3o7kt45nuz6gxsvsmprh4rnyfxfogopmih6ucznizih@7oj2jrnlfonz>
-References: <20241113221018.62150-1-heiko@sntech.de>
- <20241113221018.62150-2-heiko@sntech.de>
- <udad4qf3o7kt45nuz6gxsvsmprh4rnyfxfogopmih6ucznizih@7oj2jrnlfonz>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+	id 1tFBTz-00000005iP7-0Bgq
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 24 Nov 2024 12:12:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2D7B0A4022D;
+	Sun, 24 Nov 2024 12:11:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF004C4CECC;
+	Sun, 24 Nov 2024 12:12:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732450372;
+	bh=ZlRIlePa6qIOlCJ17wWF4SE2OcB7ifQ3WFcQDR8qU48=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=bkUbBfNrDqzyOq0zdUVVa95IO3Qjb31ayZ6uyojOCHqbn+QyAbMCRJs0kB6Mmdrfx
+	 PJXeWgOpn5bSdLyqw3A4G6f3tmIovDbSj9U9i0vsjORwmIt9Y/CU1K9568WmFmOquo
+	 DJggc27Tni8hI5fvQz43LZJfxaF+zGUVUkfI6NWN0O2hX6xPuVbI1eplCYRY7FWGco
+	 p6aqTIMYKuocrxMr9J+/uFShB1dhIPUkabYyYXl55c9UwAV2QubKCPlQG8O9rXH+SM
+	 4BS7SC9apuWRctsjfHTRWeuowxJBVA3YkKxOse/5Gm3JUFIhN32b2IoEFPB4qpWKwF
+	 xHLjz/umCdBzw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tFBTu-00FMNr-Iw;
+	Sun, 24 Nov 2024 12:12:50 +0000
+Date: Sun, 24 Nov 2024 12:12:50 +0000
+Message-ID: <86ldx8vni5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oliver.upton@linux.dev,
+	james.clark@linaro.org,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	broonie@kernel.org,
+	qperret@google.com
+Subject: Re: [PATCH v2 05/12] KVM: arm64: Initialize feature id registers for protected VMs
+In-Reply-To: <20241122110622.3010118-6-tabba@google.com>
+References: <20241122110622.3010118-1-tabba@google.com>
+	<20241122110622.3010118-6-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, james.clark@linaro.org, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_034013_978970_55FADEFB 
-X-CRM114-Status: GOOD (  30.75  )
+X-CRM114-CacheID: sfid-20241124_041255_218797_FA92E5A7 
+X-CRM114-Status: GOOD (  33.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,155 +93,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 22. November 2024, 19:49:20 CET schrieb Sebastian Reichel:
-> Hi,
+On Fri, 22 Nov 2024 11:06:15 +0000,
+Fuad Tabba <tabba@google.com> wrote:
 > 
-> On Wed, Nov 13, 2024 at 11:10:17PM +0100, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > 
-> > Add dt-binding schema for the MIPI CSI/DSI PHY found on
-> > Rockchip RK3588 SoCs.
-> > 
-> > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > ---
-> >  .../phy/rockchip,rk3588-mipi-dcphy.yaml       | 82 +++++++++++++++++++
-> >  1 file changed, 82 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> > new file mode 100644
-> > index 000000000000..5ee8d7246fa0
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> > @@ -0,0 +1,82 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/phy/rockchip,rk3588-mipi-dcphy.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Rockchip MIPI CSI/DSI PHY with Samsung IP block
-> > +
-> > +maintainers:
-> > +  - Guochun Huang <hero.huang@rock-chips.com>
-> > +  - Heiko Stuebner <heiko@sntech.de>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - rockchip,rk3576-mipi-dcphy
-> > +      - rockchip,rk3588-mipi-dcphy
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  "#phy-cells":
-> > +    const: 0
+> The hypervisor maintains the state of protected VMs. Initialize
+> the values for feature ID registers for protected VMs, to be used
+> when setting traps and when advertising features to protected
+> VMs.
 > 
-> I would expect an argument to select between D-PHY and C-PHY mode,
-> so that the binding is ready for it even when the driver does not
-> yet support it. E.g. something like
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> ---
+>  .../arm64/kvm/hyp/include/nvhe/fixed_config.h |  1 +
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c                |  4 ++
+>  arch/arm64/kvm/hyp/nvhe/sys_regs.c            | 54 +++++++++++++++++--
+>  3 files changed, 56 insertions(+), 3 deletions(-)
 > 
->   '#phy-cells':
->     const: 1
->     description: |
->       Supported modes are:
->         - PHY_TYPE_DPHY
->         - PHY_TYPE_CPHY
->       See include/dt-bindings/phy/phy.h for constants.
-> 
-> This would match how it works for the naneng Combo PHY to switch
-> between PCIe/SATA/USB3. Also Mediatek CSI DC-PHY handles it that
-> way upstream (with just D-PHY being supported). I see that the
-> driver stack you send upstream expects, that the PHY user (e.g.
-> the DSI controller) instead manually calls phy_set_mode(phy, <mode>).
-> To me it seems more sensible to just get this automaically from DT.
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
+> index d1e59b88ff66..69e26d1a0ebe 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
+> @@ -201,6 +201,7 @@
+>  u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id);
+>  bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
+>  bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
+> +void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
+>  int kvm_check_pvm_sysreg_table(void);
+>  
+>  #endif /* __ARM64_KVM_FIXED_CONFIG_H__ */
+> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> index 59ff6aac514c..4ef03294b2b4 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> @@ -381,6 +381,7 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
+>  	hyp_vm->kvm.created_vcpus = nr_vcpus;
+>  	hyp_vm->kvm.arch.mmu.vtcr = host_mmu.arch.mmu.vtcr;
+>  	hyp_vm->kvm.arch.pkvm.enabled = READ_ONCE(host_kvm->arch.pkvm.enabled);
+> +	hyp_vm->kvm.arch.flags = 0;
+>  	pkvm_init_features_from_host(hyp_vm, host_kvm);
+>  }
+>  
+> @@ -419,6 +420,9 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
+>  	hyp_vcpu->vcpu.arch.cflags = READ_ONCE(host_vcpu->arch.cflags);
+>  	hyp_vcpu->vcpu.arch.mp_state.mp_state = KVM_MP_STATE_STOPPED;
+>  
+> +	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+> +		kvm_init_pvm_id_regs(&hyp_vcpu->vcpu);
+> +
+>  	ret = pkvm_vcpu_init_traps(hyp_vcpu);
+>  	if (ret)
+>  		goto done;
+> diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> index 59fb2f056177..7008e9641f41 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> @@ -204,8 +204,7 @@ static u64 get_pvm_id_aa64mmfr2(const struct kvm_vcpu *vcpu)
+>  	return id_aa64mmfr2_el1_sys_val & PVM_ID_AA64MMFR2_ALLOW;
+>  }
+>  
+> -/* Read a sanitized cpufeature ID register by its encoding */
+> -u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+> +static u64 pvm_calc_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+>  {
+>  	switch (id) {
+>  	case SYS_ID_AA64PFR0_EL1:
+> @@ -240,10 +239,25 @@ u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+>  	}
+>  }
+>  
+> +/* Read a sanitized cpufeature ID register by its encoding */
+> +u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+> +{
+> +	return pvm_calc_id_reg(vcpu, id);
+> +}
+> +
 
-The mode-selection for the phy is definitly tied to the hardware-design.
-Depending on how the board is designed, it'll always do either D-PHY
-or C-PHY mode.
+Whatever reason you have to keep this per-CPU, it really needs to
+change to be VM-scoped. Maybe not immediately, but that should be on
+your list.
 
-I guess it mostly just feels strange when so far the parameter was
-used to identify say an individual clock from the clock controller.
+>  static u64 read_id_reg(const struct kvm_vcpu *vcpu,
+>  		       struct sys_reg_desc const *r)
+>  {
+> -	return pvm_read_id_reg(vcpu, reg_to_encoding(r));
+> +	struct kvm *kvm = vcpu->kvm;
+> +	u32 reg = reg_to_encoding(r);
+> +
+> +	if (WARN_ON_ONCE(!test_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags)))
+> +		return 0;
+> +
+> +	if (reg >= sys_reg(3, 0, 0, 4, 0) && reg <= sys_reg(3, 0, 0, 7, 7))
+> +		return kvm->arch.id_regs[IDREG_IDX(reg)];
 
-But reading the Medietek discussion (up to [0]) it looks like that is
-a nice way to do this, so I'll adapt things in the next version.
+Why the limit to the AA64 idregs? Aren't the other shadow sysreg
+values correctly initialised to 0?
 
+> +
+> +	return 0;
+>  }
+>  
+>  /* Handler to RAZ/WI sysregs */
+> @@ -448,6 +462,40 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
+>  	/* Performance Monitoring Registers are restricted. */
+>  };
+>  
+> +/*
+> + * Initializes feature registers for protected vms.
+> + */
+> +void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu)
+> +{
+> +	const u32 pvm_feat_id_regs[] = {
 
-Heiko
+static?
 
+> +		SYS_ID_AA64PFR0_EL1,
+> +		SYS_ID_AA64PFR1_EL1,
+> +		SYS_ID_AA64ISAR0_EL1,
+> +		SYS_ID_AA64ISAR1_EL1,
+> +		SYS_ID_AA64ISAR2_EL1,
+> +		SYS_ID_AA64ZFR0_EL1,
+> +		SYS_ID_AA64MMFR0_EL1,
+> +		SYS_ID_AA64MMFR1_EL1,
+> +		SYS_ID_AA64MMFR2_EL1,
+> +		SYS_ID_AA64MMFR4_EL1,
+> +		SYS_ID_AA64DFR0_EL1,
+> +	};
+> +	struct kvm *kvm = vcpu->kvm;
+> +	unsigned long i;
+> +
+> +	if (WARN_ON_ONCE(test_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags)))
+> +		return;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(pvm_feat_id_regs); i++) {
 
-[0] https://lore.kernel.org/all/20230608200552.GA3303349-robh@kernel.org/
+But do you really need this array? Can't you just iterate over the
+idreg space and compute the value? Sure, that'd be a bit longer, but
+at least you would define the idregs you care about in a single place.
 
+> +		struct kvm_arch *ka = &kvm->arch;
+> +		u32 reg = pvm_feat_id_regs[i];
+> +
+> +		ka->id_regs[IDREG_IDX(reg)] = pvm_calc_id_reg(vcpu, reg);
+> +	}
+> +
+> +	set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags);
+> +}
+> +
+>  /*
+>   * Checks that the sysreg table is unique and in-order.
+>   *
 
-> Otherwise the whole series LGTM.
-> 
-> Greetings,
-> 
-> -- Sebastian
-> 
-> > +  clocks:
-> > +    maxItems: 2
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: pclk
-> > +      - const: ref
-> > +
-> > +  resets:
-> > +    maxItems: 4
-> > +
-> > +  reset-names:
-> > +    items:
-> > +      - const: m_phy
-> > +      - const: apb
-> > +      - const: grf
-> > +      - const: s_phy
-> > +
-> > +  rockchip,grf:
-> > +    $ref: /schemas/types.yaml#/definitions/phandle
-> > +    description:
-> > +      Phandle to the syscon managing the 'mipi dcphy general register files'.
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +  - clock-names
-> > +  - resets
-> > +  - reset-names
-> > +  - "#phy-cells"
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-> > +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
-> > +
-> > +    soc {
-> > +      #address-cells = <2>;
-> > +      #size-cells = <2>;
-> > +
-> > +      phy@feda0000 {
-> > +        compatible = "rockchip,rk3588-mipi-dcphy";
-> > +        reg = <0x0 0xfeda0000 0x0 0x10000>;
-> > +        clocks = <&cru PCLK_MIPI_DCPHY0>,
-> > +                 <&cru CLK_USBDPPHY_MIPIDCPPHY_REF>;
-> > +        clock-names = "pclk", "ref";
-> > +        resets = <&cru SRST_M_MIPI_DCPHY0>,
-> > +                 <&cru SRST_P_MIPI_DCPHY0>,
-> > +                 <&cru SRST_P_MIPI_DCPHY0_GRF>,
-> > +                 <&cru SRST_S_MIPI_DCPHY0>;
-> > +        reset-names = "m_phy", "apb", "grf", "s_phy";
-> > +        rockchip,grf = <&mipidcphy0_grf>;
-> > +        #phy-cells = <0>;
-> > +      };
-> > +    };
-> 
+Thanks,
 
+	M.
 
-
-
+-- 
+Without deviation from the norm, progress is not possible.
 
