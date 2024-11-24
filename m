@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E76E668AB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 12:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 223ECE668AD
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 12:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RkBmtuBSH9BvnPmmOZ9GYZL8CdWojTswGqQr2sK4c1s=; b=kVtcyJpB+UG9JWqSMQ+szugybl
-	Rm/esEbQR9jMIxp2CfXhQZy/3Q081zP5XpoNuK44v3Vrmn0Ym0Q7eTEcpatAs+4ZxKODOpOGXcwDu
-	PSjNtJwxurFxNOLKVmuqFUrdcqL1Xeg/OYoTu+f17UbmzNkknVYdsj0TULtA//BZLnDTERBBNq1X7
-	xAEe5KEzVsdxVEtKiIxYeyeY9Vq6nfpqqoyjK8pzWJWykd3hj2hRu2GlfFsR3yepYUYVXO0zfukOj
-	q1fETcUvLrvx+yWY47p5XJFPusaGvxFMuA+SBOUWuqwpkDIXV7Po9DPBAd2uVJQKwC5IAHpybnGOI
-	7SBC3znA==;
+	bh=zTAbC21C0hZn5mJI2I7elIAfHXVW8qFWbu9FlPsBvqo=; b=D2TR9QwoBEcTJcxvdT0URi0OTq
+	2y1WzPFXLHop7aylUIJsWF9LyuHQIJhaGvJzGm7BmMFHrHERMT4B5BF3lBR7CQftIzCmv641UkWm6
+	OG2z5yrfQRBd2bO0BZN2nweL/BmbGLE7IILBVeAJxq83D8Yn2IIHnCIYigOo6fYbBpWaJK1NqSXIR
+	/USiaPfGUX9s3dM71CXuTRAMFg69Ni3AvgcRtU1Gyu2y4ppdkS18e+9nxbsmnG0N6BR/u1r85ltn2
+	k0YQxS+eZgyiUtcFFN/sYLz/vqSN/9g1BBD0W/Fo0nvborOUN4qgLQiFkP7BAS0Z/WVSWdFqbbKic
+	VthQuN5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFC42-00000005mUn-1TSZ;
-	Sun, 24 Nov 2024 12:50:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tFC4y-00000005mq3-1svY;
+	Sun, 24 Nov 2024 12:51:08 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFBvq-00000005k7d-1P3Q
+	id 1tFBwA-00000005kDn-13Pr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Nov 2024 12:41:43 +0000
+	Sun, 24 Nov 2024 12:42:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 42EEC5C48C6;
-	Sun, 24 Nov 2024 12:40:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F906C4CECC;
-	Sun, 24 Nov 2024 12:41:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2CD7F5C415E;
+	Sun, 24 Nov 2024 12:41:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DBFAC4CECC;
+	Sun, 24 Nov 2024 12:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732452101;
-	bh=dStXZbOZ68pcA4OHVXBepn0T/jxDTGEotO0Yx2wAYpY=;
+	s=k20201202; t=1732452121;
+	bh=sf64Z8/K2JmDjSHufuyPNPpzb2t6/Com4h0XELkBt2E=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HwN0E9DEmZCKeREnvGXJsZWRyV3xbZ0F1jMyJFHWjLxFmdHOXpkDhH93uVFmSwOPt
-	 aq05rowdwa7MJSAuDqcuNS4r3logfcF+cP9cGH5iEB28zHxsoZSDVLU/OvsR8qSvgT
-	 PnpA3bZRPyXnCGpguAms7Kb0V+TBOqyNEljxUBQpDGEUSlnm36JlHEdWvNxSoZgo6Z
-	 IsfUxsFHUUY4IV7tbGiViiL0/P5Uuk4JDrETWRB1ukqxDH4U/JKtv/oyrScHQ/fVOl
-	 Aj5n3ShN/4L8ZGnteuJ7wAjSUlSTx6nIRi+U93gFvBoTE5FR/k0q0nFCyfB86bl+n0
-	 LK7nsPiO8U5Ag==
+	b=caoositVIPi/DlBvtIyXSN7VUM5x51dLwmLQgkiHEP72gJVoGzyPjTyP5AYZsKisQ
+	 nXs4Frza7WYh0yBbaKF0vvXh5Y9FuHs1zHitWkhe+q/VP+Vt7uyr9nipdmo6MHLF9M
+	 cBPZqOmXmxZvt0MyHjK9dHmZwFjuvow1ULXClOoU/7j4eoR/RQJl2ykgy9oH3QymR8
+	 +oFxmGUOKDu0E2LZ0O1Rf6X/jpKi27TW2TiEPKlFTfFALag/PH6I2csLgjkOwPjUMf
+	 wvNB5QLuq+p28/g5lYXRpYBU/xJuwBmby2rAqlIoZbu/ProyiCpB9xQOv5p9XFaZrG
+	 faoFzawfRHsbQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -50,22 +50,24 @@ Cc: Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
 	will@kernel.org,
 	shuah@kernel.org,
+	mark.rutland@arm.com,
+	thiago.bauermann@linaro.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.1 7/7] kselftest/arm64: Don't leak pipe fds in pac.exec_sign_all()
-Date: Sun, 24 Nov 2024 07:41:18 -0500
-Message-ID: <20241124124126.3336691-7-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.15 5/6] kselftest/arm64: Corrupt P0 in the irritator when testing SSVE
+Date: Sun, 24 Nov 2024 07:41:41 -0500
+Message-ID: <20241124124149.3336868-5-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241124124126.3336691-1-sashal@kernel.org>
-References: <20241124124126.3336691-1-sashal@kernel.org>
+In-Reply-To: <20241124124149.3336868-1-sashal@kernel.org>
+References: <20241124124149.3336868-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.1.119
+X-stable-base: Linux 5.15.173
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_044142_407249_B0088542 
-X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-CacheID: sfid-20241124_044202_331857_8B28E49A 
+X-CRM114-Status: UNSURE (   9.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,34 +85,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mark Brown <broonie@kernel.org>
 
-[ Upstream commit 27141b690547da5650a420f26ec369ba142a9ebb ]
+[ Upstream commit 3e360ef0c0a1fb6ce9a302e40b8057c41ba8a9d2 ]
 
-The PAC exec_sign_all() test spawns some child processes, creating pipes
-to be stdin and stdout for the child. It cleans up most of the file
-descriptors that are created as part of this but neglects to clean up the
-parent end of the child stdin and stdout. Add the missing close() calls.
+When building for streaming SVE the irritator for SVE skips updates of both
+P0 and FFR. While FFR is skipped since it might not be present there is no
+reason to skip corrupting P0 so switch to an instruction valid in streaming
+mode and move the ifdef.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
-Link: https://lore.kernel.org/r/20241111-arm64-pac-test-collisions-v1-1-171875f37e44@kernel.org
+Link: https://lore.kernel.org/r/20241107-arm64-fp-stress-irritator-v2-3-c4b9622e36ee@kernel.org
 Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- tools/testing/selftests/arm64/pauth/pac.c | 3 +++
- 1 file changed, 3 insertions(+)
+ tools/testing/selftests/arm64/fp/sve-test.S | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/arm64/pauth/pac.c b/tools/testing/selftests/arm64/pauth/pac.c
-index b743daa772f55..5a07b3958fbf2 100644
---- a/tools/testing/selftests/arm64/pauth/pac.c
-+++ b/tools/testing/selftests/arm64/pauth/pac.c
-@@ -182,6 +182,9 @@ int exec_sign_all(struct signatures *signed_vals, size_t val)
- 		return -1;
- 	}
- 
-+	close(new_stdin[1]);
-+	close(new_stdout[0]);
-+
- 	return 0;
- }
+diff --git a/tools/testing/selftests/arm64/fp/sve-test.S b/tools/testing/selftests/arm64/fp/sve-test.S
+index e3e08d9c7020e..f631d17c899d2 100644
+--- a/tools/testing/selftests/arm64/fp/sve-test.S
++++ b/tools/testing/selftests/arm64/fp/sve-test.S
+@@ -459,7 +459,8 @@ function irritator_handler
+ 	movi	v9.16b, #2
+ 	movi	v31.8b, #3
+ 	// And P0
+-	rdffr	p0.b
++	ptrue	p0.d
++#ifndef SSVE
+ 	// And FFR
+ 	wrffr	p15.b
  
 -- 
 2.43.0
