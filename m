@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72A7ED68BF8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 17:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3562D68BFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 17:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7lvNihH/VKH2K089z4hTAOyfrLCmPRvQ/7vGRGoKVyM=; b=jTluc0PRKpm74i/AWLa3nNLzLp
-	nl90GpQlOrjZEPe6rN1kbC5VgqC8RgiCmrvCvcip0JiHaHOKoenhDOKz/9cWOiUy37AQaeAqwpMTy
-	TQ76grfwNMn0VhZyRjAIYsUiHLjY5MtCDvaAlaH2iDGn8rUl6LX5CB3AKYdPql0RsL5ob/OGM++4Z
-	wv0QZNA89J7fnCQg8lw6ivxqHCb0wFo4HDuk13i5i0Ryp+KVix3ckPVvldYSk9OkQoDmylj63IcdB
-	mcXytU4xH6AhekqMCBiI7YP/QiX9bwxh5EpenwklnLs4giRhT7le0QJO5A7WS6AffFLvAWjIwhNLG
-	wSkmiWDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oMGp3lzuXceQsNxZbsaPx8NKItaA3xtwNOX6BhkrcTA=; b=fmmkh13BVsSTpbuBOG0AlkYD+e
+	N3CYJ5lNIp5UPWX4TBR2IkVM9f39yS9TCRAzNyMeLeHwjIRNd7C0rgwZ6zX8h8SWHiRZLzgNoeg5e
+	5UkHoQ+gcyLmSOxNmv2fYsFbihAbcMwyZh8/eAhDEYkeYT3GefqHMoKK2GQSg1s6fqgf0HmygZU2+
+	+hNvzJlDxqcvK8WehBbBbaXzGffplvCOuqmzzuCHCBMNAa1065cKEw9SghhV5KaNIOIjG23q9kCOv
+	3rWW8Laxbjz9jsmgZdScdBv9goK2Qm4feV/WEBeGOI2dB3nEGlzbWqSZjL+D6bSADK+AHprdCFNnF
+	tyIx/o6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFG4X-00000006O3f-2QgP;
-	Sun, 24 Nov 2024 17:06:57 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
+	id 1tFGBz-00000006Ocb-3bZs;
+	Sun, 24 Nov 2024 17:14:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFG2E-00000006Nnr-3N7s;
-	Sun, 24 Nov 2024 17:04:36 +0000
-Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id B92E3C001506;
-	Sun, 24 Nov 2024 09:04:33 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com B92E3C001506
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1732467873;
-	bh=OzSyyK5FJJtM+E2M6vNs6ghzhjnvm4cYOnXmdNey6EM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EfHiHq7Xa+WyAjamE90v4vR6Eal8qs2d0HsE4sbnnIyhTJ1eOtEiPzOcwaes5ZjJC
-	 0ZbLHbY3TjfCYeXlib4J3EEx36ItXkG/OviUsPn20jNfh3lEMu0J3uvtzFNnptDQmz
-	 6JwfmeBQ07dDIKeDNAWOmDeGIpHzNhseS2Vb+0YE=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 3A1A318041CAC6;
-	Sun, 24 Nov 2024 09:04:33 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: bcm-kernel-feedback-list@broadcom.com,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	=?iso-8859-1?b?TWHtcmE=?= Canal <mcanal@igalia.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v2 36/36] arm64: dts: broadcom: Add DT for D-step version of BCM2712
-Date: Sun, 24 Nov 2024 09:04:32 -0800
-Message-ID: <20241124170432.710880-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241025-drm-vc4-2712-support-v2-36-35efa83c8fc0@raspberrypi.com>
-References: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com> <20241025-drm-vc4-2712-support-v2-36-35efa83c8fc0@raspberrypi.com>
+	id 1tFGB1-00000006OY4-4391
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 24 Nov 2024 17:13:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DDFE75C564A
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Nov 2024 17:12:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 313AAC4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Nov 2024 17:13:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732468419;
+	bh=VgLddvcIzz9+UK7Lv/jyucFoeBwfZMeb43hwR1RLZaY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=EUFfFS7sVLUJ9Fg6T2pG975BnYsLEKXW9mSOgNaBnKvpYpQo0oUd1U52ALHZN4oY4
+	 kB2xVPOZk9YYFq3xxuxSGfHxnlV07NR/NuPzAujvYQ4IqdB3G/h6I0RRMxRZWo68IR
+	 hGBGfvsoq/zXt6LfHx5donsXlKzdTiw7IDNFfDsvV4JG7MhfTVwyrjH7W6RV1xuw98
+	 CbloiF87k4GMLib+jKC3VttPezl7dOEZhjLZfqqmPKkUtV+L284NnmS3SQwMQJIrpR
+	 yA5+GHD+gLpD7k50HO7RQVTy0N9WlQF/0qhSRjJNjIrcPOyohTUM+Rvh0BYR/exZtk
+	 bK0Ho8XkNY2ZQ==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-53dde9acbb0so1064017e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Nov 2024 09:13:39 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVG6jXZrYUvwliPWQ44gEBpD0cgXhBdOYBkX4q0z+ddRi6PTKiRgD/ZjlKNNuvU/8IEnv5TyzM/deRaYrpjY3F/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsqGkzhga8lgA9hrEAEJx2pkGj2YfVJBMrG35T1xVQI/gx7crb
+	t+oHjL4idcQIXcpza+3R/Qrrn7ZTGBkbFPvv/TvBUaBMWZK5gXmIatGjdXCRSEsCoNO98oA2IBg
+	kz3m1l+56f76iY+gTabWi5h5ajFA=
+X-Google-Smtp-Source: AGHT+IGvr5lmwfakmqlIkJcu6XwxF2gNioqukRxVSZG7xd4plRNby6TC62vi+qXjmI0oWhBEiwO+HWPIenKZ0FJ8oBE=
+X-Received: by 2002:a05:6512:158f:b0:53d:e50a:7046 with SMTP id
+ 2adb3069b0e04-53de50a7236mr32923e87.9.1732468417494; Sun, 24 Nov 2024
+ 09:13:37 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <90667b2b7f773308318261f96ebefd1a67133c4c.1732464395.git.lukas@wunner.de>
+ <CAMj1kXFvJGHr_iv6bFQfb89XqPFrNWH7-rV7SFy4QBSWXYC4RA@mail.gmail.com>
+In-Reply-To: <CAMj1kXFvJGHr_iv6bFQfb89XqPFrNWH7-rV7SFy4QBSWXYC4RA@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Sun, 24 Nov 2024 18:13:26 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXER7AbNyUDjtij6Ni0jVRMg11xvyhkCMKAxaKbx=dsgcQ@mail.gmail.com>
+Message-ID: <CAMj1kXER7AbNyUDjtij6Ni0jVRMg11xvyhkCMKAxaKbx=dsgcQ@mail.gmail.com>
+Subject: Re: [PATCH for-next/fixes] arm64/mm: Fix false-positive
+ !virt_addr_valid() for kernel image
+To: Lukas Wunner <lukas@wunner.de>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, Zorro Lang <zlang@redhat.com>, 
+	Vegard Nossum <vegard.nossum@oracle.com>, Joey Gouly <joey.gouly@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_090434_912945_ADD77DF9 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20241124_091340_090418_CF1E6587 
+X-CRM114-Status: GOOD (  30.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,18 +86,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florian Fainelli <f.fainelli@gmail.com>
+On Sun, 24 Nov 2024 at 17:38, Ard Biesheuvel <ardb@kernel.org> wrote:
+>
+> On Sun, 24 Nov 2024 at 17:16, Lukas Wunner <lukas@wunner.de> wrote:
+> >
+> > Zorro reports a false-positive BUG_ON() when running crypto selftests on
+> > boot:  Since commit 1e562deacecc ("crypto: rsassa-pkcs1 - Migrate to
+> > sig_alg backend"), test_sig_one() invokes an RSA verify operation with a
+> > test vector in the kernel's .rodata section.  The test vector is passed
+> > to sg_set_buf(), which performs a virt_addr_valid() check.
+> >
+> > On arm64, virt_addr_valid() returns false for kernel image addresses
+> > such as this one, even though they're valid virtual addresses.
+> > x86 returns true for kernel image addresses, so the BUG_ON() does not
+> > occur there.  In fact, x86 has been doing so for 16 years, i.e. since
+> > commit af5c2bd16ac2 ("x86: fix virt_addr_valid() with
+> > CONFIG_DEBUG_VIRTUAL=y, v2").
+> >
+> > Do the same on arm64 to avoid the false-positive BUG_ON() and to achieve
+> > consistent virt_addr_valid() behavior across arches.
+> >
+> > Silence a WARN splat in __virt_to_phys() which occurs once the BUG_ON()
+> > is avoided.
+> >
+> > The is_kernel_address() helper introduced herein cannot be put directly
+> > in the virt_addr_valid() macro:  It has to be part of the kernel proper
+> > so that it has visibility of the _text and _end symbols (referenced
+> > through KERNEL_START and KERNEL_END).  These symbols are not exported,
+> > so modules expanding the virt_addr_valid() macro could not access them.
+> > For almost all invocations of virt_addr_valid(), __is_lm_address()
+> > returns true, so jumping to the is_kernel_address() helper hardly ever
+> > occurs and its performance impact is thus negligible.
+> >
+> > Likewise, calling is_kernel_address() from the functions in physaddr.c
+> > ought to be fine as they depend on CONFIG_DEBUG_VIRTUAL=y, which is
+> > explicitly described as "costly" in the Kconfig help text.  (And this
+> > doesn't add much cost really.)
+> >
+> > Abridged stack trace:
+> >
+> >   kernel BUG at include/linux/scatterlist.h:187!
+> >   sg_init_one()
+> >   rsassa_pkcs1_verify()
+> >   test_sig_one()
+> >   alg_test_sig()
+> >   alg_test()
+> >   cryptomgr_test()
+> >
+> > Fixes: 1e562deacecc ("crypto: rsassa-pkcs1 - Migrate to sig_alg backend")
+> > Reported-by: Zorro Lang <zlang@redhat.com>
+> > Closes: https://lore.kernel.org/r/20241122045106.tzhvm2wrqvttub6k@dell-per750-06-vm-08.rhts.eng.pek2.redhat.com/
+> > Signed-off-by: Lukas Wunner <lukas@wunner.de>
+> > ---
+> > Just from looking at the code it seems arm's virt_addr_valid() returns
+> > true for kernel image addresses, so apparently arm64 is the odd man out.
+> >
+>
+> That is because ARM maps the kernel in the linear map, whereas arm64
+> maps the kernel in the vmalloc space.
+>
+> vmalloc addresses cannot be used for DMA, which is why
+> virt_addr_valid() rejects them. On arm64, the same applies to the
+> kernel image, as well as the vmap'ed stack.
+>
+> > Note that this fix would have obviated the need for commit c02e7c5c6da8
+> > ("arm64/mm: use lm_alias() with addresses passed to memblock_free()").
+> >
+>
+> Your 'fix' will break other stuff: it is used, e.g., to decide whether
+> __pa() may be used on the input VA, which applies a fixed translation
+> on the input, rather than walk the page tables to obtain the physical
+> address.
+>
 
-On Fri, 25 Oct 2024 18:16:07 +0100, Dave Stevenson <dave.stevenson@raspberrypi.com> wrote:
-> The D-Step has some minor variations in the hardware, so needs
-> matching changes to DT.
-> 
-> Add a new DTS file that modifies the existing (C-step) devicetree.
-> 
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> ---
+Apologies, I replied a little too quickly.
 
-Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
---
-Florian
+__pa() on arm64 permits linear addresses and kernel image addresses,
+and so the kernel image is treated differently from the vmap'ed stack
+and other vmalloc addresses.
+
+However, that doesn't mean doing DMA from the kernel image is a great
+idea. Allocations in the linear map are rounded up to cacheline size
+to ensure that they are safe for non-coherent DMA, but this does not
+apply to the kernel image. .rodata should still be safe in this
+regard, but the general idea of allowing kernel image addresses in
+places where DMA'able virtual addresses are expected is something we
+should consider with care.
 
