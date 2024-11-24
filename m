@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73FC0D68BF8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 17:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BB9E668BC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 17:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XgvOPIVcmn/fCNeSBTscd2rg+Hh+ccfkLVCJnQ7wUH0=; b=JYjzlrsKoJAaXBk/iqvQcz0gqk
-	basIFYY473hMpv3yqv8ObzPjNE3QVz3ppUCnrITKAsxhM5k4bKv7hDyTuOg3r+WT8VF8Jrzjmh4xu
-	uqEberEFH/oPFSXpj/kLpAc5JkVxvIt8MTHYcka3apdFBWsZrEhDiNQ0xP5gi2wX0TJXcG6vb2AM6
-	d/belNMxjCq84zrJ6ZilZio6V57RIV7M8KSrPmhgHDPF+r8sJ04yLt3S/mlXUu2239ua2xJQ3iNFd
-	IPXcfJfhHjtr27sBtKWD8qoHDgby01116wqc/utdfastTtBhYBS7y+nq1ZlVjuKr+oz6diBp7HPQN
-	286cUg3Q==;
+	bh=nFYt13TsHLggSdSx/FMqyG2Bd98u85z9GEf2obM85p0=; b=SOX6A5AamnHEww2evxrDMCDG4B
+	n+3eiAjh7Dq2hIGqlSLZthKsVyrMfmjT5Z92b7yT+GKoPL9iXZ8Q05+EbhQYHYk44U05jlBbze/cD
+	4LmWKdD+dCRd9AXVV3N+XiJ1UiurrpGFLspn4HQ/FACkFZlonfR1c47zEy+ZlqKqqG5Fu02kj3wLp
+	Hv1YndHZI0Dq4krvxA5x5h4TTyevY/OsW+shIp916gk6U9yQFtQ3ne9dHeTU/9WjjOrpJOtx82O2o
+	dEAmbYzFERN3h2m+lQPz9RZj/8+FKX2B48sMGj69EpDY50lKUtcDRPTdR+vBAOMDESirR7/7n3P5Y
+	G0vof65w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFG2f-00000006Np5-1aLl;
-	Sun, 24 Nov 2024 17:05:01 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.209])
+	id 1tFG3b-00000006NxE-2Aeh;
+	Sun, 24 Nov 2024 17:05:59 +0000
+Received: from saphodev.broadcom.com ([192.19.144.205] helo=relay.smtp-ext.broadcom.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFG1h-00000006Nin-3e4t;
-	Sun, 24 Nov 2024 17:04:03 +0000
+	id 1tFG20-00000006NlH-1MVH;
+	Sun, 24 Nov 2024 17:04:21 +0000
 Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 50157C0005D4;
-	Sun, 24 Nov 2024 09:03:58 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 50157C0005D4
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id D5873C0003DF;
+	Sun, 24 Nov 2024 09:04:18 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com D5873C0003DF
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1732467838;
-	bh=0nUyTFgN93JxdXis2A1wjb0ApbtOrSZY//1Dp6Ir21Q=;
+	s=dkimrelay; t=1732467858;
+	bh=TZ8qOE/XqYn1Gd4w7RJwWC23NJRYMRGt0LB85msJiVk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZLwfTd3k1VZLYnirJBPxFlwYvo4yvosVee3xExCJ75wy5e8Xqkk/KWSaSC23RdlgK
-	 zVjxm/q/fXcmBO7C2sbvxPxjKZ/8i+vyURWadI+I3h/3ZqcVOcAV0NCA5yI8oe8kqa
-	 YabO1eWeQSjeRAFU8e1gkvvJnWHpdDgLLxBtVlnM=
+	b=CC6YhPBwNLt4PRNumYAlfcntCLC9Cm60GwLC588IMtQvrs4cnvDZA9n200E2S0aat
+	 olwEW+v+c5bIPWyIdpu0TJnEMETBaGvm5LLe25Dfakde2KuEfFMat/5Xc+VgDEamZe
+	 h9ACM54VoLuWzIFbn6uVKDCSbPU0Lpgo2TxZciYM=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id BFF0418041CAC6;
-	Sun, 24 Nov 2024 09:03:57 -0800 (PST)
+	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 568D018041CAC6;
+	Sun, 24 Nov 2024 09:04:18 -0800 (PST)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: bcm-kernel-feedback-list@broadcom.com,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
@@ -70,17 +70,17 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v2 34/36] arm64: dts: broadcom: Add firmware clocks and power nodes to Pi5 DT
-Date: Sun, 24 Nov 2024 09:03:57 -0800
-Message-ID: <20241124170357.710628-1-florian.fainelli@broadcom.com>
+Subject: Re: [PATCH v2 35/36] arm64: dts: broadcom: Add display pipeline support to BCM2712
+Date: Sun, 24 Nov 2024 09:04:18 -0800
+Message-ID: <20241124170418.710763-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241025-drm-vc4-2712-support-v2-34-35efa83c8fc0@raspberrypi.com>
-References: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com> <20241025-drm-vc4-2712-support-v2-34-35efa83c8fc0@raspberrypi.com>
+In-Reply-To: <20241025-drm-vc4-2712-support-v2-35-35efa83c8fc0@raspberrypi.com>
+References: <20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com> <20241025-drm-vc4-2712-support-v2-35-35efa83c8fc0@raspberrypi.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_090402_008692_4587C5B1 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20241124_090420_443425_6832A7AC 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,9 +97,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Florian Fainelli <f.fainelli@gmail.com>
 
-On Fri, 25 Oct 2024 18:16:05 +0100, Dave Stevenson <dave.stevenson@raspberrypi.com> wrote:
-> BCM2712 still uses the firmware clocks and power drivers, so add
-> them to the base device tree.
+On Fri, 25 Oct 2024 18:16:06 +0100, Dave Stevenson <dave.stevenson@raspberrypi.com> wrote:
+> Adds the HVS and associated hardware blocks to support the HDMI
+> and writeback connectors on BCM2712 / Pi5.
 > 
 > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 > ---
