@@ -4,65 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A4BE668AD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 13:10:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A4F5E668AD
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 13:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rsCroRDoP3xTxJMEPKznCXLu0YWs94ms/bzhIFDJJmg=; b=h2AAjW63TcOBfEvGXdQXjzu5c9
-	v2LYhNVRC4OdOr+osCvlEukxcUsHxybMmM4sDQD2Pe6tN6KSGk0pz9kg9cCMS9/5PGPRQ/nzKD6cS
-	W2eMeO9Xb1CoHhMoU+JQawQKDuuK5oN90cHvNw7Gsc3h2n5AHgWiS7QuMr1D16RXBMAukIzqQjwwX
-	tXSs4EaiibhY63jJZWWd0qYdwtvzaDiiH17tS4e/QRRDl2mqOLE5F17wDN86y0YvAIF1n7PHl8NNa
-	128/AQjlVkH3GbWPMa0gzdEQxfRSNoFr9ARcHur9loR8Sn19TRyP7MKZpcnmJJrRJUw6M9vesv/yp
-	E4jF5IPQ==;
+	bh=UDgXaUWWMXn90x1MGvmiPRPBz637uFXJlZfJg+bhsYo=; b=OALsVu+H2ObqCGI2zhhX+ixw8W
+	iu0Q8FyDNXMAc/l6PuLrrCq6B3MNYUwB9w41BaBgV+fxQ81FG1P9g22OaD1XbCOAQy2+nWBdu/xBY
+	/WSeyQyQ1NZRF6vcJE1z5VinKDpcveAxN5q4e0rrmrxo8fl6IgW9Urz9F0Z//hKWe/1udh8yOYRQ9
+	6Ouj9wa7nR3nguWXrYocMbg1rr1W8apABLprEex5mHO4SatlgorHTbtUsoj1DrJfGJQ1Zww03PYCq
+	KrCNvnlTvnn9b/1r+ugWB10ZUAQcW/PJg9rKmUTIx238JeTvygpTQPPWaxu/Qz/KotWJcIShAJ5AQ
+	DP0ZNbpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFCNP-00000005rNp-2OHr;
-	Sun, 24 Nov 2024 13:10:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tFCOL-00000005rZX-1Z7o;
+	Sun, 24 Nov 2024 13:11:09 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFCGJ-00000005phK-1gQi
+	id 1tFCJS-00000005qR1-3DkR
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Nov 2024 13:02:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3A0FC5C432C;
-	Sun, 24 Nov 2024 13:02:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48B6DC4CECC;
-	Sun, 24 Nov 2024 13:02:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732453370;
-	bh=V0Bs0Zy6s73HavYwwymncXPcs1ZrjCVcI3abEBI8kTo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=kvgsWMVFDc8l3JAe/gPaphm8u9pGpy8kBrXIHOyFRUMmn6TtyoMF6OCneBCQSdacj
-	 KsOz6wtjYSXlCCWByw1JHoT6gYN4b7nMm9eqnmYjV0Fs/A1T/1TnHU/oKnoimBro1o
-	 b66ii7FId/S2qyMAlFrgv75ppIOA9xULNGtQFbDvWPCB9K4Wh4PsjIpsBk1M5XxYeA
-	 oVYt2IYlIVlJNqnYIqF0Xvo5hUvGr1+9rQb2XrXncfUBrlJws11bdcxHg+rb8x7mXh
-	 yKF3kL+GqsXuWto+2Es8l38TQKx9RLFtZMNAznpgglzFk6rvQqdUTi26hNL+EAuF/a
-	 UkHh1s6pS05Sg==
-Date: Sun, 24 Nov 2024 13:02:41 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Olivier Moysan <olivier.moysan@foss.st.com>
-Cc: Lars-Peter Clausen <lars@metafoo.de>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Jonathan Cameron
- <Jonathan.Cameron@huawei.com>, <linux-iio@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] iio: adc: stm32-dfsdm: handle label as an optional
- property
-Message-ID: <20241124130241.60e922ff@jic23-huawei>
-In-Reply-To: <20241114102459.2497178-1-olivier.moysan@foss.st.com>
-References: <20241114102459.2497178-1-olivier.moysan@foss.st.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
+	Sun, 24 Nov 2024 13:06:11 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4315e9e9642so32109925e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Nov 2024 05:06:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1732453565; x=1733058365; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UDgXaUWWMXn90x1MGvmiPRPBz637uFXJlZfJg+bhsYo=;
+        b=e8mrRz0/BT6PKuV5NtAUQSYn/ZNf1/9AjJtgST7+I6CC0nlMUEOkXGfc/UDD1VSlMd
+         71tZQyvyJKmXbOR0eqsly59hYOP20SODaUEV1/4Uc93+HB0SfoKeha3Lauo8nLv1HaK7
+         ZS5Dgfdx9a5/0btkeGSKE8+8r6TjXi/r6GyuStZrtvr9pOh2ebAvviJqm261Rkple9oe
+         jKraKQYVPGLGXfbMK4+FUzf7l5nzrbgOjDoEKBHAw5WeAPCdR705tjtwEm6dbtX778pG
+         UGZbOxAQD92RsR/JwJdLX5W6GveJ+RcJWQsHp4sIpCf5D5WVXd+64Sbz99Rs8/QZwSJ7
+         Kn0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732453565; x=1733058365;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UDgXaUWWMXn90x1MGvmiPRPBz637uFXJlZfJg+bhsYo=;
+        b=RHtPBvr7DOL5F7cxvZk0MQvImNOMFJ2N5MdDzPwZbjp8ONpUCO2KQ9kX7shX6is28p
+         OphqBybY+R/wAHBxVZTwbQFmR7ZIzD2Kia12LSwWbj7+cu/zAvWDLUYbQjVXzfQokkhy
+         c6b6vBcACd01Ye+Rkr/uV8UICijwalhHLXyjs9r3On6wYNWXkUhE7AtixE2+YwZx1AaN
+         wBxpVGMJjVtTMoL0Y13znQiMDBNWCn35HjNMZK4lUxzUdgdxYM1Md1ny2bycP06dVko1
+         CDVXJziZHsbG6/EkRuHXsIdtZWZuVXtkn36ywb0odxSuoYjV4YF4GlzLR7xYCn2U2n+Y
+         29jg==
+X-Forwarded-Encrypted: i=1; AJvYcCV5p8uzVAReghOqmEwdCZsJ+QmO4/p8H831O7y4s2+7cEYz6o5jXbh9saEbN/fGWfUBId8kHtv7QYp83ssGRhlv@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMwFz+VF/HQj5pw3DZRf8N18pWqKTnryVT3eX10tJww0ab9GAA
+	l70aal7JyulMQvy6mlql3XNhBViftCnmqPoeFxLycOqtK0ttLTPcbZqLbVLEzUg=
+X-Gm-Gg: ASbGncsPq6eqQcWgOx0/GA22a6vzQICF8RkqpL/oWhp63sdVJGSPHgxWBw3zSwUobce
+	3Dg67kboBUQlZASSAYYcz4KRlHuMINIZD5NdXStFFmfVeOE6iCDUGb7JwXX/fe1YFk35OVZbsyH
+	h4oyGkH8R395/ahiCnJBDWSxdqV+3XXkjLEp85bJVvqLSeqpb/r0m52eCVVkC1yyWI6D85nGhHm
+	p/AVUp4jK9C4SSrNUvPaS3nkejitYyqind5lqsgm0dDZhpkj99SC4AHqA==
+X-Google-Smtp-Source: AGHT+IE/ekA4n5NRsUPfRrSQ4WEQs+2aEfMt8e8Vr2hUc52ItH2CCdtUMuUey9X354G87nt1GQ6+6g==
+X-Received: by 2002:a5d:64cc:0:b0:382:4503:728a with SMTP id ffacd0b85a97d-38260be41c0mr7533295f8f.53.1732453564522;
+        Sun, 24 Nov 2024 05:06:04 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.28])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3825fad5f59sm7682760f8f.10.2024.11.24.05.06.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 24 Nov 2024 05:06:03 -0800 (PST)
+Message-ID: <55685905-7a28-4796-b386-1212bc1abed1@tuxon.dev>
+Date: Sun, 24 Nov 2024 15:06:00 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 10/15] ARM: configs: at91: sama7: add new SoC config
+Content-Language: en-US
+To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, mturquette@baylibre.com, sboyd@kernel.org,
+ arnd@arndb.de
+Cc: dharma.b@microchip.com, mihai.sain@microchip.com,
+ romain.sioen@microchip.com, varshini.rajendran@microchip.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-mmc@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-serial@vger.kernel.org
+References: <cover.1732030972.git.Ryan.Wanner@microchip.com>
+ <4c7750b6f29b4ac0e2858ac279af7548e19934bc.1732030972.git.Ryan.Wanner@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+In-Reply-To: <4c7750b6f29b4ac0e2858ac279af7548e19934bc.1732030972.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_050251_485493_F98B9AA7 
-X-CRM114-Status: GOOD (  20.30  )
+X-CRM114-CacheID: sfid-20241124_050606_975456_B1F6289C 
+X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,51 +107,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 14 Nov 2024 11:24:59 +0100
-Olivier Moysan <olivier.moysan@foss.st.com> wrote:
+Hi, Ryan,
 
-> The label property is defined as optional in the DFSDM binding.
-> Parse the label property only when it is defined in the device tree.
-> 
-> Fixes: 3208fa0cd919 ("iio: adc: stm32-dfsdm: adopt generic channels bindings")
-> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
-This could be done by just ignoring the return of fw_node_property_read_string()
-but your fix will do a little more such as report an error if the property is
-the wrong type etc, so I'll take it.
+On 19.11.2024 18:40, Ryan.Wanner@microchip.com wrote:
+> +config SOC_SAMA7D65
+> +	bool "SAMA7D65 family"
+> +	depends on ARCH_MULTI_V7
+> +	select HAVE_AT91_GENERATED_CLK
+> +	select HAVE_AT91_SAM9X60_PLL
 
-Applied to the fixes-togreg branch of iio.git.
+These starting here:
 
-Thanks,
+> +	select HAVE_AT91_USB_CLK
+> +	select HAVE_AT91_UTMI
+> +	select PM_OPP
 
-Jonathan
+ending here are not needed for this phase, AFAICT.
 
-> ---
->  drivers/iio/adc/stm32-dfsdm-adc.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/iio/adc/stm32-dfsdm-adc.c b/drivers/iio/adc/stm32-dfsdm-adc.c
-> index 2037f73426d4..e304e3714020 100644
-> --- a/drivers/iio/adc/stm32-dfsdm-adc.c
-> +++ b/drivers/iio/adc/stm32-dfsdm-adc.c
-> @@ -691,11 +691,14 @@ static int stm32_dfsdm_generic_channel_parse_of(struct stm32_dfsdm *dfsdm,
->  		return -EINVAL;
->  	}
->  
-> -	ret = fwnode_property_read_string(node, "label", &ch->datasheet_name);
-> -	if (ret < 0) {
-> -		dev_err(&indio_dev->dev,
-> -			" Error parsing 'label' for idx %d\n", ch->channel);
-> -		return ret;
-> +	if (fwnode_property_present(node, "label")) {
-> +		/* label is optional */
-> +		ret = fwnode_property_read_string(node, "label", &ch->datasheet_name);
-> +		if (ret < 0) {
-> +			dev_err(&indio_dev->dev,
-> +				" Error parsing 'label' for idx %d\n", ch->channel);
-> +			return ret;
-> +		}
->  	}
->  
->  	df_ch =  &dfsdm->ch_list[ch->channel];
+> +	select SOC_SAMA7
+> +	help
+> +	 Select this if you are using one of Microchip's SAMA7D65 family SoC.
+> +
 
+The Kconfig changes should be a separate patch.
 
