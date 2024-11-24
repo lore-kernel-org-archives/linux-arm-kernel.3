@@ -4,83 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E6DE6780A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 21:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C0AD75E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Nov 2024 21:28:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W07l0zNFrs+EFQwQdJy7SMIOa1ecWzPkN3V9gFJWiHk=; b=beEtGnqZvcldF6jh+LQKAi7aZt
-	QpWZycSYuSPFadnQithGzNL247FrRkycdBcFMOoY05silFIgc60LIWsnZUpHLHsk+RbfdXgYlyc9S
-	Hu1eGe4miaGjFKwytAYp4X0CzjZ/rIQBRSm2JaiZlo8Xk91uBGQUq1TNh+/mybiGvspGJ4TLkENwK
-	NdeL7j0dp3MOnNiz9Gm88El3d7VeUYMaj84DnLKsC+0HdUkG7WCLzRwytH1005tWxBeFDSLH3hI0h
-	CNfkqRu2SiYdx+nOx8TQVmRqvOIGiRLStpnbkzbdcV8aWKen3S3sMRbAE3o3XRUi3FEiz5JA3jGr9
-	r652ZL3g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n7WmZQHohNW5BD9XNmdo4vE5jOpgTiVsVHg7biXHXS0=; b=BuFusVYSP2PzFNN40lCHQ32ZLU
+	DOtH7yGXLYAmz1HFsGX2PQw7YCdYgMbWK6LxH/haBKmYMEeUoswkdYz0rEeb2CaHN6syNVmWQaULt
+	xqpwGp0WCEH8ZJNle5PSz1EIx+kMAeMSbos8evZ5gPg8sjqQylIAyfJaQSddRwtFGVTx37PWLGbOY
+	k3Po9bXjk083DxK+jikxiRMYbKqphRoUBn6NBRyFi9+9oObNFDGFMnMrquIpDCiWUByk4PqMxo5zY
+	a0CkyMAOUGqV1wMfL+JkGTxemC2vEhAlRy0IlKUsZ49uxL1yTfmsWq+eYjRn4m0PY/aUbkjcmM1vc
+	kqYuBkYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFJtF-00000006eCJ-1JCO;
-	Sun, 24 Nov 2024 21:11:33 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1tFK9S-00000006ezk-03Pg;
+	Sun, 24 Nov 2024 21:28:18 +0000
+Received: from inva021.nxp.com ([92.121.34.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFJsI-00000006e7g-3ltz
+	id 1tFK8U-00000006eur-0rQl
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Nov 2024 21:10:35 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-46686a258c2so8122771cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Nov 2024 13:10:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732482633; x=1733087433; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=W07l0zNFrs+EFQwQdJy7SMIOa1ecWzPkN3V9gFJWiHk=;
-        b=PcuJcOGhPBgNzSaVyVhoBbyMF0a8taQHVpBlqDsoJ85c27kOlg9tU8/lw0TCclj6bs
-         48sWMyBfJ181IKNZxdr3ci468VD3rScgthAivfyLCykcPE1aMy4w3NKlV82CTjSij2Ew
-         CdRETLs7x6rWyQpozLUq5xq5tkAc9izHwxev1s1VHlfqj1uronrdepyYepv374qnAUDj
-         VttXF5ktqthdMFgzOUd/iqaYPAIsyTiulqUR/rI8aAmvHT1WMUxNLamsELMRkxpU4LkV
-         AFMjlI77MnHwcQpN81EKBBobrEhZA5t0UArRVNT68rqH4uU/mJ+7Ul3lFQ79AxMAiHCU
-         3DYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732482633; x=1733087433;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=W07l0zNFrs+EFQwQdJy7SMIOa1ecWzPkN3V9gFJWiHk=;
-        b=Swsrcdo0t+Ppr7tgoHoMUZVFGpiHHukxH6Yay7UOyetyqu/5itdyhV2nt7lDoAJGT9
-         Ge3BSnTkvGSKqrzkgivEnBawUPMhwZMlXDNP3TZwZNgWzJv259f/mMDX5PBVPFSxd6z+
-         QcrHTcB0PRGZ3ZblF1OnOtmBPfelSHGz32S/mIfJ+SsqtcLo2AXygZM4tAXdlfeIuKLF
-         FimUI26K4YDWKHQqR7tKmWDsInYHTLhzKdIrkL6iciIYK1jJPt4Ngl1W1o/PxvLozqGw
-         Puc25CupGmwXx+oFv+zNFo7N2y16lbQeADuSsoJdXhb8HpL35+8MIzZbu/CZ+ALUN9Gl
-         C3Sw==
-X-Forwarded-Encrypted: i=1; AJvYcCXxB/wY1NcVXM45dmXzl6fgKArSPNK81fFfb6CGgPv7GbxQFztGw5i4v2s0++KgVqB17kvxIeX5D+WmbLhrCKUr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDdFkH2p9zwnEYt9XE6WqldpfQBdhcGEr6c7s7IDoTRkIE7pRd
-	iaApzEopSbLBrDr58HtprzhmzyBElm/cwK17bf+06tFzeD9M8TUKgxhro+6TRz7JmMf4NnuPm4u
-	i2OaeycPSGekG93p/wAFaCkXgT6k=
-X-Gm-Gg: ASbGncv6VOuoIfqhWz20tM7Bzt80A287bJ6BS+3fiST32hdOgUfr2LTPONgikklNdJc
-	bpLW7yN1ede7EVAGJJPCaS+1tmtIxVnud
-X-Google-Smtp-Source: AGHT+IFFGfCsnztfsLunwMxUWCnNQbocjlno2uE7RveujuTHAm4e0cTyGoyDHCbxuwKBXRaxOpeKeT6w++DlBbaz2BQ=
-X-Received: by 2002:ac8:7f16:0:b0:466:9003:aaf0 with SMTP id
- d75a77b69052e-4669003adc7mr41252241cf.37.1732482633443; Sun, 24 Nov 2024
- 13:10:33 -0800 (PST)
+	Sun, 24 Nov 2024 21:27:19 +0000
+Received: from inva021.nxp.com (localhost [127.0.0.1])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id BA7F12008A6;
+	Sun, 24 Nov 2024 22:27:14 +0100 (CET)
+Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id A3260200464;
+	Sun, 24 Nov 2024 22:27:14 +0100 (CET)
+Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
+	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 5A97E203C1;
+	Sun, 24 Nov 2024 22:27:13 +0100 (CET)
+Date: Sun, 24 Nov 2024 22:27:14 +0100
+From: Jan Petrous <jan.petrous@oss.nxp.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Subject: Re: [PATCH v5 13/16] dt-bindings: net: Add DT bindings for DWMAC on
+ NXP S32G/R SoCs
+Message-ID: <Z0OaMjw0A4OadZfI@lsv051416.swis.nl-cdc01.nxp.com>
+References: <20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com>
+ <20241119-upstream_s32cc_gmac-v5-13-7dcc90fcffef@oss.nxp.com>
+ <173203348678.1765163.1636321988738538785.robh@kernel.org>
 MIME-Version: 1.0
-References: <20241123212624.6237-1-jiashengjiangcool@gmail.com> <b3e2ed68-092f-4ccb-a945-19e19d5c8071@kernel.org>
-In-Reply-To: <b3e2ed68-092f-4ccb-a945-19e19d5c8071@kernel.org>
-From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Date: Sun, 24 Nov 2024 16:10:22 -0500
-Message-ID: <CANeGvZXjUUOhySGhMCXDp3yfTtuOKdXgMa7DTtZDpq1iXkkfhg@mail.gmail.com>
-Subject: Re: [PATCH 2/2] media: camif-core: Add check for clk_enable()
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: sylvester.nawrocki@gmail.com, mchehab@kernel.org, dron0gus@gmail.com, 
-	tomasz.figa@gmail.com, alim.akhtar@samsung.com, kyungmin.park@samsung.com, 
-	laurent.pinchart@ideasonboard.com, linux-media@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <173203348678.1765163.1636321988738538785.robh@kernel.org>
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_131034_952195_3CED8DB4 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20241124_132718_506388_1356AC3F 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,29 +64,74 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: imx@lists.linux.dev, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, Andrew Lunn <andrew@lunn.ch>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Russell King <linux@armlinux.org.uk>, Jose Abreu <joabreu@synopsys.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Keyur Chudgar <keyur@os.amperecomputing.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, linux-arm-msm@vger.kernel.org, Richard Cochran <richardcochran@gmail.com>, Minda Chen <minda.chen@starfivetech.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On Sun, Nov 24, 2024 at 5:50=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 23/11/2024 22:26, Jiasheng Jiang wrote:
-> > Add check for the return value of clk_enable() to gurantee the success.
-> >
-> > Fixes: babde1c243b2 ("[media] V4L: Add driver for S3C24XX/S3C64XX SoC s=
-eries camera interface")
-> > Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+On Tue, Nov 19, 2024 at 10:24:46AM -0600, Rob Herring (Arm) wrote:
+> 
+> On Tue, 19 Nov 2024 16:00:19 +0100, Jan Petrous (OSS) wrote:
+> > Add basic description for DWMAC ethernet IP on NXP S32G2xx, S32G3xx
+> > and S32R45 automotive series SoCs.
+> > 
+> > Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 > > ---
-> >  .../media/platform/samsung/s3c-camif/camif-core.c   | 13 +++++++++++--
-> >  1 file changed, 11 insertions(+), 2 deletions(-)
->
-> Nothing improved...
+> >  .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 105 +++++++++++++++++++++
+> >  .../devicetree/bindings/net/snps,dwmac.yaml        |   3 +
+> >  2 files changed, 108 insertions(+)
+> > 
+> 
+> My bot found errors running 'make dt_binding_check' on your patch:
+> 
+> yamllint warnings/errors:
+> ./Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml:25:9: [warning] wrong indentation: expected 10 but found 8 (indentation)
+> 
 
-Sorry for the confusion. This series consists of two patches.
-Only "PATCH 1/2" has been modified, while "PATCH 2/2" remains unchanged.
-As a result, there is no changelog for "PATCH 2/2".
+Thanks, I will fix it in v6.
 
--Jiasheng
+> dtschema/dtc warnings/errors:
+> 
+> doc reference errors (make refcheckdocs):
+
+I have also noticed the refcheckdocs errors, but AFAIK those are not
+connected to my commit:
+
+ $ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-   refcheckdocs
+ Documentation/userspace-api/netlink/netlink-raw.rst: :doc:`rt_link<../../networking/netlink_spec/rt_link>`
+ Documentation/userspace-api/netlink/netlink-raw.rst: :doc:`tc<../../networking/netlink_spec/tc>`
+ Documentation/userspace-api/netlink/netlink-raw.rst: :doc:`tc<../../networking/netlink_spec/tc>`
+ Documentation/devicetree/bindings/nvmem/zii,rave-sp-eeprom.txt: Documentation/devicetree/bindings/mfd/zii,rave-sp.txt
+ Documentation/devicetree/bindings/regulator/siliconmitus,sm5703-regulator.yaml: Documentation/devicetree/bindings/mfd/siliconmitus,sm5703.yaml
+ Documentation/hwmon/g762.rst: Documentation/devicetree/bindings/hwmon/g762.txt
+ Documentation/hwmon/isl28022.rst: Documentation/devicetree/bindings/hwmon/isl,isl28022.yaml
+ Documentation/translations/ja_JP/SubmittingPatches: linux-2.6.12-vanilla/Documentation/dontdiff
+ Documentation/userspace-api/netlink/index.rst: Documentation/networking/netlink_spec/index.rst
+ Documentation/userspace-api/netlink/specs.rst: Documentation/networking/netlink_spec/index.rst
+ MAINTAINERS: Documentation/devicetree/bindings/misc/fsl,qoriq-mc.txt
+ lib/Kconfig.debug: Documentation/dev-tools/fault-injection/fault-injection.rst
+
+> 
+> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241119-upstream_s32cc_gmac-v5-13-7dcc90fcffef@oss.nxp.com
+> 
+> The base for the series is generally the latest rc1. A different dependency
+> should be noted in *this* patch.
+
+I have series based on v6.12 and I don't see there any v6.13-rc1.
+
+> 
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
+> 
+> pip3 install dtschema --upgrade
+> 
+> Please check and re-submit after running the above command yourself. Note
+> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+> your schema. However, it must be unset to test all examples with your schema.
+> 
+
+I rechecked with fixed indentation, no any error was found.
+
+BR.
+/Jan
 
