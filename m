@@ -4,68 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C52D3B7CB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 01:01:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D72BD3B7CC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 01:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1XPjmHdAnFormyJz6b0YgVud3YiDBBWv7ODyyldXAPM=; b=Slm0RMAEfAJpSEastQO9ktoJNI
-	6o+zXSX6SGTHeBKTImfNC58m8EuB1eeLJfyQCi8CoPS14Pf1D5FV0g2Ax8Bk8VUf5S5ttCqYR9P21
-	EBbv94X4FvLF6n2wVcFlcPkTfgGbPH3uTRcuPPc44Xg8B1DnjehOAuPXBTaGELDEL+alDHf/huirK
-	38DUpCHfSLYKpQC0UrKYI3aAAbgugCW/rn0Td7V5cQqqOoEIY2x9BAMBw3hWGI97WxETcnzThUxEx
-	jNyaBhHPQOlB2DKADAl4leRmzAtf0qXST63XTPw9+Ayncr4tIzuJG1tZZ9x/2Q2gi/FZSdNd5gGt6
-	A09txRnQ==;
+	bh=iGaYT6nZ/4PiLaqqfZNnRdCsS1EzHLa59yqMFNnJ2X0=; b=UFPr8NlSQB6dnG0hKtjynQS8UR
+	X1/Y+Ptjls+MYX/+t/2Lb9+B2FywKPDYeNJl8u3S9+JKg6sC7BUo/pjkhGZNVQfvNViqZRT/5Ha5N
+	uG58wHAD5Pd6fgBm6MCn2Rj87BFW++P56p1/jI7lY7FuCIVQiJkHckdv5XEgY6B0+VD8Quww0zrnl
+	9plxa0ga+E9GCcXoFR6RyyF5elDudkTF5xDxPdDT3h3MvAFhYEnzrUymki8aW9UWRYcVFF7Rte61i
+	DbpGZdVER3gej9PfZvp7PFFWjdx+eE+qliggKQTY9lVBuHlJeAu2O9XSrNgW5apKj5bI5pSYMsAsS
+	DS//BEjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFNTd-00000006rBN-29YZ;
-	Mon, 25 Nov 2024 01:01:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tFOAS-00000006tBc-0TWg;
+	Mon, 25 Nov 2024 01:45:36 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFNSf-00000006qyQ-0Khx
+	id 1tFO9U-00000006t6X-1dai
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 01:00:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 799EF5C5807;
-	Mon, 25 Nov 2024 00:59:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9FF4C4CECC;
-	Mon, 25 Nov 2024 01:00:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732496418;
-	bh=W9sLSofs57IMCbEq/BUTGm70UcwPOIqZIetSSFDBvrE=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=fHR7FUtwBAZDNueO/8+4s59fL1xWj04a/8Hxm8cS6D/R5vCNP8bnQxt4mmTEEcpzk
-	 J79tgT2zCjY6yCRE7eLabYdvIjzW2JRuCRh6v02j6NpCr1eVyoYF3c68MOOInu7uMG
-	 vaEfdLxhzMr0YOuQc+eDTEjCNXvKP5rENrkhh+e4TOeOBZ8s9ZCpDg6todP4XaYAIz
-	 akzRRZl/T4ZPxkGWfuAY7w/c/fTLnS3pIh6hMY9WMCOT/XNWPj9DOvMkpqPwZemfYf
-	 wDaCaxqUDUyI8c/ONwzXp7mWCa74PAnlLS5Hi5f8lafuqJlC0qgyuQWY3rJlkF+VSt
-	 tEZzcCU2ZnXlg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7330A3809A00;
-	Mon, 25 Nov 2024 01:00:32 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Mon, 25 Nov 2024 01:44:38 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AP0L7tV006014;
+	Mon, 25 Nov 2024 01:44:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	iGaYT6nZ/4PiLaqqfZNnRdCsS1EzHLa59yqMFNnJ2X0=; b=mir+povmuBtEd5+T
+	2oYJoTZ6tUh3oQjLy+JCRBFablP+gvIZ3jv/kQhennjTmAnUonm+Z0NG9zUsr1e+
+	NxpvPmv0YsWHalX7TGuPuelOe9lLnAgdHdI7iNOvAfp5Nx8OGuAkLXFODcDxh/sU
+	kA2jFyZ/KcTbtgbfUaLjmSifdhXG1/nfDRQdirRZR17GppZyTeEfbz5w1z8jexQ/
+	HeGjUl7ZJJBOQu+unX7CK/WjMrVTTsO6xSN+2I+C84gr5I1izKxijDvaz9wOs3A7
+	uMRGBUtWD0+PvS6qpstLBjqva72EYLn53DRI00HQ05TDE7NqCQcDqxGvFMYaWU9h
+	+Up4rw==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4336cfk4gq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 25 Nov 2024 01:44:23 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AP1iMhU025369
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 25 Nov 2024 01:44:22 GMT
+Received: from [10.64.16.151] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 24 Nov
+ 2024 17:44:15 -0800
+Message-ID: <10413094-500f-4044-b4e3-8ce83fee3dbd@quicinc.com>
+Date: Mon, 25 Nov 2024 09:44:12 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [RESEND PATCH] net: microchip: vcap: Add typegroup table terminators
- in kunit tests
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173249643125.3410476.13194296250572819255.git-patchwork-notify@kernel.org>
-Date: Mon, 25 Nov 2024 01:00:31 +0000
-References: <20241119213202.2884639-1-linux@roeck-us.net>
-In-Reply-To: <20241119213202.2884639-1-linux@roeck-us.net>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: lars.povlsen@microchip.com, Steen.Hegelund@microchip.com,
- daniel.machon@microchip.com, UNGLinuxDriver@microchip.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- steen.hegelund@microchip.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/9] drm/msm/dpu: Add SM6150 support
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+CC: Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar
+	<quic_abhinavk@quicinc.com>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten
+	<marijn.suijten@somainline.org>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Krishna
+ Manikandan" <quic_mkrishn@quicinc.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        "Catalin
+ Marinas" <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Li Liu
+	<quic_lliu6@quicinc.com>,
+        Xiangxu Yin <quic_xiangxuy@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
+ <20241122-add-display-support-for-qcs615-platform-v3-5-35252e3a51fe@quicinc.com>
+ <bhylewwvztm7gsmkjwo6asceuph2jlqgvy2lhocdvg6r7y4i6w@duvbnsko3xg2>
+Content-Language: en-US
+From: fange zhang <quic_fangez@quicinc.com>
+In-Reply-To: <bhylewwvztm7gsmkjwo6asceuph2jlqgvy2lhocdvg6r7y4i6w@duvbnsko3xg2>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: ALnY4WQC7U_GidKZVMBIyRRX_D5Sz7vY
+X-Proofpoint-ORIG-GUID: ALnY4WQC7U_GidKZVMBIyRRX_D5Sz7vY
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 impostorscore=0
+ spamscore=0 lowpriorityscore=0 phishscore=0 adultscore=0 malwarescore=0
+ mlxscore=0 suspectscore=0 mlxlogscore=999 clxscore=1015 priorityscore=1501
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
+ definitions=main-2411250013
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_170021_163198_8983DB84 
-X-CRM114-Status: UNSURE (   7.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241124_174436_568175_951D32D6 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,36 +126,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
 
-On Tue, 19 Nov 2024 13:32:02 -0800 you wrote:
-> VCAP API unit tests fail randomly with errors such as
+On 2024/11/22 18:07, Dmitry Baryshkov wrote:
+> On Fri, Nov 22, 2024 at 05:56:48PM +0800, Fange Zhang wrote:
+>> From: Li Liu <quic_lliu6@quicinc.com>
+>>
+>> Add definitions for the display hardware used on the Qualcomm SM6150
+>> platform.
+>>
+>> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+>> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+>> ---
+>>   .../gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h | 263 +++++++++++++++++++++
+>>   drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.c     |   1 +
+>>   drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.h     |   1 +
+>>   drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c            |   1 +
+>>   4 files changed, 266 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..e8b7f694b885d69a9bbfaa85b0faf0c7af677a75
+>> --- /dev/null
+>> +++ b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h
+>> @@ -0,0 +1,263 @@
+>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>> +/*
+>> + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+>> + */
+>> +
+>> +#ifndef _DPU_5_3_SM6150_H
+>> +#define _DPU_5_3_SM6150_H
+>> +
+>> +	}, {
+>> +		.name = "intf_2", .id = INTF_2,
+>> +		.base = 0x6b000, .len = 0x2c0,
+>> +		.features = INTF_SC7180_MASK,
+>> +		.type = INTF_NONE,
+>> +		.controller_id = 0,
+>> +		.prog_fetch_lines_worst_case = 24,
+>> +		.intr_underrun = DPU_IRQ_IDX(MDP_SSPP_TOP0_INTR, 28),
+>> +		.intr_vsync = DPU_IRQ_IDX(MDP_SSPP_TOP0_INTR, 29),
 > 
->    # vcap_api_iterator_init_test: EXPECTATION FAILED at drivers/net/ethernet/microchip/vcap/vcap_api_kunit.c:387
->    Expected 134 + 7 == iter.offset, but
->        134 + 7 == 141 (0x8d)
->        iter.offset == 17214 (0x433e)
->    # vcap_api_iterator_init_test: EXPECTATION FAILED at drivers/net/ethernet/microchip/vcap/vcap_api_kunit.c:388
->    Expected 5 == iter.reg_idx, but
->        iter.reg_idx == 702 (0x2be)
->    # vcap_api_iterator_init_test: EXPECTATION FAILED at drivers/net/ethernet/microchip/vcap/vcap_api_kunit.c:389
->    Expected 11 == iter.reg_bitpos, but
->        iter.reg_bitpos == 15 (0xf)
->    # vcap_api_iterator_init_test: pass:0 fail:1 skip:0 total:1
+> Please drop. No need to declare missing blocks.
+got it, will remove this block in the next patch
 > 
-> [...]
-
-Here is the summary with links:
-  - [RESEND] net: microchip: vcap: Add typegroup table terminators in kunit tests
-    https://git.kernel.org/netdev/net/c/f164b296638d
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+> Other than that:
+> 
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> 
+> 
+>> +	}, {
+>> +		.name = "intf_3", .id = INTF_3,
+>> +		.base = 0x6b800, .len = 0x280,
+>> +		.features = INTF_SC7180_MASK,
+>> +		.type = INTF_DP,
+>> +		.controller_id = MSM_DP_CONTROLLER_1,
+>> +		.prog_fetch_lines_worst_case = 24,
+>> +		.intr_underrun = DPU_IRQ_IDX(MDP_SSPP_TOP0_INTR, 30),
+>> +		.intr_vsync = DPU_IRQ_IDX(MDP_SSPP_TOP0_INTR, 31),
+>> +	},
+>> +};
+>> +
+> 
 
 
