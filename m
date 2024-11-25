@@ -4,79 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97621D58D5C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 15:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A26D58D5C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 15:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1PVBG0drlljsVkEBbeau35zte0zCftwnSF7ZEns2RkI=; b=l2wTKCNg0ILPhv8pTjTSPSzTBt
-	hmInwyLNgKNMNbfzqxber3gAREAX2BiByuCdxKOvxa8Uq6JtUYyfb3Cw8uhsc6wRbYCPW9x7AZH2g
-	YcJTKx22jUBGlCyCTKlm2dOmCqFQJOhjQWMUiLsaosKL5zYv4GIJ5AoV94+7KOUfAH/Oour0nbNan
-	eNl0/V0wIYqomSiHS8tJkT1TtrgmmvR/sqrXXyFzjHPZRqlKNIu5V/lY1zM8Fg4/WWIqLS/INTMjB
-	OaDTk2F5NB3bg2IyR2uqXCT3GDfUR8l8RhRO4KL/tgkwuQcmff4lsEXV4mTDn19Qpuqw4AkIK4PMk
-	WajNHrwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Q/mRZQeXSx9Hxo42DiMwheV4yYRuNGq7GGm+DxB/9c=; b=3RkQr1XthWWOqPYKJ801eM3Cvf
+	s13z1ascCX23Vxq55O9cSNNkCC88s02coV87lS3W0WEmc0JL9cMZFiCfkTCVSR8IYntGx3bhqb6Vi
+	fLY4q/gnR2EPiTpzDXyzuJmiOtqUPi/qTTwqY0tOQkTk9LM8ooEcnsEEAORkWOQ/mzq38BZdo1hCd
+	tcaYkWILji3MQS13qLeSxzA/aKg9N4XhFSV+NCZmEAxpHyC73fID18c3+ANCAh4ylml0PcG49HKeg
+	Hc2N740n6yh0YHJ6czWwgE1scvp4ecJIuKUyBT712j0/R1IeHv4H0GLjJWp9sfkr0PpGuDUjPFpRv
+	WXo18QAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFaeK-00000008Nxd-1QPI;
-	Mon, 25 Nov 2024 15:05:18 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1tFafy-00000008OFX-1BYB;
+	Mon, 25 Nov 2024 15:06:58 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFacZ-00000008Nh7-3D1B
+	id 1tFaex-00000008O2r-3FS5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 15:03:29 +0000
-Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-7b66ea49407so56941885a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 07:03:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732547005; x=1733151805; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=1PVBG0drlljsVkEBbeau35zte0zCftwnSF7ZEns2RkI=;
-        b=KVdDNGrmzWoZ4FqMpfLJCmqtFMVaOQ2jxke+yfdTRmQw05VK4n3XiXVM2YI8UnaBoN
-         U1NeSRk52Yj3LG86nuFoRvDInz04YgcvuKuQPeEOhmoFbCJYP16u5Y/A7J9INIl1r7oj
-         YUVzDRxnrWwzXVN0iHbghVOMXaBWUpgnlphL3fumCmDZ13bM7fG+MM06C4qHE24xHUCx
-         KN43TB1hhCcb7ffxBfRmafjUW5XNB76euqrHgeHsN/HpQPd+tTTCFae9VoxcBZnFNyEv
-         td/5sKVvhZXorZyfjJNoESVg/fWqIohSneFppYhIt//aNIeTpKVKtMClMD558f4MKXki
-         ZDsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732547005; x=1733151805;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=1PVBG0drlljsVkEBbeau35zte0zCftwnSF7ZEns2RkI=;
-        b=Xx5WWnHjMTTvVuJ6nMyHLWVDes0cFaKHhMFnn2YNb70aVspATN5nwvp/QjEdRFWbQ5
-         8UlWCt7EzAlzUxAmFNom1qISDobx70FaIvPtcL5w1CnDlNgaLmoj4nIotjkMuR3vgXYq
-         2UVYlbqADnjme4ufJD5hvYmY5x8A0Jt7o9Y6O2X3Wm0zuUINjXET7rm66aKHSBmPQUCB
-         yoo1yNp0eb0KhWioRG0mEZHVqL8oku9uVRDVIk7r1pVSy1CGhWtJfdd+srsUhSC0w+xh
-         KSZf7NDfAxRWLgvpCej+drhIYURG1jP7iNvXMrX73QIwFL4n3dgoLXKuZmd6rMlIukvb
-         dlRw==
-X-Forwarded-Encrypted: i=1; AJvYcCWgxiaHQvBYQ5fdIe+MYzarjCjCXcJ17OloEqu6trAlGOUHX53ikeoZKDQxp08N9h7t/+TTmImgOYn6PHf4bOqe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy72ZDAJ4xNxJ/03CWYTFVXnTENR4C2vJXa+x2FF/bmW0TX13Pe
-	6g9Ku4Tqm3DeW4mzD4ZFgPb39rxs57kh3Cb6Ed2Knh7xUGQRrIjnOvpeojh4+c7E0Sg1yFaD9CE
-	myFA6ePgE1OGoi5MA5EfvVM6UzSOZFVoQkVcYLg==
-X-Gm-Gg: ASbGncuXbHIj5YMPaEYq7JImJxyksRTOvfb1hphlOe3zUJBalgk+p45cj3wipdGU9Qd
-	if5RjrDekVCjjbnjWK3NXQYt/cBTJbPha4A==
-X-Google-Smtp-Source: AGHT+IFM1jutegIbH3N1whIkVDo6HftuxY2rAiLT8oMAJlAXEVGXzFA7vyxDFNULJGUY40WX45oiWmYu6pzPREG0P6s=
-X-Received: by 2002:a05:620a:2947:b0:7b1:5545:7104 with SMTP id
- af79cd13be357-7b50c11a8a5mr2933373985a.2.1732547005320; Mon, 25 Nov 2024
- 07:03:25 -0800 (PST)
+	Mon, 25 Nov 2024 15:05:57 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4APBlTen017783;
+	Mon, 25 Nov 2024 16:05:15 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	+Q/mRZQeXSx9Hxo42DiMwheV4yYRuNGq7GGm+DxB/9c=; b=ajJXUtdxR/TpZe51
+	/TIhSdMxFHtNgVzGu9AatG9nVK8qIAgjQq4nn1QQl6Fd74M5uRe6zhQZD/HffGCT
+	xhZ8rX45P9TXo5NMUtlof5lVPVnfxv3DUTW0Kks0ynNlrMxMfuaWPIIb9WB5jdSY
+	zm/yxSz/Fisw2Euf3c/Go9UFpGqoo+hAn/YC9Yi8ghqLiLCl5KMZRkH00ZWlB04D
+	nZ18BfEJTQxtcEPSgAic49qGNRz4xGY21MKFn7A3toEgikE53S9qAUQT0/gu0OlX
+	nHyQIdKbSGNAmWh0V6ahL4GRvyJaeNaCVsd8zYFSDiBCMyNLGN4E+n8gsTOUHO+V
+	hGpCvw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 433791r7fk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 25 Nov 2024 16:05:14 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2C24B40047;
+	Mon, 25 Nov 2024 16:03:48 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 565E129BAFB;
+	Mon, 25 Nov 2024 16:01:00 +0100 (CET)
+Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 25 Nov
+ 2024 16:00:59 +0100
+Message-ID: <9d3bf191-5dcf-4d7d-8311-0ef491cfdf65@foss.st.com>
+Date: Mon, 25 Nov 2024 16:00:52 +0100
 MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Mon, 25 Nov 2024 20:33:14 +0530
-Message-ID: <CA+G9fYs+2mBz1y2dAzxkj9-oiBJ2Acm1Sf1h2YQ3VmBqj_VX2g@mail.gmail.com>
-Subject: pc : qnoc_probe (drivers/interconnect/qcom/icc-rpmh.c:269) :
- Dragonboard 410c - arm64 - boot failed
-To: linux-arm-msm <linux-arm-msm@vger.kernel.org>, Linux PM <linux-pm@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, clang-built-linux <llvm@lists.linux.dev>
-Cc: Georgi Djakov <djakov@kernel.org>, konradybcio@kernel.org, quic_okukatla@quicinc.com, 
-	quic_rlaggysh@quicinc.com, quic_jjohnson@quicinc.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+From: Christian Bruel <christian.bruel@foss.st.com>
+Subject: Re: [PATCH 2/5] PCI: stm32: Add PCIe host support for STM32MP25
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
+        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
+        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241112193214.GA1852199@bhelgaas>
+Content-Language: en-US
+In-Reply-To: <20241112193214.GA1852199@bhelgaas>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_070327_803824_7779F4A8 
-X-CRM114-Status: UNSURE (   6.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241125_070556_309585_3EAE1308 
+X-CRM114-Status: GOOD (  50.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,189 +98,448 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm64 Dragonboard 410c has failed with the Linux next, mainline
-and the Linux stable. Please find boot log and build links.
+Hello,
 
-Device: Dragonboard 410c - arm64
-Boot failed: clang-19
-Configs: korg-clang-19-lkftconfig-hardening
-Boot pass: qemu-arm64 (Additional info)
+On 11/12/24 20:32, Bjorn Helgaas wrote:
+> On Tue, Nov 12, 2024 at 05:19:22PM +0100, Christian Bruel wrote:
+>> Add driver for the STM32MP25 SoC PCIe Gen2 controller based on the
+>> DesignWare PCIe core.
+>> Supports MSI via GICv2m, Single Virtual Channel, Single Function
+> 
+> Add blank lines between paragraphs.  Also applies to other patches in
+> the series.
+> 
+>> +config PCIE_STM32
+>> +	tristate "STMicroelectronics STM32MP25 PCIe Controller (host mode)"
+>> +	depends on ARCH_STM32 || COMPILE_TEST
+>> +	depends on PCI_MSI
+>> +	select PCIE_DW_HOST
+>> +	help
+>> +	  Enables support for the DesignWare core based PCIe host controller
+>> +	  found in STM32MP25 SoC.
+>> +
+>> +	  This driver can also be built as a module. If so, the module
+>> +	  will be called pcie-stm32.
+> 
+> Move this so the drivers stay alphabetized.  There's already a
+> "STMicroelectronics SPEAr PCIe controller" entry, and this should go
+> right next to it.
+> 
+>> +++ b/drivers/pci/controller/dwc/pcie-stm32.c
+> 
+>> +static const struct of_device_id stm32_pcie_of_match[] = {
+>> +	{ .compatible = "st,stm32mp25-pcie-rc" },
+>> +	{},
+>> +};
+> 
+> Most drivers put this near the platform_driver struct that references
+> it.
+> 
+>> +static int stm32_pcie_set_max_payload(struct dw_pcie *pci, int mps)
+>> +{
+>> +	int ret;
+>> +	struct device *dev = pci->dev;
+>> +	struct pci_dev *pdev = to_pci_dev(dev);
+>> +
+>> +	if (mps != 128 && mps != 256) {
+>> +		dev_err(dev, "Unexpected payload size %d\n", mps);
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	ret = pcie_set_mps(pdev, mps);
+>> +	if (ret)
+>> +		dev_err(dev, "failed to set mps %d, error %d\n", mps, ret);
+> 
+> MPS config is normally not device-specific, and it's somewhat fragile
+> (see pci_configure_mps() and pcie_bus_config), so I kind of hate to
+> see more users.  Maybe there's some hardware issue involved here?
 
-This is always reproducible.
+Indeed that fixed a debugging issue with the first designs.
+Not necessary anymore, dropping.
 
-Dragonboard 410c - arm64:
-boot:
- * clang-nightly-lkftconfig-hardening
- * korg-clang-19-lkftconfig-hardening
+> 
+>> +static int stm32_pcie_start_link(struct dw_pcie *pci)
+>> +{
+>> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+>> +	u32 ret;
+>> +
+>> +	if (stm32_pcie->reset_gpio) {
+>> +		/* Make sure PERST# is asserted. */
+>> +		gpiod_set_value(stm32_pcie->reset_gpio, 1);
+>> +
+>> +		/* Deassert PERST# after 100us */
+>> +		usleep_range(100, 200);
+> 
+> If this is PCIE_T_PERST_CLK_US, use that.  If not, please add a
+> relevant #define with a citation to the spec.
+> 
+>> +		gpiod_set_value(stm32_pcie->reset_gpio, 0);
+>> +	}
+>> +
+>> +	ret = regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+>> +				 STM32MP25_PCIECR_LTSSM_EN,
+>> +				 STM32MP25_PCIECR_LTSSM_EN);
+>> +
+>> +	/*
+>> +	 * PCIe specification states that you should not issue any config
+>> +	 * requests until 100ms after asserting reset, so we enforce that here
+> 
+> I think it says 100ms after *deasserting* reset.  But if you use
+> PCIE_T_RRS_READY_MS below, I don't think you even need this comment.
 
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+ack thanks
 
-Log details:
-------------
-[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd030]
-[    0.000000] Linux version 6.12.0-next-20241125 (tuxmake@tuxmake)
-(ClangBuiltLinux clang version 19.1.4
-(https://github.com/llvm/llvm-project.git
-aadaa00de76ed0c4987b97450dd638f63a385bed), ClangBuiltLinux LLD 19.1.4
-(https://github.com/llvm/llvm-project.git
-aadaa00de76ed0c4987b97450dd638f63a385bed)) #1 SMP PREEMPT @1732509632
-[    0.000000] KASLR disabled due to lack of seed
-[    0.000000] Machine model: Qualcomm Technologies, Inc. APQ 8016 SBC
-<Trim>
-[    8.983574] videodev: Linux video capture interface: v2.00
-[    8.990308] Internal error: UBSAN: array index out of bounds:
-00000000f2005512 [#1] PREEMPT SMP
-[    8.990374] Modules linked in: qcom_rng drm_client_lib qcom_stats
-qnoc_msm8916(+) videodev videobuf2_memops videobuf2_common mc
-rpmsg_ctrl rpmsg_char display_connector phy_qcom_usb_hs drm_kms_helper
-ramoops reed_solomon socinfo rmtfs_mem fuse drm backlight ip_tables
-x_tables ipv6
-[    9.000620] CPU: 0 UID: 0 PID: 199 Comm: (udev-worker) Not tainted
-6.12.0-next-20241125 #1
-[    9.022836] Hardware name: Qualcomm Technologies, Inc. APQ 8016 SBC (DT)
-[    9.030902] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[    9.037760] pc : qnoc_probe (drivers/interconnect/qcom/icc-rpmh.c:269)
-[    9.044439] lr : qnoc_probe (drivers/interconnect/qcom/icc-rpmh.c:0)
-[    9.048258] sp : ffff800083b93470
-[    9.052075] x29: ffff800083b93480 x28: ffff000002c2ae80 x27: ffff80007ac3d3e0
-[    9.055554] x26: ffff000002c2ae88 x25: 0000000000000000 x24: ffff000009bb7400
-[    9.062671] x23: 0000000000000000 x22: 0000000000000001 x21: ffff000004931400
-[    9.069788] x20: ffff000004931410 x19: ffff0000048e0c80 x18: ffff800083a7d0a8
-[    9.076907] x17: fffffffffffc23a2 x16: 0000000000000001 x15: 000000000000026c
-[    9.084027] x14: fffffffffffffffd x13: 0000000000000000 x12: ffff7fffba293000
-[    9.091145] x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000001
-[    9.098262] x8 : 0000000000000000 x7 : 0000000000000000 x6 : 000000000000003f
-[    9.105381] x5 : 0000000000000040 x4 : ffff00003c75d9e0 x3 : 0000000000199400
-[    9.112497] x2 : 0000000000000008 x1 : 0000000000000000 x0 : 0000000000000000
-[    9.119617] Call trace:
-[    9.126727] qnoc_probe+0x4c8/0x4d0 P
-[    9.128987] qnoc_probe+0x354/0x4d0 L
-[    9.132805] platform_probe (drivers/base/platform.c:1405)
-[    9.136624] really_probe (drivers/base/dd.c:581 drivers/base/dd.c:658)
-[    9.140443] __driver_probe_device (drivers/base/dd.c:800)
-[    9.144089] driver_probe_device (drivers/base/dd.c:830)
-[    9.148429] __driver_attach (drivers/base/dd.c:1217)
-[    9.152422] bus_for_each_dev (drivers/base/bus.c:369)
-[    9.156590] driver_attach (drivers/base/dd.c:1234)
-[    9.160495] bus_add_driver (drivers/base/bus.c:676)
-[    9.164140] driver_register (drivers/base/driver.c:247)
-[    9.167700] __platform_driver_register (drivers/base/platform.c:867)
-[    9.171520] init_module+0x20/0xfbc qnoc_msm8916
-[    9.176383] do_one_initcall (init/main.c:1250 init/main.c:1267)
-[    9.181068] do_init_module (kernel/module/main.c:2910)
-[    9.184800] load_module (kernel/module/main.c:3376)
-[    9.188618] __arm64_sys_finit_module (kernel/module/main.c:3565
-kernel/module/main.c:3577 kernel/module/main.c:3603
-kernel/module/main.c:3587 kernel/module/main.c:3587)
-[    9.192353] invoke_syscall (arch/arm64/kernel/syscall.c:50)
-[    9.197127] el0_svc_common (arch/arm64/kernel/syscall.c:139)
-[    9.200771] do_el0_svc (arch/arm64/kernel/syscall.c:152)
-[    9.204503] el0_svc (arch/arm64/kernel/entry-common.c:165
-arch/arm64/kernel/entry-common.c:178
-arch/arm64/kernel/entry-common.c:745)
-[    9.207802] el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:797)
-[    9.210756] el0t_64_sync (arch/arm64/kernel/entry.S:600)
-[ 9.215189] Code: aa1303e0 97fff41c 17ffff79 d4200020 (d42aa240)
-All code
-========
+> 
+>> +	if (stm32_pcie->reset_gpio)
+>> +		msleep(100);
+> 
+> I think this is PCIE_T_RRS_READY_MS.
+> 
+>> +static void stm32_pcie_stop_link(struct dw_pcie *pci)
+>> +{
+>> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+>> +
+>> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR, STM32MP25_PCIECR_LTSSM_EN, 0);
+> 
+> With a half-dozen exceptions, this file fits nicely in 80 columns.
+> Can you wrap this and the similar exceptions?  No need to break printf
+> strings or the regmap strings that can't reasonably be wrapped.
+> 
+>> +	/* Assert PERST# */
+>> +	if (stm32_pcie->reset_gpio)
+>> +		gpiod_set_value(stm32_pcie->reset_gpio, 1);
+> 
+> Might be nice to include "perst" in the "reset_gpio" name to identify
+> it more specifically.
 
-Code starting with the faulting instruction
-===========================================
-[    9.218752] ---[ end trace 0000000000000000 ]---
-[    9.233047] note: (udev-worker)[199] exited with irqs disabled
-[    9.233245] note: (udev-worker)[199] exited with preempt_count 1
-[    9.243434] ------------[ cut here ]------------
-<trim>
-[    9.243951] WARNING: CPU: 0 PID: 0 at kernel/context_tracking.c:128
-ct_kernel_exit (kernel/context_tracking.c:153)
-[    9.248555] Modules linked in: videobuf2_v4l2 qcom_rng
-drm_client_lib qcom_stats qnoc_msm8916(+) videodev videobuf2_memops
-videobuf2_common mc rpmsg_ctrl rpmsg_char display_connector
-phy_qcom_usb_hs drm_kms_helper ramoops reed_solomon socinfo rmtfs_mem
-fuse drm backlight ip_tables x_tables ipv6
-[    9.260538] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Tainted: G      D
-          6.12.0-next-20241125 #1
-[    9.282755] Tainted: [D]=DIE
-[    9.292113] Hardware name: Qualcomm Technologies, Inc. APQ 8016 SBC (DT)
-[    9.292888] Unable to handle kernel read from unreadable memory at
-virtual address 0000ffffa3c44d20
-[    9.295061] pstate: 204000c5 (nzCv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[    9.295071] pc : ct_kernel_exit (kernel/context_tracking.c:153)
-[    9.295088] lr : ct_kernel_exit (kernel/context_tracking.c:126)
-[    9.301765] Mem abort info:
-[    9.310514] sp : ffff800082503d10
-[    9.310519] x29: ffff800082503d10 x28: ffff8000824c4ff0 x27: ffff800082509000
-[    9.310536] x26: 0000000000000000 x25: ffff0000041f9898
-[    9.317463]   ESR = 0x0000000096000004
-[    9.321618]  x24: ffff0000041f9898
-[    9.321625] x23: 0000000226f30819 x22: 0000000000000000
-[    9.325621]   EC = 0x25: DABT (current EL), IL = 32 bits
-[    9.328214]  x21: ffff00003c757ff8
-[    9.328221] x20: ffff8000824c2350 x19: ffff00003c755350
-[    9.331701]   SET = 0, FnV = 0
-[    9.338806]  x18: ffff800082514880
-[    9.338813] x17: 00000000529c6ef0 x16: 00000000529c6ef0 x15: 000000000000007e
-[    9.343850]   EA = 0, S1PTW = 0
-[    9.347659]
-[    9.347662] x14: 00000000000000c8 x13: 0000000000000004 x12: 000000000a929b85
-[    9.351058]   FSC = 0x04: level 0 translation fault
-[    9.356167]
-[    9.356171] x11: 0000000000000015 x10: 000000000682aaab x9 : 4000000000000000
-[    9.361732] Data abort info:
-[    9.364935] x8 : 4000000000000002 x7 : 0000000000005221 x6 : 0000000000055ad0
-[    9.370064]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-[    9.373179] x5 : 0000000000005469 x4 : 0000000000000093 x3 : 0000000000000006
-[    9.376580]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-[    9.383768] x2 : 0000000000000000 x1 : ffff0000041f9880 x0 : ffff7fffba293000
-[    9.386730]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-[    9.388462] Call trace:
-[    9.395502] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000856aa000
-[    9.400175] ct_kernel_exit+0x80/0x8c P
-[    9.401918] [0000ffffa3c44d20] pgd=0000000000000000
-[    9.408943] ct_kernel_exit+0x14/0x8c L
-[    9.408958] ct_idle_enter (kernel/context_tracking.c:321)
-[    9.411910] , p4d=0800000089bb0403
-[    9.418929] cpuidle_enter_state (drivers/cpuidle/cpuidle.c:268)
-[    9.418943] cpuidle_enter (drivers/cpuidle/cpuidle.c:391)
-[    9.418953] do_idle (kernel/sched/idle.c:155
-kernel/sched/idle.c:230 kernel/sched/idle.c:325)
-[    9.424326] , pud=080000008943e403
-[    9.431516] cpu_startup_entry (kernel/sched/idle.c:422)
-[    9.431527] rest_init+0xe0/0xe4
-[    9.436563] , pmd=0800000089bac403
-[    9.443668] start_kernel (init/main.c:1040)
-[    9.443681] __primary_switched (arch/arm64/kernel/head.S:247)
-[    9.449057] , pte=00200000910f9fc3
-[    9.451224] ---[ end trace 0000000000000000 ]---
+ok
 
-Links:
-------
-- https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241125/testrun/26040307/suite/boot/test/korg-clang-19-lkftconfig-hardening/log
-- https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241125/testrun/26040307/suite/boot/test/korg-clang-19-lkftconfig-hardening/details/
-- https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241125/testrun/26040307/suite/boot/test/korg-clang-19-lkftconfig-hardening/history/
-- https://lkft.validation.linaro.org/scheduler/job/8004888#L2200
-- https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2pKKSWo1tVldooGuq0fBz0nRD07/
+> 
+>> +}
+>> +
+>> +static int stm32_pcie_suspend(struct device *dev)
+>> +{
+>> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
+>> +
+>> +	if (device_may_wakeup(dev) || device_wakeup_path(dev))
+>> +		enable_irq_wake(stm32_pcie->wake_irq);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int stm32_pcie_resume(struct device *dev)
+>> +{
+>> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
+>> +
+>> +	if (device_may_wakeup(dev) || device_wakeup_path(dev))
+>> +		disable_irq_wake(stm32_pcie->wake_irq);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int stm32_pcie_suspend_noirq(struct device *dev)
+>> +{
+>> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
+>> +
+>> +	stm32_pcie->link_is_up = dw_pcie_link_up(stm32_pcie->pci);
+>> +
+>> +	stm32_pcie_stop_link(stm32_pcie->pci);
+>> +	clk_disable_unprepare(stm32_pcie->clk);
+>> +
+>> +	if (!device_may_wakeup(dev) && !device_wakeup_path(dev))
+>> +		phy_exit(stm32_pcie->phy);
+>> +
+>> +	return pinctrl_pm_select_sleep_state(dev);
+>> +}
+>> +
+>> +static int stm32_pcie_resume_noirq(struct device *dev)
+>> +{
+>> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
+>> +	struct dw_pcie *pci = stm32_pcie->pci;
+>> +	struct dw_pcie_rp *pp = &pci->pp;
+>> +	int ret;
+>> +
+>> +	/* init_state was set in pinctrl_bind_pins() before probe */
+>> +	if (!IS_ERR(dev->pins->init_state))
+>> +		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
+>> +	else
+>> +		ret = pinctrl_pm_select_default_state(dev);
+>> +
+>> +	if (ret) {
+>> +		dev_err(dev, "Failed to activate pinctrl pm state: %d\n", ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	if (!device_may_wakeup(dev) && !device_wakeup_path(dev)) {
+>> +		ret = phy_init(stm32_pcie->phy);
+>> +		if (ret) {
+>> +			pinctrl_pm_select_default_state(dev);
+>> +			return ret;
+>> +		}
+>> +	}
+>> +
+>> +	ret = clk_prepare_enable(stm32_pcie->clk);
+>> +	if (ret)
+>> +		goto clk_err;
+>> +
+>> +	ret = stm32_pcie_host_init(pp);
+>> +	if (ret)
+>> +		goto host_err;
+>> +
+>> +	ret = dw_pcie_setup_rc(pp);
+>> +	if (ret)
+>> +		goto pcie_err;
+>> +
+>> +	if (stm32_pcie->link_is_up) {
+>> +		ret = stm32_pcie_start_link(stm32_pcie->pci);
+>> +		if (ret)
+>> +			goto pcie_err;
+>> +
+>> +		/* Ignore errors, the link may come up later */
+>> +		dw_pcie_wait_for_link(stm32_pcie->pci);
+>> +	}
+>> +
+>> +	pinctrl_pm_select_default_state(dev);
+> 
+> Interesting that pcie-stm32.c, pci-tegra.c, and pcie-tegra194.c are
+> the only PCI controller drivers that use this.  I have no idea what
+> this is; it just makes me wonder if these three are just special, or
+> if others should be using it?
 
-Build image:
------------
-- https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2pKKSWo1tVldooGuq0fBz0nRD07/
+Here default_state balances with pinctrl_pm_select_sleep_state in 
+suspend_noirq. So we should have the same probing sequence:
 
-Steps to reproduce:
-------------
-- https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2pKKSWo1tVldooGuq0fBz0nRD07/reproducer
-- https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2pKKSWo1tVldooGuq0fBz0nRD07/tux_plan
+suspend_noirq()
+   pinctrl_pm_select_sleep_state()
 
-metadata:
-----
-git repo: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-kernel config:
-https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2pKKSWo1tVldooGuq0fBz0nRD07/config
-build url: https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2pKKSWo1tVldooGuq0fBz0nRD07/
-toolchain: clang-19 and clang-nightly
-config:  korg-clang-19-lkftconfig-hardening
-arch: arm64
+resume_noirq()
+   pinctrl_select_state(dev->pins->p, dev->pins->init_state);
+   ... restart resources and link
+   pinctrl_pm_select_default_state()
 
---
-Linaro LKFT
-https://lkft.linaro.org
+for the other targets, I have no idea
+
+> 
+>> +static int stm32_add_pcie_port(struct stm32_pcie *stm32_pcie,
+>> +			       struct platform_device *pdev)
+>> +{
+>> +	struct dw_pcie *pci = stm32_pcie->pci;
+>> +	struct device *dev = pci->dev;
+>> +	struct dw_pcie_rp *pp = &pci->pp;
+>> +	int ret;
+>> +
+>> +	ret = phy_set_mode(stm32_pcie->phy, PHY_MODE_PCIE);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = phy_init(stm32_pcie->phy);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+>> +				 STM32MP25_PCIECR_TYPE_MASK, STM32MP25_PCIECR_RC);
+>> +	if (ret)
+>> +		goto phy_disable;
+>> +
+>> +	reset_control_assert(stm32_pcie->rst);
+>> +	reset_control_deassert(stm32_pcie->rst);
+> 
+> Is there any reset pulse width requirement here?
+
+looking at the timing diagram, I don't think so, the transition looks 
+quite fast
+
+At the end we will use the reset_control_deassert API to hide this 
+mechanism, when the stm32-reset driver is ready
+
+> 
+>> +	ret = clk_prepare_enable(stm32_pcie->clk);
+>> +	if (ret) {
+>> +		dev_err(dev, "Core clock enable failed %d\n", ret);
+>> +		goto phy_disable;
+>> +	}
+>> +
+>> +	pp->ops = &stm32_pcie_host_ops;
+>> +	ret = dw_pcie_host_init(pp);
+>> +	if (ret) {
+>> +		dev_err(dev, "failed to initialize host: %d\n", ret);
+> 
+> Consider making all the messages consistent in terms of sentence
+> structure and capitalization.
+> 
+>> +static int stm32_pcie_probe(struct platform_device *pdev)
+>> +{
+>> +	struct stm32_pcie *stm32_pcie;
+>> +	struct dw_pcie *dw;
+>> +	struct device *dev = &pdev->dev;
+>> +	struct device_node *np = pdev->dev.of_node;
+>> +	int ret;
+>> +
+>> +	stm32_pcie = devm_kzalloc(dev, sizeof(*stm32_pcie), GFP_KERNEL);
+>> +	if (!stm32_pcie)
+>> +		return -ENOMEM;
+>> +
+>> +	dw = devm_kzalloc(dev, sizeof(*dw), GFP_KERNEL);
+>> +	if (!dw)
+>> +		return -ENOMEM;
+> 
+> Add blank line.
+> 
+>> +static struct platform_driver stm32_pcie_driver = {
+>> +	.probe = stm32_pcie_probe,
+>> +	.remove_new = stm32_pcie_remove,
+> 
+> Use .remove instead of .remove_new; see 0edb555a65d1 ("platform: Make
+> platform_driver::remove() return void").
+> 
+>> +	.driver = {
+>> +		.name = "stm32-pcie",
+>> +		.of_match_table = stm32_pcie_of_match,
+>> +		.pm		= &stm32_pcie_pm_ops,
+>> +	},
+>> +};
+>> +
+>> +static bool is_stm32_pcie_driver(struct device *dev)
+>> +{
+>> +	/* PCI bridge */
+>> +	dev = get_device(dev);
+>> +
+>> +	/* Platform driver */
+>> +	dev = get_device(dev->parent);
+>> +
+>> +	return (dev->driver == &stm32_pcie_driver.driver);
+> 
+> Ugh.  Some MPS/MRRS magic going on here, evidently related to the STM
+> integration of DWC IP? >
+>> +static bool apply_mrrs_quirk(struct pci_dev *root_port)
+>> +{
+>> +	struct dw_pcie_rp *pp;
+>> +	struct dw_pcie *dw_pci;
+>> +	struct stm32_pcie *stm32_pcie;
+>> +
+>> +	if (WARN_ON(!root_port) || !is_stm32_pcie_driver(root_port->dev.parent))
+>> +		return false;
+>> +
+>> +	pp = root_port->bus->sysdata;
+>> +	dw_pci = to_dw_pcie_from_pp(pp);
+>> +	stm32_pcie = to_stm32_pcie(dw_pci);
+>> +
+>> +	if (!stm32_pcie->limit_downstream_mrrs)
+>> +		return false;
+>> +
+>> +	return true;
+>> +}
+>> +
+>> +static void quirk_stm32_pcie_limit_mrrs(struct pci_dev *pci)
+>> +{
+>> +	struct pci_dev *root_port;
+>> +	struct pci_bus *bus = pci->bus;
+>> +	int readrq;
+>> +	int mps;
+>> +
+>> +	if (pci_is_root_bus(bus))
+>> +		return;
+>> +
+>> +	root_port = pcie_find_root_port(pci);
+>> +
+>> +	if (!apply_mrrs_quirk(root_port))
+>> +		return;
+>> +
+>> +	mps = pcie_get_mps(root_port);
+>> +
+>> +	/*
+>> +	 * STM32 PCI controller has a h/w performance limitation on the AXI DDR requests.
+>> +	 * Limit the maximum read request size to 256B on all downstream devices.
+> 
+> I guess this is some kind of platform erratum, since there's no way
+> for us to discover a limit on supported MRRS values?
+
+Yes. Those quirk are not necessary anymore. will drop
+
+> 
+>> +	readrq = pcie_get_readrq(pci);
+>> +	if (readrq > 256) {
+>> +		int mrrs = min(mps, 256);
+>> +
+>> +		pcie_set_readrq(pci, mrrs);
+>> +
+>> +		pci_info(pci, "Max Read Rq set to %4d (was %4d)\n", mrrs, readrq);
+>> +	}
+>> +}
+>> +
+>> +DECLARE_PCI_FIXUP_HEADER(PCI_ANY_ID, PCI_ANY_ID,
+>> +			 quirk_stm32_pcie_limit_mrrs);
+>> 
+>> +static int stm32_dma_limit(struct pci_dev *pdev, void *data)
+>> +{
+>> +	dev_dbg(&pdev->dev, "set bus_dma_limit");
+>> +
+>> +	pdev->dev.bus_dma_limit = DMA_BIT_MASK(32);
+> 
+> This is quite unusual and deserves some comment about why we need
+> it.
+> 
+
+32 bus master DMA cannot access the last 2GB in addressing space (out of 
+a 6GB addressing space).
+
+Proposing the following comment
+"DMA masters can only access the first 4GB of memory space, so setup the 
+bus DMA limit accordingly."
+
+Saw a similar quirk in mips/pci/fixup-sb1250.c
+
+
+
+>> +	return 0;
+>> +}
+>> +
+>> +static void quirk_stm32_dma_mask(struct pci_dev *pci)
+>> +{
+>> +	struct pci_dev *root_port;
+>> +
+>> +	root_port = pcie_find_root_port(pci);
+>> +
+>> +	if (root_port && (root_port->dev.parent))
+>> +		pci_walk_bus(pci->bus, stm32_dma_limit, NULL);
+>> +}
+>> +DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_SYNOPSYS, 0x0550, quirk_stm32_dma_mask);
+> 
+> I guess this applies to [16c3:0550] devices and everything below them?
+> It looks like these must be Root Ports?  And they identify as
+> PCI_VENDOR_ID_SYNOPSYS instead of PCI_VENDOR_ID_STMICRO (104a)?
+
+Yes we are based on the designware v5.50a PCIe version. The idea here is 
+to set bus_dma_limit for all devices on the root_port.
+is_stm32_pcie_driver is a sanity double check in case the quirk is 
+applied to another target linked at compile time
+
+> 
+> Could be added at https://admin.pci-ids.ucw.cz/read/PC/16c3/ if you
+> want lspci to name them correctly.
+> 
+>> +++ b/drivers/pci/controller/dwc/pcie-stm32.h
+> 
+>> +#define STM32MP25_PCIECR_EP		0
+> 
+> Ideally would go in the patch that uses it.
+
+This is a bit num. Similar to STM32MP25_PCIECR_RC BIT(10), I preper to 
+see the definition close to the GENMASK that uses it, making the bit
+checking a little bit easier to follow...
+
+> 
+>> +#define SYSCFG_PCIEPMEMSICR		0x6004
+>> +#define SYSCFG_PCIEAERRCMSICR		0x6008
+>> +#define SYSCFG_PCIESR1			0x6100
+>> +#define SYSCFG_PCIESR2			0x6104
+>> +
+>> +#define PCIE_CAP_MAX_PAYLOAD_SIZE(x)	((x) << 5)
+>> +#define PCIE_CAP_MAX_READ_REQ_SIZE(x)	((x) << 12)
+> 
+> These are all unused, drop them until you need them.
+
+OK, thanks !!
+
+Christian
 
