@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3318ED3B7D9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 05:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0459D3B7DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 05:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WXjj/rqkU4B/m0L+T3pcpEmQf9RvuZjLAT8hl7QuXw8=; b=anE7g8hJ4V94Ct0Q3pu9rIFMwx
-	SMK+inVUXgkwnKjHU17SMjihyydHjyLCB74i4U5DiQoVdFtNQ9qdTablTO2IuzKG4m7ZMVS8Td9ow
-	x/1ltv0OwTlCkaQoQE9Y4kuWyewwOBf0QQl2r0+aaEjps4JUw/8U/9SZBUxq5Hp6oVhgT7C3t5rj2
-	qZ3+vkUEqa8FQo6GY919zi+emWzafppOReXVEQWD+tVA1fIk91vqyZQB+kWsUMBF0HBg1S2XkcokB
-	9y1AZ8k9BMO1lfTMdHtbwiSB0QYCMmF12DqllNGpy+PCBp98+UfSAXv8Kdr/yvJ+vAfMXBG10Gd+e
-	LlX/HeVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5NWNdeipp9Lz+yCgnatMjLdoGegxlT8lsdQAdmeK6GM=; b=i05qStL6eIs79QGGoqDcMZMG0S
+	Ez3LgpGrEPF8dBm0z+JiNS9cUiS7/Cd8O23YrQy3qNb17ldRroetCQVp3YJfQG2OapktqfLNXwabw
+	nUWYR3fNGHWAIgfRc4AG3zYGZmsXIcV9TfFyE9IkEqXMdcsFrVF5XnfXncwH0YLYFIeFHf/lGVydJ
+	MX4D5MDy8aoh3DymhXihEHhABb6mmJ3kg57uPbr/XlIRitprMkeVgVy0bStoAwURacMbkrrF2IRvh
+	28Mav8vMr+xLSghhWw2zUqs/EU7c2OicmpbsJn+eXwVM2ABc+7AOO2UcuYi/zM6o/nuuVCFPNSgHH
+	L0Nhbb0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFRJV-000000073z0-1Yex;
-	Mon, 25 Nov 2024 05:07:09 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1tFRcE-000000075hj-3YVt;
+	Mon, 25 Nov 2024 05:26:30 +0000
+Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFRIX-000000073rH-3sQy
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 05:06:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732511170; x=1764047170;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NREGBayAwFFBU4tE1Ma2gDyzoVU71MdcWhe9JFquPAI=;
-  b=IpZ6OlhARrE5jE77r5GgJsZ4x1zn5A/oIYKD+dTuqnBlSaiJV07Tl0Nv
-   ATKCOdt8DSJ+oPWb0IhJHPX7jT1wSHm1AfmcR6UAH5I/sVssKJH4Ddbwu
-   pOz5oZVbT36iGxIT7VFgbW3LFrXAl8WeDVPWIcdfP4F8+/vVc+4Ym2bPf
-   LukCAxqgoKlE8XBsOaT653+qzBMBP4MoHsDOwmCHYlSJytSTq8Qv3rv3S
-   cf3s4o7ZF9cvmLnI2ClhiqamK1fFPt+szsDejO0/3m4Onq85mpICc5csw
-   7Pz+A5j4EZ2Y7HEbYEnGic1JE0OlKKDEeJ/Hbp51D+K9lGZyREsyon6Ck
-   Q==;
-X-CSE-ConnectionGUID: AUk+TxO6T+2xu7FNc3S7CA==
-X-CSE-MsgGUID: cRqc/H5EQMW4i/5Am1/ueQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11266"; a="36515038"
-X-IronPort-AV: E=Sophos;i="6.12,182,1728975600"; 
-   d="scan'208";a="36515038"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2024 21:06:07 -0800
-X-CSE-ConnectionGUID: d/cc0nO9SLOOH97XqPNIkw==
-X-CSE-MsgGUID: suWKtIxOTi+PfZR2YkgwOg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="96212099"
-Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 24 Nov 2024 21:06:00 -0800
-Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tFRIL-0005uL-2Z;
-	Mon, 25 Nov 2024 05:05:57 +0000
-Date: Mon, 25 Nov 2024 13:05:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alistair Popple <apopple@nvidia.com>, dan.j.williams@intel.com,
-	linux-mm@kvack.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Alistair Popple <apopple@nvidia.com>, lina@asahilina.net,
-	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
-	vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
-	bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca,
-	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
-	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com,
-	willy@infradead.org, djwong@kernel.org, tytso@mit.edu,
-	linmiaohe@huawei.com, david@redhat.com, peterx@redhat.com,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org
-Subject: Re: [PATCH v3 11/25] mm: Allow compound zone device pages
-Message-ID: <202411251251.Tjig4oaV-lkp@intel.com>
-References: <f1a93b8a38e14e2ab279ece310175334e973b970.1732239628.git-series.apopple@nvidia.com>
+	id 1tFRbH-000000075UX-2HOD;
+	Mon, 25 Nov 2024 05:25:32 +0000
+Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-3e5f6e44727so2296118b6e.0;
+        Sun, 24 Nov 2024 21:25:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732512330; x=1733117130; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5NWNdeipp9Lz+yCgnatMjLdoGegxlT8lsdQAdmeK6GM=;
+        b=HvSM38d/dsRCqRs7XeUgYwDBZCEsYI56ZHliinMLM8TDsMLG9/uRHRGsjsEN8gBgbm
+         4+O6fsLzTprxXBj25DOOiOeWjxgQsSdOdriqi8c2l82eQUC/ZhJPPQ8ji0IoPyCYVcGQ
+         2R81xpsX8RM9zLj+G11ZbWForsf+Q5KLJRTvfgSOJtIZbERdP/KGYQCPqBYGu8maFp7p
+         ccklg+V9sQLMr930qucMWBP9cZMwhaEAsXZEhOqX9HlVQAjMY1Xt+WV9hXfvsho74Dou
+         lF/I27mJquZ/Ubbz/8SlN8WFA8fODLH61n3kEn8qsfuAsTT+aZLDd7e/3b+KcUKNz9B1
+         IXIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732512330; x=1733117130;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5NWNdeipp9Lz+yCgnatMjLdoGegxlT8lsdQAdmeK6GM=;
+        b=v0wVWH+Y2NouU9BDmdbOHXo7e2tyGGef56Aep2R3OYIL6y1kHey1IZNQ+Y8y2vxGB8
+         pzdEUOmP7Pl6gkPoZdEXLYRUTeqrN0sX8tXWsMGtlB9CSjp1sMf0HE7x+tHLrye9t0Jp
+         pJNC97RQp1HmFOpuAPuqJo8YzcCVnur4XtzSqZvzqm+onnW/99YPGyGVzTFP3JCxLi1M
+         KKqYBLlNFyvVKF1CjeWBFNXKVPEBCgP+IOEYobj7IS25l37AEtt3GOoajpCpxxv1X3FS
+         LQjISVHmsWzVNEdkg87ZamMmuG2J6G+DdwR8mow2NN+yTCt6VdEYHOQICP+xOtVmr/rQ
+         vdVw==
+X-Forwarded-Encrypted: i=1; AJvYcCXOEpLmd7k8BHAYMui9RaGSelSI6gjHDldkAOlHF4XAeOmzsZoVWuEfzSW8GZQvPrctn92KcvXkWP4=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzR1DhnxsDWAuQ1Y1BMWnTA99Rv6gNtDiWBDSFzE6QWgEtXLaYE
+	uU+9AZ3M76YK52hs7jKSoj2gnYi0aoz4cI7CtYxm64TEpanr3PXx
+X-Gm-Gg: ASbGncuZWX+nA/OBZpD0nRgB3UC2ySBeoaVRUfclGT7pjzntQ2eztLThDSc3+9iM+wU
+	ORwK9F1sTy1n4q/J6aevZw0FGezEo9L43dtoyRK6hZriY+wgkCq86VgkHS9VtYqBK9uaHxC4LV3
+	n18M9DnbV+gQDO1vU4xcnR6ilpLYXknXviZmUI4hPO5kZ2SUQ/Vmj0rlIBmGdgS8BVBUHZJkpqd
+	evb+rwlSrIqY1zy9Mz7Lr2mPbOkfIUXuWeeVxMd6eI7JrVephwO7MijHh/fRbNEwEAoGQ9yF/9/
+	vESur7ram/hMM4BW1sAHMtLRiBH6sEpNJeQ=
+X-Google-Smtp-Source: AGHT+IEThhx0hkE8eNOImQOECxAu4miExvbPkYIPbmiK1xCB8nCLXsvTsOlU0MGcVv6gP4Op5+TxkA==
+X-Received: by 2002:a05:6808:14c7:b0:3e5:c7f8:ad7d with SMTP id 5614622812f47-3e915b57082mr10486001b6e.39.1732512330089;
+        Sun, 24 Nov 2024 21:25:30 -0800 (PST)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fbcc1e2490sm5698557a12.31.2024.11.24.21.25.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 24 Nov 2024 21:25:29 -0800 (PST)
+From: Hui-Ping Chen <hpchen0nvt@gmail.com>
+To: miquel.raynal@bootlin.com,
+	richard@nod.at,
+	vigneshr@ti.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	nikita.shubin@maquefel.me,
+	arnd@arndb.de,
+	vkoul@kernel.org,
+	esben@geanix.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mtd@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Hui-Ping Chen <hpchen0nvt@gmail.com>
+Subject: [PATCH v9 0/2] Add support for nuvoton ma35 nand controller
+Date: Mon, 25 Nov 2024 05:25:22 +0000
+Message-Id: <20241125052524.135362-1-hpchen0nvt@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f1a93b8a38e14e2ab279ece310175334e973b970.1732239628.git-series.apopple@nvidia.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_210610_013888_AF06871B 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20241124_212531_579361_D2F4FBDD 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,96 +105,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alistair,
+This patch series adds the mtd nand driver for the nuvoton ma35 ARMv8 SoC.
+It includes DT binding documentation and the ma35 mtd nand driver.
 
-kernel test robot noticed the following build errors:
+v9:
+  - Update ma35d1 mtd nand driver
+    - Remove NAND_NO_SUBPAGE_WRITE flag.
+    - Remove of_get_property().
+    - Add ecc.write_subpage and ecc.read_subpage.
 
-[auto build test ERROR on 81983758430957d9a5cb3333fe324fd70cf63e7e]
+v8:
+  - Update ma35d1 mtd nand driver
+    - Rename to nuvoton-ma35d1-nand-controller.c.
+    - Use switch case instead of if else.
+    - Move some parameters to be set during initialization.
+    - Fix the ecc.read_page return value issue.
+    - Add enable/disable ECC engine before and after reading/writing the page.
+    - Return IRQ_NONE if (isr & INT_DMA) == 0.
+    - Move the HW ECC related settings to ON_HOST.
+    - Move hw_init() to probe.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alistair-Popple/fuse-Fix-dax-truncate-punch_hole-fault-path/20241125-094004
-base:   81983758430957d9a5cb3333fe324fd70cf63e7e
-patch link:    https://lore.kernel.org/r/f1a93b8a38e14e2ab279ece310175334e973b970.1732239628.git-series.apopple%40nvidia.com
-patch subject: [PATCH v3 11/25] mm: Allow compound zone device pages
-config: powerpc-ebony_defconfig (https://download.01.org/0day-ci/archive/20241125/202411251251.Tjig4oaV-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 592c0fe55f6d9a811028b5f3507be91458ab2713)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241125/202411251251.Tjig4oaV-lkp@intel.com/reproduce)
+v7:
+  - Update nuvoton,ma35d1-nand.yaml
+    - Remove required 'nand-ecc-step-size' and 'nand-ecc-strength'.
+    - Add 'reg' for chip select.
+  - Update ma35d1 mtd nand driver
+    - Update space and comments style.
+    - Add chip select setting from DT.
+    - Add switch case which supports various ECC configurations.
+    - Set reset before NAND controller enable.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411251251.Tjig4oaV-lkp@intel.com/
+v6:
+  - Update ma35d1 mtd nand driver
+    - Remove extra blank lines and add comments.
 
-All errors (new ones prefixed by >>):
+v5:
+  - Update ma35d1 mtd nand driver
+    - Remove unnecessary definitions and comments.
+    - Modified DMA API call sequence.
+    - Move the ECC check out of the interrupt handler.
+      Check it after reading a page.
 
-   In file included from arch/powerpc/kernel/asm-offsets.c:19:
-   In file included from include/linux/mman.h:5:
-   In file included from include/linux/mm.h:32:
->> include/linux/memremap.h:164:3: error: call to undeclared function 'page_pgmap'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     164 |                 page_pgmap(page)->type == MEMORY_DEVICE_PRIVATE;
-         |                 ^
->> include/linux/memremap.h:164:21: error: member reference type 'int' is not a pointer
-     164 |                 page_pgmap(page)->type == MEMORY_DEVICE_PRIVATE;
-         |                 ~~~~~~~~~~~~~~~~  ^
-   include/linux/memremap.h:176:3: error: call to undeclared function 'page_pgmap'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     176 |                 page_pgmap(page)->type == MEMORY_DEVICE_PCI_P2PDMA;
-         |                 ^
-   include/linux/memremap.h:176:21: error: member reference type 'int' is not a pointer
-     176 |                 page_pgmap(page)->type == MEMORY_DEVICE_PCI_P2PDMA;
-         |                 ~~~~~~~~~~~~~~~~  ^
-   include/linux/memremap.h:182:3: error: call to undeclared function 'page_pgmap'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     182 |                 page_pgmap(page)->type == MEMORY_DEVICE_COHERENT;
-         |                 ^
-   include/linux/memremap.h:182:21: error: member reference type 'int' is not a pointer
-     182 |                 page_pgmap(page)->type == MEMORY_DEVICE_COHERENT;
-         |                 ~~~~~~~~~~~~~~~~  ^
-   In file included from arch/powerpc/kernel/asm-offsets.c:19:
-   In file included from include/linux/mman.h:5:
-   In file included from include/linux/mm.h:2213:
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
-   In file included from arch/powerpc/kernel/asm-offsets.c:19:
-   include/linux/mman.h:157:9: warning: division by zero is undefined [-Wdivision-by-zero]
-     157 |                _calc_vm_trans(flags, MAP_LOCKED,     VM_LOCKED    ) |
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/mman.h:136:21: note: expanded from macro '_calc_vm_trans'
-     136 |    : ((x) & (bit1)) / ((bit1) / (bit2))))
-         |                     ^ ~~~~~~~~~~~~~~~~~
-   include/linux/mman.h:158:9: warning: division by zero is undefined [-Wdivision-by-zero]
-     158 |                _calc_vm_trans(flags, MAP_SYNC,       VM_SYNC      ) |
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/mman.h:136:21: note: expanded from macro '_calc_vm_trans'
-     136 |    : ((x) & (bit1)) / ((bit1) / (bit2))))
-         |                     ^ ~~~~~~~~~~~~~~~~~
-   include/linux/mman.h:159:9: warning: division by zero is undefined [-Wdivision-by-zero]
-     159 |                _calc_vm_trans(flags, MAP_STACK,      VM_NOHUGEPAGE) |
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/mman.h:136:21: note: expanded from macro '_calc_vm_trans'
-     136 |    : ((x) & (bit1)) / ((bit1) / (bit2))))
-         |                     ^ ~~~~~~~~~~~~~~~~~
-   4 warnings and 6 errors generated.
-   make[3]: *** [scripts/Makefile.build:102: arch/powerpc/kernel/asm-offsets.s] Error 1
-   make[3]: Target 'prepare' not remade because of errors.
-   make[2]: *** [Makefile:1203: prepare0] Error 2
-   make[2]: Target 'prepare' not remade because of errors.
-   make[1]: *** [Makefile:224: __sub-make] Error 2
-   make[1]: Target 'prepare' not remade because of errors.
-   make: *** [Makefile:224: __sub-make] Error 2
-   make: Target 'prepare' not remade because of errors.
+v4:
+  - Update nuvoton,ma35d1-nand.yaml
+    - rename 'nuvoton,ma35d1-nand' to 'nuvoton,ma35d1-nand-controller'.
+  - Update ma35d1 mtd nand driver
+    - Rewrite the NAND driver using the exec_op API.
+
+v3:
+  - Update ma35d1 mtd nand driver
+    - Release IRQ handler.
+    - Remove unused functions.
+    - Remove '.owner'.
+
+v2:
+  - Update nuvoton,ma35d1-nand.yaml
+    - Adjust the order and remove any unnecessary items.
+    - Add 'nand-ecc-step-size' and 'nand-ecc-strength' to the required list.
+  - Update ma35d1 mtd nand driver
+    - Fix coding style.
+    - Use 'devm_clk_get' instead of 'of_clk_get'.
+    - Use 'dev_err_probe' instead of 'dev_err'.
+    - Remove 'pr_info' and 'of_match_ptr'.
+    - Remove 'module_init' and 'module_exit'.
 
 
-vim +/page_pgmap +164 include/linux/memremap.h
+Hui-Ping Chen (2):
+  dt-bindings: mtd: nuvoton,ma35d1-nand: add new bindings
+  mtd: rawnand: nuvoton: add new driver for the Nuvoton MA35 SoC
 
-   159	
-   160	static inline bool is_device_private_page(const struct page *page)
-   161	{
-   162		return IS_ENABLED(CONFIG_DEVICE_PRIVATE) &&
-   163			is_zone_device_page(page) &&
- > 164			page_pgmap(page)->type == MEMORY_DEVICE_PRIVATE;
-   165	}
-   166	
+ .../bindings/mtd/nuvoton,ma35d1-nand.yaml     |   95 ++
+ drivers/mtd/nand/raw/Kconfig                  |    8 +
+ drivers/mtd/nand/raw/Makefile                 |    1 +
+ .../nand/raw/nuvoton-ma35d1-nand-controller.c | 1024 +++++++++++++++++
+ 4 files changed, 1128 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mtd/nuvoton,ma35d1-nand.yaml
+ create mode 100644 drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.25.1
+
 
