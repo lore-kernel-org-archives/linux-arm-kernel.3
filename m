@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E358BD58067
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 11:51:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23AA5D5806C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 12:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3e2VpkWq82vaaKzbwsn8oz6ppxvBe9Csm8kj7t6lq7c=; b=lDmBnc6aGes4E8X3hW0H4iQ+o4
-	le5qDVSkGTrV9YcPUyXnSy18CdL4/HsRipkNliGcWTbSH4UhLjzbLWbsrHVUwhbSJ+2X43vPxCoNX
-	8eBU8DzsPooes81SBiaSuYxLhqDuKpT2X9xUj2ryVEzCX9lKVTByZ5PYBbhpMgd5b9jqEHFCfZeN3
-	7m12ZH9uTPuk+pWVJnZKbsscMO9tHXbreaQcMZZDgT71dTbnneww+y1CRbFpqcuvZjKakgMWVf1xv
-	392GdETQtyDKEVPjEEaemlRhfBK0ggKx6rl+AVYuX/5cj5qRGDCHIHGcnntPhSN2q9n+pBQATZ61J
-	PItb/1WQ==;
+	bh=ww3YlZzRzljXfiIGG34NOz7jVp5FZwnBv4kjnYFxh18=; b=IY95pXIWDq8n1/FdkVQSDRuKro
+	hPfUDd5CQ6Yrhqz5uaecCTQts/7ecv0Xu+OKJVh4JIRqwJM8v9tbZlbh7BmPIJAdxyakXHtWHP14M
+	nyeEtSC9nEFZ/9sUK2EN3c+/LMMsJ0zA0OEUunNX3mBXJJVEIxngPUiqAqOb3Kmrkjxx497lHS1Dj
+	Kp0gDFHEFR4BRJD8a9gdLcnXcwiFIMKlrVOjL/4gUUudWUfPPYi05ceUjX1ysJkQrPo7bjUqLrunB
+	juGGgWzJzE6+YxfqoHPxow9YQDS7p4JqS8wLT+f0uznCgVB9xVN1XIOVshnpejbyCP/I7f62a9rpb
+	O91kf6LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFXcT-00000007wGn-1dLb;
-	Mon, 25 Nov 2024 11:51:09 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1tFXlb-00000007xPp-3fN5;
+	Mon, 25 Nov 2024 12:00:35 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFXbW-00000007w7d-3eaO;
-	Mon, 25 Nov 2024 11:50:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732535410; x=1764071410;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=kSYSImDUvkzfXkaqiB+cnw9SCsDTqsyLlK3fME3dMxw=;
-  b=oK2s4pmc7e3mcsFPPhrImrQlACtQ/wOlSupU6f/GgP/vo9Hbua37WkWi
-   H8swLdxYBTkZqiWThIJ49YHzliFgY9LQHMIziBtew3I38OAhvE4CXEv48
-   smx2jKNfUo63/lrs/w7Dk8YpZCp93fcyPd0wCrn0mBHknng2Y/MNPszSy
-   9i3Wiuf64J28ZyvgPy2K6IGBaeJC9aUgd8G/kpPO9rGy3dlBxUDXuIp1d
-   9wc5GASGMLAiRhASehAtChvWYrAE7u1AdTPdJu+pRisNK/86yBzrQMjq5
-   9GKIrAMc4lDbwKATs4NS8mJNCtf0KwYSftGBw3iorx+vUvqHwsKIAVNu3
-   w==;
-X-CSE-ConnectionGUID: rQIhfVxkRIOF+hxoSMMkDg==
-X-CSE-MsgGUID: lopzR6epQcK6qSSBN3RLcg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11266"; a="44017393"
-X-IronPort-AV: E=Sophos;i="6.12,182,1728975600"; 
-   d="scan'208";a="44017393"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2024 03:50:08 -0800
-X-CSE-ConnectionGUID: mhL5UBfPSYuWDQnQLKUlgw==
-X-CSE-MsgGUID: 6j3M5iBBQp6hsk0gnibVaQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,182,1728975600"; 
-   d="scan'208";a="91589894"
-Received: from smile.fi.intel.com ([10.237.72.154])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2024 03:50:05 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1tFXbO-00000000joT-27qB;
-	Mon, 25 Nov 2024 13:50:02 +0200
-Date: Mon, 25 Nov 2024 13:50:02 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Alexandre Mergnat <amergnat@baylibre.com>
-Cc: Mark Brown <broonie@kernel.org>, Nicolas Belin <nbelin@baylibre.com>,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v1 1/1] ASoc: mediatek: mt8365: Don't use "proxy" headers
-Message-ID: <Z0RkaqfID9v0age_@smile.fi.intel.com>
-References: <20241031102725.2447711-1-andriy.shevchenko@linux.intel.com>
- <ZykbMlshvlwCaeGJ@smile.fi.intel.com>
- <d7bf7863-fd24-4f8e-8cd0-d84867a997bb@sirena.org.uk>
- <dad2ecb7-e624-49c2-a7d5-0ff53b6a1686@baylibre.com>
+	id 1tFXkf-00000007xIc-0Dzi
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Nov 2024 11:59:38 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4349338add3so61985e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 03:59:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1732535974; x=1733140774; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ww3YlZzRzljXfiIGG34NOz7jVp5FZwnBv4kjnYFxh18=;
+        b=sLu+TrHZ5vplf6uXtd4i2nk6fabcetyqzULNqagIQkQaeU1QvegCZnBcdLTHv1PN5c
+         KpGkNBZr8YPddgJ4TrSIClclY8z8ZS9C/gF7LtkevhDGEqMfeNzdh3N/rLBrGA6HFWzx
+         6W1oVweKCmlR4CFWK5OooiGMwJUJX663ozQnndiOmdiorRD7i08cu76pwgg7oGfhvhve
+         MeY4lak5WHKU2G+WFAPkofXSYdzv7LtSo72YKW55ss8BoJiwl2IBq4fvVA8BdIqHy+mS
+         Udlv1a0dnx9yj9c47GlXWh0OB48hgcfRSt9kq698rv58cskVEgLCP6M+i7SvEORuresq
+         gu+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732535974; x=1733140774;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ww3YlZzRzljXfiIGG34NOz7jVp5FZwnBv4kjnYFxh18=;
+        b=SiVNkEFtnTDEZMgVYlkFqY5+HTQD1IQAQS+3IqZQpB66XVrKadJmepTjZjAEcx75DF
+         hZubP7sTgkaeDoU8prhfLcXmPshiMdUfGDkDzSo+2evFcjXpx6GwMaAtFlNBjieBlcGo
+         HDLKPc18mUYfoKMdpK7s5o66kxJMMX7gDZDjbqiWtE8a5G/JZvemBreS8sxJYWUc96ZE
+         9yfVfxlusQufkuzzKQ/dPCx33jkOIYxJcG6NbhQjNgz6KwAZCUcI0J9r0U3/1MzpFHWE
+         sgCjQ9HsTeKRRYeB3kRi/4mDysIGl+oUAdc0ZsY33/GF6bGXHMevQ/kvEkzF0QpHum06
+         rnOw==
+X-Forwarded-Encrypted: i=1; AJvYcCUvy8nKjkt4G2vuiemwHaMG0HrTHHOd3PKg+AQhkNW69CBKyQdCT7KbvOaEHPm4gGBLdc5rYyQ9Dsg7TxuDQNnU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/ZTR0bW23fTLCp8QqMx4JRdhqA+5HDZyFOgmk3xefe/caCXKt
+	pkIuRt9xs03gczopgII/rZ0qrcmzt3cdmUfUD63zQHH8c57T9DmpHebvFbjcisVVPnD28rApZNK
+	OzLlZqUjA/z8Yg83I7bnZCprwylED84yHPOvS
+X-Gm-Gg: ASbGnctbJPPaWTUgwHujO5F182fbQMGXFm0G0XoogGjRiqJA+jCjQtQmvD/Z5PO6ujV
+	k7QuZhagN6bSuoCxgAEb8vrc+76G7Og==
+X-Google-Smtp-Source: AGHT+IGu8CTtX0DwI9l42eo6hCR0G+gNVNebSmIzHE1Pb7TY8/8FCpvE/ag1zS55FnP4k8HK+qQSBBiN0gPZJz3+WEg=
+X-Received: by 2002:a05:600c:5248:b0:431:43a1:4cac with SMTP id
+ 5b1f17b1804b1-4348c991304mr2570645e9.3.1732535974462; Mon, 25 Nov 2024
+ 03:59:34 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <dad2ecb7-e624-49c2-a7d5-0ff53b6a1686@baylibre.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <20241122110622.3010118-1-tabba@google.com> <20241122110622.3010118-6-tabba@google.com>
+ <86ldx8vni5.wl-maz@kernel.org>
+In-Reply-To: <86ldx8vni5.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 25 Nov 2024 11:58:58 +0000
+Message-ID: <CA+EHjTyEOgedbeiaiNKSxxE9CNaSWLh4nQONMem+bgbrxnkCZA@mail.gmail.com>
+Subject: Re: [PATCH v2 05/12] KVM: arm64: Initialize feature id registers for
+ protected VMs
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	oliver.upton@linux.dev, james.clark@linaro.org, will@kernel.org, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_035010_948274_8A5EF307 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20241125_035937_092613_50E1C2F7 
+X-CRM114-Status: GOOD (  37.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,33 +94,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 25, 2024 at 12:32:13PM +0100, Alexandre Mergnat wrote:
-> Hello Andy.
-> 
-> Actually, after test it, "linux/of_gpio.h" isn't needed at all anymore.
-> 
-> That mean all added include in this patch aren't required.
+Hi Marc,
 
-Do you mean the driver doesn't not use types from types.h or dev_*() macros
-from dev_printk.h? I don't believe this, sorry.
+On Sun, 24 Nov 2024 at 12:12, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Fri, 22 Nov 2024 11:06:15 +0000,
+> Fuad Tabba <tabba@google.com> wrote:
+> >
+> > The hypervisor maintains the state of protected VMs. Initialize
+> > the values for feature ID registers for protected VMs, to be used
+> > when setting traps and when advertising features to protected
+> > VMs.
+> >
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  .../arm64/kvm/hyp/include/nvhe/fixed_config.h |  1 +
+> >  arch/arm64/kvm/hyp/nvhe/pkvm.c                |  4 ++
+> >  arch/arm64/kvm/hyp/nvhe/sys_regs.c            | 54 +++++++++++++++++--
+> >  3 files changed, 56 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
+> > index d1e59b88ff66..69e26d1a0ebe 100644
+> > --- a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
+> > +++ b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
+> > @@ -201,6 +201,7 @@
+> >  u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id);
+> >  bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
+> >  bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
+> > +void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
+> >  int kvm_check_pvm_sysreg_table(void);
+> >
+> >  #endif /* __ARM64_KVM_FIXED_CONFIG_H__ */
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > index 59ff6aac514c..4ef03294b2b4 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > @@ -381,6 +381,7 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
+> >       hyp_vm->kvm.created_vcpus = nr_vcpus;
+> >       hyp_vm->kvm.arch.mmu.vtcr = host_mmu.arch.mmu.vtcr;
+> >       hyp_vm->kvm.arch.pkvm.enabled = READ_ONCE(host_kvm->arch.pkvm.enabled);
+> > +     hyp_vm->kvm.arch.flags = 0;
+> >       pkvm_init_features_from_host(hyp_vm, host_kvm);
+> >  }
+> >
+> > @@ -419,6 +420,9 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
+> >       hyp_vcpu->vcpu.arch.cflags = READ_ONCE(host_vcpu->arch.cflags);
+> >       hyp_vcpu->vcpu.arch.mp_state.mp_state = KVM_MP_STATE_STOPPED;
+> >
+> > +     if (pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+> > +             kvm_init_pvm_id_regs(&hyp_vcpu->vcpu);
+> > +
+> >       ret = pkvm_vcpu_init_traps(hyp_vcpu);
+> >       if (ret)
+> >               goto done;
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> > index 59fb2f056177..7008e9641f41 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> > @@ -204,8 +204,7 @@ static u64 get_pvm_id_aa64mmfr2(const struct kvm_vcpu *vcpu)
+> >       return id_aa64mmfr2_el1_sys_val & PVM_ID_AA64MMFR2_ALLOW;
+> >  }
+> >
+> > -/* Read a sanitized cpufeature ID register by its encoding */
+> > -u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+> > +static u64 pvm_calc_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+> >  {
+> >       switch (id) {
+> >       case SYS_ID_AA64PFR0_EL1:
+> > @@ -240,10 +239,25 @@ u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+> >       }
+> >  }
+> >
+> > +/* Read a sanitized cpufeature ID register by its encoding */
+> > +u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+> > +{
+> > +     return pvm_calc_id_reg(vcpu, id);
+> > +}
+> > +
+>
+> Whatever reason you have to keep this per-CPU, it really needs to
+> change to be VM-scoped. Maybe not immediately, but that should be on
+> your list.
 
-Basically what you are trying to say is "let's move of_gpio.h implicit
-includes to become something else's problem". It's not what this patch
-intended to do.
+Ack.
 
-> On 04/11/2024 22:12, Mark Brown wrote:
-> > On Mon, Nov 04, 2024 at 09:06:26PM +0200, Andy Shevchenko wrote:
-> > > On Thu, Oct 31, 2024 at 12:27:25PM +0200, Andy Shevchenko wrote:
-> > > > Update header inclusions to follow IWYU (Include What You Use)
-> > > > principle.
-> > 
-> > > Hmm... I think we are waiting for somebody to Ack / review this change?
-> > 
-> > Yes.
+> >  static u64 read_id_reg(const struct kvm_vcpu *vcpu,
+> >                      struct sys_reg_desc const *r)
+> >  {
+> > -     return pvm_read_id_reg(vcpu, reg_to_encoding(r));
+> > +     struct kvm *kvm = vcpu->kvm;
+> > +     u32 reg = reg_to_encoding(r);
+> > +
+> > +     if (WARN_ON_ONCE(!test_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags)))
+> > +             return 0;
+> > +
+> > +     if (reg >= sys_reg(3, 0, 0, 4, 0) && reg <= sys_reg(3, 0, 0, 7, 7))
+> > +             return kvm->arch.id_regs[IDREG_IDX(reg)];
+>
+> Why the limit to the AA64 idregs? Aren't the other shadow sysreg
+> values correctly initialised to 0?
 
--- 
-With Best Regards,
-Andy Shevchenko
+Yes they are. Will expand this to cover those too.
 
 
+> > +
+> > +     return 0;
+> >  }
+> >
+> >  /* Handler to RAZ/WI sysregs */
+> > @@ -448,6 +462,40 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
+> >       /* Performance Monitoring Registers are restricted. */
+> >  };
+> >
+> > +/*
+> > + * Initializes feature registers for protected vms.
+> > + */
+> > +void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu)
+> > +{
+> > +     const u32 pvm_feat_id_regs[] = {
+>
+> static?
+
+Yes, and see below.
+
+> > +             SYS_ID_AA64PFR0_EL1,
+> > +             SYS_ID_AA64PFR1_EL1,
+> > +             SYS_ID_AA64ISAR0_EL1,
+> > +             SYS_ID_AA64ISAR1_EL1,
+> > +             SYS_ID_AA64ISAR2_EL1,
+> > +             SYS_ID_AA64ZFR0_EL1,
+> > +             SYS_ID_AA64MMFR0_EL1,
+> > +             SYS_ID_AA64MMFR1_EL1,
+> > +             SYS_ID_AA64MMFR2_EL1,
+> > +             SYS_ID_AA64MMFR4_EL1,
+> > +             SYS_ID_AA64DFR0_EL1,
+> > +     };
+> > +     struct kvm *kvm = vcpu->kvm;
+> > +     unsigned long i;
+> > +
+> > +     if (WARN_ON_ONCE(test_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags)))
+> > +             return;
+> > +
+> > +     for (i = 0; i < ARRAY_SIZE(pvm_feat_id_regs); i++) {
+>
+> But do you really need this array? Can't you just iterate over the
+> idreg space and compute the value? Sure, that'd be a bit longer, but
+> at least you would define the idregs you care about in a single place.
+
+Like you said, I was trying to save a couple of cycles, but I'll
+change it as you suggest.
+
+> > +             struct kvm_arch *ka = &kvm->arch;
+> > +             u32 reg = pvm_feat_id_regs[i];
+> > +
+> > +             ka->id_regs[IDREG_IDX(reg)] = pvm_calc_id_reg(vcpu, reg);
+> > +     }
+> > +
+> > +     set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags);
+> > +}
+> > +
+> >  /*
+> >   * Checks that the sysreg table is unique and in-order.
+> >   *
+>
+> Thanks,
+
+Thank you!
+
+
+/fuad
+
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
