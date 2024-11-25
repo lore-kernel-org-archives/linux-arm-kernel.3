@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1FED3B7F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F2D1D3B7FB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ohDBbX5wykAAdNyCI+XvgU3CimrF19MrDkF4qpXyhuM=; b=4mZkX2mq/hN6vi5wmhSqvgcJpn
-	9aJx8Ll1hhNOGv5vh8MuXTqNVYOwTqPWGrlCWKTeuSQ5ui7GbEBtkPxTbf6pw/rYoi0Si4jOW0l5p
-	jwlfAKfijefpxXWQmREa0JI9Pwk9cTnmD2JhJbwOD8g4xH1dH5iYyMPcDDjENd5Z0rIvpoK8KtMi+
-	xkHuc4gabqGzzb+mtfVMrJke2bZXVRVbDWEaYPlr2N+ZNTr7c8fsAzRj+fkyk85xla6d3fVpay5JW
-	4Il4kxBrDNb/wJMbbnPmJESUrnkAlz9vAgc3HqyeG9ifpCpwoBKRN04z9qWg/XHBDIdaKfcUENFGt
-	K53UQesg==;
+	bh=N/U591jDR61jTaBydM13/5UfJskFc+l7AdDJHwvu6Cg=; b=xCrp7IoenFQX7+dLjgEdFG6iOA
+	0M+aoMifD+yf7Rb6JYrK+jBsbzBlQHmWtJyU6yXosA9qLQl0huiPrzwNDxQepSYxyFH6lzV4zU1Sv
+	NP5V+uRdfjFPQuL0o6qEKFnDo8ecZxZBeQnlKwa0/HYj2VE8f/9raPM/knbu6rc93jyAww6KFnq+k
+	pq8gZAqPVRYOsM3xG8gvQZJ7v26pOGxULu3Faivq36gtpPG5DPWHschKcll0mC9C1NqXXTfSXilD9
+	HhWm9PUqCjG1GMI/dDErf/m3/R2wn/y3pDj+tXj16x4PlA5qGepZAtA8Up7xREef9oDbETkbFJOBF
+	Kq8cnUCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFW9w-00000007hr8-3SLz;
-	Mon, 25 Nov 2024 10:17:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFVhq-00000007dmS-1crK
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 09:48:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C16821756;
-	Mon, 25 Nov 2024 01:49:03 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8DBBF3F66E;
-	Mon, 25 Nov 2024 01:48:31 -0800 (PST)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: suzuki.poulose@arm.com,
-	mike.leach@linaro.org,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	rostedt@goodmis.org
-Cc: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	nd@arm.com,
-	Levi Yun <yeoreum.yun@arm.com>
-Subject: [PATCH 5/9] coresight-etb10: change etb_drvdata spinlock's type to raw_spinlock_t
-Date: Mon, 25 Nov 2024 09:48:12 +0000
-Message-Id: <20241125094816.365472-6-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241125094816.365472-1-yeoreum.yun@arm.com>
-References: <20241125094816.365472-1-yeoreum.yun@arm.com>
+	id 1tFWA3-00000007i0k-08Ha;
+	Mon, 25 Nov 2024 10:17:43 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tFVln-00000007ef9-2o88;
+	Mon, 25 Nov 2024 09:52:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1732528357;
+	bh=2tS8FIGs5XfE/2qFIHTISjAC2cAm3XxgBs/cPNnw7kI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qP6Pk+LCYgDMpAulcmdEP+3T1YaUinBnS5Q/YXyUtee5d1kafzYxViIItesWz5ywp
+	 Lj5lB9+CLm221BhmLUGC7qAXN1mGMcry8/KkzOHY8fcmD9Z+aOwe/o9RiEdWrpKd8y
+	 lf7MubkhsxMmQBb0z/p376R+eZPuEvCihD7+VCsc24fHCywctPYXvykTy7q7jtKQpb
+	 cgtHD59rIUdVrLyd53PTEQ/7bB35w3gN11AyAbX5+oYjITIoJ+IXtskiXoBfbfI4Qp
+	 A+LFiXEMMzPqTKJod654CsxwgEuVin5Tqovg2VhRLJS7MKC4IZ7pTt+OIfoLGSkN00
+	 LHGAZ6qci66Ng==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 79B6A17E14D5;
+	Mon, 25 Nov 2024 10:52:37 +0100 (CET)
+Message-ID: <dbe132d3-94bf-4801-8d52-167cb2074038@collabora.com>
+Date: Mon, 25 Nov 2024 10:52:36 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 7/7] arm64: dts: mediatek: mt8173-elm-hana: Mark
+ touchscreens and trackpads as fail
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, Wolfram Sang <wsa@kernel.org>,
+ chrome-platform@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Douglas Anderson <dianders@chromium.org>,
+ linux-i2c@vger.kernel.org, stable+noautosel@kernel.org
+References: <20241106093335.1582205-1-wenst@chromium.org>
+ <20241106093335.1582205-8-wenst@chromium.org>
+ <1246d672-4370-4db7-b4d0-368524809435@collabora.com>
+ <CAGXv+5H8YwiTyk1eMSwPLuGw5sQxec4n8OKR-Qa5wz8QGH4h9w@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAGXv+5H8YwiTyk1eMSwPLuGw5sQxec4n8OKR-Qa5wz8QGH4h9w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_014834_509936_67FE38B1 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20241125_015239_873647_344BD92A 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,217 +81,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Levi Yun <yeoreum.yun@arm.com>
+Il 25/11/24 09:01, Chen-Yu Tsai ha scritto:
+> On Thu, Nov 14, 2024 at 6:36 PM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>>
+>> Il 06/11/24 10:33, Chen-Yu Tsai ha scritto:
+>>> Instead of having them all available, mark them all as "fail-needs-probe"
+>>> and have the implementation try to probe which one is present.
+>>>
+>>> Also remove the shared resource workaround by moving the pinctrl entry
+>>> for the trackpad interrupt line back into the individual trackpad nodes.
+>>>
+>>> Cc: <stable+noautosel@kernel.org> # Needs accompanying new driver to work
+>>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+>>> Reviewed-by: Douglas Anderson <dianders@chromium.org>
+>>
+>> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> 
+> Hi Angelo,
+> 
+> Could Wolfram also take this patch instead of it having to wait another cycle?
+> 
+> 
+> Thanks
+> ChenYu
 
-In coresight-etb10 drivers, etb_drvdata->spinlock can be held
-during __schedule() by perf_event_task_sched_out()/in().
 
-Since etb_drvdata->spinlock type is spinlock_t and
-perf_event_task_sched_out()/in() is called after acquiring rq_lock,
-which is raw_spinlock_t (an unsleepable lock),
-this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
+Acked-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-To address this, change type etb_drvdata->spinlock in coresight-etb10 drivers,
-which can be called by perf_event_task_sched_out()/in(),
-from spinlock_t to raw_spinlock_t.
+Yes
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- drivers/hwtracing/coresight/coresight-etb10.c | 62 +++++++------------
- 1 file changed, 22 insertions(+), 40 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
-index aea9ac9c4bd0..ec439f8fbc1e 100644
---- a/drivers/hwtracing/coresight/coresight-etb10.c
-+++ b/drivers/hwtracing/coresight/coresight-etb10.c
-@@ -84,7 +84,7 @@ struct etb_drvdata {
- 	struct clk		*atclk;
- 	struct coresight_device	*csdev;
- 	struct miscdevice	miscdev;
--	spinlock_t		spinlock;
-+	raw_spinlock_t		spinlock;
- 	local_t			reading;
- 	pid_t			pid;
- 	u8			*buf;
-@@ -141,56 +141,47 @@ static int etb_enable_hw(struct etb_drvdata *drvdata)
- 
- static int etb_enable_sysfs(struct coresight_device *csdev)
- {
--	int ret = 0;
--	unsigned long flags;
-+	int ret;
- 	struct etb_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
- 
- 	/* Don't messup with perf sessions. */
--	if (coresight_get_mode(csdev) == CS_MODE_PERF) {
--		ret = -EBUSY;
--		goto out;
--	}
-+	if (coresight_get_mode(csdev) == CS_MODE_PERF)
-+		return -EBUSY;
- 
- 	if (coresight_get_mode(csdev) == CS_MODE_DISABLED) {
- 		ret = etb_enable_hw(drvdata);
- 		if (ret)
--			goto out;
-+			return ret;
- 
- 		coresight_set_mode(csdev, CS_MODE_SYSFS);
- 	}
- 
- 	csdev->refcnt++;
--out:
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
--	return ret;
-+
-+	return 0;
- }
- 
- static int etb_enable_perf(struct coresight_device *csdev, void *data)
- {
--	int ret = 0;
-+	int ret;
- 	pid_t pid;
--	unsigned long flags;
- 	struct etb_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 	struct perf_output_handle *handle = data;
- 	struct cs_buffers *buf = etm_perf_sink_config(handle);
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
- 
- 	/* No need to continue if the component is already in used by sysFS. */
--	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS) {
--		ret = -EBUSY;
--		goto out;
--	}
-+	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
-+		return -EBUSY;
- 
- 	/* Get a handle on the pid of the process to monitor */
- 	pid = buf->pid;
- 
--	if (drvdata->pid != -1 && drvdata->pid != pid) {
--		ret = -EBUSY;
--		goto out;
--	}
-+	if (drvdata->pid != -1 && drvdata->pid != pid)
-+		return -EBUSY;
- 
- 	/*
- 	 * No HW configuration is needed if the sink is already in
-@@ -198,7 +189,7 @@ static int etb_enable_perf(struct coresight_device *csdev, void *data)
- 	 */
- 	if (drvdata->pid == pid) {
- 		csdev->refcnt++;
--		goto out;
-+		return 0;
- 	}
- 
- 	/*
-@@ -208,7 +199,7 @@ static int etb_enable_perf(struct coresight_device *csdev, void *data)
- 	 */
- 	ret = etb_set_buffer(csdev, handle);
- 	if (ret)
--		goto out;
-+		return ret;
- 
- 	ret = etb_enable_hw(drvdata);
- 	if (!ret) {
-@@ -218,8 +209,6 @@ static int etb_enable_perf(struct coresight_device *csdev, void *data)
- 		csdev->refcnt++;
- 	}
- 
--out:
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 	return ret;
- }
- 
-@@ -350,13 +339,11 @@ static void etb_disable_hw(struct etb_drvdata *drvdata)
- static int etb_disable(struct coresight_device *csdev)
- {
- 	struct etb_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
--	unsigned long flags;
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
- 
- 	csdev->refcnt--;
- 	if (csdev->refcnt) {
--		spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 		return -EBUSY;
- 	}
- 
-@@ -366,7 +353,6 @@ static int etb_disable(struct coresight_device *csdev)
- 	/* Dissociate from monitored process. */
- 	drvdata->pid = -1;
- 	coresight_set_mode(csdev, CS_MODE_DISABLED);
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	dev_dbg(&csdev->dev, "ETB disabled\n");
- 	return 0;
-@@ -434,7 +420,7 @@ static unsigned long etb_update_buffer(struct coresight_device *csdev,
- 	const u32 *barrier;
- 	u32 read_ptr, write_ptr, capacity;
- 	u32 status, read_data;
--	unsigned long offset, to_read = 0, flags;
-+	unsigned long offset, to_read = 0;
- 	struct cs_buffers *buf = sink_config;
- 	struct etb_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 
-@@ -443,11 +429,11 @@ static unsigned long etb_update_buffer(struct coresight_device *csdev,
- 
- 	capacity = drvdata->buffer_depth * ETB_FRAME_SIZE_WORDS;
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
- 
- 	/* Don't do anything if another tracer is using this sink */
- 	if (csdev->refcnt != 1)
--		goto out;
-+		return 0;
- 
- 	__etb_disable_hw(drvdata);
- 	CS_UNLOCK(drvdata->base);
-@@ -565,8 +551,6 @@ static unsigned long etb_update_buffer(struct coresight_device *csdev,
- 
- 	__etb_enable_hw(drvdata);
- 	CS_LOCK(drvdata->base);
--out:
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	return to_read;
- }
-@@ -585,15 +569,13 @@ static const struct coresight_ops etb_cs_ops = {
- 
- static void etb_dump(struct etb_drvdata *drvdata)
- {
--	unsigned long flags;
-+	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
- 	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS) {
- 		__etb_disable_hw(drvdata);
- 		etb_dump_hw(drvdata);
- 		__etb_enable_hw(drvdata);
- 	}
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	dev_dbg(&drvdata->csdev->dev, "ETB dumped\n");
- }
-@@ -746,7 +728,7 @@ static int etb_probe(struct amba_device *adev, const struct amba_id *id)
- 	drvdata->base = base;
- 	desc.access = CSDEV_ACCESS_IOMEM(base);
- 
--	spin_lock_init(&drvdata->spinlock);
-+	raw_spin_lock_init(&drvdata->spinlock);
- 
- 	drvdata->buffer_depth = etb_get_buffer_depth(drvdata);
- 
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
-
+Thanks,
+Angelo
 
