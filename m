@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A4DBD3B7F5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 09:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5CDD3B7F5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 09:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eTCiIjP5WUtVlfWdpGLS44Qm+WOjxHYUNSodUPricsE=; b=bSvzRPaLxfjkMjjzoooOkFwDWt
-	MyjuTVlxMfMyCSYKISiFHe/7CMwZocDLw5gYlEkE5bu/wRkXkQmBuvz1oDp5oEgrmw18aN0jziU5D
-	cZz7uHntmgcznITG/dofI22znthtAskQJllJU3iwWb0Tn9qZ4OIyd/Qi1QW+WR4pH5tqiNJPmCsOw
-	xWlzqf37SrHCYHt5kyms2LzX5we15GVumP0X77f/cqmeec8gnfcPDldKF9KbXa58Kd/RisWXsLE3M
-	A/aUC6fwVkwOflG7IsPyQUQiBa7HqvRNnAhGx/lcv2NCRdRGk4b4W0g6OB/IMO15UXH7YZALPF6ac
-	MbovJf2A==;
+	bh=NDrALBEIHaOrNybjMAxZ0pEv7yfnFcCvcby1oq43AiU=; b=ZZMlsTwyGLyTA4yBTo03tv0JKs
+	KJPqcMX64wDxUoTMp9SY0eMlRpalXFudIROUcsqtO+WG32v6KA+vPCs6CnSaXjr8XUrdmGbvnw5r2
+	PMJSSk6LEXBmJabMX6rMNT+eo3TJxp5FaSx4W6y7nLLsR+SpVL0gFTWRcfBkkuCsAduRphW/GKZ98
+	0nrTTGB3kq0jCF9VAHs4eywV3dRuuPyiCMfczil4kbGF8JVhnUKL09MI0IeoZafNCAAdmUWwzIIji
+	HbKgepqQcaWNRarBDUM1z5lEpdJz8yO4STqsXDXJislw1LHPmtGaHpQ64u2+YB++4qlEPd9PqEI3G
+	cwfYIo6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFVSF-00000007ZaS-22mU;
-	Mon, 25 Nov 2024 09:32:27 +0000
-Received: from mo-csw1801.securemx.jp ([210.130.202.135] helo=mo-csw.securemx.jp)
+	id 1tFVTA-00000007Zo4-0HX0;
+	Mon, 25 Nov 2024 09:33:24 +0000
+Received: from mo-csw1121.securemx.jp ([210.130.202.132] helo=mo-csw.securemx.jp)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFVNb-00000007Yip-15Ny
+	id 1tFVNe-00000007Ym7-04sb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 09:27:41 +0000
+	Mon, 25 Nov 2024 09:27:43 +0000
 DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=toshiba.co.jp;h=From:To:Cc
 	:Subject:Date:Message-Id:In-Reply-To:References:MIME-Version:
 	Content-Transfer-Encoding;i=yuji2.ishikawa@toshiba.co.jp;s=key2.smx;t=
-	1732526832;x=1733736432;bh=s2QBTYvjALWbK/9t34XSfK/DRgxA5dhcbwCLcFUYzbo=;b=pty
-	ofG6gvZXuTXmZGloaGRHFDN5vnjmOEroyjENtiofn8xO4VTjp1TLme5RC2i6D8x3XF0t0m8T9w7Ax
-	eObOVKuKAH7pi/SsJ7ANV+MV6BWFBqbouVlZj4HaG8jW+vh1YfDx9t1jImAXui5x6rX/G28eqTtRy
-	5ez1eumDiY5rFvYCj/es1wcgnRSm5/M6LTcL00EIdz1d+wSL2X9qcV4TGJzIAntKwhmHyrsf6Gsx+
-	9v2kYeJIQDRaI4j+xqsjjoWCbhpo3v0VKpvpXsC+SmUdq1Mr/0VCfB2Xd/96ZHRXWL1/6z7D0dLY2
-	gWYDXlRF9EAjG51TwXKBuivXBa19y3A==;
-Received: by mo-csw.securemx.jp (mx-mo-csw1801) id 4AP9RCWA2549162; Mon, 25 Nov 2024 18:27:12 +0900
-X-Iguazu-Qid: 2yAb1JZRvDQIMBFaAK
-X-Iguazu-QSIG: v=2; s=0; t=1732526831; q=2yAb1JZRvDQIMBFaAK; m=N3BxzmwQ7zs0tp7sqbG9wCdMkvuwdICtP93CLzazhJo=
-Received: from imx12-a.toshiba.co.jp ([38.106.60.135])
-	by relay.securemx.jp (mx-mr1802) id 4AP9R9Gm4129038
+	1732526841;x=1733736441;bh=PCq/pu+QO5n9bATAUWThnGACe2nepbUSJDlQFbrVrx8=;b=ssK
+	rD2dA6ydWDQ6pOMt2C5SL8sXLaAYRAfqPxs6mSdZYsTxCkOhnxEqJ5+gXjHoqI/vi81FEUxoFDrxS
+	Qt3jLqg0153A6aZQq6KoE/jltceTLvhDyrw2K3d+zUMn31MZMdyCXez0RjnSNgOO4GJLcJuh4WddV
+	AXGqimEQITHWVsUwf6hzcNHSxlQ0lVcw67zkNN5Juz2h4tqj0Z/atXbLe9KYGE127KhmlKTFQEd37
+	yy5UBWaNAcpN1I2YuxfAN6UsIG1+WybisEaHoOLtszQ0hKd9r1J1lh/6hpNvErmBclKErBTR0AnkH
+	5iaYi0t1Ql7JK04F6OYVQQ+U2Wd2anQ==;
+Received: by mo-csw.securemx.jp (mx-mo-csw1121) id 4AP9RJmm099468; Mon, 25 Nov 2024 18:27:19 +0900
+X-Iguazu-Qid: 2rWguDC9mIphlABSrL
+X-Iguazu-QSIG: v=2; s=0; t=1732526839; q=2rWguDC9mIphlABSrL; m=k1DP3cEVolB9mfsCCNGe71tsvk/AiYIrIbXeZwTU+I0=
+Received: from imx2-a.toshiba.co.jp (imx2-a.toshiba.co.jp [106.186.93.35])
+	by relay.securemx.jp (mx-mr1121) id 4AP9RHIp297761
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 25 Nov 2024 18:27:10 +0900
-X-SA-MID: 32872668
+	Mon, 25 Nov 2024 18:27:17 +0900
+X-SA-MID: 35004190
 From: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
 To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
         Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -56,18 +56,19 @@ To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
         Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
 Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-Subject: [PATCH v12 1/8] dt-bindings: media: platform: visconti: Add Toshiba Visconti MIPI CSI-2 Receiver
-Date: Mon, 25 Nov 2024 18:21:39 +0900
+Subject: [PATCH v12 8/8] MAINTAINERS: Add entries for Toshiba Visconti Video Input Interface
+Date: Mon, 25 Nov 2024 18:21:46 +0900
 X-TSB-HOP2: ON
-Message-Id: <20241125092146.1561901-2-yuji2.ishikawa@toshiba.co.jp>
+Message-Id: <20241125092146.1561901-9-yuji2.ishikawa@toshiba.co.jp>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241125092146.1561901-1-yuji2.ishikawa@toshiba.co.jp>
 References: <20241125092146.1561901-1-yuji2.ishikawa@toshiba.co.jp>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_012739_495975_0B415BA1 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20241125_012742_292992_4ABB8095 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,130 +83,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds the Device Tree binding documentation that allows to describe
-the MIPI CSI-2 Receiver found in Toshiba Visconti SoCs.
+Added entries for visconti Video Input Interface driver, including;
+* device tree bindings
+* source files
+* documentation files
 
 Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
 Reviewed-by: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
 ---
+Changelog v2:
+- no change
+
+Changelog v3:
+- added entry for driver API documentation
+
+Changelog v4:
+- added entry for header file
+
+Changelog v5:
+- no change
+
+Changelog v6:
+- update path to VIIF driver source files
+
+Changelog v7:
+- no change
+
+Changelog v8:
+- rename bindings description file
+
+Changelog v9:
+- no change
+
+Changelog v10:
+- add a separate entry of VIIF driver
+
+Changelog v11:
+- no change
 
 Changelog v12:
-- Newly add bindings for CSI2RX driver 
+- add a bindings description of CSI2RX driver
 
- .../media/toshiba,visconti5-csi2rx.yaml       | 104 ++++++++++++++++++
- 1 file changed, 104 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yaml
+ MAINTAINERS | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yaml b/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yaml
-new file mode 100644
-index 000000000000..5488072bc82a
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yaml
-@@ -0,0 +1,104 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/toshiba,visconti5-csi2rx.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b878ddc99f94..b5c819e94e9b 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23430,6 +23430,18 @@ F:	Documentation/devicetree/bindings/media/i2c/tc358743.txt
+ F:	drivers/media/i2c/tc358743*
+ F:	include/media/i2c/tc358743.h
+ 
++TOSHIBA VISCONTI VIIF DRIVER
++M:	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
++M:	Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
++L:	linux-media@vger.kernel.org
++S:	Maintained
++F:	Documentation/admin-guide/media/visconti-viif.*
++F:	Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yaml
++F:	Documentation/devicetree/bindings/media/toshiba,visconti5-viif.yaml
++F:	Documentation/userspace-api/media/v4l/metafmt-visconti-viif.rst
++F:	drivers/media/platform/toshiba/visconti/
++F:	include/uapi/linux/visconti_viif.h
 +
-+title: Toshiba Visconti5 SoC MIPI CSI-2 receiver
-+
-+maintainers:
-+  - Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
-+
-+description: |-
-+  Toshiba Visconti5 SoC MIPI CSI-2 receiver device receives MIPI CSI-2 video
-+  stream. Use with VIIF device. T.B.D
-+
-+properties:
-+  compatible:
-+    const: toshiba,visconti5-csi2rx
-+
-+  reg:
-+    items:
-+      - description: Registers for CSI2 receiver control
-+
-+  interrupts:
-+    items:
-+      - description: CSI2 Receiver Interrupt
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/$defs/port-base
-+        unevaluatedProperties: false
-+        description:
-+          Input port node, single endpoint describing the CSI-2 transmitter.
-+
-+        properties:
-+          endpoint:
-+            $ref: video-interfaces.yaml#
-+            unevaluatedProperties: false
-+
-+            properties:
-+              data-lanes:
-+                description: CSI2 receiver supports 1, 2, 3 or 4 data lanes
-+                minItems: 1
-+                items:
-+                  - const: 1
-+                  - const: 2
-+                  - const: 3
-+                  - const: 4
-+            required:
-+              - data-lanes
-+
-+      port@1:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description:
-+          Output port node, single endpoint describing the Visconti VIIF.
-+
-+    required:
-+      - port@0
-+      - port@1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - ports
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        csi2rx@1c008000 {
-+            compatible = "toshiba,visconti5-csi2rx";
-+            reg = <0 0x1c008000 0 0x400>;
-+            interrupts = <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>;
-+
-+            ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+                port@0 {
-+                    reg = <0>;
-+                    csi2rx_in0: endpoint {
-+                        data-lanes = <1 2>;
-+                        remote-endpoint = <&imx219_out0>;
-+                    };
-+                };
-+                port@1 {
-+                    reg = <1>;
-+                    csi2rx_out0: endpoint {
-+                        remote-endpoint = <&csi_in0>;
-+                    };
-+                };
-+            };
-+        };
-+    };
+ TOSHIBA WMI HOTKEYS DRIVER
+ M:	Azael Avalos <coproscefalo@gmail.com>
+ L:	platform-driver-x86@vger.kernel.org
 -- 
 2.25.1
 
