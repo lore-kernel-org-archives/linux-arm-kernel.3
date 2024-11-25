@@ -4,82 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98974D3B7CA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 02:09:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25ECBD3B7CC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 02:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UySyQ+v9AxIr7Eb09KxAsjVixCgFg3PodYB+NeExh0I=; b=lmlzqEIN2NC2Yfi49SYv55gEVo
-	laKOQkpxZxtBrFTRXxksIYV6+T+5rW/BuRUOrOKAdzDkMhcaui/Kt9SE+zji76Ux9dE/p8KcM8IKG
-	L97HDNqetoLbyezFCQ3oBcRO/7SKLNES1KlcPBNmTXJBb9YuYjlNxYf4lddGYyJCOq8lu2qjw3k8E
-	ZbcXYXK1o5ucw2jpmrNOaY01UsPwL15iS1HNu7Dg1lL+JTF4vq54z2GfU61Xlp1d4gsp4G1a3qfUs
-	8Le1P6g6pInRsLzU6R9P9X/sJJCW2NC6/DXh+rBuXJE3rlTijDcGqI6zy3fJ3A6oXRLUIAIeLPBN4
-	hI32jcqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VjGyhC4vknpIdxofDNGuSvHUqW+VNRhmm9LwW16zx+Y=; b=0Y2SsbKKnA8gMyhslvPJDdN7DW
+	DnJ5seuH4if8SgDjLmnWo3H4ySY4d3xoruzyeQsoBvLTRwOdmCjxSy715nI8PKtxNrDwHqm+4nT09
+	i2vWGtt06m0HKi3+9Bxj2Ur0XRuuD2jJsVAzDlrayWNmgrTR1nFH1RRCv90DWM9cSU0h4Rur8EP1l
+	8uC1Kpde+mPzn6o/zclneASCc6FtfBAZzdoqNVyHZX5MZDhCNIQjuVfMDGGrwQ2f5ZSCt0m3kg8yb
+	8f95xHSm0PnKbz9XHMwU7USopdVH+bdS7f6fI4T7m0Jq2V6NBuCi/N+jJkJYiDt6kpxVGxaD9wrwx
+	2CKD9ufQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFOWx-00000006uTY-1UKG;
-	Mon, 25 Nov 2024 02:08:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tFOuK-00000006veO-29Qt;
+	Mon, 25 Nov 2024 02:33:00 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFOV4-00000006uEX-14Z8;
-	Mon, 25 Nov 2024 02:06:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5AE455C483A;
-	Mon, 25 Nov 2024 02:06:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64D4FC4CECC;
-	Mon, 25 Nov 2024 02:06:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732500411;
-	bh=fKuuSMNf+Qy6m8ZOXTb7mpNsw2y4fw7IbYodhFF8XTE=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=OJiMbLUhe7rNCTkqgTcbf/1gksuekRvIEHdo7FgaTZ5Krjo4kOrZ8wyXNpfOVwwVX
-	 HAQdaEjQ5uFHcYXFHWip4rvCEvkuHnSx1c5Mjl26rB4NyCIca8qjK809oIWHmpk56W
-	 rPqk8nLn4mQwyoU6T42DPWnRGe9aK3adMADGzOZd5pWEUcl26NvWVcAnjivNmsMCe4
-	 QszW4mn4yLRtHkeu4OXCTVXJKeKrdcYfCMGvafMHTH8kbGuOcven9NrIDzgs3kJkve
-	 qKzgN0UMzpEMoSRIsbhhTL1LJgBbiCnV7wCHIcC7QaEbISlV3HZqRThvdlL5Jz1UZL
-	 24ZiZnnvzNW0A==
-Date: Sun, 24 Nov 2024 20:06:49 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1tFOtN-00000006vZT-1BW7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Nov 2024 02:32:02 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AOMeuZC008874;
+	Mon, 25 Nov 2024 02:31:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	VjGyhC4vknpIdxofDNGuSvHUqW+VNRhmm9LwW16zx+Y=; b=l3NYg1xzD4WGIZE+
+	kElVNDDj29GGiZsQpASyLeWe4Mw5oV7v7wsNQeEq5vY/BPALb1Qw3nfRaCtmHiF9
+	QZE2Jq5xNlJOihlE4YYexKOcCE4q93dhTKiMGBnyb347Ax0DkAoeS80hXxs0Q62l
+	AvIGb8hV4IHcrwed9brSFYtf2YZyN+6PyNbHY00AokjPoTOcBtExzbSPzSpzlMmF
+	OAUUu9dxgFNInevfgE5BTaMgOrst1FTQSCpG87PLSqZBwYNr1exGCfLVGCPR9df7
+	H+3PAAcyklnjo5g9z+TbMGMau4WT3z37gMy3pmSpAZqIkRUbz8sz5qBC6MKer5Jz
+	YLgW4A==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 433626b7b3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 25 Nov 2024 02:31:50 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AP2VnCS000887
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 25 Nov 2024 02:31:49 GMT
+Received: from [10.64.16.151] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 24 Nov
+ 2024 18:31:43 -0800
+Message-ID: <bfc87132-a63e-4f3f-99b7-1a1bd7eb60ce@quicinc.com>
+Date: Mon, 25 Nov 2024 10:31:40 +0800
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Dragan Cvetic <dragan.cvetic@amd.com>, linux-gpio@vger.kernel.org, 
- Herve Codina <herve.codina@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Bjorn Helgaas <bhelgaas@google.com>, linux-clk@vger.kernel.org, 
- Derek Kiernan <derek.kiernan@amd.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Conor Dooley <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
- linux-kernel@vger.kernel.org, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
- Stephen Boyd <sboyd@kernel.org>, Will Deacon <will@kernel.org>, 
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, 
- Andrew Lunn <andrew@lunn.ch>, Saravana Kannan <saravanak@google.com>, 
- devicetree@vger.kernel.org, Stefan Wahren <wahrenst@gmx.net>, 
- linux-arm-kernel@lists.infradead.org, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Masahiro Yamada <masahiroy@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Krzysztof Wilczynski <kw@linux.com>
-To: Andrea della Porta <andrea.porta@suse.com>
-In-Reply-To: <ebb21da5cb41391421b364815705be8b4c415f8a.1732444746.git.andrea.porta@suse.com>
-References: <cover.1732444746.git.andrea.porta@suse.com>
- <ebb21da5cb41391421b364815705be8b4c415f8a.1732444746.git.andrea.porta@suse.com>
-Message-Id: <173250040873.6640.9720381303445148722.robh@kernel.org>
-Subject: Re: [PATCH v4 04/10] dt-bindings: misc: Add device specific
- bindings for RaspberryPi RP1
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 7/9] drm/msm/dsi: Add support for SM6150
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+CC: Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar
+	<quic_abhinavk@quicinc.com>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten
+	<marijn.suijten@somainline.org>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Krishna
+ Manikandan" <quic_mkrishn@quicinc.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        "Catalin
+ Marinas" <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Li Liu
+	<quic_lliu6@quicinc.com>,
+        Xiangxu Yin <quic_xiangxuy@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
+ <20241122-add-display-support-for-qcs615-platform-v3-7-35252e3a51fe@quicinc.com>
+ <mcvhfkh3ycrx2ganumsxlc7lx53ed55yk4syh5qev3jqqgkeqj@h5vnfpgjwtj5>
+Content-Language: en-US
+From: fange zhang <quic_fangez@quicinc.com>
+In-Reply-To: <mcvhfkh3ycrx2ganumsxlc7lx53ed55yk4syh5qev3jqqgkeqj@h5vnfpgjwtj5>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: eXnJPPWRCeP9YaHrlQwUnXbriAG3mtf0
+X-Proofpoint-ORIG-GUID: eXnJPPWRCeP9YaHrlQwUnXbriAG3mtf0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
+ priorityscore=1501 clxscore=1015 phishscore=0 spamscore=0 adultscore=0
+ impostorscore=0 mlxscore=0 malwarescore=0 suspectscore=0 mlxlogscore=966
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411250021
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_180654_381434_3665AEB2 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20241124_183201_453508_6CF78D2E 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,42 +127,62 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 24 Nov 2024 11:51:41 +0100, Andrea della Porta wrote:
-> The RP1 is a MFD that exposes its peripherals through PCI BARs. This
-> schema is intended as minimal support for the clock generator and
-> gpio controller peripherals which are accessible through BAR1.
+
+On 2024/11/22 18:10, Dmitry Baryshkov wrote:
+> On Fri, Nov 22, 2024 at 05:56:50PM +0800, Fange Zhang wrote:
+>> From: Li Liu <quic_lliu6@quicinc.com>
+>>
+>> Add support for DSI 2.3.1 (block used on SM6150).
+>>
+>> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+>> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+>> ---
+>>   drivers/gpu/drm/msm/dsi/dsi_cfg.c | 4 +++-
+>>   drivers/gpu/drm/msm/dsi/dsi_cfg.h | 1 +
+>>   2 files changed, 4 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/gpu/drm/msm/dsi/dsi_cfg.c b/drivers/gpu/drm/msm/dsi/dsi_cfg.c
+>> index 10ba7d153d1cfc9015f527c911c4658558f6e29e..fe02724bddf69c2e8d6816589f4ea410fa666e5b 100644
+>> --- a/drivers/gpu/drm/msm/dsi/dsi_cfg.c
+>> +++ b/drivers/gpu/drm/msm/dsi/dsi_cfg.c
+>> @@ -171,7 +171,7 @@ static const struct msm_dsi_config sdm845_dsi_cfg = {
+>>   	.num_bus_clks = ARRAY_SIZE(dsi_v2_4_clk_names),
+>>   	.io_start = {
+>>   		{ 0xae94000, 0xae96000 }, /* SDM845 / SDM670 */
+>> -		{ 0x5e94000 }, /* QCM2290 / SM6115 / SM6125 / SM6375 */
+>> +		{ 0x5e94000 }, /* QCM2290 / SM6115 / SM6125 / SM6150 / SM6375 */
 > 
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> ---
->  .../devicetree/bindings/misc/pci1de4,1.yaml   | 74 +++++++++++++++++++
->  MAINTAINERS                                   |  1 +
->  2 files changed, 75 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/misc/pci1de4,1.yaml
+> Not true
+Should I remove it or add it behind the SDM670?
 > 
-
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/misc/pci1de4,1.example.dtb: clocks@c040018000: 'clock-names' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/clock/raspberrypi,rp1-clocks.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/ebb21da5cb41391421b364815705be8b4c415f8a.1732444746.git.andrea.porta@suse.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+>>   	},
+>>   };
+>>   
+>> @@ -286,6 +286,8 @@ static const struct msm_dsi_cfg_handler dsi_cfg_handlers[] = {
+>>   		&sdm845_dsi_cfg, &msm_dsi_6g_v2_host_ops},
+>>   	{MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_3_0,
+>>   		&sdm845_dsi_cfg, &msm_dsi_6g_v2_host_ops},
+>> +	{MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_3_1,
+>> +		&sdm845_dsi_cfg, &msm_dsi_6g_v2_host_ops},
+>>   	{MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_4_0,
+>>   		&sdm845_dsi_cfg, &msm_dsi_6g_v2_host_ops},
+>>   	{MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_4_1,
+>> diff --git a/drivers/gpu/drm/msm/dsi/dsi_cfg.h b/drivers/gpu/drm/msm/dsi/dsi_cfg.h
+>> index 4c9b4b37681b066dbbc34876c38d99deee24fc82..120cb65164c1ba1deb9acb513e5f073bd560c496 100644
+>> --- a/drivers/gpu/drm/msm/dsi/dsi_cfg.h
+>> +++ b/drivers/gpu/drm/msm/dsi/dsi_cfg.h
+>> @@ -23,6 +23,7 @@
+>>   #define MSM_DSI_6G_VER_MINOR_V2_2_0	0x20000000
+>>   #define MSM_DSI_6G_VER_MINOR_V2_2_1	0x20020001
+>>   #define MSM_DSI_6G_VER_MINOR_V2_3_0	0x20030000
+>> +#define MSM_DSI_6G_VER_MINOR_V2_3_1	0x20030001
+>>   #define MSM_DSI_6G_VER_MINOR_V2_4_0	0x20040000
+>>   #define MSM_DSI_6G_VER_MINOR_V2_4_1	0x20040001
+>>   #define MSM_DSI_6G_VER_MINOR_V2_5_0	0x20050000
+>>
+>> -- 
+>> 2.34.1
+>>
+> 
 
 
