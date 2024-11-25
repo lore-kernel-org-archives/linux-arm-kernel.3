@@ -4,89 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A9DD3B7EF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 08:41:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8AED3B7F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 08:42:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jhf7UJAgjkqS9IEr+4/OYITR2vHwr6435xJDHVHDw+g=; b=FcTieBYk+XHNj0+ZxwoGsGRCbH
-	61cJT73Re9faFCjtPm2/xPE/NQiD+SOVgqmiH2nmDpOmg/lEoxUrk/4DMBT/9tesF5zLN+ZXDWf4y
-	Qv0eIeVVvI3uSv7Wmbhsa8/UkMUM+3rtWKIoBb0Wxh7+EKPq4tN8p2/23jKymntSVYwAAzmd1iygK
-	MukQ3Pb7TWlD9zPE0m5/6XQMrBDLCiLOcLcvPV3UdCqtscxbmucyfytB+r/QjbYmPMVhZjyNOsr7J
-	rzPPBTkacyMUP51S+3Kv9XfiZbt3umOZohkpHpPcVnOAo58wmAWPoAInN3HnRY/0CTJiwBORcduvc
-	Yz7KIp6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0KGuZp0wmnF7hzmfITp90xIKhOfwwLfqha6id3DNJEw=; b=ue5BRVMUQAnwhpcwhwcKeHvGXp
+	2k6c9kA0bDJ6ppJuQqlUnBSaFzi/MmcVJjn5fIBG4uMWS9By2GcZvLxpEN3L6K8kaFjQ9EpytqtN1
+	ldRt9R63j2xRgm7KteBKAR1BJysETlRZeK63tluc904K10oQsg3+sUrtpoXDiR3yXhqDZl21/gwr6
+	8fRV6YGV9QLifHwT4h5UgD5hQWjjgYvkA+FTGCcmcEKzET/lG2vpFEOwD1AMFqHHTbMFpNQChsAeo
+	HTZH+yhY5LpvIP3uk45hxj0zmwoUeg6rp/shFju1f47WAewezCWOJgfNf9yHTF5MG+fyXT6FcOFrA
+	o27Ri4UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFUee-00000007QIK-34xu;
-	Mon, 25 Nov 2024 08:41:12 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1tFUfZ-00000007QS3-2IIT;
+	Mon, 25 Nov 2024 08:42:09 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFUbY-00000007PXf-1mji
+	id 1tFUdH-00000007Q5f-0l7S
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 08:38:02 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e387195210eso574988276.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 00:37:59 -0800 (PST)
+	Mon, 25 Nov 2024 08:39:48 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-724f81cc659so1072684b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 00:39:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1732523879; x=1733128679; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Jhf7UJAgjkqS9IEr+4/OYITR2vHwr6435xJDHVHDw+g=;
-        b=CCibbDpCG55QVMx02q13PT9gnmZeo7T2OdM3Tko7FrfqEfSWsQ088AZdOW8POmGlsM
-         QkJPy8iu3rQSa+6KoW9cRR6X4pSPs/PniKeB1NiOo/OUyeYkxst9qh5SXFevmvHWxtGy
-         /+AD6Kdx9BAYKYKjMfTcriUTMUSB7TzJApEiTLzDi4/c4KVewGvn41GH1p97yFVoD2tY
-         PtE6EVPZ+Nx4dJvhkU/tJmBCoCl4MBAUGPhTPa7IRornrb/uGP9wuIDFGNQKnlbliZh/
-         gRkBYKjNs2BB1MjK9F0SXrcbuZrgJLQIUPUxnbtTUmnJjqIEeMzk9iArmJnpCiiWaNHk
-         smNA==
+        d=gmail.com; s=20230601; t=1732523986; x=1733128786; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=0KGuZp0wmnF7hzmfITp90xIKhOfwwLfqha6id3DNJEw=;
+        b=DOw0PIJH8so3yCTKexQquoRmsaBLGWijs0oa+IwQHOzm31MrP5fWSQI6+Bo1yswDn1
+         JX9PgT3i3GraF0gfmlOrgLumhi4FprwjdTcVGFkQZjYvo9ZGWSpFCCB8TLBeOdqXFic1
+         b4kaggchM7GpDYOYHii02+Y9y7TCzl9OUYowI/NW/zkgqhIuc2I8A/5AGEV59J7WtQ4V
+         hfx3iJvBvvrz1fUSm7TJuDyObpObQ+Nc0ygAZNbOnzaGKvm1u3L3FCRp0XmCkpABkeSX
+         hWLf6hFZbeuaU24wAeG9zNyYnhECWz2UsYzdxqLt8bkr4k55Os/x5FYqw2CHmANWCyPT
+         twiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732523879; x=1733128679;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Jhf7UJAgjkqS9IEr+4/OYITR2vHwr6435xJDHVHDw+g=;
-        b=Z18KR++yTCwq98b0XFSLaAaR7qqNv7M2E8XQJWHGo/jnU3dwUpiy5GXQ01e73hQKzr
-         jrQSme2t7qVJLMmiQP7lt7nDZVSvZkGeNd1I73F/RAqAj7l56ocUiWZXoYqzg2/+gq2X
-         Xeg8i5vyCWeVVgAdrzc6fzJn07rNOBa8dqjuEtryPl/PkfMvdZhoWUfe0xVeN+r8A7/l
-         psbXszKxT7kdaEH79wLXlu1zOh4+tTH6VDsVDHg63yI+nO1fCPo3GVUjtMpj9rWUIBuG
-         SkIjSjhv6g1lrOfEDCz9134KiMQr5tqcL4ss2qIb0dNtEpwn4Eiwem0qbDS8t5SXZ6e5
-         wBgw==
-X-Forwarded-Encrypted: i=1; AJvYcCWWEWAqV+++o6qKUb61nxQCtmjWjkVvBju8gmUANMfRo4ExuNyleaCD55KOy6QgF8PcraT8qugRSRD6GG6ZRC0k@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIh0+2BwawSAVT2YKwJR6uwxNw3EX+Rw8RjfbWJqT6ODn2L1Sh
-	Pejb4rWtGOLckSSGgKBjs6D6q68CPOfy/oIxL0OcE2c6dxrl+OY1WTDlIXBCr+bTCB1HvJk3CYk
-	OJrcxEUrw5x6L03c4xiCglwCyksoXAFN7Kq9ZwA==
-X-Gm-Gg: ASbGncuxm1xPeiQGQdes7thZbFyzDm0qjdD3eRtgkr5O8BsMP9MOCsDk2q6qTHagTre
-	c84QyD+BeKR0V2+Ghj4y8Kx/e/34D5umCbt13Y2HUyYkX4/O0k+oQPQcU78Pt/J4=
-X-Google-Smtp-Source: AGHT+IFqUQwBayan6EHR2PgI6nhPiQUSS+N/6Yi2pVJ6bDreyN7dWTXfIQHNKenhX/VU25atPq9Gdlp6/SGHZtv9xLM=
-X-Received: by 2002:a05:690c:670d:b0:6e6:c8b:4ae3 with SMTP id
- 00721157ae682-6eee0a49b45mr44025007b3.10.1732523878855; Mon, 25 Nov 2024
- 00:37:58 -0800 (PST)
+        d=1e100.net; s=20230601; t=1732523986; x=1733128786;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=0KGuZp0wmnF7hzmfITp90xIKhOfwwLfqha6id3DNJEw=;
+        b=AAROgbqpJpgDSdC32jk/Acv/cVUL6cQpE3ABLkYjfkDmX7aKreoUALcCMZIsclkd+Y
+         OnVUjsBEGo5JnhfpLOhatCLnZJcNaq6x8FYEZtcvfA4yHB3XbOKIWSIATZoqy20OjP98
+         bDXsLfvsVqT9plERyf0aY9v2ec/9GUes7gDsbiR0xkafH2PzeR7DgK66qhSgW29jYvhw
+         gjdWpBLZFHoMotvKAw34dAazr4DP8UxszIvWOiDXSjklSf7N8ZRwQUjE2zrM6YMejnPh
+         5u+pUdhmQaErP6kBPXRLPvO9hJ0njrKGBm2qPdOZ4/OI7GzkJxHpdlcTBq9BAaCLPT1Z
+         yFqQ==
+X-Gm-Message-State: AOJu0YzNZtZkgRO19MfhckriKEUJjg8uahVRJYeo2OGYDqzAab6rh8Mi
+	pXaeWxjn6i4U9qJKpaIzMCOmnK/IvmKJ/1d8iPWCbWlJLCxg98aP
+X-Gm-Gg: ASbGnctsdFERDkIZ+tk5NJqBregPMw5fONrDBpB3dxRXvp+pk1iebahthDU6Nr0ii24
+	UarS0dspkB3m6qGsHunX2CDd4fkRK/wXdbisB0kBA63NPOcdOtwWfL/EDvGsYr6yX7mpkAN2bmh
+	BOx6YgArGQrEmI6aSE4CBUsn+Hut7PyKWo/wtZ+vbWRrRBHdB7Vr0Vg4j8gOnduTEzIguTr0K0F
+	jyHvNlo5tYM8wxNwtoVA4BDmJvXq7pwbDb8RMO/MLYCB/pSaKJlmqIQZ6L/E6jR76x8
+X-Google-Smtp-Source: AGHT+IHU1nyBULHIR2177tUcXa0ze8GqotcNDT6gsNhsvTrJblPUvYHMUa+RMDMyUkRWs6wbq9n4YA==
+X-Received: by 2002:a05:6a00:1251:b0:71e:cb:e7bf with SMTP id d2e1a72fcca58-724df66a8abmr14741216b3a.18.1732523985898;
+        Mon, 25 Nov 2024 00:39:45 -0800 (PST)
+Received: from [192.168.0.115] ([59.188.211.160])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724de454c55sm5838914b3a.35.2024.11.25.00.39.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 Nov 2024 00:39:45 -0800 (PST)
+Message-ID: <4381e1ef-6113-4fe5-a48a-ea4c163dd103@gmail.com>
+Date: Mon, 25 Nov 2024 16:39:39 +0800
 MIME-Version: 1.0
-References: <20241122084152.1841419-1-naush@raspberrypi.com>
- <20241122084152.1841419-6-naush@raspberrypi.com> <xy44zndazbw7ehpzbc6hexgptjymevvupjhuy2x6zxp54qtepm@vlbb6js62cq4>
- <CAEmqJPrrAhhukn2H4nUhe1njVi-dyW9q=u1h8YgafvJGbYRG6Q@mail.gmail.com>
- <xadxi6rjcnmgjiqhinqnawj3mgps4b3xp6ftozap4ps6q5xaz7@bsdwrrkyniwt>
- <deremuh7mawzt6ke3c67fvzfyuksmuwon3dhorxbm5mr5rllmf@fbj2f5qvfpjd> <20241124070428.GG19573@pendragon.ideasonboard.com>
-In-Reply-To: <20241124070428.GG19573@pendragon.ideasonboard.com>
-From: Naushir Patuck <naush@raspberrypi.com>
-Date: Mon, 25 Nov 2024 08:37:22 +0000
-Message-ID: <CAEmqJPrDvhz+np4MxKiwfrKyjxG0HnO45T+U2=Bpbmm6MW1uXg@mail.gmail.com>
-Subject: Re: [PATCH v1 5/5] drivers: media: bcm2835-unicam: Correctly handle
- FS + FE ISR condition
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Hans Verkuil <hverkuil@xs4all.nl>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, linux-media@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Dave Stevenson <dave.stevenson@raspberrypi.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/5] arm64: dts: apple: Add touchbar screen nodes
+To: fnkl.kernel@gmail.com, Hector Martin <marcan@marcan.st>,
+ Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Janne Grunau <j@jannau.net>
+References: <20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com>
+ <20241124-adpdrm-v1-4-3191d8e6e49a@gmail.com>
+Content-Language: en-US
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <20241124-adpdrm-v1-4-3191d8e6e49a@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_003800_656414_3870AC8F 
-X-CRM114-Status: GOOD (  45.83  )
+X-CRM114-CacheID: sfid-20241125_003947_218698_58EF79A7 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,134 +107,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 24 Nov 2024 at 07:04, Laurent Pinchart
-<laurent.pinchart@ideasonboard.com> wrote:
->
-> On Fri, Nov 22, 2024 at 03:48:11PM +0100, Jacopo Mondi wrote:
-> >
-> > With Hans Sakari and Laurent in cc for real now
-> >
-> > On Fri, Nov 22, 2024 at 03:41:31PM +0100, Jacopo Mondi wrote:
-> > > On Fri, Nov 22, 2024 at 11:40:26AM +0000, Naushir Patuck wrote:
-> > > > On Fri, 22 Nov 2024 at 11:16, Jacopo Mondi wrote:
-> > > > > On Fri, Nov 22, 2024 at 08:41:52AM +0000, Naushir Patuck wrote:
-> > > > > > This change aligns the FS/FE interrupt handling with the Raspberry Pi
-> > > > > > kernel downstream Unicam driver.
-> > > > > >
-> > > > > > If we get a simultaneous FS + FE interrupt for the same frame, it cannot
-> > > > > > be marked as completed and returned to userland as the framebuffer will
-> > > > > > be refilled by Unicam on the next sensor frame. Additionally, the
-> > > > > > timestamp will be set to 0 as the FS interrupt handling code will not
-> > > > > > have run yet.
-> > > > > >
-> > > > > > To avoid these problems, the frame is considered dropped in the FE
-> > > > > > handler, and will be returned to userland on the subsequent sensor frame.
-> > > > > >
-> > > > > > Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
-> > > > > > ---
-> > > > > >  .../media/platform/broadcom/bcm2835-unicam.c  | 39 +++++++++++++++++--
-> > > > > >  1 file changed, 35 insertions(+), 4 deletions(-)
-> > > > > >
-> > > > > > diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > > > > > index f10064107d54..0d2aa25d483f 100644
-> > > > > > --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > > > > > +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > > > > > @@ -773,10 +773,26 @@ static irqreturn_t unicam_isr(int irq, void *dev)
-> > > > > >                        * as complete, as the HW will reuse that buffer.
-> > > > > >                        */
-> > > > > >                       if (node->cur_frm && node->cur_frm != node->next_frm) {
-> > > > > > +                             /*
-> > > > > > +                              * This condition checks if FE + FS for the same
-> > > > > > +                              * frame has occurred. In such cases, we cannot
-> > > > > > +                              * return out the frame, as no buffer handling
-> > > > > > +                              * or timestamping has yet been done as part of
-> > > > > > +                              * the FS handler.
-> > > > > > +                              */
-> > > > > > +                             if (!node->cur_frm->vb.vb2_buf.timestamp) {
-> > > > > > +                                     dev_dbg(unicam->v4l2_dev.dev,
-> > > > > > +                                             "ISR: FE without FS, dropping frame\n");
-> > > > > > +                                     continue;
-> > > > > > +                             }
-> > > > > > +
-> > > > > >                               unicam_process_buffer_complete(node, sequence);
-> > > > > > +                             node->cur_frm = node->next_frm;
-> > > > > > +                             node->next_frm = NULL;
-> > > > > >                               inc_seq = true;
-> > > > > > +                     } else {
-> > > > > > +                             node->cur_frm = node->next_frm;
-> > > > > >                       }
-> > > > > > -                     node->cur_frm = node->next_frm;
-> > > > > >               }
-> > > > > >
-> > > > > >               /*
-> > > > > > @@ -812,10 +828,25 @@ static irqreturn_t unicam_isr(int irq, void *dev)
-> > > > > >                                       i);
-> > > > > >                       /*
-> > > > > >                        * Set the next frame output to go to a dummy frame
-> > > > > > -                      * if we have not managed to obtain another frame
-> > > > > > -                      * from the queue.
-> > > > > > +                      * if no buffer currently queued.
-> > > > > >                        */
-> > > > > > -                     unicam_schedule_dummy_buffer(node);
-> > > > > > +                     if (!node->next_frm ||
-> > > > > > +                         node->next_frm == node->cur_frm) {
-> > > > > > +                             unicam_schedule_dummy_buffer(node);
-> > > > > > +                     } else if (unicam->node[i].cur_frm) {
-> > > > > > +                             /*
-> > > > > > +                              * Repeated FS without FE. Hardware will have
-> > > > > > +                              * swapped buffers, but the cur_frm doesn't
-> > > > > > +                              * contain valid data. Return cur_frm to the
-> > > > > > +                              * queue.
-> > > > >
-> > > > > So the buffer gets silently recycled ? Or should it be returned with
-> > > > > errors to userspace ?
-> > > >
-> > > > The buffer silently gets recycled and we dequeue when we are sure it
-> > > > is valid and will not get overwritten.  If we were to return to
-> > >
-> > > I haven't find in the v4l2 specs any reference to what the behaviour
-> > > should be.
-> > >
-> > > If I can summarize it: When a frame capture is aborted after the DMA
-> > > transfer has already started, should the corresponding capture buffer
-> > > be returned to the user in error state or the frame drop can go
-> > > silently ignored ?
->
-> If the DMA tranfer is aborted, I would return the buffer to userspace.
-> This will indicate a frame loss better than deducing it from a gap in
-> the sequence numbers.
->
-> Is the DMA really aborted here though ?
-
-No, the DMA continues, causing possilbe overwrite/tearing in the
-framebuffer.  Hence we defer returning it until we can ensure we don't
-overwrite into the buffer on the next frame.
-
-Naush
 
 
->
-> > > Cc-ing Hans Sakari and Laurent for opinions.
-> > >
-> > > > userspace with an error, there is still a race condition on the name
-> > > > frame/buffer which will also have to return as error.
-> > >
-> > > I'm sorry I didn't get this part :)
-> > >
-> > > > > > +                              */
-> > > > > > +                             spin_lock(&node->dma_queue_lock);
-> > > > > > +                             list_add_tail(&node->cur_frm->list,
-> > > > > > +                                           &node->dma_queue);
-> > > > > > +                             spin_unlock(&node->dma_queue_lock);
-> > > > > > +                             node->cur_frm = node->next_frm;
-> > > > > > +                             node->next_frm = NULL;
-> > > > > > +                     }
-> > > > > >               }
-> > > > > >
-> > > > > >               unicam_queue_event_sof(unicam);
->
-> --
-> Regards,
->
-> Laurent Pinchart
+Sasha Finkelstein via B4 Relay 於 2024/11/25 早上6:29 寫道:
+> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> 
+> Adds device tree entries for the touchbar screen
+> 
+> Co-developed-by: Janne Grunau <j@jannau.net>
+> Signed-off-by: Janne Grunau <j@jannau.net>
+> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> ---
+>  arch/arm64/boot/dts/apple/t8103-j293.dts |  8 ++++++++
+>  arch/arm64/boot/dts/apple/t8103.dtsi     | 26 ++++++++++++++++++++++++++
+>  arch/arm64/boot/dts/apple/t8112-j493.dts | 15 +++++++++++++++
+>  arch/arm64/boot/dts/apple/t8112.dtsi     | 25 +++++++++++++++++++++++++
+>  4 files changed, 74 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/apple/t8103-j293.dts b/arch/arm64/boot/dts/apple/t8103-j293.dts
+> index 56b0c67bfcda321b60c621de092643017693ff91..349a8fce6b0b8ccf3305f940ba7242e2c1a67754 100644
+> --- a/arch/arm64/boot/dts/apple/t8103-j293.dts
+> +++ b/arch/arm64/boot/dts/apple/t8103-j293.dts
+> @@ -49,3 +49,11 @@ &i2c4 {
+>  &fpwm1 {
+>  	status = "okay";
+>  };
+> +
+> +&display_dfr {
+
+Inconsistent placement of #address-cells and #size-cells.
+> +	status = "okay";
+
+There should be a blank line here.
+> +	dfr_panel: panel@0 {
+> +		compatible = "apple,summit";
+> +		reg = <0>;
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
+> index 9b0dad6b618444ac6b1c9735c50cccfc3965f947..b377c92c5db3cb4fea53ae2c5dd85acf038429a3 100644
+> --- a/arch/arm64/boot/dts/apple/t8103.dtsi
+> +++ b/arch/arm64/boot/dts/apple/t8103.dtsi
+> @@ -356,6 +356,32 @@ cpufreq_p: performance-controller@211e20000 {
+>  			#performance-domain-cells = <0>;
+>  		};
+>  
+> +		display_dfr: display-pipe@228200000 {
+> +			compatible = "apple,t8103-display-pipe", "apple,h7-display-pipe";
+> +			reg-names = "be", "fe", "mipi";
+> +			reg = <0x2 0x28200000 0x0 0xc000>,
+> +				<0x2 0x28400000 0x0 0x4000>,
+> +				<0x2 0x28600000 0x0 0x100000>;
+> +			power-domains = <&ps_dispdfr_fe>, <&ps_dispdfr_be>, <&ps_mipi_dsi>;
+> +			interrupt-parent = <&aic>;
+> +			interrupts = <AIC_IRQ 502 IRQ_TYPE_LEVEL_HIGH>,
+> +				<AIC_IRQ 506 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "be", "fe";
+> +			status = "disabled";
+> +			iommus = <&displaydfr_dart 0>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+
+Inconsistent placement of #address-cells and #size-cells.
+> +		};
+> +
+> +		displaydfr_dart: iommu@228304000 {
+> +			compatible = "apple,t8103-dart";
+> +			reg = <0x2 0x28304000 0x0 0x4000>;
+> +			interrupt-parent = <&aic>;
+> +			interrupts = <AIC_IRQ 504 IRQ_TYPE_LEVEL_HIGH>;
+> +			#iommu-cells = <1>;
+> +			power-domains = <&ps_dispdfr_fe>;
+Not every M1 (T8103) device has a touch bar. Disable it here and
+then enable it in t8103-j293.dts.
+
+> +		};
+> +
+>  		sio_dart: iommu@235004000 {
+>  			compatible = "apple,t8103-dart";
+>  			reg = <0x2 0x35004000 0x0 0x4000>;
+> diff --git a/arch/arm64/boot/dts/apple/t8112-j493.dts b/arch/arm64/boot/dts/apple/t8112-j493.dts
+> index 0ad908349f55406783942735a2e9dad54cda00ec..80e371495f3e097f91e94549c7ac2949609f566f 100644
+> --- a/arch/arm64/boot/dts/apple/t8112-j493.dts
+> +++ b/arch/arm64/boot/dts/apple/t8112-j493.dts
+> @@ -35,6 +35,21 @@ led-0 {
+>  	};
+>  };
+>  
+> +&display_dfr {
+> +	status = "okay";
+status should be after other properties, before child nodes.
+
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+
+Inconsistent placement of #address-cells and #size-cells. I would place
+them in
+t8112.dtsi.
+> +
+> +	dfr_panel: panel@0 {
+> +		compatible = "apple,summit";
+> +		reg = <0>;
+> +	};
+> +};
+> +
+> +&displaydfr_dart {
+> +	status = "okay";
+> +};
+> +
+>  /*
+>   * Force the bus number assignments so that we can declare some of the
+>   * on-board devices and properties that are populated by the bootloader
+> diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
+> index 1666e6ab250bc0be9b8318e3c8fc903ccd3f3760..726b11376692580abb129b9be35107bee1550a93 100644
+> --- a/arch/arm64/boot/dts/apple/t8112.dtsi
+> +++ b/arch/arm64/boot/dts/apple/t8112.dtsi
+> @@ -379,6 +379,31 @@ cpufreq_p: cpufreq@211e20000 {
+>  			#performance-domain-cells = <0>;
+>  		};
+>  
+> +		display_dfr: display-pipe@228200000 {
+> +			compatible = "apple,t8112-display-pipe", "apple,h7-display-pipe";
+> +			reg-names = "be", "fe", "mipi";
+> +			reg = <0x2 0x28200000 0x0 0xc000>,
+> +				<0x2 0x28400000 0x0 0x4000>,
+> +				<0x2 0x28600000 0x0 0x100000>;
+> +			power-domains = <&ps_dispdfr_fe>, <&ps_dispdfr_be>, <&ps_mipi_dsi>;
+> +			interrupt-parent = <&aic>;
+> +			interrupts = <AIC_IRQ 614 IRQ_TYPE_LEVEL_HIGH>,
+> +				<AIC_IRQ 618 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "be", "fe";
+> +			status = "disabled";
+> +			iommus = <&displaydfr_dart 0>;
+> +		};
+> +
+> +		displaydfr_dart: iommu@228304000 {
+> +			compatible = "apple,t8110-dart";
+> +			reg = <0x2 0x28304000 0x0 0x4000>;
+> +			interrupt-parent = <&aic>;
+> +			interrupts = <AIC_IRQ 616 IRQ_TYPE_LEVEL_HIGH>;
+> +			#iommu-cells = <1>;
+> +			power-domains = <&ps_dispdfr_fe>;
+> +			status = "disabled";
+> +		};
+> +
+>  		sio_dart: iommu@235004000 {
+>  			compatible = "apple,t8110-dart";
+>  			reg = <0x2 0x35004000 0x0 0x4000>;
+> 
+
+Nick Chan
 
