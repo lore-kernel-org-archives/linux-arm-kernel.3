@@ -4,76 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0289D58D5D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 15:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B60D9D58D5A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 15:34:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iEVCA8Ix6s/DdhGgW/3oFSALAwo5Hm6QybQxy/FlbSw=; b=RwN14wHHTLkXqt+i5FdQjso8W8
-	I/fiI5BC+T610ofcIBPJvw5PNXs2+t4t6RPgPhbVPWfM2ko2osRquaFGfQzjxBZmzFI9mv45c1PvQ
-	rtBcbkxfloBewm/yydK4BaXlCduGqfwzacqDX0SpfTCeu5nYlr3D37ABUaMElKVNsM6nGQ0bJJOL6
-	St8+ROJ0ImFysovkOO5qKeLOhAQ/ZBGSzSbZY2M5ldJOPopVQa3dIvEvLou0ErFsG2I8AMPMgiLVg
-	nmFcy/ggn4BhSPm3E83TkehXxySqQjzHwYysdk5lqdwJ5M525j4lScxUxaTRpfEBdQX/JkWqs5DsJ
-	UYpFg16w==;
+	bh=YP8a99fDyJG955EP8lVaVAT87+zHSjvQosHEPzJ1NsY=; b=Nmxtl8TSPUL1lBIs4TBEs5Phv2
+	UzUpJSVYXl263c0ejun6voGe4Z9SpUMPhk/ItNCybNS6LAkgSWtuDo7ZqySuCBu3kevVls4eiUEVj
+	QAa0Ff/rMJAIYR9pvshx4e3bQj0PPyjvK8CDVbaq+y0ktaLwMP58ZUdnnPOZFGIyuRP8LhVR5t2hA
+	/BbF70BbPpp1XpdTK5OhMqH3D4Js5XkFJek7t3livDiXY1wOE7c5cPvZpHIQaFRxdvO3HIEdE7rOg
+	FCIKWW6hog6mMttm5RHYyoif7mBaHIeT/M4e0ITApqO273X5pkPHY1HN9CBZdPsa+H7b3q3tmy8vd
+	Zi+3X7SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFb5M-00000008VM7-24FK;
-	Mon, 25 Nov 2024 15:33:12 +0000
-Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
+	id 1tFb6I-00000008Vbo-3Q7T;
+	Mon, 25 Nov 2024 15:34:10 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFb1n-00000008UGf-3ozK
+	id 1tFb3n-00000008Ujd-35Fi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 15:29:34 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: marcan@marcan.st)
-	by mail.marcansoft.com (Postfix) with ESMTPSA id 498E641A48;
-	Mon, 25 Nov 2024 15:29:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
-	t=1732548567; bh=mvds+Ny0lTliJWUMz64CS0VuR5pei/dhaTjax1anOBc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=dJ+nWxZGjxwcoLlWhkuPEQg/dDouRwFC78lnhdBZQnWhTG0+DEb29pZuEkPVatXAO
-	 B17tvlgEtOkPmf7FMEDBpGaDTCmu8s8Jba3RhjHX8UpaJint1QbDKH8Oj02dGK4Ke/
-	 7FsioU8y5MGI/h7P5eYFGL8GHYy+n1vQq42CEKb0GClQBN1i8EzbDlqOQO6Hw4A9qr
-	 cDKGp00yGAhdHLJtpZ9cRs8o1xIAJsmqxSxzHdluE2hLonH7xksXilHLQwK6u//oqV
-	 86s9/TdAUe09WziXe9mmDqPLYZ49vffCGw8Leo9QCCcgAlaBDLc6n/ct1MdXJ1uLyo
-	 DwYijr47s0TAQ==
-Message-ID: <7fee8838-a365-4f33-a40f-26abab17d605@marcan.st>
-Date: Tue, 26 Nov 2024 00:29:25 +0900
+	Mon, 25 Nov 2024 15:31:37 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4APBRKnZ016452;
+	Mon, 25 Nov 2024 16:31:22 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	YP8a99fDyJG955EP8lVaVAT87+zHSjvQosHEPzJ1NsY=; b=flm1/MBDqwkwMUbJ
+	QkssTzezfgqvUcF9/eYZKX70ziMyBSdOyfn7eV/U/3uxdVEhXMwPHLtyjsvAMNLL
+	VvCJP0a3eW+PYTjnoCA/PlnHMuyOlMqh92MHd46ef45gfbbPtnzTrHpGEG9usJgV
+	XCGeJnB5sF30r0YCz8LfCRdWCOFEBKhTyHGWMbqMY0JaqIzwgYfWUrv7w4+BTRTj
+	FMn2RgaPaoETXbu+Ni2zZqS5H9islnjiEhmMt76+bQKxXYptQV6Gqz0zGzlYxcKH
+	Trf9z/SbP7KbUUf91ZTCl4yMZJQ+hZfLp8jjp3mExq7k4aiJd95FYE2K1o5DN6ZW
+	rmJf1A==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 433tvndppw-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 25 Nov 2024 16:31:22 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E1E2940047;
+	Mon, 25 Nov 2024 16:29:56 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 43FAA2A1043;
+	Mon, 25 Nov 2024 16:28:47 +0100 (CET)
+Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 25 Nov
+ 2024 16:28:46 +0100
+Message-ID: <acf6834f-6851-4daf-85da-076e6ca142db@foss.st.com>
+Date: Mon, 25 Nov 2024 16:28:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] dt-bindgins: display: Add Apple pre-DCP display
- controller bindings
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Sasha Finkelstein <fnkl.kernel@gmail.com>
-Cc: Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig
- <alyssa@rosenzweig.io>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com>
- <20241124-adpdrm-v1-1-3191d8e6e49a@gmail.com>
- <ksdp54qj55v7igvvcshl6y2cxpmqy7rlsh4xsixpptjn7s7wlu@76ejtq6ytvbp>
- <a9d1568e-6240-49a4-b6a0-dcc0d9229eb1@marcan.st>
- <0dc16c95-6849-41c8-86da-d1c0c74cb3e4@kernel.org>
-From: Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH 4/5] PCI: stm32: Add PCIe endpoint support for STM32MP25
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
+        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
+        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241112203846.GA1856246@bhelgaas>
 Content-Language: en-US
-In-Reply-To: <0dc16c95-6849-41c8-86da-d1c0c74cb3e4@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+From: Christian Bruel <christian.bruel@foss.st.com>
+In-Reply-To: <20241112203846.GA1856246@bhelgaas>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_072932_267682_C439CC4D 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20241125_073136_075636_F0BE705A 
+X-CRM114-Status: GOOD (  31.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,72 +100,226 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2024/11/25 23:53, Krzysztof Kozlowski wrote:
-> On 25/11/2024 15:14, Hector Martin wrote:
->>>> +
->>>> +  "#address-cells":
->>>> +    const: 1
->>>> +
->>>> +  "#size-cells":
->>>> +    const: 0
->>>> +
->>>> +additionalProperties: true
->>>
->>> This cannot be true. Must be false.
->>>
->>>> +
->>>> +required:
->>>> +  - compatible
->>>> +  - reg
->>>> +  - interrupts
->>>
->>> This goes before additionalProperties.
->>>
->>> Missing example: that's a strong NAK and prove that this could not be
->>> even tested.
->>>
->>> Do you see any device schema without example? No. Do not develop things
->>> differently, Apple is not unique, special or exceptional.
->>
->> Krzysztof, it is entirely possible to express this same feedback without
->> being condescending and rude. I'm pretty sure you can do better than this.
+On 11/12/24 21:38, Bjorn Helgaas wrote:
+> On Tue, Nov 12, 2024 at 05:19:24PM +0100, Christian Bruel wrote:
+>> Add driver to configure the STM32MP25 SoC PCIe Gen2 controller based on the
+>> DesignWare PCIe core in endpoint mode.
+>> Uses the common reference clock provided by the host.
 > 
-> Please kindly trim the replies from unnecessary context. It makes it
-> much easier to find new content.
-
-Noted.
- > Instead of patronizing, note that this was just pure observation - this
-> was done entirely than other bindings, which should be taken as an
-> example. Or example-schema should be taken as example... Pointing out
-> issues and inconsistencies is not rude or condescending. Basically now
-> you are condescending people's feedback which further restricts review
-> process allowing comments which you approve.
+>> +++ b/drivers/pci/controller/dwc/Kconfig
 > 
+>> +config PCIE_STM32_EP
+>> +	tristate "STMicroelectronics STM32MP25 PCIe Controller (endpoint mode)"
+>> +	depends on ARCH_STM32 || COMPILE_TEST
+>> +	depends on PCI_ENDPOINT
+>> +	select PCIE_DW_EP
+>> +	help
+>> +	  Enables endpoint support for DesignWare core based PCIe controller in found
+>> +	  in STM32MP25 SoC.
+>> +
+>> +	  This driver can also be built as a module. If so, the module
+>> +	  will be called pcie-stm32-ep.
+> 
+> Move as for the host mode entry.
+> 
+>> +++ b/drivers/pci/controller/dwc/pcie-stm32-ep.c
+> 
+>> +static const struct of_device_id stm32_pcie_ep_of_match[] = {
+>> +	{ .compatible = "st,stm32mp25-pcie-ep" },
+>> +	{},
+>> +};
+> 
+> Move next to stm32_pcie_ep_driver.
+> 
+>> +static void stm32_pcie_ep_init(struct dw_pcie_ep *ep)
+>> +{
+>> +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+>> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+>> +	enum pci_barno bar;
+>> +
+>> +	for (bar = BAR_0; bar <= PCI_STD_NUM_BARS; bar++)
+> 
+> Most users just use "bar = 0".  BAR_0 is 0, but there's no real
+> connection with PCI_STD_NUM_BARS, so I think 0 is probably better.
+> 
+> Looks like this should be "bar < PCI_STD_NUM_BARS"?
 
-No, that was certainly not pure observation. The observation is that the
-schema was inconsistent with other schemas, and was missing an example.
-The way you *expressed* that observation was unnecessarily rude and
-condescending, both in tone and message. Usage of "NAK" is strongly
-confrontational and discouraging to newcomers, and completely
-inappropriate here because the intent of the patch is clearly fine and
-it just needs some style and procedural issues fixed. "Do you ...? No."
-wording is condescending, like you're talking down to a child. The
-gratuitous Apple reference is completely unnecessary, implying we're
-attempting to be a special snowflake in any (non-technically-justified)
-way, never mind that none of us works nor has any professional
-relationship with Apple.
+oops, thanks
 
-Your observation and feedback could have been conveyed much more
-appropriately, kindly, and effectively, such as:
+> 
+>> +		dw_pcie_ep_reset_bar(pci, bar);
+>> +
+>> +	/* Defer Completion Requests until link started */
+> 
+> Not sure what a Completion Request is.  Is this some internal STM or
+> DWC thing?  Or is this related to Request Retry Status completions for
+> config requests?
 
-==
-The schema is missing an example. Examples are required for schemas, as
-they are part of how the schema is tested by the automated tooling.
-Please see other schemas and `example-schema.yaml` for examples on how
-to do this, and `writing-schema.rst` for more information and how to run
-the checks.
-==
+this is sysconf bit maps to the app_req_retry_en Synopsys controller 
+signal. "When app_req_retry_en is asserted, the controller completes 
+incoming configuration requess with a CRS"
 
-- Hector
-
+> 
+>> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+>> +			   STM32MP25_PCIECR_REQ_RETRY_EN,
+>> +			   STM32MP25_PCIECR_REQ_RETRY_EN);
+>> +}
+> 
+>> +static int stm32_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
+>> +				unsigned int type, u16 interrupt_num)
+>> +{
+>> +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+>> +
+>> +	switch (type) {
+>> +	case PCI_IRQ_INTX:
+>> +		return dw_pcie_ep_raise_intx_irq(ep, func_no);
+>> +	case PCI_IRQ_MSI:
+>> +		return dw_pcie_ep_raise_msi_irq(ep, func_no, interrupt_num);
+>> +	default:
+>> +		dev_err(pci->dev, "UNKNOWN IRQ type\n");
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	return 0;
+> 
+> Is the compiler not smart enough to notice that this is unreachable?
+> 
+>> +static void stm32_pcie_perst_deassert(struct dw_pcie *pci)
+>> +{
+>> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+>> +	struct device *dev = pci->dev;
+>> +	struct dw_pcie_ep *ep = &pci->ep;
+>> +	int ret;
+>> +
+>> +	if (stm32_pcie->link_status == STM32_PCIE_EP_LINK_ENABLED) {
+>> +		dev_dbg(pci->dev, "Link is already enabled\n");
+>> +		return;
+>> +	}
+>> +
+>> +	dev_dbg(dev, "PERST de-asserted by host. Starting link training\n");
+>> +
+>> +	ret = pm_runtime_resume_and_get(dev);
+>> +	if (ret < 0) {
+>> +		dev_err(dev, "pm runtime resume failed: %d\n", ret);
+>> +		return;
+>> +	}
+>> +
+>> +	ret = stm32_pcie_enable_resources(stm32_pcie);
+>> +	if (ret) {
+>> +		dev_err(dev, "Failed to enable resources: %d\n", ret);
+>> +		pm_runtime_put_sync(dev);
+>> +		return;
+>> +	}
+>> +
+>> +	ret = dw_pcie_ep_init_registers(ep);
+>> +	if (ret) {
+>> +		dev_err(dev, "Failed to complete initialization: %d\n", ret);
+>> +		stm32_pcie_disable_resources(stm32_pcie);
+>> +		pm_runtime_put_sync(dev);
+>> +		return;
+>> +	}
+>> +
+>> +	pci_epc_init_notify(ep->epc);
+>> +
+>> +	ret = stm32_pcie_enable_link(pci);
+>> +	if (ret) {
+>> +		dev_err(dev, "PCIe Cannot establish link: %d\n", ret);
+>> +		stm32_pcie_disable_resources(stm32_pcie);
+>> +		pm_runtime_put_sync(dev);
+>> +		return;
+>> +	}
+>> +
+>> +	stm32_pcie->link_status = STM32_PCIE_EP_LINK_ENABLED;
+>> +}
+> 
+>> +static int stm32_add_pcie_ep(struct stm32_pcie *stm32_pcie,
+>> +			     struct platform_device *pdev)
+>> +{
+>> +	struct dw_pcie *pci = stm32_pcie->pci;
+>> +	struct dw_pcie_ep *ep = &pci->ep;
+>> +	struct device *dev = &pdev->dev;
+>> +	int ret;
+>> +
+>> +	ret = regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+>> +				 STM32MP25_PCIECR_TYPE_MASK,
+>> +				 STM32MP25_PCIECR_EP);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = pm_runtime_resume_and_get(dev);
+>> +	if (ret < 0) {
+>> +		dev_err(dev, "pm runtime resume failed: %d\n", ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	reset_control_assert(stm32_pcie->rst);
+>> +	reset_control_deassert(stm32_pcie->rst);
+>> +
+>> +	ep->ops = &stm32_pcie_ep_ops;
+>> +
+>> +	ret = dw_pcie_ep_init(ep);
+>> +	if (ret) {
+>> +		dev_err(dev, "failed to initialize ep: %d\n", ret);
+>> +		pm_runtime_put_sync(dev);
+>> +		return ret;
+>> +	}
+>> +
+>> +	ret = stm32_pcie_enable_resources(stm32_pcie);
+>> +	if (ret) {
+>> +		dev_err(dev, "failed to enable resources: %d\n", ret);
+>> +		dw_pcie_ep_deinit(ep);
+>> +		pm_runtime_put_sync(dev);
+>> +		return ret;
+>> +	}
+>> +
+>> +	ret = dw_pcie_ep_init_registers(ep);
+>> +	if (ret) {
+>> +		dev_err(dev, "Failed to initialize DWC endpoint registers\n");
+>> +		stm32_pcie_disable_resources(stm32_pcie);
+>> +		dw_pcie_ep_deinit(ep);
+>> +		pm_runtime_put_sync(dev);
+>> +		return ret;
+>> +	}
+> 
+> Consider gotos for the error cases with a cleanup block at the end.
+> There's a fair bit of repetition there as more things get initialized,
+> and it's error-prone to extend this in the future.
+> 
+> Same applies in stm32_pcie_perst_deassert().
+> 
+>> +	pci_epc_init_notify(ep->epc);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int stm32_pcie_probe(struct platform_device *pdev)
+>> +{
+>> +	struct stm32_pcie *stm32_pcie;
+>> +	struct dw_pcie *dw;
+>> +	struct device *dev = &pdev->dev;
+>> +	int ret;
+>> +
+>> +	stm32_pcie = devm_kzalloc(dev, sizeof(*stm32_pcie), GFP_KERNEL);
+>> +	if (!stm32_pcie)
+>> +		return -ENOMEM;
+>> +
+>> +	dw = devm_kzalloc(dev, sizeof(*dw), GFP_KERNEL);
+>> +	if (!dw)
+>> +		return -ENOMEM;
+> 
+> Add blank line here.
+> 
+>> +	stm32_pcie->pci = dw;
+> 
+>> +static struct platform_driver stm32_pcie_ep_driver = {
+>> +	.probe = stm32_pcie_probe,
+>> +	.remove_new = stm32_pcie_remove,
+> 
+> .remove().
+> 
+>> +	.driver = {
+>> +		.name = "stm32-ep-pcie",
+>> +		.of_match_table = stm32_pcie_ep_of_match,
+>> +	},
+>> +};
 
