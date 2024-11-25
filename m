@@ -4,115 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51CBED3B7E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 07:40:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0171DD3B7E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 07:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mhiI0THbvHUoezO4NczBF99yryboUFqA+Fx/oj+SIJA=; b=jDhuDhKKEcFl9ylbGr37d8re/9
-	jk1HYZvlGniV18iIwZ0o2JX3jcfzNaPmXteYw7GrH/wcWLgJtzEWWEZP6JHEzhkN6x/MKyoZX0Hk1
-	7J/w/3woJI0ZWPT5xiSN9DZEiwbceACCftFDGf48Q6w8ipOSjCP6dvxT6jJ3OgIEpLOpRqQTZmZUq
-	yfKUh83MJXbcyfgI7b1EGuFKNGFvm+9XFPEciUnMu+M6YbPcJ09QkvqebYtcpv/IZjfUZA6XS89UR
-	JPcYM+wKx+b+HmA5Mc2q2I+BYbU0KXpT2kNShsrJo7RSjy48wGB148Hk4sR3TeRyDHcQFb27KbO1k
-	vXjL6cBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LBuk0UVcyQ6/IaH8sVqrQHBouMdvbTSVqVSKxZCS0SQ=; b=NsXpzvSufhVT6lZsZaNLt7SaTm
+	FdYSNnsDDYscxuMHcluk26KU3TmrS9uM3tyfFBHQU76QL2Kwbv9ODzFhdtiQ9RBVGTdCDr/Yr425Y
+	OVwGiZCBGNs0U5gKdZ5ENttHUgNpXhTNE7DVuAttH678FiivS2UurEaviEpTDWloC3inEzQNRt+8m
+	PtSITFoMv9cMmp2YnmYazLRt0y8gwq6WnKtvDjp4QSc+Lawu0q+qPdej+5WlhnFnnyfU0nNMlr48r
+	GTjS69kby23blHsZtYU2SAyOPUh2XgY55jGuIrLwkbaY0YTi1jy3Q8PwaGyf8l+ywDGVni08XGXIQ
+	F4kV5WBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFThe-00000007GYp-2ega;
-	Mon, 25 Nov 2024 07:40:14 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tFTo2-00000007GyV-2nVh;
+	Mon, 25 Nov 2024 07:46:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFTgh-00000007GMV-0Orw
+	id 1tFTn5-00000007Gth-1Gf0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 07:39:16 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AP7W3Q4011503;
-	Mon, 25 Nov 2024 07:39:02 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	mhiI0THbvHUoezO4NczBF99yryboUFqA+Fx/oj+SIJA=; b=LRizIbrDmbvLK26q
-	IJr9BOxlf/wLEVIIwXd3UAd/aXQXPY+b/hq9d1mBfzkd8zmSkh8s4JYtJxcLbZ9g
-	mYlmbQkCLkf2amcikViEhav+oCnwrDYg+iiJPiKisuXNYR8WBogrjg8vu5gdbEVj
-	43Db+uJ7+YQz+Q5NMETeh98dC1xBW6+FdKLgwqz5eEoCFHZwVBG42z72H2X/mqyb
-	iJKkSG0HGI3DrjnnGFuJE8Xw23LVwS3PyANVxfJT7NmJ/1DTKnZIKOxvfFditdzM
-	AFhvKf2WgwCjyP7forb+UBsXOx/bMAH9YktlUznMWLYfW94+bsk7PJmmde+DjKIs
-	TyQLAw==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 434mx700fx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 25 Nov 2024 07:39:02 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AP7d11T003539
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 25 Nov 2024 07:39:01 GMT
-Received: from [10.64.16.151] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 24 Nov
- 2024 23:38:54 -0800
-Message-ID: <520419eb-cedf-465b-a14a-12d97ab257a0@quicinc.com>
-Date: Mon, 25 Nov 2024 15:38:51 +0800
+	Mon, 25 Nov 2024 07:45:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E34EA5C54E6;
+	Mon, 25 Nov 2024 07:45:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A65BC4CECE;
+	Mon, 25 Nov 2024 07:45:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732520749;
+	bh=QkmKRQufxVbtOJlGOhCoU0r8+2yxxJyk9PPJcIydGG4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MYFrveydLiYRWlAIyh8GYlL0YM9Q896zpfUzgrP0F9/Go8fZEYiUzoU56kg8PVMbI
+	 c0BolaJeNa1960vBUIJdWNczsAwuU5LjEenBa9nIm0/SHrtDlUGMjs0ASf9Y2QWrbi
+	 odnBkyNsXl3TUXYUj0aXwkubOMoLldrvbsHk65USwfjW0KoIiZc/H739irmyq9cjsK
+	 Jp/0N6/JvyJK7ut2EnOqctMa9QNnFqxpIK8EClS/Ro9X7CCRi1BX8TzQJx6jfDhA4b
+	 Es3cOdNVgtyzREvIT7yFzdZmmMVMlyl54De87aPPHr5dcZwxTVVMwuz9KvqfDHN1mE
+	 CY9x0i+yy68Ag==
+Date: Mon, 25 Nov 2024 08:45:46 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/5] dt-bindgins: display: Add Apple pre-DCP display
+ controller bindings
+Message-ID: <ksdp54qj55v7igvvcshl6y2cxpmqy7rlsh4xsixpptjn7s7wlu@76ejtq6ytvbp>
+References: <20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com>
+ <20241124-adpdrm-v1-1-3191d8e6e49a@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 9/9] arm64: dts: qcom: Add display support for QCS615
- RIDE board
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-CC: Rob Clark <robdclark@gmail.com>,
-        Abhinav Kumar
-	<quic_abhinavk@quicinc.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten
-	<marijn.suijten@somainline.org>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Krishna
- Manikandan" <quic_mkrishn@quicinc.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        "Catalin
- Marinas" <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Li Liu
-	<quic_lliu6@quicinc.com>,
-        Xiangxu Yin <quic_xiangxuy@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
- <20241122-add-display-support-for-qcs615-platform-v3-9-35252e3a51fe@quicinc.com>
- <azdmcs7uafw3n6cqbq4ei66oybzhtyvdyz2xl4wtaf3u5zextb@vdhbs6wnbeg4>
-Content-Language: en-US
-From: fange zhang <quic_fangez@quicinc.com>
-In-Reply-To: <azdmcs7uafw3n6cqbq4ei66oybzhtyvdyz2xl4wtaf3u5zextb@vdhbs6wnbeg4>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: LtXWYAU7mSB5PXQCwLcitGJoSMnov67f
-X-Proofpoint-ORIG-GUID: LtXWYAU7mSB5PXQCwLcitGJoSMnov67f
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 impostorscore=0
- mlxlogscore=999 malwarescore=0 adultscore=0 spamscore=0 mlxscore=0
- bulkscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411250064
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241124-adpdrm-v1-1-3191d8e6e49a@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_233915_258200_E35A665F 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20241124_234551_433206_223F3F92 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,116 +79,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Nov 24, 2024 at 11:29:24PM +0100, Sasha Finkelstein wrote:
+> Add bindings for a secondary display controller present on certain
+> Apple laptops.
+> 
+> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> ---
+>  .../bindings/display/apple,display-pipe.yaml       | 59 ++++++++++++++++++++++
+>  .../bindings/display/panel/apple,summit.yaml       | 24 +++++++++
+>  2 files changed, 83 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/display/apple,display-pipe.yaml b/Documentation/devicetree/bindings/display/apple,display-pipe.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..bd25ddc6e09dd636c0221c854e594113f6011866
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/apple,display-pipe.yaml
+
+No, use fallback compatible as filename.
+
+> @@ -0,0 +1,59 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/apple,display-pipe.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Apple pre-DCP display controller.
+> +
+> +maintainers:
+> +  - asahi@lists.linux.dev
+> +  - Sasha Finkelstein <fnkl.kernel@gmail.com>
+> +
+> +description: |
+
+Drop |
+
+> +  A secondary display controller used to drive the "touchbar" on certain
+> +  Apple laptops.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +        - "apple,t8112-display-pipe"
+> +        - "apple,t8103-display-pipe"
+> +      - const: "apple,h7-display-pipe"
 
 
-On 2024/11/22 18:22, Dmitry Baryshkov wrote:
-> On Fri, Nov 22, 2024 at 05:56:52PM +0800, Fange Zhang wrote:
->> From: Li Liu <quic_lliu6@quicinc.com>
->>
->> Add display MDSS and DSI configuration for QCS615 RIDE board.
->> QCS615 has a DP port, and DP support will be added in a later patch.
->>
->> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
->> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
->> ---
->>   arch/arm64/boot/dts/qcom/qcs615-ride.dts | 76 ++++++++++++++++++++++++++++++++
->>   1 file changed, 76 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/qcs615-ride.dts b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
->> index ee6cab3924a6d71f29934a8debba3a832882abdd..cc7dadc411ab79b9e60ccb15eaff84ea5f997c4c 100644
->> --- a/arch/arm64/boot/dts/qcom/qcs615-ride.dts
->> +++ b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
->> @@ -202,6 +202,82 @@ &gcc {
->>   		 <&sleep_clk>;
->>   };
->>   
->> +&i2c2 {
->> +	clock-frequency = <400000>;
->> +	status = "okay";
->> +
->> +	ioexp: gpio@3e {
->> +		compatible = "semtech,sx1509q";
->> +		reg = <0x3e>;
->> +		interrupt-parent = <&tlmm>;
->> +		interrupts = <58 0>;
->> +		gpio-controller;
->> +		#gpio-cells = <2>;
->> +		interrupt-controller;
->> +		#interrupt-cells = <2>;
->> +		semtech,probe-reset;
->> +	};
->> +
->> +	i2c-mux@77 {
->> +		compatible = "nxp,pca9542";
->> +		reg = <0x77>;
->> +		#address-cells = <1>;
->> +		#size-cells = <0>;
->> +		i2c@0 {
->> +			reg = <0>;
->> +			#address-cells = <1>;
->> +			#size-cells = <0>;
->> +
->> +			anx7625@58 {
->> +				compatible = "analogix,anx7625";
->> +				reg = <0x58>;
->> +				interrupt-parent = <&ioexp>;
->> +				interrupts = <0 0>;
->> +				enable-gpios = <&tlmm 4 GPIO_ACTIVE_HIGH>;
->> +				reset-gpios = <&tlmm 5 GPIO_ACTIVE_HIGH>;
->> +				wakeup-source;
->> +
->> +				ports {
->> +					#address-cells = <1>;
->> +					#size-cells = <0>;
->> +
->> +					port@0 {
->> +						reg = <0>;
->> +						anx_7625_in: endpoint {
->> +							remote-endpoint = <&mdss_dsi0_out>;
->> +						};
->> +					};
->> +
->> +					port@1 {
->> +						reg = <1>;
->> +						anx_7625_out: endpoint {
->> +						};
-> 
-> Where is it connected? Is it DP port? USB-C? eDP?
-yes, it's DP port
-> 
->> +					};
->> +				};
->> +			};
->> +		};
->> +	};
->> +};
->> +
->> +&mdss {
->> +	status = "okay";
->> +};
->> +
->> +&mdss_dsi0 {
->> +	vdda-supply = <&vreg_l11a>;
->> +	status = "okay";
->> +};
->> +
->> +&mdss_dsi0_out {
->> +	remote-endpoint = <&anx_7625_in>;
->> +	data-lanes = <0 1 2 3>;
->> +};
->> +
->> +&mdss_dsi0_phy {
->> +	vdds-supply = <&vreg_l5a>;
->> +	status = "okay";
->> +};
->> +
->>   &qupv3_id_0 {
->>   	status = "okay";
->>   };
->>
->> -- 
->> 2.34.1
->>
-> 
+This wasn't tested... Drop all quotes. Do you see any file with quotes?
+Why doing things entirely different than everyone else?
+
+> +
+> +  reg:
+> +    minItems: 3
+
+Drop
+
+> +    maxItems: 3
+> +
+> +  reg-names:
+> +    items:
+> +      - const: be
+> +      - const: fe
+> +      - const: mipi
+> +
+> +  power-domains: true
+
+List the items instead or maxItems: 1.
+
+> +
+> +  interrupts:
+> +    minItems: 2
+
+Drop
+
+> +    maxItems: 2
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: be
+> +      - const: fe
+> +
+> +  iommus: true
+
+
+maxItems: 1
+
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 0
+> +
+> +additionalProperties: true
+
+This cannot be true. Must be false.
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+
+This goes before additionalProperties.
+
+Missing example: that's a strong NAK and prove that this could not be
+even tested.
+
+Do you see any device schema without example? No. Do not develop things
+differently, Apple is not unique, special or exceptional.
+
+
+> diff --git a/Documentation/devicetree/bindings/display/panel/apple,summit.yaml b/Documentation/devicetree/bindings/display/panel/apple,summit.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..dc281c1f52c1ed07cc2f7f804dcfd2f3b4239d89
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/panel/apple,summit.yaml
+> @@ -0,0 +1,24 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/panel/apple,summit.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Apple "Summit" display panel.
+> +
+> +maintainers:
+> +  - asahi@lists.linux.dev
+> +  - Sasha Finkelstein <fnkl.kernel@gmail.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: apple,summit
+
+No, too generic. Panels need much more properties, this is heavily
+incomplete. See other panel bindings.
+
+Best regards,
+Krzysztof
 
 
