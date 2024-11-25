@@ -4,70 +4,217 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A204D3B7F5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 09:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E2DD3B7F6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 09:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xt7lxWobtYtfeD0AtPJILQ1+/TOjOFN0s7q1AshPOao=; b=xXALY9IKmTVhsuXdQikBszxkK3
-	oC5lJn9Wi0hpxV40Y/MTI0NcVVcHW0Lsg1BbK0XjK4P405253xtHrElcYlmJdkVSnf1/N2R7t9i/T
-	M0bkiLsEFocj3PT3EdorEYX4crUbiWq7ZTmJ+BnColgrONctw85yK9i+bEoQjUzJncF5gElTt8fyi
-	j66ASWOfKBPbG0LDOcdx0zJpFOTLFjl9iydECrn7AC4KtcfOQujBbXiKP5zkZSAnqTF8YEbEswRza
-	fNTs6dgZBPzFLxd7DOklTTPzkHoYvl0s+JRamGG7YBpGzo65BrmhatL/VKjyfh88rls7Aais6OBye
-	JKhAdqzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YwjUMkjtZ0gTceAbZrLBJHBVnXo5uozJrnieSVSbkYo=; b=jl2p6mw9CZkm8Jbw7dHYpf8tY/
+	sXGxaq5wHagZoc7vg/BaJJyxV+mAi0qulWnLuOlV2ngm64rv9S92GO4iUhjigN8J9mfb4wVHmlFTj
+	WacaGdgxVCmARvDb7wSfpvhPjndeqQsrm1zhnKYBv9sXyhEL+3zUSjd8gP+SP8dPIdeuR2hW8LDLF
+	wZbHZmi2sjPm4VIyuZLHHMrjCP1i7LCP4OolHQunNZp9k/Psm2sT05J5auPVbKP+4eSn+ICR94+4w
+	vE2kAJBUMhYUz7fYkS1MOoh5CLwXWYjVOptnwRp65M0F1CiUaaN+pnhiIx7BErANA+t9k5rYyYa6b
+	BOG0QooQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFVU6-00000007a9E-3JOv;
-	Mon, 25 Nov 2024 09:34:22 +0000
-Received: from mo-csw1121.securemx.jp ([210.130.202.132] helo=mo-csw.securemx.jp)
+	id 1tFVV2-00000007aWa-1nBK;
+	Mon, 25 Nov 2024 09:35:20 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFVNf-00000007Ymg-0IBy
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 09:27:44 +0000
-DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=toshiba.co.jp;h=From:To:Cc
-	:Subject:Date:Message-Id:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding;i=yuji2.ishikawa@toshiba.co.jp;s=key2.smx;t=
-	1732526839;x=1733736439;bh=uZL+oCJiQQb+B0av6XL1UsHZSXfCpI5C0+fq7+c/Cd4=;b=hOo
-	I40JOjmNHvy1ck871ImK9+MJr43G0d17imXZY9FraHtYGpTsrNd+EwZ9kTl4UQ4OA+hnx4n7yAbBm
-	OpACrxaSDdFPJVeL6DnvmoYQkZD2UWaC5QXHe3f6RrTJsqug1FT/1cilkKiadV8geu+FQTJioBeCr
-	vA5/6UczKjTvHI42ye4uosy7mPHQWyo7Pin/TlO2yWFURuir5Oh/EvQCaIliiK4dyNrAI2g1xVpHU
-	MbBQ8UG8VMJr+e4NnetO12Wo+AHh1b7wqDzcRWzYPQ5iP1UCNeeagoeqMNywwlrPjgyBAJdn99CkP
-	ikWBiab0u+E5yOc9rVuzLssaGr2ElCQ==;
-Received: by mo-csw.securemx.jp (mx-mo-csw1121) id 4AP9RHpW099343; Mon, 25 Nov 2024 18:27:18 +0900
-X-Iguazu-Qid: 2rWgFNitjKYKO6hMyT
-X-Iguazu-QSIG: v=2; s=0; t=1732526837; q=2rWgFNitjKYKO6hMyT; m=TZXSZwOc5QcMMvGbsQzManldV9UpbFjv5/MHVnIvXaU=
-Received: from imx12-a.toshiba.co.jp ([38.106.60.135])
-	by relay.securemx.jp (mx-mr1123) id 4AP9RE95108739
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 25 Nov 2024 18:27:15 +0900
-X-SA-MID: 32872675
-From: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Sakari Ailus <sakari.ailus@linux.intel.com>,
-        Hans Verkuil <hverkuil-cisco@xs4all.nl>,
-        Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
-        Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-Subject: [PATCH v12 4/8] media: platform: visconti: Add Toshiba Visconti CSI-2 Receiver driver
-Date: Mon, 25 Nov 2024 18:21:42 +0900
-X-TSB-HOP2: ON
-Message-Id: <20241125092146.1561901-5-yuji2.ishikawa@toshiba.co.jp>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241125092146.1561901-1-yuji2.ishikawa@toshiba.co.jp>
-References: <20241125092146.1561901-1-yuji2.ishikawa@toshiba.co.jp>
+	id 1tFVQX-00000007ZGQ-0Eaj;
+	Mon, 25 Nov 2024 09:30:42 +0000
+X-UUID: ed6facfeab0f11ef9048ed6ed365623b-20241125
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=YwjUMkjtZ0gTceAbZrLBJHBVnXo5uozJrnieSVSbkYo=;
+	b=OHJJHuwhh3eNTvxPO1mQJTLZ0ywtnVqt3NwEg4e6UMGYPVNSIVQqpQc+pxwYGydTRSjNh7jezR9dKSsLXXXPuVUxa0gP17C8OJtEn/2y8DEzTZlZGlD0fRskISPcHtDpbPCS/P3S0aCl74cw0jiq3SK9lB1hiMduBqj+YtMsezs=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.44,REQID:f11e8e1f-85cb-45ed-bfef-3e330f1a72a8,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:464815b,CLOUDID:01355ab9-596a-4e31-81f2-cae532fa1b81,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0,EDM
+	:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
+	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: ed6facfeab0f11ef9048ed6ed365623b-20241125
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
+	(envelope-from <ck.hu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 610807445; Mon, 25 Nov 2024 02:30:36 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Mon, 25 Nov 2024 17:30:32 +0800
+Received: from APC01-PSA-obe.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Mon, 25 Nov 2024 17:30:32 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gPzocdVZ/cZoNHL9DAHJNTA9rEoJ7atL0As433riGpC8hxoez/PnDohg8fBA6i418SKD3oI7YwM1U4miv7sDxN1OEnNvJRELkjJJXRsFvWnIDtaUaeJin5TdhC3mT0xCxXQ4YtkIoDiPTPh3bP3X1ZNoQXTJFAxtUNij/HKFaTHemfedw8W2HxYhfFJqAbsJSyJwL66ltwn+CpUL5YP5DJNEPmG/HZnOfGBi9IaMlxpD2rkWt2zNnbHul8+5p+4g0N7wjWhpKT5AFzQ4p96Sm6ZQ0sLk17zwL/gYjwnNLHyd9GIxDPil64QQ+n8L40MFlFXmE02n2fmeCyvO4033IA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YwjUMkjtZ0gTceAbZrLBJHBVnXo5uozJrnieSVSbkYo=;
+ b=eOfFsepfe0J9N9Sije2e52ZM38ZwOdEpDD82hdyYN7GMIN7iOdtjy9dyu+sXd6s1ktYwr5WX05oU4Hul+LOoiMZ1WVA9Pa6cPDLj6OPiKnNZeWjIrXgwB+o7BCxrHhPr3Qj78+0iQpJdqGaoFWXNfL1R892mfx95C8uY2hAf4sLLPVN2RYFa0ngxuB3tdk3VvyRoK78xAPXGVyAXAzA3STrzbV/UiN1EqhXZk10A4VPy8Qb+qG1tUB+fcCmqNcdkWdcQUQrtFyvfBESJFL6XtyT/bXqEPRFtMYVS36YHnetGjrag2MnS0mV+2gr0+zvhIw11STuhe/XP2wZ5J2W1Wg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YwjUMkjtZ0gTceAbZrLBJHBVnXo5uozJrnieSVSbkYo=;
+ b=kSBdXWiWLOwWDJTCANDqJpVmAVP6YS/606q3sbM2BNPlJ8EaZNsm9aLAI6rr869xKBjqQpCb/8Z4xZ+/XmWvBMU2v94u75R9nYubmKVn70j+CBnKBXUOXy6zV6Y9eEwpcYHN73+5ej6lAzhQuLpBhDZbyhVdx0LtuqxtGmwSlP4=
+Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
+ by TYZPR03MB8658.apcprd03.prod.outlook.com (2603:1096:405:ae::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.18; Mon, 25 Nov
+ 2024 09:30:30 +0000
+Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
+ ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
+ ([fe80::9ce6:1e85:c4a7:2a54%3]) with mapi id 15.20.8182.018; Mon, 25 Nov 2024
+ 09:30:30 +0000
+From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+To: "mchehab@kernel.org" <mchehab@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+	=?utf-8?B?QW5keSBIc2llaCAo6Kyd5pm655qTKQ==?= <Andy.Hsieh@mediatek.com>,
+	Julien Stephan <jstephan@baylibre.com>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "laurent.pinchart@ideasonboard.com"
+	<laurent.pinchart@ideasonboard.com>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"paul.elder@ideasonboard.com" <paul.elder@ideasonboard.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "fsylvestre@baylibre.com"
+	<fsylvestre@baylibre.com>, "pnguyen@baylibre.com" <pnguyen@baylibre.com>
+Subject: Re: [PATCH v7 4/5] media: platform: mediatek: isp: add mediatek
+ ISP3.0 camsv
+Thread-Topic: [PATCH v7 4/5] media: platform: mediatek: isp: add mediatek
+ ISP3.0 camsv
+Thread-Index: AQHbO/Orh37t76qSsU6WSMvGDnK0HLLHwW2A
+Date: Mon, 25 Nov 2024 09:30:30 +0000
+Message-ID: <875ddc5620c64e36e10e2bc79fcb44fc25647234.camel@mediatek.com>
+References: <20241121-add-mtk-isp-3-0-support-v7-0-b04dc9610619@baylibre.com>
+	 <20241121-add-mtk-isp-3-0-support-v7-4-b04dc9610619@baylibre.com>
+In-Reply-To: <20241121-add-mtk-isp-3-0-support-v7-4-b04dc9610619@baylibre.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|TYZPR03MB8658:EE_
+x-ms-office365-filtering-correlation-id: eb8bb18c-4540-453c-76a9-08dd0d33cdea
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?ZkpnVUpYd0svUEU3eXlFbFdzVzduM3pBcnhybzVzck9lOFBJaWwzdVRZbXJT?=
+ =?utf-8?B?dnRTMkk3bE0vSFV3dDdtNDJDSnZUU01qTlp5M3pHV3BKRFFubmUzVnljcHVn?=
+ =?utf-8?B?MWgrVzNscHlhQmU0eFltam80dmVNemdaL2ZtRVVXWTdmWkhlMzIyY2RjMTJ2?=
+ =?utf-8?B?bi9zUStqdUlONzBJUEdOalZGS3ZOZ3R0dngwU0ljdldsVkVzVFRvV1NOeWxC?=
+ =?utf-8?B?enV4amZqZ01kZHlWemVLWEJsRU5sNHg5elZ0Rlp0VEtUQjl2dlhlUGp5VE9D?=
+ =?utf-8?B?c1hXWklqdis4d0dQUUQrVXFDSzgwWTl2THlQcHFhVFJHMWgrakNjVzJWdXp3?=
+ =?utf-8?B?V0lqbWQyY3dqSGloUUs4MURlSDhEOXhuSWxsZnJla05yV0dpZ2VEeHdUSkxC?=
+ =?utf-8?B?RzRwc1JxK0JzRG1XQkU0YkJIMVoyMjBxbmlZMlFSZ2l2VGQ2UUl2V0ZGRjV6?=
+ =?utf-8?B?Q29xdUpYV2tsUE9icGhsUWpQYjFEWm9hMmVRTmMvR3FvZDkzS0h4Y1YrYk1U?=
+ =?utf-8?B?MnkrSHFDZG1iVXVLNlJIOU9tZnNmSjQ3VWdUQ1BqRDMzaXlFejhmdFUxbjN0?=
+ =?utf-8?B?MHVTU0gyOHA5SytSVU81OHRPR2dSRE1rSzZnbHh3YTFleXE4a09neWZIZURZ?=
+ =?utf-8?B?cFJLSENueTVmTWR4QkNRTkpQMjZuRTlsQTR3RGlhWk02UmxnL2ZNaGJLNkJR?=
+ =?utf-8?B?cVRjcXVCSUFjVVdNb21hNE1oM3p1NlMrK2RibGpLTzZweERLYWZpb2ZUMFp5?=
+ =?utf-8?B?TzVPSDFoTnFHZlorU1UzK3h2U001b0l5ZkhPRTZVdDdPMGJVNkJrdjc2bFZM?=
+ =?utf-8?B?UkFpY1Zkd0VWdFp3dWUyNFVDNHZXMVdqVFRoK2pTRDh3L21OWW1VNmZoWHFN?=
+ =?utf-8?B?eDBKSER2akZVbVUxSU1kVmNBK3dDTFNTczJFVm1SVUVMb1JyQXRpbDFjTGZY?=
+ =?utf-8?B?Ym4vK2hTTXB5TWozano1T3pmeGttd0lSZERqeGF5cTFHTm82YnNSZ3hadVRF?=
+ =?utf-8?B?SnRUekxkY0tnNmhDRkluL1NCOVZVZm9GSEtwSUROSU4wN2l6dllMc1J4eXhw?=
+ =?utf-8?B?Z3R3blU5V0JlS2dqMEVDUzh2OEQ5T2tQNHRhMmo2VE9QcjRxcFJDNVE1ZDhy?=
+ =?utf-8?B?dlBWbzBuVXIwMHEyeDZOWU1EVzFRZ3kzNStxY0hXSHZPYXVvYjlSVzJ6SGh6?=
+ =?utf-8?B?UFVRQWMwQkJmTWJOV3JtZDJqUEM3L01LSlVHckVZblhQdFFUWCtQaVJlTlVv?=
+ =?utf-8?B?Zjc0WEw5Ymg5SE5VWlpza2xnUmljZ3Bvb3RhMjNwTElqVk9Hek10cUVIQzNU?=
+ =?utf-8?B?OXhIdW1oaTc1RjBySVFTRmVUb3M4TWZVL0hydmQ5OWo4a2dhT2pTeW03MEVr?=
+ =?utf-8?B?dTZESDdINjJBUVFtVzR2RysyRGkyUDR1a1lHTmZpOURKUys3cDl4bTNKVi9h?=
+ =?utf-8?B?ZTFpVlYvc0NLeEFOVDNpeTZ3MFFNWW9wRXpjdDdjTUI4bUNRRVo5QmtLa3dJ?=
+ =?utf-8?B?bXp0NTNuZnBNN1JPeWpOMHFQVlpWYVRkWDdUSUtzeFBweUw2M0FUTXJWSjcx?=
+ =?utf-8?B?VEZ0UXBVOXpsZEk5QkhBVCtDTzRQN1BieEVwWFdyZDhYSzgzU05kYkJiUHU2?=
+ =?utf-8?B?OWdJaEdFUmhHQjdYOHYxbldRaFNvaHgxejFxc1Axb2pMM241d0xRNE1DMHFr?=
+ =?utf-8?B?TVFubzU1ZlJHb3p5c0V5MXZsSjFLNlpQRDRPNnRETjZnUDJMMm9raldHVGYw?=
+ =?utf-8?B?OGZwRG45REhHN2gybUJYOExuWHJOTmpvUzltT0xWYjhkWlVHcXIvZ21CMWpX?=
+ =?utf-8?B?VTVSNm1takhwR2NVdWRNUWdOOVNLZVdpRTVIK2daREQ3c3FhaXNpb2tjOHdw?=
+ =?utf-8?B?NU1za2l1blppVGlKL294ZE1ZekpiVlRRM1IxUHE1STQrWlE9PQ==?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZENaNkJzY2IwMm9sWEROTDArbHVnWDBJQXpRaXF1OXFXZFF6K1REcWN4NmRn?=
+ =?utf-8?B?TkRqNzRkWHdjN3RZN3lSZUZndlQxdWpQZW1McEt3QmVQRkp0TmY4dkN3d2Jx?=
+ =?utf-8?B?Tzd2OVBDeG1oZVljRWRZeW5NWlVHckpXcUdrZDRCdm52Vk1vckpObmkrYjdv?=
+ =?utf-8?B?a3NWWmpTbldMVjhTUnliN29QYWlNY0laVkd1NmIzeEdiRUVMQTZmSE1nTWRX?=
+ =?utf-8?B?VDJmQXc5c1Q3a3dDbStTZWNhcGVObzZVcm9nSGlaQ3lpWUVKTlo1ZjV2MDJr?=
+ =?utf-8?B?dUVYMG1Edm1uUGFMMDUydWM5Z3cwZVFWbEptWG9jdE9UMmNHMVhuUVRNaFRS?=
+ =?utf-8?B?cTBZaitxcmpMUzNzVktudkZaeWhLNnVDdEZxZXhWb3V0empaNjBDTFd5S2d4?=
+ =?utf-8?B?ZzJoWWtYaExaU2pCNzd1aHNSOGdmemZlY2FSb2dXTlIzMVZDOU1Md3ZHNjNQ?=
+ =?utf-8?B?T0xHUHhSVHNlUUlLRTExcklYcTFrRThnSkJTZkNOWldwWTdVTEo1ZnBqTjIv?=
+ =?utf-8?B?d3g2TjN3a0xXanJXOXYwWnh1TnJqWk4rbUxtM3F0eGRiUTBwc2t4a05Jbzlu?=
+ =?utf-8?B?U2hsQThJOXdDZVhBSFRna1ovbUJPemxDc2xOR3kvOGFnRTcwRnUvN3F6ZTla?=
+ =?utf-8?B?ZllabUV0c1NFWVdlMVhCaXRTYzMyN1QzQTFJTW1UQkVqcWYwY2RqeXNVMnYy?=
+ =?utf-8?B?a3JBN2htdDNMR3cwWXZjVmI3Y0pDbHJHZHVmN2psOVBWbUprY2MvMUpHR0lo?=
+ =?utf-8?B?d0NUKzJCWjVsTjZQWllNVkhlRG5PS3cxQjAxQnMyVDQza3pnclhjNklXZXNQ?=
+ =?utf-8?B?SG94a3NGSzBxZDExeDNIVzRLbWVDMURteW5UY2hkMElRV2RNaW9qVFgxTnVK?=
+ =?utf-8?B?TEx3WTZCS3BuSVhkeVorM2hwR3ExT3hWUDJteG91SUxJRDRiZzRZU0Ixdjh3?=
+ =?utf-8?B?VmR5UnlGWDd2WU5yaCtPWkFwREN3WHVwdnJ4TDFSYkdqaTFTTFFlRTlLODVu?=
+ =?utf-8?B?Ylllc0NBTjNUbFRYOC9FdVVQMFJBTllaczVwbEdDYkZYY1RSVUZ3UTV6eVF0?=
+ =?utf-8?B?RWQxeGpDaWZjQkQ1M0hFU1lWTHhENTVnR1BKbGc2bE9xbXR2WWFKUFdXMXFF?=
+ =?utf-8?B?b2ZobkJhb29WTjhOQzgxZU9wRHcxQkU0aU9xUWVGby9ESE1yZXJna2NrQzRD?=
+ =?utf-8?B?MzdaelE4VmJIMTgyVG8weUFuQjV6bGl2dS80RVFnWmVvSlRLbm5IUU9Fa1pF?=
+ =?utf-8?B?aXk3NTlpMW4vS05hdjdHSmdDWVJXMVMrZ1dDbHNRcDVKbDYrd1YrWWI5NENP?=
+ =?utf-8?B?dDlUREF2UWpCNzR1U3ZXV3JRY0NkUHF4azlsS2Zkd2lnbG1sdHhKNzd0eWx5?=
+ =?utf-8?B?Ym1GN2dRZ1JXUnk5VGtqZCt3TWhDNEZ2VG82c01qYW1Tc2s3ZFpFYWQxNW83?=
+ =?utf-8?B?TEdIRlhGdTYwZjFJcVFIcFJYZ1U3MDcvREdZeGtXbWI4UjFwbEprdkRiby9H?=
+ =?utf-8?B?S3o3UUpWMkV4ZFVKUmxCU2pJRWd6WUNXeUJPMVVvZzBCUHdORHl5cjdTS2cz?=
+ =?utf-8?B?aytCcnJZZGtVV2NnU2JKVTQ3ZE5Dc3loeTZQMDBxVU9pZzVEczc4MUtzUHRa?=
+ =?utf-8?B?Uzc2RVJud0Rna0RCUTgwZ2w4SVZTOXNCTDVrWFlYM201cys2Yy9YRUU2aXJP?=
+ =?utf-8?B?MTZOdStqQ0pTQXFOT01TWFd2YitWc3FYdDl0anp2OUtKb3hRZDRBaHJ0UW1S?=
+ =?utf-8?B?TGNaOUh4NmtpaFZZUFNSRU9rNUFQVE5tOGVlRUh0T3dtMnhPTC85TVRiZXJl?=
+ =?utf-8?B?dnNRZVpSTjZFRUZHZTFlMURKN0d1VE8xT0NGWHhtT0NKSDJZM2prK2FYN0Zl?=
+ =?utf-8?B?a0w4ZnVGdTlnOHR4THlxUzN2bFF3MUhxVVZHazMwN0JNRXNsa1EwaHdrRVh6?=
+ =?utf-8?B?aE1nQUJGeG1zS1NGZHJnMFBOajZOSEtkaHFvMHgyQldXaEc3bVJsYit0NUtj?=
+ =?utf-8?B?ak9SMlBtV1ZCeDMwODRIM25rZldGeXFyOE1IRVFlM2pFVHBPNmhvTEJJMHVW?=
+ =?utf-8?B?QjA4SysrY1pKaUtzc0RoUGJ6YVI5dXVYZHQ5Zk81emY1OXFJd0psUnlKMEJ2?=
+ =?utf-8?Q?Wwo5ZHxZVtPZHGcf/K3YY9X2u?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <CF5EED1E31FEA24793FBB92F2773091E@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eb8bb18c-4540-453c-76a9-08dd0d33cdea
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2024 09:30:30.5038
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: LuL2F/I596c39qPTLpazzmJKWMxGNaKGSsEvMxl2Scr7QnDAlwpcvn0kdjrezK01k+DTSYdNS0ddW3Uwu+CQpg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB8658
+X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-AS-Result: No-10--14.640000-8.000000
+X-TMASE-MatchedRID: pBwXUM+nCwsOwH4pD14DsPHkpkyUphL9meN8m2FdGic3xO2R3boBWFbu
+	qIY+/skQkABPgKBt/0r/XD0CNJ3fxO4dcT3ZaTocyYHhs0mgDoxyETzgIO4sasaQTVtPXXNMUal
+	WGtrKS6Ti8zVgXoAltj2Xsf5MVCB1t7DW3B48kkHdB/CxWTRRu25FeHtsUoHucjMMeqDrOW+ypu
+	LhtFASVVccEbLWRttpxAAtV6ZE5+xLhb8xGEnVfg==
+X-TM-AS-User-Approved-Sender: No
+X-TM-AS-User-Blocked-Sender: No
+X-TMASE-Result: 10--14.640000-8.000000
+X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-SNTS-SMTP: DF1B4EE03CADBCAFFC2751144A41F71A1A52F35C9FB2643E3F61C81A47391E492000:8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_012743_356618_3F7D3036 
-X-CRM114-Status: GOOD (  24.06  )
+X-CRM114-CacheID: sfid-20241125_013041_114499_6BE6EE83 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,909 +229,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support to MIPI CSI-2 Receiver on Toshiba Visconti ARM SoCs.
-This driver is used with Visconti Video Input Interface driver.
-
-Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
----
-Changelog v12:
-- Separate CSI2RX driver and made it independent driver
-- viif_csi2rx subdevice driver (in v11 patch) was removed.
-- dictionary order at Kconfig and Makefile
-
- drivers/media/platform/Kconfig                |   1 +
- drivers/media/platform/Makefile               |   1 +
- drivers/media/platform/toshiba/Kconfig        |   6 +
- drivers/media/platform/toshiba/Makefile       |   2 +
- .../media/platform/toshiba/visconti/Kconfig   |  16 +
- .../media/platform/toshiba/visconti/Makefile  |   8 +
- .../platform/toshiba/visconti/csi2rx_drv.c    | 791 ++++++++++++++++++
- 7 files changed, 825 insertions(+)
- create mode 100644 drivers/media/platform/toshiba/Kconfig
- create mode 100644 drivers/media/platform/toshiba/Makefile
- create mode 100644 drivers/media/platform/toshiba/visconti/Kconfig
- create mode 100644 drivers/media/platform/toshiba/visconti/Makefile
- create mode 100644 drivers/media/platform/toshiba/visconti/csi2rx_drv.c
-
-diff --git a/drivers/media/platform/Kconfig b/drivers/media/platform/Kconfig
-index 85d2627776b6..761b15b07b90 100644
---- a/drivers/media/platform/Kconfig
-+++ b/drivers/media/platform/Kconfig
-@@ -86,6 +86,7 @@ source "drivers/media/platform/samsung/Kconfig"
- source "drivers/media/platform/st/Kconfig"
- source "drivers/media/platform/sunxi/Kconfig"
- source "drivers/media/platform/ti/Kconfig"
-+source "drivers/media/platform/toshiba/Kconfig"
- source "drivers/media/platform/verisilicon/Kconfig"
- source "drivers/media/platform/via/Kconfig"
- source "drivers/media/platform/xilinx/Kconfig"
-diff --git a/drivers/media/platform/Makefile b/drivers/media/platform/Makefile
-index ace4e34483dd..917145fe5171 100644
---- a/drivers/media/platform/Makefile
-+++ b/drivers/media/platform/Makefile
-@@ -29,6 +29,7 @@ obj-y += samsung/
- obj-y += st/
- obj-y += sunxi/
- obj-y += ti/
-+obj-y += toshiba/
- obj-y += verisilicon/
- obj-y += via/
- obj-y += xilinx/
-diff --git a/drivers/media/platform/toshiba/Kconfig b/drivers/media/platform/toshiba/Kconfig
-new file mode 100644
-index 000000000000..f02983f4fc97
---- /dev/null
-+++ b/drivers/media/platform/toshiba/Kconfig
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+comment "Toshiba media platform drivers"
-+
-+source "drivers/media/platform/toshiba/visconti/Kconfig"
-+
-diff --git a/drivers/media/platform/toshiba/Makefile b/drivers/media/platform/toshiba/Makefile
-new file mode 100644
-index 000000000000..2bce85ef3b48
---- /dev/null
-+++ b/drivers/media/platform/toshiba/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-y += visconti/
-diff --git a/drivers/media/platform/toshiba/visconti/Kconfig b/drivers/media/platform/toshiba/visconti/Kconfig
-new file mode 100644
-index 000000000000..e5c92d598f8b
---- /dev/null
-+++ b/drivers/media/platform/toshiba/visconti/Kconfig
-@@ -0,0 +1,16 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+config VIDEO_VISCONTI_CSI2RX
-+	tristate "Visconti MIPI CSI-2 Receiver driver"
-+	depends on V4L_PLATFORM_DRIVERS
-+	depends on VIDEO_DEV && OF
-+	depends on ARCH_VISCONTI || COMPILE_TEST
-+	select MEDIA_CONTROLLER
-+	select VIDEO_V4L2_SUBDEV_API
-+	select V4L2_FWNODE
-+	help
-+	  Support for Toshiba Visconti MIPI CSI-2 receiver,
-+	  which is used with Visconti Camera Interface driver.
-+
-+	  This driver yields 1 subdevice node for a hardware instance.
-+	  To compile this driver as a module, choose M here: the
-+	  module will be called visconti-csi2rx.
-diff --git a/drivers/media/platform/toshiba/visconti/Makefile b/drivers/media/platform/toshiba/visconti/Makefile
-new file mode 100644
-index 000000000000..62a029376134
---- /dev/null
-+++ b/drivers/media/platform/toshiba/visconti/Makefile
-@@ -0,0 +1,8 @@
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Makefile for the Visconti video input device driver
-+#
-+
-+visconti-csi2rx-objs = csi2rx_drv.o
-+
-+obj-$(CONFIG_VIDEO_VISCONTI_CSI2RX) += visconti-csi2rx.o
-diff --git a/drivers/media/platform/toshiba/visconti/csi2rx_drv.c b/drivers/media/platform/toshiba/visconti/csi2rx_drv.c
-new file mode 100644
-index 000000000000..94567963872a
---- /dev/null
-+++ b/drivers/media/platform/toshiba/visconti/csi2rx_drv.c
-@@ -0,0 +1,791 @@
-+// SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
-+/* Toshiba Visconti Video Capture Support
-+ *
-+ * (C) Copyright 2024 TOSHIBA CORPORATION
-+ * (C) Copyright 2024 Toshiba Electronic Devices & Storage Corporation
-+ */
-+
-+#include <linux/delay.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_graph.h>
-+#include <linux/platform_device.h>
-+
-+#include <media/mipi-csi2.h>
-+#include <media/v4l2-common.h>
-+#include <media/v4l2-ctrls.h>
-+#include <media/v4l2-fwnode.h>
-+#include <media/v4l2-subdev.h>
-+
-+/* CSI2HOST register space */
-+#define REG_CSI2RX_NLANES	 0x4
-+#define REG_CSI2RX_RESETN	 0x8
-+#define REG_CSI2RX_INT_ST_MAIN	 0xc
-+#define REG_CSI2RX_DATA_IDS_1	 0x10
-+#define REG_CSI2RX_DATA_IDS_2	 0x14
-+#define REG_CSI2RX_PHY_SHUTDOWNZ 0x40
-+#define REG_CSI2RX_PHY_RSTZ	 0x44
-+
-+/* access to dphy external registers */
-+#define REG_CSI2RX_PHY_TESTCTRL0 0x50
-+#define BIT_TESTCTRL0_CLK_0	 0
-+#define BIT_TESTCTRL0_CLK_1	 BIT(1)
-+
-+#define REG_CSI2RX_PHY_TESTCTRL1 0x54
-+#define BIT_TESTCTRL1_ADDR	 BIT(16)
-+#define MASK_TESTCTRL1_DIN	 0xff
-+#define MASK_TESTCTRL1_DOUT	 0xff00
-+
-+#define REG_CSI2RX_INT_ST_PHY_FATAL  0xe0
-+#define REG_CSI2RX_INT_MSK_PHY_FATAL 0xe4
-+#define MASK_PHY_FATAL_ALL	     0x0000000f
-+
-+#define REG_CSI2RX_INT_ST_PKT_FATAL  0xf0
-+#define REG_CSI2RX_INT_MSK_PKT_FATAL 0xf4
-+#define MASK_PKT_FATAL_ALL	     0x0001000f
-+
-+#define REG_CSI2RX_INT_ST_FRAME_FATAL  0x100
-+#define REG_CSI2RX_INT_MSK_FRAME_FATAL 0x104
-+#define MASK_FRAME_FATAL_ALL	       0x000f0f0f
-+
-+#define REG_CSI2RX_INT_ST_PHY  0x110
-+#define REG_CSI2RX_INT_MSK_PHY 0x114
-+#define MASK_PHY_ERROR_ALL     0x000f000f
-+
-+#define REG_CSI2RX_INT_ST_PKT  0x120
-+#define REG_CSI2RX_INT_MSK_PKT 0x124
-+#define MASK_PKT_ERROR_ALL     0x000f000f
-+
-+#define REG_CSI2RX_INT_ST_LINE	0x130
-+#define REG_CSI2RX_INT_MSK_LINE 0x134
-+#define MASK_LINE_ERROR_ALL	0x00ff00ff
-+
-+/* DPHY register space */
-+enum dphy_testcode {
-+	DIG_TESTCODE_EXT = 0,
-+	DIG_SYS_0 = 0x001,
-+	DIG_SYS_1 = 0x002,
-+	DIG_SYS_3 = 0x004,
-+	DIG_SYS_7 = 0x008,
-+	DIG_RX_STARTUP_OVR_2 = 0x0e2,
-+	DIG_RX_STARTUP_OVR_3 = 0x0e3,
-+	DIG_RX_STARTUP_OVR_4 = 0x0e4,
-+	DIG_RX_STARTUP_OVR_5 = 0x0e5,
-+	DIG_CB_2 = 0x1ac,
-+	DIG_TERM_CAL_0 = 0x220,
-+	DIG_TERM_CAL_1 = 0x221,
-+	DIG_TERM_CAL_2 = 0x222,
-+	DIG_CLKLANE_LANE_6 = 0x307,
-+	DIG_CLKLANE_OFFSET_CAL_0 = 0x39d,
-+	DIG_LANE0_OFFSET_CAL_0 = 0x59f,
-+	DIG_LANE0_DDL_0 = 0x5e0,
-+	DIG_LANE1_OFFSET_CAL_0 = 0x79f,
-+	DIG_LANE1_DDL_0 = 0x7e0,
-+	DIG_LANE2_OFFSET_CAL_0 = 0x99f,
-+	DIG_LANE2_DDL_0 = 0x9e0,
-+	DIG_LANE3_OFFSET_CAL_0 = 0xb9f,
-+	DIG_LANE3_DDL_0 = 0xbe0,
-+};
-+
-+#define SYS_0_HSFREQRANGE_OVR  BIT(5)
-+#define SYS_3_NO_REXT	       BIT(4)
-+#define SYS_7_RESERVED	       FIELD_PREP(0x1f, 0x0c)
-+#define SYS_7_DESKEW_POL       BIT(5)
-+#define STARTUP_OVR_4_CNTVAL   FIELD_PREP(0x70, 0x01)
-+#define STARTUP_OVR_4_DDL_EN   BIT(0)
-+#define STARTUP_OVR_5_BYPASS   BIT(0)
-+#define CB_2_LPRX_BIAS	       BIT(6)
-+#define CB_2_RESERVED	       FIELD_PREP(0x3f, 0x0b)
-+#define CLKLANE_RXHS_PULL_LONG BIT(7)
-+
-+/* bit mask for calibration result registers */
-+#define MASK_TERM_CAL_ERR  0
-+#define MASK_TERM_CAL_DONE BIT(7)
-+#define MASK_CLK_CAL_ERR   BIT(4)
-+#define MASK_CLK_CAL_DONE  BIT(0)
-+#define MASK_CAL_ERR	   BIT(2)
-+#define MASK_CAL_DONE	   BIT(1)
-+#define MASK_DDL_ERR	   BIT(1)
-+#define MASK_DDL_DONE	   BIT(2)
-+
-+#define VISCONTI_CSI2RX_ERROR_MONITORS_NUM 8
-+
-+/**
-+ * struct visconti_csi2rx_line_err_target
-+ *
-+ * Virtual Channel and Data Type pair for CSI2RX line error monitor
-+ *
-+ * When 0 is set to dt, line error detection is disabled.
-+ *
-+ * @vc: Virtual Channel to monitor; Range 0..3
-+ * @dt: Data Type to monitor; Range 0, 0x10..0x3f
-+ */
-+struct visconti_csi2rx_line_err_target {
-+	u32 vc[VISCONTI_CSI2RX_ERROR_MONITORS_NUM];
-+	u32 dt[VISCONTI_CSI2RX_ERROR_MONITORS_NUM];
-+};
-+
-+#define CSI2RX_MIN_DATA_RATE 80U
-+#define CSI2RX_MAX_DATA_RATE 1500U
-+
-+#define VISCONTI_CSI2RX_PAD_SINK 0
-+#define VISCONTI_CSI2RX_PAD_SRC	 1
-+#define VISCONTI_CSI2RX_PAD_NUM	 2
-+
-+#define VISCONTI_CSI2RX_DEF_WIDTH  1920
-+#define VISCONTI_CSI2RX_DEF_HEIGHT 1080
-+#define VISCONTI_CSI2RX_MIN_WIDTH  640
-+#define VISCONTI_CSI2RX_MAX_WIDTH  3840
-+#define VISCONTI_CSI2RX_MIN_HEIGHT 480
-+#define VISCONTI_CSI2RX_MAX_HEIGHT 2160
-+
-+struct visconti_csi2rx {
-+	struct device *dev;
-+	void __iomem *base;
-+
-+	struct v4l2_subdev subdev;
-+	struct media_pad pads[VISCONTI_CSI2RX_PAD_NUM];
-+	struct v4l2_async_notifier notifier;
-+	struct v4l2_subdev *remote;
-+	unsigned int remote_pad;
-+
-+	unsigned int lanes;
-+
-+	unsigned int irq;
-+};
-+
-+static inline struct visconti_csi2rx *notifier_to_csi2(struct v4l2_async_notifier *n)
-+{
-+	return container_of(n, struct visconti_csi2rx, notifier);
-+}
-+
-+static inline struct visconti_csi2rx *sd_to_csi2(struct v4l2_subdev *sd)
-+{
-+	return container_of(sd, struct visconti_csi2rx, subdev);
-+}
-+
-+static inline void visconti_csi2rx_write(struct visconti_csi2rx *priv, u32 regid, u32 val)
-+{
-+	writel(val, priv->base + regid);
-+}
-+
-+static inline u32 visconti_csi2rx_read(struct visconti_csi2rx *priv, u32 regid)
-+{
-+	return readl(priv->base + regid);
-+}
-+
-+static inline void tick_testclk(struct visconti_csi2rx *priv)
-+{
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_TESTCTRL0, BIT_TESTCTRL0_CLK_1);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_TESTCTRL0, BIT_TESTCTRL0_CLK_0);
-+}
-+
-+static inline void set_dphy_addr(struct visconti_csi2rx *priv, u32 test_mode)
-+{
-+	/* select testcode Ex space with top 4bits of test_mode */
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_TESTCTRL1,
-+			      BIT_TESTCTRL1_ADDR | DIG_TESTCODE_EXT);
-+	tick_testclk(priv);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_TESTCTRL1, FIELD_GET(0xf00, test_mode));
-+	tick_testclk(priv);
-+
-+	/* set bottom 8bit of test_mode */
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_TESTCTRL1,
-+			      BIT_TESTCTRL1_ADDR | FIELD_GET(0xff, test_mode));
-+	tick_testclk(priv);
-+}
-+
-+static void write_dphy_param(struct visconti_csi2rx *priv, u32 test_mode, u8 test_in)
-+{
-+	set_dphy_addr(priv, test_mode);
-+
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_TESTCTRL1, (u32)test_in);
-+	tick_testclk(priv);
-+}
-+
-+struct csi2rx_dphy_hs_info {
-+	u32 rate;
-+	u32 hsfreqrange;
-+	u32 osc_freq_target;
-+};
-+
-+static const struct csi2rx_dphy_hs_info dphy_hs_info[] = {
-+	{ 80, 0x0, 0x1cc },   { 85, 0x10, 0x1cc },   { 95, 0x20, 0x1cc },   { 105, 0x30, 0x1cc },
-+	{ 115, 0x1, 0x1cc },  { 125, 0x11, 0x1cc },  { 135, 0x21, 0x1cc },  { 145, 0x31, 0x1cc },
-+	{ 155, 0x2, 0x1cc },  { 165, 0x12, 0x1cc },  { 175, 0x22, 0x1cc },  { 185, 0x32, 0x1cc },
-+	{ 198, 0x3, 0x1cc },  { 213, 0x13, 0x1cc },  { 228, 0x23, 0x1cc },  { 243, 0x33, 0x1cc },
-+	{ 263, 0x4, 0x1cc },  { 288, 0x14, 0x1cc },  { 313, 0x25, 0x1cc },  { 338, 0x35, 0x1cc },
-+	{ 375, 0x5, 0x1cc },  { 425, 0x16, 0x1cc },  { 475, 0x26, 0x1cc },  { 525, 0x37, 0x1cc },
-+	{ 575, 0x7, 0x1cc },  { 625, 0x18, 0x1cc },  { 675, 0x28, 0x1cc },  { 725, 0x39, 0x1cc },
-+	{ 775, 0x9, 0x1cc },  { 825, 0x19, 0x1cc },  { 875, 0x29, 0x1cc },  { 925, 0x3a, 0x1cc },
-+	{ 975, 0xa, 0x1cc },  { 1025, 0x1a, 0x1cc }, { 1075, 0x2a, 0x1cc }, { 1125, 0x3b, 0x1cc },
-+	{ 1175, 0xb, 0x1cc }, { 1225, 0x1b, 0x1cc }, { 1275, 0x2b, 0x1cc }, { 1325, 0x3c, 0x1cc },
-+	{ 1375, 0xc, 0x1cc }, { 1425, 0x1c, 0x1cc }, { 1475, 0x2c, 0x1cc }
-+};
-+
-+static void get_dphy_hs_transfer_info(u32 dphy_rate, u32 *hsfreqrange, u32 *osc_freq_target)
-+{
-+	unsigned int i;
-+
-+	for (i = 1; i < ARRAY_SIZE(dphy_hs_info); i++) {
-+		if (dphy_rate < dphy_hs_info[i].rate) {
-+			*hsfreqrange = dphy_hs_info[i - 1].hsfreqrange;
-+			*osc_freq_target = dphy_hs_info[i - 1].osc_freq_target;
-+			return;
-+		}
-+	}
-+
-+	/* not found; return the largest entry */
-+	*hsfreqrange = dphy_hs_info[ARRAY_SIZE(dphy_hs_info) - 1].hsfreqrange;
-+	*osc_freq_target = dphy_hs_info[ARRAY_SIZE(dphy_hs_info) - 1].osc_freq_target;
-+}
-+
-+static void visconti_csi2rx_set_dphy_rate(struct visconti_csi2rx *priv, u32 dphy_rate)
-+{
-+	u32 hsfreqrange, osc_freq_target;
-+
-+	get_dphy_hs_transfer_info(dphy_rate, &hsfreqrange, &osc_freq_target);
-+
-+	write_dphy_param(priv, DIG_SYS_1, (u8)hsfreqrange);
-+	write_dphy_param(priv, DIG_SYS_0, SYS_0_HSFREQRANGE_OVR);
-+	write_dphy_param(priv, DIG_RX_STARTUP_OVR_5, STARTUP_OVR_5_BYPASS);
-+	write_dphy_param(priv, DIG_RX_STARTUP_OVR_4, STARTUP_OVR_4_CNTVAL);
-+	write_dphy_param(priv, DIG_CB_2, CB_2_LPRX_BIAS | CB_2_RESERVED);
-+	write_dphy_param(priv, DIG_SYS_7, SYS_7_DESKEW_POL | SYS_7_RESERVED);
-+	write_dphy_param(priv, DIG_CLKLANE_LANE_6, CLKLANE_RXHS_PULL_LONG);
-+	write_dphy_param(priv, DIG_RX_STARTUP_OVR_2, FIELD_GET(0xff, osc_freq_target));
-+	write_dphy_param(priv, DIG_RX_STARTUP_OVR_3, FIELD_GET(0xf00, osc_freq_target));
-+	write_dphy_param(priv, DIG_RX_STARTUP_OVR_4, STARTUP_OVR_4_CNTVAL | STARTUP_OVR_4_DDL_EN);
-+}
-+
-+static int visconti_csi2rx_initialize(struct visconti_csi2rx *priv, u32 num_lane, u32 dphy_rate,
-+				      const struct visconti_csi2rx_line_err_target *err_target)
-+{
-+	u32 val;
-+
-+	if (dphy_rate < CSI2RX_MIN_DATA_RATE || dphy_rate > CSI2RX_MAX_DATA_RATE) {
-+		dev_err(priv->dev, "Unsupported PHY speed (%u Mbps)", dphy_rate);
-+		return -ERANGE;
-+	}
-+
-+	/* 1st phase of initialization */
-+	visconti_csi2rx_write(priv, REG_CSI2RX_RESETN, 1);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_RSTZ, 0);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_SHUTDOWNZ, 0);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_TESTCTRL0, 1);
-+	ndelay(15U);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_TESTCTRL0, 0);
-+
-+	/* Configure D-PHY frequency range */
-+	visconti_csi2rx_set_dphy_rate(priv, dphy_rate);
-+
-+	/* 2nd phase of initialization */
-+	visconti_csi2rx_write(priv, REG_CSI2RX_NLANES, (num_lane - 1U));
-+	ndelay(5U);
-+
-+	/* Release D-PHY from Reset */
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_SHUTDOWNZ, 1);
-+	ndelay(5U);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_RSTZ, 1);
-+
-+	/* configuration of line error target */
-+	val = (err_target->vc[3] << 30U) | (err_target->dt[3] << 24U) | (err_target->vc[2] << 22U) |
-+	      (err_target->dt[2] << 16U) | (err_target->vc[1] << 14U) | (err_target->dt[1] << 8U) |
-+	      (err_target->vc[0] << 6U) | (err_target->dt[0]);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_DATA_IDS_1, val);
-+	val = (err_target->vc[7] << 30U) | (err_target->dt[7] << 24U) | (err_target->vc[6] << 22U) |
-+	      (err_target->dt[6] << 16U) | (err_target->vc[5] << 14U) | (err_target->dt[5] << 8U) |
-+	      (err_target->vc[4] << 6U) | (err_target->dt[4]);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_DATA_IDS_2, val);
-+
-+	/* configuration of mask */
-+	visconti_csi2rx_write(priv, REG_CSI2RX_INT_MSK_PHY_FATAL, MASK_PHY_FATAL_ALL);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_INT_MSK_PKT_FATAL, MASK_PKT_FATAL_ALL);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_INT_MSK_FRAME_FATAL, MASK_FRAME_FATAL_ALL);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_INT_MSK_PHY, MASK_PHY_ERROR_ALL);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_INT_MSK_PKT, MASK_PKT_ERROR_ALL);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_INT_MSK_LINE, MASK_LINE_ERROR_ALL);
-+
-+	return 0;
-+}
-+
-+struct visconti_csi2rx_format {
-+	u32 code;
-+	unsigned int bpp;
-+};
-+
-+static const struct visconti_csi2rx_format visconti_csi2rx_formats[] = {
-+	{ .code = MEDIA_BUS_FMT_RGB888_1X24, .bpp = 24 },
-+	{ .code = MEDIA_BUS_FMT_UYVY8_1X16, .bpp = 16 },
-+	{ .code = MEDIA_BUS_FMT_UYVY10_1X20, .bpp = 20 },
-+	{ .code = MEDIA_BUS_FMT_RGB565_1X16, .bpp = 16 },
-+	{ .code = MEDIA_BUS_FMT_SBGGR8_1X8, .bpp = 8 },
-+	{ .code = MEDIA_BUS_FMT_SGBRG8_1X8, .bpp = 8 },
-+	{ .code = MEDIA_BUS_FMT_SGRBG8_1X8, .bpp = 8 },
-+	{ .code = MEDIA_BUS_FMT_SRGGB8_1X8, .bpp = 8 },
-+	{ .code = MEDIA_BUS_FMT_SBGGR10_1X10, .bpp = 10 },
-+	{ .code = MEDIA_BUS_FMT_SGBRG10_1X10, .bpp = 10 },
-+	{ .code = MEDIA_BUS_FMT_SGRBG10_1X10, .bpp = 10 },
-+	{ .code = MEDIA_BUS_FMT_SRGGB10_1X10, .bpp = 10 },
-+	{ .code = MEDIA_BUS_FMT_SBGGR12_1X12, .bpp = 12 },
-+	{ .code = MEDIA_BUS_FMT_SGBRG12_1X12, .bpp = 12 },
-+	{ .code = MEDIA_BUS_FMT_SGRBG12_1X12, .bpp = 12 },
-+	{ .code = MEDIA_BUS_FMT_SRGGB12_1X12, .bpp = 12 },
-+	{ .code = MEDIA_BUS_FMT_SBGGR14_1X14, .bpp = 14 },
-+	{ .code = MEDIA_BUS_FMT_SGBRG14_1X14, .bpp = 14 },
-+	{ .code = MEDIA_BUS_FMT_SGRBG14_1X14, .bpp = 14 },
-+	{ .code = MEDIA_BUS_FMT_SRGGB14_1X14, .bpp = 14 },
-+};
-+
-+static const struct visconti_csi2rx_format *fmt_for_mbus_code(unsigned int mbus_code)
-+{
-+	int i;
-+
-+	for (i = 0; ARRAY_SIZE(visconti_csi2rx_formats); i++)
-+		if (visconti_csi2rx_formats[i].code == mbus_code)
-+			return &visconti_csi2rx_formats[i];
-+}
-+
-+static unsigned int bpp_for_mbus_code(unsigned int mbus_code)
-+{
-+	const struct visconti_csi2rx_format *fmt = fmt_for_mbus_code(mbus_code);
-+
-+	return fmt ? fmt->bpp : 0;
-+}
-+
-+static int64_t get_pixelclock(struct v4l2_subdev *sd)
-+{
-+	struct v4l2_ctrl *ctrl;
-+
-+	ctrl = v4l2_ctrl_find(sd->ctrl_handler, V4L2_CID_PIXEL_RATE);
-+	if (!ctrl)
-+		return -EINVAL;
-+
-+	return v4l2_ctrl_g_ctrl_int64(ctrl);
-+}
-+
-+static const struct visconti_csi2rx_line_err_target err_target_vc0_alldt = {
-+	/* select VC=0 */
-+	/* select all supported DataTypes */
-+	.dt = {
-+		MIPI_CSI2_DT_RGB565,
-+		MIPI_CSI2_DT_YUV422_8B,
-+		MIPI_CSI2_DT_YUV422_10B,
-+		MIPI_CSI2_DT_RGB888,
-+		MIPI_CSI2_DT_RAW8,
-+		MIPI_CSI2_DT_RAW10,
-+		MIPI_CSI2_DT_RAW12,
-+		MIPI_CSI2_DT_RAW14,
-+	}
-+};
-+
-+static int visconti_csi2rx_start(struct visconti_csi2rx *priv, struct v4l2_subdev_state *state)
-+{
-+	struct v4l2_mbus_framefmt *sink_fmt;
-+	int cur_bpp, dphy_rate;
-+	s64 pixelclock;
-+
-+	/* get bpp for current format */
-+	sink_fmt = v4l2_subdev_state_get_format(state, VISCONTI_CSI2RX_PAD_SINK);
-+	cur_bpp = bpp_for_mbus_code(sink_fmt->code);
-+
-+	/* get pixel clock */
-+	pixelclock = get_pixelclock(priv->remote);
-+	if (pixelclock < 0)
-+		return -EINVAL;
-+
-+	dphy_rate = div64_u64((u64)pixelclock * (u32)cur_bpp, priv->lanes * 1000000);
-+
-+	ndelay(15U);
-+
-+	return visconti_csi2rx_initialize(priv, priv->lanes, dphy_rate, &err_target_vc0_alldt);
-+}
-+
-+static void visconti_csi2rx_stop(struct visconti_csi2rx *priv)
-+{
-+	/* disable interrupt -> make sure registers cleared -> wait for current handlers finish */
-+	visconti_csi2rx_write(priv, REG_CSI2RX_INT_MSK_PHY_FATAL, 0);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_INT_MSK_PKT_FATAL, 0);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_INT_MSK_FRAME_FATAL, 0);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_INT_MSK_PHY, 0);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_INT_MSK_PKT, 0);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_INT_MSK_LINE, 0);
-+	visconti_csi2rx_read(priv, REG_CSI2RX_INT_MSK_PHY_FATAL);
-+	visconti_csi2rx_read(priv, REG_CSI2RX_INT_MSK_PKT_FATAL);
-+	visconti_csi2rx_read(priv, REG_CSI2RX_INT_MSK_FRAME_FATAL);
-+	visconti_csi2rx_read(priv, REG_CSI2RX_INT_MSK_PHY);
-+	visconti_csi2rx_read(priv, REG_CSI2RX_INT_MSK_PKT);
-+	visconti_csi2rx_read(priv, REG_CSI2RX_INT_MSK_LINE);
-+	synchronize_irq(priv->irq);
-+
-+	/* shutdown hardware */
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_SHUTDOWNZ, 0);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_RSTZ, 0);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_PHY_TESTCTRL0, 1);
-+	visconti_csi2rx_write(priv, REG_CSI2RX_RESETN, 0);
-+}
-+
-+static int visconti_csi2rx_enable_streams(struct v4l2_subdev *sd, struct v4l2_subdev_state *state,
-+					  u32 pad, u64 streams_mask)
-+{
-+	struct visconti_csi2rx *priv = sd_to_csi2(sd);
-+	struct v4l2_subdev *remote_sd;
-+	struct media_pad *remote_pad;
-+	int ret;
-+
-+	remote_pad = media_pad_remote_pad_first(&sd->entity.pads[VISCONTI_CSI2RX_PAD_SINK]);
-+	if (!remote_pad)
-+		return -ENODEV;
-+	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
-+
-+	/* enabling: turn on CSI2RX -> turn on sensor */
-+	ret = visconti_csi2rx_start(priv, state);
-+	if (ret)
-+		return ret;
-+
-+	/* currently CSI2RX supports only stream0 in source pad */
-+	ret = v4l2_subdev_enable_streams(remote_sd, remote_pad->index, BIT(0));
-+	if (ret) {
-+		visconti_csi2rx_stop(priv);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int visconti_csi2rx_disable_streams(struct v4l2_subdev *sd, struct v4l2_subdev_state *state,
-+					   u32 pad, u64 streams_mask)
-+{
-+	struct visconti_csi2rx *priv = sd_to_csi2(sd);
-+	struct v4l2_subdev *remote_sd;
-+	struct media_pad *remote_pad;
-+
-+	remote_pad = media_pad_remote_pad_first(&sd->entity.pads[VISCONTI_CSI2RX_PAD_SINK]);
-+	if (!remote_pad)
-+		return -ENODEV;
-+	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
-+
-+	/* disabling: turn off sensor -> turn off CSI2RX */
-+	v4l2_subdev_disable_streams(remote_sd, remote_pad->index, BIT(0));
-+	visconti_csi2rx_stop(priv);
-+
-+	return 0;
-+}
-+
-+static int visconti_csi2rx_enum_mbus_code(struct v4l2_subdev *sd,
-+					  struct v4l2_subdev_state *sd_state,
-+					  struct v4l2_subdev_mbus_code_enum *code)
-+{
-+	if (code->pad == VISCONTI_CSI2RX_PAD_SRC) {
-+		const struct v4l2_mbus_framefmt *sink_fmt;
-+
-+		/* SRC pad supports exactly the same format as SINK pad */
-+		if (code->index)
-+			return -EINVAL;
-+		sink_fmt = v4l2_subdev_state_get_format(sd_state, VISCONTI_CSI2RX_PAD_SINK);
-+		code->code = sink_fmt->code;
-+		return 0;
-+	}
-+
-+	if (code->index >= ARRAY_SIZE(visconti_csi2rx_formats))
-+		return -EINVAL;
-+	code->code = visconti_csi2rx_formats[code->index].code;
-+
-+	return 0;
-+}
-+
-+static int visconti_csi2rx_init_state(struct v4l2_subdev *sd, struct v4l2_subdev_state *sd_state)
-+{
-+	struct v4l2_mbus_framefmt *sink_fmt, *src_fmt;
-+
-+	sink_fmt = v4l2_subdev_state_get_format(sd_state, VISCONTI_CSI2RX_PAD_SINK);
-+	src_fmt = v4l2_subdev_state_get_format(sd_state, VISCONTI_CSI2RX_PAD_SRC);
-+
-+	sink_fmt->width = VISCONTI_CSI2RX_DEF_WIDTH;
-+	sink_fmt->height = VISCONTI_CSI2RX_DEF_HEIGHT;
-+	sink_fmt->field = V4L2_FIELD_NONE;
-+	sink_fmt->code = visconti_csi2rx_formats[0].code;
-+
-+	*src_fmt = *sink_fmt;
-+
-+	return 0;
-+}
-+
-+static int visconti_csi2rx_set_pad_format(struct v4l2_subdev *sd,
-+					  struct v4l2_subdev_state *sd_state,
-+					  struct v4l2_subdev_format *fmt)
-+{
-+	struct v4l2_mbus_framefmt *sink_fmt, *src_fmt;
-+
-+	/* SRC PAD has the same format as SINK PAD */
-+	if (fmt->pad == 1)
-+		return v4l2_subdev_get_fmt(sd, sd_state, fmt);
-+
-+	sink_fmt = v4l2_subdev_state_get_format(sd_state, VISCONTI_CSI2RX_PAD_SINK);
-+
-+	*sink_fmt = fmt->format;
-+	sink_fmt->width = clamp_t(u32, fmt->format.width, VISCONTI_CSI2RX_MIN_WIDTH,
-+				  VISCONTI_CSI2RX_MAX_WIDTH);
-+	sink_fmt->height = clamp_t(u32, fmt->format.height, VISCONTI_CSI2RX_MIN_HEIGHT,
-+				   VISCONTI_CSI2RX_MAX_HEIGHT);
-+	if (!fmt_for_mbus_code(sink_fmt->code))
-+		sink_fmt->code = visconti_csi2rx_formats[0].code;
-+	fmt->format = *sink_fmt;
-+
-+	/* source pad should have the same format */
-+	src_fmt = v4l2_subdev_state_get_format(sd_state, VISCONTI_CSI2RX_PAD_SRC);
-+	*src_fmt = *sink_fmt;
-+
-+	return 0;
-+}
-+
-+static const struct media_entity_operations visconti_csi2rx_entity_ops = {
-+	.link_validate = v4l2_subdev_link_validate,
-+};
-+
-+static const struct v4l2_subdev_video_ops visconti_csi2rx_video_ops = {
-+	.s_stream = v4l2_subdev_s_stream_helper,
-+};
-+
-+static const struct v4l2_subdev_pad_ops visconti_csi2rx_pad_ops = {
-+	.enum_mbus_code = visconti_csi2rx_enum_mbus_code,
-+	.disable_streams = visconti_csi2rx_disable_streams,
-+	.enable_streams = visconti_csi2rx_enable_streams,
-+	.get_fmt = v4l2_subdev_get_fmt,
-+	.set_fmt = visconti_csi2rx_set_pad_format,
-+};
-+
-+static const struct v4l2_subdev_ops visconti_csi2rx_subdev_ops = {
-+	.video = &visconti_csi2rx_video_ops,
-+	.pad = &visconti_csi2rx_pad_ops,
-+};
-+
-+static const struct v4l2_subdev_internal_ops visconti_csi2rx_internal_ops = {
-+	.init_state = visconti_csi2rx_init_state,
-+};
-+
-+static int visconti_csi2rx_notify_bound(struct v4l2_async_notifier *notifier,
-+					struct v4l2_subdev *subdev,
-+					struct v4l2_async_connection *asc)
-+{
-+	struct visconti_csi2rx *priv = notifier_to_csi2(notifier);
-+	int pad;
-+
-+	pad = media_entity_get_fwnode_pad(&subdev->entity, asc->match.fwnode, MEDIA_PAD_FL_SOURCE);
-+	if (pad < 0) {
-+		dev_err(priv->dev, "Failed to find pad for %s\n", subdev->name);
-+		return pad;
-+	}
-+
-+	priv->remote = subdev;
-+	priv->remote_pad = pad;
-+
-+	return media_create_pad_link(&subdev->entity, pad, &priv->subdev.entity, 0,
-+				     MEDIA_LNK_FL_ENABLED);
-+}
-+
-+static void visconti_csi2rx_notify_unbind(struct v4l2_async_notifier *notifier,
-+					  struct v4l2_subdev *subdev,
-+					  struct v4l2_async_connection *asc)
-+{
-+	struct visconti_csi2rx *priv = notifier_to_csi2(notifier);
-+
-+	priv->remote = NULL;
-+}
-+
-+static const struct v4l2_async_notifier_operations visconti_csi2rx_notify_ops = {
-+	.bound = visconti_csi2rx_notify_bound,
-+	.unbind = visconti_csi2rx_notify_unbind,
-+};
-+
-+static int visconti_csi2rx_parse_v4l2(struct visconti_csi2rx *priv,
-+				      struct v4l2_fwnode_endpoint *vep)
-+{
-+	/* Only port 0 endpoint 0 is valid. */
-+	if (vep->base.port || vep->base.id)
-+		return -ENOTCONN;
-+
-+	priv->lanes = vep->bus.mipi_csi2.num_data_lanes;
-+
-+	/* got trouble */
-+	if (vep->bus_type != V4L2_MBUS_CSI2_DPHY) {
-+		dev_err(priv->dev, "Specified bus type is not supported\n");
-+		return -EINVAL;
-+	}
-+
-+	if (priv->lanes != 1 && priv->lanes != 2 && priv->lanes != 4) {
-+		dev_err(priv->dev, "Unsupported number of data-lanes for D-PHY: %u\n", priv->lanes);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int visconti_csi2rx_parse_dt(struct visconti_csi2rx *priv)
-+{
-+	struct v4l2_async_connection *asc;
-+	struct fwnode_handle *fwnode;
-+	struct fwnode_handle *ep;
-+	struct v4l2_fwnode_endpoint v4l2_ep = {
-+		.bus_type = V4L2_MBUS_UNKNOWN,
-+	};
-+	int ret;
-+
-+	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(priv->dev), 0, 0, 0);
-+	if (!ep) {
-+		dev_err(priv->dev, "Not connected to subdevice\n");
-+		return -EINVAL;
-+	}
-+
-+	ret = v4l2_fwnode_endpoint_parse(ep, &v4l2_ep);
-+	if (ret) {
-+		dev_err(priv->dev, "Could not parse v4l2 endpoint\n");
-+		fwnode_handle_put(ep);
-+		return -EINVAL;
-+	}
-+
-+	ret = visconti_csi2rx_parse_v4l2(priv, &v4l2_ep);
-+	if (ret) {
-+		fwnode_handle_put(ep);
-+		return ret;
-+	}
-+
-+	fwnode = fwnode_graph_get_remote_endpoint(ep);
-+	fwnode_handle_put(ep);
-+
-+	v4l2_async_subdev_nf_init(&priv->notifier, &priv->subdev);
-+	priv->notifier.ops = &visconti_csi2rx_notify_ops;
-+
-+	asc = v4l2_async_nf_add_fwnode(&priv->notifier, fwnode, struct v4l2_async_connection);
-+	fwnode_handle_put(fwnode);
-+	if (IS_ERR(asc))
-+		return PTR_ERR(asc);
-+
-+	ret = v4l2_async_nf_register(&priv->notifier);
-+	if (ret)
-+		v4l2_async_nf_cleanup(&priv->notifier);
-+
-+	return ret;
-+}
-+
-+static irqreturn_t visconti_csi2rx_irq(int irq, void *dev_id)
-+{
-+	struct visconti_csi2rx *priv = dev_id;
-+	u32 event;
-+
-+	event = visconti_csi2rx_read(priv, REG_CSI2RX_INT_ST_MAIN);
-+	dev_err(priv->dev, "CSI2RX error 0x%x.\n", event);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static const struct of_device_id visconti_csi2rx_of_table[] = {
-+	{
-+		.compatible = "toshiba,visconti5-csi2rx",
-+	},
-+	{},
-+};
-+
-+static int visconti_csi2rx_probe(struct platform_device *pdev)
-+{
-+	struct visconti_csi2rx *priv;
-+	int irq, ret;
-+
-+	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->dev = &pdev->dev;
-+
-+	priv->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->base)) {
-+		dev_err(priv->dev, "Failed to get registers\n");
-+		return PTR_ERR(priv->base);
-+	}
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+	ret = devm_request_irq(&pdev->dev, irq, visconti_csi2rx_irq, 0, KBUILD_MODNAME, priv);
-+	priv->irq = irq;
-+	if (ret) {
-+		dev_err(priv->dev, "request irq failed: %d\n", ret);
-+		return ret;
-+	}
-+
-+	platform_set_drvdata(pdev, priv);
-+
-+	ret = visconti_csi2rx_parse_dt(priv); /*this function does v4l2_async_nf_register */
-+	if (ret)
-+		return ret;
-+
-+	priv->subdev.owner = THIS_MODULE;
-+	priv->subdev.dev = &pdev->dev;
-+	v4l2_subdev_init(&priv->subdev, &visconti_csi2rx_subdev_ops);
-+	v4l2_set_subdevdata(&priv->subdev, &pdev->dev);
-+	snprintf(priv->subdev.name, sizeof(priv->subdev.name), "%s %s", KBUILD_MODNAME,
-+		 dev_name(&pdev->dev));
-+
-+	priv->subdev.internal_ops = &visconti_csi2rx_internal_ops;
-+	priv->subdev.flags = V4L2_SUBDEV_FL_HAS_DEVNODE;
-+	priv->subdev.entity.function = MEDIA_ENT_F_PROC_VIDEO_PIXEL_FORMATTER;
-+	priv->subdev.entity.ops = &visconti_csi2rx_entity_ops;
-+
-+	priv->pads[VISCONTI_CSI2RX_PAD_SINK].flags = MEDIA_PAD_FL_SINK;
-+	priv->pads[VISCONTI_CSI2RX_PAD_SRC].flags = MEDIA_PAD_FL_SOURCE;
-+
-+	ret = media_entity_pads_init(&priv->subdev.entity, VISCONTI_CSI2RX_PAD_NUM, priv->pads);
-+	if (ret)
-+		goto err_cleanup_async;
-+
-+	ret = v4l2_subdev_init_finalize(&priv->subdev);
-+	if (ret)
-+		goto err_cleanup_media_entity;
-+
-+	ret = v4l2_async_register_subdev(&priv->subdev);
-+	if (ret < 0)
-+		goto err_cleanup_subdev_state;
-+
-+	return 0;
-+
-+err_cleanup_subdev_state:
-+	v4l2_subdev_cleanup(&priv->subdev);
-+
-+err_cleanup_media_entity:
-+	media_entity_cleanup(&priv->subdev.entity);
-+
-+err_cleanup_async:
-+	v4l2_async_nf_unregister(&priv->notifier);
-+	v4l2_async_nf_cleanup(&priv->notifier);
-+
-+	return ret;
-+}
-+
-+static void visconti_csi2rx_remove(struct platform_device *pdev)
-+{
-+	struct visconti_csi2rx *priv = platform_get_drvdata(pdev);
-+
-+	v4l2_async_nf_unregister(&priv->notifier);
-+	v4l2_async_nf_cleanup(&priv->notifier);
-+	v4l2_async_unregister_subdev(&priv->subdev);
-+
-+	v4l2_subdev_cleanup(&priv->subdev);
-+	media_entity_cleanup(&priv->subdev.entity);
-+}
-+
-+static struct platform_driver visconti_csi2rx_driver = {
-+	.probe = visconti_csi2rx_probe,
-+	.remove = visconti_csi2rx_remove,
-+	.driver = {
-+		.name = "visconti_csi2rx_dev",
-+		.of_match_table = visconti_csi2rx_of_table,
-+	},
-+};
-+
-+module_platform_driver(visconti_csi2rx_driver);
-+
-+MODULE_AUTHOR("Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>");
-+MODULE_DESCRIPTION("Toshiba Visconti CSI-2 receiver driver");
-+MODULE_LICENSE("Dual BSD/GPL");
--- 
-2.25.1
-
-
+SGksIEp1bGllbjoNCg0KT24gVGh1LCAyMDI0LTExLTIxIGF0IDA5OjUzICswMTAwLCBKdWxpZW4g
+U3RlcGhhbiB3cm90ZToNCj4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8gbm90IGNsaWNrIGxp
+bmtzIG9yIG9wZW4gYXR0YWNobWVudHMgdW50aWwgeW91IGhhdmUgdmVyaWZpZWQgdGhlIHNlbmRl
+ciBvciB0aGUgY29udGVudC4NCj4gDQo+IA0KPiBGcm9tOiBQaGktYmFuZyBOZ3V5ZW4gPHBuZ3V5
+ZW5AYmF5bGlicmUuY29tPg0KPiANCj4gVGhpcyBkcml2ZXIgcHJvdmlkZXMgYSBwYXRoIHRvIGJ5
+cGFzcyB0aGUgU29DIElTUCBzbyB0aGF0IGltYWdlIGRhdGENCj4gY29taW5nIGZyb20gdGhlIFNF
+TklORiBjYW4gZ28gZGlyZWN0bHkgaW50byBtZW1vcnkgd2l0aG91dCBhbnkgaW1hZ2UNCj4gcHJv
+Y2Vzc2luZy4gVGhpcyBhbGxvd3MgdGhlIHVzZSBvZiBhbiBleHRlcm5hbCBJU1AuDQo+IA0KPiBT
+aWduZWQtb2ZmLWJ5OiBQaGktYmFuZyBOZ3V5ZW4gPHBuZ3V5ZW5AYmF5bGlicmUuY29tPg0KPiBT
+aWduZWQtb2ZmLWJ5OiBGbG9yaWFuIFN5bHZlc3RyZSA8ZnN5bHZlc3RyZUBiYXlsaWJyZS5jb20+
+DQo+IFtQYXVsIEVsZGVyIGZpeCBpcnEgbG9ja2luZ10NCj4gU2lnbmVkLW9mZi1ieTogUGF1bCBF
+bGRlciA8cGF1bC5lbGRlckBpZGVhc29uYm9hcmQuY29tPg0KPiBDby1kZXZlbG9wZWQtYnk6IExh
+dXJlbnQgUGluY2hhcnQgPGxhdXJlbnQucGluY2hhcnRAaWRlYXNvbmJvYXJkLmNvbT4NCj4gU2ln
+bmVkLW9mZi1ieTogTGF1cmVudCBQaW5jaGFydCA8bGF1cmVudC5waW5jaGFydEBpZGVhc29uYm9h
+cmQuY29tPg0KPiBDby1kZXZlbG9wZWQtYnk6IEp1bGllbiBTdGVwaGFuIDxqc3RlcGhhbkBiYXls
+aWJyZS5jb20+DQo+IFNpZ25lZC1vZmYtYnk6IEp1bGllbiBTdGVwaGFuIDxqc3RlcGhhbkBiYXls
+aWJyZS5jb20+DQo+IC0tLQ0KDQpbc25pcF0NCg0KPiArc3RydWN0IG10a19jYW1fZGV2X2J1ZmZl
+ciB7DQo+ICsgICAgICAgc3RydWN0IHZiMl92NGwyX2J1ZmZlciB2NGwyX2J1ZjsNCj4gKyAgICAg
+ICBzdHJ1Y3QgbGlzdF9oZWFkIGxpc3Q7DQo+ICsgICAgICAgZG1hX2FkZHJfdCBkYWRkcjsNCj4g
+KyAgICAgICB2b2lkICp2YWRkcjsNCg0KdmFkZHIgaXMgdXNlbGVzcywgc28gZHJvcCBpdC4NCg0K
+UmVnYXJkcywNCkNLDQoNCj4gK307DQo+ICsNCg0KPiANCg==
 
