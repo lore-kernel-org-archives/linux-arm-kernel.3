@@ -4,86 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69318D58D40
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 13:22:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B0D2D58D42
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 13:29:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o7nGMb9ZUJ3Iu4lD0zHiQYwj1nItMmGzs/Egyx7aqZs=; b=CDP4+gIL3k3w6gAuXMQfAxU1xC
-	e3mnO0fvQupFT3BtgYiDAVLLN0C3HBKdOR0nm8c/JHMALZB8flApFAP9cXnB0xEhvy2OtrFmiVIYO
-	fEQ3h0wdJp3B9PQT4O9z5TTndrbwZ9pJQidtRVez8t/kmiKyGdw++TmerzKJ42udU7QMWhPri4uEj
-	SMa+fPhQvlGOD7gatVBBpXvWnvkDS/AHkzpco95HGWn6nKOvhP5tKB6Pdn4BgPBJ0cgL364nRw/dJ
-	3vBR10cJ62N7d5jtSKlsmEnjNXLo0H3rZ3+nF+LspSNywJhnQCesIoShlvQGRdUfQtjv2FQLw43qV
-	G5OGMCfw==;
+	bh=IwPLPKNHPm3n+RkRysXQ+FuqGvtEDdbnI0FEGTb6oCs=; b=VIfq5mRj4rSDYvL1C5YBqNrZc0
+	bWRvlDmrlVX9W6SwqbjWSAgs1UjYxWH3MOV11bmIYPmnHsgbYAgP8fmimKX3qNi4xIpIJsCQuzTeO
+	EhVRBP+8eO+b4RkKx942177N/H1MH9F8TQGZEuUMAbg1UHSN6b0eRb5ZJfU71hqVP0To5ASWcd4OL
+	7sHdPh2fWqyhYu0IpODZJ1jDc9M+Cx/iS1gpyDvQqFWt43+BYZUUlWVhzlrLGHxUUlDoAOHXpJJKB
+	yQnFhw1ebMKLSyB+ekudmRCMkrILEQcMh/oGzk6dJP0rdYND8rnJsFOE4ZOHWcSrMwQw4NOb00rYV
+	8xClwBGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFZ2W-0000000874g-07FW;
-	Mon, 25 Nov 2024 13:22:08 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tFZ9L-000000088Cc-1P7O;
+	Mon, 25 Nov 2024 13:29:11 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFZ1Y-000000086rr-1rnc;
-	Mon, 25 Nov 2024 13:21:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DE47CA416DB;
-	Mon, 25 Nov 2024 13:19:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 610F7C4CED2;
-	Mon, 25 Nov 2024 13:21:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732540866;
-	bh=3Z560kziSQXi2my1WMJNnxEGuywtw7Uta9RcrJwEvHc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YkykpNRv7e4NVi4Q3z8ffrcHtigFITXEIxN/5bTSjYdSwaphoIBGxqmG+/Xb46TI7
-	 lHS/FY0EsAUAz1aYRprNvi6QHcyObwv8xHeGqJ05oGkRLX0e0qKg8xflK6oz4lAXf7
-	 YhDyUrt9P4stTb7wr4Cj6faNKuabUVK/uT5TkuTTJ9M8Dgc7pTuXnnsJprFpWQcWsr
-	 oJtVByZrcaZVyAzTcmcBTi8a4HHu7UG0bHWY3Xph56B8h9135/UIM79mhNBzIGU96v
-	 JXhwAWUIHHY0CyLinhprle6eH9ZMJ6gAhhpTH9YT2OXbHgesMLMXeqrXQl9GDr9GhR
-	 cR4Addly+n0lQ==
-Date: Mon, 25 Nov 2024 07:21:04 -0600
-From: Rob Herring <robh@kernel.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Dragan Cvetic <dragan.cvetic@amd.com>, linux-gpio@vger.kernel.org,
-	Herve Codina <herve.codina@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, linux-clk@vger.kernel.org,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-kernel@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	Stephen Boyd <sboyd@kernel.org>, Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Saravana Kannan <saravanak@google.com>, devicetree@vger.kernel.org,
-	Stefan Wahren <wahrenst@gmx.net>,
-	linux-arm-kernel@lists.infradead.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Krzysztof Wilczynski <kw@linux.com>
-Subject: Re: [PATCH v4 04/10] dt-bindings: misc: Add device specific bindings
- for RaspberryPi RP1
-Message-ID: <20241125132104.GA1520508-robh@kernel.org>
-References: <cover.1732444746.git.andrea.porta@suse.com>
- <ebb21da5cb41391421b364815705be8b4c415f8a.1732444746.git.andrea.porta@suse.com>
- <173250040873.6640.9720381303445148722.robh@kernel.org>
- <Z0RAGkBc-yz5lqN6@apocalypse>
+	id 1tFZ8N-0000000882m-2quj
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Nov 2024 13:28:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1732541291; x=1764077291;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=sESHCfmHmHaI8KY+ZzE7Zdm/gqTJOAtsxdweAV4cr24=;
+  b=FYVYYmyXzzHVWXXM7D1ICtDLK66t3p2D71xlucFA2hV8w+Byrt4PrFRO
+   sO2WsD9k4deEqOtutAVh86S7r7h0N7cv9fUCmMDAxXnhWqLnj0LHWnTd9
+   GDrKPPZ8ijwVAO8mNuToGJHGkgNCIPtquBo+d2A5LkTnyqMXw1Mfoh8jY
+   ExZdaf4XOUICL8BYtDzZbC4rW3zuAopn9Pk1ByARgEP5OVEtWvZT+4vFK
+   l1LHRHho9QdNI3w2sbBVjoq+StntlcyomyRkzIPPekG/THYjr2YDYyp9r
+   yTa1C+e7AzUlIknzab5fkX8UPH3jIz3YFGvSWdjUt+cyvNEx1nzO0S6nz
+   A==;
+X-CSE-ConnectionGUID: Xo7nh6XDR7CU8UREfqvb8A==
+X-CSE-MsgGUID: g0O0vnTSQjiHO/5I9eSxGQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11267"; a="55151950"
+X-IronPort-AV: E=Sophos;i="6.12,182,1728975600"; 
+   d="scan'208";a="55151950"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2024 05:28:10 -0800
+X-CSE-ConnectionGUID: EKBxTmvNRvKCf6ayHaqmfQ==
+X-CSE-MsgGUID: s4BsTlWTRJ2gm3aQ0d27lw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,182,1728975600"; 
+   d="scan'208";a="91732760"
+Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 25 Nov 2024 05:28:03 -0800
+Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tFZ8C-0006Qj-2o;
+	Mon, 25 Nov 2024 13:28:00 +0000
+Date: Mon, 25 Nov 2024 21:27:27 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alistair Popple <apopple@nvidia.com>, dan.j.williams@intel.com,
+	linux-mm@kvack.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Alistair Popple <apopple@nvidia.com>, lina@asahilina.net,
+	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
+	vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
+	bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca,
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
+	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com,
+	willy@infradead.org, djwong@kernel.org, tytso@mit.edu,
+	linmiaohe@huawei.com, david@redhat.com, peterx@redhat.com,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org
+Subject: Re: [PATCH v3 05/25] fs/dax: Create a common implementation to break
+ DAX layouts
+Message-ID: <202411252137.GpJ4mLOe-lkp@intel.com>
+References: <31b18e4f813bf9e661d5d98d928c79556c8c2c57.1732239628.git-series.apopple@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z0RAGkBc-yz5lqN6@apocalypse>
+In-Reply-To: <31b18e4f813bf9e661d5d98d928c79556c8c2c57.1732239628.git-series.apopple@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_052108_610445_D74CB249 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20241125_052811_792504_46A3BD42 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,72 +100,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 25, 2024 at 10:15:06AM +0100, Andrea della Porta wrote:
-> Hi Rob,
-> 
-> On 20:06 Sun 24 Nov     , Rob Herring (Arm) wrote:
-> > 
-> > On Sun, 24 Nov 2024 11:51:41 +0100, Andrea della Porta wrote:
-> > > The RP1 is a MFD that exposes its peripherals through PCI BARs. This
-> > > schema is intended as minimal support for the clock generator and
-> > > gpio controller peripherals which are accessible through BAR1.
-> > > 
-> > > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > > ---
-> > >  .../devicetree/bindings/misc/pci1de4,1.yaml   | 74 +++++++++++++++++++
-> > >  MAINTAINERS                                   |  1 +
-> > >  2 files changed, 75 insertions(+)
-> > >  create mode 100644 Documentation/devicetree/bindings/misc/pci1de4,1.yaml
-> > > 
-> > 
-> > My bot found errors running 'make dt_binding_check' on your patch:
-> > 
-> > yamllint warnings/errors:
-> > 
-> > dtschema/dtc warnings/errors:
-> > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/misc/pci1de4,1.example.dtb: clocks@c040018000: 'clock-names' does not match any of the regexes: 'pinctrl-[0-9]+'
-> > 	from schema $id: http://devicetree.org/schemas/clock/raspberrypi,rp1-clocks.yaml#
+Hi Alistair,
 
-The error comes from this schema and...
+kernel test robot noticed the following build errors:
 
-> > 
-> > doc reference errors (make refcheckdocs):
-> > 
-> > See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/ebb21da5cb41391421b364815705be8b4c415f8a.1732444746.git.andrea.porta@suse.com
-> > 
-> > The base for the series is generally the latest rc1. A different dependency
-> > should be noted in *this* patch.
-> > 
-> > If you already ran 'make dt_binding_check' and didn't see the above
-> > error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> > date:
-> > 
-> > pip3 install dtschema --upgrade
-> > 
-> > Please check and re-submit after running the above command yourself. Note
-> > that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-> > your schema. However, it must be unset to test all examples with your schema.
-> > 
-> 
-> Sorry about that, but even if I see that this should be the case (I've dropped
-> the clock-name property from raspberrypi,rp1-clock.yaml), I can't reproduce it
-> with:
-> 
-> # make W=1 dt_binding_check DT_SCHEMA_FILES=pci1de4,1.yaml
+[auto build test ERROR on 81983758430957d9a5cb3333fe324fd70cf63e7e]
 
-You've limited testing to schema files matching pci1de4,1.yaml.
+url:    https://github.com/intel-lab-lkp/linux/commits/Alistair-Popple/fuse-Fix-dax-truncate-punch_hole-fault-path/20241125-094004
+base:   81983758430957d9a5cb3333fe324fd70cf63e7e
+patch link:    https://lore.kernel.org/r/31b18e4f813bf9e661d5d98d928c79556c8c2c57.1732239628.git-series.apopple%40nvidia.com
+patch subject: [PATCH v3 05/25] fs/dax: Create a common implementation to break DAX layouts
+config: x86_64-kexec (https://download.01.org/0day-ci/archive/20241125/202411252137.GpJ4mLOe-lkp@intel.com/config)
+compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241125/202411252137.GpJ4mLOe-lkp@intel.com/reproduce)
 
-> 
-> and the output is:
-> 
->   CHKDT   Documentation/devicetree/bindings
->   LINT    Documentation/devicetree/bindings
->   DTEX    Documentation/devicetree/bindings/misc/pci1de4,1.example.dts
->   DTC [C] Documentation/devicetree/bindings/misc/pci1de4,1.example.dtb
-> 
-> dt-schema seems up to date. Is my command line correct?
-> 
-> Many thanks,
-> Andrea
-> 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411252137.GpJ4mLOe-lkp@intel.com/
+
+All errors (new ones prefixed by >>, old ones prefixed by <<):
+
+>> ERROR: modpost: "dax_break_mapping" [fs/xfs/xfs.ko] undefined!
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
