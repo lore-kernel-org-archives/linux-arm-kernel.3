@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6DC2D3B7FD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F28E7D3B7F6
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:17:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,27 +12,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iYlo1/NurxSLgJe/iRNqYykt64ZIWrcPQtcs8oooGqs=; b=mbD4Xlz4gAWgRAjhRr1g51Gjg+
-	bccZ0BMIlj9mkrQuf02atsFeB4Dw2EKi52P7ynrcJl8cu4NRbAxFG7RwTOzIxMDhWhnfknVNU/uO1
-	Km+OiNZH2rTSZj2e16l6qgoPFzpRWBd1q++8FIsk60L1/iWMoUhwpsV0QcMnfkbVr6VVJ0YP/TYOL
-	ppDx7n/BY+IsEf3iGWnRd8imsKNhRMdKqEerurNJvRr1hsyIRXXfVsOm1Fw4MURK3+YPuQxhdgAdB
-	pxzdMOiAV+1PKf09D71lw1EWO0LYttk/SpW6nT5SFWUU4mPtDE7FRTGr97RSnLvAvlnW4NXLFmRL1
-	YLTHNXbQ==;
+	bh=jXm5NbqgJpmlUDNgUWgtc/KBChIigHq6d+dXdfLAsOU=; b=0dfE8hmxDZ/GnJDubfPZ4wRBhr
+	Fib27GdUGlc51M29z4hXRQVdpLzHakOTA/67y5AwXgN3QYlgDgmjR3JbYQHhHz2Qcyq7c++Vqn7/P
+	l5eliPITrpgEyIuQeVIgBQw1QgnvzcgCz0ggDbce2U8UaW+PowSo7ahryB+TP5L6+lm+/v9NdHf/i
+	inl4ovorguzEFkQHsMV4QoFD1rQdqh+68v8cx6hZ58JJDqmUj+zkHGyOQLklab+Aj4KH9XbvrEONq
+	M6dr8tG424mINGA60wrDYzLSGFLlaUSHIoleI4MGis60dZrk6DHyy0OTt+8ELRAm92rSlMugW7Zbx
+	8MPLJxuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFW9t-00000007hnF-3cYK;
-	Mon, 25 Nov 2024 10:17:33 +0000
+	id 1tFW9v-00000007hpI-1MIW;
+	Mon, 25 Nov 2024 10:17:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFVhl-00000007dkc-0Txr
+	id 1tFVhn-00000007dlM-3hhW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 09:48:30 +0000
+	Mon, 25 Nov 2024 09:48:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C02D81FCD;
-	Mon, 25 Nov 2024 01:48:58 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 470201692;
+	Mon, 25 Nov 2024 01:49:01 -0800 (PST)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8CE293F66E;
-	Mon, 25 Nov 2024 01:48:26 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 133A03F66E;
+	Mon, 25 Nov 2024 01:48:28 -0800 (PST)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: suzuki.poulose@arm.com,
 	mike.leach@linaro.org,
@@ -47,17 +47,17 @@ Cc: coresight@lists.linaro.org,
 	linux-rt-devel@lists.linux.dev,
 	nd@arm.com,
 	Levi Yun <yeoreum.yun@arm.com>
-Subject: [PATCH 3/9] coresight: change coresight_trace_id_map's lock type to raw_spinlock_t
-Date: Mon, 25 Nov 2024 09:48:10 +0000
-Message-Id: <20241125094816.365472-4-yeoreum.yun@arm.com>
+Subject: [PATCH 4/9] coresight-cti: change cti_drvdata spinlock's type to raw_spinlock_t
+Date: Mon, 25 Nov 2024 09:48:11 +0000
+Message-Id: <20241125094816.365472-5-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241125094816.365472-1-yeoreum.yun@arm.com>
 References: <20241125094816.365472-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_014829_241434_439D4E9E 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20241125_014832_012415_14887E4D 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,198 +74,575 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Levi Yun <yeoreum.yun@arm.com>
 
-coresight_trace_id_map->lock can be acquired while coresight devices'
-drvdata_lock.
+In coresight-cti drivers, cti_drvdata->spinlock can be held during __schedule()
+by perf_event_task_sched_out()/in().
 
-But the drvdata_lock can be raw_spinlock_t (i.e) coresight-etm4x.
+Since cti_drvdata->spinlock type is spinlock_t and
+perf_event_task_sched_out()/in() is called after acquiring rq_lock,
+which is raw_spinlock_t (an unsleepable lock),
+this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
 
-To address this, change type of coresight_trace_id_map->lock to
-raw_spinlock_t
+To address this, change type cti_drvdata->spinlock in coresight-cti drivers,
+which can be called by perf_event_task_sched_out()/in(),
+from spinlock_t to raw_spinlock_t.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c  |  2 +-
- .../hwtracing/coresight/coresight-trace-id.c  | 93 +++++++++----------
- include/linux/coresight.h                     |  2 +-
- 3 files changed, 44 insertions(+), 53 deletions(-)
+ .../hwtracing/coresight/coresight-cti-core.c  |  65 +++------
+ .../hwtracing/coresight/coresight-cti-sysfs.c | 135 ++++++++++--------
+ drivers/hwtracing/coresight/coresight-cti.h   |   2 +-
+ 3 files changed, 96 insertions(+), 106 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index ea38ecf26fcb..cc2d87b2f248 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1164,7 +1164,7 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- 
- 	if (csdev->type == CORESIGHT_DEV_TYPE_SINK ||
- 	    csdev->type == CORESIGHT_DEV_TYPE_LINKSINK) {
--		spin_lock_init(&csdev->perf_sink_id_map.lock);
-+		raw_spin_lock_init(&csdev->perf_sink_id_map.lock);
- 		csdev->perf_sink_id_map.cpu_map = alloc_percpu(atomic_t);
- 		if (!csdev->perf_sink_id_map.cpu_map) {
- 			kfree(csdev);
-diff --git a/drivers/hwtracing/coresight/coresight-trace-id.c b/drivers/hwtracing/coresight/coresight-trace-id.c
-index d98e12cb30ec..1818a353ac5f 100644
---- a/drivers/hwtracing/coresight/coresight-trace-id.c
-+++ b/drivers/hwtracing/coresight/coresight-trace-id.c
-@@ -16,7 +16,7 @@
- static DEFINE_PER_CPU(atomic_t, id_map_default_cpu_ids) = ATOMIC_INIT(0);
- static struct coresight_trace_id_map id_map_default = {
- 	.cpu_map = &id_map_default_cpu_ids,
--	.lock = __SPIN_LOCK_UNLOCKED(id_map_default.lock)
-+	.lock = __RAW_SPIN_LOCK_UNLOCKED(id_map_default.lock)
- };
- 
- /* #define TRACE_ID_DEBUG 1 */
-@@ -118,50 +118,46 @@ static void coresight_trace_id_free(int id, struct coresight_trace_id_map *id_ma
-  */
- static void coresight_trace_id_release_all(struct coresight_trace_id_map *id_map)
+diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
+index d2b5a5718c29..1f7766e9a2ea 100644
+--- a/drivers/hwtracing/coresight/coresight-cti-core.c
++++ b/drivers/hwtracing/coresight/coresight-cti-core.c
+@@ -90,10 +90,9 @@ void cti_write_all_hw_regs(struct cti_drvdata *drvdata)
+ static int cti_enable_hw(struct cti_drvdata *drvdata)
  {
+ 	struct cti_config *config = &drvdata->config;
 -	unsigned long flags;
- 	int cpu;
+ 	int rc = 0;
  
--	spin_lock_irqsave(&id_map->lock, flags);
--	bitmap_zero(id_map->used_ids, CORESIGHT_TRACE_IDS_MAX);
--	for_each_possible_cpu(cpu)
--		atomic_set(per_cpu_ptr(id_map->cpu_map, cpu), 0);
--	spin_unlock_irqrestore(&id_map->lock, flags);
-+	scoped_guard(raw_spinlock_irqsave, &id_map->lock) {
-+		bitmap_zero(id_map->used_ids, CORESIGHT_TRACE_IDS_MAX);
-+		for_each_possible_cpu(cpu)
-+			atomic_set(per_cpu_ptr(id_map->cpu_map, cpu), 0);
-+	}
-+
- 	DUMP_ID_MAP(id_map);
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
+ 
+ 	/* no need to do anything if enabled or unpowered*/
+ 	if (config->hw_enabled || !config->hw_powered)
+@@ -108,7 +107,6 @@ static int cti_enable_hw(struct cti_drvdata *drvdata)
+ 
+ 	config->hw_enabled = true;
+ 	drvdata->config.enable_req_count++;
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 	return rc;
+ 
+ cti_state_unchanged:
+@@ -116,7 +114,6 @@ static int cti_enable_hw(struct cti_drvdata *drvdata)
+ 
+ 	/* cannot enable due to error */
+ cti_err_not_enabled:
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 	return rc;
  }
  
- static int _coresight_trace_id_get_cpu_id(int cpu, struct coresight_trace_id_map *id_map)
+@@ -125,25 +122,20 @@ static void cti_cpuhp_enable_hw(struct cti_drvdata *drvdata)
  {
--	unsigned long flags;
- 	int id;
+ 	struct cti_config *config = &drvdata->config;
  
--	spin_lock_irqsave(&id_map->lock, flags);
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 	config->hw_powered = true;
+ 
+ 	/* no need to do anything if no enable request */
+ 	if (!drvdata->config.enable_req_count)
+-		goto cti_hp_not_enabled;
++		return;
+ 
+ 	/* try to claim the device */
+ 	if (coresight_claim_device(drvdata->csdev))
+-		goto cti_hp_not_enabled;
++		return;
+ 
+ 	cti_write_all_hw_regs(drvdata);
+ 	config->hw_enabled = true;
+-	spin_unlock(&drvdata->spinlock);
+ 	return;
 -
--	/* check for existing allocation for this CPU */
--	id = _coresight_trace_id_read_cpu_id(cpu, id_map);
--	if (id)
--		goto get_cpu_id_out_unlock;
--
--	/*
--	 * Find a new ID.
--	 *
--	 * Use legacy values where possible in the dynamic trace ID allocator to
--	 * allow older tools to continue working if they are not upgraded at the
--	 * same time as the kernel drivers.
--	 *
--	 * If the generated legacy ID is invalid, or not available then the next
--	 * available dynamic ID will be used.
--	 */
--	id = coresight_trace_id_alloc_new_id(id_map,
--					     CORESIGHT_LEGACY_CPU_TRACE_ID(cpu),
--					     false);
--	if (!IS_VALID_CS_TRACE_ID(id))
--		goto get_cpu_id_out_unlock;
--
--	/* allocate the new id to the cpu */
--	atomic_set(per_cpu_ptr(id_map->cpu_map, cpu), id);
-+	scoped_guard(raw_spinlock_irqsave, &id_map->lock) {
-+		/* check for existing allocation for this CPU */
-+		id = _coresight_trace_id_read_cpu_id(cpu, id_map);
-+		if (id)
-+			return id;
- 
--get_cpu_id_out_unlock:
--	spin_unlock_irqrestore(&id_map->lock, flags);
-+		/*
-+		 * Find a new ID.
-+		 *
-+		 * Use legacy values where possible in the dynamic trace ID allocator to
-+		 * allow older tools to continue working if they are not upgraded at the
-+		 * same time as the kernel drivers.
-+		 *
-+		 * If the generated legacy ID is invalid, or not available then the next
-+		 * available dynamic ID will be used.
-+		 */
-+		id = coresight_trace_id_alloc_new_id(id_map,
-+						     CORESIGHT_LEGACY_CPU_TRACE_ID(cpu),
-+						     false);
-+		if (!IS_VALID_CS_TRACE_ID(id))
-+			return id;
-+
-+		/* allocate the new id to the cpu */
-+		atomic_set(per_cpu_ptr(id_map->cpu_map, cpu), id);
-+	}
- 
- 	DUMP_ID_CPU(cpu, id);
- 	DUMP_ID_MAP(id_map);
-@@ -170,7 +166,6 @@ static int _coresight_trace_id_get_cpu_id(int cpu, struct coresight_trace_id_map
- 
- static void _coresight_trace_id_put_cpu_id(int cpu, struct coresight_trace_id_map *id_map)
- {
--	unsigned long flags;
- 	int id;
- 
- 	/* check for existing allocation for this CPU */
-@@ -178,25 +173,23 @@ static void _coresight_trace_id_put_cpu_id(int cpu, struct coresight_trace_id_ma
- 	if (!id)
- 		return;
- 
--	spin_lock_irqsave(&id_map->lock, flags);
--
--	coresight_trace_id_free(id, id_map);
--	atomic_set(per_cpu_ptr(id_map->cpu_map, cpu), 0);
-+	scoped_guard(raw_spinlock_irqsave, &id_map->lock) {
-+		coresight_trace_id_free(id, id_map);
-+		atomic_set(per_cpu_ptr(id_map->cpu_map, cpu), 0);
-+	}
- 
--	spin_unlock_irqrestore(&id_map->lock, flags);
- 	DUMP_ID_CPU(cpu, id);
- 	DUMP_ID_MAP(id_map);
+-	/* did not re-enable due to no claim / no request */
+-cti_hp_not_enabled:
+-	spin_unlock(&drvdata->spinlock);
  }
  
- static int coresight_trace_id_map_get_system_id(struct coresight_trace_id_map *id_map)
+ /* disable hardware */
+@@ -151,23 +143,20 @@ static int cti_disable_hw(struct cti_drvdata *drvdata)
  {
--	unsigned long flags;
- 	int id;
+ 	struct cti_config *config = &drvdata->config;
+ 	struct coresight_device *csdev = drvdata->csdev;
+-	int ret = 0;
  
--	spin_lock_irqsave(&id_map->lock, flags);
--	/* prefer odd IDs for system components to avoid legacy CPU IDS */
--	id = coresight_trace_id_alloc_new_id(id_map, 0, true);
--	spin_unlock_irqrestore(&id_map->lock, flags);
-+	scoped_guard(raw_spinlock_irqsave, &id_map->lock) {
-+		/* prefer odd IDs for system components to avoid legacy CPU IDS */
-+		id = coresight_trace_id_alloc_new_id(id_map, 0, true);
-+	}
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
  
- 	DUMP_ID(id);
- 	DUMP_ID_MAP(id_map);
-@@ -205,11 +198,9 @@ static int coresight_trace_id_map_get_system_id(struct coresight_trace_id_map *i
+ 	/* don't allow negative refcounts, return an error */
+-	if (!drvdata->config.enable_req_count) {
+-		ret = -EINVAL;
+-		goto cti_not_disabled;
+-	}
++	if (!drvdata->config.enable_req_count)
++		return -EINVAL;
  
- static void coresight_trace_id_map_put_system_id(struct coresight_trace_id_map *id_map, int id)
- {
--	unsigned long flags;
+ 	/* check refcount - disable on 0 */
+ 	if (--drvdata->config.enable_req_count > 0)
+-		goto cti_not_disabled;
++		return 0;
+ 
+ 	/* no need to do anything if disabled or cpu unpowered */
+ 	if (!config->hw_enabled || !config->hw_powered)
+-		goto cti_not_disabled;
++		return 0;
+ 
+ 	CS_UNLOCK(drvdata->base);
+ 
+@@ -177,13 +166,7 @@ static int cti_disable_hw(struct cti_drvdata *drvdata)
+ 
+ 	coresight_disclaim_device_unlocked(csdev);
+ 	CS_LOCK(drvdata->base);
+-	spin_unlock(&drvdata->spinlock);
+-	return ret;
 -
--	spin_lock_irqsave(&id_map->lock, flags);
--	coresight_trace_id_free(id, id_map);
--	spin_unlock_irqrestore(&id_map->lock, flags);
-+	scoped_guard(raw_spinlock_irqsave, &id_map->lock) {
-+		coresight_trace_id_free(id, id_map);
+-	/* not disabled this call */
+-cti_not_disabled:
+-	spin_unlock(&drvdata->spinlock);
+-	return ret;
++	return 0;
+ }
+ 
+ void cti_write_single_reg(struct cti_drvdata *drvdata, int offset, u32 value)
+@@ -198,11 +181,11 @@ void cti_write_intack(struct device *dev, u32 ackval)
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct cti_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	/* write if enabled */
+ 	if (cti_active(config))
+ 		cti_write_single_reg(drvdata, CTIINTACK, ackval);
+-	spin_unlock(&drvdata->spinlock);
+ }
+ 
+ /*
+@@ -369,7 +352,7 @@ int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
+ 	reg_offset = (direction == CTI_TRIG_IN ? CTIINEN(trigger_idx) :
+ 		      CTIOUTEN(trigger_idx));
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	/* read - modify write - the trigger / channel enable value */
+ 	reg_value = direction == CTI_TRIG_IN ? config->ctiinen[trigger_idx] :
+@@ -388,7 +371,6 @@ int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
+ 	/* write through if enabled */
+ 	if (cti_active(config))
+ 		cti_write_single_reg(drvdata, reg_offset, reg_value);
+-	spin_unlock(&drvdata->spinlock);
+ 	return 0;
+ }
+ 
+@@ -406,7 +388,8 @@ int cti_channel_gate_op(struct device *dev, enum cti_chan_gate_op op,
+ 
+ 	chan_bitmask = BIT(channel_idx);
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
++
+ 	reg_value = config->ctigate;
+ 	switch (op) {
+ 	case CTI_GATE_CHAN_ENABLE:
+@@ -426,7 +409,6 @@ int cti_channel_gate_op(struct device *dev, enum cti_chan_gate_op op,
+ 		if (cti_active(config))
+ 			cti_write_single_reg(drvdata, CTIGATE, reg_value);
+ 	}
+-	spin_unlock(&drvdata->spinlock);
+ 	return err;
+ }
+ 
+@@ -445,7 +427,8 @@ int cti_channel_setop(struct device *dev, enum cti_chan_set_op op,
+ 
+ 	chan_bitmask = BIT(channel_idx);
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	reg_value = config->ctiappset;
+ 	switch (op) {
+ 	case CTI_CHAN_SET:
+@@ -473,7 +456,6 @@ int cti_channel_setop(struct device *dev, enum cti_chan_set_op op,
+ 
+ 	if ((err == 0) && cti_active(config))
+ 		cti_write_single_reg(drvdata, reg_offset, reg_value);
+-	spin_unlock(&drvdata->spinlock);
+ 
+ 	return err;
+ }
+@@ -676,7 +658,7 @@ static int cti_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
+ 	if (WARN_ON_ONCE(drvdata->ctidev.cpu != cpu))
+ 		return NOTIFY_BAD;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	switch (cmd) {
+ 	case CPU_PM_ENTER:
+@@ -703,7 +685,7 @@ static int cti_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
+ 		if (drvdata->config.enable_req_count) {
+ 			/* check we can claim the device as we re-power */
+ 			if (coresight_claim_device(csdev))
+-				goto cti_notify_exit;
++				return notify_res;
+ 
+ 			drvdata->config.hw_enabled = true;
+ 			cti_write_all_hw_regs(drvdata);
+@@ -715,8 +697,6 @@ static int cti_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
+ 		break;
+ 	}
+ 
+-cti_notify_exit:
+-	spin_unlock(&drvdata->spinlock);
+ 	return notify_res;
+ }
+ 
+@@ -743,11 +723,12 @@ static int cti_dying_cpu(unsigned int cpu)
+ 	if (!drvdata)
+ 		return 0;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	drvdata->config.hw_powered = false;
+ 	if (drvdata->config.hw_enabled)
+ 		coresight_disclaim_device(drvdata->csdev);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return 0;
+ }
+ 
+@@ -888,7 +869,7 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+ 	drvdata->ctidev.ctm_id = 0;
+ 	INIT_LIST_HEAD(&drvdata->ctidev.trig_cons);
+ 
+-	spin_lock_init(&drvdata->spinlock);
++	raw_spin_lock_init(&drvdata->spinlock);
+ 
+ 	/* initialise CTI driver config values */
+ 	cti_set_default_config(dev, drvdata);
+diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+index d25dd2737b49..fa149b94a495 100644
+--- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+@@ -84,11 +84,11 @@ static ssize_t enable_show(struct device *dev,
+ 	bool enabled, powered;
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+-	spin_lock(&drvdata->spinlock);
+-	enable_req = drvdata->config.enable_req_count;
+-	powered = drvdata->config.hw_powered;
+-	enabled = drvdata->config.hw_enabled;
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		enable_req = drvdata->config.enable_req_count;
++		powered = drvdata->config.hw_powered;
++		enabled = drvdata->config.hw_enabled;
 +	}
  
- 	DUMP_ID(id);
- 	DUMP_ID_MAP(id_map);
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 924b58c343b3..6446ca1f09d8 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -233,7 +233,7 @@ struct coresight_trace_id_map {
- 	DECLARE_BITMAP(used_ids, CORESIGHT_TRACE_IDS_MAX);
- 	atomic_t __percpu *cpu_map;
- 	atomic_t perf_cs_etm_session_active;
--	spinlock_t lock;
-+	raw_spinlock_t lock;
- };
+ 	if (powered)
+ 		return sprintf(buf, "%d\n", enabled);
+@@ -134,9 +134,9 @@ static ssize_t powered_show(struct device *dev,
+ 	bool powered;
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
  
- /**
+-	spin_lock(&drvdata->spinlock);
+-	powered = drvdata->config.hw_powered;
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		powered = drvdata->config.hw_powered;
++	}
+ 
+ 	return sprintf(buf, "%d\n", powered);
+ }
+@@ -181,10 +181,10 @@ static ssize_t coresight_cti_reg_show(struct device *dev,
+ 	u32 val = 0;
+ 
+ 	pm_runtime_get_sync(dev->parent);
+-	spin_lock(&drvdata->spinlock);
+-	if (drvdata->config.hw_powered)
+-		val = readl_relaxed(drvdata->base + cti_attr->off);
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		if (drvdata->config.hw_powered)
++			val = readl_relaxed(drvdata->base + cti_attr->off);
++	}
+ 	pm_runtime_put_sync(dev->parent);
+ 	return sysfs_emit(buf, "0x%x\n", val);
+ }
+@@ -202,10 +202,10 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
+ 		return -EINVAL;
+ 
+ 	pm_runtime_get_sync(dev->parent);
+-	spin_lock(&drvdata->spinlock);
+-	if (drvdata->config.hw_powered)
+-		cti_write_single_reg(drvdata, cti_attr->off, val);
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		if (drvdata->config.hw_powered)
++			cti_write_single_reg(drvdata, cti_attr->off, val);
++	}
+ 	pm_runtime_put_sync(dev->parent);
+ 	return size;
+ }
+@@ -264,17 +264,18 @@ static ssize_t cti_reg32_show(struct device *dev, char *buf,
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct cti_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	if ((reg_offset >= 0) && cti_active(config)) {
+-		CS_UNLOCK(drvdata->base);
+-		val = readl_relaxed(drvdata->base + reg_offset);
+-		if (pcached_val)
+-			*pcached_val = val;
+-		CS_LOCK(drvdata->base);
+-	} else if (pcached_val) {
+-		val = *pcached_val;
++	scoped_guard (raw_spinlock, &drvdata->spinlock) {
++		if ((reg_offset >= 0) && cti_active(config)) {
++			CS_UNLOCK(drvdata->base);
++			val = readl_relaxed(drvdata->base + reg_offset);
++			if (pcached_val)
++				*pcached_val = val;
++			CS_LOCK(drvdata->base);
++		} else if (pcached_val) {
++			val = *pcached_val;
++		}
+ 	}
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return sprintf(buf, "%#x\n", val);
+ }
+ 
+@@ -293,7 +294,8 @@ static ssize_t cti_reg32_store(struct device *dev, const char *buf,
+ 	if (kstrtoul(buf, 0, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	/* local store */
+ 	if (pcached_val)
+ 		*pcached_val = (u32)val;
+@@ -301,7 +303,7 @@ static ssize_t cti_reg32_store(struct device *dev, const char *buf,
+ 	/* write through if offset and enabled */
+ 	if ((reg_offset >= 0) && cti_active(config))
+ 		cti_write_single_reg(drvdata, reg_offset, val);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ 
+@@ -349,9 +351,10 @@ static ssize_t inout_sel_store(struct device *dev,
+ 	if (val > (CTIINOUTEN_MAX - 1))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	drvdata->config.ctiinout_sel = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(inout_sel);
+@@ -364,10 +367,11 @@ static ssize_t inen_show(struct device *dev,
+ 	int index;
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+-	spin_lock(&drvdata->spinlock);
+-	index = drvdata->config.ctiinout_sel;
+-	val = drvdata->config.ctiinen[index];
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		index = drvdata->config.ctiinout_sel;
++		val = drvdata->config.ctiinen[index];
++	}
++
+ 	return sprintf(buf, "%#lx\n", val);
+ }
+ 
+@@ -383,14 +387,15 @@ static ssize_t inen_store(struct device *dev,
+ 	if (kstrtoul(buf, 0, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	index = config->ctiinout_sel;
+ 	config->ctiinen[index] = val;
+ 
+ 	/* write through if enabled */
+ 	if (cti_active(config))
+ 		cti_write_single_reg(drvdata, CTIINEN(index), val);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(inen);
+@@ -403,10 +408,11 @@ static ssize_t outen_show(struct device *dev,
+ 	int index;
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+-	spin_lock(&drvdata->spinlock);
+-	index = drvdata->config.ctiinout_sel;
+-	val = drvdata->config.ctiouten[index];
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		index = drvdata->config.ctiinout_sel;
++		val = drvdata->config.ctiouten[index];
++	}
++
+ 	return sprintf(buf, "%#lx\n", val);
+ }
+ 
+@@ -422,14 +428,15 @@ static ssize_t outen_store(struct device *dev,
+ 	if (kstrtoul(buf, 0, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	index = config->ctiinout_sel;
+ 	config->ctiouten[index] = val;
+ 
+ 	/* write through if enabled */
+ 	if (cti_active(config))
+ 		cti_write_single_reg(drvdata, CTIOUTEN(index), val);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(outen);
+@@ -463,7 +470,7 @@ static ssize_t appclear_store(struct device *dev,
+ 	if (kstrtoul(buf, 0, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	/* a 1'b1 in appclr clears down the same bit in appset*/
+ 	config->ctiappset &= ~val;
+@@ -471,7 +478,7 @@ static ssize_t appclear_store(struct device *dev,
+ 	/* write through if enabled */
+ 	if (cti_active(config))
+ 		cti_write_single_reg(drvdata, CTIAPPCLEAR, val);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_WO(appclear);
+@@ -487,12 +494,12 @@ static ssize_t apppulse_store(struct device *dev,
+ 	if (kstrtoul(buf, 0, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	/* write through if enabled */
+ 	if (cti_active(config))
+ 		cti_write_single_reg(drvdata, CTIAPPPULSE, val);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_WO(apppulse);
+@@ -681,9 +688,10 @@ static ssize_t trig_filter_enable_show(struct device *dev,
+ 	u32 val;
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+-	spin_lock(&drvdata->spinlock);
+-	val = drvdata->config.trig_filter_enable;
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		val = drvdata->config.trig_filter_enable;
++	}
++
+ 	return sprintf(buf, "%d\n", val);
+ }
+ 
+@@ -697,9 +705,10 @@ static ssize_t trig_filter_enable_store(struct device *dev,
+ 	if (kstrtoul(buf, 0, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	drvdata->config.trig_filter_enable = !!val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(trig_filter_enable);
+@@ -728,7 +737,7 @@ static ssize_t chan_xtrigs_reset_store(struct device *dev,
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct cti_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	/* clear the CTI trigger / channel programming registers */
+ 	for (i = 0; i < config->nr_trig_max; i++) {
+@@ -747,7 +756,6 @@ static ssize_t chan_xtrigs_reset_store(struct device *dev,
+ 	if (cti_active(config))
+ 		cti_write_all_hw_regs(drvdata);
+ 
+-	spin_unlock(&drvdata->spinlock);
+ 	return size;
+ }
+ static DEVICE_ATTR_WO(chan_xtrigs_reset);
+@@ -768,9 +776,10 @@ static ssize_t chan_xtrigs_sel_store(struct device *dev,
+ 	if (val > (drvdata->config.nr_ctm_channels - 1))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	drvdata->config.xtrig_rchan_sel = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ 
+@@ -781,9 +790,9 @@ static ssize_t chan_xtrigs_sel_show(struct device *dev,
+ 	unsigned long val;
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+-	spin_lock(&drvdata->spinlock);
+-	val = drvdata->config.xtrig_rchan_sel;
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		val = drvdata->config.xtrig_rchan_sel;
++	}
+ 
+ 	return sprintf(buf, "%ld\n", val);
+ }
+@@ -838,12 +847,12 @@ static ssize_t print_chan_list(struct device *dev,
+ 	unsigned long inuse_bits = 0, chan_mask;
+ 
+ 	/* scan regs to get bitmap of channels in use. */
+-	spin_lock(&drvdata->spinlock);
+-	for (i = 0; i < config->nr_trig_max; i++) {
+-		inuse_bits |= config->ctiinen[i];
+-		inuse_bits |= config->ctiouten[i];
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		for (i = 0; i < config->nr_trig_max; i++) {
++			inuse_bits |= config->ctiinen[i];
++			inuse_bits |= config->ctiouten[i];
++		}
+ 	}
+-	spin_unlock(&drvdata->spinlock);
+ 
+ 	/* inverse bits if printing free channels */
+ 	if (!inuse)
+diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
+index cb9ee616d01f..16e310e7e9d4 100644
+--- a/drivers/hwtracing/coresight/coresight-cti.h
++++ b/drivers/hwtracing/coresight/coresight-cti.h
+@@ -175,7 +175,7 @@ struct cti_drvdata {
+ 	void __iomem *base;
+ 	struct coresight_device	*csdev;
+ 	struct cti_device ctidev;
+-	spinlock_t spinlock;
++	raw_spinlock_t spinlock;
+ 	struct cti_config config;
+ 	struct list_head node;
+ 	void (*csdev_release)(struct device *dev);
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
