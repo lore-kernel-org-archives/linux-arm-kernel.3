@@ -4,175 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4477ED58D76
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 18:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B52F8D58D76
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 18:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=of9arVcuY+Zk+7tAmxzqXYiMi9sUwQS+Ff29qCbKqOs=; b=ewuVvwApcck9rTsNDQaiTvcJqV
-	VZ7d1OO66cniJUukIm+ngGJJ8oG2Z65vAnxxiI6VmOuLU9cHv8/7yDSC2XWnYp45gIcnOyS23bxeU
-	yxXKoE2SaVYBS/7UUAPQWVu/zuJwl6jDnzS0uKyoMFb0JBXbeBn4DQpzFQvnHSLcpt57H0UHTG/5L
-	O/xkHCgB3CaU6FGmeci8Ks/Snks7cqhKQUYVBVo/Dm6X6yGqz1PWW97WfXap7CgMaZhdfUodyL0f0
-	0YV0la6U7rK2Nl/ERJegHEzQfUnSP6nLmJXzlGsZmtLK4uZlJ2dnJG0d6E3cIBv6sTpA2t17f+Dw0
-	A1OSWNWg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jet1Wflq9Iv5ctweQk8pCStM7oRZw+jWxC+IFe3J/TI=; b=LCRXhCr6dBLPa3oP/SSKc53Vz6
+	5K60R7h6PAD7mm8Og/Lz8gR7FQf695N+JHA6xpqDUMZiNvg1W07u1704ZKKyCRUdngrZ2Xn5yIv+O
+	a8wSYZoHL+UqqWsxWkopjt21qdq2k6JcgN+RJskEIBZPCy7USlSN2W02lrP7HQS0TQV2+LBdFw5fG
+	mv5nbGIWqhRhkvJII9PBLHJEI0LFBB69/nTKP76xhIROjGN8X3qtbeGYnfQigTOxiu2hSzj+3TUXB
+	M9RIcQvw2LJhWvc88wP0o+C9shBY7Tz4Su0LVmp6bFE+9zEWySrEdd0FXApqTjfZuXCrC3c+1GhCt
+	LupJF10w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFdUO-00000008pck-2Bk0;
-	Mon, 25 Nov 2024 18:07:12 +0000
-Received: from mail-dm6nam10on2060b.outbound.protection.outlook.com ([2a01:111:f403:2413::60b] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1tFdbC-00000008qNP-2VdQ;
+	Mon, 25 Nov 2024 18:14:14 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFdTQ-00000008pWj-1a6y
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 18:06:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q/V7jnfJvDUILE8vb6pf97Sxw+PSl2kIZfEr5Yr2CEARryy+pa9QptAYEMsGx78iQLaSJuqNJLEP77bLCdXZUXn/kXg+yxH6IsH+WR3q1DvZE640wbAT2n22gFORWLaHj3iLlnU1s3EZvXDbRhbynmeNCrNBcT8IhXIchSeM+V8rctfWKrWTOV2EWDOhn96VX2aZRNie8PCYbTXdQfoIU2ffZ9bNuRg0GAgTvCCQlEdPgYrRhqTk2N/SK+tuVD9nOyhXYFOxjNjjQsNDUvbQYjCiBYCs8mqGHmbHx1s0KXu2CjuvVeiUziyPydZap6lhiEJocI0ZJIcd22IP6829oQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=of9arVcuY+Zk+7tAmxzqXYiMi9sUwQS+Ff29qCbKqOs=;
- b=qNmRnoBBGahbX8cNTaq0JTmzShrZC3v9QQuM8XzNIt6Uuk0svbFzV+3DNVQw9EdasUOabGMnnsbbXD5+2vDbT3qD0nNArh4zPKts0CdZGLe03VX60L7MZFooFevDhZDRPZHEENmrEmr2DCR03pMIR0q6mvjbVljboaYeIQit9BGUZ8W6yjhwYw8Usq3tu2iOEw5KxQVEtrlrFgMivu3gd5hJuO/+X3oU8okpEVahJctIL+KXMWJiGIp/GHjaSd/zJyFuxZMOkS/k+h3tM94XYJF4421LjSTunW564+qyI1FIqbakQ8bBWsinnJOSK37Zexq9K1voGnGJnZr0xbsZ1w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=of9arVcuY+Zk+7tAmxzqXYiMi9sUwQS+Ff29qCbKqOs=;
- b=Ozbsb9xxjC7QjGvxdDstV1hhXZXPLnnSxu0YeevjgZnBZ5iinSIkhVLSkkOI/cgoDbBrACqBhZKy4kEKYAOjsEE6p35yX7urZnUFUoQ+1fPg212nkj/DbQ3zgITK7F/Bt14ZNm4NzQi4iy492foyHt9PYoBn+97Xjb1+2BMCWyU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from PH7PR12MB5688.namprd12.prod.outlook.com (2603:10b6:510:130::9)
- by IA1PR12MB6020.namprd12.prod.outlook.com (2603:10b6:208:3d4::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.20; Mon, 25 Nov
- 2024 18:05:59 +0000
-Received: from PH7PR12MB5688.namprd12.prod.outlook.com
- ([fe80::b26b:9164:45e2:22d5]) by PH7PR12MB5688.namprd12.prod.outlook.com
- ([fe80::b26b:9164:45e2:22d5%4]) with mapi id 15.20.8182.019; Mon, 25 Nov 2024
- 18:05:59 +0000
-Message-ID: <573fc7db-f6c8-4a0d-b709-d113dc479652@amd.com>
-Date: Mon, 25 Nov 2024 12:04:21 -0600
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/2] mm: Refactor KVM guest_memfd to introduce guestmem
- library
-To: Elliot Berman <quic_eberman@quicinc.com>,
- Paolo Bonzini <pbonzini@redhat.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Sean Christopherson <seanjc@google.com>, Fuad Tabba <tabba@google.com>,
- Ackerley Tng <ackerleytng@google.com>, Mike Rapoport <rppt@kernel.org>,
- David Hildenbrand <david@redhat.com>, "H. Peter Anvin" <hpa@zytor.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Jonathan Corbet <corbet@lwn.net>, Trond Myklebust <trondmy@kernel.org>,
- Anna Schumaker <anna@kernel.org>, Mike Marshall <hubcap@omnibond.com>,
- Martin Brandenburg <martin@omnibond.com>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>
-Cc: James Gowans <jgowans@amazon.com>, linux-fsdevel@vger.kernel.org,
- kvm@vger.kernel.org, linux-coco@lists.linux.dev,
- linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-doc@vger.kernel.org, linux-nfs@vger.kernel.org,
- devel@lists.orangefs.org, linux-arm-kernel@lists.infradead.org
-References: <20241122-guestmem-library-v5-0-450e92951a15@quicinc.com>
-From: Mike Day <michael.day@amd.com>
-Content-Language: en-US
-In-Reply-To: <20241122-guestmem-library-v5-0-450e92951a15@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: CY8PR12CA0008.namprd12.prod.outlook.com
- (2603:10b6:930:4e::12) To PH7PR12MB5688.namprd12.prod.outlook.com
- (2603:10b6:510:130::9)
+	id 1tFdaE-00000008qHT-1kqX;
+	Mon, 25 Nov 2024 18:13:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1732558369; x=1733163169; i=wahrenst@gmx.net;
+	bh=Jet1Wflq9Iv5ctweQk8pCStM7oRZw+jWxC+IFe3J/TI=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=Eh7sB2GVUzx+Fp/nuNzcETxLmaxftOVvTq3OD2M96EE/a5pYFk1m8Asx3mwmmjem
+	 KWf0nwLwmUH6yVQ9lroJO7yoK/2twFwvWSYWSC15y9vwwHsJOdIjCxev0P7+IN2o/
+	 oiY8CVaTahCG0mezp6sXz5sQYrOl1gE2MUAABcngYPAf8osXgXDkxg1Gmlgfc0DVp
+	 rXuPxOpLrF1f2fq+fGhrWVXKw0GbML87+H7g/khoW+vHvI+5Hd+Uv/UT2znrjrsJ4
+	 rPFRhvA+bKGhfO7XjK37ayn90CF5KccQIZAzwLZiuquptEA6G8abgexwx7GNSnwOM
+	 nknQwZ7m8tXFF0A9Gw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([37.4.251.153]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MsHnm-1tZuJv2YYM-0112NR; Mon, 25
+ Nov 2024 19:12:49 +0100
+Message-ID: <e0595933-d503-492d-ae29-aa3afe90b279@gmx.net>
+Date: Mon, 25 Nov 2024 19:12:47 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5688:EE_|IA1PR12MB6020:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0bf7946c-e7fa-4200-a489-08dd0d7bd08c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TGxTdGJLcDFuSmR3OHNmZEhadHpCM1BLMVVYQUxSWTVjYkJLcm9hUXFmWXkv?=
- =?utf-8?B?MEFXMytTckl1bVRtc2JhaVVmV0wwUkFaNnNlZkFsdzhzemthYUlSdWtlTjRR?=
- =?utf-8?B?V2VFVC9yOWdmTWwvUU5HMTltYXZ0OEJWck1sNGRkNWFmR0JpRkFRTU05VVFj?=
- =?utf-8?B?bHRBZzJSZG5OdDBjTkJiRXN6TXNXKy9mb2FwNldCM0RhV1ZHUFBOMzJ0b1NR?=
- =?utf-8?B?MHNUQzVDM04zYWtRdStra0RDSEc1TjBEL3ZleFVVWC84Q0pkYVExQ0NCNlpB?=
- =?utf-8?B?WUR0WGhxMmIwQjVBbzh3RmtpaWdpajU1TlhORlBmUThkVy9OWkVScHV2bHU4?=
- =?utf-8?B?cVFjVlF0M3h2VEpzaFBUQzduLzhnL1dkS1BvWmRiOVg1TklJSUdtcTJtRHEx?=
- =?utf-8?B?MGZUM3J3R05JSjFOMUJhZHdsS1NSSjVacTByT1FOSlo4ellWWGpRUC94cGww?=
- =?utf-8?B?NmJ3NHJZNHVrS2dMb0ZWZUJHMVJGSitleS9COGVnKzNSKzB1ejRCcFZRZThX?=
- =?utf-8?B?UEJhbDE0RUtDSDBQNG5SN0RqZXZpM1ZMbitRRTFKZEIzWTUvT3poMEVSdTBY?=
- =?utf-8?B?cFcvbFlUcnJBbU9leDdGTkZBMlJGWDBRVlNETGNIUU5WdDRrckxKUUNsajBu?=
- =?utf-8?B?USthSloraHhvNi9ua2J4MVpFTk5XS05qY2JzNVNTcXpURVNhQXJ4M1RUb3R0?=
- =?utf-8?B?WTBiOHh4WTdQYlNEMzZ6alppMzBSWGZYeWVtdUlOeEY3NEwyZmVkNzVHRUIz?=
- =?utf-8?B?WjhJb1FSQXlTNXpvWk0wUENZMURQTFdBVXJYenlaZkpjQXNETzJnMTZZOFM0?=
- =?utf-8?B?dTYzMk1lSmhieU16UVNIYU42N01pSHo5TEtNd1JIbTJ6TVU0MHd4SjBwdmgr?=
- =?utf-8?B?K0RuK3daNGFobEFOU2l4TGY2R3VBZ2lMS05EMDNWejhIMFVwV0tHNUlZMXBm?=
- =?utf-8?B?bXV3VmkydXBLUHFlb2VNdXgrL3hmb1FtY2dwTE1aY2lkNEE0OGdGeWRJSFRY?=
- =?utf-8?B?RlN1YlAyQVppcGZJTGxSMS9uYkRKbXFHek5oeHpXenFubzZzTTN6MkdSckVu?=
- =?utf-8?B?NnZkWkFyWjc3ZXJ6dlhpQnk0NzU0QnNTV1BSdndjVEpXaXBzTlNuNXY0OHlu?=
- =?utf-8?B?RWV2cjY5N1BRUW96bWFNVzhBRnNHWWRNeUYyYmhjREtRdFFFMktmQjUxTHBO?=
- =?utf-8?B?RkZFS2NzdXkvQ2NKRXF3aDlIajdhV2hrMXh3b1JJN1dtRC9mYy9qdWxqMzEw?=
- =?utf-8?B?WXVBaHBEUU15SDMrSFhSV0J4azlycjg2cjRtK2o1VENZU09EYmE5RjZzVXFi?=
- =?utf-8?B?aStLZ2pVVWNOUU1pSkpQWnV5eDVZZFd3S0hXaHM2aU8wSEc4TkRCSElHby9U?=
- =?utf-8?B?THRNU0d0Y0JycnJ5OVo0aHEzRzQ4MGtqVm9IaWlmcXp4RmxLYkE0UndVWDVK?=
- =?utf-8?B?VUROU1c3c3gzeDhxa2lkcG9iWHJZd2NIMDYrVnNRZHJIbVFmaStpdzZMdDZi?=
- =?utf-8?B?NEQyNldsTGhVQVZkL1BsUlExK3lXU1A5cklvdG50aWFsa1NBdi80NHpqU3Ax?=
- =?utf-8?B?OGx4ektRMnNqemRtenF4VWE1OU5HRWRFbGdhNEQzNTd0ZnptRFRwOGZ4MW9r?=
- =?utf-8?B?WEIwY2M3Y1Q5L0hhdEFaQlZESm9ueDFVYzRveVZWZi9ET1dvT2RZczRwUmFH?=
- =?utf-8?B?WmdvWXZIVy9Sb2xvTlVVOE92ZWdlak8yWG1OL1dSMVhVcnpaR0EzRG1WM1Ev?=
- =?utf-8?B?UHJZdlQ3NExvNENzcmFCSnkwNC9vTURZS2JoSElnL3F0THBLc0N0MzZiZ2JX?=
- =?utf-8?Q?J4zLJhs8OYRlFN1Zk6HAAU8da4m00F+fQSPNU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5688.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?REFJekdQTXZYMUxoSGZPMFl2blJuT3NYYXdaQ1B6TGt5aGZ3cnZZLzd1MEY3?=
- =?utf-8?B?UE9kUFowdUZqUElPb3hmL1FFRlhpR09zTjN6aXRMU2RERENMbDJjRzNtRTBI?=
- =?utf-8?B?c3dkeWJ5ckZLOXB6VlhtZHlmNXlzL3lDTzltYTgyck4zTWJXcE8yNFFxcWlo?=
- =?utf-8?B?QS82OGxrMjhoNTZ5UVRlVVFKUGE5RXNxUy9EMkNRVDU4VnFEeTBqRlAzQVVn?=
- =?utf-8?B?VWswVEpqMFJzbTc1enVjOU9zS2hyUlVsOTY4MjVUajJxY2xJazBpNnphYXZw?=
- =?utf-8?B?SHEvdUJRdURNU3d3OGNKcjJaU3lWQTlCSWFNK3hZUUtTSzB1Rk9WRkc0UUtk?=
- =?utf-8?B?ZmRmOUJKdnZyL2dGSisrSWFTZFZBWWFwZU8wa3ZVN2VDRENET1dDQ2dMS3M1?=
- =?utf-8?B?K0pIQjBPSFE0WU1iTk1RazFINitDNDNmREFvVC9rQlJCZW15Ly9GamNvRTVG?=
- =?utf-8?B?TFBMcW5BMlVwaXpCUCtscnlHNllaSmdKME4wV1Y1aGFrRXdOWXc2OFBaVlRU?=
- =?utf-8?B?WlFXQ3lTYnVhb0NIdnFYcTdNa2FNRUxyMWJTWDBIMm0wUkVhMGI4UHpCK1FK?=
- =?utf-8?B?Z0huOElOR2VCNmI3bCtrVmpWMGJPUmdJRFdVa015aU9RN3hRMjNTQjhmSjIw?=
- =?utf-8?B?d3RiR3ZIdHJ3NldXcEZJa2JHVjNZVk4xenRleVUvc1dhUDlWVW1tVUtkYThs?=
- =?utf-8?B?OU85ZXdncDRFRXJCSzhtZk81WGZpc1A2NzJDdC9sTWFoNk1xSi81eSswU1pC?=
- =?utf-8?B?dzc1dktYVXgyU0FBK0d4c2c5KzgwN3ROckpvL3ZBNGwxWlBGMno3U1AzNzUy?=
- =?utf-8?B?aTRPR3JHS003UFAxUmxVbTl0eDh3Z2lIclJLck9kYnVxMTc2aVlDY3B3UDdD?=
- =?utf-8?B?MUN1TXdkQTJkTlJvbDQzd3dmRllXYk9vMVlHRG9jOHg1SFI5QzJrWmcvMzhQ?=
- =?utf-8?B?anc5ZDdnK2UzOW9CQU8zVHV0ODNVWVhpZWFjZXpkTUtxaDVHeTJIVDgrSERM?=
- =?utf-8?B?MXkxMldJZ3AvMDhMM3A3NHB2L3p1K3UrYjBpV0RmazFBZEVWQW16WTAvZDBu?=
- =?utf-8?B?eWR2U1BoVGNmUzlCRW5tTGk2aVBNUURGKzN0R0xFclllY2ZHakdPVnZvbUwv?=
- =?utf-8?B?SHFhRXpaVW9uT2tlVkIvcG05c1E3bzVSTTc2Z2ZmVFQrTy9xOU5iRCt6NHZv?=
- =?utf-8?B?MUtWNE90d1ErN1BKM3Q4enNGM2ZXRFc5dngvajZuK3IxeVVrZ1dyZFd1cWNJ?=
- =?utf-8?B?aU9LdlJJSjJ4YmFlQnVhdFE4c3ZMaExWQUhWbDFVcUU1eUxmZXA2STZCaExF?=
- =?utf-8?B?NmhvcVVlcTJkeFhzZjRhQmRnT1ZmQVZXdkRkeUh1Zkp5ZUxDS2VwY0xub1h0?=
- =?utf-8?B?eER6SjA2alBFS0kwUlg0REQ3Q0ZMMExGbXpFWWFHS3BOYUs4K0dFa1ZJZXBQ?=
- =?utf-8?B?b2dJVjBuSEJQMzRqQkJmSDN0YWEra3Y0Q1VzRS9EdGJJSUJJWkpxNVJwQXMy?=
- =?utf-8?B?aUJZZ200M0dTY0NpT1FjTnNJTVpnbjNkVDZrNmhDQk1kd2JTcmtIY3pkSGVh?=
- =?utf-8?B?MDFuL0FLWUdHb2FjaGU3bnYxdUlmWll4S0h6NmVXREMyVnF4dDNFbzNqTFha?=
- =?utf-8?B?V2pIbEJKRHkwbXdqSm52WmNRU01nLytEa0NGb1FwSlpwWVBIUXppVGNaTzNI?=
- =?utf-8?B?bkxlUnZ5OHBXeWN5bjVaS0taSFJITGxnTjd4cFhTSmpnamF0bmIweDkzWUJK?=
- =?utf-8?B?S2Rnd0JBakkzZUQwUjhKeU1EUEhJZm1FUVRFK2hLRE85VkswZVlDWnNHN3cx?=
- =?utf-8?B?UXF1RjJ3d29EUTg1UTc0bC9SN2RFV2E1cm5uZzlzdkdSOXNaMlVDWkdaeWo3?=
- =?utf-8?B?YU1jeEhQbE1YMGxyQkNvVnI2aTFCTCtCKzgyU1ZTQ3FGQWpmdXpMaGFPNDJN?=
- =?utf-8?B?Z3lFT0VFZVBKVFJod1R1R1FmZ3pBRkxScVdSTDNoTjBzVkVCbk1OOHl2dkc1?=
- =?utf-8?B?SmM1dXVmbzhLUlAwQUtGYkxKQnJ3UHdPV3VsbHZFSHlqN3ZTSUR5eFNPWDBX?=
- =?utf-8?B?SU0yNW14bVg3bzhFRi9XcFdHUTdSN1pzVjF6VWZpbXpSSHBCTGExSzJmb1Uy?=
- =?utf-8?Q?fRQiD7cZbULbYaKWBqhEpuH21?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0bf7946c-e7fa-4200-a489-08dd0d7bd08c
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5688.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2024 18:05:58.9093
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fIl9Swjn6fgZq33yxWtZQVTAaScxr/VET+NSgrf9LP8MZn+f8Tsgc+K4IjE6FC9O17pPTFlx5TrJ4BuEGEEL/A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6020
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 02/10] dt-bindings: pinctrl: Add RaspberryPi RP1
+ gpio/pinctrl/pinmux bindings
+To: Andrea della Porta <andrea.porta@suse.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Krzysztof Wilczynski <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij
+ <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic
+ <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+ Masahiro Yamada <masahiroy@kernel.org>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>
+References: <cover.1732444746.git.andrea.porta@suse.com>
+ <9b83c5ee8345e4fe26e942f343305fdddc01c59f.1732444746.git.andrea.porta@suse.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+In-Reply-To: <9b83c5ee8345e4fe26e942f343305fdddc01c59f.1732444746.git.andrea.porta@suse.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:SfcJ1U1ioolYlU08V0tDyUyw2lx+5XKM0Sq15uwms2N2TD3GDtv
+ RVhf4eAAYXTT4NW/+ZEmAcWY7MGGonqdmQnhs4vMhmtMVQEie1Vqrh7Q9sOwzkNx/sAkUMJ
+ E2r/k2YmV0vWRxLK+xRuvMxVtTdxi/Vkbah5D/uGjIn9tTZ2swWok2dWKRjRT4bnxlZoP6a
+ gB///W+fSsqyeAFLDMlXA==
+UI-OutboundReport: notjunk:1;M01:P0:15pj2DQDW1A=;lqF5/uK6uFKXoQv461NDp6cqEvf
+ zxv1eeo0nBr8au2SHLc2y8hHaO3j6sGcJ+LeK20Hya+II31132SKpL45QEWO2E0POm0TdSfKQ
+ TyDAfvmpHFWZYTWU6Mbniv9ue/KxCgWE5PyOo/QhBGTo/SSzQSKOidyxBb4/CmeI5Kq/XStDS
+ w17giBiy9mph61kPzaNciZetzMZPjQZWucNB626gECxeVkwtqurYr086V/s4JA7ULEq7flupl
+ y/zSV8beWOjHaH90GmNtL/iiERlsDWqY5+N6W7mmajxtSMnuEBc2wfh35vlqY0tmUA3r9G/ec
+ 2/LpJkimnjpFfUWa9l9N3keNoynAeL/Z4gRA8qnuloALrL0tHFeWOlrYqMLK6pwKZRmCtEyy1
+ uoq1jbyqVTfHp5cbEJ1m5gj73s+aRbZGqsL1WejalBzti4Jw96DVIrB2YN4RBK26Wxezs3/ph
+ XZvwOsIAQPBkweCgyC9aJ6Sm1RGe80Q1XKFHOAPhJZBZ+im++SKR37AXLPm6BvcrdwJYxqqG0
+ fOTjOCGwJLyt5NwFbXsc5fGC5e/udV5EI672Caihpu3y5dubWK+5jYNzamcc7nwtMUvRCnmdK
+ Bj3bGW9KsLSevZNGQiBExuY3nDfkhWo3NUx7xht5dnIjUX56X3/2sYxu7eJJLA2R3js6b8F0l
+ AKV1Y3Db54hQ7/Zu7MfG80AUChkDJrKOm7Jf61dVxGVKWPvFvD/PvlacOmkfajCQzg0FWH2/O
+ 4aU4gZkUUslvgVwiZZir0dItd4KKJVB1O5tKX5FsaLIjYmGFQC1EKC2CzH/Y4y1St+JVzsElG
+ krgyk1yQpauCZBklvupZeFxjYblsmzSJ36fiXpnd0jTxUHmD4OjmLVubPT/xdC7phg5vKpVbV
+ RuiPiQON99AF5BsrjvWlarIGaMeweTv6v9Rxm/M92DeGsrwhVmdVRri8oqFzNFVSHkrlIZtB+
+ AsVfA8lxEWPzdQeQTieHuFfNXgoXRNgM61fexT2IXwbITLaXj3Qij5OcPdY8z5EesssnS9JMp
+ PBFRU7uYND8rcRYYLSmZj5NqLqCm7NyR//g1OosDoD8/XEy0HgigOfzdo7iQ89m4NfaemTsY+
+ 9mKzssjEw1lIgFWAbFjROw01asuei1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_100612_409880_0FD271B2 
-X-CRM114-Status: GOOD (  22.92  )
+X-CRM114-CacheID: sfid-20241125_101314_750904_38D9D4C1 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,91 +116,254 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.day@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andrea,
 
-
-On 11/22/24 11:29, Elliot Berman wrote:
-> In preparation for adding more features to KVM's guest_memfd, refactor
-> and introduce a library which abtracts some of the core-mm decisions
-> about managing folios associated with guest memory. The goal of the
-> refactor serves two purposes:
-> 
-> 1. Provide an easier way to reason about memory in guest_memfd. KVM
->     needs to support multiple confidentiality models (TDX, SEV, pKVM, Arm
->     CCA). These models support different semantics for when the host
->     can(not) access guest memory. An abstraction for the allocator and
->     managing the state of pages will make it eaiser to reason about the
->     state of folios within the guest_memfd.
-> 
-> 2. Provide a common implementation for other users such as Gunyah [1] and
->     guestmemfs [2].
-> 
-> In this initial series, I'm seeking comments for the line I'm drawing
-> between library and user (KVM). I've not introduced new functionality in
-> this series; the first new feature will probably be Fuad's mappability
-> patches [3].
-> 
-> I've decided to only bring out the address_space from guest_memfd as it
-> seemed the simplest approach. In the current iteration, KVM "attaches"
-> the guestmem to the inode. I expect we'll want to provide some helpers
-> for inode, file, and vm operations when it's relevant to
-> mappability/accessiblity/faultability.
-> 
-> I'd appreciate any feedback, especially on how much we should pull into
-> the guestmem library.
-> 
-> [1]: https://lore.kernel.org/lkml/20240222-gunyah-v17-0-1e9da6763d38@quicinc.com/
-> [2]: https://lore.kernel.org/all/20240805093245.889357-1-jgowans@amazon.com/
-> [3]: https://lore.kernel.org/all/20241010085930.1546800-3-tabba@google.com/
-> 
-> Changes in v5:
-> - Free all folios when the owner removes detaches the guestmem
-> - Link to v4: https://lore.kernel.org/r/20241120-guestmem-library-v4-0-0c597f733909@quicinc.com
-> 
-> Changes in v4:
-> - Update folio_free() to add address_space mapping instead of
->    invalidate_folio/free_folio path.
-> - Link to v3: https://lore.kernel.org/r/20241113-guestmem-library-v3-0-71fdee85676b@quicinc.com
-> 
-> Changes in v3:
->   - Refactor/extract only the address_space
->   - Link to v2: https://lore.kernel.org/all/20240829-guest-memfd-lib-v2-0-b9afc1ff3656@quicinc.com/
-> 
-> Changes in v2:
-> - Significantly reworked to introduce "accessible" and "safe" reference
->    counters
-> - Link to v1: https://lore.kernel.org/r/20240805-guest-memfd-lib-v1-0-e5a29a4ff5d7@quicinc.com
-> 
-> Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
-
-Tested-by: Mike Day <michael.day@amd.com>
-
+Am 24.11.24 um 11:51 schrieb Andrea della Porta:
+> Add device tree bindings for the gpio/pin/mux controller that is part of
+> the RP1 multi function device, and relative entries in MAINTAINERS file.
+>
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 > ---
-> Elliot Berman (2):
->        filemap: Pass address_space mapping to ->free_folio()
->        mm: guestmem: Convert address_space operations to guestmem library
-> 
->   Documentation/filesystems/locking.rst |   2 +-
->   MAINTAINERS                           |   2 +
->   fs/nfs/dir.c                          |  11 +-
->   fs/orangefs/inode.c                   |   3 +-
->   include/linux/fs.h                    |   2 +-
->   include/linux/guestmem.h              |  34 ++++++
->   mm/Kconfig                            |   3 +
->   mm/Makefile                           |   1 +
->   mm/filemap.c                          |   9 +-
->   mm/guestmem.c                         | 201 ++++++++++++++++++++++++++++++++++
->   mm/secretmem.c                        |   3 +-
->   mm/vmscan.c                           |   4 +-
->   virt/kvm/Kconfig                      |   1 +
->   virt/kvm/guest_memfd.c                |  98 +++++------------
->   14 files changed, 290 insertions(+), 84 deletions(-)
-> ---
-> base-commit: 5cb1659f412041e4780f2e8ee49b2e03728a2ba6
-> change-id: 20241112-guestmem-library-68363cb29186
-> 
-> Best regards,
+>   .../pinctrl/raspberrypi,rp1-gpio.yaml         | 193 ++++++++++++++++++
+>   MAINTAINERS                                   |   2 +
+>   2 files changed, 195 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/pinctrl/raspberry=
+pi,rp1-gpio.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-g=
+pio.yaml b/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.=
+yaml
+> new file mode 100644
+> index 000000000000..21923d39c1bc
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yam=
+l
+> @@ -0,0 +1,193 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pinctrl/raspberrypi,rp1-gpio.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: RaspberryPi RP1 GPIO/Pinconf/Pinmux Controller submodule
+> +
+> +maintainers:
+> +  - Andrea della Porta <andrea.porta@suse.com>
+> +
+> +description:
+> +  The RP1 chipset is a Multi Function Device containing, among other
+> +  sub-peripherals, a gpio/pinconf/mux controller whose 54 pins are grou=
+ped
+> +  into 3 banks.
+> +  It works also as an interrupt controller for those gpios.
+> +
+> +properties:
+> +  compatible:
+> +    const: raspberrypi,rp1-gpio
+> +
+> +  reg:
+> +    maxItems: 3
+> +    description: One reg specifier for each one of the 3 pin banks.
+> +
+> +  '#gpio-cells':
+> +    description: The first cell is the pin number and the second cell i=
+s used
+> +      to specify the flags (see include/dt-bindings/gpio/gpio.h).
+> +    const: 2
+> +
+> +  gpio-controller: true
+> +
+> +  gpio-ranges:
+> +    maxItems: 1
+> +
+> +  gpio-line-names:
+> +    maxItems: 54
+> +
+> +  interrupts:
+> +    maxItems: 3
+> +    description: One interrupt specifier for each one of the 3 pin bank=
+s.
+> +
+> +  '#interrupt-cells':
+> +    description:
+> +      Specifies the Bank number [0, 1, 2] and Flags as defined in
+> +      include/dt-bindings/interrupt-controller/irq.h.
+> +    const: 2
+> +
+> +  interrupt-controller: true
+> +
+> +patternProperties:
+> +  "-state$":
+> +    oneOf:
+> +      - $ref: "#/$defs/raspberrypi-rp1-state"
+> +      - patternProperties:
+> +          "-pins$":
+> +            $ref: "#/$defs/raspberrypi-rp1-state"
+> +        additionalProperties: false
+> +
+> +$defs:
+> +  raspberrypi-rp1-state:
+> +    allOf:
+> +      - $ref: pincfg-node.yaml#
+> +      - $ref: pinmux-node.yaml#
+> +
+> +    description:
+> +      Pin controller client devices use pin configuration subnodes (chi=
+ldren
+> +      and grandchildren) for desired pin configuration.
+> +      Client device subnodes use below standard properties.
+> +
+> +    properties:
+> +      pins:
+> +        description:
+> +          List of gpio pins affected by the properties specified in thi=
+s
+> +          subnode.
+> +        items:
+> +          pattern: "^gpio([0-9]|[1-5][0-9])$"
+> +
+> +      function:
+> +        enum: [ alt0, alt1, alt2, alt3, alt4, gpio, alt6, alt7, alt8, n=
+one,
+> +                aaud, dcd0, dpi, dsi0_te_ext, dsi1_te_ext, dsr0, dtr0, =
+gpclk0,
+> +                gpclk1, gpclk2, gpclk3, gpclk4, gpclk5, i2c0, i2c1, i2c=
+2, i2c3,
+> +                i2c4, i2c5, i2c6, i2s0, i2s1, i2s2, ir, mic, pcie_clkre=
+q_n,
+> +                pio, proc_rio, pwm0, pwm1, ri0, sd0, sd1, spi0, spi1, s=
+pi2,
+> +                spi3, spi4, spi5, spi6, spi7, spi8, uart0, uart1, uart2=
+, uart3,
+> +                uart4, uart5, vbus0, vbus1, vbus2, vbus3 ]
+> +
+> +        description:
+> +          Specify the alternative function to be configured for the spe=
+cified
+> +          pins.
+> +
+> +      bias-disable: true
+> +      bias-pull-down: true
+> +      bias-pull-up: true
+> +      slew-rate:
+> +        description: 0 is slow slew rate, 1 is fast slew rate
+> +        enum: [ 0, 1 ]
+> +      drive-strength:
+> +        enum: [ 2, 4, 8, 12 ]
+according to the driver in patch 4 the following should also be
+supported by the hardware:
+
+input-enable, input-schmitt-enable, output-enable, output-low, output-high
+> +
+> +    additionalProperties: false
+> +
+> +allOf:
+> +  - $ref: pinctrl.yaml#
+> +
+> +required:
+> +  - reg
+> +  - compatible
+> +  - '#gpio-cells'
+> +  - gpio-controller
+> +  - interrupts
+> +  - '#interrupt-cells'
+> +  - interrupt-controller
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    rp1 {
+> +        #address-cells =3D <2>;
+> +        #size-cells =3D <2>;
+> +
+> +        rp1_gpio: pinctrl@c0400d0000 {
+> +            reg =3D <0xc0 0x400d0000  0x0 0xc000>,
+> +                  <0xc0 0x400e0000  0x0 0xc000>,
+> +                  <0xc0 0x400f0000  0x0 0xc000>;
+> +            compatible =3D "raspberrypi,rp1-gpio";
+> +            gpio-controller;
+> +            #gpio-cells =3D <2>;
+> +            interrupt-controller;
+> +            #interrupt-cells =3D <2>;
+> +            interrupts =3D <0 IRQ_TYPE_LEVEL_HIGH>,
+> +                         <1 IRQ_TYPE_LEVEL_HIGH>,
+> +                         <2 IRQ_TYPE_LEVEL_HIGH>;
+> +            gpio-line-names =3D
+> +                   "ID_SDA", // GPIO0
+> +                   "ID_SCL", // GPIO1
+> +                   "GPIO2", "GPIO3", "GPIO4", "GPIO5", "GPIO6",
+> +                   "GPIO7", "GPIO8", "GPIO9", "GPIO10", "GPIO11",
+> +                   "GPIO12", "GPIO13", "GPIO14", "GPIO15", "GPIO16",
+> +                   "GPIO17", "GPIO18", "GPIO19", "GPIO20", "GPIO21",
+> +                   "GPIO22", "GPIO23", "GPIO24", "GPIO25", "GPIO26",
+> +                   "GPIO27",
+> +                   "PCIE_RP1_WAKE", // GPIO28
+> +                   "FAN_TACH", // GPIO29
+> +                   "HOST_SDA", // GPIO30
+> +                   "HOST_SCL", // GPIO31
+> +                   "ETH_RST_N", // GPIO32
+> +                   "", // GPIO33
+> +                   "CD0_IO0_MICCLK", // GPIO34
+> +                   "CD0_IO0_MICDAT0", // GPIO35
+> +                   "RP1_PCIE_CLKREQ_N", // GPIO36
+> +                   "", // GPIO37
+> +                   "CD0_SDA", // GPIO38
+> +                   "CD0_SCL", // GPIO39
+> +                   "CD1_SDA", // GPIO40
+> +                   "CD1_SCL", // GPIO41
+> +                   "USB_VBUS_EN", // GPIO42
+> +                   "USB_OC_N", // GPIO43
+> +                   "RP1_STAT_LED", // GPIO44
+> +                   "FAN_PWM", // GPIO45
+> +                   "CD1_IO0_MICCLK", // GPIO46
+> +                   "2712_WAKE", // GPIO47
+> +                   "CD1_IO1_MICDAT1", // GPIO48
+> +                   "EN_MAX_USB_CUR", // GPIO49
+> +                   "", // GPIO50
+> +                   "", // GPIO51
+> +                   "", // GPIO52
+> +                   ""; // GPIO53
+> +
+> +            rp1-i2s0-default-state {
+> +                function =3D "i2s0";
+> +                pins =3D "gpio18", "gpio19", "gpio20", "gpio21";
+> +                bias-disable;
+> +            };
+> +
+> +            rp1-uart0-default-state {
+> +                txd-pins {
+> +                    function =3D "uart0";
+> +                    pins =3D "gpio14";
+> +                    bias-disable;
+> +                };
+> +
+> +                rxd-pins {
+> +                    function =3D "uart0";
+> +                    pins =3D "gpio15";
+> +                    bias-pull-up;
+> +                };
+> +            };
+> +        };
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 75a66e3e34c9..c55d12550246 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19384,7 +19384,9 @@ RASPBERRY PI RP1 PCI DRIVER
+>   M:	Andrea della Porta <andrea.porta@suse.com>
+>   S:	Maintained
+>   F:	Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
+> +F:	Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
+>   F:	include/dt-bindings/clock/rp1.h
+> +F:	include/dt-bindings/misc/rp1.h
+>
+>   RC-CORE / LIRC FRAMEWORK
+>   M:	Sean Young <sean@mess.org>
+
 
