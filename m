@@ -4,53 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F93ED58D7B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 19:11:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6B2D59D65
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 19:14:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=duaHZr2sqQPDuj5ypaA0S9twv919nV4XH8XyQ/Q+QGs=; b=ZY92Ue5LcMUE8479Ej3DGeS6hy
-	xtWnfzLwGU8qiUGvkuC45hwfiorn64j8Zz2oCHupjhqKlr99t6q+b79yjQSbKDt4Gs5mtzs4iczFN
-	7nwG0GGn15KCtFmxtN+pToX428lxut04L2nmav/OXgtMJqzeXmSrpgPGinG0NmaMCwDyUuVXE3pwI
-	d5MMf2TuOEpLHGAjhKX0Vzk2pw+5Cjl96tVGUNF9qX/jRPcphGjZ6mrjbYh9CBbSebz1m1Tu39GND
-	0Y9yQM0YIsFjxt54af8jqTevRKt2MjHUf8AXtWeA0udWuixaNarO+iSA2gFmfYXQ+ip8Ao6YAhUya
-	SVtIKh+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3mBNcQYC8XVooGqU36uLdQcRs9nkmn6+6KYbKN0CvQA=; b=oAncTAnXyYZW3cNA2SB/oooOfW
+	CVeoyZaHdoegjzIemj+QsEPzP5QVJ5+aiRbq0chgpR+MU5h2RwQp23Vlg5FeYNCWBeMufpXyLuRXT
+	oJMNP03C2W0Qg/xaGB5XNl6MRsJ9jn/dguaO0hIDKqdaSVvfcYURevkLFbsmHeDufBBHn28vYwyJn
+	KpPBmumo3E4x1lBYNmw/cVEwwlN8Ih9CGc1Ws9Obqse5ZjsnyN/4y2MgBWTpjMzbvVZbhdpEBUXyK
+	LKEE+waKD8ypLiIqcMrwbFw+lZ6h2un52vF/4B5uw9djOUoDv5+UM1GJxkmcPAPeiD6+oVJ4E9uMJ
+	EJpj3Cxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFeUA-00000008vib-45k6;
-	Mon, 25 Nov 2024 19:11:02 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tFeWx-00000008wHs-19uY;
+	Mon, 25 Nov 2024 19:13:55 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFeTC-00000008vZU-3cac
+	id 1tFeVz-00000008w6r-2eGs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 19:10:04 +0000
+	Mon, 25 Nov 2024 19:12:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7AD97A418EA;
-	Mon, 25 Nov 2024 19:08:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEFC2C4CECE;
-	Mon, 25 Nov 2024 19:09:59 +0000 (UTC)
-Date: Mon, 25 Nov 2024 19:09:57 +0000
+	by nyc.source.kernel.org (Postfix) with ESMTP id CECBBA4191E;
+	Mon, 25 Nov 2024 19:11:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85486C4CED2;
+	Mon, 25 Nov 2024 19:12:51 +0000 (UTC)
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: Sasha Levin <sashal@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yang Shi <yang@os.amperecomputing.com>,
-	David Hildenbrand <david@redhat.com>
-Subject: Re: [GIT PULL] arm64 updates for 6.13-rc1
-Message-ID: <Z0TLhc3uxa5RnK64@arm.com>
-References: <20241118100623.2674026-1-catalin.marinas@arm.com>
- <Z0STR6VLt2MCalnY@sashalap>
+To: linux-kernel@vger.kernel.org,
+	Chun-Tse Shao <ctshao@google.com>
+Cc: Will Deacon <will@kernel.org>,
+	Greg Thelen <gthelen@google.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Tuan Phan <tuanphan@os.amperecomputing.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] perf/arm-smmuv3: Fix lockdep assert in ->event_init()
+Date: Mon, 25 Nov 2024 19:12:49 +0000
+Message-Id: <173256196647.1188888.266499753445785167.b4-ty@arm.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20241108050806.3730811-1-ctshao@google.com>
+References: <20241108050806.3730811-1-ctshao@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z0STR6VLt2MCalnY@sashalap>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_111003_028971_FDE8DE22 
-X-CRM114-Status: GOOD (  19.88  )
+X-CRM114-CacheID: sfid-20241125_111255_768668_8C5BC8D4 
+X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,86 +70,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks Sasha.
-
-Adding Yang Shi (he contributed the support) and David H.
-
-On Mon, Nov 25, 2024 at 10:09:59AM -0500, Sasha Levin wrote:
-> On Mon, Nov 18, 2024 at 10:06:23AM +0000, Catalin Marinas wrote:
-> >  - MTE: hugetlbfs support and the corresponding kselftests
+On Fri, 08 Nov 2024 05:08:05 +0000, Chun-Tse Shao wrote:
+> Same as
+> https://lore.kernel.org/all/20240514180050.182454-1-namhyung@kernel.org/,
+> we should skip `for_each_sibling_event()` for group leader since it
+> doesn't have the ctx yet.
 > 
-> Hi Catalin,
 > 
-> It looks like with the new feature above, LTP manages to trigger the
-> following warning on linus-next:
-> 
-> [  100.133691] hugefork01 (362): drop_caches: 3
-> tst_hugepage.c:84: TINFO: 2 hugepage(s) reserved
-> tst_tmpdir.c:316: TINFO: Using /scratch/ltp-CckaqgMrC1/LTP_hug5PSMw8 as tmpdir (ext2/ext3/ext4 filesystem)
-> tst_test.c:1085: TINFO: Mounting none to /scratch/ltp-CckaqgMrC1/LTP_hug5PSMw8/hugetlbfs fstyp=hugetlbfs flags=0
-> tst_test.c:1860: TINFO: LTP version: 20240930
-> tst_test.c:1864: TINFO: Tested kernel: 6.12.0 #1 SMP PREEMPT @1732504538 aarch64
-> tst_test.c:1703: TINFO: Timeout per run is 0h 02m 30s
-> <4>[  100.355230] ------------[ cut here ]------------
-> <4>[  100.356888] WARNING: CPU: 0 PID: 363 at arch/arm64/include/asm/mte.h:58 copy_highpage+0x1d4/0x2d8
-> <4>[  100.359160] Modules linked in: crct10dif_ce sm3_ce sm3 sha3_ce sha512_ce sha512_arm64 fuse drm backlight ip_tables x_tables
-> <4>[  100.363578] CPU: 0 UID: 0 PID: 363 Comm: hugefork01 Not tainted 6.12.0 #1
-> <4>[  100.365113] Hardware name: linux,dummy-virt (DT)
-> <4>[  100.365966] pstate: 63402009 (nZCv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
-> <4>[  100.366468] pc : copy_highpage+0x1d4/0x2d8
-> <4>[  100.366780] lr : copy_highpage+0x78/0x2d8
-> <4>[  100.367090] sp : ffff80008066bb30
-> <4>[  100.368094] x29: ffff80008066bb30 x28: ffffc1ffc3118000 x27: 0000000000000000
-> <4>[  100.369341] x26: 0000000000000000 x25: 0000ffff9ce00000 x24: ffffc1ffc3118000
-> <4>[  100.370223] x23: fff00000c47ff000 x22: fff00000c4fff000 x21: ffffc1ffc3138000
-> <4>[  100.370739] x20: ffffc1ffc3138000 x19: ffffc1ffc311ffc0 x18: ffffffffffffffff
-> <4>[  100.371285] x17: 0000000000000000 x16: ffffa302fd05bcb0 x15: 0000ffff9d2fdfff
-> <4>[  100.372778] x14: 0000000000000000 x13: 1ffe00001859f161 x12: fff00000c2cf8b0c
-> <4>[  100.374124] x11: ffff80008066bd70 x10: ffffa302fe2a20d0 x9 : ffffa302fb438578
-> <4>[  100.374877] x8 : ffff80008066ba48 x7 : 0000000000000000 x6 : ffffa302fdbdf000
-> <4>[  100.376152] x5 : 0000000000000000 x4 : fff00000c2f239c0 x3 : fff00000c33e43f0
-> <4>[  100.376962] x2 : ffffc1ffc3138000 x1 : 00000000000000f4 x0 : 0000000000000000
-> <4>[  100.377964] Call trace:
-> <4>[  100.378736]  copy_highpage+0x1d4/0x2d8 (P)
-> <4>[  100.379422]  copy_highpage+0x78/0x2d8 (L)
-> <4>[  100.380272]  copy_user_highpage+0x20/0x48
-> <4>[  100.380805]  copy_user_large_folio+0x1bc/0x268
-> <4>[  100.381601]  hugetlb_wp+0x190/0x860
-> <4>[  100.382031]  hugetlb_fault+0xa28/0xc10
-> <4>[  100.382911]  handle_mm_fault+0x2a0/0x2c0
-> <4>[  100.383511]  do_page_fault+0x12c/0x578
-> <4>[  100.384913]  do_mem_abort+0x4c/0xa8
-> <4>[  100.385397]  el0_da+0x44/0xb0
-> <4>[  100.385775]  el0t_64_sync_handler+0xc4/0x138
-> <4>[  100.386243]  el0t_64_sync+0x198/0x1a0
-> <4>[  100.388759] ---[ end trace 0000000000000000 ]---
 
-It looks like this can trigger even if the system does not use MTE. The
-warning was introduced in commit 25c17c4b55de ("hugetlb: arm64: add mte
-support") and it's supposed to check whether page_mte_tagged() is called
-on a large folio inadvertently. But in copy_highpage(), if the source is
-a huge page and untagged, it takes the else path with the
-page_mte_tagged() check. I think something like below would do but I
-haven't tried it yet:
+Applied to arm64 (for-next/fixes), thanks!
 
-diff --git a/arch/arm64/mm/copypage.c b/arch/arm64/mm/copypage.c
-index 87b3f1a25535..ef303a2262c5 100644
---- a/arch/arm64/mm/copypage.c
-+++ b/arch/arm64/mm/copypage.c
-@@ -30,9 +30,9 @@ void copy_highpage(struct page *to, struct page *from)
- 	if (!system_supports_mte())
- 		return;
- 
--	if (folio_test_hugetlb(src) &&
--	    folio_test_hugetlb_mte_tagged(src)) {
--		if (!folio_try_hugetlb_mte_tagging(dst))
-+	if (folio_test_hugetlb(src)) {
-+		if (!folio_test_hugetlb_mte_tagged(src) ||
-+		    !folio_try_hugetlb_mte_tagging(dst))
- 			return;
- 
- 		/*
+[1/1] perf/arm-smmuv3: Fix lockdep assert in ->event_init()
+      https://git.kernel.org/arm64/c/02a55f274301
 
 -- 
 Catalin
+
 
