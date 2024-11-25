@@ -4,114 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D72BD3B7CC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 01:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2152CD3B7CC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 02:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iGaYT6nZ/4PiLaqqfZNnRdCsS1EzHLa59yqMFNnJ2X0=; b=UFPr8NlSQB6dnG0hKtjynQS8UR
-	X1/Y+Ptjls+MYX/+t/2Lb9+B2FywKPDYeNJl8u3S9+JKg6sC7BUo/pjkhGZNVQfvNViqZRT/5Ha5N
-	uG58wHAD5Pd6fgBm6MCn2Rj87BFW++P56p1/jI7lY7FuCIVQiJkHckdv5XEgY6B0+VD8Quww0zrnl
-	9plxa0ga+E9GCcXoFR6RyyF5elDudkTF5xDxPdDT3h3MvAFhYEnzrUymki8aW9UWRYcVFF7Rte61i
-	DbpGZdVER3gej9PfZvp7PFFWjdx+eE+qliggKQTY9lVBuHlJeAu2O9XSrNgW5apKj5bI5pSYMsAsS
-	DS//BEjg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XMwcKynH7+09/OSOjd94cHqbXzeJ+yy/TOIojBiv5Ww=; b=yQU3haX/TkgW7GoWZXLHaJW1+I
+	/ufcCGiaT697JiD1yBqXc/X6CCFcfUwGkFXnAMDiy0MdwQf27LuDqmSiM74tVZMlzX41sh6lw3V7w
+	uW8q5pnRd02tZQkvI/nsLZQpJJVcwLJQrISjBLUWlHg0Phc43rc2u6xZUkTL1kMQV5bNFHGxyHjjg
+	rKFwfD58G+7yCFz6Bd632gXkbGAaMHyOdVwclYS0JUvmUWhLd1/6m+goRjB3HIdESLrnEd2jD9B/E
+	4XdWOcCb4cvlx/qW9rinvzcir1lAJ/ughO6hArM11It7JJBqA+NhBljxMGB0KaaoDC/hKC9465wYO
+	pdMy4lIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFOAS-00000006tBc-0TWg;
-	Mon, 25 Nov 2024 01:45:36 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tFORu-00000006u45-3kO8;
+	Mon, 25 Nov 2024 02:03:38 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFO9U-00000006t6X-1dai
+	id 1tFOQy-00000006twL-0NIw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 01:44:38 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AP0L7tV006014;
-	Mon, 25 Nov 2024 01:44:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	iGaYT6nZ/4PiLaqqfZNnRdCsS1EzHLa59yqMFNnJ2X0=; b=mir+povmuBtEd5+T
-	2oYJoTZ6tUh3oQjLy+JCRBFablP+gvIZ3jv/kQhennjTmAnUonm+Z0NG9zUsr1e+
-	NxpvPmv0YsWHalX7TGuPuelOe9lLnAgdHdI7iNOvAfp5Nx8OGuAkLXFODcDxh/sU
-	kA2jFyZ/KcTbtgbfUaLjmSifdhXG1/nfDRQdirRZR17GppZyTeEfbz5w1z8jexQ/
-	HeGjUl7ZJJBOQu+unX7CK/WjMrVTTsO6xSN+2I+C84gr5I1izKxijDvaz9wOs3A7
-	uMRGBUtWD0+PvS6qpstLBjqva72EYLn53DRI00HQ05TDE7NqCQcDqxGvFMYaWU9h
-	+Up4rw==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4336cfk4gq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 25 Nov 2024 01:44:23 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AP1iMhU025369
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 25 Nov 2024 01:44:22 GMT
-Received: from [10.64.16.151] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 24 Nov
- 2024 17:44:15 -0800
-Message-ID: <10413094-500f-4044-b4e3-8ce83fee3dbd@quicinc.com>
-Date: Mon, 25 Nov 2024 09:44:12 +0800
+	Mon, 25 Nov 2024 02:02:41 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-71d40573d03so457791a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Nov 2024 18:02:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732500158; x=1733104958; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=XMwcKynH7+09/OSOjd94cHqbXzeJ+yy/TOIojBiv5Ww=;
+        b=g26dSBCwF4rWPiVpp+9eLxUahgQnK0s98onc0iwMofLkid9UFFNflVlPtN2MUpxm7j
+         ME/0YP67rci9wG2l9UdU8Vub62nuINav2EK3Z0ntUw5Ey6tJUVIvi5DvxW75M3iOfyNP
+         hEKmh7rvexJqwVWpM0kTOkjW1C59nh+PS+GdiACtTWtU/VdOQxsIbxqOWbkICKmaEt2V
+         Mu/mYqp8ZWVUwdL1LyAtmCkCG7lyhbMRzqOqsoI3TBcaCmfsADlsWGjVug5PgVQinK8/
+         Ng6vu1W7OugPDXRZnbxZ6PkThU8tpGpS7JWpITG1Cx5KkuBrLl4hLSQopw5pROOCs6jv
+         6Spg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732500158; x=1733104958;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XMwcKynH7+09/OSOjd94cHqbXzeJ+yy/TOIojBiv5Ww=;
+        b=cSkckc8JcSPDi3SHP1iiiGghp6rEPNtwic2qVXfRz5vrYrRdX/tOjavRc9mULINJKN
+         LQiX+lHS5/LdLvyLKe9VMHfpJ9sPjjtvTjvoaV2lO931/eQbO8XjABzxa9DnxG3mYkNx
+         Vwkbpm5LBfhEIDbm203sTE5q+ye5xxrvOXaLeF1CZtmY3l9v/RJEGK5EtUYuh6oFNc2U
+         4QOSixWVeGPSx8YN1KhLSXuvRn2qaFGfEY5pEOTiFIBnx5RT7aznyWNnxNt/u7je/zRS
+         WDxBfI/0XubO9ViabzAowlY2uCJhRXu3nLeIF5xmS6xvRs1KHkC+8HUBFdBu2iXXhVxZ
+         lX8w==
+X-Forwarded-Encrypted: i=1; AJvYcCU6oOPFK0zG0kLwChUxf9YlANqrDYIUgLKKtdClamsQGEEWbjzerEB84MYCNDzHzuv9KfDCuMZLUZ1bRAjHWi2a@lists.infradead.org
+X-Gm-Message-State: AOJu0YyF9Cjfa6p1YMo4WCVMJCSgEmp87GoiC9Hc6+70MmoX+pSyT6Ek
+	6kUoEhuUbPAP7//yIvtxHJ1cYrhQ0+YXhxfvdjI85I7FV+lHYakI9L45cguMg8Rj1+udowxgJVK
+	0FJ1W/ElAZgVyN99j1zG2FTlbYXA=
+X-Gm-Gg: ASbGncs110NDoQca+R2fd5RL7VTry31MnGo9PQACkWkvOV148L33dhtAWajD7c2XV9m
+	BOQ4419vFq6HpCdnfkS0iWZ/93xAQErMm
+X-Google-Smtp-Source: AGHT+IEtOaD7oLcnxyggMG+Ec+gDAtY5hNLtZ1XpHdnaA/p5OzbK2Vydk1KuooGB1YAj4/Ir1JBzAbUc/V8uno4v7Cc=
+X-Received: by 2002:a05:6830:6e92:b0:71d:41dd:30bd with SMTP id
+ 46e09a7af769-71d41dd3564mr3188949a34.20.1732500158617; Sun, 24 Nov 2024
+ 18:02:38 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/9] drm/msm/dpu: Add SM6150 support
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-CC: Rob Clark <robdclark@gmail.com>,
-        Abhinav Kumar
-	<quic_abhinavk@quicinc.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten
-	<marijn.suijten@somainline.org>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Krishna
- Manikandan" <quic_mkrishn@quicinc.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        "Catalin
- Marinas" <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Li Liu
-	<quic_lliu6@quicinc.com>,
-        Xiangxu Yin <quic_xiangxuy@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
- <20241122-add-display-support-for-qcs615-platform-v3-5-35252e3a51fe@quicinc.com>
- <bhylewwvztm7gsmkjwo6asceuph2jlqgvy2lhocdvg6r7y4i6w@duvbnsko3xg2>
-Content-Language: en-US
-From: fange zhang <quic_fangez@quicinc.com>
-In-Reply-To: <bhylewwvztm7gsmkjwo6asceuph2jlqgvy2lhocdvg6r7y4i6w@duvbnsko3xg2>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: ALnY4WQC7U_GidKZVMBIyRRX_D5Sz7vY
-X-Proofpoint-ORIG-GUID: ALnY4WQC7U_GidKZVMBIyRRX_D5Sz7vY
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 impostorscore=0
- spamscore=0 lowpriorityscore=0 phishscore=0 adultscore=0 malwarescore=0
- mlxscore=0 suspectscore=0 mlxlogscore=999 clxscore=1015 priorityscore=1501
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
- definitions=main-2411250013
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Sun, 24 Nov 2024 20:02:27 -0600
+Message-ID: <CABb+yY33qnivK-PzqpSMgmtbFid4nS8wcNvP7wED9DXrYAyLKg@mail.gmail.com>
+Subject: [GIT PULL] Mailbox changes for v6.13
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_174436_568175_951D32D6 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20241124_180240_145750_2DC03632 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,68 +89,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Linus,
 
+The following changes since commit 2d5404caa8c7bb5c4e0435f94b28834ae5456623=
+:
 
-On 2024/11/22 18:07, Dmitry Baryshkov wrote:
-> On Fri, Nov 22, 2024 at 05:56:48PM +0800, Fange Zhang wrote:
->> From: Li Liu <quic_lliu6@quicinc.com>
->>
->> Add definitions for the display hardware used on the Qualcomm SM6150
->> platform.
->>
->> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
->> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
->> ---
->>   .../gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h | 263 +++++++++++++++++++++
->>   drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.c     |   1 +
->>   drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.h     |   1 +
->>   drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c            |   1 +
->>   4 files changed, 266 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..e8b7f694b885d69a9bbfaa85b0faf0c7af677a75
->> --- /dev/null
->> +++ b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h
->> @@ -0,0 +1,263 @@
->> +/* SPDX-License-Identifier: GPL-2.0-only */
->> +/*
->> + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
->> + */
->> +
->> +#ifndef _DPU_5_3_SM6150_H
->> +#define _DPU_5_3_SM6150_H
->> +
->> +	}, {
->> +		.name = "intf_2", .id = INTF_2,
->> +		.base = 0x6b000, .len = 0x2c0,
->> +		.features = INTF_SC7180_MASK,
->> +		.type = INTF_NONE,
->> +		.controller_id = 0,
->> +		.prog_fetch_lines_worst_case = 24,
->> +		.intr_underrun = DPU_IRQ_IDX(MDP_SSPP_TOP0_INTR, 28),
->> +		.intr_vsync = DPU_IRQ_IDX(MDP_SSPP_TOP0_INTR, 29),
-> 
-> Please drop. No need to declare missing blocks.
-got it, will remove this block in the next patch
-> 
-> Other than that:
-> 
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> 
-> 
->> +	}, {
->> +		.name = "intf_3", .id = INTF_3,
->> +		.base = 0x6b800, .len = 0x280,
->> +		.features = INTF_SC7180_MASK,
->> +		.type = INTF_DP,
->> +		.controller_id = MSM_DP_CONTROLLER_1,
->> +		.prog_fetch_lines_worst_case = 24,
->> +		.intr_underrun = DPU_IRQ_IDX(MDP_SSPP_TOP0_INTR, 30),
->> +		.intr_vsync = DPU_IRQ_IDX(MDP_SSPP_TOP0_INTR, 31),
->> +	},
->> +};
->> +
-> 
+  Linux 6.12-rc7 (2024-11-10 14:19:35 -0800)
 
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git
+tags/mailbox-v6.13
+
+for you to fetch changes up to 7f9e19f207be0c534d517d65e01417ba968cdd34:
+
+  mailbox: pcc: Check before sending MCTP PCC response ACK (2024-11-24
+13:20:40 -0600)
+
+----------------------------------------------------------------
+common: switch back from remove_new() to remove() callback
+imx: fix format specifier
+zynqmp: setup IPI for each child node
+thead: Add th1520 driver and bindings
+qcom: add SM8750 and SAR2130p compatibles
+      fix expected clocks for callbacks
+      use IRQF_NO_SUSPEND for cpucp
+mtk-cmdq: switch to __pm_runtime_put_autosuspend()
+          fix alloc size of clocks
+mpfs: fix reg properties
+ti-msgmgr: don't use of_match_ptr helper
+           enable COMPILE_TEST build
+pcc: consider the PCC_ACK_FLAG
+arm_mhuv2: fix non-fatal improper reuse of variable
+
+----------------------------------------------------------------
+Adam Young (1):
+      mailbox: pcc: Check before sending MCTP PCC response ACK
+
+Andrew Davis (2):
+      mailbox: ti-msgmgr: Remove use of of_match_ptr() helper
+      mailbox: ti-msgmgr: Allow building under COMPILE_TEST
+
+Conor Dooley (2):
+      dt-bindings: mailbox: mpfs: fix reg properties
+      mailbox: mpfs: support new, syscon based, devicetree configuration
+
+Dan Carpenter (1):
+      mailbox: arm_mhuv2: clean up loop in get_irq_chan_comb()
+
+Dmitry Baryshkov (1):
+      dt-bindings: mailbox: qcom-ipcc: Add SAR2130P compatible
+
+Krzysztof Kozlowski (2):
+      dt-bindings: mailbox: qcom,apcs-kpss-global: correct expected
+clocks for fallbacks
+      dt-bindings: mailbox: qcom-ipcc: Add SM8750
+
+Michal Wilczynski (2):
+      mailbox: Introduce support for T-head TH1520 Mailbox driver
+      dt-bindings: mailbox: Add thead,th1520-mailbox bindings
+
+Sakari Ailus (1):
+      mailbox: mtk-cmdq-mailbox: Switch to __pm_runtime_put_autosuspend()
+
+Sibi Sankar (1):
+      mailbox: qcom-cpucp: Mark the irq with IRQF_NO_SUSPEND flag
+
+Tanmay Shah (1):
+      mailbox: zynqmp: setup IPI for each valid child node
+
+Uwe Kleine-K=C3=B6nig (1):
+      mailbox: Switch back to struct platform_driver::remove()
+
+Yang Yingliang (1):
+      mailbox: mtk-cmdq: fix wrong use of sizeof in cmdq_get_clocks()
+
+zhang jiao (1):
+      mailbox: imx: Modify the incorrect format specifier
+
+ .../bindings/mailbox/microchip,mpfs-mailbox.yaml   |  13 +-
+ .../bindings/mailbox/qcom,apcs-kpss-global.yaml    |  13 +-
+ .../devicetree/bindings/mailbox/qcom-ipcc.yaml     |   2 +
+ .../bindings/mailbox/thead,th1520-mbox.yaml        |  89 +++
+ MAINTAINERS                                        |   2 +
+ drivers/mailbox/Kconfig                            |  13 +-
+ drivers/mailbox/Makefile                           |   2 +
+ drivers/mailbox/arm_mhuv2.c                        |   8 +-
+ drivers/mailbox/bcm-flexrm-mailbox.c               |   2 +-
+ drivers/mailbox/bcm-pdc-mailbox.c                  |   2 +-
+ drivers/mailbox/imx-mailbox.c                      |   6 +-
+ drivers/mailbox/mailbox-mpfs.c                     |  81 ++-
+ drivers/mailbox/mailbox-test.c                     |   4 +-
+ drivers/mailbox/mailbox-th1520.c                   | 597 +++++++++++++++++=
+++++
+ drivers/mailbox/mtk-cmdq-mailbox.c                 |  14 +-
+ drivers/mailbox/pcc.c                              |  61 ++-
+ drivers/mailbox/qcom-apcs-ipc-mailbox.c            |   2 +-
+ drivers/mailbox/qcom-cpucp-mbox.c                  |   2 +-
+ drivers/mailbox/qcom-ipcc.c                        |   2 +-
+ drivers/mailbox/stm32-ipcc.c                       |   2 +-
+ drivers/mailbox/sun6i-msgbox.c                     |   4 +-
+ drivers/mailbox/tegra-hsp.c                        |   2 +-
+ drivers/mailbox/ti-msgmgr.c                        |   2 +-
+ drivers/mailbox/zynqmp-ipi-mailbox.c               |   6 +-
+ include/acpi/pcc.h                                 |   7 +
+ 25 files changed, 875 insertions(+), 63 deletions(-)
+ create mode 100644
+Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
+ create mode 100644 drivers/mailbox/mailbox-th1520.c
 
