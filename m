@@ -4,59 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 233F4D58D5E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 15:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0657D58D5A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 15:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:
-	References:In-Reply-To:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=8ORT1phHJlmBlfdknfO2iUEHyltF+zLDEZbasqUxrG4=; b=PlvHxEF+q0MH0IRLyXYqGRHxVx
-	i+kI3F865tJaz2iO2vV/k9nhBqzxGqnvc2VBTjHruJSOucC05h7jSXt+vFWIGeTeklA2KaGT8lkrA
-	SJbT+Y4wXLAfh8lgBNtBpyw87AozpWh9y6rAFPc5kza2WEDxw/RXHol9eOa3cH4sdqSlaY0+zUHLW
-	vcylQIp6g+eyrDX3wKmdcwLUUGIc9QczYt1dUpjppz+4Bx5rHkZ/BlUb1504vwnZOMU2gidS6kcve
-	WsWDE5OuCbD1BfvrGunOBScVuLhbSzb+fS4z9YKNTOSBbnhImBzGHDphaCD16OkDX0Lu6a74V3Xja
-	A8RAsLkA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4x7jO2y9JcbnJtIwr4msDRn/skTAQ4oxPVybvCwjO48=; b=DpCR5fhPvfYaVmlRwv5AZq+bR7
+	YHeIGGQI17Wn1bniv283sl04NAlHYS/mxbmtSXbeNjOAp22hkWlPuVfK7wcFPkw7KF/JoIiCuuRRt
+	tPaGM1MYa7G9k/XsLBBa6i7CpBwnyoNSRScSbM2CHpJyYA0VB5KaqdEtux+XhdzvzQps4jzcwNLjW
+	BUZkj1aQhMJ3sMWrtHCHX6a7kpJo+hClSoOmPnD5CpvGwqPKUUj7PYOqOu3x0va6tremzJPRcutHZ
+	vssVSF31EjdqWPu/jgm36A4EZttqF91M8p3/eUQpe5Wq6PCL2Yx5/YoyxmqFxwK2R1Zx8LwhHhChw
+	ODMnlHaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFbDW-00000008XJ3-0dDb;
-	Mon, 25 Nov 2024 15:41:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tFbFU-00000008Xnz-0qnG;
+	Mon, 25 Nov 2024 15:43:40 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFbCG-00000008X5p-32rR;
-	Mon, 25 Nov 2024 15:40:21 +0000
+	id 1tFbEV-00000008Xdk-3Jqi
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Nov 2024 15:42:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5853F5C5B42;
-	Mon, 25 Nov 2024 15:39:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EF9CC4CECE;
-	Mon, 25 Nov 2024 15:40:16 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 74AE0A4181B;
+	Mon, 25 Nov 2024 15:40:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7527FC4CECF;
+	Mon, 25 Nov 2024 15:42:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732549219;
-	bh=IsIi8uedJB2d9ynke7rCIfulXuPxooj9TCcL71ClcMc=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=UOlx82X4RX72arozgLh4e2tPa5MBNgO9Qi33L80gyMCT5HjS3dpmJp3XcrgrLgn3z
-	 sLdYwVrnPcuZZK6sYdsz07Uby1Ub0Yq1ymSivQwLuoP+hnYgxZ8ZvLHm2puHpEKFzo
-	 Zd4eIt9Z9J4zPlr8vaS8GS+lEpuk3+AxWZSuZJYvVvWw69g8pNKdcnSlqXP0EoarjU
-	 DFNpMRE4VMztfKHAdv8F+FMlCsVbwyZF6PpHE2WqVgpqLNqQNCi2NDx69cpoSp4+vl
-	 y1l9ocGmPLRxnohePvYVpIx7zPpWzDskSICF3wCmjm0G7d6xyhzlczV4vCrkEMyVYv
-	 XCoI3aMIq981w==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
-Subject: Re: [RFC PATCH 0/2] Add support for stacked and parallel memories
-In-Reply-To: <20241026075347.580858-1-amit.kumar-mahapatra@amd.com> (Amit
-	Kumar Mahapatra's message of "Sat, 26 Oct 2024 13:23:45 +0530")
-References: <20241026075347.580858-1-amit.kumar-mahapatra@amd.com>
-Date: Mon, 25 Nov 2024 15:40:15 +0000
-Message-ID: <mafs08qt75nkw.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	s=k20201202; t=1732549358;
+	bh=1uGaURJFL+k5ljmFzecqQ8yWrYUK0nMYqG+LAJjeIHI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BFn18wbNBs9mU22Xhw9Zgov43fj3pg71n5DMdBZHf6WRMLk/8lF5sqU+d0szP/hAW
+	 NoL865FCb3Y1lP7w0x/8DHaUtmdmI/u2ITwf/35eRs49f7BVgkRGx1efszV2AaEW+v
+	 3wZ0/+grTY09h3Koc2ZB94MmOHL/Xgd/Xu1L4J1dJ/iUz7c3L4ZV8t0+O2h68T0wWe
+	 SF2Z86cBkS5reM9Ycfn8yqiGC8LN7SfgYamIf7KMj4i3KrMwoXkThoxM0ncvoKCytR
+	 YB6uyXHgPBFX8AA6clWyVCRw2Hvf3xT18MJ4Y/RtbDDKGzNG3/JKR3i29I9qdNlJLM
+	 ZRTuaIm0+B9Pw==
+Date: Mon, 25 Nov 2024 08:42:35 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Naresh Kamboju <naresh.kamboju@linaro.org>
+Cc: linux-arm-msm <linux-arm-msm@vger.kernel.org>,
+	Linux PM <linux-pm@vger.kernel.org>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	clang-built-linux <llvm@lists.linux.dev>,
+	Georgi Djakov <djakov@kernel.org>, konradybcio@kernel.org,
+	quic_okukatla@quicinc.com, quic_rlaggysh@quicinc.com,
+	quic_jjohnson@quicinc.com
+Subject: Re: pc : qnoc_probe (drivers/interconnect/qcom/icc-rpmh.c:269) :
+ Dragonboard 410c - arm64 - boot failed
+Message-ID: <20241125154235.GC2067874@thelio-3990X>
+References: <CA+G9fYs+2mBz1y2dAzxkj9-oiBJ2Acm1Sf1h2YQ3VmBqj_VX2g@mail.gmail.com>
+ <CA+G9fYvh8n=CTCmcCdLViH=o-UXH1Euncn+7YuYkvt5O-k8NMg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+G9fYvh8n=CTCmcCdLViH=o-UXH1Euncn+7YuYkvt5O-k8NMg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_074020_866034_88CCDD56 
-X-CRM114-Status: GOOD (  42.19  )
+X-CRM114-CacheID: sfid-20241125_074239_957789_B99E33E5 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,138 +76,212 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: alexandre.belloni@bootlin.com, vigneshr@ti.com, alsa-devel@alsa-project.org, linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com, beanhuo@micron.com, git@amd.com, robh@kernel.org, richard@nod.at, amitrkcian2002@gmail.com, tudor.ambarus@linaro.org, conor+dt@kernel.org, broonie@kernel.org, venkatesh.abbarapu@amd.com, michal.simek@amd.com, linux-arm-kernel@lists.infradead.org, patches@opensource.cirrus.com, claudiu.beznea@tuxon.dev, linux-spi@vger.kernel.org, michael@walle.cc, krzk+dt@kernel.org, pratyush@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 26 2024, Amit Kumar Mahapatra wrote:
+On Mon, Nov 25, 2024 at 08:43:44PM +0530, Naresh Kamboju wrote:
+> [Small correction]
+> 
+> On Mon, 25 Nov 2024 at 20:33, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
+> >
+> > The arm64 Dragonboard 410c has failed with the Linux next, mainline
+> > and the Linux stable. Please find boot log and build links.
+> 
+> This boot regression is noticed only on Dragonboard 845c.
+> Linux next-20241125 tag.
+> 
+> Good: next-20241122
+> Bad: next-20241125
 
-Hi Amit,
+Can you bisect to see what change introduced this?
 
-I've been meaning to look into this proposal for some time now, but one
-thing or another kept coming up and I never got around to it. Well, I'll
-try to get some of my thoughts out with this reply. I still haven't
-looked very deeply into the past discussions, so apologies if I bring up
-something that was already discussed.
-
-> Hello Everyone,
->
-> Following an email discussion with Miquel regarding the binding changes
-> and overall architecture for implementing support for stacked and parallel
-> memories, I=E2=80=99m sharing this RFC to initiate a discussion on the pr=
-oposed
-> updates to current bindings and to finalize the implementation
-> architecture.
->
-> Before diving into the main topic, here is some background on stacked and
-> parallel memories.
->
-> The AMD QSPI controller supports two advanced connection modes(Stacked and
-> Parallel) which allow the controller to treat two different flashes as one
-> storage.
->
-> Stacked:
-> Flashes share the same SPI bus, but different CS line, controller driver
-> asserts the CS of the flash to which it needs to communicate. Stacked mode
-> is a software abstraction rather than a controller feature or capability.
-> At any given time, the controller communicates with one of the two
-> connected flash devices, as determined by the requested address and data
-> length. If an operation starts on one flash and ends on the other, the
-> core needs to split it into two separate operations and adjust the data
-> length accordingly.
->
-> Parallel(Multi-CS):
-> Both the flashes have their separate SPI bus, CS of both the flashes will
-> be asserted/de-asserted at the same time. In this mode data will be split
-> across both the flashes by enabling the STRIPE setting in the controller.
-> Parallel mode is a controller feature where if the STRIPE bit is set then
-> the controller internally handles the data split during data write to the
-> flashes and while reading data from the flash the controller internally
-> merges data from both the flashes before writing to the controller FIFO.
-> If STRIPE is not enabled, then same data will be sent to both the devices.
-> In parallel mode both the flashes should be identical.
->
-> For more information on the modes please feel free to go through the
-> controller flash interface below [1].
->
-> Mirochip QSPI controller[2] also supports "Dual Parallel 8-bit IO mode",
-> but they call it "Twin Quad Mode".
->
-> Initially in [3] [4] [5] Miquel had tried to extend MTD-CONCAT driver to
-> support Stacked mode, but the bindings were not accepted. So, the
-> MTD-CONCAT approach was dropped and the DT bindings that got accepted
-> [6] [7] [8] that describes the two flash devices as being one. SPI core
-> changes to support the above bindings were added [9]. While adding the
-> support in SPI-NOR  Tudor provided additional feedback, leading to a
-> discussion on updating the current stacked and parallel DT bindings.
->
-> Proposed Solution:
-> The solution has two parts:
->
-> 1. Update MTD-CONCAT
->    Update MTD-CONCAT to create virtual concatinated mtd devices as defined
->    in the device tree.
-
-From a very quick look, it seems mtdconcat should already do most of
-what you want with "stacked mode". The tricky bits might be devicetree
-design, but from the software perspective, I think mtdconcat makes
-perfect sense. You leave all the complexity to the SPI NOR layer since
-it already handles them, and just use the higher-level MTD layer to
-virtually concatenate devices. Adding a new layer between MTD and SPI
-NOR makes little sense because mtdconcat is already that layer. Another
-benefit of this would be you can just as easily concatenate any kinds of
-flashes you want; they don't have to be the same.
-
-I think this is a much simpler problem to solve compared to parallel
-mode. Once you figure out the devicetree stuff, and I think the
-mtdconcat changes should be simple and not too controversial. So I think
-you should split the parallel and stacked support into two independent
-series. This way you make progress without having to wait for
-discussions around parallel mode support to settle.
-
->
-> 2. Add a New Layer
->    Add a new layer between the SPI-NOR and MTD layers to support stacked
->    and parallel configurations. This new layer will be part of spi-nor,
->    located in mtd/spi-nor/, can be included/excluded via Kconfig, will be
->    maintained by AMD and will:
->
->    - During probing, store information from all connected flashes in
->      stacked or parallel mode and present them as a single device to the
-> 	 MTD layer.
-
-As I mentioned above, I do not think you should do stacked flashes this
-way.
-
->    - Register callbacks and manage MTD device registration within the new
->      layer instead of spi-nor/core.c.
->    - Make minimal changes in spi-nor/core.c, as stacked and parallel
->      handling will be managed by the new layer on top of SPI-NOR.
->    - Handle odd byte count requests from the MTD layer during flash
->      operations in parallel mode.
-
-You'd also probably have to add support in SPI MEM to signal the
-controller to use parallel mode. You don't want to use parallel mode all
-the time since you'd need to do "normal" operations as well such as
-reading/writing status registers, reading flash ID, SFDP, etc. That is
-yet another "cost" parallel mode support has -- it adds another thing to
-SPI MEM (I'm not saying the cost isn't necessarily worth it -- just
-pointing it out).
-
-From the SPI NOR side, this layer would have to make sure both flashes
-get configured with the exact same settings. That would need SPI NOR to
-export how it configured a flash, ideally in a stable, well-defined
-format. It would also have to ask SPI NOR to construct the SPI MEM ops
-for it, and then edit them to set the "parallel mode" bit. Perhaps the
-dirmap op templates can come in handy here.
-
-It's hard to say much more without seeing the code. It would be
-interesting to see how you can manage to get this layer work without too
-much intrusion in the core.
-
-[...]
-
---=20
-Regards,
-Pratyush Yadav
+> >
+> > Device: Dragonboard 410c - arm64
+> > Boot failed: clang-19
+> > Configs: korg-clang-19-lkftconfig-hardening
+> > Boot pass: qemu-arm64 (Additional info)
+> >
+> > This is always reproducible.
+> >
+> > Dragonboard 410c - arm64:
+> > boot:
+> >  * clang-nightly-lkftconfig-hardening
+> >  * korg-clang-19-lkftconfig-hardening
+> >
+> > Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> >
+> > Log details:
+> > ------------
+> > [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd030]
+> > [    0.000000] Linux version 6.12.0-next-20241125 (tuxmake@tuxmake)
+> > (ClangBuiltLinux clang version 19.1.4
+> > (https://github.com/llvm/llvm-project.git
+> > aadaa00de76ed0c4987b97450dd638f63a385bed), ClangBuiltLinux LLD 19.1.4
+> > (https://github.com/llvm/llvm-project.git
+> > aadaa00de76ed0c4987b97450dd638f63a385bed)) #1 SMP PREEMPT @1732509632
+> > [    0.000000] KASLR disabled due to lack of seed
+> > [    0.000000] Machine model: Qualcomm Technologies, Inc. APQ 8016 SBC
+> > <Trim>
+> > [    8.983574] videodev: Linux video capture interface: v2.00
+> > [    8.990308] Internal error: UBSAN: array index out of bounds:
+> > 00000000f2005512 [#1] PREEMPT SMP
+> > [    8.990374] Modules linked in: qcom_rng drm_client_lib qcom_stats
+> > qnoc_msm8916(+) videodev videobuf2_memops videobuf2_common mc
+> > rpmsg_ctrl rpmsg_char display_connector phy_qcom_usb_hs drm_kms_helper
+> > ramoops reed_solomon socinfo rmtfs_mem fuse drm backlight ip_tables
+> > x_tables ipv6
+> > [    9.000620] CPU: 0 UID: 0 PID: 199 Comm: (udev-worker) Not tainted
+> > 6.12.0-next-20241125 #1
+> > [    9.022836] Hardware name: Qualcomm Technologies, Inc. APQ 8016 SBC (DT)
+> > [    9.030902] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> > [    9.037760] pc : qnoc_probe (drivers/interconnect/qcom/icc-rpmh.c:269)
+> > [    9.044439] lr : qnoc_probe (drivers/interconnect/qcom/icc-rpmh.c:0)
+> > [    9.048258] sp : ffff800083b93470
+> > [    9.052075] x29: ffff800083b93480 x28: ffff000002c2ae80 x27: ffff80007ac3d3e0
+> > [    9.055554] x26: ffff000002c2ae88 x25: 0000000000000000 x24: ffff000009bb7400
+> > [    9.062671] x23: 0000000000000000 x22: 0000000000000001 x21: ffff000004931400
+> > [    9.069788] x20: ffff000004931410 x19: ffff0000048e0c80 x18: ffff800083a7d0a8
+> > [    9.076907] x17: fffffffffffc23a2 x16: 0000000000000001 x15: 000000000000026c
+> > [    9.084027] x14: fffffffffffffffd x13: 0000000000000000 x12: ffff7fffba293000
+> > [    9.091145] x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000001
+> > [    9.098262] x8 : 0000000000000000 x7 : 0000000000000000 x6 : 000000000000003f
+> > [    9.105381] x5 : 0000000000000040 x4 : ffff00003c75d9e0 x3 : 0000000000199400
+> > [    9.112497] x2 : 0000000000000008 x1 : 0000000000000000 x0 : 0000000000000000
+> > [    9.119617] Call trace:
+> > [    9.126727] qnoc_probe+0x4c8/0x4d0 P
+> > [    9.128987] qnoc_probe+0x354/0x4d0 L
+> > [    9.132805] platform_probe (drivers/base/platform.c:1405)
+> > [    9.136624] really_probe (drivers/base/dd.c:581 drivers/base/dd.c:658)
+> > [    9.140443] __driver_probe_device (drivers/base/dd.c:800)
+> > [    9.144089] driver_probe_device (drivers/base/dd.c:830)
+> > [    9.148429] __driver_attach (drivers/base/dd.c:1217)
+> > [    9.152422] bus_for_each_dev (drivers/base/bus.c:369)
+> > [    9.156590] driver_attach (drivers/base/dd.c:1234)
+> > [    9.160495] bus_add_driver (drivers/base/bus.c:676)
+> > [    9.164140] driver_register (drivers/base/driver.c:247)
+> > [    9.167700] __platform_driver_register (drivers/base/platform.c:867)
+> > [    9.171520] init_module+0x20/0xfbc qnoc_msm8916
+> > [    9.176383] do_one_initcall (init/main.c:1250 init/main.c:1267)
+> > [    9.181068] do_init_module (kernel/module/main.c:2910)
+> > [    9.184800] load_module (kernel/module/main.c:3376)
+> > [    9.188618] __arm64_sys_finit_module (kernel/module/main.c:3565
+> > kernel/module/main.c:3577 kernel/module/main.c:3603
+> > kernel/module/main.c:3587 kernel/module/main.c:3587)
+> > [    9.192353] invoke_syscall (arch/arm64/kernel/syscall.c:50)
+> > [    9.197127] el0_svc_common (arch/arm64/kernel/syscall.c:139)
+> > [    9.200771] do_el0_svc (arch/arm64/kernel/syscall.c:152)
+> > [    9.204503] el0_svc (arch/arm64/kernel/entry-common.c:165
+> > arch/arm64/kernel/entry-common.c:178
+> > arch/arm64/kernel/entry-common.c:745)
+> > [    9.207802] el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:797)
+> > [    9.210756] el0t_64_sync (arch/arm64/kernel/entry.S:600)
+> > [ 9.215189] Code: aa1303e0 97fff41c 17ffff79 d4200020 (d42aa240)
+> > All code
+> > ========
+> >
+> > Code starting with the faulting instruction
+> > ===========================================
+> > [    9.218752] ---[ end trace 0000000000000000 ]---
+> > [    9.233047] note: (udev-worker)[199] exited with irqs disabled
+> > [    9.233245] note: (udev-worker)[199] exited with preempt_count 1
+> > [    9.243434] ------------[ cut here ]------------
+> > <trim>
+> > [    9.243951] WARNING: CPU: 0 PID: 0 at kernel/context_tracking.c:128
+> > ct_kernel_exit (kernel/context_tracking.c:153)
+> > [    9.248555] Modules linked in: videobuf2_v4l2 qcom_rng
+> > drm_client_lib qcom_stats qnoc_msm8916(+) videodev videobuf2_memops
+> > videobuf2_common mc rpmsg_ctrl rpmsg_char display_connector
+> > phy_qcom_usb_hs drm_kms_helper ramoops reed_solomon socinfo rmtfs_mem
+> > fuse drm backlight ip_tables x_tables ipv6
+> > [    9.260538] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Tainted: G      D
+> >           6.12.0-next-20241125 #1
+> > [    9.282755] Tainted: [D]=DIE
+> > [    9.292113] Hardware name: Qualcomm Technologies, Inc. APQ 8016 SBC (DT)
+> > [    9.292888] Unable to handle kernel read from unreadable memory at
+> > virtual address 0000ffffa3c44d20
+> > [    9.295061] pstate: 204000c5 (nzCv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> > [    9.295071] pc : ct_kernel_exit (kernel/context_tracking.c:153)
+> > [    9.295088] lr : ct_kernel_exit (kernel/context_tracking.c:126)
+> > [    9.301765] Mem abort info:
+> > [    9.310514] sp : ffff800082503d10
+> > [    9.310519] x29: ffff800082503d10 x28: ffff8000824c4ff0 x27: ffff800082509000
+> > [    9.310536] x26: 0000000000000000 x25: ffff0000041f9898
+> > [    9.317463]   ESR = 0x0000000096000004
+> > [    9.321618]  x24: ffff0000041f9898
+> > [    9.321625] x23: 0000000226f30819 x22: 0000000000000000
+> > [    9.325621]   EC = 0x25: DABT (current EL), IL = 32 bits
+> > [    9.328214]  x21: ffff00003c757ff8
+> > [    9.328221] x20: ffff8000824c2350 x19: ffff00003c755350
+> > [    9.331701]   SET = 0, FnV = 0
+> > [    9.338806]  x18: ffff800082514880
+> > [    9.338813] x17: 00000000529c6ef0 x16: 00000000529c6ef0 x15: 000000000000007e
+> > [    9.343850]   EA = 0, S1PTW = 0
+> > [    9.347659]
+> > [    9.347662] x14: 00000000000000c8 x13: 0000000000000004 x12: 000000000a929b85
+> > [    9.351058]   FSC = 0x04: level 0 translation fault
+> > [    9.356167]
+> > [    9.356171] x11: 0000000000000015 x10: 000000000682aaab x9 : 4000000000000000
+> > [    9.361732] Data abort info:
+> > [    9.364935] x8 : 4000000000000002 x7 : 0000000000005221 x6 : 0000000000055ad0
+> > [    9.370064]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+> > [    9.373179] x5 : 0000000000005469 x4 : 0000000000000093 x3 : 0000000000000006
+> > [    9.376580]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+> > [    9.383768] x2 : 0000000000000000 x1 : ffff0000041f9880 x0 : ffff7fffba293000
+> > [    9.386730]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> > [    9.388462] Call trace:
+> > [    9.395502] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000856aa000
+> > [    9.400175] ct_kernel_exit+0x80/0x8c P
+> > [    9.401918] [0000ffffa3c44d20] pgd=0000000000000000
+> > [    9.408943] ct_kernel_exit+0x14/0x8c L
+> > [    9.408958] ct_idle_enter (kernel/context_tracking.c:321)
+> > [    9.411910] , p4d=0800000089bb0403
+> > [    9.418929] cpuidle_enter_state (drivers/cpuidle/cpuidle.c:268)
+> > [    9.418943] cpuidle_enter (drivers/cpuidle/cpuidle.c:391)
+> > [    9.418953] do_idle (kernel/sched/idle.c:155
+> > kernel/sched/idle.c:230 kernel/sched/idle.c:325)
+> > [    9.424326] , pud=080000008943e403
+> > [    9.431516] cpu_startup_entry (kernel/sched/idle.c:422)
+> > [    9.431527] rest_init+0xe0/0xe4
+> > [    9.436563] , pmd=0800000089bac403
+> > [    9.443668] start_kernel (init/main.c:1040)
+> > [    9.443681] __primary_switched (arch/arm64/kernel/head.S:247)
+> > [    9.449057] , pte=00200000910f9fc3
+> > [    9.451224] ---[ end trace 0000000000000000 ]---
+> >
+> > Links:
+> > ------
+> > - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241125/testrun/26040307/suite/boot/test/korg-clang-19-lkftconfig-hardening/log
+> > - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241125/testrun/26040307/suite/boot/test/korg-clang-19-lkftconfig-hardening/details/
+> > - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241125/testrun/26040307/suite/boot/test/korg-clang-19-lkftconfig-hardening/history/
+> > - https://lkft.validation.linaro.org/scheduler/job/8004888#L2200
+> > - https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2pKKSWo1tVldooGuq0fBz0nRD07/
+> >
+> > Build image:
+> > -----------
+> > - https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2pKKSWo1tVldooGuq0fBz0nRD07/
+> >
+> > Steps to reproduce:
+> > ------------
+> > - https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2pKKSWo1tVldooGuq0fBz0nRD07/reproducer
+> > - https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2pKKSWo1tVldooGuq0fBz0nRD07/tux_plan
+> >
+> > metadata:
+> > ----
+> 
+> git repo:  https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+> git sha: 85a2dd7d7c8152cb125712a1ecae1d0a6ccac250
+> 
+> > kernel config:
+> > https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2pKKSWo1tVldooGuq0fBz0nRD07/config
+> > build url: https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2pKKSWo1tVldooGuq0fBz0nRD07/
+> > toolchain: clang-19 and clang-nightly
+> > config:  korg-clang-19-lkftconfig-hardening
+> > arch: arm64
+> >
+> > --
+> > Linaro LKFT
+> > https://lkft.linaro.org
+> 
+> - Naresh
+> 
 
