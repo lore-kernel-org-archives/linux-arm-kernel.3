@@ -4,145 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED2A9D3B7FF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCEFDE668A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T+PTzzcnP9siLZGzwp8bMcE8d7Ixq6pDTA7Zs0n5dJs=; b=X51c1J1QKXV7jSUGPx2g4TEVD4
-	Z4z1ytqDEIOauXgwgTpTCu8lLKgeAdBOr4YsJhByVtOO9yXydOICEFqb3pLPXUMHgjeYX8fTnxn66
-	jXTU830bMYtyuOssITbxIQRbuw+Whiz9G9kiR5WwWMZB1UerZn94anmgBuuwGQUyTDumu8kzWfz1I
-	v25qPeznsCIUcAagw36DrywK/fHUSnTbWqFVG/d2PmyXgq8eOeNLgQCrt4GCAP/A5mkdvdPX+Ft3h
-	vtMy8dfStcussJACT+e2GZ0cingow8t+G37JATEvvoH/UJKTFue2z2LD0e3xCvlVtVtqngbysPiht
-	MFl3l+UA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=26FZSeEdgO+NHa3EUYAzp6T4D/JS5Ge/APF1zhDq5PE=; b=ovFKfZg91+vIM6IH7UO/wA2Hmb
+	zUjPN1fNyy/dFgQogz0Ox4nRB0pt0nsTbZJ2HKQHGuKH/u9oUGCv72IpMgwPh8GxYImvzoqoRQLKi
+	2df9OfhZZyYzPdHqsfHo9wgR+6rHVjsNa1l0x35v6Bfk19oMlr5u/83nT4zraaeYuq+6K4YymRH1t
+	mzirZIPsUnSZqCG7ty4MAIW8bkQlJMfEd633vkKP2qU3A93x+DJqfGKs3EC7pANiDyI+xyoCBAFXd
+	2/6RpJ/Fi3qWJ9dNKVrEVRILzQTj4ZaN32ktZLNNAlM5MSMTU/mtDcp8jPyjsRFf2NvKKYwTRnfEF
+	Kq6OMVAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFWaA-00000007nlg-2cHJ;
-	Mon, 25 Nov 2024 10:44:42 +0000
-Received: from mail-am0eur02on20630.outbound.protection.outlook.com ([2a01:111:f403:2606::630] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1tFWcz-00000007o7O-1hM3;
+	Mon, 25 Nov 2024 10:47:37 +0000
+Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFWZD-00000007nZd-1Mzv
+	id 1tFWc2-00000007o0t-0nA5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 10:43:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XoVzud7wfsm/Ec40sxeFEmExlCWF7ev3mIlnuIKFCxB8r0zp6zVXtiEs++S/26QOF02f4Liu+4L+X3hvd4SGrLcZDOFHWGF+7j/IICtY9nel3SEGkbS5Vh+CoTV5QnkjgQqNVkg9tiZH6eBxjWFgB1h2IOIBtu4ZDsEr1M+QM7X1ZfIZSjvZi/dF7gBLOGrZqJxMMC6mkYy1EMo59LgyZv5CHWGX6rYDaZXdH678btB+TkxhrpKHUreoYj0VcURM0SfFDORchH4CSFdbXNabKCoeG6Ofs+aZzj51s9L+OoFI/e9G7a2kVG2tFGU7oTgSbs5ZzU/QYX+NCF2GQ+6CXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T+PTzzcnP9siLZGzwp8bMcE8d7Ixq6pDTA7Zs0n5dJs=;
- b=blDWy6i/KDlAoty6Wrid+Pl9bJA5iN++Te114st6/iZmwPMyguTrv/0o7cslcZ4nxG6A6WYxETKwzIPBh0OfKVNsJR4B95CZHyA3hPMIhW8CEXgn/TgcgNhh33dLihzW1Z7kTn1hGMXmS2AWVmq6KZrwGm7dFKNXGKAVOwsRAatkDUe3lWJTKPFw9F91BbTNG1/+gGAwPmLQZRXS44vK8E4unkfE6MtODSJnc2VSg5Y0FO3kTreIovB4G5xlZ8oT90DD4unoGsAFHbWz8QNzENX7CjalH5j9QYeP5MwlChkXRo1x6hcEiaOPzja335VnMOTXGg0Eex4hgDtJY4CgeA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T+PTzzcnP9siLZGzwp8bMcE8d7Ixq6pDTA7Zs0n5dJs=;
- b=FJvsAF1w2SVw19LiyjqjFye0+8m/uQc6izDhDcQLDsa/Ew7D7DGVRLtKn77x8iRxw6I0faJm8Z8fiobEJaoM+iMyJMrSC7dt+caxtVXBJSUYS/EYpsaZIkTvtG8CXmSwziDtisq9NewjC+YH9/xeJjsAjHkQg9Qc66jyQOdnNtMAVVcSpxPVPIKADxCCFqUJlKnqAnYG9bFDbL59/NjGXuRz1Fv3etfhy3wl1l9D/gNW8ly1fJ/rcgHSxx0fA+ul+zMxlrRwce+t4DyBE+no7xpEkhPskRCOoonAs71QYs0duSZ2o3BmG0Rj4Qf9d0NVkWuZpm/0txEcng8x6tZKyQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by AS1PR04MB9503.eurprd04.prod.outlook.com (2603:10a6:20b:4d1::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.18; Mon, 25 Nov
- 2024 10:43:37 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7%6]) with mapi id 15.20.8182.019; Mon, 25 Nov 2024
- 10:43:37 +0000
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Frank.li@nxp.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	shawnguo@kernel.org,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: [PATCH v2] perf: imx9_perf: Introduce AXI filter version to refactor the driver and better extension
-Date: Mon, 25 Nov 2024 18:43:38 +0800
-Message-Id: <20241125104338.2433339-1-xu.yang_2@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SGXP274CA0012.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::24)
- To DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+	Mon, 25 Nov 2024 10:46:39 +0000
+Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e393167dd71so73644276.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 02:46:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1732531597; x=1733136397; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=26FZSeEdgO+NHa3EUYAzp6T4D/JS5Ge/APF1zhDq5PE=;
+        b=WqcaqIvPm4EFSAyhVB2OlqIULIABQOtpivKSE/QH+zD2scGGCZ7ccCbSVcyE/Y74V/
+         i9IwVG75eXikoMDXvz00D2tSMeUaXTbqRVINS3vtRoJf+E1M4JFrKr63KLaHyHCaeR/Z
+         exyfXY07f73khmWSL/KAUf/JQ5zX7YEGZHwP7aFOYXQIocaokgUwNFYiQJwHhA3NFo0D
+         7lQriMRbtVAtQ0Qdo++cikOIV1dYxgra2Fa9k5jpjMFsqmomAsqZEVhUBxeY2KCzHpVm
+         FIgUBCvPniqPpB51xFFkSGpbTNEpa+VXcWiE8LhYeska/rPu26wj2vS61M+I40zoJV+q
+         evcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732531597; x=1733136397;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=26FZSeEdgO+NHa3EUYAzp6T4D/JS5Ge/APF1zhDq5PE=;
+        b=gbK+4wyoMtGGmof/xCP0UBfh+D+iJVovYK3HRgcoLjyXWcdbutV05x4dkaE/xDlb9K
+         fgJ6cpTI87TH7NZoJfX2qDtIYbWBLBiICEhF67OVMd1G6wlKb1SsyloLuToEz66zKsn/
+         sKQG3nl93AmwAwe8dC+FkUMmC5B04ytph/qvkyfeiVoGh7rcQs1/fEF21xgbLye+wRnP
+         PbtaQSxQgFLqwl1VfebDex2/aTGdYICS6DxMxgXoZNIHMBMTWbDSBU584pd4/JIk/kTZ
+         am9mhVaaHWPzkixHNBLEP9h52t2rIJZ6IajKXVFz6jVgIOOnsLjOqKN3Wfbulz4+4eCz
+         xmDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUMxhubfji25/L75VScAtz+2SRa4IhqouSb0+RKcrs7GyptV8RoGzg5dEDxgCwCPwLCjgiLRPbx5jySMMCy+App@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9yoN3cHzC1QJgXtV/MyUkLC+vHQ6rE32chkHTgw+H12/Lblvk
+	ysln85cTWEPtIHm0FOyh6HjESuLAdVfrD46lBlo9OsZpv/bp2DTmyVYy7eojkY0/4aGvrA8+cfq
+	fKw6kXGiF0haHTYv0AUsYVG/Icb1rj8Gmp9vAPQ==
+X-Gm-Gg: ASbGncux7Q5tYruhzCekL68poz4f8vGVRjfz/uEIlvCRBA+KmSLwL2ymYsHuVTQ1BzU
+	c0dPN7+/ZpvSGMg5XcF4/7YGyA907p0/J5RJSnbhbzsCxY+nEEi8ljssMLRwYcz4=
+X-Google-Smtp-Source: AGHT+IEKBDUKsnQY2QvubNmp8u3yV1Nbr7olengon87+FnysXiAS6rV6LCeYk/aaPdprs28q0xV7/4+THizDS8P+rvc=
+X-Received: by 2002:a05:6902:2210:b0:e38:b8bb:fb7d with SMTP id
+ 3f1490d57ef6-e38f8c11c69mr3265008276.11.1732531597130; Mon, 25 Nov 2024
+ 02:46:37 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|AS1PR04MB9503:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6a702f3f-f225-4fc5-7553-08dd0d3e04a1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gpRrOqy3jNZJnhoB8vtgcFkRANr7Vdj37BHvd8Pm6w/wvBRnRd7DL5BwuIEr?=
- =?us-ascii?Q?23YyEdTf7dvVPWRISyNE3+HrbDhBY+NuBzO6hn5ot46SmHPz4INxR3vecSfo?=
- =?us-ascii?Q?eBR5a/CNQM4HQRFwsapcgZU2cE5tW5zoUbFp2BuHZgDRYOth3oHgWUrptM0U?=
- =?us-ascii?Q?aEsJBTotywTdZiaK93naFiUUpMWdPW/WF0uUyRem1nA2mbm9vKwYW9Wjgow2?=
- =?us-ascii?Q?iLs1i5uA5Qf0cWEktg+YChnq1MSlErufBx/S4/W111sqGCx5DbWZJ+L4+G8l?=
- =?us-ascii?Q?iEnH2WVYgOxu+VkZXUl081heyPPduy1fy52qLzv9UNSSWRHkK0TY+VKJb6WF?=
- =?us-ascii?Q?7YLhHb9l4U9KwGAyLWxJLXFrg4WA7E1vc7PeuhOfIk3OhxcV28jIERhFcpsd?=
- =?us-ascii?Q?3012UGXy01P6Nn3IQp7iOBXyG7BdE+25522x4+x/aO6ZeaK8HSwr5Drr3FZ4?=
- =?us-ascii?Q?Z240jgmf/5ZXoTSJH5X7m6iXV5f65ZZnkprtmsDjjHAxnZEXGCkKgV9LJ4Dc?=
- =?us-ascii?Q?lGR3flbznWYnB28iONOzBy6con96mdwiy6VMcUW7PuptRJhbbS1WoXyUGyNO?=
- =?us-ascii?Q?HgZUiS3HEjnxa8fj5L0Apdw13fqrpGztoqVRa0XvExwUpnLbebirikALeGVC?=
- =?us-ascii?Q?4qGG13gWDpKl0Yfjyebo8h17U9bzMSABrarlIn3MPpVvppuL+Zk4nNS41DhV?=
- =?us-ascii?Q?ejzYpsaqBLR71c4F5xZ0XdQuA/Ej1FFqu0G+4HALCos94W1Vm3JT0AXujpwU?=
- =?us-ascii?Q?sEOgAdP97kJ38OkEElb6FBVFVWWzkX6CTohzR7F4DO4D1qq6sKnyjJ6zshHc?=
- =?us-ascii?Q?JqZJcquBQTb9QQQ42x+UQBJM1Vl++FRHKzNxtTGF1YQ+F2HN1rxWsYD9dH87?=
- =?us-ascii?Q?0s+7yj5XmYOyKw1BGw33cbadlFA8fkqW5Z1PaRS9K3m3liqbc+J0P/xp445c?=
- =?us-ascii?Q?wFWZ8iGHS/nG0WUosG4pJNQYIVfzWXA03Y5YKlL7h6WlrNCAK66ueHAZMczg?=
- =?us-ascii?Q?fgLna59u6VP4bIrnhA2ZasGOUht10QicbXwq2rPKkyJuE0Yd/etWVWB2YXhN?=
- =?us-ascii?Q?87CPTl//8k9d4E4QNwJai104ZM0fR4yybze6cUSxANOfgTz/v83z00y2f/EF?=
- =?us-ascii?Q?rCViUzzGJVjWVoy3iFzU79jnyZtuGLm+VUHi/kjHEFYQFymOHTLviNUcaWq5?=
- =?us-ascii?Q?f2snzv3zwG6cW4E0dGwwleLr9kwkAO0aqehRX9MIsNTmddwP78/IjgfItLa9?=
- =?us-ascii?Q?lEabwZXU6Tp+Xtk5KTayc+/yfp81+VXkMiiGOZ4qfjVTUyPEoDbEmYXnCgwF?=
- =?us-ascii?Q?HJCqqzThMn+0sPRMRMhBMWkXg16OYebzCwD+G1HL+vLtd6vTxQKA/8M+4O8c?=
- =?us-ascii?Q?bU7kv726l5AsVLTs7hJXWnRIOcEd57VxNxHUCrUFNiwxlj0tkw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hyp19hOczF+TYV8EAZuq20HdFa/7KQqF2deCAyb5AvYUt6AMCyCOohVqwr5N?=
- =?us-ascii?Q?egessHxv+wMUYwPN+d3FNZxThpkzSm1TYQP6Rk0JGnfw+Zdcw6OBdYs3TrK5?=
- =?us-ascii?Q?EBMS1gsFMK3Y86LuByfIzr2dDvZZJ4cpi/KAZqPPHeHsvF1hMv0Vyo8hbc2J?=
- =?us-ascii?Q?Aqe0Dy6VZfgsCTJjpcajcQ5TM7jOVS4ikcVw9vbKPbNw1rOVKOIXUsifI+3R?=
- =?us-ascii?Q?3zLl7Q3ZoWIdtev3cuCjd6v/+Dswyd3vwKHs2Xf3kDuUjM3jFzhQ6NziLWKB?=
- =?us-ascii?Q?pNCNY/TLR6ztYdaG4tLhbfAbQSI+ipkKLSL2HtHc1D1OygriBlXq8UEkzKll?=
- =?us-ascii?Q?37cRyB5n92y4nQgjUKBV94v6tUuOYDeCtcLPMnkKqGZIkFS4wjojY1DIFox7?=
- =?us-ascii?Q?++iPrFcyi/MuwSoZDxVOcKOaeTujGbDfnNkX4++ly+D2FdPvjUHCksuql4iS?=
- =?us-ascii?Q?78sZ3OCg7ugKvkLNim6ml2lsUL9bGImHnCbfmIOx8LW4keAk2m3GY5HJyQ2f?=
- =?us-ascii?Q?EG+pAEXX/v9W1MQz84fTHvkgluWXUgN682gGvXpuNFhM1YzRe2I6GhjTIrEr?=
- =?us-ascii?Q?X18gyOV1Z2mH1dgzgGbFHSZuyqVgrpqFGrxtUhRLyvabMJKNEEksOPQt0Im2?=
- =?us-ascii?Q?17q1OchgaeFaL2q2dRqOjxPXhDI8YpNjmoFgIufQ/nLqHsM0+QZwT89hIeRO?=
- =?us-ascii?Q?9tb7yNu7rTnTnCnB4h41CoNMD+6lMIh/wvgc+QhWuk8/VNcFsdY8TduIO7Z5?=
- =?us-ascii?Q?gC6hGriVWN95ipPQPUrbGfUwDg7jsEeP3aKHk8Lj08wQjITTYW/1H0vQel7O?=
- =?us-ascii?Q?byQDw54p6tKID3+2ihfiqOtjSsmo5OSarScaifwP104uduEmXGbN9vd50dwf?=
- =?us-ascii?Q?N2wgORQCxxFaA5n+0qmrp7+i6nyuJ7hHHcGClh6MqGN+Brjfxss4bKExP3MS?=
- =?us-ascii?Q?5JdSpUJKJrtS3j6EpCYNYL3NKltQPzs3S0qOBJ2MrX2VCUvZ+Qzbd8nxZ65K?=
- =?us-ascii?Q?jUt6qW/kuKdFa0QnWyHOYFItzmkm8F8PRnlF6NX44yOOiS/p6J5UVm7s+Fj6?=
- =?us-ascii?Q?dfc8Py9Hq93Mp2ku2p2S6UAN6P0nXiOHe2DCgN7bdqi+CrpaBGXuREWi4/bk?=
- =?us-ascii?Q?+kqvNViuaB0qJBdLnHb5Atti2MJGgTmJhz7vdSf3iEiE9BcI/y5Nhk/H/jZg?=
- =?us-ascii?Q?ct6f8UJC93RacOBq1q5t35el30naIGu1FL0q4EhhifpECH3ClPnblVzDXIep?=
- =?us-ascii?Q?7mf808EFP8eK3wTXlitiqfQFT1u10Ija2001CMMxC+Yy+tD4SkZ0UMS81vIH?=
- =?us-ascii?Q?1ooskqo3d7g//ywO+5uQH/0QDkeIJWWx6oXxJgvwYe82rInlFhebBBMr5sCu?=
- =?us-ascii?Q?WVtbbIsENtLqBRZ0hcUN7gGeNi3WUtDAnMl+uUbTgycfgNbVPVrrAukSpQDz?=
- =?us-ascii?Q?OYccVSJrJgc18LJaD2WD+8bdBGGhsDQ94iggo5LySP4yCm1aykKaIIc8z6+x?=
- =?us-ascii?Q?7OARsKT4xcL5UDUtYuZ5x3TXfIJMemEwLwl7V9F5ErLXXg4ZXfnFs8YFBJAq?=
- =?us-ascii?Q?2SIuXp/ARsCXn1cambAK5IR4Dsc/Gb0d0XP8zQRo?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6a702f3f-f225-4fc5-7553-08dd0d3e04a1
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2024 10:43:37.5288
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MKChXnpJ74LT0RIE9nQ0BM4uv47QPy6bupKbPVX4Pf3MAfNs3UuFKjFFJLfNFeF8wUo7RKYRmfBjDb66mz9uPg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9503
+References: <20241122084152.1841419-1-naush@raspberrypi.com>
+ <20241122084152.1841419-6-naush@raspberrypi.com> <xy44zndazbw7ehpzbc6hexgptjymevvupjhuy2x6zxp54qtepm@vlbb6js62cq4>
+ <CAEmqJPrrAhhukn2H4nUhe1njVi-dyW9q=u1h8YgafvJGbYRG6Q@mail.gmail.com>
+ <xadxi6rjcnmgjiqhinqnawj3mgps4b3xp6ftozap4ps6q5xaz7@bsdwrrkyniwt>
+ <deremuh7mawzt6ke3c67fvzfyuksmuwon3dhorxbm5mr5rllmf@fbj2f5qvfpjd>
+ <20241124070428.GG19573@pendragon.ideasonboard.com> <CAEmqJPrDvhz+np4MxKiwfrKyjxG0HnO45T+U2=Bpbmm6MW1uXg@mail.gmail.com>
+ <20241125092335.GL19381@pendragon.ideasonboard.com> <CAEmqJPo58OCosJhKZeut4=ZGQfk3CCJR_G8ZZZvmAUNTwfmKjw@mail.gmail.com>
+ <20241125102707.GP19381@pendragon.ideasonboard.com>
+In-Reply-To: <20241125102707.GP19381@pendragon.ideasonboard.com>
+From: Naushir Patuck <naush@raspberrypi.com>
+Date: Mon, 25 Nov 2024 10:46:01 +0000
+Message-ID: <CAEmqJPrDb5_L-9tv7nEuG7GoN6naKhM-vsC0tPfLQaAQYisqjg@mail.gmail.com>
+Subject: Re: [PATCH v1 5/5] drivers: media: bcm2835-unicam: Correctly handle
+ FS + FE ISR condition
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Hans Verkuil <hverkuil@xs4all.nl>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, linux-media@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Dave Stevenson <dave.stevenson@raspberrypi.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_024343_366471_39B41E7F 
-X-CRM114-Status: GOOD (  18.28  )
+X-CRM114-CacheID: sfid-20241125_024638_273065_18BB778D 
+X-CRM114-Status: GOOD (  56.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,126 +104,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx93 is the first supported DDR PMU that supports read transaction,
-write transaction and read beats events which corresponding respecitively
-to counter 2, 3 and 4.
+Hi Laurent,
 
-However, transaction-based AXI match has low accuracy when get total bits
-compared to beats-based. And imx93 doesn't assign AXI_ID to each master.
-So axi filter is not used widely on imx93. This could be regards as AXI
-filter version 1.
 
-To improve the AXI filter capability, imx95 supports 1 read beats and 3
-write beats event which corresponding respecitively to counter 2-5. imx95
-also detailed AXI_ID allocation so that most of the master could be count
-individually. This could be regards as AXI filter version 2.
+On Mon, 25 Nov 2024 at 10:27, Laurent Pinchart
+<laurent.pinchart@ideasonboard.com> wrote:
+>
+> Hi Naush,
+>
+> On Mon, Nov 25, 2024 at 09:46:26AM +0000, Naushir Patuck wrote:
+> > On Mon, 25 Nov 2024 at 09:23, Laurent Pinchart wrote:
+> > > On Mon, Nov 25, 2024 at 08:37:22AM +0000, Naushir Patuck wrote:
+> > > > On Sun, 24 Nov 2024 at 07:04, Laurent Pinchart wrote:
+> > > > > On Fri, Nov 22, 2024 at 03:48:11PM +0100, Jacopo Mondi wrote:
+> > > > > >
+> > > > > > With Hans Sakari and Laurent in cc for real now
+> > > > > >
+> > > > > > On Fri, Nov 22, 2024 at 03:41:31PM +0100, Jacopo Mondi wrote:
+> > > > > > > On Fri, Nov 22, 2024 at 11:40:26AM +0000, Naushir Patuck wrote:
+> > > > > > > > On Fri, 22 Nov 2024 at 11:16, Jacopo Mondi wrote:
+> > > > > > > > > On Fri, Nov 22, 2024 at 08:41:52AM +0000, Naushir Patuck wrote:
+> > > > > > > > > > This change aligns the FS/FE interrupt handling with the Raspberry Pi
+> > > > > > > > > > kernel downstream Unicam driver.
+> > > > > > > > > >
+> > > > > > > > > > If we get a simultaneous FS + FE interrupt for the same frame, it cannot
+> > > > > > > > > > be marked as completed and returned to userland as the framebuffer will
+> > > > > > > > > > be refilled by Unicam on the next sensor frame. Additionally, the
+> > > > > > > > > > timestamp will be set to 0 as the FS interrupt handling code will not
+> > > > > > > > > > have run yet.
+> > > > > > > > > >
+> > > > > > > > > > To avoid these problems, the frame is considered dropped in the FE
+> > > > > > > > > > handler, and will be returned to userland on the subsequent sensor frame.
+> > > > > > > > > >
+> > > > > > > > > > Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
+> > > > > > > > > > ---
+> > > > > > > > > >  .../media/platform/broadcom/bcm2835-unicam.c  | 39 +++++++++++++++++--
+> > > > > > > > > >  1 file changed, 35 insertions(+), 4 deletions(-)
+> > > > > > > > > >
+> > > > > > > > > > diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> > > > > > > > > > index f10064107d54..0d2aa25d483f 100644
+> > > > > > > > > > --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
+> > > > > > > > > > +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> > > > > > > > > > @@ -773,10 +773,26 @@ static irqreturn_t unicam_isr(int irq, void *dev)
+> > > > > > > > > >                        * as complete, as the HW will reuse that buffer.
+> > > > > > > > > >                        */
+> > > > > > > > > >                       if (node->cur_frm && node->cur_frm != node->next_frm) {
+> > > > > > > > > > +                             /*
+> > > > > > > > > > +                              * This condition checks if FE + FS for the same
+> > > > > > > > > > +                              * frame has occurred. In such cases, we cannot
+> > > > > > > > > > +                              * return out the frame, as no buffer handling
+> > > > > > > > > > +                              * or timestamping has yet been done as part of
+> > > > > > > > > > +                              * the FS handler.
+> > > > > > > > > > +                              */
+> > > > > > > > > > +                             if (!node->cur_frm->vb.vb2_buf.timestamp) {
+> > > > > > > > > > +                                     dev_dbg(unicam->v4l2_dev.dev,
+> > > > > > > > > > +                                             "ISR: FE without FS, dropping frame\n");
+> > > > > > > > > > +                                     continue;
+> > > > > > > > > > +                             }
+> > > > > > > > > > +
+> > > > > > > > > >                               unicam_process_buffer_complete(node, sequence);
+> > > > > > > > > > +                             node->cur_frm = node->next_frm;
+> > > > > > > > > > +                             node->next_frm = NULL;
+> > > > > > > > > >                               inc_seq = true;
+> > > > > > > > > > +                     } else {
+> > > > > > > > > > +                             node->cur_frm = node->next_frm;
+> > > > > > > > > >                       }
+> > > > > > > > > > -                     node->cur_frm = node->next_frm;
+> > > > > > > > > >               }
+> > > > > > > > > >
+> > > > > > > > > >               /*
+> > > > > > > > > > @@ -812,10 +828,25 @@ static irqreturn_t unicam_isr(int irq, void *dev)
+> > > > > > > > > >                                       i);
+> > > > > > > > > >                       /*
+> > > > > > > > > >                        * Set the next frame output to go to a dummy frame
+> > > > > > > > > > -                      * if we have not managed to obtain another frame
+> > > > > > > > > > -                      * from the queue.
+> > > > > > > > > > +                      * if no buffer currently queued.
+> > > > > > > > > >                        */
+> > > > > > > > > > -                     unicam_schedule_dummy_buffer(node);
+> > > > > > > > > > +                     if (!node->next_frm ||
+> > > > > > > > > > +                         node->next_frm == node->cur_frm) {
+> > > > > > > > > > +                             unicam_schedule_dummy_buffer(node);
+> > > > > > > > > > +                     } else if (unicam->node[i].cur_frm) {
+> > > > > > > > > > +                             /*
+> > > > > > > > > > +                              * Repeated FS without FE. Hardware will have
+> > > > > > > > > > +                              * swapped buffers, but the cur_frm doesn't
+> > > > > > > > > > +                              * contain valid data. Return cur_frm to the
+> > > > > > > > > > +                              * queue.
+> > > > > > > > >
+> > > > > > > > > So the buffer gets silently recycled ? Or should it be returned with
+> > > > > > > > > errors to userspace ?
+> > > > > > > >
+> > > > > > > > The buffer silently gets recycled and we dequeue when we are sure it
+> > > > > > > > is valid and will not get overwritten.  If we were to return to
+> > > > > > >
+> > > > > > > I haven't find in the v4l2 specs any reference to what the behaviour
+> > > > > > > should be.
+> > > > > > >
+> > > > > > > If I can summarize it: When a frame capture is aborted after the DMA
+> > > > > > > transfer has already started, should the corresponding capture buffer
+> > > > > > > be returned to the user in error state or the frame drop can go
+> > > > > > > silently ignored ?
+> > > > >
+> > > > > If the DMA tranfer is aborted, I would return the buffer to userspace.
+> > > > > This will indicate a frame loss better than deducing it from a gap in
+> > > > > the sequence numbers.
+> > > > >
+> > > > > Is the DMA really aborted here though ?
+> > > >
+> > > > No, the DMA continues, causing possilbe overwrite/tearing in the
+> > > > framebuffer.  Hence we defer returning it until we can ensure we don't
+> > > > overwrite into the buffer on the next frame.
+> > >
+> > > If the DMA continues then we certainly can't return the buffer to
+> > > userspace. Is it the next frame being DMA'ed to the same buffer, or does
+> > > the hardware put it the buffer at the back of its queue ?
+> >
+> > The next frame will be DMA'ed into the same buffer in this error
+> > condition. The hardware really only has a 2-deep buffer queue (current
+> > + next frame), and no reliable way of telling if next has been swapped
+> > to been swapped.
+>
+> OK, that makes sense.
+>
+> In that case, is putting the buffer back to the back of the dma_queue
+> the right option ? Shouldn't it be kept current and "just" be completed
+> one frame later ? Or did I misunderstand the patch ?
 
-This will introduce AXI filter version to refactor the driver and support
-better extension, such as coming imx943.
+Yes, I agree that the buffer handling logic below does seem
+contradictory.  I'm going to need time to look into this in more
+detail, it's been quite some time since I looked into this.  I would
+suggest we remove this particular patch from the series until I get a
+better understanding of the change.
 
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+Regards,
+Naush
 
----
-Changes in v2:
- - modify subject
- - add comments for AXI_FILTER version
- - type -> filter_ver
----
- drivers/perf/fsl_imx9_ddr_perf.c | 33 ++++++++++++++++++++++++--------
- 1 file changed, 25 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/perf/fsl_imx9_ddr_perf.c b/drivers/perf/fsl_imx9_ddr_perf.c
-index 3c856d9a4e97..e2c2c674b6d2 100644
---- a/drivers/perf/fsl_imx9_ddr_perf.c
-+++ b/drivers/perf/fsl_imx9_ddr_perf.c
-@@ -63,8 +63,21 @@
- 
- static DEFINE_IDA(ddr_ida);
- 
-+/*
-+ * V1 support 1 read transaction, 1 write transaction and 1 read beats
-+ * event which corresponding respecitively to counter 2, 3 and 4.
-+ */
-+#define DDR_PERF_AXI_FILTER_V1		0x1
-+
-+/*
-+ * V2 support 1 read beats and 3 write beats events which corresponding
-+ * respecitively to counter 2-5.
-+ */
-+#define DDR_PERF_AXI_FILTER_V2		0x2
-+
- struct imx_ddr_devtype_data {
- 	const char *identifier;		/* system PMU identifier for userspace */
-+	unsigned int filter_ver;	/* AXI filter version */
- };
- 
- struct ddr_pmu {
-@@ -83,24 +96,27 @@ struct ddr_pmu {
- 
- static const struct imx_ddr_devtype_data imx91_devtype_data = {
- 	.identifier = "imx91",
-+	.filter_ver = DDR_PERF_AXI_FILTER_V1
- };
- 
- static const struct imx_ddr_devtype_data imx93_devtype_data = {
- 	.identifier = "imx93",
-+	.filter_ver = DDR_PERF_AXI_FILTER_V1
- };
- 
- static const struct imx_ddr_devtype_data imx95_devtype_data = {
- 	.identifier = "imx95",
-+	.filter_ver = DDR_PERF_AXI_FILTER_V2
- };
- 
--static inline bool is_imx93(struct ddr_pmu *pmu)
-+static inline bool axi_filter_v1(struct ddr_pmu *pmu)
- {
--	return pmu->devtype_data == &imx93_devtype_data;
-+	return pmu->devtype_data->filter_ver == DDR_PERF_AXI_FILTER_V1;
- }
- 
--static inline bool is_imx95(struct ddr_pmu *pmu)
-+static inline bool axi_filter_v2(struct ddr_pmu *pmu)
- {
--	return pmu->devtype_data == &imx95_devtype_data;
-+	return pmu->devtype_data->filter_ver == DDR_PERF_AXI_FILTER_V2;
- }
- 
- static const struct of_device_id imx_ddr_pmu_dt_ids[] = {
-@@ -155,7 +171,7 @@ static const struct attribute_group ddr_perf_cpumask_attr_group = {
- struct imx9_pmu_events_attr {
- 	struct device_attribute attr;
- 	u64 id;
--	const void *devtype_data;
-+	const struct imx_ddr_devtype_data *devtype_data;
- };
- 
- static ssize_t ddr_pmu_event_show(struct device *dev,
-@@ -307,7 +323,8 @@ ddr_perf_events_attrs_is_visible(struct kobject *kobj,
- 	if (!eattr->devtype_data)
- 		return attr->mode;
- 
--	if (eattr->devtype_data != ddr_pmu->devtype_data)
-+	if ((eattr->devtype_data != ddr_pmu->devtype_data) &&
-+		(eattr->devtype_data->filter_ver != ddr_pmu->devtype_data->filter_ver))
- 		return 0;
- 
- 	return attr->mode;
-@@ -624,11 +641,11 @@ static int ddr_perf_event_add(struct perf_event *event, int flags)
- 	hwc->idx = counter;
- 	hwc->state |= PERF_HES_STOPPED;
- 
--	if (is_imx93(pmu))
-+	if (axi_filter_v1(pmu))
- 		/* read trans, write trans, read beat */
- 		imx93_ddr_perf_monitor_config(pmu, event_id, counter, cfg1, cfg2);
- 
--	if (is_imx95(pmu))
-+	if (axi_filter_v2(pmu))
- 		/* write beat, read beat2, read beat1, read beat */
- 		imx95_ddr_perf_monitor_config(pmu, event_id, counter, cfg1, cfg2);
- 
--- 
-2.34.1
-
+>
+> > > > > > > Cc-ing Hans Sakari and Laurent for opinions.
+> > > > > > >
+> > > > > > > > userspace with an error, there is still a race condition on the name
+> > > > > > > > frame/buffer which will also have to return as error.
+> > > > > > >
+> > > > > > > I'm sorry I didn't get this part :)
+> > > > > > >
+> > > > > > > > > > +                              */
+> > > > > > > > > > +                             spin_lock(&node->dma_queue_lock);
+> > > > > > > > > > +                             list_add_tail(&node->cur_frm->list,
+> > > > > > > > > > +                                           &node->dma_queue);
+> > > > > > > > > > +                             spin_unlock(&node->dma_queue_lock);
+> > > > > > > > > > +                             node->cur_frm = node->next_frm;
+> > > > > > > > > > +                             node->next_frm = NULL;
+> > > > > > > > > > +                     }
+> > > > > > > > > >               }
+> > > > > > > > > >
+> > > > > > > > > >               unicam_queue_event_sof(unicam);
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
 
