@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A46D59D71
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 21:16:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98AC0D59D71
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 21:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0ZHTGGztVRlr02UorCZLeEgiwydMSFEuesYKwn9RtUI=; b=vEbeMnbHO7iUPDEpyk+I8X7fue
-	QLeUztNZrswi0xvwslvDO7k0eb4K9mCQc9XBRgRP2W0PdO15ogU3wPcP918EKWFRodyavwSDj6ZB7
-	3dpvKxHtBDoSpkQ+ChMfuPdyNgPPqAEvlTd8uX2/SKV+AbR1jYiwDpJ9LnURL7Ye3OUcAb65Ppqd/
-	4LKWQtgEP2z0pwVf+p7k5H7e/mbRKYS3X9QzFtGpgKXW7wjEUUU2BoPCPK7f6wIz2IOskxb83sDuY
-	sjOZdOJ0ZmOSzSvJ+Y8jRdzQ+9pM7RXqLDGs+OUJKyvvXLTuV4qiG8S1+eXXIPQcLkddO39B/Ln5I
-	M7kGfutg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LuyvxCn8sD6+TwxrJm30Ftk9S3JBWhdfj1Mgj3Q1Ng0=; b=VjJlDi5SOQ9dvM
+	ZHXFAWpby2q7T1i67VphI8vdk/T+8bIICGScy/MF+YE7RMLz3s6ADNbZQ2+2k1r4ii4KDpvn7JBoP
+	aLreH9E6KniU7Y9nrufzvHRjjZQrDieYf1ChM5viL2nFAYEWjBo78FkyaR+jhhcjppLzor3NiummJ
+	IwAIFeKdwfUdj5SExsC5sv0zXDzsljc/f9iMDwZ0TjmRMPMY6PxMm8NAEvHsgIeMFdY68rJEzAKbx
+	eEWNKxba/Wbf5S5yZvQCDCfhXytwHVi+48eQbe1mt5x8nzuPZvPapdzGRvndwvbGFEgarMuZfBTV5
+	tQm7hS6+mpvk2yhftkUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFgRl-000000096n4-06Gg;
-	Mon, 25 Nov 2024 21:16:41 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1tFgWy-000000097S9-47j3;
+	Mon, 25 Nov 2024 21:22:04 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFgQn-000000096g3-10Ub
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 21:15:42 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-7fc41dab8e3so189005a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 13:15:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732569340; x=1733174140; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0ZHTGGztVRlr02UorCZLeEgiwydMSFEuesYKwn9RtUI=;
-        b=A509Qxi+C3pSZPiFxCCwhGJHoisUJzgN0/qIrhtdooM2YOtePOysPJQseAD4jun4d5
-         lPAaRHarHOyAakZ/ZAwLM5xRYQJdK70cXgJTqfyCSlKPLcbt/SVO7KnS3tD+91HlVQAz
-         I5USmq2Vhnr33ibQiTRnhKUB4ALXKEpKcy6HfnD0Bn0ezHaFIDHMKkB+Wpu1wCQNQNQE
-         z+SxDLf0AMzpS8M8SAeka3tl5fhnfbo0SgdG+HiUtygHJUItCgJjMituXrOZUdb3Y/l/
-         mXw8yUkeoFVpNr3wwF8eeYLi3VMC1q6zTg7xsFhxz3jgqvXPWzy4jOihQbhPbPmIYj8K
-         lrSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732569340; x=1733174140;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0ZHTGGztVRlr02UorCZLeEgiwydMSFEuesYKwn9RtUI=;
-        b=cKZOTSlSlEORGCyWkqNCvbnZVsB21eM74LFrb2+b2mkN0/U/OZiesRbXdw2Z+gHjns
-         KKvx0IrRvQTFvgnK59799LiOJjNcRZVFBHvLfLIAI5tgPZbjjdn16OV99uj0pbwoKPLw
-         r2V1/yUEJGrnYITlj982eA6Pro/XCLXjlHaF33VVlSFcJaO1wkcvl4X4WAgKKudSZm8q
-         3otDMzZY6mVjmNDQ+e3ezKGpqpdbq1mdg7h33JewWlaQD82wUYXLGFt1OHjJrvPU3+eU
-         aPTglvvfb9w/kgUSuYW0k9SkI27AtkyJZKsjwYEns2NTahdmoOYrTqMrUuORy9L9jFka
-         B3kg==
-X-Forwarded-Encrypted: i=1; AJvYcCW389zqid7E2hhsifm3dGfX+s6uhXcwNlSa1VbYHk+ezduaW/q4qKlXPe8rWyTSNci54MT3jv7Outzlb32Kw5am@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDQHZDY5N1gYVeMvNE9qD7F6hiB28HHzMTvG2TbtssMAelw/Si
-	WjzMHq5SBJ8/4dtJW+/stv4AcxyhyZGgoC3FVzzz6afr5ofRlhh3+5OXErmY
-X-Gm-Gg: ASbGncvrppXgf5UzZfuUSneoMWnYptxHYms42vbV1IobRGhDVV9Fux3Kw4sRRqTcXX1
-	aN01++5N15E27iC9PDibtwG0ST8OX6dO0usIzsIiDr2LrOOY+XkvND2xtiuPuGXaeMMK7dJPVfS
-	ZyK6065oo4ZyQbT/x16csBJPQ3/gpWz3O/iyCvC6Q89ueuJzj9E+Aks+u2fQ/aXHMyG/LERxoCu
-	5xxLYLACYRD4TNgYMGSok+sEW21nb7Xdo9atkx7qPIkvGx9uQ==
-X-Google-Smtp-Source: AGHT+IHrsrU0BqzKKN0+sv8jhNnr6cs9rDOsCM8lLkVi9yLVElzX7tpOkme2fiVg4jFUx0MfT1dtog==
-X-Received: by 2002:a05:6a20:c89b:b0:1dc:1147:a632 with SMTP id adf61e73a8af0-1e09e5cb4c5mr23461978637.37.1732569339517;
-        Mon, 25 Nov 2024 13:15:39 -0800 (PST)
-Received: from desky.home.arpa ([2605:59c8:492:c300:8a72:2d07:5f93:a09b])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724de454967sm6907470b3a.19.2024.11.25.13.15.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Nov 2024 13:15:39 -0800 (PST)
-From: bschnei@gmail.com
-X-Google-Original-From: ben@bens.haus
-To: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>
-Cc: Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Benjamin Schneider <ben@bens.haus>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>
-Subject: [PATCH] cpufreq: enable 1200Mhz clock speed for armada-37xx
-Date: Mon, 25 Nov 2024 13:14:52 -0800
-Message-ID: <20241125211452.14987-1-ben@bens.haus>
-X-Mailer: git-send-email 2.47.1
+	id 1tFgVx-000000097HF-38zi;
+	Mon, 25 Nov 2024 21:21:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1732569657;
+	bh=TBn4GCrh/WfYjRfNUoDjtRI7in6N7aD9t1Df+F3kcLg=;
+	h=From:Subject:Date:To:Cc:From;
+	b=AjJ0mxeCylxaNDYHU0wW1TaOcxTioyLmpbIZsmwJu/sQwutdwY0UokpY1zOxyvymh
+	 mMZaKTQ/XgEKCNlQkv5x8U1LFMjbononY8fRsdVlkEU/wLqgq6/XQgSXBnV2uX+wT4
+	 JKp/Me7vxcbgJEElBqVdLQ+rpaj0jzPKLc9T3/uEmfVwu4ChFSCwtybzMWmDj0Zzzi
+	 MDR0zBfrMU9hliJaZIb7K+xYPgsRvxWcvdlmaBVQ8MH3zhOhk4Ln66tACjAV3lSJEN
+	 E792fx+Snp3dYrLZkipEMDaEw+aUJq0axVVtDc8miqfF5JFAjpDQz6rS1OqlBnMRp6
+	 a5p6tefZD8DEw==
+Received: from [192.168.1.63] (pool-100-2-116-133.nycmny.fios.verizon.net [100.2.116.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 29EA417E37C8;
+	Mon, 25 Nov 2024 22:20:54 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Subject: [PATCH 0/5] thermal/drivers/mediatek/lvts: Fixes for suspend and
+ IRQ storm, and cleanups
+Date: Mon, 25 Nov 2024 16:20:27 -0500
+Message-Id: <20241125-mt8192-lvts-filtered-suspend-fix-v1-0-42e3c0528c6c@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIABvqRGcC/x2NwQrCMBAFf6Xs2YXuWqH6K+IhJk9dqLFkYxFK/
+ 93Q48xhZiVHMThdupUKFnP75AZy6Ci+Qn6CLTUm7XUQUeF3HeWsPC3V+WFTRUFi//qMnJr4cTj
+ 1R41hRMSdWmYuaHpfXG/b9gfgps9rcgAAAA==
+X-Change-ID: 20241121-mt8192-lvts-filtered-suspend-fix-a5032ca8eceb
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Alexandre Mergnat <amergnat@baylibre.com>, 
+ Balsam CHIHI <bchihi@baylibre.com>
+Cc: kernel@collabora.com, linux-pm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Hsin-Te Yuan <yuanhsinte@chromium.org>, 
+ Chen-Yu Tsai <wenst@chromium.org>, 
+ =?utf-8?q?Bernhard_Rosenkr=C3=A4nzer?= <bero@baylibre.com>, 
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_131541_279890_79219B62 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20241125_132102_751586_A60175F7 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,45 +88,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Benjamin Schneider <ben@bens.haus>
+Patches 1 and 2 of this series fix the issue reported by Hsin-Te Yuan
+[1] where MT8192-based Chromebooks are not able to suspend/resume 10
+times in a row. Either one of those patches on its own is enough to fix
+the issue, but I believe both are desirable, so I've included them both
+here.
 
-This frequency was disabled because of stability problems whose source could
-not be accurately identified[1]. After seven months of testing, the evidence
-points to an incorrectly configured bootloader as the source of the historical
-instability. Testing was performed on two A3720 devices with this frequency
-enabled and the ondemand policy in use. Marvell merged[2] changes to their
-bootloader source needed to address the stability issue. This driver should
-expose this frequency option to users.
+Patches 3-5 fix unrelated issues that I've noticed while debugging.
+Patch 3 fixes IRQ storms when the temperature sensors drop to 20
+Celsius. Patches 4 and 5 are cleanups to prevent future issues.
 
-[1] https://github.com/torvalds/linux/commit/484f2b7c61b9ae58cc00c5127bcbcd9177af8dfe
-[2] https://github.com/MarvellEmbeddedProcessors/mv-ddr-marvell/pull/44
+To test this series, I've run 'rtcwake -m mem -d 60' 10 times in a row
+on a MT8192-Asurada-Spherion-rev3 Chromebook and checked that the wakeup
+happened 60 seconds later (+-5 seconds). I've repeated that test on 10
+separate runs. Not once did the chromebook wake up early with the series
+applied.
 
-Signed-off-by: Benjamin Schneider <ben@bens.haus>
-Reviewed-by: Pali Rohár <pali@kernel.org>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Acked-by: Gregory CLEMENT <gregory.clement@bootlin.com>
+I've also checked that during those runs, the LVTS interrupt didn't
+trigger even once, while before the series it would trigger a few times
+per run, generally during boot or resume.
+
+Finally, as a sanity check I've verified that the interrupts still work
+by lowering the thermal trip point to 45 Celsius and running 'stress -c
+8'. Indeed they still do, and the temperature showed by the
+thermal_temperature ftrace event matched the expected value.
+
+[1] https://lore.kernel.org/all/20241108-lvts-v1-1-eee339c6ca20@chromium.org/
+
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
- drivers/cpufreq/armada-37xx-cpufreq.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+Nícolas F. R. A. Prado (5):
+      thermal/drivers/mediatek/lvts: Disable monitor mode during suspend
+      thermal/drivers/mediatek/lvts: Disable Stage 3 thermal threshold
+      thermal/drivers/mediatek/lvts: Disable low offset IRQ for minimum threshold
+      thermal/drivers/mediatek/lvts: Start sensor interrupts disabled
+      thermal/drivers/mediatek/lvts: Only update IRQ enable for valid sensors
 
-diff --git a/drivers/cpufreq/armada-37xx-cpufreq.c b/drivers/cpufreq/armada-37xx-cpufreq.c
-index bea41ccabf1f..f28a4435fba7 100644
---- a/drivers/cpufreq/armada-37xx-cpufreq.c
-+++ b/drivers/cpufreq/armada-37xx-cpufreq.c
-@@ -102,11 +102,7 @@ struct armada_37xx_dvfs {
- };
- 
- static struct armada_37xx_dvfs armada_37xx_dvfs[] = {
--	/*
--	 * The cpufreq scaling for 1.2 GHz variant of the SOC is currently
--	 * unstable because we do not know how to configure it properly.
--	 */
--	/* {.cpu_freq_max = 1200*1000*1000, .divider = {1, 2, 4, 6} }, */
-+	{.cpu_freq_max = 1200*1000*1000, .divider = {1, 2, 4, 6} },
- 	{.cpu_freq_max = 1000*1000*1000, .divider = {1, 2, 4, 5} },
- 	{.cpu_freq_max = 800*1000*1000,  .divider = {1, 2, 3, 4} },
- 	{.cpu_freq_max = 600*1000*1000,  .divider = {2, 4, 5, 6} },
+ drivers/thermal/mediatek/lvts_thermal.c | 103 ++++++++++++++++++++++----------
+ 1 file changed, 72 insertions(+), 31 deletions(-)
+---
+base-commit: b852e1e7a0389ed6168ef1d38eb0bad71a6b11e8
+change-id: 20241121-mt8192-lvts-filtered-suspend-fix-a5032ca8eceb
+
+Best regards,
 -- 
-2.47.1
+Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
 
