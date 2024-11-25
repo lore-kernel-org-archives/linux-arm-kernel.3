@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D95A2D58D4B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 13:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4FB6D58D4B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 13:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2qWTbvqWX7pOqJzV070By0MNeP4Q5gvtjE+PvawWy1Q=; b=qom4F5AadD9EUMsZ/tyWu2FpqM
-	XDZVWmGA4ilauT7L/1HKvWLIxy1GS5iSN8sIT/PMPli8rF7uKLEuvPYxxtXyW+bQKrt+KTYeM7Nuy
-	WEzNdrxMc/yzWtBS3GVr4sNpIlRk3IYiZ891rfEkJI0SD157Riam8l15MDuW0lmhP5CLyvhb93TnD
-	k/h5KQTkqYppcZGIC7pZ/mUb4XgAEbBxPnz0T8IMIU2EwfRmnEaj7Z/Kvz7AWv5vaWo8u6SbTU//8
-	phiRObjGG7BiZzs2AMSPlPMwe5iTx0OL+JQsTjZ7NlAVTUEfrZhiew2XgBiZA8VgNqFNj/HhWa6+v
-	rczZoHfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fxz5Fki1U5+hxMHiHWwSLT/o9JnSwind+K7SOw8JtPg=; b=c18/bOZxPbLJ/9VCElefapcaSF
+	wTu0LfFncTPHocXzJp1XaGReuef/gkHp+MJzM/b5OArDdKNMVAyQ9H5yGumJm0FNt43+Mw9c0p2qy
+	wHnkS/CpfVjdiQ6eJCYI2u29qQkyQyPiVO2vKevD2Nmk+sgFZ1mBTsDUKdFCIwz0KzxruxG7JLDDc
+	GGNfL6E3R6yaG5rQ9kElsDWkUeI9kprLrhejIWnUDE/tnDPMuS8zkBCLyBh85H3P2JY7EsX5eyMGW
+	hk+Fp6KgSsdEW046tMdQn7JeUzOlKR3/lR7BGgUdZs0U1K06J+bWxu2FREoZRZvkRmgSfQBPWx0bU
+	Mt27FhzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFZRB-00000008BDK-1bCv;
-	Mon, 25 Nov 2024 13:47:37 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tFZUN-00000008Bm3-21Kd;
+	Mon, 25 Nov 2024 13:50:55 +0000
+Received: from www530.your-server.de ([188.40.30.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFZQE-00000008B6X-2s2a;
-	Mon, 25 Nov 2024 13:46:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 303D5A415DC;
-	Mon, 25 Nov 2024 13:44:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FC89C4CECE;
-	Mon, 25 Nov 2024 13:46:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1732542396;
-	bh=zHg0cBNfdYbjM9MEZTXwxY4+WQFYxNEwJMWk1/4ajvw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hMGtm8cJbYPdtLCQPCIbIDikJESoTZ9tvTSkiOhsPrScHBWIsqgnp1BZZwFvANfZ8
-	 UF0Wh+w9c6AAs9GtcAYw8JdyKCDQUTnKDTQFJ4Hi/J669bgudW4/pystJlY45DW2+q
-	 PXV+9BgVvAsC+CACXHZkS0iwMIwGOMLYTjEc/6Xw=
-Date: Mon, 25 Nov 2024 14:46:08 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v4 08/10] misc: rp1: RaspberryPi RP1 misc driver
-Message-ID: <2024112535-viper-uncivil-3054@gregkh>
-References: <cover.1732444746.git.andrea.porta@suse.com>
- <c48e6b9b178cdaa01b92ae82e8fd24c2ba5f170c.1732444746.git.andrea.porta@suse.com>
+	id 1tFZTQ-00000008Bcd-1lUf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Nov 2024 13:49:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=geanix.com;
+	s=default2211; h=Cc:To:In-Reply-To:References:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=Fxz5Fki1U5+hxMHiHWwSLT/o9JnSwind+K7SOw8JtPg=; b=SeTmP87Ulssn1N+zq4bzaecqeE
+	a984bOYP2C3jRAFNWKGLoTtJNY/4+PoaZ2BfVzNKGNHz97YFRdA8epnhik12eWD8ImhEn0darPJsD
+	tfb/Gx+nMFQjKwNiATZueHa55XOeFS2/gh44Hoya7GDzP5ZpK7ZrSUHL/cV2aJB96ZTL/hoMjUxC+
+	vpKSEXzx4gGkOx3omj81UoWPf/eNR30qUeqU8W9JsgyNRMZoDB2NaYS2diNiztXNgbvP9sZSIN03b
+	qqbm6aD8catHJy/wkvJ6pv3DghSMdyQr2NiW5AhTe+TTzWSYvX3dCNZP2CBn+VYpS2WAAB6qkAdUN
+	bVUXNdDg==;
+Received: from sslproxy08.your-server.de ([78.47.166.52])
+	by www530.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <sean@geanix.com>)
+	id 1tFZTB-000Ccj-GN; Mon, 25 Nov 2024 14:49:41 +0100
+Received: from [185.17.218.86] (helo=zen.localdomain)
+	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <sean@geanix.com>)
+	id 1tFZTA-000A3a-1j;
+	Mon, 25 Nov 2024 14:49:40 +0100
+From: Sean Nyekjaer <sean@geanix.com>
+Date: Mon, 25 Nov 2024 14:49:27 +0100
+Subject: [PATCH v2 2/3] drm/sun4i: use drm_mode_validate_mode() helper
+ function
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c48e6b9b178cdaa01b92ae82e8fd24c2ba5f170c.1732444746.git.andrea.porta@suse.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241125-dsi-relax-v2-2-9113419f4a40@geanix.com>
+References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
+In-Reply-To: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Yannick Fertre <yannick.fertre@foss.st.com>, 
+ Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
+ Philippe Cornu <philippe.cornu@foss.st.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-stm32@st-md-mailman.stormreply.com, Sean Nyekjaer <sean@geanix.com>
+X-Mailer: b4 0.14.2
+X-Authenticated-Sender: sean@geanix.com
+X-Virus-Scanned: Clear (ClamAV 0.103.10/27468/Mon Nov 25 10:36:56 2024)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_054638_793512_4452239E 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20241125_054956_712036_E03694E7 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,21 +92,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 24, 2024 at 11:51:45AM +0100, Andrea della Porta wrote:
-> --- a/include/linux/pci_ids.h
-> +++ b/include/linux/pci_ids.h
-> @@ -2611,6 +2611,9 @@
->  #define PCI_VENDOR_ID_TEKRAM		0x1de1
->  #define PCI_DEVICE_ID_TEKRAM_DC290	0xdc29
->  
-> +#define PCI_VENDOR_ID_RPI		0x1de4
-> +#define PCI_DEVICE_ID_RPI_RP1_C0	0x0001
+Use new helper function for HDMI mode validation
 
-As you only use these in one file, please read the top of this file for
-why this isn't needed here, but rather should be back in that one
-driver.
+Signed-off-by: Sean Nyekjaer <sean@geanix.com>
+---
+ drivers/gpu/drm/sun4i/sun4i_rgb.c | 22 ++++------------------
+ 1 file changed, 4 insertions(+), 18 deletions(-)
 
-thanks,
+diff --git a/drivers/gpu/drm/sun4i/sun4i_rgb.c b/drivers/gpu/drm/sun4i/sun4i_rgb.c
+index dfb6acc42f02efc40f36914e2925510cd8056d0b..4f8100e32769cf31c25f5dd849a18f5b77376090 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_rgb.c
++++ b/drivers/gpu/drm/sun4i/sun4i_rgb.c
+@@ -51,14 +51,6 @@ static int sun4i_rgb_get_modes(struct drm_connector *connector)
+ 	return drm_panel_get_modes(rgb->panel, connector);
+ }
+ 
+-/*
+- * VESA DMT defines a tolerance of 0.5% on the pixel clock, while the
+- * CVT spec reuses that tolerance in its examples, so it looks to be a
+- * good default tolerance for the EDID-based modes. Define it to 5 per
+- * mille to avoid floating point operations.
+- */
+-#define SUN4I_RGB_DOTCLOCK_TOLERANCE_PER_MILLE	5
+-
+ static enum drm_mode_status sun4i_rgb_mode_valid(struct drm_encoder *crtc,
+ 						 const struct drm_display_mode *mode)
+ {
+@@ -67,8 +59,8 @@ static enum drm_mode_status sun4i_rgb_mode_valid(struct drm_encoder *crtc,
+ 	u32 hsync = mode->hsync_end - mode->hsync_start;
+ 	u32 vsync = mode->vsync_end - mode->vsync_start;
+ 	unsigned long long rate = mode->clock * 1000;
+-	unsigned long long lowest, highest;
+ 	unsigned long long rounded_rate;
++	int ret;
+ 
+ 	DRM_DEBUG_DRIVER("Validating modes...\n");
+ 
+@@ -122,15 +114,9 @@ static enum drm_mode_status sun4i_rgb_mode_valid(struct drm_encoder *crtc,
+ 	tcon->dclk_max_div = 127;
+ 	rounded_rate = clk_round_rate(tcon->dclk, rate);
+ 
+-	lowest = rate * (1000 - SUN4I_RGB_DOTCLOCK_TOLERANCE_PER_MILLE);
+-	do_div(lowest, 1000);
+-	if (rounded_rate < lowest)
+-		return MODE_CLOCK_LOW;
+-
+-	highest = rate * (1000 + SUN4I_RGB_DOTCLOCK_TOLERANCE_PER_MILLE);
+-	do_div(highest, 1000);
+-	if (rounded_rate > highest)
+-		return MODE_CLOCK_HIGH;
++	ret = drm_mode_validate_mode(mode, rounded_rate);
++	if (ret)
++		return ret;
+ 
+ out:
+ 	DRM_DEBUG_DRIVER("Clock rate OK\n");
 
-greg k-h
+-- 
+2.46.2
+
 
