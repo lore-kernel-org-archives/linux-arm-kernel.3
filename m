@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02B51D58D76
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 18:26:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFD84D58D7A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 18:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L2kYk+T9PuyySXsLzGUWngqTMrMVeZ0IjDJ/V0brDU0=; b=Fk2gXFEElBCwrP84cq20qvetID
-	b/rJ9Fr+78SGVvX4escKdiB9yEYEL1xkSt780ejSsblOTAox3YoWh3OHqBVTEJUZX27IytuGuYghq
-	IdDszcB90+3HZf8V2UDJQufUr1/Orfzy8O/dd47BQh6j6+z30otJlsZmcEEvpH7vqqXaDLEmD9Rhl
-	8ONU5DR4XfmfnPYxdAXj6M8cAK43KpqO95zbsfP6EOA9vmVSYpWpcMDBG0c6I+s7v9Q46ab+fxYCg
-	TmPbgDvN2nYZY4WMD3z4lXjiSfXvdgjuwB17VANyWZinzGROL67ZhIqG8q93Jw4aXKbW1HFuUGw61
-	DhJS+AQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xGbywVVkPjUuFusey+m/hpMXPkCVQz+XV36WyNQsUJI=; b=DnTc/VKheX+j0qS5Vj6KHvW7JB
+	GBUbyrc5mFu+KBG5CxOhJ/GIXpxqklp/LCcNV84yVp7z5tfNl8Cu5EG26j9K6SQGt6ueyMPLBeGgL
+	awOtwho+crN52oXDgxKOEdTpSTgU9k7s8KcnBcT0am3th/0oA1T5Z4sYoDOQCTZjEyoXs3uS7Aqrl
+	db2XLjKDk9OENjQC6lg2RoH4AgNJZwMO1r/QMNoK2cmWY0M+EzmQvVUmFUAe7sI4TZY7Ez8UpMKES
+	IFdKmxmwpGhELYjfsBim+8XvkyWev9QxDs03XBGPxh0qPJVyW2kV/ti+fhGLdkGo0DhxwYVGPyWDg
+	LjBCRkAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFdmy-00000008rM5-1xda;
-	Mon, 25 Nov 2024 18:26:24 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1tFdu1-00000008sFH-070y;
+	Mon, 25 Nov 2024 18:33:41 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFdm0-00000008rHC-1TXv
+	id 1tFdt2-00000008s7g-3iHv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 18:25:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732559125; x=1764095125;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=6aRiboS4Jxrz+jvRtPC54qrBkrsY/RgG6OavSsJocjI=;
-  b=Vnk8L9ZX3tM4oL2WINNcQdRt283EIZCGKEx9fNjn57OjFn/FPtt9ZG10
-   UXZJp1NCti17bA5nIeHgLT669XmFXKLKAGZlphtN8zLLV/sC9LTMBzJIk
-   sATqlUwunsFvzPCOifmmBAZgffDXlaBgqm3GTBWhV2Ynb2nBT0Ck5Z27f
-   8qHoeOIiWzvDiDnOGAIsoN3yI1NyOhUH25cpsGDgF3I2QRnE8gJGy9e1G
-   AboJ2+QDQ1lqaBQG0PlPoczwHWDNKXGRUlwgzdZUtRVjUxtqYuLLEz7hl
-   SmtNYmPZ2/xCPUJ8kZ02RM3D7KCjM/8/PfjX3oUUAKmXCpfwmnKjfNZ4v
-   w==;
-X-CSE-ConnectionGUID: Z9bUuUx3RGWt+8h9fyJfiQ==
-X-CSE-MsgGUID: dVCM3rJ0TryjeQ/pDhYP2g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11267"; a="43751857"
-X-IronPort-AV: E=Sophos;i="6.12,183,1728975600"; 
-   d="scan'208";a="43751857"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2024 10:25:00 -0800
-X-CSE-ConnectionGUID: INFUjcOqQSy+Joj9bnk6cA==
-X-CSE-MsgGUID: OMdoFMV9SvODLT5m/kOgjA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,183,1728975600"; 
-   d="scan'208";a="95440526"
-Received: from ahunter6-mobl1.ger.corp.intel.com (HELO [10.0.2.15]) ([10.245.115.59])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2024 10:24:55 -0800
-Message-ID: <8bd461ba-7fbe-4f1b-91cf-d33483cb4930@intel.com>
-Date: Mon, 25 Nov 2024 20:24:48 +0200
+	Mon, 25 Nov 2024 18:32:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1404AA418AF
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 18:30:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7F9EC4CED7
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 18:32:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732559559;
+	bh=xGbywVVkPjUuFusey+m/hpMXPkCVQz+XV36WyNQsUJI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=qaqZg3qyW+mtqqruvm/BbxURkwyb6r4TNtNiIiQdKnsKdzdMVi+WNLdG/WVjxAt6A
+	 bG4eFj4n3aqbibIs04/5nUTlSmtwCreH11xcOE2YaLwBvzdrUP3yLtDr+6mk3kZmJt
+	 Z7jSPBA8MKTdc4QdHPAbVTwCnQRfQOCZrK+5QxIthYx62tCBCYVy/hdbesXVEShQpT
+	 e1XEx9AbH92I3oD1dOtgeLWu/JAk5olhTIVhMHv41E0oyhlo0H3J5FidG9i+c0UHdU
+	 FHnrkF5T4MPavw24GjhW2pyD2dxLFcnUlcbQtzlGzXMo8Jx/WAAj9EGvX9Da6ytyDG
+	 8aQK5qJJD7hog==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-53de556ecdaso1186330e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 10:32:39 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVqZGm36k2dg4en/WfjnECsUsaMYyUQgQpImPUzjD6R9I567LJQVVk97U2mc7EYb1iCuxvYl7A7sSYfta/2oGDj@lists.infradead.org
+X-Gm-Message-State: AOJu0YwN490w8WWVmzFJs5IUj+ydd9eszepw+aovFVkJU2uCPkSbvOEl
+	WHDHo7cyq9jyIBQ8hQtF7nRSHAVClUVPsMmp8h9rg3+eO3/u3kT724mHOH+8mIGos0E+BY9UZU+
+	4mQGv+Nwv0nw8vg1I89ClSplbRbg=
+X-Google-Smtp-Source: AGHT+IEI5lh+gdVQA6Lfo+mqAgaN7ISHNMJK2qv+IO6iBdjzAZ8YC8sotGUI4xE/3Qnhh909nMOiz6Tdlkt/WiVkV/8=
+X-Received: by 2002:a05:6512:224d:b0:53a:16b:f14f with SMTP id
+ 2adb3069b0e04-53dd36a114dmr6317807e87.19.1732559557837; Mon, 25 Nov 2024
+ 10:32:37 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mmc: sdhci-esdhc-imx: enable 'SDHCI_QUIRK_NO_LED' quirk
- for S32G
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>,
- Haibo Chen <haibo.chen@nxp.com>, Ulf Hansson <ulf.hansson@linaro.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev,
- linux-mmc@vger.kernel.org, s32@nxp.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
- Enric Balletbo <eballetb@redhat.com>
-References: <20241125083357.1041949-1-ciprianmarian.costea@oss.nxp.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
- Business Identity Code: 0357606 - 4, Domiciled in Helsinki
-In-Reply-To: <20241125083357.1041949-1-ciprianmarian.costea@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20241125170758.518943-1-yeoreum.yun@arm.com> <20241125170758.518943-3-yeoreum.yun@arm.com>
+ <CAMj1kXG4A4h3=bZC6kSrwsZa7p4RZ-uN5N67pZUFLOQ2RJE64w@mail.gmail.com>
+ <Z0S3wiugr0JML/cV@e129823.arm.com> <CAMj1kXFOdGaYiVWOyFEK+Lz97YdzAu+AWj5trZBTL+Xc_DXnmA@mail.gmail.com>
+ <Z0S+zP3u4781zNwo@e129823.arm.com>
+In-Reply-To: <Z0S+zP3u4781zNwo@e129823.arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 25 Nov 2024 19:32:26 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXHysummq5dG==gOmQr2DgtU5Ee0_tJbjGagRJniAee1vA@mail.gmail.com>
+Message-ID: <CAMj1kXHysummq5dG==gOmQr2DgtU5Ee0_tJbjGagRJniAee1vA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] efi/fdt: ignore dtb when acpi option is used with force
+To: Levi Yun <yeoreum.yun@arm.com>
+Cc: broonie@kernel.org, sami.mujawar@arm.com, sudeep.holla@arm.com, 
+	pierre.gondois@arm.com, hagarhem@amazon.com, catalin.marinas@arm.com, 
+	will@kernel.org, guohanjun@huawei.com, Jonathan.Cameron@huawei.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-efi@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_102524_491776_DC76A072 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20241125_103241_048853_04BB4A3A 
+X-CRM114-Status: GOOD (  33.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,31 +87,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/11/24 10:33, Ciprian Costea wrote:
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> 
-> Enable 'SDHCI_QUIRK_NO_LED' quirk for S32G2/S32G3 SoCs.
-> S32G SDHCI controller does not have a LED signal line.
-> 
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+On Mon, 25 Nov 2024 at 19:16, Levi Yun <yeoreum.yun@arm.com> wrote:
+>
+> Hi Ard.
+>
+> >
+> > The DT is not stored in a variable.
+> >
+> > If CONFIG_EFI_ARMSTUB_DTB_LOADER is enabled, it may be provided via
+> > dtb= on the command line, but I have little sympathy for a user that
+> > passes both dtb= *and* acpi=force, so this is a scenario that we can
+> > ignore.
+> >
+> > Otherwise, it is taken from a EFI config table, which is just a
+> > <guid,addr> tuple describing a location in physical memory where the
+> > firmware has placed a DT. If the firmware puts a corrupted DT there,
+> > the firmware should be fixed instead.
+> >
+> > acpi=force is intended to force the use of ACPI tables on a system
+> > that provides both.
+> >
+> > > also, although acpi= could differ from architecture, the force option's menaing
+> > > seems the same over architecture (ignore DT boot with ACPI tables).
+> > >
+> > > So I think the check the "acpi=force" option to prevent loading DT seems
+> > > good.
+> > >
+> >
+> > The EFI stub does not care about ACPI vs DT boot, and I'd prefer to
+> > keep it that way unless there is a good reason.
+> >
+> > Which real-world problem does this patch aim to solve?
+>
+> Well. I had lack of explaination. In case of Juno platform, it loads
+> FDT from "Fdt" variable from the storage and install it into
+> configuration table with corrupted Fdt because of FDT stored in variable
+> storage was corrupted.
+>
+> In that siutation, If it loads corrupted fdt, it prints error message
+> while sanity check in early_init_dt_scan().
+> This kind of error message would be confused to user because
+> user already specifies to boot with acpi table only with acpi=force
+> option.
+>
+> anyway, what kind of way to install fdt into configuraiton table is not
+> matter. but when the dt installed in configuration table isn't valid,
+> it could produce the error message which seems violate user specified
+> option.
+>
+> unless check the acpi=force to ignore DT, I think it would require to
+> check the installed DT in configuration table or passed should have
+> simple sanity check doen in early_init_dt_scan() so that error messsage
+> which makes some confusion for this situation.
+>
 
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+Thanks for explaining the issue in more detail. Juno is a development
+platform with a highly unusual boot stack so I don't think we need to
+accommodate its quirks in the upstream kernel.
 
-> ---
->  drivers/mmc/host/sdhci-esdhc-imx.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-> index d55d045ef236..e23177ea9d91 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -304,6 +304,7 @@ static struct esdhc_soc_data usdhc_s32g2_data = {
->  			| ESDHC_FLAG_HAVE_CAP1 | ESDHC_FLAG_HS200
->  			| ESDHC_FLAG_HS400 | ESDHC_FLAG_HS400_ES
->  			| ESDHC_FLAG_SKIP_ERR004536 | ESDHC_FLAG_SKIP_CD_WAKE,
-> +	.quirks = SDHCI_QUIRK_NO_LED,
->  };
->  
->  static struct esdhc_soc_data usdhc_imx7ulp_data = {
-
+And I still don't think this is something worth fixing in general.
+Even if the machine description should be taken from ACPI tables only,
+the DT /chosen node is always used as a conduit by the EFI stub, and
+there are cases, e.g., for initrd info or the kaslr seed, where this
+information might come from the bootloader, such as older GRUB builds.
 
