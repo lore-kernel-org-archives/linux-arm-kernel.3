@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1265D58060
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:52:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B47DD58062
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UpocEaOON1tFBt260iQMhHBj3O22KoL/Zaj+GAgDJeM=; b=nQwglv5mirhcT5EfE+aLm7dddt
-	DVN4CqSnTXPlPzZHUS7NOShQTsfUOCUOjFvKFT7S+81CafG36vz50mpXcd50Vuj9Gjmelgws4JEy3
-	p7LvMn9IVGjsN5O0kq4MXv540a0etuFjqanLDx8JkOPExnu74KywOjdsU6Gf8GxVIugfbbEMiI6CB
-	OZJTL1cth1Rzg9tdujrA2vBFHqyEN6ZFV5VrE3YV1Y4G2kY77vY7gc0MOOR0PsNO7qS34VPYepmRF
-	LX7vH4/BwAvEiOIKMAd95dmRiBObtjcBMQW5COvkwpOfMaLoqGbnyuchNfAbtaTEnJWpnn3hiyqYG
-	UnpomfMA==;
+	bh=hmQWA+nwpDDcGMMWDzj5b5llGkioHK+B9GAwscWHsf8=; b=Ea6HvwUnxbWy3Ye/ww8ESwbcPp
+	YNFU64OKP6nl2Z6Vy+TQ+CWCPXH93MopPlM7hvXvNmBoZQDZyJhYaQlpDHXe3Sc4A4u68ZGZMeVFU
+	smsI7ci6En+alavweQqYPgmNt1CoxYqsKhH3NKQtC3wpEfB9KCX7oIgLgyZLWzqsq1X8uCltSIAbu
+	iF4Njg5Tlgds89yZ2Kzbsj2M1ViLZfpphiXj04Kd1zvWNcyX+A0tTgrNNEZ9+JEr6wD1Rxqy0YquX
+	HYoKrNm99H7QonuzSqpS+w8dD+Y5mA8nX+OuXVbgZomAm/AIpzEmpKX7zuZx0VTvTFuX67Bsf+Jsi
+	AobIRIMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFWhN-00000007olj-3psE;
-	Mon, 25 Nov 2024 10:52:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFWgQ-00000007oZ1-09VM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 10:51:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3355E1692;
-	Mon, 25 Nov 2024 02:51:35 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 36CA93F66E;
-	Mon, 25 Nov 2024 02:51:03 -0800 (PST)
-Date: Mon, 25 Nov 2024 10:50:48 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Lukas Wunner <lukas@wunner.de>
-Cc: Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Zorro Lang <zlang@redhat.com>,
-	Vegard Nossum <vegard.nossum@oracle.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH for-next/fixes] arm64/mm: Fix false-positive
- !virt_addr_valid() for kernel image
-Message-ID: <Z0RWcgrQASMIleRn@J2N7QTR9R3>
-References: <90667b2b7f773308318261f96ebefd1a67133c4c.1732464395.git.lukas@wunner.de>
- <CAMj1kXFvJGHr_iv6bFQfb89XqPFrNWH7-rV7SFy4QBSWXYC4RA@mail.gmail.com>
- <CAMj1kXER7AbNyUDjtij6Ni0jVRMg11xvyhkCMKAxaKbx=dsgcQ@mail.gmail.com>
- <Z0RJaU4wjU5WeQb4@wunner.de>
+	id 1tFWjD-00000007p6I-2crL;
+	Mon, 25 Nov 2024 10:54:03 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tFWiG-00000007ow6-2erP;
+	Mon, 25 Nov 2024 10:53:06 +0000
+Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 1E756262A7;
+	Mon, 25 Nov 2024 11:52:58 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1732531978;
+	bh=hmQWA+nwpDDcGMMWDzj5b5llGkioHK+B9GAwscWHsf8=;
+	h=Received:From:To:Subject;
+	b=ZYfrj838yqQBq+MD5xjL1RdFq/zTs84dqXtTqrLEVI0BvgjI7PabTQ+4t8f3ceZx1
+	 +bgbcTJZG7kJm4sOAnseL56ApNbSwEcXv/OEmNp6qXqdzdEkw1FK5JlaHxMKxaFuzT
+	 Mvi8WDOvCkgBqs6ZuhRkXzc0NC56CBxP7xMrpBfZ4ltng4O+6hYdQvaxyo0xd/x+aK
+	 a7I2mVi6aU8U9duQei/4IcijBLyfFagIRTjS5R4R4qCxTPaulnhlTbOLpex4GQvrdX
+	 d86c5tDbtN75uV2MqQ/fauaRApXM9BOtbWOQmhUhhqHd8TNHTBcouEc1vNdB8K8C75
+	 8VrGTNu6GvA9g==
+Received: by gaggiata.pivistrello.it (Postfix, from userid 1000)
+	id ADFCE7F996; Mon, 25 Nov 2024 11:52:57 +0100 (CET)
+Date: Mon, 25 Nov 2024 11:52:57 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+	p.zabel@pengutronix.de, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+	simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, glx@linutronix.de,
+	vkoul@kernel.org, kishon@kernel.org, aisheng.dong@nxp.com,
+	agx@sigxcpu.org, francesco@dolcini.it, frank.li@nxp.com,
+	dmitry.baryshkov@linaro.org
+Subject: Re: [DO NOT MERGE PATCH v4 16/19] arm64: dts: imx8qxp: Add display
+ controller subsystem
+Message-ID: <Z0RXCYZ_7fBvpcvd@gaggiata.pivistrello.it>
+References: <20241125093316.2357162-1-victor.liu@nxp.com>
+ <20241125093316.2357162-17-victor.liu@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z0RJaU4wjU5WeQb4@wunner.de>
+In-Reply-To: <20241125093316.2357162-17-victor.liu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_025110_115362_957A1362 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20241125_025304_827263_7E1912A7 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,52 +81,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 25, 2024 at 10:54:49AM +0100, Lukas Wunner wrote:
-> On Sun, Nov 24, 2024 at 06:13:26PM +0100, Ard Biesheuvel wrote:
-> > > On Sun, 24 Nov 2024 at 17:16, Lukas Wunner <lukas@wunner.de> wrote:
-> > > > Zorro reports a false-positive BUG_ON() when running crypto selftests on
-> > > > boot:  Since commit 1e562deacecc ("crypto: rsassa-pkcs1 - Migrate to
-> > > > sig_alg backend"), test_sig_one() invokes an RSA verify operation with a
-> > > > test vector in the kernel's .rodata section.  The test vector is passed
-> > > > to sg_set_buf(), which performs a virt_addr_valid() check.
-> > > >
-> > > > On arm64, virt_addr_valid() returns false for kernel image addresses
-> > > > such as this one, even though they're valid virtual addresses.
-> > > > x86 returns true for kernel image addresses, so the BUG_ON() does not
-> > > > occur there.  In fact, x86 has been doing so for 16 years, i.e. since
-> > > > commit af5c2bd16ac2 ("x86: fix virt_addr_valid() with
-> > > > CONFIG_DEBUG_VIRTUAL=y, v2").
-> > > >
-> > > > Do the same on arm64 to avoid the false-positive BUG_ON() and to achieve
-> > > > consistent virt_addr_valid() behavior across arches.
-> [...]
-> > that doesn't mean doing DMA from the kernel image is a great
-> > idea. Allocations in the linear map are rounded up to cacheline size
-> > to ensure that they are safe for non-coherent DMA, but this does not
-> > apply to the kernel image. .rodata should still be safe in this
-> > regard, but the general idea of allowing kernel image addresses in
-> > places where DMA'able virtual addresses are expected is something we
-> > should consider with care.
+On Mon, Nov 25, 2024 at 05:33:13PM +0800, Liu Ying wrote:
+> Add display controller subsystem in i.MX8qxp SoC.
 > 
-> Other arches do not seem to be concerned about this and
-> let virt_addr_valid() return true for the kernel image.
-> It's not clear why arm64 is special and needs to return false.
-> 
-> However, I agree there's hardly ever a reason to DMA from/to the
-> .text section.  From a security perspective, constraining this to
-> .rodata seems reasonable to me and I'll be happy to amend the patch
-> to that effect if that's the consensus.
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
 
-Instead, can we update the test to use lm_alias() on the symbols in
-question? That'll convert a kernel image address to its linear map
-alias, and then that'll work with virt_addr_valid(), virt_to_phys(),
-etc.
+...
 
-I don't think it's generally a good idea to relax virt_addr_valid() to
-accept addresses outside of the linear map, regardless of what other
-architectures do. We've had issues in the past with broken conversions,
-and the fixups in virt_to_phys() is really only there as a best-effort
-way to not crash and allow the warning messages to get out.
+> diff --git a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+> index 05138326f0a5..35cc82cbbcd1 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+> @@ -20,6 +20,27 @@ / {
+>  	#size-cells = <2>;
+>  
+>  	aliases {
+> +		dc0 = &dc0;
+> +		dc0-constframe0 = &dc0_constframe0;
+> +		dc0-constframe1 = &dc0_constframe1;
+> +		dc0-constframe4 = &dc0_constframe4;
+> +		dc0-constframe5 = &dc0_constframe5;
+> +		dc0-display-engine0 = &dc0_display_engine0;
+> +		dc0-display-engine1 = &dc0_display_engine1;
+> +		dc0-extdst0 = &dc0_extdst0;
+> +		dc0-extdst1 = &dc0_extdst1;
+> +		dc0-extdst4 = &dc0_extdst4;
+> +		dc0-extdst5 = &dc0_extdst5;
+> +		dc0-fetchlayer0 = &dc0_fetchlayer0;
+> +		dc0-fetchwarp2 = &dc0_fetchwarp2;
+> +		dc0-framegen0 = &dc0_framegen0;
+> +		dc0-framegen1 = &dc0_framegen1;
+> +		dc0-layerblend0 = &dc0_layerblend0;
+> +		dc0-layerblend1 = &dc0_layerblend1;
+> +		dc0-layerblend2 = &dc0_layerblend2;
+> +		dc0-layerblend3 = &dc0_layerblend3;
+> +		dc0-tcon0 = &dc0_tcon0;
+> +		dc0-tcon1 = &dc0_tcon1;
 
-Mark.
+what would you use those aliases for?
+
+Francesco
+
 
