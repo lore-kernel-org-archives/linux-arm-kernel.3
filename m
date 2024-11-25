@@ -4,109 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 166D4D3B7E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 07:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51CBED3B7E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 07:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DnfOZ87AF0M6RrgWoNxyO7Bh/x2ZJsRkCYTxBMffdiM=; b=icEWYVYTTYQHPFegIq0arPMjh6
-	WW/Io5XZq/WKzfgz09GNwlgDMhM7xA/5sSwZkqkvzQ+Kr/RenmnVerdU2hSEA0V6VxL90N5kKgpkF
-	K5sR7WKwYkkw6emasRlLT5jaYRVL5s79ieIv9JOpvQ+yN3HS+G8+MIhidNGYxThFNYr/EIiWUM4qo
-	Qi6e6HaRY7Gyhzsaq1huL8judtUHIiC5ouNszsdqDtA0Qteg6TCYdI+Abw72FW3wwhEnr8H5Kiilo
-	a6VAoDUgzwheL+MSxbpskO6VDGAN+FV5K7F5KuzQh5temsR7MLdU/55vAmVKmTNvqwl8dsLKvN44E
-	95FHndBQ==;
+	bh=mhiI0THbvHUoezO4NczBF99yryboUFqA+Fx/oj+SIJA=; b=jDhuDhKKEcFl9ylbGr37d8re/9
+	jk1HYZvlGniV18iIwZ0o2JX3jcfzNaPmXteYw7GrH/wcWLgJtzEWWEZP6JHEzhkN6x/MKyoZX0Hk1
+	7J/w/3woJI0ZWPT5xiSN9DZEiwbceACCftFDGf48Q6w8ipOSjCP6dvxT6jJ3OgIEpLOpRqQTZmZUq
+	yfKUh83MJXbcyfgI7b1EGuFKNGFvm+9XFPEciUnMu+M6YbPcJ09QkvqebYtcpv/IZjfUZA6XS89UR
+	JPcYM+wKx+b+HmA5Mc2q2I+BYbU0KXpT2kNShsrJo7RSjy48wGB148Hk4sR3TeRyDHcQFb27KbO1k
+	vXjL6cBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFTWC-00000007FaL-3gsi;
-	Mon, 25 Nov 2024 07:28:24 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tFThe-00000007GYp-2ega;
+	Mon, 25 Nov 2024 07:40:14 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFTVF-00000007FT4-384x
+	id 1tFTgh-00000007GMV-0Orw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 07:27:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8D3AFA41315;
-	Mon, 25 Nov 2024 07:25:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73E7BC4CECE;
-	Mon, 25 Nov 2024 07:27:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732519644;
-	bh=o7uIlNIDs7ugl4avGsKAgxWTwVTvRmzgpxsPVfjSEvc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SmffFX0ws1M0I7ti/gKqTWcJq7SJRLsFnhhv7sROBe9dnXjgGWW3w4glKepgLSy1V
-	 rA5cvEejcMPmxMosTyIquKC0JINf72NdrQLOEV3EkAMq50qo8mkRtOnAn7YOI28MWs
-	 YCvJ7XZ+N82HLdZKtaD3v/HDvBN1vo/5ZnzfOTuGD1tKH8sZPlsAqZRJs5P4gVd1GV
-	 rz6swXDiO9Gf8tkz+1rUA9A/+CJy89W5sp39MsjJgo/lsAvdxBqrW1z8iA/qNvv2aE
-	 shfaejdvUtEhF9XR0HK41Q1Yaxio++yV7zUNCO3eDNvI13MEewWv8n73bjr1gWlP2n
-	 E4QUpgdkFa3Xw==
-Message-ID: <aeded772-3471-44f7-bdb8-d820ddcf0c6d@kernel.org>
-Date: Mon, 25 Nov 2024 08:27:17 +0100
+	Mon, 25 Nov 2024 07:39:16 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AP7W3Q4011503;
+	Mon, 25 Nov 2024 07:39:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	mhiI0THbvHUoezO4NczBF99yryboUFqA+Fx/oj+SIJA=; b=LRizIbrDmbvLK26q
+	IJr9BOxlf/wLEVIIwXd3UAd/aXQXPY+b/hq9d1mBfzkd8zmSkh8s4JYtJxcLbZ9g
+	mYlmbQkCLkf2amcikViEhav+oCnwrDYg+iiJPiKisuXNYR8WBogrjg8vu5gdbEVj
+	43Db+uJ7+YQz+Q5NMETeh98dC1xBW6+FdKLgwqz5eEoCFHZwVBG42z72H2X/mqyb
+	iJKkSG0HGI3DrjnnGFuJE8Xw23LVwS3PyANVxfJT7NmJ/1DTKnZIKOxvfFditdzM
+	AFhvKf2WgwCjyP7forb+UBsXOx/bMAH9YktlUznMWLYfW94+bsk7PJmmde+DjKIs
+	TyQLAw==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 434mx700fx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 25 Nov 2024 07:39:02 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AP7d11T003539
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 25 Nov 2024 07:39:01 GMT
+Received: from [10.64.16.151] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 24 Nov
+ 2024 23:38:54 -0800
+Message-ID: <520419eb-cedf-465b-a14a-12d97ab257a0@quicinc.com>
+Date: Mon, 25 Nov 2024 15:38:51 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] media: camif-core: Add check for clk_enable()
-To: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Cc: sylvester.nawrocki@gmail.com, mchehab@kernel.org, dron0gus@gmail.com,
- tomasz.figa@gmail.com, alim.akhtar@samsung.com, kyungmin.park@samsung.com,
- laurent.pinchart@ideasonboard.com, linux-media@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20241123212624.6237-1-jiashengjiangcool@gmail.com>
- <b3e2ed68-092f-4ccb-a945-19e19d5c8071@kernel.org>
- <CANeGvZXjUUOhySGhMCXDp3yfTtuOKdXgMa7DTtZDpq1iXkkfhg@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3 9/9] arm64: dts: qcom: Add display support for QCS615
+ RIDE board
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+CC: Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar
+	<quic_abhinavk@quicinc.com>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten
+	<marijn.suijten@somainline.org>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Krishna
+ Manikandan" <quic_mkrishn@quicinc.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        "Catalin
+ Marinas" <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Li Liu
+	<quic_lliu6@quicinc.com>,
+        Xiangxu Yin <quic_xiangxuy@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
+ <20241122-add-display-support-for-qcs615-platform-v3-9-35252e3a51fe@quicinc.com>
+ <azdmcs7uafw3n6cqbq4ei66oybzhtyvdyz2xl4wtaf3u5zextb@vdhbs6wnbeg4>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <CANeGvZXjUUOhySGhMCXDp3yfTtuOKdXgMa7DTtZDpq1iXkkfhg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: fange zhang <quic_fangez@quicinc.com>
+In-Reply-To: <azdmcs7uafw3n6cqbq4ei66oybzhtyvdyz2xl4wtaf3u5zextb@vdhbs6wnbeg4>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: LtXWYAU7mSB5PXQCwLcitGJoSMnov67f
+X-Proofpoint-ORIG-GUID: LtXWYAU7mSB5PXQCwLcitGJoSMnov67f
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 impostorscore=0
+ mlxlogscore=999 malwarescore=0 adultscore=0 spamscore=0 mlxscore=0
+ bulkscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411250064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_232725_907987_DF150F6A 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20241124_233915_258200_E35A665F 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,28 +127,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/11/2024 22:10, Jiasheng Jiang wrote:
-> Hi Krzysztof,
-> 
-> On Sun, Nov 24, 2024 at 5:50 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 23/11/2024 22:26, Jiasheng Jiang wrote:
->>> Add check for the return value of clk_enable() to gurantee the success.
->>>
->>> Fixes: babde1c243b2 ("[media] V4L: Add driver for S3C24XX/S3C64XX SoC series camera interface")
->>> Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
->>> ---
->>>  .../media/platform/samsung/s3c-camif/camif-core.c   | 13 +++++++++++--
->>>  1 file changed, 11 insertions(+), 2 deletions(-)
->>
->> Nothing improved...
-> 
-> Sorry for the confusion. This series consists of two patches.
-> Only "PATCH 1/2" has been modified, while "PATCH 2/2" remains unchanged.
-> As a result, there is no changelog for "PATCH 2/2".
-It is not correctly versioned. Version is per entire patchset, simply
-use b4 (or look how any other patchset is done via lore.kernel.org).
 
-Best regards,
-Krzysztof
+
+On 2024/11/22 18:22, Dmitry Baryshkov wrote:
+> On Fri, Nov 22, 2024 at 05:56:52PM +0800, Fange Zhang wrote:
+>> From: Li Liu <quic_lliu6@quicinc.com>
+>>
+>> Add display MDSS and DSI configuration for QCS615 RIDE board.
+>> QCS615 has a DP port, and DP support will be added in a later patch.
+>>
+>> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+>> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+>> ---
+>>   arch/arm64/boot/dts/qcom/qcs615-ride.dts | 76 ++++++++++++++++++++++++++++++++
+>>   1 file changed, 76 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/qcom/qcs615-ride.dts b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
+>> index ee6cab3924a6d71f29934a8debba3a832882abdd..cc7dadc411ab79b9e60ccb15eaff84ea5f997c4c 100644
+>> --- a/arch/arm64/boot/dts/qcom/qcs615-ride.dts
+>> +++ b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
+>> @@ -202,6 +202,82 @@ &gcc {
+>>   		 <&sleep_clk>;
+>>   };
+>>   
+>> +&i2c2 {
+>> +	clock-frequency = <400000>;
+>> +	status = "okay";
+>> +
+>> +	ioexp: gpio@3e {
+>> +		compatible = "semtech,sx1509q";
+>> +		reg = <0x3e>;
+>> +		interrupt-parent = <&tlmm>;
+>> +		interrupts = <58 0>;
+>> +		gpio-controller;
+>> +		#gpio-cells = <2>;
+>> +		interrupt-controller;
+>> +		#interrupt-cells = <2>;
+>> +		semtech,probe-reset;
+>> +	};
+>> +
+>> +	i2c-mux@77 {
+>> +		compatible = "nxp,pca9542";
+>> +		reg = <0x77>;
+>> +		#address-cells = <1>;
+>> +		#size-cells = <0>;
+>> +		i2c@0 {
+>> +			reg = <0>;
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +
+>> +			anx7625@58 {
+>> +				compatible = "analogix,anx7625";
+>> +				reg = <0x58>;
+>> +				interrupt-parent = <&ioexp>;
+>> +				interrupts = <0 0>;
+>> +				enable-gpios = <&tlmm 4 GPIO_ACTIVE_HIGH>;
+>> +				reset-gpios = <&tlmm 5 GPIO_ACTIVE_HIGH>;
+>> +				wakeup-source;
+>> +
+>> +				ports {
+>> +					#address-cells = <1>;
+>> +					#size-cells = <0>;
+>> +
+>> +					port@0 {
+>> +						reg = <0>;
+>> +						anx_7625_in: endpoint {
+>> +							remote-endpoint = <&mdss_dsi0_out>;
+>> +						};
+>> +					};
+>> +
+>> +					port@1 {
+>> +						reg = <1>;
+>> +						anx_7625_out: endpoint {
+>> +						};
+> 
+> Where is it connected? Is it DP port? USB-C? eDP?
+yes, it's DP port
+> 
+>> +					};
+>> +				};
+>> +			};
+>> +		};
+>> +	};
+>> +};
+>> +
+>> +&mdss {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&mdss_dsi0 {
+>> +	vdda-supply = <&vreg_l11a>;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&mdss_dsi0_out {
+>> +	remote-endpoint = <&anx_7625_in>;
+>> +	data-lanes = <0 1 2 3>;
+>> +};
+>> +
+>> +&mdss_dsi0_phy {
+>> +	vdds-supply = <&vreg_l5a>;
+>> +	status = "okay";
+>> +};
+>> +
+>>   &qupv3_id_0 {
+>>   	status = "okay";
+>>   };
+>>
+>> -- 
+>> 2.34.1
+>>
+> 
+
 
