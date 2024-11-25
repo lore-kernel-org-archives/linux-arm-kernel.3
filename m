@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D42ED58D50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 14:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F48DD58D5C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 14:54:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TomLVhmMtinl4CoOlfVqkS4Vw3HGrqYdisT0Ugrv/M8=; b=BXJURG99E8fmQvpSW+xlHG210Q
-	4dn8Y0m6ccnWBbiUk+gufYgVCKzI8xRwLQAxivoJGHJ4kjyqcrlBNonRyGvUS32bq8b2hEg8vptVi
-	tqaH74x3nmqbgihJIzgNxEaHtHnGRZ+a7Oye3ysTyRvuczaOGfyCxArgh7ooGBe2+yoY6Li8xRsO1
-	g1azLOFVy6CeXhQER4d2RSwQ+W9A7wz785rx77VkiPgyfqlwBdRI16+2p9DkmFMfO4OB87oDNPJY5
-	vEBp8mFUz+7QVx/B3DdCC+md0VWVVmf53K56kiB5+W/tiLZYQh8inoXarqsJSpO3rfZsKRNju7bf6
-	uqs+D4pA==;
+	bh=cdTQ+6K23z/NECwvbH/DYJ1BIXIxVG/WhBoBqAsv5qk=; b=49dgrX023eQqI37oQm9wDE8QM6
+	7e1bTw6fBDu40z93IPV2nLZQ78UHsGknLbnodTbPANvVrwJx9o8i/vdMDqZpNj6pXR9jnBpCAPamY
+	XtOsmzCL49a7DB1weodUBU6635rRM86qm0pqKmZ/xvzPubtEfKGe18/peEVBKtUEkKRYIk2aSk5Rv
+	OkZpm9WvSAlVzQHKUTBEuyuWaDwJ2bpCRjqQ3xVh87XBwsXeUiXeCc/vt0S4nVs7RrywPVVWT42sW
+	iaSdWvumFIq+0dbYQQ6eDzP5N0RJJ3zNoaJmAEog3U2KvqYAuglldFjqCwGvu++bD5X8AlOKRbBwh
+	V0YL/DAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFaQa-00000008LoV-3y7E;
-	Mon, 25 Nov 2024 14:51:04 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tFaU5-00000008MB1-2y12;
+	Mon, 25 Nov 2024 14:54:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFaPd-00000008LeB-0a0x
+	id 1tFaT7-00000008M5W-2jnS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 14:50:06 +0000
+	Mon, 25 Nov 2024 14:53:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6674EA416E1;
-	Mon, 25 Nov 2024 14:48:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DDBFC4CECE;
-	Mon, 25 Nov 2024 14:49:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 521905C5B10;
+	Mon, 25 Nov 2024 14:52:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A86AC4CECE;
+	Mon, 25 Nov 2024 14:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732546204;
-	bh=3E/gtn9GHrul6L6mZfw/TFiLD078vCQyG4pAMtXnGZA=;
+	s=k20201202; t=1732546420;
+	bh=/PdFxnnnB7ZeusudBrWfVqeBUiHXQORcT3/5JQBrRro=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TTPqzCy0WakTehonbaGeYqrp1CWOyqszZvHMfxwEXevQOUSLho9rIOc/nqVLU/+x3
-	 1ryzXOSAptle6iuSyDX/5yohsMiz5X2nzg7E09RQp4UOTSV6KHqoY5dyomfNgAnQSx
-	 RZYlkgaZ1SCb0k5EmWP/Vti5fs1CnU0gxMqXxupu5oalfniXlot9HHmIOO/UNZtqzO
-	 2V65jSJJco+8I7OrEwmA0pF1isekjjFazLKLsWpEOHoLQbJFyJL6mOZPVicjd1/3jS
-	 krlCndnleTZXJoSt5ygzWL0gw3kBm9c9K4wa3DRx+toNPAea7fElYhc2U4E4XWh9ER
-	 iBVkgC1wcyP0A==
-Message-ID: <f2181c71-db23-4d94-9afb-cb8f2fc46bea@kernel.org>
-Date: Mon, 25 Nov 2024 15:49:55 +0100
+	b=e5Mf+9vv9KtecbJbk63ha1DOvNxzmYPXI+6PxCqo1iq4P9ncD1y+rvsHYn3JbvP3v
+	 3tV55hjFXVAl9WcrgS6l5YxYBCKfqCrWMrZCKK37dcPZsoN0/rkyywbiEZ/hPDgTdM
+	 5LoKgSaE3q2My3y+QGIT4iSiLzENWDy9BO7dF+mLYv2rlGTs1gGjhClCQ3Q6tp3Tgy
+	 vo/g3kz4oYq6FdIl0TL9H40LYvhqzjYrc/wYLeCKtaoltDcB1+dqxdpXgrnRT+THv1
+	 HIAavrO+bU6mBlVycSXR++wklPxxn2SAqSoRgdVq/vUmNd9Wq8g9Niglo+Wt33v56Q
+	 H+iCFjij3LPzw==
+Message-ID: <0dc16c95-6849-41c8-86da-d1c0c74cb3e4@kernel.org>
+Date: Mon, 25 Nov 2024 15:53:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] gpu: drm: adp: Add a backlight driver for the Summit
- LCD
-To: fnkl.kernel@gmail.com, Hector Martin <marcan@marcan.st>,
- Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Nick Chan <towinchenmi@gmail.com>
+Subject: Re: [PATCH 1/5] dt-bindgins: display: Add Apple pre-DCP display
+ controller bindings
+To: Hector Martin <marcan@marcan.st>,
+ Sasha Finkelstein <fnkl.kernel@gmail.com>
+Cc: Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig
+ <alyssa@rosenzweig.io>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com>
- <20241124-adpdrm-v1-3-3191d8e6e49a@gmail.com>
+ <20241124-adpdrm-v1-1-3191d8e6e49a@gmail.com>
+ <ksdp54qj55v7igvvcshl6y2cxpmqy7rlsh4xsixpptjn7s7wlu@76ejtq6ytvbp>
+ <a9d1568e-6240-49a4-b6a0-dcc0d9229eb1@marcan.st>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,12 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241124-adpdrm-v1-3-3191d8e6e49a@gmail.com>
+In-Reply-To: <a9d1568e-6240-49a4-b6a0-dcc0d9229eb1@marcan.st>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_065005_307150_E3DB559F 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20241125_065341_784380_6B2938B3 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,36 +129,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/11/2024 23:29, Sasha Finkelstein via B4 Relay wrote:
-> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+On 25/11/2024 15:14, Hector Martin wrote:
+>>> +
+>>> +  "#address-cells":
+>>> +    const: 1
+>>> +
+>>> +  "#size-cells":
+>>> +    const: 0
+>>> +
+>>> +additionalProperties: true
+>>
+>> This cannot be true. Must be false.
+>>
+>>> +
+>>> +required:
+>>> +  - compatible
+>>> +  - reg
+>>> +  - interrupts
+>>
+>> This goes before additionalProperties.
+>>
+>> Missing example: that's a strong NAK and prove that this could not be
+>> even tested.
+>>
+>> Do you see any device schema without example? No. Do not develop things
+>> differently, Apple is not unique, special or exceptional.
 > 
-> This is the display panel used for the touchbar on laptops that have it.
+> Krzysztof, it is entirely possible to express this same feedback without
+> being condescending and rude. I'm pretty sure you can do better than this.
 
+Please kindly trim the replies from unnecessary context. It makes it
+much easier to find new content.
 
-...
+Instead of patronizing, note that this was just pure observation - this
+was done entirely than other bindings, which should be taken as an
+example. Or example-schema should be taken as example... Pointing out
+issues and inconsistencies is not rude or condescending. Basically now
+you are condescending people's feedback which further restricts review
+process allowing comments which you approve.
 
-
-> +static int summit_probe(struct mipi_dsi_device *dsi)
-> +{
-> +	struct backlight_properties props = { 0 };
-> +	struct device *dev = &dsi->dev;
-> +	struct summit_data *panel;
-> +
-> +	panel = devm_kzalloc(dev, sizeof(*panel), GFP_KERNEL);
-> +	if (!panel)
-> +		return -ENOMEM;
-> +
-> +	mipi_dsi_set_drvdata(dsi, panel);
-> +	panel->dsi = dsi;
-> +
-> +	int ret = device_property_read_u32(dev, "max-brightness", &props.max_brightness);
-That's an undocumented property, which suggests you did not test your DTS.
-
-It does not look like you tested the DTS against bindings. Please run
-`make dtbs_check W=1` (see
-Documentation/devicetree/bindings/writing-schema.rst or
-https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-for instructions).
+You got here one day review, enjoy that.
 
 Best regards,
 Krzysztof
