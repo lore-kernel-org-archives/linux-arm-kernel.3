@@ -4,63 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C924D3B7F6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 09:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85515D3B7F5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 09:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=anCiD784WEDOQs+kkrG4XA2PkSZGNOS557NHjPGFdd8=; b=ZqOtuxn0T7/Dl6cVCYEFipuBjh
-	SUL8WYrh7tjtfqrRxt2fUYcyxU3sipWmRV67F8r+sAZeArCppvWwu7620bw7jOJtvZ99vs7fZeJMZ
-	uWYi5iTaoVGBhEK1zmu+xn7jGoPu11w+hzKlxJ0yqHzdXxXX7EPGkas2a/rCmIU7XP+H/IxftvzZo
-	liEMYaQ9RHTSBskQqEt+04L96O+uwLKq3QVayLgEzY46n4drPUXA8yO1HYxegSwazRFe0s/wjsZYW
-	DVatftZb08jHqmQNNzSAP9L3I5J/FCzT1cbPMUPmWrPDk6El3O89s6sq3+vD7KbdE3YHYkfdHrIQE
-	bTGk3TfQ==;
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5k7KaERzV9XtiDAeG3jYJqSXCiNxYwmW5KPssYFF/k8=; b=JbD2Qfm+6XHVs6KDjDHO6X1Ktj
+	NCieKV0AocSr0hEC67tWNBnEz0sHEVY0hJ1NcCeJ4fXNfOAZYRZqs7EW0NBfS7xSi8w/tDhrnvzBv
+	5oanBLNze1LjOd3UX4j64LjESD6zz8XCetDnTMcB538Gz8UqP07iL0CmTTVK7H1x+PeilLlLNU9fk
+	awyI1WpVMDufxcbFgz1i58gO1iP3H4vvLZC0GwA4cn/flPHSvtRGjoB7K/PA1BWUT9+qrNxAVtJav
+	UOEtvghOGypq7Bg+uTITxmrD+tMNsyOxnmk84K/5LeEsqEYNRkpooXzRQDzVyTjxE1W1CLud3XVdn
+	OyNMB75w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFV9z-00000007Vxx-1MoO;
-	Mon, 25 Nov 2024 09:13:35 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tFVAv-00000007WGJ-1N07;
+	Mon, 25 Nov 2024 09:14:33 +0000
+Received: from mail.sharpwise.pl ([5.249.155.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFV92-00000007VrM-37oX;
-	Mon, 25 Nov 2024 09:12:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1732525955;
-	bh=FxMn6TL+VYIg036551yfzlt+21LR1IpuCjYwCyQ2h9c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VS3Yg2FyjgBl7sASXqV9u0a+4D4FICUlGvzEpmRjmjbwo05VWxWYv+t9ccs2ICdR/
-	 l0ZVW1vwHn+knU1q3ebm0PO2LclYUeJIcK4dgYt4JnEQ09Fvq5tDP5xfVkmy3BmZmB
-	 EKo4a1d5yVGuGfv46sr6jcBj6+qtJsgDyaw+WeSvH+s2Z37zjHODfb9R2E9a3HBUFg
-	 QmuWz07c7o7KRDO84D1aa1/kNuw1In5aaCfFdD5glmbrcc5w0+UgbbmWf5pglrctMO
-	 XcogWUjiGrRSxBgwgFtLLrut0PLr8h0VORSZi3bRIJXje5Z4YtDHqUhGicRAa0SsCK
-	 100VXAqn890Wg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B68B917E1330;
-	Mon, 25 Nov 2024 10:12:34 +0100 (CET)
-Message-ID: <8b6657df-7813-4964-92c1-1a85b8390eed@collabora.com>
-Date: Mon, 25 Nov 2024 10:12:34 +0100
+	id 1tFV9W-00000007Vvr-1WRo
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Nov 2024 09:13:07 +0000
+Received: by mail.sharpwise.pl (Postfix, from userid 1002)
+	id D826383FFD; Mon, 25 Nov 2024 10:11:19 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=sharpwise.pl; s=mail;
+	t=1732525962; bh=5k7KaERzV9XtiDAeG3jYJqSXCiNxYwmW5KPssYFF/k8=;
+	h=Date:From:To:Subject:From;
+	b=GrJdTP2qYumCptgxN2JmqbM7IaCIivvBkBLeFvQF2CgxjHP9b0HZ+TzXfiwT6WBmM
+	 E20w9/bXVfk9eiGVRoWIt51EiiqVxi9BfyTw/Cud0gkoFf/6RyVBSI3htHIpxZWrSs
+	 ZvFc4VjfCYOA6cyOx3K1OTiJfkzICjHHV8P3c/iAFpoihOPrpObEO08M6rbitnEnr2
+	 EQySkVwkpGwLoCzfRAvPLWyBAUA4wqYS6IAOSrQWql/RGSXJf84Z5BSQMhkA1ecFXD
+	 W/GD0LoF0WXCI3M4Ue/C1fooEgHVEGo4iOT1L0MICNZNv1q6029tOrnQvgRg7zmgx7
+	 Ur1xXMz/Zfb6w==
+Received: by mail.sharpwise.pl for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 09:10:51 GMT
+Message-ID: <20241125084501-0.1.82.1aknu.0.ihcdlklffn@sharpwise.pl>
+Date: Mon, 25 Nov 2024 09:10:51 GMT
+From: "Patryk Wysocki" <patryk.wysocki@sharpwise.pl>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: Zapytanie ofertowe 
+X-Mailer: mail.sharpwise.pl
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mmc: mtk-sd: Add support for ignoring cmd response CRC
-To: Andy-ld Lu <andy-ld.lu@mediatek.com>, ulf.hansson@linaro.org,
- matthias.bgg@gmail.com, wenbin.mei@mediatek.com
-Cc: linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20241123071006.14294-1-andy-ld.lu@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20241123071006.14294-1-andy-ld.lu@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_011236_930712_51A4ABF0 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20241125_011306_546462_13398727 
+X-CRM114-Status: UNSURE (   3.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,21 +66,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 23/11/24 08:09, Andy-ld Lu ha scritto:
-> The current process flow does not handle MMC requests that are indicated
-> to ignore the command response CRC. For instance, cmd12 and cmd48 from
-> mmc_cqe_recovery() are marked to ignore CRC, but they are not matched to
-> the appropriate response type in msdc_cmd_find_resp(). As a result, they
-> are defaulted to 'MMC_RSP_NONE', which means no response is expected.
-> 
-> This commit adds a new flag 'MMC_RSP_R1B_NO_CRC' to work alongside the
-> existing 'MMC_RSP_R1_NO_CRC' for the following process flow. It fixes the
-> response type setting in msdc_cmd_find_resp() and adds the logic to ignore
-> CRC in msdc_cmd_done().
-> 
-> Signed-off-by: Andy-ld Lu <andy-ld.lu@mediatek.com>
+Dzie=C5=84 dobry,
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Pozwoli=C5=82em sobie na kontakt, poniewa=C5=BC jestem zainteresowany wer=
+yfikacj=C4=85 mo=C5=BCliwo=C5=9Bci nawi=C4=85zania wsp=C3=B3=C5=82pracy.
+
+Wspieramy firmy w pozyskiwaniu nowych klient=C3=B3w biznesowych.
+
+Czy mo=C5=BCemy porozmawia=C4=87 w celu przedstawienia szczeg=C3=B3=C5=82=
+owych informacji?
 
 
+Pozdrawiam
+Patryk Wysocki
 
