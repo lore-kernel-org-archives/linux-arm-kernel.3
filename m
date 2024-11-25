@@ -4,164 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4075DD59D7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 22:54:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62179D59D64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 23:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7CT0rdKRL6Kk4bnlP/fufetzLbtpI/fko12BrLXxG58=; b=WOvt4/f2PAsSsZf7M2VUoe7VAS
-	+fL7i3OT1BqPOMNLxLFskB+jRGDDq2P4xrTT1RV6mfdeGuJ9DBU/fbihnqwXwwI4AJ/+mTzIigtpo
-	TIols1hPrxIZmpQ/SF07k9o0sYBDmai+gFVms3yWiBrh7TrOA+OdvIe2q1UY2SZ7O+DjNnvJNbCwL
-	pyC8ekSjmxDUrMyzy6hvkexOYz4L3OKgiZMSzdoPPvPjSKQqYACBFNL6UTmc+fNPBd1JbFyGeRZhB
-	uOhPSNPG6Tp73f3fJSJHk3+xinihwgUzAyDeT5OK5Av3Y8I6QmrryEtdUZI/N4WP4+tZrgz2b+Top
-	VvXppFuw==;
+	bh=+ZUBgfn/rgPsUR5HZKGJtyuIovuDjkngqu0F5dQSNOM=; b=x1cZxh9tXgmSs5vin+vtW9CVGM
+	5b/Ki+CC+h8d1oh17qr+BCKzsUOI8iup1nrtEwpaD+uSrcBN0brwgu80kL5lDxPaNYR0urVmrqdCa
+	3XRkHTQdtJ/xIO2739xH14w0IpbueLJe9V4EnXRQsaOTHGJh9wQ7bPJwk1dNh+7VU/Fhff4VadmQt
+	3t/rwOcX7dUOf8DEcAwiyyGxKt4yULpw7gSOL1BuDszAjb8njE5HgBmWPqtAGB/gHfwlbh08+IPBs
+	JeeFiDZvmMn+mTHlKjMtzrTQS+DUZpkEQtV20nc/4oIzB5glVaTI1ZZml11O5yQyCxm7+7JfqXwKl
+	9qxj9PJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFhxy-00000009Fhh-0u5y;
-	Mon, 25 Nov 2024 22:54:02 +0000
-Received: from mail-dm6nam12on20700.outbound.protection.outlook.com ([2a01:111:f403:2417::700] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFhwz-00000009FbU-3vTo
+	id 1tFiSk-00000009I02-2BbM;
+	Mon, 25 Nov 2024 23:25:50 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tFiRl-00000009HZ8-3F7z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 22:53:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qkjZskfNWrpuAKMYr60P4a4T3g6RYcUOQfn4ppziDM0Odo3jEwot+Lc0+PT/3E8mBlGOFPgC/aGIg3+eA4lgxmMCar9D4V4pdkH74IIXMNeciYZQ/2V/LvUu4CWW+2IJ3A7m+oIwwPE2NnHlyoubz7gtXP/p72SB3LcNO6WFaRneDhHGLoWbSVgNPnFwoMbR7JBYsGbV5HvivmNIz+2L6Z7JGYJRgmkzlCTMpdYEJDj0K/oaJhv+3TpRUM+xd9++afxC1HhGEhm2qROVeoIPQdzpuRiQ8R77F3MBd+Ad/q3ibau/ut+ueV7maVkRXBrtAywe0Po0ZLEAm0MfXa9d4g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7CT0rdKRL6Kk4bnlP/fufetzLbtpI/fko12BrLXxG58=;
- b=ek4mjNm0c88V0LXnjCZ5Qw74RJQdOzpdU6wduC58OFtkYO8QWs8AF+SyNfpbR2VOBvV3AvnYH8iNT1uZtDK/8zyxf94/esCFIZpsKRBPgdh4kSJ0QydEmbvYikoIl4GzfAjDxtDAoJRd+9cwQfPM7hwsWuhGtZJGjdeMCCmnZkRUyzL0R0bL4A5puM27lAp4hxJyyH6bu+a5ZxSSidOmsVsFPQEW39187UcnxQUdqQvvbfzHzqJrQ+82nRAxLKJ4s6Se3oFUdJjRetPyRau6xHSDC3LCS3m6EtMXR3RMejzMqJfIR+EXhmHQ/Mst2QtvOIjl5TO5sG8vkRiSywi/LQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7CT0rdKRL6Kk4bnlP/fufetzLbtpI/fko12BrLXxG58=;
- b=kYj6VCx2EJMI2HIN3Fq9y+2OW753/Wljxuby3fHa1KcBDup2jY9xpNmEMLQHHRTgTN2GulJKpA/9w0A/8dydDUQnZJSoh7zPd1/Sa7s2ruA1ptnd1AjFPmTimQp9BXatKiLq1GzqJyeUE3qIVTqGCJUEfK3KSS+87ZLs9aa4egY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from SA3PR01MB8501.prod.exchangelabs.com (2603:10b6:806:39e::18) by
- CH0PR01MB7155.prod.exchangelabs.com (2603:10b6:610:f6::12) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8207.12; Mon, 25 Nov 2024 22:52:51 +0000
-Received: from SA3PR01MB8501.prod.exchangelabs.com
- ([fe80::f7ae:9cc3:b435:c49d]) by SA3PR01MB8501.prod.exchangelabs.com
- ([fe80::f7ae:9cc3:b435:c49d%4]) with mapi id 15.20.8207.010; Mon, 25 Nov 2024
- 22:52:49 +0000
-Message-ID: <627d2a20-3af3-4993-830d-741af2c13aa2@os.amperecomputing.com>
-Date: Mon, 25 Nov 2024 17:52:41 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: smccc: Support optional Arm SMC SOC_ID name
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-kernel@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Sudeep Holla <sudeep.holla@arm.com>, linux-arm-kernel@lists.infradead.org
-References: <20241114030452.10149-1-paul@os.amperecomputing.com>
- <ZzXrfV3uDGRkBD2L@J2N7QTR9R3>
-Content-Language: en-US
-From: Paul Benoit <paul@os.amperecomputing.com>
-In-Reply-To: <ZzXrfV3uDGRkBD2L@J2N7QTR9R3>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BYAPR21CA0016.namprd21.prod.outlook.com
- (2603:10b6:a03:114::26) To SA3PR01MB8501.prod.exchangelabs.com
- (2603:10b6:806:39e::18)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA3PR01MB8501:EE_|CH0PR01MB7155:EE_
-X-MS-Office365-Filtering-Correlation-Id: 85ac5315-7d57-4e07-b018-08dd0da3e2ab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QUhoTDc4NzZQMS9QU3g0ZXdJamZmNWJTZkNmT0d1ZGg0R2lqN0FGaGlwQnNQ?=
- =?utf-8?B?RlpNWHpiTzl4bENkY0Z3OTJMZEJwUldWRHJEcmJlKzdpS2d5RXhQZndqWHJh?=
- =?utf-8?B?SlFrUXhncld1RUs0Qm1uUFRwNGZnQmdrUklKRmttYWpSY29wQ3k5dVY1dWdZ?=
- =?utf-8?B?dnA3VnMzODRXbkxyeVArakJnSkppK0VxMmRxMEV3R0pUVVRZMWwycHJMNnJw?=
- =?utf-8?B?UFRDSERTTGpUb2svNWZmWHJmTG0wS0wzUWYzQUx4cXA4ekMySDgwM0xLV3FD?=
- =?utf-8?B?N3Z3cldxMmlXNEZKeHpiZTFtanRSaGM5TVRiZVg0cnpZL2xuWW5yZUxBUEcz?=
- =?utf-8?B?OUtEdVJhdnNNOXN2K3F5WldnbzNHUEZrMTFvWmphdlNjUnZkL1RqYXJXeXky?=
- =?utf-8?B?K0xhWndFbjF0bGl3ajFGM1RMWmUrYlp4b1RzY1FJeTBTelVvUkNXUTRlTjRv?=
- =?utf-8?B?YmhTSmdTSnZ1VWhnc3d0dHhGU1FPcXJmUmJqWS8ybG5ZTTJ3Vnd2SDNXSFlM?=
- =?utf-8?B?Mzlxd3NlV3l6MUFUYkNtTzUwUkF6b25YNTNOelN2WlM0MHB4U0xDcGlCMFRH?=
- =?utf-8?B?UUt4dU1GUDdkdVVPWlc2b29xelppSklib3Y0cFZQdE13RFU2MWcrb0hyL0dV?=
- =?utf-8?B?cUxjS0VnUmNFNm9wMHlqR0c2K2k3OU02SlJLSDNoTmliOG4rYkRseXBLbFRW?=
- =?utf-8?B?clpoVllYZHo0clZmZW1qOUpVUmQ4QzJuZkUrN1F5d1M3endRZmEyTjJxUGd1?=
- =?utf-8?B?V2t4SHp4aHc5Tmg3dFMvV0V4blNMa3hCSmxEMnRaZDRFdUZqRG9PY1ljL0d5?=
- =?utf-8?B?OGlYOExRWXo0MmNVQzFyalJxaEpXQVAxSHRoMTZJSFdEQVo4amtEd2Nxb2Ev?=
- =?utf-8?B?UUJuaU5TbmJ0ZlNIaitZdGVQcUJKcDZpK2JYRTBqTjZ5TFhUdVNYeVNxOHln?=
- =?utf-8?B?UDgxL2w2T21EVnRIOXRJZUlyVHZhVkx3WmFZQWNkVklPazI3SlVlNUp0Q2ta?=
- =?utf-8?B?anFHVy9wK3RiU1N0cHZOMHdlU3dxRzRka295cG1kQ1dMTzVoMVJVaURqdjNZ?=
- =?utf-8?B?U2E5Ym9rUkkxbFFsWnhWdGJCU0Jjemt4bEJzV3QxVG56YkVoSnJDQUdpc3RK?=
- =?utf-8?B?S2I5OXJpdWN1YUVSZDB6YkVHazlMZE96UXhJMFZxb0E5UTNzZW1HNVRoeVdk?=
- =?utf-8?B?ZFJpK2xiMXNVOEEwVHgrWWZDOFlFNGRPaTU3NnEzTG5lM1NvYmdlbzZEb0sx?=
- =?utf-8?B?SCtWVlFuZjZkeVRHN0NjL21EdFF4L2s0WnNCVTF1VnlRZlk0aVRJVHptZ1RO?=
- =?utf-8?B?ZVk5Q3pRTUpWcHJ6U0tSZW54bERPU3RWTElZODZPam1SdFdvSlZZeUJvMVlR?=
- =?utf-8?B?T05pVVI4L0p1cXFhRW5pM0xWVFc3MDl5VmkrRFcyVHNEdWZkVExrUFFRM25l?=
- =?utf-8?B?dmUzOVlQekFVNnd6aXdOSmlGYzlWQitrSWFaSjU1RU4zRjNTQTBSeC9HOTBm?=
- =?utf-8?B?VStrcnJqaEVxcEtBa3c0eDlYNnFJcUg1ZUNwbTR4ZXZWQ0pNM084cU9wZWU1?=
- =?utf-8?B?RXY3MXRPZDBQNGVDZ0ZFMmpXVi90WEFFK0s2MDRva2UvbDdXYU0wMmxJWE92?=
- =?utf-8?B?OEtrM3hzZWpwUXJxL0p5cXpGY3R2c0FJUEI0b0RJU0JsdkQvYm1SVzh2eFRI?=
- =?utf-8?B?MmtFc05MRmFQc1ZpSngrOEo3QjcwWi96VzRCcCsxR0VJZitlTm94VDZPbVQ1?=
- =?utf-8?B?QWQyK00vc3NrSUwvb1RzQ0YydVhhMGFuM3M0dkIwc2gxWXNRZlU4UFFPUmdk?=
- =?utf-8?B?TStaOGU1T21TdVQ5cDBKazhkV1FjMTFzWEJiNjJJOGZEZEZHM3U2REVyd1Yy?=
- =?utf-8?B?MUhjcUh5Y2h5KzI3K1ZQUnZSd0VYSFR1Mm1PYjc2cEp3UkE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA3PR01MB8501.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(7053199007)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QzZSTTBHb3Fub0FWQzJXcTV3UVpabWt0WVV3T2dOc3loU0FoS3FUV21ETit3?=
- =?utf-8?B?bHZGc1ZOZFF2R2xuelh5MGRuOUpxeDBxVG9ER1U0aEpyZ3BaMllDRzkweVNF?=
- =?utf-8?B?bU1JYVJBVk53QVFYdHdiS1djZW81R2p4UFJMc1RTdW5JQ2dLSzNpUGQ2d005?=
- =?utf-8?B?TFlIbktDZGRQN2J1ZzRIUTNmSnhtRXVsbTNPc2I1cU4yV3J0LytaV054MWY4?=
- =?utf-8?B?K3hBUjVkM0l6T2FvOEJncm9UQmg2VFBpQVYwTlpVcVRHL0dXNkQ0eGFQQkYr?=
- =?utf-8?B?NUNsRzJKU1ZuYTZJK24vU0dsTHoybS9SYXlINWRMSHhZZ1gzZWNQZkl3VGNR?=
- =?utf-8?B?RlRQWGdLOGl1Rkp1eXl3alRzcklWTkxxYUxIMW1yZGhkTFBTNE5nNGxSaUJ6?=
- =?utf-8?B?by9GZVFCR3ZML2d3MVJHcytXcmhjWGlEVzFnNk9rOGUwYy93aG9qWGZKZits?=
- =?utf-8?B?U2g3cDZ3c0Jsb28xN3M5eGd5ZXc5c1hkalZWdEF5Q1RndVZSTXNITlZOK0VQ?=
- =?utf-8?B?TGxyZUkvekFMYWozLzFPWklSWjRPR0kwMHN6TWpmdEVETVlPZ0c2NnBBOG1V?=
- =?utf-8?B?QnFmU0FBaUZiVzNUbkFFSGpSck1tc01xazlpVDQrRVlXNjRLR2VnL1BhMWRL?=
- =?utf-8?B?aVRUaVhjSjNkamhxOTNYLysrYkc1L3BVOWxjTkYxNWNtL0FGTkF2czNHQk9x?=
- =?utf-8?B?Ym1WR3Z0WVluUGhKRXRidGozbWZhV3BlcURjN2hjZXVXSW1NVUdjcWlpQ0lt?=
- =?utf-8?B?OHNkZXVoZWJubWVDYUlGVTZHWUxjb09FUmRYTXJlMjQvV2EzdW0vSXJRWVlL?=
- =?utf-8?B?WlNhYUx3SzlINHNSNGNvL1lmMkgzR3dFaW1vRnAyUFhGMmpOcnc4WStSVnVv?=
- =?utf-8?B?SnR6cHVkL3ZUdjJGcWZKdEZsUkhPTUpmTlNVYi9IZ2VHVyt4TG4raWFYL3Mw?=
- =?utf-8?B?L3N1SGkwZGMvWVFleFVIR0ZHUWFpcFUrSExEdGUyZHZMZjhtbGxndGZ2ckMz?=
- =?utf-8?B?VjkwMTlOejFJUG12QjZ1QkFERVFhNjFVNEozQ1BzeHhQd2Zxa1FCWjAvY2lh?=
- =?utf-8?B?N3V4dU9mNDRQQ1ozY2NseCtRL2JndEV6RXdwYk1xTFByKzR3Wnp3SGwxVFRP?=
- =?utf-8?B?RStPWWUxQ2xmRy92aXNGUGtzSVF1L3pucVVKY2FNWjJubklMT0lIdmxHWis2?=
- =?utf-8?B?ZExFVWRJZnFRcGgwYXREdjFCcmN0V2dRVGJwR25IZUwwZTZsK0RLMjFkRmFQ?=
- =?utf-8?B?a0JUUlNKalY1WG9SSUhLaW5MbWswMTJkWkt6R3Q0SEdqT1Jsd3ErMHVPNWUw?=
- =?utf-8?B?NlMrTEJ2WnZRa3o3eXIwa2h3bGl0eTU5eWM0ZmNMRTRaSm40aHh1ZVlEQWcx?=
- =?utf-8?B?NTFTTGZWTlJBKzFieWZEQ2FUWEJKZWlXcVpCcGNGK3BFZFRTemtubjNWai9l?=
- =?utf-8?B?TTNWL2NvTTdWZ0duM0hySWgrbVlCT295MXU4eTVwQUd5ajhMWENkQjliMlZI?=
- =?utf-8?B?dHpYbS9QVlZQcStWdVJpT3ExdndkT09HalorbzZpREFpekRvR0xQS2krZW9Q?=
- =?utf-8?B?amZsYjZrUkxVeFNrK2RkVXcveWtsTmlXNSttQ2dTZEtITnhLclI1dmx4Ynda?=
- =?utf-8?B?VGU4aEJYVFBRT3pWdnhZUmhrVllmS1h5QklaQjBvSTdEdDlLcFM2WGNxRmhi?=
- =?utf-8?B?dEtlWFRtaXRRU0kvWlE4MkxDcEtoT3lqNGEwdTM2RkJySWRzZXBzU09XZENB?=
- =?utf-8?B?c3ZmZUR5d0V2N2NPNi9MZThiOFpPL2hseFVzWUp1Wmk0YkFLQnpsRHYzUWZM?=
- =?utf-8?B?WDJqV2VraURYZmxxaHg4TEhuMEpKRytCMXFvazBGVUJQMndxZmhvT2hPbzFX?=
- =?utf-8?B?dVJXbEs4anhvS2YvcWVQRmxUclVpaENKKzgySGFyd2ZwcnpqUDl6cC9ITjlv?=
- =?utf-8?B?YUVTdkRYdHhmaGVKdkZsWlZWVUl3NWhSVHpYdExldDBBZFh4NmdaWGpHcDAx?=
- =?utf-8?B?RjhXQzc3SGg0dWUwYkQyc3FsTmxBYmkwNlpOcFRYbzJOVVp4aFF3b2hwdGVm?=
- =?utf-8?B?TlJOeFh6REhvZjBHcFlSN3VrbCtjbDQ3Y3FrU2dyNVV5WWMxNDlCUEpjWXJh?=
- =?utf-8?B?R28vU1VhM2FoQkxaOVNhdlVJcS9nY0tCek96dUJVbndDV1Z1U1hUUCtYamRx?=
- =?utf-8?Q?gaIgvILrbar9q5ezhn7xXrA=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 85ac5315-7d57-4e07-b018-08dd0da3e2ab
-X-MS-Exchange-CrossTenant-AuthSource: SA3PR01MB8501.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2024 22:52:49.2366
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: F6Ni1/Ug7PLF6h0OiuCJYi+rq4MLeVbyLxJ/hgj83PjZ26iuFPr1qpgWCOoQW02PG/uESQmUZm/u0gFLyzMFpSG4fkNydRFEpsJS+F75Q30=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR01MB7155
+	Mon, 25 Nov 2024 23:24:50 +0000
+Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 4EF0B20545A2;
+	Mon, 25 Nov 2024 15:24:48 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 4EF0B20545A2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1732577088;
+	bh=+ZUBgfn/rgPsUR5HZKGJtyuIovuDjkngqu0F5dQSNOM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=k/BTg3sDGbiE5t96dO8rwKRCR+lyGmOaRzUCW8l0W78/XGdLev+2d4chhhI3VjVOh
+	 gmq4+9XJUVCiWjVlFDThVL8CatxbMRaByRl+HaXXUydPNigj+X/HJGWXTJl7bO+Tku
+	 f7Vb5WOWUOU+Nz6sI1OyYE/++hc3B1WPyx69BCnk=
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+To: linux-hyperv@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	iommu@lists.linux.dev,
+	netdev@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	virtualization@lists.linux.dev
+Cc: kys@microsoft.com,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	mhklinux@outlook.com,
+	decui@microsoft.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	luto@kernel.org,
+	tglx@linutronix.de,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	hpa@zytor.com,
+	seanjc@google.com,
+	pbonzini@redhat.com,
+	peterz@infradead.org,
+	daniel.lezcano@linaro.org,
+	joro@8bytes.org,
+	robin.murphy@arm.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	lpieralisi@kernel.org,
+	kw@linux.com,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	arnd@arndb.de,
+	sgarzare@redhat.com,
+	jinankjain@linux.microsoft.com,
+	muminulrussell@gmail.com,
+	skinsburskii@linux.microsoft.com,
+	mukeshrathor@microsoft.com,
+	vkuznets@redhat.com,
+	ssengar@linux.microsoft.com,
+	apais@linux.microsoft.com,
+	eahariha@linux.microsoft.com,
+	horms@kernel.org
+Subject: [PATCH v3 4/5] hyperv: Switch from hyperv-tlfs.h to hyperv/hvhdk.h
+Date: Mon, 25 Nov 2024 15:24:43 -0800
+Message-Id: <1732577084-2122-5-git-send-email-nunodasneves@linux.microsoft.com>
+X-Mailer: git-send-email 1.8.3.1
+In-Reply-To: <1732577084-2122-1-git-send-email-nunodasneves@linux.microsoft.com>
+References: <1732577084-2122-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_145302_050756_35481938 
-X-CRM114-Status: GOOD (  40.89  )
+X-CRM114-CacheID: sfid-20241125_152449_866913_D7C83356 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,253 +110,418 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/14/2024 7:22 AM, Mark Rutland wrote:
-> Hi Paul,
-> 
-> On Wed, Nov 13, 2024 at 07:04:52PM -0800, Paul Benoit wrote:
->> Issue Number 1.6 of the Arm SMC Calling Convention introduces an
->> optional SOC_ID name string.  If available, point the 'machine' field of
->> the SoC Device Attributes at this string so that it will appear under
->> /sys/bus/soc/devices/soc0/machine.  On Arm SMC compliant SoCs, this will
->> allow things like 'lscpu' to eventually get a SoC provider model name
->> from there rather than each tool/utility needing to get a possibly
->> inconsistent, obsolete, or incorrect model/machine name from its own
->> hardcoded model/machine name table.
->>
->> Signed-off-by: Paul Benoit <paul@os.amperecomputing.com>
->> Cc: Mark Rutland <mark.rutland@arm.com>
->> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
->> Cc: Sudeep Holla <sudeep.holla@arm.com>
->> Cc: linux-arm-kernel@lists.infradead.org
->> ---
->>   drivers/firmware/smccc/smccc.c  | 70 +++++++++++++++++++++++++++++++++
->>   drivers/firmware/smccc/soc_id.c |  1 +
->>   include/linux/arm-smccc.h       | 10 +++++
->>   3 files changed, 81 insertions(+)
->>
->> diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
->> index a74600d9f2d7..1c7084b0b8d7 100644
->> --- a/drivers/firmware/smccc/smccc.c
->> +++ b/drivers/firmware/smccc/smccc.c
->> @@ -18,10 +18,12 @@ static enum arm_smccc_conduit smccc_conduit = SMCCC_CONDUIT_NONE;
->>   bool __ro_after_init smccc_trng_available = false;
->>   s32 __ro_after_init smccc_soc_id_version = SMCCC_RET_NOT_SUPPORTED;
->>   s32 __ro_after_init smccc_soc_id_revision = SMCCC_RET_NOT_SUPPORTED;
->> +char __ro_after_init smccc_soc_id_name[136] = "";
->>   
->>   void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit conduit)
->>   {
->>   	struct arm_smccc_res res;
->> +	struct arm_smccc_1_2_regs regs_1_2;
->>   
->>   	smccc_version = version;
->>   	smccc_conduit = conduit;
->> @@ -37,6 +39,66 @@ void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit conduit)
->>   			smccc_soc_id_version = (s32)res.a0;
->>   			arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_SOC_ID, 1, &res);
->>   			smccc_soc_id_revision = (s32)res.a0;
->> +
->> +			/* Issue Number 1.6 of the Arm SMC Calling Convention
->> +			 * specification introduces an optional "name" string
->> +			 * to the ARM_SMCCC_ARCH_SOC_ID function.  Fetch it if
->> +			 * available.
->> +			 */
-> 
-> I think the code for the SOC_ID name should live under soc_id.c, since
-> it *only* matters to the sysfs interface (and will not be used by other
-> code in the kernel to identify the SOC). That should be initialised
-> under smccc_soc_init(), ideally factored into a smccc_soc_name_init()
-> helper.
-> 
-> Nit: comments should have the leading '/*' on its own line, e.g.
-> 
-> 	/*
-> 	 * Multi-line comments should be formatted like this, with a
-> 	 * leading and trailing line.
-> 	 */
-> 
->> +			regs_1_2.a0 = ARM_SMCCC_ARCH_SOC_ID;
->> +			regs_1_2.a1 = 2;	/* SOC_ID name */
->> +			arm_smccc_1_2_smc(
->> +				(const struct arm_smccc_1_2_regs *)&regs_1_2,
->> +				(struct arm_smccc_1_2_regs *)&regs_1_2);
-> 
-> These casts shouldn't be necessary, and they look suspicious.
-> 
-> Additionally, this should be using whichever conduit SMCCC happens to be
-> using rather than assuming SMC. As with the rest of this code using
-> arm_smccc_1_1_invoke(), we should add a arm_smccc_1_2_invoke() wrapper
-> for that, with this looking like:
-> 
-> 			arm_smccc_1_2_invoke(&regs_1_2, &regs_1_2);
->> +
->> +			if ((u32)regs_1_2.a0 == 0) {
->> +				unsigned long *destination =
->> +					(unsigned long *)smccc_soc_id_name;
->> +
->> +				/*
->> +				 * Copy regs_1_2.a1..regs_1_2.a17 to the
->> +				 * smccc_soc_id_name string with consideration
->> +				 * to the endianness of the values in a1..a17.
-> 
-> This indicates that we have to do *something* about endianness, but
-> doesn't say *what* consideration is necessary, which is rather
-> unhelpful -- it would be better to describe the format of the registers,
-> which would indicate what specifically we need to do.
-> 
-> For example:
-> 
-> 	The string is packed into registers a1 to a17 such that each
-> 	register contains 8 successive bytes, and within each register
-> 	byte N of the string fragment is encoded into bits [8*N+7:8*N].
-> 
->> +				 * As per Issue 1.6 of the Arm SMC Calling
->> +				 * Convention, the string will be NUL terminated
->> +				 * and padded, from the end of the string to
->> +				 * the end of the 136 byte buffer, with NULs.
->> +				 */
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a1);
-> 
-> If you used cpu_to_le64(), you wouldn't need a cast, though either way you will
-> need a cast on the return value since 'destination' is not an array of __le64,
-> and sparse should complain.
-> 
-> This isn't really an endianness conversion since we're unpacking smaller
-> elements out of a larger container, so I reckon it would be better to
-> handle this explicitly, e.g.
-> 
-> 	void str_fragment_from_reg(char *dst, u64 reg)
-> 	{
-> 		dst[0] = (reg >> 0)  & 0xff;
-> 		dst[1] = (reg >> 8)  & 0xff;
-> 		dst[2] = (reg >> 16) & 0xff;
-> 		dst[3] = (reg >> 24) & 0xff;
-> 		dst[4] = (reg >> 32) & 0xff;
-> 		dst[5] = (reg >> 40) & 0xff;
-> 		dst[6] = (reg >> 48) & 0xff;
-> 		dst[7] = (reg >> 56) & 0xff;
-> 	}
-> 
-> ... and then using that:
-> 
-> 	str_fragment_from_reg(destination + 0,  regs_1_2.a1);
-> 	str_fragment_from_reg(destination + 8,  regs_1_2.a2);
-> 	str_fragment_from_reg(destination + 16, regs_1_2.a3);
-> 	str_fragment_from_reg(destination + 24, regs_1_2.a4);
-> 	...
-> 
-> That way we avoid all the messy casting, and we can more clearly align
-> this with the way the spec says this is packed.
-> 
-> The generated code looks sane (with GCC 14.2.0, at least):
-> 
-> 	// little-endian kernel
-> 	0000000000000000 <str_fragment_from_reg>:
-> 	   0:   f9000001        str     x1, [x0]
-> 	   4:   d65f03c0        ret
-> 
-> 	// big-endian kernel
-> 	0000000000000000 <str_fragment_from_reg>:
-> 	   0:   dac00c21        rev     x1, x1
-> 	   4:   f9000001        str     x1, [x0]
-> 	   8:   d65f03c0        ret
-> 
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a2);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a3);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a4);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a5);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a6);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a7);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a8);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a9);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a10);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a11);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a12);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a13);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a14);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a15);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a16);
->> +				*destination++ =
->> +				    cpu_to_le64p((const __u64 *)&regs_1_2.a17);
-> 
-> We probably want to check that the string is actually NUL terminated
-> here, and log a FW BUG message if it is not.
-> 
->> +			}
->>   		}
->>   	}
->>   }
->> @@ -67,6 +129,14 @@ s32 arm_smccc_get_soc_id_revision(void)
->>   }
->>   EXPORT_SYMBOL_GPL(arm_smccc_get_soc_id_revision);
->>   
->> +char *arm_smccc_get_soc_id_name(void)
->> +{
->> +	if (strnlen(smccc_soc_id_name, sizeof(smccc_soc_id_name)))
->> +		return smccc_soc_id_name;
->> +
->> +	return NULL;
->> +}
-> 
-> As above, I think this can be folded into the probing routine.
-> 
->> +
->>   static int __init smccc_devices_init(void)
->>   {
->>   	struct platform_device *pdev;
->> diff --git a/drivers/firmware/smccc/soc_id.c b/drivers/firmware/smccc/soc_id.c
->> index 1990263fbba0..6f698c703868 100644
->> --- a/drivers/firmware/smccc/soc_id.c
->> +++ b/drivers/firmware/smccc/soc_id.c
->> @@ -72,6 +72,7 @@ static int __init smccc_soc_init(void)
->>   	soc_dev_attr->soc_id = soc_id_str;
->>   	soc_dev_attr->revision = soc_id_rev_str;
->>   	soc_dev_attr->family = soc_id_jep106_id_str;
->> +	soc_dev_attr->machine = arm_smccc_get_soc_id_name();
->>   
->>   	soc_dev = soc_device_register(soc_dev_attr);
->>   	if (IS_ERR(soc_dev)) {
->> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
->> index 67f6fdf2e7cd..5935cf636135 100644
->> --- a/include/linux/arm-smccc.h
->> +++ b/include/linux/arm-smccc.h
->> @@ -333,6 +333,16 @@ s32 arm_smccc_get_soc_id_version(void);
->>    */
->>   s32 arm_smccc_get_soc_id_revision(void);
->>   
->> +/**
->> + * arm_smccc_get_soc_id_name()
->> + *
->> + * Returns the SOC ID name.
->> + *
->> + * When ARM_SMCCC_ARCH_SOC_ID name is not present, returns NULL.
->> + */
->> +char *arm_smccc_get_soc_id_name(void);
-> 
-> I don't think this needs to be exposed outside of the SOC ID code.
-> 
-> Thanks,
-> Mark.
+Switch to using hvhdk.h everywhere in the kernel. This header
+includes all the new Hyper-V headers in include/hyperv, which form a
+superset of the definitions found in hyperv-tlfs.h.
 
-Hi Mark,
+This makes it easier to add new Hyper-V interfaces without being
+restricted to those in the TLFS doc (reflected in hyperv-tlfs.h).
 
-Thanks for the quick response and detailed review.  I'll soon be 
-submitting a v2 patch that addresses the issues that you have identified.
+To be more consistent with the original Hyper-V code, the names of
+some definitions are changed slightly. Update those where needed.
+
+Update comments in mshyperv.h files to point to include/hyperv for
+adding new definitions.
+
+Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+---
+ arch/arm64/hyperv/hv_core.c        |  2 +-
+ arch/arm64/hyperv/mshyperv.c       |  4 ++--
+ arch/arm64/include/asm/mshyperv.h  |  7 +++----
+ arch/x86/hyperv/hv_init.c          | 20 ++++++++++----------
+ arch/x86/hyperv/hv_proc.c          |  2 +-
+ arch/x86/hyperv/nested.c           |  2 +-
+ arch/x86/include/asm/kvm_host.h    |  2 +-
+ arch/x86/include/asm/mshyperv.h    |  2 +-
+ arch/x86/include/asm/svm.h         |  2 +-
+ arch/x86/kernel/cpu/mshyperv.c     |  2 +-
+ arch/x86/kvm/vmx/hyperv_evmcs.h    |  2 +-
+ arch/x86/kvm/vmx/vmx_onhyperv.h    |  2 +-
+ drivers/clocksource/hyperv_timer.c |  2 +-
+ drivers/hv/hv_balloon.c            |  4 ++--
+ drivers/hv/hv_common.c             |  2 +-
+ drivers/hv/hv_kvp.c                |  2 +-
+ drivers/hv/hv_snapshot.c           |  2 +-
+ drivers/hv/hyperv_vmbus.h          |  2 +-
+ include/asm-generic/mshyperv.h     |  7 +++----
+ include/clocksource/hyperv_timer.h |  2 +-
+ include/linux/hyperv.h             |  2 +-
+ net/vmw_vsock/hyperv_transport.c   |  6 +++---
+ 22 files changed, 39 insertions(+), 41 deletions(-)
+
+diff --git a/arch/arm64/hyperv/hv_core.c b/arch/arm64/hyperv/hv_core.c
+index 7a746a5a6b42..69004f619c57 100644
+--- a/arch/arm64/hyperv/hv_core.c
++++ b/arch/arm64/hyperv/hv_core.c
+@@ -14,7 +14,7 @@
+ #include <linux/arm-smccc.h>
+ #include <linux/module.h>
+ #include <asm-generic/bug.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ #include <asm/mshyperv.h>
+ 
+ /*
+diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+index b1a4de4eee29..fc49949b7df6 100644
+--- a/arch/arm64/hyperv/mshyperv.c
++++ b/arch/arm64/hyperv/mshyperv.c
+@@ -49,12 +49,12 @@ static int __init hyperv_init(void)
+ 	hv_set_vpreg(HV_REGISTER_GUEST_OS_ID, guest_id);
+ 
+ 	/* Get the features and hints from Hyper-V */
+-	hv_get_vpreg_128(HV_REGISTER_FEATURES, &result);
++	hv_get_vpreg_128(HV_REGISTER_PRIVILEGES_AND_FEATURES_INFO, &result);
+ 	ms_hyperv.features = result.as32.a;
+ 	ms_hyperv.priv_high = result.as32.b;
+ 	ms_hyperv.misc_features = result.as32.c;
+ 
+-	hv_get_vpreg_128(HV_REGISTER_ENLIGHTENMENTS, &result);
++	hv_get_vpreg_128(HV_REGISTER_FEATURES_INFO, &result);
+ 	ms_hyperv.hints = result.as32.a;
+ 
+ 	pr_info("Hyper-V: privilege flags low 0x%x, high 0x%x, hints 0x%x, misc 0x%x\n",
+diff --git a/arch/arm64/include/asm/mshyperv.h b/arch/arm64/include/asm/mshyperv.h
+index a975e1a689dd..2e2f83bafcfb 100644
+--- a/arch/arm64/include/asm/mshyperv.h
++++ b/arch/arm64/include/asm/mshyperv.h
+@@ -6,9 +6,8 @@
+  * the ARM64 architecture.  See include/asm-generic/mshyperv.h for
+  * definitions are that architecture independent.
+  *
+- * Definitions that are specified in the Hyper-V Top Level Functional
+- * Spec (TLFS) should not go in this file, but should instead go in
+- * hyperv-tlfs.h.
++ * Definitions that are derived from Hyper-V code or headers should not go in
++ * this file, but should instead go in the relevant files in include/hyperv.
+  *
+  * Copyright (C) 2021, Microsoft, Inc.
+  *
+@@ -20,7 +19,7 @@
+ 
+ #include <linux/types.h>
+ #include <linux/arm-smccc.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ 
+ /*
+  * Declare calls to get and set Hyper-V VP register values on ARM64, which
+diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
+index 3562826915f9..3cf2a227d666 100644
+--- a/arch/x86/hyperv/hv_init.c
++++ b/arch/x86/hyperv/hv_init.c
+@@ -19,7 +19,7 @@
+ #include <asm/sev.h>
+ #include <asm/ibt.h>
+ #include <asm/hypervisor.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ #include <asm/mshyperv.h>
+ #include <asm/idtentry.h>
+ #include <asm/set_memory.h>
+@@ -415,24 +415,24 @@ static void __init hv_get_partition_id(void)
+ static u8 __init get_vtl(void)
+ {
+ 	u64 control = HV_HYPERCALL_REP_COMP_1 | HVCALL_GET_VP_REGISTERS;
+-	struct hv_get_vp_registers_input *input;
+-	struct hv_get_vp_registers_output *output;
++	struct hv_input_get_vp_registers *input;
++	struct hv_register_assoc *output;
+ 	unsigned long flags;
+ 	u64 ret;
+ 
+ 	local_irq_save(flags);
+ 	input = *this_cpu_ptr(hyperv_pcpu_input_arg);
+-	output = (struct hv_get_vp_registers_output *)input;
++	output = (struct hv_register_assoc *)input;
+ 
+-	memset(input, 0, struct_size(input, element, 1));
+-	input->header.partitionid = HV_PARTITION_ID_SELF;
+-	input->header.vpindex = HV_VP_INDEX_SELF;
+-	input->header.inputvtl = 0;
+-	input->element[0].name0 = HV_X64_REGISTER_VSM_VP_STATUS;
++	memset(input, 0, struct_size(input, names, 1));
++	input->partition_id = HV_PARTITION_ID_SELF;
++	input->vp_index = HV_VP_INDEX_SELF;
++	input->input_vtl.as_uint8 = 0;
++	input->names[0] = HV_REGISTER_VSM_VP_STATUS;
+ 
+ 	ret = hv_do_hypercall(control, input, output);
+ 	if (hv_result_success(ret)) {
+-		ret = output->as64.low & HV_X64_VTL_MASK;
++		ret = output->value.reg8 & HV_X64_VTL_MASK;
+ 	} else {
+ 		pr_err("Failed to get VTL(error: %lld) exiting...\n", ret);
+ 		BUG();
+diff --git a/arch/x86/hyperv/hv_proc.c b/arch/x86/hyperv/hv_proc.c
+index b74c06c04ff1..ac4c834d4435 100644
+--- a/arch/x86/hyperv/hv_proc.c
++++ b/arch/x86/hyperv/hv_proc.c
+@@ -176,7 +176,7 @@ int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags)
+ 		input->partition_id = partition_id;
+ 		input->vp_index = vp_index;
+ 		input->flags = flags;
+-		input->subnode_type = HvSubnodeAny;
++		input->subnode_type = HV_SUBNODE_ANY;
+ 		input->proximity_domain_info = hv_numa_node_to_pxm_info(node);
+ 		status = hv_do_hypercall(HVCALL_CREATE_VP, input, NULL);
+ 		local_irq_restore(irq_flags);
+diff --git a/arch/x86/hyperv/nested.c b/arch/x86/hyperv/nested.c
+index 9dc259fa322e..1083dc8646f9 100644
+--- a/arch/x86/hyperv/nested.c
++++ b/arch/x86/hyperv/nested.c
+@@ -11,7 +11,7 @@
+ 
+ 
+ #include <linux/types.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ #include <asm/mshyperv.h>
+ #include <asm/tlbflush.h>
+ 
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index 46f354b12488..e8aeb4b4f868 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -35,8 +35,8 @@
+ #include <asm/asm.h>
+ #include <asm/kvm_page_track.h>
+ #include <asm/kvm_vcpu_regs.h>
+-#include <asm/hyperv-tlfs.h>
+ #include <asm/reboot.h>
++#include <hyperv/hvhdk.h>
+ 
+ #define __KVM_HAVE_ARCH_VCPU_DEBUGFS
+ 
+diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
+index 6f866fb9ffee..f91ab1e75f9f 100644
+--- a/arch/x86/include/asm/mshyperv.h
++++ b/arch/x86/include/asm/mshyperv.h
+@@ -6,9 +6,9 @@
+ #include <linux/nmi.h>
+ #include <linux/msi.h>
+ #include <linux/io.h>
+-#include <asm/hyperv-tlfs.h>
+ #include <asm/nospec-branch.h>
+ #include <asm/paravirt.h>
++#include <hyperv/hvhdk.h>
+ 
+ /*
+  * Hyper-V always provides a single IO-APIC at this MMIO address.
+diff --git a/arch/x86/include/asm/svm.h b/arch/x86/include/asm/svm.h
+index 2b59b9951c90..77704eddba54 100644
+--- a/arch/x86/include/asm/svm.h
++++ b/arch/x86/include/asm/svm.h
+@@ -5,7 +5,7 @@
+ #include <uapi/asm/svm.h>
+ #include <uapi/asm/kvm.h>
+ 
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ 
+ /*
+  * 32-bit intercept words in the VMCB Control Area, starting
+diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
+index d18078834ded..fc13bdebf360 100644
+--- a/arch/x86/kernel/cpu/mshyperv.c
++++ b/arch/x86/kernel/cpu/mshyperv.c
+@@ -19,7 +19,7 @@
+ #include <linux/random.h>
+ #include <asm/processor.h>
+ #include <asm/hypervisor.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ #include <asm/mshyperv.h>
+ #include <asm/desc.h>
+ #include <asm/idtentry.h>
+diff --git a/arch/x86/kvm/vmx/hyperv_evmcs.h b/arch/x86/kvm/vmx/hyperv_evmcs.h
+index a543fccfc574..6536290f4274 100644
+--- a/arch/x86/kvm/vmx/hyperv_evmcs.h
++++ b/arch/x86/kvm/vmx/hyperv_evmcs.h
+@@ -6,7 +6,7 @@
+ #ifndef __KVM_X86_VMX_HYPERV_EVMCS_H
+ #define __KVM_X86_VMX_HYPERV_EVMCS_H
+ 
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ 
+ #include "capabilities.h"
+ #include "vmcs12.h"
+diff --git a/arch/x86/kvm/vmx/vmx_onhyperv.h b/arch/x86/kvm/vmx/vmx_onhyperv.h
+index bba24ed99ee6..cdf8cbb69209 100644
+--- a/arch/x86/kvm/vmx/vmx_onhyperv.h
++++ b/arch/x86/kvm/vmx/vmx_onhyperv.h
+@@ -3,7 +3,7 @@
+ #ifndef __ARCH_X86_KVM_VMX_ONHYPERV_H__
+ #define __ARCH_X86_KVM_VMX_ONHYPERV_H__
+ 
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ #include <asm/mshyperv.h>
+ 
+ #include <linux/jump_label.h>
+diff --git a/drivers/clocksource/hyperv_timer.c b/drivers/clocksource/hyperv_timer.c
+index 99177835cade..b5f78abd447e 100644
+--- a/drivers/clocksource/hyperv_timer.c
++++ b/drivers/clocksource/hyperv_timer.c
+@@ -23,7 +23,7 @@
+ #include <linux/acpi.h>
+ #include <linux/hyperv.h>
+ #include <clocksource/hyperv_timer.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ #include <asm/mshyperv.h>
+ 
+ static struct clock_event_device __percpu *hv_clock_event;
+diff --git a/drivers/hv/hv_balloon.c b/drivers/hv/hv_balloon.c
+index c38dcdfcb914..d792df113962 100644
+--- a/drivers/hv/hv_balloon.c
++++ b/drivers/hv/hv_balloon.c
+@@ -28,7 +28,7 @@
+ #include <linux/sizes.h>
+ 
+ #include <linux/hyperv.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ 
+ #include <asm/mshyperv.h>
+ 
+@@ -1585,7 +1585,7 @@ static int hv_free_page_report(struct page_reporting_dev_info *pr_dev_info,
+ 		return -ENOSPC;
+ 	}
+ 
+-	hint->type = HV_EXT_MEMORY_HEAT_HINT_TYPE_COLD_DISCARD;
++	hint->heat_type = HV_EXTMEM_HEAT_HINT_COLD_DISCARD;
+ 	hint->reserved = 0;
+ 	for_each_sg(sgl, sg, nents, i) {
+ 		union hv_gpa_page_range *range;
+diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+index 7a35c82976e0..c4fd07d9bf1a 100644
+--- a/drivers/hv/hv_common.c
++++ b/drivers/hv/hv_common.c
+@@ -28,7 +28,7 @@
+ #include <linux/slab.h>
+ #include <linux/dma-map-ops.h>
+ #include <linux/set_memory.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ #include <asm/mshyperv.h>
+ 
+ /*
+diff --git a/drivers/hv/hv_kvp.c b/drivers/hv/hv_kvp.c
+index d35b60c06114..bfb7a518b4ed 100644
+--- a/drivers/hv/hv_kvp.c
++++ b/drivers/hv/hv_kvp.c
+@@ -27,7 +27,7 @@
+ #include <linux/connector.h>
+ #include <linux/workqueue.h>
+ #include <linux/hyperv.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ 
+ #include "hyperv_vmbus.h"
+ #include "hv_utils_transport.h"
+diff --git a/drivers/hv/hv_snapshot.c b/drivers/hv/hv_snapshot.c
+index 0d2184be1691..097ebd58f14e 100644
+--- a/drivers/hv/hv_snapshot.c
++++ b/drivers/hv/hv_snapshot.c
+@@ -12,7 +12,7 @@
+ #include <linux/connector.h>
+ #include <linux/workqueue.h>
+ #include <linux/hyperv.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ 
+ #include "hyperv_vmbus.h"
+ #include "hv_utils_transport.h"
+diff --git a/drivers/hv/hyperv_vmbus.h b/drivers/hv/hyperv_vmbus.h
+index d2856023d53c..6e2b87456300 100644
+--- a/drivers/hv/hyperv_vmbus.h
++++ b/drivers/hv/hyperv_vmbus.h
+@@ -15,10 +15,10 @@
+ #include <linux/list.h>
+ #include <linux/bitops.h>
+ #include <asm/sync_bitops.h>
+-#include <asm/hyperv-tlfs.h>
+ #include <linux/atomic.h>
+ #include <linux/hyperv.h>
+ #include <linux/interrupt.h>
++#include <hyperv/hvhdk.h>
+ 
+ #include "hv_trace.h"
+ 
+diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+index 8fe7aaab2599..a7bbe504e4f3 100644
+--- a/include/asm-generic/mshyperv.h
++++ b/include/asm-generic/mshyperv.h
+@@ -6,9 +6,8 @@
+  * independent. See arch/<arch>/include/asm/mshyperv.h for definitions
+  * that are specific to architecture <arch>.
+  *
+- * Definitions that are specified in the Hyper-V Top Level Functional
+- * Spec (TLFS) should not go in this file, but should instead go in
+- * hyperv-tlfs.h.
++ * Definitions that are derived from Hyper-V code or headers should not go in
++ * this file, but should instead go in the relevant files in include/hyperv.
+  *
+  * Copyright (C) 2019, Microsoft, Inc.
+  *
+@@ -25,7 +24,7 @@
+ #include <linux/cpumask.h>
+ #include <linux/nmi.h>
+ #include <asm/ptrace.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ 
+ #define VTPM_BASE_ADDRESS 0xfed40000
+ 
+diff --git a/include/clocksource/hyperv_timer.h b/include/clocksource/hyperv_timer.h
+index 6cdc873ac907..a4c81a60f53d 100644
+--- a/include/clocksource/hyperv_timer.h
++++ b/include/clocksource/hyperv_timer.h
+@@ -15,7 +15,7 @@
+ 
+ #include <linux/clocksource.h>
+ #include <linux/math64.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ 
+ #define HV_MAX_MAX_DELTA_TICKS 0xffffffff
+ #define HV_MIN_DELTA_TICKS 1
+diff --git a/include/linux/hyperv.h b/include/linux/hyperv.h
+index d0893ec488ae..ed65b20defea 100644
+--- a/include/linux/hyperv.h
++++ b/include/linux/hyperv.h
+@@ -24,7 +24,7 @@
+ #include <linux/mod_devicetable.h>
+ #include <linux/interrupt.h>
+ #include <linux/reciprocal_div.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ 
+ #define MAX_PAGE_BUFFER_COUNT				32
+ #define MAX_MULTIPAGE_BUFFER_COUNT			32 /* 128K */
+diff --git a/net/vmw_vsock/hyperv_transport.c b/net/vmw_vsock/hyperv_transport.c
+index 56c232cf5b0f..31342ab502b4 100644
+--- a/net/vmw_vsock/hyperv_transport.c
++++ b/net/vmw_vsock/hyperv_transport.c
+@@ -13,12 +13,12 @@
+ #include <linux/hyperv.h>
+ #include <net/sock.h>
+ #include <net/af_vsock.h>
+-#include <asm/hyperv-tlfs.h>
++#include <hyperv/hvhdk.h>
+ 
+ /* Older (VMBUS version 'VERSION_WIN10' or before) Windows hosts have some
+  * stricter requirements on the hv_sock ring buffer size of six 4K pages.
+- * hyperv-tlfs defines HV_HYP_PAGE_SIZE as 4K. Newer hosts don't have this
+- * limitation; but, keep the defaults the same for compat.
++ * HV_HYP_PAGE_SIZE is defined as 4K. Newer hosts don't have this limitation;
++ * but, keep the defaults the same for compat.
+  */
+ #define RINGBUFFER_HVS_RCV_SIZE (HV_HYP_PAGE_SIZE * 6)
+ #define RINGBUFFER_HVS_SND_SIZE (HV_HYP_PAGE_SIZE * 6)
+-- 
+2.34.1
 
 
