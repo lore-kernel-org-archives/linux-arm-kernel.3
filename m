@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65DED58094
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 12:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C670ED58094
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 12:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j31QpgYkMwRfIDmBSIKwiYoQOk5xxXQgXhenRSn2vl4=; b=QioWpZOFfyepGYc4NZPcwOOqsm
-	t7R0nwtLREXeQZg8T0rU5DirXIU2fgniP01+wHl2A3EgeJ317D2tPcjK6i1NV9AzYHUaP7VR7dRnm
-	OBggX01Ca6jc4DD39a/mLIWZFgpL+ypJcQFdnbJoCnb8wS/2Xn8+LFuh93iSDe2gl4izBlkrxHr3d
-	DqZ13lN2KpebYsDXjTJ+YpdaF1uXXKxxJTvLEgB/57fiMG8yLnr5sMt9EQ/SxsQPIDQaVxDLJXguA
-	xow5ZY/BsCrmdYv0XZC9FMjhFYeTcUSyeHqNx6JzP7JyX+XYtLWLO1qsxjRfbpt0WvsJ+DdmEPtHZ
-	eX3s/cFw==;
+	bh=xsTV/loYrY62LYDuJNo37p0oBX0hVto76KaPCQGmTYM=; b=ekxmXSqH0DwagXiiq/LfHewxCR
+	+Fmka3n1JVcS4HaocrHj93lrf/6Kys8CVV3iTwVitPfcdjOEHzi6Humz15lMr/HAo+X41WwCmg7bN
+	i43n2U/VSwCI8Py8TABFszuELdij1QJdSN26BsxgsFTvBJpBKXxB9HMs71XMAJAft8534iKs8MRVP
+	DAL3NjRJuN+T0iRdcrI2c3WltwFqtXp7zd2S66PifBGWL3XSzp2sA1owFuKJ0T3Gsd9TNWri7x1da
+	Ug/0AhXffRNqmW7mlIuzXzidZ2Ux7GiVQAJoCF8UK7WWt3FbcyMJ/nG5XaToucyu0zogpCummikQ/
+	ip0qtmuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFYZa-000000082XI-13a6;
-	Mon, 25 Nov 2024 12:52:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tFYaw-000000082m4-0bDV;
+	Mon, 25 Nov 2024 12:53:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFYYc-000000082Qh-46aQ
+	id 1tFYZy-000000082cr-3OVg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 12:51:16 +0000
+	Mon, 25 Nov 2024 12:52:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7DC7E5C5977;
-	Mon, 25 Nov 2024 12:50:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D918DC4CECE;
-	Mon, 25 Nov 2024 12:51:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C50E25C5AE2;
+	Mon, 25 Nov 2024 12:51:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2021C4CECE;
+	Mon, 25 Nov 2024 12:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732539072;
-	bh=lL1pzJTJrsl5S8uCJZ6H18Rb7qtHU1zVpOtDA+BLHPk=;
+	s=k20201202; t=1732539158;
+	bh=Hvasdb7Y1B9JNzgx80X5SPlj6UThep3Ym8D7Ij/hhvI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YrPymnv94rBJrNghmVERbLc5IwcUUEZwv045XKUU1q7U4sK80axXF1mdnzw2U/Na2
-	 mUHzWYiehMD9vG7b4Zn97ZEB01C9JxCKNJIW7INWYwNakq692DLlbrP42hG11tEFtS
-	 5huF/Oj+dgWFaTgoBGWnvU5JjiYnLzSEFWrJSfx+AItiJBCvXRgbkUkxrL73gZwFjR
-	 O7RUpzlOpUGh0ufQDbIQ/SQx5TEuckjedXVihBPOa26Obj/iF7xJTign4EBHFFThZZ
-	 M/gqA5HR6ybRLrhAotswuNSRb4oiOxEXmEJNqRs42YBbBCv/UGAjh6IwnRqURqJA1d
-	 Zzd+ntes+Bzyg==
-Date: Mon, 25 Nov 2024 12:51:07 +0000
+	b=n5CcNBqh3Hb+M0sCt6BGXda2YzgJG5Ut9EFIKKRwaTfRPGbPAomowUnQ7uhh/fkBJ
+	 a/qq7CgwjXByye8wN8ZS2EH8PHLFkr+3Gj9zFMcnoNX4xSz1CpZ6rFTsS5/X1qglWA
+	 CdoA/IqOWY+MyR/yH3k6vL7+I4K3WCYb0UEeULXhHmA6oNxkT9e+qbShVy9vDsdl0c
+	 rhUW8IsCz6Cyg90jfWUy3Z2tDaSKvF2L5HQLuBfEtd7LVmd8UO/uu+68C4R5R/9dbB
+	 qSzEU5UBswIL+lErWcBbvh4se5NcB+wnjPuwniiPTaNsy7lkTIgw5jBN9xj9EzQJtR
+	 w6fjbgaJp2LhA==
+Date: Mon, 25 Nov 2024 12:52:33 +0000
 From: Will Deacon <will@kernel.org>
-To: Chun-Tse Shao <ctshao@google.com>, catalin.marinas@arm.com
-Cc: linux-kernel@vger.kernel.org, Greg Thelen <gthelen@google.com>,
-	Namhyung Kim <namhyung@kernel.org>,
+To: Namhyung Kim <namhyung@kernel.org>, catalin.marinas@arm.com
+Cc: Mark Rutland <mark.rutland@arm.com>,
 	Robin Murphy <robin.murphy@arm.com>,
-	Tuan Phan <tuanphan@os.amperecomputing.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
+	Stephane Eranian <eranian@google.com>,
+	LKML <linux-kernel@vger.kernel.org>,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] perf/arm-smmuv3: Fix lockdep assert in ->event_init()
-Message-ID: <20241125125106.GA858@willie-the-truck>
-References: <20241108050806.3730811-1-ctshao@google.com>
+Subject: Re: [PATCH v2] perf/arm-cmn: Ensure port and device id bits are set
+ properly
+Message-ID: <20241125125233.GB858@willie-the-truck>
+References: <20241121001334.331334-1-namhyung@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241108050806.3730811-1-ctshao@google.com>
+In-Reply-To: <20241121001334.331334-1-namhyung@kernel.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_045115_058038_3DEF6A2E 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20241125_045238_887996_B6AC3B34 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,25 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 08, 2024 at 05:08:05AM +0000, Chun-Tse Shao wrote:
-> Same as
-> https://lore.kernel.org/all/20240514180050.182454-1-namhyung@kernel.org/,
-> we should skip `for_each_sibling_event()` for group leader since it
-> doesn't have the ctx yet.
+On Wed, Nov 20, 2024 at 04:13:34PM -0800, Namhyung Kim wrote:
+> The portid_bits and deviceid_bits were set only for XP type nodes in
+> the arm_cmn_discover() and it confused other nodes to find XP nodes.
+> Copy the both bits from the XP nodes directly when it sets up a new
+> node.
 > 
-> Fixes: f3c0eba28704 ("perf: Add a few assertions")
-> Reported-by: Greg Thelen <gthelen@google.com>
-> Cc: Namhyung Kim <namhyung@kernel.org>
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: Tuan Phan <tuanphan@os.amperecomputing.com>
-> Signed-off-by: Chun-Tse Shao <ctshao@google.com>
+> Fixes: e79634b53e39 ("perf/arm-cmn: Refactor node ID handling. Again.")
+> Signed-off-by: Namhyung Kim <namhyung@kernel.org>
 > ---
->  drivers/perf/arm_smmuv3_pmu.c | 19 +++++++++++--------
->  1 file changed, 11 insertions(+), 8 deletions(-)
+>  drivers/perf/arm-cmn.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 
 Acked-by: Will Deacon <will@kernel.org>
 
-Catalin -- please can you pick this up for -rc1?
+Catalin -- here's another perf fix for you!
+
+Thanks,
 
 Will
 
