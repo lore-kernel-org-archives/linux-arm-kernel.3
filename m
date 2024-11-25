@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB794D3B7F5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C93D3B7FF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:24:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hUO3cLlT3vdLxWhuhdutCmu0MQDfhoRgoCbEY54Csm8=; b=qoNxRIuk9COldUjuqt+nIHtDfS
-	mJekRAdo9znD4777EnrVxSYEdYG51UVqccF4FcHtGHaV0FIA9I/RQsS4E0Ne02UjiDohdVqRHsRWS
-	BfOhKar4zK44E8Z2UqTvV1GvdaCCrTEPC1RqIXxJlT7BsgE5+IsF2Ix6K36zjMIoJuvwyJbt9aaHC
-	XRAsKmnud0jYSeTO93uD6AoVE2JuwOUXnMUTGadhpDtze8yv8smvfEpY/TSXrs18LeCuDRxBlV3l9
-	oUexGHwW8ZC+ArwKR8VWQOsSAxrkcgjcAnXWxXfGGclfIG/USsllPY6pgDwG47LCGhh/SwDzwLc9v
-	iw3WbYpw==;
+	bh=zA7xM9K6ZZSQhBmqRXo54R3Bob+g4FvLBnSSMPtVfLY=; b=TZsrNgZE2685Ccs7bDX1nGkjvz
+	OX200r/mhbAv9JpbnURn8x9emXmwarAjRGkSzZT5Li0tgdt7vrzWOXmvaE/v9M5EliiZigvcpMQyz
+	b10Ghm/ywQjnnB9Kl3Yj7xWww9vtTK98E1clUR9UZrF0rTlN67HYcNiy7zgWfqIkI/4bftA6ipLLQ
+	lOZi4hHosYG9x/j981jrBvPFrGbGDUKuo5PpZ5MqVfOAI00FqgGHAFUJWa7S6rvTC85zPXdi2te0U
+	m0ORHwQ5N2f4EsoDOYb4kOw3hcDfk3jgCaEDoLvoE7WHlgrkEZ2NSVZqVCzAg/gIkjdLjAtdw58LK
+	ngOmSCIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFWBB-00000007jhH-0oLS;
-	Mon, 25 Nov 2024 10:18:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tFWG9-00000007kad-32vQ;
+	Mon, 25 Nov 2024 10:24:01 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFW5w-00000007h7W-48IF;
-	Mon, 25 Nov 2024 10:13:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DEF2A5C5707;
-	Mon, 25 Nov 2024 10:12:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0524C4CECE;
-	Mon, 25 Nov 2024 10:13:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732529608;
-	bh=hUO3cLlT3vdLxWhuhdutCmu0MQDfhoRgoCbEY54Csm8=;
+	id 1tFWFC-00000007kVe-3gqr;
+	Mon, 25 Nov 2024 10:23:04 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id F03B86B5;
+	Mon, 25 Nov 2024 11:22:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1732530159;
+	bh=vEktPLBDDcD6K+Ywf5tGYAWq1SEiHS7jR7yItctdw1k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ecXyt2kIURgzHaGqA6Om1ND2ZukCSUbhfaBgrTVsLdakQL+39aWUtBY8cVoSZlqdT
-	 dRUwWGz50dH5iV7nF6vRMvqpQpO6xflP3jTA2CWkLuo0/tSXMMPT9IZk533d3ETFFZ
-	 PUrlqfbTHHr6GC/Q7Nh/2CsDVLIG2Y9KTCtiw2GQvO1agESZR/y+t5VRVptpwuv4r6
-	 KCzDOe8VEYuNOTyeoKKxYb/vgGlz1h66d2Z4vRgBj17djGa0JjdWrWo7OwLQu3ud03
-	 SJMORycZfj959fobpZojpgvxp5bui2gfQ8cguN6GQ/nt9w6oroCQLb1zr3MpNrU5bt
-	 TD5FIj632msXg==
-Date: Mon, 25 Nov 2024 11:13:25 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
-	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	ck.hu@mediatek.com, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH v1 7/7] drm/mediatek: Introduce HDMI/DDC v2 for
- MT8195/MT8188
-Message-ID: <20241125-spirited-industrious-roadrunner-e8154d@houat>
-References: <20241120124512.134278-1-angelogioacchino.delregno@collabora.com>
- <20241120124512.134278-8-angelogioacchino.delregno@collabora.com>
- <20241122-cobra-of-authentic-discourse-e2c5b6@houat>
- <03b5a671-e0c0-4d18-a103-e7f0ab18e20e@collabora.com>
+	b=cC2d+P8eBtYJZnAFLVQwSXuk8HKXOpxgMwPY3VYIEmgd0pcostPigM1+qqL0vGtSa
+	 KNo4PJzzSIzAaHge+E16wTllKnKDapBMN1EneVGXxdNsoStd9TdJ2eFk+0zoSCFRZr
+	 wFMwWgFkKmZk8BTGHVEbLVgwjsAIIoWnoY+ia/3o=
+Date: Mon, 25 Nov 2024 12:22:50 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: CK Hu =?utf-8?B?KOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"paul.elder@ideasonboard.com" <paul.elder@ideasonboard.com>,
+	"mchehab@kernel.org" <mchehab@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	Andy Hsieh =?utf-8?B?KOisneaZuueakyk=?= <Andy.Hsieh@mediatek.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Julien Stephan <jstephan@baylibre.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"fsylvestre@baylibre.com" <fsylvestre@baylibre.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v7 4/5] media: platform: mediatek: isp: add mediatek
+ ISP3.0 camsv
+Message-ID: <20241125102250.GO19381@pendragon.ideasonboard.com>
+References: <20241121-add-mtk-isp-3-0-support-v7-0-b04dc9610619@baylibre.com>
+ <20241121-add-mtk-isp-3-0-support-v7-4-b04dc9610619@baylibre.com>
+ <a9aa69dc8d025f0b133f33de6428ffec5a881a2a.camel@mediatek.com>
+ <20241125093953.GM19381@pendragon.ideasonboard.com>
+ <25f70693c81eb86c832378fee89792f6754b7ca0.camel@mediatek.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="h3ivafm5bqasam2u"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <03b5a671-e0c0-4d18-a103-e7f0ab18e20e@collabora.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <25f70693c81eb86c832378fee89792f6754b7ca0.camel@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_021329_063475_63460217 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20241125_022303_055140_B4AC6A25 
+X-CRM114-Status: GOOD (  26.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,58 +84,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Nov 25, 2024 at 09:56:54AM +0000, CK Hu (胡俊光) wrote:
+> On Mon, 2024-11-25 at 11:39 +0200, Laurent Pinchart wrote:
+> > On Mon, Nov 25, 2024 at 06:59:59AM +0000, CK Hu (胡俊光) wrote:
+> > > On Thu, 2024-11-21 at 09:53 +0100, Julien Stephan wrote:
+> > > >
+> > > > From: Phi-bang Nguyen <pnguyen@baylibre.com>
+> > > >
+> > > > This driver provides a path to bypass the SoC ISP so that image data
+> > > > coming from the SENINF can go directly into memory without any image
+> > > > processing. This allows the use of an external ISP.
+> > > >
+> > > > Signed-off-by: Phi-bang Nguyen <pnguyen@baylibre.com>
+> > > > Signed-off-by: Florian Sylvestre <fsylvestre@baylibre.com>
+> > > > [Paul Elder fix irq locking]
+> > > > Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
+> > > > Co-developed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > > > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > > > Co-developed-by: Julien Stephan <jstephan@baylibre.com>
+> > > > Signed-off-by: Julien Stephan <jstephan@baylibre.com>
+> > > > ---
+> > >
+> > > [snip]
+> > >
+> > > > +static const struct mtk_cam_conf camsv30_conf = {
+> > > > +       .tg_sen_mode = 0x00010002U, /* TIME_STP_EN = 1. DBL_DATA_BUS = 1 */
+> > > > +       .module_en = 0x40000001U, /* enable double buffer and TG */
+> > > > +       .imgo_con = 0x80000080U, /* DMA FIFO depth and burst */
+> > > > +       .imgo_con2 = 0x00020002U, /* DMA priority */
+> > >
+> > > Now support only one SoC, so it's not necessary make these SoC variable.
+> > > They could be constant symbol now.
+> >
+> > This I would keep as a mtk_cam_conf structure instance, as I think it
+> > makes it clear what we consider to be model-specific without hindering
+> > readability. I don't have a very strong opinion though.
+> 
+> If this is a configuration table, I would like it to be
+> 
+> {
+> .time_stp_en = true;
+> .dbl_data_bus = 1;
+> .double_buffer_en = true;
+> .tg = 0x4;
+> ...
+> }
 
---h3ivafm5bqasam2u
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v1 7/7] drm/mediatek: Introduce HDMI/DDC v2 for
- MT8195/MT8188
-MIME-Version: 1.0
+I like that too, it's more readable than raw register values.
 
-On Mon, Nov 25, 2024 at 10:40:22AM +0100, AngeloGioacchino Del Regno wrote:
-> Il 22/11/24 10:20, Maxime Ripard ha scritto:
-> > Hi,
-> >=20
-> > On Wed, Nov 20, 2024 at 01:45:12PM +0100, AngeloGioacchino Del Regno wr=
-ote:
-> > > Add support for the newer HDMI-TX (Encoder) v2 and DDC v2 IPs
-> > > found in MediaTek's MT8195, MT8188 SoC and their variants, and
-> > > including support for display modes up to 4k60 and for HDMI
-> > > Audio, as per the HDMI 2.0 spec.
-> > >=20
-> > > HDCP and CEC functionalities are also supported by this hardware,
-> > > but are not included in this commit.
-> > >=20
-> > > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@=
-collabora.com>
-> >=20
-> > Just a heads-up, you should really be using the new HDMI helpers, it'll
-> > remove a lot of boilerplate and potential bugs.
->
-> Hmm... the state helper you mean? Or the inflight series from Dmitry?
+> If next SoC has only one parameter is different, we duplicate all
+> other parameter?
 
-Ideally both, but targetting only the former would be great already :)
+That's what we usually do when the amount of parameters is not too
+large. When it becomes larger, we sometimes split the configuration data
+in multiple chunks. For instance,
 
-> In any case... yeah, you're right, let me check which helpers I can
-> use: that's going to be done for v2 :-)
+static const char * const family_a_clks[] = {
+	"core",
+	"io",
+};
 
-I think the scrambler support would be great to add there, there's a lot
-of bugs in most drivers. If you feel like it :)
+static sont char * const family_b_clks[] = {
+	"main",
+	"ram",
+	"bus",
+};
 
-Maxime
+static const foo_dev_info soc_1_info = {
+	.has_time_machine = false,
+	.clks = family_a_clks,
+	.num_clks = ARRAY_SIZE(family_a_clks),
+};
 
---h3ivafm5bqasam2u
-Content-Type: application/pgp-signature; name="signature.asc"
+static const foo_dev_info soc_2_info = {
+	.has_time_machine = false,
+	.clks = family_b_clks,
+	.num_clks = ARRAY_SIZE(family_b_clks),
+};
 
------BEGIN PGP SIGNATURE-----
+static const foo_dev_info soc_3_info = {
+	.has_time_machine = true,
+	.clks = family_b_clks,
+	.num_clks = ARRAY_SIZE(family_b_clks),
+};
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ0RNvwAKCRAnX84Zoj2+
-du1BAYCjKyk+nF1tolybBaGVQDKxzLMP0aXHCAkIJNAu09aAHat9Y0MhN/kPIBXf
-tfkB+7MBfjQt2wnl1ouI79g9WFI8G9PRbpuZNHwGd7TOzG9Ro+rG6xY9J8nMPV8N
-WxjwIWRu/g==
-=mo8X
------END PGP SIGNATURE-----
+There's no clear rule, it's on a case-by-case basis.
 
---h3ivafm5bqasam2u--
+> > > > +};
+> > > > +
+
+-- 
+Regards,
+
+Laurent Pinchart
 
