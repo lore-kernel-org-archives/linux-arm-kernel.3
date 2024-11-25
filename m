@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23AA5D5806C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 12:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D24DD5806E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 12:02:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ww3YlZzRzljXfiIGG34NOz7jVp5FZwnBv4kjnYFxh18=; b=IY95pXIWDq8n1/FdkVQSDRuKro
-	hPfUDd5CQ6Yrhqz5uaecCTQts/7ecv0Xu+OKJVh4JIRqwJM8v9tbZlbh7BmPIJAdxyakXHtWHP14M
-	nyeEtSC9nEFZ/9sUK2EN3c+/LMMsJ0zA0OEUunNX3mBXJJVEIxngPUiqAqOb3Kmrkjxx497lHS1Dj
-	Kp0gDFHEFR4BRJD8a9gdLcnXcwiFIMKlrVOjL/4gUUudWUfPPYi05ceUjX1ysJkQrPo7bjUqLrunB
-	juGGgWzJzE6+YxfqoHPxow9YQDS7p4JqS8wLT+f0uznCgVB9xVN1XIOVshnpejbyCP/I7f62a9rpb
-	O91kf6LQ==;
+	bh=w7ZsJLgH7EJzomT/OPbscdiTb7j7tI+Uck1UKkacBNc=; b=tqW6koCNBe7Jizmu9cR6OS84mY
+	Kp/R1wZLel31kibBPhvgJ5QnIA1vxTzO+dEtU/owKCudxzYdZB27Nqq91sWg8gWofEmIyUgFMVTcw
+	XZJF/XpENb4iE0MuvpC2jab/GBfhZ3ZUtW4EgBHBpT2rwTXVVWJd1FGfnkkLlN1EIXodkVkuwcvtZ
+	EOwUBd4YMKnSY/JgrMBMQ8HZJx08+v3ygUop02AuWPjJSgvrp576idND0K3uJ2d9BtOA5qzsqk43u
+	JJmCskk8LdL7Bjvs5+gIJQ5XA1ZFq716KJIns23TRVBe2/LWVqdCIrLjy9cY55rS0XNQ7cUTXnjeD
+	e9zStosg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFXlb-00000007xPp-3fN5;
-	Mon, 25 Nov 2024 12:00:35 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tFXnH-00000007xds-2Ruy;
+	Mon, 25 Nov 2024 12:02:19 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFXkf-00000007xIc-0Dzi
+	id 1tFXmK-00000007xXd-17xk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 11:59:38 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4349338add3so61985e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 03:59:35 -0800 (PST)
+	Mon, 25 Nov 2024 12:01:21 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-432d7d5fcd6so80405e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 04:01:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1732535974; x=1733140774; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1732536078; x=1733140878; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ww3YlZzRzljXfiIGG34NOz7jVp5FZwnBv4kjnYFxh18=;
-        b=sLu+TrHZ5vplf6uXtd4i2nk6fabcetyqzULNqagIQkQaeU1QvegCZnBcdLTHv1PN5c
-         KpGkNBZr8YPddgJ4TrSIClclY8z8ZS9C/gF7LtkevhDGEqMfeNzdh3N/rLBrGA6HFWzx
-         6W1oVweKCmlR4CFWK5OooiGMwJUJX663ozQnndiOmdiorRD7i08cu76pwgg7oGfhvhve
-         MeY4lak5WHKU2G+WFAPkofXSYdzv7LtSo72YKW55ss8BoJiwl2IBq4fvVA8BdIqHy+mS
-         Udlv1a0dnx9yj9c47GlXWh0OB48hgcfRSt9kq698rv58cskVEgLCP6M+i7SvEORuresq
-         gu+Q==
+        bh=w7ZsJLgH7EJzomT/OPbscdiTb7j7tI+Uck1UKkacBNc=;
+        b=TxIA8HvxEC/kyn/9RjQiBrmy0bScYu4zRxWG/V3+X2E4Xz3GyAHONlsMqIhGxI5ZtQ
+         xNvSXYU2guHlgrfNTyw59A+hnBM8hbSPc5tgackqUWUWJ2Icvvc8pX4iRhQ8jAhXs237
+         gNzWJPfNC6+B0k0z4Gd9jVsXaaRjAmHbPGxaxNstM5PKD3fyyQce0ijClJWS1LR76yd4
+         eraWvpJskv3TbHklzOZOwA8TpWPGrv31Ct0RwGZIDkcQhgmtfmwb1xYKF+92crLk3HCd
+         +Pcbz96r+m09rvIN9HnL2yI8J8s15KODXNwF6MHlIPQ4Wl1stjxDeFRzzlSTF4fuOlnY
+         cFHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732535974; x=1733140774;
+        d=1e100.net; s=20230601; t=1732536078; x=1733140878;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ww3YlZzRzljXfiIGG34NOz7jVp5FZwnBv4kjnYFxh18=;
-        b=SiVNkEFtnTDEZMgVYlkFqY5+HTQD1IQAQS+3IqZQpB66XVrKadJmepTjZjAEcx75DF
-         hZubP7sTgkaeDoU8prhfLcXmPshiMdUfGDkDzSo+2evFcjXpx6GwMaAtFlNBjieBlcGo
-         HDLKPc18mUYfoKMdpK7s5o66kxJMMX7gDZDjbqiWtE8a5G/JZvemBreS8sxJYWUc96ZE
-         9yfVfxlusQufkuzzKQ/dPCx33jkOIYxJcG6NbhQjNgz6KwAZCUcI0J9r0U3/1MzpFHWE
-         sgCjQ9HsTeKRRYeB3kRi/4mDysIGl+oUAdc0ZsY33/GF6bGXHMevQ/kvEkzF0QpHum06
-         rnOw==
-X-Forwarded-Encrypted: i=1; AJvYcCUvy8nKjkt4G2vuiemwHaMG0HrTHHOd3PKg+AQhkNW69CBKyQdCT7KbvOaEHPm4gGBLdc5rYyQ9Dsg7TxuDQNnU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/ZTR0bW23fTLCp8QqMx4JRdhqA+5HDZyFOgmk3xefe/caCXKt
-	pkIuRt9xs03gczopgII/rZ0qrcmzt3cdmUfUD63zQHH8c57T9DmpHebvFbjcisVVPnD28rApZNK
-	OzLlZqUjA/z8Yg83I7bnZCprwylED84yHPOvS
-X-Gm-Gg: ASbGnctbJPPaWTUgwHujO5F182fbQMGXFm0G0XoogGjRiqJA+jCjQtQmvD/Z5PO6ujV
-	k7QuZhagN6bSuoCxgAEb8vrc+76G7Og==
-X-Google-Smtp-Source: AGHT+IGu8CTtX0DwI9l42eo6hCR0G+gNVNebSmIzHE1Pb7TY8/8FCpvE/ag1zS55FnP4k8HK+qQSBBiN0gPZJz3+WEg=
-X-Received: by 2002:a05:600c:5248:b0:431:43a1:4cac with SMTP id
- 5b1f17b1804b1-4348c991304mr2570645e9.3.1732535974462; Mon, 25 Nov 2024
- 03:59:34 -0800 (PST)
+        bh=w7ZsJLgH7EJzomT/OPbscdiTb7j7tI+Uck1UKkacBNc=;
+        b=m4nUurP20d3pz+3BNwrABdPRlVV5phHPrNhWwy4AF6zvnh67eFROg+ADSIGsOvydax
+         A6+dbHCI3WDon3W6sJw7jc/HcAcJMf7nQxUh6tbV4j0pJZMd0JL2o8cZ9V+WfPeTqE7V
+         h7cZfpsn+AyHzvcDWDnE/IGYcMMtJmqqKJwmgdyuI9BLxFiwQWAxY6iKBrshU/QCEadJ
+         +rxXAsdl2aio/o9qNYYC0z/40cqvCjRcurBjBc91vUgc/gf1MVB0YjtfUTtCEW1d+HEg
+         5H4D2XTxld9ijWCi8ss2Rwu0bbt8SJHt6tsCCMJQq/Ykdj1tHV6O9j8NzPt2GSj5BWPq
+         7KCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWog4EEQvnw0RytmTqQ++hX4KL8JlWpZMuOOt1iiXZ1CeYHMHgEQ0mH9PU3eryjyH0W2YcZ27cgS8sMOiImE/Wg@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhQX8NUJg9AWPu0SzFrH5lF5C0VtHLQSTPxw3Aug24dClqxp0T
+	o+BHhT4/+zZRK7c9jDvtQIvQZAxnTZSLYxdhndV/3gC7Usha9GcR1RWA4kTvv4IM6kvguaofvnC
+	/GKxJQJ/YY8SCQa4fha2KKg/LOSDGWVNdBblH
+X-Gm-Gg: ASbGncsg/FUhm2FK38NRJmdaHiK5pEqPg7/UnG/ILARQNfXjFsVnRJFwr41GLIHOVG+
+	jsJDqHz4E8h/7CKrczD2FpLvcXX4sLw==
+X-Google-Smtp-Source: AGHT+IGOoaM7iUnf0v0aEQenNPMbZX7T/9Rp6+XXRcBOMI/kWtHC1wFoi9txS3/EaMmCMufV90GE3ir42ciJ7WuyrRM=
+X-Received: by 2002:a05:600c:4f06:b0:42c:9e35:cde6 with SMTP id
+ 5b1f17b1804b1-4348bdae14amr2761825e9.2.1732536078343; Mon, 25 Nov 2024
+ 04:01:18 -0800 (PST)
 MIME-Version: 1.0
-References: <20241122110622.3010118-1-tabba@google.com> <20241122110622.3010118-6-tabba@google.com>
- <86ldx8vni5.wl-maz@kernel.org>
-In-Reply-To: <86ldx8vni5.wl-maz@kernel.org>
+References: <20241122110622.3010118-1-tabba@google.com> <20241122110622.3010118-8-tabba@google.com>
+ <86jzcsvmba.wl-maz@kernel.org>
+In-Reply-To: <86jzcsvmba.wl-maz@kernel.org>
 From: Fuad Tabba <tabba@google.com>
-Date: Mon, 25 Nov 2024 11:58:58 +0000
-Message-ID: <CA+EHjTyEOgedbeiaiNKSxxE9CNaSWLh4nQONMem+bgbrxnkCZA@mail.gmail.com>
-Subject: Re: [PATCH v2 05/12] KVM: arm64: Initialize feature id registers for
- protected VMs
+Date: Mon, 25 Nov 2024 12:00:42 +0000
+Message-ID: <CA+EHjTwuTgH1gdoSuZu_A0MxOuFnt3PGTBdMAnfMnSOh8QAQLQ@mail.gmail.com>
+Subject: Re: [PATCH v2 07/12] KVM: arm64: Rework specifying restricted
+ features for protected VMs
 To: Marc Zyngier <maz@kernel.org>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	oliver.upton@linux.dev, james.clark@linaro.org, will@kernel.org, 
@@ -78,8 +78,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_035937_092613_50E1C2F7 
-X-CRM114-Status: GOOD (  37.47  )
+X-CRM114-CacheID: sfid-20241125_040120_308029_B0CDA2BE 
+X-CRM114-Status: GOOD (  29.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,174 +96,107 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Marc,
 
-On Sun, 24 Nov 2024 at 12:12, Marc Zyngier <maz@kernel.org> wrote:
+On Sun, 24 Nov 2024 at 12:38, Marc Zyngier <maz@kernel.org> wrote:
 >
-> On Fri, 22 Nov 2024 11:06:15 +0000,
+> On Fri, 22 Nov 2024 11:06:17 +0000,
 > Fuad Tabba <tabba@google.com> wrote:
 > >
-> > The hypervisor maintains the state of protected VMs. Initialize
-> > the values for feature ID registers for protected VMs, to be used
-> > when setting traps and when advertising features to protected
-> > VMs.
+> > The existing code didn't properly distinguish between signed and
+> > unsigned features, and was difficult to read and to maintain.
+> > Rework it using the same method used in other parts of KVM when
+> > handling vcpu features.
 > >
 > > Signed-off-by: Fuad Tabba <tabba@google.com>
 > > ---
-> >  .../arm64/kvm/hyp/include/nvhe/fixed_config.h |  1 +
-> >  arch/arm64/kvm/hyp/nvhe/pkvm.c                |  4 ++
-> >  arch/arm64/kvm/hyp/nvhe/sys_regs.c            | 54 +++++++++++++++++--
-> >  3 files changed, 56 insertions(+), 3 deletions(-)
+> >  .../arm64/kvm/hyp/include/nvhe/fixed_config.h |   1 -
+> >  arch/arm64/kvm/hyp/nvhe/sys_regs.c            | 356 +++++++++---------
+> >  2 files changed, 186 insertions(+), 171 deletions(-)
 > >
 > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
-> > index d1e59b88ff66..69e26d1a0ebe 100644
+> > index 69e26d1a0ebe..37a6d2434e47 100644
 > > --- a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
 > > +++ b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
-> > @@ -201,6 +201,7 @@
-> >  u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id);
+> > @@ -198,7 +198,6 @@
+> >       FIELD_PREP(ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_APA3), ID_AA64ISAR2_EL1_APA3_PAuth) \
+> >       )
+> >
+> > -u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id);
 > >  bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
 > >  bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
-> > +void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
-> >  int kvm_check_pvm_sysreg_table(void);
-> >
-> >  #endif /* __ARM64_KVM_FIXED_CONFIG_H__ */
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > index 59ff6aac514c..4ef03294b2b4 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > @@ -381,6 +381,7 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
-> >       hyp_vm->kvm.created_vcpus = nr_vcpus;
-> >       hyp_vm->kvm.arch.mmu.vtcr = host_mmu.arch.mmu.vtcr;
-> >       hyp_vm->kvm.arch.pkvm.enabled = READ_ONCE(host_kvm->arch.pkvm.enabled);
-> > +     hyp_vm->kvm.arch.flags = 0;
-> >       pkvm_init_features_from_host(hyp_vm, host_kvm);
-> >  }
-> >
-> > @@ -419,6 +420,9 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
-> >       hyp_vcpu->vcpu.arch.cflags = READ_ONCE(host_vcpu->arch.cflags);
-> >       hyp_vcpu->vcpu.arch.mp_state.mp_state = KVM_MP_STATE_STOPPED;
-> >
-> > +     if (pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-> > +             kvm_init_pvm_id_regs(&hyp_vcpu->vcpu);
-> > +
-> >       ret = pkvm_vcpu_init_traps(hyp_vcpu);
-> >       if (ret)
-> >               goto done;
+> >  void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
 > > diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> > index 59fb2f056177..7008e9641f41 100644
+> > index 3aa76b018f70..cea3b099dc56 100644
 > > --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
 > > +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> > @@ -204,8 +204,7 @@ static u64 get_pvm_id_aa64mmfr2(const struct kvm_vcpu *vcpu)
-> >       return id_aa64mmfr2_el1_sys_val & PVM_ID_AA64MMFR2_ALLOW;
-> >  }
+> > @@ -28,221 +28,237 @@ u64 id_aa64mmfr1_el1_sys_val;
+> >  u64 id_aa64mmfr2_el1_sys_val;
+> >  u64 id_aa64smfr0_el1_sys_val;
 > >
-> > -/* Read a sanitized cpufeature ID register by its encoding */
-> > -u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
-> > +static u64 pvm_calc_id_reg(const struct kvm_vcpu *vcpu, u32 id)
-> >  {
-> >       switch (id) {
-> >       case SYS_ID_AA64PFR0_EL1:
-> > @@ -240,10 +239,25 @@ u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
-> >       }
-> >  }
-> >
-> > +/* Read a sanitized cpufeature ID register by its encoding */
-> > +u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
-> > +{
-> > +     return pvm_calc_id_reg(vcpu, id);
-> > +}
-> > +
+> > -/*
+> > - * Inject an unknown/undefined exception to an AArch64 guest while most of its
+> > - * sysregs are live.
+> > - */
+> > -static void inject_undef64(struct kvm_vcpu *vcpu)
+> > -{
+> > -     u64 esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT);
+> > -
+> > -     *vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
+> > -     *vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
+> > -
+> > -     kvm_pend_exception(vcpu, EXCEPT_AA64_EL1_SYNC);
+> > -
+> > -     __kvm_adjust_pc(vcpu);
+> > -
+> > -     write_sysreg_el1(esr, SYS_ESR);
+> > -     write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
+> > -     write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
+> > -     write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
+> > -}
+> > +struct pvm_feature {
+> > +     int shift;
+> > +     int width;
+> > +     u64 mask;
+> > +     u64 max_supported;
+> > +     bool is_signed;
 >
-> Whatever reason you have to keep this per-CPU, it really needs to
-> change to be VM-scoped. Maybe not immediately, but that should be on
-> your list.
+> Most of this is very similar to struct arm64_ftr_bits. Can you align
+> the types and names with it? And do you really need 'mask', which can
+> be derived from shift and width?
 
-Ack.
+Ack. I stored mask since it's already there in sysreg-defs.h, but I'll
+recalculate it.
 
-> >  static u64 read_id_reg(const struct kvm_vcpu *vcpu,
-> >                      struct sys_reg_desc const *r)
-> >  {
-> > -     return pvm_read_id_reg(vcpu, reg_to_encoding(r));
-> > +     struct kvm *kvm = vcpu->kvm;
-> > +     u32 reg = reg_to_encoding(r);
-> > +
-> > +     if (WARN_ON_ONCE(!test_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags)))
-> > +             return 0;
-> > +
-> > +     if (reg >= sys_reg(3, 0, 0, 4, 0) && reg <= sys_reg(3, 0, 0, 7, 7))
-> > +             return kvm->arch.id_regs[IDREG_IDX(reg)];
+> max_supported as an unsigned value is also potentially troublesome for
+> signed features. And does it need to be 64bit wide?
+
+It doesn't need to be 64 bits. I will make it a u8. As for the sign,
+the function that handles it, get_restricted_features(), uses bit
+manipulation to handle it, since the sign bit is bit 3 for most (or
+all) id regs, rather than rely on the sign, which is why I went with
+unsigned.
+
+> > +     bool (*vcpu_supported)(const struct kvm_vcpu *vcpu);
 >
-> Why the limit to the AA64 idregs? Aren't the other shadow sysreg
-> values correctly initialised to 0?
+> We really need to find a way to kill this. The two features that stick
+> out badly are SVE and PAuth, and I don't see why we can't eventually
+> track them at the VM level instead (despite the userspace API).
 
-Yes they are. Will expand this to cover those too.
+It is actually being tracked per vm, and only calculated once per vm.
+I went with the name vcpu_supported, since the functions (or macros)
+it will point to are vcpu_has_ptrauth() and vcpu_has_sve(). I could at
+least rename it here to vm_supported(), in anticipation of a wider
+change.
 
+That said, this should be fixed for all of kvm/arm64. I'll see if it's
+a simple patch to add to this series as a respin, or something for
+later.
 
-> > +
-> > +     return 0;
-> >  }
-> >
-> >  /* Handler to RAZ/WI sysregs */
-> > @@ -448,6 +462,40 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
-> >       /* Performance Monitoring Registers are restricted. */
-> >  };
-> >
-> > +/*
-> > + * Initializes feature registers for protected vms.
-> > + */
-> > +void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu)
-> > +{
-> > +     const u32 pvm_feat_id_regs[] = {
->
-> static?
-
-Yes, and see below.
-
-> > +             SYS_ID_AA64PFR0_EL1,
-> > +             SYS_ID_AA64PFR1_EL1,
-> > +             SYS_ID_AA64ISAR0_EL1,
-> > +             SYS_ID_AA64ISAR1_EL1,
-> > +             SYS_ID_AA64ISAR2_EL1,
-> > +             SYS_ID_AA64ZFR0_EL1,
-> > +             SYS_ID_AA64MMFR0_EL1,
-> > +             SYS_ID_AA64MMFR1_EL1,
-> > +             SYS_ID_AA64MMFR2_EL1,
-> > +             SYS_ID_AA64MMFR4_EL1,
-> > +             SYS_ID_AA64DFR0_EL1,
-> > +     };
-> > +     struct kvm *kvm = vcpu->kvm;
-> > +     unsigned long i;
-> > +
-> > +     if (WARN_ON_ONCE(test_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags)))
-> > +             return;
-> > +
-> > +     for (i = 0; i < ARRAY_SIZE(pvm_feat_id_regs); i++) {
->
-> But do you really need this array? Can't you just iterate over the
-> idreg space and compute the value? Sure, that'd be a bit longer, but
-> at least you would define the idregs you care about in a single place.
-
-Like you said, I was trying to save a couple of cycles, but I'll
-change it as you suggest.
-
-> > +             struct kvm_arch *ka = &kvm->arch;
-> > +             u32 reg = pvm_feat_id_regs[i];
-> > +
-> > +             ka->id_regs[IDREG_IDX(reg)] = pvm_calc_id_reg(vcpu, reg);
-> > +     }
-> > +
-> > +     set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags);
-> > +}
-> > +
-> >  /*
-> >   * Checks that the sysreg table is unique and in-order.
-> >   *
->
-> Thanks,
-
-Thank you!
-
+Thanks again!
 
 /fuad
 
+> Thanks,
+>
 >         M.
 >
 > --
