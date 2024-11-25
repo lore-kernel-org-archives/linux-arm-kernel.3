@@ -4,80 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 958D4D58D4B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 13:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A93D58D4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 14:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YX5YUSgQhjndAt0sb0ENmF6XZRCGd2awE/vIbYDp+ek=; b=c2DAOgS7e2k3zLtbBbuRTv3T1U
-	FIX8LMEvEIMu7TBEkgXBlhGEUibwEM7UWnytB2PfGsow0T2c8zOacFc1T8iNMSqQjS1BYK5dNy2YC
-	vV0XjreBC1ow3WtDLqRP7m8D09WDyFDP/OsJHN39duoH6vt7BebbIrxtOVC6FhBnmNNDCKcvyaMl/
-	z3g8VC5cg6+nKn3fgqJ9nmPgM47qOeOL7PhAs6qeiglvx+fcs+1BJp89Py19C+kZ+asNjCFEU2qk+
-	fRqiwzbP4zNUtL7m/cTgQir8caICZDRRhIyHKNiw2k0+zGbr9TDbt34ZCi+7OGCwpdHnqYZHa8T/F
-	M6jzi6Yw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7wyT8FJ1T54KYYZFqa8OfhHFUxyZh8jodLQhbYNWFGU=; b=Xwi4sGlbEvaMv+oKHcj/E5QdvQ
+	lnV56Vr7rC9Ov7gk5r+QqsMs2gLPpJerRmEnBEISiPlNrre5vwVfdT0sfGVkzNeuT2kr1x6Wq0lNF
+	2/oDfuD329lG1e0TnfcFlJJHYIyB3tFR7111dlcJivD1o67wIGnQcdg7N8pc6/uqHNluKwkcAyrq5
+	HSYGLNi8t3EEPmEUFW1+OAoVElcEEer69ljE4a2EoTZNvxCi0Px66R5RGd5tdo3LyaP8QMxJVN08H
+	eO5QAYcJAmyeuNscj5qwguzHgCLdx/+kjevbc3/Vuz0k56/gSTpPLk/086nD+5EzvroynnCjNds/A
+	V7h3pbVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFZX9-00000008CGA-461g;
-	Mon, 25 Nov 2024 13:53:47 +0000
-Received: from www530.your-server.de ([188.40.30.78])
+	id 1tFZjR-00000008E7P-0XSN;
+	Mon, 25 Nov 2024 14:06:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFZTQ-00000008Bcf-1xNZ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 13:49:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=geanix.com;
-	s=default2211; h=Cc:To:In-Reply-To:References:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=YX5YUSgQhjndAt0sb0ENmF6XZRCGd2awE/vIbYDp+ek=; b=TSWFbGXcMccB8NduNdu8UkSdyZ
-	lDSFG2a+5IAjCK7aqlohfVijKDwMfJSBQ/MedN7pyx7L2vVaRFR3f4RxV9PgKHOiqPmEn1WPGvqPQ
-	IFZ3V7qCXX8Lq+R8znPFwfnAXJBXsaXr8XNdZOxqTJMSwygLA07pSFs6FtpKMvyrpbWQL2VzQEEsv
-	5ZTtce8LhmAANataDOuslRHwm4gDeG964jZGUDjfDqc8My+9kcdJUBfARDTrfoztD5C2YRPxK6m1o
-	xTbviSPz2PYTzz80aBLLsLa0OHzLqrL51bwLWPAeaqtDDcWork6qOlU/4AekjO1yXphEA1+wmM0uv
-	iGeFItJw==;
-Received: from sslproxy08.your-server.de ([78.47.166.52])
-	by www530.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <sean@geanix.com>)
-	id 1tFZTB-000Ccl-Sn; Mon, 25 Nov 2024 14:49:41 +0100
-Received: from [185.17.218.86] (helo=zen.localdomain)
-	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <sean@geanix.com>)
-	id 1tFZTA-000A3a-2y;
-	Mon, 25 Nov 2024 14:49:40 +0100
-From: Sean Nyekjaer <sean@geanix.com>
-Date: Mon, 25 Nov 2024 14:49:28 +0100
-Subject: [PATCH v2 3/3] drm/stm: dsi: use drm_mode_validate_mode() helper
- function
+	id 1tFZiT-00000008Dzs-3HV9;
+	Mon, 25 Nov 2024 14:05:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B1ECA5C5588;
+	Mon, 25 Nov 2024 14:04:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3FFAC4CECE;
+	Mon, 25 Nov 2024 14:05:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732543528;
+	bh=7N6O5nyyAZXOnHOqqGJ5UhxAbpqm8gEQrH9VexcwMgc=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=V3DG7sp0uA5XWqdPO4E37yrNAk0dGyGTDmVuoZVJPWxymXAG1waHXaCZx1vbAbljR
+	 ONtbg4d6DVG6Y7NfMvw3OhVxTyj5MSWIHEI3qVFFDVDsCC34I/T0AydslnuzVkGArS
+	 JYvf7GP8y9AeWr07hWk/5WRKjY2Ug1Wit9CJHhKZcJq2F30kDwLxkNVHHDhqL/1YjZ
+	 3jbgCPPyCtxwKRPamW9KB8g7gHcQ0HDWwala8eGrlPtCFpEHtKMqC8XaXiSs7Xi/pO
+	 M6LdzEP4zuNLTCJtshzoqoNUK+ix86oD4busyWRkBvEWKg7MYwqBrUA1yRKzsvn1zx
+	 hQ9GGSES94nfQ==
+From: Pratyush Yadav <pratyush@kernel.org>
+To: Marcus Folkesson <marcus.folkesson@gmail.com>
+Subject: Re: [PATCH v4] mtd: spi-nor: atmel: add at25sf321 entry
+In-Reply-To: <20241116-spi-nor-v4-1-3de8ac6fd0be@gmail.com> (Marcus
+	Folkesson's message of "Sat, 16 Nov 2024 11:55:55 +0100")
+References: <20241116-spi-nor-v4-1-3de8ac6fd0be@gmail.com>
+Date: Mon, 25 Nov 2024 14:05:25 +0000
+Message-ID: <mafs0ed2z5ryy.fsf@kernel.org>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241125-dsi-relax-v2-3-9113419f4a40@geanix.com>
-References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
-In-Reply-To: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Yannick Fertre <yannick.fertre@foss.st.com>, 
- Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
- Philippe Cornu <philippe.cornu@foss.st.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-stm32@st-md-mailman.stormreply.com, Sean Nyekjaer <sean@geanix.com>
-X-Mailer: b4 0.14.2
-X-Authenticated-Sender: sean@geanix.com
-X-Virus-Scanned: Clear (ClamAV 0.103.10/27468/Mon Nov 25 10:36:56 2024)
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_054956_714473_FA47D8BF 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20241125_060529_958902_4E8599CB 
+X-CRM114-Status: UNSURE (   7.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,63 +67,26 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Michael Walle <mwalle@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, Richard Weinberger <richard@nod.at>, linux-kernel@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Tudor Ambarus <tudor.ambarus@linaro.org>, linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>, Pratyush Yadav <pratyush@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When using the DSI interface via DSI2LVDS bridge, it seems a bit harsh
-to reguire the requested and the actual px clock to be within
-50Hz. A typical LVDS display requires the px clock to be within +-10%.
+On Sat, Nov 16 2024, Marcus Folkesson wrote:
 
-In case for HDMI .5% tolerance is required.
+> Add entry for the at25sf321 32Mbit SPI flash.
+>
+> This flash is populated on a custom board and was tested at
+> 10MHz frequency using the "ti,da830-spi" SPI controller.
+>
+> Link: https://www.renesas.com/en/document/dst/at25sf321-datasheet?r=1608801
+> Reviewed-by: Michael Walle <mwalle@kernel.org>
+> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
 
-Signed-off-by: Sean Nyekjaer <sean@geanix.com>
----
- drivers/gpu/drm/stm/dw_mipi_dsi-stm.c | 12 +++++-------
- 1 file changed, 5 insertions(+), 7 deletions(-)
+Reviewed-by: Pratyush Yadav <pratyush@kernel.org>
 
-diff --git a/drivers/gpu/drm/stm/dw_mipi_dsi-stm.c b/drivers/gpu/drm/stm/dw_mipi_dsi-stm.c
-index b20123854c4ad7b3a2cc973a26fc10fd433e8d09..7b32abe0d4f582eea1fbbacad48c84199be3fa23 100644
---- a/drivers/gpu/drm/stm/dw_mipi_dsi-stm.c
-+++ b/drivers/gpu/drm/stm/dw_mipi_dsi-stm.c
-@@ -484,8 +484,6 @@ dw_mipi_dsi_phy_get_timing(void *priv_data, unsigned int lane_mbps,
- 	return 0;
- }
- 
--#define CLK_TOLERANCE_HZ 50
--
- static enum drm_mode_status
- dw_mipi_dsi_stm_mode_valid(void *priv_data,
- 			   const struct drm_display_mode *mode,
-@@ -525,7 +523,7 @@ dw_mipi_dsi_stm_mode_valid(void *priv_data,
- 	}
- 
- 	if (!(mode_flags & MIPI_DSI_MODE_VIDEO_BURST)) {
--		unsigned int px_clock_hz, target_px_clock_hz, lane_mbps;
-+		unsigned int px_clock_hz, lane_mbps;
- 		int dsi_short_packet_size_px, hfp, hsync, hbp, delay_to_lp;
- 		struct dw_mipi_dsi_dphy_timing dphy_timing;
- 
-@@ -533,14 +531,14 @@ dw_mipi_dsi_stm_mode_valid(void *priv_data,
- 		pll_out_khz = dsi_pll_get_clkout_khz(pll_in_khz, idf, ndiv, odf);
- 
- 		px_clock_hz = DIV_ROUND_CLOSEST_ULL(1000ULL * pll_out_khz * lanes, bpp);
--		target_px_clock_hz = mode->clock * 1000;
- 		/*
- 		 * Filter modes according to the clock value, particularly useful for
- 		 * hdmi modes that require precise pixel clocks.
- 		 */
--		if (px_clock_hz < target_px_clock_hz - CLK_TOLERANCE_HZ ||
--		    px_clock_hz > target_px_clock_hz + CLK_TOLERANCE_HZ)
--			return MODE_CLOCK_RANGE;
-+
-+		ret = drm_mode_validate_mode(mode, px_clock_hz);
-+		if (ret)
-+			return ret;
- 
- 		/* sync packets are codes as DSI short packets (4 bytes) */
- 		dsi_short_packet_size_px = DIV_ROUND_UP(4 * BITS_PER_BYTE, bpp);
+[...]
 
 -- 
-2.46.2
-
+Regards,
+Pratyush Yadav
 
