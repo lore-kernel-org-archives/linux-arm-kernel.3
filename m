@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A178D3B7E8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 07:57:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0DDED3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 08:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3tiTwZavYbBT9O4hqUqfK5GRnjxrq7s1woxn+ljSWac=; b=Gyb0sg+5Vy737d+1upVYMvqR6o
-	QQLSuY4c0c+hHJjgaoc7FUoxz4WAjc8lcCwiE4XRmPOAmJ1jdVQxN0qnXIh7mfeWRxJwWV/Oqik90
-	Y37Q37DezNd6uWGlzwSRdtb/eJMsKgaNJ0In/vgtUWB9OEZtq6ljwrXRECTkGLJopJi/N3ivDVBMn
-	pHn81yryXlxnIaK+2iyM8AxPOzpPPLsS408vObXWRW3ByNiATRcMTYATQfQmgdm+NN/dw0GflSdKk
-	IjhUA2Jdb74YVoGvn4SnqB96lf26g20AkI0XGz9MQ+AT1EPwqvWi0lMcK9yci9tas5keyov3wFoCb
-	5zIoYLyA==;
+	bh=+tyiE9J0eGLoQYHuhhKZIa6hDUKaJOnKp7k8/yARY2U=; b=TW5PvRkYZthoqPk8Z/PQQimgMp
+	6CRQ2PrevEWZvvcUGwqJMq0kWTq8nJ6b1a2hDgDnJ8MywQcWPg/XIKwafVklZSG0tYz0dTtv2tn8j
+	ihGCBOZ/0/pEXiMnKYHvyoEST+BTG72dI3kRMlp5VrWIR1JnnVoG3UhF/dUseytVTeIX0+g0TFZu6
+	/hUW+3y+kYU8cXBSjHFxC2Z71jM/Y01/Nm0jZodnBTwua5FjY2bjzNJFJNd3TpvxHGE0597Aj7CuI
+	8uehcvnSbZZT7Uo/xEEUEcFoC2k7XO8lq4eZq4eIo67ZrgW1CQScLTlqwIZ7iRMwrwPtndxxe44Yv
+	hnXKY//w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFTyI-00000007I5f-0Y7b;
-	Mon, 25 Nov 2024 07:57:26 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFTxK-00000007HzI-3aXy;
-	Mon, 25 Nov 2024 07:56:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=lWCuFhfEEKaJ3GUTrOrOQrEiKfJAVkt+IjzyiGjhhsc=; b=d
-	/W2sNUon1A5TrNFPVd/HnCzuRvVoFeaTeqUvynbz5k6KJzbjF3prXezzfvGgYxGi
-	3lyvYeOdNNt5gmcOKMOj7Muy1mes9W+lgrerxXCOYJNV2z49HRdZUOecLIA17mry
-	53NK8KG7+odK7pBsUeDQQk+GwqT7e8/dlXjvVUNPWM=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-120 (Coremail) ; Mon, 25 Nov 2024 15:55:41 +0800
- (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Mon, 25 Nov 2024 15:55:41 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Detlev Casanova" <detlev.casanova@collabora.com>
-Cc: linux-kernel@vger.kernel.org, "Sandy Huang" <hjc@rock-chips.com>, 
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	"Andy Yan" <andy.yan@rock-chips.com>, 
-	"David Airlie" <airlied@gmail.com>, 
-	"Simona Vetter" <simona@ffwll.ch>, 
-	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, 
-	"Maxime Ripard" <mripard@kernel.org>, 
-	"Thomas Zimmermann" <tzimmermann@suse.de>, 
-	"Rob Herring" <robh@kernel.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Conor Dooley" <conor+dt@kernel.org>, 
-	"Heiko Stuebner" <heiko.stuebner@cherry.de>, 
-	"Sebastian Reichel" <sebastian.reichel@collabora.com>, 
-	"Dragan Simic" <dsimic@manjaro.org>, 
-	"Alexey Charkov" <alchark@gmail.com>, 
-	"Jianfeng Liu" <liujianfeng1994@gmail.com>, 
-	"Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, kernel@collabora.com, 
-	"Algea Cao" <algea.cao@rock-chips.com>
-Subject: Re:[PATCH v4 0/3] drm: rockchip: vop2: Add VP clock resets support
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2024 www.mailtech.cn 163com
-In-Reply-To: <20241115162120.83990-1-detlev.casanova@collabora.com>
-References: <20241115162120.83990-1-detlev.casanova@collabora.com>
-X-NTES-SC: AL_Qu2YAPmZvksv5yWRYekZnEobh+Y5UcK2s/ki2YFXN5k0qiTx3icwbG5AE1jE9fm/KwSmoQmXQjhw185jW61SUJh5vIZhoMZOdqc6vyh/TPcw
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1tFU3F-00000007Imd-2FFS;
+	Mon, 25 Nov 2024 08:02:33 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tFU2H-00000007Ibc-371i
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Nov 2024 08:01:35 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-53da353eb2eso6358483e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 00:01:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1732521691; x=1733126491; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+tyiE9J0eGLoQYHuhhKZIa6hDUKaJOnKp7k8/yARY2U=;
+        b=IjyiahI0pl0RkbSNLYYPGe6qi5DoEenS4uY5cLxUDI1NB2fBUsVKPUOE2SVkO2DvGz
+         /MALSvuPwB4czZspuQcIjqt9kL3C2+DbTgjOUEWsr41ISyCodpBFFaRnE1Hs19Bvil/z
+         X9PA05Nsv0A/HwcSFiiKUcEVOP1DrdMl2Hd8U=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732521691; x=1733126491;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+tyiE9J0eGLoQYHuhhKZIa6hDUKaJOnKp7k8/yARY2U=;
+        b=Kk6tcmmi17DROlsMNpdHBuDhDVQpkeY0/YIGOfRWAtiK3vM3JcnKwH8nKBfKV/cHGc
+         OgfkCEcdHLSJaQ+BIxRyzTWYMeM/UXDg3hFdb3swyWmHXJtkh3FGwpZlTTTj8ntjMWFd
+         pa5n3laTzB2f+pMoREpDkfoP9fuh18YaNZbsPN+FUMIfp7hDjezUqsV3jzyOa5az0dXU
+         VexEOsUZOc9aqKH6mhOzlclQ7rpvwNWUDApg3RlLqvEsytPAdEMk8kQief79A7wYvxSe
+         w74J881W1C5HGxLvu9FE9mqFJACQUzKBkwg2klVweTooR7AzxthO/DW/fE0j/rCbuezl
+         f+jQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVa1ukQCT1p7QcSyGVj3HIKt3tIQFAHvKB55ZD0oQ5ftESlSSTIEsTUzCwBnotUWjKanwK4tCWNzvZKrGDEK/o6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5m8Gzs9QuhB8NylEEihmHKE8PxhGG0W1dyQd3DGv7K7olSwtY
+	p9pJs64LstHmcmjbolBh9kpC7xGDMFwFlIaVXCAWHGs8WekMbU6xcDhjsDCblyeppwtXL/2wabS
+	KpZrsPrTCo+/wXQtB97fI9yHzCfzwyRGWj0/hw5I+R8lgG8c=
+X-Gm-Gg: ASbGncvLnnuZwfRx2vSqz7HW6yXqkS3FEHdKhtqbAob+tuTTwRAB1Hw4hC/Q5lEz5/e
+	l+Ur36ZjaoDgTQiexWKU4ft0N2mToOSZmcn0+CEKeNrji6WwbGt6/5QV9EMU=
+X-Google-Smtp-Source: AGHT+IFNA2YPDB29CKBTPo3ULGX/2k8v0BktEtEySMJsHpFYreImy/VSkDo3YvLTyiyt5hYDcUA3UR4cYjWGNCVrAeM=
+X-Received: by 2002:a05:6512:6c8:b0:53d:dd84:a92e with SMTP id
+ 2adb3069b0e04-53ddd84a93bmr3341455e87.0.1732521691043; Mon, 25 Nov 2024
+ 00:01:31 -0800 (PST)
 MIME-Version: 1.0
-Message-ID: <3e8f91fa.8700.1936251b29e.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: eCgvCgCHP8d9LURn0i4vAA--.51834W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqR+iXmdEJXnuHgABsE
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+References: <20241106093335.1582205-1-wenst@chromium.org> <20241106093335.1582205-8-wenst@chromium.org>
+ <1246d672-4370-4db7-b4d0-368524809435@collabora.com>
+In-Reply-To: <1246d672-4370-4db7-b4d0-368524809435@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Mon, 25 Nov 2024 16:01:20 +0800
+Message-ID: <CAGXv+5H8YwiTyk1eMSwPLuGw5sQxec4n8OKR-Qa5wz8QGH4h9w@mail.gmail.com>
+Subject: Re: [PATCH v11 7/7] arm64: dts: mediatek: mt8173-elm-hana: Mark
+ touchscreens and trackpads as fail
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, Wolfram Sang <wsa@kernel.org>, 
+	chrome-platform@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Douglas Anderson <dianders@chromium.org>, 
+	linux-i2c@vger.kernel.org, stable+noautosel@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_235627_202496_BA19676E 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241125_000133_804446_93EA4AF6 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,26 +94,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gRGV0bGV2LAoKQXQgMjAyNC0xMS0xNiAwMDoyMDozOSwgIkRldGxldiBDYXNhbm92YSIg
-PGRldGxldi5jYXNhbm92YUBjb2xsYWJvcmEuY29tPiB3cm90ZToKPlRoZSBjbG9jayByZXNldCBt
-dXN0IGJlIHVzZWQgd2hlbiB0aGUgVk9QIGlzIGNvbmZpZ3VyZWQuIFNraXBwaW5nIGl0IGNhbgo+
-cHV0IHRoZSBWT1AgaW4gYW4gdW5rbm93biBzdGF0ZSB3aGVyZSB0aGUgSERNSSBzaWduYWwgaXMg
-ZWl0aGVyIGxvc3Qgb3IKPm5vdCBtYXRjaGluZyB0aGUgc2VsZWN0ZWQgbW9kZS4KCkNhbiB5b3Ug
-cHJvdmlkZSBzb21lIGRldGFpbCBhYm91dCBob3cgdG8gcmVwcm9kdWNlIHRoaXMgaXNzdWUgPwpJ
-ZiB3ZSBjYW4gcmVwcm9kdWNlIHRoaXMgaXNzdWUsIHdlIG1pZ2h0IGJlIGFibGUgdG8gZG8gYSBt
-b3JlIGRlZXAgYW5hbHlzaXMuCgo+Cj5UaGlzIGFkZHMgc3VwcG9ydCBmb3IgcmszNTg4KHMpIGJh
-c2VkIFNvQ3MuCj4KPkNoYW5nZXMgc2luY2UgdjM6Cj4tIFJlYmFzZWQgb24gZHJtLW1pc2MtbmV4
-dAo+LSBSZXdvcmQgZmlyc3QgcGF0Y2ggc3ViamVjdAo+LSBSZW9yZGVyIGNvbW1pdHMgZm9yIGRp
-ZmZlcmVudCB0cmVlcwo+Cj5DaGFuZ2VzIHNpbmNlIHYyOgo+LSBSZWJhc2Ugb24gbGF0ZXN0IG1h
-c3Rlcgo+LSBBZGQgZGV0YWlscyBvbiBob3cgdG8gcmVwcm9kdWNlIHRoZSBpc3N1ZQo+Cj5DaGFu
-Z2VzIHNpbmNlIHYxOgo+LSBBZGQgQVhJIGFuZCBBSEIgY2xvY2sgcmVzZXRzCj4tIFNldCBtYXhJ
-dGVtcyBmb3IgIXJrMzU4OCBpbiB2b3AyIGJpbmRpbmdzCj4KPkRldGxldiBDYXNhbm92YSAoMyk6
-Cj4gIGR0LWJpbmRpbmdzOiBkaXNwbGF5OiB2b3AyOiBBZGQgVlAgY2xvY2sgcmVzZXRzCj4gIGRy
-bS9yb2NrY2hpcDogdm9wMjogQWRkIGNsb2NrIHJlc2V0cyBzdXBwb3J0Cj4gIGFybTY0OiBkdHM6
-IHJvY2tjaGlwOiBBZGQgVk9QIGNsb2NrIHJlc2V0cyBmb3IgcmszNTg4cwo+Cj4gLi4uL2Rpc3Bs
-YXkvcm9ja2NoaXAvcm9ja2NoaXAtdm9wMi55YW1sICAgICAgIHwgNDAgKysrKysrKysrKysrKysr
-KysrKwo+IGFyY2gvYXJtNjQvYm9vdC9kdHMvcm9ja2NoaXAvcmszNTg4LWJhc2UuZHRzaSB8IDEy
-ICsrKysrKwo+IGRyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jICB8
-IDMwICsrKysrKysrKysrKysrCj4gMyBmaWxlcyBjaGFuZ2VkLCA4MiBpbnNlcnRpb25zKCspCj4K
-Pi0tIAo+Mi40Ny4wCg==
+On Thu, Nov 14, 2024 at 6:36=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> Il 06/11/24 10:33, Chen-Yu Tsai ha scritto:
+> > Instead of having them all available, mark them all as "fail-needs-prob=
+e"
+> > and have the implementation try to probe which one is present.
+> >
+> > Also remove the shared resource workaround by moving the pinctrl entry
+> > for the trackpad interrupt line back into the individual trackpad nodes=
+.
+> >
+> > Cc: <stable+noautosel@kernel.org> # Needs accompanying new driver to wo=
+rk
+> > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> > Reviewed-by: Douglas Anderson <dianders@chromium.org>
+>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+
+Hi Angelo,
+
+Could Wolfram also take this patch instead of it having to wait another cyc=
+le?
+
+
+Thanks
+ChenYu
 
