@@ -4,149 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4151D58D4D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 14:14:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C32D58D4D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 14:16:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Oe5GBovdqjL924qEp5QSrxGfqMHe75Plr89DsawSSu0=; b=jsx+9VgrPUk7g9FLWFj9ldzBx+
-	MeQaWnZ411pjZQ5Z/sTdpFsEt+F3V3OjWYcdLW2vrs2hRVmLdXc1bQkgZoNW+yUbB+UphTHYICD9S
-	pPF4iwjnyg1Ww9P6F5rrf3uQm9IwIIl5z3Emd2uu/YLZn7WpaMoYET2nHyP/zTVTB2nKy4xCezsT8
-	pBY6CZHm91rZqI878yresdj8nR0TzfwvA2GMsv2sQPTYgmNTMRLhlcVHRyMUR/MCXK3JGVGRt0q7M
-	eIyvyPakEPEhdX1wZ2AsKGZQ8OPcLg7pe32GhdMAkESAXG15If9+yeW4dhhJtJKQMCckwGW6BA44P
-	qyAcvtoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=paVCNFvIfD4uYGyrcPxt4wW584lW4zxeDdrALC78N2k=; b=qRyrdz7GAfz4i+XI4GlkRtgkcs
+	We0/zAbF2WEYMCDgwmxmSLFNrPwV1aGGpAD3mTCjAaxygTZnhFwHeRi28rBFk2JT6ilpV/ud2X0sc
+	kn+x5+HvkGeoMf6k2yf6PACgCIW4cfK2mPUJtEN7wLYwXAb489UIt3XWLSblLt2pYr30ssCMKOsVj
+	4GgtkPzdsOrhJezTo3+4RID3Z8mU8lHINshA4Ahi560zk6Piws9ZO1di/q5EHtK2nqPKyIU3KNyky
+	gcAvsnem5ChI/xgpS7mNk3PTAJMqQIkPgUwY5iLCKHvsChz7Ar9EY1oTBdYZ4thcD43U2oEMOWDL0
+	3rihISaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFZrJ-00000008Fdq-0oqH;
-	Mon, 25 Nov 2024 14:14:37 +0000
-Received: from mail-vi1eur05on2060c.outbound.protection.outlook.com ([2a01:111:f403:2613::60c] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tFZsf-00000008G00-1QCe;
+	Mon, 25 Nov 2024 14:16:01 +0000
+Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFZpX-00000008FDv-3DPp
+	id 1tFZrg-00000008Fkq-1tBL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 14:12:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TeEqlvqza6B2x7k/pNIxMJPUKdaQCetomuqzIUV+KCiCODnjO/mrvgbsk8EjC7DPV/jpvOnAsddn7n/qHIwGbkWDDWejcqrsaibn9wTibWZJVcXbYFyXDFUDcwug2YTNG3WxHB0A1kesbFEydgQ1Fnk1XYqCFgxunBe/twVHL9BWRO3HPepYiRnEXU40u7DD4M2rST7YW+Z2hzvZJus4QY2NwTt6IUTPwr8G1vtbfw8TcVt44KaRYMegcoUuQZ66owTPlVGS5fBlNbhKJxzGv1rZsKOq8QBMabXsPPZ+ZMNPEMrqHtUn5SKh+7HWg8PcFE896XYWaQuRIzEsEahgHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Oe5GBovdqjL924qEp5QSrxGfqMHe75Plr89DsawSSu0=;
- b=HFd0Nf+l9Z1DWlw7+VlKRhXkMo+7TuM+s5kCAPDk7v1+fwv9Gyyc89yl/VcgofC3zNGoNrWW8DhqCIcjzliCEpMv2ZeQFonnDmj8bYg+qhnzIRcLKU46GFPufmSmBmF57KkZg9EoytNL2/1XZ43LLV7+MZBcLFEkF/InvhLtqNK1xTd6ZL/+s+R/01UrnW/lFT3oir76Yz04GSjbRfGG0at65zYyk4+pjm9kfGT2Z2ANF3ApD6rcNMzrCokfdMcF8tw0oJVGBAftBPRWNdc6VrtwqamwcExksRxjf7cgPhdGE78RRtNx98pIfMmKGaXbMjUIYVAk4n+RGw+5cZpd7Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Oe5GBovdqjL924qEp5QSrxGfqMHe75Plr89DsawSSu0=;
- b=i2xNaBwiKT6flOmjb2ZIoyzazJ2iQ4niZ74I+wurvRjY1Qrvkyz33Qb71WucJWfPm14J9jDP/uAEthLqLOS6HMsvC1h981Ro1OUYR1l/qsfwVJRdNmB9B9b0oEQ12mlsXyhkS5r9F3yYRnqAyODValGjJ7DyOySiLzbNJoGtxt50L0DudLxKwNLfsXXIg0oVIEpZfs8X22Z4ojqhpf0VDd+x8Z2bVTJKzkaOUu/39bLS0GMj9CpnX0Cj9N65Fynk69aFpq0WVdbClmXIcVk8Iik7d5kESMhVkTgTBfvAdaLQ1wgJAsheW8/dWdbZIrQkjeSJqAlwt1NaS6G+LWAeNA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com (2603:10a6:208:5::22)
- by AS5PR04MB10057.eurprd04.prod.outlook.com (2603:10a6:20b:67d::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.20; Mon, 25 Nov
- 2024 14:12:39 +0000
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0]) by AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0%4]) with mapi id 15.20.8048.020; Mon, 25 Nov 2024
- 14:12:39 +0000
-From: carlos.song@nxp.com
-To: o.rempel@pengutronix.de,
-	kernel@pengutronix.de,
-	andi.shyti@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com,
-	frank.li@nxp.com
-Cc: linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] i2c: imx: make controller available until system suspend_noirq() and from resume_noirq()
-Date: Mon, 25 Nov 2024 22:21:08 +0800
-Message-Id: <20241125142108.1613016-1-carlos.song@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BE1P281CA0462.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:b10:7f::19) To AM0PR0402MB3937.eurprd04.prod.outlook.com
- (2603:10a6:208:5::22)
+	Mon, 25 Nov 2024 14:15:02 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: marcan@marcan.st)
+	by mail.marcansoft.com (Postfix) with ESMTPSA id 21AA341DF4;
+	Mon, 25 Nov 2024 14:14:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
+	t=1732544094; bh=u2XUWhrR6ss2d9FlTj8Plfh2W/SE71nSefpQ0lgJHkQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=cNdY7SNXxqheP/0KddCcPuwen1NKykhMWb6bNamgVZXyM3ezVRM0HUdEY6L69M4CG
+	 /fJLMTvwVaUN//eLm2uXZJNQmIMbseOLk3Dk4P/EufLqPJdbZGnnniwrauJMV6Bb06
+	 SwXy0JLKwwnMfNSm3NowFr1Ywo/6TFks+sJ2VUREv3HnLhHI1EjN2p9/ab0hzDoUfx
+	 QghpKyWji6vfozrrnNHuM4gEZMSIFY4SAutMDXW3MB2W83onm+tslqNsgDLE1QCcyn
+	 ScCODCDPzEVRt0FZLpOx1dnsJ2D0KTT7YNlr9k1D9IHIYj7+Mw+W1Bc7j1+AHbY+4Y
+	 tWD9FLrZ82LBg==
+Message-ID: <a9d1568e-6240-49a4-b6a0-dcc0d9229eb1@marcan.st>
+Date: Mon, 25 Nov 2024 23:14:51 +0900
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR0402MB3937:EE_|AS5PR04MB10057:EE_
-X-MS-Office365-Filtering-Correlation-Id: 17122bf9-4e57-4d90-ef9c-08dd0d5b37cd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vA6Ln+oT6D1Aopb3TGojRIMmksM+vTJKGwxglzvDKU4/alYSMyu/SgyUbdjF?=
- =?us-ascii?Q?lHkiFkFFXrCOLzaDcf8TrmMuFdhbYPX85rRlRHedEjzkSR/lS/W1va/L4TpG?=
- =?us-ascii?Q?12t9p8x5UU/knwuo+MKVPAxyec2tUBFBD1Wl4ABxXZ1c0mIK69nk2OFMQ5t0?=
- =?us-ascii?Q?wHg2NlZWqrZvhmcFfa1FOkXQf5I1Ah52geAb4Ir+clRcRq1hQzXrm9nlpMcJ?=
- =?us-ascii?Q?b3wZ1sQJ0Rw1j6AkwJV5cIKzlWZsQ14attTSTd0tl5fprffVUweZULQEbDlg?=
- =?us-ascii?Q?JdbuwHJDDZ6Db4nVtlmtJ+K1Gm6NoIgMcrZzafroDo5eASQOwpMiMwx0Zz18?=
- =?us-ascii?Q?vVw7obHfWHuFp1Kq7V6P3OlQF2/DOJ6BzsLiTaY+m27MhHsuu8WMXv+HwwHj?=
- =?us-ascii?Q?/a3UDxWb3kbH0EA8AkUthq+/3kf+6e6hYLXJNwdZYJlaN1u3TtoxFggbjSDl?=
- =?us-ascii?Q?HTK1HF0nJLw0pLgWgJYDif1CNhi6ut96VwlJEjN8GfnP58ycjYCYEnrV2AEc?=
- =?us-ascii?Q?xNJlXB7F659DQe9MqOnJhZVno/UqHVzDp3B/glDHm0rRqLGeOeMXOk2vAFXB?=
- =?us-ascii?Q?P6CowyHQCTGG8ypRPk0D0wh5QNo3U9XEsUS33PWqfvJIWmtmLwOI/NmNNyKK?=
- =?us-ascii?Q?uOVJYKm0WyRN5dTfaTR2On2QD4PoeLy8cF7kFKTWF1lXbZo7EBP1t99YgFoE?=
- =?us-ascii?Q?jxufInz5TBtm0qajevb3Gkou6saEFFmiajwIP64bEISm/5tDC/2wqvJXgA7S?=
- =?us-ascii?Q?j8X40JYcfR4uEwKVjjaVTzKzurKdfQz6RVLwQcyLFB3T9Vi48GYuW9nS48gE?=
- =?us-ascii?Q?ccD0qQUlLXedcngQdsW/jFo+QHQ4lNigTEZDKDiupk/k/Mz4xu3kMfo3u2Ai?=
- =?us-ascii?Q?uslHiEHtGDGpcgVrrFV23iYhqoyCboKULK2i86hlYvYtWndvsSo4+z82xF3N?=
- =?us-ascii?Q?yeaFCdmvQAzfkJ/ua0IjjVQYdlE6kqQhNr78QxQhDbhLxBPyNlDEAUs9oHnl?=
- =?us-ascii?Q?pb6cgjTL8aqeWbtdz8jiSulsqb8i7603keg9fDrOBsKZQwiLlRqKzX41Q7Cq?=
- =?us-ascii?Q?y5r1bkAyMXYNUAH+8c0TKlNo2e5BhFAPaedaCf7vs5vAL8weVFxStDHXgvny?=
- =?us-ascii?Q?JHtHCMAVF5XwMPdQycExeIGc2sYx37LjN+0Y4GEMpkXC/PqBPtEm5QCqCUll?=
- =?us-ascii?Q?iVU9oI+5joNd9Y5kipd2VJmA69rmaNPLv9Z6DALifN07fvhMWe8a/6U/fTNF?=
- =?us-ascii?Q?6Eyg7eOBUKamD/L9I6X8ZrgHNxIU9aYiGipCmdNx/kNuho5DfvjWbK1vLvoy?=
- =?us-ascii?Q?YpYYOATxTcNbbADO44dF9x/XZWIlcUM++VIFBux+9LHOIM68kHCm3/FROJz4?=
- =?us-ascii?Q?XxO/sSE9oW3AeB7l3kRAW8MvZ8VfjILhiDrwrowTiMzmehFEdQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR0402MB3937.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yOKcVtxZ4X6hGvdVkU2ez5R7DrpbZ4F3wcepzhb/uVNj8YCQ+mtqMLSXIWDI?=
- =?us-ascii?Q?GIMdrD9g9wI3qD5D8fz7GHla1D57+sL871XffHvxlQA10o5d58Eg26BOWefv?=
- =?us-ascii?Q?4YdIR0shEcIxgXbkVqxYm4V/qu9QbrziiLL0yZZXN9fnjVdIltiYra1NN0FC?=
- =?us-ascii?Q?25Su+q249yAAXXrDLtE3APoGqlnzvY9GkU1hkmPdh6Uz3aMja73YC9fJBzgK?=
- =?us-ascii?Q?09uy758Rxi7vcu7NqRY4zNCcMrNZTqRr6/h4b+QENUKJd67aDiO1s2KAt216?=
- =?us-ascii?Q?vbz4WYkoTnUA1ZtuBuqTMx6G2AD2uWPVsfbsITqcy/T3pxsVRoEN+cvaBKuy?=
- =?us-ascii?Q?WyEFWcB75Hws53yf/ikkzTFRh6YPdk5YuLRk++BXt+gtXIng3Wry2RQqUKA2?=
- =?us-ascii?Q?xTQiFa4DQRqwIWnnqYhOcI+VHFiC8JL4rOtXSGBtswrp95GxcAX1Up2Mqt/+?=
- =?us-ascii?Q?jVJATHO8YFZZExxil138v+7RgmpYE6fWQvwyz0aVn0zWDE9EcP1aPfrJZfB3?=
- =?us-ascii?Q?S/G9eUlfC/qnSjvkt9T9FDUmyXltPeOK1H9ThWF5rAmMt1chAQUcAbpdN9Tc?=
- =?us-ascii?Q?EE/BRZVbFzlhLkzoWtKE6uCz1hoNu9n/GR7wjjt4IEVMarOKLJiDycp30wvS?=
- =?us-ascii?Q?5q4KBTtCvbFHFBJUqP2tEqpg1jF2QQHzKC5sbOXWZkB96iXcTILQB6Jl/WSz?=
- =?us-ascii?Q?qFx6ZdxIax06S01PE06p4BLjFzEE51lq7fjqh00/yfRhlAOvIHzssLvsZ2Qk?=
- =?us-ascii?Q?KE1t5ouTmlPuh6kuJMwIHUoe2O9hpy9FyxZdfUm2O3J7btkRryjQ2mirCm6V?=
- =?us-ascii?Q?dnJz85z72nVCpvU5aT7wBU3gFhTpR+nFymX+67icASZS663f37AGEBDNVSdx?=
- =?us-ascii?Q?bt/yfCQ6mX7uc2En5nD7RUfW/z4/5tRFabdZYsyYHe9/A/Uemx3p/D3VqLXL?=
- =?us-ascii?Q?Ez8E+HZHJkyeRnFLAbsNTkSZLH2wkudEi8e6fUMXmJQCaVvIKkJ0fQuu/r2Y?=
- =?us-ascii?Q?BynGy7pK9ijKUGNuxWDSQm8ppUN5UAYtPVf4FH9VZWY2nmeKVlTSecf6rjyr?=
- =?us-ascii?Q?Q4wwvq4+KJo1kAv+tbW0bDMR3O4mY7d6/XiVyhQk4crjYcz1GT1GHU3XqFer?=
- =?us-ascii?Q?FvdQeQkv3O9b6eOuJGD4e7su63zTUwHrlNkvk7LACPC0luUwU29d8fwcfhZC?=
- =?us-ascii?Q?sIMyZmokqcSQoFA98qDrR6ftN+Wh0X6+a1XJWhlv7/V+h91qClF11S0JOTMR?=
- =?us-ascii?Q?QZeZD5VfsPHFnkYBOATCqwOL6ZSoFOg8xg4PN84BQvM3dAJmck+cmKX21Fwi?=
- =?us-ascii?Q?V4WEcAMgLiRgSp2+0za7YyYZBqZ170Y6HPdo1u5BHJSw++1cHI+XRd1BRP+Z?=
- =?us-ascii?Q?YBXE26tgD55BPiy2XcD9QnBZNZ38hMZ/Ei3MlJaSTc4to1WFOslVfv5v0WU4?=
- =?us-ascii?Q?a2/wl5eqTze8DgJM6jc1LSyHxvwoGPN+FwxOb4k/yHCDeWHfNlHaeGi2sxoV?=
- =?us-ascii?Q?6YNUWCqdutFw8MvAkH3wJHeSlwc+sE4Kn7gGRGZ3+/nJDO9x8KLE8xkErTyo?=
- =?us-ascii?Q?P5c4LAKYMgifHdz2TzCsc6g/d6Mzigk8FDCU3JD7?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 17122bf9-4e57-4d90-ef9c-08dd0d5b37cd
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR0402MB3937.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2024 14:12:39.0017
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wPkOsGF0ITbJcklU+3+e0PJczIoWZimriBS8m7bHxYG7AKxu2HhrR36+85mFJxuK2cP2BtOAMwIpVCYbpmv/CQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB10057
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] dt-bindgins: display: Add Apple pre-DCP display
+ controller bindings
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Sasha Finkelstein <fnkl.kernel@gmail.com>
+Cc: Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig
+ <alyssa@rosenzweig.io>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com>
+ <20241124-adpdrm-v1-1-3191d8e6e49a@gmail.com>
+ <ksdp54qj55v7igvvcshl6y2cxpmqy7rlsh4xsixpptjn7s7wlu@76ejtq6ytvbp>
+From: Hector Martin <marcan@marcan.st>
+Content-Language: en-US
+In-Reply-To: <ksdp54qj55v7igvvcshl6y2cxpmqy7rlsh4xsixpptjn7s7wlu@76ejtq6ytvbp>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_061247_809675_71D31BFD 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20241125_061500_899613_88811635 
+X-CRM114-Status: GOOD (  20.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,96 +86,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Carlos Song <carlos.song@nxp.com>
+On 2024/11/25 16:45, Krzysztof Kozlowski wrote:
+> On Sun, Nov 24, 2024 at 11:29:24PM +0100, Sasha Finkelstein wrote:
+>> Add bindings for a secondary display controller present on certain
+>> Apple laptops.
+>>
+>> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+>> ---
+>>  .../bindings/display/apple,display-pipe.yaml       | 59 ++++++++++++++++++++++
+>>  .../bindings/display/panel/apple,summit.yaml       | 24 +++++++++
+>>  2 files changed, 83 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/apple,display-pipe.yaml b/Documentation/devicetree/bindings/display/apple,display-pipe.yaml
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..bd25ddc6e09dd636c0221c854e594113f6011866
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/display/apple,display-pipe.yaml
+> 
+> No, use fallback compatible as filename.
+> 
+>> @@ -0,0 +1,59 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/display/apple,display-pipe.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Apple pre-DCP display controller.
+>> +
+>> +maintainers:
+>> +  - asahi@lists.linux.dev
+>> +  - Sasha Finkelstein <fnkl.kernel@gmail.com>
+>> +
+>> +description: |
+> 
+> Drop |
+> 
+>> +  A secondary display controller used to drive the "touchbar" on certain
+>> +  Apple laptops.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    items:
+>> +      - enum:
+>> +        - "apple,t8112-display-pipe"
+>> +        - "apple,t8103-display-pipe"
+>> +      - const: "apple,h7-display-pipe"
+> 
+> 
+> This wasn't tested... Drop all quotes. Do you see any file with quotes?
+> Why doing things entirely different than everyone else?
+> 
+>> +
+>> +  reg:
+>> +    minItems: 3
+> 
+> Drop
+> 
+>> +    maxItems: 3
+>> +
+>> +  reg-names:
+>> +    items:
+>> +      - const: be
+>> +      - const: fe
+>> +      - const: mipi
+>> +
+>> +  power-domains: true
+> 
+> List the items instead or maxItems: 1.
+> 
+>> +
+>> +  interrupts:
+>> +    minItems: 2
+> 
+> Drop
+> 
+>> +    maxItems: 2
+>> +
+>> +  interrupt-names:
+>> +    items:
+>> +      - const: be
+>> +      - const: fe
+>> +
+>> +  iommus: true
+> 
+> 
+> maxItems: 1
+> 
+>> +
+>> +  "#address-cells":
+>> +    const: 1
+>> +
+>> +  "#size-cells":
+>> +    const: 0
+>> +
+>> +additionalProperties: true
+> 
+> This cannot be true. Must be false.
+> 
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - interrupts
+> 
+> This goes before additionalProperties.
+> 
+> Missing example: that's a strong NAK and prove that this could not be
+> even tested.
+> 
+> Do you see any device schema without example? No. Do not develop things
+> differently, Apple is not unique, special or exceptional.
 
-Put runtime pm to resume state between suspend() and suspend_noirq(),
-resume_noirq() and resume(), because some I2C devices need controller
-on to do communication during this period.
+Krzysztof, it is entirely possible to express this same feedback without
+being condescending and rude. I'm pretty sure you can do better than this.
 
-The controller can't be wakeup once runtime pm is disabled and in
-runtime autosuspended state.
+> 
+> 
+>> diff --git a/Documentation/devicetree/bindings/display/panel/apple,summit.yaml b/Documentation/devicetree/bindings/display/panel/apple,summit.yaml
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..dc281c1f52c1ed07cc2f7f804dcfd2f3b4239d89
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/display/panel/apple,summit.yaml
+>> @@ -0,0 +1,24 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/display/panel/apple,summit.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Apple "Summit" display panel.
+>> +
+>> +maintainers:
+>> +  - asahi@lists.linux.dev
+>> +  - Sasha Finkelstein <fnkl.kernel@gmail.com>
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: apple,summit
+> 
+> No, too generic. Panels need much more properties, this is heavily
+> incomplete. See other panel bindings.
+> 
+> Best regards,
+> Krzysztof
+> 
+> 
+> 
 
-The problem can be easily reproduced on the I.MX8MQ platform:
-PMIC needs to be used to enable regular when the system resumes.
-When PMIC uses I2C controller, I2C runtime pm has not been enabled,
-so in i2c xfer(), pm_runtime_resume_and_get() will return error,
-which causes data transfer failed. Therefore, regulars can not
-be enabled and hang system resumes.
-Here is resume error log:
-[   53.888902] galcore 38000000.gpu3d: PM: calling genpd_resume_noirq @ 529, parent: platform
-[   53.897203] i2c_imx_xfer, pm_runtime_resume_and_get is -13
-[   53.902713] imx-pgc imx-pgc-domain.5: failed to enable regulator: -EACCES
-[   53.909518] galcore 38000000.gpu3d: PM: genpd_resume_noirq returned 0 after 12331 usecs
-[   53.917545] mxc_hantro 38300000.vpu: PM: calling genpd_resume_noirq @ 529, parent: soc@0
-[   53.925659] i2c_imx_xfer, pm_runtime_resume_and_get is -13
-[   53.931157] imx-pgc imx-pgc-domain.6: failed to enable regulator: -EACCES
-
-I.MX8MQ system resume normally after applying the fix. Here is resume log:
-[   71.068807] galcore 38000000.gpu3d: PM: calling genpd_resume_noirq @ 530, parent: platform
-[   71.077103] i2c_imx_xfer, pm_runtime_resume_and_get is 0
-[   71.083578] galcore 38000000.gpu3d: PM: genpd_resume_noirq returned 0 after 6490 usecs
-[   71.091526] mxc_hantro 38300000.vpu: PM: calling genpd_resume_noirq @ 530, parent: soc@0
-[   71.099638] i2c_imx_xfer, pm_runtime_resume_and_get is 0
-[   71.106091] mxc_hantro 38300000.vpu: PM: genpd_resume_noirq returned 0 after 6458 usecs
-
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
-Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
----
- drivers/i2c/busses/i2c-imx.c | 32 +++++++++++++++++++++++++++++++-
- 1 file changed, 31 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-index ee7070ee9e6e..c35092726465 100644
---- a/drivers/i2c/busses/i2c-imx.c
-+++ b/drivers/i2c/busses/i2c-imx.c
-@@ -1770,7 +1770,8 @@ static int i2c_imx_probe(struct platform_device *pdev)
- 		goto rpm_disable;
- 
- 	/* Request IRQ */
--	ret = request_irq(irq, i2c_imx_isr, IRQF_SHARED, pdev->name, i2c_imx);
-+	ret = request_irq(irq, i2c_imx_isr, IRQF_SHARED | IRQF_NO_SUSPEND,
-+			  pdev->name, i2c_imx);
- 	if (ret) {
- 		dev_err(&pdev->dev, "can't claim irq %d\n", irq);
- 		goto rpm_disable;
-@@ -1894,7 +1895,36 @@ static int i2c_imx_runtime_resume(struct device *dev)
- 	return ret;
- }
- 
-+static int i2c_imx_suspend(struct device *dev)
-+{
-+	/*
-+	 * Some I2C devices may need I2C controller up during resume_noirq()
-+	 * or suspend_noirq(), if the controller is autosuspended, there is
-+	 * no way to wakeup it once runtime pm is disabled (in suspend_late()).
-+	 * When system resume, I2C controller will be available until runtime pm
-+	 * is enabled(in_resume_early()). But it is too late for some devices.
-+	 * Wakeup the controller in suspend() callback while runtime pm is enabled,
-+	 * I2C controller will be available until suspend_noirq() callback
-+	 * (pm_runtime_force_suspend()) is called. During the resume, I2C controller
-+	 * can be restored by resume_noirq() callback (pm_runtime_force_resume()).
-+	 * Then resume() callback enables autosuspend. It will make I2C controller
-+	 * available until system suspend_noirq() and from resume_noirq().
-+	 */
-+	return pm_runtime_resume_and_get(dev);
-+}
-+
-+static int i2c_imx_resume(struct device *dev)
-+{
-+	pm_runtime_mark_last_busy(dev);
-+	pm_runtime_put_autosuspend(dev);
-+
-+	return 0;
-+}
-+
- static const struct dev_pm_ops i2c_imx_pm_ops = {
-+	NOIRQ_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
-+				  pm_runtime_force_resume)
-+	SYSTEM_SLEEP_PM_OPS(i2c_imx_suspend, i2c_imx_resume)
- 	RUNTIME_PM_OPS(i2c_imx_runtime_suspend, i2c_imx_runtime_resume, NULL)
- };
- 
--- 
-2.34.1
+- Hector
 
 
