@@ -4,52 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46276D3B7F6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81ECBD3B7FB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:18:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BwLUtlz0X+H+B4hbv9ZwbAB8pJpnt/HsCsdayi2XrwM=; b=CkHKu+QrPSwdJcvKIwZR6XAfQZ
-	P/7YCFUDGloQsonyhLL0c6vybV/odPHtfFBFbnHUbjK8f9p8TzM5Zea9S6Sz1UKiqivyBXkw6lYmr
-	bhfHXEVtdaJp/KbpqfVh4EVvHaDu13Fp7sINNkcnlxuE4lKMYI/CT2IulNYDCguZ7uvybu51+gAeg
-	PB5Vj8a+O5OUrX19NDxkLw0Ww7Ni03xshP40yV+pIB7Vxpz+gI2ZZoMtXkZyAxXKg81IDg7yD1mPZ
-	4xog1Mlww/wEkCf9ylQeo+xXdokgMKaXqnexlhy1e3BK9GHVADymDhmHDknYGWW12bVhQRL4K/+BK
-	deB/2kuw==;
+	bh=Z28/pVE/hy4xWO/Iti6x7rq0XOtRgOlZ3KJ2WnpE9Ng=; b=RAj2kSDHMteNvHRudimNRNst+l
+	nK0l10nfrkrYxKtz5oe9jostGq2GEOrDT4GhI0klWHbaKD4NIA5Dul4kbhON48/wMu1pZr1DqQghT
+	E56ytWeHA4W6NsNiVWthj8i05gKDZB5iRmqbj3s2NS9t2V7rb0v9UcZ7A05KQyypBssAwEh2jvhBE
+	RkJjKA8UTXL/1crgRJTfKUBKnK9tZgbB93PWmLguBt82YT4BuucqaEKAxkOa71M3MscwljYWOja9i
+	+yyibqjXPyDzRU+tTb9S67coqzCM1C/RlC8kstyhWEq+7ROA3Levq36iX8qFm35qgbGl8IPFJGKKS
+	VivgYbdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFWA8-00000007i7Q-24VF;
-	Mon, 25 Nov 2024 10:17:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFVm4-00000007ehe-2Vtm
+	id 1tFWAL-00000007iSy-05nl;
+	Mon, 25 Nov 2024 10:18:01 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tFW0S-00000007gAL-3oVw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 09:52:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50D0E1756;
-	Mon, 25 Nov 2024 01:53:26 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 462103F5A1;
-	Mon, 25 Nov 2024 01:52:55 -0800 (PST)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: sudeep.holla@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	nd@arm.com,
-	Levi Yun <yeoreum.yun@arm.com>
-Subject: [PATCH 1/3] firmware/arm_ffa: change ffa_device_register()'s parameters and return
-Date: Mon, 25 Nov 2024 09:52:49 +0000
-Message-Id: <20241125095251.366866-2-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241125095251.366866-1-yeoreum.yun@arm.com>
-References: <20241125095251.366866-1-yeoreum.yun@arm.com>
+	Mon, 25 Nov 2024 10:07:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8C8E8A40584;
+	Mon, 25 Nov 2024 10:05:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A82FBC4CECE;
+	Mon, 25 Nov 2024 10:07:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732529267;
+	bh=E9ezbafur2nm2cEtQaawacaJc/GnWr2pW/5V8YrWFFM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FOK1wufw0HpRvt9cJZl9sPkoDe2BoIUxI7N2/zm8kB/4YGme1rrINKgNEWS/N6cB7
+	 Xgk4MEMq3VK0ai3nMpXnUEPpDaBXncZnTkztw56LeyqgI28bJiSpyXnfyA8W3xFTka
+	 ZL9Tw/ECworC9At9tXaA1foYVfYLWHDr+tkBMDV+u0RvNXaWvan+bt74NsrYVeVvAl
+	 tOTmrgBinKigtxQyLjJyALoxCgmIMZAGceygMfTMc75fMvXr0zW0adjooqlqGX1wXA
+	 gV4jxa/jvUvXw+5loUcWVvk4KUc4lwTqpsGsLQGzi1xGwHYWUeGaTZrSJ0dvQGPY7y
+	 XS/KTUeVK/WAQ==
+Message-ID: <04a7ebf7-2924-4894-bc53-ba77e2f64fae@kernel.org>
+Date: Mon, 25 Nov 2024 11:07:39 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 2/8] dt-bindings: media: platform: visconti: Add
+ Toshiba Visconti Video Input Interface
+To: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+References: <20241125092146.1561901-1-yuji2.ishikawa@toshiba.co.jp>
+ <20241125092146.1561901-3-yuji2.ishikawa@toshiba.co.jp>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241125092146.1561901-3-yuji2.ishikawa@toshiba.co.jp>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_015256_725440_25B7A2BA 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20241125_020749_074755_024F00EF 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,156 +124,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Levi Yun <yeoreum.yun@arm.com>
+On 25/11/2024 10:21, Yuji Ishikawa wrote:
+> Adds the Device Tree binding documentation that allows to describe
+> the Video Input Interface found in Toshiba Visconti SoCs.
+> 
+> Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
+> Reviewed-by: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
 
-Currently, ffa_dev->properties is set after ffa_device_register() in
-ffa_setup_partitions().
-This means it couldn't validate partition's properties
-while probing ffa_device.
+Why this tag stayed and other was removed? What was the reason of tag
+removal?
 
-Change parameter of ffa_device_register() to receive ffa_partition_info
-so that before device_register(), ffa_device->properties can be setup
-and any other data.
 
-Also, change return value of ffa_device_register() from NULL to ERR_PTR
-so that it passes error code.
+> ---
+> Changelog v2:
+> - no change
+> 
+> Changelog v3:
+> - no change
+> 
+> Changelog v4:
+> - fix style problems at the v3 patch
+> - remove "index" member
+> - update example
+> 
+> Changelog v5:
+> - no change
+> 
+> Changelog v6:
+> - add register definition of BUS-IF and MPU
+> 
+> Changelog v7:
+> - remove trailing "bindings" from commit header message
+> - remove trailing "Device Tree Bindings" from title
+> - fix text wrapping of description
+> - change compatible to visconti5-viif
+> - explicitly define allowed properties for port::endpoint
+> 
+> Changelog v8:
+> - Suggestion from Krzysztof Kozlowski
+>   - rename bindings description file
+>   - use block style array instead of inline style
+>   - remove clock-lane (as it is fixed at position 0)
+>   - update sample node's name
+>   - use lowercase hex for literals
+> - Suggestion from Laurent Pinchart
+>   - update description message port::description
+>   - remove port::endpoint::bus-type as it is fixed to <4>
+>   - remove port::endpoint::clock-lanes from example
+>   - add port::endpoint::data-lanes to required parameters list
+>   - fix sequence of data-lanes: <1 2 3 4> because current driver does not support data reordering
+>   - update port::endpoint::data-lanes::description
+>   - remove redundant type definition for port::endpoint::data-lanes
+> 
+> Changelog v9:
+> - place "required" after "properties"
+> - dictionary ordering of properties
+> 
+> Changelog v10:
+> - no change
+> 
+> Changelog v11:
+> - no change
+> 
+> Changelog v12:
+> - remove property "clock-noncontinuous" as VIIF switches both modes automatically
+> - remove property "link-frequencies" as VIIF does not use the information
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Driver does not use or hardware supports only one frequency?
+
+> - remove reg[2] and interrupts[3] which are used for CSI2RX driver
+> - update example to refer csi2rx for remote-endpoint
+
+Were these the reasons?
+
+I am really surprised that after 11 versions this binding still is being
+totally reshaped and you need us to re-review.
+
+Also, start using b4 tool, so:
+1. your cover letter will have proper links to previous versions
+2. b4 diff would work. Look, try by yourself:
+
+
+
+b4 diff '<20241125092146.1561901-3-yuji2.ishikawa@toshiba.co.jp>'
+Grabbing thread from
+lore.kernel.org/all/20241125092146.1561901-3-yuji2.ishikawa@toshiba.co.jp/t.mbox.gz
+Checking for older revisions
+Grabbing search results from lore.kernel.org
+  Added from v11: 7 patches
 ---
- drivers/firmware/arm_ffa/bus.c    | 22 +++++++++++++++-------
- drivers/firmware/arm_ffa/driver.c | 12 ++++--------
- include/linux/arm_ffa.h           | 12 ++++++++----
- 3 files changed, 27 insertions(+), 19 deletions(-)
+Analyzing 144 messages in the thread
+Looking for additional code-review trailers on lore.kernel.org
+Analyzing 13 code-review messages
+Preparing fake-am for v11: Add Toshiba Visconti Video Input Interface driver
+  range: e16e149ced15..4efb0d6768a6
+Preparing fake-am for v12: dt-bindings: media: platform: visconti: Add
+Toshiba Visconti MIPI CSI-2 Receiver
+ERROR: v12 series incomplete; unable to create a fake-am range
+---
+Could not create fake-am range for upper series v12
 
-diff --git a/drivers/firmware/arm_ffa/bus.c b/drivers/firmware/arm_ffa/bus.c
-index eb17d03b66fe..95c0e9518556 100644
---- a/drivers/firmware/arm_ffa/bus.c
-+++ b/drivers/firmware/arm_ffa/bus.c
-@@ -38,6 +38,7 @@ static int ffa_device_match(struct device *dev, const struct device_driver *drv)
- 
- 		if (uuid_equal(&ffa_dev->uuid, &id_table->uuid))
- 			return 1;
-+
- 		id_table++;
- 	}
- 
-@@ -187,21 +188,26 @@ bool ffa_device_is_valid(struct ffa_device *ffa_dev)
- 	return valid;
- }
- 
--struct ffa_device *ffa_device_register(const uuid_t *uuid, int vm_id,
--				       const struct ffa_ops *ops)
-+struct ffa_device *ffa_device_register(
-+		const struct ffa_partition_info *part_info,
-+		const struct ffa_ops *ops)
- {
- 	int id, ret;
-+	uuid_t uuid;
- 	struct device *dev;
- 	struct ffa_device *ffa_dev;
- 
-+	if (!part_info)
-+		return ERR_PTR(-EINVAL);
-+
- 	id = ida_alloc_min(&ffa_bus_id, 1, GFP_KERNEL);
- 	if (id < 0)
--		return NULL;
-+		return ERR_PTR(-ENOMEM);
- 
- 	ffa_dev = kzalloc(sizeof(*ffa_dev), GFP_KERNEL);
- 	if (!ffa_dev) {
- 		ida_free(&ffa_bus_id, id);
--		return NULL;
-+		return ERR_PTR(-ENOMEM);
- 	}
- 
- 	dev = &ffa_dev->dev;
-@@ -210,16 +216,18 @@ struct ffa_device *ffa_device_register(const uuid_t *uuid, int vm_id,
- 	dev_set_name(&ffa_dev->dev, "arm-ffa-%d", id);
- 
- 	ffa_dev->id = id;
--	ffa_dev->vm_id = vm_id;
-+	ffa_dev->vm_id = part_info->id;
-+	ffa_dev->properties = part_info->properties;
- 	ffa_dev->ops = ops;
--	uuid_copy(&ffa_dev->uuid, uuid);
-+	import_uuid(&uuid, (u8 *)part_info->uuid);
-+	uuid_copy(&ffa_dev->uuid, &uuid);
- 
- 	ret = device_register(&ffa_dev->dev);
- 	if (ret) {
- 		dev_err(dev, "unable to register device %s err=%d\n",
- 			dev_name(dev), ret);
- 		put_device(dev);
--		return NULL;
-+		return ERR_PTR(ret);
- 	}
- 
- 	return ffa_dev;
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index b14cbdae94e8..a3a9cdec7389 100644
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -1406,23 +1406,19 @@ static int ffa_setup_partitions(void)
- 
- 	xa_init(&drv_info->partition_info);
- 	for (idx = 0, tpbuf = pbuf; idx < count; idx++, tpbuf++) {
--		import_uuid(&uuid, (u8 *)tpbuf->uuid);
--
- 		/* Note that if the UUID will be uuid_null, that will require
- 		 * ffa_bus_notifier() to find the UUID of this partition id
- 		 * with help of ffa_device_match_uuid(). FF-A v1.1 and above
- 		 * provides UUID here for each partition as part of the
- 		 * discovery API and the same is passed.
- 		 */
--		ffa_dev = ffa_device_register(&uuid, tpbuf->id, &ffa_drv_ops);
--		if (!ffa_dev) {
--			pr_err("%s: failed to register partition ID 0x%x\n",
--			       __func__, tpbuf->id);
-+		ffa_dev = ffa_device_register(tpbuf, &ffa_drv_ops);
-+		if (IS_ERR_OR_NULL(ffa_dev)) {
-+			pr_err("%s: failed to register partition ID 0x%x, error %ld\n",
-+			       __func__, tpbuf->id, PTR_ERR(ffa_dev));
- 			continue;
- 		}
- 
--		ffa_dev->properties = tpbuf->properties;
--
- 		if (drv_info->version > FFA_VERSION_1_0 &&
- 		    !(tpbuf->properties & FFA_PARTITION_AARCH64_EXEC))
- 			ffa_mode_32bit_set(ffa_dev);
-diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-index a28e2a6a13d0..3fb9c7a3453b 100644
---- a/include/linux/arm_ffa.h
-+++ b/include/linux/arm_ffa.h
-@@ -166,9 +166,12 @@ static inline void *ffa_dev_get_drvdata(struct ffa_device *fdev)
- 	return dev_get_drvdata(&fdev->dev);
- }
- 
-+struct ffa_partition_info;
-+
- #if IS_REACHABLE(CONFIG_ARM_FFA_TRANSPORT)
--struct ffa_device *ffa_device_register(const uuid_t *uuid, int vm_id,
--				       const struct ffa_ops *ops);
-+struct ffa_device *ffa_device_register(
-+		const struct ffa_partition_info *part_info,
-+		const struct ffa_ops *ops);
- void ffa_device_unregister(struct ffa_device *ffa_dev);
- int ffa_driver_register(struct ffa_driver *driver, struct module *owner,
- 			const char *mod_name);
-@@ -177,8 +180,9 @@ bool ffa_device_is_valid(struct ffa_device *ffa_dev);
- 
- #else
- static inline
--struct ffa_device *ffa_device_register(const uuid_t *uuid, int vm_id,
--				       const struct ffa_ops *ops)
-+struct ffa_device *ffa_device_register(
-+		const struct ffa_partition_info *part_info,
-+		const struct ffa_ops *ops)
- {
- 	return NULL;
- }
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
+
+How can I verify what happened here without too much effort?
+
+
+> 
+>  .../media/toshiba,visconti5-viif.yaml         | 95 +++++++++++++++++++
+>  1 file changed, 95 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/media/toshiba,visconti5-viif.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/media/toshiba,visconti5-viif.yaml b/Documentation/devicetree/bindings/media/toshiba,visconti5-viif.yaml
+> new file mode 100644
+> index 000000000000..ef0452a47e98
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/toshiba,visconti5-viif.yaml
+> @@ -0,0 +1,95 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/toshiba,visconti5-viif.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Toshiba Visconti5 SoC Video Input Interface
+> +
+> +maintainers:
+> +  - Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
+> +
+> +description: |-
+
+Since you ask for re-review, then:
+
+Drop |-
+
+Best regards,
+Krzysztof
 
