@@ -4,74 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C32D58D4D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 14:16:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE16D58D4F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 14:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=paVCNFvIfD4uYGyrcPxt4wW584lW4zxeDdrALC78N2k=; b=qRyrdz7GAfz4i+XI4GlkRtgkcs
-	We0/zAbF2WEYMCDgwmxmSLFNrPwV1aGGpAD3mTCjAaxygTZnhFwHeRi28rBFk2JT6ilpV/ud2X0sc
-	kn+x5+HvkGeoMf6k2yf6PACgCIW4cfK2mPUJtEN7wLYwXAb489UIt3XWLSblLt2pYr30ssCMKOsVj
-	4GgtkPzdsOrhJezTo3+4RID3Z8mU8lHINshA4Ahi560zk6Piws9ZO1di/q5EHtK2nqPKyIU3KNyky
-	gcAvsnem5ChI/xgpS7mNk3PTAJMqQIkPgUwY5iLCKHvsChz7Ar9EY1oTBdYZ4thcD43U2oEMOWDL0
-	3rihISaw==;
+	bh=4UZHmb0OeUd+8GPshNVOwzcpmIxly7Jn8Ce9CCCQHOg=; b=qM59g7rkuHZeNllXeTQCDUJKzT
+	LgcTyJZbcJEbfaMxvk5k+UMPe2tbyd7nfvPrBgAs291JiN6JSPpwo5j/9ZGy3LkjBHgMOhvVu0Fqt
+	A3Y5bzX4mLLAxBmRg945xMUGISc5/T2rkgulfom+oQBhIH6m92mkZVQOppomMmNO81t0fPuBdv/Os
+	tgwUB1+rHDvjG/5NniZaVA6qRkeKtI5SKB+b/+LX30Abac3HTJo6C+GCQWCUKW8P52GpXlpqCqlUd
+	4oYx5roD66/sZOuRE1sjwHbP0m2zAvik2Qk9fXblLUNaO4afU7JtVgyvoL1RAseKZgSFrFMTGH/Qg
+	7njhZBEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFZsf-00000008G00-1QCe;
-	Mon, 25 Nov 2024 14:16:01 +0000
-Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
+	id 1tFZvu-00000008GgI-0ogY;
+	Mon, 25 Nov 2024 14:19:22 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFZrg-00000008Fkq-1tBL
+	id 1tFZuw-00000008GWJ-1AUX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 14:15:02 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: marcan@marcan.st)
-	by mail.marcansoft.com (Postfix) with ESMTPSA id 21AA341DF4;
-	Mon, 25 Nov 2024 14:14:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
-	t=1732544094; bh=u2XUWhrR6ss2d9FlTj8Plfh2W/SE71nSefpQ0lgJHkQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=cNdY7SNXxqheP/0KddCcPuwen1NKykhMWb6bNamgVZXyM3ezVRM0HUdEY6L69M4CG
-	 /fJLMTvwVaUN//eLm2uXZJNQmIMbseOLk3Dk4P/EufLqPJdbZGnnniwrauJMV6Bb06
-	 SwXy0JLKwwnMfNSm3NowFr1Ywo/6TFks+sJ2VUREv3HnLhHI1EjN2p9/ab0hzDoUfx
-	 QghpKyWji6vfozrrnNHuM4gEZMSIFY4SAutMDXW3MB2W83onm+tslqNsgDLE1QCcyn
-	 ScCODCDPzEVRt0FZLpOx1dnsJ2D0KTT7YNlr9k1D9IHIYj7+Mw+W1Bc7j1+AHbY+4Y
-	 tWD9FLrZ82LBg==
-Message-ID: <a9d1568e-6240-49a4-b6a0-dcc0d9229eb1@marcan.st>
-Date: Mon, 25 Nov 2024 23:14:51 +0900
+	Mon, 25 Nov 2024 14:18:23 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4349fd77b33so7871525e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 06:18:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1732544300; x=1733149100; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4UZHmb0OeUd+8GPshNVOwzcpmIxly7Jn8Ce9CCCQHOg=;
+        b=rXsKc6O9lVSYVUJPXHjJvKEdgeXDA3BMmeLwKFur1nHUqLaFJ2osqrlKaZ5b50Hqs+
+         VIw4L7fwDcqL99Ah64O1nEcP2rpCmC8437okpOaFiokX5Cec5rIkm7Vbt+vCQAsziHs3
+         M9bxu8GhVavAWzMXEvfwqDuH9ehnDt5y2t5tEOZek8nmAuz8vdU5SAxpdfDyVCCFaYCP
+         xXDB+tqNH04RoTJv7IqNEM6mUIk07OR/5JmuSIiIS0quXMrIq+I3XXIj4+h4Mrdr3zpg
+         PCIqZd1c2Edp+EK9gAwp8Utsmog2PaGs+J2uAM9LT8Yia9FaaHwE6dcD2SkmsH974pRK
+         UBww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732544300; x=1733149100;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4UZHmb0OeUd+8GPshNVOwzcpmIxly7Jn8Ce9CCCQHOg=;
+        b=l5ScveU5MYZcSs4XZpUI+lgzj6+41QoUCUZOsbCXOgsqJf8bAYjW6RH3u5yIg/vbhG
+         cHCGw3lfgSsCDdhRPIzkmBKq7wHHlevJQ9K8480QgXlx1ptuGZrNC2+djt0PGIcLTq4n
+         z0IjYMUY82JA1JGMW6OBEip6kVnst5wDM4GikV5fWm0NTAlgm+x98UkO/rxIIUba0LOt
+         4q1nPLc5g6uzVVpkUawwuAPb4Y7XwGOZzdD/T5eEaNsoOkQ5vZF5+O+Rx6oiD536se+q
+         KEJNgKXdZaCDKImzJT0jRpRyDuimBUemwXG8Akgu7GVyIuqiWucjsksBlkV3x2l4zO96
+         IJ/A==
+X-Forwarded-Encrypted: i=1; AJvYcCVUNm5Dj9jVmUDv3TRblCwd5D2kjXOdRqXXD6vB7LAcbch2KAYjvqonmjHL/4/knWFPX5weIjjnXy7yu9vjWwNb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+Ntk1qe2+Rycc32pjRth74WjIjmweK1laA7eZs85D1woR2pTv
+	5nPY01ao0DpHW+UCRiPbwPtlOuRZ92K1u2pupUAvMJRIVDapX6/AKt9yLKsdbfk=
+X-Gm-Gg: ASbGncsk1Y+Z05mtYjTxKSArYNp/g+gnzplZ3kbm+5PWCp8YSBDlhvFTif5iFEiKgj5
+	4VYZj0sg1wOvHQODddRi+yCBDNIeXLD2Bk5gNyMy3mxGINyjjlS4YqbNqPiMbTs3GqoZ25t99qk
+	VFNStQpJDSmc1SKFDOjQZ96pKtlfLrMUSG8s+5lbUArwRUNef0siVfS8EQxaRWploOr+o82LzJT
+	VBuExe7X3d66RgsrXLHPm1r1oyMfH7oChwAOu6L4N46HHHMjvMenISWLp/d5jA=
+X-Google-Smtp-Source: AGHT+IHqIIihdF3fumt0wugdqbgPyd4zHYslJ9WQYwGzPsEPSKNIXwv+JbkUTAaRMXwekVdAEkvLDQ==
+X-Received: by 2002:a05:600c:548d:b0:433:c463:62dd with SMTP id 5b1f17b1804b1-433ce4e73camr111806745e9.27.1732544300035;
+        Mon, 25 Nov 2024 06:18:20 -0800 (PST)
+Received: from [192.168.0.40] ([176.61.106.227])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4349fba472asm36556345e9.17.2024.11.25.06.18.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 Nov 2024 06:18:19 -0800 (PST)
+Message-ID: <0234971e-9029-4371-a0aa-7da835591351@linaro.org>
+Date: Mon, 25 Nov 2024 14:18:17 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] dt-bindgins: display: Add Apple pre-DCP display
- controller bindings
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Sasha Finkelstein <fnkl.kernel@gmail.com>
-Cc: Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig
- <alyssa@rosenzweig.io>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com>
- <20241124-adpdrm-v1-1-3191d8e6e49a@gmail.com>
- <ksdp54qj55v7igvvcshl6y2cxpmqy7rlsh4xsixpptjn7s7wlu@76ejtq6ytvbp>
-From: Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH v5 1/5] media: dt-bindings: Add qcom,sc7280-camss
+To: Rob Herring <robh@kernel.org>, Vikram Sharma <quic_vikramsa@quicinc.com>
+Cc: rfoss@kernel.org, todor.too@gmail.com, mchehab@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, akapatra@quicinc.com,
+ hariramp@quicinc.com, andersson@kernel.org, konradybcio@kernel.org,
+ hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
+ catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kernel@quicinc.com
+References: <20241112173032.2740119-1-quic_vikramsa@quicinc.com>
+ <20241112173032.2740119-2-quic_vikramsa@quicinc.com>
+ <20241115165031.GA3344225-robh@kernel.org>
 Content-Language: en-US
-In-Reply-To: <ksdp54qj55v7igvvcshl6y2cxpmqy7rlsh4xsixpptjn7s7wlu@76ejtq6ytvbp>
-Content-Type: text/plain; charset=UTF-8
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+In-Reply-To: <20241115165031.GA3344225-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_061500_899613_88811635 
-X-CRM114-Status: GOOD (  20.69  )
+X-CRM114-CacheID: sfid-20241125_061822_437822_6E6DEBC8 
+X-CRM114-Status: UNSURE (   6.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,154 +107,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/11/25 16:45, Krzysztof Kozlowski wrote:
-> On Sun, Nov 24, 2024 at 11:29:24PM +0100, Sasha Finkelstein wrote:
->> Add bindings for a secondary display controller present on certain
->> Apple laptops.
->>
->> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
->> ---
->>  .../bindings/display/apple,display-pipe.yaml       | 59 ++++++++++++++++++++++
->>  .../bindings/display/panel/apple,summit.yaml       | 24 +++++++++
->>  2 files changed, 83 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/display/apple,display-pipe.yaml b/Documentation/devicetree/bindings/display/apple,display-pipe.yaml
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..bd25ddc6e09dd636c0221c854e594113f6011866
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/display/apple,display-pipe.yaml
-> 
-> No, use fallback compatible as filename.
-> 
->> @@ -0,0 +1,59 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/display/apple,display-pipe.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Apple pre-DCP display controller.
->> +
->> +maintainers:
->> +  - asahi@lists.linux.dev
->> +  - Sasha Finkelstein <fnkl.kernel@gmail.com>
->> +
->> +description: |
-> 
-> Drop |
-> 
->> +  A secondary display controller used to drive the "touchbar" on certain
->> +  Apple laptops.
->> +
->> +properties:
->> +  compatible:
->> +    items:
->> +      - enum:
->> +        - "apple,t8112-display-pipe"
->> +        - "apple,t8103-display-pipe"
->> +      - const: "apple,h7-display-pipe"
-> 
-> 
-> This wasn't tested... Drop all quotes. Do you see any file with quotes?
-> Why doing things entirely different than everyone else?
-> 
->> +
+On 15/11/2024 16:50, Rob Herring wrote:
 >> +  reg:
->> +    minItems: 3
-> 
-> Drop
-> 
->> +    maxItems: 3
+>> +    maxItems: 15
 >> +
 >> +  reg-names:
->> +    items:
->> +      - const: be
->> +      - const: fe
->> +      - const: mipi
->> +
->> +  power-domains: true
-> 
-> List the items instead or maxItems: 1.
-> 
->> +
->> +  interrupts:
->> +    minItems: 2
-> 
-> Drop
-> 
->> +    maxItems: 2
->> +
->> +  interrupt-names:
->> +    items:
->> +      - const: be
->> +      - const: fe
->> +
->> +  iommus: true
-> 
-> 
-> maxItems: 1
-> 
->> +
->> +  "#address-cells":
->> +    const: 1
->> +
->> +  "#size-cells":
->> +    const: 0
->> +
->> +additionalProperties: true
-> 
-> This cannot be true. Must be false.
-> 
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - interrupts
-> 
-> This goes before additionalProperties.
-> 
-> Missing example: that's a strong NAK and prove that this could not be
-> even tested.
-> 
-> Do you see any device schema without example? No. Do not develop things
-> differently, Apple is not unique, special or exceptional.
+> reg and reg-names go after 'compatible'. See the documented ordering.
 
-Krzysztof, it is entirely possible to express this same feedback without
-being condescending and rude. I'm pretty sure you can do better than this.
+Rob, the documented ordering pertains to the dtsi and examples not to 
+the yaml right ?
 
-> 
-> 
->> diff --git a/Documentation/devicetree/bindings/display/panel/apple,summit.yaml b/Documentation/devicetree/bindings/display/panel/apple,summit.yaml
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..dc281c1f52c1ed07cc2f7f804dcfd2f3b4239d89
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/display/panel/apple,summit.yaml
->> @@ -0,0 +1,24 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/display/panel/apple,summit.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Apple "Summit" display panel.
->> +
->> +maintainers:
->> +  - asahi@lists.linux.dev
->> +  - Sasha Finkelstein <fnkl.kernel@gmail.com>
->> +
->> +properties:
->> +  compatible:
->> +    const: apple,summit
-> 
-> No, too generic. Panels need much more properties, this is heavily
-> incomplete. See other panel bindings.
-> 
-> Best regards,
-> Krzysztof
-> 
-> 
-> 
-
-- Hector
-
+---
+bod
 
