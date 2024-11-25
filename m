@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 758F8D5808D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 12:23:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65DED58094
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 12:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:CC:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gX6RRUkhrXyt1eQce3tICLmtEBTomtuu1MbxPVMLSgA=; b=061GmHxTe9erJmJv8XuZ2Yr1tQ
-	zoSRoZ4pCTmFchqH6/CXHzsOy4BDZZtSbsmbAYQ1olOtxCcO9MowjKhQifmzD1dc8UYzjjQHBFzhj
-	n7AyA5l9XApvCzEPKmPlLMBhX+MTpshjtwktvJ+6HAiKEG4NcrnXgp3AdV6N0Wd+HWFRiWDIUS/2S
-	2QMGR9pAvoSM/hfXt/IgmnpMMyPbbAp2JFTiFJH4nZ2xHaYHY6SyfvoLcMZGS3Oo8IDn1hzP1PDrJ
-	2toe82/zv/lTo5TD1qv23vmHH1+Q1PCs0NweoN7TquhCCjl9fpsSfhL9sHCE5JdxUUs+i4rWvhPIq
-	Yl9c452w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j31QpgYkMwRfIDmBSIKwiYoQOk5xxXQgXhenRSn2vl4=; b=QioWpZOFfyepGYc4NZPcwOOqsm
+	t7R0nwtLREXeQZg8T0rU5DirXIU2fgniP01+wHl2A3EgeJ317D2tPcjK6i1NV9AzYHUaP7VR7dRnm
+	OBggX01Ca6jc4DD39a/mLIWZFgpL+ypJcQFdnbJoCnb8wS/2Xn8+LFuh93iSDe2gl4izBlkrxHr3d
+	DqZ13lN2KpebYsDXjTJ+YpdaF1uXXKxxJTvLEgB/57fiMG8yLnr5sMt9EQ/SxsQPIDQaVxDLJXguA
+	xow5ZY/BsCrmdYv0XZC9FMjhFYeTcUSyeHqNx6JzP7JyX+XYtLWLO1qsxjRfbpt0WvsJ+DdmEPtHZ
+	eX3s/cFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFY7x-0000000801I-1FGE;
-	Mon, 25 Nov 2024 12:23:41 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1tFYZa-000000082XI-13a6;
+	Mon, 25 Nov 2024 12:52:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFY70-00000007zsX-0Gxt;
-	Mon, 25 Nov 2024 12:22:43 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4XxlCR4Ctgz10WWS;
-	Mon, 25 Nov 2024 20:20:19 +0800 (CST)
-Received: from kwepemh100007.china.huawei.com (unknown [7.202.181.92])
-	by mail.maildlp.com (Postfix) with ESMTPS id E18401401F0;
-	Mon, 25 Nov 2024 20:22:26 +0800 (CST)
-Received: from [10.67.111.53] (10.67.111.53) by kwepemh100007.china.huawei.com
- (7.202.181.92) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 25 Nov
- 2024 20:22:26 +0800
-Message-ID: <a8ccbb56-d72c-4752-8ff7-d9166fccb0d0@huawei.com>
-Date: Mon, 25 Nov 2024 20:22:25 +0800
+	id 1tFYYc-000000082Qh-46aQ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Nov 2024 12:51:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7DC7E5C5977;
+	Mon, 25 Nov 2024 12:50:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D918DC4CECE;
+	Mon, 25 Nov 2024 12:51:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732539072;
+	bh=lL1pzJTJrsl5S8uCJZ6H18Rb7qtHU1zVpOtDA+BLHPk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YrPymnv94rBJrNghmVERbLc5IwcUUEZwv045XKUU1q7U4sK80axXF1mdnzw2U/Na2
+	 mUHzWYiehMD9vG7b4Zn97ZEB01C9JxCKNJIW7INWYwNakq692DLlbrP42hG11tEFtS
+	 5huF/Oj+dgWFaTgoBGWnvU5JjiYnLzSEFWrJSfx+AItiJBCvXRgbkUkxrL73gZwFjR
+	 O7RUpzlOpUGh0ufQDbIQ/SQx5TEuckjedXVihBPOa26Obj/iF7xJTign4EBHFFThZZ
+	 M/gqA5HR6ybRLrhAotswuNSRb4oiOxEXmEJNqRs42YBbBCv/UGAjh6IwnRqURqJA1d
+	 Zzd+ntes+Bzyg==
+Date: Mon, 25 Nov 2024 12:51:07 +0000
+From: Will Deacon <will@kernel.org>
+To: Chun-Tse Shao <ctshao@google.com>, catalin.marinas@arm.com
+Cc: linux-kernel@vger.kernel.org, Greg Thelen <gthelen@google.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Tuan Phan <tuanphan@os.amperecomputing.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] perf/arm-smmuv3: Fix lockdep assert in ->event_init()
+Message-ID: <20241125125106.GA858@willie-the-truck>
+References: <20241108050806.3730811-1-ctshao@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: <zhangkunbo@huawei.com>
-CC: <airlied@gmail.com>, <chris.zjh@huawei.com>,
-	<dri-devel@lists.freedesktop.org>, <liaochang1@huawei.com>,
-	<linux-amlogic@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <maarten.lankhorst@linux.intel.com>,
-	<mripard@kernel.org>, <neil.armstrong@linaro.org>, <simona@ffwll.ch>,
-	<tzimmermann@suse.de>
-References: <20241106024548.1915611-1-zhangkunbo@huawei.com>
-Subject: Re: [PATCH] drm/meson: Avoid use-after-free issues with crtc
-From: zhangkunbo <zhangkunbo@huawei.com>
-In-Reply-To: <20241106024548.1915611-1-zhangkunbo@huawei.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.111.53]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemh100007.china.huawei.com (7.202.181.92)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241108050806.3730811-1-ctshao@google.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_042242_288714_7D9F4F0C 
-X-CRM114-Status: UNSURE (   1.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241125_045115_058038_3DEF6A2E 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,6 +77,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-gently ping.
+On Fri, Nov 08, 2024 at 05:08:05AM +0000, Chun-Tse Shao wrote:
+> Same as
+> https://lore.kernel.org/all/20240514180050.182454-1-namhyung@kernel.org/,
+> we should skip `for_each_sibling_event()` for group leader since it
+> doesn't have the ctx yet.
+> 
+> Fixes: f3c0eba28704 ("perf: Add a few assertions")
+> Reported-by: Greg Thelen <gthelen@google.com>
+> Cc: Namhyung Kim <namhyung@kernel.org>
+> Cc: Robin Murphy <robin.murphy@arm.com>
+> Cc: Tuan Phan <tuanphan@os.amperecomputing.com>
+> Signed-off-by: Chun-Tse Shao <ctshao@google.com>
+> ---
+>  drivers/perf/arm_smmuv3_pmu.c | 19 +++++++++++--------
+>  1 file changed, 11 insertions(+), 8 deletions(-)
 
+Acked-by: Will Deacon <will@kernel.org>
+
+Catalin -- please can you pick this up for -rc1?
+
+Will
 
