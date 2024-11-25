@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A668D58D5D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 15:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C69D4D58D5D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 15:23:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LbqeRsx8pQ/ZtWu8yCGQNsmleid8eQ70IXU3cTll2z0=; b=HzUNyQ0vQPGFjpqUDDrOXQ8qWK
-	cPwG6GzlsjndcQQDp3ofKkYvJqRkAtAcR10fgQKfzRlwruy/+bMZ75Igz8o4dmx80rAwqtMFEMtrj
-	EEANZgrLPdFr+fvr71P1ps8vxJZKNrWMV2wqeftdILnHzi9tatnhZS6r0MnYj7YsVrnjGgrMxi+XO
-	AHkXQ6PC6UaWncq6+9iHQtm/VEd3pD0aCdqZlWc2zSGxDghr+i6j9NbnY5121sIme4lFYZsTqRdZ8
-	zLS9X7cz8Kr0hbPsaFVUvCCbdJNsYM5TYtujBIE+PBV+GzFIY7u8YXLtIZzYxMDfQoEA2QTerRSAX
-	UykFK+Jg==;
+	bh=CyX0cTgA/MvjHnLtiS0Xd8bF9aSHKXc1mygDDIUAEu8=; b=j4ipPZFuv41iy5r6TywSY2lXg7
+	eRJ1Ha7mm9lxrGdl1mnXlZ5+GnAM6HeMaKToU3o4ccTkuQSIA7YHNT7gYPHCJSkKQG86LASnJZifB
+	55jKnWtmdnuXyNC6/ZdZ6A/oaIyNUXyGY9t/PlvkQdAKlSzL5Dht2xOPrqf4CzO0jQkfyYgGVXu1C
+	4tnka8TZIutroiM/pedZ1IGvDYxo6xgu5eD80vDe3TEcXkMHBNlTqJlyHGxvfF2UDnfjTYiIG0YYQ
+	Ju/3zkup1P3LcqhUwKn1sVxHKSctFxHRzR4NynMCQEEBfLYVlbyK10vzkhwuhhul0WuADVWud+aWb
+	LK4JCMtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFasp-00000008S2S-06Ox;
-	Mon, 25 Nov 2024 15:20:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFarr-00000008RqV-24HZ
+	id 1tFave-00000008SsQ-2CMr;
+	Mon, 25 Nov 2024 15:23:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tFaug-00000008Sfm-1LHd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 15:19:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF6511692;
-	Mon, 25 Nov 2024 07:19:43 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D9A1B3F66E;
-	Mon, 25 Nov 2024 07:19:11 -0800 (PST)
-Date: Mon, 25 Nov 2024 15:18:57 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Lukas Wunner <lukas@wunner.de>
-Cc: Ard Biesheuvel <ardb@kernel.org>,
+	Mon, 25 Nov 2024 15:22:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3F4475C5B2F;
+	Mon, 25 Nov 2024 15:21:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42357C4CECE;
+	Mon, 25 Nov 2024 15:22:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732548129;
+	bh=dy2fUC3Stp8CrKtZQSEcsiEhBheaz3FIUb1u3DlnIdE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QR3rS21M2KGkHEHHH8+vdXJI0OSl9SBbDyKKk7PcozxHkk3zUnqUIaDOpxeeetRgg
+	 kBNBSbIwXN7917M36RVEDC5JrNihq/Kk2RUcbG/XKlHhOom1iK5Z5RUAqpnmXRcZv1
+	 l9Ht9LmV1UkcMDcgeq6CArGanLjiQbZ+t/H9yhDVBqpB+YRHXy/GmV062UcVbRq9JD
+	 ckMwZcOGpnLlGqBbLxVjlgw4cNfxg8uakhCZ2RBlf9fXpHw4vtE+eXwKEB3sCzehHP
+	 /FS5qlpVU048kOl5H2NvfPMFCg2tlR+CuM3cuMFPEJDe7UgQpLw6XOpo8rE9xoQMML
+	 kGB8VEBsmgAsQ==
+Date: Mon, 25 Nov 2024 15:22:03 +0000
+From: Will Deacon <will@kernel.org>
+To: Yu Zhao <yuzhao@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Zorro Lang <zlang@redhat.com>,
-	Vegard Nossum <vegard.nossum@oracle.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH for-next/fixes] arm64/mm: Fix false-positive
- !virt_addr_valid() for kernel image
-Message-ID: <Z0SVYSew0gIgSdAe@J2N7QTR9R3>
-References: <90667b2b7f773308318261f96ebefd1a67133c4c.1732464395.git.lukas@wunner.de>
- <CAMj1kXFvJGHr_iv6bFQfb89XqPFrNWH7-rV7SFy4QBSWXYC4RA@mail.gmail.com>
- <CAMj1kXER7AbNyUDjtij6Ni0jVRMg11xvyhkCMKAxaKbx=dsgcQ@mail.gmail.com>
- <Z0RJaU4wjU5WeQb4@wunner.de>
- <Z0RWcgrQASMIleRn@J2N7QTR9R3>
- <Z0SOZhtJohCNxX6_@wunner.de>
+	Marc Zyngier <maz@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Douglas Anderson <dianders@chromium.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Nanyong Sun <sunnanyong@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [PATCH v2 0/6] mm/arm64: re-enable HVO
+Message-ID: <20241125152203.GA954@willie-the-truck>
+References: <20241107202033.2721681-1-yuzhao@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z0SOZhtJohCNxX6_@wunner.de>
+In-Reply-To: <20241107202033.2721681-1-yuzhao@google.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_071915_573275_41463142 
-X-CRM114-Status: GOOD (  27.96  )
+X-CRM114-CacheID: sfid-20241125_072210_398709_C78A5BF8 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,57 +79,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 25, 2024 at 03:49:10PM +0100, Lukas Wunner wrote:
-> On Mon, Nov 25, 2024 at 10:50:48AM +0000, Mark Rutland wrote:
-> > On Mon, Nov 25, 2024 at 10:54:49AM +0100, Lukas Wunner wrote:
-> > > Other arches do not seem to be concerned about this and
-> > > let virt_addr_valid() return true for the kernel image.
-> > > It's not clear why arm64 is special and needs to return false.
-> > > 
-> > > However, I agree there's hardly ever a reason to DMA from/to the
-> > > .text section.  From a security perspective, constraining this to
-> > > .rodata seems reasonable to me and I'll be happy to amend the patch
-> > > to that effect if that's the consensus.
-> > 
-> > Instead, can we update the test to use lm_alias() on the symbols in
-> > question? That'll convert a kernel image address to its linear map
-> > alias, and then that'll work with virt_addr_valid(), virt_to_phys(),
-> > etc.
+Hi Yu Zhao,
+
+On Thu, Nov 07, 2024 at 01:20:27PM -0700, Yu Zhao wrote:
+> HVO was disabled by commit 060a2c92d1b6 ("arm64: mm: hugetlb: Disable
+> HUGETLB_PAGE_OPTIMIZE_VMEMMAP") due to the following reason:
 > 
-> Do you mean that sg_set_buf() should pass the address to lm_alias()
-> if it points into the kernel image?
-
-No; I meant that the test could use lm_alias() on the test vectors
-before passing those to sg_set_buf(), when the test code knows by
-construction that those vectors happen to be part of the kernel image.
-That'll work on all architectures.
-
-That said, looking at the code it appears that testmgr.c can be built as
-a module, so the test vectors could be module/vmalloc addresses rather
-than virt/linear or image addresses. Given that, I don't think the
-changes suggested here are sufficient, as module addresses should still
-be rejected.
-
-Can we kmemdup() the test vector data first? That'd give us a legitimate
-virt/linear address that we can use.
-
-> That would require a helper to determine whether it's a kernel image
-> address or not.  It seems we do not have such a cross-architecture
-> helper (but maybe I'm missing something).  (I am adding an arm64-specific
-> one in the proposed patch.)
+>   This is deemed UNPREDICTABLE by the Arm architecture without a
+>   break-before-make sequence (make the PTE invalid, TLBI, write the
+>   new valid PTE). However, such sequence is not possible since the
+>   vmemmap may be concurrently accessed by the kernel.
 > 
-> So this doesn't look like a viable approach.
-> 
-> Also, I'd expect pushback against an sg_set_buf() change which is
-> only necessary to accommodate arm64.  I'd expect the obvious question
-> to be asked, which is why arm64's virt_addr_valid() can't behave like
-> any other architecture's.  And honestly I wouldn't know what to answer.
+> This series presents one of the previously discussed approaches to
+> re-enable HugeTLB Vmemmap Optimization (HVO) on arm64.
 
-I don't think arm64 is doing anything wrong here; an image address is
-*not* a virt/linear address, and we only fix that up in virt_to_*() as a
-best-effort thing. I think other architectures which accept that are
-signing themselves up for subtle bugs that we're trying to prevent
-early.
+Before jumping into the new mechanisms here, I'd really like to
+understand how the current code is intended to work in the relatively
+simple case where the vmemmap is page-mapped to start with (i.e. when we
+don't need to worry about block-splitting).
 
-Mark.
+In that case, who are the concurrent users of the vmemmap that we need
+to worry about? Is it solely speculative references via
+page_ref_add_unless() or are there others?
+
+Looking at page_ref_add_unless(), what serialises that against
+__hugetlb_vmemmap_restore_folio()? I see there's a synchronize_rcu()
+call in the latter, but what prevents an RCU reader coming in
+immediately after that?
+
+Even if we resolve the BBM issues, we still need to get the
+synchronisation right so that we don't e.g. attempt a cmpxchg() to a
+read-only mapping, as the CAS instruction requires write permission on
+arm64 even if the comparison ultimately fails.
+
+So please help me to understand the basics of HVO before we get bogged
+down by the block-splitting on arm64.
+
+Cheers,
+
+Will
 
