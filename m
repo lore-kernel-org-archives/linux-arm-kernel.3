@@ -4,167 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABDDD3B7F6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43B8D3B7F5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T0/DlqsrHwJtdwJbUm1kInoXl14XLLppggF+PBhSObY=; b=1mbyDgBMIaPkqsu26uBnm2gJ+F
-	NQodWdgljYma9Y7GK2O/V5k7m/4T9zsIpYbXHFCUT2X5l+cEwhjweETe2ZTtuhhbj9NHlaqUjSwc1
-	PUJairplCwOkdU3GYm+cKhA3VSbRMjkVCze1TBNerSBoj5pzBDYbg/4ectK3vTbSPiKISqCyxo1Rs
-	fWn3Mg81VxaOW1U1pm8fRv4RSwQsFD2eET3i/VuS9542QkHrbv2d7y5Qe+3+6CgsJTN0/t8WDZNjI
-	kwfr5n53onAABMLAhI12Fc8mJ44RsY6A2W0BaIbim/VJ392ZNAfQvvsUYH3etPULMKS0KjxFbS3gJ
-	bHOV/mRw==;
+	bh=i9BVqUbFA42tcEjK6AhbR0R4ugDgiIQ3vuF30ApQ1OM=; b=CvfjiZtjJJEKGUlrZIUF4mM9E+
+	ZCmQFcQsgF5rhJshP+o06ioZvFeuTor4ZQZIcce0MlypZjLJGROKGrqrHtUqFWQ+fYeBq+racqHi2
+	gPBft5hh/c0Phxd3/fYqaqR9VN4alFLvHim2dev6QBN1Nn42xVozwDD4J/k7/R4ABkWrMxKVaLqok
+	WGZmKqz3rnUcmE51agtLaVyB62MXBkhreNe+05iUe+7iGWP5d9kC8JkIntHlnXc/hULBXK4ItnhRn
+	D6LXVjWekIpqivQ2gT143unwF+0FK3FX/mPkoUvOacppuwMy8Ip9PnUQtEL/6lZ9YR7CcsoEk+0lW
+	ZXwIBcrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFW9i-00000007hci-3u3D;
-	Mon, 25 Nov 2024 10:17:22 +0000
-Received: from mail-am6eur05on20609.outbound.protection.outlook.com ([2a01:111:f403:2612::609] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFVV4-00000007aXT-42DW;
-	Mon, 25 Nov 2024 09:35:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Jsqv1LCnxP1aXxnESxrFVbK7Zzjvq8AfefhdQNLDqSH8g/rxiCFg5V8Fyg+uXFvmvQj/M1P1RygnNMeG1B85a6qDxU3wwS50iOI7bLKY4vn1hrU/id+r8e72yN0yjWWoNF/9oWf9V6Bp0T2tljJwjEhxt6OgPDS4kA95P6am6nS5QEukslk4TEcoqdlfwPHGUBDudBVeZcOQ9VtJZd1q9WT3+2TVzg5cTITrOFyaEkK3IDxGEbxq587005oZm39IKRIrIEbtUht3xeN6Zo+tSkMG/2FsEcgf8kaVwcJS8RLntN/vn/H3kG5IP9vgCyaBXWEtM5tyUHOwLBxzCgLanw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T0/DlqsrHwJtdwJbUm1kInoXl14XLLppggF+PBhSObY=;
- b=FqMCx0BFNYelOE15TUG8de9vFcpKlP/Eqh38nr0DgBjZDHaJfY3mFf/fKT0P/2pR1zZLyxcYCGlQO09a7PtR3vnY+/Fy46znbBj/7iNUVdJQURSTBmdurW2awdlshZoGGBPQIEdcVGFYNc1oEie+SxUJH/iVmGQM3HVJhQa+joTuUk1b+pHgcTLA7602HA4hCqQPNcS5MSRx6EXIB1jDTrf03hjI1ZvvFSIK6VMH/LowMB8mEd8omcgvB8VmJkvEBDBA1rtPFpQM844o88q29S6c8IMKecIXZpdLg8b+1fqPiQr9iEdwhQ/N02IyCzD97//4MCF3u36F0Qewk5a0Og==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T0/DlqsrHwJtdwJbUm1kInoXl14XLLppggF+PBhSObY=;
- b=bjS6nnxloKn75fyc//Hb9c939oJYvpyvaBN6eTtTUpCFMalYPpVjkRJxTTMJlRFPPmW1Q6/YIqjfzu2htqiYuKwSMMZ+9//kQinGiEySsei/Dy76bdAhXFUuzv6Z+QuLb6XEKYlpKb4/KGPEKmEzd/SbPT8NmUxgMCV3K1/Q20vo4xaSMoPzLTCKxTA6OdVkrQMpHc6Y73JBKmUONm8SI42xk7m3Hmw2Zt64m5QFeUE/XGbsQ1xF0GH059+9eT8OmcpgSMHOr2EUaOy5Tff6NlSSlVeLk1R9N9hI6hy1kigQQGgI5P1o2yjyKZM/sYCYsjnRaeEijvzV2kg1VOObWA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by VI2PR04MB10930.eurprd04.prod.outlook.com (2603:10a6:800:273::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.20; Mon, 25 Nov
- 2024 09:35:19 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%6]) with mapi id 15.20.8182.019; Mon, 25 Nov 2024
- 09:35:19 +0000
-From: Liu Ying <victor.liu@nxp.com>
-To: dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	id 1tFW9t-00000007hm4-0gan;
+	Mon, 25 Nov 2024 10:17:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tFVhi-00000007dk2-2oEA
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Nov 2024 09:48:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 463E11FC7;
+	Mon, 25 Nov 2024 01:48:56 -0800 (PST)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BF5873F66E;
+	Mon, 25 Nov 2024 01:48:23 -0800 (PST)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: suzuki.poulose@arm.com,
+	mike.leach@linaro.org,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	bigeasy@linutronix.de,
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org
+Cc: coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org
-Cc: p.zabel@pengutronix.de,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	glx@linutronix.de,
-	vkoul@kernel.org,
-	kishon@kernel.org,
-	aisheng.dong@nxp.com,
-	agx@sigxcpu.org,
-	francesco@dolcini.it,
-	frank.li@nxp.com,
-	dmitry.baryshkov@linaro.org
-Subject: [DO NOT MERGE PATCH v4 18/19] arm64: dts: imx8qxp-mek: Enable display controller
-Date: Mon, 25 Nov 2024 17:33:15 +0800
-Message-Id: <20241125093316.2357162-19-victor.liu@nxp.com>
+	linux-rt-devel@lists.linux.dev,
+	nd@arm.com,
+	Levi Yun <yeoreum.yun@arm.com>
+Subject: [PATCH 2/9] coresight-etm4x: change etmv4_drvdata spinlock type to raw_spinlock_t
+Date: Mon, 25 Nov 2024 09:48:09 +0000
+Message-Id: <20241125094816.365472-3-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241125093316.2357162-1-victor.liu@nxp.com>
-References: <20241125093316.2357162-1-victor.liu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR01CA0131.apcprd01.prod.exchangelabs.com
- (2603:1096:4:40::35) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+In-Reply-To: <20241125094816.365472-1-yeoreum.yun@arm.com>
+References: <20241125094816.365472-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI2PR04MB10930:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4a1a99a8-6085-4038-869b-08dd0d3479fd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bwdk34rD+im6dOJB7rRfPVlFVju9lsU/uq/OrA4AGNJOEAbFO7kW2qmChjeH?=
- =?us-ascii?Q?ha4/V3N6ZmY65KpBfme/XGqkJjMn5MT7HVF1m0TBm7Ys/a2pXRqAkHBAJq1t?=
- =?us-ascii?Q?fAbBrAonztP0CWhbC4kmnIj3iwtttPW6kjt+an78rQC0BWlbkoNWM7as07oa?=
- =?us-ascii?Q?YGo+xwgXJWecer8c7tFXr1JR5ZKw8Xiot3HWTFqll+PsKrAofRMw2pwqP5cj?=
- =?us-ascii?Q?dv2VVYn7fdHDHlXU3NM8L5EwnXvUKe8AgfswTmg15hronMe4orjVFrDXMymI?=
- =?us-ascii?Q?DLvpho8AgEF/j2mtVVVdhZWR9uf3guEHQeoyUc2yoRgjIT3aGafWZqoKGMXL?=
- =?us-ascii?Q?hkP0yRMrAFaldX3yqCnvrmhtibu0KPwyXejmvil0oOZOrMRxcMKzmcGXDFvX?=
- =?us-ascii?Q?gxXVRYfnQXb51jdguJ64OdDzyLTtVREsMj2FCWFYYsXsdpRy4zPWJRCilz9i?=
- =?us-ascii?Q?eP/5uELKX/d6P707kSnVW24IozLUKvP2enDoIfZoRtpsUjrN0XVAtR7R8pbt?=
- =?us-ascii?Q?8r3SugsRvBUjWo+JYqDLBQXovzAwMQM/jHxrhGMxYRhHf931UPbnupKbgaam?=
- =?us-ascii?Q?UkrZB0Vz9wHCJKQP8CUkHjAAGiTnTjlCsIra/6nzjSklY70a77PxPEnG1qaB?=
- =?us-ascii?Q?8D20rRUDwpRXVim4m+eo66TLMzf0uxQddAx0S6a4O2hc4UnrXUex+rXImVLZ?=
- =?us-ascii?Q?RPgezVAdFGOu9i4lSS2KyEmzNdCOI5Zx7sGO03NM53BmBPOXaCgT/a7sZ+2G?=
- =?us-ascii?Q?7leeAyTVsFHW1qX6W5Wz6Ssb+bzys9WtEskdN1Dukm+S/bdbbxJm+CjGX6Ew?=
- =?us-ascii?Q?mGa3NY9hywjKv1AlICgfUB4utAHJPnKMcHWrthx3TNAQggpBnE/8uOiiohph?=
- =?us-ascii?Q?/o6muZfxUlZU5xuDDibdl4sXwS7Xr2ssa1Og43BGDqdPkUW7aiYCUYP3Yr2o?=
- =?us-ascii?Q?Y2BN1k3spiwqf+KZXIdgFhzTV3tr/87ETO7Jkw2GfQgShcTt8oOADJN3CjGz?=
- =?us-ascii?Q?6NqRseg+SpnWNDCLxwCCBXD8YD4pg09Hdvtc/xbQ5bRJ8szTC6ohghsSKErl?=
- =?us-ascii?Q?M/QteAZlrCQ0eW2prDObLc0IKLgn+HOC+H0K8PrSYNvdJH69UcaDNxFyoHhQ?=
- =?us-ascii?Q?SgJPHhFqFpJchdpYFR4OFx75/Hx5Whaer9QCJWHd4MtYZ5RzJ+KEkEROq2jr?=
- =?us-ascii?Q?IfvsC3FlM9eTONEq14Ifq+zN7O1M0hDCf/A66QU9Po+UsmiVL4BO8seta+xV?=
- =?us-ascii?Q?4HP4n/xdG1G3QEfc4TaVS+WxLH7tImsDEPPQoe4DzCErabOWy6nQTLL7C8sf?=
- =?us-ascii?Q?LdSRTobhF/rQHwSEhgirVsB/vjAPzdivww/9XL36reDvl3joHum1oaWtKEr0?=
- =?us-ascii?Q?QqD8sBbVD2GqnsAusG+sZZHWAytwV3fBVjOkj6hi3pTuhbZnEg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bNRO03tOor//Wt29sNBdCEQtpJDxFjb3iBDizuOiBPsWygWtypS/jaqwvDMo?=
- =?us-ascii?Q?eSBXb5V2wNKViG0dicacYj5M8KZ28l8UlSkJ4fq6IzKcf4cjcG0fRuKbwK1L?=
- =?us-ascii?Q?7DLI6z+++knY+wlqQRN90laSuIWJYukypvXJSCEGdh2T4aULc9Cw8GZdXPAT?=
- =?us-ascii?Q?XQeOe1katAY/iaFF0gqw2EzWLdP3YeP0NisOSb9n6mMTeDk9rz0sCHdbL5fg?=
- =?us-ascii?Q?1gaSEL4yP3Yg+Y0tpwUpRcG5BtPEMgTtE0FVkN+Db1IhKpSdXomvWMsihZ+i?=
- =?us-ascii?Q?gT99c3whT/Ma0GqPVqWjQABA6j4WqaLoO+Cb8cYCIJJ4CS0ewlXqi91Z+yHd?=
- =?us-ascii?Q?J473VcZmEavhL9nneLjZndXu2zky06mROnOsO+O6+lVvveKNzyiq36deKg16?=
- =?us-ascii?Q?ogKc+f5iHMedCke9gVHwz9dDWxYNa5zV0QCsY5H+oqkhKYUBA+zzqnYykpPj?=
- =?us-ascii?Q?NTZ67jFq8pSOc7XzpaG1IyXqBw5tjjGWa6eBNmTEsk3rsg62evl7LWociHBx?=
- =?us-ascii?Q?fz5G6BOSvnvON/6hd/oExCIRzouvFdcQ+1DlDLu1fdjhfA37N2c8rno6+Y5o?=
- =?us-ascii?Q?YyLss9vo8RiHeNklZvwYrsbgVpPAeFjCuCdFcz7S9fxmtB6J1CCQ3Z8rul/D?=
- =?us-ascii?Q?94gxNL3o6mNHXpw3l6YGlcFLYdRQkq/GoTkWifOs8GLeFh0ZkVLMhvzIk01L?=
- =?us-ascii?Q?DIOtmrcw99iF2Ugb0VYZ9naMxQ0QqDNSvehfPdzaVlXL0TwltBQFBWLl7Qo2?=
- =?us-ascii?Q?hrzjn725YO7Fz+5K1kfmCA5LxGLTG8xsMpFbKTBZZbE47SWzMdWqhXiuIKfC?=
- =?us-ascii?Q?BngmKDG01UHfnT1sZ25rhGuc5ovF6lYkLkn2f1QG7GdpWF7Ygd4PxKu1/NrL?=
- =?us-ascii?Q?Zu/md5Na5QqjNgvbHvaHsB/bhlbFvaD0wDRmfHcpET8jsbxkqsF1sDOqGyBJ?=
- =?us-ascii?Q?w4tglJ3O0Qt9T7/2f+HVtO6gmT0sYVDeaOr8oXrE8NT24zNRHUTNfUoySY8z?=
- =?us-ascii?Q?a+DZtdiJtD9tGlkqj4mDzoP3rjFsPIsgohELbJNxXI6giBY9zM8DD9X2ECJd?=
- =?us-ascii?Q?ZqiCrcNzv0uAfHL4xNd8b4wkn3Hj3CNIbE3XZSMvDIE3s6qoDF1tp0xXY0mp?=
- =?us-ascii?Q?UYNFu0OEF+b2tmvAqCX2rLO9jAjiZJDoO0wcqTF18u4TQkOv+Ta/dXEWEP4L?=
- =?us-ascii?Q?mQR5O+CW0j0CZ5PNQcODdc76a465/i9VL138Ea7AD6UZdxyLFfUT1KCj1doT?=
- =?us-ascii?Q?Yl1mXdjmjWbDgEsldst8AeyqiDkQh21obK5E+CxrWDXAN6LPE+sAmHiRsr/x?=
- =?us-ascii?Q?aVptR8CLYUvtSvHkcJjzPdE2uqAkTriDf3uRYCecLI+azA90GQCCr7/kFsvw?=
- =?us-ascii?Q?+QmgKa0OKyZBV7iQLbKz/Hf2kZ4nGRJJDDQVbNyR7o18TuoavuSnEaiCLYH4?=
- =?us-ascii?Q?3jEDx2I+M+5tUp6I3kuWTtNIpDie0986csX0UD+im0pqtm6us0IzKSkog1s1?=
- =?us-ascii?Q?eew5bMxpTHfxlsTdfnA0DWqfzo9SovBdqb0Q1yNBDO5NZ+FnUgv+ja0H6dL2?=
- =?us-ascii?Q?ViEwocXyfMILw5lRMyHRrJHJZ+dv9+oRO7BDsLSe?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4a1a99a8-6085-4038-869b-08dd0d3479fd
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2024 09:35:19.6426
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iyBukiqppE8M+9as/NLs7RdeVmCdGtwPSa2/DT4Jhrl33EdlwqJGq64QQqJKzolKVBoPTYu/gSzPY4r+sAN7jA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10930
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_013523_003879_1EBADBC2 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241125_014826_861576_DAFA080F 
+X-CRM114-Status: GOOD (  24.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,38 +72,1377 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable display controller for i.MX8qxp MEK.
+From: Levi Yun <yeoreum.yun@arm.com>
 
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
+In coresight-etm4x drivers, etmv4_drvdata->spinlock can be held during
+__schedule() by perf_event_task_sched_out()/in().
+
+Since etmv4_drvdata->spinlock type is spinlock_t and
+perf_event_task_sched_out()/in() is called after acquiring rq_lock,
+which is raw_spinlock_t (an unsleepable lock),
+this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
+
+To address this, change type etmv4_drvdata->spinlock
+in coresight-etm4x drivers, which can be called
+by perf_event_task_sched_out()/in(), from spinlock_t to raw_spinlock_t.
+
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
-v4:
-* No change.
+ .../hwtracing/coresight/coresight-config.c    |  21 +-
+ .../hwtracing/coresight/coresight-config.h    |   2 +-
+ .../coresight/coresight-etm4x-core.c          |  71 ++-
+ .../coresight/coresight-etm4x-sysfs.c         | 566 +++++++++---------
+ drivers/hwtracing/coresight/coresight-etm4x.h |   2 +-
+ 5 files changed, 345 insertions(+), 317 deletions(-)
 
-v3:
-* No change.
-
-v2:
-* New patch. (Francesco)
-
- arch/arm64/boot/dts/freescale/imx8qxp-mek.dts | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-index be79c793213a..c7b4015c7bf7 100644
---- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-@@ -234,6 +234,10 @@ &asrc0 {
- 	status = "okay";
- };
+diff --git a/drivers/hwtracing/coresight/coresight-config.c b/drivers/hwtracing/coresight/coresight-config.c
+index 4723bf7402a2..e70579d4ce7f 100644
+--- a/drivers/hwtracing/coresight/coresight-config.c
++++ b/drivers/hwtracing/coresight/coresight-config.c
+@@ -73,28 +73,29 @@ static void cscfg_init_reg_param(struct cscfg_feature_csdev *feat_csdev,
+ /* set values into the driver locations referenced in cscfg_reg_csdev */
+ static int cscfg_set_on_enable(struct cscfg_feature_csdev *feat_csdev)
+ {
+-	unsigned long flags;
+ 	int i;
  
-+&dc0 {
-+	status = "okay";
-+};
+-	spin_lock_irqsave(feat_csdev->drv_spinlock, flags);
+-	for (i = 0; i < feat_csdev->nr_regs; i++)
+-		cscfg_set_reg(&feat_csdev->regs_csdev[i]);
+-	spin_unlock_irqrestore(feat_csdev->drv_spinlock, flags);
++	scoped_guard(raw_spinlock_irqsave, feat_csdev->drv_spinlock) {
++		for (i = 0; i < feat_csdev->nr_regs; i++)
++			cscfg_set_reg(&feat_csdev->regs_csdev[i]);
++	}
 +
- &dsp {
- 	memory-region = <&dsp_vdev0buffer>, <&dsp_vdev0vring0>,
- 			<&dsp_vdev0vring1>, <&dsp_reserved>;
+ 	dev_dbg(&feat_csdev->csdev->dev, "Feature %s: %s",
+ 		feat_csdev->feat_desc->name, "set on enable");
++
+ 	return 0;
+ }
+ 
+ /* copy back values from the driver locations referenced in cscfg_reg_csdev */
+ static void cscfg_save_on_disable(struct cscfg_feature_csdev *feat_csdev)
+ {
+-	unsigned long flags;
+ 	int i;
+ 
+-	spin_lock_irqsave(feat_csdev->drv_spinlock, flags);
+-	for (i = 0; i < feat_csdev->nr_regs; i++)
+-		cscfg_save_reg(&feat_csdev->regs_csdev[i]);
+-	spin_unlock_irqrestore(feat_csdev->drv_spinlock, flags);
++	scoped_guard(raw_spinlock_irqsave, feat_csdev->drv_spinlock) {
++		for (i = 0; i < feat_csdev->nr_regs; i++)
++			cscfg_save_reg(&feat_csdev->regs_csdev[i]);
++	}
++
+ 	dev_dbg(&feat_csdev->csdev->dev, "Feature %s: %s",
+ 		feat_csdev->feat_desc->name, "save on disable");
+ }
+diff --git a/drivers/hwtracing/coresight/coresight-config.h b/drivers/hwtracing/coresight/coresight-config.h
+index 6ba013975741..b9ebc9fcfb7f 100644
+--- a/drivers/hwtracing/coresight/coresight-config.h
++++ b/drivers/hwtracing/coresight/coresight-config.h
+@@ -206,7 +206,7 @@ struct cscfg_feature_csdev {
+ 	const struct cscfg_feature_desc *feat_desc;
+ 	struct coresight_device *csdev;
+ 	struct list_head node;
+-	spinlock_t *drv_spinlock;
++	raw_spinlock_t *drv_spinlock;
+ 	int nr_params;
+ 	struct cscfg_parameter_csdev *params_csdev;
+ 	int nr_regs;
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 66d44a404ad0..1740cf6ab956 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -807,33 +807,30 @@ static int etm4_enable_sysfs(struct coresight_device *csdev)
+ 			return ret;
+ 	}
+ 
+-	spin_lock(&drvdata->spinlock);
+-
+-	/* sysfs needs to read and allocate a trace ID */
+-	ret = etm4_read_alloc_trace_id(drvdata);
+-	if (ret < 0)
+-		goto unlock_sysfs_enable;
+-
+-	/*
+-	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
+-	 * ensures that register writes occur when cpu is powered.
+-	 */
+-	arg.drvdata = drvdata;
+-	ret = smp_call_function_single(drvdata->cpu,
+-				       etm4_enable_hw_smp_call, &arg, 1);
+-	if (!ret)
+-		ret = arg.rc;
+-	if (!ret)
+-		drvdata->sticky_enable = true;
+-
+-	if (ret)
+-		etm4_release_trace_id(drvdata);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		/* sysfs needs to read and allocate a trace ID */
++		ret = etm4_read_alloc_trace_id(drvdata);
++		if (ret < 0)
++			return ret;
+ 
+-unlock_sysfs_enable:
+-	spin_unlock(&drvdata->spinlock);
++		/*
++		 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
++		 * ensures that register writes occur when cpu is powered.
++		 */
++		arg.drvdata = drvdata;
++		ret = smp_call_function_single(drvdata->cpu,
++					       etm4_enable_hw_smp_call, &arg, 1);
++		if (!ret) {
++			ret = arg.rc;
++			drvdata->sticky_enable = true;
++		} else {
++			etm4_release_trace_id(drvdata);
++		}
++	}
+ 
+ 	if (!ret)
+ 		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
++
+ 	return ret;
+ }
+ 
+@@ -977,15 +974,13 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+ 	 * DYING hotplug callback is serviced by the ETM driver.
+ 	 */
+ 	cpus_read_lock();
+-	spin_lock(&drvdata->spinlock);
+-
+-	/*
+-	 * Executing etm4_disable_hw on the cpu whose ETM is being disabled
+-	 * ensures that register writes occur when cpu is powered.
+-	 */
+-	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
+-
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		/*
++		 * Executing etm4_disable_hw on the cpu whose ETM is being disabled
++		 * ensures that register writes occur when cpu is powered.
++		 */
++		smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
++	}
+ 	cpus_read_unlock();
+ 
+ 	/*
+@@ -1663,13 +1658,14 @@ static int etm4_starting_cpu(unsigned int cpu)
+ 	if (!etmdrvdata[cpu])
+ 		return 0;
+ 
+-	spin_lock(&etmdrvdata[cpu]->spinlock);
++	guard(raw_spinlock)(&etmdrvdata[cpu]->spinlock);
++
+ 	if (!etmdrvdata[cpu]->os_unlock)
+ 		etm4_os_unlock(etmdrvdata[cpu]);
+ 
+ 	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+ 		etm4_enable_hw(etmdrvdata[cpu]);
+-	spin_unlock(&etmdrvdata[cpu]->spinlock);
++
+ 	return 0;
+ }
+ 
+@@ -1678,10 +1674,11 @@ static int etm4_dying_cpu(unsigned int cpu)
+ 	if (!etmdrvdata[cpu])
+ 		return 0;
+ 
+-	spin_lock(&etmdrvdata[cpu]->spinlock);
++	guard(raw_spinlock)(&etmdrvdata[cpu]->spinlock);
++
+ 	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+ 		etm4_disable_hw(etmdrvdata[cpu]);
+-	spin_unlock(&etmdrvdata[cpu]->spinlock);
++
+ 	return 0;
+ }
+ 
+@@ -2125,7 +2122,7 @@ static int etm4_probe(struct device *dev)
+ 			return -ENOMEM;
+ 	}
+ 
+-	spin_lock_init(&drvdata->spinlock);
++	raw_spin_lock_init(&drvdata->spinlock);
+ 
+ 	drvdata->cpu = coresight_get_cpu(dev);
+ 	if (drvdata->cpu < 0)
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+index a9f19629f3f8..2e6b79c37f87 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+@@ -174,99 +174,99 @@ static ssize_t reset_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	if (val)
+-		config->mode = 0x0;
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		if (val)
++			config->mode = 0x0;
+ 
+-	/* Disable data tracing: do not trace load and store data transfers */
+-	config->mode &= ~(ETM_MODE_LOAD | ETM_MODE_STORE);
+-	config->cfg &= ~(TRCCONFIGR_INSTP0_LOAD | TRCCONFIGR_INSTP0_STORE);
++		/* Disable data tracing: do not trace load and store data transfers */
++		config->mode &= ~(ETM_MODE_LOAD | ETM_MODE_STORE);
++		config->cfg &= ~(TRCCONFIGR_INSTP0_LOAD | TRCCONFIGR_INSTP0_STORE);
+ 
+-	/* Disable data value and data address tracing */
+-	config->mode &= ~(ETM_MODE_DATA_TRACE_ADDR |
+-			   ETM_MODE_DATA_TRACE_VAL);
+-	config->cfg &= ~(TRCCONFIGR_DA | TRCCONFIGR_DV);
++		/* Disable data value and data address tracing */
++		config->mode &= ~(ETM_MODE_DATA_TRACE_ADDR |
++				   ETM_MODE_DATA_TRACE_VAL);
++		config->cfg &= ~(TRCCONFIGR_DA | TRCCONFIGR_DV);
+ 
+-	/* Disable all events tracing */
+-	config->eventctrl0 = 0x0;
+-	config->eventctrl1 = 0x0;
++		/* Disable all events tracing */
++		config->eventctrl0 = 0x0;
++		config->eventctrl1 = 0x0;
+ 
+-	/* Disable timestamp event */
+-	config->ts_ctrl = 0x0;
++		/* Disable timestamp event */
++		config->ts_ctrl = 0x0;
+ 
+-	/* Disable stalling */
+-	config->stall_ctrl = 0x0;
++		/* Disable stalling */
++		config->stall_ctrl = 0x0;
+ 
+-	/* Reset trace synchronization period  to 2^8 = 256 bytes*/
+-	if (drvdata->syncpr == false)
+-		config->syncfreq = 0x8;
++		/* Reset trace synchronization period  to 2^8 = 256 bytes*/
++		if (drvdata->syncpr == false)
++			config->syncfreq = 0x8;
+ 
+-	/*
+-	 * Enable ViewInst to trace everything with start-stop logic in
+-	 * started state. ARM recommends start-stop logic is set before
+-	 * each trace run.
+-	 */
+-	config->vinst_ctrl = FIELD_PREP(TRCVICTLR_EVENT_MASK, 0x01);
+-	if (drvdata->nr_addr_cmp > 0) {
+-		config->mode |= ETM_MODE_VIEWINST_STARTSTOP;
+-		/* SSSTATUS, bit[9] */
+-		config->vinst_ctrl |= TRCVICTLR_SSSTATUS;
+-	}
++		/*
++		 * Enable ViewInst to trace everything with start-stop logic in
++		 * started state. ARM recommends start-stop logic is set before
++		 * each trace run.
++		 */
++		config->vinst_ctrl = FIELD_PREP(TRCVICTLR_EVENT_MASK, 0x01);
++		if (drvdata->nr_addr_cmp > 0) {
++			config->mode |= ETM_MODE_VIEWINST_STARTSTOP;
++			/* SSSTATUS, bit[9] */
++			config->vinst_ctrl |= TRCVICTLR_SSSTATUS;
++		}
+ 
+-	/* No address range filtering for ViewInst */
+-	config->viiectlr = 0x0;
++		/* No address range filtering for ViewInst */
++		config->viiectlr = 0x0;
+ 
+-	/* No start-stop filtering for ViewInst */
+-	config->vissctlr = 0x0;
+-	config->vipcssctlr = 0x0;
++		/* No start-stop filtering for ViewInst */
++		config->vissctlr = 0x0;
++		config->vipcssctlr = 0x0;
+ 
+-	/* Disable seq events */
+-	for (i = 0; i < drvdata->nrseqstate-1; i++)
+-		config->seq_ctrl[i] = 0x0;
+-	config->seq_rst = 0x0;
+-	config->seq_state = 0x0;
++		/* Disable seq events */
++		for (i = 0; i < drvdata->nrseqstate-1; i++)
++			config->seq_ctrl[i] = 0x0;
++		config->seq_rst = 0x0;
++		config->seq_state = 0x0;
+ 
+-	/* Disable external input events */
+-	config->ext_inp = 0x0;
++		/* Disable external input events */
++		config->ext_inp = 0x0;
+ 
+-	config->cntr_idx = 0x0;
+-	for (i = 0; i < drvdata->nr_cntr; i++) {
+-		config->cntrldvr[i] = 0x0;
+-		config->cntr_ctrl[i] = 0x0;
+-		config->cntr_val[i] = 0x0;
+-	}
++		config->cntr_idx = 0x0;
++		for (i = 0; i < drvdata->nr_cntr; i++) {
++			config->cntrldvr[i] = 0x0;
++			config->cntr_ctrl[i] = 0x0;
++			config->cntr_val[i] = 0x0;
++		}
+ 
+-	config->res_idx = 0x0;
+-	for (i = 2; i < 2 * drvdata->nr_resource; i++)
+-		config->res_ctrl[i] = 0x0;
++		config->res_idx = 0x0;
++		for (i = 2; i < 2 * drvdata->nr_resource; i++)
++			config->res_ctrl[i] = 0x0;
+ 
+-	config->ss_idx = 0x0;
+-	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
+-		config->ss_ctrl[i] = 0x0;
+-		config->ss_pe_cmp[i] = 0x0;
+-	}
++		config->ss_idx = 0x0;
++		for (i = 0; i < drvdata->nr_ss_cmp; i++) {
++			config->ss_ctrl[i] = 0x0;
++			config->ss_pe_cmp[i] = 0x0;
++		}
+ 
+-	config->addr_idx = 0x0;
+-	for (i = 0; i < drvdata->nr_addr_cmp * 2; i++) {
+-		config->addr_val[i] = 0x0;
+-		config->addr_acc[i] = 0x0;
+-		config->addr_type[i] = ETM_ADDR_TYPE_NONE;
+-	}
++		config->addr_idx = 0x0;
++		for (i = 0; i < drvdata->nr_addr_cmp * 2; i++) {
++			config->addr_val[i] = 0x0;
++			config->addr_acc[i] = 0x0;
++			config->addr_type[i] = ETM_ADDR_TYPE_NONE;
++		}
+ 
+-	config->ctxid_idx = 0x0;
+-	for (i = 0; i < drvdata->numcidc; i++)
+-		config->ctxid_pid[i] = 0x0;
++		config->ctxid_idx = 0x0;
++		for (i = 0; i < drvdata->numcidc; i++)
++			config->ctxid_pid[i] = 0x0;
+ 
+-	config->ctxid_mask0 = 0x0;
+-	config->ctxid_mask1 = 0x0;
++		config->ctxid_mask0 = 0x0;
++		config->ctxid_mask1 = 0x0;
+ 
+-	config->vmid_idx = 0x0;
+-	for (i = 0; i < drvdata->numvmidc; i++)
+-		config->vmid_val[i] = 0x0;
+-	config->vmid_mask0 = 0x0;
+-	config->vmid_mask1 = 0x0;
++		config->vmid_idx = 0x0;
++		for (i = 0; i < drvdata->numvmidc; i++)
++			config->vmid_val[i] = 0x0;
+ 
+-	spin_unlock(&drvdata->spinlock);
++		config->vmid_mask0 = 0x0;
++		config->vmid_mask1 = 0x0;
++	}
+ 
+ 	/* for sysfs - only release trace id when resetting */
+ 	etm4_release_trace_id(drvdata);
+@@ -300,7 +300,8 @@ static ssize_t mode_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	config->mode = val & ETMv4_MODE_ALL;
+ 
+ 	if (drvdata->instrp0 == true) {
+@@ -437,8 +438,6 @@ static ssize_t mode_store(struct device *dev,
+ 	if (config->mode & (ETM_MODE_EXCL_KERN | ETM_MODE_EXCL_USER))
+ 		etm4_config_trace_mode(config);
+ 
+-	spin_unlock(&drvdata->spinlock);
+-
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(mode);
+@@ -466,14 +465,14 @@ static ssize_t pe_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	if (val > drvdata->nr_pe) {
+-		spin_unlock(&drvdata->spinlock);
+ 		return -EINVAL;
+ 	}
+ 
+ 	config->pe_sel = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(pe);
+@@ -501,7 +500,8 @@ static ssize_t event_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	switch (drvdata->nr_event) {
+ 	case 0x0:
+ 		/* EVENT0, bits[7:0] */
+@@ -522,7 +522,7 @@ static ssize_t event_store(struct device *dev,
+ 	default:
+ 		break;
+ 	}
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(event);
+@@ -550,7 +550,8 @@ static ssize_t event_instren_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	/* start by clearing all instruction event enable bits */
+ 	config->eventctrl1 &= ~TRCEVENTCTL1R_INSTEN_MASK;
+ 	switch (drvdata->nr_event) {
+@@ -578,7 +579,7 @@ static ssize_t event_instren_store(struct device *dev,
+ 	default:
+ 		break;
+ 	}
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(event_instren);
+@@ -739,11 +740,12 @@ static ssize_t event_vinst_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	val &= TRCVICTLR_EVENT_MASK >> __bf_shf(TRCVICTLR_EVENT_MASK);
+ 	config->vinst_ctrl &= ~TRCVICTLR_EVENT_MASK;
+ 	config->vinst_ctrl |= FIELD_PREP(TRCVICTLR_EVENT_MASK, val);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(event_vinst);
+@@ -771,13 +773,14 @@ static ssize_t s_exlevel_vinst_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	/* clear all EXLEVEL_S bits  */
+ 	config->vinst_ctrl &= ~TRCVICTLR_EXLEVEL_S_MASK;
+ 	/* enable instruction tracing for corresponding exception level */
+ 	val &= drvdata->s_ex_level;
+ 	config->vinst_ctrl |= val << __bf_shf(TRCVICTLR_EXLEVEL_S_MASK);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(s_exlevel_vinst);
+@@ -806,13 +809,14 @@ static ssize_t ns_exlevel_vinst_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	/* clear EXLEVEL_NS bits  */
+ 	config->vinst_ctrl &= ~TRCVICTLR_EXLEVEL_NS_MASK;
+ 	/* enable instruction tracing for corresponding exception level */
+ 	val &= drvdata->ns_ex_level;
+ 	config->vinst_ctrl |= val << __bf_shf(TRCVICTLR_EXLEVEL_NS_MASK);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(ns_exlevel_vinst);
+@@ -846,9 +850,10 @@ static ssize_t addr_idx_store(struct device *dev,
+ 	 * Use spinlock to ensure index doesn't change while it gets
+ 	 * dereferenced multiple times within a spinlock block elsewhere.
+ 	 */
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	config->addr_idx = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(addr_idx);
+@@ -862,7 +867,8 @@ static ssize_t addr_instdatatype_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->addr_idx;
+ 	val = FIELD_GET(TRCACATRn_TYPE_MASK, config->addr_acc[idx]);
+ 	len = scnprintf(buf, PAGE_SIZE, "%s\n",
+@@ -870,7 +876,7 @@ static ssize_t addr_instdatatype_show(struct device *dev,
+ 			(val == TRCACATRn_TYPE_DATA_LOAD_ADDR ? "data_load" :
+ 			(val == TRCACATRn_TYPE_DATA_STORE_ADDR ? "data_store" :
+ 			"data_load_store")));
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return len;
+ }
+ 
+@@ -888,13 +894,13 @@ static ssize_t addr_instdatatype_store(struct device *dev,
+ 	if (sscanf(buf, "%s", str) != 1)
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->addr_idx;
+ 	if (!strcmp(str, "instr"))
+ 		/* TYPE, bits[1:0] */
+ 		config->addr_acc[idx] &= ~TRCACATRn_TYPE_MASK;
+ 
+-	spin_unlock(&drvdata->spinlock);
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(addr_instdatatype);
+@@ -908,15 +914,15 @@ static ssize_t addr_single_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	idx = config->addr_idx;
+-	spin_lock(&drvdata->spinlock);
+-	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
+-	      config->addr_type[idx] == ETM_ADDR_TYPE_SINGLE)) {
+-		spin_unlock(&drvdata->spinlock);
+-		return -EPERM;
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		idx = config->addr_idx;
++		if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
++		      config->addr_type[idx] == ETM_ADDR_TYPE_SINGLE))
++			return -EPERM;
++
++		val = (unsigned long)config->addr_val[idx];
+ 	}
+-	val = (unsigned long)config->addr_val[idx];
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -932,17 +938,16 @@ static ssize_t addr_single_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->addr_idx;
+ 	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
+-	      config->addr_type[idx] == ETM_ADDR_TYPE_SINGLE)) {
+-		spin_unlock(&drvdata->spinlock);
++	      config->addr_type[idx] == ETM_ADDR_TYPE_SINGLE))
+ 		return -EPERM;
+-	}
+ 
+ 	config->addr_val[idx] = (u64)val;
+ 	config->addr_type[idx] = ETM_ADDR_TYPE_SINGLE;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(addr_single);
+@@ -956,23 +961,21 @@ static ssize_t addr_range_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	idx = config->addr_idx;
+-	if (idx % 2 != 0) {
+-		spin_unlock(&drvdata->spinlock);
+-		return -EPERM;
+-	}
+-	if (!((config->addr_type[idx] == ETM_ADDR_TYPE_NONE &&
+-	       config->addr_type[idx + 1] == ETM_ADDR_TYPE_NONE) ||
+-	      (config->addr_type[idx] == ETM_ADDR_TYPE_RANGE &&
+-	       config->addr_type[idx + 1] == ETM_ADDR_TYPE_RANGE))) {
+-		spin_unlock(&drvdata->spinlock);
+-		return -EPERM;
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		idx = config->addr_idx;
++		if (idx % 2 != 0)
++			return -EPERM;
++
++		if (!((config->addr_type[idx] == ETM_ADDR_TYPE_NONE &&
++		       config->addr_type[idx + 1] == ETM_ADDR_TYPE_NONE) ||
++		      (config->addr_type[idx] == ETM_ADDR_TYPE_RANGE &&
++		       config->addr_type[idx + 1] == ETM_ADDR_TYPE_RANGE)))
++			return -EPERM;
++
++		val1 = (unsigned long)config->addr_val[idx];
++		val2 = (unsigned long)config->addr_val[idx + 1];
+ 	}
+ 
+-	val1 = (unsigned long)config->addr_val[idx];
+-	val2 = (unsigned long)config->addr_val[idx + 1];
+-	spin_unlock(&drvdata->spinlock);
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx %#lx\n", val1, val2);
+ }
+ 
+@@ -995,20 +998,17 @@ static ssize_t addr_range_store(struct device *dev,
+ 	if (val1 > val2)
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->addr_idx;
+-	if (idx % 2 != 0) {
+-		spin_unlock(&drvdata->spinlock);
++	if (idx % 2 != 0)
+ 		return -EPERM;
+-	}
+ 
+ 	if (!((config->addr_type[idx] == ETM_ADDR_TYPE_NONE &&
+ 	       config->addr_type[idx + 1] == ETM_ADDR_TYPE_NONE) ||
+ 	      (config->addr_type[idx] == ETM_ADDR_TYPE_RANGE &&
+-	       config->addr_type[idx + 1] == ETM_ADDR_TYPE_RANGE))) {
+-		spin_unlock(&drvdata->spinlock);
++	       config->addr_type[idx + 1] == ETM_ADDR_TYPE_RANGE)))
+ 		return -EPERM;
+-	}
+ 
+ 	config->addr_val[idx] = (u64)val1;
+ 	config->addr_type[idx] = ETM_ADDR_TYPE_RANGE;
+@@ -1023,7 +1023,6 @@ static ssize_t addr_range_store(struct device *dev,
+ 		exclude = config->mode & ETM_MODE_EXCLUDE;
+ 	etm4_set_mode_exclude(drvdata, exclude ? true : false);
+ 
+-	spin_unlock(&drvdata->spinlock);
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(addr_range);
+@@ -1037,17 +1036,17 @@ static ssize_t addr_start_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	idx = config->addr_idx;
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		idx = config->addr_idx;
+ 
+-	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
+-	      config->addr_type[idx] == ETM_ADDR_TYPE_START)) {
+-		spin_unlock(&drvdata->spinlock);
+-		return -EPERM;
++		if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
++		      config->addr_type[idx] == ETM_ADDR_TYPE_START)) {
++			return -EPERM;
++		}
++
++		val = (unsigned long)config->addr_val[idx];
+ 	}
+ 
+-	val = (unsigned long)config->addr_val[idx];
+-	spin_unlock(&drvdata->spinlock);
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -1063,22 +1062,21 @@ static ssize_t addr_start_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->addr_idx;
+ 	if (!drvdata->nr_addr_cmp) {
+-		spin_unlock(&drvdata->spinlock);
+ 		return -EINVAL;
+ 	}
+ 	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
+ 	      config->addr_type[idx] == ETM_ADDR_TYPE_START)) {
+-		spin_unlock(&drvdata->spinlock);
+ 		return -EPERM;
+ 	}
+ 
+ 	config->addr_val[idx] = (u64)val;
+ 	config->addr_type[idx] = ETM_ADDR_TYPE_START;
+ 	config->vissctlr |= BIT(idx);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(addr_start);
+@@ -1092,17 +1090,16 @@ static ssize_t addr_stop_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	idx = config->addr_idx;
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		idx = config->addr_idx;
+ 
+-	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
+-	      config->addr_type[idx] == ETM_ADDR_TYPE_STOP)) {
+-		spin_unlock(&drvdata->spinlock);
+-		return -EPERM;
+-	}
++		if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
++		      config->addr_type[idx] == ETM_ADDR_TYPE_STOP)) {
++			return -EPERM;
++		}
+ 
+-	val = (unsigned long)config->addr_val[idx];
+-	spin_unlock(&drvdata->spinlock);
++		val = (unsigned long)config->addr_val[idx];
++	}
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -1118,22 +1115,21 @@ static ssize_t addr_stop_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->addr_idx;
+ 	if (!drvdata->nr_addr_cmp) {
+-		spin_unlock(&drvdata->spinlock);
+ 		return -EINVAL;
+ 	}
+ 	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
+ 	       config->addr_type[idx] == ETM_ADDR_TYPE_STOP)) {
+-		spin_unlock(&drvdata->spinlock);
+ 		return -EPERM;
+ 	}
+ 
+ 	config->addr_val[idx] = (u64)val;
+ 	config->addr_type[idx] = ETM_ADDR_TYPE_STOP;
+ 	config->vissctlr |= BIT(idx + 16);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(addr_stop);
+@@ -1147,14 +1143,15 @@ static ssize_t addr_ctxtype_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->addr_idx;
+ 	/* CONTEXTTYPE, bits[3:2] */
+ 	val = FIELD_GET(TRCACATRn_CONTEXTTYPE_MASK, config->addr_acc[idx]);
+ 	len = scnprintf(buf, PAGE_SIZE, "%s\n", val == ETM_CTX_NONE ? "none" :
+ 			(val == ETM_CTX_CTXID ? "ctxid" :
+ 			(val == ETM_CTX_VMID ? "vmid" : "all")));
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return len;
+ }
+ 
+@@ -1172,7 +1169,8 @@ static ssize_t addr_ctxtype_store(struct device *dev,
+ 	if (sscanf(buf, "%s", str) != 1)
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->addr_idx;
+ 	if (!strcmp(str, "none"))
+ 		/* start by clearing context type bits */
+@@ -1199,7 +1197,7 @@ static ssize_t addr_ctxtype_store(struct device *dev,
+ 		if (drvdata->numvmidc)
+ 			config->addr_acc[idx] |= TRCACATRn_CONTEXTTYPE_VMID;
+ 	}
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(addr_ctxtype);
+@@ -1213,11 +1211,12 @@ static ssize_t addr_context_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	idx = config->addr_idx;
+-	/* context ID comparator bits[6:4] */
+-	val = FIELD_GET(TRCACATRn_CONTEXT_MASK, config->addr_acc[idx]);
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		idx = config->addr_idx;
++		/* context ID comparator bits[6:4] */
++		val = FIELD_GET(TRCACATRn_CONTEXT_MASK, config->addr_acc[idx]);
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -1238,12 +1237,12 @@ static ssize_t addr_context_store(struct device *dev,
+ 		     drvdata->numcidc : drvdata->numvmidc))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 	idx = config->addr_idx;
+ 	/* clear context ID comparator bits[6:4] */
+ 	config->addr_acc[idx] &= ~TRCACATRn_CONTEXT_MASK;
+ 	config->addr_acc[idx] |= val << __bf_shf(TRCACATRn_CONTEXT_MASK);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(addr_context);
+@@ -1257,10 +1256,11 @@ static ssize_t addr_exlevel_s_ns_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	idx = config->addr_idx;
+-	val = FIELD_GET(TRCACATRn_EXLEVEL_MASK, config->addr_acc[idx]);
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		idx = config->addr_idx;
++		val = FIELD_GET(TRCACATRn_EXLEVEL_MASK, config->addr_acc[idx]);
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -1279,12 +1279,13 @@ static ssize_t addr_exlevel_s_ns_store(struct device *dev,
+ 	if (val & ~(TRCACATRn_EXLEVEL_MASK >> __bf_shf(TRCACATRn_EXLEVEL_MASK)))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->addr_idx;
+ 	/* clear Exlevel_ns & Exlevel_s bits[14:12, 11:8], bit[15] is res0 */
+ 	config->addr_acc[idx] &= ~TRCACATRn_EXLEVEL_MASK;
+ 	config->addr_acc[idx] |= val << __bf_shf(TRCACATRn_EXLEVEL_MASK);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(addr_exlevel_s_ns);
+@@ -1307,22 +1308,23 @@ static ssize_t addr_cmp_view_show(struct device *dev,
+ 	int size = 0;
+ 	bool exclude = false;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	idx = config->addr_idx;
+-	addr_v = config->addr_val[idx];
+-	addr_ctrl = config->addr_acc[idx];
+-	addr_type = config->addr_type[idx];
+-	if (addr_type == ETM_ADDR_TYPE_RANGE) {
+-		if (idx & 0x1) {
+-			idx -= 1;
+-			addr_v2 = addr_v;
+-			addr_v = config->addr_val[idx];
+-		} else {
+-			addr_v2 = config->addr_val[idx + 1];
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		idx = config->addr_idx;
++		addr_v = config->addr_val[idx];
++		addr_ctrl = config->addr_acc[idx];
++		addr_type = config->addr_type[idx];
++		if (addr_type == ETM_ADDR_TYPE_RANGE) {
++			if (idx & 0x1) {
++				idx -= 1;
++				addr_v2 = addr_v;
++				addr_v = config->addr_val[idx];
++			} else {
++				addr_v2 = config->addr_val[idx + 1];
++			}
++			exclude = config->viiectlr & BIT(idx / 2 + 16);
+ 		}
+-		exclude = config->viiectlr & BIT(idx / 2 + 16);
+ 	}
+-	spin_unlock(&drvdata->spinlock);
++
+ 	if (addr_type) {
+ 		size = scnprintf(buf, PAGE_SIZE, "addr_cmp[%i] %s %#lx", idx,
+ 				 addr_type_names[addr_type], addr_v);
+@@ -1366,9 +1368,10 @@ static ssize_t vinst_pe_cmp_start_stop_store(struct device *dev,
+ 	if (!drvdata->nr_pe_cmp)
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	config->vipcssctlr = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(vinst_pe_cmp_start_stop);
+@@ -1402,9 +1405,10 @@ static ssize_t seq_idx_store(struct device *dev,
+ 	 * Use spinlock to ensure index doesn't change while it gets
+ 	 * dereferenced multiple times within a spinlock block elsewhere.
+ 	 */
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	config->seq_idx = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(seq_idx);
+@@ -1448,10 +1452,11 @@ static ssize_t seq_event_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	idx = config->seq_idx;
+-	val = config->seq_ctrl[idx];
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		idx = config->seq_idx;
++		val = config->seq_ctrl[idx];
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -1467,11 +1472,12 @@ static ssize_t seq_event_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->seq_idx;
+ 	/* Seq control has two masks B[15:8] F[7:0] */
+ 	config->seq_ctrl[idx] = val & 0xFFFF;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(seq_event);
+@@ -1535,9 +1541,10 @@ static ssize_t cntr_idx_store(struct device *dev,
+ 	 * Use spinlock to ensure index doesn't change while it gets
+ 	 * dereferenced multiple times within a spinlock block elsewhere.
+ 	 */
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	config->cntr_idx = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(cntr_idx);
+@@ -1551,10 +1558,11 @@ static ssize_t cntrldvr_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	idx = config->cntr_idx;
+-	val = config->cntrldvr[idx];
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		idx = config->cntr_idx;
++		val = config->cntrldvr[idx];
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -1572,10 +1580,11 @@ static ssize_t cntrldvr_store(struct device *dev,
+ 	if (val > ETM_CNTR_MAX_VAL)
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->cntr_idx;
+ 	config->cntrldvr[idx] = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(cntrldvr);
+@@ -1589,10 +1598,11 @@ static ssize_t cntr_val_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	idx = config->cntr_idx;
+-	val = config->cntr_val[idx];
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		idx = config->cntr_idx;
++		val = config->cntr_val[idx];
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -1610,10 +1620,11 @@ static ssize_t cntr_val_store(struct device *dev,
+ 	if (val > ETM_CNTR_MAX_VAL)
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->cntr_idx;
+ 	config->cntr_val[idx] = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(cntr_val);
+@@ -1627,10 +1638,11 @@ static ssize_t cntr_ctrl_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	idx = config->cntr_idx;
+-	val = config->cntr_ctrl[idx];
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		idx = config->cntr_idx;
++		val = config->cntr_ctrl[idx];
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -1646,10 +1658,11 @@ static ssize_t cntr_ctrl_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->cntr_idx;
+ 	config->cntr_ctrl[idx] = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(cntr_ctrl);
+@@ -1687,9 +1700,10 @@ static ssize_t res_idx_store(struct device *dev,
+ 	 * Use spinlock to ensure index doesn't change while it gets
+ 	 * dereferenced multiple times within a spinlock block elsewhere.
+ 	 */
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	config->res_idx = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(res_idx);
+@@ -1703,10 +1717,11 @@ static ssize_t res_ctrl_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	idx = config->res_idx;
+-	val = config->res_ctrl[idx];
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		idx = config->res_idx;
++		val = config->res_ctrl[idx];
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -1722,7 +1737,8 @@ static ssize_t res_ctrl_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->res_idx;
+ 	/* For odd idx pair inversal bit is RES0 */
+ 	if (idx % 2 != 0)
+@@ -1732,7 +1748,7 @@ static ssize_t res_ctrl_store(struct device *dev,
+ 				       TRCRSCTLRn_INV |
+ 				       TRCRSCTLRn_GROUP_MASK |
+ 				       TRCRSCTLRn_SELECT_MASK);
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(res_ctrl);
+@@ -1761,9 +1777,10 @@ static ssize_t sshot_idx_store(struct device *dev,
+ 	if (val >= drvdata->nr_ss_cmp)
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	config->ss_idx = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(sshot_idx);
+@@ -1776,9 +1793,10 @@ static ssize_t sshot_ctrl_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	val = config->ss_ctrl[config->ss_idx];
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		val = config->ss_ctrl[config->ss_idx];
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -1794,12 +1812,13 @@ static ssize_t sshot_ctrl_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->ss_idx;
+ 	config->ss_ctrl[idx] = FIELD_PREP(TRCSSCCRn_SAC_ARC_RST_MASK, val);
+ 	/* must clear bit 31 in related status register on programming */
+ 	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(sshot_ctrl);
+@@ -1811,9 +1830,10 @@ static ssize_t sshot_status_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	val = config->ss_status[config->ss_idx];
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		val = config->ss_status[config->ss_idx];
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(sshot_status);
+@@ -1826,9 +1846,10 @@ static ssize_t sshot_pe_ctrl_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	val = config->ss_pe_cmp[config->ss_idx];
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		val = config->ss_pe_cmp[config->ss_idx];
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -1844,12 +1865,13 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->ss_idx;
+ 	config->ss_pe_cmp[idx] = FIELD_PREP(TRCSSPCICRn_PC_MASK, val);
+ 	/* must clear bit 31 in related status register on programming */
+ 	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(sshot_pe_ctrl);
+@@ -1883,9 +1905,10 @@ static ssize_t ctxid_idx_store(struct device *dev,
+ 	 * Use spinlock to ensure index doesn't change while it gets
+ 	 * dereferenced multiple times within a spinlock block elsewhere.
+ 	 */
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	config->ctxid_idx = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(ctxid_idx);
+@@ -1906,10 +1929,11 @@ static ssize_t ctxid_pid_show(struct device *dev,
+ 	if (task_active_pid_ns(current) != &init_pid_ns)
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	idx = config->ctxid_idx;
+-	val = (unsigned long)config->ctxid_pid[idx];
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		idx = config->ctxid_idx;
++		val = (unsigned long)config->ctxid_pid[idx];
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -1944,10 +1968,11 @@ static ssize_t ctxid_pid_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &pid))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	idx = config->ctxid_idx;
+ 	config->ctxid_pid[idx] = (u64)pid;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(ctxid_pid);
+@@ -1967,10 +1992,11 @@ static ssize_t ctxid_masks_show(struct device *dev,
+ 	if (task_active_pid_ns(current) != &init_pid_ns)
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	val1 = config->ctxid_mask0;
+-	val2 = config->ctxid_mask1;
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		val1 = config->ctxid_mask0;
++		val2 = config->ctxid_mask1;
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx %#lx\n", val1, val2);
+ }
+ 
+@@ -2003,7 +2029,8 @@ static ssize_t ctxid_masks_store(struct device *dev,
+ 	if ((drvdata->numcidc > 4) && (nr_inputs != 2))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	/*
+ 	 * each byte[0..3] controls mask value applied to ctxid
+ 	 * comparator[0..3]
+@@ -2075,7 +2102,6 @@ static ssize_t ctxid_masks_store(struct device *dev,
+ 			mask >>= 0x8;
+ 	}
+ 
+-	spin_unlock(&drvdata->spinlock);
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(ctxid_masks);
+@@ -2109,9 +2135,10 @@ static ssize_t vmid_idx_store(struct device *dev,
+ 	 * Use spinlock to ensure index doesn't change while it gets
+ 	 * dereferenced multiple times within a spinlock block elsewhere.
+ 	 */
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	config->vmid_idx = val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(vmid_idx);
+@@ -2131,9 +2158,10 @@ static ssize_t vmid_val_show(struct device *dev,
+ 	if (!task_is_in_init_pid_ns(current))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	val = (unsigned long)config->vmid_val[config->vmid_idx];
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		val = (unsigned long)config->vmid_val[config->vmid_idx];
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+ }
+ 
+@@ -2161,9 +2189,10 @@ static ssize_t vmid_val_store(struct device *dev,
+ 	if (kstrtoul(buf, 16, &val))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
++
+ 	config->vmid_val[config->vmid_idx] = (u64)val;
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(vmid_val);
+@@ -2182,10 +2211,11 @@ static ssize_t vmid_masks_show(struct device *dev,
+ 	if (!task_is_in_init_pid_ns(current))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
+-	val1 = config->vmid_mask0;
+-	val2 = config->vmid_mask1;
+-	spin_unlock(&drvdata->spinlock);
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		val1 = config->vmid_mask0;
++		val2 = config->vmid_mask1;
++	}
++
+ 	return scnprintf(buf, PAGE_SIZE, "%#lx %#lx\n", val1, val2);
+ }
+ 
+@@ -2217,7 +2247,7 @@ static ssize_t vmid_masks_store(struct device *dev,
+ 	if ((drvdata->numvmidc > 4) && (nr_inputs != 2))
+ 		return -EINVAL;
+ 
+-	spin_lock(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	/*
+ 	 * each byte[0..3] controls mask value applied to vmid
+@@ -2290,7 +2320,7 @@ static ssize_t vmid_masks_store(struct device *dev,
+ 		else
+ 			mask >>= 0x8;
+ 	}
+-	spin_unlock(&drvdata->spinlock);
++
+ 	return size;
+ }
+ static DEVICE_ATTR_RW(vmid_masks);
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+index 9e9165f62e81..366f8f23a3e5 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x.h
++++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+@@ -989,7 +989,7 @@ struct etmv4_drvdata {
+ 	struct clk			*pclk;
+ 	void __iomem			*base;
+ 	struct coresight_device		*csdev;
+-	spinlock_t			spinlock;
++	raw_spinlock_t			spinlock;
+ 	int				cpu;
+ 	u8				arch;
+ 	u8				nr_pe;
 -- 
-2.34.1
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
