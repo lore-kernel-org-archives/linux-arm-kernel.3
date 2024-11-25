@@ -4,115 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 964E5D3B7CC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 03:15:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3318ED3B7D9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 05:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7srjLy0sYgJyfNZP7xTpyvhOJYgGenNW/olK9TK0sig=; b=gBZfCqQjLLl0IY/FJNcb9zlrAP
-	NEoUy/MUQfigEpIc8d3f1tkk9JkNlUkFAYKNd3f9U84PLlHyEG5hXPSIL0E0oRjKhJVrCsbcwzWLj
-	GkDo0wNc9wK4uBnPXK1ydmcxQ7F1vp06bah1+F7lFVKrYLLJcUOHrVulnjlnsOZrZRFvwvhmX+URI
-	JAwYIkVXwNi9NHDNLRqVjNaFQ9Q6PJKajtygJiaJd19jRDr0vkELyMpmGIw/vnO5YPb6CzI3axZeB
-	wZujViwCHX7aM98WAc/Y5fCjUwAl5Z/A2NNSsGJ3ml9IZa9ZsVanP6PWGTz19KhRjs6vxCUg+IPab
-	btfCY5Ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WXjj/rqkU4B/m0L+T3pcpEmQf9RvuZjLAT8hl7QuXw8=; b=anE7g8hJ4V94Ct0Q3pu9rIFMwx
+	SMK+inVUXgkwnKjHU17SMjihyydHjyLCB74i4U5DiQoVdFtNQ9qdTablTO2IuzKG4m7ZMVS8Td9ow
+	x/1ltv0OwTlCkaQoQE9Y4kuWyewwOBf0QQl2r0+aaEjps4JUw/8U/9SZBUxq5Hp6oVhgT7C3t5rj2
+	qZ3+vkUEqa8FQo6GY919zi+emWzafppOReXVEQWD+tVA1fIk91vqyZQB+kWsUMBF0HBg1S2XkcokB
+	9y1AZ8k9BMO1lfTMdHtbwiSB0QYCMmF12DqllNGpy+PCBp98+UfSAXv8Kdr/yvJ+vAfMXBG10Gd+e
+	LlX/HeVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFPYr-00000006xPq-1ePj;
-	Mon, 25 Nov 2024 03:14:53 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tFRJV-000000073z0-1Yex;
+	Mon, 25 Nov 2024 05:07:09 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFPXt-00000006xKo-3oK9
+	id 1tFRIX-000000073rH-3sQy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 03:13:55 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AOMPXIJ020204;
-	Mon, 25 Nov 2024 03:13:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	7srjLy0sYgJyfNZP7xTpyvhOJYgGenNW/olK9TK0sig=; b=eNHKjN7GZHe0ycf9
-	fsqWwYO25NTC/pq7qZQ2zYmEUPX/YpXg3jAMCeifkMfGgCd5Yo377RlR4giQW9zE
-	qlVvhuXPMTr1kTO/PFYXLHZV+uKRLsdsOMI+VEyjYiqFzkHwcK9cOklFrAI5Jj2f
-	70cCZddp1IP7BfAp/3+I4XxxCzW4QpSS9qGk03XzJ5Vp8Wqh4JwHapovsi+RdL3m
-	VRxqZxGSyPa1vQJrA6XQ49bk0pLn9iCMhPyezybLhVno9iSAd2Ayc+h13hKEbwRp
-	WNELNhySunU91hHYveelVhiPICzWDP0z4JhoJrSL5haqPZkwGxs6dUNcy9cL3Heo
-	rrrqUg==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43387jb3mr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 25 Nov 2024 03:13:41 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AP3Dec1023329
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 25 Nov 2024 03:13:40 GMT
-Received: from [10.64.16.151] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 24 Nov
- 2024 19:13:33 -0800
-Message-ID: <5d4c8862-7b3b-49e3-93a9-93cc05c6e5ef@quicinc.com>
-Date: Mon, 25 Nov 2024 11:13:30 +0800
+	Mon, 25 Nov 2024 05:06:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1732511170; x=1764047170;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=NREGBayAwFFBU4tE1Ma2gDyzoVU71MdcWhe9JFquPAI=;
+  b=IpZ6OlhARrE5jE77r5GgJsZ4x1zn5A/oIYKD+dTuqnBlSaiJV07Tl0Nv
+   ATKCOdt8DSJ+oPWb0IhJHPX7jT1wSHm1AfmcR6UAH5I/sVssKJH4Ddbwu
+   pOz5oZVbT36iGxIT7VFgbW3LFrXAl8WeDVPWIcdfP4F8+/vVc+4Ym2bPf
+   LukCAxqgoKlE8XBsOaT653+qzBMBP4MoHsDOwmCHYlSJytSTq8Qv3rv3S
+   cf3s4o7ZF9cvmLnI2ClhiqamK1fFPt+szsDejO0/3m4Onq85mpICc5csw
+   7Pz+A5j4EZ2Y7HEbYEnGic1JE0OlKKDEeJ/Hbp51D+K9lGZyREsyon6Ck
+   Q==;
+X-CSE-ConnectionGUID: AUk+TxO6T+2xu7FNc3S7CA==
+X-CSE-MsgGUID: cRqc/H5EQMW4i/5Am1/ueQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11266"; a="36515038"
+X-IronPort-AV: E=Sophos;i="6.12,182,1728975600"; 
+   d="scan'208";a="36515038"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2024 21:06:07 -0800
+X-CSE-ConnectionGUID: d/cc0nO9SLOOH97XqPNIkw==
+X-CSE-MsgGUID: suWKtIxOTi+PfZR2YkgwOg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="96212099"
+Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 24 Nov 2024 21:06:00 -0800
+Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tFRIL-0005uL-2Z;
+	Mon, 25 Nov 2024 05:05:57 +0000
+Date: Mon, 25 Nov 2024 13:05:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alistair Popple <apopple@nvidia.com>, dan.j.williams@intel.com,
+	linux-mm@kvack.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Alistair Popple <apopple@nvidia.com>, lina@asahilina.net,
+	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
+	vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
+	bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca,
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
+	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com,
+	willy@infradead.org, djwong@kernel.org, tytso@mit.edu,
+	linmiaohe@huawei.com, david@redhat.com, peterx@redhat.com,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org
+Subject: Re: [PATCH v3 11/25] mm: Allow compound zone device pages
+Message-ID: <202411251251.Tjig4oaV-lkp@intel.com>
+References: <f1a93b8a38e14e2ab279ece310175334e973b970.1732239628.git-series.apopple@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/9] dt-bindings: display/msm: dsi-controller-main:
- Document SM6150
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Rob Clark <robdclark@gmail.com>,
-        Abhinav Kumar
-	<quic_abhinavk@quicinc.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard
-	<mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Krishna Manikandan <quic_mkrishn@quicinc.com>,
-        "Bjorn
- Andersson" <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, "Li
- Liu" <quic_lliu6@quicinc.com>,
-        Xiangxu Yin <quic_xiangxuy@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
- <20241122-add-display-support-for-qcs615-platform-v3-2-35252e3a51fe@quicinc.com>
- <grizxfiq3zlquijtufhtjnnwlq2cl264ouzxrglroafreoujoz@lk2rjcaa6lxy>
-Content-Language: en-US
-From: fange zhang <quic_fangez@quicinc.com>
-In-Reply-To: <grizxfiq3zlquijtufhtjnnwlq2cl264ouzxrglroafreoujoz@lk2rjcaa6lxy>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 4eITDb8VK0_GLvFMgM0kYNdxcCHD8HuZ
-X-Proofpoint-GUID: 4eITDb8VK0_GLvFMgM0kYNdxcCHD8HuZ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0
- lowpriorityscore=0 clxscore=1011 phishscore=0 malwarescore=0
- suspectscore=0 priorityscore=1501 mlxlogscore=999 bulkscore=0
- impostorscore=0 mlxscore=0 spamscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2409260000 definitions=main-2411250025
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f1a93b8a38e14e2ab279ece310175334e973b970.1732239628.git-series.apopple@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_191353_969144_88DFEAF8 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20241124_210610_013888_AF06871B 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,39 +98,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Alistair,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on 81983758430957d9a5cb3333fe324fd70cf63e7e]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Alistair-Popple/fuse-Fix-dax-truncate-punch_hole-fault-path/20241125-094004
+base:   81983758430957d9a5cb3333fe324fd70cf63e7e
+patch link:    https://lore.kernel.org/r/f1a93b8a38e14e2ab279ece310175334e973b970.1732239628.git-series.apopple%40nvidia.com
+patch subject: [PATCH v3 11/25] mm: Allow compound zone device pages
+config: powerpc-ebony_defconfig (https://download.01.org/0day-ci/archive/20241125/202411251251.Tjig4oaV-lkp@intel.com/config)
+compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 592c0fe55f6d9a811028b5f3507be91458ab2713)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241125/202411251251.Tjig4oaV-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411251251.Tjig4oaV-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from arch/powerpc/kernel/asm-offsets.c:19:
+   In file included from include/linux/mman.h:5:
+   In file included from include/linux/mm.h:32:
+>> include/linux/memremap.h:164:3: error: call to undeclared function 'page_pgmap'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     164 |                 page_pgmap(page)->type == MEMORY_DEVICE_PRIVATE;
+         |                 ^
+>> include/linux/memremap.h:164:21: error: member reference type 'int' is not a pointer
+     164 |                 page_pgmap(page)->type == MEMORY_DEVICE_PRIVATE;
+         |                 ~~~~~~~~~~~~~~~~  ^
+   include/linux/memremap.h:176:3: error: call to undeclared function 'page_pgmap'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     176 |                 page_pgmap(page)->type == MEMORY_DEVICE_PCI_P2PDMA;
+         |                 ^
+   include/linux/memremap.h:176:21: error: member reference type 'int' is not a pointer
+     176 |                 page_pgmap(page)->type == MEMORY_DEVICE_PCI_P2PDMA;
+         |                 ~~~~~~~~~~~~~~~~  ^
+   include/linux/memremap.h:182:3: error: call to undeclared function 'page_pgmap'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     182 |                 page_pgmap(page)->type == MEMORY_DEVICE_COHERENT;
+         |                 ^
+   include/linux/memremap.h:182:21: error: member reference type 'int' is not a pointer
+     182 |                 page_pgmap(page)->type == MEMORY_DEVICE_COHERENT;
+         |                 ~~~~~~~~~~~~~~~~  ^
+   In file included from arch/powerpc/kernel/asm-offsets.c:19:
+   In file included from include/linux/mman.h:5:
+   In file included from include/linux/mm.h:2213:
+   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
+     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
+         |                               ~~~~~~~~~~~ ^ ~~~
+   In file included from arch/powerpc/kernel/asm-offsets.c:19:
+   include/linux/mman.h:157:9: warning: division by zero is undefined [-Wdivision-by-zero]
+     157 |                _calc_vm_trans(flags, MAP_LOCKED,     VM_LOCKED    ) |
+         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/mman.h:136:21: note: expanded from macro '_calc_vm_trans'
+     136 |    : ((x) & (bit1)) / ((bit1) / (bit2))))
+         |                     ^ ~~~~~~~~~~~~~~~~~
+   include/linux/mman.h:158:9: warning: division by zero is undefined [-Wdivision-by-zero]
+     158 |                _calc_vm_trans(flags, MAP_SYNC,       VM_SYNC      ) |
+         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/mman.h:136:21: note: expanded from macro '_calc_vm_trans'
+     136 |    : ((x) & (bit1)) / ((bit1) / (bit2))))
+         |                     ^ ~~~~~~~~~~~~~~~~~
+   include/linux/mman.h:159:9: warning: division by zero is undefined [-Wdivision-by-zero]
+     159 |                _calc_vm_trans(flags, MAP_STACK,      VM_NOHUGEPAGE) |
+         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/mman.h:136:21: note: expanded from macro '_calc_vm_trans'
+     136 |    : ((x) & (bit1)) / ((bit1) / (bit2))))
+         |                     ^ ~~~~~~~~~~~~~~~~~
+   4 warnings and 6 errors generated.
+   make[3]: *** [scripts/Makefile.build:102: arch/powerpc/kernel/asm-offsets.s] Error 1
+   make[3]: Target 'prepare' not remade because of errors.
+   make[2]: *** [Makefile:1203: prepare0] Error 2
+   make[2]: Target 'prepare' not remade because of errors.
+   make[1]: *** [Makefile:224: __sub-make] Error 2
+   make[1]: Target 'prepare' not remade because of errors.
+   make: *** [Makefile:224: __sub-make] Error 2
+   make: Target 'prepare' not remade because of errors.
 
 
-On 2024/11/24 0:28, Krzysztof Kozlowski wrote:
-> On Fri, Nov 22, 2024 at 05:56:45PM +0800, Fange Zhang wrote:
->> From: Li Liu <quic_lliu6@quicinc.com>
->>
->> Document general compatibility of the DSI controller on SM6150.
->>
->> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
->> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
->> ---
->>   Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml | 1 +
->>   1 file changed, 1 insertion(+)
->>
->> diff --git a/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml b/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml
->> index b0fd96b76ed1376e429a6168df7e7aaa7aeff2d3..a7fbb5af4b0583e88ebcad07dd004046c38f95ee 100644
->> --- a/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml
->> +++ b/Documentation/devicetree/bindings/display/msm/dsi-controller-main.yaml
->> @@ -30,6 +30,7 @@ properties:
->>                 - qcom,sdm845-dsi-ctrl
->>                 - qcom,sm6115-dsi-ctrl
->>                 - qcom,sm6125-dsi-ctrl
->> +              - qcom,sm6150-dsi-ctrl
-> 
-> This is incomplete change. Where is the rest for clocks? See entire
-> file.
-Got it. will add the clock part in the next patch as shown below
-                - qcom,sc7280-dsi-ctrl
-+              - qcom,sm6150-dsi-ctrl
-                - qcom,sm7150-dsi-ctrl
-> 
-> Best regards,
-> Krzysztof
-> 
+vim +/page_pgmap +164 include/linux/memremap.h
 
+   159	
+   160	static inline bool is_device_private_page(const struct page *page)
+   161	{
+   162		return IS_ENABLED(CONFIG_DEVICE_PRIVATE) &&
+   163			is_zone_device_page(page) &&
+ > 164			page_pgmap(page)->type == MEMORY_DEVICE_PRIVATE;
+   165	}
+   166	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
