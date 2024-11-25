@@ -4,87 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E80D3B7FF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:37:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED2A9D3B7FF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8d+g8WKkfE6s6pK+JrY3tSWdNLGevwdYmgstGGTm524=; b=sQKLvgq3i6PlxjLA6/i+PUpPWt
-	/mng1WFmJjzmDRIAQn1aHjtvaa80RlcT3CmOLUQofKLVh3icxj/bx0y9wYwoQ0Rsvd9RdW1HY3m7t
-	bA4yK8d86IvrjjEom/yKbfCtnENDCZkCkhMaIhQEHwPytIOZncco3o9ERQcFag2PWP9nPGYGwitIo
-	+mlsjFeGk5bzluM2oTLQhxBBEOs/l+1xhOKX/RPl223t5iql4hbPoAw7lqOw3TVy/ev04rD+tdbff
-	cufvY76zhdNjw15zorjOuzczV/bbNWBNOkJDVuKA0ifsKcR/LI0X96k6N3Sw2jt0L5weeYA1/Fi2V
-	gbIwf6Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T+PTzzcnP9siLZGzwp8bMcE8d7Ixq6pDTA7Zs0n5dJs=; b=X51c1J1QKXV7jSUGPx2g4TEVD4
+	Z4z1ytqDEIOauXgwgTpTCu8lLKgeAdBOr4YsJhByVtOO9yXydOICEFqb3pLPXUMHgjeYX8fTnxn66
+	jXTU830bMYtyuOssITbxIQRbuw+Whiz9G9kiR5WwWMZB1UerZn94anmgBuuwGQUyTDumu8kzWfz1I
+	v25qPeznsCIUcAagw36DrywK/fHUSnTbWqFVG/d2PmyXgq8eOeNLgQCrt4GCAP/A5mkdvdPX+Ft3h
+	vtMy8dfStcussJACT+e2GZ0cingow8t+G37JATEvvoH/UJKTFue2z2LD0e3xCvlVtVtqngbysPiht
+	MFl3l+UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFWSy-00000007mJd-0fq4;
-	Mon, 25 Nov 2024 10:37:16 +0000
-Received: from mail-yw1-f171.google.com ([209.85.128.171])
+	id 1tFWaA-00000007nlg-2cHJ;
+	Mon, 25 Nov 2024 10:44:42 +0000
+Received: from mail-am0eur02on20630.outbound.protection.outlook.com ([2a01:111:f403:2606::630] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFWS1-00000007mAU-18PG;
-	Mon, 25 Nov 2024 10:36:18 +0000
-Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-6eeb3741880so37955297b3.1;
-        Mon, 25 Nov 2024 02:36:16 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732530973; x=1733135773;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8d+g8WKkfE6s6pK+JrY3tSWdNLGevwdYmgstGGTm524=;
-        b=ikipQxeqpOqyhHb6rRi0ZV5YtsRviVX1afHnSOlf8KFJ5117hnLspEFdUwBMPzgox8
-         9G2G2QXL7lpDr0SLneVzl42UQlZPlSKcjnOVhP7qBSeYWmm8ti0LMcCrSNIVZ7Soqfr/
-         Ao6xHfq6LZU0v3u+2Auq6ab7L7iPoJ1ffSKNhkvrS1n4A6P39snWHFCegGnY/3DJAJEW
-         FdkmDweemPEI+dZGHaPmzkILqIeGL6gjIPoPGB3peg2+5XKP0Wkj4u4JXEvr+SBUex7d
-         FD7RIzydw933TD/swB5W6DesiFuVDJ2j7hclde+W9aOVWePp0F9R8j9AddHMMvIM49G+
-         soGA==
-X-Forwarded-Encrypted: i=1; AJvYcCUVsF9roFiFw8SOsWXRRbPlwap1GTm8Mlb+MDUSaRShoQR3+fcxLH2pu10HkATxBKx9gRh+8omb/mhggcdOt7/T@lists.infradead.org, AJvYcCW538FgNeCPC/keFtuKJJaABcPUNPg0eCpwv7IIfBppB8qZWLhZM51t1n/43V9NT/MVFGMNmyrXQcssVtlxNyA=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5gZuhqWp6unzlF0Ry1z7wweIpcqo2d/YI2db3yyldoixY6Uxm
-	hFNrbRW5XVhwjWARST0SR7nQaipssA+vZemRPtX55+rherqOGxJd+/CsOL5m
-X-Gm-Gg: ASbGncu+GMhahOwy8VwKSCqQnhSjqXBhyQdhZR/hEw8WvDMkf1r0+vbW4rTqx0Qmo4A
-	ENrS48IH9XMvmZN/jIvFT1rA/7GvkXlY35BIj5pCR01Ec6kRC4lwyUPSCBSbSVGuYmLeAGOTHkm
-	OezAhMwRdvPv5r67vMjWWjOEUY2XnIOLJI/hBxDdz/DkXdUitE4littcGrFVEV9fh/Q59+bNs6T
-	bZlaE57G4bwVdcxD3ZISMI+krhuE8GFXWtui8IETUNaxYl8rCFDVN4CtbYqp/GQdWGdV0iheBl9
-	mSLIjeTGpOXwDgrs
-X-Google-Smtp-Source: AGHT+IG76IhWOKIFxX4gAwpubnHZ8WHn1cnNUiND6pnTIb9c/TwhN8Q1oWDZ/8Mt7Y0rIRUYy5lJ9Q==
-X-Received: by 2002:a05:690c:6007:b0:64b:5cc7:bcbc with SMTP id 00721157ae682-6eee0a25186mr122773477b3.32.1732530973066;
-        Mon, 25 Nov 2024 02:36:13 -0800 (PST)
-Received: from mail-yw1-f177.google.com (mail-yw1-f177.google.com. [209.85.128.177])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-6eedfe153e3sm17416777b3.22.2024.11.25.02.36.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 25 Nov 2024 02:36:11 -0800 (PST)
-Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-6ef0ef11aafso7207887b3.2;
-        Mon, 25 Nov 2024 02:36:11 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUajcawARBH60ZCW8yjKCM2AvrLXtKGfscMe8hN5qedVG8iLYLOP0aLKHSsgDSwImRyFkeimg1tqSM5C6SrxHU=@lists.infradead.org, AJvYcCXwFfJhTwVO9YTSi/s+TN5kVawkKa6H0uwqbE14E11aGysHNoemd0y+kbH48UTs71zsw0cbEVmBPID+dxCWD7+b@lists.infradead.org
-X-Received: by 2002:a05:690c:4a13:b0:6ee:cf8b:c6c1 with SMTP id
- 00721157ae682-6eee0a24b1cmr108161527b3.29.1732530970890; Mon, 25 Nov 2024
- 02:36:10 -0800 (PST)
+	id 1tFWZD-00000007nZd-1Mzv
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Nov 2024 10:43:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XoVzud7wfsm/Ec40sxeFEmExlCWF7ev3mIlnuIKFCxB8r0zp6zVXtiEs++S/26QOF02f4Liu+4L+X3hvd4SGrLcZDOFHWGF+7j/IICtY9nel3SEGkbS5Vh+CoTV5QnkjgQqNVkg9tiZH6eBxjWFgB1h2IOIBtu4ZDsEr1M+QM7X1ZfIZSjvZi/dF7gBLOGrZqJxMMC6mkYy1EMo59LgyZv5CHWGX6rYDaZXdH678btB+TkxhrpKHUreoYj0VcURM0SfFDORchH4CSFdbXNabKCoeG6Ofs+aZzj51s9L+OoFI/e9G7a2kVG2tFGU7oTgSbs5ZzU/QYX+NCF2GQ+6CXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=T+PTzzcnP9siLZGzwp8bMcE8d7Ixq6pDTA7Zs0n5dJs=;
+ b=blDWy6i/KDlAoty6Wrid+Pl9bJA5iN++Te114st6/iZmwPMyguTrv/0o7cslcZ4nxG6A6WYxETKwzIPBh0OfKVNsJR4B95CZHyA3hPMIhW8CEXgn/TgcgNhh33dLihzW1Z7kTn1hGMXmS2AWVmq6KZrwGm7dFKNXGKAVOwsRAatkDUe3lWJTKPFw9F91BbTNG1/+gGAwPmLQZRXS44vK8E4unkfE6MtODSJnc2VSg5Y0FO3kTreIovB4G5xlZ8oT90DD4unoGsAFHbWz8QNzENX7CjalH5j9QYeP5MwlChkXRo1x6hcEiaOPzja335VnMOTXGg0Eex4hgDtJY4CgeA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=T+PTzzcnP9siLZGzwp8bMcE8d7Ixq6pDTA7Zs0n5dJs=;
+ b=FJvsAF1w2SVw19LiyjqjFye0+8m/uQc6izDhDcQLDsa/Ew7D7DGVRLtKn77x8iRxw6I0faJm8Z8fiobEJaoM+iMyJMrSC7dt+caxtVXBJSUYS/EYpsaZIkTvtG8CXmSwziDtisq9NewjC+YH9/xeJjsAjHkQg9Qc66jyQOdnNtMAVVcSpxPVPIKADxCCFqUJlKnqAnYG9bFDbL59/NjGXuRz1Fv3etfhy3wl1l9D/gNW8ly1fJ/rcgHSxx0fA+ul+zMxlrRwce+t4DyBE+no7xpEkhPskRCOoonAs71QYs0duSZ2o3BmG0Rj4Qf9d0NVkWuZpm/0txEcng8x6tZKyQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by AS1PR04MB9503.eurprd04.prod.outlook.com (2603:10a6:20b:4d1::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.18; Mon, 25 Nov
+ 2024 10:43:37 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7%6]) with mapi id 15.20.8182.019; Mon, 25 Nov 2024
+ 10:43:37 +0000
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Frank.li@nxp.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	shawnguo@kernel.org,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev
+Subject: [PATCH v2] perf: imx9_perf: Introduce AXI filter version to refactor the driver and better extension
+Date: Mon, 25 Nov 2024 18:43:38 +0800
+Message-Id: <20241125104338.2433339-1-xu.yang_2@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SGXP274CA0012.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::24)
+ To DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
 MIME-Version: 1.0
-References: <20241018151016.3496613-1-arnd@kernel.org> <20241104172950.GA741087@thelio-3990X>
- <CAMuHMdXrrCiLm2sQmpegtVHV8X5AUp-8E5BejDxRpMbeAfHhvQ@mail.gmail.com> <20241122-rebel-donkey-of-atheism-a0b8b6@houat>
-In-Reply-To: <20241122-rebel-donkey-of-atheism-a0b8b6@houat>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 25 Nov 2024 11:35:58 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUC6cq+ybVzOC9n3XaT-x3oy+7tpA+Z=e8a4yd3B6Ykng@mail.gmail.com>
-Message-ID: <CAMuHMdUC6cq+ybVzOC9n3XaT-x3oy+7tpA+Z=e8a4yd3B6Ykng@mail.gmail.com>
-Subject: Re: [PATCH] drm/rockchip: avoid 64-bit division
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, Arnd Bergmann <arnd@kernel.org>, Sandy Huang <hjc@rock-chips.com>, 
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Algea Cao <algea.cao@rock-chips.com>, 
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Arnd Bergmann <arnd@arndb.de>, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|AS1PR04MB9503:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6a702f3f-f225-4fc5-7553-08dd0d3e04a1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gpRrOqy3jNZJnhoB8vtgcFkRANr7Vdj37BHvd8Pm6w/wvBRnRd7DL5BwuIEr?=
+ =?us-ascii?Q?23YyEdTf7dvVPWRISyNE3+HrbDhBY+NuBzO6hn5ot46SmHPz4INxR3vecSfo?=
+ =?us-ascii?Q?eBR5a/CNQM4HQRFwsapcgZU2cE5tW5zoUbFp2BuHZgDRYOth3oHgWUrptM0U?=
+ =?us-ascii?Q?aEsJBTotywTdZiaK93naFiUUpMWdPW/WF0uUyRem1nA2mbm9vKwYW9Wjgow2?=
+ =?us-ascii?Q?iLs1i5uA5Qf0cWEktg+YChnq1MSlErufBx/S4/W111sqGCx5DbWZJ+L4+G8l?=
+ =?us-ascii?Q?iEnH2WVYgOxu+VkZXUl081heyPPduy1fy52qLzv9UNSSWRHkK0TY+VKJb6WF?=
+ =?us-ascii?Q?7YLhHb9l4U9KwGAyLWxJLXFrg4WA7E1vc7PeuhOfIk3OhxcV28jIERhFcpsd?=
+ =?us-ascii?Q?3012UGXy01P6Nn3IQp7iOBXyG7BdE+25522x4+x/aO6ZeaK8HSwr5Drr3FZ4?=
+ =?us-ascii?Q?Z240jgmf/5ZXoTSJH5X7m6iXV5f65ZZnkprtmsDjjHAxnZEXGCkKgV9LJ4Dc?=
+ =?us-ascii?Q?lGR3flbznWYnB28iONOzBy6con96mdwiy6VMcUW7PuptRJhbbS1WoXyUGyNO?=
+ =?us-ascii?Q?HgZUiS3HEjnxa8fj5L0Apdw13fqrpGztoqVRa0XvExwUpnLbebirikALeGVC?=
+ =?us-ascii?Q?4qGG13gWDpKl0Yfjyebo8h17U9bzMSABrarlIn3MPpVvppuL+Zk4nNS41DhV?=
+ =?us-ascii?Q?ejzYpsaqBLR71c4F5xZ0XdQuA/Ej1FFqu0G+4HALCos94W1Vm3JT0AXujpwU?=
+ =?us-ascii?Q?sEOgAdP97kJ38OkEElb6FBVFVWWzkX6CTohzR7F4DO4D1qq6sKnyjJ6zshHc?=
+ =?us-ascii?Q?JqZJcquBQTb9QQQ42x+UQBJM1Vl++FRHKzNxtTGF1YQ+F2HN1rxWsYD9dH87?=
+ =?us-ascii?Q?0s+7yj5XmYOyKw1BGw33cbadlFA8fkqW5Z1PaRS9K3m3liqbc+J0P/xp445c?=
+ =?us-ascii?Q?wFWZ8iGHS/nG0WUosG4pJNQYIVfzWXA03Y5YKlL7h6WlrNCAK66ueHAZMczg?=
+ =?us-ascii?Q?fgLna59u6VP4bIrnhA2ZasGOUht10QicbXwq2rPKkyJuE0Yd/etWVWB2YXhN?=
+ =?us-ascii?Q?87CPTl//8k9d4E4QNwJai104ZM0fR4yybze6cUSxANOfgTz/v83z00y2f/EF?=
+ =?us-ascii?Q?rCViUzzGJVjWVoy3iFzU79jnyZtuGLm+VUHi/kjHEFYQFymOHTLviNUcaWq5?=
+ =?us-ascii?Q?f2snzv3zwG6cW4E0dGwwleLr9kwkAO0aqehRX9MIsNTmddwP78/IjgfItLa9?=
+ =?us-ascii?Q?lEabwZXU6Tp+Xtk5KTayc+/yfp81+VXkMiiGOZ4qfjVTUyPEoDbEmYXnCgwF?=
+ =?us-ascii?Q?HJCqqzThMn+0sPRMRMhBMWkXg16OYebzCwD+G1HL+vLtd6vTxQKA/8M+4O8c?=
+ =?us-ascii?Q?bU7kv726l5AsVLTs7hJXWnRIOcEd57VxNxHUCrUFNiwxlj0tkw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hyp19hOczF+TYV8EAZuq20HdFa/7KQqF2deCAyb5AvYUt6AMCyCOohVqwr5N?=
+ =?us-ascii?Q?egessHxv+wMUYwPN+d3FNZxThpkzSm1TYQP6Rk0JGnfw+Zdcw6OBdYs3TrK5?=
+ =?us-ascii?Q?EBMS1gsFMK3Y86LuByfIzr2dDvZZJ4cpi/KAZqPPHeHsvF1hMv0Vyo8hbc2J?=
+ =?us-ascii?Q?Aqe0Dy6VZfgsCTJjpcajcQ5TM7jOVS4ikcVw9vbKPbNw1rOVKOIXUsifI+3R?=
+ =?us-ascii?Q?3zLl7Q3ZoWIdtev3cuCjd6v/+Dswyd3vwKHs2Xf3kDuUjM3jFzhQ6NziLWKB?=
+ =?us-ascii?Q?pNCNY/TLR6ztYdaG4tLhbfAbQSI+ipkKLSL2HtHc1D1OygriBlXq8UEkzKll?=
+ =?us-ascii?Q?37cRyB5n92y4nQgjUKBV94v6tUuOYDeCtcLPMnkKqGZIkFS4wjojY1DIFox7?=
+ =?us-ascii?Q?++iPrFcyi/MuwSoZDxVOcKOaeTujGbDfnNkX4++ly+D2FdPvjUHCksuql4iS?=
+ =?us-ascii?Q?78sZ3OCg7ugKvkLNim6ml2lsUL9bGImHnCbfmIOx8LW4keAk2m3GY5HJyQ2f?=
+ =?us-ascii?Q?EG+pAEXX/v9W1MQz84fTHvkgluWXUgN682gGvXpuNFhM1YzRe2I6GhjTIrEr?=
+ =?us-ascii?Q?X18gyOV1Z2mH1dgzgGbFHSZuyqVgrpqFGrxtUhRLyvabMJKNEEksOPQt0Im2?=
+ =?us-ascii?Q?17q1OchgaeFaL2q2dRqOjxPXhDI8YpNjmoFgIufQ/nLqHsM0+QZwT89hIeRO?=
+ =?us-ascii?Q?9tb7yNu7rTnTnCnB4h41CoNMD+6lMIh/wvgc+QhWuk8/VNcFsdY8TduIO7Z5?=
+ =?us-ascii?Q?gC6hGriVWN95ipPQPUrbGfUwDg7jsEeP3aKHk8Lj08wQjITTYW/1H0vQel7O?=
+ =?us-ascii?Q?byQDw54p6tKID3+2ihfiqOtjSsmo5OSarScaifwP104uduEmXGbN9vd50dwf?=
+ =?us-ascii?Q?N2wgORQCxxFaA5n+0qmrp7+i6nyuJ7hHHcGClh6MqGN+Brjfxss4bKExP3MS?=
+ =?us-ascii?Q?5JdSpUJKJrtS3j6EpCYNYL3NKltQPzs3S0qOBJ2MrX2VCUvZ+Qzbd8nxZ65K?=
+ =?us-ascii?Q?jUt6qW/kuKdFa0QnWyHOYFItzmkm8F8PRnlF6NX44yOOiS/p6J5UVm7s+Fj6?=
+ =?us-ascii?Q?dfc8Py9Hq93Mp2ku2p2S6UAN6P0nXiOHe2DCgN7bdqi+CrpaBGXuREWi4/bk?=
+ =?us-ascii?Q?+kqvNViuaB0qJBdLnHb5Atti2MJGgTmJhz7vdSf3iEiE9BcI/y5Nhk/H/jZg?=
+ =?us-ascii?Q?ct6f8UJC93RacOBq1q5t35el30naIGu1FL0q4EhhifpECH3ClPnblVzDXIep?=
+ =?us-ascii?Q?7mf808EFP8eK3wTXlitiqfQFT1u10Ija2001CMMxC+Yy+tD4SkZ0UMS81vIH?=
+ =?us-ascii?Q?1ooskqo3d7g//ywO+5uQH/0QDkeIJWWx6oXxJgvwYe82rInlFhebBBMr5sCu?=
+ =?us-ascii?Q?WVtbbIsENtLqBRZ0hcUN7gGeNi3WUtDAnMl+uUbTgycfgNbVPVrrAukSpQDz?=
+ =?us-ascii?Q?OYccVSJrJgc18LJaD2WD+8bdBGGhsDQ94iggo5LySP4yCm1aykKaIIc8z6+x?=
+ =?us-ascii?Q?7OARsKT4xcL5UDUtYuZ5x3TXfIJMemEwLwl7V9F5ErLXXg4ZXfnFs8YFBJAq?=
+ =?us-ascii?Q?2SIuXp/ARsCXn1cambAK5IR4Dsc/Gb0d0XP8zQRo?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6a702f3f-f225-4fc5-7553-08dd0d3e04a1
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2024 10:43:37.5288
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MKChXnpJ74LT0RIE9nQ0BM4uv47QPy6bupKbPVX4Pf3MAfNs3UuFKjFFJLfNFeF8wUo7RKYRmfBjDb66mz9uPg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9503
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_023617_302039_A2857ABD 
-X-CRM114-Status: GOOD (  35.24  )
+X-CRM114-CacheID: sfid-20241125_024343_366471_39B41E7F 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,106 +157,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+The imx93 is the first supported DDR PMU that supports read transaction,
+write transaction and read beats events which corresponding respecitively
+to counter 2, 3 and 4.
 
-On Fri, Nov 22, 2024 at 10:15=E2=80=AFAM Maxime Ripard <mripard@kernel.org>=
- wrote:
-> On Fri, Nov 22, 2024 at 09:36:16AM +0100, Geert Uytterhoeven wrote:
-> > On Mon, Nov 4, 2024 at 6:30=E2=80=AFPM Nathan Chancellor <nathan@kernel=
-.org> wrote:
-> > > On Fri, Oct 18, 2024 at 03:10:10PM +0000, Arnd Bergmann wrote:
-> > > > From: Arnd Bergmann <arnd@arndb.de>
-> > > >
-> > > > Dividing a 64-bit integer prevents building this for 32-bit targets=
-:
-> > > >
-> > > > ERROR: modpost: "__aeabi_uldivmod" [drivers/gpu/drm/rockchip/rockch=
-ipdrm.ko] undefined!
-> > > >
-> > > > As this function is not performance criticial, just Use the div_u64=
-() helper.
-> > > >
-> > > > Fixes: 128a9bf8ace2 ("drm/rockchip: Add basic RK3588 HDMI output su=
-pport")
-> > > > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> > >
-> > > Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-> > >
-> > > Can someone please pick this up? It is still broken in next-20241104.=
-..
-> > >
-> > > https://storage.tuxsuite.com/public/clangbuiltlinux/continuous-integr=
-ation2/builds/2oNvJFRj8tkDieb6VfrMf4rh1Kn/build.log
-> > >
-> > > > ---
-> > > >  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 2 +-
-> > > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > >
-> > > > diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drive=
-rs/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> > > > index 9c796ee4c303..c8b362cc2b95 100644
-> > > > --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> > > > +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> > > > @@ -82,7 +82,7 @@ static void dw_hdmi_qp_rockchip_encoder_enable(st=
-ruct drm_encoder *encoder)
-> > > >                * comment in rk_hdptx_phy_power_on() from
-> > > >                * drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-> > > >                */
-> > > > -             phy_set_bus_width(hdmi->phy, rate / 100);
-> > > > +             phy_set_bus_width(hdmi->phy, div_u64(rate, 100));
-> > > >       }
-> > > >  }
-> >
-> > noreply@ellerman.id.au has just told me this build issue is now upstrea=
-m:
-> >
-> >     FAILED linus/m68k-allmodconfig/m68k-gcc8.1 Fri Nov 22, 05:34
-> >     http://kisskb.ellerman.id.au/kisskb/buildresult/15277242/
-> >
-> >     Commit:   Merge tag 'drm-next-2024-11-21' of
-> > https://gitlab.freedesktop.org/drm/kernel
-> >               28eb75e178d389d325f1666e422bc13bbbb9804c
-> >     Compiler: m68k-linux-gcc (GCC) 8.1.0 / GNU ld (GNU Binutils) 2.30
-> >
-> >     ERROR: modpost: "__udivdi3"
-> > [drivers/gpu/drm/rockchip/rockchipdrm.ko] undefined!
-> >
-> > Applying this patch fixes it, so
-> > Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> >
-> > Do we really need +5 weeks to apply a fix for a reported build issue?
->
-> Do we really need that kind of comments?
->
-> It was applied already, I made sure it's part of the next PR we send to
-> Linus. And it should be in linux-next tomorrow.
+However, transaction-based AXI match has low accuracy when get total bits
+compared to beats-based. And imx93 doesn't assign AXI_ID to each master.
+So axi filter is not used widely on imx93. This could be regards as AXI
+filter version 1.
 
-Thank you, I can confirm it is now commit 818956c76517e127
-("drm/rockchip: avoid 64-bit division") in drm-misc/for-linux-next
-and next-20241125.
+To improve the AXI filter capability, imx95 supports 1 read beats and 3
+write beats event which corresponding respecitively to counter 2-5. imx95
+also detailed AXI_ID allocation so that most of the master could be count
+individually. This could be regards as AXI filter version 2.
 
-Interestingly, the commit description contains:
+This will introduce AXI filter version to refactor the driver and support
+better extension, such as coming imx943.
 
-    (cherry picked from commit 4b64b4a81fcd51f570c046cf904aef19ec756d45)
+Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
 
-which is not in any tree on git.kernel.org, but the github collective
-does know about it:
-https://github.com/torvalds/linux/commit/4b64b4a81fcd51f570c046cf904aef19ec=
-756d45
+---
+Changes in v2:
+ - modify subject
+ - add comments for AXI_FILTER version
+ - type -> filter_ver
+---
+ drivers/perf/fsl_imx9_ddr_perf.c | 33 ++++++++++++++++++++++++--------
+ 1 file changed, 25 insertions(+), 8 deletions(-)
 
-Probably you want to drop that line.
+diff --git a/drivers/perf/fsl_imx9_ddr_perf.c b/drivers/perf/fsl_imx9_ddr_perf.c
+index 3c856d9a4e97..e2c2c674b6d2 100644
+--- a/drivers/perf/fsl_imx9_ddr_perf.c
++++ b/drivers/perf/fsl_imx9_ddr_perf.c
+@@ -63,8 +63,21 @@
+ 
+ static DEFINE_IDA(ddr_ida);
+ 
++/*
++ * V1 support 1 read transaction, 1 write transaction and 1 read beats
++ * event which corresponding respecitively to counter 2, 3 and 4.
++ */
++#define DDR_PERF_AXI_FILTER_V1		0x1
++
++/*
++ * V2 support 1 read beats and 3 write beats events which corresponding
++ * respecitively to counter 2-5.
++ */
++#define DDR_PERF_AXI_FILTER_V2		0x2
++
+ struct imx_ddr_devtype_data {
+ 	const char *identifier;		/* system PMU identifier for userspace */
++	unsigned int filter_ver;	/* AXI filter version */
+ };
+ 
+ struct ddr_pmu {
+@@ -83,24 +96,27 @@ struct ddr_pmu {
+ 
+ static const struct imx_ddr_devtype_data imx91_devtype_data = {
+ 	.identifier = "imx91",
++	.filter_ver = DDR_PERF_AXI_FILTER_V1
+ };
+ 
+ static const struct imx_ddr_devtype_data imx93_devtype_data = {
+ 	.identifier = "imx93",
++	.filter_ver = DDR_PERF_AXI_FILTER_V1
+ };
+ 
+ static const struct imx_ddr_devtype_data imx95_devtype_data = {
+ 	.identifier = "imx95",
++	.filter_ver = DDR_PERF_AXI_FILTER_V2
+ };
+ 
+-static inline bool is_imx93(struct ddr_pmu *pmu)
++static inline bool axi_filter_v1(struct ddr_pmu *pmu)
+ {
+-	return pmu->devtype_data == &imx93_devtype_data;
++	return pmu->devtype_data->filter_ver == DDR_PERF_AXI_FILTER_V1;
+ }
+ 
+-static inline bool is_imx95(struct ddr_pmu *pmu)
++static inline bool axi_filter_v2(struct ddr_pmu *pmu)
+ {
+-	return pmu->devtype_data == &imx95_devtype_data;
++	return pmu->devtype_data->filter_ver == DDR_PERF_AXI_FILTER_V2;
+ }
+ 
+ static const struct of_device_id imx_ddr_pmu_dt_ids[] = {
+@@ -155,7 +171,7 @@ static const struct attribute_group ddr_perf_cpumask_attr_group = {
+ struct imx9_pmu_events_attr {
+ 	struct device_attribute attr;
+ 	u64 id;
+-	const void *devtype_data;
++	const struct imx_ddr_devtype_data *devtype_data;
+ };
+ 
+ static ssize_t ddr_pmu_event_show(struct device *dev,
+@@ -307,7 +323,8 @@ ddr_perf_events_attrs_is_visible(struct kobject *kobj,
+ 	if (!eattr->devtype_data)
+ 		return attr->mode;
+ 
+-	if (eattr->devtype_data != ddr_pmu->devtype_data)
++	if ((eattr->devtype_data != ddr_pmu->devtype_data) &&
++		(eattr->devtype_data->filter_ver != ddr_pmu->devtype_data->filter_ver))
+ 		return 0;
+ 
+ 	return attr->mode;
+@@ -624,11 +641,11 @@ static int ddr_perf_event_add(struct perf_event *event, int flags)
+ 	hwc->idx = counter;
+ 	hwc->state |= PERF_HES_STOPPED;
+ 
+-	if (is_imx93(pmu))
++	if (axi_filter_v1(pmu))
+ 		/* read trans, write trans, read beat */
+ 		imx93_ddr_perf_monitor_config(pmu, event_id, counter, cfg1, cfg2);
+ 
+-	if (is_imx95(pmu))
++	if (axi_filter_v2(pmu))
+ 		/* write beat, read beat2, read beat1, read beat */
+ 		imx95_ddr_perf_monitor_config(pmu, event_id, counter, cfg1, cfg2);
+ 
+-- 
+2.34.1
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
 
