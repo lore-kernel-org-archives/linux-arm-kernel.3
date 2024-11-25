@@ -4,112 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1263D3B7F6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB794D3B7F5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 10:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NPfEGEoE3IDkQsEusn9TQhSVYa/yV4e46t8rhxdzSw0=; b=rOQnl0Nb845XIw9HWesDokeG2V
-	k73QvA4y3SvQ6C1L13J9BIPfVJtPdo01q3pxYM+H5WlhhprPmyWiqKgqsY338yq73YprFV0OlGG2+
-	jNW/paxTD1wWcUW3KxCq/tdFTUastWh1jneB7EpUh/DJLWgKIFCLHukbI1beA/4u3hEafP4nR16+k
-	eJkQP0DTYnbbXWxCmujF784RNJrJH30dLGv86daItvzmgcNRlOIC+QkppS3j3f3eXMr7mckcs/wby
-	Wl9tcESKZsfW1doHrlCalXhfJ4nUYGPk9aWGsSbOLNwQsVGQ2nBmvGPABxIWTMHlJyrnLJliP9d/0
-	N1GORPMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hUO3cLlT3vdLxWhuhdutCmu0MQDfhoRgoCbEY54Csm8=; b=qoNxRIuk9COldUjuqt+nIHtDfS
+	mJekRAdo9znD4777EnrVxSYEdYG51UVqccF4FcHtGHaV0FIA9I/RQsS4E0Ne02UjiDohdVqRHsRWS
+	BfOhKar4zK44E8Z2UqTvV1GvdaCCrTEPC1RqIXxJlT7BsgE5+IsF2Ix6K36zjMIoJuvwyJbt9aaHC
+	XRAsKmnud0jYSeTO93uD6AoVE2JuwOUXnMUTGadhpDtze8yv8smvfEpY/TSXrs18LeCuDRxBlV3l9
+	oUexGHwW8ZC+ArwKR8VWQOsSAxrkcgjcAnXWxXfGGclfIG/USsllPY6pgDwG47LCGhh/SwDzwLc9v
+	iw3WbYpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFWB9-00000007jdv-2W4c;
-	Mon, 25 Nov 2024 10:18:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tFWBB-00000007jhH-0oLS;
+	Mon, 25 Nov 2024 10:18:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFW3w-00000007gmd-2wjr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 10:11:25 +0000
+	id 1tFW5w-00000007h7W-48IF;
+	Mon, 25 Nov 2024 10:13:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9672C5C5977;
-	Mon, 25 Nov 2024 10:10:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72266C4CECE;
-	Mon, 25 Nov 2024 10:11:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DEF2A5C5707;
+	Mon, 25 Nov 2024 10:12:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0524C4CECE;
+	Mon, 25 Nov 2024 10:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732529483;
-	bh=yKnc1Zk+G4ZTxSawddMpZRV12Li+nii66zDSwR57oZg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=p+m6QzpnSI4uWrJe2qIRZmWq2NMvNCGN/8huxR4uHn+K40RJQhxLMt/tFTCUgtB5U
-	 v3O57EgrmVkD4lXHwRe+N8FlcGE4XCklSarWE3vvG/reWtMnRkCTZ9AnTDAcIAWH99
-	 nKBWD+MXLHTpQ6PdX/qeee4AffzyUBaFCkRpJldeZhims8fJ748TTNDTXnDOQ719g1
-	 DGaM/W3pSN4OAgvOH5xS8jLhg89pCVU/fYivNOR6vwQ4IxCtfyrLQnBfXPxhFY4Ytv
-	 7/331x0CmYgltjeDHzVFGN8E2fRkW1j5h/q3vorxAP2xepxk0Bq51PTs5plydln5E5
-	 Wp6Fm/TmbdBiw==
-Message-ID: <07e0cc97-c0c4-42fd-b51d-87b0eaed4e4a@kernel.org>
-Date: Mon, 25 Nov 2024 11:11:17 +0100
+	s=k20201202; t=1732529608;
+	bh=hUO3cLlT3vdLxWhuhdutCmu0MQDfhoRgoCbEY54Csm8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ecXyt2kIURgzHaGqA6Om1ND2ZukCSUbhfaBgrTVsLdakQL+39aWUtBY8cVoSZlqdT
+	 dRUwWGz50dH5iV7nF6vRMvqpQpO6xflP3jTA2CWkLuo0/tSXMMPT9IZk533d3ETFFZ
+	 PUrlqfbTHHr6GC/Q7Nh/2CsDVLIG2Y9KTCtiw2GQvO1agESZR/y+t5VRVptpwuv4r6
+	 KCzDOe8VEYuNOTyeoKKxYb/vgGlz1h66d2Z4vRgBj17djGa0JjdWrWo7OwLQu3ud03
+	 SJMORycZfj959fobpZojpgvxp5bui2gfQ8cguN6GQ/nt9w6oroCQLb1zr3MpNrU5bt
+	 TD5FIj632msXg==
+Date: Mon, 25 Nov 2024 11:13:25 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	ck.hu@mediatek.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v1 7/7] drm/mediatek: Introduce HDMI/DDC v2 for
+ MT8195/MT8188
+Message-ID: <20241125-spirited-industrious-roadrunner-e8154d@houat>
+References: <20241120124512.134278-1-angelogioacchino.delregno@collabora.com>
+ <20241120124512.134278-8-angelogioacchino.delregno@collabora.com>
+ <20241122-cobra-of-authentic-discourse-e2c5b6@houat>
+ <03b5a671-e0c0-4d18-a103-e7f0ab18e20e@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 1/8] dt-bindings: media: platform: visconti: Add
- Toshiba Visconti MIPI CSI-2 Receiver
-To: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Sakari Ailus <sakari.ailus@linux.intel.com>,
- Hans Verkuil <hverkuil-cisco@xs4all.nl>,
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-References: <20241125092146.1561901-1-yuji2.ishikawa@toshiba.co.jp>
- <20241125092146.1561901-2-yuji2.ishikawa@toshiba.co.jp>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241125092146.1561901-2-yuji2.ishikawa@toshiba.co.jp>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="h3ivafm5bqasam2u"
+Content-Disposition: inline
+In-Reply-To: <03b5a671-e0c0-4d18-a103-e7f0ab18e20e@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_021124_826236_362D54BD 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20241125_021329_063475_63460217 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,131 +79,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/11/2024 10:21, Yuji Ishikawa wrote:
-> Adds the Device Tree binding documentation that allows to describe
-> the MIPI CSI-2 Receiver found in Toshiba Visconti SoCs.
-> 
-> Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-> Reviewed-by: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
 
+--h3ivafm5bqasam2u
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v1 7/7] drm/mediatek: Introduce HDMI/DDC v2 for
+ MT8195/MT8188
+MIME-Version: 1.0
 
-How newly added patch can have already Rb tag? Was this review really,
-really performed internally or you just satisfy some internal managers
-requirements and fake the stats?
+On Mon, Nov 25, 2024 at 10:40:22AM +0100, AngeloGioacchino Del Regno wrote:
+> Il 22/11/24 10:20, Maxime Ripard ha scritto:
+> > Hi,
+> >=20
+> > On Wed, Nov 20, 2024 at 01:45:12PM +0100, AngeloGioacchino Del Regno wr=
+ote:
+> > > Add support for the newer HDMI-TX (Encoder) v2 and DDC v2 IPs
+> > > found in MediaTek's MT8195, MT8188 SoC and their variants, and
+> > > including support for display modes up to 4k60 and for HDMI
+> > > Audio, as per the HDMI 2.0 spec.
+> > >=20
+> > > HDCP and CEC functionalities are also supported by this hardware,
+> > > but are not included in this commit.
+> > >=20
+> > > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@=
+collabora.com>
+> >=20
+> > Just a heads-up, you should really be using the new HDMI helpers, it'll
+> > remove a lot of boilerplate and potential bugs.
+>
+> Hmm... the state helper you mean? Or the inflight series from Dmitry?
 
-> ---
-> 
-> Changelog v12:
-> - Newly add bindings for CSI2RX driver 
-> 
->  .../media/toshiba,visconti5-csi2rx.yaml       | 104 ++++++++++++++++++
->  1 file changed, 104 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yaml b/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yaml
-> new file mode 100644
-> index 000000000000..5488072bc82a
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yaml
-> @@ -0,0 +1,104 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/toshiba,visconti5-csi2rx.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Toshiba Visconti5 SoC MIPI CSI-2 receiver
-> +
-> +maintainers:
-> +  - Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
-> +
-> +description: |-
+Ideally both, but targetting only the former would be great already :)
 
-Drop |-
+> In any case... yeah, you're right, let me check which helpers I can
+> use: that's going to be done for v2 :-)
 
-> +  Toshiba Visconti5 SoC MIPI CSI-2 receiver device receives MIPI CSI-2 video
-> +  stream. Use with VIIF device. T.B.D
-> +
-> +properties:
-> +  compatible:
-> +    const: toshiba,visconti5-csi2rx
+I think the scrambler support would be great to add there, there's a lot
+of bugs in most drivers. If you feel like it :)
 
-Why this is called "RX"? Can you have a TX? I had impression that one
-cannot.
+Maxime
 
-> +
-> +  reg:
-> +    items:
-> +      - description: Registers for CSI2 receiver control
-> +
-> +  interrupts:
-> +    items:
-> +      - description: CSI2 Receiver Interrupt
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/$defs/port-base
-> +        unevaluatedProperties: false
-> +        description:
-> +          Input port node, single endpoint describing the CSI-2 transmitter.
-> +
-> +        properties:
-> +          endpoint:
-> +            $ref: video-interfaces.yaml#
-> +            unevaluatedProperties: false
-> +
-> +            properties:
-> +              data-lanes:
-> +                description: CSI2 receiver supports 1, 2, 3 or 4 data lanes
-> +                minItems: 1
-> +                items:
-> +                  - const: 1
-> +                  - const: 2
-> +                  - const: 3
-> +                  - const: 4
-> +            required:
-> +              - data-lanes
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description:
-> +          Output port node, single endpoint describing the Visconti VIIF.
-> +
-> +    required:
-> +      - port@0
-> +      - port@1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - ports
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        csi2rx@1c008000 {
+--h3ivafm5bqasam2u
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
-csi@
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ0RNvwAKCRAnX84Zoj2+
+du1BAYCjKyk+nF1tolybBaGVQDKxzLMP0aXHCAkIJNAu09aAHat9Y0MhN/kPIBXf
+tfkB+7MBfjQt2wnl1ouI79g9WFI8G9PRbpuZNHwGd7TOzG9Ro+rG6xY9J8nMPV8N
+WxjwIWRu/g==
+=mo8X
+-----END PGP SIGNATURE-----
 
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-
-
-Best regards,
-Krzysztof
+--h3ivafm5bqasam2u--
 
