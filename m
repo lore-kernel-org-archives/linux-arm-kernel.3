@@ -4,159 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D15ED58D5A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 15:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CCED58D5A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 15:31:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lJEbnwGFbeGayu084RsQ+0mRT5eGvQX/o9sPoQyCthI=; b=JigxkhWbZT/jHej96FT3aDs6lm
-	DDbsonuBlJoIYuDRkB5j+ralSFdl0hAT00d4WILOIxl0TlMj3T3zMNCc1qL0e1TAabcdIzNUaAUYq
-	wLyFTmT71yQjheZEa4jsBXCk4SAs9E4BY+v/wWjZ6M7AVHu0JjG2yGBNKyoM+jWTWMkNvlt4CE664
-	m2sRfoUKozhjwRwz28SDOzI9pHUEVDz4XIY3NQ7VbAfFUt/u5txEgTdrldXD+B8Td4vbbiuGoPDHI
-	7/rUcUUAQy8o9BqIwiziWVmCAUb/KqduuWBM6IfNVlD1bQbyp5gR/eoDsMcmKPNTryMafdecew3J8
-	lvnydWKg==;
+	bh=J3iU4957LIS/H10yjQyEKVHjKHXAXZQsDhA8RML+rwE=; b=sMCOWUKlMM0NUgLlZg4dgRnwIp
+	I8ohbOt4WxEg1fqCiTYXn/THRWAfeeWbuBtSo0VIclJ8wWdcNLkpHGUxZj6jddVzp79bNUTpR7/i/
+	G0DM9Mwqn78kDGxnOM14wAzVNuQ765JzHOUACSUqIpjVQuDaLddG/GUuO9KtkyVzvFfKLr7NDerrv
+	Xue7Ve3rp8UtrnYEJ16XqoE8sr763ZrEML5p455110pTvUOE0SMoOf34f61hktUR9ZvfALrP0n2Ai
+	gXWxYS5uldOFGNpTTQkPPjEOBWL87TBAEzQZ4Y8dB5VMb8ImO66S6x3kgKq1J/wkqGStsbs5hVKJu
+	3Mx4JABw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFb2X-00000008UTx-3G8I;
-	Mon, 25 Nov 2024 15:30:17 +0000
-Received: from mail-dbaeur03on20628.outbound.protection.outlook.com ([2a01:111:f403:260d::628] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tFb3T-00000008UbJ-22Ki;
+	Mon, 25 Nov 2024 15:31:15 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFaw5-00000008Sxg-17Ol
+	id 1tFaz0-00000008Tfx-0qhn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 15:23:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZlSwekHSgyPREOyEmKU7Z/WLKUoo58Kc4Meva7F4kjUxfkdrkLNv+eT55c3aylNhTCWdZIwia+xN+Xc9Qoww2SlRo2L2NpytDr0Cr7EqRbmxOha3Vw2rSGTmBJLzfbgvkEf9m1AXTW7LTCQHteoA46U2H2UrWG3c7Ce1MCC1deIBZPs8lLcJu3i/D6BYp/dEKm9B+V9QlF25u5qpjMV0KmcnAn5QS8UzVekDIKUzLtIpuMhBbmsE/Q6y4ItNCRY9KbZMsaPD9ypSg0bxTXiBAMybSRkjH9RLNMgv6Zmi1VYa8i3OVP+Di7xf6ZUtSd4CI26rdEViXUDkf/sI5N5BGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lJEbnwGFbeGayu084RsQ+0mRT5eGvQX/o9sPoQyCthI=;
- b=rb5rxtWDWp3Rh66TYLVrnsDg9aEy7iARGaua1tBH+JDYOCgwS7sh9SCm8q1gI8yPmTOtkD8x64PdRY5kKVya0PjGzFiRxtAFEs4WItBCtzTp5JfNhVcG8suE7ZpXn0TgohQ9AnjiqTKA6V7bo/66oQHQq9fp6HdDxWdz6bJ8zHxvo9zNeMo6TvIbrdpv4iF2WhFtJBnrNuT8w6eBSAmgdQn0ckviEk3f1OTbF/PzuCCk3gtm4TKgqRjGsOS6JFYHLPeFKDR4TORmpj5Uro6wrnuuVlpFdWcjX08GPy7TS2DoJFgd1s1ktdEkF2LN03Dh3WAJp5XGbKd3pE0bOZjMng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lJEbnwGFbeGayu084RsQ+0mRT5eGvQX/o9sPoQyCthI=;
- b=djo4kkBRtg08zS0NDCGbLUPBHCM4T0VgdB5KJZd/1CYh86YjY07qbZpfshHGWvDQ44aqYO0J5wwmmvFfy1d4ns4Xn6Zy68cBRb9Syr1mHKIAV/3M54zwhVI10GTKtjhWnCAI3is+tJOrpDE7LjwLnIR2nSmh7dHUnF46R2yMnX1P5kQxt2VpFpFsMRAwE7gIP9tJrqoQuZLIZMOW79no9n1yaqvm4U83pZw527ZDWy8xIyzoJ8CyCsap/xEu8usJkYRSy4i6NDn2oW4pOH3jLdY3KPUQ0gfe8Qsyy5HoQiML9b33K/6rEt11shT7HCmAeO8e7AnHXCVMpqnvdxuhWA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
- by DU4PR04MB10886.eurprd04.prod.outlook.com (2603:10a6:10:580::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.18; Mon, 25 Nov
- 2024 15:23:28 +0000
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::84f7:e2c3:ceed:c0a6]) by AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::84f7:e2c3:ceed:c0a6%4]) with mapi id 15.20.8182.019; Mon, 25 Nov 2024
- 15:23:28 +0000
-From: Daniel Baluta <daniel.baluta@nxp.com>
-To: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	festevam@gmail.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	frank.li@nxp.com,
-	aisheng.dong@nxp.com,
-	daniel.baluta@gmail.com,
-	laurentiu.mihalcea@nxp.com,
-	shengjiu.wang@nxp.com,
-	iuliana.prodan@nxp.com,
-	a.fatoum@pengutronix.de,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: [PATCH v2 6/6] arm64: dts: Add dsp rproc related mem regions
-Date: Mon, 25 Nov 2024 17:24:26 +0200
-Message-ID: <20241125152427.136883-7-daniel.baluta@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241125152427.136883-1-daniel.baluta@nxp.com>
-References: <20241125152427.136883-1-daniel.baluta@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BE0P281CA0003.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:b10:a::13) To AS8PR04MB8247.eurprd04.prod.outlook.com
- (2603:10a6:20b:3f2::13)
+	Mon, 25 Nov 2024 15:26:39 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4APBlfgd028895;
+	Mon, 25 Nov 2024 16:26:17 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	J3iU4957LIS/H10yjQyEKVHjKHXAXZQsDhA8RML+rwE=; b=Dy9MnAF4bXAHtXxw
+	MHgwNFWZKTyu3ZLMY7dAq6jeFyj0NJxrGzKuvHMK/L8g/jPKwJIoefaf3HV8BUPV
+	2GepDWrgQpTotVIWaKEpEAiHbhGNvll4vJx2YVY3YcMcwGLwBptYu5DXc99U2w8L
+	yErJJUS9mGwc/clGqMxEW3r0r4RUs5BLuHLkoyRhgo4CXITltOM90kOyN8caqh7U
+	Kkn98GP1dwafDhmCDwYbnX/fOJHIjheHNWY5/1ZWuB4VWH+AX4reqdDnFNKoDI7F
+	7foAXFNmm9/EMd8Wy59GJQkB5403jr4SAwOUtLRaD6w2U9YFLF5lcNnpohT8oUSK
+	KWFB8w==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4336tfg57c-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 25 Nov 2024 16:26:17 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 713F240045;
+	Mon, 25 Nov 2024 16:24:52 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A23B62A1036;
+	Mon, 25 Nov 2024 16:23:47 +0100 (CET)
+Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 25 Nov
+ 2024 16:23:46 +0100
+Message-ID: <a4908b60-9b81-4d87-942e-d581946bcc82@foss.st.com>
+Date: Mon, 25 Nov 2024 16:23:46 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|DU4PR04MB10886:EE_
-X-MS-Office365-Filtering-Correlation-Id: 11915bb5-7576-4ab1-95cf-08dd0d651cf9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wwC1Utr3flzVBPJ6xGaBA8/jQipReR4h4Y3WpSIK74MhncDFXie5PNKuMuTj?=
- =?us-ascii?Q?DVgBm5XRqV3zZYXZFCAUSWGwrxta2rN8y1dk+rE57XeY+zuE2iFfP8dRvprD?=
- =?us-ascii?Q?7VkM2JoftgSHaBVHiz5HIEKBw77nFXgIcd9lA2raDdD7gkSqrY2Xa0dRf74n?=
- =?us-ascii?Q?BKSTr0mFwmH2p2Isyz/frdLfucfDCRZ1v2n5lak/OuqOxlLrpzKWv4bUwOik?=
- =?us-ascii?Q?PHrChwKfyD0Y8goaYPU/h3MHzmgecb1qFUegLJnQRgbvXg3Gac3c8wkS8YDh?=
- =?us-ascii?Q?uHMhKrMyaZp3btXyO34qNYqQyFl/BCtjtF7K7wVj529C07dyixCs1bRqJXXX?=
- =?us-ascii?Q?NDtuJTR1odVoGd5L7N86R9DEOE0IAWpYVI3f1PmrbP0mveyKNGx3f9EAd7Ye?=
- =?us-ascii?Q?MCBtLnBmE60qCvg+7GMJH6fdlABX6qwX5/MDpLdLUI9jhAF6sApqWgH4aJIu?=
- =?us-ascii?Q?x6FZwGTBtYJ6ePbKzYA+8jXf1JDXKPZcZvwIaI98U1gaI12P0HfFG058HKTW?=
- =?us-ascii?Q?5XH/CqQd1lLSgk0oqtiCKD3ajWNZ5q+kTB9y2/6B6Lq9OYVbxguAaFjxnknX?=
- =?us-ascii?Q?BYtSjr6ikpCQ2whdNUYoxj4we5UZ9gC3Sr9mp5L9w+5MGE3Vqj4su7ZUDTr5?=
- =?us-ascii?Q?MZeeGLOiDi89aQhmYERnFl6Bij6X6SBcycJSI2TOwTTLw0Lwh+uPj0FvB11O?=
- =?us-ascii?Q?rLp26v7kPZKEkRCwVCb8B9uQF+n5+kLbKmccFiU6VABk1+59BDEqHGe3VRAJ?=
- =?us-ascii?Q?ZaSlSzSMpDWZrmSUBQtrwZtPnnF++uBMEFHc/OI9/kRBc71+xfkFpoTkJSKO?=
- =?us-ascii?Q?2Hewjig0JGNebVr3LBmXblHWepLh9a0SMazYSgqEZPQtvo75hF7jCZ5PdgrH?=
- =?us-ascii?Q?eCDrNnW2xwIvCaKL0ppC0XAsv2H321nGtIN3sWR5tkze8C/UTQbiQOxOo+5s?=
- =?us-ascii?Q?bLpCyNU5BxvhEi1xBmmjPtVfYuJq+YPTh47BNvUjc7o0EY97NSjOveuQGZGg?=
- =?us-ascii?Q?99fHhxJhV5mnkFWedL9vWt6If24HXmNhwyaMx+Q2y38KKgME74OmoK4NDLB9?=
- =?us-ascii?Q?m+EWOVi3+mx7JeDTZaWZdDotPehPWqjW1Fb/XOzd4MeC5YLSPdfaIyrvLzcL?=
- =?us-ascii?Q?I5nlM2v2Q7z7Y0fLJ971Zu/PbNcjFPN9Yvn3MhWrF/i33mXTBH6PWcv7AdMi?=
- =?us-ascii?Q?UNi1BVpGOyxkdV02QmUvtwoKMhVKc76JW2OBJSc6loPfa/ZGD6tZnQzw/Qd9?=
- =?us-ascii?Q?cWw+7HeG9t9NmJ3PXscih76vac085IhZg5CkJ9I82AwaPg/JU+qePG9wKzjC?=
- =?us-ascii?Q?qRbGuzGAHgkFYn3apA+gxwrvtfwvqKorheXTFGL3mNN/JY/oW1aI1a1nw5A1?=
- =?us-ascii?Q?czh9kSrFDiZB8avlQVBo6vDV42TYZ1VMHRw2o37c+Xh97KJ31A=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eeRwLHvqxtb27auGfl/CeP7pQMLbLPcqtlIyGjLh2c73srOKEmWr+QWGQo+3?=
- =?us-ascii?Q?jWoKWqTH5gfTzZyeuV2VYfuMBVLRJa61PFp8BKhpEjTpJgt4tYXzJm7grBV1?=
- =?us-ascii?Q?HIzqDzVaZPVW78IKnvEek+FTflEH/ELlT4GqPVN7pSFlKUv71rVCZ2ZxCkSu?=
- =?us-ascii?Q?+RCeoNJy1v8QFeFTzm3nm07snA9AhpyT+PclX0VDvcM2Zlwj/bwfIkSESdEj?=
- =?us-ascii?Q?Dx44E+M/BQM7gA3jDQe0YOlEQqXVRiXiTZCKxN2THetfakFMrnIZyfDfj4h4?=
- =?us-ascii?Q?Ok4lastHi6o8kBaoxJ2XQMA7ZsaF/pdMTXOIiKTV/I93xRiSVkFE2gi/3s4F?=
- =?us-ascii?Q?QndkowhPo50rVtQ+7djRkzN1Ejp2wgMoXSA+uqNLY87KWkysxBm/UZ4ym2Av?=
- =?us-ascii?Q?8jQYLhQpOGyrU5nFZlhb/wbOudeTK0bwKeG34foHvFEo9tvpbfNtpVdTDB8c?=
- =?us-ascii?Q?mbaYUM/Bs94epdS9LjXVHsjv8gb18dfJODgQBgHwoOZfHED5w01+/285oqJP?=
- =?us-ascii?Q?DpbhryhedXfT9OhrxfRL9/RKyQEOw+Kpqipaw6ZCdJMksXnckHzHhhMhmZqz?=
- =?us-ascii?Q?7+4bauFleX4Lxp+c+6XsBKTFf5iFq5KdP87LLNw9Dfai9x+GOo2Y0pt30uO3?=
- =?us-ascii?Q?O5yhAw+cbBvh2S7A171ESn4d56QMSROI8OQ8SRXIBkXn7RybuU01XFVMoEBp?=
- =?us-ascii?Q?rYjunnyoh0tSxw6eOf3UPh6xuOdTbVAYgi6attxzPe6DRVL9GzeNFvgiiptd?=
- =?us-ascii?Q?VFSHUPzCZoaOdnShS3KfV79WaBMMuGzxhlX+A6vTRQziWN7qS1WWbRk3/Kuo?=
- =?us-ascii?Q?dALYQzlvDhI0WWSLbxpRNBeZ7x56p5YcEhMI19yp9K7qcB3uW47na3W6fPN1?=
- =?us-ascii?Q?riDklNlV4gnC34X7K6BVIhCv8xU7mQRD4sSQxbQZqnBAtGfXLEz2V5shUZ7c?=
- =?us-ascii?Q?NiyfZKOUJJ9UUHesUc149gLxdio7advGIS7zurjoZW02RQQ8gd0pLKZbmREr?=
- =?us-ascii?Q?GP54eKp0JsILzLvswXFX6Vkz5NYvuLDxH7JWf5OKwtXRGwCx/V3lPSS6mvzh?=
- =?us-ascii?Q?PC6HnVnwkZWWTkBf18mCgk8gPP5FOmeuEvdIfdwsWQJmdVg4FR1dmXUGhI+I?=
- =?us-ascii?Q?r5VPBRDgP1wfzPICkQEkrmPPbBoRmJr7y06cQGeZtdAVROFZuuIxhsiPBQ95?=
- =?us-ascii?Q?dnirtPjW04cLjZJkkB20lCDmkV3YO/ujmYH2QS6mC2vU4gEMa3YDIp/47R4I?=
- =?us-ascii?Q?Jm0HNETd67URO0Pe7e8ROtNJicIa+Hi5IC41+vIbQl1AhEh4puhV2JCfO7Pr?=
- =?us-ascii?Q?rVGWDQtv2hwKBYRItLXTuig8OH1gPHyn2ZQKrcnWoKk7O5AfXhXtx4I9OSRw?=
- =?us-ascii?Q?nd6e0Bxhra0pdksaqEnoGpxEnhpXeAEcvmj9L63z2JlKiOamI17OrcfvASnl?=
- =?us-ascii?Q?X2xIYdf7XPKvGNzdpiCyv+DVsto+EsYm0l6gkdksb9MHSPN9LK+TOnln419N?=
- =?us-ascii?Q?yKNxRNArO72TrXFH2EFuZ4rgQmeEEOOFVK8KBiF3udW0yQC2BKs8LiCbc9mR?=
- =?us-ascii?Q?dx3mxc5fN++oLTkM7fxJvobIYqUAKnzdKwtkQWPO?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 11915bb5-7576-4ab1-95cf-08dd0d651cf9
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2024 15:23:28.7445
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1qjh49CFD1/diIZDeJGA8XwpiMcKrtzT750VK1cbPJ/1LMtgtJtD/BzKVune95D90F7c9ZcrrFUyy95/d71jag==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10886
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] dt-bindings: PCI: Add STM32MP25 PCIe root complex
+ bindings
+To: Rob Herring <robh@kernel.org>
+CC: <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <bhelgaas@google.com>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
+        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
+        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241112161925.999196-1-christian.bruel@foss.st.com>
+ <20241112161925.999196-2-christian.bruel@foss.st.com>
+ <20241115163603.GA3188739-robh@kernel.org>
+Content-Language: en-US
+From: Christian Bruel <christian.bruel@foss.st.com>
+In-Reply-To: <20241115163603.GA3188739-robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_072337_346337_7B7B9134 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20241125_072638_537532_1BF66510 
+X-CRM114-Status: GOOD (  23.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,38 +101,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With imx8mp-evk board we are now configuring 'dsp' node for rproc usage,
-so add rproc specific memory regions.
 
-Also, enable dsp node because it is ready to be used.
 
-Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+On 11/15/24 17:36, Rob Herring wrote:
+> On Tue, Nov 12, 2024 at 05:19:21PM +0100, Christian Bruel wrote:
+>> Document the bindings for STM32MP25 PCIe Controller configured in
+>> root complex mode.
+>> Supports 4 legacy interrupts and MSI interrupts from the ARM
+>> GICv2m controller.
+>>
+>> Allow tuning to change payload (default 128B) thanks to the
+>> st,max-payload-size entry.
+>> Can also limit the Maximum Read Request Size on downstream devices to the
+>> minimum possible value between 128B and 256B.
+>>
+>> STM32 PCIE may be in a power domain which is the case for the STM32MP25
+>> based boards.
+>> Supports wake# from wake-gpios
+>>
+>> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+>> ---
+>>   .../bindings/pci/st,stm32-pcie-host.yaml      | 149 ++++++++++++++++++
+>>   1 file changed, 149 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+>> new file mode 100644
+>> index 000000000000..d7d360b63a08
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+>> @@ -0,0 +1,149 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-host.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: STM32MP25 PCIe root complex driver
+>> +
+>> +maintainers:
+>> +  - Christian Bruel <christian.bruel@foss.st.com>
+>> +
+>> +description:
+>> +  PCIe root complex controller based on the Synopsys DesignWare PCIe core.
+>> +
+>> +select:
+>> +  properties:
+>> +    compatible:
+>> +      const: st,stm32mp25-pcie-rc
+>> +  required:
+>> +    - compatible
+>> +
+>> +allOf:
+>> +  - $ref: /schemas/pci/pci-host-bridge.yaml#
+>> +  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
+> 
+> snps,dw-pcie.yaml instead of these 2.
+> 
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: st,stm32mp25-pcie-rc
+>> +
+>> +  reg:
+>> +    items:
+>> +      - description: Data Bus Interface (DBI) registers.
+>> +      - description: PCIe configuration registers.
+>> +
+>> +  reg-names:
+>> +    items:
+>> +      - const: dbi
+>> +      - const: config
+>> +
+>> +  resets:
+>> +    maxItems: 1
+>> +
+>> +  reset-names:
+>> +    const: core
+> 
+> -names with a single entry is kind of pointless.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-index d26930f1a9e9..c732ee79772d 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-@@ -291,6 +291,16 @@ &aud2htx {
- 	status = "okay";
- };
- 
-+&dsp_reserved {
-+	status = "okay";
-+};
-+
-+&dsp {
-+	memory-region = <&dsp_vdev0buffer>, <&dsp_vdev0vring0>,
-+			<&dsp_vdev0vring1>, <&dsp_reserved>;
-+	status = "okay";
-+};
-+
- &eqos {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_eqos>;
--- 
-2.43.0
+ok, will update the driver accordinly
+
+> 
+>> +
+>> +  clocks:
+>> +    maxItems: 1
+>> +    description: PCIe system clock
+>> +
+>> +  clock-names:
+>> +    const: core
+>> +
+>> +  phys:
+>> +    maxItems: 1
+>> +
+>> +  phy-names:
+>> +    const: pcie-phy
+>> +
+>> +  num-lanes:
+>> +    const: 1
+>> +
+>> +  msi-parent:
+>> +    maxItems: 1
+> 
+> Just 'msi-parent: true'. It's already only ever 1 entry.
+> 
+>> +
+>> +  reset-gpios:
+>> +    description: GPIO controlled connection to PERST# signal
+>> +    maxItems: 1
+>> +
+>> +  wake-gpios:
+>> +    description: GPIO controlled connection to WAKE# input signal
+>> +    maxItems: 1
+>> +
+> 
+>> +  st,limit-mrrs:
+>> +    description: If present limit downstream MRRS to 256B
+>> +    type: boolean
+>> +
+>> +  st,max-payload-size:
+>> +    description: Maximum Payload size to use
+>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>> +    enum: [128, 256]
+>> +    default: 128
+> 
+> IIRC, other hosts have similar restrictions, so you should be able to do
+> the same and imply it from the compatible. Though I'm open to a common
+> property as Bjorn suggested.
+> 
+>> +
+>> +  wakeup-source: true
+>> +
+>> +  power-domains:
+>> +    maxItems: 1
+>> +
+>> +  access-controllers:
+>> +    maxItems: 1
+>> +
+>> +if:
+>> +  required:
+>> +    - wakeup-source
+>> +then:
+>> +  required:
+>> +    - wake-gpios
+> 
+> This can be just:
+> 
+> dependentRequired:
+>    wakeup-source: [ wake-gpios ]
+> 
+> (dependentRequired supercedes dependencies)
+> 
+>> +
+>> +required:
+>> +  - interrupt-map
+>> +  - interrupt-map-mask
+>> +  - ranges
+>> +  - resets
+>> +  - reset-names
+>> +  - clocks
+>> +  - clock-names
+>> +  - phys
+>> +  - phy-names
+>> +
+>> +unevaluatedProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
+>> +    #include <dt-bindings/gpio/gpio.h>
+>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +    #include <dt-bindings/phy/phy.h>
+>> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
+>> +
+>> +    pcie@48400000 {
+>> +        compatible = "st,stm32mp25-pcie-rc";
+>> +        device_type = "pci";
+>> +        num-lanes = <1>;
+>> +        reg = <0x48400000 0x400000>,
+>> +              <0x10000000 0x10000>;
+>> +        reg-names = "dbi", "config";
+>> +        #interrupt-cells = <1>;
+>> +        interrupt-map-mask = <0 0 0 7>;
+>> +        interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
+>> +                        <0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
+>> +                        <0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
+>> +                        <0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
+>> +        #address-cells = <3>;
+>> +        #size-cells = <2>;
+>> +        ranges = <0x01000000 0 0x10010000 0x10010000 0 0x10000>,
+>> +                 <0x02000000 0 0x10020000 0x10020000 0 0x7fe0000>,
+>> +                 <0x42000000 0 0x18000000 0x18000000 0 0x8000000>;
+>> +        bus-range = <0x00 0xff>;
+> 
+> Don't need this unless it's restricted to less than bus 0-255.
+> 
+>> +        clocks = <&rcc CK_BUS_PCIE>;
+>> +        clock-names = "core";
+>> +        phys = <&combophy PHY_TYPE_PCIE>;
+>> +        phy-names = "pcie-phy";
+>> +        resets = <&rcc PCIE_R>;
+>> +        reset-names = "core";
+>> +        msi-parent = <&v2m0>;
+>> +        wakeup-source;
+>> +        wake-gpios = <&gpioh 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+>> +        access-controllers = <&rifsc 76>;
+>> +        power-domains = <&CLUSTER_PD>;
+>> +    };
+>> -- 
+>> 2.34.1
+>>
+
+thanks
 
 
