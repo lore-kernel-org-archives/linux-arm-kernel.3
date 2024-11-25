@@ -4,93 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7706D58D50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 14:34:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC76ED58D50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 14:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I/8c6DPu2k4ijNWg8lpFf2R+Gq1NZCkNmcROHAnplfI=; b=0nNAdTEUmU3FWKzAHf6r4RwLwk
-	HIhCSsE7AO7o2lD4PijMTRZx68yIULqPYxYjeFEMG5dkas+v4+Mg2IxEuvIIB1E2PeDedIC5Zmyq8
-	CnLK5/u9QtoMrxXFSVB5ta77yO8PzcybmNvWjtVwrnC9hacv53Jmk2QSuTkfglv0GhNlaPRic75kT
-	UBxawlY2GJasOz6SPhdelhzu5yGBlKLxuFHZMxls/7EmogCBlHDEZ8+iTpyIhrMwm1gKFfUGR2XWl
-	AlQK61a9KilYG1LA+09QXjtLRsIDJOJVmPSZkjhFIXaCwZ8d8f1zTcEv9C+FwGPvMQ/L4Ovn1bJZn
-	xrcIULFA==;
+	bh=J+Y0HXpyKgeDtrQhAYRPzCv1yrc8XspvZqRwVQTSQoQ=; b=oPkZd8qXV+0fJ2IVSFvfqY/0fe
+	I3puvBgKYzAxcBsWdAIwCm+ARDbBvlD/5G3b8bSZgow1CTKbGu0+R6KqOnkPNkhO949DCfauAeuS1
+	fj6g7elFJUyS2njozdp5upnoJbwgW2SG8f5+Pn9L5uedcpZ7GubEWcaBGAtspZTvKWqMyTPE/rmpr
+	lK58oqKr9qHrf+WuHBJgfP7qhuyYTK1ADvAf9L8KLlHBJuUb3eL7dJAmC9mBRvfxTbl60uETJWeVF
+	xpuyvU86eSFYwD0gTjyz9nzJ5rhcImvEumkT1fufLswLdOgOVf7W+L5cP8PGMPPr4LDovZU5/7aBB
+	Nzj6xsSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFa9z-00000008Jaq-3Pgf;
-	Mon, 25 Nov 2024 14:33:55 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tFaAv-00000008Jl5-1pMI;
+	Mon, 25 Nov 2024 14:34:53 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFa8K-00000008JF1-27Dx
+	id 1tFa92-00000008JO9-2dar
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 14:32:13 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43169902057so39801435e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 06:32:12 -0800 (PST)
+	Mon, 25 Nov 2024 14:32:58 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-432d86a3085so41696815e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 06:32:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732545131; x=1733149931; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1732545175; x=1733149975; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=I/8c6DPu2k4ijNWg8lpFf2R+Gq1NZCkNmcROHAnplfI=;
-        b=hSyombAkmlYqhfQq045zVuUXhQWAHCoq9ZMISlItaZQrslNAiOHVeNCb4CRFHDKpeo
-         nmSbyTYgreJLhtSmuc8mceIhjkfJw0vczddISVeh1eJkiHiysXcCrg+H+Q1G/S+mhO6V
-         z79H9WBwV6GyST26mj1gUhsiZuqMz8AgPQUbsquecaVY0DcaRlahIxcXn8/rgDmFAg+x
-         PB5VrZL0wQW560ZDsCSX/YeFbCPgnw/MShZLbLQhMJUKYxg8nKucKcxkWwrc8hU4RRy/
-         lDpwU+jpztk98xh7X9CJWr3lutcQyzspPym7LiK/VaxKPH0Q6A6a8j6UxZ3fOKRBPaWX
-         md+w==
+        bh=J+Y0HXpyKgeDtrQhAYRPzCv1yrc8XspvZqRwVQTSQoQ=;
+        b=lEUV6H3V0MkYVlQHptweXy28ASLm5O/DkxNKwEve9PxSXO9HORO17w7hbtaRH1tIHN
+         GhGGVGagsYBVOnidQxw4ExyYuJyoD0yHBjDXjr4mpqdO0Ma5PbdjeuTDp3q3ssZ6Ucio
+         oxhTs/4z7FEXJLdTcpYMhfCbNJkMrSgcaHDuUiIc9XMDtMSnZMjjHhxt0agQheOhtB/r
+         KOsQ58KrdeXaRshdCDM/cUqgb27GqHo+BJbL/1a3g8wuOX+rQjZtejJtICXdr230nP7X
+         tek4TbKRJOBy4+XnhBIDbFsr7+zm5gA6jZbBAOtXr19Vnw+OfJuh+nEMFCs/uk7hZhLI
+         tZqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732545131; x=1733149931;
+        d=1e100.net; s=20230601; t=1732545175; x=1733149975;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=I/8c6DPu2k4ijNWg8lpFf2R+Gq1NZCkNmcROHAnplfI=;
-        b=gJH9Z28zOLJIgg9ZPZH0QbAdIfDiMjjlOVYqRH0CNqq0lqBlQ8s3roF/f3ksFiyt3V
-         dvikKLt+PlsL8Nd13u+5sWJCgAft+cnMST95yEN2zfCw51I4HmFtVBF7LrkDBh97mXYN
-         WbEtKF1o9vH78ODv6gCCe8IX77QMp2lwn8g9vVw0FCsMsM6kKcS5gmsuzl7t/2W8SRpl
-         A+VYfT4V91aZ4Ho0o+0VjrBYD2tRE2Kg9DG5M5jvOYL5UQI0FRv7AmxWSrY1lIMpFDxw
-         o7Md0SPEJFTpfvqGm0xew7q4iPOP/qnptftZJQlHScOkEAXnDBeS98hujr/4o4T5GeyI
-         s9mQ==
-X-Gm-Message-State: AOJu0YwfG8v6MJaXVSxC1MTsVHI1gmOe40CVOPcVOBbE/zA1JAvFRWZW
-	hCEmPwVKMTTeWIJoiVf3JHfNBI0sR6ZJh0rTjx/AzDYqLRx50lZG+xApf9deR/E=
-X-Gm-Gg: ASbGnctBW939gpCUmRphSEMKDqTFYUtDf7YiIA9hyIuBq0U/EiTL6adZRt86VBQfEZD
-	7Ii+uheKVTDb7FrUCi9KZ6phYTu6JkeNs3Gywdcj3c8Ae5KZXj7LtsCrLSZNomv9RP6qvGFdO9p
-	XKvjYsKqLvh/ZOPR5Gsx79+MrtAIlPUAbUfKQwdtN3V11k/t/StJBIGJG/y4XdbyoweugOTS+3f
-	bCqTKe12LehW4xU2AiEF3cEoSFjJ3T6A04m0pm/bYzgrSWbs8d9g6PAOoP5jWQ=
-X-Google-Smtp-Source: AGHT+IHvFWTGeuZ182YZQhvkHJraCRt6UEtAMR/W9d0QgcV1PITYVqpQK3Xa9vSX5dIa4gL2HNN+JA==
-X-Received: by 2002:a05:600c:5124:b0:434:a350:207c with SMTP id 5b1f17b1804b1-434a3502244mr4736765e9.23.1732545131003;
-        Mon, 25 Nov 2024 06:32:11 -0800 (PST)
+        bh=J+Y0HXpyKgeDtrQhAYRPzCv1yrc8XspvZqRwVQTSQoQ=;
+        b=dLNOd0th2C+P+FpA0Cu76Qvbb7jPqGkZrim4faBctrC/tlPWbLYhBpACZLuYHUOFVH
+         VyFSX3MPIJu6NyO5xcdPQH6UQfh+Ud+VY91wGX9tudSKD3msnMF/uUOf87G2P8Wjx6Q3
+         6KWwvtejqKeVSf1N8Zdw/UnBJrXgI2kuyxbnMT8XNnrv3PlWjbfOPDmarHQv+muX86f7
+         gx+FkJ8Lyrr+dl+kY7ASrKwHFHNMc3MmUlXAn5feM33MhL/AICZI1RXxYdRPMgsB8eg8
+         1GFER8hZdl0qjD0c7//u/qpmM7DufzXxMnTmQJrU8Zh26QvXMDuDq5af5lGWWjvCcoq2
+         nSZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUj0Ixy/+cV4pvrMEemka8obNrdIOpxSJVcgkTvypbVNUw9GKcJ1pKXUtKs6MJyH9CNIgkYmd5TC/fnBM7hnxFc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAKw/hxvO9jIxy0KPJaAgEmLBt25bOzoQJvdD1v1HuZL+ads0U
+	/6lydcJl4yPJUcnV0hcfQyprYV4bFS1xQ3AKyMXbK6VRCxU1qZfkuT879j5DlmE=
+X-Gm-Gg: ASbGnctlia/Z2u3rydjUw9QoXjRlDbJ22hyjUFYVGQFfVeC9dp27AqqvCqkvDjzX92J
+	VHkv4S9utCcgqtWyU0QVGofC24CLYMhxaBHLrdKe9uFPWYZ0kBplKUos52lYrd44V416ldWluPM
+	aRwZsG0YAFIuwTdMVQ0u2CCrKjbwMfaE8TBU6B3E/APAQ3FBkblHq5Z8xVKtzPKW1w9uwiEHcpo
+	YZvZOSvIT7XuofdI2zd5NsD0GJa3jXLz2lh11Cx5xTbyYcWdaSSOgGDHyAAbt0=
+X-Google-Smtp-Source: AGHT+IHLpdEqvHkFDrmf7iYo+O6NcGKzmFklgROp89/Mv/+qWdOXbu1wuq8DK5pShhF7HXcnisT0Zg==
+X-Received: by 2002:a5d:588f:0:b0:382:4851:46d2 with SMTP id ffacd0b85a97d-38260b45c95mr12173123f8f.1.1732545174756;
+        Mon, 25 Nov 2024 06:32:54 -0800 (PST)
 Received: from [192.168.0.40] ([176.61.106.227])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4349d2de6f9sm59791285e9.20.2024.11.25.06.32.09
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3825fb36612sm10492934f8f.59.2024.11.25.06.32.53
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 25 Nov 2024 06:32:10 -0800 (PST)
-Message-ID: <68ec36e4-78c4-46e3-85b8-18f6e1e4361d@linaro.org>
-Date: Mon, 25 Nov 2024 14:32:09 +0000
+        Mon, 25 Nov 2024 06:32:54 -0800 (PST)
+Message-ID: <7876986a-0164-4004-a8c7-43439e30fcbb@linaro.org>
+Date: Mon, 25 Nov 2024 14:32:53 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/5] media: qcom: camss: Add support for camss driver
- on sc7280
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
+Subject: Re: [PATCH v5 1/5] media: dt-bindings: Add qcom,sc7280-camss
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Vikram Sharma <quic_vikramsa@quicinc.com>
+Cc: rfoss@kernel.org, todor.too@gmail.com, mchehab@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, akapatra@quicinc.com,
  hariramp@quicinc.com, andersson@kernel.org, konradybcio@kernel.org,
  hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+ catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
  linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, kernel@quicinc.com
 References: <20241112173032.2740119-1-quic_vikramsa@quicinc.com>
- <20241112173032.2740119-4-quic_vikramsa@quicinc.com>
+ <20241112173032.2740119-2-quic_vikramsa@quicinc.com>
+ <20241115165031.GA3344225-robh@kernel.org>
+ <0234971e-9029-4371-a0aa-7da835591351@linaro.org>
+ <f1ff6df1-89f3-4e63-bea7-2404fefe81f8@kernel.org>
 Content-Language: en-US
 From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <20241112173032.2740119-4-quic_vikramsa@quicinc.com>
+In-Reply-To: <f1ff6df1-89f3-4e63-bea7-2404fefe81f8@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_063212_560939_5CEE050C 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20241125_063256_671912_354A6CFF 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,182 +109,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/11/2024 17:30, Vikram Sharma wrote:
-> From: Suresh Vankadara <quic_svankada@quicinc.com>
+On 25/11/2024 14:30, Krzysztof Kozlowski wrote:
+> On 25/11/2024 15:18, Bryan O'Donoghue wrote:
+>> On 15/11/2024 16:50, Rob Herring wrote:
+>>>> +  reg:
+>>>> +    maxItems: 15
+>>>> +
+>>>> +  reg-names:
+>>> reg and reg-names go after 'compatible'. See the documented ordering.
+>>
+>> Rob, the documented ordering pertains to the dtsi and examples not to
+>> the yaml right ?
 > 
-> Add support for the camss driver on the sc7280 soc.
 > 
-> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> ---
->   .../qcom/camss/camss-csiphy-3ph-1-0.c         |   5 +
->   .../media/platform/qcom/camss/camss-csiphy.c  |   5 +
->   .../media/platform/qcom/camss/camss-csiphy.h  |   1 +
->   drivers/media/platform/qcom/camss/camss-vfe.c |   2 +
->   drivers/media/platform/qcom/camss/camss.c     | 309 ++++++++++++++++++
->   drivers/media/platform/qcom/camss/camss.h     |   1 +
->   6 files changed, 323 insertions(+)
+> The coding style indeed is explicit that it applies to DTS, however same
+> rules apply to the bindings as well.  I just did not cover bindings when
+> writing DTS coding style.
 > 
-> diff --git a/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c b/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c
-> index 7d2490c9de01..f341f7b7fd8a 100644
-> --- a/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c
-> +++ b/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c
-> @@ -505,6 +505,10 @@ static void csiphy_gen2_config_lanes(struct csiphy_device *csiphy,
->   	u32 val;
->   
->   	switch (csiphy->camss->res->version) {
-> +	case CAMSS_7280:
-> +		r = &lane_regs_sm8250[0][0];
-> +		array_size = ARRAY_SIZE(lane_regs_sm8250[0]);
-> +		break;
->   	case CAMSS_8250:
->   		r = &lane_regs_sm8250[0][0];
->   		array_size = ARRAY_SIZE(lane_regs_sm8250[0]);
-> @@ -557,6 +561,7 @@ static bool csiphy_is_gen2(u32 version)
->   	bool ret = false;
->   
->   	switch (version) {
-> +	case CAMSS_7280:
->   	case CAMSS_8250:
->   	case CAMSS_8280XP:
->   	case CAMSS_845:
-> diff --git a/drivers/media/platform/qcom/camss/camss-csiphy.c b/drivers/media/platform/qcom/camss/camss-csiphy.c
-> index 5af2b382a843..3791c2d8a6cf 100644
-> --- a/drivers/media/platform/qcom/camss/camss-csiphy.c
-> +++ b/drivers/media/platform/qcom/camss/camss-csiphy.c
-> @@ -103,6 +103,11 @@ const struct csiphy_formats csiphy_formats_8x96 = {
->   	.formats = formats_8x96
->   };
->   
-> +const struct csiphy_formats csiphy_formats_sc7280 = {
-> +	.nformats = ARRAY_SIZE(formats_sdm845),
-> +	.formats = formats_sdm845
-> +};
-> +
->   const struct csiphy_formats csiphy_formats_sdm845 = {
->   	.nformats = ARRAY_SIZE(formats_sdm845),
->   	.formats = formats_sdm845
-> diff --git a/drivers/media/platform/qcom/camss/camss-csiphy.h b/drivers/media/platform/qcom/camss/camss-csiphy.h
-> index eebc1ff1cfab..b6209bddfb61 100644
-> --- a/drivers/media/platform/qcom/camss/camss-csiphy.h
-> +++ b/drivers/media/platform/qcom/camss/camss-csiphy.h
-> @@ -111,6 +111,7 @@ void msm_csiphy_unregister_entity(struct csiphy_device *csiphy);
->   
->   extern const struct csiphy_formats csiphy_formats_8x16;
->   extern const struct csiphy_formats csiphy_formats_8x96;
-> +extern const struct csiphy_formats csiphy_formats_sc7280;
->   extern const struct csiphy_formats csiphy_formats_sdm845;
->   
->   extern const struct csiphy_hw_ops csiphy_ops_2ph_1_0;
-> diff --git a/drivers/media/platform/qcom/camss/camss-vfe.c b/drivers/media/platform/qcom/camss/camss-vfe.c
-> index f9e64cbacb20..152ca984663c 100644
-> --- a/drivers/media/platform/qcom/camss/camss-vfe.c
-> +++ b/drivers/media/platform/qcom/camss/camss-vfe.c
-> @@ -335,6 +335,7 @@ static u32 vfe_src_pad_code(struct vfe_line *line, u32 sink_code,
->   		}
->   		break;
->   	case CAMSS_660:
-> +	case CAMSS_7280:
->   	case CAMSS_8x96:
->   	case CAMSS_8250:
->   	case CAMSS_8280XP:
-> @@ -1693,6 +1694,7 @@ static int vfe_bpl_align(struct vfe_device *vfe)
->   	int ret = 8;
->   
->   	switch (vfe->camss->res->version) {
-> +	case CAMSS_7280:
->   	case CAMSS_8250:
->   	case CAMSS_8280XP:
->   	case CAMSS_845:
-> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-> index 2d8efed51912..e1cda082a3b8 100644
-> --- a/drivers/media/platform/qcom/camss/camss.c
-> +++ b/drivers/media/platform/qcom/camss/camss.c
-> @@ -1266,6 +1266,300 @@ static const struct resources_icc icc_res_sm8250[] = {
->   	},
->   };
->   
-> +static const struct camss_subdev_resources csiphy_res_7280[] = {
-> +	/* CSIPHY0 */
-> +	{
-> +		.regulators = {},
-> +		.clock = { "csiphy0", "csiphy0_timer" },
-> +		.clock_rate = { { 300000000, 400000000 },
-> +				{ 300000000 } },
-> +		.reg = { "csiphy0" },
-> +		.interrupt = { "csiphy0" },
-> +		.csiphy = {
-> +			.hw_ops = &csiphy_ops_3ph_1_0,
-> +			.formats = &csiphy_formats_sc7280
-> +		}
-> +	},
-> +	/* CSIPHY1 */
-> +	{
-> +		.regulators = {},
-> +		.clock = { "csiphy1", "csiphy1_timer" },
-> +		.clock_rate = { { 300000000, 400000000 },
-> +				{ 300000000 } },
-> +		.reg = { "csiphy1" },
-> +		.interrupt = { "csiphy1" },
-> +		.csiphy = {
-> +			.hw_ops = &csiphy_ops_3ph_1_0,
-> +			.formats = &csiphy_formats_sc7280
-> +		}
-> +	},
-> +	/* CSIPHY2 */
-> +	{
-> +		.regulators = {},
-> +		.clock = { "csiphy2", "csiphy2_timer" },
-> +		.clock_rate = { { 300000000, 400000000 },
-> +				{ 300000000 } },
-> +		.reg = { "csiphy2" },
-> +		.interrupt = { "csiphy2" },
-> +		.csiphy = {
-> +			.hw_ops = &csiphy_ops_3ph_1_0,
-> +			.formats = &csiphy_formats_sc7280
-> +		}
-> +	},
-> +	/* CSIPHY3 */
-> +	{
-> +		.regulators = {},
-> +		.clock = { "csiphy3", "csiphy3_timer" },
-> +		.clock_rate = { { 300000000, 400000000 },
-> +				{ 300000000 } },
-> +		.reg = { "csiphy3" },
-> +		.interrupt = { "csiphy3" },
-> +		.csiphy = {
-> +			.hw_ops = &csiphy_ops_3ph_1_0,
-> +			.formats = &csiphy_formats_sc7280
-> +		}
-> +	},
-> +	/* CSIPHY4 */
-> +	{
-> +		.regulators = {},
-> +		.clock = { "csiphy4", "csiphy4_timer" },
-> +		.clock_rate = { { 300000000, 400000000 },
-> +				{ 300000000 } },
-> +		.reg = { "csiphy4" },
-> +		.interrupt = { "csiphy4" },
-> +		.csiphy = {
-> +			.hw_ops = &csiphy_ops_3ph_1_0,
-> +			.formats = &csiphy_formats_sc7280
-> +		}
-> +	},
-> +};
-> +
-> +static const struct camss_subdev_resources csid_res_7280[] = {
-> +	/* CSID0 */
-> +	{
-> +		.regulators = { "vdda-phy", "vdda-pll" },
+> Best regards,
+> Krzysztof
 
+ACK, thanks for the clarification.
 
-Please move the regulator defintion to CSIPHY.
-
-I'm OK with regulator name as-is since the match sm8250 which this work 
-derives from.
-
-Then you may add.
-
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+---
+bod
 
