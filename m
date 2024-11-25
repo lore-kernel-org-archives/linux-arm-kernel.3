@@ -4,90 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD40D59D7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 22:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B00DFD59D7E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 22:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RGr05iKNJHbtHhaz6iDKZMDzd6vC++UBaPJYjmD+AfE=; b=KsXlHqsrrAvw4O9YsuKXlMdh1b
-	jiKCPjTKwdXrxH4fZOZtwu3GdBpuBu4TzzCjW+KCjaPJR7vVzlGP7b2eShQ/EFlIHrUhwmYTzlBXJ
-	t9XUuimduZQzDi1T+UGGHATv3ZByClmoZLW2hNFGKru39U9Txwv3LiXv10SHdhqkt9NC06jUWAGDz
-	7YMSg63PyeVs+6Pb43rYW5oud1HG/UsHmlj1Hh/95N56/2c7K+Pswhadn24MrtNFG6UpEJ4OXcanb
-	CUviwsaqzUS/D44AhMzkUbgjekn8dgOk2rJ4M+F6C3jzotOIX4pYWiB1IzobYCSbDX/WsoI74RQI8
-	ff0pSWmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fPfWzthEWoH2qXCJl59i7kJGHDW2eEE8lyzCKgg7LSc=; b=kQltBtaRX9oFf98zdMN6kKmSno
+	AbEBf2F2O4tpO55autg0LhfJRlXuaHDZl07vIxCntdy//Mpl6+0O9T+t5ZkegccQGQjB/MnTVlavu
+	/PGWSfZq7cWTid804Q8pM7E1nUHXlsNeOphAJnR9vH78Z/B62MMnZb9lcCn+2po9oVKRHp4d6kC7I
+	1r/J/iQ1OLUleTq8danmKHlk7NwDfskEukTLbzRlYvid1PRifwGsMRHzp99wSS7s1ssbguKTNjyOD
+	4+dbCbBsxO4GNnHAfczpxjbJS0+KAP2V+Sarzpp1UXt2C0dP6mfvgVjHt6b9o8H4h3Al9v8zK8cT7
+	sxrJuGQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFhKN-00000009Bq2-1sEr;
-	Mon, 25 Nov 2024 22:13:07 +0000
-Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
+	id 1tFhVK-00000009CdB-3AWZ;
+	Mon, 25 Nov 2024 22:24:26 +0000
+Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFhJQ-00000009Bjw-3i9K
+	id 1tFhUM-00000009CXp-3aK8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 22:12:10 +0000
-Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-6ef0c64d75cso15174047b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 14:12:07 -0800 (PST)
+	Mon, 25 Nov 2024 22:23:27 +0000
+Received: by mail-vs1-xe30.google.com with SMTP id ada2fe7eead31-4af16d741dfso452902137.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Nov 2024 14:23:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732572726; x=1733177526; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=RGr05iKNJHbtHhaz6iDKZMDzd6vC++UBaPJYjmD+AfE=;
-        b=xp0iHjv5ax4M+rL+m15/gxHuTNTOBOuzzmHZvJTuRenGsWADBgYdsfoDvcucSJKgw1
-         st968g9YmzvaR++h/a63e/sP/lWI19iUqTxkpAeltzcl+EgZt5bgMAWsG0tgIZzuRN6R
-         tToVqYqH2dyQBdu7aFGwdoXQeU6f4CVjhIMx/vZj/rVJnMtK2mDDWDQStWc/6gp7oNio
-         ljXgTzhzsGPTa9Vg05Xmr0+pMQJnDGHJZUF9UoSe+gdOiZfyvZPpDwHfGjZHt8sNxCqs
-         yFe3WBTKp55TUbMGE/xQtfnBenEXM+01R6kERbEujmhT15X+7/dJzCkZN85xx3l/ywjh
-         E/0g==
+        d=google.com; s=20230601; t=1732573405; x=1733178205; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fPfWzthEWoH2qXCJl59i7kJGHDW2eEE8lyzCKgg7LSc=;
+        b=m1T4h0jnNK7XjsxZBamW70H83VZxSImB4rFMO2F4uAI4A5Do/WGx/AzLhtzaUifAqv
+         PpiEbirDwrQQ9Zj/q6sGVfdEvd7jcsnsv5cib8K5MiGjoj/XjLQUaq8nQdZMx91PNGSk
+         X33c1skxSbwCwRWE/QNT7/NbMJu/YTbGdd0qgT5KSObI5Iz28mc0zlAG9jmarjciNHsL
+         fFjSn2lbj7yywGcO6i54K94E9oMFGdglg6L8kQTq62yS1kTuo/pEV5EEGfcv3dAaJBmC
+         CBb1QyD4178xg/AC+VLr9Jsmr9xkXkz3M+DOQyK1Q11s+lZGd1WMyFc5xK1cZ6Rno/lX
+         vyvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732572726; x=1733177526;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RGr05iKNJHbtHhaz6iDKZMDzd6vC++UBaPJYjmD+AfE=;
-        b=CA7N1CoJn7IQntOE9XaYYR1d7eOoMxEj4vOky3w+t2hmb3GiV+valwuNtOMKPjSNJP
-         +1J6qxMPGjKx/Jd1wi1XtmBP7IUQVLSijWvxxD1XOye8v6SYZhiy5hDXA0p8DDN6at2T
-         XjHIaZWCak8/cln3m8Bsn2UmPZXDL25+T2m9xkMn6YoEfHrgYMPVc3Gt2Q/4JxCUmdL0
-         mME8qwUgfzxjakUdOVd1ZrlhB8tnEYEkK3K66kwARIyGYhaeY5ngGg1/KVAhovNQimpR
-         XoRs+emCkVRp9R5ANTPYFh0nVtGifyQXvOWg/ST6jf1nGhxUOjoCHXSAsgD7bqexkTZV
-         wswA==
-X-Forwarded-Encrypted: i=1; AJvYcCXZ+v+gWW5gDqPqfW5hbf0D/JUrcVFIWgAVLgxbIGTxvRgcSYgpM2j/lLgtwdM5OnkKbdQklwxVzU7KZpp758kk@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjC3vltIaBCzIYwMV/fmEDhiXbv+2Dnn+bytgiD2Se4JD2DyPx
-	adQk5bLs81xSVL3Un8QqpwKYLm5Ke0hLtWmEUD9C95TeXaB337HhKFvbmlUBNq3BsPSQ8Ko9j14
-	m72sGqOvqqKBqPRN5hV1shvbGPlcRfP0ZsC71GQ==
-X-Gm-Gg: ASbGncuoe9AF2JKUlM2tgNzTtoAEPaoNF83m6Zyb0mMSQUjvYDZMUl0LwHtw7eGARVV
-	muufUDqQT03Z5zJjhP5+Vm2YmHlfPYKvGhP+lg0JpwR+hzw==
-X-Google-Smtp-Source: AGHT+IHMeE1tMJvjhY7YlnbsGtnbHrVf2fxw1EomN6QywO8Yk7cLfG7wt01HeO53/ICqUTeaxSuJYhsdBLq9CwzcufI=
-X-Received: by 2002:a05:690c:600e:b0:6ee:5068:74f7 with SMTP id
- 00721157ae682-6eee08ba0c6mr132245527b3.23.1732572726501; Mon, 25 Nov 2024
- 14:12:06 -0800 (PST)
+        d=1e100.net; s=20230601; t=1732573405; x=1733178205;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fPfWzthEWoH2qXCJl59i7kJGHDW2eEE8lyzCKgg7LSc=;
+        b=kaf2aY1P5QsIUqVuYsXMNUSJdXqnQ+oQ7PjB78JrdIRxWKDYIkLzUOvBaTkXtF1zNr
+         +aa4ZBpLbElQO90o5sBMpDgxw62apWskYMWcb4B7tQyVHLc0g3SDXx75Elz9/l+hwUz+
+         K+eFTyu/BFhaoUZpnZvmiIRL5tX4cDQQoxEEzRmqrlxQI6FEE7yCvj/KEtY5Hy1CBy6e
+         TJ+HqKWSxiWc410rw4q+MkO2glYfQj43GL43PZdANDdf7a3RZbbj5+Rb4hqsRFI53acu
+         HSKFXk9gWwmWRDIFyWtNF7N9OqT3wFImJGqfF69x6qGeMmAQnxBz4eZhBpIHmdZGeKR4
+         cYOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVm5XI7oQfQwqVRy1pYaHikpsxYbq/FSNKo0opuus8iuJ3XVw7xs60hchXa9DoLmXV2RV960FJPz+rQrjdBnymF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBnGqqTIBg5oRwpYMiBTwnneMN9y7KJaGHkNAalUdX0ZHe1FbR
+	R9zjrjLGk+oV8MtWQJvRo5TrRaRhJiMPdvfyZdyZ+cPXX+MRZXNkxB/ALGgsz4P4z+3GYIIvlbC
+	6utENuDbtQQHbOQvnDMkDw2B74k9atXxPH3LL
+X-Gm-Gg: ASbGncsmfgaR5w4o3uv6jrJVrWEwyqjVWAn+m4Os9KySH5h7PzkmTFvDkLzV0YQZfaq
+	+9GCyWAmG1pwwK4vdJO36AbuBF2T1QKOfm3exFGs8YbIWvEU1P06q7AIh2SLKpl5l
+X-Google-Smtp-Source: AGHT+IGqMzc1OyPSWSlieeYBzujX5tl4Y0054LB+eF4R09ye8ciu10JBJUzb6hqH9f2pJ7Sfaoe8ukBDGJNLm5dZMcY=
+X-Received: by 2002:a05:6102:161f:b0:4af:19c3:61c1 with SMTP id
+ ada2fe7eead31-4af19c36469mr6481868137.27.1732573404437; Mon, 25 Nov 2024
+ 14:23:24 -0800 (PST)
 MIME-Version: 1.0
-References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
- <20241122-add-display-support-for-qcs615-platform-v3-7-35252e3a51fe@quicinc.com>
- <mcvhfkh3ycrx2ganumsxlc7lx53ed55yk4syh5qev3jqqgkeqj@h5vnfpgjwtj5> <bfc87132-a63e-4f3f-99b7-1a1bd7eb60ce@quicinc.com>
-In-Reply-To: <bfc87132-a63e-4f3f-99b7-1a1bd7eb60ce@quicinc.com>
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Tue, 26 Nov 2024 00:11:55 +0200
-Message-ID: <CAA8EJpoYwGHenThgxaKcapjTng3BchpbVBfzXqBvTDGBzv2J-w@mail.gmail.com>
-Subject: Re: [PATCH v3 7/9] drm/msm/dsi: Add support for SM6150
-To: fange zhang <quic_fangez@quicinc.com>
-Cc: Rob Clark <robdclark@gmail.com>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krishna Manikandan <quic_mkrishn@quicinc.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Li Liu <quic_lliu6@quicinc.com>, 
-	Xiangxu Yin <quic_xiangxuy@quicinc.com>, linux-arm-msm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
+References: <20241107202033.2721681-1-yuzhao@google.com> <20241125152203.GA954@willie-the-truck>
+In-Reply-To: <20241125152203.GA954@willie-the-truck>
+From: Yu Zhao <yuzhao@google.com>
+Date: Mon, 25 Nov 2024 15:22:47 -0700
+Message-ID: <CAOUHufYUMYcf=uF7=2zj-PsGXePCDdsRHJGa8t-e-k9VUvYyQQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/6] mm/arm64: re-enable HVO
+To: Will Deacon <will@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Marc Zyngier <maz@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
+	Thomas Gleixner <tglx@linutronix.de>, Douglas Anderson <dianders@chromium.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_141208_936957_4B4B2FD0 
-X-CRM114-Status: GOOD (  22.83  )
+X-CRM114-CacheID: sfid-20241125_142326_898604_DC0C5CE2 
+X-CRM114-Status: GOOD (  28.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,74 +96,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 25 Nov 2024 at 04:31, fange zhang <quic_fangez@quicinc.com> wrote:
+On Mon, Nov 25, 2024 at 8:22=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
+:
 >
+> Hi Yu Zhao,
 >
->
-> On 2024/11/22 18:10, Dmitry Baryshkov wrote:
-> > On Fri, Nov 22, 2024 at 05:56:50PM +0800, Fange Zhang wrote:
-> >> From: Li Liu <quic_lliu6@quicinc.com>
-> >>
-> >> Add support for DSI 2.3.1 (block used on SM6150).
-> >>
-> >> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
-> >> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
-> >> ---
-> >>   drivers/gpu/drm/msm/dsi/dsi_cfg.c | 4 +++-
-> >>   drivers/gpu/drm/msm/dsi/dsi_cfg.h | 1 +
-> >>   2 files changed, 4 insertions(+), 1 deletion(-)
-> >>
-> >> diff --git a/drivers/gpu/drm/msm/dsi/dsi_cfg.c b/drivers/gpu/drm/msm/dsi/dsi_cfg.c
-> >> index 10ba7d153d1cfc9015f527c911c4658558f6e29e..fe02724bddf69c2e8d6816589f4ea410fa666e5b 100644
-> >> --- a/drivers/gpu/drm/msm/dsi/dsi_cfg.c
-> >> +++ b/drivers/gpu/drm/msm/dsi/dsi_cfg.c
-> >> @@ -171,7 +171,7 @@ static const struct msm_dsi_config sdm845_dsi_cfg = {
-> >>      .num_bus_clks = ARRAY_SIZE(dsi_v2_4_clk_names),
-> >>      .io_start = {
-> >>              { 0xae94000, 0xae96000 }, /* SDM845 / SDM670 */
-> >> -            { 0x5e94000 }, /* QCM2290 / SM6115 / SM6125 / SM6375 */
-> >> +            { 0x5e94000 }, /* QCM2290 / SM6115 / SM6125 / SM6150 / SM6375 */
+> On Thu, Nov 07, 2024 at 01:20:27PM -0700, Yu Zhao wrote:
+> > HVO was disabled by commit 060a2c92d1b6 ("arm64: mm: hugetlb: Disable
+> > HUGETLB_PAGE_OPTIMIZE_VMEMMAP") due to the following reason:
 > >
-> > Not true
-> Should I remove it or add it behind the SDM670?
-
-You should not be sending patches which provide false information. Why
-did you add it to the wrong line in the first place?
-
+> >   This is deemed UNPREDICTABLE by the Arm architecture without a
+> >   break-before-make sequence (make the PTE invalid, TLBI, write the
+> >   new valid PTE). However, such sequence is not possible since the
+> >   vmemmap may be concurrently accessed by the kernel.
 > >
-> >>      },
-> >>   };
-> >>
-> >> @@ -286,6 +286,8 @@ static const struct msm_dsi_cfg_handler dsi_cfg_handlers[] = {
-> >>              &sdm845_dsi_cfg, &msm_dsi_6g_v2_host_ops},
-> >>      {MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_3_0,
-> >>              &sdm845_dsi_cfg, &msm_dsi_6g_v2_host_ops},
-> >> +    {MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_3_1,
-> >> +            &sdm845_dsi_cfg, &msm_dsi_6g_v2_host_ops},
-> >>      {MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_4_0,
-> >>              &sdm845_dsi_cfg, &msm_dsi_6g_v2_host_ops},
-> >>      {MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_4_1,
-> >> diff --git a/drivers/gpu/drm/msm/dsi/dsi_cfg.h b/drivers/gpu/drm/msm/dsi/dsi_cfg.h
-> >> index 4c9b4b37681b066dbbc34876c38d99deee24fc82..120cb65164c1ba1deb9acb513e5f073bd560c496 100644
-> >> --- a/drivers/gpu/drm/msm/dsi/dsi_cfg.h
-> >> +++ b/drivers/gpu/drm/msm/dsi/dsi_cfg.h
-> >> @@ -23,6 +23,7 @@
-> >>   #define MSM_DSI_6G_VER_MINOR_V2_2_0        0x20000000
-> >>   #define MSM_DSI_6G_VER_MINOR_V2_2_1        0x20020001
-> >>   #define MSM_DSI_6G_VER_MINOR_V2_3_0        0x20030000
-> >> +#define MSM_DSI_6G_VER_MINOR_V2_3_1 0x20030001
-> >>   #define MSM_DSI_6G_VER_MINOR_V2_4_0        0x20040000
-> >>   #define MSM_DSI_6G_VER_MINOR_V2_4_1        0x20040001
-> >>   #define MSM_DSI_6G_VER_MINOR_V2_5_0        0x20050000
-> >>
-> >> --
-> >> 2.34.1
-> >>
-> >
+> > This series presents one of the previously discussed approaches to
+> > re-enable HugeTLB Vmemmap Optimization (HVO) on arm64.
 >
+> Before jumping into the new mechanisms here, I'd really like to
+> understand how the current code is intended to work in the relatively
+> simple case where the vmemmap is page-mapped to start with (i.e. when we
+> don't need to worry about block-splitting).
+>
+> In that case, who are the concurrent users of the vmemmap that we need
+> to worry about?
 
+Any speculative PFN walkers who either only read `struct page[]` or
+attempt to increment page->_refcount if it's not zero.
 
--- 
-With best wishes
-Dmitry
+> Is it solely speculative references via
+> page_ref_add_unless() or are there others?
+
+page_ref_add_unless() needs to be successful before writes can follow;
+speculative reads are always allowed.
+
+> Looking at page_ref_add_unless(), what serialises that against
+> __hugetlb_vmemmap_restore_folio()? I see there's a synchronize_rcu()
+> call in the latter, but what prevents an RCU reader coming in
+> immediately after that?
+
+In page_ref_add_unless(), the condtion `!page_is_fake_head(page) &&
+page_ref_count(page)` returns false before a PTE becomes RO.
+
+For HVO, i.e., a PTE being switched from RW to RO, page_ref_count() is
+frozen (remains zero), followed by synchronize_rcu(). After the
+switch, page_is_fake_head() is true and it appears before
+page_ref_count() is unfrozen (become non-zero), so the condition
+remains false.
+
+For de-HVO, i.e., a PTE being switched from RO to RW, page_ref_count()
+again is frozen, followed by synchronize_rcu(). Only this time
+page_is_fake_head() is false after the switch, and again it appears
+before page_ref_count() is unfrozen. To answer your question, readers
+coming in immediately after that won't be able to see non-zero
+page_ref_count() before it sees page_is_fake_head() being false. IOW,
+regarding whether it is RW, the condition can be false negative but
+never false positive.
+
+> Even if we resolve the BBM issues, we still need to get the
+> synchronisation right so that we don't e.g. attempt a cmpxchg() to a
+> read-only mapping, as the CAS instruction requires write permission on
+> arm64 even if the comparison ultimately fails.
+
+Correct. This applies to x86 as well, i.e., CAS on RO memory crashes
+the kernel, even if CAS would fail otherwise.
+
+> So please help me to understand the basics of HVO before we get bogged
+> down by the block-splitting on arm64.
+
+Gladly. Please let me know if anything from the core MM side is unclear.
 
