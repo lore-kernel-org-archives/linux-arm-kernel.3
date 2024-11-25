@@ -4,89 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CCED58D5A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 15:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B2F3D58D5D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 15:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J3iU4957LIS/H10yjQyEKVHjKHXAXZQsDhA8RML+rwE=; b=sMCOWUKlMM0NUgLlZg4dgRnwIp
-	I8ohbOt4WxEg1fqCiTYXn/THRWAfeeWbuBtSo0VIclJ8wWdcNLkpHGUxZj6jddVzp79bNUTpR7/i/
-	G0DM9Mwqn78kDGxnOM14wAzVNuQ765JzHOUACSUqIpjVQuDaLddG/GUuO9KtkyVzvFfKLr7NDerrv
-	Xue7Ve3rp8UtrnYEJ16XqoE8sr763ZrEML5p455110pTvUOE0SMoOf34f61hktUR9ZvfALrP0n2Ai
-	gXWxYS5uldOFGNpTTQkPPjEOBWL87TBAEzQZ4Y8dB5VMb8ImO66S6x3kgKq1J/wkqGStsbs5hVKJu
-	3Mx4JABw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3o//Lu3fWmlMgcsFVQWA/djmZOMPgOZzmS0G9hxrPVo=; b=HWnqh6B7+qVdpDgJyF3WMwbYlZ
+	moWocnsVMGRDHjFA2WAh/vggL8M7FeAkER2erxz0ds1f2usyEqckHIsvE4tjJ/DI3kNnZZBD4UvC3
+	9y5pWKxHaS46QSSJa/OYbZihQCBhj+GjNBX59rZbBI3jSZn2b7yOw0B7+jpuctNyqaqwX57/c/A8a
+	OOntUlXqzUG5iYpPOKKuS3w3O0XdsDT8DYimlP381aW6XHJr7E47ikR+IsIbLO+4MSTCS21YiOwJW
+	Co/GifrBCR9q9q/565sij4gCSFpGVgU0JTjOIJX3wQcVSGa2fr1FH2n97j91RmDxV+FUAzC7Imx1j
+	PW2aqUHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFb3T-00000008UbJ-22Ki;
-	Mon, 25 Nov 2024 15:31:15 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tFb4P-00000008UvB-2S40;
+	Mon, 25 Nov 2024 15:32:13 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFaz0-00000008Tfx-0qhn
+	id 1tFb0O-00000008U1D-2U3f
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 15:26:39 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4APBlfgd028895;
-	Mon, 25 Nov 2024 16:26:17 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	J3iU4957LIS/H10yjQyEKVHjKHXAXZQsDhA8RML+rwE=; b=Dy9MnAF4bXAHtXxw
-	MHgwNFWZKTyu3ZLMY7dAq6jeFyj0NJxrGzKuvHMK/L8g/jPKwJIoefaf3HV8BUPV
-	2GepDWrgQpTotVIWaKEpEAiHbhGNvll4vJx2YVY3YcMcwGLwBptYu5DXc99U2w8L
-	yErJJUS9mGwc/clGqMxEW3r0r4RUs5BLuHLkoyRhgo4CXITltOM90kOyN8caqh7U
-	Kkn98GP1dwafDhmCDwYbnX/fOJHIjheHNWY5/1ZWuB4VWH+AX4reqdDnFNKoDI7F
-	7foAXFNmm9/EMd8Wy59GJQkB5403jr4SAwOUtLRaD6w2U9YFLF5lcNnpohT8oUSK
-	KWFB8w==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4336tfg57c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 25 Nov 2024 16:26:17 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 713F240045;
-	Mon, 25 Nov 2024 16:24:52 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A23B62A1036;
-	Mon, 25 Nov 2024 16:23:47 +0100 (CET)
-Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 25 Nov
- 2024 16:23:46 +0100
-Message-ID: <a4908b60-9b81-4d87-942e-d581946bcc82@foss.st.com>
-Date: Mon, 25 Nov 2024 16:23:46 +0100
+	Mon, 25 Nov 2024 15:28:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AFD72A4168B;
+	Mon, 25 Nov 2024 15:26:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D468AC4CECE;
+	Mon, 25 Nov 2024 15:28:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732548483;
+	bh=3o//Lu3fWmlMgcsFVQWA/djmZOMPgOZzmS0G9hxrPVo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Da0pwaU1v/VXYIKR9vpfEmCRz+MZBboI4cZHvPssv6DeCpPNrfpNflLEh/TIP6XK8
+	 dCVMdbnsRji6BpFiuTodqUZna90xkkPoSYDION5+ZSTaEpqWG9bCcbmYSppNH/jjQX
+	 IU7taAut171vJ9zJyX6k0DNa3B+4kCDuI4/Ed5nOFLeHI4Tn1QOZi7/LbHpI8O69wW
+	 6Mo4gm6o7vubm8WH2MzDMmSm7WOmiLhPspw+uXYQRdH3ZxADM/tYgonjq4uF+HjO6p
+	 fHbfCEaTX9qFxOHsiXc6GNLdk/tbhyZslH17z4vRbw04w0XxcgwJE6bWNmI86S3Rz7
+	 xaHW63CTTkyfw==
+Date: Mon, 25 Nov 2024 16:28:00 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Hector Martin <marcan@marcan.st>
+Cc: Sasha Finkelstein <fnkl.kernel@gmail.com>, neil.armstrong@linaro.org, 
+	Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Janne Grunau <j@jannau.net>
+Subject: Re: [PATCH 2/5] gpu: drm: adp: Add Apple Display Pipe driver
+Message-ID: <20241125-gabby-furry-rooster-cf28a9@houat>
+References: <20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com>
+ <20241124-adpdrm-v1-2-3191d8e6e49a@gmail.com>
+ <10d0aa88-de2e-4856-a137-301519e58b2d@linaro.org>
+ <CAMT+MTRWZWj=3AP7wyooXr49-W4vcm0ZbAoqPyEuNkQBMOaJfw@mail.gmail.com>
+ <cc71021e-b53d-4eda-bad8-abb4df13575f@marcan.st>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] dt-bindings: PCI: Add STM32MP25 PCIe root complex
- bindings
-To: Rob Herring <robh@kernel.org>
-CC: <lpieralisi@kernel.org>, <kw@linux.com>,
-        <manivannan.sadhasivam@linaro.org>, <bhelgaas@google.com>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
-        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
-        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20241112161925.999196-1-christian.bruel@foss.st.com>
- <20241112161925.999196-2-christian.bruel@foss.st.com>
- <20241115163603.GA3188739-robh@kernel.org>
-Content-Language: en-US
-From: Christian Bruel <christian.bruel@foss.st.com>
-In-Reply-To: <20241115163603.GA3188739-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.129.178.212]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="3u5p24fwfin4nvod"
+Content-Disposition: inline
+In-Reply-To: <cc71021e-b53d-4eda-bad8-abb4df13575f@marcan.st>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_072638_537532_1BF66510 
-X-CRM114-Status: GOOD (  23.75  )
+X-CRM114-CacheID: sfid-20241125_072804_757014_EC91D6D9 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,217 +83,62 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--3u5p24fwfin4nvod
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 2/5] gpu: drm: adp: Add Apple Display Pipe driver
+MIME-Version: 1.0
 
-On 11/15/24 17:36, Rob Herring wrote:
-> On Tue, Nov 12, 2024 at 05:19:21PM +0100, Christian Bruel wrote:
->> Document the bindings for STM32MP25 PCIe Controller configured in
->> root complex mode.
->> Supports 4 legacy interrupts and MSI interrupts from the ARM
->> GICv2m controller.
->>
->> Allow tuning to change payload (default 128B) thanks to the
->> st,max-payload-size entry.
->> Can also limit the Maximum Read Request Size on downstream devices to the
->> minimum possible value between 128B and 256B.
->>
->> STM32 PCIE may be in a power domain which is the case for the STM32MP25
->> based boards.
->> Supports wake# from wake-gpios
->>
->> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
->> ---
->>   .../bindings/pci/st,stm32-pcie-host.yaml      | 149 ++++++++++++++++++
->>   1 file changed, 149 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
->> new file mode 100644
->> index 000000000000..d7d360b63a08
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
->> @@ -0,0 +1,149 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-host.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: STM32MP25 PCIe root complex driver
->> +
->> +maintainers:
->> +  - Christian Bruel <christian.bruel@foss.st.com>
->> +
->> +description:
->> +  PCIe root complex controller based on the Synopsys DesignWare PCIe core.
->> +
->> +select:
->> +  properties:
->> +    compatible:
->> +      const: st,stm32mp25-pcie-rc
->> +  required:
->> +    - compatible
->> +
->> +allOf:
->> +  - $ref: /schemas/pci/pci-host-bridge.yaml#
->> +  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
-> 
-> snps,dw-pcie.yaml instead of these 2.
-> 
->> +
->> +properties:
->> +  compatible:
->> +    const: st,stm32mp25-pcie-rc
->> +
->> +  reg:
->> +    items:
->> +      - description: Data Bus Interface (DBI) registers.
->> +      - description: PCIe configuration registers.
->> +
->> +  reg-names:
->> +    items:
->> +      - const: dbi
->> +      - const: config
->> +
->> +  resets:
->> +    maxItems: 1
->> +
->> +  reset-names:
->> +    const: core
-> 
-> -names with a single entry is kind of pointless.
+On Mon, Nov 25, 2024 at 11:24:25PM +0900, Hector Martin wrote:
+>=20
+>=20
+> On 2024/11/25 20:24, Sasha Finkelstein wrote:
+> > On Mon, 25 Nov 2024 at 09:50, Neil Armstrong <neil.armstrong@linaro.org=
+> wrote:
+> >>
+> >> So this controller only supports a single mode ???????
+> >>
+> > Most likely. On all devices it is connected to a single built-in displa=
+y.
+>=20
+> More specifically, the controller obviously supports multiple modes but
+> it is pre-initialized by the bootloader for the single hardwired
+> display's only mode. So as far as the driver is concerned, there is a
+> single possible mode, and there's no point in trying to be more generic
+> if there is no hardware that would use that.
 
-ok, will update the driver accordinly
+It's not only about being generic, it's also about fitting nicely in the
+usual abstractions. You could also always register a single panel, with
+a single timing set, and the driver would never see anything else. And
+still fall within the usual pattern.
 
-> 
->> +
->> +  clocks:
->> +    maxItems: 1
->> +    description: PCIe system clock
->> +
->> +  clock-names:
->> +    const: core
->> +
->> +  phys:
->> +    maxItems: 1
->> +
->> +  phy-names:
->> +    const: pcie-phy
->> +
->> +  num-lanes:
->> +    const: 1
->> +
->> +  msi-parent:
->> +    maxItems: 1
-> 
-> Just 'msi-parent: true'. It's already only ever 1 entry.
-> 
->> +
->> +  reset-gpios:
->> +    description: GPIO controlled connection to PERST# signal
->> +    maxItems: 1
->> +
->> +  wake-gpios:
->> +    description: GPIO controlled connection to WAKE# input signal
->> +    maxItems: 1
->> +
-> 
->> +  st,limit-mrrs:
->> +    description: If present limit downstream MRRS to 256B
->> +    type: boolean
->> +
->> +  st,max-payload-size:
->> +    description: Maximum Payload size to use
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    enum: [128, 256]
->> +    default: 128
-> 
-> IIRC, other hosts have similar restrictions, so you should be able to do
-> the same and imply it from the compatible. Though I'm open to a common
-> property as Bjorn suggested.
-> 
->> +
->> +  wakeup-source: true
->> +
->> +  power-domains:
->> +    maxItems: 1
->> +
->> +  access-controllers:
->> +    maxItems: 1
->> +
->> +if:
->> +  required:
->> +    - wakeup-source
->> +then:
->> +  required:
->> +    - wake-gpios
-> 
-> This can be just:
-> 
-> dependentRequired:
->    wakeup-source: [ wake-gpios ]
-> 
-> (dependentRequired supercedes dependencies)
-> 
->> +
->> +required:
->> +  - interrupt-map
->> +  - interrupt-map-mask
->> +  - ranges
->> +  - resets
->> +  - reset-names
->> +  - clocks
->> +  - clock-names
->> +  - phys
->> +  - phy-names
->> +
->> +unevaluatedProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
->> +    #include <dt-bindings/gpio/gpio.h>
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +    #include <dt-bindings/phy/phy.h>
->> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
->> +
->> +    pcie@48400000 {
->> +        compatible = "st,stm32mp25-pcie-rc";
->> +        device_type = "pci";
->> +        num-lanes = <1>;
->> +        reg = <0x48400000 0x400000>,
->> +              <0x10000000 0x10000>;
->> +        reg-names = "dbi", "config";
->> +        #interrupt-cells = <1>;
->> +        interrupt-map-mask = <0 0 0 7>;
->> +        interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
->> +                        <0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
->> +                        <0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
->> +                        <0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
->> +        #address-cells = <3>;
->> +        #size-cells = <2>;
->> +        ranges = <0x01000000 0 0x10010000 0x10010000 0 0x10000>,
->> +                 <0x02000000 0 0x10020000 0x10020000 0 0x7fe0000>,
->> +                 <0x42000000 0 0x18000000 0x18000000 0 0x8000000>;
->> +        bus-range = <0x00 0xff>;
-> 
-> Don't need this unless it's restricted to less than bus 0-255.
-> 
->> +        clocks = <&rcc CK_BUS_PCIE>;
->> +        clock-names = "core";
->> +        phys = <&combophy PHY_TYPE_PCIE>;
->> +        phy-names = "pcie-phy";
->> +        resets = <&rcc PCIE_R>;
->> +        reset-names = "core";
->> +        msi-parent = <&v2m0>;
->> +        wakeup-source;
->> +        wake-gpios = <&gpioh 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
->> +        access-controllers = <&rifsc 76>;
->> +        power-domains = <&CLUSTER_PD>;
->> +    };
->> -- 
->> 2.34.1
->>
+> In general, it is not possible/practical to be generic for reverse
+> engineered hardware with no specs documenting how to drive it
+> generically. You just can't know how to implement the options that are
+> never used in practice. I spent a lot of time on exceptions to this
+> rule for the GPIO and SPI controllers, and that's not going to happen
+> for more complex hardware like MIPI DSI.
 
-thanks
+How is GPIO or SPI even remotely related to that discussion? We are
+different maintainers, with different concerns, and different things to
+care about.
 
+Also, "My way or the highway" is never a great discussion opener.
+
+Maxime
+
+--3u5p24fwfin4nvod
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ0SXegAKCRAnX84Zoj2+
+dtRuAYDEMVFA/3C+t/k4bboWPpqx9fX0T++UXMqT1mD2/3yaz7RX4i1fL4wkiniM
+1/z1cnsBgJZJteTKP8wCeZmNA0nGQU5iRaW1WQwbcQQZO2JZnHgV423VVrkt03Bq
+ZMUX47opzA==
+=EgqE
+-----END PGP SIGNATURE-----
+
+--3u5p24fwfin4nvod--
 
