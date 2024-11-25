@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4FB6D58D4B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 13:51:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F4DD58D4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 13:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fxz5Fki1U5+hxMHiHWwSLT/o9JnSwind+K7SOw8JtPg=; b=c18/bOZxPbLJ/9VCElefapcaSF
-	wTu0LfFncTPHocXzJp1XaGReuef/gkHp+MJzM/b5OArDdKNMVAyQ9H5yGumJm0FNt43+Mw9c0p2qy
-	wHnkS/CpfVjdiQ6eJCYI2u29qQkyQyPiVO2vKevD2Nmk+sgFZ1mBTsDUKdFCIwz0KzxruxG7JLDDc
-	GGNfL6E3R6yaG5rQ9kElsDWkUeI9kprLrhejIWnUDE/tnDPMuS8zkBCLyBh85H3P2JY7EsX5eyMGW
-	hk+Fp6KgSsdEW046tMdQn7JeUzOlKR3/lR7BGgUdZs0U1K06J+bWxu2FREoZRZvkRmgSfQBPWx0bU
-	Mt27FhzQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QFkmN5/AIJVNMn/fY5/nPE6hxTuKJ8kdCgzvY8ANXv0=; b=RVDHzQCqcpJXiS
+	XsnWo4sdFRnziHrK5Y6JiWoW+/D3qsgs+TNF2CFQM9UNkEf1EUC4xkkafzuHvRXq5ovIbZ3rLqy1Y
+	6VLFsVvUz5ztdTVhknfRLOhHgfwP7SBvzaqWVVF0HxQdXOVLMo6TqCoMSR+IUjzF64JgH0Pctwwxp
+	lEZjYc7ZVlbIxVzbIpz+4fqI3fBGsJT0WxpYrC/Zy+kI7vH7NStUvQiZzc0QiU4pU2+Z5PBqxAJCA
+	xJEOqffTxcolpJbwk6Y47dyNl+LW/HwLZqN1Anob2UIi7z9aF09WSSeTcnszRTECvgITxQq6l+Zw/
+	Dh+vFao+K+24iWHu4RbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFZUN-00000008Bm3-21Kd;
-	Mon, 25 Nov 2024 13:50:55 +0000
+	id 1tFZVJ-00000008ByD-0Pg8;
+	Mon, 25 Nov 2024 13:51:53 +0000
 Received: from www530.your-server.de ([188.40.30.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFZTQ-00000008Bcd-1lUf
+	id 1tFZTQ-00000008Bce-1cKM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Nov 2024 13:49:57 +0000
+	Mon, 25 Nov 2024 13:49:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=geanix.com;
-	s=default2211; h=Cc:To:In-Reply-To:References:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=Fxz5Fki1U5+hxMHiHWwSLT/o9JnSwind+K7SOw8JtPg=; b=SeTmP87Ulssn1N+zq4bzaecqeE
-	a984bOYP2C3jRAFNWKGLoTtJNY/4+PoaZ2BfVzNKGNHz97YFRdA8epnhik12eWD8ImhEn0darPJsD
-	tfb/Gx+nMFQjKwNiATZueHa55XOeFS2/gh44Hoya7GDzP5ZpK7ZrSUHL/cV2aJB96ZTL/hoMjUxC+
-	vpKSEXzx4gGkOx3omj81UoWPf/eNR30qUeqU8W9JsgyNRMZoDB2NaYS2diNiztXNgbvP9sZSIN03b
-	qqbm6aD8catHJy/wkvJ6pv3DghSMdyQr2NiW5AhTe+TTzWSYvX3dCNZP2CBn+VYpS2WAAB6qkAdUN
-	bVUXNdDg==;
+	s=default2211; h=Cc:To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Message-Id:Date:Subject:From:Sender:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References; bh=QFkmN5/AIJVNMn/fY5/nPE6hxTuKJ8kdCgzvY8ANXv0=; b=Ui
+	OcUpXXU5DoRQrTujmQVvo+gXQsDG8zxhh4Jw9cs7bgHLQfSQF29//1GlOfqsnITLAxDWKMmq5lCe4
+	XEvHH3OpAfw5YMaPyBbSr6chLFJhOVZlsPepDhZ+T4ahEq2CVJgkQsvXih1aypuLkQEl6SwhVcxNZ
+	TAFha6pmabINsQXjBMiisq8w883Gx2CzEDEgdc+3joRrtW+pNnAeY/hX7Tbw5RpXM2TV40lwFRaIH
+	01nVIQEAGLq0hzRVVXTBGwfrPRncRNn27pQOdIBtoT1RFt6bo8VeWQE8wHL0p2hE0tPxMmpg6rqlm
+	gf7tW8pMxXQzm3GmSBIS5rACM2V3UUzw==;
 Received: from sslproxy08.your-server.de ([78.47.166.52])
 	by www530.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <sean@geanix.com>)
-	id 1tFZTB-000Ccj-GN; Mon, 25 Nov 2024 14:49:41 +0100
+	id 1tFZTA-000CcV-R3; Mon, 25 Nov 2024 14:49:40 +0100
 Received: from [185.17.218.86] (helo=zen.localdomain)
 	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <sean@geanix.com>)
-	id 1tFZTA-000A3a-1j;
-	Mon, 25 Nov 2024 14:49:40 +0100
+	id 1tFZT9-000A3a-2Q;
+	Mon, 25 Nov 2024 14:49:39 +0100
 From: Sean Nyekjaer <sean@geanix.com>
-Date: Mon, 25 Nov 2024 14:49:27 +0100
-Subject: [PATCH v2 2/3] drm/sun4i: use drm_mode_validate_mode() helper
- function
+Subject: [PATCH v2 0/3] drm/stm: dsi: relax mode_valid clock tolerance
+Date: Mon, 25 Nov 2024 14:49:25 +0100
+Message-Id: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241125-dsi-relax-v2-2-9113419f4a40@geanix.com>
-References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
-In-Reply-To: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
+X-B4-Tracking: v=1; b=H4sIAGWARGcC/x2MQQqDMBBFryKzbiQzSRW66j3ERRpHHWi1JEVSJ
+ Hdvms2H93m8EyIH4Qi35oTAh0TZtwJ0acCvbltYyVQYSJNFpKuaoqjAT5cUWrQPN3d+6i0U/x1
+ 4llRbw1h4lfjZw7emD/y/taINEWrbG2rJUK87rVBFdtt9KSOp9fsLxpzzD8aKpzGcAAAA
+X-Change-ID: 20241125-dsi-relax-1414baf6cd74
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -76,8 +76,9 @@ X-Mailer: b4 0.14.2
 X-Authenticated-Sender: sean@geanix.com
 X-Virus-Scanned: Clear (ClamAV 0.103.10/27468/Mon Nov 25 10:36:56 2024)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_054956_712036_E03694E7 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20241125_054956_713323_395924B1 
+X-CRM114-Status: UNSURE (   7.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,63 +93,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use new helper function for HDMI mode validation
+Introduce helper function to check if the pixel clock is within
+tolerance.
 
 Signed-off-by: Sean Nyekjaer <sean@geanix.com>
 ---
- drivers/gpu/drm/sun4i/sun4i_rgb.c | 22 ++++------------------
- 1 file changed, 4 insertions(+), 18 deletions(-)
+Changes in v2:
+- Introduce helper function drm_mode_validate_mode()
+- drm/stm: use helper function for mode validation
+- drm/sun4i: use helper function for mode validation
+- Link to v1: https://lore.kernel.org/r/20240322104732.2327060-1-sean@geanix.com
 
-diff --git a/drivers/gpu/drm/sun4i/sun4i_rgb.c b/drivers/gpu/drm/sun4i/sun4i_rgb.c
-index dfb6acc42f02efc40f36914e2925510cd8056d0b..4f8100e32769cf31c25f5dd849a18f5b77376090 100644
---- a/drivers/gpu/drm/sun4i/sun4i_rgb.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_rgb.c
-@@ -51,14 +51,6 @@ static int sun4i_rgb_get_modes(struct drm_connector *connector)
- 	return drm_panel_get_modes(rgb->panel, connector);
- }
- 
--/*
-- * VESA DMT defines a tolerance of 0.5% on the pixel clock, while the
-- * CVT spec reuses that tolerance in its examples, so it looks to be a
-- * good default tolerance for the EDID-based modes. Define it to 5 per
-- * mille to avoid floating point operations.
-- */
--#define SUN4I_RGB_DOTCLOCK_TOLERANCE_PER_MILLE	5
--
- static enum drm_mode_status sun4i_rgb_mode_valid(struct drm_encoder *crtc,
- 						 const struct drm_display_mode *mode)
- {
-@@ -67,8 +59,8 @@ static enum drm_mode_status sun4i_rgb_mode_valid(struct drm_encoder *crtc,
- 	u32 hsync = mode->hsync_end - mode->hsync_start;
- 	u32 vsync = mode->vsync_end - mode->vsync_start;
- 	unsigned long long rate = mode->clock * 1000;
--	unsigned long long lowest, highest;
- 	unsigned long long rounded_rate;
-+	int ret;
- 
- 	DRM_DEBUG_DRIVER("Validating modes...\n");
- 
-@@ -122,15 +114,9 @@ static enum drm_mode_status sun4i_rgb_mode_valid(struct drm_encoder *crtc,
- 	tcon->dclk_max_div = 127;
- 	rounded_rate = clk_round_rate(tcon->dclk, rate);
- 
--	lowest = rate * (1000 - SUN4I_RGB_DOTCLOCK_TOLERANCE_PER_MILLE);
--	do_div(lowest, 1000);
--	if (rounded_rate < lowest)
--		return MODE_CLOCK_LOW;
--
--	highest = rate * (1000 + SUN4I_RGB_DOTCLOCK_TOLERANCE_PER_MILLE);
--	do_div(highest, 1000);
--	if (rounded_rate > highest)
--		return MODE_CLOCK_HIGH;
-+	ret = drm_mode_validate_mode(mode, rounded_rate);
-+	if (ret)
-+		return ret;
- 
- out:
- 	DRM_DEBUG_DRIVER("Clock rate OK\n");
+---
+Sean Nyekjaer (3):
+      drm/modes: introduce drm_mode_validate_mode() helper function
+      drm/sun4i: use drm_mode_validate_mode() helper function
+      drm/stm: dsi: use drm_mode_validate_mode() helper function
 
+ drivers/gpu/drm/drm_modes.c           | 34 ++++++++++++++++++++++++++++++++++
+ drivers/gpu/drm/stm/dw_mipi_dsi-stm.c | 12 +++++-------
+ drivers/gpu/drm/sun4i/sun4i_rgb.c     | 22 ++++------------------
+ include/drm/drm_modes.h               |  2 ++
+ 4 files changed, 45 insertions(+), 25 deletions(-)
+---
+base-commit: 28eb75e178d389d325f1666e422bc13bbbb9804c
+change-id: 20241125-dsi-relax-1414baf6cd74
+
+Best regards,
 -- 
-2.46.2
+Sean Nyekjaer <sean@geanix.com>
 
 
