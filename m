@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79825D3B7EF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 08:23:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385E1D3B7EF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Nov 2024 08:24:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fhotsrxHfKTgb/uu1BGoR5rFJUT8/x1ISfSu/K39MtM=; b=rs6toYbQORVIvosNi3xr4WFBXH
-	0voQQ4yIrnOOsr+zbTnD81bAaJ0XrjT7FRNRUB2jPaHRGH2sAcZ6HG7GXlXfwYs8r6p2Ml3JFzf8H
-	Eg8pNuOGqzC8XqfE9VusWFeOeaFb5YZi/52Hq76k7t151slsOxpNUyIYSIQ4KFzwILZxbkOl3ggUb
-	nE5QCAKCGJhnfXD5Hl7ogrxDjIcBWFmHNvLxHAVd4lbaONE5bfTejS+KdKghFCJoi1DGZRt5JdusP
-	oFqHqo5xm7Cg/jCLbLG+dphAEIoRSewYUuBUX6D+k/I5aUYy8pam75l7vxsGrwEZJAo/x6F6R1IdT
-	co7Hnndw==;
+	bh=2VSk0YkTxmS7lNUnuFUnvEgxZ7d4xlsb3g/LizjVEFY=; b=48fsud7IpSz1PZPp2+G5ryV54y
+	DbwrK+UEeb9aKRslMVxafQtQgc/WrxLo7ixjK2+xE5wMJxkhU+INTm2dsgUivUleCXoSgDs1mtCBM
+	N3im8/882BtF+WMH6sgybZrXblKHhR/Go6aqYVwSmIdXRPDegCYsOL4BM/fSz7fQBGFv8JV/AqZuO
+	dbd4WqXVky2sz5tz8ZG4zqtMkrUyx0VXK0HN/TozykB1ynyVAEzr9t3itSc0BbEiSGnFhxtexGN8G
+	re9hGuBf9sNBju6LA8N0V3BGttS125y9MoEW9Yq5oW27S0GmpGze7eMokOc3BNqLGP2I59Msc5xLj
+	eOIWZwwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFUNU-00000007Myz-37wq;
-	Mon, 25 Nov 2024 08:23:28 +0000
+	id 1tFUOQ-00000007N4o-1Nd7;
+	Mon, 25 Nov 2024 08:24:26 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFUIq-00000007M3I-2qXs
+	id 1tFUIr-00000007M3M-2IjP
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 25 Nov 2024 08:18:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
@@ -33,18 +33,18 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=fhotsrxHfKTgb/uu1BGoR5rFJUT8/x1ISfSu/K39MtM=; b=FepjHvPcSeDHJ6tWzp4hEdtyeb
-	d7TQifMCIgTAG9QljC4Tk2U38QKVZ6UKUJcel5gN+wRCbvS8rWBB/9AiGJsuxUvT+5Hssb7MbPt7s
-	aYps98qSNO27uWpNFj32h45wNULpqWt22/46nVQMWGuvyXL6YMjnn6sn4f/D3JTzm3uCYIvbCdSOe
-	CoxbDA6frE/tcgpRbxMIA7Pcc1NMD40+RcaZx8PebIvr5lwJVdN/CQbG4K88tv2rpH0pW3HIkbTPR
-	j+u1el1NMPPnt+MnpH/avk/m9+aT1pxYtCqObMzidq0ajekXt4IVvFuk5ILVuSwrOAd2/kZ9vHcUJ
-	wZPaS8zQ==;
+	bh=2VSk0YkTxmS7lNUnuFUnvEgxZ7d4xlsb3g/LizjVEFY=; b=Vv/Ejg7mXXs3XOL0J+2qpzgPC/
+	x6atx0vBWZIaDYLP1fJGIbY7DsKduQ02SiTIusyF6/uEpqmbGre24O3EL//tRc//JHeGdyhf21RHA
+	ZZ8304pDgeanf5XQy+4XLAr3j93kA4HUD1hLYEjJMHJqzPSm1NSpvj6tQwL9icJkla8aynUE6916O
+	BitYvWDPaTV6uggcR7AznGzf82lGwxlRgzJfdBaGm2lliHPbcZi57T2INdtSwRLZfKY4eEsGEua2H
+	mEuqIcDJzcoBErh42TA1kreiq47N9Ck94gW1fF8dVNP3l0dyH82nvmbXTWxzXJbiww/ZpOZvrzhNX
+	7muhO9DQ==;
 Received: from [91.26.50.162] (port=58340 helo=and-HP-Z4..)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <andrej.picej@norik.com>)
-	id 1tFUIn-00Eq70-2i;
-	Mon, 25 Nov 2024 09:18:37 +0100
+	id 1tFUIp-00Eq70-0m;
+	Mon, 25 Nov 2024 09:18:38 +0100
 From: Andrej Picej <andrej.picej@norik.com>
 To: shawnguo@kernel.org,
 	s.hauer@pengutronix.de,
@@ -58,9 +58,9 @@ Cc: imx@lists.linux.dev,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH 02/15] arm64: dts: imx8mm-phycore-som: Fix bluetooth wakeup source
-Date: Mon, 25 Nov 2024 09:18:01 +0100
-Message-Id: <20241125081814.397352-3-andrej.picej@norik.com>
+Subject: [PATCH 04/15] arm64: dts: imx8mm-phycore-som: Assign regulator for dsi to lvds bridge
+Date: Mon, 25 Nov 2024 09:18:03 +0100
+Message-Id: <20241125081814.397352-5-andrej.picej@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241125081814.397352-1-andrej.picej@norik.com>
 References: <20241125081814.397352-1-andrej.picej@norik.com>
@@ -77,8 +77,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_001841_170116_46011C8C 
-X-CRM114-Status: UNSURE (   7.22  )
+X-CRM114-CacheID: sfid-20241125_001841_742099_E1B1B170 
+X-CRM114-Status: UNSURE (   5.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,35 +94,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Not using pull-up on the host wake-up line triggers the wake up
-immediately after device enters suspend. Fix this by enabling internal
-pull-up and setting interrupt triggering on the falling edge.
+From: Yashwanth Varakala <y.varakala@phytec.de>
 
+Add a missing voltage regulator of 1.8v to the sn65dsi83
+(dsi_lvds bridge) node. Due to the absence of this regulator, a fallback
+dummy regulator is used and that triggers a warning message from the
+kernel. Assigning the appropriate regulator avoids the warning.
+
+Signed-off-by: Yashwanth Varakala <y.varakala@phytec.de>
 Signed-off-by: Andrej Picej <andrej.picej@norik.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
-index 5eacbd9611ee..31d5c57d3c24 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
-@@ -255,7 +255,7 @@ bluetooth {
- 		device-wakeup-gpios = <&gpio2 8 GPIO_ACTIVE_HIGH>;
- 		interrupt-names = "host-wakeup";
- 		interrupt-parent = <&gpio2>;
--		interrupts = <9 IRQ_TYPE_EDGE_BOTH>;
-+		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
- 		max-speed = <2000000>;
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
+index 8de5a46512b0..7e859c65317a 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
+@@ -286,6 +286,7 @@ sn65dsi83: bridge@2d {
  		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_bt>;
-@@ -332,7 +332,7 @@ pinctrl_bt: btgrp {
- 		fsl,pins = <
- 			MX8MM_IOMUXC_SD1_DATA4_GPIO2_IO6	0x00
- 			MX8MM_IOMUXC_SD1_DATA6_GPIO2_IO8	0x00
--			MX8MM_IOMUXC_SD1_DATA7_GPIO2_IO9	0x00
-+			MX8MM_IOMUXC_SD1_DATA7_GPIO2_IO9	0x140
- 		>;
+ 		pinctrl-0 = <&pinctrl_sn65dsi83>;
+ 		reg = <0x2d>;
++		vcc-supply = <&reg_vdd_1v8>;
+ 		status = "disabled";
  	};
  
 -- 
