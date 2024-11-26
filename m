@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C499D3B7CE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA2FD3B7CA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pw6byHJuK/WA3pAUi4gj22x3Siw4nUh6QIEq2P4Iyno=; b=SqJQJZ5GG7PZyFIbPdmjsiYWyh
-	UbzooZF9KUkGXly/x8zs/yPwhIKzDZ1JtG16elSGbiJ8qGj04QCMOmuTqkhwrxUQ1bSLF4eds4Akq
-	bnuhfhYCWS+kbiiuRJ/MpdpajDlSDfIJ+1BV2y0vKq7rPi9LWcm46lS66eLH6UIGCZkMSv2p/zV4T
-	EHtxjy6UHmGRfdJ0NAkBTJjR5hZXBrQZXBbXCJyRV+jM6wrtJ1ExkrDDkeIeeNClFIpN/I55iyaka
-	p3L/GI85ClOqsHGGioA5gWrowyCTW/IY3ZkiPzWfgqOTJ4D1soiG8sJDfvY+3b7JMZG5iO0BeKi+A
-	Xv24Yqng==;
+	bh=7XWal6B2SsBejQdia6kp1i2b4n7ggC1iFhq5e3kEYlo=; b=A1kjEnKSyJqyrGdHce3mNB1gvN
+	cc5TEj8GvuX4lev4yuf5dOvaXSplgdIBscAUEjLU5aF1V10toyesi3quUyK3hwfUuP2R2XFVMVzuX
+	D/vB+DTd2n3H1H4e8IXbxSJuL9irRasYQ3XcsJPBvBRpEGvIQ42gvjMexP8gIdB+FFvzf/MsQ45um
+	qEwMxGeFC4HLdtH+i2aCToqAQ6fZIzfeYzBRJku/i5hpVd4OvOu0FAwN1fmPS9a+36aPwdOol3TG3
+	lkfGSdKF7ZJrK/V7+EXDSyJ/oLBFVy1MSZKA0x84yQTpo2xq4zXV9esmTOXJWNTMJFolctuvRp4w0
+	mrtnqGYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFrlB-0000000A7Es-22Bg;
-	Tue, 26 Nov 2024 09:21:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tFrmv-0000000A81t-3o6Y;
+	Tue, 26 Nov 2024 09:23:17 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFrk6-0000000A6Po-3Df9
+	id 1tFrlx-0000000A7lH-1KyT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 09:20:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7BEBB5C5CE3;
-	Tue, 26 Nov 2024 09:19:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFAE4C4CED0;
-	Tue, 26 Nov 2024 09:20:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732612821;
-	bh=Ctg6MXostCZ1aJoI4FFc/g312bq9jtegH+oNd3mbPbM=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=hMoVL8rgbDSJZsho/GqGrLQfqMe65YqL/OcfkOgVu/5jtxIXo8eRmaxd5wQMHI7Nw
-	 NOpZRQVuhvE4/31lTFsVwpoOXbRIjh8MmLZlhrpC8eIOoSvx1X0a5myta69XiHNnyh
-	 WbGIGB6h6kr7sxp3NIu2OXa4/KGahf4K56dR1iU5okxS2CJ+uTHGVlypIj7r5/mfuD
-	 3zpFVLmxKFDzPZB1ZIgdNYca9r8eZ0h9j2Hlf75mjRDYzvGWLEgkZg8EL+YJibtO9G
-	 w6Drte+7iDFIi6DA5fcAK/wscZBGCqtrcTo55HOA0ug0sHRJ8vpIzIYNYlFzcCoNWR
-	 veNEsxTuP20/w==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AEB873809A00;
-	Tue, 26 Nov 2024 09:20:35 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Tue, 26 Nov 2024 09:22:18 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <s.kerkmann@pengutronix.de>)
+	id 1tFrlu-0005uB-Fr; Tue, 26 Nov 2024 10:22:14 +0100
+Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <s.kerkmann@pengutronix.de>)
+	id 1tFrlt-000DzL-1d;
+	Tue, 26 Nov 2024 10:22:14 +0100
+Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
+	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
+	(envelope-from <s.kerkmann@pengutronix.de>)
+	id 1tFrlt-00B5zE-1v;
+	Tue, 26 Nov 2024 10:22:14 +0100
+From: Stefan Kerkmann <s.kerkmann@pengutronix.de>
+Date: Tue, 26 Nov 2024 10:22:15 +0100
+Subject: [PATCH 3/3] ARM: dts: imx6sx: add phy-3p0-supply to usb phys
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net 1/1] net: stmmac: set initial EEE policy configuration
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173261283425.319179.1006458233398022415.git-patchwork-notify@kernel.org>
-Date: Tue, 26 Nov 2024 09:20:34 +0000
-References: <20241120083818.1079456-1-yong.liang.choong@linux.intel.com>
-In-Reply-To: <20241120083818.1079456-1-yong.liang.choong@linux.intel.com>
-To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-Cc: andrew+netdev@lunn.ch, linux@armlinux.org.uk, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- alexandre.torgue@foss.st.com, joabreu@synopsys.com,
- mcoquelin.stm32@gmail.com, o.rempel@pengutronix.de, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241126-v6-12-topic-imx-3p0-regulator-v1-3-c618ed111c75@pengutronix.de>
+References: <20241126-v6-12-topic-imx-3p0-regulator-v1-0-c618ed111c75@pengutronix.de>
+In-Reply-To: <20241126-v6-12-topic-imx-3p0-regulator-v1-0-c618ed111c75@pengutronix.de>
+To: Shawn Guo <shawnguo@kernel.org>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Stefan Kerkmann <s.kerkmann@pengutronix.de>
+X-Mailer: b4 0.14.2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: s.kerkmann@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_012022_849344_2CB6701A 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241126_012217_356628_55E4C55E 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,29 +79,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+The integrated usb phys are supplied by the 3p0 regulator, which has a
+voltage range of 2.625V to 3.4V. Thus the min and max values are
+corrected and the regulator added as a proper supply for the usb phys.
 
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+This fixes the following warnings during the probe of the mxs_phy
+driver:
 
-On Wed, 20 Nov 2024 16:38:18 +0800 you wrote:
-> Set the initial eee_cfg values to have 'ethtool --show-eee ' display
-> the initial EEE configuration.
-> 
-> Fixes: 49168d1980e2 ("net: phy: Add phy_support_eee() indicating MAC support EEE")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-> 
-> [...]
+mxs_phy 20c9000.usbphy: supply phy-3p0 not found, using dummy regulator
+mxs_phy 20ca000.usbphy: supply phy-3p0 not found, using dummy regulator
 
-Here is the summary with links:
-  - [net,1/1] net: stmmac: set initial EEE policy configuration
-    https://git.kernel.org/netdev/net/c/59c5e1411a0a
+The regulator handling was introduced by commit `966d73152078 (usb: phy:
+mxs: enable regulator phy-3p0 to improve signal qualilty, 2024-07-26)`.
 
-You are awesome, thank you!
+Signed-off-by: Stefan Kerkmann <s.kerkmann@pengutronix.de>
+---
+ arch/arm/boot/dts/nxp/imx/imx6sx.dtsi | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6sx.dtsi b/arch/arm/boot/dts/nxp/imx/imx6sx.dtsi
+index a9550f115f82699336f62c33214c9a9bb04e79e0..5132b575b001564b9767605ae7ff044701516673 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6sx.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6sx.dtsi
+@@ -637,8 +637,8 @@ reg_vdd1p1: regulator-1p1 {
+ 				reg_vdd3p0: regulator-3p0 {
+ 					compatible = "fsl,anatop-regulator";
+ 					regulator-name = "vdd3p0";
+-					regulator-min-microvolt = <2800000>;
+-					regulator-max-microvolt = <3150000>;
++					regulator-min-microvolt = <2625000>;
++					regulator-max-microvolt = <3400000>;
+ 					regulator-always-on;
+ 					anatop-reg-offset = <0x120>;
+ 					anatop-vol-bit-shift = <8>;
+@@ -731,6 +731,7 @@ usbphy1: usbphy@20c9000 {
+ 				reg = <0x020c9000 0x1000>;
+ 				interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
+ 				clocks = <&clks IMX6SX_CLK_USBPHY1>;
++				phy-3p0-supply = <&reg_vdd3p0>;
+ 				fsl,anatop = <&anatop>;
+ 			};
+ 
+@@ -739,6 +740,7 @@ usbphy2: usbphy@20ca000 {
+ 				reg = <0x020ca000 0x1000>;
+ 				interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
+ 				clocks = <&clks IMX6SX_CLK_USBPHY2>;
++				phy-3p0-supply = <&reg_vdd3p0>;
+ 				fsl,anatop = <&anatop>;
+ 			};
+ 
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.39.5
 
 
