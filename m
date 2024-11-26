@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D873D65544
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 18:14:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F8BED65543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 18:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sbEtaAmMlxXyqDS/k6vOiNipXnzKHT+3DfTp8CiMnVc=; b=mEBYUuIcZCLKQiM7dM2XLT1pzA
-	5c3ir6ByoU97N0HZnVM/8g9+VxaCV3iKXKlWkICS623Znd+JpwtOSKGZk4DvifqETRACTb30xHIpR
-	bjMu7EWdjUiOp4pZbkr4gcB8pbp4TCQp669MqjstOEXwq4aCcQH1jOv8fE37UYtoK8nSLmoXymPAW
-	U8DGLguZ8BsiwusDoub5ggxq7neQc1WDd2z/MdktpW0+BKJ1ZYe6Snnzcrj1yW7fbEKjy3YxJMvPw
-	XkyPOSUjw92KNf8z61lxkglf8xlurHuSDgX+u7a3eJmPxMbKamIuFThhuL4O5dV/6vHR1LYa+OA0q
-	bbF/RB0w==;
+	bh=QxB7106fmrBxS9KkQ1HWd1HVqfLXz5MhDm6PXwbyQrc=; b=4AUfUj65pRnl/eaWUjg2JOZtMw
+	4yJQJQDbc8ywBQ01YmtFOpPyT7QgqSiYW3tXJoPUS2ndqgV81NOcOAYQzLe/+GPkXl5gYoaoF2qwQ
+	2BXx5ksmntLZxhB9VrUnGFXYH4Rp4Enx6ZKvZgJngKDHr/XGxu91rNeKJpzvCjSxxuCHR8h9y6p+W
+	AfNtntWb3wS8qx8DCIEHHJjD6Kjk0gfK8TK38AM8X+nS29mg5MFzi23VEeww+OqMaVzWGsK7WQHXD
+	7YfOc0kZxsuzKq65GJ7XZ3Srr+F/Mv02xxOczIU/00LrsjKGtotnJ3bYmx1VLsemBhSdZ9d+XsgHH
+	of/bt+XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG053-0000000BPNV-3XmM;
-	Tue, 26 Nov 2024 18:14:33 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tG0Ep-0000000BQK2-0YrB;
+	Tue, 26 Nov 2024 18:24:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG043-0000000BP91-1dXp
+	id 1tG0Dq-0000000BQA0-19ex
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 18:13:32 +0000
+	Tue, 26 Nov 2024 18:23:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BF713A40EDD;
-	Tue, 26 Nov 2024 18:11:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00EDAC4CECF;
-	Tue, 26 Nov 2024 18:13:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 54B2B5C5CAB;
+	Tue, 26 Nov 2024 18:22:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60619C4CECF;
+	Tue, 26 Nov 2024 18:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732644810;
-	bh=BQkT98an5k79mH1rE1/XZVZUDrrIXpXdkEYMYEpOdQs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cNVpXuD4CpDuGo1X6ygFufKs0noyFhgXzKkl9XQZTBzToIeEeRMsOrZfGwhyzpIoN
-	 9Xan5YZrGtvCuTBBGhHBzCnxmuGG6ZltpXxdVySCULFaoCsbMl6WMeIlXfAqy56eFl
-	 ow5rliasd369bL4OiWnIQM3aWtOZtCfJPgk13Yjl1j699gXAyC8UKSGYinxG67HMnX
-	 hkOFYRkjv0agMeUQm7qod0ynz+8twQvIx9fEQ7i5h1eYFu78Dx6C8tYClz6OSZqXrN
-	 ka/VqCw2Tncu7I0tKXK930Pm4TP+ysptQuKssa7tNJKTRKUXOv90rWV+sZvuGrPy6q
-	 Zc7SpKy+NvciQ==
-Date: Tue, 26 Nov 2024 12:13:27 -0600
-From: Bjorn Andersson <andersson@kernel.org>
-To: Jingyi Wang <quic_jingyw@quicinc.com>
-Cc: Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, quic_tengfan@quicinc.com, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, quic_tingweiz@quicinc.com, quic_aiquny@quicinc.com, 
-	Zhenhua Huang <quic_zhenhuah@quicinc.com>, Xin Liu <quic_liuxin@quicinc.com>, 
-	Kyle Deng <quic_chunkaid@quicinc.com>, Tingguo Cheng <quic_tingguoc@quicinc.com>, 
-	Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>
-Subject: Re: [PATCH v2 3/4] arm64: dts: qcom: add initial support for QCS8300
- DTSI
-Message-ID: <mjth25v54mioefjet2udacqqwvw7tfbhemmvjps4utjm545hyn@3f7zwohi4qee>
-References: <20240925-qcs8300_initial_dtsi-v2-0-494c40fa2a42@quicinc.com>
- <20240925-qcs8300_initial_dtsi-v2-3-494c40fa2a42@quicinc.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20240925-qcs8300_initial_dtsi-v2-3-494c40fa2a42@quicinc.com>
+	s=k20201202; t=1732645417;
+	bh=uL4h8AivCvP+xLS42wtF6z/lYnpiZgfmM3LoAprgmZM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dulFAUD8D7wyKtstJm4fzw1Ox9MNiTqX/JsCiGmGeRSuJ6UCSbW+2SujGxuwkhsxr
+	 8nh2b57UZPvWrz/WlszFbHR4kecnUuiheHWkpJyr6SBBpnApAOSQZ85oqmDyX71NDR
+	 Bi2yWi77Qa9stTcsnf3snoFj7oZ/Wx4tSr1xdqhrQHmL9FCcMo+Imm1/2578D8L8Hr
+	 owCBs1InysJA5r9cRluAoa63il0uSvKnUiHgGoHOUSuIhMigKpP7enx6F7RXxgeXUz
+	 +ivv7stZiDa3qHnWnUMkNeBYHe2AqUdvttaRLvUojjRzvo+hYwbhdQJxSlvBSk7y1S
+	 fT4D6F0SVy8WA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tG0Dn-00G5HI-3S;
+	Tue, 26 Nov 2024 18:23:35 +0000
+Date: Tue, 26 Nov 2024 18:23:34 +0000
+Message-ID: <86cyihvopl.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Eliav Farber <farbere@amazon.com>
+Cc: <catalin.marinas@arm.com>,
+	<will@kernel.org>,
+	<akpm@linux-foundation.org>,
+	<bhe@redhat.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>,
+	<jonnyc@amazon.com>
+Subject: Re: [PATCH] arm64: kexec: Check if IRQ is already masked before masking
+In-Reply-To: <20241126050509.4426-1-farbere@amazon.com>
+References: <20241126050509.4426-1-farbere@amazon.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: farbere@amazon.com, catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, bhe@redhat.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, jonnyc@amazon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_101331_491937_83902C8C 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20241126_102338_396210_9651D41A 
+X-CRM114-Status: GOOD (  33.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,56 +88,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 25, 2024 at 06:43:34PM +0800, Jingyi Wang wrote:
-> Add initial DTSI for QCS8300 SoC.
+Thanks Catalin for pointing me to this patch.
+
+On Tue, 26 Nov 2024 05:05:09 +0000,
+Eliav Farber <farbere@amazon.com> wrote:
 > 
-> Features added in this revision:
-> - CPUs with PSCI idle states
-> - Interrupt-controller with PDC wakeup support
-> - Timers, TCSR Clock Controllers
-> - Reserved Shared memory
-> - GCC and RPMHCC
-> - TLMM
-> - Interconnect
-> - QuP with uart
-> - SMMU
-> - QFPROM
-> - Rpmhpd power controller
-> - UFS
-> - Inter-Processor Communication Controller
-> - SRAM
-> - Remoteprocs including ADSP,CDSP and GPDSP
-> - BWMONs
+> During machine kexec, the function machine_kexec_mask_interrupts() is
+> responsible for masking all interrupts. However, the current
+> implementation unconditionally calls the irq_mask() function for each
+> interrupt descriptor, even if the interrupt is already masked.
 > 
-> [Zhenhua: added the smmu node]
-> Co-developed-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-> Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-> [Xin: added ufs/adsp/gpdsp nodes]
-> Co-developed-by: Xin Liu <quic_liuxin@quicinc.com>
-> Signed-off-by: Xin Liu <quic_liuxin@quicinc.com>
-> [Kyle: added the aoss_qmp node]
-> Co-developed-by: Kyle Deng <quic_chunkaid@quicinc.com>
-> Signed-off-by: Kyle Deng <quic_chunkaid@quicinc.com>
-> [Tingguo: added the rpmhpd nodes]
-> Co-developed-by: Tingguo Cheng <quic_tingguoc@quicinc.com>
-> Signed-off-by: Tingguo Cheng <quic_tingguoc@quicinc.com>
-> [Raviteja: added interconnect nodes]
-> Co-developed-by: Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>
-> Signed-off-by: Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>
-> Signed-off-by: Jingyi Wang <quic_jingyw@quicinc.com>
+> This commit adds a check to verify if the interrupt is not already
+> masked before calling the irq_mask() function. This change avoids
+> redundant masking operations and potential issues that might arise from
+> attempting to mask an already masked interrupt.
+> 
+> A specific issue was observed in the crash kernel flow after unbinding a
+> device (prior to kexec) that used a GPIO as an IRQ source. The warning
+> was triggered by the gpiochip_disable_irq() function, which attempted to
+> clear the FLAG_IRQ_IS_ENABLED flag when FLAG_USED_AS_IRQ was not set:
+> 
+> ```
+> void gpiochip_disable_irq(struct gpio_chip *gc, unsigned int offset)
+> {
+> 	struct gpio_desc *desc = gpiochip_get_desc(gc, offset);
+> 
+> 	if (!IS_ERR(desc) &&
+> 	    !WARN_ON(!test_bit(FLAG_USED_AS_IRQ, &desc->flags)))
+> 		clear_bit(FLAG_IRQ_IS_ENABLED, &desc->flags);
+> }
+> ```
+> 
+> This issue began after commit a8173820f441 ("gpio: gpiolib: Allow GPIO
+> IRQs to lazy disable"), which replaced IRQ disable/enable hooks with
+> mask/unmask hooks in some cases. The irq_disable hook was protected
+> against disabling an already disabled IRQ, but the irq_mask hook in
+> machine_kexec_mask_interrupts() was not.
+> 
+> When a driver that uses a GPIO-irq is unbound, the corresponding IRQ is
+> released, invoking __irq_disable() and irq_state_set_masked().
+> Subsequently, machine_kexec_mask_interrupts() attempts to call the
+> chip->irq_mask() function again. This invokes gpiochip_irq_mask() and
+> gpiochip_disable_irq(), and since FLAG_USED_AS_IRQ has already been
+> cleared, this results in a warning being printed.
+> 
+> Signed-off-by: Eliav Farber <farbere@amazon.com>
+> ---
+>  arch/arm64/kernel/machine_kexec.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+> index 82e2203d86a3..6f56ec676844 100644
+> --- a/arch/arm64/kernel/machine_kexec.c
+> +++ b/arch/arm64/kernel/machine_kexec.c
+> @@ -230,7 +230,7 @@ static void machine_kexec_mask_interrupts(void)
+>  		    chip->irq_eoi)
+>  			chip->irq_eoi(&desc->irq_data);
+>  
+> -		if (chip->irq_mask)
+> +		if (chip->irq_mask && !irqd_irq_masked(&desc->irq_data))
+>  			chip->irq_mask(&desc->irq_data);
 
-Sorry, thought I had replied to this already, but I must have confused
-it with QCS615.
+Maybe a slightly better approach would be to simplify this code for
+something that actually uses the kernel infrastructure:
 
-Please see my feedback regarding signed-off-by and subject line:
-https://lore.kernel.org/all/4bhsuysjm2uwkk52g4pkspiadsf5y4m2afotj7ggo2lnj24ip2@yqkijcdkiloj/
-https://lore.kernel.org/all/2qvv3zrop2i5hurrn7bfggfkjb7rqlbfa7bxiekdisi6c57gxd@d2fptisjhy3j/
+diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+index 82e2203d86a31..9b48d952df3ec 100644
+--- a/arch/arm64/kernel/machine_kexec.c
++++ b/arch/arm64/kernel/machine_kexec.c
+@@ -230,11 +230,8 @@ static void machine_kexec_mask_interrupts(void)
+ 		    chip->irq_eoi)
+ 			chip->irq_eoi(&desc->irq_data);
+ 
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
++		irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
++		irq_disable(desc);
+ 	}
+ }
+ 
+This is of course untested.
 
+But a *much* better approach would be to have a way to turn the
+irqchip off altogether and stop this silly "walk 1000s of interrupts
+for no purpose". Unfortunately, we don't have a good way to do this
+today.
 
+Thanks,
 
-For reference, here's the qcs615 v5.
-https://lore.kernel.org/all/20241104-add_initial_support_for_qcs615-v5-0-9dde8d7b80b0@quicinc.com/
+	M.
 
-Regards,
-Bjorn
+-- 
+Without deviation from the norm, progress is not possible.
 
