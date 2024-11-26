@@ -4,83 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D38D0D59D90
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 10:18:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC37D59D92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 10:19:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4CZcWq+xke43NVtWf3QLiwaFqI+VfqIzgO8JTr3rwz4=; b=OGNGy8r702AiFs9Xrrr9W+0x5z
-	bwRI6T7K7eRNc84mEO8Oh9LZDN0XvE2SJcnSq2C1QRxZYxKXaeD2u2NLudasx+VHsrNBAg48KrSYD
-	cqBfDSg4F+DB1eRbq/ifwmI4GF5ON2sVaJCVXqGBzInI/ZLpBFdJbs+iQ21EbrMuUjPRxpLD+rn2m
-	ySO67Yq3524kDtQRJBo94f6InPN+7fhKVlhc+d26lTXPP4zlQVtb0FkH/Ess6SEGe50kKmxCYNvxE
-	eNCAId7NDdBuqibE9I25DLJukdN0MZowfAGPSNEzV6S2hNq+4MsdjGNkSF0hZCc8EcS4ZiX/LSFOd
-	EbGLIX/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0tb/1VpCPVFgloHLNFl73KUluXt5M3902QRNEkET+pg=; b=xh5A0hl9lq4AHVUYkqu2chI7n1
+	DwtKZYx5OHDr/ZY6HVRhUe+a656tgl4KGfUvbeTGULmattrnY3OmekszjnT43fh2QEjsAt9NFjuCT
+	fbXxBRKmqQ9SdtqitAqZmrFKjtbLVArQ2QrPpIHz3Yz9/GWL3r/7+vnOs9q2TUUlopjNR6LbKGKgE
+	qf9RVU0sgdGqQQ05HtUUZxE7Is1rh8Zl4pm1EGZx9aIOSrTUFUWN+XtmKFEwF4d1alyydqF2n8kaq
+	sFWFi0HyTxZv8VX5whSIeqa2xTCWVoebIYpijJtD0hfTrgHsLFZayUwijPn3sjmSLfABhrfW9mJRD
+	ye8NCTXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFseV-0000000AHYI-2NDu;
-	Tue, 26 Nov 2024 10:18:39 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tFsfR-0000000AHp7-1zMS;
+	Tue, 26 Nov 2024 10:19:37 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFscj-0000000AHBS-1og1
+	id 1tFsdI-0000000AHI7-0d2a
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 10:16:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732616209; x=1764152209;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=G6ISiKyYNdfCX1O1jSv9YCVzyH3xaVsB7/c5w8mAdLM=;
-  b=bGGnnFgPB4hH3jtK3yMNUFaeHicF+hQlp34dcjASUc9oAEw8xuslY72v
-   8WR/JunWUrMFEzLUgdfAaW5IdAUbHzdFE+KnMwqZw0RF2LaWbghfxxLEI
-   zOj5l7tq3eGo4bRVbjzv5d2XQXm6pXYs6k4h3MkBBRo0sLBqsm5l7u/Td
-   ruqM6lvmmuYIoPzHOjkBTMxL2lyrYVHAs9nedy3/VoRfN6N1vj3L8Vz/m
-   n9oOO7VuKB/EQ9+6mWo0FL9vA7wnfK025I60JeMy2c/TKal9q2Z5ykFYT
-   f+K4fYhpDQbpE967/3+GeTczp59245HPHBr2z4/UYRRm+Q9JQ+WwRoVqB
-   Q==;
-X-CSE-ConnectionGUID: 7txuEtjyTre4T8kJi4LASA==
-X-CSE-MsgGUID: fHcbkrxSQ5KyHi2cPNXkUQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11267"; a="36428244"
-X-IronPort-AV: E=Sophos;i="6.12,185,1728975600"; 
-   d="scan'208";a="36428244"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2024 02:16:43 -0800
-X-CSE-ConnectionGUID: UPr7mqOHTa+cmtoDfqjH7w==
-X-CSE-MsgGUID: 1LK8FOPvQtWU825GVRcwKg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,185,1728975600"; 
-   d="scan'208";a="91511370"
-Received: from mjarzebo-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.246.49])
-  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2024 02:16:37 -0800
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Maxime Ripard <mripard@kernel.org>, Sean Nyekjaer <sean@geanix.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
- <simona@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Yannick
- Fertre <yannick.fertre@foss.st.com>, Raphael Gallais-Pou
- <raphael.gallais-pou@foss.st.com>, Philippe Cornu
- <philippe.cornu@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
- helper function
-In-Reply-To: <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
- <20241125-dsi-relax-v2-1-9113419f4a40@geanix.com>
- <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
-Date: Tue, 26 Nov 2024 12:16:34 +0200
-Message-ID: <874j3uxptp.fsf@intel.com>
+	Tue, 26 Nov 2024 10:17:26 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a9a0ef5179dso776544866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 02:17:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1732616242; x=1733221042; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0tb/1VpCPVFgloHLNFl73KUluXt5M3902QRNEkET+pg=;
+        b=AVAAkVSgA5VPhQyPNo5lRHkagTxYir27RwuGyKqog+KI0siIHSGb9yZC6CsjlKTGqR
+         wA/fgBDCTBscy830ssVhypsspx7Es9tBip2Ttpson+inipblMqCVFrseu4Wjee9b2Yoq
+         NC04nA5FlH29ySK7sJ4bkiFmVRpdnaAD19YJ8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732616242; x=1733221042;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0tb/1VpCPVFgloHLNFl73KUluXt5M3902QRNEkET+pg=;
+        b=EgnEphr7+A6fiJtTscHHcKXhYi+Dnay5vVwlVjl4bcdtlKheRbyJWv2oxWGPE764xX
+         z3gHcYWHQqjBVnBSoyNajDaDjKwlfmkWwWaqBDMb0yZGTWbHCRJAt5hMehn5EfdMQsTs
+         3boMZ6PgcFiPD7UMG+c2Iqw9mEym1/YwZomi23PhfIcVbeTOC6/EYizbjfk4nQjd2Kba
+         mjAT/9cVcd1qUn/U6nB0o56SWSARwm5eLWnmO7Tgx7PdcO8gvSArSC/S/hvD9o7bfS+4
+         +ZVnaPkPca9A3yBlBAXjPFPOTsmsXgAAfg/aEHGvtGGCvNDHczlu24QNODJW+vX78oZ1
+         S6bg==
+X-Forwarded-Encrypted: i=1; AJvYcCUdId5Qd4G64ONs3/Sob5Zr3aB8S2K5ite12sucYw5dz1MEH8kjehb1eDahiOCRPy9yr0W4jXKMkNmCdjobsdfF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxb1JhJ/I/CpPy2XwfqWrQ7lI6mygGK1o1BEqFrkqWQJmJ0T4bV
+	q1j72qqfGOSoY2rJW7pq3deExx5pYP3Q/FRHxx6Y8KTHk3vlmV38amzuryMEgoF/4tDmBskggtO
+	uIA==
+X-Gm-Gg: ASbGncsGJp6QSEcpDqVIjWkeXnsiq/YINmqw+tDugtCGV01gB9a7A7A7XOak1vreTyN
+	+dMfiNebu2oD5W40D6ZRms/pB9fclJ4C4X1/1G9x4reZIdNBIJJDII9vg1RRpjUsvUIO3ujhznc
+	nu3mU6dxwSyO++pwJxJNxvo4NzuHiLrBBcGdHg9fnya5yQYYLt6eME9XMOVSdZ7PCsTpIkuqRLA
+	XNF60CpHwlP4veromaRjD1usJP8BlfMIe+9U2NTQCVDeO87jj/SOCPoaWq6U0dv6015dGnogidi
+	MA6TYNMtmNnnBGCt
+X-Google-Smtp-Source: AGHT+IFO8iCq4zqd+8gLMB0g98dQh8HakwF1G2HOVdnwO9up1PS3gafatBy2wgEdkGuUDPo3sjFoow==
+X-Received: by 2002:a17:906:3cb1:b0:aa5:2d9a:1528 with SMTP id a640c23a62f3a-aa52d9a1585mr940458066b.60.1732616241743;
+        Tue, 26 Nov 2024 02:17:21 -0800 (PST)
+Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com. [209.85.208.43])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa50b52f781sm580805166b.108.2024.11.26.02.17.20
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 26 Nov 2024 02:17:20 -0800 (PST)
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-5cfc264b8b6so6669a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 02:17:20 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVNSHFeUJZlhRoaL0tTQ0Kq2IDCvsrsF2uGTXPCj2JxcAfqQ6QpLy/3SryGksXEQVfwGSFaGfQfw3IX0fhmZSiU@lists.infradead.org
+X-Received: by 2002:a50:9505:0:b0:5d0:b76:3ae1 with SMTP id
+ 4fb4d7f45d1cf-5d06f5111c2mr40797a12.5.1732616240006; Tue, 26 Nov 2024
+ 02:17:20 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20241126-damu-v4-1-e746eec2cb52@chromium.org> <9004a82a-56a3-4d88-b0be-7e9d45932607@kernel.org>
+In-Reply-To: <9004a82a-56a3-4d88-b0be-7e9d45932607@kernel.org>
+From: Hsin-Te Yuan <yuanhsinte@chromium.org>
+Date: Tue, 26 Nov 2024 18:16:43 +0800
+X-Gmail-Original-Message-ID: <CAHc4DNKNrOUPJ+3DE+f+78-SAeQkuqEHqFXmwwaPTG+ni_1MMw@mail.gmail.com>
+Message-ID: <CAHc4DNKNrOUPJ+3DE+f+78-SAeQkuqEHqFXmwwaPTG+ni_1MMw@mail.gmail.com>
+Subject: Re: [PATCH RESEND v4] arm64: dts: mt8183: set DMIC one-wire mode on Damu
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Hsin-Te Yuan <yuanhsinte@chromium.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Hsin-Yi Wang <hsinyi@chromium.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_021649_511873_998D4161 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20241126_021724_179629_30C86341 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,32 +108,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 25 Nov 2024, Maxime Ripard <mripard@kernel.org> wrote:
-> I wonder about the naming though (and prototype). I doesn't really
-> validates a mode, but rather makes sure that a given rate is a good
-> approximation of a pixel clock. So maybe something like
-> drm_mode_check_pixel_clock?
+On Tue, Nov 26, 2024 at 6:05=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On 26/11/2024 10:57, Hsin-Te Yuan wrote:
+> > From: Hsin-Yi Wang <hsinyi@chromium.org>
+> >
+> > Sets DMIC one-wire mode on Damu.
+> >
+> > Fixes: cabc71b08eb5 ("arm64: dts: mt8183: Add kukui-jacuzzi-damu board"=
+)
+> > Signed-off-by: Hsin-Yi Wang <hsinyi@chromium.org>
+> > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+>
+> Where did this happen?
+>
+https://lore.kernel.org/all/01020191db901d32-5c318445-b8f4-4f4d-86db-316dc0=
+db04ec-000000@eu-west-1.amazonses.com/
 
-Quoting myself from a few weeks back:
+> > Reviewed-by: Matthias Brugger <matthias.bgg@gmail.com>
+>
+> And this?
+>
 
-"""
-Random programming thought of the day: "check" is generally a terrible
-word in a function name.
+https://lore.kernel.org/all/5a668114-2ae6-4217-9614-b690c0870849@gmail.com/
+> > Signed-off-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
+> > ---
+> > Changes in v4:
+> > - Add Reviewed-by tag back, which is dropped in v3
+>
+> This resend is very weird. Didn't you get a replies that this was applied=
+?
+>
+>
+> Best regards,
+> Krzysztof
 
-Checking stuff is great, but what do you expect to happen if the check
-passes/fails? Do you expect the function to return on fail, or throw an
-exception? Or just log about it? If you return a value, what should the
-return value mean? It's hard to know without looking it up.
+This patch had been applied but was dropped due to missing a
+Signed-off-by from the author
+(https://lore.kernel.org/all/20241009071543.5230cf79@canb.auug.org.au/).
 
-Prefer predicates instead, is_stuff_okay() is better than
-check_stuff(). Or assert_stuff() if you don't return on failures.
-"""
-
-
-BR,
-Jani.
-
-
--- 
-Jani Nikula, Intel
+Regards,
+Hsin-Te
 
