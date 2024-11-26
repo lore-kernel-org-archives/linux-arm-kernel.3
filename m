@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2787DD5A6E7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 06:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A442FD5A6EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 07:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IE2s7n1D+/XIamQ+uy61hz8GK+yDRDiKRqOlbPTIkSA=; b=VdoUDECZhHKnStze5gj/q1rh1Z
-	u3b02KO/HSxgEYmyke5O6qpdnXp4IYUdtxubLodQqwjgJ/qbY9wkLWgb3jL37qV6DKgdRfLwtspTG
-	DI50Bw6BQp7DqptMT18cBp86EZQp6Lyj30b9uUBI13R1TR7VXrXGggkdiTXq6czCSa4S1t2Hzjcb0
-	pPRr43cFZfCxyNiaMf2iIwB2vpKJgzHRPGkxcfA60tLBJnwDiYLG7C2ZGauuTfNOpgcrvy4LefpKT
-	jn4ucMK+ZS3xRHybhehuWJcC/gAhs7Srnz/u95UeJBaf0/qVOXPpEFrOlnRg3tl7FxGjL1PPUFmOn
-	PvQpvpzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bbhcOJgLkps+UeGh/efFie97r6G3L7a5fAfWJSpEoLs=; b=mejzPZSDdBuinjND0yoNjkxeW9
+	M2yOe95J0kn+EwQRt2G+eSInjvLW817LDHTtiZ5vWHDG1MhS0q2oPsM14Voh/aA1TjSd6X+ZU+Kd1
+	ZhESJZklmC8av/lkFK0azKN/D2ELGCxuhbK7yn+od/t8eHa0p9vwRCaEUyo0CWYmYAM3+8DCZKfnJ
+	QRSapDJzQbhA758l/riFL+zFLM042jV4K3ETBHXpGBcucW/p9zbYRT65udhwnXPIarLWZ8IrKsWfh
+	PLzTOagwXZaCPtJuwGlLX62oyff+ganvp6BJpoyawxrvlAJNj/cMZ7iKC+6sK+ijCYNnjXsKoMNr+
+	pdV5M+8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFpPh-00000009mfP-44PH;
-	Tue, 26 Nov 2024 06:51:09 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tFpao-00000009nk2-1LzL;
+	Tue, 26 Nov 2024 07:02:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFpNu-00000009mL5-1iUX
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 06:49:19 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tFpNh-0000ba-00; Tue, 26 Nov 2024 07:49:05 +0100
-Message-ID: <f8d5e367-5648-4941-9d65-adfbe6d3c0dc@pengutronix.de>
-Date: Tue, 26 Nov 2024 07:49:04 +0100
+	id 1tFpZp-00000009nb6-3UQg;
+	Tue, 26 Nov 2024 07:01:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AF5795C5CD2;
+	Tue, 26 Nov 2024 07:00:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00088C4CECF;
+	Tue, 26 Nov 2024 07:01:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732604496;
+	bh=pnZXHU+pm2FOHMliUsr0+YCgaJf05DWVG2lDNbNCuig=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cB1i18XR6w6irbGEd1ZTKwH7OIigDPHYg8Kq7GONOGgjSvHx9ED5Uy5IZAIVXiewU
+	 iT/FmiBEtqg27QvoY4/voafulDNNa8hgpMeram6kKnl8Lgzzn73f7ifqI3rWv6Qolc
+	 r77J9ny+nyejUCgpl54W+wInTm2eFv52l2qPXRXLytmXeq2F2cBp6xP0+VdQeZ+0TF
+	 NV3ms8WC66GumGf9xreRBkZrL2++LEctZTHQeRtj9KQX6S5fjLLeRAgypIRbJ07VE0
+	 j8Gzqk3LJXCV1ue+0StVHe5JtQ3U7guTatPqjINO7GlQ1Qr5rzBCZdqAmEzuBpfNyX
+	 2m+H9dmOlgNAA==
+Date: Tue, 26 Nov 2024 08:01:33 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, p.zabel@pengutronix.de, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, 
+	simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, glx@linutronix.de, vkoul@kernel.org, kishon@kernel.org, 
+	aisheng.dong@nxp.com, agx@sigxcpu.org, francesco@dolcini.it, frank.li@nxp.com, 
+	dmitry.baryshkov@linaro.org
+Subject: Re: [DO NOT MERGE PATCH v4 15/19] dt-bindings: firmware: imx: Add
+ SCU controlled display pixel link nodes
+Message-ID: <6rijytubyumhgvhlvzx3dtyfncknizs3iz7arhno2mjottyu33@subihom7khzl>
+References: <20241125093316.2357162-1-victor.liu@nxp.com>
+ <20241125093316.2357162-16-victor.liu@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/6] arm64: dts: Add dsp rproc related mem regions
-To: Daniel Baluta <daniel.baluta@nxp.com>, shawnguo@kernel.org,
- s.hauer@pengutronix.de, kernel@pengutronix.de
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- frank.li@nxp.com, aisheng.dong@nxp.com, daniel.baluta@gmail.com,
- laurentiu.mihalcea@nxp.com, shengjiu.wang@nxp.com, iuliana.prodan@nxp.com
-References: <20241125152427.136883-1-daniel.baluta@nxp.com>
- <20241125152427.136883-7-daniel.baluta@nxp.com>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20241125152427.136883-7-daniel.baluta@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241125093316.2357162-16-victor.liu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_224918_454699_71574A08 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20241125_230137_911729_1DE02516 
+X-CRM114-Status: UNSURE (   6.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,46 +80,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25.11.24 16:24, Daniel Baluta wrote:
-> With imx8mp-evk board we are now configuring 'dsp' node for rproc usage,
-> so add rproc specific memory regions.
+On Mon, Nov 25, 2024 at 05:33:12PM +0800, Liu Ying wrote:
+> Document SCU controlled display pixel link child nodes.
 > 
-> Also, enable dsp node because it is ready to be used.
-> 
-> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
-
-Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
 > ---
->  arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+> v4:
+> * No change.
 > 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> index d26930f1a9e9..c732ee79772d 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> @@ -291,6 +291,16 @@ &aud2htx {
->  	status = "okay";
->  };
->  
-> +&dsp_reserved {
-> +	status = "okay";
-> +};
-> +
-> +&dsp {
-> +	memory-region = <&dsp_vdev0buffer>, <&dsp_vdev0vring0>,
-> +			<&dsp_vdev0vring1>, <&dsp_reserved>;
-> +	status = "okay";
-> +};
-> +
->  &eqos {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_eqos>;
+> v3:
+> * No change.
+> 
+> v2:
+> * New patch as needed by display controller subsystem device tree.
 
+DO NOT MERGE means also do not review?
 
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Your cover letter does not explain what you want here, except not
+merging. Why posting things which should not be merged, without context?
+
+I'll ignore this patch for now.
+
+Best regards,
+Krzysztof
+
 
