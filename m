@@ -4,75 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473DDD3B98A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C01FCD3B98A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ddcUJuLCU+9k5uCEu1Wc0ei7/Z4qP7lTbBY2N2zaevw=; b=VDV3Jmy1MxG3kJBlYE6hShD6Zr
-	kf+tqDv8WRNkbrfmKP1HGKIDybB0H8oiRddVMvnCb+VgJwBkSDSb9RayLb+f01lRBLERIuMxDL/25
-	jz8ZdudYtyOLMNQrIAn5DN3xJ/5ymvefuL8kIo8tyns3O5VuvEZNoTJ9A7goeOTYt8EcjIpFQTPJ3
-	GfM+ny7hH+3KU35UC/FBMCAUGz0IuyczmaG3xdd1CHAXJEw9botr+dxGiMQIKE9ae/IoUaWBGQiwP
-	4tH8v3Tj0wIeV15qAa9BO5miPoDsUKAOzMKPIs2wote20lWRSkDoENACLUtAm6UsTqjfyILzxgH2Z
-	omS85kJw==;
+	bh=6dtE9rj6gMSXXf39reUm950KsYI1mL6ukDFs2aqzXTA=; b=p6YXtxkOreC4M+CsuCvm1jVEtL
+	EZz3EV9M9KZSD7X1+5A0HDueobs2b7ga8Ioe0GK9tq7SpEQSnB/dnQUCMD5dtozrSrl4PrPEiyzLh
+	aJVHa/fW1mgB68nrhjj89vxF/+JRJOh6U2HD9TZT39xEP4k9PKAyszAJfDNTeymAOvyw6141i+C7c
+	6HZCmpV7Ta+CjEVUyndB3RKKjHYxfgtz/PhewsoLeYw0vKgi0J21a5vMwT5NCWMokQNsV7HlO1PX/
+	7yHoP/W3Myx0O/nji0b4In1XkYtPgnz6q5WSbkHw+ORAQ+e9cEHpvVNaZ7/AIxPko4Z4rKTM2NR27
+	7qJMuYAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFubM-0000000AZ6e-1S7I;
-	Tue, 26 Nov 2024 12:23:32 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tFudB-0000000AZLE-46kQ;
+	Tue, 26 Nov 2024 12:25:25 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFuaO-0000000AYzy-22ql
+	id 1tFucD-0000000AZFk-1kJV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 12:22:34 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tFuaH-00037b-Rb; Tue, 26 Nov 2024 13:22:25 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tFuaG-000FQ2-1a;
-	Tue, 26 Nov 2024 13:22:25 +0100
-Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id DDEDD37DA05;
-	Tue, 26 Nov 2024 12:22:24 +0000 (UTC)
-Date: Tue, 26 Nov 2024 13:22:24 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: Frank Li <frank.li@nxp.com>, 
-	"o.rempel@pengutronix.de" <o.rempel@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
-	"andi.shyti@kernel.org" <andi.shyti@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] i2c: imx: support DMA defer probing
-Message-ID: <20241126-fat-orthodox-eel-5389b4-mkl@pengutronix.de>
-References: <20241126082535.1878554-1-carlos.song@nxp.com>
- <20241126-economic-energetic-junglefowl-5197a9-mkl@pengutronix.de>
- <AM0PR0402MB39372380307BC4252BD131ACE82F2@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <20241126-paper-nightingale-of-wealth-de17e7-mkl@pengutronix.de>
- <AM0PR0402MB39374E34FD6133B5E3D414D7E82F2@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+	Tue, 26 Nov 2024 12:24:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1732623866; x=1764159866;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=ZTHfXgFGRlIILfuHL+qBGlAm9C8PxmMo8Z9AFzfvBdw=;
+  b=F0HBOkzQkJSrDhO90D6d/gRwwf7ECoSPe3GjMYzjI/df5Tabsxu06+31
+   cVRrJuptMz3XuoqwcZcgUCLwaY6TeXxd6/1VbQmNo8kewv97+6mOJCLPp
+   BOxWD+e6bd1oPX5DX6raQPHJqmc3DnhfJyURd56+1M2wJd4Eg1Td82g9y
+   oFyonlx8+ZR+rTDNSeCHjtJMtJ5gRacl2IIlSk82KRBYzc68gxHsHI9nG
+   4GeXbs8GCDY3j2EoQXIUwIfOdcPB3yNfaXuHjoBNNqJpXrmMJJodxqUXE
+   agqHvUGbSbOHGYx3NBI+sinbOi2BwKZ8MHW0gUIMDB4fIa5FCizSWG2gN
+   Q==;
+X-CSE-ConnectionGUID: uv/Z/3tTT9GKPYbK+pqvxw==
+X-CSE-MsgGUID: lbj5y/YfS2adnRMIvi2BkQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11268"; a="55278920"
+X-IronPort-AV: E=Sophos;i="6.12,185,1728975600"; 
+   d="scan'208";a="55278920"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2024 04:24:22 -0800
+X-CSE-ConnectionGUID: p7mmBzIqQaSRBB7X5+uHcw==
+X-CSE-MsgGUID: wzxtY/mSSE24Fp3vXFkb0A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="96661073"
+Received: from mjarzebo-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.246.49])
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2024 04:24:15 -0800
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Sean Nyekjaer <sean@geanix.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Yannick
+ Fertre <yannick.fertre@foss.st.com>, Raphael Gallais-Pou
+ <raphael.gallais-pou@foss.st.com>, Philippe Cornu
+ <philippe.cornu@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
+ helper function
+In-Reply-To: <20241126-spry-wildebeest-of-cubism-da0a9e@houat>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
+ <20241125-dsi-relax-v2-1-9113419f4a40@geanix.com>
+ <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
+ <874j3uxptp.fsf@intel.com>
+ <20241126-spry-wildebeest-of-cubism-da0a9e@houat>
+Date: Tue, 26 Nov 2024 14:24:12 +0200
+Message-ID: <871pyyxjwz.fsf@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qr4ed5s4vw2t4oyl"
-Content-Disposition: inline
-In-Reply-To: <AM0PR0402MB39374E34FD6133B5E3D414D7E82F2@AM0PR0402MB3937.eurprd04.prod.outlook.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_042232_524841_8867BF8B 
-X-CRM114-Status: GOOD (  40.55  )
+X-CRM114-CacheID: sfid-20241126_042425_485303_3D52B00E 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,149 +98,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 26 Nov 2024, Maxime Ripard <mripard@kernel.org> wrote:
+> On Tue, Nov 26, 2024 at 12:16:34PM +0200, Jani Nikula wrote:
+>> On Mon, 25 Nov 2024, Maxime Ripard <mripard@kernel.org> wrote:
+>> > I wonder about the naming though (and prototype). I doesn't really
+>> > validates a mode, but rather makes sure that a given rate is a good
+>> > approximation of a pixel clock. So maybe something like
+>> > drm_mode_check_pixel_clock?
+>> 
+>> Quoting myself from a few weeks back:
+>> 
+>> """
+>> Random programming thought of the day: "check" is generally a terrible
+>> word in a function name.
+>> 
+>> Checking stuff is great, but what do you expect to happen if the check
+>> passes/fails? Do you expect the function to return on fail, or throw an
+>> exception? Or just log about it? If you return a value, what should the
+>> return value mean? It's hard to know without looking it up.
+>> 
+>> Prefer predicates instead, is_stuff_okay() is better than
+>> check_stuff(). Or assert_stuff() if you don't return on failures.
+>> """
+>
+> Both is_stuff_okay() or assert_stuff() return a boolean in my mind. If
+> you want to return a mode status enum, I don't think they are better
+> names.
 
---qr4ed5s4vw2t4oyl
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] i2c: imx: support DMA defer probing
-MIME-Version: 1.0
+Most functions returning enum drm_mode_status are called
+something_something_mode_valid(). Not check something.
 
-On 26.11.2024 12:07:59, Carlos Song wrote:
->=20
->=20
-> > -----Original Message-----
-> > From: Marc Kleine-Budde <mkl@pengutronix.de>
-> > Sent: Tuesday, November 26, 2024 6:24 PM
-> > To: Carlos Song <carlos.song@nxp.com>
-> > Cc: Frank Li <frank.li@nxp.com>; o.rempel@pengutronix.de;
-> > kernel@pengutronix.de; andi.shyti@kernel.org; shawnguo@kernel.org;
-> > s.hauer@pengutronix.de; festevam@gmail.com; imx@lists.linux.dev;
-> > linux-i2c@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> > linux-kernel@vger.kernel.org
-> > Subject: [EXT] Re: [PATCH v2] i2c: imx: support DMA defer probing
-> >=20
-> > On 26.11.2024 10:15:27, Carlos Song wrote:
-> > > > >  static void i2c_imx_dma_callback(void *arg) @@ -1803,6 +1804,13
-> > > > > @@ static int i2c_imx_probe(struct platform_device *pdev)
-> > > > >  	if (ret =3D=3D -EPROBE_DEFER)
-> > > > >  		goto clk_notifier_unregister;
-> > > > >
-> > > > > +	/* Init DMA config if supported */
-> > > > > +	ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-> > > > > +	if (ret =3D=3D -EPROBE_DEFER) {
-> > > > > +		dev_err(&pdev->dev, "DMA not ready, go defer probe!\n");
-> > > > > +		goto clk_notifier_unregister;
-> > > > > +	}
-> > > >
-> > > > Don't spam the logs if the driver defers probing, it's not a error.
-> > > > And it looks strange to ignore all other errors here. Either add a
-> > > > comment here, something like "continue without DMA", or let the
-> > > > function return
-> > > > 0 in case the driver should continue and propagate the error if the
-> > > > caller should take care of it.
-> > > >
-> > >
-> > > Hi,
-> > > Thank you for your suggestion! I agree with you.
-> > > I will change to this logic:
-> > > 	ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-> > > 	if (ret) {
-> > > 		if (ret =3D=3D -EPROBE_DEFER)
-> > > 			goto clk_notifier_unregister;
-> > > 		dev_info(&pdev->dev, "use pio mode\n");
-> > > 	}
-> > >
-> > > Ret =3D 0  ----->  enable DMA successfully  -------> no print
-> > > Ret!=3D0  ----->  defer probe ---------> no print and try again
-> > > Ret!=3D0  ----->  fail to enable DMA ------> remind now is using pio
-> > > mode
-> > >
-> > > Do you think the logic is acceptable?
-> >=20
-> > Yes, the other option is to move the logic into i2c_imx_dma_request() a=
-nd let it
-> > return 0 in case of DMA or fallback to PIO, or an error in case of prob=
-e defer or a
-> > fatal error.
-> >=20
-> > This way the probe function will look like this:
-> >=20
-> >      ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-> >      if (ret)
-> >                 return dev_err_probe(&pdev->dev, ret, "Failed to setup
-> > DMA\n");
-> >=20
->=20
-> Sorry, I have some different ideas...
-> 1. DMA mode should be optional for i2c-imx, because i2c-imx can accept DM=
-A mode not enabled, because it still can work in CPU mode.
+BR,
+Jani.
 
-ACK
 
->   If we use return dev_err_probe(), we have to return error at i2c_imx_dm=
-a_request() for "some fatal error", it will cause i2c_adapter can not be re=
-gistered, then kill i2c adapter register.
-
-i2c_imx_dma_request should only return an error if PIO mode is not an
-option.
-
->   If we always return 0 at i2c_imx_dma_request(), dev_err_probe will not =
-work forever. So from my point, if DMA is not working well, just output a l=
-og to remind now i2c is always
->   working at CPU mode, we have no DMA, this is enough.
-
-ACK
-
-> 2. when really defer probe, return dev_err_probe will return defer probe =
-directly, but we still need to goto clk_notifier_unregister branch to free =
-irq, clk_notifier_unregister and disable runtime pm.
->   So we still need more judgement at probe function to handle this.
-
-Not quite "dev_err_probe()" will not defer probe directly, the return in
-"return dev_err_probe();" does. This should work:
-
-        ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-        if (ret) {
-                dev_err_probe(&pdev->dev, ret, "Failed to setup  DMA\n");
-                goto clk_notifier_unregister;
-        }
-       =20
-
-> So I prefer this logic:
-
-This also works, LGTM!
-
-> ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-> if (ret) {
-> 	if (ret =3D=3D -EPROBE_DEFER)
-> 		goto clk_notifier_unregister;
-> 	dev_info(&pdev->dev, "use pio mode\n");
-> }
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---qr4ed5s4vw2t4oyl
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdFvX0ACgkQKDiiPnot
-vG+dBgf+NxAQrj6iLQlHEDMSbH2IoHlWMH26HaT5bjMhCGW3CptsWot7YKtEg+YW
-0SkJ1U4ivNltky6GMzPVIZoWSTCtSapzrRR9mAWkzHCM7dh3HHxCnzIs7XsVRzy5
-RKvBuFJsn3Fz5hs9fK8wV8ucV5tT03Y5Z4wKaIy2NQSsVLT6oKbH+/JIYhZ58Lej
-0aYVZWy+4vPQpMDQ/HjtR2eJPbEWlqzawiIJUH/qfH4mYYC+uOSAXQJRPMzlDIN0
-mJcGyG8ID4UxGJF1dYkjgSLFB/SuFbW+HF978op+twrxKW7nJUTQhx1XhacjOY9o
-/ms5T9s/qWQro5T8tSYiF8SInL7CZw==
-=p1Q5
------END PGP SIGNATURE-----
-
---qr4ed5s4vw2t4oyl--
+-- 
+Jani Nikula, Intel
 
