@@ -4,87 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D08DED3B9A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 15:24:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D8FD3B9A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 15:28:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EywgxkrTN2xkW7W98GxF9WmLUXMyuExpTDsIr7nON3k=; b=W8PJ5rKt07F/I6+h/6JcDd3Qu1
-	d3aGbetmcPQR9Vu/h3a8wzc2STOr5YwIxNeGffpfhh8Yc0vVyRIgtIiUYx+/xuylgqlOUw7iD9xKY
-	eGrDkyZI5rRN9IpuROPoUVWSOie0dySLX0+CJHFizJNa/MX1bG4nyWXuRyAD3KcSTt9fJxCWFPgCx
-	XaR58W0VRna6hK2/GroNrzoHcJKFt89OgpjPK+8YJGJBqeUO/c6irCqFwQkrxAYLk+Q1ABzHauUx6
-	ARnf0ZtOCrEkSP9W05HFQHM5+xzHWt4iFJIMhJLSSrGEwtfgEoMS7KIlT78KebQN5q1idT2k1Lf5G
-	cCPTo7pg==;
+	bh=M2pdt1QKqUvhQF74nha7uxn2IzLNNgFKRfKY0UJFns0=; b=2ID5FfipUA5n+XJm3ORuIDa2zx
+	o3dedB3B4wgs05YKziIjuCL4lOMEdh+msN919r/h2/S/uEC3mXcdjkAVkG4SVAtIEbZxDbxtIp3qh
+	GX3k38wedPIO+3nf6QHSDV4XzwCEAs2mq3ohJeHWy8O/l1lpNRWG3StDZdy+V4L/CHt26ZkiQfXNM
+	58z4KaUJltgjoPlM3+GIk0mkUifRZUv+qee7rcoZRGQDf24vuy9Q8QKE3EE6Wg155XWx5k6BgcBvB
+	VfCeeWZGcIYZGgCLdKsWvsK+9Tp44BefTduSzwx74LkrEuHwu/i9e3zeGciqQZhENxsQo39QaS4LK
+	zcZZF5+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFxQF-0000000Azda-0xaz;
-	Tue, 26 Nov 2024 15:24:15 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1tFxUA-0000000B0C2-1o21;
+	Tue, 26 Nov 2024 15:28:18 +0000
+Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFxPA-0000000AzTu-1nbI;
-	Tue, 26 Nov 2024 15:23:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732634588; x=1764170588;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=BRSfxCCbOwhi2VADRh6D9j6oW5F0hLtYWnvHVw2D4Ok=;
-  b=dx+nGmh866NMJ10Tg1nsKlLBgD3mDDZzwdoWfw/kZhdxYzIpG2tadKTz
-   afUGkC9SUjB+yg3FbweK70maJyKCz1l5G3m0OCILxELlr2oMkGzLG+MXf
-   I2YSlZkSQ5xcmtSDJ7rtfHUI7uEMkwTvDiEq5V/aA7idOTbvSO726/Ldy
-   912qZVQx2InkEDrH0uMdhzgB2ljuCi69sVXjPzhiD1wbAiTMh+LpIBMp4
-   RWgiCXITUoyLs4ecIyWULgI8VjwUFvywVNzScsPfpvQ4dZLmw76ayD5eC
-   KlJh4F46wzSeMleBE60Yu4HRTJmideCgcGO+/T9YYZjX5TzD3itFc58/x
-   w==;
-X-CSE-ConnectionGUID: bN/DnmHBRCis1XImq85/uA==
-X-CSE-MsgGUID: IPn98drzRX275jdsspmc2g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11268"; a="32859267"
-X-IronPort-AV: E=Sophos;i="6.12,186,1728975600"; 
-   d="scan'208";a="32859267"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2024 07:23:07 -0800
-X-CSE-ConnectionGUID: uzI9OrRkRESc0LNpJIAMGg==
-X-CSE-MsgGUID: QH5wPg5HS+SufPvb1ivXHw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,186,1728975600"; 
-   d="scan'208";a="122496182"
-Received: from smile.fi.intel.com ([10.237.72.154])
-  by orviesa002.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2024 07:23:04 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1tFxP3-00000001JiU-3m2Z;
-	Tue, 26 Nov 2024 17:23:01 +0200
-Date: Tue, 26 Nov 2024 17:23:01 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Alexandre Mergnat <amergnat@baylibre.com>
-Cc: Mark Brown <broonie@kernel.org>, Nicolas Belin <nbelin@baylibre.com>,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v1 1/1] ASoc: mediatek: mt8365: Don't use "proxy" headers
-Message-ID: <Z0Xn1fMvuwR4KQbb@smile.fi.intel.com>
-References: <20241031102725.2447711-1-andriy.shevchenko@linux.intel.com>
- <ZykbMlshvlwCaeGJ@smile.fi.intel.com>
- <d7bf7863-fd24-4f8e-8cd0-d84867a997bb@sirena.org.uk>
- <dad2ecb7-e624-49c2-a7d5-0ff53b6a1686@baylibre.com>
- <Z0RkaqfID9v0age_@smile.fi.intel.com>
- <ed50c130-076c-4697-9f11-fe602c7ca03d@baylibre.com>
- <49fa1677-db35-497b-afae-caa5dccf3747@baylibre.com>
+	id 1tFxTB-0000000B02q-3Zxn
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Nov 2024 15:27:19 +0000
+Date: Tue, 26 Nov 2024 07:27:00 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1732634831;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=M2pdt1QKqUvhQF74nha7uxn2IzLNNgFKRfKY0UJFns0=;
+	b=A4uEAhXN/IN4JzD/h5Bvk7X6D4FcKNtOdhYKUDeS4X+PtKv9ifrMkNkRxORI8wkDABMBER
+	I1IQrnMYwpcc3Mc/QHzUbHuKKp2qA0I+sjNbV0gL4CmlRposshcn5Sxh5RdoQbDafNn6Uk
+	URaRqsg4H6Xxh9ZtFmIPIkG7p4aI8/k=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: Re: [PATCH] KVM: arm64: Fix S1/S2 combination when FWB==1 and S2 has
+ Device memory type
+Message-ID: <Z0XoxGSWRCjbTFie@linux.dev>
+References: <20241125094756.609590-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <49fa1677-db35-497b-afae-caa5dccf3747@baylibre.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+In-Reply-To: <20241125094756.609590-1-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_072308_513732_187127D0 
-X-CRM114-Status: GOOD (  23.53  )
+X-CRM114-CacheID: sfid-20241126_072718_399876_4E22CA0D 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,44 +71,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 11:37:26AM +0100, Alexandre Mergnat wrote:
-> On 26/11/2024 11:29, Alexandre Mergnat wrote:
-> > On 25/11/2024 12:50, Andy Shevchenko wrote:
-> > > On Mon, Nov 25, 2024 at 12:32:13PM +0100, Alexandre Mergnat wrote:
+On Mon, Nov 25, 2024 at 09:47:56AM +0000, Marc Zyngier wrote:
+> The G.a revision of the ARM ARM had it pretty clear that HCR_EL2.FWB
+> had no influence on "The way that stage 1 memory types and attributes
+> are combined with stage 2 Device type and attributes." (D5.5.5).
+> 
+> However, this wording was lost in further revisions of the architecture.
+> 
+> Restore the intended behaviour, which is to take the strongest memory
+> type of S1 and S2 in this case, as if FWB was 0. The specification is
+> being fixed accordingly.
 
-...
+Since you're already asking for a spec fix, could you mention that the
+column headers in DDI0487K.a Table D8-95 are incorrect? MemAttr[1:0] is
+used twice, although I believe the first column is actually MemAttr[3:2].
 
-> > > > Actually, after test it, "linux/of_gpio.h" isn't needed at all anymore.
-> > > > 
-> > > > That mean all added include in this patch aren't required.
-> > > Do you mean the driver doesn't not use types from types.h or dev_*() macros
-> > > from dev_printk.h? I don't believe this, sorry.
-> > 
-> > > 
-> > > Basically what you are trying to say is "let's move of_gpio.h implicit
-> > > includes to become something else's problem". It's not what this patch
-> > > intended to do.
-> > 
-> > I'm just saying that I've test a build/boot with "linux/of_gpio.h" removed and without all
-> > include added in you patch. My understand is "linux/of_gpio.h" act as proxy
-> > for the includes added in your patch, my first idea was "if I remove it, build should fail cause
-> > of lack of other includes". I can understand these missing includes are mandatory, that
-> > probably means there is another proxy header ?
-> > Maybe my test isn't consistent because it isn't possible to clear all proxy ?
-> > 
-> > If that's the case, consider my review-by.
+> Fixes: be04cebf3e788 ("KVM: arm64: nv: Add emulation of AT S12E{0,1}{R,W}")
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/at.c | 11 +++++++++--
+>  1 file changed, 9 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> index 8c5d7990e5b31..98cb499fa4b11 100644
+> --- a/arch/arm64/kvm/at.c
+> +++ b/arch/arm64/kvm/at.c
+> @@ -739,8 +739,15 @@ static u64 compute_par_s12(struct kvm_vcpu *vcpu, u64 s1_par,
+>  			final_attr = s1_parattr;
+>  			break;
+>  		default:
+> -			/* MemAttr[2]=0, Device from S2 */
+> -			final_attr = s2_memattr & GENMASK(1,0) << 2;
+> +			/*
+> +			 * MemAttr[2]=0, Device from S2.
+> +			 *
+> +			 * FWB does not influence the way that stage 1
+> + 			 * memory types and attributes are combined
+> + 			 * with stage 2 Device type and attributes.
+> +			 */
+> +			final_attr = min(s2_memattr_to_attr(s2_memattr),
+> +					 s1_parattr);
 
-> Reviewed-by: Alexandre Mergnat <amergnat@baylibre.com>
-
-Thank you!
-Mark, would be enough to apply the change?
-
-> > I've validated some include manually. Are you using a script to parse
-> > the file and raise all necessary "linux/*" include ?
+Otherwise, LGTM.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Thanks,
+Oliver
 
