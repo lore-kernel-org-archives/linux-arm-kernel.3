@@ -4,94 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 887D5D59D90
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 10:39:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73336D59D90
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 10:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wcVtO2/VAuiB/FCw3dtkLtB7r6omKIcIAIukLQtK/JE=; b=yuIHB4HUj0zgJy4PLx2vxWz6ld
-	w+4QWG0nnr+kYMaY93IeO3o+YkjCieT+HdZVLe22JBb724hnGVQ48SWR2RnzELRM8WL1hMIibCrxN
-	ID7bopiwGAxK6djHWVngesW0AkgNTkUUG35lt8blY3WAdZsh3AVwc+vUWLDMzy9PqXZ+P29oAZarG
-	cRbVdQNAI2axRIQ+AWQRVtMTVQogCTZCQZNb9CnFf/Sy2AB8DiWq2YhzoCYABlxuJ8o3o20w+tWO6
-	LplVj/cttW2ol7MBSeseORsrNRfXoRbI9+Y+scmhf71ade1lGwlqKVf4yX/wohBemK87pyCcquvhT
-	KRvPt9gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9CYVn2CbyDy7ZM6g1frdzdaFpYqRKBQDIXh/vk2cfTc=; b=MjXtZnY6fNjGsBeWxwzJZ1xRKG
+	qzToLwuL8F8xbfh/5LIn9qg4a4ovcO854icq6q0ujoCZLTM7nK2P1+e+A1j3ERY+UJI7QXkDM+AD7
+	dBEs3itJ62GrAvc3qC5dpixkYIeUAi4xcc1OPLgywuB8q4T+ecMukCkdITg4BSf12tIKbMCmUL0GJ
+	n5HgmaLgMC0LOCK8gBXCwSc7Bixi0T/LS8wJF0IvqMgWnA5Yw01IooBVhlZprkWmJ/uJY6yqm9waW
+	3DiSM22B7kYveXJ/nNjk/+IfkgTRQ4vZfncqC9pRF1Lv9g8/W00K1vLrSEDxzXNQFFp+28uAFPcpi
+	UXhtZT1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFsyl-0000000AKaq-3x9c;
-	Tue, 26 Nov 2024 10:39:35 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1tFszh-0000000AKi7-2DfC;
+	Tue, 26 Nov 2024 10:40:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFsvw-0000000AJxr-03lU
+	id 1tFsvw-0000000AJxz-0ZPR
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 26 Nov 2024 10:36:41 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-aa549f2fa32so324482066b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 02:36:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1732617398; x=1733222198; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wcVtO2/VAuiB/FCw3dtkLtB7r6omKIcIAIukLQtK/JE=;
-        b=VgmiOHfD7+a/7s4gVtUbbTF/wffXnY5IvKh36EMyyPU2V2MbzoPbcVJL+TQrhQm46K
-         j0seaGekn1SudKyjeceuVBDX80tK5rK9Q5gMxL2OabRYXASf+pr4m8pwjZL6hOSjMQ7Z
-         8NErKuxkxWSFvAoHT19Mc2+gWXyooAPB4ci9s=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732617398; x=1733222198;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wcVtO2/VAuiB/FCw3dtkLtB7r6omKIcIAIukLQtK/JE=;
-        b=wMJ33ExoGSEKsufBWMHAKFsZy9HNCHqTvr+DA1u6Tjwkx/W7JqR4p1SH2zGEyIqVi6
-         tEcWpVyx1FYIv5GOBpRBUh1NM/TU+HO8bBIHI8oqufDcHVzX9aeimLIQlmvvNYvukk0d
-         QmlBTVin78KnqEmCQMUS15lwspHypTzw1R+DkGpAykyRS6LALacyw2WfwG//zvcbMBLl
-         Yd80QqrImUfzENbyIxaJrBwWKJiO6SIQr0YzIWKwZ+72AkDBDRcYjxv8efhjs5QAO5hB
-         uIevbjXUJXGMJt/P789uo2uahKR4w234+6rcDMNHKX4pDjjrandccV0drobnzVqoSqf6
-         9pWA==
-X-Forwarded-Encrypted: i=1; AJvYcCXP3igRd46/cy7/FzGqXimFagsls98i0rzV8JGsKJM+I5wkbhYEoY7K+USQ3XmMBM6tyvhE4z9f/uqgaf4k0ZLe@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDcmlbVRoIXfbNMkPmjMxgqid8QjET+hAJXAK4BiRGOh4IEc1z
-	CVtmsTEPGbSz624dzmtjDLodG7xVPnT9Hw0tpnvSIIMC0eKSEQflH/ukZc5gHIZA7EO/YHkgQQk
-	=
-X-Gm-Gg: ASbGncvub2nyQil+1Th87dN+IcQjYS1FxJJSSlS1igJXxO+RS+4ymKyNXNZvMIZ5his
-	javayu5B3xl0H6f9dZ32kmDUJGUNLQx1eRj8+eryg4wEK75YfPJ+5HQK3635lL4DvoH5eTuO9us
-	9KQlgoFuQV9c1ZhZTVW1LWIch+hLryVe+xDDxuFHpa1FnTYZFdu3BZKHqftpJUjT0hy2nYD2kgs
-	a87wNPBiEXyL3+WJjXojOhmp4CfZaQVex6TEKSpV4sHwgynMw6pRdu287bH4mbFvtdhnlocg5VM
-	w+rkYATY
-X-Google-Smtp-Source: AGHT+IH6SoiBQNs1PH1vTbrMYUsHKkqHsvUt/WAb3Jw2stmLAuy5xH4GcliFnWQk/mAGB+AbBQaXgA==
-X-Received: by 2002:a17:906:23ea:b0:aa5:4731:1eaa with SMTP id a640c23a62f3a-aa547311fb0mr639351666b.50.1732617398459;
-        Tue, 26 Nov 2024 02:36:38 -0800 (PST)
-Received: from localhost (30.171.91.34.bc.googleusercontent.com. [34.91.171.30])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-aa53028b512sm455981766b.117.2024.11.26.02.36.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Nov 2024 02:36:38 -0800 (PST)
-From: Wojciech Macek <wmacek@chromium.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Rafal Milecki <rafal@milecki.pl>,
-	Hsin-Yi Wang <hsinyi@chromium.org>,
-	Sean Wang <sean.wang@mediatek.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Wojciech Macek <wmacek@chromium.org>
-Subject: [PATCH v3 2/2] arm64: dts: mediatek: mt8186: Add Starmie device
-Date: Tue, 26 Nov 2024 10:36:32 +0000
-Message-ID: <20241126103632.419469-3-wmacek@chromium.org>
-X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-In-Reply-To: <20241126103632.419469-1-wmacek@chromium.org>
-References: <20241126103632.419469-1-wmacek@chromium.org>
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BFC305C491C;
+	Tue, 26 Nov 2024 10:35:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBCC6C4CECF;
+	Tue, 26 Nov 2024 10:36:33 +0000 (UTC)
+Date: Tue, 26 Nov 2024 10:36:31 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-pm@vger.kernel.org, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, will@kernel.org, tglx@linutronix.de,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	x86@kernel.org, hpa@zytor.com, pbonzini@redhat.com,
+	vkuznets@redhat.com, rafael@kernel.org, daniel.lezcano@linaro.org,
+	peterz@infradead.org, arnd@arndb.de, lenb@kernel.org,
+	mark.rutland@arm.com, harisokn@amazon.com, mtosatti@redhat.com,
+	sudeep.holla@arm.com, cl@gentwo.org, maz@kernel.org,
+	misono.tomohiro@fujitsu.com, maobibo@loongson.cn,
+	zhenglifeng1@huawei.com, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Subject: Re: [PATCH v9 01/15] asm-generic: add barrier
+ smp_cond_load_relaxed_timeout()
+Message-ID: <Z0Wkr-BcSsSzFth8@arm.com>
+References: <20241107190818.522639-1-ankur.a.arora@oracle.com>
+ <20241107190818.522639-2-ankur.a.arora@oracle.com>
+ <878qt6h9kr.fsf@oracle.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <878qt6h9kr.fsf@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_023640_084016_7A5ED8FE 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20241126_023640_207228_3ED00821 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,586 +74,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Starmie Chromebooks.
+On Mon, Nov 25, 2024 at 09:01:56PM -0800, Ankur Arora wrote:
+> Ankur Arora <ankur.a.arora@oracle.com> writes:
+> > +/**
+> > + * smp_cond_load_relaxed_timeout() - (Spin) wait for cond with no ordering
+> > + * guarantees until a timeout expires.
+> > + * @ptr: pointer to the variable to wait on
+> > + * @cond: boolean expression to wait for
+> > + * @time_expr_ns: evaluates to the current time
+> > + * @time_limit_ns: compared against time_expr_ns
+> > + *
+> > + * Equivalent to using READ_ONCE() on the condition variable.
+> > + *
+> > + * Due to C lacking lambda expressions we load the value of *ptr into a
+> > + * pre-named variable @VAL to be used in @cond.
+> 
+> Based on the review comments so far I'm planning to add the following
+> text to this comment:
+> 
+>   Note that in the generic version the time check is done only coarsely
+>   to minimize instructions executed while spin-waiting.
+> 
+>   Architecture specific variations might also have their own timeout
+>   granularity.
 
-Signed-off-by: Wojciech Macek <wmacek@chromium.org>
----
-Changelog v3-v2:
- - Cleaned up DTS
-   - Re-using dsi_out node
-   - Removed unnecessary delete-nodes
-   - Moved touchpads to per-board dts
-   - Modified 3.3/6V power regulator node
-Changelog v2-v1:
- - No changes
- arch/arm64/boot/dts/mediatek/Makefile         |   2 +
- .../mediatek/mt8186-corsola-starmie-sku0.dts  |  31 ++
- .../mediatek/mt8186-corsola-starmie-sku1.dts  |  31 ++
- .../dts/mediatek/mt8186-corsola-starmie.dtsi  | 465 ++++++++++++++++++
- 4 files changed, 529 insertions(+)
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie-sku0.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie-sku1.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie.dtsi
+Looks good.
 
-diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
-index 8fd7b2bb7a15..2ee6266ddf43 100644
---- a/arch/arm64/boot/dts/mediatek/Makefile
-+++ b/arch/arm64/boot/dts/mediatek/Makefile
-@@ -59,6 +59,8 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8186-corsola-magneton-sku393216.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8186-corsola-magneton-sku393217.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8186-corsola-magneton-sku393218.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8186-corsola-rusty-sku196608.dtb
-+dtb-$(CONFIG_ARCH_MEDIATEK) += mt8186-corsola-starmie-sku0.dtb
-+dtb-$(CONFIG_ARCH_MEDIATEK) += mt8186-corsola-starmie-sku1.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8186-corsola-steelix-sku131072.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8186-corsola-steelix-sku131073.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8186-corsola-tentacool-sku327681.dtb
-diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie-sku0.dts b/arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie-sku0.dts
-new file mode 100644
-index 000000000000..23e194579bf2
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie-sku0.dts
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright 2023 Google LLC
-+ */
-+
-+/dts-v1/;
-+#include "mt8186-corsola-starmie.dtsi"
-+
-+/ {
-+	model = "Google Starmie sku0 board";
-+	compatible = "google,starmie-sku0", "google,starmie-sku2",
-+		     "google,starmie-sku3", "google,starmie",
-+		     "mediatek,mt8186";
-+};
-+
-+&panel {
-+	compatible = "starry,ili9882t";
-+};
-+
-+&i2c1 {
-+	touchscreen: touchscreen@41 {
-+		compatible = "ilitek,ili9882t";
-+		reg = <0x41>;
-+		interrupts-extended = <&pio 12 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&touchscreen_pins>;
-+		panel = <&panel>;
-+		reset-gpios = <&pio 60 GPIO_ACTIVE_LOW>;
-+		vccio-supply = <&mt6366_vio18_reg>;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie-sku1.dts b/arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie-sku1.dts
-new file mode 100644
-index 000000000000..77922d77859a
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie-sku1.dts
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright 2023 Google LLC
-+ */
-+
-+/dts-v1/;
-+#include "mt8186-corsola-starmie.dtsi"
-+
-+/ {
-+	model = "Google Starmie sku1 board";
-+	compatible = "google,starmie-sku1", "google,starmie-sku4",
-+		     "google,starmie", "mediatek,mt8186";
-+};
-+
-+&panel {
-+	compatible = "starry,himax83102-j02";
-+};
-+
-+&i2c1 {
-+	touchscreen_himax: touchscreen@4f {
-+		compatible = "hid-over-i2c";
-+		reg = <0x4f>;
-+		interrupts-extended = <&pio 12 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&touchscreen_pins>;
-+		vdd-supply = <&mt6366_vio18_reg>;
-+		panel = <&panel>;
-+		post-power-on-delay-ms = <450>;
-+		hid-descr-addr = <0x0001>;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie.dtsi b/arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie.dtsi
-new file mode 100644
-index 000000000000..211748437baf
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie.dtsi
-@@ -0,0 +1,465 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright 2023 Google LLC
-+ */
-+
-+/dts-v1/;
-+#include "mt8186-corsola.dtsi"
-+
-+/ {
-+	en_pp6000_mipi_disp_150ma: en-pp6000-mipi-disp-150ma {
-+		compatible = "regulator-fixed";
-+		regulator-name = "en_pp6000_mipi_disp_150ma";
-+		gpio = <&pio 154 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&en_pp6000_mipi_disp_150ma_fixed_pins>;
-+	};
-+
-+	/*
-+	 * Starmie does not have 3.3V display regulator. It is replaced
-+	 * with 6V module for enabling panel, re-using eDP GPIOs.
-+	 */
-+	/delete-node/ pp3300_disp_x;
-+	en_pp6000_mipi_disp: en-regulator-pp6000-mipi-disp {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&edp_panel_fixed_pins>;
-+		gpios = <&pio 153 GPIO_ACTIVE_HIGH>;
-+		regulator-name = "en_pp6000_mipi_disp";
-+		enable-active-high;
-+		regulator-enable-ramp-delay = <3000>;
-+		vin-supply = <&pp3300_z2>;
-+	};
-+
-+	tboard_thermistor1: thermal-sensor1 {
-+		compatible = "generic-adc-thermal";
-+		#thermal-sensor-cells = <0>;
-+		io-channels = <&auxadc 0>;
-+		io-channel-names = "sensor-channel";
-+		temperature-lookup-table = <    (-5000) 1492
-+						0 1413
-+						5000 1324
-+						10000 1227
-+						15000 1121
-+						20000 1017
-+						25000 900
-+						30000 797
-+						35000 698
-+						40000 606
-+						45000 522
-+						50000 449
-+						55000 383
-+						60000 327
-+						65000 278
-+						70000 236
-+						75000 201
-+						80000 171
-+						85000 145
-+						90000 163
-+						95000 124
-+						100000 91
-+						105000 78
-+						110000 67
-+						115000 58
-+						120000 50
-+						125000 44>;
-+	};
-+
-+	tboard_thermistor2: thermal-sensor2 {
-+		compatible = "generic-adc-thermal";
-+		#thermal-sensor-cells = <0>;
-+		io-channels = <&auxadc 1>;
-+		io-channel-names = "sensor-channel";
-+		temperature-lookup-table = <    (-5000) 1492
-+						0 1413
-+						5000 1324
-+						10000 1227
-+						15000 1121
-+						20000 1017
-+						25000 900
-+						30000 797
-+						35000 698
-+						40000 606
-+						45000 522
-+						50000 449
-+						55000 383
-+						60000 327
-+						65000 278
-+						70000 236
-+						75000 201
-+						80000 171
-+						85000 145
-+						90000 163
-+						95000 124
-+						100000 91
-+						105000 78
-+						110000 67
-+						115000 58
-+						120000 50
-+						125000 44>;
-+	};
-+};
-+
-+/*
-+ * Starmie does not have EC keyboard. Remove default keyboard controller
-+ * and replace it with the driver for side switches.
-+ */
-+/delete-node/ &keyboard_controller;
-+
-+&cros_ec {
-+	cbas: cbas {
-+		compatible = "google,cros-cbas";
-+	};
-+
-+	keyboard-controller {
-+		compatible = "google,cros-ec-keyb-switches";
-+	};
-+};
-+
-+&dsi0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	panel: panel@0 {
-+		/* compatible will be set in board dts */
-+		reg = <0>;
-+		enable-gpios = <&pio 98 0>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&panel_pins_default>;
-+		avdd-supply = <&en_pp6000_mipi_disp>;
-+		avee-supply = <&en_pp6000_mipi_disp_150ma>;
-+		pp1800-supply = <&mt6366_vio18_reg>;
-+		backlight = <&backlight_lcd0>;
-+		rotation = <270>;
-+		port {
-+			panel_in: endpoint {
-+				remote-endpoint = <&dsi_out>;
-+			};
-+		};
-+	};
-+};
-+
-+&dsi_out {
-+	remote-endpoint = <&panel_in>;
-+};
-+
-+&i2c0 {
-+	status = "disabled";
-+};
-+
-+&i2c2 {
-+	status = "disabled";
-+};
-+
-+&i2c4 {
-+	status = "disabled";
-+};
-+
-+&i2c5 {
-+	clock-frequency = <400000>;
-+};
-+
-+&mmc1_pins_default {
-+	pins-clk {
-+		drive-strength = <8>;
-+	};
-+
-+	pins-cmd-dat {
-+		drive-strength = <8>;
-+	};
-+};
-+
-+&mmc1_pins_uhs {
-+	pins-clk {
-+		drive-strength = <8>;
-+	};
-+
-+	pins-cmd-dat {
-+		drive-strength = <8>;
-+	};
-+};
-+
-+&pen_insert {
-+	wakeup-event-action = <EV_ACT_ANY>;
-+};
-+
-+&pio {
-+	/* 185 lines */
-+	gpio-line-names = "TP",
-+			  "TP",
-+			  "TP",
-+			  "I2S0_HP_DI",
-+			  "I2S3_DP_SPKR_DO",
-+			  "SAR_INT_ODL",
-+			  "BT_WAKE_AP_ODL",
-+			  "WIFI_INT_ODL",
-+			  "DPBRDG_INT_ODL",
-+			  "NC",
-+			  "EC_AP_HPD_OD",
-+			  "NC",
-+			  "TCHSCR_INT_1V8_ODL",
-+			  "EC_AP_INT_ODL",
-+			  "EC_IN_RW_ODL",
-+			  "GSC_AP_INT_ODL",
-+			  /*
-+			   * AP_FLASH_WP_L is crossystem ABI. Rev1 schematics
-+			   * call it AP_WP_ODL.
-+			   */
-+			  "AP_FLASH_WP_L",
-+			  "HP_INT_ODL",
-+			  "PEN_EJECT_OD",
-+			  "NC",
-+			  "NC",
-+			  "UCAM_SEN_EN",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "I2S2_DP_SPK_MCK",
-+			  "I2S2_DP_SPKR_BCK",
-+			  "I2S2_DP_SPKR_LRCK",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "UART_GSC_TX_AP_RX",
-+			  "UART_AP_TX_GSC_RX",
-+			  "UART_DBGCON_TX_ADSP_RX",
-+			  "UART_ADSP_TX_DBGCON_RX",
-+			  "NC",
-+			  "TCHSCR_REPORT_DISABLE",
-+			  "NC",
-+			  "EN_PP1800_DPBRDG",
-+			  "SPI_AP_CLK_EC",
-+			  "SPI_AP_CS_EC_L",
-+			  "SPI_AP_DO_EC_DI",
-+			  "SPI_AP_DI_EC_DO",
-+			  "SPI_AP_CLK_GSC",
-+			  "SPI_AP_CS_GSC_L",
-+			  "SPI_AP_DO_GSC_DI",
-+			  "SPI_AP_DI_GSC_DO",
-+			  "UART_DBGCON_TX_SCP_RX",
-+			  "UART_SCP_TX_DBGCON_RX",
-+			  "EN_PP1200_CAM_X",
-+			  "WLAN_MODULE_RST_L",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "I2S1_HP_DO",
-+			  "I2S1_HP_BCK",
-+			  "I2S1_HP_LRCK",
-+			  "I2S1_HP_MCK",
-+			  "TCHSCR_RST_1V8_L",
-+			  "SPI_AP_CLK_ROM",
-+			  "SPI_AP_CS_ROM_L",
-+			  "SPI_AP_DO_ROM_DI",
-+			  "SPI_AP_DI_ROM_DO",
-+			  "NC",
-+			  "NC",
-+			  "EMMC_STRB",
-+			  "EMMC_CLK",
-+			  "EMMC_CMD",
-+			  "EMMC_RST_L",
-+			  "EMMC_DATA0",
-+			  "EMMC_DATA1",
-+			  "EMMC_DATA2",
-+			  "EMMC_DATA3",
-+			  "EMMC_DATA4",
-+			  "EMMC_DATA5",
-+			  "EMMC_DATA6",
-+			  "EMMC_DATA7",
-+			  "AP_KPCOL0",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "TP",
-+			  "SDIO_CLK",
-+			  "SDIO_CMD",
-+			  "SDIO_DATA0",
-+			  "SDIO_DATA1",
-+			  "SDIO_DATA2",
-+			  "SDIO_DATA3",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "MIPI_BL_PWM_1V8",
-+			  "DISP_RST_1V8_L",
-+			  "MIPI_DPI_CLK",
-+			  "MIPI_DPI_VSYNC",
-+			  "MIPI_DPI_HSYNC",
-+			  "MIPI_DPI_DE",
-+			  "MIPI_DPI_D0",
-+			  "MIPI_DPI_D1",
-+			  "MIPI_DPI_D2",
-+			  "MIPI_DPI_D3",
-+			  "MIPI_DPI_D4",
-+			  "MIPI_DPI_D5",
-+			  "MIPI_DPI_D6",
-+			  "MIPI_DPI_DA7",
-+			  "MIPI_DPI_D8",
-+			  "MIPI_DPI_D9",
-+			  "MIPI_DPI_D10",
-+			  "MIPI_DPI_D11",
-+			  "PCM_BT_CLK",
-+			  "PCM_BT_SYNC",
-+			  "PCM_BT_DI",
-+			  "PCM_BT_DO",
-+			  "JTAG_TMS_TP",
-+			  "JTAG_TCK_TP",
-+			  "JTAG_TDI_TP",
-+			  "JTAG_TDO_TP",
-+			  "JTAG_TRSTN_TP",
-+			  "NC",
-+			  "NC",
-+			  "UCAM_DET_ODL",
-+			  "NC",
-+			  "NC",
-+			  "AP_I2C_TCHSCR_SCL_1V8",
-+			  "AP_I2C_TCHSCR_SDA_1V8",
-+			  "NC",
-+			  "NC",
-+			  "AP_I2C_DPBRDG_SCL_1V8",
-+			  "AP_I2C_DPBRDG_SDA_1V8",
-+			  "NC",
-+			  "NC",
-+			  "AP_I2C_AUD_SCL_1V8",
-+			  "AP_I2C_AUD_SDA_1V8",
-+			  "AP_I2C_DISP_SCL_1V8",
-+			  "AP_I2C_DISP_SDA_1V8",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "SCP_I2C_SENSOR_SCL_1V8",
-+			  "SCP_I2C_SENSOR_SDA_1V8",
-+			  "AP_EC_WARM_RST_REQ",
-+			  "AP_XHCI_INIT_DONE",
-+			  "USB3_HUB_RST_L",
-+			  "EN_SPKR",
-+			  "BEEP_ON",
-+			  "AP_DISP_BKLTEN",
-+			  "EN_PP6000_MIPI_DISP",
-+			  "EN_PP6000_MIPI_DISP_150MA",
-+			  "BT_KILL_1V8_L",
-+			  "WIFI_KILL_1V8_L",
-+			  "PWRAP_SPI0_CSN",
-+			  "PWRAP_SPI0_CK",
-+			  "PWRAP_SPI0_MO",
-+			  "PWRAP_SPI0_MI",
-+			  "SRCLKENA0",
-+			  "SRCLKENA1",
-+			  "SCP_VREQ_VAO",
-+			  "AP_RTC_CLK32K",
-+			  "AP_PMIC_WDTRST_L",
-+			  "AUD_CLK_MOSI",
-+			  "AUD_SYNC_MOSI",
-+			  "AUD_DAT_MOSI0",
-+			  "AUD_DAT_MOSI1",
-+			  "AUD_CLK_MISO",
-+			  "AUD_SYNC_MISO",
-+			  "AUD_DAT_MISO0",
-+			  "AUD_DAT_MISO1",
-+			  "NC",
-+			  "NC",
-+			  "NC",
-+			  "DPBRDG_RST_L",
-+			  "LTE_W_DISABLE_L",
-+			  "LTE_SAR_DETECT_L",
-+			  "EN_PP3300_LTE_X",
-+			  "LTE_PWR_OFF_L",
-+			  "LTE_RESET_L",
-+			  "TP",
-+			  "TP";
-+
-+	dpi_pin_default: dpi-pin-default {
-+		pins-cmd-dat {
-+			pinmux = <PINMUX_GPIO103__FUNC_GPIO103>,
-+				 <PINMUX_GPIO104__FUNC_GPIO104>,
-+				 <PINMUX_GPIO105__FUNC_GPIO105>,
-+				 <PINMUX_GPIO106__FUNC_GPIO106>,
-+				 <PINMUX_GPIO107__FUNC_GPIO107>,
-+				 <PINMUX_GPIO108__FUNC_GPIO108>,
-+				 <PINMUX_GPIO109__FUNC_GPIO109>,
-+				 <PINMUX_GPIO110__FUNC_GPIO110>,
-+				 <PINMUX_GPIO111__FUNC_GPIO111>,
-+				 <PINMUX_GPIO112__FUNC_GPIO112>,
-+				 <PINMUX_GPIO113__FUNC_GPIO113>,
-+				 <PINMUX_GPIO114__FUNC_GPIO114>,
-+				 <PINMUX_GPIO101__FUNC_GPIO101>,
-+				 <PINMUX_GPIO100__FUNC_GPIO100>,
-+				 <PINMUX_GPIO102__FUNC_GPIO102>,
-+				 <PINMUX_GPIO99__FUNC_GPIO99>;
-+			drive-strength = <10>;
-+			output-low;
-+		};
-+	};
-+
-+	dpi_pin_func: dpi-pin-func {
-+		pins-cmd-dat {
-+			pinmux = <PINMUX_GPIO103__FUNC_DPI_DATA0>,
-+				 <PINMUX_GPIO104__FUNC_DPI_DATA1>,
-+				 <PINMUX_GPIO105__FUNC_DPI_DATA2>,
-+				 <PINMUX_GPIO106__FUNC_DPI_DATA3>,
-+				 <PINMUX_GPIO107__FUNC_DPI_DATA4>,
-+				 <PINMUX_GPIO108__FUNC_DPI_DATA5>,
-+				 <PINMUX_GPIO109__FUNC_DPI_DATA6>,
-+				 <PINMUX_GPIO110__FUNC_DPI_DATA7>,
-+				 <PINMUX_GPIO111__FUNC_DPI_DATA8>,
-+				 <PINMUX_GPIO112__FUNC_DPI_DATA9>,
-+				 <PINMUX_GPIO113__FUNC_DPI_DATA10>,
-+				 <PINMUX_GPIO114__FUNC_DPI_DATA11>,
-+				 <PINMUX_GPIO101__FUNC_DPI_HSYNC>,
-+				 <PINMUX_GPIO100__FUNC_DPI_VSYNC>,
-+				 <PINMUX_GPIO102__FUNC_DPI_DE>,
-+				 <PINMUX_GPIO99__FUNC_DPI_PCLK>;
-+			drive-strength = <10>;
-+		};
-+	};
-+
-+	en_pp6000_mipi_disp_150ma_fixed_pins: en_pp6000-mipi-disp-150ma-fixed-pins {
-+		pins-en {
-+			pinmux = <PINMUX_GPIO154__FUNC_GPIO154>;
-+			output-low;
-+		};
-+	};
-+
-+	panel_pins_default: panel-pins-default {
-+		pins-en {
-+			pinmux = <PINMUX_GPIO98__FUNC_GPIO98>;
-+			output-low;
-+		};
-+	};
-+};
-+
-+&usb_c1 {
-+	status = "disabled";
-+};
-+
-+&thermal_zones {
-+	tboard1 {
-+		polling-delay = <1000>; /* milliseconds */
-+		polling-delay-passive = <0>; /* milliseconds */
-+		thermal-sensors = <&tboard_thermistor1>;
-+	};
-+
-+	tboard2 {
-+		polling-delay = <1000>; /* milliseconds */
-+		polling-delay-passive = <0>; /* milliseconds */
-+		thermal-sensors = <&tboard_thermistor2>;
-+	};
-+};
-+
-+&wifi_pwrseq {
-+	reset-gpios = <&pio 51 1>;
-+};
-+
-+/*
-+ * Battery on Starmie is using a different address than default.
-+ */
-+&battery {
-+	reg = <0xf>;
-+};
+> Meanwhile, would appreciate more reviews.
+
+It's the middle of the merging window, usually not much review happens
+unless they are fixes/regressions.
+
 -- 
-2.47.0.338.g60cca15819-goog
-
+Catalin
 
