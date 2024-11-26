@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F0AD3B7C1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:29:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C89FD3B7CA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mDzGazdSdeqAUGNAn5wuH8X9eWo9ToswwiNMcCeAoaY=; b=wEUYRHGz1XloWrurjYO+jokcNw
-	cuiwsg7GTIgIB4Pc6OPvLbCgRCa1To570HnH7O6glpD3lvWvg1uTpPxKXjZtqVLX9S/bllNP4U8ZH
-	cTasx2zwhOeIbVuI5lWHMgeltWAtdbAsHyzgtfOcOVCLvdqNJNbwliFuDWlXMbEl3o0j7SV566Hvp
-	ayHo2P1vCc0ND8SSo/J5+5MtCnwLi5NUm9VYM9h381Kww8YeOuFGKlL3sxA2fZYH1RbSgGMImUnK7
-	U299VYw529ISM2lXeqn/oRDxfSnvxLLt5e/FMGuerdyibhdFXPxyiGT06FXli6F6YOsrTeHs/CATb
-	kOJspIQQ==;
+	bh=538ON5EPZTBMBX3+al1tdLxWXuKOKR+PvV1XuIE1imE=; b=Ni5Agw1OoQvImTsN5sbqI3bUbL
+	FFhl1jBafajKFfGXr+2Nh7TlVoD9P/b9iiDm+Wd5uuXfYRiMethPzk69Spdwl/PyeKz3FcYOLB31o
+	uXTkh31MDjiQxGFtumZWHAZbjSWW14IGW8BiJ4884jCW9XSVNXlF1MWN+n+OfL00oVVteoMNDsM8m
+	2TeBEbcSgqNM5HstCH+OtZ8kx57LbJuaGCA8+e8mE5NorcTW4rAJ2k1xD/Q3OTwxqKTJR3mfwWhSd
+	Z17XLjyYkHZcY3yJm4hEMh3BBnB8keSpoKUNRSIEi48wVnF70AZbrfrwmwcMFzTdmXZhghwYf2hjR
+	9kTm4WHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFrsZ-0000000A9Tm-1hc9;
-	Tue, 26 Nov 2024 09:29:07 +0000
+	id 1tFrtV-0000000A9fP-2ipT;
+	Tue, 26 Nov 2024 09:30:05 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFroE-0000000A8OX-3Xn3;
-	Tue, 26 Nov 2024 09:24:40 +0000
+	id 1tFroJ-0000000A8P8-0E5e;
+	Tue, 26 Nov 2024 09:24:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=mDzGazdSdeqAUGNAn5wuH8X9eWo9ToswwiNMcCeAoaY=; b=Bngp1UpjpHnm79JFKfpzKKtVl4
-	FrgV93Y2hT7m82AKx+XBfZY2Q+9+Peg3x1lFx83rI8JM/dBORSKlFTp9XoJH7uJhyalpDP9T5xgS5
-	5sUSXfgdXM18PNTdXj0Pk8iYs89Nifuhgp9BhMYxfe6jdJZn6kv0YvP/l7qqO8lirPexdSIDLZlBh
-	Uwlp3POxrHpGs2/xCxyRwiwqJUCuy95+8lCmeBjUyp218f7yFLHGNHnYZb4jFUBlXPizHfKy6WV92
-	WjV2c9vtK5ab/rvxwiZ65NpUN7S05CgL2pjcKWSFGYBURYS3ZaWrb4rjrbrWASTTNtk0iUxLvK41I
-	3FBfLg/w==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35826 helo=rmk-PC.armlinux.org.uk)
+	bh=538ON5EPZTBMBX3+al1tdLxWXuKOKR+PvV1XuIE1imE=; b=S11dqHZK7HrPo/UXqJai8zRyvl
+	1JuxX7nIV7wvR4ffWWtihwnXdH2MyJzO1NRQ5V4sxZDeY3fuYYTbir1JxOKsBcFs4YXToaesHyZqw
+	XgcerYg5PL+2cANaFi9DKegtqevg4wzGGCBkJTO0UkQ59ueG2XkPOZ944KPH3zE/vX8Fqu+t5j/iy
+	TddSLwbKQhMe6WXuHqURWFvfqVUVzW4worReUja5FQyweE4O+QYYn026hv4P/dsFGKO6+8LvLIVfD
+	TBvC4ZU9pFe5VHtyW8dga3EUl1mnu8JznvfzFEpfkdjYnuUirUo54tsHl2BKOiBlmWQKkC9Ka0m97
+	YkprexXA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:37306 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tFro2-0006S3-2R;
-	Tue, 26 Nov 2024 09:24:27 +0000
+	id 1tFro8-0006SK-1F;
+	Tue, 26 Nov 2024 09:24:32 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tFro1-005xPk-O5; Tue, 26 Nov 2024 09:24:25 +0000
+	id 1tFro6-005xPq-S1; Tue, 26 Nov 2024 09:24:30 +0000
 In-Reply-To: <Z0WTpE8wkpjMiv_J@shell.armlinux.org.uk>
 References: <Z0WTpE8wkpjMiv_J@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -69,17 +69,17 @@ Cc: Alexander Couzens <lynxis@fe80.eu>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH RFC net-next 02/16] net: phylink: split cur_link_an_mode into
- requested and active
+Subject: [PATCH RFC net-next 03/16] net: phylink: add debug for
+ phylink_major_config()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tFro1-005xPk-O5@rmk-PC.armlinux.org.uk>
-Date: Tue, 26 Nov 2024 09:24:25 +0000
+Message-Id: <E1tFro6-005xPq-S1@rmk-PC.armlinux.org.uk>
+Date: Tue, 26 Nov 2024 09:24:30 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_012439_040864_FBA8A00A 
-X-CRM114-Status: GOOD (  21.69  )
+X-CRM114-CacheID: sfid-20241126_012443_087928_6E510319 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,289 +94,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is an interdependence between the current link_an_mode and
-pcs_neg_mode that some drivers rely upon to know whether inband or PHY
-mode will be used.
-
-In order to support detection of PCS and PHY inband capabilities
-resulting in automatic selection of inband or PHY mode, we need to
-cater for this, and support changing the MAC link_an_mode. However, we
-end up with an inter-dependency between the current link_an_mode and
-pcs_neg_mode.
-
-To solve this, split the current link_an_mode into the requested
-link_an_mode and active link_an_mode. The requested link_an_mode will
-always be passed to phylink_pcs_neg_mode(), and the active link_an_mode
-will be used for everything else, and only updated during
-phylink_major_config(). This will ensure that phylink_pcs_neg_mode()'s
-link_an_mode will not depend on the active link_an_mode that will,
-in a future patch, depend on pcs_neg_mode.
+Now that we have a more complexity in phylink_major_config(), augment
+the debugging so we can see what's going on there.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/phy/phylink.c | 60 ++++++++++++++++++++-------------------
- 1 file changed, 31 insertions(+), 29 deletions(-)
+ drivers/net/phy/phylink.c | 27 ++++++++++++++++++++++++++-
+ 1 file changed, 26 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index 8a43b81d5846..43a817de4bc8 100644
+index 43a817de4bc8..e43a083cec57 100644
 --- a/drivers/net/phy/phylink.c
 +++ b/drivers/net/phy/phylink.c
-@@ -56,7 +56,8 @@ struct phylink {
- 	struct phy_device *phydev;
- 	phy_interface_t link_interface;	/* PHY_INTERFACE_xxx */
- 	u8 cfg_link_an_mode;		/* MLO_AN_xxx */
--	u8 cur_link_an_mode;
-+	u8 req_link_an_mode;		/* Requested MLO_AN_xxx mode */
-+	u8 act_link_an_mode;		/* Active MLO_AN_xxx mode */
- 	u8 link_port;			/* The current non-phy ethtool port */
- 	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported);
- 
-@@ -1065,13 +1066,13 @@ static void phylink_mac_config(struct phylink *pl,
- 
- 	phylink_dbg(pl,
- 		    "%s: mode=%s/%s/%s adv=%*pb pause=%02x\n",
--		    __func__, phylink_an_mode_str(pl->cur_link_an_mode),
-+		    __func__, phylink_an_mode_str(pl->act_link_an_mode),
- 		    phy_modes(st.interface),
- 		    phy_rate_matching_to_str(st.rate_matching),
- 		    __ETHTOOL_LINK_MODE_MASK_NBITS, st.advertising,
- 		    st.pause);
- 
--	pl->mac_ops->mac_config(pl->config, pl->cur_link_an_mode, &st);
-+	pl->mac_ops->mac_config(pl->config, pl->act_link_an_mode, &st);
+@@ -175,6 +175,24 @@ static const char *phylink_an_mode_str(unsigned int mode)
+ 	return mode < ARRAY_SIZE(modestr) ? modestr[mode] : "unknown";
  }
  
- static void phylink_pcs_an_restart(struct phylink *pl)
-@@ -1079,7 +1080,7 @@ static void phylink_pcs_an_restart(struct phylink *pl)
- 	if (pl->pcs && linkmode_test_bit(ETHTOOL_LINK_MODE_Autoneg_BIT,
- 					 pl->link_config.advertising) &&
- 	    phy_interface_mode_is_8023z(pl->link_config.interface) &&
--	    phylink_autoneg_inband(pl->cur_link_an_mode))
-+	    phylink_autoneg_inband(pl->act_link_an_mode))
- 		pl->pcs->ops->pcs_an_restart(pl->pcs);
- }
- 
-@@ -1109,7 +1110,7 @@ static void phylink_pcs_neg_mode(struct phylink *pl, struct phylink_pcs *pcs,
++static const char *phylink_pcs_mode_str(unsigned int mode)
++{
++	if (!mode)
++		return "none";
++
++	if (mode & PHYLINK_PCS_NEG_OUTBAND)
++		return "outband";
++
++	if (mode & PHYLINK_PCS_NEG_INBAND) {
++		if (mode & PHYLINK_PCS_NEG_ENABLED)
++			return "inband,an-enabled";
++		else
++			return "inband,an-disabled";
++	}
++
++	return "unknown";
++}
++
+ static unsigned int phylink_interface_signal_rate(phy_interface_t interface)
  {
- 	unsigned int neg_mode, mode;
- 
--	mode = pl->cur_link_an_mode;
-+	mode = pl->req_link_an_mode;
- 
  	switch (interface) {
- 	case PHY_INTERFACE_MODE_SGMII:
-@@ -1151,6 +1152,7 @@ static void phylink_pcs_neg_mode(struct phylink *pl, struct phylink_pcs *pcs,
- 	}
+@@ -1164,7 +1182,9 @@ static void phylink_major_config(struct phylink *pl, bool restart,
+ 	unsigned int neg_mode;
+ 	int err;
  
- 	pl->pcs_neg_mode = neg_mode;
-+	pl->act_link_an_mode = mode;
- }
+-	phylink_dbg(pl, "major config %s\n", phy_modes(state->interface));
++	phylink_dbg(pl, "major config, requested %s/%s\n",
++		    phylink_an_mode_str(pl->req_link_an_mode),
++		    phy_modes(state->interface));
  
- static void phylink_major_config(struct phylink *pl, bool restart,
-@@ -1181,7 +1183,7 @@ static void phylink_major_config(struct phylink *pl, bool restart,
+ 	if (pl->mac_ops->mac_select_pcs) {
+ 		pcs = pl->mac_ops->mac_select_pcs(pl->config, state->interface);
+@@ -1180,6 +1200,11 @@ static void phylink_major_config(struct phylink *pl, bool restart,
+ 
+ 	phylink_pcs_neg_mode(pl, pcs, state->interface, state->advertising);
+ 
++	phylink_dbg(pl, "major config, active %s/%s/%s\n",
++		    phylink_an_mode_str(pl->act_link_an_mode),
++		    phylink_pcs_mode_str(pl->pcs_neg_mode),
++		    phy_modes(state->interface));
++
  	phylink_pcs_poll_stop(pl);
  
  	if (pl->mac_ops->mac_prepare) {
--		err = pl->mac_ops->mac_prepare(pl->config, pl->cur_link_an_mode,
-+		err = pl->mac_ops->mac_prepare(pl->config, pl->act_link_an_mode,
- 					       state->interface);
- 		if (err < 0) {
- 			phylink_err(pl, "mac_prepare failed: %pe\n",
-@@ -1215,7 +1217,7 @@ static void phylink_major_config(struct phylink *pl, bool restart,
- 	if (pl->pcs_state == PCS_STATE_STARTING || pcs_changed)
- 		phylink_pcs_enable(pl->pcs);
- 
--	neg_mode = pl->cur_link_an_mode;
-+	neg_mode = pl->act_link_an_mode;
- 	if (pl->pcs && pl->pcs->neg_mode)
- 		neg_mode = pl->pcs_neg_mode;
- 
-@@ -1231,7 +1233,7 @@ static void phylink_major_config(struct phylink *pl, bool restart,
- 		phylink_pcs_an_restart(pl);
- 
- 	if (pl->mac_ops->mac_finish) {
--		err = pl->mac_ops->mac_finish(pl->config, pl->cur_link_an_mode,
-+		err = pl->mac_ops->mac_finish(pl->config, pl->act_link_an_mode,
- 					      state->interface);
- 		if (err < 0)
- 			phylink_err(pl, "mac_finish failed: %pe\n",
-@@ -1262,7 +1264,7 @@ static int phylink_change_inband_advert(struct phylink *pl)
- 		return 0;
- 
- 	phylink_dbg(pl, "%s: mode=%s/%s adv=%*pb pause=%02x\n", __func__,
--		    phylink_an_mode_str(pl->cur_link_an_mode),
-+		    phylink_an_mode_str(pl->req_link_an_mode),
- 		    phy_modes(pl->link_config.interface),
- 		    __ETHTOOL_LINK_MODE_MASK_NBITS, pl->link_config.advertising,
- 		    pl->link_config.pause);
-@@ -1271,7 +1273,7 @@ static int phylink_change_inband_advert(struct phylink *pl)
- 	phylink_pcs_neg_mode(pl, pl->pcs, pl->link_config.interface,
- 			     pl->link_config.advertising);
- 
--	neg_mode = pl->cur_link_an_mode;
-+	neg_mode = pl->act_link_an_mode;
- 	if (pl->pcs->neg_mode)
- 		neg_mode = pl->pcs_neg_mode;
- 
-@@ -1336,7 +1338,7 @@ static void phylink_mac_initial_config(struct phylink *pl, bool force_restart)
- {
- 	struct phylink_link_state link_state;
- 
--	switch (pl->cur_link_an_mode) {
-+	switch (pl->req_link_an_mode) {
- 	case MLO_AN_PHY:
- 		link_state = pl->phy_state;
- 		break;
-@@ -1410,14 +1412,14 @@ static void phylink_link_up(struct phylink *pl,
- 
- 	pl->cur_interface = link_state.interface;
- 
--	neg_mode = pl->cur_link_an_mode;
-+	neg_mode = pl->act_link_an_mode;
- 	if (pl->pcs && pl->pcs->neg_mode)
- 		neg_mode = pl->pcs_neg_mode;
- 
- 	phylink_pcs_link_up(pl->pcs, neg_mode, pl->cur_interface, speed,
- 			    duplex);
- 
--	pl->mac_ops->mac_link_up(pl->config, pl->phydev, pl->cur_link_an_mode,
-+	pl->mac_ops->mac_link_up(pl->config, pl->phydev, pl->act_link_an_mode,
- 				 pl->cur_interface, speed, duplex,
- 				 !!(link_state.pause & MLO_PAUSE_TX), rx_pause);
- 
-@@ -1437,7 +1439,7 @@ static void phylink_link_down(struct phylink *pl)
- 
- 	if (ndev)
- 		netif_carrier_off(ndev);
--	pl->mac_ops->mac_link_down(pl->config, pl->cur_link_an_mode,
-+	pl->mac_ops->mac_link_down(pl->config, pl->act_link_an_mode,
- 				   pl->cur_interface);
- 	phylink_info(pl, "Link is Down\n");
- }
-@@ -1463,10 +1465,10 @@ static void phylink_resolve(struct work_struct *w)
- 	} else if (pl->link_failed) {
- 		link_state.link = false;
- 		retrigger = true;
--	} else if (pl->cur_link_an_mode == MLO_AN_FIXED) {
-+	} else if (pl->act_link_an_mode == MLO_AN_FIXED) {
- 		phylink_get_fixed_state(pl, &link_state);
- 		mac_config = link_state.link;
--	} else if (pl->cur_link_an_mode == MLO_AN_PHY) {
-+	} else if (pl->act_link_an_mode == MLO_AN_PHY) {
- 		link_state = pl->phy_state;
- 		mac_config = link_state.link;
- 	} else {
-@@ -1520,7 +1522,7 @@ static void phylink_resolve(struct work_struct *w)
- 		}
- 	}
- 
--	if (pl->cur_link_an_mode != MLO_AN_FIXED)
-+	if (pl->act_link_an_mode != MLO_AN_FIXED)
- 		phylink_apply_manual_flow(pl, &link_state);
- 
- 	if (mac_config) {
-@@ -1644,7 +1646,7 @@ int phylink_set_fixed_link(struct phylink *pl,
- 	pl->link_config.an_complete = 1;
- 
- 	pl->cfg_link_an_mode = MLO_AN_FIXED;
--	pl->cur_link_an_mode = pl->cfg_link_an_mode;
-+	pl->req_link_an_mode = pl->cfg_link_an_mode;
- 
- 	return 0;
- }
-@@ -1732,7 +1734,7 @@ struct phylink *phylink_create(struct phylink_config *config,
- 		}
- 	}
- 
--	pl->cur_link_an_mode = pl->cfg_link_an_mode;
-+	pl->req_link_an_mode = pl->cfg_link_an_mode;
- 
- 	ret = phylink_register_sfp(pl, fwnode);
- 	if (ret < 0) {
-@@ -2198,7 +2200,7 @@ void phylink_start(struct phylink *pl)
- 	ASSERT_RTNL();
- 
- 	phylink_info(pl, "configuring for %s/%s link mode\n",
--		     phylink_an_mode_str(pl->cur_link_an_mode),
-+		     phylink_an_mode_str(pl->req_link_an_mode),
- 		     phy_modes(pl->link_config.interface));
- 
- 	/* Always set the carrier off */
-@@ -2483,7 +2485,7 @@ int phylink_ethtool_ksettings_get(struct phylink *pl,
- 
- 	linkmode_copy(kset->link_modes.supported, pl->supported);
- 
--	switch (pl->cur_link_an_mode) {
-+	switch (pl->act_link_an_mode) {
- 	case MLO_AN_FIXED:
- 		/* We are using fixed settings. Report these as the
- 		 * current link settings - and note that these also
-@@ -2575,7 +2577,7 @@ int phylink_ethtool_ksettings_set(struct phylink *pl,
- 		/* If we have a fixed link, refuse to change link parameters.
- 		 * If the link parameters match, accept them but do nothing.
- 		 */
--		if (pl->cur_link_an_mode == MLO_AN_FIXED) {
-+		if (pl->req_link_an_mode == MLO_AN_FIXED) {
- 			if (s->speed != pl->link_config.speed ||
- 			    s->duplex != pl->link_config.duplex)
- 				return -EINVAL;
-@@ -2591,7 +2593,7 @@ int phylink_ethtool_ksettings_set(struct phylink *pl,
- 		 * is our default case) but do not allow the advertisement to
- 		 * be changed. If the advertisement matches, simply return.
- 		 */
--		if (pl->cur_link_an_mode == MLO_AN_FIXED) {
-+		if (pl->req_link_an_mode == MLO_AN_FIXED) {
- 			if (!linkmode_equal(config.advertising,
- 					    pl->link_config.advertising))
- 				return -EINVAL;
-@@ -2626,7 +2628,7 @@ int phylink_ethtool_ksettings_set(struct phylink *pl,
- 		linkmode_copy(support, pl->supported);
- 		if (phylink_validate(pl, support, &config)) {
- 			phylink_err(pl, "validation of %s/%s with support %*pb failed\n",
--				    phylink_an_mode_str(pl->cur_link_an_mode),
-+				    phylink_an_mode_str(pl->req_link_an_mode),
- 				    phy_modes(config.interface),
- 				    __ETHTOOL_LINK_MODE_MASK_NBITS, support);
- 			return -EINVAL;
-@@ -2726,7 +2728,7 @@ int phylink_ethtool_set_pauseparam(struct phylink *pl,
- 
- 	ASSERT_RTNL();
- 
--	if (pl->cur_link_an_mode == MLO_AN_FIXED)
-+	if (pl->req_link_an_mode == MLO_AN_FIXED)
- 		return -EOPNOTSUPP;
- 
- 	if (!phylink_test(pl->supported, Pause) &&
-@@ -2990,7 +2992,7 @@ static int phylink_mii_read(struct phylink *pl, unsigned int phy_id,
- 	struct phylink_link_state state;
- 	int val = 0xffff;
- 
--	switch (pl->cur_link_an_mode) {
-+	switch (pl->act_link_an_mode) {
- 	case MLO_AN_FIXED:
- 		if (phy_id == 0) {
- 			phylink_get_fixed_state(pl, &state);
-@@ -3015,7 +3017,7 @@ static int phylink_mii_read(struct phylink *pl, unsigned int phy_id,
- static int phylink_mii_write(struct phylink *pl, unsigned int phy_id,
- 			     unsigned int reg, unsigned int val)
- {
--	switch (pl->cur_link_an_mode) {
-+	switch (pl->act_link_an_mode) {
- 	case MLO_AN_FIXED:
- 		break;
- 
-@@ -3205,9 +3207,9 @@ static void phylink_sfp_set_config(struct phylink *pl, u8 mode,
- 		changed = true;
- 	}
- 
--	if (pl->cur_link_an_mode != mode ||
-+	if (pl->req_link_an_mode != mode ||
- 	    pl->link_config.interface != state->interface) {
--		pl->cur_link_an_mode = mode;
-+		pl->req_link_an_mode = mode;
- 		pl->link_config.interface = state->interface;
- 
- 		changed = true;
 -- 
 2.30.2
 
