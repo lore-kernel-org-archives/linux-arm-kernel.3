@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 350EBD3B997
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 14:39:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9D05D3B996
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 14:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1iSGMgk2XhaNkCZru0Vjri3k7tZbTyfAEgooxKB5sLs=; b=1jKokGBksjY2+jn0rCSxtwWfbL
-	vDsc+KqML32UqefSB8E3T/nGYZLsRhUWBzq8iox3O8FG/4xgjKKyfNt9TsTgNJCn36nbJz0cFEMd6
-	Hkkf2Jbi5u0ZKqBnDyX5fEvITaYlVrIie4lZxok7beInGo7PQoBSf8xceOYqD/P6f7BW/ncQE9kpP
-	9ZE4Qa+8XmWQB3I3lmMTaOm3pY2vOWnga4h0G7EK8wdwxBwUd+Kc19AU03JXHnI/fveZVE+MDxr70
-	YMjpUlvGqaxbCiwiqIk+lRQ6UXGgCR2NmrQjaYGtHwg/2GOYg/9sdQPpNbhaqevyZnmicRKXvGcRd
-	us9xggBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4bu0xWIOHg/kch0tDd6T57D6XaEPKGxVRlC4lB4V+8c=; b=ShiBkJn2AkwckU3HoIO9zZ5kyK
+	dPsNRMKe8LHeo+wVflkK9Jde7ZBn9REszjCOXacGVYNAgdG3S50sIwZPmwu236G2YAs8nc1i/Aoko
+	h0WZPfnwxEpP9+cd1vuyUDWp05lAWPapCN/MR+lllRINYwxhDgH7bmV6U21IhRcN4gxCm/rpgvtq+
+	h68VaoWPzEsT/we2fZYioTHNDIe1nWWrL7ip4xb6GZ39eQn4pypg4QZPe7qofrLSOPTt9nVEFAab8
+	6/qlsuFlvybWIeaDIK5kIIsvPmcigfuqUhffJVW/h1eVRxs4l2gadGLUiEyKh/M5hIXnwNB2frof4
+	H0FrbW1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFwiq-0000000AtEm-1AJ9;
-	Tue, 26 Nov 2024 14:39:24 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tFwjm-0000000AtQe-0mfg;
+	Tue, 26 Nov 2024 14:40:22 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFwhq-0000000At5V-3vt6;
-	Tue, 26 Nov 2024 14:38:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1732631900;
-	bh=8Q1AcMcf5bN33C57m/nCjesoaMvJRbyawLtQBBaJQHc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TR/uIIj4aPO+RBacPBM9FcapHcX41FEZgrbEqtTwAyzqURqx5F0iiOiD9uuIqsmG6
-	 NTYBhC+nKWwFN88ypAKZL24CCPVsJhisICghwQRXAHOkK07XD9LQMFyhINBDaY2V6h
-	 Vr0bkuhyZwoL0Ffc9CULQUD/oGilB8cT7hEKFrq9ueMMRgjdjqt5M7WOPRlo5KXBzR
-	 LOGnSGHDFrFW2Ko6oLeHyKJSGDrzeUxr+YoyTFLzDM/e3Pjwxxkj1DXIEHNOej4fAN
-	 1ETAeDTpKvJ5+0qMYwSS7Qpo66S2rNwhr7y/zcQQ9CeM38jdzvxJ+EwMXZ0NUG6j/E
-	 2mOiLI+5Bm03A==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DEB1E17E36C7;
-	Tue, 26 Nov 2024 15:38:19 +0100 (CET)
-Message-ID: <142b0767-6033-4cf4-9a90-11592c8786df@collabora.com>
-Date: Tue, 26 Nov 2024 15:38:19 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] thermal/drivers/mediatek/lvts: Disable monitor mode
- during suspend
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Matthias Brugger
- <matthias.bgg@gmail.com>, Alexandre Mergnat <amergnat@baylibre.com>,
- Balsam CHIHI <bchihi@baylibre.com>, kernel@collabora.com,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Hsin-Te Yuan <yuanhsinte@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>,
- =?UTF-8?Q?Bernhard_Rosenkr=C3=A4nzer?= <bero@baylibre.com>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, stable@vger.kernel.org
-References: <20241125-mt8192-lvts-filtered-suspend-fix-v1-0-42e3c0528c6c@collabora.com>
- <20241125-mt8192-lvts-filtered-suspend-fix-v1-1-42e3c0528c6c@collabora.com>
- <600f9d78-bdc8-4133-bb43-06d798bcd543@collabora.com>
- <e3e9020b-f3d5-42bb-bf1e-6aa8da2d1708@notapiano>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <e3e9020b-f3d5-42bb-bf1e-6aa8da2d1708@notapiano>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	id 1tFwi4-0000000At7e-0CQL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Nov 2024 14:38:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6A4A85C04FC;
+	Tue, 26 Nov 2024 14:37:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54A0CC4CECF;
+	Tue, 26 Nov 2024 14:38:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732631913;
+	bh=gaEdBLAIz7P49l/o5H51QYLoUNT4ajXgna3oxySU6X0=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=QWGqYGU+7lxDyWQ8GeVwa/EskJ57WuPDmJc0ZGG66OFNNvafWBoJ8aT/8lI8IH+3p
+	 2JIycrGmAyWX72drR7fejKuWiLjLnrXMX22HviT0VACSLoIa578e28lkp+11Abjxa2
+	 o0s9QLoEruipfKCI+6JkM16sxH1F9R7yYWPIK/B9ggQA0SET3+qyBgrmkb2FU/Vpwh
+	 ZJaUHYwB/AUh0ypc/4DMGeTZH4I0thXfJVdrI96162zNPbQIsB6T+yMcb+31Yhk03a
+	 WkgOUV4u90G7dE+WIZSKkmjL8FyvwcJjU0zMEcgQzVdpCo5nCnak43MCmOq4GMeBmr
+	 nAc0kUCrFYyug==
+Date: Tue, 26 Nov 2024 08:38:31 -0600
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: bhelgaas@google.com, cassel@kernel.org, fabrice.gasnier@foss.st.com, 
+ quic_schintav@quicinc.com, linux-pci@vger.kernel.org, lpieralisi@kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, kw@linux.com, conor+dt@kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ p.zabel@pengutronix.de, mcoquelin.stm32@gmail.com, krzk+dt@kernel.org, 
+ devicetree@vger.kernel.org, alexandre.torgue@foss.st.com, 
+ manivannan.sadhasivam@linaro.org
+To: Christian Bruel <christian.bruel@foss.st.com>
+In-Reply-To: <20241126130004.1570091-2-christian.bruel@foss.st.com>
+References: <20241126130004.1570091-1-christian.bruel@foss.st.com>
+ <20241126130004.1570091-2-christian.bruel@foss.st.com>
+Message-Id: <173263191160.224313.7510313063987746316.robh@kernel.org>
+Subject: Re: [PATCH v1 1/5] dt-bindings: PCI: Add STM32MP25 PCIe root
+ complex bindings
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_063823_139460_D675EA65 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20241126_063836_126185_F0F47BA4 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,94 +78,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 26/11/24 14:19, Nícolas F. R. A. Prado ha scritto:
-> On Tue, Nov 26, 2024 at 10:43:55AM +0100, AngeloGioacchino Del Regno wrote:
->> Il 25/11/24 22:20, Nícolas F. R. A. Prado ha scritto:
->>> When configured in filtered mode, the LVTS thermal controller will
->>> monitor the temperature from the sensors and trigger an interrupt once a
->>> thermal threshold is crossed.
->>>
->>> Currently this is true even during suspend and resume. The problem with
->>> that is that when enabling the internal clock of the LVTS controller in
->>> lvts_ctrl_set_enable() during resume, the temperature reading can glitch
->>> and appear much higher than the real one, resulting in a spurious
->>> interrupt getting generated.
->>>
->>> Disable the temperature monitoring and give some time for the signals to
->>> stabilize during suspend in order to prevent such spurious interrupts.
->>>
->>> Cc: stable@vger.kernel.org
->>> Reported-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
->>> Closes: https://lore.kernel.org/all/20241108-lvts-v1-1-eee339c6ca20@chromium.org/
->>> Fixes: 8137bb90600d ("thermal/drivers/mediatek/lvts_thermal: Add suspend and resume")
->>> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
->>> ---
->>>    drivers/thermal/mediatek/lvts_thermal.c | 36 +++++++++++++++++++++++++++++++--
->>>    1 file changed, 34 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
->>> index 1997e91bb3be94a3059db619238aa5787edc7675..a92ff2325c40704adc537af6995b34f93c3b0650 100644
->>> --- a/drivers/thermal/mediatek/lvts_thermal.c
->>> +++ b/drivers/thermal/mediatek/lvts_thermal.c
->>> @@ -860,6 +860,32 @@ static int lvts_ctrl_init(struct device *dev, struct lvts_domain *lvts_td,
->>>    	return 0;
->>>    }
->>> +static void lvts_ctrl_monitor_enable(struct device *dev, struct lvts_ctrl *lvts_ctrl, bool enable)
->>> +{
->>> +	/*
->>> +	 * Bitmaps to enable each sensor on filtered mode in the MONCTL0
->>> +	 * register.
->>> +	 */
->>> +	u32 sensor_filt_bitmap[] = { BIT(0), BIT(1), BIT(2), BIT(3) };
->>> +	u32 sensor_map = 0;
->>> +	int i;
->>> +
->>> +	if (lvts_ctrl->mode != LVTS_MSR_FILTERED_MODE)
->>> +		return;
->>> +
->>
->> That's easier and shorter:
->>
->> static void lvts_ctrl_monitor_enable( .... )
->> {
->> 	/* Bitmap to enable each sensor on filtered mode in the MONCTL0 register */
->> 	const u32 sensor_map = GENMASK(3, 0);
->>
->> 	if (lvts_ctrl->mode != LVTS_MSR_FILTERED_MODE)
->> 		return;
->>
->> 	/* Bits 0-3: Sensing points - Bit 9: Single point access flow */
->> 	if (enable)
->> 		writel(sensor_map | BIT(9), LVTS_MONCTL0(lvts_ctrl->base));
+
+On Tue, 26 Nov 2024 14:00:00 +0100, Christian Bruel wrote:
+> Document the bindings for STM32MP25 PCIe Controller configured in
+> root complex mode.
 > 
-> Wait, no, here you're enabling all the sensors in the controller. We only want
-> to enable ones that are valid, otherwise we might get garbage data and irqs from
-> sensors that aren't actually there. That's why I use the
-> lvts_for_each_valid_sensor() helper in this patch.
+> Supports 4 legacy interrupts and MSI interrupts from the ARM
+> GICv2m controller.
+> 
+> STM32 PCIe may be in a power domain which is the case for the STM32MP25
+> based boards.
+> 
+> Supports wake# from wake-gpios
+> 
+> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+> ---
+>  .../bindings/pci/st,stm32-pcie-common.yaml    | 45 +++++++++
+>  .../bindings/pci/st,stm32-pcie-host.yaml      | 99 +++++++++++++++++++
+>  2 files changed, 144 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
+>  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
 > 
 
-Whoa, my brain actually missed the lvts_for_each_valid_sensor()!
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Okay no, then you're right - sorry for the bad example! In that case, though, I
-still have one more comment.
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml:45:1: [warning] too many blank lines (2 > 1) (empty-lines)
 
-You can constify sensor_filt_bitmap, and since the values never go higher than
-BIT(3), you should also be able to spare some memory by turning that into a u8:
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml: 'oneOf' conditional failed, one must be fixed:
+	'unevaluatedProperties' is a required property
+	'additionalProperties' is a required property
+	hint: Either unevaluatedProperties or additionalProperties must be present
+	from schema $id: http://devicetree.org/meta-schemas/core.yaml#
 
-	const u8 sensor_filt_bitmap[] = { BIT(0), BIT(1), BIT(2), BIT(3) };
+doc reference errors (make refcheckdocs):
 
-...and then I assume that there's no way valid sensors could ever read from an
-index that is more than 4 (so, I assume that there's no way the loop tries to
-read out of the array upper boundary).
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241126130004.1570091-2-christian.bruel@foss.st.com
 
-In which case - after at least constifying the sensor_filt_bitmap array, for v2
-feel free to add my
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-...and sorry again for the initial miss :-)
+pip3 install dtschema --upgrade
 
-Cheers,
-Angelo
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
