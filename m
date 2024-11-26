@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69976D65552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 20:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B79D65553
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 20:04:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zzmuQQKxyTgx9LMpYPrh3p1tSF7mzJ4FGaCyi5J1O2E=; b=vFxOD6IDbF3NkpWnYWDUdWcFDB
-	ZxtMVG69u0BGtHIedNltKyXDcY9WuWvboiLGLLES68ZQmcLMrBJdxAV3zFFFShMJ1u3SopazX1nm7
-	KupV+NlEJd2rvhfbh8QXB07Xeln5Sb6SdBV9mwUJk2G42tXG3InNDeuXaYEaBA8/URO+5eH4QGbC4
-	Uo3vmMNRq5QrMcLldBSri5l9DaCMJ25JRJYJhlTntkH5d5mcrP6QpV1F/qaqZEiQxvwgJqxfPm3xn
-	TRZyvwaHonsqSQ8CT1nsXE/8ZlihNlyfa+QDmEERUOkmbQTjkf1KchkK1NuT4nmaqJ76vO7c2kb6Z
-	P0cfO0+w==;
+	bh=UoKlEXtB3EjxHAoJcJGRZSerDnh1PQkKqKumRA/zpG8=; b=OwUlrj16e9jbZI7dxy2HcJf1/e
+	4VCdxcbm46yCuEPDBr/f778whEhX9XWiYB7mEcXIwLyf97lC9VZyBUmCNnh5mrBBDfYLsXamN8r2Y
+	lr++VNAJSIYyEU0D0jej07yYyhoYVBPosBiWP9P39MJO5ZqgzWL1fdCH6zm/JT+XOm+I6Ob3n3oKR
+	0Rbe0T6/0F+6vJiNDHQM+C1vq+7I7bBaGJLli1q13JaqvauOl1Ng/qTdI9jrJLeI1xVbIBu7gAKdq
+	ZSXjDr0t3+kxPk1H1pB9ZDut5tCUkDHQKXxub7Dc/5dMaAmEFI3drdCiROMfNAVdCBOF1q34tb2HI
+	gbDf63XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG1lV-0000000BamK-3NdI;
-	Tue, 26 Nov 2024 20:02:29 +0000
+	id 1tG1ms-0000000BaxN-3CkG;
+	Tue, 26 Nov 2024 20:03:54 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG1kV-0000000Babo-3zSI;
-	Tue, 26 Nov 2024 20:01:29 +0000
+	id 1tG1lu-0000000BaqP-2AJh;
+	Tue, 26 Nov 2024 20:02:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=zzmuQQKxyTgx9LMpYPrh3p1tSF7mzJ4FGaCyi5J1O2E=; b=b+wSD1yUVZO2M7+N3jComz28RJ
-	wsGEgCkqXXhnRKMzL1bOegHzG46lNuLnZCUZNer+7Wujp4VPqyY5B7sHoo4xt+YYT9U4fXsIJw5mJ
-	yyFHF0axxcJS3Uqa1ltcjBJHdJaSuhmPW2TguBK9ibq0qd3Ws+NIGgkMerS2GQ46dWnA=;
+	bh=UoKlEXtB3EjxHAoJcJGRZSerDnh1PQkKqKumRA/zpG8=; b=YwDN2Z18k6aOPNYinbqdm6sTjE
+	oUDLT6oVHw3lOnY4Dsh4fvBcGJ6RIx/wY0EMS8/nW1NIC0TK70N8vJHGjzjym0PFqIK7FVctV5ZcH
+	Dx/t+LPf7GNz1kqHFkCQM/PA48J4dI0AKsGVxgD2BySaPs2dv5j/agR5YV5EK1uJ2Y+k=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1tG1kA-00EYYP-Tu; Tue, 26 Nov 2024 21:01:06 +0100
-Date: Tue, 26 Nov 2024 21:01:06 +0100
+	id 1tG1li-00EYa2-C8; Tue, 26 Nov 2024 21:02:42 +0100
+Date: Tue, 26 Nov 2024 21:02:42 +0100
 From: Andrew Lunn <andrew@lunn.ch>
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: Heiner Kallweit <hkallweit1@gmail.com>,
@@ -57,18 +57,18 @@ Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH RFC net-next 01/16] net: phylink: pass phylink and pcs
- into phylink_pcs_neg_mode()
-Message-ID: <630a8c53-55c0-49c9-a53f-ce6478641a11@lunn.ch>
+Subject: Re: [PATCH RFC net-next 02/16] net: phylink: split cur_link_an_mode
+ into requested and active
+Message-ID: <d5ae164b-b167-4654-8c02-853b41fa71a2@lunn.ch>
 References: <Z0WTpE8wkpjMiv_J@shell.armlinux.org.uk>
- <E1tFrnw-005xPe-KN@rmk-PC.armlinux.org.uk>
+ <E1tFro1-005xPk-O5@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1tFrnw-005xPe-KN@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1tFro1-005xPk-O5@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_120127_984224_A6121CD4 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20241126_120254_553889_90E4C02A 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,16 +83,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 09:24:20AM +0000, Russell King (Oracle) wrote:
-> Move the call to phylink_pcs_neg_mode() in phylink_major_config() after
-> we have selected the appropriate PCS to allow the PCS to be passed in.
+On Tue, Nov 26, 2024 at 09:24:25AM +0000, Russell King (Oracle) wrote:
+> There is an interdependence between the current link_an_mode and
+> pcs_neg_mode that some drivers rely upon to know whether inband or PHY
+> mode will be used.
 > 
-> Add struct phylink and struct phylink_pcs pointers to
-> phylink_pcs_neg_mode() and pass in the appropriate structures. Set
-> pl->pcs_neg_mode before returning, and remove the return value.
+> In order to support detection of PCS and PHY inband capabilities
+> resulting in automatic selection of inband or PHY mode, we need to
+> cater for this, and support changing the MAC link_an_mode. However, we
+> end up with an inter-dependency between the current link_an_mode and
+> pcs_neg_mode.
 > 
-> This will allow the capabilities of the PCS and any PHY to be used when
-> deciding which pcs_neg_mode should be used.
+> To solve this, split the current link_an_mode into the requested
+> link_an_mode and active link_an_mode. The requested link_an_mode will
+> always be passed to phylink_pcs_neg_mode(), and the active link_an_mode
+> will be used for everything else, and only updated during
+> phylink_major_config(). This will ensure that phylink_pcs_neg_mode()'s
+> link_an_mode will not depend on the active link_an_mode that will,
+> in a future patch, depend on pcs_neg_mode.
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
