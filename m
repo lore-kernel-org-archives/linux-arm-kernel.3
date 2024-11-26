@@ -4,116 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6398D5A6E7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 07:35:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 405E6D5A6E7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 07:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l5kRvJ3HLk/R8cQhP0l6qm79HVKr67F38bGQaUMzhu4=; b=dDcVyDNu8ERxYQH3/+xQo8CTWD
-	5zqqsoxTnCmk0/Wzmu7zWv2INGwhxt5RYeipadUGgOcHlldQABqAf0BVaqP+RSq6pcQVRUnpEaamT
-	fTdUCrH4F2pS+BPBHWpa5q62ilPMQHmqKIle5e9mI/Nj5bS4aHrA8/QCa+O9fmxDosNSzDk4+sba+
-	rvKRZQqpHjjmmZZHm4kHeonrnXKLAUp6eaoyYVdpgmMZq9OGCO6+cgEMldzebDmKT9zQ1oL72zS9/
-	1Dbese0DT6V1TknJlmpAldGR5dcx5VDDM8A7r0M3YcJbkXzet6Gp3PuLz8B6uL93mwlfjsu56S5WY
-	a7YVIVgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R8NfXxb4+/NJAJ65Ze1umnCGTdbcdo4c6k5GC848Gkg=; b=CIeQB/DFOiu81dIDx+XHGVp4UE
+	jgM5akjcnw7fAOokzVF0kdpITuGsxJ3EwRQr1VwL2OmVtasPieQ5drhtt73S6e2sRssHtbAlZoNrT
+	kff1azIYx+/dVt2dneKVC3YhaKAIMyaKGRtl6IVLsTFNYSkH0Q8gUtYKQw8swOKbTKzXrbpmN7l9U
+	01+ewS+HC3EKWagGHaW/gkMKVb1jOhDDjXiPM6QYuDsKqn1kiGhrBV7DosjK2WiRFTgIm/8lOu5So
+	Gemlo2IFBQs0ReM/jNoLmoA2soMNYaXAhTOATvteVax2Hlvc9HUD4tbFshAsB+E2t/MsBoVq1QfsR
+	AprvER0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFq6b-00000009qrb-44xG;
-	Tue, 26 Nov 2024 07:35:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tFq8K-00000009r96-3zNY;
+	Tue, 26 Nov 2024 07:37:16 +0000
+Received: from www530.your-server.de ([188.40.30.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFq5c-00000009qd3-3XuJ;
-	Tue, 26 Nov 2024 07:34:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AF004A41AD9;
-	Tue, 26 Nov 2024 07:32:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1F4EC4CECF;
-	Tue, 26 Nov 2024 07:34:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732606467;
-	bh=MbKwj0TJGYHrEZfA53J6HR7tY6YdTcB6kcgs3YOaSRg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qzegjqr7yoC3x6RlH2ieMF0QQO1SYbbPy1/ytV8hXfFrLHlQ1jopIsez5nB2DqCBZ
-	 RU+QHNP61R4WEq1/jZAkIAyfWyyyVGmHObDCPC0xlNDTOqPJs6AvyXe6ucvjcqa3HI
-	 B8Y4G35oGxzeFd7cjGyyEaGzqgNg+fPh0/Rm65hnaCXfDCsQbhb03rFoZE5IQyRgx1
-	 d/alhff3Dz1L6ZYTQby+C6P4AKWIv67XOaXKONTudRsN8TbroQOVXeR/LUdQrzs2Yu
-	 HDd1XUJ35pD1ZmdI8XnNAA1myrZAkCVjG0labOXUYl5HixFwd9nu9Ga5YGBGEkN1oc
-	 GAUGyfaDkThwA==
-Message-ID: <6cd55237-54a9-4992-a5bb-8faa69ae77e8@kernel.org>
-Date: Tue, 26 Nov 2024 08:34:17 +0100
+	id 1tFq7M-00000009qx9-2BZM
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Nov 2024 07:36:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=geanix.com;
+	s=default2211; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID; bh=R8NfXxb4+/NJAJ65Ze1umnCGTdbcdo4c6k5GC848Gkg=; b=dIZYjO
+	vdy5KsYHNKWZSDRzJgTsSDHimEwTwgJjXzVJDkY68bwVV+NsHlQYh0vzsU7uI3gh8d+tGEx6cXzLd
+	Zjlx4VB63hLPoWA9Cw+tBw2JZgJBI7XPx3ZAD3inl8+qSS7oVlirf/hM58vg7U9GrsPHyzXj5JV+V
+	ht0X1SXl32OEUCTMVQuxhdXzrHBk3crlaX93EAtCqIqcW3hDtT/ueG1JYp7ziIEW4EbBoheIInrnJ
+	aoY/dmYE1KD78F6yJkN5zkcpK8Ud/Yu5sDWQWeTzr9cq0VLNMZ3B/+G2fWQw6jINr3LLH93QI4iIL
+	/EK62LIIyf+9Lv0fjyKWBKtfBLCA==;
+Received: from sslproxy04.your-server.de ([78.46.152.42])
+	by www530.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <sean@geanix.com>)
+	id 1tFq78-00092F-UK; Tue, 26 Nov 2024 08:36:02 +0100
+Received: from [185.17.218.86] (helo=Seans-MacBook-Pro.local)
+	by sslproxy04.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <sean@geanix.com>)
+	id 1tFq77-000LDH-2a;
+	Tue, 26 Nov 2024 08:36:01 +0100
+Date: Tue, 26 Nov 2024 08:36:00 +0100
+From: Sean Nyekjaer <sean@geanix.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Yannick Fertre <yannick.fertre@foss.st.com>, Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
+	Philippe Cornu <philippe.cornu@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
+ helper function
+Message-ID: <bfuj6w6hsbfpdw24th6dl3ugvj45op6jb45gx5ab5pulud7hiz@o2zbn45z3lt4>
+References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
+ <20241125-dsi-relax-v2-1-9113419f4a40@geanix.com>
+ <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [DO NOT MERGE PATCH v4 15/19] dt-bindings: firmware: imx: Add SCU
- controlled display pixel link nodes
-To: Liu Ying <victor.liu@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- p.zabel@pengutronix.de, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, glx@linutronix.de, vkoul@kernel.org, kishon@kernel.org,
- aisheng.dong@nxp.com, agx@sigxcpu.org, francesco@dolcini.it,
- frank.li@nxp.com, dmitry.baryshkov@linaro.org
-References: <20241125093316.2357162-1-victor.liu@nxp.com>
- <20241125093316.2357162-16-victor.liu@nxp.com>
- <6rijytubyumhgvhlvzx3dtyfncknizs3iz7arhno2mjottyu33@subihom7khzl>
- <741238a9-cde5-4a1c-9598-68d8ac29cfbd@nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <741238a9-cde5-4a1c-9598-68d8ac29cfbd@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
+X-Authenticated-Sender: sean@geanix.com
+X-Virus-Scanned: Clear (ClamAV 0.103.10/27468/Mon Nov 25 10:36:56 2024)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_233429_023455_75AC5B73 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241125_233616_844384_4AFCDFCF 
+X-CRM114-Status: GOOD (  26.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,31 +89,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/11/2024 08:33, Liu Ying wrote:
-> On 11/26/2024, Krzysztof Kozlowski wrote:
->> On Mon, Nov 25, 2024 at 05:33:12PM +0800, Liu Ying wrote:
->>> Document SCU controlled display pixel link child nodes.
->>>
->>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
->>> ---
->>> v4:
->>> * No change.
->>>
->>> v3:
->>> * No change.
->>>
->>> v2:
->>> * New patch as needed by display controller subsystem device tree.
->>
->> DO NOT MERGE means also do not review?
-> 
-> According to Rob's comment on v2, DO NOT MERGE means no need to review.
-> 
-> https://www.spinics.net/lists/devicetree/msg720125.html
-I am not Rob. 10 other maintainers here also carry different name. You
-have cover letter to explain why marking patches like this and what you
-expect.
+Hi Maxime,
 
-Best regards,
-Krzysztof
+On Mon, Nov 25, 2024 at 05:00:56PM +0100, Maxime Ripard wrote:
+> Hi Sean,
+> 
+> On Mon, Nov 25, 2024 at 02:49:26PM +0100, Sean Nyekjaer wrote:
+> > Check if the required pixel clock is in within .5% range of the
+> > desired pixel clock.
+> > This will match the requirement for HDMI where a .5% tolerance is allowed.
+> > 
+> > Signed-off-by: Sean Nyekjaer <sean@geanix.com>
+> > ---
+> >  drivers/gpu/drm/drm_modes.c | 34 ++++++++++++++++++++++++++++++++++
+> >  include/drm/drm_modes.h     |  2 ++
+> >  2 files changed, 36 insertions(+)
+> > 
+> > diff --git a/drivers/gpu/drm/drm_modes.c b/drivers/gpu/drm/drm_modes.c
+> > index 6ba167a3346134072d100af0adbbe9b49e970769..4068b904759bf80502efde6e4d977b297f5d5359 100644
+> > --- a/drivers/gpu/drm/drm_modes.c
+> > +++ b/drivers/gpu/drm/drm_modes.c
+> > @@ -1623,6 +1623,40 @@ bool drm_mode_equal_no_clocks_no_stereo(const struct drm_display_mode *mode1,
+> >  }
+> >  EXPORT_SYMBOL(drm_mode_equal_no_clocks_no_stereo);
+> >  
+> > +/**
+> > + * drm_mode_validate_mode
+> > + * @mode: mode to check
+> > + * @rounded_rate: output pixel clock
+> > + *
+> > + * VESA DMT defines a tolerance of 0.5% on the pixel clock, while the
+> > + * CVT spec reuses that tolerance in its examples, so it looks to be a
+> > + * good default tolerance for the EDID-based modes. Define it to 5 per
+> > + * mille to avoid floating point operations.
+> > + *
+> > + * Returns:
+> > + * The mode status
+> > + */
+> > +enum drm_mode_status drm_mode_validate_mode(const struct drm_display_mode *mode,
+> > +					    unsigned long long rounded_rate)
+> > +{
+> > +	enum drm_mode_status status;
+> > +	unsigned long long rate = mode->clock * 1000;
+> > +	unsigned long long lowest, highest;
+> > +
+> > +	lowest = rate * (1000 - 5);
+> > +	do_div(lowest, 1000);
+> > +	if (rounded_rate < lowest)
+> > +		return MODE_CLOCK_LOW;
+> > +
+> > +	highest = rate * (1000 + 5);
+> > +	do_div(highest, 1000);
+> > +	if (rounded_rate > highest)
+> > +		return MODE_CLOCK_HIGH;
+> > +
+> > +	return MODE_OK;
+> > +}
+> > +EXPORT_SYMBOL(drm_mode_validate_mode);
+> 
+> Thanks a lot for doing that!
+> 
+> I wonder about the naming though (and prototype). I doesn't really
+> validates a mode, but rather makes sure that a given rate is a good
+> approximation of a pixel clock. So maybe something like
+> drm_mode_check_pixel_clock?
+
+Naming is hard :) I will use drm_mode_check_pixel_clock() for V2.
+
+Would it make sense to have the pixel clock requirement as a input
+parameter? For HDMI it is 0.5% and in my case the LVDS panel 10%.
+
+enum drm_mode_status drm_mode_validate_mode(const struct drm_display_mode *mode,
+					    unsigned long long rounded_rate, unsigned tolerance)
+?
+
+And maybe a drm_mode_validate_mode_hdmi() with the default tolerance of
+.5%?
+> 
+> We probably need some kunit tests here too.
+
+Good idea, will be my first :)
+
+/Sean
 
