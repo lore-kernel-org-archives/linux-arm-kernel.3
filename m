@@ -4,101 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35079D5A6EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 08:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E47BFD5A6F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 08:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gmcqT3bZQMcjsucg2dQtWpXidNuyx+XXM3544HAZF0U=; b=WiBC/G0ZgJRrMVDuzD7C+TaMNo
-	lwMh4mPDvuophD1GvIAKL/V0O7A1xXZqFZzmyuLGHJ/Q+8l9epT/ZvgRw2XMqr3ADF+i3FKNeHnRb
-	7HbWos0QTd2wLz64kuyoXbaNrjSCWydwisxEz8vLwN8fE7kVhSYWc5GH8+AzCPTWxRiYPP1voeOf4
-	ZimQt77OBfMg68UFRetHRkF45g/vogkQSqiDvIs4ccCGWcjX/swvbHWJnQxI4pcgvv1se++cO9R5r
-	qo4ZoZdKW5tHbUbWNNRu3vwS7KTw5qdubCfLpWduyJeNg0/eQ/bPvO6v/laf4SfNQ9JziVGkvcqOH
-	N4TzGNfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oyeX0uBYtM9HvUPxJZMO7niMsetQIUIDkY6DvJRVK/c=; b=V8BX3J1TbSevJQcksGz3KzRv+r
+	tvfb/bzt+wzjMPK/1e8nIQWGFBqoP7up80H1zxYwe4TkgcBZDvEcYYiTtB53nTsSMa6D4xGq7+OwC
+	Hcw9YrfWwGzxxz7XVS3ZQWw7whyzYm/l8GHVsc+N1lqk0oFc/RRGFTWYbFhBfozr+PP3g0p1B+noK
+	vJ23+t8TMHGp/bEgJ3UNXJAg0JdfY1mgqxziQuwBSfqacMuSwn9ZOS29Ida4Z5j5iaPFfvfTm7qls
+	MYyPLw9OOq6/kzHFG5HHv4qyJD35CCvHHSPgXj+koubQFW2RBKhx+AqNyCDTb3OeHlo/aUXgLzVMS
+	n0LfAUHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFqdG-00000009vsw-1Kq4;
-	Tue, 26 Nov 2024 08:09:14 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1tFqeC-00000009w32-01nB;
+	Tue, 26 Nov 2024 08:10:12 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFqVh-00000009uXj-0PGP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 08:01:26 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5cf9ef18ae9so11801708a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 00:01:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1732608083; x=1733212883; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gmcqT3bZQMcjsucg2dQtWpXidNuyx+XXM3544HAZF0U=;
-        b=MuMC07hu2jnDt37IhV00sKSNyRFj+uQ4vl1yFu9PfPH0bJm5X5Iom/F2XnRY10VV+N
-         6f0gdTO5jfyahpVJU14K7OvkNqh9T9ZwB9clR2S4eGPPq0oJVf28C9tpgOJ8OqccPfSr
-         l9O/oKhIsbT+LDGeh2/B7lqlxbgZxn/Ve10Xc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732608083; x=1733212883;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gmcqT3bZQMcjsucg2dQtWpXidNuyx+XXM3544HAZF0U=;
-        b=l9m0Cukbc7n2TMRqbgQynxASgU+AXvuYf4b0MW90AzkNNhI/8687CAbUbak+a3NGD3
-         eaDLPmtotYrYMxEfxtbyWL0gpOEQDl99HYxyv0CiOXzrqiJnREGrXSzjhDu3IwaaqLRh
-         21IX7xyko3gHGwFGqUZzJ/6mp6Mzd8Yn1CsIgT96bxywWl5ZdgCuRgjBc4YPisBGImDG
-         RrgJbNwDEluW5aNFFy8Z+PWF6Zsl3UwPmsgL2fyBByErQoISFHvRwrXF1tXwC4OTRj2y
-         ktWnGvL9D2xdtTNDeWBpsasWCDU//z1HkIq+95rTByiCVji6uhst7fv7YYyrsXtKW/I7
-         rtNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWd88HFa2BPpfb8FEsoyrH5XhL1tXLvhCUCFRHxTsLA86JPBch+IQ9Ez5ac+Lc9onlvh5gZuEcealznxf0aV0Fa@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXzx4saN7SYKqP4pB3XEwEojGmdW6e2PCM5h4T2VDs550o1rND
-	kQ9ZW+A47nNdiV8isg5MGsmf4FXFR5nAnOgV1ba6Kh7AX3PGTOU96cqhrszW8ZlPciHRkBJt7wo
-	=
-X-Gm-Gg: ASbGnctBidSEhuGZJepPtF5uyC/qux+OdgLfwbVZrfYxcNfgbub4wkb/SPci3zZAVta
-	lJvfjDJAXy27B66xpJaChVUI0qkUBnZ6BFBYU/mHu9yU3hApTLJGAC8Ftc1tmiCMB5bg1dqmCJu
-	+4odhxV6ThUKRy6PK7pRAJI6lEOTwtmd4cIYS1vNeOcs0sOx8NDDZIjwmHoH5lkgbOuSVd852m1
-	ipf0QYAbTjepz71DUD+vfRRjgwHT0OBik99o6sMtnDHNcdRlMlgFBdRGLmyL3wLBzP5I1p71xfr
-	Z3aIe4jNIjz5JzNN
-X-Google-Smtp-Source: AGHT+IGtCe+g12k4e/jKb09CNrU2plMtTaVCv6dGwcoNuYlUcSErRxp7uhHjudmWJfV3bElWv2QVjQ==
-X-Received: by 2002:a17:907:2d8f:b0:aa5:4a38:174d with SMTP id a640c23a62f3a-aa5649cf406mr184478466b.29.1732608082039;
-        Tue, 26 Nov 2024 00:01:22 -0800 (PST)
-Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com. [209.85.208.41])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa540be5360sm347547866b.27.2024.11.26.00.01.19
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Nov 2024 00:01:19 -0800 (PST)
-Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-5cfb81a0af9so4740a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 00:01:19 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX1dlk6nC81gpIlw1f99EE/RofYbD9ZzZ47wT/SqWQuPog5+ErjUxvl/NKuRiMzUnY2bWm258GDyE4y+EYXqrd7@lists.infradead.org
-X-Received: by 2002:aa7:c48d:0:b0:5cf:c93f:36f3 with SMTP id
- 4fb4d7f45d1cf-5d06f511712mr30786a12.7.1732608078885; Tue, 26 Nov 2024
- 00:01:18 -0800 (PST)
+	id 1tFqYr-00000009v5L-1rWX;
+	Tue, 26 Nov 2024 08:04:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1732608265; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=UvvLFPJqE1oeeNGaBSnKujv4XjJ/NfXb3AOu0V2VL2pxeg0XRF2kpKyu3L3IF03Z2Vc114osM7k+pfS79zqhZH95p45U0Q1NkCeiO9W1M6LgumK3+r/Zxf6uYb5cc0bmGrj8X+JS+p8RE8FrMzSQ5rYJGABTu5cCRQ9Y+GgACGw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1732608265; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=oyeX0uBYtM9HvUPxJZMO7niMsetQIUIDkY6DvJRVK/c=; 
+	b=oJ5cb4LwlJ8pB+OSP9a1Bd8MWFUH8eqbbszFybu4zo2IQlwGGEA7T9dHzjWUGo2LFHLObzPQ11VLRYbOUSciJxXlZOtKG8YLhfaMkmVkzyCBFkMIBQEkDOni3CIMunkchizdpIsgSj6mLyEf0rK0BF4qU5qeFLvujhH7ea/JR7M=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
+	dmarc=pass header.from=<sebastian.fricke@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1732608265;
+	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=oyeX0uBYtM9HvUPxJZMO7niMsetQIUIDkY6DvJRVK/c=;
+	b=WWtHciXmaATXFOS5oxEkABTQix2ArX5vRwxb80Ig5p/WqQl8B8lViIt5m/AKq3bp
+	Kjox92J1a3KJ51ZGpX2zIqSVRatA+2E807R4OP007PAmnPn6jzSbbc36gRGtVqKt9v0
+	fzxCJU+NeG8oyI4l9hCHZ5PUk1NAHA4wIUiR+DA8=
+Received: by mx.zohomail.com with SMTPS id 1732608259305773.6767418297189;
+	Tue, 26 Nov 2024 00:04:19 -0800 (PST)
+Date: Tue, 26 Nov 2024 09:04:13 +0100
+From: Sebastian Fricke <sebastian.fricke@collabora.com>
+To: Yunfei Dong <yunfei.dong@mediatek.com>
+Cc: =?utf-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4=?= Prado <nfraprado@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Nathan Hebert <nhebert@chromium.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Hsin-Yi Wang <hsinyi@chromium.org>,
+	Fritz Koenig <frkoenig@chromium.org>,
+	Daniel Vetter <daniel@ffwll.ch>, Steve Cho <stevecho@chromium.org>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v7 1/5] media: mediatek: vcodec: support manual request
+ completion
+Message-ID: <20241126080413.kr7jty7oz3ylfxsu@basti-XPS-13-9310>
+References: <20241116031724.15694-1-yunfei.dong@mediatek.com>
+ <20241116031724.15694-2-yunfei.dong@mediatek.com>
 MIME-Version: 1.0
-References: <20241125-mt8192-lvts-filtered-suspend-fix-v1-0-42e3c0528c6c@collabora.com>
- <20241125-mt8192-lvts-filtered-suspend-fix-v1-1-42e3c0528c6c@collabora.com>
-In-Reply-To: <20241125-mt8192-lvts-filtered-suspend-fix-v1-1-42e3c0528c6c@collabora.com>
-From: Hsin-Te Yuan <yuanhsinte@chromium.org>
-Date: Tue, 26 Nov 2024 16:00:42 +0800
-X-Gmail-Original-Message-ID: <CAHc4DNKmGA-MjTWdZhKygiaRwN7mHnMCf8UPUxH_V16uZifzFg@mail.gmail.com>
-Message-ID: <CAHc4DNKmGA-MjTWdZhKygiaRwN7mHnMCf8UPUxH_V16uZifzFg@mail.gmail.com>
-Subject: Re: [PATCH 1/5] thermal/drivers/mediatek/lvts: Disable monitor mode
- during suspend
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Alexandre Mergnat <amergnat@baylibre.com>, Balsam CHIHI <bchihi@baylibre.com>, kernel@collabora.com, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Hsin-Te Yuan <yuanhsinte@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>, 
-	=?UTF-8?Q?Bernhard_Rosenkr=C3=A4nzer?= <bero@baylibre.com>, 
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20241116031724.15694-2-yunfei.dong@mediatek.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_000125_163564_D634CA3D 
-X-CRM114-Status: GOOD (  27.76  )
+X-CRM114-CacheID: sfid-20241126_000441_595273_C90B47D4 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,112 +90,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 5:21=E2=80=AFAM N=C3=ADcolas F. R. A. Prado
-<nfraprado@collabora.com> wrote:
->
-> When configured in filtered mode, the LVTS thermal controller will
-> monitor the temperature from the sensors and trigger an interrupt once a
-> thermal threshold is crossed.
->
-> Currently this is true even during suspend and resume. The problem with
-> that is that when enabling the internal clock of the LVTS controller in
-> lvts_ctrl_set_enable() during resume, the temperature reading can glitch
-> and appear much higher than the real one, resulting in a spurious
-> interrupt getting generated.
->
-This sounds weird to me. On my end, the symptom is that the device
-sometimes cannot suspend.
-To be more precise, `echo mem > /sys/power/state` returns almost
-immediately. I think the irq is more
-likely to be triggered during suspension.
+Hey Yunfei,
 
+On 16.11.2024 11:17, Yunfei Dong wrote:
+>There is only a buffer object for some codecs, the request is marked
+>as completed if the buffer is set to done. Framework will add a new
+>control handler object to the request with latest control values, will
+>get below warning if the driver calling v4l2_ctrl_request_complete to
+>set media request complete again. Using manual request completion to
+>fix this issue.
 
-> Disable the temperature monitoring and give some time for the signals to
-> stabilize during suspend in order to prevent such spurious interrupts.
+Thank you for working on this.
+I am currently working on this as well, so I would like to ask you for a
+bit more patience, once I am finished with my testing and have a working
+patch I'll send that patch and then we can discuss on the basis of that.
+
+Regards,
+Sebastian
+
 >
-> Cc: stable@vger.kernel.org
-> Reported-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
-> Closes: https://lore.kernel.org/all/20241108-lvts-v1-1-eee339c6ca20@chrom=
-ium.org/
-> Fixes: 8137bb90600d ("thermal/drivers/mediatek/lvts_thermal: Add suspend =
-and resume")
-> Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> ---
->  drivers/thermal/mediatek/lvts_thermal.c | 36 +++++++++++++++++++++++++++=
-++++--
->  1 file changed, 34 insertions(+), 2 deletions(-)
+>Workqueue: core-decoder vdec_msg_queue_core_work [mtk_vcodec_dec]
+>pstate: 80c00089 (Nzcv daIf +PAN +UAO -TCO BTYPE=--)
+>pc : media_request_object_bind+0xa8/0x124
+>lr : media_request_object_bind+0x50/0x124
+>sp : ffffffc011393be0
+>x29: ffffffc011393be0 x28: 0000000000000000
+>x27: ffffff890c280248 x26: ffffffe21a71ab88
+>x25: 0000000000000000 x24: ffffff890c280280
+>x23: ffffff890c280280 x22: 00000000fffffff0
+>x21: 0000000000000000 x20: ffffff890260d280
+>x19: ffffff890260d2e8 x18: 0000000000001000
+>x17: 0000000000000400 x16: ffffffe21a4584a0
+>x15: 000000000053361d x14: 0000000000000018
+>x13: 0000000000000004 x12: ffffffa82427d000
+>x11: ffffffe21ac3fce0 x10: 0000000000000001
+>x9 : 0000000000000000 x8 : 0000000000000003
+>x7 : 0000000000000000 x6 : 000000000000003f
+>x5 : 0000000000000040 x4 : ffffff89052e7b98
+>x3 : 0000000000000000 x2 : 0000000000000001
+>x1 : 0000000000000000 x0 : 0000000000000000
+>Call trace:
+> media_request_object_bind+0xa8/0x124
+> v4l2_ctrl_request_bind+0xc4/0x168
+> v4l2_ctrl_request_complete+0x198/0x1f4
+> mtk_vdec_stateless_cap_to_disp+0x58/0x8c [mtk_vcodec_dec 245a7c1e48ff1b2451a50e1dfcb174262b6b462c]
+> vdec_vp9_slice_core_decode+0x1c0/0x268 [mtk_vcodec_dec 245a7c1e48ff1b2451a50e1dfcb174262b6b462c]
+> vdec_msg_queue_core_work+0x60/0x11c [mtk_vcodec_dec 245a7c1e48ff1b2451a50e1dfcb174262b6b462c]
+> process_one_work+0x140/0x480
+> worker_thread+0x12c/0x2f8
+> kthread+0x13c/0x1d8
+> ret_from_fork+0x10/0x30
 >
-> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/me=
-diatek/lvts_thermal.c
-> index 1997e91bb3be94a3059db619238aa5787edc7675..a92ff2325c40704adc537af69=
-95b34f93c3b0650 100644
-> --- a/drivers/thermal/mediatek/lvts_thermal.c
-> +++ b/drivers/thermal/mediatek/lvts_thermal.c
-> @@ -860,6 +860,32 @@ static int lvts_ctrl_init(struct device *dev, struct=
- lvts_domain *lvts_td,
->         return 0;
->  }
+>Fixes: 7b182b8d9c852 ("media: mediatek: vcodec: Refactor get and put capture buffer flow")
+>Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
+>---
+> .../mediatek/vcodec/decoder/mtk_vcodec_dec.c    |  8 +++++---
+> .../vcodec/decoder/mtk_vcodec_dec_stateless.c   | 17 ++++++++++++++---
+> 2 files changed, 19 insertions(+), 6 deletions(-)
 >
-> +static void lvts_ctrl_monitor_enable(struct device *dev, struct lvts_ctr=
-l *lvts_ctrl, bool enable)
-> +{
-> +       /*
-> +        * Bitmaps to enable each sensor on filtered mode in the MONCTL0
-> +        * register.
-> +        */
-> +       u32 sensor_filt_bitmap[] =3D { BIT(0), BIT(1), BIT(2), BIT(3) };
-> +       u32 sensor_map =3D 0;
-> +       int i;
-> +
-> +       if (lvts_ctrl->mode !=3D LVTS_MSR_FILTERED_MODE)
-> +               return;
-> +
-> +       if (enable) {
-> +               lvts_for_each_valid_sensor(i, lvts_ctrl)
-> +                       sensor_map |=3D sensor_filt_bitmap[i];
-> +       }
-> +
-> +       /*
-> +        * Bits:
-> +        *      9: Single point access flow
-> +        *    0-3: Enable sensing point 0-3
-> +        */
-> +       writel(sensor_map | BIT(9), LVTS_MONCTL0(lvts_ctrl->base));
-> +}
-> +
->  /*
->   * At this point the configuration register is the only place in the
->   * driver where we write multiple values. Per hardware constraint,
-> @@ -1381,8 +1407,11 @@ static int lvts_suspend(struct device *dev)
+>diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
+>index 98838217b97d..d2146724f5de 100644
+>--- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
+>+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
+>@@ -887,10 +887,12 @@ void vb2ops_vdec_stop_streaming(struct vb2_queue *q)
+> 			if (src_buf != &ctx->empty_flush_buf.vb) {
+> 				struct media_request *req =
+> 					src_buf->vb2_buf.req_obj.req;
+>-				v4l2_m2m_buf_done(src_buf,
+>-						VB2_BUF_STATE_ERROR);
+>-				if (req)
+>+
+>+				v4l2_m2m_buf_done(src_buf, VB2_BUF_STATE_ERROR);
+>+				if (req) {
+> 					v4l2_ctrl_request_complete(req, &ctx->ctrl_hdl);
+>+					media_request_manual_complete(req);
+>+				}
+> 			}
+> 		}
+> 		return;
+>diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
+>index afa224da0f41..1e11c08d708f 100644
+>--- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
+>+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
+>@@ -264,8 +264,10 @@ static void mtk_vdec_stateless_cap_to_disp(struct mtk_vcodec_dec_ctx *ctx, int e
+> 		mtk_v4l2_vdec_err(ctx, "dst buffer is NULL");
+> 	}
 >
->         lvts_td =3D dev_get_drvdata(dev);
+>-	if (src_buf_req)
+>+	if (src_buf_req) {
+> 		v4l2_ctrl_request_complete(src_buf_req, &ctx->ctrl_hdl);
+>+		media_request_manual_complete(src_buf_req);
+>+	}
+> }
 >
-> -       for (i =3D 0; i < lvts_td->num_lvts_ctrl; i++)
-> +       for (i =3D 0; i < lvts_td->num_lvts_ctrl; i++) {
-> +               lvts_ctrl_monitor_enable(dev, &lvts_td->lvts_ctrl[i], fal=
-se);
-> +               usleep_range(100, 200);
->                 lvts_ctrl_set_enable(&lvts_td->lvts_ctrl[i], false);
-> +       }
+> static struct vdec_fb *vdec_get_cap_buffer(struct mtk_vcodec_dec_ctx *ctx)
+>@@ -308,6 +310,7 @@ static void vb2ops_vdec_buf_request_complete(struct vb2_buffer *vb)
+> 	struct mtk_vcodec_dec_ctx *ctx = vb2_get_drv_priv(vb->vb2_queue);
 >
->         clk_disable_unprepare(lvts_td->clk);
+> 	v4l2_ctrl_request_complete(vb->req_obj.req, &ctx->ctrl_hdl);
+>+	media_request_manual_complete(vb->req_obj.req);
+> }
 >
-> @@ -1400,8 +1429,11 @@ static int lvts_resume(struct device *dev)
->         if (ret)
->                 return ret;
+> static void mtk_vdec_worker(struct work_struct *work)
+>@@ -375,8 +378,10 @@ static void mtk_vdec_worker(struct work_struct *work)
+> 	if (!IS_VDEC_LAT_ARCH(dev->vdec_pdata->hw_arch) ||
+> 	    ctx->current_codec == V4L2_PIX_FMT_VP8_FRAME) {
+> 		v4l2_m2m_buf_done_and_job_finish(dev->m2m_dev_dec, ctx->m2m_ctx, state);
+>-		if (src_buf_req)
+>+		if (src_buf_req) {
+> 			v4l2_ctrl_request_complete(src_buf_req, &ctx->ctrl_hdl);
+>+			media_request_manual_complete(src_buf_req);
+>+		}
+> 	} else {
+> 		if (ret != -EAGAIN) {
+> 			v4l2_m2m_src_buf_remove(ctx->m2m_ctx);
+>@@ -731,9 +736,15 @@ static int fops_media_request_validate(struct media_request *mreq)
+> 	return vb2_request_validate(mreq);
+> }
 >
-> -       for (i =3D 0; i < lvts_td->num_lvts_ctrl; i++)
-> +       for (i =3D 0; i < lvts_td->num_lvts_ctrl; i++) {
->                 lvts_ctrl_set_enable(&lvts_td->lvts_ctrl[i], true);
-> +               usleep_range(100, 200);
-> +               lvts_ctrl_monitor_enable(dev, &lvts_td->lvts_ctrl[i], tru=
-e);
-> +       }
+>+static void fops_media_request_queue(struct media_request *req)
+>+{
+>+	media_request_mark_manual_completion(req);
+>+	v4l2_m2m_request_queue(req);
+>+}
+>+
+> const struct media_device_ops mtk_vcodec_media_ops = {
+> 	.req_validate	= fops_media_request_validate,
+>-	.req_queue	= v4l2_m2m_request_queue,
+>+	.req_queue	= fops_media_request_queue,
+> };
 >
->         return 0;
->  }
+> static void mtk_vcodec_add_formats(unsigned int fourcc,
+>-- 
+>2.46.0
 >
-> --
-> 2.47.0
 >
 
