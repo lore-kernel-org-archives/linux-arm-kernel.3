@@ -4,64 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7892D6554F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 18:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E7ADD6554C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 19:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FP8KRA/DgqyuzIh0IvIbveFrfHvmUgGMVizg2Kjg4xo=; b=LzFx9Eswt8F6nrqaT5LJlzkSEY
-	2d2YK/T3d76pvgkCyB0pJTxOhxLrtZ8ePSWb4L9IQ+F9LfMXhrrzHbeiwluRlIUFNubIoKQ9F35uG
-	lISGWNRPbdj+NUpJcBBo17Qgp+eKvDNmkdHPkT503DhUGEyfMAy0sYU7DPqpAs5BDPXiZF32rOVmA
-	VJybN3JpYl9MamUPW0/4XAQtONih48p0mIvDy0PWOSxE+lnvAI80R92H2d1upQLBWKL2c+eKG8WHs
-	iIudgpqZfyY6JbHS7YhdPWRoufvEUUTJ+r9k2Vr3e7Oto+mldkhSZQh1y2IwxGGBmo0Y1R8SyPDdP
-	Vc0EXZPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FNSp7OA3YKogbeiniKb8FBL+Vfqgv7SXY7QAwsPxONY=; b=kjs+2cEFzwrYN5bcC0BQSkFWya
+	psL8xNIxZz7I5FiWUCewDDF3Yz1TtvAqTWVpdtnHbo0vLYPuCOZuzBHTdic2uOJ/cVGRyxUkd3/xz
+	D2MO/ybIB0Ja92r1r3OohyRe7W/fjqSgS4kNmoj7MHaBF9JY/dQi9tg41UEfpOy9BOpDhO9tPCe40
+	v6Fz6QhkXf0Ei7/bM6vr7efta6TzM+Hu7OsaJlB2axEZZQ5i/XyfeWOikuSu+5ui/9X+3gD0sgzOC
+	p+82+p4kCiVqktPIgor8zNtfc0PR4vJAR+3+mtQuP9erj2t1XqKr5ItthzI6NKRtVDH8XFnVwVjAt
+	vySvUvyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG0hM-0000000BU0F-2Uf7;
-	Tue, 26 Nov 2024 18:54:08 +0000
+	id 1tG0sa-0000000BVcv-2kXd;
+	Tue, 26 Nov 2024 19:05:44 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG0gO-0000000BTu1-1rPV
+	id 1tG0rc-0000000BVRw-0igs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 18:53:09 +0000
+	Tue, 26 Nov 2024 19:04:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C1C54A40467;
-	Tue, 26 Nov 2024 18:51:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAE86C4CECF;
-	Tue, 26 Nov 2024 18:53:06 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 75AC6A4124D;
+	Tue, 26 Nov 2024 19:02:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D96EC4CECF;
+	Tue, 26 Nov 2024 19:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732647187;
-	bh=YbaJtQ8ZD5m/lylDmgyKGCB6UhgH6Eq44TWOBqH9jwQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Iyh27BILoiDEuzMYVXCv1eGEu0zUqO8tCwZ7nag3vvaqWFAIMZPFw9fKstNoBbXhR
-	 OgAk6RuvRDzLJYZYT9L4XkBWkumYOsUfXy617gwEByqNoSyLtyFptCtfPF8ka3PPUe
-	 bzuuutQCp5q9ZZco8iIEnBoCm3XSPrZBi959POFvJf2mKqNS35D+6Zy6gG3e9BV5FL
-	 JrubH/idSS6TW2tueLDIWa8bBEJEe4sOTbKyg1843kgzjPzaz34j6L8nhzK41usrmm
-	 jfkzo1hGs2zR2rSGSf2grGoBiI9/qBAmNLI9/sDQ+an+Dttc4WSmdyI1RDUXvVGImd
-	 eDLyqwvr6fm9w==
-Date: Tue, 26 Nov 2024 18:53:03 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Subject: Re: [BOOT-WRAPPER PATCH 3/3] aarch64: Enable use of GCS for EL2 and
- below
-Message-ID: <287e6fab-e858-4a7b-bc21-687c36742e24@sirena.org.uk>
-References: <20241126153955.477569-1-mark.rutland@arm.com>
- <20241126153955.477569-4-mark.rutland@arm.com>
- <154929d3-c46b-42cd-9785-c48aa1b08d33@sirena.org.uk>
- <Z0YNFCfisiCqU3lJ@J2N7QTR9R3.cambridge.arm.com>
+	s=k20201202; t=1732647883;
+	bh=+mf68xlLx7KgwnDTeOl9Bn2WskxaGDYLqwnAUlB4Isk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Z29qgN7YEASNNAQS6rQQgujOVDzxLhbry77wGPIiWuUg9+ORkpLxY9ll5hb0v9qrm
+	 D5Wd2g7MmYnZ5y8lh8G84DDvQTI/VbQqjS4XgmI4oQY9HQTlLHX7WgRSx8j8dAaijB
+	 YdUtlNGtLIdo+8YD1kpZpPunPQ0qGc7h1Vs7BEZEzpNe7L0V8mmXwJSOBWtnMb/cCM
+	 b2tDYTEIkJLf9I1HKkaMbbr8CGeRwBT3RoVe2kxa7X7rwRYoZKcJg0nvMBX8B3rlDA
+	 VkkyyBEk2RSt2i4MxW5AK44hzNcfUuhKgwlG0rT76uEA3HEMsnH8F28YR0QJQgiPDa
+	 JIougiKkPZOGg==
+Message-ID: <5e2d2174-44a7-4143-8562-4dcdb5ad6c94@kernel.org>
+Date: Tue, 26 Nov 2024 20:04:36 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="45ImN+cSKYtfPWjP"
-Content-Disposition: inline
-In-Reply-To: <Z0YNFCfisiCqU3lJ@J2N7QTR9R3.cambridge.arm.com>
-X-Cookie: Have a taco.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE
+ output for PCIe1
+To: Romain Naour <romain.naour@smile.fr>, devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
+ conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org, kristo@kernel.org,
+ vigneshr@ti.com, nm@ti.com, Romain Naour <romain.naour@skf.com>
+References: <20241126173307.4054601-1-romain.naour@smile.fr>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241126173307.4054601-1-romain.naour@smile.fr>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_105308_550275_A64E41D6 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20241126_110444_340231_CF262ECC 
+X-CRM114-Status: GOOD (  17.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,48 +118,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 26/11/2024 18:33, Romain Naour wrote:
+> From: Romain Naour <romain.naour@skf.com>
+> 
+> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
+> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
+> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
+> provide refclk through PCIe_REFCLK pins.
+> 
+> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
+> module's PAD IO Buffers.
+> 
+> Signed-off-by: Romain Naour <romain.naour@skf.com>
+> ---
+> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
+> applied on vendor kernel for BeagleBone AI-64:
+> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
+> ---
+>  arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts |  4 ++++
+>  arch/arm64/boot/dts/ti/k3-j721e-main.dtsi          | 10 ++++++++--
+>  2 files changed, 12 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+> index fb899c99753e..681e3af7ce6e 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+> @@ -859,6 +859,10 @@ &pcie1_rc {
+>  	num-lanes = <2>;
+>  	max-link-speed = <3>;
+>  	reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_HIGH>;
+> +	/* There is no on-board or external reference clock generators,
 
---45ImN+cSKYtfPWjP
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Please use generic style comments, not netdev.
 
-On Tue, Nov 26, 2024 at 06:01:56PM +0000, Mark Rutland wrote:
+> +	 * use refclk from the ACSPCIE module's PAD IO Buffers.
+> +	 */
+> +	ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
+>  };
+>  
+>  &ufs_wrapper {
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> index 0da785be80ff..9f47e7672922 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> @@ -5,6 +5,7 @@
+>   * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
+>   */
+>  #include <dt-bindings/phy/phy.h>
+> +#include <dt-bindings/phy/phy-cadence.h>
+>  #include <dt-bindings/phy/phy-ti.h>
+>  #include <dt-bindings/mux/mux.h>
+>  
+> @@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
+>  			reg = <0x4140 0x18>;
+>  			#clock-cells = <1>;
+>  		};
+> +
+> +		acspcie0_proxy_ctrl: acspcie0-ctrl@18090 {
 
-> GCSCR_EL3.PCRSEL resets to 0, so the HW won't push to the GCS for BL/BLR
-> and won't pop from the GCS for a RET. That menas there's no GCS value
-> for a return value check to compare with...
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
 
-Oh, good point - I'd trusted that the initialisations were required and
-misremembered which of PCRSEL and RVCHKEN was which.  Sorry about that.
-The values on reset follow the same pattern in all the GCS control
-registers down to GCSCRE0_EL1 so the initialisations of the other
-control registers are equally redundant.  We should be consistent here,
-either initialising all the GCS control registers or relying on the
-architecture defaults for all of them, and the note in the changelog
-about them needs an update if the initialisation is there.
 
-> That does raise the question of what specifically happens for a return
-> at EL3 when GCSCR_EL3.{PCRSEL,RVCHKEN} == {1,0}. Can you enlighten me?
+> +			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
 
-RET will attempt to load and use a GCS record, the pseudocode is in
-LoadCheckGCSRecord() which isn't EL dependent other than the selection
-of which GCSPR and GCSCR to use and setting the access as privileged if
-we're not at EL0.
+I am not familiar with naming, so is this j784s4 or j721e or K3 SoC?
+Compatible should be SoC specific.
 
---45ImN+cSKYtfPWjP
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdGGQ8ACgkQJNaLcl1U
-h9Cragf9GpAnFnXQJaa2RGfDh+VEOiUa6YLiEGaGryyi4jSy2udt311+ENe2HAeT
-N86mytfheIZ/KH+FdR2T3qfUOALLQTvzJJTVmU/08dJGAcP0kv2lwd6yApNBK6ev
-GN0XIAKn2mObqeZPhyPzkgqLMdabs5vdR8GNUl6jol5q4rZQsHmwymv3epmjgIwJ
-GHqNkc41sM+/4rkEmxZELcDBoT2TS/niIFDzl4ZkyLojs3QethyXTfflicwV2j9s
-pO5nEbmmDVLJbK6trdnPlnKXJ+5RrMEvE2QGHuwa7G/YSBbbDc5vGPjqmAzRumO0
-SwbuBoHdMk1L+DiWYcZcgd93OQ5rGA==
-=jlgZ
------END PGP SIGNATURE-----
-
---45ImN+cSKYtfPWjP--
+Best regards,
+Krzysztof
 
