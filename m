@@ -4,77 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7115CD3B7CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2095D3B7CA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RMkkAgjPqENLuUsVBvuq8uLGQTLUqgRglECbh0bbHJc=; b=VQBfCMxwbS49ZoE115V7Z8pK6q
-	JHdNitvU0dn9rHa9SJT1pEZx9UHfrRlozgqexB0DsCeC50AFpiguJpifI2H0IZ4fPOeE7TmxRO1Gh
-	uq26LPVBvGC9aImXIpVa39vu5DAGGqOIC0agozhqyt7S6ZNoiQsGqxUo7CQkru6w8gWj0qwZ0Qfrj
-	jbkCmMR7HxA8LhQMkkRnKPX9+ydFBr/0nDpBKOrnJ2FpcoReLWw2l3+Nk2bVfkSOm1ArgPQERjwk/
-	fmAOmSx9DLQ4jH+EXaTsM4BLDvE7W5Vcg/U7/X2XrCLl5RiiCPyS50fXunveDs3yVE3yj8QLLhO8o
-	FfZys9rA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=da+etUPfK3UiVqwD20QOauQYQZhZSlQ9y584TZLpvQ4=; b=cW2UjADMxZe4kmr+7TvbwWR0NI
+	w3Ppr5O8ASIpyCJkK9rXtJIyWVNIeFjqaH7MBnU3722c2zoUBRVC3xIsMdZlyaM10D5t9mQkMb8xo
+	laTPRIwGIDLWSyOHZurY196QOmTFuRik0/rZp2BevjSmbcR09KuWBd3ezhCJO+lYvQxHg8DhaXAox
+	oOyZy92Uiw4agU3rWUikZkBSqI5HCT+C3OcdKLKRMS8zO5eIJ7QlgjnKxYgifA825AxyRiCP90kIr
+	0xvRBq3tZUL6cupt2nsSs4/LcgmKFFKx8v/afCtkv6+jaARMaUJ8Z8r3jOEtLqG7bhxVdeqL7ERqM
+	kfZuU7xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFsAh-0000000ADC0-05uD;
-	Tue, 26 Nov 2024 09:47:51 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tFsBc-0000000ADM8-2cmP;
+	Tue, 26 Nov 2024 09:48:48 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFs5P-0000000AC7T-3Uej
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 09:42:25 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tFs58-00008u-Oh; Tue, 26 Nov 2024 10:42:06 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tFs52-000E6C-23;
-	Tue, 26 Nov 2024 10:42:01 +0100
-Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id EE9F937D855;
-	Tue, 26 Nov 2024 09:42:00 +0000 (UTC)
-Date: Tue, 26 Nov 2024 10:42:00 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
-	Akshay Bhat <akshay.bhat@timesys.com>, Chandrasekar Ramakrishnan <rcsekar@samsung.com>, 
-	Chen-Yu Tsai <wens@csie.org>, "David S. Miller" <davem@davemloft.net>, 
-	Dong Aisheng <b29396@freescale.com>, Fengguang Wu <fengguang.wu@intel.com>, 
-	Gerhard Bertelsmann <info@gerhard-bertelsmann.de>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	"Ji-Ze Hong (Peter Hong)" <peter_hong@fintek.com.tw>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Marek Vasut <marex@denx.de>, Maxime Ripard <mripard@kernel.org>, 
-	Oliver Hartkopp <oliver.hartkopp@volkswagen.de>, Samuel Holland <samuel@sholland.org>, 
-	Sebastian Haas <haas@ems-wuensche.com>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Varka Bhadram <varkabhadram@gmail.com>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
-	Wolfgang Grandegger <wg@grandegger.com>, linux-arm-kernel@lists.infradead.org, linux-can@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v2 00/12] Fix {rx,tx}_errors CAN statistics
-Message-ID: <20241126-gigantic-intelligent-wallaby-2155eb-mkl@pengutronix.de>
-References: <20241122221650.633981-1-dario.binacchi@amarulasolutions.com>
+	id 1tFs6l-0000000ACNC-2WOE;
+	Tue, 26 Nov 2024 09:43:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1732614226;
+	bh=hFWivGWFXV2zKkOhtrDzHW7UZpgq/HrqUay9ptzgzvQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=AiMtB6v3MhCGjwobllJZh0jq45f2sY/xCLlf9fe7ebbZHaitpkBVLxG3FpkJcnYcM
+	 6hhMWZcvXb1d8UHVkDa1jkuEatG5LMs+zYIh2Z4NWpstABoQtrnwCmhLFb+hNa/ve5
+	 bMDcH0w17cU55tUPozah6QcY4JqE/QVtr0JXxNueP5vrtZRlyhx7xAYC1hts1MpPxn
+	 XvBCgWfWH2afj+S042QQOA/rC+wqQVR0045mb/8ehqe4C5y51BDk+VDNUK0BEVNOHO
+	 D9qZuV2jgZ5Zzu3waFj/LwkP3G84T0PZnrVgYmLN0ibzoWf+zQJxpUQQlsJssoWbfj
+	 GJJRvCSrFHFbw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3F96E17E1524;
+	Tue, 26 Nov 2024 10:43:45 +0100 (CET)
+Message-ID: <890e4d95-bd73-4176-993a-fc922d72cdde@collabora.com>
+Date: Tue, 26 Nov 2024 10:43:44 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="oinnd7mmrbpyaeoz"
-Content-Disposition: inline
-In-Reply-To: <20241122221650.633981-1-dario.binacchi@amarulasolutions.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] thermal/drivers/mediatek/lvts: Only update IRQ enable
+ for valid sensors
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Alexandre Mergnat <amergnat@baylibre.com>,
+ Balsam CHIHI <bchihi@baylibre.com>
+Cc: kernel@collabora.com, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Hsin-Te Yuan <yuanhsinte@chromium.org>,
+ Chen-Yu Tsai <wenst@chromium.org>, =?UTF-8?Q?Bernhard_Rosenkr=C3=A4nzer?=
+ <bero@baylibre.com>, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+References: <20241125-mt8192-lvts-filtered-suspend-fix-v1-0-42e3c0528c6c@collabora.com>
+ <20241125-mt8192-lvts-filtered-suspend-fix-v1-5-42e3c0528c6c@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241125-mt8192-lvts-filtered-suspend-fix-v1-5-42e3c0528c6c@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_014223_869016_26B3E0EA 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20241126_014347_802420_01912D18 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,45 +84,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Il 25/11/24 22:20, Nícolas F. R. A. Prado ha scritto:
+> Only sensors that are valid need to have their interrupts enable status
+> updated based on their thresholds. Use the lvts_for_each_valid_sensor()
+> helper in lvts_update_irq_mask() to ignore invalid sensors.
+> 
+> Currently, since the invalid sensors will always contain zeroed out
+> thresholds (from kzalloc), they will always get their interrupts
+> disabled on this loop. So this commit doesn't change the resulting
+> interrupts configuration, but it slightly optimizes the loop by skipping
+> the invalid sensors, avoids potential future surprises if at some point
+> memory is no longer allocated for invalid sensors, as well as makes the
+> code more obvious.
+> 
+> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
---oinnd7mmrbpyaeoz
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 00/12] Fix {rx,tx}_errors CAN statistics
-MIME-Version: 1.0
+That's lovely.
 
-On 22.11.2024 23:15:41, Dario Binacchi wrote:
-> This series extends the patch 4d6d26537940 ("can: c_can: fix {rx,tx}_erro=
-rs statistics"),
-> already merged into the mainline, to other CAN devices that similarly do
-> not correctly increment the error counters for reception/transmission.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-I've re-phrased the commit messages of the earlier patches to imperative
-language.
 
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---oinnd7mmrbpyaeoz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdFl+UACgkQKDiiPnot
-vG/v6gf+PSVM1BCLp+8U3Ib5fPjv56qhSELaMQwnseETdpOhezRKYuUyLYp/qxhZ
-zCEkFwcei3zNxlbepUdkP7ln/j05Cwavz1akIZ9arFAz7idBGqPQphF55JWJZggV
-peQpmEX6YAVG2xYe/vTNgBE57FFXYtFcVADihq4UXeQfXh/C6Lm00phWt1JaHe9J
-OKdrWp/U7qECbGA5Gh8G+tYbXQilDnrV0iAqdEg8wWAguflcgk3/W5f6KYFrDX9W
-dEkcZb+r7bbu1FGx+E3IkyxSbAUvlj94KVak3VzPicJ9j2JQHCqbEM6I90+4Mby4
-d/aiV9lt060AIJPrevBXqyNXaI38qA==
-=xk6y
------END PGP SIGNATURE-----
-
---oinnd7mmrbpyaeoz--
 
