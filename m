@@ -4,69 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A9AD3B7CE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 10:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A81ED59D8A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 10:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YlUfE3zEN1b3CV5Oh+tHej3/IWNDcieZdvnebgHbw5Q=; b=twlJFlSVZUZco/jI2Vswfto0ms
-	8wB4EbqRw8DUG4vus+/CwWKZuwl79Y5BUd5iAewa8TuB4wabS0mdFN0ipvxlYn2eJ2gyfs71S9b4X
-	DuiN12l2R9Lgjr1CDxnln1XI5b+pt09qTsI2dry8xoPSaLRUjsklmiN698/VdCpS2/yPcDMn98y52
-	ie9UpQ3rM52f0PRcYoHhs4i/cXDUS9TD6cpQBYrx9dgdzEyu3LfgLvYez7/+r6kSdc9Z9YsecwkOz
-	cu/BWpjNiUJv6W4mCm5S0atJJyaX0UQvGUJFo/nAi4zK7Mp8rMTg7rvxP8F1xoYgMlmkMgpqTHPL6
-	u81P/tuA==;
+	bh=PnnsBll7qYBpVP2Y5FkotdT1wHxm1nEsLbKct2VQe4c=; b=YqIoS3wuQdlz8EVlWOKmunTrvD
+	25Ud/Nb0JGMymUhO28v1BEzqJoxE29fRFXPClgaCk7xrjsHwDTSkZ8784MPOAtFmmfJv2K1EKoT0a
+	5cTVM53MCOwoO32rB1VvvkJMnnYFrhPe3+JQ9emS/TxcwBr2gbIlCfdEJs7lDErIfXa9WDAeK1YXh
+	+MP7BPUHE7Rb87hLNZJOtVD6we2XzkVNFvKliRQIkJLirce5KJoalg5GUxFRVC6bimJz6+yNeO4BU
+	7DDfkpRLrbdlCjplIF9U1Jqmu1k0RTqo4DP9hu8DK2+ZisrlSWYjojkEOrPR0/OM0bSjQOo+G7CEG
+	CQsVXscg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFsWc-0000000AGBH-1zDD;
-	Tue, 26 Nov 2024 10:10:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFsUs-0000000AFqf-06p5;
-	Tue, 26 Nov 2024 10:08:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D90021682;
-	Tue, 26 Nov 2024 02:09:08 -0800 (PST)
-Received: from [10.57.89.250] (unknown [10.57.89.250])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 002A03F5A1;
-	Tue, 26 Nov 2024 02:08:34 -0800 (PST)
-Message-ID: <7a674595-5392-4b5b-9614-79a3e9fd2773@arm.com>
-Date: Tue, 26 Nov 2024 10:08:33 +0000
+	id 1tFsXY-0000000AGNA-2sZ3;
+	Tue, 26 Nov 2024 10:11:28 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tFsVA-0000000AFud-3dvA
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Nov 2024 10:09:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1AD78A41B97;
+	Tue, 26 Nov 2024 10:07:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB49AC4CECF;
+	Tue, 26 Nov 2024 10:08:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732615739;
+	bh=Tebs3ugs2aGJ3acWfA3ph5gJOpJqpLnIB3l/SR+YbG8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EGIWVjyoydTiJvuc1ZUZhSqpAeY2sZhNEWLCA3S+X192vYeq/MGk9N88dM90Kiqpg
+	 9Fip6SmUHoaaz0oBlJUlxS2Sm8Aj6CffgLn97xP3pxowQi7EdJaeZjGBrd4Z0UHCV1
+	 39ce8gA0M8IOnhCygwQilpJKL9utKk58XsuLh3uv6AHhmMqOkuJOqsZjieQyfo7K56
+	 aa3eCn24N5EaGaA8gVSXSnXcyjO/RtjRpO4HEIW3d7hp12a35pY2AHEDD//kx5zcCT
+	 RsJTN9FtPzcatXkydp2p3tnhOnwY8qBQzPb40EOqjBVv3L04GeF7Tf1Ts5MeBEiVIj
+	 vc0PcOJeRXC2w==
+Message-ID: <a220d407-de40-4398-a837-de11e01d2381@kernel.org>
+Date: Tue, 26 Nov 2024 11:08:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 06/57] mm: Remove PAGE_SIZE compile-time constant
- assumption
-Content-Language: en-GB
-To: Vlastimil Babka <vbabka@suse.cz>,
- Andrew Morton <akpm@linux-foundation.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Christoph Lameter <cl@linux.com>, David Hildenbrand <david@redhat.com>,
- David Rientjes <rientjes@google.com>, Greg Marsden
- <greg.marsden@oracle.com>, Ivan Ivanov <ivan.ivanov@suse.com>,
- Johannes Weiner <hannes@cmpxchg.org>, Joonsoo Kim <iamjoonsoo.kim@lge.com>,
- Kalesh Singh <kaleshsingh@google.com>, Marc Zyngier <maz@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Matthias Brugger <mbrugger@suse.com>,
- Michal Hocko <mhocko@kernel.org>, Miquel Raynal <miquel.raynal@bootlin.com>,
- Miroslav Benes <mbenes@suse.cz>, Pekka Enberg <penberg@kernel.org>,
- Richard Weinberger <richard@nod.at>, Shakeel Butt <shakeel.butt@linux.dev>,
- Vignesh Raghavendra <vigneshr@ti.com>, Will Deacon <will@kernel.org>
-Cc: cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-mtd@lists.infradead.org
-References: <20241014105514.3206191-1-ryan.roberts@arm.com>
- <20241014105912.3207374-1-ryan.roberts@arm.com>
- <20241014105912.3207374-6-ryan.roberts@arm.com>
- <d9089ef0-3abd-4148-949c-cab66890b98b@suse.cz>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <d9089ef0-3abd-4148-949c-cab66890b98b@suse.cz>
+Subject: Re: [PATCH v3 2/3] arm64: dts: nuvoton: Add Ethernet nodes
+To: Joey Lu <a0987203069@gmail.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ mcoquelin.stm32@gmail.com, richardcochran@gmail.com
+Cc: alexandre.torgue@foss.st.com, joabreu@synopsys.com, ychuang3@nuvoton.com,
+ schung@nuvoton.com, yclu4@nuvoton.com, peppe.cavallaro@st.com,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20241118082707.8504-1-a0987203069@gmail.com>
+ <20241118082707.8504-3-a0987203069@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241118082707.8504-3-a0987203069@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_020842_160935_BE71016C 
-X-CRM114-Status: GOOD (  28.38  )
+X-CRM114-CacheID: sfid-20241126_020901_035475_C4E3C47A 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,150 +124,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vlastimil,
+On 18/11/2024 09:27, Joey Lu wrote:
+> diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+> index e51b98f5bdce..2e0071329309 100644
+> --- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+> +++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+> @@ -379,5 +379,57 @@ uart16: serial@40880000 {
+>  			clocks = <&clk UART16_GATE>;
+>  			status = "disabled";
+>  		};
+> +
+> +		gmac0: ethernet@40120000 {
+> +			compatible = "nuvoton,ma35d1-dwmac";
+> +			reg = <0x0 0x40120000 0x0 0x10000>;
+> +			interrupts = <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "macirq";
+> +			clocks = <&clk EMAC0_GATE>, <&clk EPLL_DIV8>;
+> +			clock-names = "stmmaceth", "ptp_ref";
+> +
+> +			nuvoton,sys = <&sys 0>;
+> +			resets = <&sys MA35D1_RESET_GMAC0>;
+> +			reset-names = "stmmaceth";
+> +			status = "disabled";
 
-Sorry about the slow response to your review of this series - I'm just getting
-to it now. Comment's below...
+Status is always, always the last property. Please read and follow DTS
+coding style.
 
-On 14/11/2024 10:17, Vlastimil Babka wrote:
-> On 10/14/24 12:58, Ryan Roberts wrote:
->> To prepare for supporting boot-time page size selection, refactor code
->> to remove assumptions about PAGE_SIZE being compile-time constant. Code
->> intended to be equivalent when compile-time page size is active.
->>
->> Refactor "struct vmap_block" to use a flexible array for used_mmap since
->> VMAP_BBMAP_BITS is not a compile time constant for the boot-time page
->> size case.
->>
->> Update various BUILD_BUG_ON() instances to check against appropriate
->> page size limit.
->>
->> Re-define "union swap_header" so that it's no longer exactly page-sized.
->> Instead define a flexible "magic" array with a define which tells the
->> offset to where the magic signature begins.
->>
->> Consider page size limit in some CPP condditionals.
->>
->> Wrap global variables that are initialized with PAGE_SIZE derived values
->> using DEFINE_GLOBAL_PAGE_SIZE_VAR() so their initialization can be
->> deferred for boot-time page size builds.
->>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> ---
->>
->> ***NOTE***
->> Any confused maintainers may want to read the cover note here for context:
->> https://lore.kernel.org/all/20241014105514.3206191-1-ryan.roberts@arm.com/
->>
->>  drivers/mtd/mtdswap.c         |  4 ++--
->>  include/linux/mm.h            |  2 +-
->>  include/linux/mm_types_task.h |  2 +-
->>  include/linux/mmzone.h        |  3 ++-
->>  include/linux/slab.h          |  7 ++++---
->>  include/linux/swap.h          | 17 ++++++++++++-----
->>  include/linux/swapops.h       |  6 +++++-
->>  mm/memcontrol.c               |  2 +-
->>  mm/memory.c                   |  4 ++--
->>  mm/mmap.c                     |  2 +-
->>  mm/page-writeback.c           |  2 +-
->>  mm/slub.c                     |  2 +-
->>  mm/sparse.c                   |  2 +-
->>  mm/swapfile.c                 |  2 +-
->>  mm/vmalloc.c                  |  7 ++++---
->>  15 files changed, 39 insertions(+), 25 deletions(-)
->>
-> 
->> --- a/include/linux/swap.h
->> +++ b/include/linux/swap.h
->> @@ -132,10 +132,17 @@ static inline int current_is_kswapd(void)
->>   * bootbits...
->>   */
->>  union swap_header {
->> -	struct {
->> -		char reserved[PAGE_SIZE - 10];
->> -		char magic[10];			/* SWAP-SPACE or SWAPSPACE2 */
->> -	} magic;
->> +	/*
->> +	 * Exists conceptually, but since PAGE_SIZE may not be known at compile
->> +	 * time, we must access through pointer arithmetic at run time.
->> +	 *
->> +	 * struct {
->> +	 * 	char reserved[PAGE_SIZE - 10];
->> +	 * 	char magic[10];			   SWAP-SPACE or SWAPSPACE2
->> +	 * } magic;
->> +	 */
->> +#define SWAP_HEADER_MAGIC	(PAGE_SIZE - 10)
->> +	char magic[1];
-> 
-> I wonder if it makes sense to even keep this magic field anymore.
-> 
->>  	struct {
->>  		char		bootbits[1024];	/* Space for disklabel etc. */
->>  		__u32		version;
->> @@ -201,7 +208,7 @@ struct swap_extent {
->>   * Max bad pages in the new format..
->>   */
->>  #define MAX_SWAP_BADPAGES \
->> -	((offsetof(union swap_header, magic.magic) - \
->> +	((SWAP_HEADER_MAGIC - \
->>  	  offsetof(union swap_header, info.badpages)) / sizeof(int))
->>  
->>  enum {
-> 
-> <snip>
-> 
->> --- a/mm/swapfile.c
->> +++ b/mm/swapfile.c
->> @@ -2931,7 +2931,7 @@ static unsigned long read_swap_header(struct swap_info_struct *p,
->>  	unsigned long swapfilepages;
->>  	unsigned long last_page;
->>  
->> -	if (memcmp("SWAPSPACE2", swap_header->magic.magic, 10)) {
->> +	if (memcmp("SWAPSPACE2", &swap_header->magic[SWAP_HEADER_MAGIC], 10)) {
-> 
-> I'd expect static checkers to scream here because we overflow the magic[1]
-> both due to copying 10 bytes into 1 byte array and also with the insane
-> offset. Hence my suggestion to drop the field and use purely pointer arithmetic.
-
-Yeah, good point. I'll remove magic[] and use pointer arithmetic.
-
-> 
->>  		pr_err("Unable to find swap-space signature\n");
->>  		return 0;
->>  	}
->> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
->> index a0df1e2e155a8..b4fbba204603c 100644
-> 
-> Hm I'm actually looking at yourwip branch which also has:
-> 
-> --- a/mm/huge_memory.c
-> +++ b/mm/huge_memory.c
-> @@ -969,7 +969,7 @@ static inline int get_order_from_str(const char *size_str)
->         return -EINVAL;
->  }
-> 
-> -static char str_dup[PAGE_SIZE] __initdata;
-> +static char str_dup[PAGE_SIZE_MAX] __initdata;
->  static int __init setup_thp_anon(char *str)
->  {
->         char *token, *range, *policy, *subtoken;
-> 
-> Why PAGE_SIZE_MAX? Isn't this the same case as "mm/memcontrol: Fix seq_buf
-> size to save memory when PAGE_SIZE is large"
-
-Hmm, you're probably right. I had a vague notion that "str", as passed into the
-function, was guarranteed to be no bigger than PAGE_SIZE (perhaps I'm wrong). So
-assumed that's where the original definition of str_dup[PAGE_SIZE] was coming from.
-
-But I think your real question is "should the max size of str be a function of
-PAGE_SIZE?". I think it could; there are more page orders that can legitimately
-be described when the page size is bigger (at least for arm64). But in practice,
-I'd expect any sane string for any page size to be easily within 4K.
-
-So on that basis, I'll take your advice; changing this buffer to be 4K always.
-
-Thanks,
-Ryan
-
-
+Best regards,
+Krzysztof
 
