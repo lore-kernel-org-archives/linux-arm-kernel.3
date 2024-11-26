@@ -4,164 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5373D5A6E4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 06:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3344D5A6DF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 06:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qxQv7Z3S7NTKriAkM5GokfYtZJ1VUWQnAwA/oY8ubHU=; b=QSj8SGHauZEAWquuMI1Dt1e6Z6
-	y2ydWqg+gGody2SVceybd/CndVY9GhQ5uX38kdOwt4pPqXIY22spu6uQ9SB3tED6xiFuI+8JWeJW2
-	QbQEudUuVcMhSXnONXANKpSsaCH7mcHRHqkZMpVQZPIK3jurG0H1zhzGi2jazWyyAPWcicDPlILdO
-	Cj95fBIBsqYT/AUB/nbSl7mI8uSHmqmpJnDN3v+yCYK8+GgqAOHh0IDia5ryJWlpISonDCILOQjk4
-	GkJdD/eh0HjxAyGBn6fWHcU2LdXlV9OE0ZopvjR/7+J8du67CusdQAsA3c5BG+HoZj4xsn/tmycqY
-	+VgQmQrg==;
+	bh=q0HFEsuDlWi/Eg7oXAgpA2QS7cQzjnu66xyyAT+NukA=; b=iUqI93uP99oLkw4Irkm5q3PA1I
+	v8qL1vKFKnrKiHDWlODdGi51/Z8tTNgR+qqrVFuei/8uyg09zUeeh0pZPQgBK/r1+BBCGCt+/dpr3
+	suZaugKdYL/dQ0v8Rpr2PgM1nP3B/qyHRgUs2c1iU3YfNghnId+3xTfdE7qoOmNPyWlUJf/V2FB5h
+	GkbNRi84ULFpWMWlGVIfV+8B3wVVRM3C+HNmi79F4QnYUg/VgTlsYwC1WnTWLK4+3YOb/Jux3fI7Y
+	iR3w+VutLoQUhxqb2OOkSn7DBfSFZfpxFy9NFHK5FeIUImWj4mPiATU+c4vPTjNnRmwoVohc7kUKS
+	tlElSwEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFodG-00000009ize-0pbE;
-	Tue, 26 Nov 2024 06:01:06 +0000
-Received: from mail-co1nam11olkn2081b.outbound.protection.outlook.com ([2a01:111:f403:2c16::81b] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1tFp3l-00000009kWN-0ALu;
+	Tue, 26 Nov 2024 06:28:29 +0000
+Received: from guitar.tkos.co.il ([84.110.109.230] helo=mail.tkos.co.il)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFocC-00000009ijm-1SgV
+	id 1tFp2l-00000009kJm-0Zo6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 06:00:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FKtm5RSAyc8nio12ufFYfIWoT18s+ZxUIbfA0p8F+xYgJ7+jjz6GJi8bY1fBgpAGv1NABIhw2yI/ajB5aSk3O/E5TGM+ahfr92t++uQ6xtGXVL0GkUpblIQf1mb4PO6iJk3oc/HDBz0B5aFxCgaoKX6JrYdIjsVTzCi71PRyGob+xXWWbmbEZdmhpunYqJwh9fWri6CtU40wLBqHCzRaZ7wOYe7hD97bq5QFNiIq+bNklMRSud2YePLcyerFOR5zNBNPnghsytEyaVslV2MhesDgazR/TBo4sdHNGnmZz0ul3ZsK7p6A7btq3S/9MuC6UKDG+gn7bipiW/uVf3aKOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qxQv7Z3S7NTKriAkM5GokfYtZJ1VUWQnAwA/oY8ubHU=;
- b=hIo++iy51+Bb9DDVYvz8i8cymcFCFJsBOKi8RW2/yLuEL28q/Fl68kP9vV5Pfzkej/iZyCU4R76mZfzaqd1d1e2gcYiruFri3Rv2+q/+XeJiUCZh/iI2LXdUmtPLIarcYNPMxmUr3czxuOfhVOrtXQ8bVJpbSvd1/qYw5eWXBY7ySb6ZI39iP2u0GejTTQAlEOXjF/d+0jVlcb6gDH/vMnz83ZjgimlbRfQj5tW9w0SCXS/MVZ7qLTeuSol+cQ/KInV3tJ+2MybQ3ec+tG3YtEiEPPCq9MD/0r0YdZ7xKN+WTO9MrCXfN0wi3xhH112VEhLGCVD8CF21o77aw8gI1A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qxQv7Z3S7NTKriAkM5GokfYtZJ1VUWQnAwA/oY8ubHU=;
- b=UUT+0VGQTnxycDrk1Q+ZTkpKwgrki2Kln3uQF599PuyckNhJ7sot3M5I5reuoA7ImULWsVYwKMx88yNrY/5dUxNyxsHoBTyfrZjvOTC2K0qPp27yP7ULR7tdxjFwJtKE0i/AYFhbdljGeDWAeI8LLoYB2zzJSxu4m0WKaoT6GglpALe58/CTaXbcPg7M/h3R5imqmBNOaIrJ1jS0IKQTQSGnAvWySZN7PqkAqlaPE/l/KArz9ODOa7so5aWJA0mAgSxX4uVYn+Y8DCoS4b21lnLp3hTbdJ3u4T5KScJqsgRH/tUDIUtnAU3Wi73DhzaQ2msIIgc5z2Wk/mNxNqps0A==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by PH7PR02MB10038.namprd02.prod.outlook.com (2603:10b6:510:2ec::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.21; Tue, 26 Nov
- 2024 05:59:54 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df%7]) with mapi id 15.20.8182.018; Tue, 26 Nov 2024
- 05:59:54 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "virtualization@lists.linux.dev"
-	<virtualization@lists.linux.dev>
-CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
-	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
-	"decui@microsoft.com" <decui@microsoft.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"luto@kernel.org" <luto@kernel.org>, "tglx@linutronix.de"
-	<tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de"
-	<bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
-	"seanjc@google.com" <seanjc@google.com>, "pbonzini@redhat.com"
-	<pbonzini@redhat.com>, "peterz@infradead.org" <peterz@infradead.org>,
-	"daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>, "joro@8bytes.org"
-	<joro@8bytes.org>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"davem@davemloft.net" <davem@davemloft.net>, "edumazet@google.com"
-	<edumazet@google.com>, "kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "kw@linux.com" <kw@linux.com>, "robh@kernel.org"
-	<robh@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>,
-	"arnd@arndb.de" <arnd@arndb.de>, "sgarzare@redhat.com" <sgarzare@redhat.com>,
-	"jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
-	"muminulrussell@gmail.com" <muminulrussell@gmail.com>,
-	"skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
-	"mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>,
-	"vkuznets@redhat.com" <vkuznets@redhat.com>, "ssengar@linux.microsoft.com"
-	<ssengar@linux.microsoft.com>, "apais@linux.microsoft.com"
-	<apais@linux.microsoft.com>, "eahariha@linux.microsoft.com"
-	<eahariha@linux.microsoft.com>, "horms@kernel.org" <horms@kernel.org>
-Subject: RE: [PATCH v3 5/5] hyperv: Remove the now unused hyperv-tlfs.h files
-Thread-Topic: [PATCH v3 5/5] hyperv: Remove the now unused hyperv-tlfs.h files
-Thread-Index: AQHbP5E7zVz9oL6wU0uTUJ+VMFMHp7LJEWeQ
-Date: Tue, 26 Nov 2024 05:59:54 +0000
-Message-ID: <SN6PR02MB41570E0108D4E3B45571EE9FD42F2@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <1732577084-2122-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1732577084-2122-6-git-send-email-nunodasneves@linux.microsoft.com>
-In-Reply-To: <1732577084-2122-6-git-send-email-nunodasneves@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|PH7PR02MB10038:EE_
-x-ms-office365-filtering-correlation-id: 81e8fe5d-0854-487c-4388-08dd0ddf8cc4
-x-microsoft-antispam: BCL:0;ARA:14566002|8062599003|19110799003|8060799006|461199028|15080799006|3412199025|440099028|102099032;
-x-microsoft-antispam-message-info: =?us-ascii?Q?WWwbdPZY5QS+WO590DxTUlcWx15jgnG3WFaQ/ikJ7OyXaeQeBgFazUQaRxpG?=
- =?us-ascii?Q?CLFfyEfdHUdsMQsGCHx8SpZVuNHhgjhAhg/w6ZzNNbvHFhg+x4pN/n26ttL3?=
- =?us-ascii?Q?c/s5kgb7xP0EDQm9CVQU0wuW7EtH3cCwW3Z4mSQQ7fHKSu49rWrZ0wXkqCnH?=
- =?us-ascii?Q?tErEh7TwQr2F7gm/eUWfDsWphzFl0ysEappf2GRPSTFsZuSBrzBY04Fp2SsV?=
- =?us-ascii?Q?JL0+KsWsuu8AdS4q+0MGUv+IVUSizjMER/ZNnJ4cZ5HwmjwSa6BcEu9z0kYU?=
- =?us-ascii?Q?CadTT55Z2h8iPT2mUez+VgkGWCUcygTeBRrCud/eiqTLRgCoYYuILJzzqvbl?=
- =?us-ascii?Q?xWXhUHNoKgP1zVsuw1gG2HRKTVu+cxSkU1Izg79R7kp7FrOig683PljOq79b?=
- =?us-ascii?Q?pjDDsWDUHpelXbpHlV1x4DuESBx01Glx/mEorZHU8t5OVF3Om6v3J9WvOx/y?=
- =?us-ascii?Q?aTQM4gPVbFDurwP75saiHnhRvtMSME68fIkczjZAyKiuoKyvzxiELlRUA6P4?=
- =?us-ascii?Q?TWtGUEAeSh3za0zUXabHFO3Ar9RCpEDXCERZF00+JhQjuDz0Dg7PRkgLKmcn?=
- =?us-ascii?Q?81UxDAizSjLwexoHKbEgKU1IfVkKresJX14a1HHMGYmCACZOlTfgjiGSuPyB?=
- =?us-ascii?Q?ceGavc0xmwO7eTmWiV8j2wjE0BNnLxjY5JOvP/eUhIkZCWm4Mu6361Tgyo/j?=
- =?us-ascii?Q?vIWZOdvdCVsa5G7qkOA31WtUTrQjI7wFL+rySBGr5jnSSpLiQvpBq5zVjQTU?=
- =?us-ascii?Q?X+K6xcrOQsIQvxlqnykeab6DLP0NMAH/JB2gyMdA84Rz0Nv0z/PbQCFEXqLr?=
- =?us-ascii?Q?1x7UbfiAFWtx/1PeR5Yb9gHt+E2tcm5jZpgL8fPEkTJZce9ilVJMyP+1rBHn?=
- =?us-ascii?Q?fJB4WnVSjSH80rnZUrlkEECyNf0oRjzEaxpuvbQdk3RvOJP3+d7exFmdNc0F?=
- =?us-ascii?Q?c9546IgHhyRoPEPLJQ6D40BQCmBrN/3Rbgvcma1X92wNRcT0g/KIgmJu0a20?=
- =?us-ascii?Q?vwEnThSKHFKr3mxmcq2ltu7pOA=3D=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?WGdZhy5Y4upH0/EoZY0i20KCz1AgIqyBCDFnTY3xvjgbNETFYGu+jaMzw5te?=
- =?us-ascii?Q?SPjW3isJDvxTy16gsw6Lnd4ssrqnTj9bQhkVPN7yxMJeQxNynCVL5BWx/G21?=
- =?us-ascii?Q?U1+xAeNgeR7r9CBhJnSGKetiAfalB6qH+CmE1TmCpk9s4IKXIBq6Yltt1SYV?=
- =?us-ascii?Q?yU3JUv/jX9aOQuc0bJ9SQeGAMJjZDHHr1V4tXcyFYwgw231l8J/d08mrADPX?=
- =?us-ascii?Q?PczERWHZrlVb4ntK1Xhwc3jw0KTm/cb3y9PtX8elztd4hdw+EGLOv6CyrNCj?=
- =?us-ascii?Q?5rPlffEE9kS88zZ/l8AcCEfY1Rl2EWIcr90QX27N27YaJiHGXbH4YNxEDBx8?=
- =?us-ascii?Q?WfGlIJJjTn7bZjh/QtMMH2F+DDxNklsguhDG6j9CnrXA6hSf8jUMUK+JmcQM?=
- =?us-ascii?Q?cGIbpQvYQ2pyVrC/UiAAz5qbHQMjB3yHKJMc0FQd6osxekIgSI/L5F5BcSSd?=
- =?us-ascii?Q?6MidbWlbSeEW7n8vflGIRTwIG73ulNFXWG+0og3sf8ZVI4CvxAj+Pjxg70iV?=
- =?us-ascii?Q?C5uJAS0EIPunjld3qhza1AVS7Rp6KRUO7enOe4BGPh0MrWP+wr0Z4TItNnxq?=
- =?us-ascii?Q?xnIhXdDnlm+pIvYwHZOkxjH8Tof1SWoG0xxOXLwEyqBERJwHQIc4Xu9COd/M?=
- =?us-ascii?Q?emEY+aPOgiSUDb7Mvu9j0ijay2JEOBwkX4Z8c3Biml9bQNYJgDIybn6hnGds?=
- =?us-ascii?Q?JU1fPaEXg/VXzrLHoA/5mDvmxSvKl3lNcWm5MTDVJyYLfx8ilOkymu216GyR?=
- =?us-ascii?Q?zCT1w8oLbQch/bjH6R7/ZvwsTmcrCbEUV9BtG2Qy7t6dHAyxO1yElSo0ZbL1?=
- =?us-ascii?Q?2QY5wT65rj9WstTcTVq2muXO/xMJmtI7V8HRmiH8L3ufJmU+cSTQjid6CP/e?=
- =?us-ascii?Q?Pw3Ljyy8Gu7nNFdgSb3VSJDLUkkSY33j+0LkldC39JamHMBHmXHCWkCNqN8E?=
- =?us-ascii?Q?m9bQzFOq4Pb5TMR2rSBTmTm8mLIAbd0PSA0WZkF4uikCQF0FAuZ5ZaWwKVRZ?=
- =?us-ascii?Q?XkyTdOhTXAKzsYCDzMUrQi3RtJ8mVHkAYQowjcUyXqBH7g5XCSEcyRImlUn6?=
- =?us-ascii?Q?xGYLWhwqRVwLZn+R1wD5AEfgjub1oT4zf5XnbWNeiLjT3f0UyxZge9GXSuG6?=
- =?us-ascii?Q?cHHpqI7NjKLko+4TnLW7eRumFOAHxv2M3lAS4g4KbZcMc99SmJM+4qbQuyym?=
- =?us-ascii?Q?eL9e2q6wqK6gBmouCT1CRXJvBpdtFcPARnWsC/NU8M4Vx7009tyr1HCCF1s?=
- =?us-ascii?Q?=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 26 Nov 2024 06:27:29 +0000
+Received: from localhost (unknown [10.0.8.2])
+	by mail.tkos.co.il (Postfix) with ESMTP id EE487441037;
+	Tue, 26 Nov 2024 08:23:33 +0200 (IST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tkos.co.il;
+	s=default; t=1732602214;
+	bh=udoK2qW83uXeBOCAIZ44JnfDHyuvD0+EsOfZ541mR6E=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=vM8eFXd3nNwLJ8ZpNyfsru415A8oDTaFWKjBfHADSHIC+BTsvqynp6XC+UaDS/dJy
+	 ey/oagwRLiTq6cR2MpOXLS52XKovgga+T091fC60LrKZ3E1U3qRJxmraIAvFsTOCfo
+	 //7yf4kC08/45gHQvQ2PjRHoznOZRbez0YJyZjcI/hjVVqh3FrGqF+r5f0PL1VV4gD
+	 vVuezGRLbsqheA/zG/36tLjijOKXpDOqjka2wjPMf5vz3xOttWOtYNbuRv4Zqp+evU
+	 Tde2QbddyL3b14tZzttIilm0a1RddJnazsQRMmtBFntdLjaUWGMn/Y0IwXALs3sIkj
+	 2Wrod0Wmq6LYw==
+From: Baruch Siach <baruch@tkos.co.il>
+To: Yang Shi <yang@os.amperecomputing.com>
+Cc: catalin.marinas@arm.com,  will@kernel.org,  ptesarik@suse.com,
+  hch@lst.de,  jiangyutang@os.amperecomputing.com,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: mm: fix zone_dma_limit calculation
+In-Reply-To: <20241125171650.77424-1-yang@os.amperecomputing.com> (Yang Shi's
+	message of "Mon, 25 Nov 2024 09:16:50 -0800")
+References: <20241125171650.77424-1-yang@os.amperecomputing.com>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Tue, 26 Nov 2024 08:27:19 +0200
+Message-ID: <87ttbu8q7s.fsf@tarshish>
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 81e8fe5d-0854-487c-4388-08dd0ddf8cc4
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Nov 2024 05:59:54.6865
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR02MB10038
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_220000_393938_BADF9792 
-X-CRM114-Status: UNSURE (   7.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241125_222727_887926_BBE06581 
+X-CRM114-Status: GOOD (  20.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,16 +71,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Monday, Novem=
-ber 25, 2024 3:25 PM
->=20
-> Remove all hyperv-tlfs.h files. These are no longer included
-> anywhere. hyperv/hvhdk.h serves the same role, but with an easier
-> path for adding new definitions.
->=20
-> Remove the relevant lines in MAINTAINERS.
->=20
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+Hi Yang,
 
-Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+On Mon, Nov 25 2024, Yang Shi wrote:
+> The commit ba0fb44aed47 ("dma-mapping: replace zone_dma_bits by
+> zone_dma_limit") changed how zone_dma_limit was calculated.  Now it
+> returns the memsize limit in IORT or device tree instead of U32_MAX if
+> the memsize limit is greater than U32_MAX.
+
+Can you give a concrete example of memory layout and dma-ranges that
+demonstrates this issue?
+
+> This resulted in DMA allocations may use GFP_DMA even though the devices
+> don't require it.  It caused regression on our two sockets systems due
+> to excessive remote memory access.
+
+That is, DMA zone used to cover all memory before commit ba0fb44aed47,
+but now DMA zone is limited to the smallest dma-ranges. Is that correct?
+
+Thanks,
+baruch
+
+> Fixes: ba0fb44aed47 ("dma-mapping: replace zone_dma_bits by zone_dma_limit")
+> Cc: <stable@vger.kernel.org>    [6.12+]
+> Reported-by: Yutang Jiang <jiangyutang@os.amperecomputing.com>
+> Tested-by: Yutang Jiang <jiangyutang@os.amperecomputing.com>
+> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+> ---
+>  arch/arm64/mm/init.c | 17 ++++++++---------
+>  1 file changed, 8 insertions(+), 9 deletions(-)
+>
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index d21f67d67cf5..ccdef53872a0 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -117,15 +117,6 @@ static void __init arch_reserve_crashkernel(void)
+>  
+>  static phys_addr_t __init max_zone_phys(phys_addr_t zone_limit)
+>  {
+> -	/**
+> -	 * Information we get from firmware (e.g. DT dma-ranges) describe DMA
+> -	 * bus constraints. Devices using DMA might have their own limitations.
+> -	 * Some of them rely on DMA zone in low 32-bit memory. Keep low RAM
+> -	 * DMA zone on platforms that have RAM there.
+> -	 */
+> -	if (memblock_start_of_DRAM() < U32_MAX)
+> -		zone_limit = min(zone_limit, U32_MAX);
+> -
+>  	return min(zone_limit, memblock_end_of_DRAM() - 1) + 1;
+>  }
+>  
+> @@ -141,6 +132,14 @@ static void __init zone_sizes_init(void)
+>  	acpi_zone_dma_limit = acpi_iort_dma_get_max_cpu_address();
+>  	dt_zone_dma_limit = of_dma_get_max_cpu_address(NULL);
+>  	zone_dma_limit = min(dt_zone_dma_limit, acpi_zone_dma_limit);
+> +	/*
+> +	 * Information we get from firmware (e.g. DT dma-ranges) describe DMA
+> +	 * bus constraints. Devices using DMA might have their own limitations.
+> +	 * Some of them rely on DMA zone in low 32-bit memory. Keep low RAM
+> +	 * DMA zone on platforms that have RAM there.
+> +	 */
+> +	if (memblock_start_of_DRAM() < U32_MAX)
+> +		zone_dma_limit = min(zone_dma_limit, U32_MAX);
+>  	arm64_dma_phys_limit = max_zone_phys(zone_dma_limit);
+>  	max_zone_pfns[ZONE_DMA] = PFN_DOWN(arm64_dma_phys_limit);
+>  #endif
+
+-- 
+                                                     ~. .~   Tk Open Systems
+=}------------------------------------------------ooO--U--Ooo------------{=
+   - baruch@tkos.co.il - tel: +972.52.368.4656, http://www.tkos.co.il -
 
