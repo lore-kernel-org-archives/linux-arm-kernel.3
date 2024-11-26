@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2977ED6554E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 18:50:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7892D6554F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 18:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ToEmNiBbhN5F/yjkx/YHq03WfxPjrJ7SieRa4FeLMBs=; b=WGltsdMMt8XmPDoUv9tcq3QaED
-	VSk57nNcQlZ9pcCHyDcZk2ho6/VLBOQvrZa//Xjwc1enYKc+QR7Ovv83Ek917O1l/vnuFtQnPvGag
-	6TIWP22/P67yQgbgRJ2o0qB967srbUzK/zIHfMFU6YnTau6s62G18o54OcxVbpwWzT6qp/vLEq5Wy
-	dJD52KKaFhL2BbPZcX1YPCYvSrXiAHOi0Gc1vXV8LJqfe0vP5xWLgPo9tlwHQRFC7iSmapLooc/oa
-	Hb8ImX68UEACtZBAsRAdLHnPFrZrdGkD+mrt4Z3G4hTxOcCjyyRiLrvJsd2pQxadzoKSCUl5GnlVw
-	mWMdKv2g==;
+	bh=FP8KRA/DgqyuzIh0IvIbveFrfHvmUgGMVizg2Kjg4xo=; b=LzFx9Eswt8F6nrqaT5LJlzkSEY
+	2d2YK/T3d76pvgkCyB0pJTxOhxLrtZ8ePSWb4L9IQ+F9LfMXhrrzHbeiwluRlIUFNubIoKQ9F35uG
+	lISGWNRPbdj+NUpJcBBo17Qgp+eKvDNmkdHPkT503DhUGEyfMAy0sYU7DPqpAs5BDPXiZF32rOVmA
+	VJybN3JpYl9MamUPW0/4XAQtONih48p0mIvDy0PWOSxE+lnvAI80R92H2d1upQLBWKL2c+eKG8WHs
+	iIudgpqZfyY6JbHS7YhdPWRoufvEUUTJ+r9k2Vr3e7Oto+mldkhSZQh1y2IwxGGBmo0Y1R8SyPDdP
+	Vc0EXZPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG0dM-0000000BTds-3L33;
-	Tue, 26 Nov 2024 18:50:00 +0000
-Received: from out-178.mta0.migadu.com ([2001:41d0:1004:224b::b2])
+	id 1tG0hM-0000000BU0F-2Uf7;
+	Tue, 26 Nov 2024 18:54:08 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG0cN-0000000BTXp-43n5
+	id 1tG0gO-0000000BTu1-1rPV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 18:49:01 +0000
-Date: Tue, 26 Nov 2024 10:48:50 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1732646936;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ToEmNiBbhN5F/yjkx/YHq03WfxPjrJ7SieRa4FeLMBs=;
-	b=L4/aYIeqWZUgwP8whOq9QGeoy4pNVidemMixAv6nZOlhild0Wre4/bBQIc5VeQigkiArVi
-	8h7bFgbTSzWEIETs5dCZdCyUQMCK9vg9JutUo9YuEIldao2+2rIbEBbJhCB2eqca0kQ5Pb
-	oBLUVmzdt5NDvOO5m9YOWXVTAjpBJ2s=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: Re: [PATCH] KVM: arm64: Fix S1/S2 combination when FWB==1 and S2 has
- Device memory type
-Message-ID: <Z0YYEmeJhpJ2PaWf@linux.dev>
-References: <20241125094756.609590-1-maz@kernel.org>
- <Z0XoxGSWRCjbTFie@linux.dev>
- <86ed2yufdz.wl-maz@kernel.org>
+	Tue, 26 Nov 2024 18:53:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C1C54A40467;
+	Tue, 26 Nov 2024 18:51:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAE86C4CECF;
+	Tue, 26 Nov 2024 18:53:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732647187;
+	bh=YbaJtQ8ZD5m/lylDmgyKGCB6UhgH6Eq44TWOBqH9jwQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Iyh27BILoiDEuzMYVXCv1eGEu0zUqO8tCwZ7nag3vvaqWFAIMZPFw9fKstNoBbXhR
+	 OgAk6RuvRDzLJYZYT9L4XkBWkumYOsUfXy617gwEByqNoSyLtyFptCtfPF8ka3PPUe
+	 bzuuutQCp5q9ZZco8iIEnBoCm3XSPrZBi959POFvJf2mKqNS35D+6Zy6gG3e9BV5FL
+	 JrubH/idSS6TW2tueLDIWa8bBEJEe4sOTbKyg1843kgzjPzaz34j6L8nhzK41usrmm
+	 jfkzo1hGs2zR2rSGSf2grGoBiI9/qBAmNLI9/sDQ+an+Dttc4WSmdyI1RDUXvVGImd
+	 eDLyqwvr6fm9w==
+Date: Tue, 26 Nov 2024 18:53:03 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: Re: [BOOT-WRAPPER PATCH 3/3] aarch64: Enable use of GCS for EL2 and
+ below
+Message-ID: <287e6fab-e858-4a7b-bc21-687c36742e24@sirena.org.uk>
+References: <20241126153955.477569-1-mark.rutland@arm.com>
+ <20241126153955.477569-4-mark.rutland@arm.com>
+ <154929d3-c46b-42cd-9785-c48aa1b08d33@sirena.org.uk>
+ <Z0YNFCfisiCqU3lJ@J2N7QTR9R3.cambridge.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="45ImN+cSKYtfPWjP"
 Content-Disposition: inline
-In-Reply-To: <86ed2yufdz.wl-maz@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <Z0YNFCfisiCqU3lJ@J2N7QTR9R3.cambridge.arm.com>
+X-Cookie: Have a taco.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_104900_528647_7D4317BC 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20241126_105308_550275_A64E41D6 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,31 +76,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 04:30:16PM +0000, Marc Zyngier wrote:
-> On Tue, 26 Nov 2024 15:27:00 +0000,
-> Oliver Upton <oliver.upton@linux.dev> wrote:
-> > 
-> > On Mon, Nov 25, 2024 at 09:47:56AM +0000, Marc Zyngier wrote:
-> > > The G.a revision of the ARM ARM had it pretty clear that HCR_EL2.FWB
-> > > had no influence on "The way that stage 1 memory types and attributes
-> > > are combined with stage 2 Device type and attributes." (D5.5.5).
-> > > 
-> > > However, this wording was lost in further revisions of the architecture.
-> > > 
-> > > Restore the intended behaviour, which is to take the strongest memory
-> > > type of S1 and S2 in this case, as if FWB was 0. The specification is
-> > > being fixed accordingly.
-> > 
-> > Since you're already asking for a spec fix, could you mention that the
-> > column headers in DDI0487K.a Table D8-95 are incorrect? MemAttr[1:0] is
-> > used twice, although I believe the first column is actually MemAttr[3:2].
-> 
-> That one has already been fixed as D22366, as described in the Known
-> Issues document for version K.a (issue 07) [1].
 
-Ah, right on. Thanks!
+--45ImN+cSKYtfPWjP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
--- 
-Best,
-Oliver
+On Tue, Nov 26, 2024 at 06:01:56PM +0000, Mark Rutland wrote:
+
+> GCSCR_EL3.PCRSEL resets to 0, so the HW won't push to the GCS for BL/BLR
+> and won't pop from the GCS for a RET. That menas there's no GCS value
+> for a return value check to compare with...
+
+Oh, good point - I'd trusted that the initialisations were required and
+misremembered which of PCRSEL and RVCHKEN was which.  Sorry about that.
+The values on reset follow the same pattern in all the GCS control
+registers down to GCSCRE0_EL1 so the initialisations of the other
+control registers are equally redundant.  We should be consistent here,
+either initialising all the GCS control registers or relying on the
+architecture defaults for all of them, and the note in the changelog
+about them needs an update if the initialisation is there.
+
+> That does raise the question of what specifically happens for a return
+> at EL3 when GCSCR_EL3.{PCRSEL,RVCHKEN} == {1,0}. Can you enlighten me?
+
+RET will attempt to load and use a GCS record, the pseudocode is in
+LoadCheckGCSRecord() which isn't EL dependent other than the selection
+of which GCSPR and GCSCR to use and setting the access as privileged if
+we're not at EL0.
+
+--45ImN+cSKYtfPWjP
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdGGQ8ACgkQJNaLcl1U
+h9Cragf9GpAnFnXQJaa2RGfDh+VEOiUa6YLiEGaGryyi4jSy2udt311+ENe2HAeT
+N86mytfheIZ/KH+FdR2T3qfUOALLQTvzJJTVmU/08dJGAcP0kv2lwd6yApNBK6ev
+GN0XIAKn2mObqeZPhyPzkgqLMdabs5vdR8GNUl6jol5q4rZQsHmwymv3epmjgIwJ
+GHqNkc41sM+/4rkEmxZELcDBoT2TS/niIFDzl4ZkyLojs3QethyXTfflicwV2j9s
+pO5nEbmmDVLJbK6trdnPlnKXJ+5RrMEvE2QGHuwa7G/YSBbbDc5vGPjqmAzRumO0
+SwbuBoHdMk1L+DiWYcZcgd93OQ5rGA==
+=jlgZ
+-----END PGP SIGNATURE-----
+
+--45ImN+cSKYtfPWjP--
 
