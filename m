@@ -4,86 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D7F3D3B98C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:54:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C16D3B98B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ddGXrlsNVofZVqtyw9ZyO42fEPecY4EOHW94yOtt3ck=; b=L5VebES7S8S6A7Ce/tUyuDEQQb
-	nhIFU3TP34fTAJPG9r7ZFXUX4Nt2isS5aUvDt91cgjGyGsNzxfqzpWR6lLgFakU3wg/U2OEUT0E56
-	jtxlDIc9yfrmJCsBI05TRuin8Ox8blY7W/zk5O1PE7qIQdZASZADvPYa7IjruXD25UBEre3+SO2Dk
-	u4YUl19Liww9A0HdkFSPOLKEw1mO+hPZKfENKxnpqY3Vg7NimEq0djlFpzSXYVDISka9IEvLzLdtf
-	2aKCTso6HOs6NVfOFiNXVHY7SXMypukhFk1bGkhsiu9yyE3N6vq//fPQ28kOpGka3/qfWEn7wbOZT
-	JSrR05Ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UBOm54eDNU5qHqV5+q6YCc8Jf+8eu5ki7mmj+f767o4=; b=UvcR+8XCBkMJjEmHgt7YalXlRz
+	ih9PNuWSJNRlYxY/bmNiOkaQNkC3pjee//b7/IdkoIKvSQJFVvK6UQ8z7RmtoKsnRCE+CjKSfw9fC
+	J+2ZIaP+YuWVuQEOS7SXIjrK1k/chlgrn6RqNLFW9Yt+QhLYESfOf4gCKA6nLdaYpD6O8X/RHfZwY
+	uMVB8aXzYghuCcgLLeccU73GpzFrJb9BjRTxCBYKhS8rtoDkcfncZew5FZARUaLccg1pnnlOru/EL
+	ESGQTSPQIy9dI4esfh5rHs85LdDkCfIbiRNEDKhOHF/o0fX2e/qXRjLHklrnxYuncbmy8fGJiJUn+
+	YEy1dYZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFv4j-0000000AcLr-3oGW;
-	Tue, 26 Nov 2024 12:53:53 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tFv5f-0000000Acbw-3jQ7;
+	Tue, 26 Nov 2024 12:54:51 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFv1v-0000000AbTZ-0XXZ;
-	Tue, 26 Nov 2024 12:51:00 +0000
-X-UUID: 122d68acabf511ef82ff63e91e7eb18c-20241126
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=ddGXrlsNVofZVqtyw9ZyO42fEPecY4EOHW94yOtt3ck=;
-	b=TTPpw5YIT1xQDTVz3JmLjcgvxakL1CmHl4WC4rUfMOA1IqSq7GRchP+yJsXu+LNR/hrs7lo61E9gShBLsyuDjTBCiL4p3VsquugBmt3JjbiY2SZRd5a47T2HDDcjAstYblMJN28OC3iwiiSZOpYSLskDi8ejI0WOBkJnmIbtAsM=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.44,REQID:12968b64-a9bf-419f-83d2-7a1cde17ae41,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:464815b,CLOUDID:4f396cb9-596a-4e31-81f2-cae532fa1b81,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0,EDM:-3,IP
-	:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 122d68acabf511ef82ff63e91e7eb18c-20241126
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
-	(envelope-from <andy-ld.lu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 249743599; Tue, 26 Nov 2024 05:50:53 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Tue, 26 Nov 2024 20:50:49 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Tue, 26 Nov 2024 20:50:49 +0800
-From: Andy-ld Lu <andy-ld.lu@mediatek.com>
-To: <ulf.hansson@linaro.org>, <angelogioacchino.delregno@collabora.com>,
-	<matthias.bgg@gmail.com>, <avri.altman@wdc.com>, <adrian.hunter@intel.com>,
-	<wenbin.mei@mediatek.com>
-CC: <linux-mmc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	Andy-ld Lu <andy-ld.lu@mediatek.com>
-Subject: [PATCH v2 2/2] mmc: mtk-sd: Add support for ignoring cmd response CRC
-Date: Tue, 26 Nov 2024 20:48:23 +0800
-Message-ID: <20241126125041.16071-3-andy-ld.lu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20241126125041.16071-1-andy-ld.lu@mediatek.com>
-References: <20241126125041.16071-1-andy-ld.lu@mediatek.com>
+	id 1tFv2o-0000000Abe9-0H6h
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Nov 2024 12:51:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=UBOm54eDNU5qHqV5+q6YCc8Jf+8eu5ki7mmj+f767o4=; b=lCJNcmZ9BHMsquiiiy0Ks0W5zk
+	oEFcavkVPwtpUjrcJFnKDMCujy0LPy4s8ITxl/ZcskkSAWF58oOuwBm6tqCoUWFLr57qn9buQEynh
+	IRtup8KRm1yZUJSdR5p0eaK1Bcqddtli0elwkGRIWGMre1GGavFnF8dA3k6TxN37LAySLhA9eF7Tf
+	X4UP9G75NmMTzCSLLhMims1j9QfmOxUWRKfr7ksbcyWje24HeHsB/XYAaFRX5fhWiKVQ4Oiu2Wpa8
+	zZnYQDUg6TGuzTkZzM07S3WmdY570AV0UjwkMupx8MCWe5wN+4gKFfu3DeaxReCQR6ZU3v0zDnEv2
+	dglIxmEQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47164)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tFv2b-0006r2-1M;
+	Tue, 26 Nov 2024 12:51:41 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tFv2W-0004Yp-2f;
+	Tue, 26 Nov 2024 12:51:36 +0000
+Date: Tue, 26 Nov 2024 12:51:36 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Bryan Whitehead <bryan.whitehead@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com
+Subject: [PATCH RFC net-next 00/23] net: phylink managed EEE support
+Message-ID: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-AS-Result: No-10--4.369700-8.000000
-X-TMASE-MatchedRID: yALcya1h5KX7W7/9wscjdRuZoNKc6pl+ju+GX08gELBKda7Cp9A+RkJW
-	dVOufBPR/KZpBkEBJHqIY8ivHy/5E6XzgcphDfm8A9lly13c/gHt/okBLaEo+C8zQZ2rR/Op0Fi
-	DqDlQgH4SIx4SDL9Y5uuLFZZYlisfHxPMjOKY7A8LbigRnpKlKZx+7GyJjhAUI51nWVDVVfWhFL
-	FIsK0Cw+lupQ5Bsw7jcU72BTeNXW5Nk8cAoC9YSLojLyfylXvJqPdSBhdySgg0qsN/ix5JTJi88
-	butrgo98jae4OD13tAV7Mc+rowcVKtX/F0pBwVJjSV5hDFby7aUTGVAhB5EbQ==
-X-TM-AS-User-Approved-Sender: No
-X-TM-AS-User-Blocked-Sender: No
-X-TMASE-Result: 10--4.369700-8.000000
-X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-SNTS-SMTP: 78C610F20AEBBD1AD5EEE534EEE4D7022F688123028ED1F227EEF820CA4E8EB82000:8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_045059_167829_B03BE901 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20241126_045154_245877_13AAFE3C 
+X-CRM114-Status: GOOD (  33.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,51 +87,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current process flow does not handle MMC requests that are indicated
-to ignore the command response CRC. For instance, cmd12 and cmd48 from
-mmc_cqe_recovery() are marked to ignore CRC, but they are not matched to
-the appropriate response type in msdc_cmd_find_resp(). As a result, they
-are defaulted to 'MMC_RSP_NONE', which means no response is expected.
+Hi,
 
-This commit applies the flag 'MMC_RSP_R1B_NO_CRC' to fix the response type
-setting in msdc_cmd_find_resp() and adds the logic to ignore CRC in
-msdc_cmd_done().
+Adding managed EEE support to phylink has been on the cards ever since
+the idea in phylib was mooted. This overly large series attempts to do
+so. I've included all the patches as it's important to get the driver
+patches out there.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Andy-ld Lu <andy-ld.lu@mediatek.com>
----
- drivers/mmc/host/mtk-sd.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+In doing this, I came across the fact that the addition of phylib
+managed EEE support has actually broken a huge number of drivers -
+phylib will now overwrite all members of struct ethtool_keee whether
+the netdev driver wants it or not. This leads to weird scenarios where
+doing a get_eee() op followed by a set_eee() op results in e.g.
+tx_lpi_timer being zeroed, because the MAC driver doesn't know it needs
+to initialise phylib's phydev->eee_cfg.tx_lpi_timer member. This mess
+really needs urgently addressing, and I believe it came about because
+Andrew's patches were only partly merged via another party - I guess
+highlighting the inherent danger of "thou shalt limit your patch series
+to no more than 15 patches" when one has a subsystem who's in-kernel
+API is changing.
 
-diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
-index efb0d2d5716b..e2c385853eef 100644
---- a/drivers/mmc/host/mtk-sd.c
-+++ b/drivers/mmc/host/mtk-sd.c
-@@ -1097,11 +1097,12 @@ static inline u32 msdc_cmd_find_resp(struct msdc_host *host,
- 	u32 resp;
- 
- 	switch (mmc_resp_type(cmd)) {
--		/* Actually, R1, R5, R6, R7 are the same */
-+	/* Actually, R1, R5, R6, R7 are the same */
- 	case MMC_RSP_R1:
- 		resp = 0x1;
- 		break;
- 	case MMC_RSP_R1B:
-+	case MMC_RSP_R1B_NO_CRC:
- 		resp = 0x7;
- 		break;
- 	case MMC_RSP_R2:
-@@ -1351,7 +1352,8 @@ static bool msdc_cmd_done(struct msdc_host *host, int events,
- 			 * CRC error.
- 			 */
- 			msdc_reset_hw(host);
--		if (events & MSDC_INT_RSPCRCERR) {
-+		if (events & MSDC_INT_RSPCRCERR &&
-+		    mmc_resp_type(cmd) != MMC_RSP_R1B_NO_CRC) {
- 			cmd->error = -EILSEQ;
- 			host->error |= REQ_CMD_EIO;
- 		} else if (events & MSDC_INT_CMDTMO) {
+I am ignoring that limit for this posting precisely because of this.
+I think we need to have a discussion about it, because if it ends up
+causing breakage, then we're doing something wrong.
+
+One of the drivers that got broken was stmmac, so this series also
+includes a number of patches that fix it before converting stmmac to
+phylink managed EEE. I can point to many many more that are similarly
+broken.
+
+Also inflating this series are two important patches that have been
+submitted for the NET tree, but which aren't yet part of the net-next
+tree - thus making this series larger than really necessary. If it
+weren't for both of these issues, then this series would be exactly
+15 patches.
+
+Anyway, these patches...
+
+Patch 1 and 2 are patches that have been submitted and possibly applied
+to the net tree.
+
+Patch 3 changes the Marvell driver to use the state we store in
+struct phy_device, rather than manually calling
+phydev->eee_cfg.eee_enabled.
+
+Patch 4 avoids genphy_c45_ethtool_get_eee() setting ->eee_enabled, as
+we copy that from phydev->eee_cfg.eee_enabled later, and after patch 3
+mo one uses this after calling genphy_c45_ethtool_get_eee(). In fact,
+the only caller of this function now is phy_ethtool_get_eee().
+
+As all callers to genphy_c45_eee_is_active() now pass NULL as its
+is_enabled flag, this is no longer useful. Remove the argument in
+patch 5.
+
+Patch 6 updates the phylib documentation to make it absolutely clear
+that phy_ethtool_get_eee() now fills in all members of struct
+ethtool_keee, which is why we now have so many buggy network drivers.
+We need to decide how to fix this mess.
+
+Patch 7 adds a definition for the clock stop capable bit in the PCS
+MMD status register.
+
+Patch 8 adds a phylib API to query whether the PHY allows the transmit
+xMII clock to be stopped while in LPI mode. This capability is for MAC
+drivers to save power when LPI is active, to allow them to stop their
+transmit clock.
+
+Patch 9 adds another phylib API to configure whether the receive xMII
+clock may be disabled by the PHY. We do have an existing API,
+phy_init_eee(), but... it only allows the control bit to be set which
+is weird - what if a boot firmware or previous kernel has set this bit
+and we want it clear?
+
+Patch 10 finally starts on the phylink parts of this, extracting from
+phylink_resolve() the detection of link-up. (Yes, okay, I could've
+dropped this patch, but with 23 patches, it's not going to make that
+much difference.)
+
+Patch 11 adds phylink managed EEE support. Two new MAC APIs are added,
+to enable and disable LPI. The enable method is passed the LPI timer
+setting which it is expected to program into the hardware, and also a
+flag ehther the transmit clock should be stopped.
+
+ *** There are open questions here. Eagle eyed reviewers will notice
+   pl->config->lpi_interfaces. There are MACs out there which only
+   support LPI signalling on a subset of their interface types. Phylib
+   doesn't understand this. I'm handling this at the moment by simply
+   not activating LPI at the MAC, but that leads to ethtool --show-eee
+   suggesting that EEE is active when it isn't.
+ *** Should we pass the phy_interface_t to these functions?
+ *** Should mac_enable_tx_lpi() be allowed to fail if the MAC doesn't
+   support the interface mode?
+
+An example of a MAC that this is the case are the Marvell ones - both
+NETA and PP2 only support LPI signalling when connected via SGMII,
+which makes being connected to a PHY which changes its link mode
+problematical.
+
+The remainder of the patches address the driver sides, which are
+necessary to actually test this stuff out. The exception are the stmmac
+patches.
+
+The first four stmmac patches show what is necessary across many drivers
+to fix the current phylib EEE mess.
+
+The 5th stmmac patch makes reporting of EEE errors dependent on whether
+EEE is supported by stmmac or not - I can't see why one would want
+anything else (maybe someone can enlighten me?)
+
+The 6th stmmac patch converts to use phy_eee_rx_clock_stop(), thereby
+ensuring that, if desired, the RX clock will not be stopped by the PHY
+when in LPI mode (which as noted above is something that phy_init_eee()
+doesn't do.) Given that we know stmmac has issues if the RX clock is
+stopped, this could be a bug fix.
+
+The final patch converts stmmac to phylink managed EEE.
+
+ drivers/net/ethernet/marvell/mvneta.c              | 118 ++++++++++--------
+ drivers/net/ethernet/marvell/mvpp2/mvpp2.h         |   5 +
+ drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c    |  88 ++++++++++++++
+ drivers/net/ethernet/microchip/lan743x_ethtool.c   |  21 ----
+ drivers/net/ethernet/microchip/lan743x_main.c      |  39 ++++--
+ drivers/net/ethernet/microchip/lan743x_main.h      |   1 -
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h       |   1 -
+ .../net/ethernet/stmicro/stmmac/stmmac_ethtool.c   |  25 +---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  |  68 ++++++++---
+ drivers/net/phy/marvell.c                          |   4 +-
+ drivers/net/phy/phy-c45.c                          |  15 +--
+ drivers/net/phy/phy.c                              | 106 +++++++++++-----
+ drivers/net/phy/phylink.c                          | 134 +++++++++++++++++++--
+ include/linux/phy.h                                |   6 +-
+ include/linux/phylink.h                            |  44 +++++++
+ include/uapi/linux/mdio.h                          |   1 +
+ 16 files changed, 505 insertions(+), 171 deletions(-)
+
 -- 
-2.46.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
