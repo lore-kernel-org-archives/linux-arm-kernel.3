@@ -4,77 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE57D65527
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 16:57:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C3AD6552D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 17:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vi83y/8B3Gubm1QfFkkHpp9kuAcCX8lWoAL/8HKghRw=; b=Ax1Gj8PnsYfgqknxo8Mnq/ZeJ5
-	Bw5MTsukGYfWepvH3bLHs3RFGH/eg2fn9n1wbJCIieG88ySpxD/YAgmoab5tuv+YndqDLKJiZxrRS
-	jk+rgK7CBrNbpkQHC6HtYNVkrMwuvp/iQVF7VjsQ8DfmXbiMYxDtPsuz+Dgr5O8f8iab8B1S9/5M1
-	nNxVGN7a2knEA1XKFw5boKFrgj6D4db9quuPitLDoPsyUYTsZiiC7X7UvyIt6GUfvn4Sg9UxtJbFg
-	Xh0iPeQnhfzQt1PvBy6/lks2dTp8kvWfK6qkoDta5xRhAEZSAdlJwpmtnd0EdNtLdGH9/9ocCHcA9
-	5WN0/Jgw==;
+	bh=6rC4JORljy68YEdx8irUeLm2zmoqEL3AApISoooOchM=; b=2otzIIAlN3UTAHBa+xGu7D06Lw
+	o8A2+oXTyTIjbFC4zuBf7vUOWO1kcBJiIo246okBUAnGXlwKGtX0DeoEXXJ6Gm9avj2KBEBqF3I0u
+	HAAzcIu55iS/i7Gb/slCJeObU6VTaKdDaUU+MxykZzMntR9RPj51r2GsWJa8BhPF/CK59jTh46eQR
+	P8mH6kuvxcscaAmD+8Wd0ydI68cpqvfx6NHsVI5UcsgfM0BqxK33910ZZOcsbArWJ0HOE23EoMD4J
+	vp8SinT0hc7BnSq9orVsDFWmh2BjWNoXbEBMarLIDt8XCxLaHWPdtpsF4r65A7GPF1x4LiWybNYG3
+	h3yxwzGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFyry-0000000BEQZ-3IlF;
-	Tue, 26 Nov 2024 16:56:58 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tFyx0-0000000BF0K-3Efo;
+	Tue, 26 Nov 2024 17:02:10 +0000
+Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFyr1-0000000BELQ-0EbA
+	id 1tFyw3-0000000BErz-02mk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 16:56:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Vi83y/8B3Gubm1QfFkkHpp9kuAcCX8lWoAL/8HKghRw=; b=lqj0VSmLHjU0d/oG8cpuR8TM88
-	9JLF2np7GplvnvAjtFYNVFnPif6QNYPrimeY3ZhlZeNM4HPwDeOpNTZoaYVLrboAkOItRuTJg9RbV
-	clGXZOP6hygYwfJf9N7detcqyasKYrUSVkgOr1IxYMgJ6av4A8jBKYI5VRmYwdX4rIBsuhWwlDONH
-	p42ZQE3N+0SM/sUbq9FidT4vbG6yxWfVqtWxgSLwkqzaOHEJXCeAlmWajjHouVrcdxo2Gbto76miW
-	I98PF9G+jRUgpKiPX8Y0N+NQg1MVAnOmn36Y84IOYVDKiY7wb5KhhlSctIBefUh4GzWJrteJKrAcw
-	2INfuvng==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36036)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tFyqm-0007NI-2j;
-	Tue, 26 Nov 2024 16:55:45 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tFyqk-0004hL-06;
-	Tue, 26 Nov 2024 16:55:42 +0000
-Date: Tue, 26 Nov 2024 16:55:41 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Bryan Whitehead <bryan.whitehead@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com
-Subject: Re: [PATCH RFC net-next 00/23] net: phylink managed EEE support
-Message-ID: <Z0X9jVhpLvBGkRXD@shell.armlinux.org.uk>
-References: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
+	Tue, 26 Nov 2024 17:01:12 +0000
+Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-6ef0c64d75cso25004267b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 09:01:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732640469; x=1733245269; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=6rC4JORljy68YEdx8irUeLm2zmoqEL3AApISoooOchM=;
+        b=j2VT74tc1W6j/GEyJq8DTgXduo5/w4/vK51MBDiA7NF1X910/xF2p9xI+Kwo4IqjPR
+         fKAQT9VHeEOl3UYy3JwmX77JjST472NEkL7PjSTkR9TzGcnoVwM2Tzk/o2WIZ5mFT7gE
+         gnI59ypHpXBwXqx09SpBEHQVDqVmWfFZnnr9GHw2sIxrJzWoIYPbOQyvSCcsvNjP9bde
+         f3R3V7rXBfH60jYS5unT22iRbUR30EreOnKKiGGjfrHiVcxXjJtGTpL/S7yHUpBvADVW
+         CEp6HDHKTtDZ7sSS7n8ZuZRL+4CWV1ZZyyS4C07LWFmTQD4DKJGoWqCf4u0KtaiHPwIk
+         +spQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732640469; x=1733245269;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6rC4JORljy68YEdx8irUeLm2zmoqEL3AApISoooOchM=;
+        b=hC2+CAilrRuVxlwPUAafIVBdEgz+CNsr4tI3IfVkrTQidQSI+BMzUZhGMbShha9Or9
+         eD1BQZCl5a6cyoEl9oIMOJqx/Y+5C3yOc+M8iy2jvdI4CbRYcl10zq8cRk07yEbrDg19
+         E72OdOQZv0IMMSs7v6fQrWSUnmBLV13I93ksI3UatCJ+AabuAmYxQJoa8o1nypyiuplD
+         Y4Mg7jyfv5sYnXJghBV8I60oL5XpYIhHXL5pRuVl2xmJC/ioNJWGPpQO9FdMk26/pbcW
+         Zq+P3Qzn5BLsXQ3tiyEDyTNR7oHm5gsWRjt3bd167EEiIq7w6fKW5jCYImvrB126jGBq
+         UIVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU3QiH5AL4XHoVAuoRzZXWN9Ib+qWqfIUKNddVqjDPh1O5rwCAtLVY2m//9MN7qXwIK+SB3Ns9WeObRjjoNUqLG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJwpWrdAovomj5pWa69LpU21iesT+9nkEcYoNzGsjKrRjjRHl7
+	8aAQBHGF7FkoRn0GpFZ/sdd+kGIWu4DIMaYITcztDYlGdP8SRzeGdLAPVauYMu2BMkezPexU3Hx
+	rhfCo2yDdJ7dlhwkl7DxXeVf/fqA=
+X-Gm-Gg: ASbGncvgrFTan2os8Jfj/PllOXjxvQoqQnfVEoRc1ZmYLfu4PluvXHSPz61ZvnfOaca
+	MNpUx7USm0s4BVysVjMmYxxkhfUDtgFEL
+X-Google-Smtp-Source: AGHT+IFd396UsokWwA15Q5p/KFcRLABdHgY43zyTynmP3tmYwQ6jofpQFOVNZv8hTAfYU9pttSvOZX2EXzH2X5cAsqw=
+X-Received: by 2002:a05:6902:140b:b0:e35:dede:fe02 with SMTP id
+ 3f1490d57ef6-e38f8bf5ae0mr16167825276.44.1732640469435; Tue, 26 Nov 2024
+ 09:01:09 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
+References: <20241126-adpdrm-v2-0-c90485336c09@gmail.com> <20241126-adpdrm-v2-1-c90485336c09@gmail.com>
+ <050d1398-cfc2-4921-b82a-95eecbcddba4@kernel.org>
+In-Reply-To: <050d1398-cfc2-4921-b82a-95eecbcddba4@kernel.org>
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Date: Tue, 26 Nov 2024 18:00:58 +0100
+Message-ID: <CAMT+MTSwCf=iwmD3t=E7T81K_d+o-5XpCxov9fk=_oUnwooA-A@mail.gmail.com>
+Subject: Re: [PATCH v2 1/5] dt-bindings: display: Add Apple pre-DCP display
+ controller bindings
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, 
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_085559_095922_F4F1C3DA 
-X-CRM114-Status: GOOD (  25.16  )
+X-CRM114-CacheID: sfid-20241126_090111_047320_81C86CF9 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,151 +99,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 12:51:36PM +0000, Russell King (Oracle) wrote:
-> In doing this, I came across the fact that the addition of phylib
-> managed EEE support has actually broken a huge number of drivers -
-> phylib will now overwrite all members of struct ethtool_keee whether
-> the netdev driver wants it or not. This leads to weird scenarios where
-> doing a get_eee() op followed by a set_eee() op results in e.g.
-> tx_lpi_timer being zeroed, because the MAC driver doesn't know it needs
-> to initialise phylib's phydev->eee_cfg.tx_lpi_timer member. This mess
-> really needs urgently addressing, and I believe it came about because
-> Andrew's patches were only partly merged via another party - I guess
-> highlighting the inherent danger of "thou shalt limit your patch series
-> to no more than 15 patches" when one has a subsystem who's in-kernel
-> API is changing.
-
-Note that, I think, fec_main.c isn't broken, although a quick review
-only looking at fec_enet_get_eee() may suggest otherwise:
-
-static int
-fec_enet_get_eee(struct net_device *ndev, struct ethtool_keee *edata)
-{
-        struct fec_enet_private *fep = netdev_priv(ndev);
-        struct ethtool_keee *p = &fep->eee;
-
-        if (!(fep->quirks & FEC_QUIRK_HAS_EEE))
-                return -EOPNOTSUPP;
-
-        if (!netif_running(ndev))
-                return -ENETDOWN;
-
-        edata->tx_lpi_timer = p->tx_lpi_timer; // <===========================
-
-        return phy_ethtool_get_eee(ndev->phydev, edata);
-}
-
-static int
-fec_enet_set_eee(struct net_device *ndev, struct ethtool_keee *edata)
-{
+On Tue, 26 Nov 2024 at 17:46, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> > +allOf:
+> > +  - $ref: dsi-controller.yaml#
 ...
-        p->tx_lpi_timer = edata->tx_lpi_timer;
+> > +patternProperties:
+> > +  "^panel@[0-3]$": true
+>
+> These look unusual. Is this a DSI controller? If so, then reference
+> dsi-controller. See other bindings how this is done.
 
-Since the driver does not touch phydev->eee_cfg.tx_lpi_timer,
-phy_ethtool_get_eee() above will overwrite edata->tx_lpi_timer with
-zero. If ethtool does a read-modify-write on the EEE settings, then
-fec_enet_set_eee() will be passed a value of zero for
-edata->tx_lpi_timer.
+This is a DSI controller, as referenced above. Those properties are from
+dsi-controller.yaml
 
-This will result in FEC_LPI_SLEEP and FEC_LPI_WAKE being written with
-zero, and from what I can see in fec_enet_eee_mode_set(), that disables
-EEE.
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - enum:
+> > +          - apple,j293-summit
+> > +          - apple,j493-summit
+> > +      - const: apple,summit
+>
+> Summit tells me nothing - no description, title repeats it, so I suggest
+> using device specific compatible.
 
-The saving grace for this driver is that p->tx_lpi_timer also starts
-off as zero.
-
-A better implementation would be to get rid of p->tx_lpi_timer
-entirely, and instead rely on phydev->eee_cfg.tx_lpi_timer to be
-managed by phylib, obtaining its value from there in
-fec_enet_eee_mode_set(). At least the driver doesn't attempt to
-maintain any other EEE state!
-
-So something like this:
+The j293/j493 are the device-specific compatibles, those are chassis names
+for the specific laptops the panel is present in.
 
 
-diff --git a/drivers/net/ethernet/freescale/fec.h b/drivers/net/ethernet/freescale/fec.h
-index 1cca0425d493..c81f2ea588f2 100644
---- a/drivers/net/ethernet/freescale/fec.h
-+++ b/drivers/net/ethernet/freescale/fec.h
-@@ -671,8 +671,6 @@ struct fec_enet_private {
- 	unsigned int tx_time_itr;
- 	unsigned int itr_clk_rate;
- 
--	/* tx lpi eee mode */
--	struct ethtool_keee eee;
- 	unsigned int clk_ref_rate;
- 
- 	/* ptp clock period in ns*/
-diff --git a/drivers/net/ethernet/freescale/fec_main.c b/drivers/net/ethernet/freescale/fec_main.c
-index 1b55047c0237..25c842835d52 100644
---- a/drivers/net/ethernet/freescale/fec_main.c
-+++ b/drivers/net/ethernet/freescale/fec_main.c
-@@ -2045,14 +2045,14 @@ static int fec_enet_us_to_tx_cycle(struct net_device *ndev, int us)
- 	return us * (fep->clk_ref_rate / 1000) / 1000;
- }
- 
--static int fec_enet_eee_mode_set(struct net_device *ndev, bool enable)
-+static int fec_enet_eee_mode_set(struct net_device *ndev, u32 lpi_timer,
-+				 bool enable)
- {
- 	struct fec_enet_private *fep = netdev_priv(ndev);
--	struct ethtool_keee *p = &fep->eee;
- 	unsigned int sleep_cycle, wake_cycle;
- 
- 	if (enable) {
--		sleep_cycle = fec_enet_us_to_tx_cycle(ndev, p->tx_lpi_timer);
-+		sleep_cycle = fec_enet_us_to_tx_cycle(lpi_timer);
- 		wake_cycle = sleep_cycle;
- 	} else {
- 		sleep_cycle = 0;
-@@ -2105,7 +2105,9 @@ static void fec_enet_adjust_link(struct net_device *ndev)
- 			napi_enable(&fep->napi);
- 		}
- 		if (fep->quirks & FEC_QUIRK_HAS_EEE)
--			fec_enet_eee_mode_set(ndev, phy_dev->enable_tx_lpi);
-+			fec_enet_eee_mode_set(ndev,
-+					      phy_dev->eee_cfg.tx_lpi_timer,
-+					      phy_dev->enable_tx_lpi);
- 	} else {
- 		if (fep->link) {
- 			netif_stop_queue(ndev);
-@@ -3181,7 +3183,6 @@ static int
- fec_enet_get_eee(struct net_device *ndev, struct ethtool_keee *edata)
- {
- 	struct fec_enet_private *fep = netdev_priv(ndev);
--	struct ethtool_keee *p = &fep->eee;
- 
- 	if (!(fep->quirks & FEC_QUIRK_HAS_EEE))
- 		return -EOPNOTSUPP;
-@@ -3189,8 +3190,6 @@ fec_enet_get_eee(struct net_device *ndev, struct ethtool_keee *edata)
- 	if (!netif_running(ndev))
- 		return -ENETDOWN;
- 
--	edata->tx_lpi_timer = p->tx_lpi_timer;
--
- 	return phy_ethtool_get_eee(ndev->phydev, edata);
- }
- 
-@@ -3198,7 +3197,6 @@ static int
- fec_enet_set_eee(struct net_device *ndev, struct ethtool_keee *edata)
- {
- 	struct fec_enet_private *fep = netdev_priv(ndev);
--	struct ethtool_keee *p = &fep->eee;
- 
- 	if (!(fep->quirks & FEC_QUIRK_HAS_EEE))
- 		return -EOPNOTSUPP;
-@@ -3206,8 +3204,6 @@ fec_enet_set_eee(struct net_device *ndev, struct ethtool_keee *edata)
- 	if (!netif_running(ndev))
- 		return -ENETDOWN;
- 
--	p->tx_lpi_timer = edata->tx_lpi_timer;
--
- 	return phy_ethtool_set_eee(ndev->phydev, edata);
- }
- 
-Another patch to be added to my stack...
+> No, these cannot be true without definition. Again, please open existing
+> bindings and use them as example. You probably miss here some reference,
+> but max-brightness for panel is a bit confusing. I asked already and did
+> not get answer: isn't this backlight property? What is this device -
+> backlight or panel? If panel, then what bus?
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Per my response on previous version, it's both, kind of. This is a
+self-emissive panel on
+a mipi-dsi bus, which can change brightness in response to mipi dcs
+backlight commands.
 
