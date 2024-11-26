@@ -4,96 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC37D59D92
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 10:19:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45368D59D92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 10:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0tb/1VpCPVFgloHLNFl73KUluXt5M3902QRNEkET+pg=; b=xh5A0hl9lq4AHVUYkqu2chI7n1
-	DwtKZYx5OHDr/ZY6HVRhUe+a656tgl4KGfUvbeTGULmattrnY3OmekszjnT43fh2QEjsAt9NFjuCT
-	fbXxBRKmqQ9SdtqitAqZmrFKjtbLVArQ2QrPpIHz3Yz9/GWL3r/7+vnOs9q2TUUlopjNR6LbKGKgE
-	qf9RVU0sgdGqQQ05HtUUZxE7Is1rh8Zl4pm1EGZx9aIOSrTUFUWN+XtmKFEwF4d1alyydqF2n8kaq
-	sFWFi0HyTxZv8VX5whSIeqa2xTCWVoebIYpijJtD0hfTrgHsLFZayUwijPn3sjmSLfABhrfW9mJRD
-	ye8NCTXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ygbl89qoPUm2yY6YlNeXblUu/RHIuhsj3749PofjBo8=; b=NKwgX5euOUJ6j6Awb3gcjnnJxz
+	6pKWjJXlQ8E3eB6gXPsSYjo3SzvhZIKtz2YPF+l8xXRE1eyB7XsksoF0rHrVo1V4oXyBe32T4mfnH
+	0t13C7cYyA+RBn7zW+ExAVOpahC/vj0kMNtsBgASvPnS8NLFGXzuAYNpdH54BbzICICu9buOoGwXN
+	EJeLdkBCrxvS2s5+MjEoiSCHZrEz/ze8MXFmdFTfekkVCQpYMlsvXchiVLGqmsUglkWR9hIKNIEgf
+	OllHrCWNRzmB+TwCsloR92Zb+/0HHgkCZy7V+2wNS6UoPjChqrrGg14zKVA8sZQVeBSK9zdPslshF
+	zsNG2YIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFsfR-0000000AHp7-1zMS;
-	Tue, 26 Nov 2024 10:19:37 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1tFskd-0000000AIdp-1s5Q;
+	Tue, 26 Nov 2024 10:24:59 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFsdI-0000000AHI7-0d2a
+	id 1tFsjf-0000000AIUL-1S8q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 10:17:26 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a9a0ef5179dso776544866b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 02:17:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1732616242; x=1733221042; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0tb/1VpCPVFgloHLNFl73KUluXt5M3902QRNEkET+pg=;
-        b=AVAAkVSgA5VPhQyPNo5lRHkagTxYir27RwuGyKqog+KI0siIHSGb9yZC6CsjlKTGqR
-         wA/fgBDCTBscy830ssVhypsspx7Es9tBip2Ttpson+inipblMqCVFrseu4Wjee9b2Yoq
-         NC04nA5FlH29ySK7sJ4bkiFmVRpdnaAD19YJ8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732616242; x=1733221042;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0tb/1VpCPVFgloHLNFl73KUluXt5M3902QRNEkET+pg=;
-        b=EgnEphr7+A6fiJtTscHHcKXhYi+Dnay5vVwlVjl4bcdtlKheRbyJWv2oxWGPE764xX
-         z3gHcYWHQqjBVnBSoyNajDaDjKwlfmkWwWaqBDMb0yZGTWbHCRJAt5hMehn5EfdMQsTs
-         3boMZ6PgcFiPD7UMG+c2Iqw9mEym1/YwZomi23PhfIcVbeTOC6/EYizbjfk4nQjd2Kba
-         mjAT/9cVcd1qUn/U6nB0o56SWSARwm5eLWnmO7Tgx7PdcO8gvSArSC/S/hvD9o7bfS+4
-         +ZVnaPkPca9A3yBlBAXjPFPOTsmsXgAAfg/aEHGvtGGCvNDHczlu24QNODJW+vX78oZ1
-         S6bg==
-X-Forwarded-Encrypted: i=1; AJvYcCUdId5Qd4G64ONs3/Sob5Zr3aB8S2K5ite12sucYw5dz1MEH8kjehb1eDahiOCRPy9yr0W4jXKMkNmCdjobsdfF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxb1JhJ/I/CpPy2XwfqWrQ7lI6mygGK1o1BEqFrkqWQJmJ0T4bV
-	q1j72qqfGOSoY2rJW7pq3deExx5pYP3Q/FRHxx6Y8KTHk3vlmV38amzuryMEgoF/4tDmBskggtO
-	uIA==
-X-Gm-Gg: ASbGncsGJp6QSEcpDqVIjWkeXnsiq/YINmqw+tDugtCGV01gB9a7A7A7XOak1vreTyN
-	+dMfiNebu2oD5W40D6ZRms/pB9fclJ4C4X1/1G9x4reZIdNBIJJDII9vg1RRpjUsvUIO3ujhznc
-	nu3mU6dxwSyO++pwJxJNxvo4NzuHiLrBBcGdHg9fnya5yQYYLt6eME9XMOVSdZ7PCsTpIkuqRLA
-	XNF60CpHwlP4veromaRjD1usJP8BlfMIe+9U2NTQCVDeO87jj/SOCPoaWq6U0dv6015dGnogidi
-	MA6TYNMtmNnnBGCt
-X-Google-Smtp-Source: AGHT+IFO8iCq4zqd+8gLMB0g98dQh8HakwF1G2HOVdnwO9up1PS3gafatBy2wgEdkGuUDPo3sjFoow==
-X-Received: by 2002:a17:906:3cb1:b0:aa5:2d9a:1528 with SMTP id a640c23a62f3a-aa52d9a1585mr940458066b.60.1732616241743;
-        Tue, 26 Nov 2024 02:17:21 -0800 (PST)
-Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com. [209.85.208.43])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa50b52f781sm580805166b.108.2024.11.26.02.17.20
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Nov 2024 02:17:20 -0800 (PST)
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-5cfc264b8b6so6669a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 02:17:20 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVNSHFeUJZlhRoaL0tTQ0Kq2IDCvsrsF2uGTXPCj2JxcAfqQ6QpLy/3SryGksXEQVfwGSFaGfQfw3IX0fhmZSiU@lists.infradead.org
-X-Received: by 2002:a50:9505:0:b0:5d0:b76:3ae1 with SMTP id
- 4fb4d7f45d1cf-5d06f5111c2mr40797a12.5.1732616240006; Tue, 26 Nov 2024
- 02:17:20 -0800 (PST)
+	Tue, 26 Nov 2024 10:24:00 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tFsja-00033P-Dp; Tue, 26 Nov 2024 11:23:54 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tFsjZ-000ERt-18;
+	Tue, 26 Nov 2024 11:23:54 +0100
+Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id C120437D8B6;
+	Tue, 26 Nov 2024 10:23:53 +0000 (UTC)
+Date: Tue, 26 Nov 2024 11:23:53 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: Frank Li <frank.li@nxp.com>, 
+	"o.rempel@pengutronix.de" <o.rempel@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
+	"andi.shyti@kernel.org" <andi.shyti@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] i2c: imx: support DMA defer probing
+Message-ID: <20241126-paper-nightingale-of-wealth-de17e7-mkl@pengutronix.de>
+References: <20241126082535.1878554-1-carlos.song@nxp.com>
+ <20241126-economic-energetic-junglefowl-5197a9-mkl@pengutronix.de>
+ <AM0PR0402MB39372380307BC4252BD131ACE82F2@AM0PR0402MB3937.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-References: <20241126-damu-v4-1-e746eec2cb52@chromium.org> <9004a82a-56a3-4d88-b0be-7e9d45932607@kernel.org>
-In-Reply-To: <9004a82a-56a3-4d88-b0be-7e9d45932607@kernel.org>
-From: Hsin-Te Yuan <yuanhsinte@chromium.org>
-Date: Tue, 26 Nov 2024 18:16:43 +0800
-X-Gmail-Original-Message-ID: <CAHc4DNKNrOUPJ+3DE+f+78-SAeQkuqEHqFXmwwaPTG+ni_1MMw@mail.gmail.com>
-Message-ID: <CAHc4DNKNrOUPJ+3DE+f+78-SAeQkuqEHqFXmwwaPTG+ni_1MMw@mail.gmail.com>
-Subject: Re: [PATCH RESEND v4] arm64: dts: mt8183: set DMIC one-wire mode on Damu
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Hsin-Te Yuan <yuanhsinte@chromium.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Hsin-Yi Wang <hsinyi@chromium.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pvifcaczcjfl73wu"
+Content-Disposition: inline
+In-Reply-To: <AM0PR0402MB39372380307BC4252BD131ACE82F2@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_021724_179629_30C86341 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20241126_022359_380646_C1262C23 
+X-CRM114-Status: GOOD (  24.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,47 +85,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 6:05=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 26/11/2024 10:57, Hsin-Te Yuan wrote:
-> > From: Hsin-Yi Wang <hsinyi@chromium.org>
-> >
-> > Sets DMIC one-wire mode on Damu.
-> >
-> > Fixes: cabc71b08eb5 ("arm64: dts: mt8183: Add kukui-jacuzzi-damu board"=
-)
-> > Signed-off-by: Hsin-Yi Wang <hsinyi@chromium.org>
-> > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
->
-> Where did this happen?
->
-https://lore.kernel.org/all/01020191db901d32-5c318445-b8f4-4f4d-86db-316dc0=
-db04ec-000000@eu-west-1.amazonses.com/
 
-> > Reviewed-by: Matthias Brugger <matthias.bgg@gmail.com>
->
-> And this?
->
+--pvifcaczcjfl73wu
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2] i2c: imx: support DMA defer probing
+MIME-Version: 1.0
 
-https://lore.kernel.org/all/5a668114-2ae6-4217-9614-b690c0870849@gmail.com/
-> > Signed-off-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
-> > ---
-> > Changes in v4:
-> > - Add Reviewed-by tag back, which is dropped in v3
->
-> This resend is very weird. Didn't you get a replies that this was applied=
-?
->
->
-> Best regards,
-> Krzysztof
+On 26.11.2024 10:15:27, Carlos Song wrote:
+> > >  static void i2c_imx_dma_callback(void *arg) @@ -1803,6 +1804,13 @@
+> > > static int i2c_imx_probe(struct platform_device *pdev)
+> > >  	if (ret =3D=3D -EPROBE_DEFER)
+> > >  		goto clk_notifier_unregister;
+> > >
+> > > +	/* Init DMA config if supported */
+> > > +	ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
+> > > +	if (ret =3D=3D -EPROBE_DEFER) {
+> > > +		dev_err(&pdev->dev, "DMA not ready, go defer probe!\n");
+> > > +		goto clk_notifier_unregister;
+> > > +	}
+> >=20
+> > Don't spam the logs if the driver defers probing, it's not a error. And=
+ it looks
+> > strange to ignore all other errors here. Either add a comment here, som=
+ething
+> > like "continue without DMA", or let the function return
+> > 0 in case the driver should continue and propagate the error if the cal=
+ler should
+> > take care of it.
+> >=20
+>=20
+> Hi,
+> Thank you for your suggestion! I agree with you.
+> I will change to this logic:
+> 	ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
+> 	if (ret) {
+> 		if (ret =3D=3D -EPROBE_DEFER)
+> 			goto clk_notifier_unregister;
+> 		dev_info(&pdev->dev, "use pio mode\n");
+> 	}
+>=20
+> Ret =3D 0  ----->  enable DMA successfully  -------> no print
+> Ret!=3D0  ----->  defer probe ---------> no print and try again
+> Ret!=3D0  ----->  fail to enable DMA ------> remind now is using pio mode
+>=20
+> Do you think the logic is acceptable?
 
-This patch had been applied but was dropped due to missing a
-Signed-off-by from the author
-(https://lore.kernel.org/all/20241009071543.5230cf79@canb.auug.org.au/).
+Yes, the other option is to move the logic into i2c_imx_dma_request()
+and let it return 0 in case of DMA or fallback to PIO, or an error in
+case of probe defer or a fatal error.
 
-Regards,
-Hsin-Te
+This way the probe function will look like this:
+
+     ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
+     if (ret)
+                return dev_err_probe(&pdev->dev, ret, "Failed to setup DMA\=
+n");
+
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--pvifcaczcjfl73wu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdFobYACgkQKDiiPnot
+vG9Llwf/Wiv7XC46iia/74g2fDIJu4YvYXnAdteDyubnJwlpk/staezEgeh11+FB
+V7BahH36iz1E3w0phN/JpzgZxKjpHDACgm7iDoil6/VHUZFJYbxFCiwQnbGYBpTv
+ekAyLcdsfDhSEP8sPTaraAiCQVZT/7C7Vjxk6kMrqaOEELTkZ+nRl5OW0Ym0SWhZ
+ID8m4rQyNzbxUMZg0/dEbyCcf6E2CJzUe8diixOc4DT1VtLWqEW0qHvZdsBMn7fW
+a6+F68O4oQD8pPC1lm1/yvUmwMY/RqWfXhT9cJU3ArxfqJsEFKeLEI5I0DIymosh
+p/S7I/1xEjQhBCPW0NTMyMUBqsdoAg==
+=L7AI
+-----END PGP SIGNATURE-----
+
+--pvifcaczcjfl73wu--
 
