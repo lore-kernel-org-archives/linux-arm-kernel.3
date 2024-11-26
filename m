@@ -4,79 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F04F1D65553
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 20:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E39E9D65553
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 20:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=88ab7em/bcyfSbTyVcCkEN2g1NCbobhvACDw0R0UWd8=; b=QiYo3FE0Gpgb5MRAyTZRgsM/lE
-	3owUxwrKHhBwMrj885SJUZEk3E63h9K8IuhL4L9uzq+x0jdrYlXAfP0PG2pvLugYjSuCVaQmXTy17
-	UW3Ezq5+1UiqbL2c7zbkdW4qZlSKINtsRqva82RbiHW8KVkGAP42trb/BXsC0XSa9RK16i2hQcWFD
-	VpYRrMbwXBoGEzVmJpSwjvn+SUfJ2gCDmUR/U/0Ti7vvmXD/g0NxPjJvYxjZok7zH3EwIbTtscC2P
-	7kLnyySj5ISIJsYy2yzODKa+c38JassKcCjs/4Eo1zMtI08RpnLfdQbjhiBYhT4BpMl/WZNNVfXo0
-	u3oMmuBQ==;
+	bh=bIdOM98L3EBQwsq5FQMMGgLWqa/7d6Lq3LNh7wTZfHQ=; b=WLcuN+LQqJXk3VtoMnqFeoXLSi
+	OD6GRgx6i50sYjF1yX/c0uQtWmSedL+by/FR/YNhkD06sQUi4zzooIh5fYeuxjgcqoEjhDHWjHEDU
+	M6qOIfDMbYp3kDsVPKQJIgcK9GWagH1dhIB5ctsnl3YNL7zUx6BQT7Y2KYPPj/frGSUL0RvZr8qzs
+	oUYdqKs1kc1A4BksY/Gy6pVXbAdFXs3pAx1aRcGUe9MnehvmvuDoazVlTQ8shCCJwiDbWoU6Sz9kD
+	RPrKC9iaMqzvksgb+KFvaCjsQIXDcQ8eWHbB3OOeOpyOi/eBhiK6EQfCcy4w18ecgcnPj5rLhy2K1
+	QcoxtA3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG1zO-0000000BdGf-3KWR;
-	Tue, 26 Nov 2024 20:16:50 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tG23A-0000000Bdi9-2Ows;
+	Tue, 26 Nov 2024 20:20:44 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG1vd-0000000BcOG-0WKH;
-	Tue, 26 Nov 2024 20:12:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=88ab7em/bcyfSbTyVcCkEN2g1NCbobhvACDw0R0UWd8=; b=uvV+XLUEIRQ9apMthvihMvz86O
-	SWbCENuI/nHSF20GrOY4vfIg4n09elDOFw4XqiznKEW80wnp9I5Q9oeePu+3ALZUDNT81R0Ki/lkR
-	6C/9TwrtBaXGhsDi12+GDEVO5w7G8S7duYoMQHi5Cara8yDx18JaWzotK3Ly4mlQx/tf80PFWPStW
-	okgNgEdekXWYW3tvLcjZxOr+FTRjlTP5YswhaSNBcjAXvrGJJzBvfaU+KYD/2CT5lgK6XF7eNgS0E
-	bvwEdwPtgGjNtD+/+gJxzSuQKOUL2VoOOrH+Fbs7r4hSSorvrjPwzVwofLSPdk0Ldfoyi9vDuSFH1
-	QdjmsVtA==;
-Received: from i5e86190f.versanet.de ([94.134.25.15] helo=phil..)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tG1uy-0002yD-Rr; Tue, 26 Nov 2024 21:12:16 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	quentin.schulz@cherry.de,
-	Heiko Stuebner <heiko.stuebner@cherry.de>,
-	Daniel Semkowicz <dse@thaumatec.com>
-Subject: [PATCH v2 1/3] drm/bridge/synopsys: Add MIPI DSI2 host controller bridge
-Date: Tue, 26 Nov 2024 21:12:11 +0100
-Message-ID: <20241126201213.522753-2-heiko@sntech.de>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241126201213.522753-1-heiko@sntech.de>
-References: <20241126201213.522753-1-heiko@sntech.de>
+	id 1tG22C-0000000BdYz-2Idc
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Nov 2024 20:19:45 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-aa5325af6a0so524021066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 12:19:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732652382; x=1733257182; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=bIdOM98L3EBQwsq5FQMMGgLWqa/7d6Lq3LNh7wTZfHQ=;
+        b=HEHeNwhP+hbJJilyEKRUInFrLWCUzDeSA9bBlc50mieormUrxLUNatvmv3ZAKVofMY
+         +HYcR2PAHV44WoAW1lBeEGjFWEnxD9uup+DjZ4eirHUjR1u0h/mLwNIOM/soI6mmZBFp
+         0jnEagxR+wjqRpZAc/OmKjZS8U8zrwwWvmYcJyiNPS7OdY45K7wFFPkdxOAGZHSW2sUa
+         SQDD0QukOLk5apQiWTKRnOGmVbjq9MUGRGW4isepqbrPRmg2eUe0uTsiAv2rI1aXSSEg
+         cDbIO5/I5p7JWy6QR1kqUtGSqXyNcbuHqgxvlL31praRpTsknYIV0gqe0wqds1Cdex5i
+         DWSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732652382; x=1733257182;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bIdOM98L3EBQwsq5FQMMGgLWqa/7d6Lq3LNh7wTZfHQ=;
+        b=J63VrvtoI6XsgqMH6JMIYWuE2uUz+tzRPeUbU3n8jHsQ9Ux8Ul1Vw+7pT0Ti/Xqoc1
+         V+BosULpBNK6wd9JO7leyv2m3TaU8G9udcC/BQTL+ECeq8S86LAuQmgpXSNashGrPt6W
+         rgpwtEFZ8l9s552nXOwM2xK65CTB+Rj0FUGiMKP/JnC200lkrLRvxRQn6ePm/szcw30z
+         PI0hX0zepArLqqfW8Whfpy4OcDuUNa5AttOloa46asgtIGcssA3pl2ks3wBjvKPi2+q3
+         MI7ALFcd1g/Mp3bR229+AQOSQHwh8AJGigP5tt1U88O7E5rnEm8dCo6DwtBtYdrOivsx
+         WVwA==
+X-Forwarded-Encrypted: i=1; AJvYcCXEzjQ/zCISBSUTixWpsQYm5OcQnLmdBtWVI4SJPA2u/piJR1i76bYpG6x0C26g45UOit4mbUppHgi6I2nXRs9q@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQ0Gecv86Pc7+nH2HCLTLcRiXoGyCaukEQAQhFIlgw9/buL6xO
+	g+O7f/B300wEwUT4UXyb2V7dAKD/ORmmXC9aBQHrpN8LhwsJR1EN
+X-Gm-Gg: ASbGnct/JPSsAJpQVlM/k4RRbylEXEAX9+bTrEE/TvxckNbaBav5kCAugjI0NdLAbVO
+	mKdJ2M9Ihul858whXowVa6Lw0vuQUuAIdjFhGRzBfhf3NoNdlKJ6xIQFSmIFpnVe7Pl4lnt+oJT
+	lLtDAmhtDsmTquy8+R317fyOAKe5KqFmUXm+iEfGkBFK5a8E5jMZusOCH36iSodfgLYmr7920Nb
+	4cDO49GmtKpUX92ay4fLXL7IH+09DY7htrHchr+1C3+Pah1ITiXb+ZV5wg8pODd2LE55BpX6RKu
+	OSJoTAk570yQS/qYi0hIuP4tBL9IgzTfq1Eah8diTMysSDEIVlXG9wqyTy0sbLG08RMSFzgO4HF
+	e3vOdhSODLyx2OMEPMu3h2a4zIcNfcoHiPtM11/0Blw==
+X-Google-Smtp-Source: AGHT+IFJzXI+QGnug04VkzBBZH3/3gOfiit7iwiUpCdN3K1kV7d0P626vyqQmw6ZO1DajOX9UOmxZw==
+X-Received: by 2002:a17:907:6ea6:b0:aa5:4c3a:3b55 with SMTP id a640c23a62f3a-aa580f5814amr26638366b.36.1732652381959;
+        Tue, 26 Nov 2024 12:19:41 -0800 (PST)
+Received: from ?IPV6:2a02:3100:b1b1:7000:f43f:954d:8ddd:f91b? (dynamic-2a02-3100-b1b1-7000-f43f-954d-8ddd-f91b.310.pool.telefonica.de. [2a02:3100:b1b1:7000:f43f:954d:8ddd:f91b])
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-aa50b3000e6sm628933066b.80.2024.11.26.12.19.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 26 Nov 2024 12:19:40 -0800 (PST)
+Message-ID: <fd994907-0d37-41a6-87fe-1064543bf9fc@gmail.com>
+Date: Tue, 26 Nov 2024 21:19:39 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC net-next 03/23] net: phy: marvell: use
+ phydev->eee_cfg.eee_enabled
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ Bryan Whitehead <bryan.whitehead@microchip.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Oleksij Rempel <o.rempel@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>,
+ UNGLinuxDriver@microchip.com
+References: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
+ <E1tFv3K-005yhZ-E8@rmk-PC.armlinux.org.uk>
+Content-Language: en-US
+From: Heiner Kallweit <hkallweit1@gmail.com>
+Autocrypt: addr=hkallweit1@gmail.com; keydata=
+ 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
+In-Reply-To: <E1tFv3K-005yhZ-E8@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_121257_467533_145AB38B 
-X-CRM114-Status: GOOD (  25.19  )
+X-CRM114-CacheID: sfid-20241126_121944_589778_7B147A50 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,1188 +157,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@cherry.de>
+On 26.11.2024 13:52, Russell King (Oracle) wrote:
+> Rather than calling genphy_c45_ethtool_get_eee() to retrieve whether
+> EEE is enabled, use the value stored in the phy_device eee_cfg
+> structure.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>  drivers/net/phy/marvell.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/drivers/net/phy/marvell.c b/drivers/net/phy/marvell.c
+> index cd50cd6a7f75..1d117fa8c564 100644
+> --- a/drivers/net/phy/marvell.c
+> +++ b/drivers/net/phy/marvell.c
+> @@ -1508,7 +1508,6 @@ static int m88e1540_get_fld(struct phy_device *phydev, u8 *msecs)
+>  
+>  static int m88e1540_set_fld(struct phy_device *phydev, const u8 *msecs)
+>  {
+> -	struct ethtool_keee eee;
+>  	int val, ret;
+>  
+>  	if (*msecs == ETHTOOL_PHY_FAST_LINK_DOWN_OFF)
+> @@ -1518,8 +1517,7 @@ static int m88e1540_set_fld(struct phy_device *phydev, const u8 *msecs)
+>  	/* According to the Marvell data sheet EEE must be disabled for
+>  	 * Fast Link Down detection to work properly
+>  	 */
+> -	ret = genphy_c45_ethtool_get_eee(phydev, &eee);
+> -	if (!ret && eee.eee_enabled) {
+> +	if (phydev->eee_cfg.eee_enabled) {
+>  		phydev_warn(phydev, "Fast Link Down detection requires EEE to be disabled!\n");
+>  		return -EBUSY;
+>  	}
 
-Add a Synopsys Designware MIPI DSI host DRM bridge driver for their
-DSI2 host controller, based on the Rockchip version from the driver
-rockchip/dw-mipi-dsi2.c in their vendor-kernel with phy & bridge APIs.
+This one I had on my list too. Old and new check aren't waterproof as the user can still
+enable EEE later, silently disabling FLD. But the check is better than nothing.
 
-While the driver is heavily modelled after the previous IP, the register
-set of this DSI2 controller is completely different and there are also
-additional properties like the variable-width phy interface.
-
-Tested-by: Daniel Semkowicz <dse@thaumatec.com>
-Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
----
- drivers/gpu/drm/bridge/synopsys/Kconfig       |    6 +
- drivers/gpu/drm/bridge/synopsys/Makefile      |    1 +
- .../gpu/drm/bridge/synopsys/dw-mipi-dsi2.c    | 1030 +++++++++++++++++
- include/drm/bridge/dw_mipi_dsi2.h             |   95 ++
- 4 files changed, 1132 insertions(+)
- create mode 100644 drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c
- create mode 100644 include/drm/bridge/dw_mipi_dsi2.h
-
-diff --git a/drivers/gpu/drm/bridge/synopsys/Kconfig b/drivers/gpu/drm/bridge/synopsys/Kconfig
-index ca416dab156d..f3ab2f985f8c 100644
---- a/drivers/gpu/drm/bridge/synopsys/Kconfig
-+++ b/drivers/gpu/drm/bridge/synopsys/Kconfig
-@@ -59,3 +59,9 @@ config DRM_DW_MIPI_DSI
- 	select DRM_KMS_HELPER
- 	select DRM_MIPI_DSI
- 	select DRM_PANEL_BRIDGE
-+
-+config DRM_DW_MIPI_DSI2
-+	tristate
-+	select DRM_KMS_HELPER
-+	select DRM_MIPI_DSI
-+	select DRM_PANEL_BRIDGE
-diff --git a/drivers/gpu/drm/bridge/synopsys/Makefile b/drivers/gpu/drm/bridge/synopsys/Makefile
-index 9869d9651ed1..9dc376d220ad 100644
---- a/drivers/gpu/drm/bridge/synopsys/Makefile
-+++ b/drivers/gpu/drm/bridge/synopsys/Makefile
-@@ -8,3 +8,4 @@ obj-$(CONFIG_DRM_DW_HDMI_CEC) += dw-hdmi-cec.o
- obj-$(CONFIG_DRM_DW_HDMI_QP) += dw-hdmi-qp.o
- 
- obj-$(CONFIG_DRM_DW_MIPI_DSI) += dw-mipi-dsi.o
-+obj-$(CONFIG_DRM_DW_MIPI_DSI2) += dw-mipi-dsi2.o
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c b/drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c
-new file mode 100644
-index 000000000000..099cf812650a
---- /dev/null
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c
-@@ -0,0 +1,1030 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright (c) 2024, Fuzhou Rockchip Electronics Co., Ltd
-+ *
-+ * Modified by Heiko Stuebner <heiko.stuebner@cherry.de>
-+ * This generic Synopsys DesignWare MIPI DSI2 host driver is based on the
-+ * Rockchip version from rockchip/dw-mipi-dsi2.c converted to use bridge APIs.
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/iopoll.h>
-+#include <linux/media-bus-format.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/reset.h>
-+
-+#include <video/mipi_display.h>
-+
-+#include <drm/bridge/dw_mipi_dsi2.h>
-+#include <drm/drm_atomic_helper.h>
-+#include <drm/drm_bridge.h>
-+#include <drm/drm_mipi_dsi.h>
-+#include <drm/drm_of.h>
-+#include <drm/drm_print.h>
-+
-+
-+#define DSI2_PWR_UP			0x000c
-+#define RESET				0
-+#define POWER_UP			BIT(0)
-+#define CMD_TX_MODE(x)			FIELD_PREP(BIT(24), x)
-+#define DSI2_SOFT_RESET			0x0010
-+#define SYS_RSTN			BIT(2)
-+#define PHY_RSTN			BIT(1)
-+#define IPI_RSTN			BIT(0)
-+#define INT_ST_MAIN			0x0014
-+#define DSI2_MODE_CTRL			0x0018
-+#define DSI2_MODE_STATUS		0x001c
-+#define DSI2_CORE_STATUS		0x0020
-+#define PRI_RD_DATA_AVAIL		BIT(26)
-+#define PRI_FIFOS_NOT_EMPTY		BIT(25)
-+#define PRI_BUSY			BIT(24)
-+#define CRI_RD_DATA_AVAIL		BIT(18)
-+#define CRT_FIFOS_NOT_EMPTY		BIT(17)
-+#define CRI_BUSY			BIT(16)
-+#define IPI_FIFOS_NOT_EMPTY		BIT(9)
-+#define IPI_BUSY			BIT(8)
-+#define CORE_FIFOS_NOT_EMPTY		BIT(1)
-+#define CORE_BUSY			BIT(0)
-+#define MANUAL_MODE_CFG			0x0024
-+#define MANUAL_MODE_EN			BIT(0)
-+#define DSI2_TIMEOUT_HSTX_CFG		0x0048
-+#define TO_HSTX(x)			FIELD_PREP(GENMASK(15, 0), x)
-+#define DSI2_TIMEOUT_HSTXRDY_CFG	0x004c
-+#define TO_HSTXRDY(x)			FIELD_PREP(GENMASK(15, 0), x)
-+#define DSI2_TIMEOUT_LPRX_CFG		0x0050
-+#define TO_LPRXRDY(x)			FIELD_PREP(GENMASK(15, 0), x)
-+#define DSI2_TIMEOUT_LPTXRDY_CFG	0x0054
-+#define TO_LPTXRDY(x)			FIELD_PREP(GENMASK(15, 0), x)
-+#define DSI2_TIMEOUT_LPTXTRIG_CFG	0x0058
-+#define TO_LPTXTRIG(x)			FIELD_PREP(GENMASK(15, 0), x)
-+#define DSI2_TIMEOUT_LPTXULPS_CFG	0x005c
-+#define TO_LPTXULPS(x)			FIELD_PREP(GENMASK(15, 0), x)
-+#define DSI2_TIMEOUT_BTA_CFG		0x60
-+#define TO_BTA(x)			FIELD_PREP(GENMASK(15, 0), x)
-+
-+#define DSI2_PHY_MODE_CFG		0x0100
-+#define PPI_WIDTH(x)			FIELD_PREP(GENMASK(9, 8), x)
-+#define PHY_LANES(x)			FIELD_PREP(GENMASK(5, 4), (x) - 1)
-+#define PHY_TYPE(x)			FIELD_PREP(BIT(0), x)
-+#define DSI2_PHY_CLK_CFG		0X0104
-+#define PHY_LPTX_CLK_DIV(x)		FIELD_PREP(GENMASK(12, 8), x)
-+#define CLK_TYPE_MASK			BIT(0)
-+#define NON_CONTINUOUS_CLK		BIT(0)
-+#define CONTINUOUS_CLK			0
-+#define DSI2_PHY_LP2HS_MAN_CFG		0x010c
-+#define PHY_LP2HS_TIME(x)		FIELD_PREP(GENMASK(28, 0), x)
-+#define DSI2_PHY_HS2LP_MAN_CFG		0x0114
-+#define PHY_HS2LP_TIME(x)		FIELD_PREP(GENMASK(28, 0), x)
-+#define DSI2_PHY_MAX_RD_T_MAN_CFG	0x011c
-+#define PHY_MAX_RD_TIME(x)		FIELD_PREP(GENMASK(26, 0), x)
-+#define DSI2_PHY_ESC_CMD_T_MAN_CFG	0x0124
-+#define PHY_ESC_CMD_TIME(x)		FIELD_PREP(GENMASK(28, 0), x)
-+#define DSI2_PHY_ESC_BYTE_T_MAN_CFG	0x012c
-+#define PHY_ESC_BYTE_TIME(x)		FIELD_PREP(GENMASK(28, 0), x)
-+
-+#define DSI2_PHY_IPI_RATIO_MAN_CFG	0x0134
-+#define PHY_IPI_RATIO(x)		FIELD_PREP(GENMASK(21, 0), x)
-+#define DSI2_PHY_SYS_RATIO_MAN_CFG	0x013C
-+#define PHY_SYS_RATIO(x)		FIELD_PREP(GENMASK(16, 0), x)
-+
-+#define DSI2_DSI_GENERAL_CFG		0x0200
-+#define BTA_EN				BIT(1)
-+#define EOTP_TX_EN			BIT(0)
-+#define DSI2_DSI_VCID_CFG		0x0204
-+#define TX_VCID(x)			FIELD_PREP(GENMASK(1, 0), x)
-+#define DSI2_DSI_SCRAMBLING_CFG		0x0208
-+#define SCRAMBLING_SEED(x)		FIELD_PREP(GENMASK(31, 16), x)
-+#define SCRAMBLING_EN			BIT(0)
-+#define DSI2_DSI_VID_TX_CFG		0x020c
-+#define LPDT_DISPLAY_CMD_EN		BIT(20)
-+#define BLK_VFP_HS_EN			BIT(14)
-+#define BLK_VBP_HS_EN			BIT(13)
-+#define BLK_VSA_HS_EN			BIT(12)
-+#define BLK_HFP_HS_EN			BIT(6)
-+#define BLK_HBP_HS_EN			BIT(5)
-+#define BLK_HSA_HS_EN			BIT(4)
-+#define VID_MODE_TYPE(x)		FIELD_PREP(GENMASK(1, 0), x)
-+#define DSI2_CRI_TX_HDR			0x02c0
-+#define CMD_TX_MODE(x)			FIELD_PREP(BIT(24), x)
-+#define DSI2_CRI_TX_PLD			0x02c4
-+#define DSI2_CRI_RX_HDR			0x02c8
-+#define DSI2_CRI_RX_PLD			0x02cc
-+
-+#define DSI2_IPI_COLOR_MAN_CFG		0x0300
-+#define IPI_DEPTH(x)			FIELD_PREP(GENMASK(7, 4), x)
-+#define IPI_DEPTH_5_6_5_BITS		0x02
-+#define IPI_DEPTH_6_BITS		0x03
-+#define IPI_DEPTH_8_BITS		0x05
-+#define IPI_DEPTH_10_BITS		0x06
-+#define IPI_FORMAT(x)			FIELD_PREP(GENMASK(3, 0), x)
-+#define IPI_FORMAT_RGB			0x0
-+#define IPI_FORMAT_DSC			0x0b
-+#define DSI2_IPI_VID_HSA_MAN_CFG	0x0304
-+#define VID_HSA_TIME(x)			FIELD_PREP(GENMASK(29, 0), x)
-+#define DSI2_IPI_VID_HBP_MAN_CFG	0x030c
-+#define VID_HBP_TIME(x)			FIELD_PREP(GENMASK(29, 0), x)
-+#define DSI2_IPI_VID_HACT_MAN_CFG	0x0314
-+#define VID_HACT_TIME(x)		FIELD_PREP(GENMASK(29, 0), x)
-+#define DSI2_IPI_VID_HLINE_MAN_CFG	0x031c
-+#define VID_HLINE_TIME(x)		FIELD_PREP(GENMASK(29, 0), x)
-+#define DSI2_IPI_VID_VSA_MAN_CFG	0x0324
-+#define VID_VSA_LINES(x)		FIELD_PREP(GENMASK(9, 0), x)
-+#define DSI2_IPI_VID_VBP_MAN_CFG	0X032C
-+#define VID_VBP_LINES(x)		FIELD_PREP(GENMASK(9, 0), x)
-+#define DSI2_IPI_VID_VACT_MAN_CFG	0X0334
-+#define VID_VACT_LINES(x)		FIELD_PREP(GENMASK(13, 0), x)
-+#define DSI2_IPI_VID_VFP_MAN_CFG	0X033C
-+#define VID_VFP_LINES(x)		FIELD_PREP(GENMASK(9, 0), x)
-+#define DSI2_IPI_PIX_PKT_CFG		0x0344
-+#define MAX_PIX_PKT(x)			FIELD_PREP(GENMASK(15, 0), x)
-+
-+#define DSI2_INT_ST_PHY			0x0400
-+#define DSI2_INT_MASK_PHY		0x0404
-+#define DSI2_INT_ST_TO			0x0410
-+#define DSI2_INT_MASK_TO		0x0414
-+#define DSI2_INT_ST_ACK			0x0420
-+#define DSI2_INT_MASK_ACK		0x0424
-+#define DSI2_INT_ST_IPI			0x0430
-+#define DSI2_INT_MASK_IPI		0x0434
-+#define DSI2_INT_ST_FIFO		0x0440
-+#define DSI2_INT_MASK_FIFO		0x0444
-+#define DSI2_INT_ST_PRI			0x0450
-+#define DSI2_INT_MASK_PRI		0x0454
-+#define DSI2_INT_ST_CRI			0x0460
-+#define DSI2_INT_MASK_CRI		0x0464
-+#define DSI2_INT_FORCE_CRI		0x0468
-+#define DSI2_MAX_REGISGER		DSI2_INT_FORCE_CRI
-+
-+#define MODE_STATUS_TIMEOUT_US		10000
-+#define CMD_PKT_STATUS_TIMEOUT_US	20000
-+
-+enum vid_mode_type {
-+	VID_MODE_TYPE_NON_BURST_SYNC_PULSES,
-+	VID_MODE_TYPE_NON_BURST_SYNC_EVENTS,
-+	VID_MODE_TYPE_BURST,
-+};
-+
-+enum mode_ctrl {
-+	IDLE_MODE,
-+	AUTOCALC_MODE,
-+	COMMAND_MODE,
-+	VIDEO_MODE,
-+	DATA_STREAM_MODE,
-+	VIDEO_TEST_MODE,
-+	DATA_STREAM_TEST_MODE,
-+};
-+
-+enum ppi_width {
-+	PPI_WIDTH_8_BITS,
-+	PPI_WIDTH_16_BITS,
-+	PPI_WIDTH_32_BITS,
-+};
-+
-+struct cmd_header {
-+	u8 cmd_type;
-+	u8 delay;
-+	u8 payload_length;
-+};
-+
-+struct dw_mipi_dsi2 {
-+	struct drm_bridge bridge;
-+	struct mipi_dsi_host dsi_host;
-+	struct drm_bridge *panel_bridge;
-+	struct device *dev;
-+	struct regmap *regmap;
-+	struct clk *pclk;
-+	struct clk *sys_clk;
-+
-+	unsigned int lane_mbps; /* per lane */
-+	u32 channel;
-+	u32 lanes;
-+	u32 format;
-+	unsigned long mode_flags;
-+
-+	struct drm_display_mode mode;
-+	const struct dw_mipi_dsi2_plat_data *plat_data;
-+};
-+
-+static inline struct dw_mipi_dsi2 *host_to_dsi2(struct mipi_dsi_host *host)
-+{
-+	return container_of(host, struct dw_mipi_dsi2, dsi_host);
-+}
-+
-+static inline struct dw_mipi_dsi2 *bridge_to_dsi2(struct drm_bridge *bridge)
-+{
-+	return container_of(bridge, struct dw_mipi_dsi2, bridge);
-+}
-+
-+static int cri_fifos_wait_avail(struct dw_mipi_dsi2 *dsi2)
-+{
-+	u32 sts, mask;
-+	int ret;
-+
-+	mask = CRI_BUSY | CRT_FIFOS_NOT_EMPTY;
-+	ret = regmap_read_poll_timeout(dsi2->regmap, DSI2_CORE_STATUS, sts,
-+				       !(sts & mask), 0, CMD_PKT_STATUS_TIMEOUT_US);
-+	if (ret < 0) {
-+		dev_err(dsi2->dev, "command interface is busy\n");
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static void dw_mipi_dsi2_set_vid_mode(struct dw_mipi_dsi2 *dsi2)
-+{
-+	u32 val = 0, mode;
-+	int ret;
-+
-+	if (dsi2->mode_flags & MIPI_DSI_MODE_VIDEO_NO_HFP)
-+		val |= BLK_HFP_HS_EN;
-+
-+	if (dsi2->mode_flags & MIPI_DSI_MODE_VIDEO_NO_HBP)
-+		val |= BLK_HBP_HS_EN;
-+
-+	if (dsi2->mode_flags & MIPI_DSI_MODE_VIDEO_NO_HSA)
-+		val |= BLK_HSA_HS_EN;
-+
-+	if (dsi2->mode_flags & MIPI_DSI_MODE_VIDEO_BURST)
-+		val |= VID_MODE_TYPE_BURST;
-+	else if (dsi2->mode_flags & MIPI_DSI_MODE_VIDEO_SYNC_PULSE)
-+		val |= VID_MODE_TYPE_NON_BURST_SYNC_PULSES;
-+	else
-+		val |= VID_MODE_TYPE_NON_BURST_SYNC_EVENTS;
-+
-+	regmap_write(dsi2->regmap, DSI2_DSI_VID_TX_CFG, val);
-+
-+	regmap_write(dsi2->regmap, DSI2_MODE_CTRL, VIDEO_MODE);
-+	ret = regmap_read_poll_timeout(dsi2->regmap, DSI2_MODE_STATUS,
-+				       mode, mode & VIDEO_MODE,
-+				       1000, MODE_STATUS_TIMEOUT_US);
-+	if (ret < 0)
-+		dev_err(dsi2->dev, "failed to enter video mode\n");
-+}
-+
-+static void dw_mipi_dsi2_set_data_stream_mode(struct dw_mipi_dsi2 *dsi2)
-+{
-+	u32 mode;
-+	int ret;
-+
-+	regmap_write(dsi2->regmap, DSI2_MODE_CTRL, DATA_STREAM_MODE);
-+	ret = regmap_read_poll_timeout(dsi2->regmap, DSI2_MODE_STATUS,
-+				       mode, mode & DATA_STREAM_MODE,
-+				       1000, MODE_STATUS_TIMEOUT_US);
-+	if (ret < 0)
-+		dev_err(dsi2->dev, "failed to enter data stream mode\n");
-+}
-+
-+static void dw_mipi_dsi2_set_cmd_mode(struct dw_mipi_dsi2 *dsi2)
-+{
-+	u32 mode;
-+	int ret;
-+
-+	regmap_write(dsi2->regmap, DSI2_MODE_CTRL, COMMAND_MODE);
-+	ret = regmap_read_poll_timeout(dsi2->regmap, DSI2_MODE_STATUS,
-+				       mode, mode & COMMAND_MODE,
-+				       1000, MODE_STATUS_TIMEOUT_US);
-+	if (ret < 0)
-+		dev_err(dsi2->dev, "failed to enter data stream mode\n");
-+}
-+
-+static void dw_mipi_dsi2_host_softrst(struct dw_mipi_dsi2 *dsi2)
-+{
-+	regmap_write(dsi2->regmap, DSI2_SOFT_RESET, 0x0);
-+	usleep_range(50, 100);
-+	regmap_write(dsi2->regmap, DSI2_SOFT_RESET,
-+		   SYS_RSTN | PHY_RSTN | IPI_RSTN);
-+}
-+
-+static void dw_mipi_dsi2_phy_clk_mode_cfg(struct dw_mipi_dsi2 *dsi2)
-+{
-+	u32 sys_clk, esc_clk_div;
-+	u32 val = 0;
-+
-+	/*
-+	 * clk_type should be NON_CONTINUOUS_CLK before
-+	 * initial deskew calibration be sent.
-+	 */
-+	val |= NON_CONTINUOUS_CLK;
-+
-+	/* The maximum value of the escape clock frequency is 20MHz */
-+	sys_clk = clk_get_rate(dsi2->sys_clk) / USEC_PER_SEC;
-+	esc_clk_div = DIV_ROUND_UP(sys_clk, 20 * 2);
-+	val |= PHY_LPTX_CLK_DIV(esc_clk_div);
-+
-+	regmap_write(dsi2->regmap, DSI2_PHY_CLK_CFG, val);
-+}
-+
-+static void dw_mipi_dsi2_phy_ratio_cfg(struct dw_mipi_dsi2 *dsi2)
-+{
-+	struct drm_display_mode *mode = &dsi2->mode;
-+	u64 sys_clk = clk_get_rate(dsi2->sys_clk);
-+	u64 pixel_clk, ipi_clk, phy_hsclk;
-+	u64 tmp;
-+
-+	/*
-+	 * in DPHY mode, the phy_hstx_clk is exactly 1/16 the Lane high-speed
-+	 * data rate; In CPHY mode, the phy_hstx_clk is exactly 1/7 the trio
-+	 * high speed symbol rate.
-+	 */
-+	phy_hsclk = DIV_ROUND_CLOSEST_ULL(dsi2->lane_mbps * USEC_PER_SEC, 16);
-+
-+	/* IPI_RATIO_MAN_CFG = PHY_HSTX_CLK / IPI_CLK */
-+	pixel_clk = mode->crtc_clock * MSEC_PER_SEC;
-+	ipi_clk = pixel_clk / 4;
-+
-+	tmp = DIV_ROUND_CLOSEST_ULL(phy_hsclk << 16, ipi_clk);
-+	regmap_write(dsi2->regmap, DSI2_PHY_IPI_RATIO_MAN_CFG,
-+		   PHY_IPI_RATIO(tmp));
-+
-+	/*
-+	 * SYS_RATIO_MAN_CFG = MIPI_DCPHY_HSCLK_Freq / MIPI_DCPHY_HSCLK_Freq
-+	 */
-+	tmp = DIV_ROUND_CLOSEST_ULL(phy_hsclk << 16, sys_clk);
-+	regmap_write(dsi2->regmap, DSI2_PHY_SYS_RATIO_MAN_CFG,
-+		   PHY_SYS_RATIO(tmp));
-+}
-+
-+static void dw_mipi_dsi2_lp2hs_or_hs2lp_cfg(struct dw_mipi_dsi2 *dsi2)
-+{
-+	const struct dw_mipi_dsi2_phy_ops *phy_ops = dsi2->plat_data->phy_ops;
-+	struct dw_mipi_dsi2_phy_timing timing;
-+	int ret;
-+
-+	ret = phy_ops->get_timing(dsi2->plat_data->priv_data,
-+				  dsi2->lane_mbps, &timing);
-+	if (ret)
-+		dev_err(dsi2->dev, "Retrieving phy timings failed\n");
-+
-+	regmap_write(dsi2->regmap, DSI2_PHY_LP2HS_MAN_CFG, PHY_LP2HS_TIME(timing.data_lp2hs));
-+	regmap_write(dsi2->regmap, DSI2_PHY_HS2LP_MAN_CFG, PHY_HS2LP_TIME(timing.data_hs2lp));
-+}
-+
-+static void dw_mipi_dsi2_phy_init(struct dw_mipi_dsi2 *dsi2)
-+{
-+	const struct dw_mipi_dsi2_phy_ops *phy_ops = dsi2->plat_data->phy_ops;
-+	struct dw_mipi_dsi2_phy_iface iface;
-+	u32 val = 0;
-+
-+	phy_ops->get_interface(dsi2->plat_data->priv_data, &iface);
-+
-+	switch (iface.ppi_width) {
-+	case 8:
-+		val |= PPI_WIDTH(PPI_WIDTH_8_BITS);
-+		break;
-+	case 16:
-+		val |= PPI_WIDTH(PPI_WIDTH_16_BITS);
-+		break;
-+	case 32:
-+		val |= PPI_WIDTH(PPI_WIDTH_32_BITS);
-+		break;
-+	default:
-+		/* Caught in probe */
-+		break;
-+	}
-+
-+	val |= PHY_LANES(dsi2->lanes);
-+	val |= PHY_TYPE(DW_MIPI_DSI2_DPHY);
-+	regmap_write(dsi2->regmap, DSI2_PHY_MODE_CFG, val);
-+
-+	dw_mipi_dsi2_phy_clk_mode_cfg(dsi2);
-+	dw_mipi_dsi2_phy_ratio_cfg(dsi2);
-+	dw_mipi_dsi2_lp2hs_or_hs2lp_cfg(dsi2);
-+
-+	/* phy configuration 8 - 10 */
-+}
-+
-+static void dw_mipi_dsi2_tx_option_set(struct dw_mipi_dsi2 *dsi2)
-+{
-+	u32 val;
-+
-+	val = BTA_EN | EOTP_TX_EN;
-+
-+	if (dsi2->mode_flags & MIPI_DSI_MODE_NO_EOT_PACKET)
-+		val &= ~EOTP_TX_EN;
-+
-+	regmap_write(dsi2->regmap, DSI2_DSI_GENERAL_CFG, val);
-+	regmap_write(dsi2->regmap, DSI2_DSI_VCID_CFG, TX_VCID(dsi2->channel));
-+}
-+
-+static void dw_mipi_dsi2_ipi_color_coding_cfg(struct dw_mipi_dsi2 *dsi2)
-+{
-+	u32 val, color_depth;
-+
-+	switch (dsi2->format) {
-+	case MIPI_DSI_FMT_RGB666:
-+	case MIPI_DSI_FMT_RGB666_PACKED:
-+		color_depth = IPI_DEPTH_6_BITS;
-+		break;
-+	case MIPI_DSI_FMT_RGB565:
-+		color_depth = IPI_DEPTH_5_6_5_BITS;
-+		break;
-+	case MIPI_DSI_FMT_RGB888:
-+	default:
-+		color_depth = IPI_DEPTH_8_BITS;
-+		break;
-+	}
-+
-+	val = IPI_DEPTH(color_depth) |
-+	      IPI_FORMAT(IPI_FORMAT_RGB);
-+	regmap_write(dsi2->regmap, DSI2_IPI_COLOR_MAN_CFG, val);
-+}
-+
-+static void dw_mipi_dsi2_vertical_timing_config(struct dw_mipi_dsi2 *dsi2,
-+						const struct drm_display_mode *mode)
-+{
-+	u32 vactive, vsa, vfp, vbp;
-+
-+	vactive = mode->vdisplay;
-+	vsa = mode->vsync_end - mode->vsync_start;
-+	vfp = mode->vsync_start - mode->vdisplay;
-+	vbp = mode->vtotal - mode->vsync_end;
-+
-+	regmap_write(dsi2->regmap, DSI2_IPI_VID_VSA_MAN_CFG, VID_VSA_LINES(vsa));
-+	regmap_write(dsi2->regmap, DSI2_IPI_VID_VBP_MAN_CFG, VID_VBP_LINES(vbp));
-+	regmap_write(dsi2->regmap, DSI2_IPI_VID_VACT_MAN_CFG, VID_VACT_LINES(vactive));
-+	regmap_write(dsi2->regmap, DSI2_IPI_VID_VFP_MAN_CFG, VID_VFP_LINES(vfp));
-+}
-+
-+static void dw_mipi_dsi2_ipi_set(struct dw_mipi_dsi2 *dsi2)
-+{
-+	struct drm_display_mode *mode = &dsi2->mode;
-+	u32 hline, hsa, hbp, hact;
-+	u64 hline_time, hsa_time, hbp_time, hact_time, tmp;
-+	u64 pixel_clk, phy_hs_clk;
-+	u16 val;
-+
-+	val = mode->hdisplay;
-+
-+	regmap_write(dsi2->regmap, DSI2_IPI_PIX_PKT_CFG, MAX_PIX_PKT(val));
-+
-+	dw_mipi_dsi2_ipi_color_coding_cfg(dsi2);
-+
-+	/*
-+	 * if the controller is intended to operate in data stream mode,
-+	 * no more steps are required.
-+	 */
-+	if (!(dsi2->mode_flags & MIPI_DSI_MODE_VIDEO))
-+		return;
-+
-+	hact = mode->hdisplay;
-+	hsa = mode->hsync_end - mode->hsync_start;
-+	hbp = mode->htotal - mode->hsync_end;
-+	hline = mode->htotal;
-+
-+	pixel_clk = mode->crtc_clock * MSEC_PER_SEC;
-+
-+	phy_hs_clk = DIV_ROUND_CLOSEST_ULL(dsi2->lane_mbps * USEC_PER_SEC, 16);
-+
-+	tmp = hsa * phy_hs_clk;
-+	hsa_time = DIV_ROUND_CLOSEST_ULL(tmp << 16, pixel_clk);
-+	regmap_write(dsi2->regmap, DSI2_IPI_VID_HSA_MAN_CFG, VID_HSA_TIME(hsa_time));
-+
-+	tmp = hbp * phy_hs_clk;
-+	hbp_time = DIV_ROUND_CLOSEST_ULL(tmp << 16, pixel_clk);
-+	regmap_write(dsi2->regmap, DSI2_IPI_VID_HBP_MAN_CFG, VID_HBP_TIME(hbp_time));
-+
-+	tmp = hact * phy_hs_clk;
-+	hact_time = DIV_ROUND_CLOSEST_ULL(tmp << 16, pixel_clk);
-+	regmap_write(dsi2->regmap, DSI2_IPI_VID_HACT_MAN_CFG, VID_HACT_TIME(hact_time));
-+
-+	tmp = hline * phy_hs_clk;
-+	hline_time = DIV_ROUND_CLOSEST_ULL(tmp << 16, pixel_clk);
-+	regmap_write(dsi2->regmap, DSI2_IPI_VID_HLINE_MAN_CFG, VID_HLINE_TIME(hline_time));
-+
-+	dw_mipi_dsi2_vertical_timing_config(dsi2, mode);
-+}
-+
-+static void
-+dw_mipi_dsi2_work_mode(struct dw_mipi_dsi2 *dsi2, u32 mode)
-+{
-+	/*
-+	 * select controller work in Manual mode
-+	 * Manual: MANUAL_MODE_EN
-+	 * Automatic: 0
-+	 */
-+	regmap_write(dsi2->regmap, MANUAL_MODE_CFG, mode);
-+}
-+
-+static int dw_mipi_dsi2_host_attach(struct mipi_dsi_host *host,
-+				    struct mipi_dsi_device *device)
-+{
-+	struct dw_mipi_dsi2 *dsi2 = host_to_dsi2(host);
-+	const struct dw_mipi_dsi2_plat_data *pdata = dsi2->plat_data;
-+	struct drm_bridge *bridge;
-+	int ret;
-+
-+	if (device->lanes > dsi2->plat_data->max_data_lanes) {
-+		dev_err(dsi2->dev, "the number of data lanes(%u) is too many\n",
-+			device->lanes);
-+		return -EINVAL;
-+	}
-+
-+	dsi2->lanes = device->lanes;
-+	dsi2->channel = device->channel;
-+	dsi2->format = device->format;
-+	dsi2->mode_flags = device->mode_flags;
-+
-+	bridge = devm_drm_of_get_bridge(dsi2->dev, dsi2->dev->of_node, 1, 0);
-+	if (IS_ERR(bridge))
-+		return PTR_ERR(bridge);
-+
-+	bridge->pre_enable_prev_first = true;
-+	dsi2->panel_bridge = bridge;
-+
-+	drm_bridge_add(&dsi2->bridge);
-+
-+	if (pdata->host_ops && pdata->host_ops->attach) {
-+		ret = pdata->host_ops->attach(pdata->priv_data, device);
-+		if (ret < 0)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int dw_mipi_dsi2_host_detach(struct mipi_dsi_host *host,
-+				    struct mipi_dsi_device *device)
-+{
-+	struct dw_mipi_dsi2 *dsi2 = host_to_dsi2(host);
-+	const struct dw_mipi_dsi2_plat_data *pdata = dsi2->plat_data;
-+	int ret;
-+
-+	if (pdata->host_ops && pdata->host_ops->detach) {
-+		ret = pdata->host_ops->detach(pdata->priv_data, device);
-+		if (ret < 0)
-+			return ret;
-+	}
-+
-+	drm_bridge_remove(&dsi2->bridge);
-+
-+	drm_of_panel_bridge_remove(host->dev->of_node, 1, 0);
-+
-+	return 0;
-+}
-+
-+static int dw_mipi_dsi2_gen_pkt_hdr_write(struct dw_mipi_dsi2 *dsi2,
-+					  u32 hdr_val, bool lpm)
-+{
-+	int ret;
-+
-+	regmap_write(dsi2->regmap, DSI2_CRI_TX_HDR, hdr_val | CMD_TX_MODE(lpm));
-+
-+	ret = cri_fifos_wait_avail(dsi2);
-+	if (ret) {
-+		dev_err(dsi2->dev, "failed to write command header\n");
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int dw_mipi_dsi2_write(struct dw_mipi_dsi2 *dsi2,
-+			      const struct mipi_dsi_packet *packet, bool lpm)
-+{
-+	const u8 *tx_buf = packet->payload;
-+	int len = packet->payload_length, pld_data_bytes = sizeof(u32);
-+	__le32 word;
-+
-+	/* Send payload */
-+	while (len) {
-+		if (len < pld_data_bytes) {
-+			word = 0;
-+			memcpy(&word, tx_buf, len);
-+			regmap_write(dsi2->regmap, DSI2_CRI_TX_PLD, le32_to_cpu(word));
-+			len = 0;
-+		} else {
-+			memcpy(&word, tx_buf, pld_data_bytes);
-+			regmap_write(dsi2->regmap, DSI2_CRI_TX_PLD, le32_to_cpu(word));
-+			tx_buf += pld_data_bytes;
-+			len -= pld_data_bytes;
-+		}
-+	}
-+
-+	word = 0;
-+	memcpy(&word, packet->header, sizeof(packet->header));
-+	return dw_mipi_dsi2_gen_pkt_hdr_write(dsi2, le32_to_cpu(word), lpm);
-+}
-+
-+static int dw_mipi_dsi2_read(struct dw_mipi_dsi2 *dsi2,
-+			     const struct mipi_dsi_msg *msg)
-+{
-+	u8 *payload = msg->rx_buf;
-+	int i, j, ret, len = msg->rx_len;
-+	u8 data_type;
-+	u16 wc;
-+	u32 val;
-+
-+	ret = regmap_read_poll_timeout(dsi2->regmap, DSI2_CORE_STATUS,
-+				       val, val & CRI_RD_DATA_AVAIL,
-+				       100, CMD_PKT_STATUS_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dsi2->dev, "CRI has no available read data\n");
-+		return ret;
-+	}
-+
-+	regmap_read(dsi2->regmap, DSI2_CRI_RX_HDR, &val);
-+	data_type = val & 0x3f;
-+
-+	if (mipi_dsi_packet_format_is_short(data_type)) {
-+		for (i = 0; i < len && i < 2; i++)
-+			payload[i] = (val >> (8 * (i + 1))) & 0xff;
-+
-+		return 0;
-+	}
-+
-+	wc = (val >> 8) & 0xffff;
-+	/* Receive payload */
-+	for (i = 0; i < len && i < wc; i += 4) {
-+		regmap_read(dsi2->regmap, DSI2_CRI_RX_PLD, &val);
-+		for (j = 0; j < 4 && j + i < len && j + i < wc; j++)
-+			payload[i + j] = val >> (8 * j);
-+	}
-+
-+	return 0;
-+}
-+
-+static ssize_t dw_mipi_dsi2_host_transfer(struct mipi_dsi_host *host,
-+					  const struct mipi_dsi_msg *msg)
-+{
-+	struct dw_mipi_dsi2 *dsi2 = host_to_dsi2(host);
-+	bool lpm = msg->flags & MIPI_DSI_MSG_USE_LPM;
-+	struct mipi_dsi_packet packet;
-+	int ret, nb_bytes;
-+
-+	regmap_update_bits(dsi2->regmap, DSI2_DSI_VID_TX_CFG,
-+			   LPDT_DISPLAY_CMD_EN,
-+			   lpm ? LPDT_DISPLAY_CMD_EN : 0);
-+
-+	/* create a packet to the DSI protocol */
-+	ret = mipi_dsi_create_packet(&packet, msg);
-+	if (ret) {
-+		dev_err(dsi2->dev, "failed to create packet: %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = cri_fifos_wait_avail(dsi2);
-+	if (ret)
-+		return ret;
-+
-+	ret = dw_mipi_dsi2_write(dsi2, &packet, lpm);
-+	if (ret)
-+		return ret;
-+
-+	if (msg->rx_buf && msg->rx_len) {
-+		ret = dw_mipi_dsi2_read(dsi2, msg);
-+		if (ret < 0)
-+			return ret;
-+		nb_bytes = msg->rx_len;
-+	} else {
-+		nb_bytes = packet.size;
-+	}
-+
-+	return nb_bytes;
-+}
-+
-+static const struct mipi_dsi_host_ops dw_mipi_dsi2_host_ops = {
-+	.attach = dw_mipi_dsi2_host_attach,
-+	.detach = dw_mipi_dsi2_host_detach,
-+	.transfer = dw_mipi_dsi2_host_transfer,
-+};
-+
-+static u32 *
-+dw_mipi_dsi2_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
-+					      struct drm_bridge_state *bridge_state,
-+					      struct drm_crtc_state *crtc_state,
-+					      struct drm_connector_state *conn_state,
-+					      u32 output_fmt,
-+					      unsigned int *num_input_fmts)
-+{
-+	struct dw_mipi_dsi2 *dsi2 = bridge_to_dsi2(bridge);
-+	const struct dw_mipi_dsi2_plat_data *pdata = dsi2->plat_data;
-+	u32 *input_fmts;
-+
-+	if (pdata->get_input_bus_fmts)
-+		return pdata->get_input_bus_fmts(pdata->priv_data,
-+						 bridge, bridge_state,
-+						 crtc_state, conn_state,
-+						 output_fmt, num_input_fmts);
-+
-+	/* Fall back to MEDIA_BUS_FMT_FIXED as the only input format. */
-+	input_fmts = kmalloc(sizeof(*input_fmts), GFP_KERNEL);
-+	if (!input_fmts)
-+		return NULL;
-+	input_fmts[0] = MEDIA_BUS_FMT_FIXED;
-+	*num_input_fmts = 1;
-+
-+	return input_fmts;
-+}
-+
-+static int dw_mipi_dsi2_bridge_atomic_check(struct drm_bridge *bridge,
-+					    struct drm_bridge_state *bridge_state,
-+					    struct drm_crtc_state *crtc_state,
-+					    struct drm_connector_state *conn_state)
-+{
-+	struct dw_mipi_dsi2 *dsi2 = bridge_to_dsi2(bridge);
-+	const struct dw_mipi_dsi2_plat_data *pdata = dsi2->plat_data;
-+	bool ret;
-+
-+	bridge_state->input_bus_cfg.flags =
-+		DRM_BUS_FLAG_DE_HIGH | DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE;
-+
-+	if (pdata->mode_fixup) {
-+		ret = pdata->mode_fixup(pdata->priv_data, &crtc_state->mode,
-+					&crtc_state->adjusted_mode);
-+		if (!ret) {
-+			DRM_DEBUG_DRIVER("failed to fixup mode " DRM_MODE_FMT "\n",
-+					 DRM_MODE_ARG(&crtc_state->mode));
-+			return -EINVAL;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static void dw_mipi_dsi2_bridge_post_atomic_disable(struct drm_bridge *bridge,
-+						    struct drm_bridge_state *old_bridge_state)
-+{
-+	struct dw_mipi_dsi2 *dsi2 = bridge_to_dsi2(bridge);
-+	const struct dw_mipi_dsi2_phy_ops *phy_ops = dsi2->plat_data->phy_ops;
-+
-+	regmap_write(dsi2->regmap, DSI2_IPI_PIX_PKT_CFG, 0);
-+
-+	/*
-+	 * Switch to command mode before panel-bridge post_disable &
-+	 * panel unprepare.
-+	 * Note: panel-bridge disable & panel disable has been called
-+	 * before by the drm framework.
-+	 */
-+	dw_mipi_dsi2_set_cmd_mode(dsi2);
-+
-+	regmap_write(dsi2->regmap, DSI2_PWR_UP, RESET);
-+
-+	if (phy_ops->power_off)
-+		phy_ops->power_off(dsi2->plat_data->priv_data);
-+
-+	clk_disable_unprepare(dsi2->pclk);
-+	pm_runtime_put(dsi2->dev);
-+}
-+
-+static unsigned int dw_mipi_dsi2_get_lanes(struct dw_mipi_dsi2 *dsi2)
-+{
-+	/* single-dsi, so no other instance to consider */
-+	return dsi2->lanes;
-+}
-+
-+static void dw_mipi_dsi2_mode_set(struct dw_mipi_dsi2 *dsi2,
-+				  const struct drm_display_mode *adjusted_mode)
-+{
-+	const struct dw_mipi_dsi2_phy_ops *phy_ops = dsi2->plat_data->phy_ops;
-+	void *priv_data = dsi2->plat_data->priv_data;
-+	u32 lanes = dw_mipi_dsi2_get_lanes(dsi2);
-+	int ret;
-+
-+	clk_prepare_enable(dsi2->pclk);
-+
-+	ret = phy_ops->get_lane_mbps(priv_data, adjusted_mode, dsi2->mode_flags,
-+				     lanes, dsi2->format, &dsi2->lane_mbps);
-+	if (ret)
-+		DRM_DEBUG_DRIVER("Phy get_lane_mbps() failed\n");
-+
-+	pm_runtime_get_sync(dsi2->dev);
-+
-+	dw_mipi_dsi2_host_softrst(dsi2);
-+	regmap_write(dsi2->regmap, DSI2_PWR_UP, RESET);
-+
-+	dw_mipi_dsi2_work_mode(dsi2, MANUAL_MODE_EN);
-+	dw_mipi_dsi2_phy_init(dsi2);
-+
-+	if (phy_ops->power_on)
-+		phy_ops->power_on(dsi2->plat_data->priv_data);
-+
-+	dw_mipi_dsi2_tx_option_set(dsi2);
-+
-+	/*
-+	 * initial deskew calibration is send after phy_power_on,
-+	 * then we can configure clk_type.
-+	 */
-+
-+	regmap_update_bits(dsi2->regmap, DSI2_PHY_CLK_CFG, CLK_TYPE_MASK,
-+			   dsi2->mode_flags & MIPI_DSI_CLOCK_NON_CONTINUOUS ? NON_CONTINUOUS_CLK :
-+									      CONTINUOUS_CLK);
-+
-+	regmap_write(dsi2->regmap, DSI2_PWR_UP, POWER_UP);
-+	dw_mipi_dsi2_set_cmd_mode(dsi2);
-+
-+	dw_mipi_dsi2_ipi_set(dsi2);
-+}
-+
-+static void dw_mipi_dsi2_bridge_atomic_pre_enable(struct drm_bridge *bridge,
-+						  struct drm_bridge_state *old_bridge_state)
-+{
-+	struct dw_mipi_dsi2 *dsi2 = bridge_to_dsi2(bridge);
-+
-+	/* Power up the dsi ctl into a command mode */
-+	dw_mipi_dsi2_mode_set(dsi2, &dsi2->mode);
-+}
-+
-+static void dw_mipi_dsi2_bridge_mode_set(struct drm_bridge *bridge,
-+					 const struct drm_display_mode *mode,
-+					 const struct drm_display_mode *adjusted_mode)
-+{
-+	struct dw_mipi_dsi2 *dsi2 = bridge_to_dsi2(bridge);
-+
-+	/* Store the display mode for later use in pre_enable callback */
-+	drm_mode_copy(&dsi2->mode, adjusted_mode);
-+}
-+
-+static void dw_mipi_dsi2_bridge_atomic_enable(struct drm_bridge *bridge,
-+					      struct drm_bridge_state *old_bridge_state)
-+{
-+	struct dw_mipi_dsi2 *dsi2 = bridge_to_dsi2(bridge);
-+
-+	/* Switch to video mode for panel-bridge enable & panel enable */
-+	if (dsi2->mode_flags & MIPI_DSI_MODE_VIDEO)
-+		dw_mipi_dsi2_set_vid_mode(dsi2);
-+	else
-+		dw_mipi_dsi2_set_data_stream_mode(dsi2);
-+}
-+
-+static enum drm_mode_status
-+dw_mipi_dsi2_bridge_mode_valid(struct drm_bridge *bridge,
-+			       const struct drm_display_info *info,
-+			       const struct drm_display_mode *mode)
-+{
-+	struct dw_mipi_dsi2 *dsi2 = bridge_to_dsi2(bridge);
-+	const struct dw_mipi_dsi2_plat_data *pdata = dsi2->plat_data;
-+	enum drm_mode_status mode_status = MODE_OK;
-+
-+	if (pdata->mode_valid)
-+		mode_status = pdata->mode_valid(pdata->priv_data, mode,
-+						dsi2->mode_flags,
-+						dw_mipi_dsi2_get_lanes(dsi2),
-+						dsi2->format);
-+
-+	return mode_status;
-+}
-+
-+static int dw_mipi_dsi2_bridge_attach(struct drm_bridge *bridge,
-+				      enum drm_bridge_attach_flags flags)
-+{
-+	struct dw_mipi_dsi2 *dsi2 = bridge_to_dsi2(bridge);
-+
-+	/* Set the encoder type as caller does not know it */
-+	bridge->encoder->encoder_type = DRM_MODE_ENCODER_DSI;
-+
-+	/* Attach the panel-bridge to the dsi bridge */
-+	return drm_bridge_attach(bridge->encoder, dsi2->panel_bridge, bridge,
-+				 flags);
-+}
-+
-+static const struct drm_bridge_funcs dw_mipi_dsi2_bridge_funcs = {
-+	.atomic_duplicate_state	= drm_atomic_helper_bridge_duplicate_state,
-+	.atomic_destroy_state	= drm_atomic_helper_bridge_destroy_state,
-+	.atomic_get_input_bus_fmts = dw_mipi_dsi2_bridge_atomic_get_input_bus_fmts,
-+	.atomic_check		= dw_mipi_dsi2_bridge_atomic_check,
-+	.atomic_reset		= drm_atomic_helper_bridge_reset,
-+	.atomic_pre_enable	= dw_mipi_dsi2_bridge_atomic_pre_enable,
-+	.atomic_enable		= dw_mipi_dsi2_bridge_atomic_enable,
-+	.atomic_post_disable	= dw_mipi_dsi2_bridge_post_atomic_disable,
-+	.mode_set		= dw_mipi_dsi2_bridge_mode_set,
-+	.mode_valid		= dw_mipi_dsi2_bridge_mode_valid,
-+	.attach			= dw_mipi_dsi2_bridge_attach,
-+};
-+
-+static const struct regmap_config dw_mipi_dsi2_regmap_config = {
-+	.name = "dsi2-host",
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+	.fast_io = true,
-+};
-+
-+static struct dw_mipi_dsi2 *
-+__dw_mipi_dsi2_probe(struct platform_device *pdev,
-+		     const struct dw_mipi_dsi2_plat_data *plat_data)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct reset_control *apb_rst;
-+	struct dw_mipi_dsi2 *dsi2;
-+	int ret;
-+
-+	dsi2 = devm_kzalloc(dev, sizeof(*dsi2), GFP_KERNEL);
-+	if (!dsi2)
-+		return ERR_PTR(-ENOMEM);
-+
-+	dsi2->dev = dev;
-+	dsi2->plat_data = plat_data;
-+
-+	if (!plat_data->phy_ops->init || !plat_data->phy_ops->get_lane_mbps ||
-+	    !plat_data->phy_ops->get_timing)
-+		return dev_err_ptr_probe(dev, -ENODEV, "Phy not properly configured\n");
-+
-+	if (!plat_data->regmap) {
-+		void __iomem *base = devm_platform_ioremap_resource(pdev, 0);
-+
-+		if (IS_ERR(base))
-+			return dev_err_cast_probe(dev, base, "failed to registers\n");
-+
-+		dsi2->regmap = devm_regmap_init_mmio(dev, base,
-+						     &dw_mipi_dsi2_regmap_config);
-+		if (IS_ERR(dsi2->regmap))
-+			return dev_err_cast_probe(dev, dsi2->regmap, "failed to init regmap\n");
-+	} else {
-+		dsi2->regmap = plat_data->regmap;
-+	}
-+
-+	dsi2->pclk = devm_clk_get(dev, "pclk");
-+	if (IS_ERR(dsi2->pclk))
-+		return dev_err_cast_probe(dev, dsi2->pclk, "Unable to get pclk\n");
-+
-+	dsi2->sys_clk = devm_clk_get(dev, "sys");
-+	if (IS_ERR(dsi2->sys_clk))
-+		return dev_err_cast_probe(dev, dsi2->sys_clk, "Unable to get sys_clk\n");
-+
-+	/*
-+	 * Note that the reset was not defined in the initial device tree, so
-+	 * we have to be prepared for it not being found.
-+	 */
-+	apb_rst = devm_reset_control_get_optional_exclusive(dev, "apb");
-+	if (IS_ERR(apb_rst))
-+		return dev_err_cast_probe(dev, apb_rst, "Unable to get reset control\n");
-+
-+	if (apb_rst) {
-+		ret = clk_prepare_enable(dsi2->pclk);
-+		if (ret) {
-+			dev_err(dev, "%s: Failed to enable pclk\n", __func__);
-+			return ERR_PTR(ret);
-+		}
-+
-+		reset_control_assert(apb_rst);
-+		usleep_range(10, 20);
-+		reset_control_deassert(apb_rst);
-+
-+		clk_disable_unprepare(dsi2->pclk);
-+	}
-+
-+	pm_runtime_enable(dev);
-+
-+	dsi2->dsi_host.ops = &dw_mipi_dsi2_host_ops;
-+	dsi2->dsi_host.dev = dev;
-+	ret = mipi_dsi_host_register(&dsi2->dsi_host);
-+	if (ret) {
-+		dev_err(dev, "Failed to register MIPI host: %d\n", ret);
-+		pm_runtime_disable(dev);
-+		return ERR_PTR(ret);
-+	}
-+
-+	dsi2->bridge.driver_private = dsi2;
-+	dsi2->bridge.funcs = &dw_mipi_dsi2_bridge_funcs;
-+	dsi2->bridge.of_node = pdev->dev.of_node;
-+
-+	return dsi2;
-+}
-+
-+static void __dw_mipi_dsi2_remove(struct dw_mipi_dsi2 *dsi2)
-+{
-+	mipi_dsi_host_unregister(&dsi2->dsi_host);
-+
-+	pm_runtime_disable(dsi2->dev);
-+}
-+
-+/*
-+ * Probe/remove API, used to create the bridge instance.
-+ */
-+struct dw_mipi_dsi2 *
-+dw_mipi_dsi2_probe(struct platform_device *pdev,
-+		   const struct dw_mipi_dsi2_plat_data *plat_data)
-+{
-+	return __dw_mipi_dsi2_probe(pdev, plat_data);
-+}
-+EXPORT_SYMBOL_GPL(dw_mipi_dsi2_probe);
-+
-+void dw_mipi_dsi2_remove(struct dw_mipi_dsi2 *dsi2)
-+{
-+	__dw_mipi_dsi2_remove(dsi2);
-+}
-+EXPORT_SYMBOL_GPL(dw_mipi_dsi2_remove);
-+
-+/*
-+ * Bind/unbind API, used from platforms based on the component framework
-+ * to attach the bridge to an encoder.
-+ */
-+int dw_mipi_dsi2_bind(struct dw_mipi_dsi2 *dsi2, struct drm_encoder *encoder)
-+{
-+	return drm_bridge_attach(encoder, &dsi2->bridge, NULL, 0);
-+}
-+EXPORT_SYMBOL_GPL(dw_mipi_dsi2_bind);
-+
-+void dw_mipi_dsi2_unbind(struct dw_mipi_dsi2 *dsi2)
-+{
-+}
-+EXPORT_SYMBOL_GPL(dw_mipi_dsi2_unbind);
-+
-+MODULE_AUTHOR("Guochun Huang <hero.huang@rock-chips.com>");
-+MODULE_AUTHOR("Heiko Stuebner <heiko.stuebner@cherry.de>");
-+MODULE_DESCRIPTION("DW MIPI DSI2 host controller driver");
-+MODULE_LICENSE("GPL");
-+MODULE_ALIAS("platform:dw-mipi-dsi2");
-diff --git a/include/drm/bridge/dw_mipi_dsi2.h b/include/drm/bridge/dw_mipi_dsi2.h
-new file mode 100644
-index 000000000000..c18c49379247
---- /dev/null
-+++ b/include/drm/bridge/dw_mipi_dsi2.h
-@@ -0,0 +1,95 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (c) 2024, Fuzhou Rockchip Electronics Co., Ltd
-+ *
-+ * Authors: Guochun Huang <hero.huang@rock-chips.com>
-+ *          Heiko Stuebner <heiko.stuebner@cherry.de>
-+ */
-+
-+#ifndef __DW_MIPI_DSI2__
-+#define __DW_MIPI_DSI2__
-+
-+#include <linux/regmap.h>
-+#include <linux/types.h>
-+
-+#include <drm/drm_atomic.h>
-+#include <drm/drm_bridge.h>
-+#include <drm/drm_connector.h>
-+#include <drm/drm_crtc.h>
-+#include <drm/drm_modes.h>
-+
-+struct drm_display_mode;
-+struct drm_encoder;
-+struct dw_mipi_dsi2;
-+struct mipi_dsi_device;
-+struct platform_device;
-+
-+enum dw_mipi_dsi2_phy_type {
-+	DW_MIPI_DSI2_DPHY,
-+	DW_MIPI_DSI2_CPHY,
-+};
-+
-+struct dw_mipi_dsi2_phy_iface {
-+	int ppi_width;
-+	enum dw_mipi_dsi2_phy_type phy_type;
-+};
-+
-+struct dw_mipi_dsi2_phy_timing {
-+	u32 data_hs2lp;
-+	u32 data_lp2hs;
-+};
-+
-+struct dw_mipi_dsi2_phy_ops {
-+	int (*init)(void *priv_data);
-+	void (*power_on)(void *priv_data);
-+	void (*power_off)(void *priv_data);
-+	void (*get_interface)(void *priv_data, struct dw_mipi_dsi2_phy_iface *iface);
-+	int (*get_lane_mbps)(void *priv_data,
-+			     const struct drm_display_mode *mode,
-+			     unsigned long mode_flags, u32 lanes, u32 format,
-+			     unsigned int *lane_mbps);
-+	int (*get_timing)(void *priv_data, unsigned int lane_mbps,
-+			  struct dw_mipi_dsi2_phy_timing *timing);
-+	int (*get_esc_clk_rate)(void *priv_data, unsigned int *esc_clk_rate);
-+};
-+
-+struct dw_mipi_dsi2_host_ops {
-+	int (*attach)(void *priv_data,
-+		      struct mipi_dsi_device *dsi);
-+	int (*detach)(void *priv_data,
-+		      struct mipi_dsi_device *dsi);
-+};
-+
-+struct dw_mipi_dsi2_plat_data {
-+	struct regmap *regmap;
-+	unsigned int max_data_lanes;
-+
-+	enum drm_mode_status (*mode_valid)(void *priv_data,
-+					   const struct drm_display_mode *mode,
-+					   unsigned long mode_flags,
-+					   u32 lanes, u32 format);
-+
-+	bool (*mode_fixup)(void *priv_data, const struct drm_display_mode *mode,
-+			   struct drm_display_mode *adjusted_mode);
-+
-+	u32 *(*get_input_bus_fmts)(void *priv_data,
-+				   struct drm_bridge *bridge,
-+				   struct drm_bridge_state *bridge_state,
-+				   struct drm_crtc_state *crtc_state,
-+				   struct drm_connector_state *conn_state,
-+				   u32 output_fmt,
-+				   unsigned int *num_input_fmts);
-+
-+	const struct dw_mipi_dsi2_phy_ops *phy_ops;
-+	const struct dw_mipi_dsi2_host_ops *host_ops;
-+
-+	void *priv_data;
-+};
-+
-+struct dw_mipi_dsi2 *dw_mipi_dsi2_probe(struct platform_device *pdev,
-+					const struct dw_mipi_dsi2_plat_data *plat_data);
-+void dw_mipi_dsi2_remove(struct dw_mipi_dsi2 *dsi2);
-+int dw_mipi_dsi2_bind(struct dw_mipi_dsi2 *dsi2, struct drm_encoder *encoder);
-+void dw_mipi_dsi2_unbind(struct dw_mipi_dsi2 *dsi2);
-+
-+#endif /* __DW_MIPI_DSI2__ */
--- 
-2.45.2
+Reviewed-by: Heiner Kallweit <hkallweit1@gmail.com>
 
 
