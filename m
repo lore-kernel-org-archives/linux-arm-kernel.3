@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D3A5D3B7C1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:35:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19802D3B7CA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b7vDHQj8gjKPY/OyXucbwCCZPbu1weEAVbULrbU1toE=; b=lfx7usjh/qb9tupVrf75RL4mpY
-	M9S9vnXUPTohwWaW+TGUw4b6koOTWgklQQPt92DzqedlQ7IghnuNihgB/vX9eX6FJ50vq+JGwfw+b
-	fH69AdfHJeC/kyjb13u+/Qq17dy9v7FmWpRSUpI01juLlkV6eagyM22g5JZOMxuMy9FLC9WPgLwuR
-	YeZh4r+18ZJR1iNveRGmKlkBd3kpBcft3l5TxBrL/ZR71UcyYJNz8RthaKk5gAw9dBpTZC7nbAuwS
-	WhIcQTOSviWmGgtEvC06sI738hpGTb2m2kXUt37315j6cy/7avIZpcaotSzBmIxlz0pdcXL1W+NI0
-	+h8P6c9Q==;
+	bh=nnhyvj3d8XtptBHuFTiG10lDwil4VamFlPvg5Ad2Ku0=; b=rlGUoQXjJtAkI3R7/CPP/w5tFs
+	gJ0LLKnmtjDkrcdhAQ8y7l/NvlVTY7Fo0Yh5Am2xnGkFWyBG0LbABINTx6z9RQlCYsfWX9ZIigo7Y
+	ZTbJDTgoLjZNBZ8hAV082Bqv6c8+0Op1KNMb1vw9R/s9XJwjQw27POr8XYIvaxxplST9VY3quVSHX
+	Dok2+OYfCHCACbsTYiSzhYY+lkz6QydyUM38oIk77x6IHucMsa0vnKUehSYrDIBJaIHmG+845hhau
+	+0G/nPXuAXHUba7uKPg1Zp+U9joC9neS/WecvSM69vArJscgpW9MhrW0jufl+UnouyJLB55ZCMbqj
+	7gCLfwHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFryD-0000000AAgP-00EN;
-	Tue, 26 Nov 2024 09:34:57 +0000
+	id 1tFrzC-0000000AAsN-44wq;
+	Tue, 26 Nov 2024 09:35:58 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFroj-0000000A8Xb-1Vul;
-	Tue, 26 Nov 2024 09:25:10 +0000
+	id 1tFroo-0000000A8Yg-3DBg;
+	Tue, 26 Nov 2024 09:25:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=b7vDHQj8gjKPY/OyXucbwCCZPbu1weEAVbULrbU1toE=; b=fXVGaR7VyNcLKRYUi6uqPSBeDM
-	gL4BL0GswdwPbKqmbLzZTD8hJ5QvPZwLaCKOWEhV1Q3xEbYDsNH/5ejhoY/RYdMdgAr/R/yXuZe6/
-	1184mUyrpKLgXz3jDZ82/wY784QdpvCZA59mrQj54Y4CfUXq4Dw1DjsR6zqIqc+8DWg0fRIy3jf+m
-	Qrj7VqJMKv/3nYL9B+C34tWyWuEuBWE/ZftUzPRuhuwKrQo75Cv0/7Adtl7GZgNoig5zv0Ld4gbRR
-	hda4zRuVfCyilJRoEuNPy4POkJCavzOnIL4k2LCup3Zef1gMfHE65h5Bk2c1lM/qH+cmmqSKXbzC3
-	HQYCJf2g==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:32892 helo=rmk-PC.armlinux.org.uk)
+	bh=nnhyvj3d8XtptBHuFTiG10lDwil4VamFlPvg5Ad2Ku0=; b=02NCBbiSkgV8CkMZ9aROGJtACH
+	ES5TXDNPszVbNJIfxXaf8CIZxGG37MVXvjVS9Y1kYftelezHuDdLQ2fx02CS2GsxVLhc1PugMI+O1
+	O4/+2xDTd97UMNxJMbDaE7T0mt9HQtDNpSuBtaQML1tAcVG/Wpp0x0hVieTuimaA1Q++AVyC9luRc
+	D5UQcHR+PVso12jnVPRQQ/Qfr9H2im0MAlUDRzl0+ncZegyLq9BchKsPGd5ZlGYKvQz9WZfU8BCqV
+	raofThy4nNyl+vJVf36ekJ02wA9uB1JbNbQsOc5nfDd02Al7+ZtyVVoH2OORPyKIWs9Jq0LHW0o+Q
+	1kcG+ZxA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:32898 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tFroX-0006Tz-21;
-	Tue, 26 Nov 2024 09:24:58 +0000
+	id 1tFrod-0006UK-03;
+	Tue, 26 Nov 2024 09:25:03 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tFroW-005xQK-Ee; Tue, 26 Nov 2024 09:24:56 +0000
+	id 1tFrob-005xQS-Hz; Tue, 26 Nov 2024 09:25:01 +0000
 In-Reply-To: <Z0WTpE8wkpjMiv_J@shell.armlinux.org.uk>
 References: <Z0WTpE8wkpjMiv_J@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -69,17 +69,16 @@ Cc: Alexander Couzens <lynxis@fe80.eu>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH RFC net-next 08/16] net: phy: marvell: implement
- config_inband() method
+Subject: [PATCH RFC net-next 09/16] net: phylink: add pcs_inband_caps() method
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tFroW-005xQK-Ee@rmk-PC.armlinux.org.uk>
-Date: Tue, 26 Nov 2024 09:24:56 +0000
+Message-Id: <E1tFrob-005xQS-Hz@rmk-PC.armlinux.org.uk>
+Date: Tue, 26 Nov 2024 09:25:01 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_012509_396182_12E3B9DE 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20241126_012516_476685_36A1B318 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,74 +93,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add a pcs_inband_caps() method to query the PCS for its inband link
+capabilities, and use this to determine whether link modes used with
+optical SFPs can be supported.
+
+When a PCS does not provide a method, we allow inband negotiation to
+be either on or off, making this a no-op until the pcs_inband_caps()
+method is implemented by a PCS driver.
+
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/phy/marvell.c | 31 +++++++++++++++++++++++++++++++
- 1 file changed, 31 insertions(+)
+ drivers/net/phy/phylink.c | 60 +++++++++++++++++++++++++++++++++++++++
+ include/linux/phylink.h   | 17 +++++++++++
+ 2 files changed, 77 insertions(+)
 
-diff --git a/drivers/net/phy/marvell.c b/drivers/net/phy/marvell.c
-index 3075ebc3f964..b885bc0fe6e0 100644
---- a/drivers/net/phy/marvell.c
-+++ b/drivers/net/phy/marvell.c
-@@ -731,6 +731,34 @@ static unsigned int m88e1111_inband_caps(struct phy_device *phydev,
- 	return 0;
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index e43a083cec57..ca52cb23187d 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -990,6 +990,15 @@ static void phylink_resolve_an_pause(struct phylink_link_state *state)
+ 	}
  }
  
-+static int m88e1111_config_inband(struct phy_device *phydev, unsigned int modes)
++static unsigned int phylink_pcs_inband_caps(struct phylink_pcs *pcs,
++				    phy_interface_t interface)
 +{
-+	u16 extsr, bmcr;
-+	int err;
++	if (pcs && pcs->ops->pcs_inband_caps)
++		return pcs->ops->pcs_inband_caps(pcs, interface);
 +
-+	if (phydev->interface != PHY_INTERFACE_MODE_1000BASEX &&
-+	    phydev->interface != PHY_INTERFACE_MODE_SGMII)
-+		return -EINVAL;
-+
-+	if (modes == LINK_INBAND_BYPASS)
-+		extsr = MII_M1111_HWCFG_SERIAL_AN_BYPASS;
-+	else
-+		extsr = 0;
-+
-+	if (modes == LINK_INBAND_DISABLE)
-+		bmcr = 0;
-+	else
-+		bmcr = BMCR_ANENABLE;
-+
-+	err = phy_modify(phydev, MII_M1111_PHY_EXT_SR,
-+			 MII_M1111_HWCFG_SERIAL_AN_BYPASS, extsr);
-+	if (err < 0)
-+		return extsr;
-+
-+	return phy_modify_paged(phydev, MII_MARVELL_FIBER_PAGE, MII_BMCR,
-+				BMCR_ANENABLE, bmcr);
++	return 0;
 +}
 +
- static int m88e1111_config_aneg(struct phy_device *phydev)
+ static void phylink_pcs_pre_config(struct phylink_pcs *pcs,
+ 				   phy_interface_t interface)
  {
- 	int extsr = phy_read(phydev, MII_M1111_PHY_EXT_SR);
-@@ -3692,6 +3720,7 @@ static struct phy_driver marvell_drivers[] = {
- 		/* PHY_GBIT_FEATURES */
- 		.probe = marvell_probe,
- 		.inband_caps = m88e1111_inband_caps,
-+		.config_inband = m88e1111_config_inband,
- 		.config_init = m88e1112_config_init,
- 		.config_aneg = marvell_config_aneg,
- 		.config_intr = marvell_config_intr,
-@@ -3714,6 +3743,7 @@ static struct phy_driver marvell_drivers[] = {
- 		.flags = PHY_POLL_CABLE_TEST,
- 		.probe = marvell_probe,
- 		.inband_caps = m88e1111_inband_caps,
-+		.config_inband = m88e1111_config_inband,
- 		.config_init = m88e1111gbe_config_init,
- 		.config_aneg = m88e1111_config_aneg,
- 		.read_status = marvell_read_status,
-@@ -3738,6 +3768,7 @@ static struct phy_driver marvell_drivers[] = {
- 		/* PHY_GBIT_FEATURES */
- 		.probe = marvell_probe,
- 		.inband_caps = m88e1111_inband_caps,
-+		.config_inband = m88e1111_config_inband,
- 		.config_init = m88e1111gbe_config_init,
- 		.config_aneg = m88e1111_config_aneg,
- 		.read_status = marvell_read_status,
+@@ -1043,6 +1052,24 @@ static void phylink_pcs_link_up(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 		pcs->ops->pcs_link_up(pcs, neg_mode, interface, speed, duplex);
+ }
+ 
++/* Query inband for a specific interface mode, asking the MAC for the
++ * PCS which will be used to handle the interface mode.
++ */
++static unsigned int phylink_inband_caps(struct phylink *pl,
++					 phy_interface_t interface)
++{
++	struct phylink_pcs *pcs;
++
++	if (!pl->mac_ops->mac_select_pcs)
++		return 0;
++
++	pcs = pl->mac_ops->mac_select_pcs(pl->config, interface);
++	if (!pcs)
++		return 0;
++
++	return phylink_pcs_inband_caps(pcs, interface);
++}
++
+ static void phylink_pcs_poll_stop(struct phylink *pl)
+ {
+ 	if (pl->cfg_link_an_mode == MLO_AN_INBAND)
+@@ -2541,6 +2568,26 @@ int phylink_ethtool_ksettings_get(struct phylink *pl,
+ }
+ EXPORT_SYMBOL_GPL(phylink_ethtool_ksettings_get);
+ 
++static bool phylink_validate_pcs_inband_autoneg(struct phylink *pl,
++					        phy_interface_t interface,
++						unsigned long *adv)
++{
++	unsigned int inband = phylink_inband_caps(pl, interface);
++	unsigned int mask;
++
++	/* If the PCS doesn't implement inband support, be permissive. */
++	if (!inband)
++		return true;
++
++	if (linkmode_test_bit(ETHTOOL_LINK_MODE_Autoneg_BIT, adv))
++		mask = LINK_INBAND_ENABLE;
++	else
++		mask = LINK_INBAND_DISABLE;
++
++	/* Check whether the PCS implements the required mode */
++	return !!(inband & mask);
++}
++
+ /**
+  * phylink_ethtool_ksettings_set() - set the link settings
+  * @pl: a pointer to a &struct phylink returned from phylink_create()
+@@ -2671,6 +2718,13 @@ int phylink_ethtool_ksettings_set(struct phylink *pl,
+ 	    phylink_is_empty_linkmode(config.advertising))
+ 		return -EINVAL;
+ 
++	/* Validate the autonegotiation state. We don't have a PHY in this
++	 * situation, so the PCS is the media-facing entity.
++	 */
++	if (!phylink_validate_pcs_inband_autoneg(pl, config.interface,
++						 config.advertising))
++		return -EINVAL;
++
+ 	mutex_lock(&pl->state_mutex);
+ 	pl->link_config.speed = config.speed;
+ 	pl->link_config.duplex = config.duplex;
+@@ -3350,6 +3404,12 @@ static int phylink_sfp_config_optical(struct phylink *pl)
+ 	phylink_dbg(pl, "optical SFP: chosen %s interface\n",
+ 		    phy_modes(interface));
+ 
++	if (!phylink_validate_pcs_inband_autoneg(pl, interface,
++						 config.advertising)) {
++		phylink_err(pl, "autoneg setting not compatible with PCS");
++		return -EINVAL;
++	}
++
+ 	config.interface = interface;
+ 
+ 	/* Ignore errors if we're expecting a PHY to attach later */
+diff --git a/include/linux/phylink.h b/include/linux/phylink.h
+index 595139797acb..ef26111d0040 100644
+--- a/include/linux/phylink.h
++++ b/include/linux/phylink.h
+@@ -422,6 +422,7 @@ struct phylink_pcs {
+ /**
+  * struct phylink_pcs_ops - MAC PCS operations structure.
+  * @pcs_validate: validate the link configuration.
++ * @pcs_inband_caps: query inband support for interface mode.
+  * @pcs_enable: enable the PCS.
+  * @pcs_disable: disable the PCS.
+  * @pcs_pre_config: pre-mac_config method (for errata)
+@@ -437,6 +438,8 @@ struct phylink_pcs {
+ struct phylink_pcs_ops {
+ 	int (*pcs_validate)(struct phylink_pcs *pcs, unsigned long *supported,
+ 			    const struct phylink_link_state *state);
++	unsigned int (*pcs_inband_caps)(struct phylink_pcs *pcs,
++					phy_interface_t interface);
+ 	int (*pcs_enable)(struct phylink_pcs *pcs);
+ 	void (*pcs_disable)(struct phylink_pcs *pcs);
+ 	void (*pcs_pre_config)(struct phylink_pcs *pcs,
+@@ -473,6 +476,20 @@ struct phylink_pcs_ops {
+ int pcs_validate(struct phylink_pcs *pcs, unsigned long *supported,
+ 		 const struct phylink_link_state *state);
+ 
++/**
++ * pcs_inband_caps - query PCS in-band capabilities for interface mode.
++ * @pcs: a pointer to a &struct phylink_pcs.
++ * @interface: interface mode to be queried
++ *
++ * Returns zero if it is unknown what in-band signalling is supported by the
++ * PHY (e.g. because the PHY driver doesn't implement the method.) Otherwise,
++ * returns a bit mask of the LINK_INBAND_* values from
++ * &enum link_inband_signalling to describe which inband modes are supported
++ * for this interface mode.
++ */
++unsigned int pcs_inband_caps(struct phylink_pcs *pcs,
++			     phy_interface_t interface);
++
+ /**
+  * pcs_enable() - enable the PCS.
+  * @pcs: a pointer to a &struct phylink_pcs.
 -- 
 2.30.2
 
