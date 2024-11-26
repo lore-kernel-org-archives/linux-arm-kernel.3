@@ -4,82 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3566D3B7CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:44:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC9F2D3B7CA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CpTJ7ep7WjNgRdD+PpFVRfcu1rVLPyYDfT8jjGhsaVw=; b=VuGmazAv9ilI9FIAqQfTcBWnlR
-	hZHzCwb7Lv3zR/VF6Jd1HBWsEJOEePdZRDPT1PSi9wj4qx/NCvsZvmlgXBiIwzqknRW6Ud9cRIKUC
-	y/TZPp8qZe6ArdC8SE2kCtFL8y7Zulxw9O7jdjh7AqA7b/jIc9vVz2lXfkgpeA1s9LesVwNfNAPy0
-	2c+P6FR+S67GvZ77Ud6ZacQcjSnSbYv3ulbOKdYuFZcPXe+QZ3cjpgWlTDYz5A5thCDsfbXC43aU5
-	mnz8Mkm83NM/8gNXVMebveAWv+hcpI9FNn7LuARcO/jFKhsolT9xMw+3WxhqDPpOeVhD6nT5Up9P6
-	05dJIX2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zx0vGy7EqDnKKT7QcE2UKlOmKzU2v68XzUtYodsfIfI=; b=TUxQufvSHxGA40GQwmBMF+3Zdn
+	iZ+4yIf8/SmJi8/d6jr4sIHwOG9WOz4aFQeu280g0RN3ixfhPiWUl815hWuogStgDkWsW0ALk2s+C
+	C0br2SeL21Bo3PDQBjLVQlfJWvBAIZPPgCI96zHCwkCsqGzzbC781O+qbrV6EgWKYfGblQgslupw2
+	4I//CIIKhOHC/MW70hYOqQQKXIHSVBmRgejaXWRJ0Z3FrRc/K+v5phNXek1Y3+R7La9wYCN+O23HO
+	nLBO10zFIF2xcZEw1gjnrncN2zLKaFUEES6tlFKxv+ids3+OtyZNUhJ1CpRdHtFMNsE/K1R7/vXyT
+	f1WhPZ8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFs6x-0000000ACPs-16Sb;
-	Tue, 26 Nov 2024 09:43:59 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tFs7s-0000000ACcT-25rD;
+	Tue, 26 Nov 2024 09:44:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFrp4-0000000A8di-1NlC;
-	Tue, 26 Nov 2024 09:25:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=CpTJ7ep7WjNgRdD+PpFVRfcu1rVLPyYDfT8jjGhsaVw=; b=LnPuZ5cM/QCEy7/toUkkCR2DJI
-	Kmc7f/FM73ibcxdv6sLAU1AFBh0/aRfTwx99wKGolnP5yH6geh2UAbUIHttlBji/1UOkqbAK06aVv
-	TIfJ/qp0eftWm07O0Kdc68e6y+MvMl/UgFFte7as5W2iQfmE3sZbU7od5JXmipeosu//+E3XeFxro
-	3gwxNoZhxeTF1iohFsbs+9yT5Ryzld0oYvjEdOyAS4f4YrmUtirsT0ccfwmKCaty3mzm3MxjOLafp
-	MDQCjHy9ZkJMUFzjIks9aiPe7jEny+2bUHFJpqCa6t22ss1TpTy/ggYdUzWbQWPaEnJWpBIwU+ZxK
-	sGC3dkcg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35156 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tFros-0006VM-13;
-	Tue, 26 Nov 2024 09:25:18 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tFroq-005xQk-SU; Tue, 26 Nov 2024 09:25:16 +0000
-In-Reply-To: <Z0WTpE8wkpjMiv_J@shell.armlinux.org.uk>
-References: <Z0WTpE8wkpjMiv_J@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexander Couzens <lynxis@fe80.eu>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH RFC net-next 12/16] net: pcs: pcs-lynx: implement
- pcs_inband_caps() method
+	id 1tFrtb-0000000A9iZ-3aGg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Nov 2024 09:30:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6D80E5C5D16;
+	Tue, 26 Nov 2024 09:29:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D0A3C4CECF;
+	Tue, 26 Nov 2024 09:30:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732613410;
+	bh=9Ay6+imSrXagOd8Xd0hPE8chBJ5GelgKMPvVGoiR2e8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WQdq2LZE9YTWOxAyv7FnmGEL6ltFHnouW2WMUelybvVewvAWZm15QH/lf4XnmpQIj
+	 rlQos5T4MqJKm0b4DQ+XG/dwzrlSHYISKPwh1eT8EYKMDTbHpep6jNgk2xbMKdFDiJ
+	 hn4GR7SeIgMtyW1i5NZi60c+PAJdj3CDW3nvknu4LQcgmMSBr9kw1YUcB0r0hL6u0b
+	 AfWWeTAU1kj3t137X4AI3F7clejrXfnU7TD+LNP9Sb/TNVQXlciE6FtXt9h8HzQmly
+	 XJFQtHV2onhmWl+5d/rCLPRImcGfpHpSC1OHCVSX9Yh2hwq7dtq9rUmpxlO9EKusN2
+	 dq3Ud11z9oHyg==
+Date: Tue, 26 Nov 2024 10:30:07 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+Cc: Sean Nyekjaer <sean@geanix.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Yannick Fertre <yannick.fertre@foss.st.com>, Philippe Cornu <philippe.cornu@foss.st.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
+ helper function
+Message-ID: <20241126-silver-skylark-of-expertise-bba576@houat>
+References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
+ <20241125-dsi-relax-v2-1-9113419f4a40@geanix.com>
+ <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
+ <bfuj6w6hsbfpdw24th6dl3ugvj45op6jb45gx5ab5pulud7hiz@o2zbn45z3lt4>
+ <725aafb8-abfa-40c0-967a-62122206f736@foss.st.com>
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="ivjgiyez6uyhrxcb"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tFroq-005xQk-SU@rmk-PC.armlinux.org.uk>
-Date: Tue, 26 Nov 2024 09:25:16 +0000
+In-Reply-To: <725aafb8-abfa-40c0-967a-62122206f736@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_012530_365970_B7F58785 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20241126_013011_982718_4FB03A7D 
+X-CRM114-Status: GOOD (  28.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,54 +84,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Report the PCS in-band capabilities to phylink for the Lynx PCS.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/pcs/pcs-lynx.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+--ivjgiyez6uyhrxcb
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
+ helper function
+MIME-Version: 1.0
 
-diff --git a/drivers/net/pcs/pcs-lynx.c b/drivers/net/pcs/pcs-lynx.c
-index b79aedad855b..767a8c0714ac 100644
---- a/drivers/net/pcs/pcs-lynx.c
-+++ b/drivers/net/pcs/pcs-lynx.c
-@@ -35,6 +35,27 @@ enum sgmii_speed {
- #define phylink_pcs_to_lynx(pl_pcs) container_of((pl_pcs), struct lynx_pcs, pcs)
- #define lynx_to_phylink_pcs(lynx) (&(lynx)->pcs)
- 
-+static unsigned int lynx_pcs_inband_caps(struct phylink_pcs *pcs,
-+					 phy_interface_t interface)
-+{
-+	switch (interface) {
-+	case PHY_INTERFACE_MODE_1000BASEX:
-+	case PHY_INTERFACE_MODE_SGMII:
-+	case PHY_INTERFACE_MODE_QSGMII:
-+		return LINK_INBAND_DISABLE | LINK_INBAND_ENABLE;
-+
-+	case PHY_INTERFACE_MODE_10GBASER:
-+	case PHY_INTERFACE_MODE_2500BASEX:
-+		return LINK_INBAND_DISABLE;
-+
-+	case PHY_INTERFACE_MODE_USXGMII:
-+		return LINK_INBAND_ENABLE;
-+
-+	default:
-+		return 0;
-+	}
-+}
-+
- static void lynx_pcs_get_state_usxgmii(struct mdio_device *pcs,
- 				       struct phylink_link_state *state)
- {
-@@ -306,6 +327,7 @@ static void lynx_pcs_link_up(struct phylink_pcs *pcs, unsigned int neg_mode,
- }
- 
- static const struct phylink_pcs_ops lynx_pcs_phylink_ops = {
-+	.pcs_inband_caps = lynx_pcs_inband_caps,
- 	.pcs_get_state = lynx_pcs_get_state,
- 	.pcs_config = lynx_pcs_config,
- 	.pcs_an_restart = lynx_pcs_an_restart,
--- 
-2.30.2
+On Tue, Nov 26, 2024 at 09:47:17AM +0100, Raphael Gallais-Pou wrote:
+>=20
+> On 11/26/24 08:36, Sean Nyekjaer wrote:
+> > Hi Maxime,
+> >
+> > On Mon, Nov 25, 2024 at 05:00:56PM +0100, Maxime Ripard wrote:
+> >> Hi Sean,
+> >>
+> >> On Mon, Nov 25, 2024 at 02:49:26PM +0100, Sean Nyekjaer wrote:
+> >>> Check if the required pixel clock is in within .5% range of the
+> >>> desired pixel clock.
+> >>> This will match the requirement for HDMI where a .5% tolerance is all=
+owed.
+> >>>
+> >>> Signed-off-by: Sean Nyekjaer <sean@geanix.com>
+> >>> ---
+> >>>  drivers/gpu/drm/drm_modes.c | 34 ++++++++++++++++++++++++++++++++++
+> >>>  include/drm/drm_modes.h     |  2 ++
+> >>>  2 files changed, 36 insertions(+)
+> >>>
+> >>> diff --git a/drivers/gpu/drm/drm_modes.c b/drivers/gpu/drm/drm_modes.c
+> >>> index 6ba167a3346134072d100af0adbbe9b49e970769..4068b904759bf80502efd=
+e6e4d977b297f5d5359 100644
+> >>> --- a/drivers/gpu/drm/drm_modes.c
+> >>> +++ b/drivers/gpu/drm/drm_modes.c
+> >>> @@ -1623,6 +1623,40 @@ bool drm_mode_equal_no_clocks_no_stereo(const =
+struct drm_display_mode *mode1,
+> >>>  }
+> >>>  EXPORT_SYMBOL(drm_mode_equal_no_clocks_no_stereo);
+> >>> =20
+> >>> +/**
+> >>> + * drm_mode_validate_mode
+> >>> + * @mode: mode to check
+> >>> + * @rounded_rate: output pixel clock
+> >>> + *
+> >>> + * VESA DMT defines a tolerance of 0.5% on the pixel clock, while the
+> >>> + * CVT spec reuses that tolerance in its examples, so it looks to be=
+ a
+> >>> + * good default tolerance for the EDID-based modes. Define it to 5 p=
+er
+> >>> + * mille to avoid floating point operations.
+> >>> + *
+> >>> + * Returns:
+> >>> + * The mode status
+> >>> + */
+> >>> +enum drm_mode_status drm_mode_validate_mode(const struct drm_display=
+_mode *mode,
+> >>> +					    unsigned long long rounded_rate)
+> >>> +{
+> >>> +	enum drm_mode_status status;
+> >>> +	unsigned long long rate =3D mode->clock * 1000;
+> >>> +	unsigned long long lowest, highest;
+> >>> +
+> >>> +	lowest =3D rate * (1000 - 5);
+> >>> +	do_div(lowest, 1000);
+> >>> +	if (rounded_rate < lowest)
+> >>> +		return MODE_CLOCK_LOW;
+> >>> +
+> >>> +	highest =3D rate * (1000 + 5);
+> >>> +	do_div(highest, 1000);
+> >>> +	if (rounded_rate > highest)
+> >>> +		return MODE_CLOCK_HIGH;
+> >>> +
+> >>> +	return MODE_OK;
+> >>> +}
+> >>> +EXPORT_SYMBOL(drm_mode_validate_mode);
+> Hi Sean, Maxime,
+> >> Thanks a lot for doing that!
+> >>
+> >> I wonder about the naming though (and prototype). I doesn't really
+> >> validates a mode, but rather makes sure that a given rate is a good
+> >> approximation of a pixel clock. So maybe something like
+> >> drm_mode_check_pixel_clock?
+> > Naming is hard :) I will use drm_mode_check_pixel_clock() for V2.
+> >
+> > Would it make sense to have the pixel clock requirement as a input
+> > parameter? For HDMI it is 0.5% and in my case the LVDS panel 10%.
+> >
+> > enum drm_mode_status drm_mode_validate_mode(const struct drm_display_mo=
+de *mode,
+> > 					    unsigned long long rounded_rate, unsigned tolerance)
+> > ?
+>=20
+>=20
+> IMO adding the tolerance as input parameter is a good idea.=A0 This
+> would useful other than for HDMI pixel clock validation (and LVDS in
+> your case).
 
+It depends on the intent. If it's justified, why not. If it's to
+workaround another issue, absolutely not. And so, generally speaking, I
+don't think it's a good idea.
+
+Maxime
+
+--ivjgiyez6uyhrxcb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ0WVGgAKCRAnX84Zoj2+
+dt6vAYD/ha6rSzfdB8Hdtt8QyIin6959mZS2o1Kfzj2g79x6jBpKlT0JtMgi//O3
+OUV40OgBfROD6tZDvz9F+STrxg9e7rBW0RrVft6ey02AdwVIWtaNpvVoJEMn/cnG
+vhycHMk+wA==
+=7JWg
+-----END PGP SIGNATURE-----
+
+--ivjgiyez6uyhrxcb--
 
