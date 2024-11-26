@@ -4,99 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59B76D3B7C1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 08:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E944ED3B7C1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 08:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8jxIHGeNhIdRyq1hTjMruj+uZWn6hIrTILsLNytxbPs=; b=agsqKj1zwd6DghLQEDOVdUpQe8
-	I40b9U2G5B+p80WX0ZMZ9zpc0cP425PWSfNrGENxxJUe7Uut3/r68lE3a8yUx0aqQKZJzbJiVnFlW
-	qXUglD4vdAqjJ7ZrhHPksbzUfT1mzWvVNxZnTcgTM4y4tKeDl+4OJTnFXbza7FEMdZ93yAifNl0W3
-	WaFVt6ngz+FKO1tf9J1jvmDBAlT4M5RzMHQhFpLcJURL984lgvBgoLQ9sligqT+uywVmYlkZpMMjg
-	3dVoTEVxCRyU/Mq8C5HuY5Bc0CZ7DKIabY63o6GiV+fQTx7orYKILJnQu4Wm2e+cv6+Uoc+7TsGsu
-	pTUcaWIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6wpyZYVXSrFmOqwbJZhkGIoJEIM80hOcHt1jNF3/WeY=; b=xbPMa3gmh8FFTG1upQg+FySfo3
+	b02dwlKYQabnKhotJabkvDDSyiQoSt6luPzTx6gXuziiCawHmzxKI8+Urf7CwkmkAVqH9Qo/xP24+
+	4ep6kDfFkb9FBmTlD5fTpRQPG9Z/9cZ3Ms1dzFjwRI7bj4Y8kC3b2n8UBTzTpFSB0FLq9AuSbLOl+
+	vt9UqXMNovXIgM9YHE3DIeBq2VVNOiuXxw7iY1jLJFbdURIPIAYPnhGmmuKgzEB4hWBl/Lm1ouDcJ
+	OZMWfzyO1NkjBoHxeyiBqSyEokRje92L6f7VVvY4F1SMzru4LNXof418SBbuUcrGr7+TeLYyAWLZe
+	TFt3j0EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFrKa-0000000A0hQ-0bbI;
-	Tue, 26 Nov 2024 08:54:00 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tFrNI-0000000A0xQ-3jA6;
+	Tue, 26 Nov 2024 08:56:48 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFrIk-0000000A0O9-2IjD
+	id 1tFrML-0000000A0sl-06x7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 08:52:08 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AQ0l64w000476;
-	Tue, 26 Nov 2024 09:51:25 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	8jxIHGeNhIdRyq1hTjMruj+uZWn6hIrTILsLNytxbPs=; b=8Els/mG8lomYzWTA
-	SH/GmSoMEy8/ORL68+wQ8SuoxcDHsKn1HY1YWW0pJrw/wTmlYhPdNFAylL+JCxZC
-	cPDGnBtAjc4bPIdZSO53tmt4ifuSMZvzbgr/PjN96mlKOPQQO9owzHALyvO2jHBC
-	yPUnnRmZE7wi9FmqxwPasCjyTDp6sMpO1jXWPzgjlx/OElCaLBGjCAqL45Bh3dKM
-	mZCyBOcNr7Ea3CQNRSirzFdh8K14zEpy8wOKNwE9fUJUaP/PkT2lRSBKjDxomNVP
-	D9yF3Oy6GkOSje7ITKMQNDgo8FSMyN/fScqkkyeS7hHMKBtyfRhab2Jn+FkXCd/P
-	5y7Imw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4335bkv4tp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 26 Nov 2024 09:51:25 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 21B2440057;
-	Tue, 26 Nov 2024 09:49:44 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 33D08269E1E;
-	Tue, 26 Nov 2024 09:47:19 +0100 (CET)
-Received: from [10.129.178.23] (10.129.178.23) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 26 Nov
- 2024 09:47:18 +0100
-Message-ID: <725aafb8-abfa-40c0-967a-62122206f736@foss.st.com>
-Date: Tue, 26 Nov 2024 09:47:17 +0100
+	Tue, 26 Nov 2024 08:55:50 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tFrME-0002WF-HB; Tue, 26 Nov 2024 09:55:42 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tFrMD-000Der-0E;
+	Tue, 26 Nov 2024 09:55:41 +0100
+Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 6F55437D766;
+	Tue, 26 Nov 2024 08:55:41 +0000 (UTC)
+Date: Tue, 26 Nov 2024 09:55:41 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: carlos.song@nxp.com
+Cc: frank.li@nxp.com, o.rempel@pengutronix.de, kernel@pengutronix.de, 
+	andi.shyti@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, 
+	imx@lists.linux.dev, linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] i2c: imx: support DMA defer probing
+Message-ID: <20241126-economic-energetic-junglefowl-5197a9-mkl@pengutronix.de>
+References: <20241126082535.1878554-1-carlos.song@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
- helper function
-To: Sean Nyekjaer <sean@geanix.com>, Maxime Ripard <mripard@kernel.org>
-CC: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Thomas Zimmermann
-	<tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter
-	<simona@ffwll.ch>,
-        Chen-Yu Tsai <wens@csie.org>,
-        Jernej Skrabec
-	<jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>,
-        Yannick
- Fertre <yannick.fertre@foss.st.com>,
-        Philippe Cornu
-	<philippe.cornu@foss.st.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
- <20241125-dsi-relax-v2-1-9113419f4a40@geanix.com>
- <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
- <bfuj6w6hsbfpdw24th6dl3ugvj45op6jb45gx5ab5pulud7hiz@o2zbn45z3lt4>
-Content-Language: en-US
-From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-In-Reply-To: <bfuj6w6hsbfpdw24th6dl3ugvj45op6jb45gx5ab5pulud7hiz@o2zbn45z3lt4>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.129.178.23]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="idutayp4iw5aar47"
+Content-Disposition: inline
+In-Reply-To: <20241126082535.1878554-1-carlos.song@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_005207_136151_9C8766A3 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20241126_005549_065371_0DAB706B 
+X-CRM114-Status: GOOD (  29.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,92 +82,125 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 11/26/24 08:36, Sean Nyekjaer wrote:
-> Hi Maxime,
->
-> On Mon, Nov 25, 2024 at 05:00:56PM +0100, Maxime Ripard wrote:
->> Hi Sean,
->>
->> On Mon, Nov 25, 2024 at 02:49:26PM +0100, Sean Nyekjaer wrote:
->>> Check if the required pixel clock is in within .5% range of the
->>> desired pixel clock.
->>> This will match the requirement for HDMI where a .5% tolerance is allowed.
->>>
->>> Signed-off-by: Sean Nyekjaer <sean@geanix.com>
->>> ---
->>>  drivers/gpu/drm/drm_modes.c | 34 ++++++++++++++++++++++++++++++++++
->>>  include/drm/drm_modes.h     |  2 ++
->>>  2 files changed, 36 insertions(+)
->>>
->>> diff --git a/drivers/gpu/drm/drm_modes.c b/drivers/gpu/drm/drm_modes.c
->>> index 6ba167a3346134072d100af0adbbe9b49e970769..4068b904759bf80502efde6e4d977b297f5d5359 100644
->>> --- a/drivers/gpu/drm/drm_modes.c
->>> +++ b/drivers/gpu/drm/drm_modes.c
->>> @@ -1623,6 +1623,40 @@ bool drm_mode_equal_no_clocks_no_stereo(const struct drm_display_mode *mode1,
->>>  }
->>>  EXPORT_SYMBOL(drm_mode_equal_no_clocks_no_stereo);
->>>  
->>> +/**
->>> + * drm_mode_validate_mode
->>> + * @mode: mode to check
->>> + * @rounded_rate: output pixel clock
->>> + *
->>> + * VESA DMT defines a tolerance of 0.5% on the pixel clock, while the
->>> + * CVT spec reuses that tolerance in its examples, so it looks to be a
->>> + * good default tolerance for the EDID-based modes. Define it to 5 per
->>> + * mille to avoid floating point operations.
->>> + *
->>> + * Returns:
->>> + * The mode status
->>> + */
->>> +enum drm_mode_status drm_mode_validate_mode(const struct drm_display_mode *mode,
->>> +					    unsigned long long rounded_rate)
->>> +{
->>> +	enum drm_mode_status status;
->>> +	unsigned long long rate = mode->clock * 1000;
->>> +	unsigned long long lowest, highest;
->>> +
->>> +	lowest = rate * (1000 - 5);
->>> +	do_div(lowest, 1000);
->>> +	if (rounded_rate < lowest)
->>> +		return MODE_CLOCK_LOW;
->>> +
->>> +	highest = rate * (1000 + 5);
->>> +	do_div(highest, 1000);
->>> +	if (rounded_rate > highest)
->>> +		return MODE_CLOCK_HIGH;
->>> +
->>> +	return MODE_OK;
->>> +}
->>> +EXPORT_SYMBOL(drm_mode_validate_mode);
-Hi Sean, Maxime,
->> Thanks a lot for doing that!
->>
->> I wonder about the naming though (and prototype). I doesn't really
->> validates a mode, but rather makes sure that a given rate is a good
->> approximation of a pixel clock. So maybe something like
->> drm_mode_check_pixel_clock?
-> Naming is hard :) I will use drm_mode_check_pixel_clock() for V2.
->
-> Would it make sense to have the pixel clock requirement as a input
-> parameter? For HDMI it is 0.5% and in my case the LVDS panel 10%.
->
-> enum drm_mode_status drm_mode_validate_mode(const struct drm_display_mode *mode,
-> 					    unsigned long long rounded_rate, unsigned tolerance)
-> ?
+--idutayp4iw5aar47
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2] i2c: imx: support DMA defer probing
+MIME-Version: 1.0
 
+On 26.11.2024 16:25:35, carlos.song@nxp.com wrote:
+> From: Carlos Song <carlos.song@nxp.com>
+>=20
+> Return -EPROBE_DEFER when dma_request_slave_channel() because DMA driver
+> have not ready yet.
+>=20
+> Move i2c_imx_dma_request() before registering I2C adapter to avoid
+> infinite loop of .probe() calls to the same driver, see "e8c220fac415
+> Revert "i2c: imx: improve the error handling in i2c_imx_dma_request()""
+> and "Documentation/driver-api/driver-model/driver.rst".
+>=20
+> Use CPU mode to avoid stuck registering i2c adapter when DMA resources
+> are unavailable.
+>=20
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
+> ---
+> Change for V2:
+> - According to Frank's comments, wrap at 75 char and Simplify fix code
+>   at i2c_imx_dma_request().
+> - Use strict patch check, fix alignment warning at i2c_imx_dma_request()
+> ---
+>  drivers/i2c/busses/i2c-imx.c | 21 +++++++++++++--------
+>  1 file changed, 13 insertions(+), 8 deletions(-)
+>=20
+> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+> index 5ed4cb61e262..4e5633166a1e 100644
+> --- a/drivers/i2c/busses/i2c-imx.c
+> +++ b/drivers/i2c/busses/i2c-imx.c
+> @@ -397,17 +397,16 @@ static void i2c_imx_reset_regs(struct imx_i2c_struc=
+t *i2c_imx)
+>  }
+> =20
+>  /* Functions for DMA support */
+> -static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
+> -						dma_addr_t phy_addr)
+> +static int i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx, dma_addr_=
+t phy_addr)
+>  {
+>  	struct imx_i2c_dma *dma;
+>  	struct dma_slave_config dma_sconfig;
+> -	struct device *dev =3D &i2c_imx->adapter.dev;
+> +	struct device *dev =3D i2c_imx->adapter.dev.parent;
+>  	int ret;
+> =20
+>  	dma =3D devm_kzalloc(dev, sizeof(*dma), GFP_KERNEL);
+>  	if (!dma)
+> -		return;
+> +		return -ENOMEM;
+> =20
+>  	dma->chan_tx =3D dma_request_chan(dev, "tx");
+>  	if (IS_ERR(dma->chan_tx)) {
+> @@ -452,7 +451,7 @@ static void i2c_imx_dma_request(struct imx_i2c_struct=
+ *i2c_imx,
+>  	dev_info(dev, "using %s (tx) and %s (rx) for DMA transfers\n",
+>  		dma_chan_name(dma->chan_tx), dma_chan_name(dma->chan_rx));
+> =20
+> -	return;
+> +	return 0;
+> =20
+>  fail_rx:
+>  	dma_release_channel(dma->chan_rx);
+> @@ -460,6 +459,8 @@ static void i2c_imx_dma_request(struct imx_i2c_struct=
+ *i2c_imx,
+>  	dma_release_channel(dma->chan_tx);
+>  fail_al:
+>  	devm_kfree(dev, dma);
+> +
+> +	return ret;
+>  }
+> =20
+>  static void i2c_imx_dma_callback(void *arg)
+> @@ -1803,6 +1804,13 @@ static int i2c_imx_probe(struct platform_device *p=
+dev)
+>  	if (ret =3D=3D -EPROBE_DEFER)
+>  		goto clk_notifier_unregister;
+> =20
+> +	/* Init DMA config if supported */
+> +	ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
+> +	if (ret =3D=3D -EPROBE_DEFER) {
+> +		dev_err(&pdev->dev, "DMA not ready, go defer probe!\n");
+> +		goto clk_notifier_unregister;
+> +	}
 
-IMO adding the tolerance as input parameter is a good idea.  This would useful
-other than for HDMI pixel clock validation (and LVDS in your case).
+Don't spam the logs if the driver defers probing, it's not a error. And
+it looks strange to ignore all other errors here. Either add a comment
+here, something like "continue without DMA", or let the function return
+0 in case the driver should continue and propagate the error if the
+caller should take care of it.
 
-Best regards,
-Raphaël
+Marc
 
->
-> And maybe a drm_mode_validate_mode_hdmi() with the default tolerance of
-> .5%?
->> We probably need some kunit tests here too.
-> Good idea, will be my first :)
->
-> /Sean
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--idutayp4iw5aar47
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdFjQoACgkQKDiiPnot
+vG9yIgf+KeMn1/k836gXtD2Zg1FuuWGbO2RIaxvsdEJjgPTk0/uKBRn6hl6dcD6E
+WLeR88F/j/GCTj5kOuFWCDaUlTyIsnWvSHpy/Rj9BebzsAL6dbiUWQ7a8CGvvA6L
+PLtCoNC5JcooBTmqGXIRjRdBbpFnNo+BHPmwoeseFIbsTitjuESVjvsG6m8gDoAn
+w1zieedbBsvAhpiukgxVFav5PDe2wdrXtTBdwNYvynBhnbVNjxxrxhz3k5eaaBWq
+BSutaHC/ObVAMb8UqORr8TqQqlwZBuiPSxghHXdRl/7IMFhs6F3QdKIjlMZQPsoI
+YJcLA6tWs00i/VanuDHWa8WA2RMyWg==
+=Wvyt
+-----END PGP SIGNATURE-----
+
+--idutayp4iw5aar47--
 
