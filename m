@@ -4,77 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 405E6D5A6E7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 07:37:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 457B0D5A6EB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 07:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R8NfXxb4+/NJAJ65Ze1umnCGTdbcdo4c6k5GC848Gkg=; b=CIeQB/DFOiu81dIDx+XHGVp4UE
-	jgM5akjcnw7fAOokzVF0kdpITuGsxJ3EwRQr1VwL2OmVtasPieQ5drhtt73S6e2sRssHtbAlZoNrT
-	kff1azIYx+/dVt2dneKVC3YhaKAIMyaKGRtl6IVLsTFNYSkH0Q8gUtYKQw8swOKbTKzXrbpmN7l9U
-	01+ewS+HC3EKWagGHaW/gkMKVb1jOhDDjXiPM6QYuDsKqn1kiGhrBV7DosjK2WiRFTgIm/8lOu5So
-	Gemlo2IFBQs0ReM/jNoLmoA2soMNYaXAhTOATvteVax2Hlvc9HUD4tbFshAsB+E2t/MsBoVq1QfsR
-	AprvER0Q==;
+	bh=NH2QXtrlg3soMHEH64f1kzx9exe0HexikLoBaolmwxQ=; b=a3XlffkE5+aLF/5XghJ2jJuH83
+	zCX84FQLzBJ+06a8tZmGsFdCVmIp0E6SRTOAEcYGc2lD4AWGNlp59EkONvtnwM7eYke08R3NHZYGV
+	P17gDHOcDY9TIhkj6oDbn4oYbz3JlKSWV7yJQWjk3NKB9qOhGdANL7XjlDQfnOAox/eZG2Zpn5K7e
+	f37cNaYq+NJPNIdt9oHWP/iF39KrCs2WK2oR9UxerS5bFPmMxFwPsY/jwSbvI8FmJpyLGAGpAHF6D
+	dw8WQhndnPEDRFhWLZ+AejWqYq1LTl89KrBLoX7SZNNlABtUZ8n97jFhmMeuDzeBRW8CMpDc+dUKo
+	d0Vfmcmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFq8K-00000009r96-3zNY;
-	Tue, 26 Nov 2024 07:37:16 +0000
-Received: from www530.your-server.de ([188.40.30.78])
+	id 1tFq9g-00000009rRx-2glJ;
+	Tue, 26 Nov 2024 07:38:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFq7M-00000009qx9-2BZM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 07:36:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=geanix.com;
-	s=default2211; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID; bh=R8NfXxb4+/NJAJ65Ze1umnCGTdbcdo4c6k5GC848Gkg=; b=dIZYjO
-	vdy5KsYHNKWZSDRzJgTsSDHimEwTwgJjXzVJDkY68bwVV+NsHlQYh0vzsU7uI3gh8d+tGEx6cXzLd
-	Zjlx4VB63hLPoWA9Cw+tBw2JZgJBI7XPx3ZAD3inl8+qSS7oVlirf/hM58vg7U9GrsPHyzXj5JV+V
-	ht0X1SXl32OEUCTMVQuxhdXzrHBk3crlaX93EAtCqIqcW3hDtT/ueG1JYp7ziIEW4EbBoheIInrnJ
-	aoY/dmYE1KD78F6yJkN5zkcpK8Ud/Yu5sDWQWeTzr9cq0VLNMZ3B/+G2fWQw6jINr3LLH93QI4iIL
-	/EK62LIIyf+9Lv0fjyKWBKtfBLCA==;
-Received: from sslproxy04.your-server.de ([78.46.152.42])
-	by www530.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <sean@geanix.com>)
-	id 1tFq78-00092F-UK; Tue, 26 Nov 2024 08:36:02 +0100
-Received: from [185.17.218.86] (helo=Seans-MacBook-Pro.local)
-	by sslproxy04.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <sean@geanix.com>)
-	id 1tFq77-000LDH-2a;
-	Tue, 26 Nov 2024 08:36:01 +0100
-Date: Tue, 26 Nov 2024 08:36:00 +0100
-From: Sean Nyekjaer <sean@geanix.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Yannick Fertre <yannick.fertre@foss.st.com>, Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
-	Philippe Cornu <philippe.cornu@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
- helper function
-Message-ID: <bfuj6w6hsbfpdw24th6dl3ugvj45op6jb45gx5ab5pulud7hiz@o2zbn45z3lt4>
-References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
- <20241125-dsi-relax-v2-1-9113419f4a40@geanix.com>
- <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
+	id 1tFq8h-00000009rEw-2ddB;
+	Tue, 26 Nov 2024 07:37:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id ACEC45C5CAF;
+	Tue, 26 Nov 2024 07:36:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21035C4CECF;
+	Tue, 26 Nov 2024 07:37:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732606658;
+	bh=r++3Qo7JVxc4zP3NbHwY47VSgGg58VDRmi+G71l8cAU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=b+OsL5e2jt0v1wI37WnVDynehv54EZ+19kfRw7zwBXYJs7jGd6/lCUH2E+KuGGMn+
+	 CRs9s1DT7vM9mrsbFkqfXjzE2zcv+PRPT8PRaqhbf6udC5ErysrrMYq+rfqOmVFczx
+	 C3ORS0aQWiCjlScWQ6yzEdarj2RI5x4cTMdL7eXJ/sWxK7ikVlONunFWyetZo9XkMr
+	 O4hUSrMjH4Cj9wpdZSEMzUQD81ROfLBEsbY1Xc24nkuGU8cyN1I+TYs5789waEszgR
+	 mzyEpyVmm5/0WDxdSKa7kKRMCA0HSiCWbjMcPUiiAbULv14b5JOFCh70F1NzLGOtxr
+	 KDCInoFuHzHMw==
+Date: Tue, 26 Nov 2024 08:37:35 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Mathias Nyman <mathias.nyman@intel.com>, 
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: usb: mtk-xhci: add support mt8196
+Message-ID: <uy22btn4qv3gc3glizyuzdlxawgvvjgk765jjjk6mj4ftadbyv@hh62ph3ug5gg>
+References: <20241126025507.29605-1-chunfeng.yun@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
-X-Authenticated-Sender: sean@geanix.com
-X-Virus-Scanned: Clear (ClamAV 0.103.10/27468/Mon Nov 25 10:36:56 2024)
+In-Reply-To: <20241126025507.29605-1-chunfeng.yun@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_233616_844384_4AFCDFCF 
-X-CRM114-Status: GOOD (  26.16  )
+X-CRM114-CacheID: sfid-20241125_233739_706490_E5B5FD54 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,86 +74,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
-
-On Mon, Nov 25, 2024 at 05:00:56PM +0100, Maxime Ripard wrote:
-> Hi Sean,
+On Tue, Nov 26, 2024 at 10:55:06AM +0800, Chunfeng Yun wrote:
+> There are 2 USB controllers on mt8196, each controller's wakeup control is
+> different, add some specific versions for them, and add compatilbe for it.
 > 
-> On Mon, Nov 25, 2024 at 02:49:26PM +0100, Sean Nyekjaer wrote:
-> > Check if the required pixel clock is in within .5% range of the
-> > desired pixel clock.
-> > This will match the requirement for HDMI where a .5% tolerance is allowed.
-> > 
-> > Signed-off-by: Sean Nyekjaer <sean@geanix.com>
-> > ---
-> >  drivers/gpu/drm/drm_modes.c | 34 ++++++++++++++++++++++++++++++++++
-> >  include/drm/drm_modes.h     |  2 ++
-> >  2 files changed, 36 insertions(+)
-> > 
-> > diff --git a/drivers/gpu/drm/drm_modes.c b/drivers/gpu/drm/drm_modes.c
-> > index 6ba167a3346134072d100af0adbbe9b49e970769..4068b904759bf80502efde6e4d977b297f5d5359 100644
-> > --- a/drivers/gpu/drm/drm_modes.c
-> > +++ b/drivers/gpu/drm/drm_modes.c
-> > @@ -1623,6 +1623,40 @@ bool drm_mode_equal_no_clocks_no_stereo(const struct drm_display_mode *mode1,
-> >  }
-> >  EXPORT_SYMBOL(drm_mode_equal_no_clocks_no_stereo);
-> >  
-> > +/**
-> > + * drm_mode_validate_mode
-> > + * @mode: mode to check
-> > + * @rounded_rate: output pixel clock
-> > + *
-> > + * VESA DMT defines a tolerance of 0.5% on the pixel clock, while the
-> > + * CVT spec reuses that tolerance in its examples, so it looks to be a
-> > + * good default tolerance for the EDID-based modes. Define it to 5 per
-> > + * mille to avoid floating point operations.
-> > + *
-> > + * Returns:
-> > + * The mode status
-> > + */
-> > +enum drm_mode_status drm_mode_validate_mode(const struct drm_display_mode *mode,
-> > +					    unsigned long long rounded_rate)
-> > +{
-> > +	enum drm_mode_status status;
-> > +	unsigned long long rate = mode->clock * 1000;
-> > +	unsigned long long lowest, highest;
-> > +
-> > +	lowest = rate * (1000 - 5);
-> > +	do_div(lowest, 1000);
-> > +	if (rounded_rate < lowest)
-> > +		return MODE_CLOCK_LOW;
-> > +
-> > +	highest = rate * (1000 + 5);
-> > +	do_div(highest, 1000);
-> > +	if (rounded_rate > highest)
-> > +		return MODE_CLOCK_HIGH;
-> > +
-> > +	return MODE_OK;
-> > +}
-> > +EXPORT_SYMBOL(drm_mode_validate_mode);
-> 
-> Thanks a lot for doing that!
-> 
-> I wonder about the naming though (and prototype). I doesn't really
-> validates a mode, but rather makes sure that a given rate is a good
-> approximation of a pixel clock. So maybe something like
-> drm_mode_check_pixel_clock?
+> Signed-off-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
+> ---
+>  Documentation/devicetree/bindings/usb/mediatek,mtk-xhci.yaml | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
 
-Naming is hard :) I will use drm_mode_check_pixel_clock() for V2.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Would it make sense to have the pixel clock requirement as a input
-parameter? For HDMI it is 0.5% and in my case the LVDS panel 10%.
+Best regards,
+Krzysztof
 
-enum drm_mode_status drm_mode_validate_mode(const struct drm_display_mode *mode,
-					    unsigned long long rounded_rate, unsigned tolerance)
-?
-
-And maybe a drm_mode_validate_mode_hdmi() with the default tolerance of
-.5%?
-> 
-> We probably need some kunit tests here too.
-
-Good idea, will be my first :)
-
-/Sean
 
