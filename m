@@ -4,82 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A44CD65521
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 16:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A77D65520
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 16:42:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jtfXj6f94jfKDhcjRYiwvTmOtzBjLccGGr990w/xJjg=; b=404ejpre9doHBImmG2dRuu+ZvZ
-	18e7yIqanZkqgK6JytIRONAkmh/bAm9H8dq1LTALzN4AelAIq7WD2CdoIbh9xXFvTCubH2z84K/KD
-	WFMPsaVgjKaQpxzboY0MEn6N42P7VBYdYQ+gFBq6/u5LpJEOzSV8z2o7MdrTiyHy9QmI8QjLmv8SI
-	QJkWad5H6EDBFzJUmgEWiTTfG0cJnlanID5fFC7BFRv6686tXmkRslZJM6GiuqGNTUZTZ+Ec6cEXF
-	v0bGxCkPq8Bk7a33UxmSuo8VsmKZNzTiqnUn3AtMPAOhfGG1PXL2D8AxAAapOjC7cHQOxolkZ8oOO
-	nQsiOgcg==;
+	bh=fXRwshdfsWBmIPJZURoF4Sawoxqt486+lu94cMiE69I=; b=ZxvIzfHQjn2lSbKAAfs4nLutPa
+	IjBcDWsVbX1r4ucfmuwx5cYV/or0pdNXVdl6ThRkBmXWuT7hgVb6MTAsn81J4ztnhLyL246fEo3Sz
+	DA4qwJuYz29fd89mTn0MxBdSB37KpPxlSDTej+TJcIS93aLs0H/1hYBEX+Gzc6A4SzpcjyqPsqpn3
+	KBde1Wt67Li5LjR/FY4dyCVXDyNWJag79PpJVEvilhvhxpHVXpZXm7jhOo544zbsah2xLfnxtDenQ
+	VjuCd6B0AAC217gQQu84Mi4tSTMJ1IZf5vQk4IjTeK+wrlBtcFw7jJKrm20DJafp2FL9VJgzARk24
+	wRo0TLWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFycj-0000000BCE3-10Xt;
-	Tue, 26 Nov 2024 16:41:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tFydf-0000000BCS7-3xeM;
+	Tue, 26 Nov 2024 16:42:11 +0000
+Received: from mail-dbaeur03on20617.outbound.protection.outlook.com ([2a01:111:f403:260d::617] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFyWC-0000000BAlg-1NDz
+	id 1tFyYT-0000000BBNT-3T7x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 16:34:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 43AC95C5C03;
-	Tue, 26 Nov 2024 16:33:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0D8C4C4AF0E;
-	Tue, 26 Nov 2024 16:34:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732638866;
-	bh=aLADfVdJwu7pVH4jyO4JLYrYN2QXLRTdfULyaE/hhro=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=iIJ0o9grhzf3ogqzw3x/kMs2kKQMu/cLVamRsp+423CuIKVEJiSseroysPhapkDuz
-	 nHXnmDX6jsjWOrNm5JIwvT2t0Vq9HxKNM57gtaGKuFftXYv2YCC0h+C45thH5wWGtB
-	 dfkwpKDGqYkCpdQreNZtZryccfgfRoXczYYs87iegFKzJhKOtmF/IhBUZLomqbZ0cs
-	 B+eYaAIx0iXA67UuwCkB82gbx6Lx2VftDSmaKsfnRpsjU+bfMkiLuCGC2x6CfMen8J
-	 QsIuD4LAUsbtC43WW3syG/dksCkIaGE7UccJ43oWDX6YoYuhsCcH2SA9XyMB1jJ+15
-	 4rXhMmappzHBA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EF3D2E6ADF9;
-	Tue, 26 Nov 2024 16:34:25 +0000 (UTC)
-From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Tue, 26 Nov 2024 17:34:23 +0100
-Subject: [PATCH v2 4/5] arm64: dts: apple: Add touchbar screen nodes
+	Tue, 26 Nov 2024 16:36:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Fz3qRWfuN37/2Cgu1MobvS0AKHqrJBuvmwjN/r9gnoi5QKJHn9YAmbeO6LDRFAD05lFtP7MEzO1bCV+neOwR9Yp1Pa4NZvjuzP4uuksofrwm+KhzMuzJINM6TKgwdLQGKeA8uq4AzLBzuNKoRqtRTTFYZQV4QF58yI7zKkq4DEEDIFyf8VfwnJETHBJLEohnMijQP2M3nfbBAljKjsEPKJwEmqxfe/9xJcM0eRqIZm7FuvcDmHrclFNk5bHubaIGhAM6UaJPZPoMJXbb4cA7K8PtjlELGdAtEc/ig2DnpMmdRckrkA3YcmhcfUFwjF9Vo0pE157kazglNKyqLKAbVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fXRwshdfsWBmIPJZURoF4Sawoxqt486+lu94cMiE69I=;
+ b=aQW03eEudSnQPp8YzPeb1JGgucz9Js/h85Q9npzO+LMyYqNnbkHpN+uHhWrkQct0+Go4Ho24JQLTzxKdjLSAOoOuJGQzF2mxwqq62ZVtXFwybExGfPGFmZBLPbLzNi4TKZS+ujSMV/IN3tuulr4AmIC+EfKhFTa57UuAQ9wGvYKeRYRRUhnFgBLD14OO2PAi1H+E4J+kIn4V6t3kD2fJKnEqPTh83FOr3ekTn71ldhpzV34TuG2MW/4tWCLgWIyxRdQ67ZIEQr/SSrkoFcD5wjXOxuND1CUs31xHiU2PGkiILFdrBMqWplcsHqSafuoJRqrdHDF9vXtCXAHhjhG9/g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fXRwshdfsWBmIPJZURoF4Sawoxqt486+lu94cMiE69I=;
+ b=OjN/EUc2XA9PYw6uFjtR1RNvUCHlMTjhX61/HTTgvQp4im9EAtfEqpDGMH+CVwDWGpBxWd9BlRJz/QctB+9ns0FOwHSH1W6au2IC8nWxYVfF1jocECVliMYIgPIe521tn7IMgGiSYpBb8Iw6oPJdjYV+abqjbI7zSWmV+XwceuvFY0vGPnpkN9r4JwDRHSzjF21xulJg8Yrdk58uLXtKv6iy7lgh2B0GghVscdgdeDzAIglnDzYYGiv3aUQgGF4HwbXt1Mr3UmvM1z8sARw1iXyPXkbJO37A9E51CrnmalsAbl14HFxjTlElo5xn9Hb1rGjTOFUMeKq6JGvrQN4ixw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB9PR04MB8251.eurprd04.prod.outlook.com (2603:10a6:10:24f::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.13; Tue, 26 Nov
+ 2024 16:36:43 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8182.019; Tue, 26 Nov 2024
+ 16:36:43 +0000
+Date: Tue, 26 Nov 2024 11:36:32 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Daniel Baluta <daniel.baluta@gmail.com>
+Cc: Daniel Baluta <daniel.baluta@nxp.com>, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, festevam@gmail.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	aisheng.dong@nxp.com, laurentiu.mihalcea@nxp.com,
+	shengjiu.wang@nxp.com, iuliana.prodan@nxp.com,
+	a.fatoum@pengutronix.de
+Subject: Re: [PATCH v2 4/6] dt-bindings: clock: imx8mp: Add syscon compatible
+Message-ID: <Z0X5EOBXMFTGZVQN@lizhi-Precision-Tower-5810>
+References: <20241125152427.136883-1-daniel.baluta@nxp.com>
+ <20241125152427.136883-5-daniel.baluta@nxp.com>
+ <Z0SvF2tQR14jrHet@lizhi-Precision-Tower-5810>
+ <CAEnQRZAVmza+A5QC1Xq4dsw1WBtdp0EoM505+UzrCKe15+vqhA@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAEnQRZAVmza+A5QC1Xq4dsw1WBtdp0EoM505+UzrCKe15+vqhA@mail.gmail.com>
+X-ClientProxiedBy: BYAPR11CA0037.namprd11.prod.outlook.com
+ (2603:10b6:a03:80::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241126-adpdrm-v2-4-c90485336c09@gmail.com>
-References: <20241126-adpdrm-v2-0-c90485336c09@gmail.com>
-In-Reply-To: <20241126-adpdrm-v2-0-c90485336c09@gmail.com>
-To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Sasha Finkelstein <fnkl.kernel@gmail.com>, Janne Grunau <j@jannau.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732638864; l=6676;
- i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=n9b2YUQwSr1QuOHNKxm3h8or5r6XP2GVaG7Of22NML0=;
- b=fArXHUTD+PqmEhJHsjSmWR1xxq1aKs06gQ7d1kDvK7olUQl1Rr7+Dw1LMQRpCzfoYeoxkesbM
- DTOlbEMtHZBAlmHo0JnDPBRW71XDDnfxwTKNdeFX2EhYk4yFHPF0BX3
-X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
- auth_id=283
-X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB8251:EE_
+X-MS-Office365-Filtering-Correlation-Id: a5c6965f-758c-47a9-7cd2-08dd0e3882d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OXZSWGRuUldrb2hoYnh0OTBmSi9RVHBMV0FiRk9kZzNNN1d1WXlhL3N2Vi90?=
+ =?utf-8?B?ODVJdnkvb0tRWC9SVWVhb3VnaDZtYzVBWWo1K04rYTgvbmdTSU8waUlSajI0?=
+ =?utf-8?B?bmJDNW02Qlc2QldhYU1ENDJXUUg1WTJhQUhVSDl1UG85VnE4d3M5bzVqaWM0?=
+ =?utf-8?B?cmF0Q1JQQ3kzMjZMdzVrMHh4b3F3RUYvV0pjQXl4V3VFTkVQd2FNdFE3eFcz?=
+ =?utf-8?B?OXJaSWNIMUZoNVJSWVBKWjRJU1UvcDlabW1mcWNZYWppamxKT2Y2RHQwLzBo?=
+ =?utf-8?B?R2xTRDdkTEhkQmx3ZzgwTkh2R1R0dStML0RQNGp6RDlLamJVV2NKVkt1eE5r?=
+ =?utf-8?B?Y1JsQWkwRmdzTWFlUk1nYXBGQml4VUVPcUt2SkcrY3FlbGppWUt6VW43R2NF?=
+ =?utf-8?B?MFUveEt4bmRUMUlXU1dIWVRHcnVnMDZRTnYySlc5c2tUQUdBTGxqTjQyZnFK?=
+ =?utf-8?B?bG14Ky9PMGFIMzkxUXRNcHIyMHg3eDVHL1hnaDlCWmUxZ01QOWNHODdyWmFI?=
+ =?utf-8?B?R1ZEK1lZbTFjWWJFT05wcWYwTjU2dWRQWGFCc1JCS3Z6eE1Gd0FZekhZajhJ?=
+ =?utf-8?B?OWtEUGJJcnRPNnQ5a2t3a081UmpMQ2xYZUtob1BQT3k0Znh3cEtiMlhNOFJF?=
+ =?utf-8?B?UVhMd3lpNmYxV01IZWtva0llQUJtWVBSSlR4SlJrd1BHSDFYM2haSGVYK0lB?=
+ =?utf-8?B?WnBwYUZnQ3FzZkQ1dm40TmlScnJlVmtyT2tBNTZ1RHBZUk16ZktlK1BtbUhZ?=
+ =?utf-8?B?Z1BzZ1FMbHRvTG40ZXpqODhSbVVrL2dvV1NvK3RXa1dXdk9qMDFNbDB4S05s?=
+ =?utf-8?B?THNISjZodFpOMWN1b2lQWm9sYjI1TW1JMGVGUldzbkU2QVVBUkNuSS8xbXc4?=
+ =?utf-8?B?aS9CRGgrZDR5N2pIaldieStaM3daZGduS2tScm1vVUxuZEtKb3Vka0xlQURB?=
+ =?utf-8?B?clRybWZKQnppSTlqSUFFc2VhSmNxSHpyYStGdHMraUorNDVLa0hWM05hNjBX?=
+ =?utf-8?B?MlR6QnlZVkw2YktJMW0rOFVLWm1GNmpJZlIxVUlGMEZHaEZuSjltdGRsd1Jl?=
+ =?utf-8?B?Tk9UOWkxVExhUjRUZVVsYi8vNTdzOStFSzlyM25EdlB1bTNPMi9lK05vTjc2?=
+ =?utf-8?B?SkJ2bi90cmxuWnovYW1vdUZJa1pJZkVFLzhPdkZpUnRDSGRKVW5tR0ptQXpW?=
+ =?utf-8?B?dFgreGEvTUdBMUVnV3hqcUl2QzlFS2VUN3lIdWtFTThXSis1bGlBWG5CaSsw?=
+ =?utf-8?B?dk9SWTFta2N0eU56M0dWN2Y1d2pKT3RtMjZDaG0yN3hzSTdsRFRVdW52dGIr?=
+ =?utf-8?B?ZUtlQWg0T0UzbXc1alYrLzM1bEJaLzIzbTA2bVNYdUt5dWdRL09vU0piUjJS?=
+ =?utf-8?B?TlR1bXRHV2J4WS9iNW1KcjFaaGpoa1B4WE45bXJPdXFFcHpSR1hvQ20rZlJK?=
+ =?utf-8?B?andmRjlzSmh5dHRBK3pmOGgxeGd5dnNVS1ZrN1F3dFQrMitVZFlVbzBZN0kv?=
+ =?utf-8?B?Wm9CTGVxYXFVNHpVZFZ5UFcvWXBIVGd6VnhTWjVDSVQxZXU1ck11d0RxMkZt?=
+ =?utf-8?B?R0VuQjU0T0ZlcHhNQ0N2UjdYWVVUMGhVZXlaQUE2S2V0dXBDYks0T2E0c25x?=
+ =?utf-8?B?eU9jN1RaWGY5MkJ4SklHVEVzZ2hMQnFQWk5JZE43eHpwU0VudVFrdGtDQUVL?=
+ =?utf-8?B?aXZ2N3FqdVRaL2FuVFJFaHY4dVNURHJjaEZWcVVxSWV4U1ZVTDl3TE9sL3JY?=
+ =?utf-8?B?UWsxa1dGOTlrVDVJU3lmRG5DU2xZa3Y3cWpmSGZWbHlORi93RWIzckpPVTZ1?=
+ =?utf-8?Q?ePdEkbDhCOgsuvf48Xa6WrRO/jewg2UjpAWho=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SWYrWmJSYmRFVlBBOGJ2YTdrSE84bU5wUUluMlNIdVpDbWJuMmsxQUo1YzlJ?=
+ =?utf-8?B?aTJJY2dMMTlGdGRtTXA4R0Z3ZnRSZW9yN0o0bCtObjNTSGh1SDFTK01pZWo4?=
+ =?utf-8?B?OGVXL2ZmeUVBa3c2Yk1wQjBWZ29MVzhvNnRucEFwVzBwWlNUTXErcVVuMGFj?=
+ =?utf-8?B?YUI5SUZSTHduWlkrMWk3OHpqcmIzT2F3elM5ZEFFZFpRTzE0TjBFT3VVb0kw?=
+ =?utf-8?B?elpsaTVaOS9BV3lMQ3FWQnA1MzBDVG01WHA5Mm1QdlBua2VKZmtJK1hOTnA4?=
+ =?utf-8?B?WmpnZVBqTHNoRUY5Z3VHd3p1ajlnQWY4bVNGNXpXVWhUVDlvQmdpTVFrZE5p?=
+ =?utf-8?B?cE53SXZBeUpRMW5XcE93Uzd3VGtYUThuR29wd0xsY2xxb2YvTzJRaVorNkc2?=
+ =?utf-8?B?aTkzK0hLSWVBNDlUTHVVVXVxak1LMGJFNVU2bWVVRklFa2kyaEsyT0dVOWJz?=
+ =?utf-8?B?QkZDQmF0ckFzczZ4a1U0cUhxNjk1T21oVlBMeFpEQlk5bExjaU1vS0U2SEpi?=
+ =?utf-8?B?dlBxYUhvRTFpZDZhMWM3NlNVdzUvTUVNeXYwMzhiQ216UE5zRDJvaFNDNDRX?=
+ =?utf-8?B?NzR5Q2dMeTBVY0ZxMDd3MVZnTElHd1NubnRxcE5ORmFJM2VvNEdoZ2JhekYx?=
+ =?utf-8?B?MXpDbDRLSERpa0krMnF5eTZ1c1M3bVVZcDhUZVIyb3N5eEZOeXRMZC94aEZ1?=
+ =?utf-8?B?LzZVNzg2bVluL2lrVlIwd1lFd3ZoV1J5alJTK3VaN3lTcldETlhMeVBBcWVz?=
+ =?utf-8?B?WU42RWRGOGVGZVVFVlVyOEVxalJnek5la2FzbzEyOHJFaWU4MHVXbmNzRkI1?=
+ =?utf-8?B?NWJMNnRtYkNQR2hCbTZVTU1XSUlGOWIySnJieFl2bmpwSlloUzBCK3A4VzZq?=
+ =?utf-8?B?V05sdnRHUHdvRjFGWjJ1a244RmgxcU9SRFAwRjNGZ3RIeVl3VjlMOVhUWEpU?=
+ =?utf-8?B?NzVIWmxreFEyMjBoVTc0UVhMSEsvM0ozMFhNRFFpLytLcGlrektwRXF4eUwy?=
+ =?utf-8?B?VXRxMnBtbHZKUVNPYlF6Q1pRRDl2dzRHS1FvdWpGNjNVQXBQWi9kN0dEeHhI?=
+ =?utf-8?B?Q0VzcjE4ODJINHk3em50emowdk02TTlNUUUyRmNEbXNOS014VFpVRWIzNkUr?=
+ =?utf-8?B?Vm5ZRm9mRFZZSndWTWVrM09LSFJGclhOdnkzbU5ubDJPS1c0YzJVYWVNb1pK?=
+ =?utf-8?B?N2RRV0daRG42dDlsVTYxYjFuVm4wVnJMQStNSnJmdkpaT3NXS0l6TVJ4TVFq?=
+ =?utf-8?B?MVk5TlVweFJpcXQwU3lTSmtEV2tENWtLeW9xOGpsQTRkSG5Ca25qY2hIbWxN?=
+ =?utf-8?B?NEZiYzhFWXB1QnBNemFyaThtUGFXblZlemZKWWFLakJ1RmVjRFBvKzZuTEFP?=
+ =?utf-8?B?Z1V0Kzd3alZtb2tmWEMyMVNYT2hXdHZjZ3FIMEtzbi9VS3VnQ2NPMmRHYTNI?=
+ =?utf-8?B?aStHSUp3STBxclg1NHNFN3NaUkhxMVQrZm1jeVVxZW5yYnRBZi94dUdMK2E5?=
+ =?utf-8?B?RzdGYVBLd1RPMit5RmtDQ0lsa0JPV2ZwWFJxRFJ5d1RFZElkQjBBOFc2UUZG?=
+ =?utf-8?B?eG52bHhIV2xpWHI0M0YwTkUrRTJBaVpMaVAwOW5vVXNsdXhJcFN2OEhXdHJ0?=
+ =?utf-8?B?d0dMaHlmSUlINFV1YkR5RjhUM0F3TzF6ZzJpUytXMWY3bFllRVprQ2ZJVmN0?=
+ =?utf-8?B?Uk9UYjFyT1JQVjRNMnIrS2M1d1ZJVTRHRDhoWVRUeDN0RVowMkVPa3lvV1VD?=
+ =?utf-8?B?TS91djRaN2tsSk1NYnNBaDNuWndEZDdzWkVPWmgyL1lkR0ZOR2pTdHU4NlVB?=
+ =?utf-8?B?ajErNmtqd1U3dUFwOExidXR3TXNXTHBsUE5sK2tzcjZ2Q2ZjNlJsb3hoTnMv?=
+ =?utf-8?B?K2ZUeTRybUhmQ0xCMXpqS1BrdXVZd2huSm9GeGdIVVVJRlhTb1NNYUVvUS9R?=
+ =?utf-8?B?T3NSRGdwUjZQREtJOVEzM3p6VjczSTg1NTRkdUZYV1Z3YWYvcVNzeFlLemdn?=
+ =?utf-8?B?Q3RHend4Y1NhcXAzR3RpRVBwNE9wNHNlQmhiYmdyWmhEcE5YRjBoaDB4Y1pi?=
+ =?utf-8?B?VjZqRElabndWdUZuNy9CUU5LRGo2elhwL2tOOHgyWmhZV2h0Zkt5UkRZZDBU?=
+ =?utf-8?Q?4Au1XO2jnn0RpK0DFS9AZjX0K?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a5c6965f-758c-47a9-7cd2-08dd0e3882d8
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2024 16:36:43.4157
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ib/QeEfHwsP6BZX/fSkH2bJ0Aw6w2RV23Fsf/azYkRbLwA+ENNeSl5UIKiWWZJpVthrA0IylzZcwkreWrHjIKQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8251
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_083428_485941_40236A63 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20241126_083649_862770_AC93E7E0 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,253 +177,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+On Tue, Nov 26, 2024 at 05:31:21PM +0200, Daniel Baluta wrote:
+> On Mon, Nov 25, 2024 at 7:08 PM Frank Li <Frank.li@nxp.com> wrote:
+> >
+> > On Mon, Nov 25, 2024 at 05:24:24PM +0200, Daniel Baluta wrote:
+> > > imx8mp audiomix contains a set of registers used to control
+> > > the DSP.
+> > >
+> > > The dsp will use this to acquire o reference to audiomix registers
+> > > and handle the registers to control the dsp.
+> >
+> > Look like this is NOT good method to direct operate these register. If it
+> > is reset, you should export it as reset interface. If it is clock, you
+> > should export it as clock interface.
+>
+>
+> Hi Frank,
+>
+> The code to handle this is already upstream and used for:
+>
+> Remoteproc
+>
+> https://elixir.bootlin.com/linux/v6.12/source/drivers/remoteproc/imx_dsp_rproc.c#L991
+>
+> and Sound Open Firmware
+>
+> https://elixir.bootlin.com/linux/v6.12/source/sound/soc/sof/imx/imx8m.c#L237
+>
+> I'm not sure if it worths the effort to refactor this for such a
+> simple operation.
 
-Adds device tree entries for the touchbar screen
+It is up to Rob's opinion.
 
-Co-developed-by: Janne Grunau <j@jannau.net>
-Signed-off-by: Janne Grunau <j@jannau.net>
-Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
----
- arch/arm64/boot/dts/apple/t8103-j293.dts | 31 ++++++++++++++++
- arch/arm64/boot/dts/apple/t8103.dtsi     | 61 +++++++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8112-j493.dts | 31 ++++++++++++++++
- arch/arm64/boot/dts/apple/t8112.dtsi     | 62 ++++++++++++++++++++++++++++++++
- 4 files changed, 185 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/apple/t8103-j293.dts b/arch/arm64/boot/dts/apple/t8103-j293.dts
-index 56b0c67bfcda321b60c621de092643017693ff91..3af8536da779b56bf856cf40befd74d4737baa8f 100644
---- a/arch/arm64/boot/dts/apple/t8103-j293.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j293.dts
-@@ -49,3 +49,34 @@ &i2c4 {
- &fpwm1 {
- 	status = "okay";
- };
-+
-+&display_dfr {
-+	status = "okay";
-+};
-+
-+&dfr_mipi_out {
-+	dfr_mipi_out_panel: endpoint@0 {
-+		reg = <0>;
-+		remote-endpoint = <&dfr_panel_in>;
-+	};
-+};
-+
-+&displaydfr_mipi {
-+	status = "okay";
-+
-+	dfr_panel: panel@0 {
-+		compatible = "apple,j293-summit", "apple,summit";
-+		reg = <0>;
-+		max-brightness = <255>;
-+
-+		port {
-+			dfr_panel_in: endpoint {
-+				remote-endpoint = <&dfr_mipi_out_panel>;
-+			};
-+		};
-+	};
-+};
-+
-+&displaydfr_dart {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
-index 9b0dad6b618444ac6b1c9735c50cccfc3965f947..9c27911b3867d1279c133c936b7413c9eafcad8a 100644
---- a/arch/arm64/boot/dts/apple/t8103.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8103.dtsi
-@@ -356,6 +356,67 @@ cpufreq_p: performance-controller@211e20000 {
- 			#performance-domain-cells = <0>;
- 		};
- 
-+		display_dfr: display-pipe@228200000 {
-+			compatible = "apple,t8103-display-pipe", "apple,h7-display-pipe";
-+			reg-names = "be", "fe";
-+			reg = <0x2 0x28200000 0x0 0xc000>,
-+				<0x2 0x28400000 0x0 0x4000>;
-+			power-domains = <&ps_dispdfr_fe>, <&ps_dispdfr_be>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 502 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ 506 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "be", "fe";
-+			iommus = <&displaydfr_dart 0>;
-+			status = "disabled";
-+
-+			port {
-+				dfr_adp_out_mipi: endpoint {
-+					remote-endpoint = <&dfr_mipi_in_adp>;
-+				};
-+			};
-+		};
-+
-+		displaydfr_dart: iommu@228304000 {
-+			compatible = "apple,t8103-dart";
-+			reg = <0x2 0x28304000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 504 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+			power-domains = <&ps_dispdfr_fe>;
-+			status = "disabled";
-+		};
-+
-+		displaydfr_mipi: dsi@228600000 {
-+			compatible = "apple,t8103-display-pipe-mipi", "apple,h7-display-pipe-mipi";
-+			reg-names = "mipi";
-+			reg = <0x2 0x28600000 0x0 0x100000>;
-+			power-domains = <&ps_mipi_dsi>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				dfr_mipi_in: port@0 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <0>;
-+
-+					dfr_mipi_in_adp: endpoint@0 {
-+						reg = <0>;
-+						remote-endpoint = <&dfr_adp_out_mipi>;
-+					};
-+				};
-+
-+				dfr_mipi_out: port@1 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <1>;
-+				};
-+			};
-+		};
-+
- 		sio_dart: iommu@235004000 {
- 			compatible = "apple,t8103-dart";
- 			reg = <0x2 0x35004000 0x0 0x4000>;
-diff --git a/arch/arm64/boot/dts/apple/t8112-j493.dts b/arch/arm64/boot/dts/apple/t8112-j493.dts
-index 0ad908349f55406783942735a2e9dad54cda00ec..372fe69a96f6b84f576221101a4127d68bb54691 100644
---- a/arch/arm64/boot/dts/apple/t8112-j493.dts
-+++ b/arch/arm64/boot/dts/apple/t8112-j493.dts
-@@ -35,6 +35,37 @@ led-0 {
- 	};
- };
- 
-+&display_dfr {
-+	status = "okay";
-+};
-+
-+&dfr_mipi_out {
-+	dfr_mipi_out_panel: endpoint@0 {
-+		reg = <0>;
-+		remote-endpoint = <&dfr_panel_in>;
-+	};
-+};
-+
-+&displaydfr_mipi {
-+	status = "okay";
-+
-+	dfr_panel: panel@0 {
-+		compatible = "apple,j493-summit", "apple,summit";
-+		reg = <0>;
-+		max-brightness = <255>;
-+
-+		port {
-+			dfr_panel_in: endpoint {
-+				remote-endpoint = <&dfr_mipi_out_panel>;
-+			};
-+		};
-+	};
-+};
-+
-+&displaydfr_dart {
-+	status = "okay";
-+};
-+
- /*
-  * Force the bus number assignments so that we can declare some of the
-  * on-board devices and properties that are populated by the bootloader
-diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-index 1666e6ab250bc0be9b8318e3c8fc903ccd3f3760..b8d2d22ab81adfb7642ea362c6a6af4c04a9bf9d 100644
---- a/arch/arm64/boot/dts/apple/t8112.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-@@ -379,6 +379,68 @@ cpufreq_p: cpufreq@211e20000 {
- 			#performance-domain-cells = <0>;
- 		};
- 
-+		display_dfr: display-pipe@228200000 {
-+			compatible = "apple,t8112-display-pipe", "apple,h7-display-pipe";
-+			reg-names = "be", "fe";
-+			reg = <0x2 0x28200000 0x0 0xc000>,
-+				<0x2 0x28400000 0x0 0x4000>;
-+			power-domains = <&ps_dispdfr_fe>, <&ps_dispdfr_be>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 614 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ 618 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "be", "fe";
-+			iommus = <&displaydfr_dart 0>;
-+			status = "disabled";
-+
-+			port {
-+				dfr_adp_out_mipi: endpoint {
-+					remote-endpoint = <&dfr_mipi_in_adp>;
-+				};
-+			};
-+		};
-+
-+		displaydfr_dart: iommu@228304000 {
-+			compatible = "apple,t8110-dart";
-+			reg = <0x2 0x28304000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 616 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+			power-domains = <&ps_dispdfr_fe>;
-+			status = "disabled";
-+		};
-+
-+		displaydfr_mipi: dsi@228600000 {
-+			compatible = "apple,t8112-display-pipe-mipi", "apple,h7-display-pipe-mipi";
-+			reg-names = "mipi";
-+			reg = <0x2 0x28600000 0x0 0x100000>;
-+			power-domains = <&ps_mipi_dsi>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				dfr_mipi_in: port@0 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <0>;
-+
-+					dfr_mipi_in_adp: endpoint@0 {
-+						reg = <0>;
-+						remote-endpoint = <&dfr_adp_out_mipi>;
-+					};
-+				};
-+
-+				dfr_mipi_out: port@1 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <1>;
-+				};
-+			};
-+		};
-+
- 		sio_dart: iommu@235004000 {
- 			compatible = "apple,t8110-dart";
- 			reg = <0x2 0x35004000 0x0 0x4000>;
-
--- 
-2.47.1
-
-
+Frank
 
