@@ -4,58 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2840AD3B988
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED39D3B989
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v4jvvkZ90+d6neI24dv6L5kYRfM8SVNb8gQBDPwg6w4=; b=p9Pm9D+eopO8vTjPn21uKJsKW9
-	EcQ8S4I4Ti6AFcFCakeVaxAMuZrQIhWaTUw0ErLCIk2jYvsbWUT0HA4z5IwvJNCnkWc+fSgVxkvDS
-	o+wpNYlQrVB63VZ8uLzUD8lW3BcUpC8FvBQNo0N7Gd54ujFRmHta9afShHDzci8b2rsPik5kYn2DN
-	k/51yHQdGPi5aFr8QLTpzVn9GkF14HKq62+/yiOkO7+sQmEjZj0W9ZbH98owkDDEs65UbIRtZoYph
-	lP714mRQdWCQHSq7uQ6Wzxz91yxiWKmAS7FXc0mKRYjdHgBm4hgoKxyVVBaXOW3WKEqkpuOa5ks2T
-	fD6d94vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=76wK8KCbB+czhI68ublhYFB8oe0JbfuEd2jdNJNDONE=; b=eEQmgYZKx1+WbzXONNgWM8D1Q2
+	+Zzshh2fxXI5zbillxO6MUhIxz2WeGftdF+3P2oxsW5IZsqiLRM+eiX6XTYwl+y2uDUAQRweaOtEk
+	RYF7aYfXUSrhxqpLKZ92Nwz+KMG+Gw3U62MOKMV2lxf/YpvvL7dFQfseMVn5g66V2kqijLywO6znA
+	gfqdexRbVch5VQYiMfvhopQRo1yZYEY0wFtKoNPpfXtaHP0sGtrCJYSCMRiflUOiJoin8RYvVu/4C
+	IF6MPQZCKSl04tsld7Bp6qaXf7XzglpGCSuqbxsJWArZh65+3XijweRrQxwdwhW/UCrSbraHh+78R
+	c6wU1I7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFuXD-0000000AYXf-2JJF;
-	Tue, 26 Nov 2024 12:19:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFuWF-0000000AYOb-2OXO
+	id 1tFuYA-0000000AYjL-0ZZ2;
+	Tue, 26 Nov 2024 12:20:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tFuWR-0000000AYQT-0SlZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 12:18:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A889F153B;
-	Tue, 26 Nov 2024 04:18:44 -0800 (PST)
-Received: from [10.1.29.199] (XHFQ2J9959.cambridge.arm.com [10.1.29.199])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B6E433F58B;
-	Tue, 26 Nov 2024 04:18:13 -0800 (PST)
-Message-ID: <7fb6c5a2-b9ae-4a29-a871-2f0bdc636e41@arm.com>
-Date: Tue, 26 Nov 2024 12:18:12 +0000
+	Tue, 26 Nov 2024 12:18:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BBF835C4D69;
+	Tue, 26 Nov 2024 12:17:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 766B1C4CECF;
+	Tue, 26 Nov 2024 12:18:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732623505;
+	bh=E6+ESngCCGWCONAl/VNCJxoWIFWe7ya9c2lwaJJxp8A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=i6cIRI+BsrSkzWhedXjh2mFUQkZcKA7/hrur+g+on/yQaTqhEggPBms2PUyy08zxK
+	 H1NIr8ZGuZmNMYC6cnUvARILOAtPd7auWWQk1Zcos9M/IqKRmKv9sVZ+BaC13ANcsZ
+	 C3Z3oRdg6DKjZHhie57JtcIlffZ7IKs0BG+K7OvlLfB1loubF0Jpo6ECng5XXVo4iV
+	 4zNGlhxRhEl+B2jjvtTxLL3/Bgbv3qyYKE0SOhf57wHEe1qLHJTZBlfpzQ4S6AdJIx
+	 Ecyl7oVijucnuGEogACVWETCEUyYcLSki4ZDDd/fcs7sWKA01b9ba38xxEQZivE+FF
+	 7Pd1mjxRS5jpQ==
+Date: Tue, 26 Nov 2024 12:18:20 +0000
+From: Mark Brown <broonie@kernel.org>
+To: =?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Mesih Kilinc <mesihkilinc@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH v6 3/5] ASoC: sun4i-codec: Add support for Allwinner
+ suniv F1C100s
+Message-ID: <d0ecce33-25e2-4711-8311-7788c77b7d2d@sirena.org.uk>
+References: <20241123123900.2656837-1-csokas.bence@prolan.hu>
+ <20241123123900.2656837-4-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] mm/slab: Avoid build bug for calls to kmalloc with a
- large constant
-Content-Language: en-GB
-To: Vlastimil Babka <vbabka@suse.cz>, Dave Kleikamp
- <dave.kleikamp@oracle.com>, Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20241014105514.3206191-1-ryan.roberts@arm.com>
- <20241014105912.3207374-1-ryan.roberts@arm.com>
- <20241014105912.3207374-6-ryan.roberts@arm.com>
- <44312f4a-8b9c-49ce-9277-5873a94ca1bb@oracle.com>
- <cb9cabed-0038-42b3-b9fc-c9ba62b12781@suse.cz>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <cb9cabed-0038-42b3-b9fc-c9ba62b12781@suse.cz>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jW1jmUiXAYnnAPXC"
+Content-Disposition: inline
+In-Reply-To: <20241123123900.2656837-4-csokas.bence@prolan.hu>
+X-Cookie: Have a taco.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_041815_658682_E0FD332D 
-X-CRM114-Status: GOOD (  26.68  )
+X-CRM114-CacheID: sfid-20241126_041827_193238_2766AF7E 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,75 +82,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/11/2024 10:09, Vlastimil Babka wrote:
-> On 11/1/24 21:16, Dave Kleikamp wrote:
->> When boot-time page size is enabled, the test against KMALLOC_MAX_CACHE_SIZE
->> is no longer optimized out with a constant size, so a build bug may
->> occur on a path that won't be reached.
-> 
-> That's rather unfortunate, the __builtin_constant_p(size) part of
-> kmalloc_noprof() really expects things to resolve at compile time and it
-> would be better to keep it that way.
-> 
-> I think it would be better if we based KMALLOC_MAX_CACHE_SIZE itself on
-> PAGE_SHIFT_MAX and kept it constant, instead of introducing
-> KMALLOC_SHIFT_HIGH_MAX only for some sanity checks.
-> 
-> So if the kernel was built to support 4k to 64k, but booted as 4k, it would
-> still create and use kmalloc caches up to 128k. SLUB should handle that fine
-> (if not, please report it :)
 
-So when PAGE_SIZE_MAX=64K and PAGE_SIZE=4K, kmalloc will support up to 128K
-whereas before it only supported up to 8K. I was trying to avoid that since I
-assumed that would be costly in terms of extra memory allocated for those higher
-order buckets that will never be used. But I have no idea how SLUB works in
-practice. Perhaps memory for the cache is only lazily allocated so we won't see
-an issue in practice?
+--jW1jmUiXAYnnAPXC
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I'm happy to make this change if you're certain it's the right approach; please
-confirm.
+On Sat, Nov 23, 2024 at 01:39:02PM +0100, Cs=F3k=E1s, Bence wrote:
 
-> 
-> Maybe we could also stop adding + 1 to PAGE_SHIFT_MAX if it's >=64k, so the
-> cache size is max 64k and not 128k but that should be probably evaluated
-> separately from this series.
+> Signed-off-by: Cs=F3k=E1s, Bence <csokas.bence@prolan.hu>
 
-I'm inferring from this that perhaps there is a memory cost with having the
-higher orders defined but unused.
+When you write your signoffs like this with the , but no "" (like in
+your From:) it confuses software and causes everything after the , to
+get deleted.  Probably just including the quotes is the best option to
+match the email header.
 
-Thanks,
-Ryan
+--jW1jmUiXAYnnAPXC
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> 
-> Vlastimil
-> 
->> Found compiling drivers/net/ethernet/qlogic/qed/qed_sriov.c
->>
->> Signed-off-by: Dave Kleikamp <dave.kleikamp@oracle.com>
->> ---
->>
->> Ryan,
->>
->> Please consider incorporating this fix or something similar into your
->> mm patch in the boot-time pages size patches.
->>
->>   include/linux/slab.h | 3 ++-
->>   1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/include/linux/slab.h b/include/linux/slab.h
->> index 9848296ca6ba..a4c7507ab8ec 100644
->> --- a/include/linux/slab.h
->> +++ b/include/linux/slab.h
->> @@ -685,7 +685,8 @@ static __always_inline unsigned int __kmalloc_index(size_t size,
->>   	if (size <= 1024 * 1024) return 20;
->>   	if (size <=  2 * 1024 * 1024) return 21;
->>   
->> -	if (!IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES) && size_is_constant)
->> +	if (!IS_ENABLED(CONFIG_ARM64_BOOT_TIME_PAGE_SIZE) &&
->> +	    !IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES) && size_is_constant)
->>   		BUILD_BUG_ON_MSG(1, "unexpected size in kmalloc_index()");
->>   	else
->>   		BUG();
-> 
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdFvIsACgkQJNaLcl1U
+h9BFcwf+Pao3veWU7hgKuh2HXg/Tp8C3fBdnErq8VNlcf6LqbMaDYP4mO1gLXkbd
+iDNeeZWWJ2gsuUPR9NlTuwdw81I7voAZo+YqHQW3MtpPGBTu8/ErMCtwjqSSzzEf
+dT8uslNOWI50ckudS9e8rpXIqfH2fJyOTO0FRLv5A4M1/TWCfdpOoxtwANZ/CBhs
+ULa4QnnmEHTrNNd3t8+4RblG82YqE554iSJKQHB9+CNklf7I+DZUbSkt4arIUvOs
+nDXNCw3SrS9SDY+e3HuQsqkVjwsFDxFJez2Z03EcNvq6HaowwH/sZt7So62feVfO
+jv72jcflDLRnbOfObnV48Qg6Xn0+QQ==
+=/q8J
+-----END PGP SIGNATURE-----
+
+--jW1jmUiXAYnnAPXC--
 
