@@ -4,81 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9362AD3B987
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2840AD3B988
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fPHzRXhcBL/qtJnpL3/OZFvPlNjRqASdJESrY85bw0I=; b=4sCLoubWKyTOVZxP+d6kpAPSkn
-	OTu0zZu2Gd8DQVHvLhTfIw6qNEFKT0zD+FYjQUUs3s1amlDQUYxMXzCNY2jJg2aDVhS7HeNJEThyF
-	F4kn0d1SXBdR0czn1h43koEKaqvvl5gebcWSF7QNWNROjyRproj2wOMpP1FhfZzDSf8PDeoyCNU74
-	FHMHvdUrlRnlNK/q92rk918JXoUiDa5En992c4yfLbJKlkn+OIV0O0H6ZimsMn1OKQG8Igq6mK/DM
-	W88znCoGfSRpyw7L8tAojIEo/h9HDhclJS/cAmM/OZTD9EhHEDUSkqtYoNN6RuY+itv2uwCLqhw7h
-	gWRicX9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v4jvvkZ90+d6neI24dv6L5kYRfM8SVNb8gQBDPwg6w4=; b=p9Pm9D+eopO8vTjPn21uKJsKW9
+	EcQ8S4I4Ti6AFcFCakeVaxAMuZrQIhWaTUw0ErLCIk2jYvsbWUT0HA4z5IwvJNCnkWc+fSgVxkvDS
+	o+wpNYlQrVB63VZ8uLzUD8lW3BcUpC8FvBQNo0N7Gd54ujFRmHta9afShHDzci8b2rsPik5kYn2DN
+	k/51yHQdGPi5aFr8QLTpzVn9GkF14HKq62+/yiOkO7+sQmEjZj0W9ZbH98owkDDEs65UbIRtZoYph
+	lP714mRQdWCQHSq7uQ6Wzxz91yxiWKmAS7FXc0mKRYjdHgBm4hgoKxyVVBaXOW3WKEqkpuOa5ks2T
+	fD6d94vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFuR1-0000000AXkq-1odZ;
-	Tue, 26 Nov 2024 12:12:51 +0000
-Received: from www530.your-server.de ([188.40.30.78])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFuQ2-0000000AXUS-3Qm8
+	id 1tFuXD-0000000AYXf-2JJF;
+	Tue, 26 Nov 2024 12:19:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tFuWF-0000000AYOb-2OXO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 12:11:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=geanix.com;
-	s=default2211; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID; bh=fPHzRXhcBL/qtJnpL3/OZFvPlNjRqASdJESrY85bw0I=; b=DhRRFc
-	UN0xzU37DjRn1oU1/gBRd8wRXM6sWuUQ0DOLtuxsBOJutpFh4jEMe1pGznBXLYshoP1OFLPXaAxfK
-	tOe7gRdfCFMJexnjnWTA5OH9WvOvcn/Mos8jRMj+F5L4WzmO2Ri0s8tNsxmsNWLhHAtBKVbBBJ4vT
-	TpS+kja1I3YwoflDtW9oX1PpJJRUyd8nnuoEApLCiFAp8c2bovd8TWdFTmTV2z/mTmBPLGIx03izF
-	1qh+GrZRK5ticDbiOxOM+wmwjZL/LuRgYVZQN8vbEyEbNW5qaaOlGUWuH/ORlQ0IvgQVjikK/zK/w
-	mDUNpa3wpkajpiu2lfMnOLvOljhA==;
-Received: from sslproxy06.your-server.de ([78.46.172.3])
-	by www530.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <sean@geanix.com>)
-	id 1tFuPu-000FS1-0K; Tue, 26 Nov 2024 13:11:42 +0100
-Received: from [185.17.218.86] (helo=Seans-MacBook-Pro.local)
-	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <sean@geanix.com>)
-	id 1tFuPs-000LCg-30;
-	Tue, 26 Nov 2024 13:11:40 +0100
-Date: Tue, 26 Nov 2024 13:11:40 +0100
-From: Sean Nyekjaer <sean@geanix.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Yannick Fertre <yannick.fertre@foss.st.com>, Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
-	Philippe Cornu <philippe.cornu@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
- helper function
-Message-ID: <ycvevzp46wv4hr6ktexxjkpifav3wi4glat4a5jagghclcpagb@3jpiyehl2fn7>
-References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
- <20241125-dsi-relax-v2-1-9113419f4a40@geanix.com>
- <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
- <bfuj6w6hsbfpdw24th6dl3ugvj45op6jb45gx5ab5pulud7hiz@o2zbn45z3lt4>
- <20241126-refreshing-slick-pig-baebab@houat>
- <zmrcuqiyz5gojhusysy7cytluedslqmfgzuslutqeg65iv7ju6@bggk7qbm6eas>
- <20241126-observant-coyote-of-glee-3b94dd@houat>
+	Tue, 26 Nov 2024 12:18:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A889F153B;
+	Tue, 26 Nov 2024 04:18:44 -0800 (PST)
+Received: from [10.1.29.199] (XHFQ2J9959.cambridge.arm.com [10.1.29.199])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B6E433F58B;
+	Tue, 26 Nov 2024 04:18:13 -0800 (PST)
+Message-ID: <7fb6c5a2-b9ae-4a29-a871-2f0bdc636e41@arm.com>
+Date: Tue, 26 Nov 2024 12:18:12 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241126-observant-coyote-of-glee-3b94dd@houat>
-X-Authenticated-Sender: sean@geanix.com
-X-Virus-Scanned: Clear (ClamAV 0.103.10/27469/Tue Nov 26 10:58:20 2024)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] mm/slab: Avoid build bug for calls to kmalloc with a
+ large constant
+Content-Language: en-GB
+To: Vlastimil Babka <vbabka@suse.cz>, Dave Kleikamp
+ <dave.kleikamp@oracle.com>, Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20241014105514.3206191-1-ryan.roberts@arm.com>
+ <20241014105912.3207374-1-ryan.roberts@arm.com>
+ <20241014105912.3207374-6-ryan.roberts@arm.com>
+ <44312f4a-8b9c-49ce-9277-5873a94ca1bb@oracle.com>
+ <cb9cabed-0038-42b3-b9fc-c9ba62b12781@suse.cz>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <cb9cabed-0038-42b3-b9fc-c9ba62b12781@suse.cz>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_041150_852228_05BD51FF 
-X-CRM114-Status: GOOD (  26.56  )
+X-CRM114-CacheID: sfid-20241126_041815_658682_E0FD332D 
+X-CRM114-Status: GOOD (  26.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,58 +70,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 01:09:10PM +0100, Maxime Ripard wrote:
-> On Tue, Nov 26, 2024 at 12:34:26PM +0100, Sean Nyekjaer wrote:
-> > Hi,
-> > 
-> > On Tue, Nov 26, 2024 at 09:38:55AM +0100, Maxime Ripard wrote:
-> > > Hi,
-> > > 
-> > > On Tue, Nov 26, 2024 at 08:36:00AM +0100, Sean Nyekjaer wrote:
-> > > > On Mon, Nov 25, 2024 at 05:00:56PM +0100, Maxime Ripard wrote:
-> > > > > On Mon, Nov 25, 2024 at 02:49:26PM +0100, Sean Nyekjaer wrote:
-
-[...]
-
-> > > > > 
-> > > > > Thanks a lot for doing that!
-> > > > > 
-> > > > > I wonder about the naming though (and prototype). I doesn't really
-> > > > > validates a mode, but rather makes sure that a given rate is a good
-> > > > > approximation of a pixel clock. So maybe something like
-> > > > > drm_mode_check_pixel_clock?
-> > > > 
-> > > > Naming is hard :) I will use drm_mode_check_pixel_clock() for V2.
-> > > > 
-> > > > Would it make sense to have the pixel clock requirement as a input
-> > > > parameter? For HDMI it is 0.5%
-> > > 
-> > > This code was only used for panels so far. It reuses the same tolerance
-> > > than HDMI because we couldn't come up with anything better, but it
-> > > should totally apply to other things.
-> > > 
-> > > > and in my case the LVDS panel 10%.
-> > > 
-> > > 10% is a lot, and I'm not sure we'll want that. The framerate being
-> > > anywhere between 54 and 66 fps will trip a lot of applications too.
-> > > 
-> > > Why do you need such a big tolerance?
-> > 
-> > I don't need it, it was just from the datasheet for the LVDS panel :)
+On 14/11/2024 10:09, Vlastimil Babka wrote:
+> On 11/1/24 21:16, Dave Kleikamp wrote:
+>> When boot-time page size is enabled, the test against KMALLOC_MAX_CACHE_SIZE
+>> is no longer optimized out with a constant size, so a build bug may
+>> occur on a path that won't be reached.
 > 
-> So you mean the panel accepts a pixel clock within +/- 10%?
+> That's rather unfortunate, the __builtin_constant_p(size) part of
+> kmalloc_noprof() really expects things to resolve at compile time and it
+> would be better to keep it that way.
+> 
+> I think it would be better if we based KMALLOC_MAX_CACHE_SIZE itself on
+> PAGE_SHIFT_MAX and kept it constant, instead of introducing
+> KMALLOC_SHIFT_HIGH_MAX only for some sanity checks.
+> 
+> So if the kernel was built to support 4k to 64k, but booted as 4k, it would
+> still create and use kmalloc caches up to 128k. SLUB should handle that fine
+> (if not, please report it :)
 
-Yes :)
+So when PAGE_SIZE_MAX=64K and PAGE_SIZE=4K, kmalloc will support up to 128K
+whereas before it only supported up to 8K. I was trying to avoid that since I
+assumed that would be costly in terms of extra memory allocated for those higher
+order buckets that will never be used. But I have no idea how SLUB works in
+practice. Perhaps memory for the cache is only lazily allocated so we won't see
+an issue in practice?
+
+I'm happy to make this change if you're certain it's the right approach; please
+confirm.
 
 > 
-> That makes sense, but then we should also adjust the mode timings to
-> match so we still keep 60fps. There's much more to *that* than the
-> helpers you try to create though, so let's keep it aside for now.
+> Maybe we could also stop adding + 1 to PAGE_SHIFT_MAX if it's >=64k, so the
+> cache size is max 64k and not 128k but that should be probably evaluated
+> separately from this series.
 
-Ok
+I'm inferring from this that perhaps there is a memory cost with having the
+higher orders defined but unused.
+
+Thanks,
+Ryan
 
 > 
-> Maxime
+> Vlastimil
+> 
+>> Found compiling drivers/net/ethernet/qlogic/qed/qed_sriov.c
+>>
+>> Signed-off-by: Dave Kleikamp <dave.kleikamp@oracle.com>
+>> ---
+>>
+>> Ryan,
+>>
+>> Please consider incorporating this fix or something similar into your
+>> mm patch in the boot-time pages size patches.
+>>
+>>   include/linux/slab.h | 3 ++-
+>>   1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/include/linux/slab.h b/include/linux/slab.h
+>> index 9848296ca6ba..a4c7507ab8ec 100644
+>> --- a/include/linux/slab.h
+>> +++ b/include/linux/slab.h
+>> @@ -685,7 +685,8 @@ static __always_inline unsigned int __kmalloc_index(size_t size,
+>>   	if (size <= 1024 * 1024) return 20;
+>>   	if (size <=  2 * 1024 * 1024) return 21;
+>>   
+>> -	if (!IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES) && size_is_constant)
+>> +	if (!IS_ENABLED(CONFIG_ARM64_BOOT_TIME_PAGE_SIZE) &&
+>> +	    !IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES) && size_is_constant)
+>>   		BUILD_BUG_ON_MSG(1, "unexpected size in kmalloc_index()");
+>>   	else
+>>   		BUG();
+> 
 
-/Sean
 
