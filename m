@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23078D3B9AC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 16:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6709DD3B9B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 16:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6/ZbCdY/ecw6ecn/wcTYRT4DAvUEnDOC9uj6W7G8loo=; b=K3lCLNHDvgFcEBkao9DMUckoBn
-	1UH2VYNPJJiekgrFOG6kZdU2uF4U5ea1+ucxC163jnU6GK6cYSPydk7ZzT9XncETlyog7KJceM6SI
-	8R0B3E4zzMB6CNQg24uN6l054uWRsOS7JwQ/ER1+WgLvlIs5OE6i/jZumjuVXbMPI3j0zZsljGMdl
-	RIeMnFfsN2qAMsHItLEjDJE8E+oyro/jJlANFpcOe9IRtt3e6vQh1XYzfMWHYBB/EQ+uog1tBKiUx
-	eX+hcnKOFOTwCbujr5444Uqe6YKvnz2rlAFkw6MZlmsvRLYRO9exbO0uzpHg2uOaP/ennYBgGk/oy
-	KScDhQDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ktkZP1TSM5O+zshk14R/JTKvbWeVU6I7FikTokHf+NY=; b=CV5fYbC2hSAye0xwrGw8T5lFGU
+	whPAK1winndX+K3OyJCNT+qQmJknSw/Fe+3j7FjxtjxHGlKjQkx0u6pSwEQlEAJBRZbexJXIEQ7EZ
+	D6Ves894BIEFdOBKu0h/4DtJuEqhwC+YRDalrl7C1jX3eRaDYG0J93zo48p0Is3nkuCGizqJnyHTU
+	wAd4SPrgw2o6gCcQK0bmxbBs9ciqHbNg1vPklSfFbmTh8V/rZTDeQ4GF7/fPP96CPiX/f+h/EmY5T
+	xWoagLcuXd1L0dWC2V4tZNGZnBaO89O2ah/jlrL6WwtE3uugedymXEYOIz7G961Y1635+YdoDLFmv
+	Brw1W1CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFyLy-0000000B9Gq-1J8S;
-	Tue, 26 Nov 2024 16:23:54 +0000
-Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
+	id 1tFyMu-0000000B9Rc-3tRf;
+	Tue, 26 Nov 2024 16:24:52 +0000
+Received: from out-172.mta1.migadu.com ([95.215.58.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFyKz-0000000B96l-2HZg
+	id 1tFyLv-0000000B9Fi-0EA3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 16:22:54 +0000
-Received: from [127.0.0.1] (p578adb1c.dip0.t-ipconnect.de [87.138.219.28])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
-	(No client certificate requested)
-	(Authenticated sender: marex@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 533C689C93;
-	Tue, 26 Nov 2024 17:22:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1732638170;
-	bh=6/ZbCdY/ecw6ecn/wcTYRT4DAvUEnDOC9uj6W7G8loo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=U8Hh5+jcPOr1GekvPKC2t9a/OVjRJ/4gnxm4aVOV2H/hlJEHYBqXcvEBkvIr+Jmm+
-	 dbzrrI6EOqYFx90YrZuexxAW0nHc6XUjJk33mA6nLC31p9ZTgQzr8/fG92Z0onELet
-	 TOrm6KQawAfrjBOGoE//bymtsSOVx4Cb4Nvhe/BrLgwiZZ4GWY6hkNRYTzjJ5UfQDx
-	 rW0It5L5guYuQYl/K2f3WO2IkN/A9frW/t+sTflFt3RaKmXjHBFT6A++IUrQtReEmr
-	 wtAVjkhXK/Ibz6+Fq/NtY9VE3NgnUwiieHDBHFB5ZZPBvqs6gCAAVHJrBwn2+m+s+C
-	 9oqiboW2Be2+A==
-Message-ID: <8b6085b9-9b21-4043-af5e-e7fc4962236f@denx.de>
-Date: Tue, 26 Nov 2024 17:18:43 +0100
+	Tue, 26 Nov 2024 16:23:52 +0000
+Date: Tue, 26 Nov 2024 08:23:32 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1732638228;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ktkZP1TSM5O+zshk14R/JTKvbWeVU6I7FikTokHf+NY=;
+	b=fri7R9nF5gcARbgDooMqc2jGmEtlLuIBMa4n4Ih2zWgLKiu6Pw1kDhVs5mZTc6/0tKnP7F
+	DkqycMW+TIz69cMh7xP1ngCKed5fXxO0nlSsd+RzkreovFRHVJz9h1oTQMPXsmbI7IFGAg
+	LU/zSULINIm1hEoxLR9LxNaBEzStJBk=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: James Clark <james.clark@linaro.org>
+Cc: suzuki.poulose@arm.com, coresight@lists.linaro.org,
+	kvmarm@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>, Fuad Tabba <tabba@google.com>,
+	James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 11/12] KVM: arm64: Swap TRFCR on guest switch
+Message-ID: <Z0X2BBBaDejFfATp@linux.dev>
+References: <20241112103717.589952-1-james.clark@linaro.org>
+ <20241112103717.589952-12-james.clark@linaro.org>
+ <Zz4c5LmQnK2SD5HO@linux.dev>
+ <5f2eb0fa-c7ca-4e25-b713-6a9bf3d355b9@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: zynqmp: Work around broken DT GPU node
-To: "Gajjar, Parth" <parth.gajjar@amd.com>,
- "Sagar, Vishal" <vishal.sagar@amd.com>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- "Simek, Michal" <michal.simek@amd.com>, Stephen Boyd <sboyd@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "Allagadapa, Varunkumar" <varunkumar.allagadapa@amd.com>
-References: <20241031170015.55243-1-marex@denx.de>
- <dd4cb501-5fc7-4430-9ffc-9c8c910df425@amd.com>
- <4ee8d8a5-ec00-4b11-a7bc-4137e1982218@denx.de>
- <SJ0PR12MB69656066F70FC40E4A5A93B499592@SJ0PR12MB6965.namprd12.prod.outlook.com>
- <638cdca0-05ba-4b2b-8a92-3041247c2c7f@denx.de>
- <PH7PR12MB69557B0065EE5D4E51EE13FF995A2@PH7PR12MB6955.namprd12.prod.outlook.com>
- <14d05680-3112-4ad6-9d4c-e892359fc9d4@denx.de>
- <SJ0PR12MB6965E6448CFB1095584B114C992F2@SJ0PR12MB6965.namprd12.prod.outlook.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <SJ0PR12MB6965E6448CFB1095584B114C992F2@SJ0PR12MB6965.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5f2eb0fa-c7ca-4e25-b713-6a9bf3d355b9@linaro.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_082253_744763_9611B11A 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20241126_082351_442340_61020CD0 
+X-CRM114-Status: GOOD (  36.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,25 +81,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/26/24 6:25 AM, Gajjar, Parth wrote:
-> Hi Marek,
-
-Hi,
-
-> Yes we are using https://github.com/Xilinx/linux-xlnx/tree/xlnx_rebase_v6.6_LTS. We are also checking with upstream kernel. Will update you on that.
-
-Please do test mainline Linux (currently 6.12 or next), not some 
-downstream fork. Downstream forks tests have no relevance in mainline 
-Linux testing.
-
-> Can you share please your artifacts.
+On Thu, Nov 21, 2024 at 12:50:10PM +0000, James Clark wrote:
 > 
-> The blobs I use are 2019.1
-> [Parth]: You are using 2019.1 BOOT.bin and rootfs and upstream kernel Image right?
+> 
+> On 20/11/2024 5:31 pm, Oliver Upton wrote:
+> > On Tue, Nov 12, 2024 at 10:37:10AM +0000, James Clark wrote:
+> > > +void kvm_set_trfcr(u64 host_trfcr, u64 guest_trfcr)
+> > > +{
+> > > +	if (kvm_arm_skip_trace_state())
+> > > +		return;
+> > > +
+> > > +	if (has_vhe())
+> > > +		write_sysreg_s(guest_trfcr, SYS_TRFCR_EL12);
+> > > +	else
+> > > +		if (host_trfcr != guest_trfcr) {
+> > > +			*host_data_ptr(host_debug_state.trfcr_el1) = guest_trfcr;
+> > 
+> > Huh? That's going into host_debug_state, which is the dumping grounds
+> > for *host* context when entering a guest.
+> > 
+> > Not sure why we'd stick a *guest* value in there...
+> > 
+> 
+> Only to save a 3rd storage place for trfcr when just the register and one
+> place is technically enough. But yes if it's more readable to have
+> guest_trfcr_el1 separately then that makes sense.
 
-FSBL and PMUFW are built from embedded-sw 2019.1 , rootfs is currently 
-debian unstable or OE scarthgap based .
+Yeah, since this is all per-cpu data at this point rather than per-vCPU,
+it isn't the end of the world to use a few extra bytes.
 
-> Also I don't think any changes with respect to this. Let me also double check once.
-I'll wait for this.
+> That works, it would be nice to have it consistent and have it that way for
+> filtering, like kvm_set_guest_trace_filters(bool kernel, bool user). But I
+> suppose we can justify not doing it there because we're not really
+> interpreting the TRFCR value just writing it whole.
+
+Agreed, the biggest thing I'd want to see in the exported interfaces
+like this is to have enable/disable helpers to tell KVM when a driver
+wants KVM to start/stop managing a piece of state while in a guest.
+
+Then the hypervisor code can blindly save/restore some opaque values to
+whatever registers it needs to update.
+
+> > What if trace is disabled in the guest or in the host? Do we need to
+> > synchronize when transitioning from an enabled -> disabled state like we
+> > do today?
+> > 
+> 
+> By synchronize do you mean the tsb_csync()? I can only see it being
+> necessary for the TRBE case because then writing to the buffer is fatal.
+> Without TRBE the trace sinks still work and the boundary of when exactly
+> tracing is disabled in the kernel isn't critical.
+
+Ack, I had the blinders on that we cared only about TRBE here.
+
+> > I took a stab at this, completely untested of course && punts on
+> > protected mode. But this is _generally_ how I'd like to see everything
+> > fit together.
+> > 
+> 
+> Would you expect to see the protected mode stuff ignored if I sent another
+> version more like yours below? Or was that just skipped to keep the example
+> shorter?
+
+Skipped since I slapped this together in a hurry.
+
+> I think I'm a bit uncertain on that one because removing HAS_TRBE means you
+> can't check if TRBE is enabled or not in protected mode and it will go wrong
+> if it is.
+
+The protected mode hypervisor will need two bits of information.
+Detecting that the feature is present can be done in the kernel so long
+as the corresponding static key / cpucap is toggled before we drop
+privileges.
+
+Whether or not it is programmable + enabled is a decision that must be
+made by observing hardware state from the hypervisor before entering a
+guest.
+
+[...]
+
+> > +void kvm_enable_trbe(u64 guest_trfcr)
+> > +{
+> > +	if (WARN_ON_ONCE(preemptible()))
+> > +		return;
+> > +
+> > +	if (has_vhe()) {
+> > +		write_sysreg_s(guest_trfcr, SYS_TRFCR_EL12);
+> > +		return;
+> > +	}
+> > +
+> > +	*host_data_ptr(guest_trfcr_el1) = guest_trfcr;
+> > +	host_data_set_flag(HOST_TRBE_ENABLED);
+> 
+> FWIW TRBE and TRF are separate features, so this wouldn't do the filtering
+> correctly if TRBE wasn't in use, but I can split it out into
+> separate kvm_enable_trbe(void) and kvm_set_guest_filters(u64 guest_trfcr).
+
+KVM manages the same piece of state (TRFCR_EL1) either way though right?
+
+The expectation I had is that KVM is informed any time a trace session
+(TRBE or otherwise) is enabled/disabled on a CPU, likely with a TRFCR_EL1
+of 0 if guest mode is excluded.
+
+The function names might need massaging, but I was hoping to have a
+single set of enable/disable knobs to cover all bases here.
+
+-- 
+Thanks,
+Oliver
 
