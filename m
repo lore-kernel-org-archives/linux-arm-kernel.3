@@ -4,109 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 663DED3B984
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 11:25:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B53EBD3B985
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 11:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LuIkrq03Y/8r4VGThszHDz1L7JAqpb/dAr8BToRgNTg=; b=irIfA3DQRnLQN1xSAHgKiVVO7H
-	AsVOPLJnV+SDmyxVZRWMEaDdgKYdRMa8X9WzlQLG9rwKxGs6PtKWKbFSIXkFbc105ExXk7k8NyQt2
-	kOyUvHiOnuBL/HiPkkUZhtOBa0RthW7ItBQu1irBesebxZy6XK8hb989xaGaLHWvWdFYxzpLshlle
-	osckIL27Ed4XoXQ+/b9nO03+0gF50HCMGNdkQKp1bAjBFCtKvu3LP2r40gEuQ9BYOYi32s46iJJnA
-	4d0cCUiAoSexLmQnRzNPTdvc+faYOiMw++ugD5Sqprlkk0jW2w/kBbx1CWFmjweLcUpYH1GCgLnxg
-	BIM2a6Bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i8aAJG0E0LQ869T/BkdOg6biqlcLfLrnW6kcsgQo+rg=; b=MeEafXmLeRJzGil9d/0c5SeHbM
+	PZQH2LigEPqmaXymjLzd3jetRSyKKKgxLy46eXvO307h2hJuLKgso192WbNffSC2uIRwuTlQT8pmU
+	HCh5nyuUbNWGy+1uAhj9Td3fE7xN4whJk7pds5DEQcTnD1bvVFHnqYpqQ7BJBof6Rlaxx/0HfFxq2
+	BnQ2zRjJAm33/iEUXumVMh179XvZS9hmfPwp8XsxcZICcVfFBYJpoUJVWrLgovik6gV/nQKbFRXd3
+	KAJDSQP25Pi8COPjIreOpRQNZQZbL6NUlYP1XYx722jXPlxJw7KmJPNUb50SfZDThRx4ESfVQg81g
+	LVL2agUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFth2-0000000APE0-1MuN;
-	Tue, 26 Nov 2024 11:25:20 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tFtr4-0000000AQF9-2hYp;
+	Tue, 26 Nov 2024 11:35:42 +0000
+Received: from www530.your-server.de ([188.40.30.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFtfd-0000000AOwz-01mZ
+	id 1tFtq6-0000000AQ5m-05xu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 11:23:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EBD8F5C5D79;
-	Tue, 26 Nov 2024 11:23:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DEE3C4CECF;
-	Tue, 26 Nov 2024 11:23:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732620232;
-	bh=g5dBhAPcKlSofZhrWnzxgDkwCEPFtvcMEoQma6A0JQE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HZxN786JDecZesdc9EjyBta3DCtk4qxKdlPc5Zlzt8MusAmS+IHf/eR9Mq8LeaVSW
-	 AaBXHTVixBx6WtFaggOBCdH23/F1GyjSFOFi01Ahg2lU7q73HQwTYlIUkoa9Fc+0Kx
-	 zeNwZ7dGPY6K/54te2eITd7OpwBrOkTq/pRX/2vH/N/k/lO4Iznj218w1rHntnXKI/
-	 7QRQKAQ2r535Ixm/4XltCiBzFwkbyJbHNi3/NIheWunVkOmYO7VfDu9g0aejPn4mgo
-	 aOs0374g61a5xbCej0bVt9PDcctdQ/Qx2u/I3wWzkGFdnoBXTUIehIKR4Xj4+Xc8G+
-	 JbyFCbUrkzKVw==
-Message-ID: <d6ff6921-0449-4cc7-9812-8b30849c8e0e@kernel.org>
-Date: Tue, 26 Nov 2024 12:23:45 +0100
+	Tue, 26 Nov 2024 11:34:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=geanix.com;
+	s=default2211; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID; bh=i8aAJG0E0LQ869T/BkdOg6biqlcLfLrnW6kcsgQo+rg=; b=IYjLxI
+	racD1Hfp9/3fmYI4DPBBK6GoSfOG/NV0Du+imWjwCZo/uWJeVZsT7IcGW7b3jGFb/tbXS0HNlVFm9
+	qU7rBvtHbAlmsY/IT/F9UD96NN2oBlZGGhYT1LV50/nodVxCC1dj3NMVSktE/aNLrCd36HQMOdut3
+	uuspr8X6v5lhdg4GmudtZ/S98ai3ZP+VFGPkGLXHl3+wsyGcK+hY9SAnb/Quv+6pdrJlFJUlB4bw6
+	kn2+wX78fU12sVnobvWwFeNbonB5rT7zWueM2LU9QYI87AF8Aay5Am97RMoUYipNZFJ5gFgMk6rOK
+	fWEWYQteYuK5+v1v3I+fQ3YXDbiA==;
+Received: from sslproxy07.your-server.de ([78.47.199.104])
+	by www530.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <sean@geanix.com>)
+	id 1tFtps-00082H-Nc; Tue, 26 Nov 2024 12:34:28 +0100
+Received: from [185.17.218.86] (helo=Seans-MacBook-Pro.local)
+	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <sean@geanix.com>)
+	id 1tFtpr-0000HD-2M;
+	Tue, 26 Nov 2024 12:34:27 +0100
+Date: Tue, 26 Nov 2024 12:34:26 +0100
+From: Sean Nyekjaer <sean@geanix.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Yannick Fertre <yannick.fertre@foss.st.com>, Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
+	Philippe Cornu <philippe.cornu@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
+ helper function
+Message-ID: <zmrcuqiyz5gojhusysy7cytluedslqmfgzuslutqeg65iv7ju6@bggk7qbm6eas>
+References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
+ <20241125-dsi-relax-v2-1-9113419f4a40@geanix.com>
+ <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
+ <bfuj6w6hsbfpdw24th6dl3ugvj45op6jb45gx5ab5pulud7hiz@o2zbn45z3lt4>
+ <20241126-refreshing-slick-pig-baebab@houat>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] ARM: dts: aspeed: ventura: add Meta Ventura BMC
-To: Jason Hsu <jasonhell19@gmail.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
- patrick@stwcx.xyz, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-Cc: yang.chen@quantatw.com, jerry.lin@quantatw.com,
- Jason Hsu <jason-hsu@quantatw.com>
-References: <20241126111817.2331577-1-jason-hsu@quantatw.com>
- <20241126111817.2331577-3-jason-hsu@quantatw.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241126111817.2331577-3-jason-hsu@quantatw.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241126-refreshing-slick-pig-baebab@houat>
+X-Authenticated-Sender: sean@geanix.com
+X-Virus-Scanned: Clear (ClamAV 0.103.10/27469/Tue Nov 26 10:58:20 2024)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_032353_132151_57207C74 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20241126_033442_355145_B00809DD 
+X-CRM114-Status: GOOD (  33.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,55 +91,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/11/2024 12:18, Jason Hsu wrote:
-> Add Linux device tree related to Meta(Facebook) Ventura specific devices connected to BMC(AST2600) SoC.
-> Add subject prefix for the patch.
+Hi,
 
+On Tue, Nov 26, 2024 at 09:38:55AM +0100, Maxime Ripard wrote:
+> Hi,
+> 
+> On Tue, Nov 26, 2024 at 08:36:00AM +0100, Sean Nyekjaer wrote:
+> > On Mon, Nov 25, 2024 at 05:00:56PM +0100, Maxime Ripard wrote:
+> > > On Mon, Nov 25, 2024 at 02:49:26PM +0100, Sean Nyekjaer wrote:
+> > > > Check if the required pixel clock is in within .5% range of the
+> > > > desired pixel clock.
+> > > > This will match the requirement for HDMI where a .5% tolerance is allowed.
+> > > > 
+> > > > Signed-off-by: Sean Nyekjaer <sean@geanix.com>
+> > > > ---
+> > > >  drivers/gpu/drm/drm_modes.c | 34 ++++++++++++++++++++++++++++++++++
+> > > >  include/drm/drm_modes.h     |  2 ++
+> > > >  2 files changed, 36 insertions(+)
+> > > > 
+> > > > diff --git a/drivers/gpu/drm/drm_modes.c b/drivers/gpu/drm/drm_modes.c
+> > > > index 6ba167a3346134072d100af0adbbe9b49e970769..4068b904759bf80502efde6e4d977b297f5d5359 100644
+> > > > --- a/drivers/gpu/drm/drm_modes.c
+> > > > +++ b/drivers/gpu/drm/drm_modes.c
+> > > > @@ -1623,6 +1623,40 @@ bool drm_mode_equal_no_clocks_no_stereo(const struct drm_display_mode *mode1,
+> > > >  }
+> > > >  EXPORT_SYMBOL(drm_mode_equal_no_clocks_no_stereo);
+> > > >  
+> > > > +/**
+> > > > + * drm_mode_validate_mode
+> > > > + * @mode: mode to check
+> > > > + * @rounded_rate: output pixel clock
+> > > > + *
+> > > > + * VESA DMT defines a tolerance of 0.5% on the pixel clock, while the
+> > > > + * CVT spec reuses that tolerance in its examples, so it looks to be a
+> > > > + * good default tolerance for the EDID-based modes. Define it to 5 per
+> > > > + * mille to avoid floating point operations.
+> > > > + *
+> > > > + * Returns:
+> > > > + * The mode status
+> > > > + */
+> > > > +enum drm_mode_status drm_mode_validate_mode(const struct drm_display_mode *mode,
+> > > > +					    unsigned long long rounded_rate)
+> > > > +{
+> > > > +	enum drm_mode_status status;
+> > > > +	unsigned long long rate = mode->clock * 1000;
+> > > > +	unsigned long long lowest, highest;
+> > > > +
+> > > > +	lowest = rate * (1000 - 5);
+> > > > +	do_div(lowest, 1000);
+> > > > +	if (rounded_rate < lowest)
+> > > > +		return MODE_CLOCK_LOW;
+> > > > +
+> > > > +	highest = rate * (1000 + 5);
+> > > > +	do_div(highest, 1000);
+> > > > +	if (rounded_rate > highest)
+> > > > +		return MODE_CLOCK_HIGH;
+> > > > +
+> > > > +	return MODE_OK;
+> > > > +}
+> > > > +EXPORT_SYMBOL(drm_mode_validate_mode);
+> > > 
+> > > Thanks a lot for doing that!
+> > > 
+> > > I wonder about the naming though (and prototype). I doesn't really
+> > > validates a mode, but rather makes sure that a given rate is a good
+> > > approximation of a pixel clock. So maybe something like
+> > > drm_mode_check_pixel_clock?
+> > 
+> > Naming is hard :) I will use drm_mode_check_pixel_clock() for V2.
+> > 
+> > Would it make sense to have the pixel clock requirement as a input
+> > parameter? For HDMI it is 0.5%
+> 
+> This code was only used for panels so far. It reuses the same tolerance
+> than HDMI because we couldn't come up with anything better, but it
+> should totally apply to other things.
+> 
+> > and in my case the LVDS panel 10%.
+> 
+> 10% is a lot, and I'm not sure we'll want that. The framerate being
+> anywhere between 54 and 66 fps will trip a lot of applications too.
+> 
+> Why do you need such a big tolerance?
 
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
+I don't need it, it was just from the datasheet for the LVDS panel :)
 
+> 
+> Maxime
 
-Please run scripts/checkpatch.pl and fix reported warnings. Then please
-run `scripts/checkpatch.pl --strict` and (probably) fix more warnings.
-Some warnings can be ignored, especially from --strict run, but the code
-here looks like it needs a fix. Feel free to get in touch if the warning
-is not clear.
-
-
-> ---
->  arch/arm/boot/dts/aspeed/Makefile             |   1 +
->  .../aspeed/aspeed-bmc-facebook-ventura.dts    | 883 ++++++++++++++++++
->  2 files changed, 884 insertions(+)
->  create mode 100644 arch/arm/bo
-
-
-
-
-> +		led-2 {
-> +			label = "bmc_ready_noled";
-> +			default-state = "on";
-> +			gpios = <&gpio0 ASPEED_GPIO(B, 3) (GPIO_ACTIVE_HIGH|GPIO_TRANSITORY)>;
-> +		};
-> +
-> +		led-3 {
-> +			label = "power_blue";
-> +			default-state = "off";
-> +			gpios = <&gpio0 ASPEED_GPIO(P, 4) GPIO_ACTIVE_HIGH>;
-> +		};
-> +	};
-> +
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +		reg = <0x80000000 0x80000000>;
-> +	};
-> +
-> +    p1v8_bmc_aux: regulator-p1v8-bmc-aux {
-
-
-Fix indentation everywhere. It's broken in multiple places.
-
-Best regards,
-Krzysztof
+/Sean
 
