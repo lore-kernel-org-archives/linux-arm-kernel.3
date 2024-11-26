@@ -4,168 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A77D65520
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 16:42:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E732D65524
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 16:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fXRwshdfsWBmIPJZURoF4Sawoxqt486+lu94cMiE69I=; b=ZxvIzfHQjn2lSbKAAfs4nLutPa
-	IjBcDWsVbX1r4ucfmuwx5cYV/or0pdNXVdl6ThRkBmXWuT7hgVb6MTAsn81J4ztnhLyL246fEo3Sz
-	DA4qwJuYz29fd89mTn0MxBdSB37KpPxlSDTej+TJcIS93aLs0H/1hYBEX+Gzc6A4SzpcjyqPsqpn3
-	KBde1Wt67Li5LjR/FY4dyCVXDyNWJag79PpJVEvilhvhxpHVXpZXm7jhOo544zbsah2xLfnxtDenQ
-	VjuCd6B0AAC217gQQu84Mi4tSTMJ1IZf5vQk4IjTeK+wrlBtcFw7jJKrm20DJafp2FL9VJgzARk24
-	wRo0TLWg==;
+	bh=9FGv1vwVJ0PX4S37PXB7XuXtSrvMrZ0xcVle86S+H9U=; b=XrGLKsTu7K1EHnJYBfxbDqVxKN
+	/zJOWWj6BoeMBVHKJjhIR82n0JrMdvxzJZnkBiBXuXaEutpKhNcE/g21lJDb+u2yp3zLUI2wFJwyz
+	UFIu8vzFxjhPs0rG73Vk6aEyrZ3Ofb2HivopY8rOn9Q1TnVG7w1frzB6rdUzKUlSFOlvQOWRoC6XT
+	e9uN++ybasnmeaGmaaux3qZFeZGbdRoTQ4us0JjyaDW+Avz6J+LyxbKkozaImLQzXCRB81fHC8qcp
+	/JbPd4vEVSuGbXDzf76u9TqHGY6VrEapTOw8yPIe+XvEmvkA6kfPFxz8pgYfp9lzhIyiCWPbM6nnU
+	TmzW3Rdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFydf-0000000BCS7-3xeM;
-	Tue, 26 Nov 2024 16:42:11 +0000
-Received: from mail-dbaeur03on20617.outbound.protection.outlook.com ([2a01:111:f403:260d::617] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tFyj5-0000000BDHZ-41BQ;
+	Tue, 26 Nov 2024 16:47:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFyYT-0000000BBNT-3T7x
+	id 1tFyi6-0000000BD5G-1FaH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 16:36:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Fz3qRWfuN37/2Cgu1MobvS0AKHqrJBuvmwjN/r9gnoi5QKJHn9YAmbeO6LDRFAD05lFtP7MEzO1bCV+neOwR9Yp1Pa4NZvjuzP4uuksofrwm+KhzMuzJINM6TKgwdLQGKeA8uq4AzLBzuNKoRqtRTTFYZQV4QF58yI7zKkq4DEEDIFyf8VfwnJETHBJLEohnMijQP2M3nfbBAljKjsEPKJwEmqxfe/9xJcM0eRqIZm7FuvcDmHrclFNk5bHubaIGhAM6UaJPZPoMJXbb4cA7K8PtjlELGdAtEc/ig2DnpMmdRckrkA3YcmhcfUFwjF9Vo0pE157kazglNKyqLKAbVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fXRwshdfsWBmIPJZURoF4Sawoxqt486+lu94cMiE69I=;
- b=aQW03eEudSnQPp8YzPeb1JGgucz9Js/h85Q9npzO+LMyYqNnbkHpN+uHhWrkQct0+Go4Ho24JQLTzxKdjLSAOoOuJGQzF2mxwqq62ZVtXFwybExGfPGFmZBLPbLzNi4TKZS+ujSMV/IN3tuulr4AmIC+EfKhFTa57UuAQ9wGvYKeRYRRUhnFgBLD14OO2PAi1H+E4J+kIn4V6t3kD2fJKnEqPTh83FOr3ekTn71ldhpzV34TuG2MW/4tWCLgWIyxRdQ67ZIEQr/SSrkoFcD5wjXOxuND1CUs31xHiU2PGkiILFdrBMqWplcsHqSafuoJRqrdHDF9vXtCXAHhjhG9/g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fXRwshdfsWBmIPJZURoF4Sawoxqt486+lu94cMiE69I=;
- b=OjN/EUc2XA9PYw6uFjtR1RNvUCHlMTjhX61/HTTgvQp4im9EAtfEqpDGMH+CVwDWGpBxWd9BlRJz/QctB+9ns0FOwHSH1W6au2IC8nWxYVfF1jocECVliMYIgPIe521tn7IMgGiSYpBb8Iw6oPJdjYV+abqjbI7zSWmV+XwceuvFY0vGPnpkN9r4JwDRHSzjF21xulJg8Yrdk58uLXtKv6iy7lgh2B0GghVscdgdeDzAIglnDzYYGiv3aUQgGF4HwbXt1Mr3UmvM1z8sARw1iXyPXkbJO37A9E51CrnmalsAbl14HFxjTlElo5xn9Hb1rGjTOFUMeKq6JGvrQN4ixw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DB9PR04MB8251.eurprd04.prod.outlook.com (2603:10a6:10:24f::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.13; Tue, 26 Nov
- 2024 16:36:43 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8182.019; Tue, 26 Nov 2024
- 16:36:43 +0000
-Date: Tue, 26 Nov 2024 11:36:32 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Daniel Baluta <daniel.baluta@gmail.com>
-Cc: Daniel Baluta <daniel.baluta@nxp.com>, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, festevam@gmail.com,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	aisheng.dong@nxp.com, laurentiu.mihalcea@nxp.com,
-	shengjiu.wang@nxp.com, iuliana.prodan@nxp.com,
-	a.fatoum@pengutronix.de
-Subject: Re: [PATCH v2 4/6] dt-bindings: clock: imx8mp: Add syscon compatible
-Message-ID: <Z0X5EOBXMFTGZVQN@lizhi-Precision-Tower-5810>
-References: <20241125152427.136883-1-daniel.baluta@nxp.com>
- <20241125152427.136883-5-daniel.baluta@nxp.com>
- <Z0SvF2tQR14jrHet@lizhi-Precision-Tower-5810>
- <CAEnQRZAVmza+A5QC1Xq4dsw1WBtdp0EoM505+UzrCKe15+vqhA@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAEnQRZAVmza+A5QC1Xq4dsw1WBtdp0EoM505+UzrCKe15+vqhA@mail.gmail.com>
-X-ClientProxiedBy: BYAPR11CA0037.namprd11.prod.outlook.com
- (2603:10b6:a03:80::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Tue, 26 Nov 2024 16:46:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 67518A4047D;
+	Tue, 26 Nov 2024 16:44:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 793B2C4CECF;
+	Tue, 26 Nov 2024 16:46:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732639605;
+	bh=hKlquugWmJSu667nRHswM59/EFTEBAHYCg7yF1p2uwI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LvdPM+NUPDRh5ZWDp53+qoAzncutiTmOE/UnDLIb0Cha0oyL8pITpfzO7oz4hqb+a
+	 vvcV/acLao9hWVDEvrH8rI4AOKpJuG+RdfcCpnaVyGzq0rIsY/E2LwpSQXJyfl4GO0
+	 V1FIMx3gi6vCZUsvWUeUzi7oojjVH33ulhSg8rr9lYAYJ0RKgX1IW01bGHeUiZecDs
+	 wTPy++jwwouGI2ov2706JwpYrTIA2GPMAvnRtygxwAgOzNvrCiBntt4oqVKXIScMXA
+	 N+zmPyE9Vamm80K5di5i50uvx2H6ZBHfaosVBsbu2dvHeX0Kua/olJDFqPGs1/qpbm
+	 a8rVaS/mnSw4w==
+Message-ID: <050d1398-cfc2-4921-b82a-95eecbcddba4@kernel.org>
+Date: Tue, 26 Nov 2024 17:46:37 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB8251:EE_
-X-MS-Office365-Filtering-Correlation-Id: a5c6965f-758c-47a9-7cd2-08dd0e3882d8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?OXZSWGRuUldrb2hoYnh0OTBmSi9RVHBMV0FiRk9kZzNNN1d1WXlhL3N2Vi90?=
- =?utf-8?B?ODVJdnkvb0tRWC9SVWVhb3VnaDZtYzVBWWo1K04rYTgvbmdTSU8waUlSajI0?=
- =?utf-8?B?bmJDNW02Qlc2QldhYU1ENDJXUUg1WTJhQUhVSDl1UG85VnE4d3M5bzVqaWM0?=
- =?utf-8?B?cmF0Q1JQQ3kzMjZMdzVrMHh4b3F3RUYvV0pjQXl4V3VFTkVQd2FNdFE3eFcz?=
- =?utf-8?B?OXJaSWNIMUZoNVJSWVBKWjRJU1UvcDlabW1mcWNZYWppamxKT2Y2RHQwLzBo?=
- =?utf-8?B?R2xTRDdkTEhkQmx3ZzgwTkh2R1R0dStML0RQNGp6RDlLamJVV2NKVkt1eE5r?=
- =?utf-8?B?Y1JsQWkwRmdzTWFlUk1nYXBGQml4VUVPcUt2SkcrY3FlbGppWUt6VW43R2NF?=
- =?utf-8?B?MFUveEt4bmRUMUlXU1dIWVRHcnVnMDZRTnYySlc5c2tUQUdBTGxqTjQyZnFK?=
- =?utf-8?B?bG14Ky9PMGFIMzkxUXRNcHIyMHg3eDVHL1hnaDlCWmUxZ01QOWNHODdyWmFI?=
- =?utf-8?B?R1ZEK1lZbTFjWWJFT05wcWYwTjU2dWRQWGFCc1JCS3Z6eE1Gd0FZekhZajhJ?=
- =?utf-8?B?OWtEUGJJcnRPNnQ5a2t3a081UmpMQ2xYZUtob1BQT3k0Znh3cEtiMlhNOFJF?=
- =?utf-8?B?UVhMd3lpNmYxV01IZWtva0llQUJtWVBSSlR4SlJrd1BHSDFYM2haSGVYK0lB?=
- =?utf-8?B?WnBwYUZnQ3FzZkQ1dm40TmlScnJlVmtyT2tBNTZ1RHBZUk16ZktlK1BtbUhZ?=
- =?utf-8?B?Z1BzZ1FMbHRvTG40ZXpqODhSbVVrL2dvV1NvK3RXa1dXdk9qMDFNbDB4S05s?=
- =?utf-8?B?THNISjZodFpOMWN1b2lQWm9sYjI1TW1JMGVGUldzbkU2QVVBUkNuSS8xbXc4?=
- =?utf-8?B?aS9CRGgrZDR5N2pIaldieStaM3daZGduS2tScm1vVUxuZEtKb3Vka0xlQURB?=
- =?utf-8?B?clRybWZKQnppSTlqSUFFc2VhSmNxSHpyYStGdHMraUorNDVLa0hWM05hNjBX?=
- =?utf-8?B?MlR6QnlZVkw2YktJMW0rOFVLWm1GNmpJZlIxVUlGMEZHaEZuSjltdGRsd1Jl?=
- =?utf-8?B?Tk9UOWkxVExhUjRUZVVsYi8vNTdzOStFSzlyM25EdlB1bTNPMi9lK05vTjc2?=
- =?utf-8?B?SkJ2bi90cmxuWnovYW1vdUZJa1pJZkVFLzhPdkZpUnRDSGRKVW5tR0ptQXpW?=
- =?utf-8?B?dFgreGEvTUdBMUVnV3hqcUl2QzlFS2VUN3lIdWtFTThXSis1bGlBWG5CaSsw?=
- =?utf-8?B?dk9SWTFta2N0eU56M0dWN2Y1d2pKT3RtMjZDaG0yN3hzSTdsRFRVdW52dGIr?=
- =?utf-8?B?ZUtlQWg0T0UzbXc1alYrLzM1bEJaLzIzbTA2bVNYdUt5dWdRL09vU0piUjJS?=
- =?utf-8?B?TlR1bXRHV2J4WS9iNW1KcjFaaGpoa1B4WE45bXJPdXFFcHpSR1hvQ20rZlJK?=
- =?utf-8?B?andmRjlzSmh5dHRBK3pmOGgxeGd5dnNVS1ZrN1F3dFQrMitVZFlVbzBZN0kv?=
- =?utf-8?B?Wm9CTGVxYXFVNHpVZFZ5UFcvWXBIVGd6VnhTWjVDSVQxZXU1ck11d0RxMkZt?=
- =?utf-8?B?R0VuQjU0T0ZlcHhNQ0N2UjdYWVVUMGhVZXlaQUE2S2V0dXBDYks0T2E0c25x?=
- =?utf-8?B?eU9jN1RaWGY5MkJ4SklHVEVzZ2hMQnFQWk5JZE43eHpwU0VudVFrdGtDQUVL?=
- =?utf-8?B?aXZ2N3FqdVRaL2FuVFJFaHY4dVNURHJjaEZWcVVxSWV4U1ZVTDl3TE9sL3JY?=
- =?utf-8?B?UWsxa1dGOTlrVDVJU3lmRG5DU2xZa3Y3cWpmSGZWbHlORi93RWIzckpPVTZ1?=
- =?utf-8?Q?ePdEkbDhCOgsuvf48Xa6WrRO/jewg2UjpAWho=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SWYrWmJSYmRFVlBBOGJ2YTdrSE84bU5wUUluMlNIdVpDbWJuMmsxQUo1YzlJ?=
- =?utf-8?B?aTJJY2dMMTlGdGRtTXA4R0Z3ZnRSZW9yN0o0bCtObjNTSGh1SDFTK01pZWo4?=
- =?utf-8?B?OGVXL2ZmeUVBa3c2Yk1wQjBWZ29MVzhvNnRucEFwVzBwWlNUTXErcVVuMGFj?=
- =?utf-8?B?YUI5SUZSTHduWlkrMWk3OHpqcmIzT2F3elM5ZEFFZFpRTzE0TjBFT3VVb0kw?=
- =?utf-8?B?elpsaTVaOS9BV3lMQ3FWQnA1MzBDVG01WHA5Mm1QdlBua2VKZmtJK1hOTnA4?=
- =?utf-8?B?WmpnZVBqTHNoRUY5Z3VHd3p1ajlnQWY4bVNGNXpXVWhUVDlvQmdpTVFrZE5p?=
- =?utf-8?B?cE53SXZBeUpRMW5XcE93Uzd3VGtYUThuR29wd0xsY2xxb2YvTzJRaVorNkc2?=
- =?utf-8?B?aTkzK0hLSWVBNDlUTHVVVXVxak1LMGJFNVU2bWVVRklFa2kyaEsyT0dVOWJz?=
- =?utf-8?B?QkZDQmF0ckFzczZ4a1U0cUhxNjk1T21oVlBMeFpEQlk5bExjaU1vS0U2SEpi?=
- =?utf-8?B?dlBxYUhvRTFpZDZhMWM3NlNVdzUvTUVNeXYwMzhiQ216UE5zRDJvaFNDNDRX?=
- =?utf-8?B?NzR5Q2dMeTBVY0ZxMDd3MVZnTElHd1NubnRxcE5ORmFJM2VvNEdoZ2JhekYx?=
- =?utf-8?B?MXpDbDRLSERpa0krMnF5eTZ1c1M3bVVZcDhUZVIyb3N5eEZOeXRMZC94aEZ1?=
- =?utf-8?B?LzZVNzg2bVluL2lrVlIwd1lFd3ZoV1J5alJTK3VaN3lTcldETlhMeVBBcWVz?=
- =?utf-8?B?WU42RWRGOGVGZVVFVlVyOEVxalJnek5la2FzbzEyOHJFaWU4MHVXbmNzRkI1?=
- =?utf-8?B?NWJMNnRtYkNQR2hCbTZVTU1XSUlGOWIySnJieFl2bmpwSlloUzBCK3A4VzZq?=
- =?utf-8?B?V05sdnRHUHdvRjFGWjJ1a244RmgxcU9SRFAwRjNGZ3RIeVl3VjlMOVhUWEpU?=
- =?utf-8?B?NzVIWmxreFEyMjBoVTc0UVhMSEsvM0ozMFhNRFFpLytLcGlrektwRXF4eUwy?=
- =?utf-8?B?VXRxMnBtbHZKUVNPYlF6Q1pRRDl2dzRHS1FvdWpGNjNVQXBQWi9kN0dEeHhI?=
- =?utf-8?B?Q0VzcjE4ODJINHk3em50emowdk02TTlNUUUyRmNEbXNOS014VFpVRWIzNkUr?=
- =?utf-8?B?Vm5ZRm9mRFZZSndWTWVrM09LSFJGclhOdnkzbU5ubDJPS1c0YzJVYWVNb1pK?=
- =?utf-8?B?N2RRV0daRG42dDlsVTYxYjFuVm4wVnJMQStNSnJmdkpaT3NXS0l6TVJ4TVFq?=
- =?utf-8?B?MVk5TlVweFJpcXQwU3lTSmtEV2tENWtLeW9xOGpsQTRkSG5Ca25qY2hIbWxN?=
- =?utf-8?B?NEZiYzhFWXB1QnBNemFyaThtUGFXblZlemZKWWFLakJ1RmVjRFBvKzZuTEFP?=
- =?utf-8?B?Z1V0Kzd3alZtb2tmWEMyMVNYT2hXdHZjZ3FIMEtzbi9VS3VnQ2NPMmRHYTNI?=
- =?utf-8?B?aStHSUp3STBxclg1NHNFN3NaUkhxMVQrZm1jeVVxZW5yYnRBZi94dUdMK2E5?=
- =?utf-8?B?RzdGYVBLd1RPMit5RmtDQ0lsa0JPV2ZwWFJxRFJ5d1RFZElkQjBBOFc2UUZG?=
- =?utf-8?B?eG52bHhIV2xpWHI0M0YwTkUrRTJBaVpMaVAwOW5vVXNsdXhJcFN2OEhXdHJ0?=
- =?utf-8?B?d0dMaHlmSUlINFV1YkR5RjhUM0F3TzF6ZzJpUytXMWY3bFllRVprQ2ZJVmN0?=
- =?utf-8?B?Uk9UYjFyT1JQVjRNMnIrS2M1d1ZJVTRHRDhoWVRUeDN0RVowMkVPa3lvV1VD?=
- =?utf-8?B?TS91djRaN2tsSk1NYnNBaDNuWndEZDdzWkVPWmgyL1lkR0ZOR2pTdHU4NlVB?=
- =?utf-8?B?ajErNmtqd1U3dUFwOExidXR3TXNXTHBsUE5sK2tzcjZ2Q2ZjNlJsb3hoTnMv?=
- =?utf-8?B?K2ZUeTRybUhmQ0xCMXpqS1BrdXVZd2huSm9GeGdIVVVJRlhTb1NNYUVvUS9R?=
- =?utf-8?B?T3NSRGdwUjZQREtJOVEzM3p6VjczSTg1NTRkdUZYV1Z3YWYvcVNzeFlLemdn?=
- =?utf-8?B?Q3RHend4Y1NhcXAzR3RpRVBwNE9wNHNlQmhiYmdyWmhEcE5YRjBoaDB4Y1pi?=
- =?utf-8?B?VjZqRElabndWdUZuNy9CUU5LRGo2elhwL2tOOHgyWmhZV2h0Zkt5UkRZZDBU?=
- =?utf-8?Q?4Au1XO2jnn0RpK0DFS9AZjX0K?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a5c6965f-758c-47a9-7cd2-08dd0e3882d8
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2024 16:36:43.4157
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Ib/QeEfHwsP6BZX/fSkH2bJ0Aw6w2RV23Fsf/azYkRbLwA+ENNeSl5UIKiWWZJpVthrA0IylzZcwkreWrHjIKQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8251
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] dt-bindings: display: Add Apple pre-DCP display
+ controller bindings
+To: fnkl.kernel@gmail.com, Hector Martin <marcan@marcan.st>,
+ Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20241126-adpdrm-v2-0-c90485336c09@gmail.com>
+ <20241126-adpdrm-v2-1-c90485336c09@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241126-adpdrm-v2-1-c90485336c09@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_083649_862770_AC93E7E0 
-X-CRM114-Status: GOOD (  20.83  )
+X-CRM114-CacheID: sfid-20241126_084646_476767_06DA18CF 
+X-CRM114-Status: GOOD (  23.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,37 +126,301 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 05:31:21PM +0200, Daniel Baluta wrote:
-> On Mon, Nov 25, 2024 at 7:08 PM Frank Li <Frank.li@nxp.com> wrote:
-> >
-> > On Mon, Nov 25, 2024 at 05:24:24PM +0200, Daniel Baluta wrote:
-> > > imx8mp audiomix contains a set of registers used to control
-> > > the DSP.
-> > >
-> > > The dsp will use this to acquire o reference to audiomix registers
-> > > and handle the registers to control the dsp.
-> >
-> > Look like this is NOT good method to direct operate these register. If it
-> > is reset, you should export it as reset interface. If it is clock, you
-> > should export it as clock interface.
->
->
-> Hi Frank,
->
-> The code to handle this is already upstream and used for:
->
-> Remoteproc
->
-> https://elixir.bootlin.com/linux/v6.12/source/drivers/remoteproc/imx_dsp_rproc.c#L991
->
-> and Sound Open Firmware
->
-> https://elixir.bootlin.com/linux/v6.12/source/sound/soc/sof/imx/imx8m.c#L237
->
-> I'm not sure if it worths the effort to refactor this for such a
-> simple operation.
+On 26/11/2024 17:34, Sasha Finkelstein via B4 Relay wrote:
+> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> 
+> Add bindings for a secondary display controller present on certain
+> Apple laptops.
+> 
 
-It is up to Rob's opinion.
+A nit, subject: drop second/last, redundant "bindings". The
+"dt-bindings" prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
 
-Frank
+
+> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> ---
+>  .../display/apple,h7-display-pipe-mipi.yaml        | 89 ++++++++++++++++++++++
+>  .../bindings/display/apple,h7-display-pipe.yaml    | 77 +++++++++++++++++++
+>  .../bindings/display/panel/apple,summit.yaml       | 58 ++++++++++++++
+>  3 files changed, 224 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/display/apple,h7-display-pipe-mipi.yaml b/Documentation/devicetree/bindings/display/apple,h7-display-pipe-mipi.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..2cf2f50e9fc7329a5b424d5ddf8c34cad2ebb6be
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/apple,h7-display-pipe-mipi.yaml
+> @@ -0,0 +1,89 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/apple,h7-display-pipe-mipi.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Apple pre-DCP display controller MIPI interface.
+
+Drop final stop, that's a title so it could be capitalized, but anyway
+it is not a sentence
+
+> +
+> +maintainers:
+> +  - asahi@lists.linux.dev
+
+Drop, maintainer boxes are not allowed for bindings.
+
+> +  - Sasha Finkelstein <fnkl.kernel@gmail.com>
+> +
+> +description:
+> +  The MIPI controller part of the pre-DCP Apple display controller
+> +
+> +allOf:
+> +  - $ref: dsi-controller.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - apple,t8112-display-pipe-mipi
+> +          - apple,t8103-display-pipe-mipi
+> +      - const: apple,h7-display-pipe-mipi
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  reg-names:
+> +    const: mipi
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +
+> +    required:
+> +      - port@0
+> +      - port@1
+
+Please take a look how other bindings define ports. You miss here
+several items and more important - description what are these ports for.
+
+> +
+> +  '#address-cells': true
+> +
+> +  '#size-cells': true
+> +
+> +patternProperties:
+> +  "^panel@[0-3]$": true
+
+These look unusual. Is this a DSI controller? If so, then reference
+dsi-controller. See other bindings how this is done.
+
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - ports
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    display_dfr: dsi@228200000 {
+
+Drop unused label
+
+> +    	compatible = "apple,t8103-display-pipe-mipi", "apple,h7-display-pipe-mipi";
+> +    	reg-names = "mipi";
+> +    	reg = <0x28200000 0xc000>;
+
+Order fields according to DTS coding style.
+
+> +    	power-domains = <&ps_dispdfr_mipi>;
+> +
+> +    	ports {
+> +    		#address-cells = <1>;
+
+Messed indentation. Use 4 spaces for example indentation.
+
+
+> +    		#size-cells = <0>;
+> +
+> +    		dfr_mipi_in: port@0 {
+> +    			#address-cells = <1>;
+> +    			#size-cells = <0>;
+> +    			reg = <0>;
+> +    		};
+> +
+> +    		dfr_mipi_out: port@1 {
+> +    			#address-cells = <1>;
+> +    			#size-cells = <0>;
+> +    			reg = <1>;
+> +    		};
+> +    	};
+> +    };
+> +...
+> diff --git a/Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml b/Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..98982da9c5f672167d67e4cd3b47e1fbdafc9510
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml
+> @@ -0,0 +1,77 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/apple,h7-display-pipe.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Apple pre-DCP display controller.
+> +
+> +maintainers:
+> +  - asahi@lists.linux.dev
+> +  - Sasha Finkelstein <fnkl.kernel@gmail.com>
+> +
+> +description:
+> +  A secondary display controller used to drive the "touchbar" on certain Apple laptops.
+
+Please wrap code according to coding style (checkpatch is not a coding
+style description, but only a tool).
+
+
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - apple,t8112-display-pipe
+> +          - apple,t8103-display-pipe
+> +      - const: apple,h7-display-pipe
+> +
+> +  reg:
+> +    maxItems: 2
+
+List and describe the items instead, because be and fe are a bit cryptic.
+
+> +
+> +  reg-names:
+> +    items:
+> +      - const: be
+> +      - const: fe
+> +
+> +  power-domains:
+> +    maxItems: 2
+
+Need to list the items instead.
+
+> +
+> +  interrupts:
+> +    maxItems: 2
+
+Ditto
+
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: be
+> +      - const: fe
+> +
+> +  iommus:
+> +    maxItems: 1
+> +
+> +  port:
+> +    $ref: /schemas/graph.yaml#/properties/port
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - port
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/apple-aic.h>
+> +    display_dfr: display-pipe@228200000 {
+
+Drop unused label.
+
+> +    	compatible = "apple,t8103-display-pipe", "apple,h7-display-pipe";
+> +    	reg-names = "be", "fe";
+> +    	reg = <0x28200000 0xc000>,
+> +    		<0x28400000 0x4000>;
+
+Messed alignment, in other places as well.
+
+> +    	power-domains = <&ps_dispdfr_fe>, <&ps_dispdfr_be>;
+> +    	interrupt-parent = <&aic>;
+> +    	interrupts = <AIC_IRQ 502 IRQ_TYPE_LEVEL_HIGH>,
+> +    		<AIC_IRQ 506 IRQ_TYPE_LEVEL_HIGH>;
+> +    	interrupt-names = "be", "fe";
+> +    	iommus = <&displaydfr_dart 0>;
+> +    	port {
+> +    		dfr_adp_out_mipi: endpoint {
+
+Messed indentation.
+
+> +    			remote-endpoint = <&dfr_mipi_in_adp>;
+> +    		};
+> +    	};
+> +    };
+> +...
+> diff --git a/Documentation/devicetree/bindings/display/panel/apple,summit.yaml b/Documentation/devicetree/bindings/display/panel/apple,summit.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..db14f7af3787076c84ccdda08fedeb8912d5514d
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/panel/apple,summit.yaml
+> @@ -0,0 +1,58 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/panel/apple,summit.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Apple "Summit" display panel.
+> +
+> +maintainers:
+> +  - asahi@lists.linux.dev
+> +  - Sasha Finkelstein <fnkl.kernel@gmail.com>
+> +
+> +allOf:
+> +  - $ref: panel-common.yaml#
+> +  - $ref: /schemas/leds/backlight/common.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - apple,j293-summit
+> +          - apple,j493-summit
+> +      - const: apple,summit
+
+Summit tells me nothing - no description, title repeats it, so I suggest
+using device specific compatible.
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  max-brightness: true
+> +
+> +  port: true
+
+No, these cannot be true without definition. Again, please open existing
+bindings and use them as example. You probably miss here some reference,
+but max-brightness for panel is a bit confusing. I asked already and did
+not get answer: isn't this backlight property? What is this device -
+backlight or panel? If panel, then what bus?
+
+
+Best regards,
+Krzysztof
 
