@@ -4,82 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A149D3B98B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D98CD3B98A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:48:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cPTLukRRkvaGSB00X3hsgqrDjbaD+cNjKIgDNOefcOk=; b=T2An4Fhf25LCiB2QXnri5/uo2j
-	E8AeQYCYa4CTMbuWcaIa0sYHaauiY65YxIlpN+zjIL9g48DfT38BziQbH4zidktoBlnnhCa0FCkwy
-	G3hf1xkEG85HnbK2v3ylkoQ342xs1huheBzF4K1vMxaYtQQ/G7/Djte0FuuR3DFqKSm66VKSmsLNS
-	cNOKUl7X3dFtE/R96I4X4mDZ9xJwCcJsXbrAthPXYrzGcWHO1vAYw2xg5lAezycyvU9//yRlticYt
-	jYyiM6WJeIXZNTXELLqEljIvjPNIg0qh5KOtrfTPOzev0sw438PI/1N7Wj/kh2H/5PLrYdcey+/TY
-	fFQ9gKSQ==;
+	bh=/gQdWeIQCLxHuuNWRAycUWpTxArAR51o8oVYNO6gh6w=; b=DbekRjZyNoszkHBglE7DBuZxx+
+	p9Lda4Iw8344Ctnc9yODiRN94VfwtDcT22STv0z3i1za7b5pjUhv23lp3ijd4c+pjzdHRswyxqqry
+	PJewloLeidYxI0dFANtphrUjOsWdixOcl89wdgwSvX+7QFA3PlxBih6dSruewmXvXbJSWDktdAvV0
+	/Py11uPOzdXde+lduvP0H834vdKfZGdqVcNNUHz9/CNd0wCnDILRZLo3Bbl/SrPLgvP+/LY4Tz/Hi
+	LhCVcYJMNvUqMWgJvRccSVmOZE65UlZnoAQax62g7/uvHvLXwrphCudpsBcaCIAHW5/28c9F8PyJX
+	lUzfllHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFutu-0000000Aanx-2lix;
-	Tue, 26 Nov 2024 12:42:42 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	id 1tFuzC-0000000AbDW-2Y7w;
+	Tue, 26 Nov 2024 12:48:10 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFusv-0000000Aadd-1kMm
+	id 1tFuyE-0000000Ab94-3P7G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 12:41:43 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-6ef0c64d75cso21673597b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 04:41:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732624898; x=1733229698; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=cPTLukRRkvaGSB00X3hsgqrDjbaD+cNjKIgDNOefcOk=;
-        b=f4NJIYVxel6rurv8yP5CnLDeoSSBlE9F2FO8JooQJXOeofa1ZHJFDWcwgGmYQh/O5d
-         EXhsc4SYvgjMFl9cYykR3i8rR9sa/Q2TP13KmGPciQQ7UZeXmXHV/1BGRZHlnOfvVmDX
-         lzzSK4RkclVD3YSURwwtTYuQ47uzf7+75YC04oWWBnnWgN+ZSs8TYmWyXryblGEEGGRT
-         Tw3VevTWMm/CnedMVukLLAtCtKOWs/iPw9fcM2bpaEFLFpvoeKpHT/b/x7VfCOgNjzfK
-         5SHmaI/S9rnqLmyIUqJ68OsYn7kGDsiYQgf+4sah5+re61IVsaFw8VTUBMk93hdChHfV
-         Lv5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732624898; x=1733229698;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cPTLukRRkvaGSB00X3hsgqrDjbaD+cNjKIgDNOefcOk=;
-        b=VPRq50XJOxVP8KCkyOd5PpIp9jYwAXCZTC3+s3jPRnzBIIzTavdClExWW05sSX+K3J
-         XcUTS+8Q5xnKkTE1iCiYZtgeb0QfQ9EgB1kb0IJ+EKKWizR4Kw0vOZ7a38K6GJNIK8pW
-         mUGZ++8o2V51nKxWHz53xycmQlfNLRjb3IrRuOaE6j1AP++89kl0kI+J22TDD66Fnc4s
-         e0Usfo9A/tLQsGkVvcvtZ32hOaD9F5SuJ3Hl0FyAYTNrhW2kYVqpV+cIYZE+x4Ee8oJ2
-         MmVtT7zb3tkadoWN7iYYniFPcJmZjSq9FhdjBf3RWpUgUVoRjOiXCFyicBO39LpeFLRa
-         1Wzg==
-X-Forwarded-Encrypted: i=1; AJvYcCUHUpE5zN3AReeobFhe1HLeIenmEOlfwdsFTAp9rOpTM4xEptE8v2rHCtwhZwPs5qhD95jUg2uuIlydaFj4VV/w@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeKVAz5CKP5L2hevruMQ02airD1URFpYBh/Ii72VfRhKM454qz
-	1XqOfYSlYAv2p6N5woSd072LkjD+4uLriL3VrjBORnCTqapfgWU3OET7anKMrPqjiWqLeQJznpU
-	Kd5HNJPOfNbIs7DKteuz2hfgJooMeCCZtwSQMHw==
-X-Gm-Gg: ASbGncs9tFh1l77NES042st3sHmWpXSIJMo60yTg0+4b3LxBkWySPd6XYkxOHUc/Lc5
-	cLdcHkgnm9+Qhy1iXbdepLntvr6sbPQGtqStlCcE7uw59ur5yygHj38cfw+BnwOo=
-X-Google-Smtp-Source: AGHT+IF6l4+hBDV+putwVYiDk0qugPERHe+upMe++6V3UcZ5/+gbIZmfJ4RQdC8Lpth0bOqnEm38/6mER962cgmW0UQ=
-X-Received: by 2002:a05:690c:2504:b0:6ea:8d6f:b1bf with SMTP id
- 00721157ae682-6eee0779a6dmr182254577b3.0.1732624898603; Tue, 26 Nov 2024
- 04:41:38 -0800 (PST)
+	Tue, 26 Nov 2024 12:47:12 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tFuyC-0004Gh-85; Tue, 26 Nov 2024 13:47:08 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tFuyA-000FfK-0g;
+	Tue, 26 Nov 2024 13:47:07 +0100
+Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 9E8CB37DA3A;
+	Tue, 26 Nov 2024 12:47:06 +0000 (UTC)
+Date: Tue, 26 Nov 2024 13:47:06 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: kernel@pengutronix.de, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Leonard =?utf-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>
+Subject: Re: [PATCH 0/6] ARM: dts: stm32: lxa-tac: fix gen{1,2} boards and
+ add gen3 board
+Message-ID: <20241126-bald-paper-ringtail-661462-mkl@pengutronix.de>
+References: <20241119-lxa-tac-gen3-v1-0-e0ab0a369372@pengutronix.de>
 MIME-Version: 1.0
-References: <20241124124919.3338752-1-sashal@kernel.org> <20241124124919.3338752-21-sashal@kernel.org>
-In-Reply-To: <20241124124919.3338752-21-sashal@kernel.org>
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Date: Tue, 26 Nov 2024 13:41:27 +0100
-Message-ID: <CACMJSevZVPcHaEfromwLu1mM5kXE4sVz6f92u5HKLpM65ypbeQ@mail.gmail.com>
-Subject: Re: [PATCH AUTOSEL 6.12 21/23] USB: gadget: pxa27x_udc: Avoid using GPIOF_ACTIVE_LOW
-To: Sasha Levin <sashal@kernel.org>
-Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Linus Walleij <linus.walleij@linaro.org>, daniel@zonque.org, 
-	haojian.zhuang@gmail.com, robert.jarzmik@free.fr, 
-	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6c2nwor5larsiucg"
+Content-Disposition: inline
+In-Reply-To: <20241119-lxa-tac-gen3-v1-0-e0ab0a369372@pengutronix.de>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_044141_454483_861302E0 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241126_044710_849720_2DD5A580 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,25 +82,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 24 Nov 2024 at 13:50, Sasha Levin <sashal@kernel.org> wrote:
->
-> From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
->
-> [ Upstream commit 62d2a940f29e6aa5a1d844a90820ca6240a99b34 ]
->
-> Avoid using GPIOF_ACTIVE_LOW as it's deprecated and subject to remove.
->
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-> Link: https://lore.kernel.org/r/20241104093609.156059-6-andriy.shevchenko@linux.intel.com
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> Signed-off-by: Sasha Levin <sashal@kernel.org>
-> ---
 
-All these GPIOF_ACTIVE_LOW patches are not fixes and should be dropped
-from stable branches.
+--6c2nwor5larsiucg
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 0/6] ARM: dts: stm32: lxa-tac: fix gen{1,2} boards and
+ add gen3 board
+MIME-Version: 1.0
 
-Thanks,
-Bartosz
+Hello Alexandre,
+
+On 19.11.2024 12:34:57, Marc Kleine-Budde wrote:
+> Hello,
+>=20
+> this series fixes some problems found in the lxa-tac generation 1 and
+> 2 boards and add support for the generation 3 board. It's based on an
+> STM32MP153c, while the generation 1 and 2 are based on the
+> STM32MP157c.
+
+is there an ETA when this series will be merged, is there something
+missing?
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--6c2nwor5larsiucg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdFw0cACgkQKDiiPnot
+vG9EKwgAi5XkzgfNgY7ixrqcwOoyuuX6KNLwCoxeHNrfzr5giHyilo0qGoi8eoOm
+4gRl8j1NkMCgZl9O5lsUwqelHDQM7yx7sJ1agE2pBTC8NbjhKo/BdqfnQRYxNtST
+t+wpaGLsn6/QH3v0gBrD9Ne5vvkXVEywskzPDZgfnyzBt9XAn0CNRxtdwCK9+uk1
+2Jz5VfSu7MkaFIE9K6ET/oNx589yjTPj6nLpp9vwXndBlJ2v0dxybJ/Mkyf+KxbU
+GtHOPzWyK3aTfdUDFn6w5ssXoErNy2v+HNSgfJt3mUtgAJEMch+URzWR6nkD4Zzi
+N7zolS05uqsPqMNxoFuN1iAx5cC5Dw==
+=EJkB
+-----END PGP SIGNATURE-----
+
+--6c2nwor5larsiucg--
 
