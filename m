@@ -4,58 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A618D3B9A0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 15:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2618CD3B9A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 15:23:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3RO/UXWu5U/T1XvfQqIyjAWrPNqO62Fdg9ZK2awVN6U=; b=MAQJppNXHv+FZP8YWKcxy3359j
-	+W6Gw3HyXJEI4HmlhGrGXgZBcYr/xj9B/VEY1XMDMARyL4VGXOv5K2BNtoqUEjfRmI/vI/mjsfTD1
-	N/W+iKsQ7VV340aQw0SJJkzwunGj/nWEPJhkWzjNHCljqY3QjLP1eUfPUJjNcn/4DaGcS9/AqRoTT
-	n+ZvELfi/fMu8/KypRAW/vkjLrnMg3ZSaDUYaELQIh8SJL38QyFNqYNY1wr3EOsAoyC9DVAgHJ5M+
-	K3c9ZppayIIqQPgdp1FUDKkM7CESmPe5aLdFnAzzmqIKP5lkXj0ymeJ+4Tcvo8TmwkpwWXa9EHTgM
-	lP2NQkzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nMPHE34GBEDZqPqLiQClapWAzAeqI7VUa9U5mF/gbP4=; b=00akk8wz31Eie+1AbqHgFhQkTj
+	pf57cnsvMeSJ2gS+Xf/dJ7KXgtfdXkSjLuuLWVg4NI/lJb1kAzVQL5RVhBBbnAOMt4vhu7bGCniB1
+	+WiUjtZBkInDu6XJ0AYgWsaYT3M6iWao7Gm7HA6U7HDBeQ3EKvnmok310kmnzeu8lJCim9KFmqRj2
+	AYJ5922J2Slwzj+j6va8ZEykywbM7YzLTAEaLLcbLsR7ubTDKT6ik3aWV86XDULLzDLFI3E02Gp6a
+	e7ypjCZpEW+cAap8O80+LYT9C5JeobiIGGO7AaxLiqV+JEEJdsBxVbL7esSt9QJgEP5JGHpdv8fmG
+	2ZRvQP8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFxFh-0000000Axua-4Al4;
-	Tue, 26 Nov 2024 15:13:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFxEk-0000000Axmy-01Ri
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 15:12:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0591150C;
-	Tue, 26 Nov 2024 07:12:49 -0800 (PST)
-Received: from [192.168.178.6] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4EE053F5A1;
-	Tue, 26 Nov 2024 07:12:17 -0800 (PST)
-Message-ID: <9aa93862-932c-4a17-a3ba-f6335649e555@arm.com>
-Date: Tue, 26 Nov 2024 16:12:04 +0100
+	id 1tFxPJ-0000000AzUc-0AWL;
+	Tue, 26 Nov 2024 15:23:17 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tFxOL-0000000AzM8-1pgc;
+	Tue, 26 Nov 2024 15:22:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1732634538; x=1764170538;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=769bkhalWPrlCV5hGTXjnG0wp9G7hdn+3+311XvR27I=;
+  b=Y4h8QzhYhznIzIUQlz4GbI221q1uauZfXqi4+CIBR4eR9nWlDLCMF0EW
+   7UdFyV7wrXgBsW9XeZgzc1JrWbj2uYlED30kGPCcUINycgeZFR2Diot0X
+   yx5oebHHxKSkNVZNxckQVj4uU5nJhVnKyBFMRwKgeVKLRPY/Z/lyEyssn
+   ToZ1kSzvgwKD0+5Fjs4N5KBSOgvp3e9l2cKY5OZ+LFaXnCsKC2Ae5Imxm
+   wMDPiXGdHYFOPRISumZSaqvxEjb9+/B6pdcol8R/vo0+NG+kgq5NoaqqO
+   tzpMjy8DpVXRKG7R9pzk+4BxK4xHczo/kGXoGbIZXX1gv68IbjxW7745A
+   w==;
+X-CSE-ConnectionGUID: 3NM4YUFVSAyqf+fWQ/Y+pw==
+X-CSE-MsgGUID: +vM9qxLLRAOpibMTuwxfVw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11268"; a="44187797"
+X-IronPort-AV: E=Sophos;i="6.12,186,1728975600"; 
+   d="scan'208";a="44187797"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2024 07:22:16 -0800
+X-CSE-ConnectionGUID: QrTNqsCbTraNCx0G5LvIlQ==
+X-CSE-MsgGUID: 67t1Dgv4SeaAZjdYw1di1A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,186,1728975600"; 
+   d="scan'208";a="91757434"
+Received: from smile.fi.intel.com ([10.237.72.154])
+  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2024 07:22:13 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1tFxOD-00000001Jh2-3PzD;
+	Tue, 26 Nov 2024 17:22:09 +0200
+Date: Tue, 26 Nov 2024 17:22:09 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Alexandre Mergnat <amergnat@baylibre.com>
+Cc: Mark Brown <broonie@kernel.org>, Nicolas Belin <nbelin@baylibre.com>,
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v1 1/1] ASoc: mediatek: mt8365: Don't use "proxy" headers
+Message-ID: <Z0XnoQQlsDwFh58h@smile.fi.intel.com>
+References: <20241031102725.2447711-1-andriy.shevchenko@linux.intel.com>
+ <ZykbMlshvlwCaeGJ@smile.fi.intel.com>
+ <d7bf7863-fd24-4f8e-8cd0-d84867a997bb@sirena.org.uk>
+ <dad2ecb7-e624-49c2-a7d5-0ff53b6a1686@baylibre.com>
+ <Z0RkaqfID9v0age_@smile.fi.intel.com>
+ <ed50c130-076c-4697-9f11-fe602c7ca03d@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] [tip: sched/core] sched: Disable PLACE_LAG and
- RUN_TO_PARITY and move them to sysctl
-To: Cristian Prundeanu <cpru@amazon.com>
-Cc: kprateek.nayak@amd.com, abuehaze@amazon.com, alisaidi@amazon.com,
- benh@kernel.crashing.org, blakgeof@amazon.com, csabac@amazon.com,
- doebel@amazon.com, gautham.shenoy@amd.com, joseph.salisbury@oracle.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-tip-commits@vger.kernel.org, mingo@redhat.com, peterz@infradead.org,
- x86@kernel.org
-References: <20241017052000.99200-1-cpru@amazon.com>
- <20241125113535.88583-1-cpru@amazon.com>
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-Content-Language: en-US
-In-Reply-To: <20241125113535.88583-1-cpru@amazon.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ed50c130-076c-4697-9f11-fe602c7ca03d@baylibre.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_071222_127606_4E1E5558 
-X-CRM114-Status: GOOD (  29.06  )
+X-CRM114-CacheID: sfid-20241126_072217_517965_24BE249D 
+X-CRM114-Status: GOOD (  23.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,132 +98,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/11/2024 12:35, Cristian Prundeanu wrote:
-> Here are more results with recent 6.12 code, and also using SCHED_BATCH.
-> The control tests were run anew on Ubuntu 22.04 with the current pre-built
-> kernels 6.5 (baseline) and 6.8 (regression out of the box).
-> 
-> When updating mysql from 8.0.30 to 8.4.2, the regression grew even larger.
-> Disabling PLACE_LAG and RUN _TO_PARITY improved the results more than
-> using SCHED_BATCH.
-> 
-> Kernel   | default  | NO_PLACE_LAG and | SCHED_BATCH | mysql
->          | config   | NO_RUN_TO_PARITY |             | version
-> ---------+----------+------------------+-------------+---------
-> 6.8      | -15.3%   |                  |             | 8.0.30
-> 6.12-rc7 | -11.4%   | -9.2%            | -11.6%      | 8.0.30
->          |          |                  |             |
-> 6.8      | -18.1%   |                  |             | 8.4.2
-> 6.12-rc7 | -14.0%   | -10.2%           | -12.7%      | 8.4.2
-> ---------+----------+------------------+-------------+---------
-> 
-> Confidence intervals for all tests are smaller than +/- 0.5%.
-> 
-> I expect to have the repro package ready by the end of the week. Thank you
-> for your collective patience and efforts to confirm these results.
+On Tue, Nov 26, 2024 at 11:29:28AM +0100, Alexandre Mergnat wrote:
+> On 25/11/2024 12:50, Andy Shevchenko wrote:
+> > On Mon, Nov 25, 2024 at 12:32:13PM +0100, Alexandre Mergnat wrote:
 
-The results I got look different:
+...
 
-SUT kernel arm64 (mysql-8.4.0)
-
-(1) 6.5.13					    baseline	
-
-(2) 6.12.0-rc4 					    -12.9%
-	
-(3) 6.12.0-rc4 NO_PLACE_LAG			     +6.4%		
-
-(4) v6.12-rc4 SCHED_BATCH			    +10.8%
-
-5 test runs each: confidence level (95%) <= ±0.56%
-
-(2) is still in sync but (3)/(4) looks way better for me.
-
-Maybe a difference in our test setup can explain the different test results:
-
-I use:
-
-HammerDB Load Generator <-> MySQL SUT
-192 VCPUs               <-> 16 VCPUs
-
-Virtual users: 256
-Warehouse count: 64
-3 min rampup
-10 min test run time
-performance data: NOPM (New Operations Per Minute)
-
-So I have 256 'connection' tasks running on the 16 SUT VCPUS.
-
-> On 2024-11-01, Peter Zijlstra wrote:
+> > > Actually, after test it, "linux/of_gpio.h" isn't needed at all anymore.
+> > > 
+> > > That mean all added include in this patch aren't required.
+> > Do you mean the driver doesn't not use types from types.h or dev_*() macros
+> > from dev_printk.h? I don't believe this, sorry.
 > 
->>> (At the risk of stating the obvious, using SCHED_BATCH only to get back to 
->>> the default CFS performance is still only a workaround,
->>
->> It is not really -- it is impossible to schedule all the various
->> workloads without them telling us what they really like. The quest is to
->> find interfaces that make sense and are implementable. But fundamentally
->> tasks will have to start telling us what they need. We've long since ran
->> out of crystal balls.
+> > Basically what you are trying to say is "let's move of_gpio.h implicit
+> > includes to become something else's problem". It's not what this patch
+> > intended to do.
 > 
-> Completely agree that the best performance is obtained when the tasks are
-> individually tuned to the scheduler and explicitly set running parameters.
-> This isn't different from before.
-> 
-> But shouldn't our gold standard for default performance be CFS? There is a
-> significant regression out of the box when using EEVDF; how is seeking
-> additional tuning just to recover the lost performance not a workaround?
-> 
-> (Not to mention that this additional tuning means shifting the burden on
-> many users who may not be familiar enough with scheduler functionality.
-> We're essentially asking everyone to spend considerable effort to maintain
-> status quo from kernel 6.5.)
-> 
-> 
-> On 2024-11-14, Joseph Salisbury wrote:
-> 
->> This is a confirmation that we are also seeing a 9% performance
->> regression with the TPCC benchmark after v6.6-rc1.  We narrowed down the
->> regression was caused due to commit:
->> 86bfbb7ce4f6 ("sched/fair: Add lag based placement")
->>
->> This regression was reported via this thread:
->> https://lore.kernel.org/lkml/1c447727-92ed-416c-bca1-a7ca0974f0df@oracle.com/
->>
->> Phil Auld suggested to try turning off the PLACE_LAG sched feature. We
->> tested with NO_PLACE_LAG and can confirm it brought back 5% of the
->> performance loss.  We do not yet know what effect NO_PLACE_LAG will have
->> on other benchmarks, but it indeed helps TPCC.
-> 
-> Thank you for confirming the regression. I've been monitoring performance
-> on the v6.12-rcX tags since this thread started, and the results have been
-> largely constant.
-> 
-> I've also tested other benchmarks to verify whether (1) the regression
-> exists and (2) the patch proposed in this thread negatively affects them.
-> On postgresql and wordpress/nginx there is a regression which is improved
-> when applying the patch; on mongo and mariadb no regression manifested, and
-> the patch did not make their performance worse.
-> 
-> 
-> On 2024-11-19, Dietmar Eggemann wrote:
-> 
->> #cat /etc/systemd/system/mysql.service
->>
->> [Service]
->> CPUSchedulingPolicy=batch
->> ExecStart=/usr/local/mysql/bin/mysqld_safe
-> 
-> This is the approach I used as well to get the results above.
+> I'm just saying that I've test a build/boot with "linux/of_gpio.h" removed and without all
+> include added in you patch. My understand is "linux/of_gpio.h" act as proxy
+> for the includes added in your patch, my first idea was "if I remove it, build should fail cause
+> of lack of other includes". I can understand these missing includes are mandatory, that
+> probably means there is another proxy header ?
 
-OK.
+Exactly. The compilation can't be done without respective headers to be included,
+so one way or another they are somehow got included, meaning that other(s) header(s)
+are "proxying" them.
 
->> My hunch is that this is due to the 'connection' threads (1 per virtual
->> user) running in SCHED_BATCH. I yet have to confirm this by only
->> changing the 'connection' tasks to SCHED_BATCH.
-> 
-> Did you have a chance to run with this scenario?
+The idea is to have less of the dependency hell (you may find this term used
+many times in the relation to Linux Kernel project), so the (leaf)
+modules/drivers should follow the IWYU principle (Include What You Use). With
+that in place it's much better to clean up the headers in order to decrease
+the hellish dependency tree.
 
-Yeah, I did. The results where worse than running all mysqld threads in
-SCHED_BATCH but still better than the baseline.
+> Maybe my test isn't consistent because it isn't possible to clear all proxy ?
 
-(5) v6.12-rc4 'connection' tasks in SCHED_BATCH		+6.8%
+Theoretically it's possible and even practically, just requires a lot of time.
+(Or a lot of resources to make a flag day or so, but seems not many are interested
+ to take the job)
+
+> If that's the case, consider my review-by.
+
+Thank you!
+
+> I've validated some include manually. Are you using a script to parse the
+> file and raise all necessary "linux/*" include ?
+
+Nope, it comes just from my experience in the project, but I love to see
+such a tool to exist!
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
