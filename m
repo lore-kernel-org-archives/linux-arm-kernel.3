@@ -4,67 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE59D3B7CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:26:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99251D3B7C1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=reDKPWh2CN8hL1NFuDsRhwc8UbYVll02bUsocaAfO3M=; b=jbPqnq2/AejDvte6dNwi071NLO
-	h57D6as50WiTfc8k9GsiHQ4EHf7E0ymc/EHN9wtWZ8riAJKLx1cXkW64wintqPEVwgQ42mJ9CzhWc
-	cmVSLvFXsPadt9xCLDTqhHgN4cZAN7UreILcyr3ZQRVLrrfS/180AsKjpsECeZ/Dzn9bkEVu+CokL
-	BpWuer2EoTbUot8oZyN2gttAp3KPXUt0PunFAEBWIl2JFk0jHTi1S06iGRHmRivoUXUPvwhX2VbZn
-	7RCb011YsCbgwwp13TycNDJkSgfPAqRj4oK8inzJVnjA25qd6zANCy9kYyXd6/yWyycrdwMLWJdaO
-	duY35sUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qVPL0RdD4hnmz4XYDjVggcqfPiFjhTjUbOauD820jSM=; b=OtHCPYGYJPvv1PhepWlqNofP4c
+	lEpnAkBwE3jIsWvFYf8dmPee3ONAvSq9AxLVdSUBhkoNmbp+yI9ejr/XhZ/kPXiQ2FBQNEMgpwDAD
+	sTPPcBlrYSPvHGR2xNTaKQsu4OcgBEKTFBAT3jXNpFy7KVi9Cbf650V8CrhyWvEpjTd6IyDje3rOy
+	/GEa47E3ssEwb/1PT8Yxi8w/0M8z1qF9Sa8Fug1P6Q93rkIRdtRJQXCp7YlstvmUQRotI8M/nKkN2
+	t1Tt6lPHGpPACbcRfVVvVzQK8SnVpkkFzaO/IBHJ1JzeRlsn65cpbPG068cYE++iaIQUw5DrOvQZu
+	lDr746xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFrpk-0000000A8pK-3uGa;
-	Tue, 26 Nov 2024 09:26:12 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tFrqg-0000000A92q-2UjA;
+	Tue, 26 Nov 2024 09:27:10 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFrlx-0000000A7lG-1Xyd
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 09:22:19 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <s.kerkmann@pengutronix.de>)
-	id 1tFrlu-0005u9-Fk; Tue, 26 Nov 2024 10:22:14 +0100
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	id 1tFrnt-0000000A8GC-3800;
+	Tue, 26 Nov 2024 09:24:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=qVPL0RdD4hnmz4XYDjVggcqfPiFjhTjUbOauD820jSM=; b=zzT4dMuTJkpC3NnKY2hawXduOh
+	PbEAYhOg6UWAai71+bXosnUAQX6y1wUPJD6QRmHaqz866weG4pV6klHL8w7ALIQ/HBlrMKx7UhAhy
+	QPa4DCqlnTpChq6us+nNiYlPuJtn46kTGpzihoHcKAsXRQwXH+W278+thEykecLaAYtBJtnn+6hAZ
+	u74FUonF6dKYIIHMC4bSZYHatmGFDC2w30VH8lPuJHAq9LNKPHlBeJZBtfgwYM/lEshBf2EYKEudY
+	onFeRs7HfsXC+4n2tNKhOJ39JB4uzciZColpghXrw5eaLUPDxA3lt0KBokpBRX/lNXPhSI3ClukbC
+	KLmGMU3w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39506)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
-	(envelope-from <s.kerkmann@pengutronix.de>)
-	id 1tFrlt-000DzK-1c;
-	Tue, 26 Nov 2024 10:22:14 +0100
-Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
-	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <s.kerkmann@pengutronix.de>)
-	id 1tFrlt-00B5zE-1u;
-	Tue, 26 Nov 2024 10:22:14 +0100
-From: Stefan Kerkmann <s.kerkmann@pengutronix.de>
-Date: Tue, 26 Nov 2024 10:22:14 +0100
-Subject: [PATCH 2/3] ARM: dts: imx6sl: add phy-3p0-supply to usb phys
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tFrnX-0006RQ-2S;
+	Tue, 26 Nov 2024 09:23:56 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tFrnQ-0004Ra-2v;
+	Tue, 26 Nov 2024 09:23:48 +0000
+Date: Tue, 26 Nov 2024 09:23:48 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexander Couzens <lynxis@fe80.eu>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH RFC net-next 00/16] net: add negotiation of in-band
+ capabilities
+Message-ID: <Z0WTpE8wkpjMiv_J@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241126-v6-12-topic-imx-3p0-regulator-v1-2-c618ed111c75@pengutronix.de>
-References: <20241126-v6-12-topic-imx-3p0-regulator-v1-0-c618ed111c75@pengutronix.de>
-In-Reply-To: <20241126-v6-12-topic-imx-3p0-regulator-v1-0-c618ed111c75@pengutronix.de>
-To: Shawn Guo <shawnguo@kernel.org>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Stefan Kerkmann <s.kerkmann@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: s.kerkmann@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_012217_408028_DCCF18DB 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20241126_012418_875050_B6F9EF9A 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,57 +89,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The integrated usb phys are supplied by the 3p0 regulator, which has a
-voltage range of 2.625V to 3.4V. Thus the min and max values are
-corrected and the regulator added as a proper supply for the usb phys.
+Hi,
 
-This fixes the following warnings during the probe of the mxs_phy
-driver:
+Yes, this is one patch over the limit of 15 for netdev - but I think it's
+important to include the last patch to head off review comments like "why
+don't you remove phylink_phy_no_inband() in this series?"
 
-mxs_phy 20c9000.usbphy: supply phy-3p0 not found, using dummy regulator
-mxs_phy 20ca000.usbphy: supply phy-3p0 not found, using dummy regulator
+Phylink's handling of in-band has been deficient for a long time, and
+people keep hitting problems with it. Notably, situations with the way-
+to-late standardized 2500Base-X and whether that should or should not
+have in-band enabled. We have also been carrying a hack in the form of
+phylink_phy_no_inband() for a PHY that has been used on a SFP module,
+but has no in-band capabilities, not even for SGMII.
 
-The 3p0 regulator handling was introduced by commit 966d73152078 ("usb:
-phy: mxs: enable regulator phy-3p0 to improve signal qualilty")`.
+When phylink is trying to operate in in-band mode, this series will look
+at the capabilities of the MAC-side PCS and PHY, and work out whether
+in-band can or should be used, programming the PHY as appropriate. This
+includes in-band bypass mode at the PHY.
 
-Signed-off-by: Stefan Kerkmann <s.kerkmann@pengutronix.de>
----
- arch/arm/boot/dts/nxp/imx/imx6sl.dtsi | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+We don't... yet... support that on the MAC side PCS, because that
+requires yet more complexity.
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi b/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi
-index 941a2f185056d92f11e6d274d9633b0a3739c4b9..7381fb7f89126e29db05491e751a0d6e519f22f2 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sl.dtsi
-@@ -546,8 +546,8 @@ reg_vdd1p1: regulator-1p1 {
- 				reg_vdd3p0: regulator-3p0 {
- 					compatible = "fsl,anatop-regulator";
- 					regulator-name = "vdd3p0";
--					regulator-min-microvolt = <2800000>;
--					regulator-max-microvolt = <3150000>;
-+					regulator-min-microvolt = <2625000>;
-+					regulator-max-microvolt = <3400000>;
- 					regulator-always-on;
- 					anatop-reg-offset = <0x120>;
- 					anatop-vol-bit-shift = <8>;
-@@ -640,6 +640,7 @@ usbphy1: usbphy@20c9000 {
- 				reg = <0x020c9000 0x1000>;
- 				interrupts = <0 44 IRQ_TYPE_LEVEL_HIGH>;
- 				clocks = <&clks IMX6SL_CLK_USBPHY1>;
-+				phy-3p0-supply = <&reg_vdd3p0>;
- 				fsl,anatop = <&anatop>;
- 			};
- 
-@@ -648,6 +649,7 @@ usbphy2: usbphy@20ca000 {
- 				reg = <0x020ca000 0x1000>;
- 				interrupts = <0 45 IRQ_TYPE_LEVEL_HIGH>;
- 				clocks = <&clks IMX6SL_CLK_USBPHY2>;
-+				phy-3p0-supply = <&reg_vdd3p0>;
- 				fsl,anatop = <&anatop>;
- 			};
- 
+Patch 1 passes struct phylink and struct phylink_pcs into
+phylink_pcs_neg_mode() so we can look at more state in this function in
+a future patch.
+
+Patch 2 splits "cur_link_an_mode" (the MLO_AN_* mode) into two separate
+purposes - a requested and an active mode. The active mode is the one
+we will be using for the MAC, which becomes dependent on the result of
+in-band negotiation.
+
+Patch 3 adds debug to phylink_major_config() so we can see what is going
+on with the requested and active AN modes.
+
+Patch 4 adds to phylib a method to get the in-band capabilities of the
+PHY from phylib. Patches 5 and 6 add implementations for BCM84881 and
+some Marvell PHYs found on SFPs.
+
+Patch 7 adds to phylib a method to configure the PHY in-band signalling,
+and patch 8 implements it for those Marvell PHYs that support the method
+in patch 4.
+
+Patch 9 does the same as patch 4 but for the MAC-side PCS, with patches
+10 through 14 adding support to several PCS.
+
+Patch 15 adds the code to phylink_pcs_neg_mode() which looks at the
+capabilities, and works out whether to use in-band or out-band mode for
+driving the link between the MAC PCS and PHY.
+
+Patch 16 removes the phylink_phy_no_inband() hack now that we are
+publishing the in-band capabilities from the BCM84881 PHY driver.
+
+ drivers/net/ethernet/marvell/mvneta.c           |  27 +-
+ drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c |  25 +-
+ drivers/net/pcs/pcs-lynx.c                      |  22 ++
+ drivers/net/pcs/pcs-mtk-lynxi.c                 |  16 ++
+ drivers/net/pcs/pcs-xpcs.c                      |  28 ++
+ drivers/net/phy/bcm84881.c                      |  10 +
+ drivers/net/phy/marvell.c                       |  48 ++++
+ drivers/net/phy/phy.c                           |  52 ++++
+ drivers/net/phy/phylink.c                       | 352 +++++++++++++++++++-----
+ include/linux/phy.h                             |  34 +++
+ include/linux/phylink.h                         |  17 ++
+ 11 files changed, 539 insertions(+), 92 deletions(-)
 
 -- 
-2.39.5
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
