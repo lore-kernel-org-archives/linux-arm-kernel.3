@@ -4,166 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2632ED3B98B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A149D3B98B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BLEya6E7ELTfrUjipQUSn0lt0twW9YOZE0Q8PEW1SaA=; b=jCVxhWD8Kq+T5o61b6SlVAjlCm
-	OLwi7tPuNNaSpEdPaBg+i+t6/z2R71JLH25ITt4lcjKxMl6vwn7Z7PtRHbRmfgADZOiOzmvrfkWmE
-	qW9U5HdNUXYIBiv7t+R+ZoDiUdIxMK10A1KBMtRbpDpT34yTU9dofGPy3vqsqfFZSDakE9adZMXg6
-	Ie/QROTX1eSFVuxFKJ7QgWhROroFazy0VsvXZBXBjg22icHwsQKrnA6DUxncYjKTw20dEieQixwDq
-	GqHTLT4aqaY6tnNZQxxEzGaD1MLL249oWgj1FuiuaMWnK3k8C7g1IlqmC/juBh0v+JAQr6MWyteEy
-	lO5klJog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cPTLukRRkvaGSB00X3hsgqrDjbaD+cNjKIgDNOefcOk=; b=T2An4Fhf25LCiB2QXnri5/uo2j
+	E8AeQYCYa4CTMbuWcaIa0sYHaauiY65YxIlpN+zjIL9g48DfT38BziQbH4zidktoBlnnhCa0FCkwy
+	G3hf1xkEG85HnbK2v3ylkoQ342xs1huheBzF4K1vMxaYtQQ/G7/Djte0FuuR3DFqKSm66VKSmsLNS
+	cNOKUl7X3dFtE/R96I4X4mDZ9xJwCcJsXbrAthPXYrzGcWHO1vAYw2xg5lAezycyvU9//yRlticYt
+	jYyiM6WJeIXZNTXELLqEljIvjPNIg0qh5KOtrfTPOzev0sw438PI/1N7Wj/kh2H/5PLrYdcey+/TY
+	fFQ9gKSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFup0-0000000AaFU-2rJj;
-	Tue, 26 Nov 2024 12:37:38 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1tFutu-0000000Aanx-2lix;
+	Tue, 26 Nov 2024 12:42:42 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFuo2-0000000Aa8Z-0P8S
+	id 1tFusv-0000000Aadd-1kMm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 12:36:39 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 782FD1F745;
-	Tue, 26 Nov 2024 12:36:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1732624590; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=BLEya6E7ELTfrUjipQUSn0lt0twW9YOZE0Q8PEW1SaA=;
-	b=boLqMRJramn1CbtheRx/PGZ4+1U8P3ymVkqWk67uVmWQWCdUuGMaVhHBxXv0h6ADF7RF2f
-	+ZsB4wLi/zpIHc2/xblO+YQgef6HPAaGqdCVeAWEaK4orFiPmS1Xiplxj0RZTNB6B3kzgg
-	Ek6ZcwMJUQCDXYUOZdxbHi6lzmIYDEA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1732624590;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=BLEya6E7ELTfrUjipQUSn0lt0twW9YOZE0Q8PEW1SaA=;
-	b=e4ozsGO8mMsBC5/830LFdI/VFGFhoUvUNeUayLlZI9nMqNJabMhNpO/g4DotpOyncszB0i
-	U6w6o0QdSOEK/CBA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1732624590; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=BLEya6E7ELTfrUjipQUSn0lt0twW9YOZE0Q8PEW1SaA=;
-	b=boLqMRJramn1CbtheRx/PGZ4+1U8P3ymVkqWk67uVmWQWCdUuGMaVhHBxXv0h6ADF7RF2f
-	+ZsB4wLi/zpIHc2/xblO+YQgef6HPAaGqdCVeAWEaK4orFiPmS1Xiplxj0RZTNB6B3kzgg
-	Ek6ZcwMJUQCDXYUOZdxbHi6lzmIYDEA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1732624590;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=BLEya6E7ELTfrUjipQUSn0lt0twW9YOZE0Q8PEW1SaA=;
-	b=e4ozsGO8mMsBC5/830LFdI/VFGFhoUvUNeUayLlZI9nMqNJabMhNpO/g4DotpOyncszB0i
-	U6w6o0QdSOEK/CBA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 669D2139AA;
-	Tue, 26 Nov 2024 12:36:30 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id cyuyGM7ARWeWUQAAD6G6ig
-	(envelope-from <vbabka@suse.cz>); Tue, 26 Nov 2024 12:36:30 +0000
-Message-ID: <9675f4f0-6290-43aa-bf17-6b9c2b461485@suse.cz>
-Date: Tue, 26 Nov 2024 13:36:30 +0100
+	Tue, 26 Nov 2024 12:41:43 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-6ef0c64d75cso21673597b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 04:41:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1732624898; x=1733229698; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=cPTLukRRkvaGSB00X3hsgqrDjbaD+cNjKIgDNOefcOk=;
+        b=f4NJIYVxel6rurv8yP5CnLDeoSSBlE9F2FO8JooQJXOeofa1ZHJFDWcwgGmYQh/O5d
+         EXhsc4SYvgjMFl9cYykR3i8rR9sa/Q2TP13KmGPciQQ7UZeXmXHV/1BGRZHlnOfvVmDX
+         lzzSK4RkclVD3YSURwwtTYuQ47uzf7+75YC04oWWBnnWgN+ZSs8TYmWyXryblGEEGGRT
+         Tw3VevTWMm/CnedMVukLLAtCtKOWs/iPw9fcM2bpaEFLFpvoeKpHT/b/x7VfCOgNjzfK
+         5SHmaI/S9rnqLmyIUqJ68OsYn7kGDsiYQgf+4sah5+re61IVsaFw8VTUBMk93hdChHfV
+         Lv5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732624898; x=1733229698;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cPTLukRRkvaGSB00X3hsgqrDjbaD+cNjKIgDNOefcOk=;
+        b=VPRq50XJOxVP8KCkyOd5PpIp9jYwAXCZTC3+s3jPRnzBIIzTavdClExWW05sSX+K3J
+         XcUTS+8Q5xnKkTE1iCiYZtgeb0QfQ9EgB1kb0IJ+EKKWizR4Kw0vOZ7a38K6GJNIK8pW
+         mUGZ++8o2V51nKxWHz53xycmQlfNLRjb3IrRuOaE6j1AP++89kl0kI+J22TDD66Fnc4s
+         e0Usfo9A/tLQsGkVvcvtZ32hOaD9F5SuJ3Hl0FyAYTNrhW2kYVqpV+cIYZE+x4Ee8oJ2
+         MmVtT7zb3tkadoWN7iYYniFPcJmZjSq9FhdjBf3RWpUgUVoRjOiXCFyicBO39LpeFLRa
+         1Wzg==
+X-Forwarded-Encrypted: i=1; AJvYcCUHUpE5zN3AReeobFhe1HLeIenmEOlfwdsFTAp9rOpTM4xEptE8v2rHCtwhZwPs5qhD95jUg2uuIlydaFj4VV/w@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeKVAz5CKP5L2hevruMQ02airD1URFpYBh/Ii72VfRhKM454qz
+	1XqOfYSlYAv2p6N5woSd072LkjD+4uLriL3VrjBORnCTqapfgWU3OET7anKMrPqjiWqLeQJznpU
+	Kd5HNJPOfNbIs7DKteuz2hfgJooMeCCZtwSQMHw==
+X-Gm-Gg: ASbGncs9tFh1l77NES042st3sHmWpXSIJMo60yTg0+4b3LxBkWySPd6XYkxOHUc/Lc5
+	cLdcHkgnm9+Qhy1iXbdepLntvr6sbPQGtqStlCcE7uw59ur5yygHj38cfw+BnwOo=
+X-Google-Smtp-Source: AGHT+IF6l4+hBDV+putwVYiDk0qugPERHe+upMe++6V3UcZ5/+gbIZmfJ4RQdC8Lpth0bOqnEm38/6mER962cgmW0UQ=
+X-Received: by 2002:a05:690c:2504:b0:6ea:8d6f:b1bf with SMTP id
+ 00721157ae682-6eee0779a6dmr182254577b3.0.1732624898603; Tue, 26 Nov 2024
+ 04:41:38 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] mm/slab: Avoid build bug for calls to kmalloc with a
- large constant
-Content-Language: en-US
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Dave Kleikamp <dave.kleikamp@oracle.com>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20241014105514.3206191-1-ryan.roberts@arm.com>
- <20241014105912.3207374-1-ryan.roberts@arm.com>
- <20241014105912.3207374-6-ryan.roberts@arm.com>
- <44312f4a-8b9c-49ce-9277-5873a94ca1bb@oracle.com>
- <cb9cabed-0038-42b3-b9fc-c9ba62b12781@suse.cz>
- <7fb6c5a2-b9ae-4a29-a871-2f0bdc636e41@arm.com>
-From: Vlastimil Babka <vbabka@suse.cz>
-Autocrypt: addr=vbabka@suse.cz; keydata=
- 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
- EP+ylKVEKb0Q2A==
-In-Reply-To: <7fb6c5a2-b9ae-4a29-a871-2f0bdc636e41@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-4.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[6];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[oracle.com:email,imap1.dmz-prg2.suse.org:helo]
+References: <20241124124919.3338752-1-sashal@kernel.org> <20241124124919.3338752-21-sashal@kernel.org>
+In-Reply-To: <20241124124919.3338752-21-sashal@kernel.org>
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Date: Tue, 26 Nov 2024 13:41:27 +0100
+Message-ID: <CACMJSevZVPcHaEfromwLu1mM5kXE4sVz6f92u5HKLpM65ypbeQ@mail.gmail.com>
+Subject: Re: [PATCH AUTOSEL 6.12 21/23] USB: gadget: pxa27x_udc: Avoid using GPIOF_ACTIVE_LOW
+To: Sasha Levin <sashal@kernel.org>
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Linus Walleij <linus.walleij@linaro.org>, daniel@zonque.org, 
+	haojian.zhuang@gmail.com, robert.jarzmik@free.fr, 
+	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_043638_282159_FA0AAB44 
-X-CRM114-Status: GOOD (  29.99  )
+X-CRM114-CacheID: sfid-20241126_044141_454483_861302E0 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,92 +94,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/26/24 13:18, Ryan Roberts wrote:
-> On 14/11/2024 10:09, Vlastimil Babka wrote:
->> On 11/1/24 21:16, Dave Kleikamp wrote:
->>> When boot-time page size is enabled, the test against KMALLOC_MAX_CACHE_SIZE
->>> is no longer optimized out with a constant size, so a build bug may
->>> occur on a path that won't be reached.
->> 
->> That's rather unfortunate, the __builtin_constant_p(size) part of
->> kmalloc_noprof() really expects things to resolve at compile time and it
->> would be better to keep it that way.
->> 
->> I think it would be better if we based KMALLOC_MAX_CACHE_SIZE itself on
->> PAGE_SHIFT_MAX and kept it constant, instead of introducing
->> KMALLOC_SHIFT_HIGH_MAX only for some sanity checks.
->> 
->> So if the kernel was built to support 4k to 64k, but booted as 4k, it would
->> still create and use kmalloc caches up to 128k. SLUB should handle that fine
->> (if not, please report it :)
-> 
-> So when PAGE_SIZE_MAX=64K and PAGE_SIZE=4K, kmalloc will support up to 128K
-> whereas before it only supported up to 8K. I was trying to avoid that since I
-> assumed that would be costly in terms of extra memory allocated for those higher
-> order buckets that will never be used. But I have no idea how SLUB works in
-> practice. Perhaps memory for the cache is only lazily allocated so we won't see
-> an issue in practice?
+On Sun, 24 Nov 2024 at 13:50, Sasha Levin <sashal@kernel.org> wrote:
+>
+> From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+>
+> [ Upstream commit 62d2a940f29e6aa5a1d844a90820ca6240a99b34 ]
+>
+> Avoid using GPIOF_ACTIVE_LOW as it's deprecated and subject to remove.
+>
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+> Link: https://lore.kernel.org/r/20241104093609.156059-6-andriy.shevchenko@linux.intel.com
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
+> ---
 
-Yes the e.g. 128k slabs themselves will be lazily allocated. There will be
-some overhead with the management structures (struct kmem_cache etc) but
-much smaller.
-To be completely honest, some extra overhead might come to be when the slabs
-are allocated ans later the user frees those allocations. kmalloc_large()
-wwould return them immediately, while a regular kmem_cache will keep one or
-more per cpu for reuse. But if that becomes a visible problem we can tune
-those caches to discard slabs more aggressively.
+All these GPIOF_ACTIVE_LOW patches are not fixes and should be dropped
+from stable branches.
 
-> I'm happy to make this change if you're certain it's the right approach; please
-> confirm.
-
-Yes it's much better option than breaking the build-time-constant part of
-kmalloc_noprof().
-
->> 
->> Maybe we could also stop adding + 1 to PAGE_SHIFT_MAX if it's >=64k, so the
->> cache size is max 64k and not 128k but that should be probably evaluated
->> separately from this series.
-> 
-> I'm inferring from this that perhaps there is a memory cost with having the
-> higher orders defined but unused.
-
-Yeah as per above, should not be too large and we could tune it down if
-necessary.
-
-> Thanks,
-> Ryan
-> 
->> 
->> Vlastimil
->> 
->>> Found compiling drivers/net/ethernet/qlogic/qed/qed_sriov.c
->>>
->>> Signed-off-by: Dave Kleikamp <dave.kleikamp@oracle.com>
->>> ---
->>>
->>> Ryan,
->>>
->>> Please consider incorporating this fix or something similar into your
->>> mm patch in the boot-time pages size patches.
->>>
->>>   include/linux/slab.h | 3 ++-
->>>   1 file changed, 2 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/include/linux/slab.h b/include/linux/slab.h
->>> index 9848296ca6ba..a4c7507ab8ec 100644
->>> --- a/include/linux/slab.h
->>> +++ b/include/linux/slab.h
->>> @@ -685,7 +685,8 @@ static __always_inline unsigned int __kmalloc_index(size_t size,
->>>   	if (size <= 1024 * 1024) return 20;
->>>   	if (size <=  2 * 1024 * 1024) return 21;
->>>   
->>> -	if (!IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES) && size_is_constant)
->>> +	if (!IS_ENABLED(CONFIG_ARM64_BOOT_TIME_PAGE_SIZE) &&
->>> +	    !IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES) && size_is_constant)
->>>   		BUILD_BUG_ON_MSG(1, "unexpected size in kmalloc_index()");
->>>   	else
->>>   		BUG();
->> 
-> 
-
+Thanks,
+Bartosz
 
