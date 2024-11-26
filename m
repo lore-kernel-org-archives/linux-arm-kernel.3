@@ -4,50 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A67FD65523
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 16:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C68D65527
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 16:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rLdELZzjCpqGfoTTJ+QVmniTI6d55qEof7m9NE5g7ac=; b=OMN1luJ4bORlCJtCeIUzTlk/NQ
-	q5FjN944AqpMBKfbUk4ay40iqjd69zDvPf90C+ANSnQ1wAIFuCIDEjnUf9OdTg/io3sca+n+pqhoI
-	1ruikkywodB6eZKYTwsDkr2RtypDxLdIR6E5Cd0Bif/xm/8ZifmnS0bVZr25zyjllLH6oLWcRSilj
-	teh6cBwiD/1XTY8D2trMrKUOfhUEweSwr8uzZ9c3ug7ujzTc6MV0EXdY08779YduCb+dBf6w+ExpX
-	G+EA/JtM9ftWkoMXkiaGp94Skf2KFB/H0/5QmQRXlAw8v0k4+U8Xwe7XO9PuCxPaGPVHtgm9unV+9
-	3mPpFJjQ==;
+	bh=SzEvCuYzq6nHjIopg144ZTJlITtvJlpA+aaAZ8oGAg4=; b=Urc/IKy++xALHGYITV6SvhYyiH
+	drgBRUjTYj3unzVsEEnm3TMrDSheLy84C4Vot+OP/mcais6CssUw9zLZ0ZEoc7pXOnej+HlivB2sF
+	LlPzA0CTsiJd9fOVz/+EYn9kkHe9SC4LCWN2q6y73ZL5bzFSODq7iBVQHnEEkbtxNWEe0QLLOBUrF
+	A5K+rZkaeO5jjgx9BRXRXTYXx0z0chOOzoIl/RcnokxC924rMTd8eONb83jiuI8L8JSe0LVra86oR
+	Mvk05i5KSFt5vCLLExp2L4EfS0lLbBzmbf/y7zHfhleFRPAyUnG8DumeN/7ZlazKpxqD4CzUO0J9S
+	h6pUUM2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFyk2-0000000BDNM-2Lls;
-	Tue, 26 Nov 2024 16:48:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tFyoZ-0000000BDsg-1swI;
+	Tue, 26 Nov 2024 16:53:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFyig-0000000BDCc-2Fv7
+	id 1tFynb-0000000BDlf-0pCm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 16:47:23 +0000
+	Tue, 26 Nov 2024 16:52:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A06E15C59AE;
-	Tue, 26 Nov 2024 16:46:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1BFBC4CECF;
-	Tue, 26 Nov 2024 16:47:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2DEB75C5BB4;
+	Tue, 26 Nov 2024 16:51:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84527C4CECF;
+	Tue, 26 Nov 2024 16:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732639641;
-	bh=MNOD87NOWbm/SqfPSBL3Z+IhOxo92gJXe561HicBSy4=;
+	s=k20201202; t=1732639946;
+	bh=SzEvCuYzq6nHjIopg144ZTJlITtvJlpA+aaAZ8oGAg4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Kdcn03daJ7RCxNmOOtuFw8E6dgJo/7pNbWEKNyS3dXW7zGCpyGN2Lt811gHWYQ7tI
-	 av2+tDuPugQPTDE0VqBAOnlyv/5qyEunPojX4DU2dY5HrRDC1b5F6cZzwkdLlkA8D5
-	 ruwCVcaPwAEY/mpobls/gaot3MAMCpByoJ5pVOukCohAJB2caOsV494PPimpQTYjbt
-	 +cNxaxxcfADQqHjDUb2WjPcwvG4ZXTJGxEPNI8iXHZZgnLSOkim3rA+Y51wdsBeXtM
-	 ZFz6npXr1+tl143Pqryzp+jXJCea61g8opF/lRV+f8mWL/xkRHU3wglpA3BSZ1zyW3
-	 Nxx+aHCAta5bw==
-Message-ID: <bcd5e48d-bb2d-4d49-88b4-e66839559dc9@kernel.org>
-Date: Tue, 26 Nov 2024 17:47:13 +0100
+	b=nfT1tt38tUJAV01LOaL7cvaZsRm2m/DZXcBfZLIE21aRzyzgWcO0zNN11sa27+k1e
+	 K36G1B5GbqOXY1RMRgvE8SX9vaVqzf5RBPUFHw7LIHpGQ+G9If7X4rRuHeeN280f0a
+	 f4Yt5FaipfwHAljDV/XnwctYMO5CtFRaYfiFEg76RS/XP4fTyKoHYMVWqRQUeeU0K7
+	 nK6kMW+Yn0ck4DpZRdq9AtY382uLKaQ0BpVvNsDHZK+dyCBKCmo5FIC2pNmgjbOMS8
+	 AM4E72kjb582jyhstKm+40TMJ2ZNGSsFLPs/Y3CJakd8EEvU96yPtYwKedshhorkvE
+	 yh+Am98mm+U6g==
+Message-ID: <d966732c-94d1-478c-94d3-6565285192eb@kernel.org>
+Date: Tue, 26 Nov 2024 17:52:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] arm64: dts: apple: Add touchbar screen nodes
-To: fnkl.kernel@gmail.com, Hector Martin <marcan@marcan.st>,
+Subject: Re: [PATCH 3/5] gpu: drm: adp: Add a backlight driver for the Summit
+ LCD
+To: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Cc: Nick Chan <towinchenmi@gmail.com>, Hector Martin <marcan@marcan.st>,
  Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
@@ -55,12 +57,15 @@ To: fnkl.kernel@gmail.com, Hector Martin <marcan@marcan.st>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
  Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Janne Grunau <j@jannau.net>
-References: <20241126-adpdrm-v2-0-c90485336c09@gmail.com>
- <20241126-adpdrm-v2-4-c90485336c09@gmail.com>
+ Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com>
+ <20241124-adpdrm-v1-3-3191d8e6e49a@gmail.com>
+ <f2181c71-db23-4d94-9afb-cb8f2fc46bea@kernel.org>
+ <3a6fb7fd-eb3d-428b-a37c-f04d81e7fbd0@gmail.com>
+ <e647e8c7-6df9-44f5-abcc-34db74b8e266@kernel.org>
+ <CAMT+MTSetzODw-cbteQOgEYmEgpiFBVP5eDgjvyHGqofCU=VXg@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +111,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241126-adpdrm-v2-4-c90485336c09@gmail.com>
+In-Reply-To: <CAMT+MTSetzODw-cbteQOgEYmEgpiFBVP5eDgjvyHGqofCU=VXg@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_084722_666283_D5AC9838 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20241126_085227_334286_B77F9F61 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,25 +131,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/11/2024 17:34, Sasha Finkelstein via B4 Relay wrote:
->  /*
->   * Force the bus number assignments so that we can declare some of the
->   * on-board devices and properties that are populated by the bootloader
-> diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-> index 1666e6ab250bc0be9b8318e3c8fc903ccd3f3760..b8d2d22ab81adfb7642ea362c6a6af4c04a9bf9d 100644
-> --- a/arch/arm64/boot/dts/apple/t8112.dtsi
-> +++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-> @@ -379,6 +379,68 @@ cpufreq_p: cpufreq@211e20000 {
->  			#performance-domain-cells = <0>;
->  		};
->  
-> +		display_dfr: display-pipe@228200000 {
-> +			compatible = "apple,t8112-display-pipe", "apple,h7-display-pipe";
-> +			reg-names = "be", "fe";
-> +			reg = <0x2 0x28200000 0x0 0xc000>,
-> +				<0x2 0x28400000 0x0 0x4000>;
-Please follow DTS coding style in respect of order of properties and
-indentation/alignment.
+On 26/11/2024 17:34, Sasha Finkelstein wrote:
+> On Mon, 25 Nov 2024 at 16:07, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> BTW, max-brightness is a property of backlight, not panel, I think.
+> This is an oled panel, so no separate backlight device, the mipi commands
+> just change the pixel brightness. There is prior art in other bindings on having
+> the max-brightness property attached to the panel itself.
+
+Where? git grep gave me only one result for bindings - old Samsung panel
+from 15 years ago. If you refer to this one, then use it as example for
+the bindings with similar explanation as the commit introducing brightness?
 
 Best regards,
 Krzysztof
