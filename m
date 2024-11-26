@@ -4,86 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C01FCD3B98A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 533F9D3B98A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 12:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6dtE9rj6gMSXXf39reUm950KsYI1mL6ukDFs2aqzXTA=; b=p6YXtxkOreC4M+CsuCvm1jVEtL
-	EZz3EV9M9KZSD7X1+5A0HDueobs2b7ga8Ioe0GK9tq7SpEQSnB/dnQUCMD5dtozrSrl4PrPEiyzLh
-	aJVHa/fW1mgB68nrhjj89vxF/+JRJOh6U2HD9TZT39xEP4k9PKAyszAJfDNTeymAOvyw6141i+C7c
-	6HZCmpV7Ta+CjEVUyndB3RKKjHYxfgtz/PhewsoLeYw0vKgi0J21a5vMwT5NCWMokQNsV7HlO1PX/
-	7yHoP/W3Myx0O/nji0b4In1XkYtPgnz6q5WSbkHw+ORAQ+e9cEHpvVNaZ7/AIxPko4Z4rKTM2NR27
-	7qJMuYAQ==;
+	bh=q07BelN39jfTdkjRf9iQ8mWemfDUd6mii4YoU1vwQT0=; b=Fc7U/YpXF6ZUSkyi0rbqLnCoXk
+	4ZLCY17tZZVlth5J+j7p/rNdA4fmHbLg6p/jCKlaV2V+TScOI6rUskE1bSEk6xzmLojZm5HZZ2J8k
+	WygrM0YCyxUSQcG5n+pdNHrX2Av0tLuQE7+b/AaxsC6yfO7FJf2/BdRArhTn+3kQQJOT03F0mV5aI
+	3gevAoc7d1HRTdmKJFh5erXfG4s/1gdO6tv2wumfVEA+en/ABbcLWs6h+OKfS3B46Gnu8QazVSZGv
+	JOKMyIaT/ao85Q9WBDCx1Z56BHbkoa7p61kIEPVYZtq7UQ/UKbs88M7B5OMCg7umZFrph+qwkLOq5
+	tR/nRX2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFudB-0000000AZLE-46kQ;
-	Tue, 26 Nov 2024 12:25:25 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1tFulb-0000000AZrR-0mSp;
+	Tue, 26 Nov 2024 12:34:07 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFucD-0000000AZFk-1kJV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 12:24:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732623866; x=1764159866;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=ZTHfXgFGRlIILfuHL+qBGlAm9C8PxmMo8Z9AFzfvBdw=;
-  b=F0HBOkzQkJSrDhO90D6d/gRwwf7ECoSPe3GjMYzjI/df5Tabsxu06+31
-   cVRrJuptMz3XuoqwcZcgUCLwaY6TeXxd6/1VbQmNo8kewv97+6mOJCLPp
-   BOxWD+e6bd1oPX5DX6raQPHJqmc3DnhfJyURd56+1M2wJd4Eg1Td82g9y
-   oFyonlx8+ZR+rTDNSeCHjtJMtJ5gRacl2IIlSk82KRBYzc68gxHsHI9nG
-   4GeXbs8GCDY3j2EoQXIUwIfOdcPB3yNfaXuHjoBNNqJpXrmMJJodxqUXE
-   agqHvUGbSbOHGYx3NBI+sinbOi2BwKZ8MHW0gUIMDB4fIa5FCizSWG2gN
-   Q==;
-X-CSE-ConnectionGUID: uv/Z/3tTT9GKPYbK+pqvxw==
-X-CSE-MsgGUID: lbj5y/YfS2adnRMIvi2BkQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11268"; a="55278920"
-X-IronPort-AV: E=Sophos;i="6.12,185,1728975600"; 
-   d="scan'208";a="55278920"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2024 04:24:22 -0800
-X-CSE-ConnectionGUID: p7mmBzIqQaSRBB7X5+uHcw==
-X-CSE-MsgGUID: wzxtY/mSSE24Fp3vXFkb0A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="96661073"
-Received: from mjarzebo-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.246.49])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2024 04:24:15 -0800
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Sean Nyekjaer <sean@geanix.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
- <simona@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Yannick
- Fertre <yannick.fertre@foss.st.com>, Raphael Gallais-Pou
- <raphael.gallais-pou@foss.st.com>, Philippe Cornu
- <philippe.cornu@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
- helper function
-In-Reply-To: <20241126-spry-wildebeest-of-cubism-da0a9e@houat>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
- <20241125-dsi-relax-v2-1-9113419f4a40@geanix.com>
- <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
- <874j3uxptp.fsf@intel.com>
- <20241126-spry-wildebeest-of-cubism-da0a9e@houat>
-Date: Tue, 26 Nov 2024 14:24:12 +0200
-Message-ID: <871pyyxjwz.fsf@intel.com>
+	id 1tFukd-0000000AZln-2IEU;
+	Tue, 26 Nov 2024 12:33:08 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 61CA9526;
+	Tue, 26 Nov 2024 13:32:40 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1732624360;
+	bh=VWBwwYDrYSPqco3vJKAcKsxo+QDzyL/dDLDUdf+f59o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mqZlj+0x+eUa8ByKbmVQCDIxlTbP+UHFyUjw2qVJuX12+08oPOiteslOV0U1j8xQL
+	 i9YdcHZsLSDWKzB2X7eXGp6bbhmPsKoE1ZEj8IApu9lfu0ZfPVrzFlok7Pf4tsrpo9
+	 lu6jXE3SmZzaDHLN4bggX/xoJJt5FaJyr09J0cYU=
+Date: Tue, 26 Nov 2024 14:32:53 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: Rob Herring <robh@kernel.org>, Thierry Reding <treding@nvidia.com>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <quic_jesszhan@quicinc.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Alexey Brodkin <abrodkin@synopsys.com>,
+	dri-devel@lists.freedesktop.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 0/3] gpu: drm: replace of_graph_get_next_endpoint()
+Message-ID: <20241126123253.GF5461@pendragon.ideasonboard.com>
+References: <87o722sg6y.wl-kuninori.morimoto.gx@renesas.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <87o722sg6y.wl-kuninori.morimoto.gx@renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_042425_485303_3D52B00E 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20241126_043307_714323_ADADEDDF 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,40 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 26 Nov 2024, Maxime Ripard <mripard@kernel.org> wrote:
-> On Tue, Nov 26, 2024 at 12:16:34PM +0200, Jani Nikula wrote:
->> On Mon, 25 Nov 2024, Maxime Ripard <mripard@kernel.org> wrote:
->> > I wonder about the naming though (and prototype). I doesn't really
->> > validates a mode, but rather makes sure that a given rate is a good
->> > approximation of a pixel clock. So maybe something like
->> > drm_mode_check_pixel_clock?
->> 
->> Quoting myself from a few weeks back:
->> 
->> """
->> Random programming thought of the day: "check" is generally a terrible
->> word in a function name.
->> 
->> Checking stuff is great, but what do you expect to happen if the check
->> passes/fails? Do you expect the function to return on fail, or throw an
->> exception? Or just log about it? If you return a value, what should the
->> return value mean? It's hard to know without looking it up.
->> 
->> Prefer predicates instead, is_stuff_okay() is better than
->> check_stuff(). Or assert_stuff() if you don't return on failures.
->> """
->
-> Both is_stuff_okay() or assert_stuff() return a boolean in my mind. If
-> you want to return a mode status enum, I don't think they are better
-> names.
+Hi Morimoto-san,
 
-Most functions returning enum drm_mode_status are called
-something_something_mode_valid(). Not check something.
+On Tue, Nov 26, 2024 at 05:43:34AM +0000, Kuninori Morimoto wrote:
+> 
+> Hi Maarten, Maxime, Thomas
+> Cc Laurent
+> 
+> The patch has been created as 1 patch for "drivers/gpu/drm", but this time
+> I have finely disassembled the patch into 3 patches.
 
-BR,
-Jani.
+Thomas has merged v6 in drm-misc in commit 17558f97fe62fbe14757880a0aa998bfd194ea95
 
+> v6 -> v7
+> 	- created as 3 patches
+> 
+> Kuninori Morimoto (3):
+>   gpu: drm: drm_of: replace of_graph_get_next_endpoint()
+>   gpu: drm: panel: replace of_graph_get_next_endpoint()
+>   gpu: drm: tiny: replace of_graph_get_next_endpoint()
+> 
+>  drivers/gpu/drm/drm_of.c                              | 4 +++-
+>  drivers/gpu/drm/panel/panel-raspberrypi-touchscreen.c | 2 +-
+>  drivers/gpu/drm/tiny/arcpgu.c                         | 2 +-
+>  3 files changed, 5 insertions(+), 3 deletions(-)
+> 
 
 -- 
-Jani Nikula, Intel
+Regards,
+
+Laurent Pinchart
 
