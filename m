@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A07D3B9A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 15:43:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0D0DD3B9A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 15:44:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h9V5pLmdM13IHLHW7OGnEjCTF5lVJXXAc6EX0Yk61pk=; b=hCYPYTA+UOHj2zlKxhBr0bdmKk
-	ImpS6SvwRzViTpnESg9AbN+rnEp+e5mVew4HEP28sBQ5Q/SFdoccYQo2eEFXoGdSuf/OMeK615pry
-	Tn9TI5GZXqHUeKjiq+gd3YcqgI5UfpLCcnwVgFHvZYfASBYT1CUks7XWPVcdDI2pxetCD9N4h7G/d
-	poLqNJX6HSoKEjpIXrgJ+znhvntq6IphcIdClk9tvJ68/VnvEUukXs25IxwiTU4h+efrXm8lWFbs9
-	QVM1aXlqtKtrp+xOO98s9OvvTRpVeXiB/yTSWKONe76MQ1aIupjVTaagPxWZcI5Sv2ppV3eDGuYv4
-	AHUsawJQ==;
+	bh=XXwb9Wr0Su9+Y87AEoos6zK3eLNLue2M3gBuqsgW1So=; b=v/QOroBsMkuJHxKiAkAjphu6hI
+	sWYTvKp6YFCejut9y1epPj9p9dwSDbfBASqWe+lP4sDqXQ7MG/JZYg/w+ixonLs5EEAS95JVBe4QH
+	e9u8U8fL7aPflG6OiEinqB1ZtlicYowS1hV0i5pgxw+v0Gp+0n5V3dTLoGWx9BHxRxMy7aZYF4SD7
+	Gx0QwKhxWT/fTLijrWv0uX7hmOFPT3Nrw8O35YgbmWe2W2660DfxLNSzMlFZFeWfy5WkaiCXO5XzW
+	qDwqk+xsdJQZHWWtHUnxK6a4YfshGg0V9LN4GnEPgM3ZXA2vuuU4zYdOb4xEmWEgDaw3G6qNNtzOs
+	Ax2/KWUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFxiO-0000000B2cf-2ML9;
-	Tue, 26 Nov 2024 15:43:00 +0000
+	id 1tFxjK-0000000B2iX-0lRg;
+	Tue, 26 Nov 2024 15:43:58 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFxfe-0000000B285-27FH
+	id 1tFxff-0000000B28Y-1E5y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 15:40:11 +0000
+	Tue, 26 Nov 2024 15:40:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BAFFF153B;
-	Tue, 26 Nov 2024 07:40:38 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 817261A00;
+	Tue, 26 Nov 2024 07:40:40 -0800 (PST)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1AFA53F5A1;
-	Tue, 26 Nov 2024 07:40:07 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D5C003F5A1;
+	Tue, 26 Nov 2024 07:40:09 -0800 (PST)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: broonie@kernel.org,
 	mark.rutland@arm.com
-Subject: [BOOT-WRAPPER PATCH 2/3] aarch64: Enable use of FPMR for EL2 and below
-Date: Tue, 26 Nov 2024 15:39:54 +0000
-Message-Id: <20241126153955.477569-3-mark.rutland@arm.com>
+Subject: [BOOT-WRAPPER PATCH 3/3] aarch64: Enable use of GCS for EL2 and below
+Date: Tue, 26 Nov 2024 15:39:55 +0000
+Message-Id: <20241126153955.477569-4-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20241126153955.477569-1-mark.rutland@arm.com>
 References: <20241126153955.477569-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_074010_582751_5296503E 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20241126_074011_384694_B4FFF88F 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,70 +62,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_FPMR adds the FPMR register. Acceses to FPMR (whether direct or
-indirect) trap to EL3 unless SCR_EL3.EnFPM is set, and so boot-wrapper
-support is necessary.
+FEAT_GCS adds a number of new system registers and instructions. Usage
+of some of these can trap to EL3 unless SCR_EL3.GCSEn is set, and so
+boot-wrapper support is necessary.
 
-Support for FEAT_FPMR was added to Linux in v6.8 without any
-boot-wrapper support. Consequently when FPMR is enabled in a model, the
-kernel will hang when attempting to write to the FPMR (e.g. when
-entering userspace for the first time).
+Support for FEAT_GCS was added to Linux in the v6.13-rc1 merge window
+without any boot-wrapper support. Consequently when GCS is enabled in a
+model, the kernel will hang when attempting to write to GCS control
+registers, which happens early in boot when the kernel configures EL2,
+before any console output is produced.
 
-Add boot-wrapper support for FEAT_FPMR. As FPMR is not described in the
-latest ARM ARM (ARM DDI 0487K.a), the relevant definitions are taken
-from the 2024-09 release of the "Arm Architecture Registers" document,
-ARM DDI 0601 (ID092424), which can be found at:
+FEAT_GCS is described in the latest ARM ARM (ARM DDI 0487K.a), which can
+be found at:
 
-  https://developer.arm.com/documentation/ddi0601/2024-09/?lang=en
+  https://developer.arm.com/documentation/ddi0487/ka/?lang=en
 
-The ID_AA64PFR2_EL1 ID register has existed as reserved RES0 space since
-ARMv8.0 but only recently gained a name, and so older assemblers may not
-be able to encode ID_AA64PFR2_EL1 directly. Thus we need an explicit
-definition of the sysreg encoding to support these assemblers.
+Add boot-wrapper support for FEAT_GCS. In addition to setting
+SCR_EL3.GCSEn, it's necessary to initialize GCSCR_EL2, GCSCR_EL1, and
+GCSCRE0_EL1 such that older kernel which are not aware of GCS don't find
+GCS enabled unexpectedly.
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Mark Brown <broonie@kernel.org>
 ---
- arch/aarch64/include/asm/cpu.h | 4 ++++
- arch/aarch64/init.c            | 3 +++
- 2 files changed, 7 insertions(+)
+ arch/aarch64/include/asm/cpu.h | 6 ++++++
+ arch/aarch64/init.c            | 7 +++++++
+ 2 files changed, 13 insertions(+)
 
 diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
-index 6fa11da..3ef58f3 100644
+index 3ef58f3..4cf0ff7 100644
 --- a/arch/aarch64/include/asm/cpu.h
 +++ b/arch/aarch64/include/asm/cpu.h
-@@ -68,6 +68,7 @@
- #define SCR_EL3_SCTLR2En		BIT(44)
- #define SCR_EL3_PIEN			BIT(45)
- #define SCR_EL3_D128En			BIT(47)
-+#define SCR_EL3_EnFPM			BIT(50)
- 
- #define VTCR_EL2_MSA			BIT(31)
- 
-@@ -116,6 +117,9 @@
+@@ -62,6 +62,7 @@
+ #define SCR_EL3_ECVEN			BIT(28)
+ #define SCR_EL3_TME			BIT(34)
+ #define SCR_EL3_HXEn			BIT(38)
++#define SCR_EL3_GCSEn			BIT(39)
+ #define SCR_EL3_EnTP2			BIT(41)
+ #define SCR_EL3_RCWMASKEn		BIT(42)
+ #define SCR_EL3_TCR2EN			BIT(43)
+@@ -115,6 +116,7 @@
+ #define ID_AA64PFR1_EL1_MTE		BITS(11, 8)
+ #define ID_AA64PFR1_EL1_SME		BITS(27, 24)
  #define ID_AA64PFR1_EL1_CSV2_frac	BITS(35, 32)
++#define ID_AA64PFR1_EL1_GCS		BITS(47, 44)
  #define ID_AA64PFR1_EL1_THE		BITS(51, 48)
  
-+#define ID_AA64PFR2_EL1			s3_0_c0_c4_2
-+#define ID_AA64PFR2_EL1_FPMR		BITS(35, 32)
-+
- #define ID_AA64SMFR0_EL1		s3_0_c0_c4_5
- #define ID_AA64SMFR0_EL1_FA64		BIT(63)
+ #define ID_AA64PFR2_EL1			s3_0_c0_c4_2
+@@ -169,6 +171,10 @@
+ #define SMCR_EL3_FA64		BIT(31)
+ #define SMCR_EL3_LEN_MAX	0xf
  
++#define GCSCRE0_EL1		s3_0_c2_c5_2
++#define GCSCR_EL1		s3_0_c2_c5_0
++#define GCSCR_EL2		s3_4_c2_c5_0
++
+ #define ID_AA64ISAR2_EL1	s3_0_c0_c6_2
+ 
+ #define ID_AA64MMFR3_EL1	s3_0_c0_c7_3
 diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
-index da036bb..1f38516 100644
+index 1f38516..61b55f9 100644
 --- a/arch/aarch64/init.c
 +++ b/arch/aarch64/init.c
-@@ -124,6 +124,9 @@ static void cpu_init_el3(void)
+@@ -124,6 +124,13 @@ static void cpu_init_el3(void)
  	if (mrs_field(ID_AA64PFR1_EL1, THE))
  		scr |= SCR_EL3_RCWMASKEn;
  
-+	if (mrs_field(ID_AA64PFR2_EL1, FPMR))
-+		scr |= SCR_EL3_EnFPM;
++	if (mrs_field(ID_AA64PFR1_EL1, GCS)) {
++		scr |= SCR_EL3_GCSEn;
++		msr(GCSCR_EL2, 0);
++		msr(GCSCR_EL1, 0);
++		msr(GCSCRE0_EL1, 0);
++	}
 +
- 	msr(SCR_EL3, scr);
+ 	if (mrs_field(ID_AA64PFR2_EL1, FPMR))
+ 		scr |= SCR_EL3_EnFPM;
  
- 	msr(CPTR_EL3, cptr);
 -- 
 2.30.2
 
