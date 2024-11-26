@@ -4,70 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B3E3D65553
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 20:11:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC50D65552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 20:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T7k4VHaSM1c1a7ZLNAX08qoZ4FJV292Hg710+wDAIX4=; b=NkeV1CXSQ5i4Yr3xlTG6lOle+d
-	rHxuvFsv8bEkfj8ikS6EFApnnpNZxHJsNxCzheKa/TlWCQtlxPj7Cq85iVpdqTd5QA4tbKGVdtCxI
-	OFyd7YPmvQpfZf/HxNa7hWgE7ITyUg7SmIecQWZsZVAJAl2QOM3cmZ7+Eb6s725zUoXhbufcvTyEE
-	pNCAHgS/8GeHQOIt1OnGN9KvxJpDVGNvCSUE+Wqyfec16f8CsXrllWup2/R8BKTl+DFPReQRUYr3F
-	abHON2OyunqnfelEgqJkhkkQ1zWPPM1ge3lSCB4Kt0KFcvkYaU+9zEejorw2Pijl7JuilJmBFeyD+
-	GldAJK+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=i8SqavSewzD1TGIVT6OBwxDtJQAOeVswFTfEkI2KfEQ=; b=2t5I7iYvBD71oka4ZHnPLU5bAC
+	aNriX5XecqiIZusQE0GeZ9Istwe+JDpXSndUwUe7cy+Ep5eaHe16u7u79ZB6pKpFM3Hj26AKkEUt3
+	JV3uA+fQpeBNR3QqBMT/veH/jrLsyMZGIsSzcmJN6nk+S9MA5C5Sl1XR0eNPhlbr/tANQmEI/cuO9
+	WAhxr33eQ9FegBGfsI+LgrTdsHid1QIPWW9uKtF6uOi4E4c2v9Z4+yCjlaYvMeOZNMN9HZHEcvdHM
+	zCSU9TO1UNg5PMKLooaI9yw5+TW99koUjngz+CluYKZkppolLiWSIlrJFKB1v69SplefWvxpBpw7b
+	cMdTTvaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG1td-0000000Bc4Q-2pXO;
-	Tue, 26 Nov 2024 20:10:53 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tG1wa-0000000Bcew-1e84;
+	Tue, 26 Nov 2024 20:13:56 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG1sf-0000000Bbye-2UzT;
-	Tue, 26 Nov 2024 20:09:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1732651789;
-	bh=Ft7Hps8cVn5oFfsG0zN5jTRhSDFJ4zRVat3qnNXJlmw=;
-	h=From:Date:Subject:To:Cc:From;
-	b=TMmFxRvJXsflouuAgDPUFIqGHGGSMonQR72pyt4rQ7Khxzp7poIjBv3M64aWSVhai
-	 +QQcjDWCsHcCEbBO9iszt6Ej6eOZC4RbO5CUKPV8RVINvYzMMPx9YSSlnmetYowMDz
-	 Ihf4nOcvYNxwA9pPDE+Zn91vopOjik1qRkG4Yp3TWpLMb5cBnGQgl8bzvlhSLXwUdl
-	 n0gpXRZcHRWFF1XLW6apg1hEFvKjVv/wHXMIJ0VM4UubbovywvqHVKlonrsQdDbjvw
-	 Zy0oDlrIB8whALsU+dtSAYrJrGiIqCeieZdL1SGQLZ9WXNS/ol532LPmjCFkpi+T+b
-	 VGDHv1XCQsacQ==
-Received: from [192.168.1.63] (pool-100-2-116-133.nycmny.fios.verizon.net [100.2.116.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 65AB717E37B1;
-	Tue, 26 Nov 2024 21:09:48 +0100 (CET)
-From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Tue, 26 Nov 2024 15:09:43 -0500
-Subject: [PATCH] ASoC: mediatek: Check num_codecs is not zero to avoid
- panic during probe
+	id 1tG1vb-0000000BcN5-0QBA;
+	Tue, 26 Nov 2024 20:12:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=i8SqavSewzD1TGIVT6OBwxDtJQAOeVswFTfEkI2KfEQ=; b=RR9BpE9dyzlXZVn5bRCplQs7Pu
+	I9MpuX+zaOn3ksqFuh4qfwx37eBth1T5mnQW9Gb687ZaDhFKM5goEldB/TxppYhCAw6w90UnPhPoV
+	HO+qhIVaBwyeMeuYgKp2UjVtIXARd9xx2RN5K8raPSeQs659Nha4xBt44791XwDCV/GDfWG8w25cl
+	fi8ZGoT5gXY9bmlKMFbdeAMSI1kp8BAzUe5/rU1G81/13yRD86bm6xUDu+6naGC21NB5Dw0PQLGUZ
+	Z+ANj4Ju2eQRzfBppEpi0Dy2iS7+plve2HupOPafDlT4N3Hh+5XFk7xEUqQ8WB1dUOkHERRgozHch
+	TUMv9u6A==;
+Received: from i5e86190f.versanet.de ([94.134.25.15] helo=phil..)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tG1ux-0002yD-VN; Tue, 26 Nov 2024 21:12:16 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	quentin.schulz@cherry.de
+Subject: [PATCH v2 0/3] drm/rockchip: Add driver for the new DSI2 controller
+Date: Tue, 26 Nov 2024 21:12:10 +0100
+Message-ID: <20241126201213.522753-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20241126-asoc-mtk-dummy-panic-v1-1-42d53e168d2e@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAAYrRmcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIxNDQyMz3cTi/GTd3JJs3ZTS3NxK3YLEvMxkXcM0c0szw7Tk1OSUJCWg1oK
- i1LTMCrCx0bG1tQBJs4MhZgAAAA==
-X-Change-ID: 20241126-asoc-mtk-dummy-panic-1f7961fcecdb
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_120953_791469_198F1369 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20241126_121255_133324_5424FA66 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,130 +87,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Following commit 13f58267cda3 ("ASoC: soc.h: don't create dummy
-Component via COMP_DUMMY()"), COMP_DUMMY() became an array with zero
-length, and only gets populated with the dummy struct after the card is
-registered. Since the sound card driver's probe happens before the card
-registration, accessing any of the members of a dummy component during
-probe will result in undefined behavior.
+This series adds a bridge and glue driver for the DSI2 controller found
+in the rk3588 soc from Rockchip, that is based on a Synopsis IP block.
 
-This can be observed in the mt8188 and mt8195 machine sound drivers. By
-omitting a dai link subnode in the sound card's node in the Devicetree,
-the default uninitialized dummy codec is used, and when its dai_name
-pointer gets passed to strcmp() it results in a null pointer dereference
-and a kernel panic.
+As the manual states:
+The Display Serial Interface 2 (DSI-2) is part of a group of communication
+protocols defined by the MIPI Alliance. The MIPI DSI-2 Host Controller is
+a digital core that implements all protocol functions defined in the
+MIPI DSI-2 Specification.
 
-In addition to that, set_card_codec_info() in the generic helpers file,
-mtk-soundcard-driver.c, will populate a dai link with a dummy codec when
-a dai link node is present in DT but with no codec property.
 
-The result is that at probe time, a dummy codec can either be
-uninitialized with num_codecs = 0, or be an initialized dummy codec,
-with num_codecs = 1 and dai_name = "snd-soc-dummy-dai". In order to
-accommodate for both situations, check that num_codecs is not zero
-before accessing the codecs' fields but still check for the codec's dai
-name against "snd-soc-dummy-dai" as needed.
+While the driver structure is very similar to the previous DSI controller,
+the programming model of the core is quite different, with a completely
+new register set.
 
-While at it, also drop the check that dai_name is not null in the mt8192
-driver, introduced in commit 4d4e1b6319e5 ("ASoC: mediatek: mt8192:
-Check existence of dai_name before dereferencing"), as it is actually
-redundant given the preceding num_codecs != 0 check.
+Another notable difference is that the phy interface is variable now too
+in its width and some other settings.
 
-Fixes: 13f58267cda3 ("ASoC: soc.h: don't create dummy Component via COMP_DUMMY()")
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
----
- sound/soc/mediatek/mt8188/mt8188-mt6359.c               | 9 +++++++--
- sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c | 4 ++--
- sound/soc/mediatek/mt8195/mt8195-mt6359.c               | 9 +++++++--
- 3 files changed, 16 insertions(+), 6 deletions(-)
+changes in v2:
+- clean up includes (Diederik)
+- fix Kconfig description (Diederik)
+- constant naming (Diederik)
+- binding fixes (paths, sorting, labels) (Rob)
+- move to use regmap
+- drop custom UPDATE macro and use FIELD_PREP instead
+- use dev_err instead of DRM_DEV_ERROR
 
-diff --git a/sound/soc/mediatek/mt8188/mt8188-mt6359.c b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
-index 08ae962afeb92965109b303439419bc6e7c2a896..4eed90d13a53262f0df99384494c6992b0341471 100644
---- a/sound/soc/mediatek/mt8188/mt8188-mt6359.c
-+++ b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
-@@ -1279,10 +1279,12 @@ static int mt8188_mt6359_soc_card_probe(struct mtk_soc_card_data *soc_card_data,
- 
- 	for_each_card_prelinks(card, i, dai_link) {
- 		if (strcmp(dai_link->name, "DPTX_BE") == 0) {
--			if (strcmp(dai_link->codecs->dai_name, "snd-soc-dummy-dai"))
-+			if (dai_link->num_codecs &&
-+			    strcmp(dai_link->codecs->dai_name, "snd-soc-dummy-dai"))
- 				dai_link->init = mt8188_dptx_codec_init;
- 		} else if (strcmp(dai_link->name, "ETDM3_OUT_BE") == 0) {
--			if (strcmp(dai_link->codecs->dai_name, "snd-soc-dummy-dai"))
-+			if (dai_link->num_codecs &&
-+			    strcmp(dai_link->codecs->dai_name, "snd-soc-dummy-dai"))
- 				dai_link->init = mt8188_hdmi_codec_init;
- 		} else if (strcmp(dai_link->name, "DL_SRC_BE") == 0 ||
- 			   strcmp(dai_link->name, "UL_SRC_BE") == 0) {
-@@ -1294,6 +1296,9 @@ static int mt8188_mt6359_soc_card_probe(struct mtk_soc_card_data *soc_card_data,
- 			   strcmp(dai_link->name, "ETDM2_OUT_BE") == 0 ||
- 			   strcmp(dai_link->name, "ETDM1_IN_BE") == 0 ||
- 			   strcmp(dai_link->name, "ETDM2_IN_BE") == 0) {
-+			if (!dai_link->num_codecs)
-+				continue;
-+
- 			if (!strcmp(dai_link->codecs->dai_name, MAX98390_CODEC_DAI)) {
- 				/*
- 				 * The TDM protocol settings with fixed 4 slots are defined in
-diff --git a/sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c b/sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c
-index db00704e206d6d3f500a5c8533e0159f16cf77b4..943f8116840373a563f5f10a7bd0f5870c331b67 100644
---- a/sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c
-+++ b/sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c
-@@ -1099,7 +1099,7 @@ static int mt8192_mt6359_legacy_probe(struct mtk_soc_card_data *soc_card_data)
- 			dai_link->ignore = 0;
- 		}
- 
--		if (dai_link->num_codecs && dai_link->codecs[0].dai_name &&
-+		if (dai_link->num_codecs &&
- 		    strcmp(dai_link->codecs[0].dai_name, RT1015_CODEC_DAI) == 0)
- 			dai_link->ops = &mt8192_rt1015_i2s_ops;
- 	}
-@@ -1127,7 +1127,7 @@ static int mt8192_mt6359_soc_card_probe(struct mtk_soc_card_data *soc_card_data,
- 		int i;
- 
- 		for_each_card_prelinks(card, i, dai_link)
--			if (dai_link->num_codecs && dai_link->codecs[0].dai_name &&
-+			if (dai_link->num_codecs &&
- 			    strcmp(dai_link->codecs[0].dai_name, RT1015_CODEC_DAI) == 0)
- 				dai_link->ops = &mt8192_rt1015_i2s_ops;
- 	}
-diff --git a/sound/soc/mediatek/mt8195/mt8195-mt6359.c b/sound/soc/mediatek/mt8195/mt8195-mt6359.c
-index 2832ef78eaed7283eaad822931ce0b515fa44d0a..8ebf6c7502aa3dedd213471b8968e2958f28c4a3 100644
---- a/sound/soc/mediatek/mt8195/mt8195-mt6359.c
-+++ b/sound/soc/mediatek/mt8195/mt8195-mt6359.c
-@@ -1380,10 +1380,12 @@ static int mt8195_mt6359_soc_card_probe(struct mtk_soc_card_data *soc_card_data,
- 
- 	for_each_card_prelinks(card, i, dai_link) {
- 		if (strcmp(dai_link->name, "DPTX_BE") == 0) {
--			if (strcmp(dai_link->codecs->dai_name, "snd-soc-dummy-dai"))
-+			if (dai_link->num_codecs &&
-+			    strcmp(dai_link->codecs->dai_name, "snd-soc-dummy-dai"))
- 				dai_link->init = mt8195_dptx_codec_init;
- 		} else if (strcmp(dai_link->name, "ETDM3_OUT_BE") == 0) {
--			if (strcmp(dai_link->codecs->dai_name, "snd-soc-dummy-dai"))
-+			if (dai_link->num_codecs &&
-+			    strcmp(dai_link->codecs->dai_name, "snd-soc-dummy-dai"))
- 				dai_link->init = mt8195_hdmi_codec_init;
- 		} else if (strcmp(dai_link->name, "DL_SRC_BE") == 0 ||
- 			   strcmp(dai_link->name, "UL_SRC1_BE") == 0 ||
-@@ -1396,6 +1398,9 @@ static int mt8195_mt6359_soc_card_probe(struct mtk_soc_card_data *soc_card_data,
- 			   strcmp(dai_link->name, "ETDM2_OUT_BE") == 0 ||
- 			   strcmp(dai_link->name, "ETDM1_IN_BE") == 0 ||
- 			   strcmp(dai_link->name, "ETDM2_IN_BE") == 0) {
-+			if (!dai_link->num_codecs)
-+				continue;
-+
- 			if (!strcmp(dai_link->codecs->dai_name, MAX98390_CODEC_DAI)) {
- 				if (!(codec_init & MAX98390_CODEC_INIT)) {
- 					dai_link->init = mt8195_max98390_init;
 
----
-base-commit: b852e1e7a0389ed6168ef1d38eb0bad71a6b11e8
-change-id: 20241126-asoc-mtk-dummy-panic-1f7961fcecdb
+Heiko Stuebner (3):
+  drm/bridge/synopsys: Add MIPI DSI2 host controller bridge
+  dt-bindings: display: rockchip: Add schema for RK3588 DW DSI2
+    controller
+  drm/rockchip: Add MIPI DSI2 glue driver for RK3588
 
-Best regards,
+ .../rockchip/rockchip,rk3588-mipi-dsi2.yaml   |  119 ++
+ drivers/gpu/drm/bridge/synopsys/Kconfig       |    6 +
+ drivers/gpu/drm/bridge/synopsys/Makefile      |    1 +
+ .../gpu/drm/bridge/synopsys/dw-mipi-dsi2.c    | 1030 +++++++++++++++++
+ drivers/gpu/drm/rockchip/Kconfig              |   10 +
+ drivers/gpu/drm/rockchip/Makefile             |    1 +
+ .../gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c  |  523 +++++++++
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.c   |    2 +
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.h   |    1 +
+ include/drm/bridge/dw_mipi_dsi2.h             |   95 ++
+ 10 files changed, 1788 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-mipi-dsi2.yaml
+ create mode 100644 drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c
+ create mode 100644 drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
+ create mode 100644 include/drm/bridge/dw_mipi_dsi2.h
+
 -- 
-Nícolas F. R. A. Prado <nfraprado@collabora.com>
+2.45.2
 
 
