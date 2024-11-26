@@ -4,55 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E7ADD6554C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 19:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06FF7D6554E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 19:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FNSp7OA3YKogbeiniKb8FBL+Vfqgv7SXY7QAwsPxONY=; b=kjs+2cEFzwrYN5bcC0BQSkFWya
-	psL8xNIxZz7I5FiWUCewDDF3Yz1TtvAqTWVpdtnHbo0vLYPuCOZuzBHTdic2uOJ/cVGRyxUkd3/xz
-	D2MO/ybIB0Ja92r1r3OohyRe7W/fjqSgS4kNmoj7MHaBF9JY/dQi9tg41UEfpOy9BOpDhO9tPCe40
-	v6Fz6QhkXf0Ei7/bM6vr7efta6TzM+Hu7OsaJlB2axEZZQ5i/XyfeWOikuSu+5ui/9X+3gD0sgzOC
-	p+82+p4kCiVqktPIgor8zNtfc0PR4vJAR+3+mtQuP9erj2t1XqKr5ItthzI6NKRtVDH8XFnVwVjAt
-	vySvUvyg==;
+	bh=3gDvR/SSAneu4U+dvsJbiDGkN1y+g3NuWNoczgrei8w=; b=B2hbbEj/O9OIWGqp2WpYed/Jxn
+	ViTkctRVhOZ6LFalENswrJbKsyo8AfTKqD322ar3Gxv7ja9Q0+hm0ZcHe1tyiNf4Gqr5ld+O9DxP7
+	jzr9VZCqoVHPOUDT6GQo+jhjOgcQRyXpaZKf0ApBhnR4eY/j2LnrZzsrY1DvH9rHnis4VTYMaeILi
+	pjeT+I9wkJ5oHmjdipoPRkv7gyolpzjil+EdOZTQJBKSlK2kXZChl01phyVN6GvhthSY33cu3DNgu
+	P8ueq9r7WTGj4Pab17XCoo6wf8r/KpP9KLVdQCGaoLX+HKZUPuqyQ2TNR5s699oLsrQB89IX1WDZ1
+	VJg79BMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG0sa-0000000BVcv-2kXd;
-	Tue, 26 Nov 2024 19:05:44 +0000
+	id 1tG0w1-0000000BW0O-1irc;
+	Tue, 26 Nov 2024 19:09:17 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG0rc-0000000BVRw-0igs
+	id 1tG0v3-0000000BVrp-2mIm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 19:04:45 +0000
+	Tue, 26 Nov 2024 19:08:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 75AC6A4124D;
-	Tue, 26 Nov 2024 19:02:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D96EC4CECF;
-	Tue, 26 Nov 2024 19:04:39 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id CD114A41293;
+	Tue, 26 Nov 2024 19:06:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD999C4CECF;
+	Tue, 26 Nov 2024 19:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732647883;
-	bh=+mf68xlLx7KgwnDTeOl9Bn2WskxaGDYLqwnAUlB4Isk=;
+	s=k20201202; t=1732648096;
+	bh=nIeRagzK58V7Ks73k5Bp/hvKPVTIaUQkmSrD3W8O7NY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Z29qgN7YEASNNAQS6rQQgujOVDzxLhbry77wGPIiWuUg9+ORkpLxY9ll5hb0v9qrm
-	 D5Wd2g7MmYnZ5y8lh8G84DDvQTI/VbQqjS4XgmI4oQY9HQTlLHX7WgRSx8j8dAaijB
-	 YdUtlNGtLIdo+8YD1kpZpPunPQ0qGc7h1Vs7BEZEzpNe7L0V8mmXwJSOBWtnMb/cCM
-	 b2tDYTEIkJLf9I1HKkaMbbr8CGeRwBT3RoVe2kxa7X7rwRYoZKcJg0nvMBX8B3rlDA
-	 VkkyyBEk2RSt2i4MxW5AK44hzNcfUuhKgwlG0rT76uEA3HEMsnH8F28YR0QJQgiPDa
-	 JIougiKkPZOGg==
-Message-ID: <5e2d2174-44a7-4143-8562-4dcdb5ad6c94@kernel.org>
-Date: Tue, 26 Nov 2024 20:04:36 +0100
+	b=uLyLfWD2YgCpffsqKYq5DoxElUAqDbqLTD6NhN5v8zyvx8QEN1VONjztSr17ppksQ
+	 ZaZfToyi/5TWdIPLujLvwq6ITfO5GZqv7CtA1VjkPxFJoba3KYi68gl51m8Cipp4lk
+	 m9n0hL2Yt2R9U+MfrJAm2rtOz1RqVh796fnt8ZzCaPH8spbI4t5t70LUSjR8lNWo1x
+	 WPZB7BeJ5nRWeFYhr8gAdLu77NJOay6OKANo+yiMN43X/gCJhDenMg/qAzysbcejzw
+	 eKQBR2ka5o7rryBkizbYobTAgHldx4lz5bAusfgAyHxDxd9aBVcMjBMZBhZxcKh9y6
+	 NvaKMZYwPvIwQ==
+Message-ID: <0c4f7e62-bf9e-4e4f-8493-db1e56773f38@kernel.org>
+Date: Tue, 26 Nov 2024 20:08:09 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE
- output for PCIe1
-To: Romain Naour <romain.naour@smile.fr>, devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
- conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org, kristo@kernel.org,
- vigneshr@ti.com, nm@ti.com, Romain Naour <romain.naour@skf.com>
-References: <20241126173307.4054601-1-romain.naour@smile.fr>
+Subject: Re: [PATCH v5 1/4] dt-bindings: rtc: add schema for NXP S32G2/S32G3
+ SoCs
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, NXP S32 Linux <s32@nxp.com>,
+ Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
+ Enric Balletbo <eballetb@redhat.com>,
+ Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+References: <20241126114940.421143-1-ciprianmarian.costea@oss.nxp.com>
+ <20241126114940.421143-2-ciprianmarian.costea@oss.nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,12 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241126173307.4054601-1-romain.naour@smile.fr>
+In-Reply-To: <20241126114940.421143-2-ciprianmarian.costea@oss.nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_110444_340231_CF262ECC 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20241126_110817_839445_451702E2 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,74 +127,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/11/2024 18:33, Romain Naour wrote:
-> From: Romain Naour <romain.naour@skf.com>
-> 
-> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
-> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
-> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
-> provide refclk through PCIe_REFCLK pins.
-> 
-> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
-> module's PAD IO Buffers.
-> 
-> Signed-off-by: Romain Naour <romain.naour@skf.com>
-> ---
-> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
-> applied on vendor kernel for BeagleBone AI-64:
-> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
-> ---
->  arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts |  4 ++++
->  arch/arm64/boot/dts/ti/k3-j721e-main.dtsi          | 10 ++++++++--
->  2 files changed, 12 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-> index fb899c99753e..681e3af7ce6e 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-> @@ -859,6 +859,10 @@ &pcie1_rc {
->  	num-lanes = <2>;
->  	max-link-speed = <3>;
->  	reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_HIGH>;
-> +	/* There is no on-board or external reference clock generators,
-
-Please use generic style comments, not netdev.
-
-> +	 * use refclk from the ACSPCIE module's PAD IO Buffers.
-> +	 */
-> +	ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
->  };
->  
->  &ufs_wrapper {
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> index 0da785be80ff..9f47e7672922 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> @@ -5,6 +5,7 @@
->   * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
->   */
->  #include <dt-bindings/phy/phy.h>
-> +#include <dt-bindings/phy/phy-cadence.h>
->  #include <dt-bindings/phy/phy-ti.h>
->  #include <dt-bindings/mux/mux.h>
->  
-> @@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
->  			reg = <0x4140 0x18>;
->  			#clock-cells = <1>;
->  		};
+On 26/11/2024 12:49, Ciprian Costea wrote:
 > +
-> +		acspcie0_proxy_ctrl: acspcie0-ctrl@18090 {
+> +title: NXP S32G2/S32G3 Real Time Clock (RTC)
+> +
+> +maintainers:
+> +  - Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> +  - Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> +
+> +description:
+> +  RTC hardware module present on S32G2/S32G3 SoCs is used as a wakeup source.
+> +  It is not kept alive during system reset and it is not battery-powered.
 
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+Does this mean that this is not a standard RTC thus standard RTC schema
+does not apply?
 
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - enum:
+> +          - nxp,s32g2-rtc
+> +      - items:
+> +          - const: nxp,s32g3-rtc
+> +          - const: nxp,s32g2-rtc
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: ipg clock drives the access to the RTC iomapped registers
+> +      - description: Clock source for the RTC module. Can be selected between
+> +          4 different clock sources using an integrated hardware mux.
+> +          On S32G2/S32G3 SoCs, 'source0' is the SIRC clock (~32KHz) and it is
+> +          available during standby and runtime. 'source1' is reserved and cannot
 
-> +			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
+I am not sure what are the benefits of allowing to choose a clock which
+cannot be used. I think source1 should be dropped.
 
-I am not familiar with naming, so is this j784s4 or j721e or K3 SoC?
-Compatible should be SoC specific.
-
+> +          be used. 'source2' is the FIRC clock and it is only available during
+> +          runtime providing a better resolution (~48MHz). 'source3' is an external
+> +          RTC clock source which can be additionally added in hardware.
+> +
+> +  clock-names:
+> +    items:
+> +      - const: ipg
+> +      - enum: [ source0, source1, source2, source3 ]
+> +
 Best regards,
 Krzysztof
 
