@@ -4,85 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F3AD65559
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 21:26:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E566D6555B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 21:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6h3kJfGGhVM0yFSXEKXnzQX8yDxkzOWLSNwlq2YprHM=; b=HsqQa0A0Ly4F33vppNgHM7+fmj
-	xwm36DMzAu50qW6WQKdq3lF1my7Aqcgy0iKlrhFzHMXwkQne5FxLm5HfbOn+JO0ReGMjE9bYh1RWP
-	K/qmNRUj76/4PHYzDqG3WzjWEISXfdz22UJ7SPw5dlG8mXt0Otu9+Pv8ohNggqU95etgZIyMbAmac
-	xTCPc42eoZxsjoZBqCTmnBEfGnxpdVqSIRjmB3cRP0gNVU8RfjMtflPxyd19YHmkM2t4Y278KDZcI
-	iWBYhrt/99aZppxw1TlyP92x5L/lVprZYQP0Xwe8EXj2qmSUkwVhXMP9UWqZFR7aMNfN/9nLIrnJ/
-	AludIr7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=boX705ixGpX0WIhU4HsHMX1LO3WzB02Fz6xUUWqOtdg=; b=kx3Zs1/uJDMH/VPvbdIyM9yOhq
+	7JNMsPcPaiMi5HN4QLcrguzJLQvWi3Ac0kuc7sK7UIs38jJ0yeJPPXrmBMHTM4Cw+qoK5TXKy1/Np
+	6hHk766spJre4Cy62BL0WCIG7RGFX7niDLt3pQlMNLLHY/Ny9MO7fZEbEPc2c9Schy27Sb5ql0NCx
+	Sv8l8D4ux7xaoafQ1duCL4FOBc/H5zqX4q00eQzPVl9MqRgBX+vB385g7lnGoihgGF+u50nnlbzMm
+	7MLfjekkxNBR59IWT8y3CoQPxJWAjKOmbXbsz04OSyaCCgf00DrMFZ3tKoZ9L+/t5Fp8Mdp6LllNC
+	JhoH0Ing==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG34S-0000000Bkph-2Tyc;
-	Tue, 26 Nov 2024 21:26:08 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tG3ML-0000000BmJQ-1eBk;
+	Tue, 26 Nov 2024 21:44:37 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG33U-0000000Bkhy-2zIE
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 21:25:09 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-53de8ecafeeso1410826e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 13:25:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732656306; x=1733261106; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6h3kJfGGhVM0yFSXEKXnzQX8yDxkzOWLSNwlq2YprHM=;
-        b=xN00FIOq6yWVGFSFBYldO51p87wAYacRE8T6FDKkvfYO7h+GAysdry1XPelzmdDH6k
-         nqXtazi9k/SiFetleRsQlYIBfVS+OYkm9n8HYCzwiv512Ra5DDUaW6lKAAiRs9SofEfN
-         3asnImFo64lN5aqqcHEqe8AZA5bR/qzdHuk9NLTF29p2xOb48uYNuZLoefdnyiwyizeQ
-         jE72+20zG0ps3W7a8KFn1gLEfwhDZ4aW1D5S8sG1bItKJ54790a6oVoTw0XGWHm8n+tA
-         +M5nFbSXwEPQO1T5jNl1OBVwAqcye3JXq6M5wZEzfJ+M0coQjh47xWbk0y1e1tByHpOw
-         8Chw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732656306; x=1733261106;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6h3kJfGGhVM0yFSXEKXnzQX8yDxkzOWLSNwlq2YprHM=;
-        b=WEHwdfSDfi4PRGvFAqv355nIG2P7/zEvmXvI76XXEGcr/W9ztEuddDdwGOa2XA1Zvf
-         y9vx5xpZosmH/WM09wTHvW+v/qop5DjzFt/GQjxOp/XKVejV6mLJrYWNm9XInqxbeZA5
-         56Lz84JWm5Kqwg1BnhcXW+M+OPDLYof09Bn8F2T+hZb4pLSwtFeoFmuzz4bURKC8I84O
-         x7ap1tvDUuysMyQgFmFL898mhbAaqcjBtZmIHPpIq3wWvwCGBFJJKrLNt0VwjsOGQgWi
-         JbAwthsMcp8zmA/EWiXzcKyu38P1XKK9b+YnRlaGY/VYruNkJJUjCDEh1eLwSgR2LgKy
-         LS0g==
-X-Forwarded-Encrypted: i=1; AJvYcCV5SsFLdmqH5d8hau1hwXgKfggrUMEZ3E442sxUqWOebPU/JreLYpcwcUO2g3ZRmlsy1ZZqSpj/ZiYdaxEuj9XO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKmj46JG7f/dzJj0KHuDgMI5IJ8FmgHFHCwP+3lAX5rh7uT7hM
-	ISZJJiHRwkL6G9mg8YwuaUscmYQ+kPGmX66LZdytsqySnzc390Vl1qVF2rJPB38Ey97nC9fuzaG
-	WT8aiop/XQh/NTerCxhpAGMJeEmDf+3h41g3aPQ==
-X-Gm-Gg: ASbGncviHioys4UwPUwGGWuMaccEKV9qHOj0ljkg7abF2L5t7GIyuzV7dztbR0B2fMv
-	ayDvoSR8h3c1TOmGI9UOkU/LdAW6Qtg==
-X-Google-Smtp-Source: AGHT+IHSrPR6Pqpyg4e7ER+ek3MH0oeiQVFy40chfxmpilpXRCIjRdoDRTm7U+FqL/Q1H+0po9DrV+HI5wtgsosAtoA=
-X-Received: by 2002:a05:6512:3da3:b0:53d:d3ff:85f1 with SMTP id
- 2adb3069b0e04-53df00ff18dmr264363e87.42.1732656305985; Tue, 26 Nov 2024
- 13:25:05 -0800 (PST)
+	id 1tG3LN-0000000BmFw-3BeU;
+	Tue, 26 Nov 2024 21:43:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=boX705ixGpX0WIhU4HsHMX1LO3WzB02Fz6xUUWqOtdg=; b=FFYZHdsokE0B/sNH1TVhXQGepS
+	YcmDSz+0gpqG1KHdFM+5lQSHUBjhH3JTcTxjsWMGBxw97s+9LgiKBrZ6JHQ8SP9i8jdvCC7JSh+li
+	Es0g3quRaeHJHsL821rY4mu0+0mn7maNDYLja9l6cKU6I/Huw1bvCXGedqsTIp86fRhiPCDb+MrFO
+	XrcZS7Pf122Mv76xy3DRRXKia8j4I5lUL3KjUYupkfQ0B2hTvGg5X2s9xIBSukMvBGEVwPeEnG/gy
+	WtaRvGmHOzJS8CSgTXQ8fS+ih3MYTXXgIsHBV9H3tS+OxaWJoEZff9lTCK7JH56wkQVYXM5YWJI0y
+	L3KwSlOA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42268)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tG3L5-0007k1-2T;
+	Tue, 26 Nov 2024 21:43:20 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tG3L0-0004sg-1X;
+	Tue, 26 Nov 2024 21:43:14 +0000
+Date: Tue, 26 Nov 2024 21:43:14 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexander Couzens <lynxis@fe80.eu>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH RFC net-next 15/16] net: phylink: add negotiation of
+ in-band capabilities
+Message-ID: <Z0ZA8u0QrCKVA6pe@shell.armlinux.org.uk>
+References: <Z0WTpE8wkpjMiv_J@shell.armlinux.org.uk>
+ <E1tFrp6-005xR2-6W@rmk-PC.armlinux.org.uk>
+ <e8a11b23-3918-458f-8888-4ca32058968a@lunn.ch>
 MIME-Version: 1.0
-References: <20240506-imx-pinctrl-optional-v2-0-bdff75085156@geanix.com>
- <20240506-imx-pinctrl-optional-v2-1-bdff75085156@geanix.com> <49ff070a-ce67-42d7-84ec-8b54fd7e9742@roeck-us.net>
-In-Reply-To: <49ff070a-ce67-42d7-84ec-8b54fd7e9742@roeck-us.net>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 26 Nov 2024 22:24:55 +0100
-Message-ID: <CACRpkdaBR5mmj43y_80b9jd3TAqRWMdCyD9EP6AY-Y0-asz4TA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] ARM: imx: Allow user to disable pinctrl
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Esben Haabendal <esben@geanix.com>, Russell King <linux@armlinux.org.uk>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Rasmus Villemoes <rasmus.villemoes@prevas.dk>, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e8a11b23-3918-458f-8888-4ca32058968a@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_132508_752555_9BA18B7C 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20241126_134337_795982_7AE00F93 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,42 +95,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 5:17=E2=80=AFPM Guenter Roeck <linux@roeck-us.net> =
-wrote:
-> On Mon, May 06, 2024 at 12:23:53PM +0200, Esben Haabendal wrote:
+On Tue, Nov 26, 2024 at 10:18:56PM +0100, Andrew Lunn wrote:
+> > +		if (pcs_ib_caps && pcs_ib_caps != LINK_INBAND_DISABLE) {
+> > +			/* PCS supports reporting in-band capabilities, and
+> > +			 * supports more than disable mode.
+> > +			 */
+> > +			if (pcs_ib_caps & LINK_INBAND_DISABLE)
+> > +				neg_mode = PHYLINK_PCS_NEG_OUTBAND;
+> > +			else if (pcs_ib_caps & LINK_INBAND_ENABLE)
+> > +				pcs_ib_only = true;
+> > +		}
+> > +
+> > +		if (phy_ib_caps && phy_ib_caps != LINK_INBAND_DISABLE) {
+> > +			/* PHY supports in-band capabilities, and supports
+> > +			 * more than disable mode.
+> > +			 */
+> > +			if (phy_ib_caps & LINK_INBAND_DISABLE)
+> > +				pl->phy_ib_mode = LINK_INBAND_DISABLE;
+> > +			else if (phy_ib_caps & LINK_INBAND_BYPASS)
+> > +				pl->phy_ib_mode = LINK_INBAND_BYPASS;
+> > +			else if (phy_ib_caps & LINK_INBAND_ENABLE)
+> > +				phy_ib_only = true;
+> 
+> Looking at the different handling between PCS and PHY, i asked myself,
+> does PCS BYPASS exist? If it is invalid, i don't see a check if the
+> PCS is reporting it and should we be issuing a warning?
 
-> > Making pinctrl drivers and subsequently the pinctrl framework
-> > user-controllable, allows building a kernel without this.
-> > While in many (most) cases, this could make the system unbootable, it
-> > does allow building smaller kernels for those situations where picntrl
-> > is not needed.
-> >
-> > One such situation is when building a kernel for NXP LS1021A systems,
-> > which does not have run-time controllable pinctrl, so pinctrl framework
-> > and drivers are 100% dead-weight.
-> >
-> >
-> > Signed-off-by: Esben Haabendal <esben@geanix.com>
->
-> This patch didn't update default configurations, meaning PINCTRL is now
-> disabled by affected configurations such as imx_v4_v5_defconfig or
-> imx_v6_v7_defconfig, making pretty much all imx platforms non-bootable
-> unless the default configuration is changed manually.
+Yes, it does exist - see for example MVNETA_GMAC_AN_BYPASS_ENABLE for
+mvneta - but there's complications to using it that need sorting first.
 
-Since the patch tries to add default selects for all drivers I suspect this
-oneliner is the culprit:
+The problem is if SGMII enters bypass mode, then the duplex is
+configured according to MVNETA_GMAC_CONFIG_FULL_DUPLEX. In wonderful
+Marvell style, it makes no mention about the speed setting. It does
+say that it's supported for "SGMII modes". One assumes that it would
+do the same thing and fall back to setting described by the two speed
+bits, but the documentation doesn't say that. Maybe "SGMII modes" is
+referring to Base-X only and not Cisco SGMII.
 
-@@ -6,7 +6,6 @@ menuconfig ARCH_MXC
-        select CLKSRC_IMX_GPT
-        select GENERIC_IRQ_CHIP
-        select GPIOLIB
--       select PINCTRL
-        select PM_OPP if PM
-        select SOC_BUS
-        select SRAM
+The problem of what seems to be almost an industry wide abuse of the
+"SGMII" term creating a trainwreck strikes again!
 
-Should we just add that one line back?
-
-Yours,
-Linus Walleij
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
