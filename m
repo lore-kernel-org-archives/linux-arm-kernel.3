@@ -4,87 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C3AD6552D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 17:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67646D6552E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 17:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6rC4JORljy68YEdx8irUeLm2zmoqEL3AApISoooOchM=; b=2otzIIAlN3UTAHBa+xGu7D06Lw
-	o8A2+oXTyTIjbFC4zuBf7vUOWO1kcBJiIo246okBUAnGXlwKGtX0DeoEXXJ6Gm9avj2KBEBqF3I0u
-	HAAzcIu55iS/i7Gb/slCJeObU6VTaKdDaUU+MxykZzMntR9RPj51r2GsWJa8BhPF/CK59jTh46eQR
-	P8mH6kuvxcscaAmD+8Wd0ydI68cpqvfx6NHsVI5UcsgfM0BqxK33910ZZOcsbArWJ0HOE23EoMD4J
-	vp8SinT0hc7BnSq9orVsDFWmh2BjWNoXbEBMarLIDt8XCxLaHWPdtpsF4r65A7GPF1x4LiWybNYG3
-	h3yxwzGQ==;
+	bh=ydmtTAzJ7xFTdnZQzRxd9lW2geyaRjzb3DBbsGuXzYg=; b=vsPV70eKHx7V8PChcODC/U/oGj
+	Fmiw5ZqJHjwTY3zHRHNVqKnX4Kd4k0+yZCUDTjFgILRSCeaWuoDyVP0Z/oa7Zw87+znNMqq9eJbjZ
+	6YjK3uyQ/yaGVoax9zMV7mClOlt7wgBGv3gVAlqAofI8KyqNa+zYvHtr1w/qIsHb199YlI7Efv/4A
+	sNOTwfUJFp4/OfW8cPotvrBBDmuO8Ev6sHrzY/o6Xa8j55A5dgGW9KSiZZOSWrQ9gGOlYt+FKrft+
+	wY082RRFIu2yCIboQyzqILUOPKXRK3Mfx5zmeZLQ09IWfaZ60ptf+2eTRSjhyaU6Mi3EBe3SqyBhs
+	t16xZedQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFyx0-0000000BF0K-3Efo;
-	Tue, 26 Nov 2024 17:02:10 +0000
-Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
+	id 1tFyyE-0000000BFCi-1a9J;
+	Tue, 26 Nov 2024 17:03:26 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFyw3-0000000BErz-02mk
+	id 1tFyxG-0000000BF3U-1LQK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 17:01:12 +0000
-Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-6ef0c64d75cso25004267b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 09:01:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732640469; x=1733245269; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=6rC4JORljy68YEdx8irUeLm2zmoqEL3AApISoooOchM=;
-        b=j2VT74tc1W6j/GEyJq8DTgXduo5/w4/vK51MBDiA7NF1X910/xF2p9xI+Kwo4IqjPR
-         fKAQT9VHeEOl3UYy3JwmX77JjST472NEkL7PjSTkR9TzGcnoVwM2Tzk/o2WIZ5mFT7gE
-         gnI59ypHpXBwXqx09SpBEHQVDqVmWfFZnnr9GHw2sIxrJzWoIYPbOQyvSCcsvNjP9bde
-         f3R3V7rXBfH60jYS5unT22iRbUR30EreOnKKiGGjfrHiVcxXjJtGTpL/S7yHUpBvADVW
-         CEp6HDHKTtDZ7sSS7n8ZuZRL+4CWV1ZZyyS4C07LWFmTQD4DKJGoWqCf4u0KtaiHPwIk
-         +spQ==
+	Tue, 26 Nov 2024 17:02:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1732640544;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ydmtTAzJ7xFTdnZQzRxd9lW2geyaRjzb3DBbsGuXzYg=;
+	b=bKXj4pCBlrZmvnO4jxh5bxPdAXBIaTdz4Fuc0wVuZLWG5gCFg7iKqabUUl5RdulrIeXzQA
+	pd8jU4Q7vRvNX4qD7G2nwJQ5o7ZYpKr2zAShordvIrIvESbCpZuQQ/sVX0yoQ0GBjt2c6B
+	Y/u8vn5ieFoVFS6v4ZATGczgSnUk7fA=
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
+ [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-468-uUZv9FRuNgWpPTF52CI25A-1; Tue, 26 Nov 2024 12:00:43 -0500
+X-MC-Unique: uUZv9FRuNgWpPTF52CI25A-1
+X-Mimecast-MFC-AGG-ID: uUZv9FRuNgWpPTF52CI25A
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7b67201e64eso181140085a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 09:00:43 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732640469; x=1733245269;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6rC4JORljy68YEdx8irUeLm2zmoqEL3AApISoooOchM=;
-        b=hC2+CAilrRuVxlwPUAafIVBdEgz+CNsr4tI3IfVkrTQidQSI+BMzUZhGMbShha9Or9
-         eD1BQZCl5a6cyoEl9oIMOJqx/Y+5C3yOc+M8iy2jvdI4CbRYcl10zq8cRk07yEbrDg19
-         E72OdOQZv0IMMSs7v6fQrWSUnmBLV13I93ksI3UatCJ+AabuAmYxQJoa8o1nypyiuplD
-         Y4Mg7jyfv5sYnXJghBV8I60oL5XpYIhHXL5pRuVl2xmJC/ioNJWGPpQO9FdMk26/pbcW
-         Zq+P3Qzn5BLsXQ3tiyEDyTNR7oHm5gsWRjt3bd167EEiIq7w6fKW5jCYImvrB126jGBq
-         UIVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU3QiH5AL4XHoVAuoRzZXWN9Ib+qWqfIUKNddVqjDPh1O5rwCAtLVY2m//9MN7qXwIK+SB3Ns9WeObRjjoNUqLG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJwpWrdAovomj5pWa69LpU21iesT+9nkEcYoNzGsjKrRjjRHl7
-	8aAQBHGF7FkoRn0GpFZ/sdd+kGIWu4DIMaYITcztDYlGdP8SRzeGdLAPVauYMu2BMkezPexU3Hx
-	rhfCo2yDdJ7dlhwkl7DxXeVf/fqA=
-X-Gm-Gg: ASbGncvgrFTan2os8Jfj/PllOXjxvQoqQnfVEoRc1ZmYLfu4PluvXHSPz61ZvnfOaca
-	MNpUx7USm0s4BVysVjMmYxxkhfUDtgFEL
-X-Google-Smtp-Source: AGHT+IFd396UsokWwA15Q5p/KFcRLABdHgY43zyTynmP3tmYwQ6jofpQFOVNZv8hTAfYU9pttSvOZX2EXzH2X5cAsqw=
-X-Received: by 2002:a05:6902:140b:b0:e35:dede:fe02 with SMTP id
- 3f1490d57ef6-e38f8bf5ae0mr16167825276.44.1732640469435; Tue, 26 Nov 2024
- 09:01:09 -0800 (PST)
+        d=1e100.net; s=20230601; t=1732640443; x=1733245243;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ydmtTAzJ7xFTdnZQzRxd9lW2geyaRjzb3DBbsGuXzYg=;
+        b=u98l7NeY4a/Sv86tMaX9YOFa9jkhKUmBDiUZ948ffSQPZNPIFGY232yCE7I+zD0Q2y
+         DvSSr07a7pun1V5zHB3/5ReslI+P3+J+xblFklv7tb/wFr7Ha9ci/7tfLnCmupPuKbfu
+         TTqtAUHLMOhon9DlNNM4BJW/5kDfpI+pZhwdhSPL0hH5QmM9LLWavN6j/+19CNDUnquh
+         B0L+SZSBdeFC0UlanqsOC+3VXCHFSsnwAP6v6b7hbL/IF881DmwOjCPsY/Xcnay6y8EP
+         IofXGq14cjiBbs5SWN7O/fRQuPCrto7xKrFlVz6Tr7JIq6Jk54qf0znrgrFoe1g1Ti7i
+         y3+w==
+X-Forwarded-Encrypted: i=1; AJvYcCXhAN8mL7+j8fNRWpZ98mlcwFjBPQr6oWrx+3zeagXs0Qk5/6xWwVaPpguQV7/X8/jdFRbaJspXkKpiuejrcZR1@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBqAsqTJ48m6LNaFPvibNIxUu9Dy0T32Ki2eSsty9xlQ4i2i+d
+	kOYBRjAai0IPlqLBIa20Zusj33yqRuivqNBhs2VAFexwKvAwdl9VLEjRs/7hpVTAiDMraHcumMz
+	mgu+2bCI8hJYf+bIfDwsE9cEac7OmWFO1NKAGExQM0JWB6MYE3jG80Le14MQiiQNipY+fNiSt
+X-Gm-Gg: ASbGncvop0wMZ+6O5Tqg2pe3wgldYRdpu2RUQoQwX1GOSfv7pL7DQebTMyQftqd6aTh
+	agrl8GGd3dww+0OXuVJZnH6MRUcDjJ0S30AMpcj3P0nAqzm9eMw7Kpq6m6wZeDnDJc5Ik4NmNpj
+	AVJI4UaexXNYdFct8La0Y06RD+MKuI+opWtqnkHCMmHkQ6NlsaqbUMbGAw5+qVeTyaqaR4DYxpH
+	e9QdAAALw1JkfRKOureCruKEICJz7UytjtarYekHQ2xxYdVjZKvKrLL9H2bimtaeeGeNel/qoUV
+	XeGZ7fq1tg9LnXG/RHWmJQ==
+X-Received: by 2002:a05:620a:4393:b0:7b6:66d0:5ab6 with SMTP id af79cd13be357-7b666d05b7fmr1177815585a.51.1732640442846;
+        Tue, 26 Nov 2024 09:00:42 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEk2ACspI3Vw+bJ1uihy2FVtGnZP2FHNgWeUwBtUpzJHCjn+X46VDNrXbQ0bQSxFF1w9gPpfQ==
+X-Received: by 2002:a05:620a:4393:b0:7b6:66d0:5ab6 with SMTP id af79cd13be357-7b666d05b7fmr1177812085a.51.1732640442528;
+        Tue, 26 Nov 2024 09:00:42 -0800 (PST)
+Received: from rh (p200300f6af0bca008282df582fad0b68.dip0.t-ipconnect.de. [2003:f6:af0b:ca00:8282:df58:2fad:b68])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b51416a3a9sm481154685a.113.2024.11.26.09.00.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Nov 2024 09:00:42 -0800 (PST)
+Date: Tue, 26 Nov 2024 18:00:35 +0100 (CET)
+From: Sebastian Ott <sebott@redhat.com>
+To: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
+cc: Marc Zyngier <maz@kernel.org>, 
+    "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+    "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+    "will@kernel.org" <will@kernel.org>, 
+    "catalin.marinas@arm.com" <catalin.marinas@arm.com>, 
+    "oliver.upton@linux.dev" <oliver.upton@linux.dev>, 
+    "james.morse@arm.com" <james.morse@arm.com>, 
+    "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, 
+    yuzenghui <yuzenghui@huawei.com>, "Wangzhou (B)" <wangzhou1@hisilicon.com>, 
+    Linuxarm <linuxarm@huawei.com>, "reijiw@google.com" <reijiw@google.com>
+Subject: RE: [PATCH] KVM: arm64: Make the exposed feature bits in AA64DFR0_EL1
+ writable from userspace
+In-Reply-To: <b2dad37ac5464384abe4edf76cb6b546@huawei.com>
+Message-ID: <4d3a7dde-e085-fa70-8859-ba153c93b615@redhat.com>
+References: <20240813142835.77180-1-shameerali.kolothum.thodi@huawei.com> <86v804z3lk.wl-maz@kernel.org> <b2dad37ac5464384abe4edf76cb6b546@huawei.com>
 MIME-Version: 1.0
-References: <20241126-adpdrm-v2-0-c90485336c09@gmail.com> <20241126-adpdrm-v2-1-c90485336c09@gmail.com>
- <050d1398-cfc2-4921-b82a-95eecbcddba4@kernel.org>
-In-Reply-To: <050d1398-cfc2-4921-b82a-95eecbcddba4@kernel.org>
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Date: Tue, 26 Nov 2024 18:00:58 +0100
-Message-ID: <CAMT+MTSwCf=iwmD3t=E7T81K_d+o-5XpCxov9fk=_oUnwooA-A@mail.gmail.com>
-Subject: Re: [PATCH v2 1/5] dt-bindings: display: Add Apple pre-DCP display
- controller bindings
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, 
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: PYZic9UgmIoEP_vYhaYc7XhE9JQ2YrWuNtlHwlC5r9A_1732640443
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=US-ASCII; format=flowed
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_090111_047320_81C86CF9 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20241126_090226_428017_D95DE943 
+X-CRM114-Status: GOOD (  24.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,42 +113,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 26 Nov 2024 at 17:46, Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> > +allOf:
-> > +  - $ref: dsi-controller.yaml#
-...
-> > +patternProperties:
-> > +  "^panel@[0-3]$": true
+Hi,
+
+On Wed, 14 Aug 2024, Shameerali Kolothum Thodi wrote:
+>>
+>> On Tue, 13 Aug 2024 15:28:35 +0100,
+>> Shameer Kolothum <shameerali.kolothum.thodi@huawei.com> wrote:
+>>>
+>>> KVM exposes the OS double lock feature bit to Guests but returns
+>>> RAZ/WI on Guest OSDLR_EL1 access. This breaks Guest migration between
+>>> systems where this feature support differ. Add support to make this
+>>> feature writable from userspace by setting the mask bit. While at it,
+>>> set the mask bits for other exposed features in the AA64DFR0_EL1
+>>> register as well.
+>>>
+>>> Also update the selftest to cover these fields.
+>>>
+>>> Signed-off-by: Shameer Kolothum
+>> <shameerali.kolothum.thodi@huawei.com>
+>>> ---
+>>>    This is based on the discussion here(Thanks to Oliver),
+>>>    https://lore.kernel.org/all/ZrVSlbVwnaMDShah@linux.dev/
+>>> ---
+>>>  arch/arm64/kvm/sys_regs.c                         | 6 +++++-
+>>>  tools/testing/selftests/kvm/aarch64/set_id_regs.c | 4 ++++
+>>>  2 files changed, 9 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+>>> index c90324060436..adb49d681052 100644
+>>> --- a/arch/arm64/kvm/sys_regs.c
+>>> +++ b/arch/arm64/kvm/sys_regs.c
+>>> @@ -2376,7 +2376,11 @@ static const struct sys_reg_desc sys_reg_descs[]
+>> = {
+>>>  	  .get_user = get_id_reg,
+>>>  	  .set_user = set_id_aa64dfr0_el1,
+>>>  	  .reset = read_sanitised_id_aa64dfr0_el1,
+>>> -	  .val = ID_AA64DFR0_EL1_PMUVer_MASK |
+>>> +	  .val = ID_AA64DFR0_EL1_DoubleLock_MASK |
+>>> +		 ID_AA64DFR0_EL1_CTX_CMPs_MASK |
+>>> +		 ID_AA64DFR0_EL1_WRPs_MASK |
+>>> +		 ID_AA64DFR0_EL1_BRPs_MASK |
+>>
+>>
+>> I think this is going to cause some troubles.
+>>
+>> The issue is that context-aware breakpoints are the highest-numbered
+>> breakpoints, right after the normal breakpoints (D2.8.3 "Breakpoint
+>> types and linking of breakpoints"). So if you reduce the number of
+>> normal breakpoints, you shift the context-aware ones down, and
+>> everything breaks.
 >
-> These look unusual. Is this a DSI controller? If so, then reference
-> dsi-controller. See other bindings how this is done.
-
-This is a DSI controller, as referenced above. Those properties are from
-dsi-controller.yaml
-
-> > +properties:
-> > +  compatible:
-> > +    items:
-> > +      - enum:
-> > +          - apple,j293-summit
-> > +          - apple,j493-summit
-> > +      - const: apple,summit
+> Thanks Marc for explaining this. I was not aware of this one.
 >
-> Summit tells me nothing - no description, title repeats it, so I suggest
-> using device specific compatible.
+>> I really don't see how you can safely do that without completely
+>> changing the way we handle the debug registers.
+>
+> Looks like Reji has attempted to do this a while back,
+> https://lore.kernel.org/kvm/20220419065544.3616948-13-reijiw@google.com/
+>
 
-The j293/j493 are the device-specific compatibles, those are chassis names
-for the specific laptops the panel is present in.
+I've got two machines that differ in the number of breakpoints and
+it would be nice to be able to migrate between these. Is anything
+preventing us from trapping the access and make sure the correct
+breakpoint is used? Is anyone working on this? If not I'd like to
+give it a shot.
 
+Thanks,
+Sebastian
 
-> No, these cannot be true without definition. Again, please open existing
-> bindings and use them as example. You probably miss here some reference,
-> but max-brightness for panel is a bit confusing. I asked already and did
-> not get answer: isn't this backlight property? What is this device -
-> backlight or panel? If panel, then what bus?
-
-Per my response on previous version, it's both, kind of. This is a
-self-emissive panel on
-a mipi-dsi bus, which can change brightness in response to mipi dcs
-backlight commands.
 
