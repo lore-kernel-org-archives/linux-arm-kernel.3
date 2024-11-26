@@ -4,71 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE10D65559
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 21:09:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2EDD6555A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 21:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wu5gCjDHeReSLpzPU55/g/xBhapW17wwlqNE/BgrMPo=; b=OlakgswKSKY8I/4qdqrAMW7Hw6
-	/st6Ulbs7EjWNHM0f2X1m/GVq5ZUue93QniaQfya7otz/wboPshWm2AM/5c02Kp7h9MMOni5VpmAf
-	xq4byN04N+Ncv4BE6tOQu8n5b05jaW6VaPwN+T5RHVRKAP05X7766K4h/XVRqbU7H24wT7eHS0P89
-	lCUUrSNmdHAKn5qzlHjSTjccHXcE/f+XL2X1XBa6fXFgm2Pwsmqe+7ckTRn8DQoWDA6WhD4qEPeIw
-	gWpAQAScziffAt0d2U0BhvCKDgb0MMxit1PoZSj9Us8Cno0PJqdYuJ0FjWmgRkY9iDImOhqjgkC33
-	JnzWu3bw==;
+	bh=MaXb4heZ4EPnEKRXMD9E8/ioruljb7zXBz5GaHOjAgc=; b=RQBtbhoO13ce2/xI3mvizM0rLb
+	BWpsNvx4XvueosRe6XRj0DpSDJgIJQ1ra4t0Dn8CkLEDC346V7QMfNB7OH3rXjJMuTkbNOAWaIY6y
+	FpK+r9eCiuUq+SIxzB2y5VUBPA5NB+Fj9atAUGhOQ3jo0WqPzsxvYhdC6i9v23R0OhuUdsdQMsOEi
+	pu1isYBbDxiDR07RBfPCbS6cYF/kIk+ceuhc9TpLy6erFT56eytj4kl5ByWnDXFj2LCjLLb+9QbRz
+	EFr6tXo0iVsmryayC3w6O1cVZZbEhZDBiqa9Kn8pxzxj45nB3aTya0YAg1nExXPxW7N3oi2n8nBPY
+	/BmHuZiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG2no-0000000Bj8C-479e;
-	Tue, 26 Nov 2024 21:08:56 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tG2uZ-0000000Bja2-1Qtw;
+	Tue, 26 Nov 2024 21:15:55 +0000
+Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG2mX-0000000Bivi-3ICy;
-	Tue, 26 Nov 2024 21:07:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Wu5gCjDHeReSLpzPU55/g/xBhapW17wwlqNE/BgrMPo=; b=qOpMhdYhodddGlZuayKI/fe3K1
-	BixRUYpRYm0lQ4dtBlUN998aCX8aWz3b35jpZVgmjgqjnznN75qKNEbKCjP4lZUJJ/iDOdCfbcsw6
-	Jz323atCcO4gcOab4LN8Cm6Su1oZ52UYMpxIfoA+IBnJRgt13fXM6i9Xgw0oMd6A/7ng=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tG2mL-00EZEP-Rq; Tue, 26 Nov 2024 22:07:25 +0100
-Date: Tue, 26 Nov 2024 22:07:25 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexander Couzens <lynxis@fe80.eu>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH RFC net-next 11/16] net: mvpp2: implement
- pcs_inband_caps() method
-Message-ID: <ec787906-a330-47cb-a0ca-b4b2ab581960@lunn.ch>
-References: <Z0WTpE8wkpjMiv_J@shell.armlinux.org.uk>
- <E1tFrol-005xQe-Ou@rmk-PC.armlinux.org.uk>
+	id 1tG2tZ-0000000BjTr-3M7M
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Nov 2024 21:14:55 +0000
+Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
+	by mailfout.stl.internal (Postfix) with ESMTP id DB14B11401E0;
+	Tue, 26 Nov 2024 16:14:50 -0500 (EST)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-07.internal (MEProxy); Tue, 26 Nov 2024 16:14:51 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1732655690; x=1732742090; bh=MaXb4heZ4E
+	PnEKRXMD9E8/ioruljb7zXBz5GaHOjAgc=; b=lBu2E4/zs0WgHUJoQajbt+gZuE
+	yqjTlQ4rQR4Y3+bjRLp3GtmBtnNE5mzAbET4DSQIU7QxeTU5bSyGnGkA9m2GGBxQ
+	iJbxdPQnkfRVStL74ulUtxv4SJINwh8AsvWd6cmdg2YAImUjaedxLHUsoNEcNVT4
+	ZW230QDCDF3voT746WIm9CM+qO9SiC0+T6SuxRTx+ySo7KcrT5y+jEAyR+oYM8Dz
+	sLm/Kw5fBvJeNgiUDQLZ/x0b568T3jEIdaKX9spIrQhpKDitcV3K0HjjvaQu54Md
+	bBNQ5e/9rMtxjMrlffAwF9DCMIEmvkOm9cHujCC+3AMcVcWTEEUBiTBj6G9g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1732655690; x=1732742090; bh=MaXb4heZ4EPnEKRXMD9E8/ioruljb7zXBz5
+	GaHOjAgc=; b=rtkRwH0dtRSFGOsJepoew66M3vMRe7ZB80Us9I5IHnMMuY3RI2T
+	RSsjjjkjCkwWh7Yl98yXST1sOcfwGXw8zUm+sPyfJu8qwLTN3HL0UBDZ3anNyQHD
+	XQe133SkGIzlNhPPUzjUqY7aMofvba45jwYzf17oAXU4mzqqqbgf7qSoQKu8p295
+	a3e3R81mk7enM6uje8wIcIEYGAvFLA7neB/FPdFqGnxKC5aFvV8pAsZfIlO2Jj7+
+	B7b8zshClGjBNWpQnM5yj29oZ3VBHARoq1pk/NxgRcZspr06HKl7lyYpHjqyp0A6
+	DwBgXmGPfoiqjX/noQoPzzsNeWrttRzH57A==
+X-ME-Sender: <xms:STpGZygne0mCYayUw16B08xX97doriCb8l2xJGLNgpEZN1HAaMNvzA>
+    <xme:STpGZzC4c_-5idzsWIEuBaNvCp6KpqqmPymGi2M3oYyCps8vrdYKPEKmMsmGZ956f
+    ZBkIaldho37a6SqElM>
+X-ME-Received: <xmr:STpGZ6HkYB9sM6kTxTubh13I0MnNCl1JlvwdvHDyYcKSo1uZjuM7NsKPgEjuy2iQ_NcuGxr2AK-2Cjlsv5MMiOg4tTmkgfYgQX0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrgeejgddugedvucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddtjeen
+    ucfhrhhomheplfgrnhhnvgcuifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenuc
+    ggtffrrghtthgvrhhnpefgudeuffelfeekgeeukedtheekjeettdfftddujefhvdehtefg
+    iefgledtueefjeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrh
+    fuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrghurdhnvght
+    pdhnsggprhgtphhtthhopedugedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepfh
+    hnkhhlrdhkvghrnhgvlhesghhmrghilhdrtghomhdprhgtphhtthhopehmrghrtggrnhes
+    mhgrrhgtrghnrdhsthdprhgtphhtthhopehsvhgvnhesshhvvghnphgvthgvrhdruggvvh
+    dprhgtphhtthhopegrlhihshhsrgesrhhoshgvnhiifigvihhgrdhiohdprhgtphhtthho
+    pegumhhithhrhidrthhorhhokhhhohhvsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprh
+    hosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgv
+    lhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtg
+    hpthhtoheprhihuggsvghrghessghithhmrghthhdrohhrgh
+X-ME-Proxy: <xmx:SjpGZ7Rq-RBSf09Ib4ULSHmIxrbx_bj_eHcVdiKAcmth01EgkKknbQ>
+    <xmx:SjpGZ_zqQwIVwyWJpWBVa6inzMm3faUMvqQTNkcE5qKuGeXdPpYSng>
+    <xmx:SjpGZ54RQKUb6QuBu5Us9q-yBTctgFRCpDPE4q5Zrtr98iDCQaeDQQ>
+    <xmx:SjpGZ8wFYaBNKgwtefQA8bZIfAARZHMet2pCc-1i0wpoGgA0BUgFNg>
+    <xmx:SjpGZ0KSsMX1BWZR0TMY8r_z3ZpRt1RWRqfrUxYcqySUndNuBUjgchjq>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 26 Nov 2024 16:14:49 -0500 (EST)
+Date: Tue, 26 Nov 2024 22:14:47 +0100
+From: Janne Grunau <j@jannau.net>
+To: fnkl.kernel@gmail.com
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/4] arm64: dts: apple: Add touchbar digitizer nodes
+Message-ID: <20241126211447.GA3782493@robin.jannau.net>
+References: <20241126-z2-v1-0-c43c4cc6200d@gmail.com>
+ <20241126-z2-v1-3-c43c4cc6200d@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <E1tFrol-005xQe-Ou@rmk-PC.armlinux.org.uk>
+In-Reply-To: <20241126-z2-v1-3-c43c4cc6200d@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_130737_822726_621D3650 
-X-CRM114-Status: UNSURE (   7.03  )
+X-CRM114-CacheID: sfid-20241126_131454_299234_A1ACCB12 
+X-CRM114-Status: UNSURE (   9.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,13 +120,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 09:25:11AM +0000, Russell King (Oracle) wrote:
-> Report the PCS in-band capabilities to phylink for Marvell PP2
-> interfaces.
+On Tue, Nov 26, 2024 at 09:48:01PM +0100, Sasha Finkelstein via B4 Relay wrote:
+> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> Adds device tree entries for the touchbar digitizer
+> 
+> Co-developed-by: Janne Grunau <j@jannau.net>
+> Signed-off-by: Janne Grunau <j@jannau.net>
+> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> ---
+>  arch/arm64/boot/dts/apple/t8103-j293.dts | 24 ++++++++++++++++++++++++
+>  arch/arm64/boot/dts/apple/t8103.dtsi     | 19 +++++++++++++++++++
+>  arch/arm64/boot/dts/apple/t8112-j493.dts | 20 ++++++++++++++++++++
+>  arch/arm64/boot/dts/apple/t8112.dtsi     | 14 ++++++++++++++
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+The changes in t8103.dtsi and t8112.dtsi conflict with my "Add Apple SPI
+controller and spi-nor dt nodes" in
+https://lore.kernel.org/asahi/20241102-asahi-spi-dt-v1-0-7ac44c0a88f9@jannau.net/
 
-    Andrew
+I think it makes more sense to add the spi controller nodes in one go
+instead of piece by piece based on device support.
+
+Janne
 
