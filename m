@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DCED3B7CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C499D3B7CE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bThuyhzJh56++C+Y7K4chqS3giDBXnc2WHnyYXvta88=; b=a5vdScFKYrUkbe2yWxh/Hmje63
-	Q6gUVPtr4tnTXpf25l9rnkDW5r1Nks1EH2OBnNKO4yCqeTUmXcUIw3HstLdycmWv0H7i/A2ou2RKw
-	jx6uSaohCgPedyTr7urRgbc5K0ZSXln56H6Ifx9y+rBPVS4+2E0dB5IVY4ydQ+VcN7R6WmdFpOy1b
-	bAv99Ow4lKCzFtVrIK9bRDLMwEe0KqpidaWWztw23CdsON1whEDc4PjQvYEBZjpqzEPGub3mWCHtJ
-	OQ+REKRVd4zR+qRBG16d0E3DVcyW4I3qwNCgNU/e6e28n3/wyLqLTXst+W0yeIe1PZoG8/xd1VuO9
-	SmutA0Kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pw6byHJuK/WA3pAUi4gj22x3Siw4nUh6QIEq2P4Iyno=; b=SqJQJZ5GG7PZyFIbPdmjsiYWyh
+	UbzooZF9KUkGXly/x8zs/yPwhIKzDZ1JtG16elSGbiJ8qGj04QCMOmuTqkhwrxUQ1bSLF4eds4Akq
+	bnuhfhYCWS+kbiiuRJ/MpdpajDlSDfIJ+1BV2y0vKq7rPi9LWcm46lS66eLH6UIGCZkMSv2p/zV4T
+	EHtxjy6UHmGRfdJ0NAkBTJjR5hZXBrQZXBbXCJyRV+jM6wrtJ1ExkrDDkeIeeNClFIpN/I55iyaka
+	p3L/GI85ClOqsHGGioA5gWrowyCTW/IY3ZkiPzWfgqOTJ4D1soiG8sJDfvY+3b7JMZG5iO0BeKi+A
+	Xv24Yqng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFrjH-0000000A5LN-3LIa;
-	Tue, 26 Nov 2024 09:19:31 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tFrlB-0000000A7Es-22Bg;
+	Tue, 26 Nov 2024 09:21:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFri8-0000000A4Vu-0bWl
+	id 1tFrk6-0000000A6Po-3Df9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 09:18:21 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tFri5-0005E2-I5; Tue, 26 Nov 2024 10:18:17 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tFri3-000Dyd-2H;
-	Tue, 26 Nov 2024 10:18:16 +0100
-Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 1ADB937D7BA;
-	Tue, 26 Nov 2024 09:18:16 +0000 (UTC)
-Date: Tue, 26 Nov 2024 10:18:15 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
-	linux-arm-kernel@lists.infradead.org, linux-can@vger.kernel.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v2 03/12] can: sun4i_can: continue to use likely() to
- check skb
-Message-ID: <20241126-wooden-cyber-polecat-d96127-mkl@pengutronix.de>
-References: <20241122221650.633981-1-dario.binacchi@amarulasolutions.com>
- <20241122221650.633981-4-dario.binacchi@amarulasolutions.com>
+	Tue, 26 Nov 2024 09:20:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7BEBB5C5CE3;
+	Tue, 26 Nov 2024 09:19:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFAE4C4CED0;
+	Tue, 26 Nov 2024 09:20:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732612821;
+	bh=Ctg6MXostCZ1aJoI4FFc/g312bq9jtegH+oNd3mbPbM=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=hMoVL8rgbDSJZsho/GqGrLQfqMe65YqL/OcfkOgVu/5jtxIXo8eRmaxd5wQMHI7Nw
+	 NOpZRQVuhvE4/31lTFsVwpoOXbRIjh8MmLZlhrpC8eIOoSvx1X0a5myta69XiHNnyh
+	 WbGIGB6h6kr7sxp3NIu2OXa4/KGahf4K56dR1iU5okxS2CJ+uTHGVlypIj7r5/mfuD
+	 3zpFVLmxKFDzPZB1ZIgdNYca9r8eZ0h9j2Hlf75mjRDYzvGWLEgkZg8EL+YJibtO9G
+	 w6Drte+7iDFIi6DA5fcAK/wscZBGCqtrcTo55HOA0ug0sHRJ8vpIzIYNYlFzcCoNWR
+	 veNEsxTuP20/w==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AEB873809A00;
+	Tue, 26 Nov 2024 09:20:35 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fklivl3r3m4v2cbu"
-Content-Disposition: inline
-In-Reply-To: <20241122221650.633981-4-dario.binacchi@amarulasolutions.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net 1/1] net: stmmac: set initial EEE policy configuration
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173261283425.319179.1006458233398022415.git-patchwork-notify@kernel.org>
+Date: Tue, 26 Nov 2024 09:20:34 +0000
+References: <20241120083818.1079456-1-yong.liang.choong@linux.intel.com>
+In-Reply-To: <20241120083818.1079456-1-yong.liang.choong@linux.intel.com>
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Cc: andrew+netdev@lunn.ch, linux@armlinux.org.uk, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ alexandre.torgue@foss.st.com, joabreu@synopsys.com,
+ mcoquelin.stm32@gmail.com, o.rempel@pengutronix.de, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_011820_181816_9BC752F1 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20241126_012022_849344_2CB6701A 
+X-CRM114-Status: UNSURE (   7.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,46 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
---fklivl3r3m4v2cbu
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 03/12] can: sun4i_can: continue to use likely() to
- check skb
-MIME-Version: 1.0
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-On 22.11.2024 23:15:44, Dario Binacchi wrote:
-> Throughout the sun4i_can_err() function, the likely() macro is used to
-> check the skb buffer, except in one instance. This patch makes the code
-> consistent by using the macro in that case as well.
->=20
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+On Wed, 20 Nov 2024 16:38:18 +0800 you wrote:
+> Set the initial eee_cfg values to have 'ethtool --show-eee ' display
+> the initial EEE configuration.
+> 
+> Fixes: 49168d1980e2 ("net: phy: Add phy_support_eee() indicating MAC support EEE")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+> 
+> [...]
 
-I'll apply this one on can-next.
+Here is the summary with links:
+  - [net,1/1] net: stmmac: set initial EEE policy configuration
+    https://git.kernel.org/netdev/net/c/59c5e1411a0a
 
-Marc
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
---fklivl3r3m4v2cbu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdFklUACgkQKDiiPnot
-vG9V2Qf9HACb0LFZ2n5t9mhZxL1lJKrvPrG0+M1I2I+az5Kf1ctouzr1D2tj3UCX
-1jRQnCniUZWRqagu1R3mc6ih6FQwftuCstvdh/J2+wurmgvs6erlza4FytN/vN91
-GzhOEXksFZIJCIKrP0Oj4EOIZZKmc2I8wP3+TV+6V/x+Cb1/yo86+ktgY08/p7CG
-PDxBOBnlCF1lwKu1rAIp5TaEkKAWko7SVo2wDrpdAe5H7YI7KOXJvVfkeZvEN3j7
-U9i2pdrP9SyWt4Iz6nn2fYbVn2Bez6a2XVd9Vg19eMVzpyhrq6zcxjNo5oleXutW
-eve3U2Mo0bP+O0aTxxuAM1H9XDV6dQ==
-=b9xE
------END PGP SIGNATURE-----
-
---fklivl3r3m4v2cbu--
 
