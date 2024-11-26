@@ -4,66 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E315D5A6C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 01:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 834AAD5A6C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 01:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eam3QNZVs0WoQljWB8tHIqFX7b++mLcO2kcoIwbj6Jw=; b=L+B6ShjEOGi55DIhqZKt/szkHd
-	Xj/U/0lX1THUClKqOVBfcTJv7kCXOaqqsHpe7cqVPgyB+0Yigt7B5EGUstotpNWfyswzYPtUDhmb8
-	RICUqUkJtbjRZC2x12fr1h2yh9sli/vkI78cs2cMAL6csL1DX9ANxURg4VNzQb6vxrdr6CbXK/wu0
-	Y2Oit/DrV9Yr84FmPde7od6OFECmlAK0QBfFxboIHBlNi7Uh+ksquCVIh+9ErkbOCKhkzA9ntA+VG
-	USrg2f0n3I+USU5oDUeRitIYGJoPZgijmo+9N+jwum/Ewz9sFrwE3hNuRjADvZsH8url6oAgjLTYG
-	O/O/BaVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xC8LsOhOKhtFlMr6+pMsh3+JxF3b8PDqZdseL10V6ZQ=; b=Rq/GM7S1F5WdGzFBtAAg0nqwz8
+	+Q9Ra5c384jN3pfZaYYkMWI3BHFYKazLxP6ZTo3fWswlRVF8zPHg4s8gHHid6wR9dAwbilvwIpbSv
+	5UMEaFFnDRCEB6zM7EE5nm1OfmZt9DbafxCIPF3oybWMBGl590hk6ORoR6T5MR8J450utDjs1Sz1W
+	02YbKUD4CnbdkA6agRC73wsT181yaLztiOeO4fmYb9TbIBFW13grq5XIzHnGJHS2zb+/dQFsqiNvX
+	NkwpryfjLadaHYfII/r3Q4lgsd1/cRrnN92O/pAdgUebaJS5aPgGN3HsmyiXuSjaP44T/QrrOZFVe
+	W760lY2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFka6-00000009QfQ-48AE;
-	Tue, 26 Nov 2024 01:41:34 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tFkbN-00000009Qwe-2OND;
+	Tue, 26 Nov 2024 01:42:53 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFkZ8-00000009QTk-2iVT
+	id 1tFkaP-00000009QlL-2BiR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 01:40:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4B5885C3E3A;
-	Tue, 26 Nov 2024 01:39:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73B59C4CECE;
-	Tue, 26 Nov 2024 01:40:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732585233;
-	bh=vJfWA6n4G80xSqB2iyajecyhNPovZUzCxSTks2j8bPo=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=jyg5gHsDOBKkQzR22NG3Ooz2kNQQ0Fo+ug1F7DnD8o0NThy6cA9DTxbEPBd0zeXha
-	 JXnLiIjl/WP+9blevkmsMiKArBbRbNinnfYM/37xSKjcsY6dTQW/Qb+6wPNhgW9Pvs
-	 uoCGCDOdwuCqgDfET+W5+riXpAUh33SxcpGRtIMhB7FhhUrxphYhJYEu4t/KIhtG17
-	 WHeRnWJaXNMFZr9dlkWWWLmLq3s8S3XZTmOGL1yZzEA32WCbzT7/Mq7u4UCZFb2bGu
-	 H4ecFAGDBm87J6QmucVS1lH+i/+DCXLbbK2Tgj41LDJR451fE1vzF3BGqtpdHsdDk8
-	 I77VNY2xiD2jw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 713B13809A00;
-	Tue, 26 Nov 2024 01:40:47 +0000 (UTC)
-Subject: Re: [GIT PULL] Mailbox changes for v6.13
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <CABb+yY33qnivK-PzqpSMgmtbFid4nS8wcNvP7wED9DXrYAyLKg@mail.gmail.com>
-References: <CABb+yY33qnivK-PzqpSMgmtbFid4nS8wcNvP7wED9DXrYAyLKg@mail.gmail.com>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <CABb+yY33qnivK-PzqpSMgmtbFid4nS8wcNvP7wED9DXrYAyLKg@mail.gmail.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git tags/mailbox-v6.13
-X-PR-Tracked-Commit-Id: 7f9e19f207be0c534d517d65e01417ba968cdd34
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 2c22dc1ee3a1d1c50bee5f0f71ebffa86c33e172
-Message-Id: <173258524588.4103683.11286245173894515706.pr-tracker-bot@kernel.org>
-Date: Tue, 26 Nov 2024 01:40:45 +0000
-To: Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+	Tue, 26 Nov 2024 01:41:54 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4APEAii4000996;
+	Tue, 26 Nov 2024 01:41:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	xC8LsOhOKhtFlMr6+pMsh3+JxF3b8PDqZdseL10V6ZQ=; b=aKRynTBfoT6iH0sM
+	v5hNSualczhiSzOepHrWJ7jwL4gkAAnlodb3Tg+S31ukec611nTXGF2KsgfFVIAG
+	A9UGiVToooRuPbCnGtvsDiD32rpwFictuDxyyDETX4ZMGMVXCftxrZVNQgn2tUJK
+	XB3lIaKq/6hlAdFh6IaOEOMaK6iBIM9ZcybUeYAxYDB+zjmu7kH2xrGu5mXAN2ZB
+	XtvWNmEb4QCh/OTtT+t1kKyFC8zawUfusOuEH8RqNhjGOzAeWHSLrxcFgZBDsNrn
+	3s6EWsyROxUThOnI8GyS4Z0OyUFvZIQ587c+pS0XXf5qjfvfsm3UgPnzOWqqejnm
+	nAJ4Ug==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 434ts1hdv8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 26 Nov 2024 01:41:42 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AQ1fgLO030259
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 26 Nov 2024 01:41:42 GMT
+Received: from [10.64.16.151] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 25 Nov
+ 2024 17:41:35 -0800
+Message-ID: <4799eab5-2238-41d4-bb55-9dd63080e604@quicinc.com>
+Date: Tue, 26 Nov 2024 09:41:32 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 7/9] drm/msm/dsi: Add support for SM6150
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+CC: Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar
+	<quic_abhinavk@quicinc.com>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten
+	<marijn.suijten@somainline.org>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Krishna
+ Manikandan" <quic_mkrishn@quicinc.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        "Catalin
+ Marinas" <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Li Liu
+	<quic_lliu6@quicinc.com>,
+        Xiangxu Yin <quic_xiangxuy@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
+ <20241122-add-display-support-for-qcs615-platform-v3-7-35252e3a51fe@quicinc.com>
+ <mcvhfkh3ycrx2ganumsxlc7lx53ed55yk4syh5qev3jqqgkeqj@h5vnfpgjwtj5>
+ <bfc87132-a63e-4f3f-99b7-1a1bd7eb60ce@quicinc.com>
+ <CAA8EJpoYwGHenThgxaKcapjTng3BchpbVBfzXqBvTDGBzv2J-w@mail.gmail.com>
+Content-Language: en-US
+From: fange zhang <quic_fangez@quicinc.com>
+In-Reply-To: <CAA8EJpoYwGHenThgxaKcapjTng3BchpbVBfzXqBvTDGBzv2J-w@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: CzQG4YMlEQ62zgJOgVX6sVpjEHlUdVWt
+X-Proofpoint-ORIG-GUID: CzQG4YMlEQ62zgJOgVX6sVpjEHlUdVWt
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015
+ lowpriorityscore=0 mlxlogscore=999 spamscore=0 adultscore=0 malwarescore=0
+ impostorscore=0 phishscore=0 priorityscore=1501 mlxscore=0 suspectscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411260013
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_174034_732248_67A17947 
-X-CRM114-Status: UNSURE (   5.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241125_174153_577841_B55B0F1E 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +128,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sun, 24 Nov 2024 20:02:27 -0600:
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git tags/mailbox-v6.13
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/2c22dc1ee3a1d1c50bee5f0f71ebffa86c33e172
+On 2024/11/26 6:11, Dmitry Baryshkov wrote:
+> On Mon, 25 Nov 2024 at 04:31, fange zhang <quic_fangez@quicinc.com> wrote:
+>>
+>>
+>>
+>> On 2024/11/22 18:10, Dmitry Baryshkov wrote:
+>>> On Fri, Nov 22, 2024 at 05:56:50PM +0800, Fange Zhang wrote:
+>>>> From: Li Liu <quic_lliu6@quicinc.com>
+>>>>
+>>>> Add support for DSI 2.3.1 (block used on SM6150).
+>>>>
+>>>> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+>>>> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+>>>> ---
+>>>>    drivers/gpu/drm/msm/dsi/dsi_cfg.c | 4 +++-
+>>>>    drivers/gpu/drm/msm/dsi/dsi_cfg.h | 1 +
+>>>>    2 files changed, 4 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/drivers/gpu/drm/msm/dsi/dsi_cfg.c b/drivers/gpu/drm/msm/dsi/dsi_cfg.c
+>>>> index 10ba7d153d1cfc9015f527c911c4658558f6e29e..fe02724bddf69c2e8d6816589f4ea410fa666e5b 100644
+>>>> --- a/drivers/gpu/drm/msm/dsi/dsi_cfg.c
+>>>> +++ b/drivers/gpu/drm/msm/dsi/dsi_cfg.c
+>>>> @@ -171,7 +171,7 @@ static const struct msm_dsi_config sdm845_dsi_cfg = {
+>>>>       .num_bus_clks = ARRAY_SIZE(dsi_v2_4_clk_names),
+>>>>       .io_start = {
+>>>>               { 0xae94000, 0xae96000 }, /* SDM845 / SDM670 */
+>>>> -            { 0x5e94000 }, /* QCM2290 / SM6115 / SM6125 / SM6375 */
+>>>> +            { 0x5e94000 }, /* QCM2290 / SM6115 / SM6125 / SM6150 / SM6375 */
+>>>
+>>> Not true
+>> Should I remove it or add it behind the SDM670?
+> 
+> You should not be sending patches which provide false information. Why
+> did you add it to the wrong line in the first place?
+sorry i missed it, will remove it in next patch
+> 
+>>>
+>>>>       },
+>>>>    };
+>>>>
+>>>> @@ -286,6 +286,8 @@ static const struct msm_dsi_cfg_handler dsi_cfg_handlers[] = {
+>>>>               &sdm845_dsi_cfg, &msm_dsi_6g_v2_host_ops},
+>>>>       {MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_3_0,
+>>>>               &sdm845_dsi_cfg, &msm_dsi_6g_v2_host_ops},
+>>>> +    {MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_3_1,
+>>>> +            &sdm845_dsi_cfg, &msm_dsi_6g_v2_host_ops},
+>>>>       {MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_4_0,
+>>>>               &sdm845_dsi_cfg, &msm_dsi_6g_v2_host_ops},
+>>>>       {MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_4_1,
+>>>> diff --git a/drivers/gpu/drm/msm/dsi/dsi_cfg.h b/drivers/gpu/drm/msm/dsi/dsi_cfg.h
+>>>> index 4c9b4b37681b066dbbc34876c38d99deee24fc82..120cb65164c1ba1deb9acb513e5f073bd560c496 100644
+>>>> --- a/drivers/gpu/drm/msm/dsi/dsi_cfg.h
+>>>> +++ b/drivers/gpu/drm/msm/dsi/dsi_cfg.h
+>>>> @@ -23,6 +23,7 @@
+>>>>    #define MSM_DSI_6G_VER_MINOR_V2_2_0        0x20000000
+>>>>    #define MSM_DSI_6G_VER_MINOR_V2_2_1        0x20020001
+>>>>    #define MSM_DSI_6G_VER_MINOR_V2_3_0        0x20030000
+>>>> +#define MSM_DSI_6G_VER_MINOR_V2_3_1 0x20030001
+>>>>    #define MSM_DSI_6G_VER_MINOR_V2_4_0        0x20040000
+>>>>    #define MSM_DSI_6G_VER_MINOR_V2_4_1        0x20040001
+>>>>    #define MSM_DSI_6G_VER_MINOR_V2_5_0        0x20050000
+>>>>
+>>>> --
+>>>> 2.34.1
+>>>>
+>>>
+>>
+> 
+> 
 
-Thank you!
-
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
 
