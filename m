@@ -4,77 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C7FD3B98D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 13:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09974D3B98B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 13:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ky6HbS31SSAdMYxozY6xIMAs0Cpmlvp4GWo+IUxC3Gc=; b=Tqz/dsNDxDckVgNOoxZQgXYFN7
-	vDNMiOzhTj9k6jUnRcN3god1V2hf2HFSDyis+Q7pBhBMoixoMMX72s07uTtxr2ZZsnWJiuC1Eh7eI
-	TI7M1jL3G9J5PrRhBrnOMeGtWzQVBxm2C1vgyFvyqLR6C+w39EgUG3XLuE76YbF0VGoVNH3E7BJWR
-	mSLgS0TeKDv0pf8zMGosw+/gv5T4wXF1FlZbhJVuBo2rHRAgTqe8XO/Bja9F7ooDZlFkAODzofPQg
-	raTOsY0OiF1fsrHWUqtM2dKw4cDnEzhow/kfzZXN2/l0320pkj5EqjxUjX0wkGY0DKrHZhaF+0SF4
-	cv6M8XEw==;
+	bh=yZhwlZeZQoMpb1RlyyjILd8T/ILSIB2hivP2H9gbW7g=; b=S5E63dcVhKiYWQlv22jbHGKKM5
+	fj3+cLGx2jMO3P7bOpJiuoAUl7Dhkyx5QhVdJ6BGDEI8i1a59O8HZQfWtSaclQl0VdFNS8aAxk/sx
+	HD2Gzg5vQ4htJaY1w3vZaB9Z4+F6Z7PY25gWkwt5UFfKynI7Rm3xMcoynzI2ev8sxr5Qqutpb1HVM
+	lIQG+Jo/XVXqNsdexRgIj0tkH3H2m8AKcUqt0UZfN4e8vNrqtKq4qoQMXPJGkq3ES5I5VY2hXNKiW
+	AiSfkJZ138giYoxqYgrFpA+F/FgtIbuuKsK33MP/lgcNoDpliVkejz9sQXCPOmiHe+uC0mNyU1Eri
+	ZW43ttnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFvSA-0000000AgnV-1WJN;
-	Tue, 26 Nov 2024 13:18:06 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tFvT7-0000000Ah9r-2j02;
+	Tue, 26 Nov 2024 13:19:05 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFvC1-0000000Adq1-0RK5
+	id 1tFvFb-0000000AeLb-2uWb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 13:01:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Ky6HbS31SSAdMYxozY6xIMAs0Cpmlvp4GWo+IUxC3Gc=; b=sA/wh2QdMDG6PLLquxIEEkTzeN
-	r8oRRbixq8aAWGNui9FskfeZ+s+CruyDf1QNYcJu1YTw1B59tqTMhKJR5jcBCUo9aYxQfbbZSAbcy
-	UpRmoq+0oztPAtiTZR6Jf3kg5fvS/1q+fWAJT5LrwrQ3ap6KoivSQLAQ9JoXquDPGhH60kjpyU37Z
-	ch0Ypjw60dLf9Z4KZrdjMH+PaZkow2p6pzin2z+wpe5l+BuIFlWrY+PUbynf8x03RargY5D9GF0m1
-	X4wNGVCYilk3TcsMtkI4sJ0U6Rpug2xNX4sO5o4186DptWdSkvOXoUIFEfbvq1X8w7oRZhuxM13zB
-	aQRGky1w==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54564)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tFvBq-00070g-17;
-	Tue, 26 Nov 2024 13:01:15 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tFvBn-0004ZI-1q;
-	Tue, 26 Nov 2024 13:01:11 +0000
-Date: Tue, 26 Nov 2024 13:01:11 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Bryan Whitehead <bryan.whitehead@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com
-Subject: Re: [PATCH RFC net-next 00/23] net: phylink managed EEE support
-Message-ID: <Z0XGl0caztvVarmZ@shell.armlinux.org.uk>
-References: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
+	Tue, 26 Nov 2024 13:05:09 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AQAk5IR003880;
+	Tue, 26 Nov 2024 14:04:49 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	yZhwlZeZQoMpb1RlyyjILd8T/ILSIB2hivP2H9gbW7g=; b=DNvlWt8fMZLqD2vB
+	Q9QLpb1qcsyiTWu3gtk+Bkx63qc4m+sSPpRgbySdIJlB9BoonWYpyWhkgBAWyuAC
+	AasjTihhT1bbCzUb/3dG0wYY0KUTprTEnwneAm1ffAcGeE3yDCi4G2l9gj6Oc/d5
+	cyEDonQFb3cL4uACUQuckK9izDu/mO7OX8ODAW7/1iticGXoJkf/vIRDqxLboFm5
+	ZlABrfnOrqIc5KCoQ/CQJAcfKSP838OTceXo9ASSGvjt4gkQXiaGFZWa296ezSkA
+	6RQQ5CMVTupGa4k4j4Y2A+DN4MKOlDz7mRhUHkSov5GZUiWxM7cgfkf8LLgRcusD
+	+Nxh/w==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4336tfmxca-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 26 Nov 2024 14:04:49 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id DA1C140050;
+	Tue, 26 Nov 2024 14:03:32 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4C970286EC2;
+	Tue, 26 Nov 2024 14:01:29 +0100 (CET)
+Received: from localhost (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 26 Nov
+ 2024 14:01:29 +0100
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
+        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>
+CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Christian Bruel <christian.bruel@foss.st.com>
+Subject: [PATCH v1 5/5] MAINTAINERS: add entry for ST STM32MP25 PCIe drivers
+Date: Tue, 26 Nov 2024 14:00:04 +0100
+Message-ID: <20241126130004.1570091-6-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241126130004.1570091-1-christian.bruel@foss.st.com>
+References: <20241126130004.1570091-1-christian.bruel@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_050125_139894_297B703A 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20241126_050508_197299_A16604C8 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,37 +98,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 12:51:36PM +0000, Russell King (Oracle) wrote:
-> Patch 11 adds phylink managed EEE support. Two new MAC APIs are added,
-> to enable and disable LPI. The enable method is passed the LPI timer
-> setting which it is expected to program into the hardware, and also a
-> flag ehther the transmit clock should be stopped.
-> 
->  *** There are open questions here. Eagle eyed reviewers will notice
->    pl->config->lpi_interfaces. There are MACs out there which only
->    support LPI signalling on a subset of their interface types. Phylib
->    doesn't understand this. I'm handling this at the moment by simply
->    not activating LPI at the MAC, but that leads to ethtool --show-eee
->    suggesting that EEE is active when it isn't.
->  *** Should we pass the phy_interface_t to these functions?
->  *** Should mac_enable_tx_lpi() be allowed to fail if the MAC doesn't
->    support the interface mode?
+Add myself as maintainer of STM32MP25 PCIe host and PCIe endpoint drivers
 
-There is another point to raise here - should we have a "validate_eee"
-method in struct phylink_mac_ops so that MAC drivers can validate
-settings such as the tx_lpi_timer value can be programmed into the
-hardware?
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+---
+ MAINTAINERS | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-We do have the situation on Marvell platforms where the programmed
-value depends on the MAC speed, and is only 8 bit, which makes
-validating its value rather difficult - at 1G speeds, it's a
-resolution of 1us so we can support up to 255us. At 100M speeds,
-it's 10us, supporting up to 2.55ms. This makes it awkward to be able
-to validate the set_eee() settings are sane for the hardware. Should
-Marvell platforms instead implement a hrtimer above this? That sounds
-a bit problematical to manage sanely.
-
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 4803908768e8..277e1cc0769e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -17912,6 +17912,13 @@ L:	linux-samsung-soc@vger.kernel.org
+ S:	Maintained
+ F:	drivers/pci/controller/dwc/pci-exynos.c
+ 
++PCI DRIVER FOR STM32MP25
++M:	Christian Bruel <christian.bruel@foss.st.com>
++L:	linux-pci@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/pci/st,stm32-pcie-*.yaml
++F:	drivers/pci/controller/dwc/*stm32*
++
+ PCI DRIVER FOR SYNOPSYS DESIGNWARE
+ M:	Jingoo Han <jingoohan1@gmail.com>
+ M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.34.1
+
 
