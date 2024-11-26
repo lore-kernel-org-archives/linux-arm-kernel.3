@@ -4,100 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EFD0D6552F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 17:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81EBD6552F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 17:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H94+kE6a6Z3TCvsv5IQfa8koOq42a44wDuStW4E/6+8=; b=cIZahGipUUXj+C0CidCkYHDlob
-	f+LKyoAvVvPvaSuC1q8akj4HFd0hlqyoweIf3XTEY3VmfZ1V8XmwN/q/3BmDlky3tEZXIiFqSq4CL
-	ZMUoimytsf1BNcGj1kmAyY93eURl6nxMdWdVti3viAlsRfatH/5qa/ZAucNSTlsN1ARBVRGgDR4A9
-	bGlRog3RmifUjKepeSCNrJS+Ms5+00Bmvl5h7UJz5Q2VWvVU1l4KSo+5IGmaDbNs7GZfoQIPXzVHe
-	xwPYWwmljWqq6eIXAznKvmZtLGdYZOFGCNsZzEEMejjU9azXLEgpwndVEaQDbiI2jAWkuqL1BX8Zp
-	82P8HbxA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9oOV6Xf/f1fBBujFiCnK10GJBxK35mB0wxBS2n5gZfU=; b=mT/1vBD1u3ightlewShVQuYdeC
+	dtOBKcUJ/SbZpuNF/fIoZG/CdTdg9ye6VKbJ5ojGMqjO0AnjuD8oqn0IKLUtvX17vjDQn4IlYmHWk
+	g1hc55k7YbcJDZyTAcbg+XyuOZsUT4hZ9RKvly2QIwtfOkQZh4yhGad95oi2eUcsbAbcTIbACDKR3
+	JR1jHzQZGZkL0ejLwrkDlNyJRl9D4Sr/KMQKibIm5uYxEuuYLB38RoQQTKKPxueRp1hrxGinSRfka
+	6eWvmLRm/QEKn18OZIkffi5bgmwxtWnmWgJANtR5wAhWXEL28HlU4YPBRz1cAGIRt1RgswQm+qq51
+	/udtlLtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFzNr-0000000BJZA-0xsD;
-	Tue, 26 Nov 2024 17:29:55 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFzMs-0000000BJPL-34Pl
+	id 1tFzS3-0000000BK42-08Yq;
+	Tue, 26 Nov 2024 17:34:15 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tFzR4-0000000BJzQ-2WqF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 17:28:55 +0000
-Received: from [10.0.0.115] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 1A72420545AE;
-	Tue, 26 Nov 2024 09:28:53 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1A72420545AE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1732642133;
-	bh=H94+kE6a6Z3TCvsv5IQfa8koOq42a44wDuStW4E/6+8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sXLbEnkQ61nv6hbtZZ2ZQwagIwQ3s57qp+UTpK189JiX/cAYSvAH5zo9QDJA5ey8k
-	 Dwt4CCS4FMIH15sSObKql/pyGsegy+eu+jPnazasSvIj/u/dhKQ5vboJ68gY5vxkaU
-	 Ik00OhGi1r1Ksyj94O5yXx79fuqOSlgwKrm8eO6s=
-Message-ID: <074bacbe-2823-4653-a6fb-a50b7785a027@linux.microsoft.com>
-Date: Tue, 26 Nov 2024 09:28:52 -0800
+	Tue, 26 Nov 2024 17:33:16 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3823cf963f1so3710337f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 09:33:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=smile.fr; s=google; t=1732642392; x=1733247192; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9oOV6Xf/f1fBBujFiCnK10GJBxK35mB0wxBS2n5gZfU=;
+        b=3fJJXHR+j6jUUkm52U/jjLnKE213VdthXJdUX77+b6GttwuHSwzOxKYdO50QC/X6X6
+         umO5Yx91wsbGr3vBAP/xdpQ9yVRmNIz4oxDPMKD7nhkMk0+TGSrEcebU/G2pvS3voyvg
+         XhrqOwon5EfZj24nvJ8SBzvANXBMgMNq58+cU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732642392; x=1733247192;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9oOV6Xf/f1fBBujFiCnK10GJBxK35mB0wxBS2n5gZfU=;
+        b=saO7iWBjLZ50lLD0NV4i+RLTne4WwA0yAXrNqFFbP/xO8/akrdCJppQn9u1xRrD7Z3
+         k+45Fx/57HDr8CMYSOG9bslmcirTgK/2Dr3BvxOZ7PYpyT20vy2AAqmmcS+coRx1vlDu
+         jxx1RKTi160uWGaaUqIs9/aQVw+q3IXJefRMr95gkdluGG/LHPxkNKODfrp5va9P5uBp
+         HKkxTUXJCIG6FoQocPFaW5vIrYQ0Iy8zf5vaCkDFBiKx/8xhgLhL+4LMHzEJmL3qmxWM
+         BvmOn9rt8XTAlqIpKJIAq7wMa4wNIVS4yqpQfFxsm93xnezSuj+At55JczBTQW3rMMZC
+         rorA==
+X-Gm-Message-State: AOJu0YzQ9gZgs7iRrr5tPRRt37YZMJwkzIbVE2hyFpE0Srj9eJZ2bffq
+	vzU0oBJieMqv4z80JxZo3KbrGH9hg3BXLe999GQ/hDT6KtIbcMISz3DkIOZd+Vo=
+X-Gm-Gg: ASbGncuoSqk2+jk10PDyWUE3miQPoxhwJbuAwtSkCb4BAA5DSMbZE51fZeOBhKirslk
+	GCBaFXkiYTVMrbXG0Z6p3FL2J9fp6Qq5DtPJv8BRZmiJsghZRFtBLxAUzxE4SBd5qsJWptXNcAp
+	oZ3CUzMXYEx1PTCTYEHd0tcy/bEO+itY922cXNtwLCeOg+otn5gcPgfotRIqUI6sDudh9zxN6WD
+	8xvwcIRfSS9u1X1z3P60ySZlzHruwpCFs6vwO2M3KBcPo7ab0OibQXJhC4e36XTVu/06gNB52Bd
+	QzRrAO1cYa5Q/l6pAHRcDlwvm6VWgkJls52xzOo5l5hdVKs=
+X-Google-Smtp-Source: AGHT+IH+jDs/Oi/Yj699wtUEbjT8GQBWJI0mOVavIZ5Y1ZVm3lZYt0A+bSeHwUyDg6sCEgug0Vl6Ag==
+X-Received: by 2002:a05:6000:18ac:b0:382:4b43:c3a with SMTP id ffacd0b85a97d-38260b45e0cmr16212760f8f.2.1732642391966;
+        Tue, 26 Nov 2024 09:33:11 -0800 (PST)
+Received: from P-NTS-Evian.home (2a01cb05949d5800e3ef2d7a4131071f.ipv6.abo.wanadoo.fr. [2a01:cb05:949d:5800:e3ef:2d7a:4131:71f])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3825fbe901esm14043844f8f.87.2024.11.26.09.33.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Nov 2024 09:33:11 -0800 (PST)
+From: Romain Naour <romain.naour@smile.fr>
+To: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	conor+dt@kernel.org,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	kristo@kernel.org,
+	vigneshr@ti.com,
+	nm@ti.com,
+	Romain Naour <romain.naour@skf.com>
+Subject: [PATCH] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE output for PCIe1
+Date: Tue, 26 Nov 2024 18:33:07 +0100
+Message-ID: <20241126173307.4054601-1-romain.naour@smile.fr>
+X-Mailer: git-send-email 2.45.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/5] hyperv: Remove the now unused hyperv-tlfs.h files
-To: Michael Kelley <mhklinux@outlook.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>
-Cc: "kys@microsoft.com" <kys@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "luto@kernel.org" <luto@kernel.org>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
- "seanjc@google.com" <seanjc@google.com>,
- "pbonzini@redhat.com" <pbonzini@redhat.com>,
- "peterz@infradead.org" <peterz@infradead.org>,
- "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
- "joro@8bytes.org" <joro@8bytes.org>,
- "robin.murphy@arm.com" <robin.murphy@arm.com>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "edumazet@google.com" <edumazet@google.com>,
- "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
- <pabeni@redhat.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
- "bhelgaas@google.com" <bhelgaas@google.com>, "arnd@arndb.de"
- <arnd@arndb.de>, "sgarzare@redhat.com" <sgarzare@redhat.com>,
- "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
- "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
- "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
- "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>,
- "vkuznets@redhat.com" <vkuznets@redhat.com>,
- "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
- "apais@linux.microsoft.com" <apais@linux.microsoft.com>,
- "eahariha@linux.microsoft.com" <eahariha@linux.microsoft.com>,
- "horms@kernel.org" <horms@kernel.org>
-References: <1732577084-2122-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1732577084-2122-6-git-send-email-nunodasneves@linux.microsoft.com>
- <SN6PR02MB41570E0108D4E3B45571EE9FD42F2@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB41570E0108D4E3B45571EE9FD42F2@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_092854_817920_693C6AB4 
-X-CRM114-Status: UNSURE (   6.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241126_093314_907406_AAC2FEE7 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,18 +97,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/25/2024 9:59 PM, Michael Kelley wrote:
-> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Monday, November 25, 2024 3:25 PM
->>
->> Remove all hyperv-tlfs.h files. These are no longer included
->> anywhere. hyperv/hvhdk.h serves the same role, but with an easier
->> path for adding new definitions.
->>
->> Remove the relevant lines in MAINTAINERS.
->>
->> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-> 
-> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+From: Romain Naour <romain.naour@skf.com>
 
-Thanks for the reviews on this series Michael!
+Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
+(CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
+provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
+provide refclk through PCIe_REFCLK pins.
+
+Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
+module's PAD IO Buffers.
+
+Signed-off-by: Romain Naour <romain.naour@skf.com>
+---
+With this patch, we can remove "HACK: Sierra: Drive clock out" patch
+applied on vendor kernel for BeagleBone AI-64:
+https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
+---
+ arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts |  4 ++++
+ arch/arm64/boot/dts/ti/k3-j721e-main.dtsi          | 10 ++++++++--
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+index fb899c99753e..681e3af7ce6e 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
++++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+@@ -859,6 +859,10 @@ &pcie1_rc {
+ 	num-lanes = <2>;
+ 	max-link-speed = <3>;
+ 	reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_HIGH>;
++	/* There is no on-board or external reference clock generators,
++	 * use refclk from the ACSPCIE module's PAD IO Buffers.
++	 */
++	ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
+ };
+ 
+ &ufs_wrapper {
+diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+index 0da785be80ff..9f47e7672922 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+@@ -5,6 +5,7 @@
+  * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
+  */
+ #include <dt-bindings/phy/phy.h>
++#include <dt-bindings/phy/phy-cadence.h>
+ #include <dt-bindings/phy/phy-ti.h>
+ #include <dt-bindings/mux/mux.h>
+ 
+@@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
+ 			reg = <0x4140 0x18>;
+ 			#clock-cells = <1>;
+ 		};
++
++		acspcie0_proxy_ctrl: acspcie0-ctrl@18090 {
++			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
++			reg = <0x18090 0x4>;
++		};
+ 	};
+ 
+ 	main_ehrpwm0: pwm@3000000 {
+@@ -978,8 +984,8 @@ pcie1_rc: pcie@2910000 {
+ 		max-link-speed = <3>;
+ 		num-lanes = <2>;
+ 		power-domains = <&k3_pds 240 TI_SCI_PD_EXCLUSIVE>;
+-		clocks = <&k3_clks 240 1>;
+-		clock-names = "fck";
++		clocks = <&k3_clks 240 1>, <&serdes1 CDNS_SIERRA_DERIVED_REFCLK>;
++		clock-names = "fck", "pcie_refclk";
+ 		#address-cells = <3>;
+ 		#size-cells = <2>;
+ 		bus-range = <0x0 0xff>;
+-- 
+2.45.0
+
 
