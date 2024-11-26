@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C6AD6554E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 18:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2977ED6554E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 18:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VgLIPHtecoQLiuBn73bXhufyb7gzXXwP1OGjk0QrpHs=; b=iMfHZ8JDXB4NlQQrPReAxQMh12
-	qf+ZAdbwPehTmPV6Sshe/yvwu1XlB4ubIiHeaYXZZod4Gs83MkoUNfNAsPuESXwZoredaORNv8RHW
-	7pIO3neKdL8TtLucN6ulFWYo77mbH8Cf4efkIA+o4DA4SWZaHKc1nJ7amoeGy9XVJV/2vD4Llc7GQ
-	YWYtkvJkO42yZS65GIVPfaPad0nCEpV8EhY//JvAhJGEW1EL6c7HamrFz9BTHvvz8aKj64Os3YwXC
-	15Q6lYuwmhDbqy/m6lxwRw3Ov2KNi1YO2B6TeL+jw7BopR3erMwyGBECtGXAaH+9OXIFwZIfVFtaC
-	3A6JyPUQ==;
+	bh=ToEmNiBbhN5F/yjkx/YHq03WfxPjrJ7SieRa4FeLMBs=; b=WGltsdMMt8XmPDoUv9tcq3QaED
+	VSk57nNcQlZ9pcCHyDcZk2ho6/VLBOQvrZa//Xjwc1enYKc+QR7Ovv83Ek917O1l/vnuFtQnPvGag
+	6TIWP22/P67yQgbgRJ2o0qB967srbUzK/zIHfMFU6YnTau6s62G18o54OcxVbpwWzT6qp/vLEq5Wy
+	dJD52KKaFhL2BbPZcX1YPCYvSrXiAHOi0Gc1vXV8LJqfe0vP5xWLgPo9tlwHQRFC7iSmapLooc/oa
+	Hb8ImX68UEACtZBAsRAdLHnPFrZrdGkD+mrt4Z3G4hTxOcCjyyRiLrvJsd2pQxadzoKSCUl5GnlVw
+	mWMdKv2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG0TP-0000000BRyu-0ppZ;
-	Tue, 26 Nov 2024 18:39:43 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tG0dM-0000000BTds-3L33;
+	Tue, 26 Nov 2024 18:50:00 +0000
+Received: from out-178.mta0.migadu.com ([2001:41d0:1004:224b::b2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG0SR-0000000BRpd-2Q73;
-	Tue, 26 Nov 2024 18:38:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=VgLIPHtecoQLiuBn73bXhufyb7gzXXwP1OGjk0QrpHs=; b=nNKsGBwJu/r9fx0Q1fY7RHGlJQ
-	ZyI9VvC/R5Gkb8aMPEx13u13Fs8ckw6GAgDxy/S8x4t9639CVWQXtitJcWcDHQH1LGrj7KVsb3pdR
-	1Hscx1ec575QUNz+CwYGpw1qqe5pzip9UELNmSQSCTg3JvXSuG5EQXh7jvgB4UaFoM18buaOrSXEV
-	B8FzjeUx+JQ6ifAQbDqMezIY3fv3t0pMWHYKGDhee02CXqjE/o86nKVxLLZlpRF2FFTbitNFpLapQ
-	/k5h7o96sWC7f9stU9VGk96E0Cn/oMJsQ5InA/anUd1NrFPn+FuXkhzVS4hZanQroJxynfjsi1/Et
-	7ClTyF6g==;
-Received: from i5e86190f.versanet.de ([94.134.25.15] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tG0SK-0002U1-1g; Tue, 26 Nov 2024 19:38:36 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Conor Dooley <conor@kernel.org>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, quentin.schulz@cherry.de,
- sebastian.reichel@collabora.com, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- dse@thaumatec.com, Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH v4 1/2] dt-bindings: phy: Add Rockchip MIPI C-/D-PHY schema
-Date: Tue, 26 Nov 2024 19:38:35 +0100
-Message-ID: <2213231.Mh6RI2rZIc@diego>
-In-Reply-To: <20241126-pastrami-gusty-8b9df32ae00c@spud>
-References: <20241126131736.465111-1-heiko@sntech.de>
- <20241126131736.465111-2-heiko@sntech.de>
- <20241126-pastrami-gusty-8b9df32ae00c@spud>
+	id 1tG0cN-0000000BTXp-43n5
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Nov 2024 18:49:01 +0000
+Date: Tue, 26 Nov 2024 10:48:50 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1732646936;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ToEmNiBbhN5F/yjkx/YHq03WfxPjrJ7SieRa4FeLMBs=;
+	b=L4/aYIeqWZUgwP8whOq9QGeoy4pNVidemMixAv6nZOlhild0Wre4/bBQIc5VeQigkiArVi
+	8h7bFgbTSzWEIETs5dCZdCyUQMCK9vg9JutUo9YuEIldao2+2rIbEBbJhCB2eqca0kQ5Pb
+	oBLUVmzdt5NDvOO5m9YOWXVTAjpBJ2s=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: Re: [PATCH] KVM: arm64: Fix S1/S2 combination when FWB==1 and S2 has
+ Device memory type
+Message-ID: <Z0YYEmeJhpJ2PaWf@linux.dev>
+References: <20241125094756.609590-1-maz@kernel.org>
+ <Z0XoxGSWRCjbTFie@linux.dev>
+ <86ed2yufdz.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86ed2yufdz.wl-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_103843_636634_E135BDE7 
-X-CRM114-Status: GOOD (  19.06  )
+X-CRM114-CacheID: sfid-20241126_104900_528647_7D4317BC 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,58 +73,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Conor,
-
-Am Dienstag, 26. November 2024, 18:44:14 CET schrieb Conor Dooley:
-> On Tue, Nov 26, 2024 at 02:17:34PM +0100, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
+On Tue, Nov 26, 2024 at 04:30:16PM +0000, Marc Zyngier wrote:
+> On Tue, 26 Nov 2024 15:27:00 +0000,
+> Oliver Upton <oliver.upton@linux.dev> wrote:
 > > 
-> > Add dt-binding schema for the MIPI C-/D-PHY found on
-> > Rockchip RK3588 SoCs.
+> > On Mon, Nov 25, 2024 at 09:47:56AM +0000, Marc Zyngier wrote:
+> > > The G.a revision of the ARM ARM had it pretty clear that HCR_EL2.FWB
+> > > had no influence on "The way that stage 1 memory types and attributes
+> > > are combined with stage 2 Device type and attributes." (D5.5.5).
+> > > 
+> > > However, this wording was lost in further revisions of the architecture.
+> > > 
+> > > Restore the intended behaviour, which is to take the strongest memory
+> > > type of S1 and S2 in this case, as if FWB was 0. The specification is
+> > > being fixed accordingly.
 > > 
-> > Tested-by: Daniel Semkowicz <dse@thaumatec.com>
-> > Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > ---
-> >  .../phy/rockchip,rk3588-mipi-dcphy.yaml       | 87 +++++++++++++++++++
-> >  1 file changed, 87 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> > new file mode 100644
-> > index 000000000000..c8ff5ba22a86
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> > @@ -0,0 +1,87 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/phy/rockchip,rk3588-mipi-dcphy.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Rockchip MIPI D-/C-PHY with Samsung IP block
-> > +
-> > +maintainers:
-> > +  - Guochun Huang <hero.huang@rock-chips.com>
-> > +  - Heiko Stuebner <heiko@sntech.de>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - rockchip,rk3576-mipi-dcphy
-> > +      - rockchip,rk3588-mipi-dcphy
+> > Since you're already asking for a spec fix, could you mention that the
+> > column headers in DDI0487K.a Table D8-95 are incorrect? MemAttr[1:0] is
+> > used twice, although I believe the first column is actually MemAttr[3:2].
 > 
-> How many phys do each of these SoCs have?
+> That one has already been fixed as D22366, as described in the Known
+> Issues document for version K.a (issue 07) [1].
 
-- rk3588 has two - each with a separate GRF for additional settings [0]
-- rk3576 has one
+Ah, right on. Thanks!
 
-
-Heiko
-
-[0] https://lore.kernel.org/lkml/D5F5C1RWVHG5.TSHPO29TXYEF@cknow.org/T/
-The register layout in each GRF area is identical, but each DC-PHY gets
-its own separate GRF io-mem block.
-
-
+-- 
+Best,
+Oliver
 
