@@ -4,61 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA2DD65551
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 19:25:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64350D65552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 19:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=snKroQwtkypY8SdAmHkbYrAAMz7CQLXGWztiA4anALU=; b=qjYuEwaMeLpufbVuVkT6WbCrc1
-	DUk+dhvcLDF9kD5Vkq4qebaPU5K/fRuppUIuJ16LZVyVR0b6OpTezBSRcWEo5xgvc3Xo3B4Pwdyhj
-	Kutj++lDm9f7OSJ2Ue1fQDahABbevJ7eWjqvVzEOsT97BdLXO8Ol6VioHnLFyDcHwh5mrjQnlp2M2
-	zxU/lNn0oKuXQg84puYh7plo05mi77qrbUDkrTm5Qx3fvs9c4zeUmfUxbYRqLrnIf6y6KOq7oXe0p
-	Pxz04F8+dbjA0ayvZCRQ6Ie5Bq/3l9ECefCO99QCg1z7GKA+LrE2msFxgrAMrSkqbkCA5/XQtxBoR
-	8QSbeK/A==;
+	bh=bZCz4E2gM8hkBTeFYEzn+9umgDxZzcZCYKPzCgb9ZnI=; b=a7XtSsOYm1LYY3U3mb+q+T5Dy8
+	adTKYLp9yBNo9ujEiiNrDjAO5y+f5jcUo4IPg5Rs1DWq7fOquYcTU01ttBSWmDw9DRgIo/ckLjixd
+	DSmwXzg3c1xSj4HXse9YlUromaSl94/Ltpdvgh8P1cYtQ63uIfUHcZckdfm8YGosA2lG3FYfD7MC4
+	NJ+S8F+PMlDz0SyY5151yJBDpYQasr77HptdKjN9nEEAKCuw4D2DXDxCawMkw8lBXPCyZKmfHlkYr
+	PVanW8w2EoPTTel8scLrEg3z6CWOSxbTv/eh2bbM5Pq2dsRcnpwyHRK5ai/D6ttzyeQL4aDFib4sf
+	clYlNrrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG1Bk-0000000BXmP-1W4e;
-	Tue, 26 Nov 2024 19:25:32 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tG1Gr-0000000BYEY-1FfL;
+	Tue, 26 Nov 2024 19:30:49 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG1Am-0000000BXh2-2msZ
+	id 1tG1Ft-0000000BY9D-0Tja
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 19:24:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=snKroQwtkypY8SdAmHkbYrAAMz7CQLXGWztiA4anALU=; b=ut329A+tI3avnKTDT9v25tw0Y1
-	W4SBgQOyGBdvNGrWiPgUmzHTCs5JL317/ClnLgZrzZsdv3UAUzdYf2LAjTrxzC5Wxh2WB0TbwQxVA
-	K/RXS44a8gmeHWiZE983yZfQtj6xkcnR6TdmHqlqI3StK5XZ9MKiE44y+O54/PYlSN2k=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tG1AV-00EYHb-Hf; Tue, 26 Nov 2024 20:24:15 +0100
-Date: Tue, 26 Nov 2024 20:24:15 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jason Hsu <jasonhell19@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	joel@jms.id.au, andrew@codeconstruct.com.au, patrick@stwcx.xyz,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	yang.chen@quantatw.com, jerry.lin@quantatw.com,
-	Jason Hsu <jason-hsu@quantatw.com>
-Subject: Re: [PATCH v4 2/2] ARM: dts: aspeed: ventura: add Meta Ventura BMC
-Message-ID: <160008e2-f480-49c3-994e-a498e74eee23@lunn.ch>
-References: <20241126111817.2331577-1-jason-hsu@quantatw.com>
- <20241126111817.2331577-3-jason-hsu@quantatw.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241126111817.2331577-3-jason-hsu@quantatw.com>
+	Tue, 26 Nov 2024 19:29:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 74D8DA404B0;
+	Tue, 26 Nov 2024 19:27:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0801C4CECF;
+	Tue, 26 Nov 2024 19:29:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732649388;
+	bh=uOVCsbYiBnSpJPQxIP6NXh62KDe/wDTyX61Cj34eCGs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=CuCclOCUrvE3wNparwDmJMO5Ii6O/wuTHWu/hJ2bmzBsOfBtOIx7UH80wrI5WSs6C
+	 C0sdggOVCybfADMjsFKt4HtRV668tH9kRX3FDeEU+sFAu0NMj4v/WPh5hQueSNfuMY
+	 Io8c8jdo7BIGoyMSuhgjLNWTwLIZnAejv6Lv8oqwi8YxTFJx38TI7SlBvHVrTdLvNE
+	 Vu6rm4X7OifrfDYPtVLk9mHRoi/V/sz2dYDA2Yomcltnk8z3HKP08OB2UKdVxc4K1A
+	 psTuoz4JsmZgtEAKgIbZArFHKpJjBL1eOenk6uAH4AaEk3KTJlRgMu12LPFMdMFe11
+	 68cfF6SvoeF9A==
+Received: from 82-132-234-204.dab.02.net ([82.132.234.204] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tG1Fj-00G65O-RV;
+	Tue, 26 Nov 2024 19:29:45 +0000
+Date: Tue, 26 Nov 2024 19:29:05 +0000
+Message-ID: <87zfllssji.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sebastian Ott <sebott@redhat.com>
+Cc: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"will@kernel.org" <will@kernel.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	yuzenghui <yuzenghui@huawei.com>,
+	"Wangzhou (B)" <wangzhou1@hisilicon.com>,
+	Linuxarm <linuxarm@huawei.com>,
+	"reijiw@google.com" <reijiw@google.com>
+Subject: Re: [PATCH] KVM: arm64: Make the exposed feature bits in AA64DFR0_EL1 writable from userspace
+In-Reply-To: <4d3a7dde-e085-fa70-8859-ba153c93b615@redhat.com>
+References: <20240813142835.77180-1-shameerali.kolothum.thodi@huawei.com>
+	<86v804z3lk.wl-maz@kernel.org>
+	<b2dad37ac5464384abe4edf76cb6b546@huawei.com>
+	<4d3a7dde-e085-fa70-8859-ba153c93b615@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.234.204
+X-SA-Exim-Rcpt-To: sebott@redhat.com, shameerali.kolothum.thodi@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, will@kernel.org, catalin.marinas@arm.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, linuxarm@huawei.com, reijiw@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_112432_700184_65488FC4 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241126_112949_292816_31406F91 
+X-CRM114-Status: GOOD (  39.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,21 +96,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +    // 88E6393X CONFIG FRU
-> +	eeprom@50 {
-> +		compatible = "atmel,24c64";
-> +		reg = <0x50>;
-> +	};
+On Tue, 26 Nov 2024 17:00:35 +0000,
+Sebastian Ott <sebott@redhat.com> wrote:
+> 
+> Hi,
+> 
+> On Wed, 14 Aug 2024, Shameerali Kolothum Thodi wrote:
+> >> 
+> >> On Tue, 13 Aug 2024 15:28:35 +0100,
+> >> Shameer Kolothum <shameerali.kolothum.thodi@huawei.com> wrote:
+> >>> 
+> >>> KVM exposes the OS double lock feature bit to Guests but returns
+> >>> RAZ/WI on Guest OSDLR_EL1 access. This breaks Guest migration between
+> >>> systems where this feature support differ. Add support to make this
+> >>> feature writable from userspace by setting the mask bit. While at it,
+> >>> set the mask bits for other exposed features in the AA64DFR0_EL1
+> >>> register as well.
+> >>> 
+> >>> Also update the selftest to cover these fields.
+> >>> 
+> >>> Signed-off-by: Shameer Kolothum
+> >> <shameerali.kolothum.thodi@huawei.com>
+> >>> ---
+> >>>    This is based on the discussion here(Thanks to Oliver),
+> >>>    https://lore.kernel.org/all/ZrVSlbVwnaMDShah@linux.dev/
+> >>> ---
+> >>>  arch/arm64/kvm/sys_regs.c                         | 6 +++++-
+> >>>  tools/testing/selftests/kvm/aarch64/set_id_regs.c | 4 ++++
+> >>>  2 files changed, 9 insertions(+), 1 deletion(-)
+> >>> 
+> >>> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> >>> index c90324060436..adb49d681052 100644
+> >>> --- a/arch/arm64/kvm/sys_regs.c
+> >>> +++ b/arch/arm64/kvm/sys_regs.c
+> >>> @@ -2376,7 +2376,11 @@ static const struct sys_reg_desc sys_reg_descs[]
+> >> = {
+> >>>  	  .get_user = get_id_reg,
+> >>>  	  .set_user = set_id_aa64dfr0_el1,
+> >>>  	  .reset = read_sanitised_id_aa64dfr0_el1,
+> >>> -	  .val = ID_AA64DFR0_EL1_PMUVer_MASK |
+> >>> +	  .val = ID_AA64DFR0_EL1_DoubleLock_MASK |
+> >>> +		 ID_AA64DFR0_EL1_CTX_CMPs_MASK |
+> >>> +		 ID_AA64DFR0_EL1_WRPs_MASK |
+> >>> +		 ID_AA64DFR0_EL1_BRPs_MASK |
+> >> 
+> >> 
+> >> I think this is going to cause some troubles.
+> >> 
+> >> The issue is that context-aware breakpoints are the highest-numbered
+> >> breakpoints, right after the normal breakpoints (D2.8.3 "Breakpoint
+> >> types and linking of breakpoints"). So if you reduce the number of
+> >> normal breakpoints, you shift the context-aware ones down, and
+> >> everything breaks.
+> > 
+> > Thanks Marc for explaining this. I was not aware of this one.
+> > 
+> >> I really don't see how you can safely do that without completely
+> >> changing the way we handle the debug registers.
+> > 
+> > Looks like Reji has attempted to do this a while back,
+> > https://lore.kernel.org/kvm/20220419065544.3616948-13-reijiw@google.com/
+> > 
+> 
+> I've got two machines that differ in the number of breakpoints and
+> it would be nice to be able to migrate between these. Is anything
 
-I just noticed this and it seems odd. MV88E6393X is a Marvell Ethernet
-switch. It can have an eeprom, and if so, the mv88e6xxx driver will
-export it via ethtool. It is not normally visible to Linux as an I2C
-device, because it hangs off the switches I2C Bus.
+Is that the *only* thing that differ? Do the have the same number of
+context-aware breakpoints?
 
-Do you have some multi master going on?
+> preventing us from trapping the access and make sure the correct
+> breakpoint is used? Is anyone working on this? If not I'd like to
+> give it a shot.
 
-I also don't see the switch itself here. I would expect it to be
-listed in the MDIO node.
+Not only trapping. You also need to handle some interesting parts of
+the architecture, such as the breakpoint linking fun.
 
-	Andrew
+But if we are to go down that road, I really want to restrict that to
+implementations that have FEAT_FGT. Because otherwise we need to trap
+and emulate *everything*, instead of just the breakpoint registers.
+And that would be pretty bad from a performance perspective.
+
+Another thing is that this only works because there is no report of
+the breakpoint number in ESR_ELx. The moment we offering this
+migration "feature", we are painting ourselves in a corner, should the
+architecture ever evolve to something less... bizarre.
+
+Finally, who is going to ensure this keeps working in the foreseeable
+future? Because while this is nice, that's not what gets deployed in
+production, as it leads to unpredictable performances. My take is that
+this thing will eventually bitrot and die.
+
+So, do we *really* want to go down that road?
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
