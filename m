@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A4AD3B7CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B56D3B7CA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g+THxpnpB+Pzg6AUVLr1ssu3RzIpCwc8waUglBp2qOw=; b=k/L2/9MGJKzsjeVfTmP9brPIt7
-	KJTQj9lcnRY6yYQM2vfhKZgz+VnCniq5rb3rd5iqQ525Cq7TpbboGMYaWsNSyQyWj5kX8miaRhw8y
-	BMn7+E+j7dp7TGYpw2co3nwypDFEDVG73wb2HqQ042E9eZIDsKAfPTJMajHm6dslHKg6Afhj5lEm1
-	VabFSm7nxo821iAWW15buwNP1sn746hRb5US5QiY5gIhqrzFwdd21oXKljozUfhPFBQHJbC1d/WA6
-	8AaAdR9OtSDXPQCWp9Fdt01rzh5louNRyxQkv0CPlLK7EWrGXOEziNvNRxHU85xG8t4k+zy3v2CP/
-	Jdtcc8tg==;
+	bh=2KZ6f++/6LKrIDy4/i3vTw30la5tSDaEUV/ViQihMrc=; b=ID7CABzadQl36UzWNTDBBmp1vs
+	d86lUWMsRfL+s7CuO6UHfGgosZtbBy8k4qkv1y8EnqbQVYZxwzUWb3s0fqcxbz/7pWJ9vxJ8CpK3G
+	m40e2RRJ0k5A/qLW3OvOBgYd+RoW4rcF6lvYk9/MsoYizk39NHnvuELnhO4n7DJGJ4LDeud9sra7O
+	9zj/Eelu8wpCydEXBcQE1BrTWtl0MmYv9wvIgPQXBsOAOtFbaSwjN+8Zw+ZwNDhL8gj7N24jl0xf9
+	QE7mjv4uxbHc0oh92g6/bO10TVmfrVNDWLJ1ferAs9ln1YiOMaE6430YGwhomuGTmO7tCnIdmGdiW
+	sivQI7Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFrwK-0000000AAIN-21Ha;
-	Tue, 26 Nov 2024 09:33:00 +0000
+	id 1tFrxG-0000000AAYG-2x29;
+	Tue, 26 Nov 2024 09:33:58 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFroZ-0000000A8Th-0Dey;
-	Tue, 26 Nov 2024 09:25:00 +0000
+	id 1tFrod-0000000A8VP-1iew;
+	Tue, 26 Nov 2024 09:25:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=g+THxpnpB+Pzg6AUVLr1ssu3RzIpCwc8waUglBp2qOw=; b=GRpm2OY0Zw0dJ0N+JCTvCDY78n
-	u/QvZL7ScctRtwe7RGBf4kpWi7XVw4YtbaM1qwpYF4J05XPZMdNGPeKc8SpLS26YdEQ8yNKmbd7ie
-	kHnui34Z0DMzM+/Hr+YwsbUL0msNZE8MNjBkoB4zbY9p+76eonE4Brx9Zb8jVtsvY07xRu3aouvxz
-	SC0ihPwuX1bbU4rf2u0I9vcEguCHgRnF27k/U5XImtUjHTdMiUwV/EGVBOBnDpGIDYofEs2gxrNQI
-	51ax/HuGD3AJhMe/JtzhWST+IN4pqaOrPowlRqv1GrYXdDQVw5CRYgu+dgSz/Rx/QCPJ0wOtMKvLh
-	8mNWhP4A==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:46102 helo=rmk-PC.armlinux.org.uk)
+	bh=2KZ6f++/6LKrIDy4/i3vTw30la5tSDaEUV/ViQihMrc=; b=v8gPgoriwZLQykLvUKiI3BwrsT
+	EPE4feuotr/8Ox3K/+H/BMUcSgX3OMODwmj+vaGltv4rLq63lKV+yi6Jl0oCIoYRfwEXVY7c7NW8w
+	h0REeUjaSjMFNq7Qmc8z7CBOmjctom++YKuzVHYzpQ4dD03QuFKIzGnaKoeOOtaEvu60OLEWYuVK/
+	Ois3DfEEn7LTPL7cxR+p9dP/ZxPTGIiQnNrQJhS6yPe9wWvI8cFY/wePe4cZtsPpafdiWzRR6SELQ
+	gSyuitI4CAHxDrsgDEze0n+64VgCgEL2dveL8IpAd13XueJZPGb3s7cvHMNQbB0xlx82pEXc0iRK2
+	QQJaxZGQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:60742 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tFroN-0006TK-1Q;
-	Tue, 26 Nov 2024 09:24:47 +0000
+	id 1tFroS-0006Tf-1c;
+	Tue, 26 Nov 2024 09:24:52 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tFroM-005xQ8-6e; Tue, 26 Nov 2024 09:24:46 +0000
+	id 1tFroR-005xQE-Ab; Tue, 26 Nov 2024 09:24:51 +0000
 In-Reply-To: <Z0WTpE8wkpjMiv_J@shell.armlinux.org.uk>
 References: <Z0WTpE8wkpjMiv_J@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -69,17 +69,16 @@ Cc: Alexander Couzens <lynxis@fe80.eu>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH RFC net-next 06/16] net: phy: marvell: implement
- phy_inband_caps() method
+Subject: [PATCH RFC net-next 07/16] net: phy: add phy_config_inband()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tFroM-005xQ8-6e@rmk-PC.armlinux.org.uk>
-Date: Tue, 26 Nov 2024 09:24:46 +0000
+Message-Id: <E1tFroR-005xQE-Ab@rmk-PC.armlinux.org.uk>
+Date: Tue, 26 Nov 2024 09:24:51 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_012459_095127_BB909FD9 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20241126_012503_445725_7DE7A1E2 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,63 +93,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Provide an implementation for phy_inband_caps() for Marvell PHYs used
-on SFP modules, so that phylink knows the PHYs capabilities.
+Add a method to configure the PHY's in-band mode.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/phy/marvell.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+ drivers/net/phy/phy.c | 31 +++++++++++++++++++++++++++++++
+ include/linux/phy.h   |  6 ++++++
+ 2 files changed, 37 insertions(+)
 
-diff --git a/drivers/net/phy/marvell.c b/drivers/net/phy/marvell.c
-index cd50cd6a7f75..3075ebc3f964 100644
---- a/drivers/net/phy/marvell.c
-+++ b/drivers/net/phy/marvell.c
-@@ -717,6 +717,20 @@ static int marvell_config_aneg_fiber(struct phy_device *phydev)
- 	return genphy_check_and_restart_aneg(phydev, changed);
+diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
+index d7b34f8ae415..3e4922839895 100644
+--- a/drivers/net/phy/phy.c
++++ b/drivers/net/phy/phy.c
+@@ -1026,6 +1026,37 @@ unsigned int phy_inband_caps(struct phy_device *phydev,
  }
+ EXPORT_SYMBOL_GPL(phy_inband_caps);
  
-+static unsigned int m88e1111_inband_caps(struct phy_device *phydev,
-+					 phy_interface_t interface)
++/**
++ * phy_config_inband - configure the desired PHY in-band mode
++ * @phydev: the phy_device struct
++ * @modes: in-band modes to configure
++ *
++ * Description: disables, enables or enables-with-bypass in-band signalling
++ *   between the PHY and host system.
++ *
++ * Returns: zero on success, or negative errno value.
++ */
++int phy_config_inband(struct phy_device *phydev, unsigned int modes)
 +{
-+	/* In 1000base-X and SGMII modes, the inband mode can be changed
-+	 * through the Fibre page BMCR ANENABLE bit.
-+	 */
-+	if (interface == PHY_INTERFACE_MODE_1000BASEX ||
-+	    interface == PHY_INTERFACE_MODE_SGMII)
-+		return LINK_INBAND_DISABLE | LINK_INBAND_ENABLE |
-+		       LINK_INBAND_BYPASS;
++	int err;
 +
-+	return 0;
++	if (!!(modes & LINK_INBAND_DISABLE) +
++	    !!(modes & LINK_INBAND_ENABLE) +
++	    !!(modes & LINK_INBAND_BYPASS) != 1)
++		return -EINVAL;
++
++	mutex_lock(&phydev->lock);
++	if (!phydev->drv)
++		err = -EIO;
++	else if (!phydev->drv->config_inband)
++		err = -EOPNOTSUPP;
++	else
++		err = phydev->drv->config_inband(phydev, modes);
++	mutex_unlock(&phydev->lock);
++
++	return err;
 +}
 +
- static int m88e1111_config_aneg(struct phy_device *phydev)
- {
- 	int extsr = phy_read(phydev, MII_M1111_PHY_EXT_SR);
-@@ -3677,6 +3691,7 @@ static struct phy_driver marvell_drivers[] = {
- 		.name = "Marvell 88E1112",
- 		/* PHY_GBIT_FEATURES */
- 		.probe = marvell_probe,
-+		.inband_caps = m88e1111_inband_caps,
- 		.config_init = m88e1112_config_init,
- 		.config_aneg = marvell_config_aneg,
- 		.config_intr = marvell_config_intr,
-@@ -3698,6 +3713,7 @@ static struct phy_driver marvell_drivers[] = {
- 		/* PHY_GBIT_FEATURES */
- 		.flags = PHY_POLL_CABLE_TEST,
- 		.probe = marvell_probe,
-+		.inband_caps = m88e1111_inband_caps,
- 		.config_init = m88e1111gbe_config_init,
- 		.config_aneg = m88e1111_config_aneg,
- 		.read_status = marvell_read_status,
-@@ -3721,6 +3737,7 @@ static struct phy_driver marvell_drivers[] = {
- 		.name = "Marvell 88E1111 (Finisar)",
- 		/* PHY_GBIT_FEATURES */
- 		.probe = marvell_probe,
-+		.inband_caps = m88e1111_inband_caps,
- 		.config_init = m88e1111gbe_config_init,
- 		.config_aneg = m88e1111_config_aneg,
- 		.read_status = marvell_read_status,
+ /**
+  * _phy_start_aneg - start auto-negotiation for this PHY device
+  * @phydev: the phy_device struct
+diff --git a/include/linux/phy.h b/include/linux/phy.h
+index ff60c4785e11..6c1887d1edbf 100644
+--- a/include/linux/phy.h
++++ b/include/linux/phy.h
+@@ -980,6 +980,11 @@ struct phy_driver {
+ 	unsigned int (*inband_caps)(struct phy_device *phydev,
+ 				    phy_interface_t interface);
+ 
++	/**
++	 * @config_inband: configure in-band mode for the PHY
++	 */
++	int (*config_inband)(struct phy_device *phydev, unsigned int modes);
++
+ 	/**
+ 	 * @get_rate_matching: Get the supported type of rate matching for a
+ 	 * particular phy interface. This is used by phy consumers to determine
+@@ -1844,6 +1849,7 @@ int phy_start_aneg(struct phy_device *phydev);
+ int phy_aneg_done(struct phy_device *phydev);
+ unsigned int phy_inband_caps(struct phy_device *phydev,
+ 			     phy_interface_t interface);
++int phy_config_inband(struct phy_device *phydev, unsigned int modes);
+ int phy_speed_down(struct phy_device *phydev, bool sync);
+ int phy_speed_up(struct phy_device *phydev);
+ bool phy_check_valid(int speed, int duplex, unsigned long *features);
 -- 
 2.30.2
 
