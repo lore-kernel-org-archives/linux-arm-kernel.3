@@ -4,56 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B053D3B7CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:57:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185C8D3B7CA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 09:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bgMZeNej62lgZWssUg2CqXm8bohYFgA129C49u0oPGY=; b=z+QMli/DdcoVfe2KbtqzJhTkM7
-	hXbQnoBlM0VfT7WmNPn1QV+QrBJH7ledOKyRHNm5q+Ybx11B9VV3ou201aQ5sGKiLTHDu9ekSBY2P
-	JmnUGavx4Sfs+drowx3UZEHRUCd4Vt9qoHh2m4VgEiEGbzLZNynP18k4BmgyHI8CPH8OoiUvhCZ9w
-	QylOTT7q9rydKTNGj8eiom3i1aCNAeQMxdqM9hMAWYR0dAbBPDHDKQP7E0E7WUwAReLghRL9DeEdk
-	TNF/dGa3DnCc3zSM8yQqz0vpUETKw8bFeL8uoN5XwCgkOSvDQ9ZW3q4ZHLJqG2ck35mBjRQJgX4Bq
-	lL9mBbmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/Mk54wWOTxtnUjWD4fc+DJyfim3lSux+/TbFhyd5wc4=; b=HKLRwh8si94hJLqWRFcixoRjt0
+	cbaFS4zpO+s+PmFzbsEuvWFViBWUza8X0yL1KTvbUXJOcuL27Re9v0R5vw6tAw0IV7hRK6A6eRhwt
+	C1fafnab8zY/w1VG1GqBagLrpawdPNUtd6sf+p5hBWSuXUPAl/BZvbBq6827V31FhMF3ljNf7m9L3
+	P+GOaKduzSNfvyFeFVNQDR2LqewYOc253w/vVmTnpwjVeKnPtDF8/o7i2SVouRMcwC2RMlthSx90L
+	zr2cKvu7P4tkDLodPkKLUZS/oH53tQQJ0EPmUvC8t9RnVmCXf3b/zsKekuPS6aW8Sdhh0JBnHNujX
+	kAQD9sRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFsK6-0000000AEQ3-1XPz;
-	Tue, 26 Nov 2024 09:57:34 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tFsLI-0000000AEfk-49Y7;
+	Tue, 26 Nov 2024 09:58:48 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFsJ7-0000000AEJt-3ALA
+	id 1tFsKH-0000000AES7-18sU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 09:56:35 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tFsIv-00011x-Vm; Tue, 26 Nov 2024 10:56:22 +0100
-Message-ID: <19a43db4-db5c-4638-9778-d94fb571a206@pengutronix.de>
-Date: Tue, 26 Nov 2024 10:56:21 +0100
+	Tue, 26 Nov 2024 09:57:46 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-21207f0d949so51547155ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 01:57:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1732615064; x=1733219864; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/Mk54wWOTxtnUjWD4fc+DJyfim3lSux+/TbFhyd5wc4=;
+        b=VMtaxMF7mNlmyyNZuwUj4yDBS/dLP/j9YO6tnbBoTx6I4INjjaSxLN8M8pWoolWzrR
+         W6oukLXINElx08sBa1xWVhxZ5QNAxPv4VWZUvWjqLtHsS4EeI+4QHt4Ca5pJ8uMvMCYU
+         9OLEhcN2W9D35uCiB/lA9a+6fk5IoqNcwUIUA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732615064; x=1733219864;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/Mk54wWOTxtnUjWD4fc+DJyfim3lSux+/TbFhyd5wc4=;
+        b=MUvv2BJZ0PTPYSPQDAwDmv5F1iqC/r7fo1SoFudyA/ZrdNtRFtUBxtFLYH6ZERMw5/
+         abI+dVib8cQYLIB12BbQOaPsVJzEXfPy4IHNE7J28PJkofNttAuClcApKoQYDqchAQI3
+         qjbdrYYV5q5VwgUFVHl5GIRstD75iq5GeL/vOKN7L8Ft33Cvm4E4NsClDkJ/A5/rFJBD
+         YjyrYExp/0LfoDZ0tNtDaLJo25ciev7MyA+CVRM15vdf0TtLge21BR6dGtCLS4ysIIAw
+         fIDizeRMxolW5XdCUW5iysFshb6T/OuuVjbiJ3O6wCIN+9Lk3fJo4lLuAmuTjDjzeSFG
+         +StA==
+X-Forwarded-Encrypted: i=1; AJvYcCXhpThYcMlViPTuYbSfBc3gJRqa9i+rtDnMQshNWS3obFMCZU2LTmAjEoMzEiKZJVHCGReF6k9FYAY2PxtpjqHM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxESE3rNyyp/x/XllgOD1kfYmFjaMxLWENbb2jVENbE3AcPnAUk
+	kYhmYOLxI9UidD1mtYBKDAEYSK0GRBdI+xJvMFaDBq37DTpwlEW4fD4aOQbab+upKtb1+TZJxEV
+	WFA==
+X-Gm-Gg: ASbGncvl9ULJ0xv4flRvwBTGHn/M5pNkyM/doYNYtzAln/nZPdn/V1o5dsGUub1K7Ee
+	88seLzcdZIfU1o+yGUyimAfg40rOCTf0hgoU2VNcLV2txl24GZkSltziEdk8E/aXzx6ihzojTP2
+	8DsL8+atyY8H10n33qUFwg8b5aMKkKm1OSkTN47DltO+JUkaVzNGMmi3UsefpzLwY+nJdpLijBz
+	VxSqxTJcAOETK4UeQ+HfWdn+kr2siMHKHiPlqnmn6+8ARrXz2661wFYZPXU9w+s0wgKDmVLIIif
+	wGZt5Sjgog==
+X-Google-Smtp-Source: AGHT+IFSDVH3rH4UFp5xBcT+SP0jqNRzEoGUEI6ov6sZL9QTnujK3nAAwyk2B7XeTcH6vPgj3iPXZg==
+X-Received: by 2002:a17:903:228d:b0:211:f335:aba with SMTP id d9443c01a7336-2129f5790edmr273271445ad.31.1732615064355;
+        Tue, 26 Nov 2024 01:57:44 -0800 (PST)
+Received: from yuanhsinte-p620-1.tpe.corp.google.com ([2401:fa00:1:10:a3c8:df68:1f94:539c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2129db890b7sm80908485ad.9.2024.11.26.01.57.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Nov 2024 01:57:43 -0800 (PST)
+From: Hsin-Te Yuan <yuanhsinte@chromium.org>
+Date: Tue, 26 Nov 2024 17:57:40 +0800
+Subject: [PATCH RESEND v4] arm64: dts: mt8183: set DMIC one-wire mode on
+ Damu
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] i2c: imx: support DMA defer probing
-To: carlos.song@nxp.com, frank.li@nxp.com, o.rempel@pengutronix.de,
- kernel@pengutronix.de, andi.shyti@kernel.org, shawnguo@kernel.org,
- s.hauer@pengutronix.de, festevam@gmail.com
-Cc: imx@lists.linux.dev, linux-i2c@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241126082535.1878554-1-carlos.song@nxp.com>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20241126082535.1878554-1-carlos.song@nxp.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Message-Id: <20241126-damu-v4-1-e746eec2cb52@chromium.org>
+X-B4-Tracking: v=1; b=H4sIAJObRWcC/72PMW/DIBSE/0rEXCoeYAyZMjRrh3asMoB5xAw2E
+ U5oosj/vcRD1ahZunS8p7vv3V3JhDniRNarK8lY4hTTWIV8WpGut+MeafRVE864BMYM9XY4USs
+ CD0K2WjJDqvWQMcTzgvkgb9v37esL2dV7yGmgxz6j/YYwA4ymEelnzEgLp0C5c5L5xoou6E3X1
+ 0w8Dc8p72/oPk7HlC9LwSKWB/ddiqgI4EZ2GkFpbu4RtxpFPsrJmmu1cS04rxqufr3+Fz+A+OF
+ XBsApo4B5/2BH8/cdu3mevwCVSffi5gEAAA==
+X-Change-ID: 20241009-damu-a3f2f3478409
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Hsin-Yi Wang <hsinyi@chromium.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Hsin-Te Yuan <yuanhsinte@chromium.org>
+X-Mailer: b4 0.15-dev-2a633
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_015633_795074_EB5D9C9E 
-X-CRM114-Status: GOOD (  29.01  )
+X-CRM114-CacheID: sfid-20241126_015745_345373_2C7D86F0 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,119 +105,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Carlos,
+From: Hsin-Yi Wang <hsinyi@chromium.org>
 
-On 26.11.24 09:25, carlos.song@nxp.com wrote:
-> From: Carlos Song <carlos.song@nxp.com>
-> 
-> Return -EPROBE_DEFER when dma_request_slave_channel() because DMA driver
-> have not ready yet.
-> 
-> Move i2c_imx_dma_request() before registering I2C adapter to avoid
-> infinite loop of .probe() calls to the same driver, see "e8c220fac415
-> Revert "i2c: imx: improve the error handling in i2c_imx_dma_request()""
-> and "Documentation/driver-api/driver-model/driver.rst".
-> 
-> Use CPU mode to avoid stuck registering i2c adapter when DMA resources
-> are unavailable.
+Sets DMIC one-wire mode on Damu.
 
-Wouldn't this break probe for all i2c-imx users who have CONFIG_IMX_SDMA
-disabled?
+Fixes: cabc71b08eb5 ("arm64: dts: mt8183: Add kukui-jacuzzi-damu board")
+Signed-off-by: Hsin-Yi Wang <hsinyi@chromium.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Matthias Brugger <matthias.bgg@gmail.com>
+Signed-off-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
+---
+Changes in v4:
+- Add Reviewed-by tag back, which is dropped in v3
+- Link to v3: https://lore.kernel.org/r/20241009-damu-v3-1-1294c8e16829@chromium.org
 
-Also I am wondering on what kernel version and what configuration
-(CONFIG_I2C_IMX=?, CONFIG_IMX_SDMA=?) you have that made you run into
-this situation.
+Changes in v3:
+- Add missing Sign-off-by tag
+- Link to v2: https://lore.kernel.org/r/20240910-one-wire-v2-1-2bb40d5a3cf8@chromium.org
 
-I'd have expected that with fw_devlink enabled, the I2C controller wouldn't
-be probed before the DMA provider is available.
+Changes in v2:
+- Add fixes tag 
+- Link to v1: https://lore.kernel.org/r/20240910-one-wire-v1-1-d25486a6ba6d@chromium.org
+---
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Cheers,
-Ahmad
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+index 65860b33c01fe832f3a4b2e21d24ea6b4f0cba2b..3935d83a047e0827b6feddceb3e4dcb4fc3407cc 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+@@ -26,6 +26,10 @@ &touchscreen {
+ 	hid-descr-addr = <0x0001>;
+ };
+ 
++&mt6358codec {
++	mediatek,dmic-mode = <1>; /* one-wire */
++};
++
+ &qca_wifi {
+ 	qcom,ath10k-calibration-variant = "GO_DAMU";
+ };
 
-> 
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
-> ---
-> Change for V2:
-> - According to Frank's comments, wrap at 75 char and Simplify fix code
->   at i2c_imx_dma_request().
-> - Use strict patch check, fix alignment warning at i2c_imx_dma_request()
-> ---
->  drivers/i2c/busses/i2c-imx.c | 21 +++++++++++++--------
->  1 file changed, 13 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> index 5ed4cb61e262..4e5633166a1e 100644
-> --- a/drivers/i2c/busses/i2c-imx.c
-> +++ b/drivers/i2c/busses/i2c-imx.c
-> @@ -397,17 +397,16 @@ static void i2c_imx_reset_regs(struct imx_i2c_struct *i2c_imx)
->  }
->  
->  /* Functions for DMA support */
-> -static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
-> -						dma_addr_t phy_addr)
-> +static int i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx, dma_addr_t phy_addr)
->  {
->  	struct imx_i2c_dma *dma;
->  	struct dma_slave_config dma_sconfig;
-> -	struct device *dev = &i2c_imx->adapter.dev;
-> +	struct device *dev = i2c_imx->adapter.dev.parent;
->  	int ret;
->  
->  	dma = devm_kzalloc(dev, sizeof(*dma), GFP_KERNEL);
->  	if (!dma)
-> -		return;
-> +		return -ENOMEM;
->  
->  	dma->chan_tx = dma_request_chan(dev, "tx");
->  	if (IS_ERR(dma->chan_tx)) {
-> @@ -452,7 +451,7 @@ static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
->  	dev_info(dev, "using %s (tx) and %s (rx) for DMA transfers\n",
->  		dma_chan_name(dma->chan_tx), dma_chan_name(dma->chan_rx));
->  
-> -	return;
-> +	return 0;
->  
->  fail_rx:
->  	dma_release_channel(dma->chan_rx);
-> @@ -460,6 +459,8 @@ static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
->  	dma_release_channel(dma->chan_tx);
->  fail_al:
->  	devm_kfree(dev, dma);
-> +
-> +	return ret;
->  }
->  
->  static void i2c_imx_dma_callback(void *arg)
-> @@ -1803,6 +1804,13 @@ static int i2c_imx_probe(struct platform_device *pdev)
->  	if (ret == -EPROBE_DEFER)
->  		goto clk_notifier_unregister;
->  
-> +	/* Init DMA config if supported */
-> +	ret = i2c_imx_dma_request(i2c_imx, phy_addr);
-> +	if (ret == -EPROBE_DEFER) {
-> +		dev_err(&pdev->dev, "DMA not ready, go defer probe!\n");
-> +		goto clk_notifier_unregister;
-> +	}
-> +
->  	/* Add I2C adapter */
->  	ret = i2c_add_numbered_adapter(&i2c_imx->adapter);
->  	if (ret < 0)
-> @@ -1817,9 +1825,6 @@ static int i2c_imx_probe(struct platform_device *pdev)
->  		i2c_imx->adapter.name);
->  	dev_info(&i2c_imx->adapter.dev, "IMX I2C adapter registered\n");
->  
-> -	/* Init DMA config if supported */
-> -	i2c_imx_dma_request(i2c_imx, phy_addr);
-> -
->  	return 0;   /* Return OK */
->  
->  clk_notifier_unregister:
+---
+base-commit: 7eef7e306d3c40a0c5b9ff6adc9b273cc894dbd5
+change-id: 20241009-damu-a3f2f3478409
 
-
+Best regards,
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Hsin-Te Yuan <yuanhsinte@chromium.org>
+
 
