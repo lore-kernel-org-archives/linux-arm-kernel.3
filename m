@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64350D65552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 19:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14E3DD65551
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 19:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bZCz4E2gM8hkBTeFYEzn+9umgDxZzcZCYKPzCgb9ZnI=; b=a7XtSsOYm1LYY3U3mb+q+T5Dy8
-	adTKYLp9yBNo9ujEiiNrDjAO5y+f5jcUo4IPg5Rs1DWq7fOquYcTU01ttBSWmDw9DRgIo/ckLjixd
-	DSmwXzg3c1xSj4HXse9YlUromaSl94/Ltpdvgh8P1cYtQ63uIfUHcZckdfm8YGosA2lG3FYfD7MC4
-	NJ+S8F+PMlDz0SyY5151yJBDpYQasr77HptdKjN9nEEAKCuw4D2DXDxCawMkw8lBXPCyZKmfHlkYr
-	PVanW8w2EoPTTel8scLrEg3z6CWOSxbTv/eh2bbM5Pq2dsRcnpwyHRK5ai/D6ttzyeQL4aDFib4sf
-	clYlNrrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gdOpj6n/TpCW+M6qJNyMJAxTe9+Oh/jv0QhEZd/cyn4=; b=l4ws3oHisSlu7+EW5EC1ibQUJY
+	b/Jt0hJPavZWLIJQCo7pEQrH2Uqnhj/0ZQWgg/SWjClmcN0IgcUHgchDaNPPqFwqaeCqpDzC0tK0R
+	KRf2VnjhKUALlk7/BJnJTULFiTlHuutnfK+BV1kHhCtrz+ZAkzVdaWWun/r29Ci3ixzXMqAdQrojb
+	8oNtXStWC3acJWJWFZirbLCHQ0/GIVBZKw0X2KPmLTZ7xgSjfo6jrNil/Yex0P4rsqng82iJ4xlMz
+	TL6hyz9CC+xnyOd/1+xi4TlsGWw00+4ffKkUIr/b/Q5eahJGOAce3dbOEg9XQUTvg/CCgcQpFl+ZL
+	aj33u0Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG1Gr-0000000BYEY-1FfL;
-	Tue, 26 Nov 2024 19:30:49 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tG1SX-0000000BYz4-0Sv4;
+	Tue, 26 Nov 2024 19:42:53 +0000
+Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG1Ft-0000000BY9D-0Tja
+	id 1tG1RZ-0000000BYwM-2glm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 19:29:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 74D8DA404B0;
-	Tue, 26 Nov 2024 19:27:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0801C4CECF;
-	Tue, 26 Nov 2024 19:29:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732649388;
-	bh=uOVCsbYiBnSpJPQxIP6NXh62KDe/wDTyX61Cj34eCGs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=CuCclOCUrvE3wNparwDmJMO5Ii6O/wuTHWu/hJ2bmzBsOfBtOIx7UH80wrI5WSs6C
-	 C0sdggOVCybfADMjsFKt4HtRV668tH9kRX3FDeEU+sFAu0NMj4v/WPh5hQueSNfuMY
-	 Io8c8jdo7BIGoyMSuhgjLNWTwLIZnAejv6Lv8oqwi8YxTFJx38TI7SlBvHVrTdLvNE
-	 Vu6rm4X7OifrfDYPtVLk9mHRoi/V/sz2dYDA2Yomcltnk8z3HKP08OB2UKdVxc4K1A
-	 psTuoz4JsmZgtEAKgIbZArFHKpJjBL1eOenk6uAH4AaEk3KTJlRgMu12LPFMdMFe11
-	 68cfF6SvoeF9A==
-Received: from 82-132-234-204.dab.02.net ([82.132.234.204] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tG1Fj-00G65O-RV;
-	Tue, 26 Nov 2024 19:29:45 +0000
-Date: Tue, 26 Nov 2024 19:29:05 +0000
-Message-ID: <87zfllssji.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sebastian Ott <sebott@redhat.com>
-Cc: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"will@kernel.org" <will@kernel.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	yuzenghui <yuzenghui@huawei.com>,
-	"Wangzhou (B)" <wangzhou1@hisilicon.com>,
-	Linuxarm <linuxarm@huawei.com>,
-	"reijiw@google.com" <reijiw@google.com>
-Subject: Re: [PATCH] KVM: arm64: Make the exposed feature bits in AA64DFR0_EL1 writable from userspace
-In-Reply-To: <4d3a7dde-e085-fa70-8859-ba153c93b615@redhat.com>
-References: <20240813142835.77180-1-shameerali.kolothum.thodi@huawei.com>
-	<86v804z3lk.wl-maz@kernel.org>
-	<b2dad37ac5464384abe4edf76cb6b546@huawei.com>
-	<4d3a7dde-e085-fa70-8859-ba153c93b615@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 82.132.234.204
-X-SA-Exim-Rcpt-To: sebott@redhat.com, shameerali.kolothum.thodi@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, will@kernel.org, catalin.marinas@arm.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, linuxarm@huawei.com, reijiw@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 26 Nov 2024 19:41:54 +0000
+Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-71d56fe8240so1080204a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 11:41:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732650112; x=1733254912; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gdOpj6n/TpCW+M6qJNyMJAxTe9+Oh/jv0QhEZd/cyn4=;
+        b=coIeVGpdP65RK8AZOurBXNfht9QxN7OvVPnkxbuvnGlXm3WYzmzxdA0X4T2z+AQulE
+         mrVQIutc6po8V+F10J9Xy3IOWQuAnWVbuLsDBwp0IV6HqkZ7F+h9fjYct/3Div1DIBC1
+         5IT4/+dQ4SXBhQ/g5Yk0FY1rtEkrEpRq4/mpwYBTtB8k3T/v3LXMtTaza4EjKcxSr9Wd
+         Us3FoIqmbZ3rkTDvJPt/JnWKTn793NAvO3ddA0FEBlBl3fyPYL2E3q0OFTIFDfWYIpik
+         1rZnLuHaQaAHwkaCA0x8r0jxLiOCTclKwiZHw50gvdI4Jo3VzIZ+llqOOR3a2hJg8An7
+         kNHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732650112; x=1733254912;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gdOpj6n/TpCW+M6qJNyMJAxTe9+Oh/jv0QhEZd/cyn4=;
+        b=JMPV6yYEPpULxiq5B7d7cbO0ImSN2IfZQMLBkM6djys7mI5mzOeqrGkZ6+q1nddJcP
+         c7wQwAuWzq5gj5CewgXgsDYdj4Ha+cNYwTg6MthTDH516nNgp9Z/AMfLVao9UP4GSKif
+         tAdlwSVPN9rRn61MDZzNJUYuaALru6pjhEBdS/pZXhFuS1mq8WwbA0nbQwuT5tFJhqHB
+         TvXj3dmVB4UJhYut5TLlCkaa4ftMqR2hOQX/neq5909lQ01jFH9zICeyRpMB/bCjBQCz
+         PZDO4TvuHRL+l3ctZVxegr/9GzZMU1FSqtKDiE3ZvPSv4wsurqquzI1M+SpQUO3NTdDJ
+         tJkA==
+X-Forwarded-Encrypted: i=1; AJvYcCXgPwposR9qhKWZvOS0Y200rXka34tdFBPsJw3T7uS3BX7hxNvLJuEheo+I25cF6yOA3azTEQVsHD/Szfj6Li+J@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxo1QvrFjaNX/3iKaE6ru5bcFGJNOkY0FerJg7+vWwj3FNEKUPS
+	56AHYRds6cAYP2e8U2287tG34R4iGfbjF8CwoT9KdIntUFnFgWrA
+X-Gm-Gg: ASbGncsmPw8eqdRucfiJJGIrhkyS1sFqbLTb7+3c/hBcukbQjucxtU0rj5pO4kbOVCa
+	8H9uF4PiR2oPSs6XsOFccbFo12upADjSwn8njaVBoIVKbjJXcqHR7d/IGT5dQukU0yyEPOWZ+OK
+	BukBrrDKh30akgL8iJQAtcKDCkj5+Yz5XVWVKLkO6LYYJ8o4iUyhq7Xh8RNMRvcuMEvROUTIKi9
+	xxoW8xZ/InUxqmdhxWu+fhg3bkkCGTwUH6t4H7hm0WJTxZlS3zcRyF369H7jYL1
+X-Google-Smtp-Source: AGHT+IF+qleM6e28lbhrKv8SHeOCH/FuIj3K4jQgailnXQEBm51/BgQbfblpSw+RSONlWze7PTecwQ==
+X-Received: by 2002:a05:6830:700e:b0:710:e61c:7a4c with SMTP id 46e09a7af769-71d65d05a85mr309535a34.29.1732650111959;
+        Tue, 26 Nov 2024 11:41:51 -0800 (PST)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:8a47:3216:e3cc:f1d9])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fbcc1e25cesm9147384a12.28.2024.11.26.11.41.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Nov 2024 11:41:51 -0800 (PST)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: esben@geanix.com,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	kernel@pengutronix.de,
+	linux@roeck-us.net,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH] ARM: imx: defconfig: Explicitly select CONFIG_PINCTRL
+Date: Tue, 26 Nov 2024 16:41:46 -0300
+Message-Id: <20241126194146.1193094-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_112949_292816_31406F91 
-X-CRM114-Status: GOOD (  39.04  )
+X-CRM114-CacheID: sfid-20241126_114153_677042_6CD90968 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,100 +98,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 26 Nov 2024 17:00:35 +0000,
-Sebastian Ott <sebott@redhat.com> wrote:
-> 
-> Hi,
-> 
-> On Wed, 14 Aug 2024, Shameerali Kolothum Thodi wrote:
-> >> 
-> >> On Tue, 13 Aug 2024 15:28:35 +0100,
-> >> Shameer Kolothum <shameerali.kolothum.thodi@huawei.com> wrote:
-> >>> 
-> >>> KVM exposes the OS double lock feature bit to Guests but returns
-> >>> RAZ/WI on Guest OSDLR_EL1 access. This breaks Guest migration between
-> >>> systems where this feature support differ. Add support to make this
-> >>> feature writable from userspace by setting the mask bit. While at it,
-> >>> set the mask bits for other exposed features in the AA64DFR0_EL1
-> >>> register as well.
-> >>> 
-> >>> Also update the selftest to cover these fields.
-> >>> 
-> >>> Signed-off-by: Shameer Kolothum
-> >> <shameerali.kolothum.thodi@huawei.com>
-> >>> ---
-> >>>    This is based on the discussion here(Thanks to Oliver),
-> >>>    https://lore.kernel.org/all/ZrVSlbVwnaMDShah@linux.dev/
-> >>> ---
-> >>>  arch/arm64/kvm/sys_regs.c                         | 6 +++++-
-> >>>  tools/testing/selftests/kvm/aarch64/set_id_regs.c | 4 ++++
-> >>>  2 files changed, 9 insertions(+), 1 deletion(-)
-> >>> 
-> >>> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> >>> index c90324060436..adb49d681052 100644
-> >>> --- a/arch/arm64/kvm/sys_regs.c
-> >>> +++ b/arch/arm64/kvm/sys_regs.c
-> >>> @@ -2376,7 +2376,11 @@ static const struct sys_reg_desc sys_reg_descs[]
-> >> = {
-> >>>  	  .get_user = get_id_reg,
-> >>>  	  .set_user = set_id_aa64dfr0_el1,
-> >>>  	  .reset = read_sanitised_id_aa64dfr0_el1,
-> >>> -	  .val = ID_AA64DFR0_EL1_PMUVer_MASK |
-> >>> +	  .val = ID_AA64DFR0_EL1_DoubleLock_MASK |
-> >>> +		 ID_AA64DFR0_EL1_CTX_CMPs_MASK |
-> >>> +		 ID_AA64DFR0_EL1_WRPs_MASK |
-> >>> +		 ID_AA64DFR0_EL1_BRPs_MASK |
-> >> 
-> >> 
-> >> I think this is going to cause some troubles.
-> >> 
-> >> The issue is that context-aware breakpoints are the highest-numbered
-> >> breakpoints, right after the normal breakpoints (D2.8.3 "Breakpoint
-> >> types and linking of breakpoints"). So if you reduce the number of
-> >> normal breakpoints, you shift the context-aware ones down, and
-> >> everything breaks.
-> > 
-> > Thanks Marc for explaining this. I was not aware of this one.
-> > 
-> >> I really don't see how you can safely do that without completely
-> >> changing the way we handle the debug registers.
-> > 
-> > Looks like Reji has attempted to do this a while back,
-> > https://lore.kernel.org/kvm/20220419065544.3616948-13-reijiw@google.com/
-> > 
-> 
-> I've got two machines that differ in the number of breakpoints and
-> it would be nice to be able to migrate between these. Is anything
+From: Fabio Estevam <festevam@denx.de>
 
-Is that the *only* thing that differ? Do the have the same number of
-context-aware breakpoints?
+Since commit 17d210018914 ("ARM: imx: Allow user to disable pinctrl"),
+the CONFIG_PINCTRL option is no longer implicitly selected, causing
+several i.MX SoC pinctrl drivers no longer getting selected by default.
 
-> preventing us from trapping the access and make sure the correct
-> breakpoint is used? Is anyone working on this? If not I'd like to
-> give it a shot.
+This causes boot regressions on the ARMv4, ARMv5, ARMv6 and ARMv7
+i.MX SoCs.
 
-Not only trapping. You also need to handle some interesting parts of
-the architecture, such as the breakpoint linking fun.
+Fix it by selecting CONFIG_PINCTRL inside the affected defconfigs.
 
-But if we are to go down that road, I really want to restrict that to
-implementations that have FEAT_FGT. Because otherwise we need to trap
-and emulate *everything*, instead of just the breakpoint registers.
-And that would be pretty bad from a performance perspective.
+Fixes: 17d210018914 ("ARM: imx: Allow user to disable pinctrl")
+Reported-by: Guenter Roeck <linux@roeck-us.net>
+Closes: https://lore.kernel.org/linux-arm-kernel/49ff070a-ce67-42d7-84ec-8b54fd7e9742@roeck-us.net/
+Signed-off-by: Fabio Estevam <festevam@denx.de>
+---
+ arch/arm/configs/imx_v4_v5_defconfig | 1 +
+ arch/arm/configs/imx_v6_v7_defconfig | 1 +
+ 2 files changed, 2 insertions(+)
 
-Another thing is that this only works because there is no report of
-the breakpoint number in ESR_ELx. The moment we offering this
-migration "feature", we are painting ourselves in a corner, should the
-architecture ever evolve to something less... bizarre.
-
-Finally, who is going to ensure this keeps working in the foreseeable
-future? Because while this is nice, that's not what gets deployed in
-production, as it leads to unpredictable performances. My take is that
-this thing will eventually bitrot and die.
-
-So, do we *really* want to go down that road?
-
-	M.
-
+diff --git a/arch/arm/configs/imx_v4_v5_defconfig b/arch/arm/configs/imx_v4_v5_defconfig
+index 875c8cdbada7..1af29d12129d 100644
+--- a/arch/arm/configs/imx_v4_v5_defconfig
++++ b/arch/arm/configs/imx_v4_v5_defconfig
+@@ -83,6 +83,7 @@ CONFIG_I2C_IMX=y
+ CONFIG_SPI=y
+ CONFIG_SPI_IMX=y
+ CONFIG_SPI_SPIDEV=y
++CONFIG_PINCTRL=y
+ CONFIG_GPIO_SYSFS=y
+ CONFIG_GPIO_MXC=y
+ CONFIG_W1=y
+diff --git a/arch/arm/configs/imx_v6_v7_defconfig b/arch/arm/configs/imx_v6_v7_defconfig
+index 0beecdde55f5..73f7aa7e75f7 100644
+--- a/arch/arm/configs/imx_v6_v7_defconfig
++++ b/arch/arm/configs/imx_v6_v7_defconfig
+@@ -204,6 +204,7 @@ CONFIG_SPI_FSL_QUADSPI=y
+ CONFIG_SPI_GPIO=y
+ CONFIG_SPI_IMX=y
+ CONFIG_SPI_FSL_DSPI=y
++CONFIG_PINCTRL=y
+ CONFIG_PINCTRL_IMX8MM=y
+ CONFIG_PINCTRL_IMX8MN=y
+ CONFIG_PINCTRL_IMX8MP=y
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
