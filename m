@@ -4,85 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81EBD6552F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 17:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F02D65531
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 17:39:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9oOV6Xf/f1fBBujFiCnK10GJBxK35mB0wxBS2n5gZfU=; b=mT/1vBD1u3ightlewShVQuYdeC
-	dtOBKcUJ/SbZpuNF/fIoZG/CdTdg9ye6VKbJ5ojGMqjO0AnjuD8oqn0IKLUtvX17vjDQn4IlYmHWk
-	g1hc55k7YbcJDZyTAcbg+XyuOZsUT4hZ9RKvly2QIwtfOkQZh4yhGad95oi2eUcsbAbcTIbACDKR3
-	JR1jHzQZGZkL0ejLwrkDlNyJRl9D4Sr/KMQKibIm5uYxEuuYLB38RoQQTKKPxueRp1hrxGinSRfka
-	6eWvmLRm/QEKn18OZIkffi5bgmwxtWnmWgJANtR5wAhWXEL28HlU4YPBRz1cAGIRt1RgswQm+qq51
-	/udtlLtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=68OMM+4gfbJv2m8Pua0a3cV/a103vSPfTEaaUEW620Y=; b=b8bdE08u0Q2/xCJZoR+UC64L8F
+	xQ3FtzXZo3MRP8WCViLabAH+vEMNUnmxpOwwivHZcZzMMQ38BuA0IGYkvuaI6dyDUVZeiBoIMaqeK
+	IHUPRmWPbzUbqbqURBtFkPVax1wBU2MKVkX1jQmw01vjoTbHgZebjMqetrgS/IHwzT/WDsGWgrdeT
+	gtkX6tJgI6MhibR332bXZUI0XzqUBKrGolfHsNH3wZtwa3X6R78CQqja23s4fGJnjqU1GowPMw9J/
+	jgRwO4jT7aUYjCc2oEI069S2i/j8j1ToGNEP5e5Aijl0N2C5Q73k9wPoGE8geCn1cGGK+uCs44K8I
+	K5Y+qHxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFzS3-0000000BK42-08Yq;
-	Tue, 26 Nov 2024 17:34:15 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tFzXI-0000000BKaX-014V;
+	Tue, 26 Nov 2024 17:39:40 +0000
+Received: from mail-bn7nam10on20715.outbound.protection.outlook.com ([2a01:111:f403:2009::715] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFzR4-0000000BJzQ-2WqF
+	id 1tFzWK-0000000BKVL-27TM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 17:33:16 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3823cf963f1so3710337f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 09:33:13 -0800 (PST)
+	Tue, 26 Nov 2024 17:38:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=m6Oih/MyvfUAtYGY56L9brR+PzPEFnQW9MAchKM9zx/v/hNj2niCMhvnb9HqKkPSRqvqP7biyXMEsfhFgFiVv6CzEx9blxmdRMFdzJj7f0iN9nb2nvUuKjlYoen6BqFlYUMVToEjEg/sh9RKz4kGfWRkY1rNKPfY96EprSEGHWNpBmiLNzkGwDhVSQIRKoskDuXWTtimYgfXDD8YLhbkvVNR8phww8YmIuD1CJ8IBm+x0p2eINLph4XeM8p6CK03mPORjTIQwlODyLp2joUvfUBdpDJRyeT2yuJJOiY00apHHRkzqcQ9sZTW37380diDbaqiwh4pOsuZXlg5YflWjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=68OMM+4gfbJv2m8Pua0a3cV/a103vSPfTEaaUEW620Y=;
+ b=DmoP8bBplccz5ClDms6c8Xf8+thUPWAHp7KicdRGfE3M9NSuOhIZeVraU+a4rDHalWNQBzKaWAmFWO2GAn3M3DL2CUWNsImt8mSvcRwQ6EX8/t+8T85stApPSCHd5a9hBYZapNGdJL+/XrCbcGD4pLdnABS+8FZmQXSZfnMUGBROgUFjCDPqkAZQpOEn7c0mLpaQYIqI88p65J4EkFBdxxE8MFHrcbPQS2WFX4VaNwqFiOydnex8rbDZKQHXcp8CmhDNr44ycULWbC7IHxqq7WCCmcVRB9y6Z4g/SgP9IU+dXKSxMY+6bApt9FrdDqH+yIsQAh6CaN1uTop3uQBi0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=smile.fr; s=google; t=1732642392; x=1733247192; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9oOV6Xf/f1fBBujFiCnK10GJBxK35mB0wxBS2n5gZfU=;
-        b=3fJJXHR+j6jUUkm52U/jjLnKE213VdthXJdUX77+b6GttwuHSwzOxKYdO50QC/X6X6
-         umO5Yx91wsbGr3vBAP/xdpQ9yVRmNIz4oxDPMKD7nhkMk0+TGSrEcebU/G2pvS3voyvg
-         XhrqOwon5EfZj24nvJ8SBzvANXBMgMNq58+cU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732642392; x=1733247192;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9oOV6Xf/f1fBBujFiCnK10GJBxK35mB0wxBS2n5gZfU=;
-        b=saO7iWBjLZ50lLD0NV4i+RLTne4WwA0yAXrNqFFbP/xO8/akrdCJppQn9u1xRrD7Z3
-         k+45Fx/57HDr8CMYSOG9bslmcirTgK/2Dr3BvxOZ7PYpyT20vy2AAqmmcS+coRx1vlDu
-         jxx1RKTi160uWGaaUqIs9/aQVw+q3IXJefRMr95gkdluGG/LHPxkNKODfrp5va9P5uBp
-         HKkxTUXJCIG6FoQocPFaW5vIrYQ0Iy8zf5vaCkDFBiKx/8xhgLhL+4LMHzEJmL3qmxWM
-         BvmOn9rt8XTAlqIpKJIAq7wMa4wNIVS4yqpQfFxsm93xnezSuj+At55JczBTQW3rMMZC
-         rorA==
-X-Gm-Message-State: AOJu0YzQ9gZgs7iRrr5tPRRt37YZMJwkzIbVE2hyFpE0Srj9eJZ2bffq
-	vzU0oBJieMqv4z80JxZo3KbrGH9hg3BXLe999GQ/hDT6KtIbcMISz3DkIOZd+Vo=
-X-Gm-Gg: ASbGncuoSqk2+jk10PDyWUE3miQPoxhwJbuAwtSkCb4BAA5DSMbZE51fZeOBhKirslk
-	GCBaFXkiYTVMrbXG0Z6p3FL2J9fp6Qq5DtPJv8BRZmiJsghZRFtBLxAUzxE4SBd5qsJWptXNcAp
-	oZ3CUzMXYEx1PTCTYEHd0tcy/bEO+itY922cXNtwLCeOg+otn5gcPgfotRIqUI6sDudh9zxN6WD
-	8xvwcIRfSS9u1X1z3P60ySZlzHruwpCFs6vwO2M3KBcPo7ab0OibQXJhC4e36XTVu/06gNB52Bd
-	QzRrAO1cYa5Q/l6pAHRcDlwvm6VWgkJls52xzOo5l5hdVKs=
-X-Google-Smtp-Source: AGHT+IH+jDs/Oi/Yj699wtUEbjT8GQBWJI0mOVavIZ5Y1ZVm3lZYt0A+bSeHwUyDg6sCEgug0Vl6Ag==
-X-Received: by 2002:a05:6000:18ac:b0:382:4b43:c3a with SMTP id ffacd0b85a97d-38260b45e0cmr16212760f8f.2.1732642391966;
-        Tue, 26 Nov 2024 09:33:11 -0800 (PST)
-Received: from P-NTS-Evian.home (2a01cb05949d5800e3ef2d7a4131071f.ipv6.abo.wanadoo.fr. [2a01:cb05:949d:5800:e3ef:2d7a:4131:71f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3825fbe901esm14043844f8f.87.2024.11.26.09.33.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Nov 2024 09:33:11 -0800 (PST)
-From: Romain Naour <romain.naour@smile.fr>
-To: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-omap@vger.kernel.org,
-	conor+dt@kernel.org,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	kristo@kernel.org,
-	vigneshr@ti.com,
-	nm@ti.com,
-	Romain Naour <romain.naour@skf.com>
-Subject: [PATCH] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE output for PCIe1
-Date: Tue, 26 Nov 2024 18:33:07 +0100
-Message-ID: <20241126173307.4054601-1-romain.naour@smile.fr>
-X-Mailer: git-send-email 2.45.0
-MIME-Version: 1.0
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=68OMM+4gfbJv2m8Pua0a3cV/a103vSPfTEaaUEW620Y=;
+ b=iTU+HnQBkECWw0Pj6EoCVsAA1hbxU+eE3mDdDMik0MUDo0x4hb3CrAyCFzVDgNoh1iq+TwbvEmvKs1J235HxGW2V0zTHX1BjnVH0EENo4ooG0UqmB4OAw+ar/sNx0HGAsxyWttyeJYh6/zaqx/wbfPGHAemY4pwvoPXdWe5UbpE=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ SJ0PR01MB6480.prod.exchangelabs.com (2603:10b6:a03:295::24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8207.12; Tue, 26 Nov 2024 17:38:27 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%4]) with mapi id 15.20.8207.010; Tue, 26 Nov 2024
+ 17:38:27 +0000
+Message-ID: <98583682-a95e-440e-bd89-03828998b48e@os.amperecomputing.com>
+Date: Tue, 26 Nov 2024 09:38:22 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: mm: fix zone_dma_limit calculation
+To: Baruch Siach <baruch@tkos.co.il>
+Cc: catalin.marinas@arm.com, will@kernel.org, ptesarik@suse.com, hch@lst.de,
+ jiangyutang@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241125171650.77424-1-yang@os.amperecomputing.com>
+ <87ttbu8q7s.fsf@tarshish>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <87ttbu8q7s.fsf@tarshish>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SJ0PR05CA0202.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::27) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SJ0PR01MB6480:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3d0ae939-2c0c-4fc5-723a-08dd0e412276
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?L1A1dzVXRm83Ni9PcGhaNFF2cCsyNzBLZVpab0orQkFTYkVCYnBWYlFOdHhk?=
+ =?utf-8?B?VERMMnJtZVNkL2dsNFhPWkxUYzg1RUl0T0hpWndGdXVUQlVhSFRKVnY3MzVN?=
+ =?utf-8?B?Z2tnUHlvWW5RNGZKNHU0cDVuNUtzQ251VzAxVlR4NmZVKy9uSmtUNU1MQ1FF?=
+ =?utf-8?B?cWk3STdrRHVyM0g2TWtVZGkwNTZHNUxXNHR0bTlTZW9JVzRsNjRwd1VER2Zh?=
+ =?utf-8?B?NE43cEk0dmFxaFBtSFBZSloyRVl4TEpyeDhnR3lKM1Z2MXRiSTVGdE0zajJD?=
+ =?utf-8?B?eFNYeWxvelg2MlorVEh6RUVTdVVHKzkzZ08wOFU1WWxhVzVJME9uMlV4MDda?=
+ =?utf-8?B?N1h5emhVenpnYi9oVGhUY0lRTkEyL2ZiVk5QdDhBdVdJdTN1VFM1ZldQckpH?=
+ =?utf-8?B?UUxyZmFHOG16V3VtM09FV1VhTWlJc3dRMXc3VzUraXhNZ0ZRcHplYWVDL3hi?=
+ =?utf-8?B?QjNReFFONU8xMFhBWUovMnBEbDkzdWE0RVl5azM4eFFhWktuMFNrK2FYRUNq?=
+ =?utf-8?B?Mnc1ZG5wb0xndU1wY1NDSzVwTkYzYUpGUXMxNTJhUTRNeWd0Z2JIZDNUYjN3?=
+ =?utf-8?B?dVNGVVFuRWQyMWZQWGlBUDB2ZitETHVFUThpbWVSNlE1K0lpYURpSEhjOGZC?=
+ =?utf-8?B?NUMzYzNXUEMxVWw3T1lCbC9qRk02V2ljWW05dktQWWY0Y1JpdWxZUDdMaXlX?=
+ =?utf-8?B?RkJ4WElLWU5VMFJNYyt5Q0s1SzJ3U1UybmRvRTdBeHdaUVZYTC9PakhDN1Fj?=
+ =?utf-8?B?Y20wVU5BN0FTMGVMUDQ5dHl4S3JrSDgwQWxpNzVxcDRPVzdVeDE3dWJiVHlF?=
+ =?utf-8?B?WjZsaUdnL3BiTDAxbmxKUXYyRG1IbCt0U0xmdXFlSHNjKzJXdDIrRC83UEYw?=
+ =?utf-8?B?WEhUUUVpbjd4UkFGWFNxZVB3djlXMTJ3S0dySXJDQ2VaZzZjQzN4UHJFYW1B?=
+ =?utf-8?B?NnVxZlBhcjlBbmx2d0NNN0NzYTlGUEFNbnQ1cCs1SWJERWVVR1Y2Zmp2ZzJD?=
+ =?utf-8?B?QVZadG1HZGxBTW02dDJrZGxIaDJ4NlR4M2hiVnBhSVpqN3RKRFB0S2RPWlZV?=
+ =?utf-8?B?QitUVittMjZEckRsb3dxaVE3TzM3SmxaazllMG1iZ3ZLUnRnSlRTYzdMS3dO?=
+ =?utf-8?B?UVFQclRKaXRrOVRYUnlwMnZ5d2FvNlJ0SzFNU1UxeitkMVI5RDZLKzRYcW1m?=
+ =?utf-8?B?MnFobmhyZWdiaW5jMHVrTUlXY1pFbjEvanRqaVY0Zkl5ckdLWDEzb3pwU3Vj?=
+ =?utf-8?B?TWNxTG84NFRlNElYaVNuYlU0OUJnMmorVzZnYXlaRjZWdDk3RXR1ckttamxN?=
+ =?utf-8?B?NllZZEt3c1ZKa0EwZ2hrQXR1SHlad09OeURmYzFHM2ZVRTkrdG1xSWF3OSs0?=
+ =?utf-8?B?bVlmUjdwWGlwNk5uU0FCVHhFZmdLcHZINGh0RnkvaVBtTkNudVh1SUZvWnhR?=
+ =?utf-8?B?QzZoL2thL0F0ZTlvSHBFMThCV2kxSmFVQndvNytiNzFhQmNrZi9RSXMzUjBP?=
+ =?utf-8?B?azhMZitZMlpHS0Y1ZU9WdEkyUXQxZzZ1aEt3a3BoZVkyRm5aalQzSjByWFFv?=
+ =?utf-8?B?Uk4xMjBmOVgvVkVMeHFJRmZ5YVR2NXNHdzBHUVVnYzFXbXRmekV3VCtsbjhQ?=
+ =?utf-8?B?MThTMGhFZ2RVQ1NCeURncTFlRHFJV09sd25oOHM2S1JXQnlQS0hSd3BJUjg1?=
+ =?utf-8?B?RjNjYTZWaTA3Ti9LaWdMQlV0Y0tiR2UzYVMvcERJZFdpSWtZMFNDU3hTWWR1?=
+ =?utf-8?B?cXRRN2E0MTQwbjB6QW5rV2hlcm1oSWNBMEZ1U2VNcGcwMVBlS2hGUkhucytG?=
+ =?utf-8?B?R1ExSEFkaDQ0bzdtOTN6Zz09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bW1GdmJOL3JvSWgrdlhXczhzMVEwMTE0QlBMcERxQmhuQ3JTZVRwSmg0R1Jh?=
+ =?utf-8?B?cTV1dHJ5bElabGtXYzJKd2hhSzNkOWR2bytuOEFTUENmNUE5QTlaOVpaTU9h?=
+ =?utf-8?B?b1o0L0NMcDVHTXV0NmxWTHRuMS9KQ0lFZVJZb2ZPejZSdHhEZnZKbldYcFRV?=
+ =?utf-8?B?eXVqNEhnbG9CTVVTUTh2REU0cW5RSjAxRjR4Yzd2R3Y4NWRFVC9FcXJUY09K?=
+ =?utf-8?B?VXZ4VEJIdk1UanlMcEN2Q2hnVFg5NzdoL2swVUtKY0dQNWFKYkxDbENyR2tQ?=
+ =?utf-8?B?eTZubFF4SXhmOFMrTTE1Y2FTQWdRNUJUdWROZUpBVi9PQXdsSUNjU2tKaVpI?=
+ =?utf-8?B?STNlRDRNcHhZQnJrOVBMMmZDK29WVkYvbDkwelU3TzFTUGgvMVByZm5LS2hZ?=
+ =?utf-8?B?R3lBbVlLcVdEMWk0TWtsZU5jZmVDcWdnSWNEb0NuTHR5RE14TVBRYzFVbFRm?=
+ =?utf-8?B?bkp3WWdqSFhUWEJEcUFiV2haWjRQKzhFei9zYkFZS09XY3djMEx4TG8zZG1Y?=
+ =?utf-8?B?c0t0MEljRmNpMitYcE1NN241aG1oNVk1T3FLYkwzOXJTajhNVE9DSVNZSkh1?=
+ =?utf-8?B?UW5KMHlMaFpTZzBvcFpRajFuTmhRdmNlTmsvMGRZU0RSNDhpSkVxR3pYUWV1?=
+ =?utf-8?B?TCtFcUhMZ3BWQzdyaDIxZVZFQjNXZHg4NDEvSkhLZWxGNWVVTDlySUtkS2xF?=
+ =?utf-8?B?S21BcHZZYkpKbDEyZGFJMW5uR3c1dU1DNzFYN0lkTU9pVEV6Tk9hcFp4NVhs?=
+ =?utf-8?B?bndnZkJpbXJlVmY4M29TUk1Xdm5GdnpFeDhYTXdjdlc0LytUeXBJNkNMVVgx?=
+ =?utf-8?B?WFNZeCtnQU0wSjBkd1Z3LzF4WUFrcmdkU3BQYVliN2Q2TkdmR0hNWWt5Wkh4?=
+ =?utf-8?B?eXBMVU5SOXdoNU5OZ2RsQXA1Z1JORGgwQXFzcEVub1BQVmFGZ1Q0NUY3UTEr?=
+ =?utf-8?B?Nk9vZElCT3JmMEVvc3BXT2o4cTkvSk1IbTBtd2ZxcXJHbkFTMGtBNkM5QVNX?=
+ =?utf-8?B?VXBZWURwcUdoaXBmeENpZE9mcE1McUtlRGYwUWh4UmJXTUs3TG9ScE9yZEQy?=
+ =?utf-8?B?T1U0M0dpbnZFRGpGek80SlltY2dLVkF4MWp0RC9ORDdTMW90UDJKRXpJY012?=
+ =?utf-8?B?OGxid0pNL0NPUDlHcklSQ1MxWmpHb1kwdFZ2dGRQRmJvY1RpK25jYnd0eWdF?=
+ =?utf-8?B?Zy9VRVJqbE9VVVR3QXJuMnJLZ3Z1Mkp1cHpwZUtrTTNKYzBRdVZvZ3pYL1da?=
+ =?utf-8?B?MmoydXFwRmFUamJoWkFncEJVTlRaVFE4bXcyY0ErOFE0VFBTOUcrYXFYT1A1?=
+ =?utf-8?B?M3NEU0hIMkg3K042bTNhcXRpU09pSFlOZ1ZJTWRVYTBOZ1duUzlDM2kwaThx?=
+ =?utf-8?B?cWZkZEYva3phRUN4Zyt0dnl0UjJpQXBZVUNZbDIyeS8vdWJ4cHFkM2twM0Fx?=
+ =?utf-8?B?eE9JMUFXNXEyV0ZrZDhmMUpUMDcrdUZXOHg1dndiM1A1N2NSVVFER3lFVG8x?=
+ =?utf-8?B?cHdOSndWRU5zVE91LzROKysvS3hUNXZ4cEpYRFh5aVMwSlZsRUgyZTNXMDRl?=
+ =?utf-8?B?a0ljMklzYWkvTTJpSmkrR1ptNjFMZU55V1ZHZkV0UVZjalNDbzJHdDNIVjJ3?=
+ =?utf-8?B?Z1JjRDZGeURwaVdxcVMxM1FGY0hLZ2J0TlFXN0VLMEJ2blJNZGZHRkRFYWRm?=
+ =?utf-8?B?a3FPRUNLZzRWeGJlS1FRMmlwU1VOVnVKcnBmUnBaay9mVlRiWndoNmRxRjdR?=
+ =?utf-8?B?eXZrVUY4aVVGa0d4NG5CTDVkSFUxdGVPRFVJY01Kc3BiZTliMHBWUWR2MEtq?=
+ =?utf-8?B?UHkyT0lOSUxNdksvK09jUTFjNDdvTURRUll0TmhHZGNNRjJoVEd3SUdoNzkx?=
+ =?utf-8?B?Umx5aCtmYmxUR1FyMXAxd1dYVzVjTFliR1oxMC9wVTI1UzJUVEd0VnJyT254?=
+ =?utf-8?B?VnRBMlFqVzBHQjJjZFBTdEdTekFNSWc1alU5L1IrS3ZCUlJEbnZGWFlleitm?=
+ =?utf-8?B?OWZoVFVuSG5CMXY0b3IrcWwyZnRvUEVkRjR2Y0dIS29KVndsZlJiTUxvcVBO?=
+ =?utf-8?B?SytmdVR5bmFiMStxSVJNNVdBcGdrbkFwV1BONG9BY0xlL2NycEU5dGhsR3dm?=
+ =?utf-8?B?ajFmdXZhK0RGQkQ4d0xGNU55NlJ0OE9DRVN5cVkvaDl1N2xKc0V1aW9XLzRZ?=
+ =?utf-8?Q?98Y7BxZQZhUK0AtjO7TZ1hg=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d0ae939-2c0c-4fc5-723a-08dd0e412276
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2024 17:38:27.2318
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: W++pVRVUFOyuw4gOJmOPLdpUT1NDbmS8S8lSSLurGk0bUXDADpXM6InlTgbGb1pT0x5SLEdkvg3XlenZ2feLnMUWtBBtdK6k9KWms6ECpQ8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR01MB6480
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_093314_907406_AAC2FEE7 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20241126_093840_563419_0363A8DD 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,77 +176,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Romain Naour <romain.naour@skf.com>
 
-Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
-(CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
-provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
-provide refclk through PCIe_REFCLK pins.
 
-Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
-module's PAD IO Buffers.
+On 11/25/24 10:27 PM, Baruch Siach wrote:
+> Hi Yang,
+>
+> On Mon, Nov 25 2024, Yang Shi wrote:
+>> The commit ba0fb44aed47 ("dma-mapping: replace zone_dma_bits by
+>> zone_dma_limit") changed how zone_dma_limit was calculated.  Now it
+>> returns the memsize limit in IORT or device tree instead of U32_MAX if
+>> the memsize limit is greater than U32_MAX.
+> Can you give a concrete example of memory layout and dma-ranges that
+> demonstrates this issue?
 
-Signed-off-by: Romain Naour <romain.naour@skf.com>
----
-With this patch, we can remove "HACK: Sierra: Drive clock out" patch
-applied on vendor kernel for BeagleBone AI-64:
-https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
----
- arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts |  4 ++++
- arch/arm64/boot/dts/ti/k3-j721e-main.dtsi          | 10 ++++++++--
- 2 files changed, 12 insertions(+), 2 deletions(-)
+Our 2 sockets system has physical memory starts at 0x0 on node 0 and 
+0x200000000000 on node 1. The memory size limit defined in IORT is 0x30 
+(48 bits).
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-index fb899c99753e..681e3af7ce6e 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-@@ -859,6 +859,10 @@ &pcie1_rc {
- 	num-lanes = <2>;
- 	max-link-speed = <3>;
- 	reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_HIGH>;
-+	/* There is no on-board or external reference clock generators,
-+	 * use refclk from the ACSPCIE module's PAD IO Buffers.
-+	 */
-+	ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
- };
- 
- &ufs_wrapper {
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-index 0da785be80ff..9f47e7672922 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-@@ -5,6 +5,7 @@
-  * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
-  */
- #include <dt-bindings/phy/phy.h>
-+#include <dt-bindings/phy/phy-cadence.h>
- #include <dt-bindings/phy/phy-ti.h>
- #include <dt-bindings/mux/mux.h>
- 
-@@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
- 			reg = <0x4140 0x18>;
- 			#clock-cells = <1>;
- 		};
-+
-+		acspcie0_proxy_ctrl: acspcie0-ctrl@18090 {
-+			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
-+			reg = <0x18090 0x4>;
-+		};
- 	};
- 
- 	main_ehrpwm0: pwm@3000000 {
-@@ -978,8 +984,8 @@ pcie1_rc: pcie@2910000 {
- 		max-link-speed = <3>;
- 		num-lanes = <2>;
- 		power-domains = <&k3_pds 240 TI_SCI_PD_EXCLUSIVE>;
--		clocks = <&k3_clks 240 1>;
--		clock-names = "fck";
-+		clocks = <&k3_clks 240 1>, <&serdes1 CDNS_SIERRA_DERIVED_REFCLK>;
-+		clock-names = "fck", "pcie_refclk";
- 		#address-cells = <3>;
- 		#size-cells = <2>;
- 		bus-range = <0x0 0xff>;
--- 
-2.45.0
+The DMA zone is:
+
+pages free     887722
+         boost    0
+         min      229
+         low      1108
+         high     1987
+         promo    2866
+         spanned  983040
+         present  982034
+         managed  903238
+         cma      16384
+         protection: (0, 0, 124824, 0, 0)
+  start_pfn:           65536
+
+When allocating DMA buffer, dma_direct_optimal_gfp_mask() is called to 
+determine the proper zone constraints. If the phys_limit is less than 
+zone_dma_limit, it will use GFP_DMA. But zone_dma_limit is 
+0xffffffffffff on v6.12 instead of 4G prior v6.12, it means all DMA 
+buffer allocation will go to DMA zone even though the devices don't 
+require it.
+
+DMA zone is on node 0, so we saw excessive remote access on 2 sockets 
+system.
+
+>
+>> This resulted in DMA allocations may use GFP_DMA even though the devices
+>> don't require it.  It caused regression on our two sockets systems due
+>> to excessive remote memory access.
+> That is, DMA zone used to cover all memory before commit ba0fb44aed47,
+> but now DMA zone is limited to the smallest dma-ranges. Is that correct?
+
+The physical addr range for DMA zone is correct, the problem is wrong 
+zone_dma_limit. Before commit ba0fb44aed47 zone_dma_limit was 4G, after 
+it it is the whole memory even though DMA zone just covers low 4G. 
+Thanks, Yang
+>
+> Thanks,
+> baruch
+>
+>> Fixes: ba0fb44aed47 ("dma-mapping: replace zone_dma_bits by zone_dma_limit")
+>> Cc: <stable@vger.kernel.org>    [6.12+]
+>> Reported-by: Yutang Jiang <jiangyutang@os.amperecomputing.com>
+>> Tested-by: Yutang Jiang <jiangyutang@os.amperecomputing.com>
+>> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+>> ---
+>>   arch/arm64/mm/init.c | 17 ++++++++---------
+>>   1 file changed, 8 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+>> index d21f67d67cf5..ccdef53872a0 100644
+>> --- a/arch/arm64/mm/init.c
+>> +++ b/arch/arm64/mm/init.c
+>> @@ -117,15 +117,6 @@ static void __init arch_reserve_crashkernel(void)
+>>   
+>>   static phys_addr_t __init max_zone_phys(phys_addr_t zone_limit)
+>>   {
+>> -	/**
+>> -	 * Information we get from firmware (e.g. DT dma-ranges) describe DMA
+>> -	 * bus constraints. Devices using DMA might have their own limitations.
+>> -	 * Some of them rely on DMA zone in low 32-bit memory. Keep low RAM
+>> -	 * DMA zone on platforms that have RAM there.
+>> -	 */
+>> -	if (memblock_start_of_DRAM() < U32_MAX)
+>> -		zone_limit = min(zone_limit, U32_MAX);
+>> -
+>>   	return min(zone_limit, memblock_end_of_DRAM() - 1) + 1;
+>>   }
+>>   
+>> @@ -141,6 +132,14 @@ static void __init zone_sizes_init(void)
+>>   	acpi_zone_dma_limit = acpi_iort_dma_get_max_cpu_address();
+>>   	dt_zone_dma_limit = of_dma_get_max_cpu_address(NULL);
+>>   	zone_dma_limit = min(dt_zone_dma_limit, acpi_zone_dma_limit);
+>> +	/*
+>> +	 * Information we get from firmware (e.g. DT dma-ranges) describe DMA
+>> +	 * bus constraints. Devices using DMA might have their own limitations.
+>> +	 * Some of them rely on DMA zone in low 32-bit memory. Keep low RAM
+>> +	 * DMA zone on platforms that have RAM there.
+>> +	 */
+>> +	if (memblock_start_of_DRAM() < U32_MAX)
+>> +		zone_dma_limit = min(zone_dma_limit, U32_MAX);
+>>   	arm64_dma_phys_limit = max_zone_phys(zone_dma_limit);
+>>   	max_zone_pfns[ZONE_DMA] = PFN_DOWN(arm64_dma_phys_limit);
+>>   #endif
 
 
