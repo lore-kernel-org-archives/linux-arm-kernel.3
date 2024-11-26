@@ -4,73 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45368D59D92
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 10:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E039CD59D93
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 10:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ygbl89qoPUm2yY6YlNeXblUu/RHIuhsj3749PofjBo8=; b=NKwgX5euOUJ6j6Awb3gcjnnJxz
-	6pKWjJXlQ8E3eB6gXPsSYjo3SzvhZIKtz2YPF+l8xXRE1eyB7XsksoF0rHrVo1V4oXyBe32T4mfnH
-	0t13C7cYyA+RBn7zW+ExAVOpahC/vj0kMNtsBgASvPnS8NLFGXzuAYNpdH54BbzICICu9buOoGwXN
-	EJeLdkBCrxvS2s5+MjEoiSCHZrEz/ze8MXFmdFTfekkVCQpYMlsvXchiVLGqmsUglkWR9hIKNIEgf
-	OllHrCWNRzmB+TwCsloR92Zb+/0HHgkCZy7V+2wNS6UoPjChqrrGg14zKVA8sZQVeBSK9zdPslshF
-	zsNG2YIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VDslh+ljpVvNODtMmRwl8AAxwmvJGoBek7yI5XWC5Bw=; b=dx9hC0YRzFwgxI1Gsji/9Ydat2
+	JuCzXd7adNFBxTLavix8tfAxZmHUzjbcuUTRxFNz/hzUAZ8rNRivloDkuVsBlCHXk7ACnexDUN+AH
+	P8boXCR6pGGd1ECiAlpGJwoTHji7B/Ff4hTqoH4Ec2oj9kMV+Ch9gONqYOCfPRcRXalcXxN+2tTUa
+	5Nqd/QiuCccsEqI2HsaTsh7tBB1VN6rPKtIdoh6B7ducxOkFl/VRxrHH/WhTpzjHnb1Nu5KsZfwHC
+	iHWaIyS8BD2SJmm44E3Iz7dT1lZnj22b7so/P6LyhHCnGKuoccGeIWPQHxM2eKb/r5CeNbmY5RVJT
+	baFzH8EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFskd-0000000AIdp-1s5Q;
-	Tue, 26 Nov 2024 10:24:59 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tFsq2-0000000AJTO-30eB;
+	Tue, 26 Nov 2024 10:30:34 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFsjf-0000000AIUL-1S8q
+	id 1tFsp1-0000000AJM6-2pOI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 10:24:00 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tFsja-00033P-Dp; Tue, 26 Nov 2024 11:23:54 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tFsjZ-000ERt-18;
-	Tue, 26 Nov 2024 11:23:54 +0100
-Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id C120437D8B6;
-	Tue, 26 Nov 2024 10:23:53 +0000 (UTC)
-Date: Tue, 26 Nov 2024 11:23:53 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: Frank Li <frank.li@nxp.com>, 
-	"o.rempel@pengutronix.de" <o.rempel@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
-	"andi.shyti@kernel.org" <andi.shyti@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] i2c: imx: support DMA defer probing
-Message-ID: <20241126-paper-nightingale-of-wealth-de17e7-mkl@pengutronix.de>
-References: <20241126082535.1878554-1-carlos.song@nxp.com>
- <20241126-economic-energetic-junglefowl-5197a9-mkl@pengutronix.de>
- <AM0PR0402MB39372380307BC4252BD131ACE82F2@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+	Tue, 26 Nov 2024 10:29:34 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-434a1639637so13680125e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 02:29:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1732616970; x=1733221770; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=VDslh+ljpVvNODtMmRwl8AAxwmvJGoBek7yI5XWC5Bw=;
+        b=pIgrDN/g288GJhPEKHZ0PqmoOKk/6Zomctz/AWcvp02+AhRac9rCbiS5xvQ0/A3lab
+         +Ihgd9B/vP9wngZYG6eNZijuaG/5B650lRIrtm9CrUS/qvsnYSu8mFZ3HRdyjgvZ8tmD
+         y5E936VgKxoX6Wvq6P1anntV8dnXoNN5/q2199Rv7sDeww/Js2iloOF/2jsuFRQVyxBH
+         zYjVA8AUv50YTfgu/NudnMx/gb0f0sYli7C2PnfjRGH4+mI7qS7M3K2fftdU5CRB9kR2
+         460IobDwnnnBiRQvpDNwM8FRlD8t7kQGzdX8MLQAECpBdN/iBp2ewLZjRn54P62oS4cg
+         kKPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732616970; x=1733221770;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=VDslh+ljpVvNODtMmRwl8AAxwmvJGoBek7yI5XWC5Bw=;
+        b=lcLBKJTQqw8r3JWfm7m+2eMpOawoXmf9WXwLy9jcXkem5NusCdKRiwGwRPPq6/82hW
+         48IKns6g8m5Q/WZWcPR284+VpY1Ai9dwhynVSsttrBB0YZv4qTrZaQ8Fm3XITi6FDijz
+         jd/XcTA7p94A2tDujZhotyg3QvzUjEuaPKXXa6rL1TPJtvIYFgBKEkBc7fgGvDOl/IUO
+         jM8RZz4+YSie2Xpm34QVLhD48/GVpcWYu3hhFJyPy3/x3Qb/uofQhIO7cQGI9DMHJnw/
+         bZGXpkV3z67fUhgVbuaVZrxv0PBfK5Lkuq/+cWJkwykv0qEfFkd52q+pJmDPxV88Eda8
+         4BGA==
+X-Forwarded-Encrypted: i=1; AJvYcCUrfDArW0XGMGgwb4GKk/8OD21XtgUwx9iwQ4WCGLoMcvteFYkj1thWrWCr0I6/k2DBMYh9yHGipgnEqGfXNjov@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/f5gtdxvZ9knvHhw2NnkwQXBQy0DhWDf9mFg981nIAe8nbAUB
+	2/8zMAuM8HKVGr2H6/hJi0UDNwSf2hXPwSwI/KozzGOkGHrW0o/52HyItDJ3T6BCij9X6vhyiHF
+	CpQE=
+X-Gm-Gg: ASbGncsvp1kB0300LDG3ZgYak5znGUTuAfVS21jO492+7LrsVjLHlgiubYg3OS+vU/i
+	QldbzlqAxPuUl4lGa2Mj+T7tZC62aJs1vEZNt3P+3+XCfjNNpKMdxYtyjPtMfbvi7HqGJ7B9gam
+	0y4yYGdex0TvyJI+uXz8HMakI+IQJOZxiiMDTbYbI1aNh6V0wrOC8AjO2eR9cnN6g/0RSD0MRRF
+	vtGS2skzTVZmjjJFO4VDqdCIc98lMYaiJ5eizHum/3db+x8qQGwLn1YTB9iuKt2h1aEKeEp8p3T
+	ESd/h1s8DFvKbw==
+X-Google-Smtp-Source: AGHT+IFgeqqkJ6wjR9SgxT1xrYJ0KahQXa7sIHvXaict/TpEQq8UBgqk2qQhjj3zdFl3pgNOycsAVA==
+X-Received: by 2002:a05:6000:1866:b0:382:4a3b:5139 with SMTP id ffacd0b85a97d-38260bed0dcmr13711723f8f.59.1732616970162;
+        Tue, 26 Nov 2024 02:29:30 -0800 (PST)
+Received: from [192.168.0.172] (88-127-185-239.subs.proxad.net. [88.127.185.239])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-433cde8c804sm159339195e9.30.2024.11.26.02.29.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 26 Nov 2024 02:29:29 -0800 (PST)
+Message-ID: <ed50c130-076c-4697-9f11-fe602c7ca03d@baylibre.com>
+Date: Tue, 26 Nov 2024 11:29:28 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pvifcaczcjfl73wu"
-Content-Disposition: inline
-In-Reply-To: <AM0PR0402MB39372380307BC4252BD131ACE82F2@AM0PR0402MB3937.eurprd04.prod.outlook.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/1] ASoc: mediatek: mt8365: Don't use "proxy" headers
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Mark Brown <broonie@kernel.org>, Nicolas Belin <nbelin@baylibre.com>,
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+References: <20241031102725.2447711-1-andriy.shevchenko@linux.intel.com>
+ <ZykbMlshvlwCaeGJ@smile.fi.intel.com>
+ <d7bf7863-fd24-4f8e-8cd0-d84867a997bb@sirena.org.uk>
+ <dad2ecb7-e624-49c2-a7d5-0ff53b6a1686@baylibre.com>
+ <Z0RkaqfID9v0age_@smile.fi.intel.com>
+Content-Language: en-US
+From: Alexandre Mergnat <amergnat@baylibre.com>
+In-Reply-To: <Z0RkaqfID9v0age_@smile.fi.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_022359_380646_C1262C23 
-X-CRM114-Status: GOOD (  24.86  )
+X-CRM114-CacheID: sfid-20241126_022931_980342_B332C028 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,88 +108,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andy
 
---pvifcaczcjfl73wu
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] i2c: imx: support DMA defer probing
-MIME-Version: 1.0
+On 25/11/2024 12:50, Andy Shevchenko wrote:
+> On Mon, Nov 25, 2024 at 12:32:13PM +0100, Alexandre Mergnat wrote:
+>> Hello Andy.
+>>
+>> Actually, after test it, "linux/of_gpio.h" isn't needed at all anymore.
+>>
+>> That mean all added include in this patch aren't required.
+> Do you mean the driver doesn't not use types from types.h or dev_*() macros
+> from dev_printk.h? I don't believe this, sorry.
 
-On 26.11.2024 10:15:27, Carlos Song wrote:
-> > >  static void i2c_imx_dma_callback(void *arg) @@ -1803,6 +1804,13 @@
-> > > static int i2c_imx_probe(struct platform_device *pdev)
-> > >  	if (ret =3D=3D -EPROBE_DEFER)
-> > >  		goto clk_notifier_unregister;
-> > >
-> > > +	/* Init DMA config if supported */
-> > > +	ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-> > > +	if (ret =3D=3D -EPROBE_DEFER) {
-> > > +		dev_err(&pdev->dev, "DMA not ready, go defer probe!\n");
-> > > +		goto clk_notifier_unregister;
-> > > +	}
-> >=20
-> > Don't spam the logs if the driver defers probing, it's not a error. And=
- it looks
-> > strange to ignore all other errors here. Either add a comment here, som=
-ething
-> > like "continue without DMA", or let the function return
-> > 0 in case the driver should continue and propagate the error if the cal=
-ler should
-> > take care of it.
-> >=20
->=20
-> Hi,
-> Thank you for your suggestion! I agree with you.
-> I will change to this logic:
-> 	ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-> 	if (ret) {
-> 		if (ret =3D=3D -EPROBE_DEFER)
-> 			goto clk_notifier_unregister;
-> 		dev_info(&pdev->dev, "use pio mode\n");
-> 	}
->=20
-> Ret =3D 0  ----->  enable DMA successfully  -------> no print
-> Ret!=3D0  ----->  defer probe ---------> no print and try again
-> Ret!=3D0  ----->  fail to enable DMA ------> remind now is using pio mode
->=20
-> Do you think the logic is acceptable?
+> 
+> Basically what you are trying to say is "let's move of_gpio.h implicit
+> includes to become something else's problem". It's not what this patch
+> intended to do.
 
-Yes, the other option is to move the logic into i2c_imx_dma_request()
-and let it return 0 in case of DMA or fallback to PIO, or an error in
-case of probe defer or a fatal error.
+I'm just saying that I've test a build/boot with "linux/of_gpio.h" removed and without all
+include added in you patch. My understand is "linux/of_gpio.h" act as proxy
+for the includes added in your patch, my first idea was "if I remove it, build should fail cause
+of lack of other includes". I can understand these missing includes are mandatory, that
+probably means there is another proxy header ?
+Maybe my test isn't consistent because it isn't possible to clear all proxy ?
 
-This way the probe function will look like this:
+If that's the case, consider my review-by.
+I've validated some include manually. Are you using a script to parse the file and raise all 
+necessary "linux/*" include ?
 
-     ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-     if (ret)
-                return dev_err_probe(&pdev->dev, ret, "Failed to setup DMA\=
-n");
-
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---pvifcaczcjfl73wu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdFobYACgkQKDiiPnot
-vG9Llwf/Wiv7XC46iia/74g2fDIJu4YvYXnAdteDyubnJwlpk/staezEgeh11+FB
-V7BahH36iz1E3w0phN/JpzgZxKjpHDACgm7iDoil6/VHUZFJYbxFCiwQnbGYBpTv
-ekAyLcdsfDhSEP8sPTaraAiCQVZT/7C7Vjxk6kMrqaOEELTkZ+nRl5OW0Ym0SWhZ
-ID8m4rQyNzbxUMZg0/dEbyCcf6E2CJzUe8diixOc4DT1VtLWqEW0qHvZdsBMn7fW
-a6+F68O4oQD8pPC1lm1/yvUmwMY/RqWfXhT9cJU3ArxfqJsEFKeLEI5I0DIymosh
-p/S7I/1xEjQhBCPW0NTMyMUBqsdoAg==
-=L7AI
------END PGP SIGNATURE-----
-
---pvifcaczcjfl73wu--
+-- 
+Regards,
+Alexandre
 
