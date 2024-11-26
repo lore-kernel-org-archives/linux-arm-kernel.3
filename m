@@ -4,88 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04387D6554C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 18:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C6AD6554E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 18:39:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B5ZdijXHGTf9/VBMxXk0sgaeGJSHANk1xhdrCGF3VVs=; b=LRVKN5tfnEaUQjAiRtvcKEZY66
-	h5XxHiWtKYQGk/Pe5rtlP7MmDJorkhInbhsIeJZYbO1GkJg5s0OoywB4L9/ToaKsyRNsgn6vn5iAi
-	LpSwtIKOHJbW/H+SoYrynmK3quZY4KS3QPFtXSnOWNj83G6tbgi5+bugHXj/gmfPIVfO4HzYPLqvL
-	hyCC4AwUfKF+ps0DVFKt/kbfa3rQtVT6pa993sp0YYXYpMBSCImwD1OOj8NmDmQnWQwHTfnFLvyYw
-	CZ53mKMHT7RvP/tUdCb0+5CkXMGKOrNPee14RYpPK/DYwR+uCYlacESB7AWV9Yr+19wnXR9HjlTFd
-	C2DUN/XQ==;
+	bh=VgLIPHtecoQLiuBn73bXhufyb7gzXXwP1OGjk0QrpHs=; b=iMfHZ8JDXB4NlQQrPReAxQMh12
+	qf+ZAdbwPehTmPV6Sshe/yvwu1XlB4ubIiHeaYXZZod4Gs83MkoUNfNAsPuESXwZoredaORNv8RHW
+	7pIO3neKdL8TtLucN6ulFWYo77mbH8Cf4efkIA+o4DA4SWZaHKc1nJ7amoeGy9XVJV/2vD4Llc7GQ
+	YWYtkvJkO42yZS65GIVPfaPad0nCEpV8EhY//JvAhJGEW1EL6c7HamrFz9BTHvvz8aKj64Os3YwXC
+	15Q6lYuwmhDbqy/m6lxwRw3Ov2KNi1YO2B6TeL+jw7BopR3erMwyGBECtGXAaH+9OXIFwZIfVFtaC
+	3A6JyPUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG0Oy-0000000BRUK-0KWL;
-	Tue, 26 Nov 2024 18:35:08 +0000
-Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
+	id 1tG0TP-0000000BRyu-0ppZ;
+	Tue, 26 Nov 2024 18:39:43 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG0O0-0000000BRNq-3YsZ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 18:34:09 +0000
-Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e388e1fd582so5887628276.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 10:34:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732646047; x=1733250847; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=B5ZdijXHGTf9/VBMxXk0sgaeGJSHANk1xhdrCGF3VVs=;
-        b=Pv8FLGAHX6JHCOmZaM9VViYKVfel8NOVX7iPOmjFDa4UJO9pd5ZwPC9MXUwDbRod+A
-         t5D7t1OkMumFsNC5jC0fEAeFbGRpQqpyB9pJmLOQSpidOiagNKBRNDr+6pzbtHgQ3vwq
-         jvR6WPXztlGXqPYKG4piCqOGrrzJQqEKC097aZPw355K6YCezJCOFXNYKgHpkKQFTwMI
-         hGsCC9Rss0+phnotTpy4+kx5KZ8i+bnS480/WvnYObGtNnLsgKqX1ZdkmDj/j/M1QTdx
-         LGFYomEZKeHiUtMGpyNgPrjQSbzeccfubw4n1ZL/Vx422hbX2rr0lRWGj8zTKsmcb3GN
-         0N2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732646047; x=1733250847;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=B5ZdijXHGTf9/VBMxXk0sgaeGJSHANk1xhdrCGF3VVs=;
-        b=PXjR57fIG4ugmib4N4OjTmGAvwY4imMfDk+mvgpCYgvBeUunbktDmnuWmVl6Vg5pJ5
-         +CJLNZsQ7ziKqZ+l0IOBgf24Fm/xSh2QIaJlf47Don4xsFI4BY9NtCfKdJJES/bFw3DZ
-         wTBY/MhsZs69hLi5+/gcWGIYY+oeh+iQ7J+QGnXxIIxJqnvmHKQ1Ez8ncvTFRV+u4G0X
-         byr4OSheg2M2STzzxUA8xGHKmp8HevCYdJim9t44tpyS4oypCe/7HX5hcLaCnxXjbrWD
-         p4Q/tTnMIRbs6MV3wSN8aZxPkHZ0vadKdHHwNgE/tY/rPs89sM3snVe3xscuZXA2LZ+I
-         VxfA==
-X-Forwarded-Encrypted: i=1; AJvYcCU3YYlB6/PJf90kFxyQtzY0TZuj5+Sl8Men2LBNXSmK/Q1pLqtSS1R1OXQm7tMip4Cc4TBOxKB39pWmQKSu/6bo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDqkUrCqMg0W5WoR9h87W6Z8F4t+3pJSurbXVes+sS2ff60Rb2
-	yWGtdf/v+147ooPjrwRXuGnLTIusSWzpRhFddkBLCf2p7TOGI+/I2Ib+bgaZY1/L15TfpbAyfgU
-	TYn+5yG2dvp7o0JHk2qdMrYzbmVM=
-X-Gm-Gg: ASbGncsbHJ1o1/hxKAQPCDlCDLbjbWQF/sX3yiM/LSwwYPj3U/JhjxyrW/DugE/8pEU
-	D1jK0AtD55B3ZWrbn/pkn9EQzlcQL3+sx
-X-Google-Smtp-Source: AGHT+IEAKAQZoBZRcCS59s6ATzOJRqSPoDhyFrhH0wpI4a7G9pyRjoqsbwGfh6mDJveSJ2gv3edzPDtBsyPh4VazY1Y=
-X-Received: by 2002:a05:6902:2606:b0:e30:e9b8:abcc with SMTP id
- 3f1490d57ef6-e395b973db9mr91652276.48.1732646047430; Tue, 26 Nov 2024
- 10:34:07 -0800 (PST)
+	id 1tG0SR-0000000BRpd-2Q73;
+	Tue, 26 Nov 2024 18:38:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=VgLIPHtecoQLiuBn73bXhufyb7gzXXwP1OGjk0QrpHs=; b=nNKsGBwJu/r9fx0Q1fY7RHGlJQ
+	ZyI9VvC/R5Gkb8aMPEx13u13Fs8ckw6GAgDxy/S8x4t9639CVWQXtitJcWcDHQH1LGrj7KVsb3pdR
+	1Hscx1ec575QUNz+CwYGpw1qqe5pzip9UELNmSQSCTg3JvXSuG5EQXh7jvgB4UaFoM18buaOrSXEV
+	B8FzjeUx+JQ6ifAQbDqMezIY3fv3t0pMWHYKGDhee02CXqjE/o86nKVxLLZlpRF2FFTbitNFpLapQ
+	/k5h7o96sWC7f9stU9VGk96E0Cn/oMJsQ5InA/anUd1NrFPn+FuXkhzVS4hZanQroJxynfjsi1/Et
+	7ClTyF6g==;
+Received: from i5e86190f.versanet.de ([94.134.25.15] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tG0SK-0002U1-1g; Tue, 26 Nov 2024 19:38:36 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Conor Dooley <conor@kernel.org>
+Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, quentin.schulz@cherry.de,
+ sebastian.reichel@collabora.com, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dse@thaumatec.com, Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH v4 1/2] dt-bindings: phy: Add Rockchip MIPI C-/D-PHY schema
+Date: Tue, 26 Nov 2024 19:38:35 +0100
+Message-ID: <2213231.Mh6RI2rZIc@diego>
+In-Reply-To: <20241126-pastrami-gusty-8b9df32ae00c@spud>
+References: <20241126131736.465111-1-heiko@sntech.de>
+ <20241126131736.465111-2-heiko@sntech.de>
+ <20241126-pastrami-gusty-8b9df32ae00c@spud>
 MIME-Version: 1.0
-References: <20241126-adpdrm-v2-0-c90485336c09@gmail.com> <20241126-adpdrm-v2-1-c90485336c09@gmail.com>
- <050d1398-cfc2-4921-b82a-95eecbcddba4@kernel.org>
-In-Reply-To: <050d1398-cfc2-4921-b82a-95eecbcddba4@kernel.org>
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Date: Tue, 26 Nov 2024 19:33:56 +0100
-Message-ID: <CAMT+MTRJrN1_LBm+Ba6wh1BcdG0co-AHY8t4rnLuLAV=75wZbA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/5] dt-bindings: display: Add Apple pre-DCP display
- controller bindings
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, 
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_103408_884610_5F915218 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241126_103843_636634_E135BDE7 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,12 +78,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 26 Nov 2024 at 17:46, Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> Please take a look how other bindings define ports. You miss here
-> several items and more important - description what are these ports for.
+Hey Conor,
 
-Aside from missing descriptions, this definition is copied almost verbatim from
-snps,dw-mipi-dsi.
-Ack on the rest of the comments, those and the descriptions will be
-fixed for v3.
+Am Dienstag, 26. November 2024, 18:44:14 CET schrieb Conor Dooley:
+> On Tue, Nov 26, 2024 at 02:17:34PM +0100, Heiko Stuebner wrote:
+> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> > 
+> > Add dt-binding schema for the MIPI C-/D-PHY found on
+> > Rockchip RK3588 SoCs.
+> > 
+> > Tested-by: Daniel Semkowicz <dse@thaumatec.com>
+> > Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> > ---
+> >  .../phy/rockchip,rk3588-mipi-dcphy.yaml       | 87 +++++++++++++++++++
+> >  1 file changed, 87 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
+> > 
+> > diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
+> > new file mode 100644
+> > index 000000000000..c8ff5ba22a86
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
+> > @@ -0,0 +1,87 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/phy/rockchip,rk3588-mipi-dcphy.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Rockchip MIPI D-/C-PHY with Samsung IP block
+> > +
+> > +maintainers:
+> > +  - Guochun Huang <hero.huang@rock-chips.com>
+> > +  - Heiko Stuebner <heiko@sntech.de>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - rockchip,rk3576-mipi-dcphy
+> > +      - rockchip,rk3588-mipi-dcphy
+> 
+> How many phys do each of these SoCs have?
+
+- rk3588 has two - each with a separate GRF for additional settings [0]
+- rk3576 has one
+
+
+Heiko
+
+[0] https://lore.kernel.org/lkml/D5F5C1RWVHG5.TSHPO29TXYEF@cknow.org/T/
+The register layout in each GRF area is identical, but each DC-PHY gets
+its own separate GRF io-mem block.
+
+
 
