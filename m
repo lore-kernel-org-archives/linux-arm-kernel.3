@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C68D65527
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 16:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34A5BD65527
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 16:55:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SzEvCuYzq6nHjIopg144ZTJlITtvJlpA+aaAZ8oGAg4=; b=Urc/IKy++xALHGYITV6SvhYyiH
-	drgBRUjTYj3unzVsEEnm3TMrDSheLy84C4Vot+OP/mcais6CssUw9zLZ0ZEoc7pXOnej+HlivB2sF
-	LlPzA0CTsiJd9fOVz/+EYn9kkHe9SC4LCWN2q6y73ZL5bzFSODq7iBVQHnEEkbtxNWEe0QLLOBUrF
-	A5K+rZkaeO5jjgx9BRXRXTYXx0z0chOOzoIl/RcnokxC924rMTd8eONb83jiuI8L8JSe0LVra86oR
-	Mvk05i5KSFt5vCLLExp2L4EfS0lLbBzmbf/y7zHfhleFRPAyUnG8DumeN/7ZlazKpxqD4CzUO0J9S
-	h6pUUM2w==;
+	bh=M2mLNc5iq4tXIq6LoQ4kUrVkRopwQfiK9mtXyoaqtUc=; b=rRkQGxxzf11c3nK30s0FpPRP7c
+	6nyWqSDojE4laXEU5P8kb4G0Tcf+x0ORZTkUL+nr2Jxdb/C+21SMFxCDMcYFWmAOpV3qDKI8MrHsa
+	LKjOzsA+qTKnXRuBzhK0Vwe56htoVmMNI6Q/24sWEfP3kGFA4rVs3yG7PPZpszasUATkTQQIzjXCQ
+	dSIZbMmyOYut6B8DZyH6zt2Wg1Ee4PpnYZso4m7LVYivOIqYcfVwEVIqNfs029H7hopKAXwk558o9
+	zGKEtEv6Ui34UNrrAvU3VNREHpoSKM87qXrtG6bTIeojVK7d9UzHNVR+ezBe3FUeUolvqvnJogAyv
+	8AyC2NEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFyoZ-0000000BDsg-1swI;
-	Tue, 26 Nov 2024 16:53:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tFyqE-0000000BE9p-0MIJ;
+	Tue, 26 Nov 2024 16:55:10 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFynb-0000000BDlf-0pCm
+	id 1tFypG-0000000BE0N-2mB7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 16:52:28 +0000
+	Tue, 26 Nov 2024 16:54:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2DEB75C5BB4;
-	Tue, 26 Nov 2024 16:51:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84527C4CECF;
-	Tue, 26 Nov 2024 16:52:20 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C8A5FA40EF5;
+	Tue, 26 Nov 2024 16:52:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F472C4CECF;
+	Tue, 26 Nov 2024 16:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732639946;
-	bh=SzEvCuYzq6nHjIopg144ZTJlITtvJlpA+aaAZ8oGAg4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nfT1tt38tUJAV01LOaL7cvaZsRm2m/DZXcBfZLIE21aRzyzgWcO0zNN11sa27+k1e
-	 K36G1B5GbqOXY1RMRgvE8SX9vaVqzf5RBPUFHw7LIHpGQ+G9If7X4rRuHeeN280f0a
-	 f4Yt5FaipfwHAljDV/XnwctYMO5CtFRaYfiFEg76RS/XP4fTyKoHYMVWqRQUeeU0K7
-	 nK6kMW+Yn0ck4DpZRdq9AtY382uLKaQ0BpVvNsDHZK+dyCBKCmo5FIC2pNmgjbOMS8
-	 AM4E72kjb582jyhstKm+40TMJ2ZNGSsFLPs/Y3CJakd8EEvU96yPtYwKedshhorkvE
-	 yh+Am98mm+U6g==
-Message-ID: <d966732c-94d1-478c-94d3-6565285192eb@kernel.org>
-Date: Tue, 26 Nov 2024 17:52:17 +0100
+	s=k20201202; t=1732640049;
+	bh=50DzYV8NxNInxfBJFA9M/fsn5W4bbltUtym3rJIoq54=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=BzNHRA2c1kIhTl4PXro4tXQRkA8uguV7lqKFjT+g5WmJhNxrlfHLQ5UIbmZuI9X2R
+	 WHPIiCC66IV1fdkIAadKI1yf5Sq8fQoW3Z9WKMxFfSqOSiZn/r6IrOnyg+1QjjdhYg
+	 xdPL8Ciph8ogGvH6RWDnI5lVXfhbdgVhR/5imrb4qiiwqz2tBTcs45VuNsUTNFvBlw
+	 EbmD7WXrIPDXetmBDMo5JVuVt1WnZgy4l7bYPfxrMgANkpvhcpoJW5y1HehuZYnp3S
+	 T6ME8PqppYvvK2ijcL3SJ8R0hhBQX9jz4PMkSNHNx32oYz0CJGKGaoSgsD0PK8FhLK
+	 k/QQmBaGxpozg==
+Message-ID: <87a0db9f-6a72-42ba-8bf5-144651f8bd2d@kernel.org>
+Date: Tue, 26 Nov 2024 17:54:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] gpu: drm: adp: Add a backlight driver for the Summit
- LCD
-To: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Cc: Nick Chan <towinchenmi@gmail.com>, Hector Martin <marcan@marcan.st>,
+Subject: Re: [PATCH v2 1/5] dt-bindings: display: Add Apple pre-DCP display
+ controller bindings
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: fnkl.kernel@gmail.com, Hector Martin <marcan@marcan.st>,
  Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
@@ -57,16 +57,12 @@ Cc: Nick Chan <towinchenmi@gmail.com>, Hector Martin <marcan@marcan.st>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
  Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com>
- <20241124-adpdrm-v1-3-3191d8e6e49a@gmail.com>
- <f2181c71-db23-4d94-9afb-cb8f2fc46bea@kernel.org>
- <3a6fb7fd-eb3d-428b-a37c-f04d81e7fbd0@gmail.com>
- <e647e8c7-6df9-44f5-abcc-34db74b8e266@kernel.org>
- <CAMT+MTSetzODw-cbteQOgEYmEgpiFBVP5eDgjvyHGqofCU=VXg@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+References: <20241126-adpdrm-v2-0-c90485336c09@gmail.com>
+ <20241126-adpdrm-v2-1-c90485336c09@gmail.com>
+ <050d1398-cfc2-4921-b82a-95eecbcddba4@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -111,12 +107,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <CAMT+MTSetzODw-cbteQOgEYmEgpiFBVP5eDgjvyHGqofCU=VXg@mail.gmail.com>
+In-Reply-To: <050d1398-cfc2-4921-b82a-95eecbcddba4@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_085227_334286_B77F9F61 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20241126_085410_828610_877B7FAD 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,17 +128,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/11/2024 17:34, Sasha Finkelstein wrote:
-> On Mon, 25 Nov 2024 at 16:07, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> BTW, max-brightness is a property of backlight, not panel, I think.
-> This is an oled panel, so no separate backlight device, the mipi commands
-> just change the pixel brightness. There is prior art in other bindings on having
-> the max-brightness property attached to the panel itself.
+On 26/11/2024 17:46, Krzysztof Kozlowski wrote:
+> 
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  max-brightness: true
+>> +
+>> +  port: true
+> 
+> No, these cannot be true without definition. Again, please open existing
+> bindings and use them as example. You probably miss here some reference,
+> but max-brightness for panel is a bit confusing. I asked already and did
+> not get answer: isn't this backlight property? What is this device -
+> backlight or panel? If panel, then what bus?
+You responded to my comment in exactly the same moment you sent this
+patchset which gives me around 0 seconds to reply to your comment.
 
-Where? git grep gave me only one result for bindings - old Samsung panel
-from 15 years ago. If you refer to this one, then use it as example for
-the bindings with similar explanation as the commit introducing brightness?
+Give reviewers some time if you disagree with them, otherwise I find
+wrong sending next version immediately.
 
 Best regards,
 Krzysztof
