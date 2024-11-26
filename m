@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87CF1D3B7C1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 08:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99B2D3B7C1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 08:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NrrWryjMGhsBokl0eRbT/oWjBiPNWHi5EsUXC9shiyc=; b=h+1fBFIOvRiR4hBAILcSgoliDn
-	N5dkwA7+MXyuasPaKDHc+6eKkL5oXIscRlVLp/ZmjnZl27+xZG9I0fa7LLon1nOt1ZHMOWscazp3A
-	6z9bi5K52uCX94+NQT/OgAzhBfZKE/JBeMQDvOxaOZA97tn3fJompk9C+4iO64/+nbheKMxIeiK9P
-	OZzUCdgUsmfH+wRA3pa9z7GmfgBGaQh349znysAq4RQNKE12kHj+veqrjmxFpv2LhRfIj//czi+6n
-	cFmuQc8ue05BhkKkGzZxmI8niFCUDBJNGwLL99gX6I9yLFncsCY7+hU/tu5eJ8IDv8RuaXMHlpZaD
-	xRSCG4jw==;
+	bh=l9/29OtdhTDJ3nU+eTK1D9jufA/i/5wk/+PRpU6NshQ=; b=fluavcebWWfJSsYG7fMMOc1xRK
+	BmE/pDKdre4aMDWvVo2QNv2z7ootiZ7HwYJF63ZqubmlTF1vLmDKW6s3q+AClAymMscAsaL1osrtt
+	qmiKqVwu/jjJRK3PWEWcKvyBoRZ7APR5rL5KTfRxDxNRUK58qdzTfIFwTCM1IrHikBQQFhLy8oz57
+	+mlPw4hkvGQVgPAkce3ZEsw447jQ13nNZrsL00lj0NUUGcrlfYkh0QW9h8GJ+1atwDuuheDdV7v1X
+	heSoB0YElW4fa9PjJRwYwp5seW2dDAOOzoCbfJ/LRXFx+pRu5oGzy+J9J2NuDhtllhwnyf/f8UI88
+	+GNiF7Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFr71-00000009ywl-2Jo1;
-	Tue, 26 Nov 2024 08:39:59 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tFrBF-00000009zTu-1aEF;
+	Tue, 26 Nov 2024 08:44:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFr63-00000009yjx-1O2M
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 08:39:00 +0000
+	id 1tFrAG-00000009zGD-3naM;
+	Tue, 26 Nov 2024 08:43:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 78EFEA41ABD;
-	Tue, 26 Nov 2024 08:37:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1860C4CED2;
-	Tue, 26 Nov 2024 08:38:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B7AFC5C5D15;
+	Tue, 26 Nov 2024 08:42:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ADDDC4CECF;
+	Tue, 26 Nov 2024 08:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732610338;
-	bh=np3gVh2vdVMzwJbdelK/6cS6+cbSugtEMQAtU2/XSG0=;
+	s=k20201202; t=1732610599;
+	bh=KO4QChkeXAG6Ye9voL0kF1b9b0iezByykeh0B91eWOU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nSGeqoOn1S3dD4mvA4bOozPQKUShhg1mWWMrX9sdkefP4KreZ5C12Lvw13dCIlF8o
-	 dBax9EngjiuB2f3zEbgw3yXwgrIPUef8ZT1q0Un11iqeJx3tcTJtqEURMF15ZZNqUP
-	 CWmTLCHLhGw5sJVGMd4MjASQsdDnT6i1Kj3qRj0ehClBz0uRhDRmZZbriJjx9ul450
-	 YVp5bDU5Y2piARlIPhRDCulRvmgGCPLExHoKIUfWzkoK4lVFRBNsJTf9OmHlKCTUVz
-	 XTM+V5WBnj0mx8jrGJkSazCeedawve01dDdUTxnkdM2zemIF222ICHxzmoeNZ85EjD
-	 cUg84GF5JgSKg==
-Date: Tue, 26 Nov 2024 09:38:55 +0100
+	b=LysdB1sjC85kARHi4P1uA6mphsyY2WNeU6Uoxlf4hYuWmaSplc0EO98GwvqXyuGtj
+	 eC67M2vKoBHT0dpJxsNGcS0A87DyoJOWyZ1PUfXZhYL0J82fETMOmOlOT5+9iFh75F
+	 G43EGLPROxWeYcr2AXeve0GXF3zj4UdtjYPFQVkpd1yTceukMTw5xY91uef8jFiEua
+	 0u3ARhK5hIugNZ0UiPnvbhYm/ZxOMmZ7CQm3urOdgFDnaFK0cxWD9jyaM4S9gsTk4P
+	 Mm1fbOdhSW3QDg3zZcP8RpjamEowa7SlewSs+efHysJ/fvyV1o7iEVn1iGlgGTvP8L
+	 ZwuS+fw6CB1+g==
+Date: Tue, 26 Nov 2024 09:43:17 +0100
 From: Maxime Ripard <mripard@kernel.org>
-To: Sean Nyekjaer <sean@geanix.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Yannick Fertre <yannick.fertre@foss.st.com>, Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
-	Philippe Cornu <philippe.cornu@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
- helper function
-Message-ID: <20241126-refreshing-slick-pig-baebab@houat>
-References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
- <20241125-dsi-relax-v2-1-9113419f4a40@geanix.com>
- <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
- <bfuj6w6hsbfpdw24th6dl3ugvj45op6jb45gx5ab5pulud7hiz@o2zbn45z3lt4>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	p.zabel@pengutronix.de, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, glx@linutronix.de, vkoul@kernel.org, 
+	kishon@kernel.org, aisheng.dong@nxp.com, agx@sigxcpu.org, frank.li@nxp.com, 
+	dmitry.baryshkov@linaro.org
+Subject: Re: [DO NOT MERGE PATCH v4 16/19] arm64: dts: imx8qxp: Add display
+ controller subsystem
+Message-ID: <20241126-overjoyed-futuristic-saluki-cb6cc7@houat>
+References: <20241125093316.2357162-1-victor.liu@nxp.com>
+ <20241125093316.2357162-17-victor.liu@nxp.com>
+ <Z0RXCYZ_7fBvpcvd@gaggiata.pivistrello.it>
+ <d004dfe7-d019-4f53-8373-c8c4e031748c@nxp.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="lhbvkcbp3c3gosel"
+	protocol="application/pgp-signature"; boundary="fgeuvrs34ws7krrf"
 Content-Disposition: inline
-In-Reply-To: <bfuj6w6hsbfpdw24th6dl3ugvj45op6jb45gx5ab5pulud7hiz@o2zbn45z3lt4>
+In-Reply-To: <d004dfe7-d019-4f53-8373-c8c4e031748c@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_003859_498228_075CC20C 
-X-CRM114-Status: GOOD (  30.22  )
+X-CRM114-CacheID: sfid-20241126_004321_030920_12EF1608 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,113 +83,77 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---lhbvkcbp3c3gosel
+--fgeuvrs34ws7krrf
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
- helper function
+Subject: Re: [DO NOT MERGE PATCH v4 16/19] arm64: dts: imx8qxp: Add display
+ controller subsystem
 MIME-Version: 1.0
 
-Hi,
-
-On Tue, Nov 26, 2024 at 08:36:00AM +0100, Sean Nyekjaer wrote:
-> On Mon, Nov 25, 2024 at 05:00:56PM +0100, Maxime Ripard wrote:
-> > On Mon, Nov 25, 2024 at 02:49:26PM +0100, Sean Nyekjaer wrote:
-> > > Check if the required pixel clock is in within .5% range of the
-> > > desired pixel clock.
-> > > This will match the requirement for HDMI where a .5% tolerance is all=
-owed.
-> > >=20
-> > > Signed-off-by: Sean Nyekjaer <sean@geanix.com>
-> > > ---
-> > >  drivers/gpu/drm/drm_modes.c | 34 ++++++++++++++++++++++++++++++++++
-> > >  include/drm/drm_modes.h     |  2 ++
-> > >  2 files changed, 36 insertions(+)
-> > >=20
-> > > diff --git a/drivers/gpu/drm/drm_modes.c b/drivers/gpu/drm/drm_modes.c
-> > > index 6ba167a3346134072d100af0adbbe9b49e970769..4068b904759bf80502efd=
-e6e4d977b297f5d5359 100644
-> > > --- a/drivers/gpu/drm/drm_modes.c
-> > > +++ b/drivers/gpu/drm/drm_modes.c
-> > > @@ -1623,6 +1623,40 @@ bool drm_mode_equal_no_clocks_no_stereo(const =
-struct drm_display_mode *mode1,
-> > >  }
-> > >  EXPORT_SYMBOL(drm_mode_equal_no_clocks_no_stereo);
-> > > =20
-> > > +/**
-> > > + * drm_mode_validate_mode
-> > > + * @mode: mode to check
-> > > + * @rounded_rate: output pixel clock
-> > > + *
-> > > + * VESA DMT defines a tolerance of 0.5% on the pixel clock, while the
-> > > + * CVT spec reuses that tolerance in its examples, so it looks to be=
- a
-> > > + * good default tolerance for the EDID-based modes. Define it to 5 p=
-er
-> > > + * mille to avoid floating point operations.
-> > > + *
-> > > + * Returns:
-> > > + * The mode status
-> > > + */
-> > > +enum drm_mode_status drm_mode_validate_mode(const struct drm_display=
-_mode *mode,
-> > > +					    unsigned long long rounded_rate)
-> > > +{
-> > > +	enum drm_mode_status status;
-> > > +	unsigned long long rate =3D mode->clock * 1000;
-> > > +	unsigned long long lowest, highest;
-> > > +
-> > > +	lowest =3D rate * (1000 - 5);
-> > > +	do_div(lowest, 1000);
-> > > +	if (rounded_rate < lowest)
-> > > +		return MODE_CLOCK_LOW;
-> > > +
-> > > +	highest =3D rate * (1000 + 5);
-> > > +	do_div(highest, 1000);
-> > > +	if (rounded_rate > highest)
-> > > +		return MODE_CLOCK_HIGH;
-> > > +
-> > > +	return MODE_OK;
-> > > +}
-> > > +EXPORT_SYMBOL(drm_mode_validate_mode);
+On Tue, Nov 26, 2024 at 10:08:26AM +0800, Liu Ying wrote:
+> On 11/25/2024, Francesco Dolcini wrote:
+> > On Mon, Nov 25, 2024 at 05:33:13PM +0800, Liu Ying wrote:
+> >> Add display controller subsystem in i.MX8qxp SoC.
+> >>
+> >> Signed-off-by: Liu Ying <victor.liu@nxp.com>
 > >=20
-> > Thanks a lot for doing that!
+> > ...
 > >=20
-> > I wonder about the naming though (and prototype). I doesn't really
-> > validates a mode, but rather makes sure that a given rate is a good
-> > approximation of a pixel clock. So maybe something like
-> > drm_mode_check_pixel_clock?
+> >> diff --git a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi b/arch/arm64/b=
+oot/dts/freescale/imx8qxp.dtsi
+> >> index 05138326f0a5..35cc82cbbcd1 100644
+> >> --- a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+> >> +++ b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+> >> @@ -20,6 +20,27 @@ / {
+> >>  	#size-cells =3D <2>;
+> >> =20
+> >>  	aliases {
+> >> +		dc0 =3D &dc0;
+> >> +		dc0-constframe0 =3D &dc0_constframe0;
+> >> +		dc0-constframe1 =3D &dc0_constframe1;
+> >> +		dc0-constframe4 =3D &dc0_constframe4;
+> >> +		dc0-constframe5 =3D &dc0_constframe5;
+> >> +		dc0-display-engine0 =3D &dc0_display_engine0;
+> >> +		dc0-display-engine1 =3D &dc0_display_engine1;
+> >> +		dc0-extdst0 =3D &dc0_extdst0;
+> >> +		dc0-extdst1 =3D &dc0_extdst1;
+> >> +		dc0-extdst4 =3D &dc0_extdst4;
+> >> +		dc0-extdst5 =3D &dc0_extdst5;
+> >> +		dc0-fetchlayer0 =3D &dc0_fetchlayer0;
+> >> +		dc0-fetchwarp2 =3D &dc0_fetchwarp2;
+> >> +		dc0-framegen0 =3D &dc0_framegen0;
+> >> +		dc0-framegen1 =3D &dc0_framegen1;
+> >> +		dc0-layerblend0 =3D &dc0_layerblend0;
+> >> +		dc0-layerblend1 =3D &dc0_layerblend1;
+> >> +		dc0-layerblend2 =3D &dc0_layerblend2;
+> >> +		dc0-layerblend3 =3D &dc0_layerblend3;
+> >> +		dc0-tcon0 =3D &dc0_tcon0;
+> >> +		dc0-tcon1 =3D &dc0_tcon1;
+> >=20
+> > what would you use those aliases for?
 >=20
-> Naming is hard :) I will use drm_mode_check_pixel_clock() for V2.
->=20
-> Would it make sense to have the pixel clock requirement as a input
-> parameter? For HDMI it is 0.5%
+> They are used to get the instance numbers of display controller
+> and display controller's internal processing units from display
+> driver, e.g., patch 9 & 10 get instance numbers of some display
+> controller's internal processing units.
 
-This code was only used for panels so far. It reuses the same tolerance
-than HDMI because we couldn't come up with anything better, but it
-should totally apply to other things.
-
-> and in my case the LVDS panel 10%.
-
-10% is a lot, and I'm not sure we'll want that. The framerate being
-anywhere between 54 and 66 fps will trip a lot of applications too.
-
-Why do you need such a big tolerance?
+AFAIK, it's not listed anywhere in your bindings. Did you get an
+acked-by from a DT maintainer for those aliases as well?
 
 Maxime
 
---lhbvkcbp3c3gosel
+--fgeuvrs34ws7krrf
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ0WJGgAKCRAnX84Zoj2+
-dgyFAYDpVbD0+B1OXcBahhvUgiMgYgY8W64szTv09wv/4HohtzWS1pIp3K2R38QQ
-wOL5h3QBf0hLFnVFqmeGdio6nM2Us2phuUAbokXf6Z7YXiUN8CVJPQw1vBRsPHG9
-zYgs3yNCQA==
-=bqF0
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ0WKJAAKCRAnX84Zoj2+
+dv4FAX967eYE5R0RWLQVTJQQ3qJdNEVy6ugNTjWr8xtIy2N8MIIRzNEYEwwM1k4I
+4XQfvwoBgKYYryHo1ibtm7ah1MNmHl1h0R5wMhd+pMQv6UR7szQ8hWR4Bz3qc4SU
+9QJkkLsfPQ==
+=oNFh
 -----END PGP SIGNATURE-----
 
---lhbvkcbp3c3gosel--
+--fgeuvrs34ws7krrf--
 
