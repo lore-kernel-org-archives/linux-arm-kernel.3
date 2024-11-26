@@ -4,149 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 442FDD5A6F8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 08:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87CF1D3B7C1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 08:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BcOzQnTn7AAWZdy9i9PoNrBjrynS61XCC3rBCG69hFs=; b=X9vt37OHxXvNxkUO6NFKvjswQo
-	LbhCBvOLvqCXZLwuVO5hL9MYh7Ii+pOklkcAq5sN3LBWbTu/6cqPo4fNx09hYB7F47ZCs9BeveA9g
-	dlm3par7M9YjNIx3zz4/l7fSOZED8oIcKm2yWjdZQIBSmJ7XU4SkXITU/ECX54v+DKKG31On070KR
-	hmZDebz9dpG87L3Phxrb55nTAI8yaeOa0kRSQdxAQ9likrhVLQsXdTAHNAWoBQQgb2iQOQ1bkGlA3
-	YLBtQYk7n4ZXBukxKWFCViQl5CZFM4YGdLBzdsoQ4FQ7kpeEYbmWTLT0ZkZvxreCYQtxW8MQrkDAN
-	GbPIiTQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NrrWryjMGhsBokl0eRbT/oWjBiPNWHi5EsUXC9shiyc=; b=h+1fBFIOvRiR4hBAILcSgoliDn
+	N5dkwA7+MXyuasPaKDHc+6eKkL5oXIscRlVLp/ZmjnZl27+xZG9I0fa7LLon1nOt1ZHMOWscazp3A
+	6z9bi5K52uCX94+NQT/OgAzhBfZKE/JBeMQDvOxaOZA97tn3fJompk9C+4iO64/+nbheKMxIeiK9P
+	OZzUCdgUsmfH+wRA3pa9z7GmfgBGaQh349znysAq4RQNKE12kHj+veqrjmxFpv2LhRfIj//czi+6n
+	cFmuQc8ue05BhkKkGzZxmI8niFCUDBJNGwLL99gX6I9yLFncsCY7+hU/tu5eJ8IDv8RuaXMHlpZaD
+	xRSCG4jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFqli-00000009wqV-22l2;
-	Tue, 26 Nov 2024 08:17:58 +0000
-Received: from mail-am7eur03on2062f.outbound.protection.outlook.com ([2a01:111:f403:260e::62f] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1tFr71-00000009ywl-2Jo1;
+	Tue, 26 Nov 2024 08:39:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFqkk-00000009wjM-0sbp
+	id 1tFr63-00000009yjx-1O2M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 08:16:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WFvmmh/HLZkx80tJWb15oma2g+NpcjKFWxI75ibpUCAewCn8pneRe1MWz/wphTKpBiiQgsAffGmp9FIo8HcLxBRNiHUaktLlw6HVoBmSuni+fc+68Rjc2Xn2jPqhkuMFuOknwcekO9+zn4IOF1EZo9u9sXeNXxEf4R1AtZ/4bSJvmxDbUf+szZZ5gFLpUjfGg3X3dgTOsDAx2Xt5WY/V3t62LvjBKsvR8CEoT0u/2CEN7TLEx/qAcreC1gSuj+jDceWxxTxCQkJCWStB5fzovv2fyup16NO2JrEcTmYumoZo8POVcoFlPGinUCYFX6+jxlgSv/z7F1TNNZjabLm3Jg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BcOzQnTn7AAWZdy9i9PoNrBjrynS61XCC3rBCG69hFs=;
- b=D+ipF+qj5aDw7yhFBvzGpzXbJsJIq1lAJVEz9jeG2avw1WgOnFIXWDPNH9/F4VpnuBnw2ipS+Eh/BFkRUrKdIlehyCPR76j1/+QcM8FT/5myJ61wa9m8VY/V8CU2Zdjk0+GdoM+LHjAWNZljhTVQjCMKNMNkcHMsSHeUdoctSvoZP4+YYVOsXapSPblHFSgqW7CEQy1/H1xMpkUWg/cgrRJSxpnA2jN4/ewGASu3qWhGXh7eHpE4vskiMCOYoGRdaQzKarXmUt5kbJxhRbTmCS4jxkHEUnV02yTQeByePoovQM7XyyG77pzvqdaq4C97JySTVaNQruYzAORJvPHTBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BcOzQnTn7AAWZdy9i9PoNrBjrynS61XCC3rBCG69hFs=;
- b=nyHeOYCWrmHxamvgtsWbCuSIfPKtVJRg6dgBP/pmyaK+SU2Eq/EAKve3sv1J65hAOzrY9Ty2OseXrmsDWM48jbSHUBsFI7GYyyYh4vRi0P+yWIg33vDPjZanQOQMhRbmLZYFBbqS34JaMJcRB5B0o0DJwQw7mC7MHVLRR73edJ4PDxfNgLDKf9K7/u2tm6feBnoYR83+h/gsE3EjK8UOt4+shvh3BNcCyw7cPRCcA7hNGaVQWMpJweMSjwyOMgqH6LQ0tcanivUyGLiQ+jxRhKTOq6WxqPSk0o+Rgv/yiYMp7SXiZP8DatM0IU53Tb++SQNGQRkh0UD9x6Ii5A/Ufg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com (2603:10a6:208:5::22)
- by PAXPR04MB8286.eurprd04.prod.outlook.com (2603:10a6:102:1cd::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.20; Tue, 26 Nov
- 2024 08:16:54 +0000
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0]) by AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0%4]) with mapi id 15.20.8048.020; Tue, 26 Nov 2024
- 08:16:54 +0000
-From: carlos.song@nxp.com
-To: frank.li@nxp.com,
-	o.rempel@pengutronix.de,
-	kernel@pengutronix.de,
-	andi.shyti@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] i2c: imx: support DMA defer probing
-Date: Tue, 26 Nov 2024 16:25:35 +0800
-Message-Id: <20241126082535.1878554-1-carlos.song@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BE1P281CA0240.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:b10:8c::9) To AM0PR0402MB3937.eurprd04.prod.outlook.com
- (2603:10a6:208:5::22)
+	Tue, 26 Nov 2024 08:39:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 78EFEA41ABD;
+	Tue, 26 Nov 2024 08:37:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1860C4CED2;
+	Tue, 26 Nov 2024 08:38:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732610338;
+	bh=np3gVh2vdVMzwJbdelK/6cS6+cbSugtEMQAtU2/XSG0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nSGeqoOn1S3dD4mvA4bOozPQKUShhg1mWWMrX9sdkefP4KreZ5C12Lvw13dCIlF8o
+	 dBax9EngjiuB2f3zEbgw3yXwgrIPUef8ZT1q0Un11iqeJx3tcTJtqEURMF15ZZNqUP
+	 CWmTLCHLhGw5sJVGMd4MjASQsdDnT6i1Kj3qRj0ehClBz0uRhDRmZZbriJjx9ul450
+	 YVp5bDU5Y2piARlIPhRDCulRvmgGCPLExHoKIUfWzkoK4lVFRBNsJTf9OmHlKCTUVz
+	 XTM+V5WBnj0mx8jrGJkSazCeedawve01dDdUTxnkdM2zemIF222ICHxzmoeNZ85EjD
+	 cUg84GF5JgSKg==
+Date: Tue, 26 Nov 2024 09:38:55 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Sean Nyekjaer <sean@geanix.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Yannick Fertre <yannick.fertre@foss.st.com>, Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
+	Philippe Cornu <philippe.cornu@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
+ helper function
+Message-ID: <20241126-refreshing-slick-pig-baebab@houat>
+References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
+ <20241125-dsi-relax-v2-1-9113419f4a40@geanix.com>
+ <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
+ <bfuj6w6hsbfpdw24th6dl3ugvj45op6jb45gx5ab5pulud7hiz@o2zbn45z3lt4>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR0402MB3937:EE_|PAXPR04MB8286:EE_
-X-MS-Office365-Filtering-Correlation-Id: f67392e6-bd7d-4e33-9d2e-08dd0df2af9b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0Rd2uWsO8TiC2egotNpRzqBmKbKalVfRMMqn4dKMZaNMun7a5XJ/j+dBrMJ+?=
- =?us-ascii?Q?O0JE8s4F++gSuYdWmPyjSnVlP9aUaaCYYS7M2yZcDrkDBn41aSRyvZNaGnno?=
- =?us-ascii?Q?DH8sUwRf9qg1dqSzTagi4rSVgIoDuHmARL+gVo8/dBvBvLJNraz7qKRy5/n9?=
- =?us-ascii?Q?r4PD2txomACQHEYFf5JcsxZW7FKGGgW2s+OwbasvHI3RqzKfm70XN+34aM/U?=
- =?us-ascii?Q?2b+YxtZWoI88cyPd8m0kl5e6DG2tAgT3BLpHQW+puOtIx2NX3CIg3IzHMD0k?=
- =?us-ascii?Q?zgX7wg/ZjaDKaqymHdvZFL6dajPsWDqtMrEUagCN+mCi9l9fUvl/285i0RZ4?=
- =?us-ascii?Q?LM1GhYjrzvoU8QdnuxgJxCck4C7HtZfwkMPRn09C1/MaQBz4Q8c2Wf6sM9Af?=
- =?us-ascii?Q?cfpOB4Or6XfleaL/Fblkkayp7rJVevLo5nMpRUU0w5mXGyuowY+Nc7/XjQnp?=
- =?us-ascii?Q?6Tk+gTvzuQSa8t9r/uyzjGAYF2UjmjGcxX8EmQLMJXKEprQ/JElB4vjFu5ge?=
- =?us-ascii?Q?y7didnC11CVBLaFkLO4U52ayfrVh2y5+iqKKXyyqN8NV4KFiHh9FiscOP+dK?=
- =?us-ascii?Q?VHj4gabb6kVo80HysLc6Zhq1jS4cbpweyIoOgCRXwbU+f3Y1RYG3w52gM1eh?=
- =?us-ascii?Q?faS2JMdOrJTKgXKCPp5Rjo+D8ynCUyIMz3hAmH8Q+rUmbyLcTKfw0to0kw3e?=
- =?us-ascii?Q?bEaL9IsIhviEO/Y95L+bwpI9t8DsSQ/i9+3jBv+Im7exoQvc8OpUSnoHB7NJ?=
- =?us-ascii?Q?Xw6SGwP4pAB1jigTQErwQut4+ZW+xSCpasI8Tlv1ftzAzCxMmiyBxlemjEMJ?=
- =?us-ascii?Q?tRvprF07f7iMt2jsnRMAARgQDRzCutWZLTLRb0gnlCoCB4YuKC7jzk3ZO8T/?=
- =?us-ascii?Q?vSqjffQ6fC0RDL0PuupYTC2RCrVvEfTB2r+bxgUdqyzzMfl/82C933JKOYvj?=
- =?us-ascii?Q?KVVqFBphc0W3ZEYbHLeeV09nYNQslvsvu+46Y5OyPrtjWGFmbRaQ9iWJTBnq?=
- =?us-ascii?Q?JWzTnKG7dTbCG5bmZ1LMZ8G6r4OduK0OHGjZKNlFB0dQRqgIma+wvNtBe6pu?=
- =?us-ascii?Q?2LqqtgWQ7kx7T88djN+JDqHoJY6vY7ZFaIJKFjMBUdT85nwtZ/DKxns+4oeR?=
- =?us-ascii?Q?R/uKSI5nP0VxoNo8+dEPi/mDjNDOfssk8caBOX8qKhYy5aahbuk39YWGE1nL?=
- =?us-ascii?Q?4gmOB5enGj1FXS0/26289d+uNAIMAdIF8S9p04J70F0U00oMJNCzLwidgrUu?=
- =?us-ascii?Q?ZHYBnAtM8/IT9dYigwo667qXSqUsSzJ4Kao0mhRMcEfWlv4diJ0fqQ/JsxCw?=
- =?us-ascii?Q?hVz1hDQHtglYEkMkpd9pSKqP8h3KpeAE2/zrgRKWrBv0VQTW9SYpB+bGMJvj?=
- =?us-ascii?Q?WubzH/JIxZWTfUbuHdkJwC/8cJkx9ntrX6aWQAn958ECnuVrIg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR0402MB3937.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EEzm323IYslL6sNsNcuQf0bd2JE7UPW1Q2Oo92JsxAYRvj2zbgthT2RG/yuu?=
- =?us-ascii?Q?HQqgClCtXt3YWTxepWaluQ3mf6JEkoxi30gSVz68yun+IueEdHhE8DPx8MUm?=
- =?us-ascii?Q?04Xodrf3thltwCTV/kF0C+YMBSEY+MUgPvG+JGvpqfSrGnFdZ+bV3bjxkzZ3?=
- =?us-ascii?Q?Qwo6EiLarkGpEAk6z2heFvL7qpgFk56ZExZuf61e7Z/ozNb0D/j//rdk/Vr6?=
- =?us-ascii?Q?+j/1mCwM0lrWX7aAwsqFV0A6SQsDTV2GpUzLVRjWDCFw44XgO0L2aZoV5a1A?=
- =?us-ascii?Q?aV+0xrsZMhhOR7beN3BXAkMKWCaNx0e4fz727T5y3D2LDyEwgWWG012hNB9f?=
- =?us-ascii?Q?OmdYuQB8SkpUYZfTBswIkyecr/EOQA0sGafYvfsk3RyBBL3SWjZStsS3+QCr?=
- =?us-ascii?Q?XC+Gnp90LRzQrmOetsirLCyeMg2uluZycTvKWDg1aLnOKYuqW8ryWv/hwyFY?=
- =?us-ascii?Q?JNlSOC9/sljfK4Adu8FSbpKeDAvl5l4oCeiOgxyB2h17Y+Of2N0mBao7+7mW?=
- =?us-ascii?Q?QxRBeunqbJ2XoFeXypJf0yR6Tt6C3gY3qEEFogje9Y2fcH2ElMuiFZDrshRk?=
- =?us-ascii?Q?AL/o5iQAUb1nFCfdo1l8jNKSbvLTiwuRryqKWaV0uDxuRTIupG3yfVCIykzy?=
- =?us-ascii?Q?6hZwZZGajd5d/FAgAXVQETZlh7JNmtJU42cjqC/DekcNn5YbI5DWeMFEoThJ?=
- =?us-ascii?Q?yvCdrdV6FTWv+C8K2D2FqxXdoiMX81FOuOhGLEEYmbBHRdeSJzIS7L/9Yc3w?=
- =?us-ascii?Q?XJgDqVkXapVUeP88SIekUBzGxy3WOeA1zudO9IlwHIy20zra8HQEoVJJ/btY?=
- =?us-ascii?Q?orsps9qVeMha7ya+GW9tHgUYqY/CBZAZqoEVNCaemundvwVao66CBXf8bBug?=
- =?us-ascii?Q?pr1K/iJ9Y+P0gQdZ2xm9ABsuClSLNgkIioPlklwmPM955LNgd/wmmwHoDJy+?=
- =?us-ascii?Q?FwKzwpINqeiJhxKlJfPDAjXylbS+MkMjU+qIOxAJUvxWi3NA0Fg1Yg0iji5f?=
- =?us-ascii?Q?ioOob2JMfjfm3OccKJDdJE1CEmihQcmCRuoIldSjziSP2tDko2sg4kuU2l3S?=
- =?us-ascii?Q?Nh9o0dKMELZi+XC0HgXtWssV5aOv9+donjIncSniTRictnKNRYLZtX4aihf3?=
- =?us-ascii?Q?sXvwEI270peVMegZ/GIa/wjZp7JICikFD4ukvCFAa/Q7a92tlECRZF0xHpZn?=
- =?us-ascii?Q?QlFiyXu2iUZ73sReh++eOirbijiOp8eMpwQpJt34YqH7Omi8lN/Wt4OjHhlA?=
- =?us-ascii?Q?r9/+xM/Tgrdach8XR5NBkJnq4CRCjtXvT6x/5kQiK53dX4LbkbFbxxroHXGL?=
- =?us-ascii?Q?0quAqtGSahJETWPlmH1B2x0Gvt797yyR0okLF5y9vVO6NJYb5FroIhG7ikrd?=
- =?us-ascii?Q?9SbqKoqAOHQAhJWWNpOrHcD4nhb1BNMtxDSeQKmQQXUuAv7G1otCgb3ZkjoF?=
- =?us-ascii?Q?O5C+weSWtEVq3l3KgJVpogGpTkDimAfiOAlc7Pd9w2BZObyeFKoWz0EjK77V?=
- =?us-ascii?Q?lTETm63p6DxUc0iUTRmPDQojyVtvyHCMOv7v6064eooIwgTZhfsFNgzilWu4?=
- =?us-ascii?Q?QUfpghoukbthGTTA7gt3AMr1p/s4I44Y845bTdQY?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f67392e6-bd7d-4e33-9d2e-08dd0df2af9b
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR0402MB3937.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2024 08:16:54.0955
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hUC2TpvhthLcQV0WVImb67/itrlRkicfcSRkFVgk6K4nnixzEyfD8yZD/V3xl882eYb9xsyxafaTCsszDNyGRA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8286
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="lhbvkcbp3c3gosel"
+Content-Disposition: inline
+In-Reply-To: <bfuj6w6hsbfpdw24th6dl3ugvj45op6jb45gx5ab5pulud7hiz@o2zbn45z3lt4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_001658_250333_D0D9F559 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20241126_003859_498228_075CC20C 
+X-CRM114-Status: GOOD (  30.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,98 +83,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Carlos Song <carlos.song@nxp.com>
 
-Return -EPROBE_DEFER when dma_request_slave_channel() because DMA driver
-have not ready yet.
+--lhbvkcbp3c3gosel
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
+ helper function
+MIME-Version: 1.0
 
-Move i2c_imx_dma_request() before registering I2C adapter to avoid
-infinite loop of .probe() calls to the same driver, see "e8c220fac415
-Revert "i2c: imx: improve the error handling in i2c_imx_dma_request()""
-and "Documentation/driver-api/driver-model/driver.rst".
+Hi,
 
-Use CPU mode to avoid stuck registering i2c adapter when DMA resources
-are unavailable.
+On Tue, Nov 26, 2024 at 08:36:00AM +0100, Sean Nyekjaer wrote:
+> On Mon, Nov 25, 2024 at 05:00:56PM +0100, Maxime Ripard wrote:
+> > On Mon, Nov 25, 2024 at 02:49:26PM +0100, Sean Nyekjaer wrote:
+> > > Check if the required pixel clock is in within .5% range of the
+> > > desired pixel clock.
+> > > This will match the requirement for HDMI where a .5% tolerance is all=
+owed.
+> > >=20
+> > > Signed-off-by: Sean Nyekjaer <sean@geanix.com>
+> > > ---
+> > >  drivers/gpu/drm/drm_modes.c | 34 ++++++++++++++++++++++++++++++++++
+> > >  include/drm/drm_modes.h     |  2 ++
+> > >  2 files changed, 36 insertions(+)
+> > >=20
+> > > diff --git a/drivers/gpu/drm/drm_modes.c b/drivers/gpu/drm/drm_modes.c
+> > > index 6ba167a3346134072d100af0adbbe9b49e970769..4068b904759bf80502efd=
+e6e4d977b297f5d5359 100644
+> > > --- a/drivers/gpu/drm/drm_modes.c
+> > > +++ b/drivers/gpu/drm/drm_modes.c
+> > > @@ -1623,6 +1623,40 @@ bool drm_mode_equal_no_clocks_no_stereo(const =
+struct drm_display_mode *mode1,
+> > >  }
+> > >  EXPORT_SYMBOL(drm_mode_equal_no_clocks_no_stereo);
+> > > =20
+> > > +/**
+> > > + * drm_mode_validate_mode
+> > > + * @mode: mode to check
+> > > + * @rounded_rate: output pixel clock
+> > > + *
+> > > + * VESA DMT defines a tolerance of 0.5% on the pixel clock, while the
+> > > + * CVT spec reuses that tolerance in its examples, so it looks to be=
+ a
+> > > + * good default tolerance for the EDID-based modes. Define it to 5 p=
+er
+> > > + * mille to avoid floating point operations.
+> > > + *
+> > > + * Returns:
+> > > + * The mode status
+> > > + */
+> > > +enum drm_mode_status drm_mode_validate_mode(const struct drm_display=
+_mode *mode,
+> > > +					    unsigned long long rounded_rate)
+> > > +{
+> > > +	enum drm_mode_status status;
+> > > +	unsigned long long rate =3D mode->clock * 1000;
+> > > +	unsigned long long lowest, highest;
+> > > +
+> > > +	lowest =3D rate * (1000 - 5);
+> > > +	do_div(lowest, 1000);
+> > > +	if (rounded_rate < lowest)
+> > > +		return MODE_CLOCK_LOW;
+> > > +
+> > > +	highest =3D rate * (1000 + 5);
+> > > +	do_div(highest, 1000);
+> > > +	if (rounded_rate > highest)
+> > > +		return MODE_CLOCK_HIGH;
+> > > +
+> > > +	return MODE_OK;
+> > > +}
+> > > +EXPORT_SYMBOL(drm_mode_validate_mode);
+> >=20
+> > Thanks a lot for doing that!
+> >=20
+> > I wonder about the naming though (and prototype). I doesn't really
+> > validates a mode, but rather makes sure that a given rate is a good
+> > approximation of a pixel clock. So maybe something like
+> > drm_mode_check_pixel_clock?
+>=20
+> Naming is hard :) I will use drm_mode_check_pixel_clock() for V2.
+>=20
+> Would it make sense to have the pixel clock requirement as a input
+> parameter? For HDMI it is 0.5%
 
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
-Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
----
-Change for V2:
-- According to Frank's comments, wrap at 75 char and Simplify fix code
-  at i2c_imx_dma_request().
-- Use strict patch check, fix alignment warning at i2c_imx_dma_request()
----
- drivers/i2c/busses/i2c-imx.c | 21 +++++++++++++--------
- 1 file changed, 13 insertions(+), 8 deletions(-)
+This code was only used for panels so far. It reuses the same tolerance
+than HDMI because we couldn't come up with anything better, but it
+should totally apply to other things.
 
-diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-index 5ed4cb61e262..4e5633166a1e 100644
---- a/drivers/i2c/busses/i2c-imx.c
-+++ b/drivers/i2c/busses/i2c-imx.c
-@@ -397,17 +397,16 @@ static void i2c_imx_reset_regs(struct imx_i2c_struct *i2c_imx)
- }
- 
- /* Functions for DMA support */
--static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
--						dma_addr_t phy_addr)
-+static int i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx, dma_addr_t phy_addr)
- {
- 	struct imx_i2c_dma *dma;
- 	struct dma_slave_config dma_sconfig;
--	struct device *dev = &i2c_imx->adapter.dev;
-+	struct device *dev = i2c_imx->adapter.dev.parent;
- 	int ret;
- 
- 	dma = devm_kzalloc(dev, sizeof(*dma), GFP_KERNEL);
- 	if (!dma)
--		return;
-+		return -ENOMEM;
- 
- 	dma->chan_tx = dma_request_chan(dev, "tx");
- 	if (IS_ERR(dma->chan_tx)) {
-@@ -452,7 +451,7 @@ static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
- 	dev_info(dev, "using %s (tx) and %s (rx) for DMA transfers\n",
- 		dma_chan_name(dma->chan_tx), dma_chan_name(dma->chan_rx));
- 
--	return;
-+	return 0;
- 
- fail_rx:
- 	dma_release_channel(dma->chan_rx);
-@@ -460,6 +459,8 @@ static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
- 	dma_release_channel(dma->chan_tx);
- fail_al:
- 	devm_kfree(dev, dma);
-+
-+	return ret;
- }
- 
- static void i2c_imx_dma_callback(void *arg)
-@@ -1803,6 +1804,13 @@ static int i2c_imx_probe(struct platform_device *pdev)
- 	if (ret == -EPROBE_DEFER)
- 		goto clk_notifier_unregister;
- 
-+	/* Init DMA config if supported */
-+	ret = i2c_imx_dma_request(i2c_imx, phy_addr);
-+	if (ret == -EPROBE_DEFER) {
-+		dev_err(&pdev->dev, "DMA not ready, go defer probe!\n");
-+		goto clk_notifier_unregister;
-+	}
-+
- 	/* Add I2C adapter */
- 	ret = i2c_add_numbered_adapter(&i2c_imx->adapter);
- 	if (ret < 0)
-@@ -1817,9 +1825,6 @@ static int i2c_imx_probe(struct platform_device *pdev)
- 		i2c_imx->adapter.name);
- 	dev_info(&i2c_imx->adapter.dev, "IMX I2C adapter registered\n");
- 
--	/* Init DMA config if supported */
--	i2c_imx_dma_request(i2c_imx, phy_addr);
--
- 	return 0;   /* Return OK */
- 
- clk_notifier_unregister:
--- 
-2.34.1
+> and in my case the LVDS panel 10%.
 
+10% is a lot, and I'm not sure we'll want that. The framerate being
+anywhere between 54 and 66 fps will trip a lot of applications too.
+
+Why do you need such a big tolerance?
+
+Maxime
+
+--lhbvkcbp3c3gosel
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ0WJGgAKCRAnX84Zoj2+
+dgyFAYDpVbD0+B1OXcBahhvUgiMgYgY8W64szTv09wv/4HohtzWS1pIp3K2R38QQ
+wOL5h3QBf0hLFnVFqmeGdio6nM2Us2phuUAbokXf6Z7YXiUN8CVJPQw1vBRsPHG9
+zYgs3yNCQA==
+=bqF0
+-----END PGP SIGNATURE-----
+
+--lhbvkcbp3c3gosel--
 
