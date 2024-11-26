@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E39E9D65553
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 20:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849AED65552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 20:21:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bIdOM98L3EBQwsq5FQMMGgLWqa/7d6Lq3LNh7wTZfHQ=; b=WLcuN+LQqJXk3VtoMnqFeoXLSi
-	OD6GRgx6i50sYjF1yX/c0uQtWmSedL+by/FR/YNhkD06sQUi4zzooIh5fYeuxjgcqoEjhDHWjHEDU
-	M6qOIfDMbYp3kDsVPKQJIgcK9GWagH1dhIB5ctsnl3YNL7zUx6BQT7Y2KYPPj/frGSUL0RvZr8qzs
-	oUYdqKs1kc1A4BksY/Gy6pVXbAdFXs3pAx1aRcGUe9MnehvmvuDoazVlTQ8shCCJwiDbWoU6Sz9kD
-	RPrKC9iaMqzvksgb+KFvaCjsQIXDcQ8eWHbB3OOeOpyOi/eBhiK6EQfCcy4w18ecgcnPj5rLhy2K1
-	QcoxtA3w==;
+	bh=EDIpeb3JMBwFv1oZ+7PJFJMHR0Hd5nE3HVJPYq0ihls=; b=PDxGH72KZ1QQnYs0xWWLgwp3Db
+	gbJZxw4zn5E+OOxDc4Qh/ftyIAhLGB9RI1h9qXVtfgKRg2loBXZ4b0JdPj5cljOuKEGOiXgo10K6O
+	4TDZzdgD4QRq/qiWnYxxfwXDMtj3X+//kwAB7eROTjpTd3XK9UFOpcLomy5/ln/oLTmSjpizwGwfu
+	sQJdJtC7iNjadD29FR5BJOG2u1Hh4m1qfCsRn2HHzlCwDVX3SrgII6Y9fX3RcmP/AgHgH+OT0V1wf
+	/dQPlsqCNFFz05ERsZUtTNQ7lfPo/NOUWFE+beasNZYIDZBu9Cx+z/oTNs+/p3jqtRGcYCOWgXplu
+	mrLil8hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG23A-0000000Bdi9-2Ows;
-	Tue, 26 Nov 2024 20:20:44 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1tG246-0000000Bdoo-0dL2;
+	Tue, 26 Nov 2024 20:21:42 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG22C-0000000BdYz-2Idc
+	id 1tG22y-0000000BdfG-2e0v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 20:19:45 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-aa5325af6a0so524021066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 12:19:43 -0800 (PST)
+	Tue, 26 Nov 2024 20:20:33 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-aa549f2fa32so400564566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 12:20:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732652382; x=1733257182; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1732652430; x=1733257230; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=bIdOM98L3EBQwsq5FQMMGgLWqa/7d6Lq3LNh7wTZfHQ=;
-        b=HEHeNwhP+hbJJilyEKRUInFrLWCUzDeSA9bBlc50mieormUrxLUNatvmv3ZAKVofMY
-         +HYcR2PAHV44WoAW1lBeEGjFWEnxD9uup+DjZ4eirHUjR1u0h/mLwNIOM/soI6mmZBFp
-         0jnEagxR+wjqRpZAc/OmKjZS8U8zrwwWvmYcJyiNPS7OdY45K7wFFPkdxOAGZHSW2sUa
-         SQDD0QukOLk5apQiWTKRnOGmVbjq9MUGRGW4isepqbrPRmg2eUe0uTsiAv2rI1aXSSEg
-         cDbIO5/I5p7JWy6QR1kqUtGSqXyNcbuHqgxvlL31praRpTsknYIV0gqe0wqds1Cdex5i
-         DWSg==
+        bh=EDIpeb3JMBwFv1oZ+7PJFJMHR0Hd5nE3HVJPYq0ihls=;
+        b=WUagRcUwGJOV+Wi42hLR4e41h8NfQGQweiC3/FzTYNtPGSN5f3lKhVNjpXdxv1owgp
+         FbgPaWKGcL1mEzVVXqqVQOXW0R7W0bJcQy6hGEONViAwFxWgqKCWjxfGMDL7Z5VSI+it
+         ta+jF3RBteg5pjbRDLr+8FPZVwlLL0jIEjRMc6QslKnvhDS6w5KCBwfG6w0jy6CFNvZo
+         v5l6Kmhmf+d2Pzm4OjiL8UNOT6Qp7YcARd19By4288cgjm0lBRerCtCnnz/Y8KXjmoF3
+         jHvexrguCp/zv6qJvJgT/5+PzASnKFTUrJpTk+1L3TkrzUOoGEKDJrr98GiFSEYhuM6o
+         xh5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732652382; x=1733257182;
+        d=1e100.net; s=20230601; t=1732652430; x=1733257230;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bIdOM98L3EBQwsq5FQMMGgLWqa/7d6Lq3LNh7wTZfHQ=;
-        b=J63VrvtoI6XsgqMH6JMIYWuE2uUz+tzRPeUbU3n8jHsQ9Ux8Ul1Vw+7pT0Ti/Xqoc1
-         V+BosULpBNK6wd9JO7leyv2m3TaU8G9udcC/BQTL+ECeq8S86LAuQmgpXSNashGrPt6W
-         rgpwtEFZ8l9s552nXOwM2xK65CTB+Rj0FUGiMKP/JnC200lkrLRvxRQn6ePm/szcw30z
-         PI0hX0zepArLqqfW8Whfpy4OcDuUNa5AttOloa46asgtIGcssA3pl2ks3wBjvKPi2+q3
-         MI7ALFcd1g/Mp3bR229+AQOSQHwh8AJGigP5tt1U88O7E5rnEm8dCo6DwtBtYdrOivsx
-         WVwA==
-X-Forwarded-Encrypted: i=1; AJvYcCXEzjQ/zCISBSUTixWpsQYm5OcQnLmdBtWVI4SJPA2u/piJR1i76bYpG6x0C26g45UOit4mbUppHgi6I2nXRs9q@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQ0Gecv86Pc7+nH2HCLTLcRiXoGyCaukEQAQhFIlgw9/buL6xO
-	g+O7f/B300wEwUT4UXyb2V7dAKD/ORmmXC9aBQHrpN8LhwsJR1EN
-X-Gm-Gg: ASbGnct/JPSsAJpQVlM/k4RRbylEXEAX9+bTrEE/TvxckNbaBav5kCAugjI0NdLAbVO
-	mKdJ2M9Ihul858whXowVa6Lw0vuQUuAIdjFhGRzBfhf3NoNdlKJ6xIQFSmIFpnVe7Pl4lnt+oJT
-	lLtDAmhtDsmTquy8+R317fyOAKe5KqFmUXm+iEfGkBFK5a8E5jMZusOCH36iSodfgLYmr7920Nb
-	4cDO49GmtKpUX92ay4fLXL7IH+09DY7htrHchr+1C3+Pah1ITiXb+ZV5wg8pODd2LE55BpX6RKu
-	OSJoTAk570yQS/qYi0hIuP4tBL9IgzTfq1Eah8diTMysSDEIVlXG9wqyTy0sbLG08RMSFzgO4HF
-	e3vOdhSODLyx2OMEPMu3h2a4zIcNfcoHiPtM11/0Blw==
-X-Google-Smtp-Source: AGHT+IFJzXI+QGnug04VkzBBZH3/3gOfiit7iwiUpCdN3K1kV7d0P626vyqQmw6ZO1DajOX9UOmxZw==
-X-Received: by 2002:a17:907:6ea6:b0:aa5:4c3a:3b55 with SMTP id a640c23a62f3a-aa580f5814amr26638366b.36.1732652381959;
-        Tue, 26 Nov 2024 12:19:41 -0800 (PST)
+        bh=EDIpeb3JMBwFv1oZ+7PJFJMHR0Hd5nE3HVJPYq0ihls=;
+        b=FP27+hDUOJwWdHROI4nDWu7RSDuiRNkWwNo5x0Z8yA0snt2vaNS9PuUJ/cVcMSV/Aq
+         xgWI792DWTvPdVDnZOKBJiTgsPFXWePnCZ+X/+Kjp8ybZPWxyOB3bu0jJrO23ItNdYWb
+         UBGvBOoBImDtZkpr3cElbCqUwW5FA5+Q1h+ycShi17T25mdwwKKb/qxtnA9T6AlwlGWg
+         VnNCbtEPqAoKMn98C2+iOCigtY5JB2tS3k+PaP4tm8EjjP6RD0Dh3lbv0HfBg8lqJIZt
+         4HEw+1N011wMjvjMiLGh6RFnnKviqSj1YeF5QopugMk7g3vno9P6k2Iwf8znn9sYM0st
+         gpAw==
+X-Forwarded-Encrypted: i=1; AJvYcCUa3b23W1khS+2XLTG3eznc01N5M4XMZA4GLcsGHY0LBF3bNu0cEyuH4L4ZoGD8D1IHGw02tr8d4m8w1FBIksDi@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywme+ffHtDmdK6+p9J+VWUrOARDB+WvICztCmNwOIaPVhxnL+t4
+	XY/L6HMASs8njml9GOjABpmAVVKNcB8nUsZ5R2MzUfyXOq2yVS2O
+X-Gm-Gg: ASbGncvWg0cozGUAazE7vLb63LlAgyc0WqMIvfD7PY1nYJ5tWUicQcmP2N/casiItTM
+	RsXpg/hBvrfds9PBvKuGRj9EFD53SBKB0hNKnbQbryW15hybw4dmsobvqX1lvd9TBBbPrFdXy9Z
+	Q1x5H7hgv07Ccx7tR6yKJ2OvlTYrh8xmF2piqkzMaOZ/Aje4jao1yKoSol751Pn58/I2jRFWZdz
+	1ux1RSJiGjPyYmm/hKlt6wnHzvm6B6JcAd8AA1EwAZVs7I1WLSmKQAV++A6WBbiLZjpT2wq6a9J
+	AIlDkACFVcPbapGPV+u0kgXJQJUs/ZBgnK5A4Xq9KkhUQOsYEkzrDWetnY6w1A55QwUnb3cFiuz
+	VaWKeTt3h/QFi4E1MZafLl62q8IgxiNR+5vzZ9qY90w==
+X-Google-Smtp-Source: AGHT+IEQ+GUY00gDNSfoYzGgyx8asHOxAIhNjERgZcKduGGgVFJK+5xW0EhYGKlEcMvQnyyoY63gFg==
+X-Received: by 2002:a17:906:328f:b0:aa5:4b7f:e705 with SMTP id a640c23a62f3a-aa580eee492mr24716366b.1.1732652430538;
+        Tue, 26 Nov 2024 12:20:30 -0800 (PST)
 Received: from ?IPV6:2a02:3100:b1b1:7000:f43f:954d:8ddd:f91b? (dynamic-2a02-3100-b1b1-7000-f43f-954d-8ddd-f91b.310.pool.telefonica.de. [2a02:3100:b1b1:7000:f43f:954d:8ddd:f91b])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-aa50b3000e6sm628933066b.80.2024.11.26.12.19.39
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-aa51a449c24sm590832966b.178.2024.11.26.12.20.27
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Nov 2024 12:19:40 -0800 (PST)
-Message-ID: <fd994907-0d37-41a6-87fe-1064543bf9fc@gmail.com>
-Date: Tue, 26 Nov 2024 21:19:39 +0100
+        Tue, 26 Nov 2024 12:20:29 -0800 (PST)
+Message-ID: <14b3a67f-416a-479c-bd28-887ea06cd435@gmail.com>
+Date: Tue, 26 Nov 2024 21:20:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC net-next 03/23] net: phy: marvell: use
- phydev->eee_cfg.eee_enabled
+Subject: Re: [PATCH RFC net-next 04/23] net: phy: avoid
+ genphy_c45_ethtool_get_eee() setting eee_enabled
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
  Andrew Lunn <andrew@lunn.ch>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
@@ -91,7 +91,7 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
  Oleksij Rempel <o.rempel@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>,
  UNGLinuxDriver@microchip.com
 References: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
- <E1tFv3K-005yhZ-E8@rmk-PC.armlinux.org.uk>
+ <E1tFv3P-005yhf-Ho@rmk-PC.armlinux.org.uk>
 Content-Language: en-US
 From: Heiner Kallweit <hkallweit1@gmail.com>
 Autocrypt: addr=hkallweit1@gmail.com; keydata=
@@ -137,12 +137,13 @@ Autocrypt: addr=hkallweit1@gmail.com; keydata=
  H/0Z53okMykVs3a8tECPHIxnre2UxKdTbCEkjkR4V6JyplTS47oWMw3zyI7zkaadfzVFBxk2
  lo/Tny+FX1Azea3Ce7oOnRUEZtWSsUidtIjmL8YUQFZYm+JUIgfRmSpMFq8JP4VH43GXpB/S
  OCrl+/xujzvoUBFV/cHKjEQYBxo+MaiQa1U54ykM2W4DnHb1UiEf5xDkFd4=
-In-Reply-To: <E1tFv3K-005yhZ-E8@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1tFv3P-005yhf-Ho@rmk-PC.armlinux.org.uk>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_121944_589778_7B147A50 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20241126_122032_671985_0FF7F826 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,40 +159,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 26.11.2024 13:52, Russell King (Oracle) wrote:
-> Rather than calling genphy_c45_ethtool_get_eee() to retrieve whether
-> EEE is enabled, use the value stored in the phy_device eee_cfg
-> structure.
+> genphy_c45_ethtool_get_eee() is only called from phy_ethtool_get_eee(),
+> which then calls eeecfg_to_eee(). eeecfg_to_eee() will overwrite
+> keee.eee_enabled, so there's no point setting keee.eee_enabled in
+> genphy_c45_ethtool_get_eee(). Remove this assignment.
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > ---
->  drivers/net/phy/marvell.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
-> 
-> diff --git a/drivers/net/phy/marvell.c b/drivers/net/phy/marvell.c
-> index cd50cd6a7f75..1d117fa8c564 100644
-> --- a/drivers/net/phy/marvell.c
-> +++ b/drivers/net/phy/marvell.c
-> @@ -1508,7 +1508,6 @@ static int m88e1540_get_fld(struct phy_device *phydev, u8 *msecs)
->  
->  static int m88e1540_set_fld(struct phy_device *phydev, const u8 *msecs)
->  {
-> -	struct ethtool_keee eee;
->  	int val, ret;
->  
->  	if (*msecs == ETHTOOL_PHY_FAST_LINK_DOWN_OFF)
-> @@ -1518,8 +1517,7 @@ static int m88e1540_set_fld(struct phy_device *phydev, const u8 *msecs)
->  	/* According to the Marvell data sheet EEE must be disabled for
->  	 * Fast Link Down detection to work properly
->  	 */
-> -	ret = genphy_c45_ethtool_get_eee(phydev, &eee);
-> -	if (!ret && eee.eee_enabled) {
-> +	if (phydev->eee_cfg.eee_enabled) {
->  		phydev_warn(phydev, "Fast Link Down detection requires EEE to be disabled!\n");
->  		return -EBUSY;
->  	}
-
-This one I had on my list too. Old and new check aren't waterproof as the user can still
-enable EEE later, silently disabling FLD. But the check is better than nothing.
 
 Reviewed-by: Heiner Kallweit <hkallweit1@gmail.com>
 
