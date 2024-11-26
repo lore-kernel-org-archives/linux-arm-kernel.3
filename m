@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E85D2D3B98B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 13:01:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC6ED3B98C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 13:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4+/h+G+UZmcLpKhAAeUc1gCUmuIP7h4zUAThZbIDIwU=; b=ULjB0waoyOde0hgnoFK+8OZKDR
-	1gAG2v5jHkb2jlyjXK6fUqAetDrjTtCBwAuclndH6qCmEqk6Venz4JLzzKCAyR6K+sUFtSwMS96S0
-	hfEoHE1mId4mxnzqMCmew0B2n7U03HH1X3+pMC7HadcIHs1ucu/MGrY3JigVUG5fZPIlDnidhiy5K
-	lF185ScB6m3dew3810Oe8j0BK5UOr5OrUtiV4lHWaW7aUufHJayj4HLYYC1HTCc2Kmta1BTQbYULf
-	IE1Eff67MZMHmf4LN+LSjM3T6W2JQWIbRQUXSiTrugGGtKxVgMY2qJmazq6rWkZASMvfBgroVCsPF
-	mjG5gceQ==;
+	bh=j/WHhBv4xxgr6XWS8+/JmuNDDhZZJPZcPHo5FRq2Fs4=; b=zssP6khCjfLfH8RC1bAttvas7O
+	cADAftGBSHQN9ig6Os5We9JpT14dT0dLxUOu6r0RNVRp4lU/XwFekIa3SF1TZPsV5nxeuTkUz6f93
+	38jVkHQKX/4apceQ/A8dw0RFE25CE+eLD9oOpnvVoenFPOeZd59s1sG6DFdoVuWdoMMzMFb49nUt2
+	lsiEpoym4ZuDHeASw7Re+gSMwA+MDqFVTH4hRb+v41JUeZ46eI2TvyXY2N5jCtx/rDSjtmt4/UdB2
+	uxOt2/MjLBXJje1SOje02EVU6c9ea6eENqKM0cEIJL5RR7k+g4bimAn/rSaMbSxoifH9CYcrHB/ug
+	ubdwaRdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFvCE-0000000AdsJ-1M1L;
-	Tue, 26 Nov 2024 13:01:38 +0000
+	id 1tFvD9-0000000AdzA-3tE9;
+	Tue, 26 Nov 2024 13:02:35 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFv3o-0000000Abym-20jo
+	id 1tFv3s-0000000Ac0t-4Ard
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 12:52:57 +0000
+	Tue, 26 Nov 2024 12:53:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=4+/h+G+UZmcLpKhAAeUc1gCUmuIP7h4zUAThZbIDIwU=; b=1mIxpqoAoFisMNMn11GMy+5cnR
-	ohJgIwSgsqReB+QUQ35N7RT4b7vvZ9RnOeGjjLwcPz/1LzQ62REBrnlaYYSU+ug85kq2y7fdTkm4V
-	vBpYThK63VxRMi/ISMhi/VBoOZ46nPDgx/Vdvy8pc72Fc5uYf+PyPEYmLhDA6NwHBvQ+S9EdQX7pY
-	tf5Inb/igj2paGv6ldTMjDl/l5mBFcyV1DfDhzbb7GEZLS0BxNg8AXsg6WLctEmmZ7/Bcs5CVLBVC
-	Pg+WDIw5Pb+K+a+zZ3/0eQOSdkq7Sb43f1nVOHNmGsJwixWfycqKbCZHaRYD490RzHZKpjI0MVBGP
-	zPEjnZJg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:58798 helo=rmk-PC.armlinux.org.uk)
+	bh=j/WHhBv4xxgr6XWS8+/JmuNDDhZZJPZcPHo5FRq2Fs4=; b=lZLC1NwUbkqrR8bgsgVE5vp7I/
+	NAaHMrqMiAwDBnW/NxnO4o5QAw7BX8eMrRjJdtrlsWF/CMsRlqKcuOe4d5ONdci5t7OtXgAgapVGL
+	LqnydNucmVhx/5HQqIhiS06tBbkxj0p7YknOvpUE/nHESEFDFAe/GbzMuKS/z2WfDjkKJ5oA7X54k
+	GWeK1R7uN3L5lFRnLrFw6EOtStGvtx9LUJp6gw7y6e2BwPriS0ELL1a3jp0G2QfZyO4anw3AqiidI
+	6IHhrKM8cU+dR6fPtCjOH4u6vMXms8fvl3yjkAXk7Xj9vAhcoWW3gBDQcM9+8o/IN7HGbrvTrKC3z
+	EZguWCZQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:58812 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tFv3g-0006tH-0B;
-	Tue, 26 Nov 2024 12:52:48 +0000
+	id 1tFv3l-0006tc-1C;
+	Tue, 26 Nov 2024 12:52:53 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tFv3e-005yhx-SV; Tue, 26 Nov 2024 12:52:46 +0000
+	id 1tFv3j-005yi3-W2; Tue, 26 Nov 2024 12:52:52 +0000
 In-Reply-To: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
 References: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -69,17 +69,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Oleksij Rempel <o.rempel@pengutronix.de>,
 	Paolo Abeni <pabeni@redhat.com>,
 	UNGLinuxDriver@microchip.com
-Subject: [PATCH RFC net-next 07/23] net: mdio: add definition for clock stop
- capable bit
+Subject: [PATCH RFC net-next 08/23] net: phy: add support for querying PHY
+ clock stop capability
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tFv3e-005yhx-SV@rmk-PC.armlinux.org.uk>
-Date: Tue, 26 Nov 2024 12:52:46 +0000
+Message-Id: <E1tFv3j-005yi3-W2@rmk-PC.armlinux.org.uk>
+Date: Tue, 26 Nov 2024 12:52:51 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_045256_529336_20E5F1FA 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20241126_045301_039470_197660FB 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,27 +94,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a definition for the clock stop capable bit in the PCS MMD. This
-bit indicates whether the MAC is able to stop the transmit xMII clock
-while it is signalling LPI.
+Add support for querying whether the PHY allows the transmit xMII clock
+to be stopped while in LPI mode. This will be used by phylink to pass
+to the MAC driver so it can configure the generation of the xMII clock
+appropriately.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- include/uapi/linux/mdio.h | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/phy/phy.c | 20 ++++++++++++++++++++
+ include/linux/phy.h   |  1 +
+ 2 files changed, 21 insertions(+)
 
-diff --git a/include/uapi/linux/mdio.h b/include/uapi/linux/mdio.h
-index f0d3f268240d..6975f182b22c 100644
---- a/include/uapi/linux/mdio.h
-+++ b/include/uapi/linux/mdio.h
-@@ -125,6 +125,7 @@
- #define MDIO_STAT1_LPOWERABLE		0x0002	/* Low-power ability */
- #define MDIO_STAT1_LSTATUS		BMSR_LSTATUS
- #define MDIO_STAT1_FAULT		0x0080	/* Fault */
-+#define MDIO_PCS_STAT1_CLKSTOP_CAP	0x0040
- #define MDIO_AN_STAT1_LPABLE		0x0001	/* Link partner AN ability */
- #define MDIO_AN_STAT1_ABLE		BMSR_ANEGCAPABLE
- #define MDIO_AN_STAT1_RFAULT		BMSR_RFAULT
+diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
+index 8caef54a60e0..21e0fc9a6f09 100644
+--- a/drivers/net/phy/phy.c
++++ b/drivers/net/phy/phy.c
+@@ -1587,6 +1587,26 @@ void phy_mac_interrupt(struct phy_device *phydev)
+ }
+ EXPORT_SYMBOL(phy_mac_interrupt);
+ 
++/**
++ * phy_eee_tx_clock_stop_capable() - indicate whether the MAC can stop tx clock
++ * @phydev: target phy_device struct
++ *
++ * Indicate whether the MAC can disable the transmit xMII clock while in LPI
++ * state. Returns 1 if the MAC may stop the transmit clock, 0 if the MAC must
++ * not stop the transmit clock, or negative error.
++ */
++int phy_eee_tx_clock_stop_capable(struct phy_device *phydev)
++{
++	int stat1;
++
++	stat1 = phy_read_mmd(phydev, MDIO_MMD_PCS, MDIO_STAT1);
++	if (stat1 < 0)
++		return stat1;
++
++	return !!(stat1 & MDIO_PCS_STAT1_CLKSTOP_CAP);
++}
++EXPORT_SYMBOL_GPL(phy_eee_tx_clock_stop_capable);
++
+ /**
+  * phy_init_eee - init and check the EEE feature
+  * @phydev: target phy_device struct
+diff --git a/include/linux/phy.h b/include/linux/phy.h
+index 09a47116994c..d0491cdf54b6 100644
+--- a/include/linux/phy.h
++++ b/include/linux/phy.h
+@@ -2038,6 +2038,7 @@ int phy_unregister_fixup(const char *bus_id, u32 phy_uid, u32 phy_uid_mask);
+ int phy_unregister_fixup_for_id(const char *bus_id);
+ int phy_unregister_fixup_for_uid(u32 phy_uid, u32 phy_uid_mask);
+ 
++int phy_eee_tx_clock_stop_capable(struct phy_device *phydev);
+ int phy_init_eee(struct phy_device *phydev, bool clk_stop_enable);
+ int phy_get_eee_err(struct phy_device *phydev);
+ int phy_ethtool_set_eee(struct phy_device *phydev, struct ethtool_keee *data);
 -- 
 2.30.2
 
