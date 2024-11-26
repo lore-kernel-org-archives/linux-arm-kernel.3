@@ -4,161 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 180C9D5A6EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 08:08:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35079D5A6EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 08:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wGLz3HynYw6TOgvpjS3u3DsAamlDcAkH/ZsSrZWh6/o=; b=IoXXsYMJiyyvihER1iyvHbwAEt
-	pOYMvQ4Pbp2vfcD50cu4Ig6c+KZ/aqYC6wJ1hdTDT/dmHgm31vEX/abs+IQaawOz/5y9G6uP4ksC4
-	qBX0JrXHzRcpcPzVpz1tfhlbTEvoMMaT21LsXi8fKlZQ+z97hR0MZy29EygoRkQ16+DCfPlfcYOaM
-	rFStJJtBZri47V708QzaEmtARvrDfp7xEDumizOvyUGa+2XkexMOgBh3HrzAWXdiAeNViqhBsdg80
-	kvZuv1vIEJ6mE9C1VHss7qr79s1egpNpS/8nXyXs5ZqqN7+DGqK52tJVCbVefSDjSwjYbn89YjjJN
-	rcMH2hZg==;
+	bh=gmcqT3bZQMcjsucg2dQtWpXidNuyx+XXM3544HAZF0U=; b=WiBC/G0ZgJRrMVDuzD7C+TaMNo
+	lwMh4mPDvuophD1GvIAKL/V0O7A1xXZqFZzmyuLGHJ/Q+8l9epT/ZvgRw2XMqr3ADF+i3FKNeHnRb
+	7HbWos0QTd2wLz64kuyoXbaNrjSCWydwisxEz8vLwN8fE7kVhSYWc5GH8+AzCPTWxRiYPP1voeOf4
+	ZimQt77OBfMg68UFRetHRkF45g/vogkQSqiDvIs4ccCGWcjX/swvbHWJnQxI4pcgvv1se++cO9R5r
+	qo4ZoZdKW5tHbUbWNNRu3vwS7KTw5qdubCfLpWduyJeNg0/eQ/bPvO6v/laf4SfNQ9JziVGkvcqOH
+	N4TzGNfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFqcK-00000009vga-1Nm2;
-	Tue, 26 Nov 2024 08:08:16 +0000
-Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1tFqdG-00000009vsw-1Kq4;
+	Tue, 26 Nov 2024 08:09:14 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFqTI-00000009tq1-1FOA
+	id 1tFqVh-00000009uXj-0PGP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 07:58:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LYsWZVLKG+unLiB5FRFIQ9vB/ApOw6Zc7NySS836aDdwnmdo/swbj/zIOtUAOSzEpqsCspcFeyEXmtpZ5WPb2y9KjmYUWN/ac5VueTrvqycwGrp9xOIzgVY43KvIeshvQqBQHWMpg5zIzD5uRstcU+Z//TetAtwWTqPWLv26h3/N2eDZm5KCjYQt9IL+amzVCaU+RHlnRPn/oSL6TUg8Mmqd+AVulJ2KKT09C3REdiD7a4iElbmuqe1WVfBNFxpjLClHb3mS/EePNCGKbE4yxcqAgVcDdUcs3FsNiL2tU7x/4izMbpVHX8ez82LFN0Sv+EwIbp8avwo2FJp/HlEtDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wGLz3HynYw6TOgvpjS3u3DsAamlDcAkH/ZsSrZWh6/o=;
- b=hEauDj67USTtvcl3WOnPJ7crTeHU2pj+0KSXj62nDanH6TqCj6srigAlL0NlH38u1A8gKHC+CShfk73tVe6ZeDKBBIkQeGJQK23jRjzqwVYk9kzZbndn2TFbeRExb0reWuOQ2GrpZYvo2zke6aOSZjp4lzCI/QMmS87q5roJF3f3iNDHrvOAROJGYwnq43k/Th5hgHGs0Z0WprrAUrNQb5rOrKGhKj+dHAYRpXW6pIFY0+d5yppBqnSRE+a4UCTS58qJVwSzcsYeNxzi7xnEu/m0k0glLQBcjq0e/l3D7KAuiJ6OWqiQruuxt3jmyv0Nu41uMnAhXwZ20yGBySxK3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wGLz3HynYw6TOgvpjS3u3DsAamlDcAkH/ZsSrZWh6/o=;
- b=emvWivAoLuMRtkEzW5Sg2HUOlCPeI9shR33uGNTn/WnNYFdYylZoYq0hq6P8p+jiWx3j0QwUnLAVFrIiP8NZ3F8RruK/1ziPKoqhMskm1ocFDASaYjRBJpmnlYp/BNEQ1S6YQm+GCpisxsjx/EKRl4u4P+nw8o8GUlvhgoCn5t4zm4zWb3Zb55dxI2E9MDzlEuSxq+0lQEzjkq6cNzDsO8O9Nftvz7ZQ/5fpqKDTBYSvQaeHD15FVeE3QhIl/9m7GUgmPCWiJzjqAoDfS3pCHvxd15FsVskGLWrD4T00qqeZLtfuNAD0tDLghUDb6FBqjQVWlMEpxPLtJLWanUZ1Lw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
- by PAXPR04MB8489.eurprd04.prod.outlook.com (2603:10a6:102:1dd::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.20; Tue, 26 Nov
- 2024 07:58:53 +0000
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93%4]) with mapi id 15.20.8182.019; Tue, 26 Nov 2024
- 07:58:53 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: l.stach@pengutronix.de,
-	bhelgaas@google.com,
-	lpieralisi@kernel.org,
-	kw@linux.com,
-	manivannan.sadhasivam@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	frank.li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v7 10/10] arm64: dts: imx95: Add ref clock for i.MX95 PCIe
-Date: Tue, 26 Nov 2024 15:57:02 +0800
-Message-Id: <20241126075702.4099164-11-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20241126075702.4099164-1-hongxing.zhu@nxp.com>
-References: <20241126075702.4099164-1-hongxing.zhu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0060.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::17) To AS8PR04MB8676.eurprd04.prod.outlook.com
- (2603:10a6:20b:42b::10)
+	Tue, 26 Nov 2024 08:01:26 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5cf9ef18ae9so11801708a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 00:01:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1732608083; x=1733212883; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gmcqT3bZQMcjsucg2dQtWpXidNuyx+XXM3544HAZF0U=;
+        b=MuMC07hu2jnDt37IhV00sKSNyRFj+uQ4vl1yFu9PfPH0bJm5X5Iom/F2XnRY10VV+N
+         6f0gdTO5jfyahpVJU14K7OvkNqh9T9ZwB9clR2S4eGPPq0oJVf28C9tpgOJ8OqccPfSr
+         l9O/oKhIsbT+LDGeh2/B7lqlxbgZxn/Ve10Xc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732608083; x=1733212883;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gmcqT3bZQMcjsucg2dQtWpXidNuyx+XXM3544HAZF0U=;
+        b=l9m0Cukbc7n2TMRqbgQynxASgU+AXvuYf4b0MW90AzkNNhI/8687CAbUbak+a3NGD3
+         eaDLPmtotYrYMxEfxtbyWL0gpOEQDl99HYxyv0CiOXzrqiJnREGrXSzjhDu3IwaaqLRh
+         21IX7xyko3gHGwFGqUZzJ/6mp6Mzd8Yn1CsIgT96bxywWl5ZdgCuRgjBc4YPisBGImDG
+         RrgJbNwDEluW5aNFFy8Z+PWF6Zsl3UwPmsgL2fyBByErQoISFHvRwrXF1tXwC4OTRj2y
+         ktWnGvL9D2xdtTNDeWBpsasWCDU//z1HkIq+95rTByiCVji6uhst7fv7YYyrsXtKW/I7
+         rtNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWd88HFa2BPpfb8FEsoyrH5XhL1tXLvhCUCFRHxTsLA86JPBch+IQ9Ez5ac+Lc9onlvh5gZuEcealznxf0aV0Fa@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXzx4saN7SYKqP4pB3XEwEojGmdW6e2PCM5h4T2VDs550o1rND
+	kQ9ZW+A47nNdiV8isg5MGsmf4FXFR5nAnOgV1ba6Kh7AX3PGTOU96cqhrszW8ZlPciHRkBJt7wo
+	=
+X-Gm-Gg: ASbGnctBidSEhuGZJepPtF5uyC/qux+OdgLfwbVZrfYxcNfgbub4wkb/SPci3zZAVta
+	lJvfjDJAXy27B66xpJaChVUI0qkUBnZ6BFBYU/mHu9yU3hApTLJGAC8Ftc1tmiCMB5bg1dqmCJu
+	+4odhxV6ThUKRy6PK7pRAJI6lEOTwtmd4cIYS1vNeOcs0sOx8NDDZIjwmHoH5lkgbOuSVd852m1
+	ipf0QYAbTjepz71DUD+vfRRjgwHT0OBik99o6sMtnDHNcdRlMlgFBdRGLmyL3wLBzP5I1p71xfr
+	Z3aIe4jNIjz5JzNN
+X-Google-Smtp-Source: AGHT+IGtCe+g12k4e/jKb09CNrU2plMtTaVCv6dGwcoNuYlUcSErRxp7uhHjudmWJfV3bElWv2QVjQ==
+X-Received: by 2002:a17:907:2d8f:b0:aa5:4a38:174d with SMTP id a640c23a62f3a-aa5649cf406mr184478466b.29.1732608082039;
+        Tue, 26 Nov 2024 00:01:22 -0800 (PST)
+Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com. [209.85.208.41])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa540be5360sm347547866b.27.2024.11.26.00.01.19
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 26 Nov 2024 00:01:19 -0800 (PST)
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-5cfb81a0af9so4740a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 00:01:19 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX1dlk6nC81gpIlw1f99EE/RofYbD9ZzZ47wT/SqWQuPog5+ErjUxvl/NKuRiMzUnY2bWm258GDyE4y+EYXqrd7@lists.infradead.org
+X-Received: by 2002:aa7:c48d:0:b0:5cf:c93f:36f3 with SMTP id
+ 4fb4d7f45d1cf-5d06f511712mr30786a12.7.1732608078885; Tue, 26 Nov 2024
+ 00:01:18 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8676:EE_|PAXPR04MB8489:EE_
-X-MS-Office365-Filtering-Correlation-Id: cfe12062-92fc-408c-f6db-08dd0df02b48
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IwaK9qZj3VAfHueOyvbpjhB3ASgft09gGWn3S9ZzdXPC84pk7E9OU99CYB1l?=
- =?us-ascii?Q?7eFOJVCp9Rl6TgParsAimxLs0zfK3N6Y+c1Q7aUgbpgKC1XNMnhFz1dQFaUa?=
- =?us-ascii?Q?6s9nlVaBR1F3js3C2rv/DL5EyNi+Wy8qfpDm5v6TlDR9Anz6QqkizwKWwUgU?=
- =?us-ascii?Q?GS4FI3dukKR4egzeLjd6rsi9VlwI1annVF4IYpZ47pkWhpGRFxR2zfNynzMv?=
- =?us-ascii?Q?G2ofGiNcWQPgsq+U3h7g+pIyqWGWrNbn32Tkaw2D2d5gYeIwO3k0bifZFBeR?=
- =?us-ascii?Q?wlr0F0PZNdtQF0MZYspU2bN2ruCdzY9SgGfS//Ck5HGvOYHgqq2ywx1aFnqJ?=
- =?us-ascii?Q?les/V46TqFVzkEFBFRFjrE7JgshCTyL04ddYJAj88f4keVInnl9GMsudK5EI?=
- =?us-ascii?Q?gwZPHPftan5kPAc1VDFActZBuCmYxSmoPpy9vUx0HtyuKxDdLqH3cEuOhuHj?=
- =?us-ascii?Q?16GhJLSqUKGUwOgZdM8g+RHzPYqZu3nbQtOkjT3sEij/l8nlglyDaqltGK3s?=
- =?us-ascii?Q?OpSbo+DfBexTnHv0UjylkePQW65L1uCxswz0FDUwrfloQvgp0YTLGnui/3w+?=
- =?us-ascii?Q?xNy8Ky5PWD8jmqPKc7rc3SsG28FeQydSBuOhxno1aJ/lgj50x6OcOBKoRcup?=
- =?us-ascii?Q?fb5LURsTHKNwJK1KjFhMcXyDQdrClsbbe5/lKGknWDgSDse9ZzO7o2h5pvGo?=
- =?us-ascii?Q?sRTt9j6Zlgk3UHVPTy20lbg4NKkwI8cVUhUDX+65HjfjsJLmb6jfUsqpaFzO?=
- =?us-ascii?Q?uYUCbNzK5SipUb3XADKQynVtT5yJGi8FEgrffyxjBFTBCWYtOGDMetLjIJ0I?=
- =?us-ascii?Q?+gF3PVctmcaNxxdP9ev4hvCKLWjeeNRItUH7sIqxmH5MaQmW+v+FV83pn0uF?=
- =?us-ascii?Q?1zZ2IGCmyzK7pSGKvANW3/7fl12k7vQLB31o64nToHYeqWrT29cPAJzrNydd?=
- =?us-ascii?Q?nnM9zVI7AJcdI99MrgeXI8Pd1v7hbfHFbHdM84DxekUIgw4EFmY0Gwy8jK8P?=
- =?us-ascii?Q?ZfC6hV0Z/CWJcQveFmwfI6VoBe4EQ5o/ho1izlJgc4puhW1CNNZMMpZ8RN6g?=
- =?us-ascii?Q?97eKyUSKtnukHik0WMhOBy747ZsI2gGmaZwKzFEw63tUVUfZKL0WqXZMCUqD?=
- =?us-ascii?Q?nf0xnRBbHvjVrcPWbF0IhqL9Ehk4lk1o0fdPCStGvKGsIW13rKKrGSpB2GFj?=
- =?us-ascii?Q?EP12OHSNzHBBHAT/qDeAstpWPbuMyurJvdZHcEBvtsvCqXjFx5oqbjZR/UtX?=
- =?us-ascii?Q?EuRhJMQpGyVVY5KVVx/r9/uxG0cbPH+0CG4qcqVKuZCfJyAmSFtUCO4ws+Sj?=
- =?us-ascii?Q?IZOLgFZ0LXSCuA3djgiK6NNGbRkgSPdwB1gusTZZca/CMFZzB5gO7S5TEIzZ?=
- =?us-ascii?Q?yx/rZ4Q69Yt7MOXjnJ/I79y84QzIWsR0CxnFbMo7SN/z+5T5VPnsBcquLfKw?=
- =?us-ascii?Q?B5X+GRl5R4o=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fH08ZeeIUg7XCYYfrAmehuTGT1k7+3kQT4M/tNSBI9TkpFXXcYjS+ADsd/lu?=
- =?us-ascii?Q?FtCmw4n0QM24DZIzcXoi9NXaeI/3bQGOlW0+BUYF6CtsufBxDy+iMdRuXwdK?=
- =?us-ascii?Q?4Blh4BKrH11m2yLZupmFd8BOqSJesE9q1SPaltMibupZHl3XhhxGGYbbmzhN?=
- =?us-ascii?Q?+GpdXy/iLXnTFjwKPjizmTnvSyHHCA9Kuh/I5dw3gfp95qZqEiJz1uCgjiqX?=
- =?us-ascii?Q?Moi3NLlnq57aBuCY5aSu9PaoN7OQdfx11IciLlPColF/wDCZB9eDG9xbj7eY?=
- =?us-ascii?Q?9cod35g6Q0/LtffS3d74IQM/r0KBG4QaOfftTAbSX/SFyW5A6YA1ykk0YlTX?=
- =?us-ascii?Q?6qKV/ZgEYO4BJ3fYriUztemCqZivfLzO7v/sRTLxy08mZ4+87UreaSIj2XLC?=
- =?us-ascii?Q?tVvmd1r4xbOEUm8z3v6cc6cUGIWOcDkCsPBoAeMVd6GVLDzloQbQL5rQlnQJ?=
- =?us-ascii?Q?/qy0ctw+1/Z0wVFlSj19nd9UqMXLd3x1ZdQHto1ax3QwheG86Zai0LRBtV0Y?=
- =?us-ascii?Q?INTbPKKBi/hl+IDn2cqKWysmr12FZ5TYjAshaatyApocA2kFJtCUI68K/7Z3?=
- =?us-ascii?Q?emDo+7MuhR0Ei4dpUc6EHGpmF+Dt19Afx0VaNLSLKcmjdq9Nf2flcyP+sTYi?=
- =?us-ascii?Q?xmQNXR49ejcJV9xlyub3L8IuUeKC0IFlQYn1KWnbhYtVoc3pcX21APHO4HzA?=
- =?us-ascii?Q?WvTdyYbyD4eyqU97rqPUbDvH6Z/IHvH0BOr8hjnTwwYs/grPajLH/4Qzp2/n?=
- =?us-ascii?Q?FlkVLugbAstREeHl7l0hODVmc3Re7GJOwwZQllH2eIOxx9BObxspNBCn4ryy?=
- =?us-ascii?Q?AU5ytHluVKIhvMqHRDPj+/BwswsDaYwhfLRgbo5eDVLndkC7pR8v5qaf1km0?=
- =?us-ascii?Q?Vh/10uHyS72xMctPlrGyQddATVNAoXSGliv+pQgVHrrKG+yzAvrT1mq8+LlE?=
- =?us-ascii?Q?15gHhR/iWZnnIQKeZj5FEpw5zF8UfL+1uSsI4cja9txwxQ6dsR11UoYjzKT8?=
- =?us-ascii?Q?+ZnsiV/Tx7x+Cje7+doMxJYz0NaGP1ZRYjAu0NrvrmcfNRWtNrNXTc1C1Jdq?=
- =?us-ascii?Q?82cDivhlcZ46yjOxSDCztwwdogJm61wLZ+FGai48yYSlbMs24o0Fm+cZoDiW?=
- =?us-ascii?Q?v2UbqIM/sLuIGyTRCg1yYz6YKj/scOXeIPQA7geYystuutIeO0uoiKQRP9MB?=
- =?us-ascii?Q?3YAjcHX0V43tEcn2mDtfK5uWxflO4MasD3sU25WtRGk/nZoz8tXdKQ8gegR5?=
- =?us-ascii?Q?hpoUm0Dldf2jd1JB3So0OjhHsF1jUgigKAH2PiuHmu23bA0Vj7FRi+mBC333?=
- =?us-ascii?Q?ginOm6L7c1FJR6SoX4Jqdf0eTomqHSjy94w//OsekVUzxISdJqgFR+3ihH/U?=
- =?us-ascii?Q?ga9/tpXJizV4TeirMbQbGfZ4aFjPciDIR39EtDKPaQY6ii7jKdpRGFJ01Xfi?=
- =?us-ascii?Q?intixFDbF7xvhWXezeFrwdKmFb6rAaRglarfo1pL2VNUGRcDEJdZRrYeEbD+?=
- =?us-ascii?Q?bE4xx9DkRguFsJ4ySP8CH91UNA8w3+FsMUxjtr7d3W3E9Z16SMUDgxErL18m?=
- =?us-ascii?Q?VQ7Yv+w7JxHvOsWfPisI9dfyxbt/d7zEz9qOlmiR?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cfe12062-92fc-408c-f6db-08dd0df02b48
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2024 07:58:53.0345
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5jdXS9AZ6nINIUjJcRLmNbVAcNw6BFUIqMTZW9oodZ2M/YbVsIvWNnUGe96wnMr63V+ML7OA0HVctv7WGZewHQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8489
+References: <20241125-mt8192-lvts-filtered-suspend-fix-v1-0-42e3c0528c6c@collabora.com>
+ <20241125-mt8192-lvts-filtered-suspend-fix-v1-1-42e3c0528c6c@collabora.com>
+In-Reply-To: <20241125-mt8192-lvts-filtered-suspend-fix-v1-1-42e3c0528c6c@collabora.com>
+From: Hsin-Te Yuan <yuanhsinte@chromium.org>
+Date: Tue, 26 Nov 2024 16:00:42 +0800
+X-Gmail-Original-Message-ID: <CAHc4DNKmGA-MjTWdZhKygiaRwN7mHnMCf8UPUxH_V16uZifzFg@mail.gmail.com>
+Message-ID: <CAHc4DNKmGA-MjTWdZhKygiaRwN7mHnMCf8UPUxH_V16uZifzFg@mail.gmail.com>
+Subject: Re: [PATCH 1/5] thermal/drivers/mediatek/lvts: Disable monitor mode
+ during suspend
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Alexandre Mergnat <amergnat@baylibre.com>, Balsam CHIHI <bchihi@baylibre.com>, kernel@collabora.com, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Hsin-Te Yuan <yuanhsinte@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>, 
+	=?UTF-8?Q?Bernhard_Rosenkr=C3=A4nzer?= <bero@baylibre.com>, 
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_235856_333852_96B6D9EA 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20241126_000125_163564_D634CA3D 
+X-CRM114-Status: GOOD (  27.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,73 +113,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ref clock for i.MX95 PCIe here, when the internal PLL is used as
-PCIe reference clock.
+On Tue, Nov 26, 2024 at 5:21=E2=80=AFAM N=C3=ADcolas F. R. A. Prado
+<nfraprado@collabora.com> wrote:
+>
+> When configured in filtered mode, the LVTS thermal controller will
+> monitor the temperature from the sensors and trigger an interrupt once a
+> thermal threshold is crossed.
+>
+> Currently this is true even during suspend and resume. The problem with
+> that is that when enabling the internal clock of the LVTS controller in
+> lvts_ctrl_set_enable() during resume, the temperature reading can glitch
+> and appear much higher than the real one, resulting in a spurious
+> interrupt getting generated.
+>
+This sounds weird to me. On my end, the symptom is that the device
+sometimes cannot suspend.
+To be more precise, `echo mem > /sys/power/state` returns almost
+immediately. I think the irq is more
+likely to be triggered during suspension.
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx95.dtsi | 25 ++++++++++++++++++++----
- 1 file changed, 21 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index 03661e76550f..9951d2c84799 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -236,6 +236,13 @@ clk_ext1: clock-ext1 {
- 		clock-output-names = "clk_ext1";
- 	};
- 
-+	clk_sys100m: clock-sys100m {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <1000000>;
-+		clock-output-names = "clk_sys100m";
-+	};
-+
- 	sai1_mclk: clock-sai-mclk1 {
- 		compatible = "fixed-clock";
- 		#clock-cells = <0>;
-@@ -1473,6 +1480,14 @@ smmu: iommu@490d0000 {
- 			};
- 		};
- 
-+		hsio_blk_ctl: syscon@4c0100c0 {
-+			compatible = "nxp,imx95-hsio-blk-ctl", "syscon";
-+			reg = <0x0 0x4c0100c0 0x0 0x4>;
-+			#clock-cells = <1>;
-+			clocks = <&clk_sys100m>;
-+			power-domains = <&scmi_devpd IMX95_PD_HSIO_TOP>;
-+		};
-+
- 		pcie0: pcie@4c300000 {
- 			compatible = "fsl,imx95-pcie";
- 			reg = <0 0x4c300000 0 0x10000>,
-@@ -1500,8 +1515,9 @@ pcie0: pcie@4c300000 {
- 			clocks = <&scmi_clk IMX95_CLK_HSIO>,
- 				 <&scmi_clk IMX95_CLK_HSIOPLL>,
- 				 <&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
--				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
--			clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux";
-+				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>,
-+				 <&hsio_blk_ctl 0>;
-+			clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "ref";
- 			assigned-clocks =<&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
- 					 <&scmi_clk IMX95_CLK_HSIOPLL>,
- 					 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
-@@ -1567,8 +1583,9 @@ pcie1: pcie@4c380000 {
- 			clocks = <&scmi_clk IMX95_CLK_HSIO>,
- 				 <&scmi_clk IMX95_CLK_HSIOPLL>,
- 				 <&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
--				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
--			clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux";
-+				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>,
-+				 <&hsio_blk_ctl 0>;
-+			clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "ref";
- 			assigned-clocks =<&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
- 					 <&scmi_clk IMX95_CLK_HSIOPLL>,
- 					 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
--- 
-2.37.1
-
+> Disable the temperature monitoring and give some time for the signals to
+> stabilize during suspend in order to prevent such spurious interrupts.
+>
+> Cc: stable@vger.kernel.org
+> Reported-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
+> Closes: https://lore.kernel.org/all/20241108-lvts-v1-1-eee339c6ca20@chrom=
+ium.org/
+> Fixes: 8137bb90600d ("thermal/drivers/mediatek/lvts_thermal: Add suspend =
+and resume")
+> Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+> ---
+>  drivers/thermal/mediatek/lvts_thermal.c | 36 +++++++++++++++++++++++++++=
+++++--
+>  1 file changed, 34 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/me=
+diatek/lvts_thermal.c
+> index 1997e91bb3be94a3059db619238aa5787edc7675..a92ff2325c40704adc537af69=
+95b34f93c3b0650 100644
+> --- a/drivers/thermal/mediatek/lvts_thermal.c
+> +++ b/drivers/thermal/mediatek/lvts_thermal.c
+> @@ -860,6 +860,32 @@ static int lvts_ctrl_init(struct device *dev, struct=
+ lvts_domain *lvts_td,
+>         return 0;
+>  }
+>
+> +static void lvts_ctrl_monitor_enable(struct device *dev, struct lvts_ctr=
+l *lvts_ctrl, bool enable)
+> +{
+> +       /*
+> +        * Bitmaps to enable each sensor on filtered mode in the MONCTL0
+> +        * register.
+> +        */
+> +       u32 sensor_filt_bitmap[] =3D { BIT(0), BIT(1), BIT(2), BIT(3) };
+> +       u32 sensor_map =3D 0;
+> +       int i;
+> +
+> +       if (lvts_ctrl->mode !=3D LVTS_MSR_FILTERED_MODE)
+> +               return;
+> +
+> +       if (enable) {
+> +               lvts_for_each_valid_sensor(i, lvts_ctrl)
+> +                       sensor_map |=3D sensor_filt_bitmap[i];
+> +       }
+> +
+> +       /*
+> +        * Bits:
+> +        *      9: Single point access flow
+> +        *    0-3: Enable sensing point 0-3
+> +        */
+> +       writel(sensor_map | BIT(9), LVTS_MONCTL0(lvts_ctrl->base));
+> +}
+> +
+>  /*
+>   * At this point the configuration register is the only place in the
+>   * driver where we write multiple values. Per hardware constraint,
+> @@ -1381,8 +1407,11 @@ static int lvts_suspend(struct device *dev)
+>
+>         lvts_td =3D dev_get_drvdata(dev);
+>
+> -       for (i =3D 0; i < lvts_td->num_lvts_ctrl; i++)
+> +       for (i =3D 0; i < lvts_td->num_lvts_ctrl; i++) {
+> +               lvts_ctrl_monitor_enable(dev, &lvts_td->lvts_ctrl[i], fal=
+se);
+> +               usleep_range(100, 200);
+>                 lvts_ctrl_set_enable(&lvts_td->lvts_ctrl[i], false);
+> +       }
+>
+>         clk_disable_unprepare(lvts_td->clk);
+>
+> @@ -1400,8 +1429,11 @@ static int lvts_resume(struct device *dev)
+>         if (ret)
+>                 return ret;
+>
+> -       for (i =3D 0; i < lvts_td->num_lvts_ctrl; i++)
+> +       for (i =3D 0; i < lvts_td->num_lvts_ctrl; i++) {
+>                 lvts_ctrl_set_enable(&lvts_td->lvts_ctrl[i], true);
+> +               usleep_range(100, 200);
+> +               lvts_ctrl_monitor_enable(dev, &lvts_td->lvts_ctrl[i], tru=
+e);
+> +       }
+>
+>         return 0;
+>  }
+>
+> --
+> 2.47.0
+>
 
