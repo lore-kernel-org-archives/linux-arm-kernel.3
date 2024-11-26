@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA4AD3B984
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 11:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0EBD3B985
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Nov 2024 11:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sEBwZCx8NPUgEcdmfQO/S+vdhBOxXQpHUc12agCsHis=; b=RhDRsAZnmE83Vr9hmMk9d7OYSL
-	VpvclU6iwx/SwetEj+doS2BCfePSzcCsv2zF1hlGlAuilToGDtzsV/dyuRQGfRMui2Y65/6bgoGrV
-	DT2XkyXRZ2TMdT9sTeM4e7Y9m8/7sGNSFLGvTuaPG9zgZOufi3+StVBWmxToAsFugvnty5IKD6V0h
-	AbUTC5s+N8VeRdKLDrPESlJY1Z3f7mnZ46xPVWn30F04VUGETFDHVs8e1+ruRxrAMmJNcz2jtXg21
-	kdeZseos4nUau3eLbySpjR02Hntss0CUpkGmTNJnx3tLxkV8OCUySL41T9rhicuV8S5DeKEUX7twp
-	v5aCirXg==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tb+EnpOEWqbg5iCLmnC0J7ea39+1VY/WhLbt5ileqoQ=; b=YShUXS1LWyvVe7M2gM5lz18eAG
+	8C2+Wu6quBYfJRVONSReVW6fGwG/oCVjCzAn+dOLm/5Y/hQiO7QW5k+VcWGP0bK99XtfJ1re777r7
+	pPYG9e77ycYCGjXaZcs+MUBPOth85RxpV7vLEQpgUHYlrDaKvgk1EY+ng4B5D6SPHbQ8KF99CkCg7
+	6Pl6pBmkdLHahVqhx+De3VBvPLApJfQUm75VonucILGaziZrtaRFdZCuXYaTG9299MzevWedE85l3
+	qJYRSCNDL5EjAMLG4Akn4hwfUmjlhtnx7CeKFy89+uZniHeO//C7hhA066VAMp9KoPSgVGQHpssRJ
+	2fATGX+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFtdI-0000000AOcP-3mmy;
-	Tue, 26 Nov 2024 11:21:28 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tFteE-0000000AOii-21q7;
+	Tue, 26 Nov 2024 11:22:26 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFtcK-0000000AOT0-0ude
+	id 1tFtcO-0000000AOTS-1tEi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Nov 2024 11:20:29 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-212008b0d6eso44408415ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 03:20:27 -0800 (PST)
+	Tue, 26 Nov 2024 11:20:33 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-724e7d5d5b2so3800126b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 03:20:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732620027; x=1733224827; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=sEBwZCx8NPUgEcdmfQO/S+vdhBOxXQpHUc12agCsHis=;
-        b=Hz4Qhy1xyubKIHUzEcfL3ooy38yyDHQm8mAz9ouVULDfWdq04WKpEk8acXxreDwlVq
-         mNY3L8rvlRVRq1TJf6HLcxkRuosOkUw2RI6ob43NMxqi1rmpilrny/0c4Z8TmnZBrXcc
-         IH6KKqsu4KZg1IQA4oE+srbaM28o9b9mMKb54SU8yvIXL29CDJP71ggKKXrqMiH8i76r
-         jUlbfs2jEs+U1mV1VgoWTsq5/XGZNxIySSkqN1c79wIcXNciFJuQP8xixn9ilBTaqi4y
-         bfeO992FdtyW8DnyzdbYu/1OFAj8FMG1j4+xS/YlqT3E90yo1oOXt8hkp7IZFpiRh2ON
-         Bv9g==
+        d=gmail.com; s=20230601; t=1732620031; x=1733224831; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tb+EnpOEWqbg5iCLmnC0J7ea39+1VY/WhLbt5ileqoQ=;
+        b=RUIMLM4/mAD3w2QbaUb+Ca4axQNZHyjAKfZjGq5NH0gBXWAbKJ1RhJTgHDovysviMJ
+         4pI0tZDnvTxmNowCaZekefhdimJHoNb0x8hgUQVA0zde6UmzVBVTbITNGYuF6lBKMttA
+         3QWAagZMJcBwCuwVcwrbO3aYAost2zpSZ8wzEE+S/uCP550UGhZRSQ/tTQ03KP4fBeHv
+         z5Q7l5qNCVQJHiYDIp5NxSPUW//IETYRyJ7Arab3gg3sFtJVr/2nSToBskNT516hA1gL
+         pmslCQeDCjHCNhV2WPY6Em87pwfe0JoWwW2DE5CYX9iZQBhXCBd0wr+AkfRXIGt4TxLd
+         XFuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732620027; x=1733224827;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sEBwZCx8NPUgEcdmfQO/S+vdhBOxXQpHUc12agCsHis=;
-        b=I0g4+dvakKWM3QYSdvYJv8hzLByU9gWBjA+nutQtu2PzqPx0s/ip7dHBRyyFQCwld3
-         IsAO1v1s92a4e3GmWM5XkvKEXcAm3CwqSk0OrDTIKCp8r8HBBSkCNU6LNwVCdbgGwY/X
-         rwalDrThhGjXuVhfDYf6AKplTvYIGsaU65pr+0EaWVAKwVo9derDKT3RzuskHa+bSFtR
-         VKA+T6Mkx+XRPCi2xcKZDUvMYKxNdDC5m9Z3vXAsW0rY0zJzh7Cd7KUGMHLFGKkvWCkU
-         O3OdGuR3ETXMbOGYxjLErmCNsYo7TwdoQpfAytA9I4VXzxvMfRZnYr7KAu2hXyFU3V3C
-         1uqA==
-X-Forwarded-Encrypted: i=1; AJvYcCVeBC8Ne8kPDfPRHUOukV6rbHVH+rQrxcmCeiKMqlCwSd8KJ83PRO4ILE2SYsukBxVpJDUTyJ/oiSJ9K+2CAIKU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuPNX09GLElgDuQxxkziL0gcKDT7wsrjBbRIZKW7ZPRuRwQvm0
-	MFOMGvPitYWYcGTa1TsWn9L5k+AwkT4rHDPe/vFpLminZ7/w2qa/
-X-Gm-Gg: ASbGncs5VtMCJNEA5VoQ03cI1DbtMuAIZUnt4eWw6mO4MukU3EWftwG91No6lPKjXW7
-	IYc1sUGYHAxGsuvBXqzt3gMG9AabR4ULAEODrCLw1IW+O1oxP1ExwnSL/OvGP/gf1NhT7pcDXE/
-	Krh0N3wHdm9r2FgpkdJ31HtEClJgS4aIIsWtxhC4YWd5iJ2rpOMGgdCQRWqnfIhFbrgsLSTSD+W
-	okhXlM66EKEUN+I0e4pwwBiCnwJEBBKzsYqwomSrzlXwJGZUQRuBVVA9FpoRbSli6hyWnpY0AbT
-	/9g9DIQPUb3Fy4nEexwxU4hELWbJeP6e4r4vaKBRqfNKrpZUkc4B/9MpTHieAFiE
-X-Google-Smtp-Source: AGHT+IGjrX9bFz6qa84/F16kDGT6fonLi587arQ3HaODJ+5CESb0p6QYyvh+erm3gzBxo60c5al2IA==
-X-Received: by 2002:a17:902:db0f:b0:20c:b485:eda3 with SMTP id d9443c01a7336-2129f2262a6mr206975015ad.20.1732620026715;
-        Tue, 26 Nov 2024 03:20:26 -0800 (PST)
+        d=1e100.net; s=20230601; t=1732620031; x=1733224831;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tb+EnpOEWqbg5iCLmnC0J7ea39+1VY/WhLbt5ileqoQ=;
+        b=ONqzT2OmuSt7j1YbxdPrHPNUm8d1297I7rvgMAJ/fvhCmP8Up9OsbMdCdJHGBcqAR+
+         JXjH0cOBbOMTavY7WIN1P2vu//v7Tg4uardubJHH0/+MsEHMiT0o43X8TrxhVGHAlL2M
+         lYVzcvJwaxkqQ3HfqdTJMPg8GPlz/SNa3MjgemNs9uZBcp7arSaEHTOvD48gWva2ZJhw
+         OuSF18lLfhlSwFdhPL9esw92Ny76AXsVFii6fkrBkz8baGVEEc8jvjtZRRe6B0y7eHgT
+         KMRogZViMPf9DGPNZMB6dYH0GJ6w5OoF4pUd6MMs0hEdjKZ8VKSSGh45WI2i0/d0uZjZ
+         +Tag==
+X-Forwarded-Encrypted: i=1; AJvYcCV1ep023BYRtmumzn0S03LuyPDIIKd4HBCg7i4kWySh4zHX0LdVIDzM7ZWIdQzV4d7q2VcECBJ4gxeejC+2dLfc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyr95XOvQCNB1UJIuB9KrVILbl91EnPcypIuao2HKaHgw8y+Czu
+	Kf55CmB673+StkLKXkIkCRL/aO8DPlK1HK44JdXybTaovtLPvacp
+X-Gm-Gg: ASbGncvbLWNy89o1uMs01hBYU/Hqg7U22p2sT36IYuedfgV+w2n5PKoumMKC+uIQRrx
+	6+ItIzvjJMW57O65sjAYmB95Ad8YCLZj4MM5nK4Z4fov5ciC5bgL+bNqLGiOtkzTdz5yPVPjR6L
+	Rc1nNlAYjhhTR92/0RtK7wm2Lf/ab5/36pOt1rQVYv2tRoESBiQ0NLbl/QL5CNEKNoynilrvk29
+	rGfJy1lhmkLxpITYFymU0d0Ie1I5Hy289TnwflA5VcHxDGFqUKWAHdtxy2QhldqdDXZ4M+XLwVV
+	dcq924/tSFvVBqy7txek9R88L3VzwpkKxx9qwZSHsUgTqXJ/gvh7cYBcNrSYaEho
+X-Google-Smtp-Source: AGHT+IFwaXUSQdileW3hevrYxNeWCHpLe9v/tmEc1xux1jDfeU/ZHkgB6y/eGFDCPWiwoeS97ASx8Q==
+X-Received: by 2002:a17:902:dac3:b0:212:e7c7:6bf4 with SMTP id d9443c01a7336-212e7c76fc9mr192626005ad.28.1732620031447;
+        Tue, 26 Nov 2024 03:20:31 -0800 (PST)
 Received: from jason-System-Product-Name.dhcpserver.bu9bmc.local (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2129dba5d4bsm82210885ad.80.2024.11.26.03.20.24
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2129dba5d4bsm82210885ad.80.2024.11.26.03.20.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Nov 2024 03:20:26 -0800 (PST)
+        Tue, 26 Nov 2024 03:20:31 -0800 (PST)
 From: Jason Hsu <jasonhell19@gmail.com>
 X-Google-Original-From: Jason Hsu <jason-hsu@quantatw.com>
 To: robh@kernel.org,
@@ -81,17 +82,18 @@ To: robh@kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: yang.chen@quantatw.com,
 	jerry.lin@quantatw.com,
-	Jason Hsu <jason-hsu@quantatw.com>,
 	Jason-Hsu <jasonhell19@gmail.com>
-Subject: [PATCH v4 0/2] Add Meta(Facebook) Ventura BMC(AST2600)
-Date: Tue, 26 Nov 2024 19:18:15 +0800
-Message-Id: <20241126111817.2331577-1-jason-hsu@quantatw.com>
+Subject: [PATCH v4 1/2] dt-bindings: arm: aspeed: add Meta Ventura board
+Date: Tue, 26 Nov 2024 19:18:16 +0800
+Message-Id: <20241126111817.2331577-2-jason-hsu@quantatw.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241126111817.2331577-1-jason-hsu@quantatw.com>
+References: <20241126111817.2331577-1-jason-hsu@quantatw.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_032028_253957_021B9A6C 
-X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-CacheID: sfid-20241126_032032_488736_C03AA1BC 
+X-CRM114-Status: UNSURE (   9.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,39 +109,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Linux device tree entry related to Meta(Facebook) Ventura specific
-devices connected to BMC(AST2600) SoC.
+From: Jason-Hsu <jasonhell19@gmail.com>
+
+Document the new compatibles used on Meta Ventura.
+Add subject prefix for the patch.
 
 Signed-off-by: Jason-Hsu <jasonhell19@gmail.com>
 ---
-v1:
-    1. Create ventura dts file.
-    2. Add commit msg.
-    3. Use format-patch to generate patch.
-    4. Add subject prefixes matching the subsystem.
----
-v2:
----
-    1. Modify email content.
-v3:
----
-    1. Add mail list.
-v4:
-    1. Apply git send-email --thread option.
-    2. Sort nodes in the dts alphanumerically. 
----
-Jason Hsu (1):
-  ARM: dts: aspeed: ventura: add Meta Ventura BMC
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Jason-Hsu (1):
-  dt-bindings: arm: aspeed: add Meta Ventura board
-
- .../bindings/arm/aspeed/aspeed.yaml           |   1 +
- arch/arm/boot/dts/aspeed/Makefile             |   1 +
- .../aspeed/aspeed-bmc-facebook-ventura.dts    | 883 ++++++++++++++++++
- 3 files changed, 885 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dts
-
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index 2f92b8ab08fa..98ea2b3e0eb1 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -86,6 +86,7 @@ properties:
+               - facebook,greatlakes-bmc
+               - facebook,harma-bmc
+               - facebook,minerva-cmc
++              - facebook,ventura-rmc
+               - facebook,yosemite4-bmc
+               - ibm,blueridge-bmc
+               - ibm,everest-bmc
 -- 
 2.34.1
 
