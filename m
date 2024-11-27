@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987A7D609DB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:26:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDF7D6ACC1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3pnFazxY8HzLhh4gTcIsD9NoAcCruO+q2t9IKoBKYJw=; b=ia8uR/PHTELo4sV/UiNpVCcS5U
-	dks17O8X4rWgQUy4g2ZUs9WBOnzaBJx9uMxRO8b0TKJYulZ5u5/4fvBzDOFxbfnY340JyrGnx5EWL
-	JPE4s+StqtciMpYWzYCOWsWImzaV32ufghHzeYzYbj3GvMR2Q9Vmqxi294HY2PQb7uI1LrRXCQvMu
-	F0k6H71GKLs3dTk4qkIgAx/PCStPp2jJoUc4t8PVdPlAIJ4ELoP/S2BeAztsqo/Li2kQ/W/kAbpwF
-	Nb3DvfzpjM8A3j6MUcs/eO4O7+7XFFzoJU6w1HYny07CQrY26LRmTt47UoW+gD4y+EMa1aHksLRaN
-	CZq8/a2w==;
+	bh=/SaWe6ybEx6oBenIcjOSn7QO5dVWiXFnNc4WUHgGhoA=; b=tXy0dnnPvNck3OXTFcNG8j3A9M
+	ysvtcAZsWoPzLBgeKdS7gfTwL0jmyoYVEj++n1Dx1jr2jlM+NPASs1LtVx1vet+FtPeA9bqjbbhdK
+	YHLg9p+2QRBln4iPpLcrUb9VIZWaFWYP4YYDrMUtVOQnbS+QoutSWh9emrFlj1rq3tM61p8rLbuna
+	EfBdd2vYU7E0FGImGXQHCmlnv+gNyYwPVdslKytURxaAG9bnEQbGKmSGTlhY+hfTMAa96qOy/1Bls
+	haTrLkbUBhbkH9hmqWxVPhHvZ3pGOgzO/+PFYOwit0dGdAWgYN1ZSNWuuAfL5J0xNO+DqIdawID4n
+	IRDeyqMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGGBA-0000000D0YG-07xI;
-	Wed, 27 Nov 2024 11:25:56 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tGGC7-0000000D0mG-0UC4;
+	Wed, 27 Nov 2024 11:26:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGG5l-0000000CzFE-1JGn
+	id 1tGG7R-0000000Czin-33kx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 11:20:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=3pnFazxY8HzLhh4gTcIsD9NoAcCruO+q2t9IKoBKYJw=; b=MSah3XyKasAIMaryEwuVLGuety
-	aV5UulyDIACFz2Fga7NQ4B3f+aS2m3NVO7MErNGrPkCd3cj/0I1CpmFK0f4Ngqiq0FOL/ZHPTHOvK
-	/ckaHb7ObAZDGfZtkQIbsB102cURe9h/f7H//YFkWHFEbMlOJ6mlDiRcwIsXyRrSlbWogeyFpZH8v
-	qCZJuSTKO4Eg4WLoFCef52QMAcuoAjzp0fhe7MaZOiagtSYi2jKQ1gpB4aXKd36D3Uco9+7Oy0Vag
-	3tdkB8WZ1RZzSbHq9VUXWLF0kcS5OmlnP6WvlS+M8IZz8IAYiAkS+SCG1V+Y0jU2Adsb1r7PDqsdX
-	GfM0qPQg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36484)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tGG5b-0000FS-2u;
-	Wed, 27 Nov 2024 11:20:12 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tGG5Y-00076z-1d;
-	Wed, 27 Nov 2024 11:20:08 +0000
-Date: Wed, 27 Nov 2024 11:20:08 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Bryan Whitehead <bryan.whitehead@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com
-Subject: Re: net: ti: weirdness (was Re: [PATCH RFC net-next 00/23] net:
- phylink managed EEE support)
-Message-ID: <Z0cAaH30cXo38xwE@shell.armlinux.org.uk>
-References: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
+	Wed, 27 Nov 2024 11:22:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CEB3C5C5767;
+	Wed, 27 Nov 2024 11:21:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3842AC4CECC;
+	Wed, 27 Nov 2024 11:22:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732706524;
+	bh=hBwJzSZN+81/po5owZZ+2DG5kWpJPktOtvHeqkBpVtg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pvfjTREwxvAbySSSU4BvCLuwcU5nihmL7x4BKfU2tbJTQYRS0NqjgNa6qCfNWQvkg
+	 uj/YboVRMX7kil/IfAIwJWs2uPKk9U6M/cegs1LryrST9mhtmvHa/Ive5/jAp8Xh3l
+	 2P3Hkp5T86ZudIZCOYb+CIoY5w7I25k/59TCt2N8AgYRSoa4nNOrvquV8wUKJrx4w8
+	 8geCRMd8CFmq9Gthvk8nM5EfeDC93Kbi5IlBPnTzAwgtxboL40Xzj+AOVswdMnFc1r
+	 UafIKD7WSwLTRDriTF8brOh0uHcgX51JotofRUbhMMdgs4CDxy0rQ/Fmog0aiL9kk6
+	 nHcUW2AIJrwlQ==
+Date: Wed, 27 Nov 2024 11:22:01 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: Re: [BOOT-WRAPPER PATCH 3/3] aarch64: Enable use of GCS for EL2 and
+ below
+Message-ID: <0bb52a0f-bb89-43bb-a64b-e042845c73ce@sirena.org.uk>
+References: <20241126153955.477569-1-mark.rutland@arm.com>
+ <20241126153955.477569-4-mark.rutland@arm.com>
+ <154929d3-c46b-42cd-9785-c48aa1b08d33@sirena.org.uk>
+ <Z0YNFCfisiCqU3lJ@J2N7QTR9R3.cambridge.arm.com>
+ <287e6fab-e858-4a7b-bc21-687c36742e24@sirena.org.uk>
+ <Z0bzmYuVweIT-5L5@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WqrhTCONN5Seprja"
 Content-Disposition: inline
-In-Reply-To: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
+In-Reply-To: <Z0bzmYuVweIT-5L5@J2N7QTR9R3>
+X-Cookie: Every path has its puddle.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_032021_347696_D401CA1B 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20241127_032205_860766_9D9E7159 
+X-CRM114-Status: GOOD (  30.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,28 +78,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 12:51:36PM +0000, Russell King (Oracle) wrote:
-> In doing this, I came across the fact that the addition of phylib
-> managed EEE support has actually broken a huge number of drivers -
-> phylib will now overwrite all members of struct ethtool_keee whether
-> the netdev driver wants it or not. This leads to weird scenarios where
-> doing a get_eee() op followed by a set_eee() op results in e.g.
-> tx_lpi_timer being zeroed, because the MAC driver doesn't know it needs
-> to initialise phylib's phydev->eee_cfg.tx_lpi_timer member. This mess
-> really needs urgently addressing, and I believe it came about because
-> Andrew's patches were only partly merged via another party - I guess
-> highlighting the inherent danger of "thou shalt limit your patch series
-> to no more than 15 patches" when one has a subsystem who's in-kernel
-> API is changing.
 
-Looking at the two TI offerings that call phy_ethtool_get_eee(), both
-of them call the phylib functions from their ethtool ops, but it looks
-like the driver does diddly squat with LPI state, which makes me wonder
-why they implemented the calls to phy_ethtool_get_eee() and
-phy_ethtool_set_eee(), since EEE will not be functional unless the PHY
-has been configured with a SmartEEE mode outside the kernel.
+--WqrhTCONN5Seprja
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+On Wed, Nov 27, 2024 at 10:25:54AM +0000, Mark Rutland wrote:
+> On Tue, Nov 26, 2024 at 06:53:03PM +0000, Mark Brown wrote:
+
+> > The values on reset follow the same pattern in all the GCS control
+> > registers down to GCSCRE0_EL1 so the initialisations of the other
+> > control registers are equally redundant.  We should be consistent here,
+> > either initialising all the GCS control registers or relying on the
+> > architecture defaults for all of them, and the note in the changelog
+> > about them needs an update if the initialisation is there.
+
+> Hmm... that's somewhat unusual, usually the architecture has a "minimal
+> reset policy", where _ELx register fields are only reset when ELx is the
+> highest EL after the reset, leaving it to SW to initialise lower ELs.
+> It's not clear to me if not following that here was deliberate or an
+> oversight.
+
+Yeah, I remember being a bit surprised by the choice.
+
+> > > That does raise the question of what specifically happens for a return
+> > > at EL3 when GCSCR_EL3.{PCRSEL,RVCHKEN} == {1,0}. Can you enlighten me?
+
+> > RET will attempt to load and use a GCS record, the pseudocode is in
+> > LoadCheckGCSRecord() which isn't EL dependent other than the selection
+> > of which GCSPR and GCSCR to use and setting the access as privileged if
+> > we're not at EL0.
+
+> Sorry, I got the bits backwards, and had meant the case where:
+
+> 	GCSCR_EL3.{PCRSEL,RVCHKEN} == {0,1}
+
+> ... where I assume the RVCHKEN bit has no effect given we don't have a
+> GCS return value to compare against, but wanted to confirm that there
+> wasn't an architectural edge-case that we might need to feed back to
+> architects.
+
+Oh, good - I was wondering why you weren't asking that rather than what
+you asked.
+
+> It *seems* like RVCHKEN has no effect for RET when PCRSEL is clear.
+> In ARM DDI 0487K.a, C6.2.291, the pseudocode for RET starts with:
+
+...
+
+> AFAICT GCSReturnValueCheckEnabled() is only used by
+> LoadCheckGCSRecord(), and that's only used by the pseudocode for
+> RET/RETAA/RETAB, so it looks like we're good.
+
+Yes, we only do a return value check if PCRSEL is active - it is only
+meaningful as part of a GCS load since it's a comparison of the value we
+got from the GCS with the value passed into the ret.
+
+--WqrhTCONN5Seprja
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdHANgACgkQJNaLcl1U
+h9CN0gf/alsJV67qFkv6dSBW6vSbi4jX90cjKjfXL6pzTAcFClQJi72cl1gOd6IT
+gCXE3J7bREZI+F1oEwDu5ENyAfaneST+p9qbbaDcI/8nSUMr2hrfVLxKSmd7rUcL
+Ld+/6DXmopymfdau2xZQJFh+/daOZJCA0mpaT2LxkLN+BY/2intTcqtW7UMgyHlK
+aZW0jWLjngr7VROij74b6HwLkUBrjYD1Kw3lavdCXE8K8s4AtPjrI+Jp4egmHplj
+QRBkHBm02icqgjXYEnfMl08Gv7Fe2l4OBYA/pwjPKSAmfA+6EDo/yerDB2rpKHrl
+vUIttPsCJpF4agwPsOq/q0KvSxAh7g==
+=Clru
+-----END PGP SIGNATURE-----
+
+--WqrhTCONN5Seprja--
 
