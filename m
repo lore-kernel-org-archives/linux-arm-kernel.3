@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F07FFD6ACE9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 15:23:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC75D6ACEB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 15:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NvBWtev1slrWXhkVcMmhNUJ2tEXO/H0E7EXWBQ0mv08=; b=ER2UtdiRQUsdOKohwitmb7i+Kc
-	j2c9X81cUk4H5jxPQ1CqG1+XXAMxiuQMQnx788LO9Yq0ih09JZT30Ep7QT+WD+zCBJmkdjfgIuveF
-	tU788nxQWs3gi6d1Qt67TiYxrntKkH5JGqIUtofDA0tD9SzSn/IJPX4Wx+Ek5Ig32COUvqgKaXW86
-	tq48De2yDYfClMMDQ6Kr73VNjiufbphWTJeALoQGkks91DlulAADxk1UO4yBX9dNSuT9eDmd0SzNx
-	sraOydyPaz+JRcN67FS0jB1buDWvmB0nzVIctXF/6XRnU/xdXQGibZjl/z+ohcua6PlDkQ4xluKg1
-	+Pms6SGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7pUeRfF12X20pJLteYenfLRJT9wdgKObIgS/G5jnVVo=; b=XJquqShWVnwey7bFcMU5A1c8au
+	nCerFNYXm9ynIoy9ntovYxASRhXOhumI1XZ+wu9rhy07suuBCTtB4adBcLMXO5tYIxHS3Xn0afhm2
+	4ObZPLUzo5sA0zh29JfwUBXlxrATivbY7FQPlAFQY0+eGqQ0XRVECCSajoFkLtgaFzC1Sck4QiyHd
+	Jeyf89smXE/BCFGDwR+PvKyGBAKCI77FkdUFPTgPRuZQ5QGSLQS6jKNVc0jKVOdr+4bDRyWuSPVZC
+	WcSY2fIqJe4MPzy7M7xe1NyUP3PtAzAzhYN8xAjiKo0XXwxdtBsbD8f7286uYywvD7yyyuGQGvjho
+	PaJRwcbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJtI-0000000DUzL-1pqs;
-	Wed, 27 Nov 2024 15:23:44 +0000
-Received: from smtp-fw-80008.amazon.com ([99.78.197.219])
+	id 1tGJvG-0000000DVHg-285x;
+	Wed, 27 Nov 2024 15:25:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJsJ-0000000DUrb-0c2v;
-	Wed, 27 Nov 2024 15:22:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1732720963; x=1764256963;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=NvBWtev1slrWXhkVcMmhNUJ2tEXO/H0E7EXWBQ0mv08=;
-  b=dfXM2K7W1ann49CDovlt4tmfhJUqOJERZ/2WJhgMnHlaipmYT3HJimaC
-   hQGX5e63SnuTArgspf8dcRYN+NTa8mADuUcapq8ZJS9Rxgz+yMhRoGviZ
-   Ig5ESzqHpk773g9iwbHQ36/cmC3pcfSjvjUHqQlERUe3USNcgiXqYvB0y
-   c=;
-X-IronPort-AV: E=Sophos;i="6.12,189,1728950400"; 
-   d="scan'208";a="148444442"
-Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.214])
-  by smtp-border-fw-80008.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2024 15:22:38 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [10.0.38.20:4762]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.10.101:2525] with esmtp (Farcaster)
- id 090d255a-bd4e-4b8c-9604-9659de410a04; Wed, 27 Nov 2024 15:22:38 +0000 (UTC)
-X-Farcaster-Flow-ID: 090d255a-bd4e-4b8c-9604-9659de410a04
-Received: from EX19D013UWB003.ant.amazon.com (10.13.138.111) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Wed, 27 Nov 2024 15:22:37 +0000
-Received: from EX19MTAUWC001.ant.amazon.com (10.250.64.145) by
- EX19D013UWB003.ant.amazon.com (10.13.138.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Wed, 27 Nov 2024 15:22:37 +0000
-Received: from email-imr-corp-prod-iad-all-1a-93a35fb4.us-east-1.amazon.com
- (10.25.36.210) by mail-relay.amazon.com (10.250.64.145) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1258.34 via Frontend Transport; Wed, 27 Nov 2024 15:22:37 +0000
-Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com [172.19.116.181])
-	by email-imr-corp-prod-iad-all-1a-93a35fb4.us-east-1.amazon.com (Postfix) with ESMTP id C4BC640610;
-	Wed, 27 Nov 2024 15:22:36 +0000 (UTC)
-Received: by dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (Postfix, from userid 14301484)
-	id 7AFF345B; Wed, 27 Nov 2024 15:22:36 +0000 (UTC)
-From: Eliav Farber <farbere@amazon.com>
-To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
-	<naveen@kernel.org>, <maddy@linux.ibm.com>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
-	<akpm@linux-foundation.org>, <bhe@redhat.com>, <farbere@amazon.com>,
-	<hbathini@linux.ibm.com>, <adityag@linux.ibm.com>,
-	<songshuaishuai@tinylab.org>, <takakura@valinux.co.jp>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>
-CC: <jonnyc@amazon.com>
-Subject: [PATCH v2] arm64: kexec: Check if IRQ is already masked before masking
-Date: Wed, 27 Nov 2024 15:22:36 +0000
-Message-ID: <20241127152236.26122-1-farbere@amazon.com>
-X-Mailer: git-send-email 2.40.1
+	id 1tGJuI-0000000DVDK-47br
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 27 Nov 2024 15:24:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=7pUeRfF12X20pJLteYenfLRJT9wdgKObIgS/G5jnVVo=; b=nItdjErw2nzwL7mjVOdeqeZePe
+	PgDSZCuc/bbtwtj1q3GER5zgQ/LktDJT2418rNYcjcMmlpxic828A7OEuUN3tAI0mT8p8otn5WYJ4
+	2MGa7iyyZdzEqM1LUS5TdRGsccw4hWT77vK22LmXrKpnl1UIBBTEf2T23lL0hKw7oG3wSYzuwJSRM
+	Gj0jk92K2RiDXV7PYolATHi618PiYqtK1TRbybwGZUXcE2Jxy6AzUJe204gsDEh4xaA/REewPM+c1
+	SxKBMrT+RJRXTb2lzqq6hX5YouuiPaM2MvyeElJa2d2+gVlGwT1cy7ob5fKuo5D8INZeX1Rz5OltG
+	QdEr+RJw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tGJuF-00000001QU9-3WFJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Nov 2024 15:24:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F4161477;
+	Wed, 27 Nov 2024 07:25:07 -0800 (PST)
+Received: from [10.57.69.41] (unknown [10.57.69.41])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0519E3F58B;
+	Wed, 27 Nov 2024 07:24:34 -0800 (PST)
+Message-ID: <a7011738-a084-46fa-947f-395d90b37f8b@arm.com>
+Date: Wed, 27 Nov 2024 15:24:32 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: Bump KVM_VCPU_MAX_FEATURES
+To: Marc Zyngier <maz@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Will Deacon <will@kernel.org>,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241127145644.421352-1-steven.price@arm.com>
+ <86a5dkvh9o.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <86a5dkvh9o.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_072243_236987_5D321905 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20241127_152444_059147_8E8002D9 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,169 +83,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During machine kexec, the function machine_kexec_mask_interrupts() is
-responsible for disabling or masking all interrupts. While the
-irq_disable hook ensures that an already-disabled IRQ is not disabled
-again, the current implementation unconditionally invokes the irq_mask()
-function for every interrupt descriptor, even when the interrupt is
-already masked.
+On 27/11/2024 15:16, Marc Zyngier wrote:
+> On Wed, 27 Nov 2024 14:56:31 +0000,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> When the KVM_ARM_VCPU_HAS_EL2 define was added, the value of
+>> KVM_VCPU_MAX_FEATURES wasn't incremented, so that feature has never been
+>> in the KVM_VCPU_VALID_FEATURES bit mask. This means the HAS_EL2 feature
+>> will never be exposed to user space even if the system supports it.
+>>
+>> Fixes: 89b0e7de3451 ("KVM: arm64: nv: Introduce nested virtualization VCPU feature")
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> I might be missing something, and it's possible that
+>> KVM_ARM_VCPU_HAS_EL2 is deliberately not exposed yet.
+> 
+> This is on purpose. I'm not planning to enable EL2 support until it is
+> ready.
 
-A specific issue was observed in the crash kernel flow after unbinding a
-device (prior to kexec) that used a GPIO as an IRQ source. The warning
-was triggered by the gpiochip_disable_irq() function, which attempted to
-clear the FLAG_IRQ_IS_ENABLED flag when FLAG_USED_AS_IRQ was not set:
+I did suspect that's the case - but it might have been better to knobble
+it in system_supported_vcpu_features()/kvm_vcpu_init_check_features()
+rather than 'hiding' it in the MAX_FEATURES. But hindsight is a
+wonderful thing ;)
 
-```
-void gpiochip_disable_irq(struct gpio_chip *gc, unsigned int offset)
-{
-	struct gpio_desc *desc = gpiochip_get_desc(gc, offset);
+>> However I'm
+>> working on v6 of the host CCA series and as part of that want to add a
+>> new feature but and bump KVM_VCPU_MAX_FEATURES up to 9.
+> 
+> Well, I guess that defines some ordering then! :D
 
-	if (!IS_ERR(desc) &&
-	    !WARN_ON(!test_bit(FLAG_USED_AS_IRQ, &desc->flags)))
-		clear_bit(FLAG_IRQ_IS_ENABLED, &desc->flags);
-}
-```
+Indeed - I'll try to remember to include note about this "dependency" in
+my cover letter. We're likely to need a few more rounds for CCA to be
+ready, so hopefully NV will naturally be there in time :D
 
-The issue emerged after commit a8173820f441 ("gpio: gpiolib: Allow GPIO
-IRQs to lazy disable"), which introduced lazy disablement for GPIO IRQs
-by replacing disable/enable hooks with mask/unmask hooks in some cases.
-While irq_disable guarded against redundant operations, the unguarded
-irq_mask in machine_kexec_mask_interrupts() led to warnings when invoked
-on already-masked IRQs.
-
-When a GPIO-IRQ-using driver is unbound, the IRQ is released, invoking
-__irq_disable() and irq_state_set_masked(). A subsequent call to
-machine_kexec_mask_interrupts() reinvoked chip->irq_mask(), leading to a
-call chain that included gpiochip_irq_mask() and gpiochip_disable_irq().
-Because FLAG_USED_AS_IRQ was cleared earlier, a warning was printed.
-
-This patch replaces the direct invocation of the irq_mask() and
-irq_disable() hooks with simplified code that leverages the
-irq_disable() kernel infrastructure. This higher-level function checks
-the interrupt's state to prevent redundant operations. Additionally, the
-IRQ_DISABLE_UNLAZY status flag is set to ensure that, for interrupt
-chips lacking an irq_disable callback, the disable operation is handled
-using the lazy approach.
-
-As part of this change, the irq_disable() declaration was moved from
-kernel/irq/internals.h to include/linux/irq.h to make it accessible
-outside the kernel/irq/ directory, as the former can only be included
-within that directory.
-
-Signed-off-by: Eliav Farber <farbere@amazon.com>
----
-V1 -> V2:
-- Implement an alternative solution by utilizing the kernel's
-  irq_disable() infrastructure.
-- Apply the fix to additional architectures, including ARM, PowerPC,
-  and RISC-V.
----
- arch/arm/kernel/machine_kexec.c   | 7 ++-----
- arch/arm64/kernel/machine_kexec.c | 7 ++-----
- arch/powerpc/kexec/core.c         | 7 ++-----
- arch/riscv/kernel/machine_kexec.c | 7 ++-----
- include/linux/irq.h               | 2 ++
- kernel/irq/internals.h            | 1 -
- 6 files changed, 10 insertions(+), 21 deletions(-)
-
-diff --git a/arch/arm/kernel/machine_kexec.c b/arch/arm/kernel/machine_kexec.c
-index 80ceb5bd2680..54d0bd1bd449 100644
---- a/arch/arm/kernel/machine_kexec.c
-+++ b/arch/arm/kernel/machine_kexec.c
-@@ -142,11 +142,8 @@ static void machine_kexec_mask_interrupts(void)
- 		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
- 			chip->irq_eoi(&desc->irq_data);
- 
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
-+		irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
-+		irq_disable(desc);
- 	}
- }
- 
-diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-index 82e2203d86a3..9b48d952df3e 100644
---- a/arch/arm64/kernel/machine_kexec.c
-+++ b/arch/arm64/kernel/machine_kexec.c
-@@ -230,11 +230,8 @@ static void machine_kexec_mask_interrupts(void)
- 		    chip->irq_eoi)
- 			chip->irq_eoi(&desc->irq_data);
- 
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
-+		irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
-+		irq_disable(desc);
- 	}
- }
- 
-diff --git a/arch/powerpc/kexec/core.c b/arch/powerpc/kexec/core.c
-index b8333a49ea5d..3489e50f5017 100644
---- a/arch/powerpc/kexec/core.c
-+++ b/arch/powerpc/kexec/core.c
-@@ -36,11 +36,8 @@ void machine_kexec_mask_interrupts(void) {
- 		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
- 			chip->irq_eoi(&desc->irq_data);
- 
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
-+		irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
-+		irq_disable(desc);
- 	}
- }
- 
-diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-index 3c830a6f7ef4..a9df80e0602c 100644
---- a/arch/riscv/kernel/machine_kexec.c
-+++ b/arch/riscv/kernel/machine_kexec.c
-@@ -129,11 +129,8 @@ static void machine_kexec_mask_interrupts(void)
- 		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
- 			chip->irq_eoi(&desc->irq_data);
- 
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
-+		irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
-+		irq_disable(desc);
- 	}
- }
- 
-diff --git a/include/linux/irq.h b/include/linux/irq.h
-index fa711f80957b..176a7f671409 100644
---- a/include/linux/irq.h
-+++ b/include/linux/irq.h
-@@ -600,6 +600,8 @@ enum {
- 
- #define IRQ_DEFAULT_INIT_FLAGS	ARCH_IRQ_INIT_FLAGS
- 
-+extern void irq_disable(struct irq_desc *desc);
-+
- struct irqaction;
- extern int setup_percpu_irq(unsigned int irq, struct irqaction *new);
- extern void remove_percpu_irq(unsigned int irq, struct irqaction *act);
-diff --git a/kernel/irq/internals.h b/kernel/irq/internals.h
-index fe0272cd84a5..d9104d2b26b4 100644
---- a/kernel/irq/internals.h
-+++ b/kernel/irq/internals.h
-@@ -91,7 +91,6 @@ extern int irq_startup(struct irq_desc *desc, bool resend, bool force);
- extern void irq_shutdown(struct irq_desc *desc);
- extern void irq_shutdown_and_deactivate(struct irq_desc *desc);
- extern void irq_enable(struct irq_desc *desc);
--extern void irq_disable(struct irq_desc *desc);
- extern void irq_percpu_enable(struct irq_desc *desc, unsigned int cpu);
- extern void irq_percpu_disable(struct irq_desc *desc, unsigned int cpu);
- extern void mask_irq(struct irq_desc *desc);
--- 
-2.40.1
+Thanks,
+Steve
 
 
