@@ -4,107 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8A16D609AD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 08:25:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA48D609AD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 08:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Message-Id:MIME-Version:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DLdQSuBYZn4bZL0sD7tkxRgW+8xJC7aPjWdDJFdluR8=; b=a6k6Xp3r7Acr68LuTgQhMfxv6w
-	qoABYitXxLHpaz6ZvDJrjMFyrlU0WZcU09a6YVrgygCdWtAD/zh07Io3Suuotg7XNV/Q354fjLce9
-	bOsJMmbXWQI73g+Ytvc7XAFKH7xkC2rjWUnvi9mQIf+UYX3kNM75Q4/Jfj4fSLyvop/PMQNTDj2QD
-	e8SPR6p/EdiWt43l8KPr0ZQ7NEt0WhlokUzkkppJVOirBYa9UJT67ELXS1LuUpAUnyWyvSu4HXnyY
-	ehlhunhlCuWvFG8A5N19wIBi7T+R8tYpyR5/cC2SLgx2bdqfNSwogbN+04mhZFcW2bJTuz3x93Qvo
-	BCYxF1xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lOqsn9U9UwR9ECKJB886+Y24JEgcO/1OMJG6KFsH084=; b=I2ZSXSSdAKJhx1wJFiM7aQhw8t
+	6F1hPrgVYGuaGS2MVXHYS4BoXZ7Tf7PQv8hBwN0a2+v+DgHPX4sCYHjjzZo+rxThuZxQiZ7M+3tW5
+	LorXN1Dwg8niOCf3sBZbpFejWkkwynW1qcaIQIXIaS23n9WNSCmWxV7EyCdYeE3jLhBCFD1WT+Rct
+	qF3IgAL7sfk0c6htRr9pVe/rUNDxAuiI3rtseVK07JI2wWRjFra+3d7+Y6Z4H3uV0sLmUwU8PZK8X
+	zSIyWzDopA0/MRD2z5G2mxvns8Mn3CT5jZWrmClYPmvvKo/4z9lrt45+ueApzxHSn4cZOOpy/miAP
+	//3h3B4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGDMG-0000000CZ7D-1hHc;
-	Wed, 27 Nov 2024 08:25:12 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tGDNB-0000000CZGN-47iD;
+	Wed, 27 Nov 2024 08:26:09 +0000
+Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGDLF-0000000CYxz-01Z0
+	id 1tGDLY-0000000CZ1P-2umK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 08:24:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1732695848;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=DLdQSuBYZn4bZL0sD7tkxRgW+8xJC7aPjWdDJFdluR8=;
-	b=J875uA/Ao2As0ZrJ1pd552kLsd3moOG9/x0W24Fn7FZ5Jdvmzevrwz1l2J78KfPx68G1fs
-	D/zbmuGJI/99FIXDmdRtsIxNXkx3bXohC4K9yCX7anNdUpMbicsmCafZQxIWMZ+H7mLjta
-	3HPT3Xjvs3hkJAq19ZBoi7iY4c+kJ+w=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-342-PXMeMcHNNgKaa2xgvv3J8w-1; Wed, 27 Nov 2024 03:24:07 -0500
-X-MC-Unique: PXMeMcHNNgKaa2xgvv3J8w-1
-X-Mimecast-MFC-AGG-ID: PXMeMcHNNgKaa2xgvv3J8w
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4349cb9fb55so3466335e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 00:24:06 -0800 (PST)
+	Wed, 27 Nov 2024 08:24:29 +0000
+Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e38c1ac8e3cso504403276.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 00:24:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732695867; x=1733300667; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=lOqsn9U9UwR9ECKJB886+Y24JEgcO/1OMJG6KFsH084=;
+        b=hCylf+Hbta2YP4AF33QLSpbLJ2KOWMJ05W0sqlHsS3vGREG5gtKmN2hKA3rn0CuTuu
+         EPx3GShtzWF5kS2lDdbvtgVEWt/2tgwqQ6c+sm3+MqXrDqdMTmJrwsAHZ+LYT17QjAyj
+         IJ7alJ+FLBNRB6XfvJO2hGy3IftgcIN5du9tLZiSTv2uuZ5uzPwn7f0KHWsRaqVpjTJr
+         MbnS+nCnU8pMWyT+SsKeaYvmJtwmIvW7bTGm67rc/IVneJV598L7OG9T5a3Oljma5fXo
+         cTibaMr6qL2Pe5PQSR9WWIe1a1SN97eeqztfKnTZmSZ3ld1J5yrisFIjj3nMVzouSpea
+         1mmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732695845; x=1733300645;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1732695867; x=1733300667;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DLdQSuBYZn4bZL0sD7tkxRgW+8xJC7aPjWdDJFdluR8=;
-        b=mdbhxoKfz/3UB0y5zOuEtMKPDPhYJjXmotMRJKzqWZzJHG3OJkgOnWfMyayq1MN4nO
-         RiQx0DCLnnc87lluhDc3u6wdl/1GEFeyvEF1voF5zHW2JHnbORGddnSnOIGyMLIeZCYi
-         byUB7LOQBNJ0sh1zoMbKJqJACPMAXhUgmYqjYL4JRt/hT4tcK4hgmvSgQp5x3j3xYu+X
-         Ee6ey/Vj/b3WyOb8INorMjNlopHWPMq/KdHkHFxzn2T8tACEVHcsmhhQVgx96J/tuhVR
-         LNzy06ipmqj8p6mzCb/u/OwTbJDUVmpsUc8rSUs6/StFFykFm9vZSpyjWn2koI8zil5N
-         4tcw==
-X-Forwarded-Encrypted: i=1; AJvYcCVATi93r2yH8o8EezscWryC0ePIwJnCV3e9OL1Gc2zliyBCDpPgehNdkFCwc2r68MSE/EX5FU3ddNb4gWrQIpaz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzc7vc/Wv5nSwf5N6Wo3WrKXokvl4Xj+pFP/YtW7uVj+lKgxgST
-	b7Fs0Ko0oIo1xsMRUW7A08htcV303dA2qOhNvPiN2WKAnAkOmVsC7VVQzUkQDHt/x1ZNbcAxrJ5
-	AcXOaVHvwWjryDz0hhhBuyHKqGq/KKJjMYAyV2fCFVlNfOplZ+ovyKEK1ne/CfyIlxIA9RNYmUw
-	+7YexhnAxXlp120U7G/CqkpjxJP2fvJ0s0H36nn7cXe7hOYifwadHWPXJ/DlxkNw==
-X-Gm-Gg: ASbGncvivjCO5eSz1xRoe1/B/ktO2JRaLqFbhP5dVVY2bkgs3qmCFtMeTaeP5ZuN0yk
-	Dgh52wWshlsGi6aYcBbzAAPtH0i29wUpFNMXTqQH1tKbWwpqcn/do7lprY1CWfR0HnleriRd36F
-	eelez9oyy6rOEI6eeA2cgbaVO+E/9q7Tt0wpHhw/FcWuejSl7JuRVS6ueNhDqnvT5tTmnDPccvY
-	Fho0UUh+jWpOaAMOtddnozDjI49G1w7mVPwgFKnM3D5R37BI6scps8RaqLFrCR55PyY111/+0X7
-	bQq6pp+Qs/7xOi6Oly8=
-X-Received: by 2002:a05:600c:1d1e:b0:42c:aeee:da86 with SMTP id 5b1f17b1804b1-434a9e1ce8emr6680225e9.8.1732695845343;
-        Wed, 27 Nov 2024 00:24:05 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IF7GbyJq6Op0/kUh8of8dCHY9qLEVFtAu4wzuAcMAOzg4JRz58ZFg7QoPddZ13kWOBq1Symeg==
-X-Received: by 2002:a05:600c:1d1e:b0:42c:aeee:da86 with SMTP id 5b1f17b1804b1-434a9e1ce8emr6680045e9.8.1732695844985;
-        Wed, 27 Nov 2024 00:24:04 -0800 (PST)
-Received: from [192.168.1.51] (200.red-83-45-89.dynamicip.rima-tde.net. [83.45.89.200])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa78007dsm13105145e9.19.2024.11.27.00.24.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Nov 2024 00:24:04 -0800 (PST)
-From: Enric Balletbo i Serra <eballetb@redhat.com>
-Date: Wed, 27 Nov 2024 09:23:51 +0100
-Subject: [PATCH] dmaengine: dma_request_chan_by_mask() defer probing
- unconditionally
+        bh=lOqsn9U9UwR9ECKJB886+Y24JEgcO/1OMJG6KFsH084=;
+        b=IBcXEnF0qC8h0Tjw6RYx/v6Vk47w0kyKMnB7fKyN3WFeacq3NfnvdPf0lBI+RRW8M3
+         Kp5S7XXBQICJPIcmiGjDo6YpICfLNhddY+y84ziHdYvgQ+1QLqasUKgjcTY6Y/50HfyF
+         Pc6NNIfDCP2K2Oytr946CBR/DDykaqapkO1N41X7uS8N7Rrm8w3RBwhdCH79P4/1Wl7b
+         NfZKvxcrRa5vuWW+fWTuddAGFvjXfnwlSGwQEo22RwCLdm5IIsfjwdtpV9jgHGCj0eTX
+         3/gH0g9bMAf4JdEhFQJyTPCw09By1GOnk+JG0fjRURf9Sz4cuXy8CjaSXGbKgsXDrlxy
+         srxw==
+X-Forwarded-Encrypted: i=1; AJvYcCUzP0KhbFnlzcfQ1jfKux2mfbUURPSgFHmyYJYGwqnxIAo2gmNJvGGPXJq6beOm7PKCMr/5G2Bfie9a0k9UJ1eC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfQGoqFy1KQz+AqPAd7tXl9vCZpcKBfnfA1QQL6ISnTV0l2rSK
+	vunmXr0Kw+r4GCIMrSFM4GMREpiHsRyC7GOTPxlCVdMVgKqTZN6Lq2/JdJfqiGsMxjGzL+mGOFG
+	H4yPkznTqEygVtIPQ/sXUjYnbVjU=
+X-Gm-Gg: ASbGncvJT/LbIt9N26d0Q3UZXX5qRowreghB8N/Eb+mN0JYa6QoPKASWCII2bfhheAG
+	4thZkpx7r9j1YSOMbDRVtHJ6TGW5GPAxa
+X-Google-Smtp-Source: AGHT+IE7WQ4zcWjkTsHj3YU6P5a3zfrxQl6S9zfO+CZjireFyD7ogJ24uCCbFBJtrFm5m1j/xcyE0rDoDRhRHJhalAM=
+X-Received: by 2002:a05:6902:91e:b0:e35:ddad:5ab0 with SMTP id
+ 3f1490d57ef6-e395af12b3dmr1823834276.18.1732695867370; Wed, 27 Nov 2024
+ 00:24:27 -0800 (PST)
 MIME-Version: 1.0
-Message-Id: <20241127-defer-dma-request-chan-v1-1-203db7baf470@redhat.com>
-X-B4-Tracking: v=1; b=H4sIABbXRmcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIxNDQyNz3ZTUtNQi3ZTcRN2i1MLS1OISXZA6XZM0I7NkM6NkCzNLQyWg5oK
- i1LTMCrDB0bG1tQDXiOkqaAAAAA==
-X-Change-ID: 20241127-defer-dma-request-chan-4f26c62c8691
-To: Vinod Koul <vkoul@kernel.org>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, u-kumar1@ti.com, vigneshr@ti.com, 
- nm@ti.com, Enric Balletbo i Serra <eballetb@redhat.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732695844; l=1509;
- i=eballetb@redhat.com; s=20241113; h=from:subject:message-id;
- bh=D2zCNvv6RwYiCqPdzLthSS1rvZf7x6Pd4PMS/3lR1SA=;
- b=d6wKUqj3cMQazozorTN/arh1KBjFhAOsX/bo5B/+yX16/O3xEFZDPS9LxlOHt5vht7alVetvp
- xFILBftgKA+CalsReYgGnL7FBDHKW0w9RGtqrFjTXoQ/tTKeMyzrop2
-X-Developer-Key: i=eballetb@redhat.com; a=ed25519;
- pk=xAM6APjLnjm98JkE7JdP1GytrxFUrcDLr+fvzW1Dlyw=
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: WHcksZslr64JOnTOufilZAiHaVfPH2MxvR-z-GKfqb8_1732695846
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+References: <20241126-z2-v1-0-c43c4cc6200d@gmail.com> <20241126-z2-v1-2-c43c4cc6200d@gmail.com>
+ <Z0aCSBNEAJlgNIAI@google.com>
+In-Reply-To: <Z0aCSBNEAJlgNIAI@google.com>
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Date: Wed, 27 Nov 2024 09:24:16 +0100
+Message-ID: <CAMT+MTT0oiODONgEipLuAaZyzD-YyM8mbAcRsZKn8N4E326kMw@mail.gmail.com>
+Subject: Re: [PATCH 2/4] input: apple_z2: Add a driver for Apple Z2 touchscreens
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Janne Grunau <j@jannau.net>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_002409_128679_36224F7B 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20241127_002428_736724_69AE17E4 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,49 +96,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Having no DMA devices registered is not a guarantee that the device
-doesn't exist, it could be that is not registered yet, so return
-EPROBE_DEFER unconditionally so the caller can wait for the required
-DMA device registered.
+On Wed, 27 Nov 2024 at 03:22, Dmitry Torokhov <dmitry.torokhov@gmail.com> wrote:
+> > +     u16 checksum;
+>
+> Does this need endianness annotation? It is being sent to the device...
 
-Signed-off-by: Enric Balletbo i Serra <eballetb@redhat.com>
----
-This patch fixes the following error on TI AM69-SK
+Both host and device are always little endian, and this whole thing is
+using a bespoke Apple protocol, so is unlikely to ever be seen on a BE
+machine. But i am not opposed to adding endianness handling.
 
-[    2.854501] cadence-qspi 47040000.spi: error -ENODEV: No Rx DMA available
+> > +             slot_valid = fingers[i].state == APPLE_Z2_TOUCH_STARTED ||
+> > +                          fingers[i].state == APPLE_Z2_TOUCH_MOVED;
+> > +             input_mt_slot(z2->input_dev, slot);
+> > +             input_mt_report_slot_state(z2->input_dev, MT_TOOL_FINGER, slot_valid);
+> > +             if (!slot_valid)
+> > +                     continue;
+>
+> Shorter form:
+>
+>                 if (!input_mt_report_slot_state(...))
+>                         continue;
 
-The DMA device is probed after cadence-qspi driver, so deferring it
-solves the problem.
----
- drivers/dma/dmaengine.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Sorry, but i fail to see how that is shorter, i am setting the slot state to
+slot_valid, which is being computed above, so, why not just reuse
+that instead of fetching it from input's slot state?
 
-diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-index c1357d7f3dc6ca7899c4d68a039567e73b0f089d..57f07b477a5d9ad8f2656584b8c0d6dffb2ab469 100644
---- a/drivers/dma/dmaengine.c
-+++ b/drivers/dma/dmaengine.c
-@@ -889,10 +889,10 @@ struct dma_chan *dma_request_chan_by_mask(const dma_cap_mask_t *mask)
- 	chan = __dma_request_channel(mask, NULL, NULL, NULL);
- 	if (!chan) {
- 		mutex_lock(&dma_list_mutex);
--		if (list_empty(&dma_device_list))
--			chan = ERR_PTR(-EPROBE_DEFER);
--		else
--			chan = ERR_PTR(-ENODEV);
-+		/* If the required DMA device is not registered yet,
-+		 * return EPROBE_DEFER
-+		 */
-+		chan = ERR_PTR(-EPROBE_DEFER);
- 		mutex_unlock(&dma_list_mutex);
- 	}
- 
+> > +     ack_xfer.tx_buf = int_ack;
+> > +     ack_xfer.rx_buf = ack_rsp;
+>
+> I think these buffers need to be DMA-safe.
 
----
-base-commit: 43fb83c17ba2d63dfb798f0be7453ed55ca3f9c2
-change-id: 20241127-defer-dma-request-chan-4f26c62c8691
+Do they? Our spi controller is not capable of doing DMA (yet?)
+and instead copies everything into a fifo. But even if it was capable,
+wouldn't that be the controller driver's responsibility to dma-map them?
 
-Best regards,
--- 
-Enric Balletbo i Serra <eballetb@redhat.com>
+> > +             if (fw->size - fw_idx < 8) {
+> > +                     dev_err(&z2->spidev->dev, "firmware malformed");
+>
+> Maybe check this before uploading half of it?
 
+That would be an extra pass though the firmware file, and the device
+is okay with getting reset after a partial firmware upload, there is no
+onboard storage that can be corrupted, and we fully reset it on each
+boot (or even more often) anyway.
+
+> > +     error = apple_z2_boot(z2);
+>
+> Why can't we wait for the boot in probe()? We can mark the driver as
+> preferring asynchronous probe to not delay the overall boot process.
+
+A comment on previous version of this submission asked not to load
+firmware in probe callback, since the fs may be unavailable at that point.
+
+Ack on all other comments, will be fixed for v2.
 
