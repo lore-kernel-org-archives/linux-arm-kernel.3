@@ -4,56 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CF20D6ACE3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 14:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F21D6ACE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 15:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4ycFpYnG4M3pW2q14NE6/ihqJTbDKGGyyRx7Q9yFq9Q=; b=1AYWcWeTs8CjdpT+Esro2UZu1h
-	JEEIn8MEYLZs+FVQoOAcJTK4acbVlf0N9vFIW9sDYLlTXVz0tnhqCUQq9eGpUFxUQ02bm4TV1QehJ
-	zhPCxUCWy9FYDqgrij79i7SHe+Vicu+yxIxEbvnIqmKP+kqYVcpOQLVQGxqt2epOgdw3VGs5YzTmb
-	mAGjIryK8nXmxju5IxAaSwSF02ZtQgxhIVsRRNhsEidVOf7mBWO31vcUQoSJRTL20zTW5zE/jHJiO
-	1rn6Pj4PObS0/N3RcXx7Tn0shfB4INfsoFDWK3JxKa+8eLSW82nA0noy69+i5qJt0JzX/nVEbOpax
-	YdJVGDUQ==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2DX3H+a44kQ13gTw3hzeF4XJrHuDL47mesPKbbKCQO8=; b=kBaNaiG1F4lCi0jJ/vG6PQXYQJ
+	CrJnlZ/zSWI9FcQ0l/ZcBy4okDRuubqgRr8yq13LXXrl//vB/7E9HiPVuBDqqIDpYaHoVyPPUeD3f
+	cT7n+qWBJyNdbcoWJNf+B8CrzcxIVhmNnVewVX+7KHD0bbUU120AH+/vv1Z6VZLtYj6Rs4jifG+5D
+	gGiqdoJKT6nwohZBw0+zi/3nYNlyFHuDFOsIj7UskSood6eYMCScxPc/ReMkpQYTB5T6kfdeRiijO
+	RtJJGHuIdCxRBeFA5alh4ErMpWXgkjFl8LX4WPfcXBoyQ5mNYvz2GhQgJ3tpDy7LcUCoUf1+z8egz
+	VJuOCS4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJUT-0000000DQdL-1RGx;
-	Wed, 27 Nov 2024 14:58:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJTU-0000000DQWF-2n1r
+	id 1tGJWT-0000000DQvo-4A7w;
+	Wed, 27 Nov 2024 15:00:09 +0000
+Received: from smtp-fw-52002.amazon.com ([52.119.213.150])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tGJVU-0000000DQoe-43EB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 14:57:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B31C1477;
-	Wed, 27 Nov 2024 06:57:30 -0800 (PST)
-Received: from e122027.arm.com (unknown [10.57.69.41])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0B85D3F58B;
-	Wed, 27 Nov 2024 06:56:57 -0800 (PST)
-From: Steven Price <steven.price@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Will Deacon <will@kernel.org>
-Cc: Steven Price <steven.price@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] KVM: arm64: Bump KVM_VCPU_MAX_FEATURES
-Date: Wed, 27 Nov 2024 14:56:31 +0000
-Message-ID: <20241127145644.421352-1-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 27 Nov 2024 14:59:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1732719548; x=1764255548;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=2DX3H+a44kQ13gTw3hzeF4XJrHuDL47mesPKbbKCQO8=;
+  b=hnKRcQdTiISbzqz2T6gmdx2yTN6a/Bw0i3EiUcQl+e26EMI4ervAaWL7
+   dKRwP2YicihhciB0hsNfS5ylDV6ss6EtC2vhEAoYikP8XBvDy/BbpDin9
+   yZb5pkqtuZP7ocsCF/pD1Vlvizwipn0NPecZt5vFSYtT4xnIovATDK16a
+   E=;
+X-IronPort-AV: E=Sophos;i="6.12,189,1728950400"; 
+   d="scan'208";a="677169741"
+Received: from iad6-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.124.125.6])
+  by smtp-border-fw-52002.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2024 14:59:02 +0000
+Received: from EX19MTAEUC001.ant.amazon.com [10.0.10.100:60970]
+ by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.26.13:2525] with esmtp (Farcaster)
+ id e0021fdb-2735-4534-9e9c-863282448e48; Wed, 27 Nov 2024 14:59:01 +0000 (UTC)
+X-Farcaster-Flow-ID: e0021fdb-2735-4534-9e9c-863282448e48
+Received: from EX19D018EUA004.ant.amazon.com (10.252.50.85) by
+ EX19MTAEUC001.ant.amazon.com (10.252.51.155) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Wed, 27 Nov 2024 14:59:01 +0000
+Received: from [192.168.90.101] (10.85.143.173) by
+ EX19D018EUA004.ant.amazon.com (10.252.50.85) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Wed, 27 Nov 2024 14:58:57 +0000
+Message-ID: <7846b08f-5bdb-448b-9c56-73d9f16a839b@amazon.com>
+Date: Wed, 27 Nov 2024 16:58:53 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: kexec: Check if IRQ is already masked before
+ masking
+To: Marc Zyngier <maz@kernel.org>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
+	<bhe@redhat.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <jonnyc@amazon.com>
+References: <20241126050509.4426-1-farbere@amazon.com>
+ <86cyihvopl.wl-maz@kernel.org>
+Content-Language: en-US
+From: "Farber, Eliav" <farbere@amazon.com>
+In-Reply-To: <86cyihvopl.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.85.143.173]
+X-ClientProxiedBy: EX19D042UWB003.ant.amazon.com (10.13.139.135) To
+ EX19D018EUA004.ant.amazon.com (10.252.50.85)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_065704_743474_A88C8884 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20241127_065909_320816_B7B759AA 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,36 +90,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the KVM_ARM_VCPU_HAS_EL2 define was added, the value of
-KVM_VCPU_MAX_FEATURES wasn't incremented, so that feature has never been
-in the KVM_VCPU_VALID_FEATURES bit mask. This means the HAS_EL2 feature
-will never be exposed to user space even if the system supports it.
+> Maybe a slightly better approach would be to simplify this code for
+> something that actually uses the kernel infrastructure:
+>
+> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+> index 82e2203d86a31..9b48d952df3ec 100644
+> --- a/arch/arm64/kernel/machine_kexec.c
+> +++ b/arch/arm64/kernel/machine_kexec.c
+> @@ -230,11 +230,8 @@ static void machine_kexec_mask_interrupts(void)
+>                      chip->irq_eoi)
+>                          chip->irq_eoi(&desc->irq_data);
+>
+> -               if (chip->irq_mask)
+> -                       chip->irq_mask(&desc->irq_data);
+> -
+> -               if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+> -                       chip->irq_disable(&desc->irq_data);
+> +               irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
+> +               irq_disable(desc);
+>          }
+>   }
+>
+> This is of course untested.
 
-Fixes: 89b0e7de3451 ("KVM: arm64: nv: Introduce nested virtualization VCPU feature")
-Signed-off-by: Steven Price <steven.price@arm.com>
----
-I might be missing something, and it's possible that
-KVM_ARM_VCPU_HAS_EL2 is deliberately not exposed yet. However I'm
-working on v6 of the host CCA series and as part of that want to add a
-new feature but and bump KVM_VCPU_MAX_FEATURES up to 9.
+I tested your suggested approach and it works.
+I will upload V2 for this change.
 
- arch/arm64/include/asm/kvm_host.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index e18e9244d17a..af7c827b216e 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -39,7 +39,7 @@
- 
- #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
- 
--#define KVM_VCPU_MAX_FEATURES 7
-+#define KVM_VCPU_MAX_FEATURES 8
- #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
- 
- #define KVM_REQ_SLEEP \
--- 
-2.43.0
+Thanks, Eliav
 
 
