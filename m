@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9278DD6ACF7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 18:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C77D6ACFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 18:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zY54k7ldxZOC8Xd6AUDRfFsxqqN2e33do32KNETw9HU=; b=mbW4Btpotb2wI7y7hY9owACQ1Z
-	nUUbi9tKVVbUsiaH+NLiw/mkdLEZ0G3M41YcxoUczeuf561rKiq5ffDUCa51Ifd0YnjfaG8eTVJr7
-	faSja1XM+MM9MFLJGzOUzeXBp0NQjIuUZj+1YiQTNEA2IJ6wC4SsrnoZ/e423kG1X7pRHJkRnBJg1
-	XFYQXi31pu5d7CrKQdZBrHrJYaT5nP/bwT9bvC51qE99wLRWJ6QSv1bGfKwECQE+r6ZazwTSbu2Jd
-	uyUF0SDEYJ8DprfVHbcBnJQNe/pQfoJI7AsHbPtVhXMUT/N8kIi/YHNRlJ9WV0KJ7ETQmchbG680R
-	tQvpbx2A==;
+	bh=6lrmQp/bo2VP9p7ksOmamWbX434qkL7CBpG8q9DJP3A=; b=PzE8//qYuA7vuB3ivJsSJc+qVH
+	qo0pxRsruf0hMOyZDm+plJvk2miL59rnwfKltKdxYzw3v9xRO0FT5t7ka8luU4YC1zssenXBknlYk
+	PFVmuBir2r/aGxAnBFSg41vq3QQ9qlBOqVp+sXe9kPariobwfkXKyOs7sNWXJRyTy2ktzT3Me/RcQ
+	okPUBI7Flon03XNDk1vo5t1nYVu18Vcp/G401Twi2W9TptSaPVrxWsSx1P4beumb/TaDQ0nt6T0Sj
+	F8tKR2S+dxbMPMTrXCMNoyURXWGHd22XL5QjTwKYFadWUJM9/hgc8cwvO6bq1hs1n3aWezN8xiSxa
+	IeM3+L8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGMaV-0000000DoRZ-2boQ;
-	Wed, 27 Nov 2024 18:16:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tGMbS-0000000DoZc-0vx6;
+	Wed, 27 Nov 2024 18:17:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGMZW-0000000DoF9-1MB3
+	id 1tGMZt-0000000DoJY-3Fub
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 18:15:31 +0000
+	Wed, 27 Nov 2024 18:15:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5C44A5C59A3;
-	Wed, 27 Nov 2024 18:14:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 306A9C4CECC;
-	Wed, 27 Nov 2024 18:15:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CE52E5C59A3;
+	Wed, 27 Nov 2024 18:15:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8602AC4CECC;
+	Wed, 27 Nov 2024 18:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732731329;
-	bh=DNgFxM1b/5aiFJSdKVSyMQOpGhRuxK1JvdQCJb4+iXA=;
+	s=k20201202; t=1732731352;
+	bh=6lrmQp/bo2VP9p7ksOmamWbX434qkL7CBpG8q9DJP3A=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DmGL7KuuHQGC8O6sbIdT3qmqodVf4aNcEq1GLNk/7oL76z7pYwwfqs+OnMtupRiBC
-	 2EsJpxU4s9SBrwjqD1fCqyGY05wT9vo3da0036c/BUxf03oHoyBADCQVjhzTMh7DvI
-	 xXiOc33I1w//eIwAjLSWxrDMJds10OQTEiOyGN+IvUSHlpxQm78EacCuLU4Hkl+jpK
-	 DGatDCdvnRhNZpjS6lC7XYs/AIJx3fc/8Mr59boOid2pl2J8twtRMnQuLSiva5AHyX
-	 YW8hWgfH1Acu3k+sCItxsmdVewEXeBCRK2mCjrLqufcek2uAs7FgP8octf6mlahjKe
-	 47ETM1eTt0UmA==
-Message-ID: <f376110e-dd49-4ee5-8a4c-f743bfb91e9c@kernel.org>
-Date: Wed, 27 Nov 2024 19:15:22 +0100
+	b=gpw7QEfDYo7hBLT8ohJd5XYLYiKtd4ltcZX99TxU9BrW3q/uNNWucL0W8FiMa+fe0
+	 bug2j6AhZR8IXewujbX3MpEKK8WSI6Wu91NwYv+yC6QVW6ptPJ2Zpubjs7zGrammXg
+	 C6DCKEB5FwjuWzaJ5Gezqn99vpA7LLzBUrPHkLH6rqmooov+RjmC3eU5DPRLt5LZY6
+	 hAC67NNAyIK6mLrrGnCc6H5FhJB8o23slGBAOjda/1ZYO11lwTkuMBBl8EnreGOICG
+	 q9Iicf5l1G5H+5JO/ZJ4N6AlCd87u6DJXMD0U3ELZHp27QgfkzNW1XFfEMCY2c87fG
+	 1Tp1UnEwRJf9g==
+Message-ID: <a503ca1b-a9d6-4613-92be-a671c260547a@kernel.org>
+Date: Wed, 27 Nov 2024 19:15:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/2] dt-bindings: arm: aspeed: add Meta Ventura board
+Subject: Re: [PATCH v5 2/2] ARM: dts: aspeed: ventura: add Meta Ventura BMC
 To: Jason Hsu <jasonhell19@gmail.com>, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
  patrick@stwcx.xyz, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
  linux-kernel@vger.kernel.org
-Cc: yang.chen@quantatw.com, jerry.lin@quantatw.com
+Cc: yang.chen@quantatw.com, jerry.lin@quantatw.com,
+ Jason Hsu <jason-hsu@quantatw.com>
 References: <20241127073409.147714-1-jason-hsu@quantatw.com>
- <20241127073409.147714-2-jason-hsu@quantatw.com>
+ <20241127073409.147714-3-jason-hsu@quantatw.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,12 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241127073409.147714-2-jason-hsu@quantatw.com>
+In-Reply-To: <20241127073409.147714-3-jason-hsu@quantatw.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_101530_452965_85278273 
-X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-CacheID: sfid-20241127_101553_902990_9879FF4C 
+X-CRM114-Status: UNSURE (   6.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,17 +123,12 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 27/11/2024 08:34, Jason Hsu wrote:
-> From: Jason-Hsu <jasonhell19@gmail.com>
-> 
-> Document the new compatibles used on Meta Ventura.
+> Add Linux device tree related to Meta(Facebook) Ventura specific devices connected to BMC(AST2600) SoC.
 > Add subject prefix for the patch.
-> 
-> Signed-off-by: Jason-Hsu <jasonhell19@gmail.com>
 > ---
-I wrote you instruction to which you did not respond and then sent v5
-without improvements. We all make mistakes, but repeating the same
-mistake over and over is unfortunately wasting our time. Please read and
-respond that you understood the instruction I gave you last time.
+NAK, nothing improved.
+
+Respond to comments and implement them.
 
 Best regards,
 Krzysztof
