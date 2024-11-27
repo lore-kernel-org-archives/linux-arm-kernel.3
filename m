@@ -4,56 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5BCAD609B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 08:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F2CD609B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 08:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y1YipcBNkBFBJgjcCgC0muDTFEDXQe0MCfbtPpZFbTg=; b=KNTOqOnN26fkUFsrmOPnjPAFff
-	mKNo/whCxhJdGxABsGshJJQ/mOCjvgQrovLfbhu+jq+8H7Y9SZm+ysHegLMVfdihhRmSuSYQ1gjHi
-	23k7Nlnp3a9BUF0MgXmzJoOMtqG31HdwL/i1FXW5emGIr++0IYrXUYG1fCl5XHv0MZZnT4z1UUMuu
-	D5EgVcbFXQZgjNNvdSYgfkUgyfyoVYyA4BPIPdrK+fwaIrHXY7AtPVqzq96PPxSTFZxhB3nYtAIGf
-	6NTHh1m16UXDNAMI577lLH+ObDqkxqSzE9FmHnp/Fds+WKMUWQ3wfqC9t4s5vuqR5xht6SHz5TN26
-	8rHQdiZw==;
+	bh=Y/xRkjvEZv9sbcCksa40cCi9Ac35QzxlOX4SfWedbCc=; b=y3eQgPZg4VJGQZpYHAw0A8ZuSj
+	BWuqJ6uWO1Rv8milY4qdHV0yCpo4LnmBJ4MwotVSZd9UYb+RCKFY74e2ChmCrvI+6xOw/BTJqCO9T
+	i8mGwKmgLGQYHtKufy+nkngKExdKy/us0W1WQszXBDlNSIALgWZO0zMSMIpmCFsdfHlTAQw2EkzTF
+	Kpwkc7EZe75KwJH3mpYE6nvOaXuMyYLzk0ucNme3/KctDWwTFYOeLiBROIgYRm9eax6m/HtOOtPpq
+	/U4lvzvyYK42ZFZzBxlu9RRntcBAd4wxUxCuVvQy1yTcOQtf2NYmqLa36PV0cSrNvVUBVKxma2GXS
+	k7LZiJeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGDaF-0000000Cb6n-0gC3;
-	Wed, 27 Nov 2024 08:39:39 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tGDdF-0000000CbRW-3gm7;
+	Wed, 27 Nov 2024 08:42:45 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGDZG-0000000Cb1i-3OKV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 08:38:40 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tGDZ2-0006i3-96; Wed, 27 Nov 2024 09:38:24 +0100
-Message-ID: <153e8e36-7b0e-4379-9cc3-6dacb5d705be@pengutronix.de>
-Date: Wed, 27 Nov 2024 09:38:23 +0100
+	id 1tGDcH-0000000CbHY-3fsw;
+	Wed, 27 Nov 2024 08:41:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1732696902;
+	bh=QY0zX5UAJoB0SwbYtPt49iXXD7dMFKMNb+Syf6LpEEM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KlA8V3dfz8u7wjY6YTcZcifvqwJWZCcvfNzWEUWsTxWpBZ6ojidGINQY5JslvLJtB
+	 s79i7FlLsnSXfCuPSxYB2FPsnextL/5MJymBbNcN/uUiJnICGvxj0bs2Sw4ivsDf8M
+	 XwnefSv99MssdHOoT0ztvtxYiJCuS3A/Cfmy701eggpR3QOi/uh7n6t66KVaAnkAad
+	 KBu4mwwNA8UTx84qSUKKEO7nielBWmcRDNbiioOou+UVoXCa7Us2Co4m6VMeLKi4gu
+	 2ih54sFUJnrNd9IP3P2IWniclVpXKAKPFt38BRqQhqSyRmjFM1Azp4HFnZ0NQIapWK
+	 kCf+MVOhOdV3A==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 070AF17E1330;
+	Wed, 27 Nov 2024 09:41:41 +0100 (CET)
+Message-ID: <8e70d921-1420-4a57-a994-dc28abda25b7@collabora.com>
+Date: Wed, 27 Nov 2024 09:41:41 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] i2c: imx: support DMA defer probing
-To: carlos.song@nxp.com, mkl@pengutronix.de, frank.li@nxp.com,
- o.rempel@pengutronix.de, kernel@pengutronix.de, andi.shyti@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com
-Cc: imx@lists.linux.dev, linux-i2c@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241127083818.2108201-1-carlos.song@nxp.com>
+Subject: Re: [PATCH v1 6/6] drm/mediatek: Add support for MT8195 Digital
+ Parallel Interface
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "simona@ffwll.ch" <simona@ffwll.ch>,
+ "kernel@collabora.com" <kernel@collabora.com>,
+ "mripard@kernel.org" <mripard@kernel.org>,
+ =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?= <jitao.shi@mediatek.com>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>
+References: <20241120124420.133914-1-angelogioacchino.delregno@collabora.com>
+ <20241120124420.133914-7-angelogioacchino.delregno@collabora.com>
+ <1b966a136f02b5586749a9c3d0bcec6c75224e49.camel@mediatek.com>
+ <33acccd3-e543-493e-a61c-282d894ef2b1@collabora.com>
+ <fd48c582e99d6c07be4b66919fb6c309379ad752.camel@mediatek.com>
+ <f1d16db0-a7e1-4cfd-85c6-8beef4385701@collabora.com>
+ <a8ca9d1314f12dbb95ac4e4b9e8929adab35eaba.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20241127083818.2108201-1-carlos.song@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <a8ca9d1314f12dbb95ac4e4b9e8929adab35eaba.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_003838_854183_0F1CE591 
-X-CRM114-Status: GOOD (  34.87  )
+X-CRM114-CacheID: sfid-20241127_004146_226336_C5382436 
+X-CRM114-Status: GOOD (  41.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,143 +98,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Carlos,
-
-On 27.11.24 09:38, carlos.song@nxp.com wrote:
-> From: Carlos Song <carlos.song@nxp.com>
+Il 27/11/24 08:02, CK Hu (胡俊光) ha scritto:
+> On Tue, 2024-11-26 at 10:25 +0100, AngeloGioacchino Del Regno wrote:
+>> External email : Please do not click links or open attachments until you have verified the sender or the content.
+>>
+>>
+>> Il 26/11/24 04:07, CK Hu (胡俊光) ha scritto:
+>>> On Mon, 2024-11-25 at 17:55 +0100, AngeloGioacchino Del Regno wrote:
+>>>> External email : Please do not click links or open attachments until you have verified the sender or the content.
+>>>>
+>>>>
+>>>> Il 22/11/24 08:23, CK Hu (胡俊光) ha scritto:
+>>>>> Hi, Angelo:
+>>>>>
+>>>>> On Wed, 2024-11-20 at 13:44 +0100, AngeloGioacchino Del Regno wrote:
+>>>>>> External email : Please do not click links or open attachments until you have verified the sender or the content.
+>>>>>>
+>>>>>>
+>>>>>> Add support for the DPI block found in the MT8195 and MT8188 SoCs.
+>>>>>> Inside of the SoC, this block is directly connected to the HDMI IP.
+>>>>>
+>>>>> In MT8173, DPI0 is directly connected to HDMI.
+>>>>> The first version of this driver is just for MT8173 DPI0.
+>>>>> Does MT8173 DPI0 need this modification?
+>>>>> Or this modification is just for MT8188 and MT8195, then the description should be more than 'directly connected'.
+>>>>>
+>>>>
+>>>> This is only for MT8188 and MT8195, and MT8173 does *not* need any modification.
+>>>>
+>>>> Please, what would you like to see in the description of this commit?
+>>>
+>>> This patch does four jobs.
+>>>
+>>> 1. Enable/disable tvd_clk for MT8195/MT8188 DPI.
+>>> 2. Do not set pixel clock for MT8195/MT8188 DPI.
+>>> 3. New DPI_INPUT_XXX and DPI_OUTPUT_XXX control for MT8195/MT8188 DPI.
+>>> 4. Do not power on/off for MT8195/MT8188 DPI.
+>>>
+>>> Maybe you should break into 4 patches and each one has different reason.
+>>
+>> Yeah I thought about that as well, but there's a fundamental issue with splitting
+>> the thing in multiple patches...
+>>
+>> For enabling the tvd_clk in a separate patch, there's no problem - however, for the
+>> others....
+>>
+>> 1. We need to introduce support for MT8195/88 DPI-HDMI, or the other patches would
+>>      not make sense (nor apply, anyway); then
+>> 2. We stop setting pixel clock with another patch; then
+>> 3. we don't power on/off, etc etc
+>>
+>> The problem with doing it like so is that the patch #1 that I described would be
+>> introducing *faulty code*, because the support for that really depends on all of
+>> the others being present (otherwise the block won't work correctly).
+>>
+>> So... if you want, I can easily split out the tvd_clk enable/disable, but splitting
+>> the rest wouldn't be clean.
+>>
+>> Besides, keep in mind that... actually... for anything else that is not MT8195/88
+>> DPI0 (so, for other SoCs' DPI and for 95/88 DPINTF) the tvd_clk is already getting
+>> enabled by its child.. so, for those ones, a call to enable tvd_clk does exactly
+>> nothing apart from incrementing (enable) or decrementing (disable) the refcount for
+>> this clock by 1.
+>>
+>> This means that the enablement/disablement of tvd_clk is actually important only
+>> for the MT8195/88 DPI and has literally no effect on anything else that is
+>> currently supported by the mtk_dpi driver anyway.
+>>
+>> Still - if you want me to split out the tvd_clk en/dis patch, just confirm and I
+>> will split that one out...
+>>
+>>>
+>>> For #1 and #2, I've not reviewed the HDMI driver. Is the clock control influenced by new HDMI driver.
+>>
+>> It kinda is - the HDMI-TX block gets its clock from the HDMI PHY's clock gen,
+>> but eventually it is the HDMI driver that tells to the PHY driver what clock it
+>> actually wants.
+>>
+>> For #1, clk_prepare_enable() is ungating the clock that would otherwise gate the
+>> PHY's PLL output to the HDMI block.
+>>
+>>> If it is software reason, maybe we can modify the new HDMI driver and make DPI driver consistent with MT8173.
+>>> If it is hardware reason. just describe the hardware reason.
+>>
+>> Alright - the hardware reason is that the HDMIPHY generates the clock for the HDMI
+>> TX block, and that enabling the clock assigned to tvd_clk is necessary to ungate
+>> the PHY's ckgen output to the HDMI-TX (and I think - but not sure as I haven't
+>> analyzed that yet - that HDMI-RX should have the same gating technique, but that's
+>> definitely out of scope for this submission).
 > 
-> Return -EPROBE_DEFER when dma_request_slave_channel() because DMA driver
-> have not ready yet.
-> 
-> Move i2c_imx_dma_request() before registering I2C adapter to avoid
-> infinite loop of .probe() calls to the same driver, see "e8c220fac415
-> Revert "i2c: imx: improve the error handling in i2c_imx_dma_request()""
-> and "Documentation/driver-api/driver-model/driver.rst".
-> 
-> Use CPU mode to avoid stuck registering i2c adapter when DMA resources
-> are unavailable.
+> I think tvd_clk is the clock source of DPI, HDMI, and HDMI-PHY, so these hardware could work in the same frequency.
+> That means drivers of DPI, HDMI, and HDMI-PHY are equal to control tvd_clk.
+> In MT8173. software choose DPI driver to control tvd_clk.
+> In MT8195, software choose HDMI-PHY driver to control tvd_clk.
 
-Please try to address open questions before sending new versions of
-the patch set. Otherwise, it's difficult to follow the conversation.
-
-Did you see my question[1] on your v2:
-
-| Wouldn't this break probe for all i2c-imx users who have CONFIG_IMX_SDMA
-| disabled?
-|
-| Also I am wondering on what kernel version and what configuration
-| (CONFIG_I2C_IMX=?, CONFIG_IMX_SDMA=?) you have that made you run into
-| this situation.
-|
-| I'd have expected that with fw_devlink enabled, the I2C controller wouldn't
-| be probed before the DMA provider is available.
-
-[1]: https://lore.kernel.org/all/19a43db4-db5c-4638-9778-d94fb571a206@pengutronix.de/
-
-Thanks,
-Ahma
+Yes, but in MT8195 the tvd is gated by a clock that is controller by the HDMI
+driver only, and not by the PHY - so, PHY sets the frequency, mtk_hdmi_v2 ungates
+that to the HDMITX block (with clk_prepare_enable(tvd_clk)).
 
 > 
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
-> ---
-> Change for V4:
-> - Output "Only use PIO mode" log in debug level when no DMA configure.
-> Change for V3:
-> - According to Marc's comment, remove error print when defer probe.
->   Add info log when DMA has not been enabled and add error log when
->   DMA error, both won't stuck the i2c adapter register, just for reminding,
->   i2c adapter is working only in PIO mode.
-> Change for V2:
-> - According to Frank's comments, wrap at 75 char and Simplify fix code
->   at i2c_imx_dma_request().
-> - Use strict patch check, fix alignment warning at i2c_imx_dma_request()
-> ---
->  drivers/i2c/busses/i2c-imx.c | 31 +++++++++++++++++++++++--------
->  1 file changed, 23 insertions(+), 8 deletions(-)
+> I would like to have the same control flow.
+> If "HDMI-PHY driver to control tvd_clk" is better, we could temporarily let MT8195 has different flow with MT8173.
+> So, is "HDMI-PHY driver to control tvd_clk" better?
 > 
-> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> index 5ed4cb61e262..b11d66d56c55 100644
-> --- a/drivers/i2c/busses/i2c-imx.c
-> +++ b/drivers/i2c/busses/i2c-imx.c
-> @@ -397,17 +397,16 @@ static void i2c_imx_reset_regs(struct imx_i2c_struct *i2c_imx)
->  }
->  
->  /* Functions for DMA support */
-> -static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
-> -						dma_addr_t phy_addr)
-> +static int i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx, dma_addr_t phy_addr)
->  {
->  	struct imx_i2c_dma *dma;
->  	struct dma_slave_config dma_sconfig;
-> -	struct device *dev = &i2c_imx->adapter.dev;
-> +	struct device *dev = i2c_imx->adapter.dev.parent;
->  	int ret;
->  
->  	dma = devm_kzalloc(dev, sizeof(*dma), GFP_KERNEL);
->  	if (!dma)
-> -		return;
-> +		return -ENOMEM;
->  
->  	dma->chan_tx = dma_request_chan(dev, "tx");
->  	if (IS_ERR(dma->chan_tx)) {
-> @@ -452,7 +451,7 @@ static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
->  	dev_info(dev, "using %s (tx) and %s (rx) for DMA transfers\n",
->  		dma_chan_name(dma->chan_tx), dma_chan_name(dma->chan_rx));
->  
-> -	return;
-> +	return 0;
->  
->  fail_rx:
->  	dma_release_channel(dma->chan_rx);
-> @@ -460,6 +459,8 @@ static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
->  	dma_release_channel(dma->chan_tx);
->  fail_al:
->  	devm_kfree(dev, dma);
-> +
-> +	return ret;
->  }
->  
->  static void i2c_imx_dma_callback(void *arg)
-> @@ -1803,6 +1804,23 @@ static int i2c_imx_probe(struct platform_device *pdev)
->  	if (ret == -EPROBE_DEFER)
->  		goto clk_notifier_unregister;
->  
-> +	/*
-> +	 * Init DMA config if supported, -ENODEV means DMA not enabled at
-> +	 * this platform, that is not a real error, so just remind "only
-> +	 * PIO mode is used". If DMA is enabled, but meet error when request
-> +	 * DMA channel, error should be showed in probe error log. PIO mode
-> +	 * should be available regardless of DMA.
-> +	 */
-> +	ret = i2c_imx_dma_request(i2c_imx, phy_addr);
-> +	if (ret) {
-> +		if (ret == -EPROBE_DEFER)
-> +			goto clk_notifier_unregister;
-> +		else if (ret == -ENODEV)
-> +			dev_dbg(&pdev->dev, "Only use PIO mode\n");
-> +		else
-> +			dev_err_probe(&pdev->dev, ret, "Failed to setup DMA, only use PIO mode\n");
-> +	}
-> +
->  	/* Add I2C adapter */
->  	ret = i2c_add_numbered_adapter(&i2c_imx->adapter);
->  	if (ret < 0)
-> @@ -1817,9 +1835,6 @@ static int i2c_imx_probe(struct platform_device *pdev)
->  		i2c_imx->adapter.name);
->  	dev_info(&i2c_imx->adapter.dev, "IMX I2C adapter registered\n");
->  
-> -	/* Init DMA config if supported */
-> -	i2c_imx_dma_request(i2c_imx, phy_addr);
-> -
->  	return 0;   /* Return OK */
->  
->  clk_notifier_unregister:
+
+I'm not sure I understand this last part, can you please rephrase?
+
+>>
+>>>
+>>> For #4, I don't know why DPI do not control power by its self?
+>>> Even though other driver may control the same power, power manager has reference count,
+>>> so each driver could control the same power by its self.
+>>
+>> #4 is there both for a SW and for a HW reason.
+>>
+>> The HW reason is that the DPI shall be powered on in a specific sequence in regard
+>> to HDMI-TX, due to the setup that is required by both (and ungating clocks before
+>> full configuration happens would lock up the hw block).
+>>
+>> The SW reason is that mtk_crtc.c calls mtk_crtc_ddp_hw_init()->mtk_ddp_comp_start()
+>> in its .atomic_enable() callback, which happens in the wrong sequence in regard to
+>> HDMI because of the "natural" components order in the DRM framework (for MT8195/88!
+>> because for the others it either is the inverse or it does not matter - so for
+>> performance it's okay for it to be like that both on older SoCs and on DPINTF for
+>> 95/88) and this means that we *must not* call dpi_power_on() at that time but
+>> we must rather follow the atomic_enable()/bridge_enable() order imposed by DRM
+>> *also* for the clock en/dis calls in DPI.
+> 
+> It looks like the #4 could be a separate patch.
+> The commit message is what you describe here.
+> And
+> 
+> if (!dpi->conf->support_hdmi_power_sequence)
+> 	mtk_dpi_power_on();
+> 
+
+This means that I'd have to introduce the "hdmi power sequence" before actually
+introducing the real support for MT8195 HDMI....
+I honestly don't like that "too much", but it's fine, I don't have *too strong*
+opinions about that, so I will separate #4 as you suggested for v2.
+
+Cheers,
+Angelo
+
+> Regards,
+> CK
+> 
+>>
+>> Cheers,
+>> Angelo
+>>
+>>>
+>>> Regards,
+>>> CK
+>>>
+>>>
+>>>>
+>>>> Cheers,
+>>>> Angelo
+>>>>
+>>>>> Regards,
+>>>>> CK
+>>>>>
+>>>>>>
+>>>>>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>>>>>> ---
+>>>>
+>>>>
+>>
+>>
+>>
 
 
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
