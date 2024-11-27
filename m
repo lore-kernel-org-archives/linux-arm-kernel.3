@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3268D6ACC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 12:14:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C937D6ACC3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 12:17:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oEOL0ptYLtxEqIdAC+9tZlm8gvCy8mQhR6WGhJ022Z0=; b=WJy7wl0H3gjpN1rmzOBZSWJNee
-	KAF0vIcElC/0ASf2piBB3TOeD7KMf5MT2PScFRTuIJR9ztNNeKVBpg2OPdY9tORTfkIs7LAR0uHFA
-	z5/TWiV9xW15kPheLGD/8RtYu8F4iKSIZaS+yQnc5XwDEuXW2l/JqB8cxlzTEizWDBN/Rt499PNgK
-	Lo09vavVHB0gZcJruGijqx+y2eM8DQBgf98hqmZUH6jo2iLWUAx0epQY809zjPv2c0fCBnfIeDu7p
-	+AcEwwYpff+npOiuQFwEtCt878ifU3rdWPtN7RVAjt2cPGddCTfLQA/D1SpIExaH15S5uviR1BYoY
-	yRRsXmhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4eplniMKPmgRSmY4Vclq9sMFDDQZlUSj/sUHqsWkbJM=; b=ams7GTSr44QI27HwFoFYI2bMGQ
+	ayW0AKKTN7/yTcPaile0bR5Z14iYPnreozi20MbkJ8LeiOTGRn3dit3Ri8AbgCfSYEPJOfc4Fj9uR
+	NGV0QgrsDTgg+vU255oVwnXKmK0YE4vQEvw3DRCbQ2fiWUPQ9otj0LJF8jTfYDhZ1P/T2+EudL0rj
+	W5/LEi+QA2qgcp0yworFiXLy88wMCycU5SApz9jz7b77D/rPC94rmxPrBzc8CyXwn+qtsmZv1kNXz
+	ZAU3FSvwfW46JoP2MxpTmTtFXGyq+KXP2HinKYqpvr58wUGJBTPcxh+aU3vibYOVXCfXBxVfbST1S
+	F88wN64g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGGw4-0000000D6oI-2ta3;
-	Wed, 27 Nov 2024 12:14:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tGGym-0000000D7Gd-030r;
+	Wed, 27 Nov 2024 12:17:12 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGGv5-0000000D6bB-2hES;
-	Wed, 27 Nov 2024 12:13:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BAE935C32B5;
-	Wed, 27 Nov 2024 12:12:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C632C4CED2;
-	Wed, 27 Nov 2024 12:13:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732709602;
-	bh=VoLkH65bL3SCOolWXPTIPl3bQkL5q34kt5m/3L5PBvE=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=eai+IyX2DHv87NXUhGl5Th2caqMIBIpxVJOrR8c1aFjoeQNCTmBD51LLFMkO+R5ns
-	 Nn7fYNhEWkmKjG9mm6WAEJOqceJmADIRtmbQuszuISP9ytmlJ3Dt3ZURtd4C40f+/g
-	 jYvcoB/sof8oksETHdCT+hak+YCgehTgmAaHcZbw5awtLoWn7lPq7yY5ufdoliBlcX
-	 SlEa3NBpQ3M14MoxixNOQlUDHuWTK3kOCKMU66r9Xsbh/oYJZtARN3iUP+8YSIw8Zc
-	 rAENWa3Pnv8tQtMP7VUWPFsO4ZL9thlAGpq+Q04avat5+34r9wAtyMivjOACi0FXgT
-	 xHFJ6tCgtr4SA==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20241126-asoc-mtk-dummy-panic-v1-1-42d53e168d2e@collabora.com>
-References: <20241126-asoc-mtk-dummy-panic-v1-1-42d53e168d2e@collabora.com>
-Subject: Re: [PATCH] ASoC: mediatek: Check num_codecs is not zero to avoid
- panic during probe
-Message-Id: <173270960024.162310.7545183344614439367.b4-ty@kernel.org>
-Date: Wed, 27 Nov 2024 12:13:20 +0000
+	id 1tGGxo-0000000D7AM-0W1x
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Nov 2024 12:16:13 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tGGxc-0004FC-Pe; Wed, 27 Nov 2024 13:16:00 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tGGxY-000QYm-2q;
+	Wed, 27 Nov 2024 13:15:57 +0100
+Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tGGxZ-000xja-1h;
+	Wed, 27 Nov 2024 13:15:57 +0100
+Date: Wed, 27 Nov 2024 13:15:57 +0100
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Bryan Whitehead <bryan.whitehead@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com
+Subject: Re: net: sxgbe: using lpi_timer for Twake timer
+Message-ID: <Z0cNfdxInR0XDQaV@pengutronix.de>
+References: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.15-dev-9b746
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ore@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_041323_722720_4775795E 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20241127_041612_160819_82457B37 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,42 +90,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 26 Nov 2024 15:09:43 -0500, Nícolas F. R. A. Prado wrote:
-> Following commit 13f58267cda3 ("ASoC: soc.h: don't create dummy
-> Component via COMP_DUMMY()"), COMP_DUMMY() became an array with zero
-> length, and only gets populated with the dummy struct after the card is
-> registered. Since the sound card driver's probe happens before the card
-> registration, accessing any of the members of a dummy component during
-> probe will result in undefined behavior.
-> 
-> [...]
+For archive:
 
-Applied to
+static void  sxgbe_set_eee_timer(void __iomem *ioaddr,
+				 const int ls, const int tw)
+{
+	int value = ((tw & 0xffff)) | ((ls & 0x7ff) << 16);
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+	/* Program the timers in the LPI timer control register:
+	 * LS: minimum time (ms) for which the link
+	 *  status from PHY should be ok before transmitting
+	 *  the LPI pattern.
+	 * TW: minimum time (us) for which the core waits
+	 *  after it has stopped transmitting the LPI pattern.
+	 */
+	writel(value, ioaddr + SXGBE_CORE_LPI_TIMER_CTRL);
+}
 
-Thanks!
+bool sxgbe_eee_init(struct sxgbe_priv_data * const priv)
+{
+....
+	/* MAC core supports the EEE feature. */
+	if (priv->hw_cap.eee) {
+		/* Check if the PHY supports EEE */
+		if (phy_init_eee(ndev->phydev, true))
+			return false;
 
-[1/1] ASoC: mediatek: Check num_codecs is not zero to avoid panic during probe
-      commit: 2f2020327cc8561d7c520d2f2d9acea84fa7b3a3
+		timer_setup(&priv->eee_ctrl_timer, sxgbe_eee_ctrl_timer, 0);
+		priv->eee_ctrl_timer.expires = SXGBE_LPI_TIMER(eee_timer);
+		add_timer(&priv->eee_ctrl_timer);
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+		priv->hw->mac->set_eee_timer(priv->ioaddr,
+					     SXGBE_DEFAULT_LPI_TIMER,
+					     priv->tx_lpi_timer);
+                                                   ^^^^^^^^^^^^
+                                                   LPI timer is used for
+						   Twake timer.
+}
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+In case user configures lpi_timer value to too low, it will case frame
+corruption instead of expected performance drop.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
