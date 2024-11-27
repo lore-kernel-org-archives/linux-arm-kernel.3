@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8D21D6ACEB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 15:30:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDB6D6ACED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 15:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Date:References:In-Reply-To:Content-Type:Subject:Cc:To:From:Message-ID:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bhy3lS5xBdtG3cFqlE00X8F14KPxS7oFT22PELuAg0s=; b=yY0nRITyTwSmbIvEIZ356rXAri
-	4c6ckGrFNeMgF6beURt8jJR8Vt28ASqFkdjDqbYJfRqqLQIc+IKEZgcmvaMHYq8+xk7myRrrxxIV8
-	BF1aTpg/vHfqh+ObRPyCTgvqJrTd6eILcIc+FShvw2dcCFiQhHNG6mdvu5ufGayiCJgJfn/j+GM5M
-	yQ1B6qMIRcjXZVG008fv0gdVHGXNSCCui6+zde9mKry9rBKyi+15tN8X+AcJEFLjLVDH93ascRT3J
-	9v00HzhOTvxfq4T42W8Ga3Anmc1ewuWGzojcQ4IXFtoMotgCy/FQwDaa01mUSffUya8Iq35xwz9KG
-	qLde+LYg==;
+	bh=wey84kIC4m1hDfkzPHCvmMBCoCQCb+1v3dfhbCeaCCo=; b=Ee+oz5R4hzQdeocHiUrrl4OQyv
+	ujfGU4vht4E9TPdQay70eT+zvxQUDiboqF9MlFcpV7GWlGa0PzHQGqkD/OzD49pjWEhZrbK+vBWI0
+	hKIfAngFkhY9v02OvdAt881Q1YyekP1Ndwdt50pDOaZkXuIueMesJRh9kDvNtreT10HkmF+AkYLWA
+	gJPG3VfGosk1FTv/c6W22C0yoTKc6Dzxyg+/MYI/iqsT8vEZiHHtXRvDKolKvS6NB05qZl7L6CGTF
+	0kC2uwAE5Y1XpVqbnmTLnxyd/lh4jGhw/oWVPdeAxEEqnjyefDxk0rCc0LFk6rXgbsZ4/PVdFuuwn
+	FdmyfMHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJzU-0000000DVph-2rZI;
-	Wed, 27 Nov 2024 15:30:08 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1tGK0R-0000000DVyM-1dTp;
+	Wed, 27 Nov 2024 15:31:07 +0000
+Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJyV-0000000DVd5-1Paa;
-	Wed, 27 Nov 2024 15:29:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1732721341; x=1733326141; i=frank-w@public-files.de;
-	bh=Bhy3lS5xBdtG3cFqlE00X8F14KPxS7oFT22PELuAg0s=;
-	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
-	 Content-Type:In-Reply-To:References:Date:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=naTabAUGlSEkFimSF8TxnK5xCkrQh4YbRqrFap3iHQ53cpmZSr/IUu8KeeXuLNf0
-	 I/H1QptBMkKZS8mMEBdaA39kM2q9A0jfE2M3nC2Cuj21jeY65YAXCn+lgn0AYXXby
-	 jlsfOnQAJlY6us9Hr80UA1CGA2T4Xu8qI/dJFlguC+4qzq42GCnuJX8dr0XcZJDMf
-	 AAKTerT3uvIIxzPxuujtVoe9yuvono/1qPYmQudOf7P/AN+bsbfwFE1Wh4jqc0/yF
-	 po4dOt+9Va9J9ZGvetvEc38Uyf5lZjQ9rCgsCGy2hfCYpQs9MzCqrovel+4ZW2aIr
-	 RxttmMDXzCWWGp+7Qw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [157.180.224.21] ([157.180.224.21]) by msvc-mesg-gmx103 (via
- HTTP); Wed, 27 Nov 2024 16:29:01 +0100
+	id 1tGJye-0000000DVeN-2tQT
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Nov 2024 15:29:18 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: marcan@marcan.st)
+	by mail.marcansoft.com (Postfix) with ESMTPSA id F247843587;
+	Wed, 27 Nov 2024 15:29:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
+	t=1732721353; bh=2vJooQxDCFwloAiYjdkYj6nOIAaBL9PWzbzwFJSF9X4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=hIo7tdzyArdTp4Z8DYTMTyp7aaI3whJ2Rcw0dRCLCMAOlolDRG1FCc1cCVcharF+T
+	 O9id0ZBAgSaGPlOmlLVFIMOpulNMtGwge1ucAjrUo0q+33INpbK901XBwFGMRi+ZaR
+	 9vDvRzm4OEZQo58uXdDr0ekqKMXtt0QcfagGGi1eKhX8xlRs3AAY2gltjlsrR5IBDQ
+	 ZelOG7bJE9bcrh0XUsUSXU2M9zGQDD3VohAi5kJGkR8PsWjl3Nki8SywbLImvP/C1a
+	 ArcRa+tvw7/LEWmtjZWflh1S3Cxv6gj3V6TL0xQf6YWtFvZUMc05SjtRGml0WYyPQF
+	 lNwtZ/QVz81/g==
+Message-ID: <9dcdea44-974e-416f-9d59-204d519774dd@marcan.st>
+Date: Thu, 28 Nov 2024 00:29:11 +0900
 MIME-Version: 1.0
-Message-ID: <trinity-b73d119f-df34-4724-a327-be59ad3410bf-1732721341758@msvc-mesg-gmx103>
-From: Frank Wunderlich <frank-w@public-files.de>
-To: angelogioacchino.delregno@collabora.com, linux@fw-web.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Aw: Re: [RFC v1 10/14] arm64: dts: mediatek: mt7988: add lvts node
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] Driver for Apple Z2 touchscreens.
+To: Sasha Finkelstein <fnkl.kernel@gmail.com>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig
+ <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-input@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>,
+ Mark Brown <broonie@kernel.org>
+References: <20241126-z2-v1-0-c43c4cc6200d@gmail.com>
+ <Z0Z7Lrv3rBfzac_e@google.com>
+ <CAMT+MTThJoYLYhtYAHwh6F3LTApid9Em+eP2AZYc3JChC2b9ig@mail.gmail.com>
+From: Hector Martin <marcan@marcan.st>
+Content-Language: en-US
+In-Reply-To: <CAMT+MTThJoYLYhtYAHwh6F3LTApid9Em+eP2AZYc3JChC2b9ig@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-In-Reply-To: <6725747d-2db4-4f80-be25-4b314e59ab9a@collabora.com>
-Importance: normal
-References: <20241029103937.45852-1-linux@fw-web.de>
- <20241029103937.45852-11-linux@fw-web.de>
- <6725747d-2db4-4f80-be25-4b314e59ab9a@collabora.com>
-Sensitivity: Normal
-Date: Wed, 27 Nov 2024 16:29:01 +0100
-X-Priority: 3
-X-UI-CLIENT-META-MAIL-DROP: W10=
-X-Provags-ID: V03:K1:d5qngSojmeo1EodTOgFNr+aD5GS161u469K6Y1PSY2C0svHCDz9iHqSIj5xw8388HO+UN
- r/l7Y0vdvjqxh0qwOkykUBWoF72Bb9v7l+mzrVcWDd2n12YBRFOkzLsygaowpZFecObIgqcCYKk4
- bq1Z0eptPBV5n26He2pDKU1lnFKSVrTCcN4GyBaVYYY8kTE8cY9Ic64+ZlvlO9beic0LyEfI6jRf
- lhM4v8sF+brhfI66h56IgYjY0QFnGR+1z4ctAk/arSKvTqSMZUQN571VnQyHi1ZCoHxLcnwNdyMV
- cQ=
-UI-OutboundReport: notjunk:1;M01:P0:43DHYM8XJJ4=;agufmWR33nlynwPgFtkwqB3pkMl
- OPhdL2a6Ggn2cWykbyxebkowWdUh/fFSEf7mFt9Z6woLyqFd8uSAXbhVTAoGe61rPcvmH36w0
- qrcrYA6lRbJZtDJYf9PSD0dnhOQF+AbeWAezLrL74sL9tbij9mUlUf1U1HlK4N+kloYi2tc2t
- n1i4Nk/K5dAhzAf3UlwcoWQXfFPAVLO8dABmvX23P97cg2c8NWl5xXPdLaKtVjC+DYSvMzj1+
- 84p0R+E5ZANoeQh/1A0+t6cuerEV8Fwy0JNRUnKc3hRH81GsQRfk1jT/43BhE5hg1v2l3J/lZ
- F6kRwQRD/ig0FZuuSXBy8T9VZyYJ+LotK2ifJxCs7Ik9Ty0KyUd7I/LCKAW81U3bsamNdgpD8
- DPbhdwnFIpPoSWF/pzWKkTFynWWcetHWpIlRE7bAoRB3CM1zpYOjb39njx/YUMreac4Lex1c3
- 16JcWAjzytmTrRXVTFgMPgvpJJo13qv/N50sigYIOyH7dWcN4iUaeXJpzbr/Vr+KxR8LVa/x7
- oAFCezLfS+0CEhSIzdOJphQWbCCoN/IfUIy8UHmr6tOaBL2N1azLa0zMHbmZcNpZfkQefCxZk
- n4R9PGuWgyNnsCRra/nsb4q32GIQj2Xkiq2OwRcHlRSmGULU/Ym0KKfCXKnU4noUynHG21EPr
- VFImQSitOrdl09SyGoCLnWRlf7dmBvSHgu5B+b1jdkpaSOWXQWwcS160w+nUrJybJ1s/gABgI
- D18a5AleXeB5fLPN71qC1XWEuS25MK6WRaKQQyGngnFu7ot1/fdCVBGLyagNUjnAvuDGC+y3J
- sEAS90vHgVzDIfZf5BFE3ADGYI7Jzqeet3iEh5/thTwsTjnYuDzkPCRiFCoqMUhbBefSGr/1S
- GEq0fYjAmizsm5SbyCBAQidqKgeWpAGOxZ5M=
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_072907_667501_4248C4A1 
-X-CRM114-Status: UNSURE (   7.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241127_072917_154816_0A98DC4E 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,80 +83,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-&gt; Gesendet: Mittwoch, 27. November 2024 um 14:34
-&gt; Von: "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabor=
-a.com>
-&gt; An: "Frank Wunderlich" <linux@fw-web.de>, "Rob Herring" <robh@kernel.=
-org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt=
-@kernel.org>, "Matthias Brugger" <matthias.bgg@gmail.com>
-&gt; CC: "Frank Wunderlich" <frank-w@public-files.de>, devicetree@vger.ker=
-nel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.or=
-g, linux-mediatek@lists.infradead.org
-&gt; Betreff: Re: [RFC v1 10/14] arm64: dts: mediatek: mt7988: add lvts no=
-de
-&gt;
-&gt; Il 29/10/24 11:39, Frank Wunderlich ha scritto:
-&gt; &gt; From: Frank Wunderlich <frank-w@public-files.de>
-&gt; &gt;
-&gt; &gt; Add Low Voltage Thermal Sensor (LVTS) node for mt7988 SoC.
-&gt; &gt;
-&gt; &gt; Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-&gt;
-&gt; Please add the lvts_calibration nvmem entry in this commit instead.
 
-and leaving the other (currently not linked) subnodes?
 
-&gt; Cheers,
-&gt; Angelo
-&gt;
-&gt; &gt; ---
-&gt; &gt;   arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 13 +++++++++++++
-&gt; &gt;   1 file changed, 13 insertions(+)
-&gt; &gt;
-&gt; &gt; diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/ar=
-m64/boot/dts/mediatek/mt7988a.dtsi
-&gt; &gt; index ed8ce1e6f68b..de9a9ff2edd8 100644
-&gt; &gt; --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-&gt; &gt; +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-&gt; &gt; @@ -4,6 +4,7 @@
-&gt; &gt;   #include <dt-bindings interrupt-controller=3D"" arm-gic.h=3D""=
->
-&gt; &gt;   #include <dt-bindings phy=3D"" phy.h=3D"">
-&gt; &gt;   #include <dt-bindings pinctrl=3D"" mt65xx.h=3D"">
-&gt; &gt; +#include <dt-bindings reset=3D"" mediatek,mt7988-resets.h=3D"">
-&gt; &gt;
-&gt; &gt;   / {
-&gt; &gt;   	compatible =3D "mediatek,mt7988a";
-&gt; &gt; @@ -103,6 +104,7 @@ infracfg: clock-controller@10001000 {
-&gt; &gt;   			compatible =3D "mediatek,mt7988-infracfg", "syscon";
-&gt; &gt;   			reg =3D &lt;0 0x10001000 0 0x1000&gt;;
-&gt; &gt;   			#clock-cells =3D &lt;1&gt;;
-&gt; &gt; +			#reset-cells =3D &lt;1&gt;;
-&gt; &gt;   		};
-&gt; &gt;
-&gt; &gt;   		topckgen: clock-controller@1001b000 {
-&gt; &gt; @@ -268,6 +270,17 @@ i2c2: i2c@11005000 {
-&gt; &gt;   			status =3D "disabled";
-&gt; &gt;   		};
-&gt; &gt;
-&gt; &gt; +		lvts: lvts@1100a000 {
-&gt; &gt; +			compatible =3D "mediatek,mt7988-lvts-ap";
-&gt; &gt; +			#thermal-sensor-cells =3D &lt;1&gt;;
-&gt; &gt; +			reg =3D &lt;0 0x1100a000 0 0x1000&gt;;
-&gt; &gt; +			clocks =3D &lt;&amp;infracfg CLK_INFRA_26M_THERM_SYSTEM&gt;;
-&gt; &gt; +			interrupts =3D <gic_spi 138=3D"" irq_type_level_high=3D"">;
-&gt; &gt; +			resets =3D &lt;&amp;infracfg MT7988_INFRA_RST1_THERM_CTRL_SW=
-RST&gt;;
-&gt; &gt; +			nvmem-cells =3D &lt;&amp;lvts_calibration&gt;;
-&gt; &gt; +			nvmem-cell-names =3D "lvts-calib-data-1";
-&gt; &gt; +		};
-&gt; &gt; +
-&gt; &gt;   		ssusb0: usb@11190000 {
-&gt; &gt;   			compatible =3D "mediatek,mt7988-xhci", "mediatek,mtk-xhci";
-&gt; &gt;   			reg =3D &lt;0 0x11190000 0 0x2e00&gt;,
-&gt;
-&gt; </gic_spi></dt-bindings></dt-bindings></dt-bindings></dt-bindings></f=
-rank-w@public-files.de></frank-w@public-files.de></frank-w@public-files.de=
-></matthias.bgg@gmail.com></conor+dt@kernel.org></krzk+dt@kernel.org></rob=
-h@kernel.org></linux@fw-web.de></angelogioacchino.delregno@collabora.com>
+On 2024/11/27 17:29, Sasha Finkelstein wrote:
+> On Wed, 27 Nov 2024 at 02:51, Dmitry Torokhov <dmitry.torokhov@gmail.com> wrote:
+>> I believe this needs to be done at the SPI controller level. See
+>> "cs-gpiods" property in
+>> Documentation/devicetree/bindings/spi/spi-controller.yaml that, as far
+>> as I understand, allows overriding controller's native CS handling with
+>> a GPIO when needed.
+> 
+> I have already tried doing that (adding the relevant gpio as cs-gpios
+> on the controller)
+> and for some reason none of my attempts worked. Since there is no hardware
+> documentation, I can't really tell why, could be possible that we need both
+> native CS and that gpio, could be memory barrier issues somewhere in
+> the driver core,
+> but the method above is the only one i could get to work.
+
+Are you sure this isn't just a pinmux problem, i.e. the bootloader
+initializes the pinmux for hardware CS only on one device and not the other?
+
+See spi3_pins in the DTS in our downstream tree (and the reference from
+the SPI controller). If the rest of the SPI pins are already working
+properly you can just try with the CS pin (same index as on the gpio
+spec). Ideally we'd list the 4 pins, but someone needs to reverse
+engineer the mapping with m1n1 gpiola since we don't know what it is.
+
+If it really doesn't work with native CS and proper pinmux then cs-gpios
+on the controller should work. If it doesn't something weird is going on
+elsewhere. There's only one CS line, needing both makes no sense.
+
+- Hector
+
 
