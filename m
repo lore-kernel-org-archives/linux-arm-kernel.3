@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E755D609CE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 10:25:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3F4D609CF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 10:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TXhSOJGZtP5v7+Zb2NXtMO1R4VhWQ6NVpNh/br0RBLk=; b=GU29/aPmUf/vS3DVoxg5544CFy
-	zz2A2K7rE2nhewpK1laWyG53cCgzIAbVYqFC5S2nMqyXeWCdrx7liyn/YWjF5tbFSUWL8AOM7pWb8
-	XSF+cy3lM9MrT5M8/ODsEy0eTW/RAm057yPd50cu3EG762Ll4zJz6y1SpEGLtPOTaRYeZ4LoDem/5
-	m95y+YNq1d5rUaUcIzSZ0hD6GWpJogfuvv8PhL9/AfdMTGs6tbQycL1HNXZQ90XN2TdVKjnTOq7GM
-	T+VP/NUkrhzpxUaPmArUt1+pKCg39jn95YggP72kjgcqSDUMs/NInkGvHuONiIRTviTV/5wzFr5o2
-	cKpO+X6Q==;
+	bh=aNlsNjSrS2NbTgxo+shKb4mTmKnOJjoq9Dd9xqzuBtQ=; b=Sp3OGhsB9XesdntbRmk084FQqs
+	MBm+9rqJ1OhMDkLoiVpO8DyXgqQNbSe7cwKwsjHMKWyhKzI7mRpiqkMLjfyiJnGNiYIaaqk1+xAjS
+	qzeYtkSAGbS5J8VIwc1oy+pOR3UnK8a+aq2SizwWurNW8zI8AADXofWJfm+enYuIQnYf+MLyD41jC
+	OXyV9dlZYyy8ZHi8462rlI5e70pulwT0Iccj2izF85F8ncAAz4fr63jrrdQzRflS4BQ4AX67J2EA7
+	0wvae3/mdkn/ICDkeTGig+2hlp7hfq8/MEguoHXnf+/1Qy3u0oR1GQ7zjqMW4aJCFTb0+lWRvo2EW
+	FvglH/Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFER-0000000CpyI-2Ny5;
-	Wed, 27 Nov 2024 10:25:15 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tGFG3-0000000CqB7-3fRI;
+	Wed, 27 Nov 2024 10:26:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFD0-0000000CpiX-0VMR;
-	Wed, 27 Nov 2024 10:23:47 +0000
+	id 1tGFF6-0000000Cq4m-05Y0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Nov 2024 10:25:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 83D0AA4382D;
-	Wed, 27 Nov 2024 10:21:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D2FDC4CEDC;
-	Wed, 27 Nov 2024 10:23:37 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 20C6A5C5A19;
+	Wed, 27 Nov 2024 10:25:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1B47C4CECC;
+	Wed, 27 Nov 2024 10:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732703025;
-	bh=TXhSOJGZtP5v7+Zb2NXtMO1R4VhWQ6NVpNh/br0RBLk=;
+	s=k20201202; t=1732703155;
+	bh=PWpSdXhG4JWkJaUORNhZqpVB6OIqqs5JPgV0E6gJT2g=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VLo6ylqZctbqqQbzk3ra4DW79mke2StG4CKUFZue5sysfFDuptSZCU35T+/UE++Dp
-	 l38yOc/Rf2A1XaB8CtsR9FURbiX70iEo4MWvafgfZ2g+TFfsnM+KkLoZ02ycA0tE+t
-	 ZFTXdfRXaWRCXcmFQJbTi1XYp0HfjCkaop1dZVt2bLTT/AnqMZ2w27aRfnSPIQQ8WE
-	 B7Df4erD8yMrBdY52W7xFn5de30rUE6BRXLa5cL51yJlX9RDD/WkWy5Q8bKe3wG+yZ
-	 FH/W8dBL9JU+nUXCa+9s5moqgoJLarbX8NnSnnju5HJNViefqJNkaA0rzUAzEeNmKy
-	 U2drTE9wKADKQ==
-Message-ID: <5d4bebf5-7954-4739-9cd4-93d78d337738@kernel.org>
-Date: Wed, 27 Nov 2024 11:23:35 +0100
+	b=pzfr3Ta92uyhcnHsBRpmiX71uA/MW32jz6jGyAhQ1CwPiOxRDIO/yRXX6mRAFmsji
+	 08UZGNi+SEaPJbgVQVuWlJO42AXFjKTOxN/BbG2Cn9diZIXPd3TsVGjgWbMRO/E53t
+	 VP6fzwIkqSl83/Di/FQDQa6RKCBv3Gm47BO721fPLpbf9YQrd91muYewSNhFuMjCIw
+	 MVHphu3MLN5b913IhNjhUdFWWq8h5MNwAXTDIScYuzKqzM95/HGWKz26iXEAWPbgGT
+	 LxVc/+ruvFgKNiR2THdfXc4oC40m3oinKcyuF4wbvGWGdflj+R0tRrruFxSTYLwciN
+	 XT5NQpvlvOYAw==
+Message-ID: <495be827-f876-435b-977f-c563e8d51730@kernel.org>
+Date: Wed, 27 Nov 2024 11:25:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 02/10] dt-bindings: display: rockchip: analogix-dp: Add
- support for RK3588
-To: Damon Ding <damon.ding@rock-chips.com>, heiko@sntech.de
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
- cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
- andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
- kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-References: <20241127075157.856029-1-damon.ding@rock-chips.com>
- <20241127075157.856029-3-damon.ding@rock-chips.com>
+Subject: Re: [PATCH 2/4] input: apple_z2: Add a driver for Apple Z2
+ touchscreens
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Sasha Finkelstein <fnkl.kernel@gmail.com>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-input@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>
+References: <20241126-z2-v1-0-c43c4cc6200d@gmail.com>
+ <20241126-z2-v1-2-c43c4cc6200d@gmail.com>
+ <27amnmlm52igidlv23h3d3bvaezbdumedfkqicbtreka3llhqs@fafepduxgv43>
+ <CAMT+MTRTzPwo7QveP5Zt_4Zycu1qohe5g8srC8O8Jo+O+-wLJw@mail.gmail.com>
+ <3FA9FD56-ECF4-4E2C-A300-7E552F60987D@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241127075157.856029-3-damon.ding@rock-chips.com>
+In-Reply-To: <3FA9FD56-ECF4-4E2C-A300-7E552F60987D@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_022346_301327_C6DCF6DF 
-X-CRM114-Status: UNSURE (   5.53  )
+X-CRM114-CacheID: sfid-20241127_022556_153581_16587593 
+X-CRM114-Status: UNSURE (   8.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,15 +128,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2024 08:51, Damon Ding wrote:
-> Add the compatible "rockchip,rk3588-edp".
+On 27/11/2024 11:22, Dmitry Torokhov wrote:
+> On November 27, 2024 2:19:38 AM PST, Sasha Finkelstein <fnkl.kernel@gmail.com> wrote:
+>> On Wed, 27 Nov 2024 at 10:00, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>>> +             dev_err(dev, "unable to get reset");
+>>>
+>>> Syntax is: return dev_err_probe, almost everywhere here.
+>>
+>> Per discussion on previous version of this series, input asks
+>> dev_err_probe to not be used.
+> 
+> They twisted my arm. It's ok to use now. 
 
-This we see from the diff. Say something about hardware and why it is
-not compatible with existing variants.
-
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-
+I am fine if that's the preference for input, although this particular
+case without dev_err_probe would be just wrong: possible dmesg flood on
+deferral.
 
 Best regards,
 Krzysztof
