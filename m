@@ -4,108 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3833D6D23C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 21:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30071D6D241
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 21:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A/qG1PCWH5DIdjBCou8V6S3ZjochUv53NXLjRXrbNBA=; b=CmK38LFhD5KJsLUZffAkuXmDwd
-	bl4OvYIO4l0HY4p61MBlKvqrFsybRhpfbB5hWtKXpZHuuxf3p4F6WOYiUFvx73kkFc6rdAamJUIvx
-	2Guu8XuuwgKrk8ZRnnoQ91PmOYaE2pF6/dhAlo+KsCj0CLav0ALUyxkYQJJcd59NZLrDX3DXhTfNK
-	8He75chIB9sSCEcCTwndp0DPHH/BkvfTVvEEB/q2nZrEjO2wu0F70/okI2v6W2ctanN+KrW45Ijjq
-	9mIHtlw6PkKVQv77k+hYTbC5ljj8N/zdkeS3EQj+o2uL+zzy1DXoet21rU6cT+g6hSzJwUOYFLAOo
-	lRN5V8PA==;
+	bh=a32dwi3I+ct+r4Lez1UL06jDs58S4+Lh3Ccrl6GbYHQ=; b=zwVvOmHSeVlABIhQCCijymrOwf
+	oNLqfzw7v7ZcZCZuLFrUCHAQ8ig7jjy0rMfnS50LLCzGXe8NuSBRfQl+vI1sNxkVZeJz5Pr43o3pE
+	RIg6bQ8AJcNwr5Yi4V2kOfo6HmgPz/1ZUQid1L14vuSoacqZA2YQGqma3Yz+50kHU8iaoFrRKT0nh
+	suKhXg800bCtV4Y5WffQ2+VWcXXxLL+fRoEZ6XOgPtZDmXL2HaSP5uoN3GeJ+QRFmap2uW8R89kBb
+	FiZK6MtjbUJaueFyICuaZ8poq5WWD7NSKgKkiJjxHF9rA9T8RjAa/IniilTv97TWLzZ6aFs1/LJle
+	lhjAJQ/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGPXA-0000000E7Yk-0MWn;
-	Wed, 27 Nov 2024 21:25:16 +0000
-Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
+	id 1tGPlD-0000000E8dm-2ArK;
+	Wed, 27 Nov 2024 21:39:47 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGPWB-0000000E7SC-0a1y;
-	Wed, 27 Nov 2024 21:24:16 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 0F9E3114019B;
-	Wed, 27 Nov 2024 16:24:13 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Wed, 27 Nov 2024 16:24:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1732742653;
-	 x=1732829053; bh=A/qG1PCWH5DIdjBCou8V6S3ZjochUv53NXLjRXrbNBA=; b=
-	gjq3hl0XgvRADwxaY6xtVoz2rKXiUC+9uUIjK4JTyo1B1TgozvlUu5J+lfzmMGRx
-	+U/PbOrTr4G7/wW18lBRGEjs9AGk0CuZ83nO6loMdATqv/Rjt8z93Z8kdraPeB7d
-	RNZlMOMN0ZsWn592gnrKjD5D7gnQDr87DZnHPgxet3szA6Q+QKzb6PogLVj1Bv8B
-	QnhbeiNFAu1wVbvxhpWpdoy2PYHhoUWp5GL1uMCozj8bbICGt0I9LKfQRFJUwKHo
-	Y6fd9aKXXMsJjkZTvivrdYdyA1UpyWT8xdyhM2imAD4506dtLLzhjHtKEdeQNwoE
-	+wSmRZXmmdicvinRZt7R4A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1732742653; x=
-	1732829053; bh=A/qG1PCWH5DIdjBCou8V6S3ZjochUv53NXLjRXrbNBA=; b=O
-	wTYQmd9TokVOLvF2vAUccJfwlyLPiRR+Ctjlp2D6Q/+QhK3bWZM02wr+h03D8YSm
-	6tOQf5lLvxwMMHMc1o/SmIuwG06+W6utUJMtT4GsgvWTHzrGdqCrV1fGdGBvVC/7
-	GMLQ//uep/AFuZkzU7mws1oFFxAfSFMAjckG1oWESy8lGU3qbPbidUZ8YLiKVewL
-	k0zy2FszKmEmkv/WoAALuUHhx5tH9d1nv5fKkgx2S9bPQaMm3KiouInkWVnQ2EZx
-	Q8V1gQMusCh+nCJ5UuXVa3V+gSHzC4jcdxzd/mHSyvgT+gCHWccCOVaPAu4v2cKL
-	Rmg19EGUt3wu5i9ezquzw==
-X-ME-Sender: <xms:_I1HZyaQhEH4eHjR5OhZ10hCPejA0CCvC8p2egqcgPvxViq50J-bSQ>
-    <xme:_I1HZ1ag8R2tf9dHilhGNaPLvdg3vOs-jhTjLRj5Xhg3xiadbUMimzlUHPN5iPGHX
-    A42ur3BB-deBEAgGlE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrgeelgddugedvucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
-    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
-    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
-    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddu
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehjsghruhhnvghtsegsrgihlhhisg
-    hrvgdrtghomhdprhgtphhtthhopehkhhhilhhmrghnsegsrgihlhhisghrvgdrtghomhdp
-    rhgtphhtthhopehmthhurhhquhgvthhtvgessggrhihlihgsrhgvrdgtohhmpdhrtghpth
-    htohepmhgrrhhtihhnrdgslhhumhgvnhhsthhinhhglhesghhoohhglhgvmhgrihhlrdgt
-    ohhmpdhrtghpthhtohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
-    epshgsohihugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhgvihhlrdgrrhhmshht
-    rhhonhhgsehlihhnrghrohdrohhrghdprhgtphhtthhopehlihhnuhigqdgrmhhlohhgih
-    gtsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidq
-    rghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
-X-ME-Proxy: <xmx:_I1HZ8_gljDEAjSj2_i2Z32mj08WcG0CpxI1zfSJ_oJPxJPsntoPpQ>
-    <xmx:_I1HZ0oe70OojxKuJDXilLWlsi8MBucRGyAEZ3uUCGQ5n36zHwBSuQ>
-    <xmx:_I1HZ9olghZMkwyy6fj-KC-n5WxUi5GgDyBvL1LJOAPGhMcPWB1qIg>
-    <xmx:_I1HZySWSvXIL8IFo4ONqcn7vqXzffoi6f45QK1OqQcg3_N46AoHRQ>
-    <xmx:_Y1HZ6jihTLiBZlmwD58U1KDPO3yzSFtSW4gdoCbZ3mvINjfEFKhJ_mX>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id A71B22220071; Wed, 27 Nov 2024 16:24:12 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tGPkF-0000000E8aA-0Lj8
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Nov 2024 21:38:48 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-53df1e0641fso151265e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 13:38:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1732743524; x=1733348324; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=a32dwi3I+ct+r4Lez1UL06jDs58S4+Lh3Ccrl6GbYHQ=;
+        b=K5Sh1lF6iAspGn3qvaeIqvLYHhZJx4oGu6g3OukebiJMB/cKOtJzTwsBG0+V7Fq5pq
+         dPnEZ60+VWTHFzB0U9I62eXl8EX46/kMM4CYJgtrJQIA1wWOVO2AEe+bOVbfs/h6hcPR
+         rFxb0wHouoOFs7a49zAgrjHw8o5Rg6g4pborRjQ5loAKXPt/hfMNjem9keWBL84g2V6r
+         xy/CDnUjiBQSAF8VSGUyzrKGEBeDlOoUhDETwEENbzFS24ZOOjEzEHQPS+IORPEGEu4T
+         8vGY++Fb9AG/xEd+p1OF8a2faex4sHwQc8RRrj4IJsGbXlphW1AXyTL3r/48VUURHvhR
+         moWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732743524; x=1733348324;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=a32dwi3I+ct+r4Lez1UL06jDs58S4+Lh3Ccrl6GbYHQ=;
+        b=MFU9I9NwHIh3YmZCR134F6rUL9QOlnNFX28weIbtiWljy5wTgeZbBsVy6aZDUAFgOe
+         zjXqez9yiihcV2KUSMaMBRGpru/aWQA04XX0J5yu7VCjVpGn+vSubWZqOl8+Txth0qk5
+         vqFzk5ULqeMo65IMvDoWuqw3iW3/2GtPn3xh7PD9EWCk4bvnIalabOebgzFkyIm5x9l6
+         AtpepQo86GvtArcYl9bhD6lI5ix+rd1R5kax1tA9Fi6DTgiM7tHlWmwHuJEvNIFRnwBf
+         LM3eIYENE/fR2cKF3M9h7efLyuvB77s3EuK8DZliGvBzKICOzMnpZazZKQ2qn6KYO7z6
+         k2Sw==
+X-Forwarded-Encrypted: i=1; AJvYcCX1Y4jqDjH82uNfJHl+LfEVSNI/G4/0w4VHqsOYjPmEwrXV+z5yX/n04E1WQrASDvbj4z/RiuOyQbP1NC8qp/D3@lists.infradead.org
+X-Gm-Message-State: AOJu0YyN4BBfe2+d+vAJJdfJZGJr/c+GuR3kvpnydOf7moaRe9D6DCtP
+	ao0M7jnmgQoNxpK4UhzLVAynSWSsAF763K5//96SN5pAh05ANgI6vs7OYpnP9spe+DoDy1EStEn
+	gG1Azd4LBYaAP7memHX5zvyz70ym6Ft7OQAiIDEPq/HFiYUlWlzk=
+X-Gm-Gg: ASbGncvLMvgde/rnKPo5vpR7uXctZ6JkxFagzwnUE4BC0/BBYp//ZBl613+fDMLOBxr
+	SDIiALRU/FTbfPJL3Hc8TZ44nNVEHzQ==
+X-Google-Smtp-Source: AGHT+IHhrk7Oe1mo46bXXrnp90+4dmwR8w8R+FShHf5F+VcT9CvXBjjTqxBWxv0IEKj9iEI0oKllcWBS3HFl8fzSaHQ=
+X-Received: by 2002:a05:6512:3a8f:b0:53d:d572:98da with SMTP id
+ 2adb3069b0e04-53df00dc973mr2789547e87.26.1732743524534; Wed, 27 Nov 2024
+ 13:38:44 -0800 (PST)
 MIME-Version: 1.0
-Date: Wed, 27 Nov 2024 22:23:52 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Jerome Brunet" <jbrunet@baylibre.com>
-Cc: "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Michael Turquette" <mturquette@baylibre.com>,
- "Stephen Boyd" <sboyd@kernel.org>, "Kevin Hilman" <khilman@baylibre.com>,
- "Martin Blumenstingl" <martin.blumenstingl@googlemail.com>,
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Mark Brown" <broonie@kernel.org>
-Message-Id: <f8de4a2a-776f-4c10-b75e-e845bcc38dde@app.fastmail.com>
-In-Reply-To: <1ja5dk2y5l.fsf@starbuckisacylon.baylibre.com>
-References: <20241127-clk-audio-fix-rst-missing-v1-1-9f9d0ab98fce@baylibre.com>
- <12f29978-c8ce-4bee-a447-dcd086eb936d@app.fastmail.com>
- <1ja5dk2y5l.fsf@starbuckisacylon.baylibre.com>
-Subject: Re: [PATCH] clk: amlogic: axg-audio: select RESET_MESON_AUX
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20241127190605.1367157-1-festevam@gmail.com>
+In-Reply-To: <20241127190605.1367157-1-festevam@gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 27 Nov 2024 22:38:33 +0100
+Message-ID: <CACRpkdZ5oQZY62QeEmygq5md3Si5ZpSG-mL39JCe2upaUyJcEQ@mail.gmail.com>
+Subject: Re: [PATCH v2] ARM: imx: Re-introduce the PINCTRL selection
+To: Fabio Estevam <festevam@gmail.com>
+Cc: shawnguo@kernel.org, linux@armlinux.org.uk, s.hauer@pengutronix.de, 
+	esben@geanix.com, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux@roeck-us.net, arnd@arndb.de, Fabio Estevam <festevam@denx.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_132415_571980_5D44AAA3 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20241127_133847_141921_6BE9E9C4 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,53 +93,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 27, 2024, at 21:56, Jerome Brunet wrote:
-> On Wed 27 Nov 2024 at 20:30, "Arnd Bergmann" <arnd@arndb.de> wrote:
->>
->> It looks like RESET_MESON_AUX is a user-visible symbol,
->> so you can simply ask users to turn it on, and add it to
->> the defconfig.
+On Wed, Nov 27, 2024 at 8:06=E2=80=AFPM Fabio Estevam <festevam@gmail.com> =
+wrote:
+
+> From: Fabio Estevam <festevam@denx.de>
 >
-> That would work yes but It's really something a user should not be
-> concerned with. I can follow-up with another change to remove the user
-> visibilty of RESET_MESON_AUX. It is always going to be something
-> requested by another driver.
-
-But that's true for all reset drivers, each one of them is
-only useful because it's going to be used by another driver,
-same for clk, pinctrl, regulator, ...
-
-All other reset drivers are user-visible, with 'default, so for
-consistency I think it's best to keep it that way, and
-just add a 'default ARCH_MESON' the same way we have for many
-other reset drivers:
-
-diff --git a/drivers/reset/amlogic/Kconfig b/drivers/reset/amlogic/Kconfig
-index 3bee9fd60269..c02edc1b51aa 100644
---- a/drivers/reset/amlogic/Kconfig
-+++ b/drivers/reset/amlogic/Kconfig
-@@ -14,6 +14,7 @@ config RESET_MESON
- config RESET_MESON_AUX
-        tristate "Meson Reset Auxiliary Driver"
-        depends on ARCH_MESON || COMPILE_TEST
-+       default ARCH_MESON
-        select AUXILIARY_BUS
-        select RESET_MESON_COMMON
-        help
-
-The only bit that's special here is the exported symbol,
-but that is handled by the dependency.
-
->> I also see some silliness going on in the
->> include/soc/amlogic/reset-meson-aux.h, which has a
->> non-working 'static inline' definition of the exported
->> function. Before my fix, that would have caused the
->> problem auf a non-working audio driver.
+> Since commit 17d210018914 ("ARM: imx: Allow user to disable pinctrl"),
+> the CONFIG_PINCTRL option is no longer implicitly selected, causing
+> several i.MX SoC pinctrl drivers no longer getting selected by default.
 >
-> If by 'silliness' you mean there is symbol definition for when
-> RESET_MESON_AUX is disabled, indeed I guess that could go away.
+> This causes boot regressions on the ARMv4, ARMv5, ARMv6 and ARMv7
+> i.MX SoCs.
+>
+> Fix it by selecting CONFIG_PINCTRL as before.
+>
+> This defeats the purpose of 7d210018914 ("ARM: imx: Allow user to disable
+> pinctrl"), but it is the less invasive fix for the boot regressions.
+>
+> The attempt to build Layerscape without pinctrl can still be explored
+> later as suggested by Arnd:
+>
+> "Overall, my best advice here is still to not change the way
+> i.MX pinctrl works at all, but just fix Layerscape to not depend
+> on i.MX. The reason for the 'select' here is clearly that the
+> i.MX machines would fail to boot without pinctrl, and changing
+> that because of Layerscape seems backwards."
+>
+> Fixes: 17d210018914 ("ARM: imx: Allow user to disable pinctrl")
+> Reported-by: Guenter Roeck <linux@roeck-us.net>
+> Closes: https://lore.kernel.org/linux-arm-kernel/49ff070a-ce67-42d7-84ec-=
+8b54fd7e9742@roeck-us.net/
+> Signed-off-by: Fabio Estevam <festevam@denx.de>
 
-Yes, that's what I meant.
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-      Arnd
+Yours,
+Linus Walleij
 
