@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D628AD6ACF7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 18:18:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE7BD6ACFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 18:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UCapQCLe5ex4m82oTMIM7kr8FSCh8511YQp5+rojyrU=; b=FO2TIkj30ezsory22H1ofmYdNz
-	r/ppolQE2nrWmQtYbQ9YcmPpHJ9EFQYCdoyhLU2OuLd1sOmI/Z5HLIRcI9mfeF6iJF5l0Tf02FlQ3
-	mAuDBHXM3g58/HWbXHrwxZPx9Tuib1L0YcVmDOpb5SAR2i4S7M3XEXAWxBPdhg85zTPokS3Zcpe7B
-	oZ6+lnWUqCPUCI7lZDQDV82i1DRA9zop0ZlGPLr5x7ZmGHQqYLAC3LGNtRyOrWCirvt/tGEw9Q6s8
-	P9sBg5vxdmMJeG/K6lp954Ph53z01/929pabXvGEe+iU88PNU9EuZSd6wpXENmryUUuNdlFDjbL6F
-	4j0I5byQ==;
+	bh=kARWzKUceY/weTToeEeGaJYXO2giuq4VVWBcP1Rr9yk=; b=CzcNvzLfct9tiBFaKix1Yr0G68
+	AfvfWF7V0ho6zzJBIMLFrcVHqK2MOBaR8sYCYlY+Uio3Br2EJNi6V5y0huSqjh4f1ns8NXmUObO9w
+	S0sYXApZUhGhL9VxdAvokfccmkgW7zS1J4ZGeiL8ialVRjomxA2PYtKT9PtR3+ltmS8rJLRaLyhVI
+	1N4uNrklgKQX2hD5KWABqONhMSAjnexwI8Hd0V1oWaw+oT4dRgLiPU4A1uGwh8T3H5/ZIrz7zRng7
+	EJNFiNeLae1KHnNKUiMcClH7POBqRdPSnurUEDzs5gV3TLVx4FugpV0Zwe2u/wsKDgrAEzq6Y+FVO
+	M0A6hoQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGMcN-0000000DohT-3Wgn;
-	Wed, 27 Nov 2024 18:18:27 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tGMr0-0000000Dq47-35vF;
+	Wed, 27 Nov 2024 18:33:34 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGMaz-0000000DoVa-46La
+	id 1tGMq2-0000000DptB-3qPp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 18:17:03 +0000
+	Wed, 27 Nov 2024 18:32:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 64ABFA43985;
-	Wed, 27 Nov 2024 18:15:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A695C4CECC;
-	Wed, 27 Nov 2024 18:16:55 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 66BACA439A3;
+	Wed, 27 Nov 2024 18:30:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CEF8C4CECC;
+	Wed, 27 Nov 2024 18:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732731420;
-	bh=ViaFJxqIqAaRF5tQZD54yXLYk8q0ILGAzJ1PxTcRLmw=;
+	s=k20201202; t=1732732353;
+	bh=/vBmTYaopwkO9U1MxuA3+UmHMhhDk6FRfuMg62uPqSw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RMDY8YUFnXK2TvL1IxrrTkaE7fUjjSXgEChancSRHqtWw5ne6ON74FhPghW2kouy7
-	 Jhm1sDBwGyjCHzmr+r3q8lnEU0A7xBFsnZ+NxmDe819kLrpnbIFqBn5OME118X8EbE
-	 SjnuAmDQF3L43Ja246t6FSyYUcSpI5xl6m1fJKp0nPbzklkvA9lDzEkubM8J8WH+hZ
-	 QXHttJk+vryEibdgjxvk3pszu07pISh/k95POWkrgoIvI3VdhrklxF6RruAfK1dk6/
-	 za/ifWTxwVGe9Gh8qQoms4Uokrl8JqDasZgiaxJV+HHS6eZRWkSWbt2+27oKNvw/sT
-	 cmUTglglEIZcw==
-Message-ID: <d165ed94-4979-46e4-a685-44f4636620b6@kernel.org>
-Date: Wed, 27 Nov 2024 19:16:53 +0100
+	b=Var05lfLBzfmO5ci4BJJQraPwABzaIm5Pll7Q8hAcEiUgmflOttzPgLrgdiQ1AzBJ
+	 HgO0RfvWMVf+h+5lT8NOAjGReTb48tB78JDCPBjz8dW+U9Lq0/c9/C5xIfPxf3jHbA
+	 QlOZMYfgVnlx96g+Wh10ME1NaMYvBhF0i0B30yQhhq8XOphhkjtQYCrZ6XTSLjb31w
+	 sD2OMWA1GSlq/FaMR62agAvqeEaIpi5eLBSwwfPGG93rpknJS5vwIIQ5ekabtqm9rM
+	 Vu1h2x1u/jHuLpydSeC6ELE+UMSREQaGI+KOOureMm856thof1JbpMuTb60Ui634No
+	 92wAtycmIfADg==
+Message-ID: <a51b99a3-bfa3-42d7-ba6e-fed5b2c25646@kernel.org>
+Date: Wed, 27 Nov 2024 19:32:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/2] Add Meta(Facebook) Ventura BMC(AST2600)
-To: Jason Hsu <jasonhell19@gmail.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
- patrick@stwcx.xyz, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-Cc: yang.chen@quantatw.com, jerry.lin@quantatw.com,
- Jason Hsu <jason-hsu@quantatw.com>
-References: <20241127073409.147714-1-jason-hsu@quantatw.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v6 4/5] arm64: dts: qcom: sc7280: Add support for camss
+To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
+ todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org,
+ konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+ cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kernel@quicinc.com
+References: <20241127100421.3447601-1-quic_vikramsa@quicinc.com>
+ <20241127100421.3447601-5-quic_vikramsa@quicinc.com>
 Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -100,13 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241127073409.147714-1-jason-hsu@quantatw.com>
+In-Reply-To: <20241127100421.3447601-5-quic_vikramsa@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_101702_147471_464D675A 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241127_103235_084963_2FB9E817 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,34 +123,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2024 08:34, Jason Hsu wrote:
-> Add Linux device tree entry related to Meta(Facebook) Ventura specific
-> devices connected to BMC(AST2600) SoC.
+On 27/11/2024 11:04, Vikram Sharma wrote:
+> Add changes to support the camera subsystem on the SC7280.
 > 
+> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
+> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
+> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 > ---
-> v1:
->     1. Create ventura dts file.
->     2. Add commit msg.
->     3. Use format-patch to generate patch.
->     4. Add subject prefixes matching the subsystem.
-> ---
-> v2:
-> ---
->     1. Modify email content.
-> v3:
-> ---
->     1. Add mail list.
-> v4:
->     1. Apply git send-email --thread option.
->     2. Sort nodes in the dts alphanumerically.
-> v5:
->     1. Run scripts/checkpatch.pl and fix reported warnings.
+>  arch/arm64/boot/dts/qcom/sc7280.dtsi | 170 +++++++++++++++++++++++++++
+>  1 file changed, 170 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/sc7280.dtsi b/arch/arm64/boot/dts/qcom/sc7280.dtsi
+> index 55db1c83ef55..9376755ac43e 100644
+> --- a/arch/arm64/boot/dts/qcom/sc7280.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/sc7280.dtsi
+> @@ -4426,6 +4426,176 @@ cci1_i2c1: i2c-bus@1 {
+>  			};
+>  		};
+>  
+> +		camss: camss@acaf000 {
+> +			compatible = "qcom,sc7280-camss";
+> +
+> +			reg = <0x0 0x0acb3000 0x0 0x1000>,
 
+You received feedback to really start testing your code with tools.
+Nothing improved. Do you have troubles running tools or something in
+feedback was not clear? If first - ask. If second - respond to our
+comments, so we can clarify.
 
-Nothing improved. Do you know how to run checkpatch?
+Repeating the same mistake over and over and asking us to point you the
+same issue is waste of our time. Sorry, that's not acceptable to me.
 
-Why did you ignore all other comments?
-
+NAK.
 
 Best regards,
 Krzysztof
