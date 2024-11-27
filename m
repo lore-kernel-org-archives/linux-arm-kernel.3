@@ -4,155 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 126A7D66BA1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 00:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E33BD66BAA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 01:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Subject:Cc:To:
-	From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HI2HHZsuo102X4gz6YFbcmL7c5N31VPCF2XnPIu6WaE=; b=AMHa6HzUtrMElk5Qgx0obkATXT
-	EQYC7RpZHEae7OtaV2G3uIlqkPCv34ORc4oVrniw2A4J64LC81KWJ2KrBxUHmBTXQfyctFx9jfQde
-	uY19YBgrTEqdwgsgm8kOsOmJHkPB9evAet7QRm+PKe7SaVPkE9J7WNVBbvGmFB1sgku5+L0uIJJya
-	MuImUhTQ0Cm7FvpsuIoUc+50TOOc+Zy+yaSKqGex5rAltjyX6UxYJl9W6WanoaXPjv0fQGnygVPX2
-	MM44KBFKAQFuHUlk3o39CN97Wls/u31lk4J0TDuLxL3GTuHl4pyHzw5iZKIeG5hAmJfc7ym0I+pk7
-	bjpQvAbA==;
+	bh=f6yJthSITZz0JgeCwZB+IqdVfVUyc0ONXrqOpbvTgLw=; b=RL3tX4U9ykC+hwsyLh7uJTnUoc
+	GXQ/lxnmGBV7q3YNKwy92UALla1zVhfqsQOLYwiH7KNwadUDQiH5iKP+WU0L95UVI3+J0rh1w+GxW
+	MoIIcSM06za7GyOnG1rte23R/l/5z/6OQ2uue9DZ18yxUW6CVeRiZDPcKGwGZ4CS+DMr9rt3MDZy4
+	Elwd311KmNCvLAEAbQSeitAY5PMToTZFjh/lTizDcv2exqak5zUKGeJfLjxXfzTNUZvGJZkzMh05i
+	30P00B2W9YythhJ58vdbUJHOVYwwkFdBK9uWbmQWO4vI6m3Oaq5lIEIz5ERy1QZvvygjwoflibMF4
+	3690Eusg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG5jH-0000000Bw5z-3hSW;
-	Wed, 27 Nov 2024 00:16:27 +0000
-Received: from mail-japanwestazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c407::1] helo=OS0P286CU010.outbound.protection.outlook.com)
+	id 1tG7EV-0000000C2OX-07y6;
+	Wed, 27 Nov 2024 01:52:47 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG5iJ-0000000Bw1C-1xCh;
-	Wed, 27 Nov 2024 00:15:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aGQDm6oGeqmQB2l7lwfVseu73QYjhyEYCmZ6S1zq+Kv4KQzi8f2ObZKtEfixcjIrEb553IBA0OHvwZEVQjcOMOEbtLPhIVaieDXBeEEBUuyC/f7540SPZUOBHE/D+aLETbu4p2X+Py1lGGwtoFbnVHDM7vtFJ9hT6T4Pqb8ei8zceGj+RKF4ivYtVziWLfcDFKdGzyTyI1NP7LhR7qiYT++Mz0SIDlLrtHVrrMTpdkkoK8PSoGMx+AaGxt4bMele3BQManK41UwArR9S72mHVfmQ7N5fnSxog/umcxJ6yxwWGg1zFwJhPaWiFvnXa4MpD/J0re783XomE3bm7/jzLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HI2HHZsuo102X4gz6YFbcmL7c5N31VPCF2XnPIu6WaE=;
- b=B1/fu0hK/0S4Py9xl1vbdJqnyDXC42vAv0/n2dPcOhYGQ39ZOh5YnNW317w8pw3ZNZCvkwE/FU/hdYhLRbpbuu0EeHVDe71BtNqNRGX74jl2B3FfgGXHKhqkUI05HHDRH9pI/Vi4plciNFyJwEwcpkKK91u96ktr3UqztomiDBUBflV9iHqkxoYGaNY6AhexNxgdpERznfhNobOH3RcP0iqy2uoL+k6o/zgizt31JteaOurcI/ma2TAhhHDcgm/efSqBZkiEWeU1Bp6ZfnOYdCiFt6QJOk0vMuBRP/5u8nO9rEFqSIwnedtln1B4TIWpRHzKFnPOF/xmQ2qw0RAE3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
- dkim=pass header.d=renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HI2HHZsuo102X4gz6YFbcmL7c5N31VPCF2XnPIu6WaE=;
- b=T/MHZgceyPGuB4UXc8ABnRHzRo6g1nbUgMb9XzrTIYZP6plUrqb8awT20GV+gPilNyWrRSmecYcPte/gPS3zb+uiVlBAQ5RhBLjxerE7tLlVsswP9KflQNGlmABPllARxmRsXWyxFNUN5gjyvi+3ani28QdGNdR6xE8wi7rtHmQ=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11) by TYYPR01MB13184.jpnprd01.prod.outlook.com
- (2603:1096:405:163::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.19; Wed, 27 Nov
- 2024 00:15:19 +0000
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11%4]) with mapi id 15.20.8207.010; Wed, 27 Nov 2024
- 00:15:19 +0000
-Message-ID: <87cyihwmzs.wl-kuninori.morimoto.gx@renesas.com>
-From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-To: =?ISO-8859-1?Q?N=EDcolas?= F. R. A. Prado <nfraprado@collabora.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	kernel@collabora.com,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] ASoC: mediatek: Check num_codecs is not zero to avoid panic during probe
-In-Reply-To: <20241126-asoc-mtk-dummy-panic-v1-1-42d53e168d2e@collabora.com>
-References: <20241126-asoc-mtk-dummy-panic-v1-1-42d53e168d2e@collabora.com>
-User-Agent: Wanderlust/2.15.9 Emacs/29.3 Mule/6.0
-Content-Type: text/plain; charset=ISO-8859-1
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 27 Nov 2024 00:15:19 +0000
-X-ClientProxiedBy: TYCP301CA0048.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:400:384::17) To TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11)
+	id 1tG7DX-0000000C2Jb-1Mdi
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Nov 2024 01:51:48 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2e3686088c3so4956958a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 17:51:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732672306; x=1733277106; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=f6yJthSITZz0JgeCwZB+IqdVfVUyc0ONXrqOpbvTgLw=;
+        b=KPqDVNqXJAAFrx/t+QFeYFV1srbqFZkc4san8xjhkwcWkDuYLoqZIH7sMLp16mTQOx
+         s9D5n/iDUVxF5i5T5nAHvTrXJcou8O3zbH3s5HItUx2QhkfyLWuNsqM+FsaKuq+OU5gv
+         doZWCvWoQ/CxgkjbpDLL2aBVbVYibQDKCxq8knnNj7oAzwKGepngr3byb67ZMG0CGoYS
+         sWgD2tRkLn++mgicGmp8gLXnYpvcVRTAKXi85afPDHXSu0F6VPj1wXrtwYOOmeVdDjJQ
+         r4weOKDy/KeHeOpIcIElvZF6UhcLciT5cVQoGF0wb/Qw1yk001Zu3ZXkEFcA27DVFH1O
+         PIWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732672306; x=1733277106;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=f6yJthSITZz0JgeCwZB+IqdVfVUyc0ONXrqOpbvTgLw=;
+        b=HvIyWdeCIhs4TbCOF9I8s3Xj3Gi6OqqdnNGBBfDRrKO+PSJwQAFIINlPxwXmdXiusX
+         FCxhgGOnqWDV85Exuku2358lGYNURiuhlTePjgey63byV5BpDWCzm/kNfYvXeZOhCel/
+         FD6bx8EhJJGHRgW0/eKkaHFFZcgWCR6jZEGd8Qv3dank7StqpGkskVZ1Nz/PVjViRQoC
+         hNynaZDF0wrZninm66TVyFbFsp+mKWc90bNl60Hvo67vLZkj3tsHqywfOp5Q7sP9p0O5
+         od6c+avhC9SOcez3MXnRKr/0EjAeN2UPYSJ8iG7bVlCeDl4ZXqpxv+qzUi6N3WpxNR+N
+         W6DQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU/LzhMDAQ4Ei4CS1vXBS6NzMoQhk/qydG9YUq1oXdF9Q7N2ssJ1laqQ6xKSjDA7ZZJHdl4fI35KnQvQj2OdfSy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzy3gU2U7be1o9nKNGsN7WJHFon8EIxbXXBSbJiCMfSn0vFqHec
+	VJWcm49rgA/lhjPaA/HmwueyXM/tJzc4fT+k9YV+SF7VrqH3QPfikkLsVQ==
+X-Gm-Gg: ASbGncv/+jfCt4pIaQ+G720x8llUGP7XmnbyJ4z7eVtZUZTgu/d7+ytGyltWLP20RUa
+	K0QhZ2mEkNnrUswV3EpKxXpQoUnB9PjoRE565RfpLa1ci2hIYV/T43W8XNg0A7WNcG2rcnFO4zL
+	94IiSUlHgLLsakgzdt2B4aORSWpBv4Hl0f8h7MFCfT8jOe+h4u/JU3I8plsiS7/a1klIGJn38zR
+	YWBlTBOWN+V6ZgurZorOcLBuhTDOSjfTE237in6k+ruDQuTh0U=
+X-Google-Smtp-Source: AGHT+IGWUC26ECFB/XST5h32zsfNM+cTFebDB426koYcgqVJ4sR4f37BBk7oSc1604wiVBTnh/A1ng==
+X-Received: by 2002:a17:90b:1d81:b0:2ea:7d8f:6f17 with SMTP id 98e67ed59e1d1-2ee08eb5cecmr2142866a91.10.1732672306240;
+        Tue, 26 Nov 2024 17:51:46 -0800 (PST)
+Received: from google.com ([2620:15c:9d:2:d991:bacb:df39:9ecd])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ee0fa6134fsm248728a91.18.2024.11.26.17.51.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Nov 2024 17:51:45 -0800 (PST)
+Date: Tue, 26 Nov 2024 17:51:42 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: fnkl.kernel@gmail.com
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Janne Grunau <j@jannau.net>, Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH 0/4] Driver for Apple Z2 touchscreens.
+Message-ID: <Z0Z7Lrv3rBfzac_e@google.com>
+References: <20241126-z2-v1-0-c43c4cc6200d@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|TYYPR01MB13184:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7bc931c9-a85d-4387-6376-08dd0e7893be
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?oAmK0PmZKY+WY+rgLl0Avytmt/8QlSvDN8YSXZyKPWp37FHQLQMuYfsXLn?=
- =?iso-8859-1?Q?ACBKb2SHjfRmQjc3hVfGduih8hb2DBUSRTtnH5Rt8VHKPyaSF7BB24aqqI?=
- =?iso-8859-1?Q?hdTfYutjKA7MvWqCSdToYlAYrnYdxA28kEgNugiPTjw4aMXn3VzqOSgF20?=
- =?iso-8859-1?Q?QcThXVmaJ8rEBpXjE4SQXWfY9jQSyfrKhKU6XxMme2VEPyQjR01bzqVPYI?=
- =?iso-8859-1?Q?MneQo8t6oam0If5EHoDV6By1523U/W58sYHwKm22LDXhNlx/dfvxDvfMZd?=
- =?iso-8859-1?Q?B126OleonqiqyQBxJbaaZ48nkESbZANWIhx2L/CwhlyaB4AG0wCs8DfF2Q?=
- =?iso-8859-1?Q?VTEU97DsFd7b3CtmZmc/X5cmZA++yaBjus++cROoIHaXVbTl7q8+8pu7Kk?=
- =?iso-8859-1?Q?NmOBc5sdyaK5vXhW5paj4gL+VuYS+4JzYri/aYjthIP2SZz8w7vkhSAjfS?=
- =?iso-8859-1?Q?BXpsxGeBVRwlq5aRkjAavLYjW1JEaTtbQtgJuqTDcgDOtU0UcXKaG7e+5L?=
- =?iso-8859-1?Q?hOFEetnECmz7ajYlf1vQEuuQqBGwU52DA1jNHkWodyR7a1LkGGNFCTFrnK?=
- =?iso-8859-1?Q?kVpj+G/USuo6Uzs4way8OAvTE3yeozGM3r1EQPiIthlcktjGL8roJVIrDk?=
- =?iso-8859-1?Q?1b+bR7/pAptU6QxnQOz3lDL9cMe1+NJF+sdV5XbpY9vaq8S8en2x2o3HyG?=
- =?iso-8859-1?Q?PqegN24V+fFYFaXk8Jj8xG3JwLp5QWcN/dvCnOtE+4A/1pEj8DKa+/2dE4?=
- =?iso-8859-1?Q?nkvpUfMRc6YEbnSET6117Ayx3nK3i7CGhfYdfwgIBA+VDEnbTRkHlhmLjw?=
- =?iso-8859-1?Q?y/kTgxsmXElLrxtfmruYx1M4CxjpWG/QER1pl7kLOLG+m13hSosc0XnSht?=
- =?iso-8859-1?Q?NEZpbtINGPl28izY0HyEE08GvKG5D1YKMmRh8GVMg6zGffWaYxm1q6r3F+?=
- =?iso-8859-1?Q?kF07l99PtHgrr0SfWKZFAjbC4nmb1iKBogMd5Z3JEeEDiK9nv5bdB5E7Q8?=
- =?iso-8859-1?Q?7R8n9c+XQhkz3xppz6boA/9OU2oqNf90CpzjU1Ghb5Ry89K/QdCQFGNHUy?=
- =?iso-8859-1?Q?rJKsTsM2TNRNPedvy1xONYhhT3b54XP9htR0JtKGWF3NKRKT9hLbDcw4k+?=
- =?iso-8859-1?Q?yC/Vtjy34pj9/ESI6icqwKEi5htT1AdHVX0uEz2U+A638uYZYjxoPSLN4U?=
- =?iso-8859-1?Q?pSv0wRsSv0c4NYgh0Ch46ngyx1U9C91gyZ+uOtauae2RWfXwNjYwKM1t2N?=
- =?iso-8859-1?Q?fmODUEYjvDPZoHVL7thpy6Yni2pwmiR+hgEkLO2HGmC3shNa81vBeGk0lp?=
- =?iso-8859-1?Q?lezo3n2C42Fvx7xcBe9Uj4OvHSTuJUcrTpfuVh/brbYLRMNbEOoxfvF/8U?=
- =?iso-8859-1?Q?lsNK9gG/0u3dI8LbDAchMWVA4TODt1PqLhnEI6mKYNbZSZ6aSLB6QcN6sJ?=
- =?iso-8859-1?Q?Ca8VmNEH7ieq9eRuXa2yTdujt3lsaUjUOLlAWw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?ZjAIdelJ9Xru1HzgjdDsMamY7lNqOj4NDmNYn9/Z3le2+u4AjEti6fYmIp?=
- =?iso-8859-1?Q?wP3jICncs4p39tnTmVfD69FD+/A1/7TRAfrXmGbI9T1FW5VC41T57/HTfB?=
- =?iso-8859-1?Q?wprKGQHGRH3eEzX+NMMQw2BwlEvy79aMvphXVA3Xw0iqkT5BINP7QU0tAN?=
- =?iso-8859-1?Q?SIb5zdq0U+D8GfhEGcLp7QKtv/CN6CQiiOqlp6xEmNuz10eWzo8UEV/TdN?=
- =?iso-8859-1?Q?g8Yy0OVt0y3ytvhBzq7M+z8V8q+DtclwThn8tnIUjYuRnw2NW+OCkmhxGN?=
- =?iso-8859-1?Q?68mc6Uh0BPqbJ04DuI1xlOMdxWzgMeiCnMIANEJcdfbrBaKKvStlO5niSg?=
- =?iso-8859-1?Q?jBMou3MExAbmec/FI+AK11YPe0zNZ/GK83XXix0hN1dlrM1R0TrajbD89h?=
- =?iso-8859-1?Q?06X4yvUK3jqkuWkupl2GDbb54pqyI20dkZCLp6rvelgvg4OjPThx+YA+nB?=
- =?iso-8859-1?Q?vMPaMYteuTDqnBc6KcEIF8OtgJJttefDJKiduyHPdzoGfZNs/+hZ83xkWJ?=
- =?iso-8859-1?Q?nmAkN+jADyDv9E5nTVuLaZBHYiRyJlzDx1K7x51/koOHcTVJLgCupPHcbC?=
- =?iso-8859-1?Q?5JvaVhcjl4kP9N8fZSl9k4joYWWmq6umVX/CTGY8NkaVyPlWpxxXyWxZZ2?=
- =?iso-8859-1?Q?9K1lxxW9LeCKzF7pppMTB7/28xpQ90Q6SUaA2wrtTOkzomkhhLqEjKkw53?=
- =?iso-8859-1?Q?OYDuArs/odEU7uXz6ltS6vYWQd5S3U5T5DJkp0sXmeSO4O2v8c+9dMaSMS?=
- =?iso-8859-1?Q?3PYbuZjbHAHlO2tT7wMFYKL2vgSVMS8sPbLVru2NBh2HGmoGdXLzPB5U4/?=
- =?iso-8859-1?Q?sM3PbQpMYvtUEr87XeTHoZgjbio+1h/s2/6wo7citmsMhVoIN2uLeyPcq2?=
- =?iso-8859-1?Q?NGbo21DL3Zr1Mq4pcNoXQFM/g1azltc1D6Zo0OM1J5N6Zrp3ARTctEezx7?=
- =?iso-8859-1?Q?b+/mqSanpSMHz6Z3ARqrR6ZVo27qgEULJubL4wx5dCwLoCBtbEw0O6gA0L?=
- =?iso-8859-1?Q?YvscbSyBnKwZtutNhcgf9o2xcompV4+ll1trcr3pRShEjakYCKEfwuln0h?=
- =?iso-8859-1?Q?7yVKPhPzUyNMelpZIt5BpNpiHYxYwx7fciPKSck/31WfPDDM/+/2V2o9//?=
- =?iso-8859-1?Q?otUWbTBok0+uLhy67QJFel3gHadCzzD2mbNK3Y/0/r1AKtn7vOcBd0H+gF?=
- =?iso-8859-1?Q?wglvr09/tm0QsODMXlsRVzurJ0qnw/4zmqsUctCCJ70lTlj0wlZiDXJXV5?=
- =?iso-8859-1?Q?szIzpi+RLdv0m1y7r/DvKxjnHe9MuSm3OIFCEg/RfSF3swKS+Iq7LvAhre?=
- =?iso-8859-1?Q?7k62MYM7LWFtY+0LIvOZiKRvqTMmiIOZFtYOeteO0N6nTzvhvHVpru1xS1?=
- =?iso-8859-1?Q?QrcUw8x5nYUBR9VSkKx2wLqgobv7ltXZbheHcsBHW1F3g01NIRzaQsk0gX?=
- =?iso-8859-1?Q?d9Fuh+igO4HtG5gzLfJJUgWZ0ioGI32OXvs0A66CD2wOyeuIpfPgu8M2tI?=
- =?iso-8859-1?Q?gstreDgMJEJjNX2t2ZNJYF7zmOGzkmDP47R9WlrIAvtLPuFpofcNZm7j1x?=
- =?iso-8859-1?Q?WiKHUBeG8CRkHfRBzwGiNPAR2b8ayoXBP70cKfXIK1ciwn0A/PWN82TisU?=
- =?iso-8859-1?Q?6q5KF1pQPgl8kpQxblrwmcFrT23RfFDoVeL6meNqvVZMxBXgv/WEahM84i?=
- =?iso-8859-1?Q?5uEMHY5n+hFEE+w6L88=3D?=
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7bc931c9-a85d-4387-6376-08dd0e7893be
-X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2024 00:15:19.5422
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 81+T20i7Wu9ZCHDlIhLJoN+eTp15XGz1NhQQ0xu6fSokGSmrG5GNZ+EsAVAslAic7beKBPuUj5GzO6zqhlg3hxPpdCrOgOfDT/sc2xlCPtqbEWX1qUEfvRt5KKOCtdCT
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYPR01MB13184
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241126-z2-v1-0-c43c4cc6200d@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_161527_621241_1194D3E5 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20241126_175147_383953_9992BA55 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,47 +102,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Sasha,
 
-Hi
+On Tue, Nov 26, 2024 at 09:47:58PM +0100, Sasha Finkelstein via B4 Relay wrote:
+> Hi.
+> 
+> This series adds support for Apple touchscreens using the Z2 protocol.
+> Those are used as the primary touchscreen on mobile Apple devices, and for the
+> touchbar on laptops using the M-series chips. (T1/T2 laptops have a coprocessor
+> in charge of speaking Z2 to the touchbar).
+> 
+> Originally sent as a RFC at https://lore.kernel.org/all/20230223-z2-for-ml-v1-0-028f2b85dc15@gmail.com/
+> The changes since then mostly address the review feedback, but also
+> add another machine that has this specific controller.
+> 
+> The extra gpio needed to be toggled turned out to be a quirk of the
+> j293, normal CS is unusable on it, and a gpio has to be used instead.
+> (j493 does not have this quirk)
 
-> Following commit 13f58267cda3 ("ASoC: soc.h: don't create dummy
-> Component via COMP_DUMMY()"), COMP_DUMMY() became an array with zero
-> length, and only gets populated with the dummy struct after the card is
-> registered. Since the sound card driver's probe happens before the card
-> registration, accessing any of the members of a dummy component during
-> probe will result in undefined behavior.
->=20
-> This can be observed in the mt8188 and mt8195 machine sound drivers. By
-> omitting a dai link subnode in the sound card's node in the Devicetree,
-> the default uninitialized dummy codec is used, and when its dai_name
-> pointer gets passed to strcmp() it results in a null pointer dereference
-> and a kernel panic.
->=20
-> In addition to that, set_card_codec_info() in the generic helpers file,
-> mtk-soundcard-driver.c, will populate a dai link with a dummy codec when
-> a dai link node is present in DT but with no codec property.
->=20
-> The result is that at probe time, a dummy codec can either be
-> uninitialized with num_codecs =3D 0, or be an initialized dummy codec,
-> with num_codecs =3D 1 and dai_name =3D "snd-soc-dummy-dai". In order to
-> accommodate for both situations, check that num_codecs is not zero
-> before accessing the codecs' fields but still check for the codec's dai
-> name against "snd-soc-dummy-dai" as needed.
->=20
-> While at it, also drop the check that dai_name is not null in the mt8192
-> driver, introduced in commit 4d4e1b6319e5 ("ASoC: mediatek: mt8192:
-> Check existence of dai_name before dereferencing"), as it is actually
-> redundant given the preceding num_codecs !=3D 0 check.
->=20
-> Fixes: 13f58267cda3 ("ASoC: soc.h: don't create dummy Component via COMP_=
-DUMMY()")
-> Signed-off-by: N=EDcolas F. R. A. Prado <nfraprado@collabora.com>
+I believe this needs to be done at the SPI controller level. See
+"cs-gpiods" property in
+Documentation/devicetree/bindings/spi/spi-controller.yaml that, as far
+as I understand, allows overriding controller's native CS handling with
+a GPIO when needed.
 
-Acked-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc-ing Mark Brown.
 
-Thank you for your help !!
+Thanks.
 
-Best regards
----
-Kuninori Morimoto
+-- 
+Dmitry
 
