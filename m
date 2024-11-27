@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB32AD609AD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 08:05:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7966D609AD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 08:06:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tjTIKW9eo5borKok+xBtBjM7UMaGh7skviWUJzH4050=; b=dqnqi8WUQIFHbByGPmw8qbDOwe
-	eI6whqE29jvPdyjK7lcpU/rG4p8G0ySUNivWBvpcxxVUoOhrjvTE/A+PonsNN1xYMVV8tJ5QaF3td
-	GjByPMaYFCKQrBHLTi/+pCBWX/hZgJRxVXbnZbRTA9DFxgmBm1b4eGWmPhfGcGXLFckZSNU92j0jr
-	EYJOluRc4TLXxKpY0vUVRapTsBBCcTXiL5hcz6pvCB3DyQcLTm46s7OS6J5k5lxRUwYelcF8nsL/u
-	QivCNrPT598qIGxY272wdVzAsRYXxArDcPFrqitIaESsPtau5XHCVN0zq4WyAngA8SUpkrGrUuyY0
-	HSyQWfnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j/puSsXPhu1hMK3ar0AYGCIWVyIB6fujtiaV/jwOUA8=; b=dWLYaxtKm5vzqSX/9hOA4BPs3r
+	oUZeJKms97jItoSH+gl++3245aQpO+LBg20L+8XXM3v8paB+fT2IGOe6GMyEKL8kJ6qsVtceM9fC9
+	D3vy0/8ekvNUE6DZiiK/jShEh5OjbxebKWGcD/IxhfLHNASLRREl58/PVoC33AnYijZSIXXQvgUc1
+	8+QF/qsusr0LIaD2LKgLQoP9gAYIyeaZpsaLzwtCCw7J40oyaTOWFyvplDs/qs3UuoNRBAqRqvxLl
+	lofmqS0p63UYv2wgCvJyo3x/dS1CLM1fn0UB+OcaoIQ7t5/XuKILJiyetVXfITPify6YzIDp47puq
+	3zLfoMag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGD3P-0000000CWr8-0CSv;
-	Wed, 27 Nov 2024 08:05:43 +0000
-Received: from lelvem-ot05.ext.ti.com ([198.47.23.236])
+	id 1tGD4L-0000000CX0Z-2yh2;
+	Wed, 27 Nov 2024 08:06:41 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGCut-0000000CV5p-1fhr
+	id 1tGCwp-0000000CVP2-1vnL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 07:56:56 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot05.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4AR7unwZ757910
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Wed, 27 Nov 2024 01:56:49 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1732694209;
-	bh=tjTIKW9eo5borKok+xBtBjM7UMaGh7skviWUJzH4050=;
-	h=From:To:CC:Subject:Date;
-	b=bT4ZJj7NarbK8iwZtvoi31q9/+DVyFKMh4ed5q0v65ldsu40xVo+/gUS2NIn+JwDG
-	 1qwvH/9Z44BZPO2LBPINGCWJd4MdzlQ9eHIJ4Q5zH4l+wlrB6XDFOgPHQRR85n7Qj/
-	 a1NHIcmresNaptBW7D+E6fkmRfdg/jsvJbEi8lps=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4AR7ungO104187;
-	Wed, 27 Nov 2024 01:56:49 -0600
-Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 27
- Nov 2024 01:56:49 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 27 Nov 2024 01:56:48 -0600
-Received: from a-dutta.dhcp.ti.com (a-dutta.dhcp.ti.com [172.24.227.92])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4AR7ujN9052665;
-	Wed, 27 Nov 2024 01:56:46 -0600
-From: Anurag Dutta <a-dutta@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <vaishnav.a@ti.com>,
-        <a-dutta@ti.com>
-Subject: [PATCH] arm64: dts: ti: k3-j7200: Add node to disable loopback connection
-Date: Wed, 27 Nov 2024 13:26:44 +0530
-Message-ID: <20241127075644.210759-1-a-dutta@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 27 Nov 2024 07:58:56 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tGCwk-000639-Aa; Wed, 27 Nov 2024 08:58:50 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tGCwj-000ODy-0m;
+	Wed, 27 Nov 2024 08:58:50 +0100
+Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id A655F37E1A3;
+	Wed, 27 Nov 2024 07:58:49 +0000 (UTC)
+Date: Wed, 27 Nov 2024 08:58:49 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: Frank Li <frank.li@nxp.com>, 
+	"o.rempel@pengutronix.de" <o.rempel@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
+	"andi.shyti@kernel.org" <andi.shyti@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: RE: [EXT] Re: [PATCH v3] i2c: imx: support DMA defer probing
+Message-ID: <20241127-analytic-azure-hamster-727fd8-mkl@pengutronix.de>
+References: <20241127074458.2102112-1-carlos.song@nxp.com>
+ <20241127-ninja-dormouse-of-bloom-8ee494-mkl@pengutronix.de>
+ <AM0PR0402MB3937614F4866F4F15D2FDA21E8282@AM0PR0402MB3937.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="elw43wbzngdfoidk"
+Content-Disposition: inline
+In-Reply-To: <AM0PR0402MB3937614F4866F4F15D2FDA21E8282@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_235655_608362_498118EF 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20241126_235855_499553_E642D15A 
+X-CRM114-Status: GOOD (  25.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,72 +85,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CTRLMMR_MCU_SPI1_CTRL register controls if MCU_SPI1 is directly
-connected to SPI3 in the MAIN Domain (default) or if MCU_SPI1
-and SPI3 are independently pinned out. By default, the field
-SPI1_LINKDIS (Bit 0) is set to 0h. In order to disable the direct
-connection, the SPI1_LINKDIS (Bit 0) needs to be set to 1h. Model
-this functionality as a "reg-mux" device and based on the idle-state
-property, enable/disable the connection bewtween MCU_SPI1 and MAIN_SPI3.
 
-The register field description has been referred from J7200 TRM [1]
-(Table 5-517. CTRLMMR_MCU_SPI1_CTRL Register Field Descriptions). 
+--elw43wbzngdfoidk
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: RE: [EXT] Re: [PATCH v3] i2c: imx: support DMA defer probing
+MIME-Version: 1.0
 
-[1] https://www.ti.com/lit/pdf/spruiu1
+On 27.11.2024 07:48:13, Carlos Song wrote:
+> > >  static void i2c_imx_dma_callback(void *arg) @@ -1803,6 +1804,23 @@
+> > > static int i2c_imx_probe(struct platform_device *pdev)
+> > >  	if (ret =3D=3D -EPROBE_DEFER)
+> > >  		goto clk_notifier_unregister;
+> > >
+> > > +	/*
+> > > +	 * Init DMA config if supported, -ENODEV means DMA not enabled at
+> > > +	 * this platform, that is not a real error, so just remind "only
+> > > +	 * PIO mode is used". If DMA is enabled, but meet error when request
+> > > +	 * DMA channel, error should be showed in probe error log. PIO mode
+> > > +	 * should be available regardless of DMA.
+> > > +	 */
+> > > +	ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
+> > > +	if (ret) {
+> > > +		if (ret =3D=3D -EPROBE_DEFER)
+> > > +			goto clk_notifier_unregister;
+> > > +		else if (ret =3D=3D -ENODEV)
+> > > +			dev_info(&pdev->dev, "Only use PIO mode\n");
+> >=20
+> > On a system without DMA configured, with this patch we now get this info
+> > message that wasn't there before. I think this might annoy some people,=
+ so you
+> > should remove it.
+> >=20
+>=20
+> :-) hhh, get it.
 
-Signed-off-by: Anurag Dutta <a-dutta@ti.com>
----
+Some things look reasonable when discussing the patch, but when you
+see the new, cleaned-up version, you immediately realize that this is
+going to annoy people :)
 
-Hi all,
-The above functionality can be achieved by changing the idle-state of
-the "spi1_linkdis" node. As observed, when the SPI1_LINKDIS (Bit 0)
-is 0h, the connection remains enabled and SPIDEV loopback test is
-succssful [1]. But, when the state changes to 1, the the SPI1_LINKDIS
-(Bit 0) becomes 1h and the SPIDEV loopback test fails [2] indicating
-that the connection between MCU_SPI1 and MAIN_SPI3 has been disabled.
+> How about change to dev_dbg?
 
-Test logs:
-[1] https://gist.github.com/anuragdutta731/9ac287f27f1dfb3a5ccee4cc86e02dbb
-[2] https://gist.github.com/anuragdutta731/3ed7b7b5a1a3dab494ba46858b972088
- 
- arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts | 4 ++++
- arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi       | 7 +++++++
- 2 files changed, 11 insertions(+)
+Good idea.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
-index db43e7e10b76..f684ce6ad9ad 100644
---- a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
-@@ -409,6 +409,10 @@ &serdes_ln_ctrl {
- 		      <J7200_SERDES0_LANE2_QSGMII_LANE1>, <J7200_SERDES0_LANE3_IP4_UNUSED>;
- };
- 
-+&mcu_spi1 {
-+	mux-controls = <&spi1_linkdis 0>;
-+};
-+
- &usb_serdes_mux {
- 	idle-states = <1>; /* USB0 to SERDES lane 3 */
- 	bootph-all;
-diff --git a/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
-index 6a8453865874..56ab144fea07 100644
---- a/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
-@@ -184,6 +184,13 @@ phy_gmii_sel: phy@4040 {
- 			reg = <0x4040 0x4>;
- 			#phy-cells = <1>;
- 		};
-+
-+		spi1_linkdis: mux-controller@4060 {
-+			compatible = "reg-mux";
-+			reg = <0x4060 0x4>;
-+			#mux-control-cells = <1>;
-+			mux-reg-masks = <0x0 0x1>;
-+		};
- 	};
- 
- 	wkup_conf: bus@43000000 {
--- 
-2.34.1
+regards,
+Marc
 
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--elw43wbzngdfoidk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdG0TYACgkQKDiiPnot
+vG+KkQf/Q+u30VAGEE7GQ8pY0YCDMlgwq9Lrph+jmHFG1nrNAnOc525i9+1N5Q5/
+HR1cWXxUV/yHkt6tkmKlbmGTv5V4FtLOM1QFq4RDCYql8alygNNcN2v4ZUZg3827
+el4CHe85/9/Ra2xln9yJ6WIrw7Lhn0Zh0CdpH97hYqmR0WHrpTecWFHbXNGIVieL
+85DPurmsXB7lVCfi7sa4V0NjZtts+bkDeDEVnO30j3SAkOtf3KUMtpNWAIGUmRvk
+uhdwGfpKbt4sYrmumv05Oly4FzQC8pGf1PAvpDxrlxTbvaHVnkjxvxQ86BbdWOIP
+zdkYoGoEU24Eq3WBH+hUS1LjNmKcRQ==
+=dQGb
+-----END PGP SIGNATURE-----
+
+--elw43wbzngdfoidk--
 
