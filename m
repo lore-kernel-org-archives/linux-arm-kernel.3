@@ -4,71 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDB6D6ACED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 15:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C786D6ACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 15:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wey84kIC4m1hDfkzPHCvmMBCoCQCb+1v3dfhbCeaCCo=; b=Ee+oz5R4hzQdeocHiUrrl4OQyv
-	ujfGU4vht4E9TPdQay70eT+zvxQUDiboqF9MlFcpV7GWlGa0PzHQGqkD/OzD49pjWEhZrbK+vBWI0
-	hKIfAngFkhY9v02OvdAt881Q1YyekP1Ndwdt50pDOaZkXuIueMesJRh9kDvNtreT10HkmF+AkYLWA
-	gJPG3VfGosk1FTv/c6W22C0yoTKc6Dzxyg+/MYI/iqsT8vEZiHHtXRvDKolKvS6NB05qZl7L6CGTF
-	0kC2uwAE5Y1XpVqbnmTLnxyd/lh4jGhw/oWVPdeAxEEqnjyefDxk0rCc0LFk6rXgbsZ4/PVdFuuwn
-	FdmyfMHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P/DlYcuDGADIQGP2ZfAdeBWsfmgR8JiE/lGuM9PqQ6Y=; b=ms++aF6pjr+TQwz5ui9hDP7HPJ
+	Oe1mNHXvqcluMWCXjg5SXYsluQEC1Cr0FTiz7NsFogC2SG6dlGEYC7PvhWdhTpfTaksTG5mEDXKpM
+	4TUulnXK8/7K590FQX52YIkiY4qRkz80DNaG14Xd0bejtGKNNMjbzuA9ozRzTmccSpPemOQfH+HXA
+	/xaO25gxSZizXQFJBXsBUVnSJewKvzaerXSj68uVYCm1yLTagrjZw2jvQsIIBo1/LikG0/TEKrUVd
+	Z92cHxnwNvqkxawJvUkAPTkfxafzUgqGF4t50l2f5oBXDq2Ar4KR9o+6AgMo0R3lI5If01WqRTj0w
+	D32yDDJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGK0R-0000000DVyM-1dTp;
-	Wed, 27 Nov 2024 15:31:07 +0000
-Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
+	id 1tGKBy-0000000DX5R-2QPx;
+	Wed, 27 Nov 2024 15:43:02 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJye-0000000DVeN-2tQT
+	id 1tGKAz-0000000DX0J-3q8I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 15:29:18 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: marcan@marcan.st)
-	by mail.marcansoft.com (Postfix) with ESMTPSA id F247843587;
-	Wed, 27 Nov 2024 15:29:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
-	t=1732721353; bh=2vJooQxDCFwloAiYjdkYj6nOIAaBL9PWzbzwFJSF9X4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=hIo7tdzyArdTp4Z8DYTMTyp7aaI3whJ2Rcw0dRCLCMAOlolDRG1FCc1cCVcharF+T
-	 O9id0ZBAgSaGPlOmlLVFIMOpulNMtGwge1ucAjrUo0q+33INpbK901XBwFGMRi+ZaR
-	 9vDvRzm4OEZQo58uXdDr0ekqKMXtt0QcfagGGi1eKhX8xlRs3AAY2gltjlsrR5IBDQ
-	 ZelOG7bJE9bcrh0XUsUSXU2M9zGQDD3VohAi5kJGkR8PsWjl3Nki8SywbLImvP/C1a
-	 ArcRa+tvw7/LEWmtjZWflh1S3Cxv6gj3V6TL0xQf6YWtFvZUMc05SjtRGml0WYyPQF
-	 lNwtZ/QVz81/g==
-Message-ID: <9dcdea44-974e-416f-9d59-204d519774dd@marcan.st>
-Date: Thu, 28 Nov 2024 00:29:11 +0900
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] Driver for Apple Z2 touchscreens.
-To: Sasha Finkelstein <fnkl.kernel@gmail.com>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig
- <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-input@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>,
- Mark Brown <broonie@kernel.org>
-References: <20241126-z2-v1-0-c43c4cc6200d@gmail.com>
- <Z0Z7Lrv3rBfzac_e@google.com>
- <CAMT+MTThJoYLYhtYAHwh6F3LTApid9Em+eP2AZYc3JChC2b9ig@mail.gmail.com>
-From: Hector Martin <marcan@marcan.st>
-Content-Language: en-US
-In-Reply-To: <CAMT+MTThJoYLYhtYAHwh6F3LTApid9Em+eP2AZYc3JChC2b9ig@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Wed, 27 Nov 2024 15:42:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C744AA43933;
+	Wed, 27 Nov 2024 15:40:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 488A6C4CED3;
+	Wed, 27 Nov 2024 15:42:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732722120;
+	bh=dZSnAYpZutAuOvaVC5VkHYc0cGR/1sXeOGbZkw59I2w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=keRTqRHWiVSj0heTa4ZVSS1l8dafdIoPicR8WQe/Fr3C/bRoRUQalLEZIJ3cyK7cI
+	 cPGIqpGF49rYoTyj2iUzh0hjZ9jeD8moEQZ8j9iD1S2v4EOaWhFdxZ/1dF4DkoahJt
+	 GjS0JDpt4tTVrneIyEdrurg6phrKcrr7K03RBBBRS8Jz1j42v5eZQm3UYuuISlbL91
+	 zEynDTl3v/3MTwjQWPeB/+ndzhqWSam97iEd+zF72TjtfY7GKw+//xM4p/1OJdaImF
+	 /kqnHl9kKeYhGvFwwVlQ3lYdVhtDY4uiqm4m4YAiRj2X1L3jadW5sEfhQ53T34SLpi
+	 7ftqIEdWt41NQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tGKAv-00GItK-Un;
+	Wed, 27 Nov 2024 15:41:58 +0000
+Date: Wed, 27 Nov 2024 15:41:57 +0000
+Message-ID: <868qt4vg3e.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Bump KVM_VCPU_MAX_FEATURES
+In-Reply-To: <a7011738-a084-46fa-947f-395d90b37f8b@arm.com>
+References: <20241127145644.421352-1-steven.price@arm.com>
+	<86a5dkvh9o.wl-maz@kernel.org>
+	<a7011738-a084-46fa-947f-395d90b37f8b@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, catalin.marinas@arm.com, oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_072917_154816_0A98DC4E 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20241127_074202_083947_BFC5C3B2 
+X-CRM114-Status: GOOD (  27.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,37 +92,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2024/11/27 17:29, Sasha Finkelstein wrote:
-> On Wed, 27 Nov 2024 at 02:51, Dmitry Torokhov <dmitry.torokhov@gmail.com> wrote:
->> I believe this needs to be done at the SPI controller level. See
->> "cs-gpiods" property in
->> Documentation/devicetree/bindings/spi/spi-controller.yaml that, as far
->> as I understand, allows overriding controller's native CS handling with
->> a GPIO when needed.
+On Wed, 27 Nov 2024 15:24:32 +0000,
+Steven Price <steven.price@arm.com> wrote:
 > 
-> I have already tried doing that (adding the relevant gpio as cs-gpios
-> on the controller)
-> and for some reason none of my attempts worked. Since there is no hardware
-> documentation, I can't really tell why, could be possible that we need both
-> native CS and that gpio, could be memory barrier issues somewhere in
-> the driver core,
-> but the method above is the only one i could get to work.
+> On 27/11/2024 15:16, Marc Zyngier wrote:
+> > On Wed, 27 Nov 2024 14:56:31 +0000,
+> > Steven Price <steven.price@arm.com> wrote:
+> >>
+> >> When the KVM_ARM_VCPU_HAS_EL2 define was added, the value of
+> >> KVM_VCPU_MAX_FEATURES wasn't incremented, so that feature has never been
+> >> in the KVM_VCPU_VALID_FEATURES bit mask. This means the HAS_EL2 feature
+> >> will never be exposed to user space even if the system supports it.
+> >>
+> >> Fixes: 89b0e7de3451 ("KVM: arm64: nv: Introduce nested virtualization VCPU feature")
+> >> Signed-off-by: Steven Price <steven.price@arm.com>
+> >> ---
+> >> I might be missing something, and it's possible that
+> >> KVM_ARM_VCPU_HAS_EL2 is deliberately not exposed yet.
+> > 
+> > This is on purpose. I'm not planning to enable EL2 support until it is
+> > ready.
+> 
+> I did suspect that's the case - but it might have been better to knobble
+> it in system_supported_vcpu_features()/kvm_vcpu_init_check_features()
+> rather than 'hiding' it in the MAX_FEATURES. But hindsight is a
+> wonderful thing ;)
+> 
+> >> However I'm
+> >> working on v6 of the host CCA series and as part of that want to add a
+> >> new feature but and bump KVM_VCPU_MAX_FEATURES up to 9.
+> > 
+> > Well, I guess that defines some ordering then! :D
+> 
+> Indeed - I'll try to remember to include note about this "dependency" in
+> my cover letter. We're likely to need a few more rounds for CCA to be
+> ready, so hopefully NV will naturally be there in time :D
 
-Are you sure this isn't just a pinmux problem, i.e. the bootloader
-initializes the pinmux for hardware CS only on one device and not the other?
+Any minute now, according to those impersonating a French physicist...
 
-See spi3_pins in the DTS in our downstream tree (and the reference from
-the SPI controller). If the rest of the SPI pins are already working
-properly you can just try with the CS pin (same index as on the gpio
-spec). Ideally we'd list the 4 pins, but someone needs to reverse
-engineer the mapping with m1n1 gpiola since we don't know what it is.
+	M.
 
-If it really doesn't work with native CS and proper pinmux then cs-gpios
-on the controller should work. If it doesn't something weird is going on
-elsewhere. There's only one CS line, needing both makes no sense.
-
-- Hector
-
+-- 
+Without deviation from the norm, progress is not possible.
 
