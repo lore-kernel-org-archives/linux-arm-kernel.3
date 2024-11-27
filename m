@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C45D6ACF6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 16:57:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC25D6ACF7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 16:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GhtswKrs5hWgUHWTjspzoBdgsbXdHPpxNxDCoXZGs+A=; b=c9HXM8g+qMhX4OIqdy4CFJwEaM
-	VR6wPkkHp/o8j6xiJkdxXbS1Q5OLYMZ0kQHzXmtXVPV/7drMJXekjwECnlb3Sd9Gq8TA2KeewTxcA
-	84xY6XE/6ONug8ebklf1suTcQLzwZP131PeXzTtsObU79QOkmVg/H7uJxFQDFEd7TBVyVazzXAQJH
-	Pauby0eBTIKxx6pbYjQDBwADk7qMVlt8BWvP+qIPrgidI3sVpKyIkIhTw2sPBj9aHxj1NkZ/b6vBq
-	p60d2YWJM8PJug9rJrbNv8RAshH7Y4mnQwAJxErbx2znFrwleIFrUcxxiRkSYEb9oxvdN83Z2rVek
-	lWCzB03g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mtfe2NOqbCfz3psjWYNHrEDGlK5BP7RRwd1d/jmG0i8=; b=UPEsiCRZx0WJtHweLAc+DnWKGT
+	J5CZ1PB78KYljdJPc/qtMScfRANAQA/DbsaNxp//cCoJRmJmcOtK9pl87VfwmnW+dOG8bRGSPM+Vu
+	n5dIBwLARPlRG05QWZpZbHzbpGf/0oUM9dX6aQBmEYf60yq957/211m5NN2uoHELtrAi9UWCwVnp4
+	6JED3QUoTqPx3Sq5sPbhvrd8Bx60wGUNh7r9tSL6JoLOl+Ac5/sh1MuhnlpEzvaqo6iEuAANobE9O
+	bIoKoYFvVxT0Z5zYHL9TsdgXan3VRki0ZqUde5SXcwaxM4zE8p6LMlkZ1w4TFK23w1ozdhSkIpqKJ
+	QeURS80g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGLLv-0000000DhW5-2jQM;
-	Wed, 27 Nov 2024 16:57:23 +0000
-Received: from mail.fris.de ([116.203.77.234])
+	id 1tGLMs-0000000DhkK-1VnD;
+	Wed, 27 Nov 2024 16:58:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGL9y-0000000DfO0-0ySS
+	id 1tGLCY-0000000Dfzh-3N3A
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 16:45:03 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6D471BFB68;
-	Wed, 27 Nov 2024 17:45:00 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=dkim;
-	t=1732725900; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=GhtswKrs5hWgUHWTjspzoBdgsbXdHPpxNxDCoXZGs+A=;
-	b=QQPuhk0hAAXOKMhdeO7MSjXUxOA6Ht9IjSizaQMw8s28RNbRzPYFR2M/ij2ojM/L/O1DHM
-	MhW3Lm9wuUCCZHwtW2gkquuufVlWMXKsHfAs/TVghYK9pjA6nSUyUaeKEQONuD8T2EtT/F
-	CVedpawlZs8qEtNcBoTIVNFEhjZuViiL1VXsexyT86bx1UN6AZqyIIigSV+/Ekl4+syM6/
-	qvV3doIz1YECSHiZmVkERYKt9ZBCG08sqeabwks+24EjPImgXiT0A17GbCJz1AN6+Hbudf
-	b7eIaCe/1CXr+lAJ0aURETN18ujwlXU7/Us8UURR5VYq92EGqfl8UCDhzac2rw==
-From: Frieder Schrempf <frieder@fris.de>
-To: linux-arm-kernel@lists.infradead.org,
-	Marek Vasut <marex@denx.de>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Wed, 27 Nov 2024 16:47:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DC4F55C57A0;
+	Wed, 27 Nov 2024 16:46:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45BE1C4CECC;
+	Wed, 27 Nov 2024 16:47:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732726061;
+	bh=mtfe2NOqbCfz3psjWYNHrEDGlK5BP7RRwd1d/jmG0i8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Jo0dS/iE43Xopq61VTauW2oll8xOcEy4XbKNEIFKp0Ns08bD8aFAC/CmNodV9zHC4
+	 pqxYJXfPzR+0oS/duUzo1y4EX34bcP7wFr0/qX7q1f2H6XXrQRRKAmXolZJobiUc0Q
+	 RKMxKPzOoY1rgXdYKKHSEgHAs0Ee3kfktmr1UdZZ02X9V9w3R2Dl9/9JzoQZ8GXKa2
+	 q5p9yMvashONZg8Q6Kt36cjZhwmTbOYHsKuOdgs3ElMdInmOAkypl8Rq5aZybgr1NQ
+	 jT36ze5dALgUteYGLkG0BfwrIwia5AQ0u14fke701toKPWUqqIfhwUj1kSS77UZfXy
+	 /DGyFocdDFRXQ==
+Date: Wed, 27 Nov 2024 16:47:36 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Frieder Schrempf <frieder@fris.de>
+Cc: linux-arm-kernel@lists.infradead.org, Marek Vasut <marex@denx.de>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH v2 11/11] arm64: dts: imx8mp-kontron: Add support for reading SD_VSEL signal
-Date: Wed, 27 Nov 2024 17:42:27 +0100
-Message-ID: <20241127164337.613915-12-frieder@fris.de>
-In-Reply-To: <20241127164337.613915-1-frieder@fris.de>
+	Liam Girdwood <lgirdwood@gmail.com>, linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>, Robin Gong <yibin.gong@nxp.com>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Joy Zou <joy.zou@nxp.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v2 01/11] Revert "regulator: pca9450: Add sd-vsel GPIO"
+Message-ID: <26ddcc86-7583-4402-b6b3-7c4cbe63ed94@sirena.org.uk>
 References: <20241127164337.613915-1-frieder@fris.de>
+ <20241127164337.613915-2-frieder@fris.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="3CfSZ6vXPVxUCjFn"
+Content-Disposition: inline
+In-Reply-To: <20241127164337.613915-2-frieder@fris.de>
+X-Cookie: Every path has its puddle.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_084502_433216_61CD990F 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20241127_084742_886609_F8443D23 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,70 +80,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-This fixes the LDO5 regulator handling of the pca9450 driver by
-taking the status of the SD_VSEL into account to determine which
-configuration register is used for the voltage setting.
+--3CfSZ6vXPVxUCjFn
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Even without this change there is no functional issue, as the code
-for switching the voltage in sdhci.c currently switches both, the
-VSELECT/SD_VSEL signal and the regulator voltage at the same time
-and doesn't run into an invalid corner case.
+On Wed, Nov 27, 2024 at 05:42:17PM +0100, Frieder Schrempf wrote:
+> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+>=20
+> This reverts commit 27866e3e8a7e93494f8374f48061aa73ee46ceb2.
 
-We should still make sure, that we always use the correct register
-when controlling the regulator. At least in U-Boot this fixes an
-actual bug where the wrong IO voltage is used and it makes sure
-that the correct voltage can be read from sysfs.
+Please submit patches using subject lines reflecting the style for the
+subsystem, this makes it easier for people to identify relevant patches.
+Look at what existing commits in the area you're changing are doing and
+make sure your subject lines visually resemble what they're doing.
+There's no need to resubmit to fix this alone.
 
-Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
----
-Changes for v2:
-* new patch
----
- arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+Please include human readable descriptions of things like commits and
+issues being discussed in e-mail in your mails, this makes them much
+easier for humans to read especially when they have no internet access.
+I do frequently catch up on my mail on flights or while otherwise
+travelling so this is even more pressing for me than just being about
+making things a bit easier to read.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
-index e0e9f6f7616d9..b97bfeb1c30f8 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
-@@ -311,6 +311,7 @@ reg_nvcc_sd: LDO5 {
- 				regulator-name = "NVCC_SD (LDO5)";
- 				regulator-min-microvolt = <1800000>;
- 				regulator-max-microvolt = <3300000>;
-+				sd-vsel-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
- 			};
- 		};
- 	};
-@@ -808,7 +809,7 @@ MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0		0x1d0 /* SDIO_A_D0 */
- 			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1		0x1d0 /* SDIO_A_D1 */
- 			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2		0x1d0 /* SDIO_A_D2 */
- 			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3		0x1d0 /* SDIO_A_D3 */
--			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0x1d0
-+			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0x400001d0
- 		>;
- 	};
- 
-@@ -820,7 +821,7 @@ MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0		0x1d4 /* SDIO_A_D0 */
- 			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1		0x1d4 /* SDIO_A_D1 */
- 			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2		0x1d4 /* SDIO_A_D2 */
- 			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3		0x1d4 /* SDIO_A_D3 */
--			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0x1d0
-+			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0x400001d0
- 		>;
- 	};
- 
-@@ -832,7 +833,7 @@ MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0		0x1d6 /* SDIO_A_D0 */
- 			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1		0x1d6 /* SDIO_A_D1 */
- 			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2		0x1d6 /* SDIO_A_D2 */
- 			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3		0x1d6 /* SDIO_A_D3 */
--			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0x1d0
-+			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0x400001d0
- 		>;
- 	};
- 
--- 
-2.46.1
+--3CfSZ6vXPVxUCjFn
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdHTScACgkQJNaLcl1U
+h9C+fAf/fKV4GhE/U5x7gXRxMU7czUWQW1GbYGA8bZbpLHcgcVDGVEEUJiRKslTw
+hWxbJLpvXt/X0j7Rwque58R1TXNfOBGS9dPReC19VaAL26/rxDLnGHpBGVMefIaD
+B1v4QwukgYJXksR6Cr9hyVqBo1pFk37ehoOy/IYuxkJOcjFFeHLx1LHD2fVonrMP
+yye3VusjeAQqPIEf5c+g/PLRrpsnHrO76FeE18z7AxFqrmzuxbW0JWJsE88xnYQO
+COgKxP+jGKxhd6CvCdTpIRt9LnTh6AU2sWtZHQmgtbRy/7vPJ0BSJ+F4g3pbCrza
+zBLTQvZPwdsRRgOFHQUMm6SICETdZQ==
+=D4p/
+-----END PGP SIGNATURE-----
+
+--3CfSZ6vXPVxUCjFn--
 
