@@ -4,79 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7902CD609D8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3972CD609D7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YV7Ng+UILJGgeX2OpLHjyU7yknzjQ5R3jvrdw+xvoG8=; b=kVVc7SuI7OYYIQq+Vo5sZwWcOI
-	mNjKW3n5hKtsZlvOnopYJY7UGgipdsYEC4yjjRu+pP9QHB+XwRs524j0SI1PbOvu0rSaDNFdBhhrT
-	zTfhGPYBva4XJt1dCS5lmsLL6QQTWhrZOcM3BZNRqOg3yFjz214XXrt7GkkspgX+LxkV5+OELlnHx
-	+yHPCoqiavfGkdFVA2MThsdn3YTTUOTc0aTVknIWbpEpr3QxjkVmp0kdfh/uHaLOn1DbhEMWkV+Mq
-	W3sYsAFMQ68HBN1m2dG0pdXGWqqhXz73edvoXmXBhKX1XuUBG7OPnKwWBzxGfH2dRUg4ykbDp3eJw
-	3EnmfbLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WbwwjTObIrPMKMbgQEUxwz8EAlGUJCffQHwTQcAAqH0=; b=BTW8hy03SU+O4bMsqrZ5eAu1A9
+	56/s23gPjqxEfF9PoMB80gZF2dgM0AIfDMzczydG0/s/RnoWfyIJU47MptmlUS+0fGpHulsyFJJIT
+	ygdJ8plKQoS5TA7kdiMcvUMVqIhhKVd2HhdnGJ8gfL8RnAhXLFQYN68c6hGd2GSp6lFdzttTvhvt0
+	6EdYRywhiOtnDLsyeIk+YZRYRU9Q0fgAMpbQXqyQet9q7Ej90f4GXsHxoeIeNEnqWASJSGLxkDKe+
+	PJQWBLgdQOUjhpwvR5ZAc5uedd98CNW5M0dzBNZur8jQ6QnCDCoZcD3jhXjy6SZZWyUphPRP59BOB
+	EfV5ThpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGG4I-0000000Cz0v-4BkK;
-	Wed, 27 Nov 2024 11:18:51 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tGG5G-0000000Cz9q-0AJq;
+	Wed, 27 Nov 2024 11:19:50 +0000
+Received: from mail-ej1-x663.google.com ([2a00:1450:4864:20::663])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFyM-0000000Cxwt-277s
+	id 1tGG0u-0000000CyHP-0HTn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 11:12:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=YV7Ng+UILJGgeX2OpLHjyU7yknzjQ5R3jvrdw+xvoG8=; b=nUjmzZSp0723C2w0rHv8ZaBBLX
-	XrkG0T8d+DtE6S1tVqA9igzcoRFqbPXKGKBIZ4RCgzvAxBiu8zSDZRkP20hWC2zi8ejzAABOEMym7
-	kYc3vo4iaWZF96oJya2fXWPR/2ADrBQ2Zc0LVayYCZsQVkNbns4K+a83WfHjjVGA5cDWoE8WNokM1
-	BTj6Cw6Y2MGA2Jun7EV5DrGKSxIzwuJwfIzhGN8NocCwFQ8KLj+3vKYKXnyWG1EIJTTSRYRTqE4Ok
-	SFB0hKL53Udq4ZcTt7L3qRABwslS07W0/G/N7Vg31EgBkjZdFOHliWC/4WxGFkZcvzPgVJTyDpfDt
-	SsxAZIxQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39324)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tGFyC-0000E0-0T;
-	Wed, 27 Nov 2024 11:12:32 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tGFy8-00076l-1e;
-	Wed, 27 Nov 2024 11:12:28 +0000
-Date: Wed, 27 Nov 2024 11:12:28 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Bryan Whitehead <bryan.whitehead@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
+	Wed, 27 Nov 2024 11:15:22 +0000
+Received: by mail-ej1-x663.google.com with SMTP id a640c23a62f3a-aa530a94c0eso647686466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 03:15:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1732706118; x=1733310918; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=WbwwjTObIrPMKMbgQEUxwz8EAlGUJCffQHwTQcAAqH0=;
+        b=nzHN9Vngsjy3uLUHVMzrKnus51Fr3driu1+XVezobpAOt8g6OT2x/npYEuul2OPMAi
+         esSLTIDftYmJghkE4iTG1xPl3j16KxgfDuZBbBIs9L97yfWLW9kTsQFLUaqHESyLzGVK
+         lguU/eYLyxuiyrEGW0Z9abQE7HotX4teIa/3JElg11zrrjk0+Gkq3UAuLyzJR6WX9XXW
+         pvGslyDY1SpvK+aVVIdyxmkO/4C8RDbDTlXsh5XWGhyFHuEvt+1cdFy/G2pQoM6OzUCG
+         F6o6O/ValaPhO06B6JdEUxie2X/G+Cc2rvJFrhknVog+lHuOu33nNoKQRyQx0xNVXwcG
+         plzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732706118; x=1733310918;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WbwwjTObIrPMKMbgQEUxwz8EAlGUJCffQHwTQcAAqH0=;
+        b=K+/5XSObit1givgr8NBSBnVBLk8mmFH2cLVAQfOIdhmhhUJ2R5J8Rw9to2on6ci4CM
+         nkBXw81v0Z+dRCP7EHS1BjPXKuRC8oXNqMVqXjuJYaLo5f5DfI5w5J/EZklvhUWCo9Tt
+         0KVAQcn1kUicm9jVAybziEIez8IVHw2XQwwxNv+FBS+++6Bz8WbbvBP2quYLMS3oXpiL
+         ijspChbhl/6heBfughH5c/9cF8dedUbnkJb5UqJV8OyE1hoNwI4tRK7V5uavdDYuVXUu
+         APyWoigjARL/vp+1c/RnZHb3Yjuiqkn2P311I5ZWDnwm7tVZXLGbRT75fu+GnlIiNcum
+         2z1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW4+WLEEMTwkd7KLFGKBoIiNu/n9sugEoW3aLGXj49e1hHtTonU6K9ENh0WHZOsfQjhXrCc/P1PVRWfONOjTTfY@lists.infradead.org
+X-Gm-Message-State: AOJu0YysOeIbs7XUNEWz0b6J33egV7/rmPSlR1g8xM7f/+pB250+qahF
+	+kPTrlDae6POm/zOR7dhtMTc9CQeih0tY9Av1Ov8QaqLvROxBXWfx8x0XL2f/mRxq7mMaDPwEuA
+	HqxWLaSIZIS++P1GGoLQGRu6Hx7xu0NlN
+X-Gm-Gg: ASbGncuCIueIJUYb2veIxDi3TelzhjmG7LEvA4WHT0zQ61SAhi3uGjCQD1bdNCot4s1
+	BxTr221m5MxV50o05fSgFpLq1rooXV5VtC5fjh2P158xenn71fp3YN982e8TnivLqfDDQZSit4g
+	ILSBg8o9R7+2/n42Z4HoKHiWaGnLLRzmf7hQNlNgX6ynFhxPqlK6JuEdJ2sHtAZTP7Q7Zq1Cvlv
+	W0uZ+SRgcmKNLx22gWFvnc8k0kmqNXIsdPEZUITwiKTpNXF0XSVnYqqvaTDXKn8/w==
+X-Google-Smtp-Source: AGHT+IEhzkon84gktCOU4wQ0YLegpwevnMbIo0lpL/f5tH0yFj51P93r/ssXmdD+9J/oH2WktVzDT4+2hBjv
+X-Received: by 2002:a17:906:cc4e:b0:aa5:3982:660f with SMTP id a640c23a62f3a-aa580f57de7mr188391466b.27.1732706117686;
+        Wed, 27 Nov 2024 03:15:17 -0800 (PST)
+Received: from raspberrypi.com ([93.93.133.154])
+        by smtp-relay.gmail.com with ESMTPS id a640c23a62f3a-aa53a1ae8a6sm42110966b.163.2024.11.27.03.15.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Nov 2024 03:15:17 -0800 (PST)
+X-Relaying-Domain: raspberrypi.com
+From: Naushir Patuck <naush@raspberrypi.com>
+To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>
+Cc: linux-media@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com
-Subject: Re: [PATCH RFC net-next 02/23] net: phy: fix phy_ethtool_set_eee()
- incorrectly enabling LPI
-Message-ID: <Z0b-nJ7bt8IlBMpz@shell.armlinux.org.uk>
-References: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
- <E1tFv3F-005yhT-AA@rmk-PC.armlinux.org.uk>
+	linux-kernel@vger.kernel.org,
+	jacopo.mondi@ideasonboard.com,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Naushir Patuck <naush@raspberrypi.com>
+Subject: [PATCH v2 0/4] media: bcm2835-unicam: Upstreaming various improvements
+Date: Wed, 27 Nov 2024 11:15:11 +0000
+Message-Id: <20241127111515.565992-1-naush@raspberrypi.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1tFv3F-005yhT-AA@rmk-PC.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_031242_545194_C85F30E6 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20241127_031520_363262_8DAC9661 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,42 +106,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 12:52:21PM +0000, Russell King (Oracle) wrote:
-> @@ -1685,15 +1685,21 @@ EXPORT_SYMBOL(phy_ethtool_get_eee);
->  static void phy_ethtool_set_eee_noneg(struct phy_device *phydev,
->  				      const struct eee_config *old_cfg)
->  {
-> -	if (phydev->eee_cfg.tx_lpi_enabled != old_cfg->tx_lpi_enabled ||
-> +	bool enable_tx_lpi;
-> +
-> +	if (!phydev->link)
-> +		return;
-> +
-> +	enable_tx_lpi = phydev->eee_cfg.tx_lpi_enabled && phydev->eee_active;
-> +
-> +	if (phydev->enable_tx_lpi != enable_tx_lpi ||
->  	    phydev->eee_cfg.tx_lpi_timer != old_cfg->tx_lpi_timer) {
+Hi,
 
-I'm wondering whether this should be:
+Version 2 of this series has no changes, except patch 5/5 from v1 has been
+removed while I rework the logic donwstream first.
 
-	if (phydev->enable_tx_lpi != enable_tx_lpi ||
-	    (phydev->enable_tx_lpi &&
-	     phydev->eee_cfg.tx_lpi_timer != old_cfg->tx_lpi_timer)) {
+Thanks,
+Naush
 
-The argument for this change would be to avoid cycling the link when the
-LPI timer changes but we're not using LPI.
+Naushir Patuck (4):
+  drivers: media: bcm2835-unicam: Improve frame sequence count handling
+  drivers: media: bcm2835-unicam: Allow setting of unpacked formats
+  drivers: media: bcm2835-unicam: Disable trigger mode operation
+  drivers: media: bcm2835-unicam: Fix for possible dummy buffer overrun
 
-The argument against this change would be that then we don't program the
-hardware, and if the driver reads the initial value from hardware and
-is unbound/rebound, we'll lose that update whereas before the phylib
-changes, it would have been preserved.
-
-The problem, however, are drivers where the LPI timer is dependent on
-the speed.
-
-Any thoughts?
+ .../media/platform/broadcom/bcm2835-unicam.c  | 42 ++++++++++++++-----
+ 1 file changed, 31 insertions(+), 11 deletions(-)
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.34.1
+
 
