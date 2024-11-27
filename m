@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EEE8D609AD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 08:04:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB32AD609AD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 08:05:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cbtsIhXyipBxdc1NyVu91VYySelozod24fQsF4jY0KU=; b=r/yL8/45D5rR2hMT2/Ig5aRkIV
-	LpPw4N5yeWQaHZCrjQhxevtgqpjdhL6GXFLq6L8srm01Ss5lYuEp065Et/x9DCM7O97z62rmUKlt0
-	UzFUf12+MsWfvuidawoqQZWVPcRqh38Ai/OHZduyxp3AlzXlIYbETQ+wSlmWI1YC5lHtCzqLmbpGi
-	NtZcBYgnteIpIXaCFrcrgBtmaFU8pHFPfbwPoSpnkBvkhMkvF5Vzk8Lb3I4Rws9RJjDvrVNDhICkB
-	qjlPGz6bbFGRuwuh2tFZfAjrxqmo+AQWm/53DlUvGIg6KZbFcFMrdR84WJ3Q5EyCB2cHSwSRDS3XE
-	s4uwdaWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tjTIKW9eo5borKok+xBtBjM7UMaGh7skviWUJzH4050=; b=dqnqi8WUQIFHbByGPmw8qbDOwe
+	eI6whqE29jvPdyjK7lcpU/rG4p8G0ySUNivWBvpcxxVUoOhrjvTE/A+PonsNN1xYMVV8tJ5QaF3td
+	GjByPMaYFCKQrBHLTi/+pCBWX/hZgJRxVXbnZbRTA9DFxgmBm1b4eGWmPhfGcGXLFckZSNU92j0jr
+	EYJOluRc4TLXxKpY0vUVRapTsBBCcTXiL5hcz6pvCB3DyQcLTm46s7OS6J5k5lxRUwYelcF8nsL/u
+	QivCNrPT598qIGxY272wdVzAsRYXxArDcPFrqitIaESsPtau5XHCVN0zq4WyAngA8SUpkrGrUuyY0
+	HSyQWfnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGD2R-0000000CWev-4BOa;
-	Wed, 27 Nov 2024 08:04:44 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tGD3P-0000000CWr8-0CSv;
+	Wed, 27 Nov 2024 08:05:43 +0000
+Received: from lelvem-ot05.ext.ti.com ([198.47.23.236])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGCtG-0000000CUnT-12Tx;
-	Wed, 27 Nov 2024 07:55:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CD08DA437A9;
-	Wed, 27 Nov 2024 07:53:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A6B3C4CECC;
-	Wed, 27 Nov 2024 07:55:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732694112;
-	bh=x0xX5vYSBWllewRjPzdfK0c874WVsNj5qAoWrojVTGQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bucSP35AKAy65nI+BITULDx0+C9mvIKCfCDFgHIyv84XK+74qXxwFqUbTN41rkK+C
-	 Ra6tp1daRWkSizWrHnXH10FW7w58tZ2kX8hBinj8iFiX1chlQzHLXzCN+l4ncSQR03
-	 OnPHmh97RjPzSeDuH/4EE01NtM3RfoJgytMQdFBrt2uZX5X3MUhBxpKV/tKlolYwP2
-	 AAPuj17Gfvw2HqlZy5FOkO4Dv2lqO62E3NZ22t36PrOPbxmBz/MoM46QZS/72X63i3
-	 4rCESMHIqtId3GjebgFlSCLkaOZ8aJEJHy9tLVB3HTM8J+Qb7joF3gswz/if9EU4DG
-	 43V0+UResU/dA==
-Date: Wed, 27 Nov 2024 08:55:09 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof Wilczynski <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Derek Kiernan <derek.kiernan@amd.com>, 
-	Dragan Cvetic <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Saravana Kannan <saravanak@google.com>, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>, 
-	Stefan Wahren <wahrenst@gmx.net>, Herve Codina <herve.codina@bootlin.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v4 02/10] dt-bindings: pinctrl: Add RaspberryPi RP1
- gpio/pinctrl/pinmux bindings
-Message-ID: <4ufubysv62v7aq53qfzxmup5agmqypdvemd24vm6eentph46qq@3kveluud3zd3>
-References: <cover.1732444746.git.andrea.porta@suse.com>
- <9b83c5ee8345e4fe26e942f343305fdddc01c59f.1732444746.git.andrea.porta@suse.com>
+	id 1tGCut-0000000CV5p-1fhr
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Nov 2024 07:56:56 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot05.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4AR7unwZ757910
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Wed, 27 Nov 2024 01:56:49 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1732694209;
+	bh=tjTIKW9eo5borKok+xBtBjM7UMaGh7skviWUJzH4050=;
+	h=From:To:CC:Subject:Date;
+	b=bT4ZJj7NarbK8iwZtvoi31q9/+DVyFKMh4ed5q0v65ldsu40xVo+/gUS2NIn+JwDG
+	 1qwvH/9Z44BZPO2LBPINGCWJd4MdzlQ9eHIJ4Q5zH4l+wlrB6XDFOgPHQRR85n7Qj/
+	 a1NHIcmresNaptBW7D+E6fkmRfdg/jsvJbEi8lps=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4AR7ungO104187;
+	Wed, 27 Nov 2024 01:56:49 -0600
+Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 27
+ Nov 2024 01:56:49 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 27 Nov 2024 01:56:48 -0600
+Received: from a-dutta.dhcp.ti.com (a-dutta.dhcp.ti.com [172.24.227.92])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4AR7ujN9052665;
+	Wed, 27 Nov 2024 01:56:46 -0600
+From: Anurag Dutta <a-dutta@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <vaishnav.a@ti.com>,
+        <a-dutta@ti.com>
+Subject: [PATCH] arm64: dts: ti: k3-j7200: Add node to disable loopback connection
+Date: Wed, 27 Nov 2024 13:26:44 +0530
+Message-ID: <20241127075644.210759-1-a-dutta@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <9b83c5ee8345e4fe26e942f343305fdddc01c59f.1732444746.git.andrea.porta@suse.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_235514_417883_130711A0 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241126_235655_608362_498118EF 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,50 +83,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 24, 2024 at 11:51:39AM +0100, Andrea della Porta wrote:
-> +  '#interrupt-cells':
-> +    description:
-> +      Specifies the Bank number [0, 1, 2] and Flags as defined in
-> +      include/dt-bindings/interrupt-controller/irq.h.
-> +    const: 2
-> +
-> +  interrupt-controller: true
-> +
-> +patternProperties:
-> +  "-state$":
-> +    oneOf:
-> +      - $ref: "#/$defs/raspberrypi-rp1-state"
-> +      - patternProperties:
-> +          "-pins$":
-> +            $ref: "#/$defs/raspberrypi-rp1-state"
-> +        additionalProperties: false
-> +
-> +$defs:
-> +  raspberrypi-rp1-state:
-> +    allOf:
-> +      - $ref: pincfg-node.yaml#
-> +      - $ref: pinmux-node.yaml#
-> +
-> +    description:
-> +      Pin controller client devices use pin configuration subnodes (children
-> +      and grandchildren) for desired pin configuration.
-> +      Client device subnodes use below standard properties.
-> +
-> +    properties:
-> +      pins:
-> +        description:
-> +          List of gpio pins affected by the properties specified in this
-> +          subnode.
-> +        items:
-> +          pattern: "^gpio([0-9]|[1-5][0-9])$"
+CTRLMMR_MCU_SPI1_CTRL register controls if MCU_SPI1 is directly
+connected to SPI3 in the MAIN Domain (default) or if MCU_SPI1
+and SPI3 are independently pinned out. By default, the field
+SPI1_LINKDIS (Bit 0) is set to 0h. In order to disable the direct
+connection, the SPI1_LINKDIS (Bit 0) needs to be set to 1h. Model
+this functionality as a "reg-mux" device and based on the idle-state
+property, enable/disable the connection bewtween MCU_SPI1 and MAIN_SPI3.
 
-You have 54 GPIOs, so up to 53.
+The register field description has been referred from J7200 TRM [1]
+(Table 5-517. CTRLMMR_MCU_SPI1_CTRL Register Field Descriptions). 
 
-Use also consistent quotes, either ' or ".
+[1] https://www.ti.com/lit/pdf/spruiu1
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Anurag Dutta <a-dutta@ti.com>
+---
 
-Best regards,
-Krzysztof
+Hi all,
+The above functionality can be achieved by changing the idle-state of
+the "spi1_linkdis" node. As observed, when the SPI1_LINKDIS (Bit 0)
+is 0h, the connection remains enabled and SPIDEV loopback test is
+succssful [1]. But, when the state changes to 1, the the SPI1_LINKDIS
+(Bit 0) becomes 1h and the SPIDEV loopback test fails [2] indicating
+that the connection between MCU_SPI1 and MAIN_SPI3 has been disabled.
+
+Test logs:
+[1] https://gist.github.com/anuragdutta731/9ac287f27f1dfb3a5ccee4cc86e02dbb
+[2] https://gist.github.com/anuragdutta731/3ed7b7b5a1a3dab494ba46858b972088
+ 
+ arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts | 4 ++++
+ arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi       | 7 +++++++
+ 2 files changed, 11 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
+index db43e7e10b76..f684ce6ad9ad 100644
+--- a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
++++ b/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
+@@ -409,6 +409,10 @@ &serdes_ln_ctrl {
+ 		      <J7200_SERDES0_LANE2_QSGMII_LANE1>, <J7200_SERDES0_LANE3_IP4_UNUSED>;
+ };
+ 
++&mcu_spi1 {
++	mux-controls = <&spi1_linkdis 0>;
++};
++
+ &usb_serdes_mux {
+ 	idle-states = <1>; /* USB0 to SERDES lane 3 */
+ 	bootph-all;
+diff --git a/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
+index 6a8453865874..56ab144fea07 100644
+--- a/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
+@@ -184,6 +184,13 @@ phy_gmii_sel: phy@4040 {
+ 			reg = <0x4040 0x4>;
+ 			#phy-cells = <1>;
+ 		};
++
++		spi1_linkdis: mux-controller@4060 {
++			compatible = "reg-mux";
++			reg = <0x4060 0x4>;
++			#mux-control-cells = <1>;
++			mux-reg-masks = <0x0 0x1>;
++		};
+ 	};
+ 
+ 	wkup_conf: bus@43000000 {
+-- 
+2.34.1
 
 
