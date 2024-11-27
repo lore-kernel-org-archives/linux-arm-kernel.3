@@ -4,71 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAADD6D23D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 21:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3833D6D23C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 21:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X8EVmq9yK79N3HwiRhmW5k5GKfVb5mMq7WA79LDiM8c=; b=hRoiwbnASTreCYWxRR4tp2KkQH
-	6Yb5d9GAyE9PdjFcCjP5L9+eKna0Gfpp8B1k7O+E8SYgMHefUMiHdV7Vv7kE7ox5d0icBJ90VEma8
-	y9QmDSlkpjRw3XXwZsAljIBe8tD2scNbvPJdVxV4Pzq4CI8I2NDK+38LhyE9vwZLXFv0r1Cv5ewFS
-	sX4SjR2w2+5YeKEFQjeeXsTS7CEwWa/0QiCpSUvrOxShMMrWjbDBdNwzpEpFnMKD7uePz2D8g9nfw
-	IpnENJcJDmDhIw82UWvoTki/jlbu4emmO0djtLotuMihlokF/qMzT0tvMo2HaoLZv8uKyWl9QdapX
-	9Hp9EI/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A/qG1PCWH5DIdjBCou8V6S3ZjochUv53NXLjRXrbNBA=; b=CmK38LFhD5KJsLUZffAkuXmDwd
+	bl4OvYIO4l0HY4p61MBlKvqrFsybRhpfbB5hWtKXpZHuuxf3p4F6WOYiUFvx73kkFc6rdAamJUIvx
+	2Guu8XuuwgKrk8ZRnnoQ91PmOYaE2pF6/dhAlo+KsCj0CLav0ALUyxkYQJJcd59NZLrDX3DXhTfNK
+	8He75chIB9sSCEcCTwndp0DPHH/BkvfTVvEEB/q2nZrEjO2wu0F70/okI2v6W2ctanN+KrW45Ijjq
+	9mIHtlw6PkKVQv77k+hYTbC5ljj8N/zdkeS3EQj+o2uL+zzy1DXoet21rU6cT+g6hSzJwUOYFLAOo
+	lRN5V8PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGPFd-0000000E62s-0hmc;
-	Wed, 27 Nov 2024 21:07:09 +0000
-Received: from www530.your-server.de ([188.40.30.78])
+	id 1tGPXA-0000000E7Yk-0MWn;
+	Wed, 27 Nov 2024 21:25:16 +0000
+Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGPEe-0000000E5wV-27zM
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 21:06:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=geanix.com;
-	s=default2211; h=Content-Type:MIME-Version:Message-ID:Date:References:
-	In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=X8EVmq9yK79N3HwiRhmW5k5GKfVb5mMq7WA79LDiM8c=; b=fGJQCtlNLqTKDt2sl8pEl1CfLT
-	JuLxmsMQvVRyKrmwmkkqPGfh3RXw7QDcQTr9DEoMzrQg+nzOiWaFby9hQST/WP7Yl2Mf4ayA74OYQ
-	etNy4EkhAkTlhOygjBvOBouIoJRz30bcyjp8ASec7We1MZlkqPu8U2+wFMQpTP+wtBIi9rHeBHXrR
-	t30Ly6UvbVLO4/r0h24DwW9E2zWCU1Mi3tglTbPB0pdp5NTTsRzo+nA73hp6MtkMk3LPqKwTKO/98
-	SMVk2fwF/Hhn737OG8BfAfKbVNk+1aaucc5OktW9HO7Fx2Q/66YTtGmmuo6FjPiITA1QwU3IjZDlK
-	2O8dWaWw==;
-Received: from sslproxy08.your-server.de ([78.47.166.52])
-	by www530.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <esben@geanix.com>)
-	id 1tGPEL-000IEN-IE; Wed, 27 Nov 2024 22:05:49 +0100
-Received: from [87.49.45.24] (helo=localhost)
-	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <esben@geanix.com>)
-	id 1tGPEK-000I82-35;
-	Wed, 27 Nov 2024 22:05:49 +0100
-From: Esben Haabendal <esben@geanix.com>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: shawnguo@kernel.org,  linux@armlinux.org.uk,  s.hauer@pengutronix.de,
-  linus.walleij@linaro.org,  linux-arm-kernel@lists.infradead.org,
-  imx@lists.linux.dev,  linux@roeck-us.net,  arnd@arndb.de,  Fabio Estevam
- <festevam@denx.de>
-Subject: Re: [PATCH v2] ARM: imx: Re-introduce the PINCTRL selection
-In-Reply-To: <20241127190605.1367157-1-festevam@gmail.com> (Fabio Estevam's
-	message of "Wed, 27 Nov 2024 16:06:05 -0300")
-References: <20241127190605.1367157-1-festevam@gmail.com>
-Date: Wed, 27 Nov 2024 22:05:48 +0100
-Message-ID: <87ed2wfkur.fsf@geanix.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1tGPWB-0000000E7SC-0a1y;
+	Wed, 27 Nov 2024 21:24:16 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 0F9E3114019B;
+	Wed, 27 Nov 2024 16:24:13 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Wed, 27 Nov 2024 16:24:13 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1732742653;
+	 x=1732829053; bh=A/qG1PCWH5DIdjBCou8V6S3ZjochUv53NXLjRXrbNBA=; b=
+	gjq3hl0XgvRADwxaY6xtVoz2rKXiUC+9uUIjK4JTyo1B1TgozvlUu5J+lfzmMGRx
+	+U/PbOrTr4G7/wW18lBRGEjs9AGk0CuZ83nO6loMdATqv/Rjt8z93Z8kdraPeB7d
+	RNZlMOMN0ZsWn592gnrKjD5D7gnQDr87DZnHPgxet3szA6Q+QKzb6PogLVj1Bv8B
+	QnhbeiNFAu1wVbvxhpWpdoy2PYHhoUWp5GL1uMCozj8bbICGt0I9LKfQRFJUwKHo
+	Y6fd9aKXXMsJjkZTvivrdYdyA1UpyWT8xdyhM2imAD4506dtLLzhjHtKEdeQNwoE
+	+wSmRZXmmdicvinRZt7R4A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1732742653; x=
+	1732829053; bh=A/qG1PCWH5DIdjBCou8V6S3ZjochUv53NXLjRXrbNBA=; b=O
+	wTYQmd9TokVOLvF2vAUccJfwlyLPiRR+Ctjlp2D6Q/+QhK3bWZM02wr+h03D8YSm
+	6tOQf5lLvxwMMHMc1o/SmIuwG06+W6utUJMtT4GsgvWTHzrGdqCrV1fGdGBvVC/7
+	GMLQ//uep/AFuZkzU7mws1oFFxAfSFMAjckG1oWESy8lGU3qbPbidUZ8YLiKVewL
+	k0zy2FszKmEmkv/WoAALuUHhx5tH9d1nv5fKkgx2S9bPQaMm3KiouInkWVnQ2EZx
+	Q8V1gQMusCh+nCJ5UuXVa3V+gSHzC4jcdxzd/mHSyvgT+gCHWccCOVaPAu4v2cKL
+	Rmg19EGUt3wu5i9ezquzw==
+X-ME-Sender: <xms:_I1HZyaQhEH4eHjR5OhZ10hCPejA0CCvC8p2egqcgPvxViq50J-bSQ>
+    <xme:_I1HZ1ag8R2tf9dHilhGNaPLvdg3vOs-jhTjLRj5Xhg3xiadbUMimzlUHPN5iPGHX
+    A42ur3BB-deBEAgGlE>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrgeelgddugedvucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
+    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
+    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
+    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddu
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehjsghruhhnvghtsegsrgihlhhisg
+    hrvgdrtghomhdprhgtphhtthhopehkhhhilhhmrghnsegsrgihlhhisghrvgdrtghomhdp
+    rhgtphhtthhopehmthhurhhquhgvthhtvgessggrhihlihgsrhgvrdgtohhmpdhrtghpth
+    htohepmhgrrhhtihhnrdgslhhumhgvnhhsthhinhhglhesghhoohhglhgvmhgrihhlrdgt
+    ohhmpdhrtghpthhtohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
+    epshgsohihugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhgvihhlrdgrrhhmshht
+    rhhonhhgsehlihhnrghrohdrohhrghdprhgtphhtthhopehlihhnuhigqdgrmhhlohhgih
+    gtsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidq
+    rghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-ME-Proxy: <xmx:_I1HZ8_gljDEAjSj2_i2Z32mj08WcG0CpxI1zfSJ_oJPxJPsntoPpQ>
+    <xmx:_I1HZ0oe70OojxKuJDXilLWlsi8MBucRGyAEZ3uUCGQ5n36zHwBSuQ>
+    <xmx:_I1HZ9olghZMkwyy6fj-KC-n5WxUi5GgDyBvL1LJOAPGhMcPWB1qIg>
+    <xmx:_I1HZySWSvXIL8IFo4ONqcn7vqXzffoi6f45QK1OqQcg3_N46AoHRQ>
+    <xmx:_Y1HZ6jihTLiBZlmwD58U1KDPO3yzSFtSW4gdoCbZ3mvINjfEFKhJ_mX>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id A71B22220071; Wed, 27 Nov 2024 16:24:12 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+Date: Wed, 27 Nov 2024 22:23:52 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Jerome Brunet" <jbrunet@baylibre.com>
+Cc: "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Michael Turquette" <mturquette@baylibre.com>,
+ "Stephen Boyd" <sboyd@kernel.org>, "Kevin Hilman" <khilman@baylibre.com>,
+ "Martin Blumenstingl" <martin.blumenstingl@googlemail.com>,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Mark Brown" <broonie@kernel.org>
+Message-Id: <f8de4a2a-776f-4c10-b75e-e845bcc38dde@app.fastmail.com>
+In-Reply-To: <1ja5dk2y5l.fsf@starbuckisacylon.baylibre.com>
+References: <20241127-clk-audio-fix-rst-missing-v1-1-9f9d0ab98fce@baylibre.com>
+ <12f29978-c8ce-4bee-a447-dcd086eb936d@app.fastmail.com>
+ <1ja5dk2y5l.fsf@starbuckisacylon.baylibre.com>
+Subject: Re: [PATCH] clk: amlogic: axg-audio: select RESET_MESON_AUX
 Content-Type: text/plain
-X-Authenticated-Sender: esben@geanix.com
-X-Virus-Scanned: Clear (ClamAV 0.103.10/27470/Wed Nov 27 10:59:44 2024)
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_130608_550246_4F159078 
-X-CRM114-Status: GOOD (  27.85  )
+X-CRM114-CacheID: sfid-20241127_132415_571980_5D44AAA3 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,88 +120,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fabio Estevam <festevam@gmail.com> writes:
+On Wed, Nov 27, 2024, at 21:56, Jerome Brunet wrote:
+> On Wed 27 Nov 2024 at 20:30, "Arnd Bergmann" <arnd@arndb.de> wrote:
+>>
+>> It looks like RESET_MESON_AUX is a user-visible symbol,
+>> so you can simply ask users to turn it on, and add it to
+>> the defconfig.
+>
+> That would work yes but It's really something a user should not be
+> concerned with. I can follow-up with another change to remove the user
+> visibilty of RESET_MESON_AUX. It is always going to be something
+> requested by another driver.
 
-> From: Fabio Estevam <festevam@denx.de>
->
-> Since commit 17d210018914 ("ARM: imx: Allow user to disable pinctrl"),
-> the CONFIG_PINCTRL option is no longer implicitly selected, causing
-> several i.MX SoC pinctrl drivers no longer getting selected by default.
->
-> This causes boot regressions on the ARMv4, ARMv5, ARMv6 and ARMv7
-> i.MX SoCs.
->
-> Fix it by selecting CONFIG_PINCTRL as before.
->
-> This defeats the purpose of 7d210018914 ("ARM: imx: Allow user to disable
-> pinctrl"), but it is the less invasive fix for the boot regressions.
->
-> The attempt to build Layerscape without pinctrl can still be explored
-> later as suggested by Arnd:
->
-> "Overall, my best advice here is still to not change the way
-> i.MX pinctrl works at all, but just fix Layerscape to not depend
-> on i.MX. The reason for the 'select' here is clearly that the
-> i.MX machines would fail to boot without pinctrl, and changing
-> that because of Layerscape seems backwards."
+But that's true for all reset drivers, each one of them is
+only useful because it's going to be used by another driver,
+same for clk, pinctrl, regulator, ...
 
-While that is possibly true in most cases, wouldn't it be possible to
-use a kernel for an i.MX platform without having pinctrl support in the
-kernel. If bootloader or something else before the running kernel have
-setup pin functions properly.
+All other reset drivers are user-visible, with 'default, so for
+consistency I think it's best to keep it that way, and
+just add a 'default ARCH_MESON' the same way we have for many
+other reset drivers:
 
-By reverting the change, you will also make it impossible to do this
-without patching the kernel.
-
-But if not breaking existing defconfigs is more important than allowing
-flexible configurations on the short term, then I guess that is how it
-should go.
-
-> Fixes: 17d210018914 ("ARM: imx: Allow user to disable pinctrl")
-> Reported-by: Guenter Roeck <linux@roeck-us.net>
-> Closes: https://lore.kernel.org/linux-arm-kernel/49ff070a-ce67-42d7-84ec-8b54fd7e9742@roeck-us.net/
-> Signed-off-by: Fabio Estevam <festevam@denx.de>
-> ---
-> Changes since v1:
-> - Reintroduce "select PINCTRL" as a minimal fix for 6.13-rc.
->
->  arch/arm/mach-imx/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
-> index e4fe059cd861..dc47b2312127 100644
-> --- a/arch/arm/mach-imx/Kconfig
-> +++ b/arch/arm/mach-imx/Kconfig
-> @@ -6,6 +6,7 @@ menuconfig ARCH_MXC
->  	select CLKSRC_IMX_GPT
->  	select GENERIC_IRQ_CHIP
->  	select GPIOLIB
-> +	select PINCTRL
->  	select PM_OPP if PM
->  	select SOC_BUS
->  	select SRAM
-
-Instead of doing this at top level ARCH_MXC level, it could also be done
-at the SOC level.  Something like
-
-diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
-index e4fe059cd861..26d29dea1721 100644
---- a/arch/arm/mach-imx/Kconfig
-+++ b/arch/arm/mach-imx/Kconfig
-@@ -59,6 +59,7 @@ config SOC_IMX1
-        bool "i.MX1 support"
-        select CPU_ARM920T
-        select MXC_AVIC
-+       select PINCTRL
+diff --git a/drivers/reset/amlogic/Kconfig b/drivers/reset/amlogic/Kconfig
+index 3bee9fd60269..c02edc1b51aa 100644
+--- a/drivers/reset/amlogic/Kconfig
++++ b/drivers/reset/amlogic/Kconfig
+@@ -14,6 +14,7 @@ config RESET_MESON
+ config RESET_MESON_AUX
+        tristate "Meson Reset Auxiliary Driver"
+        depends on ARCH_MESON || COMPILE_TEST
++       default ARCH_MESON
+        select AUXILIARY_BUS
+        select RESET_MESON_COMMON
         help
-          This enables support for Freescale i.MX1 processor
 
-That way existing defconfigs should work as before, while SOC_LS1021A
-builds would be able to leave out pinctrl.
+The only bit that's special here is the exported symbol,
+but that is handled by the dependency.
 
-Even thouh LS1021A is clearly officially a Layerscape SoC, I think the
-reasons for it being placed in mach-imx is that the effort needed to not
-do that is more than it might be worth.
+>> I also see some silliness going on in the
+>> include/soc/amlogic/reset-meson-aux.h, which has a
+>> non-working 'static inline' definition of the exported
+>> function. Before my fix, that would have caused the
+>> problem auf a non-working audio driver.
+>
+> If by 'silliness' you mean there is symbol definition for when
+> RESET_MESON_AUX is disabled, indeed I guess that could go away.
 
-/Esben
+Yes, that's what I meant.
+
+      Arnd
 
