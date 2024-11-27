@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F21D6ACE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 15:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F8CD6ACE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 15:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2DX3H+a44kQ13gTw3hzeF4XJrHuDL47mesPKbbKCQO8=; b=kBaNaiG1F4lCi0jJ/vG6PQXYQJ
-	CrJnlZ/zSWI9FcQ0l/ZcBy4okDRuubqgRr8yq13LXXrl//vB/7E9HiPVuBDqqIDpYaHoVyPPUeD3f
-	cT7n+qWBJyNdbcoWJNf+B8CrzcxIVhmNnVewVX+7KHD0bbUU120AH+/vv1Z6VZLtYj6Rs4jifG+5D
-	gGiqdoJKT6nwohZBw0+zi/3nYNlyFHuDFOsIj7UskSood6eYMCScxPc/ReMkpQYTB5T6kfdeRiijO
-	RtJJGHuIdCxRBeFA5alh4ErMpWXgkjFl8LX4WPfcXBoyQ5mNYvz2GhQgJ3tpDy7LcUCoUf1+z8egz
-	VJuOCS4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zH/XDw3POuQ3VN7AAzF+rBak8d2TsnQBRWkmI79RNiE=; b=Zkns9/61X9FCNZTm0A3gnvZXn4
+	bi2rAeYLChCysym7EcCznDDQyTcXXcUFhsWQkfdVm6xkAcLE9YygdZt6DD6k7UK0kTkNtoDnNRfZw
+	/0uEi8xlTuWmmwoZyZ53yjc1nZJeQV8c48WKmitJQAMjUvKQaokSAUcq9Eo1Uy312hObPjPW2bl/k
+	oXgzaXQG9w4q1xKWK0xf3b1sf4dHfhkQ44EmmB6oLlGcsyLTA1TPI1ltr8Ibmttbqpbq5fRtxFt8C
+	fDoN90CuW9gT3zrBP5XR/U0RgKAbgoGB+0K9VfAwKW4TaovzsWl7S1R4IexsXLoFhR/LKfHwogTJr
+	Z+He2DpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJWT-0000000DQvo-4A7w;
-	Wed, 27 Nov 2024 15:00:09 +0000
-Received: from smtp-fw-52002.amazon.com ([52.119.213.150])
+	id 1tGJXP-0000000DR6t-2PLd;
+	Wed, 27 Nov 2024 15:01:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJVU-0000000DQoe-43EB
+	id 1tGJVl-0000000DQrX-1u9Y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 14:59:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1732719548; x=1764255548;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=2DX3H+a44kQ13gTw3hzeF4XJrHuDL47mesPKbbKCQO8=;
-  b=hnKRcQdTiISbzqz2T6gmdx2yTN6a/Bw0i3EiUcQl+e26EMI4ervAaWL7
-   dKRwP2YicihhciB0hsNfS5ylDV6ss6EtC2vhEAoYikP8XBvDy/BbpDin9
-   yZb5pkqtuZP7ocsCF/pD1Vlvizwipn0NPecZt5vFSYtT4xnIovATDK16a
-   E=;
-X-IronPort-AV: E=Sophos;i="6.12,189,1728950400"; 
-   d="scan'208";a="677169741"
-Received: from iad6-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.124.125.6])
-  by smtp-border-fw-52002.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2024 14:59:02 +0000
-Received: from EX19MTAEUC001.ant.amazon.com [10.0.10.100:60970]
- by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.26.13:2525] with esmtp (Farcaster)
- id e0021fdb-2735-4534-9e9c-863282448e48; Wed, 27 Nov 2024 14:59:01 +0000 (UTC)
-X-Farcaster-Flow-ID: e0021fdb-2735-4534-9e9c-863282448e48
-Received: from EX19D018EUA004.ant.amazon.com (10.252.50.85) by
- EX19MTAEUC001.ant.amazon.com (10.252.51.155) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Wed, 27 Nov 2024 14:59:01 +0000
-Received: from [192.168.90.101] (10.85.143.173) by
- EX19D018EUA004.ant.amazon.com (10.252.50.85) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Wed, 27 Nov 2024 14:58:57 +0000
-Message-ID: <7846b08f-5bdb-448b-9c56-73d9f16a839b@amazon.com>
-Date: Wed, 27 Nov 2024 16:58:53 +0200
+	Wed, 27 Nov 2024 14:59:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A087A5C5BC3;
+	Wed, 27 Nov 2024 14:58:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 753AEC4CECC;
+	Wed, 27 Nov 2024 14:59:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732719564;
+	bh=SVhXyj/ZbRJBm3pGNYNcl/3ggq+hcnNG3Esckkf/+Yw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TGTTDtjwHXPmzkERIfnnt1B08xP9zER2IuaQCb6KIZPwaS6Gja8vheY34Uo/TfQF0
+	 Uvrmiz1eloyHIZind1vhluijfaF7fPXrqKw6Jj17pD/ONXPyxYyZu85V+gsevxU2Gm
+	 T8Hnl4x6Yd6Od8VwiJbyY5sObEOqEeBkpXseFFSkYX0UhWw5hadQ2J8SuD2Zo0WLDD
+	 tNtEoCHAIwNO8nAx9k1yoiUz/RyJvYXG8d2a1u/MhHdibUF+rYHVsOuZ7ZP5nTe/Yc
+	 8x/H4AmzuryL/HTW9M+bc4VTgALSWNEubNbu4PNmdMWIAMHAyYoOHPfYGtqXAusS6J
+	 0M6eMhpeTELfg==
+Date: Wed, 27 Nov 2024 08:59:22 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+	manivannan.sadhasivam@linaro.org, quic_schintav@quicinc.com,
+	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
+	linux-kernel@vger.kernel.org, mcoquelin.stm32@gmail.com,
+	cassel@kernel.org, linux-pci@vger.kernel.org,
+	alexandre.torgue@foss.st.com, devicetree@vger.kernel.org,
+	lpieralisi@kernel.org, bhelgaas@google.com, kw@linux.com,
+	fabrice.gasnier@foss.st.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 3/5] dt-bindings: PCI: Add STM32MP25 PCIe endpoint
+ bindings
+Message-ID: <173271956195.3489911.2255772456897177524.robh@kernel.org>
+References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
+ <20241126155119.1574564-4-christian.bruel@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: kexec: Check if IRQ is already masked before
- masking
-To: Marc Zyngier <maz@kernel.org>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
-	<bhe@redhat.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <jonnyc@amazon.com>
-References: <20241126050509.4426-1-farbere@amazon.com>
- <86cyihvopl.wl-maz@kernel.org>
-Content-Language: en-US
-From: "Farber, Eliav" <farbere@amazon.com>
-In-Reply-To: <86cyihvopl.wl-maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.85.143.173]
-X-ClientProxiedBy: EX19D042UWB003.ant.amazon.com (10.13.139.135) To
- EX19D018EUA004.ant.amazon.com (10.252.50.85)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241126155119.1574564-4-christian.bruel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_065909_320816_B7B759AA 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20241127_065925_530912_E096EAAF 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,32 +80,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Maybe a slightly better approach would be to simplify this code for
-> something that actually uses the kernel infrastructure:
->
-> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-> index 82e2203d86a31..9b48d952df3ec 100644
-> --- a/arch/arm64/kernel/machine_kexec.c
-> +++ b/arch/arm64/kernel/machine_kexec.c
-> @@ -230,11 +230,8 @@ static void machine_kexec_mask_interrupts(void)
->                      chip->irq_eoi)
->                          chip->irq_eoi(&desc->irq_data);
->
-> -               if (chip->irq_mask)
-> -                       chip->irq_mask(&desc->irq_data);
-> -
-> -               if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
-> -                       chip->irq_disable(&desc->irq_data);
-> +               irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
-> +               irq_disable(desc);
->          }
->   }
->
-> This is of course untested.
 
-I tested your suggested approach and it works.
-I will upload V2 for this change.
+On Tue, 26 Nov 2024 16:51:17 +0100, Christian Bruel wrote:
+> STM32MP25 PCIe Controller is based on the DesignWare core configured as
+> end point mode from the SYSCFG register.
+> 
+> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+> ---
+>  .../bindings/pci/st,stm32-pcie-ep.yaml        | 61 +++++++++++++++++++
+>  1 file changed, 61 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
+> 
 
-Thanks, Eliav
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
