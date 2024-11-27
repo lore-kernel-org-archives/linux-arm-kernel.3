@@ -4,73 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7966D609AD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 08:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6CB8D609AD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 08:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j/puSsXPhu1hMK3ar0AYGCIWVyIB6fujtiaV/jwOUA8=; b=dWLYaxtKm5vzqSX/9hOA4BPs3r
-	oUZeJKms97jItoSH+gl++3245aQpO+LBg20L+8XXM3v8paB+fT2IGOe6GMyEKL8kJ6qsVtceM9fC9
-	D3vy0/8ekvNUE6DZiiK/jShEh5OjbxebKWGcD/IxhfLHNASLRREl58/PVoC33AnYijZSIXXQvgUc1
-	8+QF/qsusr0LIaD2LKgLQoP9gAYIyeaZpsaLzwtCCw7J40oyaTOWFyvplDs/qs3UuoNRBAqRqvxLl
-	lofmqS0p63UYv2wgCvJyo3x/dS1CLM1fn0UB+OcaoIQ7t5/XuKILJiyetVXfITPify6YzIDp47puq
-	3zLfoMag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bew/I5xXVZXMcMLGcr2bk1V3h79V/rlhudJAubnILnI=; b=A8G6GHidMocqRXnBqg6MxRs6Tz
+	Frb8aOew9guJmR9doHotvSrpZknpKBskJUvw4bHhMmF3IYeCv0gHXC60CMsj0/ilsMckzXswhhEO7
+	+OmcTCZFPXPO8XFignLanVgT2NVkhHiX78KIpO42rdpeFNbobK+N+qpoUeRzuEkvrPSx/gXNSQPpq
+	uZi0YDm02lajqhLU9x11TfRXVzxsKtFzfsDlKTp2Nz3cx7mzxaYbuPdEZaR3XWJAg8KqCfRSrUe5g
+	YQcfWwD0vKVJLdofsoQ3DkKjj7kIdvdhIR8jZvL5KEL8p1boTLTGtSflZbuspDxIVD68r5/UwVndS
+	BvN57iqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGD4L-0000000CX0Z-2yh2;
-	Wed, 27 Nov 2024 08:06:41 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tGD5H-0000000CXAb-1Pji;
+	Wed, 27 Nov 2024 08:07:39 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGCwp-0000000CVP2-1vnL
+	id 1tGCzq-0000000CW6Z-1B2D
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 07:58:56 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tGCwk-000639-Aa; Wed, 27 Nov 2024 08:58:50 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tGCwj-000ODy-0m;
-	Wed, 27 Nov 2024 08:58:50 +0100
-Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id A655F37E1A3;
-	Wed, 27 Nov 2024 07:58:49 +0000 (UTC)
-Date: Wed, 27 Nov 2024 08:58:49 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: Frank Li <frank.li@nxp.com>, 
-	"o.rempel@pengutronix.de" <o.rempel@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
-	"andi.shyti@kernel.org" <andi.shyti@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: RE: [EXT] Re: [PATCH v3] i2c: imx: support DMA defer probing
-Message-ID: <20241127-analytic-azure-hamster-727fd8-mkl@pengutronix.de>
-References: <20241127074458.2102112-1-carlos.song@nxp.com>
- <20241127-ninja-dormouse-of-bloom-8ee494-mkl@pengutronix.de>
- <AM0PR0402MB3937614F4866F4F15D2FDA21E8282@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+	Wed, 27 Nov 2024 08:02:03 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2124a86f4cbso58320875ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 00:02:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732694521; x=1733299321; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=bew/I5xXVZXMcMLGcr2bk1V3h79V/rlhudJAubnILnI=;
+        b=XU7PtiVHWYS5YWROxljWFeH+bhLpkqA7ffA9sSA8NmpIOIP1ws9Z5Sf5Ll7nCqVtaA
+         FjxD6eALqlB5qViR2azYK1QLlUi3ZvE07uC/PlNFFy4SWg2shpojGSKQgR7ZhbLZPjwe
+         qTSk3M5yR31alXu6i5zfW0/lfZYxdUdiHavyT6xdew3/VLeY4jAat3faNQxhSUXHEpk7
+         3oNEbnIMKLi7Wre1+/tkOXlvv5C15VKyCffhP9Jvbir7xV8xEYE6056xm06UZt+aeUuR
+         9uK26dr6DPBfh0YhPhhTlsekCKc+YSoyn1roAKar8gFIdp90jopyxf2gvqdoIrjARJvG
+         Zx1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732694521; x=1733299321;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bew/I5xXVZXMcMLGcr2bk1V3h79V/rlhudJAubnILnI=;
+        b=E3zeI32NuHZxPa7fmFQ7kLLrNTDZFYBv+Y1KiboE/c98H7GrtnWAGuDzVCTtaA9FF8
+         Je3Ih62kOTNBDJdpsEhOx5PlPYEBTGz6AgdkUORUBZS84j+LchSjQZSkpTdY5YL/RaZr
+         TT4OgTK1fpUCk+LQPnH7nkpgt6XFyxLQjdboWq3RNqnbJ3qA3dl5oxBEYoflWtsr6tvs
+         QBD7f2KrKLBbYKAU80qA49K6b5lPpKEVZ1rBVG2mrWje5d2LUOF4Y1M8tbLjndF5fgVX
+         xVNKbPieaMp9xqmFmu8fCp5NjTKeDpevgFundZev8hq2S3Sf/8lFnH2wc4rUaTTV7leA
+         L7Fg==
+X-Forwarded-Encrypted: i=1; AJvYcCXPq5Uugvw8dOwTRaAFCk1hly92+qKbzdCfowiCHIJYA9HnqnqLyLBT6IlxSA7W1W9KgOLDnTkodmUsplINvtjx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCjZAb/sWggVO6eDQedKv7wIh1lxi/QQPLORKvefO7FLS08AY7
+	NPX0gDYWOXNVScQ7FOKmCQGiNchjXUjTxNvxlMnxOcCLcwEfSRz7
+X-Gm-Gg: ASbGncv1Ukd19EY/+GS2FSA9xwXuP/NVj3uORcvne2RYue2IvCFD25YLIbFxj4St2t7
+	85YHs2p12q6IMyAp5eipoHpupM+T28s5N5A4bDlydZ5DC4wu7v2Oa75mDICBGyOaC1NJqSekYCX
+	qSjdqnGNw/4JSVkArQSDDJmludFx679aJAIWxaAYJ18PgI2WC0Ex5zM6guEitGULQ+gwFJVGmgy
+	eNzqz8l2tvGxr9SnLUnQEIvPfwar+SaVJlZmZqrmEGWXOoojpcjCLIE0F5UxFtQTzPO/z2INhTg
+	Ep8DPoflS60MjktdaSLjBdIbgFkE
+X-Google-Smtp-Source: AGHT+IGtUIoISB0+clpN9PkK/2UFXTIykn3qm+m0cLDTT9iuNBtfEZ70ZERWyU6+cs55GUUZXZV4kQ==
+X-Received: by 2002:a17:903:2b08:b0:211:e812:3948 with SMTP id d9443c01a7336-21500fedf8amr32131585ad.0.1732694521468;
+        Wed, 27 Nov 2024 00:02:01 -0800 (PST)
+Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2129db8c783sm96580615ad.25.2024.11.27.00.01.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 Nov 2024 00:02:01 -0800 (PST)
+Message-ID: <6efc512e-b153-4f2c-8b38-4443024475ee@gmail.com>
+Date: Wed, 27 Nov 2024 16:01:54 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="elw43wbzngdfoidk"
-Content-Disposition: inline
-In-Reply-To: <AM0PR0402MB3937614F4866F4F15D2FDA21E8282@AM0PR0402MB3937.eurprd04.prod.outlook.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] arm64: dts: nuvoton: Add Ethernet nodes
+To: Krzysztof Kozlowski <krzk@kernel.org>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ mcoquelin.stm32@gmail.com, richardcochran@gmail.com
+Cc: alexandre.torgue@foss.st.com, joabreu@synopsys.com, ychuang3@nuvoton.com,
+ schung@nuvoton.com, yclu4@nuvoton.com, peppe.cavallaro@st.com,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20241118082707.8504-1-a0987203069@gmail.com>
+ <20241118082707.8504-3-a0987203069@gmail.com>
+ <a220d407-de40-4398-a837-de11e01d2381@kernel.org>
+Content-Language: en-US
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <a220d407-de40-4398-a837-de11e01d2381@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_235855_499553_E642D15A 
-X-CRM114-Status: GOOD (  25.09  )
+X-CRM114-CacheID: sfid-20241127_000202_321032_63E0BFE9 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,73 +107,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Dear Krzysztof,
 
---elw43wbzngdfoidk
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: RE: [EXT] Re: [PATCH v3] i2c: imx: support DMA defer probing
-MIME-Version: 1.0
+Thank you for your reply.
 
-On 27.11.2024 07:48:13, Carlos Song wrote:
-> > >  static void i2c_imx_dma_callback(void *arg) @@ -1803,6 +1804,23 @@
-> > > static int i2c_imx_probe(struct platform_device *pdev)
-> > >  	if (ret =3D=3D -EPROBE_DEFER)
-> > >  		goto clk_notifier_unregister;
-> > >
-> > > +	/*
-> > > +	 * Init DMA config if supported, -ENODEV means DMA not enabled at
-> > > +	 * this platform, that is not a real error, so just remind "only
-> > > +	 * PIO mode is used". If DMA is enabled, but meet error when request
-> > > +	 * DMA channel, error should be showed in probe error log. PIO mode
-> > > +	 * should be available regardless of DMA.
-> > > +	 */
-> > > +	ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-> > > +	if (ret) {
-> > > +		if (ret =3D=3D -EPROBE_DEFER)
-> > > +			goto clk_notifier_unregister;
-> > > +		else if (ret =3D=3D -ENODEV)
-> > > +			dev_info(&pdev->dev, "Only use PIO mode\n");
-> >=20
-> > On a system without DMA configured, with this patch we now get this info
-> > message that wasn't there before. I think this might annoy some people,=
- so you
-> > should remove it.
-> >=20
->=20
-> :-) hhh, get it.
+Krzysztof Kozlowski 於 11/26/2024 6:08 PM 寫道:
+> On 18/11/2024 09:27, Joey Lu wrote:
+>> diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+>> index e51b98f5bdce..2e0071329309 100644
+>> --- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+>> +++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+>> @@ -379,5 +379,57 @@ uart16: serial@40880000 {
+>>   			clocks = <&clk UART16_GATE>;
+>>   			status = "disabled";
+>>   		};
+>> +
+>> +		gmac0: ethernet@40120000 {
+>> +			compatible = "nuvoton,ma35d1-dwmac";
+>> +			reg = <0x0 0x40120000 0x0 0x10000>;
+>> +			interrupts = <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH>;
+>> +			interrupt-names = "macirq";
+>> +			clocks = <&clk EMAC0_GATE>, <&clk EPLL_DIV8>;
+>> +			clock-names = "stmmaceth", "ptp_ref";
+>> +
+>> +			nuvoton,sys = <&sys 0>;
+>> +			resets = <&sys MA35D1_RESET_GMAC0>;
+>> +			reset-names = "stmmaceth";
+>> +			status = "disabled";
+> Status is always, always the last property. Please read and follow DTS
+> coding style.
+>
+> Best regards,
+> Krzysztof
 
-Some things look reasonable when discussing the patch, but when you
-see the new, cleaned-up version, you immediately realize that this is
-going to annoy people :)
+Got it. I will fix these.
 
-> How about change to dev_dbg?
+Thanks!
 
-Good idea.
+BR,
 
-regards,
-Marc
+Joey
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---elw43wbzngdfoidk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdG0TYACgkQKDiiPnot
-vG+KkQf/Q+u30VAGEE7GQ8pY0YCDMlgwq9Lrph+jmHFG1nrNAnOc525i9+1N5Q5/
-HR1cWXxUV/yHkt6tkmKlbmGTv5V4FtLOM1QFq4RDCYql8alygNNcN2v4ZUZg3827
-el4CHe85/9/Ra2xln9yJ6WIrw7Lhn0Zh0CdpH97hYqmR0WHrpTecWFHbXNGIVieL
-85DPurmsXB7lVCfi7sa4V0NjZtts+bkDeDEVnO30j3SAkOtf3KUMtpNWAIGUmRvk
-uhdwGfpKbt4sYrmumv05Oly4FzQC8pGf1PAvpDxrlxTbvaHVnkjxvxQ86BbdWOIP
-zdkYoGoEU24Eq3WBH+hUS1LjNmKcRQ==
-=dQGb
------END PGP SIGNATURE-----
-
---elw43wbzngdfoidk--
 
