@@ -4,70 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EE67D609D5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9148ED609D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GgVLM+pxB0mTT4Xgy0u5pynEp9OkHXXnOP4d8il9bhA=; b=mpj+fpE32kOcd0hn7TE7+ePpmt
-	mNjd5lur3eQIP15dU5F4w8CyCCI0OXsD8YUX00X0qC9nn6Jds4jfDLyKleI4B6ommtB8i8oeSe5T0
-	70m/4g7iBzFskvHOa6OkAcGxcA9t3GS6tvIm7KaHwNQo9LVSSiOg7zhhMGeLtYC0n+OSJjtPhagDS
-	+8XmX+LaDoub9s7zsQgjCqNYdKRmgo6yQbuFSRng0vciyC5oOTWF27ksxISqypJ6HsWq9WOPcI8vM
-	SsHHnv38IZjVM61Dwx2QzVXKXXDrEepJENFHcjcmO4NPJ4pz4X3p0MWbqYBwRB/XSBJzyM0Fwi9vI
-	7d7vyvKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cBZr6b/b4WAms1NkzQ7R3CufwwQCxtnEtvUYSb5nf9M=; b=Nhlkrq+prdXrtH
+	vVSqEjOiJyuhzutWJ/YH7Ra1lqXX3i9G9egKsY9zPljpnmx+03bMNBRMQzRTLOg+T5SUwdIDXKIgK
+	tYHxEqlPjhkzI/5nWHylwFtZaxP4hV/DjwvfF+rpa6jglFdOMYdI73XnElFKVMu6GV3tIla5FEpaI
+	9f1jsCeK8cafp9vHrIrM8WJKYWsmblgarKu+QGlZ1C3E05N+mQVaH34LSguD6FY5LQ5/QqObpyYiQ
+	P5mM7VrD9aY6mpBmth/8dPZ/ivV6cdk7XS26Ja9Iw1ydtHLKHuH6eYoBQKYkRVFKIXIQ79758HfRk
+	m/RdwMVV0giBwlspC0Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFuo-0000000CxNn-2uWm;
-	Wed, 27 Nov 2024 11:09:02 +0000
-Received: from mail-m49194.qiye.163.com ([45.254.49.194])
+	id 1tGFvk-0000000CxYQ-3fX5;
+	Wed, 27 Nov 2024 11:10:00 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFmO-0000000Cvgj-15xH;
-	Wed, 27 Nov 2024 11:00:22 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3fe683f3;
-	Wed, 27 Nov 2024 19:00:10 +0800 (GMT+08:00)
-Message-ID: <8df0acc8-b7aa-453f-b55c-30144f51d7cf@rock-chips.com>
-Date: Wed, 27 Nov 2024 19:00:10 +0800
+	id 1tGFnh-0000000Cw0q-3Vhl
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Nov 2024 11:01:43 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-a9f1d76dab1so1080809966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 03:01:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1732705300; x=1733310100; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=cBZr6b/b4WAms1NkzQ7R3CufwwQCxtnEtvUYSb5nf9M=;
+        b=vFiQxIekydua20djqIjW4Hxvsi7l4Qpyy/Cy111zZ+z5VvC+90jAxRyK1jk6uq+TUS
+         PgXM+RIpxzqwPEZEhVKKaPHdCfZdFeYKwRwzLHUKQB9WaAM4pd5Yq+/lNoKhVPzM9LOV
+         0vr2LUgBBc1pIbkoGcggMirb61deNud+vFGdAfYagKYx6SL1yr5+pMRFFvWrOrPZwJKK
+         PVvpdJFGvpAHwwJyb6LUfntsB3WESzAV5empx8ThzB0q81SAxLf+8wYhlaNuloPUFrXK
+         O60ZxXOmkGeqhhgkb0/Fuyow2GZDXpYlBtmGEtqMp3AiyXUb9b8KEn3ZpfMC0TQXlepF
+         dHTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732705300; x=1733310100;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cBZr6b/b4WAms1NkzQ7R3CufwwQCxtnEtvUYSb5nf9M=;
+        b=PPdXGGjHd4+E+mFqoTaU8YLAJID4FC25KrCJ1BfAl+9Mzxr02/baiWynf6b4EIU72K
+         a0PyrjuRbao/Jl+h9RGjQz7/cBgFE6t4sMud+22ynweNE5y+u4Xwf8l5y8KoWdNXtosR
+         qvaua/qdmTvvg7Kn6HPeo80HuhYZuPPK776/HQT07ds9GuLecDa2yA7QGUALqp09XCH/
+         qfV7C5tDqIz79eBOGyxJpFhgeR4jCBy6/sI+KoBJfjpD4odY+zwrS2ZgX+bM7CoVL0Ws
+         4rWPIu25ARjr4BszpHLcJvljw+hJEad4IO00S4erlCv3EjoPO4MUNt/tBXZmwFXwF5rx
+         90+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXrJYzACDETIl3MxktUnjbtUIuq8/vq02gPDaQLqZpNdIjZswZHvNZg2qYBUxKOBqXLYgZtBlmb1fXkyXov0exJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhbX+aF31Hff4NOvVkwgDDv99b2EfuXriN7YQR1VmJ0nIm4eG/
+	sGTuncUHVxJDaZvJDGBWkrFUSagKYzWcKADTUHswIP4Je5mbzd1xwg8wjURQeOs=
+X-Gm-Gg: ASbGncsK8bK0LO07f9lqjjt2ltt4BNFN7hNtBhhUECjs+KCDc31I1D9EaCyxDUrGQHj
+	WViNyDh9Ro8FaHghhP0hCIWLtEowhAAbM5JrRDGShtx5Pb7arfCrTODJA1zYPp06klc13PrhaUB
+	MTC9fCeIWA2P/l0KX5gwR0smG6fgLFVSCU6s0u5NlyQeU6vt+1aKGswECUIS5HfphOYJiy4aWzD
+	m8jMBKITmsD/xKI6Ux/6OF3LamxqFVrySnyTVOQcrMEjXFI8N6pg+Rrk4eibLSLVMx2PcdCSvKp
+	1xWWamfUAim/CXOkTabVmeOwAuaNKvB6Rw==
+X-Google-Smtp-Source: AGHT+IG9LM9nsHo2L6pr+d8lMcVcqFeZ9vngEOtHUmqHJbBLX24wsz6VfzC5liy6xxjFk86MjURtsg==
+X-Received: by 2002:a17:906:4ca:b0:aa5:b32:6966 with SMTP id a640c23a62f3a-aa581076b11mr207938666b.50.1732705300206;
+        Wed, 27 Nov 2024 03:01:40 -0800 (PST)
+Received: from puffmais.c.googlers.com (64.227.90.34.bc.googleusercontent.com. [34.90.227.64])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa50b339612sm693762966b.84.2024.11.27.03.01.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Nov 2024 03:01:39 -0800 (PST)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Subject: [PATCH 0/6] Google Pixel 6 (oriole): TCPCI enablement & USB
+ updates
+Date: Wed, 27 Nov 2024 11:01:38 +0000
+Message-Id: <20241127-gs101-phy-lanes-orientation-dts-v1-0-5222d8508b71@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 04/10] phy: phy-rockchip-samsung-hdptx: Add support for
- eDP mode
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
- cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
- andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
- kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-References: <20241127075157.856029-1-damon.ding@rock-chips.com>
- <20241127075157.856029-5-damon.ding@rock-chips.com>
- <4260470.1IzOArtZ34@diego>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <4260470.1IzOArtZ34@diego>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxgZQ1ZIQ0tCTx0ZHxlDHR5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a936d4752a703a3kunm3fe683f3
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NRA6Lgw5CDIpHS5NEwE3NhMU
-	ChYaCh9VSlVKTEhJTEtOSUpJTENMVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJSUNPNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=MHKppqx3/69QuoNhREUlt7wo6qUNbztr929L0BnEn2+9UfVCaFP8Pa0GA4fZZ92lKe+e0VQmieBZpCBg75bzcV0dR7PpPw1l8coEQLKAFbFB7lTzqcHTw1KeCKSnVxEtDGd6zJvbgLCQtA1pTrUMzV+fyCIcN/UadJcRfpp7tzA=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=GgVLM+pxB0mTT4Xgy0u5pynEp9OkHXXnOP4d8il9bhA=;
-	h=date:mime-version:subject:message-id:from;
+X-B4-Tracking: v=1; b=H4sIABL8RmcC/x2NQQqDQAwAvyI5N2CCRepXpIewphooq2yWUhH/b
+ vA4h5k5wLWYOgzNAUV/5rbmAHo0kBbJs6JNwcAtd0Tc4+zUEm7Ljl/J6riGnqvU8HCqji9J2nf
+ CiZ8JorIV/dj/Pozv87wAXVvef3EAAAA=
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jagan Sridharan <badhri@google.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Sam Protsenko <semen.protsenko@linaro.org>, 
+ Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>, 
+ kernel-team@android.com, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_030020_792847_D0BDFA5C 
-X-CRM114-Status: GOOD (  22.31  )
+X-CRM114-CacheID: sfid-20241127_030141_871968_177FB493 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,77 +110,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko:
+Hi,
 
-On 2024/11/27 17:29, Heiko Stübner wrote:
-> Hi Damon,
-> 
-> Am Mittwoch, 27. November 2024, 08:51:51 CET schrieb Damon Ding:
->> Add basic support for RBR/HBR/HBR2 link rates, and the voltage swing and
->> pre-emphasis configurations of each link rate have been verified according
->> to the eDP 1.3 requirements.
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->> ---
-> 
-> [ ... huge block of DP phy support ...]
-> 
-> yes that block was huge, but I also don't see a way to split that up in a
-> useful way, so it should be fine.
-> 
+This series adds and enables the Maxim MAX77759 TCPCI for Google Pixel
+6 (Oriole).
 
-As for the huge block of DP phy support, I will try to use the existing 
-rk_hdptx_multi_reg_write() to set regs in next version, maybe the way 
-can make the codes more concise.
+It relies on the bindings update proposed as part of
+https://lore.kernel.org/r/20241127-gs101-phy-lanes-orientation-phy-v1-0-1b7fce24960b@linaro.org
 
-> 
->> +static int rk_hdptx_phy_set_mode(struct phy *phy, enum phy_mode mode,
->> +				 int submode)
->> +{
->> +	return 0;
->> +}
-> 
-> I think it might make sense to go the same way as the DCPHY and also
-> naneng combophy, to use #phy-cells = 1 to select the phy-mode via DT .
-> 
-> See [0] for Sebastians initial suggestion regarding the DC-PHY.
-> The naneng combophy already uses that scheme of mode-selection too.
-> 
-> There is of course the issue of backwards-compatibility, but that can be
-> worked around in the binding with something like:
-> 
->   '#phy-cells':
->      enum: [0, 1]
->      description: |
->        If #phy-cells is 0, PHY mode is set to PHY_TYPE_HDMI
->        If #phy-cells is 1 mode is set in the PHY cells. Supported modes are:
->          - PHY_TYPE_HDMI
->          - PHY_TYPE_DP
->        See include/dt-bindings/phy/phy.h for constants.
-> 
-> PHY_TYPE_HDMI needs to be added to include/dt-bindings/phy/phy.h
-> but PHY_TYPE_DP is already there.
-> 
-> That way we would standardize on one form of accessing phy-types
-> on rk3588 :-) .
-> 
-> Also see the Mediatek CSI rx phy doing this too already [1]
-> 
-> 
-> Heiko
-> 
-> [0] https://lore.kernel.org/linux-rockchip/udad4qf3o7kt45nuz6gxsvsmprh4rnyfxfogopmih6ucznizih@7oj2jrnlfonz/
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/phy/mediatek,mt8365-csi-rx.yaml
-> 
+With these patches, we allow the usb phy to detect usb cable
+orientation, and we make it possible for the USB DWC3 core to enter
+runtime suspend upon cable disconnect.
 
-It is really a nice way to separate HDMI and DP modes.
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+André Draszik (6):
+      arm64: defconfig: enable Maxim TCPCI driver
+      dt-bindings: usb: max33359: add max77759 flavor
+      arm64: dts: exynos: gs101: phy region for exynos5-usbdrd is larger
+      arm64: dts: exynos: gs101: enable snps,dis_rxdet_inp3_quirk for DWC3
+      arm64: dts: exynos: gs101-oriole: enable Maxim max77759 TCPCi
+      arm64: dts: exynos: gs101-oriole: add pd-disable and typec-power-opmode
 
-> 
-> 
-> 
-> 
+ .../devicetree/bindings/usb/maxim,max33359.yaml    |   8 +-
+ arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 104 +++++++++++++++++++++
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi       |   3 +-
+ arch/arm64/configs/defconfig                       |   1 +
+ 4 files changed, 113 insertions(+), 3 deletions(-)
+---
+base-commit: ed9a4ad6e5bd3a443e81446476718abebee47e82
+change-id: 20241127-gs101-phy-lanes-orientation-dts-9ace74a2c25c
 
 Best regards,
-Damon
+-- 
+André Draszik <andre.draszik@linaro.org>
 
 
