@@ -4,137 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A17D609D7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 230E2D609D8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WPNnkNusSbpQG7FakN9Ye2q95yHSoDQUaIuZWXayp+I=; b=IzQhvbxk95JzzeVAjMozFpx0Yx
-	3b0PBK902vmjS3zZd5i/w5M7X6uSLi9EweD69KK2LvbWvbmAmAKgAuQyOApAWFcA4aexCpO1lFegV
-	cc+5HGKRYq/woDQmy+oZzAUGWGmapt94Cc25mCxkGiORpB8F1e7xRePc3KVqFChbcC7uVmkLWsmj9
-	rEvTd0oiOvXOlGrpyTdq4SevVN5KP7DxZ5f+00THrKXEqPBTfLUMka0sU/FZWOU9ccp7kqyjMU4ky
-	w/X2oUsDuwHAJ39x9owozfeIExqgTzz/9qX7TfwXoO349L6cxwXZk01TU3xEdDBpskfYHBWE/6jcm
-	1ay1k8pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dwDmA6skYXcjb+3giHmONmMK1TWUq1rfdu1TdOWnKkM=; b=hiO2LSomtrxp+c9mJXsEyvuAx0
+	68oOEAjtGiy2h+vHdvBsxVusrtusHRoFOfyC6qnK4zQCfQJEAd/cLXS7VweKI+K2Txi5QSm23q06j
+	a89ggSC26SoFfKAaOD48hoXSQfgOYYSoxG0k2mUXcaojymdfJNmB+sTJB9KR2O+EpXwnCxWaV+TOj
+	jAvjbLmO7YV+ssJT+RZQCPq/e5iF7QEND7UINOQwegk4waQxDpfdxMVOfAyTy7Mg/ZagEXjYXb1bw
+	OpJzCGpxHmrKy4yHFqFDvhvTXU8maKh577P1t/r4yZG8nDn2zTsyZdR+/WMrSTsOei8mW++Bs2jnC
+	q3DRwAvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGG2P-0000000Cyi3-0LEQ;
-	Wed, 27 Nov 2024 11:16:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tGG3L-0000000Cyqu-33ak;
+	Wed, 27 Nov 2024 11:17:51 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFoH-0000000CwBJ-1c5f
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 27 Nov 2024 11:02:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=WPNnkNusSbpQG7FakN9Ye2q95yHSoDQUaIuZWXayp+I=; b=YnXR/BHKCijhnPV20Y/39JEILw
-	TBj+gSbtw/X+yC88AZJni8RqgfkzgLIMNqPNwg12dXRXPA1YpSKvUyMla9dHiDfnJl/gQZa/gt91m
-	OmziM1syDiwu+a7AHz7W3gaPRtA72gY6GiO/c42YzJadwYxZ/RGRXt0tAEgMf2kTKrEWEnUBoNyaA
-	Kws3ztBpQFRh/+JKG1GKIQZHI0vS04NLYsbnKd18bK6s6isCvMkr+1KToWqKMYlsrFIn49gYAz4xe
-	M8LiL75UgQHxNlfIQ3H31nTLPTOAH4uedhtlRVj8Aa9FQQZQg4+8u+q1M97tx6qlhkhZ3ra/rD3lb
-	qwXgwKTA==;
-Received: from cpanel.siel.si ([46.19.9.99])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFoE-00000001P4B-02eT
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 11:02:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	id 1tGFqu-0000000Cwic-2Sy9;
+	Wed, 27 Nov 2024 11:05:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=WPNnkNusSbpQG7FakN9Ye2q95yHSoDQUaIuZWXayp+I=; b=DLXWtXFkj6e4fvq/C3RHTNR89S
-	TsFawNMwRcQWuVLolTfJG5osTMUgN4XuWfL/YQYQCy9tYfpwjFnrCK0cp4sBMEdrR8J8uh5DSP5r+
-	Gx58Qgbuk/3xwDwGiHWuIFHzqdGuUwWvz33ojwUMhGaFuO4y8z90TZZnVWhtjWdl5yXr8SR+x2o/g
-	ctvef4iRcobweEyOF/BztOnJDTB2r2ejM1ZOTp+R+dckV/ZMN6lETuzOS/mUmxp/jpQvMT++rLMK+
-	ADtwO+YGpzaivNQzhM0jM6AzEpQbpFm202dAXv07W8sNS+iQcGioUGvv4ExirYWV2F/EKri1BDwCM
-	s0M4jHgA==;
-Received: from [89.212.21.243] (port=49272 helo=[192.168.69.52])
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96.2)
-	(envelope-from <andrej.picej@norik.com>)
-	id 1tGFnw-007bvX-1g;
-	Wed, 27 Nov 2024 12:01:56 +0100
-Message-ID: <c2af397e-b1a0-4ec7-8ff0-60b9e36cd939@norik.com>
-Date: Wed, 27 Nov 2024 12:01:55 +0100
+	bh=dwDmA6skYXcjb+3giHmONmMK1TWUq1rfdu1TdOWnKkM=; b=jC4Qf6Z34pla9wt4LKBGTlfWtf
+	cWD+9s5TgURjpIWz0uM9A3O5+0FIPGktRKmtjnI7ram+gnDjCNigmqEAkMq5OuM5A+zcpE5Q/BpIk
+	i+pKu4k5i1jzBh4BZnr94KiJEJYGgzgQ2+n0OZDfnISGiOpQpM4Ejwq+/AepupXeZ1eIHfXgpNVyT
+	weWadve+G1HSIgiRejBUud034nzQ/UqdsLCqL2kmItTErhbTBYq/hALKnP1A45xL1GG1zc5Pvpn50
+	fbhKGBDsKEUvjsZ1OWsRmhJNnsvzNcHB+f84hCOYYqDHg/Ph6JWOWH7XjmnRrbXIUFwwnvnKACHT2
+	DPINEu5g==;
+Received: from i5e86190f.versanet.de ([94.134.25.15] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tGFqj-0000Hk-5v; Wed, 27 Nov 2024 12:04:49 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
+ cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
+ andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
+ kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org
+Subject: Re: [PATCH v1 04/10] phy: phy-rockchip-samsung-hdptx: Add support for eDP
+ mode
+Date: Wed, 27 Nov 2024 12:04:48 +0100
+Message-ID: <2131853.KlZ2vcFHjT@diego>
+In-Reply-To: <8df0acc8-b7aa-453f-b55c-30144f51d7cf@rock-chips.com>
+References: <20241127075157.856029-1-damon.ding@rock-chips.com>
+ <4260470.1IzOArtZ34@diego>
+ <8df0acc8-b7aa-453f-b55c-30144f51d7cf@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Upstream] [PATCH 09/15] arm64: dts: imx8mm: move bulk of rtc
- properties to carrierboards
-To: Teresa Remmet <T.Remmet@phytec.de>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "robh@kernel.org" <robh@kernel.org>,
- "shawnguo@kernel.org" <shawnguo@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "festevam@gmail.com" <festevam@gmail.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>
-Cc: "imx@lists.linux.dev" <imx@lists.linux.dev>,
- PHYTEC Upstream <upstream@lists.phytec.de>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-References: <20241125081814.397352-1-andrej.picej@norik.com>
- <20241125081814.397352-10-andrej.picej@norik.com>
- <67e55b1f18f2a676b890c9a4133575e8b90f6019.camel@phytec.de>
-Content-Language: en-US
-From: Andrej Picej <andrej.picej@norik.com>
-Autocrypt: addr=andrej.picej@norik.com; keydata=
- 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
- xtT/8OxBOVSHvA==
-In-Reply-To: <67e55b1f18f2a676b890c9a4133575e8b90f6019.camel@phytec.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
-X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_110214_228583_3E905EB9 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20241127_030500_619101_84E53088 
+X-CRM114-Status: GOOD (  31.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,86 +81,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Teresa,
+Hi Damon,
 
-On 27. 11. 24 11:34, Teresa Remmet wrote:
-> Hello Andrej,
-> 
-> Am Montag, dem 25.11.2024 um 09:18 +0100 schrieb Andrej Picej:
->> From: Yannic Moog <y.moog@phytec.de>
->>
->> Move properties from SoM's dtsi to carrierboard's dts as they are
->> actually defined by the carrier board design.
->>
->> Signed-off-by: Yannic Moog <y.moog@phytec.de>
->> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
->> ---
->>   arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts | 4 ++++
->>   arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi       | 4 ----
->>   arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts    | 4 ++++
->>   3 files changed, 8 insertions(+), 4 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-
->> rdk.dts b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
->> index 7aaf705c7e47..f5f503c3c6b9 100644
->> --- a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
->> +++ b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
->> @@ -221,6 +221,10 @@ &pcie_phy {
->>   
->>   /* RTC */
->>   &rv3028 {
->> +       interrupt-parent = <&gpio1>;
->> +       interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
->> +       pinctrl-0 = <&pinctrl_rtc>;
-> 
-> You should also move the pinctrl settings to the carrier boards.
-> As the pin can be used differently and should not be defined by the
-> SoM.
+Am Mittwoch, 27. November 2024, 12:00:10 CET schrieb Damon Ding:
+> Hi Heiko:
+>=20
+> On 2024/11/27 17:29, Heiko St=FCbner wrote:
+> > Hi Damon,
+> >=20
+> > Am Mittwoch, 27. November 2024, 08:51:51 CET schrieb Damon Ding:
+> >> Add basic support for RBR/HBR/HBR2 link rates, and the voltage swing a=
+nd
+> >> pre-emphasis configurations of each link rate have been verified accor=
+ding
+> >> to the eDP 1.3 requirements.
+> >>
+> >> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> >> ---
+> >=20
+> > [ ... huge block of DP phy support ...]
+> >=20
+> > yes that block was huge, but I also don't see a way to split that up in=
+ a
+> > useful way, so it should be fine.
+> >=20
+>=20
+> As for the huge block of DP phy support, I will try to use the existing=20
+> rk_hdptx_multi_reg_write() to set regs in next version, maybe the way=20
+> can make the codes more concise.
 
-Ok will fix this in v2. Thanks.
+I actually did like the the dp-side of the phy code.
 
-BR,
-Andrej.
+That you need to add all the DP stuff can't be helped and I actually find
+real functions nicer than having anonymous register writes.
 
-> 
-> Thanks,
-> Teresa
-> 
->> +       pinctrl-names = "default";
->>          aux-voltage-chargeable = <1>;
->>          trickle-resistor-ohms = <3000>;
->>          wakeup-source;
->> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
->> b/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
->> index cced82226c6d..fdfe28780d6f 100644
->> --- a/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
->> +++ b/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
->> @@ -301,10 +301,6 @@ eeprom@51 {
->>          /* RTC */
->>          rv3028: rtc@52 {
->>                  compatible = "microcrystal,rv3028";
->> -               interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
->> -               interrupt-parent = <&gpio1>;
->> -               pinctrl-names = "default";
->> -               pinctrl-0 = <&pinctrl_rtc>;
->>                  reg = <0x52>;
->>          };
->>   };
->> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts
->> b/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts
->> index c9bf4ac254bb..b7b18d5a4f68 100644
->> --- a/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts
->> +++ b/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts
->> @@ -215,6 +215,10 @@ &pwm4 {
->>   
->>   /* RTC */
->>   &rv3028 {
->> +       interrupt-parent = <&gpio1>;
->> +       interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
->> +       pinctrl-0 = <&pinctrl_rtc>;
->> +       pinctrl-names = "default";
->>          aux-voltage-chargeable = <1>;
->>          trickle-resistor-ohms = <3000>;
->>          wakeup-source;
-> 
+I.e. the hdmi-side with its register lists does write "magic" values to
+registers.
+
+So personally I'd just leave the dp-functions as is please, until someone
+does complain (I was not trying to complain, just mentioned why I cut
+it from the reply :-) )
+
+
+Thanks
+Heiko
+
+
+> >> +static int rk_hdptx_phy_set_mode(struct phy *phy, enum phy_mode mode,
+> >> +				 int submode)
+> >> +{
+> >> +	return 0;
+> >> +}
+> >=20
+> > I think it might make sense to go the same way as the DCPHY and also
+> > naneng combophy, to use #phy-cells =3D 1 to select the phy-mode via DT .
+> >=20
+> > See [0] for Sebastians initial suggestion regarding the DC-PHY.
+> > The naneng combophy already uses that scheme of mode-selection too.
+> >=20
+> > There is of course the issue of backwards-compatibility, but that can be
+> > worked around in the binding with something like:
+> >=20
+> >   '#phy-cells':
+> >      enum: [0, 1]
+> >      description: |
+> >        If #phy-cells is 0, PHY mode is set to PHY_TYPE_HDMI
+> >        If #phy-cells is 1 mode is set in the PHY cells. Supported modes=
+ are:
+> >          - PHY_TYPE_HDMI
+> >          - PHY_TYPE_DP
+> >        See include/dt-bindings/phy/phy.h for constants.
+> >=20
+> > PHY_TYPE_HDMI needs to be added to include/dt-bindings/phy/phy.h
+> > but PHY_TYPE_DP is already there.
+> >=20
+> > That way we would standardize on one form of accessing phy-types
+> > on rk3588 :-) .
+> >=20
+> > Also see the Mediatek CSI rx phy doing this too already [1]
+> >=20
+> >=20
+> > Heiko
+> >=20
+> > [0] https://lore.kernel.org/linux-rockchip/udad4qf3o7kt45nuz6gxsvsmprh4=
+rnyfxfogopmih6ucznizih@7oj2jrnlfonz/
+> > [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/=
+tree/Documentation/devicetree/bindings/phy/mediatek,mt8365-csi-rx.yaml
+> >=20
+>=20
+> It is really a nice way to separate HDMI and DP modes.
+>=20
+> >=20
+> >=20
+> >=20
+> >=20
+>=20
+> Best regards,
+> Damon
+>=20
+>=20
+
+
+
+
 
