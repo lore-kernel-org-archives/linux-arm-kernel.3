@@ -4,94 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8F67D609CE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 10:29:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CECDD609CE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 10:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7+cmfbelmRSaQQFPiUTQDZitDA2TYw9iUjlwm476pkA=; b=DPY+oxCpwlkkaGk8thwDE6Ubja
-	SdKSKk4Ozhyh8lacIId66hhjPxfAwc3womFfWk1W3cqdCNpyVU12JhAQRttJyhPy9AhLblgWLOs4M
-	92TbGBZLLqXoOsVFPfbyloZwwoRJ09SJc6WfB3Wot2X3eTuTKCh/LHTPB4QiUkxAG99U8Pgj57KQK
-	g8P0z9uO8b07cZxp+UoH7+GKoyDZqK8w+EZSetOaif/N2FACDVLmCh/MG9pxm98J9HF7wqXZRfycc
-	XyLrFdW7CMIhIIwRL8d9J9KiYyLUHnytbji5LjRpyHsF6NroXA372GGTy9oakN3LRYkkdqNffYetN
-	XL9CfiaQ==;
+	bh=rYRx0lYB5e/oCaN3Y1ZGXZRIZvKjxjkI9FJy7Iz+AzI=; b=4s2nlK4lcNFNTEMeiZHBxsWp8j
+	aBypdwswNDGBMH0AfJ/IzE+7HGXnCAyxm3TMnJ0XvbJwvH2KFsuQrWcb9WFVTdqg2ZXNUX3kyYX/O
+	miuT0WdNUSZLBflsxM0MVzECfx1wG70YJAoTC4nBTsk37kqxmT6Dhs5Ivg2OPXa3mfH4pdxVmy11+
+	MwSmVbnGwOgh3tn6/Mi5zU3XPjq2IuAvdsJMRKjPiYM7QlHqKDgTT1LSsnEO41C4A+Wouw4iwpjq/
+	NMJXKzAmyFPcD+QghXr8e0YNT7Qtp3XheL5LWepFjXQh+V1Fc5qdWhYHZVmKoNyqO1rUqboW49zn6
+	RirZE7Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFHx-0000000CqVX-1pp5;
-	Wed, 27 Nov 2024 10:28:53 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tGFIu-0000000Cqdg-0Gf1;
+	Wed, 27 Nov 2024 10:29:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFG4-0000000CqB2-0NvW
+	id 1tGFGj-0000000CqKF-2mdA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 10:26:57 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-434a7ee3d60so3591465e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 02:26:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732703214; x=1733308014; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=7+cmfbelmRSaQQFPiUTQDZitDA2TYw9iUjlwm476pkA=;
-        b=YK2ZjD9LC5ovTtVQIlWGqwXzp7Jjj9vUzB6F8VH44NuVJug0jnQQTpk6RESk0zVS8m
-         KgKr6yF2IHgg9ta9Rn0L0IqP50wEXrAUIYH/BA4vwy/LAFprRfdQrQevBo2jTRgIwqqe
-         Y/GsaJQhz1Su6aXVP3cpLWp78QVqhOv35m/rlV7PLSB5U7NFeuC6/uxeXVQuaUAbhViT
-         5u8faF+3LlZgI1aNPXCcfEP+a4fqTRGkfGi/zPjyzXR8ifX9w23SjqV3w0FiqPlauCHy
-         HsReyIigxkwZvzeVJdYEph+z25bRSjg+3SEOQoCB071cpf/PljOgzRb31lbeTAzK9TVz
-         8/Lg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732703214; x=1733308014;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7+cmfbelmRSaQQFPiUTQDZitDA2TYw9iUjlwm476pkA=;
-        b=lIkyWw4kKcMpRkkWgyTNqEY9JGIfxLkE83J7S22HcDZ6+YcgpNK2OfQOQRZzhooJSA
-         lwtolH1Z8+TPru1RbGjW3FhbEa/1hdReNCZ2b4b1rwFlajMENjxZGzzUSY2fnaDzGkgu
-         3b0/sPtZCR8oiOMIZr5C/e/sXuWSOkDEkhiWVRalD8AUn5bmh/vtmTlQ4sSuEsd0bQYy
-         xXjH5BDbDEaDPFfTwT4O8dUeGicrDQV4OD2QM2zvobxSR9I7U+R8YlW0OtqSjlrDQ611
-         KhgzBZ6BGuoqI28cs/swM3HJDtPX6GPrs/0f/ewbzJ18qNdZwyqFZB/++9cLHetDhHRd
-         +QYw==
-X-Gm-Message-State: AOJu0YzbLJFpC7cze7tc58M2sJp4zN1hHxM5nEbDQo46vOOuWFi2GMH9
-	bfgfcTwb3rgov5CLYfo11pKnUiYqjVHwzmtINUnH6dbf2KYZJWirq+2R+qqNAbc=
-X-Gm-Gg: ASbGncsNR7L0TymMhAeDNDzHR+AwrzCjiGtMlPisJdr4iw0vibNCLvOh8JXiwjdo5Ny
-	e5wwxeoLhKVm9xgwSTGdjgzkf2O3ycdGeErRAv+uVcnnTwApC66LAKKhgNArOgV54L1d3yZd67I
-	YSyELQ7AOEb3Sg/doNyNekoAR+/wUQfQDkJQ024JFpQirEWP2s6GYXT/UiqipT0T5d01otmTxOZ
-	WTGSgF0OI/01nLPHSaG5V3/n/1cWIpqsxkFWuQwrhHbFzb6R9Y/8R0ZZbg2dgk=
-X-Google-Smtp-Source: AGHT+IHg6WbnrX0TF7Gf5SRVmRbOlRCRzVlxg9KnxKtMXHlYhNgEnOW4AlPtq4E09rvfEVr0xHICWA==
-X-Received: by 2002:a05:600c:1e88:b0:434:9e17:190c with SMTP id 5b1f17b1804b1-434a9d816aemr19447135e9.0.1732703214187;
-        Wed, 27 Nov 2024 02:26:54 -0800 (PST)
-Received: from [192.168.0.40] ([176.61.106.227])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa76a981sm16464015e9.16.2024.11.27.02.26.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Nov 2024 02:26:53 -0800 (PST)
-Message-ID: <fab23e56-9ef0-409a-b9da-a866e92590f4@linaro.org>
-Date: Wed, 27 Nov 2024 10:26:52 +0000
+	Wed, 27 Nov 2024 10:27:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A18305C5BF6;
+	Wed, 27 Nov 2024 10:26:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F026CC4CED2;
+	Wed, 27 Nov 2024 10:27:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732703256;
+	bh=buyCNcUX7XPKVIWjNUx5kyvoGjzqd51rS3iDdcG045c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aWe1oSejuBFDktZapdUDVrus2l7S+imk7QiYkTth2nce8uNKJZAR0VgxCcav57xK7
+	 Dnz58QlcNx1rFq4MDl1k+MaRauv2+dSfk9ElzwQamYBETTxqoSihqLGGb7r+pFjnSx
+	 mpU2OeRO5k+U+EPeYQT3QPnhuKEUv1imK7Iyyp/tQZ320C5Bqt6Sf6CsXhDLIh8jiG
+	 z976O9PXc7hITDCeDxcCmteYW10F7KVhkaJunG89S6mr4Wd1bxhK2O3PDraKGxKlMm
+	 56cFgsYGAJN73dNsQJics6W5mJktG41AgcdB95KoQEWvlwyIZ3XLQ33puasNgtdSc3
+	 3lOBsQCPnOUyA==
+Message-ID: <b30e77e1-f0ba-4972-a67b-c9dac4b60f12@kernel.org>
+Date: Wed, 27 Nov 2024 11:27:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 5/5] arm64: dts: qcom:
- qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, akapatra@quicinc.com,
- hariramp@quicinc.com, andersson@kernel.org, konradybcio@kernel.org,
- hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@quicinc.com
-References: <20241127100421.3447601-1-quic_vikramsa@quicinc.com>
- <20241127100421.3447601-6-quic_vikramsa@quicinc.com>
+Subject: Re: [PATCH 0/4] Driver for Apple Z2 touchscreens.
+To: fnkl.kernel@gmail.com, Hector Martin <marcan@marcan.st>,
+ Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-input@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>
+References: <20241126-z2-v1-0-c43c4cc6200d@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <20241127100421.3447601-6-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20241126-z2-v1-0-c43c4cc6200d@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_022656_148738_1510DCD6 
-X-CRM114-Status: UNSURE (   6.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241127_022737_791409_7E999F7A 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,21 +121,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2024 10:04, Vikram Sharma wrote:
-> +		dovdd-supply  = <&vreg_l18b_1p8>;
+On 26/11/2024 21:47, Sasha Finkelstein via B4 Relay wrote:
+> Hi.
+> 
+> This series adds support for Apple touchscreens using the Z2 protocol.
+> Those are used as the primary touchscreen on mobile Apple devices, and for the
+> touchbar on laptops using the M-series chips. (T1/T2 laptops have a coprocessor
+> in charge of speaking Z2 to the touchbar).
+> 
+> Originally sent as a RFC at https://lore.kernel.org/all/20230223-z2-for-ml-v1-0-028f2b85dc15@gmail.com/
+> The changes since then mostly address the review feedback, but also
+> add another machine that has this specific controller.
+Then this is v2, not v1. Look:
 
-You seem to be missing some supplies here.
+b4 diff '<20241126-z2-v1-0-c43c4cc6200d@gmail.com>'
+Grabbing thread from
+lore.kernel.org/all/20241126-z2-v1-0-c43c4cc6200d@gmail.com/t.mbox.gz
+---
+Analyzing 16 messages in the thread
+Could not find lower series to compare against.
 
-I'm not sure if we've covered this before but, it looks to me as though 
-avdd and dvdd are missing.
+Also we expect changelog in cover letter or individual patches.
 
-On rb5/sm8250 it looks like this.
-
-     dovdd-supply = <&vreg_l7f_1p8>;
-     avdd-supply = <&vdc_5v>;
-     dvdd-supply = <&vdc_5v>;
-
-Can you point to the right supplies here in your dtbo ?
-
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Best regards,
+Krzysztof
 
