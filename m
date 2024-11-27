@@ -4,133 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD557D6ACF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 16:04:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F381D6ACF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 16:05:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=U7pgvGE7UEQZqkAfpdR1Lh+7Oz3bZbtvMzk4k9RPpeU=; b=IyUTzA8zgOSLsh1h9cXX4Xc1ol
-	7g1BbrwULzl1anLjSVFCOctZFzox2q1/2YkiHlVgvfZhpvgL+4Ky6AQU0QcD39mzv4EDg0Fu0MsEK
-	ZL6Z+EQQ5RZCAxi6mHVRsyl4baeL0I5cpt5iz1lA/DEoee0+0yxqlsoD0z+nhj2d3ZJXsMSk7KDpr
-	bMu+Z+QBZD8m/daxzIbjIx7gXeb25b1ERBgZad96AIWWTSOYRwzMDUY8CnVTq0xKn76YOiSs06I+n
-	CG8XIeaVkudICDkm1J8jNbxu6VKCNo6M+R2MLASjzxmP6Ki1h0SC7Dh8pRwERM9s8lAeyZLtGx4Ic
-	am45bGZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TL+I7JUh7Aq1InjR6Z5JlWDmp5BdWL7K2gWShIAH5n4=; b=v1Xl4evxKCpkxDO55tl2p6+O74
+	1b8eJOTjeYvI2nw+gCYFOBcNNYVpIvaKafBFkWMmiy5htPRIXZ35KbHM40ZzVlILydWGU63uaGI17
+	j3YlFzl/2OsiTwikO+Zd/xxpcX/N50bgmmE9mz00p/PsDdf8AJZkD+03fFlaf1hJPEv5231CR/gp0
+	/78JlitlFH0G1j6LSOqMw9w0Cy0xIA4o1C8RVmqfV2oFmDHsE/ZBDe/+efK1eLKfVx/AK8BMH0W5k
+	T1n2ZzUs2z3I0iSILZkz2b5Kp0htp/G67FAH9lY0VhzUp5j95xhR9D/5/7FgL39GufEU6/VIixGum
+	HxfDTBDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGKWA-0000000DaWz-0v1q;
-	Wed, 27 Nov 2024 16:03:54 +0000
-Received: from mail-dm6nam04on2061d.outbound.protection.outlook.com ([2a01:111:f403:2409::61d] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
+	id 1tGKX6-0000000Daes-3LEG;
+	Wed, 27 Nov 2024 16:04:52 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGKTy-0000000DaAP-0lIy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 16:01:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HZhmDwI/32c5qthiWPrYdlmbC9zOcz723jSO+KKjUgxoPgf2Tip4uZc6/Iks0UluZHTwa6e+wk1LyTb6/dSyL2Lz/A4EkyfywSXApxD1sbLSghXECti1svD4l53zab/YrNiRdn5AXyHcM4prp7aFyaYHVF4X7he8ly4s8CutOG7ymN5rJfoiz/Pqqd9+Nau40SZUSA1ajX8yL2VO1tMBdbKCpFd0s5EYsFlO/D3ygP+UfL6JJkvjaXu0ts/93oxTtYHUvmvMqdklbVt6E8CnF5Y2/IE9knMJeixRNhgNh8LWhUDpBivd5VsdhL1VoYtl0E8W0s5k1Hh05nwVFnNrdw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U7pgvGE7UEQZqkAfpdR1Lh+7Oz3bZbtvMzk4k9RPpeU=;
- b=xaLf0TYdR9bPMCCK6Uhw8xAioUz+CWfL5ML5o5M4tqRrHWuaQ4CTOyT620RFWg/EDqMycS0PduBJlsxrcfES9dsVYuU2lniH7NvCJToAFoYMTxMqEEXqmmYb2iyv9O2tRSmJnm/WSgXJ8AS9AAEnpHWOKJPCjnCKFxb0i6mTyFMMeNA63+L9v6NbtO8YiYveJ3BwNm5YZKpeFhxKMmMUpC4uq7lun9fWJZ2ytm5a8NOyditQLL8KSgF3jNH/QO24LasWB6QSCDr/vjOcz/+AVyIbtAM+k2A25H9HsZzq04AdVF0Xv9vkcZvd8g5IkU/4ZFdonQJyUSrtz7DHJ7t5PQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U7pgvGE7UEQZqkAfpdR1Lh+7Oz3bZbtvMzk4k9RPpeU=;
- b=OCEBTBWVFA0uXVEX7v7uZYrNelmys/5Nco2eWPDtvAom4uboZApQaz/TdNhVHmP/HpBVvOCvxPzc52CbimESkMhySDXjXPVQ/tASIQbX+2j7kfOeiJEDfeA863p/sTfbJrLBYOpYbUJjx7sWhflnIT7Av/9jIUEmbA3PPomepMQ=
-Received: from CH2PR11CA0016.namprd11.prod.outlook.com (2603:10b6:610:54::26)
- by DM4PR12MB6063.namprd12.prod.outlook.com (2603:10b6:8:b1::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.13; Wed, 27 Nov
- 2024 16:01:29 +0000
-Received: from CH1PEPF0000AD80.namprd04.prod.outlook.com
- (2603:10b6:610:54:cafe::81) by CH2PR11CA0016.outlook.office365.com
- (2603:10b6:610:54::26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.14 via Frontend
- Transport; Wed, 27 Nov 2024 16:01:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- CH1PEPF0000AD80.mail.protection.outlook.com (10.167.244.90) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8182.16 via Frontend Transport; Wed, 27 Nov 2024 16:01:29 +0000
-Received: from localhost (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 27 Nov
- 2024 10:01:26 -0600
-From: Michal Simek <michal.simek@amd.com>
-To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
-	<michal.simek@xilinx.com>, <git@xilinx.com>
-CC: <stable@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Srinivas Neeli <srinivas.neeli@xilinx.com>, "moderated list:ARM/ZYNQ
- ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, "open list:REAL TIME
- CLOCK (RTC) SUBSYSTEM" <linux-rtc@vger.kernel.org>
-Subject: [PATCH] rtc: zynqmp: Fix optional clock name property
-Date: Wed, 27 Nov 2024 17:01:22 +0100
-Message-ID: <cd5f0c9d01ec1f5a240e37a7e0d85b8dacb3a869.1732723280.git.michal.simek@amd.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tGKUx-0000000DaH9-0dtx;
+	Wed, 27 Nov 2024 16:02:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5C251A4394F;
+	Wed, 27 Nov 2024 16:00:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 687FBC4CECC;
+	Wed, 27 Nov 2024 16:02:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732723357;
+	bh=TL+I7JUh7Aq1InjR6Z5JlWDmp5BdWL7K2gWShIAH5n4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QP/WO6fF1/JucbsBoAFCrhfNdZNn/vJDCSkL5EJUDHbD4Q9W6J5PIX49asB5E3UC2
+	 sZUunSdX7ixSk1o5R9DiiFZDGfX6WAtLtUvkuE7hqdc87MSUvvEJRK9V9AiGgzsqXe
+	 LVA7woAMlL1n5vVE2go2T/tCQ7LSxkQzqujgAPQGZpBo0jpPvSAqh2Cja/LKDi8B1p
+	 4dbn8lQihck31K332LiyQ6CWqlD8QNFWFu3A7FLxfHh3JXC1lU60aamuoeCDgBwaCg
+	 sMDH6NT+qc466C8dtKzwYfxUzo4lNyLQtrBEW0ayK68UOrUNfh/uXEs7q2+izeiaPK
+	 fPQAVxr+7iFxA==
+Date: Wed, 27 Nov 2024 16:02:32 +0000
+From: Conor Dooley <conor@kernel.org>
+To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Sam Protsenko <semen.protsenko@linaro.org>,
+	Will McVicker <willmcvicker@google.com>,
+	Roy Luo <royluo@google.com>, kernel-team@android.com,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH 2/9] dt-bindings: phy: samsung,usb3-drd-phy: add optional
+ orientation-switch
+Message-ID: <20241127-pushing-baboon-4afafcf8322f@spud>
+References: <20241127-gs101-phy-lanes-orientation-phy-v1-0-1b7fce24960b@linaro.org>
+ <20241127-gs101-phy-lanes-orientation-phy-v1-2-1b7fce24960b@linaro.org>
+ <20241127-unturned-powdered-d9d1b695732d@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1163; i=michal.simek@amd.com; h=from:subject:message-id; bh=rvh7El9FrcMAv8jCh0LDE1M2bbAny4HLtCm5ZK87EvY=; b=owGbwMvMwCR4yjP1tKYXjyLjabUkhnR3p+BLLLt2ie2/kNR5nPuD1olOmwMTYqc6XKioddzZl Jdr0G/XEcvCIMjEICumyCJtc+XM3soZU4QvHpaDmcPKBDKEgYtTACaylZ1hfvmxV9fvPzJi4vKz vzVz6q/YVTtjDjHMM3U9VaPqmZe1f8Lcv7Pq064eWdvADQA=
-X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: SATLEXMB03.amd.com (10.181.40.144) To SATLEXMB04.amd.com
- (10.181.40.145)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD80:EE_|DM4PR12MB6063:EE_
-X-MS-Office365-Filtering-Correlation-Id: c232527c-026f-4175-b912-08dd0efcc12e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Fp1RnW3AjR3W2VFI/MyDUWhbmYLoYMGhpBUU0+GfZDn1A5xRxDLbZHQYSIFu?=
- =?us-ascii?Q?drsvcuf2e2MwuxVu6SkHXzw7XvnX4zZrPhFk9eh7WlGcRhQ8V/O6zSjNgQOT?=
- =?us-ascii?Q?4iQGdAv6kQ9RXhBng9P6soaOHpe2uQqwnkJm0AryiRK57MPe84L5la3nB7J6?=
- =?us-ascii?Q?amYnrKblr6samxWrWzb4TV6AGyS4z93nKQDgStn9V7/dWVi1Z4bCHhiHN/jY?=
- =?us-ascii?Q?fhTafh7DIwR6DaeWe+T/pueTupYZsnQuz6bD7BdbWwXOTNwAZnXXvLqV7CgE?=
- =?us-ascii?Q?IJizNqaAyhHt8kU3mDGrKlIpXJSm9+RFli9gogIJ1yh3EYWOTlwuKJft4PwT?=
- =?us-ascii?Q?tOzBPVsQM4ZnldiQaEf3se455sEzQKLgD9PQ2ngqm3Fu767HMMUmP8Goqngl?=
- =?us-ascii?Q?8wjCPIFhRi/KHBwSHM/9Cz2q0rOqOxuKNz0C8p26ZzKQpjcS8v173TgNxRSm?=
- =?us-ascii?Q?zKvJbWJPQI1jcDz6F1uNScsZeJgkTSDFmB7C8aISKR4xOmWSbwXxKaUMyb5O?=
- =?us-ascii?Q?AwD98ilKiVdH8tQl4WzvKC43uqgb/4pAQC9Cf44sdoxfag3LwBPHeUof8KYb?=
- =?us-ascii?Q?rSQAxAkxGq8qC3X61R+X5rRbRzIlrhCrpHi1oPh4kBEI5t7G1uXIyhcDpUFI?=
- =?us-ascii?Q?7kDaLzm2NO1+CF4wxmUgdE5zgr48L4oDNXiXy3sXUTGwYKQPQoljKhWpASZT?=
- =?us-ascii?Q?Z83xu5Urv/HsSuTyaaUPpppc4EfvlJVjq6XUMP9TFpkHXM3itj1PYay5P4Au?=
- =?us-ascii?Q?2S752WV2w+TpORHyOtcr1Af2dmUZyIrpn2zL73NymtGTYu1Cc5SfGFElSVVY?=
- =?us-ascii?Q?siYhVOdp632GyUEwJ3zGqyTcVo77pJJMpWDBV14U82hxcsy+tuyrW3jXCmBV?=
- =?us-ascii?Q?suJHkrz5iGjlBk8bsjfIEaN9eoSAHXVIYMtx24ZGPwjr2xMPrew0nbQFf4mA?=
- =?us-ascii?Q?w/IrKKwdjKwZmGIC++4H/r8yiQexuMN3ZJNTb/UpQ36Ta2EcxeSTmLFLa3uj?=
- =?us-ascii?Q?E3BRNEpGT4yndcfB3bAIUOvSyH//ncy54BRIf+MIf/4ywmkqoF3joVEd+T2W?=
- =?us-ascii?Q?u4e8mMPNZP0Smzh4Y3PB/St9fWIdBO3+3p+RRRFaGW6XolDNfTzW9DJMzhGD?=
- =?us-ascii?Q?7Qe7WQxHVWZrTNS2uz2+D2EklRHmBgjPJDNhVDL07IfOEzYRuRXDEhRtFgJy?=
- =?us-ascii?Q?JthHWC3LHENnNuED/6yOluUoOBo58cFqG1M1iyme3RsUU8o0sIGr+kZQh+i9?=
- =?us-ascii?Q?sYlBsVLmurJE0oqeZYEN81aEz8BlMmtAySv5PCtvk/KTAZpgS4JIeQ8r43Tx?=
- =?us-ascii?Q?DIAej3ouCXJP5FKorMdiJQZNIahBMYOkHzpZ/kinAZMDWXWQKGNAgyB0P2Lz?=
- =?us-ascii?Q?q2atdydNhmGvbY2w19CPa0TO5OMyaD9S9OI+kf557usqUEuxiFwyf+5nlETS?=
- =?us-ascii?Q?B5oi3u+j49hAZV4qXWXskqZfSn2JwXlZ?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2024 16:01:29.0528
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c232527c-026f-4175-b912-08dd0efcc12e
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD80.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6063
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="IhBg84JsEwDLC8Yb"
+Content-Disposition: inline
+In-Reply-To: <20241127-unturned-powdered-d9d1b695732d@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_080138_308629_E1C3345C 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20241127_080239_259568_FB4B531C 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,36 +88,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clock description in DT binding introduced by commit f69060c14431
-("dt-bindings: rtc: zynqmp: Add clock information") is talking about "rtc"
-clock name but driver is checking "rtc_clk" name instead.
-Because clock is optional property likely in was never handled properly by
-the driver.
 
-Fixes: 07dcc6f9c762 ("rtc: zynqmp: Add calibration set and get support")
-Signed-off-by: Michal Simek <michal.simek@amd.com>
-Cc: <stable@kernel.org>
----
+--IhBg84JsEwDLC8Yb
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
- drivers/rtc/rtc-zynqmp.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+On Wed, Nov 27, 2024 at 04:00:59PM +0000, Conor Dooley wrote:
+> On Wed, Nov 27, 2024 at 10:58:12AM +0000, Andr=E9 Draszik wrote:
+> > orientation-switch is the standard declaration to inform the Type-C mux
+> > layer that a remote-endpoint is capable of processing orientation
+> > change messages.
+> >=20
+> > Add as an optional since not all versions of this phy currently support
+> > or even need the orientation-switch.
+> >=20
+> > Signed-off-by: Andr=E9 Draszik <andre.draszik@linaro.org>
+>=20
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-diff --git a/drivers/rtc/rtc-zynqmp.c b/drivers/rtc/rtc-zynqmp.c
-index 08ed171bdab4..b6f96c10196a 100644
---- a/drivers/rtc/rtc-zynqmp.c
-+++ b/drivers/rtc/rtc-zynqmp.c
-@@ -318,8 +318,8 @@ static int xlnx_rtc_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	/* Getting the rtc_clk info */
--	xrtcdev->rtc_clk = devm_clk_get_optional(&pdev->dev, "rtc_clk");
-+	/* Getting the rtc info */
-+	xrtcdev->rtc_clk = devm_clk_get_optional(&pdev->dev, "rtc");
- 	if (IS_ERR(xrtcdev->rtc_clk)) {
- 		if (PTR_ERR(xrtcdev->rtc_clk) != -EPROBE_DEFER)
- 			dev_warn(&pdev->dev, "Device clock not found.\n");
--- 
-2.43.0
+Actually, this patch unconditionally adds the property to the binding.
+Is it valid for !gs101?
 
+--IhBg84JsEwDLC8Yb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ0dCmAAKCRB4tDGHoIJi
+0tYAAQCWP68TjQ4VMdnkNOjU/mfYGe+iMPyKEG8O7I36Qm4hGwEA00p1NoQKRQ8X
+g2sEFghrV9k7tx8dNqsT6X7yI8Ehrgs=
+=PrlU
+-----END PGP SIGNATURE-----
+
+--IhBg84JsEwDLC8Yb--
 
