@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC9ED6ACE1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 14:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C1CD6ACE1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 14:39:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=spaZDggYYtywRJ4kgtwhMtxKbrnoYAiIWhbsdMeY0e4=; b=XYkf/WVgFLSOUwHLbNppJ0H+FT
-	dQp8SM+YaHFF04yAp7BOVNCwUJQ3JpFnNGKLratZjOQIkkiuLPcuYUm9iMb8JT7f3KZy6ql4uIwAF
-	oA8B3C1Y+Ysf4LDdwRQJ31saeUOJbYi4RsNa5E8xXrvMB/6DNp+oVnLD2W9xVWe++VnbnyzrJ6Oo4
-	NmiT2BhD8yQVha+bbtgViz8Mz5eTIuB4sJKL2GydlGXc0b7CYmwp/IE4WVZf0UkI/ClMtlu368+3G
-	DhbxRlXSGpI9u2aLAc8kDKOj72MymnX67TyINRdzalkbIbTdM9Za+LFHPC0/H1qjTN8rJmfqoUTV/
-	teZzhn7w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PRuTuVIq3JpU5i9Vun6Kp/iyX1Q3OEVdomcFKNsz8gI=; b=zHKJAxn7mBZqCopFVTQxwskaMV
+	LOiQzKqto/BNFf3x0dsdYc54RD34V2EHEZsJ/E74u2R3oR8Eo1x8kFcrv1aZZeVeskppxUbhXo5Kk
+	Kf/QxMwm6oFxfTT68zl8NzCdQLPJWJ1XgrH317hNxonzmAuaui2nj3DaFecpJt2REq0lUaDZ3zD31
+	gVmFoV3oorJusB14jzZHEsQLPuvKPBY7yO+vKRDw60S0aru/jEdKrlOWzMprFhO3VGtAsHeHHx49Y
+	SG4lhsvSCaxeL1nCrwI910PNP3ifSH7YmRPtRp9NgKnjk4kGnC9nHE1k2Oii6w75rhw+bQpiKJtr2
+	BsKnk56g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJB2-0000000DNpL-1Wkq;
-	Wed, 27 Nov 2024 14:38:00 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1tGJBy-0000000DO5X-1kzJ;
+	Wed, 27 Nov 2024 14:38:58 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJA3-0000000DNeH-37zh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 14:37:00 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-2ffbea0acc2so41881761fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 06:36:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732718218; x=1733323018; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=spaZDggYYtywRJ4kgtwhMtxKbrnoYAiIWhbsdMeY0e4=;
-        b=GHtm0SbWcMzFTMwY1z16CyoVzz02/n1cfOdL3b9xwwMjqEovLhFXVlLuDzPzMDvkRG
-         8JwR4Z/fhLwAJ7AXCWGo4E4KogJE4+mscBQJ7MOSkhPSC29cVAx+iFJd7o4SVSRbheOv
-         F7JgXkN4KnYZKxhZKKsL7hwfNzu5cyv6jdrYnD5u1vlWf2bPBru54gnDdy03fWINnqwd
-         DExLcnbtSn/08IffHcSyipDyCdikHK8xonTBU5WkKGwF1EdI06OegqesIKjjAJC43zDE
-         SXwdgRcSfXcNid7ajob1UAeZdP6OHV+/uAosfjl2zHN3vXS+gR7rEB2aavKMjP85X65y
-         ZMng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732718218; x=1733323018;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=spaZDggYYtywRJ4kgtwhMtxKbrnoYAiIWhbsdMeY0e4=;
-        b=lm0Zi76gg8/VSudJU/yys9H/gZTWL1kNSfDT8Igp8NLSbh6O1ZekrCeSOc7MUcD5Sd
-         QUrzAxkvmDm9YvHb/t11Tdh+xLJztnQWqGpdMg1PJpq2+5F3PZhFMVtW5trWYE3bo2os
-         LAziDQ/7hzQkAQZnc/tMXsaYRNIWOqtV/dUfeLYm+fe/oXSwY9hLsIMdPd8gqs3L+zdR
-         izLCMkyCuRRqHq2oMv15z5OOH881s4TrkwhjGNQcxCUsreHXcA+oF8x7y9Gn2+OSnwdr
-         KxTX+YXl0/QUx1/jyELUh7SsEmuRK7oBTAMwXiAlBiHXlQdluV2hET/qDMzINRQqznSc
-         minA==
-X-Forwarded-Encrypted: i=1; AJvYcCXUG4OCpC79StIKTvDcFxZ+iP/gpZp/9iC4RvTqjaZwpmbk/omzGFORJktpKKFCYFHpFdZ81EhsTEJvgTH3Vfx9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsM0bsNp8FS/N5P/nmAsQ8eMfZYePRfiALc7lS33gT9ZknTsoY
-	Q0t96lCtO39gpmLZytEnBU1pFGZsFAMppetB2qfjK5fqKbAd46JIjquHd7EvKCd+hBDu17T/a2R
-	84CiTGMqQk/VW1v3E7F2vpY46P0A=
-X-Gm-Gg: ASbGncvU/aY5hTSKJ3jtv/dM3K7lwjTeUuLJzL6vEHxNqHeDIsZO1drXzFC/UwCHzrz
-	wVx8E9vOJQjMB+QMZG4TixvLKZwN50wmdBuTl9bj+zH3XyJJ98wtkqtjzp/sfRw==
-X-Google-Smtp-Source: AGHT+IE2Y1pwt9tFpc2i5mwaMDyiDpAZKOHFBSgRH1+njHEYwg26v01EbLgq7h2hGHIiXKKBL6YXf0n/tChU6h7R74Y=
-X-Received: by 2002:a2e:be0d:0:b0:2ff:d2fd:fc94 with SMTP id
- 38308e7fff4ca-2ffd6142a7cmr18766941fa.32.1732718217502; Wed, 27 Nov 2024
- 06:36:57 -0800 (PST)
+	id 1tGJAn-0000000DNkt-0pKP;
+	Wed, 27 Nov 2024 14:37:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=PRuTuVIq3JpU5i9Vun6Kp/iyX1Q3OEVdomcFKNsz8gI=; b=yf9eqOCFuF8Cb/5VXuebfFnd20
+	Tm0P6rxtSspLNDID/Fb3VD3gr/X1xWfhAsTGFhpkRmhQuHLgB32P8Xfi+dj83G0DADwstV2Orx1zz
+	IwbF+S1BTln426TNd7/ySHZ4CJ0nai7/fBEn7LO2Tx3640DZR+eCN8QdNTtuUgjcOkD+FIQKqjtAy
+	n64gqnVu+tsvv8T+ct7UC9kqHzvPc5mKs0+DyP+Nuukmw8j2X09f4rZ+cilyPHrXVMUgV78v6xYvQ
+	utdjLo1Bm+MsKnP4X7VZQC3fysdnwL+Y3AApqzfXCqM4Sq6oUCSISbX/yMMQ2CXaa9hI0FTs1MbWx
+	d3/igNXg==;
+Received: from i5e86190f.versanet.de ([94.134.25.15] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tGJAj-0002n6-9v; Wed, 27 Nov 2024 15:37:41 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: quentin.schulz@cherry.de,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	dse@thaumatec.com
+Subject: [PATCH v2 0/3] arm64: dts: rockchip: add and enable DSI2 on rk3588
+Date: Wed, 27 Nov 2024 15:37:16 +0100
+Message-ID: <20241127143719.660658-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <20240506-imx-pinctrl-optional-v2-0-bdff75085156@geanix.com>
- <20240506-imx-pinctrl-optional-v2-1-bdff75085156@geanix.com>
- <49ff070a-ce67-42d7-84ec-8b54fd7e9742@roeck-us.net> <CACRpkdaBR5mmj43y_80b9jd3TAqRWMdCyD9EP6AY-Y0-asz4TA@mail.gmail.com>
- <1ff005f8-384d-465e-9597-b6d5fd903862@roeck-us.net> <CAOMZO5DW3t-sof_uaFa_qJPE3WFq_155mFTxGMWh0m++csgopg@mail.gmail.com>
- <87ttbthwdu.fsf@prevas.dk> <5881df5a-9495-49b9-9956-0538055bba60@app.fastmail.com>
- <87ldx5htm3.fsf@prevas.dk> <45ba6632-43f0-4142-85f8-9dc3f9d1e698@app.fastmail.com>
-In-Reply-To: <45ba6632-43f0-4142-85f8-9dc3f9d1e698@app.fastmail.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Wed, 27 Nov 2024 11:36:46 -0300
-Message-ID: <CAOMZO5BY56N9Sfm1_qprQm7jeM+5bLgR0CPeu3kXK9rgmJN87Q@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] ARM: imx: Allow user to disable pinctrl
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Rasmus Villemoes <ravi@prevas.dk>, Guenter Roeck <linux@roeck-us.net>, 
-	Linus Walleij <linus.walleij@linaro.org>, Esben Haabendal <esben@geanix.com>, 
-	Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, 
-	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, Fabio Estevam <festevam@denx.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_063659_785247_C8ED75EF 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20241127_063745_276374_0FC25C8B 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,20 +74,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 27, 2024 at 8:30=E2=80=AFAM Arnd Bergmann <arnd@arndb.de> wrote=
-:
+This adds the dcphy and dsi2 controller nodes and adds an overlay
+for the Tiger-Haikou Video-Demo adapter that provides a DSI display.
 
-> Overall, my best advice here is still to not change the way
-> i.MX pinctrl works at all, but just fix Layerscape to not depend
-> on i.MX. The reason for the 'select' here is clearly that the
-> i.MX machines would fail to boot without pinctrl, and changing
-> that because of Layerscape seems backwards.
+changes in v2:
+- adapt to changed dcphy binding (phy-cells = 1)
+- tiger-overlay changes (Quentin):
+  - drop forgotten hdmi-connector node
+  - improve description
+  - fix node sorting
+  - drop unnecessary pwm-pinctrl (set in tiger.dtsi)
 
-The suggestion to make Layerscape independent of i.MX makes sense, but
-I don't know if it can be safely applied in 6.13-rc.
+Heiko Stuebner (3):
+  arm64: dts: rockchip: add mipi dcphy nodes to rk3588
+  arm64: dts: rockchip: add dsi controller nodes on rk3588
+  arm64: dts: rockchip: add overlay for tiger-haikou video-demo adapter
 
-This proposed change also has the risk of causing regressions.
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  99 ++++++++++++
+ .../rk3588-tiger-haikou-video-demo.dtso       | 144 ++++++++++++++++++
+ 3 files changed, 244 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
 
-What if we revert the patch in Subject for now and then someone (maybe
-Esben) tries again for a proper fix targeting 6.14?
+-- 
+2.45.2
+
 
