@@ -4,78 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B0ACD66BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 03:50:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF86D66BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 04:07:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XQjMZqwe0NAeO2fTOG+5fOQwDridfm3r/wIYgtFv14o=; b=cI4i6Dsq5D83GDeIS8mAVRwRR9
-	uhiEFnzeOq4Ll0tiwCe6osap/TiA7nGMdNe/UbMdigyw0D2CvWdMOwvwXOUp21qZ6YLU/IWz87sA1
-	D+nPOl5KzIxJYYFC90tgDxlfHUzHztlPowA7sefGBfJBv4zcsklooi1Y4JqbMJjXnGjjKJAbUGrmJ
-	PvZM8+wf7ev2ihlKh2scSXSy+zV+Gi+p0xmjY6tEsNCaUcev0SD3c69PYH6S/XavBE+n2Gw1xEwxp
-	8Q750OvxFPf+3mMlBJi8k0mSUfLd7/VDWY1qQ/bTvpb7cD+OQ5Ak0y+zbC7+QlS2NKdk+7qYmL05d
-	aFDyUkOA==;
+	bh=eGMgbMDKyJQFsX2FhhmL+N7rAH4Be2hXmFG8guEZ4I4=; b=Zv2Vrb3y8ccgQ6gKTzKbdUmRas
+	Tm5roGDcvRrmhK6oArsefcBgGrXhfH90+vHP1dxw4JMsPZmo0Ig0RbJdjveZibbeiqemel1gBjHZR
+	z1CCQLihsgWFnA0UJF0E2KjF+5V9TxMFjvyNiFwje8+4HtOYGVbsjGPCP+dwftFoHxaZeLnl7V0zz
+	SkI2Z4p+Qjk54aECU2X8Dq/ftQQ2XMkTibZMimoyZWb3t6mH++GpxIgMsK/C4eJgqTT2rvjwTImxn
+	iO2UDhVsaWGvUJErm4LW0L7GA2iL8D8hzqete/4QpUOEsqMYNh0e1dIbiCfbztsNmUO2QfQrKqVZf
+	itkv1O7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG94P-0000000CAfD-4Bmq;
-	Wed, 27 Nov 2024 03:50:30 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1tG9KD-0000000CBdV-05wt;
+	Wed, 27 Nov 2024 04:06:49 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG93S-0000000CAaI-0xzi
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 03:49:31 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-53da6801c6dso6059889e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Nov 2024 19:49:29 -0800 (PST)
+	id 1tG9JF-0000000CBZ8-1REF;
+	Wed, 27 Nov 2024 04:05:50 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-434aafd68e9so1044835e9.0;
+        Tue, 26 Nov 2024 20:05:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1732679368; x=1733284168; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1732680347; x=1733285147; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XQjMZqwe0NAeO2fTOG+5fOQwDridfm3r/wIYgtFv14o=;
-        b=nOp1CdGJezj2jLga3dyZI7OuvhHuUhW7csO+lndZFy8UtNs9NjrlSJp1wZ4DWcs2ZO
-         SmvSid9H9XfU4KTDOHGUyQupoGbW8gN7strLIjKIM3uNs5ij7/GSca8QWrccPb2GgUGM
-         HLlbkZw2qE5EgSv5R7jrG84REl5QgjgPmr4ME=
+        bh=eGMgbMDKyJQFsX2FhhmL+N7rAH4Be2hXmFG8guEZ4I4=;
+        b=HQrjhj6oqnsas5sP/XKJfqMY42Ntp2kg6lewCkbFpUJBcaScKI9N7gsVetJlYsg4xQ
+         JhJurNd92aAKQasAsgDwuLmWiFlyIFC2nj1Xk+wh0xb5sTD/6V2+R6LZ53DaATJAmLAy
+         Lf0Ys6yiRuBAGVLhmM6+YWXjR/4qfikGLQrUzJCiuRd7d4WB3XtFJtj2hX7i74loIt74
+         SjFUkrDWHzzgNq2jJnqXkec9KzXhk0blbANxJQW+j8OsrlUKUUNPSHzqsfl2GXC7ibfk
+         otgCPWYwEKSFrMs1EB3ni2evIuHiiEU1dB9xaNNzqxLU4J0bHF218Bt4Tj2wl4+T6t9z
+         SpLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732679368; x=1733284168;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1732680347; x=1733285147;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=XQjMZqwe0NAeO2fTOG+5fOQwDridfm3r/wIYgtFv14o=;
-        b=YrY89WaNCr5Iw+Wx8tsYKUmP+scHOjNsU16Zb9TTmH/RbxzI4KjA1IUHBaUbOwk2kn
-         X2r8Av6Cwdfso7W6GYghKUJba7ZBt1bkq9/KGkU8CsWCA7UT1YEnIcaZc1dZ4zrCQdAc
-         nCywNUevNywnMcA+CTBhGzHG+LK6sGlO/QGq0H1arKgFkvoQOHjHCJXrzrgFLHJVyTpu
-         Zf2n07uIQe7rNDTyd0vbxFsUe8UvO0KFiDCJlvOaxs1LUZrLoulmhc06ltztHxjEMH63
-         X+aav6AdIgDSsIiJrDZRbt/A2ouXWkotc3nkA2HvRkfx8CGE9fZ9v87wtCnG5OCd5bzb
-         fHEA==
-X-Forwarded-Encrypted: i=1; AJvYcCX3bd0viS0cD5gfgyfyKIRi1oXJutZiJxsPHzzQNWI7iclpD7ZedxYmae72WCzr5Q5QLWcBV65oimR+mose84KJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYdPa1wBVSOSvQ9MHsI6k51RKXairYQKKw/X43J1ePhu+ClgyF
-	mA9A1OYkKxf2WjFIgpL+CSduHD4gShDl6TY9kHYp7WHpgNZi6dT37V1v+EUUT4+vrs52bO69MAv
-	oc4L5wWv4R4Cf5KGaZ6iMDEJGKK8/bU+8d4Qm
-X-Gm-Gg: ASbGncuYyVIGPC8C278wsUCbRPjncpeuHJPgiNxwvFP8HwfcS9CkQNbtUCWBrW65wes
-	9tZI/GxugnVDx3s8M/trtzhgiQgooWcdGTSrsaseuqdPIUSNeFZlyS7dB7uE=
-X-Google-Smtp-Source: AGHT+IGJWt+111FcebZ3WvjPF9EapXUa5FGOe8wHBjnKg2h6Jhmo3dCGj/hJ2nJ5jRFbFMQdOUSqHbFx87pg+jrIdqI=
-X-Received: by 2002:a05:6512:b18:b0:53d:ed6a:4db2 with SMTP id
- 2adb3069b0e04-53df00a976amr634882e87.11.1732679367049; Tue, 26 Nov 2024
- 19:49:27 -0800 (PST)
-MIME-Version: 1.0
-References: <20241106093335.1582205-1-wenst@chromium.org>
-In-Reply-To: <20241106093335.1582205-1-wenst@chromium.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 27 Nov 2024 11:49:16 +0800
-Message-ID: <CAGXv+5Fzrz9sBvE=FpV6URpcZtxvchxfY9WE4k4s+S3BzMWw2g@mail.gmail.com>
-Subject: Re: [PATCH v11 0/7] platform/chrome: Introduce DT hardware prober
-To: Wolfram Sang <wsa@kernel.org>
-Cc: chrome-platform@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+        bh=eGMgbMDKyJQFsX2FhhmL+N7rAH4Be2hXmFG8guEZ4I4=;
+        b=k/dwb3nsX636+t85IvNeX0IAGKIXv0qz96sztCUag6bZ/xosOk77PYuL+ibSsaKUa2
+         3lu5MJ5xzYvnU/v2OpmL/9+9f3U0vIzXcbplGrxE4MPZlvw45U0cC39EoE1siFfdLT17
+         VRUzVmQz21tk66f1rS4+EV11BLnfowwN5N6bel/rXANyY+AXnONU6WgTmZR8mdsQdxdY
+         iMtXkxkupvna3OLVIre3wqoGpJ5RI8d+tWaGXVUawHJgTqNOYQ83oyjrPPaaJvAmirF2
+         Aj33LXCquygv+jTAQ+snBJzQ9h5O0VpWgklkXugHEHkMV6ohqmSH49Kv7zpS0zrr5bJW
+         HfXg==
+X-Forwarded-Encrypted: i=1; AJvYcCUIvXesDbElzYC98qdGgOvpNvewjsi2HwqJuKtDJb8+K5MIxDopsDu2gdFWfGOwsSfyNB6QEvH5Xbx8FE6n@lists.infradead.org, AJvYcCVUpAhA3yFuiHP1P2JmiaR82g+56m4eGS2RUAoFPe6Y+r5if/oG7FJpV1yyLejr53W+IKkIIEcPXRvgYxIvJaAJMA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhHl6sbnV8HqTAwSVlEpqwv2OdVOD63k6gpAW/Q3MWdJ020x8x
+	9dPAaV3o5ipKjbkf01rbWML4d4JbhKyPNxsITfckD1sPpmoJuLPs
+X-Gm-Gg: ASbGncscL5x3hRf9tF7nmS8hAJx84IA1kX9l6y9QbNgGgz/LWdrCPrl4LPY/I4dK+TC
+	775Bvk7kscJHNALaG6zXKShJjgTC1Jf5349HGbCabrfBpEgwE6oDk7OICCQ69VMLoBfemlOTQnw
+	LVQ/NGTbqjxTAC8XWOQKdWXJnpHcQlGOfWNfLSiwUuqv5bMwG+mkaZrwOSwEer4bhoqd6iRUjiH
+	qE5w5/9GU31FlfVr0gRm45vqeg7FVwhE/R62rX1PSHirtvFHXYuTF1in3QMCz2n5ycaECw1
+X-Google-Smtp-Source: AGHT+IHc99eGtijXfEAq6+Nq0ctt6V5ES855jF/j39G6AUo9KVVVWLSlAJEn/iJyJYwFhVzX13IpTQ==
+X-Received: by 2002:a5d:59a3:0:b0:37c:cc67:8b1f with SMTP id ffacd0b85a97d-385c6ef477amr1008941f8f.48.1732680346883;
+        Tue, 26 Nov 2024 20:05:46 -0800 (PST)
+Received: from smtpclient.apple ([87.200.95.144])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3825fafe504sm14932923f8f.25.2024.11.26.20.05.44
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 26 Nov 2024 20:05:46 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.200.121\))
+Subject: Re: [PATCH] WIP: arm64: dts: meson: drop broadcom compatible from
+ reference board SDIO nodes
+From: Christian Hewitt <christianshewitt@gmail.com>
+In-Reply-To: <027767d4-89e7-4665-b840-294a84a89869@linaro.org>
+Date: Wed, 27 Nov 2024 08:05:33 +0400
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
 Content-Transfer-Encoding: quoted-printable
+Message-Id: <2B479B54-2784-4D75-BEE8-23A52EEFBF17@gmail.com>
+References: <20241124083453.900368-1-christianshewitt@gmail.com>
+ <027767d4-89e7-4665-b840-294a84a89869@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: Apple Mail (2.3826.200.121)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_194930_293042_4CE4BD00 
-X-CRM114-Status: GOOD (  49.71  )
+X-CRM114-CacheID: sfid-20241126_200549_401573_79E10D37 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,333 +108,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wolfram,
+> On 24 Nov 2024, at 8:11=E2=80=AFpm, Krzysztof Kozlowski =
+<krzysztof.kozlowski@linaro.org> wrote:
+>=20
+> On 24/11/2024 09:34, Christian Hewitt wrote:
+>> Drop the Broadcom compatible and use a generic sdio identifier with =
+the Amlogic
+>=20
+> 1. Heh, what? Why? This is not really explained and does not look
+> sensible at all.
+> 2. What is "generioc sdio identifier"?
+>=20
+>> reference boards. This allows a wider range of Android STB devices =
+with QCA9377
+>> and RTL8189ES/FS chips to have working WiFi when booting from the =
+reference dtb
+>=20
+> Please wrap commit message according to Linux coding style / =
+submission
+> process (neither too early nor over the limit):
+> =
+https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/sub=
+mitting-patches.rst#L597
+>=20
+>=20
+>> files. There is no observed impact on Broadcom devices.
+>=20
+> So how does it allow wider range of devices to have working wifi?
 
-On Wed, Nov 6, 2024 at 5:34=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> wr=
-ote:
->
-> Hi everyone,
->
-> This is v11 of my "of: Introduce hardware prober driver" series.
-> v11 adds a missing include of linux/types.h for the |bool| type,
-> as reported by Andrey.
->
-> To Wolfram:
-> Everything is fully reviewed and ready to be merged. There is also
-> no need to wait for the end of the merge window if you also merge
-> in the immutable regulator tag [1]. Not sure if you want to also
-> take the last DT patch though. If that's the case you would likely
-> still have to wait for the end of the merge window.
+Sending patches while recovering from a 100km Triathlon last weekend
+resulted in some formatting and submission mistakes - sorry for that :(
 
-Just checking in. I just wanted to make sure that this is still on
-track for v6.13-rc1.
+I=E2=80=99ll send a v2 shortly with reduced subject/line length and a =
+better
+description of the change and reasoning.
 
-
-Thanks
-ChenYu
-
-> Changes since v10:
-> - Added include of linux/types.h for type |bool| in i2c-of-prober.h
->
-> The older changelog entries have been moved to the bottom of the cover
-> letter.
->
-> For the I2C component (touchscreens and trackpads) case from the
-> original series, the hardware prober driver finds the particular
-> class of device in the device tree, gets its parent I2C adapter,
-> and tries to initiate a simple I2C read for each device under that
-> I2C bus. When it finds one that responds, it considers that one
-> present, marks it as "okay", and returns, letting the driver core
-> actually probe the device.
->
-> This works fine in most cases since these components are connected
-> via a ribbon cable and always have the same resources. The prober
-> will also grab these resources and enable them.
->
-> The other case, selecting a display panel to use based on the SKU ID
-> from the firmware, hit a bit of an issue with fixing the OF graph.
-> It has been left out since v3.
->
-> Patch 1 adds of_changeset_update_prop_string(), as requested by Rob.
->
-> Patch 2 adds for_each_child_of_node_with_prefix(), as suggested by Andy.
->
-> Patch 3 implements probing the I2C bus for presence of components as
-> a hookable helper function in the I2C core.
->
-> Patch 4 implements regulator supply support as a set of simple helpers
-> for the I2C component prober.
->
-> Patch 5 implements GPIO support for the I2C component prober simple
-> helpers.
->
-> Patch 6 adds a ChromeOS specific DT hardware prober. This initial
-> version targets the Hana Chromebooks, probing its I2C trackpads and
-> touchscreens.
->
-> Patch 7 modifies the Hana device tree and marks the touchscreens
-> and trackpads as "fail-needs-probe", ready for the driver to probe.
->
->
-> The regulator parts were merged separately with an immutable tag [1]. Rob
-> already gave his Reviewed-by for the OF bits, and I assume he is OK with
-> them going through a different branch. So I believe it is fine for
-> Wolfram to take all the patch except the last one through the I2C tree.
-> The last DTS patch can be merged through the MediaTek tree once the
-> driver bits land.
->
->
-> Thanks
-> ChenYu
->
->
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git=
-/tag/?h=3Dregulator-of-get-optional
->
-> Changes since v9:
-> - Picked up review-bys
-> - Added inclusion of stddef.h for NULL
-> - Added "noautosel" stable tag to the device tree patch
->
-> Changes since v8:
-> - Link to v8:
->   https://lore.kernel.org/all/20241008073430.3992087-1-wenst@chromium.org=
-/
-> - Patch "i2c: core: Remove extra space in Makefile" was merged and
->   dropped from this version
-> - Patch 3 "i2c: Introduce OF component probe function"
->   - Added missing include of <linux/kconfig.h> to i2c-of-prober.h
->   - Expanded description of i2c_of_probe_ops::enable to mention that
->     returning -EPROBE_DEFER is valid (Doug)
->   - Reworded descrption of i2c_of_probe_ops::cleanup_early to avoid
->     confusion with i2c_of_probe_ops::enable (Doug)
->   - Reworked i2c_of_probe_get_i2c_node() to return NULL on failure,
->     matching most functions that return |struct device_node *|.
-> - Patch 4 "i2c: of-prober: Add simple helpers for regulator support"
->   - Picked up Doug's reviewed-by
-> - Patch 5 "i2c: of-prober: Add GPIO support to simple helpers"
->   - Moved |struct gpio_desc| forward declaration before |struct regulator=
-|
->     (Andy)
->   - Dropped GPIO descriptor validity check from
->     i2c_of_probe_simple_disable_gpio(); GPIO functions check it (Andy)
->   - Dropped comment from i2c_of_probe_simple_disable_gpio() (Doug)
->   - Reworded comment in i2c_of_probe_simple_cleanup() (Doug)
->   - Picked up Doug's reviewed-by
-> - Patch 6 "platform/chrome: Introduce device tree hardware prober"
->   - Added trailing commas on last field in struct variable declarations
->     (Andy)
->   - Added macros wrapping chromeos_i2c_probe_dumb_* and
->     chromeos_i2c_probe_simple_*_cfg variable declarations (Andy)
->   - Split up hw_prober_platforms into one field per line (Andy)
->   - Picked up Doug's reviewed-by
-> - Patch 7 "arm64: dts: mediatek: mt8173-elm-hana: Mark touchscreens and
->            trackpads as fail"
->
-> Changes since v7:
-> - Link to v7:
->   https://lore.kernel.org/all/20240911072751.365361-1-wenst@chromium.org/
-> - Patch 2 "of: base: Add for_each_child_of_node_with_prefix()"
->   - Collected Rob's Reviewed-by
-> - Patch 3 "i2c: core: Remove extra space in Makefile"
->   - Collected Andi's Reviewed-by
-> - Patch 4 "i2c: Introduce OF component probe function"
->   - Dropped log level of "enabling component" to debug
->   - Dropped file name from header file
->   - Reverted to __free() cleanup for i2c bus node
->   - Corrected "failed-needs-probe" to "fail-needs-probe" in commit messag=
-e
->   - Fixed incorrectly positioned period ('.') in commit message
->   - Expanded description of i2c_of_probe_component()
->   - Expanded comment explaining check for "available" devices to note tha=
-t
->     if such a device is found then the i2c probe function becomes a no-op
->   - Simplified check for "available" devices for-each loop
->   - Expanded description of @free_resources_early callback to explicitly
->     state that it is not called if no working components are found
->   - Dropped !cfg check
->   - Replaced "fail" with "fail-needs-probe" in i2c_of_probe_component()
->     kernel doc
->   - Combined callbacks (.get_resources with .enable; .cleanup with
->     .free_resources_late); .free_resources_early renamed to .cleanup_earl=
-y
-> - Patch 5 "i2c: of-prober: Add simple helpers for regulator support"
->   - Reworded comment in i2c_of_probe_simple_get_supply() as suggested
->     (Andy)
->   - Dropped mention of time unit in struct i2c_of_probe_simple_opts
->     kernel doc (Andy)
->   - Added mention of common GPIO line usages ("enable" or "reset") in I2C
->     OF component prober kernel doc (Doug)
->   - Added check for non-zero delay before msleep() (Doug)
->   - Combined callback helpers (.get_resources with .enable; .cleanup with
->     .free_resources_late)
-> - Patch 6 "i2c: of-prober: Add GPIO support to simple helpers"
->   - Dropped mention of time unit in struct i2c_of_probe_simple_opts
->     kernel doc (Andy)
->   - Added check for non-zero delay before msleep() (Doug)
->   - Simplified GPIO name check and reverse conditional branches (Andy)
->   - Added description about the supported power sequence
->   - Switched GPIO usage to logical levels (Doug)
->     - Changed some variable names and comments to fit
->   - Added description of power sequence to struct i2c_of_probe_simple_opt=
-s
->     (Doug)
->   - Added comment saying i2c_of_probe_simple_put_gpiod() might be no-op
->     (Doug)
->   - Combined callbacks (.get_resources with .enable; .cleanup with
->     .free_resources_late); renamed i2c_of_probe_simple_free_res_early() t=
-o
->     i2c_of_probe_simple_cleanup_early()
-> - Patch 7 "platform/chrome: Introduce device tree hardware prober"
->   - Corrected Makefile item order
->   - Replaced "failed-needs-probe" with "fail-needs-probe" in commit messa=
-ge
->   - Added include of "linux/of.h" for of_machine_is_compatible()
->   - Switched to simple probe helpers for trackpads on Hana
-> - Patch 8 "arm64: dts: mediatek: mt8173-elm-hana: Mark touchscreens and
->            trackpads as fail"
->   - Mark touchscreen@40 as "fail-needs-probe" as well
->
-> Changes since v6:
-> - Link to v6:
->   https://lore.kernel.org/all/20240904090016.2841572-1-wenst@chromium.org=
-/
-> - Dropped patch "gpiolib: Add gpio_property_name_length()"
->   No longer needed
-> - Dropped patch "regulator: Move OF-specific regulator lookup code to of_=
-regulator.c"
->   Already merged
-> - Patch 2 "of: base: Add for_each_child_of_node_with_prefix()"
->   - Changed helper name to "for_each_child_of_node_with_prefix()"
-> - Patch 4 "regulator: Add of_regulator_get_optional() for pure DT regulat=
-or lookup"
->   - Was "regulator: Do pure DT regulator lookup in of_regulator_bulk_get_=
-all()"
->   - Changed reference [1] to Link: tag
->   - Rebased on top of commit 401d078eaf2e ("regulator: of: Refactor
->     of_get_*regulator() to decrease indentation")
->   - Exported of_regulator_get_optional()
->   - Changed commit message to focus on "of_regulator_get_optional()"
->   - Dropped change to of_regulator_bulk_get_all()
-> - Patch 5 "i2c: core: Remove extra space in Makefile"
->   - Collected Andy's Reviewed-by
-> - Patch 6 "i2c: Introduce OF component probe function"
->   - Correctly replaced for_each_child_of_node_scoped() with
->     for_each_child_of_node_with_prefix()
->   - Added namespace for exported symbols
->   - Made the probe function a framework with hooks
->   - Split out a new header file
->   - Added MAINTAINERS entry
->   - Reworded kernel-doc
->   - Dropped usage of __free from i2c_of_probe_component() since error
->     path cleanup is needed anyway
-> - Patch 7 "i2c: of-prober: Add simple helpers for regulator support"
->   - Moved change of of_get_next_child_scoped() to
->     of_get_next_child_with_prefix() to previous patch
->   - Restructured into helpers for the I2C OF component prober
->   - Reduced to only handle one regulator
->   - Commit message updated
-> - Patch 8 "i2c: of-prober: Add GPIO support to simple helpers"
->   - Restructured into helpers for the I2C OF component prober
->   - Reduced to only handle one GPIO
->   - Set GPIO to input on (failure) cleanup
->   - Updated commit message
-> - Patch 9 "platform/chrome: Introduce device tree hardware prober"
->   - Adapted to new I2C OF prober interface
->   - Collected Acked-by tag
->
-> Changes since v5:
-> - Link to v5:
->   https://lore.kernel.org/all/20240822092006.3134096-1-wenst@chromium.org=
-/
-> - Patch 1 "of: dynamic: Add of_changeset_update_prop_string"
->   - Collected Rob's reviewed-by
-> - Patch 2 "of: base: Add for_each_child_of_node_with_prefix_scoped()"
->   - New patch
-> - Patch 3 "regulator: Move OF-specific regulator lookup code to of_regula=
-tor.c"
->   - Fix kerneldoc format of of_regulator_dev_lookup()
->   - Fix stub compile error for !CONFIG_OF in drivers/regulator/internal.h
-> - Patch 4 "regulator: Split up _regulator_get()"
->   - Fixed kerneldoc "Return" section format for _regulator_get_common()
->   - Slightly reworded return value description
-> - Patch 5 "regulator: Do pure DT regulator lookup in of_regulator_bulk_ge=
-t_all()"
->   - Used "dev_of_node(dev)" instead of "dev->of_node"
->   - Replaced "dev_printk" with "dev_printk()" in kerneldoc mentions
->   - Fixed kerneldoc "Return" section format for of_regulator_get_optional=
-()
->   - Fix @np parameter name in of_regulator_dev_lookup() kerneldoc
-> - Patch 6 "gpiolib: Add gpio_property_name_length()"
->   - Changed function name to "gpio_get_property_name_length()"
->   - Changed argument name to "propname"
->   - Clarified return value for "*-<GPIO suffix>" case
->   - Reworked according to Andy's suggestion
->   - Added stub function
-> - Patch 7 "i2c: core: Remove extra space in Makefile"
->   - New patch
-> - Patch 8 "i2c: Introduce OF component probe function"
->   - Fixed indent in Makefile
->   - Split regulator and GPIO TODO items
->   - Reversed final conditional in i2c_of_probe_enable_node()
-> - Patch 9 "i2c: of-prober: Add regulator support"
->   - Split of_regulator_bulk_get_all() return value check and explain
->     "ret =3D=3D 0" case
->   - Switched to of_get_next_child_with_prefix_scoped() where applicable
->   - Used krealloc_array() instead of directly calculating size
->   - copy whole regulator array in one memcpy() call
->   - Drop "0" from struct zeroing initializer
->   - Split out regulator helper from i2c_of_probe_enable_res() to keep
->     code cleaner when combined with the next patch
->   - Added options for customizing power sequencing delay
->   - Rename i2c_of_probe_get_regulator() to i2c_of_probe_get_regulators()
->   - Add i2c_of_probe_free_regulator() helper
-> - Patch 10 "i2c: of-prober: Add GPIO support"
->   - Renamed "con" to "propname" in i2c_of_probe_get_gpiod()
->   - Copy string first and check return value of strscpy() for overflow in
->     i2c_of_probe_get_gpiod()
->   - Add parenthesis around "enable" and "reset" GPIO names in comments
->   - Split resource count debug message into two separate lines
->   - Split out GPIO helper from i2c_of_probe_enable_res() to keep code
->     cleaner following the previous patch
->   - Adopted options for customizing power sequencing delay following
->     previous patch
-> - Patch 11 "platform/chrome: Introduce device tree hardware prober"
->   - Adapt to new i2c_of_probe_component() parameters
-> - Patch 12 "arm64: dts: mediatek: mt8173-elm-hana: Mark touchscreens and
->             trackpads as fail"
->   - None
->
-> See v5 cover letter for previous change logs.
->
-> Chen-Yu Tsai (7):
->   of: dynamic: Add of_changeset_update_prop_string
->   of: base: Add for_each_child_of_node_with_prefix()
->   i2c: Introduce OF component probe function
->   i2c: of-prober: Add simple helpers for regulator support
->   i2c: of-prober: Add GPIO support to simple helpers
->   platform/chrome: Introduce device tree hardware prober
->   arm64: dts: mediatek: mt8173-elm-hana: Mark touchscreens and trackpads
->     as fail
->
->  MAINTAINERS                                   |   8 +
->  .../boot/dts/mediatek/mt8173-elm-hana.dtsi    |  14 +
->  arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi  |   4 +-
->  drivers/i2c/Makefile                          |   1 +
->  drivers/i2c/i2c-core-of-prober.c              | 415 ++++++++++++++++++
->  drivers/of/base.c                             |  35 ++
->  drivers/of/dynamic.c                          |  44 ++
->  drivers/platform/chrome/Kconfig               |  11 +
->  drivers/platform/chrome/Makefile              |   1 +
->  .../platform/chrome/chromeos_of_hw_prober.c   | 154 +++++++
->  include/linux/i2c-of-prober.h                 | 140 ++++++
->  include/linux/of.h                            |  13 +
->  12 files changed, 838 insertions(+), 2 deletions(-)
->  create mode 100644 drivers/i2c/i2c-core-of-prober.c
->  create mode 100644 drivers/platform/chrome/chromeos_of_hw_prober.c
->  create mode 100644 include/linux/i2c-of-prober.h
->
-> --
-> 2.47.0.199.ga7371fff76-goog
->
+Christian=
 
