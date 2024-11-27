@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583A2D6D229
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 19:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 220F3D6D227
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 19:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=stwjnGnk0DMxkcjdPTNVNJUobHrJYgbm5W0wA6Sug34=; b=A0yZWLP3F094kcFl9OS1iEsM/S
-	dm4z1FQFnxzqd+ifsvLAcELGB0rP8AXjwDamKXgu2cw+vWeJJ/NhIRk4nz5eZ9ZA0Zj5PlCot9oQH
-	X2Pgl/pXSFUuAmoeGlWvOVZcN6oL00YDYrYfXRSWNLKgARUOINnjyQDoJV/SGp9XUh7zxRxXpuTBF
-	/mb6D/FtH9JTJBfz1IRVRe9amAPNX4lfaPpRAGbu3RSw/Hkxv9K4ghjeW7aDI+g+vgvj+yejbSAnN
-	7RtU9ULL9qSOiEWEvfrVv1zNFluQOrKd5H3NPes66GkKi5nGsqFrLDjzHCQDEPC6CyzJW5rTfqdfx
-	wcwWzvng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ATsLoK4DRFXJHrtqjTSevth3sGwOLm/Y/NthQk/7Fec=; b=L9VwIMfganrH/gDnA/RFXamgsk
+	J+OLZhBBREaVLFHCEf+BLt7BaOmjiliwRWZNhhsO6Zq9L7bW/aYJ4skfZVOOl1hT94TP9Ewgtm6ei
+	o7ZQE9c5q5HrznY4maBzEsWNLjhJBl90fh/Urn+/eS8RoDOL8r87//5ojrTrRnbOl9XvGVuDa4b/t
+	SbE1g1saQn/CirpU6WZpaosQ2xjz2ejd2xMb4o1zmf26TNFaqMNK+0fMcDwXxbytgf+i2hu21nFQ/
+	RWMGVcr4ZtY3jCjrEBY9f8u8RW4e26I7jU06BiJvXEsRaxcU9E/ye9k8VNRuOEPidUhWDm4OImUYn
+	k0hd2vRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGNIN-0000000Dsmi-1Dju;
-	Wed, 27 Nov 2024 19:01:51 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tGNbo-0000000DvFo-05Cy;
+	Wed, 27 Nov 2024 19:21:56 +0000
+Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGNHP-0000000Dses-0JPC;
-	Wed, 27 Nov 2024 19:00:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CCDF1A439DC;
-	Wed, 27 Nov 2024 18:58:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E462C4CECC;
-	Wed, 27 Nov 2024 19:00:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732734049;
-	bh=stwjnGnk0DMxkcjdPTNVNJUobHrJYgbm5W0wA6Sug34=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J2H085Y8eZ+EJL0Vp6lK1S0Cka4gBCSm1WqJDcii41/tx3Q1QrQsIiqmPSEEkmxjD
-	 FpXAGRQAhd5AU1Iv4kx2Yb8v3kq0UhZ1rbv4yNNcffAItqvsvP72ObPdm8Z+RXqrBI
-	 6A0MrVhd4D2qUW0mpMFlboAFDLuTbpTIUvWLPNr6YMuqhULpq9tN7VSpo7O6EcsthJ
-	 fpEOTg/rLu25cQNFnEThAIwfjjYkP59eE9pUmcT593gIpfc/pcZR1SWs7+LD8lEAZv
-	 MJ+u4x9eJhpDExiZMq4EGFePOda/jjkJaiWw7SYYfAX+BqdT324irH1ChsfoHIHtUL
-	 ByKL6LX76Z/pw==
-Date: Wed, 27 Nov 2024 19:00:44 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Arnd Bergmann <arnd@arndb.de>, linux-amlogic@lists.infradead.org,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: amlogic: axg-audio: select RESET_MESON_AUX
-Message-ID: <e714ad9f-6a31-44ab-af2c-29f052cec07b@sirena.org.uk>
-References: <20241127-clk-audio-fix-rst-missing-v1-1-9f9d0ab98fce@baylibre.com>
+	id 1tGL9s-0000000DfKp-3nIL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Nov 2024 16:44:58 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E5C5ABFB93;
+	Wed, 27 Nov 2024 17:44:54 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=dkim;
+	t=1732725895; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ATsLoK4DRFXJHrtqjTSevth3sGwOLm/Y/NthQk/7Fec=;
+	b=XLr7BeQBbDjoeFmSKX2hfD/VQatWkvwpxQC6RfHvNhvBpG9zd1F3BwQ/pgP5WHNc3+6XlR
+	d0Kh67/9D91w78jBBMvmXEXux9SmhzYXoShVCrL5mAK0umfvaYDcphMqeaz+3ACRcwCCBs
+	DOKg04MiEqBRcQPpsdV7LlB+MqIonaZah5+tKCJNG1nbykbgcDcuyNlF4v/0ImRUYuka5d
+	Yvzb1lAOU5sXrGePUHbSX9dlxHuOJElvcxPzIxLBAICkFQjOBsywvRwLrwgq/ilc+mfCbZ
+	z7qfBhslh2JVupxA8fEPnrcQx+NvyfB/XtFfLGnnvrUU8Hb8tgSaI/4IztHnsQ==
+From: Frieder Schrempf <frieder@fris.de>
+To: linux-arm-kernel@lists.infradead.org,
+	Marek Vasut <marex@denx.de>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [PATCH v2 10/11] arm64: dts: imx93-kontron: Fix SD card IO voltage control
+Date: Wed, 27 Nov 2024 17:42:26 +0100
+Message-ID: <20241127164337.613915-11-frieder@fris.de>
+In-Reply-To: <20241127164337.613915-1-frieder@fris.de>
+References: <20241127164337.613915-1-frieder@fris.de>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fBmr5vGOD0aDrNaq"
-Content-Disposition: inline
-In-Reply-To: <20241127-clk-audio-fix-rst-missing-v1-1-9f9d0ab98fce@baylibre.com>
-X-Cookie: Every path has its puddle.
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_110051_178626_2951AD13 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20241127_084457_082298_57EB7B36 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +77,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
---fBmr5vGOD0aDrNaq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The OSM-S i.MX93 SoM doesn't have the VSELECT signal of the USDHC
+controller connected to the PMICs SD_VSEL input. Instead SD_VSEL
+is hardwired to low level. Let the driver know this in order to
+use the proper register for reading and writing the voltage level.
 
-On Wed, Nov 27, 2024 at 07:47:46PM +0100, Jerome Brunet wrote:
-> Depending on RESET_MESON_AUX result in axg-audio support being turned
-> off by default for the users of arm64 defconfig, which is kind of a
-> regression for them.
+This fixes SD card access with the latest hardware revision of
+the Kontron OSM-S i.MX93 SoM.
 
-> Cc: Mark Brown <broonie@kernel.org>
-> Fixes: 681ed497d676 ("clk: amlogic: axg-audio: fix Kconfig dependency on RESET_MESON_AUX")
-> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+---
+Changes for v2:
+* new patch
+---
+ arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Reported-by: Mark Brown <broonie@kernel.org>
+diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
+index 47c1363a2f99a..119a162070596 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
+@@ -189,6 +189,7 @@ reg_nvcc_sd: LDO5 {
+ 				regulator-name = "NVCC_SD (LDO5)";
+ 				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <3300000>;
++				nxp,sd-vsel-fixed-low;
+ 			};
+ 		};
+ 	};
+@@ -282,6 +283,7 @@ &usdhc2 { /* OSM-S SDIO_A */
+ 	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
+ 	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
+ 	vmmc-supply = <&reg_usdhc2_vcc>;
++	vqmmc-supply = <&reg_nvcc_sd>;
+ 	cd-gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
+ };
+ 
+@@ -553,7 +555,6 @@ MX93_PAD_SD2_DATA0__USDHC2_DATA0		0x40001382 /* SDIO_A_D0 */
+ 			MX93_PAD_SD2_DATA1__USDHC2_DATA1		0x40001382 /* SDIO_A_D1 */
+ 			MX93_PAD_SD2_DATA2__USDHC2_DATA2		0x40001382 /* SDIO_A_D2 */
+ 			MX93_PAD_SD2_DATA3__USDHC2_DATA3		0x40001382 /* SDIO_A_D3 */
+-			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT		0x1d0
+ 		>;
+ 	};
+ 
+@@ -565,7 +566,6 @@ MX93_PAD_SD2_DATA0__USDHC2_DATA0		0x4000138e /* SDIO_A_D0 */
+ 			MX93_PAD_SD2_DATA1__USDHC2_DATA1		0x4000138e /* SDIO_A_D1 */
+ 			MX93_PAD_SD2_DATA2__USDHC2_DATA2		0x4000138e /* SDIO_A_D2 */
+ 			MX93_PAD_SD2_DATA3__USDHC2_DATA3		0x4000138e /* SDIO_A_D3 */
+-			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT		0x1d0
+ 		>;
+ 	};
+ 
+@@ -577,7 +577,6 @@ MX93_PAD_SD2_DATA0__USDHC2_DATA0		0x400013fe /* SDIO_A_D0 */
+ 			MX93_PAD_SD2_DATA1__USDHC2_DATA1		0x400013fe /* SDIO_A_D1 */
+ 			MX93_PAD_SD2_DATA2__USDHC2_DATA2		0x400013fe /* SDIO_A_D2 */
+ 			MX93_PAD_SD2_DATA3__USDHC2_DATA3		0x400013fe /* SDIO_A_D3 */
+-			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT		0x1d0
+ 		>;
+ 	};
+ 
+-- 
+2.46.1
 
-(I reported this to Jerome on IRC)
-
-> ---
-> Hello Stephen,
-> This fixes a problem introduced in this merge window.
-> Could you please take it directly ?
-
-It'd be great to get this into -rc1, I've got some of the affected
-systems in CI.
-
---fBmr5vGOD0aDrNaq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdHbFsACgkQJNaLcl1U
-h9CFhwf9FXbeRLv68awMr86hSLLgSKMAQX6/IB6cA/KrLw0zKPUpVtq4T4rgrF62
-dgaTI48w9uz6aP7wXU55jYwZiNQrnCZ5YFlAF3sa0Hp18oMYAeyKC3zwGV6bCaQu
-h+o8wXq59ThA/Tn9IKq6Op6WDhk6Cgg8KufIu3yx1y2gO8D0+ltttuHpFnfmPmuU
-cmGWvdAEUtk/j/JfA/TzlpF4e0rPx2XpkTWLYGBs5mbqpkr7VkkYlnFTcUbMWdKb
-bPFAubHBjKEawqmZn60wqlAbHB8tOJ0OrG+oUEok7MYaPt+hwzG6pE3d1ukSbLFt
-CAcEJ9DcfS/toyp9owKXsI4HGdKVZQ==
-=8CNX
------END PGP SIGNATURE-----
-
---fBmr5vGOD0aDrNaq--
 
