@@ -4,131 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D0FD6D232
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 19:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEBAED6D232
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 19:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cGWAPKAtzXZu4K5ZIRh3+XBhTM5l2hSjEzu/UyA8Ljc=; b=OS2yvBsj43faRtl7aDuR0qIALz
-	+hf8/rVjECdpQwXsRGYHYzPpNQK9lEEkibhth2FofrNsy5Do62KVPkVTpO7WJuWXwjmV8sxtyZzgk
-	hJPiYiDM0par5yxeJolJ6WflIYLma9C1Ef/gsCgI9Y5fTKBVJWP3UjbAM8bSTORsAlqsicQkeOBx8
-	ScGmAbw1iGAKkFwakHAPxgwD55zi6YaOQi3V/0F7QZ6AgpiQiDJZZUaa1nwfqvLMEP6aibQWTswy7
-	AxgitebeezbfqCZpRiADkC0t0Xc7K6H1x7gHT3QTmLUaZ3fZkoPwKoyKiH0wikXTiwn5ZGh2pjKlI
-	OLqfRNXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B99Q4TuUQCBVDCulwhs5KeOYu87zTkzwgednVKDrSFM=; b=eAaPYxB/qmWNhB7D2VRLPViwuf
+	Cr6A7NaYxUAWxQSTEpPyCv1MAqYupx3xyVYjPHixr1H504kvkE/I6F6ARjsY57BzV/TU/Cs9wtm8o
+	0OiLOwxiW3RAG+fAgYk2MCF4MkhITXImVxHbtBdHt1ythA2JpaK/BlC17Y4svayiIRf5BDtgqLVEA
+	Svxf8lKQAGom9FCC94/h371twQ7+7oSwd2qVh0xSddyM2rlaMsXceZ8K10QYsiIE473f+G0qkFYiR
+	4QQWQVhlMLen8xcvYFeuzn7DBzF+pNyrAqKMT8EcXDkWh2J/Ccadm3w9vA96okfvYwAmVHr4zgJMl
+	76c7+Y4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGNwo-0000000Dy9k-1MJ0;
-	Wed, 27 Nov 2024 19:43:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tGNyS-0000000Dybf-18bz;
+	Wed, 27 Nov 2024 19:45:20 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGNvr-0000000Dy3G-0lSx;
-	Wed, 27 Nov 2024 19:42:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=cGWAPKAtzXZu4K5ZIRh3+XBhTM5l2hSjEzu/UyA8Ljc=; b=iOqYgz0yKACD+T483gfhN2WoHo
-	S2796mECAKM4MGqPIVPdx6SbWkfLTP17A3Da0PKLEHVADURJOxauukqXc/1JRmqFbTp9b+O/fhRPi
-	Bmmb7r0agwNGNUSzZnM6c/PYQxVjh+holoi9gBWXARa1T0QvONvJvV5UCdhiiA2cQl25P8eSGtAlD
-	NBsI/R+AGFkSadDPw7i/XX8+cjOhl4Y9NFt9U4N/1UfqC0U0sCw83+OmjEPkFdEJ4NQKcFhCgmeez
-	ImnELbWQKXP7oZlgGIMPdgmLgdl16obpHnvRd4TQfnLdAd9wyANW0UdLA6lctjsGQB4Q361/BMCrz
-	iQ81vULg==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGNvo-00000001TQb-0v2q;
-	Wed, 27 Nov 2024 19:42:38 +0000
+	id 1tGNxT-0000000DyL2-0ZRV
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Nov 2024 19:44:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CC227A439EF;
-	Wed, 27 Nov 2024 19:40:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7DBCC4CED3;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 00F85A439EC;
 	Wed, 27 Nov 2024 19:42:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3346DC4CECC;
+	Wed, 27 Nov 2024 19:44:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732736552;
-	bh=dswcy1ZZJ4Jdg/t0i6eEfZvvYxKdYNlOtCDcuvoqhig=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RWD9A5qTH5U9yHYo9C/1u/ByaoL5OYT+pnbc/x705vfYU6v2oSCStp+oUsHXpa9Xd
-	 xDTX2HTI+hShw/wmSffVXHCFhBrGPHOv3X79q9kGkepDL/FEMcbuKp9f8UpxU4a/Ad
-	 CdwGRtEwZAq0I7Gsvq4N82mM8Po7saBr6u44p8WuRXMR/2xwTqngReDCa0UUHzQ/vI
-	 CqlNqDhT5sWJOoVNVrjqTp/rc68Y9mdrSHAu9C+AwbDyH2SK7FTeHJvVRbMgQ7nD+H
-	 1hsYQ3FNTm9IsDFGIoe+kGlB/gyKswjMltykEn94dY9MPgJwyzM1S4hTBshIn1pMYB
-	 fbQ7ZISBoJJlw==
-Message-ID: <82f94ea4-2533-4ebd-a9e5-96ed64bfbc05@kernel.org>
-Date: Wed, 27 Nov 2024 20:42:23 +0100
+	s=k20201202; t=1732736657;
+	bh=B99Q4TuUQCBVDCulwhs5KeOYu87zTkzwgednVKDrSFM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Wg3x8J70uo0NcNGP02BmgzmvsBbJ39XPNvBLS8JnMLm2wWqH4dSkJjM09EB/oHwzV
+	 tQh2lCSwwL5bf7exd5labZ+zW/Mm66DUrk2jst8i8nJz+h9ex6bnAJjzgabu9OUO7i
+	 n2kOALJbi/W8q3nGvCbMcJrh5zyvtBBrZZXkldeyc/bC5lRaCUGkT6+brSFD1210D1
+	 5oZDttkjRuPp7/ctAC+K+fbjrqTo1DsGD/BUmvLZFWiMdlKm1DYX07xi2it7nRKXey
+	 ERu5VUXglBg2Yn939r6Y/cppVsmBg9RjtwGsRdWrQWV4gPvAierVVE2QFOaGQ8I9EH
+	 tDgc56u4qjiqw==
+Date: Wed, 27 Nov 2024 19:44:12 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Esben Haabendal <esben@geanix.com>,
+	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: imx_*_defconfig: Fix i.MX pinctrl enablement
+Message-ID: <23adf02f-68b5-4927-96a9-0793b9a80608@sirena.org.uk>
+References: <20241127-imx-pinctrl-enable-v1-1-d3431a98253b@kernel.org>
+ <CAOMZO5CbgmGpJvurf0Ctomj5dDOt=dC5X8XvwaqsM9Ce_uXhUQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/9] phy: exynos5-usbdrd: gs101: ensure power is gated to
- SS phy in phy_exit()
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>,
- kernel-team@android.com, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-References: <20241127-gs101-phy-lanes-orientation-phy-v1-0-1b7fce24960b@linaro.org>
- <20241127-gs101-phy-lanes-orientation-phy-v1-6-1b7fce24960b@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241127-gs101-phy-lanes-orientation-phy-v1-6-1b7fce24960b@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tpxTvM+AVXAWYvlF"
+Content-Disposition: inline
+In-Reply-To: <CAOMZO5CbgmGpJvurf0Ctomj5dDOt=dC5X8XvwaqsM9Ce_uXhUQ@mail.gmail.com>
+X-Cookie: Every path has its puddle.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_194236_478393_661214A1 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241127_114419_238852_E980D77A 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,21 +79,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2024 11:58, André Draszik wrote:
-> We currently don't gate the power to the SS phy in phy_exit().
-> 
-> Shuffle the code slightly to ensure the power is gated to the SS phy as
-> well.
-> 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> ---
 
+--tpxTvM+AVXAWYvlF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-I think this should be actually a fix with cc-stable.
+On Wed, Nov 27, 2024 at 04:36:12PM -0300, Fabio Estevam wrote:
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> It will also cause regressions for people that have their own
+> defconfigs (where PINCTRL is not selected).
 
+AFACIT we generally just tolerate those.
 
-Best regards,
-Krzysztof
+> Then I came up with a v2 that simply re-select PINCTRL as a minimal
+> fix for the regressions:
+
+> https://lore.kernel.org/linux-arm-kernel/f65d65b3-b60c-4c5c-a002-81370821ee1f@app.fastmail.com/T/#u
+
+That also works of course - whatever way we do this it'd be good to get
+this fixed for -rc1.
+
+--tpxTvM+AVXAWYvlF
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdHdosACgkQJNaLcl1U
+h9DB0Af/fCc7aDc37iy2DwGKzHqlYm4tYaWEMqyvw+cPSN7QDQXrDZecDrqy2FXQ
+bHpjvVOMR023AVHmuvqSCnaAzctb+zacIWAHs/M/0sRDN28wpYVhjUN3cpDc1Ewl
+VzoqQ6f3sRR72WzjOp+++zbYLXaKS8DLv3jrwRVBDa70xGVSFPkz0r5m1qxuiYwU
+JaN3lBS2yyxPTtcaMsMRAmzC1vR536dtl/eFF75ZTycXG0akP8VKLD1T5GAcdTq1
+5VhFY/mv2A7OLqOrScQ/poOuOe7UFLkisFAEGnlVhjNlLJGJTpytPeEAQkS4NN9F
+hcnSSDrPCwljg1Agog5RsZObnbjCpw==
+=Jw5l
+-----END PGP SIGNATURE-----
+
+--tpxTvM+AVXAWYvlF--
 
