@@ -4,96 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C391D609D8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFFCED609DB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5OeHJ5VmorUPFsKfp3L5ZEPCj51aQDOtY3qfB7PKLqU=; b=Q2zZM8jIhiJoaLARF39qPTWpmM
-	apEqi7Rh5gpzOnmKHg9mLj1oRbZd8uhCwjYqZmo1X2UBaemudEhWn0vfzV026YuHMwDgtktfJK9Va
-	AmdsagZCgOD9EkR9wyvW4HKuDT7jl/PhElf06u8DdhjEyIb9FWEiY8M0dv1v36alkeJyEG8+aOUx/
-	lGELMZKu76KXRp3gbI9BmsWb7OGYE3kPytp6XGZeYi9a95tcCbjfIeyGv6alWSI14isgHdjqo3dW8
-	FcS5/kE0jjveplGnEAqUt5Maqq7Gv4buCXl5Rzg9bxzh6FKeIFhkHQGfcQWMnyq7vqy+KpDelpCwh
-	MHaRulvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=12DqePLKoTrEy4MFBKf2pq2QIO8hf39o64WQAb2Jn8w=; b=o60/gTNf+V8QhQdJZpz3bsGqtt
+	hXwVCyceJNxJbKojQ4b1OqceyyAZEkXRXyZMw01saEkgy3myjD6ZLMNtVbzo9kXW0lgrGwpBB863F
+	lNgmc6fPeuabphC7In1M9dn5gSNFERMfBx9vKZ4LDZoEghj8HXwq9N0DB5Gjxjn3H3430R20Xfn4I
+	kGhwEFonEEyjpFLm6DspS2NbW/YgEtlSM4e+F+TjTePYIEeTHAA/aTw/J2AmP6An7xOlwf1ft2WML
+	58qifHemIzUvbzb5i/1uFm6yj9TXQNdj8wv8lqMKBT8SiBa775vI2cgaVPSjrB7VdCzgtM9LAFpIu
+	EnIDyBTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGG8L-0000000D02a-2fDm;
-	Wed, 27 Nov 2024 11:23:01 +0000
-Received: from mail-wm1-x361.google.com ([2a00:1450:4864:20::361])
+	id 1tGG9H-0000000D0GX-2dqf;
+	Wed, 27 Nov 2024 11:23:59 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGG0x-0000000CyIm-2E2j
+	id 1tGG1v-0000000CyZa-1LAW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 11:15:25 +0000
-Received: by mail-wm1-x361.google.com with SMTP id 5b1f17b1804b1-432d86a3085so60344625e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 03:15:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1732706122; x=1733310922; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5OeHJ5VmorUPFsKfp3L5ZEPCj51aQDOtY3qfB7PKLqU=;
-        b=GeXEyZ3n4K9aFQ2M63IyPLAeEQ6qJx4Cyc/ptZHwYzOkWwkiH2TK1mzk/Hbw8EGYLZ
-         w7E95QU2pxGW4AZPr4VPadeiVxtWAjR85X7rNGJyo+Pu/3TPxQG7uVufmhuBJGnCqS9X
-         J8/YsP7OIKMYgKlsVHNzU0CRQ/zNBuVF+Li3AoHYJBAkzCcfFOf6S2JycTGPLU0H+ySv
-         BsC/YTM/n3hUwQLROaS+kqkBrwx2HP1JDlTL7YGACwtveD5BX/r6qLa6eGR+aHECbW47
-         t8FJkyxiNqK1nGIt8Wz3cuwVFBBQ2JeNVaUz6toGHQBBwNsCEJFdvHhWrDoSiPxxDbOK
-         WOnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732706122; x=1733310922;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5OeHJ5VmorUPFsKfp3L5ZEPCj51aQDOtY3qfB7PKLqU=;
-        b=fZoYnVmxHbgGg6qDeTJ59VUhKde7SETTRuNujBmV0HoUuyw4SPILLar29kxesVosd+
-         4IKoiR4DamVETaixjCTjtNxf/MXdGZaeOgB0gZxHeTTgXZDb0faA+6biGJbzcag4r/v6
-         Z5cv61KgNhBqMvyNaPAEIdcYQ2P+TwY/K+zG+BoW0Pv7Np0HeQVeXLAXjxD1aDJ47lPM
-         6/dqXPrYyjBL+Tbvb5tRK5e7oHTICOfhsRvH3AXk0MywZ7uBKliQ95aKHUXk5t1AIMwG
-         VVaILm+TBguSsHv45f+zULgHRAOxVnTVkzRcZgAuSfld0wL812lJebPoRhpYAxp5Hq77
-         O0mA==
-X-Forwarded-Encrypted: i=1; AJvYcCXO8rk6b9Q4ha0Kd985QNh9IsoXPdwFuLNMvpm0bt85Kp04P8iMstlUJU/L+JPo8/EQAMR0nCDM7vEvlin/d0us@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLZWwWFFyKHz9SKPxi8QkW+UWJCGm2UnQbu/BnpgIWmDmv1FKf
-	MMQ0Ygkbyn74tWeHLptUKIu7pBB3PgJpMdWh79QhIcVaXbYRjvxcgI77ciPMczXfr1zdXcZjvfW
-	UfF0wAD6so70oQSEhgaGM0dIhMeVNI2N6
-X-Gm-Gg: ASbGncsOXEjWTXKltI+8HaQNM3JjykXr2HenwIroSF/e8Eg6mL4Zkcp+POQbws2Hg/y
-	vS88xqL7f8QY4pfTuHkUTg2aaG+t5kKZaBep65h8cDhnSA7Hj78SPZZtqdHWQAhXM/ZCb86nysJ
-	fomE/apGqyQ8Qy5f9Vj4hTQ3C9ROPh6kuW55r9Q88pf9ultXU8aHFjMKydVav7bujinN5bCsjPE
-	6KljtLAS5zLbr4hsW9upAYmdRBzoK5JeBBqZ63lkX7FhcqVxrWSXjcdnWyaLBzMBw==
-X-Google-Smtp-Source: AGHT+IG8NIxF+WfvLMMyexhQ4F78Jja+ecK4xzKxkdy9lOD0O56mEG25LOMSGylsAkrpJskIxuI6TCXFkAK1
-X-Received: by 2002:a5d:47a4:0:b0:382:5066:326f with SMTP id ffacd0b85a97d-385c6eb72bamr1917091f8f.17.1732706121697;
-        Wed, 27 Nov 2024 03:15:21 -0800 (PST)
-Received: from raspberrypi.com ([93.93.133.154])
-        by smtp-relay.gmail.com with ESMTPS id ffacd0b85a97d-3825fae4853sm441870f8f.4.2024.11.27.03.15.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Nov 2024 03:15:21 -0800 (PST)
-X-Relaying-Domain: raspberrypi.com
-From: Naushir Patuck <naush@raspberrypi.com>
-To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>
-Cc: linux-media@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
+	Wed, 27 Nov 2024 11:16:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=12Dq
+	ePLKoTrEy4MFBKf2pq2QIO8hf39o64WQAb2Jn8w=; b=CdtAx3KB0YICFDFVfczE
+	4JUiYove8hph0vLsd7cIgmSUVQ+pr+9AoP41cqJHm+SsNM3lvPdNimaJOBFD9oSM
+	H4CoVY6deMuSbMAd+6wiQ9CCGhSgQgvg74txg9RB3uSKqgQAKBg0JmQPIgfpUBsI
+	YnAfUy7D1LChHIKnSabgTcywPNL1py9dTZdHOmDj2Fd+RUkk3sC5Ag2DnAFewOXn
+	yn7nEGSFSUHEKFYhQPm1bHZVl5jZXPjnSe0ovLcfltTFHiUgHYviFDxn17jM1gel
+	Fxj6ic1I5bbDlpYz0ATLWSQIpuhTFklXtxOHShGNbB4426S9gEHtjkgHlXG+lV55
+	+w==
+Received: (qmail 533524 invoked from network); 27 Nov 2024 12:16:16 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 27 Nov 2024 12:16:16 +0100
+X-UD-Smtp-Session: l3s3148p1@hlggGOMnatMujntz
+Date: Wed, 27 Nov 2024 12:16:15 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Wolfram Sang <wsa@kernel.org>, chrome-platform@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-i2c@vger.kernel.org
+Subject: Re: [PATCH v11 0/7] platform/chrome: Introduce DT hardware prober
+Message-ID: <Z0b_f0gg9KgSozPH@shikoro>
+Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Chen-Yu Tsai <wenst@chromium.org>, Wolfram Sang <wsa@kernel.org>,
+	chrome-platform@lists.linux.dev, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	jacopo.mondi@ideasonboard.com,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Naushir Patuck <naush@raspberrypi.com>
-Subject: [PATCH v2 4/4] drivers: media: bcm2835-unicam: Fix for possible dummy buffer overrun
-Date: Wed, 27 Nov 2024 11:15:15 +0000
-Message-Id: <20241127111515.565992-5-naush@raspberrypi.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241127111515.565992-1-naush@raspberrypi.com>
-References: <20241127111515.565992-1-naush@raspberrypi.com>
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-i2c@vger.kernel.org
+References: <20241106093335.1582205-1-wenst@chromium.org>
+ <CAGXv+5Fzrz9sBvE=FpV6URpcZtxvchxfY9WE4k4s+S3BzMWw2g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="HQnyox1fdhJ456xp"
+Content-Disposition: inline
+In-Reply-To: <CAGXv+5Fzrz9sBvE=FpV6URpcZtxvchxfY9WE4k4s+S3BzMWw2g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_031523_575059_774D49A5 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20241127_031623_622094_213173C4 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,42 +80,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Unicam hardware has been observed to cause a buffer overrun when
-using the dummy buffer as a circular buffer. The conditions that cause
-the overrun are not fully known, but it seems to occur when the memory
-bus is heavily loaded.
 
-To avoid the overrun, program the hardware with a buffer size of 0 when
-using the dummy buffer. This will cause overrun into the allocated dummy
-buffer, but avoid out of bounds writes.
+--HQnyox1fdhJ456xp
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
-Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
----
- drivers/media/platform/broadcom/bcm2835-unicam.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-index 550eb1b064f1..f10064107d54 100644
---- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-+++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-@@ -640,7 +640,14 @@ static inline void unicam_reg_write_field(struct unicam_device *unicam, u32 offs
- static void unicam_wr_dma_addr(struct unicam_node *node,
- 			       struct unicam_buffer *buf)
- {
--	dma_addr_t endaddr = buf->dma_addr + buf->size;
-+	/*
-+	 * Due to a HW bug causing buffer overruns in circular buffer mode under
-+	 * certain (not yet fully known) conditions, the dummy buffer allocation
-+	 * is set to a a single page size, but the hardware gets programmed with
-+	 * a buffer size of 0.
-+	 */
-+	dma_addr_t endaddr = buf->dma_addr +
-+			     (buf != &node->dummy_buf ? buf->size : 0);
- 
- 	if (node->id == UNICAM_IMAGE_NODE) {
- 		unicam_reg_write(node->dev, UNICAM_IBSA0, buf->dma_addr);
--- 
-2.34.1
+> Just checking in. I just wanted to make sure that this is still on
+> track for v6.13-rc1.
 
+Eeeks, not only Andi was so busy that he lost track of patches. Please
+accept my apologies, I was under the impression that this series was
+still under discussion. I sadly missed that it was ready for prime time.
+
+That being said, I applied it now and will send it to Linus by the end
+of the week. Sadly, this series was not exposed to -next before, so I
+hope a few days of -next will work for him.
+
+But I will surely try. Sorry again!
+
+
+--HQnyox1fdhJ456xp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmdG/3wACgkQFA3kzBSg
+KbaO8Q//YQ/9g1dt8JdYH661u4RqF4lC38vtKoaZJEADzExdg71xeJQx5nw4Ucg7
+wdvlvIVqq2quH31KM5oOz04t7bglWhsqGlLUUG5CAe3W55tjNpJYgBEnBQs+9ylf
+VdxC/3js3Z2K07RQmCiCGDZuyF7eLkc0AOYrWg6vnGKpnZWO8aTsDRSe6XsDXFPF
+saOY5F3nwjwpoOmUT/qY2ezh/Cls0qClCdXbvoSj5p6+XHcRObtGuMBCSdiYo9uU
+Ec+25hpHSYChlEA0PdlXzw2jObBfp0fOUNWBqadOgAuYsLwK02jI90fvhymPRsiM
+HJD8H1L2oulpK3VayJtRhjQowUW3UrdcdleoOwq91TY32vrlZ6SDtO/C8WphUqT+
+ORaJHqIeBZSW2nwAXBOepoid1JR2pPYiEWZ02kfaKvG0g/sMFoHyXV9OB9GAWyRT
+hNQPXZBFS0LV+6J7pIzmxjXxugwrTnI7AWJlGHGjxYxjc42Y9C8H7H8JfkadRuAW
+w3wcqoPXRJUZsg3GZHBCwIDYtXgr3q7J2iwDPe5h/cDFE5CbtsCL8O8iV9NNqrjF
+T928c/gxQjsRotHFRUBfihhIia/M2zLB8M6Rq+KRzaCCy78UiZkRhiDinstbzlki
+sI0XLrvQAEQVgoJNDsr7K2orxIcijqjlZ0k6pqNf4roXjJJ8Hxc=
+=h8vf
+-----END PGP SIGNATURE-----
+
+--HQnyox1fdhJ456xp--
 
