@@ -4,67 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE58D6ACE5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 14:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CF20D6ACE3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 14:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eHle/cvFTB626bZjyYfjQ/81l5NAk+SKJ8qUdHosYeo=; b=h//S4ePrrw7+bOpX3d5LqkpjCS
-	9rHSMUQ9Z0pEVTv3lWQp9sBTveRrTtfI2es1q1Cax1wPzhQB8cvy7BBxFSYp6aEhKSwiO1WfT0UEK
-	qyys6Lngnmyj1YlgBvTOqUO2GsLbXgf1RSX9WwamjzCpgd+DSszC+LR10RwHwSzdFO2b3KZAKflly
-	lGujExDb6SSprx/p0/QK5aGlhgZPzixvLPr6tq80XMEJXJbYy5h6qjnVEymZxYfDiKn1jUANA5LEi
-	iQVBndMkkeAw4NwbyFmHmDsWqOD+yMGLtwbXIeCMMp1Oy0sDZjB6TXgBRSQy2h/VgoTzcmtEFHNcu
-	vUo9vyVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4ycFpYnG4M3pW2q14NE6/ihqJTbDKGGyyRx7Q9yFq9Q=; b=1AYWcWeTs8CjdpT+Esro2UZu1h
+	JEEIn8MEYLZs+FVQoOAcJTK4acbVlf0N9vFIW9sDYLlTXVz0tnhqCUQq9eGpUFxUQ02bm4TV1QehJ
+	zhPCxUCWy9FYDqgrij79i7SHe+Vicu+yxIxEbvnIqmKP+kqYVcpOQLVQGxqt2epOgdw3VGs5YzTmb
+	mAGjIryK8nXmxju5IxAaSwSF02ZtQgxhIVsRRNhsEidVOf7mBWO31vcUQoSJRTL20zTW5zE/jHJiO
+	1rn6Pj4PObS0/N3RcXx7Tn0shfB4INfsoFDWK3JxKa+8eLSW82nA0noy69+i5qJt0JzX/nVEbOpax
+	YdJVGDUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJQo-0000000DQFy-1zdW;
-	Wed, 27 Nov 2024 14:54:18 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJOb-0000000DPvW-0hRi
+	id 1tGJUT-0000000DQdL-1RGx;
+	Wed, 27 Nov 2024 14:58:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tGJTU-0000000DQWF-2n1r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 14:52:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7CCC9A438E0;
-	Wed, 27 Nov 2024 14:50:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C40AAC4CECC;
-	Wed, 27 Nov 2024 14:51:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732719120;
-	bh=4AGyVOnYw0w4dA8qEhJmW3K+EMnHj8IiVSZHynrM+v0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T+0diw/SG+LpWSeAMVxpAb/FmmbAkmMGG4B7vDhTX4AJVjigqTnN6FJoNLQIeH/Zt
-	 JSwce2GHbaJki8uXr4zdsMlGJi7I4ZnMR27D4EGyQJj4kBliw44EyMT2eWb3IhQABx
-	 8+7ydZJomGric4n4nS17nh/VHVhZLHhJ4lkRqmtzdoqBZUBDMioIuSueVVFlitriZy
-	 faz3ac/nf1mI9mvxZN3k80Owjx218EAyBOr5mhiXennGgJACEavucWOVfkFOuDqtYn
-	 0ElH5Ab4Z+VsvYq89DktlYtAlQHccODmNWBWiAUjkcmQc+kgUrxApHJnF0T21tn1Av
-	 97VJRqWszflzQ==
-Date: Wed, 27 Nov 2024 08:51:58 -0600
-From: Rob Herring <robh@kernel.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
-	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	p.zabel@pengutronix.de, cassel@kernel.org,
-	quic_schintav@quicinc.com, fabrice.gasnier@foss.st.com,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/5] dt-bindings: PCI: Add STM32MP25 PCIe endpoint
- bindings
-Message-ID: <20241127145158.GA3480289-robh@kernel.org>
-References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
- <20241126155119.1574564-4-christian.bruel@foss.st.com>
+	Wed, 27 Nov 2024 14:57:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B31C1477;
+	Wed, 27 Nov 2024 06:57:30 -0800 (PST)
+Received: from e122027.arm.com (unknown [10.57.69.41])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0B85D3F58B;
+	Wed, 27 Nov 2024 06:56:57 -0800 (PST)
+From: Steven Price <steven.price@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Will Deacon <will@kernel.org>
+Cc: Steven Price <steven.price@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] KVM: arm64: Bump KVM_VCPU_MAX_FEATURES
+Date: Wed, 27 Nov 2024 14:56:31 +0000
+Message-ID: <20241127145644.421352-1-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241126155119.1574564-4-christian.bruel@foss.st.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_065201_265090_75D3BB10 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20241127_065704_743474_A88C8884 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +68,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 04:51:17PM +0100, Christian Bruel wrote:
-> STM32MP25 PCIe Controller is based on the DesignWare core configured as
-> end point mode from the SYSCFG register.
-> 
-> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-> ---
->  .../bindings/pci/st,stm32-pcie-ep.yaml        | 61 +++++++++++++++++++
->  1 file changed, 61 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
-> new file mode 100644
-> index 000000000000..0da3ee012ba8
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
-> @@ -0,0 +1,61 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-ep.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: STM32MP25 PCIe endpoint driver
+When the KVM_ARM_VCPU_HAS_EL2 define was added, the value of
+KVM_VCPU_MAX_FEATURES wasn't incremented, so that feature has never been
+in the KVM_VCPU_VALID_FEATURES bit mask. This means the HAS_EL2 feature
+will never be exposed to user space even if the system supports it.
 
-Bindings are not a driver. Otherwise,
+Fixes: 89b0e7de3451 ("KVM: arm64: nv: Introduce nested virtualization VCPU feature")
+Signed-off-by: Steven Price <steven.price@arm.com>
+---
+I might be missing something, and it's possible that
+KVM_ARM_VCPU_HAS_EL2 is deliberately not exposed yet. However I'm
+working on v6 of the host CCA series and as part of that want to add a
+new feature but and bump KVM_VCPU_MAX_FEATURES up to 9.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+ arch/arm64/include/asm/kvm_host.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index e18e9244d17a..af7c827b216e 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -39,7 +39,7 @@
+ 
+ #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
+ 
+-#define KVM_VCPU_MAX_FEATURES 7
++#define KVM_VCPU_MAX_FEATURES 8
+ #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
+ 
+ #define KVM_REQ_SLEEP \
+-- 
+2.43.0
+
 
