@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDF7D6ACC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:27:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E2BD6ACC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/SaWe6ybEx6oBenIcjOSn7QO5dVWiXFnNc4WUHgGhoA=; b=tXy0dnnPvNck3OXTFcNG8j3A9M
-	ysvtcAZsWoPzLBgeKdS7gfTwL0jmyoYVEj++n1Dx1jr2jlM+NPASs1LtVx1vet+FtPeA9bqjbbhdK
-	YHLg9p+2QRBln4iPpLcrUb9VIZWaFWYP4YYDrMUtVOQnbS+QoutSWh9emrFlj1rq3tM61p8rLbuna
-	EfBdd2vYU7E0FGImGXQHCmlnv+gNyYwPVdslKytURxaAG9bnEQbGKmSGTlhY+hfTMAa96qOy/1Bls
-	haTrLkbUBhbkH9hmqWxVPhHvZ3pGOgzO/+PFYOwit0dGdAWgYN1ZSNWuuAfL5J0xNO+DqIdawID4n
-	IRDeyqMA==;
+	bh=RFNJVebhk/P2gt6mfi/joxjoUyYMV0WKr8Mcv1smVno=; b=LG4pK5hmPZ8oP2DZ307Ef4ODsI
+	xXLrwr9VP2TZBIQ9yqXB2ZCXa315Ee+EBWgqJyHJfs3mai4dursa/zcfQM0aRfrUfAZk/PCnsofZv
+	Zhqqg/ZzoTubBwKcCXQHydQdcyChGgEMMUw26XiINLXMBy+cEn6XM5g3hoidND0Kha/6L72UV9GIz
+	/2d60ymNeMphUqHvul5XYmTJlaR/+FJXtZJib5qc5OkCDlcxIHmnMS8RC39xxgRQgJUwGbRZUTkmi
+	Rn/Xs59FPhlOR9FUr+SNnYWi560ts/GIrWW8u5RieUiw8XZWGXzx8PfOTRbwywJXr68RvV/Vgv/u6
+	R0rdOuMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGGC7-0000000D0mG-0UC4;
-	Wed, 27 Nov 2024 11:26:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tGGD4-0000000D154-09ps;
+	Wed, 27 Nov 2024 11:27:54 +0000
+Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGG7R-0000000Czin-33kx
+	id 1tGG8v-0000000D0B2-0Ztm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 11:22:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CEB3C5C5767;
-	Wed, 27 Nov 2024 11:21:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3842AC4CECC;
-	Wed, 27 Nov 2024 11:22:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732706524;
-	bh=hBwJzSZN+81/po5owZZ+2DG5kWpJPktOtvHeqkBpVtg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pvfjTREwxvAbySSSU4BvCLuwcU5nihmL7x4BKfU2tbJTQYRS0NqjgNa6qCfNWQvkg
-	 uj/YboVRMX7kil/IfAIwJWs2uPKk9U6M/cegs1LryrST9mhtmvHa/Ive5/jAp8Xh3l
-	 2P3Hkp5T86ZudIZCOYb+CIoY5w7I25k/59TCt2N8AgYRSoa4nNOrvquV8wUKJrx4w8
-	 8geCRMd8CFmq9Gthvk8nM5EfeDC93Kbi5IlBPnTzAwgtxboL40Xzj+AOVswdMnFc1r
-	 UafIKD7WSwLTRDriTF8brOh0uHcgX51JotofRUbhMMdgs4CDxy0rQ/Fmog0aiL9kk6
-	 nHcUW2AIJrwlQ==
-Date: Wed, 27 Nov 2024 11:22:01 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Subject: Re: [BOOT-WRAPPER PATCH 3/3] aarch64: Enable use of GCS for EL2 and
- below
-Message-ID: <0bb52a0f-bb89-43bb-a64b-e042845c73ce@sirena.org.uk>
-References: <20241126153955.477569-1-mark.rutland@arm.com>
- <20241126153955.477569-4-mark.rutland@arm.com>
- <154929d3-c46b-42cd-9785-c48aa1b08d33@sirena.org.uk>
- <Z0YNFCfisiCqU3lJ@J2N7QTR9R3.cambridge.arm.com>
- <287e6fab-e858-4a7b-bc21-687c36742e24@sirena.org.uk>
- <Z0bzmYuVweIT-5L5@J2N7QTR9R3>
+	Wed, 27 Nov 2024 11:23:38 +0000
+Received: by mail-yb1-xb33.google.com with SMTP id 3f1490d57ef6-e388503c0d7so5454896276.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 03:23:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732706616; x=1733311416; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=RFNJVebhk/P2gt6mfi/joxjoUyYMV0WKr8Mcv1smVno=;
+        b=Umks06+Z1SAfRhClvHRjxsfZ5QpaOlRyhockmtvcIBgPLpeVBGctIB8vEK7DYaK0GM
+         KvL6QX/tLf1S9CiL18mXw1v8HZqHxuUS+6goYph7clofMzqxi0+L1eI92L5EK54itvcs
+         byMoqQnuwtfI3tqPH7Al98sFCTBtPNMFcBHz78/R8lR5qiUiXiPgMySO6GJPbKhPUAli
+         vUVFrUqn7r1HLRnQ1VzTmBR/CEgB/xePjFrMjEd26n6lgPvFsACm7lGNE3HBprsGkXmc
+         Yd3DCpsQZ2IDBZ80hOXtxgMKoDL5izUxzKN3L2v7kjFao6peqrPA3+0g4Hrx+entxQ+p
+         tvXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732706616; x=1733311416;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RFNJVebhk/P2gt6mfi/joxjoUyYMV0WKr8Mcv1smVno=;
+        b=ttyhC+OtqCz4B5G/HZhPlldqGXN3+KygCiwirp0iQvomX4qWYrsLAGJAjRPvSIRHia
+         HDry9/i8k3lXAUy0D5quYsLTgw66TAAf2p9DuK5DwQKgBmIRulx+Erc0Lh+bnqqPrjx0
+         jHE5HYe+im4u1Rk6ZFDsK7Zr5mxoeGtMdaF8RIrdpR0DFFEsWuIGNMg96Yme/2oRFe6C
+         7DiYoJThKJtLepwNuChcW1rYoXLy7z59P+9E99TcTwwAYgqGRq51p8eh7gd27UuiUolj
+         nYI++11RlhM+/zP9mkuzluUaQ0IkcmKF/eAnWiRvCFHHl2fmor8BFh95Rk1Jso601XrD
+         IpLA==
+X-Forwarded-Encrypted: i=1; AJvYcCXqfmKVHTqd7p+UDByAz04b0pzdJam3ZBdZrQRa1saGNewd+HGUk6rziPqbwie6SARExTng/YjoarPLZqGV+pn2@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIwaON58DqN4elpB2OUDC30ddTvt4MLFtZ3ygLi8OJZPV7ZBz3
+	T+/maPDsIMkJh5Vv63X2r7L9g+xw2z3RSU0cG0FTiFTPl7ocU4mLI46CqkXe3mT3ilpAwlqOXLB
+	abgeOkCnw4d8FhJBzviFuE7fSMpw=
+X-Gm-Gg: ASbGnctExgbEwxB71qaCpYeIxcXbw8O7pcyz7N6fb3am5KYQKUDwpznhbhxW8SjLLXu
+	dZeX32Jc3/qMix/JApAI+Ws5wzNh+8qD1
+X-Google-Smtp-Source: AGHT+IEhGTSK2YNdXdDE1bxdAMUSkkOXknhoF5JR5lXJjT5V65SSPE0rinZmMub8wlV/7v+m+94VpiBh5uSV13rfdCg=
+X-Received: by 2002:a05:6902:f83:b0:e38:b87f:52a7 with SMTP id
+ 3f1490d57ef6-e395b8b96f1mr2630271276.14.1732706615983; Wed, 27 Nov 2024
+ 03:23:35 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="WqrhTCONN5Seprja"
-Content-Disposition: inline
-In-Reply-To: <Z0bzmYuVweIT-5L5@J2N7QTR9R3>
-X-Cookie: Every path has its puddle.
+References: <20241126-z2-v1-0-c43c4cc6200d@gmail.com> <20241126-z2-v1-1-c43c4cc6200d@gmail.com>
+ <zwdpx6c6qxm5674u2sea5sgwdd2fwim4waijb2qvixf62wrshb@yqs6zurtf7ic> <CAMT+MTR46HbUJWQOwG+MY8OffquekynUs_BRCbuAosLrmc+smQ@mail.gmail.com>
+In-Reply-To: <CAMT+MTR46HbUJWQOwG+MY8OffquekynUs_BRCbuAosLrmc+smQ@mail.gmail.com>
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Date: Wed, 27 Nov 2024 12:23:25 +0100
+Message-ID: <CAMT+MTTqNZuaeROufzA4p6VS0QUt8pJ+3rA3t7_BX1nW0ewB3A@mail.gmail.com>
+Subject: Re: [PATCH 1/4] dt-bindings: input: touchscreen: Add Z2 controller
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_032205_860766_9D9E7159 
-X-CRM114-Status: GOOD (  30.24  )
+X-CRM114-CacheID: sfid-20241127_032337_172108_4117F199 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,76 +95,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 27 Nov 2024 at 11:49, Sasha Finkelstein <fnkl.kernel@gmail.com> wrote:
 
---WqrhTCONN5Seprja
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> > Why is this needed? I think it is not part of common touchscreen schema.
+> > Drop, devices do not need labels - node name and unit address identify
+> > it. If this is needed for something else, then come with generic
+> > property matching all touchscreens.
+>
+> I want some sort of a property to contain a human readable (ish)
+> name of this device.
 
-On Wed, Nov 27, 2024 at 10:25:54AM +0000, Mark Rutland wrote:
-> On Tue, Nov 26, 2024 at 06:53:03PM +0000, Mark Brown wrote:
-
-> > The values on reset follow the same pattern in all the GCS control
-> > registers down to GCSCRE0_EL1 so the initialisations of the other
-> > control registers are equally redundant.  We should be consistent here,
-> > either initialising all the GCS control registers or relying on the
-> > architecture defaults for all of them, and the note in the changelog
-> > about them needs an update if the initialisation is there.
-
-> Hmm... that's somewhat unusual, usually the architecture has a "minimal
-> reset policy", where _ELx register fields are only reset when ELx is the
-> highest EL after the reset, leaving it to SW to initialise lower ELs.
-> It's not clear to me if not following that here was deliberate or an
-> oversight.
-
-Yeah, I remember being a bit surprised by the choice.
-
-> > > That does raise the question of what specifically happens for a return
-> > > at EL3 when GCSCR_EL3.{PCRSEL,RVCHKEN} == {1,0}. Can you enlighten me?
-
-> > RET will attempt to load and use a GCS record, the pseudocode is in
-> > LoadCheckGCSRecord() which isn't EL dependent other than the selection
-> > of which GCSPR and GCSCR to use and setting the access as privileged if
-> > we're not at EL0.
-
-> Sorry, I got the bits backwards, and had meant the case where:
-
-> 	GCSCR_EL3.{PCRSEL,RVCHKEN} == {0,1}
-
-> ... where I assume the RVCHKEN bit has no effect given we don't have a
-> GCS return value to compare against, but wanted to confirm that there
-> wasn't an architectural edge-case that we might need to feed back to
-> architects.
-
-Oh, good - I was wondering why you weren't asking that rather than what
-you asked.
-
-> It *seems* like RVCHKEN has no effect for RET when PCRSEL is clear.
-> In ARM DDI 0487K.a, C6.2.291, the pseudocode for RET starts with:
-
-...
-
-> AFAICT GCSReturnValueCheckEnabled() is only used by
-> LoadCheckGCSRecord(), and that's only used by the pseudocode for
-> RET/RETAA/RETAB, so it looks like we're good.
-
-Yes, we only do a return value check if PCRSEL is active - it is only
-meaningful as part of a GCS load since it's a comparison of the value we
-got from the GCS with the value passed into the ret.
-
---WqrhTCONN5Seprja
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdHANgACgkQJNaLcl1U
-h9CN0gf/alsJV67qFkv6dSBW6vSbi4jX90cjKjfXL6pzTAcFClQJi72cl1gOd6IT
-gCXE3J7bREZI+F1oEwDu5ENyAfaneST+p9qbbaDcI/8nSUMr2hrfVLxKSmd7rUcL
-Ld+/6DXmopymfdau2xZQJFh+/daOZJCA0mpaT2LxkLN+BY/2intTcqtW7UMgyHlK
-aZW0jWLjngr7VROij74b6HwLkUBrjYD1Kw3lavdCXE8K8s4AtPjrI+Jp4egmHplj
-QRBkHBm02icqgjXYEnfMl08Gv7Fe2l4OBYA/pwjPKSAmfA+6EDo/yerDB2rpKHrl
-vUIttPsCJpF4agwPsOq/q0KvSxAh7g==
-=Clru
------END PGP SIGNATURE-----
-
---WqrhTCONN5Seprja--
+Actually, nvm, i think i understand it now, you want the labels stored
+in the driver and set based on device compatible, right?
 
