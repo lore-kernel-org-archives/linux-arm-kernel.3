@@ -4,68 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFFCED609DB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB3CD609D8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=12DqePLKoTrEy4MFBKf2pq2QIO8hf39o64WQAb2Jn8w=; b=o60/gTNf+V8QhQdJZpz3bsGqtt
-	hXwVCyceJNxJbKojQ4b1OqceyyAZEkXRXyZMw01saEkgy3myjD6ZLMNtVbzo9kXW0lgrGwpBB863F
-	lNgmc6fPeuabphC7In1M9dn5gSNFERMfBx9vKZ4LDZoEghj8HXwq9N0DB5Gjxjn3H3430R20Xfn4I
-	kGhwEFonEEyjpFLm6DspS2NbW/YgEtlSM4e+F+TjTePYIEeTHAA/aTw/J2AmP6An7xOlwf1ft2WML
-	58qifHemIzUvbzb5i/1uFm6yj9TXQNdj8wv8lqMKBT8SiBa775vI2cgaVPSjrB7VdCzgtM9LAFpIu
-	EnIDyBTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+2z95vIVxpdoEpIHV1Hs2li8opRkM10lvZmaKrYhPuQ=; b=4gKMVJlfUBShsm9y3rhbaDNMK4
+	YPoo3IJcRRvbkazzXk6jhuLdvpXw71aTtm220tRlQtX9KvW6fkFP8DXW+cPRvYPj++ZtwQ0vXleMC
+	MbFSko4NLoc4Gv0ct+KWPfPzWrfVj7fZbg9rQx5ITOzhBuRsBhGTQIHBWDpOpYzALkJRtGdBcQFDU
+	XJI/dY0yU8QsGFsm7pVc8upn3rjtft4wRL6lG0tcu5QSiP7N63j4U9l4Y0/SPJC5nY5Ozcw6AhfP6
+	pPGTORSGSsG3Acv9j1lqlSFD6lYRcCRV3PucHyIPp48ZLLdn5CjALJRX6WTRhfgAI9DImYlaYeoPM
+	GpXKyMXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGG9H-0000000D0GX-2dqf;
-	Wed, 27 Nov 2024 11:23:59 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1tGGAE-0000000D0PG-0t5f;
+	Wed, 27 Nov 2024 11:24:58 +0000
+Received: from mail-wr1-x462.google.com ([2a00:1450:4864:20::462])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGG1v-0000000CyZa-1LAW
+	id 1tGG0w-0000000CyI3-1lQz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 11:16:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=12Dq
-	ePLKoTrEy4MFBKf2pq2QIO8hf39o64WQAb2Jn8w=; b=CdtAx3KB0YICFDFVfczE
-	4JUiYove8hph0vLsd7cIgmSUVQ+pr+9AoP41cqJHm+SsNM3lvPdNimaJOBFD9oSM
-	H4CoVY6deMuSbMAd+6wiQ9CCGhSgQgvg74txg9RB3uSKqgQAKBg0JmQPIgfpUBsI
-	YnAfUy7D1LChHIKnSabgTcywPNL1py9dTZdHOmDj2Fd+RUkk3sC5Ag2DnAFewOXn
-	yn7nEGSFSUHEKFYhQPm1bHZVl5jZXPjnSe0ovLcfltTFHiUgHYviFDxn17jM1gel
-	Fxj6ic1I5bbDlpYz0ATLWSQIpuhTFklXtxOHShGNbB4426S9gEHtjkgHlXG+lV55
-	+w==
-Received: (qmail 533524 invoked from network); 27 Nov 2024 12:16:16 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 27 Nov 2024 12:16:16 +0100
-X-UD-Smtp-Session: l3s3148p1@hlggGOMnatMujntz
-Date: Wed, 27 Nov 2024 12:16:15 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Wolfram Sang <wsa@kernel.org>, chrome-platform@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-i2c@vger.kernel.org
-Subject: Re: [PATCH v11 0/7] platform/chrome: Introduce DT hardware prober
-Message-ID: <Z0b_f0gg9KgSozPH@shikoro>
-Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Chen-Yu Tsai <wenst@chromium.org>, Wolfram Sang <wsa@kernel.org>,
-	chrome-platform@lists.linux.dev, devicetree@vger.kernel.org,
+	Wed, 27 Nov 2024 11:15:24 +0000
+Received: by mail-wr1-x462.google.com with SMTP id ffacd0b85a97d-3823e45339bso4784827f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 03:15:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1732706121; x=1733310921; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+2z95vIVxpdoEpIHV1Hs2li8opRkM10lvZmaKrYhPuQ=;
+        b=jGPGZdUbBGvf/TnS+fcMkYPZTv7SBf2UwmB55X/gZz4V06OZL8QnDqAB0SYXmBc6OW
+         iD4L6UALZsf24q8vv0guU0z0r+hK74TYNfe8HogfS2QGchvMvR27rq6sOq3rehAqzGwy
+         a6NhX72Lx2eurGzLi8bRfkKx5fV/1X3Ya3rDKPlA7yVe0s2E0ugX+APJBnZCKKspsJpE
+         66t+Hqwzcxjek3cgMx1Ns5kPORDMun5m6EYhfIlD5jlw4YObe5w8rTZGEOM3Lgj5B1v7
+         hVLiY4ZmbnmSwRBlvITwMmSpVGkbRCvnP8g96VCUksi6mWbrHreUgAQMpAkt06DG9rYp
+         bTxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732706121; x=1733310921;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+2z95vIVxpdoEpIHV1Hs2li8opRkM10lvZmaKrYhPuQ=;
+        b=MX3lky0ZEpSUWXFxlv5GXB9ig7Wg4M/wrtgv0KMxTRNu8AIWNZjIvnLHo+OqEQQP3m
+         2daKtnqEvyTghK05/ff+bugVsy0fy9Clo7eAKMKV/hEwAAzEfI4eFQpG86NHrF9Iw7iG
+         EaQpEGXWHF7eqrssXzdhRW5be1J8o9OAWQalDRz72d4E9IW/JK9KXtYO0QoB4QiJYql6
+         +gLXKdIaak7HFb1hmVslFj86UxRsYlyo1+pDUbMhHCtcJ8GsekU4BGshHzMouthmMmqm
+         VB6I5khz1bSvndo/3mO4rISjnf/a8Wj6TWEYqJg7g87YgMt7SvHCr26z3KOSjw0asCx8
+         pUvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWkNlr49P3pF9zxwZ9Uzj2mfuu4dCVSk3dujLIh5fo5mz8ww8UZ+NAnaNCYSpFh00uYuk3zXcBJUVsBrY85dcuP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgjANPbcfIFSwCfIzd38T4olfSKnRGQaS6KAYdYCTTAuxarKjD
+	X03MD3P7nyMWqKhet17czYpVYKiqkoR8rjnbkgC5u1BV/rgT/RBniGk5noOah5d2KZWUd5nw3uT
+	M2/U8NaanDAXESlHvJMu4IEh77VA+vLD1
+X-Gm-Gg: ASbGncsp0L4hmknBXv8hFuiNXJKutyY8ttbVH78qnyc3XNbQxRRYoxu8MFywcW8qGVb
+	cadXcBkql/9am2JhhHx0/t8kRPWFNO7i6L5K/d/vmImrgBEwral6XYaxIna5N946gs2k/82qlUd
+	iHilYyk9Qvcp/bWrh8iOv1Wr/PGHjA6jPYJzSsbczsFPivpOaHThfVMb97NlHPcVt75chNJ6bh1
+	NXqiZKtv39MZDhCf77Eq26s13UxCTFpq6zm5P/V5/idNxq4uyLouaqdW3Sx/7Ee+w==
+X-Google-Smtp-Source: AGHT+IFqYJhAmhFIs4MrJEK2DwK6ZnHRiHMIjhqtLKd1Q8gK+tAk+5Dr+yVE8hWUGs5AFt4Q0h739aNEfBbT
+X-Received: by 2002:a05:6000:18a5:b0:382:2349:5a7b with SMTP id ffacd0b85a97d-385c6ebba1cmr1732527f8f.16.1732706120527;
+        Wed, 27 Nov 2024 03:15:20 -0800 (PST)
+Received: from raspberrypi.com ([93.93.133.154])
+        by smtp-relay.gmail.com with ESMTPS id ffacd0b85a97d-3825fd0041fsm441847f8f.95.2024.11.27.03.15.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Nov 2024 03:15:20 -0800 (PST)
+X-Relaying-Domain: raspberrypi.com
+From: Naushir Patuck <naush@raspberrypi.com>
+To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>
+Cc: linux-media@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-i2c@vger.kernel.org
-References: <20241106093335.1582205-1-wenst@chromium.org>
- <CAGXv+5Fzrz9sBvE=FpV6URpcZtxvchxfY9WE4k4s+S3BzMWw2g@mail.gmail.com>
+	linux-kernel@vger.kernel.org,
+	jacopo.mondi@ideasonboard.com,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Naushir Patuck <naush@raspberrypi.com>
+Subject: [PATCH v2 2/4] drivers: media: bcm2835-unicam: Allow setting of unpacked formats
+Date: Wed, 27 Nov 2024 11:15:13 +0000
+Message-Id: <20241127111515.565992-3-naush@raspberrypi.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241127111515.565992-1-naush@raspberrypi.com>
+References: <20241127111515.565992-1-naush@raspberrypi.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="HQnyox1fdhJ456xp"
-Content-Disposition: inline
-In-Reply-To: <CAGXv+5Fzrz9sBvE=FpV6URpcZtxvchxfY9WE4k4s+S3BzMWw2g@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_031623_622094_213173C4 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241127_031522_474202_61FCE575 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +108,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When matching formats via try_fmt/set_fmt ioctls, test for the unpacked
+formats as well as packed formats. This allows userland clients setup
+unpacking to 16-bits from the 10/12/14-packed CSI2 formats.
 
---HQnyox1fdhJ456xp
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
+Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+---
+ drivers/media/platform/broadcom/bcm2835-unicam.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
+index 36fb186a0421..d573d4d89881 100644
+--- a/drivers/media/platform/broadcom/bcm2835-unicam.c
++++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+@@ -547,7 +547,8 @@ unicam_find_format_by_fourcc(u32 fourcc, u32 pad)
+ 	}
+ 
+ 	for (i = 0; i < num_formats; ++i) {
+-		if (formats[i].fourcc == fourcc)
++		if (formats[i].fourcc == fourcc ||
++		    formats[i].unpacked_fourcc == fourcc)
+ 			return &formats[i];
+ 	}
+ 
+-- 
+2.34.1
 
-> Just checking in. I just wanted to make sure that this is still on
-> track for v6.13-rc1.
-
-Eeeks, not only Andi was so busy that he lost track of patches. Please
-accept my apologies, I was under the impression that this series was
-still under discussion. I sadly missed that it was ready for prime time.
-
-That being said, I applied it now and will send it to Linus by the end
-of the week. Sadly, this series was not exposed to -next before, so I
-hope a few days of -next will work for him.
-
-But I will surely try. Sorry again!
-
-
---HQnyox1fdhJ456xp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmdG/3wACgkQFA3kzBSg
-KbaO8Q//YQ/9g1dt8JdYH661u4RqF4lC38vtKoaZJEADzExdg71xeJQx5nw4Ucg7
-wdvlvIVqq2quH31KM5oOz04t7bglWhsqGlLUUG5CAe3W55tjNpJYgBEnBQs+9ylf
-VdxC/3js3Z2K07RQmCiCGDZuyF7eLkc0AOYrWg6vnGKpnZWO8aTsDRSe6XsDXFPF
-saOY5F3nwjwpoOmUT/qY2ezh/Cls0qClCdXbvoSj5p6+XHcRObtGuMBCSdiYo9uU
-Ec+25hpHSYChlEA0PdlXzw2jObBfp0fOUNWBqadOgAuYsLwK02jI90fvhymPRsiM
-HJD8H1L2oulpK3VayJtRhjQowUW3UrdcdleoOwq91TY32vrlZ6SDtO/C8WphUqT+
-ORaJHqIeBZSW2nwAXBOepoid1JR2pPYiEWZ02kfaKvG0g/sMFoHyXV9OB9GAWyRT
-hNQPXZBFS0LV+6J7pIzmxjXxugwrTnI7AWJlGHGjxYxjc42Y9C8H7H8JfkadRuAW
-w3wcqoPXRJUZsg3GZHBCwIDYtXgr3q7J2iwDPe5h/cDFE5CbtsCL8O8iV9NNqrjF
-T928c/gxQjsRotHFRUBfihhIia/M2zLB8M6Rq+KRzaCCy78UiZkRhiDinstbzlki
-sI0XLrvQAEQVgoJNDsr7K2orxIcijqjlZ0k6pqNf4roXjJJ8Hxc=
-=h8vf
------END PGP SIGNATURE-----
-
---HQnyox1fdhJ456xp--
 
