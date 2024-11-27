@@ -4,82 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8F80D6ACCD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 13:12:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF21D6ACCD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 13:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0pJ4f5/AA0Na3QRUimWC4sZ6Mc3cd4bD928BKUzVBg8=; b=vDveZm/aOdFVrekplg39SVAIes
-	rH+JtshkE9zVynHqh35kzAG0QSjZgLuQVapr8SRzQZflgyadNfGBH05hFkTN0SQsmhOV2rPaBeoCu
-	RxHwHgsWU6uqkjyIL/UI+rNB7WKMOJPSPQm7ztXmJZr0PMSRfZ5WPW40NsCQ/B9WycAnvmMWzvw7Y
-	XwGwwqtLaQdQL9n3y0LEQpODKChg8WYQE1OMgboUsPmqbbWUXXmm9yUxrhA0cNB8b+iCigxJvnd89
-	j+ulnw4n/qK3YsqvHTNVdFnscyXEzGLwd887fi9utXfmb1BkQO7iSrVONYXyYCHdMPGTEVMdq12jm
-	qpRJIB8g==;
+	bh=z5N5TeqIz8Hih/q2oo/F5dFMUP3Erj9K850b0DJCwPQ=; b=3KVsnpsGXV4OXAedWv8jTPAZyP
+	dXsTJw8XpJteUWJZeg1xPswySTFoFeXzb4nKq0SsgcMDo3BL/2ox4yt8z12W5OgHaXSKs42KIeWRG
+	QNPW0X6B09vRVCbUCfiK83U0cbwUHN/fQMigsAGVmgd3mfNmOdo71CFSHNT+3udeTbK9mlI06f650
+	asxMNR9kHbHqoUdFuPNePV8M363nOXKsu+ouvMRkgItwlDlhsYt70dl415upcpInfORjJMfFdYD9t
+	OBMrCLp1aRTZVRRqcG6nte0nuNWs8bnIrlkykMKogMk8QWcAvXFwp+S525fWazVrnA+qGb04phpUJ
+	6swQ7dZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGHq8-0000000DCxs-2SQV;
-	Wed, 27 Nov 2024 13:12:20 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1tGHt3-0000000DDF1-1RT1;
+	Wed, 27 Nov 2024 13:15:21 +0000
+Received: from mail-ot1-f49.google.com ([209.85.210.49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGHpA-0000000DCqW-3hXH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 13:11:22 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e388d853727so6201430276.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 05:11:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1732713079; x=1733317879; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0pJ4f5/AA0Na3QRUimWC4sZ6Mc3cd4bD928BKUzVBg8=;
-        b=Z+6zxDnk3P0XIjUBuh7ChTz9+5bV8ETw8hwg6mmQlFqcc9ogrlvV9Dk4p84VLdfXUx
-         hUSJgbG2VkQOysQQelEemPU/YB2LTKhzNebUL6EajD6Fe7FJ/w3k0uXsWPVWn4uWsxvY
-         SmjiGWhILizPXpGEgvlSyYrsT53EVZDhtvo3o=
+	id 1tGHs5-0000000DD9j-41cv;
+	Wed, 27 Nov 2024 13:14:23 +0000
+Received: by mail-ot1-f49.google.com with SMTP id 46e09a7af769-71d4d0516e6so1797290a34.2;
+        Wed, 27 Nov 2024 05:14:21 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732713079; x=1733317879;
+        d=1e100.net; s=20230601; t=1732713258; x=1733318058;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0pJ4f5/AA0Na3QRUimWC4sZ6Mc3cd4bD928BKUzVBg8=;
-        b=pEk1ukuLWnSYmkfYvCmj0RtnHJARzOzoo+M8Ggp35aq2Ek4L57cHam/mH873uULD/Z
-         ++m+1gAcpK1mFn+ZkiVJ+5xCWnu0xm85l/sB3Ok62f6lu3eujozehLAIfFs/wduvgfWa
-         3AXTeecnIvZOKqhYwWVv0N3JxvRvAJAh6BzmTAnW+p5W5j1MByrbS5/fJUt7Z1m7rDx/
-         Le1BFOa0aGZp7wJvMEVAZSmWYIAgmQFCgPE+q8Z12apMqo45Jt1oVngtV4a3/oVViY5h
-         ElC+nO+SmH5rdDEXLJKm7yylGGatN0bcnh9s/MEdMpsPoh4BY/1IxEtbRzC9TU1CjMio
-         ngWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXF0kc2+G3hZOruSh1zrvmArqK8vSD+RwpSTDGZ7RPd4teJTj4YlTZm3f5ZpT0CMFhMCV77cQ9nfoc5Z40zVV3R@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7+84oiIbQ1Q46HW+pY39RPqTsaNx7ynpGO+kaEkyjY7JIGkQf
-	WeT1VqzVCV/yPr1NBUG3tLf3Ywt9BXsq5SdriEjUlIQctXzQ6mqhJU0byyNffFoJErcJCp+CI42
-	NTVv65ILNMECRPjlk7AgmotYHlxW1mPfcgF0T
-X-Gm-Gg: ASbGncumbRk9kWJ9rGEBtVcznzzclX0pl+bNoT4w3YVaQ+qIi4YkSdKJiwU0qr+fTDv
-	tnhwpoGn5w4Va84cRfid8jW9xBU68aqdu
-X-Google-Smtp-Source: AGHT+IGHme/L5ioql1/e+CfRbka6xoxAYc90GtctpaIvtM30KbIeIU6v/mBHT7nNurKZ5GDi7Le2AMYnuUIp2KUuv5k=
-X-Received: by 2002:a05:6902:cc5:b0:e2b:d3da:46c8 with SMTP id
- 3f1490d57ef6-e395b93642dmr2466586276.37.1732713078836; Wed, 27 Nov 2024
- 05:11:18 -0800 (PST)
+        bh=z5N5TeqIz8Hih/q2oo/F5dFMUP3Erj9K850b0DJCwPQ=;
+        b=hPtQmMp4fGQQqJybisdAiEZSw8cFZ75f1AUlkjWra8p00fxm8psL4hpuenYkBmcOXD
+         FLCQh84rupGn0JxfwQUSLMNJTAz8Vy/aQQt6qGQH0/xb79NjCKyNTyO44RcDqESXwh34
+         Qx145vYnwPVZi9zvl/mky4WXmE1ze2GuqxjRb+Gjb9vX2Rve2/mbFlEezeeckkiNd1rQ
+         F5g9vFK0U2XHu4NVN0nFNhmSp0sF0h9ZSNuh050GTgj9FWF85cNwwAywnf9vKYAsgITq
+         EqdJY96W5hVd2OQ7RS/ziHNyzHowFKMGqX23X8phF8lwkgVJVv+M+wSDus9kxhYcIHIq
+         W+gg==
+X-Forwarded-Encrypted: i=1; AJvYcCWumTIkx3EKJoayHbBhpOLiwENnBVzS8RBFqK4viU57t5r12a9GRCpHOb0vJApPsKQYvd4Wt2YwrEcap+hPm8FP@lists.infradead.org, AJvYcCWyhFBRkBCc2+bAhyghimih0Nxl4PdjFFrqxX0hDC+wNWJ//E1DaOsYhRuFSR1kzJt0wrEVubvEBcgbJkvk7Mk=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKULGsK/eYStZhI4hlFT2i/24rRvdkKuntOz44v5IddHA7hlLG
+	iqLBxs6rlE6SlqNY2CdJSQcVb047fU/1fnyfmr6+YuxXVjRH5PG+4LNepZMTF/Y=
+X-Gm-Gg: ASbGncuaP7nVOLUfD758qQBE0iRq3wJJ4/BbPD+LtelskecrAatInx2k1bp3Ml698oM
+	hGuE/bkHdlyMzIttSv6MCpqGV/RMniOVjEQYG2Q5MNoxYyNP88zpXlYFG1b5F59Qz1wWcqJh/mc
+	P+Bpz34neLUr+bNxIo3cNnjb0x2x2cU9Xc7giETqg4IsA2GgnYjDg8v7oMuvpsdVks37po+mhJy
+	ZsgP2uA/FT3PTgmO/IFsAHgkLdQQrEoKrodRZsQjxiHBlY44K4puFLWnngLR8u0H1eMze/lH1Na
+	trrSbREppR8T
+X-Google-Smtp-Source: AGHT+IE+EOLm/fCWnu5Klk0Uvb8G9aQwz/SUpl/3KXPofQ6JO9JzbIdpzZrAweksBQvWMfELrO9Neg==
+X-Received: by 2002:a05:6830:34a7:b0:718:a52:e1cc with SMTP id 46e09a7af769-71d65d09848mr2821770a34.25.1732713258392;
+        Wed, 27 Nov 2024 05:14:18 -0800 (PST)
+Received: from mail-ot1-f41.google.com (mail-ot1-f41.google.com. [209.85.210.41])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-71d42b231e8sm2541458a34.34.2024.11.27.05.14.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 Nov 2024 05:14:17 -0800 (PST)
+Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-71d4d0516e6so1797271a34.2;
+        Wed, 27 Nov 2024 05:14:17 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWVnyGEwXR8dn8oyxxJXW0iKLgobPD/EgvwxVB6wwADlsHA0Zip4pX9QwV2D8JcuGo97DrJXmEREP2fSxbx4s6V@lists.infradead.org, AJvYcCWigcHaqzR6+Lon44dFbbztAzPGBMjl4nLgU+oai7uCxnfPumaNmxZwhmeqlL/htWLMmzr6KSBexm9g4t4YXn4=@lists.infradead.org
+X-Received: by 2002:a05:6358:7e95:b0:1ca:a1d1:65d2 with SMTP id
+ e5c5f4694b2df-1cab15dbb24mr152078355d.15.1732713256919; Wed, 27 Nov 2024
+ 05:14:16 -0800 (PST)
 MIME-Version: 1.0
-References: <20241126103632.419469-1-wmacek@chromium.org> <20241126103632.419469-3-wmacek@chromium.org>
- <473283aa-fc84-4b3f-93bc-653c9d83c837@collabora.com>
-In-Reply-To: <473283aa-fc84-4b3f-93bc-653c9d83c837@collabora.com>
-From: Wojciech Macek <wmacek@chromium.org>
-Date: Wed, 27 Nov 2024 14:11:06 +0100
-Message-ID: <CAJrw_jmqfPaOsoT1pneoFuUg9ws1CsDgy3YdqWPE5SoK7Lrv+g@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] arm64: dts: mediatek: mt8186: Add Starmie device
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Chen-Yu Tsai <wenst@chromium.org>, Rafal Milecki <rafal@milecki.pl>, 
-	Hsin-Yi Wang <hsinyi@chromium.org>, Sean Wang <sean.wang@mediatek.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
+References: <20240823-cleanup-h-guard-pm-domain-v1-0-8320722eaf39@linaro.org> <20240823-cleanup-h-guard-pm-domain-v1-9-8320722eaf39@linaro.org>
+In-Reply-To: <20240823-cleanup-h-guard-pm-domain-v1-9-8320722eaf39@linaro.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 27 Nov 2024 14:14:05 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWXUyLbypvgTrtx0mY5vF6abW8bab2poso=xn88gNqEmA@mail.gmail.com>
+Message-ID: <CAMuHMdWXUyLbypvgTrtx0mY5vF6abW8bab2poso=xn88gNqEmA@mail.gmail.com>
+Subject: Re: [PATCH 09/10] pmdomain: renesas: rcar-gen4-sysc: Use scoped
+ device node handling to simplify error paths
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_051120_911296_A2EC400B 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20241127_051421_995674_5881F24F 
+X-CRM114-Status: GOOD (  24.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,79 +99,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 12:35=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> Il 26/11/24 11:36, Wojciech Macek ha scritto:
-> > Add support for Starmie Chromebooks.
-> >
-> > Signed-off-by: Wojciech Macek <wmacek@chromium.org>
-> > ---
-> > Changelog v3-v2:
-> >   - Cleaned up DTS
-> >     - Re-using dsi_out node
-> >     - Removed unnecessary delete-nodes
-> >     - Moved touchpads to per-board dts
-> >     - Modified 3.3/6V power regulator node
-> > Changelog v2-v1:
-> >   - No changes
-> >   arch/arm64/boot/dts/mediatek/Makefile         |   2 +
-> >   .../mediatek/mt8186-corsola-starmie-sku0.dts  |  31 ++
-> >   .../mediatek/mt8186-corsola-starmie-sku1.dts  |  31 ++
-> >   .../dts/mediatek/mt8186-corsola-starmie.dtsi  | 465 +++++++++++++++++=
-+
-> >   4 files changed, 529 insertions(+)
-> >   create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-starmi=
-e-sku0.dts
-> >   create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-starmi=
-e-sku1.dts
-> >   create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-starmi=
-e.dtsi
-> >
->
-> ..snip..
-> > +/*
-> > + * Battery on Starmie is using a different address than default.
-> > + */
-> > +&battery {
->
-> I didn't ask you to do it this way, and that was for a good reason.
->
-> Besides, you haven't run dtbs_check before sending this.
-> Give it a go and you'll see why.
->
-> Regards,
-> Angelo
+Hi Krzysztof,
 
-I'll update patches tomorrow once I get my Starmie back.
-Meanwhile, to limit unnecessary turnarounds, I think I'd like to leave
-the /delete-node/ for battery. In case status=3Ddisabled is used we
-still would end up with the "battery" alias pointing to the old node.
-That might be very misleading if someone ever tries to access battery
-node using &battery link. Something like below.
+On Fri, Aug 23, 2024 at 2:51=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+> Obtain the device node reference with scoped/cleanup.h to reduce error
+> handling and make the code a bit simpler.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
- /*
-  * Battery on Starmie is using a different address than default.
-  * Remove old node to avoid "battery" alias pointing to disabled
-  * node.
-  */
-/delete-node/ &battery;
-&i2c_tunnel {
-        battery: sbs-battery@f {
-                compatible =3D "sbs,sbs-battery";
-                reg =3D <0xf>;
-                sbs,i2c-retry-count =3D <2>;
-                sbs,poll-retry-count =3D <1>;
-        };
-};
+Revisiting an old patch (the same applies to 10/10)...
 
-Please let me know if you're OK with that.
+> --- a/drivers/pmdomain/renesas/rcar-gen4-sysc.c
+> +++ b/drivers/pmdomain/renesas/rcar-gen4-sysc.c
+> @@ -6,6 +6,7 @@
+>   */
+>
+>  #include <linux/bits.h>
+> +#include <linux/cleanup.h>
+>  #include <linux/clk/renesas.h>
+>  #include <linux/delay.h>
+>  #include <linux/err.h>
+> @@ -303,12 +304,12 @@ static int __init rcar_gen4_sysc_pd_init(void)
+>         const struct rcar_gen4_sysc_info *info;
+>         const struct of_device_id *match;
+>         struct rcar_gen4_pm_domains *domains;
+> -       struct device_node *np;
+>         void __iomem *base;
+>         unsigned int i;
+>         int error;
+>
+> -       np =3D of_find_matching_node_and_match(NULL, rcar_gen4_sysc_match=
+es, &match);
+> +       struct device_node *np __free(device_node) =3D
+> +               of_find_matching_node_and_match(NULL, rcar_gen4_sysc_matc=
+hes, &match);
+>         if (!np)
+>                 return -ENODEV;
 
-Thanks,
-Wojtek
+[...]
+
+> @@ -369,14 +365,12 @@ static int __init rcar_gen4_sysc_pd_init(void)
+>                 if (error) {
+>                         pr_warn("Failed to add PM subdomain %s to parent =
+%u\n",
+>                                 area->name, area->parent);
+> -                       goto out_put;
+> +                       return error;
+>                 }
+>         }
+>
+>         error =3D of_genpd_add_provider_onecell(np, &domains->onecell_dat=
+a);
+
+np is passed to of_genpd_add_provider_onecell(), which stores a copy
+for later use, so I think it must not be released in case of success?
+I.e. both the old and the new code are wrong?
 
 >
-> > +     reg =3D <0xf>;
-> > +};
->
+> -out_put:
+> -       of_node_put(np);
+>         return error;
+>  }
+>  early_initcall(rcar_gen4_sysc_pd_init);
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
