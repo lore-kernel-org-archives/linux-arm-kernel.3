@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECFAAD609B9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 09:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E406D609B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 09:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MdewxsaeaRsMrnb/HjpEG4312scL4Gi/mSb3WBwjGnY=; b=0fXOQeg3gxC6ry4Pnqrzlik+j5
-	jSZDW721bFcqTDUYYJQIa++R5xfF3UU7CX6cRlmOaFt8nK2TIzbOvswgfN+MzyFhXAvEHOmjlK9Cn
-	kFv87sZmCP4BZaoB1gwbUzAZVg9HwPcAUDLLUMqLFpDp+zXQPSKHHRUh0EZHgS3TRR1Xip2OufAA7
-	WnZzNnlnGAIWmAt1oATyNR5CK2myLFXKmmvRmLlEsGIkUfx8E+6zwcMCGj8KILjK8XW3v0VqqM5rI
-	8EIbniMrH8lDPBj0FkKiDCHmm1+AA/q3eAX2kC/2iGUguNtKTMko6ciWZANb9bm8ZX6XWfQvSof5e
-	ZjXf25CQ==;
+	bh=5xYFbeCB+e6OAmBPgxWC1aBOZF+pwN3ehhO4OEzGRVY=; b=jfe8/amgXDNez3MGRbhcnR03Cy
+	OF1htMxoJOSIOH/iwyzynK8Aq5XlctBl3phy1bEMz2JQsV3ezbSb2O7FNAZDHHNXIuAijlJPbC5FJ
+	pXeKjaSU2H8a+qmnus6tjbtIPp7dYfLhOnmtoadcOgLr6Z2gflFq0ykCm7efuR5ga92RBqmDSnrAE
+	nhqZ7M7AEOaAIitHfulykrd9Stsdu8C5Wx9jnVTwREEpjnK6DoU3gU21Cl636YNAppQW2E/45S+KJ
+	k5PVMfPPG8ShqdKcp/D3StgyYg8swToKBxe9mXU6Y26kqA5FzEtuLGtp+U2TcEwQ615HRRND8lNxC
+	Ck/St1pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGDvK-0000000Ce49-1E0G;
-	Wed, 27 Nov 2024 09:01:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tGDxl-0000000Ceac-07wE;
+	Wed, 27 Nov 2024 09:03:57 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGDuL-0000000Cdtu-49CL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 09:00:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E754E5C56BE;
-	Wed, 27 Nov 2024 08:59:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3606FC4CED3;
-	Wed, 27 Nov 2024 09:00:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732698025;
-	bh=skOG+mShRmZEUftI8NfzklM92Fji6/eTdCiEyIalZAY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QMB8cufs71rrLPIEQ4bVG2jDaYfa8StaN0GAOpQA1h/fdinByMiftHdvjWLQhO5lw
-	 DaYLtwMXqd9YYEjCnRzjPYPKexatzVpXXOYRP+UhdLbpoIVn+4NrUHW9WcoOOObvaH
-	 Hm5Ykm2Cs3XtT5AG4f8TEtQVHojz5rsBWMqX9EWlbiIPSWfDYTITc+DJSVBcFQdOWu
-	 1SitDC+yOjFQAiJPONQqDTTlKPgxNQU4ag02HsFv7mg8gX8/GH4ZfSs40/iiH47l5h
-	 TV3qw0cMe/ygKN9VeppUKg3RsWJ/fxXZ/L6T/3y1sx6GEeKj0nYbRP9dWJsFaIs27F
-	 K2/Wj2uKNYwMA==
-Date: Wed, 27 Nov 2024 10:00:21 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>
-Subject: Re: [PATCH 2/4] input: apple_z2: Add a driver for Apple Z2
- touchscreens
-Message-ID: <27amnmlm52igidlv23h3d3bvaezbdumedfkqicbtreka3llhqs@fafepduxgv43>
-References: <20241126-z2-v1-0-c43c4cc6200d@gmail.com>
- <20241126-z2-v1-2-c43c4cc6200d@gmail.com>
+	id 1tGDwm-0000000CeRv-3zfE;
+	Wed, 27 Nov 2024 09:02:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=5xYFbeCB+e6OAmBPgxWC1aBOZF+pwN3ehhO4OEzGRVY=; b=ewjAQr6UFywEDO7kuHOtJAXJTt
+	Un7LL0hV4c1nn5RZMNaYxHVlfYH/LxT3YT0sQyOWXirqP0w1jEXIvcg92jxatSJi63+64knMALY6g
+	o2QKO8YUL2JmZRdqIawTGYEjr/26SfJxCmax2fL0JijP/sOBm3xGHX1F9xU0qMx6fV9OXv35DuP3E
+	8aORms2QZEMV9dc/U3TZgO3NegubmyiyoPcmKa6uEop9Llx3NeldkIvfi6uYj5NHf4WyENHeI/Xo4
+	rb3Rqni2lHGw1SarKUr4ttOM9MLAwLtrkw7bhTyey7kv1F4HeFZGLmvwxv7uuItq4bhq6ye0/tw1x
+	8MDzd7LQ==;
+Received: from i5e86190f.versanet.de ([94.134.25.15] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tGDwd-0006eh-Pp; Wed, 27 Nov 2024 10:02:47 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
+ cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
+ andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
+ kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, Damon Ding <damon.ding@rock-chips.com>
+Subject: Re: [PATCH v1 10/10] arch64: dts: rockchip: Enable eDP0 display on RK3588S
+ EVB1 board
+Date: Wed, 27 Nov 2024 10:02:46 +0100
+Message-ID: <2485598.jE0xQCEvom@diego>
+In-Reply-To: <20241127075157.856029-11-damon.ding@rock-chips.com>
+References: <20241127075157.856029-1-damon.ding@rock-chips.com>
+ <20241127075157.856029-11-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241126-z2-v1-2-c43c4cc6200d@gmail.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_010026_119580_3A56E120 
-X-CRM114-Status: GOOD (  21.64  )
+X-CRM114-CacheID: sfid-20241127_010257_011767_61AFE5F4 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,190 +80,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 09:48:00PM +0100, Sasha Finkelstein wrote:
-> +static int apple_z2_boot(struct apple_z2 *z2)
-> +{
-> +	int timeout;
-> +
-> +	enable_irq(z2->spidev->irq);
-> +	gpiod_direction_output(z2->reset_gpio, 0);
-> +	timeout = wait_for_completion_timeout(&z2->boot_irq, msecs_to_jiffies(20));
-> +	if (timeout == 0)
-> +		return -ETIMEDOUT;
-> +	return apple_z2_upload_firmware(z2);
-> +}
-> +
-> +static int apple_z2_open(struct input_dev *dev)
-> +{
-> +	struct apple_z2 *z2 = input_get_drvdata(dev);
-> +	int error;
-> +
-> +	/* Reset the device on boot */
-> +	gpiod_direction_output(z2->reset_gpio, 1);
-> +	usleep_range(5000, 10000);
-> +	error = apple_z2_boot(z2);
-> +	if (error) {
-> +		gpiod_direction_output(z2->reset_gpio, 1);
+Hi Damon,
 
-This is less readable code. Each function should clean up its own stuff,
-so if z2_boot() de-asserted the reset, then z2_boot() should clean up by
-asserting again, not expecting the caller to do this.
+Am Mittwoch, 27. November 2024, 08:51:57 CET schrieb Damon Ding:
+> Add the necessary DT changes to enable eDP0 on RK3588S EVB1 board.
+> 
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> ---
+>  .../boot/dts/rockchip/rk3588s-evb1-v10.dts    | 84 +++++++++++++++++++
+>  1 file changed, 84 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+> index bc4077575beb..67c2e6d1bece 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+> @@ -9,6 +9,7 @@
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/input/input.h>
+>  #include <dt-bindings/pinctrl/rockchip.h>
+> +#include <dt-bindings/soc/rockchip,vop2.h>
+>  #include <dt-bindings/usb/pd.h>
+>  #include "rk3588s.dtsi"
+>  
+> @@ -116,10 +117,56 @@ masterdai: simple-audio-card,codec {
+>  
+>  	backlight: backlight {
+>  		compatible = "pwm-backlight";
+> +		brightness-levels = <
+> +			  0   1   2   3   4   5   6   7
+> +			  8   9  10  11  12  13  14  15
+> +			 16  17  18  19  20  21  22  23
+> +			 24  25  26  27  28  29  30  31
+> +			 32  33  34  35  36  37  38  39
+> +			 40  41  42  43  44  45  46  47
+> +			 48  49  50  51  52  53  54  55
+> +			 56  57  58  59  60  61  62  63
+> +			 64  65  66  67  68  69  70  71
+> +			 72  73  74  75  76  77  78  79
+> +			 80  81  82  83  84  85  86  87
+> +			 88  89  90  91  92  93  94  95
+> +			 96  97  98  99 100 101 102 103
+> +			104 105 106 107 108 109 110 111
+> +			112 113 114 115 116 117 118 119
+> +			120 121 122 123 124 125 126 127
+> +			128 129 130 131 132 133 134 135
+> +			136 137 138 139 140 141 142 143
+> +			144 145 146 147 148 149 150 151
+> +			152 153 154 155 156 157 158 159
+> +			160 161 162 163 164 165 166 167
+> +			168 169 170 171 172 173 174 175
+> +			176 177 178 179 180 181 182 183
+> +			184 185 186 187 188 189 190 191
+> +			192 193 194 195 196 197 198 199
+> +			200 201 202 203 204 205 206 207
+> +			208 209 210 211 212 213 214 215
+> +			216 217 218 219 220 221 222 223
+> +			224 225 226 227 228 229 230 231
+> +			232 233 234 235 236 237 238 239
+> +			240 241 242 243 244 245 246 247
+> +			248 249 250 251 252 253 254 255>;
 
-> +		disable_irq(z2->spidev->irq);
-> +	} else
-> +		z2->open = 1;
-> +	return error;
-> +}
-> +
-> +static void apple_z2_close(struct input_dev *dev)
-> +{
-> +	struct apple_z2 *z2 = input_get_drvdata(dev);
-> +
-> +	disable_irq(z2->spidev->irq);
-> +	gpiod_direction_output(z2->reset_gpio, 1);
-> +	z2->open = 0;
-> +	z2->booted = 0;
-> +}
-> +
-> +static int apple_z2_probe(struct spi_device *spi)
-> +{
-> +	struct device *dev = &spi->dev;
-> +	struct apple_z2 *z2;
-> +	int error;
-> +	const char *label;
-> +	struct touchscreen_properties props;
-> +
-> +	z2 = devm_kzalloc(dev, sizeof(*z2), GFP_KERNEL);
-> +	if (!z2)
-> +		return -ENOMEM;
-> +
-> +	z2->spidev = spi;
-> +	init_completion(&z2->boot_irq);
-> +	spi_set_drvdata(spi, z2);
-> +
-> +	z2->cs_gpio = devm_gpiod_get_index(dev, "cs", 0, 0);
-> +	if (IS_ERR(z2->cs_gpio)) {
-> +		if (PTR_ERR(z2->cs_gpio) != -ENOENT) {
-> +			dev_err(dev, "unable to get cs");
-> +			return PTR_ERR(z2->cs_gpio);
-> +		}
-> +		z2->cs_gpio = NULL;
-> +	}
-> +
-> +	z2->reset_gpio = devm_gpiod_get_index(dev, "reset", 0, 0);
-> +	if (IS_ERR(z2->reset_gpio)) {
-> +		dev_err(dev, "unable to get reset");
+manual brightness-levels shouldn't be needed anymore and the backlight
+can create those automatically.
 
-Syntax is: return dev_err_probe, almost everywhere here.
+So both the brightness-levels and default-brightness-level should be able
+to go away?
 
-> +		return PTR_ERR(z2->reset_gpio);
-> +	}
-> +
-> +	error = devm_request_threaded_irq(dev, z2->spidev->irq, NULL,
-> +					apple_z2_irq, IRQF_ONESHOT | IRQF_NO_AUTOEN,
-> +					"apple-z2-irq", spi);
-> +	if (error < 0) {
-> +		dev_err(dev, "unable to request irq");
-> +		return z2->spidev->irq;
-> +	}
-> +
-> +	error = device_property_read_string(dev, "label", &label);
-> +	if (error) {
-> +		dev_err(dev, "unable to get device name");
-> +		return error;
-> +	}
-> +
-> +	error = device_property_read_string(dev, "firmware-name", &z2->fw_name);
-> +	if (error) {
-> +		dev_err(dev, "unable to get firmware name");
-> +		return error;
-> +	}
-> +
-> +	z2->cal_blob = of_get_property(dev->of_node, "apple,z2-cal-blob", &z2->cal_size);
+> +		default-brightness-level = <200>;
+>  		power-supply = <&vcc3v3_lcd_edp>;
+>  		pwms = <&pwm12 0 25000 0>;
+>  	};
+>  
 
-There is no such property.
 
-You cannot sneak undocumented properties.
+Heiko
 
-> +	if (!z2->cal_blob) {
-> +		dev_warn(dev, "unable to get calibration, precision may be degraded");
-> +		z2->cal_size = 0;
-> +	}
-> +
-> +	z2->input_dev = devm_input_allocate_device(dev);
-> +	if (!z2->input_dev)
-> +		return -ENOMEM;
-> +	z2->input_dev->name = label;
-> +	z2->input_dev->phys = "apple_z2";
-> +	z2->input_dev->dev.parent = dev;
-> +	z2->input_dev->id.bustype = BUS_SPI;
-> +	z2->input_dev->open = apple_z2_open;
-> +	z2->input_dev->close = apple_z2_close;
-> +
-> +	/* Allocate the axes before setting from DT */
-> +	input_set_abs_params(z2->input_dev, ABS_MT_POSITION_X, 0, 0, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_POSITION_Y, 0, 0, 0, 0);
-> +	touchscreen_parse_properties(z2->input_dev, true, &props);
-> +	z2->y_size = props.max_y;
-> +	input_abs_set_res(z2->input_dev, ABS_MT_POSITION_X, 100);
-> +	input_abs_set_res(z2->input_dev, ABS_MT_POSITION_Y, 100);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_WIDTH_MAJOR, 0, 65535, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_WIDTH_MINOR, 0, 65535, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_TOUCH_MAJOR, 0, 65535, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_TOUCH_MINOR, 0, 65535, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_ORIENTATION, -32768, 32767, 0, 0);
-> +
-> +	input_set_drvdata(z2->input_dev, z2);
-> +
-> +	error = input_mt_init_slots(z2->input_dev, 256, INPUT_MT_DIRECT);
-> +	if (error < 0) {
-> +		dev_err(dev, "unable to initialize multitouch slots");
-> +		return error;
-> +	}
-> +
-> +	error = input_register_device(z2->input_dev);
-> +	if (error < 0)
-> +		dev_err(dev, "unable to register input device");
-> +
-> +	return error;
-> +}
-> +
-> +static const struct of_device_id apple_z2_of_match[] = {
-> +	{ .compatible = "apple,z2-multitouch" },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, apple_z2_of_match);
-> +
-> +static struct spi_device_id apple_z2_of_id[] = {
-> +	{ .name = "j293-touchbar" },
-> +	{ .name = "j493-touchbar" },
-> +	{ .name = "z2-touchbar" },
-
-You should not need all these above.
-
-> +	{ .name = "z2-multitouch" },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(spi, apple_z2_of_id);
-> +
-> +static struct spi_driver apple_z2_driver = {
-> +	.driver = {
-> +		.name	= "apple-z2",
-> +		.owner = THIS_MODULE,
-
-Drop, this is some very old code. All owners were removed ~10 or more
-years ago. This suggests you took some old or poorly maintained driver
-as a template, thus you duplicate all the issues we already fixed.
-
-> +		.of_match_table = of_match_ptr(apple_z2_of_match),
-
-Drop of_match_ptr(), you have a warning here.
-
-> +	},
-> +	.id_table       = apple_z2_of_id,
-> +	.probe		= apple_z2_probe,
-
-Best regards,
-Krzysztof
 
 
