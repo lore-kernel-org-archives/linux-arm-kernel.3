@@ -4,78 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 267DFD6ACF4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 16:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D263D6ACF3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 16:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hB9Xh72VW9EY+zK59eMd1FIwzbZov0foAMkTJrept4A=; b=v5wj6oJX/DlNfXqcFuL4vx46+a
-	pc01cBZB3BLP075K5hoZJSzVLc67voeBxyBtnjfp+j3kVp+fB2a79NWiHbjvjPgpK3G5ElwX45z0i
-	/T6aijFzVl7K7vlM4GqjZHhwxFD2XCKyc18xnwARonSFYf8HaJ0orOgwuXhcUGXmnn/ISG3UZ+OoV
-	z2HjVX5T3+wZb3OA4IOtbgpm8kNPUhhTuQF1jDie6zXEXKkhFqT1787CdkTjP3Y/N383g/PS/H1Rb
-	2Q/r4Yw0O5t4azTu4m58vt8xLJHbnTuru2/rOKRAOnRVTFd3edGPjM+Y+KLzPSAByaFfbcxuj2Uxn
-	QLSbH2rw==;
+	bh=Z7funRjx8lQefW5KmPdssuiZ8xdwFD6h0t0ZpnfERmc=; b=0VgXkO1+FC+9t8AR9OPJxbo4Vl
+	VVZIFkryUsKG38OLuImz/TVYZGOCeqKkUzbRsz9b68Wj/vOFPexL91j1e5io/DBEIQCdifE9pQmBR
+	1waTxc2IvgmB2RCcBKCRCxHdxR0p0XuM0xXTmOYxrkfXH6XL13TCDq5ie3AvurB4D2FzYFCG3N3Ms
+	EuxBP6MHfl0fxftYDmlHocWaS7TUEoATU69VOugj8p+SyAj6NgauU9Pg0/p3W8/NMGe6dFHc+GIij
+	zbNlRDcXnBFG60MaX2TnudvJSR89ZRL0bSNHU2oCioJ0qRMRCN61Tudqqmpc4GDgn/wD2+bk5F0Kd
+	YznntIYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGL1Q-0000000DeMX-3kOl;
-	Wed, 27 Nov 2024 16:36:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tGL26-0000000DeVf-387d;
+	Wed, 27 Nov 2024 16:36:54 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGKzs-0000000De69-3iUl;
-	Wed, 27 Nov 2024 16:34:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AF7125C56F5;
-	Wed, 27 Nov 2024 16:33:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26921C4CECC;
-	Wed, 27 Nov 2024 16:34:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732725275;
-	bh=hB9Xh72VW9EY+zK59eMd1FIwzbZov0foAMkTJrept4A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d9leOM0c59TbObqiL7+ozbJjH+pRogDcMZald3bYtsytIBPo/9hxKdBD8ixnrtz+l
-	 p4SrWcQRxuIlMdi3vL37Wfy2OEwgIREgB8vFAe5s6ty24kjdqG/VS9yMzJJgtxXZzK
-	 EkwwUfvcy1RLoZ1dFraUB5XG1INf0TMlRCexal6JacrXTH5h+ejGET89D3FG27i3Rx
-	 kW1zIYLGgP6vc9M6knzHeVOwt6TK7v4VyvO4JjERv7oezhYt3kKZlWp+i3TsWAqQQV
-	 vC8OWd+rTirsFnxqPUeCE9qfylWQzRt0XLx/L+9yHVpt72YNX1FE4/cHjPHGtmZEgz
-	 CJl/sjUuhQJqw==
-Date: Wed, 27 Nov 2024 16:34:29 +0000
-From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	id 1tGK1Y-0000000DWDD-3gsg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Nov 2024 15:32:18 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 8A385C0003;
+	Wed, 27 Nov 2024 15:32:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1732721533;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Z7funRjx8lQefW5KmPdssuiZ8xdwFD6h0t0ZpnfERmc=;
+	b=h06J1PDOzfKrBbGwfuW0v6NUw0khhYs9VoDHlDHLcSVyAqnV0uLino82KRIw6a4e+8ZhfR
+	eDBAD1uXmHeolU/BdytnrqQwv4fvXGhH61bh+h37HZfYj+iPj1mNh0vSGGle+pA8e6gDum
+	WCnvOjxqje1DUDf8VRVTZdlRcdpEr7ifbs2P8I3yPuTtlXK85hQGqZBWSQRsQshfjH9Kd4
+	SIAsONboJNmzMpZMch60c/JBcr6V/gAYMG5t+nBRKpByV/G9JPekxNq7YKEHcRWlU2fpir
+	88+7ZQzN8t93bjkRlFDq6WrWQtHFXoPc272JWtE3C0AAC+fbmjzXe68yIKKZPg==
+Date: Wed, 27 Nov 2024 16:32:12 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Frank Li <Frank.li@nxp.com>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Sam Protsenko <semen.protsenko@linaro.org>,
-	Will McVicker <willmcvicker@google.com>,
-	Roy Luo <royluo@google.com>, kernel-team@android.com,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH 2/9] dt-bindings: phy: samsung,usb3-drd-phy: add optional
- orientation-switch
-Message-ID: <20241127-expedited-worried-89e3603eb0e3@spud>
-References: <20241127-gs101-phy-lanes-orientation-phy-v1-0-1b7fce24960b@linaro.org>
- <20241127-gs101-phy-lanes-orientation-phy-v1-2-1b7fce24960b@linaro.org>
- <20241127-unturned-powdered-d9d1b695732d@spud>
- <20241127-pushing-baboon-4afafcf8322f@spud>
- <fba9c9df33dc2e060238a9bb3466a2fea020efde.camel@linaro.org>
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	NXP S32 Linux <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>,
+	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+Subject: Re: [PATCH v5 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
+Message-ID: <2024112715321236991788@mail.local>
+References: <20241126114940.421143-1-ciprianmarian.costea@oss.nxp.com>
+ <20241126114940.421143-3-ciprianmarian.costea@oss.nxp.com>
+ <Z0YN+5GfP6iR8a/A@lizhi-Precision-Tower-5810>
+ <14e90ec7-3815-4f06-826c-3fcf0d8d53c8@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ZR1J5D9xohh12xiE"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <fba9c9df33dc2e060238a9bb3466a2fea020efde.camel@linaro.org>
+In-Reply-To: <14e90ec7-3815-4f06-826c-3fcf0d8d53c8@oss.nxp.com>
+X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_083437_009403_206A58DF 
-X-CRM114-Status: GOOD (  20.30  )
+X-CRM114-CacheID: sfid-20241127_073217_192452_B75673D4 
+X-CRM114-Status: GOOD (  18.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,55 +83,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 27/11/2024 17:07:48+0200, Ciprian Marian Costea wrote:
+> > > +	if (priv->dt_irq_id < 0)
+> > > +		return priv->dt_irq_id;
+> > > +
+> > > +	ret = devm_request_irq(dev, priv->dt_irq_id,
+> > > +			       s32g_rtc_handler, 0, dev_name(dev), pdev);
+> > > +	if (ret) {
+> > > +		dev_err(dev, "Request interrupt %d failed, error: %d\n",
+> > > +			priv->dt_irq_id, ret);
+> > > +		goto disable_rtc;
+> > 
+> > 
+> > Already enable rtc at rtc_clk_src_setup(), you direct return fail after
+> > check clk_get_rate();
+> > 
+> > if you want to disable_rtc, you use devm_add_action_or_reset() to add
+> > a disable action callback and return dev_err_probe() here directly.
+> > 
+> > Frank
+> > 
+> 
+> Thanks for pointing this out. I will use 'devm_add_action_or_reset' in V6.
+> 
 
---ZR1J5D9xohh12xiE
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Won't this disable the RTC on driver unload which we already discussed
+should not be done?
 
-On Wed, Nov 27, 2024 at 04:27:09PM +0000, Andr=E9 Draszik wrote:
-> Hi Conor,
->=20
-> Thanks for your review.
->=20
-> On Wed, 2024-11-27 at 16:02 +0000, Conor Dooley wrote:
-> > On Wed, Nov 27, 2024 at 04:00:59PM +0000, Conor Dooley wrote:
-> > > On Wed, Nov 27, 2024 at 10:58:12AM +0000, Andr=E9 Draszik wrote:
-> > > > orientation-switch is the standard declaration to inform the Type-C
-> > > > mux
-> > > > layer that a remote-endpoint is capable of processing orientation
-> > > > change messages.
-> > > >=20
-> > > > Add as an optional since not all versions of this phy currently
-> > > > support
-> > > > or even need the orientation-switch.
-> > > >=20
-> > > > Signed-off-by: Andr=E9 Draszik <andre.draszik@linaro.org>
-> > >=20
-> > > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> >=20
-> > Actually, this patch unconditionally adds the property to the binding.
-> > Is it valid for !gs101?
->=20
-> Good point. I've only made it required for gs101 in the next patch, but a=
-s-
-> is, somebody could still add it (in error) in !gs101 cases.
+> > > +	/* Reset RTC to prevent overflow.
+> > > +	 * RTCCNT (RTC Counter) cannot be individually reset
+> > > +	 * since it is RO (read-only).
+> > > +	 */
+> > 
+> > what's happen if overflow happen? I suppose it should go back to 0 and
+> > continue increase?
+> > 
+> 
+> Indeed if overflow happens the 'RTCCNT' counter goes back to 0 and continues
+> to increase. The reason for resetting it here in 'suspend' routine comes
+> after dropping the rollover support (as agreed on V4 of this patchset) to
+> prevent an overflow during the standby state.
+> 
 
-> I guess it's best to squash patches 3 and 4 in that case, and update it to
-> disallow for !gs101.
+I don't think the overflow matters as the comparator should continue to work
+properly after it happens so you always have the complete range to wait
+for the alarm to happen.
 
-SGTM, go ahead.
 
---ZR1J5D9xohh12xiE
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ0dKFQAKCRB4tDGHoIJi
-0tYOAP9rTl2TqNpo8uGk6OWIn9r76xINLkrcaIkMySG1Pa/oQAEArFBtipMlzKaR
-UVQkQlpV6fOug4+hBcQK5BIJfyo3YwU=
-=Vv35
------END PGP SIGNATURE-----
-
---ZR1J5D9xohh12xiE--
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
