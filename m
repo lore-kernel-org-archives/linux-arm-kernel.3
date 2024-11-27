@@ -4,80 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3564D609C6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 09:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 052FED609C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 10:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nrQRRxSZDGbNXWX1+ilmaa9mcEbyxpp7VpcIwNpNg5M=; b=QmOYmu7cSOCIuo6Zq8Wg17OMeF
-	2t/GBupbZ5dAPnOTIeYSEnaDQxb9X4Sq4gN/vEk0Gdr3m6pQZc12JID4kCn2gUzrnypbnSMe87ieq
-	fDYlvb6NJzg554vJFC05renzyyrq6C5gSJoL2nxc7mhJ7jEPM/pyx9rNXIiqUEY8CxfcIsc2qyi0P
-	sxS5H5H6mUU0Dn9Z3mOYe3kmjSF6sKWN1h+FQTs/uRuhi4uTS5i5vOp2NpIThNqQ69cwmSEYKyiVh
-	ASa9pJ8EexY460xOsyC3mfvjg4LdOZSl+giEuRqc2HrTmV7ol2VGVuOpczcR09Xny0SjbeRSxe1uu
-	lhLJrryQ==;
+	bh=s0wPBAaMjSnNTX8RqBZAQUWmuUVI0sWePXuVzRgZ7Qw=; b=i54ndtrntazF2tYPE71n98d3g+
+	hs/xOqWiQrIzMeAgvwAlrgXHnT/GvVyf5PXl2rH+FRXHPV70O2K+k3lh3yqaG2hNlg5/dvx6pVyWe
+	AczTWlvj31uK5fB8Qawuv1aPx4LtD9NxmuPAhad23OKjDguTOSjfosnIP0SS3fu8OYNvklo//Frmz
+	dDuR1H0jPl8ivmTR+0BJtjoW1/DmZXiDn8jSAuRZq8cDk5BMdlpOhHvoFJZigH/x3I2/DsVuTiVvs
+	GoYabL6Wp5sJrQTltKpQKQHzSJJvBs0qqTJt6UQ0yQhSatOy1T2TNGgXkv4MyLDM8l2F+qbJe+7wt
+	8z2jQAgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGEor-0000000Cl75-0V3G;
-	Wed, 27 Nov 2024 09:58:49 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tGEre-0000000ClXr-0Yue;
+	Wed, 27 Nov 2024 10:01:42 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGEjB-0000000CkEQ-2B9J
+	id 1tGEqg-0000000ClP6-0X9W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 09:53:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 808EBA4374E;
-	Wed, 27 Nov 2024 09:51:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 01863C4CED3;
-	Wed, 27 Nov 2024 09:52:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732701176;
-	bh=mrf6lKlF96SpNcTN0gbN/Kkk9/u7S84IM9hSP1KPBDw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=OyA0CIpb58l7sK6keulMNr6mc/02BxPLn6cAkJdESs07aC+qg0b5uWMBWXRJi0b/B
-	 /r7SDWsL7VjNesD4YaQbGl9wBQ3W3dm1/qbx2Bzuof/ciAPDqLGzMCdIt90YJJcdfm
-	 si3PAgq56nQ6oaLiark25E84goCJ5Hxmg+iz3XFSLoTIWD3WbrYbhB/yBb95mZoyg9
-	 eVtKkolxuiTkAAVSfMNLEGJtAoXuB1urlylOEV7xgRdOfS/X+uOdGg3G+DHgMf4QYS
-	 Mk25VS4KlmB8I6S3jBvAqGqAooLUuY7pnkN042ko8/hjovIHRp//85Vp1E78vx35Ow
-	 q+CgJp9KBJ0UA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E3ADFD609C6;
-	Wed, 27 Nov 2024 09:52:55 +0000 (UTC)
-From: Janne Grunau via B4 Relay <devnull+j.jannau.net@kernel.org>
-Date: Wed, 27 Nov 2024 10:52:28 +0100
-Subject: [PATCH RESEND 1/5] arm64: dts: apple: t8103: Fix spi4 power domain
- sort order
+	Wed, 27 Nov 2024 10:00:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1732701641;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=s0wPBAaMjSnNTX8RqBZAQUWmuUVI0sWePXuVzRgZ7Qw=;
+	b=hy99SoKJgr0j9NXUx6JFmobIsc5lyn4m/kohEn3xLZvmYkWEv5O3vc8FkfNjIjTlllU1wp
+	kHydNNuCrh2jaNCqa9PbSGyRkLIrwHWaRyZHskktw1lj6rUZey7eeyv0tsyWT+5rRpzcvF
+	ghZgljyirnUPaPe4E4el81k3MDZF3A8=
+Received: from mail-oo1-f69.google.com (mail-oo1-f69.google.com
+ [209.85.161.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-533-i_ocD0eAMaiOm2j2qsHFRw-1; Wed, 27 Nov 2024 05:00:39 -0500
+X-MC-Unique: i_ocD0eAMaiOm2j2qsHFRw-1
+X-Mimecast-MFC-AGG-ID: i_ocD0eAMaiOm2j2qsHFRw
+Received: by mail-oo1-f69.google.com with SMTP id 006d021491bc7-5f1f269bb5cso227397eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 02:00:39 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732701639; x=1733306439;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=s0wPBAaMjSnNTX8RqBZAQUWmuUVI0sWePXuVzRgZ7Qw=;
+        b=PAJkim8ERCS3R7m73BsM1BAat7NNfiAMrQJH7IPS/5HO//9q7PUHE75Cb0deUqrzlA
+         AtkXl3Ppi9tjtfFtK31eaIoJAgcqvfNMBl9A92eO8fIFy+Hk7WeyVPpogVjyxR6E2T7S
+         NWjY/uFUDDtSqpS22wQUWgq/q/Az6ih6JbUbmX9f2ydQ9Bo+GkjEhi5EX3MzQbtIraCZ
+         c8jbRB10a9BFpY5N5U7S/0nQM+GlzWfDC0GGVeJTcwIVhdFt4ewWOGi172BoHbQFQhXO
+         QC7tonCMbAQf9miJ2NZ7u3CBb5QfKm0qULbl33INdUPYgNBfejjZV8U4LWoPKSgKeXl0
+         2dNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWQSeCzYRL9wRKqJCE/WZmdr7fBo1i+Nd/BxyHVMY7YvXRQe0i5OJ19cFPbP2WPcivCWJFssL+3ORC9U9F0LYqw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2gdO7k0jjsAYnIGjleVilsZcC8WQVxL8t9zT7XBKYrgK3Y6E0
+	I/woI6nTBWHq+MLCXmdNitee2tzYGlL63TI1hN9xhFQ3BffYk0OAbYmbTJBBbjrvShTT5hxRdm0
+	EcPCdTGJdUC3YebE2qnCLCqNLNrqHfyEXPBxYI9yLpGW3oTKn93eALKciriEqaVtltFjpSPjT7Y
+	k4jBrTrTTyk1JCZONPISG9PHu7Ts6lw3EeKzfDgiZkQeAs+Kym1JvN9USKqgmohlM=
+X-Gm-Gg: ASbGncucsLYlTCIGOEvI+aIRLfsPN0G2Jg/N12GOY5JMXIy8tZGG22chfy5fx5fKaqS
+	jWLvLuNEersWamZqu3FpK6D71IIvd2w==
+X-Received: by 2002:a05:6870:c152:b0:27b:b2e0:6af with SMTP id 586e51a60fabf-29dc3fb9cd2mr485566fac.2.1732701638779;
+        Wed, 27 Nov 2024 02:00:38 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFxVRugfM1h6RP4poBOiNX8qRrDOehBisqylVM+eiLebPmXpS2cMHMjj58RYifbv8/vFUZK4bOyHhB27KGFiHc=
+X-Received: by 2002:a05:6870:c152:b0:27b:b2e0:6af with SMTP id
+ 586e51a60fabf-29dc3fb9cd2mr485554fac.2.1732701638432; Wed, 27 Nov 2024
+ 02:00:38 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241127-asahi-spi-dt-v1-1-907c9447f623@jannau.net>
-References: <20241127-asahi-spi-dt-v1-0-907c9447f623@jannau.net>
-In-Reply-To: <20241127-asahi-spi-dt-v1-0-907c9447f623@jannau.net>
-To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Janne Grunau <j@jannau.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1456; i=j@jannau.net;
- s=yk2024; h=from:subject:message-id;
- bh=dM/GrGK9N/5tAToyLPPTWx70HidhWtGG6XOo893Pexw=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhnS311/32JbP5bsq58ui+/r2j9WvAx7t70h6m/D3h2PmR
- VuH+oK0jlIWBjEuBlkxRZYk7ZcdDKtrFGNqH4TBzGFlAhnCwMUpABPZPp3hr/hp1+8/arcbTFp/
- 4argg5kL7Fgvv93rdbijhvPHpdnzTxgzMtwQfK5+QCftNNcO8/Ue4mtZH3FndTJeEwgW83u7f/H
- jTBYA
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
-X-Endpoint-Received: by B4 Relay for j@jannau.net/yk2024 with auth_id=264
-X-Original-From: Janne Grunau <j@jannau.net>
+References: <20241126-am69sk-dt-usb-v1-1-aa55aed7b89e@redhat.com> <2nuncc5rscu6h74ylaiu6yozg34aoigaj5d4uzvdtolt5q7bmv@6hacpxyb2532>
+In-Reply-To: <2nuncc5rscu6h74ylaiu6yozg34aoigaj5d4uzvdtolt5q7bmv@6hacpxyb2532>
+From: Enric Balletbo i Serra <eballetb@redhat.com>
+Date: Wed, 27 Nov 2024 11:00:27 +0100
+Message-ID: <CALE0LRtUN2N_Z05jH_BMSg7yvirSRob0pSErmQxTu8AatmODgw@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am69-sk: Add USB SuperSpeed support
+To: s-vadapalli <s-vadapalli@ti.com>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Dasnavis Sabiya <sabiya.d@ti.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 3rLPh3hvoXAjGBKwgdtTxspCqGZ6vGZy0uYCt5ecvnc_1732701639
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_015257_690796_21399B53 
-X-CRM114-Status: UNSURE (   8.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241127_020042_238936_FE3DCAE2 
+X-CRM114-Status: GOOD (  24.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,56 +101,85 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: j@jannau.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hector Martin <marcan@marcan.st>
+Hi,
 
-Signed-off-by: Hector Martin <marcan@marcan.st>
----
- arch/arm64/boot/dts/apple/t8103-pmgr.dtsi | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
+On Wed, Nov 27, 2024 at 9:27=E2=80=AFAM s-vadapalli <s-vadapalli@ti.com> wr=
+ote:
+>
+> On Tue, Nov 26, 2024 at 11:08:19AM +0100, Enric Balletbo i Serra wrote:
+>
+> Hello Enric,
+>
+> > From: Dasnavis Sabiya <sabiya.d@ti.com>
+> >
+> > AM69 SK board has two stacked USB3 connectors:
+> >    1. USB3 (Stacked TypeA + TypeC)
+> >    2. USB3 TypeA Hub interfaced through TUSB8041.
+> >
+> > The board uses SERDES0 Lane 3 for USB3 IP. So update the
+> > SerDes lane info for PCIe and USB. Add the pin mux data
+> > and enable USB 3.0 support with its respective SERDES settings.
+> >
+> > Signed-off-by: Dasnavis Sabiya <sabiya.d@ti.com>
+> > Signed-off-by: Enric Balletbo i Serra <eballetb@redhat.com>
+> > ---
+> > I've been carrying this patch for quite long time in my builds to have
+> > support for USB on my AM69-SK board without problems. For some reason t=
+his
+> > patch was never send to upstream or I couldn't find it. So I took the
+> > opportunity, now that I rebased my build, to send upstream.
+> >
+> > I have maintained the original author of the downstream patch as is
+> > basically his work.
+> > ---
+> >  arch/arm64/boot/dts/ti/k3-am69-sk.dts | 33 +++++++++++++++++++++++++++=
+++++++
+> >  1 file changed, 33 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/ti/k3-am69-sk.dts b/arch/arm64/boot/dt=
+s/ti/k3-am69-sk.dts
+>
+> [...]
+>
+> > +&usb0 {
+> > +     status =3D "okay";
+> > +     dr_mode =3D "host";
+>
+> Since the Type-C interface is also connected to USB0, shouldn't "dr_mode"
+> be "otg"? Also, has the Type-C interface been tested with this patch?
+> Please let me know.
+>
 
-diff --git a/arch/arm64/boot/dts/apple/t8103-pmgr.dtsi b/arch/arm64/boot/dts/apple/t8103-pmgr.dtsi
-index 9645861a858c1a7c46c25a614c2cc4b03083bf46..c41c57d63997a59a9fe3c88de31fddb31781398e 100644
---- a/arch/arm64/boot/dts/apple/t8103-pmgr.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8103-pmgr.dtsi
-@@ -387,6 +387,15 @@ ps_spi3: power-controller@258 {
- 		power-domains = <&ps_sio>, <&ps_spi_p>;
- 	};
- 
-+	ps_spi4: power-controller@260 {
-+		compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x260 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "spi4";
-+		power-domains = <&ps_sio>, <&ps_spi_p>;
-+	};
-+
- 	ps_uart_n: power-controller@268 {
- 		compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
- 		reg = <0x268 4>;
-@@ -558,15 +567,6 @@ ps_mcc: power-controller@2f8 {
- 		apple,always-on; /* Memory controller */
- 	};
- 
--	ps_spi4: power-controller@260 {
--		compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
--		reg = <0x260 4>;
--		#power-domain-cells = <0>;
--		#reset-cells = <0>;
--		label = "spi4";
--		power-domains = <&ps_sio>, <&ps_spi_p>;
--	};
--
- 	ps_dcs0: power-controller@300 {
- 		compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
- 		reg = <0x300 4>;
+Yes, all usb from the board were tested. I'll try otg mode for the
+Type-C interface and resend the patch.
 
--- 
-2.47.0
+$ lsusb -t
+/:  Bus 001.Port 001: Dev 001, Class=3Droot_hub, Driver=3Dxhci-hcd/1p, 480M
+    |__ Port 001: Dev 002, If 0, Class=3DHub, Driver=3Dhub/4p, 480M
+        |__ Port 001: Dev 003, If 0, Class=3DHub, Driver=3Dhub/4p, 480M
+            |__ Port 001: Dev 004, If 0, Class=3DHuman Interface Device,
+Driver=3Dusbhid, 1.5M
+            |__ Port 001: Dev 004, If 1, Class=3DHuman Interface Device,
+Driver=3Dusbhid, 1.5M
+        |__ Port 002: Dev 005, If 0, Class=3DMass Storage,
+Driver=3Dusb-storage, 480M
+/:  Bus 002.Port 001: Dev 001, Class=3Droot_hub, Driver=3Dxhci-hcd/1p, 5000=
+M
+    |__ Port 001: Dev 002, If 0, Class=3DHub, Driver=3Dhub/4p, 5000M
+        |__ Port 003: Dev 004, If 0, Class=3DMass Storage,
+Driver=3Dusb-storage, 5000M
+        |__ Port 004: Dev 003, If 0, Class=3DMass Storage,
+Driver=3Dusb-storage, 5000M
 
+Thanks,
+   Enric
+> [...]
+>
+> Regards,
+> Siddharth.
+>
 
 
