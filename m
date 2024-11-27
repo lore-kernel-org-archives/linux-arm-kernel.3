@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB3CD609D8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987A7D609DB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+2z95vIVxpdoEpIHV1Hs2li8opRkM10lvZmaKrYhPuQ=; b=4gKMVJlfUBShsm9y3rhbaDNMK4
-	YPoo3IJcRRvbkazzXk6jhuLdvpXw71aTtm220tRlQtX9KvW6fkFP8DXW+cPRvYPj++ZtwQ0vXleMC
-	MbFSko4NLoc4Gv0ct+KWPfPzWrfVj7fZbg9rQx5ITOzhBuRsBhGTQIHBWDpOpYzALkJRtGdBcQFDU
-	XJI/dY0yU8QsGFsm7pVc8upn3rjtft4wRL6lG0tcu5QSiP7N63j4U9l4Y0/SPJC5nY5Ozcw6AhfP6
-	pPGTORSGSsG3Acv9j1lqlSFD6lYRcCRV3PucHyIPp48ZLLdn5CjALJRX6WTRhfgAI9DImYlaYeoPM
-	GpXKyMXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3pnFazxY8HzLhh4gTcIsD9NoAcCruO+q2t9IKoBKYJw=; b=ia8uR/PHTELo4sV/UiNpVCcS5U
+	dks17O8X4rWgQUy4g2ZUs9WBOnzaBJx9uMxRO8b0TKJYulZ5u5/4fvBzDOFxbfnY340JyrGnx5EWL
+	JPE4s+StqtciMpYWzYCOWsWImzaV32ufghHzeYzYbj3GvMR2Q9Vmqxi294HY2PQb7uI1LrRXCQvMu
+	F0k6H71GKLs3dTk4qkIgAx/PCStPp2jJoUc4t8PVdPlAIJ4ELoP/S2BeAztsqo/Li2kQ/W/kAbpwF
+	Nb3DvfzpjM8A3j6MUcs/eO4O7+7XFFzoJU6w1HYny07CQrY26LRmTt47UoW+gD4y+EMa1aHksLRaN
+	CZq8/a2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGGAE-0000000D0PG-0t5f;
-	Wed, 27 Nov 2024 11:24:58 +0000
-Received: from mail-wr1-x462.google.com ([2a00:1450:4864:20::462])
+	id 1tGGBA-0000000D0YG-07xI;
+	Wed, 27 Nov 2024 11:25:56 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGG0w-0000000CyI3-1lQz
+	id 1tGG5l-0000000CzFE-1JGn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 11:15:24 +0000
-Received: by mail-wr1-x462.google.com with SMTP id ffacd0b85a97d-3823e45339bso4784827f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 03:15:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1732706121; x=1733310921; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+2z95vIVxpdoEpIHV1Hs2li8opRkM10lvZmaKrYhPuQ=;
-        b=jGPGZdUbBGvf/TnS+fcMkYPZTv7SBf2UwmB55X/gZz4V06OZL8QnDqAB0SYXmBc6OW
-         iD4L6UALZsf24q8vv0guU0z0r+hK74TYNfe8HogfS2QGchvMvR27rq6sOq3rehAqzGwy
-         a6NhX72Lx2eurGzLi8bRfkKx5fV/1X3Ya3rDKPlA7yVe0s2E0ugX+APJBnZCKKspsJpE
-         66t+Hqwzcxjek3cgMx1Ns5kPORDMun5m6EYhfIlD5jlw4YObe5w8rTZGEOM3Lgj5B1v7
-         hVLiY4ZmbnmSwRBlvITwMmSpVGkbRCvnP8g96VCUksi6mWbrHreUgAQMpAkt06DG9rYp
-         bTxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732706121; x=1733310921;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+2z95vIVxpdoEpIHV1Hs2li8opRkM10lvZmaKrYhPuQ=;
-        b=MX3lky0ZEpSUWXFxlv5GXB9ig7Wg4M/wrtgv0KMxTRNu8AIWNZjIvnLHo+OqEQQP3m
-         2daKtnqEvyTghK05/ff+bugVsy0fy9Clo7eAKMKV/hEwAAzEfI4eFQpG86NHrF9Iw7iG
-         EaQpEGXWHF7eqrssXzdhRW5be1J8o9OAWQalDRz72d4E9IW/JK9KXtYO0QoB4QiJYql6
-         +gLXKdIaak7HFb1hmVslFj86UxRsYlyo1+pDUbMhHCtcJ8GsekU4BGshHzMouthmMmqm
-         VB6I5khz1bSvndo/3mO4rISjnf/a8Wj6TWEYqJg7g87YgMt7SvHCr26z3KOSjw0asCx8
-         pUvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWkNlr49P3pF9zxwZ9Uzj2mfuu4dCVSk3dujLIh5fo5mz8ww8UZ+NAnaNCYSpFh00uYuk3zXcBJUVsBrY85dcuP@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgjANPbcfIFSwCfIzd38T4olfSKnRGQaS6KAYdYCTTAuxarKjD
-	X03MD3P7nyMWqKhet17czYpVYKiqkoR8rjnbkgC5u1BV/rgT/RBniGk5noOah5d2KZWUd5nw3uT
-	M2/U8NaanDAXESlHvJMu4IEh77VA+vLD1
-X-Gm-Gg: ASbGncsp0L4hmknBXv8hFuiNXJKutyY8ttbVH78qnyc3XNbQxRRYoxu8MFywcW8qGVb
-	cadXcBkql/9am2JhhHx0/t8kRPWFNO7i6L5K/d/vmImrgBEwral6XYaxIna5N946gs2k/82qlUd
-	iHilYyk9Qvcp/bWrh8iOv1Wr/PGHjA6jPYJzSsbczsFPivpOaHThfVMb97NlHPcVt75chNJ6bh1
-	NXqiZKtv39MZDhCf77Eq26s13UxCTFpq6zm5P/V5/idNxq4uyLouaqdW3Sx/7Ee+w==
-X-Google-Smtp-Source: AGHT+IFqYJhAmhFIs4MrJEK2DwK6ZnHRiHMIjhqtLKd1Q8gK+tAk+5Dr+yVE8hWUGs5AFt4Q0h739aNEfBbT
-X-Received: by 2002:a05:6000:18a5:b0:382:2349:5a7b with SMTP id ffacd0b85a97d-385c6ebba1cmr1732527f8f.16.1732706120527;
-        Wed, 27 Nov 2024 03:15:20 -0800 (PST)
-Received: from raspberrypi.com ([93.93.133.154])
-        by smtp-relay.gmail.com with ESMTPS id ffacd0b85a97d-3825fd0041fsm441847f8f.95.2024.11.27.03.15.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Nov 2024 03:15:20 -0800 (PST)
-X-Relaying-Domain: raspberrypi.com
-From: Naushir Patuck <naush@raspberrypi.com>
-To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Wed, 27 Nov 2024 11:20:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=3pnFazxY8HzLhh4gTcIsD9NoAcCruO+q2t9IKoBKYJw=; b=MSah3XyKasAIMaryEwuVLGuety
+	aV5UulyDIACFz2Fga7NQ4B3f+aS2m3NVO7MErNGrPkCd3cj/0I1CpmFK0f4Ngqiq0FOL/ZHPTHOvK
+	/ckaHb7ObAZDGfZtkQIbsB102cURe9h/f7H//YFkWHFEbMlOJ6mlDiRcwIsXyRrSlbWogeyFpZH8v
+	qCZJuSTKO4Eg4WLoFCef52QMAcuoAjzp0fhe7MaZOiagtSYi2jKQ1gpB4aXKd36D3Uco9+7Oy0Vag
+	3tdkB8WZ1RZzSbHq9VUXWLF0kcS5OmlnP6WvlS+M8IZz8IAYiAkS+SCG1V+Y0jU2Adsb1r7PDqsdX
+	GfM0qPQg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36484)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tGG5b-0000FS-2u;
+	Wed, 27 Nov 2024 11:20:12 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tGG5Y-00076z-1d;
+	Wed, 27 Nov 2024 11:20:08 +0000
+Date: Wed, 27 Nov 2024 11:20:08 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Bryan Whitehead <bryan.whitehead@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>
-Cc: linux-media@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	jacopo.mondi@ideasonboard.com,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Naushir Patuck <naush@raspberrypi.com>
-Subject: [PATCH v2 2/4] drivers: media: bcm2835-unicam: Allow setting of unpacked formats
-Date: Wed, 27 Nov 2024 11:15:13 +0000
-Message-Id: <20241127111515.565992-3-naush@raspberrypi.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241127111515.565992-1-naush@raspberrypi.com>
-References: <20241127111515.565992-1-naush@raspberrypi.com>
+	linux-stm32@st-md-mailman.stormreply.com,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com
+Subject: Re: net: ti: weirdness (was Re: [PATCH RFC net-next 00/23] net:
+ phylink managed EEE support)
+Message-ID: <Z0cAaH30cXo38xwE@shell.armlinux.org.uk>
+References: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_031522_474202_61FCE575 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20241127_032021_347696_D401CA1B 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,31 +90,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When matching formats via try_fmt/set_fmt ioctls, test for the unpacked
-formats as well as packed formats. This allows userland clients setup
-unpacking to 16-bits from the 10/12/14-packed CSI2 formats.
+On Tue, Nov 26, 2024 at 12:51:36PM +0000, Russell King (Oracle) wrote:
+> In doing this, I came across the fact that the addition of phylib
+> managed EEE support has actually broken a huge number of drivers -
+> phylib will now overwrite all members of struct ethtool_keee whether
+> the netdev driver wants it or not. This leads to weird scenarios where
+> doing a get_eee() op followed by a set_eee() op results in e.g.
+> tx_lpi_timer being zeroed, because the MAC driver doesn't know it needs
+> to initialise phylib's phydev->eee_cfg.tx_lpi_timer member. This mess
+> really needs urgently addressing, and I believe it came about because
+> Andrew's patches were only partly merged via another party - I guess
+> highlighting the inherent danger of "thou shalt limit your patch series
+> to no more than 15 patches" when one has a subsystem who's in-kernel
+> API is changing.
 
-Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
-Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
----
- drivers/media/platform/broadcom/bcm2835-unicam.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Looking at the two TI offerings that call phy_ethtool_get_eee(), both
+of them call the phylib functions from their ethtool ops, but it looks
+like the driver does diddly squat with LPI state, which makes me wonder
+why they implemented the calls to phy_ethtool_get_eee() and
+phy_ethtool_set_eee(), since EEE will not be functional unless the PHY
+has been configured with a SmartEEE mode outside the kernel.
 
-diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-index 36fb186a0421..d573d4d89881 100644
---- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-+++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-@@ -547,7 +547,8 @@ unicam_find_format_by_fourcc(u32 fourcc, u32 pad)
- 	}
- 
- 	for (i = 0; i < num_formats; ++i) {
--		if (formats[i].fourcc == fourcc)
-+		if (formats[i].fourcc == fourcc ||
-+		    formats[i].unpacked_fourcc == fourcc)
- 			return &formats[i];
- 	}
- 
 -- 
-2.34.1
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
