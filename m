@@ -4,89 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73209D6ACD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 13:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA88D6ACD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 13:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7njX2qcYZvO6vOSLv4oNfTTNGnncqtHXP/PHkDETIWA=; b=Sw9OahFVlmxcx13cBKVEni/FRp
-	o4kV/D6SMm7rBWiCISCkjBPapTmWqBFUuXzKyQ8iHnZWA+jK8/g1wJqflWMG2DKBsoZg9iLOh829V
-	UpmtRq5pzfrflnoMLSbLYsqLr3ngG3l3Vx8mQuMa9YAypnLigGykkVsM6NXH1YCoHbnMxzJ4nR5KQ
-	LoBfRNXKuvZuFMj6jro/oP+jCLrGOPpUzsElRqKmZcryCqXEnjcp1YGlhgSteuFoDPU4i/slkbVrO
-	4ctJQxK4sw1c4v4K0sWRuGsHwLJ9W+Zos8sH4B9zMuTptog26aq2gZfrrFAdZKor5QEDiGRw5pYVV
-	ETjLPuIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6DM2DT8CY9jEtEyUgy7jwM3vP0NpdcYiJ0pskW32cFE=; b=jH3VbqimzX5ycYtE5/HESsGNTi
+	4PLeJUux9JaodIcyKOH5yhWfxAO5f/+jo3sizo+QSP+DIRlKWbOTiOAkLLgBXpZCM3sOG6hcNHdl6
+	aj8ral0bi6NIs/6K6uA85z0Ku6T2C0kCVcJvsRiQyG4AffGRxdokwMfcxF6OdxsENezVpIQi4yHY/
+	xjGvF0u6UcRQ+8N23NYTvSSu42MQ65bYE4WMQrWMKN1AizfVRGhPipaOkOD8xZ3x9ee11P59RE+fY
+	vRcjvR/4B9obc1wrBeg/2gtbEd1m/dV/GA/MkJFjHaVWh+3s1bOb2Z70De8q11lppgxjXqtiPio8y
+	DpdPfEpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGITI-0000000DJ86-2Xx2;
-	Wed, 27 Nov 2024 13:52:48 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1tGIUF-0000000DJJd-29lB;
+	Wed, 27 Nov 2024 13:53:47 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGIJz-0000000DHOB-1DCM
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 13:43:12 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-382325b0508so4298658f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 05:43:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732714989; x=1733319789; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7njX2qcYZvO6vOSLv4oNfTTNGnncqtHXP/PHkDETIWA=;
-        b=Naf1ygy6djyPKUyM7dR+CyWupgDDepEUWoxxpICFnV2OW3klQjVlDObL3B6X3w3L8F
-         Sph5nv653kahJRVOvUTAuICn+QXm8Ow8CBlFpLT30xukWc52bqNcut3Na6U3dRGik7Xg
-         BZMMY0vKwmA3gNviEn8+i8TW0IEbDsFpMdjBP1Rnro2qeWgNCD/O7riuhMH1bmjU7X6o
-         y/YMUWoR5WkXbHGG68rtPiEHbSWYzuFhUXSkAFqXL5h0VUATVbqhKriTeExrJWYm4LUL
-         sg6dYHKMdsWxwV6cvfsXts50nznbokJmPgzVpjfJT1AJtSTBrEx3/5uE7asDTZ1iNnlv
-         dpXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732714989; x=1733319789;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7njX2qcYZvO6vOSLv4oNfTTNGnncqtHXP/PHkDETIWA=;
-        b=YAusocdvClg2MBrzbtmKy8vPJvV0MhXiFgjHx2ahdoHb5rRQW7Cu0Rk+8AAwNyhoOT
-         WomWPw/RH+yK7wZX7akP0pFvXlrprylaDIKovLXaE8Susrvi1GcIA2vWsCBCATnO5rX/
-         PUh/qoIvq4PBP5wA3FX01apuyUKgg1D3Vf/uf+L2CWSYUcDuU9x2qTXn23IzW/TWUDKU
-         VIH93QYdOzZw8/U/VNMO0uqNBahP0dULupUFb6RiNzWhN+lC5omqCXA7ywzZVKonTvGz
-         xlkPOm3SrP/vovAuLuEjmJLIs9ZOdi4Kx6ZV5d9cpjVvCw5ZV/hkFXASYQrOaZqebYYL
-         kJ1w==
-X-Gm-Message-State: AOJu0YxbrfCELW6GlshCPILj8lUajrQj4+2VUR4+3SudFFb7Qqvt9QHM
-	PTxCZRw4olcPLrtv+RTxie9xanleugyxVWAZMq1lamBE4iTdYQOv0UfXgvDu1TU4Pzzdzs1wboE
-	B
-X-Gm-Gg: ASbGncv0DWNc4ugspRsSFUXD+rh0h4Kf8NAQH2Nf3HsKF6We1yJcYcY1I52Mvq39rUz
-	xciGpMVNcor056LKST6D0+4ran0QKBEP9PgDZaSjzeJDRnZxN8rjI8kgomETxHArvBscSSsdODo
-	drOIMrG4QLlZVB1i1T9RKz2YCF0WkuGVjZTpEPAKXoVjeqtWWL79UmBihafAKpW5axSUVVeWJ3M
-	rcA8hni6E0ngBhZaAyK9inS4pPq26Tpny0vLcYZD+bxlCujdO+T
-X-Google-Smtp-Source: AGHT+IHtYk4lGlVanH8Zl/bhihmPXZaX9Uid8tNSLVUiXA+XljSYVslcRPdWrI2XiTM3QzDUET83UQ==
-X-Received: by 2002:a05:6000:4818:b0:382:5af:e990 with SMTP id ffacd0b85a97d-385c6ee221amr2393086f8f.49.1732714989351;
-        Wed, 27 Nov 2024 05:43:09 -0800 (PST)
-Received: from linaro.org ([2a00:23c5:6829:901:9ff7:e7c5:5e0f:c5ce])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3825fad5fa2sm16804645f8f.1.2024.11.27.05.43.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Nov 2024 05:43:08 -0800 (PST)
-From: Mike Leach <mike.leach@linaro.org>
-To: linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org,
-	linux-kernel@vger.kernel.org
-Cc: suzuki.poulose@arm.com,
-	james.clark@arm.com,
-	Mike Leach <mike.leach@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	linux-doc@vger.kernel.org
-Subject: [PATCH v7 9/9] Documentation: coresight: Docs for configuration table load
-Date: Wed, 27 Nov 2024 13:42:56 +0000
-Message-Id: <20241127134256.2254851-10-mike.leach@linaro.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241127134256.2254851-1-mike.leach@linaro.org>
-References: <20241127134256.2254851-1-mike.leach@linaro.org>
+	id 1tGIKr-0000000DHdT-39OJ;
+	Wed, 27 Nov 2024 13:44:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 31C62A4389C;
+	Wed, 27 Nov 2024 13:42:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77148C4CECC;
+	Wed, 27 Nov 2024 13:44:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732715044;
+	bh=J5kbzFJdRU8mGY871AZ3Cz82lCZYsmam9fRQzz21ITk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hSSmnWMEoU1j6ZJ3uX6MsrZUbaV5vF9BPfFyVIk4PEduBfHU+/mYermlj1Jt0GIGc
+	 u3np+OJuvEHZqlF2+FsIs6HxrnnlzXI1k/j04JS7ZRlkV5GXE44BtSKwNcu8iCIXHF
+	 9I1wMZZ86PSAcNK8ooEArxq3uTanWIMoFZguxp73wIfOj9Ue+ZZZ/hZ+lJi3g+rqDT
+	 IeiPMn3RTq5xgp6oSQPlSQWkgLPuvKJgG4CoumDeFGt0xYvQaIjP2j6rs4iZl1n1Dl
+	 bGoKcsv3JUmpFuc/z9GK/c6s9l8s9fsK0JkSJN4ibherM9WlldEA6OWqL0NRxcv2K1
+	 PNoeX8o8MUVwQ==
+Date: Wed, 27 Nov 2024 07:44:02 -0600
+From: Rob Herring <robh@kernel.org>
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v2 0/2] Preserve the flags portion on 1:1 dma-ranges
+ mapping
+Message-ID: <20241127134402.GA3351562-robh@kernel.org>
+References: <cover.1732441813.git.andrea.porta@suse.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1732441813.git.andrea.porta@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_054311_330868_0D7090FF 
-X-CRM114-Status: GOOD (  37.51  )
+X-CRM114-CacheID: sfid-20241127_054405_856296_85BF4AD5 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,408 +96,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add documentation covering the updates that allow
-configuration tables to be loaded and unloaded via configfs,
-along with the demonstration programs in tools/coresight.
+On Sun, Nov 24, 2024 at 11:05:35AM +0100, Andrea della Porta wrote:
+> Empty dma-ranges in DT nodes using 3-cell address spcifier cause the
+> flag portion to be dropped by of_translate_one(), failing the translation
+> chain. This patch aims at fixing this issue.
+> 
+> Part of this patchset was originally preparatory for a bigger patchset
+> (see [1]). It has been split in a standalone one for better management
+> and because it contains a bugfix which is probably of interest to stable
+> branch.
+> I've also added new tests to unittest to prove it.
+> 
+> Many thanks,
+> Andrea
+> 
+> References:
+> [1] - https://lore.kernel.org/all/3029857353c9499659369c1540ba887d7860670f.1730123575.git.andrea.porta@suse.com/
+> 
+> 
+> Changes in V2:
+> 
+> - Added blank lines between paragraphs in commit message for patch 2
+> - Fixed a comment to explain the code behaviour in a straighter way
+> 
+> 
+> Andrea della Porta (2):
+>   of/unittest: Add empty dma-ranges address translation tests
+>   of: address: Preserve the flags portion on 1:1 dma-ranges mapping
+> 
+>  drivers/of/address.c                        |  3 +-
+>  drivers/of/unittest-data/tests-address.dtsi |  2 ++
+>  drivers/of/unittest.c                       | 39 +++++++++++++++++++++
+>  3 files changed, 43 insertions(+), 1 deletion(-)
 
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: linux-doc@vger.kernel.org
-Signed-off-by: Mike Leach <mike.leach@linaro.org>
----
- .../trace/coresight/coresight-config.rst      | 287 ++++++++++++++++--
- 1 file changed, 264 insertions(+), 23 deletions(-)
+Applied, thanks!
 
-diff --git a/Documentation/trace/coresight/coresight-config.rst b/Documentation/trace/coresight/coresight-config.rst
-index 6d5ffa6f7347..235cc6443a86 100644
---- a/Documentation/trace/coresight/coresight-config.rst
-+++ b/Documentation/trace/coresight/coresight-config.rst
-@@ -109,20 +109,20 @@ Operation
- 
- The following steps take place in the operation of a configuration.
- 
--1) In this example, the configuration is 'autofdo', which has an
--   associated feature 'strobing' that works on ETMv4 CoreSight Devices.
-+1) In this example, the configuration is ``autofdo``, which has an
-+   associated feature ``strobing`` that works on ETMv4 CoreSight Devices.
- 
--2) The configuration is enabled. For example 'perf' may select the
-+2) The configuration is enabled. For example ``perf`` may select the
-    configuration as part of its command line::
- 
-     perf record -e cs_etm/autofdo/ myapp
- 
--   which will enable the 'autofdo' configuration.
-+   which will enable the ``autofdo`` configuration.
- 
- 3) perf starts tracing on the system. As each ETMv4 that perf uses for
-    trace is enabled,  the configuration manager will check if the ETMv4
-    has a feature that relates to the currently active configuration.
--   In this case 'strobing' is enabled & programmed into the ETMv4.
-+   In this case ``strobing`` is enabled & programmed into the ETMv4.
- 
- 4) When the ETMv4 is disabled, any registers marked as needing to be
-    saved will be read back.
-@@ -136,18 +136,18 @@ Viewing Configurations and Features
- The set of configurations and features that are currently loaded into the
- system can be viewed using the configfs API.
- 
--Mount configfs as normal and the 'cs-syscfg' subsystem will appear::
-+Mount configfs as normal and the ``cs-syscfg`` subsystem will appear::
- 
-     $ ls /config
-     cs-syscfg  stp-policy
- 
--This has two sub-directories::
-+This has two sub-directories, with the load and unload attribute files::
- 
-     $ cd cs-syscfg/
-     $ ls
--    configurations  features
-+    configurations features load  unload
- 
--The system has the configuration 'autofdo' built in. It may be examined as
-+The system has the configuration ``autofdo`` built in. It may be examined as
- follows::
- 
-     $ cd configurations/
-@@ -162,7 +162,7 @@ follows::
-     $ cat feature_refs
-     strobing
- 
--Each preset declared has a 'preset<n>' subdirectory declared. The values for
-+Each preset declared has a ``preset<n>`` subdirectory declared. The values for
- the preset can be examined::
- 
-     $ cat preset1/values
-@@ -170,7 +170,7 @@ the preset can be examined::
-     $ cat preset2/values
-     strobing.window = 0x1388 strobing.period = 0x4
- 
--The 'enable' and 'preset' files allow the control of a configuration when
-+The ``enable`` and ``preset`` files allow the control of a configuration when
- using CoreSight with sysfs.
- 
- The features referenced by the configuration can be examined in the features
-@@ -210,18 +210,18 @@ Using Configurations in perf
- ============================
- 
- The configurations loaded into the CoreSight configuration management are
--also declared in the perf 'cs_etm' event infrastructure so that they can
-+also declared in the perf ``cs_etm`` event infrastructure so that they can
- be selected when running trace under perf::
- 
-     $ ls /sys/devices/cs_etm
-     cpu0  cpu2  events  nr_addr_filters		power  subsystem  uevent
-     cpu1  cpu3  format  perf_event_mux_interval_ms	sinks  type
- 
--The key directory here is 'events' - a generic perf directory which allows
-+The key directory here is ``events`` - a generic perf directory which allows
- selection on the perf command line. As with the sinks entries, this provides
- a hash of the configuration name.
- 
--The entry in the 'events' directory uses perfs built in syntax generator
-+The entry in the ``events`` directory uses perfs built in syntax generator
- to substitute the syntax for the name when evaluating the command::
- 
-     $ ls events/
-@@ -229,7 +229,7 @@ to substitute the syntax for the name when evaluating the command::
-     $ cat events/autofdo
-     configid=0xa7c3dddd
- 
--The 'autofdo' configuration may be selected on the perf command line::
-+The ``autofdo`` configuration may be selected on the perf command line::
- 
-     $ perf record -e cs_etm/autofdo/u --per-thread <application>
- 
-@@ -246,7 +246,7 @@ Using Configurations in sysfs
- Coresight can be controlled using sysfs. When this is in use then a configuration
- can be made active for the devices that are used in the sysfs session.
- 
--In a configuration there are 'enable' and 'preset' files.
-+In a configuration there are ``enable`` and ``preset`` files.
- 
- To enable a configuration for use with sysfs::
- 
-@@ -256,13 +256,13 @@ To enable a configuration for use with sysfs::
- This will then use any default parameter values in the features - which can be
- adjusted as described above.
- 
--To use a preset<n> set of parameter values::
-+To use a ``preset<n>`` set of parameter values::
- 
-     $ echo 3 > preset
- 
- This will select preset3 for the configuration.
- The valid values for preset are 0 - to deselect presets, and any value of
--<n> where a preset<n> sub-directory is present.
-+<n> where a ``preset<n>`` sub-directory is present.
- 
- Note that the active sysfs configuration is a global parameter, therefore
- only a single configuration can be active for sysfs at any one time.
-@@ -278,9 +278,28 @@ Creating and Loading Custom Configurations
- ==========================================
- 
- Custom configurations and / or features can be dynamically loaded into the
--system by using a loadable module.
-+system by using a loadable module, or by loading a configuration table
-+through in configfs.
- 
--An example of a custom configuration is found in ./samples/coresight.
-+Loaded configurations can use previously loaded features. The system will
-+ensure that it is not possible to unload a feature that is currently in
-+use, by enforcing the unload order as the strict reverse of the load order.
-+
-+
-+Using a Loadable Module
-+-----------------------
-+
-+A new configuration or set of features can be created using the internal
-+structures used in the drivers, by writing a loadable module that defines
-+the configuration, and loading this into the kernel at runtime.
-+
-+Creating a custom configuration in this way requires the user to compile the
-+module for the specific kernel in use, which limits portability.
-+
-+Module Example
-+~~~~~~~~~~~~~~
-+
-+An example of a custom configuration module is found in ``./samples/coresight``.
- 
- This creates a new configuration that uses the existing built in
- strobing feature, but provides a different set of presets.
-@@ -289,6 +308,228 @@ When the module is loaded, then the configuration appears in the configfs
- file system and is selectable in the same way as the built in configuration
- described above.
- 
--Configurations can use previously loaded features. The system will ensure
--that it is not possible to unload a feature that is currently in use, by
--enforcing the unload order as the strict reverse of the load order.
-+The file ``coresight-cfg-sample.c`` contains the configuration and module
-+initialisation code needed to create the loadable module.
-+
-+This will be built alongside the kernel modules if selected in KConfig.
-+(select ``CONFIG_SAMPLE_CORESIGHT_SYSCFG``).
-+
-+
-+Using a Configuration Table File
-+--------------------------------
-+
-+Configurations and features can also be dynamically loaded at runtime
-+using a compact binary table format described below.
-+
-+Upon load, this table is validated, expanded into the internal structures
-+needed for load into the CoreSight subsystem, and loaded into the relevant
-+CoreSight devices.
-+
-+There are additional attributes in the cs-syscfg directory - ``load_table``
-+and ``unload_last_table`` that can be used to load and unload configuration
-+tables.
-+
-+As described above, in order to respect configuration dependencies, unload
-+order is scrictly enforced to be the reverse of load order.
-+
-+Load and unload cannot be done if trace is in progress using a configuration.
-+
-+To load, 'cat' the table file into the load attribute::
-+
-+    $ ls /config/cs-syscfg
-+    configurations features  load_table  show_last_load  unload_last_table
-+    $ cat example1.cscfg > /config/cs-syscfg/load_table
-+    $ ls /config/cs-syscfg/configurations/
-+    autofdo  autofdo3
-+
-+``unload_last_table`` can be used to unload the last loaded configuration,
-+but only if this was loaded as a configuration table.
-+
-+To unload, write a non-zero value to ``unload_last_table``. This will unload
-+the last loaded table - unless another configuration or feature has been
-+loaded as a loadable module after the last table load::
-+
-+    $ echo 1 > /config/cs-syscfg/unload_last_table
-+    ls /config/cs-syscfg/configurations/
-+    autofdo
-+
-+The type of the last loaded configuration can be determined by reading the
-+``show_last_load`` attribute::
-+
-+    $ cat /config/cs-syscfg/show_last_load
-+    load name: autofdo3
-+    load type: Runtime Dynamic table load
-+    (configurations:  autofdo3 )
-+    (features:  None )
-+
-+This shows the key elements of the loaded configuration - the type of load,
-+load name, and any configurations and features loaded by the table.
-+
-+Unload will fail if the last loaded item was not a dynamic loaded table.
-+When using ``show_last_load`` a non table load will show::
-+
-+    cat /config/cs-syscfg/show_last_load
-+    load name: [Not Set]
-+    load type: Loadable module
-+
-+
-+Generation tools and table examples
-+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+The ``./tools/coresight`` directory contains example programs to generate and
-+read and print binary configuration table files.
-+
-+Building the tools creates the ``coresight-cfg-file-gen`` program that will
-+generate a configuration binary ``example1.cscfg`` that can be loaded into the
-+system using configfs. The configuration declared in the source file
-+``coresight-cfg-example1.c`` is named ``autofdo3`` - the name that will be used
-+once loaded.
-+
-+The source files ``coresight-cfg-bufw.h`` and ``coresight-cfg-bufw.c`` provide a
-+standard function to convert a configuration declared in 'C' into the correct
-+binary buffer format. These files can be re-used to create new custom
-+configurations. Alternatively, additional examples can be added to the
-+``coresight-cfg-file-gen`` program::
-+
-+    $ ./coresight-cfg-file-gen
-+    Coresight Configuration file Generator
-+
-+    Generating example1 example
-+    Generating example2 example
-+
-+The program ``coresight-cfg-file-read`` can read back and print a configuration
-+binary. This is built using the file reader from the driver code
-+(``coresight-config-file.c``), which is copied over into ``./tools/coresight`` at
-+build time.::
-+
-+    ./coresight-cfg-file-read example1.cscfg
-+    CoreSight Configuration file reader
-+    ============================================
-+
-+    Configuration 1
-+    Name:- autofdo3
-+    Description:-
-+    Setup ETMs with strobing for autofdo
-+    Supplied presets allow experimentation with mark-space ratio for various loads
-+
-+    Uses 1 features:-
-+    Feature-1: strobing
-+
-+    Provides 4 sets of preset values, 2 presets per set
-+    set[0]: 0x7d0, 0x64,
-+    set[1]: 0x7d0, 0x3e8,
-+    set[2]: 0x7d0, 0x1388,
-+    set[3]: 0x7d0, 0x2710,
-+
-+    ============================================
-+    File contains no features
-+
-+
-+CoreSight Configuration Table Format
-+------------------------------------
-+
-+The file format is defined in the source file ``coresight-config-table.h``
-+
-+The source reader and generator examples use/produce a table in this format,
-+as a binary file.
-+
-+This arrangement is reproduced below:-
-+
-+Overall Table structure
-+~~~~~~~~~~~~~~~~~~~~~~~
-+
-+::
-+
-+   [cscfg_table_header]  // Mandatory
-+   [CONFIG_ELEM]*        // Optional - multiple, defined by cscfg_table_header.nr_configs
-+   [FEATURE_ELEM]*       // Optional - multiple, defined by cscfg_table_header.nr_features
-+
-+Table is invalid if both [CONFIG_ELEM] and [FEATURE_ELEM] are omitted.
-+
-+A table that contains only [FEATURE_ELEM] may be loaded, and the features used
-+by subsequently loaded files with [CONFIG_ELEM] elements.
-+
-+Element Name Strings
-+~~~~~~~~~~~~~~~~~~~~
-+
-+Configuration name strings are required to consist of alphanumeric characters and '_' only. Other special characters are not permitted.
-+
-+For example ``my_config_2`` is a valid name, while ``this-bad-config#5`` will not work.
-+
-+This is in order to comply with the requirements of the perf command line.
-+
-+It is recommended that Feature and Parameter names use the same convention to allow for future enhancements to the command line syntax.
-+
-+CONFIG_ELEM element
-+~~~~~~~~~~~~~~~~~~~
-+
-+::
-+
-+   [cscfg_table_elem_header]               // header length value to end of feature strings.
-+   [cscfg_table_elem_str]                  // name of the configuration.
-+                                           // (see element string name requirements)
-+   [cscfg_table_elem_str]                  // description of configuration.
-+   [u16 value](nr_presets)                 // number of defined sets presets values.
-+   [u32 value](nr_total_params)            // total parameters defined by all used features.
-+   [u16 value](nr_feat_refs)               // number of features referenced by the configuration
-+   [u64 values] * (nr_presets * nr_total_params)     // the preset values.
-+   [cscfg_table_elem_str] * (nr_feat_refs) // names of features used in the configurations.
-+
-+FEATURE_ELEM element
-+~~~~~~~~~~~~~~~~~~~~
-+
-+::
-+
-+   [cscfg_table_elem_header]               // header length is total bytes to end of param structures.
-+   [cscfg_table_elem_str]                  // feature name.
-+   [cscfg_table_elem_str]                  // feature description.
-+   [u32 value](match_flags)                // flags to associate the feature with a device.
-+   [u16 value](nr_regs)                    // number of registers.
-+   [u16 value](nr_params)                  // number of parameters.
-+   [cscfg_regval_desc struct] * (nr_regs)  // register definitions
-+   [PARAM_ELEM] * (nr_params)              // parameters definitions
-+
-+PARAM_ELEM element
-+~~~~~~~~~~~~~~~~~~
-+
-+::
-+
-+   [cscfg_table_elem_str]        // parameter name.
-+   [u64 value](param_value)      // initial value.
-+
-+Additional definitions
-+~~~~~~~~~~~~~~~~~~~~~~
-+
-+The following structures are defined in ``coresight-config-file.h``
-+
-+ * ``struct cscfg_table_header`` : This structure contains an initial magic number, the total
-+   length of the table, and the number of configurations and features in the table.
-+ * ``struct cscfg_table_elem_header``: This defines the total length and type of a CONFIG_ELEM
-+   or a FEATURE_ELEM.
-+ * ``struct cscfg_table_elem_str``: This defines a string and its length.
-+
-+The magic number in cscfg_table_header is defined as two bitfields::
-+
-+   [31:8] Fixed magic number to identify table type.
-+   [7:0]  Current table format version.
-+
-+The following defines determine the maximum overall table size and maximum individual
-+string size
-+
-+ * ``CSCFG_TABLE_MAXSIZE``      : maximum overall table size.
-+ * ``CSCFG_TABLE_STR_MAXSIZE``  : maximum individual string size.
-+
-+Load Dependencies
-+~~~~~~~~~~~~~~~~~
-+
-+Files may be unloaded only in the strict reverse order of loading. This is enforced by the
-+configuration system.
-+
-+This is to ensure that any load dependencies are maintained.
-+
-+A configuration table that contains a CONFIG_ELEM that references named features "feat_A" and "feat_B" will load only if either:-
-+
-+a) "feat_A" and/or "feat_B" has been loaded previously, or are present as built-in / module loaded features.
-+b) "feat_A" and/or "feat_B" are declared as FEAT_ELEM in the same table as the CONFIG_ELEM.
-+
-+Tables that contain features or configurations with the same names as those already loaded will fail to load.
--- 
-2.25.1
-
+Rob
 
