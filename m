@@ -4,54 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F8D0D6ACF7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 17:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A278ED6ACF7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 17:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U3AfadLNOJOlI07wW+Dqnxc4+9gExV2K4OvFNVXCS1s=; b=Rqym1FLjTH6tdQRIaQS7liNhkz
-	XGYHa9FeoYTJSIXZuq01tfeT47PNqBgrWUaxtJVAFJQlkI6fj64FGcJMZuvk+jq7ixSEazhfqsYRt
-	1LMFRPICKmujIgjVGvY0Wk0BDO3rPxeU6lZ4aFnTPml/XhTCCCxTH1rhG2yxtHgCJ9zz7naqJc9b4
-	XfflR74krCGJk83KjVp1p47xkmml0nqNN8lxV1ZseX8aeEbO+Ra4Kd2NRBORNXAJA4I1Dd/di+ii1
-	yFi8UVUaq5umzvan/KS7Zea9v7+y39nyyWyYqKGVkNYalFw7B+3YY14cOU5ZWsgpk39Z1y3EEQvx1
-	W4zTUEwg==;
+	bh=oXebUtxKx7Yue8TaCMkSObpvA/kHo5Badeg+J8Y9otg=; b=gemuFJdLpbwzCQHx2es3TqNkD9
+	+Egho7bY6ZZBAHKx7SWvlvsESd9LeXGpw/profudmBqaBL4fHfn0pyFj57wzhJjgpAv/5AsGPvn8e
+	49sblf5M7oNQCmWJJGeLxlwoOFXrvoR3nIMdrWD6/mnVviANRyLwoQD51r37hWB7yRom+DKb/6zO1
+	u/WcuEonGuWnif6U/jwHKEoRLTpRuaa+YvU308A0W169+dEqfPqAPmUz7tu3JBSrcaQ4OdxvxBJyu
+	6D9wldeK9HcedvNK+5ubVYLY5Abl+Ia/1xfJTM0HNsoI/ZxZIkZJ4TGlFen0JP6VVZg1SGTmszRn/
+	w8ay2V/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGMBY-0000000DmQ6-1HJT;
-	Wed, 27 Nov 2024 17:50:44 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tGMF8-0000000DmcX-0GDc;
+	Wed, 27 Nov 2024 17:54:26 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGMAZ-0000000DmLe-2HBN
+	id 1tGME8-0000000DmYY-3Ufl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 17:49:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 56540A43985;
-	Wed, 27 Nov 2024 17:47:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41123C4CECC;
-	Wed, 27 Nov 2024 17:49:40 +0000 (UTC)
-Date: Wed, 27 Nov 2024 17:49:37 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Yang Shi <yang@os.amperecomputing.com>
-Cc: Baruch Siach <baruch@tkos.co.il>, will@kernel.org, ptesarik@suse.com,
-	hch@lst.de, jiangyutang@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Robin Murphy <robin.murphy@arm.com>
-Subject: Re: [PATCH] arm64: mm: fix zone_dma_limit calculation
-Message-ID: <Z0dbsRCsWT3hiVds@arm.com>
-References: <20241125171650.77424-1-yang@os.amperecomputing.com>
- <87ttbu8q7s.fsf@tarshish>
- <98583682-a95e-440e-bd89-03828998b48e@os.amperecomputing.com>
+	Wed, 27 Nov 2024 17:53:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1732730002;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=oXebUtxKx7Yue8TaCMkSObpvA/kHo5Badeg+J8Y9otg=;
+	b=LkhTdqGbuzERLtdGfEsZFuYM/yg7iYJXFvuE4DJdK+eKlME3yuH0gxyfd8VKp8hPvNbH3s
+	4AhubvG2hGK96pQ7CDT9r44WVu6xXwFRi1ThysBnX3qVWgNfezYeCvJY1irOVBW9KjMT4T
+	0CiaCB/OewEixi0haYoslZSV2bFxqms=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-99-4RqiBtWANd-g--nkfrFkYg-1; Wed, 27 Nov 2024 12:53:20 -0500
+X-MC-Unique: 4RqiBtWANd-g--nkfrFkYg-1
+X-Mimecast-MFC-AGG-ID: 4RqiBtWANd-g--nkfrFkYg
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-434a72b08d9so14056575e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 09:53:20 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732730000; x=1733334800;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oXebUtxKx7Yue8TaCMkSObpvA/kHo5Badeg+J8Y9otg=;
+        b=L7i0dH0tyeXNq3RknkpPdXeePi/EiwKRq8mpq2fEJPj/5JLlFe75ePER+TYKH35x5p
+         XDQUtTvXRZoiG7zChuzrJPlk+PnuHGPjOaF3F1awq6CGQCjgrOytb41fwQE1AoSEjXXF
+         TrYxatkML4cDzDMRHdQ3hYYdjHHHTvTkEwY3gEvqfi//qs4kLl1ibGRhNbIh/c8WRQf6
+         yyKP+pc3OzMnSMmgRWq3xWINFJChVq3Y/ogp1V3E/Rkn2GUh6vIZolm03m7MSEluZzod
+         16DIfCJMsKTJhyGFAPmvnqLQkYl+YZQZER10uEJGNz8sKtf0bOjkNlmOXMGTOFpJobp0
+         HFaw==
+X-Forwarded-Encrypted: i=1; AJvYcCX9qO+16c1MtBcZ1HnlnUtyrlNB3g+eCnyhZWmgdFkmCFT2CGkXj98VzsISBl23nRVkH+/sbHd4RV1rhcC/lG6b@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgToiC0TpfGXIdVMX2aJJ/7avxz8vu9Iu+Ob9bMQV/4HDIqGXh
+	aFdP1P4JZWY/BHckFVy6tvtPMqtk8GfuM1REBYyhOq54yAZ8fmQgb4/W//06k3L5gMtTS/UpzjZ
+	zXlP1giMqbAAxhwW4kK93WZimVVSATGJF/rbfqwV6/uZVDwVzz0xvqky18cu1t6XuiBuNyc4t
+X-Gm-Gg: ASbGncuCEWDPPnnymigiG0UMfOylunJA+U5BNZJfY9E+lvxbvEDWSVZMWGVUtKzj54K
+	vhkmNyO/rqLISd481A4tDRLizEyh1J+piQk/w8Hbi4tdsF+28iGuAKpIfcWaSGpgakhSTM98zuE
+	+8qkv/eKkEZMMKww6b5xs9Pa06xR2JF3MCzTB148ZFSRKBrKC8Tfm43kvqeO0rlvpsw/23wMdFW
+	gJNCc3Io54H3QafLM2LMQPBWkXUqUXBLBMt5ZJMJt8Nl76Fk6c7p8jag7Pbnd64FeJQHvYFX3jX
+	QBeGhiNsMqdByFo6RSEpcg==
+X-Received: by 2002:a05:600c:3546:b0:434:9fb5:fddd with SMTP id 5b1f17b1804b1-434a9dec6c1mr31792595e9.23.1732729999674;
+        Wed, 27 Nov 2024 09:53:19 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE6anDJQjt8ptWxGgz7dhwaMeTQsYcl8C3n27l3PnWHFhWZjEJlpfVjhPH6uqi9gMk12+ahIA==
+X-Received: by 2002:a05:600c:3546:b0:434:9fb5:fddd with SMTP id 5b1f17b1804b1-434a9dec6c1mr31792415e9.23.1732729999273;
+        Wed, 27 Nov 2024 09:53:19 -0800 (PST)
+Received: from rh (p200300f6af0bca008282df582fad0b68.dip0.t-ipconnect.de. [2003:f6:af0b:ca00:8282:df58:2fad:b68])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3825fafe504sm16773349f8f.25.2024.11.27.09.53.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Nov 2024 09:53:18 -0800 (PST)
+Date: Wed, 27 Nov 2024 18:53:18 +0100 (CET)
+From: Sebastian Ott <sebott@redhat.com>
+To: Marc Zyngier <maz@kernel.org>
+cc: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>, 
+    "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+    "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+    "will@kernel.org" <will@kernel.org>, 
+    "catalin.marinas@arm.com" <catalin.marinas@arm.com>, 
+    "oliver.upton@linux.dev" <oliver.upton@linux.dev>, 
+    "james.morse@arm.com" <james.morse@arm.com>, 
+    "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, 
+    yuzenghui <yuzenghui@huawei.com>, "Wangzhou (B)" <wangzhou1@hisilicon.com>, 
+    Linuxarm <linuxarm@huawei.com>, "reijiw@google.com" <reijiw@google.com>
+Subject: Re: [PATCH] KVM: arm64: Make the exposed feature bits in AA64DFR0_EL1
+ writable from userspace
+In-Reply-To: <87zfllssji.wl-maz@kernel.org>
+Message-ID: <9d8e1bb6-797b-d0c9-6456-eb001271ba0e@redhat.com>
+References: <20240813142835.77180-1-shameerali.kolothum.thodi@huawei.com> <86v804z3lk.wl-maz@kernel.org> <b2dad37ac5464384abe4edf76cb6b546@huawei.com> <4d3a7dde-e085-fa70-8859-ba153c93b615@redhat.com> <87zfllssji.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <98583682-a95e-440e-bd89-03828998b48e@os.amperecomputing.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 9DwJDpzdaI-6JkwihM05oUjreAH23YmIHAF5_9UdU-c_1732730000
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=US-ASCII; format=flowed
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_094943_706257_E39B7B08 
-X-CRM114-Status: GOOD (  35.21  )
+X-CRM114-CacheID: sfid-20241127_095324_951728_9D6DBAA8 
+X-CRM114-Status: GOOD (  33.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,138 +113,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ Robin
+On Tue, 26 Nov 2024, Marc Zyngier wrote:
+> On Tue, 26 Nov 2024 17:00:35 +0000,
+> Sebastian Ott <sebott@redhat.com> wrote:
+>> On Wed, 14 Aug 2024, Shameerali Kolothum Thodi wrote:
+>>>>
+>>>> On Tue, 13 Aug 2024 15:28:35 +0100,
+>>>> Shameer Kolothum <shameerali.kolothum.thodi@huawei.com> wrote:
+>>>>>
+>>>>> KVM exposes the OS double lock feature bit to Guests but returns
+>>>>> RAZ/WI on Guest OSDLR_EL1 access. This breaks Guest migration between
+>>>>> systems where this feature support differ. Add support to make this
+>>>>> feature writable from userspace by setting the mask bit. While at it,
+>>>>> set the mask bits for other exposed features in the AA64DFR0_EL1
+>>>>> register as well.
+>>>>>
+>>>>> Also update the selftest to cover these fields.
+>>>>>
+>>>>> Signed-off-by: Shameer Kolothum
+>>>> <shameerali.kolothum.thodi@huawei.com>
+>>>>> ---
+>>>>>    This is based on the discussion here(Thanks to Oliver),
+>>>>>    https://lore.kernel.org/all/ZrVSlbVwnaMDShah@linux.dev/
+>>>>> ---
+>>>>>  arch/arm64/kvm/sys_regs.c                         | 6 +++++-
+>>>>>  tools/testing/selftests/kvm/aarch64/set_id_regs.c | 4 ++++
+>>>>>  2 files changed, 9 insertions(+), 1 deletion(-)
+>>>>>
+>>>>> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+>>>>> index c90324060436..adb49d681052 100644
+>>>>> --- a/arch/arm64/kvm/sys_regs.c
+>>>>> +++ b/arch/arm64/kvm/sys_regs.c
+>>>>> @@ -2376,7 +2376,11 @@ static const struct sys_reg_desc sys_reg_descs[]
+>>>> = {
+>>>>>  	  .get_user = get_id_reg,
+>>>>>  	  .set_user = set_id_aa64dfr0_el1,
+>>>>>  	  .reset = read_sanitised_id_aa64dfr0_el1,
+>>>>> -	  .val = ID_AA64DFR0_EL1_PMUVer_MASK |
+>>>>> +	  .val = ID_AA64DFR0_EL1_DoubleLock_MASK |
+>>>>> +		 ID_AA64DFR0_EL1_CTX_CMPs_MASK |
+>>>>> +		 ID_AA64DFR0_EL1_WRPs_MASK |
+>>>>> +		 ID_AA64DFR0_EL1_BRPs_MASK |
+>>>>
+>>>>
+>>>> I think this is going to cause some troubles.
+>>>>
+>>>> The issue is that context-aware breakpoints are the highest-numbered
+>>>> breakpoints, right after the normal breakpoints (D2.8.3 "Breakpoint
+>>>> types and linking of breakpoints"). So if you reduce the number of
+>>>> normal breakpoints, you shift the context-aware ones down, and
+>>>> everything breaks.
+>>>
+>>> Thanks Marc for explaining this. I was not aware of this one.
+>>>
+>>>> I really don't see how you can safely do that without completely
+>>>> changing the way we handle the debug registers.
+>>>
+>>> Looks like Reji has attempted to do this a while back,
+>>> https://lore.kernel.org/kvm/20220419065544.3616948-13-reijiw@google.com/
+>>>
+>>
+>> I've got two machines that differ in the number of breakpoints and
+>> it would be nice to be able to migrate between these. Is anything
+>
+> Is that the *only* thing that differ? Do the have the same number of
+> context-aware breakpoints?
 
-On Tue, Nov 26, 2024 at 09:38:22AM -0800, Yang Shi wrote:
-> On 11/25/24 10:27 PM, Baruch Siach wrote:
-> > On Mon, Nov 25 2024, Yang Shi wrote:
-> > > The commit ba0fb44aed47 ("dma-mapping: replace zone_dma_bits by
-> > > zone_dma_limit") changed how zone_dma_limit was calculated.  Now it
-> > > returns the memsize limit in IORT or device tree instead of U32_MAX if
-> > > the memsize limit is greater than U32_MAX.
-> > 
-> > Can you give a concrete example of memory layout and dma-ranges that
-> > demonstrates this issue?
-> 
-> Our 2 sockets system has physical memory starts at 0x0 on node 0 and
-> 0x200000000000 on node 1. The memory size limit defined in IORT is 0x30 (48
-> bits).
-> 
-> The DMA zone is:
-> 
-> pages free     887722
->         boost    0
->         min      229
->         low      1108
->         high     1987
->         promo    2866
->         spanned  983040
->         present  982034
->         managed  903238
->         cma      16384
->         protection: (0, 0, 124824, 0, 0)
->  start_pfn:           65536
-> 
-> When allocating DMA buffer, dma_direct_optimal_gfp_mask() is called to
-> determine the proper zone constraints. If the phys_limit is less than
-> zone_dma_limit, it will use GFP_DMA. But zone_dma_limit is 0xffffffffffff on
-> v6.12 instead of 4G prior v6.12, it means all DMA buffer allocation will go
-> to DMA zone even though the devices don't require it.
-> 
-> DMA zone is on node 0, so we saw excessive remote access on 2 sockets
-> system.
-[...]
-> The physical addr range for DMA zone is correct, the problem is wrong
-> zone_dma_limit. Before commit ba0fb44aed47 zone_dma_limit was 4G, after it
-> it is the whole memory even though DMA zone just covers low 4G.
+It's the only diff in DFR0 - CTX_CMPs is the same. There are diffs in
+other ID regs as well but these are already writable.
 
-Thanks for the details. I agree that zone_dma_limit shouldn't be higher
-than the ZONE_DMA upper boundary, otherwise it gets confusing for
-functions like dma_direct_optimal_gfp_mask() and we may force
-allocations to a specific range unnecessarily.
+>> preventing us from trapping the access and make sure the correct
+>> breakpoint is used? Is anyone working on this? If not I'd like to
+>> give it a shot.
+>
+> Not only trapping. You also need to handle some interesting parts of
+> the architecture, such as the breakpoint linking fun.
 
-If IORT or DT indicate a large mask covering the whole RAM (i.e. no
-restrictions), in an ideal world, we should normally extend ZONE_DMA to
-the same. One problem is ZONE_DMA32 (and GFP_DMA32) and the fact that
-ZONE_DMA sits below it. Until we hear otherwise, we assume a DMA offset
-of 0 for such 32-bit devices and therefore define ZONE_DMA32 in the
-lower 4GB if RAM starts below this limit (and an empty ZONE_DMA32 if RAM
-starts above).
+Ugh, and I was thinking this might be straightforward ;-(
 
-Another aspect to consider is that we don't always have DT or IORT
-information or some devices need a smaller limit than what's advertised
-in the firmware tables (typically 32-bit masks). This code went through
-a couple of fixes already:
+> But if we are to go down that road, I really want to restrict that to
+> implementations that have FEAT_FGT. Because otherwise we need to trap
+> and emulate *everything*, instead of just the breakpoint registers.
+> And that would be pretty bad from a performance perspective.
 
-833bd284a454 ("arm64: mm: fix DMA zone when dma-ranges is missing")
-122c234ef4e1 ("arm64: mm: keep low RAM dma zone")
+OK, understood.
 
-Since our current assumption is to assume ZONE_DMA within 32-bit if RAM
-below 4GB, I'm happy to make this conditional on CONFIG_ZONE_DMA32 also
-being enabled. So, from your patch below:
+> Another thing is that this only works because there is no report of
+> the breakpoint number in ESR_ELx. The moment we offering this
+> migration "feature", we are painting ourselves in a corner, should the
+> architecture ever evolve to something less... bizarre.
+>
+> Finally, who is going to ensure this keeps working in the foreseeable
+> future? Because while this is nice, that's not what gets deployed in
+> production, as it leads to unpredictable performances. My take is that
+> this thing will eventually bitrot and die.
+>
+> So, do we *really* want to go down that road?
 
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index d21f67d67cf5..ccdef53872a0 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -117,15 +117,6 @@ static void __init arch_reserve_crashkernel(void)
->   static phys_addr_t __init max_zone_phys(phys_addr_t zone_limit)
->   {
-> -	/**
-> -	 * Information we get from firmware (e.g. DT dma-ranges) describe DMA
-> -	 * bus constraints. Devices using DMA might have their own limitations.
-> -	 * Some of them rely on DMA zone in low 32-bit memory. Keep low RAM
-> -	 * DMA zone on platforms that have RAM there.
-> -	 */
-> -	if (memblock_start_of_DRAM() < U32_MAX)
-> -		zone_limit = min(zone_limit, U32_MAX);
-> -
->   	return min(zone_limit, memblock_end_of_DRAM() - 1) + 1;
->   }
+Thanks a lot for the pointers! I'll do some more digging to figure out
+what needs to be done and if that's actually worth it..
 
-This part is fine.
+Sebastian
 
-> @@ -141,6 +132,14 @@ static void __init zone_sizes_init(void)
->   	acpi_zone_dma_limit = acpi_iort_dma_get_max_cpu_address();
->   	dt_zone_dma_limit = of_dma_get_max_cpu_address(NULL);
->   	zone_dma_limit = min(dt_zone_dma_limit, acpi_zone_dma_limit);
-> +	/*
-> +	 * Information we get from firmware (e.g. DT dma-ranges) describe DMA
-> +	 * bus constraints. Devices using DMA might have their own limitations.
-> +	 * Some of them rely on DMA zone in low 32-bit memory. Keep low RAM
-> +	 * DMA zone on platforms that have RAM there.
-> +	 */
-> +	if (memblock_start_of_DRAM() < U32_MAX)
-> +		zone_dma_limit = min(zone_dma_limit, U32_MAX);
->   	arm64_dma_phys_limit = max_zone_phys(zone_dma_limit);
->   	max_zone_pfns[ZONE_DMA] = PFN_DOWN(arm64_dma_phys_limit);
->   #endif
-
-But I'd move the zone_dma_limit update further down in the
-CONFIG_ZONE_DMA32 block. I think we only need to limit it to
-dma32_phys_limit and ignore the U32_MAX check. The former is already
-capped to 32-bit. For the second hunk, something like below (untested):
-
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index d21f67d67cf5..ffaf5bd8d0a1 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -146,8 +146,10 @@ static void __init zone_sizes_init(void)
- #endif
- #ifdef CONFIG_ZONE_DMA32
- 	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(dma32_phys_limit);
--	if (!arm64_dma_phys_limit)
-+	if (!arm64_dma_phys_limit || arm64_dma_phys_limit > dma32_phys_limit) {
- 		arm64_dma_phys_limit = dma32_phys_limit;
-+		zone_dma_limit = arm64_dma_phys_limit - 1;
-+	}
- #endif
- 	if (!arm64_dma_phys_limit)
- 		arm64_dma_phys_limit = PHYS_MASK + 1;
-
-With some comment on why we do this but most likely not the current
-comment in max_zone_phys() (more like keep ZONE_DMA below ZONE_DMA32).
-
--- 
-Catalin
 
