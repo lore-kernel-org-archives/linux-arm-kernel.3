@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88340D6D233
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 20:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCD54D6D23C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 20:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7iRGowmY09x6NtLH9Lb1/0sWvfPDP0DN1AXCvHkKcIk=; b=NCz1p4ssrou0WE98sfpRGHkTwy
-	tVKCaolu6s+fz6zYyX5mbzFDxxhu7+xH7/IqVAJWTT/4dkXC+bwOXR2pThBn1Dz3qDlXMTtEsm0el
-	ETmh0iHfIidaSIB10ksDhooNKxorIRvzPPDESST2e7SBzKx3XwrI17jsPD3NauOThJaJp6k6ksMrI
-	bmwmqapkM63/FrMDrLpwZByh/G5hRJPlHAedtdN0XK6C2FbiV/Tq6rnb0WhPqMpK4obqg8e2pQy/u
-	4PJSaypXPxtXPSMFGDUskKK/74xuwWuuNH23BT89ubb0imKrXSvxu2ci+zuoNIqhmFvmayb0lgnza
-	oHTfDFxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7U9hOswjkTlIu0eHpVW8cvTyEAZU1a4KzVLqKR0PK0E=; b=ohCme5OvXpalrY3ILQVwl68abz
+	Xnbl6DeD4BeXx1yyBNMF0BiGFN1I4gN9QadbybuYrmgvJrn4hpNruuuL7Gis9gg97ysqf6qtdIhN+
+	UxEfyovMLWa75sUxFmZOdNpZSyv4oTUgZkT0FVxj/5Ul4tiPdkDPMGPy477O/DtnnGjtzTtZSmpuv
+	gOrfEYDvKgHLJ1eDmqUojGsCl+m4JmF/YI8m7zilqnp66cHCvrLrT9V6f5+RL72z5UbtmKTa3YxME
+	eWXP7q62PErgdqli+Iqzdss4CAoEMGKaBJ5V8xICA2I4vzkShtECHYNZi/uajuNL3ZIrDtySVUa7c
+	03eYAA8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGOXs-0000000E2g8-2vsJ;
-	Wed, 27 Nov 2024 20:21:56 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1tGP6l-0000000E5BE-2lEF;
+	Wed, 27 Nov 2024 20:57:59 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGNMk-0000000Dtvr-3ekB
+	id 1tGP5m-0000000E53q-0Ddl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 19:06:24 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-724f1ce1732so105214b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 11:06:22 -0800 (PST)
+	Wed, 27 Nov 2024 20:56:59 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-434a766b475so729615e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 12:56:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732734382; x=1733339182; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7iRGowmY09x6NtLH9Lb1/0sWvfPDP0DN1AXCvHkKcIk=;
-        b=LM81EK3zem3tOb7OLA5VjWpjceOvuT0ogjPsYIVfq0OYyNJ1n/dZfTb7kYeqq/HJSg
-         gFbJ7aIJG0Owz7mt8qic3T2QcgyBD5iX36dqbZDIIxwe3Vd2haTX7fG7VGjYo/KWW8Ov
-         UFqb1+K9WA7mazCwJyP9VaCLwNP0TH0LAffnSBE3ZugEo7MH69GgCw5tgBOUf2iEkZUJ
-         qxn7nYymwFhA/y+BmpVhOg/aBT53YvoEFP8gvlZIklDYGNawi/L+y48OkvksRXiIa9LF
-         r+0tEhEz9L0RvBuhUCS7jz0OMlYZuYeDCNqb7iFgOy2Vo9yojGfdbq5Zc/fd2OmUQHuA
-         E9Ew==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1732741016; x=1733345816; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7U9hOswjkTlIu0eHpVW8cvTyEAZU1a4KzVLqKR0PK0E=;
+        b=EzCD5nd3ED3IGmPAfVBzdWwhG/lT1jAQoQZHFnOJIv6205deMJZlIHGuArqL/6ot4j
+         Tgpv3iOkMoXwfA0dIjr3qd/ZsKCEigvSGZEkKOq3VCd4TvW1hpi8XPNMHt8bRTUjIEw2
+         utQ5Gb+FEbnc1Q6dLYLdw3IGW5/Lrv9F8Vecv4ye3E916No2BAk6iXNJVNwXnT2hjAGc
+         PsjTuNcHek5tsLoRnfFxuOatRSImsSLak22zWX0N5Hq8dwPsqAzxYubUzjE2QjTNceGx
+         J97v+IXkmETABzDFBG2/sPEAyjKYhKIxW/3jbgmMSZ8fGIws17Y+0GMJx3ciHCQW2sUU
+         u9PQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732734382; x=1733339182;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7iRGowmY09x6NtLH9Lb1/0sWvfPDP0DN1AXCvHkKcIk=;
-        b=tlfWQVjDjo2p/9pc1vIQKiLeZj+LlbAWGsPakAK0f+bZtBWIxjizwA7MxUswVe6Jst
-         Q+QK+bv90Dk5FsAuh74Zov7lGHxivvO4Yf56Y3g1NI99MAlJx3QPC/++KVycqYQYOelt
-         VeIIza2DicO/QFTY5+33ARSFTYX5/3Vow1gno1ehBCrgo5AiMjt6OzJfsx3Fq/6W7Jxf
-         VGulT93vYqTO6CWWQOnrjYDHZRgVafF/x4XqGO4BB9QCg20LUpviR9d5eWfiFRw32ZOO
-         xwCDSqYB3lSh+I/KdRdABCpc687SHsOr0WQqL3lfzC95/ranhUfFvM6jd2VOp7wwOn21
-         wW0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV9KrC4Q6JfkDMorVabGxacobK3eUivJbCJUmgtU8iV+5UPZ0qGNW45wTP7/l+xiTJNkgcmknUDa0ibp4e3Vsg/@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywu4PF1bnhL/BqOG0r1uKBTwvFMM3Zte2YWiBpTJ9K1a3wqAAlk
-	jyM6VgTH7Ssll+LgeSBB+TrL0NcA2Y+ASpso7mx5N7dFMvuFxzMqbhJAkA==
-X-Gm-Gg: ASbGncuVZiWU4eKmaGNyY4TQ6qUFBTZ8WO5LANGApmuE44QzZgWhgtZicJppTCpbZ9n
-	nFcDkLaxetzXdX73SKQLBxBiI1hq+nPu6YgKzVAVqD516ZGbInV77LV9HJb+TocpWHoRugmfp9S
-	PcZk8HlLOZVEsfUOiIlXh5bVdLbSxAIpfh42b26pPrJKezV0YroTqfkmU1QQssNGpGRK+8unSXv
-	E0DovpZs/0UFvyZwfURWWQ/BBBgndtOu4ragqbD/M3p5Ni+Sb59GNJBrfiRIoI=
-X-Google-Smtp-Source: AGHT+IHRWI7ciDiEU560CDl4hwoigQDwlqav9MEDJA2PtR7FPWVN5aMtjqTpiIgHPEe1PoP0+IF+Yg==
-X-Received: by 2002:a05:6a00:1492:b0:71e:59d2:9c99 with SMTP id d2e1a72fcca58-7252ff9f26emr5723057b3a.4.1732734381744;
-        Wed, 27 Nov 2024 11:06:21 -0800 (PST)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:4986:34c:3f75:d990])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724de554fd6sm10550036b3a.139.2024.11.27.11.06.18
+        d=1e100.net; s=20230601; t=1732741016; x=1733345816;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7U9hOswjkTlIu0eHpVW8cvTyEAZU1a4KzVLqKR0PK0E=;
+        b=SFVWMFpqbW8yhdAqdd4YUKC5nHzX0GsQfporjom4OPVHGBjWXvoG3pvuKnwOPCDup2
+         KL1pkyqx7wviFtzkhDeXYtGbe84c5ON7FVSlAq3jgqVClwSosiH4KqhR1k7CnCW5JmLu
+         5iurLk9zafu5Bvzthhh9IwwdhdNC1BbuQ8aIpqoAvt7FwKhH9iIRpoiqlkvLxyB7OljI
+         ijGmhb8Q0cnY/Dg8I9yU2YLtg6+ewiep6vIHGk62jBhrZl3R89ht+r9JcSE0RgysT+ii
+         RW4KO/jntt0SLJLRT/aZ2waJCf6bjuoSfCZqdutX8ZbEZ2Sa5nb8Md2RWlg66ZIfzdcK
+         wQew==
+X-Forwarded-Encrypted: i=1; AJvYcCX5d7kRjoGMFyQu7o20agb2UDD7GP+FeUSwvaGLMFma5gDPXLmEiPEvtAZhczdxmho4ifQFeCgzu8ekv59JJTvn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU8FNjj8t2Po8q/oNmU19EP6V7eGpSDf9A0QK8scSIb4579ncg
+	lUWYg+YTSewDrBOOFMxNHAN/P8od4+VDjdfqBkl66u2tRdD7RhnlJcMPtxB7qyM=
+X-Gm-Gg: ASbGnct5EG5EGzQrXJIy6Qs6IhbnYppTyf8plT8eLB6jwq+3sa4GJ3Z4bfQ3gKwig+O
+	8lcW99sajA0MpadwXNxVahsAL443Yh8XJItW2ii//dbS4K/ZWldtAlEB/SiLegyEgRfm8J4u9+g
+	/nqknrTzGq2vKLPGPQCwPHBznSKjdXhkZiBQ9dreB37Tx52soqoEymHIfcjMSuDwX0iD4TTk5MB
+	EIVhdOuwerpSqwO2FycW1oa0fa6xUibvLKaod2NgJHQikddwA==
+X-Google-Smtp-Source: AGHT+IF9mEC2PpHHSEE4f/UbbHmSaSloRZU6SDyajUiQ4Pk9pvlFm1bVlT9XTXNm/2ABjv1LiTOqoQ==
+X-Received: by 2002:a05:600c:4e8a:b0:42c:b52b:4335 with SMTP id 5b1f17b1804b1-434a9dc3e80mr49302555e9.10.1732741016193;
+        Wed, 27 Nov 2024 12:56:56 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:cc06:8990:4fb8:28e5])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434b0d9bc91sm493395e9.9.2024.11.27.12.56.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Nov 2024 11:06:21 -0800 (PST)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: linux@armlinux.org.uk,
-	s.hauer@pengutronix.de,
-	linus.walleij@linaro.org,
-	esben@geanix.com,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux@roeck-us.net,
-	arnd@arndb.de,
-	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH v2] ARM: imx: Re-introduce the PINCTRL selection
-Date: Wed, 27 Nov 2024 16:06:05 -0300
-Message-Id: <20241127190605.1367157-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        Wed, 27 Nov 2024 12:56:54 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: "Arnd Bergmann" <arnd@arndb.de>
+Cc: "Neil Armstrong" <neil.armstrong@linaro.org>,  "Michael Turquette"
+ <mturquette@baylibre.com>,  "Stephen Boyd" <sboyd@kernel.org>,  "Kevin
+ Hilman" <khilman@baylibre.com>,  "Martin Blumenstingl"
+ <martin.blumenstingl@googlemail.com>,  linux-amlogic@lists.infradead.org,
+  linux-clk@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  "Mark Brown" <broonie@kernel.org>
+Subject: Re: [PATCH] clk: amlogic: axg-audio: select RESET_MESON_AUX
+In-Reply-To: <12f29978-c8ce-4bee-a447-dcd086eb936d@app.fastmail.com> (Arnd
+	Bergmann's message of "Wed, 27 Nov 2024 20:30:07 +0100")
+References: <20241127-clk-audio-fix-rst-missing-v1-1-9f9d0ab98fce@baylibre.com>
+	<12f29978-c8ce-4bee-a447-dcd086eb936d@app.fastmail.com>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Wed, 27 Nov 2024 21:56:54 +0100
+Message-ID: <1ja5dk2y5l.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_110622_911481_70456FDF 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20241127_125658_089451_EF17E305 
+X-CRM114-Status: GOOD (  26.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,53 +101,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@denx.de>
+On Wed 27 Nov 2024 at 20:30, "Arnd Bergmann" <arnd@arndb.de> wrote:
 
-Since commit 17d210018914 ("ARM: imx: Allow user to disable pinctrl"),
-the CONFIG_PINCTRL option is no longer implicitly selected, causing
-several i.MX SoC pinctrl drivers no longer getting selected by default.
+> On Wed, Nov 27, 2024, at 19:47, Jerome Brunet wrote:
+>> Depending on RESET_MESON_AUX result in axg-audio support being turned
+>> off by default for the users of arm64 defconfig, which is kind of a
+>> regression for them.
+>>
+>> RESET_MESON_AUX is not in directly the defconfig, so depending on it turn
+>> COMMON_CLK_AXG_AUDIO off. The clock provided by this module are
+>> necessary for every axg audio devices. Those are now deferring.
+>>
+>> Select RESET_MESON_AUX rather than just depending on it.
+>> With this, the audio subsystem of the affected platform should probe
+>> correctly again
+>>
+>> Cc: Mark Brown <broonie@kernel.org>
+>> Fixes: 681ed497d676 ("clk: amlogic: axg-audio: fix Kconfig dependency 
+>> on RESET_MESON_AUX")
+>> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+>
+>
+> febb5d7348ff07c2da0cb5fd41d2ad2607e5bd5d..ea16bfde0df2d7bfebb041161f6b96bbb35003ed 
+>> 100644
+>> --- a/drivers/clk/meson/Kconfig
+>> +++ b/drivers/clk/meson/Kconfig
+>> @@ -106,7 +106,7 @@ config COMMON_CLK_AXG_AUDIO
+>>  	select COMMON_CLK_MESON_SCLK_DIV
+>>  	select COMMON_CLK_MESON_CLKC_UTILS
+>>  	select REGMAP_MMIO
+>> -	depends on RESET_MESON_AUX
+>> +	select RESET_MESON_AUX
+>>  	help
+>>  	  Support for the audio clock controller on AmLogic A113D devices,
+>>  	  aka axg, Say Y if you want audio subsystem to work.
+>
+> You should generally not 'select' a symbol from another
+> subsystem, as this risks introducing dependency loops,
+> and missing dependencies.
 
-This causes boot regressions on the ARMv4, ARMv5, ARMv6 and ARMv7
-i.MX SoCs.
+I do understand that one needs to be careful with that sort of things
+but I don't think this is happening here.
 
-Fix it by selecting CONFIG_PINCTRL as before.
+>
+> It looks like RESET_MESON_AUX is a user-visible symbol,
+> so you can simply ask users to turn it on, and add it to
+> the defconfig.
 
-This defeats the purpose of 7d210018914 ("ARM: imx: Allow user to disable
-pinctrl"), but it is the less invasive fix for the boot regressions.
+That would work yes but It's really something a user should not be
+concerned with. I can follow-up with another change to remove the user
+visibilty of RESET_MESON_AUX. It is always going to be something
+requested by another driver.
 
-The attempt to build Layerscape without pinctrl can still be explored
-later as suggested by Arnd:
+>
+> I also see some silliness going on in the
+> include/soc/amlogic/reset-meson-aux.h, which has a
+> non-working 'static inline' definition of the exported
+> function. Before my fix, that would have caused the
+> problem auf a non-working audio driver.
 
-"Overall, my best advice here is still to not change the way
-i.MX pinctrl works at all, but just fix Layerscape to not depend
-on i.MX. The reason for the 'select' here is clearly that the
-i.MX machines would fail to boot without pinctrl, and changing
-that because of Layerscape seems backwards."
+If by 'silliness' you mean there is symbol definition for when
+RESET_MESON_AUX is disabled, indeed I guess that could go away.
 
-Fixes: 17d210018914 ("ARM: imx: Allow user to disable pinctrl")
-Reported-by: Guenter Roeck <linux@roeck-us.net>
-Closes: https://lore.kernel.org/linux-arm-kernel/49ff070a-ce67-42d7-84ec-8b54fd7e9742@roeck-us.net/
-Signed-off-by: Fabio Estevam <festevam@denx.de>
----
-Changes since v1:
-- Reintroduce "select PINCTRL" as a minimal fix for 6.13-rc.
+Thanks for pointing it out.
 
- arch/arm/mach-imx/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+>
+>       Arnd
 
-diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
-index e4fe059cd861..dc47b2312127 100644
---- a/arch/arm/mach-imx/Kconfig
-+++ b/arch/arm/mach-imx/Kconfig
-@@ -6,6 +6,7 @@ menuconfig ARCH_MXC
- 	select CLKSRC_IMX_GPT
- 	select GENERIC_IRQ_CHIP
- 	select GPIOLIB
-+	select PINCTRL
- 	select PM_OPP if PM
- 	select SOC_BUS
- 	select SRAM
 -- 
-2.34.1
-
+Jerome
 
