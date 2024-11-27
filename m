@@ -4,96 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF86D66BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 04:07:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A32CD5A6DA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 04:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eGMgbMDKyJQFsX2FhhmL+N7rAH4Be2hXmFG8guEZ4I4=; b=Zv2Vrb3y8ccgQ6gKTzKbdUmRas
-	Tm5roGDcvRrmhK6oArsefcBgGrXhfH90+vHP1dxw4JMsPZmo0Ig0RbJdjveZibbeiqemel1gBjHZR
-	z1CCQLihsgWFnA0UJF0E2KjF+5V9TxMFjvyNiFwje8+4HtOYGVbsjGPCP+dwftFoHxaZeLnl7V0zz
-	SkI2Z4p+Qjk54aECU2X8Dq/ftQQ2XMkTibZMimoyZWb3t6mH++GpxIgMsK/C4eJgqTT2rvjwTImxn
-	iO2UDhVsaWGvUJErm4LW0L7GA2iL8D8hzqete/4QpUOEsqMYNh0e1dIbiCfbztsNmUO2QfQrKqVZf
-	itkv1O7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nE9I1uPOR4sQF959XXKFUqSwci9J/1L0qLYIRegyl2k=; b=htYIznsjwOc2MZQl2Fc/G/ESBO
+	G8TOigTvbUoNH0bSYvUGdqkU53t8dDmeZxTRG2XuCcsiY5kOFz4d0E7WV2sUPDqLcFwVJPZOzQwk+
+	tjz6HVhSSoHHQxWL6l26FOiZtSRTvtLpOIZzA2is36wGKSjFCMcCeYDlfi3BUWAK+vE0uL+5AZ70R
+	FU84m54NGGlOOC2fzTGRZdeZZ79SvSicKZclghxGhozSpKov/q+n9ZTBbYpoXdNZQ2YdZC6ZT8r8z
+	L21jEffW50eP2JdqSWyP3GzA4pZIHLDajjE+tGSEIwHp/sFp5T79/CLI7vij2CQ7dsrb0sMbOz8VC
+	tdblVzfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG9KD-0000000CBdV-05wt;
-	Wed, 27 Nov 2024 04:06:49 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tG9lZ-0000000CDQ6-32Rm;
+	Wed, 27 Nov 2024 04:35:05 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tG9JF-0000000CBZ8-1REF;
-	Wed, 27 Nov 2024 04:05:50 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-434aafd68e9so1044835e9.0;
-        Tue, 26 Nov 2024 20:05:48 -0800 (PST)
+	id 1tG9kb-0000000CDKY-0nQO;
+	Wed, 27 Nov 2024 04:34:06 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-434a1833367so2065195e9.1;
+        Tue, 26 Nov 2024 20:34:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732680347; x=1733285147; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eGMgbMDKyJQFsX2FhhmL+N7rAH4Be2hXmFG8guEZ4I4=;
-        b=HQrjhj6oqnsas5sP/XKJfqMY42Ntp2kg6lewCkbFpUJBcaScKI9N7gsVetJlYsg4xQ
-         JhJurNd92aAKQasAsgDwuLmWiFlyIFC2nj1Xk+wh0xb5sTD/6V2+R6LZ53DaATJAmLAy
-         Lf0Ys6yiRuBAGVLhmM6+YWXjR/4qfikGLQrUzJCiuRd7d4WB3XtFJtj2hX7i74loIt74
-         SjFUkrDWHzzgNq2jJnqXkec9KzXhk0blbANxJQW+j8OsrlUKUUNPSHzqsfl2GXC7ibfk
-         otgCPWYwEKSFrMs1EB3ni2evIuHiiEU1dB9xaNNzqxLU4J0bHF218Bt4Tj2wl4+T6t9z
-         SpLw==
+        d=gmail.com; s=20230601; t=1732682043; x=1733286843; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nE9I1uPOR4sQF959XXKFUqSwci9J/1L0qLYIRegyl2k=;
+        b=RcQ9JACJxMijjLISClh+bmZK02GbRb2ao2tfE/u2pU9eu7BTdPY9VOJpo4G9eVakiP
+         hZaWnNPtpcFbxoN63P7ZQnta1iCLtESXoHsbDuvTHi+prZoj2d9XBm+2MbaHLTf3yIfe
+         Cucm4ZEqeZhyugdhS8+GlufAWtA4n9OOfhyBN8mcMOm15qPDHmGbTZscywNo6n9nms+l
+         cB1fBsOOknhKDexHGU8qNk8eWKLR+W3HeFGPHcj1xd+n30U5CwOmV3y3Q48RfbSrk9GX
+         3+zX2tQh5JAuXnUKQEmt8ztuKOX9cH61Xp91jBoER1YmlT5R9qdV/OX2Rui7Hs6iMp15
+         Tb6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732680347; x=1733285147;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=eGMgbMDKyJQFsX2FhhmL+N7rAH4Be2hXmFG8guEZ4I4=;
-        b=k/dwb3nsX636+t85IvNeX0IAGKIXv0qz96sztCUag6bZ/xosOk77PYuL+ibSsaKUa2
-         3lu5MJ5xzYvnU/v2OpmL/9+9f3U0vIzXcbplGrxE4MPZlvw45U0cC39EoE1siFfdLT17
-         VRUzVmQz21tk66f1rS4+EV11BLnfowwN5N6bel/rXANyY+AXnONU6WgTmZR8mdsQdxdY
-         iMtXkxkupvna3OLVIre3wqoGpJ5RI8d+tWaGXVUawHJgTqNOYQ83oyjrPPaaJvAmirF2
-         Aj33LXCquygv+jTAQ+snBJzQ9h5O0VpWgklkXugHEHkMV6ohqmSH49Kv7zpS0zrr5bJW
-         HfXg==
-X-Forwarded-Encrypted: i=1; AJvYcCUIvXesDbElzYC98qdGgOvpNvewjsi2HwqJuKtDJb8+K5MIxDopsDu2gdFWfGOwsSfyNB6QEvH5Xbx8FE6n@lists.infradead.org, AJvYcCVUpAhA3yFuiHP1P2JmiaR82g+56m4eGS2RUAoFPe6Y+r5if/oG7FJpV1yyLejr53W+IKkIIEcPXRvgYxIvJaAJMA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhHl6sbnV8HqTAwSVlEpqwv2OdVOD63k6gpAW/Q3MWdJ020x8x
-	9dPAaV3o5ipKjbkf01rbWML4d4JbhKyPNxsITfckD1sPpmoJuLPs
-X-Gm-Gg: ASbGncscL5x3hRf9tF7nmS8hAJx84IA1kX9l6y9QbNgGgz/LWdrCPrl4LPY/I4dK+TC
-	775Bvk7kscJHNALaG6zXKShJjgTC1Jf5349HGbCabrfBpEgwE6oDk7OICCQ69VMLoBfemlOTQnw
-	LVQ/NGTbqjxTAC8XWOQKdWXJnpHcQlGOfWNfLSiwUuqv5bMwG+mkaZrwOSwEer4bhoqd6iRUjiH
-	qE5w5/9GU31FlfVr0gRm45vqeg7FVwhE/R62rX1PSHirtvFHXYuTF1in3QMCz2n5ycaECw1
-X-Google-Smtp-Source: AGHT+IHc99eGtijXfEAq6+Nq0ctt6V5ES855jF/j39G6AUo9KVVVWLSlAJEn/iJyJYwFhVzX13IpTQ==
-X-Received: by 2002:a5d:59a3:0:b0:37c:cc67:8b1f with SMTP id ffacd0b85a97d-385c6ef477amr1008941f8f.48.1732680346883;
-        Tue, 26 Nov 2024 20:05:46 -0800 (PST)
-Received: from smtpclient.apple ([87.200.95.144])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3825fafe504sm14932923f8f.25.2024.11.26.20.05.44
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 26 Nov 2024 20:05:46 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.200.121\))
-Subject: Re: [PATCH] WIP: arm64: dts: meson: drop broadcom compatible from
- reference board SDIO nodes
+        d=1e100.net; s=20230601; t=1732682043; x=1733286843;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nE9I1uPOR4sQF959XXKFUqSwci9J/1L0qLYIRegyl2k=;
+        b=amSs44363800I+0hRn4OlY5VBoxgzNviTxp0l2UVxcc1S4GJPa1dY577uzMRZCb7bh
+         twKsH5MFWZ3X5cp+gBaiiQ2267ZcgWRWF07/OIC+CML119iQVmA6qStdDMaQv30L+Fcs
+         WUtNe76P6Nun7Z+tW8a8U5bC9jGnOagbgIGVl+IrROSdLphqxI76otakb0cwKYyxAPCR
+         G2yst55azdhVESFpTzUR9xUy0tBQBWTXJP5PUqOqGQxLZwSnfTROti9g6SuomWH5BHNm
+         CWHzL52cq4xU/z4Ik3tDVlPSTwfT1rXGxsSwz1Fc3K3dyXlczTsHl6LLSuewlRGHpaWX
+         oQGw==
+X-Forwarded-Encrypted: i=1; AJvYcCVDkZYR3PbzXtW/YBHKaGaDdshjXWyWsVTd1hKLK4beNNsr1YBxIDpQnBh/v42hQaW3+ljF79ZYb9LdVhD/@lists.infradead.org, AJvYcCVS5DDF8pV99bVeqAafBU/b/CS2w2/648gAwJ0LKnF8IrcLoXXZCnqi45y5POFLFbPFLe9Z7C6s8IQz3dIPZKNt9Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJRBz9Igu3oYraVyktVUeTRrlh1nIKHepnBl3nLIxfYGNU6+hW
+	zPPDXpUW4PUzcYjL5y6QmIfrY3Y8+O5K4p97rhZM0b5FSb5q69Id
+X-Gm-Gg: ASbGncvJiVPIAbK4Ri82gKseOYERAPZzde+L7qztZgdODCu/KKJ8R7ZaffOLDf+lvt+
+	LsSBZudGNQDHlQDCd7S8suSjPbTTuI6POv83ZNHqxsnLNU1WcheC0qFbuLKvLLbp5PNHCIVWap6
+	JZKEKe6s7QbyLqqfDOexnu0C9u2D0kSAthvNXv7CD8OobuWipPOL61AWGJuxNIpl8f9zMXtvWvk
+	f3cdSfE2P1uiG6kK13JX/1J6Lvk0lF3Xroy6o7UevFgHf/noTswlz0=
+X-Google-Smtp-Source: AGHT+IHFTh4QPCHLqYQqSQVx7EWaLp6Y5TlpjfC3lTUuw+N9BykWXKF0iN1qJk77JxXDjEBKXKGF6A==
+X-Received: by 2002:a05:600c:214a:b0:434:9d3c:31ec with SMTP id 5b1f17b1804b1-434a4e988b5mr44514395e9.10.1732682043182;
+        Tue, 26 Nov 2024 20:34:03 -0800 (PST)
+Received: from toolbox.. ([87.200.95.144])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa7e256esm7503415e9.32.2024.11.26.20.34.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Nov 2024 20:34:02 -0800 (PST)
 From: Christian Hewitt <christianshewitt@gmail.com>
-In-Reply-To: <027767d4-89e7-4665-b840-294a84a89869@linaro.org>
-Date: Wed, 27 Nov 2024 08:05:33 +0400
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <2B479B54-2784-4D75-BEE8-23A52EEFBF17@gmail.com>
-References: <20241124083453.900368-1-christianshewitt@gmail.com>
- <027767d4-89e7-4665-b840-294a84a89869@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-X-Mailer: Apple Mail (2.3826.200.121)
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Christian Hewitt <christianshewitt@gmail.com>
+Subject: [PATCH v2] arm64: dts: meson: remove broadcom wifi compatible from GX reference boards
+Date: Wed, 27 Nov 2024 04:33:58 +0000
+Message-Id: <20241127043358.3799737-1-christianshewitt@gmail.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_200549_401573_79E10D37 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20241126_203405_228881_706D50FF 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,40 +101,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On 24 Nov 2024, at 8:11=E2=80=AFpm, Krzysztof Kozlowski =
-<krzysztof.kozlowski@linaro.org> wrote:
->=20
-> On 24/11/2024 09:34, Christian Hewitt wrote:
->> Drop the Broadcom compatible and use a generic sdio identifier with =
-the Amlogic
->=20
-> 1. Heh, what? Why? This is not really explained and does not look
-> sensible at all.
-> 2. What is "generioc sdio identifier"?
->=20
->> reference boards. This allows a wider range of Android STB devices =
-with QCA9377
->> and RTL8189ES/FS chips to have working WiFi when booting from the =
-reference dtb
->=20
-> Please wrap commit message according to Linux coding style / =
-submission
-> process (neither too early nor over the limit):
-> =
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/sub=
-mitting-patches.rst#L597
->=20
->=20
->> files. There is no observed impact on Broadcom devices.
->=20
-> So how does it allow wider range of devices to have working wifi?
+Amlogic GX reference boards shipped with Broadcom SDIO modules and
+this is described in device-tree files. These boards are rare, but
+their device-trees are commonly used to boot no-name Android STB's
+that closely follow the vendor reference design. For cost reasons
+these boxes often use non-Broadcom RTL8189ES/FS and QCA9377 SDIO
+modules, and for availability reasons the chipset/module used can
+change between batches of the same device.
 
-Sending patches while recovering from a 100km Triathlon last weekend
-resulted in some formatting and submission mistakes - sorry for that :(
+Testing shows the only requirement for WiFi driver probe and load
+is presence of the correct 'reg' value, and all Amlogic boards use
+the same <1> value. Removing the 'brcm,bcm4329-fmac' compatible
+allows a wider range of Android STB boards to boot from reference
+design device-trees and have working WiFi. Also convert the 'brcmf'
+node name to a more generic 'sdio' to reflect we are not always
+using the Broadcom brcmfmac driver now.
 
-I=E2=80=99ll send a v2 shortly with reduced subject/line length and a =
-better
-description of the change and reasoning.
+Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+---
+Changes since v1:
+- correct and reduce subject/description line length
+- provide a better explanation of the change
 
-Christian=
+ arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi      | 3 +--
+ arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts  | 3 +--
+ arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts  | 3 +--
+ arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi | 3 +--
+ arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts        | 3 +--
+ arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts        | 3 +--
+ 6 files changed, 6 insertions(+), 12 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi
+index 52d57773a77f..1736bd2e96e2 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-gxbb-p20x.dtsi
+@@ -178,9 +178,8 @@ &sd_emmc_a {
+ 	vmmc-supply = <&vddao_3v3>;
+ 	vqmmc-supply = <&vddio_boot>;
+ 
+-	brcmf: wifi@1 {
++	sdio: wifi@1 {
+ 		reg = <1>;
+-		compatible = "brcm,bcm4329-fmac";
+ 	};
+ };
+ 
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
+index c1470416faad..7dffeb5931c9 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
+@@ -102,8 +102,7 @@ hdmi_tx_tmds_out: endpoint {
+ };
+ 
+ &sd_emmc_a {
+-	brcmf: wifi@1 {
++	sdio: wifi@1 {
+ 		reg = <1>;
+-		compatible = "brcm,bcm4329-fmac";
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts
+index 92c425d0259c..ff9145d49090 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p231.dts
+@@ -21,8 +21,7 @@ &ethmac {
+ };
+ 
+ &sd_emmc_a {
+-	brcmf: wifi@1 {
++	sdio: wifi@1 {
+ 		reg = <1>;
+-		compatible = "brcm,bcm4329-fmac";
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi
+index 7e7dc87ede2d..b52a830efcce 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi
+@@ -134,9 +134,8 @@ &sd_emmc_a {
+ 	vmmc-supply = <&vddao_3v3>;
+ 	vqmmc-supply = <&vddio_boot>;
+ 
+-	brcmf: wifi@1 {
++	sdio: wifi@1 {
+ 		reg = <1>;
+-		compatible = "brcm,bcm4329-fmac";
+ 	};
+ };
+ 
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts b/arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts
+index d4858afa0e9c..feb31207773f 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-gxm-q200.dts
+@@ -72,8 +72,7 @@ external_phy: ethernet-phy@0 {
+ };
+ 
+ &sd_emmc_a {
+-	brcmf: wifi@1 {
++	sdio: wifi@1 {
+ 		reg = <1>;
+-		compatible = "brcm,bcm4329-fmac";
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts b/arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts
+index d02b80d77378..6c8bec1853ac 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-gxm-q201.dts
+@@ -21,8 +21,7 @@ &ethmac {
+ };
+ 
+ &sd_emmc_a {
+-	brcmf: wifi@1 {
++	sdio: wifi@1 {
+ 		reg = <1>;
+-		compatible = "brcm,bcm4329-fmac";
+ 	};
+ };
+-- 
+2.34.1
+
 
