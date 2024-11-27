@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C937D6ACC3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 12:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41905D6ACC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 12:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4eplniMKPmgRSmY4Vclq9sMFDDQZlUSj/sUHqsWkbJM=; b=ams7GTSr44QI27HwFoFYI2bMGQ
-	ayW0AKKTN7/yTcPaile0bR5Z14iYPnreozi20MbkJ8LeiOTGRn3dit3Ri8AbgCfSYEPJOfc4Fj9uR
-	NGV0QgrsDTgg+vU255oVwnXKmK0YE4vQEvw3DRCbQ2fiWUPQ9otj0LJF8jTfYDhZ1P/T2+EudL0rj
-	W5/LEi+QA2qgcp0yworFiXLy88wMCycU5SApz9jz7b77D/rPC94rmxPrBzc8CyXwn+qtsmZv1kNXz
-	ZAU3FSvwfW46JoP2MxpTmTtFXGyq+KXP2HinKYqpvr58wUGJBTPcxh+aU3vibYOVXCfXBxVfbST1S
-	F88wN64g==;
+	bh=uIKehKgtybj2cFJeI0I6flBJA609w30OYT4LYfzTAs8=; b=B44oK8sskaKIfGoDGuMejXjG1h
+	vCQutwhqkKQUhkIblJ5wDjirh5h9DN9GYni5iiR+KxedNkHxODd7eeq1L0TvUBhzAUyEginkpORKz
+	YqavaVe7BgVkBn8+PIRG8J83HPsw/tr7FLXUyYFrljarAsuULWo/BpT1Wr4kkOwr2sMwN1yodggBe
+	q93HyGE6yf4qgZCc535j8gCL3xyFG14s6BPKEUuE6h8p0r+o48S1/6sEwaNrtjyntzwPhZMHUPgs6
+	W0kQI4eC5jkDNeNQS6VFKFaXsZUCRGYPZ061W9OxdWqOsp1f8GsmU1MdRrmjNm7ELe+/PHB649LRR
+	kYnHwy1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGGym-0000000D7Gd-030r;
-	Wed, 27 Nov 2024 12:17:12 +0000
+	id 1tGH2l-0000000D7u0-0ePv;
+	Wed, 27 Nov 2024 12:21:19 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGGxo-0000000D7AM-0W1x
+	id 1tGH1m-0000000D7mN-3OZq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 12:16:13 +0000
+	Wed, 27 Nov 2024 12:20:20 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <ore@pengutronix.de>)
-	id 1tGGxc-0004FC-Pe; Wed, 27 Nov 2024 13:16:00 +0100
+	id 1tGH1e-0005Oe-UA; Wed, 27 Nov 2024 13:20:10 +0100
 Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <ore@pengutronix.de>)
-	id 1tGGxY-000QYm-2q;
-	Wed, 27 Nov 2024 13:15:57 +0100
+	id 1tGH1c-000QZ6-2C;
+	Wed, 27 Nov 2024 13:20:09 +0100
 Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
 	(envelope-from <ore@pengutronix.de>)
-	id 1tGGxZ-000xja-1h;
-	Wed, 27 Nov 2024 13:15:57 +0100
-Date: Wed, 27 Nov 2024 13:15:57 +0100
+	id 1tGH1d-000xlP-15;
+	Wed, 27 Nov 2024 13:20:09 +0100
+Date: Wed, 27 Nov 2024 13:20:09 +0100
 From: Oleksij Rempel <o.rempel@pengutronix.de>
 To: "Russell King (Oracle)" <linux@armlinux.org.uk>
 Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
@@ -58,13 +58,16 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
 	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com
-Subject: Re: net: sxgbe: using lpi_timer for Twake timer
-Message-ID: <Z0cNfdxInR0XDQaV@pengutronix.de>
+Subject: Re: [PATCH RFC net-next 02/23] net: phy: fix phy_ethtool_set_eee()
+ incorrectly enabling LPI
+Message-ID: <Z0cOeUa2XSFQs0zq@pengutronix.de>
 References: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
+ <E1tFv3F-005yhT-AA@rmk-PC.armlinux.org.uk>
+ <Z0b-nJ7bt8IlBMpz@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
+In-Reply-To: <Z0b-nJ7bt8IlBMpz@shell.armlinux.org.uk>
 X-Sent-From: Pengutronix Hildesheim
 X-URL: http://www.pengutronix.de/
 X-Accept-Language: de,en
@@ -74,8 +77,8 @@ X-SA-Exim-Mail-From: ore@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_041612_160819_82457B37 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20241127_042018_846565_A671801A 
+X-CRM114-Status: GOOD (  24.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,46 +93,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For archive:
+On Wed, Nov 27, 2024 at 11:12:28AM +0000, Russell King (Oracle) wrote:
+> On Tue, Nov 26, 2024 at 12:52:21PM +0000, Russell King (Oracle) wrote:
+> > @@ -1685,15 +1685,21 @@ EXPORT_SYMBOL(phy_ethtool_get_eee);
+> >  static void phy_ethtool_set_eee_noneg(struct phy_device *phydev,
+> >  				      const struct eee_config *old_cfg)
+> >  {
+> > -	if (phydev->eee_cfg.tx_lpi_enabled != old_cfg->tx_lpi_enabled ||
+> > +	bool enable_tx_lpi;
+> > +
+> > +	if (!phydev->link)
+> > +		return;
+> > +
+> > +	enable_tx_lpi = phydev->eee_cfg.tx_lpi_enabled && phydev->eee_active;
+> > +
+> > +	if (phydev->enable_tx_lpi != enable_tx_lpi ||
+> >  	    phydev->eee_cfg.tx_lpi_timer != old_cfg->tx_lpi_timer) {
+> 
+> I'm wondering whether this should be:
+> 
+> 	if (phydev->enable_tx_lpi != enable_tx_lpi ||
+> 	    (phydev->enable_tx_lpi &&
+> 	     phydev->eee_cfg.tx_lpi_timer != old_cfg->tx_lpi_timer)) {
+> 
+> The argument for this change would be to avoid cycling the link when the
+> LPI timer changes but we're not using LPI.
+> 
+> The argument against this change would be that then we don't program the
+> hardware, and if the driver reads the initial value from hardware and
+> is unbound/rebound, we'll lose that update whereas before the phylib
+> changes, it would have been preserved.
+> 
+> The problem, however, are drivers where the LPI timer is dependent on
+> the speed.
+> 
+> Any thoughts?
 
-static void  sxgbe_set_eee_timer(void __iomem *ioaddr,
-				 const int ls, const int tw)
-{
-	int value = ((tw & 0xffff)) | ((ls & 0x7ff) << 16);
-
-	/* Program the timers in the LPI timer control register:
-	 * LS: minimum time (ms) for which the link
-	 *  status from PHY should be ok before transmitting
-	 *  the LPI pattern.
-	 * TW: minimum time (us) for which the core waits
-	 *  after it has stopped transmitting the LPI pattern.
-	 */
-	writel(value, ioaddr + SXGBE_CORE_LPI_TIMER_CTRL);
-}
-
-bool sxgbe_eee_init(struct sxgbe_priv_data * const priv)
-{
-....
-	/* MAC core supports the EEE feature. */
-	if (priv->hw_cap.eee) {
-		/* Check if the PHY supports EEE */
-		if (phy_init_eee(ndev->phydev, true))
-			return false;
-
-		timer_setup(&priv->eee_ctrl_timer, sxgbe_eee_ctrl_timer, 0);
-		priv->eee_ctrl_timer.expires = SXGBE_LPI_TIMER(eee_timer);
-		add_timer(&priv->eee_ctrl_timer);
-
-		priv->hw->mac->set_eee_timer(priv->ioaddr,
-					     SXGBE_DEFAULT_LPI_TIMER,
-					     priv->tx_lpi_timer);
-                                                   ^^^^^^^^^^^^
-                                                   LPI timer is used for
-						   Twake timer.
-}
-
-In case user configures lpi_timer value to too low, it will case frame
-corruption instead of expected performance drop.
+So far, i was not able to find any. But, like I said before, to get
+optimal performance and power saving balance, the lpi_timer should be
+link speed specific... at least, some day with appropriate user
+interface.
 
 -- 
 Pengutronix e.K.                           |                             |
