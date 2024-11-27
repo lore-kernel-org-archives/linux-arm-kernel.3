@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC75D6ACEB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 15:25:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8D21D6ACEB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 15:30:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Date:References:In-Reply-To:Content-Type:Subject:Cc:To:From:Message-ID:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7pUeRfF12X20pJLteYenfLRJT9wdgKObIgS/G5jnVVo=; b=XJquqShWVnwey7bFcMU5A1c8au
-	nCerFNYXm9ynIoy9ntovYxASRhXOhumI1XZ+wu9rhy07suuBCTtB4adBcLMXO5tYIxHS3Xn0afhm2
-	4ObZPLUzo5sA0zh29JfwUBXlxrATivbY7FQPlAFQY0+eGqQ0XRVECCSajoFkLtgaFzC1Sck4QiyHd
-	Jeyf89smXE/BCFGDwR+PvKyGBAKCI77FkdUFPTgPRuZQ5QGSLQS6jKNVc0jKVOdr+4bDRyWuSPVZC
-	WcSY2fIqJe4MPzy7M7xe1NyUP3PtAzAzhYN8xAjiKo0XXwxdtBsbD8f7286uYywvD7yyyuGQGvjho
-	PaJRwcbg==;
+	bh=Bhy3lS5xBdtG3cFqlE00X8F14KPxS7oFT22PELuAg0s=; b=yY0nRITyTwSmbIvEIZ356rXAri
+	4c6ckGrFNeMgF6beURt8jJR8Vt28ASqFkdjDqbYJfRqqLQIc+IKEZgcmvaMHYq8+xk7myRrrxxIV8
+	BF1aTpg/vHfqh+ObRPyCTgvqJrTd6eILcIc+FShvw2dcCFiQhHNG6mdvu5ufGayiCJgJfn/j+GM5M
+	yQ1B6qMIRcjXZVG008fv0gdVHGXNSCCui6+zde9mKry9rBKyi+15tN8X+AcJEFLjLVDH93ascRT3J
+	9v00HzhOTvxfq4T42W8Ga3Anmc1ewuWGzojcQ4IXFtoMotgCy/FQwDaa01mUSffUya8Iq35xwz9KG
+	qLde+LYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJvG-0000000DVHg-285x;
-	Wed, 27 Nov 2024 15:25:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tGJzU-0000000DVph-2rZI;
+	Wed, 27 Nov 2024 15:30:08 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJuI-0000000DVDK-47br
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 27 Nov 2024 15:24:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=7pUeRfF12X20pJLteYenfLRJT9wdgKObIgS/G5jnVVo=; b=nItdjErw2nzwL7mjVOdeqeZePe
-	PgDSZCuc/bbtwtj1q3GER5zgQ/LktDJT2418rNYcjcMmlpxic828A7OEuUN3tAI0mT8p8otn5WYJ4
-	2MGa7iyyZdzEqM1LUS5TdRGsccw4hWT77vK22LmXrKpnl1UIBBTEf2T23lL0hKw7oG3wSYzuwJSRM
-	Gj0jk92K2RiDXV7PYolATHi618PiYqtK1TRbybwGZUXcE2Jxy6AzUJe204gsDEh4xaA/REewPM+c1
-	SxKBMrT+RJRXTb2lzqq6hX5YouuiPaM2MvyeElJa2d2+gVlGwT1cy7ob5fKuo5D8INZeX1Rz5OltG
-	QdEr+RJw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJuF-00000001QU9-3WFJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 15:24:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F4161477;
-	Wed, 27 Nov 2024 07:25:07 -0800 (PST)
-Received: from [10.57.69.41] (unknown [10.57.69.41])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0519E3F58B;
-	Wed, 27 Nov 2024 07:24:34 -0800 (PST)
-Message-ID: <a7011738-a084-46fa-947f-395d90b37f8b@arm.com>
-Date: Wed, 27 Nov 2024 15:24:32 +0000
+	id 1tGJyV-0000000DVd5-1Paa;
+	Wed, 27 Nov 2024 15:29:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1732721341; x=1733326141; i=frank-w@public-files.de;
+	bh=Bhy3lS5xBdtG3cFqlE00X8F14KPxS7oFT22PELuAg0s=;
+	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
+	 Content-Type:In-Reply-To:References:Date:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=naTabAUGlSEkFimSF8TxnK5xCkrQh4YbRqrFap3iHQ53cpmZSr/IUu8KeeXuLNf0
+	 I/H1QptBMkKZS8mMEBdaA39kM2q9A0jfE2M3nC2Cuj21jeY65YAXCn+lgn0AYXXby
+	 jlsfOnQAJlY6us9Hr80UA1CGA2T4Xu8qI/dJFlguC+4qzq42GCnuJX8dr0XcZJDMf
+	 AAKTerT3uvIIxzPxuujtVoe9yuvono/1qPYmQudOf7P/AN+bsbfwFE1Wh4jqc0/yF
+	 po4dOt+9Va9J9ZGvetvEc38Uyf5lZjQ9rCgsCGy2hfCYpQs9MzCqrovel+4ZW2aIr
+	 RxttmMDXzCWWGp+7Qw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [157.180.224.21] ([157.180.224.21]) by msvc-mesg-gmx103 (via
+ HTTP); Wed, 27 Nov 2024 16:29:01 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Bump KVM_VCPU_MAX_FEATURES
-To: Marc Zyngier <maz@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Will Deacon <will@kernel.org>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241127145644.421352-1-steven.price@arm.com>
- <86a5dkvh9o.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <86a5dkvh9o.wl-maz@kernel.org>
+Message-ID: <trinity-b73d119f-df34-4724-a327-be59ad3410bf-1732721341758@msvc-mesg-gmx103>
+From: Frank Wunderlich <frank-w@public-files.de>
+To: angelogioacchino.delregno@collabora.com, linux@fw-web.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Aw: Re: [RFC v1 10/14] arm64: dts: mediatek: mt7988: add lvts node
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <6725747d-2db4-4f80-be25-4b314e59ab9a@collabora.com>
+Importance: normal
+References: <20241029103937.45852-1-linux@fw-web.de>
+ <20241029103937.45852-11-linux@fw-web.de>
+ <6725747d-2db4-4f80-be25-4b314e59ab9a@collabora.com>
+Sensitivity: Normal
+Date: Wed, 27 Nov 2024 16:29:01 +0100
+X-Priority: 3
+X-UI-CLIENT-META-MAIL-DROP: W10=
+X-Provags-ID: V03:K1:d5qngSojmeo1EodTOgFNr+aD5GS161u469K6Y1PSY2C0svHCDz9iHqSIj5xw8388HO+UN
+ r/l7Y0vdvjqxh0qwOkykUBWoF72Bb9v7l+mzrVcWDd2n12YBRFOkzLsygaowpZFecObIgqcCYKk4
+ bq1Z0eptPBV5n26He2pDKU1lnFKSVrTCcN4GyBaVYYY8kTE8cY9Ic64+ZlvlO9beic0LyEfI6jRf
+ lhM4v8sF+brhfI66h56IgYjY0QFnGR+1z4ctAk/arSKvTqSMZUQN571VnQyHi1ZCoHxLcnwNdyMV
+ cQ=
+UI-OutboundReport: notjunk:1;M01:P0:43DHYM8XJJ4=;agufmWR33nlynwPgFtkwqB3pkMl
+ OPhdL2a6Ggn2cWykbyxebkowWdUh/fFSEf7mFt9Z6woLyqFd8uSAXbhVTAoGe61rPcvmH36w0
+ qrcrYA6lRbJZtDJYf9PSD0dnhOQF+AbeWAezLrL74sL9tbij9mUlUf1U1HlK4N+kloYi2tc2t
+ n1i4Nk/K5dAhzAf3UlwcoWQXfFPAVLO8dABmvX23P97cg2c8NWl5xXPdLaKtVjC+DYSvMzj1+
+ 84p0R+E5ZANoeQh/1A0+t6cuerEV8Fwy0JNRUnKc3hRH81GsQRfk1jT/43BhE5hg1v2l3J/lZ
+ F6kRwQRD/ig0FZuuSXBy8T9VZyYJ+LotK2ifJxCs7Ik9Ty0KyUd7I/LCKAW81U3bsamNdgpD8
+ DPbhdwnFIpPoSWF/pzWKkTFynWWcetHWpIlRE7bAoRB3CM1zpYOjb39njx/YUMreac4Lex1c3
+ 16JcWAjzytmTrRXVTFgMPgvpJJo13qv/N50sigYIOyH7dWcN4iUaeXJpzbr/Vr+KxR8LVa/x7
+ oAFCezLfS+0CEhSIzdOJphQWbCCoN/IfUIy8UHmr6tOaBL2N1azLa0zMHbmZcNpZfkQefCxZk
+ n4R9PGuWgyNnsCRra/nsb4q32GIQj2Xkiq2OwRcHlRSmGULU/Ym0KKfCXKnU4noUynHG21EPr
+ VFImQSitOrdl09SyGoCLnWRlf7dmBvSHgu5B+b1jdkpaSOWXQWwcS160w+nUrJybJ1s/gABgI
+ D18a5AleXeB5fLPN71qC1XWEuS25MK6WRaKQQyGngnFu7ot1/fdCVBGLyagNUjnAvuDGC+y3J
+ sEAS90vHgVzDIfZf5BFE3ADGYI7Jzqeet3iEh5/thTwsTjnYuDzkPCRiFCoqMUhbBefSGr/1S
+ GEq0fYjAmizsm5SbyCBAQidqKgeWpAGOxZ5M=
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_152444_059147_8E8002D9 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20241127_072907_667501_4248C4A1 
+X-CRM114-Status: UNSURE (   7.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,40 +100,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2024 15:16, Marc Zyngier wrote:
-> On Wed, 27 Nov 2024 14:56:31 +0000,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> When the KVM_ARM_VCPU_HAS_EL2 define was added, the value of
->> KVM_VCPU_MAX_FEATURES wasn't incremented, so that feature has never been
->> in the KVM_VCPU_VALID_FEATURES bit mask. This means the HAS_EL2 feature
->> will never be exposed to user space even if the system supports it.
->>
->> Fixes: 89b0e7de3451 ("KVM: arm64: nv: Introduce nested virtualization VCPU feature")
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> I might be missing something, and it's possible that
->> KVM_ARM_VCPU_HAS_EL2 is deliberately not exposed yet.
-> 
-> This is on purpose. I'm not planning to enable EL2 support until it is
-> ready.
+&gt; Gesendet: Mittwoch, 27. November 2024 um 14:34
+&gt; Von: "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabor=
+a.com>
+&gt; An: "Frank Wunderlich" <linux@fw-web.de>, "Rob Herring" <robh@kernel.=
+org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt=
+@kernel.org>, "Matthias Brugger" <matthias.bgg@gmail.com>
+&gt; CC: "Frank Wunderlich" <frank-w@public-files.de>, devicetree@vger.ker=
+nel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.or=
+g, linux-mediatek@lists.infradead.org
+&gt; Betreff: Re: [RFC v1 10/14] arm64: dts: mediatek: mt7988: add lvts no=
+de
+&gt;
+&gt; Il 29/10/24 11:39, Frank Wunderlich ha scritto:
+&gt; &gt; From: Frank Wunderlich <frank-w@public-files.de>
+&gt; &gt;
+&gt; &gt; Add Low Voltage Thermal Sensor (LVTS) node for mt7988 SoC.
+&gt; &gt;
+&gt; &gt; Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+&gt;
+&gt; Please add the lvts_calibration nvmem entry in this commit instead.
 
-I did suspect that's the case - but it might have been better to knobble
-it in system_supported_vcpu_features()/kvm_vcpu_init_check_features()
-rather than 'hiding' it in the MAX_FEATURES. But hindsight is a
-wonderful thing ;)
+and leaving the other (currently not linked) subnodes?
 
->> However I'm
->> working on v6 of the host CCA series and as part of that want to add a
->> new feature but and bump KVM_VCPU_MAX_FEATURES up to 9.
-> 
-> Well, I guess that defines some ordering then! :D
-
-Indeed - I'll try to remember to include note about this "dependency" in
-my cover letter. We're likely to need a few more rounds for CCA to be
-ready, so hopefully NV will naturally be there in time :D
-
-Thanks,
-Steve
-
+&gt; Cheers,
+&gt; Angelo
+&gt;
+&gt; &gt; ---
+&gt; &gt;   arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 13 +++++++++++++
+&gt; &gt;   1 file changed, 13 insertions(+)
+&gt; &gt;
+&gt; &gt; diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/ar=
+m64/boot/dts/mediatek/mt7988a.dtsi
+&gt; &gt; index ed8ce1e6f68b..de9a9ff2edd8 100644
+&gt; &gt; --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+&gt; &gt; +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+&gt; &gt; @@ -4,6 +4,7 @@
+&gt; &gt;   #include <dt-bindings interrupt-controller=3D"" arm-gic.h=3D""=
+>
+&gt; &gt;   #include <dt-bindings phy=3D"" phy.h=3D"">
+&gt; &gt;   #include <dt-bindings pinctrl=3D"" mt65xx.h=3D"">
+&gt; &gt; +#include <dt-bindings reset=3D"" mediatek,mt7988-resets.h=3D"">
+&gt; &gt;
+&gt; &gt;   / {
+&gt; &gt;   	compatible =3D "mediatek,mt7988a";
+&gt; &gt; @@ -103,6 +104,7 @@ infracfg: clock-controller@10001000 {
+&gt; &gt;   			compatible =3D "mediatek,mt7988-infracfg", "syscon";
+&gt; &gt;   			reg =3D &lt;0 0x10001000 0 0x1000&gt;;
+&gt; &gt;   			#clock-cells =3D &lt;1&gt;;
+&gt; &gt; +			#reset-cells =3D &lt;1&gt;;
+&gt; &gt;   		};
+&gt; &gt;
+&gt; &gt;   		topckgen: clock-controller@1001b000 {
+&gt; &gt; @@ -268,6 +270,17 @@ i2c2: i2c@11005000 {
+&gt; &gt;   			status =3D "disabled";
+&gt; &gt;   		};
+&gt; &gt;
+&gt; &gt; +		lvts: lvts@1100a000 {
+&gt; &gt; +			compatible =3D "mediatek,mt7988-lvts-ap";
+&gt; &gt; +			#thermal-sensor-cells =3D &lt;1&gt;;
+&gt; &gt; +			reg =3D &lt;0 0x1100a000 0 0x1000&gt;;
+&gt; &gt; +			clocks =3D &lt;&amp;infracfg CLK_INFRA_26M_THERM_SYSTEM&gt;;
+&gt; &gt; +			interrupts =3D <gic_spi 138=3D"" irq_type_level_high=3D"">;
+&gt; &gt; +			resets =3D &lt;&amp;infracfg MT7988_INFRA_RST1_THERM_CTRL_SW=
+RST&gt;;
+&gt; &gt; +			nvmem-cells =3D &lt;&amp;lvts_calibration&gt;;
+&gt; &gt; +			nvmem-cell-names =3D "lvts-calib-data-1";
+&gt; &gt; +		};
+&gt; &gt; +
+&gt; &gt;   		ssusb0: usb@11190000 {
+&gt; &gt;   			compatible =3D "mediatek,mt7988-xhci", "mediatek,mtk-xhci";
+&gt; &gt;   			reg =3D &lt;0 0x11190000 0 0x2e00&gt;,
+&gt;
+&gt; </gic_spi></dt-bindings></dt-bindings></dt-bindings></dt-bindings></f=
+rank-w@public-files.de></frank-w@public-files.de></frank-w@public-files.de=
+></matthias.bgg@gmail.com></conor+dt@kernel.org></krzk+dt@kernel.org></rob=
+h@kernel.org></linux@fw-web.de></angelogioacchino.delregno@collabora.com>
 
