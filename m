@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44CC1D6D233
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 20:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88340D6D233
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 20:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7JnlDLsmM5qv+EK/8poCXPvkvDh4sjlL4kNug7GuHXU=; b=etyfsgT1lx4smrSAgE2lG1+x+E
-	afrBOQ/RMobsnRPLQE94UWMiTaEtkWy9UUiRuYktsk3gYXXB8bLROibOLqgR6+Wa8PkhOuvLVezu0
-	dupvN8ywNb2b+KOdULGCr+b798jhYTe+IxHhSRBmKlwVaHX3zaiPEgiMAYobXxXdL89P8OBBTkSoX
-	3+Fk5EaPFs1E8okPafp6Spumo7ArJq9xjEPRr4JDVtBZIkIPoaQ/9XPkjaiupYW+kubBuSgsKbwNt
-	pzyqDbyt1fgOSVM9N8M3yrOelU53VsNCIAnWkyfhoqrYADuW412QYkm6agDVP3MfbJArWOH5DYPZR
-	UGbwVoKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7iRGowmY09x6NtLH9Lb1/0sWvfPDP0DN1AXCvHkKcIk=; b=NCz1p4ssrou0WE98sfpRGHkTwy
+	tVKCaolu6s+fz6zYyX5mbzFDxxhu7+xH7/IqVAJWTT/4dkXC+bwOXR2pThBn1Dz3qDlXMTtEsm0el
+	ETmh0iHfIidaSIB10ksDhooNKxorIRvzPPDESST2e7SBzKx3XwrI17jsPD3NauOThJaJp6k6ksMrI
+	bmwmqapkM63/FrMDrLpwZByh/G5hRJPlHAedtdN0XK6C2FbiV/Tq6rnb0WhPqMpK4obqg8e2pQy/u
+	4PJSaypXPxtXPSMFGDUskKK/74xuwWuuNH23BT89ubb0imKrXSvxu2ci+zuoNIqhmFvmayb0lgnza
+	oHTfDFxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGOEb-0000000E0Ii-1LlG;
-	Wed, 27 Nov 2024 20:02:01 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tGOXs-0000000E2g8-2vsJ;
+	Wed, 27 Nov 2024 20:21:56 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGOCh-0000000DzkK-2TVg
+	id 1tGNMk-0000000Dtvr-3ekB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 20:00:04 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-214f6ed9f17so698685ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 12:00:03 -0800 (PST)
+	Wed, 27 Nov 2024 19:06:24 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-724f1ce1732so105214b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 11:06:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732737602; x=1733342402; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7JnlDLsmM5qv+EK/8poCXPvkvDh4sjlL4kNug7GuHXU=;
-        b=frwZtCqoimlPygWLChwrcRm/sdHmNDjVzW5mnAB5uGiqI688HKILHeelGwd4nmYF/Y
-         SNA2vsO2I7sMcqB4flkEPbza5XuMXnGt+U3rIiURq2xEt2zAicCe+KuqO8PzbyD8Two6
-         XXBP+S1wrV7boBqZJh8Sy1asnRX4MU5PCWXBayHzRTfmKX4McZroGida/WQXo3E757UQ
-         agJ+pUJxXXQNEa757dq+935dWLrVo09je3qcqaO+0xjVEcqVF9mGwbrdqtLe0BN2VMty
-         sYI7b7dQCjCYiuNMCPWYcAbDyHpuPh04TmWzH86uBFeEwL5yTF3G13FJbWZfsvnbI/Sc
-         wPDg==
+        d=gmail.com; s=20230601; t=1732734382; x=1733339182; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7iRGowmY09x6NtLH9Lb1/0sWvfPDP0DN1AXCvHkKcIk=;
+        b=LM81EK3zem3tOb7OLA5VjWpjceOvuT0ogjPsYIVfq0OYyNJ1n/dZfTb7kYeqq/HJSg
+         gFbJ7aIJG0Owz7mt8qic3T2QcgyBD5iX36dqbZDIIxwe3Vd2haTX7fG7VGjYo/KWW8Ov
+         UFqb1+K9WA7mazCwJyP9VaCLwNP0TH0LAffnSBE3ZugEo7MH69GgCw5tgBOUf2iEkZUJ
+         qxn7nYymwFhA/y+BmpVhOg/aBT53YvoEFP8gvlZIklDYGNawi/L+y48OkvksRXiIa9LF
+         r+0tEhEz9L0RvBuhUCS7jz0OMlYZuYeDCNqb7iFgOy2Vo9yojGfdbq5Zc/fd2OmUQHuA
+         E9Ew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732737602; x=1733342402;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7JnlDLsmM5qv+EK/8poCXPvkvDh4sjlL4kNug7GuHXU=;
-        b=pQwO8PhV4pgmZczOPIBbJAe1fzUudOtz2pjv1Bq/04aE2lBi51baQI/CynJKHhOJb+
-         0zedK0Kge5ZS7vGfa19BwFxlB7eh+R8QESa/GG0xcxwAxkwOBzuEClwoIyTq+gjKLbqg
-         +EnZQnBZDhtdezXArYOIBkXhB4gq76/P6BiXjdEw14u/tsIQ/YwXCYKi8Md3nLlzkPpG
-         4xgX5Y8tWDKFbFIUmJN/W9+n1j1hZ75nZRi20BnwhkyJqNGGWPdw9hVxrrWLrQH+dnwH
-         kr066q7D3+/T1qIQhUBOs9tSmjn9p743t368XFpN3Qt6Omiq2UoE5E9QLu/sHZ1Mm7pt
-         4+BQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVIMC+tE4LWYbPpFlX60GMw4LdABiVejYddGsGUwIkyujPUYyKKMOqaVqDdWNnvVO1Gb9z6d4E2xt12ltFFTH1l@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7TbBTZi16X/nbvBrdb9wrthlC5QuaiJYQV+bpgfdfXGKzjQY/
-	tV6TIc+CXlMyPrhSY1M567YIi5ggPA+0eLkSSCUGle6pZJ3QevTs9GpWQQ==
-X-Gm-Gg: ASbGnctMf+XUv7XwY/HQ1sQfPZk3wsVZq2hYET9oBoA+ePhYCnmF1aWl1NWZmVFUcW4
-	oeJNZqzA2p0zl3v+XIgEULVg6ZvduauCT3dnmE+qrltl9abYjkc0+OAIl7zptFxHDTGPv9bHNOo
-	8Yk/9U2M6jTV6FY8qp/gUPopDwkMQNck6V0fRcPNxlJHnoHAWU33D5vaDRPg2lP278fAebk2s3W
-	GrPPOtGokPk5aeYor7cUsryHLH4vFA+YT0esWz/0x8TxwnwJuw=
-X-Google-Smtp-Source: AGHT+IEGL7M9GjZwTDz8gnOB4Fc/ReaRn8//tUsUDCeh7CYPkfHbRbhoJ/aTMpOuF0TfqhinENoEIA==
-X-Received: by 2002:a17:902:e752:b0:212:4739:27b2 with SMTP id d9443c01a7336-215010861afmr48871945ad.5.1732737602170;
-        Wed, 27 Nov 2024 12:00:02 -0800 (PST)
-Received: from google.com ([2620:15c:9d:2:d991:bacb:df39:9ecd])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2129dc23a35sm107317255ad.250.2024.11.27.12.00.00
+        d=1e100.net; s=20230601; t=1732734382; x=1733339182;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7iRGowmY09x6NtLH9Lb1/0sWvfPDP0DN1AXCvHkKcIk=;
+        b=tlfWQVjDjo2p/9pc1vIQKiLeZj+LlbAWGsPakAK0f+bZtBWIxjizwA7MxUswVe6Jst
+         Q+QK+bv90Dk5FsAuh74Zov7lGHxivvO4Yf56Y3g1NI99MAlJx3QPC/++KVycqYQYOelt
+         VeIIza2DicO/QFTY5+33ARSFTYX5/3Vow1gno1ehBCrgo5AiMjt6OzJfsx3Fq/6W7Jxf
+         VGulT93vYqTO6CWWQOnrjYDHZRgVafF/x4XqGO4BB9QCg20LUpviR9d5eWfiFRw32ZOO
+         xwCDSqYB3lSh+I/KdRdABCpc687SHsOr0WQqL3lfzC95/ranhUfFvM6jd2VOp7wwOn21
+         wW0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV9KrC4Q6JfkDMorVabGxacobK3eUivJbCJUmgtU8iV+5UPZ0qGNW45wTP7/l+xiTJNkgcmknUDa0ibp4e3Vsg/@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywu4PF1bnhL/BqOG0r1uKBTwvFMM3Zte2YWiBpTJ9K1a3wqAAlk
+	jyM6VgTH7Ssll+LgeSBB+TrL0NcA2Y+ASpso7mx5N7dFMvuFxzMqbhJAkA==
+X-Gm-Gg: ASbGncuVZiWU4eKmaGNyY4TQ6qUFBTZ8WO5LANGApmuE44QzZgWhgtZicJppTCpbZ9n
+	nFcDkLaxetzXdX73SKQLBxBiI1hq+nPu6YgKzVAVqD516ZGbInV77LV9HJb+TocpWHoRugmfp9S
+	PcZk8HlLOZVEsfUOiIlXh5bVdLbSxAIpfh42b26pPrJKezV0YroTqfkmU1QQssNGpGRK+8unSXv
+	E0DovpZs/0UFvyZwfURWWQ/BBBgndtOu4ragqbD/M3p5Ni+Sb59GNJBrfiRIoI=
+X-Google-Smtp-Source: AGHT+IHRWI7ciDiEU560CDl4hwoigQDwlqav9MEDJA2PtR7FPWVN5aMtjqTpiIgHPEe1PoP0+IF+Yg==
+X-Received: by 2002:a05:6a00:1492:b0:71e:59d2:9c99 with SMTP id d2e1a72fcca58-7252ff9f26emr5723057b3a.4.1732734381744;
+        Wed, 27 Nov 2024 11:06:21 -0800 (PST)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:4986:34c:3f75:d990])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724de554fd6sm10550036b3a.139.2024.11.27.11.06.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Nov 2024 12:00:01 -0800 (PST)
-Date: Wed, 27 Nov 2024 11:59:58 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Janne Grunau <j@jannau.net>
-Subject: Re: [PATCH 2/4] input: apple_z2: Add a driver for Apple Z2
- touchscreens
-Message-ID: <Z0d6Psrk5f8-hXe6@google.com>
-References: <20241126-z2-v1-0-c43c4cc6200d@gmail.com>
- <20241126-z2-v1-2-c43c4cc6200d@gmail.com>
- <Z0aCSBNEAJlgNIAI@google.com>
- <CAMT+MTT0oiODONgEipLuAaZyzD-YyM8mbAcRsZKn8N4E326kMw@mail.gmail.com>
+        Wed, 27 Nov 2024 11:06:21 -0800 (PST)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: linux@armlinux.org.uk,
+	s.hauer@pengutronix.de,
+	linus.walleij@linaro.org,
+	esben@geanix.com,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux@roeck-us.net,
+	arnd@arndb.de,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH v2] ARM: imx: Re-introduce the PINCTRL selection
+Date: Wed, 27 Nov 2024 16:06:05 -0300
+Message-Id: <20241127190605.1367157-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMT+MTT0oiODONgEipLuAaZyzD-YyM8mbAcRsZKn8N4E326kMw@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_120003_632192_35C5653E 
-X-CRM114-Status: GOOD (  30.94  )
+X-CRM114-CacheID: sfid-20241127_110622_911481_70456FDF 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,94 +100,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 27, 2024 at 09:24:16AM +0100, Sasha Finkelstein wrote:
-> On Wed, 27 Nov 2024 at 03:22, Dmitry Torokhov <dmitry.torokhov@gmail.com> wrote:
-> > > +     u16 checksum;
-> >
-> > Does this need endianness annotation? It is being sent to the device...
-> 
-> Both host and device are always little endian, and this whole thing is
-> using a bespoke Apple protocol, so is unlikely to ever be seen on a BE
-> machine. But i am not opposed to adding endianness handling.
+From: Fabio Estevam <festevam@denx.de>
 
-In this case the endianness handling will be "free", but will still show
-good code hygiene.
+Since commit 17d210018914 ("ARM: imx: Allow user to disable pinctrl"),
+the CONFIG_PINCTRL option is no longer implicitly selected, causing
+several i.MX SoC pinctrl drivers no longer getting selected by default.
 
-> 
-> > > +             slot_valid = fingers[i].state == APPLE_Z2_TOUCH_STARTED ||
-> > > +                          fingers[i].state == APPLE_Z2_TOUCH_MOVED;
-> > > +             input_mt_slot(z2->input_dev, slot);
-> > > +             input_mt_report_slot_state(z2->input_dev, MT_TOOL_FINGER, slot_valid);
-> > > +             if (!slot_valid)
-> > > +                     continue;
-> >
-> > Shorter form:
-> >
-> >                 if (!input_mt_report_slot_state(...))
-> >                         continue;
-> 
-> Sorry, but i fail to see how that is shorter, i am setting the slot state to
-> slot_valid, which is being computed above, so, why not just reuse
-> that instead of fetching it from input's slot state?
+This causes boot regressions on the ARMv4, ARMv5, ARMv6 and ARMv7
+i.MX SoCs.
 
-You are not fetching anything, input_mt_report_slot_state() simply
-returns "true" for active slots. You are saving a line. You can also do
+Fix it by selecting CONFIG_PINCTRL as before.
 
-		if (!input_mt_report_slot_state(z2->input_dev, MT_TOOL_FINGER,
-					fingers[i].state == APPLE_Z2_TOUCH_STARTED ||
-					fingers[i].state == APPLE_Z2_TOUCH_MOVED))
-			continue;
+This defeats the purpose of 7d210018914 ("ARM: imx: Allow user to disable
+pinctrl"), but it is the less invasive fix for the boot regressions.
 
-> 
-> > > +     ack_xfer.tx_buf = int_ack;
-> > > +     ack_xfer.rx_buf = ack_rsp;
-> >
-> > I think these buffers need to be DMA-safe.
-> 
-> Do they? Our spi controller is not capable of doing DMA (yet?)
-> and instead copies everything into a fifo. But even if it was capable,
-> wouldn't that be the controller driver's responsibility to dma-map them?
+The attempt to build Layerscape without pinctrl can still be explored
+later as suggested by Arnd:
 
-Yes, they do. From include/linux/spi/spi.h:
+"Overall, my best advice here is still to not change the way
+i.MX pinctrl works at all, but just fix Layerscape to not depend
+on i.MX. The reason for the 'select' here is clearly that the
+i.MX machines would fail to boot without pinctrl, and changing
+that because of Layerscape seems backwards."
 
-/**
- * struct spi_transfer - a read/write buffer pair
- * @tx_buf: data to be written (DMA-safe memory), or NULL
- * @rx_buf: data to be read (DMA-safe memory), or NULL
+Fixes: 17d210018914 ("ARM: imx: Allow user to disable pinctrl")
+Reported-by: Guenter Roeck <linux@roeck-us.net>
+Closes: https://lore.kernel.org/linux-arm-kernel/49ff070a-ce67-42d7-84ec-8b54fd7e9742@roeck-us.net/
+Signed-off-by: Fabio Estevam <festevam@denx.de>
+---
+Changes since v1:
+- Reintroduce "select PINCTRL" as a minimal fix for 6.13-rc.
 
-> 
-> > > +             if (fw->size - fw_idx < 8) {
-> > > +                     dev_err(&z2->spidev->dev, "firmware malformed");
-> >
-> > Maybe check this before uploading half of it?
-> 
-> That would be an extra pass though the firmware file, and the device
-> is okay with getting reset after a partial firmware upload, there is no
-> onboard storage that can be corrupted, and we fully reset it on each
-> boot (or even more often) anyway.
+ arch/arm/mach-imx/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-OK, please add a comment to that effect.
-
-> 
-> > > +     error = apple_z2_boot(z2);
-> >
-> > Why can't we wait for the boot in probe()? We can mark the driver as
-> > preferring asynchronous probe to not delay the overall boot process.
-> 
-> A comment on previous version of this submission asked not to load
-> firmware in probe callback, since the fs may be unavailable at that point.
-
-But why do you assume that the fs will be available at open time? There
-is a number of input handlers that serve internal kernel purposes and we
-could have more in the future. They will open the device as soon as it
-is registered with the input core.
-
-It is up to the system distributor to configure the kernel properly,
-including adding needed firmware to the kernel image if they want the
-driver to be built-in.
-
-Thanks.
-
+diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
+index e4fe059cd861..dc47b2312127 100644
+--- a/arch/arm/mach-imx/Kconfig
++++ b/arch/arm/mach-imx/Kconfig
+@@ -6,6 +6,7 @@ menuconfig ARCH_MXC
+ 	select CLKSRC_IMX_GPT
+ 	select GENERIC_IRQ_CHIP
+ 	select GPIOLIB
++	select PINCTRL
+ 	select PM_OPP if PM
+ 	select SOC_BUS
+ 	select SRAM
 -- 
-Dmitry
+2.34.1
+
 
