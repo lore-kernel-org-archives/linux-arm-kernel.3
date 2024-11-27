@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A5FD609D2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:00:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99CA2D609D1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3jtF9ci8OPnOP4Hi31zRxsQ8dcNSQiS08yT+hSgOwYg=; b=PaKbTvWteh9+BRU5gXZEVVpTlt
-	B2nN/fiv2GxBws0ZtV5TpxcNwbmWyG8+lfJrkAJVgA1YmEo4YOP7TmsTZlGUKKzBXu2mN9h6qwRB4
-	5GWomAbpZw7PkkqHLr64+16dzabSO6M/I2yP+X29PXELMwZsMoqPhM2o9KJAtyyPLjsePgm+ywwr8
-	p0p2xo+PZcJKt22ZPEpj+DDX/1AHDOTwfHRp/jhfqrap6K3geNz5qFVzyQi9lcK93C8j/uRjI+dxn
-	rEOSJGeupNycyMlTenrMM70gU0ggUweeyyf2XaxjVWDlDqg5DeTEhDEVK0Kq51erPDXkGiGTn0t9q
-	vZrPCJqQ==;
+	bh=EX57ICOKMzOs0eby+nVmHR92z2ekmaeMdJuyR8QQpCo=; b=gdrgacFdxkSJ1lVf9yyRzL/CzL
+	Z5TjWmaVoQECFGPDWgDmUeyT1hhDJTMwWhAQQirvuv9SLsorVZDewnd+dKq+RSsrrVPbcOVl73IWX
+	FnU+k7bw+H+/MfdXRlVStvypTx5F923QHZmq7OPqSDkjh6n00mesegw/s+KefTJHREu+Ps1T077b+
+	KzLFv/25S+KwhMb5LWhY/DJTcW5ahJ054kx0wliPtJF+KEagL/FjWGt62l5VwK5T7YJtax/ctXZvl
+	BQq8EcuWjQV7zwDeTfHXKFzG4P2yYPjbtrZRixPq3HmhpTUEWOwYts6nRVXlJTvVFMOUI1tS+yOBa
+	0PmZ8iXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFmJ-0000000Cvfz-2X5k;
-	Wed, 27 Nov 2024 11:00:15 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1tGFnG-0000000Cvt8-2GGx;
+	Wed, 27 Nov 2024 11:01:14 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFkN-0000000CvBh-02Bu
+	id 1tGFkN-0000000CvBe-0TPj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 10:58:16 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-a9aa8895facso1033599366b.2
+	Wed, 27 Nov 2024 10:58:17 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-53df1e0641fso374565e87.1
         for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 02:58:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732705094; x=1733309894; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1732705093; x=1733309893; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=3jtF9ci8OPnOP4Hi31zRxsQ8dcNSQiS08yT+hSgOwYg=;
-        b=hnFB+MNJ7DWuy+A4Ou0EgDhb6Dj70Jl0yFPve73Jxj4j4y0jhvkgZ3J3ac5nAPfJkW
-         h238W8WFUdY01a0qfQuDkyEiodAEqrEczw327R3pWjnx/hZLroupJWN6b/l/ZQUnVy+I
-         wbI/VUuhrS/KGY/En+G792OatlsqVRMFgrFlMoy5s5GCn5Z3avdOV76k2cejL5174o5t
-         K75P6Qv6nBoNGDqTUvNTnRjZ/UzxSETfrmJgpxTonMQuRJa8C0YcbuFu56ScTuAvGS5A
-         Pj/KvGX18XdejBXYoJPRTFTAfH3EBv4PzWiB6jsPFcDllaM3DBUQ2xkBVBR2GlqMG+jH
-         4XOA==
+        bh=EX57ICOKMzOs0eby+nVmHR92z2ekmaeMdJuyR8QQpCo=;
+        b=sq4rbvKR5XtGl/OUuCcj1G761sK4rIQzGLaOrWSA996qGe/OyycWHtTBv6/6K/F2Tt
+         bYAit0XJjZEZHPNdFK026RJ7m5MXR43HjFn8lpKcI81VvyGylkiichuk7ERkIloa/q27
+         wYgc0j9Qd6hSo6vUE4mbi3FafqeJlccFIDjQ7f4tw+vWOnThSDnkQJB+prtaf08kBxP/
+         HIj44ato4q9KJw4giJ1rcIb6cWQGQyX+p9UKlBYOr9JgqwVrF+Au7xbg6CfATiW/IT/W
+         e5RY7xn3PfPNmHAbkC3WO7lNhsCRP9d3Rp+i834ppZ5mPQdvkus5yu+VkGDSnYGs1wqf
+         6sGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732705094; x=1733309894;
+        d=1e100.net; s=20230601; t=1732705093; x=1733309893;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=3jtF9ci8OPnOP4Hi31zRxsQ8dcNSQiS08yT+hSgOwYg=;
-        b=P493unkHI62Ma9HLlYQyJ28nndHlhhKOrAt6hkvUKsBiMRrxC93TmiJzINVfyTblq3
-         Sfn55KWIcmG+iauyrtaU3l4AeL4J4tK6IXa7LM/AQrfEe1jJhqxL31gAXG4WVNb1jrIz
-         CqhoNPn8SqsHhknAuFjBuR2ladK+f2QkVbDLqAClFs+66GTG4cbHCeNEf4LpCBWEqC3T
-         OEIU+1TUJm4nVRIb2LciEoWBySQzzX9UEoht9ej/eUc2ZLSByL8n7WafAVQ2i/RAJGI1
-         qKVTDoes4bdPK3gDGZGDX0G4IvpKMMl6SssLioNeiVShC4x3YgsYlcRpaVxJRbR2ctci
-         lIKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUbS7QBzoUnAPT4/OS4zNwD8lPImr8V7MtwEYNTN+Ag4y2i5Ldyn3Kgm6fX5zqxnwtUFUG1PHTSov/BS8DNQPkc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSzQwfrE+a1oFAqbA2HUcMkKTTlgPJ6IBqzFWCq9+8FnxVcG2n
-	G6YxKGYztRc68OoHAnytF3RdHJ8u/SFxxqWjoKktMCSZkal6o5vK+P1kWexD9c4=
-X-Gm-Gg: ASbGnctGk09IDy7m9vwlyx/dWbCBL4zr1uPRXicMB+p0CQ93Iw1GEXhCz7fzRs86dxn
-	gJeWIGHB6DvxEOQ7JpAq0IKujeObJMBqYq/BvUoQ3gKA1t2w5BSeTDJPNKWTLEQueO/XwIId6TV
-	t7rdyGiJs9Fn84GZY5OqGPo4XzRIDTnGWKmTkRdquhnsQZskNMbs+QuGp2vzSF68CgE3viUZzMy
-	Jm0/KF8sJ/uJsH2weZqv8TJhu6WGCc3NqUsWtOt5VTFD02G7M4Jb9EFGmbxsYFqN6h4DJNq9lAt
-	qoKvlwDcCvUIm4CFIz2mMao7pA+Dfe9sKw==
-X-Google-Smtp-Source: AGHT+IGpI0XPyLOxUc3SxNULKeFDjg8DEK2PQJHajpwT4G6OmiaLmyMslU+q4NFnVHObUoaipseY+w==
-X-Received: by 2002:a17:907:7711:b0:aa5:12dc:2e19 with SMTP id a640c23a62f3a-aa58107690fmr187546066b.52.1732705093727;
+        bh=EX57ICOKMzOs0eby+nVmHR92z2ekmaeMdJuyR8QQpCo=;
+        b=Pgm+wuyPYHgRlfwZMd9uHOOuyR32XfS93R0tU0tK99bVvP9MCHWRY22wMXipxxC8Dh
+         3KLIlznXDmdxIei9ZVwdiXHjzI/UnU+qQyqi72h70edengkygeuHKABWRQSa9defSb32
+         VitwhBZtTxwhznfsepCu3KQRGJMHJ+NmYFpL15kMNr/8kznuJQLVu0gDGoQ8pFISjeDW
+         V5RLPwBlDibvKgH7G53uGXGnqvSRrDBJs/OsquP7fPAaH5twiLE3I2KujOa812YiWf+k
+         ADMWqoEr9QWSITH+6D/LWwJJ4cTE0l4DaBEcjSJqSg4EphODw6RhJ5dB6qqf2RSz/T1H
+         PDOA==
+X-Forwarded-Encrypted: i=1; AJvYcCUejpupdK6SqOYszhKCfjYz5LbF1eYXLupWVm3Lz+NGsnYdN4kMTvhQAmhkZJYfOnpcH4K9XBTKK2v0B18VkYVF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhQuZpOf326EqIRhAtZf97sEFuOn2mfWPN7beyNql51oNONNYH
+	RJns8jmIM3D4iNSPT5q7Vt6kZ4Qp4fa4T2jU7+SXAvqjNDmo94Jr1zUbpLuGZzQ=
+X-Gm-Gg: ASbGnctpwM0PfJzx5BIpCNh5Kl1aDQdSLxlQZ5k6TaQYzTG0woBfqg/q++Y19wkws+A
+	T8fuEX7S8vm4HgQ9wCI4N1rpSmwFpI31c7z+ieR7/WxlOGNIA5XFmCW1FFZf8XD4+vD25MlkIjn
+	8zViWHbQBnzctG0lQkwVADZ18UcK8058hJvJ7Zb+O6RfsbV+nC37Fdc8Oez8PUO06UFk6KJ9doW
+	qZFR6UhbK/OnFqfpgW7mCnmCQXhCMjn3zxdQOvl325fRgHuyj/UKKHfWvg6j0CGO6siHlm2wUbN
+	EzmS7ounW48JmSTXcJckThq1biimZw66tQ==
+X-Google-Smtp-Source: AGHT+IEDZQbqWW03yw4ZJpKkkOp6D2uswnTAhfUmoQ8ZqjktXEwpbL7Kj9opKFu91DPbwMPyQP7BRw==
+X-Received: by 2002:a05:6512:3b06:b0:53d:ab04:54ee with SMTP id 2adb3069b0e04-53df0107235mr1294962e87.41.1732705093247;
         Wed, 27 Nov 2024 02:58:13 -0800 (PST)
 Received: from puffmais.c.googlers.com (64.227.90.34.bc.googleusercontent.com. [34.90.227.64])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa54a6db906sm412183566b.41.2024.11.27.02.58.13
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa54a6db906sm412183566b.41.2024.11.27.02.58.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Nov 2024 02:58:13 -0800 (PST)
+        Wed, 27 Nov 2024 02:58:12 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Wed, 27 Nov 2024 10:58:13 +0000
-Subject: [PATCH 3/9] dt-bindings: phy: samsung,usb3-drd-phy: gs101: require
- Type-C properties
+Date: Wed, 27 Nov 2024 10:58:12 +0000
+Subject: [PATCH 2/9] dt-bindings: phy: samsung,usb3-drd-phy: add optional
+ orientation-switch
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20241127-gs101-phy-lanes-orientation-phy-v1-3-1b7fce24960b@linaro.org>
+Message-Id: <20241127-gs101-phy-lanes-orientation-phy-v1-2-1b7fce24960b@linaro.org>
 References: <20241127-gs101-phy-lanes-orientation-phy-v1-0-1b7fce24960b@linaro.org>
 In-Reply-To: <20241127-gs101-phy-lanes-orientation-phy-v1-0-1b7fce24960b@linaro.org>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -95,8 +95,9 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_025815_052598_159E67D7 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20241127_025815_147930_A7ED62E5 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,32 +112,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The USB PHY on gs101 needs to be configured based on the orientation of
-the connector. For that the DTS needs a link between the phy's port and
-a TCPCi, and we'll need to inform the phy driver that it should handle
-the orientation (register a handler).
+orientation-switch is the standard declaration to inform the Type-C mux
+layer that a remote-endpoint is capable of processing orientation
+change messages.
 
-Update the schema to enforce that by requiring the orientation-switch
-and port properties (on gs101 only).
+Add as an optional since not all versions of this phy currently support
+or even need the orientation-switch.
 
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-index 6c17a44718aa..0659fc1ce13e 100644
+index 1f8b35917b11..6c17a44718aa 100644
 --- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
 +++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-@@ -142,6 +142,8 @@ allOf:
+@@ -51,6 +51,9 @@ properties:
+   "#phy-cells":
+     const: 1
  
-       required:
-         - reg-names
-+        - orientation-switch
-+        - port
-         - pll-supply
-         - dvdd-usb20-supply
-         - vddh-usb20-supply
++  orientation-switch:
++    $ref: /schemas/usb/usb-switch.yaml#/properties/orientation-switch
++
+   port:
+     $ref: /schemas/graph.yaml#/properties/port
+     description:
 
 -- 
 2.47.0.338.g60cca15819-goog
