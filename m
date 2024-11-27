@@ -4,112 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31082D6ACFD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 18:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAFA1D6ACFD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 18:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2u65rAhfse3OImV+QQK53xM533m2eQWi+OdIXBEj/EU=; b=PE7EpZkyZGEfm1OnaQHSwre9/u
-	R8nAvPD9vLr+ulS8oP2aedMTmNa05RzCHr2Y17OHVeCz1//fQMeY/fQV6HMKFa6YFyYRNS1Kw7Gzl
-	qlkH8oEuLWKcRDMTeSSrTygIBiLs61bSYC4+Ziy+DiwHMFMaxXXLMke89f5tr2oRolZbsOKfnttwk
-	XsypUdWA1+uZMRNM1/Y8LPiO/cX93HHTzAobfmToRGNsh3D6398tTDIKxc+87dK5FdeKFQR1RUhyh
-	BCZy6jkWI3bbq5AdzwkUP4nciJOkx3W6WcvarrgRnipoa8Ji9OeAYHAOCfHlELrgIKoYCsxWmK/on
-	MWO0pipg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Jcpw02mhb64jdwB+dNNvFHOzRMCWmmfGsK3Mw00EgFs=; b=3/mg5xLx1LgC7Ga8V4WB9dqc9s
+	CTvHU377bxYH+qc5otGD/l0Vf5AJrMFvyrEnhkHa4NekI4JbUEw4olGjdmzsK+CyFgzMeOhksP8/E
+	i10qL5c68cfDiC+XBd0zF19E2QlxkgGpGb4iilpWdr5YiPQc1lrDKu6X/Xzr84PCNbyMFNXUUi/5v
+	HJ8cy5d4Ecs9G2pwye2DHPHcIZw/d/WUgdgSuaRoqdoMXNefciXoPPeVS2BDBRHlxy8HiRiaQXCEz
+	zsZEMECLmnmbGao/6j3bReyQLy7Gp9RmULiJve16HRk5KHbEQTH7qcQV8+YawBk0z6+n+xcqLrVr5
+	Xl9fBSTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGMww-0000000Dqpf-3oKI;
-	Wed, 27 Nov 2024 18:39:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tGN62-0000000Drkw-25pq;
+	Wed, 27 Nov 2024 18:49:06 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGMvx-0000000Dqdo-2Um7
+	id 1tGN50-0000000Drdv-2MMA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 18:38:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A20685C56F4;
-	Wed, 27 Nov 2024 18:37:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 841D8C4CECC;
-	Wed, 27 Nov 2024 18:38:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732732720;
-	bh=AnS4WN6Jl+xU7S2evrMxP3+ow4fh/vx2HUlOX6zr/70=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=eJyB3j5AiJMKajWYerFTo6Y9LYWqTmMTCNJFqp5QUpqspTqjVIpbrS2Vgtv3/Ms7i
-	 0cRaPM4LyicGCChC9ap+N8capPHyEFFaNWmpnNU7+QC3RmPIVRbft0eN4fXQaxmM8/
-	 M57KqRxuEFQgTF90UdVydGE4JKC+gYfeYWhDMeVpfRUYIqmJnnS093NKbCTj0MhB5Q
-	 qhAq4Sey20qX73aIiweUDzJp0uTQ2DPpJPkS0UNGmhS31/Jac6wN/CXiekdtSQ3foT
-	 CTWlH45b1fwo/aGLsIky+RwUmNHzO6QBQzkuqpQ6HvXkwMsc0d6rkH248c7QWFzITi
-	 z8+CMpbVSmQmA==
-Message-ID: <44dfaa83-b1b5-4bb9-908a-2409ae46c6fc@kernel.org>
-Date: Wed, 27 Nov 2024 19:38:31 +0100
+	Wed, 27 Nov 2024 18:48:04 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-434a1639637so28027945e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 10:48:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1732733280; x=1733338080; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Jcpw02mhb64jdwB+dNNvFHOzRMCWmmfGsK3Mw00EgFs=;
+        b=Ig2tuhVUACbC4igURDGObdJJZU4REr6AvJhMRN7uzsS0ArD8gOCaY3/XaUK10CZvrJ
+         Z4aQhHrrgZSO7cZFdscdVMG3X4mSLnV8ekODq9PI88FTcpvIAu558FKXvATc5kmh6V+3
+         3EdsAdFHgXZZcz8Nq1Z+RrTVFuwvYeyeR9+8HlMwkfQBzrNyzQhbLZhd9BAGmmwDx6DY
+         VZ+jTrbF+k2ew9GMWq4UO60u+dk+dMs/0nY3hwkS3i2RZlLlq013iQ5ChdR/V/gpamuJ
+         dmfVwUGW4QepNBGFpFRDP/MQ4Bo0td1spHz2H18eglX4+FrdlpA37Z4RQcHQs5Ri259M
+         I3Vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732733280; x=1733338080;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Jcpw02mhb64jdwB+dNNvFHOzRMCWmmfGsK3Mw00EgFs=;
+        b=NzzIZW1+/zE3ep4ki4EBM6Jz3fKRE+v+QPftsMFyTE40sKIRmFnnQ5/9hA5aDNuSa7
+         m7Jo3WZlmJ9s3M4WwR09USPxlGhnqpwaBYGiESJLTIYOGDZtIT22zAjfiL/I3zV1LjIn
+         iDiT7FcGMM0AY1F3ZTXSQ08vCpfAFUme1lwp8pfPkppMa+QrwypB18sajUnA0zMVKDVg
+         AypEYTzIvjUP3iOWLCX6qUCkDoyWtqUYnPK1EMpqE+iziyf/nCYCFCXFejlp4IhaP/du
+         D5AXUouHzelgjNVpYOZ1DekQEYPIuV4fvaK2CqL7TDHFNMEBss863VLrB9lUYe3fw+FT
+         3BIg==
+X-Forwarded-Encrypted: i=1; AJvYcCW2q7HJFrpPTmtdLQGJQQj2dePNkMOo/5uM3zObcURTZdS1HH6CusisVb3b9eNB//i3IU0CWhhEYnc4nw88+yr2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2KDrGEqvF/bzeE+JD8XMPl43JLrkAQ1NOQsJVSUvotc15G2av
+	lpq4fatZ9kE1ytZrU06hRvJCKJ08739DfTVH5IPB1vyoJDofJyLrbFZFCLvo7VQ=
+X-Gm-Gg: ASbGncvUrRi3e/C7Jlly77gIlQhrp2HTWfkCUVhfObBSKoo3jLSoCUexfhuZz0vOqme
+	NKUXSRF4WesXcwaG+XCHzW6tt2w2vmGBKgeL8XA5yY2lYM04QVYLgj6M0mJRtuNT5ELK07uAqPq
+	c/KkFFtnyfXcQIX6QC9UuDD1f5XJn9+rRHGoq135/G8c1UZCOMvUqP8ramWq/R7OmZJHTqmF9pm
+	DyY4iVgIzJxJQNvk1anZ/+FpbW6ex/sIMmchecLxI0MtZdoVYMTUlvmvtUY9G3U
+X-Google-Smtp-Source: AGHT+IGr99n2pgmmmlqNTfnISk2hQpeyV5JpHyTyMj3WvVC6iQOTmJfEucqeLNOUYv2B6leOlv1B8A==
+X-Received: by 2002:a05:600c:3b88:b0:434:a765:7f9c with SMTP id 5b1f17b1804b1-434a9db839emr37961625e9.6.1732733280392;
+        Wed, 27 Nov 2024 10:48:00 -0800 (PST)
+Received: from toaster.baylibre.com ([2a01:e0a:3c5:5fb1:e571:5afe:4e1b:8936])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-434aa7cd343sm28854325e9.22.2024.11.27.10.47.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Nov 2024 10:47:59 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+Date: Wed, 27 Nov 2024 19:47:46 +0100
+Subject: [PATCH] clk: amlogic: axg-audio: select RESET_MESON_AUX
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/5] arm64: dts: qcom: sc7280: Add support for camss
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org,
- konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@quicinc.com
-References: <20241127100421.3447601-1-quic_vikramsa@quicinc.com>
- <20241127100421.3447601-5-quic_vikramsa@quicinc.com>
- <a51b99a3-bfa3-42d7-ba6e-fed5b2c25646@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <a51b99a3-bfa3-42d7-ba6e-fed5b2c25646@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20241127-clk-audio-fix-rst-missing-v1-1-9f9d0ab98fce@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAFFpR2cC/x2MWw5AMBAAryL7bZO2xOsq4gNdbFDSRSTi7hqfk
+ 8zMA0KeSaCKHvB0sfDmAug4gn5q3UjINjAYZVKtTY79MmN7Wt5w4Bu9HLiyCLsRVVeozBS2TNI
+ OQr97Csr/rpv3/QB9Wvy8awAAAA==
+X-Change-ID: 20241127-clk-audio-fix-rst-missing-0b80628d934b
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Arnd Bergmann <arnd@arndb.de>
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1632; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=NRkynitJcItte924uDQklomHInx09SX2d6xRgfzqXGA=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBnR2ldNqnF+hCENTkKMXcIyoeqe6vo64sANMP3G
+ v8+TpjiOVeJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCZ0dpXQAKCRDm/A8cN/La
+ hSHeD/wMqPZGojSkTOSnh93vp6D1DDTdHNlEehKY7SxVGlFjp1RIE64G28ltFd5voZCdRTuaaRG
+ E7Log9CTOmBf0nReg2WINO1FfRKR0AC929HkeUFdKngXVIBSieROtVjvz2cRJJ5AAVFs67a3g22
+ cFaPyFy1rdmlP+rqcA2RyfjXtFohm2WsSKtUrColYXMr1FLcCwvjWrX/KFUQTeol+pAwtk0YjMr
+ MGn6ucKC8BmGeLn/AIsUjy9JJJSAt8EcB8X0q0+6lgIpOIjm0R8Lcc9RnFdBbHVb/Sx87xHWoNV
+ chtT31Nt7LScLqDuUJOOyZCUPhFQ1WuF/SzPK/l9AjXBW9S0s2tPEsG7AMV5Jl6rlEdKRTuhT+S
+ MYRfsbw7uLbydPEDIY9g+NjUBdnpPOYqFqrcwb/pJKqAq4vu7bKaYrvZoeew/YFho1WMB9gZMCu
+ DObmWT5CLGisIXCmqTfsI7oJM3n8RwRHjxXrkYGl3M/IMiItcT3pi4o7jEzko+wlO1MqplRrrPS
+ NN64QqczvMiS90HpiHmFxyTEJshpkD3x2l0HXE5dmwkcRN/A8xczzcuTU54dL66wNZFXhwcJ5hI
+ GkGP98Y/CD4Mb/BTFu/UZrpZ12QdJTqzWMaXWCjtE1BYTnHwGK/SarH7xJJht27F/rdqDsSY/Sg
+ i5TH5EzTDzIOlWA==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_103841_722222_DC03708B 
-X-CRM114-Status: GOOD (  16.74  )
+X-CRM114-CacheID: sfid-20241127_104802_860153_EE67392A 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,61 +119,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2024 19:32, Krzysztof Kozlowski wrote:
-> On 27/11/2024 11:04, Vikram Sharma wrote:
->> Add changes to support the camera subsystem on the SC7280.
->>
->> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
->> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
->> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
->> ---
->>  arch/arm64/boot/dts/qcom/sc7280.dtsi | 170 +++++++++++++++++++++++++++
->>  1 file changed, 170 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/sc7280.dtsi b/arch/arm64/boot/dts/qcom/sc7280.dtsi
->> index 55db1c83ef55..9376755ac43e 100644
->> --- a/arch/arm64/boot/dts/qcom/sc7280.dtsi
->> +++ b/arch/arm64/boot/dts/qcom/sc7280.dtsi
->> @@ -4426,6 +4426,176 @@ cci1_i2c1: i2c-bus@1 {
->>  			};
->>  		};
->>  
->> +		camss: camss@acaf000 {
->> +			compatible = "qcom,sc7280-camss";
->> +
->> +			reg = <0x0 0x0acb3000 0x0 0x1000>,
-> 
-> You received feedback to really start testing your code with tools.
-> Nothing improved. Do you have troubles running tools or something in
-> feedback was not clear? If first - ask. If second - respond to our
-> comments, so we can clarify.
-> 
-> Repeating the same mistake over and over and asking us to point you the
-> same issue is waste of our time. Sorry, that's not acceptable to me.
-> 
-> NAK.
+Depending on RESET_MESON_AUX result in axg-audio support being turned
+off by default for the users of arm64 defconfig, which is kind of a
+regression for them.
 
-I saw now previous threads where multiple times I asked the same, e.g.
-following coding style. Only at v6 you started doing it.
+RESET_MESON_AUX is not in directly the defconfig, so depending on it turn
+COMMON_CLK_AXG_AUDIO off. The clock provided by this module are
+necessary for every axg audio devices. Those are now deferring.
 
-About the tools, let's recap - we expect absolutely 0 warnings for:
-1. `make dtbs_check W=1` (see
-Documentation/devicetree/bindings/writing-schema.rst or
-https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-for instructions).
+Select RESET_MESON_AUX rather than just depending on it.
+With this, the audio subsystem of the affected platform should probe
+correctly again
 
-2. standard kernel tools for static analysis, like coccinelle, smatch
-and sparse, and fix reported warnings. Also please check for warnings
-when building with W=1. Most of these commands (checks or W=1 build) can
-build specific targets, like some directory, to narrow the scope to only
-your code. The code here looks like it needs a fix. Feel free to get in
-touch if the warning is not clear.
+Cc: Mark Brown <broonie@kernel.org>
+Fixes: 681ed497d676 ("clk: amlogic: axg-audio: fix Kconfig dependency on RESET_MESON_AUX")
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+Hello Stephen,
+This fixes a problem introduced in this merge window.
+Could you please take it directly ?
 
-(so 4 tools/checks above)
+Thanks
+---
+ drivers/clk/meson/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-3. clang with W=1
+diff --git a/drivers/clk/meson/Kconfig b/drivers/clk/meson/Kconfig
+index febb5d7348ff07c2da0cb5fd41d2ad2607e5bd5d..ea16bfde0df2d7bfebb041161f6b96bbb35003ed 100644
+--- a/drivers/clk/meson/Kconfig
++++ b/drivers/clk/meson/Kconfig
+@@ -106,7 +106,7 @@ config COMMON_CLK_AXG_AUDIO
+ 	select COMMON_CLK_MESON_SCLK_DIV
+ 	select COMMON_CLK_MESON_CLKC_UTILS
+ 	select REGMAP_MMIO
+-	depends on RESET_MESON_AUX
++	select RESET_MESON_AUX
+ 	help
+ 	  Support for the audio clock controller on AmLogic A113D devices,
+ 	  aka axg, Say Y if you want audio subsystem to work.
 
+---
+base-commit: 6f3d2b5299b0a8bcb8a9405a8d3fceb24f79c4f0
+change-id: 20241127-clk-audio-fix-rst-missing-0b80628d934b
 
 Best regards,
-Krzysztof
+-- 
+Jerome
+
 
