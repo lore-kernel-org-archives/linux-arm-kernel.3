@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 088CBD6ACF4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 16:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96A9D6ACF4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 16:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AxOVFaaTtf3vqrp1NbSGzCrsRokoNNo20iMlzSXj/hw=; b=waxcOF9iI36fZqE/M86qJAvjz8
-	DscVKDOlIhUdGLKzV6a0hm9hDm8BHkfm0VJOuZk24RiTuPdhqua4HEVSWpbPv1V1tv/MS0TgW0M8p
-	68Oycws8kxAC+qHkHzTKJUCBYxejiUSrSiElB6PExYBhbJ7+A56SVCIHeiXNEg7yZmJjDfCZ0Dw2R
-	MmyvgnznAe/+I+WqtJm9C52x+sCL0GuM7XrFNjsvPBRXHTbPQpQYzJy0Rh1bAjJqeR/po7kiBe8/X
-	96OJFyFOiwBUDVFjjE5zVqpPKFEfwoINUnXQpS/ep9ygthJfBsNNMUsr73vjetl2StxBpq+ERMGEI
-	6QbAQE1w==;
+	bh=7zl3FVHQMKuhP3XVJBG/Ttr48W93+v0BfVf6Zw4g7fc=; b=VOFsH1NRKUeCDc1aORPU7uLqHw
+	NuA8yM2X/36gJ/Xogg1AaqNjiWqWAswt+h08AZ9qNHRC2idZlJ2QUIykurnIUgadFRbvwTACQ7kXP
+	bxZWAWabb0DSuuYaoWndxZIZppo50kZIqm3fAETPf9DUtWK3BBjwHPQgWD78dySo0WQc0uLiOMHOF
+	HxB6mVjJjYsvAb6cDhkKUFKQwgNtr1L5IImWXaaub/QdISEnI04P7eLAx+Im52T3nPqZsx8rBVnIu
+	PVFWza3KlpdOaMNzhwuW3F3Y/dmFfFJ2dxLN3iOxqH6dLZMSakJwFT/WqQ0MfE6GUU4Xa9SlRtEOO
+	AxlOdleQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGLI9-0000000Dgzq-2QAB;
-	Wed, 27 Nov 2024 16:53:29 +0000
-Received: from mail.fris.de ([116.203.77.234])
+	id 1tGLJ6-0000000DhCB-0qbA;
+	Wed, 27 Nov 2024 16:54:28 +0000
+Received: from mail.fris.de ([2a01:4f8:c2c:390b::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGL9k-0000000DfHc-41rb
+	id 1tGL9n-0000000DfIu-2bJn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 16:44:50 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6F404BFB96;
-	Wed, 27 Nov 2024 17:44:47 +0100 (CET)
+	Wed, 27 Nov 2024 16:44:52 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C01BEBFB93;
+	Wed, 27 Nov 2024 17:44:49 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=dkim;
-	t=1732725887; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1732725890; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=AxOVFaaTtf3vqrp1NbSGzCrsRokoNNo20iMlzSXj/hw=;
-	b=YbwGJoKIUvNDlJNRQkanxrXcaqQ4B34YnRbJw4V3kacSCu1AzoBxBMaS6Hpkbfh225avgM
-	cP/JEPgUeMtfSxRZPfDTLRlfiMQGBhOYP8DFVtMUjZg5auNiURv9CPoc5zR4dncRj11LJL
-	hZBG2oPPyjad2OaOl/0zP0iQMRgKYmRwu7DUXFhDVE1wG41VdiBRLiehAmTsHDmtm9VY2G
-	LQ0syTDiKnuqVFsfHH8ZEVULp/5DdSHZwiTzeR22Nlgp1q6C3Fp2lmeFdS/6qLEtJ9miq1
-	fpundE7b/DKanTPwKKPh6XCNqtXkuAkH1AbY904c/setcNm0iOKM5yBAihfG5A==
+	bh=7zl3FVHQMKuhP3XVJBG/Ttr48W93+v0BfVf6Zw4g7fc=;
+	b=dEM1yq0jm86SeDL3LgsMmo8o8DyGwbeDsnltKY2YZ2vqhEAtUFHm+zfOObUWy42IiZuvmz
+	xoZcLo51owZKhNeu/APDsSbmQ1dncvJqm5OPpBZ6x2j3BzrgSFdPe5bhEYDF2y3kJhcJdD
+	fe+Sa5iPBsjulub/Ui/fEZVHN+7TH2Z1j8P4jU0LSi1QRniY3SEq/6AjMXhIeG4uZou0uX
+	T1JWQWErldLCAHGbbKjNE4ikIYiVlyKKwYpR4H1psxCSrbxMA5V02PVKDd+eD0Avyt+dl9
+	WsMz/eNxiHEr+afpYj/BgWXY/MU8svW8dpYl+aWeyGHiLAtYIimWdeyAbccyRg==
 From: Frieder Schrempf <frieder@fris.de>
 To: linux-arm-kernel@lists.infradead.org,
 	Marek Vasut <marex@denx.de>,
-	Liam Girdwood <lgirdwood@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-kernel@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
 Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Bo Liu <liubo03@inspur.com>,
-	Joy Zou <joy.zou@nxp.com>
-Subject: [PATCH v2 08/11] regulator: pca9450: Handle hardware with fixed SD_VSEL for LDO5
-Date: Wed, 27 Nov 2024 17:42:24 +0100
-Message-ID: <20241127164337.613915-9-frieder@fris.de>
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [PATCH v2 09/11] arm64: dts: imx8mm-kontron: Add support for reading SD_VSEL signal
+Date: Wed, 27 Nov 2024 17:42:25 +0100
+Message-ID: <20241127164337.613915-10-frieder@fris.de>
 In-Reply-To: <20241127164337.613915-1-frieder@fris.de>
 References: <20241127164337.613915-1-frieder@fris.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_084449_136793_B5E07889 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20241127_084451_954546_1D49CF98 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,61 +79,110 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-There are two ways to set the output voltage of the LD05
-regulator. First by writing to the voltage selection registers
-and second by toggling the SD_VSEL signal.
+This fixes the LDO5 regulator handling of the pca9450 driver by
+taking the status of the SD_VSEL into account to determine which
+configuration register is used for the voltage setting.
 
-Usually board designers connect SD_VSEL to the VSELECT signal
-controlled by the USDHC controller, but in some cases the
-signal is hardwired to a fixed low level (therefore selecting
-3.3V as initial value for allowing to boot from the SD card).
+Even without this change there is no functional issue, as the code
+for switching the voltage in sdhci.c currently switches both, the
+VSELECT/SD_VSEL signal and the regulator voltage at the same time
+and doesn't run into an invalid corner case.
 
-In these cases, the voltage is only determined by the value
-of the LDO5CTRL_L register. Introduce a property
-nxp,sd-vsel-fixed-low to let the driver know that SD_VSEL
-is low and there is no GPIO to actually get that
-information from dynamically.
+We should still make sure, that we always use the correct register
+when controlling the regulator. At least in U-Boot this fixes an
+actual bug where the wrong IO voltage is used and it makes sure
+that the correct voltage can be read from sysfs.
 
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
 Changes for v2:
-* new patch
+* rebase to current master
 ---
- drivers/regulator/pca9450-regulator.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/boot/dts/freescale/imx8mm-kontron-bl.dts    | 10 +++++++---
+ .../arm64/boot/dts/freescale/imx8mm-kontron-osm-s.dtsi |  7 ++++---
+ 2 files changed, 11 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/regulator/pca9450-regulator.c b/drivers/regulator/pca9450-regulator.c
-index 7f7e176bef452..6024de9656e8e 100644
---- a/drivers/regulator/pca9450-regulator.c
-+++ b/drivers/regulator/pca9450-regulator.c
-@@ -36,6 +36,7 @@ struct pca9450 {
- 	enum pca9450_chip_type type;
- 	unsigned int rcnt;
- 	int irq;
-+	bool sd_vsel_fixed_low;
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl.dts b/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl.dts
+index a8ef4fba16a9e..d16490d876874 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl.dts
+@@ -254,6 +254,10 @@ &pwm2 {
+ 	status = "okay";
  };
  
- static const struct regmap_range pca9450_status_range = {
-@@ -102,6 +103,9 @@ static unsigned int pca9450_ldo5_get_reg_voltage_sel(struct regulator_dev *rdev)
- {
- 	struct pca9450 *pca9450 = rdev_get_drvdata(rdev);
- 
-+	if (pca9450->sd_vsel_fixed_low)
-+		return PCA9450_REG_LDO5CTRL_L;
++&reg_nvcc_sd {
++	sd-vsel-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
++};
 +
- 	if (pca9450->sd_vsel_gpio && !gpiod_get_value(pca9450->sd_vsel_gpio))
- 		return PCA9450_REG_LDO5CTRL_L;
+ &uart1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_uart1>;
+@@ -454,7 +458,7 @@ MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1		0x1d0
+ 			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2		0x1d0
+ 			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3		0x1d0
+ 			MX8MM_IOMUXC_SD2_CD_B_GPIO2_IO12		0x19
+-			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0xd0
++			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x40000d0
+ 		>;
+ 	};
  
-@@ -1084,6 +1088,9 @@ static int pca9450_i2c_probe(struct i2c_client *i2c)
- 		return ret;
- 	}
+@@ -467,7 +471,7 @@ MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1		0x1d4
+ 			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2		0x1d4
+ 			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3		0x1d4
+ 			MX8MM_IOMUXC_SD2_CD_B_GPIO2_IO12		0x19
+-			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0xd0
++			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x40000d0
+ 		>;
+ 	};
  
-+	pca9450->sd_vsel_fixed_low =
-+		of_property_read_bool(ldo5->dev.of_node, "nxp,sd-vsel-fixed-low");
-+
- 	dev_info(&i2c->dev, "%s probed.\n",
- 		type == PCA9450_TYPE_PCA9450A ? "pca9450a" :
- 		(type == PCA9450_TYPE_PCA9451A ? "pca9451a" : "pca9450bc"));
+@@ -480,7 +484,7 @@ MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1		0x1d6
+ 			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2		0x1d6
+ 			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3		0x1d6
+ 			MX8MM_IOMUXC_SD2_CD_B_GPIO2_IO12		0x19
+-			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0xd0
++			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x40000d0
+ 		>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-kontron-osm-s.dtsi
+index 663ae52b48526..d455429652305 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-kontron-osm-s.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm-kontron-osm-s.dtsi
+@@ -342,6 +342,7 @@ reg_nvcc_sd: LDO5 {
+ 				regulator-name = "NVCC_SD (LDO5)";
+ 				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <3300000>;
++				sd-vsel-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+ 			};
+ 		};
+ 	};
+@@ -794,7 +795,7 @@ MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1		0x1d0 /* SDIO_A_D1 */
+ 			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2		0x1d0 /* SDIO_A_D2 */
+ 			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3		0x1d0 /* SDIO_A_D3 */
+ 			MX8MM_IOMUXC_SD2_WP_USDHC2_WP			0x400000d6 /* SDIO_A_WP */
+-			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x90
++			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x40000090
+ 		>;
+ 	};
+ 
+@@ -807,7 +808,7 @@ MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1		0x1d4 /* SDIO_A_D1 */
+ 			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2		0x1d4 /* SDIO_A_D2 */
+ 			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3		0x1d4 /* SDIO_A_D3 */
+ 			MX8MM_IOMUXC_SD2_WP_USDHC2_WP			0x400000d6 /* SDIO_A_WP */
+-			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x90
++			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x40000090
+ 		>;
+ 	};
+ 
+@@ -820,7 +821,7 @@ MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1		0x1d6 /* SDIO_A_D1 */
+ 			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2		0x1d6 /* SDIO_A_D2 */
+ 			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3		0x1d6 /* SDIO_A_D3 */
+ 			MX8MM_IOMUXC_SD2_WP_USDHC2_WP			0x400000d6 /* SDIO_A_WP */
+-			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x90
++			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x40000090
+ 		>;
+ 	};
+ 
 -- 
 2.46.1
 
