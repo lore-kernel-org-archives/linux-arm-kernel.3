@@ -4,108 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44255D609B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 09:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E95E2D609C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 09:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7fo1CIN2EPZRmEmatU/u4W2AYmjGHmFD2N6fdg/27mw=; b=wjdDH/aGicZinvEOtkATMI7dZS
-	6NXF1Y9R5DWLHfR3i3Ydma/IHdlkrm5ZwDLmt20cHR/nKsKkA+ZeEfMPHvlWTXh4FD+J9XWT+S1u2
-	Y5CP92koSTr5QyFzJPsr+MNyq8RsByfkZ5UrGJVT0pTEjqeKv4zgNJW3kliiHrZOp+PvHft6jxfKK
-	iI/ulRuyMXsZ6+eqSBvDLtkgafdFaOWQOg7pvCcVEn2Di5GmamSGd93Cco93EUpEFksixe/FLzPcP
-	CbJecxGRYyErvWgvrGWeLiNsYCGMcYk9jdUdqnmIonM7vuX4SgYEDj9vjoCW6W6Z9hBwai+nqlKLI
-	5CtnQ8kQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=US6YPwHGZjjY/0o2sbSCg5NuQ0NYboqqQtTlEz4XOBo=; b=n3oBE+C2+OFd+3suE4K0fd20PW
+	1xmYos9kKFd6yJn2wyI02YrGydaiSVKme4QPWSO/P6BwdWq5NQ08Dm1QDsR7tBz3ovVQiW78aTHiu
+	LgU/pPLOu5H4wUuDVVLm40NGLGNNmnLyTTOrdVPbEBVRWY6b8FzRg5bZ7TFYG3qvLEMg93t+o+R63
+	BH0jdfZOy0B2lkmvcauFSgIecK3IstyNV/AFQUjEBIuhTGQr194HdlSjmpiVCHmheVraT6LlNxuv9
+	YkoNN93kC27pQpX7mDv7OHcQN98y4RyuUHaFKM9BFWgG1aYAVr5FMeFYsIClNv2U4xhpcWc805GHt
+	qggc5A1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGEH2-0000000Ch2w-0Edd;
-	Wed, 27 Nov 2024 09:23:52 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tGENG-0000000Cha9-2qR1;
+	Wed, 27 Nov 2024 09:30:18 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGEG3-0000000Cgzz-0MQm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 09:22:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5EB59A43818;
-	Wed, 27 Nov 2024 09:20:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E51D4C4CECC;
-	Wed, 27 Nov 2024 09:22:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732699369;
-	bh=XEgcc7//bbL5Lz25HVFLDQoqgdMY6dheqJaMAkerRpw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JspmlBQYzwQBVStA9rPNaKwnU1h3ICBH1YN1H1rTeWnQU3gYP0a+exfl0MkVtTERA
-	 tpcyYSLEVnJAh5LoCOWWHqo/5IX8HhQjJFMZWk3RxT3nkcn+mRdjqxmmbU1Rk1tNZ/
-	 FaaFS+aBXAN9yoAcPZbjuLD/b39WdT9HySfGJPMrds6gVvmyI+mMThYMNO2t4/zQbJ
-	 bcSV/6OWuNZXMGGwCpl6Jbnyg7JH0SBvuBUqnwexr4MaFpE3s87CBeHEbuhTm2ipf9
-	 rZ+qdSMueztRiwYDWlLqiR5l/6RB8ebLVktOEZIfLP01N649S9cb8Mmu3QUVzMlp9U
-	 WVAuvJnDV2W3g==
-Message-ID: <d72dc967-a5f7-47d4-a27a-71a31f90d8d7@kernel.org>
-Date: Wed, 27 Nov 2024 10:22:44 +0100
+	id 1tGEMG-0000000ChUR-0gO5;
+	Wed, 27 Nov 2024 09:29:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=US6YPwHGZjjY/0o2sbSCg5NuQ0NYboqqQtTlEz4XOBo=; b=DNiHHf5igtfm+55scaCjyZ70X7
+	iuSqoFzaV3fG6GsxmRNtB0hU+YItLw9Kt1xc9qvPlnKftzC5IUJL3cswmUB+durrrkwlkVff3QvL0
+	oW/WUQ4VENUS3go8z/eNA53dD5V82fV/Ub4F+EJb7EjER23M5HtZZG0OhCpgS52/ylbltk4fkF2df
+	IKXxYTRzp07YGOJjLfjr6Hgs0mNiwvA+cvN6OcfjyE2k0lqR5Mrcu042p6kmfnA3EF5Y5h7pqMKxu
+	e158u8PPCV38GUdV5KUReHvHOWNJANjHf7bWIGMXg98bcgU0FxyzxgG5tD9n5rlr1GxijAG/IVzpb
+	Ttb1A31A==;
+Received: from i5e86190f.versanet.de ([94.134.25.15] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tGEMA-0006nM-HZ; Wed, 27 Nov 2024 10:29:10 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
+ cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
+ andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
+ kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, Damon Ding <damon.ding@rock-chips.com>,
+ sebastian.reichel@collabora.com
+Subject: Re: [PATCH v1 04/10] phy: phy-rockchip-samsung-hdptx: Add support for eDP
+ mode
+Date: Wed, 27 Nov 2024 10:29:09 +0100
+Message-ID: <4260470.1IzOArtZ34@diego>
+In-Reply-To: <20241127075157.856029-5-damon.ding@rock-chips.com>
+References: <20241127075157.856029-1-damon.ding@rock-chips.com>
+ <20241127075157.856029-5-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE
- output for PCIe1
-To: Romain Naour <romain.naour@smile.fr>, devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
- conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org, kristo@kernel.org,
- vigneshr@ti.com, nm@ti.com, Romain Naour <romain.naour@skf.com>
-References: <20241126173307.4054601-1-romain.naour@smile.fr>
- <5e2d2174-44a7-4143-8562-4dcdb5ad6c94@kernel.org>
- <32e81174-8a17-4f29-b338-0dbd0d7e498b@smile.fr>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <32e81174-8a17-4f29-b338-0dbd0d7e498b@smile.fr>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_012251_262985_5D0CD638 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20241127_012916_215274_5620B18B 
+X-CRM114-Status: GOOD (  17.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,112 +81,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2024 10:17, Romain Naour wrote:
-> Hello,
+Hi Damon,
+
+Am Mittwoch, 27. November 2024, 08:51:51 CET schrieb Damon Ding:
+> Add basic support for RBR/HBR/HBR2 link rates, and the voltage swing and
+> pre-emphasis configurations of each link rate have been verified according
+> to the eDP 1.3 requirements.
 > 
-> Le 26/11/2024 à 20:04, Krzysztof Kozlowski a écrit :
->> On 26/11/2024 18:33, Romain Naour wrote:
->>> From: Romain Naour <romain.naour@skf.com>
->>>
->>> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
->>> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
->>> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
->>> provide refclk through PCIe_REFCLK pins.
->>>
->>> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
->>> module's PAD IO Buffers.
->>>
->>> Signed-off-by: Romain Naour <romain.naour@skf.com>
->>> ---
->>> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
->>> applied on vendor kernel for BeagleBone AI-64:
->>> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
->>> ---
->>>  arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts |  4 ++++
->>>  arch/arm64/boot/dts/ti/k3-j721e-main.dtsi          | 10 ++++++++--
->>>  2 files changed, 12 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
->>> index fb899c99753e..681e3af7ce6e 100644
->>> --- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
->>> +++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
->>> @@ -859,6 +859,10 @@ &pcie1_rc {
->>>  	num-lanes = <2>;
->>>  	max-link-speed = <3>;
->>>  	reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_HIGH>;
->>> +	/* There is no on-board or external reference clock generators,
->>
->> Please use generic style comments, not netdev.
-> 
-> Fixed.
-> 
->>
->>> +	 * use refclk from the ACSPCIE module's PAD IO Buffers.
->>> +	 */
->>> +	ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
->>>  };
->>>  
->>>  &ufs_wrapper {
->>> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->>> index 0da785be80ff..9f47e7672922 100644
->>> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->>> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->>> @@ -5,6 +5,7 @@
->>>   * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
->>>   */
->>>  #include <dt-bindings/phy/phy.h>
->>> +#include <dt-bindings/phy/phy-cadence.h>
->>>  #include <dt-bindings/phy/phy-ti.h>
->>>  #include <dt-bindings/mux/mux.h>
->>>  
->>> @@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
->>>  			reg = <0x4140 0x18>;
->>>  			#clock-cells = <1>;
->>>  		};
->>> +
->>> +		acspcie0_proxy_ctrl: acspcie0-ctrl@18090 {
->>
->> Node names should be generic. See also an explanation and list of
->> examples (not exhaustive) in DT specification:
->> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-> 
-> I updated to: "acspcie0_proxy_ctrl: acspcie-ctrl@18090"
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> ---
 
-Not much changed. It's a system-controller?
+[ ... huge block of DP phy support ...]
 
-> 
->>
->>
->>> +			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
->>
->> I am not familiar with naming, so is this j784s4 or j721e or K3 SoC?
->> Compatible should be SoC specific.
-> 
-> Me neither.
+yes that block was huge, but I also don't see a way to split that up in a
+useful way, so it should be fine.
 
-Hm? So it is like a random change?
 
-> 
-> "ti,j784s4-acspcie-proxy-ctrl" compatible is the only one available in the
-> syscon devicetree binding. Should we add a new "ti,j721e-acspcie-proxy-ctrl"?
+> +static int rk_hdptx_phy_set_mode(struct phy *phy, enum phy_mode mode,
+> +				 int submode)
+> +{
+> +	return 0;
+> +}
 
-When you add new devices, add bindings.
+I think it might make sense to go the same way as the DCPHY and also
+naneng combophy, to use #phy-cells = 1 to select the phy-mode via DT .
 
-> 
-> This patch is adapted from a recent commit on the TI's kernel for the j784s4 Soc:
-> https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/commit/?h=ti-rt-linux-6.6.y&id=bb4442cd523d6e34c5db43fd78c9f579d6937f6a
+See [0] for Sebastians initial suggestion regarding the DC-PHY.
+The naneng combophy already uses that scheme of mode-selection too.
 
-Sorry, v6.6 downstream code is totally irrelevant for this. They can
-introduce bugs or wrong code and this is never a reason to repeat the
-same in mainline.
+There is of course the issue of backwards-compatibility, but that can be
+worked around in the binding with something like:
 
-> 
-> There is another example with "ti,j784s4-pcie-ctrl" compatible used from
-> k3-j722s-main.dtsi:
-> https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi?h=v6.12.1#n240
+ '#phy-cells':
+    enum: [0, 1]
+    description: |
+      If #phy-cells is 0, PHY mode is set to PHY_TYPE_HDMI
+      If #phy-cells is 1 mode is set in the PHY cells. Supported modes are:
+        - PHY_TYPE_HDMI
+        - PHY_TYPE_DP
+      See include/dt-bindings/phy/phy.h for constants.
 
-Well, people repeat the same mistakes over and over.
+PHY_TYPE_HDMI needs to be added to include/dt-bindings/phy/phy.h
+but PHY_TYPE_DP is already there.
 
-Best regards,
-Krzysztof
+That way we would standardize on one form of accessing phy-types
+on rk3588 :-) .
+
+Also see the Mediatek CSI rx phy doing this too already [1]
+
+
+Heiko
+
+[0] https://lore.kernel.org/linux-rockchip/udad4qf3o7kt45nuz6gxsvsmprh4rnyfxfogopmih6ucznizih@7oj2jrnlfonz/
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/phy/mediatek,mt8365-csi-rx.yaml
+
+
+
 
