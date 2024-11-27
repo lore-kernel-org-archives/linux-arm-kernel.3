@@ -4,87 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1CFD609BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 09:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F4FD609B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 09:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GAFheFVkotLm3wy7t+46i/2OSexrdWJFGKeEH7J88WI=; b=P0x7QuKBnfonsTindgVZgIR7hF
-	h6gyH8Ct/amS13PlOtUGajaHo14GT3nQ+OQXd8VaCZ0EDlDRkWPGHApSN6yRWniwq590/dxSvLFdY
-	RVUkEO9vMVCsV+CmSNNGG43MgV5GQAhUd7yz2xFaS7alxsL/DXKyR6NhAqATK/8JhbOGwA9skaXXD
-	KNck9zQ+54Me53uGIXjsic2pa4rHnjyXpd1MZ4wEMIhmTse/KErc3a4ZSuJxR0WqbBLyxDgGOODJm
-	xWSKCbz5C8OPHwR5H2BHbnAj3tJk4WSmHDEo6VjrRaUSYA1+h9zmmyV2vdPqWMYzvnWW8gNzXGA28
-	/d41+yCQ==;
+	bh=NmC2c7plcJ/Mcl0oI9qLJf0fBVn5qTuymhUmLJnrAcM=; b=n2NdbEnXrfVN/zb/6ra4xTY4f6
+	KW3Xjs+2NtwrpL1ltYGDo4tPGx05NWH8cIQ4PyYeY5wVN2pt5IuhRd+HhnH29K62wWTLowhLcPrJ1
+	kzUHY8LjJCwFjBx4/ubfPLU0wTnrYwMt9+XSoOqEn3lkwhvGM04Ir+VYw8/4uABpXQI/IJBPUdFbw
+	vEo0EetiUoitlCHyhVNyIXJU6p/W/Svu48OUgEJJ0KZ5OpyJp8Nifhr8c1KQHksLWZ0yI1PMdzxjD
+	Fr6fe1H8ctt5ZRFyy1pkDTJjNzQZVTXJrvbRVLOc25/qQXngiKrIyy2+iaQXz4CttcJxlQjbzFRHA
+	HW12KarQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGEBr-0000000Cgaq-2B2g;
-	Wed, 27 Nov 2024 09:18:31 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1tGED5-0000000Cgp3-0fgm;
+	Wed, 27 Nov 2024 09:19:47 +0000
+Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGEAt-0000000CgTw-35ip
+	id 1tGEC5-0000000CgcT-051W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 09:17:33 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-382423f4082so4743107f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 01:17:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=smile.fr; s=google; t=1732699049; x=1733303849; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=GAFheFVkotLm3wy7t+46i/2OSexrdWJFGKeEH7J88WI=;
-        b=xH7fd5il3eVtR/Jm/ivgCgL5Bg8uU+9QQabSksv/7gwitCxv4Gjj9Nicx0TbbDmzOA
-         aSjKINPx8RoT8tUvns3l/C2HvcKIvZHO9k6doLebKz2xl665lw01FWvbq09D/0gPQAvW
-         57mIGgD8gxWwcThMUJKpa3kJ5fPMK8NIOa5ls=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732699049; x=1733303849;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GAFheFVkotLm3wy7t+46i/2OSexrdWJFGKeEH7J88WI=;
-        b=Ga9ew0p77sqI4+HR6QPnEDlpzGIFWJmuzC6Sr/tGMs2n63TNcemqNl67scJnFvBb/x
-         lxcDZzZ18YRnyuq90Du71015BPnkynYYkScj2Xa3vjraCHQ3LP9XgzY4yvYWkPPRQHi+
-         oqNGRHGW5PtOsyAR2gEzcgYPmgcw2SP3BBtwArRreqr2py7uwIcfMQPkcJgeQb/u00YD
-         DkARIZYGJbvbn/5G3RS+io6nQvNO3NQEPp80JRdQPwmJX6pPBYPOh7mwJo8lgiCj66rj
-         Co3dUBAvkZBMp1mun82FHcWAMrOWyfFEoPzS0OgFdUgJkbjp83ZNUh2O++IMy6pTP5D1
-         4m4g==
-X-Gm-Message-State: AOJu0Yw4vSBxb5BLTocw/R2djBSanbI5vOqtAZ+B9LxgYwAsHfvDcMig
-	A4gdbAjaqbvf7RhlVrdlsssRdpmYJ5yGl4h2L01gu+mplJShEh+f/HxNm+E9NjQqzYp5mGb1OO2
-	q
-X-Gm-Gg: ASbGnctUOAeivkafxn2lHwEOIJGYGYscqEu4HPx5OhK53tUWb0nexc5baOQZ/2zyNCC
-	BkUIUVKtR9asFHFg1S7xrAbdMpFfxXQd2lTCUjEkIPrq8g/BJFL0mH6mfC5Lrd88QSVgw5MxLJA
-	ltqBSLbo8hzhoDyeH9+GaCpZMZnzl7QceLyXJz8tLvgKzUzEJCql8W0A5lRluRV+XjzE4O4TIxi
-	yE7VlamQieWfh6Nyeo4sofDv6hMVtJdGmqhKeJcGJAZA+b8XDeXPgw1+znkhkdbW8yPD7A0e0Wz
-	BKfLb/3hUkOnm+KzNWPYcMikO9SnOS6abYxW7w==
-X-Google-Smtp-Source: AGHT+IHMfWTM2iJ94uv0iDMqL2dLO7VcGnFqdboNj1Fdq2fH3veFKQ+TuqEWJS1JJOImhanrQYAJIw==
-X-Received: by 2002:a5d:47cb:0:b0:382:22c6:7bcb with SMTP id ffacd0b85a97d-385c6eb4c32mr1924315f8f.3.1732699049143;
-        Wed, 27 Nov 2024 01:17:29 -0800 (PST)
-Received: from [10.5.90.17] (static-css-ccs-204145.business.bouyguestelecom.com. [176.157.204.145])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3825fd04ef5sm15685520f8f.111.2024.11.27.01.17.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Nov 2024 01:17:28 -0800 (PST)
-Message-ID: <32e81174-8a17-4f29-b338-0dbd0d7e498b@smile.fr>
-Date: Wed, 27 Nov 2024 10:17:28 +0100
+	Wed, 27 Nov 2024 09:18:47 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 7E6561140109;
+	Wed, 27 Nov 2024 04:18:43 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Wed, 27 Nov 2024 04:18:43 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1732699123;
+	 x=1732785523; bh=NmC2c7plcJ/Mcl0oI9qLJf0fBVn5qTuymhUmLJnrAcM=; b=
+	VYYICIuhcr1RrCllVZyR2YbQ0PgOx+geAUXce8CI0J3fbZezFJ93/XLQt3FGunzy
+	v1PJblTLjQVb/h552gYJMNAH7TI3cbJT7Dl4o1th9kF0Z4gCbL++Jjhqpn6RsuvT
+	o7IYVDHkej5QI0xazXxb4FJQQvm4KHvaLgaNwU++9Hld4r58nbbP7Zh3B62P8+xm
+	UGqZHmr3fdg76gbK4f3xyrhakNOwnyHDE5cPrXFLS4aNfli2X3gjQNeXiE9xJ+Gl
+	yx2yWaVJ2EJ7Q7FuuMd7RY/WFnasVgGuck5JgwdZDH+CQ/xnMENL9RcDUv1Gjbxn
+	l0YpS9yuYbCs7e26/Emm9w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1732699123; x=
+	1732785523; bh=NmC2c7plcJ/Mcl0oI9qLJf0fBVn5qTuymhUmLJnrAcM=; b=5
+	IgfRStxFNKyuB7MoNhqkXbiufLh+IR1dk3i/74JBBBcsVJAOS/nmiBwBEWCowuye
+	DgunWuc/GeDzWnwaDIloBrvweejeoDVzlIndP6YLOHRLtayoErRsMb7h715cKoIo
+	16sQQZM4Kn7ZJNFsMm+t5n4nfW967x2tqaj0WLQWuYuH1sEpy6ICS72viIl5R+xr
+	SRTEtn54CuLOXLWGWew61p0LFLQKCk8MCXjM+O4toZ1jhSYs34s4mv2AuG7matjW
+	Tyy11MH5V0fQOSh45SDaA4KpbwRnagOtb/lECqdr+XRBj3+ktwx69h+J5MJtFVCE
+	ufxZzJ8VZCV0o6Cg4Tqog==
+X-ME-Sender: <xms:8uNGZ9Mtgrqb2LkM244MsGDBs9Rl_V-TBnWIL1Oqt2Gx4VCQCld5gQ>
+    <xme:8uNGZ_8wE99PlwDfeeVEBaSWYgPOMbQPIUzRrxqk2GxyG0B3ZJ9eGLBLmGtFhpKfR
+    SkXgAuFCIeRlLX-rYo>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrgeelgddtvdcutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
+    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
+    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
+    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
+    gvqeenucggtffrrghtthgvrhhnpedtiefhffdthfeileevheehveevieeggfegieeggfel
+    feduudevgeegieetfeevgfenucffohhmrghinhepfihikhhiphgvughirgdrohhrghenuc
+    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnuges
+    rghrnhgusgdruggvpdhnsggprhgtphhtthhopeduiedpmhhouggvpehsmhhtphhouhhtpd
+    hrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthho
+    pehfvghsthgvvhgrmhesuggvnhigrdguvgdprhgtphhtthhopegvshgsvghnsehgvggrnh
+    higidrtghomhdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomhdprhgt
+    phhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinh
+    hushdrfigrlhhlvghijheslhhinhgrrhhordhorhhgpdhrtghpthhtoheplhhinhhugidq
+    rghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpth
+    htohepihhmgieslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopegrihhshhgv
+    nhhgrdguohhnghesnhigphdrtghomh
+X-ME-Proxy: <xmx:8uNGZ8ROpX2q3OtfE72XbxFI0aL82nkiXoTd5HzDtwOzkdoAF0xj_g>
+    <xmx:8uNGZ5sNut3DB1CZzCOK7Ih2lufowaCSjOxFBOK5s_kUOaM8sc7LHQ>
+    <xmx:8uNGZ1fRmMFjJjVZ-W4IeKD-tkDxTpHAyaF0yio5FD55la85LtLbAA>
+    <xmx:8uNGZ13oP6kVKpMw69eUHbOnKf6WTrhnIMF3y16nXc1BgQG2CIxscw>
+    <xmx:8-NGZ18J36QH__qlyXQkxwUal2SoIWWWQhF9-r1HKjk55N3gCvIY2xat>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id B51022220071; Wed, 27 Nov 2024 04:18:42 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE
- output for PCIe1
-To: Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
- conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org, kristo@kernel.org,
- vigneshr@ti.com, nm@ti.com, Romain Naour <romain.naour@skf.com>
-References: <20241126173307.4054601-1-romain.naour@smile.fr>
- <5e2d2174-44a7-4143-8562-4dcdb5ad6c94@kernel.org>
-Content-Language: fr
-From: Romain Naour <romain.naour@smile.fr>
-In-Reply-To: <5e2d2174-44a7-4143-8562-4dcdb5ad6c94@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Date: Wed, 27 Nov 2024 10:18:22 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Rasmus Villemoes" <ravi@prevas.dk>, "Fabio Estevam" <festevam@gmail.com>
+Cc: "Guenter Roeck" <linux@roeck-us.net>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Esben Haabendal" <esben@geanix.com>, "Russell King" <linux@armlinux.org.uk>,
+ "Shawn Guo" <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>,
+ "Dong Aisheng" <aisheng.dong@nxp.com>, "Jacky Bai" <ping.bai@nxp.com>,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ linux-kernel@vger.kernel.org,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ "Fabio Estevam" <festevam@denx.de>
+Message-Id: <5881df5a-9495-49b9-9956-0538055bba60@app.fastmail.com>
+In-Reply-To: <87ttbthwdu.fsf@prevas.dk>
+References: <20240506-imx-pinctrl-optional-v2-0-bdff75085156@geanix.com>
+ <20240506-imx-pinctrl-optional-v2-1-bdff75085156@geanix.com>
+ <49ff070a-ce67-42d7-84ec-8b54fd7e9742@roeck-us.net>
+ <CACRpkdaBR5mmj43y_80b9jd3TAqRWMdCyD9EP6AY-Y0-asz4TA@mail.gmail.com>
+ <1ff005f8-384d-465e-9597-b6d5fd903862@roeck-us.net>
+ <CAOMZO5DW3t-sof_uaFa_qJPE3WFq_155mFTxGMWh0m++csgopg@mail.gmail.com>
+ <87ttbthwdu.fsf@prevas.dk>
+Subject: Re: [PATCH v2 1/3] ARM: imx: Allow user to disable pinctrl
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_011732_044765_3E6262F9 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20241127_011845_763573_E29C4CE0 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,102 +128,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-Le 26/11/2024 à 20:04, Krzysztof Kozlowski a écrit :
-> On 26/11/2024 18:33, Romain Naour wrote:
->> From: Romain Naour <romain.naour@skf.com>
+On Wed, Nov 27, 2024, at 10:13, Rasmus Villemoes wrote:
+> On Tue, Nov 26 2024, Fabio Estevam <festevam@gmail.com> wrote:
+>>> Fabio submitted a patch enabling PINCTRL for imx_v4_v5_defconfig and
+>>> imx_v6_v7_defconfig explicitly [1]. I don't know if that fixes the
+>>> problem for good - I see CONFIG_ARCH_MXC in other configurations as
+>>> well.
 >>
->> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
->> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
->> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
->> provide refclk through PCIe_REFCLK pins.
+>> Good point. I can send a v2 adding CONFIG_PINCTRL=y to the other defconfigs.
 >>
->> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
->> module's PAD IO Buffers.
->>
->> Signed-off-by: Romain Naour <romain.naour@skf.com>
->> ---
->> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
->> applied on vendor kernel for BeagleBone AI-64:
->> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
->> ---
->>  arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts |  4 ++++
->>  arch/arm64/boot/dts/ti/k3-j721e-main.dtsi          | 10 ++++++++--
->>  2 files changed, 12 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
->> index fb899c99753e..681e3af7ce6e 100644
->> --- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
->> +++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
->> @@ -859,6 +859,10 @@ &pcie1_rc {
->>  	num-lanes = <2>;
->>  	max-link-speed = <3>;
->>  	reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_HIGH>;
->> +	/* There is no on-board or external reference clock generators,
-> 
-> Please use generic style comments, not netdev.
+>
+> Instead of doing that, isn't this exactly what the 'imply' keyword is
+> for?
+>
+> - weak reverse dependencies: "imply" <symbol> ["if" <expr>]
+>
+>   This is similar to "select" as it enforces a lower limit on another
+>   symbol except that the "implied" symbol's value may still be set to n
+>   from a direct dependency or with a visible prompt.
+>
+>
+> So how about adding 'imply PINCTRL' in lieu of the previous 'select
+> PINCTRL'? And that would also better match the intention of the patch in
+> question (namely that the user needs to take explicit action to disable
+> PINCTRL).
 
-Fixed.
+Please never use imply. Even if you think it's the right
+thing in a particular case, it will come back to bite you
+later.
 
-> 
->> +	 * use refclk from the ACSPCIE module's PAD IO Buffers.
->> +	 */
->> +	ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
->>  };
->>  
->>  &ufs_wrapper {
->> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->> index 0da785be80ff..9f47e7672922 100644
->> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->> @@ -5,6 +5,7 @@
->>   * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
->>   */
->>  #include <dt-bindings/phy/phy.h>
->> +#include <dt-bindings/phy/phy-cadence.h>
->>  #include <dt-bindings/phy/phy-ti.h>
->>  #include <dt-bindings/mux/mux.h>
->>  
->> @@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
->>  			reg = <0x4140 0x18>;
->>  			#clock-cells = <1>;
->>  		};
->> +
->> +		acspcie0_proxy_ctrl: acspcie0-ctrl@18090 {
-> 
-> Node names should be generic. See also an explanation and list of
-> examples (not exhaustive) in DT specification:
-> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+See also https://en.wikipedia.org/wiki/COMEFROM ;-)
 
-I updated to: "acspcie0_proxy_ctrl: acspcie-ctrl@18090"
+I would prefer we completely kill off that keyword from the Kconfig
+language and replace it with the reverse 'default'. In this
+particular case, having 'default ARCH_IMX' in 'PINCTRL'
+would of course not be a great idea, but for the exact same
+reason, the 'imply' is wrong here.
 
-> 
-> 
->> +			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
-> 
-> I am not familiar with naming, so is this j784s4 or j721e or K3 SoC?
-> Compatible should be SoC specific.
-
-Me neither.
-
-"ti,j784s4-acspcie-proxy-ctrl" compatible is the only one available in the
-syscon devicetree binding. Should we add a new "ti,j721e-acspcie-proxy-ctrl"?
-
-This patch is adapted from a recent commit on the TI's kernel for the j784s4 Soc:
-https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/commit/?h=ti-rt-linux-6.6.y&id=bb4442cd523d6e34c5db43fd78c9f579d6937f6a
-
-There is another example with "ti,j784s4-pcie-ctrl" compatible used from
-k3-j722s-main.dtsi:
-https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi?h=v6.12.1#n240
-
-Though?
-
-Best regards,
-Romain
-
-> 
-> Best regards,
-> Krzysztof
-
+       Arnd
 
