@@ -4,94 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF23D609CC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 10:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E51D609CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 10:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qz+EP+l7Qi3fy38Fu3GsKedJkFdI7GfNaCEpN7e8AWQ=; b=DPb2oBfu46LvzBCVscwiNEd6pI
-	6m4d0Nd5/aPCmikfDKn5BFhTxGK0Yb6dUjCMXjSwMZ2+gS0JRqxHWU+iigbVfArq7fdoFsiY5kbz/
-	TcETBEzp3toONqWgUI/b/iIabVguds+kjSa/drjXooOMOZn+Bb83bvSvAoPh0QGy7+lcT7LVy8O+Z
-	PQtFZFfGYmu8Ew0wDd8RBEq8aWg3fYOdhL5KAxJcEgnzCcYJWYS/HrCr06kWO3S7NsgoqIRSNWACr
-	tmN5QAhHzGAHKkuSVLanu7pebEnbVrTRi5gUEYPDZlRZvsm1WhvOO8Lq4qKbcMWORkDMrJMPlbVm2
-	btKlwaGw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n8tPLdRNtitxi7egZ5Ra7rA+g+0R8ZWkvr8NNT9k5cE=; b=AgW7T9H16a1pDDoYBsPBWib0AT
+	svpm8A1DSLPW9wjs5zoJUNvq/JdSE7huxHIP7lOzFBq/pJPZgkANto2HI9gcHpBd2Yxk14nW5fTU1
+	IkfeqH0piHLK9NhQ/ZwLBRQS8vCC4Tld50mzWHE6ylHgNCXgNrwfztQJCYurbanEuS9+kJFkW2cT7
+	9rZi88d5maX3akxx3reIv3XwqROw1JrRf4eCOcGX7Fn7vcD7jnvUXq9SwF/D8IUti6q7O8nwrmCxF
+	lTL3MSRt9Ll95pXkI9bIqFEbrC8GwlJdY2bkV9W336c2dYCVWLcVBwrpy9PW3meoI6kEtosAjyb91
+	ag6DvUqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFCZ-0000000CpeI-1UqM;
-	Wed, 27 Nov 2024 10:23:19 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFBS-0000000CpVl-2on9
+	id 1tGFDU-0000000Cpno-42sV;
+	Wed, 27 Nov 2024 10:24:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tGFCT-0000000Cpdh-2f2L
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 10:22:11 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-21288ce11d7so52143665ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 02:22:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732702929; x=1733307729; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Qz+EP+l7Qi3fy38Fu3GsKedJkFdI7GfNaCEpN7e8AWQ=;
-        b=DsCSgB8ky9hcz3qNDN2/n2EtW/zDy9pr+H/jRLFi0TL7SkAWR/exKackA05GeMBt39
-         WPwnNZjCBIUkfuDmwGu9Zk4tUAVhYevytviufEK2hiR4Mo52/XMgu89iwn+7opF938+D
-         9bf+yp8vidyzO55N7HHQ9NQZeOOojFFIeW8j3YOVkpYBN7nQufFa0EIxxcbLr+WeMLQw
-         tCf+qSp+73hLU87ltlE3rTtQSWdXXWCh/Ost+Hu4pkWOvOlFtuPYakQe/FxaRP/LZC12
-         vkZphMzLcB4kf5ky60UaDTan/lGcDvqFB/p24sRy1owMYS7WzTviEGPdvPXyR8SvQZtd
-         Rvaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732702929; x=1733307729;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:from:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Qz+EP+l7Qi3fy38Fu3GsKedJkFdI7GfNaCEpN7e8AWQ=;
-        b=XMxQs/DwJV56f5gLW5JW5Vef5PE4trcigMliZ0N7TNwUe0gmmLMJXhElrIWO8KAlSN
-         whxb/P4uLCb3r19MbuyyPXq2CQxLHuiqPsUrv57gRpnoTR6CyzIgEVXtsodH2dtzLWGy
-         /3Ho5m+AHwnIcmoeEHrZkS0/dXmCQmQ2Pkk7EvFt/nd1acDKg2g+gaFoz0j0l839H34y
-         Yuhhj0ruL0+lkV3GhoaWwOZk6HsJJv5OUOgjg6T2AKP/dnajN4v2ET4duNY9EI+cKHTy
-         OucU3YyiNKSAOoeOJD0t4iFghHsH2y+sK7Q1Lj0QRJmP1Q/8p9uVPrtixKOyVdWPzkJ2
-         7cYw==
-X-Forwarded-Encrypted: i=1; AJvYcCUUtsonvPSf6PgClXKQUVhhmZuRcrFpLVxRTA6gw6lp6TEF+NFx/CwbqaR6Uvki8zGWqMnUSm0p8141ZvKmTBga@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0LmOmFydavks0OELMoqvU890cyiit2gxVzHnBxGhaVH3Y4s8p
-	/s1toHncNZlczc/CwEG7kA410lgOsBOCQeWljnyAu4s7gd81TxLd
-X-Gm-Gg: ASbGnctTqgUqA9SIwWnKhLmYZG+7zCjSpSnvo4FRAtDRC95FghcFnsP6XDlGQoTOrH0
-	/BbQlTytVRQm7FKO90h7whhCpkRm+cpkubCzY7xurciGHwAw8YQqikZr2BN5inZo3RD/uq5oJmf
-	NPGIw42c3FSknKYjLXhkfiNPpTfO/iQa+hKiXNHL/5dHyt+eBmhIAQueYfag9z6ilvo3cTfYjP0
-	+DZt14SvBPsTQvYJDCsMM7bmNtiQ5H5FFxVVYuQ/kHJ4/9rfCPsWE0b
-X-Google-Smtp-Source: AGHT+IGjRx2ovLJ/PK1xeg/mE4q6TiXnbUVeTxirN9MONHEAnthNoTHl5RsWr+Fkoonsn8w1pCxhfw==
-X-Received: by 2002:a17:902:ec84:b0:211:9316:da12 with SMTP id d9443c01a7336-21501381d49mr27610445ad.22.1732702929243;
-        Wed, 27 Nov 2024 02:22:09 -0800 (PST)
-Received: from ?IPv6:::1? ([2601:647:5e00:4acd:e351:853:196c:a120])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2129dba3588sm99445525ad.86.2024.11.27.02.22.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Nov 2024 02:22:08 -0800 (PST)
-Date: Wed, 27 Nov 2024 02:22:07 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Sasha Finkelstein <fnkl.kernel@gmail.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
-CC: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Janne Grunau <j@jannau.net>
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_2/4=5D_input=3A_apple=5Fz2=3A_Ad?=
- =?US-ASCII?Q?d_a_driver_for_Apple_Z2_touchscreens?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <CAMT+MTRTzPwo7QveP5Zt_4Zycu1qohe5g8srC8O8Jo+O+-wLJw@mail.gmail.com>
-References: <20241126-z2-v1-0-c43c4cc6200d@gmail.com> <20241126-z2-v1-2-c43c4cc6200d@gmail.com> <27amnmlm52igidlv23h3d3bvaezbdumedfkqicbtreka3llhqs@fafepduxgv43> <CAMT+MTRTzPwo7QveP5Zt_4Zycu1qohe5g8srC8O8Jo+O+-wLJw@mail.gmail.com>
-Message-ID: <3FA9FD56-ECF4-4E2C-A300-7E552F60987D@gmail.com>
+	Wed, 27 Nov 2024 10:23:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1BDE150C;
+	Wed, 27 Nov 2024 02:23:39 -0800 (PST)
+Received: from e125770.cambridge.arm.com (e125770.arm.com [10.1.199.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 29FE93F66E;
+	Wed, 27 Nov 2024 02:23:09 -0800 (PST)
+From: Luca Fancellu <luca.fancellu@arm.com>
+To: mark.rutland@arm.com,
+	andre.przywara@arm.com
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: [boot-wrapper v5] aarch64: Start Xen on Armv8-R at EL2
+Date: Wed, 27 Nov 2024 10:23:00 +0000
+Message-Id: <20241127102300.2822848-1-luca.fancellu@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_022210_706785_90CEE219 
-X-CRM114-Status: UNSURE (   7.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241127_022313_714419_39B96151 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,22 +60,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On November 27, 2024 2:19:38 AM PST, Sasha Finkelstein <fnkl=2Ekernel@gmail=
-=2Ecom> wrote:
->On Wed, 27 Nov 2024 at 10:00, Krzysztof Kozlowski <krzk@kernel=2Eorg> wro=
-te:
->> > +             dev_err(dev, "unable to get reset");
->>
->> Syntax is: return dev_err_probe, almost everywhere here=2E
->
->Per discussion on previous version of this series, input asks
->dev_err_probe to not be used=2E
+When bootwrapper is compiled with Xen support and it is started
+at EL2 on Armv8-R AArch64, keep the current EL and jump to the
+Xen image using the SPSR_KERNEL as spsr_el2 value.
 
-They twisted my arm=2E It's ok to use now=2E=20
+The only available boot method on Armv8-R AArch64 when starting
+Xen is spin table at the moment, reflect this in the build
+configuration.
 
-Thanks=2E
+Signed-off-by: Luca Fancellu <luca.fancellu@arm.com>
+---
+v5 changes:
+ - Don't allow AArch64-r + Xen + PSCI from the build system, update the commit
+   message.
+v4 changes:
+ - no changes
+---
+ Makefile.am         | 1 +
+ arch/aarch64/boot.S | 2 +-
+ configure.ac        | 5 +++++
+ 3 files changed, 7 insertions(+), 1 deletion(-)
 
+diff --git a/Makefile.am b/Makefile.am
+index aecda694fd6c..a8d5c1b96822 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -127,6 +127,7 @@ XEN_CHOSEN	:= xen,xen-bootargs = \"$(XEN_CMDLINE)\";		\
+ 			compatible = \"xen,linux-zimage\", \"xen,multiboot-module\"; \
+ 			reg = <0x0 $(DOM0_OFFSET) 0x0 $(KERNEL_SIZE)>;	\
+ 		   };
++DEFINES		+= -DXEN
+ endif
+ 
+ if INITRD
+diff --git a/arch/aarch64/boot.S b/arch/aarch64/boot.S
+index 565397823cb4..3fcc63bf2437 100644
+--- a/arch/aarch64/boot.S
++++ b/arch/aarch64/boot.S
+@@ -100,7 +100,7 @@ ASM_FUNC(jump_kernel)
+ 	mov	x1, x21
+ 	mov	x2, x22
+ 	mov	x3, x23
+-#if defined(BOOTWRAPPER_64R)
++#if defined(BOOTWRAPPER_64R) && !defined(XEN)
+ 	// On Armv8-R Linux needs to be booted at EL1
+ 	mov	x4, #SPSR_KERNEL_EL1
+ #else
+diff --git a/configure.ac b/configure.ac
+index a433c89bd2ae..a16bc25508f3 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -115,6 +115,11 @@ AS_IF([test "x$USE_PSCI" != "xyes" -a "x$KERNEL_ES" = "x32"],
+ 	[AC_MSG_ERROR([With an AArch32 kernel, boot method must be PSCI.])]
+ )
+ 
++# Don't allow PSCI + Xen + aarch64-r
++AS_IF([test "x$USE_PSCI" = "xyes" -a "x$USE_ARCH" = "xaarch64-r" -a "x$X_IMAGE" != "x"],
++	[AC_MSG_ERROR([With aarch64-r and Xen, PSCI must be disabled.])]
++)
++
+ # Allow a user to pass --with-initrd
+ AC_ARG_WITH([initrd],
+ 	AS_HELP_STRING([--with-initrd], [embed an initrd in the kernel image]),
+-- 
+2.34.1
 
---=20
-Dmitry
 
