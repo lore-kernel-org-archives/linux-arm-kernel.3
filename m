@@ -4,116 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F4FD609B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 09:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44255D609B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 09:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NmC2c7plcJ/Mcl0oI9qLJf0fBVn5qTuymhUmLJnrAcM=; b=n2NdbEnXrfVN/zb/6ra4xTY4f6
-	KW3Xjs+2NtwrpL1ltYGDo4tPGx05NWH8cIQ4PyYeY5wVN2pt5IuhRd+HhnH29K62wWTLowhLcPrJ1
-	kzUHY8LjJCwFjBx4/ubfPLU0wTnrYwMt9+XSoOqEn3lkwhvGM04Ir+VYw8/4uABpXQI/IJBPUdFbw
-	vEo0EetiUoitlCHyhVNyIXJU6p/W/Svu48OUgEJJ0KZ5OpyJp8Nifhr8c1KQHksLWZ0yI1PMdzxjD
-	Fr6fe1H8ctt5ZRFyy1pkDTJjNzQZVTXJrvbRVLOc25/qQXngiKrIyy2+iaQXz4CttcJxlQjbzFRHA
-	HW12KarQ==;
+	bh=7fo1CIN2EPZRmEmatU/u4W2AYmjGHmFD2N6fdg/27mw=; b=wjdDH/aGicZinvEOtkATMI7dZS
+	6NXF1Y9R5DWLHfR3i3Ydma/IHdlkrm5ZwDLmt20cHR/nKsKkA+ZeEfMPHvlWTXh4FD+J9XWT+S1u2
+	Y5CP92koSTr5QyFzJPsr+MNyq8RsByfkZ5UrGJVT0pTEjqeKv4zgNJW3kliiHrZOp+PvHft6jxfKK
+	iI/ulRuyMXsZ6+eqSBvDLtkgafdFaOWQOg7pvCcVEn2Di5GmamSGd93Cco93EUpEFksixe/FLzPcP
+	CbJecxGRYyErvWgvrGWeLiNsYCGMcYk9jdUdqnmIonM7vuX4SgYEDj9vjoCW6W6Z9hBwai+nqlKLI
+	5CtnQ8kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGED5-0000000Cgp3-0fgm;
-	Wed, 27 Nov 2024 09:19:47 +0000
-Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
+	id 1tGEH2-0000000Ch2w-0Edd;
+	Wed, 27 Nov 2024 09:23:52 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGEC5-0000000CgcT-051W
+	id 1tGEG3-0000000Cgzz-0MQm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 09:18:47 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 7E6561140109;
-	Wed, 27 Nov 2024 04:18:43 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Wed, 27 Nov 2024 04:18:43 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1732699123;
-	 x=1732785523; bh=NmC2c7plcJ/Mcl0oI9qLJf0fBVn5qTuymhUmLJnrAcM=; b=
-	VYYICIuhcr1RrCllVZyR2YbQ0PgOx+geAUXce8CI0J3fbZezFJ93/XLQt3FGunzy
-	v1PJblTLjQVb/h552gYJMNAH7TI3cbJT7Dl4o1th9kF0Z4gCbL++Jjhqpn6RsuvT
-	o7IYVDHkej5QI0xazXxb4FJQQvm4KHvaLgaNwU++9Hld4r58nbbP7Zh3B62P8+xm
-	UGqZHmr3fdg76gbK4f3xyrhakNOwnyHDE5cPrXFLS4aNfli2X3gjQNeXiE9xJ+Gl
-	yx2yWaVJ2EJ7Q7FuuMd7RY/WFnasVgGuck5JgwdZDH+CQ/xnMENL9RcDUv1Gjbxn
-	l0YpS9yuYbCs7e26/Emm9w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1732699123; x=
-	1732785523; bh=NmC2c7plcJ/Mcl0oI9qLJf0fBVn5qTuymhUmLJnrAcM=; b=5
-	IgfRStxFNKyuB7MoNhqkXbiufLh+IR1dk3i/74JBBBcsVJAOS/nmiBwBEWCowuye
-	DgunWuc/GeDzWnwaDIloBrvweejeoDVzlIndP6YLOHRLtayoErRsMb7h715cKoIo
-	16sQQZM4Kn7ZJNFsMm+t5n4nfW967x2tqaj0WLQWuYuH1sEpy6ICS72viIl5R+xr
-	SRTEtn54CuLOXLWGWew61p0LFLQKCk8MCXjM+O4toZ1jhSYs34s4mv2AuG7matjW
-	Tyy11MH5V0fQOSh45SDaA4KpbwRnagOtb/lECqdr+XRBj3+ktwx69h+J5MJtFVCE
-	ufxZzJ8VZCV0o6Cg4Tqog==
-X-ME-Sender: <xms:8uNGZ9Mtgrqb2LkM244MsGDBs9Rl_V-TBnWIL1Oqt2Gx4VCQCld5gQ>
-    <xme:8uNGZ_8wE99PlwDfeeVEBaSWYgPOMbQPIUzRrxqk2GxyG0B3ZJ9eGLBLmGtFhpKfR
-    SkXgAuFCIeRlLX-rYo>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrgeelgddtvdcutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
-    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
-    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
-    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
-    gvqeenucggtffrrghtthgvrhhnpedtiefhffdthfeileevheehveevieeggfegieeggfel
-    feduudevgeegieetfeevgfenucffohhmrghinhepfihikhhiphgvughirgdrohhrghenuc
-    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnuges
-    rghrnhgusgdruggvpdhnsggprhgtphhtthhopeduiedpmhhouggvpehsmhhtphhouhhtpd
-    hrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthho
-    pehfvghsthgvvhgrmhesuggvnhigrdguvgdprhgtphhtthhopegvshgsvghnsehgvggrnh
-    higidrtghomhdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomhdprhgt
-    phhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinh
-    hushdrfigrlhhlvghijheslhhinhgrrhhordhorhhgpdhrtghpthhtoheplhhinhhugidq
-    rghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpth
-    htohepihhmgieslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopegrihhshhgv
-    nhhgrdguohhnghesnhigphdrtghomh
-X-ME-Proxy: <xmx:8uNGZ8ROpX2q3OtfE72XbxFI0aL82nkiXoTd5HzDtwOzkdoAF0xj_g>
-    <xmx:8uNGZ5sNut3DB1CZzCOK7Ih2lufowaCSjOxFBOK5s_kUOaM8sc7LHQ>
-    <xmx:8uNGZ1fRmMFjJjVZ-W4IeKD-tkDxTpHAyaF0yio5FD55la85LtLbAA>
-    <xmx:8uNGZ13oP6kVKpMw69eUHbOnKf6WTrhnIMF3y16nXc1BgQG2CIxscw>
-    <xmx:8-NGZ18J36QH__qlyXQkxwUal2SoIWWWQhF9-r1HKjk55N3gCvIY2xat>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id B51022220071; Wed, 27 Nov 2024 04:18:42 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 27 Nov 2024 09:22:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5EB59A43818;
+	Wed, 27 Nov 2024 09:20:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E51D4C4CECC;
+	Wed, 27 Nov 2024 09:22:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732699369;
+	bh=XEgcc7//bbL5Lz25HVFLDQoqgdMY6dheqJaMAkerRpw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JspmlBQYzwQBVStA9rPNaKwnU1h3ICBH1YN1H1rTeWnQU3gYP0a+exfl0MkVtTERA
+	 tpcyYSLEVnJAh5LoCOWWHqo/5IX8HhQjJFMZWk3RxT3nkcn+mRdjqxmmbU1Rk1tNZ/
+	 FaaFS+aBXAN9yoAcPZbjuLD/b39WdT9HySfGJPMrds6gVvmyI+mMThYMNO2t4/zQbJ
+	 bcSV/6OWuNZXMGGwCpl6Jbnyg7JH0SBvuBUqnwexr4MaFpE3s87CBeHEbuhTm2ipf9
+	 rZ+qdSMueztRiwYDWlLqiR5l/6RB8ebLVktOEZIfLP01N649S9cb8Mmu3QUVzMlp9U
+	 WVAuvJnDV2W3g==
+Message-ID: <d72dc967-a5f7-47d4-a27a-71a31f90d8d7@kernel.org>
+Date: Wed, 27 Nov 2024 10:22:44 +0100
 MIME-Version: 1.0
-Date: Wed, 27 Nov 2024 10:18:22 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Rasmus Villemoes" <ravi@prevas.dk>, "Fabio Estevam" <festevam@gmail.com>
-Cc: "Guenter Roeck" <linux@roeck-us.net>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Esben Haabendal" <esben@geanix.com>, "Russell King" <linux@armlinux.org.uk>,
- "Shawn Guo" <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>,
- "Dong Aisheng" <aisheng.dong@nxp.com>, "Jacky Bai" <ping.bai@nxp.com>,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- linux-kernel@vger.kernel.org,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- "Fabio Estevam" <festevam@denx.de>
-Message-Id: <5881df5a-9495-49b9-9956-0538055bba60@app.fastmail.com>
-In-Reply-To: <87ttbthwdu.fsf@prevas.dk>
-References: <20240506-imx-pinctrl-optional-v2-0-bdff75085156@geanix.com>
- <20240506-imx-pinctrl-optional-v2-1-bdff75085156@geanix.com>
- <49ff070a-ce67-42d7-84ec-8b54fd7e9742@roeck-us.net>
- <CACRpkdaBR5mmj43y_80b9jd3TAqRWMdCyD9EP6AY-Y0-asz4TA@mail.gmail.com>
- <1ff005f8-384d-465e-9597-b6d5fd903862@roeck-us.net>
- <CAOMZO5DW3t-sof_uaFa_qJPE3WFq_155mFTxGMWh0m++csgopg@mail.gmail.com>
- <87ttbthwdu.fsf@prevas.dk>
-Subject: Re: [PATCH v2 1/3] ARM: imx: Allow user to disable pinctrl
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE
+ output for PCIe1
+To: Romain Naour <romain.naour@smile.fr>, devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
+ conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org, kristo@kernel.org,
+ vigneshr@ti.com, nm@ti.com, Romain Naour <romain.naour@skf.com>
+References: <20241126173307.4054601-1-romain.naour@smile.fr>
+ <5e2d2174-44a7-4143-8562-4dcdb5ad6c94@kernel.org>
+ <32e81174-8a17-4f29-b338-0dbd0d7e498b@smile.fr>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <32e81174-8a17-4f29-b338-0dbd0d7e498b@smile.fr>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_011845_763573_E29C4CE0 
-X-CRM114-Status: GOOD (  19.10  )
+X-CRM114-CacheID: sfid-20241127_012251_262985_5D0CD638 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,42 +120,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 27, 2024, at 10:13, Rasmus Villemoes wrote:
-> On Tue, Nov 26 2024, Fabio Estevam <festevam@gmail.com> wrote:
->>> Fabio submitted a patch enabling PINCTRL for imx_v4_v5_defconfig and
->>> imx_v6_v7_defconfig explicitly [1]. I don't know if that fixes the
->>> problem for good - I see CONFIG_ARCH_MXC in other configurations as
->>> well.
+On 27/11/2024 10:17, Romain Naour wrote:
+> Hello,
+> 
+> Le 26/11/2024 à 20:04, Krzysztof Kozlowski a écrit :
+>> On 26/11/2024 18:33, Romain Naour wrote:
+>>> From: Romain Naour <romain.naour@skf.com>
+>>>
+>>> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
+>>> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
+>>> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
+>>> provide refclk through PCIe_REFCLK pins.
+>>>
+>>> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
+>>> module's PAD IO Buffers.
+>>>
+>>> Signed-off-by: Romain Naour <romain.naour@skf.com>
+>>> ---
+>>> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
+>>> applied on vendor kernel for BeagleBone AI-64:
+>>> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
+>>> ---
+>>>  arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts |  4 ++++
+>>>  arch/arm64/boot/dts/ti/k3-j721e-main.dtsi          | 10 ++++++++--
+>>>  2 files changed, 12 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+>>> index fb899c99753e..681e3af7ce6e 100644
+>>> --- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+>>> +++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+>>> @@ -859,6 +859,10 @@ &pcie1_rc {
+>>>  	num-lanes = <2>;
+>>>  	max-link-speed = <3>;
+>>>  	reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_HIGH>;
+>>> +	/* There is no on-board or external reference clock generators,
 >>
->> Good point. I can send a v2 adding CONFIG_PINCTRL=y to the other defconfigs.
+>> Please use generic style comments, not netdev.
+> 
+> Fixed.
+> 
 >>
->
-> Instead of doing that, isn't this exactly what the 'imply' keyword is
-> for?
->
-> - weak reverse dependencies: "imply" <symbol> ["if" <expr>]
->
->   This is similar to "select" as it enforces a lower limit on another
->   symbol except that the "implied" symbol's value may still be set to n
->   from a direct dependency or with a visible prompt.
->
->
-> So how about adding 'imply PINCTRL' in lieu of the previous 'select
-> PINCTRL'? And that would also better match the intention of the patch in
-> question (namely that the user needs to take explicit action to disable
-> PINCTRL).
+>>> +	 * use refclk from the ACSPCIE module's PAD IO Buffers.
+>>> +	 */
+>>> +	ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
+>>>  };
+>>>  
+>>>  &ufs_wrapper {
+>>> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+>>> index 0da785be80ff..9f47e7672922 100644
+>>> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+>>> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+>>> @@ -5,6 +5,7 @@
+>>>   * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
+>>>   */
+>>>  #include <dt-bindings/phy/phy.h>
+>>> +#include <dt-bindings/phy/phy-cadence.h>
+>>>  #include <dt-bindings/phy/phy-ti.h>
+>>>  #include <dt-bindings/mux/mux.h>
+>>>  
+>>> @@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
+>>>  			reg = <0x4140 0x18>;
+>>>  			#clock-cells = <1>;
+>>>  		};
+>>> +
+>>> +		acspcie0_proxy_ctrl: acspcie0-ctrl@18090 {
+>>
+>> Node names should be generic. See also an explanation and list of
+>> examples (not exhaustive) in DT specification:
+>> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+> 
+> I updated to: "acspcie0_proxy_ctrl: acspcie-ctrl@18090"
 
-Please never use imply. Even if you think it's the right
-thing in a particular case, it will come back to bite you
-later.
+Not much changed. It's a system-controller?
 
-See also https://en.wikipedia.org/wiki/COMEFROM ;-)
+> 
+>>
+>>
+>>> +			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
+>>
+>> I am not familiar with naming, so is this j784s4 or j721e or K3 SoC?
+>> Compatible should be SoC specific.
+> 
+> Me neither.
 
-I would prefer we completely kill off that keyword from the Kconfig
-language and replace it with the reverse 'default'. In this
-particular case, having 'default ARCH_IMX' in 'PINCTRL'
-would of course not be a great idea, but for the exact same
-reason, the 'imply' is wrong here.
+Hm? So it is like a random change?
 
-       Arnd
+> 
+> "ti,j784s4-acspcie-proxy-ctrl" compatible is the only one available in the
+> syscon devicetree binding. Should we add a new "ti,j721e-acspcie-proxy-ctrl"?
+
+When you add new devices, add bindings.
+
+> 
+> This patch is adapted from a recent commit on the TI's kernel for the j784s4 Soc:
+> https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/commit/?h=ti-rt-linux-6.6.y&id=bb4442cd523d6e34c5db43fd78c9f579d6937f6a
+
+Sorry, v6.6 downstream code is totally irrelevant for this. They can
+introduce bugs or wrong code and this is never a reason to repeat the
+same in mainline.
+
+> 
+> There is another example with "ti,j784s4-pcie-ctrl" compatible used from
+> k3-j722s-main.dtsi:
+> https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi?h=v6.12.1#n240
+
+Well, people repeat the same mistakes over and over.
+
+Best regards,
+Krzysztof
 
