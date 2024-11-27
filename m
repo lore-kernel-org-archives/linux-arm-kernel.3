@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 230E2D609D8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:18:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7902CD609D8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dwDmA6skYXcjb+3giHmONmMK1TWUq1rfdu1TdOWnKkM=; b=hiO2LSomtrxp+c9mJXsEyvuAx0
-	68oOEAjtGiy2h+vHdvBsxVusrtusHRoFOfyC6qnK4zQCfQJEAd/cLXS7VweKI+K2Txi5QSm23q06j
-	a89ggSC26SoFfKAaOD48hoXSQfgOYYSoxG0k2mUXcaojymdfJNmB+sTJB9KR2O+EpXwnCxWaV+TOj
-	jAvjbLmO7YV+ssJT+RZQCPq/e5iF7QEND7UINOQwegk4waQxDpfdxMVOfAyTy7Mg/ZagEXjYXb1bw
-	OpJzCGpxHmrKy4yHFqFDvhvTXU8maKh577P1t/r4yZG8nDn2zTsyZdR+/WMrSTsOei8mW++Bs2jnC
-	q3DRwAvw==;
+	bh=YV7Ng+UILJGgeX2OpLHjyU7yknzjQ5R3jvrdw+xvoG8=; b=kVVc7SuI7OYYIQq+Vo5sZwWcOI
+	mNjKW3n5hKtsZlvOnopYJY7UGgipdsYEC4yjjRu+pP9QHB+XwRs524j0SI1PbOvu0rSaDNFdBhhrT
+	zTfhGPYBva4XJt1dCS5lmsLL6QQTWhrZOcM3BZNRqOg3yFjz214XXrt7GkkspgX+LxkV5+OELlnHx
+	+yHPCoqiavfGkdFVA2MThsdn3YTTUOTc0aTVknIWbpEpr3QxjkVmp0kdfh/uHaLOn1DbhEMWkV+Mq
+	W3sYsAFMQ68HBN1m2dG0pdXGWqqhXz73edvoXmXBhKX1XuUBG7OPnKwWBzxGfH2dRUg4ykbDp3eJw
+	3EnmfbLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGG3L-0000000Cyqu-33ak;
-	Wed, 27 Nov 2024 11:17:51 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tGG4I-0000000Cz0v-4BkK;
+	Wed, 27 Nov 2024 11:18:51 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFqu-0000000Cwic-2Sy9;
-	Wed, 27 Nov 2024 11:05:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=dwDmA6skYXcjb+3giHmONmMK1TWUq1rfdu1TdOWnKkM=; b=jC4Qf6Z34pla9wt4LKBGTlfWtf
-	cWD+9s5TgURjpIWz0uM9A3O5+0FIPGktRKmtjnI7ram+gnDjCNigmqEAkMq5OuM5A+zcpE5Q/BpIk
-	i+pKu4k5i1jzBh4BZnr94KiJEJYGgzgQ2+n0OZDfnISGiOpQpM4Ejwq+/AepupXeZ1eIHfXgpNVyT
-	weWadve+G1HSIgiRejBUud034nzQ/UqdsLCqL2kmItTErhbTBYq/hALKnP1A45xL1GG1zc5Pvpn50
-	fbhKGBDsKEUvjsZ1OWsRmhJNnsvzNcHB+f84hCOYYqDHg/Ph6JWOWH7XjmnRrbXIUFwwnvnKACHT2
-	DPINEu5g==;
-Received: from i5e86190f.versanet.de ([94.134.25.15] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tGFqj-0000Hk-5v; Wed, 27 Nov 2024 12:04:49 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
- cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
- andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
- kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-Subject: Re: [PATCH v1 04/10] phy: phy-rockchip-samsung-hdptx: Add support for eDP
- mode
-Date: Wed, 27 Nov 2024 12:04:48 +0100
-Message-ID: <2131853.KlZ2vcFHjT@diego>
-In-Reply-To: <8df0acc8-b7aa-453f-b55c-30144f51d7cf@rock-chips.com>
-References: <20241127075157.856029-1-damon.ding@rock-chips.com>
- <4260470.1IzOArtZ34@diego>
- <8df0acc8-b7aa-453f-b55c-30144f51d7cf@rock-chips.com>
+	id 1tGFyM-0000000Cxwt-277s
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Nov 2024 11:12:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=YV7Ng+UILJGgeX2OpLHjyU7yknzjQ5R3jvrdw+xvoG8=; b=nUjmzZSp0723C2w0rHv8ZaBBLX
+	XrkG0T8d+DtE6S1tVqA9igzcoRFqbPXKGKBIZ4RCgzvAxBiu8zSDZRkP20hWC2zi8ejzAABOEMym7
+	kYc3vo4iaWZF96oJya2fXWPR/2ADrBQ2Zc0LVayYCZsQVkNbns4K+a83WfHjjVGA5cDWoE8WNokM1
+	BTj6Cw6Y2MGA2Jun7EV5DrGKSxIzwuJwfIzhGN8NocCwFQ8KLj+3vKYKXnyWG1EIJTTSRYRTqE4Ok
+	SFB0hKL53Udq4ZcTt7L3qRABwslS07W0/G/N7Vg31EgBkjZdFOHliWC/4WxGFkZcvzPgVJTyDpfDt
+	SsxAZIxQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39324)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tGFyC-0000E0-0T;
+	Wed, 27 Nov 2024 11:12:32 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tGFy8-00076l-1e;
+	Wed, 27 Nov 2024 11:12:28 +0000
+Date: Wed, 27 Nov 2024 11:12:28 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Bryan Whitehead <bryan.whitehead@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com
+Subject: Re: [PATCH RFC net-next 02/23] net: phy: fix phy_ethtool_set_eee()
+ incorrectly enabling LPI
+Message-ID: <Z0b-nJ7bt8IlBMpz@shell.armlinux.org.uk>
+References: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
+ <E1tFv3F-005yhT-AA@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1tFv3F-005yhT-AA@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_030500_619101_84E53088 
-X-CRM114-Status: GOOD (  31.53  )
+X-CRM114-CacheID: sfid-20241127_031242_545194_C85F30E6 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,107 +91,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Damon,
+On Tue, Nov 26, 2024 at 12:52:21PM +0000, Russell King (Oracle) wrote:
+> @@ -1685,15 +1685,21 @@ EXPORT_SYMBOL(phy_ethtool_get_eee);
+>  static void phy_ethtool_set_eee_noneg(struct phy_device *phydev,
+>  				      const struct eee_config *old_cfg)
+>  {
+> -	if (phydev->eee_cfg.tx_lpi_enabled != old_cfg->tx_lpi_enabled ||
+> +	bool enable_tx_lpi;
+> +
+> +	if (!phydev->link)
+> +		return;
+> +
+> +	enable_tx_lpi = phydev->eee_cfg.tx_lpi_enabled && phydev->eee_active;
+> +
+> +	if (phydev->enable_tx_lpi != enable_tx_lpi ||
+>  	    phydev->eee_cfg.tx_lpi_timer != old_cfg->tx_lpi_timer) {
 
-Am Mittwoch, 27. November 2024, 12:00:10 CET schrieb Damon Ding:
-> Hi Heiko:
->=20
-> On 2024/11/27 17:29, Heiko St=FCbner wrote:
-> > Hi Damon,
-> >=20
-> > Am Mittwoch, 27. November 2024, 08:51:51 CET schrieb Damon Ding:
-> >> Add basic support for RBR/HBR/HBR2 link rates, and the voltage swing a=
-nd
-> >> pre-emphasis configurations of each link rate have been verified accor=
-ding
-> >> to the eDP 1.3 requirements.
-> >>
-> >> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> >> ---
-> >=20
-> > [ ... huge block of DP phy support ...]
-> >=20
-> > yes that block was huge, but I also don't see a way to split that up in=
- a
-> > useful way, so it should be fine.
-> >=20
->=20
-> As for the huge block of DP phy support, I will try to use the existing=20
-> rk_hdptx_multi_reg_write() to set regs in next version, maybe the way=20
-> can make the codes more concise.
+I'm wondering whether this should be:
 
-I actually did like the the dp-side of the phy code.
+	if (phydev->enable_tx_lpi != enable_tx_lpi ||
+	    (phydev->enable_tx_lpi &&
+	     phydev->eee_cfg.tx_lpi_timer != old_cfg->tx_lpi_timer)) {
 
-That you need to add all the DP stuff can't be helped and I actually find
-real functions nicer than having anonymous register writes.
+The argument for this change would be to avoid cycling the link when the
+LPI timer changes but we're not using LPI.
 
-I.e. the hdmi-side with its register lists does write "magic" values to
-registers.
+The argument against this change would be that then we don't program the
+hardware, and if the driver reads the initial value from hardware and
+is unbound/rebound, we'll lose that update whereas before the phylib
+changes, it would have been preserved.
 
-So personally I'd just leave the dp-functions as is please, until someone
-does complain (I was not trying to complain, just mentioned why I cut
-it from the reply :-) )
+The problem, however, are drivers where the LPI timer is dependent on
+the speed.
 
+Any thoughts?
 
-Thanks
-Heiko
-
-
-> >> +static int rk_hdptx_phy_set_mode(struct phy *phy, enum phy_mode mode,
-> >> +				 int submode)
-> >> +{
-> >> +	return 0;
-> >> +}
-> >=20
-> > I think it might make sense to go the same way as the DCPHY and also
-> > naneng combophy, to use #phy-cells =3D 1 to select the phy-mode via DT .
-> >=20
-> > See [0] for Sebastians initial suggestion regarding the DC-PHY.
-> > The naneng combophy already uses that scheme of mode-selection too.
-> >=20
-> > There is of course the issue of backwards-compatibility, but that can be
-> > worked around in the binding with something like:
-> >=20
-> >   '#phy-cells':
-> >      enum: [0, 1]
-> >      description: |
-> >        If #phy-cells is 0, PHY mode is set to PHY_TYPE_HDMI
-> >        If #phy-cells is 1 mode is set in the PHY cells. Supported modes=
- are:
-> >          - PHY_TYPE_HDMI
-> >          - PHY_TYPE_DP
-> >        See include/dt-bindings/phy/phy.h for constants.
-> >=20
-> > PHY_TYPE_HDMI needs to be added to include/dt-bindings/phy/phy.h
-> > but PHY_TYPE_DP is already there.
-> >=20
-> > That way we would standardize on one form of accessing phy-types
-> > on rk3588 :-) .
-> >=20
-> > Also see the Mediatek CSI rx phy doing this too already [1]
-> >=20
-> >=20
-> > Heiko
-> >=20
-> > [0] https://lore.kernel.org/linux-rockchip/udad4qf3o7kt45nuz6gxsvsmprh4=
-rnyfxfogopmih6ucznizih@7oj2jrnlfonz/
-> > [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/=
-tree/Documentation/devicetree/bindings/phy/mediatek,mt8365-csi-rx.yaml
-> >=20
->=20
-> It is really a nice way to separate HDMI and DP modes.
->=20
-> >=20
-> >=20
-> >=20
-> >=20
->=20
-> Best regards,
-> Damon
->=20
->=20
-
-
-
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
