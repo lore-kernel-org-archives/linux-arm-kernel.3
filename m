@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46D53D6ACE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 14:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82897D6ACE3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 14:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ay4xBIuQ2fbyiN1pWrAhVvNJGGwduRJ8wyqtCi0OE1M=; b=oh0ARVT6e1o3zXMbeezLXON/99
-	s9uLjXNWE3CGFmRq23AFsSFo8/wPQQnryT/E2ME50H0WGwxuQpZychZYVfIpFsPdxI0ZalDwjzCkx
-	KycLIzZca6gJpHI3yYXMKei3lxZe5NyNE1AUcmkfpDtRSh0qAuWFz24bYyHBU4uA2XGcmuGKGOiqS
-	OZJE5N5UXA2Rq5P7PDRv+a4XRq7vRzrn2ivfsPtuGUsXGOjL1YzIoEU/APjT27+DaBYaM5dUcyCyO
-	D43lF9rHp6URV8peJq52s4J+CuG++yAEBA0p5Qd+jDsky5fDR+Ku6IDEQkuPIp2kye6xLiHwWYogz
-	TXPevsmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1hWqst7vnm/pHUq55JJjCdrE22A037j4kxPMLEvd9wQ=; b=lNgxeRQGk3dIVO4bgtkYMM929f
+	eEzzmTsskHulASjvOUn/XRprCNx653XNHkmRwwyX4zKkRzGq1TAFZYobvPLmMuzE9wfPTLHi/oqEd
+	wU5pY9TrmmQjAu+x9/1ALlFzhIcl6k3Xl+hFBZVyFq0gkfBjM6AouCpbBW3AmsbmGlF0KoLCIvckQ
+	Msr79m53TnUgjH6cImdpU5q2di6AxF50igBR9XSLg6yykuN729dBq6esgvcPlIRtuvZqkwnvlQa9w
+	2UakraKeTF32bKaMxwKk9EHp7CrlEYBZEn7hZkEbfcNV+sBnU1ixuZCgXpSoGy3HVLCnxF8cksBhs
+	4CdmxPNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJNz-0000000DPm2-1KEG;
-	Wed, 27 Nov 2024 14:51:23 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tGJOv-0000000DQ0M-3osl;
+	Wed, 27 Nov 2024 14:52:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJMy-0000000DPby-3Jwg
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 14:50:22 +0000
+	id 1tGJNR-0000000DPiV-0K6J;
+	Wed, 27 Nov 2024 14:50:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 11B63A438CE;
-	Wed, 27 Nov 2024 14:48:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 605F3C4CECC;
-	Wed, 27 Nov 2024 14:50:19 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2BA52A438CF;
+	Wed, 27 Nov 2024 14:48:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DCE5C4CECC;
+	Wed, 27 Nov 2024 14:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732719019;
-	bh=U2ecL/KEEP79Jt7wprQzaK3Tla/TiL0FGSn6os/og+Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X+KtNtRMvjSlNWfdV06UDwOYFuqvopZwRoBM/jIUmaqaSKpf52pvM5vDZyzy+hybL
-	 PuCerNneQGz29SjTYigCYcZ24ofVthHPnJAa7oSNFJMBHyTkr8H7ifieAund5XEYlL
-	 ONjQIjvW97MQNc72Xw5ogC568FuZS+pgjCNsJbpE0sR/y05Sd4ubcqCd1OnZ8ggKb4
-	 aCRi0VV21Tc76qzMyaXVBF7H3DNTDdQ1r/OlGIT6MQfWJRp3tMlHEa/6SRweHcioCW
-	 BXg68Ai7dXus9d5tOuWPJFoZi6sLZ+OwaeYi9D1vdIzc/dTId1CwvbEbWcYuFWau5a
-	 Pd0+lB8LvUTsA==
-Date: Wed, 27 Nov 2024 08:50:17 -0600
-From: Rob Herring <robh@kernel.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
-	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	p.zabel@pengutronix.de, cassel@kernel.org,
-	quic_schintav@quicinc.com, fabrice.gasnier@foss.st.com,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] dt-bindings: PCI: Add STM32MP25 PCIe root complex
- bindings
-Message-ID: <20241127145017.GA3473844-robh@kernel.org>
-References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
- <20241126155119.1574564-2-christian.bruel@foss.st.com>
+	s=k20201202; t=1732719047;
+	bh=vMGke052xOGWISHZqol1znn3ywuvASsby7izzn1gJj4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=koXTkGJxo3isEtRCFjiNXReam61Dfgp4KJGbAV4Knp3yf91fFXntIdFlbR1caP5Rx
+	 z1lvZUdleK4nnMm/Y2zdpnL41Rc2KgqHHS1Ry+ixvdJjuFpPXZIdiRbNHxc1kWPdPE
+	 uVOVpJHaeBiPfq/chohoktmq2ZVahWAKmhoI44080ZCOR5munZh5/YOycccAyXGNgQ
+	 yPjnmTu/W76z7wNY20DoEFFEiz0ZMY3Qz2bSsmTOOR5mRlqhAUIeBwr0OM8u48/V3G
+	 GmBn92n92XcruqXX+DdYznE1w79jtKATbOB6QsDkzN3K0KlBzy84LKzIZ8apmJD/W6
+	 IsR03drAzZARA==
+From: Niklas Cassel <cassel@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Damien Le Moal <dlemoal@kernel.org>,
+	Niklas Cassel <cassel@kernel.org>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH] PCI: dw-rockchip: Enumerate endpoints based on dll_link_up irq in the combined sys irq
+Date: Wed, 27 Nov 2024 15:50:42 +0100
+Message-ID: <20241127145041.3531400-2-cassel@kernel.org>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241126155119.1574564-2-christian.bruel@foss.st.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4690; i=cassel@kernel.org; h=from:subject; bh=vMGke052xOGWISHZqol1znn3ywuvASsby7izzn1gJj4=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGNLdDQ92/Tihn5LVvuBOXsO9P3vXHsueIFTyNtrReKcvl 04wO6t9RykLgxgXg6yYIovvD5f9xd3uU44r3rGBmcPKBDKEgYtTACaSdpKR4VpYtjB/4yNj6Zkn U1oCxbY3zFOuW5Ys6eH00mU/h3jdCkaGj7x5bx/GH5Y+dbB/c7W22IXlOiyZWT27HbhrI6a8Fbr GCQA=
+X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_065020_965882_52588F24 
-X-CRM114-Status: GOOD (  21.38  )
+X-CRM114-CacheID: sfid-20241127_065049_239999_CEF526C1 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,190 +78,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 04:51:15PM +0100, Christian Bruel wrote:
-> Document the bindings for STM32MP25 PCIe Controller configured in
-> root complex mode.
-> 
-> Supports 4 legacy interrupts and MSI interrupts from the ARM
-> GICv2m controller.
-> 
-> STM32 PCIe may be in a power domain which is the case for the STM32MP25
-> based boards.
-> 
-> Supports wake# from wake-gpios
-> 
-> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-> ---
->  .../bindings/pci/st,stm32-pcie-common.yaml    | 45 +++++++++
->  .../bindings/pci/st,stm32-pcie-host.yaml      | 99 +++++++++++++++++++
->  2 files changed, 144 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
->  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
-> new file mode 100644
-> index 000000000000..479c03134da3
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
-> @@ -0,0 +1,45 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-common.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: STM32MP25 PCIe RC/EP controller
-> +
-> +maintainers:
-> +  - Christian Bruel <christian.bruel@foss.st.com>
-> +
-> +description:
-> +  STM32MP25 PCIe RC/EP common properties
-> +
-> +properties:
-> +  clocks:
-> +    maxItems: 1
-> +    description: PCIe system clock
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  phys:
-> +    maxItems: 1
-> +
-> +  phy-names:
-> +    const: pcie-phy
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  access-controllers:
-> +    maxItems: 1
-> +
-> +  reset-gpios:
-> +    description: GPIO controlled connection to PERST# signal
-> +    maxItems: 1
-> +
-> +required:
-> +  - clocks
-> +  - resets
-> +  - phys
-> +  - phy-names
-> +
-> +additionalProperties: true
-> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-> new file mode 100644
-> index 000000000000..18083cc69024
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-> @@ -0,0 +1,99 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-host.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: STM32MP25 PCIe root complex driver
-> +
-> +maintainers:
-> +  - Christian Bruel <christian.bruel@foss.st.com>
-> +
-> +description:
-> +  PCIe root complex controller based on the Synopsys DesignWare PCIe core.
-> +
-> +allOf:
-> +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-> +  - $ref: /schemas/pci/st,stm32-pcie-common.yaml#
-> +
-> +select:
+Most boards using the pcie-dw-rockchip PCIe controller lack standard
+hotplug support.
 
-You don't need select.
+Thus, when an endpoint is attached to the SoC, users have to rescan the bus
+manually to enumerate the device. This can be avoided by using the
+'dll_link_up' interrupt in the combined system interrupt 'sys'.
 
-> +  properties:
-> +    compatible:
-> +      const: st,stm32mp25-pcie-rc
-> +  required:
-> +    - compatible
-> +
-> +properties:
-> +  compatible:
-> +    const: st,stm32mp25-pcie-rc
-> +
-> +  reg:
-> +    items:
-> +      - description: Data Bus Interface (DBI) registers.
-> +      - description: PCIe configuration registers.
-> +
-> +  reg-names:
-> +    items:
-> +      - const: dbi
-> +      - const: config
-> +
-> +  num-lanes:
-> +    const: 1
+Once the 'dll_link_up' irq is received, the bus underneath the host bridge
+is scanned to enumerate PCIe endpoint devices.
 
-Not required, so what's the default? If it can only ever be 1, then why 
-do you need the property?
+This commit implements the same functionality that was implemented in the
+DWC based pcie-qcom driver in commit 4581403f6792 ("PCI: qcom: Enumerate
+endpoints based on Link up event in 'global_irq' interrupt").
 
-> +
-> +  msi-parent:
-> +    maxItems: 1
-> +
-> +  wake-gpios:
-> +    description: GPIO controlled connection to WAKE# input signal
-> +    maxItems: 1
-> +
-> +  wakeup-source: true
-> +
-> +dependentRequired:
-> +  wakeup-source: [ wake-gpios ]
-> +
-> +required:
-> +  - interrupt-map
-> +  - interrupt-map-mask
-> +  - ranges
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-> +    #include <dt-bindings/gpio/gpio.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/phy/phy.h>
-> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
-> +
-> +    pcie@48400000 {
-> +        compatible = "st,stm32mp25-pcie-rc";
-> +        device_type = "pci";
-> +        num-lanes = <1>;
-> +        reg = <0x48400000 0x400000>,
-> +              <0x10000000 0x10000>;
-> +        reg-names = "dbi", "config";
-> +        #interrupt-cells = <1>;
-> +        interrupt-map-mask = <0 0 0 7>;
-> +        interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
-> +                        <0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
-> +                        <0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
-> +                        <0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
-> +        #address-cells = <3>;
-> +        #size-cells = <2>;
-> +        ranges = <0x01000000 0 0x10010000 0x10010000 0 0x10000>,
-> +                 <0x02000000 0 0x10020000 0x10020000 0 0x7fe0000>,
-> +                 <0x42000000 0 0x18000000 0x18000000 0 0x8000000>;
-> +        clocks = <&rcc CK_BUS_PCIE>;
-> +        phys = <&combophy PHY_TYPE_PCIE>;
-> +        phy-names = "pcie-phy";
-> +        resets = <&rcc PCIE_R>;
-> +        msi-parent = <&v2m0>;
-> +        wakeup-source;
-> +        wake-gpios = <&gpioh 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-> +        reset-gpios = <&gpioj 8 GPIO_ACTIVE_LOW>;
-> +        access-controllers = <&rifsc 68>;
-> +        power-domains = <&CLUSTER_PD>;
-> +    };
-> +
-> -- 
-> 2.34.1
-> 
+The Root Complex specific device tree binding for pcie-dw-rockchip already
+has the 'sys' interrupt marked as required, so there is no need to update
+the device tree binding. This also means that we can request the 'sys' IRQ
+unconditionally.
+
+Signed-off-by: Niklas Cassel <cassel@kernel.org>
+---
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 62 +++++++++++++++++--
+ 1 file changed, 58 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+index 1170e1107508..ce4b511bff9b 100644
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -389,6 +389,34 @@ static const struct dw_pcie_ops dw_pcie_ops = {
+ 	.stop_link = rockchip_pcie_stop_link,
+ };
+ 
++static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
++{
++	struct rockchip_pcie *rockchip = arg;
++	struct dw_pcie *pci = &rockchip->pci;
++	struct dw_pcie_rp *pp = &pci->pp;
++	struct device *dev = pci->dev;
++	u32 reg, val;
++
++	reg = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_STATUS_MISC);
++	rockchip_pcie_writel_apb(rockchip, reg, PCIE_CLIENT_INTR_STATUS_MISC);
++
++	dev_dbg(dev, "PCIE_CLIENT_INTR_STATUS_MISC: %#x\n", reg);
++	dev_dbg(dev, "LTSSM_STATUS: %#x\n", rockchip_pcie_get_ltssm(rockchip));
++
++	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
++		val = rockchip_pcie_get_ltssm(rockchip);
++		if ((val & PCIE_LINKUP) == PCIE_LINKUP) {
++			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
++			/* Rescan the bus to enumerate endpoint devices */
++			pci_lock_rescan_remove();
++			pci_rescan_bus(pp->bridge->bus);
++			pci_unlock_rescan_remove();
++		}
++	}
++
++	return IRQ_HANDLED;
++}
++
+ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
+ {
+ 	struct rockchip_pcie *rockchip = arg;
+@@ -418,14 +446,31 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
+ 	return IRQ_HANDLED;
+ }
+ 
+-static int rockchip_pcie_configure_rc(struct rockchip_pcie *rockchip)
++static int rockchip_pcie_configure_rc(struct platform_device *pdev,
++				      struct rockchip_pcie *rockchip)
+ {
++	struct device *dev = &pdev->dev;
+ 	struct dw_pcie_rp *pp;
++	int irq, ret;
+ 	u32 val;
+ 
+ 	if (!IS_ENABLED(CONFIG_PCIE_ROCKCHIP_DW_HOST))
+ 		return -ENODEV;
+ 
++	irq = platform_get_irq_byname(pdev, "sys");
++	if (irq < 0) {
++		dev_err(dev, "missing sys IRQ resource\n");
++		return irq;
++	}
++
++	ret = devm_request_threaded_irq(dev, irq, NULL,
++					rockchip_pcie_rc_sys_irq_thread,
++					IRQF_ONESHOT, "pcie-sys-rc", rockchip);
++	if (ret) {
++		dev_err(dev, "failed to request PCIe sys IRQ\n");
++		return ret;
++	}
++
+ 	/* LTSSM enable control mode */
+ 	val = HIWORD_UPDATE_BIT(PCIE_LTSSM_ENABLE_ENHANCE);
+ 	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
+@@ -436,7 +481,16 @@ static int rockchip_pcie_configure_rc(struct rockchip_pcie *rockchip)
+ 	pp = &rockchip->pci.pp;
+ 	pp->ops = &rockchip_pcie_host_ops;
+ 
+-	return dw_pcie_host_init(pp);
++	ret = dw_pcie_host_init(pp);
++	if (ret) {
++		dev_err(dev, "failed to initialize host\n");
++		return ret;
++	}
++
++	/* unmask DLL up/down indicator */
++	rockchip_pcie_writel_apb(rockchip, 0x20000, PCIE_CLIENT_INTR_MASK_MISC);
++
++	return ret;
+ }
+ 
+ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
+@@ -457,7 +511,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
+ 
+ 	ret = devm_request_threaded_irq(dev, irq, NULL,
+ 					rockchip_pcie_ep_sys_irq_thread,
+-					IRQF_ONESHOT, "pcie-sys", rockchip);
++					IRQF_ONESHOT, "pcie-sys-ep", rockchip);
+ 	if (ret) {
+ 		dev_err(dev, "failed to request PCIe sys IRQ\n");
+ 		return ret;
+@@ -553,7 +607,7 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+ 
+ 	switch (data->mode) {
+ 	case DW_PCIE_RC_TYPE:
+-		ret = rockchip_pcie_configure_rc(rockchip);
++		ret = rockchip_pcie_configure_rc(pdev, rockchip);
+ 		if (ret)
+ 			goto deinit_clk;
+ 		break;
+-- 
+2.47.0
+
 
