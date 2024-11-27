@@ -4,99 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F100D609D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:08:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EE67D609D5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 11:09:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lqGYeTvXa+CcRrauQewHltxn0fZOtsvS5bEzws0xGp0=; b=j/RTINaidtLMF9ExQVkBsDZTcR
-	br2ShOVFSvTtUenSLdFUftefWyVKDzEhe2Cl7ZwK651v8lge1oBwLSl330KvTXduBqmTDcQkBd3uT
-	vtlq3er5in06OcurQ6QIM6Ce423MRh52LsxRHSP5guxfULOLjOPGJx5KSbdudEGLAIg3V48695E/o
-	H1nYPYavV5Blfg8SWZDHrfuq2QuMAPSiItkKQLWTbXERLMEtIzOLqOP0pmdO11DfuLyGjBFpGV2rz
-	qiKB+W09W2eUsDc6sITrBXy9es+jnDzT8ty+yVFNkmXIAJT4XTpDtJUhBDb7hg1ZtPa1R1kdTtrB3
-	VYLgztmg==;
+	bh=GgVLM+pxB0mTT4Xgy0u5pynEp9OkHXXnOP4d8il9bhA=; b=mpj+fpE32kOcd0hn7TE7+ePpmt
+	mNjd5lur3eQIP15dU5F4w8CyCCI0OXsD8YUX00X0qC9nn6Jds4jfDLyKleI4B6ommtB8i8oeSe5T0
+	70m/4g7iBzFskvHOa6OkAcGxcA9t3GS6tvIm7KaHwNQo9LVSSiOg7zhhMGeLtYC0n+OSJjtPhagDS
+	+8XmX+LaDoub9s7zsQgjCqNYdKRmgo6yQbuFSRng0vciyC5oOTWF27ksxISqypJ6HsWq9WOPcI8vM
+	SsHHnv38IZjVM61Dwx2QzVXKXXDrEepJENFHcjcmO4NPJ4pz4X3p0MWbqYBwRB/XSBJzyM0Fwi9vI
+	7d7vyvKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFtr-0000000CxEL-3p6Z;
-	Wed, 27 Nov 2024 11:08:03 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1tGFuo-0000000CxNn-2uWm;
+	Wed, 27 Nov 2024 11:09:02 +0000
+Received: from mail-m49194.qiye.163.com ([45.254.49.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGFkQ-0000000CvFt-1qrH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 10:58:20 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5cedf5fe237so7796481a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 02:58:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732705097; x=1733309897; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lqGYeTvXa+CcRrauQewHltxn0fZOtsvS5bEzws0xGp0=;
-        b=ChwcpSN7ifaKh2FA+c00VUcGJPXF8iUT9hyHdgvMZ11Mmjn6O2lYpneRnIkddcDBlR
-         LMRT1WcDx/Cl7sDuO9dJm2Xgw5g0scwsN+CTW33V9QOJ9LKv+jRPXieE4DBU5NCaWihW
-         FSgCsfH2jx/ubJGwC8b0K3HwciLZc5ao/DYzjZII3KTWA0zgEJXZV1GVPYmjkV+WRHWw
-         7PgUXL9f4uQPAb3mPBZAX/8FhkvIH9tN40WRfSkfNA1fB9e18XIpsLN2Tq50xWzaYUVi
-         4Rtou85fXATcK09rCYodi23h/F8A+Bwo9baU++sKB+ONtN+zAux8zV2wto6V/bL+iPxU
-         umHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732705097; x=1733309897;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lqGYeTvXa+CcRrauQewHltxn0fZOtsvS5bEzws0xGp0=;
-        b=tgiBVcyH//m5Ph7D3Gvd2bfQ1IWIiyZNkwRFKjmx0STnTImEe/Dph9hniEE/7DEZKX
-         G/3BTmg0bovF81qhWbf7/ECyyqSplryed/AsnRd5uwVq/6WZJ/24SSp9e5g2vRfeEPEk
-         YQwxPfUsaG+Q7c1W3CWSgyRWDUYOw4yCBBZCZ+qEo9KdLNPzmquxBZLC7j9wXtPsX/gM
-         E/KS/vGfqkWcxyG6eUwJ5AQHk9wnYzhS0/7oejIzAK/1hqlK6/mmMeObJnqzdX4T8ufm
-         vBF4C/vCKG5zTlNwYeq1MFXmuH0wmd/l76xOYlMmCGIWVZPKlc35IL3HnAJxxUMycOyh
-         bLMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX7GhS4w+vivwIdQ7CmuJH8vOCqm94zc7uOs5w0aJ7OTbpby/CyX4dSr2tw2MwB7QfTJxcdFxiiaSig4exyVO1N@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+qEFND6nSjXNDXrzp/JjaCTEfYXgua2xR+VlLYjnhmGzXdZc4
-	kSWyQ6mOSnHBxmrwYA+q99wJXjWyIJlfckG2VNrJWM/Q+L/aCF0fELWr0tL+lMA=
-X-Gm-Gg: ASbGncuen71EGfNptg7Dg5I+Ep2uDZEjCUTFUvfb/95uUtpJV/X/cLAt2c8SUYI1UuF
-	byYZ0H+MpReDF19e8HBib4Sccw86tyZow85KiQMjZV1T7ubt6lRB7hcTSlesetkH/S/yKtOVczH
-	RNBVU60hkbBVbERF9EQBjwdC/X1aAk+TRKUSUIuK1VvyBxi+KWsaX/g85PiMiqo+TK86LOfJUsd
-	Fs4y297IDv55IWdHjIbz6m07RBcmAJsyU9l8CkaWEr8WeQcLI9JRjA4y83AHQ0xerHmB3kMzpqz
-	6H3/Qrbo0G84A3SkmX3IWX/DXbR7sfPhgA==
-X-Google-Smtp-Source: AGHT+IGfxl8jje43Ziyzp10Eq1Sbw1hY/V6VsB8QGc/5pAdKJlSGGUSbGZ9QxG2adkSeh2QmDqCL0g==
-X-Received: by 2002:a17:907:7637:b0:aa5:4adc:5a1f with SMTP id a640c23a62f3a-aa580f58e93mr163841166b.33.1732705096651;
-        Wed, 27 Nov 2024 02:58:16 -0800 (PST)
-Received: from puffmais.c.googlers.com (64.227.90.34.bc.googleusercontent.com. [34.90.227.64])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa54a6db906sm412183566b.41.2024.11.27.02.58.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Nov 2024 02:58:16 -0800 (PST)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Wed, 27 Nov 2024 10:58:19 +0000
-Subject: [PATCH 9/9] phy: exynos5-usbdrd: allow DWC3 runtime suspend with
- UDC bound (E850+)
+	id 1tGFmO-0000000Cvgj-15xH;
+	Wed, 27 Nov 2024 11:00:22 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3fe683f3;
+	Wed, 27 Nov 2024 19:00:10 +0800 (GMT+08:00)
+Message-ID: <8df0acc8-b7aa-453f-b55c-30144f51d7cf@rock-chips.com>
+Date: Wed, 27 Nov 2024 19:00:10 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 04/10] phy: phy-rockchip-samsung-hdptx: Add support for
+ eDP mode
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
+ cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
+ andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
+ kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org
+References: <20241127075157.856029-1-damon.ding@rock-chips.com>
+ <20241127075157.856029-5-damon.ding@rock-chips.com>
+ <4260470.1IzOArtZ34@diego>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <4260470.1IzOArtZ34@diego>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Message-Id: <20241127-gs101-phy-lanes-orientation-phy-v1-9-1b7fce24960b@linaro.org>
-References: <20241127-gs101-phy-lanes-orientation-phy-v1-0-1b7fce24960b@linaro.org>
-In-Reply-To: <20241127-gs101-phy-lanes-orientation-phy-v1-0-1b7fce24960b@linaro.org>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Sam Protsenko <semen.protsenko@linaro.org>, 
- Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>, 
- kernel-team@android.com, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.13.0
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxgZQ1ZIQ0tCTx0ZHxlDHR5WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
+	NVSktLVUpCS0tZBg++
+X-HM-Tid: 0a936d4752a703a3kunm3fe683f3
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NRA6Lgw5CDIpHS5NEwE3NhMU
+	ChYaCh9VSlVKTEhJTEtOSUpJTENMVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJSUNPNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=MHKppqx3/69QuoNhREUlt7wo6qUNbztr929L0BnEn2+9UfVCaFP8Pa0GA4fZZ92lKe+e0VQmieBZpCBg75bzcV0dR7PpPw1l8coEQLKAFbFB7lTzqcHTw1KeCKSnVxEtDGd6zJvbgLCQtA1pTrUMzV+fyCIcN/UadJcRfpp7tzA=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=GgVLM+pxB0mTT4Xgy0u5pynEp9OkHXXnOP4d8il9bhA=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_025818_501911_6435EA55 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20241127_030020_792847_D0BDFA5C 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,111 +82,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To make USB runtime suspend work when a UDC has been bound, the phy
-needs to inform the USBDRD controller (DWC3) that Vbus and bvalid are
-gone, so that it can in turn raise the respective gadget interrupt with
-event == DWC3_DEVICE_EVENT_DISCONNECT, which will cause the USB stack
-to clean up, allowing DWC3 to enter runtime suspend.
+Hi Heiko:
 
-On e850 and gs101 this isn't working, as the respective signals are not
-directly connected, and instead this driver uses override bits in the
-PHY IP to set those signals. It currently forcefully sets them to 'on',
-so the above mentioned interrupt will not be raised, preventing runtime
-suspend.
+On 2024/11/27 17:29, Heiko Stübner wrote:
+> Hi Damon,
+> 
+> Am Mittwoch, 27. November 2024, 08:51:51 CET schrieb Damon Ding:
+>> Add basic support for RBR/HBR/HBR2 link rates, and the voltage swing and
+>> pre-emphasis configurations of each link rate have been verified according
+>> to the eDP 1.3 requirements.
+>>
+>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>> ---
+> 
+> [ ... huge block of DP phy support ...]
+> 
+> yes that block was huge, but I also don't see a way to split that up in a
+> useful way, so it should be fine.
+> 
 
-To detect that state, update this driver to act on the TCPC's
-orientation signal - when orientation == NONE, Vbus is gone and we can
-clear the respective bits. Similarly, for other orientation values we
-re-enable them.
+As for the huge block of DP phy support, I will try to use the existing 
+rk_hdptx_multi_reg_write() to set regs in next version, maybe the way 
+can make the codes more concise.
 
-This makes runtime suspend work on platforms with a TCPC (like Pixel6),
-while keeping compatibility with platforms without (e850-96).
+> 
+>> +static int rk_hdptx_phy_set_mode(struct phy *phy, enum phy_mode mode,
+>> +				 int submode)
+>> +{
+>> +	return 0;
+>> +}
+> 
+> I think it might make sense to go the same way as the DCPHY and also
+> naneng combophy, to use #phy-cells = 1 to select the phy-mode via DT .
+> 
+> See [0] for Sebastians initial suggestion regarding the DC-PHY.
+> The naneng combophy already uses that scheme of mode-selection too.
+> 
+> There is of course the issue of backwards-compatibility, but that can be
+> worked around in the binding with something like:
+> 
+>   '#phy-cells':
+>      enum: [0, 1]
+>      description: |
+>        If #phy-cells is 0, PHY mode is set to PHY_TYPE_HDMI
+>        If #phy-cells is 1 mode is set in the PHY cells. Supported modes are:
+>          - PHY_TYPE_HDMI
+>          - PHY_TYPE_DP
+>        See include/dt-bindings/phy/phy.h for constants.
+> 
+> PHY_TYPE_HDMI needs to be added to include/dt-bindings/phy/phy.h
+> but PHY_TYPE_DP is already there.
+> 
+> That way we would standardize on one form of accessing phy-types
+> on rk3588 :-) .
+> 
+> Also see the Mediatek CSI rx phy doing this too already [1]
+> 
+> 
+> Heiko
+> 
+> [0] https://lore.kernel.org/linux-rockchip/udad4qf3o7kt45nuz6gxsvsmprh4rnyfxfogopmih6ucznizih@7oj2jrnlfonz/
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/phy/mediatek,mt8365-csi-rx.yaml
+> 
 
-With runtime suspend working, USB-C cable orientation detection now
-also fully works on such platforms, and the link comes up as Superspeed
-as expected irrespective of the cable orientation and whether UDC /
-gadget are configured and active.
+It is really a nice way to separate HDMI and DP modes.
 
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- drivers/phy/samsung/phy-exynos5-usbdrd.c | 53 +++++++++++++++++++++++++++-----
- 1 file changed, 45 insertions(+), 8 deletions(-)
+> 
+> 
+> 
+> 
 
-diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-index 2010d25ee817..4882158df1a5 100644
---- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-+++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-@@ -1136,13 +1136,15 @@ static void exynos850_usbdrd_utmi_init(struct exynos5_usbdrd_phy *phy_drd)
- 	reg |= LINKCTRL_BUS_FILTER_BYPASS(0xf);
- 	writel(reg, regs_base + EXYNOS850_DRD_LINKCTRL);
- 
--	reg = readl(regs_base + EXYNOS850_DRD_UTMI);
--	reg |= UTMI_FORCE_BVALID | UTMI_FORCE_VBUSVALID;
--	writel(reg, regs_base + EXYNOS850_DRD_UTMI);
--
--	reg = readl(regs_base + EXYNOS850_DRD_HSP);
--	reg |= HSP_VBUSVLDEXT | HSP_VBUSVLDEXTSEL;
--	writel(reg, regs_base + EXYNOS850_DRD_HSP);
-+	if (!phy_drd->sw) {
-+		reg = readl(regs_base + EXYNOS850_DRD_UTMI);
-+		reg |= UTMI_FORCE_BVALID | UTMI_FORCE_VBUSVALID;
-+		writel(reg, regs_base + EXYNOS850_DRD_UTMI);
-+
-+		reg = readl(regs_base + EXYNOS850_DRD_HSP);
-+		reg |= HSP_VBUSVLDEXT | HSP_VBUSVLDEXTSEL;
-+		writel(reg, regs_base + EXYNOS850_DRD_HSP);
-+	}
- 
- 	reg = readl(regs_base + EXYNOS850_DRD_SSPPLLCTL);
- 	reg &= ~SSPPLLCTL_FSEL;
-@@ -1407,9 +1409,44 @@ static int exynos5_usbdrd_orien_sw_set(struct typec_switch_dev *sw,
- 				       enum typec_orientation orientation)
- {
- 	struct exynos5_usbdrd_phy *phy_drd = typec_switch_get_drvdata(sw);
-+	int ret;
-+
-+	if (phy_drd->orientation == orientation)
-+		return 0;
-+
-+	ret = clk_bulk_prepare_enable(phy_drd->drv_data->n_clks, phy_drd->clks);
-+	if (ret) {
-+		dev_err(phy_drd->dev, "Failed to enable PHY clocks(s)\n");
-+		return ret;
-+	}
-+
-+	scoped_guard(mutex, &phy_drd->phy_mutex) {
-+		void __iomem * const regs_base = phy_drd->reg_phy;
-+		unsigned int reg;
-+
-+		if (orientation == TYPEC_ORIENTATION_NONE) {
-+			reg = readl(regs_base + EXYNOS850_DRD_UTMI);
-+			reg &= ~(UTMI_FORCE_VBUSVALID | UTMI_FORCE_BVALID);
-+			writel(reg, regs_base +  EXYNOS850_DRD_UTMI);
-+
-+			reg = readl(regs_base + EXYNOS850_DRD_HSP);
-+			reg |= HSP_VBUSVLDEXTSEL;
-+			reg &= ~HSP_VBUSVLDEXT;
-+			writel(reg, regs_base + EXYNOS850_DRD_HSP);
-+		} else {
-+			reg = readl(regs_base + EXYNOS850_DRD_UTMI);
-+			reg |= UTMI_FORCE_VBUSVALID | UTMI_FORCE_BVALID;
-+			writel(reg, regs_base +  EXYNOS850_DRD_UTMI);
-+
-+			reg = readl(regs_base + EXYNOS850_DRD_HSP);
-+			reg |= HSP_VBUSVLDEXTSEL | HSP_VBUSVLDEXT;
-+			writel(reg, regs_base + EXYNOS850_DRD_HSP);
-+		}
- 
--	scoped_guard(mutex, &phy_drd->phy_mutex)
- 		phy_drd->orientation = orientation;
-+	}
-+
-+	clk_bulk_disable(phy_drd->drv_data->n_clks, phy_drd->clks);
- 
- 	return 0;
- }
-
--- 
-2.47.0.338.g60cca15819-goog
+Best regards,
+Damon
 
 
