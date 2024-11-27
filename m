@@ -4,95 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F995D6ACE3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 15:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7365D6ACE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 15:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Date:References:In-Reply-To:Content-Type:Subject:Cc:To:From:Message-ID:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=chnjNiuENGgY44cCvyv4JXxrXfS8o1GhWJbEsmfSw9c=; b=thhW500iKGNkWkJ+iDJXxKRgQj
-	snutkVYDWjX2CxKZf89flaAZmyjPdJaQfWOfgrzFimFHn/UCB0F+Ak98lmtCLFQlOVD7fkl5wG57b
-	5bptBToeAq1VMHEgpRt7i55QvdFpfKAkEk3v9pI9gSTWU2N+nq3zhTf4r/WP40m1FARFOHbcpFD6J
-	t1lqZ2cHvAy0x4nGYArCSwWo1hR/PU5KlawsTP4h6jZL+e7VkjFfnJCrQORYr3BzwipUb2fA+p+Wh
-	PpGDkB8oz60QZDUcAfZmSrEKik5T0sRQvujrtsBZ8eXnzdFqhJHl05bifT1uCJIPPmx4P6Z2U/iu7
-	v+CvHE9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qDCROtvREvEUgVkyUwH97MgpoFXszQiym+Q4kYqHrqw=; b=LYruHlBM6tbhBHy9VEO+F5NPaI
+	Yo6ysCBuKN48XXRj8ESkR7+DABSW3fCG3jp7aNLmDG4KHCzyMgfO//msYpMWhBk69i5XAaa4lORrt
+	Lvug4cVM9n1IJgPbpy+o69yR6EC47BAe+k6FaaPck9vQLb745jVOYMY7/tZGLc+7Pg5xdayKI1ORN
+	OJ6yO/6kxwFGBYajtYpBct1lfz9QYYmyqjsE2V7ziMrC7RiL9bONH6hz6eSlAydT71oNG0Plsn4bk
+	LPxDRnHqa2GWH7Z4lyWCXs191ES6PXwYyQ9TAb0geoNn0VrUIWggel/erv1JuaUTvr3+T/xRvQfeu
+	IG400H/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJbc-0000000DRoK-2Ieh;
-	Wed, 27 Nov 2024 15:05:28 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1tGJcj-0000000DS5r-02QD;
+	Wed, 27 Nov 2024 15:06:37 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJad-0000000DRcs-0kOK;
-	Wed, 27 Nov 2024 15:04:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1732719843; x=1733324643; i=frank-w@public-files.de;
-	bh=chnjNiuENGgY44cCvyv4JXxrXfS8o1GhWJbEsmfSw9c=;
-	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
-	 Content-Type:In-Reply-To:References:Date:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=RCjIA4UEE1Rr/8dYbnl+ikDHL495gYUAX14bI3x0M9UIZYgkDL9cLhSdSfrAI9F+
-	 wCIi4ilD0vwVKDWk1EcFm32cpBlfT6q9K9FnP7Vs1cf68df8KblGBbjz9wNsXmWl1
-	 K3summw0OtFxahaTFEAJ7dTsSlSlWIMxAppXQQX1U5epQv1RyhX+++tr50/rxVgPR
-	 dMYEedNJAilx4dc2VAgHUl7hYmB6HlpL6WQs61+jGPw8g6jB1OTbdl9hHg/eC6dho
-	 39smxSTbF99kRnvH2lDEB2GtJ2xMm36KYmkDREKwbuRuq+ue2sIUOYT64JXLLRrg5
-	 TI43Aeei4juiJPmMhg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [157.180.224.21] ([157.180.224.21]) by
- trinity-msg-rest-gmx-gmx-live-5cd5dd5458-pz7pz (via HTTP); Wed, 27 Nov 2024
- 15:04:03 +0000
+	id 1tGJbi-0000000DRqh-2Y20;
+	Wed, 27 Nov 2024 15:05:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C5CAD5C3A6D;
+	Wed, 27 Nov 2024 15:04:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A25E8C4CED3;
+	Wed, 27 Nov 2024 15:05:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732719933;
+	bh=sB5WsF2yTtwAJZFMBi4Ub30MJ2hXC4QT4NG4uzLcRRo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ept6l6slC82V06hpuS5FuclQ4x/1Oo7ci31otvDJKT8wxxgrFr+TrYAC6SwVz7cfw
+	 BTpUnHj15/vdehiZspar722ryFF4mXbbuCt7B7iYEEG/ONglHHnya1lhfZh66c9paQ
+	 d80g1Tf4C3vjhBpdlBJIgs/4/BWbZUCbJffNNwUxCIA1G2//4kcw2fJpGwFsO8I+ht
+	 RLKa4KxposzT9J6o+xR6nR2RHUbjYfCairL/JawkR7ruhhycSGgfGwBRZrKSX8iRXh
+	 SU3PiZat6A0VKGvQ5bjVIBLXvZGisz2uChmgk89ABMHwSY4FO2uLkSOADd1cmOjvao
+	 yZdAXShismNyA==
+Date: Wed, 27 Nov 2024 09:05:31 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: rfoss@kernel.org, neil.armstrong@linaro.org, quentin.schulz@cherry.de,
+	maarten.lankhorst@linux.intel.com, krzk+dt@kernel.org,
+	andy.yan@rock-chips.com, devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	mripard@kernel.org, tzimmermann@suse.de,
+	Laurent.pinchart@ideasonboard.com,
+	linux-rockchip@lists.infradead.org, conor+dt@kernel.org,
+	jernej.skrabec@gmail.com, Heiko Stuebner <heiko.stuebner@cherry.de>,
+	andrzej.hajda@intel.com, jonas@kwiboo.se,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/3] dt-bindings: display: rockchip: Add schema for
+ RK3588 DW DSI2 controller
+Message-ID: <173271993052.3509811.7014863879823500729.robh@kernel.org>
+References: <20241126201213.522753-1-heiko@sntech.de>
+ <20241126201213.522753-3-heiko@sntech.de>
 MIME-Version: 1.0
-Message-ID: <trinity-78347fc1-fe38-4035-a681-ff72fd4411cf-1732719843709@trinity-msg-rest-gmx-gmx-live-5cd5dd5458-pz7pz>
-From: frank-w@public-files.de
-To: angelogioacchino.delregno@collabora.com, robh+dt@kernel.org,
- matthias.bgg@gmail.com
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, daniel@makrotopia.org, linux@fw-web.de,
- leith@bade.nz
-Subject: Aw: Re: Aw: Re: Aw: [PATCH v3 1/2] arm64: dts: mt7986: add dtbs
- with applied overlays for bpi-r3
-Content-Type: text/plain; charset=UTF-8
-In-Reply-To: <4549f33c-90d2-4b28-ab7a-1576c587c8cf@collabora.com>
-Importance: normal
-References: <20240608080530.9436-1-linux@fw-web.de>
- <20240608080530.9436-2-linux@fw-web.de>
- <trinity-82c94d49-2a78-4470-83cd-3c6747e01849-1719434738199@3c-app-gmx-bs52>
- <726f2ed3-675f-45e8-94f0-d392181e7f92@collabora.com>
- <951E802C-1B53-45C4-B3E6-4A3400F47214@public-files.de>
- <CAPDEroWUeR3iUFnjVr6WFLg3=dkML+5cbRPph9bj64F=zc1UWA@mail.gmail.com>
- <trinity-ef654aa8-f10a-4195-82c8-65b3ea654c7b-1730918975868@trinity-msg-rest-gmx-gmx-live-c75c5fb4b-p29nc>
- <4549f33c-90d2-4b28-ab7a-1576c587c8cf@collabora.com>
-Date: Wed, 27 Nov 2024 15:04:03 +0000
-Sensitivity: Normal
-X-Priority: 3
-X-UI-CLIENT-META-MAIL-DROP: W10=
-X-Provags-ID: V03:K1:BPoFVFm6JHLsWszWY69a+4cyOqrEDA+cKi27DZ6aviyJELU8tIvXA93+W91odNLNw297W
- MygNGVTLZu3wFSrIHxHm0AMW+DkA/swV/oeZnbs3MStebzO7h2r+RazN3ITWiqdaLQWRPUoVM3pX
- 8f9PUsneMQ7FGFHeO5u9dkvgUSiJ78RATXpNJfOn+Ct9U5l8JhXncKj66yjUju3Ia2biEXX0yZcE
- 6MtA9ozOYIEA2D1523HnDrQznMVi4mPrn2YcvlWRWZUBnt7u/CR0T+aP8SW0Ueu/mAPx9T5OdpE8
- U1xzeAySKmlagkwrq2Rqz6eVG9LkxNT5gPibV0nZyGh0VG6z38jLkvpes6+gO7QSd4=
-UI-OutboundReport: notjunk:1;M01:P0:RBccAI9PjjU=;i9JD5OfCgPRbWa2LnBTkhl5iYRl
- yNO1vzZVZe9hS2PT3zba+iIcBMgu1tx6M2td5wfvirTVMlddGBs6zqMkfjhzmfwnb5mfZE6SD
- AqJeCeKliIXd8JpnigEBx5+Rt/GibZ/E4DGnsXuLvTjJkVqohvKM56TFqhHDmr2PSLtfsSamc
- tVX0HrQ2LouXQTtnfxVwqP731+/OgrNTDZguEqndcfgWk8Ls3xMykmGp/Bq4RX2HkxpombIf6
- 2CoHqAXbx1fh3WQSr43NP16z+FIbgh0cz+AnZ3c5USXLdHCidimZuzRrDvLS6PWmQ5jKDOWdg
- IvaS4rz9nc8AJyHoJIIimVrnifT0RqqFFxDGJlmYMkMp1irDr4vCGmh6ksq/g1KOyJyoRIsd5
- VsP3SFv41+LpAHJSSxyrLADB1DsOheFv7MS2XvzVIIhOTQtTyHu9ZsynIeBJiyrosBzyipTyl
- +9AZT3hNCzMKwr9ICzHSkoQATBTsve6EbSR4buieMo8YH9OgRINbnct4BAPRTSZnob0IYksTz
- xtDuxCKya+HhrbAwqlsBZfj8YWXpKdg0V9ST4f3dPV6zdgQJAe2Yw/i518gtLeDyxwhn6uCQL
- Z0dVSQOoHhWqo+xbEKGiDCTYtwP26S3mMHGaspfk5DUVWRlHUCS8seHjS9JVYluqzEMK7UPac
- Wald1VOnFfIj2TaDWiUYnsc6J4yycJ40Y8X8u91EfHVJJnt6IkHjTWYxStZfV5pHnF4m71fme
- potjCUJyNIWpXPGuoQunIbLuvpsN66WdgEri4XN9XSjDtoikeYBvZvQD2h6xZ6mT//wIBroEr
- S/6Abnfi80XNLulsdnAHHvDw5srSuDI55PXecU8QXK+F2A05Y25u5jnc8TTeqdJiumgzreUeP
- K7o7892zvokCawW7tdVN9qMeWnffClt97QSA=
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241126201213.522753-3-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_070427_500416_EF86C673 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20241127_070534_711494_80418B62 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,105 +80,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-&gt; Gesendet: Mittwoch, 27. November 2024 um 14:23
-&gt; Von: "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabor=
-a.com>
-&gt; An: frank-w@public-files.de, robh+dt@kernel.org, matthias.bgg@gmail.c=
-om
-&gt; CC: krzk+dt@kernel.org, conor+dt@kernel.org, linux-kernel@vger.kernel=
-.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead=
-.org, devicetree@vger.kernel.org, daniel@makrotopia.org, linux@fw-web.de, =
-leith@bade.nz
-&gt; Betreff: Re: Aw: Re: Aw: [PATCH v3 1/2] arm64: dts: mt7986: add dtbs =
-with applied overlays for bpi-r3
-&gt;
-&gt; Il 06/11/24 19:49, frank-w@public-files.de ha scritto:
-&gt; &gt; Hi
-&gt; &gt;
-&gt; &gt; any new state on this??
-&gt; &gt;
-&gt; &gt; https://patchwork.kernel.org/project/linux-mediatek/patch/202406=
-08080530.9436-2-linux@fw-web.de/
-&gt; &gt;
-&gt; &gt; regards Frank
-&gt;
-&gt; I had a look at this one - and this is the situation:
-&gt;
-&gt;   1. Your bootloader supports loading DTBO, so you can indeed use DTB=
-Os
-&gt;   2. Validation of the DTSO can still be done during kernel build wit=
-hout adding
-&gt;      all of those possible X+Y+Z pre-joined DTBs
-&gt;   3. What if your hardware had more than 20 possible configurations?
-&gt;      Would you write 20 different Makefile entries? "sd+nand+nor",
-&gt;      "sd+nand-withoutnor", "emmc+nand+nor", "emmc+nand-withoutnor",
-&gt;      "emmc+sd+nor", "emmc+sd-withoutnor", "ufs+emmc", "ufs+emmc+sd",
-&gt;      "ufs+sd+nor", "ufs+emmc-withoutnor", "ufs+sd-withoutnor", ......
-&gt;
-&gt; Looks messy and unfeasible.
+On Tue, 26 Nov 2024 21:12:12 +0100, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> 
+> The Display Serial Interface 2 (DSI-2) is part of a group of communication
+> protocols defined by the MIPI Alliance. The RK3588 implements this
+> specification in its two MIPI DSI-2 Host Controllers that are based on a
+> new Synopsis IP.
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> ---
+>  .../rockchip/rockchip,rk3588-mipi-dsi2.yaml   | 119 ++++++++++++++++++
+>  1 file changed, 119 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-mipi-dsi2.yaml
+> 
 
-right, if we add all possible combinations...that was my point on first ro=
-und of this patch after robs suggestion. So you have same opinion :)
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-imho rob is afraid that dtso are not checked during build-time and this is=
- noticed at runtime where it can be checked earlier.
-
-maybe we can find a way in the middle (i tried it in this patch doing the =
-full dtb only for the core functionality, not adding e.g. sata).
-
-&gt; However, this is not a *global* no: I'm happy that your bootloader do=
-es support
-&gt; loading DTBOs and, as far as I remember, even uses straps to vary the=
- DTB(o) to
-&gt; actually load - which is something proper and great... so it's a *no*=
- for you,
-&gt; but more than just a no, this is "why are you treating your proper bo=
-otflow
-&gt; like it was a broken one?!?!" :-)
-
-i still use the dtbos in a fit i created and build off-tree where i add th=
-e possible combinations like here as config options and add additional con=
-figs for e.g. sata to be combined by bootloader.
-
-currently we use a "full dtb" in uboot where we can probe for emmc vs. sdc=
-ard (mmc partprobe) and the spi-device (nand/nor via "sf probe"). We can r=
-ead the bootstrap pins defining the device from which board was booted, bu=
-t this is only the half way for hw-detection.
-
-&gt; If anyone finds themselves in a situation in which there's no way to =
-update a
-&gt; bootloader (and that unfortunately happens more often than anyone wou=
-ld like
-&gt; to see...) and in which the only way to apply DTBOs is to pre-overlay=
- them
-&gt; during the kernel build, then that's fine and I would (if nice and cl=
-ean)
-&gt; accept that.
-&gt;
-&gt; But again, you're not in this kind of situation - and you're lucky th=
-at you're
-&gt; dealing with a fully open device with a proper bootloader and bootflo=
-w: don't
-&gt; ruin it like that!
-
-the patch does not break ability to use the dtbos, it only adds second way=
- to create fuill dtbs from them, that of course should not be done extensi=
-vely....4 full dtbs are enough in my PoV and should not be exceeded.
-
-&gt; Instead, if necessary, update the userspace tools that you're using t=
-o deal with
-&gt; multiple DTBOs during system upgrades: that's the right thing to do a=
-t this point.
-
-i simply replace/add the fit image which contains base dtb and all dtbo wi=
-th config options ;)
-
-&gt; Cheers,
-&gt; Angelo
-
-so i would resend the sata-patch alone when rc1 is out, right?
-
-regards Frank</angelogioacchino.delregno@collabora.com>
 
