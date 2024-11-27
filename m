@@ -4,106 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1148D6ACE3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 14:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE58D6ACE5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Nov 2024 14:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:Mime-Version:References:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ddTmmaktStUX+KyiWQA7QlRxka08sVdAlnNv34gi4rQ=; b=Lmto/YQ+leuoVNTOnRyrAOBUst
-	BIuVX1/hcO8uZ5PLxyKK4Bn2mCgbZrXr3tzEFAFiPCfCWstRyYR/JFIu3Uud5z2hKlvHEr6TVmmDx
-	j5fM9xdoyIwTXL4U4DG0bl9OgpEUj3yb2urgwpQE8eLpkut8k/ZZsFrj1wAE622bFkAEvVjt6lWML
-	K2f4rXUEUSQ5S3yfb6G1moK3PVXcKiemJuAMW1NGpaIRTNKCwBD15xCjnxwiJVmVbjrukdPvWj0lk
-	YfoABgagsDAmDxSi9Eougvfaxxm1YMXtvas4YhjInbUsDmhmOcnTSxHmifsA98Jm17lJL9fyT1fAL
-	X0bZN9qQ==;
+	bh=eHle/cvFTB626bZjyYfjQ/81l5NAk+SKJ8qUdHosYeo=; b=h//S4ePrrw7+bOpX3d5LqkpjCS
+	9rHSMUQ9Z0pEVTv3lWQp9sBTveRrTtfI2es1q1Cax1wPzhQB8cvy7BBxFSYp6aEhKSwiO1WfT0UEK
+	qyys6Lngnmyj1YlgBvTOqUO2GsLbXgf1RSX9WwamjzCpgd+DSszC+LR10RwHwSzdFO2b3KZAKflly
+	lGujExDb6SSprx/p0/QK5aGlhgZPzixvLPr6tq80XMEJXJbYy5h6qjnVEymZxYfDiKn1jUANA5LEi
+	iQVBndMkkeAw4NwbyFmHmDsWqOD+yMGLtwbXIeCMMp1Oy0sDZjB6TXgBRSQy2h/VgoTzcmtEFHNcu
+	vUo9vyVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJPr-0000000DQ8K-3c19;
-	Wed, 27 Nov 2024 14:53:19 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1tGJQo-0000000DQFy-1zdW;
+	Wed, 27 Nov 2024 14:54:18 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJO5-0000000DPnB-0NKi
+	id 1tGJOb-0000000DPvW-0hRi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Nov 2024 14:51:30 +0000
-Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com [209.85.161.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 38EF840CE6
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 14:51:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1732719084;
-	bh=ddTmmaktStUX+KyiWQA7QlRxka08sVdAlnNv34gi4rQ=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=hcLydcvkzch/qFlvXkeXYOVsYrcJU0fBJXvi1E9wG4kqmDK12FMFac1cmzJV666B6
-	 dDBb8bJVMc6hZ+83QnvUEBVcF7HCnNVSQ25HqGgy/efpbpGs8obpIXEjkJyByJDMMX
-	 Gm3aJ/tO0zbUkl8PiwAyZybX3qi931G6TfgSLxJTaROlkclewOeeAD5sgJsI9qyjeq
-	 ea9DRCsd6CxirMSzZjKzGENcm6Xygb9MQZrcz4kOnbxfhcL9Sq1CafCils3UeMq0hI
-	 m7zm2DTcDraWkUHKr7rDTzVWeV7wcQHeFKa8eo+9E22Faw2Kms1h8MaQBszid+SfJ8
-	 F1HSOjVjqLu5w==
-Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-5f1e9fac321so613730eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 06:51:24 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732719081; x=1733323881;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ddTmmaktStUX+KyiWQA7QlRxka08sVdAlnNv34gi4rQ=;
-        b=JGJb/jVQitXk1FnCQ43R4pAc/4pyGVDkMANMLsKEmrgvL6LtEthQmt5I8d63aQyB/0
-         9KHGiaZ5/mt4phfqZR6H1z6U4/H6cwsjc7Oainby8VBkAO+WvnziQzmdPzeXLRAGPb/u
-         dZIXCzuOmqiNxfeAFE1FCDxPgo1hOxSu4paVsVg5l9Bn+uNyPIzfNh0tTlzqUNeoa5Qy
-         K5yHRJK/sXusP0W4M4dKvFANRuhSlioIy2hIkkOVi7AbvKXOBmCSL31G+mses6SPc619
-         Kodqr5KUpD1mt1iDn6v07m3TQpoImkxKf9NJ1ZsSkZdjS9FgvnM7Z1aPUdgfOCPeDgp7
-         yDEg==
-X-Forwarded-Encrypted: i=1; AJvYcCVHCDIzMSC1NIC0lFMVMjBCnRbya/qiStTMa+BSrEAlpBH6WeHm17nVcB1bWLMEY+TaMMgbEaH0oxiCcBH4CqRE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVbGfis3cqDr+S/nrs4rsj+0oaRaCpoLJjYdzVi9RDFvsUemlx
-	slz/pMGLcvigx5CRSNN9pV/UjtVN/xxWP/StvuB+9OtP1U6hl9g4q2u5AfZQsF0i9e0/H5pYgEc
-	lqlZBAvx9NvKgFwtOev7Bk2NQWr1mAtzUT0bbnDQJjuVn/Rolpl34wusUkpCNdHppOPZxS80hHd
-	TpQf1MxiXXN5tIhzoAJMFEG8eLPytgEC1lUJsQt3c07W1nnNDOmhwJBNRg6h/KsQQ=
-X-Gm-Gg: ASbGnctR+TJsB9Kc0vbjagwfSh5G5X2V7mXovU0NrSzp6FG0kCB5xc1LDePnmh8j1K1
-	hv7nVbYcZD/8KFX3SWfObQ/yO0vt/74y+0pYj9rpHCaIdBqxpBsBlTCUfQ0ux
-X-Received: by 2002:a05:6820:4981:b0:5f1:fbef:c868 with SMTP id 006d021491bc7-5f1fc43a130mr3684986eaf.0.1732719081293;
-        Wed, 27 Nov 2024 06:51:21 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEfFJGOrjEK1lKzXEW/QXPfJgWZfDO/+kYkPBQ8RDpwNJVjReUG8X0KbLCz17ehyjwvJu+WybHbfVyct/J5soQ=
-X-Received: by 2002:a05:6820:4981:b0:5f1:fbef:c868 with SMTP id
- 006d021491bc7-5f1fc43a130mr3684952eaf.0.1732719080947; Wed, 27 Nov 2024
- 06:51:20 -0800 (PST)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 27 Nov 2024 06:51:20 -0800
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20241124-upstream_s32cc_gmac-v6-9-dc5718ccf001@oss.nxp.com>
-References: <20241124-upstream_s32cc_gmac-v6-0-dc5718ccf001@oss.nxp.com> <20241124-upstream_s32cc_gmac-v6-9-dc5718ccf001@oss.nxp.com>
-Mime-Version: 1.0
-Date: Wed, 27 Nov 2024 06:51:20 -0800
-Message-ID: <CAJM55Z9PZH3797=gvRWquHFSE7YOsO0-bcOBFjBETCiQW-YURw@mail.gmail.com>
-Subject: Re: [PATCH RFC net-next v6 09/15] net: dwmac-starfive: Use helper rgmii_clock
-To: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Vinod Koul <vkoul@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
-	Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
-	Minda Chen <minda.chen@starfivetech.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Iyappan Subramanian <iyappan@os.amperecomputing.com>, 
-	Keyur Chudgar <keyur@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Andrew Lunn <andrew+netdev@lunn.ch>
-Cc: linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, 
-	devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 27 Nov 2024 14:52:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7CCC9A438E0;
+	Wed, 27 Nov 2024 14:50:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C40AAC4CECC;
+	Wed, 27 Nov 2024 14:51:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732719120;
+	bh=4AGyVOnYw0w4dA8qEhJmW3K+EMnHj8IiVSZHynrM+v0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=T+0diw/SG+LpWSeAMVxpAb/FmmbAkmMGG4B7vDhTX4AJVjigqTnN6FJoNLQIeH/Zt
+	 JSwce2GHbaJki8uXr4zdsMlGJi7I4ZnMR27D4EGyQJj4kBliw44EyMT2eWb3IhQABx
+	 8+7ydZJomGric4n4nS17nh/VHVhZLHhJ4lkRqmtzdoqBZUBDMioIuSueVVFlitriZy
+	 faz3ac/nf1mI9mvxZN3k80Owjx218EAyBOr5mhiXennGgJACEavucWOVfkFOuDqtYn
+	 0ElH5Ab4Z+VsvYq89DktlYtAlQHccODmNWBWiAUjkcmQc+kgUrxApHJnF0T21tn1Av
+	 97VJRqWszflzQ==
+Date: Wed, 27 Nov 2024 08:51:58 -0600
+From: Rob Herring <robh@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
+	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	p.zabel@pengutronix.de, cassel@kernel.org,
+	quic_schintav@quicinc.com, fabrice.gasnier@foss.st.com,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/5] dt-bindings: PCI: Add STM32MP25 PCIe endpoint
+ bindings
+Message-ID: <20241127145158.GA3480289-robh@kernel.org>
+References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
+ <20241126155119.1574564-4-christian.bruel@foss.st.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241126155119.1574564-4-christian.bruel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_065129_448311_3B47CF4A 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20241127_065201_265090_75D3BB10 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,58 +79,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jan Petrous via B4 Relay wrote:
-> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
->
-> Utilize a new helper function rgmii_clock().
->
-
-Thanks!
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+On Tue, Nov 26, 2024 at 04:51:17PM +0100, Christian Bruel wrote:
+> STM32MP25 PCIe Controller is based on the DesignWare core configured as
+> end point mode from the SYSCFG register.
+> 
+> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c | 19 ++++---------------
->  1 file changed, 4 insertions(+), 15 deletions(-)
->
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-> index 421666279dd3..0a0a363d3730 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-> @@ -34,24 +34,13 @@ struct starfive_dwmac {
->  static void starfive_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
->  {
->  	struct starfive_dwmac *dwmac = priv;
-> -	unsigned long rate;
-> +	long rate;
->  	int err;
->
-> -	rate = clk_get_rate(dwmac->clk_tx);
-> -
-> -	switch (speed) {
-> -	case SPEED_1000:
-> -		rate = 125000000;
-> -		break;
-> -	case SPEED_100:
-> -		rate = 25000000;
-> -		break;
-> -	case SPEED_10:
-> -		rate = 2500000;
-> -		break;
-> -	default:
-> +	rate = rgmii_clock(speed);
-> +	if (rate < 0) {
->  		dev_err(dwmac->dev, "invalid speed %u\n", speed);
-> -		break;
-> +		return;
->  	}
->
->  	err = clk_set_rate(dwmac->clk_tx, rate);
->
-> --
-> 2.47.0
->
->
+>  .../bindings/pci/st,stm32-pcie-ep.yaml        | 61 +++++++++++++++++++
+>  1 file changed, 61 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
+> new file mode 100644
+> index 000000000000..0da3ee012ba8
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
+> @@ -0,0 +1,61 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-ep.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: STM32MP25 PCIe endpoint driver
+
+Bindings are not a driver. Otherwise,
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
