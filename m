@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1980DD6D254
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 02:07:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B936CD6D253
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 02:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ysvaIdmMpR/VmHKwcGzTb4HtexOKJ4Ghx7ZOeauEtvk=; b=lKdF/YZr7qeyCQGUWWlvr0doA4
-	xddx/6wSC3qIecmZjXR6hM2gYp2ox1tdv9+1oirSgl9q6f6qkpiaS8P/7CnupK2UVewRMbJ9kRIRF
-	POHz4oNg01LwtG3t96qYqUw+tS9ax8cwD42DjuxSYtFjfDOI4H+bKSgV6F8idoFffYhDQfdh4G2/8
-	pTMbaoSBDRi9CjhbcgqrVr/YJTt0Rt+MOtzbndWkP12OuyrZZLja4G2TGEYcBYG9Wqc5Wy/gZnedz
-	d7+QrVA8J8DeDaAzVz/hN43G/7y48dOgZrbgEhkB/isPuIWdPFB5AdHUiwrBmxVdkhpQdpyU3CF3D
-	nAOWB28A==;
+	bh=GWRtxUB7qEaUtLrlQ1xtfEnMmWvmcI3LuUmySZ8Q/Js=; b=bI9/aH3+HrRYEytL2ga1dhrznq
+	8t03uGL8mspj4tD4bpXab3zlewGtdhKzC459v9946X9y4A0jSalcEEr4qrS3sIA1u39v+z5FdWExm
+	ru0YY8Hor7OfUOhH09C+RXLnTfBgyYNLaVGS+8lxl6SFJ8w9Kkk901LOu3Pq56dpUsSNVZGaB3fbo
+	jSOwrXJnWuWesT7txslJLbIp0/zGQDzDZmDNvgPyKluvK8/1SdxO9lEQk6FSL/5XvCMPcwSXCpabv
+	cpTyE/4GQHmroTK8LuURRMbtnGkS0oSXNVq0urLES59+aJarjC30pJ2Al5FMZ2ulmCCV3VEgCkCQn
+	B2DwY3rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGTvm-0000000EVjs-0vlb;
-	Thu, 28 Nov 2024 02:06:58 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1tGUAL-0000000EWjN-0FmQ;
+	Thu, 28 Nov 2024 02:22:01 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGSpA-0000000ELuM-2oov
+	id 1tGSpH-0000000ELzM-3ufB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 00:56:06 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-7251d77ddb7so452747b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 16:56:04 -0800 (PST)
+	Thu, 28 Nov 2024 00:56:13 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ea41a5bfe7so347792a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 16:56:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1732755364; x=1733360164; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1732755371; x=1733360171; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=ysvaIdmMpR/VmHKwcGzTb4HtexOKJ4Ghx7ZOeauEtvk=;
-        b=tzf9s40pWqVzpmLNO32a26Tf2QFo+nrCKRE6wGnne/HQEwmUKtt1ylD3n3SGm4VsQi
-         KUY4z533xxNK80XTV0Bix3Ri2sEYc6Kqp+zJ3MoslHz4Hvz11a2xT+sjeb85iraQpW1f
-         YXv6tM0ijCCGu4DKXmjojgkIhlKs6Rqewa8nJwJVwQv0hEb/KwJI0R7KKMWgG/yrBesY
-         a4z09dCLwOs82rnnjdd2qaQiU2H4k1XUumt//WOWbbSZciCrsvVGT+wKsOqfH4hsTZJd
-         XXAS9DdTilZM7ra7F+xEjsm4xIC0r67dv/UGAiTPG4+7RbPGFgqsmDKzrgrGhgYjUOzi
-         nrPQ==
+        bh=GWRtxUB7qEaUtLrlQ1xtfEnMmWvmcI3LuUmySZ8Q/Js=;
+        b=CiafJ5eb9/1gebhgGvLs9dbskMfGzPl3SPpFE8oJ5m4aDZOSDO5QZWsVlawNloxy8K
+         e8f8HsFEI394pCFiaMA7Q7I4LE6FMHVTmLW3RTUh2dIrThpf8VDNyIa/hclyRBT1q1My
+         0UJOHegoBGQRP4q7BExeoiCAjTgRKA+tudIfFS/lBgXxGSe4Cd5PUsfNeX8rdyFFYNaJ
+         eZzbpsTSw88twK+2J7U9/k0EW/DUkO4qG0sbUw7wOMgwPLCXk7b21/6Dj4LCxkDgJV9u
+         7NFxOtuOVAU4M7IYMc2yQseTPTilTUfJuyPqrRurv4Sl7NJn59HUYDMtYe+Enms7+un0
+         JhcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732755364; x=1733360164;
+        d=1e100.net; s=20230601; t=1732755371; x=1733360171;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ysvaIdmMpR/VmHKwcGzTb4HtexOKJ4Ghx7ZOeauEtvk=;
-        b=fVfJtVY/0ZHltkUcaOlGuuPtu0nf3vrChiQ+TCf26qztYdrt+6AZF3XTGKEjjZxZOw
-         6VuncvHkQI2bTfKsTNekoYq8gQO+sqvmht+TYldzPfGAIsU45xSnVz45fD/pE3u5HNzw
-         lEaMDeVhWcRXky72dPmyj6zFJu9MNfDFJibMNEqJo/flRfr6Vc3Fm7YRBSY6hTqKTCLY
-         k8XZ1NTG0BXKiOVgaqADd7e3Vu10JARyxKgh3ICLyEQJiK9vWN+IvswOwvL+n/aiJYwJ
-         IGzxRP3OIuR5dg+JcoroEkNhsuBxXWIwf9bKGr6/iyf+CT8rZfXPqnA7wqLM11TCQFBP
-         gg+Q==
-X-Gm-Message-State: AOJu0YySnnTgrrmGurujy5dxBivjRGxHwzLH2UrQI2M84TYl7Mwy8+OE
-	23eLhtU1yevwjX4ew8AVePPiVkwTmRBgSDdN3IiYqXYKHtta2oj7p7aWtrmBUTKdq2RD2xwlas5
-	b/w==
-X-Google-Smtp-Source: AGHT+IE+ChL1KLorT8CIkfmIr19XCryd//IzNWr5z8aQi0CF/Qf3ZQTw4qD7deHM4fsaQ6e/45gZiVf87tA=
-X-Received: from plbmb7.prod.google.com ([2002:a17:903:987:b0:211:b7e:ba7d])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e84f:b0:212:618a:461f
- with SMTP id d9443c01a7336-21501b5aed2mr63134555ad.41.1732755363732; Wed, 27
- Nov 2024 16:56:03 -0800 (PST)
-Date: Wed, 27 Nov 2024 16:55:39 -0800
+        bh=GWRtxUB7qEaUtLrlQ1xtfEnMmWvmcI3LuUmySZ8Q/Js=;
+        b=aRV1DQCjSroqlP8a7WmhXgCxVtKIIRc3+Ak+wTjm/b98JODW3F3+Cpz3yu/h80IRUu
+         nGN9qr/PwQ2vVT8zABXXlOOIDUrZbiWTqj1BSsxvTMMd5iAGI8BrqcPkbkTgrbAdrXaI
+         IrniRpqoGirWPaY1MokfZ3BhiLfYCgRLw+jxlN7k5YjzNXUH4hmpT7tlyf18M6bwZOS4
+         +ZzGCEy+iW9NJTk69XL6nSSpX0IuIpUrJfNUaGaZkDMElxXC5PUqt6Cgvd5OrUXIocMt
+         fNTePO4dNtS3/LUqAHmtCL1S672okBvQvls8+7OENZT8rrKW42oFf7q/EYJvoYHbLogU
+         cdLA==
+X-Gm-Message-State: AOJu0YwBanVjUYgs0LAZYuZqWsYzVRoM6AjDKaiHk2PiHVHPujaEs2/Z
+	J8GTJ2BSmdMVc2snFwrnVOgSLtsCRh1AkpLBg0hRxVTkHpMSSbpDXJkashUCYzri5SWqolARuII
+	HZQ==
+X-Google-Smtp-Source: AGHT+IFMaJnuqI9F/c4uFlh6+NRFxIyg9v4WX4blDwY4PB6trx1cbKx2cypM7Azi46JxvUwmbV0z2d3j/+0=
+X-Received: from pjbqd8.prod.google.com ([2002:a17:90b:3cc8:b0:2ea:7fd8:9dca])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4d0d:b0:2eb:140d:f6df
+ with SMTP id 98e67ed59e1d1-2ee08e9bd21mr6479606a91.1.1732755370916; Wed, 27
+ Nov 2024 16:56:10 -0800 (PST)
+Date: Wed, 27 Nov 2024 16:55:43 -0800
 In-Reply-To: <20241128005547.4077116-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20241128005547.4077116-1-seanjc@google.com>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241128005547.4077116-9-seanjc@google.com>
-Subject: [PATCH v4 08/16] KVM: sefltests: Explicitly include ucall_common.h in mmu_stress_test.c
+Message-ID: <20241128005547.4077116-13-seanjc@google.com>
+Subject: [PATCH v4 12/16] KVM: selftests: Add a read-only mprotect() phase to mmu_stress_test
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -81,9 +81,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Muhammad Usama Anjum <usama.anjum@collabora.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_165604_702996_75323948 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241127_165611_978249_981CB2A7 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,28 +98,76 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Explicitly include ucall_common.h in the MMU stress test, as unlike arm64
-and x86-64, RISC-V doesn't include ucall_common.h in its processor.h, i.e.
-this will allow enabling the test on RISC-V.
+Add a third phase of mmu_stress_test to verify that mprotect()ing guest
+memory to make it read-only doesn't cause explosions, e.g. to verify KVM
+correctly handles the resulting mmu_notifier invalidations.
 
-Reported-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: James Houghton <jthoughton@google.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/mmu_stress_test.c | 1 +
- 1 file changed, 1 insertion(+)
+ tools/testing/selftests/kvm/mmu_stress_test.c | 22 +++++++++++++++----
+ 1 file changed, 18 insertions(+), 4 deletions(-)
 
 diff --git a/tools/testing/selftests/kvm/mmu_stress_test.c b/tools/testing/selftests/kvm/mmu_stress_test.c
-index 5467b12f5903..fbb693428a82 100644
+index c6bf18cb7c89..0918fade9267 100644
 --- a/tools/testing/selftests/kvm/mmu_stress_test.c
 +++ b/tools/testing/selftests/kvm/mmu_stress_test.c
-@@ -15,6 +15,7 @@
- #include "test_util.h"
- #include "guest_modes.h"
- #include "processor.h"
-+#include "ucall_common.h"
+@@ -28,6 +28,10 @@ static void guest_code(uint64_t start_gpa, uint64_t end_gpa, uint64_t stride)
+ 		GUEST_SYNC(i);
+ 	}
  
- static void guest_code(uint64_t start_gpa, uint64_t end_gpa, uint64_t stride)
- {
++	for (gpa = start_gpa; gpa < end_gpa; gpa += stride)
++		*((volatile uint64_t *)gpa);
++	GUEST_SYNC(2);
++
+ 	GUEST_ASSERT(0);
+ }
+ 
+@@ -95,6 +99,10 @@ static void *vcpu_worker(void *data)
+ 	run_vcpu(vcpu, 1);
+ 	rendezvous_with_boss();
+ 
++	/* Stage 2, read all of guest memory, which is now read-only. */
++	run_vcpu(vcpu, 2);
++	rendezvous_with_boss();
++
+ 	return NULL;
+ }
+ 
+@@ -175,7 +183,7 @@ int main(int argc, char *argv[])
+ 	const uint64_t start_gpa = SZ_4G;
+ 	const int first_slot = 1;
+ 
+-	struct timespec time_start, time_run1, time_reset, time_run2;
++	struct timespec time_start, time_run1, time_reset, time_run2, time_ro;
+ 	uint64_t max_gpa, gpa, slot_size, max_mem, i;
+ 	int max_slots, slot, opt, fd;
+ 	bool hugepages = false;
+@@ -279,14 +287,20 @@ int main(int argc, char *argv[])
+ 	rendezvous_with_vcpus(&time_reset, "reset");
+ 	rendezvous_with_vcpus(&time_run2, "run 2");
+ 
++	mprotect(mem, slot_size, PROT_READ);
++	rendezvous_with_vcpus(&time_ro, "mprotect RO");
++
++	time_ro    = timespec_sub(time_ro,     time_run2);
+ 	time_run2  = timespec_sub(time_run2,   time_reset);
+-	time_reset = timespec_sub(time_reset, time_run1);
++	time_reset = timespec_sub(time_reset,  time_run1);
+ 	time_run1  = timespec_sub(time_run1,   time_start);
+ 
+-	pr_info("run1 = %ld.%.9lds, reset = %ld.%.9lds, run2 =  %ld.%.9lds\n",
++	pr_info("run1 = %ld.%.9lds, reset = %ld.%.9lds, run2 = %ld.%.9lds, "
++		"ro = %ld.%.9lds\n",
+ 		time_run1.tv_sec, time_run1.tv_nsec,
+ 		time_reset.tv_sec, time_reset.tv_nsec,
+-		time_run2.tv_sec, time_run2.tv_nsec);
++		time_run2.tv_sec, time_run2.tv_nsec,
++		time_ro.tv_sec, time_ro.tv_nsec);
+ 
+ 	/*
+ 	 * Delete even numbered slots (arbitrary) and unmap the first half of
 -- 
 2.47.0.338.g60cca15819-goog
 
