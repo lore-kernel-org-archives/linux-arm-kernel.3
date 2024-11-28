@@ -4,97 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC4AD690E8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 08:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBE07D690EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 08:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ce1Yw0qnP/hYgtuVuhHQzLquqkZiusD0COEs+h5WKU=; b=epSntCwDk/4Udk39XXl/x6B6gM
-	tiPSahFYDwFHRx+wTqOCBThSDmQgZDZM1warZQuZKmNWQQpcGVCPaYHH/SoslFGSY2icoeFtL6CoA
-	vg/EHsbsSwEY+bqExTkF2jrAL0cGRYLOPM3+8AV6ireX06JXuUUNrRQGRsp2UBMr2mgMLi84AzVNO
-	rKH8Xi/mgJaJvUjB16aY72FKquSV2/zRSt5a+WlV19IGxYgH3/C6a+D57U7Wb42YnBhhac8VngvoJ
-	QeDEiVn4u93g5b6QyjHIOEDZxDnfuaMFzOVeOL7fWD4jFyBKcT0Y+EXQUGJNVr7W7I3yhMm4Op7Ld
-	DIzVF1CQ==;
+	bh=+WtRgwkoqRvksdBwrK+9C+XcfQ8pm5qxMtRwdKGqLCI=; b=g2N5wcCtdik/ZHZD2ZdlsI71ei
+	8WL3E0BCaU7+uLo6WeYcrZQTMR7QOBwCXDDH0zFvaMtYwQye2HZGxkVC/An5BqRKw7kqaGoFeE12D
+	vBSRdU77PBbRndIQW9M4RQIdAMM9EOrzBffilSRwIxHEIwrldc4KoOt019XvMJMJ54ClEteS/uz1b
+	710LBU7pPPwnaSOsH7JnbNg9yEbkPqyur8a/L0BlETmqL1qI9nC+Xg2d8hUMlHnXHqPaY9Mwdsqoh
+	Uz9Du8/sGYRClFgsPFvGq0LURMbEp/FMIamomxrN8x9EjL+GbaV3NckxSl/k0v4eD9RDEPl4acxJI
+	QMYITl5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGZuS-0000000F0WE-3cEY;
-	Thu, 28 Nov 2024 08:30:00 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1tGZxD-0000000F0t8-2DGp;
+	Thu, 28 Nov 2024 08:32:51 +0000
+Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGZt9-0000000F0KG-1aMT
+	id 1tGZwD-0000000F0jM-3JkZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 08:28:40 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-38246333e12so520100f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 00:28:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732782518; x=1733387318; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=8ce1Yw0qnP/hYgtuVuhHQzLquqkZiusD0COEs+h5WKU=;
-        b=EiS3Kt0luENamY6u1Wn3GtKbD35+fM8GZ62xt295ZTqkRFjpPXrY72LpKq9+2d9/Tk
-         G3ffSuWGQHKeOLurWDRX16hIquZYebvtk3nVs65UrjotBLnA0/VYcXiCMXr2VIqRk/8L
-         pOT9kofDILZ2rjbQ50rUG89XjxFIgAS9nrOmMc+UK+fBu93FkhuDLBADP8NCvBEh9LEj
-         4moXtyl+nf/nhLxzvOQKszRtBDmpIn/EwcLqeENUqNGswyvptyPy+Q3f0RKqOZm2rRnL
-         3sZtddUYcgjL4FLUbQGzIDU9MS1/n3P5Viu7edMuBcGQowkxYlmGayR05rZUzQsToYAp
-         bfuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732782518; x=1733387318;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8ce1Yw0qnP/hYgtuVuhHQzLquqkZiusD0COEs+h5WKU=;
-        b=DUjniY3Qfif9Szou7Zmj+Ux7eQt2C5zWL8Cip/EwChzXuWrEaDOJj7+R4aXqm4PHSh
-         xX6qOJeBWh35S4rpRRHNn2qWEto1R/LpqAHQjubvV1lpGGibuTjZPb7J3mRQMbRUUSp3
-         dzc0coBhCQlEbPzxPVsMyWZW9kbFdKgdB4dAE5XcU+31BFgE3bLtOSOqvyihz0+0h9wn
-         Ht1K63yIr8qXcY/t/hVqqfzqquRcrNbfK0Ibef27XmSiq4Mg44VL2oj6EQ1pukx9SqIj
-         Aji6K+UfdUbA/xsAA/p/JlzxGVt+9irHG0h4sb3TeCb5cs2s2Y/sAxYZg1cRTFjZy4ns
-         G7vw==
-X-Forwarded-Encrypted: i=1; AJvYcCVgGCNlUdmHhBTuzHtshxNKBPInQrAdxyRpDYLEKntOzg8M8A9a4T3t0F3apoxzz+bkbNXKcdUrJUq1YAdECle9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxydtMebbFiosc1H2ab8jEhMdWkdUCKivhemGI4YrmcBaY0ByH
-	1qb0V4oOhNv7hgxgibOVaZ8ksqDT/09F7xOkAJDgXTLh8ZRKrdLP3vCoxjlO7OU=
-X-Gm-Gg: ASbGnctnuL5RMBMs1i7IEZL3wCXqmh/MWPRnGn8QzPmUHbxFZQAebwIFMLm+fstru9K
-	1z5vMxBMAKZxPTHyXutT7kDlslHLQUscAiJtqEBWLOG69AmxkkMQITnunth99bvBkBiEmkTCZ5c
-	+IxShFJOACrTzCLI+VrGhilNsy82RqpmkFF/XDUrJl1WYnGm3CR136frCa4urCiIVjTmz4KiUZg
-	hQUnqM2dYY/Fq0jPCOnHuFVqHYhdZalUCx05gCUT4kowavu5kdhd+w=
-X-Google-Smtp-Source: AGHT+IGTu0qgLLjoHLlWHxSoBIFSoj8XfsMG9AhcjE3+CF/PWBajZkgTxHHhlbUBKXo2AHNhIEwVew==
-X-Received: by 2002:a5d:6dad:0:b0:382:3959:f429 with SMTP id ffacd0b85a97d-385c6ccaeafmr6070314f8f.5.1732782517632;
-        Thu, 28 Nov 2024 00:28:37 -0800 (PST)
-Received: from [10.1.1.109] ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-385ccd3a54asm996072f8f.50.2024.11.28.00.28.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Nov 2024 00:28:37 -0800 (PST)
-Message-ID: <663f534cd88332ecf64e575ea0cfa1f40e303373.camel@linaro.org>
-Subject: Re: [PATCH 5/6] arm64: dts: exynos: gs101-oriole: enable Maxim
- max77759 TCPCi
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jagan Sridharan <badhri@google.com>,  Alim Akhtar
- <alim.akhtar@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
- <tudor.ambarus@linaro.org>, Sam Protsenko <semen.protsenko@linaro.org>,
- Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>,
- kernel-team@android.com,  linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,  linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org,  linux-samsung-soc@vger.kernel.org
-Date: Thu, 28 Nov 2024 08:28:35 +0000
-In-Reply-To: <b0c5e443-79e2-4e53-8813-57044a627dea@kernel.org>
-References: <20241127-gs101-phy-lanes-orientation-dts-v1-0-5222d8508b71@linaro.org>
-	 <20241127-gs101-phy-lanes-orientation-dts-v1-5-5222d8508b71@linaro.org>
-	 <b0c5e443-79e2-4e53-8813-57044a627dea@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.1-4 
+	Thu, 28 Nov 2024 08:31:51 +0000
+Received: from phl-compute-01.internal (phl-compute-01.phl.internal [10.202.2.41])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 2C6822540134;
+	Thu, 28 Nov 2024 03:31:46 -0500 (EST)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Thu, 28 Nov 2024 03:31:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1732782706; x=1732869106; bh=+WtRgwkoqR
+	vksdBwrK+9C+XcfQ8pm5qxMtRwdKGqLCI=; b=cD13hdQ1XUG0xRZYw6rnafmsZb
+	wVFv4wwJflBlc9vEDTsSSVc1Ar3Zqn5dTAGZIeev1ilMR6VZ9ffQ07ldvc2WwPb2
+	eVDW0sXBHkM81jjoyQUc1jP6VQ9kQnQSUFl0eOX9+If3DgipElYdXHcTtgsP06rG
+	fdjJI/e5h4s+xwJNNHF5P5xM2gyqvfQ1oW+TmBJD6Z7l29cJbMgr/f45T0Mj+4bD
+	r7BMn7KRkVpS4tdOP7RnaF3Id42ieDAC+K1eft+3tMqnXJXrmWXHKM0lxu5ZcsxR
+	VqLMaXHOm/UwaqJ1lOZEdlWnUCXmx4HSQJEZJIhtHMkXAp8jICm8Fnq3rO6A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1732782706; x=1732869106; bh=+WtRgwkoqRvksdBwrK+9C+XcfQ8pm5qxMtR
+	wdKGqLCI=; b=vfuHfLkV7f86qQdkEzPEEi+3JL/OM1IQGjFe/eeyoJidcCwIlQq
+	3p+TuMXhpmu4+yY+uaZwpzhzQ2MMbUKSroDcdjanlgbinwkXdxRf+WOW8X8Ld+kq
+	gLMFmq/tDCNoFRcV6/8/PLuMmxWgd3XSVy0Q0ggiPK6HTKuv+7c2+tIlIpnQJ13l
+	Y//6lvjJd/UbU/TkFwdEINRhe72zWAPyGvnSGs206fU2N9W3DqnwG3iSzZcwxdJ+
+	p1S4OCoBKGUrQwuZ13Mvsu9GxQ3kZ8kYHrJtPd8ceOPvA0fbyxYP8P2T5FfPzGAN
+	rAVHFjb9LzyRPmwEEkY4rD27y4bXM976e+g==
+X-ME-Sender: <xms:cCpIZ0xVALxos2msEFwsnZKR_4dfpYeR00fawAv7uORAen1ZJ0MYQg>
+    <xme:cCpIZ4S1zCqVW84msn6KX8Y1eDmtD9mZ3Gd5vsvQpzD_YmOl03BL0gWBWdm_uhD_f
+    xH-xHcKdm_rTd7295Y>
+X-ME-Received: <xmr:cCpIZ2U5TumEAhkXx8TB4q5aj3CDd3xPH-YiDRFGhP9hFE7A-ZkK5q5C3lFwVi4ZXhHNy-T1axJOpcfjWDCl99lplPnLq_wwVmo>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrhedtgdduudelucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddtjeen
+    ucfhrhhomheplfgrnhhnvgcuifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenuc
+    ggtffrrghtthgvrhhnpefgvdffveelgedujeeffeehheekheelheefgfejffeftedugeet
+    hfeuudefheefteenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
+    hrohhmpehjsehjrghnnhgruhdrnhgvthdpnhgspghrtghpthhtohepledpmhhouggvpehs
+    mhhtphhouhhtpdhrtghpthhtohepfhhnkhhlrdhkvghrnhgvlhesghhmrghilhdrtghomh
+    dprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehm
+    rghrtggrnhesmhgrrhgtrghnrdhsthdprhgtphhtthhopehsvhgvnhesshhvvghnphgvth
+    gvrhdruggvvhdprhgtphhtthhopegrlhihshhsrgesrhhoshgvnhiifigvihhgrdhiohdp
+    rhgtphhtthhopehlihhnuhigqdhsphhisehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtg
+    hpthhtoheprghsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehl
+    ihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
+    dprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhr
+    gh
+X-ME-Proxy: <xmx:cCpIZyia3mF4fBMsfu8O1EF91KcPpuX4JaCfnWs2kefFcuXDT2fPaw>
+    <xmx:cCpIZ2BXa7MsELBiMvDJMEk9eQCSMMqgegOWzHG9buNzpAk0PSLLOA>
+    <xmx:cCpIZzIQmyI9nnK8WpJ1uZ_1Ed2uzHeNhK_Z85MCo1_nSNDvhobTtw>
+    <xmx:cCpIZ9BiSMnh9AmdqF8S5WI40eShpkDtR5AbsIzqE7iMbReKlb0Xww>
+    <xmx:cipIZ-uU7o1W9WbkfADtT7LHpJQh8yMR85QKSI1KWopOCFw3gbjeL3xY>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 28 Nov 2024 03:31:44 -0500 (EST)
+Date: Thu, 28 Nov 2024 09:31:42 +0100
+From: Janne Grunau <j@jannau.net>
+To: fnkl.kernel@gmail.com
+Cc: Mark Brown <broonie@kernel.org>, Hector Martin <marcan@marcan.st>,
+	Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, linux-spi@vger.kernel.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] spi: apple: Set use_gpio_descriptors to true
+Message-ID: <20241128083142.GB3782493@robin.jannau.net>
+References: <20241127-gpio-descs-v1-1-c586b518a7d5@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241127-gpio-descs-v1-1-c586b518a7d5@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_002839_471322_B442A511 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20241128_003150_415534_C86257FD 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +115,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Wed, Nov 27, 2024 at 11:18:29PM +0100, Sasha Finkelstein via B4 Relay wrote:
+> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> 
+> There is at least one peripheral that is attached to this
+> controller and can not use native CS. Make it possible to use
+> a GPIO instead.
+> 
+> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> ---
+>  drivers/spi/spi-apple.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/spi/spi-apple.c b/drivers/spi/spi-apple.c
+> index d4b126c8701a67083e7247d1c82fb56f1725d9cb..6273352a2b2861c9da0976a46ec2adbc4c71d3d2 100644
+> --- a/drivers/spi/spi-apple.c
+> +++ b/drivers/spi/spi-apple.c
+> @@ -493,6 +493,7 @@ static int apple_spi_probe(struct platform_device *pdev)
+>  	ctlr->prepare_message = apple_spi_prepare_message;
+>  	ctlr->set_cs = apple_spi_set_cs;
+>  	ctlr->transfer_one = apple_spi_transfer_one;
+> +	ctlr->use_gpio_descriptors = true;
+>  	ctlr->auto_runtime_pm = true;
+>  
+>  	pm_runtime_set_active(&pdev->dev);
+> 
 
-On Thu, 2024-11-28 at 09:19 +0100, Krzysztof Kozlowski wrote:
-> On 27/11/2024 12:01, Andr=C3=A9 Draszik wrote:
-> > ---
-> > =C2=A0arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 99
-> > ++++++++++++++++++++++
-> > =C2=A01 file changed, 99 insertions(+)
-> >=20
-> > diff --git a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> > b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> > index 387fb779bd29..5f7be0cb7418 100644
-> > --- a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> > +++ b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> > @@ -10,6 +10,7 @@
-> > =C2=A0
-> > =C2=A0#include <dt-bindings/gpio/gpio.h>
-> > =C2=A0#include <dt-bindings/input/input.h>
-> > +#include <dt-bindings/usb/pd.h>
-> > =C2=A0#include "gs101-pinctrl.h"
-> > =C2=A0#include "gs101.dtsi"
-> > =C2=A0
-> > @@ -90,6 +91,84 @@ eeprom: eeprom@50 {
-> > =C2=A0&hsi2c_12 {
-> > =C2=A0	status =3D "okay";
-> > =C2=A0	/* TODO: add the devices once drivers exist */
->=20
->=20
-> Is the TODO still valid?
+Reviewed-by: Janne Grunau <j@jannau.net>
 
-Yes, there are more devices on that bus.
-
-Cheers,
-Andre'
-
+Janne
 
