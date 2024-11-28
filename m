@@ -4,81 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17BB0D690F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 10:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA541D690F3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 10:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GOds7uSeYLj+j7OcElHvCAmikruj2IdVNMRvpjeeDtc=; b=u0S3U4yyGsbFk8CuPL4CDGEA80
-	TCf8HF65o9BRCgVEKaVd3x8+A76MVRzWlCvS/X1NbsKlCK13a0CvdktbN0Yun154SOindFmErIa+j
-	zA8X/dAlGFscr6m6gDdNlhdgfMt+9MYD2VpZLND7ZftsF3jrNPQazfE6r+F58ZgtERdre3gpVhqgS
-	pbwwr6qIr9M9iZBE52LaLDmXqF+q05zALIvgs+ZNXR0FQmljoqoLGdgSU2EU60u72fzswQLV6PhJk
-	6ZC3+YCR1ZRSPu8Y0qh36OMz9eYRvERLVoHHSd1Dfl/flnNjp2iYMFJjCiXKWIUB4NJPJ0rzK7ljb
-	cpRy1kSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3cjb0+0e787fmSia9xKiS5vCKypEydvQhshZnRtBb4s=; b=07KOgm08Hi/a9rSfa5z0IY9+Kc
+	k+HNM1+ZQf+zUDcYdhmm8YcgjVDyRY4uQsL3ZOai2ntoj8Bl4VxtPhRJb2CceMMo1f+/tjK4jrkY6
+	At0iv6p0WuZ4jpyMOfantSuqEO+xcxqs/VnZwLITwGFKS1fynJdjMi3RP4aUSaI1VW3E2LFzMbWSe
+	Hp7eAXgXi/+pATRF+fJRYpAKp4HZrRriKhAUfPjtsaRmiUcwMVGCK6k15W19i7fMxR520dF8NxecM
+	sq8q4n9jx8J+honQnQWeNM4UkommBuVPvaYetR177DaEkJQngPLgtd65aKXsOu4Mib/9b6sBWSMKQ
+	NkuxEinA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGbpo-0000000FGQt-1QYW;
-	Thu, 28 Nov 2024 10:33:20 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tGbrH-0000000FGhG-31DL;
+	Thu, 28 Nov 2024 10:34:51 +0000
+Received: from smtp-fw-9102.amazon.com ([207.171.184.29])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGboo-0000000FGHx-3KRV;
-	Thu, 28 Nov 2024 10:32:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1732789935;
-	bh=HrAXTZSCIcuftLL0ul3rClI7fugMpktKhWmYw6wLDok=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Pvs5GMYLUfrPah0+EMJAeFXycEFxuIzy7qwIM5MEbgQGhXci8eG6uDooADcTA50zk
-	 UX7Mn+7kRhRPozOi72Nph0RHwurnhil01+QK4vRE9nW6EDG759tjQa2nxZXmyvKKz4
-	 sknbaqSiwV9/WYZaUoUKFFkOiblORDXlNj0RqkJnaWhjNeTOXbQhTkaDsw+YlmYTGh
-	 oO3k0cEcrvCrqxF95kO/Gw9ogDboWN/aXLoYxZJzp2nXoFqkAV5F1kKJe+ygxPKA7t
-	 eOHkr8JvwFJhQ+g2LEltlRi6uAoV0wK7MaN1ywVKNsCZn214O1UPxeZ7i0YxyhEwwI
-	 k1n2UX3wlueJQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 00A9617E35F0;
-	Thu, 28 Nov 2024 11:32:14 +0100 (CET)
-Message-ID: <3d5f7106-6425-420c-abac-39feed11c95c@collabora.com>
-Date: Thu, 28 Nov 2024 11:32:13 +0100
+	id 1tGbqH-0000000FGYY-3fp2
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 Nov 2024 10:33:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1732790030; x=1764326030;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=3cjb0+0e787fmSia9xKiS5vCKypEydvQhshZnRtBb4s=;
+  b=RNouv8Z8+ePlFNIcyGyeDN71pcQLH13h5FwEwUyNrIe+wMdsd6/TucJD
+   Z36zhnO1MrRvMwednMdvvrzBo7F4qDQOygwvwCaZ1X55KuQsunPEEi87/
+   /3o2+e52Gwyq3TU5ZtgR0tq5QsPe06uwcn+hgECd4irtiXHBy/xeDpi/D
+   I=;
+X-IronPort-AV: E=Sophos;i="6.12,192,1728950400"; 
+   d="scan'208";a="473917503"
+Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.214])
+  by smtp-border-fw-9102.sea19.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2024 10:33:45 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [10.0.7.35:49797]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.22.41:2525] with esmtp (Farcaster)
+ id 252a3a4d-81ab-4111-b181-493c14bd6249; Thu, 28 Nov 2024 10:33:44 +0000 (UTC)
+X-Farcaster-Flow-ID: 252a3a4d-81ab-4111-b181-493c14bd6249
+Received: from EX19D016UWA004.ant.amazon.com (10.13.139.119) by
+ EX19MTAUWA001.ant.amazon.com (10.250.64.204) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Thu, 28 Nov 2024 10:33:44 +0000
+Received: from 88665a51a6b2.amazon.com (10.106.178.48) by
+ EX19D016UWA004.ant.amazon.com (10.13.139.119) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Thu, 28 Nov 2024 10:33:41 +0000
+From: Cristian Prundeanu <cpru@amazon.com>
+To: <cpru@amazon.com>
+CC: <abuehaze@amazon.com>, <alisaidi@amazon.com>, <benh@kernel.crashing.org>,
+	<blakgeof@amazon.com>, <csabac@amazon.com>, <dietmar.eggemann@arm.com>,
+	<doebel@amazon.com>, <gautham.shenoy@amd.com>, <joseph.salisbury@oracle.com>,
+	<kprateek.nayak@amd.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-tip-commits@vger.kernel.org>,
+	<mingo@redhat.com>, <peterz@infradead.org>, <x86@kernel.org>
+Subject: Re: [PATCH 0/2] [tip: sched/core] sched: Disable PLACE_LAG and RUN_TO_PARITY and move them to sysctl
+Date: Thu, 28 Nov 2024 04:32:36 -0600
+Message-ID: <20241128103236.22777-1-cpru@amazon.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241125113535.88583-1-cpru@amazon.com>
+References: <20241125113535.88583-1-cpru@amazon.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/7] dt-bindings: display: mediatek: Add binding for
- MT8195 HDMI-TX v2
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-Cc: "linux-mediatek@lists.infradead.org"
- <linux-mediatek@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, "kernel@collabora.com" <kernel@collabora.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "airlied@gmail.com" <airlied@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>
-References: <20241120124512.134278-1-angelogioacchino.delregno@collabora.com>
- <20241120124512.134278-3-angelogioacchino.delregno@collabora.com>
- <721896498fe9a5ba5a942fe837deb90d461b5090.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <721896498fe9a5ba5a942fe837deb90d461b5090.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.106.178.48]
+X-ClientProxiedBy: EX19D038UWB001.ant.amazon.com (10.13.139.148) To
+ EX19D016UWA004.ant.amazon.com (10.13.139.119)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_023218_983709_2676337E 
-X-CRM114-Status: GOOD (  22.07  )
+X-CRM114-CacheID: sfid-20241128_023349_948179_7DC2FD7A 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,116 +90,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 28/11/24 07:02, CK Hu (胡俊光) ha scritto:
-> Hi, Angelo:
+On 2024-11-26, K Prateek Nayak wrote:
+
+> Would it be possible to use the perf-tool built there to collect
+> the scheduling stats for MySQL benchmark runs on both v6.5 and v6.8 and
+> share the output of "perf sched stats diff" and the two perf.data files
+> recorded?
+
+I'll add this to the list of my next tests. Thank you for mentioning it!
+
+
+On 2024-11-26, Dietmar Eggemann wrote:
+
+> SUT kernel arm64 (mysql-8.4.0)
+> (2) 6.12.0-rc4                -12.9%
+> (3) 6.12.0-rc4 NO_PLACE_LAG   +6.4%		
+> (4) v6.12-rc4  SCHED_BATCH    +10.8%
+
+This is very interesting; our setups are close, yet I have not seen any 
+feature or policy combination that performs above the 6.5 CFS baseline.
+I look forward to seeing your results with the repro when it's ready.
+
+Did you only use NO_PLACE_LAG or was it together with NO_RUN_TO_PARITY?
+
+Was SCHED_BATCH used with the default feature set (all enabled)?
+
+Which distro/version did you use for the SUT?
+
+> Maybe a difference in our test setup can explain the different test results:
+>
+> I use:
+>
+> HammerDB Load Generator <-> MySQL SUT
+> 192 VCPUs               <-> 16 VCPUs
 > 
-> On Wed, 2024-11-20 at 13:45 +0100, AngeloGioacchino Del Regno wrote:
->> External email : Please do not click links or open attachments until you have verified the sender or the content.
->>
->>
->> Add a binding for the HDMI TX v2 Encoder found in MediaTek MT8195
->> and MT8188 SoCs.
->>
->> This fully supports the HDMI Specification 2.0b, hence it provides
->> support for 3D-HDMI, Polarity inversion, up to 16 bits Deep Color,
->> color spaces including RGB444, YCBCR420/422/444 (ITU601/ITU709) and
->> xvYCC, with output resolutions up to 3840x2160p@60Hz.
->>
->> Moreover, it also supports HDCP 1.4 and 2.3, Variable Refresh Rate
->> (VRR) and Consumer Electronics Control (CEC).
->>
->> This IP also includes support for HDMI Audio, including IEC60958
->> and IEC61937 SPDIF, 8-channel PCM, DSD, and other lossless audio
->> according to HDMI 2.0.
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   .../mediatek/mediatek,mt8195-hdmi.yaml        | 150 ++++++++++++++++++
->>   1 file changed, 150 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi.yaml
->> new file mode 100644
->> index 000000000000..273a8871461e
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi.yaml
->> @@ -0,0 +1,150 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: https://urldefense.com/v3/__http://devicetree.org/schemas/display/mediatek/mediatek,mt8195-hdmi.yaml*__;Iw!!CTRNKA9wMg0ARbw!lu0D_C3TwQ2-02jWYABnMIQ8vEoUwP0O4gbQndJnPUMpdi6wXdAHra9ivCfB7zoelDI7qsS20YdRlmP4bEKAABletXFX$
->> +$schema: https://urldefense.com/v3/__http://devicetree.org/meta-schemas/core.yaml*__;Iw!!CTRNKA9wMg0ARbw!lu0D_C3TwQ2-02jWYABnMIQ8vEoUwP0O4gbQndJnPUMpdi6wXdAHra9ivCfB7zoelDI7qsS20YdRlmP4bEKAAFlnY-KY$
->> +
->> +title: MediaTek HDMI-TX v2 Encoder
->> +
->> +maintainers:
->> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> +  - CK Hu <ck.hu@mediatek.com>
->> +
->> +description: |
->> +  The MediaTek HDMI-TX v2 encoder can generate HDMI format data based on
->> +  the HDMI Specification 2.0b.
->> +
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - mediatek,mt8188-hdmi-tx
->> +      - mediatek,mt8195-hdmi-tx
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    items:
->> +      - description: HDMI APB clock
->> +      - description: HDCP top clock
->> +      - description: HDCP reference clock
->> +      - description: VPP HDMI Split clock
-> 
-> I would like to know more about HDMI v2.
-> Would you map each v2 clock to v1 clock?
-> If one clock has no mapping, is it a new feature that v1 does not has?
-> 
+> Virtual users: 256
+> Warehouse count: 64
+> 3 min rampup
+> 10 min test run time
+> performance data: NOPM (New Operations Per Minute)
+>
+> So I have 256 'connection' tasks running on the 16 SUT VCPUS.
 
-The HDMIv2 HW block seems to be almost completely different from the v1, and
-it is also interconnected in a different way compared to MT8173 (the path goes
-through VPP1, while the v1 is just direct to DPI/MMSYS).
+My setup:
 
-The v1 block had specific clocks for the audio (i2s, I believe) and for the SPDIF,
-and I have no idea how v1 does HDCP, but I don't see any specific clock for that.
+SUT     - 16 vCPUs, 32 GB RAM
+Loadgen - 64 vCPU, 128 GB RAM (anything large enough to not be a 
+ bottleneck should work)
 
-The v2 block is clocked from the HDCP clock, the (apb) bus has its own clock, and
-the video out needs the vpp split clock.
-
-It's just different, and we can't shove the v2 binding inside of the v1 one, but
-even if we could, since the v2 block is *that much* different from v1, it'd be a
-mistake to do so.
-
-Since the binding describes hardware, and since this v2 HW is *very* different
-from v1, it needs a new binding document, that is true even if you find a way to
-get the clocks to match (which is not possible, anyway).
-
-Cheers,
-Angelo
-
-> Regards,
-> CK
-> 
->> +
->> +  clock-names:
->> +    items:
->> +      - const: bus
->> +      - const: hdcp
->> +      - const: hdcp24m
->> +      - const: hdmi-split
->> +
->>
->> --
->> 2.47.0
->>
-
-
+Virtual users:  4 x vCPUs = 64
+Warehouses:     24
+Rampup:         5 min
+Test runtime:   20 min x 10 times, each on 4 different SUT/Loadgen pairs
+Value recorded: geometric_mean(NOPM)
 
