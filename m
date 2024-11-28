@@ -4,64 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B92D70DED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 19:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A78BBD70DED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 19:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hCXNzwoYjhjr8btaZ57OB2jRNu87McCmAkcc7DaLDwo=; b=w7rarZ0reEiqrUJyTK1r0nFG2p
-	IdkEdDZICsSur7eLq/lYd9AHXUREZX/E7mQZ1XOEWGm+K7/cWFdm+Blaz7PjJMb421zRYWe7Xy+oa
-	nCeiAkN0zRtZUDk5tRbe82Ub1ufUtWGrxoXDeW1hoSa8LXVHANMqlLjPgK6HmdkeBejr9cq4NE2BI
-	8CYiCTEOabiwF7AYfaEiNlnFLkd0sciozEC8hViL/UzI2F/GZW+ibleQ8DRD3Ir6QSLTHzN6ujxE5
-	O3uvrn7eA4A9sIN3n603qSDjL3o6SFROZdEDSLI1ePH6JyxS+dsApj5hJp2E7Vd1N0H3fDXwOawVH
-	MhTIeC4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u9QGgGdv77W2pOdQiAtUv+Iwdr6afjftqDVxt/e/CoM=; b=QdWzT10UCXEskhHmSVJAQ7pOwi
+	rTgcUB5oUpxZ8nx76wKNoWq5CA1OTMPXWRgLm4zYUlLuoOaSZ8BxdGskAzAJ+TXvCMeA+MT2BxhJK
+	DrjDJxWqjBj66LrDpHc1x0kkeMoTrVRgRQUQNmWVm2d15BVx2zjZM08K6QVpVADj5tZT+3w7SRYIq
+	woKogcPnxU+NdQP8ckGrzZ57TdMJnqjW8Z2p1Xvrn8EsQF1ckC8i2+lfw/o+75QWvldWC4FyEwGT7
+	bSMkIs36HtsGtVXpvmyaNpDdXJGvXtKPacuRv6WWATbQNSaiJpgquEG6uF3mSUBq04Qc1V4dv9Al7
+	U6XG+Avg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGjp5-0000000GDGG-1JdJ;
-	Thu, 28 Nov 2024 19:05:07 +0000
-Received: from mail3-relais-sop.national.inria.fr ([192.134.164.104])
+	id 1tGkQj-0000000GIPb-0OrF;
+	Thu, 28 Nov 2024 19:44:01 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGjo5-0000000GD8f-1EWo
+	id 1tGkPj-0000000GIDr-04Wp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 19:04:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=inria.fr; s=dc;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=hCXNzwoYjhjr8btaZ57OB2jRNu87McCmAkcc7DaLDwo=;
-  b=s29WyAmO8KapvqVuiZJcfKkecoTldhMZf2ISF7UhCfJOS3P/EEDmv6N2
-   P67cGTLSOdXvsbVlgCrtEYuNkq+HBEIarCqn/GyO6vN7PYHnlnyNKaEzN
-   +Ym/jxqI28fU45MeVWbUipzN1H0OJXA5TSms6i3PWbuB2moduP44DMNyr
-   s=;
-Authentication-Results: mail3-relais-sop.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=keisuke.nishimura@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
-X-IronPort-AV: E=Sophos;i="6.12,193,1728943200"; 
-   d="scan'208";a="102924560"
-Received: from dt-aponte.paris.inria.fr (HELO [128.93.67.66]) ([128.93.67.66])
-  by mail3-relais-sop.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2024 20:04:02 +0100
-Message-ID: <a62e682d-c2e8-424d-84c5-4e64468124a9@inria.fr>
-Date: Thu, 28 Nov 2024 20:04:01 +0100
+	Thu, 28 Nov 2024 19:43:00 +0000
+Received: from lion.mk-sys.cz (unknown [10.100.225.114])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 91E8B21190;
+	Thu, 28 Nov 2024 19:42:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1732822974; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=u9QGgGdv77W2pOdQiAtUv+Iwdr6afjftqDVxt/e/CoM=;
+	b=eAUsbA6H44fzsfyPZVAkCfOY2dQVMh81CEEiZn1ASgrjy27e4E3fNbQDtacMzRI0AggFy0
+	i00+V0j/TymW0KKgRQ8FjRsQHsqjaGhfzx7PfLDsjjZzrT1XgGf4Y14/ZIU7Dg6WgkzhyQ
+	U1bcR57KCUzMXSyO2i1cFxo6bXeK24w=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1732822974;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=u9QGgGdv77W2pOdQiAtUv+Iwdr6afjftqDVxt/e/CoM=;
+	b=8UZO/2Lo+8a7sa07GlQNW0yJ4VFyXdh7IkNVDZbp4jI0atLqPulMdEnyUFn6rljxi6+MpG
+	yR3AkqCMjtlpCTCQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1732822973; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=u9QGgGdv77W2pOdQiAtUv+Iwdr6afjftqDVxt/e/CoM=;
+	b=aU0deQYNIvJKoHIaKI++tY1aKJshwSf10+LLBLKhI/zcgVAr9WnBuNXA57wEp7YiSJ7KsT
+	WijkJt09dd9VgtdQ1IJ46w4quJ2nGWwgSXLZLzGVFysi3sfs67YrOjzU+9n1lFAIWQW5g8
+	e76q88pSZsBnctFfFczAwdKUgFVb05U=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1732822973;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=u9QGgGdv77W2pOdQiAtUv+Iwdr6afjftqDVxt/e/CoM=;
+	b=+9zgCbxhh4S4CW4owkzqvtP8g7kHFSY7JD4fJHcV7e8UXHXlu6hN4MnfiaTVwsRJOJ8d3O
+	gRUdySmg52l/J2BA==
+Received: by lion.mk-sys.cz (Postfix, from userid 1000)
+	id 7CDE22012C; Thu, 28 Nov 2024 20:42:53 +0100 (CET)
+Date: Thu, 28 Nov 2024 20:42:53 +0100
+From: Michal Kubecek <mkubecek@suse.cz>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, 
+	Andy Shevchenko <andy.shevchenko@gmail.com>, Simon Horman <horms@kernel.org>, Lee Jones <lee@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Derek Kiernan <derek.kiernan@amd.com>, 
+	Dragan Cvetic <dragan.cvetic@amd.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Lars Povlsen <lars.povlsen@microchip.com>, Steen Hegelund <Steen.Hegelund@microchip.com>, 
+	Daniel Machon <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Horatiu Vultur <horatiu.vultur@microchip.com>, 
+	Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Allan Nielsen <allan.nielsen@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v9 1/6] misc: Add support for LAN966x PCI device
+Message-ID: <dywwnh7ns47ffndsttstpcsw44avxjvzcddmceha7xavqjdi77@cqdgmpdtywol>
+References: <20241010063611.788527-1-herve.codina@bootlin.com>
+ <20241010063611.788527-2-herve.codina@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm/arm64: vgic-its: Add error handling in
- vgic_its_cache_translation
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev
-References: <20241128134534.361144-1-keisuke.nishimura@inria.fr>
- <Z0iujBMl1ypdwfBu@linux.dev>
-Content-Language: en-US
-From: Keisuke Nishimura <keisuke.nishimura@inria.fr>
-In-Reply-To: <Z0iujBMl1ypdwfBu@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="j7d5vatgnxlcdmpo"
+Content-Disposition: inline
+In-Reply-To: <20241010063611.788527-2-herve.codina@bootlin.com>
+X-Spamd-Result: default: False [-4.40 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SIGNED_PGP(-2.00)[];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	MIME_GOOD(-0.20)[multipart/signed,text/plain];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	TAGGED_RCPT(0.00)[dt];
+	ARC_NA(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_ONE(0.00)[1];
+	RCPT_COUNT_TWELVE(0.00)[33];
+	MIME_TRACE(0.00)[0:+,1:+,2:~];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	R_RATELIMIT(0.00)[to_ip_from(RLojywjshxai19ykpmbjx9w3ts)];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[linux-m68k.org,gmail.com,kernel.org,arndb.de,amd.com,linuxfoundation.org,google.com,pengutronix.de,microchip.com,davemloft.net,redhat.com,lunn.ch,vger.kernel.org,lists.infradead.org,bootlin.com];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[lion.mk-sys.cz:helo,linuxfoundation.org:email,bootlin.com:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_110405_731347_B8D33AA1 
-X-CRM114-Status: GOOD (  24.58  )
+X-CRM114-CacheID: sfid-20241128_114259_203797_BAFE01D4 
+X-CRM114-Status: GOOD (  31.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,66 +138,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Marc and Oliver,
 
-Thank you for the replies.
+--j7d5vatgnxlcdmpo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 28/11/2024 18:55, Oliver Upton wrote:
-> On Thu, Nov 28, 2024 at 02:45:34PM +0100, Keisuke Nishimura wrote:
->> The xa_store() may fail because there is no guarantee that the cache_key
->> index is already used in its->translation_cache. This fix (1) resolves
->> the kref inconsistency on failure and (2) returns the error code.
-> 
-> xa_store() doesn't fail if an entry is already present at the specified
-> index. It returns the old entry, which is why we have a vgic_put_irq()
-> on the "error" path.
+On Thu, Oct 10, 2024 at 08:36:01AM +0200, Herve Codina wrote:
+> Add a PCI driver that handles the LAN966x PCI device using a device-tree
+> overlay. This overlay is applied to the PCI device DT node and allows to
+> describe components that are present in the device.
+>=20
+> The memory from the device-tree is remapped to the BAR memory thanks to
+> "ranges" properties computed at runtime by the PCI core during the PCI
+> enumeration.
+>=20
+> The PCI device itself acts as an interrupt controller and is used as the
+> parent of the internal LAN966x interrupt controller to route the
+> interrupts to the assigned PCI INTx interrupt.
+>=20
+> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+> Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Acked-by: Bjorn Helgaas <bhelgaas@google.com>	# quirks.c
+> ---
+>  drivers/misc/Kconfig          |  24 ++++
+>  drivers/misc/Makefile         |   3 +
+>  drivers/misc/lan966x_pci.c    | 215 ++++++++++++++++++++++++++++++++++
+>  drivers/misc/lan966x_pci.dtso | 167 ++++++++++++++++++++++++++
+>  drivers/pci/quirks.c          |   1 +
+>  5 files changed, 410 insertions(+)
+>  create mode 100644 drivers/misc/lan966x_pci.c
+>  create mode 100644 drivers/misc/lan966x_pci.dtso
+>=20
+> diff --git a/drivers/misc/Kconfig b/drivers/misc/Kconfig
+> index 3fe7e2a9bd29..8e5b06ac9b6f 100644
+> --- a/drivers/misc/Kconfig
+> +++ b/drivers/misc/Kconfig
+> @@ -610,6 +610,30 @@ config MARVELL_CN10K_DPI
+>  	  To compile this driver as a module, choose M here: the module
+>  	  will be called mrvl_cn10k_dpi.
+> =20
+> +config MCHP_LAN966X_PCI
+> +	tristate "Microchip LAN966x PCIe Support"
+> +	depends on PCI
+> +	select OF
+> +	select OF_OVERLAY
 
-Sure. But to my understanding, this could be the first store to 
-its->translation_cache with cache_key, and that is why old can be NULL? I am not 
-very familiar with this code, so please correct me if I am wrong.
+Are these "select" statements what we want? When configuring current
+mainline snapshot, I accidentally enabled this driver and ended up
+flooded with an enormous amount of new config options, most of which
+didn't make much sense on x86_64. It took quite long to investigate why.
 
-> 
-> Genuine error handling definitely is missing here, but that would only
-> happen if the xarray library failed to allocate (-ENOMEM) or if the
-> xarray itself is broken beyond repair (-EINVAL).
-> 
->> Fixes: 8201d1028caa ("KVM: arm64: vgic-its: Maintain a translation cache per ITS")
->> Signed-off-by: Keisuke Nishimura <keisuke.nishimura@inria.fr>
->> ---
->>   arch/arm64/kvm/vgic/vgic-its.c | 16 ++++++++++++----
->>   1 file changed, 12 insertions(+), 4 deletions(-)
->>
->> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
->> index 198296933e7e..8f423857b7d2 100644
->> --- a/arch/arm64/kvm/vgic/vgic-its.c
->> +++ b/arch/arm64/kvm/vgic/vgic-its.c
->> @@ -555,7 +555,7 @@ static struct vgic_irq *vgic_its_check_cache(struct kvm *kvm, phys_addr_t db,
->>   	return irq;
->>   }
->>   
->> -static void vgic_its_cache_translation(struct kvm *kvm, struct vgic_its *its,
->> +static int vgic_its_cache_translation(struct kvm *kvm, struct vgic_its *its,
->>   				       u32 devid, u32 eventid,
->>   				       struct vgic_irq *irq)
-> 
-> This was deliberately made a void return. The entire translation cache
-> is opportunistic and not required for functional correctness. Nothing
-> breaks if we fail to insert an entry for, say, a failed memory
-> allocation.
+Couldn't we rather use
 
-If my point above is correct, in the next version, we can ensure no memory error 
-here by calling xa_reserve() in advance. Or, we can ignore the error, and just 
-make the kref consistent.
+	depends on PCI && OF && OF_OVERLAY
 
-> 
-> It would be extremely helpful if you could share the steps to reproduce
-> the error you observe.
-> 
+like other drivers?
 
-I encountered this when I studied the usage of xa_*. After some investigation to 
-confirm that the call of xa_store() might be the first store with cache_key, I 
-sent this patch. (I apologize if I missed anything.)
+Michal
 
-Thank you,
-Keisuke
+> +	select IRQ_DOMAIN
+> +	help
+> +	  This enables the support for the LAN966x PCIe device.
+> +	  This is used to drive the LAN966x PCIe device from the host system
+> +	  to which it is connected.
+> +
+> +	  This driver uses an overlay to load other drivers to support for
+> +	  LAN966x internal components.
+> +	  Even if this driver does not depend on these other drivers, in order
+> +	  to have a fully functional board, the following drivers are needed:
+> +	    - fixed-clock (COMMON_CLK)
+> +	    - lan966x-oic (LAN966X_OIC)
+> +	    - lan966x-cpu-syscon (MFD_SYSCON)
+> +	    - lan966x-switch-reset (RESET_MCHP_SPARX5)
+> +	    - lan966x-pinctrl (PINCTRL_OCELOT)
+> +	    - lan966x-serdes (PHY_LAN966X_SERDES)
+> +	    - lan966x-miim (MDIO_MSCC_MIIM)
+> +	    - lan966x-switch (LAN966X_SWITCH)
+> +
+>  source "drivers/misc/c2port/Kconfig"
+>  source "drivers/misc/eeprom/Kconfig"
+>  source "drivers/misc/cb710/Kconfig"
+[...]
+
+--j7d5vatgnxlcdmpo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCAAdFiEEWN3j3bieVmp26mKO538sG/LRdpUFAmdIx7cACgkQ538sG/LR
+dpU7nAf/XBbO498856QKivFIfm7fBoDun6OltBIzDjQpOY3U424Hl6ZSYNW9Bovz
+KCS+Ca82RFcUPkWwtYkY1Wuu2xD2CZs2ChCPURibTrloed3inIAHnAIdplJJz1o1
+jzIFZhxvquaFI2GT+PS/Rn4EK/O00YA1YznI0w0EyCYUd4GPKiRvFDjihNvAjB0a
+BwFaqUpcXEMDBtwDJ7fSN2aKHllfQHfQGscAMuN6SwH9Fq1F8yEnPcOniequDyN2
+Vw68yNm2tVkouUWN9yaPX2LHS+0C0cqGjgu3GpNVkavhjFM9so07iJlXOQJxgSPJ
+UGMHSzZCvmGYJLZb39hHz9014QZU1g==
+=DdLR
+-----END PGP SIGNATURE-----
+
+--j7d5vatgnxlcdmpo--
 
