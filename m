@@ -4,74 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F027D70DE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 17:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D23E5D70DE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 17:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uSa+Y8rjlAlP76se4ofvWK9v7XQmEW2ShTo/4F0dNTU=; b=VgiR20UY/0a8EyWBisqhyzbUj1
-	qhKXPXxik4wtT8dsgLekc7Gb5kXJpkZSg22hNKsfjcb7CHFyhKOf3/iYB4ie3Dv6O7gIH5z3mXcNG
-	UGBQSZjUi3w8B5+0K6F3ZkIa7mo4JGB60YvgmjK+qhQZD0kOvlPTMhQD5iONsFs5Zh/lVMqRQ5ykP
-	8MPd2T3wragGF7xKetEZm5m535HqEVR+hnvAPq3g2uU8WDx6P+ueuM9VrgMcKgzJjRYv8Y17dIfFv
-	3LF7uxHl7i4XChr5TsgLLdSYdhcyM7P6DEIA01WlMMCS8Ef9HphUm1VnWM+LJIG2CMUIrNfoTVYKh
-	6tJXZW6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yMPzl6OEOT2YN50gMMwQ9RSw8TVPbrPdddWUfTQewAc=; b=wSjKzbp/svGLUE
+	LeioQzU459wE/PHP4uiKAwXADhNZ9HvIUwH6rWO+ppENTDmO7qzVNT2Rw9YC8yh8e73wiP0SAjtRf
+	BLLRTSgh7ZoJyPdJHKMUO7SbAicpWps6nA4IJrvb4C/1yiFvsovipDOQoEMWf7ufTZeyhZ23r0FKA
+	vhgnfsFaUS9n8pN6rH5sjSVes5/1KNNtIh/XU0GGzKqvibwSIuAUTXMaXt4+K5+FrjZHxy4L/dCE6
+	eRPUhGWB1hxnZWgNQiO2k6gL7rWMBybAolJe/SPKagH2eyxenA8MP6obClF4ud4+Y/xgBPIDtyvmX
+	jsB1RS3h3UedWEHdkG1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGiXT-0000000G6Ae-1Wzw;
-	Thu, 28 Nov 2024 17:42:51 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1tGiZ9-0000000G6SQ-4Amd;
+	Thu, 28 Nov 2024 17:44:36 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGiWU-0000000G66Q-3njB
+	id 1tGiY9-0000000G6G5-1Uhu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 17:41:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732815711; x=1764351711;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=Qj9VfeOHaFCPwamFvMv/eh2TZVc/qqibMMoP4/QMa1M=;
-  b=WhSKt9lTAbppiKT973RxhqET3QLNT0rqMpVn36yrNlkY7LuSDANffw5/
-   x3YEni8Qgi31TouQzs4fCDXmWTjTkoT/Iu2XBa87KS+hcetX396ub0fYx
-   ygnbsL07t8WR3j08SLQn0+Aay/qbYXziOJdo5BuWq9CSjauFgi745waWT
-   NeS2Apa+WjiFCjMcbarRCfFDqtoT2V9a7L7N/LYs4cfQWQENY2u4AbcLR
-   /AlQQo/itHA318s7LoDdG8Ar85KZd2U3gdApIAHZGR+fi6sFF1LXr/i6J
-   ACnV1xmoX28LLXUpOLUddISnuqkwsnF3m6kkSywbE7MWd4xHQ/oTxjwsW
-   Q==;
-X-CSE-ConnectionGUID: ttU2gsVLS8u+N5KXtCdVeA==
-X-CSE-MsgGUID: WSkmxiCoSm+8HaJ1lNByQw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11270"; a="36842480"
-X-IronPort-AV: E=Sophos;i="6.12,193,1728975600"; 
-   d="scan'208";a="36842480"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2024 09:41:50 -0800
-X-CSE-ConnectionGUID: 4NXsIYw5TZKqzQIvC6KCuw==
-X-CSE-MsgGUID: UqyG4ZomTxuizoNLcr20Ng==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,193,1728975600"; 
-   d="scan'208";a="115571789"
-Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 28 Nov 2024 09:41:49 -0800
-Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tGiWQ-0009sZ-2f;
-	Thu, 28 Nov 2024 17:41:46 +0000
-Date: Fri, 29 Nov 2024 01:41:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:kvm-arm64/nv-gic 12/12]
- arch/arm64/kvm/vgic/vgic-v3-nested.c:116:1: warning: no return statement in
- function returning non-void
-Message-ID: <202411290111.GeyA5VWD-lkp@intel.com>
+	Thu, 28 Nov 2024 17:43:35 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 2C95DA0827;
+	Thu, 28 Nov 2024 18:43:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=yMPzl6OEOT2YN50gMMwQ
+	9RSw8TVPbrPdddWUfTQewAc=; b=TanY1HZulbqKDY8YTLHRvMo1HdbsX8ABQ8uf
+	AHBGN6uzw5+HkQFs3oxAsIC0evZUaEJqui2gtJdnryXRpmPWIVZ4Cef/O5lC4qjI
+	oZN7BJy07pBUUzy6Bd1TCj3GiPG/Tt884B11AHMGDNh3RgMruciyLd+lFMCwcmqe
+	oznFtsw64k4waEOqt124bF7e7FIaw+QOzZG4YC74q+XE/tCLLfd8ST+aoboYK+bf
+	wmcr+yPZr1hBDesxV/cj0PD9ltmQVyTIadxpf7sVn4d1g0preyXluRF6MKDLZ2JN
+	hq8FE7Ntgovn3AWax212o/HG7WGydAzvYc/RsQnpV5dkMXFqnhxDN1I3EXoJKvoA
+	WJXJzH+yEGtCuzsvqRv5/zrkWC+WikrvLTmZguZlOtgZGZYeKzqv0dGviuYpd+Hf
+	GH1j1QFv93OmD24TPsdAtVYsxtQ0E1fMH8uX++Bwrvfh4KQPwaB9flKUS7j86H+w
+	l2+ksjz0HRSfNSdmJutH+awkynq6s1qtB87jfyI4IJPYkkKjGqBKZJY3uKBGQLEy
+	3qyMLDUs8fQWB1BVlE5OCSH1wje2o9JQD0NZQ/YICkGoF89UO6UdyNGbxGZpzDFj
+	RrMM1iR+8rCSA623UZkQGTW9FpfGVBcgRmEhnlNcYFwUQDiKCGN/PFIUt4MYiPLQ
+	2QFjO4g=
+From: =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
+To: <linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH v3 1/2] spi: atmel-quadspi: Create `atmel_qspi_ops` to support newer SoC families
+Date: Thu, 28 Nov 2024 18:43:14 +0100
+Message-ID: <20241128174316.3209354-2-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241128174316.3209354-1-csokas.bence@prolan.hu>
+References: <20241128174316.3209354-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1732815802;VERSION=7982;MC=1870551413;ID=123205;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A29ACD94855637665
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_094150_991296_C596DACE 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241128_094333_856291_AB8317F8 
+X-CRM114-Status: GOOD (  22.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,42 +76,210 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Tudor
+ Ambarus <tudor.ambarus@linaro.org>, Mark Brown <broonie@kernel.org>, Varshini Rajendran <varshini.rajendran@microchip.com>, =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/nv-gic
-head:   cd3fedf7137034ee2858afe5fabf24784d0b3919
-commit: cd3fedf7137034ee2858afe5fabf24784d0b3919 [12/12] WIP
-config: arm64-randconfig-002-20241128 (https://download.01.org/0day-ci/archive/20241129/202411290111.GeyA5VWD-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241129/202411290111.GeyA5VWD-lkp@intel.com/reproduce)
+Refactor the code to introduce an ops struct, to prepare for merging
+support for later SoCs, such as SAMA7G5. This code was based on the
+vendor's kernel (linux4microchip). Cc'ing original contributors.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411290111.GeyA5VWD-lkp@intel.com/
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Varshini Rajendran <varshini.rajendran@microchip.com>
 
-All warnings (new ones prefixed by >>):
+Signed-off-by: Csókás, Bence <csokas.bence@prolan.hu>
+---
+ drivers/spi/atmel-quadspi.c | 111 +++++++++++++++++++++++++-----------
+ 1 file changed, 77 insertions(+), 34 deletions(-)
 
-   arch/arm64/kvm/vgic/vgic-v3-nested.c: In function 'vgic_v3_get_mi_level':
->> arch/arm64/kvm/vgic/vgic-v3-nested.c:116:1: warning: no return statement in function returning non-void [-Wreturn-type]
-     116 | }
-         | ^
-   arch/arm64/kvm/vgic/vgic-v3-nested.c: At top level:
->> arch/arm64/kvm/vgic/vgic-v3-nested.c:114:13: warning: 'vgic_v3_get_mi_level' defined but not used [-Wunused-function]
-     114 | static bool vgic_v3_get_mi_level(int intid)
-         |             ^~~~~~~~~~~~~~~~~~~~
-
-
-vim +116 arch/arm64/kvm/vgic/vgic-v3-nested.c
-
-   113	
- > 114	static bool vgic_v3_get_mi_level(int intid)
-   115	{
- > 116	}
-   117	
-
+diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+index 91108ddfaef2..c84aefa03ae8 100644
+--- a/drivers/spi/atmel-quadspi.c
++++ b/drivers/spi/atmel-quadspi.c
+@@ -138,11 +138,15 @@
+ #define QSPI_WPSR_WPVSRC_MASK           GENMASK(15, 8)
+ #define QSPI_WPSR_WPVSRC(src)           (((src) << 8) & QSPI_WPSR_WPVSRC)
+ 
++#define ATMEL_QSPI_TIMEOUT		1000	/* ms */
++
+ struct atmel_qspi_caps {
+ 	bool has_qspick;
+ 	bool has_ricr;
+ };
+ 
++struct atmel_qspi_ops;
++
+ struct atmel_qspi {
+ 	void __iomem		*regs;
+ 	void __iomem		*mem;
+@@ -150,13 +154,22 @@ struct atmel_qspi {
+ 	struct clk		*qspick;
+ 	struct platform_device	*pdev;
+ 	const struct atmel_qspi_caps *caps;
++	const struct atmel_qspi_ops *ops;
+ 	resource_size_t		mmap_size;
+ 	u32			pending;
++	u32			irq_mask;
+ 	u32			mr;
+ 	u32			scr;
+ 	struct completion	cmd_completion;
+ };
+ 
++struct atmel_qspi_ops {
++	int (*set_cfg)(struct atmel_qspi *aq, const struct spi_mem_op *op,
++		       u32 *offset);
++	int (*transfer)(struct spi_mem *mem, const struct spi_mem_op *op,
++			u32 offset);
++};
++
+ struct atmel_qspi_mode {
+ 	u8 cmd_buswidth;
+ 	u8 addr_buswidth;
+@@ -404,10 +417,60 @@ static int atmel_qspi_set_cfg(struct atmel_qspi *aq,
+ 	return 0;
+ }
+ 
++static int atmel_qspi_wait_for_completion(struct atmel_qspi *aq, u32 irq_mask)
++{
++	int err = 0;
++	u32 sr;
++
++	/* Poll INSTRuction End status */
++	sr = atmel_qspi_read(aq, QSPI_SR);
++	if ((sr & irq_mask) == irq_mask)
++		return 0;
++
++	/* Wait for INSTRuction End interrupt */
++	reinit_completion(&aq->cmd_completion);
++	aq->pending = sr & irq_mask;
++	aq->irq_mask = irq_mask;
++	atmel_qspi_write(irq_mask, aq, QSPI_IER);
++	if (!wait_for_completion_timeout(&aq->cmd_completion,
++					 msecs_to_jiffies(ATMEL_QSPI_TIMEOUT)))
++		err = -ETIMEDOUT;
++	atmel_qspi_write(irq_mask, aq, QSPI_IDR);
++
++	return err;
++}
++
++static int atmel_qspi_transfer(struct spi_mem *mem,
++			       const struct spi_mem_op *op, u32 offset)
++{
++	struct atmel_qspi *aq = spi_controller_get_devdata(mem->spi->controller);
++
++	/* Skip to the final steps if there is no data */
++	if (!op->data.nbytes)
++		return atmel_qspi_wait_for_completion(aq,
++						      QSPI_SR_CMD_COMPLETED);
++
++	/* Dummy read of QSPI_IFR to synchronize APB and AHB accesses */
++	(void)atmel_qspi_read(aq, QSPI_IFR);
++
++	/* Send/Receive data */
++	if (op->data.dir == SPI_MEM_DATA_IN)
++		memcpy_fromio(op->data.buf.in, aq->mem + offset,
++			      op->data.nbytes);
++	else
++		memcpy_toio(aq->mem + offset, op->data.buf.out,
++			    op->data.nbytes);
++
++	/* Release the chip-select */
++	atmel_qspi_write(QSPI_CR_LASTXFER, aq, QSPI_CR);
++
++	return atmel_qspi_wait_for_completion(aq, QSPI_SR_CMD_COMPLETED);
++}
++
+ static int atmel_qspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
+ {
+ 	struct atmel_qspi *aq = spi_controller_get_devdata(mem->spi->controller);
+-	u32 sr, offset;
++	u32 offset;
+ 	int err;
+ 
+ 	/*
+@@ -416,46 +479,20 @@ static int atmel_qspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
+ 	 * when the flash memories overrun the controller's memory space.
+ 	 */
+ 	if (op->addr.val + op->data.nbytes > aq->mmap_size)
+-		return -ENOTSUPP;
++		return -EOPNOTSUPP;
++
++	if (op->addr.nbytes > 4)
++		return -EOPNOTSUPP;
+ 
+ 	err = pm_runtime_resume_and_get(&aq->pdev->dev);
+ 	if (err < 0)
+ 		return err;
+ 
+-	err = atmel_qspi_set_cfg(aq, op, &offset);
++	err = aq->ops->set_cfg(aq, op, &offset);
+ 	if (err)
+ 		goto pm_runtime_put;
+ 
+-	/* Skip to the final steps if there is no data */
+-	if (op->data.nbytes) {
+-		/* Dummy read of QSPI_IFR to synchronize APB and AHB accesses */
+-		(void)atmel_qspi_read(aq, QSPI_IFR);
+-
+-		/* Send/Receive data */
+-		if (op->data.dir == SPI_MEM_DATA_IN)
+-			memcpy_fromio(op->data.buf.in, aq->mem + offset,
+-				      op->data.nbytes);
+-		else
+-			memcpy_toio(aq->mem + offset, op->data.buf.out,
+-				    op->data.nbytes);
+-
+-		/* Release the chip-select */
+-		atmel_qspi_write(QSPI_CR_LASTXFER, aq, QSPI_CR);
+-	}
+-
+-	/* Poll INSTRuction End status */
+-	sr = atmel_qspi_read(aq, QSPI_SR);
+-	if ((sr & QSPI_SR_CMD_COMPLETED) == QSPI_SR_CMD_COMPLETED)
+-		goto pm_runtime_put;
+-
+-	/* Wait for INSTRuction End interrupt */
+-	reinit_completion(&aq->cmd_completion);
+-	aq->pending = sr & QSPI_SR_CMD_COMPLETED;
+-	atmel_qspi_write(QSPI_SR_CMD_COMPLETED, aq, QSPI_IER);
+-	if (!wait_for_completion_timeout(&aq->cmd_completion,
+-					 msecs_to_jiffies(1000)))
+-		err = -ETIMEDOUT;
+-	atmel_qspi_write(QSPI_SR_CMD_COMPLETED, aq, QSPI_IDR);
++	err = aq->ops->transfer(mem, op, offset);
+ 
+ pm_runtime_put:
+ 	pm_runtime_mark_last_busy(&aq->pdev->dev);
+@@ -599,12 +636,17 @@ static irqreturn_t atmel_qspi_interrupt(int irq, void *dev_id)
+ 		return IRQ_NONE;
+ 
+ 	aq->pending |= pending;
+-	if ((aq->pending & QSPI_SR_CMD_COMPLETED) == QSPI_SR_CMD_COMPLETED)
++	if ((aq->pending & aq->irq_mask) == aq->irq_mask)
+ 		complete(&aq->cmd_completion);
+ 
+ 	return IRQ_HANDLED;
+ }
+ 
++static const struct atmel_qspi_ops atmel_qspi_ops = {
++	.set_cfg = atmel_qspi_set_cfg,
++	.transfer = atmel_qspi_transfer,
++};
++
+ static int atmel_qspi_probe(struct platform_device *pdev)
+ {
+ 	struct spi_controller *ctrl;
+@@ -629,6 +671,7 @@ static int atmel_qspi_probe(struct platform_device *pdev)
+ 
+ 	init_completion(&aq->cmd_completion);
+ 	aq->pdev = pdev;
++	aq->ops = &atmel_qspi_ops;
+ 
+ 	/* Map the registers */
+ 	aq->regs = devm_platform_ioremap_resource_byname(pdev, "qspi_base");
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
+
+
 
