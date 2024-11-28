@@ -4,105 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C46D690FA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 11:10:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D1DD690FA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 11:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b1Wcwlnhvtt7fBxRnj8dBPn0bcnKt+k4WmlQ44GnyPk=; b=0ONfnUjRUkLnCPdYdE8cz+DGnI
-	Mfs+mqvN+Z6WNOdt5Q/+IDtEv3JzjVUdJUf1IQW4AITVKmPlKtLJGk5FwrAFt4Gpc6Jv+tV1l2MrF
-	U77bg4Y8vzjMR/h6d2cD4awtnySVu6Yl50JSN39Gs7fZdgXF+B8TEvJ41FEFLKQQ7Y4ZWFZtmytz5
-	Sd4mLCKvdYWE5elhq/BKPmsehCvi7ISdaTtI4i70XUIh9VLzWs3U+2rLxW5aMJK3XpwMUQfutR3aw
-	g6vvfmBJwXPUrVtP1dex6lWTIgRcmib3d76TFIM+YI7r+Z1qmJw8Y99ZeuelhPpubaw+SxCD0CorR
-	i86EYfGw==;
+	bh=BepIv+zsVxwnGd+vRGJKobT/i3K2E0sdG4yWASd1NkE=; b=lYUY+KGlvQv4e+9RTPd4Ae4Uo8
+	/P7/OyV2Sajln0pegUbjMRJh7C4ZLpkNIEaKkJvpjYKana27xjgZE88seKk58+A1HWmrbTt/j6zhI
+	0n7tQGVYAu+sAJw0AcXd4xsgLNAHQO7buwJ91ELvFBabBzsFrBuzlVl50mukXqV8AwysmI4DllrQT
+	2PJTdC9Ol7YvHq7+SgRNVfhqEibCA0tGuV9oV5gZ59au1EuRmkoijWsF6onsrzq2eJLMV65lNQ67e
+	fgDrhz3fz2MOP90/Yq1wtI2lNkqngJeC8Sb3a8/EAUVnB2TdAq6kFL1vt1uKK2IEDW5VspNnu4suA
+	xgBUkcyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGcQ1-0000000FKiq-2uw4;
-	Thu, 28 Nov 2024 11:10:45 +0000
-Received: from cpanel.siel.si ([46.19.9.99])
+	id 1tGcVT-0000000FLMS-1Ozr;
+	Thu, 28 Nov 2024 11:16:23 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGcOv-0000000FKWY-07lG
+	id 1tGcUU-0000000FLFe-0zLt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 11:09:39 +0000
-Received: from [89.212.21.243] (port=60100 helo=[192.168.69.52])
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96.2)
-	(envelope-from <andrej.picej@norik.com>)
-	id 1tGcOq-00CLXV-1R;
-	Thu, 28 Nov 2024 12:09:32 +0100
-Message-ID: <9b3e439b-269d-488a-a0aa-13a22d21619c@norik.com>
-Date: Thu, 28 Nov 2024 12:09:31 +0100
+	Thu, 28 Nov 2024 11:15:23 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1732792520;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BepIv+zsVxwnGd+vRGJKobT/i3K2E0sdG4yWASd1NkE=;
+	b=p1sHVd2nF4+Wcf895ouKTQQoSekm/Z0/pHKLqMXZfyVoZtPx8ito7bNXqvpFFTTrgsBGir
+	z2WPrTjtm0R+7d4vtevK5z8bJb/Ic16GEiXqO0c2ssuAqKxgxC/+nTMGgX5EGx8eHVvEoQ
+	1JnFUDIuFcG4BarV6+JuDFjT+9lmHDBA3++qPXTgD3L+zDK62nsydQfuF+FA0CM16Pob+S
+	g6WljcbwJljkAvWZHAjAPwTnytNkqNEDAxaLlcGiAkNbZDS/dZMPL1RxbR7KBCAGBhPWJ2
+	ZNZAHvN4yWTGwIlyiyYK1p26sLaYMeM/YRaoszgZLqIR4lg0ozZLDS0ZsIabAA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1732792520;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BepIv+zsVxwnGd+vRGJKobT/i3K2E0sdG4yWASd1NkE=;
+	b=CYR8n5Xj31ApiPOAIzYejnuG5cbHitE/iV/uP91bN59JLrhalJuYwg4IpOGHOFgzhEcEJu
+	BIP3cMUELs1sUDDg==
+To: Jason Gunthorpe <jgg@nvidia.com>, Eric Auger <eric.auger@redhat.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, Alex Williamson
+ <alex.williamson@redhat.com>, Nicolin Chen <nicolinc@nvidia.com>,
+ maz@kernel.org, bhelgaas@google.com, leonro@nvidia.com,
+ shameerali.kolothum.thodi@huawei.com, dlemoal@kernel.org,
+ kevin.tian@intel.com, smostafa@google.com,
+ andriy.shevchenko@linux.intel.com, reinette.chatre@intel.com,
+ ddutile@redhat.com, yebin10@huawei.com, brauner@kernel.org,
+ apatel@ventanamicro.com, shivamurthy.shastri@linutronix.de,
+ anna-maria@linutronix.de, nipun.gupta@amd.com,
+ marek.vasut+renesas@mailbox.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+ kvm@vger.kernel.org
+Subject: Re: [PATCH RFCv1 0/7] vfio: Allow userspace to specify the address
+ for each MSI vector
+In-Reply-To: <20241120140337.GA772273@nvidia.com>
+References: <cover.1731130093.git.nicolinc@nvidia.com>
+ <a63e7c3b-ce96-47a5-b462-d5de3a2edb56@arm.com>
+ <ZzPOsrbkmztWZ4U/@Asurada-Nvidia> <20241113013430.GC35230@nvidia.com>
+ <20241113141122.2518c55a.alex.williamson@redhat.com>
+ <2621385c-6fcf-4035-a5a0-5427a08045c8@arm.com>
+ <66977090-d707-4585-b0c5-8b48f663827e@redhat.com>
+ <20241120140337.GA772273@nvidia.com>
+Date: Thu, 28 Nov 2024 12:15:20 +0100
+Message-ID: <87frnby5h3.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] sn65dsi83: Add LVDS_VCOM option in device-tree
-From: Andrej Picej <andrej.picej@norik.com>
-To: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, marex@denx.de
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org,
- PHYTEC Upstream <upstream@lists.phytec.de>
-References: <20241127103031.1007893-1-andrej.picej@norik.com>
-Content-Language: en-US
-Autocrypt: addr=andrej.picej@norik.com; keydata=
- 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
- xtT/8OxBOVSHvA==
-In-Reply-To: <20241127103031.1007893-1-andrej.picej@norik.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
-X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_030937_229149_B1B6E942 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241128_031522_420920_2AF6A454 
+X-CRM114-Status: GOOD (  30.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,31 +94,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Forgot to CC PHYTEC upstream mailing list. Doing this now.
+On Wed, Nov 20 2024 at 10:03, Jason Gunthorpe wrote:
+> On Wed, Nov 20, 2024 at 02:17:46PM +0100, Eric Auger wrote:
+>> > Yeah, I wasn't really suggesting to literally hook into this exact
+>> > case; it was more just a general observation that if VFIO already has
+>> > one justification for tinkering with pci_write_msi_msg() directly
+>> > without going through the msi_domain layer, then adding another
+>> > (wherever it fits best) can't be *entirely* unreasonable.
+>
+> I'm not sure that we can assume VFIO is the only thing touching the
+> interrupt programming.
 
-On 27. 11. 24 11:30, Andrej Picej wrote:
-> Hi all,
+Correct.
+
+> I think there is a KVM path, and also the /proc/ path that will change
+> the MSI affinity on the fly for a VFIO created IRQ. If the platform
+> requires a MSI update to do this (ie encoding affinity in the
+> add/data, not using IRQ remapping HW) then we still need to ensure the
+> correct MSI address is hooked in.
+
+Yes.
+
+>> >> Is it possible to do this with the existing write_msi_msg callback on
+>> >> the msi descriptor?=C2=A0 For instance we could simply translate the =
+msg
+>> >> address and call pci_write_msi_msg() (while avoiding an infinite
+>> >> recursion).=C2=A0 Or maybe there should be an xlate_msi_msg callback =
+we can
+>> >> register.=C2=A0 Or I suppose there might be a way to insert an irqchi=
+p that
+>> >> does the translation on write.=C2=A0 Thanks,
+>> >
+>> > I'm far from keen on the idea, but if there really is an appetite for
+>> > more indirection, then I guess the least-worst option would be yet
+>> > another type of iommu_dma_cookie to work via the existing
+>> > iommu_dma_compose_msi_msg() flow,=20
 >
-> This patch series depends on the patch
-> "[PATCH 11/15] arm64: dts: imx8mm-phyboard-polis: Add support for PEB-AV-10"
-> (https://lore.kernel.org/linux-arm-kernel/20241125081814.397352-12-andrej.picej@norik.com/)
-> which is currently under review. Please apply the dependent series first before
-> applying this one.
+> For this direction I think I would turn iommu_dma_compose_msi_msg()
+> into a function pointer stored in the iommu_domain and have
+> vfio/iommufd provide its own implementation. The thing that is in
+> control of the domain's translation should be providing the msi_msg.
+
+Yes. The resulting cached message should be writeable as is.
+
+>> > update per-device addresses direcitly. But then it's still going to
+>> > need some kind of "layering violation" for VFIO to poke the IRQ layer
+>> > into re-composing and re-writing a message whenever userspace feels
+>> > like changing an address
 >
-> Best regards,
-> Andrej
->
-> Andrej Picej (1):
->    arm64: dts: imx8mm-phyboard-polis-peb-av-10: Set custom lvds_vcom
->
-> Janine Hagemann (2):
->    dt-bindings: drm/bridge: ti-sn65dsi83: Add optional property
->      ti,lvds-vcom
->    drm/bridge: ti-sn65dsi83: Add ti,lvds-vcom as optional property
->
->   .../bindings/display/bridge/ti,sn65dsi83.yaml      | 14 +++++++++++++-
->   .../freescale/imx8mm-phyboard-polis-peb-av-10.dtso |  1 +
->   drivers/gpu/drm/bridge/ti-sn65dsi83.c              | 10 +++++++++-
->   3 files changed, 23 insertions(+), 2 deletions(-)
->
+> I think we'd need to get into the affinity update path and force a MSI
+> write as well, even if the platform isn't changing the MSI for
+> affinity. Processing a vMSI entry update would be two steps where we
+> update the MSI addr in VFIO and then set the affinity.
+
+The affinity callback of the domain/chip can return IRQ_SET_MASK_OK_DONE
+which prevents recomposing and writing the message.
+
+So you want a explicit update/write of the message similar to what
+msi_domain_activate() does.
+
+Thanks,
+
+        tglx
 
