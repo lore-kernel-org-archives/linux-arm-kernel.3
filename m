@@ -4,78 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F5ABD690E8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 08:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADAC9D690E8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 08:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QjeMdtNt1+e4a2TwpMF2rrs8wuHFTMYgg8Pn0QLiQhM=; b=m6i8voMk2gBBmAi2pa3QgWFBGu
-	x8LusViW4o7RInwjLz4NBV7D7+4WnhFS6gUwhR4gy2vh1LPrU7hv5zvA3GycwOVWRSI8t6+9BG0jE
-	O9KdcqGG7B9gxeDQcO1mhemdr+kQGlJXJynwTxFXOgtCUfQ11WbmjQWY/WPyAhyU8AfSTywLlYzp3
-	5PoKPmN4YKq++cSSojjnOXCugDDdh/nbCLYtFx6aTskUGZkl9ufNOzsD2yiochOnDAin8w8n9kasC
-	wh+C7m+DKGda3YR0V4QAk59Y8iNjGZGbcXCsL4w7cfTVIOXIJkNajx8TZlyJ/xUROmhrXqIbJiBMF
-	oAVwWXkQ==;
+	bh=dCHoMZljwupAArAhOkHlJt5gLd1YdrlFgspbgbl8drk=; b=eXGc5E/Q0EsMl8uT6OJTziIu5m
+	RUpcXvFlfoYFfTV3RMgQQd/q2X9iLP9PCfvbrW/W5jTRYrvJyb6cbKAEz1b1f1vMu9AGelBJYHmjn
+	dKWsNOvkC5Zzag1bs9VRvfFvaYLTbc5p5Ip9c9aC/gs2sXL7eVWzoSw77MbHOjoJ6dbGlxJ+YJUj3
+	Vtj5CtjdGY7oKkv0LbnJUzbUMVsB11CjTcmcGrAU+rixBtWvqy23nd+slW1sI4Q3S3IPtjK6AiG6R
+	SnsTotVul+h24GDbdB+04M3z1Tf/0UudFi6MAZSspNyp2XT1Lr7MfW76EbQRLZKhPf03JWBlHFjUM
+	kMv48tPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGZh3-0000000ExlU-1aSP;
-	Thu, 28 Nov 2024 08:16:09 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1tGZjr-0000000EyDL-29BQ;
+	Thu, 28 Nov 2024 08:19:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGZg3-0000000Exey-3JL0;
-	Thu, 28 Nov 2024 08:15:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1732781694; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=IX5730+8nKj3sLJJvh7RomX2Bs+xolk30lhON7oLa00kJidON75pXFhsTmEGgcAW9b2qnIjoddSqWlEG0ut7tGzImbDmYZjCFgDfUNhl6/6t+7+EPzcPFhYgOrxs8JDejMJ04f7MRdujQsl7VzotuCRZXdML8iQneCaqdGpiBsQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1732781694; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=QjeMdtNt1+e4a2TwpMF2rrs8wuHFTMYgg8Pn0QLiQhM=; 
-	b=c0bO1NJUGND8z0Y4gLrSaYaGMfxAbPVQZVA1BZdg4iE6Pi3TqeuXPaphf7tAMGd952CUnr4ZswDBy/l6mZAxgZh/I2iGaYYwVL1LJOGzmHdTsP2B3oX/rWqKMsmBDXkBwuCUg3EhzCyKkaPhdMJVxbZ8aVdoOpnjb6T+wvmoHaQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=Usama.Anjum@collabora.com;
-	dmarc=pass header.from=<Usama.Anjum@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1732781694;
-	s=zohomail; d=collabora.com; i=Usama.Anjum@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Cc:Cc:Subject:Subject:To:To:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=QjeMdtNt1+e4a2TwpMF2rrs8wuHFTMYgg8Pn0QLiQhM=;
-	b=eClgEsKbSxmj5sTOLfyh5NKXzEfPT9e7i7v9Tl02dzQ6xGxjxaTk1hHxvZTtbnaZ
-	dQ73cjyu/pfAZJfTvOezFTgeELmmmwGEhg71PrNe72w6ACQZ7dh69Yq6MGFSHqVTDsE
-	ziYsaq6zsfdCO0SLThzs/u60o3OeJ2VKpcIMgeyE=
-Received: by mx.zohomail.com with SMTPS id 1732781693505946.223322327641;
-	Thu, 28 Nov 2024 00:14:53 -0800 (PST)
-Message-ID: <4431aa18-c518-4396-87e8-04176eabdd49@collabora.com>
-Date: Thu, 28 Nov 2024 13:14:50 +0500
+	id 1tGZis-0000000Ey4b-3x5X
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 Nov 2024 08:18:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C16135C59ED;
+	Thu, 28 Nov 2024 08:17:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C3CAC4CECE;
+	Thu, 28 Nov 2024 08:17:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732781881;
+	bh=eaJUqJCbsZi7hy1XkH+mjMCn/jPIKtO2zNY74RJZ6+4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JRuF+cpI3WKLwTt8tmD88JGC1VSZfQY+eH6/aA01JQ7zyKeUKP8LrlBJYIeI6ixQP
+	 v0uuo8/TfBuryqrnGROwQBisnVy/sixxHBiT0d9DLiHYlgx90E1UUiui/M9Vjch3gy
+	 CtJZq/cLZFDY6HG2ri7Hu2q7BRF08Wq2OfZBSU6YBvKVu/hPjO+o95XgrNMlIpfdwl
+	 cfYmsoHXibK1CwLXk4iQU9zHUNf52KcIOlu7yfjgEe/BRchWLZ/JpBubnrfc1zL7QU
+	 HR9yLrwQVDhmzZhvu9COMpJjy+ECyjJi8oq/Au5dbMHDmj7CVoANMq5XrmlPIGu2Xj
+	 /baySCDD4pRMg==
+Message-ID: <8325415b-4af9-4bef-8310-39410b10aa84@kernel.org>
+Date: Thu, 28 Nov 2024 09:17:55 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: Usama.Anjum@collabora.com, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Andrew Jones <ajones@ventanamicro.com>,
- James Houghton <jthoughton@google.com>
-Subject: Re: [PATCH v4 01/16] KVM: Move KVM_REG_SIZE() definition to common
- uAPI header
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Paolo Bonzini <pbonzini@redhat.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>
-References: <20241128005547.4077116-1-seanjc@google.com>
- <20241128005547.4077116-2-seanjc@google.com>
+Subject: Re: [PATCH 2/6] dt-bindings: usb: max33359: add max77759 flavor
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jagan Sridharan <badhri@google.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>,
+ kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org
+References: <20241127-gs101-phy-lanes-orientation-dts-v1-0-5222d8508b71@linaro.org>
+ <20241127-gs101-phy-lanes-orientation-dts-v1-2-5222d8508b71@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Muhammad Usama Anjum <Usama.Anjum@collabora.com>
-In-Reply-To: <20241128005547.4077116-2-seanjc@google.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241127-gs101-phy-lanes-orientation-dts-v1-2-5222d8508b71@linaro.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_001508_739500_FC0F15AE 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20241128_001803_066889_27B64294 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,69 +128,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/28/24 5:55 AM, Sean Christopherson wrote:
-> Define KVM_REG_SIZE() in the common kvm.h header, and delete the arm64 and
-> RISC-V versions.  As evidenced by the surrounding definitions, all aspects
-> of the register size encoding are generic, i.e. RISC-V should have moved
-> arm64's definition to common code instead of copy+pasting.
+On 27/11/2024 12:01, André Draszik wrote:
+> On the surface, Maxim's max77759 appears identical to max33359. It
+> should still have a dedicated compatible, though, as it is a different
+> IC. This will allow for handling differences in case they are
+> discovered in the future.
 > 
-> Acked-by: Anup Patel <anup@brainfault.org>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
-
-> ---
->  arch/arm64/include/uapi/asm/kvm.h | 3 ---
->  arch/riscv/include/uapi/asm/kvm.h | 3 ---
->  include/uapi/linux/kvm.h          | 4 ++++
->  3 files changed, 4 insertions(+), 6 deletions(-)
+> max77759 is used on Google Pixel 6 and Pixel 6 Pro.
 > 
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index 66736ff04011..568bf858f319 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -43,9 +43,6 @@
->  #define KVM_COALESCED_MMIO_PAGE_OFFSET 1
->  #define KVM_DIRTY_LOG_PAGE_OFFSET 64
->  
-> -#define KVM_REG_SIZE(id)						\
-> -	(1U << (((id) & KVM_REG_SIZE_MASK) >> KVM_REG_SIZE_SHIFT))
-> -
->  struct kvm_regs {
->  	struct user_pt_regs regs;	/* sp = sp_el0 */
->  
-> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> index 3482c9a73d1b..9f60d6185077 100644
-> --- a/arch/riscv/include/uapi/asm/kvm.h
-> +++ b/arch/riscv/include/uapi/asm/kvm.h
-> @@ -211,9 +211,6 @@ struct kvm_riscv_sbi_sta {
->  #define KVM_RISCV_TIMER_STATE_OFF	0
->  #define KVM_RISCV_TIMER_STATE_ON	1
->  
-> -#define KVM_REG_SIZE(id)		\
-> -	(1U << (((id) & KVM_REG_SIZE_MASK) >> KVM_REG_SIZE_SHIFT))
-> -
->  /* If you need to interpret the index values, here is the key: */
->  #define KVM_REG_RISCV_TYPE_MASK		0x00000000FF000000
->  #define KVM_REG_RISCV_TYPE_SHIFT	24
-> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> index 502ea63b5d2e..343de0a51797 100644
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -1070,6 +1070,10 @@ struct kvm_dirty_tlb {
->  
->  #define KVM_REG_SIZE_SHIFT	52
->  #define KVM_REG_SIZE_MASK	0x00f0000000000000ULL
-> +
-> +#define KVM_REG_SIZE(id)		\
-> +	(1U << (((id) & KVM_REG_SIZE_MASK) >> KVM_REG_SIZE_SHIFT))
-> +
->  #define KVM_REG_SIZE_U8		0x0000000000000000ULL
->  #define KVM_REG_SIZE_U16	0x0010000000000000ULL
->  #define KVM_REG_SIZE_U32	0x0020000000000000ULL
+> Add a dedicated compatible to allow for potential differences in the
+> future.
+> 
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
 
+This should be sent separately to USB.
 
--- 
-BR,
-Muhammad Usama Anjum
+Best regards,
+Krzysztof
 
