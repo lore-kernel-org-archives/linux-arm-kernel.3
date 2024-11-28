@@ -4,79 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0D0BD70DE6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 16:53:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E407D70DE6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 16:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JPdcFh0PVYihDBkq+oMhn552d9KaSSbdSDKlEEXekxo=; b=2EzFqbJ5O303XLLx+Gxz7JodMe
-	5HuE1bRxfr8NnfjbJIMg9glg8xmzeUpHL7vrMvDKhGDgVjOqW/caijR9jIW2He6ST/aOIf6QgOWwU
-	7HalynifiVP/Po5YKoXO1BeSKj1QYl8BnEeVVhbwS3jfXup1ObKurQAO/hhQBMpz+bshcHcwY7BqJ
-	Q/lpp13KOv7sLskpzA/YV6VVBuhTiAaUP4HsT+wkcDzIGRhDrx78Y6dObKTKnpiGFfRnKiuQ+sL9M
-	DG/cK0GgAR2pxFMP6fEh8EpyGpZaMLMCSkLD5TkxjO6vQrE9fIlZiuEkWk+a9lwTrX2FYmPs2g7aH
-	W+pVEbWg==;
+	bh=fwUTRo1VcV5L2ms0UHiCZfTZhcqN8wAszZbuu77OL88=; b=MHhPwdGUPBeUBfXcRK/2dK4s9/
+	qceHuKn9gD5dL9j2jvrUbEv55IqJE0CNAbYxxQvsnYoTqbMrYN0ooyWSWiBS5BUlK7ZIYn7FKgFDL
+	u7+2LW7JNH3Zdw4gVqPozJkmUqV/iiUXUg4KGOObMMgi2ykPNNrJ1Y4Gr7ozY9Go88ExNPe+icb2r
+	ijyDJ+I9WCjfUpXGHRZrxmce+5YliB08kZSeXTQ8HnQMuekvlhqULwz3PWkSEofsv45waBPqrlgY5
+	FLX9wmPz4wXbQ613nraVhwnnHAvNgKhYHSzeaVMeM+vbrzOMsf4HFmBqEObVTvvHMjd/CAPADQh+b
+	yi/+OhmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGhlb-0000000G2YN-0CsA;
-	Thu, 28 Nov 2024 16:53:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tGhoB-0000000G2kz-3Y4N;
+	Thu, 28 Nov 2024 16:56:03 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGhkb-0000000G2Pd-0DZA
+	id 1tGhnC-0000000G2gT-2Jn5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 16:52:22 +0000
+	Thu, 28 Nov 2024 16:55:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 349C15C5DE6;
-	Thu, 28 Nov 2024 16:51:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A34BC4CECE;
-	Thu, 28 Nov 2024 16:52:19 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BEFD8A4161D;
+	Thu, 28 Nov 2024 16:53:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32121C4CECE;
+	Thu, 28 Nov 2024 16:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732812739;
-	bh=dvQEqAMMVBetwcgzVYNkCxfdi2w/wGckBTs6rFErkds=;
+	s=k20201202; t=1732812901;
+	bh=YwzYXQQq3PduI6mkTkLVl7oUIo7981wZ6zepu2PhfMA=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=MtRWRKHLz5x+AsW9kqDHUTkNjsDiNO/Zx1wSlQ9XD8FUBKGTVo6ihqaVNyGNpdZc2
-	 wumjR408IYB9xBcUKSmUMtiXaCVCybzDT3r0u7v7cUijleLr1hpnqpmLCan+rC1ZhP
-	 hTzC2UwTsR2kCBSDXlEYSYltl1XTKZMgiexdnDuHeD6F3tYh1Ot4Q6iNfrN4Y3nkBn
-	 79tCU9PPwJF9v4ap87SAc8KSgyyoGyQvaahGSObY4poMSJearQ7Yz+ROjybpoqq5HT
-	 v73I2p+lUViZdACHR6X0ZNLbvC5LWmHPPDMr7CQgmwIO7zncoWcuxD+R3lCbaHtLBp
-	 b7xpzwpV/8rKQ==
+	b=GZQe1dY8Y3NwdsG2P3Wegn7usqacuzQ1eO3+0YEDS721qUuejSYq6sMzGYNxgarre
+	 S8uGnO6a9WO/o1B1hvbbZ2ZfvpA1aO17vhvpqtaOba1Ep9jFfu694p3ndrYFI2igYA
+	 34dzJgzBGskzDzGzewdDNvpfpqrX+9+VOu63C0FaW0b6feI5wsToKdFFy5ab8I8WJI
+	 EWWt8Xw+Pq+80aILoCYFOCR0VOrwzyOvfdvII7B0YWOHAyUpr3gMi6ax6NszXYqT9m
+	 U+ysqWTSmJUEDI3PcYcvf0itnCUfdQ0CooHqyVInJgiWirbZovG5T6UP+wAXZpUkmS
+	 uxLIcnxklrkqw==
 Received: from [37.171.122.54] (helo=wait-a-minute.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tGhkW-00GaEB-It;
-	Thu, 28 Nov 2024 16:52:16 +0000
-Date: Thu, 28 Nov 2024 16:52:14 +0000
-Message-ID: <87y113s3lt.wl-maz@kernel.org>
+	id 1tGhn8-00GaG1-Rm;
+	Thu, 28 Nov 2024 16:54:59 +0000
+Date: Thu, 28 Nov 2024 16:54:57 +0000
+Message-ID: <87wmgns3ha.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
+To: Keisuke Nishimura <keisuke.nishimura@inria.fr>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Zi Yan <ziy@nvidia.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arch_numa: Restore nid checks before registering a memblock with a node
-In-Reply-To: <Z0gVxWstZdKvhY6m@kernel.org>
-References: <20241127193000.3702637-1-maz@kernel.org>
-	<Z0gVxWstZdKvhY6m@kernel.org>
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH] KVM: arm/arm64: vgic-its: Add error handling in vgic_its_cache_translation
+In-Reply-To: <20241128134534.361144-1-keisuke.nishimura@inria.fr>
+References: <20241128134534.361144-1-keisuke.nishimura@inria.fr>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 37.171.122.54
-X-SA-Exim-Rcpt-To: rppt@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org, ziy@nvidia.com, dan.j.williams@intel.com, david@redhat.com, akpm@linux-foundation.org, stable@vger.kernel.org
+X-SA-Exim-Rcpt-To: keisuke.nishimura@inria.fr, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_085221_177327_3C187F22 
-X-CRM114-Status: GOOD (  20.63  )
+X-CRM114-CacheID: sfid-20241128_085502_731814_2C2D1D24 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,52 +87,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
-
-On Thu, 28 Nov 2024 07:03:33 +0000,
-Mike Rapoport <rppt@kernel.org> wrote:
+On Thu, 28 Nov 2024 13:45:34 +0000,
+Keisuke Nishimura <keisuke.nishimura@inria.fr> wrote:
 > 
-> Hi Marc,
-> 
-> > diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
-> > index e187016764265..5457248eb0811 100644
-> > --- a/drivers/base/arch_numa.c
-> > +++ b/drivers/base/arch_numa.c
-> > @@ -207,7 +207,21 @@ static void __init setup_node_data(int nid, u64 start_pfn, u64 end_pfn)
-> >  static int __init numa_register_nodes(void)
-> >  {
-> >  	int nid;
-> > -
-> > +	struct memblock_region *mblk;
-> > +
-> > +	/* Check that valid nid is set to memblks */
-> > +	for_each_mem_region(mblk) {
-> > +		int mblk_nid = memblock_get_region_node(mblk);
-> > +		phys_addr_t start = mblk->base;
-> > +		phys_addr_t end = mblk->base + mblk->size - 1;
-> > +
-> > +		if (mblk_nid == NUMA_NO_NODE || mblk_nid >= MAX_NUMNODES) {
-> > +			pr_warn("Warning: invalid memblk node %d [mem %pap-%pap]\n",
-> > +				mblk_nid, &start, &end);
-> > +			return -EINVAL;
-> > +		}
-> 
-> We have memblock_validate_numa_coverage() that checks that amount of memory
-> with unset node id is less than a threshold. The loop here can be replaced
-> with something like
-> 
-> 	if (!memblock_validate_numa_coverage(0))
-> 		return -EINVAL;
+> The xa_store() may fail because there is no guarantee that the cache_key
+> index is already used in its->translation_cache. This fix (1) resolves
+> the kref inconsistency on failure and (2) returns the error code.
 
-Unfortunately, that doesn't seem to result in something that works
-(relevant extract only):
+Please describe the failure mode. Under which circumstances can this
+fail?
 
-[    0.000000] NUMA: no nodes coverage for 9MB of 65516MB RAM
-[    0.000000] NUMA: Faking a node at [mem 0x0000000000500000-0x0000000fff0fffff]
-[    0.000000] NUMA: no nodes coverage for 0MB of 65516MB RAM
-[    0.000000] Unable to handle kernel paging request at virtual address 0000000000001d40
+> 
+> Fixes: 8201d1028caa ("KVM: arm64: vgic-its: Maintain a translation cache per ITS")
+> Signed-off-by: Keisuke Nishimura <keisuke.nishimura@inria.fr>
+> ---
+>  arch/arm64/kvm/vgic/vgic-its.c | 16 ++++++++++++----
+>  1 file changed, 12 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index 198296933e7e..8f423857b7d2 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -555,7 +555,7 @@ static struct vgic_irq *vgic_its_check_cache(struct kvm *kvm, phys_addr_t db,
+>  	return irq;
+>  }
+>  
+> -static void vgic_its_cache_translation(struct kvm *kvm, struct vgic_its *its,
+> +static int vgic_its_cache_translation(struct kvm *kvm, struct vgic_its *its,
+>  				       u32 devid, u32 eventid,
+>  				       struct vgic_irq *irq)
+>  {
+> @@ -564,7 +564,11 @@ static void vgic_its_cache_translation(struct kvm *kvm, struct vgic_its *its,
+>  
+>  	/* Do not cache a directly injected interrupt */
+>  	if (irq->hw)
+> -		return;
+> +		return 0;
+> +
+> +	old = xa_store(&its->translation_cache, cache_key, irq, GFP_KERNEL_ACCOUNT);
+> +	if (xa_is_err(old))
+> +		return xa_err(old);
 
-Any idea?
+Accessing the translation cache before the assert that checks the ITS
+lock is on its own pretty dodgy...
+
+Thanks,
 
 	M.
 
