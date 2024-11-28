@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF351D70DE3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 16:51:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0D0BD70DE6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 16:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YRg/7d6YJzOoez+QkfVBlbg77QpvQiIofJH2zZ3Hjtg=; b=zOSvFjpf31ekW6T+fkGaHc374C
-	SJ4WbCIzCEVB6JYMGo1Mnw2NAeREkSq39Kem4hds7mBkhr2DUgxkZ2KPs5c+wSVjAu/+W0i3yu6he
-	vFxNIZPs7kUmK21Tpu4Zd4tKjcv7R+/aG2pBGK2BKq1HfMPelO5nBXAFYRksEBILnnFE0BvTTCHqf
-	FZnw+6/HZhIRyP43vSzvTaxJry9qbxo7s8KQXZJXna3sW7mp6tlMbNVP6+/uLGjmP8UzI20aifYvX
-	Hc7h1OpimooHw5eJDZCAQUAgT/J9xyQQ40RGh3BiBwKJ+BxBegT79/wiPkajpLDHiMYUeuvRsJsw5
-	wVXJcMBA==;
+	bh=JPdcFh0PVYihDBkq+oMhn552d9KaSSbdSDKlEEXekxo=; b=2EzFqbJ5O303XLLx+Gxz7JodMe
+	5HuE1bRxfr8NnfjbJIMg9glg8xmzeUpHL7vrMvDKhGDgVjOqW/caijR9jIW2He6ST/aOIf6QgOWwU
+	7HalynifiVP/Po5YKoXO1BeSKj1QYl8BnEeVVhbwS3jfXup1ObKurQAO/hhQBMpz+bshcHcwY7BqJ
+	Q/lpp13KOv7sLskpzA/YV6VVBuhTiAaUP4HsT+wkcDzIGRhDrx78Y6dObKTKnpiGFfRnKiuQ+sL9M
+	DG/cK0GgAR2pxFMP6fEh8EpyGpZaMLMCSkLD5TkxjO6vQrE9fIlZiuEkWk+a9lwTrX2FYmPs2g7aH
+	W+pVEbWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGhjG-0000000G258-2I43;
-	Thu, 28 Nov 2024 16:50:58 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tGhlb-0000000G2YN-0CsA;
+	Thu, 28 Nov 2024 16:53:23 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGhiG-0000000G1uH-37Fl
+	id 1tGhkb-0000000G2Pd-0DZA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 16:49:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=YRg/7d6YJzOoez+QkfVBlbg77QpvQiIofJH2zZ3Hjtg=; b=LsMx96iWwDND2at+8Wjl7oCHaL
-	ocO4idUaabSGW+jJXM0iWz9v9g3jsiZcEvFNARD91lU3/R7tRERvjwy89136atw1HGSjnHqL0jDhk
-	5QtkfFAHTNemlNm+ddEmqUOwQoOSYLjhAN49Y0T19rRW3r02CY9NLpVxxJAq1L3GGQAM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tGhi9-00Einh-Od; Thu, 28 Nov 2024 17:49:49 +0100
-Date: Thu, 28 Nov 2024 17:49:49 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jingyi Wang <quic_jingyw@quicinc.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Thu, 28 Nov 2024 16:52:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 349C15C5DE6;
+	Thu, 28 Nov 2024 16:51:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A34BC4CECE;
+	Thu, 28 Nov 2024 16:52:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732812739;
+	bh=dvQEqAMMVBetwcgzVYNkCxfdi2w/wGckBTs6rFErkds=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=MtRWRKHLz5x+AsW9kqDHUTkNjsDiNO/Zx1wSlQ9XD8FUBKGTVo6ihqaVNyGNpdZc2
+	 wumjR408IYB9xBcUKSmUMtiXaCVCybzDT3r0u7v7cUijleLr1hpnqpmLCan+rC1ZhP
+	 hTzC2UwTsR2kCBSDXlEYSYltl1XTKZMgiexdnDuHeD6F3tYh1Ot4Q6iNfrN4Y3nkBn
+	 79tCU9PPwJF9v4ap87SAc8KSgyyoGyQvaahGSObY4poMSJearQ7Yz+ROjybpoqq5HT
+	 v73I2p+lUViZdACHR6X0ZNLbvC5LWmHPPDMr7CQgmwIO7zncoWcuxD+R3lCbaHtLBp
+	 b7xpzwpV/8rKQ==
+Received: from [37.171.122.54] (helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tGhkW-00GaEB-It;
+	Thu, 28 Nov 2024 16:52:16 +0000
+Date: Thu, 28 Nov 2024 16:52:14 +0000
+Message-ID: <87y113s3lt.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, quic_tengfan@quicinc.com,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH v3 4/4] arm64: dts: qcom: add base QCS8300 RIDE board
-Message-ID: <fe332b12-d62e-442d-906b-7f3a72165b85@lunn.ch>
-References: <20241128-qcs8300_initial_dtsi-v3-0-26aa8a164914@quicinc.com>
- <20241128-qcs8300_initial_dtsi-v3-4-26aa8a164914@quicinc.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241128-qcs8300_initial_dtsi-v3-4-26aa8a164914@quicinc.com>
+	Will Deacon <will@kernel.org>,
+	Zi Yan <ziy@nvidia.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arch_numa: Restore nid checks before registering a memblock with a node
+In-Reply-To: <Z0gVxWstZdKvhY6m@kernel.org>
+References: <20241127193000.3702637-1-maz@kernel.org>
+	<Z0gVxWstZdKvhY6m@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 37.171.122.54
+X-SA-Exim-Rcpt-To: rppt@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org, ziy@nvidia.com, dan.j.williams@intel.com, david@redhat.com, akpm@linux-foundation.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_084956_778127_E1BB37C3 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20241128_085221_177327_3C187F22 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +91,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 28, 2024 at 04:44:46PM +0800, Jingyi Wang wrote:
-> Add initial support for Qualcomm QCS8300 RIDE board which enables DSPs,
-> UFS and booting to shell with uart console.
-> 
-> Written with help from Tingguo Cheng (added rpmhpd nodes) and Xin Liu
-> (added ufs, adsp and gpdsp nodes).
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
-> Signed-off-by: Jingyi Wang <quic_jingyw@quicinc.com>
-> ---
->  arch/arm64/boot/dts/qcom/Makefile         |   2 +-
->  arch/arm64/boot/dts/qcom/qcs8300-ride.dts | 267 ++++++++++++++++++++++++++++++
->  2 files changed, 268 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-> index 9bb8b191aeb5..d9545743606a 100644
-> --- a/arch/arm64/boot/dts/qcom/Makefile
-> +++ b/arch/arm64/boot/dts/qcom/Makefile
-> @@ -114,7 +114,7 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcm6490-shift-otter.dtb
->  dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
->  dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
->  dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
-> -dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
-> +dtb-$(CONFIG_ARCH_QCOM)	+= qcs8300-ride.dtb
+Hi Mike,
 
-It would be good to add a comment to the commit message about why you
-are removing qcs8550-aim300-aiot.dtb from the Makefile.
+On Thu, 28 Nov 2024 07:03:33 +0000,
+Mike Rapoport <rppt@kernel.org> wrote:
+> 
+> Hi Marc,
+> 
+> > diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
+> > index e187016764265..5457248eb0811 100644
+> > --- a/drivers/base/arch_numa.c
+> > +++ b/drivers/base/arch_numa.c
+> > @@ -207,7 +207,21 @@ static void __init setup_node_data(int nid, u64 start_pfn, u64 end_pfn)
+> >  static int __init numa_register_nodes(void)
+> >  {
+> >  	int nid;
+> > -
+> > +	struct memblock_region *mblk;
+> > +
+> > +	/* Check that valid nid is set to memblks */
+> > +	for_each_mem_region(mblk) {
+> > +		int mblk_nid = memblock_get_region_node(mblk);
+> > +		phys_addr_t start = mblk->base;
+> > +		phys_addr_t end = mblk->base + mblk->size - 1;
+> > +
+> > +		if (mblk_nid == NUMA_NO_NODE || mblk_nid >= MAX_NUMNODES) {
+> > +			pr_warn("Warning: invalid memblk node %d [mem %pap-%pap]\n",
+> > +				mblk_nid, &start, &end);
+> > +			return -EINVAL;
+> > +		}
+> 
+> We have memblock_validate_numa_coverage() that checks that amount of memory
+> with unset node id is less than a threshold. The loop here can be replaced
+> with something like
+> 
+> 	if (!memblock_validate_numa_coverage(0))
+> 		return -EINVAL;
 
-	Andrew
+Unfortunately, that doesn't seem to result in something that works
+(relevant extract only):
+
+[    0.000000] NUMA: no nodes coverage for 9MB of 65516MB RAM
+[    0.000000] NUMA: Faking a node at [mem 0x0000000000500000-0x0000000fff0fffff]
+[    0.000000] NUMA: no nodes coverage for 0MB of 65516MB RAM
+[    0.000000] Unable to handle kernel paging request at virtual address 0000000000001d40
+
+Any idea?
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
