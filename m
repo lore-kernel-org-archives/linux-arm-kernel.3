@@ -4,74 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E74D8D70DE5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 16:20:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54392D70DE3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 16:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OfcOocjz9POjdYVjG1kLCTto2PiekHJZD+yo1plCg9M=; b=4nzDSpUiCxAUECfOEpuQMzChHO
-	FBZxAqhusBULlaMxH3nr4lF5fzLMNGhJtf8KE/3c2gYgUmhoWZnVyxvrjBc4IP6x/3Xlc95XqEwhy
-	RBdiwiv4A0YlfPihiPoihJaJp+gYDlaqNRy+pbWiLklEtLMx2ERShycnpNZVXvfqVgsQ4+9VvIZUG
-	4S+yCXGggN8K/MusVU+LTDzjeBoUjXrOBmeQ96sdugbqmUKtQLbWqJXPJD25XkEbs6ZclGIVjDVZ2
-	nM7cibJ9S0YVf4VGURx7SarT0bO8D9ULHOk9KbZduXypAI9sNA0vly0ZDsSfaM3ioengKJ1AkMpFd
-	kVxl1Qpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iII7uuf9TZj9VNCNY4gdmMB2ol1JIZlZLSXfQuGrzNY=; b=vMEb3yJsGU0/kr0auOP8tBF8bt
+	JZEWd99OYchXn2mEuptJBongGkYgShf1B+kPYMQv+HpQJEmI5I03Mj/5s/Axtpg+9DZ0cymzOzrvr
+	wd7gfwlTVaP1YShMZuG+eYVvFRE/396sZCdf9incPj1pK6MOu24COSWqpDdyik9J+/IgUyofD3pYM
+	9sr85/EkLujb2Xl/sCnacV9wM34qr2+lxnBpRF/jrrzFzKmUm6C2+0bvnBn9QoQ8SDj1s1r86i96x
+	N8DtIPNAvqLOXxpNhTBK/cFFjWIHOBi5ftEvNt8uaxcrzWvjH+27LNPXJNhyxUPBIYUiAMMxCXi7J
+	pI5vFM1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGhF9-0000000FzLW-22su;
-	Thu, 28 Nov 2024 16:19:51 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tGhRx-0000000G0TZ-0Jxo;
+	Thu, 28 Nov 2024 16:33:05 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGhE9-0000000Fz8S-3lxb
+	id 1tGhQy-0000000G0Oo-0ylx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 16:18:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732810730; x=1764346730;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=RrDnV3vV6J5CgcJY7vFvaCv/CB426hHEGuCAiVmSFLw=;
-  b=bbspO48VIu0c/6WlprTnEtaxvpL9D3q0TzMb+pVNG1NKsq4Tz4KpRlQh
-   B1CC22WxNRja0PUwpjEi3Kvl78BQFyXqf2SON/M6epK65YURrygonp0Dj
-   Ms98twcffb5avW9KfOgOpGwbZflf0Jcp9WMM7OzSobfeX9eNwiqu9Wprd
-   lF4YoY8zDfIzX0DKLoW1q/EeovmMfG7ihv832YztElN4DReRemnOVO6/I
-   f9zHEia2QIf73BGtssklKD2Cxj6v4xJSz9pBz+R1MXIip2h9PIYOzyDtF
-   Fi50hoL1AWOmHGspPkHdJ05hXzzjTEubdZaxQImPxfUzeRsQn0oKFBUJy
-   g==;
-X-CSE-ConnectionGUID: R0MqIhcbQKWyHdbvCFBLew==
-X-CSE-MsgGUID: dih2Y0p5QAi0SEQHVUtTFg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11270"; a="36716351"
-X-IronPort-AV: E=Sophos;i="6.12,192,1728975600"; 
-   d="scan'208";a="36716351"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2024 08:18:46 -0800
-X-CSE-ConnectionGUID: 4MacMwUhS5ie5WxGMuunAw==
-X-CSE-MsgGUID: O1CVKdb5Qju91U4BNq1nzg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,192,1728975600"; 
-   d="scan'208";a="93118724"
-Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 28 Nov 2024 08:18:45 -0800
-Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tGhE2-0009n5-2J;
-	Thu, 28 Nov 2024 16:18:42 +0000
-Date: Fri, 29 Nov 2024 00:18:17 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:kvm-arm64/nv-gic 12/12]
- arch/arm64/kvm/vgic/vgic-v3-nested.c:116:1: warning: non-void function does
- not return a value
-Message-ID: <202411290026.Q8iUaHa3-lkp@intel.com>
+	Thu, 28 Nov 2024 16:32:05 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5cfa9979cd1so1036976a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 08:32:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1732811522; x=1733416322; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iII7uuf9TZj9VNCNY4gdmMB2ol1JIZlZLSXfQuGrzNY=;
+        b=AD2aZ6QB2DC51WaMwHZWsItXol3KWP0uNYM6DlyA+oCJ9EzMYAuaVqGGlEwLtvmK0u
+         2tgnc/zMq3RhyfqkaRJThsIY62s8AwTBEa/XgDGgS4LvWlBcY0Bs+IHpZGAicy43D+3j
+         iksEDSeug1AmaOPOrY9GD6gBS8O5nPPcIKxpnK3zhC2CpTp7YHFgV0cHNT81Qt6QngyY
+         WdfDndgEygQju44BzVpI5IKaAuGys8NI+aMGc4jHnkOjl7L1MV8CdW47hL1DxepGS6zW
+         kU+WzgmlDQXUlJGS3AXL1rWoj4q+qDEqds12GYuQyRaf+CZLD89b/cDoIMGs1jlTkh6p
+         9EkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732811522; x=1733416322;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iII7uuf9TZj9VNCNY4gdmMB2ol1JIZlZLSXfQuGrzNY=;
+        b=GxQczgHg41AOvZSRmFkEghXiRmb1fb8C4nXOlAToCNebPk/gYI609XXlB4epPcvQPM
+         rG1BCT/h914901Oho8kpphywfIroUlmkipRQRtOtiFi1RyKAh+uy4LdOguP8a43Osqhl
+         RMb+6ynOXgv/81tSNZ+Xdv8jzYx60D9Ggbcta7eyBzb7Z6DNKmTeS3IoFni6GE3U3rHm
+         t6rHTN1Sif5hC8IB11jwvW1hyvTS9EeRv/chLoByCaqZ4HOrLQnFs8ZWV7+o+wZEODIT
+         RBmMz2zdr1IV9rhdcPY5a9eAftmlMWzjzLe/ZmHv7dcZCkZw9UtOq2IxHtTNxP4GPgot
+         WKug==
+X-Forwarded-Encrypted: i=1; AJvYcCXZ4IBzRxtWv6qR+eBoe994y8cfBoa9Aa6BSJ+bFEIeT4Olafkigbm0yJuIn9tOp1NnfQ4jgF1sYGt95O40Jupl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpPuBctR9k7xnv0tWgydG8GKtJT7ImgeC1nEJ8xtGyk11F0b5s
+	ziaa4pnukYdRj3S8bd6OaSxK8CNUVuwn05J5jCMrcPcZzQ7a7pOy2YhX2A7gyHU=
+X-Gm-Gg: ASbGncvYtuTT9maXnGZGMsXeZPKf8S6oqTYREALHA+F3fI7PYOpg/XqBxCaL8okHrjJ
+	60XbYJv4Tlrjv0yHN+p49gG3kGb0FGFjnxFLHMaA7Y9YtocrlhEbdkg1inbFw8az3yn0QBg28j3
+	1wTmUkojMTnc1uFr9KLrLIDQs7ctzZ31TpR8S6SP1U9KZCKAJOyciDUaTOWvs46EuJqo4qPOmc6
+	E2lfVF1LSTtsGy06i6kIDXkUpGNwE31EvGVaxibWEE7dCoPu3Kt/MDgynQX
+X-Google-Smtp-Source: AGHT+IEueCSQe9pvckxqEsEWD3Nr65/94BTKV5/aVQ9y/9c4r7CKM/zYJ76EPGcECgL3+BEaIzTWmg==
+X-Received: by 2002:a05:6402:401d:b0:5d0:840d:ed02 with SMTP id 4fb4d7f45d1cf-5d0950fb3d9mr4136529a12.4.1732811520883;
+        Thu, 28 Nov 2024 08:32:00 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.90.200])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d097e8dc66sm873841a12.71.2024.11.28.08.31.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 28 Nov 2024 08:31:59 -0800 (PST)
+Message-ID: <910320d4-4c72-4962-8d74-1963a74a0c27@linaro.org>
+Date: Thu, 28 Nov 2024 16:31:58 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/15] KVM: arm64: Rework guest VM fixed feature
+ handling and trapping in pKVM
+To: Fuad Tabba <tabba@google.com>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com,
+ kristina.martsenko@arm.com
+References: <20241128123515.1709777-1-tabba@google.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20241128123515.1709777-1-tabba@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_081850_017378_7F5E11C0 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20241128_083204_287630_B6EF75F8 
+X-CRM114-Status: GOOD (  22.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,59 +102,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/nv-gic
-head:   cd3fedf7137034ee2858afe5fabf24784d0b3919
-commit: cd3fedf7137034ee2858afe5fabf24784d0b3919 [12/12] WIP
-config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20241129/202411290026.Q8iUaHa3-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 592c0fe55f6d9a811028b5f3507be91458ab2713)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241129/202411290026.Q8iUaHa3-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411290026.Q8iUaHa3-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from arch/arm64/kvm/vgic/vgic-v3-nested.c:5:
-   In file included from include/linux/kvm_host.h:16:
-   In file included from include/linux/mm.h:2213:
-   include/linux/vmstat.h:504:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     504 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     505 |                            item];
-         |                            ~~~~
-   include/linux/vmstat.h:511:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     511 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     512 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
-   include/linux/vmstat.h:524:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     524 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     525 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
->> arch/arm64/kvm/vgic/vgic-v3-nested.c:116:1: warning: non-void function does not return a value [-Wreturn-type]
-     116 | }
-         | ^
-   arch/arm64/kvm/vgic/vgic-v3-nested.c:114:13: warning: unused function 'vgic_v3_get_mi_level' [-Wunused-function]
-     114 | static bool vgic_v3_get_mi_level(int intid)
-         |             ^~~~~~~~~~~~~~~~~~~~
-   6 warnings generated.
 
 
-vim +116 arch/arm64/kvm/vgic/vgic-v3-nested.c
+On 28/11/2024 12:35 pm, Fuad Tabba wrote:
+> Changes from v2 (Marc):
+> - Added three patches that remove the per-vcpu flags of PtrAuth
+> and SVE being enabled for guests, in favor of them being per VM
+> - Tidying up
+> 
+> This patch series redoes how fixed features for protected guests
+> are specified in pKVM, as well as how trapping is handled based
+> on the features available for the VM. It also fixes a couple of
+> existing bugs in the process.
+> 
+> For protected VMs, some features should be trapped if the guest
+> tries to use them because they are not supported (e.g., SME), or
+> if they are not enabled for the particular VM (e.g., SVE).
+> 
+> Initially, pKVM took the approach of specifying these features
+> using macros and grouping their handling by feature id register.
+> This proved to be difficult to maintain and bug prone. Moreover,
+> since the nested virt work there is a framework in KVM for
+> storing feature id register values per vm, as well as how to
+> handle traps based on these values.
+> 
+> This patch series uses the vm's feature id registers to track the
+> supported features, a framework similar to nested virt to set the
+> trap values, and removes the need to store cptr_el2 per vcpu in
+> favor of setting its value when traps are activated, as VHE mode
+> does.
+> 
+> The changes should not affect the behavior of non-protected VMs
+> nor the behavior of VMs outside of protected mode in general.
+> 
+> This series is based on kvmarm/next (60ad25e14ab5), since it
+> requires the patches from the series that fixes initialization of
+> trap register values in pKVM [2].
+> 
+> Cheers,
+> /fuad
+> 
+> [1] https://lore.kernel.org/all/20241122110622.3010118-1-tabba@google.com/
+> [2] https://lore.kernel.org/all/20241018074833.2563674-1-tabba@google.com/
+> 
+> Fuad Tabba (15):
+>    KVM: arm64: Consolidate allowed and restricted VM feature checks
+>    KVM: arm64: Group setting traps for protected VMs by control register
+>    KVM: arm64: Move checking protected vcpu features to a separate
+>      function
+>    KVM: arm64: Use KVM extension checks for allowed protected VM
+>      capabilities
+>    KVM: arm64: Initialize feature id registers for protected VMs
+>    KVM: arm64: Set protected VM traps based on its view of feature
+>      registers
+>    KVM: arm64: Rework specifying restricted features for protected VMs
+>    KVM: arm64: Remove fixed_config.h header
+>    KVM: arm64: Remove redundant setting of HCR_EL2 trap bit
+>    KVM: arm64: Calculate cptr_el2 traps on activating traps
+>    KVM: arm64: Refactor kvm_reset_cptr_el2()
+>    KVM: arm64: Fix the value of the CPTR_EL2 RES1 bitmask for nVHE
+>    KVM: arm64: Remove PtrAuth guest vcpu flag
+>    KVM: arm64: Convert the SVE guest vcpu flag to a vm flag
+>    KVM: arm64: Renumber remaining vcpu guest configuration flags
+> 
+>   arch/arm64/include/asm/kvm_arm.h              |   2 +-
+>   arch/arm64/include/asm/kvm_emulate.h          |  23 +-
+>   arch/arm64/include/asm/kvm_host.h             |  21 +-
+>   arch/arm64/include/asm/kvm_pkvm.h             |  25 ++
+>   arch/arm64/kvm/arm.c                          |  30 +-
+>   arch/arm64/kvm/hyp/include/hyp/switch.h       |   2 +-
+>   .../arm64/kvm/hyp/include/nvhe/fixed_config.h | 223 ----------
+>   arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |   5 +
+>   arch/arm64/kvm/hyp/nvhe/hyp-main.c            |   2 +-
+>   arch/arm64/kvm/hyp/nvhe/pkvm.c                | 335 +++++----------
+>   arch/arm64/kvm/hyp/nvhe/setup.c               |   1 -
+>   arch/arm64/kvm/hyp/nvhe/switch.c              |  56 ++-
+>   arch/arm64/kvm/hyp/nvhe/sys_regs.c            | 402 ++++++++++--------
+>   arch/arm64/kvm/hyp/vhe/switch.c               |   2 +-
+>   arch/arm64/kvm/reset.c                        |   6 +-
+>   15 files changed, 430 insertions(+), 705 deletions(-)
+>   delete mode 100644 arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
+> 
+> 
+> base-commit: 60ad25e14ab5a4e56c8bf7f7d6846eacb9cd53df
 
-   113	
-   114	static bool vgic_v3_get_mi_level(int intid)
-   115	{
- > 116	}
-   117	
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Tested-by: James Clark <james.clark@linaro.org>
+
 
