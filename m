@@ -4,83 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25836D690FA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 11:30:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E730D690FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 11:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V2RcWnmUp9v0R6iQbIMZ5lTGjEHNBQXnJuzanidEtYs=; b=3Lq7kzd/61bg0zFh8WhFvQowSE
-	dYvYeGOiyoabkyL1k3n6CCBsSQ1yFD6G8qwhOJ6f0FGafqtghgVTxUmE+vN3jgcqY7Hdo8IvEiJAW
-	LZYt+TfR/NTcg6TnGLuBwcHgCX+/O4CrsGl1Fuw9hspR5IIQzXfyNgyUfgYEC2QT7uYR0P6t5FxcI
-	lKCTK1wK+k/V05NQCzKcjWk7RcrmPXnLu+7kIL29ak2ouFFYPBrUsrA1nkJEGWFaq1hOIRAxk773d
-	VYazc1W6qlEhJM8NFeDQ201GulbxyJwX6OaqO6wElyR+tSxT8WMmxsGzthRMzA9JR3CCaYNvRkl2P
-	cwUBdiRQ==;
+	bh=kCOIQgnUZkO/jqB9Ex+fr3L9VJum5V2GDNk+XPGMgrg=; b=KyFK8Z3pI6uiizAv4DdwvKLXbr
+	tIRfYh6PwJChB4YGmdPE3nFYKhKNTcSm5vNcN+RLKNVXsp6ybXBFeWGWG5qWm658J5mIIkWDK6TMX
+	0tSLiY+lwWekRZWXisAFbvfJmshI/lTuZ9Md/jtqIYMxQGgFSKPIELcwZ58A6HOafLP+nkHDS/NxC
+	st+1U/GR5tFarP0WqNwTZmQt+D8kZzw9adEE5kQkMs1/H/fshq+5LB76RrRnG1+PF6IHNY4Loffyy
+	mK5cYNjwGhcHb/eEIuo5NIKzjiZBfFSROG2zdMW1EAxy/k/twHjH34jjH98Ji6O+/WpPlNJvUm+Ia
+	ukFbbQ8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGcik-0000000FMb8-3bNm;
-	Thu, 28 Nov 2024 11:30:06 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1tGcoz-0000000FN4S-446l;
+	Thu, 28 Nov 2024 11:36:33 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGchl-0000000FMVZ-0whK;
-	Thu, 28 Nov 2024 11:29:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732793345; x=1764329345;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GOGSdHxhNEpjsOwO7lywxaLS0up1lx0fM8IsWbTEf+E=;
-  b=Q7/2/0oP3/BGvz/oe3UlOp119oK94LJA2AdEPz3DEPmOris4HEAOASui
-   NyazCDsKUNnQIyAA2quC1lF8+X0vL3p09lT7+wWFks5y3HYdfthbRoqQx
-   Y0N+aiv6u5Zu+RQZ+Xe/9ufp3Wbb892ztnpbeHru4Oq2UNSOv2HtrHjBq
-   xWcsQ1XpU7c9+vjgikGLVt9zDkL6EKu3UCs1dbMxSQKowQ40YFNfAQMYm
-   T+AOLEID5cO7gWTUTLNwCcbEVTl7eR2AHJt9Yj+z1R588C0Qur5ierLQJ
-   IyenxJL0ApABYSIPd1heZSKl7wWZ7oPKRiRz9YGb9lkBlhFbjBbS/a5wp
-   A==;
-X-CSE-ConnectionGUID: QuG3BCXcR1+n0gNktZu5tA==
-X-CSE-MsgGUID: MjbUBkbcQfmvD2XyrDzi8g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11269"; a="33076898"
-X-IronPort-AV: E=Sophos;i="6.12,192,1728975600"; 
-   d="scan'208";a="33076898"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2024 03:29:00 -0800
-X-CSE-ConnectionGUID: Fa0PQXDvT92Zg4JrkfRbxA==
-X-CSE-MsgGUID: TnVO9SYjSDuUlM2KNDH2dA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,192,1728975600"; 
-   d="scan'208";a="92020639"
-Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
-  by fmviesa007.fm.intel.com with ESMTP; 28 Nov 2024 03:28:54 -0800
-Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tGchX-0009WL-33;
-	Thu, 28 Nov 2024 11:28:51 +0000
-Date: Thu, 28 Nov 2024 19:28:15 +0800
-From: kernel test robot <lkp@intel.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org, rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
-	jernej.skrabec@gmail.com, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	quentin.schulz@cherry.de, Heiko Stuebner <heiko.stuebner@cherry.de>,
-	Daniel Semkowicz <dse@thaumatec.com>
-Subject: Re: [PATCH v2 3/3] drm/rockchip: Add MIPI DSI2 glue driver for RK3588
-Message-ID: <202411281937.QyowC5lv-lkp@intel.com>
-References: <20241126201213.522753-4-heiko@sntech.de>
+	id 1tGco0-0000000FMzA-1IZc
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 Nov 2024 11:35:34 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4349fd77b33so6314585e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 03:35:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1732793730; x=1733398530; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=kCOIQgnUZkO/jqB9Ex+fr3L9VJum5V2GDNk+XPGMgrg=;
+        b=Dgiej63pUJOvF0HhqDrZM/S34qpbtPz/TaXdyiY1vZ4LxJwrTD9+8WpCvZBg629JdA
+         WtL62KNlZuOiNmiCu6VFc+Ldc2IUmxTTksyd0Jn4hmqbu1Km5GxjwuPl0J23LLONOvNG
+         LBCCDpyIRcoDPLlbzAg7/IAQcCDedg3mHabCTvy2bnsTH/LnQ+vxau1xrjOjgNZF0g4M
+         LevlyGz7woq6uKFQlBGqeCcA+BQoJ8vvj3zKSwe3EE2qVQ/CiTbuiJIVxXNScKZ2fBwm
+         IY8cRc50Mlj6T1faXiD98QikuoHZiteKPdDBH1gW0Wm6Ryk1s0NigkqS0V1uRzWyG5b4
+         2wEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732793730; x=1733398530;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kCOIQgnUZkO/jqB9Ex+fr3L9VJum5V2GDNk+XPGMgrg=;
+        b=qga8UrSG8+R2P8Kij+dEgDXa9gv4oWJQjK/WXDCOAqSX+dB3sBGyczi/mAA5bwIkpJ
+         PldhTZyXwHKWnDKpMP5QmMZpLy8zUlKs50uKIA6hhBO8F/fAUO17RY28Gx2vKWlmSUfx
+         5pQ80qWAKhxNXYp85WpouoUAd4Ba6mutH3kOzaIAidz6VoZcPxubXHwZ4xYziodGuqXg
+         znPfCH0xeDRVgsGPRKC6RXeQ+VMXBcZ6lszF5Auv2bACEBs509A0TdqWjI29Z46kModn
+         zJAVx9i1bODCtVGBascYd/10/i+n8LsOWvFru/mO98qcTzxBNi2aK43o9AwqrLB0uR0Y
+         pR7w==
+X-Forwarded-Encrypted: i=1; AJvYcCWUav89BDKtxiuAcXgMk7ILuki1oiBbbqZm4KlSLNmpln1LOQr6eOZWqEh10/RJJRk43o5eg3qaLlXwFReb4X4E@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnLYHeq5xsm1hQC4w00QF4xrftRcho3nU7FKmxXI7VHKIoDrOm
+	X7n+HsV9A4yFfaK9vudd/bmcIc4o5hbBuWelRl7Ki0eW6SVq7EmizMtKvcFMPZM=
+X-Gm-Gg: ASbGncvySzO214I7w+GD/weytNabTSiPihyV4cr+RmbwTThn2RVmA5Y5/6aSmWuYU63
+	EFHgbNpU7RW7+OW1SCUPh6Jp5pV3d04u0Phz1cnw3PFE+6CufH4c1xVYCLv3EoJSgokhHSlkySd
+	HoKjKjcJgc7qlEKyDyEfZcYrccnNh4M2SySSIcQzGUvaee8Dp8W6QC7QDlgimMxWFAFq6ELbmWj
+	P/iruwz+TqCDIg6TeV8Z0xeC+EnHE8VaLV7kKDRIlz+fXNqoX7SOAY=
+X-Google-Smtp-Source: AGHT+IG/QGzHxGJz0klm9sFCiR3LVKh0jcQoJ6xPyeZV35wmMo8bYcQe6yA7O0WiSbRm+oZHxykDMw==
+X-Received: by 2002:a05:600c:1c81:b0:434:9936:c828 with SMTP id 5b1f17b1804b1-434a9dc3db3mr63654675e9.12.1732793730439;
+        Thu, 28 Nov 2024 03:35:30 -0800 (PST)
+Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa7e5b9csm50520155e9.43.2024.11.28.03.35.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 Nov 2024 03:35:29 -0800 (PST)
+Date: Thu, 28 Nov 2024 12:35:27 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Florian Fainelli <f.fainelli@gmail.com>, Rob Herring <robh@kernel.org>, 
+	linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Conor Dooley <conor+dt@kernel.org>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	"open list:PWM SUBSYSTEM" <linux-pwm@vger.kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, justin.chen@broadcom.com, 
+	Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: pwm: brcm,bcm7038: Document the
+ 'open-drain' property
+Message-ID: <7hdopmy4owoletyq274c2hzxtm7xuxaejakwlas477ax2tfzcu@yrbcxxup5krz>
+References: <20241012025603.1644451-1-florian.fainelli@broadcom.com>
+ <20241012025603.1644451-2-florian.fainelli@broadcom.com>
+ <20241015163200.GA1220909-robh@kernel.org>
+ <252b6f39-3b06-43b7-b227-1c29c1c12bd5@gmail.com>
+ <7aok7zs7whxfg3bhv7koxfxq6qhgv34b7kg3mh526z2cf7e23l@ffbsxqdqjis3>
+ <c623075c-fd80-4312-90ba-4f8a3c3f56f9@broadcom.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pdxu4r3m4vrnf4px"
 Content-Disposition: inline
-In-Reply-To: <20241126201213.522753-4-heiko@sntech.de>
+In-Reply-To: <c623075c-fd80-4312-90ba-4f8a3c3f56f9@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_032905_299706_C8DDA081 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20241128_033532_617389_C036E6E3 
+X-CRM114-Status: GOOD (  32.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,134 +108,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
 
-kernel test robot noticed the following build errors:
+--pdxu4r3m4vrnf4px
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 1/2] dt-bindings: pwm: brcm,bcm7038: Document the
+ 'open-drain' property
+MIME-Version: 1.0
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.12 next-20241128]
-[cannot apply to rockchip/for-next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Hello Florian,
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Heiko-Stuebner/drm-bridge-synopsys-Add-MIPI-DSI2-host-controller-bridge/20241128-103709
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20241126201213.522753-4-heiko%40sntech.de
-patch subject: [PATCH v2 3/3] drm/rockchip: Add MIPI DSI2 glue driver for RK3588
-config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20241128/202411281937.QyowC5lv-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 592c0fe55f6d9a811028b5f3507be91458ab2713)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241128/202411281937.QyowC5lv-lkp@intel.com/reproduce)
+[adding Linus and linux-gpio to Cc:]
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411281937.QyowC5lv-lkp@intel.com/
+On Tue, Oct 29, 2024 at 09:03:57AM -0700, Florian Fainelli wrote:
+> On 10/29/24 03:44, Uwe Kleine-K=F6nig wrote:
+> > On Tue, Oct 15, 2024 at 10:07:10AM -0700, Florian Fainelli wrote:
+> > > On 10/15/24 09:32, Rob Herring wrote:
+> > > > Another thing to consider is for any PWM controller with more than
+> > > > 1 output, you might want this to be per output and therefore should=
+ be
+> > > > a flag in the cells.
+> > >=20
+> > > Yes, that is a good point, this controller has two channels, so it se=
+ems
+> > > like increasing the #pwm-cells might be the way to go.
+> >=20
+> > So the idea is something like:
+> >=20
+> > diff --git a/include/dt-bindings/pwm/pwm.h b/include/dt-bindings/pwm/pw=
+m.h
+> > index ab9a077e3c7d..d18b006a7399 100644
+> > --- a/include/dt-bindings/pwm/pwm.h
+> > +++ b/include/dt-bindings/pwm/pwm.h
+> > @@ -11,5 +11,6 @@
+> >   #define _DT_BINDINGS_PWM_PWM_H
+> >   #define PWM_POLARITY_INVERTED			(1 << 0)
+> > +#define PWM_OUTPUT_OPEN_DRAIN			(1 << 1)
+> >   #endif
+> >=20
+> > and then add support for that to the core and drivers? There is some
+> > intersection with pinctrl (depending on hardware). I wonder if
+> > abstracting this somehow using the typical pinctrl properties would be a
+> > saner option??
+>=20
+> But what if the pin is not managed by a pinctrl provider?
 
-All errors (new ones prefixed by >>):
+Then create one? If that's the PWM itself that is the pinctrl device it
+would look as follows:
 
-   In file included from drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:20:
-   In file included from include/drm/bridge/dw_mipi_dsi2.h:15:
-   In file included from include/drm/drm_atomic.h:31:
-   In file included from include/drm/drm_crtc.h:32:
-   In file included from include/drm/drm_modes.h:33:
-   In file included from include/drm/drm_connector.h:32:
-   In file included from include/drm/drm_util.h:36:
-   In file included from include/linux/kgdb.h:19:
-   In file included from include/linux/kprobes.h:28:
-   In file included from include/linux/ftrace.h:13:
-   In file included from include/linux/kallsyms.h:13:
-   In file included from include/linux/mm.h:2223:
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
->> drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:315:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     315 |         val |= PHY_LPTX_CLK_DIV(esc_clk_div);
-         |                ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:72:30: note: expanded from macro 'PHY_LPTX_CLK_DIV'
-      72 | #define PHY_LPTX_CLK_DIV(x)             FIELD_PREP(GENMASK(12, 8), x)
-         |                                         ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:340:6: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     340 |                    PHY_IPI_RATIO(tmp));
-         |                    ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:88:27: note: expanded from macro 'PHY_IPI_RATIO'
-      88 | #define PHY_IPI_RATIO(x)                FIELD_PREP(GENMASK(21, 0), x)
-         |                                         ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:361:53: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     361 |         regmap_write(dsi2->regmap, DSI2_PHY_LP2HS_MAN_CFG, PHY_LP2HS_TIME(timing.data_lp2hs));
-         |                                                            ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:77:28: note: expanded from macro 'PHY_LP2HS_TIME'
-      77 | #define PHY_LP2HS_TIME(x)               FIELD_PREP(GENMASK(28, 0), x)
-         |                                         ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:375:10: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     375 |                 val |= PPI_WIDTH(PPI_WIDTH_8_BITS);
-         |                        ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:68:24: note: expanded from macro 'PPI_WIDTH'
-      68 | #define PPI_WIDTH(x)                    FIELD_PREP(GENMASK(9, 8), x)
-         |                                         ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:388:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     388 |         val |= PHY_LANES(dsi2->lanes);
-         |                ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:69:24: note: expanded from macro 'PHY_LANES'
-      69 | #define PHY_LANES(x)                    FIELD_PREP(GENMASK(5, 4), (x) - 1)
-         |                                         ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:409:48: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     409 |         regmap_write(dsi2->regmap, DSI2_DSI_VCID_CFG, TX_VCID(dsi2->channel));
-         |                                                       ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:96:22: note: expanded from macro 'TX_VCID'
-      96 | #define TX_VCID(x)                      FIELD_PREP(GENMASK(1, 0), x)
-         |                                         ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:430:8: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     430 |         val = IPI_DEPTH(color_depth) |
-         |               ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:116:24: note: expanded from macro 'IPI_DEPTH'
-     116 | #define IPI_DEPTH(x)                    FIELD_PREP(GENMASK(7, 4), x)
-         |                                         ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:445:55: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     445 |         regmap_write(dsi2->regmap, DSI2_IPI_VID_VSA_MAN_CFG, VID_VSA_LINES(vsa));
-         |                                                              ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:133:27: note: expanded from macro 'VID_VSA_LINES'
-     133 | #define VID_VSA_LINES(x)                FIELD_PREP(GENMASK(9, 0), x)
-         |                                         ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:461:51: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     461 |         regmap_write(dsi2->regmap, DSI2_IPI_PIX_PKT_CFG, MAX_PIX_PKT(val));
-         |                                                          ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:141:26: note: expanded from macro 'MAX_PIX_PKT'
-     141 | #define MAX_PIX_PKT(x)                  FIELD_PREP(GENMASK(15, 0), x)
-         |                                         ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:573:56: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     573 |         regmap_write(dsi2->regmap, DSI2_CRI_TX_HDR, hdr_val | CMD_TX_MODE(lpm));
-         |                                                               ^
-   drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c:110:26: note: expanded from macro 'CMD_TX_MODE'
-     110 | #define CMD_TX_MODE(x)                  FIELD_PREP(BIT(24), x)
-         |                                         ^
-   1 warning and 10 errors generated.
+	pwm@f0408000 {
+		compatible =3D "brcm,bcm7038-pwm";
+		pinctrl-0 =3D <&pwm_pins>;
+		reg =3D <0xf0408000 0x28>;
+		#pwm-cells =3D <2>;
+		#pinctrl-cells =3D <0>;
+		clocks =3D <&upg_fixed>;
+	=09
+		pinctrl {
+			pwm_pins: pwm-pins {
+				pins =3D "A", "B";
+				drive-open-drain;
+			};
+		};
+	};
 
+Maybe this is difficult if there is a pinctrl that configures the output
+as "PWM" and then there is that additional register in the PWM IP to
+make this pin open drain? One could just use
 
-vim +/FIELD_PREP +315 drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c
+	pinctrl-0 =3D <&pwm_pins>, <&system_pinctrl_pwm>;
 
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  300  
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  301  static void dw_mipi_dsi2_phy_clk_mode_cfg(struct dw_mipi_dsi2 *dsi2)
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  302  {
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  303  	u32 sys_clk, esc_clk_div;
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  304  	u32 val = 0;
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  305  
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  306  	/*
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  307  	 * clk_type should be NON_CONTINUOUS_CLK before
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  308  	 * initial deskew calibration be sent.
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  309  	 */
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  310  	val |= NON_CONTINUOUS_CLK;
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  311  
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  312  	/* The maximum value of the escape clock frequency is 20MHz */
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  313  	sys_clk = clk_get_rate(dsi2->sys_clk) / USEC_PER_SEC;
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  314  	esc_clk_div = DIV_ROUND_UP(sys_clk, 20 * 2);
-c55ecdf5f795ca Heiko Stuebner 2024-11-26 @315  	val |= PHY_LPTX_CLK_DIV(esc_clk_div);
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  316  
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  317  	regmap_write(dsi2->regmap, DSI2_PHY_CLK_CFG, val);
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  318  }
-c55ecdf5f795ca Heiko Stuebner 2024-11-26  319  
+then. Not entirely sure this is overengineered, but the dt
+representation would be nice (IMHO). Thoughts?
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> I have started
+> going the route of implementing the PWM_OUTPUT_OPEN_DRAIN bit as an
+> additional specifier in the #pwm-cells, but I am not sure to what extent
+> this should be allowed to be changed at runtime.
+
+I would not expect that the open-drainness needs to change at runtime.
+
+Best regards
+Uwe
+
+--pdxu4r3m4vrnf4px
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmdIVXwACgkQj4D7WH0S
+/k6l6wgAgyzQfpcTmTaXfhmcQgO0kIruIbqxl2BdNvTxhqNU/I5oBRJJuMYj1SUe
+9pnH4y0xPYoJvxdl4eWLPeciRP7AUPs/Q1zNpNiPUl74qBx3AvtNZC/7qnpZyxCQ
+oRfEvy2HXuKjl55nzB6Luj/iKD6hMjoK2jB0w/zz61YAELUzm2j3i3HItQbFZ06W
+2DIrXEybGNkNmru7ii2Wy3Yg0EsOxZucprF1DwUHAoCNMW8hOX3uWm2y6gEugeoe
+vPE9Wfh2WspzKNDeNHqi/P02u+YBqzEmEd5gJCqHvgCFxr0DTJnpItxTJ0FP6kot
+LkRkktFKEOszoHombSsUnCUz8Gj99Q==
+=hSKz
+-----END PGP SIGNATURE-----
+
+--pdxu4r3m4vrnf4px--
 
