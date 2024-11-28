@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6900BD690EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 08:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF7BFD690EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 08:37:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P64cjPxwFR3/rw+ko/DSsBwoax5uWgcw9K6ldu96KZ4=; b=F+WJlKeFuVn6Ztihu4CtL1IXsx
-	PBoT3e8/Gdo3NmSX87gOu36R9o5+TegrZNc4b4Hq40o1D1Jk7XwgI+1F9/oHlGX+XBMP4+PrzLiOH
-	Qv7g+BY1jYRP97nV8hLPhnt9cNouC0WynMEQZsZLllrPyTQG5obkfIDyCcFLRg/Vj1cw8kF76jIZj
-	hWiIDvIwd3rnPKfL7wLCsOn4CgSpjfntmMvg6t4UtBBYe55INMY7HeFIGoLaQNaI4m/TqYSEPpB82
-	I/tRUjJbHbGRPf1SS5XFDTN/2Qb9a/tH3hYop2O0DS2lLUn8q8zbXa8OG5tpGSRKtxZueVn/kSfS9
-	GUluNCKA==;
+	bh=ThuJTpmnrntTf6cNXyJB6Nn/oDuQdEpy+cb+LCOxMVc=; b=1IwEd6+JNtj1BuJFs5IQZ8plxO
+	Ko6KyuwzYkS2eHppHbrrqh7H+d0At+VwTikHAj5jFjuh4uuTCk+laON0wvKytu1ofRcElzxI2d6ck
+	FfGmn3usmbJSEv3wbiaObBLR8yGP+6imGakC7fSp3SiYbcAiurSxvSDtCPRi+INjKuekkGV9UEZFp
+	bMaS6iUzuwvjoAdkZc1TNeOR940I3/5Sg9Fv08PYJq6j4USYOv6+3OKrXVExfDSGBaOV+EzzniOYq
+	5vkI+H2LnMIB1IkTGvCAFviRtd0iyhorhrMHj4hHzWGVikuF2ke0bpUJSBscfPftZgNDvopb93RaN
+	2A0GrNIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGa0a-0000000F1Rk-34th;
-	Thu, 28 Nov 2024 08:36:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tGa1Y-0000000F1Z6-1Ne2;
+	Thu, 28 Nov 2024 08:37:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGZyz-0000000F1Ei-1EdM
+	id 1tGZzK-0000000F1Hu-46EZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 08:34:42 +0000
+	Thu, 28 Nov 2024 08:35:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B028FA43AB8;
-	Thu, 28 Nov 2024 08:32:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95130C4CECE;
-	Thu, 28 Nov 2024 08:34:34 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 254F35C5D20;
+	Thu, 28 Nov 2024 08:34:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8152AC4CECE;
+	Thu, 28 Nov 2024 08:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732782880;
-	bh=fKYxvr19pd/krJfNZ2gsWVRBGBuyTaD9MqzoRcIuXuc=;
+	s=k20201202; t=1732782902;
+	bh=bNOHYeY1jXSpnvL6eCApbzb1dybwfN7fSu9MXDT/Js8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rtlh9QwwHd8Cj5867qO/2iJfjSAVJ8tfkMX2buJyjGBRYRpxitjXNMTcXu4pJx2+t
-	 NWJAGYpxohJZA9lC9+cw6EyY3GOB2hSX7nSoOxcp5beHnJEV2ej4V01plDsnLwBfek
-	 XzX8lcAWoPK0qoJusqH1eiMMEdFvfl8BlmakE0xbOMJ1ScZxgLZoy6ddHeABcdOiXq
-	 5Htw1cXLua6hzRLwGxh51yvVJJpAKUAchTi8Qdo2Y1txxDPWo432tUxT3VIXEQW5FB
-	 1kJBB56+FIdyXeByIbr0GVxYsQDq9OiyH7qPMRFltBFX8t6CMLe1F6l6uCVJBjDA6x
-	 HkllVyH/qO+bA==
-Message-ID: <285e5554-182e-492f-a4cc-d702ff43bdf0@kernel.org>
-Date: Thu, 28 Nov 2024 09:34:32 +0100
+	b=EVzLPv4G7BZ5xvoxk9Xay6qNTlxwBE52n50Mx+L3yk8jwhsFqLHdXAb0/FZTPQkzU
+	 pqLyKxkjF3RHSawe9qAorHW2lAY5D5dl9lOzWVxw0hR2LVdJncRfM0bb2YV5tozLVh
+	 BdTrM8ehnDzpbG2ICdJjQSk1wOzoogGOrdmoX0FiPsQHu5H8jSdaLNh3786VpGFW4U
+	 90pBK0yZeoFBHb/F98ansQUqw89ZZti9xbgyY0Oi/4OYamf5hF/WRvXRqHx2WXjXqM
+	 CMcqcD/jQVJ5Atn3CrhdAnNbwfbdyVGs9vmJcZE26ZbsQaj0OiGhYZ9v4vC3z0JZT/
+	 ThJw2opV9cSkw==
+Message-ID: <c9f8ae74-5d25-4d26-82f3-6a6c8331df2a@kernel.org>
+Date: Thu, 28 Nov 2024 09:34:54 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/6] arm64: dts: exynos: gs101-oriole: enable Maxim
- max77759 TCPCi
+Subject: Re: [PATCH 6/6] arm64: dts: exynos: gs101-oriole: add pd-disable and
+ typec-power-opmode
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -62,9 +62,9 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
  devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org
 References: <20241127-gs101-phy-lanes-orientation-dts-v1-0-5222d8508b71@linaro.org>
- <20241127-gs101-phy-lanes-orientation-dts-v1-5-5222d8508b71@linaro.org>
- <b0c5e443-79e2-4e53-8813-57044a627dea@kernel.org>
- <663f534cd88332ecf64e575ea0cfa1f40e303373.camel@linaro.org>
+ <20241127-gs101-phy-lanes-orientation-dts-v1-6-5222d8508b71@linaro.org>
+ <7c013e0f-bb8a-45db-a5b5-71afc0ddefda@kernel.org>
+ <4a5c27922a9852c06e1832dcc63b4a448e8955e5.camel@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,13 +110,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <663f534cd88332ecf64e575ea0cfa1f40e303373.camel@linaro.org>
+In-Reply-To: <4a5c27922a9852c06e1832dcc63b4a448e8955e5.camel@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_003441_463522_DF866B8E 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241128_003503_102051_16A1A896 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,19 +130,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/11/2024 09:28, André Draszik wrote:
->>>  
->>> @@ -90,6 +91,84 @@ eeprom: eeprom@50 {
->>>  &hsi2c_12 {
->>>  	status = "okay";
->>>  	/* TODO: add the devices once drivers exist */
+On 28/11/2024 09:34, André Draszik wrote:
+> On Thu, 2024-11-28 at 09:21 +0100, Krzysztof Kozlowski wrote:
+>> On 27/11/2024 12:01, André Draszik wrote:
+>>> When the serial console is enabled, we need to disable power delivery
+>>> since serial uses the SBU1/2 pins and appears to confuse the TCPCI,
+>>> resulting in endless interrupts.
+>>>
+>>> For now, change the DT such that the serial console continues working.
+>>>
+>>> Note1: We can not have both typec-power-opmode and
+>>> new-source-frs-typec-current active at the same time, as otherwise DT
+>>> binding checks complain.
+>>>
+>>> Note2: When using a downstream DT, the Pixel boot-loader will modify
+>>> the DT accordingly before boot, but for this upstream DT it doesn't
+>>> know where to find the TCPCI node. The intention is for this commit to
+>>> be reverted once an updated Pixel boot-loader becomes available.
+>>>
+>>> Signed-off-by: André Draszik <andre.draszik@linaro.org>
 >>
->>
->> Is the TODO still valid?
+>> This should be squashed to the previous patch, including also combining
+>> commit messages.
 > 
-> Yes, there are more devices on that bus.
+> I contemplated that, but I didn't in the end so that it's easy to just
+> revert this specific patch once the boot loader is updated.
+> 
+> I would prefer to keep them as separate patches for that reason, but will
+> squash if you still think that's better.
+> 
 
-OK
+OK, can be separate.
 
 Best regards,
 Krzysztof
