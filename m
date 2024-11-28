@@ -4,64 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C25D69114
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 15:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A433ED69114
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 15:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wy6HOPbWreNm+gjYiR1HLh5EyGj5Sb/iKkYx1y4lO0Y=; b=cJaFHpiOccRHIehJP9pkjXgfiZ
-	fGufnGWZwB7IkOmZTOulJlUezNYZbh0mkbusZslK+KgkyKsxCFrlwgSp0mNY3OZCSZMWSpZbLejdS
-	PlZ8p1zKNiLbTTaqDvyoDIuCq8nHA2VmwZXzXVxVD+3hCatNK/Frit5IpT5QKmkjUWfTGPIStDMkA
-	fu/fcDLFD2KiGwN7oYzbKQVdXWkIk8Yjla2rmlYoQ5aoV2Z2aapUbY++dAGqZ34c4yGhrmltVMxhe
-	0iey6VQQkfnL8KpdL5eZL8UC09oFEwd4+QbV/sf+QnFVQPbkvxnGvVZysNXoxoYpGaumyWwPGR4CT
-	3QfMjaaQ==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ABd2E925i20MEj4ELZS+Ijgs5QfhIL7sEUJJIVYesWg=; b=GMiQJMcdjc5sTRE2n7ZidZFoNQ
+	3mx7y2Jqi6JtZ/HGBi9lxgzDddbiYjmTESwGV7rilCspiek2yTKW0BXRN/FUQ7gTCLI8deg7EoXEw
+	IXGlEyii57CqieXvQ726cfBgzXGtxXIG/7xfDx93VolcB3E1eOrK1XL2Yg3/iDsNaVswam2kElu3c
+	cw5458NnQFMnmQou7tGaU+AKKZ7Cu45pifTAoNPUAA0NE51lqa/gGi1nZ6u4qZsy7umdIXuzFTZZz
+	2g9nfezP74rdfJdLCK8pao/Z2cxg+HJaCB65sH1BNykm8oZcdO6Z+0XioISdljVm3VBtOL2bB/JI5
+	vPLSi6mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGgR0-0000000FtMH-0wkE;
-	Thu, 28 Nov 2024 15:28:02 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tGgZE-0000000Fu9e-0slb;
+	Thu, 28 Nov 2024 15:36:32 +0000
+Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGgP7-0000000FsqO-2DRc
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 15:26:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CC2AAA43C27;
-	Thu, 28 Nov 2024 15:24:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BE71C4CED3;
-	Thu, 28 Nov 2024 15:26:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732807564;
-	bh=g810kAl+76OQ/4YxppQXydRnBCHRq1jvESwrtTuhF6I=;
-	h=From:To:Cc:Subject:Date:From;
-	b=hmWY0Zt+AHRBnOkCBzBNQSAP8i5XhfJvJWqTn6KhkHhw+W852QT1POwbL516InTRa
-	 x4p5ROfbEWlyCPd6qpg4ax9VeYkd8/PRudEFKB+eWrbFdrqLBTBJ4aGI0bFgLWtR1b
-	 sL9NZ50nkWF0q7+Ngk1XsUfjHNqPcap73qcINJp/1hGyWH8HDJWOQM4TSYUn+aXRSh
-	 VUGpRnZZepYLzn8Vp7UpxG1J6iRiKOGGIerJN9iYuq8KOWAIyx6uqx/CjKjQ1M48aI
-	 CwxPvee9vYyBbq54QwAWRk9FQP0hpB8FfJS0i9hcUxNtN0zh+jLZ/Y0aNtExqWQoTy
-	 dP4RgqGCTr5Vg==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH] arm64: dts: fvp: Update bus-range property
-Date: Thu, 28 Nov 2024 20:55:43 +0530
-Message-ID: <20241128152543.1821878-1-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
+	id 1tGgYE-0000000Fu34-1sUp;
+	Thu, 28 Nov 2024 15:35:32 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.stl.internal (Postfix) with ESMTP id C559611401AA;
+	Thu, 28 Nov 2024 10:35:28 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Thu, 28 Nov 2024 10:35:29 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1732808128;
+	 x=1732894528; bh=ABd2E925i20MEj4ELZS+Ijgs5QfhIL7sEUJJIVYesWg=; b=
+	BEMNsoQ9uCXfNDsb0MTId8qxxrNIFf6WII43GdcSgCtAF5NjH3ErVbMNW+UYrCPz
+	jJIaPgs2irKbfmRFIhgEpaf8dO13WBgCeIWGGNmgq6hCY0o6vNuDRLo7JH3YysI6
+	adWri8GFYNdOUA1QfAUR3yHxfQvNwJuZfzOI7/wHtsYGuTt+xE0AhHNqtK9FPzYr
+	ND+Q9NAeiCBLUFu1jgRPwERvWLLlAJSL5jZN7KFBhfan8xnbQyGn9F15K1RvT9Oh
+	8Jk0yyP10aor/jop+auqG1h6B0Ul7vcVDzl1aFVSljjzUydrgpOyHSms82cJYY63
+	UzfD/AbyP+tNrJEr7nWW9Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1732808128; x=
+	1732894528; bh=ABd2E925i20MEj4ELZS+Ijgs5QfhIL7sEUJJIVYesWg=; b=4
+	qbVI3GCWTAuAgTnL/VwXQnOQ3cZgRSKdUzStu3ng0ZQyfUz/ozrYsBvKSDyaaZxG
+	GcZOzFDKltWxWCfZzku/nc2gS0toHdFukvTPtDx4LTlJ2QaUvvfeVHAuDJqdL6qg
+	Q/PAnsf4oSnUXZlCxQubTJbdYZJjwvqdUASdY5B72oKSeH5ywjTEnAQSR5Nmo4tt
+	nridA5YQ69ZdqLqNuRAaAk7+yLKAqRu8VtUob9EGUTBv/onLOYzRPcgfE8XaK8/8
+	J6UuqSaXjPWdvhMn7Bsl3wYiioo+FKPcggaN/KbMQDZgw2EV2Gjm9tsBsYM7eGAX
+	Lumfh89mEd72OW2ZvTeUg==
+X-ME-Sender: <xms:wI1IZwuSYzX_k7OJfA_6xV7N4GOtl0tcUsX2qy4Hg9Y3apIV08alZQ>
+    <xme:wI1IZ9cstaQRaaoBk4vnH44BcWGmKeeUtNsg1Nj7sLwrHwTXQUOkKar0zqYJ56FWR
+    MYJWD59mEyeAb2CDug>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrhedugdejiecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
+    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
+    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
+    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
+    gvqeenucggtffrrghtthgvrhhnpeefhfehteffuddvgfeigefhjeetvdekteekjeefkeek
+    leffjeetvedvgefhhfeihfenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluh
+    hsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhn
+    uggsrdguvgdpnhgspghrtghpthhtohepuddupdhmohguvgepshhmthhpohhuthdprhgtph
+    htthhopehjsghruhhnvghtsegsrgihlhhisghrvgdrtghomhdprhgtphhtthhopehkhhhi
+    lhhmrghnsegsrgihlhhisghrvgdrtghomhdprhgtphhtthhopehmthhurhhquhgvthhtvg
+    essggrhihlihgsrhgvrdgtohhmpdhrtghpthhtohepmhgrrhhtihhnrdgslhhumhgvnhhs
+    thhinhhglhesghhoohhglhgvmhgrihhlrdgtohhmpdhrtghpthhtohepsghrohhonhhivg
+    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshgsohihugeskhgvrhhnvghlrdhorhhg
+    pdhrtghpthhtohepnhgvihhlrdgrrhhmshhtrhhonhhgsehlihhnrghrohdrohhrghdprh
+    gtphhtthhopehlihhnuhigqdgrmhhlohhgihgtsehlihhsthhsrdhinhhfrhgruggvrggu
+    rdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrd
+    hinhhfrhgruggvrggurdhorhhg
+X-ME-Proxy: <xmx:wI1IZ7yZAaffLnkN_MPOE1FMgd9cLSlFlyMz7p6XwacP-iiFq6VOvA>
+    <xmx:wI1IZzPJAJIlFkJ-YbyEwZW_q5Zj_cJ7WPmZe5WHrqCB8tCAQN13LA>
+    <xmx:wI1IZw9BYdCWqSIUkT5o1Z41hiYbqWUvvPaWnV5E1aScT0vfMczDtw>
+    <xmx:wI1IZ7XJlpagthbBUorL1TIcTgGOK720Gx1PQ5kB4g9UV9CcjiMZcg>
+    <xmx:wI1IZx01Zlb3znosZEH8ZfnPYlesaVlCsUlCYWYALqYcm1MWhJemZvG2>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 394B72220071; Thu, 28 Nov 2024 10:35:28 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Date: Thu, 28 Nov 2024 16:34:46 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Jerome Brunet" <jbrunet@baylibre.com>
+Cc: "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Michael Turquette" <mturquette@baylibre.com>,
+ "Stephen Boyd" <sboyd@kernel.org>, "Kevin Hilman" <khilman@baylibre.com>,
+ "Martin Blumenstingl" <martin.blumenstingl@googlemail.com>,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Mark Brown" <broonie@kernel.org>
+Message-Id: <ce67e512-a15b-4482-8194-b917096f4eeb@app.fastmail.com>
+In-Reply-To: <1jplmf1jqa.fsf@starbuckisacylon.baylibre.com>
+References: <20241127-clk-audio-fix-rst-missing-v1-1-9f9d0ab98fce@baylibre.com>
+ <12f29978-c8ce-4bee-a447-dcd086eb936d@app.fastmail.com>
+ <1ja5dk2y5l.fsf@starbuckisacylon.baylibre.com>
+ <f8de4a2a-776f-4c10-b75e-e845bcc38dde@app.fastmail.com>
+ <1j4j3r32ld.fsf@starbuckisacylon.baylibre.com>
+ <306b0b30-5a32-4c7c-86b4-57d50e2307e8@app.fastmail.com>
+ <1jy1131kxz.fsf@starbuckisacylon.baylibre.com>
+ <c06317c6-b2b2-4b6d-96e4-0c2cfc6846de@app.fastmail.com>
+ <1jplmf1jqa.fsf@starbuckisacylon.baylibre.com>
+Subject: Re: [PATCH] clk: amlogic: axg-audio: select RESET_MESON_AUX
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_072605_687955_C89FAF8B 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20241128_073531_196540_B04E07C8 
+X-CRM114-Status: GOOD (  19.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,88 +127,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These days, the Fixed Virtual Platforms(FVP) Base RevC model supports
-more PCI devices. Update the max bus number so that Linux can enumerate
-them correctly. Without this, the kernel throws the below error while
-booting with the default hierarchy
+On Thu, Nov 28, 2024, at 16:06, Jerome Brunet wrote:
+> On Thu 28 Nov 2024 at 15:51, "Arnd Bergmann" <arnd@arndb.de> wrote:
+>> On Thu, Nov 28, 2024, at 15:39, Jerome Brunet wrote:
+>>> On Thu 28 Nov 2024 at 15:11, "Arnd Bergmann" <arnd@arndb.de> wrote:
+>>> Eventually that will happen for the rest of the reset implemented
+>>> under drivers/clk/meson.
+>>>
+>>> It allows to make some code common between the platform reset
+>>> drivers and the aux ones. It also ease maintainance for both
+>>> Stephen and Philipp.
+>>
+>> I don't understand how this helps: the entire point of using
+>> an auxiliary device is to separate the lifetime rules of
+>> the different bits, but by doing the creation of the device
+>> in the same file as the implementation, you are not taking
+>> advantage of that at all, but instead get the complexity of
+>> a link-time dependency in addition to a lot of extra code
+>> for dealing with the additional device.
+>
+> My initial rework had the creation in clock (note: that is why I
+> initially used 'imply', and forgot to update when the creation moved to
+> reset).
+>
+> I was asked to move the creation in reset:
+> https://lore.kernel.org/r/217a785212d7c1a5b504c6040b3636e6.sboyd@kernel.org
+>
+> We are deviating a bit from the initial regression reported by Mark.
+> Is Ok with you to proceed with that fix and then continue this discussion
+> ?
 
-pci_bus 0000:01: busn_res: [bus 01] end is updated to 01
-pci_bus 0000:02: busn_res: can not insert [bus 02-01] under [bus 00-01] (conflicts with (null) [bus 00-01])
-pci_bus 0000:02: busn_res: [bus 02-01] end is updated to 02
-pci_bus 0000:02: busn_res: can not insert [bus 02] under [bus 00-01] (conflicts with (null) [bus 00-01])
-pci_bus 0000:03: busn_res: can not insert [bus 03-01] under [bus 00-01] (conflicts with (null) [bus 00-01])
-pci_bus 0000:03: busn_res: [bus 03-01] end is updated to 03
-pci_bus 0000:03: busn_res: can not insert [bus 03] under [bus 00-01] (conflicts with (null) [bus 00-01])
-pci_bus 0000:04: busn_res: can not insert [bus 04-01] under [bus 00-01] (conflicts with (null) [bus 00-01])
-pci_bus 0000:04: busn_res: [bus 04-01] end is updated to 04
-pci_bus 0000:04: busn_res: can not insert [bus 04] under [bus 00-01] (conflicts with (null) [bus 00-01])
-pci 0000:00:01.0: BAR 14: assigned [mem 0x50000000-0x500fffff]
+I really don't want to see those stray 'select' statements
+in there, as that leave very little incentive for anyone to
+fix it properly.
 
-The change is using 0xff as max bus nr because the ECAM window is 256MB in size.
+It sounds like Stephen gave you bad advice for how it should
+be structured, so my best suggestion would be to move the
+the problem (and the reset driver) back into his subsystem
+and leave only a simple 'select RESET_CONTROLLER'.
 
-pci-host-generic 40000000.pci: ECAM at [mem 0x40000000-0x4fffffff] for [bus 00-01]
+From the message you cited, I think Stephen had the right
+intentions ("so that the clk and reset drivers are decoupled"),
+but the end result did not actually do what he intended
+even if you did what he asked for.
 
-lspci output with and without the change
-without fix:
-00:00.0 Host bridge: ARM Device 00ba (rev 01)
-00:01.0 PCI bridge: ARM Device 0def
-00:02.0 PCI bridge: ARM Device 0def
-00:03.0 PCI bridge: ARM Device 0def
-00:04.0 PCI bridge: ARM Device 0def
-00:1e.0 Unassigned class [ff00]: ARM Device ff80
-00:1e.1 Unassigned class [ff00]: ARM Device ff80
-00:1f.0 SATA controller: Device 0abc:aced (rev 01)
-01:00.0 SATA controller: Device 0abc:aced (rev 01)
+Stephen, can you please take a look here and see if you
+have a better idea for either decoupling the two drivers
+enough to avoid the link time dependency, or to reintegrate
+the reset controller code into the clk driver and avoid
+the complexity?
 
-with fix:
-00:00.0 Host bridge: ARM Device 00ba (rev 01)
-00:01.0 PCI bridge: ARM Device 0def
-00:02.0 PCI bridge: ARM Device 0def
-00:03.0 PCI bridge: ARM Device 0def
-00:04.0 PCI bridge: ARM Device 0def
-00:1e.0 Unassigned class [ff00]: ARM Device ff80
-00:1e.1 Unassigned class [ff00]: ARM Device ff80
-00:1f.0 SATA controller: Device 0abc:aced (rev 01)
-01:00.0 SATA controller: Device 0abc:aced (rev 01)
-02:00.0 Unassigned class [ff00]: ARM Device ff80
-02:00.4 Unassigned class [ff00]: ARM Device ff80
-03:00.0 PCI bridge: ARM Device 0def
-04:00.0 PCI bridge: ARM Device 0def
-04:01.0 PCI bridge: ARM Device 0def
-04:02.0 PCI bridge: ARM Device 0def
-05:00.0 SATA controller: Device 0abc:aced (rev 01)
-06:00.0 Unassigned class [ff00]: ARM Device ff80
-06:00.7 Unassigned class [ff00]: ARM Device ff80
-07:00.0 Unassigned class [ff00]: ARM Device ff80
-07:00.3 Unassigned class [ff00]: ARM Device ff80
-08:00.0 Unassigned class [ff00]: ARM Device ff80
-08:00.1 Unassigned class [ff00]: ARM Device ff80
-
-Cc: Liviu Dudau <liviu.dudau@arm.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- arch/arm64/boot/dts/arm/fvp-base-revc.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/arm/fvp-base-revc.dts b/arch/arm64/boot/dts/arm/fvp-base-revc.dts
-index 289c5f9d1c8d..225a1ed8aa08 100644
---- a/arch/arm64/boot/dts/arm/fvp-base-revc.dts
-+++ b/arch/arm64/boot/dts/arm/fvp-base-revc.dts
-@@ -233,7 +233,7 @@ pci: pci@40000000 {
- 		#interrupt-cells = <0x1>;
- 		compatible = "pci-host-ecam-generic";
- 		device_type = "pci";
--		bus-range = <0x0 0x1>;
-+		bus-range = <0x0 0xff>;
- 		reg = <0x0 0x40000000 0x0 0x10000000>;
- 		ranges = <0x2000000 0x0 0x50000000 0x0 0x50000000 0x0 0x10000000>;
- 		interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>,
--- 
-2.43.0
-
+      Arnd
 
