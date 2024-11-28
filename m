@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63314D69113
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 14:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33EFDD69113
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 14:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xA8QccDB7jDinpTszrKQcVtNkmKlzXFjmJDa5bO0Mmg=; b=vxBocvgNVbM+TlA3DkHv8Wn+Sk
-	/pQzix5PF1Yz+7/Q2a40fPMJISbTOEvXYLfG96hpCA8WjacBFlXCDEFj14GqUZ/cQLK3Tmr6svgUg
-	cl+Fs5P2mGoft8rSR1sa0FiNNnI74/k7ifAosgh/Iu2dkXdPOdsvXScVrqdlSPivcXl1ec9HIbOku
-	HhuouKm0rengBRnN8wd/kaySosuppIHHwwAtd07KwX4DDbdqGGuQL78Ai8nsqZyDirjFsxtpar3U+
-	RB0QCkb33yirisJUKPLEZ41aNND1HuFmC9KPSYwF+ibkETj5jsxS7ZuPooJhHH2xRlNuZ9e31OQNq
-	uh5I9G1A==;
+	bh=zk+38GcVkHyfGsfMVYqHv5jFWy+UyzxE4EWE+6e9rBE=; b=gLji39mrMfsmQyaytxgxV3zIeT
+	/RBlf0fvshXl6R/u/3MzIUCFDlkGsPZb/aKVPEQdaLHngoYB6j++rDPoTdPQlhPAgZHbFonWFJaQM
+	LuNiL5Er4SDT6gsCnRu2vkFSm0dFpHaBZ0N+Ba1PqibuwR/QE2cgrAnWazRylPq0xrItVgeLFdJWW
+	ycAq4WFkwxF7ipCwpu/Ms4HFBP3OCTznG1gIXy5gy08dC/3vDrpzDTNkhFzHcQ9thFpHwCekq0RGA
+	5mwulEhCEW1w/8CVubkk4srPzgihhniQZ8E3Ha9NpX89NdqiDL4tGPmmuwJ4XOE4TsNViAudJafs2
+	i3AEMM0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGfMl-0000000FkIj-0z0Q;
-	Thu, 28 Nov 2024 14:19:35 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1tGfOh-0000000FkVp-3r7U;
+	Thu, 28 Nov 2024 14:21:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGfLm-0000000FkBu-274K
+	id 1tGfNj-0000000FkQP-2kxa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 14:18:35 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2ffe28c12bdso4997831fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 06:18:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732803512; x=1733408312; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xA8QccDB7jDinpTszrKQcVtNkmKlzXFjmJDa5bO0Mmg=;
-        b=ghFTctlgUrOBXrGO8g9HduiQPyZoSnjKXYjGAj7fvoJvFpOcsorseYjmF+7ScYKQ32
-         YJUfUHcwvrrbXKDdmrOcUv8YLxmfXCXRpMSmZQblTH4eN2RRSLVbk6hiQSzgzyp0yv1l
-         VfdTR1CztOitzFOmb47gUoMPEmpRk7rl75eYiOBOuLJKX11AmE+557LY3SKHbIAI4CA6
-         ZRuGgoK8AZHT2bSsd5MEaJK35On4oK4HWyxtFPFiACNkutJhm1j0CBZqsQo+8iJu77R+
-         P7SZfDryTuLrpAlrHHLCf30lcQEYIN8SYKJqi0CSs6nbn94cBcp8dpHauzG82i6xr9uI
-         xeCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732803512; x=1733408312;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xA8QccDB7jDinpTszrKQcVtNkmKlzXFjmJDa5bO0Mmg=;
-        b=O10g+JkrBX6aJImrYdPjPYUshL0MMcLNEQriqDUTF4grQVocahd3rgViDhpfGzYDK2
-         JxVrHMI0XNyabASOSO56f0c9IrMirzP5rA2NTs3UR8QsHuvEtQsGXGoR+wWHo9okx7KK
-         3fnt1Ji/ud+3gs3k0zibry8Y9Mf05WuZzTzTl1PpfjbvkxHQ9gEZpHDvSkKsAUrkgfCl
-         bXZx9UUUri0FWvDVBgcVRaUL3dRpjRJAewAU4YYDv3uh2TqTRjcwRN4ITTuJpLxhyywb
-         /YtIT+0O0BcXUdUWnPk/JujSV0VMPAGlcl8uFi83C09HKS3oTj8LEC7ByWJFECNIDk63
-         +rMw==
-X-Forwarded-Encrypted: i=1; AJvYcCV6/5J6aL1vLSfNkeB07Km0yL6zuZof/P04FPPuGVLIZ/uvaXqQjoGlNVRycMZVqe/KjSEFtA47HsUb3U4L/o02@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywk0deF0W5xF6H/g88vYSSOR3C7+7/7RqWXLUQgWC2QQzAVuqEV
-	3GRIpazWXf61ga7E3vPwbEdmtz4+UgJmHa4RCvCOyyhze+1p1nkpXNTf9C8WZj0=
-X-Gm-Gg: ASbGncvXpVFfNLzdx/qfqbBMB8Oc8bVRJ0E6KRm3Gq0qPYATqrPuDVvumI+/bmazD4c
-	SxBcLSWY021Uii4p1+NHJbmvgnYX6eq6ALTxlpjIBr667a35TREmympR/3F7qm54rlKasZ0JbUt
-	fnG0T6WJ263NUwQZxya7BLFKDY+CEww8Q8NMNO1wrWnj8NPK6tBaJzaptJaOOj10A0URA7C4byR
-	x6YGr5X0bKJgw3YQTxOIC3uVd/c5pj+VXo7RyzhDdAcR7Yn2nZ91aEZpViRkn9syjqv7YKuzIdO
-	mveC0hI2BX/PinTbEcHFLlVMC4tFSw==
-X-Google-Smtp-Source: AGHT+IEWrfuUcnXV1iqJHqdNEOSGIK8M6/LbygKUp+v7qqACcol4zNxR8qGEVUdI0pmwpuF4EUOzaA==
-X-Received: by 2002:a05:651c:887:b0:2fb:8920:99c6 with SMTP id 38308e7fff4ca-2ffd604fc7fmr46439611fa.23.1732803512212;
-        Thu, 28 Nov 2024 06:18:32 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ffdfc75452sm2022861fa.85.2024.11.28.06.18.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Nov 2024 06:18:30 -0800 (PST)
-Date: Thu, 28 Nov 2024 16:18:28 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Sui Jingfeng <sui.jingfeng@linux.dev>
-Cc: Liu Ying <victor.liu@nxp.com>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, p.zabel@pengutronix.de, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, 
-	simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, glx@linutronix.de, vkoul@kernel.org, kishon@kernel.org, 
-	aisheng.dong@nxp.com, agx@sigxcpu.org, francesco@dolcini.it, frank.li@nxp.com
-Subject: Re: [v4,09/19] drm/imx: Add i.MX8qxp Display Controller display
- engine
-Message-ID: <kixewphwyawbyrfu6pxtqx5fywqmq7ms2sa5j5pzogetmebcjz@ouhpohk7twbc>
-References: <20241125093316.2357162-10-victor.liu@nxp.com>
- <c4334c9b-833b-4923-8188-64d662231512@linux.dev>
+	Thu, 28 Nov 2024 14:20:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1DE9AA43BE7;
+	Thu, 28 Nov 2024 14:18:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F6D3C4CECE;
+	Thu, 28 Nov 2024 14:20:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732803634;
+	bh=qLn7KCjfeNms18fyJ3R4Q7z/HaY/qcbgERgC7rBSsrk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GnhZS14aE5CoghTDrv+dKiJwvpB9YXrZuVykroRSy9YysOGGCj0sGW1lbtqp5rxGE
+	 E2szlbIyPkxndDXy6WDDz+5pQIpCQxO2/ue+2b10hELPyifwRFA150KkZIj0sATc3e
+	 9LbIwSZI1OJDANcRomO7I2aF+owml7Lo9HMBg65LWXGfgfW2MI+6ckPLFeMMy7lkPn
+	 gJYAoLN4sscAXjMOHJBZ+Q1XCO3vfy7230pNkFexFrHUTNYXU1kGI80o7iiWkvTpCC
+	 Odt9M6KdWxJfgJ5hlw1WHKuetIRjZTyxsZmG2FXwt7ErUJe+YRQvSLTONY81VgCX9a
+	 O776BICHiG4GQ==
+Date: Thu, 28 Nov 2024 14:20:28 +0000
+From: Will Deacon <will@kernel.org>
+To: Yu Zhao <yuzhao@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Douglas Anderson <dianders@chromium.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Nanyong Sun <sunnanyong@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [PATCH v2 0/6] mm/arm64: re-enable HVO
+Message-ID: <20241128142028.GA3506@willie-the-truck>
+References: <20241107202033.2721681-1-yuzhao@google.com>
+ <20241125152203.GA954@willie-the-truck>
+ <CAOUHufYUMYcf=uF7=2zj-PsGXePCDdsRHJGa8t-e-k9VUvYyQQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <c4334c9b-833b-4923-8188-64d662231512@linux.dev>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAOUHufYUMYcf=uF7=2zj-PsGXePCDdsRHJGa8t-e-k9VUvYyQQ@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_061834_532670_CD3E2B24 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20241128_062035_832112_6BF941B6 
+X-CRM114-Status: GOOD (  31.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +82,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 28, 2024 at 04:46:53PM +0800, Sui Jingfeng wrote:
-> Hi,
+On Mon, Nov 25, 2024 at 03:22:47PM -0700, Yu Zhao wrote:
+> On Mon, Nov 25, 2024 at 8:22 AM Will Deacon <will@kernel.org> wrote:
+> > On Thu, Nov 07, 2024 at 01:20:27PM -0700, Yu Zhao wrote:
+> > > HVO was disabled by commit 060a2c92d1b6 ("arm64: mm: hugetlb: Disable
+> > > HUGETLB_PAGE_OPTIMIZE_VMEMMAP") due to the following reason:
+> > >
+> > >   This is deemed UNPREDICTABLE by the Arm architecture without a
+> > >   break-before-make sequence (make the PTE invalid, TLBI, write the
+> > >   new valid PTE). However, such sequence is not possible since the
+> > >   vmemmap may be concurrently accessed by the kernel.
+> > >
+> > > This series presents one of the previously discussed approaches to
+> > > re-enable HugeTLB Vmemmap Optimization (HVO) on arm64.
+> >
+> > Before jumping into the new mechanisms here, I'd really like to
+> > understand how the current code is intended to work in the relatively
+> > simple case where the vmemmap is page-mapped to start with (i.e. when we
+> > don't need to worry about block-splitting).
+> >
+> > In that case, who are the concurrent users of the vmemmap that we need
+> > to worry about?
 > 
-> On 2024/11/25 17:33, Liu Ying wrote:
-> > i.MX8qxp Display Controller display engine consists of all processing
-> > units that operate in a display clock domain.  Add minimal feature
-> > support with FrameGen and TCon so that the engine can output display
-> > timings.  The display engine driver as a master binds FrameGen and
-> > TCon drivers as components.  While at it, the display engine driver
-> > is a component to be bound with the upcoming DRM driver.
-> > 
-> > Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> > ---
-> > v4:
-> > * Use regmap to define register map for all registers. (Dmitry)
-> > * Use regmap APIs to access registers. (Dmitry)
-> > * Inline some small functions. (Dmitry)
+> Any speculative PFN walkers who either only read `struct page[]` or
+> attempt to increment page->_refcount if it's not zero.
 > 
+> > Is it solely speculative references via
+> > page_ref_add_unless() or are there others?
 > 
-> Why?
+> page_ref_add_unless() needs to be successful before writes can follow;
+> speculative reads are always allowed.
 > 
-> Its seems that the switch to regmap APIs is not very necessary,
-> as ioremap/writel/readl are simple enough and easier to use.
+> > Looking at page_ref_add_unless(), what serialises that against
+> > __hugetlb_vmemmap_restore_folio()? I see there's a synchronize_rcu()
+> > call in the latter, but what prevents an RCU reader coming in
+> > immediately after that?
 > 
-> Isn't that this just introduce an intermediate layer? It's okay
-> for display bridges/panels that behind I2C bus or SPI bus. But
-> then, why drm/msm still haven't be converted to use the regmap
-> APIs ?
+> In page_ref_add_unless(), the condtion `!page_is_fake_head(page) &&
+> page_ref_count(page)` returns false before a PTE becomes RO.
 > 
-> Just a few questions, has no opinions to your patch.
+> For HVO, i.e., a PTE being switched from RW to RO, page_ref_count() is
+> frozen (remains zero), followed by synchronize_rcu(). After the
+> switch, page_is_fake_head() is true and it appears before
+> page_ref_count() is unfrozen (become non-zero), so the condition
+> remains false.
+> 
+> For de-HVO, i.e., a PTE being switched from RO to RW, page_ref_count()
+> again is frozen, followed by synchronize_rcu(). Only this time
+> page_is_fake_head() is false after the switch, and again it appears
+> before page_ref_count() is unfrozen. To answer your question, readers
+> coming in immediately after that won't be able to see non-zero
+> page_ref_count() before it sees page_is_fake_head() being false. IOW,
+> regarding whether it is RW, the condition can be false negative but
+> never false positive.
 
-Please respond to the original review comment. Then we might be able to
-discuss if the suggested change was logical or not. Discussing changelog
-doesn't make sense becasue there is no context here.
+Thanks, but I'm still not seeing how this works. When you say "appears
+before", I don't see any memory barriers in page_ref_add_unless() that
+enforce that e.g. the refcount and the flags are checked in order and
+I can't see how the synchronize_rcu() helps either as it's called really
+earlyi (I think that's just there for the static key).
 
--- 
-With best wishes
-Dmitry
+If page_is_fake_head() is reliable, then I'm thinking we could use that
+to steer page_ref_add_unless() away from the tail pages during the
+remapping operations and it would be fine to use a break-before-make
+sequence.
+
+Will
 
