@@ -4,92 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91388D690EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 08:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 690C1D690EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 08:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pqNO4mcpLsB6nl6y5oYnZ+p9PNe/HBxDvPKQfTS22pA=; b=aYgiK6ms9R+apW1NQ11/fxSloj
-	Gk2oQfo1AVmohgTeL9jjF6kFxIcIRYes32Iuo8TVptZbnvMQ58k5IsIymk3XAVhp9zDy8oXtXD3ew
-	FlK4qxQXoT7hP9LCE5B6GUvRZ7p11MpzIO8rtQdpl94lzrzC1m0o0k2yvuwq20pnD4zc7Wp7jfAKa
-	vK2k7vvqpRQcrojNyhOWP5hD/sQA8X9sIFQ4JZxVVBjm+a+b2o8H9NOzOe1FtlWLsYBcI1Qojs3pf
-	Hg+vgjzRaZiYUc3iN/eIryoWMHQt49SSd2nlALeY//x7JCB78gprkMx2SLnenC4QYPRXscLVfCLJt
-	c5rAIddg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fB7H6zqOU8XA7++jjxBLmHR+yV+sy4tTZskNpFRtSKk=; b=HpVVEv2XHpHN6jSHNA4ooMiPVM
+	FkWhYCaGKzg67DUex1kbelBDf35923EA6ZPsY72pdCyw77dVc6bxQFgzb9SdYlrsJAedFnlxuR0dF
+	yhWs248NjGY9vvvK7TuzpjhO/25gHO08BkIwTV6Tduo+Zuqo6HJ2kyC88ccnsNVCnaayIAfrUIb+8
+	UPFVHyQqsgqBxlIBbS5zHwo2SUrRT4fRiL8MAqlfaU/fq5/KQByzSD3ATIoIJUr2X022nrKfkmS+l
+	YP5nfloO7ETFXlQyz34c2CKXGQ3AiIuSZL0LL0a7YapQhECFxV7YRxrcOjGOR554Iclgvd2q27EYN
+	ZmIgzb2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGa7m-0000000F2lZ-3NNj;
-	Thu, 28 Nov 2024 08:43:46 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1tGaAB-0000000F3BZ-2UCz;
+	Thu, 28 Nov 2024 08:46:15 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGa6m-0000000F2Wc-34WZ
+	id 1tGa9C-0000000F320-2M47
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 08:42:46 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5cfc035649bso671575a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 00:42:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1732783363; x=1733388163; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pqNO4mcpLsB6nl6y5oYnZ+p9PNe/HBxDvPKQfTS22pA=;
-        b=pIPcKW2brdjmCIQDDEAU2hLOpuH452KGc9Bq2wy8Nsw45dj5p3/CLWyqutusJYeYyc
-         WHbhlrszhxJ54y8UrdFMKExzjYlpI3dkHrm7w70d6tSyBj1yc7rzQbZWXDSSI4LuTSk4
-         fTMQy/1HVlPxTTuThbzhi7pDJRa7os0tj8VHKmlg9Z4h7QJKjWv0Fzq05PRVBCTiXPy8
-         pRnhIEC66K7us84dDC+gINKRljAVx2cKQOLCRZuQsJQFRSgN3OVJqYo1mrxp4hH7o4ic
-         QNllwtRcj9SoKqEwu4657hXC5aJ0l/JfvqJKQc2zsx1tIwAcKc9mz9ZpFrOG9BgSoLxW
-         rt1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732783363; x=1733388163;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pqNO4mcpLsB6nl6y5oYnZ+p9PNe/HBxDvPKQfTS22pA=;
-        b=Uk4+c4aInr0jcd713uBPUo6RFn+v1Y8JOHJgoRblxvAnilICm4OWkUZ+Qjp4arhfCv
-         1TTHs+ZVKbI1Unu73VHgQjcKCy/RJ+l/oumPEhbKyE32B/FpKDeUV6bCjA8p2cAshSsJ
-         NopoL32fd03jR35UDzFmYuAYaIDOeJqE5hebDzNYEOz7GP9Oxbiey7yK5/Se42ZcRMjG
-         a6u0JQYX6/6syQ0obdZilN+LCwWfK5SVK/KGPfdStf+74rrKWy+ARfkJVyMiJBdhN4jG
-         1NUw63pyTWDzfibzBJIT7JxCIh6THyScPvSljLEmODZBBNzYqbMZ43a6R3s1puTiWb9V
-         gYbg==
-X-Forwarded-Encrypted: i=1; AJvYcCVuF+9JuT7fDab3aYhD/Dwl64JG2+C8m3f5rj9J2urpb9TS8pX1ky9fzbdtczghgZJilwVSruihvO0tmICyhwiA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3FMvlJIStcZ+Ow/k0BUL16T1MacijcMwYyBQG4dJt7D+rbZ23
-	YRRO+RnudaIV7+r86IK2+o2qYaibJaAn4vARhoLZiiIuDBNAWg02wA9TSJTIyDk=
-X-Gm-Gg: ASbGncvBVKebAcqRAiR8XyhtUvygzbcJuqDyoWRV4sKUynQ1Ako49rmyxp7O+w6WGih
-	KahSerIDfDCM9rzRE97hi8FQGHM4FrlpIUX/N1Ho28W3HRoerUJsM1yn3aqb8VErs6WKf7EiDok
-	K1zxgfwsf10achdrK17AqkfPSxUHDR76Q0PfqMaGYQwKYAViM57NZ1AxPKfjBIWg4eKj5nGKHTl
-	AuWX/JuobPGwXKFWmxPKCY/sWwXJmbf6wl7AuAJUuLkpPnwk/blcTf5nxNeQFy3rSyDP55iBsD2
-	1QHXPIj3EboKEUbvcrcgVfbaReVQzcI40l0=
-X-Google-Smtp-Source: AGHT+IEtMpQZWj4endJlLK3Ilr+mbQxtLK9EL+/Wn1Pn2YYjrHxtBwEvTjmbyjJN4oWe/ENTW6ynRg==
-X-Received: by 2002:a17:907:688f:b0:aa5:d1c:3dac with SMTP id a640c23a62f3a-aa580fdd57emr475064966b.36.1732783362949;
-        Thu, 28 Nov 2024 00:42:42 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa5997ffc1bsm41610466b.83.2024.11.28.00.42.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Nov 2024 00:42:42 -0800 (PST)
-Date: Thu, 28 Nov 2024 09:42:41 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	James Houghton <jthoughton@google.com>, Muhammad Usama Anjum <usama.anjum@collabora.com>
-Subject: Re: [PATCH v4 14/16] KVM: selftests: Provide empty 'all' and 'clean'
- targets for unsupported ARCHs
-Message-ID: <20241128-24a975e227dd4b86393f21ed@orel>
-References: <20241128005547.4077116-1-seanjc@google.com>
- <20241128005547.4077116-15-seanjc@google.com>
+	Thu, 28 Nov 2024 08:45:15 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AS8d5U6028694;
+	Thu, 28 Nov 2024 08:45:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	fB7H6zqOU8XA7++jjxBLmHR+yV+sy4tTZskNpFRtSKk=; b=DbYYrkDEDfmyaZgw
+	uLy+AKvhu7PGgaKVaImbIInKP1WE5q8mzW/E3HkiK7G/OhGvSIFGnHvvUI70ddja
+	F6k2s9vasRGD58bplsABc3fwn2A5//MyAs6d787Ywr5ek2bZNQ+uaYN7xfvexDrH
+	1DLf2kM4enjg+GPCsel138JBJMvg35IoLddCYV7Qy/8eVo9/7rBFzPoClaDxkhkb
+	rLRh6TBgAMciPUM2rauFsdcNaFkw2jMF41sZXHuCA1CxZ9NN1jVIRs6Eck4QWglr
+	gao3BdPwybS2LZ8OVzIdg/gC2Ek6sm9Cj6w3RKXdyx3D3nUwOK+dVgNjqzyVTO9Y
+	uWXrpw==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43671e9v34-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 28 Nov 2024 08:45:09 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AS8j8dj007565
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 28 Nov 2024 08:45:08 GMT
+Received: from jingyw-gv.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Thu, 28 Nov 2024 00:45:05 -0800
+From: Jingyi Wang <quic_jingyw@quicinc.com>
+Date: Thu, 28 Nov 2024 16:44:43 +0800
+Subject: [PATCH v3 1/4] dt-bindings: arm: qcom: document QCS8300 SoC and
+ reference board
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241128005547.4077116-15-seanjc@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20241128-qcs8300_initial_dtsi-v3-1-26aa8a164914@quicinc.com>
+References: <20241128-qcs8300_initial_dtsi-v3-0-26aa8a164914@quicinc.com>
+In-Reply-To: <20241128-qcs8300_initial_dtsi-v3-0-26aa8a164914@quicinc.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio
+	<konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: <quic_tengfan@quicinc.com>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Jingyi Wang
+	<quic_jingyw@quicinc.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: b4 0.15-dev-99b12
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1732783501; l=1008;
+ i=quic_jingyw@quicinc.com; s=20240910; h=from:subject:message-id;
+ bh=DBENkEC0ApGIzDp6doWvNzdm8cGCKFKIypaD504T8us=;
+ b=cAhXmcLfDi5jRbRl1C6p3L/x1rNmLo9L3teaN+gRbMnOCU+3tsJOaBEHTFWjiReur7Sg5/HL5
+ s6RGPdJbXQTByt4WMMlseM+sIWM/c+SMYPD4AELJA4xihR/Us+oCVpM
+X-Developer-Key: i=quic_jingyw@quicinc.com; a=ed25519;
+ pk=ZRP1KgWMhlXXWlSYLoO7TSfwKgt6ke8hw5xWcSY+wLQ=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 70aNPnlbIBTlHQhSy35K1KOgtfFJhF-_
+X-Proofpoint-GUID: 70aNPnlbIBTlHQhSy35K1KOgtfFJhF-_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
+ impostorscore=0 mlxscore=0 phishscore=0 priorityscore=1501 clxscore=1015
+ bulkscore=0 lowpriorityscore=0 spamscore=0 adultscore=0 mlxlogscore=953
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2411280069
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_004244_774570_F9F817B7 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20241128_004514_609257_62F23EF7 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,26 +118,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 27, 2024 at 04:55:45PM -0800, Sean Christopherson wrote:
-> Provide empty targets for KVM selftests if the target architecture is
-> unsupported to make it obvious which architectures are supported, and so
-> that various side effects don't fail and/or do weird things, e.g. as is,
-> "mkdir -p $(sort $(dir $(TEST_GEN_PROGS)))" fails due to a missing operand,
-> and conversely, "$(shell mkdir -p $(sort $(OUTPUT)/$(ARCH_DIR) ..." will
-> create an empty, useless directory for the unsupported architecture.
-> 
-> Move the guts of the Makefile to Makefile.kvm so that it's easier to see
-> that the if-statement effectively guards all of KVM selftests.
-> 
-> Reported-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  tools/testing/selftests/kvm/.gitignore   |   1 +
->  tools/testing/selftests/kvm/Makefile     | 336 +----------------------
->  tools/testing/selftests/kvm/Makefile.kvm | 334 ++++++++++++++++++++++
->  3 files changed, 340 insertions(+), 331 deletions(-)
->  create mode 100644 tools/testing/selftests/kvm/Makefile.kvm
->
+Document Qualcomm QCS8300 SoC and its reference board QCS8300 RIDE.
 
-Acked-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
+Signed-off-by: Jingyi Wang <quic_jingyw@quicinc.com>
+---
+ Documentation/devicetree/bindings/arm/qcom.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/qcom.yaml b/Documentation/devicetree/bindings/arm/qcom.yaml
+index ca3990393510..87f1106767a2 100644
+--- a/Documentation/devicetree/bindings/arm/qcom.yaml
++++ b/Documentation/devicetree/bindings/arm/qcom.yaml
+@@ -52,6 +52,7 @@ description: |
+         msm8996pro
+         msm8998
+         qcs404
++        qcs8300
+         qcs8550
+         qcm2290
+         qcm6490
+@@ -921,6 +922,11 @@ properties:
+           - const: qcom,qcs404-evb
+           - const: qcom,qcs404
+ 
++      - items:
++          - enum:
++              - qcom,qcs8300-ride
++          - const: qcom,qcs8300
++
+       - items:
+           - enum:
+               - qcom,sa8155p-adp
+
+-- 
+2.25.1
+
 
