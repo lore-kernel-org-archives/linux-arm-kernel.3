@@ -4,124 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACAEDD690F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 10:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 161A4D690FA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 11:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dm0BlVyR9dBPv1QMj7nlMcWMA6CE8+W5h30MSUGRJ9k=; b=Cxk7/+FiJkGqaQ/+VCO+vW1J+J
-	4ktU9O9pFOniExLWlEt9ralSbpjfyEWEgaqHbAmL1WRUt05nYmXodFw0kaNyEy41Rix/N+nbxJz36
-	zFkWe4y7hoYcVMo3hPi5t2yv3EUWoDJnrvjV6sNG8/+dS0DdyOMLawBOIdTZVpJHjMm+jdPmgh/yB
-	ZBGR3vtQT0j+/HxC9aEcOt4sPBnAeThlGCMxeiqxGxbNotyb+cp9jGXhrMsOxZst5fRx88wSeJiFE
-	0g2ERa6Z8p2fYZcnNvj/gFB9W8mmoePCdjn7qepnyzJhgv5ZaNt4+N9T/Fn9W5PKaM8eYtoX+i/G0
-	1xa+Ch3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VxDuw/fmN6ysGCo52QBWdJfa+g6236vSlscdMfEXh6s=; b=hWSF/0YdIPLqeWhXARiJI7ZJ5+
+	lBnlv/FsMOTmEcgYRep8BHElmn7qFv5chcnQC9ItFqPtGpjqrOagmn6OOkAjtcKhQejRWd9e9giwM
+	jMng7LYyYSJrURJNRwIHnWPyN4rn6JWyqRtXZMq1NJZExPHyGA9y6h50OYpT/hovsfY9cJk3F1QGU
+	k6IlW8Si2UfcHoxlElIOopThk21q1YKF8/uNETbI5fgtvYm0le59qtTdfon3ewHwr/ONO+Tej0nPI
+	SYMjcC81yzdSw7MR4oXWirhEQX02QDEpbPAHlBUTMoh0mN/GOh4UpiUwKfCWhwSd0leejcS6b0QRg
+	5VpEVA2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGcEg-0000000FJVk-0kcg;
-	Thu, 28 Nov 2024 10:59:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGcDL-0000000FJHo-0c45
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 28 Nov 2024 10:57:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Dm0BlVyR9dBPv1QMj7nlMcWMA6CE8+W5h30MSUGRJ9k=; b=fa72bRoM2OTg7JpJYUe4e7x9LQ
-	EVQlaL/uXEQDdEN6B/bG4WIF7I29IXsExuIo6zXjc0LpccXlDcB7/T9NFDFU31rkAhjfdDG9Uy1M6
-	BIbOejPjh3MNWlN5ob59HcybY65JlhfRKpJXKGZIis7gVuO099ToZ1wlk28lIDRRw8vfVQEZDWXSl
-	N76avLjpW87uZyItpAruaDTFDnFZdEK/JjcAAHl5SQmIALN0OY8+0vb2tLZzSn3TbZz0N5cIPGX3O
-	DVMCmNiazaiLfuTxM3dw+mG+g5NxVHvMCEYB7YvV8A1X/RGRy9iWodMxhYsgYjTmTZ7H6BvLL2Sz9
-	OKLpEVWQ==;
-Received: from cpanel.siel.si ([46.19.9.99])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGcDH-00000001afq-0sbe
+	id 1tGcKI-0000000FK0U-2510;
+	Thu, 28 Nov 2024 11:04:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tGcJJ-0000000FJxA-13yc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 10:57:37 +0000
-Received: from [89.212.21.243] (port=43044 helo=[192.168.69.52])
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96.2)
-	(envelope-from <andrej.picej@norik.com>)
-	id 1tGcD1-00CJZu-1K;
-	Thu, 28 Nov 2024 11:57:18 +0100
-Message-ID: <56f9bee2-74bd-4150-abab-fbc1459d7e36@norik.com>
-Date: Thu, 28 Nov 2024 11:57:16 +0100
+	Thu, 28 Nov 2024 11:03:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7DAAE1474;
+	Thu, 28 Nov 2024 03:04:16 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 956A03F66E;
+	Thu, 28 Nov 2024 03:03:45 -0800 (PST)
+Date: Thu, 28 Nov 2024 11:03:38 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Luca Fancellu <luca.fancellu@arm.com>
+Cc: andre.przywara@arm.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [boot-wrapper v5] aarch64: Start Xen on Armv8-R at EL2
+Message-ID: <Z0hOCh16ThvfN-Jr@J2N7QTR9R3>
+References: <20241127102300.2822848-1-luca.fancellu@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: drm/bridge: ti-sn65dsi83: Add optional
- property ti,lvds-vcom
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, krzk+dt@kernel.org,
- conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, marex@denx.de,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20241127103031.1007893-1-andrej.picej@norik.com>
- <20241127103031.1007893-2-andrej.picej@norik.com>
- <20241127151630.GA3515396-robh@kernel.org>
- <3b5768e5-dcb6-436d-837c-418676e13b2e@norik.com>
- <20241128-mottled-nostalgic-oriole-be31ce@houat>
-Content-Language: en-US
-From: Andrej Picej <andrej.picej@norik.com>
-Autocrypt: addr=andrej.picej@norik.com; keydata=
- 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
- xtT/8OxBOVSHvA==
-In-Reply-To: <20241128-mottled-nostalgic-oriole-be31ce@houat>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
-X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241127102300.2822848-1-luca.fancellu@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_105735_620496_1B951F16 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20241128_030349_335325_10DA48C9 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,72 +61,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
-
-On 28. 11. 24 11:29, Maxime Ripard wrote:
-> On Thu, Nov 28, 2024 at 09:46:33AM +0100, Andrej Picej wrote:
->> On 27. 11. 24 16:16, Rob Herring wrote:
->>> On Wed, Nov 27, 2024 at 11:30:29AM +0100, Andrej Picej wrote:
->>>> From: Janine Hagemann <j.hagemann@phytec.de>
->>>>
->>>> Add an optional property to change LVDS output voltage. This depends on
->>>> the connected display specifications. With this property we directly set
->>>> the LVDS_VCOM (0x19) register.
->>>> Better register property mapping would be quite tricky. Please check
->>>> bridge's datasheet for details on how register values set the LVDS
->>>> data lines and LVDS clock output voltage.
->>>>
->>>> Signed-off-by: Janine Hagemann <j.hagemann@phytec.de>
->>>> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
->>>> ---
->>>>    .../bindings/display/bridge/ti,sn65dsi83.yaml      | 14 +++++++++++++-
->>>>    1 file changed, 13 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml b/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml
->>>> index 48a97bb3e2e0..5b2c0c281824 100644
->>>> --- a/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml
->>>> +++ b/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml
->>>> @@ -58,6 +58,12 @@ properties:
->>>>                      - const: 2
->>>>                      - const: 3
->>>>                      - const: 4
->>>> +              ti,lvds-vcom:
->>>> +                $ref: /schemas/types.yaml#/definitions/uint32
->>>> +                description: LVDS output voltage configuration. This defines
->>>> +                  LVDS_VCOM (0x19) register value. Check bridge's datasheet for
->>>> +                  details on how register values set the LVDS data lines and
->>>> +                  LVDS clock output voltage.
->>>
->>> Constraints? 0 - 2^32 are all valid values?
->>
->> Not really, only first 6 bits, which also means that this can be uint8 then.
->> Will fix with other issues.
+On Wed, Nov 27, 2024 at 10:23:00AM +0000, Luca Fancellu wrote:
+> When bootwrapper is compiled with Xen support and it is started
+> at EL2 on Armv8-R AArch64, keep the current EL and jump to the
+> Xen image using the SPSR_KERNEL as spsr_el2 value.
 > 
-> Also, generally speaking directly using register values is really
-> frowned upon, even more so when they match a value expressed in a
-> standard unit.
-
-Yes, I am aware that this is not how devide-tree/device drivers should 
-work. But setting this values based on wanted LVDS voltage will be quite 
-tricky. Matching a value expressed in mV would be quite hard, take a 
-look in the bridge datasheet [1], Chapter 6.5 Electrical Characteristics 
-(|VOD|). Basically both:
-- LVDS data line output and
-- LVDS clock voltage
-is determined by the CSR 0x19.3:2. So when checking which Reg setting 
-CSR 0x19 should be set to both conditions should meet specifications of 
-the connected display. Output voltage for the same CSR 0x19 setting 
-differs between LVDS data lines and LVDS clock.
-
-Anyway, I'll prepare a v2 which only sets a part of this register, a 
-bitfield (2 bits) that is responsible for LVDS differential output voltage.
-
-[1] 
-https://www.ti.com/lit/ds/symlink/sn65dsi83.pdf?ts=1732738773429&ref_url=https%253A%252F%252Fwww.mouser.co.uk%252F
-
-Best regards,
-Andrej
-
+> The only available boot method on Armv8-R AArch64 when starting
+> Xen is spin table at the moment, reflect this in the build
+> configuration.
 > 
-> Maxime
+> Signed-off-by: Luca Fancellu <luca.fancellu@arm.com>
+> ---
+> v5 changes:
+>  - Don't allow AArch64-r + Xen + PSCI from the build system, update the commit
+>    message.
+> v4 changes:
+>  - no changes
+> ---
+>  Makefile.am         | 1 +
+>  arch/aarch64/boot.S | 2 +-
+>  configure.ac        | 5 +++++
+>  3 files changed, 7 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Makefile.am b/Makefile.am
+> index aecda694fd6c..a8d5c1b96822 100644
+> --- a/Makefile.am
+> +++ b/Makefile.am
+> @@ -127,6 +127,7 @@ XEN_CHOSEN	:= xen,xen-bootargs = \"$(XEN_CMDLINE)\";		\
+>  			compatible = \"xen,linux-zimage\", \"xen,multiboot-module\"; \
+>  			reg = <0x0 $(DOM0_OFFSET) 0x0 $(KERNEL_SIZE)>;	\
+>  		   };
+> +DEFINES		+= -DXEN
+>  endif
+>  
+>  if INITRD
+> diff --git a/arch/aarch64/boot.S b/arch/aarch64/boot.S
+> index 565397823cb4..3fcc63bf2437 100644
+> --- a/arch/aarch64/boot.S
+> +++ b/arch/aarch64/boot.S
+> @@ -100,7 +100,7 @@ ASM_FUNC(jump_kernel)
+>  	mov	x1, x21
+>  	mov	x2, x22
+>  	mov	x3, x23
+> -#if defined(BOOTWRAPPER_64R)
+> +#if defined(BOOTWRAPPER_64R) && !defined(XEN)
+>  	// On Armv8-R Linux needs to be booted at EL1
+>  	mov	x4, #SPSR_KERNEL_EL1
+>  #else
+> diff --git a/configure.ac b/configure.ac
+> index a433c89bd2ae..a16bc25508f3 100644
+> --- a/configure.ac
+> +++ b/configure.ac
+> @@ -115,6 +115,11 @@ AS_IF([test "x$USE_PSCI" != "xyes" -a "x$KERNEL_ES" = "x32"],
+>  	[AC_MSG_ERROR([With an AArch32 kernel, boot method must be PSCI.])]
+>  )
+>  
+> +# Don't allow PSCI + Xen + aarch64-r
+> +AS_IF([test "x$USE_PSCI" = "xyes" -a "x$USE_ARCH" = "xaarch64-r" -a "x$X_IMAGE" != "x"],
+> +	[AC_MSG_ERROR([With aarch64-r and Xen, PSCI must be disabled.])]
+> +)
+
+I'll delete the comment and change the message here to:
+
+	With an AArch64-R Xen, boot method must be spin-table.
+
+... since that's consistent with the other message above:
+
+	With an AArch32 kernel, boot method must be PSCI.
+
+... and it's slightly nicer to tell the user what will work rather than
+what won't work.
+
+Otherwise this looks fine to me, and I will apply this shortly (with
+those changes) if no-one objects.
+
+Mark.
 
