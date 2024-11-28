@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC17D69113
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 14:11:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17B8CD69112
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 14:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jbd0uGgDzZOpstd465xtGy3xnW1Im7GM852bz7mrUmw=; b=mPm5i1RL8Y41f+sKe+4acVoQsZ
-	2XNkaHBjjuF39d05uczMDF9kbG78haXU2Ii99QXa2bee8psKgGlHw67w8hqQ3L1fWfPSNfWcEGB+h
-	GVyFUWd8EfFcdeJ2wbeGl5Q52a95mTdUxa5AYVcRAENJ4hGHNz4Zcy1xKcFEfk5J9TJbgI2lwLLGD
-	ZBHD2ceFZyEgDXsQjlLLrEqEZhVIg7McO5pTdAX/34voJYIUbkSZhra5rCSAs/wjBO7QU3ar26wYV
-	HVw/PoiogRq61KMLzlUs9Mz+rKNOjBDTQdhyQIKRxC1aELP1MRrgKVvkas5rXI5uBWTUrC0Fd91BF
-	yiExgw0Q==;
+	bh=kftlvdSPNN2/qEIMi2IQIekU3CLHwUEfGfLj5UP8QHU=; b=1ryv4v61RDG58+NtCULpGBSka2
+	JYAAV/P+H1RlREOq71sOdb+TH28ijtJCRn2qoCvxNjrMxaI49BQpP9D+0m7ppEZJcnnTzoQCm7YsI
+	6Q+NFeMfukNq1y9w0GD1XDR9SJTy0IWZfHUybVtfBb3kMkSJQG85lfNVeRqHOQmhTDkzhPwi6wW+g
+	4M8dLONrOjFT+7y9lfunDlBEtCn9BGH6s9Ggjs1uoKz3gNteg6FtkI6smflP44BO19sKsFHcyRtY2
+	tBO67+PSzJKs82brMRBYHJGtKgQLr6w8ls1ooHna6nZiiGg6bLXaJBAQiNTUrYi9OJtNMUf6G2KZp
+	DVAXq9ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGfF1-0000000Fj2L-2m5O;
-	Thu, 28 Nov 2024 14:11:35 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1tGfGX-0000000FjGV-1hCf;
+	Thu, 28 Nov 2024 14:13:09 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGfCI-0000000FiUe-0W8l
+	id 1tGfFY-0000000Fj67-1sSt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 14:08:47 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4ASE8bFC113001;
-	Thu, 28 Nov 2024 08:08:37 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1732802917;
-	bh=jbd0uGgDzZOpstd465xtGy3xnW1Im7GM852bz7mrUmw=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=HbtA2dhIJgxO5N2vzq9b8vKYMCJvo/4eGlLNUbRKVzn/sSxobAiK/OgXRiOuvOJ+R
-	 s0RgZ6P1pV0zpfSRpPBVHz3EdyXgEcDKcMnpU/ooFxzO6qC2mktJ6XmMRERkXO0ZhY
-	 /bz28N0uJLP1WE/MULNaqBVxv80H+Xm26SpifhQI=
-Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4ASE8b5U022141
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 28 Nov 2024 08:08:37 -0600
-Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 28
- Nov 2024 08:08:36 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 28 Nov 2024 08:08:36 -0600
-Received: from a0497641-HP-Z2-Tower-G9-Workstation-Desktop-PC.dhcp.ti.com (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.69.37])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4ASE8Qcf019782;
-	Thu, 28 Nov 2024 08:08:34 -0600
-From: Neha Malcom Francis <n-francis@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <n-francis@ti.com>
-Subject: [PATCH 2/2] arm64: dts: ti: k3-j784s4-main: Add PBIST_14 node
-Date: Thu, 28 Nov 2024 19:38:25 +0530
-Message-ID: <20241128140825.263216-3-n-francis@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241128140825.263216-1-n-francis@ti.com>
-References: <20241128140825.263216-1-n-francis@ti.com>
+	Thu, 28 Nov 2024 14:12:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=kftlvdSPNN2/qEIMi2IQIekU3CLHwUEfGfLj5UP8QHU=; b=h20AFG9jT3cuoAi2yE6w7EFyp3
+	fj+TAnqizyy7nuytM97J2K97nfMOlvbGwli5n0+ZPpPl+czYij/Ku2QNYLKPPkNGDY6Y+14fRWG4n
+	oHlkBTnWjaT+pNzB9buunLYN3St+uJ3k2RrdxU3IQ+MHMwq0vrEQbk93wIUCCO2Tcmqw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tGfFF-00EiC6-5Z; Thu, 28 Nov 2024 15:11:49 +0100
+Date: Thu, 28 Nov 2024 15:11:49 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Bryan Whitehead <bryan.whitehead@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com
+Subject: Re: [PATCH RFC net-next 02/23] net: phy: fix phy_ethtool_set_eee()
+ incorrectly enabling LPI
+Message-ID: <4e0fd2d9-ab05-4e0c-9179-ca5c7572084f@lunn.ch>
+References: <Z0XEWGqLJ8okNSIr@shell.armlinux.org.uk>
+ <E1tFv3F-005yhT-AA@rmk-PC.armlinux.org.uk>
+ <Z0b-nJ7bt8IlBMpz@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z0b-nJ7bt8IlBMpz@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_060846_206719_D6C9019A 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241128_061208_496196_5946E917 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +82,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT node for PBIST_14 that is responsible for triggering the PBIST
-self-tests for the MAIN_R5_2_x cores.
+On Wed, Nov 27, 2024 at 11:12:28AM +0000, Russell King (Oracle) wrote:
+> On Tue, Nov 26, 2024 at 12:52:21PM +0000, Russell King (Oracle) wrote:
+> > @@ -1685,15 +1685,21 @@ EXPORT_SYMBOL(phy_ethtool_get_eee);
+> >  static void phy_ethtool_set_eee_noneg(struct phy_device *phydev,
+> >  				      const struct eee_config *old_cfg)
+> >  {
+> > -	if (phydev->eee_cfg.tx_lpi_enabled != old_cfg->tx_lpi_enabled ||
+> > +	bool enable_tx_lpi;
+> > +
+> > +	if (!phydev->link)
+> > +		return;
+> > +
+> > +	enable_tx_lpi = phydev->eee_cfg.tx_lpi_enabled && phydev->eee_active;
+> > +
+> > +	if (phydev->enable_tx_lpi != enable_tx_lpi ||
+> >  	    phydev->eee_cfg.tx_lpi_timer != old_cfg->tx_lpi_timer) {
+> 
+> I'm wondering whether this should be:
+> 
+> 	if (phydev->enable_tx_lpi != enable_tx_lpi ||
+> 	    (phydev->enable_tx_lpi &&
+> 	     phydev->eee_cfg.tx_lpi_timer != old_cfg->tx_lpi_timer)) {
+> 
+> The argument for this change would be to avoid cycling the link when the
+> LPI timer changes but we're not using LPI.
+> 
+> The argument against this change would be that then we don't program the
+> hardware, and if the driver reads the initial value from hardware and
+> is unbound/rebound, we'll lose that update whereas before the phylib
+> changes, it would have been preserved.
 
-Signed-off-by: Neha Malcom Francis <n-francis@ti.com>
----
- arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+unbound/rebound is a pretty unusual use case. I would not consider
+that a strong argument against it.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-index 0160fe0da983..f96113d8db22 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-@@ -113,6 +113,17 @@ serdes2: serdes@5020000 {
- 			status = "disabled";
- 		};
- 	};
-+
-+	bist_main14: bist@33c0000 {
-+		compatible = "ti,j784s4-bist";
-+		reg = <0x00 0x033c0000 0x00 0x400>,
-+		      <0x00 0x0010c1a0 0x00 0x01c>;
-+		reg-names = "cfg", "ctrl_mmr";
-+		clocks = <&k3_clks 237 7>;
-+		power-domains = <&k3_pds 237 TI_SCI_PD_EXCLUSIVE>;
-+		bootph-pre-ram;
-+		ti,bist-instance = <14>;
-+	};
- };
- 
- &scm_conf {
--- 
-2.34.1
+This is the case where we don't need to perform negotiation. So it is
+going to be a fast operation compared to when we do need negotiation.
+So i wounder if we really need to care?  Donald Knuth, Premature
+optimisation is the root of all evil, etc...
 
+	Andrew
 
