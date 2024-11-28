@@ -4,107 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A28D690ED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D9DD690EF
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 09:52:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tMHb2Kr+9Gyds+XTGzQnx6NFjRgDvoBkrYDD0zxb/+k=; b=C9VFDQTaUmrvBJoqWLlE8MNdu7
-	L9NK3f1oxPK1CA7PyWOupc9XOVnomNEVdCb8I+43YHyXYblVUVNQRAQeyUfUZPgjlhAg6tp2+OcAN
-	3CqESEckg9GC3fG6dhEgimUe7Y04B3zwZSW2PmjrqQsI/CXVoyufIcfGpYb6hmAxqmob/BFuhzj0r
-	MhIBMhYpnlhYv9zj1X0nL5czAtFc9k1Jbryjhzfxoh6YKxdc23biNLEJ2w/jyhojWMOE0EGALZRoe
-	k/kVTezvJxnDQsporeFrWQ1VkQAFJAYjhyfcDbqttLMpbdfX7LhD6sV6YRzVKvMSXFUQY6HD5qf5U
-	DqrNjMag==;
+	bh=l8r4E+fAxvn95ykDQ3t+Nmyf8EYUz2dFT+lg2PPw2HI=; b=yKA1BV0eDlc7dFnwYmTU3k269D
+	9vNzQIe2VIHjqAe59ICKae/5Lpnv0Fwdg9ikCgmRRnoP+WP6Co16nuIhv68bLf9SZyZDcdwz3OwHK
+	3sI3p/Y8M7VuXn+mNt23xFF6A/mCcfXvxHewqbk+cN+lTFRY/Z5D3jOOItVVExA6w/hNzR7f+23j7
+	GSthGmVlEWUblZYdMKnZV4v0ss3HUpOiHdrnDpr2H6D+t8QUdgmQLHl5dOg2/ZBVi/ZLDTNcV/aHq
+	4odBb2tm2r1dq+bjsNsBEmYgDfNWqtYP/5pIV4BDbPjrLzQvxjozMWqUwbSbP/sIce1YVRlh2zJZ6
+	rNwWu3TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGbBq-0000000FBkC-33SV;
+	id 1tGbBp-0000000FBju-1Y8r;
 	Thu, 28 Nov 2024 09:52:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGa7H-0000000F2fg-0e4l
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 28 Nov 2024 08:43:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=tMHb2Kr+9Gyds+XTGzQnx6NFjRgDvoBkrYDD0zxb/+k=; b=fawaeF4BoiWUp3SANaj/k1DVA4
-	qlQT6IqX1QNhPFy/9Gs0uXk6PfqmuyaZV3hZvT4EyTE9SgUbXOidlkNX1Xu6VGmFTMPLg41wC6hK/
-	wnULF/eII64ApJqGPckxCyt+O8US8EXPU8BAovIFOv9Af6vbT0SeAYzs4gUDb14JtgCbyRb6er7Lx
-	qfpx2wDC+7DZSODUsLly4nvPwfsDnp2fOwH5ctzMP4Z91AJ6P3kc4I1qyOmjpO3PHwF/Elatdf+hQ
-	QwsrmDEbZ8j1EfSSquBuI1imdCflCIWYxkI2shpeWYr/JfcYy9UekisMxpx6se9NjWxlT8pshlf+Q
-	kHlT/vKQ==;
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGa7E-00000001Z2Q-0lD0
+	id 1tGa4E-0000000F1xV-159H
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 08:43:13 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-a9a977d6cc7so30033066b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 00:43:10 -0800 (PST)
+	Thu, 28 Nov 2024 08:40:07 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-382588b7a5cso424621f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 00:40:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1732783389; x=1733388189; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tMHb2Kr+9Gyds+XTGzQnx6NFjRgDvoBkrYDD0zxb/+k=;
-        b=gEv9fwwBLLgc3n82gzNYlMbvI73Zd1iN5ka4usp9t5jt9PKsCXNGnJR8hIqeYKbie9
-         1uXQaTvbcrRrBvUsKEyT6W1G1GLTDji+/f8/98JdoYPNwK8dy4DphLqId5N6ByIG4t9z
-         wo43sJspUSoPV1ou1uJBOyjPI+2ETVBdDvyjhAR1G8mU865q2ay9hO1bFe5gFLbNOFua
-         7NYTn/C2kjrzDhD5t1RCtm9/5BdRc6r4yO7nbAhugmAOXNTuwpqJx8aX0jNlx3EihNE6
-         52cQb89ndGa7V/J4tl17lJVFqzg3t8TJAr1m3ejZtUSC4JMZR6hOFJXNtE9a8r+KxtPt
-         z6CA==
+        d=linaro.org; s=google; t=1732783204; x=1733388004; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=l8r4E+fAxvn95ykDQ3t+Nmyf8EYUz2dFT+lg2PPw2HI=;
+        b=eEMHux9hVsfWRM4+0TaBGWzvHrR9Yq5/awZeJP2j+KljAmRfurFy4XBAn+n5u9lY4z
+         t0Zcvze0LmkMqkxwP8Ljj6J9CajAdO6KHZd+Wr2hD+KjokC7Syzo/V2Vkvfn0eTSWNmV
+         xu1hKtaJ7KfIYzv7VnUNvkY9AEM9Q7B4tEM0x04mcXVFnP+jDPp1dPJfDWy2Q/3Smmx8
+         xeziYUw9OTin9fLu19elP1mmi7IhtwwdG6IvPIqHkOm3/Ilx7oAbzv74jQfrlutFQKNF
+         16Ra2usGZ5wNyfe6f2/OXj3gY+g4KX+CLCA3VcYaiJQV/UvuA4ls1Q37nvyaGws7giJ/
+         84Nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732783389; x=1733388189;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tMHb2Kr+9Gyds+XTGzQnx6NFjRgDvoBkrYDD0zxb/+k=;
-        b=FSCw3Od1Ojcjs3kJzLlnRQwFBssxAhM6RQFeVLDAuPEUN0CJuHrw40waoBox66KeZc
-         Imd1mZx4TK6UYt9exiJ3a0o/z5UL0t8HdN1iuPw0iJebQqMjfqey13Iu9DHX8Ag3ui4O
-         xGSi6KuRIlYVSEYZrovcMCkcPqJaxzaeYZ+mVJ+i3qiH6HF+019CoObvrKjT3Za4ybnx
-         lU+4NMIs1ZAeDXBTnmYAfO/Wr5s6MWnfB8juOu49AfHxALNIRGliKoXR5wn95I1IyBxF
-         fDYI32GdwkRdDwB5PrCG4xZrYHRX5YsQBesQLS3buA/709kj8TlmbTdnnjxsDpBp99/u
-         9IbA==
-X-Forwarded-Encrypted: i=1; AJvYcCXBJTVRaeay4ShuTsVmwRDAWZV4fG09esWjpKTSVzEKgUrULn7ve/QnTJsV8vbgbDW7/ZZQ6AEZujucJKwYsV1e@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3EmW0PyPgCcgSORsH5avVWSx5xe8mebRV+1FSSOG5ESmkJmGX
-	1nKt3PoJmLep6lS5sCrCf2A1nB0ILPUHZ8EWYUMiA0QpycMEMOlekF0gNQBvNbw=
-X-Gm-Gg: ASbGncuGK4eHxzPYuo34259Rg2DFnun3zsfpAgHIhera6+HrJ2cLrGsB7HtNI1jL2Nb
-	RTULVKz16z6zboOisFSqtnDiUAIQPy9EZVCP00xol5mducP5dO3/npmAbE21ck4ZKPg6V4FSayL
-	ctUpdcqKWlKm/zXb1fWNxUZE6Fb/9EoLLay7SQTuPpOYUNt845QcCHkgqrVyws5xyS+Y37b6v5+
-	7EE08rYTw3NjKicJRIApLwoEfPlTCcH9Qfr5UeB2rH6z6Q6F8BDy5pCzFe1b4WAHi3eNL7pK2ZM
-	dukpPS46yAliqM+jJlQf2MZlmkGm7V33DJo=
-X-Google-Smtp-Source: AGHT+IE91WdNXINf1ttfiGq0DeG9vnUXdI7yQdKbewyZQW5Jp/++7K5EDj28/C2AmS8X01ObB7bPuA==
-X-Received: by 2002:aa7:cfd4:0:b0:5d0:8225:aa19 with SMTP id 4fb4d7f45d1cf-5d08225aa9cmr4768526a12.2.1732783388739;
-        Thu, 28 Nov 2024 00:43:08 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d097e8f649sm493828a12.59.2024.11.28.00.43.07
+        d=1e100.net; s=20230601; t=1732783204; x=1733388004;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=l8r4E+fAxvn95ykDQ3t+Nmyf8EYUz2dFT+lg2PPw2HI=;
+        b=vcuVYpMvZKosyDE471rULQnfXWYoMRJeMWtz6ZVg8acSHoTnOYjELU8anFM328QjRj
+         gmdY5olCoA5s9DJxsN+tPwVKfql8REocYpIquwXaDTf09MwhlKX0A3LudP4m9ovdJIxW
+         +nLzR4lUDyXjOPbFnFeWLgW9MYE0fNt9WC0YPUyFkIFL6NWl9/Wep9PVp77pI3abUgAe
+         WBaTi4Nb7EHinQpQnOFWjSR11kcQLlw2ZCRskyJAGk8hWmeno7vKsQTIoXbPH7YZh67H
+         +5kH6+NpaoUFTrNtCz9Og3boj9wLan4oOc44RHeVfSF3NISVq22lTNUgnKUwiwEf42XS
+         t7vQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXv6+VLgNOT7asjxufddCSoFJ1eYFSThSFLrmIvOqHlWW/BmuaE41B/9LwIlOqgEWKrOE/i2dDSScPGDyJYdguz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx++NikHqoPRbI+aO+InXRhMbxiz/fojN4VQYRU/coKuSyLzuGZ
+	5voNylSoeCsybt1CktfJ4VSj/JHecjFmNDSoL+urr7SNiBK0BZavrz4eRSJ8iGI=
+X-Gm-Gg: ASbGncvYciSQezZvWYP/YT+bkxBK/qmfwmnDX5u+oL1mW8SZavNemyLHydKWxxsn4en
+	boS55t48d2Rxug5u8uBXMxSGYco3fhZ3H11H4pwSWe4gyf6W/0Jz062jG8k0bPrhphtG3yWhmCB
+	x1gEvP0pjv616VYwbFDV6ffNmyUB8tmZi9yRPdqolYFjKa2LMBgCFgAFcDr0oGSEv+gc70mvVVs
+	dfWcJJt5suNPgsPDnAkl2ugKtTwNXKi2Rp/KSRKI9334vZTsRAhXHs=
+X-Google-Smtp-Source: AGHT+IHLCVGEBiGpNB3pr06gJDHBvejAWzRugYtAncqUTz6NJIMOpbiyuWDq3lH6CC8FDjfooG1oIw==
+X-Received: by 2002:a05:6000:2d8a:b0:382:2f62:bd45 with SMTP id ffacd0b85a97d-385c6ec0980mr3638454f8f.29.1732783204673;
+        Thu, 28 Nov 2024 00:40:04 -0800 (PST)
+Received: from [10.1.1.109] ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-385ccce7859sm1096280f8f.0.2024.11.28.00.40.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Nov 2024 00:43:07 -0800 (PST)
-Date: Thu, 28 Nov 2024 09:43:06 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	James Houghton <jthoughton@google.com>, Muhammad Usama Anjum <usama.anjum@collabora.com>
-Subject: Re: [PATCH v4 15/16] KVM: selftests: Use canonical $(ARCH) paths for
- KVM selftests directories
-Message-ID: <20241128-d7a5061ce8160000cd5260bd@orel>
-References: <20241128005547.4077116-1-seanjc@google.com>
- <20241128005547.4077116-16-seanjc@google.com>
+        Thu, 28 Nov 2024 00:40:04 -0800 (PST)
+Message-ID: <5d2a32a9bcc38f31beef56c04d07f6d53aa49e06.camel@linaro.org>
+Subject: Re: [PATCH 2/6] dt-bindings: usb: max33359: add max77759 flavor
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jagan Sridharan <badhri@google.com>,  Alim Akhtar
+ <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+ <tudor.ambarus@linaro.org>, Sam Protsenko <semen.protsenko@linaro.org>,
+ Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>,
+ kernel-team@android.com,  linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,  linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org,  linux-samsung-soc@vger.kernel.org
+Date: Thu, 28 Nov 2024 08:40:03 +0000
+In-Reply-To: <8325415b-4af9-4bef-8310-39410b10aa84@kernel.org>
+References: <20241127-gs101-phy-lanes-orientation-dts-v1-0-5222d8508b71@linaro.org>
+	 <20241127-gs101-phy-lanes-orientation-dts-v1-2-5222d8508b71@linaro.org>
+	 <8325415b-4af9-4bef-8310-39410b10aa84@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.1-4 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241128005547.4077116-16-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_084312_360215_D3B282E8 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20241128_004006_307629_F5024CA5 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,22 +108,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 27, 2024 at 04:55:46PM -0800, Sean Christopherson wrote:
-> Use the kernel's canonical $(ARCH) paths instead of the raw target triple
-> for KVM selftests directories.  KVM selftests are quite nearly the only
-> place in the entire kernel that using the target triple for directories,
-> tools/testing/selftests/drivers/s390x being the lone holdout.
-> 
-> Using the kernel's preferred nomenclature eliminates the minor, but
-> annoying, friction of having to translate to KVM's selftests directories,
-> e.g. for pattern matching, opening files, running selftests, etc.
-> 
-> Opportunsitically delete file comments that reference the full path of the
-> file, as they are obviously prone to becoming stale, and serve no known
-> purpose.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
+On Thu, 2024-11-28 at 09:17 +0100, Krzysztof Kozlowski wrote:
+> On 27/11/2024 12:01, Andr=C3=A9 Draszik wrote:
+> > On the surface, Maxim's max77759 appears identical to max33359. It
+> > should still have a dedicated compatible, though, as it is a different
+> > IC. This will allow for handling differences in case they are
+> > discovered in the future.
+> >=20
+> > max77759 is used on Google Pixel 6 and Pixel 6 Pro.
+> >=20
+> > Add a dedicated compatible to allow for potential differences in the
+> > future.
+> >=20
+> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+>=20
+> This should be sent separately to USB.
 
-Acked-by: Andrew Jones <ajones@ventanamicro.com>
+Sorry, it slipped through into this series somehow. Will do.
+
+Thanks
+Andre
+
 
