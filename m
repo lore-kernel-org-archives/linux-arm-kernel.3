@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA115D69104
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 12:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CEC5D69104
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 12:51:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rGNx4KryUAWkUrEyK556nEdWmNkAb7CXLB+nZikEwWs=; b=y3AlkCggiKnTnqnAPKGZg6O4Op
-	FbIkFFFjMzGlnwNQNXdBJtoJ3hC0WJad1Aw9dYlAAdQs0yijJl8w8YRykU3/NJ2DJZaoio/kOwjqh
-	0OszUQcshxzyfdYJAyd+CNnQOif4qlaIIWlEX8hQnTzGgcroLMWCjn+u5OfyWJAYmljYED6i9ze/i
-	W8CaI7lUHouwuifedMIHHGYuiMNsEnptNxHifviqiMfiTODDh/FIXijKVkpX0g1GMKyvRUS1zPlMQ
-	bMu30lcuqJJBA1G6Qjdprr9r26/10iBAw5qAnG3TVTTSm8ELzqFIwc1d8EJdh7GFmYDX4zff8AhyI
-	PF3toqng==;
+	bh=8cW1xQg3A5S2kec6W3gcCXjMo2wpT2RcLePz0Y97Nf4=; b=wqyVIKi8dHU5i04matOUd7L3Dw
+	+5B7dTk0b1VybjJRdXZZspUuPLXIKAmsPxqFsbF1G1zL/bO0jA3ZGGzO8igrt7tqk8zEAIsNV97Js
+	kjZ5LsYgwmNly3NVddrG7pdwys/QE+PWL5fvy7Ycz+xIsb0mw2QJaZ8Smb6ojujrAO/iqxAcdWO0a
+	u2KdYCt33fpQfbcwyR/w0Lpy6Se0kyok/RhWxY27VJF8bgsqbfUqLcn2WgTne+3nHTCT16bMUgAZu
+	P8QylMAHxkiX5rNSpGHEZCaNbA0nSZlJ0ey6BuojqpCcyC1Pf/PbPRN3seW+e9HYfOsry0eemDQvU
+	ytujX9gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGdwD-0000000FX5y-20RP;
-	Thu, 28 Nov 2024 12:48:05 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1tGdz4-0000000FXSv-38gl;
+	Thu, 28 Nov 2024 12:51:02 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGdkF-0000000FVPz-1suE
+	id 1tGdkH-0000000FVQL-3Zmv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 12:35:44 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-382480686f2so418573f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 04:35:42 -0800 (PST)
+	Thu, 28 Nov 2024 12:35:46 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-382440c1f83so1007313f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 04:35:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1732797342; x=1733402142; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1732797344; x=1733402144; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rGNx4KryUAWkUrEyK556nEdWmNkAb7CXLB+nZikEwWs=;
-        b=k52W9HYujUgvfofEBpkVaJRCp869w0qCbXHHbfdhV0MJ7+a86zOatHF6eISY/Wzb/B
-         aUq99tLOoLeiLZ/AU8HXINkS78MXKV5knglIW6q9XoCAK+MrDiML2WKp8DKQs8xI/BMt
-         WmqjXuW/pMuTEALcTmL7lqYNiUSKgbOOP1Ftf5TK4uXabps+J+sX+gIP2aa+Fh2oiLN/
-         C5DMa7k6p+R9jkq9qTVLCNajm0kKOAahZpT8kKSt38dOn/BqYVBJqds0emEaqnv0ArVD
-         xkc5VPKJ68gf7Ze/7DrbvNYmlijCUfRtqVyKuuJoZMiMw8TmQSM7VegqpJd8yyvMIZDx
-         ZO+Q==
+        bh=8cW1xQg3A5S2kec6W3gcCXjMo2wpT2RcLePz0Y97Nf4=;
+        b=nAYfm/FDZCDAKL625vk0WAJe4Vi/xqWU6ssRGMDodrTv+gjp0LEXXObI8XSBo2P0As
+         rFJTtsZzuqwdBWKikeuIj5VzYqWax6oFq//M5NKGZsOKh1pu9lrf0Yco6ZXTkzaSbFqj
+         XDlGIVpClA53KADv+SNTFsNCNWoIf1R5nTmd78X5zVSIzpRSMGEGsuiNUyEQlFHY75Vn
+         h0R63/7N6cs9neh8rtX/5AuPoad5FJSIdBQi+M9MMMtTo6PGprsnXfuC4VUh+0XyJM5y
+         xbWB8DZXjJd1rt9onHvVWy0Nq0WiuoXsgaRQp/wJgoU6Ag9SwDa0at4iT4uDqQZe8Wq6
+         eXaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732797342; x=1733402142;
+        d=1e100.net; s=20230601; t=1732797344; x=1733402144;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rGNx4KryUAWkUrEyK556nEdWmNkAb7CXLB+nZikEwWs=;
-        b=s6m6Rl2nSVgNMMQA4vEI+3R6SyC4hzeJ45AuJLc+tWW09oon16UNT6XjXzxHI9kcPI
-         JHo8YEDOuDRohcFBr0i7wocqbm9OomnxQ27sNpnSrzkt7K/48oCz/AStr7SWz2vencW+
-         u7W+3w0i1W3ClRDP/EBu3DdTKoJnSx/ghUoUM+MmuSCB+K6oyE2mWdMLA5CezxvMLzL3
-         IuRQ5hJXEuuGMv2z9qdm0P4/xIsciRhtg9frzLeEIIew8YdhhNIeZtCzf7qOsp07M74O
-         Vzp0ppuet6tDxjZfQm/CfesRcuHGBMHZ+yxuU3GjH07mC58BphKeRWE6f+toTSKDvep8
-         amLA==
-X-Forwarded-Encrypted: i=1; AJvYcCVR+/lyFgpL8NwUKvuVNOAf6Vp43Gk6Y5jZHtfe2M89xmaYmyeUUqJHViWJ5tvgXuhF2UpTMsYo/ebsiTaU2aK2@lists.infradead.org
-X-Gm-Message-State: AOJu0YzblGKMwgtHXciGkMJUXxynK8Aq7pNhXFYpqqG4KlAmhwcsI8Vw
-	DBnULh/Jl2xHXO5Uet0mzXL8PjesdyPjYfGd/wXBcmgG6LwOm8eaS8dhVAxEvoq1TzFc3ACHlQ=
+        bh=8cW1xQg3A5S2kec6W3gcCXjMo2wpT2RcLePz0Y97Nf4=;
+        b=OqNs/i2ZadcQCyzUFqCZ0FLtM2FTU4zaUFLFmUePWl2OfhdngtOZ5crsNfPQ46sKu2
+         oT7VcaUUcXpwXPBw0ox+b0kbQdkjp3U3Vf0ev7HrygdxDSiyAPnwdfsG0VzNpkjS+XCj
+         gphlB1iuFTO9R+hRlZnOkjMqhGQ3fBilME4mhbSfXYJ2+uHKAOMKiyrbARzZPeAvFSz1
+         /FIvFrP3SV1qfj45ihuGd7tbGZfznA7dptx+Mu0RtULXrvIj/AuSjgB+bX2Qrj0GNHsS
+         J6OBYk/YF5BXAOPOaM45GA61uYnXqcPuD8OcWjbxYOeWncNqMOx8Kkn23jCSYHAGR6sb
+         7SJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWjX1LEWInfKxEuKDXzB8RFLYf7M7Lyl+5ari8yeieladv5vzH1RuzT1J5RqNgzow0uWyYrH00W4Yzu+I1A084v@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOHdKFAzG785kvt8IB3WUi6oSY2mMkourbOjIMPmBy7S8P5SRh
+	qfIUDBnWujIZmrwPmJSjjQYynX5Zsaio6IqozfDzECi/WCLnPP0Cs5kDOstj2oo16Efc/JBMNw=
 	=
-X-Google-Smtp-Source: AGHT+IFLI3Jh7eWipSkuJnJEhB0CPELVPrf0f9jEJFqCsPBLEldQwio+BPzXSPDF2U9CoUeaJI7R6c0Vvw==
-X-Received: from wrfi10.prod.google.com ([2002:a5d:584a:0:b0:382:5479:b8cf])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:4708:b0:37d:4fe9:b6a4
- with SMTP id ffacd0b85a97d-385c6edc3f2mr5536291f8f.50.1732797341940; Thu, 28
- Nov 2024 04:35:41 -0800 (PST)
-Date: Thu, 28 Nov 2024 12:35:12 +0000
+X-Google-Smtp-Source: AGHT+IGGTrA03bJnLdQaVg0s+G7g0LZ8HsrDY7536qPbFY2PR5LidlEiGux8vbzXJNvpQSf2c2hxAHBIrg==
+X-Received: from wryf11.prod.google.com ([2002:a05:6000:1a8b:b0:382:4e57:48ec])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:1547:b0:382:4b04:a586
+ with SMTP id ffacd0b85a97d-385cbd7c54dmr2515942f8f.16.1732797343896; Thu, 28
+ Nov 2024 04:35:43 -0800 (PST)
+Date: Thu, 28 Nov 2024 12:35:13 +0000
 In-Reply-To: <20241128123515.1709777-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20241128123515.1709777-1-tabba@google.com>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241128123515.1709777-13-tabba@google.com>
-Subject: [PATCH v3 12/15] KVM: arm64: Fix the value of the CPTR_EL2 RES1
- bitmask for nVHE
+Message-ID: <20241128123515.1709777-14-tabba@google.com>
+Subject: [PATCH v3 13/15] KVM: arm64: Remove PtrAuth guest vcpu flag
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org, 
@@ -76,8 +75,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org,
 	qperret@google.com, kristina.martsenko@arm.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_043543_484206_BC8EC323 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20241128_043545_888379_8E536D62 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,47 +91,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the introduction of SME, bit 12 in CPTR_EL2 (nVHE) is TSM
-for trapping SME, instead of RES1, as per ARM ARM DDI 0487K.a,
-section D23.2.34.
+The vcpu flag GUEST_HAS_PTRAUTH is always associated with the
+vcpu PtrAuth features, which are defined per vm rather than per
+vcpu.
 
-Fix the value of CPTR_NVHE_EL2_RES1 to reflect that, and adjust
-the code that relies on it accordingly.
+Remove the flag, and replace it with checks for the features
+instead.
 
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/include/asm/kvm_arm.h     | 2 +-
- arch/arm64/include/asm/kvm_emulate.h | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ arch/arm64/include/asm/kvm_emulate.h |  5 -----
+ arch/arm64/include/asm/kvm_host.h    |  5 ++---
+ arch/arm64/kvm/hyp/nvhe/pkvm.c       | 13 -------------
+ arch/arm64/kvm/reset.c               |  4 ----
+ 4 files changed, 2 insertions(+), 25 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 3e0f0de1d2da..24e4ac7c50f2 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -300,7 +300,7 @@
- #define CPTR_EL2_TSM	(1 << 12)
- #define CPTR_EL2_TFP	(1 << CPTR_EL2_TFP_SHIFT)
- #define CPTR_EL2_TZ	(1 << 8)
--#define CPTR_NVHE_EL2_RES1	0x000032ff /* known RES1 bits in CPTR_EL2 (nVHE) */
-+#define CPTR_NVHE_EL2_RES1	(BIT(13) | BIT(9) | GENMASK(7, 0))
- #define CPTR_NVHE_EL2_RES0	(GENMASK(63, 32) |	\
- 				 GENMASK(29, 21) |	\
- 				 GENMASK(19, 14) |	\
 diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 7b3dc52248ce..6602a4c091ac 100644
+index 6602a4c091ac..406e99a452bf 100644
 --- a/arch/arm64/include/asm/kvm_emulate.h
 +++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -640,8 +640,8 @@ static __always_inline void kvm_reset_cptr_el2(struct kvm_vcpu *vcpu)
+@@ -691,9 +691,4 @@ static inline bool guest_hyp_sve_traps_enabled(const struct kvm_vcpu *vcpu)
+ {
+ 	return __guest_hyp_cptr_xen_trap_enabled(vcpu, ZEN);
+ }
+-
+-static inline void kvm_vcpu_enable_ptrauth(struct kvm_vcpu *vcpu)
+-{
+-	vcpu_set_flag(vcpu, GUEST_HAS_PTRAUTH);
+-}
+ #endif /* __ARM64_KVM_EMULATE_H__ */
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 69cb88c9ce3e..680ecef1d7aa 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -866,8 +866,6 @@ struct kvm_vcpu_arch {
+ #define GUEST_HAS_SVE		__vcpu_single_flag(cflags, BIT(0))
+ /* SVE config completed */
+ #define VCPU_SVE_FINALIZED	__vcpu_single_flag(cflags, BIT(1))
+-/* PTRAUTH exposed to guest */
+-#define GUEST_HAS_PTRAUTH	__vcpu_single_flag(cflags, BIT(2))
+ /* KVM_ARM_VCPU_INIT completed */
+ #define VCPU_INITIALIZED	__vcpu_single_flag(cflags, BIT(3))
  
- 		if (vcpu_has_sve(vcpu) && guest_owns_fp_regs())
- 			val |= CPTR_EL2_TZ;
--		if (cpus_have_final_cap(ARM64_SME))
--			val &= ~CPTR_EL2_TSM;
-+		if (!cpus_have_final_cap(ARM64_SME))
-+			val |= CPTR_EL2_TSM;
+@@ -965,7 +963,8 @@ struct kvm_vcpu_arch {
+ #define vcpu_has_ptrauth(vcpu)						\
+ 	((cpus_have_final_cap(ARM64_HAS_ADDRESS_AUTH) ||		\
+ 	  cpus_have_final_cap(ARM64_HAS_GENERIC_AUTH)) &&		\
+-	  vcpu_get_flag(vcpu, GUEST_HAS_PTRAUTH))
++	 (vcpu_has_feature(vcpu, KVM_ARM_VCPU_PTRAUTH_ADDRESS) ||       \
++	  vcpu_has_feature(vcpu, KVM_ARM_VCPU_PTRAUTH_GENERIC)))
+ #else
+ #define vcpu_has_ptrauth(vcpu)		false
+ #endif
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index c8ab3e59f4b1..dfd031acde31 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -278,18 +278,6 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
+ 		   allowed_features, KVM_VCPU_MAX_FEATURES);
+ }
+ 
+-static void pkvm_vcpu_init_ptrauth(struct pkvm_hyp_vcpu *hyp_vcpu)
+-{
+-	struct kvm_vcpu *vcpu = &hyp_vcpu->vcpu;
+-
+-	if (vcpu_has_feature(vcpu, KVM_ARM_VCPU_PTRAUTH_ADDRESS) ||
+-	    vcpu_has_feature(vcpu, KVM_ARM_VCPU_PTRAUTH_GENERIC)) {
+-		kvm_vcpu_enable_ptrauth(vcpu);
+-	} else {
+-		vcpu_clear_flag(&hyp_vcpu->vcpu, GUEST_HAS_PTRAUTH);
+-	}
+-}
+-
+ static void unpin_host_vcpu(struct kvm_vcpu *host_vcpu)
+ {
+ 	if (host_vcpu)
+@@ -359,7 +347,6 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
+ 		goto done;
+ 
+ 	pkvm_vcpu_init_sve(hyp_vcpu, host_vcpu);
+-	pkvm_vcpu_init_ptrauth(hyp_vcpu);
+ done:
+ 	if (ret)
+ 		unpin_host_vcpu(host_vcpu);
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index 470524b31951..1cfab6a5d8a5 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -211,10 +211,6 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ 		kvm_vcpu_reset_sve(vcpu);
  	}
  
- 	kvm_write_cptr_el2(val);
+-	if (vcpu_has_feature(vcpu, KVM_ARM_VCPU_PTRAUTH_ADDRESS) ||
+-	    vcpu_has_feature(vcpu, KVM_ARM_VCPU_PTRAUTH_GENERIC))
+-		kvm_vcpu_enable_ptrauth(vcpu);
+-
+ 	if (vcpu_el1_is_32bit(vcpu))
+ 		pstate = VCPU_RESET_PSTATE_SVC;
+ 	else if (vcpu_has_nv(vcpu))
 -- 
 2.47.0.338.g60cca15819-goog
 
