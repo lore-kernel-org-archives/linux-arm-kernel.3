@@ -4,81 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68AA1D70DFB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 22:34:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 817E3D70DFA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 23:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rVu7HZVAMBeMPswWWXqaeWb7q4KpBMSR1gFHqo5yPf4=; b=mMZA+Uy20q0KBUPNtUTxm7kp3T
-	iaIGn2gGjoHhjNnOF84pcv1g2MBxI/hB//gioMs+Z7WsI/gD+fC2kagcWvVHZ2lytVL77S3267bob
-	0S72j62bM3HHBi8oyP848wAv91MfIRa+QpuyH5rKKDNjwjUOTxuHKdDqPvbA2KlFA2LBFgtFRHa/o
-	IKp8gN7tQvHI1W6nzyE83DZwAyyKROeWdvYrmlkFgTvpja+n6Z+UscQhkrmH664pAaJUVLZ+9B8F4
-	F7vtMA99YTXS108qpk/vkLHeDZQuJbtKzT89t0yubZcVyW+1p2w3HVLrVP9YotGrf2Ili+Mq7WZkk
-	ZCX+zssQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OrQpDYmT5XJKVhAhoTC1IRRFoIvigLLUx5e3SBv2XLY=; b=LxyWwPqc1qs8E25TpEEgtBPeXn
+	PyJgE3bCuG+knxDaqk2LLtfzPP4Pgz8Fo5L53UxfnslV8TwMlOgKSKvrnfAFMZqAU4cRIDyiJvJaf
+	PsfUm/5y+/I9ixHVtH6smGVQTR71Kv64yp610nSP3qzRraEcHCIinUO8NVK6oHTPKW/Y20P05fh7j
+	rTQwV2BPIFNMA3Kl1B7UDdgQor2olaiegpRvVGGWHvrVijU3LrH4a7SMLWO+d1JrHQbgkcHAk7xdz
+	Ni42mi0+vFV85xUIVpMQjQKXirDLIgs0dYf2H6gFSeGb4anD3pm+O0f0j1IVAxZ6NC8NzBn3Xflup
+	DI1MnwqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGn5f-0000000GW9U-16D4;
-	Thu, 28 Nov 2024 22:34:27 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGn0m-0000000GV02-1DLU
+	id 1tGnsG-0000000GZHl-3ftH;
+	Thu, 28 Nov 2024 23:24:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tGnrH-0000000GZBl-2BeH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 22:29:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4D7D0A43A4B;
-	Thu, 28 Nov 2024 22:27:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A95D7C4CECE;
-	Thu, 28 Nov 2024 22:29:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732832962;
-	bh=oe01/Ykp7CrABnRRYCE+rh9+IS7KDiWdmcELIniUmsg=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=fha7O3jBHKZQ/TMc6KKsXOiKETN9p37LTjJMCeRXGffD/S9wEpATUao9W3xfog/vx
-	 wFJ3cV1vLzdLUQVYyn7mr0u4a3lk2AFvM+y7yfw2tE5sPIvNMlJhJ7hIVG8jau2bUA
-	 yPR3mrd7xhGNrtna7NLPNOGYGLvm+03TLluK5W7Uq5MdsswsXyogOmpL2A65fITcDC
-	 HG2rxKXHifF00R4VCb7P/noxiS3STNs7lYBCsXXKMMiNWazM99IbYC47vr+H9iGipB
-	 aCYqPradO8Lexnx4Ae/mpoWEt6TePeMXND+8G6UYQ23iy8YZ4OzDttJoLdr6vCdoo9
-	 upft09XNp/OAg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 91A1FD70DEA;
-	Thu, 28 Nov 2024 22:29:22 +0000 (UTC)
-From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Subject: [PATCH v2 0/4] Driver for Apple Z2 touchscreens.
-Date: Thu, 28 Nov 2024 23:29:15 +0100
-Message-Id: <20241128-z2-v2-0-76cc59bbf117@gmail.com>
+	Thu, 28 Nov 2024 23:23:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C5391474;
+	Thu, 28 Nov 2024 15:24:06 -0800 (PST)
+Received: from [192.168.178.92] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B5F83F66E;
+	Thu, 28 Nov 2024 15:23:33 -0800 (PST)
+Message-ID: <5b07cd47-868d-46a3-b365-ccac2a68b792@arm.com>
+Date: Thu, 28 Nov 2024 23:23:31 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Update H700 opp values
+To: Philippe Simons <simons.philippe@gmail.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "moderated list:ARM/Allwinner sunXi SoC support"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20241128154556.2743839-1-simons.philippe@gmail.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+Cc: Chris Morgan <macromorgan@hotmail.com>, Ryan Walklin <ryan@testtoast.com>
+In-Reply-To: <20241128154556.2743839-1-simons.philippe@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIALvuSGcC/zWMQQrCMBBFr1JmbWQyxiKuvId0ESdjO2BbSSSoJ
- Xc3Lbh8n//eAkmiSoJzs0CUrEnnqQLtGuDBT70YDZWBkJy15MyXDKOl25FO4jFAPT6j3PW9Ra5
- d5UHTa46frZntuv71dtWzNWjYHdgxt4QYLv3o9bHneYSulPIDnpMJipQAAAA=
-X-Change-ID: 20241124-z2-c012b528ea0d
-To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
- Janne Grunau <j@jannau.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732832961; l=1917;
- i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=oe01/Ykp7CrABnRRYCE+rh9+IS7KDiWdmcELIniUmsg=;
- b=QWGUNje+O0YI4L6uacMv3gCdhycX36kw+7OQPwVuFaDv7ROAUD8JL4y3TN+sqO/WSelEPv/HJ
- QF3jDo6TppbDr01ZAUfKJynJi79vHIby22PKFeS+8EQSFGwkYBUuwaU
-X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
- auth_id=283
-X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_142924_477880_EA3745B0 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20241128_152339_657535_5D362850 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,50 +70,114 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi.
+Hi Philippe,
 
-This series adds support for Apple touchscreens using the Z2 protocol.
-Those are used as the primary touchscreen on mobile Apple devices, and for the
-touchbar on laptops using the M-series chips. (T1/T2 laptops have a coprocessor
-in charge of speaking Z2 to the touchbar).
+thanks for taking care of sending a patch!
+You would need prefixes on the subject line to point to the right 
+subsystem. A "git log path/to/changed_file" would give you the prefix of 
+previous patches, for you to copy from. In this case it would be:
+arm64: dts: allwinner: h616: update H700 OPP values
 
-Originally sent as a RFC at https://lore.kernel.org/all/20230223-z2-for-ml-v1-0-028f2b85dc15@gmail.com/
-The changes since then mostly address the review feedback, but also
-add another machine that has this specific controller.
+On 28/11/2024 15:45, Philippe Simons wrote:
+> My H700 (RG35XX-H, RG40XX-V and RG CubeXX) devices are very unstable,
+> especially with some OPPs.
+> Crashes were fairly easy to reproduce with any dynamic cpufreq governor
+> and some load on CPU, usually in matter of minutes.
+> Crashes manifested randomly as simply hanging or various kernel oops
+> 
+> Manufacturer (Anbernic) is using more conservative mircrovolt values,
+> so let's use these.
+> While using performance gov seems stables at 1.5Ghz, it still crashes
+> using a dynamic gov (even with Andre reparenting patch), so let's drop
+> it for now, like manufacturer does.
+> 
+> Signed-off-by: Philippe Simons <simons.philippe@gmail.com
 
-Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
----
-Changes in v2:
-- In a separate patch, fixed an issue that prevented the SPI controller
-  from using GPIO CS, and as such, moved the hardware quirk to there
-- Went back to uploading the firmware in probe() instad of open()
-- Other changes addressing the review feedback
-- Link to v1: https://lore.kernel.org/r/20241126-z2-v1-0-c43c4cc6200d@gmail.com
+The change itself looks alright, bumping the OPP voltages by 50mV looks 
+reasonable, and is a no-brainer if it stops the issues you have seen.
 
----
-Sasha Finkelstein (4):
-      dt-bindings: input: touchscreen: Add Z2 controller
-      input: apple_z2: Add a driver for Apple Z2 touchscreens
-      arm64: dts: apple: Add touchbar digitizer nodes
-      MAINTAINERS: Add entries for Apple Z2 touchscreen driver
+The loss of the 1.5GHz top OPP is a bummer, but stability comes 
+definitely first, otherwise we will just fail faster ;-)
 
- .../input/touchscreen/apple,z2-multitouch.yaml     |  69 ++++
- MAINTAINERS                                        |   2 +
- arch/arm64/boot/dts/apple/t8103-j293.dts           |  26 ++
- arch/arm64/boot/dts/apple/t8103.dtsi               |  20 +
- arch/arm64/boot/dts/apple/t8112-j493.dts           |  24 ++
- arch/arm64/boot/dts/apple/t8112.dtsi               |  14 +
- drivers/input/touchscreen/Kconfig                  |  13 +
- drivers/input/touchscreen/Makefile                 |   1 +
- drivers/input/touchscreen/apple_z2.c               | 458 +++++++++++++++++++++
- 9 files changed, 627 insertions(+)
----
-base-commit: 9f16d5e6f220661f73b36a4be1b21575651d8833
-change-id: 20241124-z2-c012b528ea0d
+I would like to hear opinions from Ryan and Chris (both CC:ed). Did you 
+see similar issues with say the ondemand governor?
 
+The patch itself looks correct, so for that:
 
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+
+Cheers,
+Andre
+
+> ---
+>   .../dts/allwinner/sun50i-h616-cpu-opp.dtsi    | 19 +++++++++----------
+>   1 file changed, 9 insertions(+), 10 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-cpu-opp.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616-cpu-opp.dtsi
+> index dd10aaf47..ac13fe169 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-h616-cpu-opp.dtsi
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-cpu-opp.dtsi
+> @@ -50,24 +50,21 @@ opp-1008000000 {
+>   			opp-microvolt-speed2 = <950000>;
+>   			opp-microvolt-speed3 = <950000>;
+>   			opp-microvolt-speed4 = <1020000>;
+> -			opp-microvolt-speed5 = <900000>;
+> +			opp-microvolt-speed5 = <950000>;
+>   			clock-latency-ns = <244144>; /* 8 32k periods */
+>   			opp-supported-hw = <0x3f>;
+>   		};
+>   
+>   		opp-1032000000 {
+>   			opp-hz = /bits/ 64 <1032000000>;
+> -			opp-microvolt = <900000>;
+> +			opp-microvolt = <950000>;
+>   			clock-latency-ns = <244144>; /* 8 32k periods */
+>   			opp-supported-hw = <0x20>;
+>   		};
+>   
+>   		opp-1104000000 {
+>   			opp-hz = /bits/ 64 <1104000000>;
+> -			opp-microvolt-speed0 = <1000000>;
+> -			opp-microvolt-speed2 = <1000000>;
+> -			opp-microvolt-speed3 = <1000000>;
+> -			opp-microvolt-speed5 = <950000>;
+> +			opp-microvolt = <1000000>;			
+>   			clock-latency-ns = <244144>; /* 8 32k periods */
+>   			opp-supported-hw = <0x2d>;
+>   		};
+> @@ -79,7 +76,7 @@ opp-1200000000 {
+>   			opp-microvolt-speed2 = <1050000>;
+>   			opp-microvolt-speed3 = <1050000>;
+>   			opp-microvolt-speed4 = <1100000>;
+> -			opp-microvolt-speed5 = <1020000>;
+> +			opp-microvolt-speed5 = <1050000>;
+>   			clock-latency-ns = <244144>; /* 8 32k periods */
+>   			opp-supported-hw = <0x3f>;
+>   		};
+> @@ -93,7 +90,10 @@ opp-1320000000 {
+>   
+>   		opp-1416000000 {
+>   			opp-hz = /bits/ 64 <1416000000>;
+> -			opp-microvolt = <1100000>;
+> +			opp-microvolt-speed0 = <1100000>;
+> +			opp-microvolt-speed2 = <1100000>;
+> +			opp-microvolt-speed3 = <1100000>;
+> +			opp-microvolt-speed5 = <1160000>;
+>   			clock-latency-ns = <244144>; /* 8 32k periods */
+>   			opp-supported-hw = <0x2d>;
+>   		};
+> @@ -102,9 +102,8 @@ opp-1512000000 {
+>   			opp-hz = /bits/ 64 <1512000000>;
+>   			opp-microvolt-speed1 = <1100000>;
+>   			opp-microvolt-speed3 = <1100000>;
+> -			opp-microvolt-speed5 = <1160000>;
+>   			clock-latency-ns = <244144>; /* 8 32k periods */
+> -			opp-supported-hw = <0x2a>;
+> +			opp-supported-hw = <0x0a>;
+>   		};
+>   	};
+>   };
 
