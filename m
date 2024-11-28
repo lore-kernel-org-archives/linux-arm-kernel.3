@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D57B3D690F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 10:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C139D690F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 10:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CKy9NFeqlqcw1t7BKiitB8spU33tefaJ6SaLKo921pw=; b=2I3voMbr3QJ3bAYE0RZGwVUeNI
-	PfbNBu3bAf5Df6JrO28/GB2JqfiTAr7gneGOGuJz8FRHf5n885TNz1KbKfATxch8UULFT5ogfLgeL
-	U9+iLsfVKlSVDOMPcxYpVLuFZRQMLkFIO7lYbS5yTkkmD5Ofi+8Ph1B8xp9OFvONCtxPAcKr9CNfS
-	VeNAKjmYIifSk6uqWzuSgZU9FE/pcza+cM3iDmtOYJEglEX1mKRfHdGuryY/S0G5KPBzfHmUjCeTp
-	QmswhtZY1y8gNyHnJremQYaemitYE1s2910pYng9gIkyeDCONDiHi4kFd5Pdbpf3gT/byFVTHkW3I
-	8sCHbVYA==;
+	bh=lkpYfR0YRpDWZnChNpMhClbLteGunVQfMnCk8yDUZkA=; b=dSvMm0tfw/jOCUqGJVlxoRqFAW
+	uILc3TkAmCbAwBTwYK4KEo7SsqXay3vQ1NftVWJLa5c+44UAH1gaSXvVes1VqKs5Y+FOIcAwKDre2
+	b8s4zD6m4xQVVFVp1DNHMealcQTBGi9rcGmJvxCQ607XBJoxKttvIvkyqwmpyAfe0j2skWuOjxQty
+	pJg/F2CjGy/+5xhM0zS4u8znCNOL0ibDFX0ilbvXd9xXn6903/qVmkTanM13Dh2/IHnhLA5rGknwL
+	hqVlEXd2khsT+42vzxDSBOXpNx30uL5CrdCJIuD746u58qKmIzfYgf9PgvROJWOEqo4aF/Hvi4d8t
+	AqHKpqUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGblw-0000000FFuJ-1pPW;
-	Thu, 28 Nov 2024 10:29:20 +0000
-Received: from mail-vs1-xe34.google.com ([2607:f8b0:4864:20::e34])
+	id 1tGbn2-0000000FG6K-07c4;
+	Thu, 28 Nov 2024 10:30:28 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGbkx-0000000FFns-1VLR
+	id 1tGbm1-0000000FFvc-3zTd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 10:28:21 +0000
-Received: by mail-vs1-xe34.google.com with SMTP id ada2fe7eead31-4addd900de1so220863137.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 02:28:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732789698; x=1733394498; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=CKy9NFeqlqcw1t7BKiitB8spU33tefaJ6SaLKo921pw=;
-        b=FguWHFW8Jm7yyD3jjjZJUJrOQuaeFtgX7ZZInZZ2AuxtgJmo++n9WvzyWWiksE7/fN
-         70zHN2mcdprIsDCGAUk4lffo5gfyDuFm85SXZ7lXDzYwAn0un+f3keaj/5UYfRp5xkcy
-         cxRXZLxGiBPEooY3Vx2Zn27SNgr8Xt0wQwuSBuPkxV+8mi9ET3opPypwLp/oYNuuVl8w
-         JODjL2nDNoak3mUsVIHMmjo7qLD4NH54m/xs3ah6DsCYihwh3PQPtTrugg+0jjXj9Fhb
-         vpYS7geNbqlDVX7YfxTsh/M2vBW3D0WQbuoSo2aK4woehPRUH4Yf9cyG97Iuq4DaKsb6
-         +m1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732789698; x=1733394498;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CKy9NFeqlqcw1t7BKiitB8spU33tefaJ6SaLKo921pw=;
-        b=GOO+X8zSmMOshl3WD9TWeeNnzN5gN73FJs9JAsZjKmEDN0bSLto8i0NRQ9nSIcrLyc
-         OpxwsMZp382rQ2/Fc0AnHDYpgiYvisbjlCgbaA+w/vsi3s4bvh30gT16PgqiWfHWXbQG
-         4GxNG0DhqRux4V44XNhQC++T1RBdrSgIq1QoGBfQ9a8hWlrS/Z1DZyKXSDDqpG28k5/5
-         bRv9vg0tARj5SPeq9DX1gRgza3ZF/EF6IjImKO7TMUDqNGLXrAn9fOALQ4jTuQ9BRHQK
-         5F6pIMHCmm7Y4PrN8f8dYw8NW9Y00UI04WBJvYngs4npnjCPb3xHRaG5JxUQ9AozhMOr
-         y8iA==
-X-Forwarded-Encrypted: i=1; AJvYcCVYxU+KBVNepz5oMWADOElAvg+RFHQ3h6HonNUzhHzLsaeb1SnoroFTzi8bn/KYV+d/awFxqWqvh775RnYwRWyk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyi/enTYPpB+DNG9Hw85QlKvtZLnYiOz5VmnxorxTL0kc5kxl+l
-	DFs76hfXdsSWzihvRV+DuK/IRUYWKtrXKsfWrjBaeo44EEb5ngAU1gcoRiEWisyPlXGUWAzBzGH
-	sSO++8BxAj/Ihk0IjQTfExCjm0CTN/JIvaYlW/Q==
-X-Gm-Gg: ASbGncugrn2x2Iv36XpjvX6Z+6wVD/P9wJlVJ5Sg72GF1jEwJd9WLaURyP7OQ1XfKc/
-	Nvo8is2x2GPmRG0fx1chkk86z6B2P6ktSOA==
-X-Google-Smtp-Source: AGHT+IHNjCHSookykhJ0jiELmB8RMX1pmwKtceJGivKe5r9uvyYhkK2Li/fKdNaKGIC1FiwJ9jTRq09+7ToPFKBO6rs=
-X-Received: by 2002:a05:6102:82cc:b0:4af:497f:aaa4 with SMTP id
- ada2fe7eead31-4af497fac19mr5014052137.4.1732789697607; Thu, 28 Nov 2024
- 02:28:17 -0800 (PST)
+	Thu, 28 Nov 2024 10:29:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AE9205C59FD;
+	Thu, 28 Nov 2024 10:28:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31C5CC4CECE;
+	Thu, 28 Nov 2024 10:29:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732789763;
+	bh=UN9E/IslKJJ6kXg07JlJB5mwNZgSYgjjqJXv+tdg8to=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vLmuCLCjnYq+kiQoVtx+OI6vriP/NyPLzBqvfhzYve/l4WNpbc1wYdDQssVor5zdt
+	 p5KtJ1sm9eTKXSYshjV2SkAmRd2LCrMJwq890kcxask80KqdRBvGJ7ABwVAP42ztkp
+	 kh0u1amEpZ7e+XlAmgQYbDL3QhpVrbm7sHWPw7dJAaVUEZc6Og232TsDsyV5Y2BBsJ
+	 T7lrV9F+V1tHkasuVo5nhpjqYgLc7V4P3enqP+dX4UXJwbqeb5uQZhUZ/Xmn7l8aWx
+	 1XsM9pjx8udc9EV2jBiSUdvch42d6NKcruq7zzYhGoMRw04jX4HlIjkWokSNcZTWQ8
+	 fB+i97A77k18w==
+Date: Thu, 28 Nov 2024 11:29:20 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Andrej Picej <andrej.picej@norik.com>
+Cc: Rob Herring <robh@kernel.org>, andrzej.hajda@intel.com, 
+	neil.armstrong@linaro.org, rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, 
+	jonas@kwiboo.se, jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch, 
+	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, marex@denx.de, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/3] dt-bindings: drm/bridge: ti-sn65dsi83: Add optional
+ property ti,lvds-vcom
+Message-ID: <20241128-mottled-nostalgic-oriole-be31ce@houat>
+References: <20241127103031.1007893-1-andrej.picej@norik.com>
+ <20241127103031.1007893-2-andrej.picej@norik.com>
+ <20241127151630.GA3515396-robh@kernel.org>
+ <3b5768e5-dcb6-436d-837c-418676e13b2e@norik.com>
 MIME-Version: 1.0
-References: <CA+G9fYs+2mBz1y2dAzxkj9-oiBJ2Acm1Sf1h2YQ3VmBqj_VX2g@mail.gmail.com>
- <CA+G9fYvh8n=CTCmcCdLViH=o-UXH1Euncn+7YuYkvt5O-k8NMg@mail.gmail.com> <20241125154235.GC2067874@thelio-3990X>
-In-Reply-To: <20241125154235.GC2067874@thelio-3990X>
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Thu, 28 Nov 2024 15:58:06 +0530
-Message-ID: <CA+G9fYshK6+AuXSnu7c=j+QJ38kN6O6t7B=DdzqQrMN_rGsJhA@mail.gmail.com>
-Subject: Re: pc : qnoc_probe (drivers/interconnect/qcom/icc-rpmh.c:269) :
- Dragonboard 410c - arm64 - boot failed
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: linux-arm-msm <linux-arm-msm@vger.kernel.org>, Linux PM <linux-pm@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, clang-built-linux <llvm@lists.linux.dev>, 
-	Georgi Djakov <djakov@kernel.org>, konradybcio@kernel.org, quic_okukatla@quicinc.com, 
-	quic_rlaggysh@quicinc.com, quic_jjohnson@quicinc.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="tvgn3pzm6x2sclac"
+Content-Disposition: inline
+In-Reply-To: <3b5768e5-dcb6-436d-837c-418676e13b2e@norik.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_022820_205428_BC75ABAD 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20241128_022926_077274_2B4EF3B3 
+X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,32 +82,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 25 Nov 2024 at 21:12, Nathan Chancellor <nathan@kernel.org> wrote:
->
-> On Mon, Nov 25, 2024 at 08:43:44PM +0530, Naresh Kamboju wrote:
-> > [Small correction]
-> >
-> > On Mon, 25 Nov 2024 at 20:33, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
-> > >
-> > > The arm64 Dragonboard 410c has failed with the Linux next, mainline
-> > > and the Linux stable. Please find boot log and build links.
-> >
-> > This boot regression is noticed only on Dragonboard 845c.
-> > Linux next-20241125 tag.
-> >
-> > Good: next-20241122
-> > Bad: next-20241125
->
-> Can you bisect to see what change introduced this?
 
-The bisection did not provide any good results.
+--tvgn3pzm6x2sclac
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 1/3] dt-bindings: drm/bridge: ti-sn65dsi83: Add optional
+ property ti,lvds-vcom
+MIME-Version: 1.0
 
-I have been tracking these boot failures on db410c and then the boot
-test got passed on next-20241126, next-20241127 and next-20241128.
+On Thu, Nov 28, 2024 at 09:46:33AM +0100, Andrej Picej wrote:
+> On 27. 11. 24 16:16, Rob Herring wrote:
+> > On Wed, Nov 27, 2024 at 11:30:29AM +0100, Andrej Picej wrote:
+> > > From: Janine Hagemann <j.hagemann@phytec.de>
+> > >=20
+> > > Add an optional property to change LVDS output voltage. This depends =
+on
+> > > the connected display specifications. With this property we directly =
+set
+> > > the LVDS_VCOM (0x19) register.
+> > > Better register property mapping would be quite tricky. Please check
+> > > bridge's datasheet for details on how register values set the LVDS
+> > > data lines and LVDS clock output voltage.
+> > >=20
+> > > Signed-off-by: Janine Hagemann <j.hagemann@phytec.de>
+> > > Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+> > > ---
+> > >   .../bindings/display/bridge/ti,sn65dsi83.yaml      | 14 +++++++++++=
+++-
+> > >   1 file changed, 13 insertions(+), 1 deletion(-)
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/display/bridge/ti,sn65=
+dsi83.yaml b/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.=
+yaml
+> > > index 48a97bb3e2e0..5b2c0c281824 100644
+> > > --- a/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.y=
+aml
+> > > +++ b/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.y=
+aml
+> > > @@ -58,6 +58,12 @@ properties:
+> > >                     - const: 2
+> > >                     - const: 3
+> > >                     - const: 4
+> > > +              ti,lvds-vcom:
+> > > +                $ref: /schemas/types.yaml#/definitions/uint32
+> > > +                description: LVDS output voltage configuration. This=
+ defines
+> > > +                  LVDS_VCOM (0x19) register value. Check bridge's da=
+tasheet for
+> > > +                  details on how register values set the LVDS data l=
+ines and
+> > > +                  LVDS clock output voltage.
+> >=20
+> > Constraints? 0 - 2^32 are all valid values?
+>=20
+> Not really, only first 6 bits, which also means that this can be uint8 th=
+en.
+> Will fix with other issues.
 
-Boot test history:
------------------
--  https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241125/testrun/26040307/suite/boot/test/korg-clang-19-lkftconfig-hardening/history/
+Also, generally speaking directly using register values is really
+frowned upon, even more so when they match a value expressed in a
+standard unit.
 
-- Naresh
+Maxime
+
+--tvgn3pzm6x2sclac
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ0hF9wAKCRAnX84Zoj2+
+dhSoAX9Uu3UcKpopfFbkrgWp56OEJeL/hrbtsgKELqjxdDABI0ujjZDWXpMg1rM8
+FxDYFLkBgMOgSjdgLtFASjWYBF1ZOJauobTk1LyMFCHiK30f0SS5gjfI+r7wL/pr
+FqWXHi0wAw==
+=sZjc
+-----END PGP SIGNATURE-----
+
+--tvgn3pzm6x2sclac--
 
