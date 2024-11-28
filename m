@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E61DFD70DF9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 22:30:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2283D70DF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 22:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dLFDVevhwR8sJ6T6qzO6vKVFKAd7nL/GUnEtM3QHpfU=; b=yEx4PXArT201wKuB8V3p+2ojTZ
-	TLsn1E484oKLBFG/lZUgqTG4x+NnNlk671K4FdqnN1ObR4D10u9pc2qtnI3fTy2lBVirlaDw7xcuE
-	R7AjT7s/gYtOCnPQF9YMgwS4AujSSPD+4te4qk81AEWq74YlpDYrOgsws4OvjU9KYLbK62/1e/5iu
-	2pNPTL/srRudZrMAgKlmaRVT987HK12q1SEKPEpQWhjm4dohoVJEnvwp85Og83GOLqHy1hGbZXQQV
-	uMPsY2hk6637s9uZJKoFX2NemxXQeo8oNhURBRcQXnEOAUR+dPOxwalwYgTDsZuH6XmlEiyPB8+3b
-	V+bj9A4g==;
+	bh=xvqP+4x0fKzn4cyoWRqn6+rRZrAklB2idh3369Mp8/M=; b=MWxm9UdHwkm664/gliUb0paCJo
+	CLZdLL0oeeNCe+jwcQLZ0fmhGURhe1GN60lROmduaNu8bEqSaGF4lnVg6LtO3Lnm5ow47kTcs/XgH
+	uWu6ouNJLUhwoQEbdGeDK0qKLbTNXt9297WRC5TQnKVCDyaxaLVqueHVt9xr7D25258TiP5+53Og1
+	P7yW3VD8nsjx/9vD15ScuskADfP3Rm2Y1EH6I5UKJagQ5rFQoBIjBzWYsqdyRpNS0OrqtvmVpWT9m
+	ltkOBuyQbd6z8uf0NdWc/GbS46O3Nz016VL6MpYbj5fyXeXZndNt3Q9frjJ5YidYxDJwUZfTQK0Io
+	4QP+vwmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGn1m-0000000GVFQ-1nit;
-	Thu, 28 Nov 2024 22:30:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tGn2l-0000000GVWs-0tWi;
+	Thu, 28 Nov 2024 22:31:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGn0m-0000000GV06-1dpp
+	id 1tGn0m-0000000GV01-1DCt
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 28 Nov 2024 22:29:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8410B5C59C7;
-	Thu, 28 Nov 2024 22:28:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D8706C4CEDC;
+	by dfw.source.kernel.org (Postfix) with ESMTP id C52BB5C5927;
+	Thu, 28 Nov 2024 22:28:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B2816C4CED3;
 	Thu, 28 Nov 2024 22:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1732832962;
-	bh=4El0kQkrRlr/CEy5dm9S79SsYdqflPKE+Y43lCIJcaQ=;
+	bh=J4PshVzTxM3ZuXLi2bSbqTl6yYEFBescrQ49UUZU4/4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=RRIDjeSqA2rCKFF8mH1XnzXNys8U+yBHRLgIuRu+jIKe820DO8pVpWcGttpEBCgHM
-	 Q+9ftI8ucz+/8zdmrZ0305RnFusesU6uXg7LC3NKh+oMazYhsbwkQQs7Bhp9tWEK8W
-	 fX0Lbe8PEac3RX578fYgTQNkaSSbHTH86YU8R8T3OU2Jv4E31Kr6ajtr+AxnruoULc
-	 GLr1paPX2seHEHdqRbdNyfjKTzkcrjpQrn6OoYihrJ7a6lDyhez8fwPbyWjlMvumlw
-	 b9Z/HmyBbTlaSC5y/wILTDDUQdsSgBjmqk0hl53VBhh3CukRx+5MUMGH+ZSOVzzORP
-	 5dLW1fYntTNdQ==
+	b=JcpcRSESjVYXw6ZGdMy4IASilwfvktjlApFF8glL4GkLI2q8IUtM8h+9D74DOCSkJ
+	 MSHGDHHkLTHCjsJrz66V2L5BJ2IpyxOqEbQ+NkoPmWS99G2wGNzcszl3HmgKDGaKiR
+	 jdY8+eKAG1N/2InKXvF4MfsYx0pO8YYZ9ZHuEXlNo3RUVngVu8kc9WdTpsy6sEcI8E
+	 l1UcuO8h9NmuBAB1XFqCAGwqQJHhZGM0WorcfWmwqaVmi6AwNXHhf/5J7i8+EqI4hf
+	 OzETwJCcNoBryy0Ta6KBzzYUJfHCIpotbutgF/FJ2ZQu8Kz6s+OYsVOHfBdADICpQy
+	 focY8Sjlvq6Fw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CECD9D70DFB;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A1AB4D70DF9;
 	Thu, 28 Nov 2024 22:29:22 +0000 (UTC)
 From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Thu, 28 Nov 2024 23:29:19 +0100
-Subject: [PATCH v2 4/4] MAINTAINERS: Add entries for Apple Z2 touchscreen
- driver
+Date: Thu, 28 Nov 2024 23:29:16 +0100
+Subject: [PATCH v2 1/4] dt-bindings: input: touchscreen: Add Z2 controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241128-z2-v2-4-76cc59bbf117@gmail.com>
+Message-Id: <20241128-z2-v2-1-76cc59bbf117@gmail.com>
 References: <20241128-z2-v2-0-76cc59bbf117@gmail.com>
 In-Reply-To: <20241128-z2-v2-0-76cc59bbf117@gmail.com>
 To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
@@ -64,20 +63,19 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732832961; l=1218;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1732832961; l=2428;
  i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=5VgCgIUSJDHHHfv8AULS59dx+V2ZROTDT6FjcyDo/sU=;
- b=HtDNmYJVMl2VVv0e+byXazpK9k6qx67ciN7CUSgAAwxIp3haTuA0Y6Yf0JbC9Hk98uQ35misb
- PWbN/QuiEy+BH0TyAaNFcMfIGsJMBhjOMX5LATZvbi8PZ85csd4cXJ8
+ bh=GsKBCJQyuDiW2TgUSCS4kP/ZXyBcFw3jTp4XmyDVHjM=;
+ b=P1HETlnhVzmEHGXk/3QjNtUc8X9EEMwBYebwHSubNbiIz/n+ZmdZd+EuCJrRmqJ289CiUFPD1
+ mO+q3aZEokDDUx203RKAtjIj2gbtL9fXLBUs1PnClDjV6p0UaNXQ1KR
 X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
  auth_id=283
 X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_142924_471279_BE2325CF 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241128_142924_447897_713F51A6 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,33 +93,89 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-Add the MAINTAINERS entries for the driver
+Add bindings for touchscreen controllers attached using the Z2 protocol.
+Those are present in most Apple devices.
 
 Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 ---
- MAINTAINERS | 2 ++
- 1 file changed, 2 insertions(+)
+ .../input/touchscreen/apple,z2-multitouch.yaml     | 69 ++++++++++++++++++++++
+ 1 file changed, 69 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e7f0170977013889ca7c39b17727ba36d32e92dc..9f75fff12fa1912b70251cade845d6b3d5e28c48 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2166,6 +2166,7 @@ F:	Documentation/devicetree/bindings/clock/apple,nco.yaml
- F:	Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
- F:	Documentation/devicetree/bindings/dma/apple,admac.yaml
- F:	Documentation/devicetree/bindings/i2c/apple,i2c.yaml
-+F:	Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
- F:	Documentation/devicetree/bindings/interrupt-controller/apple,*
- F:	Documentation/devicetree/bindings/iommu/apple,dart.yaml
- F:	Documentation/devicetree/bindings/iommu/apple,sart.yaml
-@@ -2186,6 +2187,7 @@ F:	drivers/dma/apple-admac.c
- F:	drivers/pmdomain/apple/
- F:	drivers/i2c/busses/i2c-pasemi-core.c
- F:	drivers/i2c/busses/i2c-pasemi-platform.c
-+F:	drivers/input/touchscreen/apple_z2.c
- F:	drivers/iommu/apple-dart.c
- F:	drivers/iommu/io-pgtable-dart.c
- F:	drivers/irqchip/irq-apple-aic.c
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml b/Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..c4c0b41178728d5e0a782979d6eecd32e0a83618
+--- /dev/null
++++ b/Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
+@@ -0,0 +1,69 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/input/touchscreen/apple,z2-multitouch.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Apple touchscreens attached using the Z2 protocol
++
++maintainers:
++  - Sasha Finkelstein <fnkl.kernel@gmail.com>
++
++description: A series of touschscreen controllers used in Apple products
++
++allOf:
++  - $ref: touchscreen.yaml#
++  - $ref: /schemas/spi/spi-peripheral-props.yaml#
++
++properties:
++  compatible:
++    enum:
++      - apple,j293-touchbar
++      - apple,j493-touchbar
++
++  interrupts:
++    maxItems: 1
++
++  reset-gpios:
++    maxItems: 1
++
++  firmware-name:
++    maxItems: 1
++
++  apple,z2-cal-blob:
++    $ref: /schemas/types.yaml#/definitions/uint8-array
++    description:
++      Calibration blob supplied by the bootloader
++
++required:
++  - compatible
++  - interrupts
++  - reset-gpios
++  - firmware-name
++  - touchscreen-size-x
++  - touchscreen-size-y
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    spi {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        touchscreen@0 {
++            compatible = "apple,j293-touchbar";
++            reg = <0>;
++            spi-max-frequency = <11500000>;
++            reset-gpios = <&pinctrl_ap 139 GPIO_ACTIVE_LOW>;
++            interrupts-extended = <&pinctrl_ap 194 IRQ_TYPE_EDGE_FALLING>;
++            firmware-name = "apple/dfrmtfw-j293.bin";
++            touchscreen-size-x = <23045>;
++            touchscreen-size-y = <640>;
++        };
++    };
++
++...
 
 -- 
 2.47.1
