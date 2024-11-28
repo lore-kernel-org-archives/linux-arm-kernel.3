@@ -4,126 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A78BBD70DED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 19:44:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8562DD70DED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 20:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u9QGgGdv77W2pOdQiAtUv+Iwdr6afjftqDVxt/e/CoM=; b=QdWzT10UCXEskhHmSVJAQ7pOwi
-	rTgcUB5oUpxZ8nx76wKNoWq5CA1OTMPXWRgLm4zYUlLuoOaSZ8BxdGskAzAJ+TXvCMeA+MT2BxhJK
-	DrjDJxWqjBj66LrDpHc1x0kkeMoTrVRgRQUQNmWVm2d15BVx2zjZM08K6QVpVADj5tZT+3w7SRYIq
-	woKogcPnxU+NdQP8ckGrzZ57TdMJnqjW8Z2p1Xvrn8EsQF1ckC8i2+lfw/o+75QWvldWC4FyEwGT7
-	bSMkIs36HtsGtVXpvmyaNpDdXJGvXtKPacuRv6WWATbQNSaiJpgquEG6uF3mSUBq04Qc1V4dv9Al7
-	U6XG+Avg==;
+	bh=l86XJw2zl5RMCsAJYGRzrxx2y2yPBRK+02pPUOrN8FA=; b=cNRz6FCvAhM92iR6tMc2evJav0
+	n6gpvDwPvaPYlxe81LSMbh98zj62SYj3RQ0IaOF4LDqxWbFjIivD2jSKewDCrFFEr2+q06EKLWevv
+	v3v8rsCJbTKMovSbXiJDSpM8Qq0WTOibBWuUoPX4ZZfHowQAk+msk1v/cBUgBx6qJOZ3XBdwM6ESb
+	EjaB7KUJ1tt3sbl/PwUR036MV7t3I9saPWiIHc0xMPeNy3wb7O0a859PRvZ3C5x6raFA3SGL5McYe
+	4qRDR/3mkIAQcW4vrp2qNLkhBiAKVYsPya5pk/TRL2Wb25TTxJjT7LNYDYCguxZkct8YTxEKvhn8d
+	Ms6JV9yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGkQj-0000000GIPb-0OrF;
-	Thu, 28 Nov 2024 19:44:01 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1tGkrW-0000000GKi9-2Ntc;
+	Thu, 28 Nov 2024 20:11:42 +0000
+Received: from smtp-fw-6002.amazon.com ([52.95.49.90])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGkPj-0000000GIDr-04Wp
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 19:43:00 +0000
-Received: from lion.mk-sys.cz (unknown [10.100.225.114])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 91E8B21190;
-	Thu, 28 Nov 2024 19:42:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1732822974; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=u9QGgGdv77W2pOdQiAtUv+Iwdr6afjftqDVxt/e/CoM=;
-	b=eAUsbA6H44fzsfyPZVAkCfOY2dQVMh81CEEiZn1ASgrjy27e4E3fNbQDtacMzRI0AggFy0
-	i00+V0j/TymW0KKgRQ8FjRsQHsqjaGhfzx7PfLDsjjZzrT1XgGf4Y14/ZIU7Dg6WgkzhyQ
-	U1bcR57KCUzMXSyO2i1cFxo6bXeK24w=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1732822974;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=u9QGgGdv77W2pOdQiAtUv+Iwdr6afjftqDVxt/e/CoM=;
-	b=8UZO/2Lo+8a7sa07GlQNW0yJ4VFyXdh7IkNVDZbp4jI0atLqPulMdEnyUFn6rljxi6+MpG
-	yR3AkqCMjtlpCTCQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1732822973; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=u9QGgGdv77W2pOdQiAtUv+Iwdr6afjftqDVxt/e/CoM=;
-	b=aU0deQYNIvJKoHIaKI++tY1aKJshwSf10+LLBLKhI/zcgVAr9WnBuNXA57wEp7YiSJ7KsT
-	WijkJt09dd9VgtdQ1IJ46w4quJ2nGWwgSXLZLzGVFysi3sfs67YrOjzU+9n1lFAIWQW5g8
-	e76q88pSZsBnctFfFczAwdKUgFVb05U=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1732822973;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=u9QGgGdv77W2pOdQiAtUv+Iwdr6afjftqDVxt/e/CoM=;
-	b=+9zgCbxhh4S4CW4owkzqvtP8g7kHFSY7JD4fJHcV7e8UXHXlu6hN4MnfiaTVwsRJOJ8d3O
-	gRUdySmg52l/J2BA==
-Received: by lion.mk-sys.cz (Postfix, from userid 1000)
-	id 7CDE22012C; Thu, 28 Nov 2024 20:42:53 +0100 (CET)
-Date: Thu, 28 Nov 2024 20:42:53 +0100
-From: Michal Kubecek <mkubecek@suse.cz>
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, 
-	Andy Shevchenko <andy.shevchenko@gmail.com>, Simon Horman <horms@kernel.org>, Lee Jones <lee@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Derek Kiernan <derek.kiernan@amd.com>, 
-	Dragan Cvetic <dragan.cvetic@amd.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Lars Povlsen <lars.povlsen@microchip.com>, Steen Hegelund <Steen.Hegelund@microchip.com>, 
-	Daniel Machon <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Horatiu Vultur <horatiu.vultur@microchip.com>, 
-	Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Allan Nielsen <allan.nielsen@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH v9 1/6] misc: Add support for LAN966x PCI device
-Message-ID: <dywwnh7ns47ffndsttstpcsw44avxjvzcddmceha7xavqjdi77@cqdgmpdtywol>
-References: <20241010063611.788527-1-herve.codina@bootlin.com>
- <20241010063611.788527-2-herve.codina@bootlin.com>
+	id 1tGkqV-0000000GKTi-1VOc;
+	Thu, 28 Nov 2024 20:10:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1732824639; x=1764360639;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=l86XJw2zl5RMCsAJYGRzrxx2y2yPBRK+02pPUOrN8FA=;
+  b=o57eNaycWkpO53n2mc8aeACAp0pcH4QPS9oCpNYhbRnSJaOdEga5X/CC
+   gqES+3o1kg2K0ptZWCzfrdvjrInqm3mrOxBP9tL+z59dMFB/jZKw87vJ2
+   EJIGtJjtjOdlevlopbgu5xShKAsBlXV/zf32kxJS6mkaGnafaomG7/DWr
+   Q=;
+X-IronPort-AV: E=Sophos;i="6.12,193,1728950400"; 
+   d="scan'208";a="452016254"
+Received: from iad6-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.124.125.6])
+  by smtp-border-fw-6002.iad6.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2024 20:10:30 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [10.0.7.35:54823]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.22.41:2525] with esmtp (Farcaster)
+ id 7d845fb6-a2a4-4ba0-b994-ec63e5a88ad3; Thu, 28 Nov 2024 20:10:29 +0000 (UTC)
+X-Farcaster-Flow-ID: 7d845fb6-a2a4-4ba0-b994-ec63e5a88ad3
+Received: from EX19D013UWA001.ant.amazon.com (10.13.138.253) by
+ EX19MTAUWA001.ant.amazon.com (10.250.64.204) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Thu, 28 Nov 2024 20:10:28 +0000
+Received: from EX19MTAUWC001.ant.amazon.com (10.250.64.145) by
+ EX19D013UWA001.ant.amazon.com (10.13.138.253) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Thu, 28 Nov 2024 20:10:28 +0000
+Received: from email-imr-corp-prod-iad-all-1a-6ea42a62.us-east-1.amazon.com
+ (10.25.36.210) by mail-relay.amazon.com (10.250.64.145) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
+ 15.2.1258.34 via Frontend Transport; Thu, 28 Nov 2024 20:10:28 +0000
+Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com [172.19.116.181])
+	by email-imr-corp-prod-iad-all-1a-6ea42a62.us-east-1.amazon.com (Postfix) with ESMTP id 82B3F40490;
+	Thu, 28 Nov 2024 20:10:27 +0000 (UTC)
+Received: by dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (Postfix, from userid 14301484)
+	id 421392481; Thu, 28 Nov 2024 20:10:27 +0000 (UTC)
+From: Eliav Farber <farbere@amazon.com>
+To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
+	<naveen@kernel.org>, <maddy@linux.ibm.com>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
+	<ebiederm@xmission.com>, <akpm@linux-foundation.org>, <bhe@redhat.com>,
+	<farbere@amazon.com>, <hbathini@linux.ibm.com>, <sourabhjain@linux.ibm.com>,
+	<adityag@linux.ibm.com>, <songshuaishuai@tinylab.org>,
+	<takakura@valinux.co.jp>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <kexec@lists.infradead.org>
+CC: <jonnyc@amazon.com>
+Subject: [PATCH v3 1/2] kexec: Consolidate machine_kexec_mask_interrupts() implementation
+Date: Thu, 28 Nov 2024 20:10:26 +0000
+Message-ID: <20241128201027.10396-2-farbere@amazon.com>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20241128201027.10396-1-farbere@amazon.com>
+References: <20241128201027.10396-1-farbere@amazon.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="j7d5vatgnxlcdmpo"
-Content-Disposition: inline
-In-Reply-To: <20241010063611.788527-2-herve.codina@bootlin.com>
-X-Spamd-Result: default: False [-4.40 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SIGNED_PGP(-2.00)[];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	MIME_GOOD(-0.20)[multipart/signed,text/plain];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	TAGGED_RCPT(0.00)[dt];
-	ARC_NA(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_ONE(0.00)[1];
-	RCPT_COUNT_TWELVE(0.00)[33];
-	MIME_TRACE(0.00)[0:+,1:+,2:~];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	R_RATELIMIT(0.00)[to_ip_from(RLojywjshxai19ykpmbjx9w3ts)];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[linux-m68k.org,gmail.com,kernel.org,arndb.de,amd.com,linuxfoundation.org,google.com,pengutronix.de,microchip.com,davemloft.net,redhat.com,lunn.ch,vger.kernel.org,lists.infradead.org,bootlin.com];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[lion.mk-sys.cz:helo,linuxfoundation.org:email,bootlin.com:email]
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_114259_203797_BAFE01D4 
-X-CRM114-Status: GOOD (  31.26  )
+X-CRM114-CacheID: sfid-20241128_121039_555455_667F91A9 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,103 +99,238 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Move the machine_kexec_mask_interrupts function to a common location in
+kernel/kexec_core.c, removing duplicate implementations from architecture
+specific files (arch/arm, arch/arm64, arch/powerpc, and arch/riscv).
 
---j7d5vatgnxlcdmpo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This consolidation reduces code duplication and improves maintainability.
 
-On Thu, Oct 10, 2024 at 08:36:01AM +0200, Herve Codina wrote:
-> Add a PCI driver that handles the LAN966x PCI device using a device-tree
-> overlay. This overlay is applied to the PCI device DT node and allows to
-> describe components that are present in the device.
->=20
-> The memory from the device-tree is remapped to the BAR memory thanks to
-> "ranges" properties computed at runtime by the PCI core during the PCI
-> enumeration.
->=20
-> The PCI device itself acts as an interrupt controller and is used as the
-> parent of the internal LAN966x interrupt controller to route the
-> interrupts to the assigned PCI INTx interrupt.
->=20
-> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
-> Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Acked-by: Bjorn Helgaas <bhelgaas@google.com>	# quirks.c
-> ---
->  drivers/misc/Kconfig          |  24 ++++
->  drivers/misc/Makefile         |   3 +
->  drivers/misc/lan966x_pci.c    | 215 ++++++++++++++++++++++++++++++++++
->  drivers/misc/lan966x_pci.dtso | 167 ++++++++++++++++++++++++++
->  drivers/pci/quirks.c          |   1 +
->  5 files changed, 410 insertions(+)
->  create mode 100644 drivers/misc/lan966x_pci.c
->  create mode 100644 drivers/misc/lan966x_pci.dtso
->=20
-> diff --git a/drivers/misc/Kconfig b/drivers/misc/Kconfig
-> index 3fe7e2a9bd29..8e5b06ac9b6f 100644
-> --- a/drivers/misc/Kconfig
-> +++ b/drivers/misc/Kconfig
-> @@ -610,6 +610,30 @@ config MARVELL_CN10K_DPI
->  	  To compile this driver as a module, choose M here: the module
->  	  will be called mrvl_cn10k_dpi.
-> =20
-> +config MCHP_LAN966X_PCI
-> +	tristate "Microchip LAN966x PCIe Support"
-> +	depends on PCI
-> +	select OF
-> +	select OF_OVERLAY
+The unified function includes an architecture-specific behavior for
+CONFIG_ARM64 by conditionally clearing the active interrupt state before
+handling other interrupt masking operations.
 
-Are these "select" statements what we want? When configuring current
-mainline snapshot, I accidentally enabled this driver and ended up
-flooded with an enormous amount of new config options, most of which
-didn't make much sense on x86_64. It took quite long to investigate why.
+Signed-off-by: Eliav Farber <farbere@amazon.com>
+---
+V2 -> V3: This patch is new and didn't exist in V2.
 
-Couldn't we rather use
+ arch/arm/kernel/machine_kexec.c   | 23 ----------------------
+ arch/arm64/kernel/machine_kexec.c | 31 ------------------------------
+ arch/powerpc/include/asm/kexec.h  |  1 -
+ arch/powerpc/kexec/core.c         | 22 ---------------------
+ arch/riscv/kernel/machine_kexec.c | 23 ----------------------
+ include/linux/kexec.h             |  2 ++
+ kernel/kexec_core.c               | 32 +++++++++++++++++++++++++++++++
+ 7 files changed, 34 insertions(+), 100 deletions(-)
 
-	depends on PCI && OF && OF_OVERLAY
+diff --git a/arch/arm/kernel/machine_kexec.c b/arch/arm/kernel/machine_kexec.c
+index 80ceb5bd2680..dd430477e7c1 100644
+--- a/arch/arm/kernel/machine_kexec.c
++++ b/arch/arm/kernel/machine_kexec.c
+@@ -127,29 +127,6 @@ void crash_smp_send_stop(void)
+ 	cpus_stopped = 1;
+ }
+ 
+-static void machine_kexec_mask_interrupts(void)
+-{
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ void machine_crash_shutdown(struct pt_regs *regs)
+ {
+ 	local_irq_disable();
+diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+index 82e2203d86a3..6f121a0164a4 100644
+--- a/arch/arm64/kernel/machine_kexec.c
++++ b/arch/arm64/kernel/machine_kexec.c
+@@ -207,37 +207,6 @@ void machine_kexec(struct kimage *kimage)
+ 	BUG(); /* Should never get here. */
+ }
+ 
+-static void machine_kexec_mask_interrupts(void)
+-{
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-		int ret;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		/*
+-		 * First try to remove the active state. If this
+-		 * fails, try to EOI the interrupt.
+-		 */
+-		ret = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
+-
+-		if (ret && irqd_irq_inprogress(&desc->irq_data) &&
+-		    chip->irq_eoi)
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ /**
+  * machine_crash_shutdown - shutdown non-crashing cpus and save registers
+  */
+diff --git a/arch/powerpc/include/asm/kexec.h b/arch/powerpc/include/asm/kexec.h
+index 270ee93a0f7d..601e569303e1 100644
+--- a/arch/powerpc/include/asm/kexec.h
++++ b/arch/powerpc/include/asm/kexec.h
+@@ -61,7 +61,6 @@ struct pt_regs;
+ extern void kexec_smp_wait(void);	/* get and clear naca physid, wait for
+ 					  master to copy new code to 0 */
+ extern void default_machine_kexec(struct kimage *image);
+-extern void machine_kexec_mask_interrupts(void);
+ 
+ void relocate_new_kernel(unsigned long indirection_page, unsigned long reboot_code_buffer,
+ 			 unsigned long start_address) __noreturn;
+diff --git a/arch/powerpc/kexec/core.c b/arch/powerpc/kexec/core.c
+index b8333a49ea5d..58a930a47422 100644
+--- a/arch/powerpc/kexec/core.c
++++ b/arch/powerpc/kexec/core.c
+@@ -22,28 +22,6 @@
+ #include <asm/setup.h>
+ #include <asm/firmware.h>
+ 
+-void machine_kexec_mask_interrupts(void) {
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ #ifdef CONFIG_CRASH_DUMP
+ void machine_crash_shutdown(struct pt_regs *regs)
+ {
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index 3c830a6f7ef4..2306ce3e5f22 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -114,29 +114,6 @@ void machine_shutdown(void)
+ #endif
+ }
+ 
+-static void machine_kexec_mask_interrupts(void)
+-{
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ /*
+  * machine_crash_shutdown - Prepare to kexec after a kernel crash
+  *
+diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+index f0e9f8eda7a3..9dac0524c0be 100644
+--- a/include/linux/kexec.h
++++ b/include/linux/kexec.h
+@@ -375,6 +375,8 @@ extern void machine_kexec(struct kimage *image);
+ extern int machine_kexec_prepare(struct kimage *image);
+ extern void machine_kexec_cleanup(struct kimage *image);
+ extern int kernel_kexec(void);
++extern void machine_kexec_mask_interrupts(void);
++
+ extern struct page *kimage_alloc_control_pages(struct kimage *image,
+ 						unsigned int order);
+ 
+diff --git a/kernel/kexec_core.c b/kernel/kexec_core.c
+index c0caa14880c3..6e1e420946e0 100644
+--- a/kernel/kexec_core.c
++++ b/kernel/kexec_core.c
+@@ -1072,3 +1072,35 @@ int kernel_kexec(void)
+ 	kexec_unlock();
+ 	return error;
+ }
++
++void machine_kexec_mask_interrupts(void)
++{
++	unsigned int i;
++	struct irq_desc *desc;
++
++	for_each_irq_desc(i, desc) {
++		struct irq_chip *chip;
++		int check_eoi = 1;
++
++		chip = irq_desc_get_chip(desc);
++		if (!chip)
++			continue;
++
++		if (IS_ENABLED(CONFIG_ARM64)) {
++			/*
++			 * First try to remove the active state. If this fails, try to EOI the
++			 * interrupt.
++			 */
++			check_eoi = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
++		}
++
++		if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
++			chip->irq_eoi(&desc->irq_data);
++
++		if (chip->irq_mask)
++			chip->irq_mask(&desc->irq_data);
++
++		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
++			chip->irq_disable(&desc->irq_data);
++	}
++}
+-- 
+2.40.1
 
-like other drivers?
-
-Michal
-
-> +	select IRQ_DOMAIN
-> +	help
-> +	  This enables the support for the LAN966x PCIe device.
-> +	  This is used to drive the LAN966x PCIe device from the host system
-> +	  to which it is connected.
-> +
-> +	  This driver uses an overlay to load other drivers to support for
-> +	  LAN966x internal components.
-> +	  Even if this driver does not depend on these other drivers, in order
-> +	  to have a fully functional board, the following drivers are needed:
-> +	    - fixed-clock (COMMON_CLK)
-> +	    - lan966x-oic (LAN966X_OIC)
-> +	    - lan966x-cpu-syscon (MFD_SYSCON)
-> +	    - lan966x-switch-reset (RESET_MCHP_SPARX5)
-> +	    - lan966x-pinctrl (PINCTRL_OCELOT)
-> +	    - lan966x-serdes (PHY_LAN966X_SERDES)
-> +	    - lan966x-miim (MDIO_MSCC_MIIM)
-> +	    - lan966x-switch (LAN966X_SWITCH)
-> +
->  source "drivers/misc/c2port/Kconfig"
->  source "drivers/misc/eeprom/Kconfig"
->  source "drivers/misc/cb710/Kconfig"
-[...]
-
---j7d5vatgnxlcdmpo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCAAdFiEEWN3j3bieVmp26mKO538sG/LRdpUFAmdIx7cACgkQ538sG/LR
-dpU7nAf/XBbO498856QKivFIfm7fBoDun6OltBIzDjQpOY3U424Hl6ZSYNW9Bovz
-KCS+Ca82RFcUPkWwtYkY1Wuu2xD2CZs2ChCPURibTrloed3inIAHnAIdplJJz1o1
-jzIFZhxvquaFI2GT+PS/Rn4EK/O00YA1YznI0w0EyCYUd4GPKiRvFDjihNvAjB0a
-BwFaqUpcXEMDBtwDJ7fSN2aKHllfQHfQGscAMuN6SwH9Fq1F8yEnPcOniequDyN2
-Vw68yNm2tVkouUWN9yaPX2LHS+0C0cqGjgu3GpNVkavhjFM9so07iJlXOQJxgSPJ
-UGMHSzZCvmGYJLZb39hHz9014QZU1g==
-=DdLR
------END PGP SIGNATURE-----
-
---j7d5vatgnxlcdmpo--
 
