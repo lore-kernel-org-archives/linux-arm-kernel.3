@@ -4,114 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D688CD690E1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 07:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFC0D690E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 07:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Ol63r8yl5MaoQoPER9XPF0aTM0VUuk4PbGX6OycVC4=; b=AtkA9FoYl7dFDC54tlfNBO1Y/+
-	oqqAZcQS0Nn/vVnrKwlXdNFLF4v/l3KSCxdmiZX418knsGENko6BeiTrl9BLQ7/Np7HDOtIU8IzKu
-	LHxaAIEyAxWl21yHGzkCFtb5OAnchtCUs6wKPV2DT2DFdKvv4x0WZ+9ANYpXmrYM39v827QbTnxhp
-	tEm/vDgvq284+TP4GA0a/W2b+wgg5HMq3f0yGjZJ24vYoCOsxaGRR7XLxzuJsgzjXkundIuaftQ53
-	0mrJ2DUnN62vwxwrVy6rLffowkOhlixuGl03r64Fct5uCTMmczmr9gu2zIq5zNLLEeEx0beDYi0+I
-	Nl3DTpeA==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PTVe6tHU+QUhSHuSARrd4RmERiwOyLRYV6vBOxjAC90=; b=JmeItPrdfX+Y8JbzCoAPuACbeL
+	ZK2fdGfG8fF1sD4JIeVr0oD0Dw/sjYP5W12s8Vq4JCPOf8pC74D9s1OcZ69qIByXVsAk0K7Hn0Bf8
+	dp8XeqnlOY4IaKeX9bu1Mw8/apL42VOllzmbLZrna/flYoVem7q7uvy3U0hglIi5ZwUiNLk2iZfe4
+	6WuqbttyK6qT01Sm4MpPuK/JLO+OgF6xgDv6RioRwOJy0J8g4v3gLeSd0y4qqGwkOB9rAZiCFc0cF
+	CyOWNmbQ6NcVB4B3Izf7p8a5pDiwWhOv+slxkO4F3hqoevGMQVTZZlQsXR5TyuAayXwZ6CXRctnPz
+	bZimzisQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGYbK-0000000ErFb-1mOF;
-	Thu, 28 Nov 2024 07:06:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tGYsP-0000000EsK5-0wQr;
+	Thu, 28 Nov 2024 07:23:49 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGYaL-0000000Er82-27Eo
+	id 1tGYrQ-0000000EsG6-0Iq6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 07:05:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 94F3E5C589B;
-	Thu, 28 Nov 2024 07:04:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81C63C4CECE;
-	Thu, 28 Nov 2024 07:05:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732777508;
-	bh=7p+kHIRd9QfLV7LfyNqKeWEEDS7FxPWKIAszTfZZYCw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=k8dJF6vt+nvtVR7W/pw6Ko8I8PmwLUo3s25IqjYTtWPcAZDsmQfzl9Rpl465Jntlv
-	 OCi9x39sxVgL1GqUMpcuc53ylIC9T0c30Sjw4G2P91LM9eOU36peElmwi4ZWHBYnkv
-	 WOjxGkZba77tP5U29PZjJXsTNW9ux0mW54zZMg9K8SHWY0Sd7nlpPkHRyIhDD3WLmZ
-	 BtmqRUAmocnUHdtrZzWhhrD8RJe7MQS/jSis15moq1XxtkM10H6Q0lf5aU/ayo1pDp
-	 F9naLE/LhjJ581iSPpm/s+1TRcZjzy7Rcbkg27xVS1cgVaqA1s0RDrX97S1JGihwNS
-	 WDBQK3eeFkJDg==
-Message-ID: <ffca115a-4c7e-4583-9da5-225587c41043@kernel.org>
-Date: Thu, 28 Nov 2024 08:04:59 +0100
+	Thu, 28 Nov 2024 07:22:50 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-434a8b94fb5so2946765e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 23:22:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1732778566; x=1733383366; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PTVe6tHU+QUhSHuSARrd4RmERiwOyLRYV6vBOxjAC90=;
+        b=wmA1SDs7ol4hmxIW8dLRnMLNzWqwijaL2bLk5w2S+bQJG3JZXkoSlKhiESq72A37MD
+         2Wof2+2b/fUQrLdXJ3o3BzbXzOSZdVXgv6g9pcxnRzk2rURx4LUKVAz+PJFlC95FO0C+
+         DDvL9yGs6HxIRgTyr/4yA51vIVMjjlGRpaiKYUjr8g47f7mz8fdXTMFQ/lY8UHNEW8Di
+         8t+o9Q6BnbxO2M3HqiTDpPi3quaROnAmzmDy7UJrDkOolWzDNPnl7/ovLj5TaqGTVPP0
+         l5YW/ehwU1KdvzabZ9PfL3lUjcPgnW3MjnLMuFBfU90E7sQK7jY9T0woPCSNedFyDrfv
+         BtvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732778566; x=1733383366;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PTVe6tHU+QUhSHuSARrd4RmERiwOyLRYV6vBOxjAC90=;
+        b=W+A+3yDfLvdHajexn9qRXqLkwGULyIkqR2kssWNk8SisrGElXCgHcQSyuo0Ak8F/6L
+         rnbrFCttDiB49HEaJ4Re4T0V77FaCw7Hz0qWwJQLgmxia2G5FWTLecaha7gfpgYBiMqJ
+         inPptmK/ft7dLMTzFysHZ8E/1nSyUp5FG1BitF2G4p3wJ2v+MGXS32x1IMoZ06ARGdjT
+         1hDhOpkU3752fGDom9S9Fjp6ljI1agI6WDnl7nvz8Msi17QFWRY/C02TMuh1MveVyS6v
+         m1jcjrAGrQB8Z8cb0CgeEflwQ0Lr9gbAbD65hQzf4sH+738qLYVaWUAOmerRNmZwE1QP
+         yFhQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWftNZHOTGMK8DL2eeAv44n2YThAhF355Z5WZY7ePdCx6qwq4bU0ZDwMeI/7IMhsOyqeDOar696dizVBdjxMtTb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2uCJo/cGSvCjIhAsbkpXnHXRcy3Sr0Y52svZD3LDuslqz+mIH
+	/jub4K9+LPg7xL+BSIEHgDOjnK6wKauo2LlEv0cw614zYtML9YU2W4R3ODA8/vk=
+X-Gm-Gg: ASbGncs9q4tWJtq9TQPIGlD1GoH9mG6lVV9YXUHpVrsDMa/qXzl9YrmHxhlHAdJUXmV
+	CoBKd9mcMWf+zAVeon7LZY3KUtAj7IjgweJBelYAlHNmkJ+fKj3mMpj8qI5jnLWd/rkmRn87dk9
+	ZtIdhftI2/E+g4lyL4p3AAIHPluITAraNoiblnsnaazvyO1P6GZqEez1gazgPw2WPfWFhEFvMcX
+	1VEoMl6G47GZR1My+7FsRng4JS3bZbc4yY+iCtWsJ+hxamaIhHPHg==
+X-Google-Smtp-Source: AGHT+IEKSb7Ar28Nb1YZxg/V2OBSEtpXATH7MY0ZG2xhK4Gnc+17q6QjH/1fj2El41zQpkL+O6mIJg==
+X-Received: by 2002:a05:600c:1d0f:b0:434:9fc8:63a7 with SMTP id 5b1f17b1804b1-434afb9539dmr16815245e9.1.1732778566286;
+        Wed, 27 Nov 2024 23:22:46 -0800 (PST)
+Received: from localhost ([2a02:8071:b783:6940:d1f0:9fd7:467:6a80])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa7d22d4sm43589655e9.27.2024.11.27.23.22.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Nov 2024 23:22:45 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Dominik Brodowski <linux@dominikbrodowski.net>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] pcmcia: Switch back to struct platform_driver::remove()
+Date: Thu, 28 Nov 2024 08:22:35 +0100
+Message-ID: <20241128072235.711764-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/5] arm64: dts: qcom: sc7280: Add support for camss
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org,
- konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@quicinc.com
-References: <20241127100421.3447601-1-quic_vikramsa@quicinc.com>
- <20241127100421.3447601-5-quic_vikramsa@quicinc.com>
- <a51b99a3-bfa3-42d7-ba6e-fed5b2c25646@kernel.org>
- <44dfaa83-b1b5-4bb9-908a-2409ae46c6fc@kernel.org>
- <993cea98-24bc-4f86-835f-099c5009c3b8@quicinc.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <993cea98-24bc-4f86-835f-099c5009c3b8@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4826; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=cYiMQFUepr/7HIOZlaZuHcLmID0r11UiHRyOy2FF3p4=; b=owGbwMvMwMXY3/A7olbonx/jabUkhnQPKZss5TeFRenaRq5Ct/a7P/xU+Njv3sLmEFbds8UhN m9rjbZ1MhqzMDByMciKKbLYN67JtKqSi+xc++8yzCBWJpApDFycAjCRCfzs//06c3P+Hbt/WH9L gM98x74/leUz/lmpSYjkPu225zBTndYz8bCvgY7ebtdP/8u3ccxwueMm9E0y1Op2qN6KjHc9d0V 21vt+CFcTqFLQPrP7/ae0r739x6cbhnAbyJUceXU2Jdc1hNsndekn1X+22uznhT65rflXuHRN/2 uRtVvulgerNW6tUmUv9rl1e4ZPlP7H/n8tMeuaRSf2Cp9nWXapd6O91mFDr5ig6OjNSxSjCy7PX r0rOizxMMub27Fsypy7vHfNrZCY7/S4/KzA50XV0jcd/IM2rk4K0+0wqeJpP1HmqvT5YvtLbdV5 bF5tzuxLT81ItS/VP3pCrPR3zLIW61mPOd/aL3m5YLkrAA==
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_230509_633619_01BEE439 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20241127_232248_379128_735B82B4 
+X-CRM114-Status: GOOD (  20.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,81 +101,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2024 21:33, Vikram Sharma wrote:
-> Hi Krzysztof,
-> 
-> Thanks for your comments.
-> 
-> I used below tools on my changes and here are the results.
-> 
-> 1) checkpatch.pl :
-> /scripts/checkpatch.pl 
-> patches_camss_v6/v6-0001-media-dt-bindings-Add-qcom-sc7280-camss.patch
-> WARNING: added, moved or deleted file(s), does MAINTAINERS need updating?
-> #18:
-> new file mode 100644
-> total: 0 errors, 1 warnings, 415 lines checked
-> NOTE: For some of the reported defects, checkpatch may be able to
->        mechanically convert to the typical style using --fix or 
-> --fix-inplace.
-> patches_camss_v6/v6-0001-media-dt-bindings-Add-qcom-sc7280-camss.patch 
-> has style problems, please review.
-> NOTE: If any of the errors are false positives, please report
->        them to the maintainer, see CHECKPATCH in MAINTAINERS.
-> 
-> For maintainer related warnings I cross-checked that MAINTAINERS are 
-> already updated properly.
-> Patch 2,3, 4 had zero errors and warnings.
-> Patch 5 have same Maintainer Warnings.
-> 
-> For DT validation i am using these tools as per below link:
-> https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-> 
-> 2) dt_binding_check :
-> touch Documentation/devicetree/bindings/media/qcom,sc7280-camss.yaml
-> result:
-> *make DT_CHECKER_FLAGS=-m DT_SCHEMA_FILES=media/qcom,sc7280-camss.yaml 
-> dt_binding_check*
->    SCHEMA  Documentation/devicetree/bindings/processed-schema.json
-> */local/mnt/workspace/k2c_build/vikram/v6_submit/linux-next/Documentation/devicetree/bindings/net/snps,dwmac.yaml: 
-> mac-mode: missing type definition -> Not related to this change.*
->    CHKDT   ./Documentation/devicetree/bindings
->    LINT    ./Documentation/devicetree/bindings
->    DTEX 
-> Documentation/devicetree/bindings/media/qcom,sc7280-camss.example.dts
->    DTC [C] 
-> Documentation/devicetree/bindings/media/qcom,sc7280-camss.example.dtb
-> 
-> 3) CHECK_DTBS:
-> result:
-> touch arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-> touch  arch/arm64/boot/dts/qcom/qcs6490-rb3gen2.dts
-> 
-> *make CHECK_DTBS=y qcom/qcs6490-rb3gen2-vision-mezzanine.dtb*
->    DTC [C] arch/arm64/boot/dts/qcom/qcs6490-rb3gen2.dtb
->    DTC arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtbo
->    OVL [C] arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtb
-> 
-> To confirm if my tools are working properly. I tried inducing errors too.
-> Till this point there were no issues reported by tools.
-> 
-> As per your comment I have added 'W=1' which gave 1 warning.
-> arch/arm64/boot/dts/qcom/sc7280.dtsi:4429.24-4597.5: Warning 
-> (simple_bus_reg): /soc@0/camss@acaf000: simple-bus unit address format 
-> error, expected "acb3000"
+After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+return void") .remove() is (again) the right callback to implement for
+platform drivers.
 
-This is the warning which we are not suppose to remind you more than once.
+Convert all platform drivers below drivers/pcmcia to use .remove(), with
+the eventual goal to drop struct platform_driver::remove_new(). As
+.remove() and .remove_new() have the same prototypes, conversion is done
+by just changing the structure member name in the driver initializer.
 
+En passant make the alignment of the struct initializer in
+electra_cf.c consistent.
 
-> 
-> Till this point I missed to add 'W=1' as I was following the blog.  I 
-> will address that and submit v7
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+Hello,
 
-Blog is just short instruction, you should refer to SoC maintainer
-profiles in Linux kernel.
+this is based on todays next, feel free to drop changes that result in a
+conflict when you come around to apply this. I'll care for the fallout
+at a later time then. (Having said that, if you use b4 am -3 and git am
+-3, there should be hardly any conflict.)
 
+The change isn't urgent (as there are still quite a few users of
+.remove_new()) and merge window material.
 
+Best regards
+Uwe
 
-Best regards,
-Krzysztof
+ drivers/pcmcia/bcm63xx_pcmcia.c | 2 +-
+ drivers/pcmcia/db1xxx_ss.c      | 2 +-
+ drivers/pcmcia/electra_cf.c     | 4 ++--
+ drivers/pcmcia/omap_cf.c        | 2 +-
+ drivers/pcmcia/pxa2xx_base.c    | 2 +-
+ drivers/pcmcia/sa1100_generic.c | 2 +-
+ drivers/pcmcia/xxs1500_ss.c     | 2 +-
+ 7 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/pcmcia/bcm63xx_pcmcia.c b/drivers/pcmcia/bcm63xx_pcmcia.c
+index 5bda3e6d43d8..695a24967474 100644
+--- a/drivers/pcmcia/bcm63xx_pcmcia.c
++++ b/drivers/pcmcia/bcm63xx_pcmcia.c
+@@ -453,7 +453,7 @@ static void bcm63xx_drv_pcmcia_remove(struct platform_device *pdev)
+ 
+ struct platform_driver bcm63xx_pcmcia_driver = {
+ 	.probe	= bcm63xx_drv_pcmcia_probe,
+-	.remove_new = bcm63xx_drv_pcmcia_remove,
++	.remove	= bcm63xx_drv_pcmcia_remove,
+ 	.driver	= {
+ 		.name	= "bcm63xx_pcmcia",
+ 	},
+diff --git a/drivers/pcmcia/db1xxx_ss.c b/drivers/pcmcia/db1xxx_ss.c
+index 509713b9a502..85d2616061dd 100644
+--- a/drivers/pcmcia/db1xxx_ss.c
++++ b/drivers/pcmcia/db1xxx_ss.c
+@@ -592,7 +592,7 @@ static struct platform_driver db1x_pcmcia_socket_driver = {
+ 		.name	= "db1xxx_pcmcia",
+ 	},
+ 	.probe		= db1x_pcmcia_socket_probe,
+-	.remove_new	= db1x_pcmcia_socket_remove,
++	.remove		= db1x_pcmcia_socket_remove,
+ };
+ 
+ module_platform_driver(db1x_pcmcia_socket_driver);
+diff --git a/drivers/pcmcia/electra_cf.c b/drivers/pcmcia/electra_cf.c
+index 5ae826e54811..00c5aba50844 100644
+--- a/drivers/pcmcia/electra_cf.c
++++ b/drivers/pcmcia/electra_cf.c
+@@ -341,8 +341,8 @@ static struct platform_driver electra_cf_driver = {
+ 		.name = driver_name,
+ 		.of_match_table = electra_cf_match,
+ 	},
+-	.probe	  = electra_cf_probe,
+-	.remove_new = electra_cf_remove,
++	.probe = electra_cf_probe,
++	.remove = electra_cf_remove,
+ };
+ 
+ module_platform_driver(electra_cf_driver);
+diff --git a/drivers/pcmcia/omap_cf.c b/drivers/pcmcia/omap_cf.c
+index 80137c7afe0d..f0ccf479f36e 100644
+--- a/drivers/pcmcia/omap_cf.c
++++ b/drivers/pcmcia/omap_cf.c
+@@ -306,7 +306,7 @@ static struct platform_driver omap_cf_driver = {
+ 	.driver = {
+ 		.name	= driver_name,
+ 	},
+-	.remove_new	= __exit_p(omap_cf_remove),
++	.remove		= __exit_p(omap_cf_remove),
+ };
+ 
+ static int __init omap_cf_init(void)
+diff --git a/drivers/pcmcia/pxa2xx_base.c b/drivers/pcmcia/pxa2xx_base.c
+index 457fb81b497a..370a8e16dc81 100644
+--- a/drivers/pcmcia/pxa2xx_base.c
++++ b/drivers/pcmcia/pxa2xx_base.c
+@@ -336,7 +336,7 @@ static const struct dev_pm_ops pxa2xx_drv_pcmcia_pm_ops = {
+ 
+ static struct platform_driver pxa2xx_pcmcia_driver = {
+ 	.probe		= pxa2xx_drv_pcmcia_probe,
+-	.remove_new	= pxa2xx_drv_pcmcia_remove,
++	.remove		= pxa2xx_drv_pcmcia_remove,
+ 	.driver		= {
+ 		.name	= "pxa2xx-pcmcia",
+ 		.pm	= &pxa2xx_drv_pcmcia_pm_ops,
+diff --git a/drivers/pcmcia/sa1100_generic.c b/drivers/pcmcia/sa1100_generic.c
+index ccb219c38761..7b5ac8fe811d 100644
+--- a/drivers/pcmcia/sa1100_generic.c
++++ b/drivers/pcmcia/sa1100_generic.c
+@@ -177,7 +177,7 @@ static struct platform_driver sa11x0_pcmcia_driver = {
+ 		.name		= "sa11x0-pcmcia",
+ 	},
+ 	.probe		= sa11x0_drv_pcmcia_probe,
+-	.remove_new	= sa11x0_drv_pcmcia_remove,
++	.remove		= sa11x0_drv_pcmcia_remove,
+ };
+ 
+ /* sa11x0_pcmcia_init()
+diff --git a/drivers/pcmcia/xxs1500_ss.c b/drivers/pcmcia/xxs1500_ss.c
+index 2a93fbbd128d..f84dd5914a6b 100644
+--- a/drivers/pcmcia/xxs1500_ss.c
++++ b/drivers/pcmcia/xxs1500_ss.c
+@@ -316,7 +316,7 @@ static struct platform_driver xxs1500_pcmcia_socket_driver = {
+ 		.name	= "xxs1500_pcmcia",
+ 	},
+ 	.probe		= xxs1500_pcmcia_probe,
+-	.remove_new	= xxs1500_pcmcia_remove,
++	.remove		= xxs1500_pcmcia_remove,
+ };
+ 
+ module_platform_driver(xxs1500_pcmcia_socket_driver);
+
+base-commit: f486c8aa16b8172f63bddc70116a0c897a7f3f02
+-- 
+2.45.2
+
 
