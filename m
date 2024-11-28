@@ -4,100 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD4ED69114
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 16:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92424D70DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 16:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cd3HIAbz5teig6mZhMhVwVj28VKONXEVKeEO3RfXUec=; b=i5u/EVs2Na/efAgeUACDtshOih
-	a6CFbCVLgkU0ZbTHihRvkVYJedzIVEbom7l7dzoxCoSNeeNJir01UwW+eXQ6vk8o49ijqwKFEsBpG
-	iuLY+N4uyzLENhUIn5D7Rk73x1vJDVprFunnLc6OAgcDnB4KRCHvTcvq3dnB9mMuWVVhFJdCWwLbl
-	jnn4o1z/eDFcS0vjcOJ+b7swe8b+OUrZ72zQ2CDOgexCAPAJ5rr/G8sStmqIWBgPsI5Pabivk5yjM
-	+rc1WVNLCyeIjb8ZyK4yUuvGCdHc2q8PWNSowOvPHFq+QYA4c928wDeVMStjaIAM2Upia9fp2bM/7
-	DlpUnPCw==;
+	bh=SE3hqx8PlRH6oR2vsIt6C8nLef92GwCrM14lVm2xh9k=; b=mpeNsU1MWl8J2XvwI889R7Q08d
+	EMmsV9pG7ThPaJlFusZmZ0unKHVaBjVx2xAGlsU1Cunh4rxByI3ych2STzesAuZtFYE6WWH0ptfRS
+	PNlDttQa9vluyU5lO0jy/++lf94YqYHgd7sThRXvk7y0O+nTi5se52w+zkwhqLmz9M743TDxP9skQ
+	C3FJApvcSMzbReqETqhxNIJ4gHopDZeI5Ad8JEj2l7P1d7SPX7Ge6lm34W5XCpj2oMcKqrDZ39sHE
+	x8+sVvqCL2MmMvT+6KLpA5JIoHmr3oyiu4NptZ8zjOR9jVjbZli8gcqpMcXIsJcAgqUtFZJyt7U9D
+	BR7yAPQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGgzh-0000000Fxij-2T8Y;
-	Thu, 28 Nov 2024 16:03:53 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1tGh3I-0000000Fxze-1eov;
+	Thu, 28 Nov 2024 16:07:36 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGgyi-0000000Fxb4-1tMd
+	id 1tGh2I-0000000Fxv7-2FEa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 16:02:53 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-434a10588f3so6264645e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 08:02:52 -0800 (PST)
+	Thu, 28 Nov 2024 16:06:35 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-382423e1f7aso646335f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 08:06:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1732809771; x=1733414571; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Cd3HIAbz5teig6mZhMhVwVj28VKONXEVKeEO3RfXUec=;
-        b=aG91cmVe4y7EwaI4sBuRZTf87UaV8O3LVc2DJ5GSCFcmVbSA4E3CB53g9L8FqMM1pT
-         hv8uyuti4PyWiywIQWGghHlwWToO6kui/XUWOKLDQJfrkhhdRhXAHVKyl1cEHYHLk/xf
-         ojr3OpF/kg8dQPMO13Ktx5y/zLnWl8A0Z/IcjFmMVd2txIJ9GM3s6OzI4qNKC0ejBpww
-         aCt9F/50JwWuk6OVh7PYYK8vn2vzF4bqJbbZsB2jJ8fc5Q8sWeR0k9Sn67+g9Dzchafk
-         7iyGzU+mHPgwSW5jSG9zvwi3ItU3DyRCecQhLo4JgIxCHyiFcrvyYae/aoOjLFsPB2DX
-         TAVQ==
+        d=ventanamicro.com; s=google; t=1732809992; x=1733414792; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SE3hqx8PlRH6oR2vsIt6C8nLef92GwCrM14lVm2xh9k=;
+        b=GLhAK45L4x70uUD3wQqp8LPi0keFfGTNWwvh9DaCoRSc8lU+LCwcvMQ0H6EUWqPLMr
+         akLvCDVHEVkwngoVaSdSVTUPZG3EQju28c9K1CKAOfD/KYbdXYN2CYBbuV6898WAV5Jl
+         FiN8q3uqXan1W5UFnAnJfmW8wxqZ1TzVX/FWJii/35b60tzTUFwfwabQBtV1OxTdHQqx
+         nRjwYJnRswKuu2wdp0eDsMW4aIObn0GZdDs9KN6C+SQMACSNDRB6bGzh7iSji5gDZ4PU
+         QYWwykuT/rCku+DfD7Y1dqOFiXhJKdnCgdR7+A8Z7avbavt3LwbOqWfgSsKjujhu2NlU
+         66zA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732809771; x=1733414571;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1732809992; x=1733414792;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Cd3HIAbz5teig6mZhMhVwVj28VKONXEVKeEO3RfXUec=;
-        b=KHDJBQIrpz7KQ333wjbznbVvBLSfuQTW1bEHHEHA8abUorNoq6ebfX86oj9mmMmKnQ
-         pFX2t80y45Mb99f+k/mvfLDyMCxf/csS+tYWc9VH+LDqDW2S55LsfBFIJS6e3MUST5L/
-         U+u4MuqrOwr93FJUepnWNsPxDyLFdXb5rPI5giAKA3npgqtKdp+pMmCAEfvEK5l14KSy
-         d3BEryFcKfhCOWEunttXmXX1Zs0gO37/aqzppjeXp52qhnt/qJmTjm3QN8+YSA1uGg/m
-         SgKpRk3Fv8CF7a0y6uXJsBX64MlOVzTWQBrHJJmq84Mt89UELdqLJHgplSAH0WKUNRi2
-         8hLw==
-X-Forwarded-Encrypted: i=1; AJvYcCWQbQjooxwDLZQ6QjpPFGy2pc5uSTQZPGhGX46BqTa+SVK44h7CoqTqrvawGiVbWYMkE/uFdpKvpDJwO7oyCtuO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgQxHn7YKBDiWReYkpEV25O/u6NkgaF3k5Wuv98mzycDrDXm+u
-	UiXJgng7QQUkkx10IV70QfqNmZpHZMpn0M18HBx4MYxwz92CK4jQa1Z0/Eq5uJs=
-X-Gm-Gg: ASbGnctAGa412ZleWy4bUdiOx9cGMfIhxO111qjuqZY3CDPcIL9lAUt6WJd17hkNb65
-	iPkIMkiaU3yIKnLvlr891r120Z8lA+uUzLq3PLAw3tTZjeDgrtLLhKzuyNKyY0yP6JwdhhVZITi
-	Ld+6IYwZUKjJrrWZtB9SeWL6sUapL27wIBd0rfVXr/Wph8i2oQwDezP4dsGzWTzTPVh3nHBR/gF
-	qA8zUu2B/v9Oc0INysCsFjf4jWb5in44ElrsXDCcG8h8aSuJw==
-X-Google-Smtp-Source: AGHT+IF8jksfRql7w6do+0ni/UEA23LaMmjUdkNNHCmXy6TaBrSlXrzm1NoY8e4VxzZ9r/opidqFLg==
-X-Received: by 2002:a05:600c:1e24:b0:434:a1d3:a30f with SMTP id 5b1f17b1804b1-434a9dbb946mr72027945e9.6.1732809769260;
-        Thu, 28 Nov 2024 08:02:49 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:b89d:29e9:7047:2d6f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa7e5285sm57355845e9.40.2024.11.28.08.02.48
+        bh=SE3hqx8PlRH6oR2vsIt6C8nLef92GwCrM14lVm2xh9k=;
+        b=mXUfpSwEm04JaOiv1gjLMEDu1g2BxQB8vkHOGY78B+JFfyxCZtSh5EqhdLpBB/xZTK
+         vxF9nTbUHB4dbZlSSa67X0OtMQZJGsCB5xrc2v31mKMyF5P/JDhwZ7FI3sgBKdT4XmfL
+         0qShZWatpE2ASaeSiusdYaRZkAeRlwpx6Jt99EWRRNGu8YaYRqsHMiouzAtaW0QLdtHU
+         OWmvyG9N2FQJcU3i3JZRCOphPgs0Z1QGEFmiQ9473tOxcuJbEyFAAMZWKhltmP8wjlcw
+         ZQ51cGVMYT8A0fDUeJSDAP/PHwpsqPeSSt1vyi3Ju3CC9eCNr4Dnyr6fz3TtHKwqwuk6
+         ItMg==
+X-Forwarded-Encrypted: i=1; AJvYcCWaqJUxjwdimvUm76kYXBhi/ndygsBSxOOJofzmev9Nnuv9yC5nT4lCiCYzdR84c9tAGWtUuV1KZho66fIWQHjQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQFXmXhNRWWRaCdky9jy1GVYpYtI5StPBa4NBJo6vwrU8ohnHt
+	QT4RAGyMfc6UNy1tQXELRd/sR3fYZAgbqezsnAckHXrCGd3soojgjmVQyHAPvZIox4yYvBvMEQa
+	O9x4=
+X-Gm-Gg: ASbGncuGYKAWDj18SWDQDDCoSqlQ10o6s2mMSM7MheoImO9QUPbMANOyeTeLrOVVOXu
+	BEPjkyKSvUdb4uINJJD8vSPRwyhP6q0Q6g4nhoFo4czXNA121STmoI7m8hTsdsOn2KS/3/DsFPQ
+	nu/+DxaKBl1UtKTkpJn3aflKhn/QzeZWhp6ukB31LIVQWhiCBfz+qmU4l7Yk9LKpJgc+6vv+pYZ
+	qCuBTzYQyNqPMkECi0viYm3Wv5+0cmKWM8gd8dO9t7k74eDQ8GVwAfPB0CxoTHkgtyGnDaa9D5x
+	rhmycgoYCiqPKnZLOKnoNjGe8QEh4YVa+sM=
+X-Google-Smtp-Source: AGHT+IFG7K7Tcmhw/SgqiyfLkjWGDpN72liep7NaizvY+BomgXIHH7qnDKDhB0LbxLbY9up/D3Z4OQ==
+X-Received: by 2002:a05:6000:42ca:b0:382:503f:a323 with SMTP id ffacd0b85a97d-385c6ebaa70mr4267236f8f.19.1732809992314;
+        Thu, 28 Nov 2024 08:06:32 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-385ccd2dad8sm1975016f8f.18.2024.11.28.08.06.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Nov 2024 08:02:48 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: "Arnd Bergmann" <arnd@arndb.de>
-Cc: "Mark Brown" <broonie@kernel.org>,  "Neil Armstrong"
- <neil.armstrong@linaro.org>,  "Michael Turquette"
- <mturquette@baylibre.com>,  "Stephen Boyd" <sboyd@kernel.org>,  "Kevin
- Hilman" <khilman@baylibre.com>,  "Martin Blumenstingl"
- <martin.blumenstingl@googlemail.com>,  linux-amlogic@lists.infradead.org,
-  linux-clk@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: amlogic: axg-audio: select RESET_MESON_AUX
-In-Reply-To: <22f0ec0b-889f-4588-91fe-764a45870f25@app.fastmail.com> (Arnd
-	Bergmann's message of "Thu, 28 Nov 2024 16:57:05 +0100")
-References: <20241127-clk-audio-fix-rst-missing-v1-1-9f9d0ab98fce@baylibre.com>
-	<12f29978-c8ce-4bee-a447-dcd086eb936d@app.fastmail.com>
-	<1ja5dk2y5l.fsf@starbuckisacylon.baylibre.com>
-	<f8de4a2a-776f-4c10-b75e-e845bcc38dde@app.fastmail.com>
-	<1j4j3r32ld.fsf@starbuckisacylon.baylibre.com>
-	<306b0b30-5a32-4c7c-86b4-57d50e2307e8@app.fastmail.com>
-	<1jy1131kxz.fsf@starbuckisacylon.baylibre.com>
-	<c06317c6-b2b2-4b6d-96e4-0c2cfc6846de@app.fastmail.com>
-	<1jplmf1jqa.fsf@starbuckisacylon.baylibre.com>
-	<ce67e512-a15b-4482-8194-b917096f4eeb@app.fastmail.com>
-	<30cd9a80-e9d8-4387-ad28-451f7f95637d@sirena.org.uk>
-	<22f0ec0b-889f-4588-91fe-764a45870f25@app.fastmail.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Thu, 28 Nov 2024 17:02:48 +0100
-Message-ID: <1jbjxz1h3r.fsf@starbuckisacylon.baylibre.com>
+        Thu, 28 Nov 2024 08:06:31 -0800 (PST)
+Date: Thu, 28 Nov 2024 17:06:31 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: will@kernel.org, julien.thierry.kdev@gmail.com, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev, 
+	apatel@ventanamicro.com, andre.przywara@arm.com, suzuki.poulose@arm.com, 
+	s.abdollahi22@imperial.ac.uk
+Subject: Re: [PATCH kvmtool 2/4] arm: Check return value for
+ host_to_guest_flat()
+Message-ID: <20241128-7f4e0ab75188ff4684785d2b@orel>
+References: <20241128151246.10858-1-alexandru.elisei@arm.com>
+ <20241128151246.10858-3-alexandru.elisei@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241128151246.10858-3-alexandru.elisei@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_080252_485681_14825225 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20241128_080634_578491_0B02E34D 
+X-CRM114-Status: GOOD (  32.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,33 +101,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu 28 Nov 2024 at 16:57, "Arnd Bergmann" <arnd@arndb.de> wrote:
+On Thu, Nov 28, 2024 at 03:12:44PM +0000, Alexandru Elisei wrote:
+> kvmtool, on arm and arm64, puts the kernel, DTB and initrd (if present) in
+> a 256MB memory region that starts at the bottom of RAM.
+> kvm__arch_load_kernel_image() copies the kernel at the start of RAM, the
+> DTB is placed at the top of the region, and immediately below it the
+> initrd.
+> 
+> When the initrd is specified by the user, kvmtool checks that it doesn't
+> overlap with the kernel by computing the start address in the host's
+> address space:
+> 
+> 	fstat(fd_initrd, &sb);
+> 	pos = pos - (sb.st_size + INITRD_ALIGN);
+> 	guest_addr = ALIGN(host_to_guest_flat(kvm, pos), INITRD_ALIGN); (a)
+> 	pos = guest_flat_to_host(kvm, guest_addr); (b)
+> 
+> If the initrd is large enough to completely overwrite the kernel and start
+> below the guest RAM (pos < kvm->ram_start), then kvmtool will omit the
+> following errors:
+> 
+>   Warning: unable to translate host address 0xfffe849ffffc to guest (1)
+>   Warning: unable to translate guest address 0x0 to host (2)
+>   Fatal: initrd overlaps with kernel image. (3)
+> 
+> (1) is because (a) calls host_to_guest_flat(kvm, pos) with a 'pos'
+> outside any of the memslots.
+> 
+> (2) is because guest_flat_to_host() is called at (b) with guest_addr=0,
+> which is what host_to_guest_flat() returns if the supplied address is not
+> found in any of the memslots. This warning is eliminated by this patch.
+> 
+> And finally, (3) is the most useful message, because it tells the user what
+> the error is.
+> 
+> The issue is a more general pattern in kvm__arch_load_kernel_image():
+> kvmtool doesn't check if host_to_guest_flat() returns 0, which means that
+> the host address is not within any of the memslots. Add a check for that,
+> which will at the very least remove the second warning.
+> 
+> This also fixes the following edge cases:
+> 
+> 1. The same warnings being emitted in a similar scenario with the DTB, when
+> the RAM is smaller than FDT_MAX_SIZE + FDT_ALIGN.
+> 
+> 2. When copying the kernel, if the RAM size is smaller than the kernel
+> offset, the start of the kernel (represented by the variable 'pos') will be
+> outside the VA space allocated for the guest RAM.  limit - pos will wrap
+> around, because gcc 14.1.1 wraps the pointers (void pointer arithmetic is
+> undefined in C99). Then read_file()->..->read() will return -EFAULT because
+> the destination address is unallocated (as per man 2 read, also reproduced
+> during testing).
+> 
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> ---
+>  arm/kvm.c | 12 ++++++++++--
+>  1 file changed, 10 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arm/kvm.c b/arm/kvm.c
+> index da0430c40c36..4beae69e1fb3 100644
+> --- a/arm/kvm.c
+> +++ b/arm/kvm.c
+> @@ -113,6 +113,8 @@ bool kvm__arch_load_kernel_image(struct kvm *kvm, int fd_kernel, int fd_initrd,
+>  
+>  	pos = kvm->ram_start + kvm__arch_get_kern_offset(kvm, fd_kernel);
+>  	kvm->arch.kern_guest_start = host_to_guest_flat(kvm, pos);
+> +	if (!kvm->arch.kern_guest_start)
+> +			die("guest memory too small to contain the kernel");
 
-> On Thu, Nov 28, 2024, at 16:52, Mark Brown wrote:
->> On Thu, Nov 28, 2024 at 04:34:46PM +0100, Arnd Bergmann wrote:
->>> On Thu, Nov 28, 2024, at 16:06, Jerome Brunet wrote:
->>> > We are deviating a bit from the initial regression reported by Mark.
->>> > Is Ok with you to proceed with that fix and then continue this discussion
->>> > ?
->>
->>> I really don't want to see those stray 'select' statements
->>> in there, as that leave very little incentive for anyone to
->>> fix it properly.
->>
->> One option would be to get a change in defconfig for -rc1 and then deal
->> with moving things about later.  I would very much like to have these
->
-> That sounds ok to me.
+Just doing a quick drive-by and noticed this indentation issue.
 
-With a change in the defconfig, the reset aux driver that needs fixing will
-start being used, whereas it won't be if a revert is applied
+Thanks,
+drew
 
-Fixing the driver will be a lot simpler if it is not used yet.
-
-
->
->        Arnd
-
--- 
-Jerome
+>  	file_size = read_file(fd_kernel, pos, limit - pos);
+>  	if (file_size < 0) {
+>  		if (errno == ENOMEM)
+> @@ -131,7 +133,10 @@ bool kvm__arch_load_kernel_image(struct kvm *kvm, int fd_kernel, int fd_initrd,
+>  	 */
+>  	pos = limit;
+>  	pos -= (FDT_MAX_SIZE + FDT_ALIGN);
+> -	guest_addr = ALIGN(host_to_guest_flat(kvm, pos), FDT_ALIGN);
+> +	guest_addr = host_to_guest_flat(kvm, pos);
+> +	if (!guest_addr)
+> +		die("fdt too big to contain in guest memory");
+> +	guest_addr = ALIGN(guest_addr, FDT_ALIGN);
+>  	pos = guest_flat_to_host(kvm, guest_addr);
+>  	if (pos < kernel_end)
+>  		die("fdt overlaps with kernel image.");
+> @@ -151,7 +156,10 @@ bool kvm__arch_load_kernel_image(struct kvm *kvm, int fd_kernel, int fd_initrd,
+>  			die_perror("fstat");
+>  
+>  		pos -= (sb.st_size + INITRD_ALIGN);
+> -		guest_addr = ALIGN(host_to_guest_flat(kvm, pos), INITRD_ALIGN);
+> +		guest_addr = host_to_guest_flat(kvm, pos);
+> +		if (!guest_addr)
+> +			die("initrd too big to fit in the payload memory region");
+> +		guest_addr = ALIGN(guest_addr, INITRD_ALIGN);
+>  		pos = guest_flat_to_host(kvm, guest_addr);
+>  		if (pos < kernel_end)
+>  			die("initrd overlaps with kernel image.");
+> -- 
+> 2.47.0
+> 
 
