@@ -4,154 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B77DDD66BAD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 06:55:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9213D690E1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 07:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tgeg+e/ZvUXKZDYTynkZgpbU0g6UXeS4r9Ja5ZQpj3U=; b=0rOwR+v0ll7AoYZYYhwPUXmyXi
-	ac6+hgKxSNXD8eLCjliuKd3hydPH+uzFeG2nXtMSZGeZVnEhpviTf36c1A+R1xj373m4zbnwh+okT
-	WpOg8TZphxmpgdoeHbYuKNg9tFN+GQkb5TgRhsW4XDNdF9DZxKkmHxavlZltSsa6CUiHT9+TK9yrG
-	CqhHZavM90ca42E1tZZa/I7DN7uZCdwDUjjUUXEOMmhTCXBkfegs5d21YhPGvHt/CjOvrKgeEKFXS
-	WQwIgPWU3yksKgAwEkjywAzKfROip/Pi0Acdl4HqBSBi0uezhR36lgZcFNKsE8w3kNOchBfeK4N2q
-	Hz5hL22Q==;
+	bh=CrQ/QcoavsMNdFxl2BwW0P5oesM6x0CSgNRfSb8xU+I=; b=rDe6DHNKh4D8N63h7v/3Y09ItI
+	fADOk88rOdMxvhBgw403dqaylDmppxIMNhxUfbAwyNcRZrp/BRa5SuY0f4qBEwGulINHu3UZAURqV
+	HneI6rUZvNpsedo143TmsbvZIL0T3eFhQ5w5P07ljOFErA77jmTTG7/8sF/jtC4STh5kj0+FAcOuj
+	lE5j/iKbcI0H+LV/7w9h4qCeyo9h2zZtHc8U54ISCyh3O2R8yg+wWTi8ATnDVsOuuJcJf7sCXqw9t
+	VtbcFYHGuLIz3dFGJ8BGDmINBIgB2xmKDn3Wewat1A1RBhljAyk78CEVMf5NHNYltEWOUKAyTKGzr
+	V0sLQMmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGYQj-0000000EpyS-0OH5;
-	Thu, 28 Nov 2024 06:55:13 +0000
-Received: from mail-am7eur03on20615.outbound.protection.outlook.com ([2a01:111:f403:260e::615] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1tGYa0-0000000Er4y-3T6W;
+	Thu, 28 Nov 2024 07:04:48 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGYPj-0000000Eps4-0tGw
+	id 1tGYZ2-0000000EqzK-04YL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 06:54:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ylGrO8FaUHmpuOB/sch+kdVwF+hbOM7ztRgIWZSpHGZvE92zhK7Gk81DtT09gIemH+A8j+FhYabn6tgMjBScx9oJyXNyWR8x5tuaPYZA9cEH9XG+rXKIfHs0bFIuuJ9lHY+1C5AXBJhazCXTp4+g+1VQ3bSuiXGbQBr2UxmGpRHRj/QzECYPbWIlbWI2SPOahE/zEHD0QjNrkSXD1Y8JIdyFqC1vfoXFIiZs6EFOihwb07xcW7+EbFLdF4MdiW0WLEZ3rFqWzkKRbymy4STlRiqN524O8c7Jvb+sq0uyj6Gs/qpvcbqMS+oCEpTt/RWWuWJ6bBqOxAnlGDc/nKANlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Tgeg+e/ZvUXKZDYTynkZgpbU0g6UXeS4r9Ja5ZQpj3U=;
- b=pPaoLnefsunAaZy4C1PpU10w90SRcC+Kt2PzMKrYLjM7I3Q0HvXeV5cGYL6U9okgw/Qjqa5oxwERcJwDcn3Z37NE5TiKabwGFriloEUGX/f+ygJV2uHZMYIKVFwR/5xxKDDLjo43tgJOggzR+v29gHEDb2uNet0q7RHOHQlptzCuNC0I1nCi4p6UxiOci7ygtAARx8S/128cZb95pa1PxFLEhVWdRDXJIuyyC5tFXkfs3XV8hwBrbYCexKNYMGl6yGb12BciDy5s5VhE4H6d45KkcroxgXxTeTiFk54HsU76hM6O4264addKXyZQbEVZf9494QloOsu9fQq4yLvutA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Tgeg+e/ZvUXKZDYTynkZgpbU0g6UXeS4r9Ja5ZQpj3U=;
- b=j3ZHGgiSiL2ND+CGOPJfMKJqr40+CNAmtC3i+LDf58Z1V6tEaoKq1S1cqPRJnffqWCPYWTsPVEmhiWlXqHwV/tZh2XmFJe9ihfXGdhN7ajy8qntxJV/+96nDWAqJ7bY6MR3pmvhKezKTEoarOh9/i89hDvIY8mEYnYVW0NW7wxUk69197ck7pd5Nnk3Prguy5mhBEEvKr3vGu2Q+Qpt/6OxYAHwVg29KtUFResi/wKvT28ofYPsdZQ7cdQjxogL0ZpHHy/nwjYgoAFrtUA1xQ9wlDKfd9WhGeYcrmBlrQs0Wg2mpDzaoOs9IY1KeWqkuPYcOrY/TgrQ0YQnlTmE3qw==
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com (2603:10a6:208:5::22)
- by AM8PR04MB7809.eurprd04.prod.outlook.com (2603:10a6:20b:242::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.14; Thu, 28 Nov
- 2024 06:54:04 +0000
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0]) by AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0%4]) with mapi id 15.20.8048.020; Thu, 28 Nov 2024
- 06:54:04 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>, "mkl@pengutronix.de"
-	<mkl@pengutronix.de>, Frank Li <frank.li@nxp.com>, "o.rempel@pengutronix.de"
-	<o.rempel@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"andi.shyti@kernel.org" <andi.shyti@kernel.org>, "shawnguo@kernel.org"
-	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>
-CC: "imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v4] i2c: imx: support DMA defer probing
-Thread-Topic: [PATCH v4] i2c: imx: support DMA defer probing
-Thread-Index: AQHbQLkj2JmsLENAeEerpa0YTZxURbLMBLQQ
-Date: Thu, 28 Nov 2024 06:54:04 +0000
-Message-ID: <AM0PR0402MB3937CD206F229B750EB790E4E8292@AM0PR0402MB3937.eurprd04.prod.outlook.com>
-References: <20241127083818.2108201-1-carlos.song@nxp.com>
- <153e8e36-7b0e-4379-9cc3-6dacb5d705be@pengutronix.de>
- <AM0PR0402MB39370E69BC4B71C761EE8377E8282@AM0PR0402MB3937.eurprd04.prod.outlook.com>
-In-Reply-To: <AM0PR0402MB39370E69BC4B71C761EE8377E8282@AM0PR0402MB3937.eurprd04.prod.outlook.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM0PR0402MB3937:EE_|AM8PR04MB7809:EE_
-x-ms-office365-filtering-correlation-id: 94fdaea2-7382-4489-c8de-08dd0f7972be
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?L37PCkJ8H5oAJIoVcqYVqmdJ4RelLm7KG4+23eGAg2kA3wRgnV7fE4AF6q1X?=
- =?us-ascii?Q?hLTAmhyGX0DLIkMoyiK7HVcePXePkN+SV3TwY3SmKLozBMOOQCyQrj6TLBPH?=
- =?us-ascii?Q?phzP4nRaVBCLFxzP4DDCRDJq7WITKHlkQRalE8UzvLKa8GHKTmLSwOxRrnW/?=
- =?us-ascii?Q?cBsoeGgszBsw95flnojkw1K6BHxQNCkkpMciYqvLjm7+7bGS1e88QZWM4HKO?=
- =?us-ascii?Q?KNKf6cjd5sax5j7XhAGKWkgrKyFCkY1Iffusy0Qd+jZyvW+BZqOGHhcYZhzw?=
- =?us-ascii?Q?EM+V1hAWjnBHXmPBV92pwxCKUvaNoMmYu5OTFXKLOl/yNeWUr9Zb4Aj4X2xz?=
- =?us-ascii?Q?l9abiFy0ANF6KgjWrYK+q3YGs56sfhn3BAMm320gp3AHvKFFhtY/K64omxR/?=
- =?us-ascii?Q?VWdcP0jD21IUN1VOTE1ekYYAngqOFxCmQ86Ie6U4kIPQXMK4+VaDVQgNTBnb?=
- =?us-ascii?Q?mAkVqgb5FoS1RfnmVwe2bSjOg6Z4E2Oe85O2sSpjORcov0OOstznc8nRAkou?=
- =?us-ascii?Q?dceuJD+XIVV4L+1TBxbMFg3W9iLrf+4OokhDF9cKS7MpVAD8sRyS32/rH8HV?=
- =?us-ascii?Q?tpfUzz8Dy/3md90muVSwoo7FYjEWRrGNM1Y5a/L6to5FgGoyv097QGcJON1W?=
- =?us-ascii?Q?tqMxnjGzYxWHBvExB2f1AOFjgPYxX/gNodRu9ZxH/5SQ8LpVJlAOutytxnVV?=
- =?us-ascii?Q?3+wZAtZ0QaYARbDUy3rk18ZTKvsyBeb3GmxaE3MEesvOFEcGh7K4opbvzuwE?=
- =?us-ascii?Q?If+gVAMWntn/FuCMjZ+DwsrfBuSySUptOgAZGvRgu0Q+jkqjUse4AJTdROhE?=
- =?us-ascii?Q?OZe19XlPgkQjBnyDQF7jK/TDUMGSl1eqLvaiM+MkHRTTvOUaesbbUJc2AphQ?=
- =?us-ascii?Q?5Mj9VZcSExVj1gfy/F98ZKOYUVno5GLtc1IY7R3V21nb/JEjHic6OyILNMzq?=
- =?us-ascii?Q?BnQ00WTeVGw09jEfr5AiN3IZqmG4yXJCRG0NocNzlLEnGajIB9qGhQkcKQBr?=
- =?us-ascii?Q?zESCScnMJa6Hde30HdbP5w4k7zuwgPQq5VuqblpqnzDABhbdHBrKLnBWz2UF?=
- =?us-ascii?Q?+1qt736G1mEOTigYqU/PD4AQj68+0fDXvecgar4J4atTj10m1Sp0g8UjMinU?=
- =?us-ascii?Q?wAmDN/7zwvCVqPFtmKeZ2oWluhqhlCezappvqqXuBWhK0wZCbBWSx7H1cAGi?=
- =?us-ascii?Q?90FmfkLiLoZGqFjV1gdeCl+0azs5Ec52eZwbUoGCa1eqzZxMXUrFIOMLLBIw?=
- =?us-ascii?Q?BxZCbkiZgJkDDGUe03RQTFo1Jqryjoe3hKwOqZVx1bWUi520q/snzT0xNzgA?=
- =?us-ascii?Q?LYkzkgrtKLYIQOmNGjXndzFERChzHKzD1npiP1YJmHIzc78FKSKZ+FWoooX9?=
- =?us-ascii?Q?A9YZ89A=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR0402MB3937.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?A3rIPigZsg8AE9yuYTRpj9kQcj7Ui0J1u7LClGyiirus+UUmVED2Q1bmHQhu?=
- =?us-ascii?Q?CHKpSs+MVgufLhfy1xyXOtZU8twF5qW0kwq5RLuZ9AyGWCRiufGoni3dX9pu?=
- =?us-ascii?Q?eYDSgOSYsDR4wUcebSQVJx1D73AEXitZs8tmAE7TqK685nqOttUIdTSmrL/9?=
- =?us-ascii?Q?WZYgbfYeef3g7mhM7UrUwBgt/FfU7pBxnGvCzmK94lK1GbJyhsUVK4r3nntH?=
- =?us-ascii?Q?49OHZJNLTkEXZBIjFTGNEEYil4xFAD0PqMjkGw3YJ1Z9AZng6C5NUCXPu1iH?=
- =?us-ascii?Q?1rP1xjvXPBqAaRUGMoZatX6odyzRx9dWuPBAF4/eFqMwcsSj4lsLGUY37ooo?=
- =?us-ascii?Q?OiMWbYMQ/x+PGqJs69iy145Veh+1vWuVjepH9TqVER7/umlROJ1wJe3vFEiT?=
- =?us-ascii?Q?J9EoS5jxOLWWjaiXFdleteIF00iv0avTw0kRBvJ5yRgTd4KtrcmYTOrR6ZM3?=
- =?us-ascii?Q?5bmWZz3ZwxRdqzP2Bwqy1umbmQBM9t5AtiXn6VUFcVfqJZHuCSw58VLsU1ej?=
- =?us-ascii?Q?KxrnJuMScUXFLbscgYDMGOJfppMAt5L17rr3GnmYd0niQrogPjzn4va274L3?=
- =?us-ascii?Q?3qfiYhk5vSG8uAYSzGnRPfhNeTETC9CA4pWtMpo5vDWadPF7PHWvbTGajZ5C?=
- =?us-ascii?Q?aj6biUPzQZkaGDkCxgeCukiIUf2L9BUeZO/QruSIo0qXFqwveGxCrW5huoko?=
- =?us-ascii?Q?LXI6dukFBpVWAWz4u21MVCid3sqBKrSEkOKSsGwyt6wP6DvX+uVmCOtjHrxs?=
- =?us-ascii?Q?oBke0vI2shjvUG8DoACbSw5y5TpwhlAtIO7tlYo2y8oQPhqwbT1ES8INLS8B?=
- =?us-ascii?Q?mHGdmpqxamZJY7cdIYa84PE0Us6DncGnfUbDCSIx67pdLznSEiC4a3n7/Zbm?=
- =?us-ascii?Q?GzWuNG0lo0I6TNtv4q7WxsvsUJRxWT521iSvAG++X75/25UfvBLMKhSBKEJ3?=
- =?us-ascii?Q?KUHZ1ELjxGzcQbSejMcOATObu770+CrtIVs/yqdvsHARwxvgG5lBwBBTLQDH?=
- =?us-ascii?Q?4TInwacB4Fe4obNO721LzZt/n0QKI2mv8gwTjpG8r3hFBeVu9q6snd2IKxI2?=
- =?us-ascii?Q?FXPOj9/e2e0gDdERbodUimu0hDHZWWPnWbalfXzYXxkvRu8XRH3C5R/39wfT?=
- =?us-ascii?Q?Jd/UtpJo87SzrbdwoMjSNMfmwxoEBwqJ9X0MOnqRIUCZgOdIgHgs+4Xz2FAA?=
- =?us-ascii?Q?zlLBbKq7/SseAUd+TFQxZDVLjiK+MLt8wEsSi5i66C1xUkojrp2G6QK8YizD?=
- =?us-ascii?Q?A4Seu8zLgsugdFGhlndsKDWds5KLFBffYmM+UCpES3u0jTF5FEAnireXKaCN?=
- =?us-ascii?Q?sCNOPrCAGKWwRe9HVE6WolWLRxsHd79nyMBzipf+kqAtIckmFm70fxOBp2YN?=
- =?us-ascii?Q?89TabRL6+YgKQQ7NRMh+79CwcX+Edt0H2vEwB1HdY4JFWDEVPqSc+Vje/l8b?=
- =?us-ascii?Q?n6c0aR6ZGyPbV+qy33a/kBfQoi0jId26FlUfgJQWiBeDduPNm4wtUMk8oKx1?=
- =?us-ascii?Q?7+Q2Ti9zUB2S/3/aCHjIczpj9e1JFtUfqkxC1Tt+uD3oZUT9NGg33hTs5Qfw?=
- =?us-ascii?Q?2sM78GjMm40HGz/VcSU=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 28 Nov 2024 07:03:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 923ED5C53F1;
+	Thu, 28 Nov 2024 07:03:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55FFFC4CECE;
+	Thu, 28 Nov 2024 07:03:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732777426;
+	bh=zVt3J6zsdz9u4onm7Y0ur1KhRVayLOMICGxc6ZRc/5o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MfNQMgle/VKYacFO73pq1YdLajptRi+SkZ+GCF/RA00LveHNOcZKfMQapq/pyNKx3
+	 skN+Smt4i4qoGOD7HTDzJT/QKkDea/RBr5YV75eFyYbcUQKflWW7OFfoy7o3vH6qYO
+	 DwQWFn2+23h0PEooA2LjfsDsutRH8Xfmzf62RRUWysa0WCKlW8oCrS0mbZhqsthVsG
+	 QrO9rLFifYERUW6/lwuQzycumvB8k8NBJMQu/pbRztwZ8EeOSdH1wFbVkUZHDFJQFF
+	 0Waq+JUT05PVW08xeeEpJ9yWu29tJw31gOETw4dPVh+XeUKMDNjNHGipRdL3TlF0iB
+	 uHeF1ZpuxMbMw==
+Date: Thu, 28 Nov 2024 09:03:33 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Zi Yan <ziy@nvidia.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>, stable@vger.kernel.org
+Subject: Re: [PATCH] arch_numa: Restore nid checks before registering a
+ memblock with a node
+Message-ID: <Z0gVxWstZdKvhY6m@kernel.org>
+References: <20241127193000.3702637-1-maz@kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR0402MB3937.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 94fdaea2-7382-4489-c8de-08dd0f7972be
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Nov 2024 06:54:04.6633
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: orrPNjNbiYfYdHPpq5tN7Bikk6r4O5/bz+a635Iwigvxwjhh9kj+p9FFVGpL2qKSN/TyEDinUTCE9atVVJ2jzQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7809
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241127193000.3702637-1-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_225412_247420_68C7AC53 
-X-CRM114-Status: GOOD (  37.18  )
+X-CRM114-CacheID: sfid-20241127_230348_150450_68A08593 
+X-CRM114-Status: GOOD (  31.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,456 +76,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Marc,
 
+On Wed, Nov 27, 2024 at 07:30:00PM +0000, Marc Zyngier wrote:
+> Commit 767507654c22 ("arch_numa: switch over to numa_memblks")
+> significantly cleaned up the NUMA registration code, but also
+> dropped a significant check that was refusing to accept to
+> configure a memblock with an invalid nid.
+> 
+> On "quality hardware" such as my ThunderX machine, this results
+> in a kernel that dies immediately:
+> 
+> [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x431f0a10]
+> [    0.000000] Linux version 6.12.0-00013-g8920d74cf8db (maz@valley-girl) (gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #3872 SMP PREEMPT Wed Nov 27 15:25:49 GMT 2024
+> [    0.000000] KASLR disabled due to lack of seed
+> [    0.000000] Machine model: Cavium ThunderX CN88XX board
+> [    0.000000] efi: EFI v2.4 by American Megatrends
+> [    0.000000] efi: ESRT=0xffce0ff18 SMBIOS 3.0=0xfffb0000 ACPI 2.0=0xffec60000 MEMRESERVE=0xffc905d98
+> [    0.000000] esrt: Reserving ESRT space from 0x0000000ffce0ff18 to 0x0000000ffce0ff50.
+> [    0.000000] earlycon: pl11 at MMIO 0x000087e024000000 (options '115200n8')
+> [    0.000000] printk: legacy bootconsole [pl11] enabled
+> [    0.000000] NODE_DATA(0) allocated [mem 0xff6754580-0xff67566bf]
+> [    0.000000] Unable to handle kernel paging request at virtual address 0000000000001d40
+> [    0.000000] Mem abort info:
+> [    0.000000]   ESR = 0x0000000096000004
+> [    0.000000]   EC = 0x25: DABT (current EL), IL = 32 bits
+> [    0.000000]   SET = 0, FnV = 0
+> [    0.000000]   EA = 0, S1PTW = 0
+> [    0.000000]   FSC = 0x04: level 0 translation fault
+> [    0.000000] Data abort info:
+> [    0.000000]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+> [    0.000000]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+> [    0.000000]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> [    0.000000] [0000000000001d40] user address but active_mm is swapper
+> [    0.000000] Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
+> [    0.000000] Modules linked in:
+> [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.12.0-00013-g8920d74cf8db #3872
+> [    0.000000] Hardware name: Cavium ThunderX CN88XX board (DT)
+> [    0.000000] pstate: a00000c5 (NzCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> [    0.000000] pc : sparse_init_nid+0x54/0x428
+> [    0.000000] lr : sparse_init+0x118/0x240
+> [    0.000000] sp : ffff800081da3cb0
+> [    0.000000] x29: ffff800081da3cb0 x28: 0000000fedbab10c x27: 0000000000000001
+> [    0.000000] x26: 0000000ffee250f8 x25: 0000000000000001 x24: ffff800082102cd0
+> [    0.000000] x23: 0000000000000001 x22: 0000000000000000 x21: 00000000001fffff
+> [    0.000000] x20: 0000000000000001 x19: 0000000000000000 x18: ffffffffffffffff
+> [    0.000000] x17: 0000000001b00000 x16: 0000000ffd130000 x15: 0000000000000000
+> [    0.000000] x14: 00000000003e0000 x13: 00000000000001c8 x12: 0000000000000014
+> [    0.000000] x11: ffff800081e82860 x10: ffff8000820fb2c8 x9 : ffff8000820fb490
+> [    0.000000] x8 : 0000000000ffed20 x7 : 0000000000000014 x6 : 00000000001fffff
+> [    0.000000] x5 : 00000000ffffffff x4 : 0000000000000000 x3 : 0000000000000000
+> [    0.000000] x2 : 0000000000000000 x1 : 0000000000000040 x0 : 0000000000000007
+> [    0.000000] Call trace:
+> [    0.000000]  sparse_init_nid+0x54/0x428
+> [    0.000000]  sparse_init+0x118/0x240
+> [    0.000000]  bootmem_init+0x70/0x1c8
+> [    0.000000]  setup_arch+0x184/0x270
+> [    0.000000]  start_kernel+0x74/0x670
+> [    0.000000]  __primary_switched+0x80/0x90
+> [    0.000000] Code: f865d804 d37df060 cb030000 d2800003 (b95d4084)
+> [    0.000000] ---[ end trace 0000000000000000 ]---
+> [    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
+> [    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
+> 
+> while previous kernel versions were able to recognise how brain-damaged
+> the machine is, and only build a fake node.
+> 
+> Restoring the check brings back some sanity and a "working" system.
+> 
+> Fixes: 767507654c22 ("arch_numa: switch over to numa_memblks")
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: Mike Rapoport <rppt@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Zi Yan <ziy@nvidia.com>
+> Cc: Dan Williams <dan.j.williams@intel.com>
+> Cc: David Hildenbrand <david@redhat.com>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: stable@vger.kernel.org
+> ---
+>  drivers/base/arch_numa.c | 16 +++++++++++++++-
+>  1 file changed, 15 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
+> index e187016764265..5457248eb0811 100644
+> --- a/drivers/base/arch_numa.c
+> +++ b/drivers/base/arch_numa.c
+> @@ -207,7 +207,21 @@ static void __init setup_node_data(int nid, u64 start_pfn, u64 end_pfn)
+>  static int __init numa_register_nodes(void)
+>  {
+>  	int nid;
+> -
+> +	struct memblock_region *mblk;
+> +
+> +	/* Check that valid nid is set to memblks */
+> +	for_each_mem_region(mblk) {
+> +		int mblk_nid = memblock_get_region_node(mblk);
+> +		phys_addr_t start = mblk->base;
+> +		phys_addr_t end = mblk->base + mblk->size - 1;
+> +
+> +		if (mblk_nid == NUMA_NO_NODE || mblk_nid >= MAX_NUMNODES) {
+> +			pr_warn("Warning: invalid memblk node %d [mem %pap-%pap]\n",
+> +				mblk_nid, &start, &end);
+> +			return -EINVAL;
+> +		}
 
-> -----Original Message-----
-> From: Carlos Song
-> Sent: Wednesday, November 27, 2024 6:43 PM
-> To: Ahmad Fatoum <a.fatoum@pengutronix.de>; mkl@pengutronix.de; Frank Li
-> <frank.li@nxp.com>; o.rempel@pengutronix.de; kernel@pengutronix.de;
-> andi.shyti@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de;
-> festevam@gmail.com
-> Cc: imx@lists.linux.dev; linux-i2c@vger.kernel.org;
-> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> Subject: Re: [PATCH v4] i2c: imx: support DMA defer probing
->
->
->
-> > -----Original Message-----
-> > From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-> > Sent: Wednesday, November 27, 2024 4:38 PM
-> > To: Carlos Song <carlos.song@nxp.com>; mkl@pengutronix.de; Frank Li
-> > <frank.li@nxp.com>; o.rempel@pengutronix.de; kernel@pengutronix.de;
-> > andi.shyti@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de;
-> > festevam@gmail.com
-> > Cc: imx@lists.linux.dev; linux-i2c@vger.kernel.org;
-> > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> > Subject: [EXT] Re: [PATCH v4] i2c: imx: support DMA defer probing
-> >
-> > Caution: This is an external email. Please take care when clicking
-> > links or opening attachments. When in doubt, report the message using
-> > the 'Report this email' button
-> >
-> >
-> > Hello Carlos,
-> >
-> > On 27.11.24 09:38, carlos.song@nxp.com wrote:
-> > > From: Carlos Song <carlos.song@nxp.com>
-> > >
-> > > Return -EPROBE_DEFER when dma_request_slave_channel() because DMA
-> > > driver have not ready yet.
-> > >
-> > > Move i2c_imx_dma_request() before registering I2C adapter to avoid
-> > > infinite loop of .probe() calls to the same driver, see
-> > > "e8c220fac415 Revert "i2c: imx: improve the error handling in
-> i2c_imx_dma_request()""
-> > > and "Documentation/driver-api/driver-model/driver.rst".
-> > >
-> > > Use CPU mode to avoid stuck registering i2c adapter when DMA
-> > > resources are unavailable.
-> >
-> > Please try to address open questions before sending new versions of
-> > the patch set. Otherwise, it's difficult to follow the conversation.
-> >
-> > Did you see my question[1] on your v2:
-> >
->
-> Hi, thank you so much! So sorry about it... I missed it yesterday. I will=
- answer
-> your question[1] in this mail.
->
->
-> > | Wouldn't this break probe for all i2c-imx users who have
-> > | CONFIG_IMX_SDMA disabled?
-> > |
->
-> I have tested i2c probe at IMX and LS platform when DMA disabled, it won'=
-t
-> break i2c-imx probe.
-> When require DMA channel in i2c_imx_dma_request, find no devices and retu=
-rn
-> -ENODEV, as you see at V4 patch, it will continue to probe and work in PI=
-O
-> mode.
-> I2C adapter should keep available whatever DMA mode is or isn't enabled.
->
-> > | Also I am wondering on what kernel version and what configuration
-> > | (CONFIG_I2C_IMX=3D?, CONFIG_IMX_SDMA=3D?) you have that made you run
-> > | into this situation.
-> > |
->
-> I want to correct something, these code about DMA in i2c-imx.c is for eDM=
-A not
-> for SDMA.
-> For eDMA mode, I have tested this patch at layerscape-1043 platform. My p=
-atch
-> is based on
-> cfba9f07a1d6 (tag: next-20241122, origin/master, origin/HEAD).
->
-> Test log is :
-> No apply this patch:
-> CONFIG_I2C_IMX=3Dy
-> CONFIG_FSL_EDMA=3Dy
-> root@ls1043ardb:~# dmesg | grep i2c
-> [    1.162053] i2c i2c-0: IMX I2C adapter registered
-> [    1.166826] i2c i2c-0: using dma0chan16 (tx) and dma0chan17 (rx) for D=
-MA
-> transfers
-> [    4.722057] i2c_dev: i2c /dev entries driver
->
-> Not apply the patch:
-> CONFIG_I2C_IMX=3Dy
-> CONFIG_FSL_EDMA=3Dm
-> root@ls1043ardb:~# dmesg | grep i2c
-> [    1.166381] i2c i2c-0: IMX I2C adapter registered
-> [    4.719226] i2c_dev: i2c /dev entries driver
-> (result shows i2c not enabled the eDMA mode) root@ls1043ardb:~# i2cdetect
-> -y -l
-> i2c-0   i2c             2180000.i2c                             I2C
-> adapter
-> root@ls1043ardb:~# i2cdetect -y 0
->      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-> 00:                         08 -- -- -- -- -- -- --
-> 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-> 20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-> 30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-> 40: UU -- -- -- -- -- -- -- -- -- -- -- UU -- -- --
-> 50: -- UU UU UU -- -- -- -- -- -- -- -- -- -- -- --
-> 60: -- -- -- -- -- -- -- -- -- 69 -- -- -- -- -- --
-> 70: -- -- -- -- -- -- -- --
->
-> After apply the patch:
-> CONFIG_I2C_IMX=3Dy
-> CONFIG_FSL_EDMA=3Dm
-> root@ls1043ardb:~#
-> root@ls1043ardb:~# dmesg | grep i2c
-> [    4.697046] i2c_dev: i2c /dev entries driver
-> [    7.304142] imx-i2c 2180000.i2c: using dma0chan16 (tx) and dma0chan17
-> (rx) for DMA transfers
-> [    7.313532] i2c i2c-0: IMX I2C adapter registered
-> (result shows i2c probed after eDMA module installed) root@ls1043ardb:~#
-> root@ls1043ardb:~# i2cdetect -y -l
-> i2c-0   i2c             2180000.i2c                             I2C
-> adapter
-> root@ls1043ardb:~# i2cdetect -y 0
->      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-> 00:                         08 -- -- -- -- -- -- --
-> 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-> 20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-> 30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-> 40: UU -- -- -- -- -- -- -- -- -- -- -- UU -- -- --
-> 50: -- UU UU UU -- -- -- -- -- -- -- -- -- -- -- --
-> 60: -- -- -- -- -- -- -- -- -- 69 -- -- -- -- -- --
-> 70: -- -- -- -- -- -- -- --
->
->
-> > | I'd have expected that with fw_devlink enabled, the I2C controller
-> > | wouldn't be probed before the DMA provider is available.
-> >
->
-> This is a legacy patch, it has been in our local tree for a long time. Th=
-e related
-> history is relatively vague.
-> I reproduced the problem and found this patch is effective, so I referred=
- the
-> community patch and legacy patch to rewrite the commit log(I am not sure =
-if
-> this would happened in some cases so I kept this information).
-> Now it seems that these descriptions are redundant. I should completely
-> removed this in the commit log:
->     Move i2c_imx_dma_request() before registering I2C adapter to avoid
->     infinite loop of .probe() calls to the same driver, see "e8c220fac415
->     Revert "i2c: imx: improve the error handling in i2c_imx_dma_request()=
-""
->     and "Documentation/driver-api/driver-model/driver.rst".
->
-> [1]:
-> https://lore.kernel.org/all/19a43db4-db5c-4638-9778-d94fb571a206@pengutr
-> onix.de/
-> [2]:https://lore.kernel.org/all/153e8e36-7b0e-4379-9cc3-6dacb5d705be@peng
-> utronix.de/
->
+We have memblock_validate_numa_coverage() that checks that amount of memory
+with unset node id is less than a threshold. The loop here can be replaced
+with something like
 
-Hi, Ahmad
+	if (!memblock_validate_numa_coverage(0))
+		return -EINVAL;
 
-I have done more test about following comment in [1]:
-----------------
-> | I'd have expected that with fw_devlink enabled, the I2C controller
-> | wouldn't be probed before the DMA provider is available.
->
+> +	}
+> + 
+>  	/* Finally register nodes. */
+>  	for_each_node_mask(nid, numa_nodes_parsed) {
+>  		unsigned long start_pfn, end_pfn;
+> -- 
+> 2.39.2
+> 
 
-This is a legacy patch, it has been in our local tree for a long time. The =
-related history is relatively vague.
-I reproduced the problem and found this patch is effective, so I referred t=
-he community patch and
-legacy patch to rewrite the commit log(I am not sure if this would happened=
- in some cases so I kept this information).
-Now it seems that these descriptions are redundant. I should completely rem=
-oved this in the commit log:
-    Move i2c_imx_dma_request() before registering I2C adapter to avoid
-    infinite loop of .probe() calls to the same driver, see "e8c220fac415
-    Revert "i2c: imx: improve the error handling in i2c_imx_dma_request()""
-    and "Documentation/driver-api/driver-model/driver.rst".
-----------------
-You can refer the link about the history:
-[1]: https://lore.kernel.org/all/AM0PR0402MB39370E69BC4B71C761EE8377E8282@A=
-M0PR0402MB3937.eurprd04.prod.outlook.com/
-
-I don't know if I have understanded you rightly. But I am trying your expec=
-t.
-I create a new case, only add "return defer probe and error in i2c_imx_dma_=
-request()" and
-still keep i2c_imx_dma_request() after the adapter register.
-
-The code step like:
-  ret =3D i2c_add_numbered_adapter()
-  ...
-  ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-  if (ret =3D=3D -EPROBE_DEFER)
-        goto delete_adapter;
-  ...
-  return 0;
-
-delete_adapter:
-        /* remove adapter */
-        dev_dbg(&i2c_imx->adapter.dev, "adapter removed\n");
-        i2c_del_adapter(&i2c_imx->adapter);
-clk_notifier_unregister:
-...
-
-Now,
-CONFIG_I2C_IMX=3Dy
-CONFIG_FSL_EDMA=3Dm
-As you expected, if I understand rightly, I think I shouldn't see any i2c p=
-robe log until DMA is available.
-
-When I make all i2c devices module installed, i2c still defer probe if DMA =
-is not available.
-
-root@ls1043ardb:~# dmesg | grep i2c
-[    1.153535] i2c i2c-0: IMX I2C adapter registered
-[    4.705068] i2c_dev: i2c /dev entries driver
-[    4.995118] i2c i2c-0: IMX I2C adapter registered
-[    5.003324] i2c i2c-0: IMX I2C adapter registered
-[    8.079458] i2c i2c-0: IMX I2C adapter registered
-[    8.213536] i2c i2c-0: IMX I2C adapter registered
-[    8.278704] i2c i2c-0: IMX I2C adapter registered
-[    8.283669] i2c i2c-0: using dma1chan16 (tx) and dma1chan17 (rx) for DMA=
- transfers
-
-However when I make some i2c devices build-in, the infinite loop of .probe(=
-) calls
-will happened:
-
-[    5.004716] ina2xx 0-0040: supply vs not found, using dummy regulator
-[    5.012526] ina2xx 0-0040: power monitor ina220 (Rshunt =3D 1000 uOhm)
-[    5.021217] pcf85363 0-0051: registered as rtc0
-[    5.027042] pcf85363 0-0051: setting system clock to 2020-12-05T14:02:14=
- UTC (1607176934)
-[    5.035644] i2c i2c-0: IMX I2C adapter registered
-[    5.045357] ina2xx 0-0040: supply vs not found, using dummy regulator
-[    5.053111] ina2xx 0-0040: power monitor ina220 (Rshunt =3D 1000 uOhm)
-[    5.061748] pcf85363 0-0051: registered as rtc0
-[    5.067569] pcf85363 0-0051: setting system clock to 2020-12-05T14:02:14=
- UTC (1607176934)
-[    5.076148] i2c i2c-0: IMX I2C adapter registered
-[    5.097323] ina2xx 0-0040: supply vs not found, using dummy regulator
-[    5.105081] ina2xx 0-0040: power monitor ina220 (Rshunt =3D 1000 uOhm)
-[    5.113585] pcf85363 0-0051: registered as rtc0
-[    5.119402] pcf85363 0-0051: setting system clock to 2020-12-05T14:02:14=
- UTC (1607176934)
-[    5.127958] i2c i2c-0: IMX I2C adapter registered
-[    5.139289] ina2xx 0-0040: supply vs not found, using dummy regulator
-[    5.147014] ina2xx 0-0040: power monitor ina220 (Rshunt =3D 1000 uOhm)
-[    5.155584] pcf85363 0-0051: registered as rtc0
-[    5.161427] pcf85363 0-0051: setting system clock to 2020-12-05T14:02:14=
- UTC (1607176934)
-[    5.169968] i2c i2c-0: IMX I2C adapter registered
-[    5.181278] ina2xx 0-0040: supply vs not found, using dummy regulator
-[    5.189015] ina2xx 0-0040: power monitor ina220 (Rshunt =3D 1000 uOhm)
-[    5.197515] pcf85363 0-0051: registered as rtc0
-[    5.203394] pcf85363 0-0051: setting system clock to 2020-12-05T14:02:14=
- UTC (1607176934)
-[    5.211930] i2c i2c-0: IMX I2C adapter registered
-...
-[   26.405830] i2c i2c-0: IMX I2C adapter registered
-[   26.413765] ina2xx 0-0040: supply vs not found, using dummy regulator
-[   26.421485] ina2xx 0-0040: power monitor ina220 (Rshunt =3D 1000 uOhm)
-[   26.429980] pcf85363 0-0051: registered as rtc0
-[   26.435735] pcf85363 0-0051: setting system clock to 2020-12-05T14:02:35=
- UTC (1607176955)
-[   26.444324] i2c i2c-0: IMX I2C adapter registered
-[   26.452250] ina2xx 0-0040: supply vs not found, using dummy regulator
-[   26.459968] ina2xx 0-0040: power monitor ina220 (Rshunt =3D 1000 uOhm)
-[   26.468395] pcf85363 0-0051: registered as rtc0
-[   26.474233] pcf85363 0-0051: setting system clock to 2020-12-05T14:02:35=
- UTC (1607176955)
-[   26.482774] i2c i2c-0: IMX I2C adapter registered
-[   26.490694] ina2xx 0-0040: supply vs not found, using dummy regulator
-[   26.498405] ina2xx 0-0040: power monitor ina220 (Rshunt =3D 1000 uOhm)
-[   26.506897] pcf85363 0-0051: registered as rtc0
-[   26.512678] pcf85363 0-0051: setting system clock to 2020-12-05T14:02:35=
- UTC (1607176955)
-
-Is above test not in line with your expectations?(with fw_devlink enabled, =
-I2C controller wouldn't be probed before the DMA provider is available.)
-
-When I apply the V4 patch. I2C adapter can defer probe and whatever i2c dev=
-ices module installed/build-in, no issue happened. The build-in device
-driver also start probing after adapter really registered:
-(-------------i2c_imx_dma_request--------------)
-[    7.437482] imx-i2c 2180000.i2c: using dma0chan16 (tx) and dma0chan17 (r=
-x) for DMA transfers
-(----------i2c_add_numbered_adapter-------------)
-[    7.446581] ina2xx 0-0040: supply vs not found, using dummy regulator
-[    7.455945] ina2xx 0-0040: power monitor ina220 (Rshunt =3D 1000 uOhm)
-[    7.465146] pcf85363 0-0051: registered as rtc0
-[    7.471052] pcf85363 0-0051: setting system clock to 2020-12-05T17:54:39=
- UTC (1607190879)
-[    7.479902] i2c i2c-0: IMX I2C adapter registered
-
-Inevitably, on some boards some i2c device drivers are build-in. The V4 pat=
-ch will avoid some issue and is safer for i2c-imx user at different platfor=
-m.
-So I think it is necessary to move i2c_imx_dma_request() before registering=
- I2C adapter and I should also keep the log part.
-
-> > >
-> > > Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> > > Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
-> > > ---
-> > > Change for V4:
-> > > - Output "Only use PIO mode" log in debug level when no DMA configure=
-.
-> > > Change for V3:
-> > > - According to Marc's comment, remove error print when defer probe.
-> > >   Add info log when DMA has not been enabled and add error log when
-> > >   DMA error, both won't stuck the i2c adapter register, just for remi=
-nding,
-> > >   i2c adapter is working only in PIO mode.
-> > > Change for V2:
-> > > - According to Frank's comments, wrap at 75 char and Simplify fix cod=
-e
-> > >   at i2c_imx_dma_request().
-> > > - Use strict patch check, fix alignment warning at
-> > > i2c_imx_dma_request()
-> > > ---
-> > >  drivers/i2c/busses/i2c-imx.c | 31 +++++++++++++++++++++++--------
-> > >  1 file changed, 23 insertions(+), 8 deletions(-)
-> > >
-> > > diff --git a/drivers/i2c/busses/i2c-imx.c
-> > > b/drivers/i2c/busses/i2c-imx.c index 5ed4cb61e262..b11d66d56c55
-> > > 100644
-> > > --- a/drivers/i2c/busses/i2c-imx.c
-> > > +++ b/drivers/i2c/busses/i2c-imx.c
-> > > @@ -397,17 +397,16 @@ static void i2c_imx_reset_regs(struct
-> > > imx_i2c_struct *i2c_imx)  }
-> > >
-> > >  /* Functions for DMA support */
-> > > -static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
-> > > -                                             dma_addr_t
-> > phy_addr)
-> > > +static int i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
-> > > +dma_addr_t phy_addr)
-> > >  {
-> > >       struct imx_i2c_dma *dma;
-> > >       struct dma_slave_config dma_sconfig;
-> > > -     struct device *dev =3D &i2c_imx->adapter.dev;
-> > > +     struct device *dev =3D i2c_imx->adapter.dev.parent;
-> > >       int ret;
-> > >
-> > >       dma =3D devm_kzalloc(dev, sizeof(*dma), GFP_KERNEL);
-> > >       if (!dma)
-> > > -             return;
-> > > +             return -ENOMEM;
-> > >
-> > >       dma->chan_tx =3D dma_request_chan(dev, "tx");
-> > >       if (IS_ERR(dma->chan_tx)) {
-> > > @@ -452,7 +451,7 @@ static void i2c_imx_dma_request(struct
-> > imx_i2c_struct *i2c_imx,
-> > >       dev_info(dev, "using %s (tx) and %s (rx) for DMA transfers\n",
-> > >               dma_chan_name(dma->chan_tx),
-> > > dma_chan_name(dma->chan_rx));
-> > >
-> > > -     return;
-> > > +     return 0;
-> > >
-> > >  fail_rx:
-> > >       dma_release_channel(dma->chan_rx);
-> > > @@ -460,6 +459,8 @@ static void i2c_imx_dma_request(struct
-> > imx_i2c_struct *i2c_imx,
-> > >       dma_release_channel(dma->chan_tx);
-> > >  fail_al:
-> > >       devm_kfree(dev, dma);
-> > > +
-> > > +     return ret;
-> > >  }
-> > >
-> > >  static void i2c_imx_dma_callback(void *arg) @@ -1803,6 +1804,23 @@
-> > > static int i2c_imx_probe(struct platform_device *pdev)
-> > >       if (ret =3D=3D -EPROBE_DEFER)
-> > >               goto clk_notifier_unregister;
-> > >
-> > > +     /*
-> > > +      * Init DMA config if supported, -ENODEV means DMA not enabled
-> at
-> > > +      * this platform, that is not a real error, so just remind "onl=
-y
-> > > +      * PIO mode is used". If DMA is enabled, but meet error when
-> request
-> > > +      * DMA channel, error should be showed in probe error log. PIO
-> mode
-> > > +      * should be available regardless of DMA.
-> > > +      */
-> > > +     ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-> > > +     if (ret) {
-> > > +             if (ret =3D=3D -EPROBE_DEFER)
-> > > +                     goto clk_notifier_unregister;
-> > > +             else if (ret =3D=3D -ENODEV)
-> > > +                     dev_dbg(&pdev->dev, "Only use PIO mode\n");
-> > > +             else
-> > > +                     dev_err_probe(&pdev->dev, ret, "Failed to
-> > > + setup
-> > DMA, only use PIO mode\n");
-> > > +     }
-> > > +
-> > >       /* Add I2C adapter */
-> > >       ret =3D i2c_add_numbered_adapter(&i2c_imx->adapter);
-> > >       if (ret < 0)
-> > > @@ -1817,9 +1835,6 @@ static int i2c_imx_probe(struct
-> > > platform_device
-> > *pdev)
-> > >               i2c_imx->adapter.name);
-> > >       dev_info(&i2c_imx->adapter.dev, "IMX I2C adapter
-> > > registered\n");
-> > >
-> > > -     /* Init DMA config if supported */
-> > > -     i2c_imx_dma_request(i2c_imx, phy_addr);
-> > > -
-> > >       return 0;   /* Return OK */
-> > >
-> > >  clk_notifier_unregister:
-> >
-> >
-> > --
-> > Pengutronix e.K.                           |
-> > |
-> > Steuerwalder Str. 21                       |
-> > http://www.p/
-> > en
-> gutronix.de%2F&data=3D05%7C02%7Ccarlos.song%40nxp.com%7C1acf840d499f
-> >
-> 49a7872408dd0ebedc39%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0
-> > %7C638682935131084746%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjA
-> w
-> >
-> MDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&s
-> >
-> data=3DY9Qn9XEk15yu4CespwsNu6hl3%2FqfNTvEeOn4ZvnGxbo%3D&reserved=3D0
-> > |
-> > 31137 Hildesheim, Germany                  | Phone:
-> +49-5121-206917-0
-> > |
-> > Amtsgericht Hildesheim, HRA 2686           | Fax:
-> > +49-5121-206917-5555 |
+-- 
+Sincerely yours,
+Mike.
 
