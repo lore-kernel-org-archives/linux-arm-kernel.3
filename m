@@ -4,85 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA35D6D25E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 04:27:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 409B0D609CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 04:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yyk7Iou25uRg3TCJZa+tSFUnZozoGmQKQzSvVwcJ1m4=; b=BfJQZTSvn5Dmc1H2QTCFq1k8nL
-	c7BTiV9UchFycVdfH5lQbmbY9UMB4bo6zDDelGZpI8CeEtmDDkevYOeIdsv+aygMKXIImlEA3pOZl
-	aGF7MmPkuAJ8ZOYLB+USuUn0cHPKCasGdEIiiqO4bA9rJKjdvZlDuYbnRNxFSHippLsf+VH4bjKwW
-	6FPIrnMBuWAm7E10GQWO9Et/JURSZ39ra5CkBZbwwyhtUFJy4oLe1tIw6ai2rGTaLyA+fPX7nCg36
-	LXOTK8WR9kVU1O5WyebPVPj7y5c+PfMoK2lgkl6Hd9buOf/QuQtnYdjQa0V69ZCdtxRnSQdWrnQcY
-	phUsUqrQ==;
+	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9gNdiwWZ1MbH1bVKN1QAiVS5Fv7sTB11zjZfTxLD7cA=; b=X2JLfxSm4KaPdG4slhvu2kcwyK
+	mpUbKKxbDy4F3I2hFOGMiwwOqzirOz8ag+qEgH8JndAdF4grvul7xcr1vAxhPpFSi68VLaYZ6K0uh
+	H1iZQufBS34ueNy1lJyVv/1qYEM0iyF8rgcArUzlgMKj9qdHnW3LH+Acj7aQndFwV7h4qnrauoLYS
+	v5ZMOY3w+Krcy7eYZ94mVkug7wbudj8Pbo9GJBRS9qbjsZb4vZMu9EDvsVt9sFX5+ugc1Pfd8U/+B
+	pXIHnGF4s7vyDrTUF8tpIv9PRKAAmE4vHc9Nkt6nK9cR+bNm/aScw1Mn9v9vJDMX6BqOBzFLpKbyF
+	EA0mBu0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGW7w-0000000Eg9x-0ezM;
-	Thu, 28 Nov 2024 04:27:40 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1tGWbf-0000000Ehny-3HyH;
+	Thu, 28 Nov 2024 04:58:23 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGW6x-0000000Eg2v-237W
+	id 1tGWah-0000000Ehj6-0sUw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 04:26:40 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-724d23df764so459650b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 20:26:38 -0800 (PST)
+	Thu, 28 Nov 2024 04:57:24 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-53de7321675so318832e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 20:57:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1732767998; x=1733372798; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yyk7Iou25uRg3TCJZa+tSFUnZozoGmQKQzSvVwcJ1m4=;
-        b=jwiXROO6M/+EfOtekdbI29fI7+4qhpfxeRD809i9hSBO4uIPvDdm2k63M7M6Kgd5TD
-         5/22I9vbdmoGL003sKTo2Bd4HZHI+c/umBNE/H1+SE+weu3B7fWZbgZsTi0ZrpWGauNA
-         G8jQ5s3Ic7ZLnMki3ucpmu1o2cVkkVcJKZjYc=
+        d=chromium.org; s=google; t=1732769841; x=1733374641; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9gNdiwWZ1MbH1bVKN1QAiVS5Fv7sTB11zjZfTxLD7cA=;
+        b=l4FSRNVF7pJImpvDS5RM/YJqJZsXANrd+ukY9M+Fd6bNgySX8117sT0a90vCUMk7VV
+         sr5z6rmNvFprpPfOWwbp9dN+4WatBLYeZl1K//XcV1hkBeffARK5cM8dUVZOEbFIEtaK
+         04QyOAFO35z1QMGlimneDYfmeguBfMV5eVriU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732767998; x=1733372798;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=yyk7Iou25uRg3TCJZa+tSFUnZozoGmQKQzSvVwcJ1m4=;
-        b=CAUynDq6Fyknjl92JN4+mUpORSYDuw/Ks+wCOga+nI7qOXXKEhjEa9IwxtfmnhjEdj
-         3AAefWRPQH5Nvr9153PSoo+cwWMkcL0yFwTyaGJR5U7Ji96D9SyCBMadIFYF1PkA5cE5
-         XyCBEzte0NEKKorATJv9x+gt9huH8XQt6gtz4OMmthk20Iyal/j/GLr5AsTxmDYAjcr5
-         DT6P9rUkQAUNioo5LWL0BycadmcJ6S2pmb4XGpRIW60cwf+S+N3yICLefiOoYMws2olO
-         qtMa5/VgIOegjrzjnzW70eocDlqPs3RWem8/llQeWPkeFytDyE5HMyWeiqbXxAfwFeHw
-         K4Tg==
-X-Forwarded-Encrypted: i=1; AJvYcCUT42otZ2v7poZ6aYx2vSqf6/OqvYrNNeJ+b6Jou1qjUbwVPNnTC9/FzG4Dp9QijNwaMkIXdfYscuomP4l+2XzO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/Z3K13egoyyPb7/OfrtWcvPqOXGsU2fQpXP83gwBQ+lP5cfvq
-	0oCinOZK6y59V7JqwrMlKHfbBT8QWY0TNEVWdnDOaNrcAPNFurJ9Ybo6ninzig==
-X-Gm-Gg: ASbGncsD9RJLEw9aIUTrb+WeACAb7jkFt737XUzL323pWjE3pCc/mRIQbI6scPkujRg
-	nBQ2H4+dw0a0uTiONQSOo8HXOMjDDdtmzY00YWTGpAWueRoO9ndX8aUNxWQtRUFrSWshECpk8fi
-	iL/xeXDd8SIj/W0jMIP0garxMBc79F5Qdja9/y9Hwpk7emNu8Y1mSE7jezeoG8nQayVm/L2ARW8
-	xtGLUoHoSGfLSy359swGKXzOd6Qf7aaIrPFXY61dY605PC+LZVH3DvOg9QoGNj8dGKJ
-X-Google-Smtp-Source: AGHT+IHeZNuSWgVtWvTDokMDlIw4ArRKKjwJZ33jbZfsR02Ur3asny/Ji3uLw2rlY2Y0R8BhHPJDpA==
-X-Received: by 2002:a05:6a00:3d0e:b0:725:14fd:f62c with SMTP id d2e1a72fcca58-72530078935mr6645836b3a.15.1732767997932;
-        Wed, 27 Nov 2024 20:26:37 -0800 (PST)
-Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:2db5:507b:eafb:b616])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72541849509sm439133b3a.197.2024.11.27.20.26.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Nov 2024 20:26:37 -0800 (PST)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Wolfram Sang <wsa@kernel.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-i2c@vger.kernel.org,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH] of: base: Document prefix argument for of_get_next_child_with_prefix()
-Date: Thu, 28 Nov 2024 12:26:30 +0800
-Message-ID: <20241128042632.231308-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
+        d=1e100.net; s=20230601; t=1732769841; x=1733374641;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9gNdiwWZ1MbH1bVKN1QAiVS5Fv7sTB11zjZfTxLD7cA=;
+        b=SaHSjc019eHpsOch0urw4gnDETqNslqsnv/HNhUHWVVFrJ4ejutsbqWxicxBm+Du6k
+         LxESnEWMVokrcUbli1DwK2icmK0fuxdihdrApa/pjnRbUI4qeUK3+UuaWL16CqA+kI9i
+         FPNBC1dUsQHuzluO2beZ8Rwdcn8PosMPoxDb4pkg14xcXiquUlOotOhZcdlE8XGWCMw9
+         n2JIlk0GdsM4aZqu+7u/UAlqCExAsm1ODnriM+jcqOXNSgfAROvTleCM9WyxLjmZXJ1h
+         cdqVlC795348dt/G/iFpc2aSkRIptCqH24ArjwsN7bZmCw5Oy5+cYnIqln/snpvbSVLX
+         65YA==
+X-Forwarded-Encrypted: i=1; AJvYcCUtpLiQEy6iaHTPgeVnLSRNn1yYQ3cQLRZlhNbmVDYnrQ5rkLQb6vuQjhZ7OoyXjbpFdoqD7Hp1ViWJ0M7zsjak@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywb5XdTKC+PzeOZ9QbSqZpmnfahlQtEQ7/HHJN4IN/dGQxEjkq1
+	IlYThRE0EN3U7WmEEsZuT3W3DK5kRm1yHVAaFInM9kicbkjTcsj4U+LmaIspnq9ATlob28IE24i
+	8b+i5LxFVZ5qbBd30ZcjF6AFk8omsD4O26YGc
+X-Gm-Gg: ASbGnct85sUEUSpuD3X8Be7DTl1RgMPoskrhfMA9nQVKoBfjoLozg6MkrjN16Porfrt
+	iO/ipsXs9vk1an9BSOnjAgAfrzWpK7kZ6/tGyvMeXbwWn3NgLkTBPxkNi3GU=
+X-Google-Smtp-Source: AGHT+IG7n8N4nAMz6o9K2XahUaKaMVFWZxqJsiGFCbLs2B2ko1EorvcGfAfKGctbegSVwAcOe4uRUizxkULBFWIPM2Q=
+X-Received: by 2002:a05:6512:23aa:b0:539:ea7a:7688 with SMTP id
+ 2adb3069b0e04-53df00a9f35mr3140014e87.1.1732769841115; Wed, 27 Nov 2024
+ 20:57:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20241106093335.1582205-1-wenst@chromium.org> <CAGXv+5Fzrz9sBvE=FpV6URpcZtxvchxfY9WE4k4s+S3BzMWw2g@mail.gmail.com>
+ <Z0b_f0gg9KgSozPH@shikoro>
+In-Reply-To: <Z0b_f0gg9KgSozPH@shikoro>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Thu, 28 Nov 2024 12:57:09 +0800
+Message-ID: <CAGXv+5GUGwqEGpyJptAUc7aqdGAeFP=-um4=EfUNzxkahiXB9A@mail.gmail.com>
+Subject: Re: [PATCH v11 0/7] platform/chrome: Introduce DT hardware prober
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>, Chen-Yu Tsai <wenst@chromium.org>, 
+	Wolfram Sang <wsa@kernel.org>, chrome-platform@lists.linux.dev, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-i2c@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_202639_547522_62132E20 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20241127_205723_271480_458A1ACF 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,48 +92,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When of_get_next_child_with_prefix() was added, the prefix argument was
-left undocumented. This caused a new warning to be generated during the
-kerneldoc build process:
+On Wed, Nov 27, 2024 at 7:16=E2=80=AFPM Wolfram Sang
+<wsa+renesas@sang-engineering.com> wrote:
+>
+>
+> > Just checking in. I just wanted to make sure that this is still on
+> > track for v6.13-rc1.
+>
+> Eeeks, not only Andi was so busy that he lost track of patches. Please
+> accept my apologies, I was under the impression that this series was
+> still under discussion. I sadly missed that it was ready for prime time.
+>
+> That being said, I applied it now and will send it to Linus by the end
+> of the week. Sadly, this series was not exposed to -next before, so I
+> hope a few days of -next will work for him.
+>
+> But I will surely try. Sorry again!
 
- drivers/of/base.c:661: warning: Function parameter or struct member 'prefix'
- 	not described in 'of_get_next_child_with_prefix'
+Thanks! Fingers crossed! Hopefully Linus sees that all the stuff is
+just new symbols and pretty isolated.
 
-Properly document the argument to fix this.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202411280010.KGSDBOUE-lkp@intel.com/
-Fixes: 1fcc67e3a354 ("of: base: Add for_each_child_of_node_with_prefix()")
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
-As requested. I assume Rob would give an ack for this to go through the
-I2C tree since the offending commit is there as well.
-
-I also put this patch on git.kernel.org hoping that it gets some bot
-coverage soon:
-
-    http://git.kernel.org/wens/h/of_get_next_child_with_prefix-kdoc-fix
-
-I guess I should have put the original patches on a separate branch on
-git.kernel.org for bots to run earlier. I'm sorry for not catching this
-sooner.
-
- drivers/of/base.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/of/base.c b/drivers/of/base.c
-index 4cba021c89d3..7dc394255a0a 100644
---- a/drivers/of/base.c
-+++ b/drivers/of/base.c
-@@ -648,6 +648,7 @@ EXPORT_SYMBOL(of_get_next_child);
-  * of_get_next_child_with_prefix - Find the next child node with prefix
-  * @node:	parent node
-  * @prev:	previous child of the parent node, or NULL to get first
-+ * @prefix:	prefix that the node name should have
-  *
-  * This function is like of_get_next_child(), except that it automatically
-  * skips any nodes whose name doesn't have the given prefix.
--- 
-2.47.0.338.g60cca15819-goog
-
+ChenYu
 
