@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 517E2D69112
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 14:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4800BD69113
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 14:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pKkjyiFM8kQqUBx2zf57P1oCYH46iFzIJ7Um2K6g6p0=; b=L/m//aP6gnwRHNRhr47j4KAM8W
-	kKgoZEqSu55a0KY/i2XbRzUyFmxc+J5kUQnzStw44cdU81BdzBpJ9/DzBiu3c4pFoLK0vdzOnebRq
-	sAsMCDBLow56B6kj3/kMGH9cS3b/U3q7LIzjmVD90iYFWZUHEezZeevYZmG7pJfpCynXkSMRxeO8Z
-	K/W3kH+ONX6GgYzC4DtCvWdAOPR9RVKmbKm/3C9Q4r+cdX4ltMMy4QUweEDj054yhtoRYNJAXQYwx
-	9dlTVYhKnSn/2pwl9yVWUOK+gEcAIY8va3lqTva21i0dDb3twp0xzXv0x0E5V/oweDaP1SEOb3AR/
-	k233equQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DEqsPZvCDv6fZXTIc5Sjc+0RGxvXQb4IPrR1wEGEkGg=; b=qrWrVd60L0bJd2w+/nPC4ol8nT
+	VJoDLjFKazpWqwdFHYITWPAwCzOnjkRsyjYQOE5L54DHEsQgza6+pnn+c4jYqLOjeGauEH07IQp8t
+	BNm5ChKcF783JNm/hjm9lit1+yKH/n77kL15XaCc0ljm/9xWSAf2dv7b+MnXyftXI88ETPm1CtLes
+	zrUoTkNL9BplwiP0plkZv101URtKhpw1m6S4RHmXPYCQWJi/vsksqdcHmWEA2xwjqTeq6/EBIZZ49
+	TGXYg9Uu0uxj+GTPunMmdubppTvSbhiMX9v6L9t9kAZvtZYfk+SBryM74XZuPqE9RXMYyieMKrJZy
+	oujPdGSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGfD7-0000000FihC-1oBL;
-	Thu, 28 Nov 2024 14:09:37 +0000
+	id 1tGfE4-0000000Fiod-0EFU;
+	Thu, 28 Nov 2024 14:10:36 +0000
 Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGfC8-0000000FiTN-1HjY
+	id 1tGfCA-0000000FiTs-2hXL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 14:08:37 +0000
+	Thu, 28 Nov 2024 14:08:40 +0000
 Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4ASE8UdD1171256
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4ASE8Y2Y1171260
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 28 Nov 2024 08:08:30 -0600
+	Thu, 28 Nov 2024 08:08:34 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1732802910;
-	bh=pKkjyiFM8kQqUBx2zf57P1oCYH46iFzIJ7Um2K6g6p0=;
-	h=From:To:CC:Subject:Date;
-	b=dcWV03/ilYOQqteGmDYMbQm4y2WXmQc+Pn18DYKqugc3le+jrZ9jZeDqjDgT/Vewk
-	 EcltJWqGDfAjh6fDSOVoVEKpMFpmS1uRBcEnrXs6JfBMRUWVX4BJOFILSsop1Ot5EX
-	 NagJQFO8gZPROnCzXQ4iG/3coY/EINc/WKfoevZo=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4ASE8Ua4013188
+	s=ti-com-17Q1; t=1732802914;
+	bh=DEqsPZvCDv6fZXTIc5Sjc+0RGxvXQb4IPrR1wEGEkGg=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=Mma1VoFvfoyiQ7mc3d7kDS/wHTAJMVOs698qQ5Pvk/rMDvaYLSWWJUWwsqHiQNPhZ
+	 g4hEYmUsL/O2oXjDQGkt0z7sn/4QdS2jvUHfVhqWB/XqDIATzMAo+7y9Cu8s3hcqOJ
+	 xeeADVIvOcGPVxXFW+yC88bV5jkxv2iF9jOINKoE=
+Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4ASE8YhD013206
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 28 Nov 2024 08:08:30 -0600
-Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 28 Nov 2024 08:08:34 -0600
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 28
- Nov 2024 08:08:30 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ Nov 2024 08:08:33 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 28 Nov 2024 08:08:30 -0600
+ Frontend Transport; Thu, 28 Nov 2024 08:08:33 -0600
 Received: from a0497641-HP-Z2-Tower-G9-Workstation-Desktop-PC.dhcp.ti.com (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.69.37])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4ASE8Qcd019782;
-	Thu, 28 Nov 2024 08:08:27 -0600
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4ASE8Qce019782;
+	Thu, 28 Nov 2024 08:08:30 -0600
 From: Neha Malcom Francis <n-francis@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>
 CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <n-francis@ti.com>
-Subject: [PATCH 0/2] Add support for K3 BIST
-Date: Thu, 28 Nov 2024 19:38:23 +0530
-Message-ID: <20241128140825.263216-1-n-francis@ti.com>
+Subject: [PATCH 1/2] dt-bindings: misc: bist: Add BIST dt-binding for TI K3 devices
+Date: Thu, 28 Nov 2024 19:38:24 +0530
+Message-ID: <20241128140825.263216-2-n-francis@ti.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241128140825.263216-1-n-francis@ti.com>
+References: <20241128140825.263216-1-n-francis@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_060836_558602_07BD6122 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20241128_060838_772905_4BDF05EA 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,23 +85,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-BIST (Built-In Self Test) is an IP responsible for triggering hardware
-circuitry tests on both logic as well as memory blocks. This driver is
-currently being upstreamed in U-Boot [1] and triggers these tests on
-cores. This patch series adds the dt-binding as well as a node for BIST
-on J784S4.
+Document the binding for TI K3 BIST (Built-In Self Test) block.
 
-[1] https://lore.kernel.org/all/613efa0b-f785-444c-8769-ea40ac94d6f9@ti.com/T/
-
-Neha Malcom Francis (2):
-  dt-bindings: misc: bist: Add BIST dt-binding for TI K3 devices
-  arm64: dts: ti: k3-j784s4-main: Add PBIST_14 node
-
+Signed-off-by: Neha Malcom Francis <n-francis@ti.com>
+---
  .../bindings/misc/ti,j784s4-bist.yaml         | 66 +++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi    | 11 ++++
- 2 files changed, 77 insertions(+)
+ 1 file changed, 66 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/misc/ti,j784s4-bist.yaml
 
+diff --git a/Documentation/devicetree/bindings/misc/ti,j784s4-bist.yaml b/Documentation/devicetree/bindings/misc/ti,j784s4-bist.yaml
+new file mode 100644
+index 000000000000..bd1b42734b3d
+--- /dev/null
++++ b/Documentation/devicetree/bindings/misc/ti,j784s4-bist.yaml
+@@ -0,0 +1,66 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++# Copyright (C) 2024 Texas Instruments Incorporated
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/misc/ti,j784s4-bist.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Texas Instruments K3 BIST
++
++maintainers:
++  - Neha Malcom Francis <n-francis@ti.com>
++
++description:
++  The BIST (Built-In Self Test) module is an IP block present in K3 devices
++  that support triggering of BIST tests, both PBIST (Memory BIST) and LBIST
++  (Logic BIST) on a core. Both tests are destructive in nature. At boot, BIST
++  is executed by hardware for the MCU domain automatically as part of HW POST.
++
++properties:
++  compatible:
++    const: ti,j784s4-bist
++
++  reg:
++    minItems: 2
++    maxItems: 2
++
++  reg-names:
++    items:
++      - const: cfg
++      - const: ctrl_mmr
++
++  clocks:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++  ti,bist-instance:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      the BIST instance in the SoC represented as an integer
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - ti,bist-instance
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/soc/ti,sci_pm_domain.h>
++    bus {
++        #address-cells = <2>;
++        #size-cells = <2>;
++        bist@33c0000 {
++            compatible = "ti,j784s4-bist";
++            reg = <0x00 0x033c0000 0x00 0x400>,
++            <0x00 0x0010c1a0 0x00 0x01c>;
++            reg-names = "cfg", "ctrl_mmr";
++            clocks = <&k3_clks 237 7>;
++            power-domains = <&k3_pds 237 TI_SCI_PD_EXCLUSIVE>;
++            ti,bist-instance = <14>;
++        };
++    };
 -- 
 2.34.1
 
