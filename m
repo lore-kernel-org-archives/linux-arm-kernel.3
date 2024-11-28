@@ -4,89 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFC0D690E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 07:24:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A0DD690E4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 07:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PTVe6tHU+QUhSHuSARrd4RmERiwOyLRYV6vBOxjAC90=; b=JmeItPrdfX+Y8JbzCoAPuACbeL
-	ZK2fdGfG8fF1sD4JIeVr0oD0Dw/sjYP5W12s8Vq4JCPOf8pC74D9s1OcZ69qIByXVsAk0K7Hn0Bf8
-	dp8XeqnlOY4IaKeX9bu1Mw8/apL42VOllzmbLZrna/flYoVem7q7uvy3U0hglIi5ZwUiNLk2iZfe4
-	6WuqbttyK6qT01Sm4MpPuK/JLO+OgF6xgDv6RioRwOJy0J8g4v3gLeSd0y4qqGwkOB9rAZiCFc0cF
-	CyOWNmbQ6NcVB4B3Izf7p8a5pDiwWhOv+slxkO4F3hqoevGMQVTZZlQsXR5TyuAayXwZ6CXRctnPz
-	bZimzisQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8kqh1KNqKnunsDJjpBDg96FW+lRvbuxgoy5i/G9dtrM=; b=tDa5W31fbayjHnqRi5jWH0RJ35
+	MrjMIiEqiuQlA0Th06eXCuYusMyQbPgELsqZYfa72iCwuSg350ESGcSE9LSqFwvCBDk+SmqoVbXIv
+	xpNquh1m6Esx3imuK/trGEjWWEh4lLtbgMaDq8ZAaM3ffnyZuWDmhNk+jLLt7dNzJFagSirlhQlhk
+	WZzoVJEPlDvG0+aAoBlTxuH05LMZJsroA8WlRXT/V6NtLipS1BeqSsmkFWGfl05cFmVdgSc16QX8U
+	45NPx0P9rnFKrSydDAeG4AfzC1t+4cKgG3DJY9TDwLhsKO5WX1QjGw71Fy1fVQltOAnlNOK2gg4wx
+	zfjuhEOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGYsP-0000000EsK5-0wQr;
-	Thu, 28 Nov 2024 07:23:49 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tGYwN-0000000Esb6-05Xl;
+	Thu, 28 Nov 2024 07:27:55 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGYrQ-0000000EsG6-0Iq6
+	id 1tGYvO-0000000EsUU-2qKB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 07:22:50 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-434a8b94fb5so2946765e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 23:22:47 -0800 (PST)
+	Thu, 28 Nov 2024 07:26:55 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-434a2033562so4247445e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Nov 2024 23:26:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1732778566; x=1733383366; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=PTVe6tHU+QUhSHuSARrd4RmERiwOyLRYV6vBOxjAC90=;
-        b=wmA1SDs7ol4hmxIW8dLRnMLNzWqwijaL2bLk5w2S+bQJG3JZXkoSlKhiESq72A37MD
-         2Wof2+2b/fUQrLdXJ3o3BzbXzOSZdVXgv6g9pcxnRzk2rURx4LUKVAz+PJFlC95FO0C+
-         DDvL9yGs6HxIRgTyr/4yA51vIVMjjlGRpaiKYUjr8g47f7mz8fdXTMFQ/lY8UHNEW8Di
-         8t+o9Q6BnbxO2M3HqiTDpPi3quaROnAmzmDy7UJrDkOolWzDNPnl7/ovLj5TaqGTVPP0
-         l5YW/ehwU1KdvzabZ9PfL3lUjcPgnW3MjnLMuFBfU90E7sQK7jY9T0woPCSNedFyDrfv
-         BtvA==
+        d=linaro.org; s=google; t=1732778812; x=1733383612; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=8kqh1KNqKnunsDJjpBDg96FW+lRvbuxgoy5i/G9dtrM=;
+        b=ZEWigTpqXJ7cQd7wnxWua0hj6ZLZl1wM4r93bmNZcPpTwqwGzE3mBFt2N4UD5ld+lI
+         +6m0IYDZ8mTu2mibix8xMjOu0Q7eLTl4QtUc5yzlYKPil759Ci+wnZMQOXFyJkXB1bRt
+         +hbYAoi0FcWZ4X1M0g7BJ2Vwjjw0ZnCxB/+zOo31rr1OI/Ck1jK3FqrKGpBiWGkKBJuu
+         MnYzBcKUGt8Sln1KtsKa55txwQpj/fg4vKoPqxj/4gkG8zNnboTYONRq3aVj8FAnK6hO
+         pF5JouoBXQflXNTpnw88uOUU9a9ak8pSZBiCQw23xckO2KuxjvStjc1xAIeUJxs6J58/
+         Lp8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732778566; x=1733383366;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PTVe6tHU+QUhSHuSARrd4RmERiwOyLRYV6vBOxjAC90=;
-        b=W+A+3yDfLvdHajexn9qRXqLkwGULyIkqR2kssWNk8SisrGElXCgHcQSyuo0Ak8F/6L
-         rnbrFCttDiB49HEaJ4Re4T0V77FaCw7Hz0qWwJQLgmxia2G5FWTLecaha7gfpgYBiMqJ
-         inPptmK/ft7dLMTzFysHZ8E/1nSyUp5FG1BitF2G4p3wJ2v+MGXS32x1IMoZ06ARGdjT
-         1hDhOpkU3752fGDom9S9Fjp6ljI1agI6WDnl7nvz8Msi17QFWRY/C02TMuh1MveVyS6v
-         m1jcjrAGrQB8Z8cb0CgeEflwQ0Lr9gbAbD65hQzf4sH+738qLYVaWUAOmerRNmZwE1QP
-         yFhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWftNZHOTGMK8DL2eeAv44n2YThAhF355Z5WZY7ePdCx6qwq4bU0ZDwMeI/7IMhsOyqeDOar696dizVBdjxMtTb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2uCJo/cGSvCjIhAsbkpXnHXRcy3Sr0Y52svZD3LDuslqz+mIH
-	/jub4K9+LPg7xL+BSIEHgDOjnK6wKauo2LlEv0cw614zYtML9YU2W4R3ODA8/vk=
-X-Gm-Gg: ASbGncs9q4tWJtq9TQPIGlD1GoH9mG6lVV9YXUHpVrsDMa/qXzl9YrmHxhlHAdJUXmV
-	CoBKd9mcMWf+zAVeon7LZY3KUtAj7IjgweJBelYAlHNmkJ+fKj3mMpj8qI5jnLWd/rkmRn87dk9
-	ZtIdhftI2/E+g4lyL4p3AAIHPluITAraNoiblnsnaazvyO1P6GZqEez1gazgPw2WPfWFhEFvMcX
-	1VEoMl6G47GZR1My+7FsRng4JS3bZbc4yY+iCtWsJ+hxamaIhHPHg==
-X-Google-Smtp-Source: AGHT+IEKSb7Ar28Nb1YZxg/V2OBSEtpXATH7MY0ZG2xhK4Gnc+17q6QjH/1fj2El41zQpkL+O6mIJg==
-X-Received: by 2002:a05:600c:1d0f:b0:434:9fc8:63a7 with SMTP id 5b1f17b1804b1-434afb9539dmr16815245e9.1.1732778566286;
-        Wed, 27 Nov 2024 23:22:46 -0800 (PST)
-Received: from localhost ([2a02:8071:b783:6940:d1f0:9fd7:467:6a80])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa7d22d4sm43589655e9.27.2024.11.27.23.22.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Nov 2024 23:22:45 -0800 (PST)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Dominik Brodowski <linux@dominikbrodowski.net>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] pcmcia: Switch back to struct platform_driver::remove()
-Date: Thu, 28 Nov 2024 08:22:35 +0100
-Message-ID: <20241128072235.711764-2-u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.45.2
+        d=1e100.net; s=20230601; t=1732778812; x=1733383612;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8kqh1KNqKnunsDJjpBDg96FW+lRvbuxgoy5i/G9dtrM=;
+        b=Qiyr+cjPdGWVZ3MD7VBXfyYC6wKgq4sDy9Ygo7sWvCgpyy9n3RQQ+qli3WQscdvALW
+         xllppZJgWb/yuahmj5qB6QTSa5Z7Hi/zCztxB5eR/miipOVU3V0VEwA/+/bL0gtpPGC4
+         N35aM8sTrq7KffdsQV03wOKTUWWrqQ9jNR7Sy7kS4K5+CwWPhxph42oXyGLQxCO5dt0j
+         mSnV054nd4DRbq/M3fOk/WFVi1GvCoru6iimqyzjtaVkjhgDEbtP4K7puGHgcFcPE4jC
+         57Is++VxawASOISPum4ZfhyzoJ0a0ObKWK0PLdeSOpaHvU6uENo/UDy6glp7VsJBtBGC
+         wpTw==
+X-Forwarded-Encrypted: i=1; AJvYcCXK+LXHCPVhTSs4Z1nJwqbnr+hYTT4YVU/dMY2kXpJmpeNqFpZykaBu3WcYhKtHgF4Z9rd/aTrKb2Gq1ZwgQ1v6@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywg2wDrgUczL5ZI+h6dNX1FtsyEgmOa+a+Y9RVND0m339oTLaBa
+	A5TV23jt8QlVnAQOxSMMR24LONnbFJ1UCL7k/lK+mG5IrjNUFso703V/6O3QS24=
+X-Gm-Gg: ASbGncvEOYYOfwbJF+V3WmUFcwOFZh9y4sDSqgnFMIwzZW5MJ6geV7OA/Rq+AUWGShR
+	EFHJLH1J8dXpVN0Y/VaXq1yoVMZSYrgnDrCsVNy4Qbrm6FtY5t/NQJQJL4u6Bz8CluvFDEmT3S2
+	litAHl5JeQxpSuG7NYjBWS9Jt/gwK8JxpgF+Up6FmNw4iZAH7N9vrhtCxXl3BpBudz/kNCBMENJ
+	bIbdwRGjzLDOXmXddNVdfk8c+7sFZfS4CmEMHnb8lMI+NgaoGrSwxK5nZw=
+X-Google-Smtp-Source: AGHT+IFLv++oJgv9Qwh3wkymj9ZOpRIqdb0ylXRtmM787YQXfSehzvlY/3Z1EYVe5oEXo8L0YnB7qg==
+X-Received: by 2002:a05:600c:458b:b0:434:a924:44e9 with SMTP id 5b1f17b1804b1-434a9dcfedfmr57606425e9.15.1732778812529;
+        Wed, 27 Nov 2024 23:26:52 -0800 (PST)
+Received: from [192.168.0.190] ([82.76.24.202])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa7d26b5sm43808615e9.35.2024.11.27.23.26.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 Nov 2024 23:26:52 -0800 (PST)
+Message-ID: <e9d6831a-d0ef-440c-b235-fec18048deed@linaro.org>
+Date: Thu, 28 Nov 2024 09:26:51 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iio: adc: at91-sama5d2_adc: Fix use-after-free in
+ sama5d2_adc driver
+To: Pei Xiao <xiaopei01@kylinos.cn>, jic23@kernel.org, lars@metafoo.de,
+ nicolas.ferre@microchip.com, linux-iio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ alexandre.belloni@bootlin.com
+References: <1c67249dbc78678c451a155c04ef908627da6d1a.1732776187.git.xiaopei01@kylinos.cn>
+Content-Language: en-US
+From: Eugen Hristev <eugen.hristev@linaro.org>
+In-Reply-To: <1c67249dbc78678c451a155c04ef908627da6d1a.1732776187.git.xiaopei01@kylinos.cn>
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4826; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=cYiMQFUepr/7HIOZlaZuHcLmID0r11UiHRyOy2FF3p4=; b=owGbwMvMwMXY3/A7olbonx/jabUkhnQPKZss5TeFRenaRq5Ct/a7P/xU+Njv3sLmEFbds8UhN m9rjbZ1MhqzMDByMciKKbLYN67JtKqSi+xc++8yzCBWJpApDFycAjCRCfzs//06c3P+Hbt/WH9L gM98x74/leUz/lmpSYjkPu225zBTndYz8bCvgY7ebtdP/8u3ccxwueMm9E0y1Op2qN6KjHc9d0V 21vt+CFcTqFLQPrP7/ae0r739x6cbhnAbyJUceXU2Jdc1hNsndekn1X+22uznhT65rflXuHRN/2 uRtVvulgerNW6tUmUv9rl1e4ZPlP7H/n8tMeuaRSf2Cp9nWXapd6O91mFDr5ig6OjNSxSjCy7PX r0rOizxMMub27Fsypy7vHfNrZCY7/S4/KzA50XV0jcd/IM2rk4K0+0wqeJpP1HmqvT5YvtLbdV5 bF5tzuxLT81ItS/VP3pCrPR3zLIW61mPOd/aL3m5YLkrAA==
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_232248_379128_735B82B4 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20241127_232654_731684_70F9B877 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,138 +100,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
-return void") .remove() is (again) the right callback to implement for
-platform drivers.
-
-Convert all platform drivers below drivers/pcmcia to use .remove(), with
-the eventual goal to drop struct platform_driver::remove_new(). As
-.remove() and .remove_new() have the same prototypes, conversion is done
-by just changing the structure member name in the driver initializer.
-
-En passant make the alignment of the struct initializer in
-electra_cf.c consistent.
-
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
----
 Hello,
 
-this is based on todays next, feel free to drop changes that result in a
-conflict when you come around to apply this. I'll care for the fallout
-at a later time then. (Having said that, if you use b4 am -3 and git am
--3, there should be hardly any conflict.)
+On 11/28/24 08:45, Pei Xiao wrote:
+> at91_adc_interrupt can call at91_adc_touch_data_handler function
+> to start the work by schedule_work(&st->touch_st.workq).
+> 
+> If we remove the module which will call at91_adc_remove to
+> make cleanup, it will free indio_dev through iio_device_unregister
+> while the work mentioned above will be used. The sequence of operations
+> that may lead to a UAF bug is as follows:
+> 
+> CPU0                                      CPU1
+> 
+>                                      | at91_adc_workq_handler
+> at91_adc_remove                      |
+> iio_device_unregister(indio_dev)     |
+> device_release                       |
+> //free indio_dev                     |
+>                                      | iio_push_to_buffers(indio_dev)
+>                                      | //use indio_dev
+> 
+> Fix it by ensuring that the work is canceled before proceeding with
+> the cleanup in at91_adc_remove.
+> 
+> Fixes: 27e177190891 ("iio:adc:at91_adc8xx: introduce new atmel adc driver")
 
-The change isn't urgent (as there are still quite a few users of
-.remove_new()) and merge window material.
+I believe that the commit that introduced the workqueue is different
+than the one you tagged here.
 
-Best regards
-Uwe
+With that changed,
 
- drivers/pcmcia/bcm63xx_pcmcia.c | 2 +-
- drivers/pcmcia/db1xxx_ss.c      | 2 +-
- drivers/pcmcia/electra_cf.c     | 4 ++--
- drivers/pcmcia/omap_cf.c        | 2 +-
- drivers/pcmcia/pxa2xx_base.c    | 2 +-
- drivers/pcmcia/sa1100_generic.c | 2 +-
- drivers/pcmcia/xxs1500_ss.c     | 2 +-
- 7 files changed, 8 insertions(+), 8 deletions(-)
+Reviewed-by: Eugen Hristev <eugen.hristev@linaro.org>
 
-diff --git a/drivers/pcmcia/bcm63xx_pcmcia.c b/drivers/pcmcia/bcm63xx_pcmcia.c
-index 5bda3e6d43d8..695a24967474 100644
---- a/drivers/pcmcia/bcm63xx_pcmcia.c
-+++ b/drivers/pcmcia/bcm63xx_pcmcia.c
-@@ -453,7 +453,7 @@ static void bcm63xx_drv_pcmcia_remove(struct platform_device *pdev)
- 
- struct platform_driver bcm63xx_pcmcia_driver = {
- 	.probe	= bcm63xx_drv_pcmcia_probe,
--	.remove_new = bcm63xx_drv_pcmcia_remove,
-+	.remove	= bcm63xx_drv_pcmcia_remove,
- 	.driver	= {
- 		.name	= "bcm63xx_pcmcia",
- 	},
-diff --git a/drivers/pcmcia/db1xxx_ss.c b/drivers/pcmcia/db1xxx_ss.c
-index 509713b9a502..85d2616061dd 100644
---- a/drivers/pcmcia/db1xxx_ss.c
-+++ b/drivers/pcmcia/db1xxx_ss.c
-@@ -592,7 +592,7 @@ static struct platform_driver db1x_pcmcia_socket_driver = {
- 		.name	= "db1xxx_pcmcia",
- 	},
- 	.probe		= db1x_pcmcia_socket_probe,
--	.remove_new	= db1x_pcmcia_socket_remove,
-+	.remove		= db1x_pcmcia_socket_remove,
- };
- 
- module_platform_driver(db1x_pcmcia_socket_driver);
-diff --git a/drivers/pcmcia/electra_cf.c b/drivers/pcmcia/electra_cf.c
-index 5ae826e54811..00c5aba50844 100644
---- a/drivers/pcmcia/electra_cf.c
-+++ b/drivers/pcmcia/electra_cf.c
-@@ -341,8 +341,8 @@ static struct platform_driver electra_cf_driver = {
- 		.name = driver_name,
- 		.of_match_table = electra_cf_match,
- 	},
--	.probe	  = electra_cf_probe,
--	.remove_new = electra_cf_remove,
-+	.probe = electra_cf_probe,
-+	.remove = electra_cf_remove,
- };
- 
- module_platform_driver(electra_cf_driver);
-diff --git a/drivers/pcmcia/omap_cf.c b/drivers/pcmcia/omap_cf.c
-index 80137c7afe0d..f0ccf479f36e 100644
---- a/drivers/pcmcia/omap_cf.c
-+++ b/drivers/pcmcia/omap_cf.c
-@@ -306,7 +306,7 @@ static struct platform_driver omap_cf_driver = {
- 	.driver = {
- 		.name	= driver_name,
- 	},
--	.remove_new	= __exit_p(omap_cf_remove),
-+	.remove		= __exit_p(omap_cf_remove),
- };
- 
- static int __init omap_cf_init(void)
-diff --git a/drivers/pcmcia/pxa2xx_base.c b/drivers/pcmcia/pxa2xx_base.c
-index 457fb81b497a..370a8e16dc81 100644
---- a/drivers/pcmcia/pxa2xx_base.c
-+++ b/drivers/pcmcia/pxa2xx_base.c
-@@ -336,7 +336,7 @@ static const struct dev_pm_ops pxa2xx_drv_pcmcia_pm_ops = {
- 
- static struct platform_driver pxa2xx_pcmcia_driver = {
- 	.probe		= pxa2xx_drv_pcmcia_probe,
--	.remove_new	= pxa2xx_drv_pcmcia_remove,
-+	.remove		= pxa2xx_drv_pcmcia_remove,
- 	.driver		= {
- 		.name	= "pxa2xx-pcmcia",
- 		.pm	= &pxa2xx_drv_pcmcia_pm_ops,
-diff --git a/drivers/pcmcia/sa1100_generic.c b/drivers/pcmcia/sa1100_generic.c
-index ccb219c38761..7b5ac8fe811d 100644
---- a/drivers/pcmcia/sa1100_generic.c
-+++ b/drivers/pcmcia/sa1100_generic.c
-@@ -177,7 +177,7 @@ static struct platform_driver sa11x0_pcmcia_driver = {
- 		.name		= "sa11x0-pcmcia",
- 	},
- 	.probe		= sa11x0_drv_pcmcia_probe,
--	.remove_new	= sa11x0_drv_pcmcia_remove,
-+	.remove		= sa11x0_drv_pcmcia_remove,
- };
- 
- /* sa11x0_pcmcia_init()
-diff --git a/drivers/pcmcia/xxs1500_ss.c b/drivers/pcmcia/xxs1500_ss.c
-index 2a93fbbd128d..f84dd5914a6b 100644
---- a/drivers/pcmcia/xxs1500_ss.c
-+++ b/drivers/pcmcia/xxs1500_ss.c
-@@ -316,7 +316,7 @@ static struct platform_driver xxs1500_pcmcia_socket_driver = {
- 		.name	= "xxs1500_pcmcia",
- 	},
- 	.probe		= xxs1500_pcmcia_probe,
--	.remove_new	= xxs1500_pcmcia_remove,
-+	.remove		= xxs1500_pcmcia_remove,
- };
- 
- module_platform_driver(xxs1500_pcmcia_socket_driver);
-
-base-commit: f486c8aa16b8172f63bddc70116a0c897a7f3f02
--- 
-2.45.2
+> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+> ---
+>  drivers/iio/adc/at91-sama5d2_adc.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
+> index 8e5aaf15a921..4ba52b500054 100644
+> --- a/drivers/iio/adc/at91-sama5d2_adc.c
+> +++ b/drivers/iio/adc/at91-sama5d2_adc.c
+> @@ -2491,6 +2491,7 @@ static void at91_adc_remove(struct platform_device *pdev)
+>  	struct iio_dev *indio_dev = platform_get_drvdata(pdev);
+>  	struct at91_adc_state *st = iio_priv(indio_dev);
+>  
+> +	cancel_work_sync(&st->touch_st.workq);
+>  	iio_device_unregister(indio_dev);
+>  
+>  	at91_adc_dma_disable(st);
 
 
