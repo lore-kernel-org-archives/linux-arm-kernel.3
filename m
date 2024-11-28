@@ -4,74 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A64D690FA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 11:09:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C46D690FA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 11:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/4P4RcwJM674M4v0+AQHt9b81wG/DDUn1Oxs5RzPC8Y=; b=lam1O4kVTz88LHgaEfM5VvNSM/
-	PJXk5+CxQZ6TD+1T6O0P5209xfKH5RzOKjOLXtkHoTND4NVzRw2+Zd0rPUau3R+G7yFBtD8fVbj52
-	eQuInNMsInAiyp+Rw7LT3f8HSbL0H1rdntKYGXP8aA+v3nicsQSYZOz5DOSJKPclrb8x0YyWQ+eo3
-	8njYQLtZbHzv7MDCdNW3EDk20xA5GhGz6cnN4hGv7q5ibS9BUiUvRT6mF9u8DX5xwjKg1IWA4VaSb
-	V+montAi/jRE3ngsqBxoIUKHL0LSlrk36hL8tX7Uqp35yfVi0N5JsFiFIU9Wm2AEhOii8LEc/YH6c
-	i/9pnvog==;
+	bh=b1Wcwlnhvtt7fBxRnj8dBPn0bcnKt+k4WmlQ44GnyPk=; b=0ONfnUjRUkLnCPdYdE8cz+DGnI
+	Mfs+mqvN+Z6WNOdt5Q/+IDtEv3JzjVUdJUf1IQW4AITVKmPlKtLJGk5FwrAFt4Gpc6Jv+tV1l2MrF
+	U77bg4Y8vzjMR/h6d2cD4awtnySVu6Yl50JSN39Gs7fZdgXF+B8TEvJ41FEFLKQQ7Y4ZWFZtmytz5
+	Sd4mLCKvdYWE5elhq/BKPmsehCvi7ISdaTtI4i70XUIh9VLzWs3U+2rLxW5aMJK3XpwMUQfutR3aw
+	g6vvfmBJwXPUrVtP1dex6lWTIgRcmib3d76TFIM+YI7r+Z1qmJw8Y99ZeuelhPpubaw+SxCD0CorR
+	i86EYfGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGcOs-0000000FKWd-3p5Y;
-	Thu, 28 Nov 2024 11:09:34 +0000
-Received: from mail-gw02.astralinux.ru ([195.16.41.108])
+	id 1tGcQ1-0000000FKiq-2uw4;
+	Thu, 28 Nov 2024 11:10:45 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGcNu-0000000FKR5-1wbS
+	id 1tGcOv-0000000FKWY-07lG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 11:08:35 +0000
-Received: from gca-msk-a-srv-ksmg02.astralinux.ru (localhost [127.0.0.1])
-	by mail-gw02.astralinux.ru (Postfix) with ESMTP id D97A11F9DE;
-	Thu, 28 Nov 2024 14:08:30 +0300 (MSK)
-Received: from new-mail.astralinux.ru (gca-yc-ruca-srv-mail03.astralinux.ru [10.177.185.108])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-gw02.astralinux.ru (Postfix) with ESMTPS;
-	Thu, 28 Nov 2024 14:08:29 +0300 (MSK)
-Received: from [10.198.18.73] (unknown [10.198.18.73])
-	by new-mail.astralinux.ru (Postfix) with ESMTPA id 4XzYT65Yp5z1gywG;
-	Thu, 28 Nov 2024 14:08:26 +0300 (MSK)
-Message-ID: <75a9916e-1826-4d27-88d3-60284862f6b5@astralinux.ru>
-Date: Thu, 28 Nov 2024 14:08:24 +0300
+	Thu, 28 Nov 2024 11:09:39 +0000
+Received: from [89.212.21.243] (port=60100 helo=[192.168.69.52])
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <andrej.picej@norik.com>)
+	id 1tGcOq-00CLXV-1R;
+	Thu, 28 Nov 2024 12:09:32 +0100
+Message-ID: <9b3e439b-269d-488a-a0aa-13a22d21619c@norik.com>
+Date: Thu, 28 Nov 2024 12:09:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.1 0/1] arm64: esr: Define ESR_ELx_EC_* constants as UL
-Content-Language: ru
-To: stable@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: lvc-project@linuxtesting.org, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Christopher Covington <cov@codeaurora.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241106174757.38951-1-abelova@astralinux.ru>
-From: Anastasia Belova <abelova@astralinux.ru>
-In-Reply-To: <20241106174757.38951-1-abelova@astralinux.ru>
+Subject: Re: [PATCH 0/3] sn65dsi83: Add LVDS_VCOM option in device-tree
+From: Andrej Picej <andrej.picej@norik.com>
+To: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, marex@denx.de
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org,
+ PHYTEC Upstream <upstream@lists.phytec.de>
+References: <20241127103031.1007893-1-andrej.picej@norik.com>
+Content-Language: en-US
+Autocrypt: addr=andrej.picej@norik.com; keydata=
+ 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
+ xtT/8OxBOVSHvA==
+In-Reply-To: <20241127103031.1007893-1-andrej.picej@norik.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-KSMG-AntiPhishing: NotDetected
-X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Envelope-From: abelova@astralinux.ru
-X-KSMG-AntiSpam-Info: LuaCore: 42 0.3.42 bec10d90a7a48fa5da8c590feab6ebd7732fec6b, {Tracking_from_domain_doesnt_match_to}, d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;astralinux.ru:7.1.1;127.0.0.199:7.1.2;new-mail.astralinux.ru:7.1.1, FromAlignment: s
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiSpam-Lua-Profiles: 189477 [Nov 28 2024]
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Version: 6.1.1.7
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.0.7854, bases: 2024/11/28 08:54:00 #26904895
-X-KSMG-AntiVirus-Status: NotDetected, skipped
-X-KSMG-LinksScanning: NotDetected
-X-KSMG-Message-Action: skipped
-X-KSMG-Rule-ID: 1
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
+X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_030834_674885_A82BCBC0 
-X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-CacheID: sfid-20241128_030937_229149_B1B6E942 
+X-CRM114-Status: UNSURE (   9.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,15 +117,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Just a friendly reminder.
+Forgot to CC PHYTEC upstream mailing list. Doing this now.
 
-On 11/6/24 8:47 PM, Anastasia Belova wrote:
-> Incorrect casting is possible in 6.1 stable release using ESR_ELx_EC_*
-> constants.
+On 27. 11. 24 11:30, Andrej Picej wrote:
+> Hi all,
 >
-> The problem has been fixed by the following upstream patch that was adapted
-> to 6.1. The patch couldn't be applied clearly but the changes made are
-> minor.
+> This patch series depends on the patch
+> "[PATCH 11/15] arm64: dts: imx8mm-phyboard-polis: Add support for PEB-AV-10"
+> (https://lore.kernel.org/linux-arm-kernel/20241125081814.397352-12-andrej.picej@norik.com/)
+> which is currently under review. Please apply the dependent series first before
+> applying this one.
 >
-> Found by Linux Verification Center (linuxtesting.org) with SVACE.
+> Best regards,
+> Andrej
+>
+> Andrej Picej (1):
+>    arm64: dts: imx8mm-phyboard-polis-peb-av-10: Set custom lvds_vcom
+>
+> Janine Hagemann (2):
+>    dt-bindings: drm/bridge: ti-sn65dsi83: Add optional property
+>      ti,lvds-vcom
+>    drm/bridge: ti-sn65dsi83: Add ti,lvds-vcom as optional property
+>
+>   .../bindings/display/bridge/ti,sn65dsi83.yaml      | 14 +++++++++++++-
+>   .../freescale/imx8mm-phyboard-polis-peb-av-10.dtso |  1 +
+>   drivers/gpu/drm/bridge/ti-sn65dsi83.c              | 10 +++++++++-
+>   3 files changed, 23 insertions(+), 2 deletions(-)
+>
 
