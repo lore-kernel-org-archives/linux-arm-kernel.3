@@ -4,78 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6441D690EA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 08:23:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36ABED690E8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 08:24:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uCVnPofV123Xc79SvY5WnBgk7dTIXFiFte5YfteSzjQ=; b=gex+qy4+3OAxeJQRkK/1wKZJrD
-	ga/dOIyO8jiIDmV0cSeYNC0biei3P+6p7EYkS/PP+/+Du7bLkRI232ZGyAwvCdDd34fh8jCF7zi9u
-	3eAyCX2ELck4Hsqe4p9pxj85+G3l7n42+c2Bm9J8pLPIp6lNfivdewvWzN+OP30c9VJmfnuzmrQdg
-	Fk0rKrU4BknPZKe7fvf/heMgoQM+nWFifYNdqXRzLN7hKlOKcEts/24lA8suTfN4Dad96pEWOx/wo
-	YS3+azR/tbFOTW/Nq/m1vs+KvcF9JApiXl3SY+93NqcysMWOHUXg8SyXxW0vO128yDAENRxHSnmm1
-	Rcg9kLsA==;
+	bh=1xwmpLG9lslBU2OoRs8rb+yGcNISqof1xmvTWQaL6DI=; b=bkdKcVNAsaJkR6tw+4lwzNj1N4
+	RiRL9RL9CWI2vgEiXrWZb/8Kxwn9tZiHdpuuZLlfLpSErVHn3l4ueC8XNUntIxyViwW5JU7lg8o92
+	eLKuSWtL8glQeRbkJ4gd+rsoTjKbuouffU46O4MoUKHsSAxgoxcAekW2cB2OOj409h2x0fPJK069B
+	Mk+I51CPtueekoIa4DX54ZF3m4ptQ+LS4lugWcCIu9dlA5frCNF6DXIiYMewKXt8XlR+gu2Q0nKXf
+	c4upCOMMuC7yfnZwvapxo9w7xm8+6DTrVcGEKOTCGiJcAG3d9zpRBY3nE8icvbiXptRxCSQkJGwzU
+	qO5yw3Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGZoM-0000000EzFM-3SGX;
-	Thu, 28 Nov 2024 08:23:42 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1tGZpJ-0000000EzU6-3sJX;
+	Thu, 28 Nov 2024 08:24:41 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGZlb-0000000EycG-3MuW;
-	Thu, 28 Nov 2024 08:20:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1732782042; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=XImBeHOkLpA8UCB4fYH0J1zo2i19uh5hZl7MrXFC2+LP/gMyXB8PMemBckDTdeU36RSTHSmf2wThNisSlosHiAaNx7zo3Uu+/nN1EhvhTkY5uYa9ZO3hhi2pQvAhzyoIc5rzJDMoYNxr+R+YEEdJR42mKk+aQ9tnqoec8rB2SuQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1732782042; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=uCVnPofV123Xc79SvY5WnBgk7dTIXFiFte5YfteSzjQ=; 
-	b=YvoMPLpfVcc2aBh+5lPAAY2lyy5cKaAFSpphDbaQPJMK4xcj+Js+gvR+IqDvmSWcKVAOP0HHACub/MCRlq24HqfUo2+UoS3MyShncePzVPoqKpuTnBFQaiMDlGHKdLITLENAf6vlj2xr6CVJgxQlzEp5TU43uyjx271AciL0wes=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=Usama.Anjum@collabora.com;
-	dmarc=pass header.from=<Usama.Anjum@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1732782042;
-	s=zohomail; d=collabora.com; i=Usama.Anjum@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Cc:Cc:Subject:Subject:To:To:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=uCVnPofV123Xc79SvY5WnBgk7dTIXFiFte5YfteSzjQ=;
-	b=Ybom1M6F0ULyVyv06seLGcNpx8iAElyVpbbxi9CtDworL8eTUJYpPP2YzhWnPiSh
-	zEHCeDSWWUq3GliaUNUVVKO+bHo4d26o4kMpZnVLN5U7w6m9qDQogFhzQdkcd+HP2/s
-	w3E4uNVnaBd3CTZNaNF02KNPanF7YxpxUgjG6xKE=
-Received: by mx.zohomail.com with SMTPS id 1732782041480722.5762124602666;
-	Thu, 28 Nov 2024 00:20:41 -0800 (PST)
-Message-ID: <1d5a0d11-273b-4b0c-9ac4-597ad675defb@collabora.com>
-Date: Thu, 28 Nov 2024 13:20:41 +0500
+	id 1tGZmQ-0000000Eyp2-3xfp
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 Nov 2024 08:21:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6BC59A43AD5;
+	Thu, 28 Nov 2024 08:19:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA515C4CECE;
+	Thu, 28 Nov 2024 08:21:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732782101;
+	bh=P+iLn9Udly00fFvNNh2eAr2zUMlIPlCNHTLWPW0BpxQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=shshQVcklQRW7bAxpo3HtU1HcCxf3HoznZN4/YV4pH8P4LUFdnLOS8Autx2NvN4sL
+	 AsodiZ1ofUJiRFb4jd/WNsOkt2gPRAWgT9xxRRjv5NR9qwhAivEpHgIhs9pX14D5Hs
+	 DM2+CvoZW/HjZsU/oN3qWBoPdw4VFBmwOMOJhmkWZ0rj7pf/tdOduq9OUb0x9X83sD
+	 n3kYVMF1EY3Z6BMcqGJRXM4S7Yw+6jqIJXmXMbD60MH2+VEUDAhOHrglbtEO5goHhz
+	 qLtnmvzucokEVEextuReFT2ToY6CNVJcUQ9o0eJJUE3l1mK7C6xFSTZFkEc7J0pnmy
+	 Zx8araszwssuw==
+Message-ID: <7c013e0f-bb8a-45db-a5b5-71afc0ddefda@kernel.org>
+Date: Thu, 28 Nov 2024 09:21:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: Usama.Anjum@collabora.com, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Andrew Jones <ajones@ventanamicro.com>,
- James Houghton <jthoughton@google.com>
-Subject: Re: [PATCH v4 16/16] KVM: selftests: Override ARCH for x86_64 instead
- of using ARCH_DIR
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Paolo Bonzini <pbonzini@redhat.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>
-References: <20241128005547.4077116-1-seanjc@google.com>
- <20241128005547.4077116-17-seanjc@google.com>
+Subject: Re: [PATCH 6/6] arm64: dts: exynos: gs101-oriole: add pd-disable and
+ typec-power-opmode
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jagan Sridharan <badhri@google.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>,
+ kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org
+References: <20241127-gs101-phy-lanes-orientation-dts-v1-0-5222d8508b71@linaro.org>
+ <20241127-gs101-phy-lanes-orientation-dts-v1-6-5222d8508b71@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Muhammad Usama Anjum <Usama.Anjum@collabora.com>
-In-Reply-To: <20241128005547.4077116-17-seanjc@google.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241127-gs101-phy-lanes-orientation-dts-v1-6-5222d8508b71@linaro.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_002051_930375_EF55C9A6 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20241128_002143_112959_38722C95 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,110 +128,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/28/24 5:55 AM, Sean Christopherson wrote:
-> Now that KVM selftests uses the kernel's canonical arch paths, directly
-> override ARCH to 'x86' when targeting x86_64 instead of defining ARCH_DIR
-> to redirect to appropriate paths.  ARCH_DIR was originally added to deal
-> with KVM selftests using the target triple ARCH for directories, e.g.
-> s390x and aarch64; keeping it around just to deal with the one-off alias
-> from x86_64=>x86 is unnecessary and confusing.
+On 27/11/2024 12:01, André Draszik wrote:
+> When the serial console is enabled, we need to disable power delivery
+> since serial uses the SBU1/2 pins and appears to confuse the TCPCI,
+> resulting in endless interrupts.
 > 
-> Note, even when selftests are built from the top-level Makefile, ARCH is
-> scoped to KVM's makefiles, i.e. overriding ARCH won't trip up some other
-> selftests that (somehow) expects x86_64 and can't work with x86.
+> For now, change the DT such that the serial console continues working.
 > 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-Reviewed-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
-
-> ---
->  tools/testing/selftests/kvm/Makefile     |  4 +---
->  tools/testing/selftests/kvm/Makefile.kvm | 20 ++++++++++----------
->  2 files changed, 11 insertions(+), 13 deletions(-)
+> Note1: We can not have both typec-power-opmode and
+> new-source-frs-typec-current active at the same time, as otherwise DT
+> binding checks complain.
 > 
-> diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-> index 9bc2eba1af1c..20af35a91d6f 100644
-> --- a/tools/testing/selftests/kvm/Makefile
-> +++ b/tools/testing/selftests/kvm/Makefile
-> @@ -6,9 +6,7 @@ ARCH            ?= $(SUBARCH)
->  ifeq ($(ARCH),$(filter $(ARCH),arm64 s390 riscv x86 x86_64))
->  # Top-level selftests allows ARCH=x86_64 :-(
->  ifeq ($(ARCH),x86_64)
-> -	ARCH_DIR := x86
-> -else
-> -	ARCH_DIR := $(ARCH)
-> +	ARCH := x86
->  endif
->  include Makefile.kvm
->  else
-> diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-> index 9888dd6bb483..4277b983cace 100644
-> --- a/tools/testing/selftests/kvm/Makefile.kvm
-> +++ b/tools/testing/selftests/kvm/Makefile.kvm
-> @@ -207,10 +207,10 @@ TEST_GEN_PROGS_riscv += steal_time
->  SPLIT_TESTS += arch_timer
->  SPLIT_TESTS += get-reg-list
->  
-> -TEST_PROGS += $(TEST_PROGS_$(ARCH_DIR))
-> -TEST_GEN_PROGS += $(TEST_GEN_PROGS_$(ARCH_DIR))
-> -TEST_GEN_PROGS_EXTENDED += $(TEST_GEN_PROGS_EXTENDED_$(ARCH_DIR))
-> -LIBKVM += $(LIBKVM_$(ARCH_DIR))
-> +TEST_PROGS += $(TEST_PROGS_$(ARCH))
-> +TEST_GEN_PROGS += $(TEST_GEN_PROGS_$(ARCH))
-> +TEST_GEN_PROGS_EXTENDED += $(TEST_GEN_PROGS_EXTENDED_$(ARCH))
-> +LIBKVM += $(LIBKVM_$(ARCH))
->  
->  OVERRIDE_TARGETS = 1
->  
-> @@ -222,14 +222,14 @@ include ../lib.mk
->  INSTALL_HDR_PATH = $(top_srcdir)/usr
->  LINUX_HDR_PATH = $(INSTALL_HDR_PATH)/include/
->  LINUX_TOOL_INCLUDE = $(top_srcdir)/tools/include
-> -LINUX_TOOL_ARCH_INCLUDE = $(top_srcdir)/tools/arch/$(ARCH_DIR)/include
-> +LINUX_TOOL_ARCH_INCLUDE = $(top_srcdir)/tools/arch/$(ARCH)/include
->  CFLAGS += -Wall -Wstrict-prototypes -Wuninitialized -O2 -g -std=gnu99 \
->  	-Wno-gnu-variable-sized-type-not-at-end -MD -MP -DCONFIG_64BIT \
->  	-fno-builtin-memcmp -fno-builtin-memcpy \
->  	-fno-builtin-memset -fno-builtin-strnlen \
->  	-fno-stack-protector -fno-PIE -fno-strict-aliasing \
->  	-I$(LINUX_TOOL_INCLUDE) -I$(LINUX_TOOL_ARCH_INCLUDE) \
-> -	-I$(LINUX_HDR_PATH) -Iinclude -I$(<D) -Iinclude/$(ARCH_DIR) \
-> +	-I$(LINUX_HDR_PATH) -Iinclude -I$(<D) -Iinclude/$(ARCH) \
->  	-I ../rseq -I.. $(EXTRA_CFLAGS) $(KHDR_INCLUDES)
->  ifeq ($(ARCH),s390)
->  	CFLAGS += -march=z10
-> @@ -273,7 +273,7 @@ LIBKVM_S_OBJ := $(patsubst %.S, $(OUTPUT)/%.o, $(LIBKVM_S))
->  LIBKVM_STRING_OBJ := $(patsubst %.c, $(OUTPUT)/%.o, $(LIBKVM_STRING))
->  LIBKVM_OBJS = $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ) $(LIBKVM_STRING_OBJ)
->  SPLIT_TEST_GEN_PROGS := $(patsubst %, $(OUTPUT)/%, $(SPLIT_TESTS))
-> -SPLIT_TEST_GEN_OBJ := $(patsubst %, $(OUTPUT)/$(ARCH_DIR)/%.o, $(SPLIT_TESTS))
-> +SPLIT_TEST_GEN_OBJ := $(patsubst %, $(OUTPUT)/$(ARCH)/%.o, $(SPLIT_TESTS))
->  
->  TEST_GEN_OBJ = $(patsubst %, %.o, $(TEST_GEN_PROGS))
->  TEST_GEN_OBJ += $(patsubst %, %.o, $(TEST_GEN_PROGS_EXTENDED))
-> @@ -282,7 +282,7 @@ TEST_DEP_FILES += $(patsubst %.o, %.d, $(LIBKVM_OBJS))
->  TEST_DEP_FILES += $(patsubst %.o, %.d, $(SPLIT_TEST_GEN_OBJ))
->  -include $(TEST_DEP_FILES)
->  
-> -$(shell mkdir -p $(sort $(OUTPUT)/$(ARCH_DIR) $(dir $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ))))
-> +$(shell mkdir -p $(sort $(OUTPUT)/$(ARCH) $(dir $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ))))
->  
->  $(filter-out $(SPLIT_TEST_GEN_PROGS), $(TEST_GEN_PROGS)) \
->  $(TEST_GEN_PROGS_EXTENDED): %: %.o
-> @@ -290,9 +290,9 @@ $(TEST_GEN_PROGS_EXTENDED): %: %.o
->  $(TEST_GEN_OBJ): $(OUTPUT)/%.o: %.c
->  	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
->  
-> -$(SPLIT_TEST_GEN_PROGS): $(OUTPUT)/%: $(OUTPUT)/%.o $(OUTPUT)/$(ARCH_DIR)/%.o
-> +$(SPLIT_TEST_GEN_PROGS): $(OUTPUT)/%: $(OUTPUT)/%.o $(OUTPUT)/$(ARCH)/%.o
->  	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) $^ $(LDLIBS) -o $@
-> -$(SPLIT_TEST_GEN_OBJ): $(OUTPUT)/$(ARCH_DIR)/%.o: $(ARCH_DIR)/%.c
-> +$(SPLIT_TEST_GEN_OBJ): $(OUTPUT)/$(ARCH)/%.o: $(ARCH)/%.c
->  	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
->  
->  EXTRA_CLEAN += $(GEN_HDRS) \
+> Note2: When using a downstream DT, the Pixel boot-loader will modify
+> the DT accordingly before boot, but for this upstream DT it doesn't
+> know where to find the TCPCI node. The intention is for this commit to
+> be reverted once an updated Pixel boot-loader becomes available.
+> 
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
 
+This should be squashed to the previous patch, including also combining
+commit messages.
 
--- 
-BR,
-Muhammad Usama Anjum
+Best regards,
+Krzysztof
 
