@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C2DD69114
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 15:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE0BD69114
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 15:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U4hNU5uuBVp50YMK6Fwi6NLJ79S5FP9BmJaPApE0uEw=; b=TZbOhNb3ZYC0YVti+BNyTCqcQL
-	DjDvx+ok1fegoHfdSfSDOMF9FMbZJB6FIpmpeXgN7ws96kAnONVA/7R/eNru7VSxIavGNGCGxu/d8
-	7D+85Yc+4Nq59TSBR/RhcsMRm6GuW7T4264Iq8NzIlzobBlxyvGqFdSnwdKOTAtj5SzfJxloqymGL
-	YvqRYVVtX2awASnN6/6AdWsCNn1sb3ugv2u8lBOeetqMRWfKKpWKl3j1A4YrDq5pPt8Xs/NzRVpqp
-	coCAosPnsh9dnWpyTa7E6FY9RqB5ywH4uv5pBIurlPTLmtiuZkDoPPg36ftrCBpmE4DoMY51Mn37m
-	DrB283bw==;
+	bh=V50pLqKcFOupHmVxKnyoQQOUhzSZ8HR815shvr5J3jo=; b=leZMZgKLuBXMopt8bKrEjEKP4t
+	9Pp7X5noU/x0CK8yVZZyMdTD+4fbxUYHDA99e/nQ90Xjhcgu6p9hmx9bReUqwiJmXZp0/Teqk82W4
+	WGXIzCLDOi/pZeV3Qlfh9yvKUlJ9eVdyUiRbn9xy6C0/m9pkDUB59ChLIUqFX2JaelBRBMwnhUaqi
+	32TM3TV5jL9tFxQnYJLyz4pdDpqgu6pG/bFtBrIm9vMpt+s+X+zshjaLSoLj8IX8LygMlcmnejHgO
+	2j/bBO7nm0dWaXSsFn8iU5pHOzMC3GGOu+gn7vtjanZ/Wn/XE8LmsmaUiFrUHQrJjBZBIxylEk6iB
+	C/EHCCUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGgGs-0000000FrJC-3xxo;
-	Thu, 28 Nov 2024 15:17:34 +0000
+	id 1tGgHq-0000000FrZC-2WbP;
+	Thu, 28 Nov 2024 15:18:34 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGgCU-0000000FqVQ-2ICf
+	id 1tGgCX-0000000FqW1-0YTP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 15:13:03 +0000
+	Thu, 28 Nov 2024 15:13:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A32211476;
-	Thu, 28 Nov 2024 07:13:31 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF0201474;
+	Thu, 28 Nov 2024 07:13:33 -0800 (PST)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 001953F66E;
-	Thu, 28 Nov 2024 07:12:59 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2EC743F66E;
+	Thu, 28 Nov 2024 07:13:02 -0800 (PST)
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: will@kernel.org,
 	julien.thierry.kdev@gmail.com,
@@ -45,17 +45,17 @@ Cc: maz@kernel.org,
 	andre.przywara@arm.com,
 	suzuki.poulose@arm.com,
 	s.abdollahi22@imperial.ac.uk
-Subject: [PATCH kvmtool 1/4] arm: Fix off-by-one errors when computing payload memory layout
-Date: Thu, 28 Nov 2024 15:12:43 +0000
-Message-ID: <20241128151246.10858-2-alexandru.elisei@arm.com>
+Subject: [PATCH kvmtool 2/4] arm: Check return value for host_to_guest_flat()
+Date: Thu, 28 Nov 2024 15:12:44 +0000
+Message-ID: <20241128151246.10858-3-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241128151246.10858-1-alexandru.elisei@arm.com>
 References: <20241128151246.10858-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_071302_629630_28E26BA1 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20241128_071305_255575_15C79B76 
+X-CRM114-Status: GOOD (  18.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,52 +70,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In kvm__arch_load_kernel_image(), 'limit' is computed to be the topmost
-byte address where the payload can reside.
+kvmtool, on arm and arm64, puts the kernel, DTB and initrd (if present) in
+a 256MB memory region that starts at the bottom of RAM.
+kvm__arch_load_kernel_image() copies the kernel at the start of RAM, the
+DTB is placed at the top of the region, and immediately below it the
+initrd.
 
-In all the read_file() calls, the maximum size of the file being read is
-computed as limit - pos, which is incorrect: either limit is inclusive, and
-it should be limit - pos + 1, or the maximum size is correct and limit is
-incorrectly computed as inclusive.
+When the initrd is specified by the user, kvmtool checks that it doesn't
+overlap with the kernel by computing the start address in the host's
+address space:
 
-After reserving space for the DTB, 'limit' is updated to point at the first
-byte of the DTB. Which is in contradiction with the way it is initially
-calculated, because in theory this makes it possible for the initrd (which
-is copied below the DTB) to overwrite the first byte of the DTB. That's
-only avoided by accident, and not by design, because, as explained above,
-the size of the initrd is smaller by 1 byte (read_file() has the size
-parameter limit - pos, instead of limit - pos + 1).
+	fstat(fd_initrd, &sb);
+	pos = pos - (sb.st_size + INITRD_ALIGN);
+	guest_addr = ALIGN(host_to_guest_flat(kvm, pos), INITRD_ALIGN); (a)
+	pos = guest_flat_to_host(kvm, guest_addr); (b)
 
-Let's get rid of this confusion and compute 'limit' as exclusive from the
-start.
+If the initrd is large enough to completely overwrite the kernel and start
+below the guest RAM (pos < kvm->ram_start), then kvmtool will omit the
+following errors:
+
+  Warning: unable to translate host address 0xfffe849ffffc to guest (1)
+  Warning: unable to translate guest address 0x0 to host (2)
+  Fatal: initrd overlaps with kernel image. (3)
+
+(1) is because (a) calls host_to_guest_flat(kvm, pos) with a 'pos'
+outside any of the memslots.
+
+(2) is because guest_flat_to_host() is called at (b) with guest_addr=0,
+which is what host_to_guest_flat() returns if the supplied address is not
+found in any of the memslots. This warning is eliminated by this patch.
+
+And finally, (3) is the most useful message, because it tells the user what
+the error is.
+
+The issue is a more general pattern in kvm__arch_load_kernel_image():
+kvmtool doesn't check if host_to_guest_flat() returns 0, which means that
+the host address is not within any of the memslots. Add a check for that,
+which will at the very least remove the second warning.
+
+This also fixes the following edge cases:
+
+1. The same warnings being emitted in a similar scenario with the DTB, when
+the RAM is smaller than FDT_MAX_SIZE + FDT_ALIGN.
+
+2. When copying the kernel, if the RAM size is smaller than the kernel
+offset, the start of the kernel (represented by the variable 'pos') will be
+outside the VA space allocated for the guest RAM.  limit - pos will wrap
+around, because gcc 14.1.1 wraps the pointers (void pointer arithmetic is
+undefined in C99). Then read_file()->..->read() will return -EFAULT because
+the destination address is unallocated (as per man 2 read, also reproduced
+during testing).
 
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- arm/kvm.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arm/kvm.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
 diff --git a/arm/kvm.c b/arm/kvm.c
-index 9f9582326401..da0430c40c36 100644
+index da0430c40c36..4beae69e1fb3 100644
 --- a/arm/kvm.c
 +++ b/arm/kvm.c
-@@ -109,7 +109,7 @@ bool kvm__arch_load_kernel_image(struct kvm *kvm, int fd_kernel, int fd_initrd,
- 	 * Linux requires the initrd and dtb to be mapped inside lowmem,
- 	 * so we can't just place them at the top of memory.
- 	 */
--	limit = kvm->ram_start + min(kvm->ram_size, (u64)SZ_256M) - 1;
-+	limit = kvm->ram_start + min(kvm->ram_size, (u64)SZ_256M);
+@@ -113,6 +113,8 @@ bool kvm__arch_load_kernel_image(struct kvm *kvm, int fd_kernel, int fd_initrd,
  
  	pos = kvm->ram_start + kvm__arch_get_kern_offset(kvm, fd_kernel);
  	kvm->arch.kern_guest_start = host_to_guest_flat(kvm, pos);
-@@ -139,7 +139,7 @@ bool kvm__arch_load_kernel_image(struct kvm *kvm, int fd_kernel, int fd_initrd,
- 	kvm->arch.dtb_guest_start = guest_addr;
- 	pr_debug("Placing fdt at 0x%llx - 0x%llx",
- 		 kvm->arch.dtb_guest_start,
--		 host_to_guest_flat(kvm, limit));
-+		 host_to_guest_flat(kvm, limit - 1));
- 	limit = pos;
++	if (!kvm->arch.kern_guest_start)
++			die("guest memory too small to contain the kernel");
+ 	file_size = read_file(fd_kernel, pos, limit - pos);
+ 	if (file_size < 0) {
+ 		if (errno == ENOMEM)
+@@ -131,7 +133,10 @@ bool kvm__arch_load_kernel_image(struct kvm *kvm, int fd_kernel, int fd_initrd,
+ 	 */
+ 	pos = limit;
+ 	pos -= (FDT_MAX_SIZE + FDT_ALIGN);
+-	guest_addr = ALIGN(host_to_guest_flat(kvm, pos), FDT_ALIGN);
++	guest_addr = host_to_guest_flat(kvm, pos);
++	if (!guest_addr)
++		die("fdt too big to contain in guest memory");
++	guest_addr = ALIGN(guest_addr, FDT_ALIGN);
+ 	pos = guest_flat_to_host(kvm, guest_addr);
+ 	if (pos < kernel_end)
+ 		die("fdt overlaps with kernel image.");
+@@ -151,7 +156,10 @@ bool kvm__arch_load_kernel_image(struct kvm *kvm, int fd_kernel, int fd_initrd,
+ 			die_perror("fstat");
  
- 	/* ... and finally the initrd, if we have one. */
+ 		pos -= (sb.st_size + INITRD_ALIGN);
+-		guest_addr = ALIGN(host_to_guest_flat(kvm, pos), INITRD_ALIGN);
++		guest_addr = host_to_guest_flat(kvm, pos);
++		if (!guest_addr)
++			die("initrd too big to fit in the payload memory region");
++		guest_addr = ALIGN(guest_addr, INITRD_ALIGN);
+ 		pos = guest_flat_to_host(kvm, guest_addr);
+ 		if (pos < kernel_end)
+ 			die("initrd overlaps with kernel image.");
 -- 
 2.47.0
 
