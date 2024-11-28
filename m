@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35930D69114
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 15:24:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E6DD69117
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Nov 2024 15:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tzpFYlwmRDjUdywRFCwk3EMOwG1W4Bvy7VRMs6AVjzU=; b=YtyDGbsSQ7ko9IXo+MB6ULMt3K
-	XTeSGbQiYcCgwUQlqYxr8JXQsOQpu7k9y6mJCvKusQlNB/VLsA43ss+HHZgdlEelDNO0uAls25ymt
-	O4VQP6Vsl0/oQZp/1HQULIfmEsiSItF6GPZofJr+i/oFv/ZET7SvhLcMA/IcScAujMQtqPW2Th6xe
-	tHFY62hiCZjq+QSecMKKmhZMjxMN3eN1esu8i5XFTyUYShDbKHxzUuQPLrUHbSRXYBblfXBSAYGZ1
-	yoxAyp8zxAR2mIG95t4H0IpFdVcNhdlX8eCZLpY93IBIKArSlSqB1vjs+trXvGAdHh8TdjHj25DWp
-	OiYOuGTg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=C6Oue8dESN+KLG/ePe+fukJv5gryZ66pj0oCW9kKawk=; b=LTlrJA578dcGqu
+	DF1LlSn5+iu4mmMUFHRCjdwSijudQvay9grspftoTjbNSkyPs+dbD9SZRvrEEBHvb3N64Bg2xq/vo
+	IZUunTLtY8atORwnazr8nTXG8c1glhAPFofXjbdABY2v3Lke9YcVNR6x0bHAFL7U3MOo/aCrFxHmU
+	NL0J/3lc7WAS673XJ0c55HLU25M0dQNsjCkfLKsuUMtfuxeIZsL7bmhPdCYoS/ho1s17VTl/W7s81
+	zFCHNKgbzOmHgxwmbyzx892cPZIlb7ioApYdwfb2TeDeUpkZJ1ftTsf/mTVru6hNnS0ndQfsKZlom
+	QIZxB8R97rkk5PmydKIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGgNB-0000000FsWa-3N42;
-	Thu, 28 Nov 2024 15:24:05 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1tGgO9-0000000FsiW-1VA0;
+	Thu, 28 Nov 2024 15:25:06 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGgGD-0000000Fr6u-2jqi
+	id 1tGgG8-0000000Fr3o-1zz2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Nov 2024 15:16:55 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-434aabd688fso5875775e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 07:16:53 -0800 (PST)
+	Thu, 28 Nov 2024 15:16:49 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-434acf1f9abso8372195e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 07:16:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732807012; x=1733411812; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tzpFYlwmRDjUdywRFCwk3EMOwG1W4Bvy7VRMs6AVjzU=;
-        b=sd9c1B/Eucb5xLKs1LnltS+cFqWnPdbZ+xNsS+K14ql8uQCMjV/WjJL+kCiIXxViAH
-         T3JGeqfTsJD2BqoVfaECSWyFEG2oDc+0Aq2kF0w/y+v6clO/II6BPhjXxoR0S4SK28Jc
-         OHGaycYOgdOwz+WoWakNnWS/NUU/wFXCiipZh+qpv4AcqhsXpfyRIeN4s8eEu94qXGjI
-         148Mt2M20slgdT6QYKyhoqwRdx68UZrjtuWGw2hiKsiiCwLsqAD9bYPV/6XDGCk4U8eF
-         W3xkFhgVhUCtJq78rjDu2t9DBZJFKqEZm4IjeWhfYLtVUZ242ZsdxsTJLMM3XAVqFxQl
-         oRNg==
+        d=linaro.org; s=google; t=1732807006; x=1733411806; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=C6Oue8dESN+KLG/ePe+fukJv5gryZ66pj0oCW9kKawk=;
+        b=bR22qh/i8QF4IegMqbKd8rDlSzQAV7UBtpvZNLG73NVJdESov+ooeH5uzIEtk7ZZsc
+         s3xoaOo+67NRs0Fo1Depzz8RkuZhdheTI4TvBYtQe27+d/F49WBQffZrSrfPl7rtsg4m
+         tyVsq1Rky5IuBgadpIk2Smbcilgemv5/zxQnsq+gaY01XcpJ6wRp+D5tPj28ybN75OMM
+         B4sMt0mg9+aGpeX+jyvyzouXVmG9LpWHxBTyBvLLxcK8qNmCMdWHas0h7bETBajBsk+K
+         gPNv22GI+3SyXQsfmMFVbHWLirKI3pJFu+g0oLDYuyKeKvWO4EDlKZot7mqclTxu5t9W
+         2Gxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732807012; x=1733411812;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tzpFYlwmRDjUdywRFCwk3EMOwG1W4Bvy7VRMs6AVjzU=;
-        b=N1UYmKl9zSXEgEgy1siIF45ZdJgqm5JTn9H+Dks9Vvjsru4nDh6CccjswcSthyI1ys
-         gfv0EwGZBQdCtbRRGlSN1a6f23tuMEJ0MB5+DKa7Aj1i8rwb8hLioujz27TT/jzNw+fe
-         T6w2w331xycbAm+6N3nnw3nY1QdY7KuNTVloENXz2OgDJeXc4q9EqyiFTLVj1FNbz1L2
-         o4drC32IMS3ie382XKmJSrNtgmNueph7lI6JRnQqhMJf1zvm1+goE73FlUCfutVFHmQg
-         1VInPWUQinHAAJET8s2+iRfAJC/k5k3/RNTOKMb5xVtF420Bp35iWrTUI14mlpGyj0ep
-         sOFg==
-X-Forwarded-Encrypted: i=1; AJvYcCUlf7svChuCMMTFdT4TQ9Kilwp/8Q3M6eQKjF/QXNSFFrCcMQvjP+DNJgpCxPuPataBqt56Vh2y2bZ6GZtGz5o/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQVhA1x6M3707OnUC//EKqAUrBFJ4a8xY5jONTybe79iX3UnHy
-	Ax7uqGHN0SMbm24jME3DDLouQ7gQ0JCFScHX0lMnuWzrkG6xLPPywx+ZfPSUCLc=
-X-Gm-Gg: ASbGncuJgcVVGl3vScnnPtVLOgwGpYd/GkF7UP4bHw/JNkH+TdFkx0jYii3SUndB9SI
-	3DX2bLnucC3l8u8qxt/ozA6Znjd3gYnIxtWG0U91uSrKkUDrtR3y/qq2j8kEE4PhzXkvVr4DV+g
-	g+WKOnpB4OZjUGLwvIy/oOAdzkL7xRwrRtxoVc+ZqjWuavydQET5Zp4xFgNVefnwcL8z+qNjRsy
-	yCJdRRtCA+L4dbUAcF1HGEUgn9Sdj921VV0O9fJhEELLHCpa8/EKaX23dulJ86/g5sgsTA=
-X-Google-Smtp-Source: AGHT+IH4AIKDNQTGuzrRL5OCcaR5+oCwqwuiQGkqb+Yio/Cxxa2N2THu7Mb64eFoUBklqJHWFxGrjw==
-X-Received: by 2002:a05:6000:1846:b0:382:4d6e:9f3f with SMTP id ffacd0b85a97d-385c6ec0b9dmr6474374f8f.34.1732807011807;
-        Thu, 28 Nov 2024 07:16:51 -0800 (PST)
+        d=1e100.net; s=20230601; t=1732807006; x=1733411806;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=C6Oue8dESN+KLG/ePe+fukJv5gryZ66pj0oCW9kKawk=;
+        b=hVo0LkzQWqlSmgl2oNuw7O54XVw3VY/2QuNtDxrD1vtfbBsZ7Zh+gWk/uUF448G42N
+         rlorEIzB8OssSUfyszra8HhJskZe9Qzx60uEvl1Dv81XHX4ne+MnZfxF+tZmodIy2Q9E
+         WEG//1EVy3LbGodeGlmpXGcvUr8bwrlRkbFuFwXSZEMEWc6iJPmQhclngOqoBFvDr0Py
+         O0D7aaPyaA40bLUOfiE3ZYZb4dvBvHsGptUI1NQgDXWqC0Npi1PuofMP9COJ8087NsW6
+         7Rwjg4hEXcx+7yv7R7ZlEH9FjD45e4pHDXlAQ+PJz3Z/HbWyEP96/4rdDdGdhK50GYVc
+         ixGg==
+X-Forwarded-Encrypted: i=1; AJvYcCVcqDNqp63Wf88ZFatAvPP7fQ4jOMjjSVHfrBb1MVCMSpksIFCoQQPU2VWG0KOWVQd0ddSEk7S3VYHx1WjshCyn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyq7qk3lMp2+BscTh9ZDxdv7ROiguZ+5LAKr3ZbgV6uu9vRi+gY
+	bpxVH76ME+XrfS7RoS8FWepZ5J+8AUd/bmKpP/Rb/TgE7GNo/0SXVipGXHLKilY=
+X-Gm-Gg: ASbGncttT02vJHJ+QJHAoq9mo19uP4dZ1wWCntw+qhH2cJWajYWV2BGVUQSOnibr4hc
+	TURbSsxWMLwPhU0aJVLWu3nBl0VB70sCSf1LSD7lQIACvT9ZSYlp1rkR4lipl18KTqYMk7j/VBE
+	QwuqLxDKnoAeAAEm0HmFVGXprnjljpa12+8eB2UpOdM1WKQi22Pf22hKc3qCyrXA8ofykadY8N8
+	0ffjtWfIHwFpqnaAX8gmpnyvJP8INQogoofnWOiKz/SbhIal+mJZVZ1+0L5RaHX9qdkm8c=
+X-Google-Smtp-Source: AGHT+IF/jKAgBSZytzXTCZWUxx4CJtAyPk1QsefLDdoBfKIXDPOc4pRQw/LQWLRG52QPYf41Dn28yQ==
+X-Received: by 2002:a05:600c:4586:b0:434:a10f:9b with SMTP id 5b1f17b1804b1-434a9dc5069mr73836335e9.14.1732807006507;
+        Thu, 28 Nov 2024 07:16:46 -0800 (PST)
 Received: from arrakeen.starnux.net ([2a01:e0a:982:cbb0:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa7e4fe1sm55867025e9.38.2024.11.28.07.16.51
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa7e4fe1sm55867025e9.38.2024.11.28.07.16.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Nov 2024 07:16:51 -0800 (PST)
+        Thu, 28 Nov 2024 07:16:46 -0800 (PST)
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Date: Thu, 28 Nov 2024 16:16:45 +0100
-Subject: [PATCH v4 5/5] dt-bindings: mmc: convert amlogic,meson-mx-sdio.txt
- to dtschema
+Subject: [PATCH v4 0/5] dt-bindings: mmc: document mmc-slot and convert
+ amlogic,meson-mx-sdio.txt to dtschema
+Date: Thu, 28 Nov 2024 16:16:40 +0100
+Message-Id: <20241128-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v4-0-11d9f9200a59@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241128-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v4-5-11d9f9200a59@linaro.org>
-References: <20241128-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v4-0-11d9f9200a59@linaro.org>
-In-Reply-To: <20241128-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v4-0-11d9f9200a59@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAFiJSGcC/63OwWrDMAyA4VcpPk/DdtLE22nvMXaQYzkV1HawM
+ 9NR8u5zehgbu+YkfiH4dBeFMlMRr6e7yFS5cIot+qeTmC4YZwJ2rYWWupcvSsGaFp4AwzXN+8y
+ h0/C5lDUTBrAcHce5gOcbFZhSrJRXCFRShHCD4jjB4HGU534ga41ozpLpcd6Y94/WFy5ryl+Pl
+ 6rat0fqVYECO1qPZMyglXq7csScnlOexc5X/YvU8ghSg4QzorHOk1To/5HdD6mkHI8gu0ai68l
+ qPWk07g+5bds3Vzg4ifkBAAA=
+X-Change-ID: 20240911-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-6fa70546ebb8
 To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
@@ -87,25 +90,26 @@ Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Neil Armstrong <neil.armstrong@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5272;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2010;
  i=neil.armstrong@linaro.org; h=from:subject:message-id;
- bh=EyHdKYQSzhp6Q5IckerUZg/bcUhVWP1QC3wdvMtdE4Y=;
- b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBnSIldLzAfDGWjxNDmzJ2/2WMIp1sGGnOvNvp6JCAp
- myNjCKKJAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCZ0iJXQAKCRB33NvayMhJ0azxEA
- C0McuYqWQAYwfk2xajPs3bcX+BmlzuLuas2bMzBD/me9jZu2mkdUG1VEwoolEX0gCO6JlqxaxQJ4WM
- wL5TOWyl98rq7QvpGteUK8etgNs2ID4qhKX5hsWLrDH4oFKHIg776KlZ16WwFxrM9zotbWNMva+AMr
- PN2wCcOX42276Z2sU+fwg0/lzdd9L6FPWHRy5eEpK0aQHmiDQj+xWmpVF02Rpy5PZfZLrrFk0JKfYn
- kMwv8pGldajb1UUUNMVjgVjW3nCPo6TR2mKVgq07cyTxpi/BpzMzsx7mKZyQRV1wIhs/0vaSqGGoR8
- PtPicnej6Zrj/gBQ0Rx41nTgYe1ymgeHaeu7hTpaGuswR1U4Yst4g4st1a9VRP+Z3+aHaE9G68NBGW
- EFEGhsTm7hiRiOpOm/e4mIwZNv8BHi2KP+D8nWhyGQaMZQNCOoFsYII+g1gTq+O57co/vJIJGoPCS7
- HiFh3roegB3Z1kHpgZfMy+n26Nq6UgphQZK9vM8DIcEtNg+hpAvS+D2SArm9nd7UVMq3GLHcRwABCo
- znU/pLdQSIlPfCbgFBobDgij0o20asawXWTryI8DjRMq5MWYv1IFkyqg1upLB3lmE/KKIGgVc+oyRs
- rKG7qfGo4UICqZfJVFM5ejB7HSDuzO9FBcPhkyYtfPmmG3r90+p5BpLOl+yw==
+ bh=ui0mP4QaXAwRTet5XtxQbZ2onaCzZnY94A0/knFdcEk=;
+ b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBnSIlbl1v/SzeCDnTLt0jn54/WnyuWpEmWI8EQLQM6
+ mDe8wWqJAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCZ0iJWwAKCRB33NvayMhJ0eOHEA
+ DKHXJGHdG7bZVbSN+tD5XHRT7cE/ob1hWy1g6Z1irfqd7+AYfA1CmQ8VSKUqBKZjzd1FGI2p+xxxBl
+ 1avXNVf1K1EwvBJsbNRYLEuZNnlPATZO8SHBnZt5NDWqNh+DVYDNlr2ADmadOoN8K4WRd1y0mSdNK0
+ 7ooADTOveygioQ7PZ/OvUi4Qbvkx/U3F/WSciPcPqPn8j6n4hsBGonkEL9/X6kYKX4d2yDLuY8s0k9
+ 5LXurZa0tqf9t0xqj9oj6RGbB8a/efkJ9yi9wok7+w+Lyon6Tr7H7P1ePqqwwInEPOGxIlnm/oyW9e
+ Pg9J8EIN5u6UtF6c3R8YuMXuvuYJeFLZrGZI1iOpO7NB8/DUcVdguVvYRK+A4gGZ/2g/wQxeKfYAsL
+ /A5UIGgpXHxVYeB5YtORC1iFK4EOJkLv5qPjS2lnSTs2LQ2R+N9D9p3I4B7Jnlspx37SibM7oYzDFO
+ UkgwQj87b+HcFmDgDgk1tTGPm8IhPMrno3ws1E9ZUnf+9DmiLAosuzHPzvEFdcH+8i6++lHrwvpZYu
+ i18100A9I7dw2RNt7g0dJ88ysmlVlnNjs/0rVGhZucAt9+TA+pFLxivbkT3vX9tolcO/X5MO2dqppu
+ 6gdgWGd7QfL1DORa+ru4OAHPoVJIDy0QRorhYau4ARkdVjZbL1x2kLR2g9fg==
 X-Developer-Key: i=neil.armstrong@linaro.org; a=openpgp;
  fpr=89EC3D058446217450F22848169AB7B1A4CFF8AE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_071653_699546_5ECA66A1 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20241128_071648_535059_788C283B 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,179 +124,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Amlogic Meson6, Meson8 and Meson8b SDIO/MMC controller
-bindings to dt-schema.
+Document mmc-slot because used by amlogic,meson-mx-sdio.txt and
+cavium-mmc.txt, so make it common.
 
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
 ---
- .../bindings/mmc/amlogic,meson-mx-sdio.txt         | 54 -------------
- .../bindings/mmc/amlogic,meson-mx-sdio.yaml        | 94 ++++++++++++++++++++++
- 2 files changed, 94 insertions(+), 54 deletions(-)
+Changes in v4:
+- Fixed address-cells description of mmc controller
+- Cleanup '|' when not needed
+- Added review tags
+- Link to v3: https://lore.kernel.org/r/20241007-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v3-0-ad4eb22c2a8d@linaro.org
 
-diff --git a/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.txt b/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.txt
-deleted file mode 100644
-index 8765c605e6bc761db2923ad748b5bb70d40ea830..0000000000000000000000000000000000000000
---- a/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.txt
-+++ /dev/null
-@@ -1,54 +0,0 @@
--* Amlogic Meson6, Meson8 and Meson8b SDIO/MMC controller
--
--The highspeed MMC host controller on Amlogic SoCs provides an interface
--for MMC, SD, SDIO and SDHC types of memory cards.
--
--Supported maximum speeds are the ones of the eMMC standard 4.41 as well
--as the speed of SD standard 2.0.
--
--The hardware provides an internal "mux" which allows up to three slots
--to be controlled. Only one slot can be accessed at a time.
--
--Required properties:
-- - compatible : must be one of
--	- "amlogic,meson8-sdio"
--	- "amlogic,meson8b-sdio"
--	along with the generic "amlogic,meson-mx-sdio"
-- - reg : mmc controller base registers
-- - interrupts : mmc controller interrupt
-- - #address-cells : must be 1
-- - size-cells : must be 0
-- - clocks : phandle to clock providers
-- - clock-names : must contain "core" and "clkin"
--
--Required child nodes:
--A node for each slot provided by the MMC controller is required.
--NOTE: due to a driver limitation currently only one slot (= child node)
--      is supported!
--
--Required properties on each child node (= slot):
-- - compatible : must be "mmc-slot" (see mmc.txt within this directory)
-- - reg : the slot (or "port") ID
--
--Optional properties on each child node (= slot):
-- - bus-width : must be 1 or 4 (8-bit bus is not supported)
-- - for cd and all other additional generic mmc parameters
--   please refer to mmc.txt within this directory
--
--Examples:
--	mmc@c1108c20 {
--		compatible = "amlogic,meson8-sdio", "amlogic,meson-mx-sdio";
--		reg = <0xc1108c20 0x20>;
--		interrupts = <0 28 1>;
--		#address-cells = <1>;
--		#size-cells = <0>;
--		clocks = <&clkc CLKID_SDIO>, <&clkc CLKID_CLK81>;
--		clock-names = "core", "clkin";
--
--		slot@1 {
--			compatible = "mmc-slot";
--			reg = <1>;
--
--			bus-width = <4>;
--		};
--	};
-diff --git a/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml b/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..022682a977c6d347c36279f958dcd6f53d385b71
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
-@@ -0,0 +1,94 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mmc/amlogic,meson-mx-sdio.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Amlogic Meson6, Meson8 and Meson8b SDIO/MMC controller
-+
-+description: |
-+  The highspeed MMC host controller on Amlogic SoCs provides an interface
-+  for MMC, SD, SDIO and SDHC types of memory cards.
-+
-+  Supported maximum speeds are the ones of the eMMC standard 4.41 as well
-+  as the speed of SD standard 2.0.
-+
-+  The hardware provides an internal "mux" which allows up to three slots
-+  to be controlled. Only one slot can be accessed at a time.
-+
-+maintainers:
-+  - Neil Armstrong <neil.armstrong@linaro.org>
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - amlogic,meson8-sdio
-+          - amlogic,meson8b-sdio
-+      - const: amlogic,meson-mx-sdio
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 2
-+
-+  clock-names:
-+    items:
-+      - const: core
-+      - const: clkin
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 0
-+
-+patternProperties:
-+  "slot@[0-2]$":
-+    $ref: mmc-slot.yaml#
-+    description:
-+      A node for each slot provided by the MMC controller
-+
-+    properties:
-+      reg:
-+        enum: [0, 1, 2]
-+
-+      bus-width:
-+        enum: [1, 4]
-+
-+    unevaluatedProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - "#address-cells"
-+  - "#size-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    mmc@c1108c20 {
-+        compatible = "amlogic,meson8-sdio", "amlogic,meson-mx-sdio";
-+        reg = <0xc1108c20 0x20>;
-+        interrupts = <GIC_SPI 28 IRQ_TYPE_EDGE_RISING>;
-+        clocks = <&clk_core>, <&clk_in>;
-+        clock-names = "core", "clkin";
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        slot@1 {
-+            compatible = "mmc-slot";
-+            reg = <1>;
-+            bus-width = <4>;
-+        };
-+    };
+Changes in v3:
+- Revert and insteads move common properties between slot and controller into mmc-controller-common.yaml
+- Fix other comments on patch 2 & 3
+- Link to v2: https://lore.kernel.org/r/20240920-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v2-0-5aa8bdfe01af@linaro.org
 
+Changes in v2:
+- Fixed description, limited to 3 slots
+- Moved out mmc-slot in a separate common schema
+- Link to v1: https://lore.kernel.org/r/20240911-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v1-1-b7bfae886211@linaro.org
+
+---
+Neil Armstrong (5):
+      dt-bindings: mmc: controller: clarify the address-cells description
+      dt-bindings: mmc: controller: move properties common with slot out to mmc-controller-common
+      dt-bindings: mmc: controller: remove '|' when not needed
+      dt-bindings: mmc: document mmc-slot
+      dt-bindings: mmc: convert amlogic,meson-mx-sdio.txt to dtschema
+
+ .../bindings/mmc/amlogic,meson-mx-sdio.txt         |  54 ----
+ .../bindings/mmc/amlogic,meson-mx-sdio.yaml        |  94 ++++++
+ .../bindings/mmc/mmc-controller-common.yaml        | 357 +++++++++++++++++++++
+ .../devicetree/bindings/mmc/mmc-controller.yaml    | 346 +-------------------
+ .../devicetree/bindings/mmc/mmc-slot.yaml          |  49 +++
+ 5 files changed, 504 insertions(+), 396 deletions(-)
+---
+base-commit: f486c8aa16b8172f63bddc70116a0c897a7f3f02
+change-id: 20240911-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-6fa70546ebb8
+
+Best regards,
 -- 
-2.34.1
+Neil Armstrong <neil.armstrong@linaro.org>
 
 
