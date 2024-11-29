@@ -4,108 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5EC0D70E1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 04:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EABA5D70E16
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 04:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Q5uoccyOFHjDwzni9s1pvqhXs3JznPJtn8MoISASRU=; b=d0LDnevXnoLu0wTNU2UkElq3oC
-	3j3+0Eg//qNU8uXRZ9pISPF5AyyI5/C4pVOfZSMoUIEWZUf9z/yOOSnhjN2XojjX3rgGqvTArUCcD
-	f1E9cKg9ejN6c37BGJNkqsNiMzFm+GUNKdFo/50yMs3lhs2HAV9V6DtCuoYpkCko4Tg9MgR/sWFHF
-	u4lVQx/zXTFlDTb5blyuRROPaUwouegDYupzC8M6c0yfF7P4Gr3iIrIGGlnWNwBgiwkZWJeeC9Nk9
-	na55cxkjKdt1lz0IAcC99PUzUdYRr/OAWOJdezIDGK1o1jWJyGymIxqcJEy75UoVRrYavGkoHtVUt
-	qnLyBKIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UiTCs9a6bPWqF5tTiyYU4MQJTIvdFyz65sv8/TMAMhc=; b=Fww9hgtN/iRS/Za8i/mUTBVV/i
+	R2+PitEz0+6N8PBn9WReGRj86myWhGWUR8y4yYO7eVLwk5mGUWbGw9NzTycwec4vFHzYBANe73Mh+
+	dLKzPRK6GxCMIlkJ5nSToIybc3Q/G3pfr6OqoHXWdlaqScCdk1AHFl1aaFax9OuQCsz2FgbavVSwN
+	fVq2ujGtPf32u4eYitE68Merhv01GGGkXR+nz9RCk5YnprUb6EA2xZUr+q14vGSLR5DD0B4VO4/8S
+	FiRzWfAektn5bzF0JfKadVtseMQouN4MDEEZ+4e+/JR0JuQpcVUofw69nKFL9h9ypWG+VpwRfjrUF
+	C1ZYQAhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGsPh-0000000GqoJ-3q7I;
-	Fri, 29 Nov 2024 04:15:29 +0000
-Received: from omta36.uswest2.a.cloudfilter.net ([35.89.44.35])
+	id 1tGsg2-0000000Grs8-43Mi;
+	Fri, 29 Nov 2024 04:32:23 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGsOj-0000000Gqi5-0w4Z
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 04:14:30 +0000
-Received: from eig-obgw-6008a.ext.cloudfilter.net ([10.0.30.227])
-	by cmsmtp with ESMTPS
-	id GruMt1li6qvuoGsORttcXB; Fri, 29 Nov 2024 04:14:11 +0000
-Received: from md-in-79.webhostbox.net ([43.225.55.182])
-	by cmsmtp with ESMTPS
-	id GsONtNZcBNWjnGsOOtKzm6; Fri, 29 Nov 2024 04:14:09 +0000
-X-Authority-Analysis: v=2.4 cv=dOagmvZb c=1 sm=1 tr=0 ts=67493f91
- a=LfuyaZh/8e9VOkaVZk0aRw==:117 a=kofhyyBXuK/oEhdxNjf66Q==:17
- a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=-pn6D5nKLtMA:10
- a=a9eFdPKkdgbxhWDV1dEA:9 a=QEXdDO2ut3YA:10 a=ZCPYImcxYIQFgLOT52_G:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:To:Subject:Cc:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=7Q5uoccyOFHjDwzni9s1pvqhXs3JznPJtn8MoISASRU=; b=f3ErCGcGBfb1iyOQo+fcBv1t7e
-	6gIj1pftIjig6fL7tveuQjbhA03eV/QcD+R5rWTQe8Kn9b8yRm0dBILPJMeIAtcfUfaokPCf8bEQi
-	VnM7TkIpwvFLSw3xj9BQhyi6Gh69ZUuRR9boclxSbWyPKx5IifgE+g3dfVaP856rdqNtazS6Wz5YF
-	JpmSzV9RSZH3SLtqW7qKwH+Fxg2hykOB0b/Lml5yUanGNm9nRgIDBLwLO7zu4QpPtTIwTZsg6evED
-	zsR5Vc7+gG5Tkk1K8TlzyM6VmhDxfJBgYFDuuJLK0ncSsuEditRyf0gLS4IJzvUb11IMcRspqyPew
-	2Zwa/xSA==;
-Received: from [122.165.245.213] (port=53154 helo=[192.168.1.5])
-	by md-in-79.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <parthiban@linumiz.com>)
-	id 1tGsOG-002aNG-2V;
-	Fri, 29 Nov 2024 09:44:00 +0530
-Message-ID: <fa7dbac4-592e-44f9-b468-834779fdbbc2@linumiz.com>
-Date: Fri, 29 Nov 2024 09:43:55 +0530
+	id 1tGsf3-0000000Grlo-3ugl;
+	Fri, 29 Nov 2024 04:31:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1732854681; x=1764390681;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=nhVJ2KsFTU6vdZyrFjJy+CpqJVuOIfZcG0UnLygKl20=;
+  b=bGMNGHiyF6CV/wxdYjIn0HaTpf/JRt6T37G1u2jKJ7WaURoJA747NaJ7
+   6ZaJG32+rqSFqWyFDiA7OxJiycVX4GzhwNdJ2azBS5k6bD4CbaiaqInFZ
+   cUCumSkzvn0DMFQKzELXkROhyuEae+BlRK0gOcooTUZmF/cVxElgAE6b7
+   TrTDLLW2XEAwnL4gC+j43AP+RexBGGz/rf04/iT8dzqHD7hbeJu6sIUzS
+   CNEBu6hP2f7mCIbOlp4Z0Ho1cY8lyDj5DtYdqtFpgIPYdjm1/fCEiEFf3
+   tTlNISmyPJdzlnAbAWdAmEuOf9DScTUr2RNWcSZgKOGLaoESbm9dcH0wO
+   w==;
+X-CSE-ConnectionGUID: wtCjyDhdQsm0ffSoBHSSrA==
+X-CSE-MsgGUID: AXmQEnVsSoa3STS0IN5Qww==
+X-IronPort-AV: E=McAfee;i="6700,10204,11270"; a="58495749"
+X-IronPort-AV: E=Sophos;i="6.12,194,1728975600"; 
+   d="scan'208";a="58495749"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2024 20:31:15 -0800
+X-CSE-ConnectionGUID: 7+ctehuyTaqXPs1MF1yt2g==
+X-CSE-MsgGUID: 8udd5Dm+TGClDUig78Zgfw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,194,1728975600"; 
+   d="scan'208";a="92193838"
+Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 28 Nov 2024 20:31:09 -0800
+Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tGsep-000AL9-0P;
+	Fri, 29 Nov 2024 04:31:07 +0000
+Date: Fri, 29 Nov 2024 12:30:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: Eliav Farber <farbere@amazon.com>, linux@armlinux.org.uk,
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
+	npiggin@gmail.com, christophe.leroy@csgroup.eu, naveen@kernel.org,
+	maddy@linux.ibm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, tglx@linutronix.de, ebiederm@xmission.com,
+	akpm@linux-foundation.org, bhe@redhat.com, hbathini@linux.ibm.com,
+	sourabhjain@linux.ibm.com, adityag@linux.ibm.com,
+	songshuaishuai@tinylab.org, takakura@valinux.co.jp,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, jonnyc@amazon.com
+Subject: Re: [PATCH v3 1/2] kexec: Consolidate
+ machine_kexec_mask_interrupts() implementation
+Message-ID: <202411291225.18ZMjZcQ-lkp@intel.com>
+References: <20241128201027.10396-2-farbere@amazon.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: parthiban@linumiz.com, Andre Przywara <andre.przywara@arm.com>,
- Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Daniel Vetter <daniel@ffwll.ch>, Samuel Holland <samuel@sholland.org>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/sun4i: Workaround TCON TOP conflict between DE0 and
- DE1
-To: John Watts <contact@jookia.org>
-References: <20241108-tcon_fix-v1-1-616218cc0d5f@jookia.org>
- <20241108115357.691b77b0@donnerap.manchester.arm.com>
- <Zy4SKCBwce3q0yj5@titan> <b26b9d86-4ff9-4543-85ce-176dccfbfa05@linumiz.com>
- <Zy4c9BFcrz2JVU6k@titan> <ZzNCsFiAiACFrQhE@titan>
- <f0d5b314-cfcc-4856-8d6e-09e437c075ec@linumiz.com> <ZzPluoI7xSTwhNcm@titan>
- <2ef6afa0-2756-493b-83a4-62e73a8e2af9@linumiz.com> <ZzRgP7-hHWE8JH8K@titan>
-Content-Language: en-US
-From: Parthiban <parthiban@linumiz.com>
-Organization: Linumiz
-In-Reply-To: <ZzRgP7-hHWE8JH8K@titan>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - md-in-79.webhostbox.net
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - linumiz.com
-X-BWhitelist: no
-X-Source-IP: 122.165.245.213
-X-Source-L: No
-X-Exim-ID: 1tGsOG-002aNG-2V
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: ([192.168.1.5]) [122.165.245.213]:53154
-X-Source-Auth: parthiban@linumiz.com
-X-Email-Count: 3
-X-Org: HG=dishared_whb_net_legacy;ORG=directi;
-X-Source-Cap: bGludW1jbWM7aG9zdGdhdG9yO21kLWluLTc5LndlYmhvc3Rib3gubmV0
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfLqsGSjw5egsgoGk+qB/UySeOkcTDBwWzCowcRvo79psmpCdHSLHXXDWxKlrgj+SJGgRBHzWhB0Ml/YQyRIkHrcg6lMepMoTRzI78wPxtrKvuTSSIFO9
- kpeSuep7QfX/bNYU8u2BeWz3/n/nl/N72H4WvxtJed95imqBm5+YDM6CcXAGREEfpO1LYF2kcIrWlnXHBeJA177FlNEo/r19e0gsLimfGC03u5dpjh6g84sR
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241128201027.10396-2-farbere@amazon.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_201429_279557_1955BC4B 
-X-CRM114-Status: UNSURE (   5.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241128_203121_989475_A33F4DF5 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,17 +96,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/13/24 1:45 PM, John Watts wrote:
-> It really seems like the code means mixers here.
-True, I was wrong about my statement. But with A133, the case of independent DE
-is unique, which I couldn't test yet.
+Hi Eliav,
 
-> If my thoughts are correct, this would break use of mixer0 and mixer1 at the
-> same time.
-Agreed. But back to the original discussion about setting 0x20 to the port
-register, it work fine in my end without that changes for A133 display pipeline
-with LVDS. Not sure if the reason is independent DE.
+kernel test robot noticed the following build errors:
 
-Thanks,
-Parthiban
+[auto build test ERROR on powerpc/next]
+[also build test ERROR on powerpc/fixes tip/irq/core arm64/for-next/core linus/master v6.12 next-20241128]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Eliav-Farber/kexec-Consolidate-machine_kexec_mask_interrupts-implementation/20241129-041259
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git next
+patch link:    https://lore.kernel.org/r/20241128201027.10396-2-farbere%40amazon.com
+patch subject: [PATCH v3 1/2] kexec: Consolidate machine_kexec_mask_interrupts() implementation
+config: x86_64-kexec (https://download.01.org/0day-ci/archive/20241129/202411291225.18ZMjZcQ-lkp@intel.com/config)
+compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241129/202411291225.18ZMjZcQ-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411291225.18ZMjZcQ-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from kernel/kexec_core.c:9:
+   In file included from include/linux/btf.h:8:
+   In file included from include/linux/bpfptr.h:6:
+   In file included from include/linux/mm.h:2223:
+   include/linux/vmstat.h:504:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+     504 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+     505 |                            item];
+         |                            ~~~~
+   include/linux/vmstat.h:511:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+     511 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+     512 |                            NR_VM_NUMA_EVENT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
+     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
+         |                               ~~~~~~~~~~~ ^ ~~~
+   include/linux/vmstat.h:524:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+     524 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+     525 |                            NR_VM_NUMA_EVENT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~~
+>> kernel/kexec_core.c:1085:10: error: call to undeclared function 'irq_desc_get_chip'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    1085 |                 chip = irq_desc_get_chip(desc);
+         |                        ^
+>> kernel/kexec_core.c:1085:8: error: incompatible integer to pointer conversion assigning to 'struct irq_chip *' from 'int' [-Wint-conversion]
+    1085 |                 chip = irq_desc_get_chip(desc);
+         |                      ^ ~~~~~~~~~~~~~~~~~~~~~~~
+>> kernel/kexec_core.c:1097:24: error: incomplete definition of type 'struct irq_chip'
+    1097 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+         |                                  ~~~~^
+   kernel/kexec_core.c:1082:10: note: forward declaration of 'struct irq_chip'
+    1082 |                 struct irq_chip *chip;
+         |                        ^
+>> kernel/kexec_core.c:1097:37: error: call to undeclared function 'irqd_irq_inprogress'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    1097 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+         |                                                   ^
+>> kernel/kexec_core.c:1097:62: error: incomplete definition of type 'struct irq_desc'
+    1097 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+         |                                                                        ~~~~^
+   include/linux/irqnr.h:10:15: note: forward declaration of 'struct irq_desc'
+      10 | extern struct irq_desc *irq_to_desc(unsigned int irq);
+         |               ^
+   kernel/kexec_core.c:1098:8: error: incomplete definition of type 'struct irq_chip'
+    1098 |                         chip->irq_eoi(&desc->irq_data);
+         |                         ~~~~^
+   kernel/kexec_core.c:1082:10: note: forward declaration of 'struct irq_chip'
+    1082 |                 struct irq_chip *chip;
+         |                        ^
+   kernel/kexec_core.c:1098:23: error: incomplete definition of type 'struct irq_desc'
+    1098 |                         chip->irq_eoi(&desc->irq_data);
+         |                                        ~~~~^
+   include/linux/irqnr.h:10:15: note: forward declaration of 'struct irq_desc'
+      10 | extern struct irq_desc *irq_to_desc(unsigned int irq);
+         |               ^
+   kernel/kexec_core.c:1100:11: error: incomplete definition of type 'struct irq_chip'
+    1100 |                 if (chip->irq_mask)
+         |                     ~~~~^
+   kernel/kexec_core.c:1082:10: note: forward declaration of 'struct irq_chip'
+    1082 |                 struct irq_chip *chip;
+         |                        ^
+   kernel/kexec_core.c:1101:8: error: incomplete definition of type 'struct irq_chip'
+    1101 |                         chip->irq_mask(&desc->irq_data);
+         |                         ~~~~^
+   kernel/kexec_core.c:1082:10: note: forward declaration of 'struct irq_chip'
+    1082 |                 struct irq_chip *chip;
+         |                        ^
+   kernel/kexec_core.c:1101:24: error: incomplete definition of type 'struct irq_desc'
+    1101 |                         chip->irq_mask(&desc->irq_data);
+         |                                         ~~~~^
+   include/linux/irqnr.h:10:15: note: forward declaration of 'struct irq_desc'
+      10 | extern struct irq_desc *irq_to_desc(unsigned int irq);
+         |               ^
+   kernel/kexec_core.c:1103:11: error: incomplete definition of type 'struct irq_chip'
+    1103 |                 if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+         |                     ~~~~^
+   kernel/kexec_core.c:1082:10: note: forward declaration of 'struct irq_chip'
+    1082 |                 struct irq_chip *chip;
+         |                        ^
+   kernel/kexec_core.c:1103:29: error: call to undeclared function 'irqd_irq_disabled'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    1103 |                 if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+         |                                           ^
+   kernel/kexec_core.c:1103:29: note: did you mean 'arch_irqs_disabled'?
+   arch/x86/include/asm/irqflags.h:145:28: note: 'arch_irqs_disabled' declared here
+     145 | static __always_inline int arch_irqs_disabled(void)
+         |                            ^
+   kernel/kexec_core.c:1103:52: error: incomplete definition of type 'struct irq_desc'
+    1103 |                 if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+         |                                                              ~~~~^
+   include/linux/irqnr.h:10:15: note: forward declaration of 'struct irq_desc'
+      10 | extern struct irq_desc *irq_to_desc(unsigned int irq);
+         |               ^
+   kernel/kexec_core.c:1104:8: error: incomplete definition of type 'struct irq_chip'
+    1104 |                         chip->irq_disable(&desc->irq_data);
+         |                         ~~~~^
+   kernel/kexec_core.c:1082:10: note: forward declaration of 'struct irq_chip'
+    1082 |                 struct irq_chip *chip;
+         |                        ^
+   kernel/kexec_core.c:1104:27: error: incomplete definition of type 'struct irq_desc'
+    1104 |                         chip->irq_disable(&desc->irq_data);
+         |                                            ~~~~^
+   include/linux/irqnr.h:10:15: note: forward declaration of 'struct irq_desc'
+      10 | extern struct irq_desc *irq_to_desc(unsigned int irq);
+         |               ^
+   4 warnings and 15 errors generated.
+
+
+vim +/irq_desc_get_chip +1085 kernel/kexec_core.c
+
+  1075	
+  1076	void machine_kexec_mask_interrupts(void)
+  1077	{
+  1078		unsigned int i;
+  1079		struct irq_desc *desc;
+  1080	
+  1081		for_each_irq_desc(i, desc) {
+  1082			struct irq_chip *chip;
+  1083			int check_eoi = 1;
+  1084	
+> 1085			chip = irq_desc_get_chip(desc);
+  1086			if (!chip)
+  1087				continue;
+  1088	
+  1089			if (IS_ENABLED(CONFIG_ARM64)) {
+  1090				/*
+  1091				 * First try to remove the active state. If this fails, try to EOI the
+  1092				 * interrupt.
+  1093				 */
+  1094				check_eoi = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
+  1095			}
+  1096	
+> 1097			if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
