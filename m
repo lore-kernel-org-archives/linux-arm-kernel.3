@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04786D6EBFE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 10:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27754D6EBFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 11:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hjOK0zywSeokD3DvA4azctX4cWAnxYzpu0R5TPG192g=; b=jvG5kiqG2cWjxFckvlAaT1qYaG
-	B4agtjkyHFVbqRBEbrpyCKlZefRp1d6YB9g4urfvHZdR+4KOUjY2VmpWMOrH7iTFOopUmwIUCPAyB
-	ApOn9XmNpotr9rVwM+tmkt8nJTPnM04qfhKh0BQyUvsCIUs2nla1m5288sd+lDuosA/Gb83UW8FKE
-	wX0/lMysWEVaACzxob54he6Jpy3vn4BveGXWjRIhlLXiYXvO4onJZRuP5P0yFaoqyllJklfjEBUTc
-	vrWaBP9gQ4yw4P+dnGXavec1mkUmJYthLEm9NXfMBRxsPmCGiCeh/DnvCTf2r5dg/RXrdhzngXoNP
-	W8OySLcA==;
+	bh=LOU65vm/LSIomsbDKHI2BR+2CFwDzAWKrSYahD7R3ms=; b=21MjivG9Kyp41HDYWpu+PO6y0m
+	11nxj+8BEa9qCqU8V1KSVJIqedlV3xVdqhbOYIWilt5n+vHfuiQj/XnRjd51Ut/rwyiL6LnFGwXKk
+	uzKxJ0W/T7Wmt+UEIrldDEor6F603clZQ8AtaVj44RDMnsZUSmA9gQWnnteMczZjedotO4T/TU89N
+	iMNKexapMDaLOQz0eMJc2lFB97JB32R6CJzj70wByllEI/CioBmB2odI8EgR/WZPpbGuNdckfJgxI
+	9mo2b1we9sd1E8MJYAaM0j983BvB7+FAWq6R39e07bcKNL8EqZvKD2RQwry2if2lcSzqw6Gdz++/Z
+	vtAr8yFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGySD-0000000HSZQ-3hL7;
-	Fri, 29 Nov 2024 10:42:29 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tGz1t-0000000HWb1-2sP7;
+	Fri, 29 Nov 2024 11:19:21 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGyRF-0000000HSQQ-0aAm
+	id 1tGz0u-0000000HWKY-0RYp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 10:41:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BE9B8A43C54;
-	Fri, 29 Nov 2024 10:39:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0BABC4CED2;
-	Fri, 29 Nov 2024 10:41:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1732876888;
-	bh=hjOK0zywSeokD3DvA4azctX4cWAnxYzpu0R5TPG192g=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=pYJKblk+fhZ7TJuHqJ10qD1WMfJRsstNB9mSpwXkfGW5OWEmKthLmc2XlmhfJK0z9
-	 D5/TNREub82nIMd6n0kVWL/jtm/qP/wPTvsOniF6BgbDySRZY4TBAFLTNnck0cTsFY
-	 S2RH9/LtiVzVFctHpds8WHi8Ww0mVf9y1nv7wsho=
-Date: Fri, 29 Nov 2024 02:41:27 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Zi Yan
- <ziy@nvidia.com>, Dan Williams <dan.j.williams@intel.com>, David
- Hildenbrand <david@redhat.com>, stable@vger.kernel.org
-Subject: Re: [PATCH] arch_numa: Restore nid checks before registering a
- memblock with a node
-Message-Id: <20241129024127.a150e574c57e05b3b3b2a96f@linux-foundation.org>
-In-Reply-To: <Z0mIDBD4KLyxyOCm@kernel.org>
-References: <20241127193000.3702637-1-maz@kernel.org>
-	<Z0gVxWstZdKvhY6m@kernel.org>
-	<87y113s3lt.wl-maz@kernel.org>
-	<Z0l6MPWQ66GjAyOC@kernel.org>
-	<87v7w6sa5s.wl-maz@kernel.org>
-	<Z0mIDBD4KLyxyOCm@kernel.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Fri, 29 Nov 2024 11:18:21 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-53de6b7da14so1791154e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Nov 2024 03:18:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732879098; x=1733483898; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LOU65vm/LSIomsbDKHI2BR+2CFwDzAWKrSYahD7R3ms=;
+        b=PwouvRmdQiUFAtUz+BilQy8otScMi8xpaaKvpqLXldWhTpot8dMzcT2bXZtc+jj/LJ
+         JOiEirPHc9wUASCyA9+9zMVFICYppxwKajjrzpP5ow1AEEWeV9PJiY0jKljMxW88uONO
+         I7KeZuLilkIhbHbtM74aBibS2s17VRYs7iLH80dzH3D0G0FWlz9eqaYXbVvPIRwPBouw
+         Gxtu2npsLdFZAA1u+lMVRK+rzJvZ1YNi9EbjMuQwaD/KDCU5anPhoqjyLYCOi5C3rhFE
+         QZtFUVw3p3p4dF6GhiG1sgAbbnCb7VJeoR/1qPTCgYx7rMZrF1/SeIh7X6/DP6ZwwPzC
+         lUSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732879098; x=1733483898;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LOU65vm/LSIomsbDKHI2BR+2CFwDzAWKrSYahD7R3ms=;
+        b=GAPWDIpqygNmPBsG1bXP1THNK38mZCKx+LhtkNj3dOjfKeVNeoIZPP6bksNXk0iagP
+         i5E40aV+vYjQaxb2WAN+fk1Mo7wfFVbUOIEp8NFLntStAuPAMr/0O2NJgjEIljaweUm6
+         +7AqTH9f2/ziuciMb2cZn9Ve5fPGzWXgGpUOSTcvtzSs1cy0ByTiHYv9JIiOm4EjjzrP
+         4Kaj8fzq5LJU70vQuiDOFv9RHYk7R5X34uEZPsEiZyog/pp0jU9p8Uw4gQxjTii08azt
+         n288uxUkWr3IwMvvHwAQWJeGr2sd+s3DSjsZN4EGivuivY7d3PZmqhYE3TOqs+3y83Xt
+         5+WQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXigzQjd1Lc7aPR2aWon8GcGlgann7c+PTaqEoPrjhdjqYGFQpH4DTxfpvfI9qlXLJSibkMF6KwrJUDBaTzptR/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyD4Xbj06djLvOwdNtwsLFIhWpqRkEcqVl0V3hezwX4ZRVLB9SW
+	mQ0Gquu66JJKqaiXTbXY+KWltdH5NUs13eRIesG6W6uxxKt7kx8UdF2mgJ/loQe2eQ65D28dVJm
+	fgCEutO3wOFJS5IFLSDtdpvgMLXA=
+X-Gm-Gg: ASbGncuoS9twqUNfKJ4esuVGM0Z+6gUrIs+7fkQ/cYR5fn4MvxyaamZOrySw9URQXUH
+	bqn+9a4eSuyULzdSmP6TuikWWm4gnXtdeL89/6a/zmr1yHrhOZtlrk5uzyRvcLuY=
+X-Google-Smtp-Source: AGHT+IGaUUHzoanhVPRPEfEi0nJkI5YEmDKHNF2hGMFhFR6CkwGEiLoh9eXbuUcramkmRyujAOMQr9l0pEIc/VPNtF4=
+X-Received: by 2002:a05:6512:3d1d:b0:53d:ed16:7a43 with SMTP id
+ 2adb3069b0e04-53df00d3d4emr4322112e87.17.1732879097468; Fri, 29 Nov 2024
+ 03:18:17 -0800 (PST)
+MIME-Version: 1.0
+References: <20241127190605.1367157-1-festevam@gmail.com> <CACRpkdbJgrwzh_D5=71dMPOx3jgbyUJOiP-+16JUdL79zDEbTA@mail.gmail.com>
+In-Reply-To: <CACRpkdbJgrwzh_D5=71dMPOx3jgbyUJOiP-+16JUdL79zDEbTA@mail.gmail.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Fri, 29 Nov 2024 08:18:06 -0300
+Message-ID: <CAOMZO5CRJrY=E4bZG1aBDh6H-+rrtL-n2SEuEuzC7MN1zDvqvw@mail.gmail.com>
+Subject: Re: [PATCH v2] ARM: imx: Re-introduce the PINCTRL selection
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: shawnguo@kernel.org, linux@armlinux.org.uk, s.hauer@pengutronix.de, 
+	esben@geanix.com, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux@roeck-us.net, arnd@arndb.de, Fabio Estevam <festevam@denx.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_024129_241504_551C6113 
-X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-CacheID: sfid-20241129_031820_140940_8E302EDD 
+X-CRM114-Status: UNSURE (   9.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,10 +94,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 Nov 2024 11:23:24 +0200 Mike Rapoport <rppt@kernel.org> wrote:
+Hi Linus,
 
-> @Andrew, I can take both this and Marc's new patch via memblock tree if you
-> prefer.
+On Fri, Nov 29, 2024 at 7:15=E2=80=AFAM Linus Walleij <linus.walleij@linaro=
+.org> wrote:
 
-Go for it.
+> Fabio are you pushing this in through the SoC tree as it's ARM-only
+> or am I expected to push it through pin control?
+
+17d210018914 ("ARM: imx: Allow user to disable pinctrl") comes from
+your tree and Arnd sent an Acked-by,
+so I interpret it as it should go through your tree.
+
+Could you please apply it via the pinctrl tree so that it can land in
+6.13-rc1 to avoid the regression?
+
+Thanks
 
