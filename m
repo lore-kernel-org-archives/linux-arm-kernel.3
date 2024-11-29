@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40422D6EBFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 11:36:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5035DD6EC04
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 12:20:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PxmNV7GjQJp/WjqJilccpNw4h74oTGMlOElZP81PE90=; b=ojIi4HvH7KO1LGCeLjUxnQONxC
-	Z6n1mg1ogux8SX+bE2pEs6kIptA+bMeEBMWXLeyAiWR8GSp+KBuprIptcCHDr+KSAQDbsfs1IIi6D
-	6KBqWooXFoN2jHj05oeF0YVU0sIFUuzRsA1R3QdrPg74QBQ+kS4hT/K5FAGFfoAvozG8hrE+iaX0d
-	Gtzo6W1c89fHWXZgNC4Ofk1GdBhPIVCbFGkRUSfArpn3+KHHlD7p7etlDQE9m0DPvmmXKGub1DjIB
-	dcblR7Z06byjmmjUrBIcEeIRJegM88ms8BgQ9ATXzn57eYzo8Tg+l6hV7TrMzK3/g3D8ZknCJv6W4
-	EGr70sgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oZ8cTFN0M9fMmBdGuury0xD5FkLsql2bthkQ0CSYVqs=; b=PRxzMqp39g6NghH50LQHmGGpv3
+	gVT4xWDs3B3wp1FUAW4yw+hUcL49tlGnipwHqlLgCNMZ0RmDdi9fbPbbwdZaNbnvlMziQid/Jpa1q
+	Czv5MMAMoprB7r8osDpDokNW/w8OMI43ZEyImGJnzGaNZ80CwhkhxtkOujHUS4pCAZH7meI0uwVz0
+	gT+JKztVhRhT7liw/RA5KRWkjQ7vxjcHyrPwjcLxkZWAmSxJqNFzuRpt6+S3cV+chOuthappE2/8a
+	gSUM6qrDftbcR9+RWPGS7qX7JfNXYrDW6ThLTo1f01IYPhNyq0f0mKPhUURQ5O7q537HRu1cbTZub
+	WOw2Ya8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGzHo-0000000HZIi-42bX;
-	Fri, 29 Nov 2024 11:35:48 +0000
-Received: from smtp-fw-6001.amazon.com ([52.95.48.154])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGzDi-0000000HYLb-2LB8;
-	Fri, 29 Nov 2024 11:31:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1732879894; x=1764415894;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=PxmNV7GjQJp/WjqJilccpNw4h74oTGMlOElZP81PE90=;
-  b=cOsO/MkDQPh3dyMOBUuEbdVAf9a+xokNOHehvBnm0P8xDqUugrWHfpgF
-   l57ZEqnaJ0Kmo5V7qjzvt7DtMp9aijEjOvC9Y3dISeWEY93ikElT4cdxB
-   YBFAfuKNHZwlcWxPGRJ/Dnu2LEX0fIuA50SmNaCejm+VExuao2Z088Slp
-   Y=;
-X-IronPort-AV: E=Sophos;i="6.12,195,1728950400"; 
-   d="scan'208";a="441793920"
-Received: from iad6-co-svc-p1-lb1-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.124.125.2])
-  by smtp-border-fw-6001.iad6.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Nov 2024 11:31:24 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [10.0.38.20:62811]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.32.230:2525] with esmtp (Farcaster)
- id 7f123ea5-1e55-4e73-b57a-c0691d28a7da; Fri, 29 Nov 2024 11:31:24 +0000 (UTC)
-X-Farcaster-Flow-ID: 7f123ea5-1e55-4e73-b57a-c0691d28a7da
-Received: from EX19D013UWA002.ant.amazon.com (10.13.138.210) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Fri, 29 Nov 2024 11:31:20 +0000
-Received: from EX19MTAUWC001.ant.amazon.com (10.250.64.145) by
- EX19D013UWA002.ant.amazon.com (10.13.138.210) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Fri, 29 Nov 2024 11:31:19 +0000
-Received: from email-imr-corp-prod-pdx-all-2c-785684ef.us-west-2.amazon.com
- (10.25.36.210) by mail-relay.amazon.com (10.250.64.145) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1258.34 via Frontend Transport; Fri, 29 Nov 2024 11:31:19 +0000
-Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com [172.19.116.181])
-	by email-imr-corp-prod-pdx-all-2c-785684ef.us-west-2.amazon.com (Postfix) with ESMTP id A0A2DA02BC;
-	Fri, 29 Nov 2024 11:31:19 +0000 (UTC)
-Received: by dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (Postfix, from userid 14301484)
-	id 37ADB2ED2; Fri, 29 Nov 2024 11:31:19 +0000 (UTC)
-From: Eliav Farber <farbere@amazon.com>
-To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
-	<naveen@kernel.org>, <maddy@linux.ibm.com>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
-	<ebiederm@xmission.com>, <akpm@linux-foundation.org>, <bhe@redhat.com>,
-	<farbere@amazon.com>, <hbathini@linux.ibm.com>, <sourabhjain@linux.ibm.com>,
-	<adityag@linux.ibm.com>, <songshuaishuai@tinylab.org>,
-	<takakura@valinux.co.jp>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <kexec@lists.infradead.org>
-CC: <jonnyc@amazon.com>
-Subject: [PATCH v4 1/2] kexec: Consolidate machine_kexec_mask_interrupts() implementation
-Date: Fri, 29 Nov 2024 11:31:18 +0000
-Message-ID: <20241129113119.26669-2-farbere@amazon.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20241129113119.26669-1-farbere@amazon.com>
-References: <20241129113119.26669-1-farbere@amazon.com>
+	id 1tGzyO-000000003bq-1RmU;
+	Fri, 29 Nov 2024 12:19:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tGzxO-000000003Tr-0Bnu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 Nov 2024 12:18:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7FD6712FC;
+	Fri, 29 Nov 2024 04:19:12 -0800 (PST)
+Received: from [10.57.92.242] (unknown [10.57.92.242])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A0613F5A1;
+	Fri, 29 Nov 2024 04:18:38 -0800 (PST)
+Message-ID: <7d1d4893-f798-4e44-aad0-1d0071e30b05@arm.com>
+Date: Fri, 29 Nov 2024 12:18:36 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 18/43] arm64: RME: Handle realm enter/exit
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>
+References: <20241004152804.72508-1-steven.price@arm.com>
+ <20241004152804.72508-19-steven.price@arm.com>
+ <c44aeac6-4fe1-4199-962d-5fbbc5a591de@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <c44aeac6-4fe1-4199-962d-5fbbc5a591de@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_033134_752666_740CC4CF 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20241129_041846_174802_3F2145BA 
+X-CRM114-Status: GOOD (  34.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,246 +76,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the machine_kexec_mask_interrupts function to a common location in
-kernel/kexec_core.c, removing duplicate implementations from architecture
-specific files (arch/arm, arch/arm64, arch/powerpc, and arch/riscv).
+Hi Suzuki,
 
-This consolidation reduces code duplication and improves maintainability.
+Sorry for the very slow response to this. Coming back to this I'm having
+doubts, see below.
 
-The unified function includes an architecture-specific behavior for
-CONFIG_ARM64 by conditionally clearing the active interrupt state before
-handling other interrupt masking operations.
+On 17/10/2024 14:00, Suzuki K Poulose wrote:
+> On 04/10/2024 16:27, Steven Price wrote:
+>> Entering a realm is done using a SMC call to the RMM. On exit the
+>> exit-codes need to be handled slightly differently to the normal KVM
+>> path so define our own functions for realm enter/exit and hook them
+>> in if the guest is a realm guest.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+...
+>> diff --git a/arch/arm64/kvm/rme-exit.c b/arch/arm64/kvm/rme-exit.c
+>> new file mode 100644
+>> index 000000000000..e96ea308212c
+>> --- /dev/null
+>> +++ b/arch/arm64/kvm/rme-exit.c
+...
+>> +static int rec_exit_ripas_change(struct kvm_vcpu *vcpu)
+>> +{
+>> +    struct kvm *kvm = vcpu->kvm;
+>> +    struct realm *realm = &kvm->arch.realm;
+>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>> +    unsigned long base = rec->run->exit.ripas_base;
+>> +    unsigned long top = rec->run->exit.ripas_top;
+>> +    unsigned long ripas = rec->run->exit.ripas_value;
+>> +    unsigned long top_ipa;
+>> +    int ret;
+>> +
+>> +    if (!realm_is_addr_protected(realm, base) ||
+>> +        !realm_is_addr_protected(realm, top - 1)) {
+>> +        kvm_err("Invalid RIPAS_CHANGE for %#lx - %#lx, ripas: %#lx\n",
+>> +            base, top, ripas);
+>> +        return -EINVAL;
+>> +    }
+>> +
+>> +    kvm_mmu_topup_memory_cache(&vcpu->arch.mmu_page_cache,
+>> +                   kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
+> 
+> I think we also need to filter the request for RIPAS_RAM, by consulting
+> if the "range" is backed by a memslot or not. If they are not, we should
+> reject the request with a response flag set in run.enter.flags.
 
-Signed-off-by: Eliav Farber <farbere@amazon.com>
----
-V4 -> V3: Add missing <linux/irqdec.h> include.
+It's an interesting API question. At the moment there is no requirement
+to have an active memslot to set the RIPAS - this is true both during
+the setup by the VMM and at run time.
 
- arch/arm/kernel/machine_kexec.c   | 23 ---------------------
- arch/arm64/kernel/machine_kexec.c | 31 -----------------------------
- arch/powerpc/include/asm/kexec.h  |  1 -
- arch/powerpc/kexec/core.c         | 22 ---------------------
- arch/riscv/kernel/machine_kexec.c | 23 ---------------------
- include/linux/kexec.h             |  2 ++
- kernel/kexec_core.c               | 33 +++++++++++++++++++++++++++++++
- 7 files changed, 35 insertions(+), 100 deletions(-)
+In theory a VMM can create/destroy memslots while the guest is running.
+So absense of a memslot doesn't actually imply that the RIPAS change
+should be rejected. Obviously with realms this is tricky because when
+destroying a memslot that's in use KVM would rip those pages out from
+the guest and it would require guest cooperation to restore those pages
+(transition to RIPAS_EMPTY and back to RIPAS_RAM). But it's not
+something that has been prohibited so far.
 
-diff --git a/arch/arm/kernel/machine_kexec.c b/arch/arm/kernel/machine_kexec.c
-index 80ceb5bd2680..dd430477e7c1 100644
---- a/arch/arm/kernel/machine_kexec.c
-+++ b/arch/arm/kernel/machine_kexec.c
-@@ -127,29 +127,6 @@ void crash_smp_send_stop(void)
- 	cpus_stopped = 1;
- }
- 
--static void machine_kexec_mask_interrupts(void)
--{
--	unsigned int i;
--	struct irq_desc *desc;
--
--	for_each_irq_desc(i, desc) {
--		struct irq_chip *chip;
--
--		chip = irq_desc_get_chip(desc);
--		if (!chip)
--			continue;
--
--		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
--			chip->irq_eoi(&desc->irq_data);
--
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
--	}
--}
--
- void machine_crash_shutdown(struct pt_regs *regs)
- {
- 	local_irq_disable();
-diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-index 82e2203d86a3..6f121a0164a4 100644
---- a/arch/arm64/kernel/machine_kexec.c
-+++ b/arch/arm64/kernel/machine_kexec.c
-@@ -207,37 +207,6 @@ void machine_kexec(struct kimage *kimage)
- 	BUG(); /* Should never get here. */
- }
- 
--static void machine_kexec_mask_interrupts(void)
--{
--	unsigned int i;
--	struct irq_desc *desc;
--
--	for_each_irq_desc(i, desc) {
--		struct irq_chip *chip;
--		int ret;
--
--		chip = irq_desc_get_chip(desc);
--		if (!chip)
--			continue;
--
--		/*
--		 * First try to remove the active state. If this
--		 * fails, try to EOI the interrupt.
--		 */
--		ret = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
--
--		if (ret && irqd_irq_inprogress(&desc->irq_data) &&
--		    chip->irq_eoi)
--			chip->irq_eoi(&desc->irq_data);
--
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
--	}
--}
--
- /**
-  * machine_crash_shutdown - shutdown non-crashing cpus and save registers
-  */
-diff --git a/arch/powerpc/include/asm/kexec.h b/arch/powerpc/include/asm/kexec.h
-index 270ee93a0f7d..601e569303e1 100644
---- a/arch/powerpc/include/asm/kexec.h
-+++ b/arch/powerpc/include/asm/kexec.h
-@@ -61,7 +61,6 @@ struct pt_regs;
- extern void kexec_smp_wait(void);	/* get and clear naca physid, wait for
- 					  master to copy new code to 0 */
- extern void default_machine_kexec(struct kimage *image);
--extern void machine_kexec_mask_interrupts(void);
- 
- void relocate_new_kernel(unsigned long indirection_page, unsigned long reboot_code_buffer,
- 			 unsigned long start_address) __noreturn;
-diff --git a/arch/powerpc/kexec/core.c b/arch/powerpc/kexec/core.c
-index b8333a49ea5d..58a930a47422 100644
---- a/arch/powerpc/kexec/core.c
-+++ b/arch/powerpc/kexec/core.c
-@@ -22,28 +22,6 @@
- #include <asm/setup.h>
- #include <asm/firmware.h>
- 
--void machine_kexec_mask_interrupts(void) {
--	unsigned int i;
--	struct irq_desc *desc;
--
--	for_each_irq_desc(i, desc) {
--		struct irq_chip *chip;
--
--		chip = irq_desc_get_chip(desc);
--		if (!chip)
--			continue;
--
--		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
--			chip->irq_eoi(&desc->irq_data);
--
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
--	}
--}
--
- #ifdef CONFIG_CRASH_DUMP
- void machine_crash_shutdown(struct pt_regs *regs)
- {
-diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-index 3c830a6f7ef4..2306ce3e5f22 100644
---- a/arch/riscv/kernel/machine_kexec.c
-+++ b/arch/riscv/kernel/machine_kexec.c
-@@ -114,29 +114,6 @@ void machine_shutdown(void)
- #endif
- }
- 
--static void machine_kexec_mask_interrupts(void)
--{
--	unsigned int i;
--	struct irq_desc *desc;
--
--	for_each_irq_desc(i, desc) {
--		struct irq_chip *chip;
--
--		chip = irq_desc_get_chip(desc);
--		if (!chip)
--			continue;
--
--		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
--			chip->irq_eoi(&desc->irq_data);
--
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
--	}
--}
--
- /*
-  * machine_crash_shutdown - Prepare to kexec after a kernel crash
-  *
-diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-index f0e9f8eda7a3..9dac0524c0be 100644
---- a/include/linux/kexec.h
-+++ b/include/linux/kexec.h
-@@ -375,6 +375,8 @@ extern void machine_kexec(struct kimage *image);
- extern int machine_kexec_prepare(struct kimage *image);
- extern void machine_kexec_cleanup(struct kimage *image);
- extern int kernel_kexec(void);
-+extern void machine_kexec_mask_interrupts(void);
-+
- extern struct page *kimage_alloc_control_pages(struct kimage *image,
- 						unsigned int order);
- 
-diff --git a/kernel/kexec_core.c b/kernel/kexec_core.c
-index c0caa14880c3..777191458544 100644
---- a/kernel/kexec_core.c
-+++ b/kernel/kexec_core.c
-@@ -40,6 +40,7 @@
- #include <linux/hugetlb.h>
- #include <linux/objtool.h>
- #include <linux/kmsg_dump.h>
-+#include <linux/irqdesc.h>
- 
- #include <asm/page.h>
- #include <asm/sections.h>
-@@ -1072,3 +1073,35 @@ int kernel_kexec(void)
- 	kexec_unlock();
- 	return error;
- }
-+
-+void machine_kexec_mask_interrupts(void)
-+{
-+	unsigned int i;
-+	struct irq_desc *desc;
-+
-+	for_each_irq_desc(i, desc) {
-+		struct irq_chip *chip;
-+		int check_eoi = 1;
-+
-+		chip = irq_desc_get_chip(desc);
-+		if (!chip)
-+			continue;
-+
-+		if (IS_ENABLED(CONFIG_ARM64)) {
-+			/*
-+			 * First try to remove the active state. If this fails, try to EOI the
-+			 * interrupt.
-+			 */
-+			check_eoi = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
-+		}
-+
-+		if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
-+			chip->irq_eoi(&desc->irq_data);
-+
-+		if (chip->irq_mask)
-+			chip->irq_mask(&desc->irq_data);
-+
-+		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
-+			chip->irq_disable(&desc->irq_data);
-+	}
-+}
--- 
-2.40.1
+On the other hand this is a clear way for a (malicious/buggy) guest to
+use a fair bit of RAM by transitioning to RIPAS_RAM (sparse) pages not
+in a memslot and forcing KVM to allocate the RTT pages to delegate to
+the RMM. But we do exit to the VMM, so this is solvable in the VMM (by
+killing a misbehaving guest). The number of pages this would consume per
+exit is also fairly small.
+
+So my instinct is that we shouldn't impose that requirement.
+
+Any thoughts?
+
+> As for EMPTY requests, if the guest wants to explicitly mark any range
+> as EMPTY, it doesn't matter, as long as it is within the protected IPA.
+> (even though they may be EMPTY in the first place).
+> 
+>> +    write_lock(&kvm->mmu_lock);
+>> +    ret = realm_set_ipa_state(vcpu, base, top, ripas, &top_ipa);
+>> +    write_unlock(&kvm->mmu_lock);
+>> +
+>> +    WARN(ret && ret != -ENOMEM,
+>> +         "Unable to satisfy RIPAS_CHANGE for %#lx - %#lx, ripas:
+>> %#lx\n",
+>> +         base, top, ripas);
+>> +
+>> +    /* Exit to VMM to complete the change */
+>> +    kvm_prepare_memory_fault_exit(vcpu, base, top_ipa - base, false,
+>> false,
+>> +                      ripas == RMI_RAM);
+> 
+> Again this may only be need if the range is backed by a memslot ?
+> Otherwise the VMM has nothing to do.
+
+Assuming the above, then the VMM would be the one to kill a misbehaving
+guest, so would need a notification.
+
+Thanks,
+Steve
+
+>> +
+>> +    return 0;
+>> +}
+>> +
+>> +static void update_arch_timer_irq_lines(struct kvm_vcpu *vcpu)
+>> +{
+>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>> +
+>> +    __vcpu_sys_reg(vcpu, CNTV_CTL_EL0) = rec->run->exit.cntv_ctl;
+>> +    __vcpu_sys_reg(vcpu, CNTV_CVAL_EL0) = rec->run->exit.cntv_cval;
+>> +    __vcpu_sys_reg(vcpu, CNTP_CTL_EL0) = rec->run->exit.cntp_ctl;
+>> +    __vcpu_sys_reg(vcpu, CNTP_CVAL_EL0) = rec->run->exit.cntp_cval;
+>> +
+>> +    kvm_realm_timers_update(vcpu);
+>> +}
+>> +
+>> +/*
+>> + * Return > 0 to return to guest, < 0 on error, 0 (and set
+>> exit_reason) on
+>> + * proper exit to userspace.
+>> + */
+>> +int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_ret)
+>> +{
+>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>> +    u8 esr_ec = ESR_ELx_EC(rec->run->exit.esr);
+>> +    unsigned long status, index;
+>> +
+>> +    status = RMI_RETURN_STATUS(rec_run_ret);
+>> +    index = RMI_RETURN_INDEX(rec_run_ret);
+>> +
+>> +    /*
+>> +     * If a PSCI_SYSTEM_OFF request raced with a vcpu executing, we
+>> might
+>> +     * see the following status code and index indicating an attempt
+>> to run
+>> +     * a REC when the RD state is SYSTEM_OFF.  In this case, we just
+>> need to
+>> +     * return to user space which can deal with the system event or
+>> will try
+>> +     * to run the KVM VCPU again, at which point we will no longer
+>> attempt
+>> +     * to enter the Realm because we will have a sleep request
+>> pending on
+>> +     * the VCPU as a result of KVM's PSCI handling.
+>> +     */
+>> +    if (status == RMI_ERROR_REALM && index == 1) {
+>> +        vcpu->run->exit_reason = KVM_EXIT_UNKNOWN;
+>> +        return 0;
+>> +    }
+>> +
+>> +    if (rec_run_ret)
+>> +        return -ENXIO;
+>> +
+>> +    vcpu->arch.fault.esr_el2 = rec->run->exit.esr;
+>> +    vcpu->arch.fault.far_el2 = rec->run->exit.far;
+>> +    vcpu->arch.fault.hpfar_el2 = rec->run->exit.hpfar;
+>> +
+>> +    update_arch_timer_irq_lines(vcpu);
+>> +
+>> +    /* Reset the emulation flags for the next run of the REC */
+>> +    rec->run->enter.flags = 0;
+>> +
+>> +    switch (rec->run->exit.exit_reason) {
+>> +    case RMI_EXIT_SYNC:
+>> +        return rec_exit_handlers[esr_ec](vcpu);
+>> +    case RMI_EXIT_IRQ:
+>> +    case RMI_EXIT_FIQ:
+>> +        return 1;
+>> +    case RMI_EXIT_PSCI:
+>> +        return rec_exit_psci(vcpu);
+>> +    case RMI_EXIT_RIPAS_CHANGE:
+>> +        return rec_exit_ripas_change(vcpu);
+>> +    }
+>> +
+>> +    kvm_pr_unimpl("Unsupported exit reason: %u\n",
+>> +              rec->run->exit.exit_reason);
+>> +    vcpu->run->exit_reason = KVM_EXIT_INTERNAL_ERROR;
+>> +    return 0;
+>> +}
+>> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+>> index 1fa9991d708b..4c0751231810 100644
+>> --- a/arch/arm64/kvm/rme.c
+>> +++ b/arch/arm64/kvm/rme.c
+>> @@ -899,6 +899,25 @@ void kvm_destroy_realm(struct kvm *kvm)
+>>       kvm_free_stage2_pgd(&kvm->arch.mmu);
+>>   }
+>>   +int kvm_rec_enter(struct kvm_vcpu *vcpu)
+>> +{
+>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>> +
+>> +    switch (rec->run->exit.exit_reason) {
+>> +    case RMI_EXIT_HOST_CALL:
+>> +    case RMI_EXIT_PSCI:
+>> +        for (int i = 0; i < REC_RUN_GPRS; i++)
+>> +            rec->run->enter.gprs[i] = vcpu_get_reg(vcpu, i);
+>> +        break;
+>> +    }
+> 
+> As mentioned in the patch following (MMIO emulation support), we may be
+> able to do this unconditionally for all REC entries, to cover ourselves
+> from missing out other cases. The RMM is in charge of taking the
+> appropriate action anyways to copy the results back.
+> 
+> Suzuki
+> 
+>> +
+>> +    if (kvm_realm_state(vcpu->kvm) != REALM_STATE_ACTIVE)
+>> +        return -EINVAL;
+>> +
+>> +    return rmi_rec_enter(virt_to_phys(rec->rec_page),
+>> +                 virt_to_phys(rec->run));
+>> +}
+>> +
+>>   static void free_rec_aux(struct page **aux_pages,
+>>                unsigned int num_aux)
+>>   {
 
 
