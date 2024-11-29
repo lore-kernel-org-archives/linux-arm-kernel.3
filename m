@@ -4,61 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A1EAD72A14
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 21:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60CDFD735E4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 22:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aIkmnIZXkVXCBZyrGPXdquUqDY3shegjt7PeZnasvmc=; b=VDhrcBNGGKbJckfnL4waDJE8Ia
-	W+kqkqVOyKt9KlI1r1uJWwKQEkOxzaTO2qmkCFnl8RaOuq3mPg7W8sm8NNVz95p0k5xNoJ4yEyHdQ
-	a3tj43MjQUAwKWxwG42ZuvEa9RN8Df7wQcpT+KEy3xd7HyirndvW+Ue/MfC1Y/Rv3ZqSwYW98YxVb
-	TcBDbPjfuCKbHKzo5HuS36Au/YFklzlzrR/wWBzIMetuRa88WWjSe7rPNmhRIM2ZBU/92EViK0zit
-	fglmLiM9mvuMOzKJXacT9LHKieXZj1iU8IpXn7VGSj2PX1QqOnNu8VcvJvUycsdkKtoGiCIFrDjfo
-	rm41rn1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WKyfqIey8BdSBpHRzlBKwl2jvnn1XIYjneHFkheyqzM=; b=flnJI2xYgq3z8zL5RTpsp4TSOS
+	cCv0Gdy3T50kdYjNi4E5I2QghJgFJtviw0qUPjj8NyjUOtJjq902xCCrvoPHwwZn2ZtgC7Ai97XP8
+	tv2mRiXbw3IjMn7yQ4SgW5rOkqbiGfQ/xlmlffOPfyS32VE6mvdXnTlD5dry0+nzlQ+6KBSrMSNNg
+	hVA+/r6N2505befHydeX+BQ/DWVyR5SUvxWiIUNse7GoMB7GyitMyGUxDqylKNm7l9kzcwuOb8wlz
+	05GjGUKHZ/bObtJQBQHkfnAtN+CXZyDagx+xH7MztPoFvAHqMa36kJPA5qCWQtLMoDlfyYtCirot6
+	fVx5CGoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH8PQ-00000000yPt-0IrG;
-	Fri, 29 Nov 2024 21:20:16 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tH9t8-000000014Ab-0ZMa;
+	Fri, 29 Nov 2024 22:55:02 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH8OQ-00000000yJc-3k7q
+	id 1tH9s9-0000000145s-0IZe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 21:19:16 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <l.stach@pengutronix.de>)
-	id 1tH8Nv-00058G-Qc; Fri, 29 Nov 2024 22:18:43 +0100
-Message-ID: <9ca967aea19d6c28327f3a9bb77e23f6245603e9.camel@pengutronix.de>
-Subject: Re: [PATCH v2 2/5] PCI: stm32: Add PCIe host support for STM32MP25
-From: Lucas Stach <l.stach@pengutronix.de>
-To: Bjorn Helgaas <helgaas@kernel.org>, Christian Bruel
-	 <christian.bruel@foss.st.com>, Rob Herring <robh+dt@kernel.org>
-Cc: lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, 
- robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org,
- conor+dt@kernel.org,  mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, p.zabel@pengutronix.de,  cassel@kernel.org,
- quic_schintav@quicinc.com, fabrice.gasnier@foss.st.com, 
- linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Date: Fri, 29 Nov 2024 22:18:40 +0100
-In-Reply-To: <20241129205822.GA2772018@bhelgaas>
-References: <20241129205822.GA2772018@bhelgaas>
+	Fri, 29 Nov 2024 22:54:02 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-53dd57589c8so3543009e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Nov 2024 14:54:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1732920839; x=1733525639; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WKyfqIey8BdSBpHRzlBKwl2jvnn1XIYjneHFkheyqzM=;
+        b=A1uCiklC4H6XPESflLGn3rlIpmBFUUMepuLP34LdeGEMLMGrX1ZiE/4GspME8mVo+u
+         shmIiATlDRhmSiR8sVF9NM1TPqWAwB8cuUtgRqjGAAkCPDcUuIo3SpjOP2MuMyYq8P/J
+         mllLyLzLfG4G44cev9X65M6wRB3E5a5fTVHyWpI80wo3n5RJRKyKoGVz5G4zSNDNNiya
+         EwCY8XpKX6zr9zgvnLxcaYTT+Vx20wuHlRn6GSuTLTFEf5FTj1MlhSE7vH1LaIMPN43S
+         le9dOdTb5rsdOqHSnuny1qimB/T0Ef0no4gwC0ZH7GXTYriCryRUdqGQZi+hf0ulErx1
+         CMCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732920839; x=1733525639;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WKyfqIey8BdSBpHRzlBKwl2jvnn1XIYjneHFkheyqzM=;
+        b=OkXI7JVPxzg+d2myFJPEXlphzX6Rzw39rlD4SIngMpkwN3F+BLBgqb1bDZWGsX4lfG
+         0Onuku4a2VyhwkDyXT/hV9ngaWEJGmtcCieIyPFZD5Lvi4RAwCdCFtfaBd/aaCTb1bkD
+         QULF/Cj+x6/cxqTOXj7EmgNEPuI8kmlYYyUIrOlWhErgDybaO4nkbpYBTCk05zxtcyng
+         RAXTUGl+SuHawQMQq1s5K45vvolGcngBhG5nvI2wSv5h3qxTlKqNZszE5dTYZFhTo453
+         C7Xm0gO3ypsZjrgGRKM33FWbkH3ZfWlNfrfGBTKZAcDcX4kfRxnNmqjbNwabGLzxj3Qo
+         qvRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCViiCSk7d6R9mQftiKmVENWYMpBHuKNN9GiIT5uyC3U+iuz0oGW34dYXPXfd2Ez5cw3QOU+/3btpYENnKdECVnM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUZZekwY++Yz79LBEzyMu2E5pyr8sAR+fgO9ypOHaVyPDBAPvw
+	G73jrk5TPaAsmuva3rR27Rn0rEwhUcvrEmpVrPhfwlVplJfG0p1g+3CuPgggqVqFLbSvxViRkd7
+	/29cjiLj1MuqxZegJLCuPN/ecJJJ+W6e3KGWWIw==
+X-Gm-Gg: ASbGncv722ouiNTOGMSoKhLXMJ422ACkUMGRi6Vq32xlqMW5ye6q9gYyZs5fm1CYGyT
+	mDMzt5A+DZE9GUeqrdBejbGH+MIFzmw==
+X-Google-Smtp-Source: AGHT+IGcVRupOMbTvZ7t+jprssuIrvHdEDt/2Twz85iMQXHN5G0PwHo8oCHXUut9lX73sLXrsQN4D4noECo1WJcQuBQ=
+X-Received: by 2002:ac2:5687:0:b0:53d:ed29:43ac with SMTP id
+ 2adb3069b0e04-53df5080beamr3485099e87.28.1732920838933; Fri, 29 Nov 2024
+ 14:53:58 -0800 (PST)
+MIME-Version: 1.0
+References: <20241127190605.1367157-1-festevam@gmail.com>
+In-Reply-To: <20241127190605.1367157-1-festevam@gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 29 Nov 2024 23:53:47 +0100
+Message-ID: <CACRpkdYAeM+=P0ymMUQhn3urV9HMWK7+4FkNDZevfvz_AbSF+Q@mail.gmail.com>
+Subject: Re: [PATCH v2] ARM: imx: Re-introduce the PINCTRL selection
+To: Fabio Estevam <festevam@gmail.com>
+Cc: shawnguo@kernel.org, linux@armlinux.org.uk, s.hauer@pengutronix.de, 
+	esben@geanix.com, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux@roeck-us.net, arnd@arndb.de, Fabio Estevam <festevam@denx.de>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
-MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: l.stach@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_131914_921509_A46B5554 
-X-CRM114-Status: GOOD (  21.97  )
+X-CRM114-CacheID: sfid-20241129_145401_126945_AFDE70B9 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,80 +93,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, dem 29.11.2024 um 14:58 -0600 schrieb Bjorn Helgaas:
-> [+to Rob, DMA mask question]
->=20
-> On Tue, Nov 26, 2024 at 04:51:16PM +0100, Christian Bruel wrote:
-> > Add driver for the STM32MP25 SoC PCIe Gen2 controller based on the
-> > DesignWare PCIe core.
->=20
-> Can you include the numeric rate, not just "gen2", so we don't have to
-> search for it?
->=20
-> > +static int stm32_pcie_resume_noirq(struct device *dev)
-> > +{
-> > +	struct stm32_pcie *stm32_pcie =3D dev_get_drvdata(dev);
-> > +	struct dw_pcie *pci =3D stm32_pcie->pci;
-> > +	struct dw_pcie_rp *pp =3D &pci->pp;
-> > +	int ret;
-> > +
-> > +	/* init_state must be called first to force clk_req# gpio when no
-> > +	 * device is plugged.
-> > +	 */
->=20
-> Use drivers/pci/ conventional comment style:
->=20
->   /*
->    * text ...
->    */
->=20
-> > +static bool is_stm32_pcie_driver(struct device *dev)
-> > +{
-> > +	/* PCI bridge */
-> > +	dev =3D get_device(dev);
-> > +
-> > +	/* Platform driver */
-> > +	dev =3D get_device(dev->parent);
-> > +
-> > +	return (dev->driver =3D=3D &stm32_pcie_driver.driver);
-> > +}
-> > +
-> > +/*
-> > + * DMA masters can only access the first 4GB of memory space,
-> > + * so we setup the bus DMA limit accordingly.
-> > + */
-> > +static int stm32_dma_limit(struct pci_dev *pdev, void *data)
-> > +{
-> > +	dev_dbg(&pdev->dev, "disabling DMA DAC for device");
-> > +
-> > +	pdev->dev.bus_dma_limit =3D DMA_BIT_MASK(32);
->=20
-> I don't think this is the right way to do this.  Surely there's a way
-> to describe the DMA capability of the bridge once instead of iterating
-> over all the downstream devices?  This quirk can't work for hot-added
-> devices anyway.
->=20
-This should simply be a dma-ranges property in the PCIe host controller
-DT node, which should describe the DMA address range limits for
-transactions passing through the host.
+On Wed, Nov 27, 2024 at 8:06=E2=80=AFPM Fabio Estevam <festevam@gmail.com> =
+wrote:
 
-Regards,
-Lucas
+> From: Fabio Estevam <festevam@denx.de>
+>
+> Since commit 17d210018914 ("ARM: imx: Allow user to disable pinctrl"),
+> the CONFIG_PINCTRL option is no longer implicitly selected, causing
+> several i.MX SoC pinctrl drivers no longer getting selected by default.
+>
+> This causes boot regressions on the ARMv4, ARMv5, ARMv6 and ARMv7
+> i.MX SoCs.
+>
+> Fix it by selecting CONFIG_PINCTRL as before.
+>
+> This defeats the purpose of 7d210018914 ("ARM: imx: Allow user to disable
+> pinctrl"), but it is the less invasive fix for the boot regressions.
+>
+> The attempt to build Layerscape without pinctrl can still be explored
+> later as suggested by Arnd:
+>
+> "Overall, my best advice here is still to not change the way
+> i.MX pinctrl works at all, but just fix Layerscape to not depend
+> on i.MX. The reason for the 'select' here is clearly that the
+> i.MX machines would fail to boot without pinctrl, and changing
+> that because of Layerscape seems backwards."
+>
+> Fixes: 17d210018914 ("ARM: imx: Allow user to disable pinctrl")
+> Reported-by: Guenter Roeck <linux@roeck-us.net>
+> Closes: https://lore.kernel.org/linux-arm-kernel/49ff070a-ce67-42d7-84ec-=
+8b54fd7e9742@roeck-us.net/
+> Signed-off-by: Fabio Estevam <festevam@denx.de>
 
-> > +	return 0;
-> > +}
-> > +
-> > +static void quirk_stm32_dma_mask(struct pci_dev *pci)
-> > +{
-> > +	struct pci_dev *root_port;
-> > +
-> > +	root_port =3D pcie_find_root_port(pci);
-> > +
-> > +	if (root_port && is_stm32_pcie_driver(root_port->dev.parent))
-> > +		pci_walk_bus(pci->bus, stm32_dma_limit, NULL);
-> > +}
-> > +DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_SYNOPSYS, 0x0550, quirk_stm32_dm=
-a_mask);
->=20
+Patch applied for fixes!
 
+Yours,
+Linus Walleij
 
