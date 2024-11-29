@@ -4,66 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E906AD72A18
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 20:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20597D72A14
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 21:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=oOl+grshixk4RnR6bSGIJ6tAX1LjTsd8KQ8J/FG9Ut8=; b=zRZz13pqRWsNCB
-	lhPjkZsPOnew9eWGNG9wQsSk5DqzMya8+PZL9MmmRm/Xi50ZlCPmtP75F0QoCHhb36C0UEMoMLLnb
-	CIrfdVCYLlCymmC8L8mT5Tj8JyltEmG/6ZJPs+1jnzF3JdaKCRn0+il0tOQBHFsv5hQ3Fn5bl2rfu
-	/21I7NHDk6fVZmbmx8Y/BAaOIi0tBhWfHmfMlKl89fQ/MA25JKXBNacOOjepSU4u2K5S81lj/Mt13
-	TfRImr5BbO+McJSghW+DjEqheNj7+djBChYzoE5frVjMBR3ZISJObYfSDTeepyVqFV592mfWZrDRV
-	cW0m2L03GUf/NSoXlFbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gWcTt0QyywJEnmelUX56TGxhJ57XJn7m3eW+giuWIfY=; b=SgwwSVTAhUwFyN2ITlrML6lRZ1
+	Ntza19FlcxDGfICeg0WQuyQNEmmsPCTjfec7aFXl1YKVG7K6BVASvqrZQvcQKDw33hX3yoYmX5uR7
+	srEIY8mU0VTHNZyMeUeD+CmyR/ilf1KeFPLIeEUrp0hY0TWETNMPQVaIESebf5B8DTk/ghDruaJKK
+	ftyQ5JdA15AHeW89Dpb57rtp0N2Fh9j49UWjZzz0CnuowvCUmR8Bqx1H0WToX7W2leX27MuAsImLq
+	oI9rjfyxMkHsx5OekZAomF8sNFVOHZULU10UvUzYIiRQDYAV5KKv0D+HtpQL4q2U7zMymHD0lWNt4
+	P30Ygg1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH85I-00000000x2N-1NWa;
-	Fri, 29 Nov 2024 20:59:28 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tH8CB-00000000xV1-1jcI;
+	Fri, 29 Nov 2024 21:06:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH84I-00000000wwl-1VXl
+	id 1tH8BB-00000000xPw-28JC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 20:58:27 +0000
+	Fri, 29 Nov 2024 21:05:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9F35AA412FE;
-	Fri, 29 Nov 2024 20:56:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B75BDC4CECF;
-	Fri, 29 Nov 2024 20:58:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732913905;
-	bh=zZKblG1oW6ilUbzaYkY0HepGVylQVjpGP80Xxjdr6Pk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=KQiVBSEXjNg3lOwoGvXRCuJjrm7xatbZwYoYfv8aYFd2HC0x5IJwKuqgoADK5cx9K
-	 +KX+jmQbgvhKJQM5fpzL2YlJNdEYoFU52WttObfeKoS51O5ro2RHnsjH0sbHk9v4jY
-	 mZ01idn5tzWZJrtgbtOuJnR9QciqUf3vbKpMkiMsrzTUEVedYbbKlXa+qwBpRIpc7o
-	 j+JCVS5cVlgBCevSGvuoEVGWDx9TIVWsyegp2YjjAfCfT4NCKKbPs/KphT0mSysSZW
-	 8jgaVREpqN7BRnHS8uFMKh7fbOU8g8VMxSepgeHdPF4OoFOGbZAZqPDYvxd+5nR92a
-	 F2eJxFgKs3hvQ==
-Date: Fri, 29 Nov 2024 14:58:22 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Christian Bruel <christian.bruel@foss.st.com>,
-	Rob Herring <robh+dt@kernel.org>
-Cc: lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
-	robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org,
-	conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, p.zabel@pengutronix.de,
-	cassel@kernel.org, quic_schintav@quicinc.com,
-	fabrice.gasnier@foss.st.com, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/5] PCI: stm32: Add PCIe host support for STM32MP25
-Message-ID: <20241129205822.GA2772018@bhelgaas>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0D1075C5CAD;
+	Fri, 29 Nov 2024 21:04:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15A28C4CECF;
+	Fri, 29 Nov 2024 21:05:30 +0000 (UTC)
+Date: Fri, 29 Nov 2024 21:05:28 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] arm64 fixes for 6.13-rc1
+Message-ID: <Z0osmEaBnjdHS3Q0@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241126155119.1574564-3-christian.bruel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_125826_460662_04F168DA 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20241129_130533_589678_027B55D4 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,69 +59,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+to Rob, DMA mask question]
+Hi Linus,
 
-On Tue, Nov 26, 2024 at 04:51:16PM +0100, Christian Bruel wrote:
-> Add driver for the STM32MP25 SoC PCIe Gen2 controller based on the
-> DesignWare PCIe core.
+Please pull the three fixes below that turned up during the merging
+window. They are on top of the arm64-upstream tag I sent last week.
+There will be at least a couple more next week but I'm waiting for -rc1
+because of some dependencies. Thanks.
 
-Can you include the numeric rate, not just "gen2", so we don't have to
-search for it?
+The following changes since commit 83ef4a378e563d085ddd7214c2a393116b5f3435:
 
-> +static int stm32_pcie_resume_noirq(struct device *dev)
-> +{
-> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
-> +	struct dw_pcie *pci = stm32_pcie->pci;
-> +	struct dw_pcie_rp *pp = &pci->pp;
-> +	int ret;
-> +
-> +	/* init_state must be called first to force clk_req# gpio when no
-> +	 * device is plugged.
-> +	 */
+  Merge branch 'for-next/pkey-signal' into for-next/core (2024-11-14 12:07:30 +0000)
 
-Use drivers/pci/ conventional comment style:
+are available in the Git repository at:
 
-  /*
-   * text ...
-   */
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
 
-> +static bool is_stm32_pcie_driver(struct device *dev)
-> +{
-> +	/* PCI bridge */
-> +	dev = get_device(dev);
-> +
-> +	/* Platform driver */
-> +	dev = get_device(dev->parent);
-> +
-> +	return (dev->driver == &stm32_pcie_driver.driver);
-> +}
-> +
-> +/*
-> + * DMA masters can only access the first 4GB of memory space,
-> + * so we setup the bus DMA limit accordingly.
-> + */
-> +static int stm32_dma_limit(struct pci_dev *pdev, void *data)
-> +{
-> +	dev_dbg(&pdev->dev, "disabling DMA DAC for device");
-> +
-> +	pdev->dev.bus_dma_limit = DMA_BIT_MASK(32);
+for you to fetch changes up to dfdf714fed559c09021df1d2a4bb64c0ad5f53bc:
 
-I don't think this is the right way to do this.  Surely there's a way
-to describe the DMA capability of the bridge once instead of iterating
-over all the downstream devices?  This quirk can't work for hot-added
-devices anyway.
+  perf/arm-cmn: Ensure port and device id bits are set properly (2024-11-25 18:53:05 +0000)
 
-> +	return 0;
-> +}
-> +
-> +static void quirk_stm32_dma_mask(struct pci_dev *pci)
-> +{
-> +	struct pci_dev *root_port;
-> +
-> +	root_port = pcie_find_root_port(pci);
-> +
-> +	if (root_port && is_stm32_pcie_driver(root_port->dev.parent))
-> +		pci_walk_bus(pci->bus, stm32_dma_limit, NULL);
-> +}
-> +DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_SYNOPSYS, 0x0550, quirk_stm32_dma_mask);
+----------------------------------------------------------------
+arm64 fixes for 6.13-rc1:
+
+- Deselect ARCH_CORRECT_STACKTRACE_ON_KRETPROBE so that tests depending
+  on it don't run (and fail) on arm64
+
+- Fix lockdep assert in the Arm SMMUv3 PMU driver
+
+- Fix the port and device ID bits setting in the Arm CMN perf driver
+
+----------------------------------------------------------------
+Chun-Tse Shao (1):
+      perf/arm-smmuv3: Fix lockdep assert in ->event_init()
+
+Mark Rutland (1):
+      arm64: disable ARCH_CORRECT_STACKTRACE_ON_KRETPROBE tests
+
+Namhyung Kim (1):
+      perf/arm-cmn: Ensure port and device id bits are set properly
+
+ arch/arm64/Kconfig            |  1 -
+ drivers/perf/arm-cmn.c        |  4 ++--
+ drivers/perf/arm_smmuv3_pmu.c | 19 +++++++++++--------
+ 3 files changed, 13 insertions(+), 11 deletions(-)
+
+-- 
+Catalin
 
