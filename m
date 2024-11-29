@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F93D6EBEE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 09:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F19AD6EBEE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 09:12:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=85Dz/V9UNKV76gRXI1CKiKH4NgkQ/KQtgXeRQo92xPc=; b=stu9RyIGtI/b11
-	aWOKIIgQ685EXzGmZDg2ea7+n+pAbHwPO4iruC3G+YOF/Tl9opr7+uhkkPMtuTj1h45uSWdyxwKFL
-	G95F86Z3KxIlL7gSw/hzyP7egBue58PSVrMV6CGvaMol7o6dyvhV9gR5Q97EJRVEfASIYWg2L8bA2
-	NOt/8zj3X1PX4X4raoJLQPN8AsJO/DiNPlt+x+JLl11g2SInZ6EbdlYxWgMPRgF3UGgcRoeFdDYFA
-	U1XyFLzqD7lxpWD1zmk0Swy7f+ye+IjPQPRxN8ARdbT9honCzrOLO15h7EoyyiTpvQ2vfJsA/GC00
-	hId6JHIo2H9cBSB6TY1Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RwPuXDf5OOwhnI0ZOOII5GNLjUS47fPFuHS4/Stj1TM=; b=UBJtPkO1mAtGescLd15PyPQtFz
+	+iYNdyzdh0X6GF4id43dkj4k51VtDNBaFlfIrYPKE4kp9qTl16b4GpMU8FqKH76FPpJ8K+xdBxXv/
+	ge5wSbOWgpBZWHEqkfuPF1UUQ1LFa8D5uODl+hrnJNX2C4l6QQBJm8qq0fLXExBq25/JUVS3LoR2/
+	Ri0B39X47f68A6gzv2NWES4nuCls/DE6hpldkl4G4GPPxVh4SAJS2mQwdi9WX6+crwBj7qsQGxSc9
+	LcSkOvQlcE6qidfEV2BNkMmjFXAtdLb7sIDKA7l0cHd+9JG/6QqPCrwAUe4RDTa14eF/ccH5K7M8H
+	1/tNdikg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGx1r-0000000HI7e-2sli;
-	Fri, 29 Nov 2024 09:11:11 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1tGx2o-0000000HIH5-1Imn;
+	Fri, 29 Nov 2024 09:12:10 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGx0r-0000000HHsi-3lQ3
+	id 1tGx0s-0000000HHsp-2jwd
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 29 Nov 2024 09:10:11 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-aa560a65fd6so292445966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Nov 2024 01:10:08 -0800 (PST)
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5cfa1ec3b94so1790849a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Nov 2024 01:10:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732871407; x=1733476207; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=85Dz/V9UNKV76gRXI1CKiKH4NgkQ/KQtgXeRQo92xPc=;
-        b=mDs7rPW+NfhzzXUBAGk4vfY0dTOJZtR9Z+OSA+iV1u9n5MBv/nCt4Dxg2QuWF1Qlmn
-         u/dCTng5z62LDuDpXySjteUpI+9fbE5zRJbT7QS58sJq9bm1rhyZBblu5eJQi/gh4/Y9
-         1xrNBq8Ntu4miEvqdyRfDRiQqf89tyJnZpk751jrLeaGzyCdLTDdbMIX0TFmcitaYgvm
-         xtfpVvxERrYbA697v25WgLvjyEajHOKMH1lXHmazXY+2z3aq75yIRtlJYCnk/5ghDGCo
-         kk1lr9f6eeECVEbcSL44+k8wR9gmE+jmcZuf2wniZDQxPoRgvRaykWpc8lQuhEOc6vz5
-         aSVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732871407; x=1733476207;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1732871409; x=1733476209; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=85Dz/V9UNKV76gRXI1CKiKH4NgkQ/KQtgXeRQo92xPc=;
-        b=vDjLcDk77hFwG8KDZ2Y0ABZh3rWSjFo7GDeW44PbiTpqAEFx7y5Mwqz914zQCxacJg
-         VX0bnvnF7VSeZuLexIPv+gJ09U582RbDx61rodtQU1KbLlrLa+xJZsFkVGW/Xiaho6hh
-         uVMVIf3/pelRfPjb2+HyDc3tRjjyTeOw1q6WkPjR0Dx13Ijo6sel710KQXWpO7y5rKrQ
-         qJ6ZxF3kvgJadjkgkTXZIeufUfPfI7mqVEbLbwxqdkkYGgJxAwRY8kVmdp6D4tM8yabe
-         T83010i++fDz2oLeG2tf53Fm24fcV/hvP5lnL5gxmi3fw+0pORN+egxXMixrlwbVfBRY
-         9Xtw==
-X-Forwarded-Encrypted: i=1; AJvYcCXNavCIjRjBYomI2E5hW+1aF5Q0nI89TS8+VvR4BWBXUwxqEtm+2VN62M99bT2dpgufQkb+6QUfLnS7hEQ1OqZT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqRgSHk0ZfDv3P05cw5UgZRR1+JAFyqqcOzBR6D7sDC5jWGisx
-	Z+0ww4XzS0zA+rnpX2x9LFPpIG9yVayvq/wd6InCdhpMSGDFjZvR
-X-Gm-Gg: ASbGncvnjas/8Puz81HzjGXTti4K9K1WQ6PphFATmR+01SujqO50uweNNUklr7/kIif
-	RL9/6UDwTNGsgBWP0AlHiBpgEM0F6tNKgqsQ2l8TgfOkN0V9FKVtwmXCXGeWLJZYZ73MpG5CN+P
-	VFBQRm99t6Vv0fUGsZoUx/izqoZwWwfgSDCkmnA/ldxjnIJHyQodkZE/xwHoOyNuhetA2ouD3fQ
-	Cg89+aUbk4cXUtdJi1WuAixv1Cg/JfptzU492yv6LeyFA6M
-X-Google-Smtp-Source: AGHT+IHIfo/Ci32R+3fuYfGuVl7F/1TNk43TxxJOhgBJQfOEEtpCwcdgMeOiUXDwjeg7ubOfHuymCg==
-X-Received: by 2002:a17:907:784a:b0:aa5:3b1c:77ab with SMTP id a640c23a62f3a-aa594506715mr768627966b.3.1732871407175;
-        Fri, 29 Nov 2024 01:10:07 -0800 (PST)
+        bh=RwPuXDf5OOwhnI0ZOOII5GNLjUS47fPFuHS4/Stj1TM=;
+        b=aSHMV7q6xM9vh1szX+uJCLs7a/9wjOHHwP4FGZLQMSaHtgo3QNWNHdJCHNLlKyLJa6
+         XM1AMB/SKzQjk/dHT27wfQOnkmM5GVoeyutIPYp9qsMUGf5nPCmADC+8HEeXbd9u5hmy
+         WHDFMrdxSB4NJtaR/4TScSWnQhd9FpkfpVNT7XCnAK+SAKIG08hvI4kRWt7rtJ6IdOUy
+         58G5MX1+B1l8c/5rGKiR3M0eJoZc9X34Jvdm6jDfAJmoNP5Bm6vuwvYh1Q94DJr5kr+g
+         wZPPevS9gZdz8bV6QGhq2jhxPxZW+ZQ+ym9YWSi6iZ8HWSKb/7lAf/5EcBKIrOovyggX
+         lxHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732871409; x=1733476209;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RwPuXDf5OOwhnI0ZOOII5GNLjUS47fPFuHS4/Stj1TM=;
+        b=NPQ0VFqG9aUn6K4rZSftqdGXN3DKGLF1P47RRBKwsqq+2NZI5S7BePOc1NMps/Aot1
+         pYZECEkf7NX8kLrlW/UPeD9P/uqjfF5yay75rYP9UyLEifyY8+mQTNLDLHhZpYKytjp7
+         w3AOCaPVZHns1MO35uGXbREpp2Bpn/7sY9jXQx4ybyWVWlWklLK7tfV2nbDo4g8Fu1F2
+         DJ4pcga5dquPCxmpS0QnGlpgkaiT6ThiDEvLLbLJHCNCmSZF8svSBYBLKi+pkab3uw0t
+         g2zwWaUufqSwztbcQ3pN/qnPfLA5+yY2DeyCGfetm6Pny7mSjATp8kOd/TfqY+pDhxxu
+         iEpA==
+X-Forwarded-Encrypted: i=1; AJvYcCUetsZGfROonm5cHrJ+n1yOzRHLP2iS1QLeSG1JxCXXLwZJ/p+I36xOn1VtZHXXqXtBWJadyguwKTR1ZP29yHCQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4vCNtk0KFTLJ1omk/HZzpVjVEy8LEvVhffcGWb2gYWfbMWkGz
+	jVHg2JOXeRgjQ4g9POTrTRx8ukVAY8WKewS6pIVLnHUvVJtlDa4G
+X-Gm-Gg: ASbGncua7TiQl/MLSyWNDDBRE8Rii4xawtR8b+dyhMW4Zc2ieyFd/3/SI9tojB+yYjn
+	OyYh0UC+Kdn/xEfCWunOi0YCROuMFazOu+wxd9l146GiJYOzhLx8K//z+6cjQq26Sg9SQUjnn1I
+	gtV84/bmkfRHFtSKObK3aBmDxRGdmiJ3pR5FbmuBfW3qodZEby7WLGgXSN/Dk9LR3SGnRZjlXNt
+	17zg1rA7ApElGHWNTY+ewI7FyHagVDMUec6V4D5UMwH3+vW
+X-Google-Smtp-Source: AGHT+IGaSoNpYyEkF4MY0uin/iFl40YkpVFgMNLIjAQotNHq5x5X5IuG35tfQL+bge3PzeB+YGebeQ==
+X-Received: by 2002:a17:906:23ea:b0:aa5:451c:ce26 with SMTP id a640c23a62f3a-aa581074c05mr802310266b.51.1732871408811;
+        Fri, 29 Nov 2024 01:10:08 -0800 (PST)
 Received: from [127.0.1.1] ([46.53.242.72])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-aa5999032c1sm152775766b.133.2024.11.29.01.10.05
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-aa5999032c1sm152775766b.133.2024.11.29.01.10.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Nov 2024 01:10:06 -0800 (PST)
+        Fri, 29 Nov 2024 01:10:08 -0800 (PST)
 From: Dzmitry Sankouski <dsankouski@gmail.com>
-Subject: [PATCH v4 0/2] power: supply: max17042: cleanup and more features
-Date: Fri, 29 Nov 2024 12:09:52 +0300
-Message-Id: <20241108-b4-max17042-v4-0-87c6d99b3d3d@gmail.com>
+Date: Fri, 29 Nov 2024 12:09:53 +0300
+Subject: [PATCH v4 1/2] power: supply: max17042: make interrupt shared
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOCESWcC/12OQQqDMBBFryJZNyWJ0WhXvUfpYhInGqhakhIs4
- t0bhYK6fAPv/ZlJQO8wkFs2E4/RBTcOCeQlI6aDoUXqmsREMCE5ZxXVkvYwccWkoHXOSmtUARa
- QJOPt0bppqz2eiTsXPqP/bvHI1+u/Ux86kVNGaxSaKSwkqvLe9uBeVzP2ZO1EsXePP0SRXMuKy
- irgpQZ9dvOdy09uvu5qA9iAFMAOu8uy/ADAGWJLHgEAAA==
+Message-Id: <20241108-b4-max17042-v4-1-87c6d99b3d3d@gmail.com>
+References: <20241108-b4-max17042-v4-0-87c6d99b3d3d@gmail.com>
+In-Reply-To: <20241108-b4-max17042-v4-0-87c6d99b3d3d@gmail.com>
 To: Hans de Goede <hdegoede@redhat.com>, 
  Krzysztof Kozlowski <krzk@kernel.org>, 
  Marek Szyprowski <m.szyprowski@samsung.com>, 
@@ -93,16 +92,16 @@ Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-msm@vger.kernel.org, Dzmitry Sankouski <dsankouski@gmail.com>
 X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732871405; l=1934;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1732871405; l=1055;
  i=dsankouski@gmail.com; s=20240619; h=from:subject:message-id;
- bh=aE7dRaUlw9RRqWAw95Nml53/6tAi/ph07reiaRvoGMg=;
- b=MpsLaQHP6PEqDLQx/1zd9njOiFfLHMjNFpFZoSzPujsZA6u9/YSZmQu8s1Qx/jeSkLw4JnU0u
- uI2twrAR4BSA453tyWNnPAMVvjMXqXe1oF/lCxFpdv1/SaCd5AOVv53
+ bh=/EeD7LqHcTZ3/1Ng4iRA0q/Q9oTbn7vVY0BQy1PKauQ=;
+ b=EvyHOgNK4AahgKG5DWBHSPPcVTYoTJaiheiGNKsbrhG7AOhn0QFFuOhoAyU4v55mKxKIL2oN9
+ y0QTQM7oOgEAjn27raPOcOvSbj+ijsZ35rDRl/DiAFJeZ6tqZoApkdx
 X-Developer-Key: i=dsankouski@gmail.com; a=ed25519;
  pk=YJcXFcN1EWrzBYuiE2yi5Mn6WLn6L1H71J+f7X8fMag=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_011009_981447_7A61D589 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20241129_011010_695899_F3663D25 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,55 +117,36 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Fuelgauge blocks often are incorporated in bigger chip,
-which may use only 1 line for interrupts. Shared-irq
-handles that case by requesting irq as shared.
-
-Maxim PMICs may include fuel gauge with additional features, which is
-out of single Linux power supply driver scope.
-
-For example, in max77705 PMIC fuelgauge has additional registers,
-like IIN_REG, VSYS_REG, ISYS_REG. Those needed to measure PMIC input
-current, system voltage and current respectively. Those measurements
-cannot be bound to any of fuelgauge properties.
-
-The solution here add and option to use max17042 driver as a MFD
-sub device, thus allowing any additional functionality be implemented as
-another sub device. This will help to reduce code duplication in MFD
-fuel gauge drivers.
-
-Make max17042 interrupt shared, and add platform driver
-version.
+which may use only 1 line for interrupts. Make interrupt
+shared.
 
 Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
 ---
-Changes in v4:
-- review fixes.
-- Link to v3: https://lore.kernel.org/r/20241118-b4-max17042-v3-0-9bcaeda42a06@gmail.com
+ drivers/power/supply/max17042_battery.c | 9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
 
-Changes in v3:
-- pass dev pointer to probe
-- Link to v2: https://lore.kernel.org/r/20241108-b4-max17042-v2-0-f058f7a16bab@gmail.com
+diff --git a/drivers/power/supply/max17042_battery.c b/drivers/power/supply/max17042_battery.c
+index 496c3e1f2ee6..99bf6915aa23 100644
+--- a/drivers/power/supply/max17042_battery.c
++++ b/drivers/power/supply/max17042_battery.c
+@@ -1103,14 +1103,7 @@ static int max17042_probe(struct i2c_client *client)
+ 	}
+ 
+ 	if (client->irq) {
+-		unsigned int flags = IRQF_ONESHOT;
+-
+-		/*
+-		 * On ACPI systems the IRQ may be handled by ACPI-event code,
+-		 * so we need to share (if the ACPI code is willing to share).
+-		 */
+-		if (acpi_id)
+-			flags |= IRQF_SHARED | IRQF_PROBE_SHARED;
++		unsigned int flags = IRQF_ONESHOT | IRQF_SHARED | IRQF_PROBE_SHARED;
+ 
+ 		ret = devm_request_threaded_irq(&client->dev, client->irq,
+ 						NULL,
 
-Changes in v2:
-- drop NACKed commits
-- make shared interrupts unconditionally
-- rework descriptions
-- add platform driver version
-- Link to v1: https://lore.kernel.org/r/20241109-b4-max17042-v1-0-9e2b07e54e76@gmail.com
-
----
-Dzmitry Sankouski (2):
-      power: supply: max17042: make interrupt shared
-      power: supply: max17042: add platform driver variant
-
- drivers/power/supply/max17042_battery.c | 125 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--------------------------------
- 1 file changed, 93 insertions(+), 32 deletions(-)
----
-base-commit: f486c8aa16b8172f63bddc70116a0c897a7f3f02
-change-id: 20241108-b4-max17042-9306fc75afae
-
-Best regards,
 -- 
-Dzmitry Sankouski <dsankouski@gmail.com>
+2.39.5
 
 
