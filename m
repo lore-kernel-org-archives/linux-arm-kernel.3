@@ -4,129 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF04D6EBED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 08:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91303D6EBEC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 08:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UkrIkZIR81K+8lZR1jV0EYOCaPxA1tf+i52k5/yQXYE=; b=gbD/b4DG1mNLYiwjmGKGuhwx9H
-	ufxqLSukuCeoERO4WtkB1jouIpOjgzpRt1sLFOxWVax+bq0kSqQ/Pf1G9fzLQenOvM+TgL3SRk29r
-	J36TQAuqBXiBNmZzbodfxQSX2tm8xG3ot7c5rO07KP/4xtlfYiyWw6KNo2LX1outBMa98JViqKFVd
-	YDWSbmD44TLTdQObw9h37Qe/qZiYdG/16eb9QCX1/9CqJ9iRj2G36DEXig1fho7u64mqpaAzALA6q
-	t40jJQcnZ0aBjsoJ/IvUO6uIFDrkufEb9BOD/maSG/mmf4GJNRpLIZEpUMbMmevJHWFFeIcSnfG8w
-	9dhy8viQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uXaTNcizPFtrjfJCKxSTpBXDXP7TU5grf9fdjWdXyTQ=; b=yTeg3JRNu4SbMdnmwkyl7TWAlJ
+	8jw0kzEs/iDMIHUkD/LB8HD4Dsr9BxVqrzqjPHNuAelA3yO2zBIfUfFjuVGVDnyeO6zTxowcCpjrk
+	k8qE+SIoG+dudfYsoL21riFFPn5As4+2uweKfnqwk+h610yaMQsSxR17X9ZLu6mTsEe5bFcxgaMPF
+	POOQlmqO66izESVGdhM1tUkLFvYC5zmhtBVmtU86lprOjIrTMnfPCnEvWzVvX2ZXdQCOZ8LkZUcha
+	fCkA9fuQg9J6FhWkGiaW0VixMTk125vyuKbMfcqCHcEuyfOUI3JRP1etpIw1bMSCeQSq6kDFxnN4M
+	xklB8XJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGwLZ-0000000HBqs-4Aq1;
-	Fri, 29 Nov 2024 08:27:29 +0000
-Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
+	id 1tGwXl-0000000HDDT-1IEJ;
+	Fri, 29 Nov 2024 08:40:05 +0000
+Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGwJn-0000000HBXK-1izj
+	id 1tGwWm-0000000HD7W-3K9u
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 08:25:41 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 207332540185;
-	Fri, 29 Nov 2024 03:25:37 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Fri, 29 Nov 2024 03:25:38 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1732868736;
-	 x=1732955136; bh=UkrIkZIR81K+8lZR1jV0EYOCaPxA1tf+i52k5/yQXYE=; b=
-	KOJA5EBNlyb8AYL5jSXpuBelBvb73YiE90Wu9UpAMctnOf83Wr1OAy1Ren4m/BV+
-	NvXNTcvq4i1mSgTiixSfE1eI5cupRXteGM85a+ULO8rMY2UtiInKXnYmXb2kAGHG
-	9H9SKLcsNSeqcfEnhqCPb4ypxAkhk8CPxd2UIN1mAdcQUSjofBfVmgSQZuEMOto5
-	+hQIMXRwoV09NYF0hRiqDZQBz8eWRqUIOcpdhaWAZf7LOEeHG9hdxLyaCyKnNh6h
-	KNlC4CVkTgsbPI0tkBo7FtLSXZJi1qFfY3W4ssHMR5WySwW5jzWTnGwtrkUeo+6Y
-	3GQ2cXRER5DyBj7XC3yDhQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1732868736; x=
-	1732955136; bh=UkrIkZIR81K+8lZR1jV0EYOCaPxA1tf+i52k5/yQXYE=; b=K
-	vA6CDJrEiE6pUy3ii7u2JCcRFNVL0TYiIQJsQ7U2DC48SjUIbUlyVWO7bINl3yK3
-	S5kRjCvtDyNJi9Xb402bdO2lQSraWPiOF6mmFzAJdzigD+/UgOah81r6XbL3K2O6
-	MbPhMzXYuIJ0nbZeZERSj8c0+ooB2KdpwxJ1aCEJ/pcRdqgTkKUeE7IvyLLYGTJi
-	Tb70HuKLscGgw200rYY7vsWMlJLfB01LoKSe9un7dLiFD7fFTCR2uSSex6DOP537
-	7i0rLd1+xsh9i0pW1o8Oso2MN7gDN3xSj7UHUKOfIfz9jKS6O5GblcYivoITDRox
-	b3u9Pg7mGZ3bu3HskIkQw==
-X-ME-Sender: <xms:gHpJZ6w2fGfxXS9vV9zMcGq697f78hkVipzcWNWFgb5THIiGOoauCw>
-    <xme:gHpJZ2Trh3-Hm_QKXfhvaQSIZuZSqFZDutp_lV3EUN7YmRRYGI3bkufTEfR0wZwUW
-    -QgDdRvd-UVyL1E1vs>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrhedvgdduudeiucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
-    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
-    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
-    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepfeef
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopeguvghrvghkrdhkihgvrhhnrghnse
-    grmhgurdgtohhmpdhrtghpthhtohepughrrghgrghnrdgtvhgvthhitgesrghmugdrtgho
-    mhdprhgtphhtthhopehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdprh
-    gtphhtthhopehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhrtghp
-    thhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtg
-    hpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgu
-    hidrshhhvghvtghhvghnkhhosehgmhgrihhlrdgtohhmpdhrtghpthhtohepsghhvghlgh
-    grrghssehgohhoghhlvgdrtghomhdprhgtphhtthhopegvughumhgriigvthesghhoohhg
-    lhgvrdgtohhm
-X-ME-Proxy: <xmx:gHpJZ8Vp6xl2hBMEgs2JSWypxmN9xxYmWwNzFSblFLDZFN8EUfh2dQ>
-    <xmx:gHpJZwhzwiakrGGJbbDZG8Imk_TNKMahRje9dVx4IHugJXrAOPy2JA>
-    <xmx:gHpJZ8Dux2uk2NHsdgnCz72FSpxTT8sKEDntUWZQhKhF583xg70uoQ>
-    <xmx:gHpJZxLEh56i6QWMewaXnEKyWFaDZW1L95TcX5p_WawB0jy13PKZdw>
-    <xmx:gHpJZ0bFHq3GtzEGICp5Hv6ON-0xSNRqOAEy56UGsSJCvhRVmkh2DDD8>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 09DC32220071; Fri, 29 Nov 2024 03:25:35 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 29 Nov 2024 08:39:06 +0000
+Received: from pps.filterd (m0431383.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AT0elD7006143;
+	Fri, 29 Nov 2024 00:38:51 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pfpt0220; bh=uXaTNcizPFtrjfJCKxSTpBX
+	DXP7TU5grf9fdjWdXyTQ=; b=akR4EM/hAjhYqghMPgwENZjraaFNJIXHN/cG0dU
+	oKfvZa4BdkM9UKLXMSeKIf1JuQ0yZllX/2PHxEOJSlTAMEXMp3eCcF3F0LFoe1C3
+	JisSEQTPYvuyQBFBNIVXa6Wbh1lQ8mRfr/j8f5FlZH6B8y3v2h3fu/H8VhRUsZSo
+	HDJpswaDP2OVzo+1VulkKAlylMNJdih3XuWJWJbl0mZCGp457iV208qLWjQn1Lg6
+	1DPr5+zhUhrDgmWMuXO6XEp+ZVyXo9cX0e8afGLNJ2MY4yIQHAowo2KNb02DQN58
+	CGYCiFynz/pXtKOSQhNByI7dJN9Zg5Wcmv3qNCVm/P1ck/Q==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4373908pem-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 Nov 2024 00:38:50 -0800 (PST)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Fri, 29 Nov 2024 00:38:49 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Fri, 29 Nov 2024 00:38:49 -0800
+Received: from virtx40.. (unknown [10.28.34.196])
+	by maili.marvell.com (Postfix) with ESMTP id 550025C68E3;
+	Fri, 29 Nov 2024 00:38:46 -0800 (PST)
+From: Linu Cherian <lcherian@marvell.com>
+To: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>, <james.clark@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <coresight@lists.linaro.org>,
+        <linux-kernel@vger.kernel.org>, <shuah@kernel.org>,
+        <linux-kselftest@vger.kernel.org>, <sgoutham@marvell.com>,
+        <gcherian@marvell.com>, Linu Cherian <lcherian@marvell.com>
+Subject: [PATCH] selftests: arm coresight: sysfsmode testing
+Date: Fri, 29 Nov 2024 14:08:13 +0530
+Message-ID: <20241129083813.3056909-1-lcherian@marvell.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Date: Fri, 29 Nov 2024 09:25:15 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Herve Codina" <herve.codina@bootlin.com>,
- "Michal Kubecek" <mkubecek@suse.cz>
-Cc: "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Andy Shevchenko" <andy.shevchenko@gmail.com>,
- "Simon Horman" <horms@kernel.org>, "Lee Jones" <lee@kernel.org>,
- "derek.kiernan@amd.com" <derek.kiernan@amd.com>,
- "dragan.cvetic@amd.com" <dragan.cvetic@amd.com>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Bjorn Helgaas" <bhelgaas@google.com>,
- "Philipp Zabel" <p.zabel@pengutronix.de>,
- "Lars Povlsen" <lars.povlsen@microchip.com>,
- "Steen Hegelund" <Steen.Hegelund@microchip.com>,
- "Daniel Machon" <daniel.machon@microchip.com>,
- UNGLinuxDriver@microchip.com, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Saravana Kannan" <saravanak@google.com>,
- "David S . Miller" <davem@davemloft.net>,
- "Eric Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>,
- "Paolo Abeni" <pabeni@redhat.com>,
- "Horatiu Vultur" <horatiu.vultur@microchip.com>,
- "Andrew Lunn" <andrew@lunn.ch>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Netdev <netdev@vger.kernel.org>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "Allan Nielsen" <allan.nielsen@microchip.com>,
- "Luca Ceresoli" <luca.ceresoli@bootlin.com>,
- "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>
-Message-Id: <1a895f7c-bbfc-483d-b36b-921788b07b36@app.fastmail.com>
-In-Reply-To: <20241129091013.029fced3@bootlin.com>
-References: <20241010063611.788527-1-herve.codina@bootlin.com>
- <20241010063611.788527-2-herve.codina@bootlin.com>
- <dywwnh7ns47ffndsttstpcsw44avxjvzcddmceha7xavqjdi77@cqdgmpdtywol>
- <20241129091013.029fced3@bootlin.com>
-Subject: Re: [PATCH v9 1/6] misc: Add support for LAN966x PCI device
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: fLBNjfFICIZSKiPtWRJvfwUFkCU59geJ
+X-Proofpoint-ORIG-GUID: fLBNjfFICIZSKiPtWRJvfwUFkCU59geJ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.687,Hydra:6.0.235,FMLib:17.0.607.475
+ definitions=2020-10-13_15,2020-10-13_02,2020-04-07_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_002540_115934_9452590A 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20241129_003904_966137_C072CBF8 
+X-CRM114-Status: GOOD (  19.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,56 +88,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 29, 2024, at 09:10, Herve Codina wrote:
-> Hi Michal,
-> On Thu, 28 Nov 2024 20:42:53 +0100
-> Michal Kubecek <mkubecek@suse.cz> wrote:
->> > --- a/drivers/misc/Kconfig
->> > +++ b/drivers/misc/Kconfig
->> > @@ -610,6 +610,30 @@ config MARVELL_CN10K_DPI
->> >  	  To compile this driver as a module, choose M here: the module
->> >  	  will be called mrvl_cn10k_dpi.
->> >  
->> > +config MCHP_LAN966X_PCI
->> > +	tristate "Microchip LAN966x PCIe Support"
->> > +	depends on PCI
->> > +	select OF
->> > +	select OF_OVERLAY  
->> 
->> Are these "select" statements what we want? When configuring current
->> mainline snapshot, I accidentally enabled this driver and ended up
->> flooded with an enormous amount of new config options, most of which
->> didn't make much sense on x86_64. It took quite long to investigate why.
->> 
->> Couldn't we rather use
->> 
->> 	depends on PCI && OF && OF_OVERLAY
->> 
->> like other drivers?
+Add sysfs mode selftest for ARM Coresight hardware tracer.
 
-Agreed.
+Signed-off-by: Linu Cherian <lcherian@marvell.com>
+---
+ .../drivers/hwtracing/coresight/Makefile      |   5 +
+ .../hwtracing/coresight/sysfs_test_trace.sh   | 144 ++++++++++++++++++
+ 2 files changed, 149 insertions(+)
+ create mode 100644 tools/testing/selftests/drivers/hwtracing/coresight/Makefile
+ create mode 100755 tools/testing/selftests/drivers/hwtracing/coresight/sysfs_test_trace.sh
 
-I would write in two lines as
+diff --git a/tools/testing/selftests/drivers/hwtracing/coresight/Makefile b/tools/testing/selftests/drivers/hwtracing/coresight/Makefile
+new file mode 100644
+index 000000000000..7dc68ae1c0a9
+--- /dev/null
++++ b/tools/testing/selftests/drivers/hwtracing/coresight/Makefile
+@@ -0,0 +1,5 @@
++# SPDX-License-Identifier: GPL-2.0
++
++TEST_PROGS = sysfs_test_trace.sh
++
++include ../../../lib.mk
+diff --git a/tools/testing/selftests/drivers/hwtracing/coresight/sysfs_test_trace.sh b/tools/testing/selftests/drivers/hwtracing/coresight/sysfs_test_trace.sh
+new file mode 100755
+index 000000000000..0d6307fff1d2
+--- /dev/null
++++ b/tools/testing/selftests/drivers/hwtracing/coresight/sysfs_test_trace.sh
+@@ -0,0 +1,144 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0
++# Copyright (C) 2024 Marvell.
++
++# Test Arm CoreSight trace capture in sysfs mode
++# Based on tools/perf/tests/shell/test_arm_coresight.sh
++
++glb_err=0
++
++arm_cs_report() {
++	if [ $2 != 0 ]; then
++		echo "$1: FAIL"
++		glb_err=$2
++	else
++		echo "$1: PASS"
++	fi
++}
++
++is_device_sink() {
++	# If the node of "enable_sink" is existed under the device path, this
++	# means the device is a sink device.
++
++	if [ -e "$1/enable_sink" ]; then
++
++		return 0
++	else
++		return 1
++	fi
++}
++
++# Configure sink for buffer mode
++cfg_sink_buf_mode() {
++	sink_dev=$1
++	mode=$2
++	# Set buffer mode if supported
++	if [ -e "$sink_dev/buf_modes_available" ]; then
++		cat $sink_dev/buf_modes_available | grep -E -q $mode
++		if [ $? -eq 0 ]; then
++			echo $mode > $sink_dev/buf_mode_preferred
++			return 0
++		fi
++	fi
++
++	return 1
++}
++
++run_app() {
++
++	taskset -c $1 dd if=/dev/urandom  of=/dev/null bs=1M count=64
++}
++
++sysfs_trace() {
++	src_dev=$1
++	sink_dev=$2
++	cpu=$3
++
++	# Enable sink device
++	echo 1 > $sink_dev/enable_sink
++	# Enable source device
++	echo 1 > $src_dev/enable_source
++
++	# Run app to be traced
++	run_app $cpu
++
++	# Read back trace data
++	dd if=/dev/$sink_dev_name of=/tmp/tracedata
++
++	# Verify if read is successful
++	err=$?
++
++	# Disable source device
++	echo 0 > $src_dev/enable_source
++
++	# Diskable sink device
++	echo 0 > $sink_dev/enable_sink
++
++	arm_cs_report "CoreSight path testing (CPU$cpu -> $sink_dev_name)" $err
++}
++
++try_sysfs_trace_resrv_buf() {
++	src_dev=$1
++	sink_dev=$2
++	cpu=$3
++
++	# Configure the resrved buffer mode if available
++	cfg_sink_buf_mode $sink_dev "resrv"
++	if [ $? -eq 0 ]; then
++		echo "Running sysfs trace with resrv buf mode"
++		sysfs_trace $src_dev $sink_dev $cpu
++		# Restore buffer mode
++		cfg_sink_buf_mode $sink_dev "auto"
++		if [ $? -eq 1 ]; then
++			echo "Failed to restore default buf mode"
++		fi
++	fi
++}
++
++arm_cs_iterate_devices() {
++	src_dev=$1
++	cpu=$3
++	for cdev in $2/connections/out\:*; do
++
++		# Skip testing if it's not a directory
++		! [ -d $cdev ] && continue;
++
++		# Read out its symbol link file name
++		sink_dev=`readlink -f $cdev`
++
++		# Extract device name from path, e.g.
++		#   sink_dev = '/sys/devices/platform/20010000.etf/tmc_etf0'
++		#     `> sink_dev_name = 'tmc_etf0'
++		sink_dev_name=$(basename $sink_dev)
++
++		if is_device_sink $sink_dev; then
++			# Run trace with resrv buf mode (if available)
++			try_sysfs_trace_resrv_buf $src_dev $sink_dev $cpu
++
++			# Run the default mode
++			echo "Running sysfs trace with default settings"
++			sysfs_trace $src_dev $sink_dev $cpu
++		fi
++
++		arm_cs_iterate_devices $src_dev $cdev $cpu
++
++	done
++}
++
++arm_cs_etm_traverse_path_test() {
++	# Iterate for every ETM device
++	for dev in /sys/bus/event_source/devices/cs_etm/cpu*; do
++		# Canonicalize the path
++		dev=`readlink -f $dev`
++
++		# Find the ETM device belonging to which CPU
++		cpu=`cat $dev/cpu`
++
++		# Use depth-first search (DFS) to iterate outputs
++		arm_cs_iterate_devices $dev $dev $cpu
++	done
++}
++
++arm_cs_etm_traverse_path_test
++
++exit $glb_err
+-- 
+2.34.1
 
-        depends on PCI
-        depends on OF_OVERLAY
-
-since OF_OVERLAY already depends on OF, that can be left out.
-The effect is the same as your variant though.
- 
->
-> I don't have a strong opinion on this 'select' vs 'depends on' for those
-> symbols.
->
-> I used select because the dependency is not obvious for a user that just
-> want the driver for the LAN966x PCI device.
-
-The general rules for picking one over the other are:
-
-- use 'select' for symbols that can not be enabled manually
-- prefer 'depends on' for user-visible options
-- do whatever other driver do for the same symbol, to avoid
-  dependency loops.
-
-     Arnd
 
