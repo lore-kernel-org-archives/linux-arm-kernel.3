@@ -4,113 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 227B6D729EF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 17:51:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 924BDD729F4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 18:08:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PqZrAfjye64ZhMw5Co4hhbixNEOQJOzDdw3eUKG3fbQ=; b=g7IOFm3Zbw6w/om14AgupwaOY8
-	PcpGs8Uu0+a8rDIzaPwi8H5yGSXMiw1DWU00cs6+vuIVqnxY5mmIGblDdQ8ZLdFR2FlATjCt8x1xQ
-	ubYGhClDhpQIqirRELi2JkS4qfs6gEolvg67uFZrn+udaVwKIBuQUcufr1t6dfDE0aasrxHTOxhx3
-	VKDgrIRHhrcu0NGcPFsHDQ0qUM0b0iSKTuyU3vFDXA9y0FP8MX1XMwq5moc+y3SRF2mrMMBTdV/ex
-	A4PR3IXRahJdxkOQ/cEr4Vp32qnQmHBWyEFAaIE2EDe2EjQs3Co7F5ct3E4lVm3vM5F/M2sYgRTG6
-	1KaDudwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qRLBNjLCI/jD40eiCATO+xFagIst4IBCLdsKalg4Kl0=; b=YPtBnFTv2HlYq9F9o4CVDLQGKM
+	TP4FTS6OBJsqQVIxOjGMe2Av3u4y6xjDUUQxHtox+Q53FHYIABqZwOl5o6F81QkeAOEXiUutUrOGX
+	EsAPFESVYKJcoMPBFnkpxXbNT+DlbEHhx2n7qNiTnt+yDoDIWAL3tCw1mKQS26wJMq2eevchshQ2a
+	Frt6QLU+FO3n2dhcmPlYw3xYITs9VzD4Hb6mQM67RJhtLEl+PRheg84L6kgKG5Y5v+Zt89czwxd8r
+	UEivtyVLUDpD7U+HPpJUNsnplSv7OjYqGU2rmi4bKJMvBESQG7TxigAe068PsmiKFJ8ggr3u9g360
+	uFqzPWlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH59R-00000000jXq-0Lwj;
-	Fri, 29 Nov 2024 17:51:33 +0000
-Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH58Q-00000000jPA-2aw4
+	id 1tH5PI-00000000kad-0EDK;
+	Fri, 29 Nov 2024 18:07:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tH5OJ-00000000kWJ-2Hgt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 17:50:33 +0000
-Received: by mail-ej1-x643.google.com with SMTP id a640c23a62f3a-aa531a70416so122662566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Nov 2024 09:50:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1732902628; x=1733507428; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=PqZrAfjye64ZhMw5Co4hhbixNEOQJOzDdw3eUKG3fbQ=;
-        b=AquOuBbVVWIQvh1hBs3aCnuXM1i4Wf7CyMmSy+9HK4QXfp4QCrp57syG3T22e0IKCr
-         q3t6t1qJS4A02sVKTT9ls7dLiJlliTY13pdNOwdRBjsxBuUTij7rfmJJ292+8Ilk/PKn
-         zQzgd1WoDk8mzpvcMAbwQRAwoclMelKCTLI4j6wvlJWYRshxdIld0GEO2mJOHYR6UHmD
-         iF0a9Kf0Ey0tLYmg0zTCGNWR9FAwD5blLy7yZ8q2iqs0+aZ1K9UALBbnddaUkq/tgcSw
-         gnR+JN7DvS6VeoVVA4Wd7xSzxVdgjLMDTlOimrTwwgKCHY7gNSIMQvRA/61R/oYC0mO6
-         Wg4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732902628; x=1733507428;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PqZrAfjye64ZhMw5Co4hhbixNEOQJOzDdw3eUKG3fbQ=;
-        b=eQpM5nSAcL+4XYN9tk1Pn8odMuYRIC3u8nOejmdioNfxC8ANK2KLaSkerbAjBoQeBa
-         Mh2NuzAUYeQZTpkD1CvBoNNn+18YHX3raozbd4d436yRX9ZDyQnanSyY1fXZx8KLWKqZ
-         reSrnAdPQbhEhZ/D1tP+cuzbOImUBPBQdoTkEbCqwXSeJVCW8Fa/g0m/8f815FtZxsqb
-         XT9W37BgMeZh1D39uuMpY6GCnCxaIvjioL/uz1qgMn+glDzbL/H3q3JjdWNdh0ZJtOUI
-         c8X8bMZ7MIScX4l4VYrO0up1/VU3qmBqky8Zxoh3bkgDY9JHz05OWuRm0ePIf0e94OGa
-         qxFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX0zXlbP+hxgPPrUQzSqPtfWHgneWd0FqqUv7FR8O5TE0GVApoXuSHyuYStriJEifNTIdbwzbgexcIT0Wh9xhZm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyN24q+QGbOsJnWX/FB3rIjoRAErZd/ZLJdPQEtF9+TEvyZHR0i
-	2OAGm+bf6V3/a7bTFIzmqG3Z26B92nwdUXXpEoIdEGcSUruUfAsA+xJpud681Dc=
-X-Gm-Gg: ASbGncuD5dDjmHGiVp6ufLcCr836MjontkH0zHQXNytKmRjNtiXaUHAHGMtNpy+s/Xc
-	VNBVi3XaFh/BdNEfvxi4ahhLTfKvxb6LTf+NFfEpPlzh9cWSQqXOzHMmO4P6WZt6YmGhqP+tyCE
-	E2MTFywyPL+4i7K1lllB6CYZpr/oIYjSInYXACl6qNTfDwNAsQC4l/7nJTCJ5aQK+30bpMy0JtD
-	9NmKU+PmIQ32pDG8bVo6ZrGKShUs60OG7/nFgkFnUKKUPUatYbi0ijcy6MIrnVd20DaF/yoYZGW
-	XFSHVP+BP38kNhOu8XC8
-X-Google-Smtp-Source: AGHT+IF7i5rs2I/Z8Do8qBVzOITzII4lxVZ5lVsk4D6hBN3DGyS3RbzWkQK53YgfV1EgQ7zK28Pzig==
-X-Received: by 2002:a05:6402:13d3:b0:5d0:224b:d4c1 with SMTP id 4fb4d7f45d1cf-5d080c53c5dmr12990539a12.25.1732902627665;
-        Fri, 29 Nov 2024 09:50:27 -0800 (PST)
-Received: from localhost (host-79-49-220-127.retail.telecomitalia.it. [79.49.220.127])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d0b264f0d2sm996856a12.72.2024.11.29.09.50.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Nov 2024 09:50:27 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Fri, 29 Nov 2024 18:51:00 +0100
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v4 02/10] dt-bindings: pinctrl: Add RaspberryPi RP1
- gpio/pinctrl/pinmux bindings
-Message-ID: <Z0n_BA8ZRU3ghE7Z@apocalypse>
-References: <cover.1732444746.git.andrea.porta@suse.com>
- <9b83c5ee8345e4fe26e942f343305fdddc01c59f.1732444746.git.andrea.porta@suse.com>
- <e0595933-d503-492d-ae29-aa3afe90b279@gmx.net>
+	Fri, 29 Nov 2024 18:06:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 898C6FEC;
+	Fri, 29 Nov 2024 10:07:23 -0800 (PST)
+Received: from [10.57.90.216] (unknown [10.57.90.216])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 498B73F66E;
+	Fri, 29 Nov 2024 10:06:52 -0800 (PST)
+Message-ID: <7720d275-bc52-49c3-949a-6a6a32157418@arm.com>
+Date: Fri, 29 Nov 2024 18:06:50 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e0595933-d503-492d-ae29-aa3afe90b279@gmx.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: mm: fix zone_dma_limit calculation
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>
+Cc: Baruch Siach <baruch@tkos.co.il>, will@kernel.org, ptesarik@suse.com,
+ hch@lst.de, jiangyutang@os.amperecomputing.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241125171650.77424-1-yang@os.amperecomputing.com>
+ <87ttbu8q7s.fsf@tarshish>
+ <98583682-a95e-440e-bd89-03828998b48e@os.amperecomputing.com>
+ <Z0dbsRCsWT3hiVds@arm.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <Z0dbsRCsWT3hiVds@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_095030_662729_AB5406E1 
-X-CRM114-Status: GOOD (  28.15  )
+X-CRM114-CacheID: sfid-20241129_100655_670567_454C5DBB 
+X-CRM114-Status: GOOD (  40.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,244 +69,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stephan,
-
-On 19:12 Mon 25 Nov     , Stefan Wahren wrote:
-> Hi Andrea,
+On 2024-11-27 5:49 pm, Catalin Marinas wrote:
+> + Robin
 > 
-> Am 24.11.24 um 11:51 schrieb Andrea della Porta:
-> > Add device tree bindings for the gpio/pin/mux controller that is part of
-> > the RP1 multi function device, and relative entries in MAINTAINERS file.
-> > 
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > ---
-> >   .../pinctrl/raspberrypi,rp1-gpio.yaml         | 193 ++++++++++++++++++
-> >   MAINTAINERS                                   |   2 +
-> >   2 files changed, 195 insertions(+)
-> >   create mode 100644 Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml b/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
-> > new file mode 100644
-> > index 000000000000..21923d39c1bc
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
-> > @@ -0,0 +1,193 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/pinctrl/raspberrypi,rp1-gpio.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: RaspberryPi RP1 GPIO/Pinconf/Pinmux Controller submodule
-> > +
-> > +maintainers:
-> > +  - Andrea della Porta <andrea.porta@suse.com>
-> > +
-> > +description:
-> > +  The RP1 chipset is a Multi Function Device containing, among other
-> > +  sub-peripherals, a gpio/pinconf/mux controller whose 54 pins are grouped
-> > +  into 3 banks.
-> > +  It works also as an interrupt controller for those gpios.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: raspberrypi,rp1-gpio
-> > +
-> > +  reg:
-> > +    maxItems: 3
-> > +    description: One reg specifier for each one of the 3 pin banks.
-> > +
-> > +  '#gpio-cells':
-> > +    description: The first cell is the pin number and the second cell is used
-> > +      to specify the flags (see include/dt-bindings/gpio/gpio.h).
-> > +    const: 2
-> > +
-> > +  gpio-controller: true
-> > +
-> > +  gpio-ranges:
-> > +    maxItems: 1
-> > +
-> > +  gpio-line-names:
-> > +    maxItems: 54
-> > +
-> > +  interrupts:
-> > +    maxItems: 3
-> > +    description: One interrupt specifier for each one of the 3 pin banks.
-> > +
-> > +  '#interrupt-cells':
-> > +    description:
-> > +      Specifies the Bank number [0, 1, 2] and Flags as defined in
-> > +      include/dt-bindings/interrupt-controller/irq.h.
-> > +    const: 2
-> > +
-> > +  interrupt-controller: true
-> > +
-> > +patternProperties:
-> > +  "-state$":
-> > +    oneOf:
-> > +      - $ref: "#/$defs/raspberrypi-rp1-state"
-> > +      - patternProperties:
-> > +          "-pins$":
-> > +            $ref: "#/$defs/raspberrypi-rp1-state"
-> > +        additionalProperties: false
-> > +
-> > +$defs:
-> > +  raspberrypi-rp1-state:
-> > +    allOf:
-> > +      - $ref: pincfg-node.yaml#
-> > +      - $ref: pinmux-node.yaml#
-> > +
-> > +    description:
-> > +      Pin controller client devices use pin configuration subnodes (children
-> > +      and grandchildren) for desired pin configuration.
-> > +      Client device subnodes use below standard properties.
-> > +
-> > +    properties:
-> > +      pins:
-> > +        description:
-> > +          List of gpio pins affected by the properties specified in this
-> > +          subnode.
-> > +        items:
-> > +          pattern: "^gpio([0-9]|[1-5][0-9])$"
-> > +
-> > +      function:
-> > +        enum: [ alt0, alt1, alt2, alt3, alt4, gpio, alt6, alt7, alt8, none,
-> > +                aaud, dcd0, dpi, dsi0_te_ext, dsi1_te_ext, dsr0, dtr0, gpclk0,
-> > +                gpclk1, gpclk2, gpclk3, gpclk4, gpclk5, i2c0, i2c1, i2c2, i2c3,
-> > +                i2c4, i2c5, i2c6, i2s0, i2s1, i2s2, ir, mic, pcie_clkreq_n,
-> > +                pio, proc_rio, pwm0, pwm1, ri0, sd0, sd1, spi0, spi1, spi2,
-> > +                spi3, spi4, spi5, spi6, spi7, spi8, uart0, uart1, uart2, uart3,
-> > +                uart4, uart5, vbus0, vbus1, vbus2, vbus3 ]
-> > +
-> > +        description:
-> > +          Specify the alternative function to be configured for the specified
-> > +          pins.
-> > +
-> > +      bias-disable: true
-> > +      bias-pull-down: true
-> > +      bias-pull-up: true
-> > +      slew-rate:
-> > +        description: 0 is slow slew rate, 1 is fast slew rate
-> > +        enum: [ 0, 1 ]
-> > +      drive-strength:
-> > +        enum: [ 2, 4, 8, 12 ]
-> according to the driver in patch 4 the following should also be
-> supported by the hardware:
+> On Tue, Nov 26, 2024 at 09:38:22AM -0800, Yang Shi wrote:
+>> On 11/25/24 10:27 PM, Baruch Siach wrote:
+>>> On Mon, Nov 25 2024, Yang Shi wrote:
+>>>> The commit ba0fb44aed47 ("dma-mapping: replace zone_dma_bits by
+>>>> zone_dma_limit") changed how zone_dma_limit was calculated.  Now it
+>>>> returns the memsize limit in IORT or device tree instead of U32_MAX if
+>>>> the memsize limit is greater than U32_MAX.
+>>>
+>>> Can you give a concrete example of memory layout and dma-ranges that
+>>> demonstrates this issue?
+>>
+>> Our 2 sockets system has physical memory starts at 0x0 on node 0 and
+>> 0x200000000000 on node 1. The memory size limit defined in IORT is 0x30 (48
+>> bits).
+>>
+>> The DMA zone is:
+>>
+>> pages free     887722
+>>          boost    0
+>>          min      229
+>>          low      1108
+>>          high     1987
+>>          promo    2866
+>>          spanned  983040
+>>          present  982034
+>>          managed  903238
+>>          cma      16384
+>>          protection: (0, 0, 124824, 0, 0)
+>>   start_pfn:           65536
+>>
+>> When allocating DMA buffer, dma_direct_optimal_gfp_mask() is called to
+>> determine the proper zone constraints. If the phys_limit is less than
+>> zone_dma_limit, it will use GFP_DMA. But zone_dma_limit is 0xffffffffffff on
+>> v6.12 instead of 4G prior v6.12, it means all DMA buffer allocation will go
+>> to DMA zone even though the devices don't require it.
+>>
+>> DMA zone is on node 0, so we saw excessive remote access on 2 sockets
+>> system.
+> [...]
+>> The physical addr range for DMA zone is correct, the problem is wrong
+>> zone_dma_limit. Before commit ba0fb44aed47 zone_dma_limit was 4G, after it
+>> it is the whole memory even though DMA zone just covers low 4G.
 > 
-> input-enable, input-schmitt-enable, output-enable, output-low, output-high
+> Thanks for the details. I agree that zone_dma_limit shouldn't be higher
+> than the ZONE_DMA upper boundary, otherwise it gets confusing for
+> functions like dma_direct_optimal_gfp_mask() and we may force
+> allocations to a specific range unnecessarily.
 
-You are right, added.
+Oof, indeed the original min3() logic did also result in the 
+32-bit-clamped value being written back to zone_dma_bits itself, so 
+that's another subtlety overlooked in ba0fb44aed47 *and* the subsequent 
+fixes reinstating that clamping (conditionally) within max_zone_phys().
+  > If IORT or DT indicate a large mask covering the whole RAM (i.e. no
+> restrictions), in an ideal world, we should normally extend ZONE_DMA to
+> the same.
 
-Many thanks,
-Andrea
+That's not right, ZONE_DMA should still be relatively limited in size 
+(unless we really do only have a tiny amount of RAM) - just because a DT 
+dma-ranges property says the system interconnect can carry >32 address 
+bits in general doesn't mean that individual device DMA masks can't 
+still be 32-bit or smaller. IIRC we're still implicitly assuming that if 
+DT does describe an offset range into "high" RAM, it must represent a 
+suitable lowest common denominator for all relevant devices already, and 
+therefore we can get away with sizing ZONE_DMA off it blindly. I'm yet 
+to hear of any platform having a general offset with no significant 
+upper limit, but if we did want to support such a thing then we would 
+need to revisit the previously-discussed notion of an accurate 
+of_dma_get_min_cpu_address() rather than the assumption based on 
+memblock_start_of_DRAM().
 
-> > +
-> > +    additionalProperties: false
-> > +
-> > +allOf:
-> > +  - $ref: pinctrl.yaml#
-> > +
-> > +required:
-> > +  - reg
-> > +  - compatible
-> > +  - '#gpio-cells'
-> > +  - gpio-controller
-> > +  - interrupts
-> > +  - '#interrupt-cells'
-> > +  - interrupt-controller
-> > +
-> > +unevaluatedProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/interrupt-controller/irq.h>
-> > +
-> > +    rp1 {
-> > +        #address-cells = <2>;
-> > +        #size-cells = <2>;
-> > +
-> > +        rp1_gpio: pinctrl@c0400d0000 {
-> > +            reg = <0xc0 0x400d0000  0x0 0xc000>,
-> > +                  <0xc0 0x400e0000  0x0 0xc000>,
-> > +                  <0xc0 0x400f0000  0x0 0xc000>;
-> > +            compatible = "raspberrypi,rp1-gpio";
-> > +            gpio-controller;
-> > +            #gpio-cells = <2>;
-> > +            interrupt-controller;
-> > +            #interrupt-cells = <2>;
-> > +            interrupts = <0 IRQ_TYPE_LEVEL_HIGH>,
-> > +                         <1 IRQ_TYPE_LEVEL_HIGH>,
-> > +                         <2 IRQ_TYPE_LEVEL_HIGH>;
-> > +            gpio-line-names =
-> > +                   "ID_SDA", // GPIO0
-> > +                   "ID_SCL", // GPIO1
-> > +                   "GPIO2", "GPIO3", "GPIO4", "GPIO5", "GPIO6",
-> > +                   "GPIO7", "GPIO8", "GPIO9", "GPIO10", "GPIO11",
-> > +                   "GPIO12", "GPIO13", "GPIO14", "GPIO15", "GPIO16",
-> > +                   "GPIO17", "GPIO18", "GPIO19", "GPIO20", "GPIO21",
-> > +                   "GPIO22", "GPIO23", "GPIO24", "GPIO25", "GPIO26",
-> > +                   "GPIO27",
-> > +                   "PCIE_RP1_WAKE", // GPIO28
-> > +                   "FAN_TACH", // GPIO29
-> > +                   "HOST_SDA", // GPIO30
-> > +                   "HOST_SCL", // GPIO31
-> > +                   "ETH_RST_N", // GPIO32
-> > +                   "", // GPIO33
-> > +                   "CD0_IO0_MICCLK", // GPIO34
-> > +                   "CD0_IO0_MICDAT0", // GPIO35
-> > +                   "RP1_PCIE_CLKREQ_N", // GPIO36
-> > +                   "", // GPIO37
-> > +                   "CD0_SDA", // GPIO38
-> > +                   "CD0_SCL", // GPIO39
-> > +                   "CD1_SDA", // GPIO40
-> > +                   "CD1_SCL", // GPIO41
-> > +                   "USB_VBUS_EN", // GPIO42
-> > +                   "USB_OC_N", // GPIO43
-> > +                   "RP1_STAT_LED", // GPIO44
-> > +                   "FAN_PWM", // GPIO45
-> > +                   "CD1_IO0_MICCLK", // GPIO46
-> > +                   "2712_WAKE", // GPIO47
-> > +                   "CD1_IO1_MICDAT1", // GPIO48
-> > +                   "EN_MAX_USB_CUR", // GPIO49
-> > +                   "", // GPIO50
-> > +                   "", // GPIO51
-> > +                   "", // GPIO52
-> > +                   ""; // GPIO53
-> > +
-> > +            rp1-i2s0-default-state {
-> > +                function = "i2s0";
-> > +                pins = "gpio18", "gpio19", "gpio20", "gpio21";
-> > +                bias-disable;
-> > +            };
-> > +
-> > +            rp1-uart0-default-state {
-> > +                txd-pins {
-> > +                    function = "uart0";
-> > +                    pins = "gpio14";
-> > +                    bias-disable;
-> > +                };
-> > +
-> > +                rxd-pins {
-> > +                    function = "uart0";
-> > +                    pins = "gpio15";
-> > +                    bias-pull-up;
-> > +                };
-> > +            };
-> > +        };
-> > +    };
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 75a66e3e34c9..c55d12550246 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -19384,7 +19384,9 @@ RASPBERRY PI RP1 PCI DRIVER
-> >   M:	Andrea della Porta <andrea.porta@suse.com>
-> >   S:	Maintained
-> >   F:	Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
-> > +F:	Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
-> >   F:	include/dt-bindings/clock/rp1.h
-> > +F:	include/dt-bindings/misc/rp1.h
-> > 
-> >   RC-CORE / LIRC FRAMEWORK
-> >   M:	Sean Young <sean@mess.org>
+After staring at it for long enough, I think $SUBJECT patch is actually 
+correct as it is. In fact I'm now wondering why the fix was put inside 
+max_zone_phys() in the first place, since it's clearly pointless to 
+clamp DMA_BIT_MASK(32) to U32_MAX in the dma32_phys_limit case...
+However the commit message is perhaps not as clear as it could be - 
+technically we are correctly *calculating* the appropriate effective 
+zone_dma_limt value within the scope of zone_sizes_init(), we're just 
+failing to properly update the actual zone_dma_limit variable for the 
+benefit of other users.
+
+Thanks,
+Robin.
+
+> One problem is ZONE_DMA32 (and GFP_DMA32) and the fact that
+> ZONE_DMA sits below it. Until we hear otherwise, we assume a DMA offset
+> of 0 for such 32-bit devices and therefore define ZONE_DMA32 in the
+> lower 4GB if RAM starts below this limit (and an empty ZONE_DMA32 if RAM
+> starts above).
 > 
+> Another aspect to consider is that we don't always have DT or IORT
+> information or some devices need a smaller limit than what's advertised
+> in the firmware tables (typically 32-bit masks). This code went through
+> a couple of fixes already:
+> 
+> 833bd284a454 ("arm64: mm: fix DMA zone when dma-ranges is missing")
+> 122c234ef4e1 ("arm64: mm: keep low RAM dma zone")
+> 
+> Since our current assumption is to assume ZONE_DMA within 32-bit if RAM
+> below 4GB, I'm happy to make this conditional on CONFIG_ZONE_DMA32 also
+> being enabled. So, from your patch below:
+> 
+>> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+>> index d21f67d67cf5..ccdef53872a0 100644
+>> --- a/arch/arm64/mm/init.c
+>> +++ b/arch/arm64/mm/init.c
+>> @@ -117,15 +117,6 @@ static void __init arch_reserve_crashkernel(void)
+>>    static phys_addr_t __init max_zone_phys(phys_addr_t zone_limit)
+>>    {
+>> -	/**
+>> -	 * Information we get from firmware (e.g. DT dma-ranges) describe DMA
+>> -	 * bus constraints. Devices using DMA might have their own limitations.
+>> -	 * Some of them rely on DMA zone in low 32-bit memory. Keep low RAM
+>> -	 * DMA zone on platforms that have RAM there.
+>> -	 */
+>> -	if (memblock_start_of_DRAM() < U32_MAX)
+>> -		zone_limit = min(zone_limit, U32_MAX);
+>> -
+>>    	return min(zone_limit, memblock_end_of_DRAM() - 1) + 1;
+>>    }
+> 
+> This part is fine.
+> 
+>> @@ -141,6 +132,14 @@ static void __init zone_sizes_init(void)
+>>    	acpi_zone_dma_limit = acpi_iort_dma_get_max_cpu_address();
+>>    	dt_zone_dma_limit = of_dma_get_max_cpu_address(NULL);
+>>    	zone_dma_limit = min(dt_zone_dma_limit, acpi_zone_dma_limit);
+>> +	/*
+>> +	 * Information we get from firmware (e.g. DT dma-ranges) describe DMA
+>> +	 * bus constraints. Devices using DMA might have their own limitations.
+>> +	 * Some of them rely on DMA zone in low 32-bit memory. Keep low RAM
+>> +	 * DMA zone on platforms that have RAM there.
+>> +	 */
+>> +	if (memblock_start_of_DRAM() < U32_MAX)
+>> +		zone_dma_limit = min(zone_dma_limit, U32_MAX);
+>>    	arm64_dma_phys_limit = max_zone_phys(zone_dma_limit);
+>>    	max_zone_pfns[ZONE_DMA] = PFN_DOWN(arm64_dma_phys_limit);
+>>    #endif
+> 
+> But I'd move the zone_dma_limit update further down in the
+> CONFIG_ZONE_DMA32 block. I think we only need to limit it to
+> dma32_phys_limit and ignore the U32_MAX check. The former is already
+> capped to 32-bit. For the second hunk, something like below (untested):
+> 
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index d21f67d67cf5..ffaf5bd8d0a1 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -146,8 +146,10 @@ static void __init zone_sizes_init(void)
+>   #endif
+>   #ifdef CONFIG_ZONE_DMA32
+>   	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(dma32_phys_limit);
+> -	if (!arm64_dma_phys_limit)
+> +	if (!arm64_dma_phys_limit || arm64_dma_phys_limit > dma32_phys_limit) {
+>   		arm64_dma_phys_limit = dma32_phys_limit;
+> +		zone_dma_limit = arm64_dma_phys_limit - 1;
+> +	}
+>   #endif
+>   	if (!arm64_dma_phys_limit)
+>   		arm64_dma_phys_limit = PHYS_MASK + 1;
+> 
+> With some comment on why we do this but most likely not the current
+> comment in max_zone_phys() (more like keep ZONE_DMA below ZONE_DMA32).
+> 
+
 
