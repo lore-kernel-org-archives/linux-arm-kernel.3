@@ -4,67 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBA82D6EC05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 12:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09397D6EC05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 12:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=twq8oiyKyDSLZcJUOzFx0r4njXglHc4BL0QpgeBDg6s=; b=kfQNiUZfisGkZI8jFwMigIm48t
-	JnVUSb/nawd4ZbPiKmJGDr0FlbFJirXZluXtcF480+RPyaops5UhCP0sWP4VJNalxjJF0v8P9NxBt
-	ke8P40GRIqHWDAWLCREkLhRKRfnrSJtk9YAo4yOH8MF5lyeelFRMEVFWgC6MhcTKiQuoPw63BQYRr
-	QnHaItCqKwKaOAjPuew2uQcjYWV5vjgQHSh1q06izgvbijGa7CJJEyYLqXlSqtskIoYYP9IRv+HoY
-	ms5j3j0kujNuO55C62jywex3wuA7KiK9o7+1jCL06Anz8bX9VD4TEitpgFt9lAIwYoq3psOiMESEz
-	ysFrDRZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iTo7mdsKhhMMv0NQ6W3WdpTpByHz4qODWqGMzHKiw1I=; b=RVNyxtRTGwb1TeQGAz5Iq1MdrC
+	bt38bJeh7ZCuy+oqwNRpNIZ9ZcUyzXdfo+yENJbRCqOFarnrKrjHSuDt6nTaYOZHIV6otOt7Nc2TT
+	4g0vihJLAkSDNnmNLlA6mxKqaUDU4TB3rYoHsDZgLyyb1XOw2rdhEgtLD9ERD5GwMt7JeHlyOA0jm
+	mwO+KVhRhAHEkmrxdaXUO5E8NtWdCjUtAIqX96ox/Hxr7ldkkT7WYaPq9dzn7q7uGlS7uImngf/Nb
+	P5HtcXV4Hdfpf1tSJun4uEM9Zaz4jkou61H7p9E7xvrXR/c5BkliQV0TIDNv4uF/myHxmHXCtqEFl
+	ysT0mVCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH0ZA-000000007in-3kZb;
-	Fri, 29 Nov 2024 12:57:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tH0aR-0000000082H-2AD8;
+	Fri, 29 Nov 2024 12:59:07 +0000
+Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH0YB-000000007cV-0yRs
+	id 1tH0ZR-000000007lB-11CL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 12:56:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B01725C5D3A;
-	Fri, 29 Nov 2024 12:56:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5453C4CECF;
-	Fri, 29 Nov 2024 12:56:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732885005;
-	bh=sb645liDOsPFve3SGjSrOk2gr9iXBXwbXk/8ieeKKCM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jGhDdhOBpE0i8hkdCUm5+mItkO5NzH7RV4jEHqaLj3RxlVo2obRL+1ynT/pCPUuaY
-	 RJ6V1uxsroAEUe0e4QbxQDwHSsMcC529rg5NkuAdQq3VyBzykxXpVa7ABaPk8wcLuG
-	 FvQpHPMGivIL9dfu26oqTZDQjt+RiFsOYQtfBzLipfOR12NDu3sCB94QRLfI5BKwyC
-	 pqUCtpvKKozC/riMV/CmcT5pmEp6qarUgOzIYKnHvY72TzMvyzk5z4oAyBy2Memenh
-	 MDvkMsG685MQmAbnljYYw4zFS8Et+Oxt+iwZ+dLoO6x2IgNHQYey340+t3xMM8TYHC
-	 Rsv+1zIeV1hmw==
-Message-ID: <a4071a1c-8c27-4464-9054-df9b3e317eab@kernel.org>
-Date: Fri, 29 Nov 2024 14:56:39 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 1/2] net: ti: icssg-prueth: Fix firmware load
- sequence.
-To: Meghana Malladi <m-malladi@ti.com>, lokeshvutla@ti.com, vigneshr@ti.com,
- javier.carrasco.cruz@gmail.com, diogo.ivo@siemens.com,
- jacob.e.keller@intel.com, horms@kernel.org, pabeni@redhat.com,
- kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
- andrew+netdev@lunn.ch
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com, danishanwar@ti.com
-References: <20241128122931.2494446-1-m-malladi@ti.com>
- <20241128122931.2494446-2-m-malladi@ti.com>
-Content-Language: en-US
-From: Roger Quadros <rogerq@kernel.org>
-In-Reply-To: <20241128122931.2494446-2-m-malladi@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Fri, 29 Nov 2024 12:58:06 +0000
+Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-5d09962822bso1019262a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Nov 2024 04:58:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1732885082; x=1733489882; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=iTo7mdsKhhMMv0NQ6W3WdpTpByHz4qODWqGMzHKiw1I=;
+        b=Yjb4kkMb7xcSdvlrmlzVvvQgi68I0O993dv7314T5EbBnn+YbSa19GijttuYXFgW9C
+         6b5WC++qy5ytSpLM0PWXkSZpRvm7dtuuuxq1RMfBEs0FrRljP3cYs6pD1D5Ck6rIq8DB
+         xPYJWf8U2St1KWqYCjlog7xhfXrlr0JoOHWQMmoWQiI5vMagYokd4RC+K9s3qjV6Rupc
+         0Tl4nxeD33JbwuxRe2MkRHeRMWplupElxoV+tmkPrVF/m+ZLzFLu6K4RWFjkVEErd8Qg
+         LsKGf2UFdmfTvAExZf16i0ZEjHydSv3p88TU21WMQ9Z//q2jjP/BisNpgIZ+odvJRWYS
+         v/KQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732885082; x=1733489882;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iTo7mdsKhhMMv0NQ6W3WdpTpByHz4qODWqGMzHKiw1I=;
+        b=g0Fyc3oau1ruPIjCcW1XVexeH+gCKZx4Jjyoby2gopBAY4A3YGq5Wbj/4ouDNH1qMk
+         Pi9N+SqlbfQyyJIRUviw0cabx8y9JoXsRV76lNGecShuw7svM+DaD6hwVxnKGT9J9A0i
+         lwMWeZfScC/DHFXJtAehSXQm6EFihdd723gRxeWGjaXDUrj2Q5jjCA3+G4v6BGfwNL8M
+         iFqt1hwlzq3rAncvv9Oxa8XPgp3QETO61KEW+VYmiKdpjsH5E6UuMqj/Y7lKShyAyXlO
+         20wq7D+qJLHRsYr2uRYDcMRk919QJNJLP8zmUIwC459KGju1E5pMDjlxYYMrKca+miaH
+         0eCA==
+X-Gm-Message-State: AOJu0YwQo5ORq9Ev0eRYgvUs4poCbdT2BOcXEwNENDw/zSswEl7dkzni
+	irdTbc0IeugZ108b3v9KMEPE/ZPAbvSWvIapWqyRWjLAYQiU2/5uf/g9neeN4+IIUe2KbCdTnWf
+	KfXyHJw==
+X-Google-Smtp-Source: AGHT+IE8LI59tC+qSLoKQ9kpy+7UR4VBfF+klcw+nBIw6XFRR92RWRwAjYNKTrXAmiQZO9b0XnadXq1XxO3S
+X-Received: from edya11.prod.google.com ([2002:aa7:cf0b:0:b0:5cf:ca78:ecdf])
+ (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:4402:b0:5cf:f248:7715
+ with SMTP id 4fb4d7f45d1cf-5d080c48680mr9111559a12.23.1732885082703; Fri, 29
+ Nov 2024 04:58:02 -0800 (PST)
+Date: Fri, 29 Nov 2024 12:58:00 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
+Message-ID: <20241129125800.992468-1-qperret@google.com>
+Subject: [PATCH] KVM: arm64: Selftest for pKVM transitions
+From: Quentin Perret <qperret@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_045647_371335_DAA6ABFB 
-X-CRM114-Status: GOOD (  40.28  )
+X-CRM114-CacheID: sfid-20241129_045805_282186_A1E2C64A 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,483 +89,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+We have recently found a bug [1] in the pKVM memory ownership
+transitions by code inspection, but it could have been caught with a
+test.
 
-On 28/11/2024 14:29, Meghana Malladi wrote:
-> From: MD Danish Anwar <danishanwar@ti.com>
-> 
-> Timesync related operations are ran in PRU0 cores for both ICSSG SLICE0
-> and SLICE1. Currently whenever any ICSSG interface comes up we load the
-> respective firmwares to PRU cores and whenever interface goes down, we
-> stop the resective cores. Due to this, when SLICE0 goes down while
-> SLICE1 is still active, PRU0 firmwares are unloaded and PRU0 core is
-> stopped. This results in clock jump for SLICE1 interface as the timesync
-> related operations are no longer running.
-> 
-> As there are interdependencies between SLICE0 and SLICE1 firmwares,
-> fix this by running both PRU0 and PRU1 firmwares as long as at least 1
-> ICSSG interface is up.
-> 
-> Use emacs_initialized as reference count to load the firmwares for the
-> first and last interface up/down. Moving init_emac_mode and fw_offload_mode
-> API outside of icssg_config to icssg_common_start API as they need
-> to be called only once per firmware boot.
-> 
-> Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
-> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> ---
-> 
-> Hi all,
-> 
-> This patch is based on net-next tagged next-2024110.
-> v1:https://lore.kernel.org/all/20241106074040.3361730-2-m-malladi@ti.com
-> 
-> Changes since v1 (v2-v1):
-> - Moving the NULL check inside the function as suggested by
-> Simon Horman <horms@kernel.org>
-> - Introduce prueth_emac_common_start() and prueth_emac_common_stop()
-> and move common code there as suggested by Roger Quadros <rogerq@kernel.org>
-> - Moving init_emac_mode and fw_offload_mode API outside of icssg_config
-> to icssg_common_start API as they need to be called only once per
-> firmware boot
-> 
->  drivers/net/ethernet/ti/icssg/icssg_config.c |  45 ++++--
->  drivers/net/ethernet/ti/icssg/icssg_config.h |   1 +
->  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 150 ++++++++++++-------
->  drivers/net/ethernet/ti/icssg/icssg_prueth.h |   3 +
->  4 files changed, 133 insertions(+), 66 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
-> index 5d2491c2943a..342150756cf7 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_config.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
-> @@ -397,7 +397,7 @@ static int prueth_emac_buffer_setup(struct prueth_emac *emac)
->  	return 0;
->  }
->  
-> -static void icssg_init_emac_mode(struct prueth *prueth)
-> +void icssg_init_emac_mode(struct prueth *prueth)
->  {
->  	/* When the device is configured as a bridge and it is being brought
->  	 * back to the emac mode, the host mac address has to be set as 0.
-> @@ -406,9 +406,6 @@ static void icssg_init_emac_mode(struct prueth *prueth)
->  	int i;
->  	u8 mac[ETH_ALEN] = { 0 };
->  
-> -	if (prueth->emacs_initialized)
-> -		return;
-> -
->  	/* Set VLAN TABLE address base */
->  	regmap_update_bits(prueth->miig_rt, FDB_GEN_CFG1, SMEM_VLAN_OFFSET_MASK,
->  			   addr <<  SMEM_VLAN_OFFSET);
-> @@ -423,15 +420,13 @@ static void icssg_init_emac_mode(struct prueth *prueth)
->  	/* Clear host MAC address */
->  	icssg_class_set_host_mac_addr(prueth->miig_rt, mac);
->  }
-> +EXPORT_SYMBOL_GPL(icssg_init_emac_mode);
->  
-> -static void icssg_init_fw_offload_mode(struct prueth *prueth)
-> +void icssg_init_fw_offload_mode(struct prueth *prueth)
->  {
->  	u32 addr = prueth->shram.pa + EMAC_ICSSG_SWITCH_DEFAULT_VLAN_TABLE_OFFSET;
->  	int i;
->  
-> -	if (prueth->emacs_initialized)
-> -		return;
-> -
->  	/* Set VLAN TABLE address base */
->  	regmap_update_bits(prueth->miig_rt, FDB_GEN_CFG1, SMEM_VLAN_OFFSET_MASK,
->  			   addr <<  SMEM_VLAN_OFFSET);
-> @@ -448,6 +443,7 @@ static void icssg_init_fw_offload_mode(struct prueth *prueth)
->  		icssg_class_set_host_mac_addr(prueth->miig_rt, prueth->hw_bridge_dev->dev_addr);
->  	icssg_set_pvid(prueth, prueth->default_vlan, PRUETH_PORT_HOST);
->  }
-> +EXPORT_SYMBOL_GPL(icssg_init_fw_offload_mode);
->  
->  int icssg_config(struct prueth *prueth, struct prueth_emac *emac, int slice)
->  {
-> @@ -455,11 +451,6 @@ int icssg_config(struct prueth *prueth, struct prueth_emac *emac, int slice)
->  	struct icssg_flow_cfg __iomem *flow_cfg;
->  	int ret;
->  
-> -	if (prueth->is_switch_mode || prueth->is_hsr_offload_mode)
-> -		icssg_init_fw_offload_mode(prueth);
-> -	else
-> -		icssg_init_emac_mode(prueth);
-> -
->  	memset_io(config, 0, TAS_GATE_MASK_LIST0);
->  	icssg_miig_queues_init(prueth, slice);
->  
-> @@ -786,3 +777,31 @@ void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port)
->  		writel(pvid, prueth->shram.va + EMAC_ICSSG_SWITCH_PORT0_DEFAULT_VLAN_OFFSET);
->  }
->  EXPORT_SYMBOL_GPL(icssg_set_pvid);
-> +
-> +int emac_fdb_flow_id_updated(struct prueth_emac *emac)
-> +{
-> +	struct mgmt_cmd_rsp fdb_cmd_rsp = { 0 };
-> +	int slice = prueth_emac_slice(emac);
-> +	struct mgmt_cmd fdb_cmd = { 0 };
-> +	int ret = 0;
-> +
-> +	fdb_cmd.header = ICSSG_FW_MGMT_CMD_HEADER;
-> +	fdb_cmd.type   = ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW;
-> +	fdb_cmd.seqnum = ++(emac->prueth->icssg_hwcmdseq);
-> +	fdb_cmd.param  = 0;
-> +
-> +	fdb_cmd.param |= (slice << 4);
-> +	fdb_cmd.cmd_args[0] = 0;
-> +
-> +	ret = icssg_send_fdb_msg(emac, &fdb_cmd, &fdb_cmd_rsp);
-> +
-> +	if (ret)
-> +		return ret;
-> +
-> +	WARN_ON(fdb_cmd.seqnum != fdb_cmd_rsp.seqnum);
-> +	if (fdb_cmd_rsp.status == 1)
-> +		return 0;
-> +
-> +	return -EINVAL;
-> +}
-> +EXPORT_SYMBOL_GPL(emac_fdb_flow_id_updated);
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
-> index 92c2deaa3068..c884e9fa099e 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_config.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.h
-> @@ -55,6 +55,7 @@ struct icssg_rxq_ctx {
->  #define ICSSG_FW_MGMT_FDB_CMD_TYPE	0x03
->  #define ICSSG_FW_MGMT_CMD_TYPE		0x04
->  #define ICSSG_FW_MGMT_PKT		0x80000000
-> +#define ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW	0x05
->  
->  struct icssg_r30_cmd {
->  	u32 cmd[4];
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> index c568c84a032b..3a495b5d010c 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> @@ -164,11 +164,11 @@ static struct icssg_firmwares icssg_emac_firmwares[] = {
->  	}
->  };
->  
-> -static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
-> +static int prueth_emac_start(struct prueth *prueth, int slice)
->  {
->  	struct icssg_firmwares *firmwares;
->  	struct device *dev = prueth->dev;
-> -	int slice, ret;
-> +	int ret;
->  
->  	if (prueth->is_switch_mode)
->  		firmwares = icssg_switch_firmwares;
-> @@ -177,16 +177,6 @@ static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
->  	else
->  		firmwares = icssg_emac_firmwares;
->  
-> -	slice = prueth_emac_slice(emac);
-> -	if (slice < 0) {
-> -		netdev_err(emac->ndev, "invalid port\n");
-> -		return -EINVAL;
-> -	}
-> -
-> -	ret = icssg_config(prueth, emac, slice);
-> -	if (ret)
-> -		return ret;
-> -
->  	ret = rproc_set_firmware(prueth->pru[slice], firmwares[slice].pru);
->  	ret = rproc_boot(prueth->pru[slice]);
->  	if (ret) {
-> @@ -208,7 +198,6 @@ static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
->  		goto halt_rtu;
->  	}
->  
-> -	emac->fw_running = 1;
->  	return 0;
->  
->  halt_rtu:
-> @@ -220,6 +209,77 @@ static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
->  	return ret;
->  }
->  
-> +static int prueth_emac_common_start(struct prueth *prueth)
-> +{
-> +	struct prueth_emac *emac;
-> +	int slice, ret;
-> +
-> +	if (!prueth->emac[ICSS_SLICE0] && !prueth->emac[ICSS_SLICE1])
-> +		return -EINVAL;
-> +
-> +	/* clear SMEM and MSMC settings for all slices */
-> +	memset_io(prueth->msmcram.va, 0, prueth->msmcram.size);
-> +	memset_io(prueth->shram.va, 0, ICSSG_CONFIG_OFFSET_SLICE1 * PRUETH_NUM_MACS);
-> +
-> +	icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
-> +	icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
-> +
-> +	if (prueth->is_switch_mode || prueth->is_hsr_offload_mode)
-> +		icssg_init_fw_offload_mode(prueth);
-> +	else
-> +		icssg_init_emac_mode(prueth);
-> +
-> +	for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
-> +		emac = prueth->emac[slice];
-> +		if (emac) {
-> +			ret = icssg_config(prueth, emac, slice);
-> +			if (ret)
-> +				return ret;
-> +		}
-> +		ret = prueth_emac_start(prueth, slice);
+Introduce a boot-time selftest exercising all the known pKVM memory
+transitions and importantly checks the rejection of illegal transitions.
 
-if (ret)
-	return ret;
+The new test is hidden behind a new Kconfig option separate from
+CONFIG_EL2_NVHE_DEBUG on purpose as that has side effects on the
+transition checks ([1] doesn't reproduce with EL2 debug enabled).
 
-> +		if (!ret && emac)
+[1] https://lore.kernel.org/kvmarm/20241128154406.602875-1-qperret@google.com/
 
-Then no need to check for !ret
+Suggested-by: Will Deacon <will@kernel.org>
+Signed-off-by: Quentin Perret <qperret@google.com>
+---
+ arch/arm64/kvm/Kconfig                        |  10 ++
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   6 +
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 110 ++++++++++++++++++
+ arch/arm64/kvm/hyp/nvhe/setup.c               |   2 +
+ 4 files changed, 128 insertions(+)
 
-> +			emac->fw_running = 1;
-> +	}
-> +
-> +	emac = prueth->emac[ICSS_SLICE0] ? prueth->emac[ICSS_SLICE0] :
-> +	       prueth->emac[ICSS_SLICE1];
-> +	ret = icss_iep_init(emac->iep, &prueth_iep_clockops,
-> +			    emac, IEP_DEFAULT_CYCLE_TIME_NS);
-> +	if (ret) {
-> +		dev_err(prueth->dev, "Failed to initialize IEP module\n");
-> +		return ret;
-> +	}
-
-If we return error anywhere in this function will the caller take
-care of cleaning up?
-i.e. icssg_class_disable(), stopping any started cores, icss_iep_exit?
-
-You can't rely on prueth_emac_common_stop() as all cores might not
-have started and iep_init may not have been called.
-But you can if you check and call only if required.
-e.g. fw_running flag can be used to track if cores were started.
-
-> +
-
-Shouldn't we be setting emacs->initialized here and get rid of doing that
-in emac_ndo_open()?
-
-then you can track it to call icss_iep_exit().
-
-> +	return 0;
-> +}
-> +
-> +static int prueth_emac_common_stop(struct prueth *prueth)
-> +{
-> +	struct prueth_emac *emac;
-> +	int slice;
-> +
-> +	if (!prueth->emac[ICSS_SLICE0] && !prueth->emac[ICSS_SLICE1])
-> +		return -EINVAL;
-> +
-> +	icssg_class_disable(prueth->miig_rt, ICSS_SLICE0);
-> +	icssg_class_disable(prueth->miig_rt, ICSS_SLICE1);
-> +
-> +	for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
-> +		emac = prueth->emac[slice];
-> +		rproc_shutdown(prueth->txpru[slice]);
-> +		rproc_shutdown(prueth->rtu[slice]);
-> +		rproc_shutdown(prueth->pru[slice]);
-> +		if (emac)
-> +			emac->fw_running = 0;
-> +	}
-> +
-> +	emac = prueth->emac[ICSS_SLICE0] ? prueth->emac[ICSS_SLICE0] :
-> +	       prueth->emac[ICSS_SLICE1];
-> +	icss_iep_exit(emac->iep);
-> +
-
-emacs->initialized = 0;
-
-> +	return 0;
-> +}
-> +
->  /* called back by PHY layer if there is change in link state of hw port*/
->  static void emac_adjust_link(struct net_device *ndev)
->  {
-> @@ -543,23 +603,17 @@ static int emac_ndo_open(struct net_device *ndev)
->  {
->  	struct prueth_emac *emac = netdev_priv(ndev);
->  	int ret, i, num_data_chn = emac->tx_ch_num;
-> +	struct icssg_flow_cfg __iomem *flow_cfg;
->  	struct prueth *prueth = emac->prueth;
->  	int slice = prueth_emac_slice(emac);
->  	struct device *dev = prueth->dev;
->  	int max_rx_flows;
->  	int rx_flow;
->  
-> -	/* clear SMEM and MSMC settings for all slices */
-> -	if (!prueth->emacs_initialized) {
-> -		memset_io(prueth->msmcram.va, 0, prueth->msmcram.size);
-> -		memset_io(prueth->shram.va, 0, ICSSG_CONFIG_OFFSET_SLICE1 * PRUETH_NUM_MACS);
-> -	}
-> -
->  	/* set h/w MAC as user might have re-configured */
->  	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
->  
->  	icssg_class_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
-> -	icssg_class_default(prueth->miig_rt, slice, 0, false);
-
-This is changing existing behaviour.
-If network device is stopped and started we expect all classifiers to be set to defaults?
-
->  	icssg_ft1_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
->  
->  	/* Notify the stack of the actual queue counts. */
-> @@ -597,18 +651,23 @@ static int emac_ndo_open(struct net_device *ndev)
->  		goto cleanup_napi;
->  	}
->  
-> -	/* reset and start PRU firmware */
-> -	ret = prueth_emac_start(prueth, emac);
-> -	if (ret)
-> -		goto free_rx_irq;
-> +	if (!prueth->emacs_initialized) {
-> +		ret = prueth_emac_common_start(prueth);
-> +		if (ret)
-> +			goto free_rx_irq;
-
-goto stop;
-
-so you can use pruet_emac_common_stop() to do the necessary cleanup.
-
-> +	}
->  
-> -	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
-> +	flow_cfg = emac->dram.va + ICSSG_CONFIG_OFFSET + PSI_L_REGULAR_FLOW_ID_BASE_OFFSET;
-> +	writew(emac->rx_flow_id_base, &flow_cfg->rx_base_flow);
-> +	ret = emac_fdb_flow_id_updated(emac);
->  
-> -	if (!prueth->emacs_initialized) {
-> -		ret = icss_iep_init(emac->iep, &prueth_iep_clockops,
-> -				    emac, IEP_DEFAULT_CYCLE_TIME_NS);
-> +	if (ret) {
-> +		netdev_err(ndev, "Failed to update Rx Flow ID %d", ret);
-> +		goto stop;
->  	}
->  
-> +	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
-> +
->  	ret = request_threaded_irq(emac->tx_ts_irq, NULL, prueth_tx_ts_irq,
->  				   IRQF_ONESHOT, dev_name(dev), emac);
->  	if (ret)
-> @@ -653,7 +712,7 @@ static int emac_ndo_open(struct net_device *ndev)
->  free_tx_ts_irq:
->  	free_irq(emac->tx_ts_irq, emac);
->  stop:
-> -	prueth_emac_stop(emac);
-> +	prueth_emac_common_stop(prueth);
->  free_rx_irq:
->  	free_irq(emac->rx_chns.irq[rx_flow], emac);
->  cleanup_napi:
-> @@ -689,8 +748,6 @@ static int emac_ndo_stop(struct net_device *ndev)
->  	if (ndev->phydev)
->  		phy_stop(ndev->phydev);
->  
-> -	icssg_class_disable(prueth->miig_rt, prueth_emac_slice(emac));
-> -
->  	if (emac->prueth->is_hsr_offload_mode)
->  		__dev_mc_unsync(ndev, icssg_prueth_hsr_del_mcast);
->  	else
-> @@ -729,10 +786,8 @@ static int emac_ndo_stop(struct net_device *ndev)
->  	cancel_delayed_work_sync(&emac->stats_work);
->  
->  	if (prueth->emacs_initialized == 1)
-> -		icss_iep_exit(emac->iep);
-> -
-> -	/* stop PRUs */
-> -	prueth_emac_stop(emac);
-> +		/* stop PRUs */
-> +		prueth_emac_common_stop(prueth);
-
-You don't need this anymore as we will rely on stop: label to call
-prueth_emac_common_stop();
-
->  
->  	free_irq(emac->tx_ts_irq, emac);
->  
-> @@ -1069,16 +1124,10 @@ static void prueth_emac_restart(struct prueth *prueth)
->  	icssg_set_port_state(emac1, ICSSG_EMAC_PORT_DISABLE);
->  
->  	/* Stop both pru cores for both PRUeth ports*/
-> -	prueth_emac_stop(emac0);
-> -	prueth->emacs_initialized--;
-> -	prueth_emac_stop(emac1);
-> -	prueth->emacs_initialized--;
-> +	prueth_emac_common_stop(prueth);
->  
->  	/* Start both pru cores for both PRUeth ports */
-> -	prueth_emac_start(prueth, emac0);
-> -	prueth->emacs_initialized++;
-> -	prueth_emac_start(prueth, emac1);
-> -	prueth->emacs_initialized++;
-> +	prueth_emac_common_start(prueth);
->  
->  	/* Enable forwarding for both PRUeth ports */
->  	icssg_set_port_state(emac0, ICSSG_EMAC_PORT_FORWARD);
-> @@ -1413,13 +1462,10 @@ static int prueth_probe(struct platform_device *pdev)
->  		prueth->pa_stats = NULL;
->  	}
->  
-> -	if (eth0_node) {
-> +	if (eth0_node || eth1_node) {
->  		ret = prueth_get_cores(prueth, ICSS_SLICE0, false);
->  		if (ret)
->  			goto put_cores;
-> -	}
-> -
-> -	if (eth1_node) {
->  		ret = prueth_get_cores(prueth, ICSS_SLICE1, false);
->  		if (ret)
->  			goto put_cores;
-> @@ -1618,14 +1664,12 @@ static int prueth_probe(struct platform_device *pdev)
->  	pruss_put(prueth->pruss);
->  
->  put_cores:
-> -	if (eth1_node) {
-> -		prueth_put_cores(prueth, ICSS_SLICE1);
-> -		of_node_put(eth1_node);
-> -	}
-> -
-> -	if (eth0_node) {
-> +	if (eth0_node || eth1_node) {
->  		prueth_put_cores(prueth, ICSS_SLICE0);
->  		of_node_put(eth0_node);
-> +
-> +		prueth_put_cores(prueth, ICSS_SLICE1);
-> +		of_node_put(eth1_node);
->  	}
->  
->  	return ret;
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> index f5c1d473e9f9..9fc72614d990 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> @@ -361,6 +361,8 @@ int icssg_set_port_state(struct prueth_emac *emac,
->  			 enum icssg_port_state_cmd state);
->  void icssg_config_set_speed(struct prueth_emac *emac);
->  void icssg_config_half_duplex(struct prueth_emac *emac);
-> +void icssg_init_emac_mode(struct prueth *prueth);
-> +void icssg_init_fw_offload_mode(struct prueth *prueth);
->  
->  /* Buffer queue helpers */
->  int icssg_queue_pop(struct prueth *prueth, u8 queue);
-> @@ -377,6 +379,7 @@ void icssg_vtbl_modify(struct prueth_emac *emac, u8 vid, u8 port_mask,
->  		       u8 untag_mask, bool add);
->  u16 icssg_get_pvid(struct prueth_emac *emac);
->  void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port);
-> +int emac_fdb_flow_id_updated(struct prueth_emac *emac);
->  #define prueth_napi_to_tx_chn(pnapi) \
->  	container_of(pnapi, struct prueth_tx_chn, napi_tx)
->  
-
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index ead632ad01b4..038d7f52232c 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -46,6 +46,7 @@ menuconfig KVM
+ config NVHE_EL2_DEBUG
+ 	bool "Debug mode for non-VHE EL2 object"
+ 	depends on KVM
++	select PKVM_SELFTESTS
+ 	help
+ 	  Say Y here to enable the debug mode for the non-VHE KVM EL2 object.
+ 	  Failure reports will BUG() in the hypervisor. This is intended for
+@@ -53,6 +54,15 @@ config NVHE_EL2_DEBUG
+ 
+ 	  If unsure, say N.
+ 
++config PKVM_SELFTESTS
++	bool "Protected KVM hypervisor selftests"
++	help
++	  Say Y here to enable Protected KVM (pKVM) hypervisor selftests
++	  during boot. Failure reports will panic the hypervisor. This is
++	  intended for EL2 hypervisor development.
++
++	  If unsure, say N.
++
+ config PROTECTED_NVHE_STACKTRACE
+ 	bool "Protected KVM hypervisor stacktraces"
+ 	depends on NVHE_EL2_DEBUG
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+index 0972faccc2af..a9b2677227cc 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+@@ -90,4 +90,10 @@ static __always_inline void __load_host_stage2(void)
+ 	else
+ 		write_sysreg(0, vttbr_el2);
+ }
++
++#ifdef CONFIG_PKVM_SELFTESTS
++void pkvm_ownership_selftest(void);
++#else
++static inline void pkvm_ownership_selftest(void) { }
++#endif
+ #endif /* __KVM_NVHE_MEM_PROTECT__ */
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index e75374d682f4..6a01ffe3d117 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -1306,3 +1306,113 @@ int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages)
+ 
+ 	return ret;
+ }
++
++#ifdef CONFIG_PKVM_SELFTESTS
++struct pkvm_expected_state {
++	enum pkvm_page_state host;
++	enum pkvm_page_state hyp;
++};
++
++static struct pkvm_expected_state selftest_state;
++static struct hyp_page *selftest_page;
++
++static void assert_page_state(void)
++{
++	void *virt = hyp_page_to_virt(selftest_page);
++	u64 size = PAGE_SIZE << selftest_page->order;
++	u64 phys = hyp_virt_to_phys(virt);
++
++	host_lock_component();
++	WARN_ON(__host_check_page_state_range(phys, size, selftest_state.host));
++	host_unlock_component();
++
++	hyp_lock_component();
++	WARN_ON(__hyp_check_page_state_range((u64)virt, size, selftest_state.hyp));
++	hyp_unlock_component();
++}
++
++#define assert_transition_res(res, fn, ...)		\
++	do {						\
++		WARN_ON(fn(__VA_ARGS__) != res);	\
++		assert_page_state();			\
++	} while (0)
++
++void pkvm_ownership_selftest(void)
++{
++	void *virt = hyp_alloc_pages(&host_s2_pool, 0);
++	u64 phys, size, pfn;
++
++	WARN_ON(!virt);
++	selftest_page = hyp_virt_to_page(virt);
++	selftest_page->refcount = 0;
++
++	size = PAGE_SIZE << selftest_page->order;
++	phys = hyp_virt_to_phys(virt);
++	pfn = hyp_phys_to_pfn(phys);
++
++	selftest_state.host = PKVM_NOPAGE;
++	selftest_state.hyp = PKVM_PAGE_OWNED;
++	assert_page_state();
++	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
++	assert_transition_res(-EPERM,	__pkvm_host_unshare_hyp, pfn);
++	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_host_unshare_ffa, pfn, 1);
++	assert_transition_res(-EPERM,	hyp_pin_shared_mem, virt, virt + size);
++
++	selftest_state.host = PKVM_PAGE_OWNED;
++	selftest_state.hyp = PKVM_NOPAGE;
++	assert_transition_res(0,	__pkvm_hyp_donate_host, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
++	assert_transition_res(-EPERM,	hyp_pin_shared_mem, virt, virt + size);
++
++	selftest_state.host = PKVM_PAGE_SHARED_OWNED;
++	selftest_state.hyp = PKVM_PAGE_SHARED_BORROWED;
++	assert_transition_res(0,	__pkvm_host_share_hyp, pfn);
++	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
++	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
++
++	assert_transition_res(0,	hyp_pin_shared_mem, virt, virt + size);
++	WARN_ON(!hyp_page_count(virt));
++	assert_transition_res(-EBUSY,	__pkvm_host_unshare_hyp, pfn);
++	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
++	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
++
++	hyp_unpin_shared_mem(virt, virt + size);
++	assert_page_state();
++	WARN_ON(hyp_page_count(virt));
++	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
++	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
++
++	selftest_state.host = PKVM_PAGE_OWNED;
++	selftest_state.hyp = PKVM_NOPAGE;
++	assert_transition_res(0,	__pkvm_host_unshare_hyp, pfn);
++
++	selftest_state.host = PKVM_PAGE_SHARED_OWNED;
++	selftest_state.hyp = PKVM_NOPAGE;
++	assert_transition_res(0,	__pkvm_host_share_ffa, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
++	assert_transition_res(-EPERM,	__pkvm_host_unshare_hyp, pfn);
++	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
++	assert_transition_res(-EPERM,	hyp_pin_shared_mem, virt, virt + size);
++
++	selftest_state.host = PKVM_PAGE_OWNED;
++	selftest_state.hyp = PKVM_NOPAGE;
++	assert_transition_res(0,	__pkvm_host_unshare_ffa, pfn, 1);
++
++	selftest_state.host = PKVM_NOPAGE;
++	selftest_state.hyp = PKVM_PAGE_OWNED;
++	assert_transition_res(0,	__pkvm_host_donate_hyp, pfn, 1);
++
++	selftest_page->refcount = 1;
++	hyp_put_page(&host_s2_pool, virt);
++}
++#endif
+diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+index cbdd18cd3f98..d154e80fe6b9 100644
+--- a/arch/arm64/kvm/hyp/nvhe/setup.c
++++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+@@ -306,6 +306,8 @@ void __noreturn __pkvm_init_finalise(void)
+ 		goto out;
+ 
+ 	pkvm_hyp_vm_table_init(vm_table_base);
++
++	pkvm_ownership_selftest();
+ out:
+ 	/*
+ 	 * We tail-called to here from handle___pkvm_init() and will not return,
 -- 
-cheers,
--roger
+2.47.0.338.g60cca15819-goog
 
 
