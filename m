@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DAC9D6EBE3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 07:21:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4172D6EBE3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 07:22:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U1VQx0OS79LPiPKD5j2CmvzA1DqCao/g5qumxGLEFCM=; b=2mC7FI3bgnaA0Fk26wfLSofVi8
-	9qwFrlXXxZpt8AAak4WBdkR2mnsn7lg5jlv9cpRA+rs1+tuZJwTtL+SGefYLOTxmpZbYmnzCPM7nD
-	fLuGhajIcRC2IZqh/2OYrnL+sF8U2pvSrXkXfzRN2XYP/7rZBpSF4rpqxCUWNcifGnOWaT7gilTpd
-	AEVELlsZGQYms+ashPyu7nFp9CjSSRG5ompukkyy+RBp2Uffv3yOqIVCQQt58jHjjjl/Ee2Ii4cUN
-	+1I3/Y9XVAiRJk/xHzQSmB9TPIL3kHcYYQgdL3lmjypCGO2UcWoFM1+VGUQSnUiRJ5/v3qrymGxxv
-	y+ZpQ5bw==;
+	bh=M4tD95wEzzC7ua/VvyG4y/vO8ctyWBdq2dh2LRB0nY8=; b=TY3J790Ea+COGjLF4z5CkRFfcv
+	2985dyHQVWVK3epyJoHV0/1JsKY63/zLGtvAp0Df1ZYajxnBw7F4MuiBsC0c8rBs7Vm4cNSFhV7ig
+	cLKBQr201gyUgUtsRnlldGVy/CfpkIJTn9i2Q7f9kLEZAAROhtHocsrQsBUKO4KUdt+Dte3baSJvj
+	1JiuTvi6DchiyCMeZ9O0JdLvKADWEsNF3gRWHILOhnXL1Savjy36Sm/QJXmawm91CgzZhAUlW4BAS
+	3IQ1wwmOP4g2NIbDy169ZYx2d11HuYkyeQsDrwasbpktcJF5VjaObJ6utVtjIAZpeHA5IMWtWh9cJ
+	py0O8YEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGvJR-0000000H49g-1fGI;
-	Fri, 29 Nov 2024 07:21:13 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tGvKT-0000000H4IQ-0N2N;
+	Fri, 29 Nov 2024 07:22:17 +0000
+Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGvIS-0000000H445-398c
+	id 1tGvJS-0000000H49d-3pgf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 07:20:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DBE685C2458;
-	Fri, 29 Nov 2024 07:19:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 464C2C4CECF;
-	Fri, 29 Nov 2024 07:20:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732864811;
-	bh=f5K7i1Tg3ZRRth7tKZoWQuEu/Q0cKzBkqzpXHnSj30I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E3auW3c1D7g2OnfW0zxlaGz+VnEVe0MCoZTpLvcH6B9G6ew1dDAd3wpTK3sVHcQYq
-	 q60LnPtWyeJVczx7yxjhZG2BIV5OUAuYcVR1iUlpwHM+qmIzpWAyAZrkubtKDIM8vv
-	 Rs41J8fBJi4LVu6xiJGe5zubQ2zG5drEcvnq0MZvgJjcLgFm6gPr4IEKA3z643ff6F
-	 207rFsAanfxSzmUr7iaQtkqcVlt5VREJDTUHPSdmXacMQQ+amOyknnIzvq2QmYYLED
-	 +Cd2zUuMEj3A3p/InDtwR4HLslNxMWi7KSTu62o40z8H0tCi2SKRl+o2D4bCmXtGEF
-	 4BEAYOv2hBLuQ==
-Date: Fri, 29 Nov 2024 08:20:08 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Neha Malcom Francis <n-francis@ti.com>
-Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, u-kumar1@ti.com
-Subject: Re: [PATCH 1/2] dt-bindings: misc: bist: Add BIST dt-binding for TI
- K3 devices
-Message-ID: <ho7ktcnbtl7mvamfthqho23co2fc4z7bgjha7pu4wivxm6ndhu@tfbpveonhckz>
-References: <20241128140825.263216-1-n-francis@ti.com>
- <20241128140825.263216-2-n-francis@ti.com>
+	Fri, 29 Nov 2024 07:21:16 +0000
+Date: Thu, 28 Nov 2024 23:20:59 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1732864871;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=M4tD95wEzzC7ua/VvyG4y/vO8ctyWBdq2dh2LRB0nY8=;
+	b=l8jDcI4iye34mkZSkKkml7LqVOjXtSRZ9LRvvG6Rhz0dvsP7PTnFZQs5ybXAcUyWNmwt/C
+	l9TqAIceTPIEthXOsJTAz1Qr7fGGi6mmGR4Xd375xgoaxaqyMcomAKj8Df6caOyAwuhxs0
+	lmRyrJaCjs5nK6XhnuGlwzRGuOHFA8I=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Keisuke Nishimura <keisuke.nishimura@inria.fr>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Subject: Re: [PATCH] KVM: arm/arm64: vgic-its: Add error handling in
+ vgic_its_cache_translation
+Message-ID: <Z0lrWynd3O8a1pG_@linux.dev>
+References: <20241128134534.361144-1-keisuke.nishimura@inria.fr>
+ <Z0iujBMl1ypdwfBu@linux.dev>
+ <a62e682d-c2e8-424d-84c5-4e64468124a9@inria.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241128140825.263216-2-n-francis@ti.com>
+In-Reply-To: <a62e682d-c2e8-424d-84c5-4e64468124a9@inria.fr>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_232012_914296_D2D18D45 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20241128_232115_656376_80A641EC 
+X-CRM114-Status: GOOD (  27.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,107 +72,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 28, 2024 at 07:38:24PM +0530, Neha Malcom Francis wrote:
-> Document the binding for TI K3 BIST (Built-In Self Test) block.
+On Thu, Nov 28, 2024 at 08:04:01PM +0100, Keisuke Nishimura wrote:
+> Hello Marc and Oliver,
 > 
-
-A nit, subject: drop second/last, redundant "dt-binding". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
-
-> Signed-off-by: Neha Malcom Francis <n-francis@ti.com>
-> ---
->  .../bindings/misc/ti,j784s4-bist.yaml         | 66 +++++++++++++++++++
->  1 file changed, 66 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/misc/ti,j784s4-bist.yaml
-
-soc directory, not misc.
-
+> Thank you for the replies.
 > 
-> diff --git a/Documentation/devicetree/bindings/misc/ti,j784s4-bist.yaml b/Documentation/devicetree/bindings/misc/ti,j784s4-bist.yaml
-> new file mode 100644
-> index 000000000000..bd1b42734b3d
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/misc/ti,j784s4-bist.yaml
-> @@ -0,0 +1,66 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright (C) 2024 Texas Instruments Incorporated
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/misc/ti,j784s4-bist.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Texas Instruments K3 BIST
-> +
-> +maintainers:
-> +  - Neha Malcom Francis <n-francis@ti.com>
-> +
-> +description:
-> +  The BIST (Built-In Self Test) module is an IP block present in K3 devices
-> +  that support triggering of BIST tests, both PBIST (Memory BIST) and LBIST
-> +  (Logic BIST) on a core. Both tests are destructive in nature. At boot, BIST
-> +  is executed by hardware for the MCU domain automatically as part of HW POST.
-> +
-> +properties:
-> +  compatible:
-> +    const: ti,j784s4-bist
-> +
-> +  reg:
-> +    minItems: 2
+> On 28/11/2024 18:55, Oliver Upton wrote:
+> > On Thu, Nov 28, 2024 at 02:45:34PM +0100, Keisuke Nishimura wrote:
+> > > The xa_store() may fail because there is no guarantee that the cache_key
+> > > index is already used in its->translation_cache. This fix (1) resolves
+> > > the kref inconsistency on failure and (2) returns the error code.
+> > 
+> > xa_store() doesn't fail if an entry is already present at the specified
+> > index. It returns the old entry, which is why we have a vgic_put_irq()
+> > on the "error" path.
+> 
+> Sure. But to my understanding, this could be the first store to
+> its->translation_cache with cache_key, and that is why old can be NULL? I am
+> not very familiar with this code, so please correct me if I am wrong.
 
-Drop minItems
+So we take a reference on @irq to represent the pointer to it that's
+stored in the translation cache. There are 3 possible outcomes after the
+store:
 
-> +    maxItems: 2
-> +
-> +  reg-names:
-> +    items:
-> +      - const: cfg
-> +      - const: ctrl_mmr
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  ti,bist-instance:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description:
-> +      the BIST instance in the SoC represented as an integer
+ - Store succeeds and no pre-existing entry.
 
-No instance indices are allowed. Drop.
+ - Store succeeds and there's a pre-existing entry. put the reference on
+   @old since it was evicted from the translation cache
 
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - ti,bist-instance
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/soc/ti,sci_pm_domain.h>
-> +    bus {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +        bist@33c0000 {
+ - Store fails because of a failed memory allocation / error in xarray
+   library.
 
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+We don't handle #3, and the correct thing to do in this case is to put
+@irq since it was never made visible in the translation cache.
 
-Come with something, don't just use device name.
+So I think we'd want to do something similar to the following.
 
-> +            compatible = "ti,j784s4-bist";
-> +            reg = <0x00 0x033c0000 0x00 0x400>,
-> +            <0x00 0x0010c1a0 0x00 0x01c>;
+-- 
+Thanks,
+Oliver
 
-Misaligned code.
-
-Best regards,
-Krzysztof
-
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index f4c4494645c3..fb96802799c6 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -608,12 +608,22 @@ static void vgic_its_cache_translation(struct kvm *kvm, struct vgic_its *its,
+ 	lockdep_assert_held(&its->its_lock);
+ 	vgic_get_irq_kref(irq);
+ 
++	old = xa_store(&its->translation_cache, cache_key, irq, GFP_KERNEL_ACCOUNT);
++
++	/*
++	 * Put the reference taken on @irq if the store fails. Intentionally do
++	 * not return the error as the translation cache is best effort.
++	 */
++	if (xa_is_err(old)) {
++		vgic_put_irq(kvm, irq);
++		return;
++	}
++
+ 	/*
+ 	 * We could have raced with another CPU caching the same
+ 	 * translation behind our back, ensure we don't leak a
+ 	 * reference if that is the case.
+ 	 */
+-	old = xa_store(&its->translation_cache, cache_key, irq, GFP_KERNEL_ACCOUNT);
+ 	if (old)
+ 		vgic_put_irq(kvm, old);
+ }
 
