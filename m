@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A9D0D6EBF1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 09:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87345D6EBF1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 09:24:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JiIfkNNTfG2wLwCrL8SHt4I5iayU11reYKOyFG1OMt8=; b=gVuTCM0fwMRaSf+sst/1ZVoMp1
-	RzFXuKqr5rRcHaGrnKAH8PJ3pnDGDWRhyVt8gZYUlZohGmDHlaKR0n0CzmybEdipqPD6MBgWY4FnN
-	lnoxJoreUsS1vyg1X5JzOcASRNwkUrFuqvnV8juZuL0rTgdWuaF727mfkJUxj3woaeF+6kn7V57sv
-	+oermnrsOhvGcfSqO1mT2rQhg317LNNIr3fAX30+J/tNEdGBvvEob7E2utcaitVOy7nd0bw+M9D4r
-	6wWl7R2v//CN5C6gIMvYXufFhMQZQ8MjI82a5FrQT9ztgyN7+mKBGxwZon6I5GbaOG0hBGLhNqDV4
-	cZPEJO1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uE1m/qeDr/INGl80kqbsD1pNbFA3dcGoa0vVXT4ZHyQ=; b=N/IdONXJZ+dZ7WiDALs5OKzc/8
+	hBGvxBr2xDXnJ6FBHOuxV3aBtPGUZG98/Msa4KS/99M+ymoK/bfR/EPz2pfmOU4g1FkFoJVKRFwOA
+	kE/tTEOVHj+6Zadaw5lws6NaKdtNWBZGxRmyyB6rwgNrXajTe//X09vRwbCdF0/sY3NbPGJMu33BR
+	yJmLhOr5hv4nFdKSMXUKZBxo27G5nyBmIKvQACiFqb41bQ4Rnetv7+AiffgEF0tOLjQl5/8j0b03b
+	CmCotxkb7jSVs/AJdG2btRNCPqTlW2Sj4+1bOmHwo/o9IFpeWJUwhFKyJ/V/t47i/FtnJHYs4BmS2
+	5zGuYYbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGxDp-0000000HJlp-2OLL;
-	Fri, 29 Nov 2024 09:23:33 +0000
-Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
+	id 1tGxEt-0000000HJzP-2ny2;
+	Fri, 29 Nov 2024 09:24:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGxCq-0000000HJeL-29Do
+	id 1tGxDu-0000000HJnY-42Cu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 09:22:33 +0000
-Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-2967af48248so935203fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Nov 2024 01:22:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732872151; x=1733476951; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JiIfkNNTfG2wLwCrL8SHt4I5iayU11reYKOyFG1OMt8=;
-        b=VAhey4tKqqca3isrFu8vWwtwGE7W2b0xaRPoVcOCFBxn+4OtyKmf3hB1zk8GrIK+Ai
-         eYWR9x8T0gyHoCREUM9tU9Pg1IZItlKDqH1UL3POWRG4o7Sx+okIsLI+tZsEHiIF7kLc
-         g186mWlf1zlPYNk0jZ4+4Ncpo3+9uOxmjZXw7bFRNtDbp0YUV43pVGq4V4k6APKis3mF
-         XUhla+4R/R8GwQLSmJQRLz+H0nItRRexiPA63V8I6LG8DQaM9v14II5MzyiqrW2I1rlt
-         RC4F0O3Kzmwpa1J9xrJGXNWx0PHx3DFy3MCDHvtaqbu0PnsahpCWGLtWkGqvPp0S/hUh
-         l4Lg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732872151; x=1733476951;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JiIfkNNTfG2wLwCrL8SHt4I5iayU11reYKOyFG1OMt8=;
-        b=pfyixJvCYGoOM/oP9qIhtiTzUvOkHk5qVFTWWgxenQreq8z3suDzKhxhSm0yQMG0Ih
-         61c6jk9LJxZQSvzObFUaGDGfhRC5zZ+VLZD56Ox6L2nDrzs0xaJFTX9IcM/UY0hBSstt
-         T7cYaYtc3KgBn78OhhwP95Z8hdzTXaWc8c439cNfrj7zE6Feu/GMnxo4vXNWAoIyKq9A
-         RwArzMB3M0C3SZiM3sx7SnT/5dGqSl1N6d1r/eKtAgsX/d2EKA02xXlbG0s56GMgQiKX
-         JwjXOu/0nGZ19rS3EYAy7ufn6ZdzanizcBoB8j2FL/EiA841sibzK3koGDrzweLhrfce
-         vcxg==
-X-Forwarded-Encrypted: i=1; AJvYcCWrm6R5+WT2TazM6mdUetPqqrCuPWXlBLnhcTapQzhMf6aIMhIp+42qSgWvOF3845kuqsjIYFeqyrBWqT0QA5gD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaYDL+jACo343eMEx4deZj1/3PXdyBGEehFzTbf6AlgnC68yF9
-	xDf92xH7U1QR/e3L82TJ+iuc+te8LiGGRm5zxy8OgAcGhbV4D6ogtm3C3y6yClCiYCuTlFpfGko
-	qdUL7pT8+o6tEMO4XQGSn+X1kYVdAvhDRUYJg7w==
-X-Gm-Gg: ASbGncsFYmXuj7lE8a1gVLJkVgwOUPImBjf/mVplERY3ndDxv4hEGGfond9aaZB5cpD
-	Knfw/p3ldf9Fv7Q5YemvbDwemVSizSWbS
-X-Google-Smtp-Source: AGHT+IFjSIqaNaKVZ3/NuPe/UxWWplbF+FKubgmNFJXh3rXD7HgOiYLcq/AbS7MVH0EyqYNXM/cmA1yMxrA0FbnycFY=
-X-Received: by 2002:a05:6870:7d13:b0:278:2c82:e056 with SMTP id
- 586e51a60fabf-29dc4199014mr6752255fac.23.1732872151330; Fri, 29 Nov 2024
- 01:22:31 -0800 (PST)
+	Fri, 29 Nov 2024 09:23:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 236445C5703;
+	Fri, 29 Nov 2024 09:22:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2AB0C4CECF;
+	Fri, 29 Nov 2024 09:23:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732872218;
+	bh=U7SnWYNG5aseGqVDBZQRYjC0oqz+X5HcHgFpn1GDLNY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pznCXRW2tZpLBh+VwvXQ7WwJezCk6QmC77dABI64Et9uQaIICuScdtVpLmUukNVG4
+	 GDhutLyfl/afUkQ3DtLsGD+4SA6+AZO7QL+hVSs+t8AzMsRLyrw9ioGq3kNGGN5RRl
+	 i7Gn4ceCeC0qTy3wbN9EWMLemStK6lzANyn/Kx9xO1sImX+sVlXhgN1AKyQ1OWFTCS
+	 zTOaVMAr+pGF4Uc3+46Jaaj8GkbgdBKVWbwZ9I2In6EQshOlZXG57XAtWNGm1diE7l
+	 uPO59QKZ/8/wjwV+awom/hW6lLY3SngBAdF7yjSM5ijglrfuv4ckjvXWVRKAmJ/jMh
+	 XaKioSwRGgCeg==
+Date: Fri, 29 Nov 2024 11:23:24 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Zi Yan <ziy@nvidia.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>, stable@vger.kernel.org
+Subject: Re: [PATCH] arch_numa: Restore nid checks before registering a
+ memblock with a node
+Message-ID: <Z0mIDBD4KLyxyOCm@kernel.org>
+References: <20241127193000.3702637-1-maz@kernel.org>
+ <Z0gVxWstZdKvhY6m@kernel.org>
+ <87y113s3lt.wl-maz@kernel.org>
+ <Z0l6MPWQ66GjAyOC@kernel.org>
+ <87v7w6sa5s.wl-maz@kernel.org>
 MIME-Version: 1.0
-References: <20241127-gs101-phy-lanes-orientation-phy-v1-0-1b7fce24960b@linaro.org>
- <20241127-gs101-phy-lanes-orientation-phy-v1-5-1b7fce24960b@linaro.org>
-In-Reply-To: <20241127-gs101-phy-lanes-orientation-phy-v1-5-1b7fce24960b@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 29 Nov 2024 09:22:20 +0000
-Message-ID: <CADrjBPqUUXxjKapaSdWQz2PL8MsYVr74HCP_OqZZSG4w58_U1Q@mail.gmail.com>
-Subject: Re: [PATCH 5/9] phy: exynos5-usbdrd: fix EDS distribution tuning (gs101)
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Sam Protsenko <semen.protsenko@linaro.org>, Will McVicker <willmcvicker@google.com>, 
-	Roy Luo <royluo@google.com>, kernel-team@android.com, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87v7w6sa5s.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_012232_589350_4C1B486F 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20241129_012339_093844_20FBFF3A 
+X-CRM114-Status: GOOD (  35.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +80,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andr=C3=A9,
+On Fri, Nov 29, 2024 at 08:42:55AM +0000, Marc Zyngier wrote:
+> On Fri, 29 Nov 2024 08:24:16 +0000,
+> Mike Rapoport <rppt@kernel.org> wrote:
+> > 
+> > On Thu, Nov 28, 2024 at 04:52:14PM +0000, Marc Zyngier wrote:
+> > > Hi Mike,
+> > > 
+> > > On Thu, 28 Nov 2024 07:03:33 +0000,
+> > > Mike Rapoport <rppt@kernel.org> wrote:
+> > > > 
+> > > > Hi Marc,
+> > > > 
+> > > > > diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
+> > > > > index e187016764265..5457248eb0811 100644
+> > > > > --- a/drivers/base/arch_numa.c
+> > > > > +++ b/drivers/base/arch_numa.c
+> > > > > @@ -207,7 +207,21 @@ static void __init setup_node_data(int nid, u64 start_pfn, u64 end_pfn)
+> > > > >  static int __init numa_register_nodes(void)
+> > > > >  {
+> > > > >  	int nid;
+> > > > > -
+> > > > > +	struct memblock_region *mblk;
+> > > > > +
+> > > > > +	/* Check that valid nid is set to memblks */
+> > > > > +	for_each_mem_region(mblk) {
+> > > > > +		int mblk_nid = memblock_get_region_node(mblk);
+> > > > > +		phys_addr_t start = mblk->base;
+> > > > > +		phys_addr_t end = mblk->base + mblk->size - 1;
+> > > > > +
+> > > > > +		if (mblk_nid == NUMA_NO_NODE || mblk_nid >= MAX_NUMNODES) {
+> > > > > +			pr_warn("Warning: invalid memblk node %d [mem %pap-%pap]\n",
+> > > > > +				mblk_nid, &start, &end);
+> > > > > +			return -EINVAL;
+> > > > > +		}
+> > > > 
+> > > > We have memblock_validate_numa_coverage() that checks that amount of memory
+> > > > with unset node id is less than a threshold. The loop here can be replaced
+> > > > with something like
+> > > > 
+> > > > 	if (!memblock_validate_numa_coverage(0))
+> > > > 		return -EINVAL;
+> > > 
+> > > Unfortunately, that doesn't seem to result in something that works
+> > > (relevant extract only):
+> > > 
+> > > [    0.000000] NUMA: no nodes coverage for 9MB of 65516MB RAM
+> > > [    0.000000] NUMA: Faking a node at [mem 0x0000000000500000-0x0000000fff0fffff]
+> > > [    0.000000] NUMA: no nodes coverage for 0MB of 65516MB RAM
+> > > [    0.000000] Unable to handle kernel paging request at virtual address 0000000000001d40
+> > > 
+> > > Any idea?
+> > 
+> > With 0 as the threshold the validation fails for the fake node, but it
+> > should be fine with memblock_validate_numa_coverage(1)
+> 
+> Huh, subtle. This indeed seems to work. I'll respin the patch next week.
 
-On Wed, 27 Nov 2024 at 10:58, Andr=C3=A9 Draszik <andre.draszik@linaro.org>=
- wrote:
->
-> This code's intention is to configure lane0 and lane2 tunings, but for
-> lane2 there is a typo and it ends up tuning something else.
->
-> Fix the typo, as it doesn't appear to make sense to apply different
-> tunings for lane0 vs lane2.
->
-> The same typo appears to exist in the bootloader, hence we restore the
-> original value in the typo'd registers as well. This can be removed
-> once / if the bootloader is updated.
->
-> Note that this is incorrect in the downstream driver as well - the
-> values had been copied from there.
->
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> ---
+With the patch below memblock_validate_numa_coverage(0) should also work
+and it makes more sense.
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-Tested-by: Peter Griffin <peter.griffin@linaro.org>
+@Andrew, I can take both this and Marc's new patch via memblock tree if you
+prefer.
 
-Validated that a super-speed USB link is established between Pixel 6
-phone and my laptop with this patch applied and that adb works.
+From de55af44c02bc9aa43f05a785ac66a5aafa43354 Mon Sep 17 00:00:00 2001
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Date: Fri, 29 Nov 2024 11:13:47 +0200
+Subject: [PATCH] memblock: allow zero threshold in validate_numa_converage()
 
-regards,
+Currently memblock validate_numa_converage() returns false negative when
+threshold set to zero.
 
-Peter
+Make the check if the memory size with invalid node ID is greater than
+the threshold exclusive to fix that.
+
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+---
+ mm/memblock.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mm/memblock.c b/mm/memblock.c
+index 0389ce5cd281..095c18b5c430 100644
+--- a/mm/memblock.c
++++ b/mm/memblock.c
+@@ -735,7 +735,7 @@ int __init_memblock memblock_add(phys_addr_t base, phys_addr_t size)
+ /**
+  * memblock_validate_numa_coverage - check if amount of memory with
+  * no node ID assigned is less than a threshold
+- * @threshold_bytes: maximal number of pages that can have unassigned node
++ * @threshold_bytes: maximal memory size that can have unassigned node
+  * ID (in bytes).
+  *
+  * A buggy firmware may report memory that does not belong to any node.
+@@ -755,7 +755,7 @@ bool __init_memblock memblock_validate_numa_coverage(unsigned long threshold_byt
+ 			nr_pages += end_pfn - start_pfn;
+ 	}
+ 
+-	if ((nr_pages << PAGE_SHIFT) >= threshold_bytes) {
++	if ((nr_pages << PAGE_SHIFT) > threshold_bytes) {
+ 		mem_size_mb = memblock_phys_mem_size() >> 20;
+ 		pr_err("NUMA: no nodes coverage for %luMB of %luMB RAM\n",
+ 		       (nr_pages << PAGE_SHIFT) >> 20, mem_size_mb);
+-- 
+2.45.2
+
+ 
+> Thanks for your help,
+> 
+> 	M.
+
+-- 
+Sincerely yours,
+Mike.
 
