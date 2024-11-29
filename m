@@ -4,77 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD440D6EBE2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 07:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77457D6EBE2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 07:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i+VOgi3ShpiE5xL6iV8G4IpokAHnM4RxqSBIORD7UlE=; b=YAyLeKg5GdRJhntTifMC2VJ2MJ
-	4Kx7asQdFybRvP0qGBtZ2vlhM69/EI/nj/03ntGRYMlxj74VrTGexR9u3ZTLYCe8pKBgKJuH55WL1
-	z/uEthSgOFwdPa1o3nnXljYrlgF6oI+IRqJDmCxVIft85ijGDeuCQXtRwI+afrPACW6Ywpa50OiV7
-	IZapTqfo6r90JB47X1rPh+vx3p655ELDu3AnYc25V5LIyARXtjWyyvP1LL8xxPJu2ZrTqjELRoq4s
-	75uycsB2JeKVZ/ZVPpp6KjEnQUDUbSWS7Ok5I4IF7ZD0XWr+O+tlcLhgRDo+inz000A04944okk6K
-	nScYZgdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MILLxUu9rzLsxKaeqYpm+2Gulr4Avp7+0QuruaQfahA=; b=1lVj9JSIcIgbrP7rLqUgHEdG0V
+	WxcMx9TvMw261gm/AtCSmdsQILOzOkKC8j79N519mzj0lbz3YFaz4U7tsnthKLPyQgmYw3+gVL+A3
+	2RiZqHGQ4FaHgS+rpG7cxzwqaOaz+KtR0Os8AsxObTBDMQTdyt5sA31HHigkq/BVrUL/zhANnWtiH
+	Zac3fSTlxKw/en0uY8fce/WtQADcm4pyiPUIlqKkPtv9EJIgSiAzvhRfzbgHWiMLkCFnjPuH1SRv6
+	BWD5CJ0De4ozU6YHqIfnLSOwkVkCHThEiId+bCPlVbKht5QyIG4iwtaqXqDKJg8v7ltwIvPgqOniC
+	gBFw87fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGvgG-0000000H5ok-3PBK;
-	Fri, 29 Nov 2024 07:44:48 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tGvqL-0000000H6kJ-0d3C;
+	Fri, 29 Nov 2024 07:55:13 +0000
+Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGvfH-0000000H5fv-2NO6
+	id 1tGvpL-0000000H6c8-1PY7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 07:43:49 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4AT7hgCU1176583
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Fri, 29 Nov 2024 01:43:42 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1732866222;
-	bh=i+VOgi3ShpiE5xL6iV8G4IpokAHnM4RxqSBIORD7UlE=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=TCbAFh52ZPDdKt0DRL0h/9PORAW74zfPh/rT3k9kdcZoEU2mirDUbn+LSaWwcmNoD
-	 wrVWx6A9gjAcyanFN9JofzNCmQM/j8DMc9h//gvtRPOMoUxasB7NLZXNxD7y0P91wh
-	 SBN1JJmcvEK7xfQPB8euAZY9NnVUt8/wYZk3zr4E=
-Received: from DFLE101.ent.ti.com (dfle101.ent.ti.com [10.64.6.22])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4AT7hg0l041410;
-	Fri, 29 Nov 2024 01:43:42 -0600
-Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 29
- Nov 2024 01:43:41 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 29 Nov 2024 01:43:41 -0600
-Received: from [10.24.69.37] (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.69.37])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4AT7hcmc098842;
-	Fri, 29 Nov 2024 01:43:39 -0600
-Message-ID: <837d329b-bcdd-4c3b-b508-e916b110ce25@ti.com>
-Date: Fri, 29 Nov 2024 13:13:37 +0530
+	Fri, 29 Nov 2024 07:54:12 +0000
+Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e38b2d868c8so1423166276.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Nov 2024 23:54:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732866849; x=1733471649; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=MILLxUu9rzLsxKaeqYpm+2Gulr4Avp7+0QuruaQfahA=;
+        b=gnvpGgwZQLe+FFvV+wUA5Y2bHn6inJgDymSG217yRVdgx8MJP7cT1SYE9GjvHLETLC
+         vwk36Vh++vc0go9kTSipMA5+t2s6OXxv4OjtVLvi9TonrtzCAK2kJYhmCZFsC+NsrwuN
+         lEYNQg4CsR+G61Q+0HucVgiPJDXkes/XLTZs8uiXavvdl37BRiDPUzfE5QhnmOwbsMsS
+         GU3z7GRXJFDqqozLtFFZCiDAV9y4m919JZG3B443P/diJi+sR+WZk1OQl00ds+aGhiea
+         tTmhU7R+7Q1FGYeDchsSLfj9cVzKOPySnwY55EH7/VYdYF3RK49xphVU5VIc0cp6uvq8
+         MhvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732866849; x=1733471649;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MILLxUu9rzLsxKaeqYpm+2Gulr4Avp7+0QuruaQfahA=;
+        b=mU7wyhL9zNpMLjQVJMK9x4XplVUHq/MHR6Mt9JRJedbKw9TqOXUvvu13dAatALwd5G
+         FVkdU8/sIIolGIwIHCrZMmdP+6Nzw7SbWnx/196DHFzR1NheslSEyBsRuJvyrPbwCDyp
+         q1v6+/sjkS9qvrWmRW8X2M2nkIH5z5mIo3WAiaiDg9CLSiu5Ak8aBHDQE6sXiZGOkJyC
+         xmWbjKkPruMz1SQgGdO30fu4Vsd6cFTfO/2V/lkW/U1nc6HEeXqDlmM6LH1kQJbJC+kW
+         gFZh78nKcZJK56PBeL8huvJfdNzjUSJZg9zkq7p41EDssG7L5bl6RwfoCtW8ucchFD7I
+         kXuw==
+X-Forwarded-Encrypted: i=1; AJvYcCVW3bh2RliJpHF9t6dJw0jTMxacecgIu7AqymBDRp0dKXduZQ4Sy4Iymfsg/rAizmpz65SqLQ3mEOVU6oFRyRPt@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQQhcO8m/XUuHHCVTISCLJ7hFcgNlO3OJ1JYm+E+KCXsrkimNQ
+	dEf0FFJu/jHD6Gj3wduPhlM/DBqKTQ3pBO87YhPTqufYNuTzXcsuCvAcyyECl5+rbLtQPjMopjE
+	aOfQyq3oQ3A7kCJrGcr+0Frdc5lY=
+X-Gm-Gg: ASbGncvJ1hQoFfLZSjmcW1l+EzmPJkClO/to766uTu0VoPbBq1rpa0X9dOkdbgV8aOG
+	nNnkhvHFg6PK6+WfJDf8eUDwAEFLStr76
+X-Google-Smtp-Source: AGHT+IF8HFusBVWylrBABsLEcXExgX39TFtK9CKcRntzgb2j/Eixg3DOFVeP3pBNmvcd13VUQ6ALY6h5mUnCdbvtq3I=
+X-Received: by 2002:a05:6902:114c:b0:e39:772b:4bc0 with SMTP id
+ 3f1490d57ef6-e39772b4fc5mr5024271276.42.1732866849543; Thu, 28 Nov 2024
+ 23:54:09 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: misc: bist: Add BIST dt-binding for TI
- K3 devices
+References: <20241128-z2-v2-0-76cc59bbf117@gmail.com> <20241128-z2-v2-1-76cc59bbf117@gmail.com>
+ <abmpkfnfrbcarqhp7pspxmy4veuiavpy2p5zqe5ljkstveuuzz@ur7grz3zd7xx>
+In-Reply-To: <abmpkfnfrbcarqhp7pspxmy4veuiavpy2p5zqe5ljkstveuuzz@ur7grz3zd7xx>
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Date: Fri, 29 Nov 2024 08:53:58 +0100
+Message-ID: <CAMT+MTTRT+z2i6qrqVo-KVNuPF2o2OV5HpfhbXiAaWU0TBr-WA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] dt-bindings: input: touchscreen: Add Z2 controller
 To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
-References: <20241128140825.263216-1-n-francis@ti.com>
- <20241128140825.263216-2-n-francis@ti.com>
- <ho7ktcnbtl7mvamfthqho23co2fc4z7bgjha7pu4wivxm6ndhu@tfbpveonhckz>
-Content-Language: en-US
-From: Neha Malcom Francis <n-francis@ti.com>
-In-Reply-To: <ho7ktcnbtl7mvamfthqho23co2fc4z7bgjha7pu4wivxm6ndhu@tfbpveonhckz>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_234347_776389_C5E06FD9 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20241128_235411_432573_4C506B52 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,122 +96,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Fri, 29 Nov 2024 at 08:16, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> > +    description:
+> > +      Calibration blob supplied by the bootloader
+>
+> What is the expected size? Fixed size or maximum?
 
-On 29/11/24 12:50, Krzysztof Kozlowski wrote:
-> On Thu, Nov 28, 2024 at 07:38:24PM +0530, Neha Malcom Francis wrote:
->> Document the binding for TI K3 BIST (Built-In Self Test) block.
->>
-> 
-> A nit, subject: drop second/last, redundant "dt-binding". The
-> "dt-bindings" prefix is already stating that these are bindings.
-> See also:
-> https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
-> 
->> Signed-off-by: Neha Malcom Francis <n-francis@ti.com>
->> ---
->>   .../bindings/misc/ti,j784s4-bist.yaml         | 66 +++++++++++++++++++
->>   1 file changed, 66 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/misc/ti,j784s4-bist.yaml
-> 
-> soc directory, not misc.
-> 
->>
->> diff --git a/Documentation/devicetree/bindings/misc/ti,j784s4-bist.yaml b/Documentation/devicetree/bindings/misc/ti,j784s4-bist.yaml
->> new file mode 100644
->> index 000000000000..bd1b42734b3d
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/misc/ti,j784s4-bist.yaml
->> @@ -0,0 +1,66 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +# Copyright (C) 2024 Texas Instruments Incorporated
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/misc/ti,j784s4-bist.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Texas Instruments K3 BIST
->> +
->> +maintainers:
->> +  - Neha Malcom Francis <n-francis@ti.com>
->> +
->> +description:
->> +  The BIST (Built-In Self Test) module is an IP block present in K3 devices
->> +  that support triggering of BIST tests, both PBIST (Memory BIST) and LBIST
->> +  (Logic BIST) on a core. Both tests are destructive in nature. At boot, BIST
->> +  is executed by hardware for the MCU domain automatically as part of HW POST.
->> +
->> +properties:
->> +  compatible:
->> +    const: ti,j784s4-bist
->> +
->> +  reg:
->> +    minItems: 2
-> 
-> Drop minItems
-> 
->> +    maxItems: 2
->> +
->> +  reg-names:
->> +    items:
->> +      - const: cfg
->> +      - const: ctrl_mmr
->> +
->> +  clocks:
->> +    maxItems: 1
->> +
->> +  power-domains:
->> +    maxItems: 1
->> +
->> +  ti,bist-instance:
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    description:
->> +      the BIST instance in the SoC represented as an integer
-> 
-> No instance indices are allowed. Drop.
-> 
+Unspecified, 1688 bytes on my machine, but the firmware
+has a size field. Most likely less than 4k.
 
-Question on this, this is not a property that is driven by software but rather 
-indicates which register sequences have to be picked up for triggering this test 
-from this instance. So I don't see how I can workaround this without getting 
-this number. Or maybe call it ID rather than instance?
+> Add it to the example.
 
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - reg-names
->> +  - ti,bist-instance
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/soc/ti,sci_pm_domain.h>
->> +    bus {
->> +        #address-cells = <2>;
->> +        #size-cells = <2>;
->> +        bist@33c0000 {
-> 
-> Node names should be generic. See also an explanation and list of
-> examples (not exhaustive) in DT specification:
-> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-> 
-> Come with something, don't just use device name.
-> 
->> +            compatible = "ti,j784s4-bist";
->> +            reg = <0x00 0x033c0000 0x00 0x400>,
->> +            <0x00 0x0010c1a0 0x00 0x01c>;
-> 
-> Misaligned code.
-> 
-> Best regards,
-> Krzysztof
-> 
-
-For the rest of the comments, got it! thanks for the review!
-
--- 
-Thanking You
-Neha Malcom Francis
+That seems counterproductive - it is a ~1.5kb blob,
+and it is supposed to be set by the bootloader, not
+by person writing the dts.
 
