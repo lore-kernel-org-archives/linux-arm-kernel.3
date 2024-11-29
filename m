@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A978FD70E06
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 02:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740B9D70E0A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 02:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kpe86r9iOvjOisEL0baYQ/8aMf7jHymtGoN0ZQJx9H0=; b=4mvrSvIWwgx3Vjc4aeXZZNKI/5
-	7Xb4yTP4d3dqot8g6uwbEv7zEFwr8Z6X97OA7/6jKNedparMDU0Yw4tBickRM6wcWX8R8luPOQ9zt
-	gUWkWJLyPkWhv9XLlUCF/Zb7K2t7hds3yBFMs77ySxDWRpYDbRDpxx2FkZM9XmFv4YjuG4gWZAzZj
-	4U+OxdkzWjo3OXJ0+b3IHd3m/bFj69epcDBRh9QtY0xgir2eSgGiRjziAAPE3kHsV3meJd2egC0c5
-	j/Va/dYmD0lI+V6Ck2BhjydbAUPdGjIhsbwIMptf7046OPHQzthNJTWm2iFuFBh9E3QVsP3cxf+3X
-	+J0mi5jA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hk9zMoDcE5wyq5i77c/JybahqCDfXnjy6iN9kcroPaI=; b=G3moDo4qVsBVIEGZ3srOgDn2Zj
+	MhWJPueSRgnEfqAifEXy0QaJaksKUX4llhcUeGAUSvu0L/CF2kzlh6+vnkQdeNoUeluIAQXPe8A5i
+	ufov933V2g/eVY38IAgR7Xjc2ukygaq7fe/jqVJkOnBPgo/gYxkx1unojO4mRS9p2xFUGJ/x3YVVy
+	3MiOlmlXGBSwFFXoVA7zL+qmbMrzxwKdcMx6ZEfdUP9eNyMKxeSajAxcCKDtnFvqFvJUy+svthPam
+	qwcYSeHPlKMC6xMATUSWPeneFi+b0zz+trXhMymFywNqsB8y5voyZH2RaBWOJqFhPTKyD13Vi+HG0
+	N5BO6RIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGr0L-0000000GlCI-1Irh;
-	Fri, 29 Nov 2024 02:45:13 +0000
-Received: from mail-m21473.qiye.163.com ([117.135.214.73])
+	id 1tGr3B-0000000GlTe-0FTT;
+	Fri, 29 Nov 2024 02:48:09 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGqzL-0000000Gl40-0JGr;
-	Fri, 29 Nov 2024 02:44:12 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 42b18083;
-	Fri, 29 Nov 2024 10:43:57 +0800 (GMT+08:00)
-Message-ID: <6e1f35c0-5ea8-414f-b3ea-4e7222c605ef@rock-chips.com>
-Date: Fri, 29 Nov 2024 10:43:57 +0800
+	id 1tGr2B-0000000GlLG-3Pb0;
+	Fri, 29 Nov 2024 02:47:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1732848428; x=1764384428;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Iyi+W+JKz0EAQaKtqkrUOsmAFLfBMZSMkSfcKblxaS8=;
+  b=EfR79ps/Zq19V7DvvfS32GHvgNoZVclNdj80OyTQOlBgEhsjEs79PUK7
+   UhywD7O+RVAf+T9r5ex0rpavz3lUbSPvZWYpGEENqJPCvm6Sks+bBgIr0
+   aRImfe3eryW6rosatUhR0MExuR0aLdRxh6wwzVIRkNDIE2Q982rwFLg7Z
+   +KLAykMCVbzz+8MPYNJY0hg9AEQW9n9YsVIo3Ecy1L+9BSuMbf4Qjz1de
+   YS9MT0X11gjxLV/uqaxVftW90q+BPSwxxFWNaDTovx51Fj5XvyqdrxSPq
+   YIA5ZjA9VfqsZKcRub0mV2r0jedB1IE1syCwJ6DAFZbMLgdFTmdPE+OSq
+   Q==;
+X-CSE-ConnectionGUID: DZ4DLcERRWmpApC1BSdRDg==
+X-CSE-MsgGUID: BiKnfxbhSmGjFUL4m6Ko+g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11270"; a="33137820"
+X-IronPort-AV: E=Sophos;i="6.12,194,1728975600"; 
+   d="scan'208";a="33137820"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2024 18:47:04 -0800
+X-CSE-ConnectionGUID: OcwmjXnURpODgunOkehPOg==
+X-CSE-MsgGUID: eL24zCVPSSGLJuhXw/TONg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,194,1728975600"; 
+   d="scan'208";a="92554387"
+Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 28 Nov 2024 18:46:57 -0800
+Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tGr1y-000AGR-2s;
+	Fri, 29 Nov 2024 02:46:54 +0000
+Date: Fri, 29 Nov 2024 10:46:18 +0800
+From: kernel test robot <lkp@intel.com>
+To: Eliav Farber <farbere@amazon.com>, linux@armlinux.org.uk,
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
+	npiggin@gmail.com, christophe.leroy@csgroup.eu, naveen@kernel.org,
+	maddy@linux.ibm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, tglx@linutronix.de, ebiederm@xmission.com,
+	akpm@linux-foundation.org, bhe@redhat.com, hbathini@linux.ibm.com,
+	sourabhjain@linux.ibm.com, adityag@linux.ibm.com,
+	songshuaishuai@tinylab.org, takakura@valinux.co.jp,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, jonnyc@amazon.com
+Subject: Re: [PATCH v3 1/2] kexec: Consolidate
+ machine_kexec_mask_interrupts() implementation
+Message-ID: <202411291047.R9P698b2-lkp@intel.com>
+References: <20241128201027.10396-2-farbere@amazon.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 04/10] phy: phy-rockchip-samsung-hdptx: Add support for
- eDP mode
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
- cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
- andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
- kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-References: <20241127075157.856029-1-damon.ding@rock-chips.com>
- <4260470.1IzOArtZ34@diego>
- <8df0acc8-b7aa-453f-b55c-30144f51d7cf@rock-chips.com>
- <2131853.KlZ2vcFHjT@diego>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <2131853.KlZ2vcFHjT@diego>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0seTVZOHUxJTx1MQh8eT0lWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZS1VLVUtVS1kG
-X-HM-Tid: 0a9375cdbbee03a3kunm42b18083
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Pk06MTo5DzIoFSEqNTY2LAo6
-	Iz0KCj1VSlVKTEhJQ09DSUhCTU5MVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFITk9LNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=bL/N3Unq55qSkA26JYoRtN15Zz23QknxZHD/t3byhVLAxtGQaDu8Vi0Y838Nayz2QgaE46cZpnKAmZ/I0Q41VPh89kl26riBDRD6ePNIsmUD9gvj5luW7GmvLFlikXGeWmb033lk9ZmjxL6Ht8auxKsmbc/UY9vu1VhuKgKFw88=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=kpe86r9iOvjOisEL0baYQ/8aMf7jHymtGoN0ZQJx9H0=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241128201027.10396-2-farbere@amazon.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_184411_379162_3BBAC8E3 
-X-CRM114-Status: GOOD (  23.50  )
+X-CRM114-CacheID: sfid-20241128_184707_901957_6AFC74CE 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,119 +96,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Hi Eliav,
 
-On 2024/11/27 19:04, Heiko Stübner wrote:
-> Hi Damon,
-> 
-> Am Mittwoch, 27. November 2024, 12:00:10 CET schrieb Damon Ding:
->> Hi Heiko:
->>
->> On 2024/11/27 17:29, Heiko Stübner wrote:
->>> Hi Damon,
->>>
->>> Am Mittwoch, 27. November 2024, 08:51:51 CET schrieb Damon Ding:
->>>> Add basic support for RBR/HBR/HBR2 link rates, and the voltage swing and
->>>> pre-emphasis configurations of each link rate have been verified according
->>>> to the eDP 1.3 requirements.
->>>>
->>>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>>> ---
->>>
->>> [ ... huge block of DP phy support ...]
->>>
->>> yes that block was huge, but I also don't see a way to split that up in a
->>> useful way, so it should be fine.
->>>
->>
->> As for the huge block of DP phy support, I will try to use the existing
->> rk_hdptx_multi_reg_write() to set regs in next version, maybe the way
->> can make the codes more concise.
-> 
-> I actually did like the the dp-side of the phy code.
-> 
-> That you need to add all the DP stuff can't be helped and I actually find
-> real functions nicer than having anonymous register writes.
-> 
-> I.e. the hdmi-side with its register lists does write "magic" values to
-> registers.
-> 
-> So personally I'd just leave the dp-functions as is please, until someone
-> does complain (I was not trying to complain, just mentioned why I cut
-> it from the reply :-) )
-> 
-> 
-> Thanks
-> Heiko
-> 
-> 
->>>> +static int rk_hdptx_phy_set_mode(struct phy *phy, enum phy_mode mode,
->>>> +				 int submode)
->>>> +{
->>>> +	return 0;
->>>> +}
->>>
->>> I think it might make sense to go the same way as the DCPHY and also
->>> naneng combophy, to use #phy-cells = 1 to select the phy-mode via DT .
->>>
->>> See [0] for Sebastians initial suggestion regarding the DC-PHY.
->>> The naneng combophy already uses that scheme of mode-selection too.
->>>
->>> There is of course the issue of backwards-compatibility, but that can be
->>> worked around in the binding with something like:
->>>
->>>    '#phy-cells':
->>>       enum: [0, 1]
->>>       description: |
->>>         If #phy-cells is 0, PHY mode is set to PHY_TYPE_HDMI
->>>         If #phy-cells is 1 mode is set in the PHY cells. Supported modes are:
->>>           - PHY_TYPE_HDMI
->>>           - PHY_TYPE_DP
->>>         See include/dt-bindings/phy/phy.h for constants.
->>>
->>> PHY_TYPE_HDMI needs to be added to include/dt-bindings/phy/phy.h
->>> but PHY_TYPE_DP is already there.
->>>
->>> That way we would standardize on one form of accessing phy-types
->>> on rk3588 :-) .
->>>
->>> Also see the Mediatek CSI rx phy doing this too already [1]
->>>
->>>
->>> Heiko
->>>
->>> [0] https://lore.kernel.org/linux-rockchip/udad4qf3o7kt45nuz6gxsvsmprh4rnyfxfogopmih6ucznizih@7oj2jrnlfonz/
->>> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/phy/mediatek,mt8365-csi-rx.yaml
->>>
->>
->> It is really a nice way to separate HDMI and DP modes.
+kernel test robot noticed the following build errors:
 
-I apologize for reopening the discussion about the phy-types setting.
+[auto build test ERROR on powerpc/next]
+[also build test ERROR on powerpc/fixes tip/irq/core arm64/for-next/core linus/master v6.12 next-20241128]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-With the .set_mode() of struct phy_ops, the HDMI and eDP dynamic 
-switching can be achieved, which just depends on the right setting of
-enum phy_mode in include/linux/phy/phy.h. So the previous way of 
-configuring phy mode may be also good.
+url:    https://github.com/intel-lab-lkp/linux/commits/Eliav-Farber/kexec-Consolidate-machine_kexec_mask_interrupts-implementation/20241129-041259
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git next
+patch link:    https://lore.kernel.org/r/20241128201027.10396-2-farbere%40amazon.com
+patch subject: [PATCH v3 1/2] kexec: Consolidate machine_kexec_mask_interrupts() implementation
+config: x86_64-rhel-9.4 (https://download.01.org/0day-ci/archive/20241129/202411291047.R9P698b2-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241129/202411291047.R9P698b2-lkp@intel.com/reproduce)
 
-And other phys may want to support dynamic switching too, like the 
-Rockchip USBDP combo phy.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411291047.R9P698b2-lkp@intel.com/
 
->>
->>>
->>>
->>>
->>>
->>
->> Best regards,
->> Damon
->>
->>
-> 
-> 
-> 
-> 
-> 
-> 
-Best regards,
-Damon
+All error/warnings (new ones prefixed by >>):
+
+   kernel/kexec_core.c: In function 'machine_kexec_mask_interrupts':
+>> kernel/kexec_core.c:1085:24: error: implicit declaration of function 'irq_desc_get_chip' [-Werror=implicit-function-declaration]
+    1085 |                 chip = irq_desc_get_chip(desc);
+         |                        ^~~~~~~~~~~~~~~~~
+>> kernel/kexec_core.c:1085:22: warning: assignment to 'struct irq_chip *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+    1085 |                 chip = irq_desc_get_chip(desc);
+         |                      ^
+>> kernel/kexec_core.c:1097:38: error: invalid use of undefined type 'struct irq_chip'
+    1097 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+         |                                      ^~
+>> kernel/kexec_core.c:1097:51: error: implicit declaration of function 'irqd_irq_inprogress' [-Werror=implicit-function-declaration]
+    1097 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+         |                                                   ^~~~~~~~~~~~~~~~~~~
+>> kernel/kexec_core.c:1097:76: error: invalid use of undefined type 'struct irq_desc'
+    1097 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+         |                                                                            ^~
+   kernel/kexec_core.c:1098:29: error: invalid use of undefined type 'struct irq_chip'
+    1098 |                         chip->irq_eoi(&desc->irq_data);
+         |                             ^~
+   kernel/kexec_core.c:1098:44: error: invalid use of undefined type 'struct irq_desc'
+    1098 |                         chip->irq_eoi(&desc->irq_data);
+         |                                            ^~
+   kernel/kexec_core.c:1100:25: error: invalid use of undefined type 'struct irq_chip'
+    1100 |                 if (chip->irq_mask)
+         |                         ^~
+   kernel/kexec_core.c:1101:29: error: invalid use of undefined type 'struct irq_chip'
+    1101 |                         chip->irq_mask(&desc->irq_data);
+         |                             ^~
+   kernel/kexec_core.c:1101:45: error: invalid use of undefined type 'struct irq_desc'
+    1101 |                         chip->irq_mask(&desc->irq_data);
+         |                                             ^~
+   kernel/kexec_core.c:1103:25: error: invalid use of undefined type 'struct irq_chip'
+    1103 |                 if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+         |                         ^~
+   kernel/kexec_core.c:1103:43: error: implicit declaration of function 'irqd_irq_disabled'; did you mean 'arch_irqs_disabled'? [-Werror=implicit-function-declaration]
+    1103 |                 if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+         |                                           ^~~~~~~~~~~~~~~~~
+         |                                           arch_irqs_disabled
+   kernel/kexec_core.c:1103:66: error: invalid use of undefined type 'struct irq_desc'
+    1103 |                 if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+         |                                                                  ^~
+   kernel/kexec_core.c:1104:29: error: invalid use of undefined type 'struct irq_chip'
+    1104 |                         chip->irq_disable(&desc->irq_data);
+         |                             ^~
+   kernel/kexec_core.c:1104:48: error: invalid use of undefined type 'struct irq_desc'
+    1104 |                         chip->irq_disable(&desc->irq_data);
+         |                                                ^~
+   cc1: some warnings being treated as errors
+
+
+vim +/irq_desc_get_chip +1085 kernel/kexec_core.c
+
+  1075	
+  1076	void machine_kexec_mask_interrupts(void)
+  1077	{
+  1078		unsigned int i;
+  1079		struct irq_desc *desc;
+  1080	
+  1081		for_each_irq_desc(i, desc) {
+  1082			struct irq_chip *chip;
+  1083			int check_eoi = 1;
+  1084	
+> 1085			chip = irq_desc_get_chip(desc);
+  1086			if (!chip)
+  1087				continue;
+  1088	
+  1089			if (IS_ENABLED(CONFIG_ARM64)) {
+  1090				/*
+  1091				 * First try to remove the active state. If this fails, try to EOI the
+  1092				 * interrupt.
+  1093				 */
+  1094				check_eoi = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
+  1095			}
+  1096	
+> 1097			if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
