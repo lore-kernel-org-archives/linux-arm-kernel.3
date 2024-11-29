@@ -4,98 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB47D6EBF7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 10:31:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C999BD6EBFE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 10:39:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ppQhOfB0GTFohm0DRY2oBb++m5qCmhOXx8Ed8pgjkgA=; b=GfEhJMvfbBKgGREeJrLmF453R+
-	srUe0IRtP6APRAz2X6SiHYIdx60pqcTBent+yk3mumHLucQSN4T9+SCIhSSTEgjKwjQ/fAB4OvZyR
-	hZfZLzGMISzMf4FCSC3KtYpjUUV1LZhKv3AOjGkRzGTbtGJgIcBqCcbS0TiNt+/LklYXF894cP390
-	A2WjVzmtNGkiKt8TLsUiEypsqick5+xwP79CNd0jjONRMyYd7/b5WEbpj/3eBaACcdyOLUl2/Y5W0
-	Tc4voirB7eTi91ruEj6N4PzNm3VA6Z5t1i5eghXouudlQEDfYIyF7lFatNT5tz9pX2FeuVgtjQJwZ
-	if3XByPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aspTb+RCvvhCA9qbPnw2Q73M8tb+WaJ8RsI6eVXHo/A=; b=QZNCWBGPQUlG7BDKDCxXtZ6xa1
+	8jm4mY4fCoHrsR6yawPnX5qFSUe+Zg/gj5VFJo3nEzzwO728OGxopoMztnix23Cd3ZMwSRDhIN+XI
+	GE+wDRKPHf8Al2UW2WpZTCwLHn15aHGJ9k/1a2ZtEXTiOA+O7FtdKMehgfpBmgjKi6bkHw08GBr6k
+	hideIODQcWT2haSjQ+epMzmSwET2GSjIeo2QBe0wDeYcgut1yxrE7xaXsp1vhzbDSSQ0EHPeUsYpO
+	N8gbXxK8vlgN7G72sUGY9jf+98wX8LRKrUCBo7kwtF6FPfitcwrO5r7H1vlTPTe4ck73ZXvNwGaau
+	jkChPgoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGyH6-0000000HQyr-3h6L;
-	Fri, 29 Nov 2024 10:31:00 +0000
-Received: from mail-vs1-f53.google.com ([209.85.217.53])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGyG8-0000000HQnC-0qqO
+	id 1tGyPJ-0000000HS9H-0TQA;
+	Fri, 29 Nov 2024 10:39:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tGyOJ-0000000HRwy-365x
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 10:30:01 +0000
-Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-4aefdbf8134so458048137.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Nov 2024 02:29:59 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732876197; x=1733480997;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ppQhOfB0GTFohm0DRY2oBb++m5qCmhOXx8Ed8pgjkgA=;
-        b=ViTKYaYTqwCUkEb2G1l6sR5cZp1+F2uTWUmp5quEgcvinRg8rcEEukYhVE3px5HcaA
-         l7xpN+76vGJNNtZfGCHV3uusX15jtu9tckhcjVH4oTdWxCu1/VFnFyYLh56jQhYiP426
-         QCAS+kx3Lv6bjXpHqC/dZ8/oOg0UnBN78gVdQWvxhDy00Cfh7fEdAxEax8kY11XvLS2b
-         hOBP19YlcAD1AWofaSQmMhe1mpkwTthlPXmcdcOWnQ6XXtrWyZMl8BbYQOVo4C8/3CpY
-         W63FsjbMb+focVAgMNV1/6lO+pLwX4QAWvf4m8qjzOAdwDVRVfpIPcLSV8JfSFJTq5ei
-         3VOg==
-X-Forwarded-Encrypted: i=1; AJvYcCU4N0hg2RYLFMMn7ejcn9LVUgPM4DaCybaFFERtadZBkkVffUBsbQEn1srPeNNLHpE9m6DnDuf1irjew5J8DUNb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxlt6hNEQCzaZuAztepf/iL23iH7kbuu/7U01Yr1xkKBcAVBKqB
-	d39WKyBkf3fQC39KdQmXrRgWs9XgzHEmzwcJK3N7LAUa7g8ggzUMZK9kqfUw94k=
-X-Gm-Gg: ASbGncshY3f7ecXerNlrkKNWv+xvjgk0bsvtbgnuXAg0LL1xLspteJyQjsxmg4BZOz3
-	2n2QC1rdIPwVQl9plAYMlYPP/GbF+4M6UhDvlq2P/YS+FhfYs2aAnPDegmddW+VtxIcMyaDOKoP
-	jm44R4r+U3IyLcg4uK4OotSxz4CgzTFeIgHZ2m17hY27+koj+sCv6/Mu3Q1iNJfzU9mM2T34KSJ
-	V8OnSwGpTP9LUCjhlbbYOw/JfOH0LciLYPtjys8pcR9uAeB263pKcW7+GitZ7VzYWpwdVZ45DcJ
-	0vbJrFZ30KVK
-X-Google-Smtp-Source: AGHT+IFNnHVINMFD1PpxYcP+H/cjr9h2QPm/vy6B7lsCEuGO9SrLJuYEA87k40/QirNRuqKP0sPkyg==
-X-Received: by 2002:a05:6102:954:b0:4af:3fc1:e02 with SMTP id ada2fe7eead31-4af449ded3emr13182966137.27.1732876197123;
-        Fri, 29 Nov 2024 02:29:57 -0800 (PST)
-Received: from mail-vs1-f41.google.com (mail-vs1-f41.google.com. [209.85.217.41])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-85b82d84d20sm716779241.36.2024.11.29.02.29.55
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 29 Nov 2024 02:29:56 -0800 (PST)
-Received: by mail-vs1-f41.google.com with SMTP id ada2fe7eead31-4addd900de1so499288137.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Nov 2024 02:29:55 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX+nsP2qSdte+bERhWG4oidtDVxn6Y2CgFRQUNc/T9LRYVidAwn2BOPFYgPCaaEzurkNAE0NPNr3IgdGlJEWGRi@lists.infradead.org
-X-Received: by 2002:a05:6102:f07:b0:4a3:a014:38aa with SMTP id
- ada2fe7eead31-4af448a91b7mr13985272137.11.1732876195687; Fri, 29 Nov 2024
- 02:29:55 -0800 (PST)
+	Fri, 29 Nov 2024 10:38:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48F7112FC;
+	Fri, 29 Nov 2024 02:38:54 -0800 (PST)
+Received: from bogus (unknown [10.57.89.137])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A7A2E3F5A1;
+	Fri, 29 Nov 2024 02:38:20 -0800 (PST)
+Date: Fri, 29 Nov 2024 10:38:09 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Mark Brown <broonie@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Peng Fan <peng.fan@nxp.com>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
+Subject: Re: [PATCH] firmware: arm_scmi: fix i.MX build dependency
+Message-ID: <20241129103809.vhsugby2q3fbe5fn@bogus>
+References: <20241115230555.2435004-1-arnd@kernel.org>
 MIME-Version: 1.0
-References: <20241010063611.788527-1-herve.codina@bootlin.com>
- <20241010063611.788527-2-herve.codina@bootlin.com> <dywwnh7ns47ffndsttstpcsw44avxjvzcddmceha7xavqjdi77@cqdgmpdtywol>
- <20241129091013.029fced3@bootlin.com> <1a895f7c-bbfc-483d-b36b-921788b07b36@app.fastmail.com>
- <CAMuHMdWXgXiHNUhrXB9jT4opnOQYUxtW=Vh0yBQT0jJS49+zsw@mail.gmail.com> <93ad42dc-eac6-4914-a425-6dbcd5dccf44@app.fastmail.com>
-In-Reply-To: <93ad42dc-eac6-4914-a425-6dbcd5dccf44@app.fastmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 29 Nov 2024 11:29:44 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWgqEZtd82hSp0iYahtTcTnORFytTm11EiZOjLf8V9tQw@mail.gmail.com>
-Message-ID: <CAMuHMdWgqEZtd82hSp0iYahtTcTnORFytTm11EiZOjLf8V9tQw@mail.gmail.com>
-Subject: Re: [PATCH v9 1/6] misc: Add support for LAN966x PCI device
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Herve Codina <herve.codina@bootlin.com>, Michal Kubecek <mkubecek@suse.cz>, 
-	Andy Shevchenko <andy.shevchenko@gmail.com>, Simon Horman <horms@kernel.org>, Lee Jones <lee@kernel.org>, 
-	"derek.kiernan@amd.com" <derek.kiernan@amd.com>, "dragan.cvetic@amd.com" <dragan.cvetic@amd.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Lars Povlsen <lars.povlsen@microchip.com>, 
-	Steen Hegelund <Steen.Hegelund@microchip.com>, Daniel Machon <daniel.machon@microchip.com>, 
-	UNGLinuxDriver@microchip.com, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Horatiu Vultur <horatiu.vultur@microchip.com>, Andrew Lunn <andrew@lunn.ch>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Netdev <netdev@vger.kernel.org>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Allan Nielsen <allan.nielsen@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241115230555.2435004-1-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_023000_239846_21E35C4F 
-X-CRM114-Status: GOOD (  32.06  )
+X-CRM114-CacheID: sfid-20241129_023827_818207_4B471FD8 
+X-CRM114-Status: GOOD (  26.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,68 +70,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
-
-On Fri, Nov 29, 2024 at 10:23=E2=80=AFAM Arnd Bergmann <arnd@arndb.de> wrot=
-e:
-> On Fri, Nov 29, 2024, at 09:44, Geert Uytterhoeven wrote:
-> > On Fri, Nov 29, 2024 at 9:25=E2=80=AFAM Arnd Bergmann <arnd@arndb.de> w=
-rote:
-> >> On Fri, Nov 29, 2024, at 09:10, Herve Codina wrote:
-> >> I would write in two lines as
-> >>
-> >>         depends on PCI
-> >>         depends on OF_OVERLAY
-> >>
-> >> since OF_OVERLAY already depends on OF, that can be left out.
-> >> The effect is the same as your variant though.
-> >
-> > What about
-> >
-> >     depends on OF
-> >     select OF_OVERLAY
-> >
-> > as "OF" is a clear bus dependency, due to the driver providing an OF
-> > child bus (cfr. I2C or SPI bus controller drivers depending on I2C or
-> > SPI), and OF_OVERLAY is an optional software mechanism?
+On Sat, Nov 16, 2024 at 12:05:18AM +0100, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 >
-> OF_OVERLAY is currently a user visible option, so I think it's
-> intended to be used with 'depends on'. The only other callers
-> of this interface are the kunit test modules that just leave
-> out the overlay code if that is disabled.
+> The newly added SCMI vendor driver references functions in the
+> protocol driver but needs a Kconfig dependency to ensure it can link,
+> essentially the Kconfig dependency needs to be reversed to match the
+> link time dependency:
+>
+> arm-linux-gnueabi-ld: sound/soc/fsl/fsl_mqs.o: in function `fsl_mqs_sm_write':
+> fsl_mqs.c:(.text+0x1aa): undefined reference to `scmi_imx_misc_ctrl_set'
+> arm-linux-gnueabi-ld: sound/soc/fsl/fsl_mqs.o: in function `fsl_mqs_sm_read':
+> fsl_mqs.c:(.text+0x1ee): undefined reference to `scmi_imx_misc_ctrl_get'
+>
+> This however only works after changing the dependency in the SND_SOC_FSL_MQS
+> driver as well, which uses 'select IMX_SCMI_MISC_DRV' to turn on a
+> driver it depends on. This is generally a bad idea, so the best solution
+> is to change that into a dependency.
+>
+> To allow the ASoC driver to keep building with the SCMI support, this
+> needs to be an optional dependency that enforces the link-time
+> dependency if IMX_SCMI_MISC_DRV is a loadable module but not
+> depend on it if that is disabled.
+>
+> Fixes: 61c9f03e22fc ("firmware: arm_scmi: Add initial support for i.MX MISC protocol")
+> Fixes: 101c9023594a ("ASoC: fsl_mqs: Support accessing registers by scmi interface")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> I'm not sure this is the version we want to go with in the end, without
+> having read the code in detail, but the version in linux-next is clearly
+> wrong in multiple ways and this is the best I could come up with so far.
+>
+> If we can agree on this approach, it needs to go through the ASoC tree
+> as that contains the 101c9023594a commit at the moment.
 
-Indeed, there are no real upstream users of OF_OVERLAY left.
-Until commit 1760eb547276299a ("drm: rcar-du: Drop leftovers
-dependencies from Kconfig"), the rcar-lvds driver selected OF_OVERLAY
-to be able to fix up old DTBs.
+Sorry for the late response, was away for a while. I am fine with the
+change, but bit confused as Mark Brown has acked the change instead by
+which I assume he is not taking it through his tree.
 
-> If we decide to treat OF_OVERLAY as a library instead, it should
-> probably become a silent Kconfig option that gets selected by
-> all its users including the unit tests, and then we can remove
-> the #ifdef checks there.
+I can can take it at -rc1 or if Mark B is happy to pull it, here is my ack.
 
-Yep.
-
-> Since OF_OVERLAY pulls in OF_DYNAMIC, I would still prefer that
-> to be a user choice. Silently enabling OF_OVERLAY definitely has
-> a risk of introducing regressions since it changes some of the
-> interesting code paths in the core, in particular it enables
-> reference counting in of_node_get(), which many drivers get wrong.
-
-Distro kernels will have to enable this anyway, if they want to
-support LAN966x...
-
-Gr{oetje,eeting}s,
-
-                        Geert
+Acked-by: Sudeep Holla <sudeep.holla@arm.com>
 
 --
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+Regards,
+Sudeep
 
