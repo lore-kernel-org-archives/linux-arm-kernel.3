@@ -4,86 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 246F0D729E7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 17:37:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA79D729F0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 17:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z02MjlJuh3b3hDQPFS72EpBOSuOXivey6EAK77/5mEo=; b=vcTkZ/U+MDzoaKikOKZ19ZiWHL
-	v4fGho4Ke4U731eQzHBT5i6E69jNKDedQXoNXgjXRc34plgNQ06g1usUSwPAORQASvZHTQ/MobM8F
-	CmSWD6uIZtL1EqRy8yXe6SoqqqtXUoKz+9JcHTiAagImWUyAdRteicScqcaLfe1JZlESp+PDViLmR
-	6wkE65BCZvCn7Nyhj/9YAD8Xgwst2uJDmAlMGWxLQPP2rdlu9G/UFKP1gPsqXZSqhEOzSOGWyI7f/
-	w/1vDOWiCWd+dKL2r1pnhXnUM6nSC02TA1gddOzqBNX7b726NDzL59QFPrwTJteVbew8bBNFVzn97
-	DX1xPyng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=TnmoU5TP+FLl7Ofb9grKV8LgLXGcc1efbm5QIQsFSMo=; b=gLBlcEVIEA5DHT
+	GbWEAQLWie7I2LzKLrcjQOy1D+vqm6TLXApZmJ4jkbLxO01tXeB/UJ/Jf8xaNqsLrWydFMRPMgmYH
+	EOjSl6St57v6hTrLIO+L+oeLROXElZWxkTbmomDOAJppomfvPwC4vBratqX/d1N8Od/maSVk6++LT
+	0RHtyKmJFJ8yYBFD/YZZ8j4ansIku+juC6ess1ekUOwA5Hd/zuvP1m8hJLiFVC9OQ2uGki2XlLtmD
+	L8VqSXMMvXG3XppFG0P6DgoswAQS23J7apUZDY78LEDRXPaOZaIu9kH8uPUlw/zZh8lGM9L7O6+jD
+	XTBwejO7Lnmjp0GkL6Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH4w4-00000000ibw-3Mp3;
-	Fri, 29 Nov 2024 17:37:44 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1tH54I-00000000j5X-42gz;
+	Fri, 29 Nov 2024 17:46:14 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH4v5-00000000iSw-40XS
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 17:36:45 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A47B9240015;
-	Fri, 29 Nov 2024 17:36:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1732901800;
+	id 1tH53J-00000000iz4-455P;
+	Fri, 29 Nov 2024 17:45:15 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1732902309;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Z02MjlJuh3b3hDQPFS72EpBOSuOXivey6EAK77/5mEo=;
-	b=jsfNbPPng/GRegUIEJ4p4mxJOa8AY12nYR20XbQ8t3rkvxi4NdJbUYcQ4tQvsVxfaJEpx5
-	OD9BHE20vUPRbjY9K3HLWUewLAcPcTLeIBpdT3VN6pCSeVNisCLFZ0uZd1xQsWAyXCVJGX
-	mYiS1Sz1N3iPyl7AdZ2WC8wFTLlUGWraMIy0SBIkA54GSVixqK0aJZPAjdiXm7Bc6k5HIi
-	Hn5iJf899ZRyhy0R6cvRjOt38EzG/5YZA2sv0hgstXCMZ9fplreT4vwb8ct4D1G9BTqPvN
-	e2FWnmGmQ6zaah6xPjFkOIxCYtVO8hGsdI92t1qD45flUEypQIWtibQRa8/B2g==
-Date: Fri, 29 Nov 2024 18:36:36 +0100
-From: Herve Codina <herve.codina@bootlin.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Michal Kubecek <mkubecek@suse.cz>, Andy
- Shevchenko <andy.shevchenko@gmail.com>, Simon Horman <horms@kernel.org>,
- Lee Jones <lee@kernel.org>, "derek.kiernan@amd.com"
- <derek.kiernan@amd.com>, "dragan.cvetic@amd.com" <dragan.cvetic@amd.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Bjorn Helgaas
- <bhelgaas@google.com>, Philipp Zabel <p.zabel@pengutronix.de>, Lars Povlsen
- <lars.povlsen@microchip.com>, Steen Hegelund
- <Steen.Hegelund@microchip.com>, Daniel Machon
- <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, "David S .
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Horatiu Vultur
- <horatiu.vultur@microchip.com>, Andrew Lunn <andrew@lunn.ch>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Netdev
- <netdev@vger.kernel.org>, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Allan Nielsen
- <allan.nielsen@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Ricardo Ribalda
- <ribalda@chromium.org>
-Subject: Re: [PATCH v9 1/6] misc: Add support for LAN966x PCI device
-Message-ID: <20241129183636.7043fa66@bootlin.com>
-In-Reply-To: <CAMuHMdWgqEZtd82hSp0iYahtTcTnORFytTm11EiZOjLf8V9tQw@mail.gmail.com>
-References: <20241010063611.788527-1-herve.codina@bootlin.com>
-	<20241010063611.788527-2-herve.codina@bootlin.com>
-	<dywwnh7ns47ffndsttstpcsw44avxjvzcddmceha7xavqjdi77@cqdgmpdtywol>
-	<20241129091013.029fced3@bootlin.com>
-	<1a895f7c-bbfc-483d-b36b-921788b07b36@app.fastmail.com>
-	<CAMuHMdWXgXiHNUhrXB9jT4opnOQYUxtW=Vh0yBQT0jJS49+zsw@mail.gmail.com>
-	<93ad42dc-eac6-4914-a425-6dbcd5dccf44@app.fastmail.com>
-	<CAMuHMdWgqEZtd82hSp0iYahtTcTnORFytTm11EiZOjLf8V9tQw@mail.gmail.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	 in-reply-to:in-reply-to; bh=TnmoU5TP+FLl7Ofb9grKV8LgLXGcc1efbm5QIQsFSMo=;
+	b=R6SXnReSrE00cNIZqinb9hlhkaFAFNBbAY6yh/dAegTFNVE0pL5eQbQ2B4o3fAgiQXwmLj
+	zgiUawZ0+OZevVoDPmH8jHUjjdfnVZ+mJMlureG1pyDeEf690m8gh5YRDm7yeGBoZmJftS
+	ealh//fmdxdo/ujPuSkdu2OmuLr2pyO7G+l+SSnBid3mNax/Ip35Rx0Rema56X9WT1owuP
+	pmfcpCxHkGLIYH6LMJR06AkqXM7W39LG0LnKlSk3LIC1Z4U2LJuYoBQyvlnaUIo2DNtozq
+	LXeiConGjuzppjpCKHkgvqAJobrvpM5TTbXy4hCRfH03zbLd7aIdNrbInIs+rg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1732902309;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to; bh=TnmoU5TP+FLl7Ofb9grKV8LgLXGcc1efbm5QIQsFSMo=;
+	b=0MfM48tmlBjwXmDOX2EM6p7s4VVa3Ae0g+yn+nDsey53GY5bLZUZM54/w3a3dah9dd0VYU
+	jODWcyT3qTV2iiBA==
+To: Petr Mladek <pmladek@suse.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
+ <jirislaby@kernel.org>, Sergey Senozhatsky <senozhatsky@chromium.org>,
+ Steven Rostedt <rostedt@goodmis.org>, Thomas Gleixner
+ <tglx@linutronix.de>, Esben Haabendal <esben@geanix.com>,
+ linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, Florian
+ Fainelli <florian.fainelli@broadcom.com>, Broadcom internal kernel review
+ list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, "Paul E. McKenney"
+ <paulmck@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Stefan Wahren
+ <wahrenst@gmx.net>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?=
+ <u.kleine-koenig@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
+ Markus Schneider-Pargmann <msp@baylibre.com>, Ronald Wahl
+ <ronald.wahl@raritan.com>, Udit Kumar <u-kumar1@ti.com>, Griffin
+ Kroah-Hartman <griffin@kroah.com>, Rengarajan S
+ <rengarajan.s@microchip.com>, Lino Sanfilippo <l.sanfilippo@kunbus.com>,
+ Serge Semin <fancer.lancer@gmail.com>,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH tty-next v3 4/6] serial: 8250: Specify console context
+ for rs485_start/stop_tx
+In-Reply-To: <ZyuOX4VVbfAFhMfV@pathway.suse.cz>
+Date: Fri, 29 Nov 2024 18:51:08 +0106
+Message-ID: <84ed2url23.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-GND-Sasl: herve.codina@bootlin.com
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_093644_282779_9EAE9A6D 
-X-CRM114-Status: GOOD (  32.47  )
+X-CRM114-CacheID: sfid-20241129_094514_295250_BB1A062A 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,67 +87,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 2024-11-06, Petr Mladek <pmladek@suse.com> wrote:
+>> For RS485 mode, if SER_RS485_RX_DURING_TX is not available, the
+>> console write callback needs to enable/disable TX. It does this
+>> by calling the rs485_start/stop_tx() callbacks. However, these
+>> callbacks will disable/enable interrupts, which is a problem
+>> for console write, as it must be responsible for
+>> disabling/enabling interrupts.
+>
+> It is not clear to me what exactly is the problem.
 
-+Cc Ricardo
+serial8250_em485_stop_tx() blindly sets the RX interrupt bits in IER,
+because it assumes they were cleared in serial8250_stop_rx(). This is
+fine for the driver in general, but it is wrong for the console
+->write(), which restores those bits on its own later.
 
-On Fri, 29 Nov 2024 11:29:44 +0100
-Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> Is the main problem calling pm_runtime*() API because it uses extra
+> locks and can cause deadlocks? Or is it more complicated?
 
-> Hi Arnd,
-> 
-> On Fri, Nov 29, 2024 at 10:23 AM Arnd Bergmann <arnd@arndb.de> wrote:
-> > On Fri, Nov 29, 2024, at 09:44, Geert Uytterhoeven wrote:  
-> > > On Fri, Nov 29, 2024 at 9:25 AM Arnd Bergmann <arnd@arndb.de> wrote:  
-> > >> On Fri, Nov 29, 2024, at 09:10, Herve Codina wrote:
-> > >> I would write in two lines as
-> > >>
-> > >>         depends on PCI
-> > >>         depends on OF_OVERLAY
-> > >>
-> > >> since OF_OVERLAY already depends on OF, that can be left out.
-> > >> The effect is the same as your variant though.  
-> > >
-> > > What about
-> > >
-> > >     depends on OF
-> > >     select OF_OVERLAY
-> > >
-> > > as "OF" is a clear bus dependency, due to the driver providing an OF
-> > > child bus (cfr. I2C or SPI bus controller drivers depending on I2C or
-> > > SPI), and OF_OVERLAY is an optional software mechanism?  
-> >
+pm_runtime*() is a second issue. In the v1 feeback we talked about
+it. tglx summarized it well here:
 
-A patch has be done in that way by Ricardo Ribalda
-  https://lore.kernel.org/all/20241129-lan966x-depend-v1-1-603fc4996c4f@chromium.org/
+https://lore.kernel.org/lkml/8734mbdwrf.ffs@tglx/
 
-> > OF_OVERLAY is currently a user visible option, so I think it's
-> > intended to be used with 'depends on'. The only other callers
-> > of this interface are the kunit test modules that just leave
-> > out the overlay code if that is disabled.  
-> 
-> Indeed, there are no real upstream users of OF_OVERLAY left.
-> Until commit 1760eb547276299a ("drm: rcar-du: Drop leftovers
-> dependencies from Kconfig"), the rcar-lvds driver selected OF_OVERLAY
-> to be able to fix up old DTBs.
-> 
-> > If we decide to treat OF_OVERLAY as a library instead, it should
-> > probably become a silent Kconfig option that gets selected by
-> > all its users including the unit tests, and then we can remove
-> > the #ifdef checks there.  
-> 
-> Yep.
-> 
-> > Since OF_OVERLAY pulls in OF_DYNAMIC, I would still prefer that
-> > to be a user choice. Silently enabling OF_OVERLAY definitely has
-> > a risk of introducing regressions since it changes some of the
-> > interesting code paths in the core, in particular it enables
-> > reference counting in of_node_get(), which many drivers get wrong.  
-> 
-> Distro kernels will have to enable this anyway, if they want to
-> support LAN966x...
-> 
+as well as explaining the need to split off the console-write code from
+the generic driver code.
 
-Best regards,
-Hervé
+> IMHO, it would deserve some explanation.
+
+This commit message only talks about the first issue, which is enough to
+justify the patch. I will add that the callbacks are also not
+appropriate because they call into the PM code, which is not needed by
+console ->write() and is even unsafe in some contexts.
+
+> IMHO, one thing which makes things comlicated is that
+> serial8250_em485_start_tx() and serial8250_em485_stop_tx()
+> are not completely reversible operations. Especially,
+> the change done by __serial8250_stop_rx_mask_dr() is
+> not reverted in serial8250_em485_stop_tx(). It makes
+> things look tricky. But I think that it is beyond the scope
+> of this patchset to do anything about it.
+
+I agree that it is strange that the driver does not unmask DR later. I
+have now run tests and it seems the use of @read_status_mask is
+partially broken. I did some historical digging on it...
+
+For Linux 1.1.60 [0] the @read_status_mask usage was extended to support
+"stop listening to incoming characters" (text from the changelog
+[1]). Looking at that version, it is clear why and how it was used.
+
+For Linux 2.1.8 [2], the async handling was reworked, basically
+reverting the change from 1.1.60. However, that revert forgot the piece
+that clears the UART_LSR_DR bit in serial8250_stop_rx() (back then
+called rs_close()).
+
+And indeed, if you track the @read_status_mask value today, that bit
+remains cleared until serial8250_do_set_termios() happens to be
+called. But it didn't matter that the bit was not set again because that
+bit was not being evaluated at any call sites.
+
+For 4.6, RS485 support was added, but with a bug about re-enabling
+interrupts. When that bug was fixed [3], the fix did not set the
+UART_LSR_DR bit in @read_status_mask. Still that was not a problem
+because at that time, that bit still had no users.
+
+For 5.7, support was added to avoid reading characters when
+throttling. This re-introduced a user of the UART_LSR_DR bit in
+@read_status_mask. And thus now there _is_ a bug that the bit is not set
+when starting RX in __do_stop_tx_rs485(). Interestingly enough, the OMAP
+variant of the 8250 _did_ implement setting the bit when unthrottling
+[5] (also from the same series).
+
+So in summary, I will add a patch to my series that fixes [3] (or is it
+fixing [4]?) by setting the bit in __do_stop_tx_rs485() when re-enabling
+the RX interrupts.
+
+John
+
+[0] https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/diff/drivers/char/serial.c?id=ba97e35a1a8b45ff87ed37a58fca3ecf39c1c893
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/diff/drivers/char/ChangeLog?id=ba97e35a1a8b45ff87ed37a58fca3ecf39c1c893
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/diff/drivers/char/serial.c?id=0f9cac5b27076f801b29a0867868e1bce7310e00
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit?id=0c66940d584d1aac92f6a78460dc0ba2efd3b7ba
+[4] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit?id=f19c3f6c8109b8bab000afd35580929958e087a9
+[5] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit?id=f4b042a050062b2dec456adfced13d61341939e2
 
