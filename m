@@ -4,80 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D97A8D6EC15
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 14:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5114AD729E1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 14:57:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rHIWmFk8eQcp845onbNosXqt9aUbIvNtUKtFdH0puok=; b=UofjXMr9dNCjr7mDkcMZcxDGtQ
-	xrn5QG+IlyJA33QCGD9csw+om006bWd119eVyL0bwyGu+05jfKueMeIbPPEwwMAmetXT6fahlZ35O
-	bbkURJkfBobKo2onm03+hxPaPRqrhEdHyvjkaEHTjDwA02g6eunHF1+0c336ziJKN6dqpKFIyc+GW
-	0yCxzGeRU8E6OfZPsyEsbkXcmfV+7ivtcrl2oXAMVLNh5qDqAN6+rsEVRiPoLURbAAIjFMDPlpVXt
-	itFxotvKTGiP16EtT3pU73Rn+yM4+bmnYv/y2BNftdDZgGAyad7F8KnMkoDuyGEYFYoDVxkEw8u+9
-	LZW6LxGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9OuDkZs9FJvtPv+8KC6QdxotMgph3V5LPgg9TYdYfGQ=; b=Sg3BSd2kDi8lPvuNkgH6foaw3N
+	3ZGQdnKhAo2cgnScKu5q4ksbR7bE/PQRuVXH2+Anh3oJ+9u1WHXpaOpzMX4WZsu9v8nvNq79baR2Z
+	3uJYHFDCqe3aac576XgtXvOso87vPg14y9wlJOa9DpJQZuZQWz+pq+XqXgFBYBxrgmNHybsb56sfD
+	dKyt5hH41BuBKivJ1Ekfvajtd65gtnfG1247apNM91CxYXF4w/L2s6YeMWasQ1G5tiCGlH1FzVdRW
+	fhKo0IcoOQtoOooV0v3jPsTF/OflbECJxT+re17X6G3XwgzH0r2FBGLXsC2aFDWQ9XCsUrUaBmV8C
+	x6dhsc4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH29d-00000000KEv-0dY7;
-	Fri, 29 Nov 2024 14:39:33 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH28c-00000000K2C-2PPi
+	id 1tH2QL-00000000Nrc-03Mh;
+	Fri, 29 Nov 2024 14:56:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tH2PL-00000000Nbi-0ku7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 14:38:32 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Y0G1R46fmz1V3n4;
-	Fri, 29 Nov 2024 22:35:23 +0800 (CST)
-Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id C1079180357;
-	Fri, 29 Nov 2024 22:38:13 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (7.182.85.71) by
- dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 29 Nov 2024 22:38:12 +0800
-Received: from frapeml500008.china.huawei.com ([7.182.85.71]) by
- frapeml500008.china.huawei.com ([7.182.85.71]) with mapi id 15.01.2507.039;
- Fri, 29 Nov 2024 15:38:11 +0100
-From: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
-To: Jason Gunthorpe <jgg@nvidia.com>, "acpica-devel@lists.linux.dev"
-	<acpica-devel@lists.linux.dev>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, Joerg Roedel <joro@8bytes.org>, Kevin Tian
-	<kevin.tian@intel.com>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "Len
- Brown" <lenb@kernel.org>, "linux-acpi@vger.kernel.org"
-	<linux-acpi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, "Robert
- Moore" <robert.moore@intel.com>, Robin Murphy <robin.murphy@arm.com>, "Sudeep
- Holla" <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>
-CC: Alex Williamson <alex.williamson@redhat.com>, Donald Dutile
-	<ddutile@redhat.com>, Eric Auger <eric.auger@redhat.com>, "Guohanjun (Hanjun
- Guo)" <guohanjun@huawei.com>, Jean-Philippe Brucker
-	<jean-philippe@linaro.org>, Jerry Snitselaar <jsnitsel@redhat.com>, "Moritz
- Fischer" <mdf@kernel.org>, Michael Shavit <mshavit@google.com>, Nicolin Chen
-	<nicolinc@nvidia.com>, "patches@lists.linux.dev" <patches@lists.linux.dev>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, Mostafa Saleh
-	<smostafa@google.com>
-Subject: RE: [PATCH v4 08/12] iommu/arm-smmu-v3: Support IOMMU_VIOMMU_ALLOC
-Thread-Topic: [PATCH v4 08/12] iommu/arm-smmu-v3: Support IOMMU_VIOMMU_ALLOC
-Thread-Index: AQHbKyrKsqNlrqnGcUyZXy2u3OjB57LOfxbQ
-Date: Fri, 29 Nov 2024 14:38:10 +0000
-Message-ID: <8128e648ad014485a7db9771a94194de@huawei.com>
-References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
- <8-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
-In-Reply-To: <8-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.203.177.241]
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 29 Nov 2024 14:55:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B231B12FC;
+	Fri, 29 Nov 2024 06:56:13 -0800 (PST)
+Received: from [10.57.92.242] (unknown [10.57.92.242])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B95B63F66E;
+	Fri, 29 Nov 2024 06:55:39 -0800 (PST)
+Message-ID: <86f36cfd-65b6-4b71-9272-d17e5e41b57c@arm.com>
+Date: Fri, 29 Nov 2024 14:55:36 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 18/43] arm64: RME: Handle realm enter/exit
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>
+References: <20241004152804.72508-1-steven.price@arm.com>
+ <20241004152804.72508-19-steven.price@arm.com>
+ <c44aeac6-4fe1-4199-962d-5fbbc5a591de@arm.com>
+ <7d1d4893-f798-4e44-aad0-1d0071e30b05@arm.com>
+ <791e8c32-83fb-442c-9664-4b5f2f9c09bf@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <791e8c32-83fb-442c-9664-4b5f2f9c09bf@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_063831_059965_10323B93 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20241129_065547_309835_B2F4D793 
+X-CRM114-Status: GOOD (  45.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,94 +78,268 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jason,
+On 29/11/2024 13:45, Suzuki K Poulose wrote:
+> Hi Steven
+> 
+> On 29/11/2024 12:18, Steven Price wrote:
+>> Hi Suzuki,
+>>
+>> Sorry for the very slow response to this. Coming back to this I'm having
+>> doubts, see below.
+>>
+>> On 17/10/2024 14:00, Suzuki K Poulose wrote:
+>>> On 04/10/2024 16:27, Steven Price wrote:
+>>>> Entering a realm is done using a SMC call to the RMM. On exit the
+>>>> exit-codes need to be handled slightly differently to the normal KVM
+>>>> path so define our own functions for realm enter/exit and hook them
+>>>> in if the guest is a realm guest.
+>>>>
+>>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ...
+>>>> diff --git a/arch/arm64/kvm/rme-exit.c b/arch/arm64/kvm/rme-exit.c
+>>>> new file mode 100644
+>>>> index 000000000000..e96ea308212c
+>>>> --- /dev/null
+>>>> +++ b/arch/arm64/kvm/rme-exit.c
+>> ...
+>>>> +static int rec_exit_ripas_change(struct kvm_vcpu *vcpu)
+>>>> +{
+>>>> +    struct kvm *kvm = vcpu->kvm;
+>>>> +    struct realm *realm = &kvm->arch.realm;
+>>>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>>>> +    unsigned long base = rec->run->exit.ripas_base;
+>>>> +    unsigned long top = rec->run->exit.ripas_top;
+>>>> +    unsigned long ripas = rec->run->exit.ripas_value;
+>>>> +    unsigned long top_ipa;
+>>>> +    int ret;
+>>>> +
+>>>> +    if (!realm_is_addr_protected(realm, base) ||
+>>>> +        !realm_is_addr_protected(realm, top - 1)) {
+>>>> +        kvm_err("Invalid RIPAS_CHANGE for %#lx - %#lx, ripas: %#lx\n",
+>>>> +            base, top, ripas);
+>>>> +        return -EINVAL;
+>>>> +    }
+>>>> +
+>>>> +    kvm_mmu_topup_memory_cache(&vcpu->arch.mmu_page_cache,
+>>>> +                   kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
+>>>
+>>> I think we also need to filter the request for RIPAS_RAM, by consulting
+>>> if the "range" is backed by a memslot or not. If they are not, we should
+>>> reject the request with a response flag set in run.enter.flags.
+>>
+>> It's an interesting API question. At the moment there is no requirement
+>> to have an active memslot to set the RIPAS - this is true both during
+>> the setup by the VMM and at run time.
+>>
+>> In theory a VMM can create/destroy memslots while the guest is running.
+>> So absense of a memslot doesn't actually imply that the RIPAS change
+> 
+> Agreed. Whether an IPA range may be used as RAM is a decision that the
+> VMM must make. So, we could give the VMM a chance to respond to this
+> request before we (KVM) make the RTT changes.
+> 
+>> should be rejected. Obviously with realms this is tricky because when
+>> destroying a memslot that's in use KVM would rip those pages out from
+>> the guest and it would require guest cooperation to restore those pages
+>> (transition to RIPAS_EMPTY and back to RIPAS_RAM). But it's not
+>> something that has been prohibited so far.
+> 
+> True, and it shouldn't be prohibited. If the Host wants to take away a
+> memslot it must be able to do that. But if it wants to do that in
+> good faith with the Realm, there must have been some communication
+> (e.g., virtio-mem ?) between the Host and the Realm and as long as the
+> Realm knows not to trust the contents on that region it could be
+> recovered without a transition to EMPTY.
+> 
+> e.g. From RIPAS_DESTROYED => RIPAS_RAM with RSI_SET_IPA_STATE(...
+> CHANGE_DESTROYED).
 
-> -----Original Message-----
-> From: Jason Gunthorpe <jgg@nvidia.com>
-> Sent: Thursday, October 31, 2024 12:21 AM
-> To: acpica-devel@lists.linux.dev; iommu@lists.linux.dev; Joerg Roedel
-> <joro@8bytes.org>; Kevin Tian <kevin.tian@intel.com>;
-> kvm@vger.kernel.org; Len Brown <lenb@kernel.org>; linux-
-> acpi@vger.kernel.org; linux-arm-kernel@lists.infradead.org; Lorenzo
-> Pieralisi <lpieralisi@kernel.org>; Rafael J. Wysocki <rafael@kernel.org>;
-> Robert Moore <robert.moore@intel.com>; Robin Murphy
-> <robin.murphy@arm.com>; Sudeep Holla <sudeep.holla@arm.com>; Will
-> Deacon <will@kernel.org>
-> Cc: Alex Williamson <alex.williamson@redhat.com>; Donald Dutile
-> <ddutile@redhat.com>; Eric Auger <eric.auger@redhat.com>; Guohanjun
-> (Hanjun Guo) <guohanjun@huawei.com>; Jean-Philippe Brucker <jean-
-> philippe@linaro.org>; Jerry Snitselaar <jsnitsel@redhat.com>; Moritz
-> Fischer <mdf@kernel.org>; Michael Shavit <mshavit@google.com>; Nicolin
-> Chen <nicolinc@nvidia.com>; patches@lists.linux.dev; Rafael J. Wysocki
-> <rafael.j.wysocki@intel.com>; Shameerali Kolothum Thodi
-> <shameerali.kolothum.thodi@huawei.com>; Mostafa Saleh
-> <smostafa@google.com>
-> Subject: [PATCH v4 08/12] iommu/arm-smmu-v3: Support
-> IOMMU_VIOMMU_ALLOC
+Indeed - I always forget RSI_SET_IPA_STATE has two modes these days.
 
-[...]
+>>
+>> On the other hand this is a clear way for a (malicious/buggy) guest to
+>> use a fair bit of RAM by transitioning to RIPAS_RAM (sparse) pages not
+>> in a memslot and forcing KVM to allocate the RTT pages to delegate to
+>> the RMM. But we do exit to the VMM, so this is solvable in the VMM (by
+>> killing a misbehaving guest). The number of pages this would consume per
+>> exit is also fairly small.
+> 
+> Correct. If the VMM has no intention to provide memory at a given IPA
+> range, KVM shouldn't report RSI_ACCEPT to the Realm and the Realm later
+> gets a stage2 fault that cannot be serviced by KVM.
+> 
+>>
+>> So my instinct is that we shouldn't impose that requirement.
+> 
+> I think we may be able to fix this by letting the VMM ACCEPT or REJECT
+> a given RIPAS_RAM transition request. That way, KVM isn't playing by
+> the rules set by the VMM and whether the VMM wants to trick the Realm
+> or play by the rules is upto it.
 
-> +struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
-> +				       struct iommu_domain *parent,
-> +				       struct iommufd_ctx *ictx,
-> +				       unsigned int viommu_type)
-> +{
-> +	struct arm_smmu_device *smmu =3D
-> +		iommu_get_iommu_dev(dev, struct arm_smmu_device,
-> iommu);
-> +	struct arm_smmu_master *master =3D dev_iommu_priv_get(dev);
-> +	struct arm_smmu_domain *s2_parent =3D to_smmu_domain(parent);
-> +	struct arm_vsmmu *vsmmu;
-> +
-> +	if (viommu_type !=3D IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
-> +		return ERR_PTR(-EOPNOTSUPP);
-> +
-> +	if (!(smmu->features & ARM_SMMU_FEAT_NESTING))
-> +		return ERR_PTR(-EOPNOTSUPP);
-> +
-> +	if (s2_parent->smmu !=3D master->smmu)
-> +		return ERR_PTR(-EINVAL);
-> +
-> +	/*
-> +	 * Must support some way to prevent the VM from bypassing the
-> cache
-> +	 * because VFIO currently does not do any cache maintenance.
-> canwbs
-> +	 * indicates the device is fully coherent and no cache maintenance
-> is
-> +	 * ever required, even for PCI No-Snoop."
-> +	 */
-> +	if (!arm_smmu_master_canwbs(master))
-> +		return ERR_PTR(-EOPNOTSUPP);
-> +
-> +	vsmmu =3D iommufd_viommu_alloc(ictx, struct arm_vsmmu, core,
-> +				     &arm_vsmmu_ops);
-> +	if (IS_ERR(vsmmu))
-> +		return ERR_CAST(vsmmu);
-> +
-> +	vsmmu->smmu =3D smmu;
-> +	vsmmu->s2_parent =3D s2_parent;
-> +	/* FIXME Move VMID allocation from the S2 domain allocation to
-> here */
+Sounds good to me.
 
-I am planning to respin the " iommu/arm-smmu-v3: Use pinned KVM VMID for
-stage 2" [0] based on the latest IOMMUF code. One of the comment on that
-RFC was, we should associate the KVM pointer to the sub objects like  viomm=
-u
-instead of iommufd itself[1]. But at present the s2 domain is already final=
-ized
-with a VMID before a viommu object is allocated.
+>>
+>> Any thoughts?
+>>
+>>> As for EMPTY requests, if the guest wants to explicitly mark any range
+>>> as EMPTY, it doesn't matter, as long as it is within the protected IPA.
+>>> (even though they may be EMPTY in the first place).
+>>>
+>>>> +    write_lock(&kvm->mmu_lock);
+>>>> +    ret = realm_set_ipa_state(vcpu, base, top, ripas, &top_ipa);
+>>>> +    write_unlock(&kvm->mmu_lock);
+>>>> +
+>>>> +    WARN(ret && ret != -ENOMEM,
+>>>> +         "Unable to satisfy RIPAS_CHANGE for %#lx - %#lx, ripas:
+>>>> %#lx\n",
+>>>> +         base, top, ripas);
+>>>> +
+>>>> +    /* Exit to VMM to complete the change */
+>>>> +    kvm_prepare_memory_fault_exit(vcpu, base, top_ipa - base, false,
+>>>> false,
+>>>> +                      ripas == RMI_RAM);
+>>>
+>>> Again this may only be need if the range is backed by a memslot ?
+>>> Otherwise the VMM has nothing to do.
+>>
+>> Assuming the above, then the VMM would be the one to kill a misbehaving
+>> guest, so would need a notification.
+> 
+> May be we could reverse the order of operations by delaying the
+> realm_set_ipa_state() to occur on VMMs request from the memory_fault_exit.
 
-So does the above comment indicates that we plan to do another
-S2 VMID allocation here and replace the old one?
-
-Please let me know your thoughts on this.
+Ah, good point - moving the RIPAS state set to the entry path makes a
+lot of sense. The only negative is that we push the loop handling
+partial RIPAS changes into the KVM entry path - but I don't think that's
+a major problem.
 
 Thanks,
-Shameer
-[0] https://lore.kernel.org/linux-iommu/20240208151837.35068-1-shameerali.k=
-olothum.thodi@huawei.com/
-[1] https://lore.kernel.org/linux-iommu/BN9PR11MB527662A2AB0A9BABD5E20E6D8C=
-D52@BN9PR11MB5276.namprd11.prod.outlook.com/
+Steve
+
+> 
+> Suzuki
+> 
+>>
+>> Thanks,
+>> Steve
+>>
+>>>> +
+>>>> +    return 0;
+>>>> +}
+>>>> +
+>>>> +static void update_arch_timer_irq_lines(struct kvm_vcpu *vcpu)
+>>>> +{
+>>>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>>>> +
+>>>> +    __vcpu_sys_reg(vcpu, CNTV_CTL_EL0) = rec->run->exit.cntv_ctl;
+>>>> +    __vcpu_sys_reg(vcpu, CNTV_CVAL_EL0) = rec->run->exit.cntv_cval;
+>>>> +    __vcpu_sys_reg(vcpu, CNTP_CTL_EL0) = rec->run->exit.cntp_ctl;
+>>>> +    __vcpu_sys_reg(vcpu, CNTP_CVAL_EL0) = rec->run->exit.cntp_cval;
+>>>> +
+>>>> +    kvm_realm_timers_update(vcpu);
+>>>> +}
+>>>> +
+>>>> +/*
+>>>> + * Return > 0 to return to guest, < 0 on error, 0 (and set
+>>>> exit_reason) on
+>>>> + * proper exit to userspace.
+>>>> + */
+>>>> +int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_ret)
+>>>> +{
+>>>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>>>> +    u8 esr_ec = ESR_ELx_EC(rec->run->exit.esr);
+>>>> +    unsigned long status, index;
+>>>> +
+>>>> +    status = RMI_RETURN_STATUS(rec_run_ret);
+>>>> +    index = RMI_RETURN_INDEX(rec_run_ret);
+>>>> +
+>>>> +    /*
+>>>> +     * If a PSCI_SYSTEM_OFF request raced with a vcpu executing, we
+>>>> might
+>>>> +     * see the following status code and index indicating an attempt
+>>>> to run
+>>>> +     * a REC when the RD state is SYSTEM_OFF.  In this case, we just
+>>>> need to
+>>>> +     * return to user space which can deal with the system event or
+>>>> will try
+>>>> +     * to run the KVM VCPU again, at which point we will no longer
+>>>> attempt
+>>>> +     * to enter the Realm because we will have a sleep request
+>>>> pending on
+>>>> +     * the VCPU as a result of KVM's PSCI handling.
+>>>> +     */
+>>>> +    if (status == RMI_ERROR_REALM && index == 1) {
+>>>> +        vcpu->run->exit_reason = KVM_EXIT_UNKNOWN;
+>>>> +        return 0;
+>>>> +    }
+>>>> +
+>>>> +    if (rec_run_ret)
+>>>> +        return -ENXIO;
+>>>> +
+>>>> +    vcpu->arch.fault.esr_el2 = rec->run->exit.esr;
+>>>> +    vcpu->arch.fault.far_el2 = rec->run->exit.far;
+>>>> +    vcpu->arch.fault.hpfar_el2 = rec->run->exit.hpfar;
+>>>> +
+>>>> +    update_arch_timer_irq_lines(vcpu);
+>>>> +
+>>>> +    /* Reset the emulation flags for the next run of the REC */
+>>>> +    rec->run->enter.flags = 0;
+>>>> +
+>>>> +    switch (rec->run->exit.exit_reason) {
+>>>> +    case RMI_EXIT_SYNC:
+>>>> +        return rec_exit_handlers[esr_ec](vcpu);
+>>>> +    case RMI_EXIT_IRQ:
+>>>> +    case RMI_EXIT_FIQ:
+>>>> +        return 1;
+>>>> +    case RMI_EXIT_PSCI:
+>>>> +        return rec_exit_psci(vcpu);
+>>>> +    case RMI_EXIT_RIPAS_CHANGE:
+>>>> +        return rec_exit_ripas_change(vcpu);
+>>>> +    }
+>>>> +
+>>>> +    kvm_pr_unimpl("Unsupported exit reason: %u\n",
+>>>> +              rec->run->exit.exit_reason);
+>>>> +    vcpu->run->exit_reason = KVM_EXIT_INTERNAL_ERROR;
+>>>> +    return 0;
+>>>> +}
+>>>> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+>>>> index 1fa9991d708b..4c0751231810 100644
+>>>> --- a/arch/arm64/kvm/rme.c
+>>>> +++ b/arch/arm64/kvm/rme.c
+>>>> @@ -899,6 +899,25 @@ void kvm_destroy_realm(struct kvm *kvm)
+>>>>        kvm_free_stage2_pgd(&kvm->arch.mmu);
+>>>>    }
+>>>>    +int kvm_rec_enter(struct kvm_vcpu *vcpu)
+>>>> +{
+>>>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>>>> +
+>>>> +    switch (rec->run->exit.exit_reason) {
+>>>> +    case RMI_EXIT_HOST_CALL:
+>>>> +    case RMI_EXIT_PSCI:
+>>>> +        for (int i = 0; i < REC_RUN_GPRS; i++)
+>>>> +            rec->run->enter.gprs[i] = vcpu_get_reg(vcpu, i);
+>>>> +        break;
+>>>> +    }
+>>>
+>>> As mentioned in the patch following (MMIO emulation support), we may be
+>>> able to do this unconditionally for all REC entries, to cover ourselves
+>>> from missing out other cases. The RMM is in charge of taking the
+>>> appropriate action anyways to copy the results back.
+>>>
+>>> Suzuki
+>>>
+>>>> +
+>>>> +    if (kvm_realm_state(vcpu->kvm) != REALM_STATE_ACTIVE)
+>>>> +        return -EINVAL;
+>>>> +
+>>>> +    return rmi_rec_enter(virt_to_phys(rec->rec_page),
+>>>> +                 virt_to_phys(rec->run));
+>>>> +}
+>>>> +
+>>>>    static void free_rec_aux(struct page **aux_pages,
+>>>>                 unsigned int num_aux)
+>>>>    {
+>>
+> 
 
 
