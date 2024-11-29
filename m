@@ -4,126 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D9C5D6EBEC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 08:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D76D6EBEC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 08:25:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T//+n483tyB6VOwpP1k6uHSi8Lm9TGtmZZ12XvHW+co=; b=h0Ul3GeEz6N8CzDJPOFYV1Uf4v
-	O+vameUBRZx+AT3+YyLP+yfH/WIyeeqbyskxCfQoaKmpFRHDhogihWVUpSWreeTMGbGd0uXDnCs71
-	dGBArfo4v4C4/vNF/0Ngb95/BadTgbhIuei4kfC0JBbZs2mYCcdUWHDQiiZKYHxOSgUj9XeJLOkHo
-	HRaAjvffxRquVHt1QaLEWs4BCBnzKSed0aeYQ5cag0VR672fBxn+X/AiVYXs2aBMBf+gTMAffz+ch
-	03vtbxDzf7xquYBOv+tc+Vs6jyiIBLiNUTnOHsSIpKyVxOi7YxSBa0fybBNOHEFjk+2j7b7yFRREq
-	tuHAXNTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4P3zYKiW7BBhb+lKRvX5zNC+DpWpX5subj2u3TQcUms=; b=q3bJC2rGoTtNaYqn5urTguGVfB
+	J840XsZTANsl+CXgpNIfz5i6fdphkMd0MrMTNd49zybco4wXYfCA4ca7xiklHd0nw4HhoKCC78Jdb
+	kam1O8QcE+gyUtfDc7YujpgCkG/rgB+1hErqbOeWvXUIlXGsqbPLKVrPk7BpBelvPQzDHB1gsXi5V
+	M1bxrndWmbL/oMvv+P8g5WkYY2S3eN2sSN2eNTLrLApiGtMto0zqODMixKYJ253w26XQq/EPsQziR
+	zhsEFeTnGxxEY/uwMUbvw/et4MUczfjJz13b42YxcHHlqH6sof7NbVXBMrD7N3b1Gtsd1LarU2top
+	Hi0FlabA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGwI3-0000000HBH7-0KUR;
-	Fri, 29 Nov 2024 08:23:51 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tGwJf-0000000HBVl-39rZ;
+	Fri, 29 Nov 2024 08:25:31 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGwH3-0000000HB8J-0nKw
+	id 1tGwIh-0000000HBLE-0AvM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 08:22:50 +0000
+	Fri, 29 Nov 2024 08:24:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C1009A40234;
-	Fri, 29 Nov 2024 08:20:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AE22C4CED3;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 523B3A43DAE;
 	Fri, 29 Nov 2024 08:22:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53C78C4CECF;
+	Fri, 29 Nov 2024 08:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732868568;
-	bh=vczarr0veD/or+eHrQIZd+87uwMUJz67vQoJatMVAWA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PZgPJijNruVqPqCLwZfz1uqLA9imFMzhCKQ/tyEeeJgcEatjnsQNx7kdJh0RCRR44
-	 iJtZD+Qf3gE/up4sJv86kSFewUMzlvTKXXMQBYBkV1beAVDHYWARnkFCjmWfGsP9/4
-	 9+pgzE5MHVKsBccHRs1JyK6zTq+igOpK/2/c3rutHL7No4nR06FbEaAirXAWb/+DrO
-	 2r5nsjuYtGetiGKrLk2IoB3mPxLTzS743EyNPFkpu/OtENfPF6sSnbIPzY5e/qchlb
-	 2Es0LjHhtH1qf5BHvV/ld3bd3Qjozb+Uf8zYQYfVPGg7IikLa9AQ4mFxjKktbkmmVM
-	 JHBViyCITnY+A==
-Message-ID: <d1eec09a-23ca-44de-a4e5-5f625a1ec73b@kernel.org>
-Date: Fri, 29 Nov 2024 09:22:35 +0100
+	s=k20201202; t=1732868669;
+	bh=TyO2QLua9PMQVGzO0KGbVnq2AiGW+Rw7plyMIVS9Zc8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eEUjcVn2rSuMOTb8e39fWrckwFPWTb+56QmvjPUEpyNHm7iuOdCLMol9w+NAc+KMK
+	 FIgm/sZVRFGmbxcrIVObeE/Gi+uEvNYLBfSwjICLI776wtvsL3CeLZ0xTC+p1QKyV+
+	 ejc+720/GwWj/HNgAxjNyTeU91lMD0iAHxEfupjYY14dqaQqD8rwVZxgjzfnRlanIv
+	 +nFnTk7eHghd5DADKRQGspLPpMXaNEIbntMMfTCmKPUGCEZgxFULXzusQHAhMi+L8S
+	 9c98jHW3OOcGD2Jnvb232/FeNzbmse1JpxBUg4rjWDd5JDZfTwohDXsqBsj2De2Pmq
+	 /sYQZsK7e8KhQ==
+Date: Fri, 29 Nov 2024 10:24:16 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Zi Yan <ziy@nvidia.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>, stable@vger.kernel.org
+Subject: Re: [PATCH] arch_numa: Restore nid checks before registering a
+ memblock with a node
+Message-ID: <Z0l6MPWQ66GjAyOC@kernel.org>
+References: <20241127193000.3702637-1-maz@kernel.org>
+ <Z0gVxWstZdKvhY6m@kernel.org>
+ <87y113s3lt.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 1/6] misc: Add support for LAN966x PCI device
-To: Herve Codina <herve.codina@bootlin.com>, Michal Kubecek <mkubecek@suse.cz>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
- Andy Shevchenko <andy.shevchenko@gmail.com>, Simon Horman
- <horms@kernel.org>, Lee Jones <lee@kernel.org>, Arnd Bergmann
- <arnd@arndb.de>, Derek Kiernan <derek.kiernan@amd.com>,
- Dragan Cvetic <dragan.cvetic@amd.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Lars Povlsen <lars.povlsen@microchip.com>,
- Steen Hegelund <Steen.Hegelund@microchip.com>,
- Daniel Machon <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Horatiu Vultur <horatiu.vultur@microchip.com>, Andrew Lunn <andrew@lunn.ch>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Allan Nielsen <allan.nielsen@microchip.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-References: <20241010063611.788527-1-herve.codina@bootlin.com>
- <20241010063611.788527-2-herve.codina@bootlin.com>
- <dywwnh7ns47ffndsttstpcsw44avxjvzcddmceha7xavqjdi77@cqdgmpdtywol>
- <20241129091013.029fced3@bootlin.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241129091013.029fced3@bootlin.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87y113s3lt.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_002249_383263_449D975D 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20241129_002431_167113_E8817559 
+X-CRM114-Status: GOOD (  23.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,33 +78,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/11/2024 09:10, Herve Codina wrote:
->>> +config MCHP_LAN966X_PCI
->>> +	tristate "Microchip LAN966x PCIe Support"
->>> +	depends on PCI
->>> +	select OF
->>> +	select OF_OVERLAY  
->>
->> Are these "select" statements what we want? When configuring current
->> mainline snapshot, I accidentally enabled this driver and ended up
->> flooded with an enormous amount of new config options, most of which
->> didn't make much sense on x86_64. It took quite long to investigate why.
->>
->> Couldn't we rather use
->>
->> 	depends on PCI && OF && OF_OVERLAY
->>
->> like other drivers?
->>
+On Thu, Nov 28, 2024 at 04:52:14PM +0000, Marc Zyngier wrote:
+> Hi Mike,
 > 
-> I don't have a strong opinion on this 'select' vs 'depends on' for those
-> symbols.
+> On Thu, 28 Nov 2024 07:03:33 +0000,
+> Mike Rapoport <rppt@kernel.org> wrote:
+> > 
+> > Hi Marc,
+> > 
+> > > diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
+> > > index e187016764265..5457248eb0811 100644
+> > > --- a/drivers/base/arch_numa.c
+> > > +++ b/drivers/base/arch_numa.c
+> > > @@ -207,7 +207,21 @@ static void __init setup_node_data(int nid, u64 start_pfn, u64 end_pfn)
+> > >  static int __init numa_register_nodes(void)
+> > >  {
+> > >  	int nid;
+> > > -
+> > > +	struct memblock_region *mblk;
+> > > +
+> > > +	/* Check that valid nid is set to memblks */
+> > > +	for_each_mem_region(mblk) {
+> > > +		int mblk_nid = memblock_get_region_node(mblk);
+> > > +		phys_addr_t start = mblk->base;
+> > > +		phys_addr_t end = mblk->base + mblk->size - 1;
+> > > +
+> > > +		if (mblk_nid == NUMA_NO_NODE || mblk_nid >= MAX_NUMNODES) {
+> > > +			pr_warn("Warning: invalid memblk node %d [mem %pap-%pap]\n",
+> > > +				mblk_nid, &start, &end);
+> > > +			return -EINVAL;
+> > > +		}
+> > 
+> > We have memblock_validate_numa_coverage() that checks that amount of memory
+> > with unset node id is less than a threshold. The loop here can be replaced
+> > with something like
+> > 
+> > 	if (!memblock_validate_numa_coverage(0))
+> > 		return -EINVAL;
+> 
+> Unfortunately, that doesn't seem to result in something that works
+> (relevant extract only):
+> 
+> [    0.000000] NUMA: no nodes coverage for 9MB of 65516MB RAM
+> [    0.000000] NUMA: Faking a node at [mem 0x0000000000500000-0x0000000fff0fffff]
+> [    0.000000] NUMA: no nodes coverage for 0MB of 65516MB RAM
+> [    0.000000] Unable to handle kernel paging request at virtual address 0000000000001d40
+> 
+> Any idea?
 
+With 0 as the threshold the validation fails for the fake node, but it
+should be fine with memblock_validate_numa_coverage(1)
+ 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
-You should not select user-visible symbols, with exception of arch
-stuff. This is not arch, so you should use dependencies.
-
-
-Best regards,
-Krzysztof
+-- 
+Sincerely yours,
+Mike.
 
