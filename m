@@ -4,84 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292D4D70E16
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 04:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 233DDD70E16
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 04:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WwLFk5CqyIuUQmMOH/w1oY/zTQnSk8WmSXQVFZhD9LQ=; b=19obWhowAdI1xoNWXDeUfEPswW
-	T5K1CjOQ4c31k+nAgvujwKaLBKUBkR2Vt88VfBjfrfw46W49rOCDY/HNCIUXqDaiG5/hY4d6C2iZZ
-	s2kdt3itH2odS7+LXHAVx7G3e8IjeD19pcZPpgQq4MvSj1ppoNAlNY+dZuojgzdInTrhdl2118gIO
-	c1r+RKeWkhaAe5r6fYlqc4Nj3Zs6a6nUV/sejJrai2ztcTOPGMzHuhFa2emciFgdT8O4dU46ElYBN
-	vNxy3SOo6EqJS7QQk5jrPGPNsUhVRVVqAZVrXysyTYiTMQPeKy8/QiT4M0XU3cAFbkhfnynIh0rnU
-	RHfGuk3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PfeJXRYiD6OxAQIRHwQBONi9OeXoG+H3tiX8WCnNxPc=; b=u5eO1slShbElDm6A20oHGAsDDh
+	jOTFz5In5Qn+OzlbCPjnb6/TQdKgFppWsMrGttgUm1LW8zd+6RTZpa0sSTspNcVmjhhGztL3at4od
+	pgSbNrMRWRM1KCvd2jB9zLPyf9gljrdwxzmXx+SOA0C1OIN8ojm8kUUjgO25rEnZFii6Pai24wo+X
+	lLnVF3orqZ7GpisCnLFsI+aVHKKbfUqcZfuAPXMO6aa00+9vxRwS06obnJabkfbP61FuUSPwbpIp0
+	rIfG5NQS5AXvE118uEuHkYXsjq0z+QJuh/VB646mYUGyRNpO3EPHiQX+za+3bwW+x4IPO5mz+CG/v
+	gom/Q10A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGsrc-0000000Gskq-2njP;
-	Fri, 29 Nov 2024 04:44:20 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1tGt3M-0000000Gtm5-1soW;
+	Fri, 29 Nov 2024 04:56:28 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGsqd-0000000Gseb-124H;
-	Fri, 29 Nov 2024 04:43:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732855400; x=1764391400;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9j9UtBCv2PeFtRp7xh7w5s2/nPgIOCo2sIEPHBxiREU=;
-  b=MIbmk71rauHLnz8nC26DdOTYMG88pQfGXKseIvYS8+ot9oOFm4YMjEEp
-   uOv+6Gon+NjF3L6iTJN88O6pCgSoFh5cuHvVe1qNHF506NcQjZEgt+e+2
-   DT8WBm2pqNwDWPFNy4liIpC/2h7guRyQ2mf/wfL8VM7kSfWLR+IUIp/qr
-   fXmlTk27DtK095gXxJPr2kMXEjn2Eyem+45ZrdwLhvxxY0r1LNzEf0SfO
-   K5Hn4qq+lY+43aBahF0H4kQNTWZUxqa6050g5Q6cvmk57D29gXbargRKT
-   vWauZnAxN99UGCDvpENYwwYGexLlEA/tO9pGx1iBXNsQ0hwpa6vWHlrkt
-   Q==;
-X-CSE-ConnectionGUID: sPmoZgW3ROWmw3lsefdnQA==
-X-CSE-MsgGUID: Hb3WcTfuR1SjmAg6Zr1QTw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11270"; a="44460425"
-X-IronPort-AV: E=Sophos;i="6.12,194,1728975600"; 
-   d="scan'208";a="44460425"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2024 20:43:18 -0800
-X-CSE-ConnectionGUID: Jp79vHlZQie9htAmyJEFWA==
-X-CSE-MsgGUID: L0PTf+eMTSqbkmvDig1DjQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,194,1728975600"; 
-   d="scan'208";a="92710199"
-Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 28 Nov 2024 20:43:11 -0800
-Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tGsqT-000ALf-0C;
-	Fri, 29 Nov 2024 04:43:09 +0000
-Date: Fri, 29 Nov 2024 12:42:13 +0800
-From: kernel test robot <lkp@intel.com>
-To: Eliav Farber <farbere@amazon.com>, linux@armlinux.org.uk,
-	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
-	npiggin@gmail.com, christophe.leroy@csgroup.eu, naveen@kernel.org,
-	maddy@linux.ibm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, tglx@linutronix.de, ebiederm@xmission.com,
-	akpm@linux-foundation.org, bhe@redhat.com, hbathini@linux.ibm.com,
-	sourabhjain@linux.ibm.com, adityag@linux.ibm.com,
-	songshuaishuai@tinylab.org, takakura@valinux.co.jp,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	kexec@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, jonnyc@amazon.com
-Subject: Re: [PATCH v3 2/2] kexec: Prevent redundant IRQ masking by checking
- state before shutdown
-Message-ID: <202411291251.RwA1dKZL-lkp@intel.com>
-References: <20241128201027.10396-3-farbere@amazon.com>
+	id 1tGt2N-0000000GtgD-1Uhl
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 Nov 2024 04:55:28 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ASMBJFV005202;
+	Fri, 29 Nov 2024 04:55:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	PfeJXRYiD6OxAQIRHwQBONi9OeXoG+H3tiX8WCnNxPc=; b=pP34Ozw09qTZDNRm
+	q4+Fm4D3woD5y2XTk1NaDRNNerZQygoRLrtDr0Jf0EY6AwyiaaV49K8SC5qt6Mw9
+	fXo20Sp56RG8oYn7q5PT4rJlDDhl8AUPXAb9+ng6wgXbK7aS6vFsLSpFECjGN6wZ
+	1UMC9Nsm0g2yTIVoQDfx42hmYNYmXVf/WKO7my9r9UGTiSpEBjL1ogUvKEAu0mR+
+	sZxYJY7WxBFRVcUSEc6KAh2iOBDbpOzuaj69s99Ih24/zsjZLj3BIO7vZiOSfu+K
+	7AS78GYdzBkYcGYw0ZNNiTNtiUjxtGFII8nCJdXmmsgm/NxsrUj1et3CmhRDfZLa
+	G9jWrA==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4366xxmfru-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 Nov 2024 04:55:12 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AT4tBrH006092
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 Nov 2024 04:55:11 GMT
+Received: from [10.64.16.151] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 28 Nov
+ 2024 20:55:05 -0800
+Message-ID: <ce4210dc-9bd6-4b21-a7ff-f6a9afa22741@quicinc.com>
+Date: Fri, 29 Nov 2024 12:55:02 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241128201027.10396-3-farbere@amazon.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 9/9] arm64: dts: qcom: Add display support for QCS615
+ RIDE board
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+CC: Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar
+	<quic_abhinavk@quicinc.com>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten
+	<marijn.suijten@somainline.org>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Krishna
+ Manikandan" <quic_mkrishn@quicinc.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        "Catalin
+ Marinas" <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Li Liu
+	<quic_lliu6@quicinc.com>,
+        Xiangxu Yin <quic_xiangxuy@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
+ <20241122-add-display-support-for-qcs615-platform-v3-9-35252e3a51fe@quicinc.com>
+ <azdmcs7uafw3n6cqbq4ei66oybzhtyvdyz2xl4wtaf3u5zextb@vdhbs6wnbeg4>
+ <520419eb-cedf-465b-a14a-12d97ab257a0@quicinc.com>
+ <CAA8EJpqvkeMWgeWCx9D-HcJhRfipZJdEvpvag0wk-WXazkPahA@mail.gmail.com>
+Content-Language: en-US
+From: fange zhang <quic_fangez@quicinc.com>
+In-Reply-To: <CAA8EJpqvkeMWgeWCx9D-HcJhRfipZJdEvpvag0wk-WXazkPahA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: wSxIzY7Q56qwHsCqgxI6Muy0vK8xA0Tf
+X-Proofpoint-ORIG-GUID: wSxIzY7Q56qwHsCqgxI6Muy0vK8xA0Tf
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 adultscore=0
+ lowpriorityscore=0 impostorscore=0 bulkscore=0 mlxscore=0 malwarescore=0
+ priorityscore=1501 spamscore=0 mlxlogscore=999 phishscore=0 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2411290037
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_204319_549897_55C29F9F 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20241128_205527_606984_47292A3E 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,96 +129,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Eliav,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on powerpc/next]
-[also build test ERROR on powerpc/fixes tip/irq/core arm64/for-next/core linus/master v6.12 next-20241128]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Eliav-Farber/kexec-Consolidate-machine_kexec_mask_interrupts-implementation/20241129-041259
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git next
-patch link:    https://lore.kernel.org/r/20241128201027.10396-3-farbere%40amazon.com
-patch subject: [PATCH v3 2/2] kexec: Prevent redundant IRQ masking by checking state before shutdown
-config: x86_64-rhel-9.4 (https://download.01.org/0day-ci/archive/20241129/202411291251.RwA1dKZL-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241129/202411291251.RwA1dKZL-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411291251.RwA1dKZL-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   kernel/kexec_core.c: In function 'machine_kexec_mask_interrupts':
-   kernel/kexec_core.c:1085:24: error: implicit declaration of function 'irq_desc_get_chip' [-Werror=implicit-function-declaration]
-    1085 |                 chip = irq_desc_get_chip(desc);
-         |                        ^~~~~~~~~~~~~~~~~
-   kernel/kexec_core.c:1085:22: warning: assignment to 'struct irq_chip *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-    1085 |                 chip = irq_desc_get_chip(desc);
-         |                      ^
->> kernel/kexec_core.c:1086:31: error: implicit declaration of function 'irqd_is_started' [-Werror=implicit-function-declaration]
-    1086 |                 if (!chip || !irqd_is_started(&desc->irq_data))
-         |                               ^~~~~~~~~~~~~~~
-   kernel/kexec_core.c:1086:52: error: invalid use of undefined type 'struct irq_desc'
-    1086 |                 if (!chip || !irqd_is_started(&desc->irq_data))
-         |                                                    ^~
-   kernel/kexec_core.c:1097:38: error: invalid use of undefined type 'struct irq_chip'
-    1097 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
-         |                                      ^~
-   kernel/kexec_core.c:1097:51: error: implicit declaration of function 'irqd_irq_inprogress' [-Werror=implicit-function-declaration]
-    1097 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
-         |                                                   ^~~~~~~~~~~~~~~~~~~
-   kernel/kexec_core.c:1097:76: error: invalid use of undefined type 'struct irq_desc'
-    1097 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
-         |                                                                            ^~
-   kernel/kexec_core.c:1098:29: error: invalid use of undefined type 'struct irq_chip'
-    1098 |                         chip->irq_eoi(&desc->irq_data);
-         |                             ^~
-   kernel/kexec_core.c:1098:44: error: invalid use of undefined type 'struct irq_desc'
-    1098 |                         chip->irq_eoi(&desc->irq_data);
-         |                                            ^~
->> kernel/kexec_core.c:1100:17: error: implicit declaration of function 'irq_shutdown'; did you mean 'timer_shutdown'? [-Werror=implicit-function-declaration]
-    1100 |                 irq_shutdown(desc);
-         |                 ^~~~~~~~~~~~
-         |                 timer_shutdown
-   cc1: some warnings being treated as errors
 
 
-vim +/irqd_is_started +1086 kernel/kexec_core.c
+On 2024/11/26 6:08, Dmitry Baryshkov wrote:
+> On Mon, 25 Nov 2024 at 09:39, fange zhang <quic_fangez@quicinc.com> wrote:
+>>
+>>
+>>
+>> On 2024/11/22 18:22, Dmitry Baryshkov wrote:
+>>> On Fri, Nov 22, 2024 at 05:56:52PM +0800, Fange Zhang wrote:
+>>>> From: Li Liu <quic_lliu6@quicinc.com>
+>>>>
+>>>> Add display MDSS and DSI configuration for QCS615 RIDE board.
+>>>> QCS615 has a DP port, and DP support will be added in a later patch.
+>>>>
+>>>> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+>>>> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+>>>> ---
+>>>>    arch/arm64/boot/dts/qcom/qcs615-ride.dts | 76 ++++++++++++++++++++++++++++++++
+>>>>    1 file changed, 76 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/qcom/qcs615-ride.dts b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
+>>>> index ee6cab3924a6d71f29934a8debba3a832882abdd..cc7dadc411ab79b9e60ccb15eaff84ea5f997c4c 100644
+>>>> --- a/arch/arm64/boot/dts/qcom/qcs615-ride.dts
+>>>> +++ b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
+>>>> @@ -202,6 +202,82 @@ &gcc {
+>>>>                <&sleep_clk>;
+>>>>    };
+>>>>
+>>>> +&i2c2 {
+>>>> +    clock-frequency = <400000>;
+>>>> +    status = "okay";
+>>>> +
+>>>> +    ioexp: gpio@3e {
+>>>> +            compatible = "semtech,sx1509q";
+>>>> +            reg = <0x3e>;
+>>>> +            interrupt-parent = <&tlmm>;
+>>>> +            interrupts = <58 0>;
+>>>> +            gpio-controller;
+>>>> +            #gpio-cells = <2>;
+>>>> +            interrupt-controller;
+>>>> +            #interrupt-cells = <2>;
+>>>> +            semtech,probe-reset;
+>>>> +    };
+>>>> +
+>>>> +    i2c-mux@77 {
+>>>> +            compatible = "nxp,pca9542";
+>>>> +            reg = <0x77>;
+>>>> +            #address-cells = <1>;
+>>>> +            #size-cells = <0>;
+>>>> +            i2c@0 {
+>>>> +                    reg = <0>;
+>>>> +                    #address-cells = <1>;
+>>>> +                    #size-cells = <0>;
+>>>> +
+>>>> +                    anx7625@58 {
+>>>> +                            compatible = "analogix,anx7625";
+>>>> +                            reg = <0x58>;
+>>>> +                            interrupt-parent = <&ioexp>;
+>>>> +                            interrupts = <0 0>;
+>>>> +                            enable-gpios = <&tlmm 4 GPIO_ACTIVE_HIGH>;
+>>>> +                            reset-gpios = <&tlmm 5 GPIO_ACTIVE_HIGH>;
+>>>> +                            wakeup-source;
+>>>> +
+>>>> +                            ports {
+>>>> +                                    #address-cells = <1>;
+>>>> +                                    #size-cells = <0>;
+>>>> +
+>>>> +                                    port@0 {
+>>>> +                                            reg = <0>;
+>>>> +                                            anx_7625_in: endpoint {
+>>>> +                                                    remote-endpoint = <&mdss_dsi0_out>;
+>>>> +                                            };
+>>>> +                                    };
+>>>> +
+>>>> +                                    port@1 {
+>>>> +                                            reg = <1>;
+>>>> +                                            anx_7625_out: endpoint {
++ remote-endpoint = <&dp_connector_out>;
+>>>> +                                            };
+>>>
+>>> Where is it connected? Is it DP port? USB-C? eDP?
+>> yes, it's DP port
+> 
+> So, I'd expect to see a dp-connector node at the end, not the
+> unterminated anx7625.
+got it, will add it in next patch
++       dp-connector {
++               compatible = "dp-connector";
++               label = "DP";
++               type = "mini";
++
++               port {
++                       dp_connector_out: endpoint {
++                               remote-endpoint = <&anx_7625_out>;
++                       };
++               };
++       };
+> 
+>>>
+>>>> +                                    };
+>>>> +                            };
+>>>> +                    };
+>>>> +            };
+>>>> +    };
+>>>> +};
+>>>> +
+>>>> +&mdss {
+>>>> +    status = "okay";
+>>>> +};
+>>>> +
+>>>> +&mdss_dsi0 {
+>>>> +    vdda-supply = <&vreg_l11a>;
+>>>> +    status = "okay";
+>>>> +};
+>>>> +
+>>>> +&mdss_dsi0_out {
+>>>> +    remote-endpoint = <&anx_7625_in>;
+>>>> +    data-lanes = <0 1 2 3>;
+>>>> +};
+>>>> +
+>>>> +&mdss_dsi0_phy {
+>>>> +    vdds-supply = <&vreg_l5a>;
+>>>> +    status = "okay";
+>>>> +};
+>>>> +
+>>>>    &qupv3_id_0 {
+>>>>       status = "okay";
+>>>>    };
+>>>>
+>>>> --
+>>>> 2.34.1
+>>>>
+>>>
+>>
+> 
+> 
 
-  1075	
-  1076	void machine_kexec_mask_interrupts(void)
-  1077	{
-  1078		unsigned int i;
-  1079		struct irq_desc *desc;
-  1080	
-  1081		for_each_irq_desc(i, desc) {
-  1082			struct irq_chip *chip;
-  1083			int check_eoi = 1;
-  1084	
-  1085			chip = irq_desc_get_chip(desc);
-> 1086			if (!chip || !irqd_is_started(&desc->irq_data))
-  1087				continue;
-  1088	
-  1089			if (IS_ENABLED(CONFIG_ARM64)) {
-  1090				/*
-  1091				 * First try to remove the active state. If this fails, try to EOI the
-  1092				 * interrupt.
-  1093				 */
-  1094				check_eoi = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
-  1095			}
-  1096	
-  1097			if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
-  1098				chip->irq_eoi(&desc->irq_data);
-  1099	
-> 1100			irq_shutdown(desc);
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
