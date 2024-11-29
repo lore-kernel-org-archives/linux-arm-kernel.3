@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C1ED6EBFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 11:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A9ED6EC00
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 11:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Q3XjPb0Ey2Y1XcJHGYpRebmTpz9c8xwwCA/EQuTE0A=; b=MB8BLlZzA0GJUQDR3/oVtKOb5U
-	Q9vTavqrg/ckr/PzT90YmrBxl1wwHgMWTGsjsD8tiWThlOrCTSKfH+azNNs0Oa614doOrGy7MPqvY
-	nmGljIGMSMooTuYt3bcluxyefXRZ6RjTMD043blPsfiQ3EGTdX/W8fhfuHlyUZ1pmrM6sZ+J4190H
-	gheW6zy1cWgk6Wd7YFtYG8fL5PmEFlzmijK75zWTSKb0Yb8dOymfi9C0nraP7nN7kiWLBpDhcm7ky
-	8ClmDZEpu3KUQvd/PYdnz1juY3gkyXQ+iX2DgBO7VzT2pQ+2hM8B4vn+d5Qg/fo95c9RoN8pGBxhl
-	LAgg8Q4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XxQ3De7RUhc+RdOPHYM+OjqpU7dn3KwiW10hYXSFbC8=; b=isTLVwZNqt336t1+cpmtbI8PaH
+	/B8hFVgIRyeIUrjHEF0ruTgME0R9g4cdfFqepfxnCBT2cE5hSMPJ4QuP1JOzhEqat+QvLAR3zc6lW
+	y56DljyaPbMotj2LTxCWuxInRBeM0zm0X2gS9tlOIqjFWMXrHXlpoOrr70huQktG82Q1yVhy/Kl7J
+	7QiYCFYHLEjFS/s3FxQPuOgQtgYYeeXrXoHjJFlsYXJ3ZZkrLZabVqH3Xn2n0jnf/dz2wekjfC6c/
+	ldvwIYLm/ozLhwMV1blgupLK6VgTgARcvKGoyEMrfN/A9skR/BHdQzie56F45xmglJXiC6V+jnVnJ
+	o9lrb5fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGzEd-0000000HYeN-1LZZ;
-	Fri, 29 Nov 2024 11:32:31 +0000
-Received: from mail3-relais-sop.national.inria.fr ([192.134.164.104])
+	id 1tGzFb-0000000HYpC-1fPz;
+	Fri, 29 Nov 2024 11:33:31 +0000
+Received: from smtp-fw-6001.amazon.com ([52.95.48.154])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGzD6-0000000HYCr-1eSw
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 11:30:58 +0000
+	id 1tGzDg-0000000HYLb-1IrQ;
+	Fri, 29 Nov 2024 11:31:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=inria.fr; s=dc;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=/Q3XjPb0Ey2Y1XcJHGYpRebmTpz9c8xwwCA/EQuTE0A=;
-  b=LBVDCAInW9HTBdXVSGmbuq9y9xWtFXiyE7uk36AfLiZc40znbZaiiq6f
-   +OJoP24YFaAdG3BIHqrUlz3SHkb7hFs0CkAyD1VbMQyxYQULhx/R8MolU
-   hQcPxzyyUqJeIySjTrfflcfeOa16EWDt40PwMV+9HCYNj1wEF0/st2mjB
-   Q=;
-Authentication-Results: mail3-relais-sop.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=keisuke.nishimura@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
-X-IronPort-AV: E=Sophos;i="6.12,195,1728943200"; 
-   d="scan'208";a="102991282"
-Received: from dt-aponte.paris.inria.fr (HELO [128.93.67.66]) ([128.93.67.66])
-  by mail3-relais-sop.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Nov 2024 12:30:54 +0100
-Message-ID: <e85e92f9-8387-4021-885e-a379a2898c9c@inria.fr>
-Date: Fri, 29 Nov 2024 12:30:52 +0100
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1732879892; x=1764415892;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=XxQ3De7RUhc+RdOPHYM+OjqpU7dn3KwiW10hYXSFbC8=;
+  b=SmXQC/h05OAEx8AbyIVAVy64MLxUVfd/XfMG/zj5VMh/yusAc0DUjtJL
+   j7cawSctR16BiQ1+PfUtLGP3syksbsx5gDMf3eIweLY1e2zD1JkIVo1Vl
+   r8t034E1uWO6FdsV+2moj9sBfA5c5qF2m0cJP6fYv5vKYkngF7tqJpTXk
+   0=;
+X-IronPort-AV: E=Sophos;i="6.12,195,1728950400"; 
+   d="scan'208";a="441793923"
+Received: from iad6-co-svc-p1-lb1-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.124.125.2])
+  by smtp-border-fw-6001.iad6.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Nov 2024 11:31:25 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [10.0.38.20:47324]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.43.2:2525] with esmtp (Farcaster)
+ id ecdc713d-df63-4dcd-9dd4-55bcc88c3341; Fri, 29 Nov 2024 11:31:24 +0000 (UTC)
+X-Farcaster-Flow-ID: ecdc713d-df63-4dcd-9dd4-55bcc88c3341
+Received: from EX19D013UWB002.ant.amazon.com (10.13.138.21) by
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Fri, 29 Nov 2024 11:31:20 +0000
+Received: from EX19MTAUEA002.ant.amazon.com (10.252.134.9) by
+ EX19D013UWB002.ant.amazon.com (10.13.138.21) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Fri, 29 Nov 2024 11:31:19 +0000
+Received: from email-imr-corp-prod-iad-all-1a-8c151b82.us-east-1.amazon.com
+ (10.124.125.2) by mail-relay.amazon.com (10.252.134.34) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
+ 15.2.1258.34 via Frontend Transport; Fri, 29 Nov 2024 11:31:19 +0000
+Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com [172.19.116.181])
+	by email-imr-corp-prod-iad-all-1a-8c151b82.us-east-1.amazon.com (Postfix) with ESMTP id 78A5940640;
+	Fri, 29 Nov 2024 11:31:19 +0000 (UTC)
+Received: by dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (Postfix, from userid 14301484)
+	id 355A79E9A; Fri, 29 Nov 2024 11:31:19 +0000 (UTC)
+From: Eliav Farber <farbere@amazon.com>
+To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
+	<naveen@kernel.org>, <maddy@linux.ibm.com>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
+	<ebiederm@xmission.com>, <akpm@linux-foundation.org>, <bhe@redhat.com>,
+	<farbere@amazon.com>, <hbathini@linux.ibm.com>, <sourabhjain@linux.ibm.com>,
+	<adityag@linux.ibm.com>, <songshuaishuai@tinylab.org>,
+	<takakura@valinux.co.jp>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <kexec@lists.infradead.org>
+CC: <jonnyc@amazon.com>
+Subject: [PATCH v4 0/2] Improve interrupt handling during machine kexec
+Date: Fri, 29 Nov 2024 11:31:17 +0000
+Message-ID: <20241129113119.26669-1-farbere@amazon.com>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm/arm64: vgic-its: Add error handling in
- vgic_its_cache_translation
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev
-References: <20241128134534.361144-1-keisuke.nishimura@inria.fr>
- <Z0iujBMl1ypdwfBu@linux.dev> <a62e682d-c2e8-424d-84c5-4e64468124a9@inria.fr>
- <Z0lrWynd3O8a1pG_@linux.dev>
-Content-Language: en-US
-From: Keisuke Nishimura <keisuke.nishimura@inria.fr>
-In-Reply-To: <Z0lrWynd3O8a1pG_@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_033056_945813_DB0A1848 
-X-CRM114-Status: GOOD (  32.32  )
+X-CRM114-CacheID: sfid-20241129_033132_666226_08221071 
+X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,91 +98,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch series focuses on improving the machine_kexec_mask_interrupts()
+function by consolidating its implementation and optimizing its behavior to
+avoid redundant interrupt masking.
 
+Patch Summary:
+[PATCH v4 1/2] Move machine_kexec_mask_interrupts() to kexec_core.c,
+               removing duplicate architecture-specific implementations.
+[PATCH v4 2/2] Refine machine_kexec_mask_interrupts() to avoid re-masking
+               already-masked interrupts, resolving specific warnings
+               triggered in GPIO IRQ flows.
 
-On 29/11/2024 08:20, Oliver Upton wrote:
-> On Thu, Nov 28, 2024 at 08:04:01PM +0100, Keisuke Nishimura wrote:
->> Hello Marc and Oliver,
->>
->> Thank you for the replies.
->>
->> On 28/11/2024 18:55, Oliver Upton wrote:
->>> On Thu, Nov 28, 2024 at 02:45:34PM +0100, Keisuke Nishimura wrote:
->>>> The xa_store() may fail because there is no guarantee that the cache_key
->>>> index is already used in its->translation_cache. This fix (1) resolves
->>>> the kref inconsistency on failure and (2) returns the error code.
->>>
->>> xa_store() doesn't fail if an entry is already present at the specified
->>> index. It returns the old entry, which is why we have a vgic_put_irq()
->>> on the "error" path.
->>
->> Sure. But to my understanding, this could be the first store to
->> its->translation_cache with cache_key, and that is why old can be NULL? I am
->> not very familiar with this code, so please correct me if I am wrong.
-> 
-> So we take a reference on @irq to represent the pointer to it that's
-> stored in the translation cache. There are 3 possible outcomes after the
-> store:
-> 
->   - Store succeeds and no pre-existing entry.
-> 
->   - Store succeeds and there's a pre-existing entry. put the reference on
->     @old since it was evicted from the translation cache
-> 
->   - Store fails because of a failed memory allocation / error in xarray
->     library.
-> 
-> We don't handle #3, and the correct thing to do in this case is to put
-> @irq since it was never made visible in the translation cache.
-> 
-> So I think we'd want to do something similar to the following.
-> 
+Changes between v3 and v4:
+ - Add missing <linux/irqdesc.h> and <linux/irq.h> includes.
 
-Hello,
+Eliav Farber (2):
+  kexec: Consolidate machine_kexec_mask_interrupts() implementation
+  kexec: Prevent redundant IRQ masking by checking state before shutdown
 
-Thanks for the comment. xa_reserve() can allocate the memory in advance and 
-ensure the success of the subsequent xa_store(). FYI, the document of 
-xa_reserve() says:
+ arch/arm/kernel/machine_kexec.c   | 23 -----------------------
+ arch/arm64/kernel/machine_kexec.c | 31 -------------------------------
+ arch/powerpc/include/asm/kexec.h  |  1 -
+ arch/powerpc/kexec/core.c         | 22 ----------------------
+ arch/riscv/kernel/machine_kexec.c | 23 -----------------------
+ include/linux/irq.h               |  3 +++
+ include/linux/kexec.h             |  2 ++
+ kernel/irq/internals.h            |  1 -
+ kernel/kexec_core.c               | 30 ++++++++++++++++++++++++++++++
+ 9 files changed, 35 insertions(+), 101 deletions(-)
 
- > Ensures there is somewhere to store an entry at index in the array. If there 
-is already something stored at index, this function does nothing. If there was 
-nothing there, the entry is marked as reserved. Loading from a reserved entry 
-returns a NULL pointer.
-
-
-I am thinking of calling it before the reference in v2. Here is the suggestion:
-
----
-  arch/arm64/kvm/vgic/vgic-its.c | 9 +++++++++
-  1 file changed, 9 insertions(+)
-
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 198296933e7e..1422812ad6d7 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -561,11 +561,20 @@ static void vgic_its_cache_translation(struct kvm *kvm, 
-struct vgic_its *its,
-  {
-  	unsigned long cache_key = vgic_its_cache_key(devid, eventid);
-  	struct vgic_irq *old;
-+	int ret;
-
-  	/* Do not cache a directly injected interrupt */
-  	if (irq->hw)
-  		return;
-
-+	/*
-+	 * Ensure the following xa_store() will not fail. Intentionally do
-+	 * not return the error as the translation cache is best effort.
-+	 */
-+	ret = xa_reserve(&its->translation_cache, cache_key, GFP_KERNEL_ACCOUNT);
-+	if (ret)
-+		return;
-+
-  	/*
-  	 * The irq refcount is guaranteed to be nonzero while holding the
-  	 * its_lock, as the ITE (and the reference it holds) cannot be freed.
 -- 
-2.34.1
+2.40.1
 
 
