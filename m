@@ -4,105 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8D5D6EBF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 09:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C703D6EBF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 09:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7qffHUQjyaEfcz46tUr2RiKjchrW1y0UWEygxoizXJc=; b=Lp+IjGYlFlaDcT4dV5QtlkJDAD
-	G6HojQi34dWoyoZl/SYgUHoJu5VVTyMIrFHnT+CPu6tspU706Gp2TGIEtkr0l9omfuLqJydCfTMGa
-	mG3ZI8bmLi/e6PEorTVHYYjmX+q6bYHxu65L/bIO36ve7exvrWvrJI2v6UaDvtX43GxLWw2i2a/ig
-	vXhxuPfirZSLxcqSwAe32Io006VN5UdRreEAmDMQdtS4RzmWDRTjTLntwmwe/sC4hh2feut2eBAjc
-	mLQuVlr03sJYTWf0WaFPMVgQjzY6+kCcVqpj8KJOD0x0YZ3xXCEhZPMEQxWDLVBl4KazNG7k6AWUg
-	8Cd2suog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OOEqDqIyVktPaA1eakQuPDXEQ1AB2rfzBRUEWU0hoI0=; b=MYcbpX73TtyTXhXuDKmmbFCPMm
+	RmP7rW94XkvR5v+YpBb5XLWQLdcj6smx7LR+AlUHcXV5blWG9fmWW32CoquHA3TaHEcPTrXmqhfHz
+	10xWOb/D420vS1l0tIpIN6ZiCw40RKqwd6Rk15o4KAVOqkZO9yTidmgt0+yTh0LhY53ULa+WcKrVE
+	UPVKBkGUhPb6YD4GtkVC7q+iYU5rDSJ2Ds6ExpYkOafBYBICJNtZA3hHnOxqsSLs68BNvqOoZCx6z
+	RLUX/5S0JhxxiGEHm10NX3Tk6SBE7XDVxGDONuJWmUB5AhfnEl2v1p7yUO192j0HzL9sm2X9ohtQ8
+	pMWDhZNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGx3l-0000000HIV2-43V8;
-	Fri, 29 Nov 2024 09:13:09 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1tGx4u-0000000HIl2-3o8s;
+	Fri, 29 Nov 2024 09:14:20 +0000
+Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGx0u-0000000HHtj-2fbe
+	id 1tGx3m-0000000HIVI-42Dm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 09:10:13 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aa520699becso233033266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Nov 2024 01:10:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732871411; x=1733476211; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7qffHUQjyaEfcz46tUr2RiKjchrW1y0UWEygxoizXJc=;
-        b=fNh6HnGftQ2TN2lxRpLPUJkHeS/2/xKlDJDv95Secv0vImMBrw9gYD3R18ZxfZic8j
-         Y3aHYZb1l84wkcvkVA6UdLkbTWd1UXwx/hTgjUz/fFwdUNz27YoI6kYkyKfEjQ0bnd81
-         pueGUqBI9eFesqq+waNw1s6oSks22uufll6TzkU5+U6vxz0vYRocenTMu6BSGZIlq9oz
-         s5Gyp1ynYzxCZV54/EAVAM4J3NlBmoXANscqx+rjKpjUgI45ilk+W0MO0U7BJWdfe3XB
-         OLl2FaTbOC1r8MuSwB9CW/nbDzMvTvDsABNFXbEFHOUj/Vm+McgPzHS+hHupSYjAcICo
-         E0vw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732871411; x=1733476211;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7qffHUQjyaEfcz46tUr2RiKjchrW1y0UWEygxoizXJc=;
-        b=gB4+yY9g3auKw0afhQxQEB+JPHSf7vlRpvCeqn9K+YsmjBJWFBkppug3zNUh/VgVSY
-         vXkMn24G5EdH8GnjLgAvembNiyAJpjsAXAT7/A+e92JWsS4m1gN1H9moWlXj/g4KLCjF
-         9pw82NmHTXrTF5kug/5NgW51tN26ztoUpEX29Z0Rc3+ydbkurO7oQgef6LQSFb2iVxdL
-         Yc5fMjmncxwkAcKlwBXznre3vIPfFoneSin7b398ZaxLjrwcJgXRm2FaQu8bWtHwPMUU
-         opqgwSKXbQDhOuc8ku8A0SMeyUaQmHE32S0LFQiS9vVdhHsgZp0tT52Fs1rBx4ir2gFa
-         ysAA==
-X-Forwarded-Encrypted: i=1; AJvYcCXHjfOwSCnAutZIvjQk2Syemzze1i1oc0HZ79f/li2x6VFxlMsDj/zJApEp7NF55aeyKv/GNSubAMg08B3krPZX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxq72kBjSlS35WtNYH9X66mQGREzqhrRD3dBXveqhVCdX4HQRJY
-	i8j6J+r+xbPQ+jPXCW8LDEqqkqv0ycdE0YaLVi9dK9wyCcAff2N0
-X-Gm-Gg: ASbGncvHWi6D64O3gcH7pvtsp390cb18j/5wP2h0r9Khw22hkr1GhipERFkO3/w9JL5
-	8oOwWcW+364nTyJPNpibDuLOr8WmPLbR8IKziD8c0q+JAgZqEuOQw2u0uN0wIIsl1e9yfAjhNXT
-	GrRQqXCSis0gH+55KvpvTinYEfC8zZ/ise5D/dLLHNpJ44jTU/aPJwTuXYLXzSDDrpcuIpzHX+8
-	JsIVF+4rNm32LqvywzGbpWMYLlvandcz9zVrzge0hTdL/Fn
-X-Google-Smtp-Source: AGHT+IF+8+7FD9JQHKcuuWDIftygodt95fHqaAV5VkuYytwoGIvRmqVc52WAavSmAZ/di3Xb4CIspA==
-X-Received: by 2002:a17:906:2189:b0:a99:4e35:9a25 with SMTP id a640c23a62f3a-aa5810295damr813757766b.44.1732871410553;
-        Fri, 29 Nov 2024 01:10:10 -0800 (PST)
-Received: from [127.0.1.1] ([46.53.242.72])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-aa5999032c1sm152775766b.133.2024.11.29.01.10.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Nov 2024 01:10:10 -0800 (PST)
-From: Dzmitry Sankouski <dsankouski@gmail.com>
-Date: Fri, 29 Nov 2024 12:09:54 +0300
-Subject: [PATCH v4 2/2] power: supply: max17042: add platform driver
- variant
+	Fri, 29 Nov 2024 09:13:12 +0000
+Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AT12tr8032173;
+	Fri, 29 Nov 2024 01:13:02 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=OOEqDqIyVktPaA1eakQuPDXEQ
+	1AB2rfzBRUEWU0hoI0=; b=Nh8MyWTQNN0U1DJeo8hj0wSZGQ+RUz5Vh5vqRwc/E
+	u+OUpMmnZuxe0hkfBrvRnK4Abm1wVzWj6LoMwKBaBVi9Z1l3RQN7TTwQjqbWUJgR
+	6wtvRw9MfSFLyR/M7aaEtY1ZNPz1GP08QE2JtZO3Ac2rMKz5K8154i9N2NRrI4Go
+	YHkMjGtQ2Zw9rHvXHO49eiFha73B+BdJ3ixGOhxBlvCoaGdA+vlNxnLRr2RMbTep
+	h/4B60d4GoYnuHspH6ThRgCtKdMGKZezkdM90zL8Kp2XQNbS/YGra1aZlOkMji7H
+	8pps43N72NB81osiqDBZ5+Me1AZNtiQigvbKNu8QaYZng==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4373jv0qhs-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 Nov 2024 01:13:02 -0800 (PST)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Fri, 29 Nov 2024 01:13:01 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Fri, 29 Nov 2024 01:13:01 -0800
+Received: from hyd1403.caveonetworks.com (unknown [10.29.37.84])
+	by maili.marvell.com (Postfix) with SMTP id 12D795C68E3;
+	Fri, 29 Nov 2024 01:12:56 -0800 (PST)
+Date: Fri, 29 Nov 2024 14:42:55 +0530
+From: Linu Cherian <lcherian@marvell.com>
+To: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>, <james.clark@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <coresight@lists.linaro.org>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <corbet@lwn.net>, <devicetree@vger.kernel.org>, <sgoutham@marvell.com>,
+        <gcherian@marvell.com>
+Subject: Re: [PATCH v12 0/8] Coresight for Kernel panic and watchdog reset
+Message-ID: <20241129091255.GA1150491@hyd1403.caveonetworks.com>
+References: <20241129084714.3057080-1-lcherian@marvell.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241108-b4-max17042-v4-2-87c6d99b3d3d@gmail.com>
-References: <20241108-b4-max17042-v4-0-87c6d99b3d3d@gmail.com>
-In-Reply-To: <20241108-b4-max17042-v4-0-87c6d99b3d3d@gmail.com>
-To: Hans de Goede <hdegoede@redhat.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>, 
- Purism Kernel Team <kernel@puri.sm>, Sebastian Reichel <sre@kernel.org>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-msm@vger.kernel.org, Dzmitry Sankouski <dsankouski@gmail.com>
-X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732871405; l=7965;
- i=dsankouski@gmail.com; s=20240619; h=from:subject:message-id;
- bh=Xoh0dNQvawf15vqypI6tnCITiCXreyWsfUHe7gs4T+I=;
- b=2kmNGWiDEP+cyNDTfytwY6c+N/rqi8tH2ZqGbskBd8Cx+UwTEPNv4T8pD/mWaNOpfxQBMEwPG
- Y84fW5qRo/qBq1P7HqBlnLmNaIdph/ff0iEFrgAxVxh0aEiUT+EK0dX
-X-Developer-Key: i=dsankouski@gmail.com; a=ed25519;
- pk=YJcXFcN1EWrzBYuiE2yi5Mn6WLn6L1H71J+f7X8fMag=
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20241129084714.3057080-1-lcherian@marvell.com>
+X-Proofpoint-ORIG-GUID: sDqqnwTgwogyxTdadwkaEuKDWOlnLppZ
+X-Proofpoint-GUID: sDqqnwTgwogyxTdadwkaEuKDWOlnLppZ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_011012_682502_AEF2EEF2 
-X-CRM114-Status: GOOD (  24.28  )
+X-CRM114-CacheID: sfid-20241129_011311_125899_F3D31F24 
+X-CRM114-Status: GOOD (  34.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,248 +90,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Maxim PMICs may include fuel gauge with additional features, which is
-out of single Linux power supply driver scope.
+Hi,
 
-For example, in max77705 PMIC fuelgauge has additional registers,
-like IIN_REG, VSYS_REG, ISYS_REG. Those needed to measure PMIC input
-current, system voltage and current respectively. Those measurements
-cannot be bound to any of fuelgauge properties.
+On 2024-11-29 at 14:17:06, Linu Cherian (lcherian@marvell.com) wrote:
+> This patch series is rebased on coresight-next-v6.12.rc4
+> 
+> * Patches 1 & 2 adds support for allocation of trace buffer pages from reserved RAM
+> * Patches 3 & 4 adds support for saving metadata at the time of kernel panic 
+> * Patch 5 adds support for reading trace data captured at the time of panic
+> * Patches 6 & 7 adds support for disabling coresight blocks at the time of panic
+> * Patch 8: Gives the full description about this feature as part of documentation 
+> 
+> V11 is posted here,
+> https://lore.kernel.org/linux-arm-kernel/20241111124746.2210378-1-lcherian@marvell.com/
+> 
+> Changelog from v11:
+> Convert all commands to literal code blocks, that was missed out in v11.
+> No other code changes.
 
-The solution here add and option to use max17042 driver as a MFD
-sub device, thus allowing any additional functionality be implemented as
-another sub device. This will help to reduce code duplication in MFD
-fuel gauge drivers.
+To make it clear, this is just some missed out fixes in Patch 8,
+Documentation.
 
-Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
----
-Changes in v4:
-- rename module_init and module_exit fuctions
-- rework max17042_init
-- assign chip_type in probe function
-- pass i2c_client as pointer on pointer, to use same pointer created in
-  MFD. This allows devm_regmap_init_i2c to cleanup gracefully.
-
-Changes in v3:
-- pass dev pointer in max17042_probe
-- remove prints
----
- drivers/power/supply/max17042_battery.c | 116 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++------------------------
- 1 file changed, 92 insertions(+), 24 deletions(-)
-
-diff --git a/drivers/power/supply/max17042_battery.c b/drivers/power/supply/max17042_battery.c
-index 99bf6915aa23..6a1bfc4a7b13 100644
---- a/drivers/power/supply/max17042_battery.c
-+++ b/drivers/power/supply/max17042_battery.c
-@@ -16,6 +16,7 @@
- #include <linux/i2c.h>
- #include <linux/delay.h>
- #include <linux/interrupt.h>
-+#include <linux/platform_device.h>
- #include <linux/pm.h>
- #include <linux/mod_devicetable.h>
- #include <linux/power_supply.h>
-@@ -1029,14 +1030,12 @@ static const struct power_supply_desc max17042_no_current_sense_psy_desc = {
- 	.num_properties	= ARRAY_SIZE(max17042_battery_props) - 2,
- };
- 
--static int max17042_probe(struct i2c_client *client)
-+static int max17042_probe(struct i2c_client *client, struct device *dev,
-+			  enum max170xx_chip_type chip_type)
- {
--	const struct i2c_device_id *id = i2c_client_get_device_id(client);
- 	struct i2c_adapter *adapter = client->adapter;
- 	const struct power_supply_desc *max17042_desc = &max17042_psy_desc;
- 	struct power_supply_config psy_cfg = {};
--	const struct acpi_device_id *acpi_id = NULL;
--	struct device *dev = &client->dev;
- 	struct max17042_chip *chip;
- 	int ret;
- 	int i;
-@@ -1045,33 +1044,25 @@ static int max17042_probe(struct i2c_client *client)
- 	if (!i2c_check_functionality(adapter, I2C_FUNC_SMBUS_WORD_DATA))
- 		return -EIO;
- 
--	chip = devm_kzalloc(&client->dev, sizeof(*chip), GFP_KERNEL);
-+	chip = devm_kzalloc(dev, sizeof(*chip), GFP_KERNEL);
- 	if (!chip)
- 		return -ENOMEM;
- 
- 	chip->client = client;
--	if (id) {
--		chip->chip_type = id->driver_data;
--	} else {
--		acpi_id = acpi_match_device(dev->driver->acpi_match_table, dev);
--		if (!acpi_id)
--			return -ENODEV;
--
--		chip->chip_type = acpi_id->driver_data;
--	}
-+	chip->chip_type = chip_type;
- 	chip->regmap = devm_regmap_init_i2c(client, &max17042_regmap_config);
- 	if (IS_ERR(chip->regmap)) {
--		dev_err(&client->dev, "Failed to initialize regmap\n");
-+		dev_err(dev, "Failed to initialize regmap\n");
- 		return -EINVAL;
- 	}
- 
- 	chip->pdata = max17042_get_pdata(chip);
- 	if (!chip->pdata) {
--		dev_err(&client->dev, "no platform data provided\n");
-+		dev_err(dev, "no platform data provided\n");
- 		return -EINVAL;
- 	}
- 
--	i2c_set_clientdata(client, chip);
-+	dev_set_drvdata(dev, chip);
- 	psy_cfg.drv_data = chip;
- 	psy_cfg.of_node = dev->of_node;
- 
-@@ -1095,17 +1086,17 @@ static int max17042_probe(struct i2c_client *client)
- 		regmap_write(chip->regmap, MAX17042_LearnCFG, 0x0007);
- 	}
- 
--	chip->battery = devm_power_supply_register(&client->dev, max17042_desc,
-+	chip->battery = devm_power_supply_register(dev, max17042_desc,
- 						   &psy_cfg);
- 	if (IS_ERR(chip->battery)) {
--		dev_err(&client->dev, "failed: power supply register\n");
-+		dev_err(dev, "failed: power supply register\n");
- 		return PTR_ERR(chip->battery);
- 	}
- 
- 	if (client->irq) {
- 		unsigned int flags = IRQF_ONESHOT | IRQF_SHARED | IRQF_PROBE_SHARED;
- 
--		ret = devm_request_threaded_irq(&client->dev, client->irq,
-+		ret = devm_request_threaded_irq(dev, client->irq,
- 						NULL,
- 						max17042_thread_handler, flags,
- 						chip->battery->desc->name,
-@@ -1118,7 +1109,7 @@ static int max17042_probe(struct i2c_client *client)
- 		} else {
- 			client->irq = 0;
- 			if (ret != -EBUSY)
--				dev_err(&client->dev, "Failed to get IRQ\n");
-+				dev_err(dev, "Failed to get IRQ\n");
- 		}
- 	}
- 	/* Not able to update the charge threshold when exceeded? -> disable */
-@@ -1127,7 +1118,7 @@ static int max17042_probe(struct i2c_client *client)
- 
- 	regmap_read(chip->regmap, MAX17042_STATUS, &val);
- 	if (val & STATUS_POR_BIT) {
--		ret = devm_work_autocancel(&client->dev, &chip->work,
-+		ret = devm_work_autocancel(dev, &chip->work,
- 					   max17042_init_worker);
- 		if (ret)
- 			return ret;
-@@ -1139,6 +1130,38 @@ static int max17042_probe(struct i2c_client *client)
- 	return 0;
- }
- 
-+static int max17042_i2c_probe(struct i2c_client *client)
-+{
-+	const struct i2c_device_id *id = i2c_client_get_device_id(client);
-+	const struct acpi_device_id *acpi_id = NULL;
-+	struct device *dev = &client->dev;
-+	enum max170xx_chip_type chip_type;
-+
-+	if (id) {
-+		chip_type = id->driver_data;
-+	} else {
-+		acpi_id = acpi_match_device(dev->driver->acpi_match_table, dev);
-+		if (!acpi_id)
-+			return -ENODEV;
-+
-+		chip_type = acpi_id->driver_data;
-+	}
-+
-+	return max17042_probe(client, dev, chip_type);
-+}
-+
-+static int max17042_platform_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct i2c_client **i2c = dev_get_platdata(dev);
-+	const struct platform_device_id *id = platform_get_device_id(pdev);
-+
-+	if (!i2c)
-+		return -EINVAL;
-+
-+	return max17042_probe(*i2c, dev, id->driver_data);
-+}
-+
- #ifdef CONFIG_PM_SLEEP
- static int max17042_suspend(struct device *dev)
- {
-@@ -1204,6 +1227,16 @@ static const struct i2c_device_id max17042_id[] = {
- };
- MODULE_DEVICE_TABLE(i2c, max17042_id);
- 
-+static const struct platform_device_id max17042_platform_id[] = {
-+	{ "max17042", MAXIM_DEVICE_TYPE_MAX17042 },
-+	{ "max17047", MAXIM_DEVICE_TYPE_MAX17047 },
-+	{ "max17050", MAXIM_DEVICE_TYPE_MAX17050 },
-+	{ "max17055", MAXIM_DEVICE_TYPE_MAX17055 },
-+	{ "max77849-battery", MAXIM_DEVICE_TYPE_MAX17047 },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(platform, max17042_platform_id);
-+
- static struct i2c_driver max17042_i2c_driver = {
- 	.driver	= {
- 		.name	= "max17042",
-@@ -1211,10 +1244,45 @@ static struct i2c_driver max17042_i2c_driver = {
- 		.of_match_table = of_match_ptr(max17042_dt_match),
- 		.pm	= &max17042_pm_ops,
- 	},
--	.probe		= max17042_probe,
-+	.probe		= max17042_i2c_probe,
- 	.id_table	= max17042_id,
- };
--module_i2c_driver(max17042_i2c_driver);
-+
-+static struct platform_driver max17042_platform_driver = {
-+	.driver	= {
-+		.name	= "max17042",
-+		.acpi_match_table = ACPI_PTR(max17042_acpi_match),
-+		.of_match_table = of_match_ptr(max17042_dt_match),
-+		.pm	= &max17042_pm_ops,
-+	},
-+	.probe		= max17042_platform_probe,
-+	.id_table	= max17042_platform_id,
-+};
-+
-+static int __init max17042_init(void)
-+{
-+	int ret;
-+
-+	ret = platform_driver_register(&max17042_platform_driver);
-+	if (ret)
-+		return ret;
-+
-+	ret = i2c_add_driver(&max17042_i2c_driver);
-+	if (ret) {
-+		platform_driver_unregister(&max17042_platform_driver);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+module_init(max17042_init);
-+
-+static void __exit max17042_exit(void)
-+{
-+	i2c_del_driver(&max17042_i2c_driver);
-+	platform_driver_unregister(&max17042_platform_driver);
-+}
-+module_exit(max17042_exit);
- 
- MODULE_AUTHOR("MyungJoo Ham <myungjoo.ham@samsung.com>");
- MODULE_DESCRIPTION("MAX17042 Fuel Gauge");
-
--- 
-2.39.5
-
+> 
+> Changelog from v10:
+> * Converted all csdev_access_* to readl functions in tmc_panic_sync_*
+> * Added "tmc" prefix for register snapshots in struct tmc_crash_metadata
+> * Converted dev_info to dev_dbg in panic handlers 
+> * Converted dsb to dmb in panic handlers 
+> * Fixed marking metadata as invalid when a user is trying to use the
+>   reserved buffer. Earlier this was wrongly set at the time of reading
+>   reserved trace buffer.
+> * Moved common validation checks to is_tmc_crashdata_valid and minor
+>   code rearrangements for efficiency
+> * Got rid of sink specific prepare/unprepare invocations  
+> * Got rid of full from struct tmc_resrv_buf
+> * While reading crashdata, size is now calculated from metdata instead 
+>   of relying on reserved buffer size populated by dtb 
+> * Minor documenation fixes
+> 
+> Changelog from v9:
+> * Add common helper function of_tmc_get_reserved_resource_by_name
+>   for better code reuse
+> * Reserved buffer validity and crashdata validity has been separated to
+>   avoid interdependence
+> * New fields added to crash metadata: version, ffcr, ffsr, mode
+> * Version checks added for metadata validation
+> * Special file /dev/crash_tmc_xxx would be available only when
+>   crash metadata is valid
+> * Removed READ_CRASHDATA mode meant for special casing crashdata reads.
+>   Instead, dedicated read function added for crashdata reads from reserved
+>   buffer which is common for both ETR and ETF sinks as well.
+> * Documentation added to Documentation/tracing/coresight/panic.rst
+> 
+> Changelog from v8:
+> * Added missing exit path on error in __tmc_probe.
+> * Few whitespace fixes, checkpatch fixes.
+> * With perf sessions honouring stop_on_flush sysfs attribute, 
+>   removed redundant variable stop_on_flush_en. 
+> 
+> Changelog from v7:
+> * Fixed breakage on perf test -vvvv  "arm coresight".
+>   No issues seen with and without "resrv" buffer mode
+> * Moved the crashdev registration into a separate function.
+> * Removed redundant variable in tmc_etr_setup_crashdata_buf
+> * Avoided a redundant memcpy in tmc_panic_sync_etf.
+> * Tested kernel panic with trace session started uisng perf.   
+>   Please see the title "Perf based testing" below for details.
+>   For this, stop_on_flush sysfs attribute is taken into 
+>   consideration while starting perf sessions as well. 
+> 
+> Changelog from v6:
+> * Added special device files for reading crashdata, so that
+>   read_prevboot mode flag is removed. 
+> * Added new sysfs TMC device attribute, stop_on_flush.
+>   Stop on flush trigger event is disabled by default. 
+>   User need to explicitly enable this from sysfs for panic stop
+>   to work.
+> * Address parameter for panicstop ETM configuration is   
+>   chosen as kernel "panic" address by default.
+> * Added missing tmc_wait_for_tmcready during panic handling
+> * Few other misc code rearrangements. 
+> 
+> Changelog from v5:
+> * Fixed issues reported by CONFIG_DEBUG_ATOMIC_SLEEP
+> * Fixed a memory leak while reading data from /dev/tmc_etrx in
+>   READ_PREVBOOT mode
+> * Tested reading trace data from crashdump kernel
+> 
+> Changelog from v4:
+> * Device tree binding
+>   - Description is made more explicit on the usage of reserved memory
+>     region
+>   - Mismatch in memory region names in dts binding and driver fixed
+>   - Removed "mem" suffix from the memory region names
+> * Rename "struct tmc_register_snapshot" ->  "struct tmc_crash_metadata",
+>   since it contains more than register snapshot.
+>   Related variables are named accordingly.
+> * Rename struct tmc_drvdata members
+>    resrv_buf -> crash_tbuf
+>    metadata  -> crash_mdata
+> * Size field in metadata refers to RSZ register and hence indicates the
+>   size in 32 bit words. ETR metadata follows this convention, the same
+>   has been extended to ETF metadata as well.
+> * Added crc32 for more robust metadata and tracedata validation.
+> * Added/modified dev_dbg messages during metadata validation
+> * Fixed a typo in patch 5 commit description
+> 
+> Changelog from v3:
+> * Converted the Coresight ETM driver change to a named configuration.
+>   RFC tag has been removed with this change.
+> * Fixed yaml issues reported by "make dt_binding_check"
+> * Added names for reserved memory regions 0 and 1
+> * Added prevalidation checks for metadata processing
+> * Fixed a regression introduced in RFC v3
+>   - TMC Status register was getting saved wrongly
+> * Reverted memremap attribute changes from _WB to _WC to match
+>   with the dma map attributes
+> * Introduced reserved buffer mode specific .sync op.
+>   This fixes a possible crash when reserved buffer mode was used in
+>   normal trace capture, due to unwanted dma maintenance operations.
+> 
+> 
+> 
+>  
+> Linu Cherian (8):
+>   dt-bindings: arm: coresight-tmc: Add "memory-region" property
+>   coresight: tmc-etr: Add support to use reserved trace memory
+>   coresight: core: Add provision for panic callbacks
+>   coresight: tmc: Enable panic sync handling
+>   coresight: tmc: Add support for reading crash data
+>   coresight: tmc: Stop trace capture on FlIn
+>   coresight: config: Add preloaded configuration
+>   Documentation: coresight: Panic support
+> 
+>  .../bindings/arm/arm,coresight-tmc.yaml       |  26 ++
+>  Documentation/trace/coresight/panic.rst       | 362 ++++++++++++++++++
+>  drivers/hwtracing/coresight/Makefile          |   2 +-
+>  .../coresight/coresight-cfg-preload.c         |   2 +
+>  .../coresight/coresight-cfg-preload.h         |   2 +
+>  .../hwtracing/coresight/coresight-cfg-pstop.c |  83 ++++
+>  drivers/hwtracing/coresight/coresight-core.c  |  42 ++
+>  .../hwtracing/coresight/coresight-tmc-core.c  | 326 +++++++++++++++-
+>  .../hwtracing/coresight/coresight-tmc-etf.c   |  92 ++++-
+>  .../hwtracing/coresight/coresight-tmc-etr.c   | 181 ++++++++-
+>  drivers/hwtracing/coresight/coresight-tmc.h   | 104 +++++
+>  include/linux/coresight.h                     |  12 +
+>  12 files changed, 1222 insertions(+), 12 deletions(-)
+>  create mode 100644 Documentation/trace/coresight/panic.rst
+>  create mode 100644 drivers/hwtracing/coresight/coresight-cfg-pstop.c
+> 
+> -- 
+> 2.34.1
+> 
+> 
 
