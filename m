@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F19AD6EBEE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 09:12:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8D5D6EBF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 09:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RwPuXDf5OOwhnI0ZOOII5GNLjUS47fPFuHS4/Stj1TM=; b=UBJtPkO1mAtGescLd15PyPQtFz
-	+iYNdyzdh0X6GF4id43dkj4k51VtDNBaFlfIrYPKE4kp9qTl16b4GpMU8FqKH76FPpJ8K+xdBxXv/
-	ge5wSbOWgpBZWHEqkfuPF1UUQ1LFa8D5uODl+hrnJNX2C4l6QQBJm8qq0fLXExBq25/JUVS3LoR2/
-	Ri0B39X47f68A6gzv2NWES4nuCls/DE6hpldkl4G4GPPxVh4SAJS2mQwdi9WX6+crwBj7qsQGxSc9
-	LcSkOvQlcE6qidfEV2BNkMmjFXAtdLb7sIDKA7l0cHd+9JG/6QqPCrwAUe4RDTa14eF/ccH5K7M8H
-	1/tNdikg==;
+	bh=7qffHUQjyaEfcz46tUr2RiKjchrW1y0UWEygxoizXJc=; b=Lp+IjGYlFlaDcT4dV5QtlkJDAD
+	G6HojQi34dWoyoZl/SYgUHoJu5VVTyMIrFHnT+CPu6tspU706Gp2TGIEtkr0l9omfuLqJydCfTMGa
+	mG3ZI8bmLi/e6PEorTVHYYjmX+q6bYHxu65L/bIO36ve7exvrWvrJI2v6UaDvtX43GxLWw2i2a/ig
+	vXhxuPfirZSLxcqSwAe32Io006VN5UdRreEAmDMQdtS4RzmWDRTjTLntwmwe/sC4hh2feut2eBAjc
+	mLQuVlr03sJYTWf0WaFPMVgQjzY6+kCcVqpj8KJOD0x0YZ3xXCEhZPMEQxWDLVBl4KazNG7k6AWUg
+	8Cd2suog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGx2o-0000000HIH5-1Imn;
-	Fri, 29 Nov 2024 09:12:10 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1tGx3l-0000000HIV2-43V8;
+	Fri, 29 Nov 2024 09:13:09 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGx0s-0000000HHsp-2jwd
+	id 1tGx0u-0000000HHtj-2fbe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 09:10:11 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5cfa1ec3b94so1790849a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Nov 2024 01:10:10 -0800 (PST)
+	Fri, 29 Nov 2024 09:10:13 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aa520699becso233033266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Nov 2024 01:10:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732871409; x=1733476209; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1732871411; x=1733476211; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=RwPuXDf5OOwhnI0ZOOII5GNLjUS47fPFuHS4/Stj1TM=;
-        b=aSHMV7q6xM9vh1szX+uJCLs7a/9wjOHHwP4FGZLQMSaHtgo3QNWNHdJCHNLlKyLJa6
-         XM1AMB/SKzQjk/dHT27wfQOnkmM5GVoeyutIPYp9qsMUGf5nPCmADC+8HEeXbd9u5hmy
-         WHDFMrdxSB4NJtaR/4TScSWnQhd9FpkfpVNT7XCnAK+SAKIG08hvI4kRWt7rtJ6IdOUy
-         58G5MX1+B1l8c/5rGKiR3M0eJoZc9X34Jvdm6jDfAJmoNP5Bm6vuwvYh1Q94DJr5kr+g
-         wZPPevS9gZdz8bV6QGhq2jhxPxZW+ZQ+ym9YWSi6iZ8HWSKb/7lAf/5EcBKIrOovyggX
-         lxHg==
+        bh=7qffHUQjyaEfcz46tUr2RiKjchrW1y0UWEygxoizXJc=;
+        b=fNh6HnGftQ2TN2lxRpLPUJkHeS/2/xKlDJDv95Secv0vImMBrw9gYD3R18ZxfZic8j
+         Y3aHYZb1l84wkcvkVA6UdLkbTWd1UXwx/hTgjUz/fFwdUNz27YoI6kYkyKfEjQ0bnd81
+         pueGUqBI9eFesqq+waNw1s6oSks22uufll6TzkU5+U6vxz0vYRocenTMu6BSGZIlq9oz
+         s5Gyp1ynYzxCZV54/EAVAM4J3NlBmoXANscqx+rjKpjUgI45ilk+W0MO0U7BJWdfe3XB
+         OLl2FaTbOC1r8MuSwB9CW/nbDzMvTvDsABNFXbEFHOUj/Vm+McgPzHS+hHupSYjAcICo
+         E0vw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732871409; x=1733476209;
+        d=1e100.net; s=20230601; t=1732871411; x=1733476211;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=RwPuXDf5OOwhnI0ZOOII5GNLjUS47fPFuHS4/Stj1TM=;
-        b=NPQ0VFqG9aUn6K4rZSftqdGXN3DKGLF1P47RRBKwsqq+2NZI5S7BePOc1NMps/Aot1
-         pYZECEkf7NX8kLrlW/UPeD9P/uqjfF5yay75rYP9UyLEifyY8+mQTNLDLHhZpYKytjp7
-         w3AOCaPVZHns1MO35uGXbREpp2Bpn/7sY9jXQx4ybyWVWlWklLK7tfV2nbDo4g8Fu1F2
-         DJ4pcga5dquPCxmpS0QnGlpgkaiT6ThiDEvLLbLJHCNCmSZF8svSBYBLKi+pkab3uw0t
-         g2zwWaUufqSwztbcQ3pN/qnPfLA5+yY2DeyCGfetm6Pny7mSjATp8kOd/TfqY+pDhxxu
-         iEpA==
-X-Forwarded-Encrypted: i=1; AJvYcCUetsZGfROonm5cHrJ+n1yOzRHLP2iS1QLeSG1JxCXXLwZJ/p+I36xOn1VtZHXXqXtBWJadyguwKTR1ZP29yHCQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4vCNtk0KFTLJ1omk/HZzpVjVEy8LEvVhffcGWb2gYWfbMWkGz
-	jVHg2JOXeRgjQ4g9POTrTRx8ukVAY8WKewS6pIVLnHUvVJtlDa4G
-X-Gm-Gg: ASbGncua7TiQl/MLSyWNDDBRE8Rii4xawtR8b+dyhMW4Zc2ieyFd/3/SI9tojB+yYjn
-	OyYh0UC+Kdn/xEfCWunOi0YCROuMFazOu+wxd9l146GiJYOzhLx8K//z+6cjQq26Sg9SQUjnn1I
-	gtV84/bmkfRHFtSKObK3aBmDxRGdmiJ3pR5FbmuBfW3qodZEby7WLGgXSN/Dk9LR3SGnRZjlXNt
-	17zg1rA7ApElGHWNTY+ewI7FyHagVDMUec6V4D5UMwH3+vW
-X-Google-Smtp-Source: AGHT+IGaSoNpYyEkF4MY0uin/iFl40YkpVFgMNLIjAQotNHq5x5X5IuG35tfQL+bge3PzeB+YGebeQ==
-X-Received: by 2002:a17:906:23ea:b0:aa5:451c:ce26 with SMTP id a640c23a62f3a-aa581074c05mr802310266b.51.1732871408811;
-        Fri, 29 Nov 2024 01:10:08 -0800 (PST)
+        bh=7qffHUQjyaEfcz46tUr2RiKjchrW1y0UWEygxoizXJc=;
+        b=gB4+yY9g3auKw0afhQxQEB+JPHSf7vlRpvCeqn9K+YsmjBJWFBkppug3zNUh/VgVSY
+         vXkMn24G5EdH8GnjLgAvembNiyAJpjsAXAT7/A+e92JWsS4m1gN1H9moWlXj/g4KLCjF
+         9pw82NmHTXrTF5kug/5NgW51tN26ztoUpEX29Z0Rc3+ydbkurO7oQgef6LQSFb2iVxdL
+         Yc5fMjmncxwkAcKlwBXznre3vIPfFoneSin7b398ZaxLjrwcJgXRm2FaQu8bWtHwPMUU
+         opqgwSKXbQDhOuc8ku8A0SMeyUaQmHE32S0LFQiS9vVdhHsgZp0tT52Fs1rBx4ir2gFa
+         ysAA==
+X-Forwarded-Encrypted: i=1; AJvYcCXHjfOwSCnAutZIvjQk2Syemzze1i1oc0HZ79f/li2x6VFxlMsDj/zJApEp7NF55aeyKv/GNSubAMg08B3krPZX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq72kBjSlS35WtNYH9X66mQGREzqhrRD3dBXveqhVCdX4HQRJY
+	i8j6J+r+xbPQ+jPXCW8LDEqqkqv0ycdE0YaLVi9dK9wyCcAff2N0
+X-Gm-Gg: ASbGncvHWi6D64O3gcH7pvtsp390cb18j/5wP2h0r9Khw22hkr1GhipERFkO3/w9JL5
+	8oOwWcW+364nTyJPNpibDuLOr8WmPLbR8IKziD8c0q+JAgZqEuOQw2u0uN0wIIsl1e9yfAjhNXT
+	GrRQqXCSis0gH+55KvpvTinYEfC8zZ/ise5D/dLLHNpJ44jTU/aPJwTuXYLXzSDDrpcuIpzHX+8
+	JsIVF+4rNm32LqvywzGbpWMYLlvandcz9zVrzge0hTdL/Fn
+X-Google-Smtp-Source: AGHT+IF+8+7FD9JQHKcuuWDIftygodt95fHqaAV5VkuYytwoGIvRmqVc52WAavSmAZ/di3Xb4CIspA==
+X-Received: by 2002:a17:906:2189:b0:a99:4e35:9a25 with SMTP id a640c23a62f3a-aa5810295damr813757766b.44.1732871410553;
+        Fri, 29 Nov 2024 01:10:10 -0800 (PST)
 Received: from [127.0.1.1] ([46.53.242.72])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-aa5999032c1sm152775766b.133.2024.11.29.01.10.07
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-aa5999032c1sm152775766b.133.2024.11.29.01.10.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Nov 2024 01:10:08 -0800 (PST)
+        Fri, 29 Nov 2024 01:10:10 -0800 (PST)
 From: Dzmitry Sankouski <dsankouski@gmail.com>
-Date: Fri, 29 Nov 2024 12:09:53 +0300
-Subject: [PATCH v4 1/2] power: supply: max17042: make interrupt shared
+Date: Fri, 29 Nov 2024 12:09:54 +0300
+Subject: [PATCH v4 2/2] power: supply: max17042: add platform driver
+ variant
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241108-b4-max17042-v4-1-87c6d99b3d3d@gmail.com>
+Message-Id: <20241108-b4-max17042-v4-2-87c6d99b3d3d@gmail.com>
 References: <20241108-b4-max17042-v4-0-87c6d99b3d3d@gmail.com>
 In-Reply-To: <20241108-b4-max17042-v4-0-87c6d99b3d3d@gmail.com>
 To: Hans de Goede <hdegoede@redhat.com>, 
@@ -92,16 +93,16 @@ Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-msm@vger.kernel.org, Dzmitry Sankouski <dsankouski@gmail.com>
 X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1732871405; l=1055;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1732871405; l=7965;
  i=dsankouski@gmail.com; s=20240619; h=from:subject:message-id;
- bh=/EeD7LqHcTZ3/1Ng4iRA0q/Q9oTbn7vVY0BQy1PKauQ=;
- b=EvyHOgNK4AahgKG5DWBHSPPcVTYoTJaiheiGNKsbrhG7AOhn0QFFuOhoAyU4v55mKxKIL2oN9
- y0QTQM7oOgEAjn27raPOcOvSbj+ijsZ35rDRl/DiAFJeZ6tqZoApkdx
+ bh=Xoh0dNQvawf15vqypI6tnCITiCXreyWsfUHe7gs4T+I=;
+ b=2kmNGWiDEP+cyNDTfytwY6c+N/rqi8tH2ZqGbskBd8Cx+UwTEPNv4T8pD/mWaNOpfxQBMEwPG
+ Y84fW5qRo/qBq1P7HqBlnLmNaIdph/ff0iEFrgAxVxh0aEiUT+EK0dX
 X-Developer-Key: i=dsankouski@gmail.com; a=ed25519;
  pk=YJcXFcN1EWrzBYuiE2yi5Mn6WLn6L1H71J+f7X8fMag=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_011010_695899_F3663D25 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20241129_011012_682502_AEF2EEF2 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,35 +117,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fuelgauge blocks often are incorporated in bigger chip,
-which may use only 1 line for interrupts. Make interrupt
-shared.
+Maxim PMICs may include fuel gauge with additional features, which is
+out of single Linux power supply driver scope.
+
+For example, in max77705 PMIC fuelgauge has additional registers,
+like IIN_REG, VSYS_REG, ISYS_REG. Those needed to measure PMIC input
+current, system voltage and current respectively. Those measurements
+cannot be bound to any of fuelgauge properties.
+
+The solution here add and option to use max17042 driver as a MFD
+sub device, thus allowing any additional functionality be implemented as
+another sub device. This will help to reduce code duplication in MFD
+fuel gauge drivers.
 
 Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
 ---
- drivers/power/supply/max17042_battery.c | 9 +--------
- 1 file changed, 1 insertion(+), 8 deletions(-)
+Changes in v4:
+- rename module_init and module_exit fuctions
+- rework max17042_init
+- assign chip_type in probe function
+- pass i2c_client as pointer on pointer, to use same pointer created in
+  MFD. This allows devm_regmap_init_i2c to cleanup gracefully.
+
+Changes in v3:
+- pass dev pointer in max17042_probe
+- remove prints
+---
+ drivers/power/supply/max17042_battery.c | 116 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++------------------------
+ 1 file changed, 92 insertions(+), 24 deletions(-)
 
 diff --git a/drivers/power/supply/max17042_battery.c b/drivers/power/supply/max17042_battery.c
-index 496c3e1f2ee6..99bf6915aa23 100644
+index 99bf6915aa23..6a1bfc4a7b13 100644
 --- a/drivers/power/supply/max17042_battery.c
 +++ b/drivers/power/supply/max17042_battery.c
-@@ -1103,14 +1103,7 @@ static int max17042_probe(struct i2c_client *client)
+@@ -16,6 +16,7 @@
+ #include <linux/i2c.h>
+ #include <linux/delay.h>
+ #include <linux/interrupt.h>
++#include <linux/platform_device.h>
+ #include <linux/pm.h>
+ #include <linux/mod_devicetable.h>
+ #include <linux/power_supply.h>
+@@ -1029,14 +1030,12 @@ static const struct power_supply_desc max17042_no_current_sense_psy_desc = {
+ 	.num_properties	= ARRAY_SIZE(max17042_battery_props) - 2,
+ };
+ 
+-static int max17042_probe(struct i2c_client *client)
++static int max17042_probe(struct i2c_client *client, struct device *dev,
++			  enum max170xx_chip_type chip_type)
+ {
+-	const struct i2c_device_id *id = i2c_client_get_device_id(client);
+ 	struct i2c_adapter *adapter = client->adapter;
+ 	const struct power_supply_desc *max17042_desc = &max17042_psy_desc;
+ 	struct power_supply_config psy_cfg = {};
+-	const struct acpi_device_id *acpi_id = NULL;
+-	struct device *dev = &client->dev;
+ 	struct max17042_chip *chip;
+ 	int ret;
+ 	int i;
+@@ -1045,33 +1044,25 @@ static int max17042_probe(struct i2c_client *client)
+ 	if (!i2c_check_functionality(adapter, I2C_FUNC_SMBUS_WORD_DATA))
+ 		return -EIO;
+ 
+-	chip = devm_kzalloc(&client->dev, sizeof(*chip), GFP_KERNEL);
++	chip = devm_kzalloc(dev, sizeof(*chip), GFP_KERNEL);
+ 	if (!chip)
+ 		return -ENOMEM;
+ 
+ 	chip->client = client;
+-	if (id) {
+-		chip->chip_type = id->driver_data;
+-	} else {
+-		acpi_id = acpi_match_device(dev->driver->acpi_match_table, dev);
+-		if (!acpi_id)
+-			return -ENODEV;
+-
+-		chip->chip_type = acpi_id->driver_data;
+-	}
++	chip->chip_type = chip_type;
+ 	chip->regmap = devm_regmap_init_i2c(client, &max17042_regmap_config);
+ 	if (IS_ERR(chip->regmap)) {
+-		dev_err(&client->dev, "Failed to initialize regmap\n");
++		dev_err(dev, "Failed to initialize regmap\n");
+ 		return -EINVAL;
+ 	}
+ 
+ 	chip->pdata = max17042_get_pdata(chip);
+ 	if (!chip->pdata) {
+-		dev_err(&client->dev, "no platform data provided\n");
++		dev_err(dev, "no platform data provided\n");
+ 		return -EINVAL;
+ 	}
+ 
+-	i2c_set_clientdata(client, chip);
++	dev_set_drvdata(dev, chip);
+ 	psy_cfg.drv_data = chip;
+ 	psy_cfg.of_node = dev->of_node;
+ 
+@@ -1095,17 +1086,17 @@ static int max17042_probe(struct i2c_client *client)
+ 		regmap_write(chip->regmap, MAX17042_LearnCFG, 0x0007);
+ 	}
+ 
+-	chip->battery = devm_power_supply_register(&client->dev, max17042_desc,
++	chip->battery = devm_power_supply_register(dev, max17042_desc,
+ 						   &psy_cfg);
+ 	if (IS_ERR(chip->battery)) {
+-		dev_err(&client->dev, "failed: power supply register\n");
++		dev_err(dev, "failed: power supply register\n");
+ 		return PTR_ERR(chip->battery);
  	}
  
  	if (client->irq) {
--		unsigned int flags = IRQF_ONESHOT;
--
--		/*
--		 * On ACPI systems the IRQ may be handled by ACPI-event code,
--		 * so we need to share (if the ACPI code is willing to share).
--		 */
--		if (acpi_id)
--			flags |= IRQF_SHARED | IRQF_PROBE_SHARED;
-+		unsigned int flags = IRQF_ONESHOT | IRQF_SHARED | IRQF_PROBE_SHARED;
+ 		unsigned int flags = IRQF_ONESHOT | IRQF_SHARED | IRQF_PROBE_SHARED;
  
- 		ret = devm_request_threaded_irq(&client->dev, client->irq,
+-		ret = devm_request_threaded_irq(&client->dev, client->irq,
++		ret = devm_request_threaded_irq(dev, client->irq,
  						NULL,
+ 						max17042_thread_handler, flags,
+ 						chip->battery->desc->name,
+@@ -1118,7 +1109,7 @@ static int max17042_probe(struct i2c_client *client)
+ 		} else {
+ 			client->irq = 0;
+ 			if (ret != -EBUSY)
+-				dev_err(&client->dev, "Failed to get IRQ\n");
++				dev_err(dev, "Failed to get IRQ\n");
+ 		}
+ 	}
+ 	/* Not able to update the charge threshold when exceeded? -> disable */
+@@ -1127,7 +1118,7 @@ static int max17042_probe(struct i2c_client *client)
+ 
+ 	regmap_read(chip->regmap, MAX17042_STATUS, &val);
+ 	if (val & STATUS_POR_BIT) {
+-		ret = devm_work_autocancel(&client->dev, &chip->work,
++		ret = devm_work_autocancel(dev, &chip->work,
+ 					   max17042_init_worker);
+ 		if (ret)
+ 			return ret;
+@@ -1139,6 +1130,38 @@ static int max17042_probe(struct i2c_client *client)
+ 	return 0;
+ }
+ 
++static int max17042_i2c_probe(struct i2c_client *client)
++{
++	const struct i2c_device_id *id = i2c_client_get_device_id(client);
++	const struct acpi_device_id *acpi_id = NULL;
++	struct device *dev = &client->dev;
++	enum max170xx_chip_type chip_type;
++
++	if (id) {
++		chip_type = id->driver_data;
++	} else {
++		acpi_id = acpi_match_device(dev->driver->acpi_match_table, dev);
++		if (!acpi_id)
++			return -ENODEV;
++
++		chip_type = acpi_id->driver_data;
++	}
++
++	return max17042_probe(client, dev, chip_type);
++}
++
++static int max17042_platform_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct i2c_client **i2c = dev_get_platdata(dev);
++	const struct platform_device_id *id = platform_get_device_id(pdev);
++
++	if (!i2c)
++		return -EINVAL;
++
++	return max17042_probe(*i2c, dev, id->driver_data);
++}
++
+ #ifdef CONFIG_PM_SLEEP
+ static int max17042_suspend(struct device *dev)
+ {
+@@ -1204,6 +1227,16 @@ static const struct i2c_device_id max17042_id[] = {
+ };
+ MODULE_DEVICE_TABLE(i2c, max17042_id);
+ 
++static const struct platform_device_id max17042_platform_id[] = {
++	{ "max17042", MAXIM_DEVICE_TYPE_MAX17042 },
++	{ "max17047", MAXIM_DEVICE_TYPE_MAX17047 },
++	{ "max17050", MAXIM_DEVICE_TYPE_MAX17050 },
++	{ "max17055", MAXIM_DEVICE_TYPE_MAX17055 },
++	{ "max77849-battery", MAXIM_DEVICE_TYPE_MAX17047 },
++	{ }
++};
++MODULE_DEVICE_TABLE(platform, max17042_platform_id);
++
+ static struct i2c_driver max17042_i2c_driver = {
+ 	.driver	= {
+ 		.name	= "max17042",
+@@ -1211,10 +1244,45 @@ static struct i2c_driver max17042_i2c_driver = {
+ 		.of_match_table = of_match_ptr(max17042_dt_match),
+ 		.pm	= &max17042_pm_ops,
+ 	},
+-	.probe		= max17042_probe,
++	.probe		= max17042_i2c_probe,
+ 	.id_table	= max17042_id,
+ };
+-module_i2c_driver(max17042_i2c_driver);
++
++static struct platform_driver max17042_platform_driver = {
++	.driver	= {
++		.name	= "max17042",
++		.acpi_match_table = ACPI_PTR(max17042_acpi_match),
++		.of_match_table = of_match_ptr(max17042_dt_match),
++		.pm	= &max17042_pm_ops,
++	},
++	.probe		= max17042_platform_probe,
++	.id_table	= max17042_platform_id,
++};
++
++static int __init max17042_init(void)
++{
++	int ret;
++
++	ret = platform_driver_register(&max17042_platform_driver);
++	if (ret)
++		return ret;
++
++	ret = i2c_add_driver(&max17042_i2c_driver);
++	if (ret) {
++		platform_driver_unregister(&max17042_platform_driver);
++		return ret;
++	}
++
++	return 0;
++}
++module_init(max17042_init);
++
++static void __exit max17042_exit(void)
++{
++	i2c_del_driver(&max17042_i2c_driver);
++	platform_driver_unregister(&max17042_platform_driver);
++}
++module_exit(max17042_exit);
+ 
+ MODULE_AUTHOR("MyungJoo Ham <myungjoo.ham@samsung.com>");
+ MODULE_DESCRIPTION("MAX17042 Fuel Gauge");
 
 -- 
 2.39.5
