@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3ADD6EC00
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 11:30:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9600D6EBFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 11:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QdXPFLCfpfL5pL88xc7Qq43uKfmtGbEZd6cmlxppww8=; b=jsHtYR8Igpzl62QoSNF1MgG7Ca
-	NNcuw0i/6KwnPWYqQfz9XBhavdkHB5y951hIth2ZgmzJtNFK11bymHzA/2DD70rAaNAeZUSIesaYF
-	8EkMaYl3WYJGX1nCYyGe2Ccrpsyu3ZWxmN1qG7f/miXS7PRdH1sacUmiz34F15yXPCiDNPA6U6tRP
-	y3yCftINNwpcDnQhQtadMcKsqhDY9ff1uRHZxcum5x/Tht5QjpZBCZC1t8P4sN1mt+J010SkPqFGI
-	lyEGuH9UACz0IXADYbCKYzKuL5XmbBLFCY1FJuvV/6PghoiKN56Ub++IXGXxkSCOf9F8zqGkoqV4a
-	Wf+1Ghzg==;
+	bh=iQKzGsZRwA6JiunuN1yysN6gUgamgaTgHQ6dOF1sF7o=; b=mMh67vYf7Rxf9Yj75F7IIac8VZ
+	RaTbklOTPk6VG9XmMpcH09KIS4lVLvTZLtJJdjfIqTVbXxxuf3Ogg9hGyQpFCziFHGLf16fX2vwnZ
+	OZ5nI3wT0AC6qQxmihwZ2BXjkc1WpQLCuSSR6SeUPYXLo67Dnmy/yisn9rslyfqyApkLi1hd4ZDmE
+	SLi4OkULQbNnOttsQXrX61QsN+cc0PPbD5PZx2MMLNrmhS5//NB7YmJT7VLVMOLlcEAodi6R4FY9F
+	I9aSq8Ka+YUe5DY/HInJTUfCs+y/GmwpASAvvLBrD9OtaBmPXsdUZbt/Mb2fT/wGZTz9Lffj+awV+
+	25lbsYJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGzCh-0000000HY4V-2o0h;
-	Fri, 29 Nov 2024 11:30:31 +0000
+	id 1tGzDf-0000000HYMI-2pkz;
+	Fri, 29 Nov 2024 11:31:31 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGzBh-0000000HXvs-1RrS
+	id 1tGzCA-0000000HXzf-0FBD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 11:29:31 +0000
+	Fri, 29 Nov 2024 11:29:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 999165C5A9C;
-	Fri, 29 Nov 2024 11:28:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CA6DC4CECF;
-	Fri, 29 Nov 2024 11:29:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4F0285C59FA;
+	Fri, 29 Nov 2024 11:29:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11466C4CECF;
+	Fri, 29 Nov 2024 11:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732879767;
-	bh=3GLxv5ngJy647qOKtgccsiEsjTwLdv2D7RrTyyqUjGc=;
+	s=k20201202; t=1732879797;
+	bh=bbBcnpXYCF3Hixa8z+EE4c/ECJbZifPvGeBHFXqHlc8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AGWqQsK6QmK3/c0fQhrri67bdFLi0IX7MX4X4sa3rrAokovuqeyIkVmImwijiCo7/
-	 xMuSGaD4xdBuEo7DcZ0oVst0T/HRUDDsj/Z6DXZ3tF6ekBLq8ARXVeFj8almyuFpkb
-	 vRiTJAvUD5HXS5vR+RmdF1ZuzPrByJHsgdHA+zvbI4Kvn3HU3jHjqzm/+wMlQonRpo
-	 H190aFqD0wO36MDTTgLqWAMPEdxFpI6tk1E6dzOdA46iUFegwemb33aD7w0DkrMwuW
-	 XrjaP7QHzzw88x3YOgihMGvillBXZkf8FTvzrXJ2kWQ3de4p6vbxaue8xSWwIncj94
-	 YCXPPu6QVi4Ng==
-Message-ID: <f190adad-f161-4f27-bfeb-ae2ab49547a2@kernel.org>
-Date: Fri, 29 Nov 2024 12:29:20 +0100
+	b=N5QnBmmW7M9RzL41orNBZZ5TgjuM8Vkh9OmKi8e3SO+qErAoPmoUGkxiR5XKtMWax
+	 ffbNSIvR/lP4HNN/UHuyeqfEFxW+MdKfUjKxc3WH7uKMZa+mTXD+OSkt5f6Fcy6NAL
+	 wzZCSVDKiGRjn6TUgqCuvVkIJbfGtIVmxZyHcG30BGmUemydQVM4sb2SSZojvy54/F
+	 /4df00Pp6tpXsTdTrfdrbb8qxUuJOZiYwbocD5AcD4C1LggJzma+Y3vF9GNKuiwbUU
+	 h9tvAwyPMQ6hWADzcIM0+HeTQ3stMVBmk9F6lIwbw9kNnS4WwhNYu4igYDtekYmxAH
+	 XPTyQanWLPXtw==
+Message-ID: <1476ef3f-d484-43b6-a297-825429fb5861@kernel.org>
+Date: Fri, 29 Nov 2024 12:29:50 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v3 1/2] media: mipi-csis: Add check for
+Subject: Re: [PATCH RESEND v3 2/2] media: camif-core: Add check for
  clk_enable()
 To: Jiasheng Jiang <jiashengjiangcool@gmail.com>
 Cc: sylvester.nawrocki@gmail.com, mchehab@kernel.org, dron0gus@gmail.com,
@@ -55,9 +55,8 @@ Cc: sylvester.nawrocki@gmail.com, mchehab@kernel.org, dron0gus@gmail.com,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <20241125191818.30708-1-jiashengjiangcool@gmail.com>
- <20241125191818.30708-2-jiashengjiangcool@gmail.com>
-Content-Language: en-US
 From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -101,12 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241125191818.30708-2-jiashengjiangcool@gmail.com>
+In-Reply-To: <20241125191818.30708-1-jiashengjiangcool@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_032929_472323_6C3FDAE6 
-X-CRM114-Status: UNSURE (   7.03  )
+X-CRM114-CacheID: sfid-20241129_032958_185067_BD6377DF 
+X-CRM114-Status: UNSURE (   6.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,11 +124,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 25/11/2024 20:18, Jiasheng Jiang wrote:
 > Add check for the return value of clk_enable() to gurantee the success.
 > 
-> Fixes: b5f1220d587d ("[media] v4l: Add v4l2 subdev driver for S5P/EXYNOS4 MIPI-CSI receivers")
+> Fixes: babde1c243b2 ("[media] V4L: Add driver for S3C24XX/S3C64XX SoC series camera interface")
 > Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
 > ---
 > Changelog:
 > 
+> v2 -> v3:
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
