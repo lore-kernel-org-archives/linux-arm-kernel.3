@@ -4,58 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1DECD6EBF4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 10:13:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 241E2D6EBF7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Nov 2024 10:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7MRVzBuYXwZ17fAxi3tZL870oxRZ48kZqHTTz2CnZ+I=; b=GfepecJNOWn/NpXq/6H8wjiaUb
-	ZXc0LASeoC50X5fOMKs9N3Ej+ldhXLpk0Ms5QP3vgPZ38zny1qn4nXQxqJAshsA/ktCmWyCSVNeao
-	a/P7kOyGH0HKB0ri+hbAesePXRsl7/Qeazky7iEUTx4xbXeeoOrqYNdJfVbIzpVl7QJGf6OgmWVjw
-	8PfGcwJ/k31aNWm4az16zDO3XVjngw2D+V/jspIB1MUUQYQPzNCsB/uwQSqHAqm6tx2O/g4DmVAhN
-	DJwwrxD+yURNtugL8nv+uzsJpfPsHYWJa1Vu2WQSTNPibGFYsszQjev41ticPbQvt+BUbYYBU+N2A
-	5vvuWdBw==;
+	bh=qQPy6i3/EG7SgAsDgJ7tcQgjkT4hHUsubysFlz1hhtw=; b=QPvIIFho0IWPEcBxTqXA6q34dG
+	+IrNkXj+whJlIOftLzFBm/XGnMTTRvpFrhoWjC5kCBcu8r712Dyzj7yYhTw9eFjY+YXld2P0UI9eW
+	7EBUihL6jDdUHpzBrWEP/o7E1ViYsAkkiE1igLfCxrLZ4z5tmo/cnV2pyroS2/w6NwrNn+MPJ32md
+	8odM6xqKN46XGoXSavpjZhvsTALF+xCMd6N/yzGhqk8nd1fdWlzLg2ZdBNQzehmjiCdfdwKUqTkNb
+	BXEm1p7GyJyGBJ0On8ptJbejWm9vEkJ7OBKl7m8NAFBKf6++2oUPEfnnBd3H0qEzxsJMZERwpIBCP
+	TlzHCNSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGy0B-0000000HPOf-4A3f;
-	Fri, 29 Nov 2024 10:13:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGxzC-0000000HPIF-1Ds1
+	id 1tGy3D-0000000HPeA-3fUQ;
+	Fri, 29 Nov 2024 10:16:39 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tGy2E-0000000HPYX-0dBM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Nov 2024 10:12:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6EE1A12FC;
-	Fri, 29 Nov 2024 02:12:56 -0800 (PST)
-Received: from [192.168.2.88] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 674683F5A1;
-	Fri, 29 Nov 2024 02:12:24 -0800 (PST)
-Message-ID: <f7046fcc-91e3-434e-930c-10259b36a90b@arm.com>
-Date: Fri, 29 Nov 2024 11:12:15 +0100
+	Fri, 29 Nov 2024 10:15:40 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-53df6322ea7so2974384e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Nov 2024 02:15:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1732875336; x=1733480136; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qQPy6i3/EG7SgAsDgJ7tcQgjkT4hHUsubysFlz1hhtw=;
+        b=TeHGym2zqlbS9RyedEtoaaItHq19PRNUbhcFSE1tSp38+beFW7QsSBlJ/nC2xzBTB0
+         +7ykaqnmaZTVwRv0OL9nwxC7RHj2YUq91Cr+i6cSCyXhzV8o1XFjuq6vSo9ajIZrOIL6
+         Xh39dadbzFr7Q5gWGJjWGceWxAGLKB2OCRYJchwIBbleqFTxYikPhJaMxt5cf7DxRxL3
+         91A5SII3Bi/xEpaKq3Z+xQEbajd/DyqgmzvSoGfFN7cVk4n0eOxNQ5WY+v8oXaRfrePg
+         bJn6ru5EmJkwsxO5gkFDwLS6LW0RLpst+I4bWtAYDl8hXVT9T55Az2ux1Ix8o82hCjmj
+         mBQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732875336; x=1733480136;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qQPy6i3/EG7SgAsDgJ7tcQgjkT4hHUsubysFlz1hhtw=;
+        b=vWfUYCUbQt5TyTWr67GKxGwsxlxS41akPLBHIojJWBMo4515+lz7ptX7ZHBx5tMt2q
+         1EIgY7luNjjlQbdqJEwsPKSjYbQGXblpgExsA2yMhEGQ9YOvNeJR6spe4aWZRTLcfPsd
+         9oXAXhZi3sIFsJyfqy6B9DYKurGJK+ZVNN1gq4mXVBh4Z43FxMPg8/EH7BQiMzTNB41a
+         Iy/G27v70HQ4zH7/3dg5BduBcunEmyguioFSkApdq1f+jP8y+bjvklMsP4c4kNCEkuEX
+         BzT5ZL9ALmYSBpz9smf6NT7akc4ap+N0qY9J7/w55jYb2HYf7ELcxlIKPqlLZjM55oIU
+         k5iw==
+X-Forwarded-Encrypted: i=1; AJvYcCWksY8xdeJFUDr5plKBH7n/5zW/5TvUoIS4+TT++jfmnqjjDyLvgNQQTPWguxGIZEp+5yE4DHeStlStCQcvkjH9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxs0tWvzfrpL9ZvPnN7Yv8ON0IzOkC5PTxO0OY2+Ur49EsMBN0h
+	rLHvcu4TEwLQFEe6QtahZBFhLLsP6ZZ9wq9Ur8JPddfRllb+fyNOiJmW+0CRASEYori16jTvnfV
+	ftu1+0HUVFozsrmO4ZyE0MAGXFHT1PpkC6GQoBg==
+X-Gm-Gg: ASbGncscsbMl8dYTM/Pd6yF4GYIG77yP6fIw9hQT9M5dq4FRmaFxhR/dDsx2Gr798kJ
+	++vY4knwf3SGSchUKamuYrjpzNquF9CE=
+X-Google-Smtp-Source: AGHT+IFwxzHGLoQ35MKeSNR2cgIfiurNhDiRo3KErOd32grmbH0flzyugkwmEZz4WwTuMZ23JOnl8sVitNb7SKahsFU=
+X-Received: by 2002:ac2:4e08:0:b0:53d:e077:decd with SMTP id
+ 2adb3069b0e04-53df010b258mr9365909e87.46.1732875335602; Fri, 29 Nov 2024
+ 02:15:35 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] [tip: sched/core] sched: Disable PLACE_LAG and
- RUN_TO_PARITY and move them to sysctl
-To: Cristian Prundeanu <cpru@amazon.com>
-Cc: abuehaze@amazon.com, alisaidi@amazon.com, benh@kernel.crashing.org,
- blakgeof@amazon.com, csabac@amazon.com, doebel@amazon.com,
- gautham.shenoy@amd.com, joseph.salisbury@oracle.com, kprateek.nayak@amd.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-tip-commits@vger.kernel.org, mingo@redhat.com, peterz@infradead.org,
- x86@kernel.org
-References: <20241125113535.88583-1-cpru@amazon.com>
- <20241128103236.22777-1-cpru@amazon.com>
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-Content-Language: en-US
-In-Reply-To: <20241128103236.22777-1-cpru@amazon.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20241127190605.1367157-1-festevam@gmail.com>
+In-Reply-To: <20241127190605.1367157-1-festevam@gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 29 Nov 2024 11:15:24 +0100
+Message-ID: <CACRpkdbJgrwzh_D5=71dMPOx3jgbyUJOiP-+16JUdL79zDEbTA@mail.gmail.com>
+Subject: Re: [PATCH v2] ARM: imx: Re-introduce the PINCTRL selection
+To: Fabio Estevam <festevam@gmail.com>
+Cc: shawnguo@kernel.org, linux@armlinux.org.uk, s.hauer@pengutronix.de, 
+	esben@geanix.com, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux@roeck-us.net, arnd@arndb.de, Fabio Estevam <festevam@denx.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_021230_400576_32B68BC1 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20241129_021539_022449_973199E1 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,60 +93,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/11/2024 11:32, Cristian Prundeanu wrote:
+On Wed, Nov 27, 2024 at 8:06=E2=80=AFPM Fabio Estevam <festevam@gmail.com> =
+wrote:
 
-[...]
+> From: Fabio Estevam <festevam@denx.de>
+>
+> Since commit 17d210018914 ("ARM: imx: Allow user to disable pinctrl"),
+> the CONFIG_PINCTRL option is no longer implicitly selected, causing
+> several i.MX SoC pinctrl drivers no longer getting selected by default.
+>
+> This causes boot regressions on the ARMv4, ARMv5, ARMv6 and ARMv7
+> i.MX SoCs.
 
-> On 2024-11-26, Dietmar Eggemann wrote:
-> 
->> SUT kernel arm64 (mysql-8.4.0)
->> (2) 6.12.0-rc4                -12.9%
->> (3) 6.12.0-rc4 NO_PLACE_LAG   +6.4%		
->> (4) v6.12-rc4  SCHED_BATCH    +10.8%
-> 
-> This is very interesting; our setups are close, yet I have not seen any 
-> feature or policy combination that performs above the 6.5 CFS baseline.
-> I look forward to seeing your results with the repro when it's ready.
-> 
-> Did you only use NO_PLACE_LAG or was it together with NO_RUN_TO_PARITY?
+Fabio are you pushing this in through the SoC tree as it's ARM-only
+or am I expected to push it through pin control?
 
-Only NO_PLACE_LAG.
+I expected SoC but asking because I don't want it to end up in limbo.
 
-> Was SCHED_BATCH used with the default feature set (all enabled)?
-
-Yes.
-
-> Which distro/version did you use for the SUT?
-
-The default, Ubuntu 24.04 Arm64 server.
-
->> Maybe a difference in our test setup can explain the different test results:
->>
->> I use:
->>
->> HammerDB Load Generator <-> MySQL SUT
->> 192 VCPUs               <-> 16 VCPUs
->>
->> Virtual users: 256
->> Warehouse count: 64
->> 3 min rampup
->> 10 min test run time
->> performance data: NOPM (New Operations Per Minute)
->>
->> So I have 256 'connection' tasks running on the 16 SUT VCPUS.
-> 
-> My setup:
-> 
-> SUT     - 16 vCPUs, 32 GB RAM
-> Loadgen - 64 vCPU, 128 GB RAM (anything large enough to not be a 
->  bottleneck should work)
-> 
-> Virtual users:  4 x vCPUs = 64
-> Warehouses:     24
-> Rampup:         5 min
-> Test runtime:   20 min x 10 times, each on 4 different SUT/Loadgen pairs
-> Value recorded: geometric_mean(NOPM)
-
-Looks like you have 4 times less 'connection' tasks on your 16 VCPUs. So
-much less concurrency/preemption ...
+Yours,
+Linus Walleij
 
