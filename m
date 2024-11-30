@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC4FD7361B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Nov 2024 23:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2590D7361B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Dec 2024 00:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zsbxRwNfx7fnCx+o56uBYxIXkBxgdk/p+7MwRahv2so=; b=xMG9MoEToHAWVWqsK8VfrEbuF0
-	bYpNkT30hmtwPtMOL4hy21VUh5zhgZk7Sj5Ex7Zjsawfh3Ynrl8Sf8FIuiGXGPoYpcV6cp5XPw9EW
-	mUDKYJDtTPBeo18C/kx+k8Y9qPC56QyhXiJliVhzx69IMVJXsMLSUJG1drj3SdvRq0UHG2I/5dS85
-	+TWeEfFDvyi244t133SW8UhP4aXJDJOv1IK9e8Vmtbj//ITrC4iih3J232g2/3rEeUmh7Wq9f1iq5
-	xomB349rXz+aDTwImoXlPjIqclSTJxxBz5sUkAV+8o5I7tPa3sKrRuhotixdCfjZ9Tg1p8Yum+8Pa
-	38aFG5Bw==;
+	bh=4cxY+K4yZx53tAspmDt/c32sXFm2om2yzHiockIbOqk=; b=NpFRJ4/HXvjIjLp9XhukhZQEuZ
+	mQS1eBGUn1fw5Kuv5gBsHV/IYs6b82LzM0tqjERTbnymKY2NAe3aeTmLXtbP8QCASLp6sR5Tko7wP
+	d/2nYuHPDCcjqgVF0SOkCG4pdWlG0ee5/TI0mcwtErMnLvctBjYV2U5aCA2hcwAu8P8Y0y2kIzLWB
+	1uWkM8FWM9Gtl27d8RDite2Zrv3DqxLD0blTwERRDroTOMU/5lngZeCJRS/+kD2YwmTsUWjX87xLc
+	zXKarnbK5fbbxB64QEpsrB3ciT/5z/L1k5w4Y6L+2XS20EIwIQOtYd/79Tx+jN86/PVW4QzbQ2rZJ
+	6iB07FFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHXN5-00000002loK-33XJ;
-	Sat, 30 Nov 2024 23:59:31 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1tHXO2-00000002lwd-20TM;
+	Sun, 01 Dec 2024 00:00:30 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHXJK-00000002koP-3m5L
+	id 1tHXJN-00000002kqC-1iKl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Nov 2024 23:55:40 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-2ffa12ad18cso32370201fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Nov 2024 15:55:38 -0800 (PST)
+	Sat, 30 Nov 2024 23:55:42 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-53de5ec22adso3662451e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Nov 2024 15:55:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733010937; x=1733615737; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1733010939; x=1733615739; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=zsbxRwNfx7fnCx+o56uBYxIXkBxgdk/p+7MwRahv2so=;
-        b=JQCkjjSWi64I5c2LYS9KmM1n+PfIPinJkgLUrxbyuPAmUQqQOo0RJnT1r6k080lvB/
-         fTu2boDtVDAZngUS+5t3/HzO92SQ2u0i3WhigEFLMbUP24tQVa4a1IGZYLK95m4IRxEW
-         v8UUOuCVzfoRiXo1tQU5C5THxcyxTIpj2R3cPwwgo3ej+vgeiz6u+HhRFHPoVsaFbXEf
-         Tu27oZ87aoCA4J5PyyAOn2WkpXKcCjvRRAmvYULuyk8PObslYqvhba1ty3iriTQBKVMu
-         L85wc1rpfTJkcOmdDdHQyfIBsbi+CiLy5h1pgxZqTD/Jt3NXDdS1TArO7/nODTHTfpWH
-         dM4Q==
+        bh=4cxY+K4yZx53tAspmDt/c32sXFm2om2yzHiockIbOqk=;
+        b=Hais+ZC6lP7Y3Iu/gMrp9fB0OK+ODJZDz0JDkUs3mq//ZGLBrMSHJMvV0ry/CHuHcd
+         +9a9owqiBkm14q5PhvRbGdWlfiqrno8FRdhaUqNigESYdn2zrWxwkRsgGU3B7BxYMfqQ
+         2rIQox19S0bXYuopt6QMPxRTMCaCNecSE/wsp0jVBN19YomDy9aHxRM8tUubkSGDAVSv
+         QSJMmqZvvR1OPjTO4ibRFbvcAow+CxA7zX3c+1oJDzg9uSJE+gdKiSLFd+Mp0AxWJ9oM
+         SkfmE1g9E0wkuvJ+uImQgR7i495lNAqZREFZz7cXgfBQZndVGN9w2f2fMCSavb2KRuw0
+         C6Ig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733010937; x=1733615737;
+        d=1e100.net; s=20230601; t=1733010939; x=1733615739;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zsbxRwNfx7fnCx+o56uBYxIXkBxgdk/p+7MwRahv2so=;
-        b=IzZ+c00A8BVhL0PDE6sC6v0c2g5WaccoCy9/ZtLa9PKtwioLvNedO1uFk38xLwC30m
-         ngd2RKJ7BQ8jK3sN0wx2uZ67J0eTLFMEPS0e6yG8ktf94JAdi5FBPps95wBpnEeYr7le
-         FQgVn7lPP6uYBTVbrQAAFI90Cb2lWTh5G0bIwyz0uSIqY05ZfynoJ3pqpXZH+ZrRuwFU
-         rqBTP08lqeYrCL5ladJi2fb9nv8aoMapxhirZgBzlD7cysQfpUcn2twcFtHj1YYVxmbn
-         hxtiv4f+tFlitGAo6OV9gyobmex6aSo3UYPXeqBaA9qHxet6hMUw74d1CqsuE6oPXqLR
-         7SPg==
-X-Forwarded-Encrypted: i=1; AJvYcCWenR4RmJVuWHGA9rTcFt0+t7vc9R+aEJUnM5vtAW9Fzhlz0BM8druwfnPoBWTYGGldDPXJoKD3WL4LrpMhc2Ej@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUQ9xeDcqfOPfk6Mfwwye4UBOnfK3dxLQN3/WgawoVuaTPEqqQ
-	DeojqjfxAecRRpDZ3LvWs1eGJ9JQpNzTGjs85RXX9wOI3MJx1unAj3baMq8ULOM=
-X-Gm-Gg: ASbGnctjWILRlICwObdNpaK+Of8zYFkUTpCavPHS1dnPlGHRTfiKLThbRThV2Z6YFe/
-	vjoWfPwNf1XP9pBCzUixhk6QBNRKWnxLkA5ENxht95il3kCFWvDJSBdmF/hywR0bDrRB/NCD+F+
-	gk3lfHkAGJgQm3oaIpvekZ4aZ+PgTNyCggpuQe7lAjEwFbExJeIH+u7AjYbZzsw5QbbsNkeDLSm
-	HtYyq4dvtb5O/YjYdFj/FKf91WAiiMZRhtT23UorHSn7DgGsR1d+XEp4g==
-X-Google-Smtp-Source: AGHT+IGcKx3qxr+rKjFg6uN+w/t1xLv8z34zeudztpmb02c9r0uba4ZBSNTSBCZfWNmdHrXgT/XSFQ==
-X-Received: by 2002:a05:6512:3e2a:b0:53d:d431:7f3a with SMTP id 2adb3069b0e04-53df0108f71mr9006077e87.44.1733010936909;
-        Sat, 30 Nov 2024 15:55:36 -0800 (PST)
+        bh=4cxY+K4yZx53tAspmDt/c32sXFm2om2yzHiockIbOqk=;
+        b=tv2cKcMdSQcEahBVYbCsixsdKUAnO+6CTe7cfb/WFmpxwOM7KjBoas8C2l35ojCMTl
+         H4q6zjPjkRveXRco71eGWevmmcP2YcMT3O6OKkz48rmaGwQXi5gG/XhXurgMNYzQXZg7
+         TVWwAWT07y5toMazt9UXyc59jyRRvLcB2dz5zRcvpVZtOziJZy5cQrvgG8pkaqEMtWuN
+         gJfxmOoiEeuYh3wKia6y9Izwies0Psgyw3FxLnpmgt9FF+TWQQFmj7s5/sGzdG+AKt1C
+         YPXuClLxezckCrZ+uvzvY/jEc5zQWEmION+hPGfTcSXzY5IasyJS+x2D0kfzEZg4xDaT
+         hoJA==
+X-Forwarded-Encrypted: i=1; AJvYcCW8tEld0fgetuL16eB/o31CFDRblK5gn0G1oRaw12QCr/zlSPHja2+FQg81BmUiwpyVk814DAtd42Br4FbL9SNe@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRje45/1NX15szQs9TIohg0j7VZxC0xK/rSCUDORU2cn5w7Y7C
+	B21YBPU7QW3XqLwG8Vu3Z8p0gFQaYD72tAHftAR4VmYZitHi55kfSqajHlgMZlo=
+X-Gm-Gg: ASbGncthrdWfRLbmrpuRFpItREqDrs/CwW7GlbvBc7ed2riIEEONBeXrJJcWLxwa6cz
+	N9v2gE11yOi3Lx2Xj20AavrZpB1urqd0OLsPDGLz0HSprXj3ZNs3yL6Pa/tw2+WsdDhs7iuNbNi
+	eZTqN1NPNeunI6cKZKUfMIwuANPKs4GzkjIhXn52lKEDajz4oj1fMdhjekv1EGJdIDTAutFWbUQ
+	8fgYNGFA5YRCRnKVOowmI+z7y6R0E+fN8trmlu3Aieib+3a0nI8/LRrfA==
+X-Google-Smtp-Source: AGHT+IEqhH9kCuwXPt69aMI3EvWDASBu5c9Vx1nORTc0e8euAsFhVw9NvHYYoIvx2navJeV6UfeSbQ==
+X-Received: by 2002:a05:6512:3d89:b0:539:f9b9:e6d2 with SMTP id 2adb3069b0e04-53df00ff7c6mr10203616e87.35.1733010939471;
+        Sat, 30 Nov 2024 15:55:39 -0800 (PST)
 Received: from umbar.lan ([192.130.178.90])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53df649647dsm900706e87.195.2024.11.30.15.55.34
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53df649647dsm900706e87.195.2024.11.30.15.55.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 Nov 2024 15:55:35 -0800 (PST)
+        Sat, 30 Nov 2024 15:55:38 -0800 (PST)
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Sun, 01 Dec 2024 01:55:20 +0200
-Subject: [PATCH 03/10] drm/bridge: ite-it66121: use eld_mutex to protect
- access to connector->eld
+Date: Sun, 01 Dec 2024 01:55:21 +0200
+Subject: [PATCH 04/10] drm/amd/display: use eld_mutex to protect access to
+ connector->eld
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241201-drm-connector-eld-mutex-v1-3-ba56a6545c03@linaro.org>
+Message-Id: <20241201-drm-connector-eld-mutex-v1-4-ba56a6545c03@linaro.org>
 References: <20241201-drm-connector-eld-mutex-v1-0-ba56a6545c03@linaro.org>
 In-Reply-To: <20241201-drm-connector-eld-mutex-v1-0-ba56a6545c03@linaro.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -110,21 +110,21 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  intel-xe@lists.freedesktop.org, linux-arm-msm@vger.kernel.org, 
  freedreno@lists.freedesktop.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1044;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1033;
  i=dmitry.baryshkov@linaro.org; h=from:subject:message-id;
- bh=Ze1FOtye6ODMMZl22hb9QRrfAdzUkHN5Ex5hTjwt+GA=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnS6Xt8KExBULQDlnc0kG9cX6l7/Qf0gOZJfErh
- qwvys0sxCOJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ0ul7QAKCRCLPIo+Aiko
- 1X53B/9fdxZ832w1hRpbTcoyQFQHmA0ikcvv4VCzfB6ZaFGrG9T+SoyXM0lcIGKSaZczbYgwyYG
- VSyLd0BAxUhrC8MwHfMgp8Y4wCleisRxlVFA1vUdBWDg5Ra1tMCGv5yeTI8xG89vZvV7H1L56LH
- NJTuXCDHoAtdxiJGvpFCcxy/iyg5+gZ/1OqAZ21gCgzFdy4w/2V+gH4ahWa0JjEUHnsqPrt4sw9
- GAq6r6bDqlUd/3uTwG/u/zV5dSLxpZwsGi5tupF0T0d+UKSbAj73ZOj0Mc5cIt2otyZ3ATuZeIK
- E5n0SMo3O3r0wqRpMmCiTAGk3no1OeU6uM+duf39jYehwa8p
+ bh=tW4andf3hq3R7WEIVc+7/mi1YkJBAZuwRdePwQe7SPw=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnS6XtKnM5W7YbjO8PfgAgXIKJMU347EHoG7pN6
+ bC7slgMtUeJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ0ul7QAKCRCLPIo+Aiko
+ 1UpAB/98T+k5U79sPWHDEfdVoK/uxOqdWekFRUGXmaXz8lVAUaoc1w3Ob2vgVsHEmXEpRZcEqWq
+ bqDqWhVxSkMp+nC/KP4LYMkzeAhQdwu6z7o3M+cI/LhyEPck5mRwoKlsIKia5ENA0q+YRaJX8R8
+ D/MbaqjEkVX7h5ODRsXt0b8del0LoST99BcdJPq6yynl2AInKf1mwGTeXOm09nkJ7B6JX9D3N0r
+ XnUieG4H8ZtcZAOSBh2bHBQePXm7XUKBlvFoHDklRqI/YU7jyKDWow4es6KEqLKgoa9z5zUayj2
+ 4MDN8Hi3OJ8XFsnfXmBTUuMae75l5OufjL1fj5yqKjhqazvg
 X-Developer-Key: i=dmitry.baryshkov@linaro.org; a=openpgp;
  fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241130_155538_956983_CAF70C09 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20241130_155541_448596_F23E6301 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,24 +145,24 @@ order to protect connector->eld from concurrent access.
 
 Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 ---
- drivers/gpu/drm/bridge/ite-it66121.c | 2 ++
+ drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/ite-it66121.c b/drivers/gpu/drm/bridge/ite-it66121.c
-index 35ae3f0e8f51f768229e055a086b53a419ffcd9f..940083e5d2ddbfc56f14e2bdc6ddd0b9dd50b1f8 100644
---- a/drivers/gpu/drm/bridge/ite-it66121.c
-+++ b/drivers/gpu/drm/bridge/ite-it66121.c
-@@ -1450,8 +1450,10 @@ static int it66121_audio_get_eld(struct device *dev, void *data,
- 		dev_dbg(dev, "No connector present, passing empty EDID data");
- 		memset(buf, 0, len);
- 	} else {
-+		mutex_lock(&ctx->connector->eld_mutex);
- 		memcpy(buf, ctx->connector->eld,
- 		       min(sizeof(ctx->connector->eld), len));
-+		mutex_unlock(&ctx->connector->eld_mutex);
- 	}
- 	mutex_unlock(&ctx->lock);
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+index a0bcc62f280f8e80f5d174cd2f567a8ec616e54f..2843283375551b0b85f5f897acdb2aeab652892c 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+@@ -1037,8 +1037,10 @@ static int amdgpu_dm_audio_component_get_eld(struct device *kdev, int port,
+ 			continue;
  
+ 		*enabled = true;
++		mutex_lock(&connector->eld_mutex);
+ 		ret = drm_eld_size(connector->eld);
+ 		memcpy(buf, connector->eld, min(max_bytes, ret));
++		mutex_unlock(&connector->eld_mutex);
+ 
+ 		break;
+ 	}
 
 -- 
 2.39.5
