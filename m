@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB8A1D7360D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Nov 2024 20:26:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA730D73616
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Nov 2024 23:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7zLaGCMDGsCJKOc1IwLPI+bZJjfcisw70zunW0yk10M=; b=njca436pr5eOxaB7cd48LYdi7M
-	UJKOYNf8gKA+O5QBg1dAlWACKpgaFXcA9poWb+RmHoOKNb/xscSwdK5Fk49fLJxYlbfDSgsthim+P
-	iraWBkBT/ygg8YNX705hRbDylUPbrkOiKy+/zBxcpwDJOBC20M8luj1oOKLHFrYwkkI6jD1OOSt+9
-	nZAAKaiaWjPOW3p/V/no4dnTc/JpNEp7ZtREQbgK9GBYy51zyspvy+gtoxMBh2kKELoJb3sNmc/Az
-	8VivSXsLGMEWM4jtav1EjPx4EZHzKx1ZhDt2/WA5tOWwNhY9xsorXTVR4jpBLogpZW2MGrsmrxVpY
-	4qoqL89A==;
+	bh=sTQzcarjruTUGh1w5vBhUCFrMj+jYN9SNpBXLoMYN0M=; b=IoXQ8THQB8DyT6+gj8z4k057D8
+	BInVPNruriMAPX/wexsFEnOmVAufoYvi5s28sBGuGpugGx9AHJ2x6+thGClR1/F7p/FXUIonnFj7r
+	RuHws0c9xHy0T2FOWKF1m1EY4EDsG3Fpssc3+gSS7cvx3Kmx/2k1bY2dFvTdQg0gX8dP4u42OZWxu
+	100gpbkBmhYuVL6RWOl2LD0bFP9rVxGl35Tr7r0mKEOp/oEBo338YsLm5srVhzjFGiuA6Y+l6OptJ
+	uzswJAj+/JUp1vpvB7BIFA8y9iY5gu0p4YdAj9K4XDK+H5NXynwhjMJLDUGKeTcLFUdUufjTdF2CM
+	JGkpyucg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHU2w-00000002XJf-2Ivp;
-	Sat, 30 Nov 2024 20:26:30 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tHWhY-00000002irF-0U5H;
+	Sat, 30 Nov 2024 23:16:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHU1x-00000002XDe-0llL;
-	Sat, 30 Nov 2024 20:25:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=7zLaGCMDGsCJKOc1IwLPI+bZJjfcisw70zunW0yk10M=; b=0zKLputJip9nTRlXLWyCCTQ13n
-	1f/TZEKJPD/pkyR4NLE51GUwc7dCni98FZE/XXSaF9f0Ih5jKhQoUMWm2vcG4vAw95L/qERg2x67l
-	S/tTkfeWDzDr38USyDKIzP6O9sjp1tWRMpBoYORU8GccFAXgGaqL2rwEihHXg2QhAixwg/fPfAK3K
-	7ivms/2XXWzV6dkE8eX6HVMxNkZjX2yXpXFVz193aqEhvOG2i6w8TylQrCdRgFrKRB4K/6hv9tCPj
-	7egDlw08oLvW1tEHuAJv819qMZFd1gnkaBft7CofvqxX6l9FROxThpBfvGdWuUY9VXvjqqFZCoPh1
-	B4GIpIOg==;
-Received: from i5e86190f.versanet.de ([94.134.25.15] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tHU1h-0005Ux-7S; Sat, 30 Nov 2024 21:25:13 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
- cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
- andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
- kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-Subject: Re: [PATCH v1 04/10] phy: phy-rockchip-samsung-hdptx: Add support for eDP
- mode
-Date: Sat, 30 Nov 2024 21:25:12 +0100
-Message-ID: <2886747.Y6S9NjorxK@diego>
-In-Reply-To: <6e1f35c0-5ea8-414f-b3ea-4e7222c605ef@rock-chips.com>
-References: <20241127075157.856029-1-damon.ding@rock-chips.com>
- <2131853.KlZ2vcFHjT@diego>
- <6e1f35c0-5ea8-414f-b3ea-4e7222c605ef@rock-chips.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
+	id 1tHWgZ-00000002ikd-0o5h
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 30 Nov 2024 23:15:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E81735C4A9A;
+	Sat, 30 Nov 2024 23:14:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B812BC4CED3;
+	Sat, 30 Nov 2024 23:15:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733008533;
+	bh=tnxuqblEJMiJaspyoXmZVWsww50YIhEz90c+Q197mmg=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=cnw2j2yz5gV5hcgUp3hmclJNhO8xrxVDFcWaco7qvnPqjUAz1/61WDllXE9BUUTqJ
+	 FtDsmVkt38HbkpsbMQmqXxmvkhMptjaOg2YVkcTpmc5bCI0P4tdCTl1vT4NhS9/Xei
+	 GIqOqHGkb4VP1uFNaAq0HHGE9Kc59cTLTz0MTFVoivZhxyuPOvearEqmzI5vzHeKGP
+	 tiEuPCR1QJJxj2DhDWOSXpaxQbInxi6MFhFrF+Eh1YHG/vB3arFSGFLygKbwn4By4c
+	 DXCnT2Bh5zF4hK0EVLylysE42sEp0sLoQNRO0srN/zdZU5x0kzS3HCQzTGDAIYxEYm
+	 gYqaXR/ZJS2TQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE215380A944;
+	Sat, 30 Nov 2024 23:15:48 +0000 (UTC)
+Subject: Re: [GIT PULL] arm64 fixes for 6.13-rc1
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <Z0osmEaBnjdHS3Q0@arm.com>
+References: <Z0osmEaBnjdHS3Q0@arm.com>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <Z0osmEaBnjdHS3Q0@arm.com>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+X-PR-Tracked-Commit-Id: dfdf714fed559c09021df1d2a4bb64c0ad5f53bc
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 50ee4a6fe3529fc98820f466ec6000aa333a4539
+Message-Id: <173300854719.2503582.3539406702952422848.pr-tracker-bot@kernel.org>
+Date: Sat, 30 Nov 2024 23:15:47 +0000
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241130_122529_212988_D02BD88E 
-X-CRM114-Status: GOOD (  24.21  )
+X-CRM114-CacheID: sfid-20241130_151535_269985_4088EA29 
+X-CRM114-Status: UNSURE (   4.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,103 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Damon,
+The pull request you sent on Fri, 29 Nov 2024 21:05:28 +0000:
 
-Am Freitag, 29. November 2024, 03:43:57 CET schrieb Damon Ding:
-> On 2024/11/27 19:04, Heiko St=FCbner wrote:
-> > Am Mittwoch, 27. November 2024, 12:00:10 CET schrieb Damon Ding:
-> >> On 2024/11/27 17:29, Heiko St=FCbner wrote:
-> >>> Am Mittwoch, 27. November 2024, 08:51:51 CET schrieb Damon Ding:
-> >>>> +static int rk_hdptx_phy_set_mode(struct phy *phy, enum phy_mode mod=
-e,
-> >>>> +				 int submode)
-> >>>> +{
-> >>>> +	return 0;
-> >>>> +}
-> >>>
-> >>> I think it might make sense to go the same way as the DCPHY and also
-> >>> naneng combophy, to use #phy-cells =3D 1 to select the phy-mode via D=
-T .
-> >>>
-> >>> See [0] for Sebastians initial suggestion regarding the DC-PHY.
-> >>> The naneng combophy already uses that scheme of mode-selection too.
-> >>>
-> >>> There is of course the issue of backwards-compatibility, but that can=
- be
-> >>> worked around in the binding with something like:
-> >>>
-> >>>    '#phy-cells':
-> >>>       enum: [0, 1]
-> >>>       description: |
-> >>>         If #phy-cells is 0, PHY mode is set to PHY_TYPE_HDMI
-> >>>         If #phy-cells is 1 mode is set in the PHY cells. Supported mo=
-des are:
-> >>>           - PHY_TYPE_HDMI
-> >>>           - PHY_TYPE_DP
-> >>>         See include/dt-bindings/phy/phy.h for constants.
-> >>>
-> >>> PHY_TYPE_HDMI needs to be added to include/dt-bindings/phy/phy.h
-> >>> but PHY_TYPE_DP is already there.
-> >>>
-> >>> That way we would standardize on one form of accessing phy-types
-> >>> on rk3588 :-) .
-> >>>
-> >>> Also see the Mediatek CSI rx phy doing this too already [1]
-> >>>
-> >>>
-> >>> Heiko
-> >>>
-> >>> [0] https://lore.kernel.org/linux-rockchip/udad4qf3o7kt45nuz6gxsvsmpr=
-h4rnyfxfogopmih6ucznizih@7oj2jrnlfonz/
-> >>> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.gi=
-t/tree/Documentation/devicetree/bindings/phy/mediatek,mt8365-csi-rx.yaml
-> >>>
-> >>
-> >> It is really a nice way to separate HDMI and DP modes.
->=20
-> I apologize for reopening the discussion about the phy-types setting.
+> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
 
-there is definitly no need to apologize. We're trying to find the best
-solution afterall :-) .
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/50ee4a6fe3529fc98820f466ec6000aa333a4539
 
+Thank you!
 
-> With the .set_mode() of struct phy_ops, the HDMI and eDP dynamic=20
-> switching can be achieved, which just depends on the right setting of
-> enum phy_mode in include/linux/phy/phy.h. So the previous way of=20
-> configuring phy mode may be also good.
-
-I think the deciding factor is, is there a use-case for needing to switch
-modes at runtime.
-
-I do think the mode for the dc-phy and also the hdptx-phy is pretty much
-decided by the board design.
-
-I.e. when you end up in a DP-connector (or eDP-panel) on your board you
-need DP mode, and when you end up in a hdmi-connector you need the
-HDMI phy mode.
-
-So I think the phy-mode for the hdptx-phy is largely dictated by the static
-board definition (like devicetree), hence going with the dt-argument for
-the mode.
-
-Like similar to the Naneng combophy, selecting its mode via argument
-because deciding if it ends up in a sata port is a board-design thing.
-
-
-Is there a use-case where you need to switch at runtime between
-hdmi and eDP? Like starting the phy in eDP mode but then needing
-to switch to HDMI mode, while the device is running?
-
-
-> And other phys may want to support dynamic switching too, like the=20
-> Rockchip USBDP combo phy.
-
-I guess USBDP is special in that in also does both modes dynamical
-depending on its use (like type-c with option DP altmode)
-
-
-Have a great weekend
-Heiko
-
-
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
