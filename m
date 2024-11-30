@@ -4,94 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E13D735FF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Nov 2024 11:38:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E62D735FE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Nov 2024 11:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S/Pf8loTaik8LYCta5Jf2Zin0SqS3BgDup0y9NRq4n4=; b=e5c9kGmaHxnz5yGeYqHEg13wLB
-	Qa0MJYeC/0s/8H4qcL2t2JGcfR1pLXwLNL8iyCL1bD63ofEwlmGnfwfNjksr/fLV+AmwzsN/JIHTo
-	15Jewy7f0mp3RQz0+9ZptKc23B9rIytrTz+Qcoqlbe5R705CxBok+nGPsSFhoiBgkbGx+E0yshR1f
-	zlPFyTmGJErRnMsec4EvbxlO1wThC0Em5ytsYImymRqqPJcArLonAQ0lExdnIEStKoY1i3ffA6NIe
-	4O5lxDXxg0LlCejaKuG4kfHxBRepdzuoV8jQgqgRG37FN7otXuABzxpGBzZYEoNpbT8g1yno5qHqC
-	7gU0yOxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lbrr2qfB6+/BjJuq7E43lJE1sJas5MBGpSJDZ+XWZO4=; b=iuWaLEUY9RTLVB3szX4z2A/pSD
+	Sw3YWe6Cg4sg9mXli3LIMnI78u5vFBEudCb8PJ7/z/8d/lZZo7mM5GjPJbBtAWOrbvqFfCdBUtZYS
+	RtzdKTdu7du09d3gVyb4ynu7eTZ5VZMOwnqS9MnR+n2bRxmoKtrMUhph3+E30HXf55kIJrXt0JTpy
+	NKSA1EMNsA+qhPGBUKvjBTWrWc0Ppdud+qyND8I1K4Y6J8lZ/oG3LkR5E7Jg9lmmWrFj+MuQJMbRG
+	oR1Vzg50j/JOIl4mKeuN8vQDazwfx0TB7tMyWM08FNdqQDFhTwtrDqsz7t+1sA5zSzVq5cSwxn5Rd
+	3hryXVgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHLoD-00000001yKd-0uLH;
-	Sat, 30 Nov 2024 11:38:45 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1tHLpA-00000001ySV-3iqV;
+	Sat, 30 Nov 2024 11:39:44 +0000
+Received: from mail-ua1-x930.google.com ([2607:f8b0:4864:20::930])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHLmP-00000001y4R-2z4q
+	id 1tHLo2-00000001yIi-1GdJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Nov 2024 11:36:54 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-53ddb99e9dcso2661323e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Nov 2024 03:36:52 -0800 (PST)
+	Sat, 30 Nov 2024 11:38:35 +0000
+Received: by mail-ua1-x930.google.com with SMTP id a1e0cc1a2514c-85ba8b1c7b9so472820241.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Nov 2024 03:38:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1732966611; x=1733571411; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=S/Pf8loTaik8LYCta5Jf2Zin0SqS3BgDup0y9NRq4n4=;
-        b=IZfk6RfPu1m64Eb1FV6NAnycY5VrpOzY+VV8s64SdYBBcjw7kpmyNdKQjjRWIJ5axx
-         pLZ/bWtJYj6wh3Ib5PtfFjDtFBFFLtzUPgEqBw1qeHaN80WmgqAmuV6j/FG0SUvFUhZ1
-         RsFrQTdMsg7znNBNCtqss6PJnJxwCmpPK6bv5kK47xv0lRoG/gxri1P2Ua0uphi7CkQK
-         uWutNipF4P10s3L+26ebJvHYZC2Pl1yCrb2a1/59DA5DAPGP0eut9gC6eB3i94MkoErH
-         AZfTuj/5VVCi3rbqlF7ff63ttBs7Ww1tDKq+y5DpjKxBEENpdaTfqY9ddecLlC+t7N5R
-         0ASw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732966611; x=1733571411;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1732966712; x=1733571512; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=S/Pf8loTaik8LYCta5Jf2Zin0SqS3BgDup0y9NRq4n4=;
-        b=s4JrbffOQrhfFsWULAG4LAvNCWT/6oFysS2HruI5XL0EY5UjnQoFqmWD4jQRs5UGom
-         Sp3hNgkJS1IAeDgRC0iGNBPWfa6fLegxnYUDClIlGGDcHDhz4m0lp/cAA5zPEarpn8H2
-         6YepPSOAkyYjLYaLiGBoWMglug9safOyywz9Njntc6QQyPh8+aMHFVfIwq1bTIYCwT7S
-         U4lHI2SB6+6H6TWGefX6/2uFGPNkrPEvfz63GtSnRjNeRDdtAHgSrNBgnUVkmGvuDCkO
-         uuqk+Gc5vfI+1TuyZ8lEQuPTWXncda4KoptGIMOPASewobYNmdhz4Bv9/9i16uu13Khl
-         U/EA==
-X-Forwarded-Encrypted: i=1; AJvYcCUggkRFXSyGqqbSVk/PRN6xYJKtctC/Pwg18Q70Hq3h9QyZJ/aYuccTLY3s1fcsWfkRZnMGwpEBY0jMOaUan7N+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDj2hZJPySorzMsqtDrgjYdRUjgktZ+xGlTDWFYFp7wBVamYRL
-	Woz68B/mAeahXy3nvKopeq7Mqr+Wod6z1Q/fhFzzinX//i3YLup/nfj+t4kfkxM=
-X-Gm-Gg: ASbGnctgTXT65TScwOTPvCn6kRhF/1K1+ccl6CWXmF7cqmqh6I8sXk+dTAEdhxqYeug
-	m+0s7Zyqh5c9XdkVT95EIY/VZEYLEn91fffzTLlEvBBA5/tvm/waxKKNs5O88q27HlMjurV8Vlr
-	gHWycXYULGzTz9uPGykORaWFUBEWohWFQ35rkTpc4CcCxm6S9RmH9mScNLOs3n+vIkhS7DPMpQA
-	bw/SzPKWNw5JkqOwjzDyTu+hmGFeKxu+cnKOP2F0E1ynCWY+whx32SS8SULDkAIUlU+jTS82F7l
-	wNlrXPorh2oPtEJfeyUVc9TNNyM0fw==
-X-Google-Smtp-Source: AGHT+IGIIEiDb6qXnTmJUVDYgM6wgGw7GPagKQ9KPPyyX5Q/cb5H82b2qn+Ew6KeyuYbpTeKoPB4zw==
-X-Received: by 2002:a05:6512:3f1f:b0:53d:d3ff:77f6 with SMTP id 2adb3069b0e04-53df010900cmr9945955e87.46.1732966611547;
-        Sat, 30 Nov 2024 03:36:51 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53df649f71asm754516e87.244.2024.11.30.03.36.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 Nov 2024 03:36:50 -0800 (PST)
-Date: Sat, 30 Nov 2024 13:36:47 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Nick Chan <towinchenmi@gmail.com>
-Subject: Re: [PATCH v2 3/5] drm: panel: Add a panel driver for the Summit
- display
-Message-ID: <qowuzrx7s76r3soelwcvlbnksvstlpdind5xxejuqeeohjzsbh@evmuvvzxp3qh>
-References: <20241126-adpdrm-v2-0-c90485336c09@gmail.com>
- <20241126-adpdrm-v2-3-c90485336c09@gmail.com>
- <pokf4zrrm7utx4dlq7sfob3pb4m2dh47eyw2g345tvh75x3s2s@ylajym3brih3>
- <CAMT+MTTGtmMvbPy7HvTQ+AdF_X4dTcfXV5n=krm414MnXYqxjg@mail.gmail.com>
+        bh=lbrr2qfB6+/BjJuq7E43lJE1sJas5MBGpSJDZ+XWZO4=;
+        b=g3dFx9JDmyBc5WgG2e+OKeU/HCCFg+hvPlXjGLv8EIhRhMZYrehigdLkaii83qsOHd
+         K/05Wmw5FrcSW5kn5GcMBGOXdkgemm7qpADnrDkH6wOh0S5F0BYL2XyIOy5UL+hIVGhn
+         wLT3trDqkwj78hlolWbHRgtsK8ynT6YTO8b8666QWH50ibLI2kooAttnuex5uZSbcgvM
+         Jkban8ikwU7DHg0Yj6EUxVkqPLs1rifhaJyIHRVmEAlHdap7ao4eINz8Gb41GHp5fQoO
+         MNbl7ZUU3rIhZ3y7iqwePmEEP1wsxAven+BbcuZPgK4MwulC5fz2zXIqSYjI2MIyevmE
+         RKpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732966712; x=1733571512;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lbrr2qfB6+/BjJuq7E43lJE1sJas5MBGpSJDZ+XWZO4=;
+        b=uZ4koMsCoke1Srza4iyn3rWxh4Lsym8BCjMCfxTlQdVhpbFTbiVdSXixz9ZyJ6reRX
+         Pxhgb/cFu5j7aeTdebuxOijl49EuaRSHH454jQTIh9JR8Rdabnwafvl0wggkkt3L5a1p
+         gq9wfoKYUD5hGIyE93mcwQaioaGoYew7j4KgqGeVK0DvsEmMrInSXKaXmC8BwTKZaETF
+         Zjnzajfpo70QtMZNI/P0F6VgK4H9jadaryDS2c6X6PhLygP1k9HepWJtAtUWMmq3M9Y5
+         LzWK3I0RdSGBJamxPgcrI+zLXEsNXbJes7s6N9PhRILE3XEiOw5DMFXYCjDdFW2Cyudb
+         C3Bg==
+X-Forwarded-Encrypted: i=1; AJvYcCXay6S6bwogNigTH2B5CYaQc+iOQmjJc0r8va3DAkf1T/9NvA/k8D6NV2VoZzWnrKkBqx6OMODPCBBleiGV0gke@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7oq8sCb8ne18QI88p4/iPdhmMLkiOUPiOe7Y/PKuNnLizoVE6
+	0bFfUXEJbZPSmAZf3YkWQApZe/pd3QCVQ2Q/6JII/F/FnRakCAZnhxOb5/Q0L9kNhAzPr8H/BFi
+	ljl3bNtSrzVjUAQl9+PlHAEg5td4=
+X-Gm-Gg: ASbGnctothNx1Db+UzR1KMWxktSQeISF8b2nu20qZM+uIrii6DqMpvWglc0Yf5HW4P8
+	WTmGzQ40eMQv3nkkvyVZZ6Ybaev72+g==
+X-Google-Smtp-Source: AGHT+IEOjlIPuE+ZgXLyvfndQVoFGvXTAQTOLhdzhSDM04yBi3Tp+D0cxFQCuCqvm5sj20DBHerEXbDd1U2rr4EjqZ4=
+X-Received: by 2002:a05:6102:1519:b0:4af:586c:6197 with SMTP id
+ ada2fe7eead31-4af586c620emr14093624137.0.1732966712559; Sat, 30 Nov 2024
+ 03:38:32 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMT+MTTGtmMvbPy7HvTQ+AdF_X4dTcfXV5n=krm414MnXYqxjg@mail.gmail.com>
+References: <20241108-b4-max17042-v4-0-87c6d99b3d3d@gmail.com>
+ <20241108-b4-max17042-v4-2-87c6d99b3d3d@gmail.com> <a7182597-b45e-40cf-baeb-60f69ec2365d@marvell.com>
+In-Reply-To: <a7182597-b45e-40cf-baeb-60f69ec2365d@marvell.com>
+From: Dzmitry Sankouski <dsankouski@gmail.com>
+Date: Sat, 30 Nov 2024 14:38:21 +0300
+Message-ID: <CABTCjFB9ybKmNh-xuF0qaWQc_j4zNXW36vimdrEPh2hzP1VsBw@mail.gmail.com>
+Subject: Re: [PATCH v4 2/2] power: supply: max17042: add platform driver variant
+To: Amit Singh Tomar <amitsinght@marvell.com>
+Cc: Hans de Goede <hdegoede@redhat.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>, Purism Kernel Team <kernel@puri.sm>, 
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241130_033653_787841_3EE0315A 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20241130_033834_344182_C6DA32C1 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,23 +102,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 30, 2024 at 12:15:25PM +0100, Sasha Finkelstein wrote:
-> On Sat, 30 Nov 2024 at 10:29, Dmitry Baryshkov
-> <dmitry.baryshkov@linaro.org> wrote:
-> > > +
-> > > +static int summit_resume(struct device *dev)
-> > > +{
-> > > +     return summit_set_brightness(dev);
+=D0=BF=D1=82, 29 =D0=BD=D0=BE=D1=8F=D0=B1. 2024=E2=80=AF=D0=B3. =D0=B2 17:0=
+3, Amit Singh Tomar <amitsinght@marvell.com>:
+>
+> Hi,
+>
 > >
-> > Doesn't the generic code already handle that for you?
-> 
-> Apparently not, I have commented out the pm ops, entered sleep
-> and the display stayed on.
+> > The solution here add and option to use max17042 driver as a MFD
+> > sub device, thus allowing any additional functionality be implemented a=
+s
+> > another sub device. This will help to reduce code duplication in MFD
+> > fuel gauge drivers.
+> >
+> > Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
+> > ---
+> > Changes in v4:
+> > - rename module_init and module_exit fuctions
+> > - rework max17042_init
+> > - assign chip_type in probe function
+> > - pass i2c_client as pointer on pointer, to use same pointer created in
+> >     MFD. This allows devm_regmap_init_i2c to cleanup gracefully.
+> >
+> > Changes in v3:
+> > - pass dev pointer in max17042_probe
+> > - remove prints
+> > ---
+> >    drivers/power/supply/max17042_battery.c | 116 ++++++++++++++++++++++=
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-----=
+-------------------
+> >    1 file changed, 92 insertions(+), 24 deletions(-)
+> >
+> > diff --git a/drivers/power/supply/max17042_battery.c b/drivers/power/su=
+pply/max17042_battery.c
+(...)
+> > +static int max17042_platform_probe(struct platform_device *pdev)
+> > +{
+> > +     struct device *dev =3D &pdev->dev;
+> > +     struct i2c_client **i2c =3D dev_get_platdata(dev);
+> This seems a bit unusual; can't we just use:
+> struct i2c_client *i2c =3D dev_get_platdata(&pdev->dev); instead?
+> > +     const struct platform_device_id *id =3D platform_get_device_id(pd=
+ev);
+> > +
+> > +     if (!i2c)
+> > +             return -EINVAL;
+> > +
+> > +     return max17042_probe(*i2c, dev, id->driver_data);
+> and then just pass "i2c" here ?
 
-Please add BL_CORE_SUSPENDRESUME option to the backlight device.
-But interestingly enough, none of the panels set that flag.
+This leads to hang on freeing devm resources, when unloading modules.
 
--- 
-With best wishes
-Dmitry
+Platform driver version intended to be used as MFD sub device, where mfd
+creates a dummy i2c client, and passes it to max17042 via platform data.
+Sequence is: insmod MFD; insmod max17042; rmmod max17042; rmmod MFD; hang h=
+ere.
+
+My guess is that it is caused by a new pointer to the i2c-client. New point=
+er
+created at `platform_device_add_data` function call in `mfd_add_device`.
+Since C is pass by value, new pointer is assigned to platform device data.
+
+--=20
+
+Best regards,
+Dzmitry
 
