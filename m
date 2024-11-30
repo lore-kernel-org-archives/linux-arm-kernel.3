@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B359D7360D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Nov 2024 20:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB8A1D7360D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Nov 2024 20:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zoZ/+qDc221WdsVhvoxlHSC6W9U8KUsHn4lZh61HM1Y=; b=JB9dE950+8vhAAmh7khi4/khzE
-	K9M/zsIkpSPyP/ujr311RVm/U7CD0EB2Cuu4bVk7SAFefcbOC1ixA+MiUztQbY9sGKUYBFqr/eUtf
-	eZKD0cLbVMKX4Ru3OdFlkW57c9C+f4H6KNXup4ls5U7CZ0ibb9iIHIpy3e+UedLNtfhBdfHoY4/W+
-	XK6lckDvihVl5tiP3fKBn8Xjl/vlaPPIOkXMDN3OBILf/vS9nG6kCrPx3TJWCbRmCNLFVvA97LbMy
-	ndBLc4+XqMCO2BF4IYAKp3oY4yG3Rpg7el0GJ5KIdBQx5vJucNon6RDYwAQ1cdBzZbEuNLSPrvtOU
-	nZo97Icw==;
+	bh=7zLaGCMDGsCJKOc1IwLPI+bZJjfcisw70zunW0yk10M=; b=njca436pr5eOxaB7cd48LYdi7M
+	UJKOYNf8gKA+O5QBg1dAlWACKpgaFXcA9poWb+RmHoOKNb/xscSwdK5Fk49fLJxYlbfDSgsthim+P
+	iraWBkBT/ygg8YNX705hRbDylUPbrkOiKy+/zBxcpwDJOBC20M8luj1oOKLHFrYwkkI6jD1OOSt+9
+	nZAAKaiaWjPOW3p/V/no4dnTc/JpNEp7ZtREQbgK9GBYy51zyspvy+gtoxMBh2kKELoJb3sNmc/Az
+	8VivSXsLGMEWM4jtav1EjPx4EZHzKx1ZhDt2/WA5tOWwNhY9xsorXTVR4jpBLogpZW2MGrsmrxVpY
+	4qoqL89A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHTrd-00000002WUP-3yRT;
-	Sat, 30 Nov 2024 20:14:49 +0000
-Received: from smtp-fw-2101.amazon.com ([72.21.196.25])
+	id 1tHU2w-00000002XJf-2Ivp;
+	Sat, 30 Nov 2024 20:26:30 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHToo-00000002Vv2-3pNR;
-	Sat, 30 Nov 2024 20:11:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1732997515; x=1764533515;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=zoZ/+qDc221WdsVhvoxlHSC6W9U8KUsHn4lZh61HM1Y=;
-  b=JRaoZ/aKsQXXtXy+x7uwDNs9T0bzx+25VcyoKLkDwAR0yZaePhUVu4de
-   mA5/eWJ0gxYpGzDe1FkhqoQXsAmNHIQH8CENhXIMAYKkwnRJLkNKJAjcW
-   HFcC+Pu2YIRVgny4DvPxJtFng+BRbr3Q4P2+p2AD0ovo6rg7XQRlOsZv8
-   k=;
-X-IronPort-AV: E=Sophos;i="6.12,199,1728950400"; 
-   d="scan'208";a="447165625"
-Received: from iad6-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.124.125.6])
-  by smtp-border-fw-2101.iad2.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Nov 2024 20:11:50 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [10.0.21.151:19230]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.32.230:2525] with esmtp (Farcaster)
- id a6a52d1b-8c83-4dfa-ade4-e0f66ee20537; Sat, 30 Nov 2024 20:11:48 +0000 (UTC)
-X-Farcaster-Flow-ID: a6a52d1b-8c83-4dfa-ade4-e0f66ee20537
-Received: from EX19D013UWB003.ant.amazon.com (10.13.138.111) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Sat, 30 Nov 2024 20:11:44 +0000
-Received: from EX19MTAUWB001.ant.amazon.com (10.250.64.248) by
- EX19D013UWB003.ant.amazon.com (10.13.138.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Sat, 30 Nov 2024 20:11:44 +0000
-Received: from email-imr-corp-prod-iad-all-1a-47ca2651.us-east-1.amazon.com
- (10.25.36.214) by mail-relay.amazon.com (10.250.64.254) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1258.34 via Frontend Transport; Sat, 30 Nov 2024 20:11:44 +0000
-Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com [172.19.116.181])
-	by email-imr-corp-prod-iad-all-1a-47ca2651.us-east-1.amazon.com (Postfix) with ESMTP id D7D6F404CE;
-	Sat, 30 Nov 2024 20:11:43 +0000 (UTC)
-Received: by dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (Postfix, from userid 14301484)
-	id 96751719D; Sat, 30 Nov 2024 20:11:43 +0000 (UTC)
-From: Eliav Farber <farbere@amazon.com>
-To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
-	<naveen@kernel.org>, <maddy@linux.ibm.com>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
-	<akpm@linux-foundation.org>, <bhe@redhat.com>, <farbere@amazon.com>,
-	<hbathini@linux.ibm.com>, <sourabhjain@linux.ibm.com>,
-	<adityag@linux.ibm.com>, <songshuaishuai@tinylab.org>,
-	<takakura@valinux.co.jp>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>
-CC: <jonnyc@amazon.com>
-Subject: [PATCH v5 2/2] kexec: Prevent redundant IRQ masking by checking state before shutdown
-Date: Sat, 30 Nov 2024 20:11:43 +0000
-Message-ID: <20241130201143.48808-3-farbere@amazon.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20241130201143.48808-1-farbere@amazon.com>
-References: <20241130201143.48808-1-farbere@amazon.com>
+	id 1tHU1x-00000002XDe-0llL;
+	Sat, 30 Nov 2024 20:25:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=7zLaGCMDGsCJKOc1IwLPI+bZJjfcisw70zunW0yk10M=; b=0zKLputJip9nTRlXLWyCCTQ13n
+	1f/TZEKJPD/pkyR4NLE51GUwc7dCni98FZE/XXSaF9f0Ih5jKhQoUMWm2vcG4vAw95L/qERg2x67l
+	S/tTkfeWDzDr38USyDKIzP6O9sjp1tWRMpBoYORU8GccFAXgGaqL2rwEihHXg2QhAixwg/fPfAK3K
+	7ivms/2XXWzV6dkE8eX6HVMxNkZjX2yXpXFVz193aqEhvOG2i6w8TylQrCdRgFrKRB4K/6hv9tCPj
+	7egDlw08oLvW1tEHuAJv819qMZFd1gnkaBft7CofvqxX6l9FROxThpBfvGdWuUY9VXvjqqFZCoPh1
+	B4GIpIOg==;
+Received: from i5e86190f.versanet.de ([94.134.25.15] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tHU1h-0005Ux-7S; Sat, 30 Nov 2024 21:25:13 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
+ cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
+ andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
+ kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org
+Subject: Re: [PATCH v1 04/10] phy: phy-rockchip-samsung-hdptx: Add support for eDP
+ mode
+Date: Sat, 30 Nov 2024 21:25:12 +0100
+Message-ID: <2886747.Y6S9NjorxK@diego>
+In-Reply-To: <6e1f35c0-5ea8-414f-b3ea-4e7222c605ef@rock-chips.com>
+References: <20241127075157.856029-1-damon.ding@rock-chips.com>
+ <2131853.KlZ2vcFHjT@diego>
+ <6e1f35c0-5ea8-414f-b3ea-4e7222c605ef@rock-chips.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241130_121155_111946_6951C894 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20241130_122529_212988_D02BD88E 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,77 +81,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During machine kexec, the function machine_kexec_mask_interrupts() is
-responsible for disabling or masking all interrupts. While the irq_disable
-hook ensures that an already-disabled IRQ is not disabled again, the
-current implementation unconditionally invokes the irq_mask() function for
-every interrupt descriptor, even when the interrupt is already masked.
+Hi Damon,
 
-A specific issue was observed in the crash kernel flow after unbinding a
-device (prior to kexec) that used a GPIO as an IRQ source. The warning was
-triggered by the gpiochip_disable_irq() function, which attempted to clear
-the FLAG_IRQ_IS_ENABLED flag when FLAG_USED_AS_IRQ was not set:
+Am Freitag, 29. November 2024, 03:43:57 CET schrieb Damon Ding:
+> On 2024/11/27 19:04, Heiko St=FCbner wrote:
+> > Am Mittwoch, 27. November 2024, 12:00:10 CET schrieb Damon Ding:
+> >> On 2024/11/27 17:29, Heiko St=FCbner wrote:
+> >>> Am Mittwoch, 27. November 2024, 08:51:51 CET schrieb Damon Ding:
+> >>>> +static int rk_hdptx_phy_set_mode(struct phy *phy, enum phy_mode mod=
+e,
+> >>>> +				 int submode)
+> >>>> +{
+> >>>> +	return 0;
+> >>>> +}
+> >>>
+> >>> I think it might make sense to go the same way as the DCPHY and also
+> >>> naneng combophy, to use #phy-cells =3D 1 to select the phy-mode via D=
+T .
+> >>>
+> >>> See [0] for Sebastians initial suggestion regarding the DC-PHY.
+> >>> The naneng combophy already uses that scheme of mode-selection too.
+> >>>
+> >>> There is of course the issue of backwards-compatibility, but that can=
+ be
+> >>> worked around in the binding with something like:
+> >>>
+> >>>    '#phy-cells':
+> >>>       enum: [0, 1]
+> >>>       description: |
+> >>>         If #phy-cells is 0, PHY mode is set to PHY_TYPE_HDMI
+> >>>         If #phy-cells is 1 mode is set in the PHY cells. Supported mo=
+des are:
+> >>>           - PHY_TYPE_HDMI
+> >>>           - PHY_TYPE_DP
+> >>>         See include/dt-bindings/phy/phy.h for constants.
+> >>>
+> >>> PHY_TYPE_HDMI needs to be added to include/dt-bindings/phy/phy.h
+> >>> but PHY_TYPE_DP is already there.
+> >>>
+> >>> That way we would standardize on one form of accessing phy-types
+> >>> on rk3588 :-) .
+> >>>
+> >>> Also see the Mediatek CSI rx phy doing this too already [1]
+> >>>
+> >>>
+> >>> Heiko
+> >>>
+> >>> [0] https://lore.kernel.org/linux-rockchip/udad4qf3o7kt45nuz6gxsvsmpr=
+h4rnyfxfogopmih6ucznizih@7oj2jrnlfonz/
+> >>> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.gi=
+t/tree/Documentation/devicetree/bindings/phy/mediatek,mt8365-csi-rx.yaml
+> >>>
+> >>
+> >> It is really a nice way to separate HDMI and DP modes.
+>=20
+> I apologize for reopening the discussion about the phy-types setting.
 
-```
-void gpiochip_disable_irq(struct gpio_chip *gc, unsigned int offset)
-{
-	struct gpio_desc *desc = gpiochip_get_desc(gc, offset);
+there is definitly no need to apologize. We're trying to find the best
+solution afterall :-) .
 
-	if (!IS_ERR(desc) &&
-	    !WARN_ON(!test_bit(FLAG_USED_AS_IRQ, &desc->flags)))
-		clear_bit(FLAG_IRQ_IS_ENABLED, &desc->flags);
-}
-```
 
-This issue surfaced after commit a8173820f441 ("gpio: gpiolib: Allow GPIO
-IRQs to lazy disable") introduced lazy disablement for GPIO IRQs. It
-replaced disable/enable hooks with mask/unmask hooks. Unlike the disable
-hook, the mask hook doesn't handle already-masked IRQs.
+> With the .set_mode() of struct phy_ops, the HDMI and eDP dynamic=20
+> switching can be achieved, which just depends on the right setting of
+> enum phy_mode in include/linux/phy/phy.h. So the previous way of=20
+> configuring phy mode may be also good.
 
-When a GPIO-IRQ driver is unbound, the IRQ is released, triggering
-__irq_disable() and irq_state_set_masked(). A subsequent call to
-machine_kexec_mask_interrupts() re-invokes chip->irq_mask(). This results
-in a call chain, including gpiochip_irq_mask() and gpiochip_disable_irq().
-Since FLAG_USED_AS_IRQ was cleared earlier, a warning occurs.
+I think the deciding factor is, is there a use-case for needing to switch
+modes at runtime.
 
-Replace calls to irq_mask() and irq_disable() hooks with a simplified call
-to irq_shutdown(), and check if the interrupt is started (irqd_is_started)
-before calling the shutdown.
+I do think the mode for the dc-phy and also the hdptx-phy is pretty much
+decided by the board design.
 
-Signed-off-by: Eliav Farber <farbere@amazon.com>
----
-V4 -> V5:
- - The phrase 'This patch' has been removed from the commit message.
+I.e. when you end up in a DP-connector (or eDP-panel) on your board you
+need DP mode, and when you end up in a hdmi-connector you need the
+HDMI phy mode.
 
- kernel/irq/kexec.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+So I think the phy-mode for the hdptx-phy is largely dictated by the static
+board definition (like devicetree), hence going with the dt-argument for
+the mode.
 
-diff --git a/kernel/irq/kexec.c b/kernel/irq/kexec.c
-index 0f9548c1708d..1a3deffe6b5b 100644
---- a/kernel/irq/kexec.c
-+++ b/kernel/irq/kexec.c
-@@ -17,7 +17,7 @@ void machine_kexec_mask_interrupts(void)
- 		int check_eoi = 1;
- 
- 		chip = irq_desc_get_chip(desc);
--		if (!chip)
-+		if (!chip || !irqd_is_started(&desc->irq_data))
- 			continue;
- 
- 		if (IS_ENABLED(CONFIG_GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD)) {
-@@ -31,10 +31,6 @@ void machine_kexec_mask_interrupts(void)
- 		if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
- 			chip->irq_eoi(&desc->irq_data);
- 
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
-+		irq_shutdown(desc);
- 	}
- }
--- 
-2.40.1
+Like similar to the Naneng combophy, selecting its mode via argument
+because deciding if it ends up in a sata port is a board-design thing.
+
+
+Is there a use-case where you need to switch at runtime between
+hdmi and eDP? Like starting the phy in eDP mode but then needing
+to switch to HDMI mode, while the device is running?
+
+
+> And other phys may want to support dynamic switching too, like the=20
+> Rockchip USBDP combo phy.
+
+I guess USBDP is special in that in also does both modes dynamical
+depending on its use (like type-c with option DP altmode)
+
+
+Have a great weekend
+Heiko
+
 
 
