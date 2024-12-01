@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70FF1D4976C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Dec 2024 13:00:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12414D4976C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Dec 2024 13:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VCWe9s/rHKwl9TLavRjv7zCjd8Sk3fGBB4AxvmB6cFA=; b=1TuHaO6pA6NSWyS3pK1MF8Rgpk
-	SECNeg5XUs9D5P74anLaoybfSSkAaDDJm4UromXiM+vx+ch87qx/LyQhc7vC/Tu2S2g614n5DNdbo
-	YoLkznS6cQThZSqwToHVRW+cfwC2QVLgtS5xz2nxY+peS5YM4SlYVZIXXPGPf19en92Me1iuLE1Si
-	RXlA3EFxwCRcxw8wEfAX2BsIzjfBVcgQl3QD3e54WAIuX5++AgPN25kcGA2IQ1/msfz0R1CR/QwV8
-	gk8YR8ycQWVAURa4XLA9VMFwXIc1K1EXSzJz7RgXUakaooqgxW+bFzm9tIPEQi0YzEG5jnT/G/GHE
-	M6eLjmkg==;
+	bh=VP4A0HfkRaV5PIKKyxepALGi7C/+PX/YY0O6Vhl+PLo=; b=l3XomOTLe7i8+tt2gjHcygHnsH
+	px1WU0pI8Nb9qUnIS//GHAjeIfrHYwrQi38ZnJska8mQ4RpXcJg1q3FWaLZjg0lb/4FOM5XdchlW6
+	/nlyHXjuoi7QvAYyPca6ZK9oibZPcvLsd+nsNV2H5K4vK9cUXMdjb+S0BtH+zEk37t2qow2LuHU2A
+	Pp8KWkIG8ywyfUQ7w1s/I8lqlbm9VgE31IT32kNiRR+vSrOU5fLk7kpX7yZCOUOzr/mnWngNbtLox
+	DG1ZJmULdc8DREZZMwGiZ7oDig37f701NedEHqzq9dp5itwuZdW9OF9NbYoEJNtUL9q+VpmUyjwVq
+	kHL10U5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHjYF-00000003Sai-2UAZ;
-	Sun, 01 Dec 2024 12:59:51 +0000
+	id 1tHjZv-00000003TJH-1TaS;
+	Sun, 01 Dec 2024 13:01:35 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHjXG-00000003SSe-341G
+	id 1tHjYP-00000003SdI-0lF4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Dec 2024 12:58:51 +0000
+	Sun, 01 Dec 2024 13:00:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1FFF05C5FAD;
-	Sun,  1 Dec 2024 12:58:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE660C4CED2;
-	Sun,  1 Dec 2024 12:58:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9BDE65C5D9E;
+	Sun,  1 Dec 2024 12:59:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65B32C4CED2;
+	Sun,  1 Dec 2024 13:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733057929;
-	bh=K5HxLjFhSeqkuLos2FkxO1o76r5WteSqxvKnLCqq5sg=;
+	s=k20201202; t=1733058000;
+	bh=rJ2QT5zdZCcicZCA5CYn52IYa+shkRrR7BWOCgTczTY=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=YBdWhTKtrRzSZg7iiPmUQ5mP6g7L6pgnSwZFJmAN3jg5pDRr/T3wSL8Va9snHqycT
-	 mBHFSVjuUPcZUaatdYhje/M6zZySThO/gZZInoUD2HekUl0DlL9JGVTFRzDpS6hmSY
-	 ItgSdw3LeYeu0SAveyPJ2YVryW07CjJGKTFfJkUIl3B4oURUbax88aeBsneWHmsxp8
-	 MkQ8coGeFcCqKcxd4+SMcbrincLUcGd5XrbHMooODI9s8QQ4TLlpm6UaS+g4zYW3Dr
-	 qA1HGqwyT6lLBcRkpglzIHD6QnfP6OPiH+rli1EXbshfT/tKJXrX3ZJSaEYC8P8g4I
-	 OmiZbSEahARoQ==
+	b=nFJqh0oHiEMQheCx5FclnuhzgfjMYszMeaB2SPW7LQzflxQl7WLGT2nXSeTAhGtXx
+	 BQxKLw4ySy2bAlGUz+oXSmSZu3BMBUaIAGmAKlDJZWuGfj9hejU3oyPzymVSgKnajb
+	 41p2ChcNgp7xZkxdXn8izhOhL7a7im1YTz89EZugRwARud9m01bekz4eZ1bsyflIqh
+	 OPUGQ+LIoyFxXiC19w8bqb3mnKLyM9xzThwI/PZx6mo2AyW6bFFSABlOPJwvAvM+HW
+	 GDfpB2tjT8lANxpxpcej4hOSLvTW84yD1iMJkA+lD4HTWW9z789QjmpvUkTreFgXyQ
+	 sICfzXVO8k09A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tHjXD-00H5cV-GZ;
-	Sun, 01 Dec 2024 12:58:47 +0000
-Date: Sun, 01 Dec 2024 12:58:47 +0000
-Message-ID: <864j3nv9tk.wl-maz@kernel.org>
+	id 1tHjYM-00H5dg-7Y;
+	Sun, 01 Dec 2024 12:59:58 +0000
+Date: Sun, 01 Dec 2024 12:59:57 +0000
+Message-ID: <8634j7v9rm.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Fuad Tabba <tabba@google.com>
 Cc: kvmarm@lists.linux.dev,
@@ -64,10 +64,10 @@ Cc: kvmarm@lists.linux.dev,
 	broonie@kernel.org,
 	qperret@google.com,
 	kristina.martsenko@arm.com
-Subject: Re: [PATCH v3 14/15] KVM: arm64: Convert the SVE guest vcpu flag to a vm flag
-In-Reply-To: <20241128123515.1709777-15-tabba@google.com>
+Subject: Re: [PATCH v3 15/15] KVM: arm64: Renumber remaining vcpu guest configuration flags
+In-Reply-To: <20241128123515.1709777-16-tabba@google.com>
 References: <20241128123515.1709777-1-tabba@google.com>
-	<20241128123515.1709777-15-tabba@google.com>
+	<20241128123515.1709777-16-tabba@google.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -78,8 +78,8 @@ X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@li
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_045850_858611_5CD5B885 
-X-CRM114-Status: GOOD (  24.59  )
+X-CRM114-CacheID: sfid-20241201_050001_333755_63611339 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,114 +94,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Nov 2024 12:35:14 +0000,
+On Thu, 28 Nov 2024 12:35:15 +0000,
 Fuad Tabba <tabba@google.com> wrote:
 > 
-> The vcpu flag GUEST_HAS_SVE is per-vcpu, but it is based on what
-> is now a per-vm feature. Make the flag per-vm.
+> With the vcpu's SVE and PtrAuth configuration flags removed,
+> there are gaps in the numbering of the cflag bits. Renumber
+> VCPU_INITIALIZED to bit 0 to remove the gaps.
+> 
+> No functional change intended.
 > 
 > Signed-off-by: Fuad Tabba <tabba@google.com>
 > ---
->  arch/arm64/include/asm/kvm_emulate.h    |  6 +++---
->  arch/arm64/include/asm/kvm_host.h       | 10 ++++++----
->  arch/arm64/kvm/hyp/include/hyp/switch.h |  2 +-
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  2 +-
->  arch/arm64/kvm/hyp/nvhe/pkvm.c          | 11 +++++++----
->  arch/arm64/kvm/hyp/nvhe/switch.c        |  8 ++++----
->  arch/arm64/kvm/hyp/vhe/switch.c         |  2 +-
->  arch/arm64/kvm/reset.c                  |  2 +-
->  8 files changed, 24 insertions(+), 19 deletions(-)
+>  arch/arm64/include/asm/kvm_host.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index 406e99a452bf..ae6d0dc0e4ff 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -620,7 +620,7 @@ static __always_inline void kvm_write_cptr_el2(u64 val)
->  }
->  
->  /* Resets the value of cptr_el2 when returning to the host. */
-> -static __always_inline void kvm_reset_cptr_el2(struct kvm_vcpu *vcpu)
-> +static __always_inline void kvm_reset_cptr_el2(struct kvm *kvm)
-
-I'd rather you avoid the resulting churn:
-
-static __always_inline void kvm_reset_cptr_el2(struct kvm_vcpu *vcpu)
-{
-	struct kvm *kvm = kern_hyp_va(vcpu->kvm);
-	[...]
-
-which does the trick at zero cost. It is also more logical to keep the
-vcpu as a parameter, as the per-VM-ness is only an implementation
-detail.
-
->  {
->  	u64 val;
->  
-> @@ -631,14 +631,14 @@ static __always_inline void kvm_reset_cptr_el2(struct kvm_vcpu *vcpu)
->  	} else if (has_hvhe()) {
->  		val = CPACR_ELx_FPEN;
->  
-> -		if (!vcpu_has_sve(vcpu) || !guest_owns_fp_regs())
-> +		if (!kvm_has_sve(kvm) || !guest_owns_fp_regs())
->  			val |= CPACR_ELx_ZEN;
->  		if (cpus_have_final_cap(ARM64_SME))
->  			val |= CPACR_ELx_SMEN;
->  	} else {
->  		val = CPTR_NVHE_EL2_RES1;
->  
-> -		if (vcpu_has_sve(vcpu) && guest_owns_fp_regs())
-> +		if (kvm_has_sve(kvm) && guest_owns_fp_regs())
->  			val |= CPTR_EL2_TZ;
->  		if (!cpus_have_final_cap(ARM64_SME))
->  			val |= CPTR_EL2_TSM;
 > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 680ecef1d7aa..c5c80c789ad0 100644
+> index c5c80c789ad0..2e4afec09728 100644
 > --- a/arch/arm64/include/asm/kvm_host.h
 > +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -331,6 +331,8 @@ struct kvm_arch {
->  #define KVM_ARCH_FLAG_ID_REGS_INITIALIZED		7
->  	/* Fine-Grained UNDEF initialised */
->  #define KVM_ARCH_FLAG_FGU_INITIALIZED			8
-> +	/* SVE exposed to guest */
-> +#define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
->  	unsigned long flags;
->  
->  	/* VM-wide vCPU feature set */
-> @@ -862,8 +864,6 @@ struct kvm_vcpu_arch {
+> @@ -864,10 +864,10 @@ struct kvm_vcpu_arch {
 >  #define vcpu_set_flag(v, ...)	__vcpu_set_flag((v), __VA_ARGS__)
 >  #define vcpu_clear_flag(v, ...)	__vcpu_clear_flag((v), __VA_ARGS__)
 >  
-> -/* SVE exposed to guest */
-> -#define GUEST_HAS_SVE		__vcpu_single_flag(cflags, BIT(0))
+> +/* KVM_ARM_VCPU_INIT completed */
+> +#define VCPU_INITIALIZED	__vcpu_single_flag(cflags, BIT(0))
 >  /* SVE config completed */
 >  #define VCPU_SVE_FINALIZED	__vcpu_single_flag(cflags, BIT(1))
->  /* KVM_ARM_VCPU_INIT completed */
-> @@ -956,8 +956,10 @@ struct kvm_vcpu_arch {
->  				 KVM_GUESTDBG_USE_HW | \
->  				 KVM_GUESTDBG_SINGLESTEP)
+> -/* KVM_ARM_VCPU_INIT completed */
+> -#define VCPU_INITIALIZED	__vcpu_single_flag(cflags, BIT(3))
 >  
-> -#define vcpu_has_sve(vcpu) (system_supports_sve() &&			\
-> -			    vcpu_get_flag(vcpu, GUEST_HAS_SVE))
-> +#define kvm_has_sve(kvm)	\
-> +	test_bit(KVM_ARCH_FLAG_GUEST_HAS_SVE, &(kvm)->arch.flags)
-> +#define vcpu_has_sve(vcpu)	\
-> +	kvm_has_sve((vcpu)->kvm)
+>  /* Exception pending */
+>  #define PENDING_EXCEPTION	__vcpu_single_flag(iflags, BIT(0))
 
-Two things:
-
-- it is definitely worth keeping the system_supports_sve() helper, so
-  that we avoid checking flags for nothing
-
-- Since you preserve the vcpu_has_sve(), how about writing it as:
-
-#ifdef __KVM_NVHE_HYPERVISOR__
-#define vcpu_has_sve(v)		kvm_has_sve(kern_hyp_va((v)->kvm))
-#else
-#define vcpu_has_sve(v)		kvm_has_sve((v)->kvm)
-#endif
-
-  which will avoid the churn in this patch, and makes it hard to get
-  it wrong?
+Please fold this with the relevant patches, even if that makes two
+consecutive renumbering patches.
 
 Thanks,
 
