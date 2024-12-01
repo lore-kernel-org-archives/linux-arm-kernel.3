@@ -4,83 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26EF8D49762
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Dec 2024 11:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53496D4976C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Dec 2024 12:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WDyHPlNEUnQgzVFHMrpiQsLtL9Qxe5uHkWbmpd0Bcaw=; b=l1evpNlUxgkoeaiXCwkOA3G/+0
-	Oh4nCT2Qudli/uhYFNL3S5vxgA0USDVKd8eTdoU3U8LndWsNsKgzyfN0aN02KjfR0rx90uCPmEL0q
-	o7WWIZzfrMszRVAESUzHnQplBW1pcgXgnwO/XuQ9Y9D2vv4mSc5e0azfvIsE9np2WyRu5QjNhJ7B0
-	M8toaVXDBp6/0qUiwYSqKLTr//43b4bfmRm2VKnXsnN4izPL+KuVt4f4PIuOFAfkjFrMh3/hJ9tyL
-	tYkBTUQnUR86zml6GZVF/KIndk3APAl2I025t2JQSG5+770dhWGqGfrvhuC8fLiz9JEBeCVIo01ON
-	juX6b6ZQ==;
+	bh=z9d7wyTgDJeR70TC+OcFXdJ2cQkUxdt8fmJvlHU5EsE=; b=dLyYh19NWEb+hZGyo7oY7eTU/g
+	GN9db/G+l5D7bexzK+xMEqakMQ8riCmbt3NbEEF+AEIT6ms3Qik5zVPIs4trdC+5hDsglXVvPaY0H
+	7i47bZV4BCV1fPl2EzvmcW4M6d3r7beFtL1YaaIMoD55G04UW0QCfVytiSWfGAdHcYweT1gvIuAJ+
+	/DIqeoGP6mJibDtOQ4xQmmaRXtdEQuMqaJtQPv2lpsQBpRvZcUAMGtu1xIDdsA2eihYkVQwwHzYuS
+	DXSvZvU8YwHeZklaxuMErnVA8AyksXUkU5gZ/+DQhPLm1h0uovOOtsi+MlsNU7qeSHBbBnh/EsMTu
+	NJ+puXXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHi0D-00000003LwR-3gAn;
-	Sun, 01 Dec 2024 11:20:38 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tHiy9-00000003Q2F-3cob;
+	Sun, 01 Dec 2024 12:22:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHhzE-00000003Lnr-1f7h;
-	Sun, 01 Dec 2024 11:19:37 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1733051975;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WDyHPlNEUnQgzVFHMrpiQsLtL9Qxe5uHkWbmpd0Bcaw=;
-	b=ZwIwIPeWzc5fJpnBy3tPkmLGRBSLhA0IhvVbKfuB3pCaqDtPBSoXPSSPzHJj5lqePQJXZh
-	saw2tyB35caaY1WRFOOTDakG87Rac2CiBdgcnEsVaETGUZ2LIkmO1J6YwGTSL60CTVkkH8
-	UPQytJ5nue8MzA2ECyCa5/jfb7zj3bdluniKiU5Dg6qFv7r0CF0BTSTzCVR2/kbHECM+qi
-	2dm1pSbgrZliexsj8Vvshwtgchh9EWLqZOT6d2lnwBtk5lNDOLeJPTs/ncJW8sQH6Q4ezl
-	X9WB+Csibt8PBhXoLKo6jpbXp4JW7Odw5JyXpzF67j4AGfJ9SoYaAWroXh/eFg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1733051975;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WDyHPlNEUnQgzVFHMrpiQsLtL9Qxe5uHkWbmpd0Bcaw=;
-	b=Qpo34jtob1LbosMBtAl47/xmhuQNsC1tJXAj85I8Uxf5h6BuaXY+7PhCcNAx7cLLndI2rx
-	VgnJuardsEMXGrDw==
-To: "Farber, Eliav" <farbere@amazon.com>, "linux@armlinux.org.uk"
- <linux@armlinux.org.uk>, "catalin.marinas@arm.com"
- <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
- "mpe@ellerman.id.au" <mpe@ellerman.id.au>, "npiggin@gmail.com"
- <npiggin@gmail.com>, "christophe.leroy@csgroup.eu"
- <christophe.leroy@csgroup.eu>, "naveen@kernel.org" <naveen@kernel.org>,
- "maddy@linux.ibm.com" <maddy@linux.ibm.com>, "paul.walmsley@sifive.com"
- <paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "ebiederm@xmission.com"
- <ebiederm@xmission.com>, "akpm@linux-foundation.org"
- <akpm@linux-foundation.org>, "bhe@redhat.com" <bhe@redhat.com>,
- "hbathini@linux.ibm.com" <hbathini@linux.ibm.com>,
- "sourabhjain@linux.ibm.com" <sourabhjain@linux.ibm.com>,
- "adityag@linux.ibm.com" <adityag@linux.ibm.com>,
- "songshuaishuai@tinylab.org" <songshuaishuai@tinylab.org>,
- "takakura@valinux.co.jp" <takakura@valinux.co.jp>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
- <linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>, "kexec@lists.infradead.org"
- <kexec@lists.infradead.org>, Marc Zyngier <maz@kernel.org>
-Cc: "Chocron, Jonathan" <jonnyc@amazon.com>
-Subject: RE: [PATCH v4 1/2] kexec: Consolidate
- machine_kexec_mask_interrupts() implementation
-In-Reply-To: <cd8809e379dc4dd089350ec2d1f8c210@amazon.com>
-References: <cd8809e379dc4dd089350ec2d1f8c210@amazon.com>
-Date: Sun, 01 Dec 2024 12:19:34 +0100
-Message-ID: <87frn7wszd.ffs@tglx>
-MIME-Version: 1.0
-Content-Type: text/plain
+	id 1tHixB-00000003PzG-1cS1
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 01 Dec 2024 12:21:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 65B285C5E2F;
+	Sun,  1 Dec 2024 12:20:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3082CC4CECF;
+	Sun,  1 Dec 2024 12:21:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733055692;
+	bh=4r2/wOFaxgbY5isfxo+Xp/nT3M5E4pY/PU2qBkrj+Do=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Gkgy2QdjrPnkk+E40GxpG6ntwrkv/YO+ZG80dhITkYPHEUoO/1+GPtlyyeuGTo5NJ
+	 wXcJ/aPEa6T7QZpOKGmThGq4kXH4OsDtF/H690qGQz6z3qINb6upuepVByJo5ZCGTJ
+	 t8sZzBJZbKLxFV61Zr0/yO5c/ZdtrKmx4NiKFCOHW5CzED2a6hoZjnYHQuG0uHt8yC
+	 7d7crD+V9kmZs3Yhj4LY9MUeRf3Rf2rCpCeNlmEfrWON2lnWnBONRmT9wh+IRQp+7B
+	 IXqi+y3PO/IyH2uDDKP3KkoTV+cUrZijLikfy2nkb01Zg8J3zUfUyyjwp++c4VjJik
+	 WkebjU0e0XLBw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tHix7-00H5Lr-Pe;
+	Sun, 01 Dec 2024 12:21:29 +0000
+Date: Sun, 01 Dec 2024 12:21:29 +0000
+Message-ID: <865xo3vbjq.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Eric Auger <eauger@redhat.com>
+Cc: Sebastian Ott <sebott@redhat.com>,
+	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+	"will@kernel.org" <will@kernel.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	yuzenghui <yuzenghui@huawei.com>,
+	"Wangzhou (B)" <wangzhou1@hisilicon.com>,
+	Linuxarm <linuxarm@huawei.com>,
+	"reijiw@google.com" <reijiw@google.com>
+Subject: Re: [PATCH] KVM: arm64: Make the exposed feature bits in AA64DFR0_EL1 writable from userspace
+In-Reply-To: <c879fda9-db5a-4743-805d-03c0acba8060@redhat.com>
+References: <20240813142835.77180-1-shameerali.kolothum.thodi@huawei.com>
+	<86v804z3lk.wl-maz@kernel.org>
+	<b2dad37ac5464384abe4edf76cb6b546@huawei.com>
+	<4d3a7dde-e085-fa70-8859-ba153c93b615@redhat.com>
+	<87zfllssji.wl-maz@kernel.org>
+	<c879fda9-db5a-4743-805d-03c0acba8060@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: eauger@redhat.com, sebott@redhat.com, shameerali.kolothum.thodi@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, will@kernel.org, catalin.marinas@arm.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, linuxarm@huawei.com, reijiw@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_031936_573594_FDDE4E78 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241201_042133_532193_D876518C 
+X-CRM114-Status: GOOD (  26.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,21 +100,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 30 2024 at 20:08, Eliav Farber wrote:
-> On 11/29/2024 3:30 PM, Thomas Gleixner wrote:
->> Looking deeper. This function actually cannot be called from this
->> context. It does:
->>
->>           irq_get_desc_buslock(irq, &flags, 0);
->>
->> which means for any interrupt which has an actual buslock implementation
->> it will end up in a sleepable function and deadlock in the worst case.
->>
->> Marc?
-> I will wait for Marc's response regarding this issue.
-> Regardless, if any changes are required, I believe it would be better
-> to address them in a separate patch, as this behavior existed before my
-> modification.
+Hey Eric,
 
-Correct.
+On Thu, 28 Nov 2024 09:31:08 +0000,
+Eric Auger <eauger@redhat.com> wrote:
+> 
+> Hi Marc,
+> 
+> On 11/26/24 20:29, Marc Zyngier wrote:
+> > Finally, who is going to ensure this keeps working in the foreseeable
+> > future? Because while this is nice, that's not what gets deployed in
+> > production, as it leads to unpredictable performances. My take is that
+> > this thing will eventually bitrot and die.
+> In the context of our works to define qemu vcpu models for ARM
+> (https://lore.kernel.org/all/20241025101959.601048-1-eric.auger@redhat.com/)
+> , our current approach is to try migrating between modern HW we have
+> access to. The case above is migration between AmpereOne and Grace which
+> both should be prevalent systems. Do you think this does not make sense
+> at all to try migrating between those, alhough this may be challenging?
+
+I don't mind the challenge. But I'm worried this is something that
+looks like a reasonable idea that doesn't get any traction in
+practice.
+
+And the example you mention is pretty striking: who in their right
+mind would migrate between these two systems? If you deploy a Grace
+system, that's because you are making use of the GPU, and your VM is
+likely to require it. Conversely, if you run on an Ampere system, you
+don't want to use a valuable (read: bloody expensive) slot on a Grace
+machine.
+
+> Other cases we have looked at are migration within Ampere Altra Max
+> system family (which should be hopefully fine now with have CTR_EL0
+> works from Sebastian upstream), mig between Graviton hosts. Wrt Ampere
+> Altra Max to AmpereOne, Oliver pointed out the cntfrq issue which is
+> blocking.
+> 
+> Do you think we should restrict our studies to systems which are
+> "closer" to each other in terms of ARM spec rev. We throught that
+> migration bewteen AmpereOne And Grace would be an interesting POC and
+> not totally irrelevant in terms of industry.
+
+These two implementations may be close in terms of CPU features. But
+as systems, they are massively different, and I very much doubt they
+have the same deployment story. If they have one at all.
+
+The Graviton story may have more traction, but these folks have their
+own way of doing things, and in my experience do not give upstream
+much consideration.
+
+To sum it up, I'm not opposed to this work. But if we are going to
+carry this sort of complex emulation, I want someone to step up and
+promise that they will test it for the next 10 years, at the very
+least. Because I'm very unlikely to ever have access to any of these
+machines, let alone both, and I don't see people using it in practice.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
