@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12414D4976C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Dec 2024 13:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37C17D4976C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Dec 2024 13:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VP4A0HfkRaV5PIKKyxepALGi7C/+PX/YY0O6Vhl+PLo=; b=l3XomOTLe7i8+tt2gjHcygHnsH
-	px1WU0pI8Nb9qUnIS//GHAjeIfrHYwrQi38ZnJska8mQ4RpXcJg1q3FWaLZjg0lb/4FOM5XdchlW6
-	/nlyHXjuoi7QvAYyPca6ZK9oibZPcvLsd+nsNV2H5K4vK9cUXMdjb+S0BtH+zEk37t2qow2LuHU2A
-	Pp8KWkIG8ywyfUQ7w1s/I8lqlbm9VgE31IT32kNiRR+vSrOU5fLk7kpX7yZCOUOzr/mnWngNbtLox
-	DG1ZJmULdc8DREZZMwGiZ7oDig37f701NedEHqzq9dp5itwuZdW9OF9NbYoEJNtUL9q+VpmUyjwVq
-	kHL10U5g==;
+	bh=YSv1VTHEExOifYMhRjt2vZsRWzGqsv8aigFcij0NvFs=; b=0uF3eCpMtUN4J7IExMGqSaD/jd
+	FDSP0yer96icPYp/fgV7C/lRRBxsobcbp3x32w4nrkmKTUWaufmIflZzIK+7Ht0psbw+wcd9j5gp6
+	YJAaQTl0SAiaJQDCZk5eU8aKo7Y6qtl7eMoL/4rY6226bhOoOnudRp/SIqt6NveNM8jQEvdMjoc8J
+	N/ml7OKn8bqWsf6cDBJCC3hQTQinJXdwV392IAAyKUa8pPapiMDaWicXuzP3g3kovuazMGOWbwTYe
+	634+13LZrZdt3NddBD2w1ZQzvvk24g+u7Lq2DMfjdqzHakfaa9DrPuH0/b9UxM70da/CCJzKU4kil
+	IMLNyMbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHjZv-00000003TJH-1TaS;
-	Sun, 01 Dec 2024 13:01:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tHk2m-00000003pDK-04k5;
+	Sun, 01 Dec 2024 13:31:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHjYP-00000003SdI-0lF4
+	id 1tHjoU-00000003eAU-0azU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Dec 2024 13:00:02 +0000
+	Sun, 01 Dec 2024 13:16:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9BDE65C5D9E;
-	Sun,  1 Dec 2024 12:59:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65B32C4CED2;
-	Sun,  1 Dec 2024 13:00:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 79FEE5C5FEB;
+	Sun,  1 Dec 2024 13:15:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46683C4CECF;
+	Sun,  1 Dec 2024 13:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733058000;
-	bh=rJ2QT5zdZCcicZCA5CYn52IYa+shkRrR7BWOCgTczTY=;
+	s=k20201202; t=1733058997;
+	bh=D/tMuGcuiny7dzl2GtTl+VJFpMy2gJYiFwvnFSRHGr0=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=nFJqh0oHiEMQheCx5FclnuhzgfjMYszMeaB2SPW7LQzflxQl7WLGT2nXSeTAhGtXx
-	 BQxKLw4ySy2bAlGUz+oXSmSZu3BMBUaIAGmAKlDJZWuGfj9hejU3oyPzymVSgKnajb
-	 41p2ChcNgp7xZkxdXn8izhOhL7a7im1YTz89EZugRwARud9m01bekz4eZ1bsyflIqh
-	 OPUGQ+LIoyFxXiC19w8bqb3mnKLyM9xzThwI/PZx6mo2AyW6bFFSABlOPJwvAvM+HW
-	 GDfpB2tjT8lANxpxpcej4hOSLvTW84yD1iMJkA+lD4HTWW9z789QjmpvUkTreFgXyQ
-	 sICfzXVO8k09A==
+	b=DeMbfrle9NTkWZ3ejSj0oFeAXRDJo9xeGchHORzDhM8AebCoOHUtdq7+t1e0z1QKb
+	 DBj5JAXwNOSpd8AXR1jJ0jA6DW75dDBa/XuCY/3yTpmP9CQxWE737VD0VOwkNm7r4A
+	 Ha8KIOCCWkIOd2mzbbySTo3eB5bEpboyBEZRTlbdcj+leZ2fQXjwAHE4EZysueMPRQ
+	 EnW3DW0f0+DQhd3EB1UXt61N83MeJVG89n/H0A9yLekNUhuDeWe/VbgOegv/1/LDK5
+	 R3o48Wbv1INHF+6iK/3q4MkzX4UNJ98j0NIljLbl2+dVoSF8iCdgTQ6GOX6ryCzZrF
+	 xG5t++u3vU0Eg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tHjYM-00H5dg-7Y;
-	Sun, 01 Dec 2024 12:59:58 +0000
-Date: Sun, 01 Dec 2024 12:59:57 +0000
-Message-ID: <8634j7v9rm.wl-maz@kernel.org>
+	id 1tHjoR-00H5oO-5g;
+	Sun, 01 Dec 2024 13:16:35 +0000
+Date: Sun, 01 Dec 2024 13:16:34 +0000
+Message-ID: <861pyrv8zx.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev,
+To: Keisuke Nishimura <keisuke.nishimura@inria.fr>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
-	oliver.upton@linux.dev,
-	james.clark@linaro.org,
-	will@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	broonie@kernel.org,
-	qperret@google.com,
-	kristina.martsenko@arm.com
-Subject: Re: [PATCH v3 15/15] KVM: arm64: Renumber remaining vcpu guest configuration flags
-In-Reply-To: <20241128123515.1709777-16-tabba@google.com>
-References: <20241128123515.1709777-1-tabba@google.com>
-	<20241128123515.1709777-16-tabba@google.com>
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2] KVM: arm/arm64: vgic-its: Add error handling in vgic_its_cache_translation
+In-Reply-To: <20241130144952.23729-1-keisuke.nishimura@inria.fr>
+References: <20241130144952.23729-1-keisuke.nishimura@inria.fr>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, james.clark@linaro.org, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, kristina.martsenko@arm.com
+X-SA-Exim-Rcpt-To: keisuke.nishimura@inria.fr, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_050001_333755_63611339 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20241201_051638_263682_9C299627 
+X-CRM114-Status: GOOD (  24.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,42 +87,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Nov 2024 12:35:15 +0000,
-Fuad Tabba <tabba@google.com> wrote:
+On Sat, 30 Nov 2024 14:49:53 +0000,
+Keisuke Nishimura <keisuke.nishimura@inria.fr> wrote:
 > 
-> With the vcpu's SVE and PtrAuth configuration flags removed,
-> there are gaps in the numbering of the cflag bits. Renumber
-> VCPU_INITIALIZED to bit 0 to remove the gaps.
+> The return value of xa_store() needs to be checked. This fix adds an
+> error handling path that resolves the kref inconsistency on failure. As
+> suggested by Oliver Upton, this function does not return the error code
+> intentionally because the translation cache is best effort.
 > 
-> No functional change intended.
-> 
-> Signed-off-by: Fuad Tabba <tabba@google.com>
+> Fixes: 8201d1028caa ("KVM: arm64: vgic-its: Maintain a translation cache per ITS")
+> Signed-off-by: Keisuke Nishimura <keisuke.nishimura@inria.fr>
 > ---
->  arch/arm64/include/asm/kvm_host.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+>  arch/arm64/kvm/vgic/vgic-its.c | 12 +++++++++++-
+>  1 file changed, 11 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index c5c80c789ad0..2e4afec09728 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -864,10 +864,10 @@ struct kvm_vcpu_arch {
->  #define vcpu_set_flag(v, ...)	__vcpu_set_flag((v), __VA_ARGS__)
->  #define vcpu_clear_flag(v, ...)	__vcpu_clear_flag((v), __VA_ARGS__)
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index 198296933e7e..a08835d00aba 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -573,12 +573,22 @@ static void vgic_its_cache_translation(struct kvm *kvm, struct vgic_its *its,
+>  	lockdep_assert_held(&its->its_lock);
+>  	vgic_get_irq_kref(irq);
 >  
-> +/* KVM_ARM_VCPU_INIT completed */
-> +#define VCPU_INITIALIZED	__vcpu_single_flag(cflags, BIT(0))
->  /* SVE config completed */
->  #define VCPU_SVE_FINALIZED	__vcpu_single_flag(cflags, BIT(1))
-> -/* KVM_ARM_VCPU_INIT completed */
-> -#define VCPU_INITIALIZED	__vcpu_single_flag(cflags, BIT(3))
->  
->  /* Exception pending */
->  #define PENDING_EXCEPTION	__vcpu_single_flag(iflags, BIT(0))
+> +	old = xa_store(&its->translation_cache, cache_key, irq, GFP_KERNEL_ACCOUNT);
+> +
+> +	/*
+> +	 * Put the reference taken on @irq if the store fails. Intentionally do
+> +	 * not return the error as the translation cache is best effort.
+> +	 */
+> +	if (xa_is_err(old)) {
+> +		vgic_put_irq(kvm, irq);
+> +		return;
+> +	}
+> +
+>  	/*
+>  	 * We could have raced with another CPU caching the same
+>  	 * translation behind our back, ensure we don't leak a
+>  	 * reference if that is the case.
+>  	 */
+> -	old = xa_store(&its->translation_cache, cache_key, irq, GFP_KERNEL_ACCOUNT);
+>  	if (old)
+>  		vgic_put_irq(kvm, old);
+>  }
 
-Please fold this with the relevant patches, even if that makes two
-consecutive renumbering patches.
-
-Thanks,
+Suggested-by: Oliver Upton <oliver.upton@linux.dev>
+Acked-by: Marc Zyngier <maz@kernel.org>
 
 	M.
 
