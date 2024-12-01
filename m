@@ -4,74 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29908E66897
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Dec 2024 09:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26EF8D49762
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Dec 2024 11:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/toIsg8Zgx53kHKfDONIOl6KM2f6MMBkKmQrSfxE9n4=; b=xlLSFb+YRYy8OY7lK3Vednd8HD
-	DhN4zFfhi+2xwEH/04FDD8MqNxhJE1Biufaol0GzHwmPm12tOjZaupnjZLjspMVIVUdpbRB23m4Az
-	7SPloD/V34/uj5jEBK4nr9rEyqLChJJlCqHZ9pJmvOmxVxURVn5wV8arkA/YTa6eYsH8AtLcA6FTD
-	uXRLgM8X8epCafQkmXTphu+12NJFPKgH6T7vgvGlTBGzaJnNj0x0ZmHJBZTkteS1cRN9CTkofefZE
-	hc/qPgZkgNYcBDCZxvSi2meHRqBRClHKXLBgEF8ihahSJvx/En+peRabfGaEzmlznhSyvOAk69pWf
-	v3BEeYkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WDyHPlNEUnQgzVFHMrpiQsLtL9Qxe5uHkWbmpd0Bcaw=; b=l1evpNlUxgkoeaiXCwkOA3G/+0
+	Oh4nCT2Qudli/uhYFNL3S5vxgA0USDVKd8eTdoU3U8LndWsNsKgzyfN0aN02KjfR0rx90uCPmEL0q
+	o7WWIZzfrMszRVAESUzHnQplBW1pcgXgnwO/XuQ9Y9D2vv4mSc5e0azfvIsE9np2WyRu5QjNhJ7B0
+	M8toaVXDBp6/0qUiwYSqKLTr//43b4bfmRm2VKnXsnN4izPL+KuVt4f4PIuOFAfkjFrMh3/hJ9tyL
+	tYkBTUQnUR86zml6GZVF/KIndk3APAl2I025t2JQSG5+770dhWGqGfrvhuC8fLiz9JEBeCVIo01ON
+	juX6b6ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHgFU-00000003F5G-23xO;
-	Sun, 01 Dec 2024 09:28:16 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tHi0D-00000003LwR-3gAn;
+	Sun, 01 Dec 2024 11:20:38 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHgEV-00000003F0M-1sZA
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Dec 2024 09:27:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 25C52A405AF;
-	Sun,  1 Dec 2024 09:25:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47036C4CECF;
-	Sun,  1 Dec 2024 09:27:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733045233;
-	bh=zcbZ5C94UpyjRTNgMJYOeQ/XAomR1B1C5ovJjWWHEAg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=IneNPRJqcK80axyt5a+U/ificQI1XoBtFYspojqZP9+i+APgwkD/I4jWp11jOGKSA
-	 gCbtcZcFuGRU0JgswHdE6UleDFdN8rSZyXOt2Z9U++ocuaqye2KBUXLBnpjMwueR5q
-	 pfxAsoFrSZvP2L6n0Ha2DZAFbHNBpoRomt81ip7zMY0oWXI3QKm8yTFnQYn5otqgNs
-	 3Fw40Qm2RCilaGF9q+kEIq3gTR6MRhEpZQdVlazf6LnJbghXwtRdAOTNQAasfSmrXh
-	 0f9gZ52n2dAoGxJxyxzbkhymbVOWOEyq4aK/THaMPWOZeAOM3fN5+t4OAQHnbZ7f00
-	 hDE2ApTEpcudw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tHgEQ-00H3r2-Uw;
-	Sun, 01 Dec 2024 09:27:11 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Mike Rapoport <rppt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Zi Yan <ziy@nvidia.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] arch_numa: Restore nid checks before registering a memblock with a node
-Date: Sun,  1 Dec 2024 09:27:02 +0000
-Message-Id: <20241201092702.3792845-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	id 1tHhzE-00000003Lnr-1f7h;
+	Sun, 01 Dec 2024 11:19:37 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1733051975;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WDyHPlNEUnQgzVFHMrpiQsLtL9Qxe5uHkWbmpd0Bcaw=;
+	b=ZwIwIPeWzc5fJpnBy3tPkmLGRBSLhA0IhvVbKfuB3pCaqDtPBSoXPSSPzHJj5lqePQJXZh
+	saw2tyB35caaY1WRFOOTDakG87Rac2CiBdgcnEsVaETGUZ2LIkmO1J6YwGTSL60CTVkkH8
+	UPQytJ5nue8MzA2ECyCa5/jfb7zj3bdluniKiU5Dg6qFv7r0CF0BTSTzCVR2/kbHECM+qi
+	2dm1pSbgrZliexsj8Vvshwtgchh9EWLqZOT6d2lnwBtk5lNDOLeJPTs/ncJW8sQH6Q4ezl
+	X9WB+Csibt8PBhXoLKo6jpbXp4JW7Odw5JyXpzF67j4AGfJ9SoYaAWroXh/eFg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1733051975;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WDyHPlNEUnQgzVFHMrpiQsLtL9Qxe5uHkWbmpd0Bcaw=;
+	b=Qpo34jtob1LbosMBtAl47/xmhuQNsC1tJXAj85I8Uxf5h6BuaXY+7PhCcNAx7cLLndI2rx
+	VgnJuardsEMXGrDw==
+To: "Farber, Eliav" <farbere@amazon.com>, "linux@armlinux.org.uk"
+ <linux@armlinux.org.uk>, "catalin.marinas@arm.com"
+ <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+ "mpe@ellerman.id.au" <mpe@ellerman.id.au>, "npiggin@gmail.com"
+ <npiggin@gmail.com>, "christophe.leroy@csgroup.eu"
+ <christophe.leroy@csgroup.eu>, "naveen@kernel.org" <naveen@kernel.org>,
+ "maddy@linux.ibm.com" <maddy@linux.ibm.com>, "paul.walmsley@sifive.com"
+ <paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "ebiederm@xmission.com"
+ <ebiederm@xmission.com>, "akpm@linux-foundation.org"
+ <akpm@linux-foundation.org>, "bhe@redhat.com" <bhe@redhat.com>,
+ "hbathini@linux.ibm.com" <hbathini@linux.ibm.com>,
+ "sourabhjain@linux.ibm.com" <sourabhjain@linux.ibm.com>,
+ "adityag@linux.ibm.com" <adityag@linux.ibm.com>,
+ "songshuaishuai@tinylab.org" <songshuaishuai@tinylab.org>,
+ "takakura@valinux.co.jp" <takakura@valinux.co.jp>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
+ <linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
+ <linux-riscv@lists.infradead.org>, "kexec@lists.infradead.org"
+ <kexec@lists.infradead.org>, Marc Zyngier <maz@kernel.org>
+Cc: "Chocron, Jonathan" <jonnyc@amazon.com>
+Subject: RE: [PATCH v4 1/2] kexec: Consolidate
+ machine_kexec_mask_interrupts() implementation
+In-Reply-To: <cd8809e379dc4dd089350ec2d1f8c210@amazon.com>
+References: <cd8809e379dc4dd089350ec2d1f8c210@amazon.com>
+Date: Sun, 01 Dec 2024 12:19:34 +0100
+Message-ID: <87frn7wszd.ffs@tglx>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, rppt@kernel.org, catalin.marinas@arm.com, will@kernel.org, ziy@nvidia.com, dan.j.williams@intel.com, david@redhat.com, akpm@linux-foundation.org, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_012715_618438_95BE0B54 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20241201_031936_573594_FDDE4E78 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,102 +95,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 767507654c22 ("arch_numa: switch over to numa_memblks")
-significantly cleaned up the NUMA registration code, but also
-dropped a significant check that was refusing to accept to
-configure a memblock with an invalid nid.
+On Sat, Nov 30 2024 at 20:08, Eliav Farber wrote:
+> On 11/29/2024 3:30 PM, Thomas Gleixner wrote:
+>> Looking deeper. This function actually cannot be called from this
+>> context. It does:
+>>
+>>           irq_get_desc_buslock(irq, &flags, 0);
+>>
+>> which means for any interrupt which has an actual buslock implementation
+>> it will end up in a sleepable function and deadlock in the worst case.
+>>
+>> Marc?
+> I will wait for Marc's response regarding this issue.
+> Regardless, if any changes are required, I believe it would be better
+> to address them in a separate patch, as this behavior existed before my
+> modification.
 
-On "quality hardware" such as my ThunderX machine, this results
-in a kernel that dies immediately:
-
-[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x431f0a10]
-[    0.000000] Linux version 6.12.0-00013-g8920d74cf8db (maz@valley-girl) (gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #3872 SMP PREEMPT Wed Nov 27 15:25:49 GMT 2024
-[    0.000000] KASLR disabled due to lack of seed
-[    0.000000] Machine model: Cavium ThunderX CN88XX board
-[    0.000000] efi: EFI v2.4 by American Megatrends
-[    0.000000] efi: ESRT=0xffce0ff18 SMBIOS 3.0=0xfffb0000 ACPI 2.0=0xffec60000 MEMRESERVE=0xffc905d98
-[    0.000000] esrt: Reserving ESRT space from 0x0000000ffce0ff18 to 0x0000000ffce0ff50.
-[    0.000000] earlycon: pl11 at MMIO 0x000087e024000000 (options '115200n8')
-[    0.000000] printk: legacy bootconsole [pl11] enabled
-[    0.000000] NODE_DATA(0) allocated [mem 0xff6754580-0xff67566bf]
-[    0.000000] Unable to handle kernel paging request at virtual address 0000000000001d40
-[    0.000000] Mem abort info:
-[    0.000000]   ESR = 0x0000000096000004
-[    0.000000]   EC = 0x25: DABT (current EL), IL = 32 bits
-[    0.000000]   SET = 0, FnV = 0
-[    0.000000]   EA = 0, S1PTW = 0
-[    0.000000]   FSC = 0x04: level 0 translation fault
-[    0.000000] Data abort info:
-[    0.000000]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-[    0.000000]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-[    0.000000]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-[    0.000000] [0000000000001d40] user address but active_mm is swapper
-[    0.000000] Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
-[    0.000000] Modules linked in:
-[    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.12.0-00013-g8920d74cf8db #3872
-[    0.000000] Hardware name: Cavium ThunderX CN88XX board (DT)
-[    0.000000] pstate: a00000c5 (NzCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[    0.000000] pc : sparse_init_nid+0x54/0x428
-[    0.000000] lr : sparse_init+0x118/0x240
-[    0.000000] sp : ffff800081da3cb0
-[    0.000000] x29: ffff800081da3cb0 x28: 0000000fedbab10c x27: 0000000000000001
-[    0.000000] x26: 0000000ffee250f8 x25: 0000000000000001 x24: ffff800082102cd0
-[    0.000000] x23: 0000000000000001 x22: 0000000000000000 x21: 00000000001fffff
-[    0.000000] x20: 0000000000000001 x19: 0000000000000000 x18: ffffffffffffffff
-[    0.000000] x17: 0000000001b00000 x16: 0000000ffd130000 x15: 0000000000000000
-[    0.000000] x14: 00000000003e0000 x13: 00000000000001c8 x12: 0000000000000014
-[    0.000000] x11: ffff800081e82860 x10: ffff8000820fb2c8 x9 : ffff8000820fb490
-[    0.000000] x8 : 0000000000ffed20 x7 : 0000000000000014 x6 : 00000000001fffff
-[    0.000000] x5 : 00000000ffffffff x4 : 0000000000000000 x3 : 0000000000000000
-[    0.000000] x2 : 0000000000000000 x1 : 0000000000000040 x0 : 0000000000000007
-[    0.000000] Call trace:
-[    0.000000]  sparse_init_nid+0x54/0x428
-[    0.000000]  sparse_init+0x118/0x240
-[    0.000000]  bootmem_init+0x70/0x1c8
-[    0.000000]  setup_arch+0x184/0x270
-[    0.000000]  start_kernel+0x74/0x670
-[    0.000000]  __primary_switched+0x80/0x90
-[    0.000000] Code: f865d804 d37df060 cb030000 d2800003 (b95d4084)
-[    0.000000] ---[ end trace 0000000000000000 ]---
-[    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
-[    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
-
-while previous kernel versions were able to recognise how brain-damaged
-the machine is, and only build a fake node.
-
-Use the memblock_validate_numa_coverage() helper to restore some sanity
-and a "working" system.
-
-Fixes: 767507654c22 ("arch_numa: switch over to numa_memblks")
-Suggested-by: Mike Rapoport <rppt@kernel.org>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Zi Yan <ziy@nvidia.com>
-Cc: Dan Williams <dan.j.williams@intel.com>
-Cc: David Hildenbrand <david@redhat.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: stable@vger.kernel.org
----
- drivers/base/arch_numa.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
-index e187016764265..c63a72a1fed64 100644
---- a/drivers/base/arch_numa.c
-+++ b/drivers/base/arch_numa.c
-@@ -208,6 +208,10 @@ static int __init numa_register_nodes(void)
- {
- 	int nid;
- 
-+	/* Check the validity of the memblock/node mapping */
-+	if (!memblock_validate_numa_coverage(1))
-+		return -EINVAL;
-+
- 	/* Finally register nodes. */
- 	for_each_node_mask(nid, numa_nodes_parsed) {
- 		unsigned long start_pfn, end_pfn;
--- 
-2.39.2
-
+Correct.
 
