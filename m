@@ -4,65 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 386EFD4976C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Dec 2024 12:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70FF1D4976C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Dec 2024 13:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=coTfCe4E/7EEBOzGQYEOP4Dd1hRlPcIszUHgSsDloAo=; b=0kXtlF2bC7uOcFhBuIHxKQ0hWl
-	3N6L1fGYlreYQB60QajtHKrEu/9TFBR1PPpdWne4bmU62+0bBfs4yvlswhoV3MKw7j31bG1SIIgm5
-	dJAup+EkAFb+lvMzcSHOyEpuTMJDSIjr6ovuJTbl3/ikBT3d9WmtW5rprK2yRi9L9BQv1o2WNS6y8
-	KbS2lONTjC9aXQTyrjs/7cFnrskW4emStbX7wxplnDa3WPGYBGrdJAp3E71OOnw+Fg/M6rkjLj0x6
-	2u/CwXe3Tqj9unvXTl4VdDS0WHMcSPsVD6L2yaxLVUxcWsNe3hG1JIjmgxGhUFunl4ysRoCCJK9Ny
-	s0FGfjwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VCWe9s/rHKwl9TLavRjv7zCjd8Sk3fGBB4AxvmB6cFA=; b=1TuHaO6pA6NSWyS3pK1MF8Rgpk
+	SECNeg5XUs9D5P74anLaoybfSSkAaDDJm4UromXiM+vx+ch87qx/LyQhc7vC/Tu2S2g614n5DNdbo
+	YoLkznS6cQThZSqwToHVRW+cfwC2QVLgtS5xz2nxY+peS5YM4SlYVZIXXPGPf19en92Me1iuLE1Si
+	RXlA3EFxwCRcxw8wEfAX2BsIzjfBVcgQl3QD3e54WAIuX5++AgPN25kcGA2IQ1/msfz0R1CR/QwV8
+	gk8YR8ycQWVAURa4XLA9VMFwXIc1K1EXSzJz7RgXUakaooqgxW+bFzm9tIPEQi0YzEG5jnT/G/GHE
+	M6eLjmkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHjV0-00000003S7x-3QoC;
-	Sun, 01 Dec 2024 12:56:30 +0000
+	id 1tHjYF-00000003Sai-2UAZ;
+	Sun, 01 Dec 2024 12:59:51 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHjU1-00000003S0L-3Hoq
+	id 1tHjXG-00000003SSe-341G
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Dec 2024 12:55:30 +0000
+	Sun, 01 Dec 2024 12:58:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3BFA05C578F;
-	Sun,  1 Dec 2024 12:54:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29958C4CECF;
-	Sun,  1 Dec 2024 12:55:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1FFF05C5FAD;
+	Sun,  1 Dec 2024 12:58:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE660C4CED2;
+	Sun,  1 Dec 2024 12:58:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733057728;
-	bh=+wExzTFQM8nAve73xnTS4Dc8Iv9ma5WmvnqKO14ZKkw=;
+	s=k20201202; t=1733057929;
+	bh=K5HxLjFhSeqkuLos2FkxO1o76r5WteSqxvKnLCqq5sg=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=EjKm+X5TsDeRu2LYkynq7HbezMY9D1Jk2/dOPBpl6uEJBT1tzmMNhIhhegG+hJv9u
-	 DAlafUYOu0MoHnwTMutTGPsYZIWDeyxBl3jZ+wugs3WZlf8bfSnedW8Hfu2WhhnP3m
-	 ydKWaRVxMLcnw5rRpW808yU0ijQ0lwjfbxHIxiVQ2zEpecJoJibgbL6uVhEvA5mh48
-	 88Gx67Fa/PI26uGXTcEa6klm4/OUi+JKGe4OOkXcVoxdvU855bxs6YSyua9HY+6liM
-	 Ya8cgOu1xCPZem0yE9MDAc/GBg/VB3pDI8SevKl6WqwEmWU+MRc34/mMGfhNt0apLz
-	 fbFYs6Bhf9UkA==
-Date: Sun, 1 Dec 2024 12:55:18 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Cc: dlechner@baylibre.com, lars@metafoo.de, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, u.kleine-koenig@baylibre.com,
- tgamblin@baylibre.com, fabrice.gasnier@st.com,
- benjamin.gaignard@linaro.org, lee@kernel.org, linux-iio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5] iio: trigger: stm32-timer-trigger: Add check for
- clk_enable()
-Message-ID: <20241201125518.29373281@jic23-huawei>
-In-Reply-To: <20241123220149.30655-1-jiashengjiangcool@gmail.com>
-References: <20241123220149.30655-1-jiashengjiangcool@gmail.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
+	b=YBdWhTKtrRzSZg7iiPmUQ5mP6g7L6pgnSwZFJmAN3jg5pDRr/T3wSL8Va9snHqycT
+	 mBHFSVjuUPcZUaatdYhje/M6zZySThO/gZZInoUD2HekUl0DlL9JGVTFRzDpS6hmSY
+	 ItgSdw3LeYeu0SAveyPJ2YVryW07CjJGKTFfJkUIl3B4oURUbax88aeBsneWHmsxp8
+	 MkQ8coGeFcCqKcxd4+SMcbrincLUcGd5XrbHMooODI9s8QQ4TLlpm6UaS+g4zYW3Dr
+	 qA1HGqwyT6lLBcRkpglzIHD6QnfP6OPiH+rli1EXbshfT/tKJXrX3ZJSaEYC8P8g4I
+	 OmiZbSEahARoQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tHjXD-00H5cV-GZ;
+	Sun, 01 Dec 2024 12:58:47 +0000
+Date: Sun, 01 Dec 2024 12:58:47 +0000
+Message-ID: <864j3nv9tk.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oliver.upton@linux.dev,
+	james.clark@linaro.org,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	broonie@kernel.org,
+	qperret@google.com,
+	kristina.martsenko@arm.com
+Subject: Re: [PATCH v3 14/15] KVM: arm64: Convert the SVE guest vcpu flag to a vm flag
+In-Reply-To: <20241128123515.1709777-15-tabba@google.com>
+References: <20241128123515.1709777-1-tabba@google.com>
+	<20241128123515.1709777-15-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, james.clark@linaro.org, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, kristina.martsenko@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_045529_935493_5241D063 
-X-CRM114-Status: GOOD (  25.72  )
+X-CRM114-CacheID: sfid-20241201_045850_858611_5CD5B885 
+X-CRM114-Status: GOOD (  24.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,178 +94,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 23 Nov 2024 22:01:49 +0000
-Jiasheng Jiang <jiashengjiangcool@gmail.com> wrote:
-
-> Add check for the return value of clk_enable() in order to catch the
-> potential exception.
+On Thu, 28 Nov 2024 12:35:14 +0000,
+Fuad Tabba <tabba@google.com> wrote:
 > 
-> Reviewed-by: David Lechner <dlechner@baylibre.com>
-> Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Applied.
-
-thanks,
-
-Jonathan
-
+> The vcpu flag GUEST_HAS_SVE is per-vcpu, but it is based on what
+> is now a per-vm feature. Make the flag per-vm.
+> 
+> Signed-off-by: Fuad Tabba <tabba@google.com>
 > ---
-> Changelog:
+>  arch/arm64/include/asm/kvm_emulate.h    |  6 +++---
+>  arch/arm64/include/asm/kvm_host.h       | 10 ++++++----
+>  arch/arm64/kvm/hyp/include/hyp/switch.h |  2 +-
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  2 +-
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c          | 11 +++++++----
+>  arch/arm64/kvm/hyp/nvhe/switch.c        |  8 ++++----
+>  arch/arm64/kvm/hyp/vhe/switch.c         |  2 +-
+>  arch/arm64/kvm/reset.c                  |  2 +-
+>  8 files changed, 24 insertions(+), 19 deletions(-)
 > 
-> v4 -> v5:
-> 
-> 1. Add a default in the switch.
-> 
-> v3 -> v4:
-> 
-> 1. Place braces around the case body.
-> 
-> v2 -> v3:
-> 
-> 1. Use guard() to simplify the resulting code.
-> 
-> v1 -> v2:
-> 
-> 1. Remove unsuitable dev_err_probe().
-> ---
->  drivers/iio/trigger/stm32-timer-trigger.c | 49 ++++++++++++++---------
->  1 file changed, 29 insertions(+), 20 deletions(-)
-> 
-> diff --git a/drivers/iio/trigger/stm32-timer-trigger.c b/drivers/iio/trigger/stm32-timer-trigger.c
-> index 0684329956d9..67528ec7d0a5 100644
-> --- a/drivers/iio/trigger/stm32-timer-trigger.c
-> +++ b/drivers/iio/trigger/stm32-timer-trigger.c
-> @@ -119,7 +119,7 @@ static int stm32_timer_start(struct stm32_timer_trigger *priv,
->  			     unsigned int frequency)
->  {
->  	unsigned long long prd, div;
-> -	int prescaler = 0;
-> +	int prescaler = 0, ret;
->  	u32 ccer;
->  
->  	/* Period and prescaler values depends of clock rate */
-> @@ -150,10 +150,12 @@ static int stm32_timer_start(struct stm32_timer_trigger *priv,
->  	if (ccer & TIM_CCER_CCXE)
->  		return -EBUSY;
->  
-> -	mutex_lock(&priv->lock);
-> +	guard(mutex)(&priv->lock);
->  	if (!priv->enabled) {
->  		priv->enabled = true;
-> -		clk_enable(priv->clk);
-> +		ret = clk_enable(priv->clk);
-> +		if (ret)
-> +			return ret;
->  	}
->  
->  	regmap_write(priv->regmap, TIM_PSC, prescaler);
-> @@ -173,7 +175,6 @@ static int stm32_timer_start(struct stm32_timer_trigger *priv,
->  
->  	/* Enable controller */
->  	regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN);
-> -	mutex_unlock(&priv->lock);
->  
->  	return 0;
->  }
-> @@ -307,7 +308,7 @@ static ssize_t stm32_tt_store_master_mode(struct device *dev,
->  	struct stm32_timer_trigger *priv = dev_get_drvdata(dev);
->  	struct iio_trigger *trig = to_iio_trigger(dev);
->  	u32 mask, shift, master_mode_max;
-> -	int i;
-> +	int i, ret;
->  
->  	if (stm32_timer_is_trgo2_name(trig->name)) {
->  		mask = TIM_CR2_MMS2;
-> @@ -322,15 +323,16 @@ static ssize_t stm32_tt_store_master_mode(struct device *dev,
->  	for (i = 0; i <= master_mode_max; i++) {
->  		if (!strncmp(master_mode_table[i], buf,
->  			     strlen(master_mode_table[i]))) {
-> -			mutex_lock(&priv->lock);
-> +			guard(mutex)(&priv->lock);
->  			if (!priv->enabled) {
->  				/* Clock should be enabled first */
->  				priv->enabled = true;
-> -				clk_enable(priv->clk);
-> +				ret = clk_enable(priv->clk);
-> +				if (ret)
-> +					return ret;
->  			}
->  			regmap_update_bits(priv->regmap, TIM_CR2, mask,
->  					   i << shift);
-> -			mutex_unlock(&priv->lock);
->  			return len;
->  		}
->  	}
-> @@ -482,6 +484,7 @@ static int stm32_counter_write_raw(struct iio_dev *indio_dev,
->  				   int val, int val2, long mask)
->  {
->  	struct stm32_timer_trigger *priv = iio_priv(indio_dev);
-> +	int ret;
->  
->  	switch (mask) {
->  	case IIO_CHAN_INFO_RAW:
-> @@ -491,12 +494,14 @@ static int stm32_counter_write_raw(struct iio_dev *indio_dev,
->  		/* fixed scale */
->  		return -EINVAL;
->  
-> -	case IIO_CHAN_INFO_ENABLE:
-> -		mutex_lock(&priv->lock);
-> +	case IIO_CHAN_INFO_ENABLE: {
-> +		guard(mutex)(&priv->lock);
->  		if (val) {
->  			if (!priv->enabled) {
->  				priv->enabled = true;
-> -				clk_enable(priv->clk);
-> +				ret = clk_enable(priv->clk);
-> +				if (ret)
-> +					return ret;
->  			}
->  			regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN);
->  		} else {
-> @@ -506,11 +511,12 @@ static int stm32_counter_write_raw(struct iio_dev *indio_dev,
->  				clk_disable(priv->clk);
->  			}
->  		}
-> -		mutex_unlock(&priv->lock);
-> +
->  		return 0;
->  	}
-> -
-> -	return -EINVAL;
-> +	default:
-> +		return -EINVAL;
-> +	}
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index 406e99a452bf..ae6d0dc0e4ff 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -620,7 +620,7 @@ static __always_inline void kvm_write_cptr_el2(u64 val)
 >  }
 >  
->  static int stm32_counter_validate_trigger(struct iio_dev *indio_dev,
-> @@ -601,7 +607,7 @@ static int stm32_set_enable_mode(struct iio_dev *indio_dev,
->  				 unsigned int mode)
->  {
->  	struct stm32_timer_trigger *priv = iio_priv(indio_dev);
-> -	int sms = stm32_enable_mode2sms(mode);
-> +	int sms = stm32_enable_mode2sms(mode), ret;
->  
->  	if (sms < 0)
->  		return sms;
-> @@ -609,12 +615,15 @@ static int stm32_set_enable_mode(struct iio_dev *indio_dev,
->  	 * Triggered mode sets CEN bit automatically by hardware. So, first
->  	 * enable counter clock, so it can use it. Keeps it in sync with CEN.
->  	 */
-> -	mutex_lock(&priv->lock);
-> -	if (sms == 6 && !priv->enabled) {
-> -		clk_enable(priv->clk);
-> -		priv->enabled = true;
-> +	scoped_guard(mutex, &priv->lock) {
-> +		if (sms == 6 && !priv->enabled) {
-> +			ret = clk_enable(priv->clk);
-> +			if (ret)
-> +				return ret;
-> +
-> +			priv->enabled = true;
-> +		}
->  	}
-> -	mutex_unlock(&priv->lock);
->  
->  	regmap_update_bits(priv->regmap, TIM_SMCR, TIM_SMCR_SMS, sms);
->  
+>  /* Resets the value of cptr_el2 when returning to the host. */
+> -static __always_inline void kvm_reset_cptr_el2(struct kvm_vcpu *vcpu)
+> +static __always_inline void kvm_reset_cptr_el2(struct kvm *kvm)
 
+I'd rather you avoid the resulting churn:
+
+static __always_inline void kvm_reset_cptr_el2(struct kvm_vcpu *vcpu)
+{
+	struct kvm *kvm = kern_hyp_va(vcpu->kvm);
+	[...]
+
+which does the trick at zero cost. It is also more logical to keep the
+vcpu as a parameter, as the per-VM-ness is only an implementation
+detail.
+
+>  {
+>  	u64 val;
+>  
+> @@ -631,14 +631,14 @@ static __always_inline void kvm_reset_cptr_el2(struct kvm_vcpu *vcpu)
+>  	} else if (has_hvhe()) {
+>  		val = CPACR_ELx_FPEN;
+>  
+> -		if (!vcpu_has_sve(vcpu) || !guest_owns_fp_regs())
+> +		if (!kvm_has_sve(kvm) || !guest_owns_fp_regs())
+>  			val |= CPACR_ELx_ZEN;
+>  		if (cpus_have_final_cap(ARM64_SME))
+>  			val |= CPACR_ELx_SMEN;
+>  	} else {
+>  		val = CPTR_NVHE_EL2_RES1;
+>  
+> -		if (vcpu_has_sve(vcpu) && guest_owns_fp_regs())
+> +		if (kvm_has_sve(kvm) && guest_owns_fp_regs())
+>  			val |= CPTR_EL2_TZ;
+>  		if (!cpus_have_final_cap(ARM64_SME))
+>  			val |= CPTR_EL2_TSM;
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 680ecef1d7aa..c5c80c789ad0 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -331,6 +331,8 @@ struct kvm_arch {
+>  #define KVM_ARCH_FLAG_ID_REGS_INITIALIZED		7
+>  	/* Fine-Grained UNDEF initialised */
+>  #define KVM_ARCH_FLAG_FGU_INITIALIZED			8
+> +	/* SVE exposed to guest */
+> +#define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
+>  	unsigned long flags;
+>  
+>  	/* VM-wide vCPU feature set */
+> @@ -862,8 +864,6 @@ struct kvm_vcpu_arch {
+>  #define vcpu_set_flag(v, ...)	__vcpu_set_flag((v), __VA_ARGS__)
+>  #define vcpu_clear_flag(v, ...)	__vcpu_clear_flag((v), __VA_ARGS__)
+>  
+> -/* SVE exposed to guest */
+> -#define GUEST_HAS_SVE		__vcpu_single_flag(cflags, BIT(0))
+>  /* SVE config completed */
+>  #define VCPU_SVE_FINALIZED	__vcpu_single_flag(cflags, BIT(1))
+>  /* KVM_ARM_VCPU_INIT completed */
+> @@ -956,8 +956,10 @@ struct kvm_vcpu_arch {
+>  				 KVM_GUESTDBG_USE_HW | \
+>  				 KVM_GUESTDBG_SINGLESTEP)
+>  
+> -#define vcpu_has_sve(vcpu) (system_supports_sve() &&			\
+> -			    vcpu_get_flag(vcpu, GUEST_HAS_SVE))
+> +#define kvm_has_sve(kvm)	\
+> +	test_bit(KVM_ARCH_FLAG_GUEST_HAS_SVE, &(kvm)->arch.flags)
+> +#define vcpu_has_sve(vcpu)	\
+> +	kvm_has_sve((vcpu)->kvm)
+
+Two things:
+
+- it is definitely worth keeping the system_supports_sve() helper, so
+  that we avoid checking flags for nothing
+
+- Since you preserve the vcpu_has_sve(), how about writing it as:
+
+#ifdef __KVM_NVHE_HYPERVISOR__
+#define vcpu_has_sve(v)		kvm_has_sve(kern_hyp_va((v)->kvm))
+#else
+#define vcpu_has_sve(v)		kvm_has_sve((v)->kvm)
+#endif
+
+  which will avoid the churn in this patch, and makes it hard to get
+  it wrong?
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
