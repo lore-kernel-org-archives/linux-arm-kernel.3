@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7597D78339
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B401ED78339
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RfDzgzrqb3PQdvUxGcRE8wORdNOndMEQsGh5EC4eWtk=; b=sLXn9dqvzFxCQX0vVS60NnzSCl
-	m0CJMb+49yjELra1YkZ/IKLbJmHm+KsNueCr4gr27JsVKfaQX6TL2uCcb07Fl4N1Rg6V45V3xZsGN
-	+ztNYOIu1tpt8Q4VZuVTtB3MXxpxHBexSOBZxbAGeH59TQyR7SRH/rnljxik+BCRgtji1qIiWjwLD
-	tOmY1ANT6CYXmLMPOmwbVm32N/hEjTTldDCxFriU77dW29P77cU0EAsUS5TAA0sbI82xbGIzq8eM8
-	vOr/58u3eT2QOkc1BPv4XXrov8SSuI9RF1XCwL2uZpANzt7DXFn2Am5OZSmxZWofEzItFtqh9y2U8
-	+vDh6ggA==;
+	bh=Px3aMU5Y6YCbaWuFPyuPTWUD9wSZx6wmkm2Yp6OKqIc=; b=FDG9cWqhD97gSNXqKcq7LNu7TK
+	w3cgVmeUNiFGwLvLD962pluP9qz6TbyLZbv/Gybm3r0F08r31/uQF8gRLf6NAdVzTuE81IcXV2E7z
+	MuC3YtaP5zYCqy/16TK0owzFEbcFciP49wpO6cYZLdqkR4riZqZWe1STLz+He6GUWk9YPK+zyXKXx
+	nl2YuXRheSaMU9IikNyu2+S3+RUZTmXkugOrU6eGAPYSKazaIboNwtKj78AhVFsdQEPMDePuIjapQ
+	f8GaOKkPsj9VbEuK//wT0RaY/X8YOwqom7ptgm6Fxq50BAbrn0fgNq5tmEcG496BI/5mtdxelNCFZ
+	mBxf/bnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIACd-000000070jt-0zoH;
-	Mon, 02 Dec 2024 17:27:19 +0000
+	id 1tIADa-000000070rk-3TSr;
+	Mon, 02 Dec 2024 17:28:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIA7u-00000006zze-1qmm
+	id 1tIA7u-00000006zza-1i78
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 02 Dec 2024 17:22:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=RfDzgzrqb3PQdvUxGcRE8wORdNOndMEQsGh5EC4eWtk=; b=LDYQQ/+j1nrSvq4fMwM1+kXimk
-	c9DTm5kNe1BNrmTbFIgcAr1N1hHOxZ9WIH450/ysGed6KfRDu9YKV5Vr79bCIpS9EaHiX2hCYDiTo
-	kB3jBz6ZgHpKoxwwNomZtujrGAJLk64utZQ8b8rdG8TCMlllmGcTJNasVCNtIWum5vm2+YR9It3qB
-	vtIzV2ldzycK1zyLtS36KbfVNqd1SA4JGucfn3vFYQArvofhH3k1BR/YulebWy8XHwCGCdUuP/DWO
-	vUlCJseiWNYwHROL+mIUj6OhFjpDL4mASuMleLxKzevLE/ZbMuzc+Byx6F21a2iGBozSJUuHh414U
-	/nGig0oQ==;
+	bh=Px3aMU5Y6YCbaWuFPyuPTWUD9wSZx6wmkm2Yp6OKqIc=; b=IJ4lN/JJ3zSYNsX8r+lZnujGyl
+	bmAviCQt/iqxXpsLCYlO5rY4zwO7JhYfeMZF4AdCI9RMtIP/0cRXP0JZCmK9zsKnMMkDA1ZbWk5fa
+	nxvrj6SnGjjuXgjYLpDFBxENHaHksD2sgBEZuLuUV4b8FFhVH0E7Fnm3MOLe/3jklubdlhXeHKt8K
+	/DS8m2AJ9i9MrDuu956U0xBCL+zjuAhmc2I6FzBBXSS+mYIZB1HywIarT/pjlkDCm+5pSwKjvlmpY
+	Z0SnpkrM729l7p3UqfBz2T1+MeClkrCsaqWDR7oGoMHhfoe9YkMT6ocFux/3lr4tr+su7XStXVbWM
+	QwPqrlRA==;
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIA7q-00000002D6u-0hNo
+	id 1tIA7p-00000002D6t-3vs7
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Dec 2024 17:22:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 130135C56F6;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0D76A5C567D;
 	Mon,  2 Dec 2024 17:21:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB6BBC4CEE0;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5F1DC4CED9;
 	Mon,  2 Dec 2024 17:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1733160138;
-	bh=/6ehcPZl2b9FxW/6Rj24yU7DtKsnX/BkIYVDARjLPoE=;
+	bh=J7TuCkQQXw+zmd80r09KMLYg2hEdv2a0XVnhIHkAbss=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fud1a6XahjKVbzv4IRn7pjn63JctMk52BEySVB1cxZgVntjdth78Iw/Al9jVAEzXu
-	 YcMz1hSS4iQ4x2AmPlv2yaE8BDZK/TfcXebynLw0TDevjzCRwYACMnT5DHg08SneAF
-	 SMMTkW3CTkpKwKyBYOYsmENY1caJy5BS+ckmdZnlcQIDePJe4b70oy8crbBoW9yCdu
-	 ZgGFVGNUSzQYFgWyoFuGi6rPG+aAfzEhDZN88bGiuYYDf/TZXHqz+UG9DzJYxw0CUF
-	 zsO/cOp9AvDxoeD9kBKzR3Vxrf3iBZ4rnfGaA60HkWK/GaYW50xrlYdFOhngOI5Hx5
-	 B8Y8J5QDDuDxA==
+	b=YdcoHz4iTIJIXtUnsr61yVLJ8PmKBzRNZKiU81xSEL+NiO3t2JPPtc1OrgHlwRyM2
+	 H70RAVFBHtpl9zDZKhpRJ+fuiOtZA6FRkvm+uaiCmJ3X7BUNUdthCi5WC+O/3RKRi/
+	 DL4L04g+IxHM3AwSQM3Y728ZDnBhfc9BRdWUiR4CtQEI728XAnbV+u+Mux3mETLnIT
+	 /glsemXKqWYqIG/6np74nCuk++sZINMLMfc3zrJZCo3K5Up7xgx8jI5b94UmmgO0LL
+	 g9YQa+yKB9sOG53wJcG0NJOBmfms95UZ2KMlPsLaxzQ2UY1LKpCNYgjDJtNwrpERgo
+	 yEdhUutLoqAjQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tIA7k-00HQcf-VF;
-	Mon, 02 Dec 2024 17:22:17 +0000
+	id 1tIA7k-00HQcf-Of;
+	Mon, 02 Dec 2024 17:22:16 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -73,9 +73,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Bjorn Andersson <andersson@kernel.org>,
 	Christoffer Dall <christoffer.dall@arm.com>
-Subject: [PATCH 06/11] KVM: arm64: nv: Acceletate EL0 counter accesses from hypervisor context
-Date: Mon,  2 Dec 2024 17:21:29 +0000
-Message-Id: <20241202172134.384923-7-maz@kernel.org>
+Subject: [PATCH 05/11] KVM: arm64: nv: Accelerate EL0 timer read accesses when FEAT_ECV in use
+Date: Mon,  2 Dec 2024 17:21:28 +0000
+Message-Id: <20241202172134.384923-6-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241202172134.384923-1-maz@kernel.org>
 References: <20241202172134.384923-1-maz@kernel.org>
@@ -86,8 +86,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_172222_507017_3B688C05 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20241202_172222_299500_AD894DBE 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,70 +102,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similarly to handling the physical timer accesses early when FEAT_ECV
-causes a trap, we try to handle the physical counter without returning
-to the general sysreg handling.
+Although FEAT_ECV allows us to correctly emulate the timers, it also
+reduces performances pretty badly.
 
-More surprisingly, we introduce something similar for the virtual
-counter. Although this isn't necessary yet, it will prove useful on
-systems that have a broken CNTVOFF_EL2 implementation. Yes, they exist.
-
-Special care is taken to offset reads of the counter with the host's
-CNTPOFF_EL2, as we perform this with TGE clear.
+Mitigate this by emulating the CTL/CVAL register reads in the
+inner run loop, without returning to the general kernel.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/hyp/switch.h |  5 +++++
- arch/arm64/kvm/hyp/vhe/switch.c         | 13 +++++++++++++
- 2 files changed, 18 insertions(+)
+ arch/arm64/kvm/arch_timer.c     | 15 -------
+ arch/arm64/kvm/hyp/vhe/switch.c | 71 +++++++++++++++++++++++++++++++++
+ include/kvm/arm_arch_timer.h    | 15 +++++++
+ 3 files changed, 86 insertions(+), 15 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 34f53707892df..30e572de28749 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -501,6 +501,11 @@ static inline bool handle_tx2_tvm(struct kvm_vcpu *vcpu)
- 	return true;
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index c9a46d34b40cf..2c4499dd63732 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -101,21 +101,6 @@ u64 timer_get_cval(struct arch_timer_context *ctxt)
+ 	}
  }
  
-+static inline u64 compute_counter_value(struct arch_timer_context *ctxt)
-+{
-+	return arch_timer_read_cntpct_el0() - timer_get_offset(ctxt);
-+}
-+
- static bool kvm_hyp_handle_cntpct(struct kvm_vcpu *vcpu)
+-static u64 timer_get_offset(struct arch_timer_context *ctxt)
+-{
+-	u64 offset = 0;
+-
+-	if (!ctxt)
+-		return 0;
+-
+-	if (ctxt->offset.vm_offset)
+-		offset += *ctxt->offset.vm_offset;
+-	if (ctxt->offset.vcpu_offset)
+-		offset += *ctxt->offset.vcpu_offset;
+-
+-	return offset;
+-}
+-
+ static void timer_set_ctl(struct arch_timer_context *ctxt, u32 ctl)
  {
- 	struct arch_timer_context *ctxt;
+ 	struct kvm_vcpu *vcpu = ctxt->vcpu;
 diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index b014b0b10bf5d..49815a8a4c9bc 100644
+index 80581b1c39959..b014b0b10bf5d 100644
 --- a/arch/arm64/kvm/hyp/vhe/switch.c
 +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -296,6 +296,13 @@ static bool kvm_hyp_handle_timer(struct kvm_vcpu *vcpu, u64 *exit_code)
- 			val = __vcpu_sys_reg(vcpu, CNTP_CVAL_EL0);
- 		}
- 		break;
-+	case SYS_CNTPCT_EL0:
-+	case SYS_CNTPCTSS_EL0:
-+		/* If !ELIsInHost(EL0), the guest's CNTPOFF_EL2 applies */
-+		val = compute_counter_value(!(vcpu_el2_e2h_is_set(vcpu) &&
-+					      vcpu_el2_tge_is_set(vcpu)) ?
-+					    vcpu_ptimer(vcpu) : vcpu_hptimer(vcpu));
+@@ -256,6 +256,74 @@ void kvm_vcpu_put_vhe(struct kvm_vcpu *vcpu)
+ 	host_data_ptr(host_ctxt)->__hyp_running_vcpu = NULL;
+ }
+ 
++static bool kvm_hyp_handle_timer(struct kvm_vcpu *vcpu, u64 *exit_code)
++{
++	u64 esr, val;
++
++	/*
++	 * Having FEAT_ECV allows for a better quality of timer emulation.
++	 * However, this comes at a huge cost in terms of traps. Try and
++	 * satisfy the reads from guest's hypervisor context without
++	 * returning to the kernel if we can.
++	 */
++	if (!is_hyp_ctxt(vcpu))
++		return false;
++
++	esr = kvm_vcpu_get_esr(vcpu);
++	if ((esr & ESR_ELx_SYS64_ISS_DIR_MASK) != ESR_ELx_SYS64_ISS_DIR_READ)
++		return false;
++
++	switch (esr_sys64_to_sysreg(esr)) {
++	case SYS_CNTP_CTL_EL02:
++		val = __vcpu_sys_reg(vcpu, CNTP_CTL_EL0);
 +		break;
- 	case SYS_CNTV_CTL_EL02:
- 		val = __vcpu_sys_reg(vcpu, CNTV_CTL_EL0);
- 		break;
-@@ -314,6 +321,12 @@ static bool kvm_hyp_handle_timer(struct kvm_vcpu *vcpu, u64 *exit_code)
- 		else
- 			val = __vcpu_sys_reg(vcpu, CNTV_CVAL_EL0);
- 		break;
-+	case SYS_CNTVCT_EL0:
-+	case SYS_CNTVCTSS_EL0:
-+		/* If !ELIsInHost(EL2), the guest's CNTVOFF_EL2 applies */
-+		val = compute_counter_value(!vcpu_el2_e2h_is_set(vcpu) ?
-+					    vcpu_vtimer(vcpu) : vcpu_hvtimer(vcpu));
++	case SYS_CNTP_CTL_EL0:
++		if (vcpu_el2_e2h_is_set(vcpu))
++			val = read_sysreg_el0(SYS_CNTP_CTL);
++		else
++			val = __vcpu_sys_reg(vcpu, CNTP_CTL_EL0);
 +		break;
- 	default:
- 		return false;
- 	}
++	case SYS_CNTP_CVAL_EL02:
++		val = __vcpu_sys_reg(vcpu, CNTP_CVAL_EL0);
++		break;
++	case SYS_CNTP_CVAL_EL0:
++		if (vcpu_el2_e2h_is_set(vcpu)) {
++			val = read_sysreg_el0(SYS_CNTP_CVAL);
++
++			if (!has_cntpoff())
++				val -= timer_get_offset(vcpu_hptimer(vcpu));
++		} else {
++			val = __vcpu_sys_reg(vcpu, CNTP_CVAL_EL0);
++		}
++		break;
++	case SYS_CNTV_CTL_EL02:
++		val = __vcpu_sys_reg(vcpu, CNTV_CTL_EL0);
++		break;
++	case SYS_CNTV_CTL_EL0:
++		if (vcpu_el2_e2h_is_set(vcpu))
++			val = read_sysreg_el0(SYS_CNTV_CTL);
++		else
++			val = __vcpu_sys_reg(vcpu, CNTV_CTL_EL0);
++		break;
++	case SYS_CNTV_CVAL_EL02:
++		val = __vcpu_sys_reg(vcpu, CNTV_CVAL_EL0);
++		break;
++	case SYS_CNTV_CVAL_EL0:
++		if (vcpu_el2_e2h_is_set(vcpu))
++			val = read_sysreg_el0(SYS_CNTV_CVAL);
++		else
++			val = __vcpu_sys_reg(vcpu, CNTV_CVAL_EL0);
++		break;
++	default:
++		return false;
++	}
++
++	vcpu_set_reg(vcpu, kvm_vcpu_sys_get_rt(vcpu), val);
++	__kvm_skip_instr(vcpu);
++
++	return true;
++}
++
+ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
+ {
+ 	u64 esr = kvm_vcpu_get_esr(vcpu);
+@@ -409,6 +477,9 @@ static bool kvm_hyp_handle_sysreg_vhe(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 	if (kvm_hyp_handle_tlbi_el2(vcpu, exit_code))
+ 		return true;
+ 
++	if (kvm_hyp_handle_timer(vcpu, exit_code))
++		return true;
++
+ 	if (kvm_hyp_handle_cpacr_el1(vcpu, exit_code))
+ 		return true;
+ 
+diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
+index 6e3f6b7ff2b22..c1ba31fab6f52 100644
+--- a/include/kvm/arm_arch_timer.h
++++ b/include/kvm/arm_arch_timer.h
+@@ -156,4 +156,19 @@ static inline bool has_cntpoff(void)
+ 	return (has_vhe() && cpus_have_final_cap(ARM64_HAS_ECV_CNTPOFF));
+ }
+ 
++static inline u64 timer_get_offset(struct arch_timer_context *ctxt)
++{
++	u64 offset = 0;
++
++	if (!ctxt)
++		return 0;
++
++	if (ctxt->offset.vm_offset)
++		offset += *ctxt->offset.vm_offset;
++	if (ctxt->offset.vcpu_offset)
++		offset += *ctxt->offset.vcpu_offset;
++
++	return offset;
++}
++
+ #endif
 -- 
 2.39.2
 
