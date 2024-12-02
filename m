@@ -4,64 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F09ACD78306
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:55:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40399D78306
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SXlmNZxEsl6Jzw4YgMOFH6p/k8jdPidImXEfI1Sv5o4=; b=SLVAwSQtpHRbJPOR65UH3HiIMn
-	KFG23JTwzqFOGndF3uixUi61ZrwxZIOoZMMWvaofB7+KtvUdJzXpQQn48htoUUlsffZMxd+NqC7Ua
-	bBWA6NYrXJx8PwQq7cV3LEUx51IVzA9S77ism/Crj86ldRM+FTm/fLDSj2OjGEDzv2DNFp+E5luak
-	AbIdrspgi+Oe2KhK8FzZg1ri/zfyBYuA/zuFebP//XCmXuJvWobjcbnILtowe00d2pljm3m81uWXB
-	NpdCrpe8HkG+adAxa4aYzg96DtCww+YLC0v0MpWpNldal+IyqWZNIe9OlMXbmV3+7CVhwBsZ6EXUP
-	gFx1QAaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+/1YEJvqFYGJZsdgza1qBjeEpgN8R5nng+VNkw2yUXk=; b=o5M07eEPmh2pPZ1CZzn/pV9Gu5
+	WPWOT4OsCjrTgb8WXYXmpIkA1GOQkpdFeebC2Sf7CJDpcs6RO3DDI3JJuhW5W1dOafWToy+wSChsR
+	74owJilZyUE/ITQRogmmf0w6QK426c4OI6furoNLnfrUioIiMO1dxAifhFgQlv+ipcst+svijIK37
+	80EGXl/IyeCGPvxPOAwlKf0dhpQQIV7gQoUEkhbilPmQfyxrtYifr2dvjs6wgPFxN2zmaP0c0MA7h
+	lIFUicqpy1baurMTH0y5oVBuxonuNYjuIbLryU+932QwnRAtg65hnE0K5Dh7aRvszrHjgQwkqf+Pn
+	74Ao42Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI45h-00000005mnJ-2dZv;
-	Mon, 02 Dec 2024 10:55:45 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35])
+	id 1tI471-00000005mwu-1CVD;
+	Mon, 02 Dec 2024 10:57:07 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI44i-00000005mgO-0rDG
+	id 1tI461-00000005mqZ-01iE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 10:54:46 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4Y20wg2BYBz1T5r4;
-	Mon,  2 Dec 2024 18:52:19 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2FFDF14011B;
-	Mon,  2 Dec 2024 18:54:34 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Mon, 2 Dec 2024 18:54:33 +0800
-CC: <jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
-	<hejunhao3@huawei.com>, <yangyicong@hisilicon.com>, <mike.leach@linaro.org>,
-	<james.clark@linaro.org>, <coresight@lists.linaro.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 3/4] coresight: tmc-etr: Fix race condition between sysfs
- and perf mode
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-References: <20241202092419.11777-1-yangyicong@huawei.com>
- <20241202092419.11777-4-yangyicong@huawei.com>
- <62f5d1c5-05bd-41b6-8703-baacec3e2619@arm.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <b88ca1ef-469d-1c04-03f6-d51518b77bc2@huawei.com>
-Date: Mon, 2 Dec 2024 18:54:33 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Mon, 02 Dec 2024 10:56:06 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mtr@pengutronix.de>)
+	id 1tI45f-0003F5-Up; Mon, 02 Dec 2024 11:55:43 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mtr@pengutronix.de>)
+	id 1tI45b-001HYt-2S;
+	Mon, 02 Dec 2024 11:55:40 +0100
+Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mtr@pengutronix.de>)
+	id 1tI45c-00AYgo-1M;
+	Mon, 02 Dec 2024 11:55:40 +0100
+Date: Mon, 2 Dec 2024 11:55:40 +0100
+From: Michael Tretter <m.tretter@pengutronix.de>
+To: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Michal Simek <michal.simek@amd.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	Gaosheng Cui <cuigaosheng1@huawei.com>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Ricardo Ribalda <ribalda@chromium.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:MEDIA INPUT INFRASTRUCTURE (V4L/DVB)" <linux-media@vger.kernel.org>,
+	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] media: allegro-dvt: Moving the current driver to
+ subdirectory
+Message-ID: <Z02SLI05JhNDtXFn@pengutronix.de>
+Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
+	Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Michal Simek <michal.simek@amd.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	Gaosheng Cui <cuigaosheng1@huawei.com>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Ricardo Ribalda <ribalda@chromium.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:MEDIA INPUT INFRASTRUCTURE (V4L/DVB)" <linux-media@vger.kernel.org>,
+	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+References: <20241202102654.40472-1-yassine.ouaissa@allegrodvt.com>
 MIME-Version: 1.0
-In-Reply-To: <62f5d1c5-05bd-41b6-8703-baacec3e2619@arm.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241202102654.40472-1-yassine.ouaissa@allegrodvt.com>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mtr@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_025444_554465_52BFB297 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20241202_025605_199931_62D03E68 
+X-CRM114-Status: GOOD (  29.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,95 +106,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/12/2 17:46, Suzuki K Poulose wrote:
-> Hi Yicong
+Hi Yassine,
+
+On Mon, 02 Dec 2024 11:26:38 +0100, Yassine Ouaissa wrote:
+> In preparation for the upcoming driver update, we need to realocate the
+> current driver that is not maintained by us ( allegro-dvt ).
+> This will help ensure a clean transition and avoid any potential
+> conflicts with the new driver.
+
+What kind of conflicts do you encounter or expect? It's kind of
+surprising that your driver would conflict with anything in the existing
+driver.
+
 > 
-> On 02/12/2024 09:24, Yicong Yang wrote:
->> From: Yicong Yang <yangyicong@hisilicon.com>
->>
->> When trying to run perf and sysfs mode simultaneously, the WARN_ON()
->> in tmc_etr_enable_hw() is triggered sometimes:
->>
->>   WARNING: CPU: 42 PID: 3911571 at drivers/hwtracing/coresight/coresight-tmc-etr.c:1060 tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
->>   [..snip..]
->>   Call trace:
->>    tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
->>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
->>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
->>    coresight_enable_path+0x1c8/0x218 [coresight]
->>    coresight_enable_sysfs+0xa4/0x228 [coresight]
->>    enable_source_store+0x58/0xa8 [coresight]
->>    dev_attr_store+0x20/0x40
->>    sysfs_kf_write+0x4c/0x68
->>    kernfs_fop_write_iter+0x120/0x1b8
->>    vfs_write+0x2c8/0x388
->>    ksys_write+0x74/0x108
->>    __arm64_sys_write+0x24/0x38
->>    el0_svc_common.constprop.0+0x64/0x148
->>    do_el0_svc+0x24/0x38
->>    el0_svc+0x3c/0x130
->>    el0t_64_sync_handler+0xc8/0xd0
->>    el0t_64_sync+0x1ac/0x1b0
->>   ---[ end trace 0000000000000000 ]---
->>
->> Since the enablement of sysfs mode is separeted into two critical regions,
->> one for sysfs buffer allocation and another for hardware enablement, it's
->> possible to race with the perf mode. Fix this by double check whether
->> the perf mode's been used before enabling the hardware in sysfs mode.
+> This patch is crucial for keeping our directory organized and
+> facilitating a smooth integration of the new driver
+
+I'd like to see how you plan to integrate your driver, what it looks
+like and what conflicts with the existing driver actually occur. Without
+that information I don't see the point in moving the driver to a
+sub-directory.
+
+Michael
+
 > 
-> Thanks for the fix. Some minor comments below.
+> Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+> ---
+>  MAINTAINERS                                               | 2 +-
+>  drivers/media/platform/allegro-dvt/Kconfig                | 4 ++--
+>  drivers/media/platform/allegro-dvt/Makefile               | 8 ++------
+>  drivers/media/platform/allegro-dvt/zynqmp/Makefile        | 6 ++++++
+>  .../media/platform/allegro-dvt/{ => zynqmp}/nal-h264.c    | 0
+>  .../media/platform/allegro-dvt/{ => zynqmp}/nal-h264.h    | 0
+>  .../media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.c    | 0
+>  .../media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.h    | 0
+>  .../media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.c    | 0
+>  .../media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.h    | 0
+>  .../{allegro-core.c => zynqmp/zynqmp-allegro-core.c}      | 2 +-
+>  .../{allegro-mail.c => zynqmp/zynqmp-allegro-mail.c}      | 2 +-
+>  .../{allegro-mail.h => zynqmp/zynqmp-allegro-mail.h}      | 0
+>  13 files changed, 13 insertions(+), 11 deletions(-)
+>  create mode 100644 drivers/media/platform/allegro-dvt/zynqmp/Makefile
+>  rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-h264.c (100%)
+>  rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-h264.h (100%)
+>  rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.c (100%)
+>  rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.h (100%)
+>  rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.c (100%)
+>  rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.h (100%)
+>  rename drivers/media/platform/allegro-dvt/{allegro-core.c => zynqmp/zynqmp-allegro-core.c} (99%)
+>  rename drivers/media/platform/allegro-dvt/{allegro-mail.c => zynqmp/zynqmp-allegro-mail.c} (99%)
+>  rename drivers/media/platform/allegro-dvt/{allegro-mail.h => zynqmp/zynqmp-allegro-mail.h} (100%)
 > 
-> It needs a Fixes tag.
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 7292e4a1ddb8..d79efe6f8992 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -795,7 +795,7 @@ R:	Pengutronix Kernel Team <kernel@pengutronix.de>
+>  L:	linux-media@vger.kernel.org
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/media/allegro,al5e.yaml
+> -F:	drivers/media/platform/allegro-dvt/
+> +F:	drivers/media/platform/allegro-dvt/zynqmp
+>  
+>  ALLIED VISION ALVIUM CAMERA DRIVER
+>  M:	Tommaso Merciai <tomm.merciai@gmail.com>
+> diff --git a/drivers/media/platform/allegro-dvt/Kconfig b/drivers/media/platform/allegro-dvt/Kconfig
+> index 2182e1277568..9bc7e99788b8 100644
+> --- a/drivers/media/platform/allegro-dvt/Kconfig
+> +++ b/drivers/media/platform/allegro-dvt/Kconfig
+> @@ -2,8 +2,8 @@
+>  
+>  comment "Allegro DVT media platform drivers"
+>  
+> -config VIDEO_ALLEGRO_DVT
+> -	tristate "Allegro DVT Video IP Core"
+> +config VIDEO_ZYNQMP_ALLEGRO_DVT
+> +	tristate "Allegro DVT Video IP Core for ZynqMP"
+>  	depends on V4L_MEM2MEM_DRIVERS
+>  	depends on VIDEO_DEV
+>  	depends on ARCH_ZYNQMP || COMPILE_TEST
+> diff --git a/drivers/media/platform/allegro-dvt/Makefile b/drivers/media/platform/allegro-dvt/Makefile
+> index 66108a303774..04727c5f7ef4 100644
+> --- a/drivers/media/platform/allegro-dvt/Makefile
+> +++ b/drivers/media/platform/allegro-dvt/Makefile
+> @@ -1,6 +1,2 @@
+> -# SPDX-License-Identifier: GPL-2.0
+> -
+> -allegro-objs := allegro-core.o allegro-mail.o
+> -allegro-objs += nal-rbsp.o nal-h264.o nal-hevc.o
+> -
+> -obj-$(CONFIG_VIDEO_ALLEGRO_DVT) += allegro.o
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +obj-y += zynqmp/
+> diff --git a/drivers/media/platform/allegro-dvt/zynqmp/Makefile b/drivers/media/platform/allegro-dvt/zynqmp/Makefile
+> new file mode 100644
+> index 000000000000..a8ddb9cf93a8
+> --- /dev/null
+> +++ b/drivers/media/platform/allegro-dvt/zynqmp/Makefile
+> @@ -0,0 +1,6 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +zynqmp-allegro-objs := zynqmp-allegro-core.o zynqmp-allegro-mail.o
+> +zynqmp-allegro-objs += nal-rbsp.o nal-h264.o nal-hevc.o
+> +
+> +obj-$(CONFIG_VIDEO_ZYNQMP_ALLEGRO_DVT) += zynqmp-allegro.o
+> diff --git a/drivers/media/platform/allegro-dvt/nal-h264.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-h264.c
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/nal-h264.c
+> rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.c
+> diff --git a/drivers/media/platform/allegro-dvt/nal-h264.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-h264.h
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/nal-h264.h
+> rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.h
+> diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.c
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/nal-hevc.c
+> rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.c
+> diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.h
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/nal-hevc.h
+> rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.h
+> diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.c
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/nal-rbsp.c
+> rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.c
+> diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.h
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/nal-rbsp.h
+> rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.h
+> diff --git a/drivers/media/platform/allegro-dvt/allegro-core.c b/drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-core.c
+> similarity index 99%
+> rename from drivers/media/platform/allegro-dvt/allegro-core.c
+> rename to drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-core.c
+> index e491399afcc9..8895d7755987 100644
+> --- a/drivers/media/platform/allegro-dvt/allegro-core.c
+> +++ b/drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-core.c
+> @@ -31,7 +31,7 @@
+>  #include <media/videobuf2-dma-contig.h>
+>  #include <media/videobuf2-v4l2.h>
+>  
+> -#include "allegro-mail.h"
+> +#include "zynqmp-allegro-mail.h"
+>  #include "nal-h264.h"
+>  #include "nal-hevc.h"
+>  
+> diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.c b/drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-mail.c
+> similarity index 99%
+> rename from drivers/media/platform/allegro-dvt/allegro-mail.c
+> rename to drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-mail.c
+> index aadc947a77ae..88a98f9e5d00 100644
+> --- a/drivers/media/platform/allegro-dvt/allegro-mail.c
+> +++ b/drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-mail.c
+> @@ -12,7 +12,7 @@
+>  #include <linux/string.h>
+>  #include <linux/videodev2.h>
+>  
+> -#include "allegro-mail.h"
+> +#include "zynqmp-allegro-mail.h"
+>  
+>  const char *msg_type_name(enum mcu_msg_type type)
+>  {
+> diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.h b/drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-mail.h
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/allegro-mail.h
+> rename to drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-mail.h
+> -- 
+> 2.30.2
 > 
->>
->> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
->> ---
->>   .../hwtracing/coresight/coresight-tmc-etr.c   | 30 +++++++++++++++++++
->>   1 file changed, 30 insertions(+)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> index ad83714ca4dc..d382d95da5ff 100644
->> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> @@ -1230,6 +1230,36 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
->>         spin_lock_irqsave(&drvdata->spinlock, flags);
->>   +    /*
->> +     * Since the sysfs buffer allocation and the hardware enablement is not
->> +     * in the same critical region, it's possible to race with the perf
->> +     * mode:
->> +     *   [sysfs mode]                   [perf mode]
->> +     *   tmc_etr_get_sysfs_buffer()
->> +     *     spin_lock(&drvdata->spinlock)
->> +     *     [sysfs buffer allocation]
->> +     *     spin_unlock(&drvdata->spinlock)
->> +     *                                  spin_lock(&drvdata->spinlock)
->> +     *                                  tmc_etr_enable_hw()
->> +     *                                    drvdata->etr_buf = etr_perf->etr_buf
->> +     *                                  spin_unlock(&drvdata->spinlock)
->> +     *   spin_lock(&drvdata->spinlock)
->> +     *   tmc_etr_enable_hw()
->> +     *     WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf initialized at
->> +     *                                  the perf side
->> +     *   spin_unlock(&drvdata->spinlock)
->> +     *
->> +     * So check here before continue.
->> +     */
->> +    if (coresight_get_mode(csdev) == CS_MODE_PERF) {
->> +        drvdata->sysfs_buf = NULL;
->> +        spin_unlock_irqrestore(&drvdata->spinlock, flags);
->> +
->> +        /* Free allocated memory out side of the spinlock */
->> +        tmc_etr_free_sysfs_buf(sysfs_buf);
->> +        return -EBUSY;
->> +    }
-> 
-> With this in place, I think we should remove the check for CS_MODE_PERF in get_etr_sysfs_buf() to avoid confusion (which I believe opened up this race)
 > 
 
-ok, considering that maybe we can optimize it a bit more in the tmc_etr_get_sysfs_buffer().
-Check whether the perf mode's already running before we actually allocate the buffer.
-Then we can save the time of allocating/freeing the sysfs buffer if race with the perf mode.
-
-Thanks.
-
+-- 
+Pengutronix e.K.                           | Michael Tretter             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
