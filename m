@@ -4,168 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84AE5D49795
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 03:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4450FD49795
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 03:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E2rpw4+VdCzP73kx14mXkiJx7dXMdbtWGLz75wnBuCs=; b=s/D2GlE7/hUFz7mFQ4ul1m87wZ
-	06l7R35QuLlBnC9pWber/6U54vddUXadNsKv1NZhJzEYVpp64UDP+tMe68cULyxa9qxWiThu4mdkq
-	xaPHuYoV1RkEDqUv+zMhstURz2upyDJc2Xn/Oz4yr06Ccc0MoJjycw41ok8frPH1+bioRzGjb3A1F
-	gZHvmzE6tWaxd6gcsllFVGTVPeO+wixcBmUtJu0aguNJyFoyqwe/h78NHXOoP94pogjPMIJtj/v1o
-	JZdHcvxiMCiauj6EbXh15w59AelpfyEK4gTGGpsGqse7JVBVysvK8iKCuJiSoX3w4H9FWvGOkAAmT
-	FEL0aAkw==;
+	bh=pqr4qtbg8/QB4DLMtl/No6G4nDmaLNcyvKm7QGNmTRc=; b=oe6qjfJKqHnmuc1aOB1qmszt/Z
+	//MRi7/XKcJEG3FUSNmHPToh43QeGYrYcNVlJjpl4e7nGAya80MG5k6lAVzxGa+ml2nm98HxHLshR
+	Zpi1ynxFA+aSXhCj95pN6sHsmaC/qdCb3oUUico/wPUDSUjIQax/AwyLNTESUdYudLLU7zQhtcb9N
+	8LMuT7oskAXigFJviIDJdatlazYl6AaqdWDi2YVIyuQ1p6PH1oYXwo/jkC4XVUH7S9mTADu2t/FXz
+	YIzc1hPmZiUNxTXbb+3zjy8juII7l9dUvV+2a34QIWSvvKfr1jzqPE7klANVG6bXcwWw0dt84F/ne
+	OFjf3F8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHwhk-00000004sN5-0R3w;
-	Mon, 02 Dec 2024 03:02:32 +0000
-Received: from mail-vi1eur05on2061d.outbound.protection.outlook.com ([2a01:111:f403:2613::61d] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tHwlv-00000004sr9-0J6p;
+	Mon, 02 Dec 2024 03:06:51 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHwdl-00000004rcU-10hw;
-	Mon, 02 Dec 2024 02:58:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HuX7uVKAaJk60Hcgiu4VHtb+LTx0pN4xH6Vdt4ss217046Zk+N+Ttszj80UmHpHo2W2vD9/XpPqokm29PiSt9RCD2laPykWeGMQb5aE1KxCcjgNmpcXTxer7BPrceDxQyzQ6jyeAFFSUwKsoYc1pTFknNDvQNgGX3UARpVo6awS7VgMA6QPzE8cKo4/gzvHcDvQrRth+EIVC8msLIhfqnrF43kfGBCwETM2jYa+ZKXQ02ACTNNm/f2rpCFnCrZbX/cWZDNVAje0x9j6qjn6tRWnCNJgTTHQavCPyxC/V4yD+GmDZ4le1lNANJkvxQDwQeT4CGJ542SYJvaWhB5FQtQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=E2rpw4+VdCzP73kx14mXkiJx7dXMdbtWGLz75wnBuCs=;
- b=kVUA1m2vH73cfIrfZbbb4lu3dbJhSrQgBRkUj6iHkWsnleC6YcVpAmN/ZAfbIdTw8qGelrpXbgXRFJKCWqt48BsctbTc327RGuBX9G4nn0ZG3hnEnuUFgHqMtUtjqlRbWLKmLM/LTSOxwe/lIu/ORt/wTu+Uz/vgHFw6HOrUqgPEyHXjGnupQrKv6hzmRkwZnScxPjB5yddSylBH/Z8ZMxmcJTaXRIXDAq3jBLo2kIzFoThm73U3ltNlbqAQUiMsy3SsS4DOe5f6yfa5iL2RhCVBZqlXAUb2GGHF4K9DZYP0cJQEnuHyPV5GEfT0a5vdJuvA7Jk6dm0yQN9zrpMe7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=E2rpw4+VdCzP73kx14mXkiJx7dXMdbtWGLz75wnBuCs=;
- b=jT86+ccBzKgNTtzzfUyfRa+GoXg8nlI5E87olNxR5gwAAwLR79DNFo70ro5opFSnzOXTG+ieGbAK5hvAKFSATEuF3G+iSK8QCfiYEX0bzwQgOftkzfM5ruYNjIr1pImkdEvDw24kMtfhAi+RDhnEP4UjdYmOlVQjMhDEXcvHOgEKpkJzFZ2SrtELUXJ0fBI82dqXFbKQ3SB6rS4wYWmdA69L6VTwaAmn+I3mm/viq2Jmr44BC9+amztfdud/13bSHITK9za1NUPBSWY0lImBxWpmR7RtHuMCbG4kGKOy5tB9zw/xiiXrihmkCct0ghNFc5bEgTgpSDz22QXaaBZDUQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by DBBPR04MB7643.eurprd04.prod.outlook.com (2603:10a6:10:203::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.18; Mon, 2 Dec
- 2024 02:58:22 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%6]) with mapi id 15.20.8207.017; Mon, 2 Dec 2024
- 02:58:22 +0000
-From: Liu Ying <victor.liu@nxp.com>
-To: dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	id 1tHwku-00000004saW-48Ef
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Dec 2024 03:05:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1733108744; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=pqr4qtbg8/QB4DLMtl/No6G4nDmaLNcyvKm7QGNmTRc=;
+	b=YZZYfmQs6QoaLUigcyjmlaUWoGFKJaZ2n2554zxgTnypcpZfQ6p5vGy2JEc177K/I5SIrQAEWGXJKM6vdsth2EtlkPw6S+16g5xKjQML94ySAS6iW/Otatddk2ZVG1e80poIlXxoQZsbnTUvKPdMOSSOazV31djph53cng4+2sQ=
+Received: from localhost.localdomain(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WKbh0WB_1733108739 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 02 Dec 2024 11:05:40 +0800
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+To: yazen.ghannam@amd.com,
+	mark.rutland@arm.com,
+	catalin.marinas@arm.com,
+	mingo@redhat.com,
+	robin.murphy@arm.com,
+	Jonathan.Cameron@Huawei.com,
+	bp@alien8.de,
+	rafael@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	wangkefeng.wang@huawei.com,
+	tanxiaofei@huawei.com,
+	mawupeng1@huawei.com,
+	tony.luck@intel.com,
+	linmiaohe@huawei.com,
+	naoya.horiguchi@nec.com,
+	james.morse@arm.com,
+	tongtiangen@huawei.com,
+	gregkh@linuxfoundation.org,
+	will@kernel.org,
+	jarkko@kernel.org
+Cc: linux-acpi@vger.kernel.org,
+	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org
-Cc: p.zabel@pengutronix.de,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	glx@linutronix.de,
-	vkoul@kernel.org,
-	kishon@kernel.org,
-	aisheng.dong@nxp.com,
-	agx@sigxcpu.org,
-	francesco@dolcini.it,
-	frank.li@nxp.com,
-	dmitry.baryshkov@linaro.org,
-	u.kleine-koenig@baylibre.com
-Subject: [DO NOT MERGE PATCH v5 15/19] dt-bindings: firmware: imx: Add SCU controlled display pixel link nodes
-Date: Mon,  2 Dec 2024 10:56:31 +0800
-Message-Id: <20241202025635.1274467-16-victor.liu@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241202025635.1274467-1-victor.liu@nxp.com>
-References: <20241202025635.1274467-1-victor.liu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR06CA0005.apcprd06.prod.outlook.com
- (2603:1096:4:186::12) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	akpm@linux-foundation.org,
+	linux-edac@vger.kernel.org,
+	x86@kernel.org,
+	xueshuai@linux.alibaba.com,
+	justin.he@arm.com,
+	ardb@kernel.org,
+	ying.huang@intel.com,
+	ashish.kalra@amd.com,
+	baolin.wang@linux.alibaba.com,
+	tglx@linutronix.de,
+	dave.hansen@linux.intel.com,
+	lenb@kernel.org,
+	hpa@zytor.com,
+	robert.moore@intel.com,
+	lvying6@huawei.com,
+	xiexiuqi@huawei.com,
+	zhuo.song@linux.alibaba.com
+Subject: [PATCH v17 1/3] ACPI: APEI: send SIGBUS to current task if synchronous memory error not recovered
+Date: Mon,  2 Dec 2024 11:05:25 +0800
+Message-ID: <20241202030527.20586-2-xueshuai@linux.alibaba.com>
+X-Mailer: git-send-email 2.44.0
+In-Reply-To: <20241202030527.20586-1-xueshuai@linux.alibaba.com>
+References: <20241202030527.20586-1-xueshuai@linux.alibaba.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DBBPR04MB7643:EE_
-X-MS-Office365-Filtering-Correlation-Id: 49be9403-b250-43f7-951e-08dd127d2ec5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?u9ia4ZGIg1s0LXVU7s8vJmU0B4Idm/yVCFMU948+59BXoT3ML7fTK2NEj6mU?=
- =?us-ascii?Q?a+NXB7MizWmO/cBduHX7A2MIf/HB8WTBOXViJa1XurMo+OjIjMZR6kCzBaYh?=
- =?us-ascii?Q?MTEsErdmA0vPmc7rcNZVcLFpmZqKfxQFrCQhxgtPjyYo0DGTtYwN6B5KK4E3?=
- =?us-ascii?Q?GbrfzKj1az5sbqwqfKrv27JBdipvIxh0XT9ELKTi/S/9aDaVB+UuxdFEALj/?=
- =?us-ascii?Q?/kvaHzAar2Ect+5bvrNFBqnOAAqsWE9rCZviAW14fuYp593CME6oDuwE3elg?=
- =?us-ascii?Q?iLNhNGBO2ZGxskzQ3wxo3oMsFRAya9uVa0VsKHGO8JpP8zRpJuvMgZu4LXMj?=
- =?us-ascii?Q?IxloZVkaHMS+zWwsiVVuM9I1xYUO8q3QvZtFKKlBZHGJLdkJmpzF/4OR0D/U?=
- =?us-ascii?Q?9HM+RxUvlYo7jdb/3WgSC0wNrsuNOjmycS81fwg1oe88O7fAvmWRY/HmOCNc?=
- =?us-ascii?Q?MO+xCKZkpAFAdz4P74nCoVph0muf7EmBeAd9KoJCrj6hAoFCOyBGTcZ/oeT5?=
- =?us-ascii?Q?MTPhB4i/e9vQh79x3mljPt5uaLO7RAgZ6+gqty2C7XK3cRbdBYTvW28QZMHJ?=
- =?us-ascii?Q?e24VSIvFBBWhIycJdezio7gXpuWAgl/ZR33my06E83x31YbAoEPD8ekIDIXh?=
- =?us-ascii?Q?luQYB4bcmfF1Yx55dMn3Qeq0xCYIOHQFRg1E1mEmH2t1AEvk9VsBMnEvFasP?=
- =?us-ascii?Q?/zMu0+0HWyBBkfpOTD7OiYIaTF0b4VQFZhrNg28lJm3kZStARSugQyqEyL44?=
- =?us-ascii?Q?0R2jkr9RXKwtv7IZ5j3QV29gQ9e5g6wiDLbjiH8SNt3Bk4bmYQOFd42zFIXQ?=
- =?us-ascii?Q?ZzkgetwUjaBa9n7qUP/04xoXK1qlY+ihdIyCRcm5I4pN6jX3bYHj39TUOPGo?=
- =?us-ascii?Q?m3y2pAz09/RbGdlNRTz2D+3t9LgtuZM7HKBKT19x48rwi5CLvlTc7fD2eZrU?=
- =?us-ascii?Q?3pKhAgu91j4XhFfjXXZGHbWscdOE5Uv6dDwFKlwxFSsm284YBPUCRaSNalsN?=
- =?us-ascii?Q?xqvo2RBkp+KSJx/0vOdr5mFTQhnsJ75rB1XlYbuQQVTw00UBiMSa6nYkXcyJ?=
- =?us-ascii?Q?bGlNdNhnyqqDI0rV8zKDeLdkdnRhIkBaqfSBgXzxC3oLOpZ7r+qDm0QSUbdK?=
- =?us-ascii?Q?c1p6GEUClcPRxpZRfb061y9u8/iNKimAXVDbKrheLs01+jgfkyfyAbzTaElX?=
- =?us-ascii?Q?4Linzy4TPGu6SJy/aKE8vf8bEtbG/EovIybLrNSkR2kD1RmblY7Bhz3kG1W/?=
- =?us-ascii?Q?tT5ApjeKzvZZmm+ULBj5T3N56lpT0yDbc03IrdTOQKDz5UyhURNdwIJb58/g?=
- =?us-ascii?Q?aw5BJF2vEqO/Zd+CfpvpxgL2T2dFWZMj0dbh+njX7RcDSQJYhNiczQdtdL4v?=
- =?us-ascii?Q?NQeF/TsW4v4I6WK9Z4ll67Et3LqmbJ/ws7CTafaKfeaDkVG/kA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?magPwY3bVgANWP0oi33UBpv9sRRLStObib85/fUI6PKsUCAmY++7pZlOcmw/?=
- =?us-ascii?Q?XdMb3IAZC1ARA9pJzxyPh6gYY5TyQihHHmpMMDrqsi6o9jIuh145vrMe1o6/?=
- =?us-ascii?Q?Li6fPWUR5dojJZp3PDtHed08zjQ5lUydAzJecMBuWzOlGYmdiZy0zviGrxkY?=
- =?us-ascii?Q?eto2Pd11JImncgG0rDO4UbFMOGrOLX2AVcsgmrkBYT2SUpMnj3Zj9CPSRCcW?=
- =?us-ascii?Q?5DsLFZULGalABtidSS+Tw76ZQNqmBqYO+wkyDs5U+oUZtSgjbOPl9iNt46pJ?=
- =?us-ascii?Q?J6bUYxbxnsecU7BudPSj6n9ZvnRpsnjZqOAaSw4efv3xbkGWl1rzJPYqf4mq?=
- =?us-ascii?Q?PB5TH7G8GEYCc46GTIJzHyHzb2BAcuc1FReTGA6naRwpqezcJ4nYa6ZHTZXG?=
- =?us-ascii?Q?9oku9nNV0jmTiQsNVQtw72lG/Zbcd80NPu5FrXUMAI9JB1DcQCgL3QYsLWaK?=
- =?us-ascii?Q?Tc6scsdn2qPhfnUDhMulYRurofYrXePzi1CpRcWucTOnq/KFSEwnxreHEYS8?=
- =?us-ascii?Q?dD5mDHQ7iMTkeC/F2ywgNJaZstZKxTGnb/kDpnLsvc4vaaa9AiTK1f2MAHJq?=
- =?us-ascii?Q?mB2b2ELF9WNld5ex4aXPfagDmnWbqoE/VH0HtkVxHxkpwxEw5NiBgI/SCU0q?=
- =?us-ascii?Q?psMYF7r/Hv6UUp3QUP50SySgvky5Alw9tYNpXdA1oblxVCLhuH3eqsUfm5nh?=
- =?us-ascii?Q?SDOGl/WfxDezRqHJF1vKVfOnDUJJvYSJ18wW7crfmN3ERGHrIbTx7jrjVbii?=
- =?us-ascii?Q?lGFjVUpziOORBYUKlpceAEGXcApuNJIFc/gUi2fzDy9Dxe6TFizu1/772lmJ?=
- =?us-ascii?Q?L43rSKpKNnHTYMKGRQW3P0WN+giw9BRRmmMxTySX1Wpszs2bFyrsWYsDY/Pt?=
- =?us-ascii?Q?BWOVjl8vU2cAYaEEIBh+Tn4khnaWetsxyGygvse+0EIal27w/g02P9QwXcR+?=
- =?us-ascii?Q?/fQahuQKBMlgf4KJOwBAV4BzG4HxRdIUqaE06UY28HqZlxg4DzQt/dx/d6lD?=
- =?us-ascii?Q?IbDEt2ixUCKDDe/IASGhs2y1bD5xGPhGnpx8G1TvLAPMuDiEXoxSFAOqIhId?=
- =?us-ascii?Q?d7eUJuhyeCHP1ZzAWZ7BA6UdzUR9RpAlPVaWRtq94tsTp1wqEMcKzuQ68z/q?=
- =?us-ascii?Q?PM+4UtDlR+xg2QEuoN+Gwyw5y2rNc+zdk6sjVtJ5hrb2PvyYaFPQFLkYz10A?=
- =?us-ascii?Q?nOXf2E43baAmf1G3EmSv17i1VdrqK0eilaG7wIvi012w1JCQh9P6nzVh75Nl?=
- =?us-ascii?Q?Qs2u+XMNRlyDkUxzO4dnBGnGgj8oH/NStmr0Xhht2E+qa5fm0uAmJGiuXPiM?=
- =?us-ascii?Q?iFXmUAbpQd2LFzj6Q2Ewrf6CxwqZD6qnyQYKLVo0xyMZplvi8TzVCKH+efUW?=
- =?us-ascii?Q?NxbXEVQwsC3hZpxRehPY9yLNjktTL4Ti4JmuhFQX/nt9XWuOQIy3+8kVpH8n?=
- =?us-ascii?Q?vepklhmD70MsLwbabFrtXcK7rFrAGz1vm+GZgK1+nehdhBkpSfAr4gD7JWC6?=
- =?us-ascii?Q?H80Utz5Eyi6byRYTTIrmW5GWkUN18oWAW9b4mZR+2Q7syVG6Mz6prHbvrwuy?=
- =?us-ascii?Q?oAaqVvjukjgFMo4yKm3UlbJOrQZSAodAX2eJTHSW?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 49be9403-b250-43f7-951e-08dd127d2ec5
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2024 02:58:22.3138
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Qalq2sCxlQLsc64t0dtAj4oFkePYZYgjQAUKhzMF5VeO9wMSsO+QH6fWZviPAFZOaUY78tD0GlZN/4PvAC/9Lw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7643
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_185825_277897_8FC8C087 
-X-CRM114-Status: UNSURE (   7.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241201_190549_256101_C3E5D752 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,57 +101,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document SCU controlled display pixel link child nodes.
+Synchronous error was detected as a result of user-space process accessing
+a 2-bit uncorrected error. The CPU will take a synchronous error exception
+such as Synchronous External Abort (SEA) on Arm64. The kernel will queue a
+memory_failure() work which poisons the related page, unmaps the page, and
+then sends a SIGBUS to the process, so that a system wide panic can be
+avoided.
 
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
+However, no memory_failure() work will be queued when abnormal synchronous
+errors occur. These errors can include situations such as invalid PA,
+unexpected severity, no memory failure config support, invalid GUID
+section, etc. In such case, the user-space process will trigger SEA again.
+This loop can potentially exceed the platform firmware threshold or even
+trigger a kernel hard lockup, leading to a system reboot.
+
+Fix it by performing a force kill if no memory_failure() work is queued
+for synchronous errors.
+
+Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
+Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Reviewed-by: Yazen Ghannam <yazen.ghannam@amd.com>
 ---
-v5:
-* No change.
+ drivers/acpi/apei/ghes.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-v4:
-* No change.
-
-v3:
-* No change.
-
-v2:
-* New patch as needed by display controller subsystem device tree.
-
- .../devicetree/bindings/firmware/fsl,scu.yaml | 20 +++++++++++++++++++
- 1 file changed, 20 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/firmware/fsl,scu.yaml b/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
-index 557e524786c2..1a920f013ad2 100644
---- a/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
-+++ b/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
-@@ -30,6 +30,26 @@ properties:
-       Clock controller node that provides the clocks controlled by the SCU
-     $ref: /schemas/clock/fsl,scu-clk.yaml
+diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+index a2491905f165..106486bdfefc 100644
+--- a/drivers/acpi/apei/ghes.c
++++ b/drivers/acpi/apei/ghes.c
+@@ -801,6 +801,17 @@ static bool ghes_do_proc(struct ghes *ghes,
+ 		}
+ 	}
  
-+  dc0-pixel-link0:
-+    description:
-+      Display pixel link0 in display controller subsystem0 controlled by the SCU
-+    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
++	/*
++	 * If no memory failure work is queued for abnormal synchronous
++	 * errors, do a force kill.
++	 */
++	if (sync && !queued) {
++		dev_err(ghes->dev,
++			HW_ERR GHES_PFX "%s:%d: synchronous unrecoverable error (SIGBUS)\n",
++			current->comm, task_pid_nr(current));
++		force_sig(SIGBUS);
++	}
 +
-+  dc0-pixel-link1:
-+    description:
-+      Display pixel link1 in display controller subsystem0 controlled by the SCU
-+    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
-+
-+  dc1-pixel-link0:
-+    description:
-+      Display pixel link0 in display controller subsystem1 controlled by the SCU
-+    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
-+
-+  dc1-pixel-link1:
-+    description:
-+      Display pixel link1 in display controller subsystem1 controlled by the SCU
-+    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
-+
-   gpio:
-     description:
-       Control the GPIO PINs on SCU domain over the firmware APIs
+ 	return queued;
+ }
+ 
 -- 
-2.34.1
+2.39.3
 
 
