@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2818ED7831A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6549D7831A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lcZ18Acyfgn1qx2AlpkGRDPoqylUNnc81TgbKsWflLU=; b=RR3VfqVun1JVoJ+TqXY6JiXhzC
-	uQ2p8GFkc8ZNeAx1uMB+erIJqIi94tPl8R8VDo7mAU5V2ocMaIjC0E1omQVDBaqhMo4Dz2j7hbkhx
-	sD+dB69wmPWZ4I+GVKwjMyI7Rtg1vkLe3wxtz50jbHhRXkRUEQ952kcf+MrzZFY9jDdEPDlxBg+EZ
-	LGPvNs+J2yHYYZ9Aj6utmV9pu2FwmV1ZkhG5IMgC4GKMx9Bepc1yGokyDPIOk3cIQtCuu2pSpbFHc
-	Q9gGLJNcC3HWDOek45K3WUlMK/KtqB+db6FSmhLQVo1wRoy5D15dSEo0VKkQeAyWsUmIaaa1Tonbi
-	NBqbPVog==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oq8cdROWwi46qvRnOg4xje8ETX94g0KCIdfHBgScQPk=; b=Vhz/vw3F/ze3ikT227Z5/xrRiM
+	uKxe7LlbHBquoOkyHBKN1GhNuN0LNZREsaB00RGAm/oJgZsJHGol0XSyjuZQwYcFG5uoLJESD2CIp
+	ZAP/85UFsgpczu1DU9B+JzfPATzIm8nN+eMP9z8T98ARQ3aOsATx/1CtesYSOxmjrC9vVuSVOCrl8
+	5Xh0RZykaGIlfC0S+TZVxo4T6ZZ/lPR9z9qS/HK1OOmCYYguRQZLkvR1zy23IREOWzAallmsJQw5j
+	cB3I3hPzltIlcFV0FQsHQ37BsstlzdQTEkteqmQRkz5O7XpShNaQ+vWodAKNuJIXhXhw6OOGzMxhD
+	vWO4L69Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6Ev-00000006C7L-18vD;
-	Mon, 02 Dec 2024 13:13:25 +0000
+	id 1tI6Gn-00000006CMF-3tUT;
+	Mon, 02 Dec 2024 13:15:21 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6A2-00000006BFi-3we2
+	id 1tI6Fp-00000006CDU-0opz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 13:08:25 +0000
+	Mon, 02 Dec 2024 13:14:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D89E45C5CA2;
-	Mon,  2 Dec 2024 13:07:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 53B2AC4CEDE;
-	Mon,  2 Dec 2024 13:08:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9E1595C57B6;
+	Mon,  2 Dec 2024 13:13:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3474C4CED1;
+	Mon,  2 Dec 2024 13:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733144901;
-	bh=jEINaNWGAcKMa2bATL8ktCQNfAWj8oZ7TAUZr3ESYOI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=JHZk/A6i6SsD16eTksSkewswkSr6FifkMku5R3Wk5YVIwXPHjeCf9xqtwvOM5wb99
-	 dhwqmSFWznNwGR1fvGGGS2Rk8GOJCpQ6r2IATIJRzsnl7Sf95x1p37xuyTTXxk/xeH
-	 C+/7ULdyRLCBcyrtSjgpqE3BW7Eetk+UBCQFN/ne6aRagI5xjcPOrusXK/XJhL3vRj
-	 XUsV1NVRgkJQJcHPQ46rJEw0yM6z8NOZ87xFHl0lp2zCzl+h6Eb4G8jv2az3dox2oa
-	 Rlo46AmrKTM6FauX8Hju/PPOMlWeROSQlVLUipQuXLWuFEsT9LL92mgNRBJrAOHj1R
-	 uNrdYJit1o+eg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 40D9BD7831D;
-	Mon,  2 Dec 2024 13:08:21 +0000 (UTC)
-From: Thomas Antoine via B4 Relay <devnull+t.antoine.uclouvain.be@kernel.org>
-Date: Mon, 02 Dec 2024 14:07:16 +0100
-Subject: [PATCH 2/4] dt-bindings: power: supply: add max77759-fg flavor and
- don't require nvme address
+	s=k20201202; t=1733145260;
+	bh=Oq8cdROWwi46qvRnOg4xje8ETX94g0KCIdfHBgScQPk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=soDbz1pVpVht2Z9g1o6O8zg6zSGO5IAg6n/IWUaiT0bIGTzkkK3NCL0HGsMyXuLE+
+	 oljc1vaDyR0ixerFQVrLSzFuNdSCXT84CuI1K8zAmGwOrBEKwDRleMCk5z+DrQGt9+
+	 bPo4DYuMYLxWiSP8FqaBcSX3zKzIY4V+O8Mm61My7suTj3HsLKztJ4fr+LB2PmE0Zm
+	 6eqkjDBFtaL0WcFQwRcFEoOzNlD9XI8i6/c75DEpSDzzpN+nD8+Zb8nw3WViLsF0mO
+	 rJoZaZgi32eLEpa64ndkCtuVulvOmmxa7DV9g6d91WBTEocssnNJOzF9vepeft9uVt
+	 lX+K1SNe+GxqQ==
+Date: Mon, 2 Dec 2024 13:14:15 +0000
+From: Mark Brown <broonie@kernel.org>
+To: =?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Mesih Kilinc <mesihkilinc@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH v5 1/3] ASoC: sun4i-codec: Add DMA Max Burst field
+Message-ID: <fe02df7f-16ae-4128-9af8-7de7f76734bc@sirena.org.uk>
+References: <20241102125712.2647325-1-csokas.bence@prolan.hu>
+ <20241102125712.2647325-2-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241202-b4-gs101_max77759_fg-v1-2-98d2fa7bfe30@uclouvain.be>
-References: <20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be>
-In-Reply-To: <20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be>
-To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, Thomas Antoine <t.antoine@uclouvain.be>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1733144859; l=1565;
- i=t.antoine@uclouvain.be; s=20241202; h=from:subject:message-id;
- bh=RTgptgGDXIpNksG2RFyyX00KmvPw//2EuQKYPNbTnPY=;
- b=lCO1iSdVtfEpPAC77nh9P49nbswY9iqm8xcrLTlOoQ/khMbOZuUNCBRNJ2ElFwDs5zIuHMEQL
- lx6XWdp54GpALvXJ3t8KOkKVW/Map6F2UCEye4rZu31wIix5Hm/sjwH
-X-Developer-Key: i=t.antoine@uclouvain.be; a=ed25519;
- pk=sw7UYl31W1LTpgWRiX4xIF5x6ok7YWZ6XZnHqy/d3dY=
-X-Endpoint-Received: by B4 Relay for t.antoine@uclouvain.be/20241202 with
- auth_id=289
-X-Original-From: Thomas Antoine <t.antoine@uclouvain.be>
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="E1U5ubuOCjUxwE98"
+Content-Disposition: inline
+In-Reply-To: <20241102125712.2647325-2-csokas.bence@prolan.hu>
+X-Cookie: So much food
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_050823_081266_FE11F05B 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241202_051421_279032_C7347537 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,65 +77,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: t.antoine@uclouvain.be
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Antoine <t.antoine@uclouvain.be>
 
-As the Maxim max77759 fuel gauge has no non-volatile memory slave address,
-make it non-obligatory. Except for this, the max77759 seems to behave the
-same as the max1720x.
+--E1U5ubuOCjUxwE98
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
----
- .../devicetree/bindings/power/supply/maxim,max17201.yaml   | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+On Sat, Nov 02, 2024 at 01:57:10PM +0100, Cs=F3k=E1s, Bence wrote:
+> From: Mesih Kilinc <mesihkilinc@gmail.com>
+>=20
+> Allwinner suniv F1C100s has similar DMA engine to sun4i but it has
+> smaller max burst size compared to sun4i. Add a quirk field to
+> differantitate between them.
 
-diff --git a/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml b/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml
-index fe3dd9bd5585618e45220c51023391a5b21acfd2..417fc2c4a1c1961654bc54ec1ac24602012f3335 100644
---- a/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml
-+++ b/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml
-@@ -16,6 +16,7 @@ properties:
-   compatible:
-     oneOf:
-       - const: maxim,max17201
-+      - const: maxim,max77759-fg
-       - items:
-           - enum:
-               - maxim,max17205
-@@ -25,11 +26,13 @@ properties:
-     items:
-       - description: ModelGauge m5 registers
-       - description: Nonvolatile registers
-+    minItems: 1
- 
-   reg-names:
-     items:
-       - const: m5
-       - const: nvmem
-+    minItems: 1
- 
-   interrupts:
-     maxItems: 1
-@@ -56,3 +59,14 @@ examples:
-         interrupts = <31 IRQ_TYPE_LEVEL_LOW>;
-       };
-     };
-+  - |
-+    i2c {
-+      #address-cells = <1>;
-+      #size-cells = <0>;
-+
-+      fuel-gauge@36 {
-+        compatible = "maxim,max77759-fg";
-+        reg = <0x36>;
-+        reg-names = "m5";
-+      };
-+    };
+This doesn't apply against current code, please check and resend.
 
--- 
-2.47.1
+--E1U5ubuOCjUxwE98
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdNsqYACgkQJNaLcl1U
+h9Cragf7BHf9JlYlAH05EzWdN3AkXOHmdKfOoeDAALsWLpvI9myoKM9zORQsPvYO
+R8amQktnMEplFBGcXUAchI2Qf+5Dms8biBBKcO7WcALqPZI5G+foEeeVmWqmrKll
+I+UlBOazkSFpHfJzNg9dsC48lhOr4BroFXwI7xr0aMoZOOhZ+OiUOFhZv0F5E5/5
+xiUIhofuAK4HoiGkOmkBU9pN9xDD9K3wHoLYnyNAxH+zuZYb28EC9zZo0jQfdIb7
+ZtM9N8M/cdIut3eWlm7WTWXWvuI9G+Ce3nvRkKiRXgv/SNMlMeILt1E5kzBOEKFO
+q2i7hYDBbqWCbSAnrX/bSb1+9yNLNA==
+=DBp8
+-----END PGP SIGNATURE-----
+
+--E1U5ubuOCjUxwE98--
 
