@@ -4,90 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1084D7830D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 11:32:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22A7CD7830D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 11:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:References:In-Reply-To:
-	Content-Type:Subject:Cc:To:From:Message-ID:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uc2zRevH+Kbf5f8VX30G7BEfhLIb4tv53u+IgAXh0HE=; b=unSAcuWiLPoHTOX3y829F653Fx
-	CM+sGn/zsYq6phqgs1t57y50GkKNXVWRKTdMs1zlQWf1U1Pi6FNf64SnGyqSZ7sHifLqZXtxW6y5d
-	UFyLJvCDPrWLtZYL1MTyntEiS9SENcgZHaaYPKtebsHiwBYYa/ylnQxplEnYvTGpI+3KEJO/EwGtN
-	T8C7utdvTcUcKdKtemfn+bCZcNFe2fWYKyc1beUWY8iX7FzbngiCoz2YZHXr9oDnoHTQ2xMvfhBZd
-	FJPYp5i6pw0F+b9ZbTm8ae5uvE+YvEf9brCL9F78Ro5+b2xNgvdaKUyEj9DfjUkoS0W547cCqPZ7H
-	pu7GL9BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gFcULvaTRSIVU4OrsVetXuBE0xHY6aiWfJVoJi5EFAY=; b=dc9CKo/ztqD6vPpG5pHZMm4UW6
+	AiWBVx8kkaiQ348pvTWLzyQ0dnIB8FT10wCDclFbJTPt5+9TZyRgdWC1ejAC203ZOyQ1FcAdDyyQ9
+	7EODKAswCtcY4FSl8UlSOLniKuxQKT6ESSNbuQ0dyq9+3fXPedswQnX+OOgmqiCgp8JbDYhtcogtB
+	RqazPvGIL4uv1wCGOqp3YHkaP/vpguje7BCPVnrrPWZlQHT6m00YZyHMvxKzVcvxYXl1DGAFuBePb
+	NH7aQoivfIFdIPCDg1/SJ5ruHK8UvX4e/bJ9v5sAQdZHn6Hz0y4DWJyv2j0Radjoj8orL0bWttlGv
+	ih/ToAIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI4f2-00000005uPR-43oB;
-	Mon, 02 Dec 2024 11:32:16 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1tI4g1-00000005ugY-0K12;
+	Mon, 02 Dec 2024 11:33:17 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI4Ss-00000005rUU-3ITJ
+	id 1tI4Vg-00000005sEx-1QVF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 11:19:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1733138371; x=1733743171; i=frank-w@public-files.de;
-	bh=Uc2zRevH+Kbf5f8VX30G7BEfhLIb4tv53u+IgAXh0HE=;
-	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
-	 Content-Type:In-Reply-To:References:Date:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=Wec/KeoXhkciOJBV6eBagwb9ZRB8LrAUfI5G/Pg0WgjGiwciB/OiLRGJySznAJ23
-	 9s+esQ/3WuJ1S6XDMqetDB9SkdNbEQ5LDiFNgUbc2HMG+leP5KOWTMCg+Gu3zL//w
-	 BehYLhgyYfWN+Sr19qD1iwYH1D68XGVuukOFXtUcpZ20og2pY4tFFo+e9C3QI3Kcl
-	 +BNMrYsiaNSR5t7fZ5YBpgGaXwk4Z22x8tt4z6Sd4N+vF6vk/KLoWKpHA+koOJTxX
-	 LQ65YipH2ebnjI8h522oAl+clyGRCstdqpDM10lQpRTEaQkZGPcFKmfFdygXtnDCn
-	 al8nwjkJXfTaNVTi8Q==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [217.61.149.104] ([217.61.149.104]) by msvc-mesg-gmx005 (via
- HTTP); Mon, 2 Dec 2024 12:19:31 +0100
+	Mon, 02 Dec 2024 11:22:37 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <s.hauer@pengutronix.de>)
+	id 1tI4Ve-0000UH-EB; Mon, 02 Dec 2024 12:22:34 +0100
+Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <s.hauer@pengutronix.de>)
+	id 1tI4Vc-001Hsx-3A;
+	Mon, 02 Dec 2024 12:22:33 +0100
+Received: from localhost ([::1] helo=dude02.red.stw.pengutronix.de)
+	by dude02.red.stw.pengutronix.de with esmtp (Exim 4.96)
+	(envelope-from <s.hauer@pengutronix.de>)
+	id 1tI4Vd-003R1L-2A;
+	Mon, 02 Dec 2024 12:22:33 +0100
+From: Sascha Hauer <s.hauer@pengutronix.de>
+Date: Mon, 02 Dec 2024 12:22:29 +0100
+Subject: [PATCH v2 1/4] nvmem: imx-ocotp-ele: simplify read beyond device
+ check
 MIME-Version: 1.0
-Message-ID: <trinity-796b046d-1857-413e-bb82-78e700d6b5ac-1733138371404@msvc-mesg-gmx005>
-From: Frank Wunderlich <frank-w@public-files.de>
-To: robh@kernel.org, linux@fw-web.de
-Cc: dlemoal@kernel.org, cassel@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrew@lunn.ch, gregory.clement@bootlin.com,
- sebastian.hesselbarth@gmail.com, linux@armlinux.org.uk,
- hdegoede@redhat.com, axboe@kernel.dk, linux-ide@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Aw: Re: [PATCH v1 1/3] arm64: dts: marvell: Fix anyOf conditional
- failed
-Content-Type: text/plain; charset=UTF-8
-In-Reply-To: <20241111203611.GB1887580-robh@kernel.org>
-Importance: normal
-References: <20241109094623.37518-1-linux@fw-web.de>
- <20241109094623.37518-2-linux@fw-web.de>
- <20241111203611.GB1887580-robh@kernel.org>
-Sensitivity: Normal
-Date: Mon, 2 Dec 2024 12:19:31 +0100
-X-Priority: 3
-X-UI-CLIENT-META-MAIL-DROP: W10=
-X-Provags-ID: V03:K1:WmbuKwIPUaMaoZ+9pCvV9RhiMoPE8aSF6dGD7Y3Nc/IQ/9StBY9DKphILNMLZlJqknJ9E
- 22lbCPY5SsDehMLGZNaTmqa/nNFgGyTW0cKhlE0F1fRPE4GRukXuZsv14PbI4M4fW79O7ZeWfCJz
- tTbCH2I+WuMTY1eD+lrVwb7pAj32hbJr+UkN2be1L4nNJa0NZY9VZXCo8yZeGp19+t765eQQNbF0
- K1SQuxf1K4c8x/zgRx96LBFQiVUW7S9KpTINmN0VJfuRnEaoTskk2hZMQklgiVrZRmMZ8zKxXMPM
- ko=
-UI-OutboundReport: notjunk:1;M01:P0:m9D9NzYozQs=;85UGk8rqymSyuI3OwojybuLO3GM
- UzBsf5kQqXGnWY+/ZM75mW9LXJe5ChShlEBkEXQsFwAntHp27dd9bKrIlWhbLptifFX2f4xoW
- qAPKogLJiykB3Vjqyrd6OeORAwsK/X4sdHB5unZHYzSnqpEpFi1S1Y1z8aN+GjEcVNr4LVSVV
- t5wXNEGbNyIYMHfXodIANnQGJl3EF/s5n+9wPxQ8dHOJCfEUryCDYAcfQoYkGgmkO1SI9rDXL
- hUhS4ob9LdfrGw5FLbxSZtUd867HIxyzzzjn6fyO0osxQNs4iV+5+luJWMyJ4OSke0+4PsHS2
- 6rdVzB7n/YLGumzcc+k1vTz+scIQhHHmExn0TXYl7mhPgOlP4QlKkUgmrK7S+HQesWQ8u3SzN
- /oZ2YcKqVmZp5mFg24ibj1YX36vuhbH/Pgi7aJ7jmfaW1UInmBpF7LEJ+UOkydWeBxfH9lpqM
- 7xuRRvl0VQynUWz2qpa2ty1r3Z3d7BhOpFSPBNYwz/A0iYv+yyzJvtItW7uwk61OPTyu6ibL9
- w4YulsxGea4tbIA9090GQwzq9FOQ5fQSiYwMTCp2sK+U0yi8Y9IArhl2BYbuvLGQy41bgQYwQ
- foS/VpaVXSMi2kFF7OJigs9huyBjSvcmj0l8Win71FfRAEazzdyxxl6R+fQwfSyvyIF6JJWEe
- 1Et7eIiFcSMyvI3hE+YDzMu3orgMYKz2S5ETjf9FLsY00pxECZlcggTioBL25EIA2DGZbgkmn
- QkkZh5Cfo8Ax/GC0arE3y5fIWNe9N2sRxPqwH97q2S73GOTua+SN1FKXVrz3cHRTvhIVZMILe
- 92ZrENpAxtCW7RKeIV/Mxl0KVSC/ziBDhZo1Hf0qt0MB6WzySA9fJzLDs+5EUi0sRQ5ylEYNk
- WbeyohRrlcALr+IdHlP7adqAIKQ7Z2zJNQqA=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241202-imx-ele-ocotp-fixes-v2-1-3c021a97eb5d@pengutronix.de>
+References: <20241202-imx-ele-ocotp-fixes-v2-0-3c021a97eb5d@pengutronix.de>
+In-Reply-To: <20241202-imx-ele-ocotp-fixes-v2-0-3c021a97eb5d@pengutronix.de>
+To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
+ Shawn Guo <shawnguo@kernel.org>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Peng Fan <peng.fan@nxp.com>
+Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, 
+ stable <stable@kernel.org>
+X-Mailer: b4 0.12.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733138553; l=1029;
+ i=s.hauer@pengutronix.de; s=20230412; h=from:subject:message-id;
+ bh=P8t38gZgVtQGfHlRwL+12Evj7x6PEBaDv2Q4YuWoIQI=;
+ b=DasEWzoF6ivaUdopeZSea2AgkEgyHZjhfiWd2ODse1tTTQJ7TQrl90n+TxlMZQthwA7kUTQ61
+ U/nxZmnN4mTAxLnoI8gz77cuGsFHOvvn+MW/dYwxfs+4R52WGpO/4Ca
+X-Developer-Key: i=s.hauer@pengutronix.de; a=ed25519;
+ pk=4kuc9ocmECiBJKWxYgqyhtZOHj5AWi7+d0n/UjhkwTg=
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: s.hauer@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_031943_183011_3C9D3B3A 
-X-CRM114-Status: UNSURE (   4.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241202_032236_382285_B2994C5F 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,9 +91,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Do the read beyond device check on function entry in bytes instead of
+32bit words which is easier to follow.
 
-just a gentle ping to have it finally merged
+Fixes: 22e9e6fcfb504 ("nvmem: imx: support i.MX93 OCOTP")
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: stable <stable@kernel.org>
+---
+ drivers/nvmem/imx-ocotp-ele.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-regards Frank
+diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+index 1ba4944976987..2e186b7d3b040 100644
+--- a/drivers/nvmem/imx-ocotp-ele.c
++++ b/drivers/nvmem/imx-ocotp-ele.c
+@@ -72,13 +72,13 @@ static int imx_ocotp_reg_read(void *context, unsigned int offset, void *val, siz
+ 	void *p;
+ 	int i;
+ 
++	if (offset + bytes > priv->data->size)
++		bytes = priv->data->size - offset;
++
+ 	index = offset;
+ 	num_bytes = round_up(bytes, 4);
+ 	count = num_bytes >> 2;
+ 
+-	if (count > ((priv->data->size >> 2) - index))
+-		count = (priv->data->size >> 2) - index;
+-
+ 	p = kzalloc(num_bytes, GFP_KERNEL);
+ 	if (!p)
+ 		return -ENOMEM;
+
+-- 
+2.39.5
+
 
