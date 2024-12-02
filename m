@@ -4,90 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A619D49798
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 04:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E37BD49798
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 04:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5jem2dHb0CIqQfqKZWUZqxzpx7Oxum1MlxW1zvUuUsw=; b=JKDm38/rmwE6rOnvFGagzQxBGy
-	6rMASCnwqiy/bmrrzzQOz3BcYnbq/tfdxbmpxcmrX1Uz8EA8yHng0RZTQKthW61vGCvw/6QYFfeOS
-	1FEjbaOolPL3NPzwCU327Aadj6OKZ7kmBtGgS1aor0S5yaAvhvvApnai0eYj1ELP0TGBwbgFzvMPu
-	O75aNILNCoWbgYGr3RrGxJFL1qwrfal2SXNTbUx0SAL+82fuqeX9I60kt9J3MyPHhuBAjYci4PyI0
-	reR+lBMT8yz5I2JmGDHR/3PVeQ6wTNoOSOHqGWH7Tb+cV2qfvN2tV1+wDnwbkVc43cUxiReKmh6MD
-	FUD5xz5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ziJcEdQxYlA7VHnSqwLv06sEi+hud0nsFKfCy41XiYQ=; b=eKeMi8X5cTB4X5Iy7A1ra/IMbV
+	s0umhrq+FgDBLrvFziRxH9D7D5/FG4IVjmSZ1MmFyFNUlvL6tapsmdDmeXPBkjPyvCghBqdfdEYaK
+	v0IjStKwi/SzpOOe7wCanHtF0vwt4cv8tY8TnMxKHFPro+LCivzDSatHd0FY6giDw5fBzUzAhZmON
+	gJehzvGB4iHbxdRKi9Budz4M8c5r4QnHACeytsA8l6HwPEy4gebIXzZmrrBkZQDSMkDgq+iAmThQE
+	VC8HM3WhkTnRlUxrtZZ9g2uNoCo//nn+3bHjNsTjzbs6vEpo9fnj4hnYPxX4hwcuPG5RSVk8koKhJ
+	ty9gRg2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHy0O-000000051uy-0Qx1;
-	Mon, 02 Dec 2024 04:25:52 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tHy1K-0000000521B-487Z;
+	Mon, 02 Dec 2024 04:26:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHxzO-000000051ka-0wMJ
+	id 1tHxzi-000000051py-3QlE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 04:24:51 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-53df67d6659so5313896e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Dec 2024 20:24:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1733113488; x=1733718288; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5jem2dHb0CIqQfqKZWUZqxzpx7Oxum1MlxW1zvUuUsw=;
-        b=JA5Q3Bwv16v5r0HxYRNRfRInqUwzoNlYd4NGdqQLgZ3We+cpJnIIiY9uYTZkti7xr0
-         XpuT9d91J1lu3h2RlqCiNhfUIxX80IP+DLEG2K0EskqUgk0YbT1Gjjgnp5hUQWoVlTdI
-         i829JqUhok1u57XMm1gL9lLL44v0fYrX+ghRI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733113488; x=1733718288;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5jem2dHb0CIqQfqKZWUZqxzpx7Oxum1MlxW1zvUuUsw=;
-        b=E3MtY607C00bH4Plyp8lV3NjXDqf025lHyyfip9Xz6Ev34fNbImInhVNapWThk2wHi
-         eDEDS1cgQVURW4KEeyzHpG2u741D7pFw4g8SBbBL+4mU6c+YB8OY0tOWN8N//isuClPj
-         O+iCzlfKMynrZPG9KegyC+R6Y7CNdTqZ8ZZPEj0oe5QQMJi5yUtMfbTB21vG4p3jCeJL
-         jomFc66mq6GmBH2eFLzUhjg6sDovl1dgMzRIwmWrQIIQCM7UtdS949YnjNSqXGTKplR6
-         UvH/LDdu+XgR2dPBOao/x1s/IQz3h7Lu2ktG7vmlxos1cHUWT63FTUOqVh+1z4gcqzlo
-         F1WQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWKbFUuUUNmdWObywEcJNjPzYiAR+18smAC24IZHrHF8gQN6x6/ZUfxbRnJkC74qysytASMcRSNpKQVclbfjRQr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4IDJuLs9uvqZztSOvqiCbNQnl7cQW7I/sopLfOW21QQSfsajb
-	PBtgVK5X1zeNSvJRLT6mpQbJcRcFhnV9N8S4ZHFX0T1v4dU0Tv53zM7ayVC0xEMBs81VbudWVQ1
-	MmlkQYIa/js2pvmNV+RcbfRo8PegiZssomea5lzfs6e6gKaUNVA==
-X-Gm-Gg: ASbGncvkK1L6aqzZJ8SPwxrwe92k1yq+V9kiRNBK71CBLehgKYhu3BFilfx2qjNOgVs
-	A3T///tQFHcIop2XMgUB+IKaDBApP8aGL2goRLuov7W+E//sMoGK/i0diL5U=
-X-Google-Smtp-Source: AGHT+IHt/vITEDYHnbNLIeuL8UfGCtEad48V6Gq5+hXkXt9A/7GYxhY5NyWdbJAiTmoRwPFhqaSLnctzzSQH8pUcJcs=
-X-Received: by 2002:ac2:42d1:0:b0:53d:f09e:9a1d with SMTP id
- 2adb3069b0e04-53df09e9c34mr11711959e87.31.1733113487710; Sun, 01 Dec 2024
- 20:24:47 -0800 (PST)
-MIME-Version: 1.0
-References: <20241001113052.3124869-1-fshao@chromium.org>
-In-Reply-To: <20241001113052.3124869-1-fshao@chromium.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 2 Dec 2024 12:24:36 +0800
-Message-ID: <CAGXv+5E4=dKkUo73x5vCMHawcr9AUd71LyLmDbdyOdJZv0ZBaQ@mail.gmail.com>
-Subject: Re: [PATCH v2 0/8] MT8188 DT and binding fixes
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Fei Shao <fshao@chromium.org>, Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
-	Bin Liu <bin.liu@mediatek.com>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Fabien Parent <fparent@baylibre.com>, 
-	Jianjun Wang <jianjun.wang@mediatek.com>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	MandyJH Liu <mandyjh.liu@mediatek.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
-	Tiffany Lin <tiffany.lin@mediatek.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Xia Jiang <xia.jiang@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, 
+	Mon, 02 Dec 2024 04:25:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 99C855C56F4;
+	Mon,  2 Dec 2024 04:24:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D09D7C4CED2;
+	Mon,  2 Dec 2024 04:25:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733113509;
+	bh=gVP2RgkU37e0c+u2ZX03ORwYou3pnmMTnEi3FVfrRMU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sMCcKlXgUyjtqA2EguoYMnEtieCmHkXduMayY0vZohKm0hu5VGgBJ1uVFGmLZjMvg
+	 Wfg1agFf0Z0lEGHWREmKRV2WumpXHfAJBkbYqMUqiWs1N8BzQIoJK1pY88HckXRwyo
+	 zgUugNrp1ZlkVHulVQlvLj355KNY+CIqsGgAT75+p6ysDDZtEPWuzJNvt6xuPeikiC
+	 qMJu3mUOJaWl/eFQRcW+F4kY4XmD1jPGDDt/Eiuw0xJ73g2oVmMneLd2v9Yj9yXuY5
+	 RSQQ5AnUWELZVrNJflN3S4hXosh7Ln5wPVFinuKf4S/ocasCkgq9JPsYfs5sbc26q8
+	 574XwHkNCJ9Rg==
+Date: Sun, 1 Dec 2024 22:25:05 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Taniya Das <quic_tdas@quicinc.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Abhishek Sahu <absahu@codeaurora.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Ajit Pandey <quic_ajipan@quicinc.com>, 
+	Imran Shaik <quic_imrashai@quicinc.com>, Jagadeesh Kona <quic_jkona@quicinc.com>, 
+	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Gabor Juhos <j4g8y7@gmail.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Subject: Re: [PATCH v3 00/11] Add support for videocc, camcc, dispcc and
+ gpucc on Qualcomm QCS615 platform
+Message-ID: <a4f6ojknv3hats4rwmdg5mw2rxhx7kq4u6axybdawak54crn5s@xnjbl7zno42s>
+References: <20241108-qcs615-mm-clockcontroller-v3-0-7d3b2d235fdf@quicinc.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241108-qcs615-mm-clockcontroller-v3-0-7d3b2d235fdf@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_202450_281623_3559C429 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20241201_202510_950901_F61B34F8 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,86 +80,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, Nov 08, 2024 at 09:39:17AM +0530, Taniya Das wrote:
+> Add support for multimedia clock controllers on Qualcomm QCS615 platform.
+> Update the defconfig to enable these clock controllers.
+> 
+> Global clock controller support
+> https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-0-3d716ad0d987@quicinc.com/
+> 
+> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
 
-On Tue, Oct 1, 2024 at 7:31=E2=80=AFPM Fei Shao <fshao@chromium.org> wrote:
->
-> Hi,
->
-> This series is split from a previous series[*] to focus on few fixes and
-> improvements around MediaTek MT8188 device tree and associated bindings,
-> and addressed comments and carried tags from the previous series.
->
-> [*]: https://lore.kernel.org/all/20240909111535.528624-1-fshao@chromium.o=
-rg/
-> [v1]: https://lore.kernel.org/all/20240925110044.3678055-1-fshao@chromium=
-.org/
->
-> Regards,
-> Fei
->
+Dropping this series from my queue, due to lack of response from author.
+
+Taniya, please answer questions/feedback from Dmitry, Vladimir and
+Bryan, and repose as necessary.
+
+Thanks,
+Bjorn
+
+> ---
+> Changes in v3:
+> - update PLL configs to use BIT and GENMASK for vco_val and vco_mask for all CCs [Bryan O'Donoghue]
+> - Link to v2: https://lore.kernel.org/r/20241101-qcs615-mm-clockcontroller-v2-0-d1a4870a4aed@quicinc.com
+> 
 > Changes in v2:
-> - new patch to MediaTek jpeg and vcodec bindings
-> - new patch to move MT8188 SPI NOR cell properties
-> - revise commit message of vdec power domain changes
->
-> Fei Shao (8):
-
->   dt-bindings: power: mediatek: Add another nested power-domain layer
-
-This one ^
-
->   dt-bindings: PCI: mediatek-gen3: Allow exact number of clocks only
-
->   dt-bindings: media: mediatek,jpeg: Relax IOMMU max item count
->   dt-bindings: media: mediatek,vcodec: Revise description
-
-and these two ^ have not been picked up, and now v6.13-rc1 has DT
-validation errors for MT8188:
-
-/ssd1/wenst/linux/mtk/arch/arm64/boot/dts/mediatek/mt8188-evb.dtb:
-syscon@10006000:
-power-controller:power-domain@15:power-domain@16:power-domain@29:power-doma=
-in@30:
-Unevaluated properties are not allowed ('power-domain@31',
-'power-domain@32' were unexpected)
-    from schema $id:
-http://devicetree.org/schemas/mfd/mediatek,mt8195-scpsys.yaml#
-/ssd1/wenst/linux/mtk/arch/arm64/boot/dts/mediatek/mt8188-evb.dtb:
-power-controller:
-power-domain@15:power-domain@16:power-domain@29:power-domain@30:
-Unevaluated properties are not allowed ('power-domain@31',
-'power-domain@32' were unexpected)
-    from schema $id:
-http://devicetree.org/schemas/power/mediatek,power-controller.yaml#
-
-/ssd1/wenst/linux/mtk/arch/arm64/boot/dts/mediatek/mt8188-evb.dtb:
-jpeg-decoder@1a040000: iommus: [[101, 685], [101, 686], [101, 690],
-[101, 691], [101, 692], [101, 693]] is too long
-    from schema $id:
-http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
-
-
-Is there any way we can get them into v6.13 as well?
-
-ChenYu
-
->   arm64: dts: mediatek: mt8188: Add missing dma-ranges to soc node
->   arm64: dts: mediatek: mt8188: Update vppsys node names to syscon
->   arm64: dts: mediatek: mt8188: Move vdec1 power domain under vdec0
->   arm64: dts: mediatek: mt8188: Move SPI NOR *-cells properties
->
->  .../media/mediatek,vcodec-subdev-decoder.yaml | 100 +++++++++++-------
->  .../bindings/media/mediatek-jpeg-decoder.yaml |   3 +-
->  .../bindings/media/mediatek-jpeg-encoder.yaml |   2 +-
->  .../bindings/pci/mediatek-pcie-gen3.yaml      |   5 +-
->  .../power/mediatek,power-controller.yaml      |   4 +
->  arch/arm64/boot/dts/mediatek/mt8188-evb.dts   |   2 -
->  arch/arm64/boot/dts/mediatek/mt8188.dtsi      |  33 +++---
->  7 files changed, 88 insertions(+), 61 deletions(-)
->
-> --
-> 2.46.1.824.gd892dcdcdd-goog
->
->
+> - cleanups in clk_alpha_pll_slew_update and clk_alpha_pll_slew_enable functions [Christophe]
+> - update PLL configs for "vco_val = 0x0" shift(20)  [Bryan O'Donoghue]
+> - update PLL configs to use lower case for L value  [Dmitry]
+> - Link parents for IFE/IPE/BPS GDSCs as Titan Top GDSC [Bryan O'Donoghue, Dmitry]
+> - Remove DT_BI_TCXO_AO from camcc-qcs615           [Dmitry]
+> - Remove HW_CTRL_TRIGGER from camcc-qcs615         [Bryan O'Donoghue]
+> - Update platform name for default configuration   [Dmitry]
+> - Link to v1: https://lore.kernel.org/r/20241019-qcs615-mm-clockcontroller-v1-0-4cfb96d779ae@quicinc.com
+> 
+> ---
+> Taniya Das (11):
+>       clk: qcom: Update the support for alpha mode configuration
+>       clk: qcom: clk-alpha-pll: Add support for dynamic update for slewing PLLs
+>       dt-bindings: clock: Add Qualcomm QCS615 Camera clock controller
+>       clk: qcom: camcc-qcs615: Add QCS615 camera clock controller driver
+>       dt-bindings: clock: Add Qualcomm QCS615 Display clock controller
+>       clk: qcom: dispcc-qcs615: Add QCS615 display clock controller driver
+>       dt-bindings: clock: Add Qualcomm QCS615 Graphics clock controller
+>       clk: qcom: gpucc-qcs615: Add QCS615 graphics clock controller driver
+>       dt-bindings: clock: Add Qualcomm QCS615 Video clock controller
+>       clk: qcom: videocc-qcs615: Add QCS615 video clock controller driver
+>       arm64: defconfig: Enable QCS615 clock controllers
+> 
+>  .../bindings/clock/qcom,qcs615-camcc.yaml          |   60 +
+>  .../bindings/clock/qcom,qcs615-dispcc.yaml         |   73 +
+>  .../bindings/clock/qcom,qcs615-gpucc.yaml          |   66 +
+>  .../bindings/clock/qcom,qcs615-videocc.yaml        |   64 +
+>  arch/arm64/configs/defconfig                       |    4 +
+>  drivers/clk/qcom/Kconfig                           |   35 +
+>  drivers/clk/qcom/Makefile                          |    4 +
+>  drivers/clk/qcom/camcc-qcs615.c                    | 1591 ++++++++++++++++++++
+>  drivers/clk/qcom/clk-alpha-pll.c                   |  172 +++
+>  drivers/clk/qcom/clk-alpha-pll.h                   |    1 +
+>  drivers/clk/qcom/dispcc-qcs615.c                   |  786 ++++++++++
+>  drivers/clk/qcom/gpucc-qcs615.c                    |  525 +++++++
+>  drivers/clk/qcom/videocc-qcs615.c                  |  332 ++++
+>  include/dt-bindings/clock/qcom,qcs615-camcc.h      |  110 ++
+>  include/dt-bindings/clock/qcom,qcs615-dispcc.h     |   52 +
+>  include/dt-bindings/clock/qcom,qcs615-gpucc.h      |   39 +
+>  include/dt-bindings/clock/qcom,qcs615-videocc.h    |   30 +
+>  17 files changed, 3944 insertions(+)
+> ---
+> base-commit: 15e7d45e786a62a211dd0098fee7c57f84f8c681
+> change-id: 20241016-qcs615-mm-clockcontroller-cff9aea7a006
+> 
+> Best regards,
+> -- 
+> Taniya Das <quic_tdas@quicinc.com>
+> 
 
