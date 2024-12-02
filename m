@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108E1D78321
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 14:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98460D7832E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 14:54:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vQvOggYULqzBhMJ1cY0fm/C4jvh7h3UH+EMhmZlNNE4=; b=AOfDM0n+julXK0iYE0F9mCyrxy
-	w4qSyaf47PUUJTLTfE+P2IXqpixJ3bXXv/a6imY0zvvF+y4j6M+QZ7KFnFafTqHktGmBbo3lmaGOz
-	1N3gCNVlIs246R/vBMujyCeDxMQ8d4+/zAJYR0N9tt+kjOdXBjrvy8WqPF9MtFtHhTUWMhKoVzeE+
-	sW8eOrNdQpIxOHqWkmf6C2Q6Rc895QBNcTopI4r89CM5F3DzrHi54/OrE7sNQIdr/5CxAZ5AImCY4
-	lP0CZCH4Mp1dNX5yRXnEC/HHSCsmi8j2stD7bxBE0Lh3vMdgRLnDDI4p97ZbEsmepoCsX1sVfBKnL
-	HuJrOehQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OmFjZuNAgGTFfhzOSSMRVfAUqblcSCURT6l6+QVX0Vk=; b=sl9byGfN135lj2rjA/XqcPFt4Q
+	9vqIhF+TabmRcWwdq+hiThYhJ8DcQwWV/5EXGPFW1z8ybFKK8CrSzm7Q0lkhp46AwqTd3HL+WRasy
+	TkAbV957SXKVpPjAU8jIbMWZXKlP3rqO74i5XH3/swvA/c6g8/C+SHn+NH7XKGFrKxG1260N1Hm1h
+	jM0/cbwKL5j1wMgqURvKxx/eR/fl0Lh3xbwi5+CC0NiEiuf4Q945BqoJDh/WCvATIhLfqZb2GPygA
+	56L/ERxSfFRk6PcWZciyPQpATmxkPzD1cfG5whbKbDN7ZMr/+Xc64Ylz6bApmFhzHq9rpVeuXp1WW
+	N75DMGHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI7lY-00000006WjL-06J8;
-	Mon, 02 Dec 2024 14:51:12 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tI7ot-00000006XMu-1KRU;
+	Mon, 02 Dec 2024 14:54:39 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI7kX-00000006WZz-2V13;
-	Mon, 02 Dec 2024 14:50:10 +0000
+	id 1tI7ns-00000006XC4-2SqP
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Dec 2024 14:53:38 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4B2ErOi6100552;
+	Mon, 2 Dec 2024 08:53:24 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733151205;
+	bh=OmFjZuNAgGTFfhzOSSMRVfAUqblcSCURT6l6+QVX0Vk=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=OymWRgeAimwNUhkGahYXNsnuwFC70DhGFS6hvIAYEDZwpAyUndhVbP3teAkktpVQ2
+	 pphJI30On5xQUsZyJBNDPZTHmdOuiL35U9qjCjbzt6a+/r+rqDqdaktMpgg7/wqf0d
+	 GJCLS6KclxI+HCuDImGl0sd1Xx1W/lKrGmGshqTU=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B2ErOle060138
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 2 Dec 2024 08:53:24 -0600
+Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 2
+ Dec 2024 08:53:24 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 2 Dec 2024 08:53:24 -0600
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.81])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B2ErNcH070705;
+	Mon, 2 Dec 2024 08:53:24 -0600
+Date: Mon, 2 Dec 2024 20:23:22 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>,
+        Romain Naour
+	<romain.naour@smile.fr>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>,
+        <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
+        <kristo@kernel.org>, <vigneshr@ti.com>, <nm@ti.com>,
+        Romain Naour
+	<romain.naour@skf.com>
+Subject: Re: [PATCHv2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable
+ ACSPCIE output for PCIe1
+Message-ID: <cndc3fopwhwkotfikul2jtzfczpdpwlrs5uhuqq76ck36ndtfs@gvxavxt5tgd5>
+References: <20241202101140.48778-1-romain.naour@smile.fr>
+ <dabbad2b-f8a6-4ed7-86da-ec696cf67461@kernel.org>
+ <k7udgqugqseweckb7hjniz3aops4kn35ttju2ju7f2pcbmndrg@dau5nr4leish>
+ <abeb632b-9efc-48e5-a28a-a9d7c02e0a6e@kernel.org>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1733151007;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vQvOggYULqzBhMJ1cY0fm/C4jvh7h3UH+EMhmZlNNE4=;
-	b=pS0QbCiu8xFRfw7wE1bmSxp5FwrCCQ7/IeSubP+/JE1ZcuSt9bvx7lAQZBC2D7c3HOvkLW
-	MaQZz9jvzhikGm+LmNat93W+iWIk/1ubZj687HfwnHSiaqB0ee1aospPvE6m5AR5p9VpaA
-	ugsmOogHnfzYq1o9/hDstMM+UIN0WqeWK0qpAa4SreV0jZA5cLjKYmDVUZ6KHw1h3DZeVA
-	QzrUP4L8KwX5MGLXhesRfQpk7YPhYvV2OJRaKzWM87y1/1qaZHr4SzUyIGBy3Ft1Bh9mMP
-	FlI4sC/lh2Wc5OGAe8omv6ITXiPYo+Kv7ZnHHmi6kzvA5FUVpYxGG3QfFkQMRA==
-Date: Mon, 02 Dec 2024 15:50:07 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Diederik de Haas <didi.debian@cknow.org>
-Cc: Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>, Peter Robinson
- <pbrobinson@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: enable rng on all rk356x
-In-Reply-To: <D6175VTSP13T.200HWIIHOIDQQ@cknow.org>
-References: <20241201234613.52322-1-pbrobinson@gmail.com>
- <302bdae2f4defeefe88ea4018a0be11f@manjaro.org>
- <b50376c7-c5d5-41ae-95ea-e2d68c1cc809@linaro.org>
- <D6175VTSP13T.200HWIIHOIDQQ@cknow.org>
-Message-ID: <c50f603a9e1a819f17f72e97e92aeebd@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <abeb632b-9efc-48e5-a28a-a9d7c02e0a6e@kernel.org>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_065009_779999_D2A0521A 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20241202_065336_753867_19136244 
+X-CRM114-Status: GOOD (  21.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,40 +92,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Diederik and Marcin,
+On Mon, Dec 02, 2024 at 12:07:17PM +0100, Krzysztof Kozlowski wrote:
 
-On 2024-12-02 13:01, Diederik de Haas wrote:
-> On Mon Dec 2, 2024 at 11:40 AM CET, Marcin Juszkiewicz wrote:
->> W dniu 2.12.2024 o 04:55, Dragan Simic pisze:
->>  > On 2024-12-02 00:46, Peter Robinson wrote:
->>  >> The rk356x rng is available on both the rk3566 and rk3568
->>  >> parts, the IP is all self contained within the SoCs so
->>  >> it's enabled already by default on rk3568 so let's enable
->>  >> it in the base rk356x.dtsi so it's enabled consistently
->>  >> everywhere.
->>  >
->>  > Please, go through the mailing list threads [1][2] that have led us
->>  > to the current state.  To sum it up, it isn't about what's 
->> supported
->>  > in the two RK356x SoC variants, but about the RK3566's HWRNG being
->>  > disabled because the testing showed that it produces unacceptably
->>  > low quality of random data, for some yet unknown reason.
->> 
->> So maybe there should be a comment in rockchip/rk3568.dtsi so we would
->> not get back to it again.
+Hello Krzysztof,
+
+> On 02/12/2024 11:58, Siddharth Vadapalli wrote:
+> > On Mon, Dec 02, 2024 at 11:14:46AM +0100, Krzysztof Kozlowski wrote:
+> > 
+> > Hello Krzysztof,
+> > 
+> >> On 02/12/2024 11:11, Romain Naour wrote:
+> >>> From: Romain Naour <romain.naour@skf.com>
+> >>>
+> >>> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
+> >>> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
+> >>> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
+> >>> provide refclk through PCIe_REFCLK pins.
+> >>>
+> >>> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
+> >>> module's PAD IO Buffers.
+> >>>
+> >>> Reuse the compatible "ti,j784s4-acspcie-proxy-ctrl" since the ACSPCIE
+> >>> buffer and its functionality is the same across all K3 SoCs.
+> >>>
+> >>> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+> >>> Signed-off-by: Romain Naour <romain.naour@skf.com>
+> >>> ---
+> >>> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
+> >>> applied on vendor kernel for BeagleBone AI-64:
+> >>> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
+> >>>
+> >>> v2:
+> >>>  - use generic style comments
+> >>>  - use "syscon" as generic node name for "acspcie0_proxy_ctrl" node
+> >>>  - Keep the compatible "ti,j784s4-acspcie-proxy-ctrl" since the
+> >>>    ACSPCIE buffer and its functionality is the same across all K3 SoCs.
+> >>>    (Siddharth Vadapalli)
+> >>>
+> >>>    "The compatible "ti,j784s4-acspcie-pcie-ctrl" should be reused for
+> >>>    J721E and all other K3 SoCs.
+> >>
+> >> No, it shouldn't and you got comment on this. You always need specific
+> >> compatible, see writing bindings doc.
+> > 
+> > Could you please clarify in which cases reusing the compatible is
+> > permissible? The list of compatibles at:
 > 
-> I suggested to put that in the (original) commit message:
-> https://lore.kernel.org/linux-rockchip/6690040.iosknibmi9@bagend/
-> precisely because this was quite predictable to happen.
+> Never? You always need specific compatible. Did you read the writing
+> bindings document?
+
+I went through the bindings document again at:
+https://www.kernel.org/doc/Documentation/devicetree/bindings/writing-bindings.rst
+It mentions:
+- DON'T use 'syscon' alone without a specific compatible string. A 'syscon'
+  hardware block should have a compatible string unique enough to infer the
+  register layout of the entire block (at a minimum).
+
+The ACSCPCIE Block as well as its integration across all of TI's K3 SoCs
+is the same i.e. same Hardware/IP. The register bits corresponding to
+the feature to be enabled/disabled via the ACSPCIE block are the same as
+well i.e. "register layout can be inferred". The same goes for the
+compatibles listed below in my previous reply i.e. they aren't bugs.
+Same IP and integration across SoCs and hence reused in the sense of
+Hardware and not Software. I hope this clarifies the rationale for the
+"reuse".
+
 > 
-> So a +1 on a comment in the dtsi with a link to the discussion in the
-> commit message.
+> > https://github.com/torvalds/linux/blob/v6.12/Documentation/devicetree/bindings/mfd/syscon.yaml#L112
+> > namely,
+> >           - ti,am62-opp-efuse-table
+> >           - ti,am62-usb-phy-ctrl
+> >           - ti,am625-dss-oldi-io-ctrl
+> >           - ti,am62p-cpsw-mac-efuse
+> >           - ti,am654-dss-oldi-io-ctrl
+> >           - ti,j784s4-pcie-ctrl
+> > have all been reused for different TI SoCs since they all correspond to the
+> > device functionality enabled via the CTRL_MMR System Controller registers.
+> 
+> If you find a bug, does it mean you can send new patch introducing the
+> same bug?
 
-Totally agreed on adding a brief summary to the RK356x base SoC dtsi,
-so I went ahead and sent a patch that adds it. [1]  I also expected
-that to be described in the base dtsi back when the HWRNG support was
-added, but it somehow went in without the description.
+[...]
 
-[1] 
-https://lore.kernel.org/linux-rockchip/6b272e2f8f916c04b05db50df621659a5a7f29ab.1733149874.git.dsimic@manjaro.org/
+Regards,
+Siddharth.
 
