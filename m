@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A132CD7832E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:18:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A83FD78321
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZSk/w4+Csw599AHP7Zi1UeBClvAM4xAqPA1DlK7/9L0=; b=1bz+YHPeXTWw4yNjBiQHT/rxcz
-	U6YCVDRfSHqYL58qY4xeZwc9KuewmAnn+wDaKcbt8S3FOVdVOKKv9sn5VHoDkJbpalE3666+elJ0l
-	okWdZVn00g7kZjOtDVQ7tP6ptWGjgD9AWqrhjlIVX9MIfgm1U7h+vlk2jy9ANZiAnlPn1P5yEPPHp
-	CQ96+y5hMdmGfiH5PMC5UBQpAL+sI3MA3NLa1vrUg7UTfcduk+icUqOmOBZ/nv03cccyH8JegYFhZ
-	/c5dXScb9x5+ktXFnAdHeUm54iNyD5CUIEWtTEwCIfqv4EO3cwzCCZzR1yBNBDHipnhCwc3uao+tX
-	r90U4kzQ==;
+	bh=Dg46fsoA6E4Bs0qCAgU4Flih67Bpy2cf9iM7XJUV11s=; b=06jtcms+Ry4klMAQRcgmOMW0PY
+	QNrj3Ia8bPKfpYf56pE96C72+YCElIJl5YLZFscZ7bUfG8H/2CSEfz44Ntl+ML8QYaTRT5vY41qsI
+	JG9nFNiBXAcMHo26anJclRPOhfWvM5LcwNvNgCnSrbGYGjH0tpvLmvDxkwl7wkbEGY1OQ4Q4r3qDZ
+	GT9ehHamHAm0bBhZySCUQhq9htcaslngMGgHNna3PPofOpcVIlmeA8OwQ1rbr4iuy4O/CTzeDVfgS
+	AGxcL+800kOw+5UrdC21QTX6ccbNnUMvdyh62ontG6zoB+R2K6Bs9WACjIrgeR0sr5WLGiuqfHaJi
+	k0p5qb9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8Bf-00000006cHM-2uCU;
-	Mon, 02 Dec 2024 15:18:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tI8Cx-00000006cci-42Bo;
+	Mon, 02 Dec 2024 15:19:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8Af-00000006c2q-1lWM;
-	Mon, 02 Dec 2024 15:17:10 +0000
+	id 1tI8Bx-00000006cNp-2heu;
+	Mon, 02 Dec 2024 15:18:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 962E15C67BA;
-	Mon,  2 Dec 2024 15:16:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 950ECC4CED1;
-	Mon,  2 Dec 2024 15:17:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id F20435C6311;
+	Mon,  2 Dec 2024 15:17:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EEA8C4CED1;
+	Mon,  2 Dec 2024 15:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733152628;
-	bh=SoX6p1yA2O8NnnyxuSjhY3p8fMe5bc9Az3QhUnQrqNM=;
+	s=k20201202; t=1733152708;
+	bh=aX7gzIhJGHF2/34tUKFIjYrdsoJxefhzoc+j5VP6raE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Rq2WOtSZ8e/nyoYmqqWhc1AyEyiXxAGjZqUGOZ02LDFoLwpSQFxQ31jaKciYAK8EZ
-	 lz9quxcAAscQP+wh9Gld5g9v7Eipm7W5D7kso8XhlA38LnjbjLG+IJaB7DbuAJ0NvX
-	 BvZKbpDqowDreMnlbEg9I9Km4PqP/ZZKE4PsugfiOMbY75xsxn9Ayf7Vl88KasAl2G
-	 GIzwht0Wf+G7RcmSjzF4b9Jtjjz+J9mP2OYakm5iCiIlPAXY0Srs+3sXvs/+05IuW2
-	 JB+6qbRs0KhjYIuzj770vJF4HXUoQtk4jx5IYsoCUO2UmJKNWOU8m1PShKPl4FdeP/
-	 OeuB1ARmvFP3Q==
-Message-ID: <0167e83b-7b73-4784-b022-903272866fe1@kernel.org>
-Date: Mon, 2 Dec 2024 16:16:58 +0100
+	b=Jumvelwu0qO2UhKpEGXgqujPYdE5SjwbQGvnjZTenNXd/20idFBtejn/kDeze7Cue
+	 Xbzj2GVhZZs31zKLhujROYdyo77v8PEzS+ljcWIGimLO5O03rkujibvAx1KIFg9ljh
+	 mX4zYTEXJ6fvvf0IJinSIH/Lbf7WN50fwqsC8EXMKs1nVEQHFVO5WtTlQkyox5Zflc
+	 sSJY51BF9VedBSDFYCKXmZsL67iL0FNISSQORmginAoRrZM1EQsTWFt13A+5HsGDCT
+	 TiQh9UiKC2eEddtOjpeCwZVfsKvHliLowyle2b/BH+YX9HIT40vAyeo5JSY6z6gtWI
+	 qJGgqA+960XxQ==
+Message-ID: <36ea46ce-7add-4322-a030-1ee6c458d5db@kernel.org>
+Date: Mon, 2 Dec 2024 16:18:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] dtbindings: display: bcm2711-hdmi: Correct bindings
- for 2712
+Subject: Re: [PATCH 2/7] dtbindings: display: Fix BCM2835 HVS bindings for
+ BCM2712
 To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
@@ -66,9 +66,9 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
  linux-gpio@vger.kernel.org
 References: <20241202-dt-bcm2712-fixes-v1-0-fac67cc2f98a@raspberrypi.com>
- <20241202-dt-bcm2712-fixes-v1-1-fac67cc2f98a@raspberrypi.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <20241202-dt-bcm2712-fixes-v1-2-fac67cc2f98a@raspberrypi.com>
 Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -112,12 +112,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241202-dt-bcm2712-fixes-v1-1-fac67cc2f98a@raspberrypi.com>
+In-Reply-To: <20241202-dt-bcm2712-fixes-v1-2-fac67cc2f98a@raspberrypi.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_071709_549797_5D3F4A6C 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20241202_071829_775298_F81F1E6C 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,53 +133,54 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 02/12/2024 15:31, Dave Stevenson wrote:
-> The previous patch just adding the compatible missed out that the
-
-
-"The previous" is meaningless in this context. There is nothing
-previous. Refer to commit (see submitting patches).
-
-> number of interrupts changed
+> The previous patch adding the compatible string missed out that
+> the number of interrupts and clocks changed with BCM2712 too.
 > 
-> Fixes: 62948c62abca ("dt-bindings: display: Add BCM2712 HDMI bindings")
+> Update to validate clock and interrupts for the variants.
+> 
+> Fixes: 6cfcbe548a3a ("dt-bindings: display: Add BCM2712 HVS bindings")
 
-There is no such commit in linux-next. Fix patches while they are on the
-mailing list. If you refer here to broken DRM process, then basically
-you are on your own because we won't able to see it.
+
+No such commit on current next.
 
 > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-
-Typo in subject prefix. It's dt-bindings.
-
 > ---
->  .../bindings/display/brcm,bcm2711-hdmi.yaml        | 44 +++++++++++++++-------
->  1 file changed, 30 insertions(+), 14 deletions(-)
+>  .../bindings/display/brcm,bcm2835-hvs.yaml         | 77 +++++++++++++++++-----
+>  1 file changed, 61 insertions(+), 16 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
-> index 6d11f5955b51..6af342c9b6b8 100644
-> --- a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
-> +++ b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
-> @@ -56,22 +56,38 @@ properties:
->        - const: cec
+> diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+> index f91c9dce2a44..ab59edbcf32c 100644
+> --- a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+> +++ b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+> @@ -19,12 +19,13 @@ properties:
+>    reg:
+>      maxItems: 1
 >  
->    interrupts:
-> -    items:
-> -      - description: CEC TX interrupt
-> -      - description: CEC RX interrupt
-> -      - description: CEC stuck at low interrupt
-> -      - description: Wake-up interrupt
-> -      - description: Hotplug connected interrupt
-> -      - description: Hotplug removed interrupt
-> +    oneOf:
-> +      - items:
-> +        - description: CEC TX interrupt
-> +        - description: CEC RX interrupt
-> +        - description: CEC stuck at low interrupt
-> +        - description: Wake-up interrupt
-> +        - description: Hotplug connected interrupt
-> +        - description: Hotplug removed interrupt
+> -  interrupts:
+> -    maxItems: 1
+> +  interrupts: true
 
-You need to narrow these per variant in allOf:if:then.
+No, widest constrains are *always* here.
+
+>  
+> -  clocks:
+> -    maxItems: 1
+> -    description: Core Clock
+> +  interrupt-names: true
+> +
+> +  clocks: true
+> +
+> +  clock-names: true
+
+
+No, this has to be complete (widest) here.
+
+
+>  
+>  required:
+>    - compatible
+> @@ -33,17 +34,61 @@ required:
+>  
 Best regards,
 Krzysztof
 
