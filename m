@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21498D7833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C63BD7831C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LVlR4u3XPTn/rMu+TnprxAhfo8+DFJbzzsjqMS/n4SU=; b=qG1yXAF30SDVkWby6tav1/6gQ6
-	1oFN1hif2HNzP+OZLHYw2yN5vcPTVlHDOkHSzQMVQ44abRAdGREUWdbypGnXFj3jzv4jit4Nhj6UZ
-	iHptnNAhcYEP0Lday5HbORTd9dptib1YfnIarhiAumHwEuxhy+QxjeDjfv8GU+Q1iQFrMNiSgO6kG
-	9mtX909L0hp2iYy6QSnPb2RFnxulWAf56UUdNuoiQKsO1w22vTtgdgfbh0pcFJO4aX5xnn9/Ehpw0
-	cboX3kISwIuwdj+EYe4zOq2jd3UgfDhMBsYg6GKjNL9yd4oKzUgkrENHw26vkOKhHstD/dJex/Cht
-	npFCwl4g==;
+	bh=KGnhMjxwy68rVKO6J04lhMLXXs2FbVXcKOF5hqHPWs0=; b=Facjsua7/c/fsyVtB0G9idba3e
+	aUAhSErsl4H6hPgTHklzpHrxadqctXrndCLUq3oglZXdcVtEGBMImprS/2veNYZYIZU79KbJfmFSD
+	SiTwVNFEKGu8FsAUwOWuHdEz+pNQ5KvxaUz3kvwwfdZtPDV7EQCBUNCRKfoqNKg4rPKOz4shrIfO3
+	YjXVnc8oAThtU31FLn8AsHUalltcAZLtLT9cqcsRpFts8nW0Gk5LJSgcgkhZHjgE0qMm8iyS6GoAB
+	14iGwR4+/uGpJ15ulIONGzFXw/nGtcxSJY1LpwqmHfOlv2Lf4m237EDSkndkxD7JocXCDHbRyK5QM
+	5n/9Srgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIAak-00000007568-06aZ;
-	Mon, 02 Dec 2024 17:52:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIAU8-0000000742w-1q1u
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Dec 2024 17:45:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=LVlR4u3XPTn/rMu+TnprxAhfo8+DFJbzzsjqMS/n4SU=; b=Bm4tiwNfR26ZPEywRM+FbcPQN0
-	St2JrsxIbSoFpy2nRhikd6Si5q7/3pWUDM8kNVCpoW3CEO0f7AoG83Zet+GovRfFYQ/6FKSXILqF+
-	xD4oP6g2pYdolLa8r6zrEaqq4Fc0iKGYt6JJOPTahs3J63EWqAB+SxAZzxGz8ClA6BTU7PP/43Cpv
-	ks4WEeSLzPO1vSB1DimCX7cLewus7PDT+LGFjw6vyqY7KkGFmqNslt08fC/wiQrnpSJEo2w8ZsnMt
-	sMEGVfM3zIamO2X5trytG4L66Rn2EjXpPbqZ3Exp94HRKzlu/6xfT5nd/HQB7gGCPYDJH3nOOPMV1
-	fi+QQmLA==;
+	id 1tIAce-000000075Ko-3M3J;
+	Mon, 02 Dec 2024 17:54:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIAU5-00000002DxE-06IJ
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIAbe-000000075Dy-10BM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 17:45:23 +0000
+	Mon, 02 Dec 2024 17:53:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 812731007;
-	Mon,  2 Dec 2024 09:45:46 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DCDD81007;
+	Mon,  2 Dec 2024 09:53:37 -0800 (PST)
 Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C0A2F3F71E;
-	Mon,  2 Dec 2024 09:45:16 -0800 (PST)
-Date: Mon, 2 Dec 2024 17:45:11 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6C073F5A1;
+	Mon,  2 Dec 2024 09:53:07 -0800 (PST)
+Date: Mon, 2 Dec 2024 17:53:05 +0000
 From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: arnd@arndb.de, catalin.marinas@arm.com, hch@lst.de, rppt@kernel.org,
-	thuth@redhat.com, will@kernel.org
-Subject: Re: [PATCH] arm64: patching: avoid early page_to_phys()
-Message-ID: <Z03tNWwlOz3Iil9J@J2N7QTR9R3>
-References: <20241202170359.1475019-1-mark.rutland@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Vitaly Chikunov <vt@altlinux.org>, Will Deacon <will@kernel.org>,
+	james.morse@arm.com, linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-kernel@vger.kernel.org, oliver.upton@linux.dev
+Subject: Re: v6.13-rc1: Internal error: Oops - Undefined instruction:
+ 0000000002000000 [#1] SMP
+Message-ID: <Z030AVd1_uURWsgL@J2N7QTR9R3>
+References: <20241202045830.e4yy3nkvxtzaybxk@altlinux.org>
+ <20241202153618.GA6834@willie-the-truck>
+ <86ttbmt71k.wl-maz@kernel.org>
+ <20241202155940.p267a3tz5ypj4sog@altlinux.org>
+ <86ser6t6fs.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241202170359.1475019-1-mark.rutland@arm.com>
+In-Reply-To: <86ser6t6fs.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_174521_285861_9CD67FEB 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20241202_095310_320968_A1BC2F39 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,35 +69,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Looks like I messed up my text editing and left some bonus words...
+On Mon, Dec 02, 2024 at 04:07:03PM +0000, Marc Zyngier wrote:
+> On Mon, 02 Dec 2024 15:59:40 +0000,
+> Vitaly Chikunov <vt@altlinux.org> wrote:
+> > 
+> > Marc,
+> > 
+> > On Mon, Dec 02, 2024 at 03:53:59PM +0000, Marc Zyngier wrote:
+> > >
+> > > What the log doesn't say is what the host is. Is it 6.13-rc1 as well?
+> > 
+> > No, host is 6.6.60.
+> 
+> Right. I wouldn't be surprised if:
+> 
+> - this v6.6 kernel doesn't hide the MPAM feature as it should (and
+>   that's proably something we should backport)
 
-On Mon, Dec 02, 2024 at 05:03:59PM +0000, Mark Rutland wrote:
-> When arm64 is configured with CONFIG_DEBUG_VIRTUAL=y, a warning is
-> printed from the patching code because patch_map(), e.g.
+Looks like v6.6.60 is missing:
 
-That was meant to say:
+  6685f5d572c22e10 ("KVM: arm64: Disable MPAM visibility by default and ignore VMM writes")
 
-| When arm64 is configured with CONFIG_DEBUG_VIRTUAL=y, a warning is
-| printed from the patching code, e.g.
+... which is a fix for:
 
-[...]
+  011e5f5bf529f8ec (" arm64/cpufeature: Add remaining feature bits in ID_AA64PFR0 register")
 
-> For historical reasons, the structure of patch_map() is more complicated
-> than necessary and can be simplified. For kernel image addresses it's
-> sufficient to use __pa_symbol() directly without converting this to a
-> page address and back. Aside from kernel image addresses, all executable
-> code should be allocated from execmem (where all allocations will fall
-> within the vmalloc area), and the vmalloc area), and so there's no need
-> for the fallback case when case when CONFIG_EXECMEM=n.
-
-That last sentence should have been:
-
-| Aside from kernel image addresses, all executable code should be
-| allocated from execmem (where all allocations will fall within the
-| vmalloc area), and so there's no need for the fallback case when case
-| when CONFIG_EXECMEM=n.
-
-I can spin a v2 with those fixed if necessary.
+... which unintentionally exposed ID_AA64PFR0.MPAM to guests, and *is*
+in v6.6.60.
 
 Mark.
+
+> - you get a nastygram in the host log telling you that the guest has
+>   executed something it shouldn't (you'll get the encoding of the
+>   instruction)
+> 
+> Can you confirm these two things?
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
