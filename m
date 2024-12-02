@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006D6D49793
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 01:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AB7BD49792
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 02:05:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Hb1XHT7BCneC2tQ+Uq4AVpJcszwbm8PjcuOmwmtm3E=; b=A4LJN5U47C/cVi+CSH4w2bCgx+
-	6r6UW+jhBWRXnCT6lPI7thxzOrTjITCJE1cO9DloamcABshiMYxlWlc7TKlhpc0sCLrfW7W1I1OLn
-	QCnM+tHmzKp2OdW68XKObkPiALmwfWZa5k6Sz7itJgDd+l0l9d55GnGVB62FxkVDHeK58hL5Ww0sG
-	CwZryubhEcSQ43r9HY7mxmsYtNeiL9ouY/IgSxA4PvrDrVV/wE30OK8+IvrQZCUoGMkgn4ElOEDWP
-	9pIgICcPC4Gvk2L+jWMA1F1zwnVn3NX7lgGB/w2lospqOsznB1j63Qa6N+e32DDVTS076k1z2+hCt
-	EwaSGg4A==;
+	bh=Y241lptnwQ37OUoaH11vBxiTF8EY0NMjd3KnNF0LCj8=; b=oU+1Oyk8o8NdcK/YaBPt0TrD+B
+	hqMUl9lQiV7GkDBEcs3Sko0/HclgAto3VDrcX/pVufclYOUEzSYVt0qoEcPFnMcHrxoN2SrjQJ8rC
+	y9YMKbX786V3fARG8Rhuw01GfcWdklTeY0vlXnQewHOqlBkq/kZWttAayU3R3RedTHv3l+enf7hqm
+	rCCMCc8T2WbWf7QWJ0N0gxYyNZgU4IgqdixeOu0CX+4FOsOHQBOVwV03iRSKftn6PAiT5fESkZekV
+	NrDmfChY/ZWtrspanf7O6l42MofNQyKgOidE0cDZsmfPQ4BN8XnehEHARLdEl0+NMyQhxEnruLmo3
+	ipa7+HYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHvR6-00000004k3S-1Tin;
-	Mon, 02 Dec 2024 01:41:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tHvo3-00000004ljF-0a8N;
+	Mon, 02 Dec 2024 02:04:59 +0000
+Received: from mail-m19731104.qiye.163.com ([220.197.31.104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHv87-00000004hRM-0GXX
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Dec 2024 01:21:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=+Hb1XHT7BCneC2tQ+Uq4AVpJcszwbm8PjcuOmwmtm3E=; b=jZuh+kfLO63sApv3YUz6ciN5n+
-	sGv5S2e/9XkYiJLV3Chpd4PDXYcVg5UrnWmbJTmdqI1K7EInZP06LzHEntIrBw+GecgPakf1Xyoz9
-	B2HuRiPHwP/auSMOiedKpacMSZOiDOfsTYlZu2aipESUGH8B1uc7uTI3pWTQ/PO8KCY25uMot3hrx
-	aHKCnmMAHBQ365GPf60VNhiFaxpxa2wggMs1e17CnYXDD93NxUAO1QMkkPxcjvfiu66x/HJXNpd4v
-	MuJZ8uPWTPbXbJGONQwZ6BY5CQsOezmSXVwXG/Xk9/1zDQLnn6HMxJL4jPH2azkc2SE6xM/Y/WqAt
-	vLB6MZcw==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHv80-000000024k0-1fYp
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 01:21:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E1063A40C12;
-	Mon,  2 Dec 2024 01:19:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E405EC4CECF;
-	Mon,  2 Dec 2024 01:21:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733102490;
-	bh=ISfyNvdNpbkV2arizMvQq4uuyReubir2d48UPRuYgKY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TdVZm53zic6CXInecLInLx9MwZ3dHDWGCNOa8JMD1chwSFgAiZVrp5PnkAsXYpq77
-	 WnZXEbiSoqhArWNxH+ZuHKwG9KD0P5fdpsIb/qFvlEmW4x8M7WFB/9Fsf0egD2ybhD
-	 NSxdIG6XSOZ8UTQq144zpskZSXnTAwb8zlTVSy09VY+xOCq/+IDslS8v0nGPElhgYD
-	 5/4cOALmUU8+bICIZZLjYtaPrhtu6PjdpQubG8EEvbgPuutp3p2xb9vauAZtqJhdn3
-	 TSdMLLHe7qsQ+soXNNIunYGiHAscwKsHl/kCnY6MJXSwZGthZhWttt5HIr04zrKxvL
-	 P4kxOQLxxEWsA==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	x86@kernel.org,
-	Zhihang Shao <zhihang.shao.iscas@gmail.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>
-Subject: [PATCH v2 04/12] x86/crc-t10dif: expose CRC-T10DIF function through lib
-Date: Sun,  1 Dec 2024 17:20:48 -0800
-Message-ID: <20241202012056.209768-5-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241202012056.209768-1-ebiggers@kernel.org>
-References: <20241202012056.209768-1-ebiggers@kernel.org>
+	id 1tHvn3-00000004lc5-1U7m;
+	Mon, 02 Dec 2024 02:03:58 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 461506be;
+	Mon, 2 Dec 2024 10:03:42 +0800 (GMT+08:00)
+Message-ID: <79421ac4-ffb5-4763-8ba7-cb7bd25c1c80@rock-chips.com>
+Date: Mon, 2 Dec 2024 10:03:42 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 02/10] dt-bindings: display: rockchip: analogix-dp: Add
+ support for RK3588
+To: Krzysztof Kozlowski <krzk@kernel.org>, heiko@sntech.de
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
+ cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
+ andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
+ kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org
+References: <20241127075157.856029-1-damon.ding@rock-chips.com>
+ <20241127075157.856029-3-damon.ding@rock-chips.com>
+ <5d4bebf5-7954-4739-9cd4-93d78d337738@kernel.org>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <5d4bebf5-7954-4739-9cd4-93d78d337738@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUxJGFYaHU9LSkNCTRoaSklWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
+	NVSktLVUpCS0tZBg++
+X-HM-Tid: 0a93851bf68803a3kunm461506be
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PRg6Izo*DzIYNxwXPDMOGEs*
+	DTBPFBNVSlVKTEhISktOS0lPSElJVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFMS043Bg++
+DKIM-Signature: a=rsa-sha256;
+	b=YmCCzhv7vginIZyrZcj/ecu0aLKtyt+uIpxiTMR1jogyL9BG3ZBbpB6ePDvB6dYxlsc4xGs49TbcG3qacO2l4tUp+wEuyrCqlkVpLbzEzmC1kV9vMcP9F9r9RBMwOtFXL2KEfuhnrjcgbE96xO251M5eyIn0ocPEiX1XEa6jrT0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=Y241lptnwQ37OUoaH11vBxiTF8EY0NMjd3KnNF0LCj8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_012134_403095_40205F77 
-X-CRM114-Status: GOOD (  24.44  )
+X-CRM114-CacheID: sfid-20241201_180357_566331_4A27663A 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,314 +83,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+Hi Krzysztof,
 
-Move the x86 CRC-T10DIF assembly code into the lib directory and wire it
-up to the library interface.  This allows it to be used without going
-through the crypto API.  It remains usable via the crypto API too via
-the shash algorithms that use the library interface.  Thus all the
-arch-specific "shash" code becomes unnecessary and is removed.
+On 2024/11/27 18:23, Krzysztof Kozlowski wrote:
+> On 27/11/2024 08:51, Damon Ding wrote:
+>> Add the compatible "rockchip,rk3588-edp".
+> 
+> This we see from the diff. Say something about hardware and why it is
+> not compatible with existing variants.
 
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-Reviewed-by: Martin K. Petersen <martin.petersen@oracle.com>
-Signed-off-by: Eric Biggers <ebiggers@google.com>
----
- arch/x86/Kconfig                              |   1 +
- arch/x86/crypto/Kconfig                       |  10 --
- arch/x86/crypto/Makefile                      |   3 -
- arch/x86/crypto/crct10dif-pclmul_glue.c       | 143 ------------------
- arch/x86/lib/Makefile                         |   3 +
- arch/x86/lib/crc-t10dif-glue.c                |  51 +++++++
- .../{crypto => lib}/crct10dif-pcl-asm_64.S    |   0
- 7 files changed, 55 insertions(+), 156 deletions(-)
- delete mode 100644 arch/x86/crypto/crct10dif-pclmul_glue.c
- create mode 100644 arch/x86/lib/crc-t10dif-glue.c
- rename arch/x86/{crypto => lib}/crct10dif-pcl-asm_64.S (100%)
+In response to your kind suggestion, I will add more details in next 
+version, specifically:
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 4f4fc67fbce7..65f8478fe7a9 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -75,10 +75,11 @@ config X86
- 	select ARCH_HAS_CACHE_LINE_SIZE
- 	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
- 	select ARCH_HAS_CPU_FINALIZE_INIT
- 	select ARCH_HAS_CPU_PASID		if IOMMU_SVA
- 	select ARCH_HAS_CRC32
-+	select ARCH_HAS_CRC_T10DIF		if X86_64
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DEBUG_VIRTUAL
- 	select ARCH_HAS_DEBUG_VM_PGTABLE	if !X86_PAE
- 	select ARCH_HAS_DEVMEM_IS_ALLOWED
- 	select ARCH_HAS_DMA_OPS			if GART_IOMMU || XEN
-diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index ba9a7e73cd08..4757bf922075 100644
---- a/arch/x86/crypto/Kconfig
-+++ b/arch/x86/crypto/Kconfig
-@@ -490,16 +490,6 @@ config CRYPTO_GHASH_CLMUL_NI_INTEL
- 	  GCM GHASH hash function (NIST SP800-38D)
- 
- 	  Architecture: x86_64 using:
- 	  - CLMUL-NI (carry-less multiplication new instructions)
- 
--config CRYPTO_CRCT10DIF_PCLMUL
--	tristate "CRCT10DIF (PCLMULQDQ)"
--	depends on X86 && 64BIT && CRC_T10DIF
--	select CRYPTO_HASH
--	help
--	  CRC16 CRC algorithm used for the T10 (SCSI) Data Integrity Field (DIF)
--
--	  Architecture: x86_64 using:
--	  - PCLMULQDQ (carry-less multiplication)
--
- endmenu
-diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
-index 030b925ca4e2..07b00bfca64b 100644
---- a/arch/x86/crypto/Makefile
-+++ b/arch/x86/crypto/Makefile
-@@ -73,13 +73,10 @@ obj-$(CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL) += ghash-clmulni-intel.o
- ghash-clmulni-intel-y := ghash-clmulni-intel_asm.o ghash-clmulni-intel_glue.o
- 
- obj-$(CONFIG_CRYPTO_POLYVAL_CLMUL_NI) += polyval-clmulni.o
- polyval-clmulni-y := polyval-clmulni_asm.o polyval-clmulni_glue.o
- 
--obj-$(CONFIG_CRYPTO_CRCT10DIF_PCLMUL) += crct10dif-pclmul.o
--crct10dif-pclmul-y := crct10dif-pcl-asm_64.o crct10dif-pclmul_glue.o
--
- obj-$(CONFIG_CRYPTO_POLY1305_X86_64) += poly1305-x86_64.o
- poly1305-x86_64-y := poly1305-x86_64-cryptogams.o poly1305_glue.o
- targets += poly1305-x86_64-cryptogams.S
- 
- obj-$(CONFIG_CRYPTO_NHPOLY1305_SSE2) += nhpoly1305-sse2.o
-diff --git a/arch/x86/crypto/crct10dif-pclmul_glue.c b/arch/x86/crypto/crct10dif-pclmul_glue.c
-deleted file mode 100644
-index 71291d5af9f4..000000000000
---- a/arch/x86/crypto/crct10dif-pclmul_glue.c
-+++ /dev/null
-@@ -1,143 +0,0 @@
--/*
-- * Cryptographic API.
-- *
-- * T10 Data Integrity Field CRC16 Crypto Transform using PCLMULQDQ Instructions
-- *
-- * Copyright (C) 2013 Intel Corporation
-- * Author: Tim Chen <tim.c.chen@linux.intel.com>
-- *
-- * This program is free software; you can redistribute it and/or modify it
-- * under the terms of the GNU General Public License as published by the Free
-- * Software Foundation; either version 2 of the License, or (at your option)
-- * any later version.
-- *
-- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
-- * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
-- * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-- * SOFTWARE.
-- *
-- */
--
--#include <linux/types.h>
--#include <linux/module.h>
--#include <linux/crc-t10dif.h>
--#include <crypto/internal/hash.h>
--#include <crypto/internal/simd.h>
--#include <linux/init.h>
--#include <linux/string.h>
--#include <linux/kernel.h>
--#include <asm/cpufeatures.h>
--#include <asm/cpu_device_id.h>
--#include <asm/simd.h>
--
--asmlinkage u16 crc_t10dif_pcl(u16 init_crc, const u8 *buf, size_t len);
--
--struct chksum_desc_ctx {
--	__u16 crc;
--};
--
--static int chksum_init(struct shash_desc *desc)
--{
--	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
--
--	ctx->crc = 0;
--
--	return 0;
--}
--
--static int chksum_update(struct shash_desc *desc, const u8 *data,
--			 unsigned int length)
--{
--	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
--
--	if (length >= 16 && crypto_simd_usable()) {
--		kernel_fpu_begin();
--		ctx->crc = crc_t10dif_pcl(ctx->crc, data, length);
--		kernel_fpu_end();
--	} else
--		ctx->crc = crc_t10dif_generic(ctx->crc, data, length);
--	return 0;
--}
--
--static int chksum_final(struct shash_desc *desc, u8 *out)
--{
--	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
--
--	*(__u16 *)out = ctx->crc;
--	return 0;
--}
--
--static int __chksum_finup(__u16 crc, const u8 *data, unsigned int len, u8 *out)
--{
--	if (len >= 16 && crypto_simd_usable()) {
--		kernel_fpu_begin();
--		*(__u16 *)out = crc_t10dif_pcl(crc, data, len);
--		kernel_fpu_end();
--	} else
--		*(__u16 *)out = crc_t10dif_generic(crc, data, len);
--	return 0;
--}
--
--static int chksum_finup(struct shash_desc *desc, const u8 *data,
--			unsigned int len, u8 *out)
--{
--	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
--
--	return __chksum_finup(ctx->crc, data, len, out);
--}
--
--static int chksum_digest(struct shash_desc *desc, const u8 *data,
--			 unsigned int length, u8 *out)
--{
--	return __chksum_finup(0, data, length, out);
--}
--
--static struct shash_alg alg = {
--	.digestsize		=	CRC_T10DIF_DIGEST_SIZE,
--	.init		=	chksum_init,
--	.update		=	chksum_update,
--	.final		=	chksum_final,
--	.finup		=	chksum_finup,
--	.digest		=	chksum_digest,
--	.descsize		=	sizeof(struct chksum_desc_ctx),
--	.base			=	{
--		.cra_name		=	"crct10dif",
--		.cra_driver_name	=	"crct10dif-pclmul",
--		.cra_priority		=	200,
--		.cra_blocksize		=	CRC_T10DIF_BLOCK_SIZE,
--		.cra_module		=	THIS_MODULE,
--	}
--};
--
--static const struct x86_cpu_id crct10dif_cpu_id[] = {
--	X86_MATCH_FEATURE(X86_FEATURE_PCLMULQDQ, NULL),
--	{}
--};
--MODULE_DEVICE_TABLE(x86cpu, crct10dif_cpu_id);
--
--static int __init crct10dif_intel_mod_init(void)
--{
--	if (!x86_match_cpu(crct10dif_cpu_id))
--		return -ENODEV;
--
--	return crypto_register_shash(&alg);
--}
--
--static void __exit crct10dif_intel_mod_fini(void)
--{
--	crypto_unregister_shash(&alg);
--}
--
--module_init(crct10dif_intel_mod_init);
--module_exit(crct10dif_intel_mod_fini);
--
--MODULE_AUTHOR("Tim Chen <tim.c.chen@linux.intel.com>");
--MODULE_DESCRIPTION("T10 DIF CRC calculation accelerated with PCLMULQDQ.");
--MODULE_LICENSE("GPL");
--
--MODULE_ALIAS_CRYPTO("crct10dif");
--MODULE_ALIAS_CRYPTO("crct10dif-pclmul");
-diff --git a/arch/x86/lib/Makefile b/arch/x86/lib/Makefile
-index 17510da06c9f..8a59c61624c2 100644
---- a/arch/x86/lib/Makefile
-+++ b/arch/x86/lib/Makefile
-@@ -40,10 +40,13 @@ lib-$(CONFIG_MITIGATION_RETPOLINE) += retpoline.o
- 
- obj-$(CONFIG_CRC32_ARCH) += crc32-x86.o
- crc32-x86-y := crc32-glue.o crc32-pclmul.o
- crc32-x86-$(CONFIG_64BIT) += crc32c-3way.o
- 
-+obj-$(CONFIG_CRC_T10DIF_ARCH) += crc-t10dif-x86.o
-+crc-t10dif-x86-y := crc-t10dif-glue.o crct10dif-pcl-asm_64.o
-+
- obj-y += msr.o msr-reg.o msr-reg-export.o hweight.o
- obj-y += iomem.o
- 
- ifeq ($(CONFIG_X86_32),y)
-         obj-y += atomic64_32.o
-diff --git a/arch/x86/lib/crc-t10dif-glue.c b/arch/x86/lib/crc-t10dif-glue.c
-new file mode 100644
-index 000000000000..13f07ddc9122
---- /dev/null
-+++ b/arch/x86/lib/crc-t10dif-glue.c
-@@ -0,0 +1,51 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * CRC-T10DIF using PCLMULQDQ instructions
-+ *
-+ * Copyright 2024 Google LLC
-+ */
-+
-+#include <asm/cpufeatures.h>
-+#include <asm/simd.h>
-+#include <crypto/internal/simd.h>
-+#include <linux/crc-t10dif.h>
-+#include <linux/module.h>
-+
-+static DEFINE_STATIC_KEY_FALSE(have_pclmulqdq);
-+
-+asmlinkage u16 crc_t10dif_pcl(u16 init_crc, const u8 *buf, size_t len);
-+
-+u16 crc_t10dif_arch(u16 crc, const u8 *p, size_t len)
-+{
-+	if (len >= 16 &&
-+	    static_key_enabled(&have_pclmulqdq) && crypto_simd_usable()) {
-+		kernel_fpu_begin();
-+		crc = crc_t10dif_pcl(crc, p, len);
-+		kernel_fpu_end();
-+		return crc;
-+	}
-+	return crc_t10dif_generic(crc, p, len);
-+}
-+EXPORT_SYMBOL(crc_t10dif_arch);
-+
-+static int __init crc_t10dif_x86_init(void)
-+{
-+	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ))
-+		static_branch_enable(&have_pclmulqdq);
-+	return 0;
-+}
-+arch_initcall(crc_t10dif_x86_init);
-+
-+static void __exit crc_t10dif_x86_exit(void)
-+{
-+}
-+module_exit(crc_t10dif_x86_exit);
-+
-+bool crc_t10dif_is_optimized(void)
-+{
-+	return static_key_enabled(&have_pclmulqdq);
-+}
-+EXPORT_SYMBOL(crc_t10dif_is_optimized);
-+
-+MODULE_DESCRIPTION("CRC-T10DIF using PCLMULQDQ instructions");
-+MODULE_LICENSE("GPL");
-diff --git a/arch/x86/crypto/crct10dif-pcl-asm_64.S b/arch/x86/lib/crct10dif-pcl-asm_64.S
-similarity index 100%
-rename from arch/x86/crypto/crct10dif-pcl-asm_64.S
-rename to arch/x86/lib/crct10dif-pcl-asm_64.S
--- 
-2.47.1
+Compared with RK3288/RK3399, the HBR2 link rate support is the main
+improvement of RK3588 eDP TX controller, and there are also two
+independent eDP display interfaces on RK3588 Soc.
+
+> 
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> 
+> 
+> 
+> Best regards,
+> Krzysztof
+> 
+> 
+
+Best regards,
+Damon
 
 
