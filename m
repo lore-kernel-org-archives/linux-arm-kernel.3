@@ -4,98 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B40E69E9B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 22:19:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14CB7E69E99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 22:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v2SQUJ8feS2vWSkqRhDnu04ZlmDiO8QT5kf89Oqyqng=; b=sMlpWlf0UPbkJFplIzH9aLt4cj
-	dIYXY0KLUCHlb69LDROW/L5GEP09zkhs5apPc4vt5i83eZm5LPtaVMU1exNJ8yaUPszgX1DTh7Qj5
-	oerwd9rw3ZTS5g9QbMcwSh5Tf5CS41uj5yQAxUlqUwGcZkHT+PWc7OQrGUAp6hQ6uU+3/dR6b29YU
-	XMAFQ9hUQAJp1Ci7abI/uCpmYnCl5/cO4C4v6b5n4zhnytEaR/5yTKr6j00mqFVd+iBh66j5c4iXC
-	gLYHOEO8r3PsBMU0+GgFriI6KWjsG5e54INCndzlj5piAcovA4Co/3/SzEpaeXtTVbuJ8aRYs/i7M
-	Eni0GHqg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DNZbvfSssXQBAkiV5QTgDDOLM6EYzMUfUsQTp9Qh59c=; b=b1HUzMwKDEkPpRp1W8h95CvA1u
+	uj6wi8/T+NQbaH5JFZNkGZ5LS0m2WtGbRvnRlBrwJY+U3vu61VtiCcKwhBQ8akoxWjbiR4CiNyiOp
+	BMbdOcPuYIRVtSl+uHBps1iJjGHf4IPaw3t4DVuTmKcOAi/dlv47zYhXy3WFDtpd6bLvRmKXi0lec
+	q/hN6VaJyXV6FOj6tkSAKDvJJmnJJJMuKH21qq1P8hAZslW/Pp/Nvm1b0lkLcD7j/OyDQWhF/1Cs0
+	7jkxLcbhTG1xS2Q/avnp6I3VkAVdN+7/UU5O9snZOtUa6eOqn4kouM0IjshIWR1+ymPgUXI2zS1Gc
+	XX/rsD9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIElc-00000007cac-1FmQ;
-	Mon, 02 Dec 2024 22:19:44 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tIEmZ-00000007cpH-3tc0;
+	Mon, 02 Dec 2024 22:20:43 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIEWD-00000007Zfp-1b2n
+	id 1tIEZq-00000007aSk-3ffg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 22:03:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5CFF8A41307;
-	Mon,  2 Dec 2024 22:01:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0A36DC4AF0F;
-	Mon,  2 Dec 2024 22:03:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733177026;
-	bh=Xx7A78Az9LY483yNlpcxh1fnnI6+OBafjR3+xqpR+KQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=jS3/Dd+wkDSrpAc0yAvYYv9Rz06C+hX4kA8ABD9kebFqonpa0xmxMRFl5kbDrk+Sj
-	 FpPy0UNolN58ovi2+MnHR1xUdBWCrz/0jSqv4QGToz89seKktiQNH3ogNJX4rm3uyr
-	 DS2w/usoM3nK99Pj+sK46/ENgQmFwLqOuDuPTzwyOWdZZpjJwC3HSvFzRmGeF7GJPY
-	 jKPyNwL6vzwHtYqpqGCRAE0WmulsD9dm4WCA2pdrD+wU3jz/9EwJZW4nl6Ai20/2T6
-	 drH2j0ZODwxOdB9yslU08BfPwNfT0tf+UDKrneUH0cT+rjT07BQj89a2j4hPlE1Jhi
-	 a1/JzMkvdOZSQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E3D3DE69E9A;
-	Mon,  2 Dec 2024 22:03:45 +0000 (UTC)
-From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Mon, 02 Dec 2024 23:03:54 +0100
-Subject: [PATCH net-next v7 15/15] MAINTAINERS: Add Jan Petrous as the NXP
- S32G/R DWMAC driver maintainer
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241202-upstream_s32cc_gmac-v7-15-bc3e1f9f656e@oss.nxp.com>
+	Mon, 02 Dec 2024 22:07:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=DNZbvfSssXQBAkiV5QTgDDOLM6EYzMUfUsQTp9Qh59c=; b=P/y1nxVsQCqb6BHriX1MZF8U9a
+	818SykCwB5uibSFiEL2BRG36HPz12PcI7MYGuwd/WD+uUtYnw443MuvK2vKIOZT97kvCoMrE1v9PL
+	yTkjZ56zl9bgaudh/WxpsLHQb7tBabUB5cHL4cIunL1cujspL9Kczr+Xdw0eBro0HIwyB9ByTMmaj
+	/HB/Q5We/yeyjL/HSatP3N1cCgi3nLQQhIw4V3g3/jsHCEv5DRjZGodJJE4nGVUh8eXBPsmxouuRe
+	8JFq9jvxvY2KR+8SQ5teVspEdynY49lB8kVje7mRfh0MdAb+1gsYorFY99HwfFYNmAPaRhvpnznIH
+	CA9whG8w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34274)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tIEZF-0000rO-2S;
+	Mon, 02 Dec 2024 22:06:58 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tIEZ6-0003v0-1J;
+	Mon, 02 Dec 2024 22:06:48 +0000
+Date: Mon, 2 Dec 2024 22:06:48 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: jan.petrous@oss.nxp.com
+Subject: Re: [PATCH net-next v7 01/15] net: driver: stmmac: Fix CSR divider
+ comment
+Message-ID: <Z04veAM7wBJCLkhu@shell.armlinux.org.uk>
 References: <20241202-upstream_s32cc_gmac-v7-0-bc3e1f9f656e@oss.nxp.com>
-In-Reply-To: <20241202-upstream_s32cc_gmac-v7-0-bc3e1f9f656e@oss.nxp.com>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
- Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
- Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
- Minda Chen <minda.chen@starfivetech.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Iyappan Subramanian <iyappan@os.amperecomputing.com>, 
- Keyur Chudgar <keyur@os.amperecomputing.com>, 
- Quan Nguyen <quan@os.amperecomputing.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>
-Cc: linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, 
- devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
- 0x1207@gmail.com, fancer.lancer@gmail.com, 
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1733177022; l=915;
- i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=4615b800g/SFqCBNWwu3wPncyuWc4LNL3Kg9996VRhc=;
- b=R1xsjMpsqLH/cAho48SbcZaangLpTYAtQG3NRaP4fkNywz9ximUdUwFyBLo2fMhpiFQh4iebH
- BmkcKeEldPtDJYSKYlUQj1TPfRyU7/OqIdwSLmYQxZplRniL2b4KZiB
-X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
- pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
-X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
- auth_id=217
-X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+ <20241202-upstream_s32cc_gmac-v7-1-bc3e1f9f656e@oss.nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241202-upstream_s32cc_gmac-v7-1-bc3e1f9f656e@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_140349_587539_FE0B80F8 
-X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-CacheID: sfid-20241202_140734_911761_0043A0A5 
+X-CRM114-Status: UNSURE (   9.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,41 +76,32 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jan.petrous@oss.nxp.com
+Cc: Andrew Lunn <andrew@lunn.ch>, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, imx@lists.linux.dev, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, 0x1207@gmail.com, Jose Abreu <joabreu@synopsys.com>, Jacob Keller <jacob.e.keller@intel.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, fancer.lancer@gmail.com, linux-kernel@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+Hi,
 
-Add myself as NXP S32G/R DWMAC Ethernet driver maintainer.
+No need for "driver:" in the subject line.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
----
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
+On Mon, Dec 02, 2024 at 11:03:40PM +0100, Jan Petrous via B4 Relay wrote:
+> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+> 
+> The comment in declaration of STMMAC_CSR_250_300M
+> incorrectly describes the constant as '/* MDC = clk_scr_i/122 */'
+> but the DWC Ether QOS Handbook version 5.20a says it is
+> CSR clock/124.
+> 
+> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+> Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1e930c7a58b1..baf41d73d14e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2836,6 +2836,13 @@ S:	Maintained
- F:	arch/arm64/boot/dts/freescale/s32g*.dts*
- F:	drivers/pinctrl/nxp/
- 
-+ARM/NXP S32G/S32R DWMAC ETHERNET DRIVER
-+M:	Jan Petrous <jan.petrous@oss.nxp.com>
-+L:	NXP S32 Linux Team <s32@nxp.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
-+F:	drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-+
- ARM/Orion SoC/Technologic Systems TS-78xx platform support
- M:	Alexander Clouter <alex@digriz.org.uk>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+With that fixed,
+
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+
+Thanks!
 
 -- 
-2.47.0
-
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
