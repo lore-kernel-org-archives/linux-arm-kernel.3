@@ -4,99 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5145FD10DDD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:01:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58CFD10DDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6PW9fOxBZRxPpo7YtTCol7KQG5Qyjq+kU1ABzjHmWuQ=; b=y8S5Kttn80ygEiEuI513wteg+F
-	Aw1R6mGKg7bfrAsqpvtv8C5GXE86d9qV7hllcQWHDPVd0UAR2Stog+X0i8BGLHgsMuc1oJhFeqMcv
-	wcaF+lvvViOQMTBtWVQPCDC8Q11QHZZqLS3LpsicYD2bGae8pEda3tsL65sWNa02pP/jQuGy1YouC
-	hVtEsNpmqpVtS2V7ALDhknSUsLGEPBIGrO682eKn/RkeHy00vYnvF70bAASUj2/bkM6Ydlj6IhA1e
-	nvtHKYaxkNonW333lqYFPCtN1gSYpa8Tf/KQI0PhPBoSeovJPOMm8mSWZBF8x+HGM1WDi9WuyGp0o
-	0/V9kYqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cCfOV4fgdi+7qA9vu3IQXUPdqS2eY6MNKCm9Jq9uOm0=; b=aVo7Zmbham7AgO3ArMTmvNJ6Ao
+	SWcNelTjgE2QR+f4wzhdQfbd9yZbf0q9jBq4Uz4vFUVBbDIxGeCemHc9sJJpIRscLn3x8GsfF2IrS
+	aHQcSlCjjdR8XVKhj3nwedBaeBb15sT/SeIUZh1kk1alb7DodLmyJwZNWSKf22IWxyfYr/9Nd/mfz
+	RcpmwiN7rdwJSTaGM/3/qz+XedN54eBfGGZuGYbsLXzfyOVd9UP0D0ap0el7WAk28ESHcTK/P35Ae
+	0DKVc3qeQ49zm02OuyF52iC/0fG/Ykazmi5/y+7xbL2/zlH1DlX/d1Fhbb2kCD0hltBCBPaWCLx3J
+	Hp3QqgUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3FM-00000005eTx-1Bu7;
-	Mon, 02 Dec 2024 10:01:40 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tI3GJ-00000005ehy-3edv;
+	Mon, 02 Dec 2024 10:02:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3EM-00000005eJ8-2ZDi
+	id 1tI3FE-00000005eSb-3pAu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 10:00:39 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B29KcSo028211;
-	Mon, 2 Dec 2024 10:00:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	6PW9fOxBZRxPpo7YtTCol7KQG5Qyjq+kU1ABzjHmWuQ=; b=m8NKRSXkUqcs+Ryr
-	dZqTr1BEhva2kvMDJ1Bu7988TVLvzYxsbwPSaqXbpHwSyLEfuvp6zIDkyTZBcUO6
-	+L27esdZq5c1Z+AcufjQP0by//jZzGWzlxIBXE1cWS7Ksxncq58CF+LnwItiUcXf
-	H3R7MhvEwYfcCKvOzz1NOzBShUelDiS/HZOWJclBe5m0vstGkWaStjK2dY1WLdc1
-	IPpIwHvv+ojW+5jR6+jy1IsgTZDS0x22qTU4JsI5LSdbYTLfUHqc9MTvlODvz9kD
-	6yX3VTV7bE6Y282OzmuCD0VEyJ3tNW1CCQPKFUb/trf20XqxT1DySgUCvS+G0fsw
-	Ug+iVQ==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 437ufe4a69-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 02 Dec 2024 10:00:31 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B2A0VFs031561
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 2 Dec 2024 10:00:31 GMT
-Received: from [10.233.21.53] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 2 Dec 2024
- 02:00:28 -0800
-Message-ID: <80b1a205-422f-4e6d-97e9-69ee335a31f8@quicinc.com>
-Date: Mon, 2 Dec 2024 18:00:25 +0800
+	Mon, 02 Dec 2024 10:01:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id F0BE95C67E9
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Dec 2024 10:00:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFED2C4CED1
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Dec 2024 10:01:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733133691;
+	bh=Twzy5O/7e/TnnFaz97lCq4W6R1qv7ZP6CBG1FCn0gys=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=rcyJI9m3ykA6ZtrNpdF+lhVGu5IvufUSSEfEKVAOikTgShTvKErVkgV21MjYAFNXO
+	 qRBytU/W7/J0E3JXgp9jaZajQ5414bM1Z/vsxcM2g8b0+xPh/L7Xj0XmLHU0gMxBZ7
+	 fvIqaii79+l7Sg10zj50s7lSjrUAeiZYNGqk8K9UiiTfneVdl/k2lJSGDmIMNP2XSq
+	 PP3oR7eqggAofpU9l+Kyyv8RMSh6ejxLOsxL5niTgj1iwKZlA8CW7FC+JlSSK+ppS5
+	 2uIXfIVBvcwggXluQnTJwIJv7tGPX9MGzz7gAfGVk2nH+Xd5WQHAoBt9qa8SyclfBG
+	 LOcgAfXR4T1wA==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-2ffd6882dcbso31648061fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 02:01:31 -0800 (PST)
+X-Gm-Message-State: AOJu0Yx8SBxcH80wYAkfZfFppWq2sfOTp7uM9vMC8TCp2WOd28xujtol
+	tCuSbbEf3JQgl6QQ/QX1B4zqSDb44k7EgDH8UYfPEaf1OtfhTUxhsTCz7lZfQ3O/CE+nBQz3oxA
+	RvVROWyvDR1KGbPCxs0oSbJZqXFU=
+X-Google-Smtp-Source: AGHT+IFVat+c+J7F0U+ulBavPviZFzk0YTK+UMlqTQSIoOaRkzhHNFubZtaueag5yYSMkQexIoToQuyrzoKIDatOxsg=
+X-Received: by 2002:a2e:bd04:0:b0:2ff:ce49:111e with SMTP id
+ 38308e7fff4ca-2ffd60fad19mr74658641fa.39.1733133689960; Mon, 02 Dec 2024
+ 02:01:29 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] arm64: dts: qcom: add QCS8300 platform
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon
-	<will@kernel.org>
-CC: <quic_tengfan@quicinc.com>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20241128-qcs8300_initial_dtsi-v3-0-26aa8a164914@quicinc.com>
- <20241128-qcs8300_initial_dtsi-v3-3-26aa8a164914@quicinc.com>
- <2a2a780d-5e3e-4582-b75d-211732a9b727@oss.qualcomm.com>
-Content-Language: en-US
-From: Jingyi Wang <quic_jingyw@quicinc.com>
-In-Reply-To: <2a2a780d-5e3e-4582-b75d-211732a9b727@oss.qualcomm.com>
+References: <20241202043553.29592-1-anshuman.khandual@arm.com>
+In-Reply-To: <20241202043553.29592-1-anshuman.khandual@arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 2 Dec 2024 11:01:18 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXGPcMYsJV9w_fBXEyxUJFGZhSpn2etWie9wKA_HS3kF_g@mail.gmail.com>
+Message-ID: <CAMj1kXGPcMYsJV9w_fBXEyxUJFGZhSpn2etWie9wKA_HS3kF_g@mail.gmail.com>
+Subject: Re: [PATCH] arm64/mm: Drop INIT_MM_CONTEXT()
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: HEOdVLP-gKj__kJ1q_HwxYOSaysqhkX_
-X-Proofpoint-GUID: HEOdVLP-gKj__kJ1q_HwxYOSaysqhkX_
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
- spamscore=0 impostorscore=0 lowpriorityscore=0 priorityscore=1501
- mlxlogscore=999 clxscore=1015 adultscore=0 bulkscore=0 mlxscore=0
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412020088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_020038_659794_750745E1 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20241202_020132_992457_FA50C7B0 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,139 +82,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 2 Dec 2024 at 05:36, Anshuman Khandual
+<anshuman.khandual@arm.com> wrote:
+>
+> Platform override for INIT_MM_CONTEXT() is redundant because swapper_pg_dir
+> always gets assigned as the pgd during init_mm initialization. So just drop
+> this override on arm64.
+>
+> Originally this override was added via the 'commit 2b5548b68199 ("arm64/mm:
+> Separate boot-time page tables from swapper_pg_dir")' because non standard
+> init_pg_dir was assigned as the pgd. Subsequently it was changed as default
+> swapper_pg_dir by the 'commit ba5b0333a847 ("arm64: mm: omit redundant
+> remap of kernel image")', which might have also just dropped this override.
+>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
 
-On 11/29/2024 4:14 AM, Konrad Dybcio wrote:
-> On 28.11.2024 9:44 AM, Jingyi Wang wrote:
->> Add initial DTSI for QCS8300 SoC.
->>
->> Features added in this revision:
->> - CPUs with PSCI idle states
->> - Interrupt-controller with PDC wakeup support
->> - Timers, TCSR Clock Controllers
->> - Reserved Shared memory
->> - GCC and RPMHCC
->> - TLMM
->> - Interconnect
->> - QuP with uart
->> - SMMU
->> - QFPROM
->> - Rpmhpd power controller
->> - UFS
->> - Inter-Processor Communication Controller
->> - SRAM
->> - Remoteprocs including ADSP,CDSP and GPDSP
->> - BWMONs
->>
->> Written with help from Zhenhua Huang(added the smmu node), Xin Liu(added
->> ufs, adsp and gpdsp nodes), Tingguo Cheng(added the rpmhpd node), Kyle
->> Deng(added the aoss_qmp node), Raviteja Laggyshetty(added interconnect
->> nodes) and Cong Zhang(added the INTID of EL2 non-secure physical timer).
->>
->> Signed-off-by: Jingyi Wang <quic_jingyw@quicinc.com>
->> ---
-> 
-> [...]
-> 
->> +		cpu-map {
->> +			cluster0 {
->> +				core0 {
->> +					cpu = <&cpu0>;
->> +				};
->> +
->> +				core1 {
->> +					cpu = <&cpu1>;
->> +				};
->> +
->> +				core2 {
->> +					cpu = <&cpu2>;
->> +				};
->> +
->> +				core3 {
->> +					cpu = <&cpu3>;
->> +				};
->> +
->> +				core4 {
->> +					cpu = <&cpu4>;
->> +				};
-> 
-> The MPIDR_EL1 register value (CPU node reg) suggests they are not
-> part of the same cluster (as you confirmed in the psci idle domains
-> description)
-> 
-will separate into 2 clusters.
-> [...]
-> 
->> +
->> +		ufs_mem_hc: ufs@1d84000 {
->> +			compatible = "qcom,qcs8300-ufshc", "qcom,ufshc", "jedec,ufs-2.0";
->> +			reg = <0x0 0x01d84000 0x0 0x3000>;
->> +			interrupts = <GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>;
->> +			phys = <&ufs_mem_phy>;
->> +			phy-names = "ufsphy";
->> +			lanes-per-direction = <2>;
->> +			#reset-cells = <1>;
->> +			resets = <&gcc GCC_UFS_PHY_BCR>;
->> +			reset-names = "rst";
->> +
->> +			power-domains = <&gcc GCC_UFS_PHY_GDSC>;
->> +			required-opps = <&rpmhpd_opp_nom>;
->> +
->> +			iommus = <&apps_smmu 0x100 0x0>;
->> +			dma-coherent;
->> +
->> +			interconnects = <&aggre1_noc MASTER_UFS_MEM 0
-> 
-> QCOM_ICC_TAG_ALWAYS, file-wide
-> 
-well noted.
-> [...]
-> 
->> +		ufs_mem_phy: phy@1d87000 {
->> +			compatible = "qcom,qcs8300-qmp-ufs-phy", "qcom,sa8775p-qmp-ufs-phy";
->> +			reg = <0x0 0x01d87000 0x0 0xe10>;
->> +			/*
->> +			 * Yes, GCC_EDP_REF_CLKREF_EN is correct in qref. It
->> +			 * enables the CXO clock to eDP *and* UFS PHY.
->> +			 */
->> +			clocks = <&rpmhcc RPMH_CXO_CLK>,
->> +				 <&gcc GCC_UFS_PHY_PHY_AUX_CLK>,
->> +				 <&gcc GCC_EDP_REF_CLKREF_EN>;
-> 
-> Are you sure about this, or is this just copypasted from sa8775p?
-> 
-> [...]
-> 
->> +
->> +		intc: interrupt-controller@17a00000 {
->> +			compatible = "arm,gic-v3";
->> +			reg = <0x0 0x17a00000 0x0 0x10000>,     /* GICD */
->> +			      <0x0 0x17a60000 0x0 0x100000>;    /* GICR * 8 */
-> 
-> Drop these comments
-> 
-well noted.
->> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
->> +			#interrupt-cells = <3>;
->> +			interrupt-controller;
->> +			#redistributor-regions = <1>;
->> +			redistributor-stride = <0x0 0x20000>;
->> +		};
->> +
->> +		memtimer: timer@17c20000 {
-> 
-> Unused label
-> 
-well noted.
-> [...]
-> 
->> +	arch_timer: timer {
-> 
-> Ditto
-> 
-well noted.
-> Konrad
-
-Thanks,
-Jingyi
+> ---
+> This patch applies on v6.13-rc1
+>
+>  arch/arm64/include/asm/mmu.h | 3 ---
+>  1 file changed, 3 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+> index 2ec96d91acc6..662471cfc536 100644
+> --- a/arch/arm64/include/asm/mmu.h
+> +++ b/arch/arm64/include/asm/mmu.h
+> @@ -109,8 +109,5 @@ static inline bool kaslr_requires_kpti(void)
+>         return true;
+>  }
+>
+> -#define INIT_MM_CONTEXT(name)  \
+> -       .pgd = swapper_pg_dir,
+> -
+>  #endif /* !__ASSEMBLY__ */
+>  #endif
+> --
+> 2.30.2
+>
 
