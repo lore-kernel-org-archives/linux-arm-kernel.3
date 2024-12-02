@@ -4,107 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E34FD10DB4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 07:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22EB6D10DB4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 07:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AtBfEWzOEZ0GXp3tYACHTfd1Jd9QU+nU8WarsCWTWHI=; b=if2lqcKYku377FBNjg1kYhxeXz
-	K0yOyIVcwQejlx0HCJQoEiNVGvEFbj7RcRTWrCRG1QcJPo9W6RbVFdq6TJS3OfZb3sc5M94mU4kN8
-	8BAy+8EI2VE685iKzDUwstnt4WMU7KdcP+ZLh4osKMlmGpk5WV1N8cYma43L4E7zB+DcqQEVslrxR
-	051OlvV2JcyqqV34+VovGIgA2XNoPp+l91FhBOIH4vZDv4jWgcztqlVFvi4dH834BaHN6MgNDtgkJ
-	fF752GddlFOQSnDTw5geHOFyCs3BhGhAHMeN+mmdImJMOZ2lYlRDio3aZK1Mbd8Sd1UqwSLqLORhM
-	x8ValWYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fDMAqY8q8CJ4e8gHvndnLcHS2+mR4luuelivMOMfHbc=; b=fVcghuC85ua+PNkgltHrYai6/z
+	yYGGwRCqU6yVtz08w7Xlzc/2aPX1wgiwV/Z1q7JzWYO1ucmGCUZlbb68d2qpHdMSs1BpPLyaFYoyx
+	kHNDhLcj53hO1EqfRfmTpflMiI1hi3akqGc6u7cw+p3OtU8Kq8WYLER3jtbNeE2R4F2sWiq6GZWFn
+	w+syCck0y5HQeNsM8HkHf7jQNBDwWoVuolAl9UCJkzVfokSFufVZjM/84kzWMFSz73ypArrPA6ZhC
+	bl3YDMOhkzZzxLT/wjuZggaEkpJIGlClXQVUksma75CB/3R/z7rU4qaX4MrrMPLvglAIGDnsARCQO
+	CHUv9rDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI13N-00000005K2e-2z0W;
-	Mon, 02 Dec 2024 07:41:09 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tI14K-00000005K9A-1FJb;
+	Mon, 02 Dec 2024 07:42:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI0vW-00000005Ihp-34wZ
+	id 1tI0va-00000005Iii-17mW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 07:33:03 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B1NPFdf028149;
-	Mon, 2 Dec 2024 07:32:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	AtBfEWzOEZ0GXp3tYACHTfd1Jd9QU+nU8WarsCWTWHI=; b=U/Z0Epw5W4O8s6AT
-	InC4mhLTpHq6sU/XMBRTVCjt+8He7iAiQK9+goGddLVDc3ovQDavk1smGGAIs38P
-	sibRoBiI+o1jcjaVBu/Ec50X/ilJQbfa4ClvenYZpkrFwNVuA+LXDIQ376Xs3gfl
-	sceYrsV3DLESv+uBnkS/xqu1yVYolY4ZL/S5U0bqL83w33qmR6CCRjdEiydHxBy6
-	lYM684KE/xqdBt/nOIFrKNZpkvjVx+gXJrTBcDxIpcJfXmcaEtGYJb+/ROoNCdUG
-	g+onWGp/HQIJVh7j41dgzEQL9YknmUg7eMc8GToKPaq1xdS0xuwxpKcBy/e1LnAh
-	NJfarA==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 437r2mv0he-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 02 Dec 2024 07:32:27 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B27WQkH020954
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 2 Dec 2024 07:32:26 GMT
-Received: from [10.217.217.81] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 1 Dec 2024
- 23:32:21 -0800
-Message-ID: <105428de-81a0-4da3-94ce-7b9310a29e17@quicinc.com>
-Date: Mon, 2 Dec 2024 13:02:17 +0530
+	Mon, 02 Dec 2024 07:33:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B706E5C647F;
+	Mon,  2 Dec 2024 07:32:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DF0FC4CED2;
+	Mon,  2 Dec 2024 07:33:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733124785;
+	bh=7pfshbH0/yBTHMIOHD/y8iFOlZveGZPhEOADQVkMTh8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KKAehXu0uhSQ5k0I31ANKuyzTu2TmaZKf0ql48DjtPxj23R82PMU32TSLjH3qjgcN
+	 MDHjH5vMN7VJwjcY7vY+b+XYalfMSyao1JtYDET8mKjr6MIA/S3HE/ay1J6j+MEWFb
+	 S/CwSE9AyNZ7Lzz4wztLREMysf7bvPGKi3TgK9BQdw+SBCM7Utd+NMlk7VnCIWfq19
+	 csZKbwQSAYwuXyr/gJbdrUI4NJaZDodhYtHJp2Jn9BbRbcrqr7IYFnBZdQVuirmHvA
+	 QrMpElEL3+3yYr1/BHjwzcR51LMFhAVXJkl0tCcFTahnG7HaJdHRqtxqwRkkF6ha3M
+	 EXYUpbX/AagNA==
+Date: Mon, 2 Dec 2024 08:33:02 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v4 02/18] clk: imx8mp: rename video_pll1 to video_pll
+Message-ID: <h5eswwlw3rpuc46ote3bhexetlf35i72btwlq2xsqt7p4rg2jx@eugvszlgpuvc>
+References: <20241201174639.742000-1-dario.binacchi@amarulasolutions.com>
+ <20241201174639.742000-3-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 03/11] dt-bindings: clock: Add Qualcomm QCS615 Camera
- clock controller
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-CC: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Abhishek Sahu
-	<absahu@codeaurora.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Ajit Pandey
-	<quic_ajipan@quicinc.com>,
-        Imran Shaik <quic_imrashai@quicinc.com>,
-        "Jagadeesh Kona" <quic_jkona@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20241108-qcs615-mm-clockcontroller-v3-0-7d3b2d235fdf@quicinc.com>
- <20241108-qcs615-mm-clockcontroller-v3-3-7d3b2d235fdf@quicinc.com>
- <be4blr2wvnc7b4iubexxnzqevjpgnfhdt7azcuwdtqgp6xbdvh@c3txmpuo5lot>
-Content-Language: en-US
-From: Taniya Das <quic_tdas@quicinc.com>
-In-Reply-To: <be4blr2wvnc7b4iubexxnzqevjpgnfhdt7azcuwdtqgp6xbdvh@c3txmpuo5lot>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: s4NsHCyElcmxJNyG-Rgv3H_3_pbnXkj3
-X-Proofpoint-GUID: s4NsHCyElcmxJNyG-Rgv3H_3_pbnXkj3
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 impostorscore=0
- bulkscore=0 priorityscore=1501 suspectscore=0 lowpriorityscore=0
- phishscore=0 mlxlogscore=999 clxscore=1015 mlxscore=0 adultscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412020065
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241201174639.742000-3-dario.binacchi@amarulasolutions.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_233302_893899_92F8C736 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241201_233306_345126_1E8C4D8D 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,27 +78,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Dec 01, 2024 at 06:46:02PM +0100, Dario Binacchi wrote:
+> Unlike audio_pll1 and audio_pll2, there is no video_pll2. Further, the
+> name used in the RM is video_pll. So, let's rename "video_pll1" to
+> "video_pll" to be consistent with the RM and avoid misunderstandings.
+> 
+> The IMX8MP_VIDEO_PLL1* constants have not been removed to ensure
+> backward compatibility of the patch.
+> 
+> No functional changes intended.
+> 
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> 
+>  - Added in v4
+> 
+> ---
+> 
+> (no changes since v1)
 
 
-On 11/8/2024 10:52 PM, Dmitry Baryshkov wrote:
->> +  clocks:
->> +    items:
->> +      - description: Board XO source
->> +
->> +  '#clock-cells':
->> +    const: 1
->> +
->> +  '#reset-cells':
->> +    const: 1
->> +
->> +  '#power-domain-cells':
->> +    const: 1
-> Please use qcom,gcc.yaml instead of copying the same set of properties
-> over and over.
+Same problems.
 
-Sure, will take care in the next patch.
+Best regards,
+Krzysztof
 
--- 
-Thanks & Regards,
-Taniya Das.
 
