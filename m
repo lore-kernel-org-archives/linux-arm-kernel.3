@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FA5D7830E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 12:00:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DB92D7830E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 12:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=E6Vj0hCbBvBxMgPqXY6HmGEIry+Qf9KZ1ErjboCvYyM=; b=OUoc6xR/p0NdKQHml1jjP2OUrk
-	eOGxjP1hjaFWT/oZYuMPrng4is9AU7/ut1ntF9mZsj4LZFYMhvBrSUMm9DJxXNvIDTgziU4d+Yr5w
-	Ng/Vo6YiGZIWh9R5zEB4kO0f6REh7GQTQy7pGStfN/WNk9o6EI55ylzodI0CiC6LyOE0Ne0d0QVKJ
-	cF94OS396lAXTtDo/ZmzfZ5ksjnA+yQJLCY7A+ZoTRWtjFU1jmfwAid4A2V4c2FYrKYGURz+FP554
-	IXSJC3EsAx8/8aQQMFmoQhAoaIWe8aVEsjsgyU3HLaFMWjcB+Si38jj/l3UzjXDc95iY+8jXto5bg
-	RDJfVa4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uq6P50nPVqYzYznK6CDOgelQtYASy802lUz2VNa3X4k=; b=jJ7dJiu4AiXkMEcWKGi890gNiy
+	/a0y9oVffaG75rjSC/XDBFEX9MjN8xjrJKOu4L6oxHpvZAxh/BpKkJhlUIuUxlsD/h72Spz8E67ZV
+	U5k1X/Am3QD5Ym6gw0yT2V2+Jp2o4EL6fkK5n4FYvekxWo+CKT2Ie/SjVBstO7IH55we0ASqne8X4
+	/44gy7z9nBzd+xDjDDXDMRKyIeZr6Pw5gaNRG3u7xy4izEtJ+eZdI867pnDU5WnMdwqvhMiBceLuq
+	ViCoN7O/JUbwjIO57kFGUx3pDP4tbL5DUUhk7Eo7wmuQXyWV/DfJI2YRdxSf/jf62AMF3DEOR0F4Z
+	sRp99wow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI55m-00000005yn1-1Mr6;
-	Mon, 02 Dec 2024 11:59:54 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1tI57I-00000005z8x-3t9F;
+	Mon, 02 Dec 2024 12:01:28 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI54m-00000005ygP-2q12
+	id 1tI56J-00000005yu0-0vYZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 11:58:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1733140716; x=1733745516; i=wahrenst@gmx.net;
-	bh=E6Vj0hCbBvBxMgPqXY6HmGEIry+Qf9KZ1ErjboCvYyM=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=hM2wP2YCS9ZzJAm6iiqC2tpsWb/Nt5ZJoWFBwYs1wvFax0jfelLxVZcrOH4e1w76
-	 e7Z6crOPqQhE/RO4x6nUfs1y/gCbhTT/I1hAFTFuNnjnrDU2C6/XuDEz4XdH4HYRT
-	 E+SHbddYh4ECT/GTPI6n22/OG2yNjh1qUzo+L224QaY22rTE40mRSPvxYPr1v7a7y
-	 A7+pRDLM89nR60eJq04EFm4Q7/auOAOktBKnChlQIr1NSYrnYPNdHuUzipfeg6E1y
-	 aVOUT7pfbb0uX+IbcSPXahKY9mEd7i9paZC86qEZGOsgbLveWsWY3Z7bl+AGZK9PX
-	 0Cjy26QosPN0nJYw2w==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1M4b1o-1tHXNC2Nyo-00ERHx; Mon, 02
- Dec 2024 12:58:36 +0100
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>
-Cc: linux-arm-kernel@lists.infradead.org,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-hwmon@vger.kernel.org,
-	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH] hwmon: raspberrypi: add PM suspend/resume support
-Date: Mon,  2 Dec 2024 12:58:32 +0100
-Message-Id: <20241202115832.33628-1-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.34.1
+	Mon, 02 Dec 2024 12:00:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7E8635C6468;
+	Mon,  2 Dec 2024 11:59:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89875C4CED2;
+	Mon,  2 Dec 2024 12:00:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733140826;
+	bh=uq6P50nPVqYzYznK6CDOgelQtYASy802lUz2VNa3X4k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YNJkDSvbo8lkY9GLqT/hIrlkLQ08AZHdWUxs5r6bl3m2EBQ5pBgHM/mjPWR+I6JMf
+	 WHkFLn1IDnuQbsHQe0nadbr8vKz3xRW21XdUSdb4xT+i2Zor5fgGmzAoSEMfYcJPEX
+	 fwGe0wsbkhNxUqOwQeGiP8NfPPrneSL6Q9Sw24mlIlLforIDucg4Oz6evGeFxOliV0
+	 MWA8nqkra3Zn8VhWEpF06jAI0MaT8iKhzitPgCHIdv1qO0FwMpYUOE7uBvzD2uekk0
+	 +LA/RyRMTlyePXs6iJYth+3uw/OLHT4f3rvhAG9K2jgL+C9JqGuyzaknOpMmRTdq0t
+	 0COIRkOoz/T+w==
+Date: Mon, 2 Dec 2024 13:00:23 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	freedreno@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+	Alain Volmat <alain.volmat@foss.st.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	David Airlie <airlied@gmail.com>, Harry Wentland <harry.wentland@amd.com>, 
+	Inki Dae <inki.dae@samsung.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Leo Li <sunpeng.li@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Phong LE <ple@baylibre.com>, 
+	Raphael Gallais-Pou <rgallaispou@gmail.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Rob Clark <robdclark@gmail.com>, Robert Foss <rfoss@kernel.org>, 
+	Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Sean Paul <sean@poorly.run>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+	Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, Xinhui Pan <Xinhui.Pan@amd.com>
+Subject: Re: [PATCH 00/10] drm/connector: add eld_mutex to protect
+ connector->eld
+Message-ID: <20241202-hummingbird-of-hypothetical-aptitude-646def@houat>
+References: <20241201-drm-connector-eld-mutex-v1-0-ba56a6545c03@linaro.org>
+ <77545786331df8bfaf5fdcb309437358@kernel.org>
+ <ohbtatnn33jj6y3q4milf4txi4n7yirnny2eefdjddlkn2dnhp@eqjedetct4q3>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:4rcELiEtzF/R0LBcJKhDhLIB6nDD43PeR6s7NT2YUxnyohPiISn
- okAAPJ512tDaRSIWkz3EYvcohXjXQ7wI/9fVCtzapwlRKvWvrN/v9MH0gX2YfsYyFCMeBFf
- Ab7jwQ7XztCDW/xmWglu/Vac+8dytBshaP5T/0RVNEOil1e4m5TuDs+VArORtG2bFlnZBtG
- La0js/SfHZMw/b6qtljxg==
-UI-OutboundReport: notjunk:1;M01:P0:i4alPr9HwcA=;V0F5HEyJvk6bRqy7s8ING59aUTI
- JwItXAQ8LzeEQ3/AOzx34X7DMz9bW9LmrNePCsYJw5zupgAUg5uo5ldOQYZTUcElFhTptL3Ip
- h+lmf281F68lF1yMpNJ5G+3+wByRVvdDeqPXm9xc0qJfobdG53JqoFfwY2B32nQvzWDJL1+6r
- 3rW96nyt67OQPugJUOoH8uZiov/x/gJTZ7ilqyGB3yfbQAY9gF3DYvMSFQypVwCBRQ122fz7l
- h8DypcsaGC968uRYcet3Op7ADe0Zrs4Ya99NyflGIwMQLqJnSx4FWzI9y7iolJ5Hh33tWA/fU
- 44seauBuae2HqdDv0ZbsdSgFeQiegdMnhzOMonTWwdjo/cAV+kZBQgiTabgfF68gklq1a9eBD
- jkGiL5KLztknxutjTxrwdItClt/H5PprZ0rHAZewNiB/Ehn7QoSeBl/HPEMAZLvLrwZTjF9IU
- 9xrIAcFwA26jDAbk9AoLdYE/EhWsYlSNq5I5KjejyzmXazlbd0nooQ4Ys+PGnd82OVPSdZ3I7
- RM8wSev/loQd1iZGVtFwRgoKRlHDjiiNhnL4Rg4c8YtTc297mV2XjlzQ3bbOHsDVnV9PCFiZG
- KBw4ZsKxkbcn5h34nXT845XwV9Yrn3iINgI0aWpiOEK29aw5JfENCQIXfcoVK8KhOI61OCnMZ
- s0NS6DfeaWUczLZ4WAqDn5irZnbcSrm2XC63hI1O9DGZy8n2+NzBgrLswOZ9j/r9zEY5J7KX3
- DQkYei21wf+OGIeNKmfNN8ZdKkQ5lJbkHiYNGzLnsj7+ZpPQDq0wpJve8fEWVr5VIX0am9yJm
- z3NSLYeg1HBAq2zhHUsCxpzO8JYDMcTxGzSh75WTiS4OgQZzNnxRCMjXoyVcLIMQnVuLgT5U3
- qZD9yGC+iJh+Tu+TrYA2do0yiKiflX/+soE/+XzYIsGQOUUehQKRykdu+3i4JCjV6e4CfuH39
- gUjbrJS4e7Ss2+KJn+LMmxbl5UQ4TwlvdyFyKu5A8qidh9yq2LSM6MbmrEPrSTRWlueg21/U7
- 5HKpFzDsgt6Gp+G+sqXuIudZ7llW1ydPpODID0TBYmb9WpkftQr2klqSCE59/vu+vQCEPDIFH
- yXiQrTKUpN7aC3vrfO0MIvloW4TqgP
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="rf5ewnb7ayc4e2uu"
+Content-Disposition: inline
+In-Reply-To: <ohbtatnn33jj6y3q4milf4txi4n7yirnny2eefdjddlkn2dnhp@eqjedetct4q3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_035852_995173_6C5D346E 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20241202_040027_341999_A803ECBA 
+X-CRM114-Status: GOOD (  18.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,55 +94,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add suspend/resume handler in order to stop firmware polling
-during s2idle. This was just waking-up the system without a real
-benefit.
 
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-=2D--
- drivers/hwmon/raspberrypi-hwmon.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+--rf5ewnb7ayc4e2uu
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 00/10] drm/connector: add eld_mutex to protect
+ connector->eld
+MIME-Version: 1.0
 
-diff --git a/drivers/hwmon/raspberrypi-hwmon.c b/drivers/hwmon/raspberrypi=
--hwmon.c
-index 10ef1e1f9458..a2938881ccd2 100644
-=2D-- a/drivers/hwmon/raspberrypi-hwmon.c
-+++ b/drivers/hwmon/raspberrypi-hwmon.c
-@@ -128,10 +128,32 @@ static int rpi_hwmon_probe(struct platform_device *p=
-dev)
- 	return 0;
- }
+On Mon, Dec 02, 2024 at 01:03:07PM +0200, Dmitry Baryshkov wrote:
+> On Mon, Dec 02, 2024 at 10:19:41AM +0000, Maxime Ripard wrote:
+> > On Sun, 1 Dec 2024 01:55:17 +0200, Dmitry Baryshkov wrote:
+> > > The connector->eld is accessed by the .get_eld() callback. This access
+> > > can collide with the drm_edid_to_eld() updating the data at the same
+> > > time. Add drm_connector.eld_mutex to protect the data from concurrenct
+> > > access.
+> > >=20
+> > >=20
+> > > [ ... ]
+> >=20
+> > Reviewed-by: Maxime Ripard <mripard@kernel.org>
+>=20
+> Thanks!
+>=20
+> I'm going to post v2 to fix Jani's comment, but what should be the merge
+> strategy? Merge patches 1-3, 5, 9-10 through drm-misc and the rest (AMD,
+> i915, MSM, radeon) through the driver trees?
 
-+static int rpi_hwmon_suspend(struct device *dev)
-+{
-+	struct rpi_hwmon_data *data =3D dev_get_drvdata(dev);
-+
-+	cancel_delayed_work_sync(&data->get_values_poll_work);
-+
-+	return 0;
-+}
-+
-+static int rpi_hwmon_resume(struct device *dev)
-+{
-+	struct rpi_hwmon_data *data =3D dev_get_drvdata(dev);
-+
-+	get_values_poll(&data->get_values_poll_work.work);
-+
-+	return 0;
-+}
-+
-+static DEFINE_SIMPLE_DEV_PM_OPS(rpi_hwmon_pm_ops, rpi_hwmon_suspend,
-+				rpi_hwmon_resume);
-+
- static struct platform_driver rpi_hwmon_driver =3D {
- 	.probe =3D rpi_hwmon_probe,
- 	.driver =3D {
- 		.name =3D "raspberrypi-hwmon",
-+		.pm =3D pm_ptr(&rpi_hwmon_pm_ops),
- 	},
- };
- module_platform_driver(rpi_hwmon_driver);
-=2D-
-2.34.1
+The easiest is probably to merge everything through drm-misc if everyone ag=
+rees.
 
+Maxime
+
+--rf5ewnb7ayc4e2uu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ02hVgAKCRAnX84Zoj2+
+did2AYCKqjIX2aHftKtybJaUPI3aEKi2s1lRBLYyjb1Uwicsybws1tIK08t+OLLX
+OfIShgYBfiJJHZ+4Gj/u8uuAs91T4EvzTss9Zo2aF+YDFdrV47edIsjbVE2McJQO
+YLEiS8Wy0Q==
+=Idbn
+-----END PGP SIGNATURE-----
+
+--rf5ewnb7ayc4e2uu--
 
