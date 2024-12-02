@@ -4,79 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8349ED78327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 14:09:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C0F1D78321
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 14:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jKxSUej1+l/0VRK8dY/i8qKE5HDYtkSoqmdKS10eGJE=; b=nbwmGSaCnAN+iH++pnAgqHs4FG
-	wjA3fjl3wnhGhqLi4SaqhTaSFaJ+IyJARzfyvmldp7yiXiOxLivUdk4mn6Wt9qInJDOlmtuUW/f5s
-	M6jlyEYthfmIT4CPazqQFluUnCM7DmUx++tldCIHZmWe0fFvCi6hSY4f1gMstZJHA97b/cxDxrAMl
-	avm1V4pLgMyeOiVjbgUk8/qCE4vGowz9ma/+RZzXksIWJm3/qeX3963mKD8j4LqZcNIvS1g+CPIod
-	iPKOUPc7WEF6502WHrxatge3iPT7TSznX5eLyejvu8J0FdTmtoyOVWaTWEKHscITQ90d7mYwgftDy
-	3DzyI81A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G4WY1vAA0r2fKbPXY4KjAS2UpwZ8hfCdwU02a05Yrls=; b=VL48gyfQdo5Y/u/8WnG3Rv3KVb
+	ZRn8N+ooDulCPDrmEY7Su/lQLfJPCkJo9JEFPLywzsx+sEPs1PYWnhVZ26y1cPzBeLLQNKTlMht4r
+	MgsWT6fSoW/U1e1JzHIm4tr84S1kRONoZSXN1ziTO6gytahMCxPhLO6sesj8lzggXhewZ8JnsYKGT
+	YHf5q4IS8vvb8mnXGStZhxzDIrw7/QySN+yfSHddAiQBpqNljhUA/MhtGFqBb+2af0IK7mCe3gsMJ
+	1uDnz5d/z5mdObDdAf/4NowxGWPPSzxhJ0dhFW8+7jchbZN95t6wWGQM8VAjCez6GVyZttPDP+SrH
+	wcF5m1kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI773-00000006Myv-3q4R;
-	Mon, 02 Dec 2024 14:09:21 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1tI7Dl-00000006Om8-043O;
+	Mon, 02 Dec 2024 14:16:17 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI74H-00000006MU9-24ZJ
+	id 1tI7Ck-00000006Obk-2b2h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 14:06:30 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-434a104896cso35115125e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 06:06:29 -0800 (PST)
+	Mon, 02 Dec 2024 14:15:16 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-434a29ecbceso5108665e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 06:15:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733148388; x=1733753188; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jKxSUej1+l/0VRK8dY/i8qKE5HDYtkSoqmdKS10eGJE=;
-        b=Q8W0KhkEtbUpzSYShNDl8v/iFf51bvpCtl9CPQIv6KRW0o2NBZUadaBucV58BzzHig
-         XBJSjKG992+0a1Y0P2TR/lDWF3n5ynvZQmTVbXZqYMLesEJ+7kpUaM2pBpvH+nkR1KtN
-         SWTnWTaUfA6CRtW1L+mnKzwoNaXtqf42+WEr/Spew22T82tUnIrDY0alD/4iLnTuryT2
-         manRiZ1dbljWk1bft37BusJW2OblI6sJDEu0MQfURkGEjz++fBYJDK2tG2eIA+AwU+Zo
-         zHDqflWNE7WygZOCMHmYRI8NFM0yzXlgRtixzZ4ErSfn3H7I1/3LYx0ID8D0KU0r4R4j
-         6luQ==
+        d=linaro.org; s=google; t=1733148913; x=1733753713; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=G4WY1vAA0r2fKbPXY4KjAS2UpwZ8hfCdwU02a05Yrls=;
+        b=KkaTYw1pq6m0bakL0URU5jjjmb/Yd+HeJkcIwH7Djwv7hScmJNN12g1rM+tX1ipOTk
+         PwV63l71fHFmZNbyzYEVV/lbzGtiOpyPyfZWMiioBBcmIEt8SN/y5g++GCNJ92bcEawS
+         0dSPrd3RP2h0Or+wPOKFzLYsUVz3xWZhmccrOXkOOlhdfedxJWoNn8ReWy3o0Ocm+5aq
+         eCjNFkzMMtUt3sFahS7tjLdg3ivb3+BSM5ywVmm6mfarFwG5TTnzEfgvgSWJ3tchFKR9
+         FfXCMk+ok1LlaNWojaSW8FbMeJ9dxorjJ1QtLko6jL/umGsbTHp9y3zJXTE9RLd2R5+6
+         eKWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733148388; x=1733753188;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jKxSUej1+l/0VRK8dY/i8qKE5HDYtkSoqmdKS10eGJE=;
-        b=H+dtBztZGEAt+ETiiLFOT2WgbCB340niq1rjhkTwu/Ipv8yOvjBTTXtHgW8+KUMFll
-         AT+CnWgF+bBhdBsxQ2lPBY9zyZ01wIl4ERw8IdygOUkHEzB05u0GmpP+xLO7E0/tr8sb
-         0gkpAWtXkeTyyn0wiGKczlMlAGUzNS0e96EDcaArcVdYqzf6G3avJzccQyZes9pz+42q
-         dHSZjqIxSqk7l4GPZ9HjU2nE2jZZDCw5Ang/k+gRByPsR2gUeLz6E5cSl9MPKQ8FdA62
-         Xf6Ofkf46f9ozR1c2aKI69nat/lVUhbS7l+TWft0v3AdSYT4Lq+JFE1MKXveoeMTLyG0
-         xk8A==
-X-Forwarded-Encrypted: i=1; AJvYcCWe4lMg14L0D+6zRQalgi295Lx5BqHtILSMi/4VokfYd9+vg0T0E1Qxq7FhcGcWt8mow3mBfIrIr5d5UJDTMFMy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWamU3StAFBWGluPhKjd753MrzdphbavFs9gUumHgzgclUQq9D
-	5aYJxU1ZrBtH/6yV44pnIgdapAlrcclrapST1DpNmBxWnWd3NApBYMTbxbXv15E6svEI3AVsdz4
-	7Dj/IzN3XlA==
-X-Google-Smtp-Source: AGHT+IGb9GFF+XeRLxQAr2q/gzezFVIRuu1iuJqUMG9tGhoRGftP6XM2BbzyeGE4do1mNb0+j1Ui/wgaLGW65g==
-X-Received: from wmqg12.prod.google.com ([2002:a05:600c:4ecc:b0:434:a172:6127])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4f56:b0:434:a90b:94fe with SMTP id 5b1f17b1804b1-434a9dc1401mr242319915e9.10.1733148388003;
- Mon, 02 Dec 2024 06:06:28 -0800 (PST)
-Date: Mon,  2 Dec 2024 14:06:04 +0000
-In-Reply-To: <20241202140604.422235-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20241202140604.422235-1-smostafa@google.com>
-X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241202140604.422235-3-smostafa@google.com>
-Subject: [PATCH v2 2/2] iommu/io-pgtable-arm: Add coverage for different OAS
- in selftest
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, 
-	Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1733148913; x=1733753713;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=G4WY1vAA0r2fKbPXY4KjAS2UpwZ8hfCdwU02a05Yrls=;
+        b=coP5HCtHA1Fdv3cNjGxOrXHLsnf/P118j6zekSzHiFAga8OFs10gfIo+HoyEehgjQz
+         iUOs7Rks7G2llf51LOUSmzXERg9fvkCwJCqstzQ3MFgkruTT00dVrsZVEIuPD64SrMlc
+         mL70sd5cHgQBSd9cqulnB3q4lT9tGzkRB29tQYUN9liaY/MyVy7OWJOexdI0SFYnUUHf
+         HheNBofM1B9vn8PdKEmqILou9KIxqeMHiOdAnyF7CnjTSjgqEGQ3tfpaBMZAlcr70CBI
+         BGGtXzWUv5aHklHo6ArX82vY4fUj2J3WKc3WCCF5NQpKvujPGQ4deNOfv9vBBXi5PqSW
+         PcyA==
+X-Gm-Message-State: AOJu0YyeWgd6B1KefWuniSSl79yb6SZ2H/qizkWbzsVUq4dFKcmIgi5k
+	AdasaQwF7QacUU8/UEJusVz6NppuNGllNH7UzZU03Fisad6k6QD8Wb30HZ1qAWM=
+X-Gm-Gg: ASbGncunZ/H4pb1Og9Mf4Mn/ArrT0iq9o2kHDoXvRg2tBhs8xCX/J1/y6CCokXrK+Ml
+	Gtbw2hTn9hhKpVR0YyZR73vSLs/cp/9KzxVco3Dc+GQytcvs7kE0QYuHC+N7/yoHtBgAIIK7A1s
+	2LJhqUmVgK1GX8lL8S+MssPUoU1E+CsG2ya1ORMt/S07KtEih4JXBkOBo7iL8d8Mi9QUDHlpOSy
+	oPCp/CzFOOzOEEeVOFxtkzp6TAsGOm+aZL4D7/+xeYeYqSJrVf4VUeMxc/SMSYS
+X-Google-Smtp-Source: AGHT+IFElDO2xd8mFJCzbrH8EiF3i2wyF8UmcXsrEdAyTq41fa6hejn4lGjAijspgIkC6zPVj6Q6lw==
+X-Received: by 2002:a5d:5984:0:b0:385:de67:229e with SMTP id ffacd0b85a97d-385de672523mr4078648f8f.11.1733148912772;
+        Mon, 02 Dec 2024 06:15:12 -0800 (PST)
+Received: from [127.0.1.1] ([178.197.218.23])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434b0dbe4ccsm152388855e9.13.2024.12.02.06.15.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Dec 2024 06:15:12 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, Tomasz Figa <t.figa@samsung.com>, 
+ Thomas Abraham <thomas.abraham@linaro.org>, 
+ Kyungmin Park <kyungmin.park@samsung.com>, 
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org
+In-Reply-To: <20241106-samsung-pinctrl-put-v1-0-de854e26dd03@gmail.com>
+References: <20241106-samsung-pinctrl-put-v1-0-de854e26dd03@gmail.com>
+Subject: Re: [PATCH 0/2] pinctrl: samsung: fix fwnode refcount cleanup in
+ error path and update comment
+Message-Id: <173314891106.48956.4220732642073324618.b4-ty@linaro.org>
+Date: Mon, 02 Dec 2024 15:15:11 +0100
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_060629_537300_2A398368 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20241202_061514_658161_8136B0AB 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,75 +104,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Run selftests with different OAS values intead of hardcoding it to 48
-bits.
 
-We always keep OAS >= IAS to make the config valid for stage-2.
+On Wed, 06 Nov 2024 23:04:38 +0100, Javier Carrasco wrote:
+> The first patch completes a previous fix where one error path stayed as
+> a direct return after the child nodes were acquired, and the second,
+> completely trivial, updates the function name used in the comment to
+> indicate where the references are released.
+> 
+> 
 
-This can be further improved, if we split IAS/OAS configuration for
-stage-1 and stage-2 (to use input sizes compatible with VA_BITS as
-SMMUv3 does, or IAS > OAS which is valid for stage-1).
+Applied, thanks!
 
-However, that adds more complexity, and the current change improves
-coverage and makes it possible to test all concatenation cases.
+[1/2] pinctrl: samsung: fix fwnode refcount cleanup if platform_get_irq_optional() fails
+      https://git.kernel.org/pinctrl/samsung/c/459915f55509f4bfd6076daa1428e28490ddee3b
+[2/2] pinctrl: samsung: update child reference drop comment
+      https://git.kernel.org/pinctrl/samsung/c/0ebb1e9e1b12ddcb86105a14b59ccbed76b6ce00
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- drivers/iommu/io-pgtable-arm.c | 27 +++++++++++++++------------
- 1 file changed, 15 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index 0055876b3527..62015fdd6c6a 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -1385,15 +1385,14 @@ static int __init arm_lpae_do_selftests(void)
- 		SZ_64K | SZ_512M,
- 	};
- 
--	static const unsigned int ias[] __initconst = {
-+	static const unsigned int address_size[] __initconst = {
- 		32, 36, 40, 42, 44, 48,
- 	};
- 
--	int i, j, pass = 0, fail = 0;
-+	int i, j, k, pass = 0, fail = 0;
- 	struct device dev;
- 	struct io_pgtable_cfg cfg = {
- 		.tlb = &dummy_tlb_ops,
--		.oas = 48,
- 		.coherent_walk = true,
- 		.iommu_dev = &dev,
- 	};
-@@ -1402,15 +1401,19 @@ static int __init arm_lpae_do_selftests(void)
- 	set_dev_node(&dev, NUMA_NO_NODE);
- 
- 	for (i = 0; i < ARRAY_SIZE(pgsize); ++i) {
--		for (j = 0; j < ARRAY_SIZE(ias); ++j) {
--			cfg.pgsize_bitmap = pgsize[i];
--			cfg.ias = ias[j];
--			pr_info("selftest: pgsize_bitmap 0x%08lx, IAS %u\n",
--				pgsize[i], ias[j]);
--			if (arm_lpae_run_tests(&cfg))
--				fail++;
--			else
--				pass++;
-+		for (j = 0; j < ARRAY_SIZE(address_size); ++j) {
-+			/* Don't use ias > oas as it is not valid for stage-2. */
-+			for (k = 0; k <= j; ++k) {
-+				cfg.pgsize_bitmap = pgsize[i];
-+				cfg.ias = address_size[k];
-+				cfg.oas = address_size[j];
-+				pr_info("selftest: pgsize_bitmap 0x%08lx, IAS %u OAS %u\n",
-+					pgsize[i], cfg.ias, cfg.oas);
-+				if (arm_lpae_run_tests(&cfg))
-+					fail++;
-+				else
-+					pass++;
-+			}
- 		}
- 	}
- 
+Best regards,
 -- 
-2.47.0.338.g60cca15819-goog
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 
