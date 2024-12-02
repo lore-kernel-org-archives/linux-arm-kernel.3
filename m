@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6010D10DCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 08:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B94D10DCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 08:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=01FuAxltFboSgbkGDbFpTK6260zYPeJejN9Ld7/Oa+I=; b=o6t9fYjiCNKtDq07ySfXoBJXJe
-	7Tw7sgE0JqkIYLEVNWL2mKcbT004rKZ0jlt5Pk+r4I+PGKGmJ5++hPnVGBVE6rinDHhrLYMbjdi6f
-	Ofkczunhuit8DCAa5Qw37fcoE81BbgcFZZwJFIIJvQAEsPBMc+msnCjIwCxghtqaQLFLid5SeVPL+
-	ISoDtpxiZJ4iYDBC1wz8i+r2DgWhVzsMmXs3N20oW1no8+ZV+BVN1AI6wSjMNng/imUO5Fn3g6gAG
-	5OOcW2BfSE1PF9w97vbM1bZNb9o5J1hM4v2f2Vc78XCLh36+PtxB/9XEDyJLUCyHflt5sdu1JhdkR
-	qEX3yydQ==;
+	bh=zqvrFfVmlhRF4qQjzwltKz6Uu/DhS/lnwoCvNMpIui4=; b=MN7yNzreHExA0RbfmXh0Oh6KlC
+	GebsRPa66oqQet5NQl6c+aK8SmeamzUQ5HcbFgTmzxtZOB6fETzn57ccqtp2odSe8FtN065CirxCP
+	vwD+y4nfp2tD7NMbOe8+wx9fT5nz9GIr/Muu9120Hs6VnZaZpeFqXnocFDeP7TmEvcZblDb3bdDhF
+	PbK7mhs0L9hHtyxzZdRk5VQ/Cj7P6D5j5Dyjd/L5D5WOxRR3QJJ36cm26MYKWOXBpz8Bd9GWazqHg
+	SXws413WwaE5c1L1KbIJamylDjflw7rP16PHqiwxddbcsU3XvRNOnlDI0vCI85QaYG/htwAhmlO2t
+	rr+8dFYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI22O-00000005SG8-0mlo;
-	Mon, 02 Dec 2024 08:44:12 +0000
+	id 1tI23L-00000005ST8-3dK5;
+	Mon, 02 Dec 2024 08:45:11 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI21P-00000005S6K-0U1w
+	id 1tI21z-00000005SBg-32y7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 08:43:12 +0000
+	Mon, 02 Dec 2024 08:43:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 03141A40E28;
-	Mon,  2 Dec 2024 08:41:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6750DC4CED2;
-	Mon,  2 Dec 2024 08:43:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9A602A409B8;
+	Mon,  2 Dec 2024 08:41:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11C6DC4CED2;
+	Mon,  2 Dec 2024 08:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733128990;
-	bh=01FuAxltFboSgbkGDbFpTK6260zYPeJejN9Ld7/Oa+I=;
+	s=k20201202; t=1733129026;
+	bh=1sVtE4uEehXRaXvN8ESWtlHpi3uBM+vuC6madLMzWMs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BewmDXEjnik5rDyz7I6LePOM/9876awp5O+bowTeGJFPpI+WurDcm8Av4gBQF9uXH
-	 VlfYobB5syMpKVVkF9UsYzbkQCdU0LOb+vxL75Xs0bEAtqzlRdhU/bzvLbcdPGicB5
-	 GMgddUnKfPjcr/zMwjKBsK3jK+9hZYXtvf0/WjMtn/fjrl5ohTwgpdkHzWUVnHyX/O
-	 XmG6RQNBLAOT2ouAyTbwMuz1FMYCwwTLtDvJiR7iUNtZmRjEkqt41uO5oYJgHGhR5z
-	 VEfcVmaZqc0E089XUHEoN7Y/TXiKgqANYQxx6OCfhyFOyyS0eMqlV3Phc+9d06lg87
-	 kKHxUmaQEfkcA==
-Date: Mon, 2 Dec 2024 09:43:07 +0100
+	b=eAhKsO1ZCB6C8tH1oHhPNC6qUnt3JiCyhQkICTjOLNWZ2fX2yeCd/Ie8wnOFhaUsj
+	 uMVNBDCIHwSTxVDFHoL2ZXn8jM/1PO/xGioAX8+qtl/Zl8UD6RpjgrL49jetT6ozmz
+	 QIdQqEcGxygSYNARdko3t7GwJftZ1lbmdYLL6qKbEXggGZS48M5SgpwIXHB9RDoo/5
+	 3b35nWnCl8SmxCwRViRo9AFuO37fUfWF/8D0UiRQyNJXIlRGVduwdhIkIZFPsfhbcI
+	 3ru8r7O+5JD0seDtC9t1UrfMv8a3w6a9D6RqJqI4GG4aQi7T+iLMLyg0vfFTGJYFs8
+	 K9cT8BpofYxvg==
+Date: Mon, 2 Dec 2024 09:43:44 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Nick Chan <towinchenmi@gmail.com>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: arm: apple: Add T2 devices
-Message-ID: <5ap2q5ok2jsqvft3puha6n4wmdc6tjtr5r52qdvblpiqz6t5ak@oas4a3vdikox>
-References: <20241201161942.36027-1-towinchenmi@gmail.com>
- <20241201161942.36027-2-towinchenmi@gmail.com>
+To: Cody Eksal <masterr3c0rd@epochal.quest>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Parthiban Nallathambi <parthiban@linumiz.com>, Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH 1/2] dt-bindings: sram: sunxi-sram: Add A100 compatible
+Message-ID: <xos2khgdmnt6iinglnuuat6ak7bxzrufw775stmoy72igul7b7@5oqu374t2764>
+References: <20241202-a100-syscon-v1-0-86c6524f24d7@epochal.quest>
+ <20241202-a100-syscon-v1-1-86c6524f24d7@epochal.quest>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241201161942.36027-2-towinchenmi@gmail.com>
+In-Reply-To: <20241202-a100-syscon-v1-1-86c6524f24d7@epochal.quest>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_004311_217158_363CD367 
-X-CRM114-Status: UNSURE (   6.83  )
+X-CRM114-CacheID: sfid-20241202_004347_828478_A351BA8F 
+X-CRM114-Status: UNSURE (   8.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,15 +77,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 12:18:41AM +0800, Nick Chan wrote:
-> This adds the following apple,t8012 based platforms:
-
-
-"Add"
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
-
+On Mon, Dec 02, 2024 at 12:43:26AM -0400, Cody Eksal wrote:
+> The Allwinner A100 has a system configuration block similar to that of
+> the A64 and H6. Add a compatible for it.
+> 
+> Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
+> ---
 
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
