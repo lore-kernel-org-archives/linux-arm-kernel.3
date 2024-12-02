@@ -4,54 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F5B5E69E8B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 19:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 336EAE69E86
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 19:47:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1hB+Rsl8dEIP80gJg1dRpUGGywa9yjHgvJWWFP9MDZc=; b=pcD8BFulIWXNixvGelhi8KZgKG
-	dGUpX/6scRiJ5/J2NR+oEL7oTyLICVU866XH96ierlcB4SM4s0wYueRMCVTBqDtk8B9nfqRy42xv5
-	/w6V6p3iCXFxm3VDgueYQKkVkwXJIW+PdqqgGEAYReZ6eHjxADhF2qJ6jHAIvubqPl8irKvy7wZa+
-	sqCuYbRuwyAqU1LiKpv0A54MbE0yI2i+S9ABlv66NDFU77cUdLSmU0xejMf2250u+G0sBPTD+xtoz
-	epSmJTXOdlrZCYh1XcgvSiBdwMIyfAwfWMCJT7JZj/E4iyRJcJB6Mh9sDKdI8FP4otm9Hvk0cFCvK
-	+pmkkfMQ==;
+	bh=8gIz69rx+O7g3l2dUBVUwaQsvlZ4QBJNSMujzHzSCeo=; b=q3pQyQB2nzwMnXTtrRQF2KPd+T
+	Azvcbu7ppXheLdhgLmt6p7f0Q9sQq6uZ8mKPPfBdIQ4P9cIjF+OMdAMCIFlEfCinW81L82ysbieJu
+	AlglndHIq7RdwzFk7MzUsbHEQBYx5pxeFbRC2omQ+eSv7ll469XkYo5lvNhZWK3CxXVQosh8ml42/
+	3cMAmWhAlzPETPaErdm84SDkPwDmolMVBC79VLGR9a0MFhMEnAJ6Ua0rUytORYtxwXJB1zLBxOprk
+	c5cT+//H4D9RCVoNBaV6u4EHV4w1sgK2fQoGWUFv0crt+6judjoExEWUE++EJJXPXo1RKZP3p2EwV
+	FvIudsqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tICNP-00000007Kku-2upC;
-	Mon, 02 Dec 2024 19:46:35 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1tICON-00000007Kue-1CFu;
+	Mon, 02 Dec 2024 19:47:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tICIa-00000007Jwz-2Rko
+	id 1tICIk-00000007Jz3-1JUi
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 02 Dec 2024 19:41:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=8gIz69rx+O7g3l2dUBVUwaQsvlZ4QBJNSMujzHzSCeo=; b=p/oeFzWS0LVJtacAnnzdRb4dYZ
+	WduCjcCDh52idaAhuQbntCzIe4Jwb0l/XTVNdXRLmuclvxoFwww72mpnH1rNNsRk82O9vvxV2E1Q6
+	ztACRW4SgIkm1PAUn4jQzeJvw5HKqonnxrWumg5t8q1NUoMwj7jfef5Lk5SFZ323WITVykKa8lHJq
+	QEqX/9i/TsVAd6FNIlleDo0KGCihOAlBoGXE9mQB2UsGLHpfjEIuJaoLZJPRPH98wyGiuZTKt1E7Q
+	ZF4Ea/zBv9a4eYST6Mnk9oV6jegU5VLhEm0Bja556aW/8h1VkOxWmXpdreT4K5I16ssEe5ASoWMpf
+	b+1oJTGg==;
+Received: from [198.47.19.141] (helo=fllv0015.ext.ti.com)
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tICIg-00000002FcP-0mC1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 19:41:38 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4B2JfAbX018430;
-	Mon, 2 Dec 2024 13:41:10 -0600
+	Mon, 02 Dec 2024 19:41:45 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4B2JfBHg018434;
+	Mon, 2 Dec 2024 13:41:11 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1733168470;
-	bh=1hB+Rsl8dEIP80gJg1dRpUGGywa9yjHgvJWWFP9MDZc=;
+	s=ti-com-17Q1; t=1733168471;
+	bh=8gIz69rx+O7g3l2dUBVUwaQsvlZ4QBJNSMujzHzSCeo=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=yWXLnTHwyw6OZErIdXaEl0iD3giWyOLXMsrm1kKc67jTA1r9YvNYEFDLLhKXFhYh+
-	 nd2FlxCcZJ2Hik3hA3QqQnQfJoNraILyRB7usN8bs6ItTAdOfNMQz6xutiW/L4nXxG
-	 jEcJdaX37p4LagWo98aDTsFEf7d4YByTkoudOuMY=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B2JfAe1018340
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 2 Dec 2024 13:41:10 -0600
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+	b=t62o3g685pCzx96mI0/dHENguE2daTXBpYrgLh0cn+WfgnPhOsx4Ad4tPHOuH5DVl
+	 jI5vTfxmbYpfzLfcc4fSSDSxqnCQU54Wx74TOOLbonG3fpDlZCCp+9RQjE10eQH+k1
+	 WpkCLDsfC75vGblnqkelqHwXxydf2Axg/O2QF+WY=
+Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B2JfB4d073869;
+	Mon, 2 Dec 2024 13:41:11 -0600
+Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 2
  Dec 2024 13:41:10 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
  Frontend Transport; Mon, 2 Dec 2024 13:41:10 -0600
 Received: from fllvsmtp7.itg.ti.com ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B2Jf8iN127393;
-	Mon, 2 Dec 2024 13:41:09 -0600
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B2Jf8iO127393;
+	Mon, 2 Dec 2024 13:41:10 -0600
 From: Andrew Davis <afd@ti.com>
 To: Arnd Bergmann <arnd@arndb.de>, Andre Przywara <andre.przywara@arm.com>,
         Russell King <linux@armlinux.org.uk>, Daniel Mack <daniel@zonque.org>,
@@ -64,9 +78,9 @@ To: Arnd Bergmann <arnd@arndb.de>, Andre Przywara <andre.przywara@arm.com>,
         Stefano Stabellini <sstabellini@kernel.org>
 CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <xen-devel@lists.xenproject.org>, Andrew Davis <afd@ti.com>
-Subject: [PATCH v4 2/5] ARM: pxa: Switch to new sys-off handler API
-Date: Mon, 2 Dec 2024 13:41:04 -0600
-Message-ID: <20241202194107.105119-3-afd@ti.com>
+Subject: [PATCH v4 3/5] ARM: sa1100: Switch to new sys-off handler API
+Date: Mon, 2 Dec 2024 13:41:05 -0600
+Message-ID: <20241202194107.105119-4-afd@ti.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241202194107.105119-1-afd@ti.com>
 References: <20241202194107.105119-1-afd@ti.com>
@@ -75,8 +89,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_114136_661491_63CC0487 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20241202_194142_619613_5DC9AB7B 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,21 +112,21 @@ are converted to the new sys-off API.
 
 Signed-off-by: Andrew Davis <afd@ti.com>
 ---
- arch/arm/mach-pxa/spitz.c | 2 +-
+ arch/arm/mach-sa1100/generic.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/mach-pxa/spitz.c b/arch/arm/mach-pxa/spitz.c
-index 33533e35720f8..c0b1f7e6be874 100644
---- a/arch/arm/mach-pxa/spitz.c
-+++ b/arch/arm/mach-pxa/spitz.c
-@@ -1096,7 +1096,7 @@ static void __init spitz_init(void)
- 		software_node_register(&spitz_scoop_2_gpiochip_node);
+diff --git a/arch/arm/mach-sa1100/generic.c b/arch/arm/mach-sa1100/generic.c
+index 0c586047d130f..5383a26f51169 100644
+--- a/arch/arm/mach-sa1100/generic.c
++++ b/arch/arm/mach-sa1100/generic.c
+@@ -298,7 +298,7 @@ static struct platform_device *sa11x0_devices[] __initdata = {
+ static int __init sa1100_init(void)
+ {
+ 	struct resource wdt_res = DEFINE_RES_MEM(0x90000000, 0x20);
+-	pm_power_off = sa1100_power_off;
++	register_platform_power_off(sa1100_power_off);
  
- 	init_gpio_reset(SPITZ_GPIO_ON_RESET, 1, 0);
--	pm_power_off = spitz_poweroff;
-+	register_platform_power_off(spitz_poweroff);
- 
- 	PMCR = 0x00;
+ 	regulator_has_full_constraints();
  
 -- 
 2.39.2
