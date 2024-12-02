@@ -4,96 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E9CD7830F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 11:55:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F25D2D7830E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 11:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UfgDbmGn22ssjxiKjmQ0kPNy7r0F8TDilTFlsUWSPaw=; b=YXCo3phQdO85Ebkwz6G1A915oP
-	v3x8n3zR52P3J00yUqlkqiIesldSa2UhWIKn78AaD1DahA2GOOXFqMascbhP7b9++SM3ZVMqH3+d0
-	rHQp7iRFfQBt8isCptpjV3uW5p2vGlm3kHnSLBRSmBGfFZnr3zFu+ekqmEZb7eTrTbasGszTPDTKF
-	sbHe6VrRJYMr63i004nrLpmBKJJLnrnbwJKZSdaUvtac5yGqdfa2qW5AcqqQfjdh3/j7f6mBq5D7H
-	DqQPKBcjAnfA54TMuBOd5l/p2pFyWT1eh3G+Eqt5ALKAXStN4nlLTbzPDj9mqD/AgQRkIGhu4GrCF
-	MMC68R8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+kMiETroC8DyqbPq5Hl67U8NCgFxK/BVpKcu/uPN904=; b=udkh7dCVOrBFRQ3FmsjZeyaatG
+	5OJpLPi/D2uForXyzH4bA7EUYznPzYPHS1oIEb/lfJ11epYFuK3SrSuGNtfSl8UaFHrYyepgZuPWV
+	K9iTvo55zXHbOcFze5NqbNNgEqK7hKaPnv2wXbPIj9Lq9GdvIpLCTJJ+rhB/KTowu72eIXX1zk9hC
+	WzREewwGyxGwutmb78HFfSOQRhoz8T1CZV2Ik9cG2QTqqZ4TjWNPJDDLAcgni3dB1GKfUR2k6tt9K
+	XuuM9f9IvWgRNmlPt+SF7QIBC5ALRg7PvkvqyzVG2msdJBw9zpbBUm0ZuylGyftNTtudHjn1AYRmK
+	j4Di/DOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI518-00000005yEN-3iDS;
-	Mon, 02 Dec 2024 11:55:06 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1tI526-00000005yO6-1y4O;
+	Mon, 02 Dec 2024 11:56:06 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI4z9-00000005xtD-43mU
+	id 1tI515-00000005yDT-475Q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 11:53:05 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-2ffd6b7d77aso48558101fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 03:53:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733140382; x=1733745182; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=UfgDbmGn22ssjxiKjmQ0kPNy7r0F8TDilTFlsUWSPaw=;
-        b=c3RtraXo4j7HxfMv+Kcz0AGsq0h7qCp9ct8bPS8IOJyzfBGbJEV5Ws9TvGi3ybQxoB
-         j7/4lMEEsw/5jQw9pL1ZcFv1EDvPVF07rKccXagV17QckuW7lP03nz9UbynXvgUfFw1x
-         oylmR3baMUZK9EnzVSCt+2FgsSuPyuJoni5oz0fvf7EZTeJxiS7WieeW+Dea2m3/QPw3
-         +b5n8bX1OvmD01Ihn4QSS9Ha9E+1J+mYI/iNPr2MzTjKOd6BdkN+HSRiPGNsDn8ieGCq
-         u+PehkhuRrcpdgkTF6sovN1JVLiF37yykJUA9mcXPAHboeniD8urpDKf5hzKvq8DJrxD
-         We7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733140382; x=1733745182;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UfgDbmGn22ssjxiKjmQ0kPNy7r0F8TDilTFlsUWSPaw=;
-        b=VowFKF+CGD1z6yn8z82shskBBJPYczBY+4pVC+eYcnPJhn0CmJMRvToDSn2f0WjbPH
-         EFL6JoGGaoSF5fQKI0RyhpBWPu3ZxXV0DZIIGrGWEo6vM9Pw90SqeOk9MldwPhb1iSNe
-         AFyVRa9EKW0MrN4lUnFIcJPnBNuvMRs+aPo6srRBraFL17zl5QbH3s+3jk3F8Oj8KeiA
-         8BYMSWm40xJAe1MViP3GHbLZv1BmJ7lQ8brWd/JX5fvpVDYlGlIW6gU1Voj3LbCk9WQ8
-         906qqZDcFj3kGdO1KemTkIc/O9r85yD9AKMDy2WkGUL6S4FdRYs1jQtuph6xWhX1VREI
-         SLMw==
-X-Forwarded-Encrypted: i=1; AJvYcCVvjEZGS/CafJd4ExdCRPXnhXkR8B4BC6oUzPmuCmOubuAyuxgYH+zyuaK3p7mT8P8OVPIYwo2ENb1ryKCs8cbK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+VqRbmcVmb/C8aPYIfGcw1ftZ3z/ysKREkmj/HoRRtVzLwaOr
-	Y8S/7srepAyJ1kIJIGFJoZC3C0vICuanq3+h3KfcH8PkDVFAtkNIypeOtWJBXmw=
-X-Gm-Gg: ASbGncsI5EwVGCzZMbGNZWjio2THV15pUePYP9Cb2cvYqReOwLhnfhwFALGHRFSDIPk
-	PCmtvsH8hb3uaQs23qYccL23pg8jHY+bhH2WyZKNIWRFxC25bKwQsidiaUi69kl2AX2YQ0bJJ/g
-	b+bytP6GLkEQSVMPVOZ2qjzFViwYJBg/FWi3ICQdgNiV2MrY+UtIgrSQ2pxtjgm9EH+6NoKuh0w
-	I183IGSj3flVUWyXnRYlqzEqYLWFyIZsgXD+gTvrdZD1T1arI03FzjVR0SDwm5yyBCG242+x+tv
-	gzBmgX4CzXOmq1GkoVeS1QbqxPyfRw==
-X-Google-Smtp-Source: AGHT+IF7qcUlqwZCH0DJeBeEV13wXeWiYQJ32iffEYuN9hp6lhdLXbyTbs8ChuNW2LVLJzXXZe/bZw==
-X-Received: by 2002:a2e:b8c7:0:b0:2ff:559e:c94b with SMTP id 38308e7fff4ca-2ffd6059c0amr97739501fa.17.1733140380217;
-        Mon, 02 Dec 2024 03:53:00 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ffdfc097c3sm12501411fa.54.2024.12.02.03.52.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Dec 2024 03:52:58 -0800 (PST)
-Date: Mon, 2 Dec 2024 13:52:57 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Taniya Das <quic_tdas@quicinc.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
-	"Rob Herring (Arm)" <robh@kernel.org>, Will Deacon <will@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Abhishek Sahu <absahu@codeaurora.org>, 
-	Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Imran Shaik <quic_imrashai@quicinc.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Ajit Pandey <quic_ajipan@quicinc.com>
-Subject: Re: [PATCH v3 05/11] dt-bindings: clock: Add Qualcomm QCS615 Display
- clock controller
-Message-ID: <afbxakprrm62hnlirqr3244wuf4zzlureejlce76av5xyqsuyy@gadkbshd3dam>
-References: <20241108-qcs615-mm-clockcontroller-v3-0-7d3b2d235fdf@quicinc.com>
- <20241108-qcs615-mm-clockcontroller-v3-5-7d3b2d235fdf@quicinc.com>
- <173104478441.565041.9851772057058427001.robh@kernel.org>
- <s5rie2osuh2ngkwd2jinly7ulogqqeqois724h3e54a7rqrn2w@wn3yypxi7wca>
- <74e5b8b5-ee09-4fb5-9643-14ea11c445e5@quicinc.com>
+	Mon, 02 Dec 2024 11:55:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1733140492; x=1733745292; i=wahrenst@gmx.net;
+	bh=+kMiETroC8DyqbPq5Hl67U8NCgFxK/BVpKcu/uPN904=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=ajf1VuC927Wl/12ZqvRdKvyQCm3b4QORE29NN8+MYX9zBCPUtwfB+k6TXpgtFl9p
+	 ur1veA47/nhjcYd24gqp7iQaK8mVlwXvmplTweDybKjs6VjnmvUbCgDdcVdL5M6Zg
+	 14Wm+xpwMoSZQLEDM8c6cwkZtyAQIAQXdh41Q5U2kSxqY5+PsmU3bCPTWTkD9M91s
+	 RoEciNN967I9GrzaBtzPrxRAgrHKHzf4N9raWVsVqs57F2DRf2C66GS4P0HRtXkM9
+	 5mTQh0kUNKJRXEF6Kp3bPKFTowx6dtBavJjaD1u/tBpATTDBuoUERMyEmwyU6y1hD
+	 GVGJT4dU8tQaqW5prw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MFbRs-1tSWkX3ZeQ-007CjV; Mon, 02
+ Dec 2024 12:54:51 +0100
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: Lukas Wunner <lukas@wunner.de>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	"Ivan T . Ivanov" <iivanov@suse.de>,
+	linux-arm-kernel@lists.infradead.org,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-kernel@vger.kernel.org,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH] irqchip/bcm2836: Enable SKIP_SET_WAKE and MASK_ON_SUSPEND
+Date: Mon,  2 Dec 2024 12:54:37 +0100
+Message-Id: <20241202115437.33552-1-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <74e5b8b5-ee09-4fb5-9643-14ea11c445e5@quicinc.com>
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:PAOc0tWu9aXLQliKviiI5wY4bX6FmXbTgA3b+Tq3POu3qo5atU7
+ bEnyFxxtUg//Mnn46zU7TL85p8leZ/ZmDhFkC6fsq3ERP/I4c0/6wACTUCsMGIb08Mr9O08
+ dgy22M+ybBIMSWIZzBJb06js7aKb/23fc18jkxc0wqx4JUDyrQrkI/13U+InX2EjUcqZaK9
+ woDVC6mwqMkmkuFT4JcFg==
+UI-OutboundReport: notjunk:1;M01:P0:Z+f23ECFyV0=;r9U8tY/6i3/WIx1MTvE5bg+5wDf
+ hCydvhrfMHiURUFBXJaQ/aKPsnZQuryMaN8SO1z4IhcF6FboFdXdYM07AWT4HIWHtMfrbaqU9
+ Nc8GrP+pN2lp9vBqFzBsjAlX6gPSB7YDPG7Mw7TpInydRFKdt/evV/OVE5nG5I8qHl0xumzmf
+ SZ3WT/SDP0u1z2X/SgyBWPmqkA9Yx2c2nGsXIydGjACvuCU7GQZjBPMBgrJMxIbfVNXtJo0xL
+ EOjjp1W7q3wMM85aJkwucA1t3vp3nlxnUOGoxjURqq1xZTvE1CkIWjTJ9bsey4qBHNhvKgB7s
+ TaWdhO8YCwzMSIArQrGO78QW98CHq8tiniu7rfEXpL/yBkJTRELKisdUjDo9vvm3uzL2089nB
+ tm9i9KjLy27D/ilJKwO1ThP7S7fYK9Hcx4+H9+uofLRROkKKH/BcybJ3OuiXqoVNifdxJcusu
+ S6ymIOFOtBhfxJRmM70hSomqs9G4Ohiwql8YNnPWwQ6gZrgv5gaZHHq7VjyenhgPrHqwTuR+T
+ Blvnbzhnf46+/4bZucsE0Us+0BOpy8JRnW1vKiDAzEzMzRQ8g1x3tbYVVR+rCK7Oo8dBI2X5m
+ KJy8ANnTXW3fqC2bDBGVv88qrPVNbuwQqC6w0LFxR309yIEyM+E63NGBbkLa4b57dlPHg5XIm
+ n/VcVP9/5/HVMTMYV5Rk/YXtRewi5RisHdZj7+RdL33b/Ewgdek9lK06vjvUKDdc/Glwwbmus
+ kcLC9RT1Tpu1RWvWi2dbkFJe/qY/NjU22PTM08mmsyZWVhb79zX1fft8xsfCqCN7wKPMf+c86
+ TRsyaJsZZcVum1D+5OL1DfG9/exQZH3VhseD+Ld0GlWd+qKxmjrQDavG0wAj3UjnQ2LPE8+nS
+ AMmjInfQW0CGVFUoj++MfxOEUbd8Y1Acc1dHXDQsZpiClSgldm2ZDgjUSlE+F6/DksA4OKNei
+ +Eu9Ac8MASOfVtfCiA0jivM83NcQ65siugfernbcWYGmBQzxw9+Whqh5xP7R/+wCPj6KBZlfU
+ Zvguv/XWr7Ue9ITTdN0tjcZLyaeyeA0J7i58CHpY8P0DP0gUfZNadea30uPcpL0fKNfOqiLta
+ y5rGTnHHIL47YaK+HYh3QT6g9wRONG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_035304_005200_FE174DD8 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20241202_035504_303904_5D47E356 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,52 +100,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 01:05:54PM +0530, Taniya Das wrote:
-> 
-> 
-> On 11/8/2024 5:09 PM, Krzysztof Kozlowski wrote:
-> > > dtschema/dtc warnings/errors:
-> > > Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.example.dts:19:18: fatal error: dt-bindings/clock/qcom,qcs615-gcc.h: No such file or directory
-> > >     19 |         #include <dt-bindings/clock/qcom,qcs615-gcc.h>
-> > >        |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> > > compilation terminated.
-> > > make[2]: *** [scripts/Makefile.dtbs:129: Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.example.dtb] Error 1
-> > > make[2]: *** Waiting for unfinished jobs....
-> > > make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1442: dt_binding_check] Error 2
-> > > make: *** [Makefile:224: __sub-make] Error 2
-> > > 
-> > > doc reference errors (make refcheckdocs):
-> > > 
-> > > Seehttps://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241108-qcs615-mm-clockcontroller-v3-5-7d3b2d235fdf@quicinc.com
-> > > 
-> > > The base for the series is generally the latest rc1. A different dependency
-> > > should be noted in*this*  patch.
-> > I see this patchset being sent again without changes and receiving same
-> > errors again, so maybe you expect different results, like some review? I
-> > don't know, but just in case that's the case please carefully read
-> > message you got.
-> > 
-> > If lack of review is expected, then of course no problem here.
-> 
-> The base patch dependency(GCC) clock controller was mentioned in the cover
-> letter:
-> https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-0-3d716ad0d987@quicinc.com/
-> 
-> Thanks, I will keep a note to notify reviewers explicitly mentioning the
-> dependency.
+The BCM2836 interrupt controller doesn't provide any facility to
+configure the wakeup sources. That's the reason why the driver lacks
+the irq_set_wake() callback for the interrupt chip.
 
-This is usually being solved by:
-- specifying correct base id and prerequisites in b4 prep --edit-deps,
-- using ephemeral DT nodes in the bindings examples.
+Enable the flags IRQCHIP_SKIP_SET_WAKE and IRQCHIP_MASK_ON_SUSPEND so
+the interrupt suspend logic can handle the chip correctly.
 
-I think either of the options could have worked here. I don't know if
-the bot picks up prerequisites from the cover letter, but even if it
-doesn't, the issue is on its side, not on yours. However we still see
-the same issue on and on. Could you please update the internal
-guidelines on writing DT bindings so that the issue of (not) using
-bindings of (other) clock controllers gets handled there?
+This was inspired by the patch series "irqchip/irq-bcm283x update
+for BCM7211" by Florian Fainelli.
 
--- 
-With best wishes
-Dmitry
+Link: https://lore.kernel.org/lkml/20191001224842.9382-1-f.fainelli@gmail.=
+com/
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+=2D--
+ drivers/irqchip/irq-bcm2836.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/irqchip/irq-bcm2836.c b/drivers/irqchip/irq-bcm2836.c
+index e5f1059b989f..e366257684b5 100644
+=2D-- a/drivers/irqchip/irq-bcm2836.c
++++ b/drivers/irqchip/irq-bcm2836.c
+@@ -58,6 +58,7 @@ static struct irq_chip bcm2836_arm_irqchip_timer =3D {
+ 	.name		=3D "bcm2836-timer",
+ 	.irq_mask	=3D bcm2836_arm_irqchip_mask_timer_irq,
+ 	.irq_unmask	=3D bcm2836_arm_irqchip_unmask_timer_irq,
++	.flags		=3D IRQCHIP_MASK_ON_SUSPEND | IRQCHIP_SKIP_SET_WAKE,
+ };
+
+ static void bcm2836_arm_irqchip_mask_pmu_irq(struct irq_data *d)
+@@ -74,6 +75,7 @@ static struct irq_chip bcm2836_arm_irqchip_pmu =3D {
+ 	.name		=3D "bcm2836-pmu",
+ 	.irq_mask	=3D bcm2836_arm_irqchip_mask_pmu_irq,
+ 	.irq_unmask	=3D bcm2836_arm_irqchip_unmask_pmu_irq,
++	.flags		=3D IRQCHIP_MASK_ON_SUSPEND | IRQCHIP_SKIP_SET_WAKE,
+ };
+
+ static void bcm2836_arm_irqchip_mask_gpu_irq(struct irq_data *d)
+@@ -88,6 +90,7 @@ static struct irq_chip bcm2836_arm_irqchip_gpu =3D {
+ 	.name		=3D "bcm2836-gpu",
+ 	.irq_mask	=3D bcm2836_arm_irqchip_mask_gpu_irq,
+ 	.irq_unmask	=3D bcm2836_arm_irqchip_unmask_gpu_irq,
++	.flags		=3D IRQCHIP_MASK_ON_SUSPEND | IRQCHIP_SKIP_SET_WAKE,
+ };
+
+ static void bcm2836_arm_irqchip_dummy_op(struct irq_data *d)
+=2D-
+2.34.1
+
 
