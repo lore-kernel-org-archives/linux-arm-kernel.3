@@ -4,93 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28729D78321
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A132CD7832E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:18:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HvFldH2UE7l++lKguJ5UKXHzEK7JVjP2Z1XY9Om0QMI=; b=Goxr7X2iTbB9iayWVK8St7nHVO
-	B/ky1btipEbi16oYS+N8Ccvf4NxcnHzx73tx1P2MDmfNq2KNMSsH1n0fMNOf2qDZeZBo8rf88dcMX
-	RDk7bjkwJY8hDvcXqXe3aTCBAHKQHKpwV1DXQMGO9z10laDSxAugNyM4wU92uMTlUeysiCNAWzG1d
-	Wi+q6ojvl+lOw/GnMUmOn551eAKbRkPIWVYZZTidd5qImnzZcRnGsrqpsOWbT1h5I0p83XebQyxx+
-	B/oV7G83VDzVscLYS+sNLQ3OqDhw2+D4WOfjw1BukOpscZsY4a8LIW91EmuxGrgSl02AV+rIgFr9n
-	dfDgxaQg==;
+	bh=ZSk/w4+Csw599AHP7Zi1UeBClvAM4xAqPA1DlK7/9L0=; b=1bz+YHPeXTWw4yNjBiQHT/rxcz
+	U6YCVDRfSHqYL58qY4xeZwc9KuewmAnn+wDaKcbt8S3FOVdVOKKv9sn5VHoDkJbpalE3666+elJ0l
+	okWdZVn00g7kZjOtDVQ7tP6ptWGjgD9AWqrhjlIVX9MIfgm1U7h+vlk2jy9ANZiAnlPn1P5yEPPHp
+	CQ96+y5hMdmGfiH5PMC5UBQpAL+sI3MA3NLa1vrUg7UTfcduk+icUqOmOBZ/nv03cccyH8JegYFhZ
+	/c5dXScb9x5+ktXFnAdHeUm54iNyD5CUIEWtTEwCIfqv4EO3cwzCCZzR1yBNBDHipnhCwc3uao+tX
+	r90U4kzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI88o-00000006bZu-0yvW;
-	Mon, 02 Dec 2024 15:15:14 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tI8Bf-00000006cHM-2uCU;
+	Mon, 02 Dec 2024 15:18:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI867-00000006axv-0HXr;
-	Mon, 02 Dec 2024 15:12:28 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-21288ce11d7so39363935ad.2;
-        Mon, 02 Dec 2024 07:12:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733152346; x=1733757146; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HvFldH2UE7l++lKguJ5UKXHzEK7JVjP2Z1XY9Om0QMI=;
-        b=BEddVNkSWD2ZrxL1ZPZiOpR0lr6vtZLeYt2LovAa1L9QS1WFmSctm4c8514FWIqDPM
-         u/qgPjkgJfqgIfpJ0gkYigzL4RFvuGzExfCe2xhArG+ldBsBTh6MsKX0IvaXn3If1inF
-         KTs+YLPokksxmRqbbi+eMPaX/6dBy4g3lSLvVAWvBXi6/tl6hI0SjS5dMzrHHyyvgAzy
-         AsTkXR5GJWlm39YbIdOPBWqBbEANxrY69EkITBwj/illCbN4rm9Ez2N2Dl/WlT47/CN5
-         zNdUQTGRSUhIyzeJI8ISTsK3Sr8RhCB1pe8Hf8asbwwx9/L5AX9E8tV+Ookp+XHtWU3y
-         u1xg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733152346; x=1733757146;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=HvFldH2UE7l++lKguJ5UKXHzEK7JVjP2Z1XY9Om0QMI=;
-        b=NkNLwuhFLCPsEAnhnKql6mQeYYK0PVelOcttAlFn7WqsAmeAu5Potp4mor9uQsBgL4
-         o26x5NQY0lkeIqIi2geeCk9Dqsax7AFdnOMZP+BjEkDxCyfT4HKm/omjcFX4el+m27RW
-         41ke/UVR9m7FK29K+syteUU8IPSjhQ34jXp9W/7bPpMMRVqRqw4GyAXAVIz3Ad0KSxu5
-         xSSvIfAjy1Y+Mha7SvwpurDOMlSV6BMP46m/CxnhHARMw2Vj7MvEkwl4Ge+4FFQVha4w
-         +JVOx/QBGQU2PojjRJ93AGNduTGJOsFEyB6AS5K70cRUo2BgMF0hTKLc6qby7woKEFdV
-         PK2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUTNn1oHcnqYeo0BAGvlebLyPolz2r02Hd43ji7jvC2qRWyCjJ1SrLWmjaKGweSbD2PNq1hr22vmDuJ9IogjoI=@lists.infradead.org, AJvYcCXB/Y+UhBGnlZIitPJQsc7eeT0u/MuMFwPWmM24VXf1oDeLVV5FSicgrCvU4wc4mlAaamJWH51KfbffuPULt0LJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxbnymsl/MlsZwaEdbDnfiOYBj225GoKw+W86xbGkQD2ku3iB30
-	kFoA3KtpyOG1WTbYQmCa/P7r39suw5rrJj1W0u00hcI8BGXIhS5D
-X-Gm-Gg: ASbGnct/cY1OofcS/ijzhN7Iyur5JywpHFZNCM8z3O4RAV+SXorYKKeCVGgXilk3bot
-	VSqWj7gnJpBD+iZCchUW0edIINRHQxHxO/Rajea4hRuNQnpYkcECDmlhh2fjLHLjpkh5e8fsdRL
-	j86lrqTHlSWRuRtzUSwIlzxpxhTs13U0WZ7pUQFd5x32g3Pci6bBfIrOEzCd5lPYbeMMet3eji7
-	qPf81QryW8WPzCx22svu04PMKuT1JnxRZpIvkrMuAOabBnrPXXeR472PHdIKF4gUw==
-X-Google-Smtp-Source: AGHT+IHTR2hBzTrmzTq4eocYsWa/4g+gtB/KL9P+ADubc0lgHB1LE2z0JA3Lf2Omsp9qmYl7/gxbIw==
-X-Received: by 2002:a17:903:1c9:b0:215:8af7:eff8 with SMTP id d9443c01a7336-2158af7f30bmr61814845ad.52.1733152344118;
-        Mon, 02 Dec 2024 07:12:24 -0800 (PST)
-Received: from localhost.localdomain ([113.30.217.223])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215218f1da4sm78524955ad.12.2024.12.02.07.12.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Dec 2024 07:12:23 -0800 (PST)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Anand Moon <linux.amoon@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-pci@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v11 3/3] PCI: rockchip: Refactor rockchip_pcie_disable_clocks() function signature
-Date: Mon,  2 Dec 2024 20:41:44 +0530
-Message-ID: <20241202151150.7393-4-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241202151150.7393-1-linux.amoon@gmail.com>
-References: <20241202151150.7393-1-linux.amoon@gmail.com>
+	id 1tI8Af-00000006c2q-1lWM;
+	Mon, 02 Dec 2024 15:17:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 962E15C67BA;
+	Mon,  2 Dec 2024 15:16:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 950ECC4CED1;
+	Mon,  2 Dec 2024 15:17:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733152628;
+	bh=SoX6p1yA2O8NnnyxuSjhY3p8fMe5bc9Az3QhUnQrqNM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Rq2WOtSZ8e/nyoYmqqWhc1AyEyiXxAGjZqUGOZ02LDFoLwpSQFxQ31jaKciYAK8EZ
+	 lz9quxcAAscQP+wh9Gld5g9v7Eipm7W5D7kso8XhlA38LnjbjLG+IJaB7DbuAJ0NvX
+	 BvZKbpDqowDreMnlbEg9I9Km4PqP/ZZKE4PsugfiOMbY75xsxn9Ayf7Vl88KasAl2G
+	 GIzwht0Wf+G7RcmSjzF4b9Jtjjz+J9mP2OYakm5iCiIlPAXY0Srs+3sXvs/+05IuW2
+	 JB+6qbRs0KhjYIuzj770vJF4HXUoQtk4jx5IYsoCUO2UmJKNWOU8m1PShKPl4FdeP/
+	 OeuB1ARmvFP3Q==
+Message-ID: <0167e83b-7b73-4784-b022-903272866fe1@kernel.org>
+Date: Mon, 2 Dec 2024 16:16:58 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/7] dtbindings: display: bcm2711-hdmi: Correct bindings
+ for 2712
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Doug Berger <opendmb@gmail.com>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
+ linux-gpio@vger.kernel.org
+References: <20241202-dt-bcm2712-fixes-v1-0-fac67cc2f98a@raspberrypi.com>
+ <20241202-dt-bcm2712-fixes-v1-1-fac67cc2f98a@raspberrypi.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241202-dt-bcm2712-fixes-v1-1-fac67cc2f98a@raspberrypi.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_071227_103593_65503B57 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20241202_071709_549797_5D3F4A6C 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,59 +132,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor the rockchip_pcie_disable_clocks() function to accept a
-struct rockchip_pcie pointer instead of a void pointer. This change
-improves type safety and code readability by explicitly specifying
-the expected data type.
+On 02/12/2024 15:31, Dave Stevenson wrote:
+> The previous patch just adding the compatible missed out that the
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
-v11: None
-v10: None
-v9: None
-v8: add add the missing () in the function name.
-v7: None
-v6: Fix the subject, add the missing () in the function name.
-v5: Fix the commit message and add r-b Manivannan.
-v4: None
-v3: None
-v2: No
----
----
- drivers/pci/controller/pcie-rockchip.c | 3 +--
- drivers/pci/controller/pcie-rockchip.h | 2 +-
- 2 files changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/controller/pcie-rockchip.c
-index 693aadc99d6c..fea867c24f75 100644
---- a/drivers/pci/controller/pcie-rockchip.c
-+++ b/drivers/pci/controller/pcie-rockchip.c
-@@ -267,9 +267,8 @@ int rockchip_pcie_enable_clocks(struct rockchip_pcie *rockchip)
- }
- EXPORT_SYMBOL_GPL(rockchip_pcie_enable_clocks);
- 
--void rockchip_pcie_disable_clocks(void *data)
-+void rockchip_pcie_disable_clocks(struct rockchip_pcie *rockchip)
- {
--	struct rockchip_pcie *rockchip = data;
- 
- 	clk_bulk_disable_unprepare(rockchip->num_clks, rockchip->clks);
- }
-diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
-index 87041ed88b38..11def598534b 100644
---- a/drivers/pci/controller/pcie-rockchip.h
-+++ b/drivers/pci/controller/pcie-rockchip.h
-@@ -369,7 +369,7 @@ int rockchip_pcie_init_port(struct rockchip_pcie *rockchip);
- int rockchip_pcie_get_phys(struct rockchip_pcie *rockchip);
- void rockchip_pcie_deinit_phys(struct rockchip_pcie *rockchip);
- int rockchip_pcie_enable_clocks(struct rockchip_pcie *rockchip);
--void rockchip_pcie_disable_clocks(void *data);
-+void rockchip_pcie_disable_clocks(struct rockchip_pcie *rockchip);
- void rockchip_pcie_cfg_configuration_accesses(
- 		struct rockchip_pcie *rockchip, u32 type);
- 
--- 
-2.47.0
+"The previous" is meaningless in this context. There is nothing
+previous. Refer to commit (see submitting patches).
 
+> number of interrupts changed
+> 
+> Fixes: 62948c62abca ("dt-bindings: display: Add BCM2712 HDMI bindings")
+
+There is no such commit in linux-next. Fix patches while they are on the
+mailing list. If you refer here to broken DRM process, then basically
+you are on your own because we won't able to see it.
+
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+
+Typo in subject prefix. It's dt-bindings.
+
+> ---
+>  .../bindings/display/brcm,bcm2711-hdmi.yaml        | 44 +++++++++++++++-------
+>  1 file changed, 30 insertions(+), 14 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
+> index 6d11f5955b51..6af342c9b6b8 100644
+> --- a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
+> +++ b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
+> @@ -56,22 +56,38 @@ properties:
+>        - const: cec
+>  
+>    interrupts:
+> -    items:
+> -      - description: CEC TX interrupt
+> -      - description: CEC RX interrupt
+> -      - description: CEC stuck at low interrupt
+> -      - description: Wake-up interrupt
+> -      - description: Hotplug connected interrupt
+> -      - description: Hotplug removed interrupt
+> +    oneOf:
+> +      - items:
+> +        - description: CEC TX interrupt
+> +        - description: CEC RX interrupt
+> +        - description: CEC stuck at low interrupt
+> +        - description: Wake-up interrupt
+> +        - description: Hotplug connected interrupt
+> +        - description: Hotplug removed interrupt
+
+You need to narrow these per variant in allOf:if:then.
+Best regards,
+Krzysztof
 
