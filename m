@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64228D78339
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:26:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7597D78339
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+tO5cOp0Dfmc6YCbgkN3BmmoUDlvZGxIKPn3R/Y+mT4=; b=B6mHX5SGkg9CblkT6gdU6Atv3R
-	9P0ece/2s9R+d0xG+n0n0kN2M9EHbrk4YiVDfn5d1Xq4TgBBYYpPLUhtjo9i24jl8y9ANZxDBNda7
-	49H6FYkDfTMN5OTROtPsbl8NOtnX5ooGPSg9tX0Fy+LH5vqeaBwOyViuQtU/89HgHoUoOKUEl5Ji4
-	8H097th05RMAM8K2kWqez5kSV3S4Z2WkrWPRqVHuXDZzpqlIrEOXiWPovEzy/vtHDfXwq3Z3bzE/g
-	vfsQhnx8zMQnqdM6dfckIlt9kNSjmY5Ik8pbC4oCtcppczQYroS0zT96kbbEKS5JLNebUEQh79tpy
-	q8II0v9w==;
+	bh=RfDzgzrqb3PQdvUxGcRE8wORdNOndMEQsGh5EC4eWtk=; b=sLXn9dqvzFxCQX0vVS60NnzSCl
+	m0CJMb+49yjELra1YkZ/IKLbJmHm+KsNueCr4gr27JsVKfaQX6TL2uCcb07Fl4N1Rg6V45V3xZsGN
+	+ztNYOIu1tpt8Q4VZuVTtB3MXxpxHBexSOBZxbAGeH59TQyR7SRH/rnljxik+BCRgtji1qIiWjwLD
+	tOmY1ANT6CYXmLMPOmwbVm32N/hEjTTldDCxFriU77dW29P77cU0EAsUS5TAA0sbI82xbGIzq8eM8
+	vOr/58u3eT2QOkc1BPv4XXrov8SSuI9RF1XCwL2uZpANzt7DXFn2Am5OZSmxZWofEzItFtqh9y2U8
+	+vDh6ggA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIABe-000000070UV-2biA;
-	Mon, 02 Dec 2024 17:26:18 +0000
+	id 1tIACd-000000070jt-0zoH;
+	Mon, 02 Dec 2024 17:27:19 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIA7u-00000006zzc-1mCf
+	id 1tIA7u-00000006zze-1qmm
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 02 Dec 2024 17:22:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=+tO5cOp0Dfmc6YCbgkN3BmmoUDlvZGxIKPn3R/Y+mT4=; b=ondcMuH5L6xsD11MB+sSOeyWp1
-	4uW+IEfVhbt6NrVpDYlbmycA3ZCTug54NiwxC0E3nDUicA4fmI+tDtDklpBImS+73IwXB9U1jpPpp
-	p/wszw9lUF0Uv0agMgeMpgkaghQ0QD2r+J4etxQSxg9pta+MWrgOIuvJhzNRLYq8bJAeSROYFhk/f
-	vJp3r9aZU7OzGHerWYZbqAB64J1+vNrRpVFrFDIVDua84MEDIdAxzQmAZ0DaY06rRWpqA+1FjxZHX
-	n9AnMPueq2lhhfbhNfDQw8HtPSoH6PQH8B++s7h50JTJa6v0EMM6mTzXI7xt0gPjA9VmKPAAHLyYh
-	CmKc8WlQ==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	bh=RfDzgzrqb3PQdvUxGcRE8wORdNOndMEQsGh5EC4eWtk=; b=LDYQQ/+j1nrSvq4fMwM1+kXimk
+	c9DTm5kNe1BNrmTbFIgcAr1N1hHOxZ9WIH450/ysGed6KfRDu9YKV5Vr79bCIpS9EaHiX2hCYDiTo
+	kB3jBz6ZgHpKoxwwNomZtujrGAJLk64utZQ8b8rdG8TCMlllmGcTJNasVCNtIWum5vm2+YR9It3qB
+	vtIzV2ldzycK1zyLtS36KbfVNqd1SA4JGucfn3vFYQArvofhH3k1BR/YulebWy8XHwCGCdUuP/DWO
+	vUlCJseiWNYwHROL+mIUj6OhFjpDL4mASuMleLxKzevLE/ZbMuzc+Byx6F21a2iGBozSJUuHh414U
+	/nGig0oQ==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIA7q-00000002D6v-0ojw
+	id 1tIA7q-00000002D6u-0hNo
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Dec 2024 17:22:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C79DEA4103E;
-	Mon,  2 Dec 2024 17:20:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2D15C4CEE1;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 130135C56F6;
+	Mon,  2 Dec 2024 17:21:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB6BBC4CEE0;
 	Mon,  2 Dec 2024 17:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733160139;
-	bh=HmEk0RAxHAj5K5OGiepCVArlYvZ8T1KHJ8vERxPf9yQ=;
+	s=k20201202; t=1733160138;
+	bh=/6ehcPZl2b9FxW/6Rj24yU7DtKsnX/BkIYVDARjLPoE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kf0VHJ8iDQjtz83w10Wm8bbChUEcKiR4XCQQdhTXoK9kNWIUVGhG65cax0AuXfoqa
-	 LPqOz0uqAAAfQOkjPduyGKu06ycbgXWKIgvPZ54XfuTKrwJCC/h+Xdahpzwmtm0bjT
-	 pD2iBlHQfSLD7raP2j/G8MzXJRyFM2clA0KZEKh+yJ27cCMysjvZNSDnVZgMVv7SJE
-	 L9IRb5ZfPu0HJysaRHgbP50jZyPgtSjq9cZaAxpAmDmLYAYT4e7TYDkde887yac8dI
-	 AUkW3r58XWaAzL5Mhj8cuM+ID/gpidhnzrE8Bs6owSApvXbEA70ht9SH8Da96MwBcv
-	 QpzEBgMPFfo2g==
+	b=fud1a6XahjKVbzv4IRn7pjn63JctMk52BEySVB1cxZgVntjdth78Iw/Al9jVAEzXu
+	 YcMz1hSS4iQ4x2AmPlv2yaE8BDZK/TfcXebynLw0TDevjzCRwYACMnT5DHg08SneAF
+	 SMMTkW3CTkpKwKyBYOYsmENY1caJy5BS+ckmdZnlcQIDePJe4b70oy8crbBoW9yCdu
+	 ZgGFVGNUSzQYFgWyoFuGi6rPG+aAfzEhDZN88bGiuYYDf/TZXHqz+UG9DzJYxw0CUF
+	 zsO/cOp9AvDxoeD9kBKzR3Vxrf3iBZ4rnfGaA60HkWK/GaYW50xrlYdFOhngOI5Hx5
+	 B8Y8J5QDDuDxA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tIA7l-00HQcf-5H;
+	id 1tIA7k-00HQcf-VF;
 	Mon, 02 Dec 2024 17:22:17 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -73,9 +73,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Bjorn Andersson <andersson@kernel.org>,
 	Christoffer Dall <christoffer.dall@arm.com>
-Subject: [PATCH 07/11] KVM: arm64: Handle counter access early in non-HYP context
-Date: Mon,  2 Dec 2024 17:21:30 +0000
-Message-Id: <20241202172134.384923-8-maz@kernel.org>
+Subject: [PATCH 06/11] KVM: arm64: nv: Acceletate EL0 counter accesses from hypervisor context
+Date: Mon,  2 Dec 2024 17:21:29 +0000
+Message-Id: <20241202172134.384923-7-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241202172134.384923-1-maz@kernel.org>
 References: <20241202172134.384923-1-maz@kernel.org>
@@ -86,8 +86,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_172222_499251_D8A263E3 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20241202_172222_507017_3B688C05 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,94 +102,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We already deal with CNTPCT_EL0 accesses in non-HYP context.
-Let's add CNTVCT_EL0 as a good measure.
+Similarly to handling the physical timer accesses early when FEAT_ECV
+causes a trap, we try to handle the physical counter without returning
+to the general sysreg handling.
 
-This is also an opportunity to simplify things and make it
-plain that this code is only for non-HYP context handling.
+More surprisingly, we introduce something similar for the virtual
+counter. Although this isn't necessary yet, it will prove useful on
+systems that have a broken CNTVOFF_EL2 implementation. Yes, they exist.
+
+Special care is taken to offset reads of the counter with the host's
+CNTPOFF_EL2, as we perform this with TGE clear.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/hyp/switch.h | 34 +++++++++++++++----------
- 1 file changed, 21 insertions(+), 13 deletions(-)
+ arch/arm64/kvm/hyp/include/hyp/switch.h |  5 +++++
+ arch/arm64/kvm/hyp/vhe/switch.c         | 13 +++++++++++++
+ 2 files changed, 18 insertions(+)
 
 diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 30e572de28749..719479b42b329 100644
+index 34f53707892df..30e572de28749 100644
 --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
 +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -506,7 +506,7 @@ static inline u64 compute_counter_value(struct arch_timer_context *ctxt)
- 	return arch_timer_read_cntpct_el0() - timer_get_offset(ctxt);
+@@ -501,6 +501,11 @@ static inline bool handle_tx2_tvm(struct kvm_vcpu *vcpu)
+ 	return true;
  }
  
--static bool kvm_hyp_handle_cntpct(struct kvm_vcpu *vcpu)
-+static bool kvm_handle_cntxct(struct kvm_vcpu *vcpu)
++static inline u64 compute_counter_value(struct arch_timer_context *ctxt)
++{
++	return arch_timer_read_cntpct_el0() - timer_get_offset(ctxt);
++}
++
+ static bool kvm_hyp_handle_cntpct(struct kvm_vcpu *vcpu)
  {
  	struct arch_timer_context *ctxt;
- 	u32 sysreg;
-@@ -516,18 +516,19 @@ static bool kvm_hyp_handle_cntpct(struct kvm_vcpu *vcpu)
- 	 * We only get here for 64bit guests, 32bit guests will hit
- 	 * the long and winding road all the way to the standard
- 	 * handling. Yes, it sucks to be irrelevant.
-+	 *
-+	 * Also, we only deal with non-hypervisor context here (either
-+	 * an EL1 guest, or a non-HYP context of an EL2 guest).
- 	 */
-+	if (is_hyp_ctxt(vcpu))
-+		return false;
-+
- 	sysreg = esr_sys64_to_sysreg(kvm_vcpu_get_esr(vcpu));
- 
- 	switch (sysreg) {
- 	case SYS_CNTPCT_EL0:
- 	case SYS_CNTPCTSS_EL0:
- 		if (vcpu_has_nv(vcpu)) {
--			if (is_hyp_ctxt(vcpu)) {
--				ctxt = vcpu_hptimer(vcpu);
--				break;
--			}
--
- 			/* Check for guest hypervisor trapping */
- 			val = __vcpu_sys_reg(vcpu, CNTHCTL_EL2);
- 			if (!vcpu_el2_e2h_is_set(vcpu))
-@@ -539,16 +540,23 @@ static bool kvm_hyp_handle_cntpct(struct kvm_vcpu *vcpu)
- 
- 		ctxt = vcpu_ptimer(vcpu);
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index b014b0b10bf5d..49815a8a4c9bc 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -296,6 +296,13 @@ static bool kvm_hyp_handle_timer(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 			val = __vcpu_sys_reg(vcpu, CNTP_CVAL_EL0);
+ 		}
+ 		break;
++	case SYS_CNTPCT_EL0:
++	case SYS_CNTPCTSS_EL0:
++		/* If !ELIsInHost(EL0), the guest's CNTPOFF_EL2 applies */
++		val = compute_counter_value(!(vcpu_el2_e2h_is_set(vcpu) &&
++					      vcpu_el2_tge_is_set(vcpu)) ?
++					    vcpu_ptimer(vcpu) : vcpu_hptimer(vcpu));
++		break;
+ 	case SYS_CNTV_CTL_EL02:
+ 		val = __vcpu_sys_reg(vcpu, CNTV_CTL_EL0);
+ 		break;
+@@ -314,6 +321,12 @@ static bool kvm_hyp_handle_timer(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 		else
+ 			val = __vcpu_sys_reg(vcpu, CNTV_CVAL_EL0);
  		break;
 +	case SYS_CNTVCT_EL0:
 +	case SYS_CNTVCTSS_EL0:
-+		if (vcpu_has_nv(vcpu)) {
-+			/* Check for guest hypervisor trapping */
-+			val = __vcpu_sys_reg(vcpu, CNTHCTL_EL2);
-+
-+			if (val & CNTHCTL_EL1TVCT)
-+				return false;
-+		}
-+
-+		ctxt = vcpu_vtimer(vcpu);
++		/* If !ELIsInHost(EL2), the guest's CNTVOFF_EL2 applies */
++		val = compute_counter_value(!vcpu_el2_e2h_is_set(vcpu) ?
++					    vcpu_vtimer(vcpu) : vcpu_hvtimer(vcpu));
 +		break;
  	default:
  		return false;
  	}
- 
--	val = arch_timer_read_cntpct_el0();
--
--	if (ctxt->offset.vm_offset)
--		val -= *kern_hyp_va(ctxt->offset.vm_offset);
--	if (ctxt->offset.vcpu_offset)
--		val -= *kern_hyp_va(ctxt->offset.vcpu_offset);
-+	val = compute_counter_value(ctxt);
- 
- 	vcpu_set_reg(vcpu, kvm_vcpu_sys_get_rt(vcpu), val);
- 	__kvm_skip_instr(vcpu);
-@@ -593,7 +601,7 @@ static bool kvm_hyp_handle_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	    __vgic_v3_perform_cpuif_access(vcpu) == 1)
- 		return true;
- 
--	if (kvm_hyp_handle_cntpct(vcpu))
-+	if (kvm_handle_cntxct(vcpu))
- 		return true;
- 
- 	return false;
 -- 
 2.39.2
 
