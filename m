@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5600D78326
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 14:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2017DD78321
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 14:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SqoU25aoCSve/bqILVNe5yfkPK3ql5ja78CYsjpArZo=; b=SkB3BLH+jkml6oq+Pztx/URQNj
-	P7ox4ucoiMPxWCqdOn87mu2R+DghwD9FF1k/GJwDEjrWhbNXVenAj3JrrXUT27jrNuJQJCyoGS9PR
-	iFptZ4IDLAoGZW0ZX0cvVtXo3hT/UAt+jEEWypDXvl4H3XyPsDhCTsTIB1MH3Ua5jCZ990kZU1ZJR
-	caOzOLr22mtuLyfbtTFvZkuOH2bAjH/7s4S3KKMOvqcXfb6bKTfILUE7EEGAZr5h0pUlP4YshQ1Fm
-	1O1kwwX7y5wdyzLKiaj7q8yDCjI2QIsZaapjPVnZLaV+ouSJwaTsTqSWThCrpfVLsuf67P5+GxSGw
-	4x85qeqw==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h1RF9JX+BAZDIHBPnUvFPOFh27GXZinqCyp9d856qhI=; b=vnuSNN/kYSQ1tnaNsYphrYoJGJ
+	H+s0T351A0T/quNwfTL/N/YE7zdX+sK2WGpTiWq0Y8boaIFI7S3fy817XrExETFwRdyva8MVOqIYD
+	x5If1c2C/RMdKndXnMu4CjvYaaxm5DReG3jP6Ypqafv+a9s0+eBI7LgW/ryiHJHF5etWtuCEktwtk
+	Ir4KwI1uoSoQxrtGj+CkbUwLe9DFq+lNl/l189y91k7UaS8geLqMWRxJQ8WDofnIr5RPEOVK8leDN
+	RLWtQTuaVKhtaO72ng1/H/QrxNg5TInHprf2nPCS3K80+0NaLaVO4SK1pIjLBZHHnRpCUsZwPLMS2
+	eDz8DYow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI758-00000006McM-2pKw;
-	Mon, 02 Dec 2024 14:07:22 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1tI766-00000006Mnc-1I19;
+	Mon, 02 Dec 2024 14:08:22 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI749-00000006MRb-39tH
+	id 1tI74F-00000006MSv-00hX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 14:06:22 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-385e2579507so926513f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 06:06:20 -0800 (PST)
+	Mon, 02 Dec 2024 14:06:28 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4349df2d87dso40882745e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 06:06:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733148379; x=1733753179; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=SqoU25aoCSve/bqILVNe5yfkPK3ql5ja78CYsjpArZo=;
-        b=CR3nmaKbqrUaCWKjZtoysfExUYyhZs/wTddSWasj8SI6JXQDaJlFfQqMdvQqUSZ//8
-         6TPA7HhLrZEyo1cGiGINa3sDE3EIALBSMLyaKVcTgX7nTiH/pBBqp/LmCmrQ+E8nHR5G
-         kwtgURLNEWEt3H9zHHKbTTG+QagLtxD8l3/r4eM5GpYz7f3B7oMccLvAJfpqpUfFSpSx
-         C1ptpa8uUYiTRnnmQWaCncUv1UlBlH11TCPBLrnqmsbME2zLtumD3ZrZ3u4MHeg5WtLb
-         0lJQen7jskMiNJK0CZ8Mu6EDsmC6iH3LQJlHqNUU4xxCpV5EJa4ZCAlpN1RvomvTUrMz
-         s2yQ==
+        d=google.com; s=20230601; t=1733148385; x=1733753185; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=h1RF9JX+BAZDIHBPnUvFPOFh27GXZinqCyp9d856qhI=;
+        b=oP5rWWxAULFfL3w9XatEpm3o+bLVfB45nh+WbBQNrpSDXQjPfSfadr4U5bzBetf/KK
+         LOker4bkQJZOGdkIswG8n9gnwfuCNwCmSiRBbwIrWf54QxQyF/z1mUs7iJ9O+D36zPxA
+         ozfNcZHD8bKvdFdY6zLOcSJT0Yg4PARBQmWvHQUfLJg5p7/CL9feFoQMM8B2kz+kUwXQ
+         2jvNuPlWWhpvK3YmKoOSYn1ej2uzbv4M900L+0pqhqnD8lAXIm+Lb6x+uVBMC7cX0exU
+         XHEakcBW3xP6PqM4sfBN4GV827puVvUKo+36oalWAqNOJI/rWUboAXMBe4Dhhym266VD
+         emrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733148379; x=1733753179;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=SqoU25aoCSve/bqILVNe5yfkPK3ql5ja78CYsjpArZo=;
-        b=lhQsBOMJir9IzlwO9q4knkYMWlZ8ZXFZNvFKB4LiIAmEg5eAcpq3L1jF+2/ucFtKya
-         bfNR6vYF3FHVj0Y/p6cCh3kP0IK85j7gRRcMPy5djFi5QR/Hwi3+CYNuvG5E4ljT5ZRR
-         XmttY2Q7FxHQOhUcKahealgRm2aFmcR72oBZkS9mV+h8DvWX8UnnBjxYjRjsz+C0rLMP
-         O3kWj5GzpQL7CPfUHdjxtIXEytL7W+8fbZABdVPdiv4zHBjLt0FF1v8NPYdwjyc9Al0d
-         UkJpX0Th4MhGiHRrgjoKhLOWak1OaZ46TVahJgWjxE6pyzF+hLAgF5HU5FJgu9lqPprA
-         RnyA==
-X-Forwarded-Encrypted: i=1; AJvYcCXDfuuOyPYS5pZyNTULL0y9RDQx7oK2XHZJndr6aVCVnhMIbFdA6E4sgYXK3hfTsuyKFqdpFqzRmQX7FEBi8acS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxh2AkYTIPcGkW3hd2EuyXfSEE3d3mE1DlYNul3BXSfyWBBvK62
-	/g105ZrPKcDHW2wNd+k9XkBj5HQMzlaHWwC+8rINpVjS/O+BOOw5o5vAI91Ur0B73iA0rWlOb7a
-	ywZGNYQkq8w==
-X-Google-Smtp-Source: AGHT+IH/mcK3tOpThA64udYzGszDC0pmnTz2cupPs7OsiOzbR6kdalDJmGWvQ114eQhwNcd5X6wcHbn/kIuGcA==
-X-Received: from wmrc18.prod.google.com ([2002:a05:600c:ad2:b0:434:a059:b358])
+        d=1e100.net; s=20230601; t=1733148385; x=1733753185;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=h1RF9JX+BAZDIHBPnUvFPOFh27GXZinqCyp9d856qhI=;
+        b=GI3cLjFFHeNL+81TFFIuL2qU1haLQxV4VprAz7tCKI/E/w9VGLf2+jI5/HJqhmhWC5
+         JCvx1N5NQOHUpxf/NtDiyj6LK9ScfFh3CNG7ABqzDgnfMFUnD8xLwL2K17JWv44A4pOp
+         xRd0t8VAxZQXxvhSkhK1ojkevYQrbbH55JjBgytufKKfUvRXc0SBNn7KuljpEdD3Hn8d
+         rQX/oU5OIB86MTzfntKTdBpnHI7FVmbvFsO/dsFDjxHXvlW0QhQZLVFgTDm86xWVBZ9V
+         glgVtFvMx7XK1t/jUUfX1u3liXrsz9rb2QKG95Z9OrOgvLpc67g8k98SirRtezBS8jba
+         yKKA==
+X-Forwarded-Encrypted: i=1; AJvYcCWyTl11l/gf5sDblhpAtDJAOX0EveMfDvebOGcB6ea/tzMs64jYoXtgTx2dcCFPFsk6muoUwNttq5jCgBHwm7qR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcIhEBvVvQ/s07EAosLkGwyOP3OqERqOl6g1ItDKvs5G7qeeG8
+	3465hTECyqQzkU5XjBb/tWeqRdYFiQA4Uh/bLa7QGvPa3vaNYvJoG7NgzWsPh74CNNAQvmUYuyW
+	H9ibBY0B7Bg==
+X-Google-Smtp-Source: AGHT+IGbcuRYpTh4YD2s/LlLvQ+RLHNmyee/bZzsqF0w9Suqv7VzmqnzD+QY/tWrJ1jck1m9Bz5q92qEuZjfxg==
+X-Received: from wman26.prod.google.com ([2002:a05:600c:6c5a:b0:434:9fab:eb5])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:4916:b0:385:eda9:a8eb with SMTP id ffacd0b85a97d-385eda9aaabmr4970041f8f.29.1733148379252;
- Mon, 02 Dec 2024 06:06:19 -0800 (PST)
-Date: Mon,  2 Dec 2024 14:06:02 +0000
+ 2002:a05:600c:5493:b0:432:d735:cc71 with SMTP id 5b1f17b1804b1-434a9de8e1emr227230595e9.25.1733148385023;
+ Mon, 02 Dec 2024 06:06:25 -0800 (PST)
+Date: Mon,  2 Dec 2024 14:06:03 +0000
+In-Reply-To: <20241202140604.422235-1-smostafa@google.com>
 Mime-Version: 1.0
+References: <20241202140604.422235-1-smostafa@google.com>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241202140604.422235-1-smostafa@google.com>
-Subject: [PATCH v2 0/2] Fix missing case for concatenation
+Message-ID: <20241202140604.422235-2-smostafa@google.com>
+Subject: [PATCH v2 1/2] iommu/io-pgtable-arm: Fix stage-2 concatenation with 16K
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
 Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, 
-	Mostafa Saleh <smostafa@google.com>, Daniel Mentz <danielmentz@google.com>
+	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_060621_787564_0D1912D3 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241202_060627_037458_0FE03687 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,28 +90,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-First patch fixes a missing case for 16K granule and 40 bits SMMUs
-where concatenation is mandatory but ignored.
+At the moment, io-pgtable-arm uses concatenation only if it is
+possible at level 0, which misses a case where concatenation is
+mandatory at level 1 according to R_SRKBC in Arm spec DDI0487 K.a.
 
-Second patch, imporves coverage of OAS in selftests to make it
-possible to test all concatenation cases.
+Also, that means concatenation can be used when not mandated,
+contradicting the comment on the code. However, these cases can only
+happen if the SMMUv3 driver is changed to use ias != oas for stage-2.
 
-Cc: Daniel Mentz <danielmentz@google.com>
+This patch re-writes the code to use concatenation only if mandatory,
+fixing the missing case for level-1 and granule 16K with PA = 40 bits.
 
-Mostafa Saleh (2):
-  iommu/io-pgtable-arm: Fix stage-2 concatenation with 16K
-  iommu/io-pgtable-arm: Add coverage for different OAS in selftest
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ drivers/iommu/io-pgtable-arm.c | 45 +++++++++++++++++++++++++---------
+ 1 file changed, 33 insertions(+), 12 deletions(-)
 
- drivers/iommu/io-pgtable-arm.c | 72 ++++++++++++++++++++++------------
- 1 file changed, 48 insertions(+), 24 deletions(-)
-
+diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+index 6b9bb58a414f..0055876b3527 100644
+--- a/drivers/iommu/io-pgtable-arm.c
++++ b/drivers/iommu/io-pgtable-arm.c
+@@ -223,6 +223,33 @@ static inline int arm_lpae_max_entries(int i, struct arm_lpae_io_pgtable *data)
+ 	return ptes_per_table - (i & (ptes_per_table - 1));
+ }
+ 
++/*
++ * Check if concatenated PGDs are mandatory according to Arm DDI0487 (K.a)
++ * 1) R_DXBSH: For 16KB, and 48-bit input size, use level 1 instead of 0.
++ * 2) R_SRKBC: After de-ciphering the table for PA size and valid initial lookup
++ *   a) 40 bits PA size with 4K: use level 1 instead of level 0 (2 tables for ias = oas)
++ *   b) 40 bits PA size with 16K: use level 2 instead of level 1 (16 tables for ias = oas)
++ *   c) 42 bits PA size with 4K: use level 1 instead of level 0 (8 tables for ias = oas)
++ *   d) 48 bits PA size with 16K: use level 1 instead of level 0 (2 tables for ias = oas)
++ */
++static inline bool arm_lpae_concat_mandatory(struct arm_lpae_io_pgtable *data)
++{
++	unsigned int ias = data->iop.cfg.ias;
++	unsigned int oas = data->iop.cfg.oas;
++
++	/* Covers 1  and 2.d */
++	if ((ARM_LPAE_GRANULE(data) == SZ_16K) && (data->start_level == 0))
++		return (oas == 48) || (ias = 48);
++
++	/* Covers 2.a and 2.c */
++	if ((ARM_LPAE_GRANULE(data) == SZ_4K) && (data->start_level == 0))
++		return (oas == 40) || (oas == 42);
++
++	/* Case 2.b */
++	return (ARM_LPAE_GRANULE(data) == SZ_16K) &&
++	       (data->start_level == 1) && (oas == 40);
++}
++
+ static bool selftest_running = false;
+ 
+ static dma_addr_t __arm_lpae_dma_addr(void *pages)
+@@ -1006,18 +1033,12 @@ arm_64_lpae_alloc_pgtable_s2(struct io_pgtable_cfg *cfg, void *cookie)
+ 	if (!data)
+ 		return NULL;
+ 
+-	/*
+-	 * Concatenate PGDs at level 1 if possible in order to reduce
+-	 * the depth of the stage-2 walk.
+-	 */
+-	if (data->start_level == 0) {
+-		unsigned long pgd_pages;
+-
+-		pgd_pages = ARM_LPAE_PGD_SIZE(data) / sizeof(arm_lpae_iopte);
+-		if (pgd_pages <= ARM_LPAE_S2_MAX_CONCAT_PAGES) {
+-			data->pgd_bits += data->bits_per_level;
+-			data->start_level++;
+-		}
++	if (arm_lpae_concat_mandatory(data))  {
++		if (WARN_ON((ARM_LPAE_PGD_SIZE(data) / sizeof(arm_lpae_iopte)) >
++			    ARM_LPAE_S2_MAX_CONCAT_PAGES))
++			return NULL;
++		data->pgd_bits += data->bits_per_level;
++		data->start_level++;
+ 	}
+ 
+ 	/* VTCR */
 -- 
-V2:
-- Rely on OAS and don't assume OAS = IAS
-- Re-write the comment and commit message to be more clear
-- Improve selftests
-V1: https://lore.kernel.org/linux-iommu/20241115172235.1493328-1-smostafa@google.com/
-
 2.47.0.338.g60cca15819-goog
 
 
