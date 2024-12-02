@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4566D78336
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C464D78333
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:27:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PaH2quEaKj8yOu++9MIx8fQjkXZLihRJEM2GwaPWvJ8=; b=oOrCbdQCD2ToShgms9QP1Z/YHf
-	nG/F9z4qoYyMysbXk+z5v33pTP9In9s8bhubHps1ElIvDDomrDecmm2Pp8TuDOy049ZdstJ4qJhOI
-	9aTcXKO9RJSlF3thym9+cbO/QtzFo5VK7XFTGf1wEiTV/d3Scfavb0PQpxZjazh8+0ICsxHS5753F
-	ZoDu5eXOtLpWLtkDakwWuvq9SLbYYX5b31asHERmquvnrj6nFZrxGgRZIOPpSPTn1NFftZEaKre4F
-	r8iObD/is7vl3Yr/yjB34qNRlXvmI5pmZ7KgUbgV/OtkkCuX0zNGXzmL3mnRSEadIKQSuxi/B5CKo
-	Osc4mKHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g65m5wLGmeNM0imaWPfjDT5gKeN2tJjUFhX3nreziMM=; b=WBFZeyEu2GZHPolV7cagcb+nqc
+	A1w2v0o5AGWCVg/G8DKVwQYIvzO7in4JUlbCTftZV8f8xZB2+ocN5QMKvhoZC8KfqOojFDBEZBvFg
+	SBEUD5hxVRONORz5E4RoZxYkSOq13VIBNG9ho7ks4cgz6OV532RB/6zkaNc6i8i6e/82ONdZHLCYG
+	53MxKTbhXljswGwqSR+gNCsCb1gFFtqRSRnTFzZXLFaHfGs+Xb66L5T7QO2fVn2mI82CnyB67kCCf
+	qG0xQRlicOvGsU4UD1gJznsQPUZ/KUA2DR6glmQgXqMmRjIUQjoWWivXb+EuU3ZTMOVADrRyFapBE
+	6mQdWSZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI9FD-00000006qC4-2U8z;
-	Mon, 02 Dec 2024 16:25:55 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1tI9GB-00000006qMM-2KTB;
+	Mon, 02 Dec 2024 16:26:55 +0000
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8y5-00000006mdO-1QOX
+	id 1tI8yM-00000006mgt-0lJN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 16:08:15 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e396cc8c9a1so3397597276.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 08:08:12 -0800 (PST)
+	Mon, 02 Dec 2024 16:08:32 +0000
+Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-6e9f8dec3daso33422757b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 08:08:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733155692; x=1733760492; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=PaH2quEaKj8yOu++9MIx8fQjkXZLihRJEM2GwaPWvJ8=;
-        b=g0VDTw1mv7b+4lVVuuYmaj3eXhZVwcDtAs4FEzECP/2Hxn8dopypq9hAtV4EIC4JYw
-         G4/P4Deol763v+/zCoNw8Xx1ktbh0A5OaRRFfJyLmUNHpOCrLBr7xQ60qDo/sTuXtxVq
-         /eyle6UQQ5nY/l33hRM6+EEuQBeEDFvIriVsaV3H+GpWcx4Kx5wQzESNEgfQfRTsERce
-         wC38fuAra9bwIPSaN7iEZcdvWmQV930rYbWEMYxMDvOLT/VMFdkZGZTzVo94FRJwn4zI
-         MOQEyo5dn3V1rRjZ0S948n9JXbYC11a95S2E/5Rwbv6BC7ZcUHU6iCc7GoJUn67X/JLg
-         KW3Q==
+        d=linaro.org; s=google; t=1733155709; x=1733760509; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g65m5wLGmeNM0imaWPfjDT5gKeN2tJjUFhX3nreziMM=;
+        b=T3kgsCg6QDahtCSItonpPS6bTEZk68G1lXPttvjYN+WNX+NFs+RXMxvmmW3wCIplRk
+         9C6VgStJyYbaUPsPJegSKQjgUCpPl8k1K1eYCuZZB32jcLPulz/vlYyyTcVMuSYdwidc
+         TTY64Ii7Z/yqYiZ4w08c10OXcf0faGKM/aV9A8YXa0ursnIsYKaPrDE0tPpXPLDiwym2
+         7iYg7GzSGhw6XUDna98OFcTh5MfmRrAwsXkhugrPiHL4dJZqZVyKhHLAmg7i4Ddg9jjG
+         zr0dE8ZAV2x4H47y0OdnweerPxwcJe7y2Wre1kOejf4w+Ievs1ioPe7jMprV6JpTBrFo
+         c0EA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733155692; x=1733760492;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PaH2quEaKj8yOu++9MIx8fQjkXZLihRJEM2GwaPWvJ8=;
-        b=JB7Iz43nCz7gfrBM9+Rw2xWFkuChctWcYp3HIoFWNc3N8Bk0h8OeE6J4zQBa7pQH5W
-         w3tBQVCirEurM8+lUqTpBMqMMpPGk8bP1rHDO05c1TQ+s0cinhhbwztaT9uriECIjvxP
-         aPiiIFMGeQcgdFDzK4yE0/Z2C6amlg/vH0xX+QvpM804we9y6WEaf/IrXMjPVoHhm9QL
-         ARAX5bNO2ctIePqXQBy3N2x96SrNOqlei9xdRGF01AQ2FKVBtOEzUsG0RZzW4uWApEGa
-         G7Ext+zhcfXfTPbAgjdkuS1lZ9d+bY2/pNRl39ohAoibRzxAK5WzJNSrlPyDy0qx3xAC
-         dstg==
-X-Forwarded-Encrypted: i=1; AJvYcCWOh1diAvW7Nd9pd6hQ7pn7nRle7LM3UAIjsHmagoACXyeYoEM4V2f0gFyrt21Iogr0hXSe0TrpFndtlB8NV6cp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/PMreM29DV/mU0sa8cUNSwVuKYZevc6GkXI4laqfOXMYwWJFV
-	fpf9b5gMkzqqkI01HGgrCDw2yx0Q9XGOlp4V5QxcbOVBm4KeukD6wqN6AHThn1DJojTiZFCu6+a
-	0l4fC3jV33w1H/M4jhs84sDQifIurWCyeK1liuQ==
-X-Gm-Gg: ASbGncvzqKJ3p2Lc4MfjKNEvjpgJHsRFACMqAo47O3OLWium9xsgh3Q/RkvE1zUC5gT
-	Gg+3t+6DYc+LWMoHijS27Z6GdSphrYvdN
-X-Google-Smtp-Source: AGHT+IG7HwzdQGc2Kvrg8khctxbecpx+AXVlBCSBHTZ8x/NzPHJXof0Ee7iQcAC8+6QwlvR9QUpxPUtKrKBUqfZBBpA=
-X-Received: by 2002:a25:7bc5:0:b0:e38:864a:1522 with SMTP id
- 3f1490d57ef6-e3971958a74mr15808882276.9.1733155689500; Mon, 02 Dec 2024
- 08:08:09 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733155709; x=1733760509;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=g65m5wLGmeNM0imaWPfjDT5gKeN2tJjUFhX3nreziMM=;
+        b=gJxjd08KyduaniCcBis00fDWR0S7L7vTTzFxvREMVQKBMxDaxd6YEtEhFSMhHluV1c
+         b3GnQCfSfHjXHWMhBbUC8maZYAyCyGMpxJyXgoCWXlpR7/pcYjnNDNVoo9NS6vvs+p4A
+         xRjBZiZk8ucbLV3tdn0OjXJUCFBEF/mdBlBRoVHciygsPe94RxDRyPlDYuQPzaulXNoZ
+         JyeMSoMEA5L6IqnFEc7+VZ+qXE0Sb+7IoHbSD/L8w/Ghym84HZfIEOeRy6dezFDDVDpr
+         uqudQ097QrBPRlFtgjFuqA6KBVp3EF8UmbT7++aYBVFrDYTIl+Z3HY/A3smtZi/5GNuX
+         Ud/w==
+X-Forwarded-Encrypted: i=1; AJvYcCWiGwK0gl/onQ/iIzKku+xacoxCeQGJUdJpzQi7ZfC2D0U/Pt8yFAuLzVAq4GvTb/lTx1rSAO8EFzrVb/QRjCLn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxF1IrV6YzuEDZH8L83dGRn/pMYe+KhaTUfO8NZg636nKHD4Ajy
+	H5hDiStmefn1V+cuFQOfeNqyNwDhquIx3AzSWFDquA9LiknBN4K8H5OsAINqGcrR1EhQP+AGhP6
+	tXkMMoQ8Vh9Kyx+9aERryzpCxDo6s2rk/T18WxCEL5+RYBdzq
+X-Gm-Gg: ASbGnctphseHXvx/aHzCmtaPbzVGF3iJXbuOyRXA/8ZhexU8j4BnalpJgzGkbokJDVK
+	medpCUFU/cvHM65UP3vjkae1+Sx3KU7rU
+X-Google-Smtp-Source: AGHT+IFz8rX9DRRJ5onEJ67Od7I+D7KR9TNvA59oNfUh6oW0pwLXWng/zcOviJd4aYPyq52DFvFRuuqZBB6m7oAYo2M=
+X-Received: by 2002:a05:6902:2b07:b0:e2b:e0ba:d50 with SMTP id
+ 3f1490d57ef6-e395b870e93mr21476694276.5.1733155698386; Mon, 02 Dec 2024
+ 08:08:18 -0800 (PST)
 MIME-Version: 1.0
-References: <20241001113052.3124869-1-fshao@chromium.org> <20241001113052.3124869-2-fshao@chromium.org>
-In-Reply-To: <20241001113052.3124869-2-fshao@chromium.org>
+References: <20241001113052.3124869-1-fshao@chromium.org> <CAGXv+5E4=dKkUo73x5vCMHawcr9AUd71LyLmDbdyOdJZv0ZBaQ@mail.gmail.com>
+In-Reply-To: <CAGXv+5E4=dKkUo73x5vCMHawcr9AUd71LyLmDbdyOdJZv0ZBaQ@mail.gmail.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 2 Dec 2024 17:07:33 +0100
-Message-ID: <CAPDyKFocgdjSdek-sNHy_w1ZQkscgs8Z0TYwXPKC9phUbH-scg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/8] dt-bindings: power: mediatek: Add another nested
- power-domain layer
-To: Fei Shao <fshao@chromium.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"Rob Herring (Arm)" <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Fabien Parent <fparent@baylibre.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	MandyJH Liu <mandyjh.liu@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
+Date: Mon, 2 Dec 2024 17:07:42 +0100
+Message-ID: <CAPDyKFor=KyPEfrfLWct0dLa03hj6uawM-R3z4rOEzHSrNCWCg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/8] MT8188 DT and binding fixes
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Fei Shao <fshao@chromium.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_080813_376945_98D4F99B 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20241202_080830_221368_17BC55C1 
+X-CRM114-Status: GOOD (  23.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,47 +94,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 1 Oct 2024 at 13:31, Fei Shao <fshao@chromium.org> wrote:
+On Mon, 2 Dec 2024 at 05:24, Chen-Yu Tsai <wenst@chromium.org> wrote:
 >
-> The MT8188 SoC has a more in-depth power-domain tree, and the
-> CHECK_DTBS=y check could fail because the current MediaTek power
-> dt-binding is insufficient to cover its CAM_SUBA and CAM_SUBB
-> sub-domains.
+> Hi,
 >
-> Add one more nested power-domain layer to pass the check.
+> On Tue, Oct 1, 2024 at 7:31=E2=80=AFPM Fei Shao <fshao@chromium.org> wrot=
+e:
+> >
+> > Hi,
+> >
+> > This series is split from a previous series[*] to focus on few fixes an=
+d
+> > improvements around MediaTek MT8188 device tree and associated bindings=
+,
+> > and addressed comments and carried tags from the previous series.
+> >
+> > [*]: https://lore.kernel.org/all/20240909111535.528624-1-fshao@chromium=
+.org/
+> > [v1]: https://lore.kernel.org/all/20240925110044.3678055-1-fshao@chromi=
+um.org/
+> >
+> > Regards,
+> > Fei
+> >
+> > Changes in v2:
+> > - new patch to MediaTek jpeg and vcodec bindings
+> > - new patch to move MT8188 SPI NOR cell properties
+> > - revise commit message of vdec power domain changes
+> >
+> > Fei Shao (8):
 >
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Fei Shao <fshao@chromium.org>
+> >   dt-bindings: power: mediatek: Add another nested power-domain layer
+>
+> This one ^
+>
+> >   dt-bindings: PCI: mediatek-gen3: Allow exact number of clocks only
+>
+> >   dt-bindings: media: mediatek,jpeg: Relax IOMMU max item count
+> >   dt-bindings: media: mediatek,vcodec: Revise description
+>
+> and these two ^ have not been picked up, and now v6.13-rc1 has DT
+> validation errors for MT8188:
+>
+> /ssd1/wenst/linux/mtk/arch/arm64/boot/dts/mediatek/mt8188-evb.dtb:
+> syscon@10006000:
+> power-controller:power-domain@15:power-domain@16:power-domain@29:power-do=
+main@30:
+> Unevaluated properties are not allowed ('power-domain@31',
+> 'power-domain@32' were unexpected)
+>     from schema $id:
+> http://devicetree.org/schemas/mfd/mediatek,mt8195-scpsys.yaml#
+> /ssd1/wenst/linux/mtk/arch/arm64/boot/dts/mediatek/mt8188-evb.dtb:
+> power-controller:
+> power-domain@15:power-domain@16:power-domain@29:power-domain@30:
+> Unevaluated properties are not allowed ('power-domain@31',
+> 'power-domain@32' were unexpected)
+>     from schema $id:
+> http://devicetree.org/schemas/power/mediatek,power-controller.yaml#
+>
+> /ssd1/wenst/linux/mtk/arch/arm64/boot/dts/mediatek/mt8188-evb.dtb:
+> jpeg-decoder@1a040000: iommus: [[101, 685], [101, 686], [101, 690],
+> [101, 691], [101, 692], [101, 693]] is too long
+>     from schema $id:
+> http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
+>
+>
+> Is there any way we can get them into v6.13 as well?
 
-Applied for fixes (to silence the warning in v6.13-rc[n], thanks!
+I don't know why I missed picking up the DT power-domain patch for
+v6.13. Sorry for the delay. Anyway, I have taken it now and applied it
+as a fix for v6.13-rc[n], thanks!
+
+I assume someone else can help to take the DT media patches.
 
 Kind regards
 Uffe
 
 
-> ---
 >
-> (no changes since v1)
+> ChenYu
 >
->  .../devicetree/bindings/power/mediatek,power-controller.yaml  | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
-> index 8985e2df8a56..a7df4041b745 100644
-> --- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
-> +++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
-> @@ -54,6 +54,10 @@ patternProperties:
->              patternProperties:
->                "^power-domain@[0-9a-f]+$":
->                  $ref: "#/$defs/power-domain-node"
-> +                patternProperties:
-> +                  "^power-domain@[0-9a-f]+$":
-> +                    $ref: "#/$defs/power-domain-node"
-> +                    unevaluatedProperties: false
->                  unevaluatedProperties: false
->              unevaluatedProperties: false
->          unevaluatedProperties: false
-> --
-> 2.46.1.824.gd892dcdcdd-goog
->
+> >   arm64: dts: mediatek: mt8188: Add missing dma-ranges to soc node
+> >   arm64: dts: mediatek: mt8188: Update vppsys node names to syscon
+> >   arm64: dts: mediatek: mt8188: Move vdec1 power domain under vdec0
+> >   arm64: dts: mediatek: mt8188: Move SPI NOR *-cells properties
+> >
+> >  .../media/mediatek,vcodec-subdev-decoder.yaml | 100 +++++++++++-------
+> >  .../bindings/media/mediatek-jpeg-decoder.yaml |   3 +-
+> >  .../bindings/media/mediatek-jpeg-encoder.yaml |   2 +-
+> >  .../bindings/pci/mediatek-pcie-gen3.yaml      |   5 +-
+> >  .../power/mediatek,power-controller.yaml      |   4 +
+> >  arch/arm64/boot/dts/mediatek/mt8188-evb.dts   |   2 -
+> >  arch/arm64/boot/dts/mediatek/mt8188.dtsi      |  33 +++---
+> >  7 files changed, 88 insertions(+), 61 deletions(-)
+> >
+> > --
+> > 2.46.1.824.gd892dcdcdd-goog
+> >
+> >
 
