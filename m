@@ -4,83 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D26BD7831B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 700D7D7831B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/VF+nWs6BWtLEi7pKkF8pL4507yNu1NwuQmjk0P5/9g=; b=b/q4MJqgj6afi1+Mog1IqADCk1
-	a09nwT0NeC7hebMP1iXqh5WLqh6Ry1CVjkWEFcjyql1y03MIhbSGcziMYZmVjMewPEgF0ZxT6wvQY
-	imtC/NC5Es4ceMRG7N/oIMglcExTJCee40KS8v8bZg5CmkCAd96b45ifVHapCiFV/jrqtLSAQLwxA
-	Dd69u/f3V5XihQ3x2UWF+U4EycCiBOIM+g0dq2alEv5e+neCs9V2/UZMjEuMLz9IBpcSa9nJlLIb1
-	dZKiZFWTJXnqSzNvJc78u/or5t3OEQKoa/IkBsXTBkbCa6duucvXa2FH95IRAaCfvOW8Z3NVEA401
-	saz5C40g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=svV0/3uF6IUmbGm1JvpECltQfqjOP2APO0thyVFbZY0=; b=I0tkG2zGk7alkzMejQGgnXFfaN
+	ugq38IJY13N017fsMMZfskBm6vl5cxViQE0ob/h3EwWGmWZOSd2omtAFDuDQUCybU5kSDI4FZaD8R
+	mBEvYn/VPdJgnmOwn47GAO/vaLuhAJP99Kj5wbcQeesIxBUuHCZezKCR5F3isSP7I+80rN4+YEwxm
+	ehDvXLAuaIvZF2xf2KBh+v+8KaFiTl0lgCVi+gjMWH2ubPGZFUKkZEvh1+aJFINHS0m5kIymvjrHy
+	mTLwWFdJGXEE+rDM7G89AUOaz5hQfyOz3jXViW/wByF65gNxcq1h7CXG1H3uyF0xsPaOdeiQ9/8Cr
+	b6p4OE2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6JL-00000006CrC-15Wq;
-	Mon, 02 Dec 2024 13:17:59 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tI6MN-00000006DmK-4455;
+	Mon, 02 Dec 2024 13:21:07 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6IL-00000006Cdn-3yx9;
-	Mon, 02 Dec 2024 13:16:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DC4EDA40B5F;
-	Mon,  2 Dec 2024 13:15:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9CE9C4CED1;
-	Mon,  2 Dec 2024 13:16:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733145417;
-	bh=/VF+nWs6BWtLEi7pKkF8pL4507yNu1NwuQmjk0P5/9g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TlUDTiqGqqVXsTcBbB9DY1Tj4GMlqBKCfLy4MRppqgoZ+hIXX+C1MxEj5vfH9GnPp
-	 pZzbmEljazX/5Fp15FZzjtyQiV1ARa5cluHtszSCNK+WUICMjsXncH/i800kboib3d
-	 5yO6V9WPYE2Gw6PKa8jvyRcXDRMhpGkyfykwfGepEd9RLlf9N+2uRYV1kfFkMrn1rb
-	 va5YB+0NIfOs3QsVhKScTQ1SxXldUT4An8nqBvnsXywUZlmtQRVQHW/x/+juRJpXdN
-	 +RZehDyE3RB5KB4msJrMpBXmF/iSnIGVeQI0SRdGYab574kPnU8kJRIi+YRG9yp/R8
-	 u967dyf3w8Lgg==
-Date: Mon, 2 Dec 2024 13:16:51 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Jiaxin Yu =?utf-8?B?KOS/nuWutumRqyk=?= <Jiaxin.Yu@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"ajye_huang@compal.corp-partner.google.com" <ajye_huang@compal.corp-partner.google.com>,
-	Chunxu Li =?utf-8?B?KOadjuaYpeaXrSk=?= <Chunxu.Li@mediatek.com>,
-	Allen-KH Cheng =?utf-8?B?KOeoi+WGoOWLsik=?= <Allen-KH.Cheng@mediatek.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"kuninori.morimoto.gx@renesas.com" <kuninori.morimoto.gx@renesas.com>,
-	"andrzej.hajda@intel.com" <andrzej.hajda@intel.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Project_Global_Chrome_Upstream_Group <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"robert.foss@linaro.org" <robert.foss@linaro.org>,
-	"Laurent.pinchart@ideasonboard.com" <Laurent.pinchart@ideasonboard.com>,
-	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Nicolas Prado <nfraprado@collabora.com>,
-	"alsa-devel@alsa-project.org" <alsa-devel@alsa-project.org>
-Subject: Re: [PATCH v2 1/3] ASoC: hdmi-codec: Add event handler for hdmi TX
-Message-ID: <00d5c728-3eb9-427a-bc60-5828c20fec09@sirena.org.uk>
-References: <Y4Cysgk5Gic5ae9B@sirena.org.uk>
- <18c82f6f723cd97a9d6b9a7ff16c6ed62fd005d6.camel@mediatek.com>
- <Y4Y/vEWe3dw0FPQH@sirena.org.uk>
- <cf9ea98a3263ffb8fc8b542888ad0ad680facfc7.camel@mediatek.com>
- <Y4jHAJgmz/P58Q/C@sirena.org.uk>
- <7023a2c7b471d6888d9079563a6c01f22599201f.camel@mediatek.com>
- <Y43e+EsNCrCpZSIH@sirena.org.uk>
- <dc50d0b21795acbcc44c77e5fd81e7cb92c65c67.camel@mediatek.com>
- <Y5ipwqzHKTK8UdlC@sirena.org.uk>
- <a699178dcef540fff5caae6291983a444886bff6.camel@mediatek.com>
+	id 1tI6LN-00000006DXs-1QtK
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Dec 2024 13:20:07 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 5A3A6A0365;
+	Mon,  2 Dec 2024 14:19:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=svV0/3uF6IUmbGm1JvpE
+	CltQfqjOP2APO0thyVFbZY0=; b=oSPJ1UrpsayIy6NSbibVCUlxIIjVPArEJBZD
+	z6GW2GAfv2RQo9g5ES9C/qn/fPNwK3k9Eo2s1rHC/OJQk+UQVfcdl6d8WXQQYIor
+	hw3WL15PHFSpUcE7/K1XeqPfRGsxNVZt21QV+1FE2lepxsDnt3Q0dHceytEZT1pP
+	cnsGFl9Oc8jhP6Px5PN5eGfl/hjFwj5ZJsCr3Nfc3OePpNGGkxXS7NtrzrRpCO1M
+	X3+AeHtABs7FVqbxeG51TKo3BR/i9SYP8KpB7EOL2LNkc4ACV81O7d/dOOforyDP
+	TCnlG3JVwCCMdhcfBUNouuYlFu6mrCOQVr1MCKQuO6Qqwcxo3S+jNuErVWLrHSBz
+	JKwQz+iUcWIFGZRYaZf2qhUoxrQX5hDE56TWHfFi6wm0y8SRUnOaiVWOTtyB6bf9
+	FfLK5R3jYyZR6nV+U/GP5jzVQlYSa5kwKtRSHLU2KMNm3lU9QVYR85uak8DsA3j4
+	WTRMuZ6wOOpyYIGzTYgu0LM59zT4nzapHNBhkV8u+idzs13NHgBvaU+xaSKs8s1P
+	NJ7QVuBDdm+HhGF1COCwjvQLJoj7P5e98MbG6Z/usiWP4RltdBo54Zh7inY4oqWA
+	vTrDeSB5iH7JKit/HHWSUcGpSOMryzv4og8l3TnHVUJZQa2AJvjnppNELIDJ5e9p
+	kPbxNaA=
+Message-ID: <47344634-9681-43a0-995a-f7dc025d1d09@prolan.hu>
+Date: Mon, 2 Dec 2024 14:19:51 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="NG9fJ4QMkZ8167X3"
-Content-Disposition: inline
-In-Reply-To: <a699178dcef540fff5caae6291983a444886bff6.camel@mediatek.com>
-X-Cookie: (null cookie
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/3] ASoC: sun4i-codec: Add DMA Max Burst field
+To: Mark Brown <broonie@kernel.org>
+CC: <linux-sound@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>, Mesih Kilinc
+	<mesihkilinc@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela
+	<perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Chen-Yu Tsai
+	<wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+	<samuel@sholland.org>
+References: <20241102125712.2647325-1-csokas.bence@prolan.hu>
+ <20241102125712.2647325-2-csokas.bence@prolan.hu>
+ <fe02df7f-16ae-4128-9af8-7de7f76734bc@sirena.org.uk>
+Content-Language: en-US
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+In-Reply-To: <fe02df7f-16ae-4128-9af8-7de7f76734bc@sirena.org.uk>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.254.7.14]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94855637261
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_051658_110516_40F1164F 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20241202_052005_842865_AC20254D 
+X-CRM114-Status: UNSURE (   7.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +89,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---NG9fJ4QMkZ8167X3
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 2024. 12. 02. 14:14, Mark Brown wrote:
+> On Sat, Nov 02, 2024 at 01:57:10PM +0100, Csókás, Bence wrote:
+>> From: Mesih Kilinc <mesihkilinc@gmail.com>
+>>
+>> Allwinner suniv F1C100s has similar DMA engine to sun4i but it has
+>> smaller max burst size compared to sun4i. Add a quirk field to
+>> differantitate between them.
+> 
+> This doesn't apply against current code, please check and resend.
 
-On Sun, Dec 01, 2024 at 05:15:45PM +0000, Jiaxin Yu (=E4=BF=9E=E5=AE=B6=E9=
-=91=AB) wrote:
+Try v6: 
+https://lore.kernel.org/linux-kernel/20241123123900.2656837-1-csokas.bence@prolan.hu/
 
-> So I want to ask if I can do it by just adding
-> SOC_DAPM_PIN_SWITCH("Speakers") and SOC_DAPM_PIN_SWITCH("HDMI")?
-> Correspondingly, dapm widget and route path need to be added. That is
-> "SND_SOC_DAPM_SPK("Speakers", NULL)/ SND_SOC_DAPM_LINE("HDMI1", NULL)"
-> and "{"Speakers", NULL, "Speaker"}/ {"HDMI1", NULL, "TX"}".
+If that doesn't apply either, then I'll look into it, but it seems we 
+already missed the MW for 6.13... :(
 
-Yes, that's what I'd expect to see.
+Bence
 
---NG9fJ4QMkZ8167X3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdNs0IACgkQJNaLcl1U
-h9DGvAf+J3hwEq4x3bF91sZy15VQBvz/0kSF2J0M+KaBQnVVFXj/YCUp9AjHd9Py
-svtvltKB2dzk8Cpzti6uG995Vi0ugqWdEFR57tDSFDzyMMEStcr/z+LYr8gmncxg
-0kEyoQrLHpnucIqWa+IJ766YUIsU2FvSM5IP2ZDXfWUeSHI5fzUfpc5M9MrgZJut
-JfoR0eE91G28dKk46pdE+WRc6xsPWl/jRqlgr492lZe5Qew7l8ZRdnvummrx0iDd
-A4z1fW9cZXTepa9GisH8GziS6GP3C+qJWwsAgq+iaKvZ6tBcii8s0sSGVRWbvQQG
-a7poRNcQYuwS88Fimgys4lWYbODVVg==
-=weMB
------END PGP SIGNATURE-----
-
---NG9fJ4QMkZ8167X3--
 
