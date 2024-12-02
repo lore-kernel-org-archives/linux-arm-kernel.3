@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD61D78321
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ECB9D78322
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gzy9MzVQQIMMhcdatkgnqvqQnHB8wlmljErS48v9crs=; b=il1nHTaaUAMl8iEijSYN0974C+
-	Y2jsN483RE1T1ukaPdXzJiwD1jl9CiGYEk1WacZJfhzTkef9pjWNm0gAvb4BZJKJirdUUvwFitHWF
-	cy9QP1jKe7Q5QDmzs8MrAFdDiPZyGFGOxPeezUnobOn7BeatK1e9PfNKmeqL7AzQCIZTgEoQqUsYC
-	lzN9iuYlRqqpcRnwz/qvdLlo/k8oFOhG/yw6g4aXleZDOa9pvAdlYiSfygUQTX4HgY06qS3sc2R0H
-	WKiJFyKdSs0AGb6GBnCJr8QNiPZcnGsWOu16LHSFJ1Tgqcjl3YbEgnXT25/Tdtk/4jtRyzMfj8JFM
-	DbvXr1xQ==;
+	bh=4Vw3tPV+xnAMdmEICKcie2ky/yWoy25v+/wohiyP0/E=; b=id5wzVf+3XMwDe8qqeWswYfZeT
+	1T7BC04dibcJXH3yJ3g+FeSiT991SxQ9jAyAhdORRWpUdBJNY4Z4ebmRrB2Xb6LZMS96Z9pHLIzbM
+	xgn776HZC9aMOXWvkIzckncq5azrfxnc+wvZYES7HM7AI5I9AMfC4FLG1gvjD2ZagIyxIvJZAfP4W
+	Vo641MWkTtJlTMXClMuFdQwsh4i/QMCqo/t9VAb0e8SYhX+cyiJodxqORcFRhixbZOLxgakkuM8wM
+	lD/HrBWLro2xepH3Sz9qO6IqyX8+iK6opcmi+A4WYzPjZXC2Q3VcYsAuCD8uYJ3qT96YO4fZTyRNI
+	CHSNdGiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6i7-00000006Hhf-1qEi;
-	Mon, 02 Dec 2024 13:43:35 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tI6ly-00000006IIJ-07uH;
+	Mon, 02 Dec 2024 13:47:34 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6gI-00000006HKE-48YK
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 13:41:44 +0000
+	id 1tI6kx-00000006I4Z-41z7;
+	Mon, 02 Dec 2024 13:46:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DBFDCA40D37;
-	Mon,  2 Dec 2024 13:39:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED9ABC4CEE0;
-	Mon,  2 Dec 2024 13:41:36 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B8153A40C3F;
+	Mon,  2 Dec 2024 13:44:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB09FC4CED1;
+	Mon,  2 Dec 2024 13:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733146902;
-	bh=aHbNT8/7s93kv5HKX8tdKETN3m1n4K+2pSzalI1wkBw=;
+	s=k20201202; t=1733147190;
+	bh=/NSTDjvvY+wAlu1r8FN+e8bDKuQxH4ffI35tRMVD7Nc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gvGY5e0mRTR1JDu8827hApyq9ya3WkD973VUrcZAAOnSe+PEdDnHZ3EDlyI7CmPFr
-	 aDugMn6ECPHzREpNrD9jJ+NbtGTI90MmaPSOILiVXZ6QXnaf2IX8P34wp9tMajCGp7
-	 SMHU0REinpjeLGlGYbYPHdmagKYnFs1ERSFeHuY2bvycV/EsM1vQdN4r/JwGdn/Z9L
-	 c19VWhm7Xs/YKo5H0KZB5/kPS5IcR4Lc+sZ43Q/jT9qRpS+2mXgyZ/9sY/RQQtInv9
-	 bDvJxJ8hKF9gFNQkDoMRgRp6dQ2izAF5Mj9+D6eXqGvwSYA/WRwit0Qc3CRUU9BVl4
-	 plKbU4kszGcDA==
-Message-ID: <68b897f0-5583-4d09-87d5-4ff4d3080ef7@kernel.org>
-Date: Mon, 2 Dec 2024 14:41:34 +0100
+	b=uiERZGJMNln1H1SFPtpaBe01iV4Dk6tH9rit9dqBGC+v0k+/lhJDM+SgnpxcDuK6m
+	 1wH3vjb3jLuJEDBW64WHpaGddhjSkEwicNUM/XPxg0XImxJNoWkBf9MwFDmJJsj7c8
+	 DKcfMFnG+uGo13qTAbi46SXVedRCz504y17ZIcw3t8asqRVpMUDgavL0u7w6UCh2wp
+	 jA50V3DH7/2e61gj+00X0w4sRX2UZ/CxFN7nuFeeSDT00zWWFt/LDxr5Vq1A7jYpih
+	 cfehFyxz9jw1P38vg69AM+WWaPi1R1Gi1kcabZugsHXVqAYxJaGmbs30bbxmcsR6Qx
+	 Ht/qeJCuCdq/g==
+Message-ID: <0fb58a4a-7bad-4623-99c8-67f5763558bb@kernel.org>
+Date: Mon, 2 Dec 2024 14:46:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] arm64: dts: exynos: gs101-oriole: enable Maxim
- max77759 fuel gauge
-To: t.antoine@uclouvain.be, Sebastian Reichel <sre@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be>
- <20241202-b4-gs101_max77759_fg-v1-4-98d2fa7bfe30@uclouvain.be>
+Subject: Re: [PATCH v2 11/18] arm64: dts: mediatek: mt7988: add chosen node on
+ bpi-r4
+To: Frank Wunderlich <linux@fw-web.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20241202122602.30734-1-linux@fw-web.de>
+ <20241202122602.30734-12-linux@fw-web.de>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241202-b4-gs101_max77759_fg-v1-4-98d2fa7bfe30@uclouvain.be>
+In-Reply-To: <20241202122602.30734-12-linux@fw-web.de>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_054143_172273_AF77CBBF 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20241202_054632_137514_303C2650 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,46 +121,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/12/2024 14:07, Thomas Antoine via B4 Relay wrote:
-> From: Thomas Antoine <t.antoine@uclouvain.be>
+On 02/12/2024 13:25, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Add the node for the max77759 fuel gauge as a slave of the i2c.
+> Add chosen node on Bananapi R4 board with stdout and default bootargs.
 > 
-> The fuel gauge has been tested and seems to give coherent results.
-> Manual activation of the charger via i2cset shows that the sign of
-> the current does indicate charging/discharging status.
-> 
-> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 > ---
->  arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 7 +++++++
->  1 file changed, 7 insertions(+)
+>  arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> index 387fb779bd29ea3812331a7951f03b181c5fe659..4c45dd6fd0173889234b7b04d7abb4b382c7706c 100644
-> --- a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> +++ b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> @@ -90,6 +90,13 @@ eeprom: eeprom@50 {
->  &hsi2c_12 {
->  	status = "okay";
->  	/* TODO: add the devices once drivers exist */
+> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
+> index 9037f35857a9..1c2a806f6f6c 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
+> +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
+> @@ -9,6 +9,11 @@ / {
+>  	model = "Banana Pi BPI-R4";
+>  	chassis-type = "embedded";
+>  
+> +	chosen {
+> +		stdout-path = &serial0;
+> +		bootargs = "console=ttyS0,115200n1";
 
-
-Is this still applicable?
-
-> +
-> +	fuel-gauge@36 {
-> +		compatible = "maxim,max77759-fg";
-> +		reg = <0x36>;
-> +		reg-names = "m5";
-
-
-No interrupts?
-
-> +	};
-> +
-
-
-Do not add stray blank lines.
+Drop or merge into stdout path.
 
 Best regards,
 Krzysztof
