@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE62AD10DCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 09:12:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FCD8D10DDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 09:18:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NkMl/y7TT3sKMOh9dsxVJCkIeczLLqtX3PsgO7Z6Rq0=; b=xZ/l/DZ93N5cRirF7aBU2ZXnc5
-	87PxJDEBtk1kuCCbT1bWME4USVGw065PF/aJDGQnwP5iN7B1JrVOeLURsJHrR+mc+Txsjl8FOqcLm
-	5529Bdydror88s9j0ch++Rbt++axNFAb6sfFXQuqJqfLFIyESkPMBE82BrlsQJKfOSbRvmXs6qAgO
-	JilQ3OjeOAmhtqL52Wxli36897aspLbl7osxfzRMea9Z9giU7u3Js+4ROHy1j94ybutS+keuHQ+e4
-	HO7T8JjDSglHrRaaZQC1mMuR+yAcRFzhNPGcKSLoL0daukOK/nZPnCHt90p5zYSAkDLu62wetCCJf
-	LPixs79w==;
+	bh=xheUdNTjQZCXCu1iqFVovuDp12XGPVK2eJ3J0wQfUu0=; b=aB5Bdt5raiXZ9BE29tjeJz78bg
+	o+DZWkyj5Kw9+C4dksa6yPs+KH+LbgZ/6hLFxGdjDufHSpxr3LkZ8HyMUZi+ojCh2WY4mXgxUDvRu
+	cbxRPV3qg8gKpjm01wdRV/vghU4ie/1O7j8jwuE5v7rJaIhm56YlRJj1/jEU5Ybh63gpcbZbm3mP7
+	zTIiygNm7RlUYDpjiQtdxQ/kYC5kG4YwX/xWieQ3s2iWDvNrLAsFdt/hp0hlxfLcXPmLfkYiwuqty
+	6vsSlKfa7S9jaesl2c5gFe+BuIZXlhHMvgDR4ixnH7wi1XhAMnZQig5i9DAw1MZF3nd0qyKksEUBx
+	M4NUdxKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI2Ty-00000005Wa9-3r8h;
-	Mon, 02 Dec 2024 09:12:42 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tI2ZX-00000005XDn-2jcB;
+	Mon, 02 Dec 2024 09:18:27 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI2Sz-00000005WRh-2G3u
+	id 1tI2YY-00000005X6C-29Ej
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 09:11:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1868AA40EB8;
-	Mon,  2 Dec 2024 09:09:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 250F6C4CED2;
-	Mon,  2 Dec 2024 09:11:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733130700;
-	bh=d4gO9Jf7xooGuIIZIf9p1ZNAD2kR1agmYNpq7vqvVW4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=P7MiETioPL8TsoCxnTE8srof9HzUBtTQmdPMjaETyF7aEyyLIgMz1cnyZQR6D3tPW
-	 BuN16y8zR7uUYz8HSxC7nsFYLmVMpgjt/9mGpftY+YAqfypju4nS2XZ5gQkMXLktSg
-	 RL5h6jrDu8GvPuGlZvqEXfSgImZi3aFYNE1L518298zUNfxfv+S3D4XL0nNl40drfy
-	 aDW7JQFXfSKPw1fMka3i7OK2RiRw6PjTopfhztFEREFBulSfGYfhS0Cv/ZOlkqv2E4
-	 a/EYgs7IDZ7wwBbqMLKmf1+k3MMzQ2lxV2pJbNtjCRH1fFdgHaqtcHNN57zDY7H5Fu
-	 vJizTP4kgl3vw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tI2Sv-00HH5d-Pa;
-	Mon, 02 Dec 2024 09:11:37 +0000
-Date: Mon, 02 Dec 2024 09:11:37 +0000
-Message-ID: <86y10ytpo6.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Eric Auger <eauger@redhat.com>
-Cc: Sebastian Ott <sebott@redhat.com>,
-	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
-	"will@kernel.org" <will@kernel.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	yuzenghui <yuzenghui@huawei.com>,
-	"Wangzhou (B)" <wangzhou1@hisilicon.com>,
-	Linuxarm <linuxarm@huawei.com>,
-	"reijiw@google.com" <reijiw@google.com>
-Subject: Re: [PATCH] KVM: arm64: Make the exposed feature bits in AA64DFR0_EL1 writable from userspace
-In-Reply-To: <e35612b4-e25b-4846-8fd2-56c2473c140d@redhat.com>
-References: <20240813142835.77180-1-shameerali.kolothum.thodi@huawei.com>
-	<86v804z3lk.wl-maz@kernel.org>
-	<b2dad37ac5464384abe4edf76cb6b546@huawei.com>
-	<4d3a7dde-e085-fa70-8859-ba153c93b615@redhat.com>
-	<87zfllssji.wl-maz@kernel.org>
-	<c879fda9-db5a-4743-805d-03c0acba8060@redhat.com>
-	<865xo3vbjq.wl-maz@kernel.org>
-	<e35612b4-e25b-4846-8fd2-56c2473c140d@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: eauger@redhat.com, sebott@redhat.com, shameerali.kolothum.thodi@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, will@kernel.org, catalin.marinas@arm.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, linuxarm@huawei.com, reijiw@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 02 Dec 2024 09:17:27 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-434a9f9a225so206625e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 01:17:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733131045; x=1733735845; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=xheUdNTjQZCXCu1iqFVovuDp12XGPVK2eJ3J0wQfUu0=;
+        b=OKfP4ecT+hX0M7jC4LJ4Z7jT68QrNpK+FwJO3wsz8r12rYfUMRoFd5OqC+i1OeM67r
+         UkIO1bXNNJp0BjwJM9KDn+IJdeyKt8Zz1pMw3fPrx+CFQl3jAC8g4QDFiqr2Rz9aIjqI
+         Db+MnBBOLXZJoOmIa9CV0C/zQdS1yZ1gegSKCp1z3GFtg5QWqCuu81MATUC5hf38gc0C
+         /0glnBr/oMaDpAbz2S7w50OSAR2aOxU1urOWKn3Lx7Sjgi+fGkPyb6qZIaKq6MuUaCxO
+         uPJpd5IxzqzMDd/LSUNV9HGVU4zmIpjk981oP4JthYd9Q/6mO5ve0LOnrpQWsnlG2cUj
+         HA9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733131045; x=1733735845;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xheUdNTjQZCXCu1iqFVovuDp12XGPVK2eJ3J0wQfUu0=;
+        b=KFLosQXi3+v1UwNgS5HeT0PxgtWVkBGelIdBfTGed2hTVCUeyDWjqZNGTHNovKkiaf
+         HTwiLabVFTQH5Xe8EvBOooM6tVSWdMWT7feTMn+Lm3r68eRb9ym9KNaEtU4zd9AgctGQ
+         escXJJNRuWR3tccLmVtsZEtoyO+J0urhInHbmJpWgJfePR+NTl1VyCBwIkKhtCxrA0Ni
+         u+M8krnC9D52TubSgvogXqwRvn78y8UMgGCiXMmNTGBjZ7ksc3TIIVdlznEG0m0Zilvb
+         ZfBM1buWn0MCEv7JFG0/b+h9BWkMbVvcrmBaKWg2+E5KFcykVVK4h0ki2EiQTS4nJ312
+         1vxA==
+X-Forwarded-Encrypted: i=1; AJvYcCUqVIb/KrLcZv428sxf0eMT45khHd6NKBYgABwTkXoiVdmI982FSKyA0g2qT/Ppxu02ztR3mQ3DY+qCMbvzsF4u@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxphz4yydB96YHK+TcQG4KbOXPomPLrCzAaF/ZBi3iH6cdXDVV7
+	FZGhC0tzFVAotNYvbxa2pdR+FOBG1PprE+4smmG/4bp6hIyLTCFykBgjrJRo73SR6XV8lKuu6ik
+	PKbI0eB/ZD0dlyuXISrhWtU63g9Xw6thJjDG0
+X-Gm-Gg: ASbGncumw2z519gvpwrtedPV+7ComZxu5MRaofcJsRyqxNCOiJAeMpSAy9lQHvn91pp
+	UV6V+nPcKSSRB1szVO2A3MRaiJbB4+A==
+X-Google-Smtp-Source: AGHT+IGdGsEiB9WCD/AraN19zYGjoqrq86Rwh4ys+1rlPGRuRnqjVWf7BZbYMcLYEbVI3xMnZtgZrN3VG06AQdhaNtM=
+X-Received: by 2002:a05:600c:6a88:b0:42b:a961:e51 with SMTP id
+ 5b1f17b1804b1-434b0401690mr4445725e9.0.1733131044951; Mon, 02 Dec 2024
+ 01:17:24 -0800 (PST)
+MIME-Version: 1.0
+References: <20241128123515.1709777-1-tabba@google.com> <20241128123515.1709777-16-tabba@google.com>
+ <8634j7v9rm.wl-maz@kernel.org>
+In-Reply-To: <8634j7v9rm.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 2 Dec 2024 09:16:48 +0000
+Message-ID: <CA+EHjTxnYi7_kStfQtExuQTyBEZict5ekmfn_vg100tHFv_VJQ@mail.gmail.com>
+Subject: Re: [PATCH v3 15/15] KVM: arm64: Renumber remaining vcpu guest
+ configuration flags
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	oliver.upton@linux.dev, james.clark@linaro.org, will@kernel.org, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, 
+	kristina.martsenko@arm.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_011141_706619_65DC2C52 
-X-CRM114-Status: GOOD (  30.29  )
+X-CRM114-CacheID: sfid-20241202_011726_547367_388D5694 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,73 +95,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 02 Dec 2024 08:03:26 +0000,
-Eric Auger <eauger@redhat.com> wrote:
-> 
-> Hi Marc,
-> 
-> On 12/1/24 13:21, Marc Zyngier wrote:
-> > Hey Eric,
-> > 
-> > On Thu, 28 Nov 2024 09:31:08 +0000,
-> > Eric Auger <eauger@redhat.com> wrote:
-> >>
-> >> Hi Marc,
-> >>
-> >> On 11/26/24 20:29, Marc Zyngier wrote:
-> >>> Finally, who is going to ensure this keeps working in the foreseeable
-> >>> future? Because while this is nice, that's not what gets deployed in
-> >>> production, as it leads to unpredictable performances. My take is that
-> >>> this thing will eventually bitrot and die.
-> >> In the context of our works to define qemu vcpu models for ARM
-> >> (https://lore.kernel.org/all/20241025101959.601048-1-eric.auger@redhat.com/)
-> >> , our current approach is to try migrating between modern HW we have
-> >> access to. The case above is migration between AmpereOne and Grace which
-> >> both should be prevalent systems. Do you think this does not make sense
-> >> at all to try migrating between those, alhough this may be challenging?
-> > 
-> > I don't mind the challenge. But I'm worried this is something that
-> > looks like a reasonable idea that doesn't get any traction in
-> > practice.
-> > 
-> > And the example you mention is pretty striking: who in their right
-> > mind would migrate between these two systems? If you deploy a Grace
-> > system, that's because you are making use of the GPU, and your VM is
-> > likely to require it. Conversely, if you run on an Ampere system, you
-> > don't want to use a valuable (read: bloody expensive) slot on a Grace
-> > machine.
-> 
-> Yes I acknowledge it is a total valid point from a use case and cost
-> point of view. I was expecting maybe some interest migrating between
-> AmpereOne and Grace-Grace for farm enhancement but most probably it is
-> marginal.
+On Sun, 1 Dec 2024 at 13:00, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Thu, 28 Nov 2024 12:35:15 +0000,
+> Fuad Tabba <tabba@google.com> wrote:
+> >
+> > With the vcpu's SVE and PtrAuth configuration flags removed,
+> > there are gaps in the numbering of the cflag bits. Renumber
+> > VCPU_INITIALIZED to bit 0 to remove the gaps.
+> >
+> > No functional change intended.
+> >
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_host.h | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index c5c80c789ad0..2e4afec09728 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -864,10 +864,10 @@ struct kvm_vcpu_arch {
+> >  #define vcpu_set_flag(v, ...)        __vcpu_set_flag((v), __VA_ARGS__)
+> >  #define vcpu_clear_flag(v, ...)      __vcpu_clear_flag((v), __VA_ARGS__)
+> >
+> > +/* KVM_ARM_VCPU_INIT completed */
+> > +#define VCPU_INITIALIZED     __vcpu_single_flag(cflags, BIT(0))
+> >  /* SVE config completed */
+> >  #define VCPU_SVE_FINALIZED   __vcpu_single_flag(cflags, BIT(1))
+> > -/* KVM_ARM_VCPU_INIT completed */
+> > -#define VCPU_INITIALIZED     __vcpu_single_flag(cflags, BIT(3))
+> >
+> >  /* Exception pending */
+> >  #define PENDING_EXCEPTION    __vcpu_single_flag(iflags, BIT(0))
+>
+> Please fold this with the relevant patches, even if that makes two
+> consecutive renumbering patches.
 
-That's my understanding as well. Cloud vendors tend to have
-homogeneous systems, and those who don't are realising that they shot
-themselves in the foot (and in that case, the debug infrastructure is
-the least of their worries).
+Will do.
 
-> Definition of [qemu] named vcpu models looks pretty uneasy then because
-> we don't have much relevant and accessible HW to test with, taking into
-> account such non technical considerations. Besides migration within a
-> CPU family I don't see much.
+Thanks!
+/fuad
 
-That's basically my point.
-
-Another thing to consider is that there is an effort on the SBSA
-front to standardise which breakpoint numbers are context-aware, which
-would side-step the need for emulation in the long run (once the
-current crop of HW is gone and forgotten, which should be in the next
-3 months or so ;-).
-
-But if there was a *credible* user coming out and saying that they
-depended on this sort of feature to be supported now and forever, then
-I'd be more supportive.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
