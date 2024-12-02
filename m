@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733E8D78321
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 14:38:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3918D78321
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 14:39:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p56iPdWdF4pt0TGa+sJ5O54kl+ln7VnNVSZs+/e+76c=; b=PHQE7SQhjxoksZsKq/u5Z9imKV
-	eyATPGOrvaVUXmEOl/ZG2ZHY+TOTrEO2qz5cIMd9A2HkWXErzWSahxi+TaMTjRX+LxJDqI2lQ6Wp0
-	4nlomSXIGT1RQjjYfwbH588P5xgSHLS9ddXizs/df72Xd+dzKlRKlMbrLJ3wNYjFa+Wr4ZooJk310
-	QLAZkkT5B/6GAk3Trep9wNUk3nA/d+aAU76XQ0vOBhOEnFTDDZyEGUPPapi92DPqO4i29xIrnubwF
-	0wCQN2ndPuODh6uAK6RqECi3de2gcEygTvpgEwL+NW0XFb12vZ6I7C7T/Wg1rcY0Sp7zza2QaMSms
-	5xTMGFPw==;
+	bh=7AFVILEGG6inA8zYmU/doFUBGD/IkzUATf3B1mIzQMQ=; b=yv7lhalf+BKEi9XRK/WPpHzl6B
+	MzCFrCsjY6ZwRxbDGwQ1dzVEfxPWyp5NV7hPeQsLQIq2VMuC9P6rNo1tvL1HI17M15M8oYuQdO3Yg
+	97f4HT2XRXT52EIp8hbHK2XL1g2a3hYV+eH2qYDkxhOUBWx5qUSiEMAynxMtuCc4Bfnx3HPTGPz2o
+	zsICJ4fBjVQWaEF7v6TNUOBxT8Cuwg0bGyg6r/hVhDPqBG/nf2Gsmk4UsBTrrG9vbJBIf8NNqdVt6
+	hHQuCRm2JlIiNHAghCeEO4gwEZPTmLjMLAkvLY2zlwII4gb3cCTFQF0N2bbOKD7TcSy2j6vt6lvu5
+	LqMyaH5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI7ZF-00000006TvD-2Dgt;
-	Mon, 02 Dec 2024 14:38:29 +0000
+	id 1tI7aD-00000006U7f-0mfp;
+	Mon, 02 Dec 2024 14:39:29 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI7TM-00000006RsY-32mX
+	id 1tI7TN-00000006Rss-03Rj
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Dec 2024 14:32:24 +0000
+	Mon, 02 Dec 2024 14:32:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=p56iPdWdF4pt0TGa+sJ5O54kl+ln7VnNVSZs+/e+76c=; b=dy6zGKLEasQQ07shqSE5m0776C
-	cAUyuSTiP/Xn5O+zpAY+kGA+mWSbUshkmpAbp7fOQWbmJBh0xt3unzupuQgGT+F4GmdGfvU2vt1oV
-	AMLDyNI1YpFNnITifA+156Nts8+lhO62FAc4cO3LMJo3HT0sCP0XTwsKXpDhT4ATKTw/xmgqgoIKA
-	1Nd3QxDGsmcS4nMEYSeN7h3uX7Gl3T1MPMsD9wa3Zqcd/oypH63gFTcGjObj/90iOa24AAsHFgtFs
-	LxTSFiUXhx/ZHuw6MaP2i11b77XQYsjOWIH0l8OG1ILP9kmBOiozJ2HtlIHoeeuFjE1UyHI3UBk/R
-	8coO+nDw==;
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	bh=7AFVILEGG6inA8zYmU/doFUBGD/IkzUATf3B1mIzQMQ=; b=oCxVBge7PZN75iA/1xWi1IU7XE
+	WR17SzWAYD215R1yA6PM+kbkhDS2ageuekt95+QPu/JEjuf42AcbuyTRVBPKN1dSxtPqKQJtl/gp8
+	ko0hA1Nk3X/4abncODIXX8al7CMkJm3+zJun32h7jcnSFNviPBQyAPbsrKozp3sq8O3huhfHlt8Y0
+	L9DoFNeJo0Ze5/wqv2wPeRKbf7OhMkHGo5UF0wiwao6Vh6O8cr5kPXUM4ujVQTjNqwBYFIVL+0Qaa
+	9QjbaR7ZZ7JHAkOHzv6xWImTypD87wrL+yzoQR1h1MhtKzor1hlc4VsGttWYvS+nWj05hEhIn2yPn
+	bFg0hXig==;
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI7TI-00000002BDR-252t
+	id 1tI7TJ-00000002BD4-0EXp
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Dec 2024 14:32:23 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-434a099ba95so39235295e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 06:32:20 -0800 (PST)
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-385e35912f1so1749434f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 06:32:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1733149939; x=1733754739; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1733149937; x=1733754737; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=p56iPdWdF4pt0TGa+sJ5O54kl+ln7VnNVSZs+/e+76c=;
-        b=MTmsoiVlucnwYMZRqKuQU07xFCXB+Gm2RQV2cwK4FhrYZuO7vSm7HUs0fxC0VR5aq0
-         sIefjwTkCaPL7iVXVVpCdBUaF5YSRytdzUwCBoK0gjCmncsBkixZKfHlvmhEXYxKpOZB
-         ODUOxMwCwnJXaO4eEHWU46hmDOd5Mp8fkL5RnVxwecvsfS3aGwjlbXR8/7KcjSCKP9+m
-         HOuBWJvYk5V1xPsu84cem+CgPTXEZsTBENaAMP0/o8Abwle1zY8buUorX7HwrffrZk1g
-         FpdDlEVgxHkt7p1PpyPS330zF8D1vtoQXuW0+sWKNy1lLRxaTtVDWm3SYCIBo8Icb2Ca
-         OvdA==
+        bh=7AFVILEGG6inA8zYmU/doFUBGD/IkzUATf3B1mIzQMQ=;
+        b=GmmjB95cgoDUQKTodgicv9m6o1Fee5fGGG5+RIjdC2xUY5HiFHzppfFiuSVFE1fsDX
+         fLSFHWK+nC/9qDm3d0W5SwzCjrE53/ApYJep5IUMhRvyCnaXya4T/2TcNCccTcLp4lXU
+         0VpJn+bQVIDqSxp1K3HpfgytybaTLEcQtlrzii6yEFcQ5FrYCAA+sI/LFO6NTLnQUxLy
+         uNO9udUWiE2bZmIVrQ09qMboeSAC9ZTrBXd25S5uv79Vei2t4qz4cWfjrTnjD3YgddB9
+         dfg8qzZ93YCPwi02Tq12Bpx0uGHfGebfvcRgHzi0BxlV84cbuz3qet2uK2NUcHU4mr43
+         RUzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733149939; x=1733754739;
+        d=1e100.net; s=20230601; t=1733149937; x=1733754737;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=p56iPdWdF4pt0TGa+sJ5O54kl+ln7VnNVSZs+/e+76c=;
-        b=OZ8LbNGNCIJaasjczocrU2FkayeKyBWTFsKv+lrJ7BLPzzEmqX25NreOZSTWgT00La
-         tHNIMHrupuUrlhAdTCT9zlS/0qb9Zl0hbKerpDTX6oGyO32VtmpkcIXH1UI0ti653wKV
-         ix0ht6DX7qCv2kJ34RoKNGl+OF/rFufspFjj331cZ0kPhXTF/+atyC8yWbZ5QnzRvL2i
-         1hxXQ+O24WlYHTFXt2H8JEtgvOfATzxAsuKKFXjuCrlE2LdYedd51qNWOXDPvOZoOQg4
-         6XR9S1TAIfVN5T8JXwGGq9GmL4JmLt2MCMzd/9tUkZbQzM5ffXw57M6kKYL6PHwRVG49
-         ByDw==
-X-Forwarded-Encrypted: i=1; AJvYcCVX4qGMBBdOza4HcdUvmKU39a3unImCGj9u51+48wWHrDYBhD2E30A5j57t1Ub4NJOTPrUJzXaWS3a8Dex+xH77@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywl51n2Pv+sHUhLNvlTKRCWsSDn9/G/gPClIb18mSs+akwo940w
-	7J5GochU/wdfXIHRTdgXgKAjlqyYaLtd7IyrDUGnkY4LAVezkqp1seH0JGKJLyg=
-X-Gm-Gg: ASbGncvjcotTkyCAKdLRZAj0hC6k/YLYHJdksiwFbJ74RWR44OIN0AYcxchVnKR0fpP
-	KLPoBebcA/FUOtZgNlz5/8z7NR/6rgjyqzQzWupny6DNfWieunL7ZOez0ZoLvQjcmFrVDL5AxOG
-	XZprPe4Q+8vArc+ZbIoF5+ClUOdaN4Q8hzdo8sQBNzNHl6x1sVVV1qbwxJFZF2fo/WlwT3yyMrg
-	fxcHEtq8lthC4yMScrKKGtGF005YBgU1mwOWJxMtg==
-X-Google-Smtp-Source: AGHT+IE4Z97WqPTY6whDYYFojroLMECZvQLJmvdqsAduNjh17iqwixHR8OU1x0n8ZEx4yAwnePdiwQ==
-X-Received: by 2002:a05:600c:4e8b:b0:431:93d8:e1a1 with SMTP id 5b1f17b1804b1-434a9df1f34mr200128515e9.27.1733149939226;
-        Mon, 02 Dec 2024 06:32:19 -0800 (PST)
+        bh=7AFVILEGG6inA8zYmU/doFUBGD/IkzUATf3B1mIzQMQ=;
+        b=uAViIPITC/Wod/FkuUJJOhJl7PhfBVZS7fIdhSgfV0ECskZAtuTRBWtVcMN9eJCPPb
+         mkZ3+YJrR7DDuhPvwMDqHkbwGAEU7WzzaAJ/z8wvsjQ9fofsQhSzmXcq/PQNxAqee9Uz
+         6aPdIeQRGdZrxfPWiUsGkmjfHVzxUfPuiY/gwXx4fKbdyV9sgO2li1/mdRrZv+BbrYPY
+         4h7un1fupIYLkbx6dUR9CSF5huFdeLTPelfnvStV+bK5B8ZpUzio/q3awrtXxNTiujDg
+         ldns/490vGl47/9hIQoJPwhwFC4bIqROdDqLYCO0Hi0jUpREsH3jnlDot7xlWASxX6rl
+         P/sQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX8ncx4Z5PnYiusl5v1EuuzCs6S2X1Tj8JtbiqEbkepqrO9W5RMYYUxlObboOxyEY5jciDbaw6WmM1JdtEtLP95@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/j5ZROtni+aDB4sEh/D8AFv92YgPRYBlxKKArm5jyduVJ4gtz
+	h7ianKCzwZ7e6qZt00HWfe7+DDP28cqByQiYBIfG8oGNml/m/EOMsGIDyIMZOJ4=
+X-Gm-Gg: ASbGncu19twsAuQs6o96cZw3grDpVPLoAuS1blUMB5dfs+Mbz9TzVbC5ZvmzFBr39Oy
+	SIzDH2KqBmpAvLv4UqEXA/NsdbOfqsu0zc7tm3ZPosQZfZsWOfbEO/BmPFh9dp+uw3PvlV0g2wN
+	HzdOaN3L2IAQLlgNH4uAwc91jJ8rBieOLl29PQlJL4/EJa+an+RvbhoCMRmkc/Kke/TyhYD2nFc
+	dCANz9svMGuV0DKkpNExVavWRNkRM3Othzn2Ne8/g==
+X-Google-Smtp-Source: AGHT+IEh8wUvPPp6fmiu8qi70G2dLIyR2cy0B8DQH6XpxZjumKSN1WVLLU9bXrhtMfH6hCylA9amQQ==
+X-Received: by 2002:a05:6000:4024:b0:385:e4a7:df07 with SMTP id ffacd0b85a97d-385e4a7e08dmr6305010f8f.42.1733149937090;
+        Mon, 02 Dec 2024 06:32:17 -0800 (PST)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-434aa74f1e6sm188429555e9.9.2024.12.02.06.32.18
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-434aa74f1e6sm188429555e9.9.2024.12.02.06.32.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Dec 2024 06:32:18 -0800 (PST)
+        Mon, 02 Dec 2024 06:32:16 -0800 (PST)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Mon, 02 Dec 2024 14:31:57 +0000
-Subject: [PATCH 4/7] arm64: dts: broadcom: Fix device tree warnings for
- BCM2712 display pipeline
+Date: Mon, 02 Dec 2024 14:31:55 +0000
+Subject: [PATCH 2/7] dtbindings: display: Fix BCM2835 HVS bindings for
+ BCM2712
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241202-dt-bcm2712-fixes-v1-4-fac67cc2f98a@raspberrypi.com>
+Message-Id: <20241202-dt-bcm2712-fixes-v1-2-fac67cc2f98a@raspberrypi.com>
 References: <20241202-dt-bcm2712-fixes-v1-0-fac67cc2f98a@raspberrypi.com>
 In-Reply-To: <20241202-dt-bcm2712-fixes-v1-0-fac67cc2f98a@raspberrypi.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -111,8 +111,8 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-gpio@vger.kernel.org, Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_143220_712811_6A7D1403 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20241202_143221_208213_EB9F19B4 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,55 +127,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fixes up errors on HDMI and interrupt controllers that weren't
-noticed before merging.
+The previous patch adding the compatible string missed out that
+the number of interrupts and clocks changed with BCM2712 too.
 
-Fixes: de9bc2dba3db ("arm64: dts: broadcom: Add display pipeline support to BCM2712")
+Update to validate clock and interrupts for the variants.
+
+Fixes: 6cfcbe548a3a ("dt-bindings: display: Add BCM2712 HVS bindings")
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ .../bindings/display/brcm,bcm2835-hvs.yaml         | 77 +++++++++++++++++-----
+ 1 file changed, 61 insertions(+), 16 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-index 39305e0869ec..f42fad2d8b37 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-@@ -336,7 +336,7 @@ ddc1: i2c@7d508280 {
- 			#size-cells = <0>;
- 		};
+diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+index f91c9dce2a44..ab59edbcf32c 100644
+--- a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
++++ b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+@@ -19,12 +19,13 @@ properties:
+   reg:
+     maxItems: 1
  
--		bsc_irq: intc@7d508380 {
-+		bsc_irq: interrupt-controller@7d508380 {
- 			compatible = "brcm,bcm7271-l2-intc";
- 			reg = <0x7d508380 0x10>;
- 			interrupts = <GIC_SPI 242 IRQ_TYPE_LEVEL_HIGH>;
-@@ -344,7 +344,7 @@ bsc_irq: intc@7d508380 {
- 			#interrupt-cells = <1>;
- 		};
+-  interrupts:
+-    maxItems: 1
++  interrupts: true
  
--		main_irq: intc@7d508400 {
-+		main_irq: interrupt-controller@7d508400 {
- 			compatible = "brcm,bcm7271-l2-intc";
- 			reg = <0x7d508400 0x10>;
- 			interrupts = <GIC_SPI 244 IRQ_TYPE_LEVEL_HIGH>;
-@@ -352,7 +352,7 @@ main_irq: intc@7d508400 {
- 			#interrupt-cells = <1>;
- 		};
+-  clocks:
+-    maxItems: 1
+-    description: Core Clock
++  interrupt-names: true
++
++  clocks: true
++
++  clock-names: true
  
--		hdmi0: hdmi@7ef00700 {
-+		hdmi0: hdmi@7c701400 {
- 			compatible = "brcm,bcm2712-hdmi0";
- 			reg = <0x7c701400 0x300>,
- 			      <0x7c701000 0x200>,
-@@ -381,7 +381,7 @@ hdmi0: hdmi@7ef00700 {
- 			ddc = <&ddc0>;
- 		};
+ required:
+   - compatible
+@@ -33,17 +34,61 @@ required:
  
--		hdmi1: hdmi@7ef05700 {
-+		hdmi1: hdmi@7c706400 {
- 			compatible = "brcm,bcm2712-hdmi1";
- 			reg = <0x7c706400 0x300>,
- 			      <0x7c706000 0x200>,
+ additionalProperties: false
+ 
+-if:
+-  properties:
+-    compatible:
+-      contains:
+-        enum:
+-          - brcm,bcm2711-hvs
+-          - brcm,bcm2712-hvs
+-
+-then:
+-  required:
+-    - clocks
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: brcm,bcm2711-hvs
++
++    then:
++      properties:
++        clocks:
++          items:
++            - description: Core Clock
++
++      required:
++        - clocks
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: brcm,bcm2712-hvs
++
++    then:
++      properties:
++        clocks:
++          maxItems: 2
++        clock-names:
++          items:
++            - const: core
++            - const: disp
++        interrupts:
++          items:
++            - description: Channel 0 End of frame
++            - description: Channel 1 End of frame
++            - description: Channel 2 End of frame
++        interrupt-names:
++          items:
++            - const: ch0-eof
++            - const: ch1-eof
++            - const: ch2-eof
++      required:
++        - clocks
++        - clock-names
++        - interrupt-names
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: brcm,bcm2835-hvs
++
++    then:
++      properties:
++        interrupts:
++          maxItems: 1
+ 
+ examples:
+   - |
 
 -- 
 2.34.1
