@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85EB9D10DB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 07:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B5A5D10DB4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 07:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7hNJpGuTc3/rYKS53bsFYQIckkwK3MXNB6qlUliODKU=; b=SRqArWJ1ob6nUmxnqxryqhmK7C
-	rMrNs1C9iQWxLLLO9B1KzptlI1jXjXEsiNngcjUK7Pr7fJnQFdgOjxethtaalkvyNc/Kj2NiByoFx
-	2kneHEedgu2inOuxU2Hn+fQGuNa58X9lBdVk2kkQpOKFPb+GitMTMqqR2Am+lOZJ90piDX4uiWw3j
-	WGD9gjT/Q9xhfdFOudpCCGOJvTfWcf4OSxyg9WYo/1Pm6IKdIDFrPEhlRGIIrtCoJOi9/9xXaEujN
-	I8K5fG45Zy7SqO5TayWgLg9eA+umeTgQyhdoBirJiLTf1Rx7BEgP1GzPt2aLiwzKlFfrq+RT9VMQC
-	zDz4z7Ew==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j60eV0RDWpIwo/6h35ZqVsbEzvZp+/wceYsBxRYHttU=; b=1PCYIALJjxN9jikH/Rm5rtVdo1
+	7tRiCcAnQVnrZepJymfN7hJDCPXpCtL3drKEmuffoBA4vJZ3U83OGrYxnFUD8EDAkCC3No6/MjK0M
+	v5E6bwu9lteVf1p/XRKJmGGKKuDwEfomLr0BAD5r26kGeoqj9owZtdIrrOyFhj2EjujgtCOeHggRI
+	DjTWTDN4KGpgmZoHi66tqGFJ90sZqfIY5wC5GLKc0rTalTh/YZuJpBUQgCxk6D+3LlUmvpBL3j462
+	I1OywB3cdsA4L43Mh6RSXLJ8ZTVtB3l2DAg6ioKibhKP5uJLttqPTmZgeOiYEHKpyTjLCTUJURbsL
+	WeDW8Ohw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI0m8-00000005H0N-2zu0;
-	Mon, 02 Dec 2024 07:23:20 +0000
+	id 1tI0n6-00000005HF0-1Ow7;
+	Mon, 02 Dec 2024 07:24:20 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI0k9-00000005GON-2FG3
+	id 1tI0k9-00000005GOQ-2FMH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 07:21:19 +0000
+	Mon, 02 Dec 2024 07:21:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=7hNJpGuTc3/rYKS53bsFYQIckkwK3MXNB6qlUliODKU=; b=kQMJhEtZbjvgyNfewkNxNaK2lZ
-	5FDzotMG7mBgaWA1+RgGRTse8Tc5zLGbcbaaHF3JJxgHt9CFJBBlENhEDgBbojd9GvOMkxewatDGa
-	3+BFnBNPXB7Irvg+lgz/WRKgNR4gvhuoKrhL58hHP1CTB4c4kU7bsbJe2CnIt6Z+wSfGc9+d31WlK
-	WXYIVxUNFnBLscnrXStpeAvsOtI1+j8JKILF/cUuhHVsI2U7rgP7vdi1yRdkwhcbEbntakTWhW5ju
-	lP0LbsxiQyP/pjRehNW+9c0vXkRJd8pdfjFSc4sS8SdxIub5bKCFZ8HDJ+lv8c4S83aYmRxniKc+O
-	jHdTeyXA==;
+	bh=j60eV0RDWpIwo/6h35ZqVsbEzvZp+/wceYsBxRYHttU=; b=RZzZt9vQzISA7TfQ/XdmsgdjDa
+	1vIlqm69BOBIsCDduCMBaO3+YeaDvk5B9zxGi4wwvrFk8jLZbI7ldPNtfO2Q0TKaM51SlMmyVwTzE
+	7Y6L7IeAONjH3eC3OdUpn8jBWgZ9AIgHPRHhZR8zIp12GmeNp4hQvI9FD6EuOR9huHgXJtE9bGC6u
+	3sHOF3Hksx4xQY+T+kn4znl0WIxe5e0iwTa+QkQdYVPH7MAIAAxVfk/HBXtapr3L1LyUZjQ4kEvfH
+	ApwJAN2iLxq3bvgnJ2xB49EgEVmo6jBAavB0MXC84X/kHVmCfGXpO5bfqfQ1Axur22zugYAJxyPlF
+	vHohSiuQ==;
 Received: from [89.212.21.243] (port=53766 helo=and-HP-Z4..)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <andrej.picej@norik.com>)
-	id 1tI0k4-007Bva-2L;
+	id 1tI0k4-007Bva-2g;
 	Mon, 02 Dec 2024 08:21:12 +0100
 From: Andrej Picej <andrej.picej@norik.com>
 To: shawnguo@kernel.org,
@@ -58,10 +58,12 @@ Cc: imx@lists.linux.dev,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v2 00/15] Update PHYTEC's i.MX8MM DTSs
-Date: Mon,  2 Dec 2024 08:20:37 +0100
-Message-Id: <20241202072052.2195283-1-andrej.picej@norik.com>
+Subject: [PATCH v2 01/15] arm64: dts: imx8mm-phycore-som: Keep LDO3 on in suspend
+Date: Mon,  2 Dec 2024 08:20:38 +0100
+Message-Id: <20241202072052.2195283-2-andrej.picej@norik.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241202072052.2195283-1-andrej.picej@norik.com>
+References: <20241202072052.2195283-1-andrej.picej@norik.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -75,8 +77,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_232118_034814_65BA6938 
-X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-CacheID: sfid-20241201_232118_039487_BEBA0DC4 
+X-CRM114-Status: UNSURE (   7.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,70 +94,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+From: Teresa Remmet <t.remmet@phytec.de>
 
-these patches aim to get PHYTEC downstream kernel device-tree changes
-into the mainline for the phyCORE-i.MX8MM SoM and boards (phyBOARD-Polis
-and phyGATE-Tauri-L).
+LDO3 is also used as switch for enabling VDD_3V3_S and need to
+be kept on during suspend. Disabling this can lead to an unwanted
+reset during resume.
 
-Changes mainly fix suspending/resuming with different wakeup-sources and
-add missing regulators. Last 4 patches add additional overlays. Some are
-meant to be used with PHYTEC's "option tree" to add/disable optional SoM
-components (idea behind it is outlined in [1]).
+Set LDO3 to 2,5V as the voltage should be fix.
 
-[1] https://lore.kernel.org/all/4e7dd467-20be-43ce-936d-200ede6d511b@phytec.de/
+Signed-off-by: Teresa Remmet <t.remmet@phytec.de>
+Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+---
+Changes in v2:
+ - no change
+---
+ arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-v1 at: https://lore.kernel.org/all/20241125081814.397352-1-andrej.picej@norik.com/
-v2 changes in corresponding patches.
-
-Best regards,
-Andrej
-
-Andrej Picej (3):
-  arm64: dts: imx8mm-phycore-som: Fix bluetooth wakeup source
-  arm64: dts: imx8mm-phyboard-polis: Set RTC as wakeup-source
-  arm64: dts: imx8mm-phygate-tauri-l: Set RTC as wakeup-source
-
-Dominik Haller (1):
-  arm64: dts: imx8mm-phycore-som: Add overlay for rproc
-
-Janine Hagemann (1):
-  arm64: dts: imx8mm-phyboard-polis: Add overlay for PEB-EVAL-01
-
-Teresa Remmet (5):
-  arm64: dts: imx8mm-phycore-som: Keep LDO3 on in suspend
-  arm64: dts: imx8mm-phycore-som: Remove magic-packet property
-  arm64: dts: imx8mm-phyboard-polis: Add support for PEB-AV-10
-  arm64: dts: imx8mm-phycore-som: Add no-eth phy overlay
-  arm64: dts: imx8mm-phycore-som: Add overlay to disable SPI NOR flash
-
-Yannic Moog (3):
-  arm64: dts: imx8mm-phycore-som: add descriptions to nodes
-  arm64: dts: imx8mm-phyboard-polis: add RTC description
-  arm64: dts: imx8mm: move bulk of rtc properties to carrierboards
-
-Yashwanth Varakala (2):
-  arm64: dts: imx8mm-phycore-som: Assign regulator for dsi to lvds
-    bridge
-  arm64: dts: imx8mm-phyboard-polis: Assign missing regulator for
-    bluetooth
-
- arch/arm64/boot/dts/freescale/Makefile        |  13 +
- .../imx8mm-phyboard-polis-peb-av-10.dtso      | 237 ++++++++++++++++++
- .../imx8mm-phyboard-polis-peb-eval-01.dtso    |  72 ++++++
- .../freescale/imx8mm-phyboard-polis-rdk.dts   |  17 +-
- .../dts/freescale/imx8mm-phycore-no-eth.dtso  |  12 +
- .../freescale/imx8mm-phycore-no-spiflash.dtso |  16 ++
- .../dts/freescale/imx8mm-phycore-rpmsg.dtso   |  55 ++++
- .../dts/freescale/imx8mm-phycore-som.dtsi     |  22 +-
- .../dts/freescale/imx8mm-phygate-tauri-l.dts  |  11 +
- 9 files changed, 439 insertions(+), 16 deletions(-)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-eval-01.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-phycore-no-eth.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-phycore-no-spiflash.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso
-
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
+index 6069678244f3..7761acc5c510 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
+@@ -161,11 +161,13 @@ reg_vcc_enet: ldo3 {
+ 				regulator-always-on;
+ 				regulator-boot-on;
+ 				regulator-max-microvolt = <2500000>;
+-				regulator-min-microvolt = <1500000>;
++				regulator-min-microvolt = <2500000>;
+ 				regulator-name = "VCC_ENET_2V5 (LDO3)";
+ 
+ 				regulator-state-mem {
+-					regulator-off-in-suspend;
++					regulator-on-in-suspend;
++					regulator-suspend-max-microvolt = <2500000>;
++					regulator-suspend-min-microvolt = <2500000>;
+ 				};
+ 			};
+ 
 -- 
 2.34.1
 
