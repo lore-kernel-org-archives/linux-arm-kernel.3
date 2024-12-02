@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545F6D78321
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF38D78321
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CW1aacJ0mFJRIkpynR1RmOPjbIDojCjRczJbiOkg8q4=; b=EOZLU3lcucn+gzfJHdWgzHg93T
-	SlgkdV5k2PCYKS4OZSsHi0SxAE0sjS9AOPfC6qnfe+7ULdg2NCO2jnvNulMWCQnO66KlDOp7VHyKR
-	GDTrvNUGbuA9P7N6A+guU1UYblndAImRdl99kgxOlQUKpd18eOryKK1Fqz0Tx3halXi8PnEzerCYc
-	L4CSi5rxq3woWh8UNe0U8bkc0a2aGs6A93BZ3DHaeyRWrsQcLCy1XFLqF7Lot6loreMw2bZqQIkHD
-	ElLrH3qXJD292pIGZ/GEXlByA/f+qN+2xP1lIMTQx7uHqJG0wmKcDiSN4H/cv0bXeCevzl8zfqT2D
-	dLUaIKLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YIziuh6HhH3MiEkt0k6A+2SHY8YnugDlGidsCQhzxg0=; b=CvdPeacdOSBk2A5GaB+X5XGbrT
+	tESERS+YfR3CILpgfAbWMqLeEe71RQjWMVmVzSEt9NuxDCm1vQL2yKQKl5FQ1DegO4mMoEvawK/jp
+	oTzOxf4nAbt5ndVCIfe3V9bT40DpcOsxO6/d82SqyMG1IZN4/KaezgIiEwunksGaYvoUTN0H3njNU
+	0sMsIQlAWOOmq67R2ahm25myWRoF0g8mOrCzwgvjA0R1C1WOqH81nzxeyX6X4GgIME1hbwcytfY+M
+	RSbTdSrOw9zBOFgHmcwHYTEBZzfJPSopPuFNAeSLL/SgVFa0LtCtmgbc7fwz50Zymyf9aOWEPGWNA
+	RIFDKdiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6uo-00000006Jlg-3SLm;
-	Mon, 02 Dec 2024 13:56:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tI6vm-00000006K21-1vP7;
+	Mon, 02 Dec 2024 13:57:42 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6tp-00000006JVU-0fZN
+	id 1tI6uA-00000006JZc-3E33
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 13:55:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EA83D5C57C0
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Dec 2024 13:54:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7876C4CED1
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Dec 2024 13:55:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733147739;
-	bh=dq4Jh03jp7zUkTIngyjCfTLx54OmCwD9dBaqhm8rzgc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=dAhUjGrFy+t0yWWW6wifd5lVcxk0seADD3UyqN+n6WrxU4siwWAXkxY0RSQkK4IBg
-	 ffHcOtmEeAI6kcooy1Akm6nf8cYga9IZVNclTQjCz6I1VtnHTLPZUHz1XIqj9xcirb
-	 8a0XvfL8BdASvcF85mpbA+PWKxtByeR3uRetd9zOJpLhSVNFrACsDtCu6RBaDcn71c
-	 1ejZtWmth3fYcfOEfRognRByzojQLwBijpmecZlRNXu77gxqRkifux8dZS1jTGV1DX
-	 P0u5iZ384qeHuLTkDWrRPSluGAUS1WI67s/gj3yOCoU46LfUi1fUciG2NQocFSpWCL
-	 0eY4HkMHwaTGQ==
-Received: by mail-yb1-f173.google.com with SMTP id 3f1490d57ef6-e399f8bb391so1370607276.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 05:55:39 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVIJtkMzsT+rFM6E5KhqhNJfCXOKNiZ1bWpDrRO8Sxvps1Nq5tDnPkVPBR7bacngEV7NGsWZAik01lu4jNe11U/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yymgb2hIf/1V02gYcpa9TAc/pR+pcecGDP8E4PJHYPb0w1Oyqoa
-	6OY6e73oLyoTitgl8NfoAG/qUzFrI08QTWzxoJobcJWSTCUmbMDpmpvUaWLGOhETx+qsPAmvH2z
-	AHC4uFD1SBxm1Mt0SwzJXxiV3Xw==
-X-Google-Smtp-Source: AGHT+IEloSJqy4rZ6DCnksDhtDtEDdsyojNs8gKu6ZzXmsQp5EfloUDQsNAE4mivTYgMThyDNwRd9UClK2iTfoC/vNE=
-X-Received: by 2002:a05:6902:160b:b0:e39:8b94:16e6 with SMTP id
- 3f1490d57ef6-e398b941c20mr12631670276.39.1733147738911; Mon, 02 Dec 2024
- 05:55:38 -0800 (PST)
+	Mon, 02 Dec 2024 13:56:07 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Y24xF28Y3z1V5Rk;
+	Mon,  2 Dec 2024 21:53:05 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 59A13180087;
+	Mon,  2 Dec 2024 21:55:59 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Mon, 2 Dec 2024 21:55:58 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
+	<oliver.upton@linux.dev>, <corbet@lwn.net>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>, <linux-doc@vger.kernel.org>
+CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
+	<shuah@kernel.org>, <jonathan.cameron@huawei.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>
+Subject: [PATCH 5/5] KVM: arm64: Handle DABT caused by LS64* instructions on unsupported memory
+Date: Mon, 2 Dec 2024 21:55:04 +0800
+Message-ID: <20241202135504.14252-6-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20241202135504.14252-1-yangyicong@huawei.com>
+References: <20241202135504.14252-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-References: <20241028084644.3778081-1-peng.fan@oss.nxp.com>
- <20241115062005.6ifvr6ens2qnrrrf@thinkpad> <PAXPR04MB8459D1507CA69498D8C38E0488242@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <20241115144720.ovsyq2ani47norby@thinkpad> <20241127195650.GA4132105-robh@kernel.org>
- <20241202092902.rp6xb3f64llpabbi@thinkpad>
-In-Reply-To: <20241202092902.rp6xb3f64llpabbi@thinkpad>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 2 Dec 2024 07:55:27 -0600
-X-Gmail-Original-Message-ID: <CAL_Jsq+R39jtCeDecpEHbKq+4N-uirMQmsuNG1NaVe1Vnnnv3Q@mail.gmail.com>
-Message-ID: <CAL_Jsq+R39jtCeDecpEHbKq+4N-uirMQmsuNG1NaVe1Vnnnv3Q@mail.gmail.com>
-Subject: Re: [PATCH] PCI: check bridge->bus in pci_host_common_remove
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Peng Fan <peng.fan@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, 
-	Will Deacon <will@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
-	"open list:PCI DRIVER FOR GENERIC OF HOSTS" <linux-pci@vger.kernel.org>, 
-	"moderated list:PCI DRIVER FOR GENERIC OF HOSTS" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_055541_290388_AA47E2C4 
-X-CRM114-Status: GOOD (  55.97  )
+X-CRM114-CacheID: sfid-20241202_055602_994221_D0937A7E 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,151 +75,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 2, 2024 at 3:29=E2=80=AFAM Manivannan Sadhasivam
-<manivannan.sadhasivam@linaro.org> wrote:
->
-> On Wed, Nov 27, 2024 at 01:56:50PM -0600, Rob Herring wrote:
-> > On Fri, Nov 15, 2024 at 08:17:20PM +0530, Manivannan Sadhasivam wrote:
-> > > On Fri, Nov 15, 2024 at 10:14:10AM +0000, Peng Fan wrote:
-> > > > Hi Manivannan,
-> > > >
-> > > > > Subject: Re: [PATCH] PCI: check bridge->bus in
-> > > > > pci_host_common_remove
-> > > > >
-> > > > > On Mon, Oct 28, 2024 at 04:46:43PM +0800, Peng Fan (OSS) wrote:
-> > > > > > From: Peng Fan <peng.fan@nxp.com>
-> > > > > >
-> > > > > > When PCI node was created using an overlay and the overlay is
-> > > > > > reverted/destroyed, the "linux,pci-domain" property no longer e=
-xists,
-> > > > > > so of_get_pci_domain_nr will return failure. Then
-> > > > > > of_pci_bus_release_domain_nr will actually use the dynamic IDA,
-> > > > > even
-> > > > > > if the IDA was allocated in static IDA. So the flow is as below=
-:
-> > > > > > A: of_changeset_revert
-> > > > > >     pci_host_common_remove
-> > > > > >      pci_bus_release_domain_nr
-> > > > > >        of_pci_bus_release_domain_nr
-> > > > > >          of_get_pci_domain_nr      # fails because overlay is g=
-one
-> > > > > >          ida_free(&pci_domain_nr_dynamic_ida)
-> > > > > >
-> > > > > > With driver calls pci_host_common_remove explicity, the flow
-> > > > > becomes:
-> > > > > > B pci_host_common_remove
-> > > > > >    pci_bus_release_domain_nr
-> > > > > >     of_pci_bus_release_domain_nr
-> > > > > >      of_get_pci_domain_nr      # succeeds in this order
-> > > > > >       ida_free(&pci_domain_nr_static_ida)
-> > > > > > A of_changeset_revert
-> > > > > >    pci_host_common_remove
-> > > > > >
-> > > > > > With updated flow, the pci_host_common_remove will be called
-> > > > > twice, so
-> > > > > > need to check 'bridge->bus' to avoid accessing invalid pointer.
-> > > > > >
-> > > > > > Fixes: c14f7ccc9f5d ("PCI: Assign PCI domain IDs by ida_alloc()=
-")
-> > > > > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> > > > >
-> > > > > I went through the previous discussion [1] and I couldn't see an
-> > > > > agreement on the point raised by Bjorn on 'removing the host brid=
-ge
-> > > > > before the overlay'.
-> > > >
-> > > > This patch is an agreement to Bjorn's idea.
-> > > >
-> > > > I have added pci_host_common_remove to remove host bridge
-> > > > before removing overlay as I wrote in commit log.
-> > > >
-> > > > But of_changeset_revert will still runs into pci_host_
-> > > > common_remove to remove the host bridge again. Per
-> > > > my view, the design of of_changeset_revert to remove
-> > > > the device tree node will trigger device remove, so even
-> > > > pci_host_common_remove was explicitly used before
-> > > > of_changeset_revert. The following call to of_changeset_revert
-> > > > will still call pci_host_common_remove.
-> > > >
-> > > > So I did this patch to add a check of 'bus' to avoid remove again.
-> > > >
-> > >
-> > > Ok. I think there was a misunderstanding. Bjorn's example driver,
-> > > 'i2c-demux-pinctrl' applies the changeset, then adds the i2c adapter =
-for its
-> > > own. And in remove(), it does the reverse.
-> > >
-> > > But in your case, the issue is with the host bridge driver that gets =
-probed
-> > > because of the changeset. While with 'i2c-demux-pinctrl' driver, it o=
-nly
-> > > applies the changeset. So we cannot compare both drivers. I believe i=
-n your
-> > > case, 'i2c-demux-pinctrl' becomes 'jailhouse', isn't it?
-> > >
-> > > So in your case, changeset is applied by jailhouse and that causes th=
-e
-> > > platform device to be created for the host bridge and then the host b=
-ridge
-> > > driver gets probed. So during destroy(), you call of_changeset_revert=
-() that
-> > > removes the platform device and during that process it removes the ho=
-st bridge
-> > > driver. The issue happens because during host bridge remove, it calls
-> > > pci_remove_root_bus() and that tries to remove the domain_nr using
-> > > pci_bus_release_domain_nr().
-> > >
-> > > But pci_bus_release_domain_nr() uses DT node to check whether to free=
- the
-> > > domain_nr from static IDA or dynamic IDA. And because there is no DT =
-node exist
-> > > at this time (it was already removed by of_changeset_revert()), it fo=
-rces
-> > > pci_bus_release_domain_nr() to use dynamic IDA even though the IDA wa=
-s initially
-> > > allocated from static IDA.
-> >
-> > Putting linux,pci-domain in an overlay is the same problem as aliases i=
-n
-> > overlays[1]. It's not going to work well.
-> >
-> > IMO, you can have overlays, or you can have static domains. You can't
-> > have both.
-> >
->
-> Okay.
->
-> > > I think a neat way to solve this issue would be by removing the OF no=
-de only
-> > > after removing all platform devices/drivers associated with that node=
-. But I
-> > > honestly do not know whether that is possible or not. Otherwise, any =
-other
-> > > driver that relies on the OF node in its remove() callback, could suf=
-fer from
-> > > the same issue. And whatever fix we may come up with in PCI core, it =
-will be a
-> > > band-aid only.
-> > >
-> > > I'd like to check with Rob first about his opinion.
-> >
-> > If the struct device has an of_node set, there should be a reference
-> > count on that node. But I think that only prevents the node from being
-> > freed. It does not prevent the overlay from being detached. This is one
-> > of many of the issues with overlays Frank painstakingly documented[2].
-> >
->
-> Ah, I do remember this page as Frank ended up creating it based on my
-> continuous nudge to add CONFIG_FS interface for applying overlays.
->
-> So why are we applying overlays in kernel now?
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-That's been the case for some time. Mostly it's been for fixups of old
-to new bindings, but those all got dropped at some point. The in
-kernel users are very specific use cases where we know something about
-what's in the overlay. In contrast, configfs interface allows for any
-change to any node or property with no control over it by the kernel.
-Never say never, but I just don't see that ever happening upstream.
+FEAT_LS64* instructions only support to access Device/Uncacheable
+memory, otherwise a data abort for unsupported Exclusive or atomic
+access (0x35) is generated per spec. It's implementation defined
+whether the target exception level is routed and is possible to
+implemented as route to EL2 on a VHE VM. Per DDI0487K.a Section
+C3.2.12.2 Single-copy atomic 64-byte load/store:
 
-Rob
+  The check is performed against the resulting memory type after all
+  enabled stages of translation. In this case the fault is reported
+  at the final enabled stage of translation.
+
+If it's implemented as generate the DABT to the final enabled stage
+(stage-2), inject a DABT to the guest to handle it.
+
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ arch/arm64/kvm/mmu.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index c9d46ad57e52..b7e6f0a27537 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1787,6 +1787,20 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 		return 1;
+ 	}
+ 
++	/*
++	 * If instructions of FEAT_{LS64, LS64_V, LS64_ACCDATA} operated on
++	 * unsupported memory regions, a DABT for unsupported Exclusive or
++	 * atomic access is generated. It's implementation defined whether
++	 * the exception will be taken to, a stage-1 DABT or the final enabled
++	 * stage of translation (stage-2 in this case as we hit here). Inject
++	 * a DABT to the guest to handle it if it's implemented as a stage-2
++	 * DABT.
++	 */
++	if (esr_fsc_is_excl_atomic_fault(esr)) {
++		kvm_inject_dabt(vcpu, kvm_vcpu_get_hfar(vcpu));
++		return 1;
++	}
++
+ 	trace_kvm_guest_fault(*vcpu_pc(vcpu), kvm_vcpu_get_esr(vcpu),
+ 			      kvm_vcpu_get_hfar(vcpu), fault_ipa);
+ 
+-- 
+2.24.0
+
 
