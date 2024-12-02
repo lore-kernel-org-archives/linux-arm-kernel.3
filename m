@@ -4,72 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28244D78305
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:33:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD39D78306
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bxf7ptTN3ZmAyqiKVcm3TU75y1Lyq7wLy3EsFVgDkGI=; b=gC8+Vm5adnZfX+PBRStDp1OErF
-	XRWhlHOWGBt+Apmn77WMU+pKYRWCYJQVY5i5Y9AIfoVA9NlLnK1D69f3+bURNE32UN78v6uo4YFoo
-	7fzuprvMXjqMhdxLy0xDZMYiwHxQQtG7PymE3QLK+9HMelwhtEAh1STZTGi5TzJe5TEn3sZwLY6Ps
-	qvf6XfMx48XXZig7vKx1KDmDzJcyPZy/K8LbG6ESmdmmMp3FebAcJiTEUXid+fbOhodFZ3tf4d8LR
-	GoOy3CmLuMr/ooz9UP+kBf6rv2SgtpNRdB3v64Nw2OgwelmKdd7WUlkzWcuX+p4KygRFCxqkmMtqO
-	GBiLP7Tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jP25TYUqJwcL/fuEV7RObAqteQ/sd95uJofPv025g0s=; b=eUZzqXgPOXEtE7uy8Xxomg/NMB
+	CzbuGW1EW+9uIPQGqD2tMLtA7UemCYJwA1XWCyZRCfybaIPbRh9Zg/lwn3Ak2wLBzjVFrj6ezxkhE
+	ZjvAoIbhrSrDk+b40u0YuwecBsI8JgEqavWedzgLo43KK4Sv0FTpNHxtrQxH7xT9ZyL6P2XpBhve7
+	u9psC/uxhh+sQtGXgJy89nkz9wYvARuNjzf8iZl+2mRpCdkc7eh4+C0ONRBHwSHg4D9px7Q5VWnf7
+	V6j2hmPz7Voj/A9IjEUvzQ02ozn49sC2TWcdySUH1gg9Nv/HbJGX2sHUX5WLyDCus4583IInb34C1
+	wKooo7og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3kF-00000005kAh-2oV8;
-	Mon, 02 Dec 2024 10:33:35 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tI3rX-00000005ktR-3LGO;
+	Mon, 02 Dec 2024 10:41:07 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3j7-00000005juw-11an
+	id 1tI3qY-00000005klK-3AOY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 10:32:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 21149A409EA;
-	Mon,  2 Dec 2024 10:30:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5FD1C4CED1;
-	Mon,  2 Dec 2024 10:32:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733135544;
-	bh=YNX+vtim4wPZJIk1OfZDjYYPEiiBQR0VOr9a8vWD2QI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I63s1N3zfrfrbvkEfMtGs435oMJwprLnFVwyqZGSUHQWnx0D/JaOjCQ2O+6PPA9C9
-	 EwC7O5rtJBaZR4eUArUUJ/+7q1n2WALsdEnRHSGva1EHwPg7yiSmpFoYO3Ep7q43/S
-	 lUQBDtk2TfOpunkcn61IIS95BWSHPFP58kc8MuLbJNZYRAgmEKwpADKq16qXNLIze5
-	 CtluBevWFNMxVf4Hitg8FJ3kRLoWWrRY5L5fXdTdSu3u51+1OR1L4CxpTFWeaAiVkW
-	 AuRFHNnIWMVJMQpstRhHlGboHN8bBbyOJ23v/riDQPRs9jYYkeDjbHimeZy/UcUKtf
-	 2vaNkplqCFosQ==
-Date: Mon, 2 Dec 2024 11:32:21 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Sean Nyekjaer <sean@geanix.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Yannick Fertre <yannick.fertre@foss.st.com>, Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
-	Philippe Cornu <philippe.cornu@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
- helper function
-Message-ID: <20241202-nickel-rottweiler-of-hail-c9ec8b@houat>
-References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
- <20241125-dsi-relax-v2-1-9113419f4a40@geanix.com>
- <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
- <bfuj6w6hsbfpdw24th6dl3ugvj45op6jb45gx5ab5pulud7hiz@o2zbn45z3lt4>
- <tzcjzgp7xalhhezcv5hfa7cjscxg44phqcw2ap54lesly4gk6o@6dtco2d3jahj>
+	Mon, 02 Dec 2024 10:40:07 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2ffa12ad18cso43068341fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 02:40:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733136004; x=1733740804; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=jP25TYUqJwcL/fuEV7RObAqteQ/sd95uJofPv025g0s=;
+        b=sYfidnwPLl1Ou0ren6R2XQYKecD9l8fEbYe4NbZBz8eFfpcOSXj5aKNdjZG6wjRXa1
+         UiAo6O/k1/qndKYXsQqV3wsgTPavCXbgwJiMey3cNIL9m1IvsEfyNfuRVB2oW6+AxHtt
+         gAvZhor6QTXiLA9TPkVDfmtEoEs+jPplGtgOKhdOYHOd2w96hMpvWhJss5sRJ+WQ2wQ0
+         D3pQR4umBwS0XLuHJkFQabmf88M5TNhj6fhVUt0QQaLRqGh28lL90w2Kkp99pjtKbPXW
+         +eSD6DLgGM9kis+r2XIJvHI2O9JxWqEmBW4/u4ngmd0PEbxIs0bfkkuxb5ntMG/L6fUV
+         paQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733136004; x=1733740804;
+        h=content-transfer-encoding:in-reply-to:organization:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jP25TYUqJwcL/fuEV7RObAqteQ/sd95uJofPv025g0s=;
+        b=t6bqr9EhI59sPxqDipuLr2dRcjswj3APzEHUwWbhWtpQolGfC475wxm3I6qx1HIO67
+         H+SUzq0QaEeIMd3FA/iCXSiGqcWlcpMuvg2XeHC8Uq/Kv9MpHG3Rt1us9h6M3FEgKxaw
+         l9coVeSdB7E60aXznk1K6e+Szkhjzi9P8xWHnoiWtRB0K0P2DfN+6+U/NtlI76wmw92d
+         /f/MqK9XsbBNLI7qyUsuscTKzmy8EHtSq/1krKNE3Xlfok5gj2KpF5bsmW8bGU8lflxy
+         pRoXzshkjvLOCSR03kLJSyZI96nIyZgGxqTlym+VB5Z9oOyjUdsbKBVVum8YII7R7WKs
+         Uvcw==
+X-Forwarded-Encrypted: i=1; AJvYcCWljuIoJkIOs3lqNyI3LmDUpVyDsnFnI26YAcNlaPjTv9sc76PUYjj0AMNFKQVInBwwMTYYI1dIBrnGVpEJn4wU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyszBzC0tOeRe2Txw6c1X4//G77PfKO4ca4Kbvj+uby7oDe+23G
+	+2RJZg1xcRGRul1gTwu8IyFcR8KRXeZN1ePvqBXNHUQjiwKJ+gLXwUPW+6PcQgk=
+X-Gm-Gg: ASbGncvYe+89pKm0cm6jSuRzlRLc3lRiIaqg1Yf685AllpJ2dwLPHVN8WTLhql1MqHo
+	xFOODBTrePK3grDc05WLBRevqSmkaIVyn+QsLhc+sxg/lyGUaB73NLeitVgFujR63FVS+0bH0GJ
+	xJQH/jhZxf10pvy3qnWOR5XIUW1SmqZjEnT02qHSQ9El6mXAFYceAYVwvaRo/VNCkn1ZuWJ8Orz
+	YW1VEKBtHQtGoTlWdzaHhYtBVVyr4zxV4tMXnIQT8aaeJemqHLtQo4R2yQb5WfIe+Vf6VS9VgFA
+	ilwLVvQHmfavxOSnyGaqRWlHSExL
+X-Google-Smtp-Source: AGHT+IG8o/j6bnKJ+zKrlKTnEYo13Y0X3dZZFejDWDKGBLT2LAuwWFwKmgOXvNqPPtyC3J1B7R4CZg==
+X-Received: by 2002:a2e:a54b:0:b0:2fb:8777:7359 with SMTP id 38308e7fff4ca-2ffd611bf55mr110031081fa.39.1733136004456;
+        Mon, 02 Dec 2024 02:40:04 -0800 (PST)
+Received: from [192.168.210.26] (83.11.10.28.ipv4.supernova.orange.pl. [83.11.10.28])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ffdfbef7a3sm12397121fa.45.2024.12.02.02.40.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Dec 2024 02:40:04 -0800 (PST)
+Message-ID: <b50376c7-c5d5-41ae-95ea-e2d68c1cc809@linaro.org>
+Date: Mon, 2 Dec 2024 11:40:01 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="ivbwnrarbwqca5xp"
-Content-Disposition: inline
-In-Reply-To: <tzcjzgp7xalhhezcv5hfa7cjscxg44phqcw2ap54lesly4gk6o@6dtco2d3jahj>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: rockchip: enable rng on all rk356x
+To: Dragan Simic <dsimic@manjaro.org>, Peter Robinson <pbrobinson@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <a> <20241201234613.52322-1-pbrobinson@gmail.com>
+ <302bdae2f4defeefe88ea4018a0be11f@manjaro.org>
+From: Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>
+Content-Language: pl-PL, en-GB
+Organization: Linaro
+In-Reply-To: <302bdae2f4defeefe88ea4018a0be11f@manjaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_023225_410714_1CA8558A 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20241202_024006_800612_C000F68E 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,72 +104,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+W dniu 2.12.2024 o 04:55, Dragan Simic pisze:
+ > On 2024-12-02 00:46, Peter Robinson wrote:
+ >> The rk356x rng is available on both the rk3566 and rk3568
+ >> parts, the IP is all self contained within the SoCs so
+ >> it's enabled already by default on rk3568 so let's enable
+ >> it in the base rk356x.dtsi so it's enabled consistently
+ >> everywhere.
+ >
+ > Please, go through the mailing list threads [1][2] that have led us
+ > to the current state.  To sum it up, it isn't about what's supported
+ > in the two RK356x SoC variants, but about the RK3566's HWRNG being
+ > disabled because the testing showed that it produces unacceptably
+ > low quality of random data, for some yet unknown reason.
 
---ivbwnrarbwqca5xp
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
- helper function
-MIME-Version: 1.0
-
-On Tue, Nov 26, 2024 at 02:30:53PM +0100, Sean Nyekjaer wrote:
-> Hi Maxime,
->=20
-> On Tue, Nov 26, 2024 at 08:36:01AM +0100, Sean Nyekjaer wrote:
-> > Hi Maxime,
-> >=20
->=20
-> [...]
->=20
-> > >=20
-> > > We probably need some kunit tests here too.
-> >=20
-> > Good idea, will be my first :)
-> >=20
->=20
-> Would something like this work?
->=20
-> diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers=
-/gpu/drm/tests/drm_hdmi_state_helper_test.c
-> index 294773342e71..26e4ff02df85 100644
-> --- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-> +++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-> @@ -1364,6 +1364,7 @@ static void drm_test_check_output_bpc_format_displa=
-y_rgb_only(struct kunit *test
->  	struct drm_connector_state *conn_state;
->  	struct drm_display_info *info;
->  	struct drm_display_mode *preferred;
-> +	enum drm_mode_status mode_status;
->  	unsigned long long rate;
->  	struct drm_connector *conn;
->  	struct drm_device *drm;
-> @@ -1408,6 +1409,9 @@ static void drm_test_check_output_bpc_format_displa=
-y_rgb_only(struct kunit *test
->  	rate =3D drm_hdmi_compute_mode_clock(preferred, 12, HDMI_COLORSPACE_YUV=
-422);
->  	KUNIT_ASSERT_LT(test, rate, info->max_tmds_clock * 1000);
-> =20
-> +	mode_status =3D drm_mode_check_pixel_clock(preferred, rate);
-> +	KUNIT_ASSERT_EQ(test, mode_status, MODE_OK);
-> +
-
-Not really. You need to test that function, and ideally only that
-function, with a bunch of random inputs, including the error conditions.
-
-Maxime
-
---ivbwnrarbwqca5xp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ02MtAAKCRAnX84Zoj2+
-dsuWAX0eSysvVggNKHnyuBE+8Rz7YOBscN6mBZYUgtssEAyp5cpCoqjzQx8yMf5Z
-kDz+dB8Bf2t8VtXvAAOtTW5epqM0PuPE2F67EoJN+5eQBc95ywPDx51OucBNqL3Y
-Ja65ubL3mg==
-=gqfV
------END PGP SIGNATURE-----
-
---ivbwnrarbwqca5xp--
+So maybe there should be a comment in rockchip/rk3568.dtsi so we would 
+not get back to it again.
 
