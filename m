@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68285E69E9A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 22:17:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6320AE69E9A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 22:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a+HxGE/akY8xFsa0vByPOSLkEXZdmbwnQnIPbdbsMjw=; b=J8WeQKe9zGWonvx27+uY7SnJQX
-	DlVzVhj/MPx1WO6PDrVb+dwAcF6impKj2+uzV8EEIKX5Gu+ymE7DeTskzT1m2/+4+YJpEu3qn3WUS
-	vk+eQ/Ce4u2GP6KAYgfWle9VmvS+qKP4B4tMakRCvtBojG9r/vcQ2Yx6a3owYTQj1WvCqC//+xLXz
-	YlyTegjcN+rJvxQjx9UsN1/+NuMnLqbg/0du8EvI7/UNRCOaBv6nr3Tp5FTc3RAcT/j65uLzY4+vS
-	Q/0Idwe9/nD+XtDkocXMl/90mzLDJMpZA8GtJBwvjBU1StO3ZMw8XZ7M7jJM2FZJwVdmF7N4PS6Ek
-	4npUuWoQ==;
+	bh=XlO2AsznqGHvnCu1qZjIsNLjWqOeodvd8IUDNjUrjpQ=; b=MI+IXI9xt9MSM8pdOb7PeHjp8P
+	fgJtYWWVy9DPI8j/Xr5bIEY1VSlhvMRtizh6rcS7jA1fwYqV6kh2191SsbjkJnuJRLV32itkicUxW
+	/di/sXe5XcPVLPpF4vEzwTHI8sgB2sKHD+At0Wm88PByo5f+F+SReVfFfYHbja85k5FYLXtP2RZc7
+	bVI9FbgZmOs8T/QS2kzPvxIXwAIX0/J+feqVXnPg7MLT/Y1qCp4RdAqmEAkkK9Rx7EzmogvNbMQTC
+	lYTF02IzYCnVZk6hTKB9DdJzOd1qwCjbj0INnkatj7nwc0NNB5kfD2NkUf/01qL6+JGPF2NOjbipb
+	iYdO8o8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIEjh-00000007cGe-0Dg6;
-	Mon, 02 Dec 2024 22:17:45 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tIEke-00000007cPB-2hlZ;
+	Mon, 02 Dec 2024 22:18:44 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIEWD-00000007ZgZ-3fiE
+	id 1tIEWD-00000007Zfl-0OX0
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Dec 2024 22:03:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5D077A41385;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 370F1A4137F;
 	Mon,  2 Dec 2024 22:01:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DF175C4AF10;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BF8D1C4AF66;
 	Mon,  2 Dec 2024 22:03:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1733177025;
-	bh=AnO4R5j10w0FZih8smewfXdNr/fzYaVAE8TD7GxYUsA=;
+	bh=hRTYBgd5aMrqxBD9zYQNvdPGPWcLGVS6g40811SQlp8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=c3u3ZQ3j/+UvUZNRbxr/0rLA0C0b0yoDN79b46U/VcwDRDqXyCMH9ZhSdXsz5mRCF
-	 UaM5S1R1HQIRW4hJC/sleJK/lYQeBNVQDUvd5Czlbl516echx0LdQvFhkmHQy0VYEo
-	 pggzcENWeILAHIa6xM0nGgu0xWDc8SnEaJxfy7S8DyYvog94ldLzSgaRQZzH5v9zFH
-	 E2nhLnwFFMRsQz12nVUiN4to4nC8E0OsTeOQShrpnSO2cXjsombpnbotvs6Df5rrUG
-	 KdYNEheV5sfEZPKUHgUo53LnJ/CmHK4yFa55m5Gox7GT78Pv7vaZv8wwo037rNnI4q
-	 GSS6AEaE4sUgQ==
+	b=aJlFNFOcOE0uG4vbLmfuOXnmFQtUGRNhbrsalGR94bWMVtYanbuORS3irLV74VBgc
+	 FlSu8zp9jLqJIEsiBvr6GiVZOYdTac4Pxex6zQ+V0zfr5UNegrI6lK5m8fwkYR9CJI
+	 ArR/bnXT/8NkB9Fr+aRKL6KjCli/DjBMPZjZHeCb3EjfTz+vojTfpIa7N8BkHHjugp
+	 AZFhRrrF5W6+6lifx9NO8P25RxLoTgIf1p4+Lvg8AyaZzkrfqlUep0221ue+GvAqvE
+	 4fWyVvxufK3AZGsbX+zQYR/SiQIqyxRaZfZJf7euranEno6pp11cFJ9Qebp0BHeiZW
+	 76NY8cXoId2Ow==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C5ACCE69E9B;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A75BEE69E97;
 	Mon,  2 Dec 2024 22:03:45 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Mon, 02 Dec 2024 23:03:53 +0100
-Subject: [PATCH net-next v7 14/15] net: stmmac: dwmac-s32: add basic NXP
- S32G/S32R glue driver
+Date: Mon, 02 Dec 2024 23:03:52 +0100
+Subject: [PATCH net-next v7 13/15] dt-bindings: net: Add DT bindings for
+ DWMAC on NXP S32G/R SoCs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241202-upstream_s32cc_gmac-v7-14-bc3e1f9f656e@oss.nxp.com>
+Message-Id: <20241202-upstream_s32cc_gmac-v7-13-bc3e1f9f656e@oss.nxp.com>
 References: <20241202-upstream_s32cc_gmac-v7-0-bc3e1f9f656e@oss.nxp.com>
 In-Reply-To: <20241202-upstream_s32cc_gmac-v7-0-bc3e1f9f656e@oss.nxp.com>
 To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
@@ -83,19 +83,19 @@ Cc: linux-stm32@st-md-mailman.stormreply.com,
  0x1207@gmail.com, fancer.lancer@gmail.com, 
  "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1733177022; l=7205;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733177022; l=4096;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=qUYNPbDOjNkOyElyWl7BlSsQNIBb0+hkETF3fWGpFIs=;
- b=NRwwqIFLSLDRWVtaEY+U4k3Z0VspGg5na1mXQdB2vWtPdgJdhOJyUf1ESKV+7z0ZllRndSHBl
- l64C5mBb8i8CZU2drxEs3Fn54ZOTBuIMC7W4Z8PVUDqz7L/7tRh/0/1
+ bh=HHjvFK+MHmQc/THlQijGySkp22UNi4Qf+z7YD0xfSdU=;
+ b=CMtyvGEcz3oJ2RWs/sHx7na0935CqSyW5Rk4GQslIviTURRU2zvcw3tTeDczQvuPi6IWIq+L5
+ SANRZgK19n/BtZhgdYUMLcGkdw8yaqJfRw44ok++Arrt/Jmo+dBQmYY
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
  auth_id=217
 X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_140350_080996_312C6A79 
-X-CRM114-Status: GOOD (  22.59  )
+X-CRM114-CacheID: sfid-20241202_140349_274247_AF83BB4F 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,248 +113,139 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-NXP S32G2xx/S32G3xx and S32R45 are automotive grade SoCs
-that integrate one or two Synopsys DWMAC 5.10/5.20 IPs.
+Add basic description for DWMAC ethernet IP on NXP S32G2xx, S32G3xx
+and S32R45 automotive series SoCs.
 
-The basic driver supports only RGMII interface.
-
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/Kconfig     |  12 ++
- drivers/net/ethernet/stmicro/stmmac/Makefile    |   1 +
- drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c | 189 ++++++++++++++++++++++++
- 3 files changed, 202 insertions(+)
+ .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 105 +++++++++++++++++++++
+ .../devicetree/bindings/net/snps,dwmac.yaml        |   1 +
+ 2 files changed, 106 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 6658536a4e17..4cc85a36a1ab 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -154,6 +154,18 @@ config DWMAC_RZN1
- 	  the stmmac device driver. This support can make use of a custom MII
- 	  converter PCS device.
- 
-+config DWMAC_S32
-+	tristate "NXP S32G/S32R GMAC support"
-+	default ARCH_S32
-+	depends on OF && (ARCH_S32 || COMPILE_TEST)
-+	help
-+	  Support for ethernet controller on NXP S32CC SOCs.
-+
-+	  This selects NXP SoC glue layer support for the stmmac
-+	  device driver. This driver is used for the S32CC series
-+	  SOCs GMAC ethernet controller, ie. S32G2xx, S32G3xx and
-+	  S32R45.
-+
- config DWMAC_SOCFPGA
- 	tristate "SOCFPGA dwmac support"
- 	default ARCH_INTEL_SOCFPGA
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index 2389fd261344..b26f0e79c2b3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -22,6 +22,7 @@ obj-$(CONFIG_DWMAC_MESON)	+= dwmac-meson.o dwmac-meson8b.o
- obj-$(CONFIG_DWMAC_QCOM_ETHQOS)	+= dwmac-qcom-ethqos.o
- obj-$(CONFIG_DWMAC_ROCKCHIP)	+= dwmac-rk.o
- obj-$(CONFIG_DWMAC_RZN1)	+= dwmac-rzn1.o
-+obj-$(CONFIG_DWMAC_S32)		+= dwmac-s32.o
- obj-$(CONFIG_DWMAC_SOCFPGA)	+= dwmac-altr-socfpga.o
- obj-$(CONFIG_DWMAC_STARFIVE)	+= dwmac-starfive.o
- obj-$(CONFIG_DWMAC_STI)		+= dwmac-sti.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+diff --git a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
 new file mode 100644
-index 000000000000..1853a6b26e46
+index 000000000000..2b8b74c5feec
 --- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-@@ -0,0 +1,189 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * NXP S32G/R GMAC glue layer
-+ *
-+ * Copyright 2019-2024 NXP
-+ *
-+ */
++++ b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+@@ -0,0 +1,105 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++# Copyright 2021-2024 NXP
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/nxp,s32-dwmac.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/clk.h>
-+#include <linux/clk-provider.h>
-+#include <linux/device.h>
-+#include <linux/ethtool.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of_mdio.h>
-+#include <linux/of_address.h>
-+#include <linux/phy.h>
-+#include <linux/phylink.h>
-+#include <linux/platform_device.h>
-+#include <linux/stmmac.h>
++title: NXP S32G2xx/S32G3xx/S32R45 GMAC ethernet controller
 +
-+#include "stmmac_platform.h"
++maintainers:
++  - Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 +
-+#define GMAC_TX_RATE_125M	125000000	/* 125MHz */
++description:
++  This device is a Synopsys DWC IP, integrated on NXP S32G/R SoCs.
++  The SoC series S32G2xx and S32G3xx feature one DWMAC instance,
++  the SoC S32R45 has two instances. The devices can use RGMII/RMII/MII
++  interface over Pinctrl device or the output can be routed
++  to the embedded SerDes for SGMII connectivity.
 +
-+/* SoC PHY interface control register */
-+#define PHY_INTF_SEL_MII	0x00
-+#define PHY_INTF_SEL_SGMII	0x01
-+#define PHY_INTF_SEL_RGMII	0x02
-+#define PHY_INTF_SEL_RMII	0x08
++properties:
++  compatible:
++    oneOf:
++      - const: nxp,s32g2-dwmac
++      - items:
++          - enum:
++              - nxp,s32g3-dwmac
++              - nxp,s32r45-dwmac
++          - const: nxp,s32g2-dwmac
 +
-+struct s32_priv_data {
-+	void __iomem *ioaddr;
-+	void __iomem *ctrl_sts;
-+	struct device *dev;
-+	phy_interface_t *intf_mode;
-+	struct clk *tx_clk;
-+	struct clk *rx_clk;
-+};
++  reg:
++    items:
++      - description: Main GMAC registers
++      - description: GMAC PHY mode control register
 +
-+static int s32_gmac_write_phy_intf_select(struct s32_priv_data *gmac)
-+{
-+	writel(PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
++  interrupts:
++    maxItems: 1
 +
-+	dev_dbg(gmac->dev, "PHY mode set to %s\n", phy_modes(*gmac->intf_mode));
++  interrupt-names:
++    const: macirq
 +
-+	return 0;
-+}
++  clocks:
++    items:
++      - description: Main GMAC clock
++      - description: Transmit clock
++      - description: Receive clock
++      - description: PTP reference clock
 +
-+static int s32_gmac_init(struct platform_device *pdev, void *priv)
-+{
-+	struct s32_priv_data *gmac = priv;
-+	int ret;
++  clock-names:
++    items:
++      - const: stmmaceth
++      - const: tx
++      - const: rx
++      - const: ptp_ref
 +
-+	ret = clk_set_rate(gmac->tx_clk, GMAC_TX_RATE_125M);
-+	if (!ret)
-+		ret = clk_prepare_enable(gmac->tx_clk);
++required:
++  - clocks
++  - clock-names
 +
-+	if (ret) {
-+		dev_err(&pdev->dev, "Can't set tx clock\n");
-+		return ret;
-+	}
++allOf:
++  - $ref: snps,dwmac.yaml#
 +
-+	ret = clk_prepare_enable(gmac->rx_clk);
-+	if (ret) {
-+		clk_disable_unprepare(gmac->tx_clk);
-+		dev_err(&pdev->dev, "Can't set rx clock\n");
-+		return ret;
-+	}
++unevaluatedProperties: false
 +
-+	ret = s32_gmac_write_phy_intf_select(gmac);
-+	if (ret) {
-+		clk_disable_unprepare(gmac->tx_clk);
-+		clk_disable_unprepare(gmac->rx_clk);
-+		dev_err(&pdev->dev, "Can't set PHY interface mode\n");
-+		return ret;
-+	}
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/phy/phy.h>
++    bus {
++      #address-cells = <2>;
++      #size-cells = <2>;
 +
-+	return 0;
-+}
++      ethernet@4033c000 {
++        compatible = "nxp,s32g2-dwmac";
++        reg = <0x0 0x4033c000 0x0 0x2000>, /* gmac IP */
++              <0x0 0x4007c004 0x0 0x4>;    /* GMAC_0_CTRL_STS */
++        interrupt-parent = <&gic>;
++        interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
++        interrupt-names = "macirq";
++        snps,mtl-rx-config = <&mtl_rx_setup>;
++        snps,mtl-tx-config = <&mtl_tx_setup>;
++        clocks = <&clks 24>, <&clks 17>, <&clks 16>, <&clks 15>;
++        clock-names = "stmmaceth", "tx", "rx", "ptp_ref";
++        phy-mode = "rgmii-id";
++        phy-handle = <&phy0>;
 +
-+static void s32_gmac_exit(struct platform_device *pdev, void *priv)
-+{
-+	struct s32_priv_data *gmac = priv;
++        mtl_rx_setup: rx-queues-config {
++          snps,rx-queues-to-use = <5>;
++        };
 +
-+	clk_disable_unprepare(gmac->tx_clk);
-+	clk_disable_unprepare(gmac->rx_clk);
-+}
++        mtl_tx_setup: tx-queues-config {
++          snps,tx-queues-to-use = <5>;
++        };
 +
-+static void s32_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
-+{
-+	struct s32_priv_data *gmac = priv;
-+	long tx_clk_rate;
-+	int ret;
++        mdio {
++          #address-cells = <1>;
++          #size-cells = <0>;
++          compatible = "snps,dwmac-mdio";
 +
-+	tx_clk_rate = rgmii_clock(speed);
-+	if (tx_clk_rate < 0) {
-+		dev_err(gmac->dev, "Unsupported/Invalid speed: %d\n", speed);
-+		return;
-+	}
-+
-+	dev_dbg(gmac->dev, "Set tx clock to %ld Hz\n", tx_clk_rate);
-+	ret = clk_set_rate(gmac->tx_clk, tx_clk_rate);
-+	if (ret)
-+		dev_err(gmac->dev, "Can't set tx clock\n");
-+}
-+
-+static int s32_dwmac_probe(struct platform_device *pdev)
-+{
-+	struct plat_stmmacenet_data *plat;
-+	struct device *dev = &pdev->dev;
-+	struct stmmac_resources res;
-+	struct s32_priv_data *gmac;
-+	int ret;
-+
-+	gmac = devm_kzalloc(&pdev->dev, sizeof(*gmac), GFP_KERNEL);
-+	if (!gmac)
-+		return -ENOMEM;
-+
-+	gmac->dev = &pdev->dev;
-+
-+	ret = stmmac_get_platform_resources(pdev, &res);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "Failed to get platform resources\n");
-+
-+	plat = devm_stmmac_probe_config_dt(pdev, res.mac);
-+	if (IS_ERR(plat))
-+		return dev_err_probe(dev, PTR_ERR(plat),
-+				     "dt configuration failed\n");
-+
-+	/* PHY interface mode control reg */
-+	gmac->ctrl_sts = devm_platform_get_and_ioremap_resource(pdev, 1, NULL);
-+	if (IS_ERR(gmac->ctrl_sts))
-+		return dev_err_probe(dev, PTR_ERR(gmac->ctrl_sts),
-+				     "S32CC config region is missing\n");
-+
-+	/* tx clock */
-+	gmac->tx_clk = devm_clk_get(&pdev->dev, "tx");
-+	if (IS_ERR(gmac->tx_clk))
-+		return dev_err_probe(dev, PTR_ERR(gmac->tx_clk),
-+				     "tx clock not found\n");
-+
-+	/* rx clock */
-+	gmac->rx_clk = devm_clk_get(&pdev->dev, "rx");
-+	if (IS_ERR(gmac->rx_clk))
-+		return dev_err_probe(dev, PTR_ERR(gmac->rx_clk),
-+				     "rx clock not found\n");
-+
-+	gmac->intf_mode = &plat->phy_interface;
-+	gmac->ioaddr = res.addr;
-+
-+	/* S32CC core feature set */
-+	plat->has_gmac4 = true;
-+	plat->pmt = 1;
-+	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
-+	plat->rx_fifo_size = 20480;
-+	plat->tx_fifo_size = 20480;
-+
-+	plat->init = s32_gmac_init;
-+	plat->exit = s32_gmac_exit;
-+	plat->fix_mac_speed = s32_fix_mac_speed;
-+
-+	plat->bsp_priv = gmac;
-+
-+	return stmmac_pltfr_probe(pdev, plat, &res);
-+}
-+
-+static const struct of_device_id s32_dwmac_match[] = {
-+	{ .compatible = "nxp,s32g2-dwmac" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, s32_dwmac_match);
-+
-+static struct platform_driver s32_dwmac_driver = {
-+	.probe = s32_dwmac_probe,
-+	.remove = stmmac_pltfr_remove,
-+	.driver = {
-+		.name = "s32-dwmac",
-+		.pm = &stmmac_pltfr_pm_ops,
-+		.of_match_table = s32_dwmac_match,
-+	},
-+};
-+module_platform_driver(s32_dwmac_driver);
-+
-+MODULE_AUTHOR("Jan Petrous (OSS) <jan.petrous@oss.nxp.com>");
-+MODULE_DESCRIPTION("NXP S32G/R common chassis GMAC driver");
-+MODULE_LICENSE("GPL");
-+
++          phy0: ethernet-phy@0 {
++            reg = <0>;
++          };
++        };
++      };
++    };
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index eb1f3ae41ab9..91e75eb3f329 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -67,6 +67,7 @@ properties:
+         - ingenic,x2000-mac
+         - loongson,ls2k-dwmac
+         - loongson,ls7a-dwmac
++        - nxp,s32g2-dwmac
+         - qcom,qcs404-ethqos
+         - qcom,sa8775p-ethqos
+         - qcom,sc8280xp-ethqos
 
 -- 
 2.47.0
