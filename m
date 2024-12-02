@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60955D78339
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5379DD7833A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:33:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sq8pDON9yx5CVLp53CmtmGVBi5oQwjgXkn+7DN4FuP0=; b=hZ7YNK6vFKonsjZs7M9+OjN9lM
-	pzP+P25N+IRhQhCrWKRMM2w73iVr4RYxVd3KubFWrPWemV7COCaPROT+zctQyclw5mvqE79sQqddj
-	FnIMYpCO3fDPhIRKx99s+nZBZ9uwF0JuG3btUSJch6xDpzibiqQ5KuBCzoR74FbS7OJB8dJdgEb5t
-	8uuumUX4BzhXrWGAu85gtGJFZ4XWPQPDvIYFKgXar6dZNKlGtYWhknufSiNQoo5ADfR9qGsSYXCgz
-	64SIGktYX1XVyCDv25ZR8IIO1PZ9Uci7PbcPIHiw+zyKPlgVf8QEMiAtpCdUGvkeBjNtO1efiNuBp
-	WFJV4AQA==;
+	bh=fKMpB5r/I5KY+jaN0RFmA4IHj/JXTsxbFfUyDVXDBn0=; b=jgP33NCAoQSUpulq/v0sGZXJNW
+	k6jomY0RU2YmjjIEgOeJ1ulUkP5GaLIt2C5De29ofUcUywmwoyu60VjI95iYUazA/fBUnc9BB1A9v
+	wCRTbTUM+Jy9oNI20C0bqfXOwIYE6inJIvKZxj2iFiVfVod47h19P/jaoxCJrod98uYov7s0PqMwW
+	KA1dEfcpGpLf12JysCgW2KqfxJ06UmAloCcMypLvxZ4OXpX/zwNvU9POpTOUxg7C/JJi4zbOSeFFC
+	uHmCI/p6MRIkoic2vfCgNffqwgWl6pH39+i3/FllPqDSMhk8R1VsvT3h85aaOP6lVf+GUMZhbNlZy
+	I40CZtWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIAFV-000000071C7-2lKS;
-	Mon, 02 Dec 2024 17:30:17 +0000
+	id 1tIAIO-000000071dy-2CMs;
+	Mon, 02 Dec 2024 17:33:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIA7u-00000006zzY-1mcy
+	id 1tIA7v-0000000700e-3Dt7
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Dec 2024 17:22:26 +0000
+	Mon, 02 Dec 2024 17:22:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=Sq8pDON9yx5CVLp53CmtmGVBi5oQwjgXkn+7DN4FuP0=; b=a6xktJMwlPAObuWDsV0U+q/rFV
-	GHdt5dlfEVRk22s/uRcccPEUC5t0RUhZsmJWfu3iYph5p4U5VKmmLxJK1/LEtePWDy/RBveHAaCkL
-	9LwKxO9LiOIVZkLsIU6nlElE/6ac3eJBuZrfgLELUarP0zE1AGXMtTf9tcmXkHxjcMg3b2vdPvwFm
-	dm8Es7f1tYwOsw55LRjSnZ6f8gDJJ3ZEzgVIzfQxDQa0vLBk4A88YyC1ecZRiqLPHWxpzvqyqoju7
-	zhq9ulk9/RhAPIw9I9ZCQj7mlS37NWV0hzLOipWYA+W6v6wX/NQZEWXk48d8Tyv0HxODd0QpK4My5
-	e5qGNe+g==;
+	bh=fKMpB5r/I5KY+jaN0RFmA4IHj/JXTsxbFfUyDVXDBn0=; b=fipjQWPJFCjvvBjzby/HFuULdn
+	4IXpshLG7zNOUcJhXjNuEu5OyR7roPWD/BMnuIVRA1EaKILMOLLaIco8IXxT3oU8xEGeMitDxXYZP
+	P7bmb6sENJwBOCT39SkormNpkfZeADoPAYYHPQxonGLkGTEP5xKrQjU+vkfMzntZV3M++mzMwYVI0
+	HxpVAlvJ+LXlSCLK4kBste42Ctm0AiOMIZOYNIyq36fll7MewAY8Q9v3iy6tKLZkvWSiq9hP/eey5
+	r3QMe8biTCXnFCsT7PXCV5HpHmKwIb2wDsVc8xqjoO0FZVzcU9RjqWyRwwfEJTIirAJLXGB6e4Hxc
+	iNbamyWg==;
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIA7p-00000002D6p-2yuF
+	id 1tIA7q-00000002D6w-3q64
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 17:22:24 +0000
+	Mon, 02 Dec 2024 17:22:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8553D5C4A04;
-	Mon,  2 Dec 2024 17:21:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E2E0C4CED6;
-	Mon,  2 Dec 2024 17:22:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6D8215C57B4;
+	Mon,  2 Dec 2024 17:21:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40CF8C4CED1;
+	Mon,  2 Dec 2024 17:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733160138;
-	bh=42QPzG6jqI1WKcHLJXMq8RvCPT15C7DIifzJ6603+4M=;
+	s=k20201202; t=1733160139;
+	bh=d0OVGALV9EL3RmlbVg9qcHbPiwRgVMx9tdZ7QRWENWQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Z2FHhOeZP2Idsb/L6YCuFU+YVD3F7cmdvreTg4CExRhUMhqMmkuGkvDWUGwxetNYS
-	 a2IVdIiWNL3QT3KGIyBozwQTrCZw0LUX5p1zlwOZbQHobMYj2vvsz7yXzCJRCYiiAS
-	 uJ5aHFrlUHZsjefbwMasLW9ZKTeeOXnUhMLcxJ2mAVw/aqknphUibQ9XDmSq98PylD
-	 ACEk4RGSLraCc2Dc+mVdUW3eMhuV1xkeUpa7eY/PaHzD4K1eHZ+ageHu+4qkjDWeyx
-	 OCFQQgGjVN8VPGIw1dI9vh0BGMOjOnU+Ch98f08WUEkLlMsd95AWrEJSd/Kyc9coIu
-	 emPEwUfhR9lVw==
+	b=MqcITScSTDZNbauRSj6PsBCkUBmgF39q2HVjegYcl5mEoRfVD/JGlhsbBcL+uAUyC
+	 1Jt3A30Bxy9lcNT9Y52K5UrdT0AYDljZAKyZ6xjo4nt8PC4eCx7PE4Edn/oe1AQP29
+	 YPT4Ln8bK91MjC8STyjzRKm55z3qK1Vm8UPTZIzW/pLVd3Ctj/PE3S6R9UUKyQeTC1
+	 jIe3sWr4i/DVDD7h34u639ZL60tJyAPuqbX1Abdq0ODLFZd4KGFb2Mm/INaHiVK+II
+	 Pg7mIrlhobXLcA/N0bWx/QRSG3PgUy5bydHn23fT+stWBUdl1YJnWBDSHbsgWvy6Rg
+	 r9NreX7ehmGJA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tIA7j-00HQcf-Tx;
-	Mon, 02 Dec 2024 17:22:16 +0000
+	id 1tIA7l-00HQcf-Hn;
+	Mon, 02 Dec 2024 17:22:17 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -73,9 +73,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Bjorn Andersson <andersson@kernel.org>,
 	Christoffer Dall <christoffer.dall@arm.com>
-Subject: [PATCH 01/11] KVM: arm64: nv: Add handling of EL2-specific timer registers
-Date: Mon,  2 Dec 2024 17:21:24 +0000
-Message-Id: <20241202172134.384923-2-maz@kernel.org>
+Subject: [PATCH 09/11] KVM: arm64: nv: Propagate CNTHCTL_EL2.EL1NV{P,V}CT bits
+Date: Mon,  2 Dec 2024 17:21:32 +0000
+Message-Id: <20241202172134.384923-10-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241202172134.384923-1-maz@kernel.org>
 References: <20241202172134.384923-1-maz@kernel.org>
@@ -86,8 +86,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_172222_102230_E0EAFB30 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20241202_172223_164933_6E7B69A9 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,267 +102,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the required handling for EL2 and EL02 registers, as
-well as EL1 registers used in the E2H context. This includes
-handling the virtual timer accesses when CNTHCTL_EL2.EL1TVT
-or CNTHCTL_EL2.EL1TVCT are set.
+Allow a guest hypervisor to trap accesses to CNT{P,V}CT_EL02 by
+propagating these trap bits to the host trap configuration.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/sysreg.h      |   4 +
- arch/arm64/kvm/sys_regs.c            | 143 +++++++++++++++++++++++++++
- include/clocksource/arm_arch_timer.h |   2 +
- 3 files changed, 149 insertions(+)
+ arch/arm64/kvm/arch_timer.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index b8303a83c0bff..2ed33737c7a99 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -477,6 +477,7 @@
- #define SYS_CNTFRQ_EL0			sys_reg(3, 3, 14, 0, 0)
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index 2c4499dd63732..f4607c4f68d2e 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -822,6 +822,10 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
+ 	 * Apply the enable bits that the guest hypervisor has requested for
+ 	 * its own guest. We can only add traps that wouldn't have been set
+ 	 * above.
++	 * Implementation choices: we do not support NV when E2H=0 in the
++	 * guest, and we don't support configuration where E2H is writable
++	 * by the guest (either FEAT_VHE or FEAT_E2H0 is implemented, but
++	 * not both). This simplifies the handling of the EL1NV* bits.
+ 	 */
+ 	if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)) {
+ 		u64 val = __vcpu_sys_reg(vcpu, CNTHCTL_EL2);
+@@ -832,6 +836,9 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
  
- #define SYS_CNTPCT_EL0			sys_reg(3, 3, 14, 0, 1)
-+#define SYS_CNTVCT_EL0			sys_reg(3, 3, 14, 0, 2)
- #define SYS_CNTPCTSS_EL0		sys_reg(3, 3, 14, 0, 5)
- #define SYS_CNTVCTSS_EL0		sys_reg(3, 3, 14, 0, 6)
+ 		tpt |= !(val & (CNTHCTL_EL1PCEN << 10));
+ 		tpc |= !(val & (CNTHCTL_EL1PCTEN << 10));
++
++		tpt02 |= (val & CNTHCTL_EL1NVPCT);
++		tvt02 |= (val & CNTHCTL_EL1NVVCT);
+ 	}
  
-@@ -484,14 +485,17 @@
- #define SYS_CNTP_CTL_EL0		sys_reg(3, 3, 14, 2, 1)
- #define SYS_CNTP_CVAL_EL0		sys_reg(3, 3, 14, 2, 2)
- 
-+#define SYS_CNTV_TVAL_EL0		sys_reg(3, 3, 14, 3, 0)
- #define SYS_CNTV_CTL_EL0		sys_reg(3, 3, 14, 3, 1)
- #define SYS_CNTV_CVAL_EL0		sys_reg(3, 3, 14, 3, 2)
- 
- #define SYS_AARCH32_CNTP_TVAL		sys_reg(0, 0, 14, 2, 0)
- #define SYS_AARCH32_CNTP_CTL		sys_reg(0, 0, 14, 2, 1)
- #define SYS_AARCH32_CNTPCT		sys_reg(0, 0, 0, 14, 0)
-+#define SYS_AARCH32_CNTVCT		sys_reg(0, 1, 0, 14, 0)
- #define SYS_AARCH32_CNTP_CVAL		sys_reg(0, 2, 0, 14, 0)
- #define SYS_AARCH32_CNTPCTSS		sys_reg(0, 8, 0, 14, 0)
-+#define SYS_AARCH32_CNTVCTSS		sys_reg(0, 9, 0, 14, 0)
- 
- #define __PMEV_op2(n)			((n) & 0x7)
- #define __CNTR_CRm(n)			(0x8 | (((n) >> 3) & 0x3))
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 83c6b4a07ef56..986e63d4f9faa 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1412,26 +1412,146 @@ static bool access_arch_timer(struct kvm_vcpu *vcpu,
- 
- 	switch (reg) {
- 	case SYS_CNTP_TVAL_EL0:
-+		if (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu))
-+			tmr = TIMER_HPTIMER;
-+		else
-+			tmr = TIMER_PTIMER;
-+		treg = TIMER_REG_TVAL;
-+		break;
-+
-+	case SYS_CNTV_TVAL_EL0:
-+		if (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu))
-+			tmr = TIMER_HVTIMER;
-+		else
-+			tmr = TIMER_VTIMER;
-+		treg = TIMER_REG_TVAL;
-+		break;
-+
- 	case SYS_AARCH32_CNTP_TVAL:
-+	case SYS_CNTP_TVAL_EL02:
- 		tmr = TIMER_PTIMER;
- 		treg = TIMER_REG_TVAL;
- 		break;
-+
-+	case SYS_CNTV_TVAL_EL02:
-+		tmr = TIMER_VTIMER;
-+		treg = TIMER_REG_TVAL;
-+		break;
-+
-+	case SYS_CNTHP_TVAL_EL2:
-+		tmr = TIMER_HPTIMER;
-+		treg = TIMER_REG_TVAL;
-+		break;
-+
-+	case SYS_CNTHV_TVAL_EL2:
-+		tmr = TIMER_HVTIMER;
-+		treg = TIMER_REG_TVAL;
-+		break;
-+
- 	case SYS_CNTP_CTL_EL0:
-+		if (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu))
-+			tmr = TIMER_HPTIMER;
-+		else
-+			tmr = TIMER_PTIMER;
-+		treg = TIMER_REG_CTL;
-+		break;
-+
-+	case SYS_CNTV_CTL_EL0:
-+		if (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu))
-+			tmr = TIMER_HVTIMER;
-+		else
-+			tmr = TIMER_VTIMER;
-+		treg = TIMER_REG_CTL;
-+		break;
-+
- 	case SYS_AARCH32_CNTP_CTL:
-+	case SYS_CNTP_CTL_EL02:
- 		tmr = TIMER_PTIMER;
- 		treg = TIMER_REG_CTL;
- 		break;
-+
-+	case SYS_CNTV_CTL_EL02:
-+		tmr = TIMER_VTIMER;
-+		treg = TIMER_REG_CTL;
-+		break;
-+
-+	case SYS_CNTHP_CTL_EL2:
-+		tmr = TIMER_HPTIMER;
-+		treg = TIMER_REG_CTL;
-+		break;
-+
-+	case SYS_CNTHV_CTL_EL2:
-+		tmr = TIMER_HVTIMER;
-+		treg = TIMER_REG_CTL;
-+		break;
-+
- 	case SYS_CNTP_CVAL_EL0:
-+		if (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu))
-+			tmr = TIMER_HPTIMER;
-+		else
-+			tmr = TIMER_PTIMER;
-+		treg = TIMER_REG_CVAL;
-+		break;
-+
-+	case SYS_CNTV_CVAL_EL0:
-+		if (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu))
-+			tmr = TIMER_HVTIMER;
-+		else
-+			tmr = TIMER_VTIMER;
-+		treg = TIMER_REG_CVAL;
-+		break;
-+
- 	case SYS_AARCH32_CNTP_CVAL:
-+	case SYS_CNTP_CVAL_EL02:
- 		tmr = TIMER_PTIMER;
- 		treg = TIMER_REG_CVAL;
- 		break;
-+
-+	case SYS_CNTV_CVAL_EL02:
-+		tmr = TIMER_VTIMER;
-+		treg = TIMER_REG_CVAL;
-+		break;
-+
-+	case SYS_CNTHP_CVAL_EL2:
-+		tmr = TIMER_HPTIMER;
-+		treg = TIMER_REG_CVAL;
-+		break;
-+
-+	case SYS_CNTHV_CVAL_EL2:
-+		tmr = TIMER_HVTIMER;
-+		treg = TIMER_REG_CVAL;
-+		break;
-+
- 	case SYS_CNTPCT_EL0:
- 	case SYS_CNTPCTSS_EL0:
-+		if (is_hyp_ctxt(vcpu))
-+			tmr = TIMER_HPTIMER;
-+		else
-+			tmr = TIMER_PTIMER;
-+		treg = TIMER_REG_CNT;
-+		break;
-+
- 	case SYS_AARCH32_CNTPCT:
-+	case SYS_AARCH32_CNTPCTSS:
- 		tmr = TIMER_PTIMER;
- 		treg = TIMER_REG_CNT;
- 		break;
-+
-+	case SYS_CNTVCT_EL0:
-+	case SYS_CNTVCTSS_EL0:
-+		if (is_hyp_ctxt(vcpu))
-+			tmr = TIMER_HVTIMER;
-+		else
-+			tmr = TIMER_VTIMER;
-+		treg = TIMER_REG_CNT;
-+		break;
-+
-+	case SYS_AARCH32_CNTVCT:
-+	case SYS_AARCH32_CNTVCTSS:
-+		tmr = TIMER_VTIMER;
-+		treg = TIMER_REG_CNT;
-+		break;
-+
- 	default:
- 		print_sys_reg_msg(p, "%s", "Unhandled trapped timer register");
- 		return undef_access(vcpu, p, r);
-@@ -2901,11 +3021,17 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	AMU_AMEVTYPER1_EL0(15),
- 
- 	{ SYS_DESC(SYS_CNTPCT_EL0), access_arch_timer },
-+	{ SYS_DESC(SYS_CNTVCT_EL0), access_arch_timer },
- 	{ SYS_DESC(SYS_CNTPCTSS_EL0), access_arch_timer },
-+	{ SYS_DESC(SYS_CNTVCTSS_EL0), access_arch_timer },
- 	{ SYS_DESC(SYS_CNTP_TVAL_EL0), access_arch_timer },
- 	{ SYS_DESC(SYS_CNTP_CTL_EL0), access_arch_timer },
- 	{ SYS_DESC(SYS_CNTP_CVAL_EL0), access_arch_timer },
- 
-+	{ SYS_DESC(SYS_CNTV_TVAL_EL0), access_arch_timer },
-+	{ SYS_DESC(SYS_CNTV_CTL_EL0), access_arch_timer },
-+	{ SYS_DESC(SYS_CNTV_CVAL_EL0), access_arch_timer },
-+
- 	/* PMEVCNTRn_EL0 */
- 	PMU_PMEVCNTR_EL0(0),
- 	PMU_PMEVCNTR_EL0(1),
-@@ -3057,9 +3183,24 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 
- 	EL2_REG_VNCR(CNTVOFF_EL2, reset_val, 0),
- 	EL2_REG(CNTHCTL_EL2, access_rw, reset_val, 0),
-+	{ SYS_DESC(SYS_CNTHP_TVAL_EL2), access_arch_timer },
-+	EL2_REG(CNTHP_CTL_EL2, access_arch_timer, reset_val, 0),
-+	EL2_REG(CNTHP_CVAL_EL2, access_arch_timer, reset_val, 0),
-+
-+	{ SYS_DESC(SYS_CNTHV_TVAL_EL2), access_arch_timer },
-+	EL2_REG(CNTHV_CTL_EL2, access_arch_timer, reset_val, 0),
-+	EL2_REG(CNTHV_CVAL_EL2, access_arch_timer, reset_val, 0),
- 
- 	{ SYS_DESC(SYS_CNTKCTL_EL12), access_cntkctl_el12 },
- 
-+	{ SYS_DESC(SYS_CNTP_TVAL_EL02), access_arch_timer },
-+	{ SYS_DESC(SYS_CNTP_CTL_EL02), access_arch_timer },
-+	{ SYS_DESC(SYS_CNTP_CVAL_EL02), access_arch_timer },
-+
-+	{ SYS_DESC(SYS_CNTV_TVAL_EL02), access_arch_timer },
-+	{ SYS_DESC(SYS_CNTV_CTL_EL02), access_arch_timer },
-+	{ SYS_DESC(SYS_CNTV_CVAL_EL02), access_arch_timer },
-+
- 	EL2_REG(SP_EL2, NULL, reset_unknown, 0),
- };
- 
-@@ -3879,9 +4020,11 @@ static const struct sys_reg_desc cp15_64_regs[] = {
- 	{ SYS_DESC(SYS_AARCH32_CNTPCT),	      access_arch_timer },
- 	{ Op1( 1), CRn( 0), CRm( 2), Op2( 0), access_vm_reg, NULL, TTBR1_EL1 },
- 	{ Op1( 1), CRn( 0), CRm(12), Op2( 0), access_gic_sgi }, /* ICC_ASGI1R */
-+	{ SYS_DESC(SYS_AARCH32_CNTVCT),	      access_arch_timer },
- 	{ Op1( 2), CRn( 0), CRm(12), Op2( 0), access_gic_sgi }, /* ICC_SGI0R */
- 	{ SYS_DESC(SYS_AARCH32_CNTP_CVAL),    access_arch_timer },
- 	{ SYS_DESC(SYS_AARCH32_CNTPCTSS),     access_arch_timer },
-+	{ SYS_DESC(SYS_AARCH32_CNTVCTSS),     access_arch_timer },
- };
- 
- static bool check_sysreg_table(const struct sys_reg_desc *table, unsigned int n,
-diff --git a/include/clocksource/arm_arch_timer.h b/include/clocksource/arm_arch_timer.h
-index cbbc9a6dc5715..877dcbb2601ae 100644
---- a/include/clocksource/arm_arch_timer.h
-+++ b/include/clocksource/arm_arch_timer.h
-@@ -22,6 +22,8 @@
- #define CNTHCTL_EVNTDIR			(1 << 3)
- #define CNTHCTL_EVNTI			(0xF << 4)
- #define CNTHCTL_ECV			(1 << 12)
-+#define CNTHCTL_EL1TVT			(1 << 13)
-+#define CNTHCTL_EL1TVCT			(1 << 14)
- 
- enum arch_timer_reg {
- 	ARCH_TIMER_REG_CTRL,
+ 	/*
 -- 
 2.39.2
 
