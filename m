@@ -4,86 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B292D7831B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:16:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D26BD7831B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/1mPxrL1Y7CTfszE/p7DdZQ6YpQR2r4wgKkulpNFYZ4=; b=Mj0dXto7hEEebDlMb39CtGJh2z
-	RVK/kGehpXUr+FwrH6LRwCaJ0ve+LcCgLsiK0I8DgUsWoMQ32u0pwBTD++Djq3Q4vTk2ujeMtifuL
-	JOEcCS5RkrzapoC0Z9akxwLsEc5K9fYmbrZiouUAAx1sivXz8ZjLQpJWAMdD3eMhf6owCxGi5/KwJ
-	thIdJ1Fpwney4o0ckqZkqvxk9wJIC69vCXyZy6Y95vbsP7G1O7vaAdJky8HtOzPG+H7EE3H9plJFf
-	6Z4yGfiZqFY7fbQ25CWQJYL2h0ihngXkj13EO7/Wtet3cVzEbXSSomlEr1sH3QV147XlirH8vVum6
-	3i0vK7Jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/VF+nWs6BWtLEi7pKkF8pL4507yNu1NwuQmjk0P5/9g=; b=b/q4MJqgj6afi1+Mog1IqADCk1
+	a09nwT0NeC7hebMP1iXqh5WLqh6Ry1CVjkWEFcjyql1y03MIhbSGcziMYZmVjMewPEgF0ZxT6wvQY
+	imtC/NC5Es4ceMRG7N/oIMglcExTJCee40KS8v8bZg5CmkCAd96b45ifVHapCiFV/jrqtLSAQLwxA
+	Dd69u/f3V5XihQ3x2UWF+U4EycCiBOIM+g0dq2alEv5e+neCs9V2/UZMjEuMLz9IBpcSa9nJlLIb1
+	dZKiZFWTJXnqSzNvJc78u/or5t3OEQKoa/IkBsXTBkbCa6duucvXa2FH95IRAaCfvOW8Z3NVEA401
+	saz5C40g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6Hl-00000006CVd-2cj9;
-	Mon, 02 Dec 2024 13:16:21 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tI6JL-00000006CrC-15Wq;
+	Mon, 02 Dec 2024 13:17:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6GA-00000006CGj-3uEg
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 13:14:44 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-21572ca3cccso13414775ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 05:14:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733145281; x=1733750081; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/1mPxrL1Y7CTfszE/p7DdZQ6YpQR2r4wgKkulpNFYZ4=;
-        b=H5ipbBaoTq3LhY8IlF8z2DT100YssIuAKNR5Kk8P4fJjlbEAQnGyoMPAN5ztXX+SrZ
-         SpouHybpNfKZiPrjntr0b4icigr97xYB+ijxycafsdZmscPR713pCySQ1MQJeInQerEs
-         S7otADazOlpfalKX7+9z0g6o69tcWQnqOZn7HM0F+6abz0L8LviaTiXkOQXxwh5xiey2
-         tHwQTdotTejZ4EO4s6y0Al4vPuS1F4BnD+qYMamEIG0gx1YDkXiI4IzPRtSbbPuFNrrk
-         4IVDzT/KZXC7lcIFeX2KrjfTv/nNqD/Dfu5cJp4b6vvbj9VkFKxk2jtiUpc360usZLKZ
-         6RsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733145281; x=1733750081;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/1mPxrL1Y7CTfszE/p7DdZQ6YpQR2r4wgKkulpNFYZ4=;
-        b=SxNXsFsi2BXkio7k195Bke7KQ4LxBTM+Rf/oR22qShChVkRkZbeQtuzulUGTg3z2K0
-         4RzwcDGYhBXsOydzMyg+tQpYHousja504UoauuWS78xhtxG2lAn6X1C6WEx5OtasUdkB
-         O2p8fu24/e+70AVcoBRxX1TqO1P46ApIBTLhCWLitz0gz6zggm3sQkx73n6OQx/kFzy+
-         5TJq+4mwKi4Q6k5BDXkQI4/DtlxtsWFErEz/MwuM/RiI6zEt6/GlljpfSdYE3Orlc+d3
-         hBcPRPUOhNj7QmDp92Rb/b96Ayo9FiLCFjJvyubgle4l6+iVcezpaBKkg5PVYIyMKCzw
-         fLuA==
-X-Forwarded-Encrypted: i=1; AJvYcCUi9K3qq6eESJWe+FAHW4XFAqKEppkQv8NQrmPKw4KQ+LdA/tWxDs6vlgV81RiMxexVAtRKF63/egwnks/dwmEg@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaJlBDwbSvCnH0v5+UQpiJlQLG2XJyxzptmWnnGgDf5nrGEo0I
-	VNYwWEaeJixxTzBuEN8fk3krQbJTycw7znhYYH93ykf+ANPa1vEw
-X-Gm-Gg: ASbGncsJ/R8hyh8d6pmYkul0j988hYzuHFNZyNMFycuzppi66Fqr0pyzsbviqXsVAe9
-	XAkE4HyWO2Bm1t+ntYP4ngRDOObv/fdPQ7vyE7tXRkdWGchvtU8YWLTXG/xjEGMNNg8Whwvcl4l
-	XIKk177WzZdwK9Don9krCNEVK0Q3TJYBA6yWtHCvW9PHjcLCFzPo84l83DIMvUQFODUETuiMbZF
-	H5fiqAo+hMDgOEfFvCjB73Vm6Q6x13jPnOt/b3Kjruov5yljPvc9fskUG8M4A==
-X-Google-Smtp-Source: AGHT+IGHvec3b5O/wMNDj0wv/JrLlnI/n0gm1B17WHelsWMiUm7JPRj7siX5XK3LdinbBLvTJUOaPQ==
-X-Received: by 2002:a17:902:d50a:b0:215:9642:4d7a with SMTP id d9443c01a7336-21596424f65mr50683835ad.0.1733145281185;
-        Mon, 02 Dec 2024 05:14:41 -0800 (PST)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:9b87:b3a5:736:1fc])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2154e5d6965sm50007655ad.71.2024.12.02.05.14.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Dec 2024 05:14:40 -0800 (PST)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	francesco.dolcini@toradex.com,
-	Fabio Estevam <festevam@denx.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH RESEND v2] ARM: dts: imx6qdl-apalis: Change to "adi,force-bt656-4"
-Date: Mon,  2 Dec 2024 10:14:23 -0300
-Message-Id: <20241202131423.586743-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tI6IL-00000006Cdn-3yx9;
+	Mon, 02 Dec 2024 13:16:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DC4EDA40B5F;
+	Mon,  2 Dec 2024 13:15:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9CE9C4CED1;
+	Mon,  2 Dec 2024 13:16:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733145417;
+	bh=/VF+nWs6BWtLEi7pKkF8pL4507yNu1NwuQmjk0P5/9g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TlUDTiqGqqVXsTcBbB9DY1Tj4GMlqBKCfLy4MRppqgoZ+hIXX+C1MxEj5vfH9GnPp
+	 pZzbmEljazX/5Fp15FZzjtyQiV1ARa5cluHtszSCNK+WUICMjsXncH/i800kboib3d
+	 5yO6V9WPYE2Gw6PKa8jvyRcXDRMhpGkyfykwfGepEd9RLlf9N+2uRYV1kfFkMrn1rb
+	 va5YB+0NIfOs3QsVhKScTQ1SxXldUT4An8nqBvnsXywUZlmtQRVQHW/x/+juRJpXdN
+	 +RZehDyE3RB5KB4msJrMpBXmF/iSnIGVeQI0SRdGYab574kPnU8kJRIi+YRG9yp/R8
+	 u967dyf3w8Lgg==
+Date: Mon, 2 Dec 2024 13:16:51 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Jiaxin Yu =?utf-8?B?KOS/nuWutumRqyk=?= <Jiaxin.Yu@mediatek.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"ajye_huang@compal.corp-partner.google.com" <ajye_huang@compal.corp-partner.google.com>,
+	Chunxu Li =?utf-8?B?KOadjuaYpeaXrSk=?= <Chunxu.Li@mediatek.com>,
+	Allen-KH Cheng =?utf-8?B?KOeoi+WGoOWLsik=?= <Allen-KH.Cheng@mediatek.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"kuninori.morimoto.gx@renesas.com" <kuninori.morimoto.gx@renesas.com>,
+	"andrzej.hajda@intel.com" <andrzej.hajda@intel.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Project_Global_Chrome_Upstream_Group <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	"robert.foss@linaro.org" <robert.foss@linaro.org>,
+	"Laurent.pinchart@ideasonboard.com" <Laurent.pinchart@ideasonboard.com>,
+	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Nicolas Prado <nfraprado@collabora.com>,
+	"alsa-devel@alsa-project.org" <alsa-devel@alsa-project.org>
+Subject: Re: [PATCH v2 1/3] ASoC: hdmi-codec: Add event handler for hdmi TX
+Message-ID: <00d5c728-3eb9-427a-bc60-5828c20fec09@sirena.org.uk>
+References: <Y4Cysgk5Gic5ae9B@sirena.org.uk>
+ <18c82f6f723cd97a9d6b9a7ff16c6ed62fd005d6.camel@mediatek.com>
+ <Y4Y/vEWe3dw0FPQH@sirena.org.uk>
+ <cf9ea98a3263ffb8fc8b542888ad0ad680facfc7.camel@mediatek.com>
+ <Y4jHAJgmz/P58Q/C@sirena.org.uk>
+ <7023a2c7b471d6888d9079563a6c01f22599201f.camel@mediatek.com>
+ <Y43e+EsNCrCpZSIH@sirena.org.uk>
+ <dc50d0b21795acbcc44c77e5fd81e7cb92c65c67.camel@mediatek.com>
+ <Y5ipwqzHKTK8UdlC@sirena.org.uk>
+ <a699178dcef540fff5caae6291983a444886bff6.camel@mediatek.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="NG9fJ4QMkZ8167X3"
+Content-Disposition: inline
+In-Reply-To: <a699178dcef540fff5caae6291983a444886bff6.camel@mediatek.com>
+X-Cookie: (null cookie
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_051442_967246_A3204D53 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20241202_051658_110516_40F1164F 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,45 +95,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@denx.de>
 
-According to adv7180.yaml, the correct property name is
-"adi,force-bt656-4".
+--NG9fJ4QMkZ8167X3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Update it accordingly to fix several dt-schema warnings:
+On Sun, Dec 01, 2024 at 05:15:45PM +0000, Jiaxin Yu (=E4=BF=9E=E5=AE=B6=E9=
+=91=AB) wrote:
 
-adv7280@21: 'adv,force-bt656-4' does not match any of the regexes: ...
+> So I want to ask if I can do it by just adding
+> SOC_DAPM_PIN_SWITCH("Speakers") and SOC_DAPM_PIN_SWITCH("HDMI")?
+> Correspondingly, dapm widget and route path need to be added. That is
+> "SND_SOC_DAPM_SPK("Speakers", NULL)/ SND_SOC_DAPM_LINE("HDMI1", NULL)"
+> and "{"Speakers", NULL, "Speaker"}/ {"HDMI1", NULL, "TX"}".
 
-imx6qdl-apalis.dtsi is the only in-tree kernel user of this property.
+Yes, that's what I'd expect to see.
 
-BSD does have a adv7180 driver, so should not be impacted.
+--NG9fJ4QMkZ8167X3
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Signed-off-by: Fabio Estevam <festevam@denx.de>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
-- Resending it as a standalone patch. The dt-bindings and driver
-changes have alaready been applied in 6.13-rc1. 
-Changes since v1:
-- Explained that BSD is not impacted. (Krzysztof)
-- Collected Krzysztof' Reviewed-by tag.
+-----BEGIN PGP SIGNATURE-----
 
- arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdNs0IACgkQJNaLcl1U
+h9DGvAf+J3hwEq4x3bF91sZy15VQBvz/0kSF2J0M+KaBQnVVFXj/YCUp9AjHd9Py
+svtvltKB2dzk8Cpzti6uG995Vi0ugqWdEFR57tDSFDzyMMEStcr/z+LYr8gmncxg
+0kEyoQrLHpnucIqWa+IJ766YUIsU2FvSM5IP2ZDXfWUeSHI5fzUfpc5M9MrgZJut
+JfoR0eE91G28dKk46pdE+WRc6xsPWl/jRqlgr492lZe5Qew7l8ZRdnvummrx0iDd
+A4z1fW9cZXTepa9GisH8GziS6GP3C+qJWwsAgq+iaKvZ6tBcii8s0sSGVRWbvQQG
+a7poRNcQYuwS88Fimgys4lWYbODVVg==
+=weMB
+-----END PGP SIGNATURE-----
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
-index 1c72da417011..dffab5aa8b9c 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
-@@ -691,7 +691,7 @@ &i2c3 {
- 
- 	adv_7280: adv7280@21 {
- 		compatible = "adi,adv7280";
--		adv,force-bt656-4;
-+		adi,force-bt656-4;
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_ipu1_csi0>;
- 		reg = <0x21>;
--- 
-2.34.1
-
+--NG9fJ4QMkZ8167X3--
 
