@@ -4,119 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDABD78337
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D143DD78333
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wCAGw3CcdeUl+tWZLwElBhDe64DQp1bTeOLewMFgc3U=; b=DYlEc/3a+BPackfRcnXPiHKqHV
-	mZhgayDyKQwAOkoJSgzyi/NYhY1P0J1hvavT61uBJYOurYgvPi5JODF4hOs38jFvLnAsfyhAwPCAX
-	k1zbnkNi7X4FjXea4efjBdX5iDqhYb89SbBV4ZUa8fxSlqtaEZy0xfI6J/UC+BLSTlpBPTrRblOq5
-	0lQ20yie5aIyUbIksPkP3Qv3lljXlrrhP0fbMBhCs8RSUDjumZ4SE7B2fR3n65UON/HEkYEBD8z1v
-	URnMemp0VyyU0yYa7qJ4wx+jIusRBU0QptVG2PfrMxdDqgYe5BytH4d/AtAd9U0WktnN248PAL+vy
-	638xqJSQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YyIG99eol79YzUGe/bIs8ExclGoZR8bDIlJqrrWCRic=; b=g1wQxLEREQZzbgV/dnfn5oc7GW
+	9ABYGCbW77+uiYkQc7waQbKL+fEloL3aNedJiTPE/3zurZ2tD6uR4jGndsp6ZyxvkJa5coM6yx+gY
+	ptYrbJDn9WWJtIUJtghJ2BIAXOwYpFUYlArqNyr0C0MWvJGDLL5DcxW5UYmwNOiCjEy9nZ3tk90VF
+	anqX9ELK1rlQCqf7tdt7F3Ex4VorXpMlBmKXMpN6GYj5F8ZJbjjcFvx2Ex2TAK13LTv0QarOiw1+o
+	RLzA4kzZhLg/NzLh9t/6k0ikw7hWVqY7cZNvtuci2v3w3ctd9JnntkeBl4JXVDJzNkOWivHbeWmpq
+	JsrlIwcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI9kM-00000006wWP-2isY;
-	Mon, 02 Dec 2024 16:58:06 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI9jL-00000006wMY-2rRr
+	id 1tI9rG-00000006xPZ-3iWp;
+	Mon, 02 Dec 2024 17:05:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tI9qG-00000006xHi-1d9J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 16:57:06 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2eed82ca5b4so770226a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 08:57:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1733158622; x=1733763422; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=wCAGw3CcdeUl+tWZLwElBhDe64DQp1bTeOLewMFgc3U=;
-        b=YhDjdLPNzBLD8ZO5WdvZYK7AX5RJLN6ja9KN0wg3PTeNoDK3NleLpWgUJkI0lySL0F
-         vRpQsp5pSyraSn0C8mHUX1AC+L0HmwefJyvE1sdJf4dXoFj1eSlj3UVF2eCrA9EHzRte
-         d+UXblWMzNJFw5w9QYyI56bp0TzMuGQkM+jcQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733158622; x=1733763422;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wCAGw3CcdeUl+tWZLwElBhDe64DQp1bTeOLewMFgc3U=;
-        b=B5CcSythfx16NH5Dc/Vvr7sRhUEoSUxybFzP7UHGRt2fByDp45YrZElkuZNkBAnIjW
-         w+dHuobDD+XSBfN7ss3p70bsJmgv8WJo38eL2bVg9kpD4LLpVRHV1FKrq+f2QhtpgTAC
-         tP5W/Imm0Zz/R3bkNMSHREcc8RrvurIttxQaWrrz4o4HBE9Mn13RrI5FfbwC7+p71Y7+
-         7n1zNSEG/c9M0+I0Wr3yE3KIlZg+oOMQJvT2FdMAxbTHKbJSch1pQboiabltsS7B2vFT
-         T25gKiYuyzvwCrWmuJTCD16qPJiZ7ytwAjeW5Cgp+qHJlvzz60VtGFeAvhEAE2thnulP
-         bcTw==
-X-Forwarded-Encrypted: i=1; AJvYcCXAPMdK4QjvpzAK4qFXllSU5iLIIjNAi+vvMIsO0fEYQQxh7BiDirt70u/xiJSRClyUGXtPVX/XA954KYyJq3el@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0hGR6A8/syFru9xAh5eedzQHxLKX22UHG94UkjPOfqLEhc2vl
-	QG/IcFUw/P6sWXRYf3ViWaZS94OOrDooBBTx4SWq67ln9C4Jr4+vpOkZmgvRNQ==
-X-Gm-Gg: ASbGncuY9/NohkZErRanivRA+bSrEdI015lJxpDUwXvQgSiDAtdor55enwxa5OEMaQr
-	3eHxEgp9RLe/mt/mVYvUUTroMqKDpt16IDOI3HGail0Tzs/n/yDMJ/Hpd/dir9KZ2rqC7a6IkrG
-	RGiutQdHcu7yHUOONAmJCQPYzUQdrlud6+72zIh42QnCEVAIfmMGZl3IWQSICYfj0C9UoGZ3rS8
-	+hxXKUo7A+ur/RQL5gVWjYYmMlsthSKiu4m6iS9Y4X/4OOA0cYkgaV4vCD/p2u4V5iUwCi14gHg
-	GpdEveG2P8aXqA==
-X-Google-Smtp-Source: AGHT+IHw3XDkWltSNr6nZink1lbc1pck3rHLuglw9OPS87ycLWANAwGeGA+PLT7Pf2yscolP02SgOg==
-X-Received: by 2002:a17:90b:2681:b0:2ee:f80c:6892 with SMTP id 98e67ed59e1d1-2eef80c6a63mr529291a91.3.1733158621793;
-        Mon, 02 Dec 2024 08:57:01 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2eecd83914csm2036849a91.0.2024.12.02.08.56.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Dec 2024 08:57:00 -0800 (PST)
-Message-ID: <10f3e9a9-187e-4c1e-9e1c-9885da4ace79@broadcom.com>
-Date: Mon, 2 Dec 2024 08:56:59 -0800
+	Mon, 02 Dec 2024 17:04:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CEE2D1007;
+	Mon,  2 Dec 2024 09:04:39 -0800 (PST)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1BA283F71E;
+	Mon,  2 Dec 2024 09:04:09 -0800 (PST)
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: arnd@arndb.de,
+	catalin.marinas@arm.com,
+	hch@lst.de,
+	mark.rutland@arm.com,
+	rppt@kernel.org,
+	thuth@redhat.com,
+	will@kernel.org
+Subject: [PATCH] arm64: patching: avoid early page_to_phys()
+Date: Mon,  2 Dec 2024 17:03:59 +0000
+Message-Id: <20241202170359.1475019-1-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] irqchip/bcm2836: Enable SKIP_SET_WAKE and MASK_ON_SUSPEND
-To: Stefan Wahren <wahrenst@gmx.net>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>, Thomas Gleixner <tglx@linutronix.de>
-Cc: Lukas Wunner <lukas@wunner.de>, Peter Robinson <pbrobinson@gmail.com>,
- "Ivan T . Ivanov" <iivanov@suse.de>, linux-arm-kernel@lists.infradead.org,
- bcm-kernel-feedback-list@broadcom.com, linux-kernel@vger.kernel.org
-References: <20241202115437.33552-1-wahrenst@gmx.net>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20241202115437.33552-1-wahrenst@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_085703_963234_C39702C4 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20241202_090412_516887_85E4D5F6 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,21 +65,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/2/24 03:54, Stefan Wahren wrote:
-> The BCM2836 interrupt controller doesn't provide any facility to
-> configure the wakeup sources. That's the reason why the driver lacks
-> the irq_set_wake() callback for the interrupt chip.
-> 
-> Enable the flags IRQCHIP_SKIP_SET_WAKE and IRQCHIP_MASK_ON_SUSPEND so
-> the interrupt suspend logic can handle the chip correctly.
-> 
-> This was inspired by the patch series "irqchip/irq-bcm283x update
-> for BCM7211" by Florian Fainelli.
-> 
-> Link: https://lore.kernel.org/lkml/20191001224842.9382-1-f.fainelli@gmail.com/
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+When arm64 is configured with CONFIG_DEBUG_VIRTUAL=y, a warning is
+printed from the patching code because patch_map(), e.g.
 
-Acked-by: Florian Fainelli <florian.fainelli@broadcom.com>
+| ------------[ cut here ]------------
+| WARNING: CPU: 0 PID: 0 at arch/arm64/kernel/patching.c:45 patch_map.constprop.0+0x120/0xd00
+| CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.13.0-rc1-00002-ge1a5d6c6be55 #1
+| Hardware name: linux,dummy-virt (DT)
+| pstate: 800003c5 (Nzcv DAIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+| pc : patch_map.constprop.0+0x120/0xd00
+| lr : patch_map.constprop.0+0x120/0xd00
+| sp : ffffa9bb312a79a0
+| x29: ffffa9bb312a79a0 x28: 0000000000000001 x27: 0000000000000001
+| x26: 0000000000000000 x25: 0000000000000000 x24: 00000000000402e8
+| x23: ffffa9bb2c94c1c8 x22: ffffa9bb2c94c000 x21: ffffa9bb222e883c
+| x20: 0000000000000002 x19: ffffc1ffc100ba40 x18: ffffa9bb2cf0f21c
+| x17: 0000000000000006 x16: 0000000000000000 x15: 0000000000000004
+| x14: 1ffff5376625b4ac x13: ffff753766a67fb8 x12: ffff753766919cd1
+| x11: 0000000000000003 x10: 1ffff5376625b4c3 x9 : 1ffff5376625b4af
+| x8 : ffff753766254f0a x7 : 0000000041b58ab3 x6 : ffff753766254f18
+| x5 : ffffa9bb312d9bc0 x4 : 0000000000000000 x3 : ffffa9bb29bd90e4
+| x2 : 0000000000000002 x1 : ffffa9bb312d9bc0 x0 : 0000000000000000
+| Call trace:
+|  patch_map.constprop.0+0x120/0xd00 (P)
+|  patch_map.constprop.0+0x120/0xd00 (L)
+|  __aarch64_insn_write+0xa8/0x120
+|  aarch64_insn_patch_text_nosync+0x4c/0xb8
+|  arch_jump_label_transform_queue+0x7c/0x100
+|  jump_label_update+0x154/0x460
+|  static_key_enable_cpuslocked+0x1d8/0x280
+|  static_key_enable+0x2c/0x48
+|  early_randomize_kstack_offset+0x104/0x168
+|  do_early_param+0xe4/0x148
+|  parse_args+0x3a4/0x838
+|  parse_early_options+0x50/0x68
+|  parse_early_param+0x58/0xe0
+|  setup_arch+0x78/0x1f0
+|  start_kernel+0xa0/0x530
+|  __primary_switched+0x8c/0xa0
+| irq event stamp: 0
+| hardirqs last  enabled at (0): [<0000000000000000>] 0x0
+| hardirqs last disabled at (0): [<0000000000000000>] 0x0
+| softirqs last  enabled at (0): [<0000000000000000>] 0x0
+| softirqs last disabled at (0): [<0000000000000000>] 0x0
+| ---[ end trace 0000000000000000 ]---
+
+The warning has been produced since commit:
+
+  3e25d5a49f99b75b ("asm-generic: add an optional pfn_valid check to page_to_phys")
+
+... which added a pfn_valid() check into page_to_phys(), and at this
+point in boot pfn_valid() will always return false because the vmemmap
+has not yet been initialized and there are no valid mem_sections yet.
+
+Before that commit, the arithmetic performed by page_to_phys() would
+give the expected physical address, though it is somewhat dubious to use
+vmemmap addresses before the vmemmap has been initialized.
+
+For historical reasons, the structure of patch_map() is more complicated
+than necessary and can be simplified. For kernel image addresses it's
+sufficient to use __pa_symbol() directly without converting this to a
+page address and back. Aside from kernel image addresses, all executable
+code should be allocated from execmem (where all allocations will fall
+within the vmalloc area), and the vmalloc area), and so there's no need
+for the fallback case when case when CONFIG_EXECMEM=n.
+
+Simplify patch_map() accordingly, directly converting kernel image
+addresses and removing the redundant fallback case.
+
+Fixes: 3e25d5a49f99b75b ("asm-generic: add an optional pfn_valid check to page_to_phys")
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: Thomas Huth <thuth@redhat.com>
+Cc: Will Deacon <will@kernel.org>
+---
+ arch/arm64/kernel/patching.c | 25 +++++++++++--------------
+ 1 file changed, 11 insertions(+), 14 deletions(-)
+
+Catalin, Will, I wasn't sure whether we'd prefer this or an explicit
+check that the address is a vmalloc addr, e.g.
+
+	if (is_image_text(...)) {
+		phys = ...;
+	} else if (is_vmalloc_addr(...)) {
+		phys = ...;
+	} else {
+		BUG();
+	}
+
+I went for the style below because it was marginally simpler, I'm more
+than happy to respin as above if that's preferable.
+
+Mark.
+
+diff --git a/arch/arm64/kernel/patching.c b/arch/arm64/kernel/patching.c
+index 7f99723fbb8c4..1041bc67a3eee 100644
+--- a/arch/arm64/kernel/patching.c
++++ b/arch/arm64/kernel/patching.c
+@@ -30,20 +30,17 @@ static bool is_image_text(unsigned long addr)
+ 
+ static void __kprobes *patch_map(void *addr, int fixmap)
+ {
+-	unsigned long uintaddr = (uintptr_t) addr;
+-	bool image = is_image_text(uintaddr);
+-	struct page *page;
+-
+-	if (image)
+-		page = phys_to_page(__pa_symbol(addr));
+-	else if (IS_ENABLED(CONFIG_EXECMEM))
+-		page = vmalloc_to_page(addr);
+-	else
+-		return addr;
+-
+-	BUG_ON(!page);
+-	return (void *)set_fixmap_offset(fixmap, page_to_phys(page) +
+-			(uintaddr & ~PAGE_MASK));
++	phys_addr_t phys;
++
++	if (is_image_text((unsigned long)addr)) {
++		phys = __pa_symbol(addr);
++	} else {
++		struct page *page = vmalloc_to_page(addr);
++		BUG_ON(!page);
++		phys = page_to_phys(page) + offset_in_page(addr);
++	}
++
++	return (void *)set_fixmap_offset(fixmap, phys);
+ }
+ 
+ static void __kprobes patch_unmap(int fixmap)
 -- 
-Florian
+2.30.2
+
 
