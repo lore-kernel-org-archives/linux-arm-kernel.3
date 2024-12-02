@@ -4,114 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97135D78305
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:32:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28244D78305
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:33:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UlfaH75QhZzW94aZlXkTJ3z9OVxaXNPQS0+aZxffCvk=; b=JlY9aJVykyVSUeDNXVEL9bTasb
-	NQJTL6xJC//fGIJTHs/efvLkOBdFoT8HXKILOUTdq0712B1/zFesOx/Wyh+Cyp1cg+aMFg2WOJ/GW
-	SyI7FBT1we3rkEpobULEVoH24SaNBWbgf37Rv3GA8p3T10Tm/plDQmRdF8RkG/jmQ528DI0vgy7O4
-	Pxt3S8wZw9mAw+84cuu9qSzY7vz7iM/pkduMk8FjgTGeNYL/KNMwssQOS2T/NYdqVwamXnZsgeQWT
-	g3HtkS1lDv8VKT3Ag8IueWw1qXRZiSmGjzFAy8w/sr1Xri0P6Q8B0JFqb5JrYyINRw4TcXSxTvlst
-	YOw6mGLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bxf7ptTN3ZmAyqiKVcm3TU75y1Lyq7wLy3EsFVgDkGI=; b=gC8+Vm5adnZfX+PBRStDp1OErF
+	XRWhlHOWGBt+Apmn77WMU+pKYRWCYJQVY5i5Y9AIfoVA9NlLnK1D69f3+bURNE32UN78v6uo4YFoo
+	7fzuprvMXjqMhdxLy0xDZMYiwHxQQtG7PymE3QLK+9HMelwhtEAh1STZTGi5TzJe5TEn3sZwLY6Ps
+	qvf6XfMx48XXZig7vKx1KDmDzJcyPZy/K8LbG6ESmdmmMp3FebAcJiTEUXid+fbOhodFZ3tf4d8LR
+	GoOy3CmLuMr/ooz9UP+kBf6rv2SgtpNRdB3v64Nw2OgwelmKdd7WUlkzWcuX+p4KygRFCxqkmMtqO
+	GBiLP7Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3jI-00000005jyn-0djk;
-	Mon, 02 Dec 2024 10:32:36 +0000
+	id 1tI3kF-00000005kAh-2oV8;
+	Mon, 02 Dec 2024 10:33:35 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3iI-00000005jnc-2ito
+	id 1tI3j7-00000005juw-11an
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 10:31:35 +0000
+	Mon, 02 Dec 2024 10:32:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 92E33A409E6;
-	Mon,  2 Dec 2024 10:29:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C92BC4CED1;
-	Mon,  2 Dec 2024 10:31:28 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 21149A409EA;
+	Mon,  2 Dec 2024 10:30:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5FD1C4CED1;
+	Mon,  2 Dec 2024 10:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733135493;
-	bh=+mpPAO8B1YWkkS4hc0ma/RFGnsazCjxU8SUCwb3i4kA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GmvKD82RAOOTGrv+jD6bmZcxqIFZIAfdUwExOimWdCy2FBqm8Q6i8Ddxugyjz0iUe
-	 u273R15tmV+S3bZ1V0oJTFSjIQcBukDvNN64ce5lTEU8GA2oAlQLQZFGiTMeHEu1vF
-	 h+7lZ9YCs2HSZYVVoUtigqhJ2lDhrgXGFDEmXHJCArxBQMZvgFvq5+0FBjGxAQabK6
-	 VLpYNGUOyUXUveH2oet7ztAE33mr3cLRMQxCFCyFcUxtPZgYbPDjc87/jsr7XHH6pf
-	 MWaHgKLxqrJ+8py5cOkYr5OCvl/YUY9C4c1+ucU9jDrCcrBfxUEdXBthlx0vK9WpQO
-	 Oy+HH2D+8Lf8A==
-Message-ID: <ab06e590-f113-459d-80b6-28136a79e10d@kernel.org>
-Date: Mon, 2 Dec 2024 11:31:27 +0100
+	s=k20201202; t=1733135544;
+	bh=YNX+vtim4wPZJIk1OfZDjYYPEiiBQR0VOr9a8vWD2QI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=I63s1N3zfrfrbvkEfMtGs435oMJwprLnFVwyqZGSUHQWnx0D/JaOjCQ2O+6PPA9C9
+	 EwC7O5rtJBaZR4eUArUUJ/+7q1n2WALsdEnRHSGva1EHwPg7yiSmpFoYO3Ep7q43/S
+	 lUQBDtk2TfOpunkcn61IIS95BWSHPFP58kc8MuLbJNZYRAgmEKwpADKq16qXNLIze5
+	 CtluBevWFNMxVf4Hitg8FJ3kRLoWWrRY5L5fXdTdSu3u51+1OR1L4CxpTFWeaAiVkW
+	 AuRFHNnIWMVJMQpstRhHlGboHN8bBbyOJ23v/riDQPRs9jYYkeDjbHimeZy/UcUKtf
+	 2vaNkplqCFosQ==
+Date: Mon, 2 Dec 2024 11:32:21 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Sean Nyekjaer <sean@geanix.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Yannick Fertre <yannick.fertre@foss.st.com>, Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
+	Philippe Cornu <philippe.cornu@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
+ helper function
+Message-ID: <20241202-nickel-rottweiler-of-hail-c9ec8b@houat>
+References: <20241125-dsi-relax-v2-0-9113419f4a40@geanix.com>
+ <20241125-dsi-relax-v2-1-9113419f4a40@geanix.com>
+ <20241125-gleaming-anteater-of-perfection-42bd2b@houat>
+ <bfuj6w6hsbfpdw24th6dl3ugvj45op6jb45gx5ab5pulud7hiz@o2zbn45z3lt4>
+ <tzcjzgp7xalhhezcv5hfa7cjscxg44phqcw2ap54lesly4gk6o@6dtco2d3jahj>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: dt-bindings: sony,imx415: add required clock-names
- property
-To: Michael Riesch <michael.riesch@wolfvision.net>,
- Matthias Fend <matthias.fend@emfend.at>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241130141716.1007115-1-matthias.fend@emfend.at>
- <bh3obpt6bcklejdvrk4r6ienraz5zmhrdyotijhvlwexussqgj@hicmx34vi27w>
- <f088a247-8049-49a7-bab3-5b517cb0c531@wolfvision.net>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <f088a247-8049-49a7-bab3-5b517cb0c531@wolfvision.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="ivbwnrarbwqca5xp"
+Content-Disposition: inline
+In-Reply-To: <tzcjzgp7xalhhezcv5hfa7cjscxg44phqcw2ap54lesly4gk6o@6dtco2d3jahj>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_023134_821544_CB7E3F28 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20241202_023225_410714_1CA8558A 
+X-CRM114-Status: GOOD (  16.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,31 +84,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/12/2024 09:18, Michael Riesch wrote:
-> Hi Matthias, Krzysztof,
-> 
-> On 12/2/24 08:56, Krzysztof Kozlowski wrote:
->> On Sat, Nov 30, 2024 at 03:17:15PM +0100, Matthias Fend wrote:
->>> The imx415 driver expects a clock with the name "inck".
->>> Document this in the bindings.
->>
->> No, fix the driver instead of bypassing review. It was decided to drop
->> it during review, so you cannot reintroduce it 2 years later claiming
->> that's now ABI. Of course original submission was buggy and never
->> tested, but that does not allow review bypass.
-> 
-> Just to make sure I am on the same page here: Between v2 and v3 of the
-> IMX415 submission the clock-names property was dropped. At that point,
-> we should have changed the acquisition of the clock from
->     sensor->clk = devm_clk_get(sensor->dev, "inck");
-> to
->     sensor->clk = devm_clk_get(sensor->dev, NULL);
-> 
-> Is that correct/the proper fix?
 
-Yes, because driver could simply not work. It was never tested, after
-the change.
+--ivbwnrarbwqca5xp
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 1/3] drm/modes: introduce drm_mode_validate_mode()
+ helper function
+MIME-Version: 1.0
 
-Best regards,
-Krzysztof
+On Tue, Nov 26, 2024 at 02:30:53PM +0100, Sean Nyekjaer wrote:
+> Hi Maxime,
+>=20
+> On Tue, Nov 26, 2024 at 08:36:01AM +0100, Sean Nyekjaer wrote:
+> > Hi Maxime,
+> >=20
+>=20
+> [...]
+>=20
+> > >=20
+> > > We probably need some kunit tests here too.
+> >=20
+> > Good idea, will be my first :)
+> >=20
+>=20
+> Would something like this work?
+>=20
+> diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers=
+/gpu/drm/tests/drm_hdmi_state_helper_test.c
+> index 294773342e71..26e4ff02df85 100644
+> --- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+> +++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+> @@ -1364,6 +1364,7 @@ static void drm_test_check_output_bpc_format_displa=
+y_rgb_only(struct kunit *test
+>  	struct drm_connector_state *conn_state;
+>  	struct drm_display_info *info;
+>  	struct drm_display_mode *preferred;
+> +	enum drm_mode_status mode_status;
+>  	unsigned long long rate;
+>  	struct drm_connector *conn;
+>  	struct drm_device *drm;
+> @@ -1408,6 +1409,9 @@ static void drm_test_check_output_bpc_format_displa=
+y_rgb_only(struct kunit *test
+>  	rate =3D drm_hdmi_compute_mode_clock(preferred, 12, HDMI_COLORSPACE_YUV=
+422);
+>  	KUNIT_ASSERT_LT(test, rate, info->max_tmds_clock * 1000);
+> =20
+> +	mode_status =3D drm_mode_check_pixel_clock(preferred, rate);
+> +	KUNIT_ASSERT_EQ(test, mode_status, MODE_OK);
+> +
+
+Not really. You need to test that function, and ideally only that
+function, with a bunch of random inputs, including the error conditions.
+
+Maxime
+
+--ivbwnrarbwqca5xp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ02MtAAKCRAnX84Zoj2+
+dsuWAX0eSysvVggNKHnyuBE+8Rz7YOBscN6mBZYUgtssEAyp5cpCoqjzQx8yMf5Z
+kDz+dB8Bf2t8VtXvAAOtTW5epqM0PuPE2F67EoJN+5eQBc95ywPDx51OucBNqL3Y
+Ja65ubL3mg==
+=gqfV
+-----END PGP SIGNATURE-----
+
+--ivbwnrarbwqca5xp--
 
