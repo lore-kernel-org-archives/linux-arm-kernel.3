@@ -4,64 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80436D7830E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 12:03:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F5BD78310
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 12:06:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zE2OmnrpksGvdeKauyPLCFpi8Ev/7hTWSH5TEETlfos=; b=lVK7Bv8QeMT7X7Dn0w30joWbiR
-	eiQpYIoNHAoY0T3aOYYQUxGnaeQQ7f/oR68O2fCVfZiHK8bPEnA0j9pgTh65KvPmvsGsC4EFSWUDd
-	a0myeEa24Pr9ehAfsUPjdhUZz9E9BgZe6Vqxxv/ZF8TrofkTJt4cBAYel66jzQpuJR22N+hp6cPgW
-	3ONjwnkd9F7+uWypNXXJA12eNNfSbkWh5H7eDaR3kc7hzF0uNOqp9Fyu2XvkVhvdvt9BulMtrClJp
-	MVXtYB7zD7Dg4lIVivYcf8g76bwm0pCi2DRXaQ7NehxSkpwLOx+Ws0tkWtAdllCXDBF4UibjzPGf1
-	u7jUkWZA==;
+	bh=HhEI4hQvZOSpAxkyBLCEZRcte3aI524egF5vCINPPv0=; b=KmpB4cWaLaj6Ie00y9N4Y17p5M
+	teDs4Foo+JN++aagQXfgmQlEkfvoY+eleM8T4h5TnrPeIrrV8G26BmgQ63ktngK1fMiPHvtbpT16/
+	Kwp0GvVxJA8endKFhIFxX9WA9pTjuKUYVRYqMDStcVuukXTu96td5RENtWISWVkqlQEfUO4BTvc4P
+	KKA0Ab92nWcTtot+LFJXSUyKP4W/5mAxHc9xfOzMZ2PYvPqH38iQOY662U6lKSwn/s3taj5mJeaR6
+	0tUEjuAQcPTB2TMFWqZGDo3ocoRdEEnNN72J6S+H56TMMSgrYTNxygYDsK/Ll2JYokpbNyPhyHX2V
+	W5FlPPOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI59E-00000005zZt-25t5;
-	Mon, 02 Dec 2024 12:03:28 +0000
-Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	id 1tI5Bi-000000060HZ-1JwQ;
+	Mon, 02 Dec 2024 12:06:02 +0000
+Received: from jabberwock.ucw.cz ([46.255.230.98])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI57G-00000005z6k-3r6V
+	id 1tI5Ah-00000005zz2-23Jb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 12:01:28 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1733140880;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zE2OmnrpksGvdeKauyPLCFpi8Ev/7hTWSH5TEETlfos=;
-	b=LiQyTvQwaQqMmBNU1M5tMte6SZt2JDT2miztkcBeTMXSmwtYLHyROU2fPKNARIVxhHR7SI
-	CefFw+TjjmXafVH0t4wJwk2MHYgiMKyET7oiR20SvDhBnEfIU+6dUB9JEHR3TILwV0pkPI
-	C4xufc+6oGA7ft1bR0xHYRvhQx/6UxwIzW0g4d0fx5yZWVdNb2L32veMPZH9XLCvq1vqvM
-	oU9pzM17CvNQcs65bpHd1YyyjMPuIjn6Re+Rp/l9jeNoAIXw5WaIqxhijbRm3ZOnB9zC0C
-	a7VxyLkjR3iCkj/RU7ee+gHWnc1WKb5v5r57Cmt8nY6CIsxW6Nr97Dr17M/6Ng==
-Content-Type: multipart/signed;
- boundary=b5f45d1f61fb7924a69af3f0023ad359b7a5d5d310c6ea15f796a8275403;
- micalg=pgp-sha256; protocol="application/pgp-signature"
-Date: Mon, 02 Dec 2024 13:01:09 +0100
-Message-Id: <D6175VTSP13T.200HWIIHOIDQQ@cknow.org>
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>
-Subject: Re: [PATCH] arm64: dts: rockchip: enable rng on all rk356x
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Marcin Juszkiewicz" <marcin.juszkiewicz@linaro.org>, "Dragan Simic"
- <dsimic@manjaro.org>, "Peter Robinson" <pbrobinson@gmail.com>
-References: <20241201234613.52322-1-pbrobinson@gmail.com>
- <302bdae2f4defeefe88ea4018a0be11f@manjaro.org>
- <b50376c7-c5d5-41ae-95ea-e2d68c1cc809@linaro.org>
-In-Reply-To: <b50376c7-c5d5-41ae-95ea-e2d68c1cc809@linaro.org>
-X-Migadu-Flow: FLOW_OUT
+	Mon, 02 Dec 2024 12:05:01 +0000
+Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
+	id 46D7A1C00C4; Mon,  2 Dec 2024 13:04:58 +0100 (CET)
+Date: Mon, 2 Dec 2024 13:04:57 +0100
+From: Pavel Machek <pavel@denx.de>
+To: Sasha Levin <sashal@kernel.org>
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>, will@kernel.org,
+	shuah@kernel.org, mark.rutland@arm.com, thiago.bauermann@linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH AUTOSEL 5.10 4/5] kselftest/arm64: Corrupt P0 in the
+ irritator when testing SSVE
+Message-ID: <Z02iaXudPt42mby+@duo.ucw.cz>
+References: <20241124124210.3337020-1-sashal@kernel.org>
+ <20241124124210.3337020-4-sashal@kernel.org>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="5C6mcP4K8z2tNCMR"
+Content-Disposition: inline
+In-Reply-To: <20241124124210.3337020-4-sashal@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_040127_089077_454FA8CB 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20241202_040459_666957_4677CD95 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,45 +65,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---b5f45d1f61fb7924a69af3f0023ad359b7a5d5d310c6ea15f796a8275403
+
+--5C6mcP4K8z2tNCMR
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
 
-On Mon Dec 2, 2024 at 11:40 AM CET, Marcin Juszkiewicz wrote:
-> W dniu 2.12.2024 o 04:55, Dragan Simic pisze:
->  > On 2024-12-02 00:46, Peter Robinson wrote:
->  >> The rk356x rng is available on both the rk3566 and rk3568
->  >> parts, the IP is all self contained within the SoCs so
->  >> it's enabled already by default on rk3568 so let's enable
->  >> it in the base rk356x.dtsi so it's enabled consistently
->  >> everywhere.
->  >
->  > Please, go through the mailing list threads [1][2] that have led us
->  > to the current state.  To sum it up, it isn't about what's supported
->  > in the two RK356x SoC variants, but about the RK3566's HWRNG being
->  > disabled because the testing showed that it produces unacceptably
->  > low quality of random data, for some yet unknown reason.
->
-> So maybe there should be a comment in rockchip/rk3568.dtsi so we would=20
-> not get back to it again.
+Hi!
 
-I suggested to put that in the (original) commit message:
-https://lore.kernel.org/linux-rockchip/6690040.iosknibmi9@bagend/
-precisely because this was quite predictable to happen.
+> From: Mark Brown <broonie@kernel.org>
+>=20
+> [ Upstream commit 3e360ef0c0a1fb6ce9a302e40b8057c41ba8a9d2 ]
+>=20
+> When building for streaming SVE the irritator for SVE skips updates of bo=
+th
+> P0 and FFR. While FFR is skipped since it might not be present there is no
+> reason to skip corrupting P0 so switch to an instruction valid in streami=
+ng
+> mode and move the ifdef.
 
-So a +1 on a comment in the dtsi with a link to the discussion in the
-commit message.
+This is mismerged. Original patch moves #ifdef. How did AUTOSEL came
+up with this?
 
---b5f45d1f61fb7924a69af3f0023ad359b7a5d5d310c6ea15f796a8275403
+Best regards,
+								Pavel
+
+> +++ b/tools/testing/selftests/arm64/fp/sve-test.S
+> @@ -459,7 +459,8 @@ function irritator_handler
+>  	movi	v9.16b, #2
+>  	movi	v31.8b, #3
+>  	// And P0
+> -	rdffr	p0.b
+> +	ptrue	p0.d
+> +#ifndef SSVE
+>  	// And FFR
+>  	wrffr	p15.b
+> =20
+
+--=20
+DENX Software Engineering GmbH,        Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+
+--5C6mcP4K8z2tNCMR
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCZ02hiAAKCRDXblvOeH7b
-bl8ZAQDzAkc1dza7+FMijsFijExJqS8p/Wf3mTBaIcy5txEEmQEAyJoYozFLN/9W
-nHDB3oiWH07uU/u4hh5+ih8L8E5J5Qg=
-=4tEc
+iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCZ02iaQAKCRAw5/Bqldv6
+8mzMAJ412V6JjbuxcrchCjkJtPf4IIGCNACfW7cPJx2m3ROlazM0FJ728S145fE=
+=cDPI
 -----END PGP SIGNATURE-----
 
---b5f45d1f61fb7924a69af3f0023ad359b7a5d5d310c6ea15f796a8275403--
+--5C6mcP4K8z2tNCMR--
 
