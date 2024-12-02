@@ -4,76 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C47C2D78333
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:47:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FC1D78338
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SvILQC5jtN259ynW3O+0qLF7vU9xM53R8fRt1lnpcCw=; b=A/urcxXRzBnFeLVlQJkSVDOrbs
-	EsqrjJIWp4F6JTUMaNTx7de0vgVh23D2J/DgBeCPZ4X+UZ1YHnyvpjkbmI41KH1718FwOcZvZ00S0
-	Z88ZXzEsLdgW0GkSue8a5ejDO5vRG8n6gNJGcBtiBy7HiHWhGTRqboXhgJ21w+P7b06SKRGIqACEt
-	qaoycMNzyFoca1vhAxN2YnF9M8xc3O0e2VCBT1ITwHImOj25Pw9KBqFbkwbKbBlWXH8Q83Dr2g6y/
-	TREwCIy/n0emmgAibqIBpHXSCRSoq2BYA8VQxe2ZCV7/TS1WcN73XfojXFNsT2l4PvZhcCTIT7841
-	sT5srfjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9MCqn5rsAM7mTvZZGH9Vn9dK4CQtpO2fzI2bAdSyip8=; b=2ZYFTjd392OqX4qJSBn3M6cJ0Z
+	L64hDQk33GDqhUjJtykJbnrJDhVbBTU+Edmyx3PyI0I9CmVnLkVt03AHOW0S0yYVYiJ6CVC4BikMi
+	8Ux4uWlxGTmiUF7O4/EN7kCrV0MxOiSjdn+dRQ7YtAN4Wo6EhQcqMgOzUNdeKY1XBi7Ia77Nqi3q9
+	KJc+N51sh1xkBfSju/FkoH+7OWH1cbo0SqIOdoyXEOPGijzY3KxcGy4e1eLEJ6W0Zd2OW0qOq7Tn/
+	Bjah1m9y2SEVIkho+6X45nCOHi9G2MFP988onH0jrqcrXiBsA89utLeyypfCEPTIaaZrbbY2LjP0a
+	kMAzSzTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI9a1-00000006uqL-2qMe;
+	id 1tI9a1-00000006upk-0bpV;
 	Mon, 02 Dec 2024 16:47:25 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI9X8-00000006uIR-3PDo
+	id 1tI9UB-00000006tKp-2vAt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 16:44:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1733157866; x=1764693866;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=Kov19Kcf5hBRpnDlYC0mQmJZQDHLQKXhh4VXSpk7UlE=;
-  b=1CtCOvtnusEbMrTO07GtYIhpwc96TOaTc5mUzESsXITDSA+Ttk+cBc0f
-   YwWf/AXaOzxwJXacxCTd4Xxlb1hqV6UGY3cYR9D2r5H5vRW/+H57LNMrO
-   MB8+P6xEQTafnvGKLzBMxxZwwnvrHPL2tfmIJrNs/oOq8P0PTaSCmlhrK
-   QbhbmTv1XKkjDJ+eISn4y4wmL+fjKWMLYnHKkA21aQ2KitxFt6mPH+QKz
-   bDOcXmKaE/tcA87hd/drngDhGczvuPaJzZoZcYkB7cnQyNd0Dse96wuz3
-   CIYwnnlFPlOpOvGw3PRnla1G62DtDVT8KuqKnN/AiqscSNaaI5tovOpuS
-   w==;
-X-CSE-ConnectionGUID: VXJLcTK3S827uIOuKWwAmg==
-X-CSE-MsgGUID: 3CVsFPfDSQ2L2zwHmwYC3g==
-X-IronPort-AV: E=Sophos;i="6.12,202,1728975600"; 
-   d="scan'208";a="202476758"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 02 Dec 2024 09:44:25 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 2 Dec 2024 09:44:22 -0700
-Received: from [10.171.248.21] (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Mon, 2 Dec 2024 09:44:21 -0700
-Message-ID: <24069031-9ed4-4592-af98-ff53222caf03@microchip.com>
-Date: Mon, 2 Dec 2024 17:44:28 +0100
-MIME-Version: 1.0
+	Mon, 02 Dec 2024 16:41:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iq5a3WdYX6KE1tfLcBF/Quxa5DvLf4m2ucbMDCGoT9GyQcH9g/GhmNk12HZNKbQrpabYBImMtesFvt3Nnj1fNFSc+BdeGkoj/64IU90IYK/QGFT0yub0V26uAUEGOOu9oPCDNrIuvfKeKL8mCEKJvYuqN8NDNPVpvXXJgWE8H2SkOx+ALkgoaB803F7l9sx+6BCdm9CV3v7q+vQ3P1nwaj8T/fXcFEjg+W0IeoFRMDV+wjqZVjc1lxU12T/vTyOZoc91fEK3OngPJsZAtlCuXuJoEkQjYOmwUjABk3QxfZTQgYs0P64Pkg1Lp+FY6WSkQcpAm9r7bfPOq/MDs37Mxw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9MCqn5rsAM7mTvZZGH9Vn9dK4CQtpO2fzI2bAdSyip8=;
+ b=W0Ia5SVZYTMSKnGW1tL4evNp18r7hS2HyTMdfYY2SQCewO5FgJ+MgWjwPu+fDgSAfU8vLnNPhLlxRsgkRUpLxczoQyUMSfkum6hBkizCaK3REaDc6XKAkrLjfLkLupfGo/h/Gf3b9ynLhAsZ+TL6p02EnKBckDwPvTV5ntAGWkraovEmiLl6xR5Xs3rmhNP2DwCMlo2+wbIb/3zWbHOWBkiIZyGRDMObmIBy/L9ncYgbNdB9QlRg/vCRPy2rrrbIxvu/akeSSHmTv4y6vylhW1vkmlsjGIpjBcQBHJwyA2zRQbnnAAdJ6sjQc0Ey5WqOiyfWB8wFwh6vyXIFAw05Gw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9MCqn5rsAM7mTvZZGH9Vn9dK4CQtpO2fzI2bAdSyip8=;
+ b=JX4cxuexgpZwfXmrB6mQ2VRYt/8CLgFP/cmmlfDsfjX99fTge5YGiPy8tTFs0bKKSsvjgsJnnytGJ+SlopSgGUFoEOF1zodEPB3sWKWeHAaVi6lQtbH2By3ENA+6CI+daIksGx5diOeBqy/655wGN/VFi4BnlzQoudaLXmAs6XM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from BN0PR01MB6877.prod.exchangelabs.com (2603:10b6:408:161::22) by
+ CO1PR01MB9057.prod.exchangelabs.com (2603:10b6:303:274::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8230.8; Mon, 2 Dec 2024 16:41:14 +0000
+Received: from BN0PR01MB6877.prod.exchangelabs.com
+ ([fe80::91fc:9877:8a2a:d4e0]) by BN0PR01MB6877.prod.exchangelabs.com
+ ([fe80::91fc:9877:8a2a:d4e0%3]) with mapi id 15.20.8230.008; Mon, 2 Dec 2024
+ 16:41:12 +0000
+Message-ID: <c1b5a5de-94b0-4b27-a597-a34e84c3ef08@os.amperecomputing.com>
+Date: Mon, 2 Dec 2024 08:41:08 -0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: at91: pm: change BU Power Switch to automatic mode
-Content-Language: en-US, fr-FR
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Cristian Birsan <cristian.birsan@microchip.com>
-References: <20241125165648.509162-1-nicolas.ferre@microchip.com>
- <34a5b77b-e732-4393-a469-d9c719afa879@tuxon.dev>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Organization: microchip
-In-Reply-To: <34a5b77b-e732-4393-a469-d9c719afa879@tuxon.dev>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] arm64: mm: fix zone_dma_limit calculation
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ Robin Murphy <robin.murphy@arm.com>
+Cc: Baruch Siach <baruch@tkos.co.il>, will@kernel.org, ptesarik@suse.com,
+ hch@lst.de, jiangyutang@os.amperecomputing.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241125171650.77424-1-yang@os.amperecomputing.com>
+ <87ttbu8q7s.fsf@tarshish>
+ <98583682-a95e-440e-bd89-03828998b48e@os.amperecomputing.com>
+ <Z0dbsRCsWT3hiVds@arm.com> <7720d275-bc52-49c3-949a-6a6a32157418@arm.com>
+ <Z0oYMXMGYgXoyon7@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <Z0oYMXMGYgXoyon7@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SA0PR11CA0150.namprd11.prod.outlook.com
+ (2603:10b6:806:131::35) To BN0PR01MB6877.prod.exchangelabs.com
+ (2603:10b6:408:161::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN0PR01MB6877:EE_|CO1PR01MB9057:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2df56146-ab38-4cec-ea03-08dd12f0216a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WGZwbGxwTUhCN0d3a3ZubjgzcCtEYjVYUmRRVlNUcXlWbHp5b0szSDZwMnBH?=
+ =?utf-8?B?WllGajYxRXIvMjlpdTBMbTN6Z2grWE54R0k3c084N09xVTFzZWFxRnVPcEdB?=
+ =?utf-8?B?L1lUTkxob2dwVmhUTkR1REpTZitHRjhyanFWREJEbHJvNWFIRitSbGRma3BF?=
+ =?utf-8?B?WHBVdWhycThBTXpzSVpJeklhZEx5bWxwNU5BYm5ib1dodlBQZ3A4MjJDYUhU?=
+ =?utf-8?B?RnVRVEJEV2JaOUE5TmdTb1l1R1VIK0pmck1EVk9xSmF4UHJlNDVlVkRvM3lP?=
+ =?utf-8?B?SUNZYWF5dDJsNmNVYXM0VG5TOWVPYU9XSGVRMDNrSEtLaEQ0MEd2MU9kTFdC?=
+ =?utf-8?B?MHVZR3B1eUt2Z3dVc1ZaSVJrWEpDYXpLRWVZZHJ1bmFJWmcwVXB6Q25UOTlk?=
+ =?utf-8?B?WnRHTmszSlUybjVoZzYrKzMzcWtXTVE2VG5YaTlBNndHV0twa3ZFWGFESWJJ?=
+ =?utf-8?B?RlNkYXo4VERzU0E2OHFFNlVpdWxMbllEWHZsU284ajNFa2hxVVBHK2JGejcr?=
+ =?utf-8?B?aG9MRjBFb3lSQTZNRUl0MlZkUnIyN0F5VWE2bWMzRTU5bFBQMC9vMDlsK0w4?=
+ =?utf-8?B?dEQxYXlTTkp5a0E3d0szNWF1ZG9odHVRbWtsUU8zWUQ0VFl6VEFMQldHTzF1?=
+ =?utf-8?B?NmtjRkVvc0tGSy93bHF0N3NKUGJqQXhqTGtHY3MySXkvZ21rQTZuRlBGTHVw?=
+ =?utf-8?B?OTVyUG93RHJLd0FpMVJKeEVLUVhvWTJIamxKNVBQRk1iSW5NZGdWVzhWaGZr?=
+ =?utf-8?B?MTVlbkErV3h2cDVoaTVYa1ZIK0pORmdOWUx3V3lIUk9EWXFNdnkreWQ1WDN3?=
+ =?utf-8?B?Zi9qSnRRVDZTNW5pSmN2amNvYkNEaTUxOHJ5RytlV3NLSXNEbHFRYnloZVR1?=
+ =?utf-8?B?SG5FRGtjUTJnNzhPaS9NSGdQaW1iRGFxaDM4K0pRbFI4VXZBR1BudjBNa0ZB?=
+ =?utf-8?B?VnEyc3J6UkNaVUJOVXNYRU5LU2J1Zk8wQ1h3SE1yRWw4VjFmeHRjVUZlQ0tw?=
+ =?utf-8?B?WElyZG1SRGVFdTBhcXg2dWVsM3JHa1R0d0NGdDN6T2s0SUZrNXlMT2NqZEhS?=
+ =?utf-8?B?MTkvMHlCb2R5aFZYcUg3eWt5SnVXNk9DWUk1a0RUMnJzczVvcGVsZlNqZUwv?=
+ =?utf-8?B?OGV5OFJ2YWdFc3pVQnBqLytJbURrakNaVFFYS1RDYmgyTXp0Q3UzcmRrbWxS?=
+ =?utf-8?B?Yk9aS3pwR012OEo4UkprNGNDUVdlS1E3Sld0cEhjY2VhOE52aGkrcmVGTG91?=
+ =?utf-8?B?MUFndjRrMGRmbXpEQVFmZWtBZXJsMFJyTzhxS2Y5Rng0SVZGVGlyM1AvT1Zt?=
+ =?utf-8?B?M3pON2hyWjlreTJCMjd1ak5PTkd0d0grcXdtMU16dzQ3R1M3Nmp2dldmMGVs?=
+ =?utf-8?B?c2NnOFFnVVF1U3pzYjg1WWlpUEprOGJpRTF6R3c1MXlFSldkc0ZaeWpPWkk0?=
+ =?utf-8?B?OHlhbFF2SkR6VHBFd2NjZWZvaUEyTDh0emxRUUd2eU5pcUgxcER5MHFwbWJI?=
+ =?utf-8?B?OWpWcThuS3R0clhMQkpLRStzck5CZFljUWxxMHFoRW5DS3BLNzdmYW40K1dY?=
+ =?utf-8?B?dS9uNGZVa2JnMU9EZ1dwd3VhaHJoVGt0V21kT2N4ZlBBZk1ONkp2ajJacW5P?=
+ =?utf-8?B?b2ZWTElEK1hrbUtYVHE5akdxVUNnd2RnRFhhVjQ4U3UvaGVHOGU0UkkrcFFF?=
+ =?utf-8?B?Ni9SY2gzb1JVUTVFUXRoMmRFYUZ6cDhKS3NGZERLVGtDRExXejI5WGtnT3ZE?=
+ =?utf-8?B?OFZKaVlzQWU4YjdHZWN0TFl1SGhpMEpTY1R6cTFjL0VLakx4UjhhWGVENE14?=
+ =?utf-8?B?b0Z2Vjd6L1VudHQxazByQT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN0PR01MB6877.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M1dqQk9PalhMMzVPUUJ4R3V3M2h1djlrUkFKaksvdkVwM2tNZVZjMHlGV0xp?=
+ =?utf-8?B?dlNjTmg0MUxGcnppTTdRNDh1SDh6czY0L0F2QnlDYUR0TVlqU1JWQmE1MGZv?=
+ =?utf-8?B?UlExUTZHbjVFTTE1N2dYRnpObkEraE80d0dPNjFxOHlWQlNCbGFxaFpWTzVO?=
+ =?utf-8?B?YTEzKys5bEJLYkozckhTUHlpR3RSWUZuTjJmZzc2ZFpwZ0RkRldUQUROZHpq?=
+ =?utf-8?B?ZlhYVGtsZ2tvY0tKQzRweEtIRG5ESUFTNVZyUS9vQWYrdHdIM3p1VUx2VW50?=
+ =?utf-8?B?UG44TXVMSGkwR0h5dDg2aXNET1ZBNytsMGJSK0M4emtIR3E3U0d0N1lZVEhI?=
+ =?utf-8?B?SUcyRjFFWFpxN0FwTVcxakVDQXZEcXVqY1hCT3ozZFVCWUVRd3Fua0hnNU55?=
+ =?utf-8?B?dG1KQ1ZhVlpnMHppZzFGc05wZVI1dUJNbjI2ZXpkUnFya3UyUS9tSXhLelFt?=
+ =?utf-8?B?UjBURjNMV043d0h6RVExWXhDVzJyRGVQNXBqYXJ6QVpNODN2MTlDU2ZnNzZa?=
+ =?utf-8?B?aXpJUll2L05GR2w1WmFVUHpaeS90TmNXU1RLeUw5NWRGTDllUnlMcW1uRmNw?=
+ =?utf-8?B?WjJsL1N0QndhcHBWU0N0NUpqVnVWc0pkYlV2VDJFUUorUVlIaVUyWnRpbWhJ?=
+ =?utf-8?B?T2liR1BFS0FoOUNScllDQWV2TXFyQ0RWN2tXNFA1ZXRrcUwrem8rMTZjR1VW?=
+ =?utf-8?B?ZUViajJMTkJZM3NseHFvY3hzdWNRbHh5dUZYbi9VNkRkYUd0cGY4ZnpiSS96?=
+ =?utf-8?B?bWhlZktnek1uNDhZbTdNU1hVSkxmV2xiK1hMSTJGcy92RGRUVWN0MFM2ajRq?=
+ =?utf-8?B?bDc0UEdXWTlWRmFyTmNNTzZySnJOa2U5K0I5RVJpU0EzVjYwZUhjVDBlZlRJ?=
+ =?utf-8?B?TTdTUkhvaWZQNzBnMFdKd2tPMFFNdFN1Y2Vuclg1Z3k3Qmxxa29pVXV3dlpB?=
+ =?utf-8?B?czhpUVRyVnRhTnJCWmhlNENXSThVSFlkYTRISklFRFV0Qis1Nk13S1ZwWElG?=
+ =?utf-8?B?Zko5L2pxWkZJZHFrb2k1emhiMUpTeUNVNmtxYW9NT2tpejB6UjJ4VnNuR0xj?=
+ =?utf-8?B?STFLYjJ0UFVDSXhRY2svSlVJaU53R09GUFd4S3ZPcVFDYzR1K3cyZEE2T3dP?=
+ =?utf-8?B?MHV5SW43d3dTSVE5TjNESGhCZWpHTmo2VGh6NkN2THR3MTQ5ZHRsak1wL3Vu?=
+ =?utf-8?B?RmhiZ2NyN0IwaC93Mk9VZEtGZGdGUi85cFk2b2VObCtHZDBTamxGSEJBVWNu?=
+ =?utf-8?B?ZlFjTjhtZkxOVnk3RkJpM0N0dFFQcG4zRW5mUDNtbG9ydlpLM29YVW1DaW5F?=
+ =?utf-8?B?M2ZoQnhtY3FQQXVXbWg4K0NFQk9NNHVrT2Z6TU1YUWdZa3lISGlQOXFPSXJk?=
+ =?utf-8?B?MzliV1M1YTN3K1oraUZSTHlmcEVjZ211WGt3NkoxSVgvVVU5Z3FZRkt2aWUw?=
+ =?utf-8?B?SCtVUUxYck50bzlFTG9iQ1VPOU9TVVdTVnJzN1IxTkdidVEyd2p0V3pTN2dH?=
+ =?utf-8?B?b04xcFFJWGl4aWhIK25UVXM3ZkhwUWFCbW1XcXMvZVBURWJvWFFkK0ppSU9k?=
+ =?utf-8?B?UVo0LzFZUFFwcTBDR2NnV3IwbEtVUGNlMXltK0U4YlZuVzBhYTJCaHc3OFI3?=
+ =?utf-8?B?c1Rkcm5GcFpGUUQ3YlkvM1gzaS9QTy9nM3plZkI5MVBYbkdHeHExUDR0K3ZW?=
+ =?utf-8?B?T2tsZXAzOXZDNzE4QjJNL2ltZzRvNDNuVld6NEFYNFBnMzZHZDFuMzFxN0Jo?=
+ =?utf-8?B?NzNhYVVIT1hnbkFjWXlmeVV6TzFGRWtETC9Kb2dxQSs4aG0xUkgwYzZ2cmJJ?=
+ =?utf-8?B?RUNBMi9mV3RmYmRhcWg4clV3UWxKVUhybkRTOGtQQVUwd214VkI3QWJtS0Ir?=
+ =?utf-8?B?RnhlN2lWRmNNc1pWbDFSUENvVXZFOHNsVzZid0J2bjQwNytPWE5uUDhITTdE?=
+ =?utf-8?B?S1krdlFqcmcvZzl4dUErYmVvY0RSRWpUYWpYWkoyaTFwWXhoYjVPbE9PUlli?=
+ =?utf-8?B?L2NOS24wdVY4NGliV1BEcytTcWR3Yk0rWm1CazZnL25keFRZU3pPTkVmMWcr?=
+ =?utf-8?B?M1ArVVJXU2x4NllzMnkvMzlsS1VsUE5UbG9CUkRmcjR5Z3p5Y3FZZzVqWHhT?=
+ =?utf-8?B?Sy9zWU5icVNKbGVGSEdBdVdHWXMyeVdsaDU5Z1ZpZmRqRExRQ2czVjA3U0lI?=
+ =?utf-8?Q?RNK8B4gtfO33MtBfWoLexVs=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2df56146-ab38-4cec-ea03-08dd12f0216a
+X-MS-Exchange-CrossTenant-AuthSource: BN0PR01MB6877.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2024 16:41:12.0230
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eBtSIhs9EJXFOlz52ojc5Ky2aj1c5uSyfsDEPiowhOV2mqr786GhF4ihbhbFOMbx/Wj5eK+2HSNZU6g2vvvi1hZMNeqKQTHmaqCF2qzp/UY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB9057
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_084427_024494_6B43A0E3 
-X-CRM114-Status: GOOD (  25.52  )
+X-CRM114-CacheID: sfid-20241202_084123_737453_0113A76D 
+X-CRM114-Status: GOOD (  24.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,110 +180,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/12/2024 at 09:05, Claudiu Beznea wrote:
-> Hi, Nicolas,
-> 
-> On 25.11.2024 18:56, nicolas.ferre@microchip.com wrote:
->> From: Nicolas Ferre <nicolas.ferre@microchip.com>
->>
->> Change how the Backup Unit Power is configured and force the
->> automatic/hardware mode.
->> This change eliminates the need for software management of the power
->> switch, ensuring it transitions to the backup power source before
->> entering low power modes.
->>
->> This is done in the only locaton where this swich was configured. It's
-> 
-> s/locaton/location
-> 
->> usually done in the bootloader.
->>
->> Previously, the loss of the VDDANA (or VDDIN33) power source was not
->> automatically compensated by an alternative power source. This resulted
->> in the loss of Backup Unit content, including Backup Self-refresh low
->> power mode information, OTP emulation configuration, and boot
->> configuration, for instance.
-> 
-> Should we add a fixes for this?
 
-Not so easy to tell as there's a loose dependency with the bootloader. 
-But it's true that switching to automatic never harm. So probably yes.
 
->> Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
->> ---
->>   arch/arm/mach-at91/pm.c | 31 ++++++++++++++++++++-----------
->>   1 file changed, 20 insertions(+), 11 deletions(-)
->>
->> diff --git a/arch/arm/mach-at91/pm.c b/arch/arm/mach-at91/pm.c
->> index b9b995f8a36e..05a1547642b6 100644
->> --- a/arch/arm/mach-at91/pm.c
->> +++ b/arch/arm/mach-at91/pm.c
->> @@ -598,7 +598,21 @@ static int at91_suspend_finish(unsigned long val)
->>        return 0;
->>   }
->>
->> -static void at91_pm_switch_ba_to_vbat(void)
->> +/**
->> + * at91_pm_switch_ba_to_auto() - Configure Backup Unit Power Switch
->> + * to automatic/hardware mode.
->> + *
->> + * The Backup Unit Power Switch can be managed either by software or hardware.
->> + * Enabling hardware mode allows the automatic transition of power between
->> + * VDDANA (or VDDIN33) and VDDBU (or VBAT, respectively), based on the
->> + * availability of these power sources.
->> + *
->> + * If the Backup Unit Power Switch is already in automatic mode, no action is
->> + * required. If it is in software-controlled mode, it is switched to automatic
->> + * mode to enhance safety and eliminate the need for toggling between power
->> + * sources.
->> + */
->> +static void at91_pm_switch_ba_to_auto(void)
->>   {
->>        unsigned int offset = offsetof(struct at91_pm_sfrbu_regs, pswbu);
->>        unsigned int val;
->> @@ -609,24 +623,19 @@ static void at91_pm_switch_ba_to_vbat(void)
->>
->>        val = readl(soc_pm.data.sfrbu + offset);
->>
->> -     /* Already on VBAT. */
->> -     if (!(val & soc_pm.sfrbu_regs.pswbu.state))
->> +     /* Already on auto/hardware. */
->> +     if (!(val & soc_pm.sfrbu_regs.pswbu.ctrl))
->>                return;
->>
->> -     val &= ~soc_pm.sfrbu_regs.pswbu.softsw;
-> 
-> It seems that softsw and state members of at91_pm_sfrbu_regs.pswbu along
-> with their initialization could be dropped. What do you think?
+On 11/29/24 11:38 AM, Catalin Marinas wrote:
+> On Fri, Nov 29, 2024 at 06:06:50PM +0000, Robin Murphy wrote:
+>> On 2024-11-27 5:49 pm, Catalin Marinas wrote:
+>>> If IORT or DT indicate a large mask covering the whole RAM (i.e. no
+>>> restrictions), in an ideal world, we should normally extend ZONE_DMA to
+>>> the same.
+>> That's not right, ZONE_DMA should still be relatively limited in size
+>> (unless we really do only have a tiny amount of RAM) - just because a DT
+>> dma-ranges property says the system interconnect can carry >32 address bits
+>> in general doesn't mean that individual device DMA masks can't still be
+>> 32-bit or smaller. IIRC we're still implicitly assuming that if DT does
+>> describe an offset range into "high" RAM, it must represent a suitable
+>> lowest common denominator for all relevant devices already, and therefore we
+>> can get away with sizing ZONE_DMA off it blindly.
+> Fine by me to keep ZONE_DMA in the low range always. I was thinking of
+> only doing this if ZONE_DMA32 is enabled.
+>
+>> After staring at it for long enough, I think $SUBJECT patch is actually
+>> correct as it is.
+> Thanks Robin for having a look. Can I add your reviewed-by?
+>
+>> In fact I'm now wondering why the fix was put inside
+>> max_zone_phys() in the first place, since it's clearly pointless to clamp
+>> DMA_BIT_MASK(32) to U32_MAX in the dma32_phys_limit case...
+> I came to the same conclusion. I think it might have been some left-over
+> from when we had a ZONE_DMA32 in the above 4GB (AMD Seattle?). Than we
+> changed it a few times but only focused on this function for setting the
+> limits.
+>
+>> However the commit message is perhaps not as clear as it could be -
+>> technically we are correctly *calculating* the appropriate effective
+>> zone_dma_limt value within the scope of zone_sizes_init(), we're just
+>> failing to properly update the actual zone_dma_limit variable for the
+>> benefit of other users.
+> I'll have a look next week at rewriting the commit message, unless Yang
+> does it first. I'm planning to queue this patch for -rc2.
 
-I think that I tried when writing the patch but I think that there's a 
-little difference with sama5d2 register layout. Give me a couple more 
-days to come back to this and verify.
+Hi Catalin and Robin,
 
-> I can do it while applying, if any.
-> 
-> Thank you,
-> Claudiu
-> 
-> 
->> -     val |= soc_pm.sfrbu_regs.pswbu.key | soc_pm.sfrbu_regs.pswbu.ctrl;
->> +     val &= ~soc_pm.sfrbu_regs.pswbu.ctrl;
->> +     val |= soc_pm.sfrbu_regs.pswbu.key;
->>        writel(val, soc_pm.data.sfrbu + offset);
->> -
->> -     /* Wait for update. */
->> -     val = readl(soc_pm.data.sfrbu + offset);
->> -     while (val & soc_pm.sfrbu_regs.pswbu.state)
->> -             val = readl(soc_pm.data.sfrbu + offset);
->>   }
->>
->>   static void at91_pm_suspend(suspend_state_t state)
->>   {
->>        if (soc_pm.data.mode == AT91_PM_BACKUP) {
->> -             at91_pm_switch_ba_to_vbat();
->> +             at91_pm_switch_ba_to_auto();
->>
->>                cpu_suspend(0, at91_suspend_finish);
->>
+Thanks for moving this forward.
+
+How's about the below commit message?
+
+We failed to properly update the actual zone_dma_limit variable. Now it is
+the memsize limit in IORT or device tree instead of U32_MAX if the 
+memsize limit
+is greater than U32_MAX.
+
+The zone_dma_limit is used to determine whether GFP_DMA should be used 
+or not
+when allocating DMA buffers.  The wrong zone_dma_limit resulted in DMA 
+allocations
+use GFP_DMA even though the devices don't require it then fall into DMA 
+zone on
+node 0.  It caused regression on our two sockets systems due to 
+excessive remote
+memory access.
+
+>
 
 
