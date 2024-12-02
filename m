@@ -4,116 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD1F3D78326
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 14:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA493D78321
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 14:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4jbIOMJhwzZujSBJo3/F7e/CHOV5fOnXM/PrRzCOyTU=; b=rG13TEOoBDmdXK5dj+mHPe9gm3
-	9pIGS6ogCXO5doEvVhXTEGaGA2A407L4IsQuY3g8+ThgaX440Sehw0KLwBygDfAW+FtIOWE/bJNSP
-	4rPkhK1w9cOOPTUOhgwbVjSXczZczHJkYpDvRLwvlEZxoScX5GmlfZSzszGNUdwo95Cyeh4QdnND6
-	t7O4xYEFlNGEG78uZVRRR8UxG+lNM52T6OSD3wb3u2rMxOKK6zF2Uz5uYdcAkAiM+Jz6s2qQqUnGw
-	SkbQHFzkDOQ6oAdWyUNK8V4+WcQknEA6Y0zxbwzuJafLUGNYB5JP3zP80QU/VnMFt2vIoJjY3UVsk
-	tYVxgpBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=66NaRjYo+TdRIjIUtk+A/zrTfjyMbW0NLvNCk3ACUHQ=; b=SonrfWsc2HcE99
+	oq+dLDgSk9OK917aybirNX88T7U78Osw7+JPkKJ0PT5XNWQAqM4x5aF3R8kt3eXMlW/rdUj6rP3pZ
+	ZiaDHPDH7Dz2TvCsEc+4jE3EHtH+bj4JEm16skEKo4y3hnepaCWO3dCubnduxemu2Lf1/6/sbGST2
+	wUy+gdO3kF2t0IOEsxGcSxnhDVy//XZb/anEJwmCBFe1iw7EwzL72+wxcOqQwzYglrF/vzi62rg/y
+	+57Q+x76f9jFUlSVafoO0HXgbg9qVh+DfGIWRJU+CLxr86Ny/0lN3Qiwi2OLenxfh8GnP5sd1Wt9B
+	W2KrPLYGi4nGRYLxJzdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI7UJ-00000006SjR-1Md0;
-	Mon, 02 Dec 2024 14:33:23 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tI7VL-00000006T3C-1OO4;
+	Mon, 02 Dec 2024 14:34:27 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI7TD-00000006Ri0-09QX
+	id 1tI7TF-00000006RjN-2mlT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 14:32:16 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B29fYZE011828
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 2 Dec 2024 14:32:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	4jbIOMJhwzZujSBJo3/F7e/CHOV5fOnXM/PrRzCOyTU=; b=Q+ptKS+KNn69T76+
-	UTx7JyZYQsLwwtc/Y86rh0ScKOXyyFXvPlZnep4FtAQxnkFrKrnTppAawPIbUdHD
-	rR2LSV8QG0rtGrOVvsyXJkgEE1q3hNNbNR8rhXejcQ+nHQf7dUbWVqugNmqsc3Fj
-	tBpGB8K57UxUNZkTBr3grUSl9+dGdgFQAkgHIKx7b5AA7wIdUn8Z3RWz3TQKYsod
-	793vWz74ooHLnRYmDs4jmrNDQTmks7TYyGBTk6VOjNehRk9BICZESrfLPtdoJDdT
-	BkfTr0GJZJjk9sf7uDuY/WHvzTLcllopmaLL8gdLUcYQwSVs/EI8ptgA5cpfEVeX
-	TWRDlg==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4393mpa0a1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 14:32:14 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4668cee0202so6921011cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 06:32:14 -0800 (PST)
+	Mon, 02 Dec 2024 14:32:20 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-434a8640763so36643415e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 06:32:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1733149935; x=1733754735; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=66NaRjYo+TdRIjIUtk+A/zrTfjyMbW0NLvNCk3ACUHQ=;
+        b=DHLsglR/0um9AjS8tI2kPJa7WvqCyAJh0sT+rfSHmSi/iAza82CtvguDSptjJ8pTXC
+         YdXTaBkU2KQMX2sIbFcKuTwXgZCLHluxFk4lj3CrccneGzxObtCNRZeJBMSQy9rYEUPh
+         XVDIy64tu8CdWi/gWDeGOpZA3xzoG+KGCTiyyXIBKN2vDlgvENr2FpCKoe9GGOxr2bDM
+         5AxpwITjj5o9YkvCEqfBRWFCMB73QJDebDSqCQ6fSi3Xu0KncjZ0fOIQv5glOZ1Qkp4d
+         DDRZ9BQHkwGtkmuIUDhzxOPQ92LZXhUpuxoepvJhrknGhspP+wxhWPqSTl+UY/3vOxZf
+         Nvtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733149933; x=1733754733;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4jbIOMJhwzZujSBJo3/F7e/CHOV5fOnXM/PrRzCOyTU=;
-        b=pYEKTzvvQGzjPJwAimNjs0rzVUCtMZyWK+fAYskYGdc1trGflxmltRQw6+MublsM7J
-         s3dumfd/iENBrVvWL0SQvJdLPReJWm4cfeVDRm5Sju2AEt4UqYOn9tcqSJluIesqx0wQ
-         UHVQq9MBKEBoJtrFTU0+EkXlI1RgznsR5L4HdS5HWgYilIB5Vq/qmNEZV7SdmQ7/wtc9
-         rGrSgrfSHbgsDiH+0kp+djRHY2MXnp4UWx5/qMWEjmhdIhWhj/Xsb75X10Jes9lE/lxM
-         fZGO0b/i4+ZufIyYAAMFPOk4q1mpOsxG0zxd+856YyKH5ldxWsvK47LoyFNiCpLgRW0W
-         CD4w==
-X-Forwarded-Encrypted: i=1; AJvYcCV8U/PNNHR+5Zp9SO62QBeFAD6Im34ym+HZNBgKM/IyJKTdWq7xSWYxDv/CHXKiwww0BbrF4r1gq5+C+GVG/FTG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTpz53GUZfhQVSDBzwa7jjCYn4cVKsfxgh/rbkIyhdBMh8pKVj
-	F0Om+EDyxwFfkzYGxuVj9praklnTiCmqVyZd4lwu4N8HuYxxeUwEMmLQ+SI3Ck4pSH+s37bHzSx
-	mjcfagw5CLj3k+aW0Io+ihm8N0ET8h9zL4uqvIT6IeMspnXTJPIZNnXGv84ZgC3pY8zjxiS020Q
-	==
-X-Gm-Gg: ASbGncu6NCFSTAO/h0zKC+FlJF1mGGJefZh4g05CH925+UtVnlr6pKQgv2EFCN8qAgC
-	h8lmrf2sehykUKGoVATWn1eYXy91VvT+BXGTK7fhmpMJK6+1dpkspdCmHvvbCGYVoAcCB72XbaW
-	pnpnCzyAxeczUQ+ySrMZwGdweESTzkkBU8a0Im4dnxrMc4ez82+oMpn4iZBPHjbzKQj329zQZ/W
-	tLGFFKH00DPG5xjP4nrURygYGdV4KuHdjPAGk72jzWNQrIdKi9o3KSHceT9I6bFtoOwA+mq/nu9
-	uUM5VRuVXGtROzztWktCvCiGRDIwSk8=
-X-Received: by 2002:ac8:5ac5:0:b0:460:9026:6861 with SMTP id d75a77b69052e-466b35709cfmr140702281cf.9.1733149932675;
-        Mon, 02 Dec 2024 06:32:12 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGf1cpJzrtskSGjo4fG1SF33+hbIJADVXKdZwRVrExj/yH5XpQNftzyNj1gO9ADrRCLD3i4rA==
-X-Received: by 2002:ac8:5ac5:0:b0:460:9026:6861 with SMTP id d75a77b69052e-466b35709cfmr140702001cf.9.1733149932112;
-        Mon, 02 Dec 2024 06:32:12 -0800 (PST)
-Received: from [192.168.212.120] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa5996d8b7asm514983366b.48.2024.12.02.06.32.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Dec 2024 06:32:11 -0800 (PST)
-Message-ID: <30985d44-a460-437d-8423-615c198e02a2@oss.qualcomm.com>
-Date: Mon, 2 Dec 2024 15:32:09 +0100
+        d=1e100.net; s=20230601; t=1733149935; x=1733754735;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=66NaRjYo+TdRIjIUtk+A/zrTfjyMbW0NLvNCk3ACUHQ=;
+        b=rpqFbtWE3qHI5OrOxDmZ5tIIIppejsyIZAUkTvnPxUh414VXDG0IAPLU6ZZ2uh+gfc
+         rDWDQ9AYF2QE3lW25upIp22PC1Hhyb4vJ9+UQDZnL9S0tcTMEXwqK+qm8QEgXjtcyJ09
+         zba/rAwNHPbUc1YHaV86W6CnsBixQqrIfqyer9BcrzU6keOd7k5iIUi8NsKguMJikG3E
+         sJR3TnJhQ4WcF6mBim64q0ttsfHjp7a3M28VBcKE0jfN8sdzehQJWOCwAW5+A6VACAt7
+         pE1htcX9vaK7FpyGhMkgjjeSVu7PtDjp9ZqlmNyj6G8bwPwTRUqWX55F3qQeqJxPeDAR
+         W3Dw==
+X-Forwarded-Encrypted: i=1; AJvYcCXPmjzxK7zg07INxy05fsmm3IyN/Y2RKd6z5YYUAPBkWW6lVDkpmtKl+Ht4vbphwLZDuTIshMX9FfBhuZ/7S21I@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7MeK7czsn88PHd+siQSWskvEE2/xHHw5b5Q75BYcScl9qA/YX
+	2K4HFgIdccfJevmX0TFgaVzwyMxypgtscR9K+yXI41NJYkw9ihMIB8nrFOFm9bc=
+X-Gm-Gg: ASbGnctNZCwvgwX3O7PSMQV39ImYTQR5a0sQD7qTQXQ352WIxAIHqspQIQqztnfuqyk
+	SxDjRdCwP64pZ8Af1WdYtATtpFT9R/jbeXXhR/Ajz7jIR4W55dWRgKdm/ZbXhr89PXP8Nb0H7S9
+	wpw6yf30qUORHMQT0aO9rsCLSR5uf4w4XvVnEC2k35lQSycL/HnfvB3w96Gp7Zgfcew2CUuzBEt
+	Hy8HrI44oNr3q76XKNYKf5Hzt+5M44KKjHGR3mryA==
+X-Google-Smtp-Source: AGHT+IFjvnTvxoYoYzXeiS+rT48r6tDHyIvnEQ/xQrP8Q+YrgHiGsItI6q35+4octUNLW9uQ5Wq4wQ==
+X-Received: by 2002:a05:600c:1e09:b0:434:a8d8:760e with SMTP id 5b1f17b1804b1-434a9dc6774mr200107125e9.19.1733149935182;
+        Mon, 02 Dec 2024 06:32:15 -0800 (PST)
+Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-434aa74f1e6sm188429555e9.9.2024.12.02.06.32.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Dec 2024 06:32:14 -0800 (PST)
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: [PATCH 0/7] drm/vc4: Fixup DT and DT binding issues from recent
+ patchset
+Date: Mon, 02 Dec 2024 14:31:53 +0000
+Message-Id: <20241202-dt-bcm2712-fixes-v1-0-fac67cc2f98a@raspberrypi.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: qcom: x1e80100-crd: Add USB multiport
- fingerprint reader
-To: Stephan Gerhold <stephan.gerhold@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Catalin Marinas
- <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, Abel Vesa <abel.vesa@linaro.org>,
-        Johan Hovold <johan@kernel.org>
-References: <20241118-x1e80100-crd-fp-v1-0-ec6b553a2e53@linaro.org>
- <20241118-x1e80100-crd-fp-v1-1-ec6b553a2e53@linaro.org>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20241118-x1e80100-crd-fp-v1-1-ec6b553a2e53@linaro.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: -hRF6Tr-54pULRm3c_Qgz5GcnTquZZZI
-X-Proofpoint-GUID: -hRF6Tr-54pULRm3c_Qgz5GcnTquZZZI
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=602
- impostorscore=0 mlxscore=0 malwarescore=0 suspectscore=0
- lowpriorityscore=0 adultscore=0 spamscore=0 priorityscore=1501
- clxscore=1015 bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412020125
+X-B4-Tracking: v=1; b=H4sIANnETWcC/x3LQQqAIBBA0avErBvQQVK6SrTQmmoWWWhEEN49a
+ fn4/BcyJ+EMffNC4luyHLFCtw1Mm48ro8zVQIqM1uRwvjBMO1lNuMjDGf0SFDuvvLEd1O1M/Id
+ 6DWMpHxlHVi9iAAAA
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Eric Anholt <eric@anholt.net>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Doug Berger <opendmb@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>, 
+ linux-gpio@vger.kernel.org, Dave Stevenson <dave.stevenson@raspberrypi.com>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_063215_084716_E539C7B8 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20241202_063217_978664_A1E659FA 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,17 +112,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18.11.2024 11:34 AM, Stephan Gerhold wrote:
-> The X1E80100 CRD has a Goodix fingerprint reader connected to the USB
-> multiport controller on eUSB6. All other ports (including USB super-speed
-> pins) are unused.
-> 
-> Set it up in the device tree together with the NXP PTN3222 repeater.
-> 
-> Signed-off-by: Stephan Gerhold <stephan.gerhold@linaro.org>
-> ---
+I missed the DT errors from the recent patchset[1] (DT patches
+in linux-next via Florian, DRM bindings patches on dri-misc-next)
+as Rob's bot report got spam filtered, so this is a fixup set.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Largely it was changes to number of interrupts or clocks in the
+bindings, so those are now covered.
 
-Konrad
+I've fixed up the missing "interrupt-controller" flags for 2711
+and 2712 whilst here.
+
+I can't get my head around what is meant to happen with ranges:
+"soc@107c000000: firmware: 'ranges' is a required property"
+The meaning seems obvious.
+
+However if I add it then I get:
+"firmware: '#address-cells', '#size-cells', 'dma-ranges', 'ranges' do
+not match any of the regexes: 'pinctrl-[0-9]+'
+from schema $id: http://devicetree.org/schemas/arm/bcm/raspberrypi,bcm2835-firmware.yaml#
+
+There's obviously some other flag I need to set in the bindings,
+but I can't work it out. We have similar errors for all the Pi
+platforms for one or more nodes.
+Please advise and I'll happily fix them all.
+
+Thanks
+  Dave
+
+[1] https://lore.kernel.org/linux-arm-kernel/20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com/
+
+Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+---
+Dave Stevenson (7):
+      dtbindings: display: bcm2711-hdmi: Correct bindings for 2712
+      dtbindings: display: Fix BCM2835 HVS bindings for BCM2712
+      dt-bindings: gpio: brcmstb: add gpio-line-name
+      arm64: dts: broadcom: Fix device tree warnings for BCM2712 display pipeline
+      arm64: dts: broadcom: Add interrupt-controller flag for intc on BCM2712
+      arm: dts: broadcom: Add interrupt-controller flag for intc on BCM2711
+      arm64: dts: broadcom: Fix device tree errors on BCM2712.
+
+ .../bindings/display/brcm,bcm2711-hdmi.yaml        | 44 +++++++++----
+ .../bindings/display/brcm,bcm2835-hvs.yaml         | 77 +++++++++++++++++-----
+ .../bindings/gpio/brcm,brcmstb-gpio.yaml           |  2 +
+ arch/arm/boot/dts/broadcom/bcm2711.dtsi            |  2 +
+ arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts   |  9 +--
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 10 +--
+ 6 files changed, 106 insertions(+), 38 deletions(-)
+---
+base-commit: 8c3f4a248f35817d2f604c0e3df1bccf27590228
+change-id: 20241128-dt-bcm2712-fixes-afb0e8a0a476
+
+Best regards,
+-- 
+Dave Stevenson <dave.stevenson@raspberrypi.com>
+
 
