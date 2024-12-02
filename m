@@ -4,100 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D5ECD10DDD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 09:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8152BD10DDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 09:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qc054gM7Bv2R/3/jFzj28NNSZl9oumKdCqduypG+yy4=; b=kkliaUYl/sU2cWE23Unn5LwlhQ
-	ezH3gijwK8n4n1k9W3UjINFfGTLI88muJtMgBEEGfeLs4bP1z17MD/3TZkWPjz8PERAGDkAG9sPzP
-	DNe9lV8XXakt0trVwW4V/V5GyI/RwkI8mYFNTfCeVm4LT3LqEILzRET1MX8/k+h0WzNlNwYfEXUWH
-	g6M0K8CXTXBh5/mTxQ/5c5w27ExMMLojEmBddQNBTuyyAqEmNeGzJXFEz7JEFewa7XWctEuJ0fOMF
-	nFTvTSV1zfN4O9JJWWB4SgL6x3TPS4gdn3EUHp1pBbzVV2+NuVE7DkAGIFy2SWuu8FbxhzGcH37O9
-	N2xaNlsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CbvGTcb19VTku5AfvxtxRSOO5WhMzaPzK3JnrNDkBFo=; b=3oOMXOSpUEgEtsy1UVUKxS/eFp
+	NEXAIcub2kz+6gr+oyNoR/MS2MdCEO2BLXEkzqbz9iaRzb/xp3oX0MlzftPQBDtaXjLVzYopLjDGg
+	1YVQjXFWvSlHcw8fLQcGuNGQn6ETRpDTTzLWgyupuya9t2NAGNuteSbwlwfzjLhMu0hHZZubehckd
+	P++XRHxJAWlH/lEpmczLx16+0zA+RueuXS68uCSMBJe5WdPD9zGngVCb1njjs+GPmWqbGMkW6uQSB
+	fCHQvHzDZV27UK0WNrKPXOSX89CD3GLVGPIc8pz92FCHUlv5l6dQOPjn/Kq7e45PJNYPP2ZG+QBFG
+	M3/rLLZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI39r-00000005dU1-3rOQ;
-	Mon, 02 Dec 2024 09:55:59 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI38s-00000005dKR-2eAT
+	id 1tI3B0-00000005dfi-2AhK;
+	Mon, 02 Dec 2024 09:57:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tI3A0-00000005dVR-1gUa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 09:54:59 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B28RKcM008726;
-	Mon, 2 Dec 2024 09:54:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Qc054gM7Bv2R/3/jFzj28NNSZl9oumKdCqduypG+yy4=; b=DX+ETSJy3vxKk52I
-	fZSs2VwQ1mOluu2ygvYkpaatLNBNIdpRAzSlzWE++q/DFb7KtU4pYrkUzH09xN78
-	8s21Cv+zBe4CcNqdC9/vrgrBEm6nODqWnIii+Mvtr4or3tQUHAyChYrqYb1v2ntQ
-	6kLfW8eZls5L3m8r5a/AfvnaUWlFU2zM2TapS70UGxCTkFIsGTfSneg38ll9h+4v
-	AZYgVOrXHU8MVEkggmpnYn5MjZijMPtwNiofIUZLuttpdhB5hcAvWryIc/BY8vLT
-	ab55v2PTtCbHRFBfW6DTmqfxbA6D7drRbH2qgMOsdZrqZpFVyMR2uoFcIGYCDLBN
-	hsbn0A==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 437u36ccp7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 02 Dec 2024 09:54:51 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B29soul023039
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 2 Dec 2024 09:54:50 GMT
-Received: from [10.64.68.72] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 2 Dec 2024
- 01:54:46 -0800
-Message-ID: <4c39e6f8-22d2-4568-9116-01294f85a283@quicinc.com>
-Date: Mon, 2 Dec 2024 17:54:44 +0800
+	Mon, 02 Dec 2024 09:56:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D9B12FEC;
+	Mon,  2 Dec 2024 01:56:34 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 975583F58B;
+	Mon,  2 Dec 2024 01:56:05 -0800 (PST)
+Date: Mon, 2 Dec 2024 09:55:56 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Luca Fancellu <Luca.Fancellu@arm.com>
+Cc: Andre Przywara <Andre.Przywara@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [boot-wrapper v5] aarch64: Start Xen on Armv8-R at EL2
+Message-ID: <Z02ELNY-6PA3wcK7@J2N7QTR9R3>
+References: <20241127102300.2822848-1-luca.fancellu@arm.com>
+ <Z0hOCh16ThvfN-Jr@J2N7QTR9R3>
+ <D246D077-897A-43AF-9B7F-38990A1800B2@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] arm64: dts: qcom: add QCS8300 platform
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Jingyi Wang
-	<quic_jingyw@quicinc.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        "Konrad
- Dybcio" <konradybcio@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Catalin
- Marinas" <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-CC: <quic_tengfan@quicinc.com>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20241128-qcs8300_initial_dtsi-v3-0-26aa8a164914@quicinc.com>
- <20241128-qcs8300_initial_dtsi-v3-3-26aa8a164914@quicinc.com>
- <2a2a780d-5e3e-4582-b75d-211732a9b727@oss.qualcomm.com>
-From: Xin Liu <quic_liuxin@quicinc.com>
-In-Reply-To: <2a2a780d-5e3e-4582-b75d-211732a9b727@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: sG6BpQ02kSGQrQNSp8cy4NXRDen06MUL
-X-Proofpoint-ORIG-GUID: sG6BpQ02kSGQrQNSp8cy4NXRDen06MUL
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 mlxscore=0
- clxscore=1011 bulkscore=0 adultscore=0 lowpriorityscore=0 impostorscore=0
- mlxlogscore=999 phishscore=0 suspectscore=0 spamscore=0 priorityscore=1501
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2412020087
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <D246D077-897A-43AF-9B7F-38990A1800B2@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_015458_797823_761CF519 
-X-CRM114-Status: GOOD (  16.74  )
+X-CRM114-CacheID: sfid-20241202_015608_482757_D454A396 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,134 +64,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Nov 28, 2024 at 11:06:14AM +0000, Luca Fancellu wrote:
+> > On 28 Nov 2024, at 11:03, Mark Rutland <mark.rutland@arm.com> wrote:
+> > On Wed, Nov 27, 2024 at 10:23:00AM +0000, Luca Fancellu wrote:
+> >> When bootwrapper is compiled with Xen support and it is started
+> >> at EL2 on Armv8-R AArch64, keep the current EL and jump to the
+> >> Xen image using the SPSR_KERNEL as spsr_el2 value.
+> >>
+> >> The only available boot method on Armv8-R AArch64 when starting
+> >> Xen is spin table at the moment, reflect this in the build
+> >> configuration.
+> >>
+> >> Signed-off-by: Luca Fancellu <luca.fancellu@arm.com>
 
+> >> +# Don't allow PSCI + Xen + aarch64-r
+> >> +AS_IF([test "x$USE_PSCI" = "xyes" -a "x$USE_ARCH" = "xaarch64-r" -a "x$X_IMAGE" != "x"],
+> >> + [AC_MSG_ERROR([With aarch64-r and Xen, PSCI must be disabled.])]
+> >> +)
+> >
+> > I'll delete the comment and change the message here to:
+> >
+> > With an AArch64-R Xen, boot method must be spin-table.
+> >
+> > ... since that's consistent with the other message above:
+> >
+> > With an AArch32 kernel, boot method must be PSCI.
+> >
+> > ... and it's slightly nicer to tell the user what will work rather than
+> > what won't work.
+> >
+> > Otherwise this looks fine to me, and I will apply this shortly (with
+> > those changes) if no-one objects.
+> 
+> Sounds good to me! Thanks!
 
-在 2024/11/29 4:14, Konrad Dybcio 写道:
-> On 28.11.2024 9:44 AM, Jingyi Wang wrote:
->> Add initial DTSI for QCS8300 SoC.
->>
->> Features added in this revision:
->> - CPUs with PSCI idle states
->> - Interrupt-controller with PDC wakeup support
->> - Timers, TCSR Clock Controllers
->> - Reserved Shared memory
->> - GCC and RPMHCC
->> - TLMM
->> - Interconnect
->> - QuP with uart
->> - SMMU
->> - QFPROM
->> - Rpmhpd power controller
->> - UFS
->> - Inter-Processor Communication Controller
->> - SRAM
->> - Remoteprocs including ADSP,CDSP and GPDSP
->> - BWMONs
->>
->> Written with help from Zhenhua Huang(added the smmu node), Xin Liu(added
->> ufs, adsp and gpdsp nodes), Tingguo Cheng(added the rpmhpd node), Kyle
->> Deng(added the aoss_qmp node), Raviteja Laggyshetty(added interconnect
->> nodes) and Cong Zhang(added the INTID of EL2 non-secure physical timer).
->>
->> Signed-off-by: Jingyi Wang <quic_jingyw@quicinc.com>
->> ---
-> 
-> [...]
-> 
->> +		cpu-map {
->> +			cluster0 {
->> +				core0 {
->> +					cpu = <&cpu0>;
->> +				};
->> +
->> +				core1 {
->> +					cpu = <&cpu1>;
->> +				};
->> +
->> +				core2 {
->> +					cpu = <&cpu2>;
->> +				};
->> +
->> +				core3 {
->> +					cpu = <&cpu3>;
->> +				};
->> +
->> +				core4 {
->> +					cpu = <&cpu4>;
->> +				};
-> 
-> The MPIDR_EL1 register value (CPU node reg) suggests they are not
-> part of the same cluster (as you confirmed in the psci idle domains
-> description)
-> 
-> [...]
-> 
->> +
->> +		ufs_mem_hc: ufs@1d84000 {
->> +			compatible = "qcom,qcs8300-ufshc", "qcom,ufshc", "jedec,ufs-2.0";
->> +			reg = <0x0 0x01d84000 0x0 0x3000>;
->> +			interrupts = <GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>;
->> +			phys = <&ufs_mem_phy>;
->> +			phy-names = "ufsphy";
->> +			lanes-per-direction = <2>;
->> +			#reset-cells = <1>;
->> +			resets = <&gcc GCC_UFS_PHY_BCR>;
->> +			reset-names = "rst";
->> +
->> +			power-domains = <&gcc GCC_UFS_PHY_GDSC>;
->> +			required-opps = <&rpmhpd_opp_nom>;
->> +
->> +			iommus = <&apps_smmu 0x100 0x0>;
->> +			dma-coherent;
->> +
->> +			interconnects = <&aggre1_noc MASTER_UFS_MEM 0
-> 
-> QCOM_ICC_TAG_ALWAYS, file-wide
-> 
-> [...]
-> 
->> +		ufs_mem_phy: phy@1d87000 {
->> +			compatible = "qcom,qcs8300-qmp-ufs-phy", "qcom,sa8775p-qmp-ufs-phy";
->> +			reg = <0x0 0x01d87000 0x0 0xe10>;
->> +			/*
->> +			 * Yes, GCC_EDP_REF_CLKREF_EN is correct in qref. It
->> +			 * enables the CXO clock to eDP *and* UFS PHY.
->> +			 */
->> +			clocks = <&rpmhcc RPMH_CXO_CLK>,
->> +				 <&gcc GCC_UFS_PHY_PHY_AUX_CLK>,
->> +				 <&gcc GCC_EDP_REF_CLKREF_EN>;
-> 
-> Are you sure about this, or is this just copypasted from sa8775p?
-Thank you for your comments. I confirm with the colleague responsible 
-for this area, and configuring the clock this way is correct.
-> 
-> [...]
-> 
->> +
->> +		intc: interrupt-controller@17a00000 {
->> +			compatible = "arm,gic-v3";
->> +			reg = <0x0 0x17a00000 0x0 0x10000>,     /* GICD */
->> +			      <0x0 0x17a60000 0x0 0x100000>;    /* GICR * 8 */
-> 
-> Drop these comments
-> 
->> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
->> +			#interrupt-cells = <3>;
->> +			interrupt-controller;
->> +			#redistributor-regions = <1>;
->> +			redistributor-stride = <0x0 0x20000>;
->> +		};
->> +
->> +		memtimer: timer@17c20000 {
-> 
-> Unused label
-> 
-> [...]
-> 
->> +	arch_timer: timer {
-> 
-> Ditto
-> 
-> Konrad
+Thanks; applied (with those fixups).
 
+Mark.
 
