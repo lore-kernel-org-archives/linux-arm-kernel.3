@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A81FAD49793
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 01:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006D6D49793
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 01:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=710RFBmGsjX2YG7fhFrhLJpisCuudrgWgQ6Gyze+LAs=; b=JUEmLNmCm9wvrV2OpbhG59aQsu
-	myFNoGWSUhIyo25zUeH/E0rc7XwtYh3FQtN3oN9II5o1J5gS8EfbemaPAr6upDHSaAG138xuhmvDv
-	hxBoLQ9CX0TpUpDHOh2IJEinOktmuHO41PnzHexS9YJX6QvFDJmIBh+1vJ++5uU28jBC1ZSLN8tDk
-	XNRQ2fbjxii/N54Bs9DNa+x0X3oj2ZCJLEEvPjTUFLC3RZBoEcYZhtiYKh69Hc/1JqPeIcyAHUYQM
-	WyotGvGyLDZrzARAOh/uMcIe7ZFYWnnpc5wAvUy8t9HTZ+qqdrpopzh426eWPhsTSSPvzj/tF7K8S
-	loH06lxw==;
+	bh=+Hb1XHT7BCneC2tQ+Uq4AVpJcszwbm8PjcuOmwmtm3E=; b=A4LJN5U47C/cVi+CSH4w2bCgx+
+	6r6UW+jhBWRXnCT6lPI7thxzOrTjITCJE1cO9DloamcABshiMYxlWlc7TKlhpc0sCLrfW7W1I1OLn
+	QCnM+tHmzKp2OdW68XKObkPiALmwfWZa5k6Sz7itJgDd+l0l9d55GnGVB62FxkVDHeK58hL5Ww0sG
+	CwZryubhEcSQ43r9HY7mxmsYtNeiL9ouY/IgSxA4PvrDrVV/wE30OK8+IvrQZCUoGMkgn4ElOEDWP
+	9pIgICcPC4Gvk2L+jWMA1F1zwnVn3NX7lgGB/w2lospqOsznB1j63Qa6N+e32DDVTS076k1z2+hCt
+	EwaSGg4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHvQ9-00000004jwn-3Gfq;
-	Mon, 02 Dec 2024 01:40:17 +0000
+	id 1tHvR6-00000004k3S-1Tin;
+	Mon, 02 Dec 2024 01:41:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHv85-00000004hQu-2G3r
+	id 1tHv87-00000004hRM-0GXX
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Dec 2024 01:21:37 +0000
+	Mon, 02 Dec 2024 01:21:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=710RFBmGsjX2YG7fhFrhLJpisCuudrgWgQ6Gyze+LAs=; b=YlIKzA56Iw4iMGFcqQdj7L1a4D
-	v57mMAFLd2BGHLVLf78D2CKxfJoIuhMgGYDaJ9Jz2ZuHU2HaEspGJuprqMh8v++M4D9wabPcVURj2
-	V9/+CUTnUCC9WylGkNedGjtsBwVpErup6dfD22RM6udvIzga6OfrY4ykKTYcFwikCnJtUwQw93URL
-	WXlNWSJcavdSy0027gs4Ybqd16BHly6JIAP6V7btnuOJgUk9X3p3CyhIIyw/jV9pHiqJ4HARZmT14
-	M6qk8vlhocIyRDAI/HCYRdquTMS0yLMxt9MMzLWriELWS00qGAT6WPq/HZOzGOh5dESd6NB8ep1wk
-	u2OcaiGw==;
+	bh=+Hb1XHT7BCneC2tQ+Uq4AVpJcszwbm8PjcuOmwmtm3E=; b=jZuh+kfLO63sApv3YUz6ciN5n+
+	sGv5S2e/9XkYiJLV3Chpd4PDXYcVg5UrnWmbJTmdqI1K7EInZP06LzHEntIrBw+GecgPakf1Xyoz9
+	B2HuRiPHwP/auSMOiedKpacMSZOiDOfsTYlZu2aipESUGH8B1uc7uTI3pWTQ/PO8KCY25uMot3hrx
+	aHKCnmMAHBQ365GPf60VNhiFaxpxa2wggMs1e17CnYXDD93NxUAO1QMkkPxcjvfiu66x/HJXNpd4v
+	MuJZ8uPWTPbXbJGONQwZ6BY5CQsOezmSXVwXG/Xk9/1zDQLnn6HMxJL4jPH2azkc2SE6xM/Y/WqAt
+	vLB6MZcw==;
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHv80-000000024jy-1fdS
+	id 1tHv80-000000024k0-1fYp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 01:21:35 +0000
+	Mon, 02 Dec 2024 01:21:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7FD21A40C31;
+	by nyc.source.kernel.org (Postfix) with ESMTP id E1063A40C12;
 	Mon,  2 Dec 2024 01:19:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81811C4CEE3;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E405EC4CECF;
 	Mon,  2 Dec 2024 01:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733102489;
-	bh=zOpYjUq7IQjKYIrBHyUZaVOUe0+fJqvMIlVQKF8tL0k=;
+	s=k20201202; t=1733102490;
+	bh=ISfyNvdNpbkV2arizMvQq4uuyReubir2d48UPRuYgKY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uai+Cmj9j4A5P2GS5WcQnAxocOeWsVEwvyY8SeucQw2OkVH3+H0ju+3XodE3WUhjm
-	 IetkN0BFtXZzJHJkKPm38BROhdzjnJvjZuVYNRz+oJi0J6p0EulS5ZZwtNZRZlW+JN
-	 YG6DKvPLc8JaIy9odQYgKTxJRIvsa3yRbyJ7t4POK/1jomC1TrH48M6UkYTYfEqWJN
-	 U+hIi40pO1eLq/Ux+3HDkDhigE4eo5RvPS8vFJrpsleYrm7Bm8UWy+FGd8ykUtigIT
-	 86HnhwIVcWZv7LwSRMVPNH1anQmBJw0pn5v7QyrdTNCXZQdif9jP8TPcHqCy1NYZgS
-	 lzwosfEA5MdKA==
+	b=TdVZm53zic6CXInecLInLx9MwZ3dHDWGCNOa8JMD1chwSFgAiZVrp5PnkAsXYpq77
+	 WnZXEbiSoqhArWNxH+ZuHKwG9KD0P5fdpsIb/qFvlEmW4x8M7WFB/9Fsf0egD2ybhD
+	 NSxdIG6XSOZ8UTQq144zpskZSXnTAwb8zlTVSy09VY+xOCq/+IDslS8v0nGPElhgYD
+	 5/4cOALmUU8+bICIZZLjYtaPrhtu6PjdpQubG8EEvbgPuutp3p2xb9vauAZtqJhdn3
+	 TSdMLLHe7qsQ+soXNNIunYGiHAscwKsHl/kCnY6MJXSwZGthZhWttt5HIr04zrKxvL
+	 P4kxOQLxxEWsA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -67,17 +67,17 @@ Cc: linux-arch@vger.kernel.org,
 	Zhihang Shao <zhihang.shao.iscas@gmail.com>,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Martin K. Petersen" <martin.petersen@oracle.com>
-Subject: [PATCH v2 03/12] crypto: crct10dif - expose arch-optimized lib function
-Date: Sun,  1 Dec 2024 17:20:47 -0800
-Message-ID: <20241202012056.209768-4-ebiggers@kernel.org>
+Subject: [PATCH v2 04/12] x86/crc-t10dif: expose CRC-T10DIF function through lib
+Date: Sun,  1 Dec 2024 17:20:48 -0800
+Message-ID: <20241202012056.209768-5-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20241202012056.209768-1-ebiggers@kernel.org>
 References: <20241202012056.209768-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_012134_334317_70E1BBFB 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20241202_012134_403095_40205F77 
+X-CRM114-Status: GOOD (  24.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,98 +94,187 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Now that crc_t10dif_update() may be directly optimized for each
-architecture, make the shash driver for crct10dif register a
-crct10dif-$arch algorithm that uses it, instead of only
-crct10dif-generic which uses crc_t10dif_generic().
-
-The result is that architecture-optimized crct10dif will remain
-available through the shash API once the architectures implement
-crc_t10dif_arch() instead of the shash API.
+Move the x86 CRC-T10DIF assembly code into the lib directory and wire it
+up to the library interface.  This allows it to be used without going
+through the crypto API.  It remains usable via the crypto API too via
+the shash algorithms that use the library interface.  Thus all the
+arch-specific "shash" code becomes unnecessary and is removed.
 
 Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 Reviewed-by: Martin K. Petersen <martin.petersen@oracle.com>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- crypto/Makefile            |  1 +
- crypto/crct10dif_generic.c | 82 +++++++++++++++++++++++++++++---------
- 2 files changed, 65 insertions(+), 18 deletions(-)
+ arch/x86/Kconfig                              |   1 +
+ arch/x86/crypto/Kconfig                       |  10 --
+ arch/x86/crypto/Makefile                      |   3 -
+ arch/x86/crypto/crct10dif-pclmul_glue.c       | 143 ------------------
+ arch/x86/lib/Makefile                         |   3 +
+ arch/x86/lib/crc-t10dif-glue.c                |  51 +++++++
+ .../{crypto => lib}/crct10dif-pcl-asm_64.S    |   0
+ 7 files changed, 55 insertions(+), 156 deletions(-)
+ delete mode 100644 arch/x86/crypto/crct10dif-pclmul_glue.c
+ create mode 100644 arch/x86/lib/crc-t10dif-glue.c
+ rename arch/x86/{crypto => lib}/crct10dif-pcl-asm_64.S (100%)
 
-diff --git a/crypto/Makefile b/crypto/Makefile
-index 0537df1719d3..ffd94c7f2643 100644
---- a/crypto/Makefile
-+++ b/crypto/Makefile
-@@ -156,10 +156,11 @@ obj-$(CONFIG_CRYPTO_MICHAEL_MIC) += michael_mic.o
- obj-$(CONFIG_CRYPTO_CRC32C) += crc32c_generic.o
- obj-$(CONFIG_CRYPTO_CRC32) += crc32_generic.o
- CFLAGS_crc32c_generic.o += -DARCH=$(ARCH)
- CFLAGS_crc32_generic.o += -DARCH=$(ARCH)
- obj-$(CONFIG_CRYPTO_CRCT10DIF) += crct10dif_generic.o
-+CFLAGS_crct10dif_generic.o += -DARCH=$(ARCH)
- obj-$(CONFIG_CRYPTO_CRC64_ROCKSOFT) += crc64_rocksoft_generic.o
- obj-$(CONFIG_CRYPTO_AUTHENC) += authenc.o authencesn.o
- obj-$(CONFIG_CRYPTO_LZO) += lzo.o lzo-rle.o
- obj-$(CONFIG_CRYPTO_LZ4) += lz4.o
- obj-$(CONFIG_CRYPTO_LZ4HC) += lz4hc.o
-diff --git a/crypto/crct10dif_generic.c b/crypto/crct10dif_generic.c
-index e843982073bb..259cb01932cb 100644
---- a/crypto/crct10dif_generic.c
-+++ b/crypto/crct10dif_generic.c
-@@ -55,10 +55,19 @@ static int chksum_update(struct shash_desc *desc, const u8 *data,
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 4f4fc67fbce7..65f8478fe7a9 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -75,10 +75,11 @@ config X86
+ 	select ARCH_HAS_CACHE_LINE_SIZE
+ 	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+ 	select ARCH_HAS_CPU_FINALIZE_INIT
+ 	select ARCH_HAS_CPU_PASID		if IOMMU_SVA
+ 	select ARCH_HAS_CRC32
++	select ARCH_HAS_CRC_T10DIF		if X86_64
+ 	select ARCH_HAS_CURRENT_STACK_POINTER
+ 	select ARCH_HAS_DEBUG_VIRTUAL
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE	if !X86_PAE
+ 	select ARCH_HAS_DEVMEM_IS_ALLOWED
+ 	select ARCH_HAS_DMA_OPS			if GART_IOMMU || XEN
+diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
+index ba9a7e73cd08..4757bf922075 100644
+--- a/arch/x86/crypto/Kconfig
++++ b/arch/x86/crypto/Kconfig
+@@ -490,16 +490,6 @@ config CRYPTO_GHASH_CLMUL_NI_INTEL
+ 	  GCM GHASH hash function (NIST SP800-38D)
  
- 	ctx->crc = crc_t10dif_generic(ctx->crc, data, length);
- 	return 0;
- }
+ 	  Architecture: x86_64 using:
+ 	  - CLMUL-NI (carry-less multiplication new instructions)
  
-+static int chksum_update_arch(struct shash_desc *desc, const u8 *data,
-+			      unsigned int length)
-+{
-+	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
-+
-+	ctx->crc = crc_t10dif_update(ctx->crc, data, length);
-+	return 0;
-+}
-+
- static int chksum_final(struct shash_desc *desc, u8 *out)
- {
- 	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+-config CRYPTO_CRCT10DIF_PCLMUL
+-	tristate "CRCT10DIF (PCLMULQDQ)"
+-	depends on X86 && 64BIT && CRC_T10DIF
+-	select CRYPTO_HASH
+-	help
+-	  CRC16 CRC algorithm used for the T10 (SCSI) Data Integrity Field (DIF)
+-
+-	  Architecture: x86_64 using:
+-	  - PCLMULQDQ (carry-less multiplication)
+-
+ endmenu
+diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
+index 030b925ca4e2..07b00bfca64b 100644
+--- a/arch/x86/crypto/Makefile
++++ b/arch/x86/crypto/Makefile
+@@ -73,13 +73,10 @@ obj-$(CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL) += ghash-clmulni-intel.o
+ ghash-clmulni-intel-y := ghash-clmulni-intel_asm.o ghash-clmulni-intel_glue.o
  
- 	*(__u16 *)out = ctx->crc;
-@@ -69,49 +78,86 @@ static int __chksum_finup(__u16 crc, const u8 *data, unsigned int len, u8 *out)
- {
- 	*(__u16 *)out = crc_t10dif_generic(crc, data, len);
- 	return 0;
- }
+ obj-$(CONFIG_CRYPTO_POLYVAL_CLMUL_NI) += polyval-clmulni.o
+ polyval-clmulni-y := polyval-clmulni_asm.o polyval-clmulni_glue.o
  
-+static int __chksum_finup_arch(__u16 crc, const u8 *data, unsigned int len,
-+			       u8 *out)
-+{
-+	*(__u16 *)out = crc_t10dif_update(crc, data, len);
-+	return 0;
-+}
-+
- static int chksum_finup(struct shash_desc *desc, const u8 *data,
- 			unsigned int len, u8 *out)
- {
- 	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+-obj-$(CONFIG_CRYPTO_CRCT10DIF_PCLMUL) += crct10dif-pclmul.o
+-crct10dif-pclmul-y := crct10dif-pcl-asm_64.o crct10dif-pclmul_glue.o
+-
+ obj-$(CONFIG_CRYPTO_POLY1305_X86_64) += poly1305-x86_64.o
+ poly1305-x86_64-y := poly1305-x86_64-cryptogams.o poly1305_glue.o
+ targets += poly1305-x86_64-cryptogams.S
  
- 	return __chksum_finup(ctx->crc, data, len, out);
- }
- 
-+static int chksum_finup_arch(struct shash_desc *desc, const u8 *data,
-+			     unsigned int len, u8 *out)
-+{
-+	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
-+
-+	return __chksum_finup_arch(ctx->crc, data, len, out);
-+}
-+
- static int chksum_digest(struct shash_desc *desc, const u8 *data,
- 			 unsigned int length, u8 *out)
- {
- 	return __chksum_finup(0, data, length, out);
- }
- 
+ obj-$(CONFIG_CRYPTO_NHPOLY1305_SSE2) += nhpoly1305-sse2.o
+diff --git a/arch/x86/crypto/crct10dif-pclmul_glue.c b/arch/x86/crypto/crct10dif-pclmul_glue.c
+deleted file mode 100644
+index 71291d5af9f4..000000000000
+--- a/arch/x86/crypto/crct10dif-pclmul_glue.c
++++ /dev/null
+@@ -1,143 +0,0 @@
+-/*
+- * Cryptographic API.
+- *
+- * T10 Data Integrity Field CRC16 Crypto Transform using PCLMULQDQ Instructions
+- *
+- * Copyright (C) 2013 Intel Corporation
+- * Author: Tim Chen <tim.c.chen@linux.intel.com>
+- *
+- * This program is free software; you can redistribute it and/or modify it
+- * under the terms of the GNU General Public License as published by the Free
+- * Software Foundation; either version 2 of the License, or (at your option)
+- * any later version.
+- *
+- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+- * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+- * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+- * SOFTWARE.
+- *
+- */
+-
+-#include <linux/types.h>
+-#include <linux/module.h>
+-#include <linux/crc-t10dif.h>
+-#include <crypto/internal/hash.h>
+-#include <crypto/internal/simd.h>
+-#include <linux/init.h>
+-#include <linux/string.h>
+-#include <linux/kernel.h>
+-#include <asm/cpufeatures.h>
+-#include <asm/cpu_device_id.h>
+-#include <asm/simd.h>
+-
+-asmlinkage u16 crc_t10dif_pcl(u16 init_crc, const u8 *buf, size_t len);
+-
+-struct chksum_desc_ctx {
+-	__u16 crc;
+-};
+-
+-static int chksum_init(struct shash_desc *desc)
+-{
+-	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	ctx->crc = 0;
+-
+-	return 0;
+-}
+-
+-static int chksum_update(struct shash_desc *desc, const u8 *data,
+-			 unsigned int length)
+-{
+-	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	if (length >= 16 && crypto_simd_usable()) {
+-		kernel_fpu_begin();
+-		ctx->crc = crc_t10dif_pcl(ctx->crc, data, length);
+-		kernel_fpu_end();
+-	} else
+-		ctx->crc = crc_t10dif_generic(ctx->crc, data, length);
+-	return 0;
+-}
+-
+-static int chksum_final(struct shash_desc *desc, u8 *out)
+-{
+-	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	*(__u16 *)out = ctx->crc;
+-	return 0;
+-}
+-
+-static int __chksum_finup(__u16 crc, const u8 *data, unsigned int len, u8 *out)
+-{
+-	if (len >= 16 && crypto_simd_usable()) {
+-		kernel_fpu_begin();
+-		*(__u16 *)out = crc_t10dif_pcl(crc, data, len);
+-		kernel_fpu_end();
+-	} else
+-		*(__u16 *)out = crc_t10dif_generic(crc, data, len);
+-	return 0;
+-}
+-
+-static int chksum_finup(struct shash_desc *desc, const u8 *data,
+-			unsigned int len, u8 *out)
+-{
+-	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	return __chksum_finup(ctx->crc, data, len, out);
+-}
+-
+-static int chksum_digest(struct shash_desc *desc, const u8 *data,
+-			 unsigned int length, u8 *out)
+-{
+-	return __chksum_finup(0, data, length, out);
+-}
+-
 -static struct shash_alg alg = {
 -	.digestsize		=	CRC_T10DIF_DIGEST_SIZE,
 -	.init		=	chksum_init,
@@ -196,66 +285,120 @@ index e843982073bb..259cb01932cb 100644
 -	.descsize		=	sizeof(struct chksum_desc_ctx),
 -	.base			=	{
 -		.cra_name		=	"crct10dif",
--		.cra_driver_name	=	"crct10dif-generic",
--		.cra_priority		=	100,
+-		.cra_driver_name	=	"crct10dif-pclmul",
+-		.cra_priority		=	200,
 -		.cra_blocksize		=	CRC_T10DIF_BLOCK_SIZE,
 -		.cra_module		=	THIS_MODULE,
 -	}
 -};
-+static int chksum_digest_arch(struct shash_desc *desc, const u8 *data,
-+			      unsigned int length, u8 *out)
-+{
-+	return __chksum_finup_arch(0, data, length, out);
-+}
-+
-+static struct shash_alg algs[] = {{
-+	.digestsize		= CRC_T10DIF_DIGEST_SIZE,
-+	.init			= chksum_init,
-+	.update			= chksum_update,
-+	.final			= chksum_final,
-+	.finup			= chksum_finup,
-+	.digest			= chksum_digest,
-+	.descsize		= sizeof(struct chksum_desc_ctx),
-+	.base.cra_name		= "crct10dif",
-+	.base.cra_driver_name	= "crct10dif-generic",
-+	.base.cra_priority	= 100,
-+	.base.cra_blocksize	= CRC_T10DIF_BLOCK_SIZE,
-+	.base.cra_module	= THIS_MODULE,
-+}, {
-+	.digestsize		= CRC_T10DIF_DIGEST_SIZE,
-+	.init			= chksum_init,
-+	.update			= chksum_update_arch,
-+	.final			= chksum_final,
-+	.finup			= chksum_finup_arch,
-+	.digest			= chksum_digest_arch,
-+	.descsize		= sizeof(struct chksum_desc_ctx),
-+	.base.cra_name		= "crct10dif",
-+	.base.cra_driver_name	= "crct10dif-" __stringify(ARCH),
-+	.base.cra_priority	= 150,
-+	.base.cra_blocksize	= CRC_T10DIF_BLOCK_SIZE,
-+	.base.cra_module	= THIS_MODULE,
-+}};
-+
-+static int num_algs;
- 
- static int __init crct10dif_mod_init(void)
- {
+-
+-static const struct x86_cpu_id crct10dif_cpu_id[] = {
+-	X86_MATCH_FEATURE(X86_FEATURE_PCLMULQDQ, NULL),
+-	{}
+-};
+-MODULE_DEVICE_TABLE(x86cpu, crct10dif_cpu_id);
+-
+-static int __init crct10dif_intel_mod_init(void)
+-{
+-	if (!x86_match_cpu(crct10dif_cpu_id))
+-		return -ENODEV;
+-
 -	return crypto_register_shash(&alg);
-+	/* register the arch flavor only if it differs from the generic one */
-+	num_algs = 1 + crc_t10dif_is_optimized();
-+
-+	return crypto_register_shashes(algs, num_algs);
- }
- 
- static void __exit crct10dif_mod_fini(void)
- {
+-}
+-
+-static void __exit crct10dif_intel_mod_fini(void)
+-{
 -	crypto_unregister_shash(&alg);
-+	crypto_unregister_shashes(algs, num_algs);
- }
+-}
+-
+-module_init(crct10dif_intel_mod_init);
+-module_exit(crct10dif_intel_mod_fini);
+-
+-MODULE_AUTHOR("Tim Chen <tim.c.chen@linux.intel.com>");
+-MODULE_DESCRIPTION("T10 DIF CRC calculation accelerated with PCLMULQDQ.");
+-MODULE_LICENSE("GPL");
+-
+-MODULE_ALIAS_CRYPTO("crct10dif");
+-MODULE_ALIAS_CRYPTO("crct10dif-pclmul");
+diff --git a/arch/x86/lib/Makefile b/arch/x86/lib/Makefile
+index 17510da06c9f..8a59c61624c2 100644
+--- a/arch/x86/lib/Makefile
++++ b/arch/x86/lib/Makefile
+@@ -40,10 +40,13 @@ lib-$(CONFIG_MITIGATION_RETPOLINE) += retpoline.o
  
- subsys_initcall(crct10dif_mod_init);
- module_exit(crct10dif_mod_fini);
+ obj-$(CONFIG_CRC32_ARCH) += crc32-x86.o
+ crc32-x86-y := crc32-glue.o crc32-pclmul.o
+ crc32-x86-$(CONFIG_64BIT) += crc32c-3way.o
  
++obj-$(CONFIG_CRC_T10DIF_ARCH) += crc-t10dif-x86.o
++crc-t10dif-x86-y := crc-t10dif-glue.o crct10dif-pcl-asm_64.o
++
+ obj-y += msr.o msr-reg.o msr-reg-export.o hweight.o
+ obj-y += iomem.o
+ 
+ ifeq ($(CONFIG_X86_32),y)
+         obj-y += atomic64_32.o
+diff --git a/arch/x86/lib/crc-t10dif-glue.c b/arch/x86/lib/crc-t10dif-glue.c
+new file mode 100644
+index 000000000000..13f07ddc9122
+--- /dev/null
++++ b/arch/x86/lib/crc-t10dif-glue.c
+@@ -0,0 +1,51 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * CRC-T10DIF using PCLMULQDQ instructions
++ *
++ * Copyright 2024 Google LLC
++ */
++
++#include <asm/cpufeatures.h>
++#include <asm/simd.h>
++#include <crypto/internal/simd.h>
++#include <linux/crc-t10dif.h>
++#include <linux/module.h>
++
++static DEFINE_STATIC_KEY_FALSE(have_pclmulqdq);
++
++asmlinkage u16 crc_t10dif_pcl(u16 init_crc, const u8 *buf, size_t len);
++
++u16 crc_t10dif_arch(u16 crc, const u8 *p, size_t len)
++{
++	if (len >= 16 &&
++	    static_key_enabled(&have_pclmulqdq) && crypto_simd_usable()) {
++		kernel_fpu_begin();
++		crc = crc_t10dif_pcl(crc, p, len);
++		kernel_fpu_end();
++		return crc;
++	}
++	return crc_t10dif_generic(crc, p, len);
++}
++EXPORT_SYMBOL(crc_t10dif_arch);
++
++static int __init crc_t10dif_x86_init(void)
++{
++	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ))
++		static_branch_enable(&have_pclmulqdq);
++	return 0;
++}
++arch_initcall(crc_t10dif_x86_init);
++
++static void __exit crc_t10dif_x86_exit(void)
++{
++}
++module_exit(crc_t10dif_x86_exit);
++
++bool crc_t10dif_is_optimized(void)
++{
++	return static_key_enabled(&have_pclmulqdq);
++}
++EXPORT_SYMBOL(crc_t10dif_is_optimized);
++
++MODULE_DESCRIPTION("CRC-T10DIF using PCLMULQDQ instructions");
++MODULE_LICENSE("GPL");
+diff --git a/arch/x86/crypto/crct10dif-pcl-asm_64.S b/arch/x86/lib/crct10dif-pcl-asm_64.S
+similarity index 100%
+rename from arch/x86/crypto/crct10dif-pcl-asm_64.S
+rename to arch/x86/lib/crct10dif-pcl-asm_64.S
 -- 
 2.47.1
 
