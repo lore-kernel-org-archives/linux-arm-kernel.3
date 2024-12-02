@@ -4,120 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD80D49792
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 02:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EFBD49794
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 02:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gt4NnAFdXC2reJFPXxH+iGtIQoMQDkVtQ1A5Cdj5rvs=; b=levgq8+nBMJBey8Z+7ODTMiVBA
-	OPKxzKvdnGX4ZLy4l2C3uRLuS3ZRKQ9wngkhpr9AVAtdCsNuSoJe+RhecASyy4P4hiD5qagTnyb4f
-	JW0xdwnZa5bfJ0S9bbXFaD3+VWinxhVSYWc3hicbjpyKgFsVJ8SzaMOBRECTwpxzBDflQHjvON0pl
-	zceaxWmvfRfkoW9TFlSVwnLYSjiaFh6hn3wt/NHk+YPmhB2ZQh6YMnZgUKQ+HecWdIMlPPoT1whnc
-	mpv9vQxE8+GS0zd5zSx7B9NcYYe4fFdqxMPq0gYtwnRovcI9tCrL7u9w8SnmWjm5BrvUHaGihz8JS
-	b/JNZxEw==;
+	bh=/3Qz9fV/uUiQXG0Ek/nm4w7eYPh7p7wIJFx8izb54TA=; b=HOml4AKM21ROzXr7pJFFF0WBSO
+	oCGhru6zbGa8wtJ9jblFK5W8G7N+HUSRZa6aAaDCvmAZ7jibRb8FMDnSfa9cAKVeP/HpMgpiy7ACr
+	twlyvCVjSheYtLgT898QCxp0aqeJNAm/ec/Dcwd5QiJ9agVSvx0ntBN8EGVl8oRO1t9bAdAacVyfZ
+	rGlCU5cMbOfb+84fuTP2sUX8WbS2x3MI5uBH/uJGKbOcW2anbGxpgGz/+FuKJhQweDQ4JRL5aqPKn
+	+ntg6SAXMy2J+bKWmxkkKXUVndt3lnetSCTPtyinc0ezcqRRsJh/YN9FBO/KIlkKzKA2AQaz+1JI9
+	305RuyHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHwM2-00000004pLQ-0Pp0;
-	Mon, 02 Dec 2024 02:40:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tHwPV-00000004phE-3IAa;
+	Mon, 02 Dec 2024 02:43:41 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHwJF-00000004p14-3wwz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Dec 2024 02:37:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Gt4NnAFdXC2reJFPXxH+iGtIQoMQDkVtQ1A5Cdj5rvs=; b=muDOxH9otaYWg337TsjF1EjMyI
-	97PUMnFrCVKxOTueqFInTG3PXTGekODRwskFIqGXZu0SUS7oVvXD/OrhcQ72hxefFxOo/akhjtEQC
-	kjST/s9vLk3dTrTYewdYK/RX4LwqxXcID8TjBqA18K9qx3EDNJIyWT1EwOuDdo3VV1Ve17F6S8uKK
-	GbUfLEIx/vz1G7SC+ui0W0d6iOJs73fo12ntNxlOgO8BU9v2GgbGceE2j2nFc1itK6NHdhM+SQ0+C
-	LABfzfGU3MyaBOjhtfWubKuFrUP1CyyTvQ/Z/z/oLyspsyRToUVVxVCf2BmMhc8584JkRnQdNB0He
-	8afTTj7Q==;
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHwJD-0000000264P-0U0g
+	id 1tHv7y-00000004hKU-0RMc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 02:37:12 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2155157c58cso11938765ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Dec 2024 18:37:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733107028; x=1733711828; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Gt4NnAFdXC2reJFPXxH+iGtIQoMQDkVtQ1A5Cdj5rvs=;
-        b=SSmiOdevj1ZSFhKY/dkSbPeiNEwbVFFZ82j2bqqsQdlO1m8Uwv5e/A7NWl9Ceyiry8
-         8k3/qAya3ZpojRGrlsGSXfV38oXxwvpOuk9uHPTxcvBwiXPbDoy0wcEkUO9r6Dxe/LPl
-         AWpUbTdJPHg8LXXJWq6ECHEpix95MwFNV3+xswOn+9XMxrKOgQFZj2UE9AnPzlJJJSCx
-         4n1K4742z2zX/1jiBc4MFxd4WtDSYoeHFm+HCfJ18yUwxwK/rAvDiNFL4cP/l46v4GR7
-         89Ym/mBJ8AYktqLORcUvm76wuKLykTHaMYQWmY/U/6PToUS6dDv+oDqq1+X8jmiNeqGN
-         Id8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733107028; x=1733711828;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Gt4NnAFdXC2reJFPXxH+iGtIQoMQDkVtQ1A5Cdj5rvs=;
-        b=MYqU3LI6p1ac8NiogRE3bQYiUMDZrS4NaefQYCjkqL0CdDKZhF7qn3x2AUrj/ngjaP
-         UI0VSliItDH+pLLy79kApaPVSdjWdl/K29pyk8TlXjPqWCDU1D5b1MZVAg6f5hic+rWG
-         c/T6bQl20anShN6NgLw3BG28NBJ/5+1hYzt1cI/zCF2/oiu6M7JnSnxXN+xun76u/qPd
-         WOioqBCURgB4YCc7xfbv3WOOcA8qKW+aa/MeXGM2V1K9UKGYioupWmOdzOJwFsTMZpCq
-         ExN9XgcMPTtMpXXjQCGf+jv4j+SF/ykDSEbdFBIW+IcJHMP1l3PaAlOybNDQvSZ+50bw
-         gwpw==
-X-Forwarded-Encrypted: i=1; AJvYcCXGVZD1GJHIYjOilEQCP5V2davk/Ffz+Zm7WZZMgNsVEBQHB8XjnCA8K7eSWgJH87fVvU3ciSB+NNgAXQ1MlabX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+5u8DaQAQwrpi20YGxgoM+efeL8LVXosLMToHvoHIlrYVjcxZ
-	PLMRo3PAcLwTUyKIMUm4E/1PdzCegXQjEOrXANkfS8LjfH81KCdT
-X-Gm-Gg: ASbGncuqz2lXO1N0PG28SiipQF+e2ANSTDzSzho54XKEjleY59ibUBXs2mKiDtcOVEl
-	nJw1T03NlX53hsEov6Q2TCkcB5VE7HAQhr098OM3+oM3+VjcwAyLvKSIjJ4VPiKm2kwUyfyHuVo
-	Sme48haEQ6i8zTtGcFQIAEHxXXwIdkfg9FzTmTljSgjFA0gX0WON9c56kMVDAh28Qdkrq+0Ii6B
-	UIhULCl7fZQVuT06nrlhmJUrhOVVRy5b3DhVvbV8tJv02Ek0hAPnNPmrX68D5wcFcWcnVyS+LZR
-	fSlLoIFfMHgEbUA=
-X-Google-Smtp-Source: AGHT+IHG9tioNmTzw/gRzfRn8wxxDcUErSWfYqRhSyvuPLyqeXYrc/COqMFFgjtQSZCuz7fHIUyDNQ==
-X-Received: by 2002:a17:902:f710:b0:215:4e52:dcfe with SMTP id d9443c01a7336-2154e52e013mr146944605ad.5.1733107028536;
-        Sun, 01 Dec 2024 18:37:08 -0800 (PST)
-Received: from yclu-ubuntu.. (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2159ebee334sm2306375ad.67.2024.12.01.18.37.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Dec 2024 18:37:08 -0800 (PST)
-From: Joey Lu <a0987203069@gmail.com>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	richardcochran@gmail.com
-Cc: alexandre.torgue@foss.st.com,
-	joabreu@synopsys.com,
-	ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	yclu4@nuvoton.com,
-	peppe.cavallaro@st.com,
+	Mon, 02 Dec 2024 01:21:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D25F4A40C11;
+	Mon,  2 Dec 2024 01:19:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF71DC4CED2;
+	Mon,  2 Dec 2024 01:21:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733102489;
+	bh=mWMzrfvEBiWSmCxZanRB0r3uxaBAK+9jVGvb6TD+QJ4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=QQMww7DJwRXBxFQX0FTJWd3lRT+UaV+sI2WnHIcfYoHed//sPegxWDANrBGM6GTVV
+	 38N32DZpgYtbo81gL0YV+axtjs0Avmd4v3S55moeUIII/sHegwfira8eG8wCfAa6xm
+	 RPZ5CG4H3jv3PO0bZeCgRSY4mbFRQa+eZg7Sq7RdPrK51Z1nr1PnAyoJP9NJfgPHqJ
+	 7v67WNFDBdRZJaH/CENzImRoSnxE7V2Ytg3zBRfVTvOz7vafL5Mg6KuthfKF1jYNqT
+	 LEtbPXCy5w7yUdNtptxdYBqBvPUMpNizOjsML18KW6L7zLVc8oauZxrejJ+stXV0w6
+	 q/0P+IBTdE5PA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	openbmc@lists.ozlabs.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH v4 2/3] arm64: dts: nuvoton: Add Ethernet nodes
-Date: Mon,  2 Dec 2024 10:36:42 +0800
-Message-Id: <20241202023643.75010-3-a0987203069@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241202023643.75010-1-a0987203069@gmail.com>
-References: <20241202023643.75010-1-a0987203069@gmail.com>
+	linux-crypto@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	x86@kernel.org,
+	Zhihang Shao <zhihang.shao.iscas@gmail.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>
+Subject: [PATCH v2 01/12] lib/crc-t10dif: stop wrapping the crypto API
+Date: Sun,  1 Dec 2024 17:20:45 -0800
+Message-ID: <20241202012056.209768-2-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20241202012056.209768-1-ebiggers@kernel.org>
+References: <20241202012056.209768-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_023711_300923_E4CC2E5A 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20241201_172130_290147_F77511D7 
+X-CRM114-Status: GOOD (  26.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,134 +77,372 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add GMAC nodes for our MA35D1 development boards:
-two RGMII interfaces for SOM board, and one RGMII and one RMII
-interface for IoT board.
+From: Eric Biggers <ebiggers@google.com>
 
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
+In preparation for making the CRC-T10DIF library directly optimized for
+each architecture, like what has been done for CRC32, get rid of the
+weird layering where crc_t10dif_update() calls into the crypto API.
+Instead, move crc_t10dif_generic() into the crc-t10dif library module,
+and make crc_t10dif_update() just call crc_t10dif_generic().
+Acceleration will be reintroduced via crc_t10dif_arch() in the following
+patches.
+
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Reviewed-by: Martin K. Petersen <martin.petersen@oracle.com>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- .../boot/dts/nuvoton/ma35d1-iot-512m.dts      | 12 +++++
- .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 10 ++++
- arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 54 +++++++++++++++++++
- 3 files changed, 76 insertions(+)
+ crypto/Kconfig             |   1 +
+ crypto/Makefile            |   2 +-
+ crypto/crct10dif_common.c  |  82 -------------------
+ include/linux/crc-t10dif.h |  16 ++--
+ lib/Kconfig                |   2 -
+ lib/crc-t10dif.c           | 156 +++++++++++--------------------------
+ 6 files changed, 58 insertions(+), 201 deletions(-)
+ delete mode 100644 crypto/crct10dif_common.c
 
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-index 9482bec1aa57..5cc712ae92d8 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-@@ -18,6 +18,8 @@ aliases {
- 		serial12 = &uart12;
- 		serial13 = &uart13;
- 		serial14 = &uart14;
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
- 	};
+diff --git a/crypto/Kconfig b/crypto/Kconfig
+index 6b0bfbccac08..b459e8a23acc 100644
+--- a/crypto/Kconfig
++++ b/crypto/Kconfig
+@@ -1100,10 +1100,11 @@ config CRYPTO_CRC32
+ 	  Used by RoCEv2 and f2fs.
  
- 	chosen {
-@@ -126,3 +128,13 @@ &uart14 {
- 	pinctrl-0 = <&pinctrl_uart14>;
- 	status = "okay";
- };
-+
-+&gmac0 {
-+	phy-mode = "rgmii-id";
-+	status = "okay";
-+};
-+
-+&gmac1 {
-+	phy-mode = "rmii";
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-index f6f20a17e501..1d9ac350a1f1 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-@@ -18,6 +18,8 @@ aliases {
- 		serial12 = &uart12;
- 		serial14 = &uart14;
- 		serial16 = &uart16;
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
- 	};
+ config CRYPTO_CRCT10DIF
+ 	tristate "CRCT10DIF"
+ 	select CRYPTO_HASH
++	select CRC_T10DIF
+ 	help
+ 	  CRC16 CRC algorithm used for the T10 (SCSI) Data Integrity Field (DIF)
  
- 	chosen {
-@@ -129,3 +131,11 @@ &uart16 {
- 	pinctrl-0 = <&pinctrl_uart16>;
- 	status = "okay";
+ 	  CRC algorithm used by the SCSI Block Commands standard.
+ 
+diff --git a/crypto/Makefile b/crypto/Makefile
+index 77abca715445..0537df1719d3 100644
+--- a/crypto/Makefile
++++ b/crypto/Makefile
+@@ -155,11 +155,11 @@ obj-$(CONFIG_CRYPTO_DEFLATE) += deflate.o
+ obj-$(CONFIG_CRYPTO_MICHAEL_MIC) += michael_mic.o
+ obj-$(CONFIG_CRYPTO_CRC32C) += crc32c_generic.o
+ obj-$(CONFIG_CRYPTO_CRC32) += crc32_generic.o
+ CFLAGS_crc32c_generic.o += -DARCH=$(ARCH)
+ CFLAGS_crc32_generic.o += -DARCH=$(ARCH)
+-obj-$(CONFIG_CRYPTO_CRCT10DIF) += crct10dif_common.o crct10dif_generic.o
++obj-$(CONFIG_CRYPTO_CRCT10DIF) += crct10dif_generic.o
+ obj-$(CONFIG_CRYPTO_CRC64_ROCKSOFT) += crc64_rocksoft_generic.o
+ obj-$(CONFIG_CRYPTO_AUTHENC) += authenc.o authencesn.o
+ obj-$(CONFIG_CRYPTO_LZO) += lzo.o lzo-rle.o
+ obj-$(CONFIG_CRYPTO_LZ4) += lz4.o
+ obj-$(CONFIG_CRYPTO_LZ4HC) += lz4hc.o
+diff --git a/crypto/crct10dif_common.c b/crypto/crct10dif_common.c
+deleted file mode 100644
+index b2fab366f518..000000000000
+--- a/crypto/crct10dif_common.c
++++ /dev/null
+@@ -1,82 +0,0 @@
+-/*
+- * Cryptographic API.
+- *
+- * T10 Data Integrity Field CRC16 Crypto Transform
+- *
+- * Copyright (c) 2007 Oracle Corporation.  All rights reserved.
+- * Written by Martin K. Petersen <martin.petersen@oracle.com>
+- * Copyright (C) 2013 Intel Corporation
+- * Author: Tim Chen <tim.c.chen@linux.intel.com>
+- *
+- * This program is free software; you can redistribute it and/or modify it
+- * under the terms of the GNU General Public License as published by the Free
+- * Software Foundation; either version 2 of the License, or (at your option)
+- * any later version.
+- *
+- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+- * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+- * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+- * SOFTWARE.
+- *
+- */
+-
+-#include <linux/crc-t10dif.h>
+-#include <linux/module.h>
+-#include <linux/kernel.h>
+-
+-/* Table generated using the following polynomium:
+- * x^16 + x^15 + x^11 + x^9 + x^8 + x^7 + x^5 + x^4 + x^2 + x + 1
+- * gt: 0x8bb7
+- */
+-static const __u16 t10_dif_crc_table[256] = {
+-	0x0000, 0x8BB7, 0x9CD9, 0x176E, 0xB205, 0x39B2, 0x2EDC, 0xA56B,
+-	0xEFBD, 0x640A, 0x7364, 0xF8D3, 0x5DB8, 0xD60F, 0xC161, 0x4AD6,
+-	0x54CD, 0xDF7A, 0xC814, 0x43A3, 0xE6C8, 0x6D7F, 0x7A11, 0xF1A6,
+-	0xBB70, 0x30C7, 0x27A9, 0xAC1E, 0x0975, 0x82C2, 0x95AC, 0x1E1B,
+-	0xA99A, 0x222D, 0x3543, 0xBEF4, 0x1B9F, 0x9028, 0x8746, 0x0CF1,
+-	0x4627, 0xCD90, 0xDAFE, 0x5149, 0xF422, 0x7F95, 0x68FB, 0xE34C,
+-	0xFD57, 0x76E0, 0x618E, 0xEA39, 0x4F52, 0xC4E5, 0xD38B, 0x583C,
+-	0x12EA, 0x995D, 0x8E33, 0x0584, 0xA0EF, 0x2B58, 0x3C36, 0xB781,
+-	0xD883, 0x5334, 0x445A, 0xCFED, 0x6A86, 0xE131, 0xF65F, 0x7DE8,
+-	0x373E, 0xBC89, 0xABE7, 0x2050, 0x853B, 0x0E8C, 0x19E2, 0x9255,
+-	0x8C4E, 0x07F9, 0x1097, 0x9B20, 0x3E4B, 0xB5FC, 0xA292, 0x2925,
+-	0x63F3, 0xE844, 0xFF2A, 0x749D, 0xD1F6, 0x5A41, 0x4D2F, 0xC698,
+-	0x7119, 0xFAAE, 0xEDC0, 0x6677, 0xC31C, 0x48AB, 0x5FC5, 0xD472,
+-	0x9EA4, 0x1513, 0x027D, 0x89CA, 0x2CA1, 0xA716, 0xB078, 0x3BCF,
+-	0x25D4, 0xAE63, 0xB90D, 0x32BA, 0x97D1, 0x1C66, 0x0B08, 0x80BF,
+-	0xCA69, 0x41DE, 0x56B0, 0xDD07, 0x786C, 0xF3DB, 0xE4B5, 0x6F02,
+-	0x3AB1, 0xB106, 0xA668, 0x2DDF, 0x88B4, 0x0303, 0x146D, 0x9FDA,
+-	0xD50C, 0x5EBB, 0x49D5, 0xC262, 0x6709, 0xECBE, 0xFBD0, 0x7067,
+-	0x6E7C, 0xE5CB, 0xF2A5, 0x7912, 0xDC79, 0x57CE, 0x40A0, 0xCB17,
+-	0x81C1, 0x0A76, 0x1D18, 0x96AF, 0x33C4, 0xB873, 0xAF1D, 0x24AA,
+-	0x932B, 0x189C, 0x0FF2, 0x8445, 0x212E, 0xAA99, 0xBDF7, 0x3640,
+-	0x7C96, 0xF721, 0xE04F, 0x6BF8, 0xCE93, 0x4524, 0x524A, 0xD9FD,
+-	0xC7E6, 0x4C51, 0x5B3F, 0xD088, 0x75E3, 0xFE54, 0xE93A, 0x628D,
+-	0x285B, 0xA3EC, 0xB482, 0x3F35, 0x9A5E, 0x11E9, 0x0687, 0x8D30,
+-	0xE232, 0x6985, 0x7EEB, 0xF55C, 0x5037, 0xDB80, 0xCCEE, 0x4759,
+-	0x0D8F, 0x8638, 0x9156, 0x1AE1, 0xBF8A, 0x343D, 0x2353, 0xA8E4,
+-	0xB6FF, 0x3D48, 0x2A26, 0xA191, 0x04FA, 0x8F4D, 0x9823, 0x1394,
+-	0x5942, 0xD2F5, 0xC59B, 0x4E2C, 0xEB47, 0x60F0, 0x779E, 0xFC29,
+-	0x4BA8, 0xC01F, 0xD771, 0x5CC6, 0xF9AD, 0x721A, 0x6574, 0xEEC3,
+-	0xA415, 0x2FA2, 0x38CC, 0xB37B, 0x1610, 0x9DA7, 0x8AC9, 0x017E,
+-	0x1F65, 0x94D2, 0x83BC, 0x080B, 0xAD60, 0x26D7, 0x31B9, 0xBA0E,
+-	0xF0D8, 0x7B6F, 0x6C01, 0xE7B6, 0x42DD, 0xC96A, 0xDE04, 0x55B3
+-};
+-
+-__u16 crc_t10dif_generic(__u16 crc, const unsigned char *buffer, size_t len)
+-{
+-	unsigned int i;
+-
+-	for (i = 0 ; i < len ; i++)
+-		crc = (crc << 8) ^ t10_dif_crc_table[((crc >> 8) ^ buffer[i]) & 0xff];
+-
+-	return crc;
+-}
+-EXPORT_SYMBOL(crc_t10dif_generic);
+-
+-MODULE_DESCRIPTION("T10 DIF CRC calculation common code");
+-MODULE_LICENSE("GPL");
+diff --git a/include/linux/crc-t10dif.h b/include/linux/crc-t10dif.h
+index 6bb0c0bf357b..206ba2305483 100644
+--- a/include/linux/crc-t10dif.h
++++ b/include/linux/crc-t10dif.h
+@@ -4,13 +4,19 @@
+ 
+ #include <linux/types.h>
+ 
+ #define CRC_T10DIF_DIGEST_SIZE 2
+ #define CRC_T10DIF_BLOCK_SIZE 1
+-#define CRC_T10DIF_STRING "crct10dif"
+ 
+-extern __u16 crc_t10dif_generic(__u16 crc, const unsigned char *buffer,
+-				size_t len);
+-extern __u16 crc_t10dif(unsigned char const *, size_t);
+-extern __u16 crc_t10dif_update(__u16 crc, unsigned char const *, size_t);
++u16 crc_t10dif_generic(u16 crc, const u8 *p, size_t len);
++
++static inline u16 crc_t10dif_update(u16 crc, const u8 *p, size_t len)
++{
++	return crc_t10dif_generic(crc, p, len);
++}
++
++static inline u16 crc_t10dif(const u8 *p, size_t len)
++{
++	return crc_t10dif_update(0, p, len);
++}
+ 
+ #endif
+diff --git a/lib/Kconfig b/lib/Kconfig
+index d0c2dc0dac32..be59f7cdf448 100644
+--- a/lib/Kconfig
++++ b/lib/Kconfig
+@@ -154,12 +154,10 @@ config CRC16
+ 	  the kernel tree does. Such modules that use library CRC16
+ 	  functions require M here.
+ 
+ config CRC_T10DIF
+ 	tristate "CRC calculation for the T10 Data Integrity Field"
+-	select CRYPTO
+-	select CRYPTO_CRCT10DIF
+ 	help
+ 	  This option is only needed if a module that's not in the
+ 	  kernel tree needs to calculate CRC checks for use with the
+ 	  SCSI data integrity subsystem.
+ 
+diff --git a/lib/crc-t10dif.c b/lib/crc-t10dif.c
+index 1ed2ed487097..311c2ab829f1 100644
+--- a/lib/crc-t10dif.c
++++ b/lib/crc-t10dif.c
+@@ -7,125 +7,59 @@
+  */
+ 
+ #include <linux/types.h>
+ #include <linux/module.h>
+ #include <linux/crc-t10dif.h>
+-#include <linux/err.h>
+-#include <linux/init.h>
+-#include <crypto/hash.h>
+-#include <crypto/algapi.h>
+-#include <linux/static_key.h>
+-#include <linux/notifier.h>
+ 
+-static struct crypto_shash __rcu *crct10dif_tfm;
+-static DEFINE_STATIC_KEY_TRUE(crct10dif_fallback);
+-static DEFINE_MUTEX(crc_t10dif_mutex);
+-static struct work_struct crct10dif_rehash_work;
+-
+-static int crc_t10dif_notify(struct notifier_block *self, unsigned long val, void *data)
+-{
+-	struct crypto_alg *alg = data;
+-
+-	if (val != CRYPTO_MSG_ALG_LOADED ||
+-	    strcmp(alg->cra_name, CRC_T10DIF_STRING))
+-		return NOTIFY_DONE;
+-
+-	schedule_work(&crct10dif_rehash_work);
+-	return NOTIFY_OK;
+-}
+-
+-static void crc_t10dif_rehash(struct work_struct *work)
+-{
+-	struct crypto_shash *new, *old;
+-
+-	mutex_lock(&crc_t10dif_mutex);
+-	old = rcu_dereference_protected(crct10dif_tfm,
+-					lockdep_is_held(&crc_t10dif_mutex));
+-	new = crypto_alloc_shash(CRC_T10DIF_STRING, 0, 0);
+-	if (IS_ERR(new)) {
+-		mutex_unlock(&crc_t10dif_mutex);
+-		return;
+-	}
+-	rcu_assign_pointer(crct10dif_tfm, new);
+-	mutex_unlock(&crc_t10dif_mutex);
+-
+-	if (old) {
+-		synchronize_rcu();
+-		crypto_free_shash(old);
+-	} else {
+-		static_branch_disable(&crct10dif_fallback);
+-	}
+-}
+-
+-static struct notifier_block crc_t10dif_nb = {
+-	.notifier_call = crc_t10dif_notify,
++/*
++ * Table generated using the following polynomial:
++ * x^16 + x^15 + x^11 + x^9 + x^8 + x^7 + x^5 + x^4 + x^2 + x + 1
++ * gt: 0x8bb7
++ */
++static const u16 t10_dif_crc_table[256] = {
++	0x0000, 0x8BB7, 0x9CD9, 0x176E, 0xB205, 0x39B2, 0x2EDC, 0xA56B,
++	0xEFBD, 0x640A, 0x7364, 0xF8D3, 0x5DB8, 0xD60F, 0xC161, 0x4AD6,
++	0x54CD, 0xDF7A, 0xC814, 0x43A3, 0xE6C8, 0x6D7F, 0x7A11, 0xF1A6,
++	0xBB70, 0x30C7, 0x27A9, 0xAC1E, 0x0975, 0x82C2, 0x95AC, 0x1E1B,
++	0xA99A, 0x222D, 0x3543, 0xBEF4, 0x1B9F, 0x9028, 0x8746, 0x0CF1,
++	0x4627, 0xCD90, 0xDAFE, 0x5149, 0xF422, 0x7F95, 0x68FB, 0xE34C,
++	0xFD57, 0x76E0, 0x618E, 0xEA39, 0x4F52, 0xC4E5, 0xD38B, 0x583C,
++	0x12EA, 0x995D, 0x8E33, 0x0584, 0xA0EF, 0x2B58, 0x3C36, 0xB781,
++	0xD883, 0x5334, 0x445A, 0xCFED, 0x6A86, 0xE131, 0xF65F, 0x7DE8,
++	0x373E, 0xBC89, 0xABE7, 0x2050, 0x853B, 0x0E8C, 0x19E2, 0x9255,
++	0x8C4E, 0x07F9, 0x1097, 0x9B20, 0x3E4B, 0xB5FC, 0xA292, 0x2925,
++	0x63F3, 0xE844, 0xFF2A, 0x749D, 0xD1F6, 0x5A41, 0x4D2F, 0xC698,
++	0x7119, 0xFAAE, 0xEDC0, 0x6677, 0xC31C, 0x48AB, 0x5FC5, 0xD472,
++	0x9EA4, 0x1513, 0x027D, 0x89CA, 0x2CA1, 0xA716, 0xB078, 0x3BCF,
++	0x25D4, 0xAE63, 0xB90D, 0x32BA, 0x97D1, 0x1C66, 0x0B08, 0x80BF,
++	0xCA69, 0x41DE, 0x56B0, 0xDD07, 0x786C, 0xF3DB, 0xE4B5, 0x6F02,
++	0x3AB1, 0xB106, 0xA668, 0x2DDF, 0x88B4, 0x0303, 0x146D, 0x9FDA,
++	0xD50C, 0x5EBB, 0x49D5, 0xC262, 0x6709, 0xECBE, 0xFBD0, 0x7067,
++	0x6E7C, 0xE5CB, 0xF2A5, 0x7912, 0xDC79, 0x57CE, 0x40A0, 0xCB17,
++	0x81C1, 0x0A76, 0x1D18, 0x96AF, 0x33C4, 0xB873, 0xAF1D, 0x24AA,
++	0x932B, 0x189C, 0x0FF2, 0x8445, 0x212E, 0xAA99, 0xBDF7, 0x3640,
++	0x7C96, 0xF721, 0xE04F, 0x6BF8, 0xCE93, 0x4524, 0x524A, 0xD9FD,
++	0xC7E6, 0x4C51, 0x5B3F, 0xD088, 0x75E3, 0xFE54, 0xE93A, 0x628D,
++	0x285B, 0xA3EC, 0xB482, 0x3F35, 0x9A5E, 0x11E9, 0x0687, 0x8D30,
++	0xE232, 0x6985, 0x7EEB, 0xF55C, 0x5037, 0xDB80, 0xCCEE, 0x4759,
++	0x0D8F, 0x8638, 0x9156, 0x1AE1, 0xBF8A, 0x343D, 0x2353, 0xA8E4,
++	0xB6FF, 0x3D48, 0x2A26, 0xA191, 0x04FA, 0x8F4D, 0x9823, 0x1394,
++	0x5942, 0xD2F5, 0xC59B, 0x4E2C, 0xEB47, 0x60F0, 0x779E, 0xFC29,
++	0x4BA8, 0xC01F, 0xD771, 0x5CC6, 0xF9AD, 0x721A, 0x6574, 0xEEC3,
++	0xA415, 0x2FA2, 0x38CC, 0xB37B, 0x1610, 0x9DA7, 0x8AC9, 0x017E,
++	0x1F65, 0x94D2, 0x83BC, 0x080B, 0xAD60, 0x26D7, 0x31B9, 0xBA0E,
++	0xF0D8, 0x7B6F, 0x6C01, 0xE7B6, 0x42DD, 0xC96A, 0xDE04, 0x55B3
  };
-+
-+&gmac0 {
-+	status = "okay";
-+};
-+
-+&gmac1 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-index e51b98f5bdce..89712e262ee6 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-@@ -379,5 +379,59 @@ uart16: serial@40880000 {
- 			clocks = <&clk UART16_GATE>;
- 			status = "disabled";
- 		};
-+
-+		gmac0: ethernet@40120000 {
-+			compatible = "nuvoton,ma35d1-dwmac";
-+			reg = <0x0 0x40120000 0x0 0x10000>;
-+			interrupts = <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq";
-+			clocks = <&clk EMAC0_GATE>, <&clk EPLL_DIV8>;
-+			clock-names = "stmmaceth", "ptp_ref";
-+
-+			nuvoton,sys = <&sys 0>;
-+			resets = <&sys MA35D1_RESET_GMAC0>;
-+			reset-names = "stmmaceth";
-+
-+			phy-mode = "rgmii-id";
-+			phy-handle = <&eth_phy0>;
-+			status = "disabled";
-+
-+			mdio0: mdio {
-+				compatible = "snps,dwmac-mdio";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				eth_phy0: ethernet-phy@0 {
-+					reg = <0>;
-+				};
-+			};
-+		};
-+
-+		gmac1: ethernet@40130000 {
-+			compatible = "nuvoton,ma35d1-dwmac";
-+			reg = <0x0 0x40130000 0x0 0x10000>;
-+			interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq";
-+			clocks = <&clk EMAC1_GATE>, <&clk EPLL_DIV8>;
-+			clock-names = "stmmaceth", "ptp_ref";
-+
-+			nuvoton,sys = <&sys 1>;
-+			resets = <&sys MA35D1_RESET_GMAC1>;
-+			reset-names = "stmmaceth";
-+
-+			phy-mode = "rgmii-id";
-+			phy-handle = <&eth_phy1>;
-+			status = "disabled";
-+
-+			mdio1: mdio {
-+				compatible = "snps,dwmac-mdio";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				eth_phy1: ethernet-phy@1 {
-+					reg = <1>;
-+				};
-+			};
-+		};
- 	};
- };
+ 
+-__u16 crc_t10dif_update(__u16 crc, const unsigned char *buffer, size_t len)
+-{
+-	struct {
+-		struct shash_desc shash;
+-		__u16 crc;
+-	} desc;
+-	int err;
+-
+-	if (static_branch_unlikely(&crct10dif_fallback))
+-		return crc_t10dif_generic(crc, buffer, len);
+-
+-	rcu_read_lock();
+-	desc.shash.tfm = rcu_dereference(crct10dif_tfm);
+-	desc.crc = crc;
+-	err = crypto_shash_update(&desc.shash, buffer, len);
+-	rcu_read_unlock();
+-
+-	BUG_ON(err);
+-
+-	return desc.crc;
+-}
+-EXPORT_SYMBOL(crc_t10dif_update);
+-
+-__u16 crc_t10dif(const unsigned char *buffer, size_t len)
+-{
+-	return crc_t10dif_update(0, buffer, len);
+-}
+-EXPORT_SYMBOL(crc_t10dif);
+-
+-static int __init crc_t10dif_mod_init(void)
+-{
+-	INIT_WORK(&crct10dif_rehash_work, crc_t10dif_rehash);
+-	crypto_register_notifier(&crc_t10dif_nb);
+-	crc_t10dif_rehash(&crct10dif_rehash_work);
+-	return 0;
+-}
+-
+-static void __exit crc_t10dif_mod_fini(void)
+-{
+-	crypto_unregister_notifier(&crc_t10dif_nb);
+-	cancel_work_sync(&crct10dif_rehash_work);
+-	crypto_free_shash(rcu_dereference_protected(crct10dif_tfm, 1));
+-}
+-
+-module_init(crc_t10dif_mod_init);
+-module_exit(crc_t10dif_mod_fini);
+-
+-static int crc_t10dif_transform_show(char *buffer, const struct kernel_param *kp)
++u16 crc_t10dif_generic(u16 crc, const u8 *p, size_t len)
+ {
+-	struct crypto_shash *tfm;
+-	int len;
++	size_t i;
+ 
+-	if (static_branch_unlikely(&crct10dif_fallback))
+-		return sprintf(buffer, "fallback\n");
++	for (i = 0; i < len; i++)
++		crc = (crc << 8) ^ t10_dif_crc_table[(crc >> 8) ^ p[i]];
+ 
+-	rcu_read_lock();
+-	tfm = rcu_dereference(crct10dif_tfm);
+-	len = snprintf(buffer, PAGE_SIZE, "%s\n",
+-		       crypto_shash_driver_name(tfm));
+-	rcu_read_unlock();
+-
+-	return len;
++	return crc;
+ }
++EXPORT_SYMBOL(crc_t10dif_generic);
+ 
+-module_param_call(transform, NULL, crc_t10dif_transform_show, NULL, 0444);
+-
+-MODULE_DESCRIPTION("T10 DIF CRC calculation (library API)");
++MODULE_DESCRIPTION("T10 DIF CRC calculation");
+ MODULE_LICENSE("GPL");
+-MODULE_SOFTDEP("pre: crct10dif");
 -- 
-2.34.1
+2.47.1
 
 
