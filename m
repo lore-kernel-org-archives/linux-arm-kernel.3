@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8129D49793
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 01:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 216CCD49793
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 01:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aIaWsjKEYq+wuvckBGlvUe+61wiBuTMop5hhwwmP2lA=; b=FxZvRRIpalALNdXC3gi3wy40qU
-	htbocY2i+6QSq5WCfNtv+ycpcD2eLQuQe6U95rMqSuJVcxzO2dj+bruh9kfTj4jgvTTROF3fRMS8l
-	Qhu5YqRNzN4IwJKU2vSe6095kWCm5Gzk/PrHbhxo5Nb4g4CSMUAvLF8h2gDh5sOCYR0fhUy+JlBZN
-	mK/ypx9lIMmj9tdlvz4wlrduiFn/yYt7/fRMt6sTdCp2JMjsgGWA7cOJtU7STMAkcU3VvwIUcWnnw
-	InY3O/qp3cng3VIJAkRV+O943sl6tdtwVXw10VOj3xhtjCs03b8ltHheZ8kifhiNud5SiZZ72JoRZ
-	WitPO9tQ==;
+	bh=wqw32qv6NNAzFbqEMfxNd+2cUTIr7U7Wo7O4V8lcz5Q=; b=H8pFH1O8rCr77y5wtaxjFdqqt9
+	rHZo6yj9TujnWGzuB1I+Z6VVOKnKDBhATVfCIy87a+N5OBcdrNmQFjcCm7urF8yAfFpgY619EbqTd
+	Wu9FQAouFpHqedzrUZZuAovoMo8uxvTkLB8wyOLrYpFSdij9O5Z3dk1Pjcq+qn+5N8UG+63G0cTba
+	XOv6RDoh26g+EKgFIYjIrVZ9K0ckCcmxYwe7SkVyuixB44BnvX4REsdF1HSdW0UqMICOlof9HNx5g
+	47SUjD+b4bLDzS1kltO2ASbbQSmymLcnJHg+tZtdi8y6mX/0jRxc4wekj+XAVzB3bVYSDCaNJoFn/
+	Ka6awYkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHvJW-00000004jKe-0TZK;
-	Mon, 02 Dec 2024 01:33:26 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tHvML-00000004jZq-492T;
+	Mon, 02 Dec 2024 01:36:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHv7z-00000004hMB-3D8u
+	id 1tHv81-00000004hNu-22IP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 01:21:33 +0000
+	Mon, 02 Dec 2024 01:21:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 544C0A40C35;
-	Mon,  2 Dec 2024 01:19:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52CAAC4CEE2;
-	Mon,  2 Dec 2024 01:21:30 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0105BA40C51;
+	Mon,  2 Dec 2024 01:19:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3605C4CEE3;
+	Mon,  2 Dec 2024 01:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733102490;
-	bh=DBCZBKy5Xl57+NGINhjIrOhgQNsT8ZZWQ/xJmC6dxmA=;
+	s=k20201202; t=1733102492;
+	bh=KUxurPuR7tri/rWwkEp1MLHm/TOAuwD8O1Sn0i1uUzI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Lb/WtWYtV7IfGAQh/T9cs4NLshbxZA1ntyfvceEtOWaStAzMgSfK2PXjuab6RTd/T
-	 mYc8q4z5m9zMNX/8V4S9rjXnT99604OvM1Sl4R+rZnqw6oxHWv8P+iWzMVzLJPH47z
-	 HB1bJnm82BjPoSzauIka55ES1I5NIxyBwims7V5xfSlMwyx/JXbBAG8jiLBF6pgcZS
-	 PyJ6Te98iPGo6zOTZDz2OvMYZit6PA9+59jqGNIxuO+xbnEN5oW8zWHYrxD7Rvf1OA
-	 4J0sfOZDigemZGH+X/92c5mjQZ6hMKhl+XRgzNIkdoDVX+h3Km/6QpiBnVu9CeMH0Y
-	 NG1kZynFOmbZQ==
+	b=mew14CNy1lCNG18pX6nCOSSUkM7sygXeFSyi8VPEzxe0yG/lP4DT+LFSNqYSQxMuX
+	 5YhWQKvo9kdFy7jfWeRaMniXZoL9OzFPxmY9ovzXID0IKWZHzVmQio0O71xHl7S4xo
+	 nmtwrG5cg+yha+fcT2o1jO8G5NM/OosgTXW30Mr0bxe+uZnU1k9jZXex8oBObAmKBp
+	 fP0pN6NFW/CC8jEMKWDX63y7UEwISw8y4Pt8kB7SNJLnmFLf/0rBTS0ztTlM3EkJZ5
+	 ZGQUoS2SoQtEZyqDJ3yYGSCVbxe9iPu1hfdsQy4D7vBFFXM8GP/4reSAm9OnbDZuXb
+	 yMkp5GgBA1IQA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -51,18 +51,18 @@ Cc: linux-arch@vger.kernel.org,
 	x86@kernel.org,
 	Zhihang Shao <zhihang.shao.iscas@gmail.com>,
 	Ard Biesheuvel <ardb@kernel.org>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>
-Subject: [PATCH v2 05/12] arm/crc-t10dif: expose CRC-T10DIF function through lib
-Date: Sun,  1 Dec 2024 17:20:49 -0800
-Message-ID: <20241202012056.209768-6-ebiggers@kernel.org>
+	Vinicius Peixoto <vpeixoto@lkcamp.dev>
+Subject: [PATCH v2 09/12] lib/crc16_kunit: delete obsolete crc16_kunit.c
+Date: Sun,  1 Dec 2024 17:20:53 -0800
+Message-ID: <20241202012056.209768-10-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20241202012056.209768-1-ebiggers@kernel.org>
 References: <20241202012056.209768-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_172131_956266_7A6C0BCB 
-X-CRM114-Status: GOOD (  22.72  )
+X-CRM114-CacheID: sfid-20241201_172133_677028_52A10A1F 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,331 +79,220 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Move the arm CRC-T10DIF assembly code into the lib directory and wire it
-up to the library interface.  This allows it to be used without going
-through the crypto API.  It remains usable via the crypto API too via
-the shash algorithms that use the library interface.  Thus all the
-arch-specific "shash" code becomes unnecessary and is removed.
+This new test showed up in v6.13-rc1.  Delete it since it is being
+superseded by crc_kunit.c, which is more comprehensive (tests multiple
+CRC variants without duplicating code, includes a benchmark, etc.).
 
-Note: to see the diff from arch/arm/crypto/crct10dif-ce-glue.c to
-arch/arm/lib/crc-t10dif-glue.c, view this commit with 'git show -M10'.
-
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-Reviewed-by: Martin K. Petersen <martin.petersen@oracle.com>
+Cc: Vinicius Peixoto <vpeixoto@lkcamp.dev>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/arm/Kconfig                              |   1 +
- arch/arm/crypto/Kconfig                       |  11 --
- arch/arm/crypto/Makefile                      |   2 -
- arch/arm/crypto/crct10dif-ce-glue.c           | 124 ------------------
- arch/arm/lib/Makefile                         |   3 +
- .../crc-t10dif-core.S}                        |   0
- arch/arm/lib/crc-t10dif-glue.c                |  80 +++++++++++
- 7 files changed, 84 insertions(+), 137 deletions(-)
- delete mode 100644 arch/arm/crypto/crct10dif-ce-glue.c
- rename arch/arm/{crypto/crct10dif-ce-core.S => lib/crc-t10dif-core.S} (100%)
- create mode 100644 arch/arm/lib/crc-t10dif-glue.c
+ lib/Kconfig.debug |   9 ---
+ lib/Makefile      |   1 -
+ lib/crc16_kunit.c | 155 ----------------------------------------------
+ 3 files changed, 165 deletions(-)
+ delete mode 100644 lib/crc16_kunit.c
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index f817ca317b02..3ad4c3c97918 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -6,10 +6,11 @@ config ARM
- 	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE if HAVE_KRETPROBES && FRAME_POINTER && !ARM_UNWIND
- 	select ARCH_HAS_BINFMT_FLAT
- 	select ARCH_HAS_CPU_CACHE_ALIASING
- 	select ARCH_HAS_CPU_FINALIZE_INIT if MMU
- 	select ARCH_HAS_CRC32 if KERNEL_MODE_NEON
-+	select ARCH_HAS_CRC_T10DIF if KERNEL_MODE_NEON
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
- 	select ARCH_HAS_DMA_ALLOC if MMU
- 	select ARCH_HAS_DMA_OPS
- 	select ARCH_HAS_DMA_WRITE_COMBINE if !ARM_DMA_MEM_BUFFERABLE
-diff --git a/arch/arm/crypto/Kconfig b/arch/arm/crypto/Kconfig
-index ea0ebf336d0d..32650c8431d9 100644
---- a/arch/arm/crypto/Kconfig
-+++ b/arch/arm/crypto/Kconfig
-@@ -220,18 +220,7 @@ config CRYPTO_CHACHA20_NEON
- 	  stream cipher algorithms
+diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+index d9b89dd3f6a0..688dace36f36 100644
+--- a/lib/Kconfig.debug
++++ b/lib/Kconfig.debug
+@@ -2876,19 +2876,10 @@ config USERCOPY_KUNIT_TEST
+ 	help
+ 	  This builds the "usercopy_kunit" module that runs sanity checks
+ 	  on the copy_to/from_user infrastructure, making sure basic
+ 	  user/kernel boundary testing is working.
  
- 	  Architecture: arm using:
- 	  - NEON (Advanced SIMD) extensions
- 
--config CRYPTO_CRCT10DIF_ARM_CE
--	tristate "CRCT10DIF"
--	depends on KERNEL_MODE_NEON
--	depends on CRC_T10DIF
--	select CRYPTO_HASH
+-config CRC16_KUNIT_TEST
+-	tristate "KUnit tests for CRC16"
+-	depends on KUNIT
+-	default KUNIT_ALL_TESTS
+-	select CRC16
 -	help
--	  CRC16 CRC algorithm used for the T10 (SCSI) Data Integrity Field (DIF)
+-	  Enable this option to run unit tests for the kernel's CRC16
+-	  implementation (<linux/crc16.h>).
 -
--	  Architecture: arm using:
--	  - PMULL (Polynomial Multiply Long) instructions
--
- endmenu
+ config TEST_UDELAY
+ 	tristate "udelay test driver"
+ 	help
+ 	  This builds the "udelay_test" module that helps to make sure
+ 	  that udelay() is working properly.
+diff --git a/lib/Makefile b/lib/Makefile
+index ccd803d03e58..34f4d61e3cf7 100644
+--- a/lib/Makefile
++++ b/lib/Makefile
+@@ -392,11 +392,10 @@ CFLAGS_fortify_kunit.o += $(call cc-disable-warning, stringop-truncation)
+ CFLAGS_fortify_kunit.o += $(DISABLE_STRUCTLEAK_PLUGIN)
+ obj-$(CONFIG_FORTIFY_KUNIT_TEST) += fortify_kunit.o
+ obj-$(CONFIG_CRC_KUNIT_TEST) += crc_kunit.o
+ obj-$(CONFIG_SIPHASH_KUNIT_TEST) += siphash_kunit.o
+ obj-$(CONFIG_USERCOPY_KUNIT_TEST) += usercopy_kunit.o
+-obj-$(CONFIG_CRC16_KUNIT_TEST) += crc16_kunit.o
  
-diff --git a/arch/arm/crypto/Makefile b/arch/arm/crypto/Makefile
-index 38ec5cc1e844..3d0e23ff9e74 100644
---- a/arch/arm/crypto/Makefile
-+++ b/arch/arm/crypto/Makefile
-@@ -18,11 +18,10 @@ obj-$(CONFIG_CRYPTO_CURVE25519_NEON) += curve25519-neon.o
+ obj-$(CONFIG_GENERIC_LIB_DEVMEM_IS_ALLOWED) += devmem_is_allowed.o
  
- obj-$(CONFIG_CRYPTO_AES_ARM_CE) += aes-arm-ce.o
- obj-$(CONFIG_CRYPTO_SHA1_ARM_CE) += sha1-arm-ce.o
- obj-$(CONFIG_CRYPTO_SHA2_ARM_CE) += sha2-arm-ce.o
- obj-$(CONFIG_CRYPTO_GHASH_ARM_CE) += ghash-arm-ce.o
--obj-$(CONFIG_CRYPTO_CRCT10DIF_ARM_CE) += crct10dif-arm-ce.o
+ obj-$(CONFIG_FIRMWARE_TABLE) += fw_table.o
  
- aes-arm-y	:= aes-cipher-core.o aes-cipher-glue.o
- aes-arm-bs-y	:= aes-neonbs-core.o aes-neonbs-glue.o
- sha1-arm-y	:= sha1-armv4-large.o sha1_glue.o
- sha1-arm-neon-y	:= sha1-armv7-neon.o sha1_neon_glue.o
-@@ -34,11 +33,10 @@ libblake2s-arm-y:= blake2s-core.o blake2s-glue.o
- blake2b-neon-y  := blake2b-neon-core.o blake2b-neon-glue.o
- sha1-arm-ce-y	:= sha1-ce-core.o sha1-ce-glue.o
- sha2-arm-ce-y	:= sha2-ce-core.o sha2-ce-glue.o
- aes-arm-ce-y	:= aes-ce-core.o aes-ce-glue.o
- ghash-arm-ce-y	:= ghash-ce-core.o ghash-ce-glue.o
--crct10dif-arm-ce-y	:= crct10dif-ce-core.o crct10dif-ce-glue.o
- chacha-neon-y := chacha-scalar-core.o chacha-glue.o
- chacha-neon-$(CONFIG_KERNEL_MODE_NEON) += chacha-neon-core.o
- poly1305-arm-y := poly1305-core.o poly1305-glue.o
- nhpoly1305-neon-y := nh-neon-core.o nhpoly1305-neon-glue.o
- curve25519-neon-y := curve25519-core.o curve25519-glue.o
-diff --git a/arch/arm/crypto/crct10dif-ce-glue.c b/arch/arm/crypto/crct10dif-ce-glue.c
+diff --git a/lib/crc16_kunit.c b/lib/crc16_kunit.c
 deleted file mode 100644
-index a8b74523729e..000000000000
---- a/arch/arm/crypto/crct10dif-ce-glue.c
+index 0918c98a96d2..000000000000
+--- a/lib/crc16_kunit.c
 +++ /dev/null
-@@ -1,124 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
+@@ -1,155 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
 -/*
-- * Accelerated CRC-T10DIF using ARM NEON and Crypto Extensions instructions
+- * KUnits tests for CRC16.
 - *
-- * Copyright (C) 2016 Linaro Ltd <ard.biesheuvel@linaro.org>
+- * Copyright (C) 2024, LKCAMP
+- * Author: Vinicius Peixoto <vpeixoto@lkcamp.dev>
+- * Author: Fabricio Gasperin <fgasperin@lkcamp.dev>
+- * Author: Enzo Bertoloti <ebertoloti@lkcamp.dev>
 - */
+-#include <kunit/test.h>
+-#include <linux/crc16.h>
+-#include <linux/prandom.h>
 -
--#include <linux/crc-t10dif.h>
--#include <linux/init.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--#include <linux/string.h>
+-#define CRC16_KUNIT_DATA_SIZE 4096
+-#define CRC16_KUNIT_TEST_SIZE 100
+-#define CRC16_KUNIT_SEED 0x12345678
 -
--#include <crypto/internal/hash.h>
--#include <crypto/internal/simd.h>
+-/**
+- * struct crc16_test - CRC16 test data
+- * @crc: initial input value to CRC16
+- * @start: Start index within the data buffer
+- * @length: Length of the data
+- */
+-static struct crc16_test {
+-	u16 crc;
+-	u16 start;
+-	u16 length;
+-} tests[CRC16_KUNIT_TEST_SIZE];
 -
--#include <asm/neon.h>
--#include <asm/simd.h>
+-u8 data[CRC16_KUNIT_DATA_SIZE];
 -
--#define CRC_T10DIF_PMULL_CHUNK_SIZE	16U
 -
--asmlinkage u16 crc_t10dif_pmull64(u16 init_crc, const u8 *buf, size_t len);
--asmlinkage void crc_t10dif_pmull8(u16 init_crc, const u8 *buf, size_t len,
--				  u8 out[16]);
--
--static int crct10dif_init(struct shash_desc *desc)
+-/* Naive implementation of CRC16 for validation purposes */
+-static inline u16 _crc16_naive_byte(u16 crc, u8 data)
 -{
--	u16 *crc = shash_desc_ctx(desc);
+-	u8 i = 0;
 -
--	*crc = 0;
--	return 0;
+-	crc ^= (u16) data;
+-	for (i = 0; i < 8; i++) {
+-		if (crc & 0x01)
+-			crc = (crc >> 1) ^ 0xa001;
+-		else
+-			crc = crc >> 1;
+-	}
+-
+-	return crc;
 -}
 -
--static int crct10dif_update_ce(struct shash_desc *desc, const u8 *data,
--			       unsigned int length)
--{
--	u16 *crc = shash_desc_ctx(desc);
 -
--	if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE && crypto_simd_usable()) {
--		kernel_neon_begin();
--		*crc = crc_t10dif_pmull64(*crc, data, length);
--		kernel_neon_end();
--	} else {
--		*crc = crc_t10dif_generic(*crc, data, length);
+-static inline u16 _crc16_naive(u16 crc, u8 *buffer, size_t len)
+-{
+-	while (len--)
+-		crc = _crc16_naive_byte(crc, *buffer++);
+-	return crc;
+-}
+-
+-
+-/* Small helper for generating pseudorandom 16-bit data */
+-static inline u16 _rand16(void)
+-{
+-	static u32 rand = CRC16_KUNIT_SEED;
+-
+-	rand = next_pseudo_random32(rand);
+-	return rand & 0xFFFF;
+-}
+-
+-
+-static int crc16_init_test_data(struct kunit_suite *suite)
+-{
+-	size_t i;
+-
+-	/* Fill the data buffer with random bytes */
+-	for (i = 0; i < CRC16_KUNIT_DATA_SIZE; i++)
+-		data[i] = _rand16() & 0xFF;
+-
+-	/* Generate random test data while ensuring the random
+-	 * start + length values won't overflow the 4096-byte
+-	 * buffer (0x7FF * 2 = 0xFFE < 0x1000)
+-	 */
+-	for (size_t i = 0; i < CRC16_KUNIT_TEST_SIZE; i++) {
+-		tests[i].crc = _rand16();
+-		tests[i].start = _rand16() & 0x7FF;
+-		tests[i].length = _rand16() & 0x7FF;
 -	}
 -
 -	return 0;
 -}
 -
--static int crct10dif_update_neon(struct shash_desc *desc, const u8 *data,
--			         unsigned int length)
+-static void crc16_test_empty(struct kunit *test)
 -{
--	u16 *crcp = shash_desc_ctx(desc);
--	u8 buf[16] __aligned(16);
--	u16 crc = *crcp;
+-	u16 crc;
 -
--	if (length > CRC_T10DIF_PMULL_CHUNK_SIZE && crypto_simd_usable()) {
--		kernel_neon_begin();
--		crc_t10dif_pmull8(crc, data, length, buf);
--		kernel_neon_end();
+-	/* The result for empty data should be the same as the
+-	 * initial crc
+-	 */
+-	crc = crc16(0x00, data, 0);
+-	KUNIT_EXPECT_EQ(test, crc, 0);
+-	crc = crc16(0xFF, data, 0);
+-	KUNIT_EXPECT_EQ(test, crc, 0xFF);
+-}
 -
--		crc = 0;
--		data = buf;
--		length = sizeof(buf);
+-static void crc16_test_correctness(struct kunit *test)
+-{
+-	size_t i;
+-	u16 crc, crc_naive;
+-
+-	for (i = 0; i < CRC16_KUNIT_TEST_SIZE; i++) {
+-		/* Compare results with the naive crc16 implementation */
+-		crc = crc16(tests[i].crc, data + tests[i].start,
+-			    tests[i].length);
+-		crc_naive = _crc16_naive(tests[i].crc, data + tests[i].start,
+-					 tests[i].length);
+-		KUNIT_EXPECT_EQ(test, crc, crc_naive);
 -	}
--
--	*crcp = crc_t10dif_generic(crc, data, length);
--	return 0;
 -}
 -
--static int crct10dif_final(struct shash_desc *desc, u8 *out)
+-
+-static void crc16_test_combine(struct kunit *test)
 -{
--	u16 *crc = shash_desc_ctx(desc);
+-	size_t i, j;
+-	u16 crc, crc_naive;
 -
--	*(u16 *)out = *crc;
--	return 0;
+-	/* Make sure that combining two consecutive crc16 calculations
+-	 * yields the same result as calculating the crc16 for the whole thing
+-	 */
+-	for (i = 0; i < CRC16_KUNIT_TEST_SIZE; i++) {
+-		crc_naive = crc16(tests[i].crc, data + tests[i].start, tests[i].length);
+-		for (j = 0; j < tests[i].length; j++) {
+-			crc = crc16(tests[i].crc, data + tests[i].start, j);
+-			crc = crc16(crc, data + tests[i].start + j, tests[i].length - j);
+-			KUNIT_EXPECT_EQ(test, crc, crc_naive);
+-		}
+-	}
 -}
 -
--static struct shash_alg algs[] = {{
--	.digestsize		= CRC_T10DIF_DIGEST_SIZE,
--	.init			= crct10dif_init,
--	.update			= crct10dif_update_neon,
--	.final			= crct10dif_final,
--	.descsize		= CRC_T10DIF_DIGEST_SIZE,
 -
--	.base.cra_name		= "crct10dif",
--	.base.cra_driver_name	= "crct10dif-arm-neon",
--	.base.cra_priority	= 150,
--	.base.cra_blocksize	= CRC_T10DIF_BLOCK_SIZE,
--	.base.cra_module	= THIS_MODULE,
--}, {
--	.digestsize		= CRC_T10DIF_DIGEST_SIZE,
--	.init			= crct10dif_init,
--	.update			= crct10dif_update_ce,
--	.final			= crct10dif_final,
--	.descsize		= CRC_T10DIF_DIGEST_SIZE,
+-static struct kunit_case crc16_test_cases[] = {
+-	KUNIT_CASE(crc16_test_empty),
+-	KUNIT_CASE(crc16_test_combine),
+-	KUNIT_CASE(crc16_test_correctness),
+-	{},
+-};
 -
--	.base.cra_name		= "crct10dif",
--	.base.cra_driver_name	= "crct10dif-arm-ce",
--	.base.cra_priority	= 200,
--	.base.cra_blocksize	= CRC_T10DIF_BLOCK_SIZE,
--	.base.cra_module	= THIS_MODULE,
--}};
+-static struct kunit_suite crc16_test_suite = {
+-	.name = "crc16",
+-	.test_cases = crc16_test_cases,
+-	.suite_init = crc16_init_test_data,
+-};
+-kunit_test_suite(crc16_test_suite);
 -
--static int __init crc_t10dif_mod_init(void)
--{
--	if (!(elf_hwcap & HWCAP_NEON))
--		return -ENODEV;
--
--	return crypto_register_shashes(algs, 1 + !!(elf_hwcap2 & HWCAP2_PMULL));
--}
--
--static void __exit crc_t10dif_mod_exit(void)
--{
--	crypto_unregister_shashes(algs, 1 + !!(elf_hwcap2 & HWCAP2_PMULL));
--}
--
--module_init(crc_t10dif_mod_init);
--module_exit(crc_t10dif_mod_exit);
--
--MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
--MODULE_DESCRIPTION("Accelerated CRC-T10DIF using ARM NEON and Crypto Extensions");
--MODULE_LICENSE("GPL v2");
--MODULE_ALIAS_CRYPTO("crct10dif");
-diff --git a/arch/arm/lib/Makefile b/arch/arm/lib/Makefile
-index 01cd4db2ed47..007874320937 100644
---- a/arch/arm/lib/Makefile
-+++ b/arch/arm/lib/Makefile
-@@ -46,5 +46,8 @@ endif
- 
- obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
- 
- obj-$(CONFIG_CRC32_ARCH) += crc32-arm.o
- crc32-arm-y := crc32-glue.o crc32-core.o
-+
-+obj-$(CONFIG_CRC_T10DIF_ARCH) += crc-t10dif-arm.o
-+crc-t10dif-arm-y := crc-t10dif-glue.o crc-t10dif-core.o
-diff --git a/arch/arm/crypto/crct10dif-ce-core.S b/arch/arm/lib/crc-t10dif-core.S
-similarity index 100%
-rename from arch/arm/crypto/crct10dif-ce-core.S
-rename to arch/arm/lib/crc-t10dif-core.S
-diff --git a/arch/arm/lib/crc-t10dif-glue.c b/arch/arm/lib/crc-t10dif-glue.c
-new file mode 100644
-index 000000000000..d24dee62670e
---- /dev/null
-+++ b/arch/arm/lib/crc-t10dif-glue.c
-@@ -0,0 +1,80 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Accelerated CRC-T10DIF using ARM NEON and Crypto Extensions instructions
-+ *
-+ * Copyright (C) 2016 Linaro Ltd <ard.biesheuvel@linaro.org>
-+ */
-+
-+#include <linux/crc-t10dif.h>
-+#include <linux/init.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/string.h>
-+
-+#include <crypto/internal/simd.h>
-+
-+#include <asm/neon.h>
-+#include <asm/simd.h>
-+
-+static DEFINE_STATIC_KEY_FALSE(have_neon);
-+static DEFINE_STATIC_KEY_FALSE(have_pmull);
-+
-+#define CRC_T10DIF_PMULL_CHUNK_SIZE	16U
-+
-+asmlinkage u16 crc_t10dif_pmull64(u16 init_crc, const u8 *buf, size_t len);
-+asmlinkage void crc_t10dif_pmull8(u16 init_crc, const u8 *buf, size_t len,
-+				  u8 out[16]);
-+
-+u16 crc_t10dif_arch(u16 crc, const u8 *data, size_t length)
-+{
-+	if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE) {
-+		if (static_branch_likely(&have_pmull)) {
-+			if (crypto_simd_usable()) {
-+				kernel_neon_begin();
-+				crc = crc_t10dif_pmull64(crc, data, length);
-+				kernel_neon_end();
-+				return crc;
-+			}
-+		} else if (length > CRC_T10DIF_PMULL_CHUNK_SIZE &&
-+			   static_branch_likely(&have_neon) &&
-+			   crypto_simd_usable()) {
-+			u8 buf[16] __aligned(16);
-+
-+			kernel_neon_begin();
-+			crc_t10dif_pmull8(crc, data, length, buf);
-+			kernel_neon_end();
-+
-+			crc = 0;
-+			data = buf;
-+			length = sizeof(buf);
-+		}
-+	}
-+	return crc_t10dif_generic(crc, data, length);
-+}
-+EXPORT_SYMBOL(crc_t10dif_arch);
-+
-+static int __init crc_t10dif_arm_init(void)
-+{
-+	if (elf_hwcap & HWCAP_NEON) {
-+		static_branch_enable(&have_neon);
-+		if (elf_hwcap2 & HWCAP2_PMULL)
-+			static_branch_enable(&have_pmull);
-+	}
-+	return 0;
-+}
-+arch_initcall(crc_t10dif_arm_init);
-+
-+static void __exit crc_t10dif_arm_exit(void)
-+{
-+}
-+module_exit(crc_t10dif_arm_exit);
-+
-+bool crc_t10dif_is_optimized(void)
-+{
-+	return static_key_enabled(&have_neon);
-+}
-+EXPORT_SYMBOL(crc_t10dif_is_optimized);
-+
-+MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
-+MODULE_DESCRIPTION("Accelerated CRC-T10DIF using ARM NEON and Crypto Extensions");
-+MODULE_LICENSE("GPL v2");
+-MODULE_AUTHOR("Fabricio Gasperin <fgasperin@lkcamp.dev>");
+-MODULE_AUTHOR("Vinicius Peixoto <vpeixoto@lkcamp.dev>");
+-MODULE_AUTHOR("Enzo Bertoloti <ebertoloti@lkcamp.dev>");
+-MODULE_DESCRIPTION("Unit tests for crc16");
+-MODULE_LICENSE("GPL");
 -- 
 2.47.1
 
