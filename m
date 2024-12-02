@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC80E69E99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 22:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67001E69E9A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 22:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CGNlAokFjmhN1EyWyvNQ13rV62s826Uf7N3aP5+qRgI=; b=JE3YKjGoeOUxW0K7i9d3wh2zBe
-	qPZ6U4H82AytOifPpSgSUdIqwBkG016YzVXAatKgtywFdRpCBk7ii+eF1oCYcOxp4OWzLLrHPiN5o
-	HgPfp/trUdr5jI0dpqPtEMy/Zl2+eGFFg3zXeGuwT8FkSFydsQhzuWUVvgVxpeLTiJW/eaG2E9xpH
-	iliNy1tHHR0lEGJ8cVkaF3aCzRaynptvPhdKza3VLugBUEFYRZrS3aa1MZ7Lgryeq30+F95sjTcD0
-	CGjYKwkMCTGoG9FrlMCCLJnVP4oqZPeX5RsreAD6kDFrq4SOhsRZ50YX5Ezp0D+j4NQONl1d6o9bi
-	1alpVN5w==;
+	bh=czEMZ2LYZ7yn4W/XpL9xxgwSyAv54G8CxWzNOcpEJ10=; b=doY1MT7YICgmi+X6C+64dGXBET
+	1o2CPZ99r7/9cnYMQiT0Kp8F5SPfF9O3cP7+MFwIgXFjFMlwdYCtulVVA2EXn4O8qMASuVPjd9xXf
+	Y0vaG24VS8lUT2vlPyB0j4eIlsIf2TZyGARHjHIqRQAQBCSFrO7SMm0n9iQstaVMNDrQ9NiIuB5cK
+	6vah+eInvoZaBoCCWXtXQCeDtWnF+ZWCENd65KOeIyqAV/Fj+6np7rVfshI1iOmc7lt/qnI6ZBW0k
+	fclZDsSAXDkccAkZgTjjMlP4FZoFlyOEQlHOTounig5dYDoc5IwlK8GTumGsc/L+KR6ulrN7qBfHU
+	v/DEpI6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIEZ5-00000007aIe-44jG;
-	Mon, 02 Dec 2024 22:06:47 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tIEa3-00000007aZ0-2Z6R;
+	Mon, 02 Dec 2024 22:07:47 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIEW9-00000007Zch-3uY4
+	id 1tIEWA-00000007ZdN-2E84
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Dec 2024 22:03:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 90FA0A412F6;
-	Mon,  2 Dec 2024 22:01:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 377B3C4CED6;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 83A0B5C6990;
+	Mon,  2 Dec 2024 22:03:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9982BC4CEE3;
 	Mon,  2 Dec 2024 22:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1733177024;
-	bh=zonr3mCcTyCgwR7d1gZNImuy1doROORC9hQH8Wi0Qyg=;
+	bh=cDLcuBxu4MlG3S8lQE9mNu4I9S677lFh6lW7mFum0/A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=nb72R6Tx4Y6Yj7Wq4ulQxlaCWNEY+xqoylUS3dIg3QHLZ38QkNcZT9cpAeREmkIm6
-	 GEwLUDQcEAkiWvabN4Bg6e+dfjYa0Hun17ULtP7Zj/Tv5u+qnoarS2/Ekm4V1QUXTZ
-	 /rex2n/GJBE14f+RTgNV+vBa327k1UysSuIPFr8vmM1+DZO9HlvXSiI42vRpYnnEQ+
-	 UrXvzQSAq++GOCaflwXzXMdRJXuBPboBrajBK+p3bo1Hq6xTRJyIyywe/oAJM8I9xn
-	 J4btjMwUhSt3MOE12iEQ3w24blG30aeVZmYNWrFL+1tl0/mp4cHjon37FUmPnAH1C7
-	 fK8nL3v74ux4w==
+	b=T6hjT1+arBPgp7c33VwEcTT8f/S4S9a673U+azCiuPkyQ+12Juiv3znjuZqbOVHqS
+	 jg25QPFQIAvpRtiX3s8jGJb4wW0DFiVLfPokQL91YL81Y6JTj/2M92d54Ke/MqnSL4
+	 JeiHXYwERm9wUkoP6QO7LLyqRvqM/453/NNHEqoSXQypzpiF81iCv96WhTCmROA24M
+	 8jn/XuQllNnyFdG7J1ymxzSfmX8sobB/Ys6Yo2cibrfCYP2ZcPtjkNnvKz+smG4wbr
+	 VVJkHm4xMbf5fLz/TSkiJxTp0CkEOml6j5BiMyHwe+Qn13y6QLBo5F5nt3T6ASTe4u
+	 n0vtNf4CXVuqw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 21BE0E69E95;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8D717E69E95;
 	Mon,  2 Dec 2024 22:03:44 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Mon, 02 Dec 2024 23:03:40 +0100
-Subject: [PATCH net-next v7 01/15] net: driver: stmmac: Fix CSR divider
- comment
+Date: Mon, 02 Dec 2024 23:03:44 +0100
+Subject: [PATCH net-next v7 05/15] net: dwmac-dwc-qos-eth: Use helper
+ rgmii_clock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241202-upstream_s32cc_gmac-v7-1-bc3e1f9f656e@oss.nxp.com>
+Message-Id: <20241202-upstream_s32cc_gmac-v7-5-bc3e1f9f656e@oss.nxp.com>
 References: <20241202-upstream_s32cc_gmac-v7-0-bc3e1f9f656e@oss.nxp.com>
 In-Reply-To: <20241202-upstream_s32cc_gmac-v7-0-bc3e1f9f656e@oss.nxp.com>
 To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
@@ -82,21 +82,21 @@ Cc: linux-stm32@st-md-mailman.stormreply.com,
  devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
  0x1207@gmail.com, fancer.lancer@gmail.com, 
  "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
- Jacob Keller <jacob.e.keller@intel.com>
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1733177021; l=958;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733177022; l=1290;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=2KaIHv/oSTo3FOtKPvkHjEF7Z3D3rI5ymtYbTqdzAuo=;
- b=xop0vlm7spgi//SNJquCZbKPGA9++LB1E+XTzWKR3YhiJTd0rZb6w0DcM9m8o/1GSqOSDg5LR
- pTe7pB6/pQ4ByCXxay7xg0XAOxtrZ+3AMFuy9e5ctAyiPPpCzwaNs3N
+ bh=ZX+NwH2HQko3cIWDQjmmck130Lb3TijMXiPn59w6r/U=;
+ b=uFp6e8h+BhAGpSRRXxR2e7S65R+2Nk4BVvwpSvoqxh9gwImcp6mIyNDmExHQ6dDj4WXJX7JbM
+ p5u50oCGZHYCFppK8t8F3U0MIgqvWLohOmp9qdkp+hZl4WEN6/eC13h
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
  auth_id=217
 X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_140346_107917_5C26F67B 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20241202_140346_658183_B2B3A5BD 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,30 +114,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-The comment in declaration of STMMAC_CSR_250_300M
-incorrectly describes the constant as '/* MDC = clk_scr_i/122 */'
-but the DWC Ether QOS Handbook version 5.20a says it is
-CSR clock/124.
+Utilize a new helper function rgmii_clock().
 
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
 ---
- include/linux/stmmac.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c | 11 +++--------
+ 1 file changed, 3 insertions(+), 8 deletions(-)
 
-diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-index d79ff252cfdc..75cbfb576358 100644
---- a/include/linux/stmmac.h
-+++ b/include/linux/stmmac.h
-@@ -33,7 +33,7 @@
- #define	STMMAC_CSR_20_35M	0x2	/* MDC = clk_scr_i/16 */
- #define	STMMAC_CSR_35_60M	0x3	/* MDC = clk_scr_i/26 */
- #define	STMMAC_CSR_150_250M	0x4	/* MDC = clk_scr_i/102 */
--#define	STMMAC_CSR_250_300M	0x5	/* MDC = clk_scr_i/122 */
-+#define	STMMAC_CSR_250_300M	0x5	/* MDC = clk_scr_i/124 */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+index 83290e707df5..bd4eb187f8c6 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+@@ -181,24 +181,19 @@ static void dwc_qos_remove(struct platform_device *pdev)
+ static void tegra_eqos_fix_speed(void *priv, unsigned int speed, unsigned int mode)
+ {
+ 	struct tegra_eqos *eqos = priv;
+-	unsigned long rate = 125000000;
+ 	bool needs_calibration = false;
++	long rate = 125000000;
+ 	u32 value;
+ 	int err;
  
- /* MTL algorithms identifiers */
- #define MTL_TX_ALGORITHM_WRR	0x0
+ 	switch (speed) {
+ 	case SPEED_1000:
+-		needs_calibration = true;
+-		rate = 125000000;
+-		break;
+-
+ 	case SPEED_100:
+ 		needs_calibration = true;
+-		rate = 25000000;
+-		break;
++		fallthrough;
+ 
+ 	case SPEED_10:
+-		rate = 2500000;
++		rate = rgmii_clock(speed);
+ 		break;
+ 
+ 	default:
 
 -- 
 2.47.0
