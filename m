@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5379DD7833A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1413FD78339
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fKMpB5r/I5KY+jaN0RFmA4IHj/JXTsxbFfUyDVXDBn0=; b=jgP33NCAoQSUpulq/v0sGZXJNW
-	k6jomY0RU2YmjjIEgOeJ1ulUkP5GaLIt2C5De29ofUcUywmwoyu60VjI95iYUazA/fBUnc9BB1A9v
-	wCRTbTUM+Jy9oNI20C0bqfXOwIYE6inJIvKZxj2iFiVfVod47h19P/jaoxCJrod98uYov7s0PqMwW
-	KA1dEfcpGpLf12JysCgW2KqfxJ06UmAloCcMypLvxZ4OXpX/zwNvU9POpTOUxg7C/JJi4zbOSeFFC
-	uHmCI/p6MRIkoic2vfCgNffqwgWl6pH39+i3/FllPqDSMhk8R1VsvT3h85aaOP6lVf+GUMZhbNlZy
-	I40CZtWw==;
+	bh=ad63xrEHJ/DILRhAkJcXmI2yvLrjOSx98iqpFD4t7GE=; b=10Vq7/OD7DtD057jtYXyKJQCfz
+	E9bYuKVqhW/D2H91wVrvmAwiYWU4YEkSqHE4lfw7Q2JCOfeu7zmKHwc9opCp106Moi+0WeY5MnIND
+	RG5isS3uAUKgC41R/uPLEpo7VcURhFGjvX48pr7KGmBYdoAs/Cm4vQVHDy72hLkemDoKszE7UMtl6
+	387oF5b5XlPCs1FyT5IG2L0HNYHdruha114+Bu85glUT527FUvn8suxpPurcI2QASWLbg847Jjpa7
+	+DOwOUEg4TYwGAWdvVrIx7Fn9OQ7fFiwXwvje2Pj+N3qHXLmBjrd/5CGKizv8B6xDMnvLJULlt7Ry
+	BzjYXB1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIAIO-000000071dy-2CMs;
-	Mon, 02 Dec 2024 17:33:16 +0000
+	id 1tIAJM-000000071oQ-0TVv;
+	Mon, 02 Dec 2024 17:34:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIA7v-0000000700e-3Dt7
+	id 1tIA7v-0000000700j-3b00
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 02 Dec 2024 17:22:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=fKMpB5r/I5KY+jaN0RFmA4IHj/JXTsxbFfUyDVXDBn0=; b=fipjQWPJFCjvvBjzby/HFuULdn
-	4IXpshLG7zNOUcJhXjNuEu5OyR7roPWD/BMnuIVRA1EaKILMOLLaIco8IXxT3oU8xEGeMitDxXYZP
-	P7bmb6sENJwBOCT39SkormNpkfZeADoPAYYHPQxonGLkGTEP5xKrQjU+vkfMzntZV3M++mzMwYVI0
-	HxpVAlvJ+LXlSCLK4kBste42Ctm0AiOMIZOYNIyq36fll7MewAY8Q9v3iy6tKLZkvWSiq9hP/eey5
-	r3QMe8biTCXnFCsT7PXCV5HpHmKwIb2wDsVc8xqjoO0FZVzcU9RjqWyRwwfEJTIirAJLXGB6e4Hxc
-	iNbamyWg==;
+	bh=ad63xrEHJ/DILRhAkJcXmI2yvLrjOSx98iqpFD4t7GE=; b=oSDNoFf6Tjx7W4YRUmlUW9ETIu
+	c9/pOaqNrP+YhTmyDjCw6gHVnQEvcslcPTc1oQPkJv7BnHIwQjkN2ZfcQSZHaxfpNnn6V1Ey8jeW+
+	zpIOzQNDs/yNNmZ2wXVhtTjZUhYm/vUi32fqtsRJkYrzP4eYggtZKzjgoLEY4FH8b9kqF9WameRJr
+	2Ypvitxp4QkTJQ8Q5oXU2NwIHZfyDAJGDKh/QmU1L6aEN/z1uFBhjLtW4tPBUaF5V04aA9UurpbVi
+	WZXBhThQxixcHj2zAsqjiE1o28b2pAMHu1hYP3Zwl24To3L5vl7NpTicYnyJgsfiJCJAmujgl2kxP
+	cJB+GsEg==;
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIA7q-00000002D6w-3q64
+	id 1tIA7q-00000002D6x-3nxz
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Dec 2024 17:22:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6D8215C57B4;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6F9E55C57B5;
 	Mon,  2 Dec 2024 17:21:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40CF8C4CED1;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41555C4CED2;
 	Mon,  2 Dec 2024 17:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1733160139;
-	bh=d0OVGALV9EL3RmlbVg9qcHbPiwRgVMx9tdZ7QRWENWQ=;
+	bh=qUpHIbiQuhU1+4N8+i0jJ8LE2+QbS+HIXdOvz3fZ3rY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MqcITScSTDZNbauRSj6PsBCkUBmgF39q2HVjegYcl5mEoRfVD/JGlhsbBcL+uAUyC
-	 1Jt3A30Bxy9lcNT9Y52K5UrdT0AYDljZAKyZ6xjo4nt8PC4eCx7PE4Edn/oe1AQP29
-	 YPT4Ln8bK91MjC8STyjzRKm55z3qK1Vm8UPTZIzW/pLVd3Ctj/PE3S6R9UUKyQeTC1
-	 jIe3sWr4i/DVDD7h34u639ZL60tJyAPuqbX1Abdq0ODLFZd4KGFb2Mm/INaHiVK+II
-	 Pg7mIrlhobXLcA/N0bWx/QRSG3PgUy5bydHn23fT+stWBUdl1YJnWBDSHbsgWvy6Rg
-	 r9NreX7ehmGJA==
+	b=GJQvALwKuojaOwApZOvPIEns1+xCORL3IpvdtPpzgCIt1NRrXPSqm40X/u8X5h2qo
+	 YzaIkLkJIN3xkfsyhXA1IWNK+bJn5rsofmeEs//JKBiP3A78ZsZmzxW4KBNkRZoz2J
+	 V4eMOh5PywnxjCf00/vGP6iC6squEZ5u3GY2t7QT3JUtznyCm8hrQfTgEGQ8Vtm4jI
+	 5vsXdFuKgEmuWEIgaK8KZToh4XQnM3otHCFbJjY/BYqDaxuvAlRD9Sf+BO/Ti1d3rO
+	 SbwZ9WMQeMOPzrB3CCthGmuqMxiG1L2c6/VRlW01fbJvFEZ4OrPEp7rgmOTGgv3Dro
+	 ih6X2Pw+5v9LQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tIA7l-00HQcf-Hn;
+	id 1tIA7l-00HQcf-BP;
 	Mon, 02 Dec 2024 17:22:17 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -73,9 +73,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Bjorn Andersson <andersson@kernel.org>,
 	Christoffer Dall <christoffer.dall@arm.com>
-Subject: [PATCH 09/11] KVM: arm64: nv: Propagate CNTHCTL_EL2.EL1NV{P,V}CT bits
-Date: Mon,  2 Dec 2024 17:21:32 +0000
-Message-Id: <20241202172134.384923-10-maz@kernel.org>
+Subject: [PATCH 08/11] KVM: arm64: nv: Add trap routing for CNTHCTL_EL2.EL1{NVPCT,NVVCT,TVT,TVCT}
+Date: Mon,  2 Dec 2024 17:21:31 +0000
+Message-Id: <20241202172134.384923-9-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241202172134.384923-1-maz@kernel.org>
 References: <20241202172134.384923-1-maz@kernel.org>
@@ -86,8 +86,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_172223_164933_6E7B69A9 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20241202_172223_263179_97579628 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,39 +102,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow a guest hypervisor to trap accesses to CNT{P,V}CT_EL02 by
-propagating these trap bits to the host trap configuration.
+For completeness, fun, and cerebral meltdown, add the virtualisation
+related traps to the counter and timers.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/arch_timer.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/kvm/emulate-nested.c | 58 +++++++++++++++++++++++++++++++--
+ 1 file changed, 56 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 2c4499dd63732..f4607c4f68d2e 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -822,6 +822,10 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
- 	 * Apply the enable bits that the guest hypervisor has requested for
- 	 * its own guest. We can only add traps that wouldn't have been set
- 	 * above.
-+	 * Implementation choices: we do not support NV when E2H=0 in the
-+	 * guest, and we don't support configuration where E2H is writable
-+	 * by the guest (either FEAT_VHE or FEAT_E2H0 is implemented, but
-+	 * not both). This simplifies the handling of the EL1NV* bits.
- 	 */
- 	if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)) {
- 		u64 val = __vcpu_sys_reg(vcpu, CNTHCTL_EL2);
-@@ -832,6 +836,9 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index 1ffbfd1c3cf2e..03d21044c41f5 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -89,6 +89,9 @@ enum cgt_group_id {
+ 	CGT_HCRX_EnFPM,
+ 	CGT_HCRX_TCR2En,
  
- 		tpt |= !(val & (CNTHCTL_EL1PCEN << 10));
- 		tpc |= !(val & (CNTHCTL_EL1PCTEN << 10));
++	CGT_CNTHCTL_EL1TVT,
++	CGT_CNTHCTL_EL1TVCT,
 +
-+		tpt02 |= (val & CNTHCTL_EL1NVPCT);
-+		tvt02 |= (val & CNTHCTL_EL1NVVCT);
- 	}
+ 	CGT_ICH_HCR_TC,
+ 	CGT_ICH_HCR_TALL0,
+ 	CGT_ICH_HCR_TALL1,
+@@ -124,6 +127,8 @@ enum cgt_group_id {
+ 	__COMPLEX_CONDITIONS__,
+ 	CGT_CNTHCTL_EL1PCTEN = __COMPLEX_CONDITIONS__,
+ 	CGT_CNTHCTL_EL1PTEN,
++	CGT_CNTHCTL_EL1NVPCT,
++	CGT_CNTHCTL_EL1NVVCT,
  
+ 	CGT_CPTR_TTA,
+ 	CGT_MDCR_HPMN,
+@@ -393,6 +398,18 @@ static const struct trap_bits coarse_trap_bits[] = {
+ 		.mask		= HCRX_EL2_TCR2En,
+ 		.behaviour	= BEHAVE_FORWARD_RW,
+ 	},
++	[CGT_CNTHCTL_EL1TVT] = {
++		.index		= CNTHCTL_EL2,
++		.value		= CNTHCTL_EL1TVT,
++		.mask		= CNTHCTL_EL1TVT,
++		.behaviour	= BEHAVE_FORWARD_RW,
++	},
++	[CGT_CNTHCTL_EL1TVCT] = {
++		.index		= CNTHCTL_EL2,
++		.value		= CNTHCTL_EL1TVCT,
++		.mask		= CNTHCTL_EL1TVCT,
++		.behaviour	= BEHAVE_FORWARD_READ,
++	},
+ 	[CGT_ICH_HCR_TC] = {
+ 		.index		= ICH_HCR_EL2,
+ 		.value		= ICH_HCR_TC,
+@@ -487,6 +504,32 @@ static enum trap_behaviour check_cnthctl_el1pten(struct kvm_vcpu *vcpu)
+ 	return BEHAVE_FORWARD_RW;
+ }
+ 
++static bool is_nested_nv2_guest(struct kvm_vcpu *vcpu)
++{
++	u64 val;
++
++	val = __vcpu_sys_reg(vcpu, HCR_EL2);
++	return ((val & (HCR_E2H | HCR_TGE | HCR_NV2 | HCR_NV1 | HCR_NV)) == (HCR_E2H | HCR_NV2 | HCR_NV));
++}
++
++static enum trap_behaviour check_cnthctl_el1nvpct(struct kvm_vcpu *vcpu)
++{
++	if (!is_nested_nv2_guest(vcpu) ||
++	    !(__vcpu_sys_reg(vcpu, CNTHCTL_EL2) & CNTHCTL_EL1NVPCT))
++		return BEHAVE_HANDLE_LOCALLY;
++
++	return BEHAVE_FORWARD_RW;
++}
++
++static enum trap_behaviour check_cnthctl_el1nvvct(struct kvm_vcpu *vcpu)
++{
++	if (!is_nested_nv2_guest(vcpu) ||
++	    !(__vcpu_sys_reg(vcpu, CNTHCTL_EL2) & CNTHCTL_EL1NVVCT))
++		return BEHAVE_HANDLE_LOCALLY;
++
++	return BEHAVE_FORWARD_RW;
++}
++
+ static enum trap_behaviour check_cptr_tta(struct kvm_vcpu *vcpu)
+ {
+ 	u64 val = __vcpu_sys_reg(vcpu, CPTR_EL2);
+@@ -534,6 +577,8 @@ static enum trap_behaviour check_mdcr_hpmn(struct kvm_vcpu *vcpu)
+ static const complex_condition_check ccc[] = {
+ 	CCC(CGT_CNTHCTL_EL1PCTEN, check_cnthctl_el1pcten),
+ 	CCC(CGT_CNTHCTL_EL1PTEN, check_cnthctl_el1pten),
++	CCC(CGT_CNTHCTL_EL1NVPCT, check_cnthctl_el1nvpct),
++	CCC(CGT_CNTHCTL_EL1NVVCT, check_cnthctl_el1nvvct),
+ 	CCC(CGT_CPTR_TTA, check_cptr_tta),
+ 	CCC(CGT_MDCR_HPMN, check_mdcr_hpmn),
+ };
+@@ -850,11 +895,15 @@ static const struct encoding_to_trap_config encoding_to_cgt[] __initconst = {
+ 		      SYS_CNTHP_CVAL_EL2, CGT_HCR_NV),
+ 	SR_RANGE_TRAP(SYS_CNTHV_TVAL_EL2,
+ 		      SYS_CNTHV_CVAL_EL2, CGT_HCR_NV),
+-	/* All _EL02, _EL12 registers */
++	/* All _EL02, _EL12 registers up to CNTKCTL_EL12*/
+ 	SR_RANGE_TRAP(sys_reg(3, 5, 0, 0, 0),
+ 		      sys_reg(3, 5, 10, 15, 7), CGT_HCR_NV),
+ 	SR_RANGE_TRAP(sys_reg(3, 5, 12, 0, 0),
+-		      sys_reg(3, 5, 14, 15, 7), CGT_HCR_NV),
++		      sys_reg(3, 5, 14, 1, 0), CGT_HCR_NV),
++	SR_TRAP(SYS_CNTP_CTL_EL02,	CGT_CNTHCTL_EL1NVPCT),
++	SR_TRAP(SYS_CNTP_CVAL_EL02,	CGT_CNTHCTL_EL1NVPCT),
++	SR_TRAP(SYS_CNTV_CTL_EL02,	CGT_CNTHCTL_EL1NVVCT),
++	SR_TRAP(SYS_CNTV_CVAL_EL02,	CGT_CNTHCTL_EL1NVVCT),
+ 	SR_TRAP(OP_AT_S1E2R,		CGT_HCR_NV),
+ 	SR_TRAP(OP_AT_S1E2W,		CGT_HCR_NV),
+ 	SR_TRAP(OP_AT_S12E1R,		CGT_HCR_NV),
+@@ -1184,6 +1233,11 @@ static const struct encoding_to_trap_config encoding_to_cgt[] __initconst = {
+ 	SR_TRAP(SYS_CNTP_CTL_EL0,	CGT_CNTHCTL_EL1PTEN),
+ 	SR_TRAP(SYS_CNTPCT_EL0,		CGT_CNTHCTL_EL1PCTEN),
+ 	SR_TRAP(SYS_CNTPCTSS_EL0,	CGT_CNTHCTL_EL1PCTEN),
++	SR_TRAP(SYS_CNTV_TVAL_EL0,	CGT_CNTHCTL_EL1TVT),
++	SR_TRAP(SYS_CNTV_CVAL_EL0,	CGT_CNTHCTL_EL1TVT),
++	SR_TRAP(SYS_CNTV_CTL_EL0,	CGT_CNTHCTL_EL1TVT),
++	SR_TRAP(SYS_CNTVCT_EL0,		CGT_CNTHCTL_EL1TVCT),
++	SR_TRAP(SYS_CNTVCTSS_EL0,	CGT_CNTHCTL_EL1TVCT),
+ 	SR_TRAP(SYS_FPMR,		CGT_HCRX_EnFPM),
  	/*
+ 	 * IMPDEF choice:
 -- 
 2.39.2
 
