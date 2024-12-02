@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 110B1D7831B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD28D7831A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Bs2gmzI61vXNTySLLBELCZ6xPM2Ob2Cd1w6oJspTio=; b=JSL5Rfy34GVO49zLHHIRhtGe7W
-	J8uek2Jfeg+5/VP9QmU2J3CR9CGY46c7HRcT87KSF8dMltj+n43/y0GMmQQXZ05R6Gbzi3I/SvXBN
-	+ABaP9Er3/RU3RPvR6JHspuZmf+vKaQh9fnHFqHkGQ/w/5pKg1jz0TKRxgdZMro3j26NoKF+YsAau
-	frUe9IAjoRJSHbw99X1sgAvRh1GU2kar3Qf2jaSSFqtDPPCFZ0lo394mWz82M37Ae65/iKOvv8N4z
-	758Ehf6Yhu65EYkrvdKRlnsa+6D6yCz6m7a9D7Yc4udkCtHoKmA4vH5arOUipOkgs73CiBAXt2Q9k
-	plC+xoAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sv0//fy9Y6u/oppBNlbQtYr2WKWUynWe9KC5I1xpzZU=; b=HsUQFuMFNvI1vZpt0VPm5iyWCf
+	i4ZmkDy3pSO2ENr4cP/qhTE4q7axUP1ybgjHt8QGseMy6kj2BgFA1jbdDDBOaUxmHnm6WZiN3Kzxs
+	sX+yzb1ieHvZa/D0ar6jIiCXyM6Y10RWg4zLfSqjMONsunmH7K8hkzRzb8Q+2cm1k+LumXI7uQFsI
+	KM010cmUFn9tG/tmj8HMFWV0j3l4reLZ/YftxGwrhoYhvjx72i0esWpqr3FFk1O22fyd2Q02lNDiK
+	y4U7nhYiZ83SVkdcMqVCvKjWB5Eh6ed+egwqUJTS/KOePuTny4SXONqqZKnppCUgt7fKmggANDGCc
+	7nPaJ4nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6NK-00000006Dz2-2nyh;
-	Mon, 02 Dec 2024 13:22:06 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tI6OJ-00000006EDS-4BpE;
+	Mon, 02 Dec 2024 13:23:08 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6LQ-00000006DZv-24LU;
-	Mon, 02 Dec 2024 13:20:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 30F96A40CDD;
-	Mon,  2 Dec 2024 13:18:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD1A8C4CED1;
-	Mon,  2 Dec 2024 13:20:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733145607;
-	bh=cuZbfqLYHQS/1GAYDtMRKOLhWIMgYEMtvry7OBgUlJE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ja5YJfKEpMZVqAcOsS9VwFVxwUPlCtxVzQl7ZDIXMcG5Uy68wX2q1TO2zHiwZoQFL
-	 sRrfDQnF5zYJ0gHNjVcRFjWI/RnxfDTcpDBBmQLctpbWmYRKw8ULXNPvoUg3Oqb0kU
-	 6hDfNE4K9dlvEMuybzZuqcYUB0zUguLdKl1WYSw8JqR4KE3ddWPCyk6yn8CvNEUJG7
-	 IX2wJi4MAwL6VD0MV7GUCkuK6LCHXZnVHQqt/gV5E8fyfqojj0Q65QrLyTFYK5SCC0
-	 mwuj+l01dIHDSqYN3IDMM+mXb0cZibWBU9+v3hRepcooVifZKL5QSpm2Aaa38U5TVb
-	 sNdiloTWDun/g==
-Date: Mon, 2 Dec 2024 14:20:04 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
-	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v5 8/9] drm/vc4: hdmi: switch to using generic HDMI Codec
- infrastructure
-Message-ID: <20241202-industrious-unnatural-beagle-7da5d4@houat>
-References: <20241201-drm-bridge-hdmi-connector-v5-0-b5316e82f61a@linaro.org>
- <20241201-drm-bridge-hdmi-connector-v5-8-b5316e82f61a@linaro.org>
+	id 1tI6NJ-00000006DyU-2hEl
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Dec 2024 13:22:06 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-215348d1977so31364455ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 05:22:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733145725; x=1733750525; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sv0//fy9Y6u/oppBNlbQtYr2WKWUynWe9KC5I1xpzZU=;
+        b=mRMtqVIyaoxgbYmzLB9BmMsP5YgEvHXQWIaFtFqm02UrQ6p01UoAQ+U3SCgZ0meqYQ
+         SRBgj28UUPYhAU4WEFsnpijrdlqEnI8sRZQ1g9g1lRpiXsX+atfDOfeawz5vBdWHAZE8
+         xZSF74jZnMReKMVp0oNRqcjDwQYBOch8AtzA54ml4KAk7zv9+EFt1LPOdbcy0omCKN/u
+         WwaGSLLJAJ/VtX05l/XJnh7lETFZKQ1xXRKolF1hW903ZzqnYFFRwoCAvV0jot4InJ1X
+         SnDYMUIvInsIXVJKNyPldAhwwoJxRCQOnfBkZ5B1XTB1wPIAQI0aaOz5FdPYY4DNtnUQ
+         dVRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733145725; x=1733750525;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sv0//fy9Y6u/oppBNlbQtYr2WKWUynWe9KC5I1xpzZU=;
+        b=aCKYfOM9jzcPRc8hV8kkw+W2Jq/KxsEGo8Th7NuUvVjo5r9ueKRRwq+TSikCEfyuN3
+         jzCRD7ivE/uGbQ541FZyDtaJ8wWIcTLxmTzdeMg2qbJqtTy+k4nei9o5+RAcJwj/fZTH
+         mSeESMxUYJjw9KJ6tUnST4y+OWNfewjJLgeqQqALOc56ow0lKtPnFIV7QV/9JFCD3SSe
+         B2Iy0vA62wFv2l4c60ZIRjfuff2lg9970NIaWM7tThho8lRD5eUM5pBvkf8pz/jim9J1
+         REgR94Gn7kKyYivPYU/CwQLaR61r5ewdcoCuwdOfcd3826Pz/NLqS0+FvdN14uRfDhfM
+         sfzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUpshJ0yVkykCeAFRrAyePuFUB6YDcebbLL+5iSCG5iistHGB1M+SuPpFDnK0u5YHkLuql5F7KncrgJQO3NtxjA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+ZCT+RDYDokziy9t7+9oza19nLeCiq0fBP/KxCOzk9XMUsAYo
+	82TaPuP8qsjmhSTrUazwITVczexKxtLwU4zUs2JEmNnqQfKEP2nb/OIOSQ==
+X-Gm-Gg: ASbGncsEI+OP+pMHgQ5PxOKBZ8/qNLOA7TXPqs1a5DhZ6Njj+TbN6y+q6AvaeJ2spE1
+	L5L8JvW9nqusbZxd+lpTFcLZ3qLghL83rOo2g3OW5M5q3JUJ+mVkxcIyLgTp9sKBUcJOzsY9mbc
+	tqEwA/tFqaPBpJbcIimNHzLZmrLvQKnoXUKIt/o3NZDjC7U4TJROuK04h70eZog6DFLz4Vh4NDH
+	EtBxmABy5/0ronzVATsl5T5zZjPElXc9GAhqFLkoG+lwMZqd4y+YcybPXVdDw==
+X-Google-Smtp-Source: AGHT+IGsdegJ1akRjnaYj76rP0o2QuAbiXTdSzIRk1IHeRT4Dt5LR1a5f8LbW6gNsw+JFjA0TQAakQ==
+X-Received: by 2002:a17:903:230e:b0:212:5786:7bbe with SMTP id d9443c01a7336-215018570fcmr366988885ad.24.1733145724679;
+        Mon, 02 Dec 2024 05:22:04 -0800 (PST)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:9b87:b3a5:736:1fc])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21521967290sm76476535ad.142.2024.12.02.05.22.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Dec 2024 05:22:04 -0800 (PST)
+From: Fabio Estevam <festevam@gmail.com>
+To: robh@kernel.org
+Cc: krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	tglx@linutronix.de,
+	daniel.lezcano@linaro.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Fabio Estevam <festevam@denx.de>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH RESEND 1/2] dt-bindings: timer: fsl,imxgpt: Fix the fsl,imx7d-gpt fallback
+Date: Mon,  2 Dec 2024 10:21:46 -0300
+Message-Id: <20241202132147.587799-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="vbtgu33lsjanu5xg"
-Content-Disposition: inline
-In-Reply-To: <20241201-drm-bridge-hdmi-connector-v5-8-b5316e82f61a@linaro.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_052008_657626_0C020124 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20241202_052205_678573_878A2452 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,73 +100,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Fabio Estevam <festevam@denx.de>
 
---vbtgu33lsjanu5xg
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v5 8/9] drm/vc4: hdmi: switch to using generic HDMI Codec
- infrastructure
-MIME-Version: 1.0
+imx7s.dtsi correctly describes the GPT node as:
 
-Hi,
+compatible = "fsl,imx7d-gpt", "fsl,imx6dl-gpt";
 
-Sorry, I've been drowning under work and couldn't review that series before.
+Document the fallback compatible to be "fsl,imx6dl-gpt" in the bindings.
 
-I'll review the driver API for now, and we can focus on the exact
-implementation later on.
+This fixes the following dt-schema warnings:
 
-On Sun, Dec 01, 2024 at 02:44:12AM +0200, Dmitry Baryshkov wrote:
-> Drop driver-specific implementation and use the generic HDMI Codec
-> framework in order to implement the HDMI audio support.
->=20
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> ---
->  drivers/gpu/drm/vc4/vc4_hdmi.c | 68 ++++++++++--------------------------=
-------
->  drivers/gpu/drm/vc4/vc4_hdmi.h |  2 --
->  2 files changed, 15 insertions(+), 55 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdm=
-i.c
-> index 7295834e75fb1ab0cd241ed274e675567e66870b..d0a9aff7ad43016647493263c=
-00d593296a1e3ad 100644
-> --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
-> +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-> @@ -595,6 +595,9 @@ static int vc4_hdmi_connector_init(struct drm_device =
-*dev,
->  	if (vc4_hdmi->variant->supports_hdr)
->  		max_bpc =3D 12;
-> =20
-> +	connector->hdmi_codec.max_i2s_channels =3D 8;
-> +	connector->hdmi_codec.i2s =3D 1;
-> +
+timer@302f0000: compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx7d-gpt', 'fsl,imx6dl-gpt'] is too long
+	'fsl,imx1-gpt' was expected
+	'fsl,imx21-gpt' was expected
+	'fsl,imx27-gpt' was expected
+	'fsl,imx31-gpt' was expected
+	'fsl,imx7d-gpt' is not one of ['fsl,imx25-gpt', 'fsl,imx50-gpt', 'fsl,imx51-gpt', 'fsl,imx53-gpt', 'fsl,imx6q-gpt']
+	'fsl,imx6dl-gpt' was expected
+	'fsl,imx7d-gpt' is not one of ['fsl,imx6sl-gpt', 'fsl,imx6sx-gpt', 'fsl,imx8mp-gpt', 'fsl,imxrt1050-gpt', 'fsl,imxrt1170-gpt']
+	'fsl,imx6sx-gpt' was expected
 
-I guess it's a similar discussion than we had with HDMI2.0+ earlier
-today, but I don't really like initializing by structs. Struct fields
-are easy to miss, and can be easily uninitialized by mistake.
+Signed-off-by: Fabio Estevam <festevam@denx.de>
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-I think I'd prefer to have them as argument to the init function. And if
-they are optional, we can explicitly mark them as unused.
+diff --git a/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml b/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml
+index e2607377cbae..a2fcb1e8e74e 100644
+--- a/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml
++++ b/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml
+@@ -31,6 +31,7 @@ properties:
+           - enum:
+               - fsl,imx6sl-gpt
+               - fsl,imx6sx-gpt
++              - fsl,imx7d-gpt
+               - fsl,imx8mp-gpt
+               - fsl,imxrt1050-gpt
+               - fsl,imxrt1170-gpt
+@@ -38,7 +39,6 @@ properties:
+       - items:
+           - enum:
+               - fsl,imx6ul-gpt
+-              - fsl,imx7d-gpt
+           - const: fsl,imx6sx-gpt
+ 
+   reg:
+-- 
+2.34.1
 
-Like, it looks like the get_dai_id implementation relies on it being set
-to < 0 for it to be ignored, but it's not here, so I'd assume it's used
-with an ID of 0, even though the driver didn't support get_dai_id so
-far?
-
-Maxime
-
---vbtgu33lsjanu5xg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ02z/QAKCRAnX84Zoj2+
-dpzbAYDixtv7TbkB/8hZMKjc8sAQyzE2ixGhzfLm1/mizfxI+p8zsxyz2xkCmeAU
-CvjfI6UBgKALmNU3qiLez7ENeyLRh+cvBGhV2M7F3LMKGHgUca3NdOUGKZ2Ss9j2
-Qw//3ctIIw==
-=RzH8
------END PGP SIGNATURE-----
-
---vbtgu33lsjanu5xg--
 
