@@ -4,155 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C7CE69E8E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 20:23:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0029E69E90
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 20:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EM7J18TNS4jIX3r7Waqpa/KAZoKkaFOBeHEkLktc0Aw=; b=SsDWf9YKW4+2h58fxhPUVuB7vT
-	i+c8p8Jk7TXsaAY9aJNexNmpRe7sTK6yXrAhWVAYD0v6RSkVYZh2xhLsMJMoFt3bHDQCyZGY8JRNp
-	bDeH/T1JpC15nIv3LvZI9tHKIUgTiUXRL+GJYMwuBenR/tatBHDxfBz7QEal1vVqwE0PsOHaS1zHJ
-	iZemR23Z+bV7nqNjrrGWQOYBMB5AbxC2fX0R1fJ8XX1X68d/WQd+B9/YUzJJwrbfIxagDDczQCbmX
-	XK6VFeTq00NQV7wrUw15BPYIB5oOx5kOnovvY6rSkmOO6j1GCluc7z0h/zrehLggk2xGK5puF8wj2
-	pCc+ZTWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NaRKe/7DGKnbOUiUz5NG4MKDmFIpIXZ07dw8DEoCr3c=; b=GAN7YVTc9EjXkIox3ycKVvOLRH
+	ZIgZnA8IIhgadMkNffJ/5EQEGVdRF+loGahHWYvNGKFjgTQr3AiqEL59NMLfabUXUAqDsGPUTXvWJ
+	kn/z96Y5jgyuw9a2om56rqgC4gkHrX9jHbFhUdrpPMxXe1CaAXG/XfY5VmIyX/mwIP31GU4nOHoAy
+	V6FsoY3Qz1AhmwYDNgN9BdDdF4frkWOGwQuP205r0TU7YNoi/SjO5Hmurd6c2AcdmFroeMx43rtg3
+	ey9rwZZOw5xb4IDzYmTd+LM2ZsLknf9/DsAwvaKbXvoY5PnTZwwD5bU6yfEosN8Tiq15u7kDk0Nak
+	BKr5v6dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tICxA-00000007PD4-3ZXy;
-	Mon, 02 Dec 2024 20:23:32 +0000
-Received: from mail-vi1eur02on2061f.outbound.protection.outlook.com ([2a01:111:f403:2607::61f] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1tID1z-00000007Pi2-3J1z;
+	Mon, 02 Dec 2024 20:28:31 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tICw0-00000007P6T-20hu
+	id 1tID10-00000007PZQ-2yoA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 20:22:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T18RHMomNLK5+C8r/D5PcdGEBSsY+VlFgz5pnFt2PFH4jpOzW9uygtt5RleUKkbIYquOvGVKqa68Fny21xlZWD05/uPl7JCNzw/JoiDcHqBxBB+1B8VRoZDg8yTR+9k4NlJO8cAZtr00QnpxZtoODVM7UosNseqqF+Fyk8A1ZwOOZjUuBTeiOKQwzFuJU2loXOw6vbFU/imA2drj12FvrCKjRekJbAqllqz3K57J43uROD6fr6jMWXPYijDaK/ikGo8mvXW+lLrNfUDPYhJlqSnd21AxuUuzI5Y4Nh4fe40FkeWEUE/ywfQOB3deUgL1YngaGB6NfcZVJ14RvrHtag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EM7J18TNS4jIX3r7Waqpa/KAZoKkaFOBeHEkLktc0Aw=;
- b=wSBVrE5p68KfOcUewPXdJp/xprZIuTS8+sP9+FTuYeoOUBXULuTiS9zEQ0bxGi2acD8c92VfqwSZCW+cNYgJ7FMLDId+tNgmHi/GWjEhzFmYPYpKxOVg+REkzKHxng1KkXu++ecQ4fryn5u82e1/e6J4x6KJItai03ho13Y/fUZu2EQfzVj0ZhIwsGdc42rXegvCiEb56yoC7Az1buyJmAqu8hNcIgZhzcwV+OmnVr7cAKcXZTQQ1n3WdnaZC6yXiisCf1+w0dbHVbaOTfi37uVX5KFEaO3aRQnY8F8WpJZgIDpKFjw1wE+QKlzR6jL7AibdyC7c6D923wZ5kTrn6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EM7J18TNS4jIX3r7Waqpa/KAZoKkaFOBeHEkLktc0Aw=;
- b=DtVLRUET6rLGvlypMLAxxzMNtE2S1ajvtnuxoqBzVoc3q+l5AGJNW5MXVjTSu3nCWI37qwLsLczb8O3YE4kTzKIQHxSV3bF2HkA7a6FNACQR8UJsIU4msshujNsFWh+o+v19qnpRE87HlIntDXIdakpw+2jV4WcO5sXNC7y1BNgj/xblQaQKl4hnx793B+5fOPwfrWRkFkwhKKimuHAvEQUnAvBlcr+rgh0GwcEoIEGz8z9yONZKRPJ33s+fqn1LjLD66KahT8Vf3IEyv+CsGoqLXIoFRxBps6fTLmzva+3IekDrQHeR0xlMbikHzayWjMsUcgbJcgWS/MXwWXil7Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VE1PR04MB7230.eurprd04.prod.outlook.com (2603:10a6:800:1ab::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.18; Mon, 2 Dec
- 2024 20:22:11 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8207.017; Mon, 2 Dec 2024
- 20:22:11 +0000
-Date: Mon, 2 Dec 2024 15:21:57 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Pengfei Li <pengfei.li_1@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de,
-	catalin.marinas@arm.com, will@kernel.org, kernel@pengutronix.de,
-	festevam@gmail.com, joao.goncalves@toradex.com, marex@denx.de,
-	hvilleneuve@dimonoff.com, hiago.franco@toradex.com,
-	peng.fan@nxp.com, frieder.schrempf@kontron.de,
-	alexander.stein@ew.tq-group.com, m.othacehe@gmail.com,
-	mwalle@kernel.org, Max.Merchel@ew.tq-group.com,
-	quic_bjorande@quicinc.com, geert+renesas@glider.be,
-	dmitry.baryshkov@linaro.org, neil.armstrong@linaro.org,
-	arnd@arndb.de, nfraprado@collabora.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, ping.bai@nxp.com,
-	ye.li@nxp.com, aisheng.dong@nxp.com, carlos.song@nxp.com
-Subject: Re: [PATCH v3 0/4] Add i.MX91 platform support
-Message-ID: <Z04W5chGq5TitB9f@lizhi-Precision-Tower-5810>
-References: <20241120094945.3032663-1-pengfei.li_1@nxp.com>
- <Z01gfuVIIhl0rYwI@pengfei-OptiPlex-Tower-Plus-7010>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z01gfuVIIhl0rYwI@pengfei-OptiPlex-Tower-Plus-7010>
-X-ClientProxiedBy: SJ0PR13CA0074.namprd13.prod.outlook.com
- (2603:10b6:a03:2c4::19) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 02 Dec 2024 20:27:32 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4B2KRLik075303;
+	Mon, 2 Dec 2024 14:27:21 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733171241;
+	bh=NaRKe/7DGKnbOUiUz5NG4MKDmFIpIXZ07dw8DEoCr3c=;
+	h=From:To:CC:Subject:Date;
+	b=mRdzOJj7wA9IOFsVrYOoF1DkbWWDDRX9Xb4gsUbfGfulK3sIX1FWCxj3nDtxQWt3g
+	 Z5RTiVvvKiEVRkLHr4VR/qGrCz9NrrEQ12bIt3f9y373dPqeCMMchl/iDDWS0ixS1T
+	 XH2u44tsBWVbjnOOs+lvu3CJdo4gwYu0ArJvfTdY=
+Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B2KRL8n122460
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 2 Dec 2024 14:27:21 -0600
+Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 2
+ Dec 2024 14:27:21 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 2 Dec 2024 14:27:20 -0600
+Received: from fllvsmtp8.itg.ti.com ([10.249.42.149])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B2KRKcT081503;
+	Mon, 2 Dec 2024 14:27:20 -0600
+From: Andrew Davis <afd@ti.com>
+To: Linus Walleij <linus.walleij@linaro.org>,
+        Russell King
+	<linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+        Jean-Marie Verdun
+	<verdun@hpe.com>,
+        Nick Hawkins <nick.hawkins@hpe.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Andrew Davis <afd@ti.com>
+Subject: [PATCH v2] ARM: mach-hpe: Rework support and directory structure
+Date: Mon, 2 Dec 2024 14:27:19 -0600
+Message-ID: <20241202202719.111739-1-afd@ti.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VE1PR04MB7230:EE_
-X-MS-Office365-Filtering-Correlation-Id: ad52e275-31ce-475f-84c5-08dd130f006f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nVE4aEUr8yTU35HqKhSARgcEXLOf2pzuT7VlEhKLzzj8RxwddrmtTcxv/zgm?=
- =?us-ascii?Q?A1g2C6u2zfqZv5HPnUQTHxsIMj4hbDfiFZKzqKVvTJ4MatOQkkJBDBa4mgNj?=
- =?us-ascii?Q?8ve7IWzyxQp1GEIZ534QPujro9/Rh7WRnxakyr6R4rizLwFa4+VDpqs6u5Fi?=
- =?us-ascii?Q?CcDCwb2dCl3bl74Sz/jOcAu4Fvi0hRT3AEQK9rLGngvUlfzxZGpMn8U7sX4B?=
- =?us-ascii?Q?e7mAQnZPG7WIGYpyIXRpKDuT8VstOKUSdgj0JjkMOdQi+Q7aMLkmNm96Kdt2?=
- =?us-ascii?Q?XPN6y+3Swm8BkTL+qqiyqnYWvUsjtty6B2vyNVFZWz480t1gojpQ97/+9Euj?=
- =?us-ascii?Q?n1k+Y9tBsLC4CYVxPBgz2FgnNxQiOm3WLKUUKE3gq+npN6tkShBmWxbbN/di?=
- =?us-ascii?Q?Mlc5uLanxuEgehTtwGsrEMdyxCsTz9kpjIuZCKn2Jj5XEergFNlNclFDYhxh?=
- =?us-ascii?Q?0l4NUM1Izh7cTbJbh2E3pW7ZhjBoVPpNPogTPAMhBZl02VZiCAtFGrdJkVL0?=
- =?us-ascii?Q?BTwHaC5r6ZebWj0P4O6snznGLcu2htZh0dwbBbKP7k7P0xoNjworIrIfsaGz?=
- =?us-ascii?Q?DZ+BXWohv2arV9Q9irmOOYWAPinF13HLQoy+EbVFJPIthTyKQbUcbv6+FpyU?=
- =?us-ascii?Q?FltnrQ6hUiOuHV7p1r2hwVuMOzvgX9Ch9BCoTDb8npegBkFuqCq40A9d3PWC?=
- =?us-ascii?Q?AJXFfIRPoO2sHVK2lPJ808WCRrR29qJOMeoWym8zgTFIDtyQGmzW/pZep0Rv?=
- =?us-ascii?Q?bNekkE9HksksvjzSpOTOxrJhF6p5FErCewMqSdo6vJLYv+vo34jHj4j/JNqk?=
- =?us-ascii?Q?CBrZiDMFhbQJAiBl3Fy95cWfWh7ScopT9IHxdsQYLHIs3lK1vUsZSe/kcHF8?=
- =?us-ascii?Q?9p4GM2UL4CZjLy4cmko7pUNC3pMw1PnVj18+K20do6K6PN75jfhTFHg15roT?=
- =?us-ascii?Q?iRt3Z2t0OOrvLd9nHjKpWT+sqi7cC8Kxh3skthIO5WWR+GJ/9Wrh23zSEyqD?=
- =?us-ascii?Q?xCAZ80Du2XqBJCqBCpebQc/QgbHwqen2GD2ghRGnTg9d/vf1buqPBYnEMm7w?=
- =?us-ascii?Q?wt9Q5nnoanEuZEHFSV9sOLOO70p76pmJe1NiXqU5tP3IM/qQXE5vDeBrze6k?=
- =?us-ascii?Q?IauKJOrCLHCFHiDb75PIj3JDXeWdXI29R9SFRHVOG5WI9UHeHTghIsjs+NGx?=
- =?us-ascii?Q?YPZLvfsCMv493C3r3/5ZrZOUVAaQFCtZhKT2whiNVId3f1zIsy7scEf1Gsn+?=
- =?us-ascii?Q?83/nS9aHT9LgIgJaCi31Sx8XEZ7cgP1r98bbz6xBrxcP1Z+xlnfOW4o8IjWB?=
- =?us-ascii?Q?tNXfCIUrz/bvdGGFPaMVqyIk3OH36tS41EMcdhQLTxCjEa6ZwJnQHBlVykDu?=
- =?us-ascii?Q?NUoSoD6a7jhRxrFmeAjSWsLfab1EF35iR/074WQJhwOG5KZSKg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1aMxOZbrJcXfHT5e7CD9ENRl5xygoP+cxNkUoIqPtk87JXWJVsYVcRT3b4VK?=
- =?us-ascii?Q?dJsltWykDlb3w9c+ZJTmvGJ89pFCmwBhlBwB/PITrEl7wIWUqYEMu4GXjTaK?=
- =?us-ascii?Q?FK/q7JdvHhffE+BxJvaLyu3QaHKRv6W52SSDCxiiwc+96U+JLZnaIyxuUqCx?=
- =?us-ascii?Q?kX8QkRoyVcXO1xbeCEvicerUZYLveHXC7WHLAbqL985pNjirWGfaTQ/PYnuf?=
- =?us-ascii?Q?IuN1DZP0Ve0lgF9pRbOzmfCoeBJDBCrGJnY1tVL93ZK7sSLoa7MhyXGtQ+K1?=
- =?us-ascii?Q?xiH2/jKK+wyxBi+Vuy8Qer7edPQjt/8JYhlEA1QkEbauSPiSDhDuitDWi66/?=
- =?us-ascii?Q?WinzWpNuInJnda0zq7AJ8A9gT7GqepedNvdO6lrlTl7e+CgagGPmY0mFC1U0?=
- =?us-ascii?Q?WnQ++JB2lycugPS85aOho392IKDmtmhgLTdDmG2XumHD5bkQYROuFYHpcTQ3?=
- =?us-ascii?Q?Tzg1G4hxJb5nszGYx7ArByi0j/TuNA60K3F3sIxVRx5WkdSBiV4ZUzI3kX/G?=
- =?us-ascii?Q?3CZqxQr1uNQeiN7m5nLW2NyZ13zAMUQN6DyM/nmxR2fpHVhAwwScZRwx5Gdt?=
- =?us-ascii?Q?+ex3GXYO3S68rvdDTPTaquHYNPW888UYVjDMH2r8d0YyaTVSGZiz0z3dbYi+?=
- =?us-ascii?Q?MWctm6CROGld+DzQp3D/VvFcP1sC8RahNLu7FeHzsj6bngr3YQ/K/EVMU/rd?=
- =?us-ascii?Q?L/NKxlzawLSa1utyJFWkOjHnEvrntEejy8dlbJWhgK2f56x3YX4YuNyebu3L?=
- =?us-ascii?Q?M0MIqE0R+yHuLehlY2FJXuVdD9TGtL6HHaU3F8Uo1ivat2KeRv6vHgx6+u23?=
- =?us-ascii?Q?eNi/5aOcPmKHKchuvh0gKD4ESsy0gL+CyO4ZL2rlrtKBCkAmFz/0kT1LyHwq?=
- =?us-ascii?Q?kOewwLX3g2uZN5WV25w3yrNUg2FQMUlGYRGV21iNEPGwds+E3z0ADHPOk+IY?=
- =?us-ascii?Q?watjjlY/Y3fG36gHHUxOOiMD3mZ/PJ7g4ywQTUSzYyKH5sMP+ZEZpQDd1kEV?=
- =?us-ascii?Q?VOp6jtBYEkqq8vnBYI3WHHWY0q36n3sJuN9B8VnAoIAjJ6Sjr29wSn8J1B99?=
- =?us-ascii?Q?uwq7cL3+S55FBvTMoFrsvFfnhJLyd7JPEwab0lQkpwRp/v4zBQzDaa5PF8nI?=
- =?us-ascii?Q?uATDmni3FLbO9KPAYAWK2OrEdDqxrpZ4DUOF9aAbsMAauowABflhlEqAk8oM?=
- =?us-ascii?Q?m4gl+cz/Zdkhq0ticUrZZuyMIaT3eoAky1/Lxdx7Pg78T5YzhOtJKJ7SdZLz?=
- =?us-ascii?Q?bbPWzvcPHvuu5HEZjLLR+EevtgwhqBf7+8oWjiMHROp0Z+rC7gNs2PzIcxC+?=
- =?us-ascii?Q?AfAX+GjVYAXzJJmBK78dASMf6sZzAt6aEitfiEPEp5oPZASPjdwS/xGRP2Nq?=
- =?us-ascii?Q?+i0muWS499HST46CNQDe9FuCVWf/Dri14e9x2qTGbXzdH2j5G9oV9lr3ff0K?=
- =?us-ascii?Q?KcOidSggVYzjasWCWtYIpI9pqLsDJ8nvm10RdvAJ17OWL7mRswNouWQbBaRA?=
- =?us-ascii?Q?sY0E1WEZZUCKLo0UnWYwyXcyr8K2gDo7+fsy2cNp0CsiitZo2w+zqI0s3dJ3?=
- =?us-ascii?Q?Xew/ncTfBacYorSCHsjVwDHUF3LT56vGLmi6K7ek?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ad52e275-31ce-475f-84c5-08dd130f006f
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2024 20:22:11.2762
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Dswn9ToAiPu0yC3KMr77Gcya+rG75AzrWP4ya5QkKVy/CH8rzXTaMpY+hYl9wv9U3CdYLdD7r7PpIwjyG+9cLQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7230
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_122220_545915_FC8D952A 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20241202_122730_839858_2187542D 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,59 +86,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 03:24:44PM +0800, Pengfei Li wrote:
-> On Wed, Nov 20, 2024 at 05:49:41PM +0800, Pengfei Li wrote:
-> > The design of the i.MX91 platform is very similar to i.MX93.
-> > The mainly difference between i.MX91 and i.MX93 is as follows:
-> > - i.MX91 removed some clocks and modified the names of some clocks.
-> > - i.MX91 only has one A core
-> > - i.MX91 has different pinmux
-> >
-> > Therefore, i.MX91 can reuse i.MX93 dtsi.
-> >
-> > ---
-> > Change for v3:
-> > - Add Conor's ack on patch #1
-> > - format imx91-11x11-evk.dts with the dt-format tool
-> > - add lpi2c1 node
-> > - link to v2: https://lore.kernel.org/all/20241118051541.2621360-1-pengfei.li_1@nxp.com/
-> >
-> > Pengfei Li (4):
-> >   dt-bindings: arm: fsl: Add i.MX91 11x11 evk board
-> >   arm64: dts: freescale: Add i.MX91 dtsi support
-> >   arm64: dts: freescale: Add i.MX91 11x11 EVK basic support
-> >   arm64: defconfig: enable i.MX91 pinctrl
-> >
-> >  .../devicetree/bindings/arm/fsl.yaml          |   6 +
-> >  arch/arm64/boot/dts/freescale/Makefile        |   1 +
-> >  .../boot/dts/freescale/imx91-11x11-evk.dts    | 875 ++++++++++++++++++
-> >  arch/arm64/boot/dts/freescale/imx91-pinfunc.h | 770 +++++++++++++++
-> >  arch/arm64/boot/dts/freescale/imx91.dtsi      |  70 ++
-> >  arch/arm64/configs/defconfig                  |   1 +
-> >  6 files changed, 1723 insertions(+)
-> >  create mode 100644 arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-> >  create mode 100644 arch/arm64/boot/dts/freescale/imx91-pinfunc.h
-> >  create mode 100644 arch/arm64/boot/dts/freescale/imx91.dtsi
-> >
-> > --
-> > 2.34.1
-> >
-> >
->
-> Hi Rob Herring,
->
-> I haven't received any comments from others about this version of the patch set, is this patch set applicable?
+Having a platform need a mach-* directory should be seen as a negative,
+it means the platform needs special non-standard handling. ARM64 support
+does not allow mach-* directories at all. While we may not get to that
+given all the non-standard architectures we support, we should still try
+to get as close as we can and reduce the number of mach directories.
 
-Pengfei:
+The mach-hpe/ directory and files, provides just one "feature":
+having the kernel print the machine name if the DTB does not also contain
+a "model" string (which they always do). To reduce the number of mach-*
+directories let's do without that feature and remove this directory.
 
-	Conor Dooley have acked binding patch. Wait for guo shawn pick up
-these. v6.13-rc1 just create.
+Note, we drop the l2c_aux_mask = ~0 line, but this is safe as
+the fallback GENERIC_DT machine has that as the default.
 
-Frank
+Signed-off-by: Andrew Davis <afd@ti.com>
+---
 
+Changes for v2:
+ - Rebased on v6.13-rc1
 
->
-> BR,
-> Pengfei Li
->
+ MAINTAINERS                |  1 -
+ arch/arm/Kconfig           |  2 --
+ arch/arm/Kconfig.platforms | 25 +++++++++++++++++++++++++
+ arch/arm/Makefile          |  1 -
+ arch/arm/mach-hpe/Kconfig  | 23 -----------------------
+ arch/arm/mach-hpe/Makefile |  1 -
+ arch/arm/mach-hpe/gxp.c    | 15 ---------------
+ 7 files changed, 25 insertions(+), 43 deletions(-)
+ delete mode 100644 arch/arm/mach-hpe/Kconfig
+ delete mode 100644 arch/arm/mach-hpe/Makefile
+ delete mode 100644 arch/arm/mach-hpe/gxp.c
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 1e930c7a58b13..8d8f3caa4066d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2489,7 +2489,6 @@ F:	Documentation/devicetree/bindings/spi/hpe,gxp-spifi.yaml
+ F:	Documentation/devicetree/bindings/timer/hpe,gxp-timer.yaml
+ F:	Documentation/hwmon/gxp-fan-ctrl.rst
+ F:	arch/arm/boot/dts/hpe/
+-F:	arch/arm/mach-hpe/
+ F:	drivers/clocksource/timer-gxp.c
+ F:	drivers/hwmon/gxp-fan-ctrl.c
+ F:	drivers/i2c/busses/i2c-gxp.c
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 202397be76d80..4053aee636ef1 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -391,8 +391,6 @@ source "arch/arm/mach-highbank/Kconfig"
+ 
+ source "arch/arm/mach-hisi/Kconfig"
+ 
+-source "arch/arm/mach-hpe/Kconfig"
+-
+ source "arch/arm/mach-imx/Kconfig"
+ 
+ source "arch/arm/mach-ixp4xx/Kconfig"
+diff --git a/arch/arm/Kconfig.platforms b/arch/arm/Kconfig.platforms
+index 845ab08e20a4b..5c19c1f2cff61 100644
+--- a/arch/arm/Kconfig.platforms
++++ b/arch/arm/Kconfig.platforms
+@@ -87,6 +87,31 @@ config MACH_ASM9260
+ 	help
+ 	  Support for Alphascale ASM9260 based platform.
+ 
++menuconfig ARCH_HPE
++	bool "HPE SoC support"
++	depends on ARCH_MULTI_V7
++	help
++	  This enables support for HPE ARM based BMC chips.
++
++if ARCH_HPE
++
++config ARCH_HPE_GXP
++	bool "HPE GXP SoC"
++	depends on ARCH_MULTI_V7
++	select ARM_VIC
++	select GENERIC_IRQ_CHIP
++	select CLKSRC_MMIO
++	help
++	  HPE GXP is the name of the HPE Soc. This SoC is used to implement many
++	  BMC features at HPE. It supports ARMv7 architecture based on the Cortex
++	  A9 core. It is capable of using an AXI bus to which a memory controller
++	  is attached. It has multiple SPI interfaces to connect boot flash and
++	  BIOS flash. It uses a 10/100/1000 MAC for network connectivity. It
++	  has multiple i2c engines to drive connectivity with a host
++	  infrastructure.
++
++endif
++
+ menuconfig ARCH_MOXART
+ 	bool "MOXA ART SoC"
+ 	depends on ARCH_MULTI_V4
+diff --git a/arch/arm/Makefile b/arch/arm/Makefile
+index 00ca7886b18ef..c1cd02a53aa3d 100644
+--- a/arch/arm/Makefile
++++ b/arch/arm/Makefile
+@@ -188,7 +188,6 @@ machine-$(CONFIG_ARCH_FOOTBRIDGE)	+= footbridge
+ machine-$(CONFIG_ARCH_GEMINI)		+= gemini
+ machine-$(CONFIG_ARCH_HIGHBANK)		+= highbank
+ machine-$(CONFIG_ARCH_HISI)		+= hisi
+-machine-$(CONFIG_ARCH_HPE)		+= hpe
+ machine-$(CONFIG_ARCH_IXP4XX)		+= ixp4xx
+ machine-$(CONFIG_ARCH_KEYSTONE)		+= keystone
+ machine-$(CONFIG_ARCH_LPC18XX)		+= lpc18xx
+diff --git a/arch/arm/mach-hpe/Kconfig b/arch/arm/mach-hpe/Kconfig
+deleted file mode 100644
+index 3372bbf38d383..0000000000000
+--- a/arch/arm/mach-hpe/Kconfig
++++ /dev/null
+@@ -1,23 +0,0 @@
+-menuconfig ARCH_HPE
+-	bool "HPE SoC support"
+-	depends on ARCH_MULTI_V7
+-	help
+-	  This enables support for HPE ARM based BMC chips.
+-if ARCH_HPE
+-
+-config ARCH_HPE_GXP
+-	bool "HPE GXP SoC"
+-	depends on ARCH_MULTI_V7
+-	select ARM_VIC
+-	select GENERIC_IRQ_CHIP
+-	select CLKSRC_MMIO
+-	help
+-	  HPE GXP is the name of the HPE Soc. This SoC is used to implement many
+-	  BMC features at HPE. It supports ARMv7 architecture based on the Cortex
+-	  A9 core. It is capable of using an AXI bus to which a memory controller
+-	  is attached. It has multiple SPI interfaces to connect boot flash and
+-	  BIOS flash. It uses a 10/100/1000 MAC for network connectivity. It
+-	  has multiple i2c engines to drive connectivity with a host
+-	  infrastructure.
+-
+-endif
+diff --git a/arch/arm/mach-hpe/Makefile b/arch/arm/mach-hpe/Makefile
+deleted file mode 100644
+index 8b0a91234df4e..0000000000000
+--- a/arch/arm/mach-hpe/Makefile
++++ /dev/null
+@@ -1 +0,0 @@
+-obj-$(CONFIG_ARCH_HPE_GXP) += gxp.o
+diff --git a/arch/arm/mach-hpe/gxp.c b/arch/arm/mach-hpe/gxp.c
+deleted file mode 100644
+index 581c8da517b86..0000000000000
+--- a/arch/arm/mach-hpe/gxp.c
++++ /dev/null
+@@ -1,15 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-/* Copyright (C) 2022 Hewlett-Packard Enterprise Development Company, L.P. */
+-
+-#include <asm/mach/arch.h>
+-
+-static const char * const gxp_board_dt_compat[] = {
+-	"hpe,gxp",
+-	NULL,
+-};
+-
+-DT_MACHINE_START(GXP_DT, "HPE GXP")
+-	.dt_compat	= gxp_board_dt_compat,
+-	.l2c_aux_val = 0,
+-	.l2c_aux_mask = ~0,
+-MACHINE_END
+-- 
+2.39.2
+
 
