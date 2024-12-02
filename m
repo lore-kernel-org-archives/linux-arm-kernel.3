@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A04D7833D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63388D7833D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hQBhvBNYSI1fNvIhGqfRe5QD/yRE1BVFAKx554DMguU=; b=GR4cPas7rDaTfl8rq4GNHz/bQd
-	i5zpgng40oxx5/aywpUSIe+gfKOx823VDnQKXYA1NbABCikT9cBz73Xx7+750z24qKuHqMY7au0u3
-	0jbFI5Dslcmw6ZInZjh6mGQ+tT4TFQ1zvb34werZM8Q85ExsCsVmsSqeAYYlFmCDI/3SN/RNTut7W
-	CYu1mkLCij/inu8vxl8WjQDvvo566AoAYADZjyU9gytulMtSiR9nwSy309RQNnTaeZENIuuJRFTmX
-	PbATfiwWXFzSuG3ueGFHgCi2i1UbITFepQKORinSXbPlUzCWFDur8sHI6enANjgVHw83cTElDHVva
-	nNoG0PEg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VQbNxxLvKizWmipaY6ktrmBB/P4axuGO/OUGY80KUCM=; b=JO6OJskWC2cynFmUbY5ePmYUfU
+	o5RicmmERzp2yKfM2YR6wjPvmEAILKnpJ2yAwgY70iF8ZpdSOtap0WYZMsuX2+z4nAP92bN6M3BZ+
+	dJ8j4eXk4l8A7eaxahpytsS7JjPZDu52tNDhegVpoVDB/HVduxREtQEY96lEja1oD4T9IAhLTlpSn
+	DBIEr9jB0gsIrCa0/qaKhhdFakFwAiQr0CI+nPQ84j4EvnMDDl7WTI+rgf0mmLA6GZCkXgdztxe8M
+	dMxevulHSUbPIzJMFGqpBDbo7ORlNSTDZ6VixFdJ3c/c80cQnDngBra+UDH/BxD6tXpVv1AsfDoHV
+	gA8ojkZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIAPB-000000073ND-1nmn;
-	Mon, 02 Dec 2024 17:40:18 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1tIAQ8-000000073XS-40Fd;
+	Mon, 02 Dec 2024 17:41:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIAHy-000000071Y2-3bqH
+	id 1tIAK9-000000071zg-1H0f
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 17:32:52 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-72577d3b026so737970b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 09:32:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1733160769; x=1733765569; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=hQBhvBNYSI1fNvIhGqfRe5QD/yRE1BVFAKx554DMguU=;
-        b=B2PFeRXm5xptzzNUV0qk2DzoVXld7M4q2KV4gN4hY4j44H4eURHrA9ElwXSuA7u8gQ
-         GBHkNIHbVUke6VgxtH/GeghsOAKThIUYO3ktD2v893FIy1SdG18KGhEMTlEXXEI2dNL/
-         Iqu157u4o+QqDjBnpkCe+Yx5gkhVY0Ip3qCPs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733160769; x=1733765569;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hQBhvBNYSI1fNvIhGqfRe5QD/yRE1BVFAKx554DMguU=;
-        b=jxSNHs1dk8vZEve7RyAxXEMT55dxFxMcGygDFmZfxIIWnvcUKBzQ9gRfpv1zS/fmuO
-         PryqHqbQIC0SyCxyEX1NzBTBZhrcWBMYW6yTBJftOyNlVy2JrGfuaPz1Tseyd2ZQIxSr
-         YrFcU4fOXt82hLdZ9fWZJDjATjQRr7bdsqMmAw3s9U2HQZkkxA45Oet8w3yJ6d7Uqaub
-         kM8CIiXaP6Gmiq+oVUEXOYNvS14t3EGjUS/iW3RVzcurXg/RS1NhYpGxZYtit23d93a0
-         dBIlbhVOYOKh7aG+t1Prfgn3c0AhKmrdBqoXAWYjrVOFSkn2N+GkJ+bQyHHcNQvdi7JN
-         JmHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWtf7G4xZX9A+Rw1WKD7zMIGUP4vr3tiBgxKs812+ZMBCQ4Uiu0erXfyiIbpfnr73cOQXsSRjGN4w+iCXer6hOv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzp9wBwYVcBxxYvTWmXLM0GYvUHrwQHvmB2/nYpSAO1CLe4dX9x
-	qKzKvzMB6P97G3sdqPGICnuAskUyPKPTi1+FQv7ngtMyL3xXea9N4OAB6CeZlIzXqrY86L1XO2g
-	=
-X-Gm-Gg: ASbGncsBNzJI6qbfvMRJiB0XnBcFpYSR+iVxL4kYN+QiEUFHe3Aip7KB6rWlTk5HVGQ
-	WZTOG2I5zEuEAZmAvDlwv5zn6D2iMYoNw5OWPbJvnBS1p7Am2//50frGeQSZmpZW+whCiPwpQiO
-	woN/UUpFlBCUEwryQuRC+UoSybz/iLl9D4V01Bvjj40I469DK3xL35pSEKKgLyxxxAj/RkPsoeb
-	Zp9FhmDcPg7Ah9c49Phpu3cljrSxRu2inGms0tMllaBDuLeaT5X6VGtwLZM8EnII/+xdaVhxah3
-	TAQlHBr+Ywm7ytcw
-X-Google-Smtp-Source: AGHT+IEjUN/ML+K162/xpdhBMgTEQI4aafoM2AtK8SqwrpoRrDwdxXfFMmUoTBU/SEHlExVoYSBCtg==
-X-Received: by 2002:a05:6a00:4f88:b0:71e:cc7:c511 with SMTP id d2e1a72fcca58-7253014a11amr34871457b3a.23.1733160769399;
-        Mon, 02 Dec 2024 09:32:49 -0800 (PST)
-Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com. [209.85.214.173])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fc9c31164asm7040426a12.42.2024.12.02.09.32.48
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Dec 2024 09:32:48 -0800 (PST)
-Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2153e642114so30357415ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 09:32:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUkKFd8rzvOyWhQl6+QCqPGr+AZ0zXOEkYTjVJmWfglTt3bhaJVsedqLXDVM7b1lYrGEVZM7xMPUJPmvJ1uhSwL@lists.infradead.org
-X-Received: by 2002:a17:902:e5d0:b0:215:5a53:eded with SMTP id
- d9443c01a7336-2155a53eff1mr163851165ad.39.1733160379613; Mon, 02 Dec 2024
- 09:26:19 -0800 (PST)
+	Mon, 02 Dec 2024 17:35:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 320D35C0365;
+	Mon,  2 Dec 2024 17:34:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D02C2C4CED1;
+	Mon,  2 Dec 2024 17:35:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733160903;
+	bh=H6X4HxSuzHzBru4loE1fIv7uvjl0ePjrXaJ1JNnadsE=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=cvO1Ds0kUEVV4XP+U5TwsILj0wy1zw0nCs8k2BqpB3wKlYNvzoUniCJQW65nhjh1o
+	 saSQvVKWHUB6swLh4BekAGHyuiL7dQGD057mzrrCfRUuwd10KzdXMc8tpFW/8BnkRB
+	 4HeDTCgax/W3CPuKaTfS5n8go2bgRAPSFtrer4xmE9FlWmX/LZZtPzC/Jez2CPdj9H
+	 5kh1QsTxfKRNhIuSLYUGggIwNioUd/ecVgh+aInzhkQwluvfUTcIwBJUfkw6rsCVyw
+	 MzGKoRpR7joyAEBnq0jj5mfcJYOTeryL6ScLsY4B/FLWvv2G+zYK2fx6rQjA8yM9PF
+	 DjJT9eyAXyZFA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ABEF6D7831C;
+	Mon,  2 Dec 2024 17:35:03 +0000 (UTC)
+From: Vincent Mailhol via B4 Relay <devnull+mailhol.vincent.wanadoo.fr@kernel.org>
+Subject: [PATCH 00/10] compiler.h: refactor __is_constexpr() into
+ is_const{,_true,_false}()
+Date: Tue, 03 Dec 2024 02:33:22 +0900
+Message-Id: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
 MIME-Version: 1.0
-References: <20241202-fix-llvm9-v1-0-2a50f5acfd0b@chromium.org>
- <20241202-fix-llvm9-v1-3-2a50f5acfd0b@chromium.org> <20241202162454.GA2848026@thelio-3990X>
-In-Reply-To: <20241202162454.GA2848026@thelio-3990X>
-From: Ricardo Ribalda <ribalda@chromium.org>
-Date: Mon, 2 Dec 2024 18:26:07 +0100
-X-Gmail-Original-Message-ID: <CANiDSCu+gJb5aTywEnGDQUJYws++9x=be5QLsdSUqS=XjFZGnQ@mail.gmail.com>
-Message-ID: <CANiDSCu+gJb5aTywEnGDQUJYws++9x=be5QLsdSUqS=XjFZGnQ@mail.gmail.com>
-Subject: Re: [PATCH 3/3] media: mediatek: vcodec: Workaround a compiler warning
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Hans de Goede <hdegoede@redhat.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Andy Shevchenko <andy@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
-	Yunfei Dong <yunfei.dong@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-media@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGLvTWcC/x2MQQqAIBAAvxJ7TlCRqL4SEaJb7UVlNyII/550H
+ IaZFwSZUGDuXmC8SSinBqbvIJw+HagoNgarrTPGTopkCznJhU9hxbj7cGVWZnKD9hFjcCO0tjR
+ Dz/9d1lo/1Xd5X2cAAAA=
+X-Change-ID: 20241129-is_constexpr-refactor-19460adedc48
+To: Linus Torvalds <torvalds@linux-foundation.org>, 
+ David Laight <David.Laight@aculab.com>, 
+ Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Yury Norov <yury.norov@gmail.com>, 
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>, 
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Rikard Falkeborn <rikard.falkeborn@gmail.com>, 
+ Martin Uecker <Martin.Uecker@med.uni-goettingen.de>
+Cc: linux-sparse@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, linux-hardening@vger.kernel.org, 
+ intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2878;
+ i=mailhol.vincent@wanadoo.fr; h=from:subject:message-id;
+ bh=H6X4HxSuzHzBru4loE1fIv7uvjl0ePjrXaJ1JNnadsE=;
+ b=owGbwMvMwCV2McXO4Xp97WbG02pJDOm+749yHXE+efV7rnOkcu+WY3bx8n7fTmrbr7jmluH9X
+ F7W1cW8o5SFQYyLQVZMkWVZOSe3Qkehd9ihv5Ywc1iZQIYwcHEKwER4zRkZer+7/w40uWUXt65D
+ Rr+mWXn16tUHF2i6i7bLMZjcEecUZmQ4/WjnTadfPbbmk36KXW7f62Rq1pXeP+uB7A/2w3svHNv
+ MBgA=
+X-Developer-Key: i=mailhol.vincent@wanadoo.fr; a=openpgp;
+ fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
+X-Endpoint-Received: by B4 Relay for mailhol.vincent@wanadoo.fr/default
+ with auth_id=291
+X-Original-From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_093250_890618_68A12073 
-X-CRM114-Status: GOOD (  27.03  )
+X-CRM114-CacheID: sfid-20241202_093505_432469_F931B59B 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,79 +107,78 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: mailhol.vincent@wanadoo.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+This series is the spiritual successor of [1] which introduced
+const_true(). In [1], following a comment from David Laight, Linus
+came with a suggestion to simplify __is_constexpr() and its derived
+macros using a _Generic() selection. Because of the total change of
+scope, I am starting a new series.
+
+The goal is to introduce a set of three macros:
+
+  - is_const(): a one to one replacement of __is_constexpr() in term
+    of features but written in a less hacky way thanks to _Generic().
+
+  - is_const_true(): tells whether or not the argument is a true
+    integer constant expression.
+
+  - is_const_false(): tells whether or not the argument is a false
+    integer constant expression.
+
+Once defined, apply them tree-wide.
+
+All those three macros will rely on a single building block:
+__is_const_zero().
+
+Patch 1 adds statically_false(). This is just done so that at the end
+of this series, the full set of statically_true/false() and
+is_const_true/false() is present.
+
+Patch 2 adds __is_const_zero() and is_const().
+
+Patch 3 adds is_const_true() and is_const_false().
+
+Patch 4 to 9 do a tree-wide replacement to remove all the usages of
+__is_constexpr() and replace them by is_const_true() or
+is_const_false() whenever feasible, or by is_const() otherwise.
+
+Patch 10 finally remove __is_constexpr(). RIP!
+
+[1] add const_true() to simplify GENMASK_INPUT_CHECK()
+Link: https://lore.kernel.org/all/20241113172939.747686-4-mailhol.vincent@wanadoo.fr/
+
+Signed-off-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+---
+Vincent Mailhol (10):
+      compiler.h: add statically_false()
+      compiler.h: add is_const() as a replacement of __is_constexpr()
+      compiler.h: add is_const_true() and is_const_false()
+      linux/bits.h: simplify GENMASK_INPUT_CHECK() by using is_const_true()
+      minmax: simplify __clamp_once() by using is_const_false()
+      fortify: replace __is_constexpr() by is_const() in strlen()
+      overflow: replace __is_constexpr() by is_const()
+      drm/i915/reg: replace __is_const_expr() by is_const_true() or is_const()
+      coresight: etm4x: replace __is_const_expr() by is_const()
+      compiler.h: remove __is_constexpr()
+
+ drivers/gpu/drm/i915/i915_reg_defs.h          |  47 +++++------
+ drivers/hwtracing/coresight/coresight-etm4x.h |   2 +-
+ include/linux/bits.h                          |   5 +-
+ include/linux/compiler.h                      | 112 +++++++++++++++-----------
+ include/linux/fortify-string.h                |   4 +-
+ include/linux/minmax.h                        |   3 +-
+ include/linux/overflow.h                      |   8 +-
+ 7 files changed, 97 insertions(+), 84 deletions(-)
+---
+base-commit: e70140ba0d2b1a30467d4af6bcfe761327b9ec95
+change-id: 20241129-is_constexpr-refactor-19460adedc48
+
+Best regards,
+-- 
+Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 
 
-On Mon, 2 Dec 2024 at 17:25, Nathan Chancellor <nathan@kernel.org> wrote:
->
->  Mon, Dec 02, 2024 at 03:47:17PM +0000, Ricardo Ribalda wrote:
-> > llvm identifies that the SCP_IPI_VENC_H264 and IPI_VENC_H264 are from
-> > the same enum type, but their are part of the same ternary operator.
-> >
-> > vpu_inst.id is of type int, so we can just rewrite a bit the code and
-> > avoid the following llvm9 warning:
->
-> LLVM 19, not LLVM 9, as the minimum version for building the kernel is
-> LLVM 13.
->
-> > drivers/media/platform/mediatek/vcodec/encoder/venc/venc_h264_if.c:597:29: warning: conditional expression between different enumeration types ('enum scp_ipi_id' and 'enum ipi_id') [-Wenum-compare-conditional]
-> >
-> > Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
->
-> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
->
-> FYI, Arnd basically sent the same patch October 18 but I guess it has
-> not been picked up?
->
-> https://lore.kernel.org/20241018152127.3958436-1-arnd@kernel.org/
->
-> Hopefully the new media committers model will help patches like that get
-> picked up in a more timely manner.
-
-We can take Arnd's patch.
-
-Yeah, this is the kind of patches that the multi committers can really
-help with :)
-
->
-> > ---
-> >  drivers/media/platform/mediatek/vcodec/encoder/venc/venc_h264_if.c | 6 ++++--
-> >  1 file changed, 4 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_h264_if.c b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_h264_if.c
-> > index f8145998fcaf..4786062e879a 100644
-> > --- a/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_h264_if.c
-> > +++ b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_h264_if.c
-> > @@ -584,7 +584,6 @@ static void h264_encode_filler(struct venc_h264_inst *inst, void *buf,
-> >
-> >  static int h264_enc_init(struct mtk_vcodec_enc_ctx *ctx)
-> >  {
-> > -     const bool is_ext = MTK_ENC_CTX_IS_EXT(ctx);
-> >       int ret = 0;
-> >       struct venc_h264_inst *inst;
-> >
-> > @@ -594,7 +593,10 @@ static int h264_enc_init(struct mtk_vcodec_enc_ctx *ctx)
-> >
-> >       inst->ctx = ctx;
-> >       inst->vpu_inst.ctx = ctx;
-> > -     inst->vpu_inst.id = is_ext ? SCP_IPI_VENC_H264 : IPI_VENC_H264;
-> > +     if (MTK_ENC_CTX_IS_EXT(ctx))
-> > +             inst->vpu_inst.id = SCP_IPI_VENC_H264;
-> > +     else
-> > +             inst->vpu_inst.id = IPI_VENC_H264;
-> >       inst->hw_base = mtk_vcodec_get_reg_addr(inst->ctx->dev->reg_base, VENC_SYS);
-> >
-> >       ret = vpu_enc_init(&inst->vpu_inst);
-> >
-> > --
-> > 2.47.0.338.g60cca15819-goog
-> >
-
-
-
---
-Ricardo Ribalda
 
