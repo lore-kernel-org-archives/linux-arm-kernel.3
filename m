@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08CD6D78312
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 12:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F21ED78312
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 12:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xvio4qYnn152relW8d8dOOQlvOo0mSc7MB7Rnu0hWEg=; b=yrwbjDAxZjVHgTNn98YYgeQuKM
-	7zzNMVjNA/ti182OrJ3Z1XYJOITq+JBnNwTlsigoqw9hA6mNFfLH8uuTOrIMHk+kVuzxhJVxSHcsY
-	COnAhrsrOjKErcj3KcI9BtoJ3axDzXhFMRskuT2EezIiWxMMh2mU2vo1tM/HQmy6pipPQf3oqOB9a
-	JCs1Qinja5NPoV3p/hwgKddqiJEtIUgzr+p1aJqta7F6Zb95vSinzSS6x1YawyYMCiuZsTZPuIF5X
-	lnNsnmAN+uymT0QzvEL6HelfItXJj15mZJFcvW/InceCb3/jbKndPgHzOfCFnJdGBfp4mcHxrusBt
-	/eE7Z8mg==;
+	bh=5TWzayKwl6vTitRugS2EOw67/+C7PLCqur4K/uzJmtc=; b=F9Qss0LCZ/aUkUbdL76Z3Ph375
+	ZzAgcb9Sl+4bKheK0OLvVkkndMMN1T2k6S3a7WZRkrE46Idcv5EV682AiqHLtM4qMmBd+JhQLUXPF
+	+iGr7Ev5V1gur63dtHbQq5o4qoV638W44FwPneuXCJ2hDiTYg0GbzCyVgTTIZQZEuhcYh+JMOW3nT
+	czAdlu0XiUgrGos/dVSAvdGPX8WC+8UOeX8ExTBukPWctBF2Ixe08gRHRUUOKsMQdVQyM7GPgWbqL
+	5UC7qT6PAesFOed7kk6ZvS4P7w5kUSYm30U+LrVkaTdSLrA2fOJi9SHqPYWTb5NR4xrFP+Qly9yKU
+	3Pc6HPsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI5Z7-0000000656P-3pg8;
-	Mon, 02 Dec 2024 12:30:13 +0000
-Received: from mxout3.routing.net ([2a03:2900:1:a::8])
+	id 1tI5a5-000000065IF-3mBM;
+	Mon, 02 Dec 2024 12:31:13 +0000
+Received: from mxout2.routing.net ([2a03:2900:1:a::b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI5VF-0000000646O-2MZE;
-	Mon, 02 Dec 2024 12:26:14 +0000
+	id 1tI5VG-0000000646r-1Y8m;
+	Mon, 02 Dec 2024 12:26:15 +0000
 Received: from mxbox3.masterlogin.de (unknown [192.168.10.78])
-	by mxout3.routing.net (Postfix) with ESMTP id 40DC7613F7;
+	by mxout2.routing.net (Postfix) with ESMTP id C4D0260435;
 	Mon,  2 Dec 2024 12:26:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
 	s=20200217; t=1733142372;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xvio4qYnn152relW8d8dOOQlvOo0mSc7MB7Rnu0hWEg=;
-	b=JDvX5RswSd2RQ/g18NW4rQ0qtVwn6IhhlCcpyGPRkmpyhxpxlfCiWLYLaeu6Cj51EnuuFC
-	WiWnAQE5V24sCQjKuqg5sNhPdgFexNhcuwL0GWtMXlQrZe55QFOEuIv93h+4mSH5Gd8l+T
-	DELL4n1NCuMb9Kb6ezsbNAs+mzQktPA=
+	bh=5TWzayKwl6vTitRugS2EOw67/+C7PLCqur4K/uzJmtc=;
+	b=G67mCFeS2W4Mp8n8AAMMRRfUWEm3Ich2UOZmYqbo8jZIxVJ/L572mlTxdgv0jilrChg5HH
+	nNjixBF7XXVZVurpbER9BidyU+GWbaicIdNPZqK0/DS4WCv81I6bCVusNPLmO8qoCOOllb
+	VLd0cD9xrqnb/M0MZ1oPR7cRVRuLZKc=
 Received: from frank-u24.. (fttx-pool-217.61.149.104.bambit.de [217.61.149.104])
-	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id ABDA0360188;
-	Mon,  2 Dec 2024 12:26:11 +0000 (UTC)
+	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id 3F6CE3600C0;
+	Mon,  2 Dec 2024 12:26:12 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -53,19 +53,18 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 03/18] arm64: dts: mediatek: mt7988: add fixed regulators for 1v8 and 3v3
-Date: Mon,  2 Dec 2024 13:25:44 +0100
-Message-ID: <20241202122602.30734-4-linux@fw-web.de>
+Subject: [PATCH v2 04/18] arm64: dts: mediatek: mt7988: add lvts node
+Date: Mon,  2 Dec 2024 13:25:45 +0100
+Message-ID: <20241202122602.30734-5-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241202122602.30734-1-linux@fw-web.de>
 References: <20241202122602.30734-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Mail-ID: f3d04e75-e09a-4074-aa49-cde4d43063c7
+X-Mail-ID: 8b4c00e1-9437-4750-95d9-f1438fe1860c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_042613_738763_16681825 
-X-CRM114-Status: UNSURE (   8.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241202_042614_551291_A03AEA4E 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,45 +81,75 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Add regulator nodes used for mmc to Bananapi R4 board.
+Add Low Voltage Thermal Sensor (LVTS) node for mt7988 SoC.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 ---
-v2:
-- move mmc regulators to board dts of bpi-r4
----
- .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts   | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+changes:
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-index d914eae2b524..df53512c6890 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-@@ -8,6 +8,24 @@ / {
- 	compatible = "bananapi,bpi-r4", "mediatek,mt7988a";
- 	model = "Banana Pi BPI-R4";
- 	chassis-type = "embedded";
-+
-+	reg_1p8v: regulator-1p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-1.8V";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_3p3v: regulator-3p3v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-3.3V";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
- };
+v2:
+squash
+- "arm64: dts: mediatek: mt7988: add label for efuse"
+- "arm64: dts: mediatek: mt7988: extend efuse node" (drop other efuse subnodes)
+---
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+index 5e40446cb7b3..f7748a840297 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+@@ -4,6 +4,7 @@
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/phy/phy.h>
+ #include <dt-bindings/pinctrl/mt65xx.h>
++#include <dt-bindings/reset/mediatek,mt7988-resets.h>
  
- &pio {
+ / {
+ 	compatible = "mediatek,mt7988a";
+@@ -85,6 +86,7 @@ infracfg: clock-controller@10001000 {
+ 			compatible = "mediatek,mt7988-infracfg", "syscon";
+ 			reg = <0 0x10001000 0 0x1000>;
+ 			#clock-cells = <1>;
++			#reset-cells = <1>;
+ 		};
+ 
+ 		topckgen: clock-controller@1001b000 {
+@@ -250,6 +252,17 @@ i2c@11005000 {
+ 			status = "disabled";
+ 		};
+ 
++		lvts: lvts@1100a000 {
++			compatible = "mediatek,mt7988-lvts-ap";
++			#thermal-sensor-cells = <1>;
++			reg = <0 0x1100a000 0 0x1000>;
++			clocks = <&infracfg CLK_INFRA_26M_THERM_SYSTEM>;
++			interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
++			resets = <&infracfg MT7988_INFRA_RST1_THERM_CTRL_SWRST>;
++			nvmem-cells = <&lvts_calibration>;
++			nvmem-cell-names = "lvts-calib-data-1";
++		};
++
+ 		usb@11190000 {
+ 			compatible = "mediatek,mt7988-xhci", "mediatek,mtk-xhci";
+ 			reg = <0 0x11190000 0 0x2e00>,
+@@ -307,11 +320,15 @@ clock-controller@11f40000 {
+ 			#clock-cells = <1>;
+ 		};
+ 
+-		efuse@11f50000 {
++		efuse: efuse@11f50000 {
+ 			compatible = "mediatek,mt7988-efuse", "mediatek,efuse";
+ 			reg = <0 0x11f50000 0 0x1000>;
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
++
++			lvts_calibration: calib@918 {
++				reg = <0x918 0x28>;
++			};
+ 		};
+ 
+ 		clock-controller@15000000 {
 -- 
 2.43.0
 
