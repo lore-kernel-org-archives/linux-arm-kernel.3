@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E34AD78314
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 12:35:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10DA5D78313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 12:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bf0wU1/QYkNghuSaTTJ0zcYOBhFOpXxvLvBEJ3/2A98=; b=0mSQdoDx13eTnldocDESodD7dm
-	ZhTKlSrbQxRqsBhwvL+VhOCRGZPufoy39LrCFifA/bLKFeJSbyhxEMDmzpaBEIndHZrQqK5N+/XCJ
-	2jvGKzB7o11hMUHjhxnGpPMAAQG+rzbH349FmT1JKoy13sScqlq+/JYZdOshs3cvaWXKa67fs21js
-	aZAHxECTF+U95rtEsw2O7i6otBN92UhRGE3j7cvUmu76yZGnSwFDwGO2sZNWQwiRj5V1ZqANdicxD
-	3Y6qIKipr3lecd+mZhUIbXXmlQxiO3uYxILZayeYcQzOFHajv62ibh8RzMmGgLm7j0r8fvTghU2Qk
-	xpjK+EqA==;
+	bh=lGxVt+qQLZJkkFVJS2L97CoPUefk9As7+zZxbYek0c8=; b=wd7a6xP9FmmA52qX7HXBPuMtUb
+	K7hdgGO94I1xCHgmV+LuGnrpaXBum2D7UwWQViTu3+EbmwoPZufU7QLGf4oMa0p/KJL80Ns9Z3Juj
+	arN1j2qgebrHvR0QA2tWeSKx/l2zPOqS2nC/KIQV/kObYPlTvWQ6ZhaWy6ac0N/KRFVrL95BF9YCR
+	exw9+9t4dvxfGjvvfrFTiiTy6by1g33sHNfXx4nsx9t9RwEBuwK5zM58scmGy+8x2ngV3wu8VRbe3
+	OYuQ05z8BX8Iitka91AJ0YTlJfL9W1h/VMrBuL8pM0/PPU9Ioss2BPHatdJj/vZFN6oiSRCpFPCOW
+	lHtcJhWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI5dv-000000065x2-3tTz;
-	Mon, 02 Dec 2024 12:35:11 +0000
-Received: from mxout1.routing.net ([2a03:2900:1:a::a])
+	id 1tI5es-0000000667J-3WR8;
+	Mon, 02 Dec 2024 12:36:10 +0000
+Received: from mxout4.routing.net ([2a03:2900:1:a::9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI5VI-0000000648Y-321f;
-	Mon, 02 Dec 2024 12:26:17 +0000
+	id 1tI5VJ-00000006494-1Uwx;
+	Mon, 02 Dec 2024 12:26:18 +0000
 Received: from mxbox3.masterlogin.de (unknown [192.168.10.78])
-	by mxout1.routing.net (Postfix) with ESMTP id 5B48541A25;
+	by mxout4.routing.net (Postfix) with ESMTP id F1D62100943;
 	Mon,  2 Dec 2024 12:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1733142375;
+	s=20200217; t=1733142376;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bf0wU1/QYkNghuSaTTJ0zcYOBhFOpXxvLvBEJ3/2A98=;
-	b=oo6MRp1w0dDlv1cyvERc+WtxWDJjQ5EQmyrU0/s4eLaE0PO8hbf85iEnSkIwZRZ74SPXUh
-	5+49RC9NU1l9lpWhYy9N8X8IqCS0P/tdnATn3kWrra6Xr5u+IX/kOoWwliVSrjD/zZW4QF
-	CVfrsvVk6cTzOC0tXB1MuhHzzWlPmSo=
+	bh=lGxVt+qQLZJkkFVJS2L97CoPUefk9As7+zZxbYek0c8=;
+	b=po4mQBHYl7lFfmFdq5DxcaZX8ZmcVwp9Bgw8a4GYvmCyzvdvRW9/h3NRb+9B7q7Oevt5oT
+	mL/G+xE1mR6NsgUFStHYiQNXOUedUweP2q/G96sv3yM5PnRYyJi+fVC9MWW18jK4vXVGKW
+	C3MMHecOcjWjaiCvPXAaOmaB2a4stPs=
 Received: from frank-u24.. (fttx-pool-217.61.149.104.bambit.de [217.61.149.104])
-	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id 5D32C3600C0;
-	Mon,  2 Dec 2024 12:26:14 +0000 (UTC)
+	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id 48496360211;
+	Mon,  2 Dec 2024 12:26:15 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -53,18 +53,18 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 08/18] arm64: dts: mediatek: mt7988: add mcu-sys node for cpu
-Date: Mon,  2 Dec 2024 13:25:49 +0100
-Message-ID: <20241202122602.30734-9-linux@fw-web.de>
+Subject: [PATCH v2 09/18] arm64: dts: mediatek: mt7988: add operating-points
+Date: Mon,  2 Dec 2024 13:25:50 +0100
+Message-ID: <20241202122602.30734-10-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241202122602.30734-1-linux@fw-web.de>
 References: <20241202122602.30734-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Mail-ID: 1636f77e-5670-4746-b648-6f76788a7fe4
+X-Mail-ID: dca3eac9-8f12-478a-ae0e-dd080f463b3a
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_042616_903041_9E09BAF6 
-X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-CacheID: sfid-20241202_042617_534069_64A642EA 
+X-CRM114-Status: UNSURE (   8.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,30 +82,87 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Add mcu-sys node which is used later as clock-controller for cpus.
+Add operating points defining frequency/voltages of cpu cores.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 ---
- arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+changes:
+v2:
+- drop cpu-labels for now
+---
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 38 +++++++++++++++++++++++
+ 1 file changed, 38 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-index 1cf801486e61..2af440510c86 100644
+index 2af440510c86..5609e3619be9 100644
 --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-@@ -192,6 +192,12 @@ pwm@10048000 {
- 			status = "disabled";
+@@ -21,6 +21,10 @@ cpu@0 {
+ 			reg = <0x0>;
+ 			device_type = "cpu";
+ 			enable-method = "psci";
++			clocks = <&mcusys CLK_MCU_ARM_DIV_SEL>,
++				 <&topckgen CLK_TOP_XTAL>;
++			clock-names = "cpu", "intermediate";
++			operating-points-v2 = <&cluster0_opp>;
  		};
  
-+		mcusys: mcusys@100e0000 {
-+			compatible = "mediatek,mt7988-mcusys", "syscon";
-+			reg = <0 0x100e0000 0 0x1000>;
-+			#clock-cells = <1>;
+ 		cpu@1 {
+@@ -28,6 +32,10 @@ cpu@1 {
+ 			reg = <0x1>;
+ 			device_type = "cpu";
+ 			enable-method = "psci";
++			clocks = <&mcusys CLK_MCU_ARM_DIV_SEL>,
++				 <&topckgen CLK_TOP_XTAL>;
++			clock-names = "cpu", "intermediate";
++			operating-points-v2 = <&cluster0_opp>;
+ 		};
+ 
+ 		cpu@2 {
+@@ -35,6 +43,10 @@ cpu@2 {
+ 			reg = <0x2>;
+ 			device_type = "cpu";
+ 			enable-method = "psci";
++			clocks = <&mcusys CLK_MCU_ARM_DIV_SEL>,
++				 <&topckgen CLK_TOP_XTAL>;
++			clock-names = "cpu", "intermediate";
++			operating-points-v2 = <&cluster0_opp>;
+ 		};
+ 
+ 		cpu@3 {
+@@ -42,6 +54,32 @@ cpu@3 {
+ 			reg = <0x3>;
+ 			device_type = "cpu";
+ 			enable-method = "psci";
++			clocks = <&mcusys CLK_MCU_ARM_DIV_SEL>,
++				 <&topckgen CLK_TOP_XTAL>;
++			clock-names = "cpu", "intermediate";
++			operating-points-v2 = <&cluster0_opp>;
 +		};
 +
- 		serial@11000000 {
- 			compatible = "mediatek,mt7988-uart", "mediatek,mt6577-uart";
- 			reg = <0 0x11000000 0 0x100>;
++		cluster0_opp: opp-table-0 {
++			compatible = "operating-points-v2";
++			opp-shared;
++
++			opp-800000000 {
++				opp-hz = /bits/ 64 <800000000>;
++				opp-microvolt = <850000>;
++			};
++			opp-1100000000 {
++				opp-hz = /bits/ 64 <1100000000>;
++				opp-microvolt = <850000>;
++			};
++			opp-1500000000 {
++				opp-hz = /bits/ 64 <1500000000>;
++				opp-microvolt = <850000>;
++			};
++			opp-1800000000 {
++				opp-hz = /bits/ 64 <1800000000>;
++				opp-microvolt = <900000>;
++			};
+ 		};
+ 	};
+ 
 -- 
 2.43.0
 
