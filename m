@@ -4,89 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CC6FD49795
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 03:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA75D49798
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 03:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tt1wNIL6qOHwTCxl+wGYauMNrEcdofGCGomP+/o9xo4=; b=X0+tJxn7PT18A9z3zw2lrrTacX
-	aXo5lN7szWr95PZn9WBhD0bWxiyfo+FsrayfdmuRAnmWeHvB63hQzdOYiSkgUD5XdZc2/G3FWEf/e
-	xR9khqb6yKsv8SgpAJeTBF3P1vzcwKkZyYSFMECudVTo26esZmUCuqpltVrVrJJbT83UbpddEoMRv
-	BuUaJ762JoW4zUifOiGqwPE621wlZ+XuZtna/F8XO0VWt/t4h0ATZadV59gVXwQ455MIm1F1GMDqn
-	c4/Bxc19HqPy2+JcGhlnjd2GyU7woeMLsaU4BcFSmKwAnPl3XKboE9aO1MbI7MvhzSEgU6CVfjhsr
-	gsnlDUag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JJ5SRDg2S3zdDhv3Ed6msj+o1gUG3SiKu15X0+meaI4=; b=oeFdd+uV6bhs0oYYfYw+0/Q2/4
+	yZzAXmmGlMFMO+sO/Q9qqw/9yva06hvAfCMYRQG62l3goZq+vtfRwtQrkWR8vAAevIJADBGI6sW15
+	5jtuqZ/IUANgQk1ju5L9lfnn5QvV5Aj4+PJZlgxYuTgrJq7WBelVW3MLba/WzBjMnaAztNnshgv5x
+	nFe/uzDrxnc2ZatMihkLr3A8nYxl6BLyL9buzmLOcH2tVMWX90KeYxap8N6yVdwDL1UIRzh3YaGy4
+	iUSS9O/g5glRuTmEfwv/XaMbqJDe/kvlWhJVJRjJ/7nD5IEXWGQq2FABGJvdvBeBbkyGmxafNtKhm
+	JcC9lgZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHwon-00000004tKn-3iqQ;
-	Mon, 02 Dec 2024 03:09:49 +0000
-Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
+	id 1tHwpl-00000004tU1-2LCn;
+	Mon, 02 Dec 2024 03:10:49 +0000
+Received: from mail-am6eur05on2060c.outbound.protection.outlook.com ([2a01:111:f403:2612::60c] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHwkw-00000004saj-1lBn
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 03:05:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1733108748; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=tt1wNIL6qOHwTCxl+wGYauMNrEcdofGCGomP+/o9xo4=;
-	b=FzM6afcQJpoZrm8Cx+NOQ2SDV0WadX5Kyl7Fug16WTYqTq2dL1OdBZ/XBMrLCY2C8ivCO5PP2K9HwGPjOaXGIBzBlAc4iQNwnKCs5tW5SfmZsxopJf9hSlHDEh5s3Q2V/muUcKNEr0Uj6eoCbHmtsqqul76V2+uy4TCeRS47Oj4=
-Received: from localhost.localdomain(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WKbh0Xy_1733108743 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 02 Dec 2024 11:05:44 +0800
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-To: yazen.ghannam@amd.com,
-	mark.rutland@arm.com,
-	catalin.marinas@arm.com,
-	mingo@redhat.com,
-	robin.murphy@arm.com,
-	Jonathan.Cameron@Huawei.com,
-	bp@alien8.de,
-	rafael@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	wangkefeng.wang@huawei.com,
-	tanxiaofei@huawei.com,
-	mawupeng1@huawei.com,
-	tony.luck@intel.com,
-	linmiaohe@huawei.com,
-	naoya.horiguchi@nec.com,
-	james.morse@arm.com,
-	tongtiangen@huawei.com,
-	gregkh@linuxfoundation.org,
-	will@kernel.org,
-	jarkko@kernel.org
-Cc: linux-acpi@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	akpm@linux-foundation.org,
-	linux-edac@vger.kernel.org,
-	x86@kernel.org,
-	xueshuai@linux.alibaba.com,
-	justin.he@arm.com,
-	ardb@kernel.org,
-	ying.huang@intel.com,
-	ashish.kalra@amd.com,
-	baolin.wang@linux.alibaba.com,
-	tglx@linutronix.de,
-	dave.hansen@linux.intel.com,
-	lenb@kernel.org,
-	hpa@zytor.com,
-	robert.moore@intel.com,
-	lvying6@huawei.com,
-	xiexiuqi@huawei.com,
-	zhuo.song@linux.alibaba.com
-Subject: [PATCH v17 3/3] ACPI: APEI: handle synchronous exceptions in task work
-Date: Mon,  2 Dec 2024 11:05:27 +0800
-Message-ID: <20241202030527.20586-4-xueshuai@linux.alibaba.com>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <20241202030527.20586-1-xueshuai@linux.alibaba.com>
-References: <20241202030527.20586-1-xueshuai@linux.alibaba.com>
+	id 1tHwl7-00000004sep-0CWp;
+	Mon, 02 Dec 2024 03:06:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lk6w+6wIw/u/e4t6nHSE9+GL8OG4yvDPLoGj5xk86iV5MoYyyi0bMwv0nU3vAgoFY0JcljVwVZPrdusebUiSxszffzmlVoodHXKsSG9AosWpY+ZCb8XmgMMld0oKvCSwWqq34bSXSQcoAO7WUs619W1y4Yb7giiaGua4PcwhU2YbtO2SXMghe8+ScFZR1r+uoIdTVzfG/HCD+gUBhnNcr/gTtYZyPGS2DCoC/bcMhdePEHXcwo7hWB4fsgm2HV/RgIoc2NYw+y5YWp1cTUEihzwVFYed7ruzuSU78UUYLhnDKPqvx1rxkV0bs0umkxdv++2pomHTdKS+5miXSpTg9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JJ5SRDg2S3zdDhv3Ed6msj+o1gUG3SiKu15X0+meaI4=;
+ b=PRunp6cJ5WZtvqQoa4vEsWXRMbIxPcIV67lPb4DSGvtU8yS6DHsbFE+ZsazpoFSalO0jztD1mLyNPemn6ZcqyeTHv6s7xBtb1L0HgeT/ysYikgTKGjDuoQuCmLq/0fcGoPEi46BQOaG59Pem+HDVO/fYAn1qtc/U2Ha18bK50gm3zgcDT/OV31mKCUjgbLQop82G/ucKt0xZnvAtKyXAw17b2Aq0Uxv+TBHli0P3Eydi30rczOzDYZAX4oKXMI9cqjU+BVDQUM8WyDHQo8e8qnD65Tt7ncZmhyDhOacDZnXCJzwIxwJaZ7O5VjN5whL/4jIsvdM3GFSqgucpZV5O8Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JJ5SRDg2S3zdDhv3Ed6msj+o1gUG3SiKu15X0+meaI4=;
+ b=RmsrZ3SHOUFgnQMterMgjVkhrLmQULbjNW8Ig/9yBQ3rTCuwkhSpwl5r5HH+WZhmtBxWgNXvm5PoPgoLcfUJcipFFMc6cbIxBFNXUGn95mCkEhL7Iws8ehGBRj1zAYcm5/B57aRGmknjyMEQTlSTCUHgrKvnV32TsOkbJjBV8veepl0j0R2NqFe4peQnPORwY5TjZEj46JFsOPKDQE8BooYj6Y3wIxuMAG9bHtj/5ygDHp0pzKorbfrf4LZMoaPDkZqWTUqcc6PD347zoxgkA9C+IZcdNw/o97sCrYb7Qz45odk6EP514EZ3WQIHo6Ul8wxFame0ai6KuWuFSguEVA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by VI0PR04MB10685.eurprd04.prod.outlook.com (2603:10a6:800:264::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.18; Mon, 2 Dec
+ 2024 02:50:18 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7%6]) with mapi id 15.20.8207.014; Mon, 2 Dec 2024
+ 02:50:18 +0000
+Date: Mon, 2 Dec 2024 10:47:52 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Amit Singh Tomar <amitsinght@marvell.com>
+Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	gregkh@linuxfoundation.org, jun.li@nxp.com,
+	alexander.stein@ew.tq-group.com, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org
+Subject: Re: [PATCH v10 1/3] phy: fsl-imx8mq-usb: add tca function driver for
+ imx95
+Message-ID: <20241202024752.bmvjn3lzz2wjkfvp@hippo>
+References: <20241115093312.3407815-1-xu.yang_2@nxp.com>
+ <2ae369bc-9cf3-49d8-92dc-ad19ddb48efe@marvell.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2ae369bc-9cf3-49d8-92dc-ad19ddb48efe@marvell.com>
+X-ClientProxiedBy: SI2PR06CA0013.apcprd06.prod.outlook.com
+ (2603:1096:4:186::18) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|VI0PR04MB10685:EE_
+X-MS-Office365-Filtering-Correlation-Id: e3f48748-a104-4935-b3d0-08dd127c0dfb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FUGmZSbHcYBsFfEf2uTQ/PskZ4rIAUAujK3dAA7udnkpwhv7DtKm9NpWbUFc?=
+ =?us-ascii?Q?tuf7QiOgrKe5TLhs8n1awZm1vOuJ17lQRWo2lofSomuDIC5ADXD0yTJXnZQp?=
+ =?us-ascii?Q?RrQteXGzI501R67bvdUVWLWhizvqsKREPdjmwVMMu8+TNUbd3xHQ3aqE3Euc?=
+ =?us-ascii?Q?rjJCxaSTBR/NHlJ0KPU9ivgxfMe/CffoK8YOQGatTZnBY35QLM9w0Lgca4xO?=
+ =?us-ascii?Q?15jh2qLc9bpxEi8UpOTAr0Ksx58zKoASiENdobZAVMCxPFj0YAX16wHInz0i?=
+ =?us-ascii?Q?efpBOl3Gf9VWB+sD1nO/KIIfOvGClL3P87mhUDomd8Kp6qLb+OuFwG3FYQwd?=
+ =?us-ascii?Q?/7HhndaAkz4TeySG3NmEuwvlF6fUQpZfJo4padO+3uuLfyoKPYTqxSHiKgTc?=
+ =?us-ascii?Q?3tWfRqYrD8BSwmnggnEDig14P+RP1f36GJo7YnIkmW42F7Sg80WcLte3q3s9?=
+ =?us-ascii?Q?zgzbmkqfos0o6vOdAssP8YwYy/5JvGx00VmP6u0a4Ln9LIE+BK3Jdf493ucF?=
+ =?us-ascii?Q?E1/jkrpRcbEMhCev3eXtDrw04QSDqr3CokLljLZGB7aXPe4mTvQKvH315yqO?=
+ =?us-ascii?Q?1Nno0e5o8EyOBJbNnYs/ePGYNx3+XRgSqQBfApce5skbUOw4F9uvKaaiEha0?=
+ =?us-ascii?Q?2UvvME6i7bun1YE/rv5ga6xvLC5n9HPJxGogyj0bHs3fH2KNvDr3/0D495BS?=
+ =?us-ascii?Q?6NL6+st7br1Yl6BXC2s4DQ2xGC6OiqRXSvoh2oP8lPlxpbklCmUA334x3iRz?=
+ =?us-ascii?Q?PSe13xmwtMtJ13Tc19o5wynHmTbwPZzqcW2YXF1mNgIrtb7BEx8IT3tN6DsT?=
+ =?us-ascii?Q?HGJ+VThRPtwC02CMeLRoPp3zD1fKu9hOnvCDo6yP7mRlTAcKz89T2N/iab//?=
+ =?us-ascii?Q?HP+/DHkNS0M+iFHj+epNfrAi/fjTJRiBobW5MHQmtf46BMAUfPHgU80sC5ld?=
+ =?us-ascii?Q?pCHSLqUBJEDQr4EdHWzxUVi3eKFDsX2GwcG9/+L75+SbKm1NA9LTX1eLGmE4?=
+ =?us-ascii?Q?k+xAwymxzhOcgvlUVETzfhLzuhQvtMFVhVCCgYYcJeR2sB76jmYlA0IQbAtv?=
+ =?us-ascii?Q?+fUcpjsfjKacIzJL8HxyGmXfzNVSAcFG2mXeqWavC2pWolXYFOHV7q9uJ0yV?=
+ =?us-ascii?Q?OCnWDh8/Hu+Vch1/TEL+/awL0TPooccI2+ai8p+FgJSYiDe3K/qDPehhDUZ2?=
+ =?us-ascii?Q?3d87bs5a98UX9EZTNqWhidwcuy1yvaxaC9PfavbBjc8iCeS7VG2FfHrGFmJr?=
+ =?us-ascii?Q?cjC0GKCnK2x7u6Pn+1nnR7pSQ0IQ8co7MyCHzF/SZPB3YTqR+8uMc7kvNfrl?=
+ =?us-ascii?Q?+6uqpKtmyx21VmbDdGrWuvaeiD4DUQWo+Hp4FxtqLOY9vLhnvooOlNc1ZQGt?=
+ =?us-ascii?Q?Bgo3bbrZWYRMzqzqESVYkZ3b61/NzNy70d51k9RDjP7OscXcnA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3VZhw9RogQdebCUvuq6ZjvncpKsMmjeIcOUdSVNOtSQzHUIfwysZ3KnrRwsj?=
+ =?us-ascii?Q?BuTQ86pLHxiJqy4SSSaTJVVGS9rrp/2DclouZyQ2n/s1Mnwi/rUJ8tXc48WU?=
+ =?us-ascii?Q?y3V8+UXAM7Nb5YHQnyU7dNGeqB5HsxY08xdzQg2pbhJU1zEEKCcAljNT6xF7?=
+ =?us-ascii?Q?FPRMmr66vTRjihkb4jbRAC62GlySisvRMaOyHA8I6ZAvSq3lqUEok+LOgivk?=
+ =?us-ascii?Q?mq4/TOylVZRGXk+MUvbsea331P9dFzX1NOFNgjz4vuUPvMN4zrgljna2YBEd?=
+ =?us-ascii?Q?FZOTxNhyHXexLzrUI/kqej5xF1hG4ljPQyBk2buy6/rT34/dvZU4wVC839Tu?=
+ =?us-ascii?Q?+5csYoOvNHsus2ibQeGlGZW7wniGyx7YoaBSDGKc1FTmlzl6ZvVnNfEdWWyT?=
+ =?us-ascii?Q?0D6ISKfcKvvGdnscrbPjCsqlH2T5U2rKnxQRc6AgtmI76Xs1OA3+c15yE7ty?=
+ =?us-ascii?Q?8k7B/mXLR1dgRgrbTR4QsRIlmEAEqjT3v6W6vh3Cennp/ciifhgGt9u+7Bzz?=
+ =?us-ascii?Q?4jSUd+ojGHMyBnA5k3LrEb0jy5LuALZG796iR1zNrW+K2rqWE7Bccxr67L71?=
+ =?us-ascii?Q?nRKMKl4GmgqZA1pa0fsTP02/Bx66/BEE5VO1dsn+o2gjjs6gDBWAxZkvm1CY?=
+ =?us-ascii?Q?9Id+9nCSkBDS5pozbhuOHufxmHQOrWVEEJw0/OXKsHqJXnMxGFV4xv2te6m/?=
+ =?us-ascii?Q?Q2C15Y8gaELnc1XluXNhvdmCJWVE2hWrDCdLpHeE6BaGN+UPAlbNxR92wyGK?=
+ =?us-ascii?Q?ciILaS/GAVH45hwY8LH0WnBTHL005Ag1ua5qaABfq8K0hPYchjszZn5R3TS+?=
+ =?us-ascii?Q?gOQQOQ1J2S46esQ7XIXR62/P3QaQEAgPsrfRqgIp9t8xBVM3lwCTre/bRS28?=
+ =?us-ascii?Q?p9ONVj8Kxa0P4vQi4LOhFjDv6Brcp8cW263QogxrBT56CsrEwu4lTRk5D62O?=
+ =?us-ascii?Q?r1tpZ3Ed0uWLtLQuC13YTZ05wjO0yefJ0kNPYs4bOp0OHvd1y37UcQWGY9xk?=
+ =?us-ascii?Q?mSvuDzbVCxZ5+oFSEy05LTRL9a7/+eoYIdhCCKgKRR9kedenSKFuq4Ww+t1I?=
+ =?us-ascii?Q?h7oen1Ao0V4V/H2TL0bLKWRqlthi5nx8AbnGLynQhl73dApy9CwDnFfxzbWF?=
+ =?us-ascii?Q?iHsIwCfES271p6WTG4Q+s5SQ5gRM50DiU6+PWnlKUq2YLhPHeU8wtrbtROmp?=
+ =?us-ascii?Q?ykoSqFubBqyO4IsvU8j1CJi6Dz83VfbcWOJZbBM9qD4Rtdy6XlkQbp/AMmso?=
+ =?us-ascii?Q?06GQshwa2/RuFb1pKjaLOuaecqvPpXwIOq/fAV10NBz8a4gRwaEfZ59Kxklo?=
+ =?us-ascii?Q?ir55qXd01f+2hocIFq54WOe3XQ8bZsZv9Pfr68+iAUv+g61TiNeB2nwMV73e?=
+ =?us-ascii?Q?AU/kLbqJZAgwO2X+SFq9xrleqxFc+EMmqeDsGYNafvC1v5ZeRPFHidw//D2g?=
+ =?us-ascii?Q?xcZNtsza61EmX7hJAZwZfLMmt1Pfq2aurJS3jgNPnpbGioSqErIJOAGuxy/H?=
+ =?us-ascii?Q?BnG3DkuYXVYQlT/2drzIrKMX38XC8qaCKK9zSYL5+FiVtriUd4b/ePa/jd8c?=
+ =?us-ascii?Q?Y3FoAdZP7isoQQmyq66Z7U3CdYFr363njiY48Y07?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e3f48748-a104-4935-b3d0-08dd127c0dfb
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2024 02:50:17.9553
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ledxmpXxVUdmSgP3xvVNfcjxikmCPk5OXgLCFcT0bgCfBjV2gznzYcw7i7LFsDx1FH2QIMnBuYd/nJ6X71ssiw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10685
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_190550_634043_7A9FBC7F 
-X-CRM114-Status: GOOD (  24.61  )
+X-CRM114-CacheID: sfid-20241201_190601_234854_F374DB03 
+X-CRM114-Status: GOOD (  33.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,311 +160,369 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The memory uncorrected error could be signaled by asynchronous interrupt
-(specifically, SPI in arm64 platform), e.g. when an error is detected by
-a background scrubber, or signaled by synchronous exception
-(specifically, data abort exception in arm64 platform), e.g. when a CPU
-tries to access a poisoned cache line. Currently, both synchronous and
-asynchronous error use memory_failure_queue() to schedule
-memory_failure() to exectute in a kworker context.
+Hi Amit,
 
-As a result, when a user-space process is accessing a poisoned data, a
-data abort is taken and the memory_failure() is executed in the kworker
-context, memory_failure():
+On Fri, Nov 29, 2024 at 11:04:33PM +0530, Amit Singh Tomar wrote:
+> Hi,
+> 
+> > The i.MX95 USB3 phy has a Type-C Assist block (TCA). This block consists
+> > two functional blocks (XBar assist and VBus assist) and one system
+> > access interface using APB.
+> > 
+> > The primary functionality of XBar assist is:
+> >    - switching lane for flip
+> >    - moving unused lanes into lower power states.
+> > 
+> > This info can be get from:
+> > i.MX95 RM Chapter 163.3.8 Type-C assist (TCA) block.
+> > 
+> > This will add support for TCA block to achieve lane switching and tca
+> > lower power functionality.
+> > 
+> > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> > Reviewed-by: Jun Li <jun.li@nxp.com>
+> > 
+> > ---
+> > Changes in v2:
+> >    - return the value of imx95_usb_phy_get_tca()
+> > Changes in v3:
+> >    - no changes
+> > Changes in v4:
+> >    - remove compatible check for imx95
+> >    - check whether tca register region exist or not, yes means has tca,
+> >      otherwise skip tca setup
+> > Changes in v5:
+> >    - no changes
+> > Changes in v6:
+> >    - no changes
+> > Changes in v7:
+> >    - fix sparse warnings in imx95_usb_phy_get_tca()
+> > Changes in v8:
+> >    - #define TCA_INFO 0xFC -> 0xfc
+> > Changes in v9:
+> >    - no changes
+> > Changes in v10:
+> >    - no changes
+> > ---
+> >    drivers/phy/freescale/Kconfig              |   1 +
+> >    drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 243 +++++++++++++++++++++
+> >    2 files changed, 244 insertions(+)
+> > 
+> > diff --git a/drivers/phy/freescale/Kconfig b/drivers/phy/freescale/Kconfig
+> > index dcd9acff6d01..81f53564ee15 100644
+> > --- a/drivers/phy/freescale/Kconfig
+> > +++ b/drivers/phy/freescale/Kconfig
+> > @@ -5,6 +5,7 @@ if (ARCH_MXC && ARM64) || COMPILE_TEST
+> >    config PHY_FSL_IMX8MQ_USB
+> >    	tristate "Freescale i.MX8M USB3 PHY"
+> >    	depends on OF && HAS_IOMEM
+> > +	depends on TYPEC || TYPEC=n
+> >    	select GENERIC_PHY
+> >    	default ARCH_MXC && ARM64
+> > diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > index adc6394626ce..f2b2da8cedc3 100644
+> > --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > @@ -10,6 +10,7 @@
+> >    #include <linux/phy/phy.h>
+> >    #include <linux/platform_device.h>
+> >    #include <linux/regulator/consumer.h>
+> > +#include <linux/usb/typec_mux.h>
+> >    #define PHY_CTRL0			0x0
+> >    #define PHY_CTRL0_REF_SSP_EN		BIT(2)
+> > @@ -50,11 +51,66 @@
+> >    #define PHY_TUNE_DEFAULT		0xffffffff
+> > +#define TCA_CLK_RST			0x00
+> > +#define TCA_CLK_RST_SW			BIT(9)
+> > +#define TCA_CLK_RST_REF_CLK_EN		BIT(1)
+> > +#define TCA_CLK_RST_SUSPEND_CLK_EN	BIT(0)
+> > +
+> > +#define TCA_INTR_EN			0x04
+> > +#define TCA_INTR_STS			0x08
+> > +
+> > +#define TCA_GCFG			0x10
+> > +#define TCA_GCFG_ROLE_HSTDEV		BIT(4)
+> > +#define TCA_GCFG_OP_MODE		GENMASK(1, 0)
+> > +#define TCA_GCFG_OP_MODE_SYSMODE	0
+> > +#define TCA_GCFG_OP_MODE_SYNCMODE	1
+> > +
+> > +#define TCA_TCPC			0x14
+> > +#define TCA_TCPC_VALID			BIT(4)
+> > +#define TCA_TCPC_LOW_POWER_EN		BIT(3)
+> > +#define TCA_TCPC_ORIENTATION_NORMAL	BIT(2)
+> > +#define TCA_TCPC_MUX_CONTRL		GENMASK(1, 0)
+> > +#define TCA_TCPC_MUX_CONTRL_NO_CONN	0
+> > +#define TCA_TCPC_MUX_CONTRL_USB_CONN	1
+> > +
+> > +#define TCA_SYSMODE_CFG			0x18
+> > +#define TCA_SYSMODE_TCPC_DISABLE	BIT(3)
+> > +#define TCA_SYSMODE_TCPC_FLIP		BIT(2)
+> > +
+> > +#define TCA_CTRLSYNCMODE_CFG0		0x20
+> > +#define TCA_CTRLSYNCMODE_CFG1           0x20
+> > +
+> > +#define TCA_PSTATE			0x30
+> > +#define TCA_PSTATE_CM_STS		BIT(4)
+> > +#define TCA_PSTATE_TX_STS		BIT(3)
+> > +#define TCA_PSTATE_RX_PLL_STS		BIT(2)
+> > +#define TCA_PSTATE_PIPE0_POWER_DOWN	GENMASK(1, 0)
+> > +
+> > +#define TCA_GEN_STATUS			0x34
+> > +#define TCA_GEN_DEV_POR			BIT(12)
+> > +#define TCA_GEN_REF_CLK_SEL		BIT(8)
+> > +#define TCA_GEN_TYPEC_FLIP_INVERT	BIT(4)
+> > +#define TCA_GEN_PHY_TYPEC_DISABLE	BIT(3)
+> > +#define TCA_GEN_PHY_TYPEC_FLIP		BIT(2)
+> > +
+> > +#define TCA_VBUS_CTRL			0x40
+> > +#define TCA_VBUS_STATUS			0x44
+> > +
+> > +#define TCA_INFO			0xfc
+> > +
+> > +struct tca_blk {
+> > +	struct typec_switch_dev *sw;
+> > +	void __iomem *base;
+> > +	struct mutex mutex;
+> > +	enum typec_orientation orientation;
+> > +};
+> > +
+> >    struct imx8mq_usb_phy {
+> >    	struct phy *phy;
+> >    	struct clk *clk;
+> >    	void __iomem *base;
+> >    	struct regulator *vbus;
+> > +	struct tca_blk *tca;
+> >    	u32 pcs_tx_swing_full;
+> >    	u32 pcs_tx_deemph_3p5db;
+> >    	u32 tx_vref_tune;
+> > @@ -64,6 +120,175 @@ struct imx8mq_usb_phy {
+> >    	u32 comp_dis_tune;
+> >    };
+> > +
+> > +static void tca_blk_orientation_set(struct tca_blk *tca,
+> > +				enum typec_orientation orientation);
+> > +
+> > +#ifdef CONFIG_TYPEC
+> > +
+> > +static int tca_blk_typec_switch_set(struct typec_switch_dev *sw,
+> > +				enum typec_orientation orientation)
+> > +{
+> > +	struct imx8mq_usb_phy *imx_phy = typec_switch_get_drvdata(sw);
+> > +	struct tca_blk *tca = imx_phy->tca;
+> > +	int ret;
+> > +
+> > +	if (tca->orientation == orientation)
+> > +		return 0;
+> > +
+> > +	ret = clk_prepare_enable(imx_phy->clk);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	tca_blk_orientation_set(tca, orientation);
+> > +	clk_disable_unprepare(imx_phy->clk);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static struct typec_switch_dev *tca_blk_get_typec_switch(struct platform_device *pdev,
+> > +					struct imx8mq_usb_phy *imx_phy)
+> > +{
+> > +	struct device *dev = &pdev->dev;
+> > +	struct typec_switch_dev *sw;
+> > +	struct typec_switch_desc sw_desc = { };
+> > +
+> > +	sw_desc.drvdata = imx_phy;
+> > +	sw_desc.fwnode = dev->fwnode;
+> > +	sw_desc.set = tca_blk_typec_switch_set;
+> > +	sw_desc.name = NULL;
+> > +
+> > +	sw = typec_switch_register(dev, &sw_desc);
+> > +	if (IS_ERR(sw)) {
+> > +		dev_err(dev, "Error register tca orientation switch: %ld",
+> > +				PTR_ERR(sw));
+> > +		return NULL;
+> > +	}
+> > +
+> > +	return sw;
+> > +}
+> > +
+> > +static void tca_blk_put_typec_switch(struct typec_switch_dev *sw)
+> > +{
+> > +	typec_switch_unregister(sw);
+> > +}
+> > +
+> > +#else
+> > +
+> > +static struct typec_switch_dev *tca_blk_get_typec_switch(struct platform_device *pdev,
+> > +			struct imx8mq_usb_phy *imx_phy)
+> > +{
+> > +	return NULL;
+> > +}
+> > +
+> > +static void tca_blk_put_typec_switch(struct typec_switch_dev *sw) {}
+> > +
+> > +#endif /* CONFIG_TYPEC */
+> > +
+> > +static void tca_blk_orientation_set(struct tca_blk *tca,
+> > +				enum typec_orientation orientation)
+> > +{
+> > +	u32 val;
+> > +
+> > +	mutex_lock(&tca->mutex);
+> > +
+> > +	if (orientation == TYPEC_ORIENTATION_NONE) {
+> > +		/*
+> > +		 * use Controller Synced Mode for TCA low power enable and
+> > +		 * put PHY to USB safe state.
+> > +		 */
+> > +		val = readl(tca->base + TCA_GCFG);
+> > +		val = FIELD_PREP(TCA_GCFG_OP_MODE, TCA_GCFG_OP_MODE_SYNCMODE);
+> > +		writel(val, tca->base + TCA_GCFG);
+> If the register is intended to be completely overwritten, the readl is
+> unnecessary. Otherwise, ensure a proper read-modify-write sequence.
 
-  - will send wrong si_code by SIGBUS signal in early_kill mode, and
-  - can not kill the user-space in some cases resulting a synchronous
-    error infinite loop
+Yes, the readl can be removed. I will improve it in next version.
+Thanks for your comments.
 
-Issue 1: send wrong si_code in early_kill mode
+Thanks,
+Xu Yang
 
-Since commit a70297d22132 ("ACPI: APEI: set memory failure flags as
-MF_ACTION_REQUIRED on synchronous events")', the flag MF_ACTION_REQUIRED
-could be used to determine whether a synchronous exception occurs on
-ARM64 platform.  When a synchronous exception is detected, the kernel is
-expected to terminate the current process which has accessed poisoned
-page. This is done by sending a SIGBUS signal with an error code
-BUS_MCEERR_AR, indicating an action-required machine check error on
-read.
-
-However, when kill_proc() is called to terminate the processes who have
-the poisoned page mapped, it sends the incorrect SIGBUS error code
-BUS_MCEERR_AO because the context in which it operates is not the one
-where the error was triggered.
-
-To reproduce this problem:
-
-  #sysctl -w vm.memory_failure_early_kill=1
-  vm.memory_failure_early_kill = 1
-
-  # STEP2: inject an UCE error and consume it to trigger a synchronous error
-  #einj_mem_uc single
-  0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
-  injecting ...
-  triggering ...
-  signal 7 code 5 addr 0xffffb0d75000
-  page not present
-  Test passed
-
-The si_code (code 5) from einj_mem_uc indicates that it is BUS_MCEERR_AO
-error and it is not the fact.
-
-After this patch:
-
-  # STEP1: enable early kill mode
-  #sysctl -w vm.memory_failure_early_kill=1
-  vm.memory_failure_early_kill = 1
-  # STEP2: inject an UCE error and consume it to trigger a synchronous error
-  #einj_mem_uc single
-  0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
-  injecting ...
-  triggering ...
-  signal 7 code 4 addr 0xffffb0d75000
-  page not present
-  Test passed
-
-The si_code (code 4) from einj_mem_uc indicates that it is a BUS_MCEERR_AR
-error as we expected.
-
-Issue 2: a synchronous error infinite loop
-
-If a user-space process, e.g. devmem, accesses a poisoned page for which
-the HWPoison flag is set, kill_accessing_process() is called to send
-SIGBUS to current processs with error info. Because the memory_failure()
-is executed in the kworker context, it will just do nothing but return
-EFAULT. So, devmem will access the posioned page and trigger an
-exception again, resulting in a synchronous error infinite loop. Such
-exception loop may cause platform firmware to exceed some threshold and
-reboot when Linux could have recovered from this error.
-
-To reproduce this problem:
-
-  # STEP 1: inject an UCE error, and kernel will set HWPosion flag for related page
-  #einj_mem_uc single
-  0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
-  injecting ...
-  triggering ...
-  signal 7 code 4 addr 0xffffb0d75000
-  page not present
-  Test passed
-
-  # STEP 2: access the same page and it will trigger a synchronous error infinite loop
-  devmem 0x4092d55b400
-
-To fix above two issues, queue memory_failure() as a task_work so that
-it runs in the context of the process that is actually consuming the
-poisoned data.
-
-Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
-Tested-by: Ma Wupeng <mawupeng1@huawei.com>
-Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-Reviewed-by: Xiaofei Tan <tanxiaofei@huawei.com>
-Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
----
- drivers/acpi/apei/ghes.c | 77 +++++++++++++++++++++++-----------------
- include/acpi/ghes.h      |  3 --
- include/linux/mm.h       |  1 -
- mm/memory-failure.c      | 13 -------
- 4 files changed, 44 insertions(+), 50 deletions(-)
-
-diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-index 106486bdfefc..70f2ee3ad1a8 100644
---- a/drivers/acpi/apei/ghes.c
-+++ b/drivers/acpi/apei/ghes.c
-@@ -467,28 +467,41 @@ static void ghes_clear_estatus(struct ghes *ghes,
- }
- 
- /*
-- * Called as task_work before returning to user-space.
-- * Ensure any queued work has been done before we return to the context that
-- * triggered the notification.
-+ * struct ghes_task_work - for synchronous RAS event
-+ *
-+ * @twork:                callback_head for task work
-+ * @pfn:                  page frame number of corrupted page
-+ * @flags:                work control flags
-+ *
-+ * Structure to pass task work to be handled before
-+ * returning to user-space via task_work_add().
-  */
--static void ghes_kick_task_work(struct callback_head *head)
-+struct ghes_task_work {
-+	struct callback_head twork;
-+	u64 pfn;
-+	int flags;
-+};
-+
-+static void memory_failure_cb(struct callback_head *twork)
- {
--	struct acpi_hest_generic_status *estatus;
--	struct ghes_estatus_node *estatus_node;
--	u32 node_len;
-+	struct ghes_task_work *twcb = container_of(twork, struct ghes_task_work, twork);
-+	int ret;
- 
--	estatus_node = container_of(head, struct ghes_estatus_node, task_work);
--	if (IS_ENABLED(CONFIG_ACPI_APEI_MEMORY_FAILURE))
--		memory_failure_queue_kick(estatus_node->task_work_cpu);
-+	ret = memory_failure(twcb->pfn, twcb->flags);
-+	gen_pool_free(ghes_estatus_pool, (unsigned long)twcb, sizeof(*twcb));
- 
--	estatus = GHES_ESTATUS_FROM_NODE(estatus_node);
--	node_len = GHES_ESTATUS_NODE_LEN(cper_estatus_len(estatus));
--	gen_pool_free(ghes_estatus_pool, (unsigned long)estatus_node, node_len);
-+	if (!ret || ret == -EHWPOISON || ret == -EOPNOTSUPP)
-+		return;
-+
-+	pr_err("%#llx: Sending SIGBUS to %s:%d due to hardware memory corruption\n",
-+			twcb->pfn, current->comm, task_pid_nr(current));
-+	force_sig(SIGBUS);
- }
- 
- static bool ghes_do_memory_failure(u64 physical_addr, int flags)
- {
- 	unsigned long pfn;
-+	struct ghes_task_work *twcb;
- 
- 	if (!IS_ENABLED(CONFIG_ACPI_APEI_MEMORY_FAILURE))
- 		return false;
-@@ -501,6 +514,18 @@ static bool ghes_do_memory_failure(u64 physical_addr, int flags)
- 		return false;
- 	}
- 
-+	if (flags == MF_ACTION_REQUIRED && current->mm) {
-+		twcb = (void *)gen_pool_alloc(ghes_estatus_pool, sizeof(*twcb));
-+		if (!twcb)
-+			return false;
-+
-+		twcb->pfn = pfn;
-+		twcb->flags = flags;
-+		init_task_work(&twcb->twork, memory_failure_cb);
-+		task_work_add(current, &twcb->twork, TWA_RESUME);
-+		return true;
-+	}
-+
- 	memory_failure_queue(pfn, flags);
- 	return true;
- }
-@@ -745,7 +770,7 @@ int cxl_cper_kfifo_get(struct cxl_cper_work_data *wd)
- }
- EXPORT_SYMBOL_NS_GPL(cxl_cper_kfifo_get, CXL);
- 
--static bool ghes_do_proc(struct ghes *ghes,
-+static void ghes_do_proc(struct ghes *ghes,
- 			 const struct acpi_hest_generic_status *estatus)
- {
- 	int sev, sec_sev;
-@@ -811,8 +836,6 @@ static bool ghes_do_proc(struct ghes *ghes,
- 			current->comm, task_pid_nr(current));
- 		force_sig(SIGBUS);
- 	}
--
--	return queued;
- }
- 
- static void __ghes_print_estatus(const char *pfx,
-@@ -1114,9 +1137,7 @@ static void ghes_proc_in_irq(struct irq_work *irq_work)
- 	struct ghes_estatus_node *estatus_node;
- 	struct acpi_hest_generic *generic;
- 	struct acpi_hest_generic_status *estatus;
--	bool task_work_pending;
- 	u32 len, node_len;
--	int ret;
- 
- 	llnode = llist_del_all(&ghes_estatus_llist);
- 	/*
-@@ -1131,25 +1152,16 @@ static void ghes_proc_in_irq(struct irq_work *irq_work)
- 		estatus = GHES_ESTATUS_FROM_NODE(estatus_node);
- 		len = cper_estatus_len(estatus);
- 		node_len = GHES_ESTATUS_NODE_LEN(len);
--		task_work_pending = ghes_do_proc(estatus_node->ghes, estatus);
-+
-+		ghes_do_proc(estatus_node->ghes, estatus);
-+
- 		if (!ghes_estatus_cached(estatus)) {
- 			generic = estatus_node->generic;
- 			if (ghes_print_estatus(NULL, generic, estatus))
- 				ghes_estatus_cache_add(generic, estatus);
- 		}
--
--		if (task_work_pending && current->mm) {
--			estatus_node->task_work.func = ghes_kick_task_work;
--			estatus_node->task_work_cpu = smp_processor_id();
--			ret = task_work_add(current, &estatus_node->task_work,
--					    TWA_RESUME);
--			if (ret)
--				estatus_node->task_work.func = NULL;
--		}
--
--		if (!estatus_node->task_work.func)
--			gen_pool_free(ghes_estatus_pool,
--				      (unsigned long)estatus_node, node_len);
-+		gen_pool_free(ghes_estatus_pool, (unsigned long)estatus_node,
-+			      node_len);
- 
- 		llnode = next;
- 	}
-@@ -1210,7 +1222,6 @@ static int ghes_in_nmi_queue_one_entry(struct ghes *ghes,
- 
- 	estatus_node->ghes = ghes;
- 	estatus_node->generic = ghes->generic;
--	estatus_node->task_work.func = NULL;
- 	estatus = GHES_ESTATUS_FROM_NODE(estatus_node);
- 
- 	if (__ghes_read_estatus(estatus, buf_paddr, fixmap_idx, len)) {
-diff --git a/include/acpi/ghes.h b/include/acpi/ghes.h
-index be1dd4c1a917..ebd21b05fe6e 100644
---- a/include/acpi/ghes.h
-+++ b/include/acpi/ghes.h
-@@ -35,9 +35,6 @@ struct ghes_estatus_node {
- 	struct llist_node llnode;
- 	struct acpi_hest_generic *generic;
- 	struct ghes *ghes;
--
--	int task_work_cpu;
--	struct callback_head task_work;
- };
- 
- struct ghes_estatus_cache {
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index c39c4945946c..aa4246c7c23e 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -3936,7 +3936,6 @@ enum mf_flags {
- int mf_dax_kill_procs(struct address_space *mapping, pgoff_t index,
- 		      unsigned long count, int mf_flags);
- extern int memory_failure(unsigned long pfn, int flags);
--extern void memory_failure_queue_kick(int cpu);
- extern int unpoison_memory(unsigned long pfn);
- extern atomic_long_t num_poisoned_pages __read_mostly;
- extern int soft_offline_page(unsigned long pfn, int flags);
-diff --git a/mm/memory-failure.c b/mm/memory-failure.c
-index 14c316d7d38d..e0adb665d07b 100644
---- a/mm/memory-failure.c
-+++ b/mm/memory-failure.c
-@@ -2499,19 +2499,6 @@ static void memory_failure_work_func(struct work_struct *work)
- 	}
- }
- 
--/*
-- * Process memory_failure work queued on the specified CPU.
-- * Used to avoid return-to-userspace racing with the memory_failure workqueue.
-- */
--void memory_failure_queue_kick(int cpu)
--{
--	struct memory_failure_cpu *mf_cpu;
--
--	mf_cpu = &per_cpu(memory_failure_cpu, cpu);
--	cancel_work_sync(&mf_cpu->work);
--	memory_failure_work_func(&mf_cpu->work);
--}
--
- static int __init memory_failure_init(void)
- {
- 	struct memory_failure_cpu *mf_cpu;
--- 
-2.39.3
-
+> > +
+> > +		val = readl(tca->base + TCA_TCPC);
+> > +		val = TCA_TCPC_VALID | TCA_TCPC_LOW_POWER_EN;
+> > +		writel(val, tca->base + TCA_TCPC);
+> > +
+> > +		goto out;
+> > +	}
+> > +
+> > +	/* use System Configuration Mode for TCA mux control. */
+> > +	val = readl(tca->base + TCA_GCFG);
+> > +	val = FIELD_PREP(TCA_GCFG_OP_MODE, TCA_GCFG_OP_MODE_SYSMODE);
+> > +	writel(val, tca->base + TCA_GCFG);
+> > +
+> > +	/* Disable TCA module */
+> > +	val = readl(tca->base + TCA_SYSMODE_CFG);
+> > +	val |= TCA_SYSMODE_TCPC_DISABLE;
+> > +	writel(val, tca->base + TCA_SYSMODE_CFG);
+> > +
+> > +	if (orientation == TYPEC_ORIENTATION_REVERSE)
+> > +		val |= TCA_SYSMODE_TCPC_FLIP;
+> > +	else if (orientation == TYPEC_ORIENTATION_NORMAL)
+> > +		val &= ~TCA_SYSMODE_TCPC_FLIP;
+> > +
+> > +	writel(val, tca->base + TCA_SYSMODE_CFG);
+> > +
+> > +	/* Enable TCA module */
+> > +	val &= ~TCA_SYSMODE_TCPC_DISABLE;
+> > +	writel(val, tca->base + TCA_SYSMODE_CFG);
+> > +
+> > +out:
+> > +	tca->orientation = orientation;
+> > +	mutex_unlock(&tca->mutex);
+> > +}
+> > +
+> > +static void tca_blk_init(struct tca_blk *tca)
+> > +{
+> > +	u32 val;
+> > +
+> > +	/* reset XBar block */
+> > +	val = readl(tca->base + TCA_CLK_RST);
+> > +	val &= ~TCA_CLK_RST_SW;
+> > +	writel(val, tca->base + TCA_CLK_RST);
+> > +
+> > +	udelay(100);
+> > +
+> > +	/* clear reset */
+> > +	val |= TCA_CLK_RST_SW;
+> > +	writel(val, tca->base + TCA_CLK_RST);
+> > +
+> > +	tca_blk_orientation_set(tca, tca->orientation);
+> > +}
+> > +
+> > +static struct tca_blk *imx95_usb_phy_get_tca(struct platform_device *pdev,
+> > +				struct imx8mq_usb_phy *imx_phy)
+> > +{
+> > +	struct device *dev = &pdev->dev;
+> > +	struct resource *res;
+> > +	struct tca_blk *tca;
+> > +
+> > +	res = platform_get_resource(pdev, IORESOURCE_MEM, 1);
+> > +	if (!res)
+> > +		return NULL;
+> > +
+> > +	tca = devm_kzalloc(dev, sizeof(*tca), GFP_KERNEL);
+> > +	if (!tca)
+> > +		return ERR_PTR(-ENOMEM);
+> > +
+> > +	tca->base = devm_ioremap_resource(&pdev->dev, res);
+> > +	if (IS_ERR(tca->base))
+> > +		return ERR_CAST(tca->base);
+> > +
+> > +	mutex_init(&tca->mutex);
+> > +
+> > +	tca->orientation = TYPEC_ORIENTATION_NORMAL;
+> > +	tca->sw = tca_blk_get_typec_switch(pdev, imx_phy);
+> > +
+> > +	return tca;
+> > +}
+> > +
+> > +static void imx95_usb_phy_put_tca(struct imx8mq_usb_phy *imx_phy)
+> > +{
+> > +	struct tca_blk *tca = imx_phy->tca;
+> > +
+> > +	if (!tca)
+> > +		return;
+> > +
+> > +	tca_blk_put_typec_switch(tca->sw);
+> > +}
+> > +
+> >    static u32 phy_tx_vref_tune_from_property(u32 percent)
+> >    {
+> >    	percent = clamp(percent, 94U, 124U);
+> > @@ -315,6 +540,9 @@ static int imx8mp_usb_phy_init(struct phy *phy)
+> >    	imx8m_phy_tune(imx_phy);
+> > +	if (imx_phy->tca)
+> > +		tca_blk_init(imx_phy->tca);
+> > +
+> >    	return 0;
+> >    }
+> > @@ -359,6 +587,8 @@ static const struct of_device_id imx8mq_usb_phy_of_match[] = {
+> >    	 .data = &imx8mq_usb_phy_ops,},
+> >    	{.compatible = "fsl,imx8mp-usb-phy",
+> >    	 .data = &imx8mp_usb_phy_ops,},
+> > +	{.compatible = "fsl,imx95-usb-phy",
+> > +	 .data = &imx8mp_usb_phy_ops,},
+> >    	{ }
+> >    };
+> >    MODULE_DEVICE_TABLE(of, imx8mq_usb_phy_of_match);
+> > @@ -398,6 +628,11 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+> >    	phy_set_drvdata(imx_phy->phy, imx_phy);
+> > +	imx_phy->tca = imx95_usb_phy_get_tca(pdev, imx_phy);
+> > +	if (IS_ERR(imx_phy->tca))
+> > +		return dev_err_probe(dev, PTR_ERR(imx_phy->tca),
+> > +					"failed to get tca\n");
+> > +
+> >    	imx8m_get_phy_tuning_data(imx_phy);
+> >    	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
+> > @@ -405,8 +640,16 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+> >    	return PTR_ERR_OR_ZERO(phy_provider);
+> >    }
+> > +static void imx8mq_usb_phy_remove(struct platform_device *pdev)
+> > +{
+> > +	struct imx8mq_usb_phy *imx_phy = platform_get_drvdata(pdev);
+> > +
+> > +	imx95_usb_phy_put_tca(imx_phy);
+> > +}
+> > +
+> >    static struct platform_driver imx8mq_usb_phy_driver = {
+> >    	.probe	= imx8mq_usb_phy_probe,
+> > +	.remove = imx8mq_usb_phy_remove,
+> >    	.driver = {
+> >    		.name	= "imx8mq-usb-phy",
+> >    		.of_match_table	= imx8mq_usb_phy_of_match,
+> > -- 
+> > 2.34.1
+> > 
+> > 
+> 
 
