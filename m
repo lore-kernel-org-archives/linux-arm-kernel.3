@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51F6BE69E91
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 20:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D98EE69E94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 20:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bxbi5DRYg8kZJB/UKskeRxo7UJoKhQX1P06X88swAEM=; b=D9C+ckA48MxjN2M+jwsQnyS9pG
-	Umbe5KBCyG8eVbjpDAINv0ZPZw3BxlrdhZwqO6FI6kM3ekHokRd8S4hX73yr07XaEa535Synoq/Rw
-	tYHPnYp4YSn4qvoasqW1LnrX3s93v9po+tzaobHw1Ktk1UNVoumRuzQUS9BtEbXyFdqCHattbmWTY
-	Z4nyZ1aUi+Cu2qd0K+LTodXYqUWeuYzsGZf7NvJAGxZuiGEbgKtMF9BOgwIWtrezIqo6ak9JOs7yp
-	0DdVXV31IQdadQ/tlhQd1VS1ZKKrED/QNHBxpf5gdWlrIrXyB11YSM+eqy/xE1Yz/KX4hhUnvWVjY
-	Ma0h5bAA==;
+	bh=pn8eSTUe12a9qvKo+zKnPKpjS9szyd/Lpr/Ci+nt4Fc=; b=LzJuhef9KkNfUdU9GadvEY/jpi
+	syMqZwvXf8XZVPMynh8A0YHaWR3vqHS1KD4bM83keuTKGPfUd+h/9uYO7nUK6HJJDWlFT8Od6VtdH
+	r95F21CS6kpBm8zw5MkbQfabzKfXfxkqndXRsCZTMoO3ad83BPXwkJLXfP/ZTPz++/wfJkavWIIfK
+	K+JpMnteqPSqCNbatx3kw1o5BvZuvTM+h6/Ntc4NUpQj5hjwnAzDGXIsWeeq30bxvL4qotJgheCOd
+	oTNCkrE+5w/YQlODdpOzTimpopTMk2ajlfVlrPxAhm0eWsfgDmCleVcuoqND5CugPsxpXD/SDLYzc
+	G1JG1Ntg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tID2x-00000007Poz-1ttP;
-	Mon, 02 Dec 2024 20:29:31 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tIDVH-00000007TB1-2YaZ;
+	Mon, 02 Dec 2024 20:58:47 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tID1p-00000007PgN-1uS9;
-	Mon, 02 Dec 2024 20:28:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733171298;
-	bh=rBKYTLNDOW58j3hrrUdo0WdSxf4pv9UIQrcg23u2TeI=;
-	h=From:Date:Subject:To:Cc:From;
-	b=PkhjGQyJ4/Fevt7ZCrl+pKRnMo03LMwldD/4TjcRFA64a1e+Yanmovbl+JYFnmBEB
-	 Kcy403oV5TKa8+BiYZk4GjmpZK+9znodpZku2DRXsy7PCG2GDIhvo1ZOw5R5N8w+oj
-	 nzkes2CoQicHSXlYjx7IY+O7WLgaJkLTQzLqXoT66xwhiy7B5rIwMZhKo+0+aaeyW0
-	 mLf1wG+dg4PwxWhMCJv3iLBPE8cl2kh3qL+ooG7jwX28NPsHqUCrqJT5L2HLSqHauV
-	 VKPBCRpeK7r95320h6FmGV0BT3zgvn/a1xNDHNFPFjfVvpm5IemPeSH1JegTYLUxY/
-	 ywJbbG9T/GmEg==
-Received: from localhost (unknown [86.120.21.57])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A3D4D17E37E4;
-	Mon,  2 Dec 2024 21:28:18 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Mon, 02 Dec 2024 22:27:34 +0200
-Subject: [PATCH] drm/rockchip: dw_hdmi_qp: Simplify clock handling
+	id 1tICIa-00000007Jwy-19dN
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Dec 2024 19:41:37 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4B2Jf9lX1777088
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Mon, 2 Dec 2024 13:41:09 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733168469;
+	bh=pn8eSTUe12a9qvKo+zKnPKpjS9szyd/Lpr/Ci+nt4Fc=;
+	h=From:To:CC:Subject:Date;
+	b=rGZ2UQZlyTutS9HlG7KOnvww9jInzBxpmHEhaqzOPWlCIo3EAJfyjlgGd5KQwoQ4g
+	 LvdH5tRnJFnnWrKFeFrDXyCSSAKwp3jVeP2lzpptJecgucUqfZrT4wQimmYZMZyJcn
+	 VxOBnZWy3IoAosbhUb9IZwQBIjSeZ6jb3Hn2a6zM=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B2Jf9o8073856;
+	Mon, 2 Dec 2024 13:41:09 -0600
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 2
+ Dec 2024 13:41:09 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 2 Dec 2024 13:41:09 -0600
+Received: from fllvsmtp7.itg.ti.com ([10.249.42.149])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B2Jf8iL127393;
+	Mon, 2 Dec 2024 13:41:08 -0600
+From: Andrew Davis <afd@ti.com>
+To: Arnd Bergmann <arnd@arndb.de>, Andre Przywara <andre.przywara@arm.com>,
+        Russell King <linux@armlinux.org.uk>, Daniel Mack <daniel@zonque.org>,
+        Haojian Zhuang <haojian.zhuang@gmail.com>,
+        Robert Jarzmik
+	<robert.jarzmik@free.fr>,
+        Alexey Charkov <alchark@gmail.com>,
+        Krzysztof
+ Kozlowski <krzk@kernel.org>,
+        Stefano Stabellini <sstabellini@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <xen-devel@lists.xenproject.org>, Andrew Davis <afd@ti.com>
+Subject: [PATCH v4 0/5] Switch more ARM plats to sys-off handler API
+Date: Mon, 2 Dec 2024 13:41:02 -0600
+Message-ID: <20241202194107.105119-1-afd@ti.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241202-dw-hdmi-qp-rk-clk-bulk-v1-1-60a7cc9cd74e@collabora.com>
-X-B4-Tracking: v=1; b=H4sIADUYTmcC/x2MSQqAMAwAvyI5G2irgvgV8aBttMG9xQXEvxu8D
- Mxh5oFIgSlClTwQ6OTI6yKi0wSsb5eBkJ04GGVyLUB3oXcz475hGNFOI3aHIHN9q3RhqNQ5SLw
- F6vn+x3Xzvh9C6epiaAAAAA==
-X-Change-ID: 20241202-dw-hdmi-qp-rk-clk-bulk-3dfa0152e814
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_122822_476657_A4CBEBFF 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20241202_114136_355601_EFA9627F 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,72 +89,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make use of the recently introduced devm_clk_bulk_get_all_enabled()
-helper to simplify the code a bit.
+Hello all,
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 28 +++++++++++++-------------
- 1 file changed, 14 insertions(+), 14 deletions(-)
+Continuing the quest to remove the legacy pm_power_off() global
+function handler. Remove uses from arch/arm/ using the helper
+register_platform_power_off().
 
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index c8b362cc2b95fd490029a9c0552ad9fbc5631d17..20ecc0729db9f5e321041ae7b3349bff5246a926 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -214,17 +214,13 @@ MODULE_DEVICE_TABLE(of, dw_hdmi_qp_rockchip_dt_ids);
- static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 				    void *data)
- {
--	static const char * const clk_names[] = {
--		"pclk", "earc", "aud", "hdp", "hclk_vo1",
--		"ref" /* keep "ref" last */
--	};
- 	struct platform_device *pdev = to_platform_device(dev);
- 	struct dw_hdmi_qp_plat_data plat_data;
- 	struct drm_device *drm = data;
- 	struct drm_connector *connector;
- 	struct drm_encoder *encoder;
- 	struct rockchip_hdmi_qp *hdmi;
--	struct clk *clk;
-+	struct clk_bulk_data *clks;
- 	int ret, irq, i;
- 	u32 val;
- 
-@@ -270,18 +266,22 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 		return PTR_ERR(hdmi->vo_regmap);
- 	}
- 
--	for (i = 0; i < ARRAY_SIZE(clk_names); i++) {
--		clk = devm_clk_get_enabled(hdmi->dev, clk_names[i]);
-+	ret = devm_clk_bulk_get_all_enabled(hdmi->dev, &clks);
-+	if (ret < 0) {
-+		drm_err(hdmi, "Failed to get clocks: %d\n", ret);
-+		return ret;
-+	}
- 
--		if (IS_ERR(clk)) {
--			ret = PTR_ERR(clk);
--			if (ret != -EPROBE_DEFER)
--				drm_err(hdmi, "Failed to get %s clock: %d\n",
--					clk_names[i], ret);
--			return ret;
-+	for (i = 0; i < ret; i++) {
-+		if (!strcmp(clks[i].id, "ref")) {
-+			hdmi->ref_clk = clks[1].clk;
-+			break;
- 		}
- 	}
--	hdmi->ref_clk = clk;
-+	if (!hdmi->ref_clk) {
-+		drm_err(hdmi, "Missing ref clock\n");
-+		return -EINVAL;
-+	}
- 
- 	hdmi->enable_gpio = devm_gpiod_get_optional(hdmi->dev, "enable",
- 						    GPIOD_OUT_HIGH);
+Thanks,
+Andrew
 
----
-base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
-change-id: 20241202-dw-hdmi-qp-rk-clk-bulk-3dfa0152e814
+Changes for v4:
+ - Drop already taken patches
+ - Rebase on latest master
+
+Changes for v3:
+ - Rebase on v6.12-rc1
+
+Changes for v2:
+ - Collect Reviewed/Acked-bys
+ - Rebase on v6.11-rc1
+
+Andrew Davis (5):
+  ARM: highbank: Switch to new sys-off handler API
+  ARM: pxa: Switch to new sys-off handler API
+  ARM: sa1100: Switch to new sys-off handler API
+  ARM: vt8500: Switch to new sys-off handler API
+  arm/xen: Switch to new sys-off handler API
+
+ arch/arm/mach-highbank/highbank.c | 2 +-
+ arch/arm/mach-pxa/spitz.c         | 2 +-
+ arch/arm/mach-sa1100/generic.c    | 2 +-
+ arch/arm/mach-vt8500/vt8500.c     | 2 +-
+ arch/arm/xen/enlighten.c          | 2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
+
+-- 
+2.39.2
 
 
