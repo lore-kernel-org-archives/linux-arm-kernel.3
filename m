@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66D25D49792
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 01:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2149BD49793
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 01:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eZxyC/oa3O5zPoDzB1CoMGk3nR9bO5IMGj2II6WDb4E=; b=lMASD91ieKJ08phzt7Jf0iIZ7r
-	CjZBOTBX6ebFE3HD/z7Q8PCLs78YS13md+Fztaj98jOva5mGlXF6zw6UB89tzPXLAsZY2bxUhD16e
-	VBeIvHGuw+6E/VSCBK+j9/HMA/UmeRdGSFlnzAjiL+/dzMVD8Pk0SGoGi5ra3KzLtyJJm3nRWT0r2
-	oj8j+DnlgMgYsK7wWq+m3HiZMccjEeDOgp7e6xHgQhKG0Uvr2J+mqHXSsFTErCMFS+bIIXfgyQ+9c
-	JMaOOvPkKjdFdqx1LHp1/+Fr8E1M7gj7/Mz6p0bX3L2U4FWOw7rnTgG/LVeW0XEEaaMBlpa3+HTNg
-	gKjgP8HQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JrZ+QUjRT4pqTOQJiT5ETJDWl3aPgmGybRdGwewC27M=; b=X9T0PE09l0ebw0nLxuBFXiYbsJ
+	n1QAm4z0Jphdm0eQ3UmwvhpCC7s2OH9Sxy3KlpCUVzEZKeKN8rZ714yOGUmvWU8dNfgppxcc5cYUP
+	pSOEHtfdl1qMI7nvBfIHUG3V7apJ3LRCNMPX55VX8H5xEANWHkK4s2mWIVMRy+qNzEy4j+fzSXGT0
+	c+tjE9dXg/sDUt9bLHdvyiCFwZMwFbuoQnG3PdAnJdb7gRYUjVtXDuT3lxdOM+lsExypUG0RxRhD9
+	dwPrF9P7dom5c1viPKdEJZoHUQUGiH+d1Lsd5K/76/YSyAKtMv5/0kvXZEofLOojQzYudNn/2jrko
+	KAeHxdQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHvFh-00000004iqw-1YV7;
-	Mon, 02 Dec 2024 01:29:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHuwr-00000004dxa-0SAW;
-	Mon, 02 Dec 2024 01:10:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=eZxyC/oa3O5zPoDzB1CoMGk3nR9bO5IMGj2II6WDb4E=; b=G6jzmvtPm6v0YxKW/NCL1sgCO1
-	XK9IbNvyraQKKMf4lKnMOvaVX1mmAr7faUORlxoNsDurmtXDW4IJ97XNiZANsW3Bf8Yjcl6pekXKA
-	Bi8rC90w0v+EfijEwPSW4Rlht+3/1U8Ry7EzA4iCXhDhC6HjC4JymlW8LJBGbGicmu/UiDIGogVSl
-	J0kANLMK6IYDuKWmWtoJjn51EZOJsm/AzzOVBITS7sRI+TkZPBCfr2e2FwU53h80GVMAF6/3G8z8b
-	KAPnfugR6QKgdxbju2Fqc49p+Z9QJsxoC/uxT/Jo17Xl/4c2LddPBsxNeIPSufZA4yoq2XV4r9zrJ
-	VGWIxTkQ==;
+	id 1tHvGe-00000004j1K-2vDE;
+	Mon, 02 Dec 2024 01:30:28 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHuwZ-000000024Z7-2KVi;
-	Mon, 02 Dec 2024 01:09:54 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tHv7x-00000004hKO-3CGY
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Dec 2024 01:21:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C15CFA409EB;
-	Mon,  2 Dec 2024 01:07:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67777C4CED2;
-	Mon,  2 Dec 2024 01:09:38 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 739E2A409EC;
+	Mon,  2 Dec 2024 01:19:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DC63C4CECF;
+	Mon,  2 Dec 2024 01:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733101778;
-	bh=PP2VQoP2EFijtyRoI44vRPGiZLDX36MUSncHwQvCv1g=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bRNBoGCIdmEvP2LAV9aWBOCE0RqRjoWRrZ+2pl/cgwyMG5vcj4ZuepINC3xC23PNF
-	 TBeWWldGhWTEM9u2MN8vRuu82YxTCOmQkrMU5peDRfWyhTFYZE3wQ1Urlk6EofBZHp
-	 s3UvN5XsBKV4ojBFGtnC4qSzxfRnrd8M/yPXNsmahCS0WWJ9o8qVjbOV81ZFQtYVsj
-	 k9mN08Cz4bVHPfB4d0BHFdo/2/puo9xkszBMSSO7qc7nqwl5SSjCZtbmP85+lA+72Z
-	 GOIEZwjftOrCVphym/y+1ftYXnre5El8IzQkuJVahwcqYxNkjTxvkFbkg8Z5jlPbqX
-	 Ampooa4Yx32Ow==
+	s=k20201202; t=1733102488;
+	bh=/7wxVzZwNcofbQOcXCfiHDj5ZWUNwfZ+aktniqfssqM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=nh+Asw+ZZIteP03MdjDFm7cHrGNz+KxSlP178lnD9ZkMBRp6xMjw0ipr1Pou8AZMW
+	 TvF2uuyV5O04PS/6BFann3nVTw7pZ7Qnr0FnOUtMT5kKlW3/WO5GPEm9vrKzluPVyS
+	 jY5UuixHlURAjORTl39jgQ35uwmYOAdefS0uwcKYI40i9oxfmJL6VKw0dFF50ZwNQO
+	 IjEg5EFbuqqen4fqa597LxXrFCmxL7o2429IKxQsmnBRrpHuV9r+VUryFkuq7TOcob
+	 fdlTe0gH+XDl8RO0LfEwNQcRLNbilF8fGRwnPXWYn2ng8yi6yJJaImrzdqaQwH0MZM
+	 OlfXx067f7ezQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-crypto@vger.kernel.org,
-	linux-ext4@vger.kernel.org,
-	linux-f2fs-devel@lists.sourceforge.net,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org,
 	x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Darrick J. Wong" <djwong@kernel.org>,
-	Theodore Ts'o <tytso@mit.edu>
-Subject: [PATCH v4 17/19] jbd2: switch to using the crc32c library
-Date: Sun,  1 Dec 2024 17:08:42 -0800
-Message-ID: <20241202010844.144356-18-ebiggers@kernel.org>
+	Zhihang Shao <zhihang.shao.iscas@gmail.com>,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH v2 00/12] Wire up CRC-T10DIF library functions to arch-optimized code
+Date: Sun,  1 Dec 2024 17:20:44 -0800
+Message-ID: <20241202012056.209768-1-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241202010844.144356-1-ebiggers@kernel.org>
-References: <20241202010844.144356-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_010952_918518_EDB78FC9 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20241201_172129_926667_838AB87A 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,213 +74,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+This patchset is also available in git via:
 
-Now that the crc32c() library function directly takes advantage of
-architecture-specific optimizations, it is unnecessary to go through the
-crypto API.  Just use crc32c().  This is much simpler, and it improves
-performance due to eliminating the crypto API overhead.
+    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git crc-t10dif-lib-v2
 
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-Reviewed-by: Darrick J. Wong <djwong@kernel.org>
-Acked-by: Theodore Ts'o <tytso@mit.edu>
-Signed-off-by: Eric Biggers <ebiggers@google.com>
----
- fs/jbd2/Kconfig      |  2 --
- fs/jbd2/journal.c    | 30 +++---------------------------
- include/linux/jbd2.h | 33 +++------------------------------
- 3 files changed, 6 insertions(+), 59 deletions(-)
+This patchset updates the kernel's CRC-T10DIF library functions to be
+directly optimized for x86, arm, arm64, and powerpc without taking an
+unnecessary and inefficient detour through the crypto API.  It follows
+the same approach that I'm taking for CRC32 in the patchset
+https://lore.kernel.org/lkml/20241202010844.144356-1-ebiggers@kernel.org/
 
-diff --git a/fs/jbd2/Kconfig b/fs/jbd2/Kconfig
-index 4ad2c67f93f1..9c19e1512101 100644
---- a/fs/jbd2/Kconfig
-+++ b/fs/jbd2/Kconfig
-@@ -1,11 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0-only
- config JBD2
- 	tristate
- 	select CRC32
--	select CRYPTO
--	select CRYPTO_CRC32C
- 	help
- 	  This is a generic journaling layer for block devices that support
- 	  both 32-bit and 64-bit block numbers.  It is currently used by
- 	  the ext4 and OCFS2 filesystems, but it could also be used to add
- 	  journal support to other file systems or block devices such
-diff --git a/fs/jbd2/journal.c b/fs/jbd2/journal.c
-index 7e49d912b091..d8084b31b361 100644
---- a/fs/jbd2/journal.c
-+++ b/fs/jbd2/journal.c
-@@ -1367,24 +1367,16 @@ static int journal_check_superblock(journal_t *journal)
- 		printk(KERN_ERR "JBD2: Can't enable checksumming v1 and v2/3 "
- 		       "at the same time!\n");
- 		return err;
- 	}
- 
--	/* Load the checksum driver */
- 	if (jbd2_journal_has_csum_v2or3_feature(journal)) {
- 		if (sb->s_checksum_type != JBD2_CRC32C_CHKSUM) {
- 			printk(KERN_ERR "JBD2: Unknown checksum type\n");
- 			return err;
- 		}
- 
--		journal->j_chksum_driver = crypto_alloc_shash("crc32c", 0, 0);
--		if (IS_ERR(journal->j_chksum_driver)) {
--			printk(KERN_ERR "JBD2: Cannot load crc32c driver.\n");
--			err = PTR_ERR(journal->j_chksum_driver);
--			journal->j_chksum_driver = NULL;
--			return err;
--		}
- 		/* Check superblock checksum */
- 		if (sb->s_checksum != jbd2_superblock_csum(journal, sb)) {
- 			printk(KERN_ERR "JBD2: journal checksum error\n");
- 			err = -EFSBADCRC;
- 			return err;
-@@ -1606,12 +1598,10 @@ static journal_t *journal_init_common(struct block_device *bdev,
- 
- 	return journal;
- 
- err_cleanup:
- 	percpu_counter_destroy(&journal->j_checkpoint_jh_count);
--	if (journal->j_chksum_driver)
--		crypto_free_shash(journal->j_chksum_driver);
- 	kfree(journal->j_wbuf);
- 	jbd2_journal_destroy_revoke(journal);
- 	journal_fail_superblock(journal);
- 	kfree(journal);
- 	return ERR_PTR(err);
-@@ -2189,12 +2179,10 @@ int jbd2_journal_destroy(journal_t *journal)
- 	if (journal->j_proc_entry)
- 		jbd2_stats_proc_exit(journal);
- 	iput(journal->j_inode);
- 	if (journal->j_revoke)
- 		jbd2_journal_destroy_revoke(journal);
--	if (journal->j_chksum_driver)
--		crypto_free_shash(journal->j_chksum_driver);
- 	kfree(journal->j_fc_wbuf);
- 	kfree(journal->j_wbuf);
- 	kfree(journal);
- 
- 	return err;
-@@ -2335,31 +2323,19 @@ int jbd2_journal_set_features(journal_t *journal, unsigned long compat,
- 			pr_err("JBD2: Cannot enable fast commits.\n");
- 			return 0;
- 		}
- 	}
- 
--	/* Load the checksum driver if necessary */
--	if ((journal->j_chksum_driver == NULL) &&
--	    INCOMPAT_FEATURE_ON(JBD2_FEATURE_INCOMPAT_CSUM_V3)) {
--		journal->j_chksum_driver = crypto_alloc_shash("crc32c", 0, 0);
--		if (IS_ERR(journal->j_chksum_driver)) {
--			printk(KERN_ERR "JBD2: Cannot load crc32c driver.\n");
--			journal->j_chksum_driver = NULL;
--			return 0;
--		}
--		/* Precompute checksum seed for all metadata */
--		journal->j_csum_seed = jbd2_chksum(journal, ~0, sb->s_uuid,
--						   sizeof(sb->s_uuid));
--	}
--
- 	lock_buffer(journal->j_sb_buffer);
- 
--	/* If enabling v3 checksums, update superblock */
-+	/* If enabling v3 checksums, update superblock and precompute seed */
- 	if (INCOMPAT_FEATURE_ON(JBD2_FEATURE_INCOMPAT_CSUM_V3)) {
- 		sb->s_checksum_type = JBD2_CRC32C_CHKSUM;
- 		sb->s_feature_compat &=
- 			~cpu_to_be32(JBD2_FEATURE_COMPAT_CHECKSUM);
-+		journal->j_csum_seed = jbd2_chksum(journal, ~0, sb->s_uuid,
-+						   sizeof(sb->s_uuid));
- 	}
- 
- 	/* If enabling v1 checksums, downgrade superblock */
- 	if (COMPAT_FEATURE_ON(JBD2_FEATURE_COMPAT_CHECKSUM))
- 		sb->s_feature_incompat &=
-diff --git a/include/linux/jbd2.h b/include/linux/jbd2.h
-index 50f7ea8714bf..561025b4f3d9 100644
---- a/include/linux/jbd2.h
-+++ b/include/linux/jbd2.h
-@@ -26,11 +26,11 @@
- #include <linux/mutex.h>
- #include <linux/timer.h>
- #include <linux/slab.h>
- #include <linux/bit_spinlock.h>
- #include <linux/blkdev.h>
--#include <crypto/hash.h>
-+#include <linux/crc32c.h>
- #endif
- 
- #define journal_oom_retry 1
- 
- /*
-@@ -1239,17 +1239,10 @@ struct journal_s
- 	 * An opaque pointer to fs-private information.  ext3 puts its
- 	 * superblock pointer here.
- 	 */
- 	void *j_private;
- 
--	/**
--	 * @j_chksum_driver:
--	 *
--	 * Reference to checksum algorithm driver via cryptoapi.
--	 */
--	struct crypto_shash *j_chksum_driver;
--
- 	/**
- 	 * @j_csum_seed:
- 	 *
- 	 * Precomputed journal UUID checksum for seeding other checksums.
- 	 */
-@@ -1748,14 +1741,11 @@ static inline bool jbd2_journal_has_csum_v2or3_feature(journal_t *j)
- 	return jbd2_has_feature_csum2(j) || jbd2_has_feature_csum3(j);
- }
- 
- static inline int jbd2_journal_has_csum_v2or3(journal_t *journal)
- {
--	WARN_ON_ONCE(jbd2_journal_has_csum_v2or3_feature(journal) &&
--		     journal->j_chksum_driver == NULL);
--
--	return journal->j_chksum_driver != NULL;
-+	return jbd2_journal_has_csum_v2or3_feature(journal);
- }
- 
- static inline int jbd2_journal_get_num_fc_blks(journal_superblock_t *jsb)
- {
- 	int num_fc_blocks = be32_to_cpu(jsb->s_num_fc_blks);
-@@ -1788,31 +1778,14 @@ static inline unsigned long jbd2_log_space_left(journal_t *journal)
- #define BJ_Forget	2	/* Buffer superseded by this transaction */
- #define BJ_Shadow	3	/* Buffer contents being shadowed to the log */
- #define BJ_Reserved	4	/* Buffer is reserved for access by journal */
- #define BJ_Types	5
- 
--/* JBD uses a CRC32 checksum */
--#define JBD_MAX_CHECKSUM_SIZE 4
--
- static inline u32 jbd2_chksum(journal_t *journal, u32 crc,
- 			      const void *address, unsigned int length)
- {
--	DEFINE_RAW_FLEX(struct shash_desc, desc, __ctx,
--		DIV_ROUND_UP(JBD_MAX_CHECKSUM_SIZE,
--			     sizeof(*((struct shash_desc *)0)->__ctx)));
--	int err;
--
--	BUG_ON(crypto_shash_descsize(journal->j_chksum_driver) >
--		JBD_MAX_CHECKSUM_SIZE);
--
--	desc->tfm = journal->j_chksum_driver;
--	*(u32 *)desc->__ctx = crc;
--
--	err = crypto_shash_update(desc, address, length);
--	BUG_ON(err);
--
--	return *(u32 *)desc->__ctx;
-+	return crc32c(crc, address, length);
- }
- 
- /* Return most recent uncommitted transaction */
- static inline tid_t  jbd2_get_latest_transaction(journal_t *journal)
- {
+This patchset also adds a CRC KUnit test suite that covers multiple CRC
+variants, and deletes some older ad-hoc tests that are obsoleted by it.
+
+This patchset applies to v6.13-rc1 plus my CRC32 patchset.  It can be
+retrieved from git using above command.  This is targeting 6.14.
+
+Changed in v2:
+  - Rebased onto v6.13-rc1.
+  - Tweaked crc_t10dif_arch() for arm32 and arm64 to not call
+    crypto_simd_usable() more times than is necessary.
+  - Added patch removing redundant crc16_kunit.c which got added in v6.13-rc1.
+  - Made some small tweaks to crc_kunit.c.
+  - Listed Ard as a reviewer in the MAINTAINERS entry.
+  - Dropped scripts/crc from MAINTAINERS entry, as it hasn't been added yet.
+  - Clarified a commit message.
+  - Added Reviewed-by and Acked-by's.
+
+Eric Biggers (12):
+  lib/crc-t10dif: stop wrapping the crypto API
+  lib/crc-t10dif: add support for arch overrides
+  crypto: crct10dif - expose arch-optimized lib function
+  x86/crc-t10dif: expose CRC-T10DIF function through lib
+  arm/crc-t10dif: expose CRC-T10DIF function through lib
+  arm64/crc-t10dif: expose CRC-T10DIF function through lib
+  powerpc/crc-t10dif: expose CRC-T10DIF function through lib
+  lib/crc_kunit.c: add KUnit test suite for CRC library functions
+  lib/crc16_kunit: delete obsolete crc16_kunit.c
+  lib/crc32test: delete obsolete crc32test.c
+  powerpc/crc: delete obsolete crc-vpmsum_test.c
+  MAINTAINERS: add entry for CRC library
+
+ MAINTAINERS                                   |  11 +
+ arch/arm/Kconfig                              |   1 +
+ arch/arm/crypto/Kconfig                       |  11 -
+ arch/arm/crypto/Makefile                      |   2 -
+ arch/arm/crypto/crct10dif-ce-glue.c           | 124 ---
+ arch/arm/lib/Makefile                         |   3 +
+ .../crc-t10dif-core.S}                        |   0
+ arch/arm/lib/crc-t10dif-glue.c                |  80 ++
+ arch/arm64/Kconfig                            |   1 +
+ arch/arm64/configs/defconfig                  |   1 -
+ arch/arm64/crypto/Kconfig                     |  10 -
+ arch/arm64/crypto/Makefile                    |   3 -
+ arch/arm64/crypto/crct10dif-ce-glue.c         | 132 ---
+ arch/arm64/lib/Makefile                       |   3 +
+ .../crc-t10dif-core.S}                        |   0
+ arch/arm64/lib/crc-t10dif-glue.c              |  81 ++
+ arch/m68k/configs/amiga_defconfig             |   1 -
+ arch/m68k/configs/apollo_defconfig            |   1 -
+ arch/m68k/configs/atari_defconfig             |   1 -
+ arch/m68k/configs/bvme6000_defconfig          |   1 -
+ arch/m68k/configs/hp300_defconfig             |   1 -
+ arch/m68k/configs/mac_defconfig               |   1 -
+ arch/m68k/configs/multi_defconfig             |   1 -
+ arch/m68k/configs/mvme147_defconfig           |   1 -
+ arch/m68k/configs/mvme16x_defconfig           |   1 -
+ arch/m68k/configs/q40_defconfig               |   1 -
+ arch/m68k/configs/sun3_defconfig              |   1 -
+ arch/m68k/configs/sun3x_defconfig             |   1 -
+ arch/powerpc/Kconfig                          |   1 +
+ arch/powerpc/configs/powernv_defconfig        |   1 -
+ arch/powerpc/configs/ppc64_defconfig          |   2 -
+ arch/powerpc/crypto/Kconfig                   |  20 -
+ arch/powerpc/crypto/Makefile                  |   3 -
+ arch/powerpc/crypto/crc-vpmsum_test.c         | 133 ---
+ arch/powerpc/lib/Makefile                     |   3 +
+ .../crc-t10dif-glue.c}                        |  69 +-
+ .../{crypto => lib}/crct10dif-vpmsum_asm.S    |   2 +-
+ arch/s390/configs/debug_defconfig             |   1 -
+ arch/x86/Kconfig                              |   1 +
+ arch/x86/crypto/Kconfig                       |  10 -
+ arch/x86/crypto/Makefile                      |   3 -
+ arch/x86/crypto/crct10dif-pclmul_glue.c       | 143 ---
+ arch/x86/lib/Makefile                         |   3 +
+ arch/x86/lib/crc-t10dif-glue.c                |  51 ++
+ .../{crypto => lib}/crct10dif-pcl-asm_64.S    |   0
+ crypto/Kconfig                                |   1 +
+ crypto/Makefile                               |   3 +-
+ crypto/crct10dif_common.c                     |  82 --
+ crypto/crct10dif_generic.c                    |  82 +-
+ include/linux/crc-t10dif.h                    |  28 +-
+ lib/Kconfig                                   |  43 +-
+ lib/Kconfig.debug                             |  29 +-
+ lib/Makefile                                  |   3 +-
+ lib/crc-t10dif.c                              | 156 +---
+ lib/crc16_kunit.c                             | 155 ----
+ lib/crc32test.c                               | 852 ------------------
+ lib/crc_kunit.c                               | 435 +++++++++
+ .../testing/selftests/arm64/fp/kernel-test.c  |   3 +-
+ 58 files changed, 880 insertions(+), 1913 deletions(-)
+ delete mode 100644 arch/arm/crypto/crct10dif-ce-glue.c
+ rename arch/arm/{crypto/crct10dif-ce-core.S => lib/crc-t10dif-core.S} (100%)
+ create mode 100644 arch/arm/lib/crc-t10dif-glue.c
+ delete mode 100644 arch/arm64/crypto/crct10dif-ce-glue.c
+ rename arch/arm64/{crypto/crct10dif-ce-core.S => lib/crc-t10dif-core.S} (100%)
+ create mode 100644 arch/arm64/lib/crc-t10dif-glue.c
+ delete mode 100644 arch/powerpc/crypto/crc-vpmsum_test.c
+ rename arch/powerpc/{crypto/crct10dif-vpmsum_glue.c => lib/crc-t10dif-glue.c} (50%)
+ rename arch/powerpc/{crypto => lib}/crct10dif-vpmsum_asm.S (99%)
+ delete mode 100644 arch/x86/crypto/crct10dif-pclmul_glue.c
+ create mode 100644 arch/x86/lib/crc-t10dif-glue.c
+ rename arch/x86/{crypto => lib}/crct10dif-pcl-asm_64.S (100%)
+ delete mode 100644 crypto/crct10dif_common.c
+ delete mode 100644 lib/crc16_kunit.c
+ delete mode 100644 lib/crc32test.c
+ create mode 100644 lib/crc_kunit.c
+
+
+base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+prerequisite-patch-id: f8b995a05288ddc7f06f93d5eb7ffc71f53232d4
+prerequisite-patch-id: cda9f22081116d690534a921473af93d06ab7539
+prerequisite-patch-id: 12e0b107ed65a4d61fe3c9aa29451b082276f84f
+prerequisite-patch-id: 292ec37c4a28e33cce4c13ad75a3ad2104799352
+prerequisite-patch-id: b1cf6138d2a225dcda1adedc89d20d36a54bb309
+prerequisite-patch-id: 1a7519c0d1fc64926480c8be838a98b5095534ec
+prerequisite-patch-id: 0f22f1d50b6c17c93825e4a0651d51f4de9efe47
+prerequisite-patch-id: 285ac22e7e2bad4920c3872992aa45e7f04d3702
+prerequisite-patch-id: 9b085b26ff8fe55cf7cd343e9123e742f82a1fbb
+prerequisite-patch-id: a4e94f9bb7c2c1d4d5486877b660ca6d606a46ef
+prerequisite-patch-id: 5d541cd572220aa5c1885a639693fc78210c6112
+prerequisite-patch-id: 95195b4e2e9d9e0e7b1cafa37d0cf2b3373f007f
+prerequisite-patch-id: da2e5649997b6265ef0e6ad90b8be6a7a1509705
+prerequisite-patch-id: e4b967a2d11e31bb8ee1402313bc0c70b34af26b
+prerequisite-patch-id: d535ea87c7ac3b194abc358567b97b5fd524c144
+prerequisite-patch-id: 1b919d5298106e9014f09f6e9ca5c75cbb157399
+prerequisite-patch-id: 19f12966c5081d27bc64bced052814b15f16b087
+prerequisite-patch-id: a4251f6e980b8ac54aeb6cfb09f0ffe92396331d
+prerequisite-patch-id: 6fad2aeaf54145934d2dfd52bed0464b18445fb5
 -- 
 2.47.1
 
