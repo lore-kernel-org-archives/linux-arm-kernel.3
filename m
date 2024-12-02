@@ -4,80 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2995ED7832F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52ACAD78321
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FIEJcaSGdJPUD8j5XlztkJ0eGqAbM3m0e+k9lVXSNJw=; b=x02vJNpNG8S4kpMbZERWDONE6i
-	8dsI4jnoZf69ciUbzemAoT/aWcTNS6iQUIW/m9eWyepsnTvelO6o/QkfO6i4L9YDqPOjJheJMRpHg
-	SXFlEaZg6Vh1vr/2eubakJFojmJhl5uzdiamSMzeLIQJx9wtqz1BCtHAfnuZ+c/8xc7683BK/A5NZ
-	blRbvJnKoomJ0RzE+UATSNnqdGv4KKly5jgHjng/UHKGxZ3/52rBntVpsNWkm6OjXSZTYVh2h1cem
-	RaxMDg+sKbpOL8aux9M7k3EnJrw3ufyqfuyaVHD/z3pxAJUvznrcWnmHNc5iIfWgPBFmXLH3NShPy
-	G+ELfq2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1GTfv/95xslXl2Dflq0bTh2CCX039J06IUAidXo7HAg=; b=qg36WuJqLQdI/Owpkcivx08Zp6
+	C5rRCFiMbQ7uAoGB8gwf44Dlh7iM+xemzuaCWal9JnflKcJDwmK4C9q3t4q0F6JZr5ck731ZD2cKa
+	uAFFJZcuJ56VZU7+iehQahHFI7dickRi8/Kbf71Ml20NQlG/l85y6g4GvGSBLazTH9M7nV31VafCj
+	uXISf0chjesrRKBhpNK1sl1Ac/qasHyHJ6JP6k3eHb/2QjAqaC6a5kLxCGO2k0j8+1LHjhLwnRZH8
+	GkOGfwU5aoFUiYQ/Z5+5XbJZ/JMbNl2ivyG2kwwM3BDSGY5LfdsUo5oApj5jtM4SiuHxhHjJo+OtT
+	GOTE1j7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8KN-00000006eNp-2bgk;
-	Mon, 02 Dec 2024 15:27:11 +0000
-Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
+	id 1tI8LL-00000006eat-2HHX;
+	Mon, 02 Dec 2024 15:28:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8Hf-00000006dnD-0LxH
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 15:24:24 +0000
-Received: by mail-yb1-xb29.google.com with SMTP id 3f1490d57ef6-e38938a55e7so3535411276.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 07:24:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733153062; x=1733757862; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=FIEJcaSGdJPUD8j5XlztkJ0eGqAbM3m0e+k9lVXSNJw=;
-        b=H35tgsBKeRxuarT6BYtg4Mmd1wDCo1iFXUoW8PwLaCRhLz2oB9Uvcid8ETG5U6c7r1
-         20dudTWg2hadcqfubYMXQ5InDADS6fKxK7JWt5xYtW8Qe95kf1pWQ0IvO39la0LhxT2v
-         NdLreOc3irFNEDd0QDPjHW2mswwbrcndkc7OR9Yjccg+HcFp6WZroczlqdSNc6cbr/nG
-         SA91IcrrWlsmX+mH2WtRfthCk/hOE/AGpkOygWivP3SuqDpDmJt5Ifzhp4Fi5Aiyy9FJ
-         bn4hnWO8OPGIVoZzKVJMZoGdIa627du/iUXDff+o8IFZP5v2SDTfoKAp+wRt2HSg5i3I
-         Ce+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733153062; x=1733757862;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FIEJcaSGdJPUD8j5XlztkJ0eGqAbM3m0e+k9lVXSNJw=;
-        b=Z77DyYyRNjRb8gUO1WxxioKuetzfMg11a8c+8QxAgyCWBZnRiCszKQCNN0g/iJLxsC
-         /zY86IBS9774TL7A/m7IAi2r1g48mWyd1TynXUOBa3z1rgNRlHV3UJCmdp99okp91mi7
-         CcwGShep7tAQtF0RqpNodsJ63DeLyQLvuRzVmXQsSPTQncQmZavXEo/eU4z5D0A2P1wj
-         hipPt7kZiaa7AnY3oCcJuUlK8ORY/7dZnFm/YauSYJR309vqoe/f/MdFwwa8hGEtqQUk
-         loIk+3xCZo8IHa3tQg+/NTCVRN1R0sDZNuJX2FkG8qh5b2nKKVHFrANNPijGJcIMY5pH
-         Jjfw==
-X-Forwarded-Encrypted: i=1; AJvYcCWWkKKHxp5xhgFzsOV/J+m1M5K0euFslQbMxsqw3PrLQxbKoofAcKSrBvpeINXYE9qbj2M73SNh5ee6PvEGAxfr@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM9sYHMHgBVYz9zFo0LLLuqESc/YDNTif6Szxjp16T6PmvNU19
-	/nHe35VNPet6yl68sGrPgy6tyu8hHDC4E1genkyxgexa4KLEZip6dmedGVhvrrXgBDf3ZqEVTwz
-	0fDPCaelAIK+wbH3Z2BZDequK3kooBq7UTaEXpw==
-X-Gm-Gg: ASbGncuaoM8qcdET88rqcZ5oLnZlrORDP9Gx0a01zgHl2g5uG1Nya1KUohvFGwplBnq
-	w1nCrn9Mtk74+FuPk9/NQNQhjzmuAQcg6
-X-Google-Smtp-Source: AGHT+IGecYwU3LhrUSWFanjb/IVeaGfWBi0iqpClqfJtpXMYSm61w6LopRzGpgTzgxbggBLwJS3eaTaanLLSHlemPmE=
-X-Received: by 2002:a05:6902:18c6:b0:e33:1c36:6a4 with SMTP id
- 3f1490d57ef6-e395b887349mr19416613276.3.1733153062390; Mon, 02 Dec 2024
- 07:24:22 -0800 (PST)
+	id 1tI8Hn-00000006doy-1393;
+	Mon, 02 Dec 2024 15:24:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 90A805C6816;
+	Mon,  2 Dec 2024 15:23:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B012C4CED1;
+	Mon,  2 Dec 2024 15:24:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733153070;
+	bh=G45+ggJZtAQkzmRMKCfMXNyn3c8grFThzBRCnhW+Rec=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=c8E85m8HZLO4Ae12bAlxjw7OGFCymA+RzRM6/lg2syPA7TcXk4X309S97bDKYXJoH
+	 C2CnH1XF+moLXFrNu2yfjpqedK1nTIZ1K2LyqKNTFftX2iSs0iYWPP3MXm/GC34VEg
+	 w17JYFMpyUYgG6snxO3zwVvlVDHtP7mieXfAhvrfzAAMuoYb8SkK52tiAA9tl2HRID
+	 lh/ewUKXiXdSnZdRiSOKBY5hYHuY6fYjYw9URXHBoLF7yz2YkVvNgO4y0Q+ut6ew5w
+	 suNOEITaOvFQ+LctAmHPM21xWTkvW46wrOsJyKU6Jzl7lTpt8SN6M16eqdv/jnEc7G
+	 fO5R4M68wD9vg==
+Message-ID: <44c233d7-87d7-4dbb-a0d0-9e93ea497622@kernel.org>
+Date: Mon, 2 Dec 2024 16:24:20 +0100
 MIME-Version: 1.0
-References: <20241126125041.16071-1-andy-ld.lu@mediatek.com>
-In-Reply-To: <20241126125041.16071-1-andy-ld.lu@mediatek.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 2 Dec 2024 16:23:46 +0100
-Message-ID: <CAPDyKFpSQj295wZf=mOPmSaLZvi769EdgFTcPJ6QRY0sOHA89w@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] Add mtk-sd support for ignoring cmd response CRC
-To: Andy-ld Lu <andy-ld.lu@mediatek.com>
-Cc: angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, 
-	avri.altman@wdc.com, adrian.hunter@intel.com, wenbin.mei@mediatek.com, 
-	linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/7] arm64: dts: broadcom: Fix device tree errors on
+ BCM2712.
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Doug Berger <opendmb@gmail.com>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
+ linux-gpio@vger.kernel.org
+References: <20241202-dt-bcm2712-fixes-v1-0-fac67cc2f98a@raspberrypi.com>
+ <20241202-dt-bcm2712-fixes-v1-7-fac67cc2f98a@raspberrypi.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241202-dt-bcm2712-fixes-v1-7-fac67cc2f98a@raspberrypi.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_072423_120484_F62BB365 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20241202_072431_380449_3CD2E879 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,37 +132,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 26 Nov 2024 at 13:50, Andy-ld Lu <andy-ld.lu@mediatek.com> wrote:
->
-> Add the process flow in the host driver to handle the R1B cmd response
-> type with ignoring CRC, which comes from mmc_cqe_recovery() in the mmc
-> core. Additionally, the response type 'MMC_RSP_R1B_NO_CRC' is introduced
-> to simplify code.
->
-> ---
-> Changes in v2:
-> - Change mmc_cqe_recovery() to use MMC_RSP_R1B_NO_CRC response type.
-> - Remove MMC_RSP_R1_NO_CRC in the host driver after it is dropped.
->
-> Link to v1:
-> https://patchwork.kernel.org/patch/13883787
->
-> ---
-> Andy-ld Lu (2):
->   mmc: core: Introduce the MMC_RSP_R1B_NO_CRC response
->   mmc: mtk-sd: Add support for ignoring cmd response CRC
->
->  drivers/mmc/core/core.c   | 6 ++----
->  drivers/mmc/host/mtk-sd.c | 6 ++++--
->  include/linux/mmc/core.h  | 2 ++
->  3 files changed, 8 insertions(+), 6 deletions(-)
->
-> --
-> 2.46.0
->
+On 02/12/2024 15:32, Dave Stevenson wrote:
+> Resolves the issues on clocks and power nodes
 
-The series applied for next, thanks!
+Which issues? Be specific. Such commit is unprecise and not really
+helpful. We see it from the diff that this is "some issue". What we do
+not see is WHY and WHAT the ISSUE is.
 
-Kind regards
-Uffe
+> 
+> Fixes: 4254a647b6c9 ("arm64: dts: broadcom: Add firmware clocks and power nodes to Pi5 DT")
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+
+
+Nothing in the DTS patches suggested targeting DRM, so this patchset is
+organized in pretty surprising way. Please split them per subsystem. DTS
+is never for driver subsystem.
+
+Subject: drop full stop.
+
+> ---
+>  arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 9 +++++----
+>  1 file changed, 5 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> index fbc56309660f..26e05601416f 100644
+> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> @@ -66,11 +66,7 @@ &sdio1 {
+>  &soc {
+>  	firmware: firmware {
+>  		compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
+> -		#address-cells = <1>;
+> -		#size-cells = <1>;
+> -
+>  		mboxes = <&mailbox>;
+> -		dma-ranges;
+>  
+>  		firmware_clocks: clocks {
+>  			compatible = "raspberrypi,firmware-clocks";
+> @@ -85,6 +81,11 @@ reset: reset {
+>  
+>  	power: power {
+>  		compatible = "raspberrypi,bcm2835-power";
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges;
+> +		dma-ranges;
+
+
+No address space here, so why ranges?
+
+> +
+>  		firmware = <&firmware>;
+>  		#power-domain-cells = <1>;
+>  	};
+> 
+
+
+Best regards,
+Krzysztof
 
