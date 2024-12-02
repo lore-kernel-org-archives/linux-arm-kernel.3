@@ -4,90 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE278E69E85
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 18:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499AEE69E81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 18:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o2cxxiWXxxcztMEpVV39duChyrz4wBjlVuDmGwSaLLQ=; b=nyE4aqRuWvBU7Q2svXiD78S8sg
-	pVNu8VYWD0qCl+zLgpJvi2CwiDK/SjBNrsKqG1P+XjH44xSbZ7X7KbEFgbL7in4fAbpvaXBAhit91
-	Tb6+OIaHz/6eWDU6Y67kcgmby9OTHx+iYXSBz6lCDxA1oVhn3CC+1sVn5ZxOA5Knk9WlNG+iR0wXf
-	svnynyVzHT8/JZXgKop3tOAVp8S2v/VwZoBipbgL6gIIWUrLWwz490rOEoVB1MYHrKy04g+wJUibO
-	tBNeVWOxSnW/9dDnFsUpOe3Q9cC2croLEHfQCGHOVyg1EuKtuDwfdB0qAfcTuKRL3+dcmdm6Aiyuo
-	CN92zfTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u34wPynLWdSa99IQ6xhu/7M3+TIv2HNu87ct2rQpiWw=; b=p/YD2OUoPggZGE/l7+Nwgw3God
+	sdmHTgafLNgoqeGtdD0B2HMBJ+KbBDSvAPWrjUaIDGs6SBzBoqCu3tKr2/jkihkUe9PgzW90drTg7
+	ANoNBGt/jJ9NIrWVKiLmRdzXGW84ApifCkIyzlnZVAmMHzbqe3Am/8i+CTc7U2AI4ePS8pPuELG5f
+	iRRJroQ1+trQ9ZqcsAHbWvC0vGaw+lstXmC80cn1I++pUuaX9hmojRsUMbjRaUrEeQ1ew2XS6Yfxq
+	uHfR8fje04+JXY40dwIfIlej9IhptaK3HN8iG4lYCkpS/1Mw2KGj7mHl3RzVLtXsYRGGEg51cQAno
+	6DcbkGQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIBOd-00000007CGc-09Du;
-	Mon, 02 Dec 2024 18:43:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tIBTY-00000007Coh-156S;
+	Mon, 02 Dec 2024 18:48:52 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIA7u-00000006zzZ-1nyy
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Dec 2024 17:22:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=o2cxxiWXxxcztMEpVV39duChyrz4wBjlVuDmGwSaLLQ=; b=fOLrWXxDK61EOMReBZMmvMR+TL
-	uWVSN0PWZutEgSOAt6hAzUg7HWJjP5rvH27sC3mL0FqYIYjavz6UXBwr2xIxOoB46C+xqZN659COW
-	x2aS5zqMUAzXijEXdnxKaWUcwZ8MHYWyehYaPPzXyXqDnJeoCdeY8M6ST3CoyTPWx6X4bVIap5iyZ
-	MniDxKr8+atsbZpBCd+YB+rOOZPQMzVACCjGdEu7WSOe0KpR7SmoRtJ2TJf6+TN+B9hKpLdIrWmF9
-	fXxo6INLmnNG8qslfa+bygAewDWrSoa/vVZmtBf3SqWLUeT3L27n1Jz3zk5Mp0zQaFvZK2WhAWrzJ
-	AgUMYkHA==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIA7p-00000002D6s-34E4
+	id 1tIBSZ-00000007ChK-0cI3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 17:22:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D9CE05C5659;
-	Mon,  2 Dec 2024 17:21:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FBEDC4CED2;
-	Mon,  2 Dec 2024 17:22:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733160138;
-	bh=CGFMUWAc7R/pzG+BdDvL9qb/+zRbaJapu9cFFQKoOsY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=e8KHb45Wq9YzhPKnCSo+9tKf/rlMmZm1JIWGAp2+qbTDUdO1Yv/zGOJ7+8WvUQJby
-	 BlLsX0RTj86yKbBWe7BTl12zE4NfD0qiPd4V5XCWfIKWkb5hpLOyKuB37w1uCzeQ+C
-	 7RqDH3tc7cA6GQC55cI/8+UrL+yDcdMDkptcUFnO5StCGT0TNv3VpcShUalrU1dk3o
-	 y6pnm+ELB0oAsvN2F8JfDsQ5FOQT0j8m03vIH+HQAOpVUtJBeLaDjU9E0MlgiQ1Dvm
-	 DrmLkjBr8LIMMPdqzJouOcD7EJ1OsJK9LTc2Mwup61j2PMIxKIhm+A/RtsMrbrqHtl
-	 JACZTjkZDfpVA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tIA7k-00HQcf-IA;
-	Mon, 02 Dec 2024 17:22:16 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Christoffer Dall <christoffer.dall@arm.com>
-Subject: [PATCH 04/11] KVM: arm64: nv: Use FEAT_ECV to trap access to EL0 timers
-Date: Mon,  2 Dec 2024 17:21:27 +0000
-Message-Id: <20241202172134.384923-5-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241202172134.384923-1-maz@kernel.org>
-References: <20241202172134.384923-1-maz@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, andersson@kernel.org, christoffer.dall@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 02 Dec 2024 18:47:52 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ee8ced572eso2298991a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 10:47:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733165270; x=1733770070; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=u34wPynLWdSa99IQ6xhu/7M3+TIv2HNu87ct2rQpiWw=;
+        b=z+6ZrqKIqPro7sV/r8qyR7SRW0+tskLxmehHjH4MFr/SzBHsnrF7zA/xgiPWvSWaTg
+         wbviHahjH6JQoRgeIIdNUjkp0E9Aeguoeb6nScsYUlTIgR9XI+g0gNe8C9FA1Uw9NogO
+         LQVP5jdTIjk1P2wnBz1nZ1mn/Foqh5i0awBpSJ4aqXBa43D4JZT8tGIrYTB8+7bMbjnH
+         HLwCh8PhfOro1l7fKo/+HraVGdy9ma+jE2IXMwxjBphbUncgjNZRv5KptmMFXm3126rp
+         JCaKhGJO1QKBP2e4pgnJUcr4c2/Y0Qz8KvvWa2f5FD9XPGZ9Yu8TGVmt0XugGzzF+jdn
+         oOgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733165270; x=1733770070;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=u34wPynLWdSa99IQ6xhu/7M3+TIv2HNu87ct2rQpiWw=;
+        b=hyHD/HVzZYtyipWB91F7BUQh6RW1QPWxxyV3GgWL8wVjIF3hAr7WkmduI4RFBMwy6u
+         k+CS91J+TV9CVwu7G9VOOG0lhghiHm1f7vDQ7ilNxFdE8grR2SRGcXEV58udv536+Ma5
+         ahxXyC/ce9El5yg8j54twJpIPiMeubQXmzcjTvrLEi+xky/RM36mdA+V+STGb9uaXwdy
+         FsinDCK6Ovasxx/XY/iNOCpq/JRZzgftC7zaFPJ6k7McZkeU5/BlubzqoV0SeaDzRimc
+         Xe5dL9g2+yvs7unGWriLuyau/CR5ZgUU4gbxrxH/ddtf4Uq9XXruJZkUCCfhvAXsi4iP
+         d+Tg==
+X-Forwarded-Encrypted: i=1; AJvYcCWdHHU9GaFgkxh3DZqsHxuNe/iESaB841Jd3bWw6rlHXbkI0awe/wBRoa+XMPeyzajmk2luG006Esr+/nYHCtjb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBTQ032ikWIUMe7kk1EET1ge/u6vSheRpfoADo5Zt1uSuuzeiX
+	DNeE1tp/Aado/h4RzUiWXH8/7dH00QrQdZ4SMqSffrSZ3GmaHHpU85rVJUL0HEN5WhNY0K0a7N1
+	WqA==
+X-Google-Smtp-Source: AGHT+IH1lOkxtOKe5VZ1YQsUZ2R4iUJCkzIbDFJGQzaxTbOPx9DRSSWOWSynHC4tj/4TdwIvmt3yGcRJFdA=
+X-Received: from pjbsv8.prod.google.com ([2002:a17:90b:5388:b0:2ea:6aa8:c4ad])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1dd2:b0:2ee:c5ea:bd91
+ with SMTP id 98e67ed59e1d1-2eec5eabed1mr7923335a91.29.1733165269950; Mon, 02
+ Dec 2024 10:47:49 -0800 (PST)
+Date: Mon, 2 Dec 2024 10:47:48 -0800
+In-Reply-To: <20241128092546.7a5b3f30@p-imbrenda>
+Mime-Version: 1.0
+References: <20241128005547.4077116-1-seanjc@google.com> <20241128005547.4077116-16-seanjc@google.com>
+ <20241128092546.7a5b3f30@p-imbrenda>
+Message-ID: <Z04A1Oh0LCKtCN4p@google.com>
+Subject: Re: [PATCH v4 15/16] KVM: selftests: Use canonical $(ARCH) paths for
+ KVM selftests directories
+From: Sean Christopherson <seanjc@google.com>
+To: Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Andrew Jones <ajones@ventanamicro.com>, James Houghton <jthoughton@google.com>, 
+	Muhammad Usama Anjum <usama.anjum@collabora.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_172222_149439_2C6DC6C5 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20241202_104751_175026_FF0152B0 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,105 +97,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Although FEAT_NV2 makes most things fast, it also makes it impossible
-to correctly emulate the timers, as the sysreg accesses are redirected
-to memory.
+On Thu, Nov 28, 2024, Claudio Imbrenda wrote:
+> On Wed, 27 Nov 2024 16:55:46 -0800
+> > diff --git a/tools/testing/selftests/kvm/include/x86_64/svm_util.h b/tools/testing/selftests/kvm/include/x86/svm_util.h
+> > similarity index 94%
+> > rename from tools/testing/selftests/kvm/include/x86_64/svm_util.h
+> > rename to tools/testing/selftests/kvm/include/x86/svm_util.h
+> > index 044f0f872ba9..b74c6dcddcbd 100644
+> > --- a/tools/testing/selftests/kvm/include/x86_64/svm_util.h
+> > +++ b/tools/testing/selftests/kvm/include/x86/svm_util.h
+> > @@ -1,8 +1,5 @@
+> >  /* SPDX-License-Identifier: GPL-2.0-only */
+> >  /*
+> > - * tools/testing/selftests/kvm/include/x86_64/svm_utils.h
+> 
+> this line clearly has to go ^
+> 
+> > - * Header for nested SVM testing
+> 
+> but I think this one can stay? ^
 
-FEAT_ECV addresses this by giving a hypervisor the ability to trap
-the EL02 sysregs as well as the virtual timer.
+It should go too, the header contains declarations for helpers that having nothing
+to do with nested SVM.
 
-Add the required trap setting to make use of the feature, allowing
-us to elide the ugly resync in the middle of the run loop.
-
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/arch_timer.c          | 36 +++++++++++++++++++++++++---
- include/clocksource/arm_arch_timer.h |  2 ++
- 2 files changed, 35 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 231040090697e..c9a46d34b40cf 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -781,7 +781,7 @@ static void kvm_timer_vcpu_load_nested_switch(struct kvm_vcpu *vcpu,
- 
- static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
- {
--	bool tpt, tpc;
-+	bool tvt, tpt, tvc, tpc, tvt02, tpt02;
- 	u64 clr, set;
- 
- 	/*
-@@ -796,7 +796,29 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
- 	 * within this function, reality kicks in and we start adding
- 	 * traps based on emulation requirements.
- 	 */
--	tpt = tpc = false;
-+	tvt = tpt = tvc = tpc = false;
-+	tvt02 = tpt02 = false;
-+
-+	/*
-+	 * NV2 badly breaks the timer semantics by redirecting accesses to
-+	 * the EL0 timer state to memory, so let's call ECV to the rescue if
-+	 * available: we trap all CNT{P,V}_{CTL,CVAL,TVAL}_EL0 accesses.
-+	 *
-+	 * The treatment slightly varies depending whether we run a nVHE or
-+	 * VHE guest: nVHE will use the _EL0 registers directly, while VHE
-+	 * will use the _EL02 accessors. This translates in different trap
-+	 * bits.
-+	 *
-+	 * None of the trapping is required when running in non-HYP context,
-+	 * unless required by the L1 hypervisor settings once we advertise
-+	 * ECV+NV in the guest, or that we need trapping for other reasons.
-+	 */
-+	if (cpus_have_final_cap(ARM64_HAS_ECV) && is_hyp_ctxt(vcpu)) {
-+		if (vcpu_el2_e2h_is_set(vcpu))
-+			tvt02 = tpt02 = true;
-+		else
-+			tvt = tpt = true;
-+	}
- 
- 	/*
- 	 * We have two possibility to deal with a physical offset:
-@@ -836,6 +858,10 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
- 
- 	assign_clear_set_bit(tpt, CNTHCTL_EL1PCEN << 10, set, clr);
- 	assign_clear_set_bit(tpc, CNTHCTL_EL1PCTEN << 10, set, clr);
-+	assign_clear_set_bit(tvt, CNTHCTL_EL1TVT, clr, set);
-+	assign_clear_set_bit(tvc, CNTHCTL_EL1TVCT, clr, set);
-+	assign_clear_set_bit(tvt02, CNTHCTL_EL1NVVCT, clr, set);
-+	assign_clear_set_bit(tpt02, CNTHCTL_EL1NVPCT, clr, set);
- 
- 	/* This only happens on VHE, so use the CNTHCTL_EL2 accessor. */
- 	sysreg_clear_set(cnthctl_el2, clr, set);
-@@ -931,8 +957,12 @@ void kvm_timer_sync_nested(struct kvm_vcpu *vcpu)
- 	 * accesses redirected to the VNCR page. Any guest action taken on
- 	 * the timer is postponed until the next exit, leading to a very
- 	 * poor quality of emulation.
-+	 *
-+	 * This is an unmitigated disaster, only papered over by FEAT_ECV,
-+	 * which allows trapping of the timer registers even with NV2.
-+	 * Still, this is still worse than FEAT_NV on its own. Meh.
- 	 */
--	if (!is_hyp_ctxt(vcpu))
-+	if (cpus_have_final_cap(ARM64_HAS_ECV) || !is_hyp_ctxt(vcpu))
- 		return;
- 
- 	if (!vcpu_el2_e2h_is_set(vcpu)) {
-diff --git a/include/clocksource/arm_arch_timer.h b/include/clocksource/arm_arch_timer.h
-index 877dcbb2601ae..c62811fb41309 100644
---- a/include/clocksource/arm_arch_timer.h
-+++ b/include/clocksource/arm_arch_timer.h
-@@ -24,6 +24,8 @@
- #define CNTHCTL_ECV			(1 << 12)
- #define CNTHCTL_EL1TVT			(1 << 13)
- #define CNTHCTL_EL1TVCT			(1 << 14)
-+#define CNTHCTL_EL1NVPCT		(1 << 15)
-+#define CNTHCTL_EL1NVVCT		(1 << 16)
- 
- enum arch_timer_reg {
- 	ARCH_TIMER_REG_CTRL,
--- 
-2.39.2
-
+On a somewhat related topic, the file should probably be "svm.h", but that's a
+future cleanup.
 
