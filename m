@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4176D78321
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD59ED7832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QJFQOhHvRWMfU0TK3Z+kwO6rmT9pNjzCjW1otfK4k08=; b=pTBBMQuEm8tzUqjehbyylGAwh5
-	hKfvOaKTWEkMAky4EMU4HReuC8LxlDhkzbGcgjjy7lRYVp5UYs8G4bwGE+YnF8cdJf8QsxA6UeIqN
-	hFPq3tCB320WdAfQoJwMfOH+TSAoYP6ZCmEX81kzwpzjDcGTmIPQ8se1+RygcBmfFPjUjj6QXh/45
-	wTpXw5+J2l8XivGJWtMy4gfJjeYiVhTpnKRLwkU9HXeZE7eWlXxwCxo41OMe3Qkwv5FYlNWiH+VJ8
-	qEKP+LHAGDrdLRqd7rW2/fMnHwOr5q6cc4ed7DiBjwcswSfZTbAlEtAyvV3CbBPoyNuskgh6ss5by
-	j92LBFQg==;
+	bh=8UlTXmqTD0hVxGuezAQrdINnlLV/4cWXAbXA5kGF8qk=; b=2Fict9ajVdG+VNFv6zq4gThH3y
+	BvrlISr6DPW4r2TLTG3m/3Cq2Wzw96SwyFxgHk+C8KKkYyBcpMMTAAbWPfavNXzzuTbGkbY/hPlQn
+	2UVOZHmUC0FGLRfw4HVhddMjsXGSPSJ0QlJd8jGsDtj1+1cUxm4O4iz1dr2a86JwVaifF3xRnXHb4
+	EO06HJ5gSjp3rsWZEL37kufP2a2uaXd7qEopovuUjnEodOX7WTWjqDpKLKY8Pfj4EmanBegDGbDS5
+	EPGify/s+/aOhjnUl7gw4b+wzGdtU/y6whzEwVcC9LVCiGZzCrbRUtOWokR+AeoMxHlb3ZfMauW2N
+	keWHYKdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8Pr-00000006fQ5-3g7j;
-	Mon, 02 Dec 2024 15:32:51 +0000
-Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
+	id 1tI8Qp-00000006fZ4-29Dy;
+	Mon, 02 Dec 2024 15:33:51 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8Or-00000006fIG-0Irr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 15:31:51 +0000
-Received: by mail-wm1-x344.google.com with SMTP id 5b1f17b1804b1-434a044dce2so55568685e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 07:31:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1733153507; x=1733758307; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QJFQOhHvRWMfU0TK3Z+kwO6rmT9pNjzCjW1otfK4k08=;
-        b=IfYVFOSUpzuAHGS+/D1WFDR9ofomHQj5aPWoFm/EQfuyIUTekqpMCmcuP3tI5210dC
-         WTtJvZw45/s3dNIkewrwNm9ol0CZPdGVDfbGIrv5UanuXwU5z1HYJSnGR+c6rGXSx/KQ
-         b2CVJDGMg4z6zs0xFlHRgoMl6AckgXAycxE+s6zz1t99gDR85fKMs/FfXSbKqloTp6m4
-         4QmPqrULhqne1blfTUkaHdrhTZ9WVqPrMer1EyToSjMk3tlLy/2mzFJoIcHSvVaHuHzV
-         Ke5kKa4lPyjdy2FO5thNK8tLfJEk8KZMuoQgMpnCYGXltrNL9+hy+AAofYt2IkmZscL0
-         gIXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733153507; x=1733758307;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QJFQOhHvRWMfU0TK3Z+kwO6rmT9pNjzCjW1otfK4k08=;
-        b=G77PYv+c4mOYYtWLd3iKonRqICML9BG17qVUR6PUPwTGbJX/sbUzKZhUY8Smk2chht
-         arowyh+leID6rF9NfpmOGbhdW2nPEz+ZWZnGb/EuWOBZMrNoFOFbmDec0jde+jFkUSNq
-         DAJNCeWF8Nqgpa5gZvht4aeRTI7hDhh4525v26dxmylpwFTQunE3K1uspUuiPAsOjr+d
-         SmVhcOQpP+uk0lcBcztjhcPf1WaMf9oSop5niRPyPau4es+ot0wsHzoXfH08klwc0qY4
-         zkCl0xLtWM9KRnxsVaB3iFkgPpMPi900RvVHzsSEkgoafQwuuzbqg2zXg5ZL4JTw0KxK
-         RmoA==
-X-Forwarded-Encrypted: i=1; AJvYcCXJDYpVt6xX/JlHWnCjSaFwILq/l+6XWnXP+ULrxvvRFTlC5Hbdrn1a4Xwtu0cWuePW6zeAcv4nr4pnJy5VjTkF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhPZsjmJA4WhZGIgNoqtGMvM3Menueu6wkUzas0FFBAkLgnR6s
-	CnnTId6gBJW8f1GYh3WiAgCi0/NSwE2hLRPsNQzb5o9q272kxwWA/qgP22ZFWSk=
-X-Gm-Gg: ASbGncssTDwHAvJnYrJokFPhrE3nY0pJTcahGN7Kt41RJGLRCXLlNR7OlgOUkXv2yt5
-	h7lTkI35RFxXEzXRbKDyteOmxHgbLgokxgSAET53FiBq6CDqoHEqFXKezVSJRzhvuRqgM5xc6aX
-	F1o1A3/wOUBTCRi7dXZZ1GNIYU0IfjWPpV1okwP5c8ZgiqSJH8jOV/fEmMRGismP2QtWlLDRtYB
-	TDYkCkzA1cXm9wdL+m+RFRZ5Ff8yQ5xhUC0hclvctNVnqr5MLMKh5g=
-X-Google-Smtp-Source: AGHT+IHMBE300Bcm54Mmq/v3tBkO0lxgfJUVqj14Z7wnWfcFOCNvI3wDAreuaFWCRfOaW1RTUGcZhg==
-X-Received: by 2002:a05:600c:458b:b0:42f:8229:a09e with SMTP id 5b1f17b1804b1-434a9df7b85mr236310305e9.29.1733153507008;
-        Mon, 02 Dec 2024 07:31:47 -0800 (PST)
-Received: from localhost ([2a02:8071:b783:6940:ebc7:b34e:f4a6:7947])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434a5dfc03csm105063765e9.2.2024.12.02.07.31.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Dec 2024 07:31:46 -0800 (PST)
-Date: Mon, 2 Dec 2024 16:31:44 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Chanwoo Choi <cw00.choi@samsung.com>, 
-	MyungJoo Ham <myungjoo.ham@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, linux-pm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH] devfreq: Switch back to struct platform_driver::remove()
-Message-ID: <ecae7326gzjpwpg4a3ba2dgddh4jg362ybsf64xla4lyff3mk4@x3q6bocz2car>
-References: <20241130135813.895628-2-u.kleine-koenig@baylibre.com>
+	id 1tI8Pb-00000006fPC-3NUO;
+	Mon, 02 Dec 2024 15:32:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=8UlTXmqTD0hVxGuezAQrdINnlLV/4cWXAbXA5kGF8qk=; b=QyFbn5MsXOAB+vwNcAdb4r2vc2
+	aKxodi9VxRUY66kSLGVZG9oKFfGaFvxXR6TGHBte5e+HKAroErJ7vVvhQ3KOwa4YDp7pr91br84yR
+	2jOW0jBwU5REZorAdkouPFHGKCbSi94tCM0TAZ8cvxO4qWZxNJ5xvKeEZ4dMa+3aBTOPibU79NqJ7
+	6AZrFbzWY8CoXvUibAI3BFzne7RNsFC1qXGZHra+Bvtrz5xEdQrrL5V8f1h526gDWDxPdaZnIJYkU
+	dA/QOUk4WpzSD0TfSOeAJvFTrOxJZIi0F0R91t103NnhfF0b5L46Rpq6yjSURfPxw235INQrRmtyI
+	l1Aj/lAA==;
+Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tI8PM-0003np-2f; Mon, 02 Dec 2024 16:32:20 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Diederik de Haas <didi.debian@cknow.org>,
+ Dragan Simic <dsimic@manjaro.org>
+Cc: Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>,
+ Peter Robinson <pbrobinson@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: rockchip: enable rng on all rk356x
+Date: Mon, 02 Dec 2024 16:32:19 +0100
+Message-ID: <2377405.n0HT0TaD9V@diego>
+In-Reply-To: <c50f603a9e1a819f17f72e97e92aeebd@manjaro.org>
+References: <20241201234613.52322-1-pbrobinson@gmail.com>
+ <D6175VTSP13T.200HWIIHOIDQQ@cknow.org>
+ <c50f603a9e1a819f17f72e97e92aeebd@manjaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="peon3ci7jqimuqo3"
-Content-Disposition: inline
-In-Reply-To: <20241130135813.895628-2-u.kleine-koenig@baylibre.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_073149_321180_791BC795 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20241202_073235_871580_8438DDE5 
+X-CRM114-Status: GOOD (  25.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,52 +78,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Am Montag, 2. Dezember 2024, 15:50:07 CET schrieb Dragan Simic:
+> Hello Diederik and Marcin,
+> 
+> On 2024-12-02 13:01, Diederik de Haas wrote:
+> > On Mon Dec 2, 2024 at 11:40 AM CET, Marcin Juszkiewicz wrote:
+> >> W dniu 2.12.2024 o 04:55, Dragan Simic pisze:
+> >>  > On 2024-12-02 00:46, Peter Robinson wrote:
+> >>  >> The rk356x rng is available on both the rk3566 and rk3568
+> >>  >> parts, the IP is all self contained within the SoCs so
+> >>  >> it's enabled already by default on rk3568 so let's enable
+> >>  >> it in the base rk356x.dtsi so it's enabled consistently
+> >>  >> everywhere.
+> >>  >
+> >>  > Please, go through the mailing list threads [1][2] that have led us
+> >>  > to the current state.  To sum it up, it isn't about what's 
+> >> supported
+> >>  > in the two RK356x SoC variants, but about the RK3566's HWRNG being
+> >>  > disabled because the testing showed that it produces unacceptably
+> >>  > low quality of random data, for some yet unknown reason.
+> >> 
+> >> So maybe there should be a comment in rockchip/rk3568.dtsi so we would
+> >> not get back to it again.
+> > 
+> > I suggested to put that in the (original) commit message:
+> > https://lore.kernel.org/linux-rockchip/6690040.iosknibmi9@bagend/
+> > precisely because this was quite predictable to happen.
+> > 
+> > So a +1 on a comment in the dtsi with a link to the discussion in the
+> > commit message.
+> 
+> Totally agreed on adding a brief summary to the RK356x base SoC dtsi,
+> so I went ahead and sent a patch that adds it. [1]  I also expected
+> that to be described in the base dtsi back when the HWRNG support was
+> added, but it somehow went in without the description.
 
---peon3ci7jqimuqo3
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] devfreq: Switch back to struct platform_driver::remove()
-MIME-Version: 1.0
+thanks a lot for doing that, so I'll drop this patch here now from my inbox.
 
-Hello,
 
-On Sat, Nov 30, 2024 at 02:58:11PM +0100, Uwe Kleine-K=F6nig wrote:
-> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
-> return void") .remove() is (again) the right callback to implement for
-> platform drivers.
->=20
-> Convert all platform drivers below drivers/devfreq to use .remove(),
-> with the eventual goal to drop struct platform_driver::remove_new(). As
-> .remove() and .remove_new() have the same prototypes, conversion is done
-> by just changing the structure member name in the driver initializer.
->=20
-> While touching these drivers, make the alignment of the touched
-> initializers consistent.
->=20
-> Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+Heiko
 
-Note this patch is obsoleted by
-https://git.kernel.org/linus/e70140ba0d2b1a30467d4af6bcfe761327b9ec95
-=2E
 
-Best regards
-Uwe
-
---peon3ci7jqimuqo3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmdN0t0ACgkQj4D7WH0S
-/k6qNwgAiyaoRUBzt+ES/sXpbjU1ikMyNnk8Olj+yqwh6q3TT7T/cGK/mJZ+n8Jx
-Kf/b7GtwcRk3RScaL6SOlRNRgJCTKyfH7s8Ko1mLum0vsaTXMeCq2v3LWmKvMqk8
-IKYihoDhPxfvbFrY6VlUixTkGip8fHGONhs/PShKhoM0Q5UeBXRq0jtssisQqaDj
-MD4pC+pZn9OtMP1OzIoYDm9txIY+TIQfYil1fC3HJLrS+i19CGizdK1R0gaJPl4t
-YRrVt/aAZ09xtLiGt1FM8hS+DbwwIi4/t5eYPFEEzUMxFE1IAMuSkiwcr2GIQ2Wg
-9eZ8IqZADcB+nKoGJhVo+lkPfeR5fQ==
-=TKo+
------END PGP SIGNATURE-----
-
---peon3ci7jqimuqo3--
 
