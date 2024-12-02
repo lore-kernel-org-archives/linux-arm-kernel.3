@@ -4,92 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD39D78306
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:41:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8355D78307
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:44:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jP25TYUqJwcL/fuEV7RObAqteQ/sd95uJofPv025g0s=; b=eUZzqXgPOXEtE7uy8Xxomg/NMB
-	CzbuGW1EW+9uIPQGqD2tMLtA7UemCYJwA1XWCyZRCfybaIPbRh9Zg/lwn3Ak2wLBzjVFrj6ezxkhE
-	ZjvAoIbhrSrDk+b40u0YuwecBsI8JgEqavWedzgLo43KK4Sv0FTpNHxtrQxH7xT9ZyL6P2XpBhve7
-	u9psC/uxhh+sQtGXgJy89nkz9wYvARuNjzf8iZl+2mRpCdkc7eh4+C0ONRBHwSHg4D9px7Q5VWnf7
-	V6j2hmPz7Voj/A9IjEUvzQ02ozn49sC2TWcdySUH1gg9Nv/HbJGX2sHUX5WLyDCus4583IInb34C1
-	wKooo7og==;
+	bh=3XDTr/NR5SD4RF/6LFpn9c+Bv/YVG8nMFpd1E2zXJR4=; b=PGjUMZgsaAr8EHO7md8ipXwae8
+	AtU5ujV1QKhYr0W6oJ1AU7LOn6nOIf/E8wmt73Ob4ckFQRXAyt93cdKvDiMZbaRjNIlthzHcA3C9x
+	ISkrqAJrmyZ8J+u+7t9A8o5FuFMbTZvq2w0UNUoGC3AspqCAuO+Dl0rWAr1pREAK1gNh0+i1WTeVK
+	TO0Vi7ikLD09A7RulS0uDLNAiJ5qCheHZZ4NIZDEjjvIPlmnogQVEhcIEd9SL0mhGfugsrQW4Udyv
+	TCB0ShJaTzvbycJFa2obM/G98FtltlZtAtOjjukRuYGmK87wMqhlud2tEluKx/syouK2jipSWVIJr
+	zQwuUlTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3rX-00000005ktR-3LGO;
-	Mon, 02 Dec 2024 10:41:07 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1tI3uO-00000005lHA-3gW5;
+	Mon, 02 Dec 2024 10:44:04 +0000
+Received: from out-173.mta0.migadu.com ([91.218.175.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3qY-00000005klK-3AOY
+	id 1tI3tP-00000005l8J-08m6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 10:40:07 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2ffa12ad18cso43068341fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 02:40:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733136004; x=1733740804; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=jP25TYUqJwcL/fuEV7RObAqteQ/sd95uJofPv025g0s=;
-        b=sYfidnwPLl1Ou0ren6R2XQYKecD9l8fEbYe4NbZBz8eFfpcOSXj5aKNdjZG6wjRXa1
-         UiAo6O/k1/qndKYXsQqV3wsgTPavCXbgwJiMey3cNIL9m1IvsEfyNfuRVB2oW6+AxHtt
-         gAvZhor6QTXiLA9TPkVDfmtEoEs+jPplGtgOKhdOYHOd2w96hMpvWhJss5sRJ+WQ2wQ0
-         D3pQR4umBwS0XLuHJkFQabmf88M5TNhj6fhVUt0QQaLRqGh28lL90w2Kkp99pjtKbPXW
-         +eSD6DLgGM9kis+r2XIJvHI2O9JxWqEmBW4/u4ngmd0PEbxIs0bfkkuxb5ntMG/L6fUV
-         paQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733136004; x=1733740804;
-        h=content-transfer-encoding:in-reply-to:organization:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jP25TYUqJwcL/fuEV7RObAqteQ/sd95uJofPv025g0s=;
-        b=t6bqr9EhI59sPxqDipuLr2dRcjswj3APzEHUwWbhWtpQolGfC475wxm3I6qx1HIO67
-         H+SUzq0QaEeIMd3FA/iCXSiGqcWlcpMuvg2XeHC8Uq/Kv9MpHG3Rt1us9h6M3FEgKxaw
-         l9coVeSdB7E60aXznk1K6e+Szkhjzi9P8xWHnoiWtRB0K0P2DfN+6+U/NtlI76wmw92d
-         /f/MqK9XsbBNLI7qyUsuscTKzmy8EHtSq/1krKNE3Xlfok5gj2KpF5bsmW8bGU8lflxy
-         pRoXzshkjvLOCSR03kLJSyZI96nIyZgGxqTlym+VB5Z9oOyjUdsbKBVVum8YII7R7WKs
-         Uvcw==
-X-Forwarded-Encrypted: i=1; AJvYcCWljuIoJkIOs3lqNyI3LmDUpVyDsnFnI26YAcNlaPjTv9sc76PUYjj0AMNFKQVInBwwMTYYI1dIBrnGVpEJn4wU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyszBzC0tOeRe2Txw6c1X4//G77PfKO4ca4Kbvj+uby7oDe+23G
-	+2RJZg1xcRGRul1gTwu8IyFcR8KRXeZN1ePvqBXNHUQjiwKJ+gLXwUPW+6PcQgk=
-X-Gm-Gg: ASbGncvYe+89pKm0cm6jSuRzlRLc3lRiIaqg1Yf685AllpJ2dwLPHVN8WTLhql1MqHo
-	xFOODBTrePK3grDc05WLBRevqSmkaIVyn+QsLhc+sxg/lyGUaB73NLeitVgFujR63FVS+0bH0GJ
-	xJQH/jhZxf10pvy3qnWOR5XIUW1SmqZjEnT02qHSQ9El6mXAFYceAYVwvaRo/VNCkn1ZuWJ8Orz
-	YW1VEKBtHQtGoTlWdzaHhYtBVVyr4zxV4tMXnIQT8aaeJemqHLtQo4R2yQb5WfIe+Vf6VS9VgFA
-	ilwLVvQHmfavxOSnyGaqRWlHSExL
-X-Google-Smtp-Source: AGHT+IG8o/j6bnKJ+zKrlKTnEYo13Y0X3dZZFejDWDKGBLT2LAuwWFwKmgOXvNqPPtyC3J1B7R4CZg==
-X-Received: by 2002:a2e:a54b:0:b0:2fb:8777:7359 with SMTP id 38308e7fff4ca-2ffd611bf55mr110031081fa.39.1733136004456;
-        Mon, 02 Dec 2024 02:40:04 -0800 (PST)
-Received: from [192.168.210.26] (83.11.10.28.ipv4.supernova.orange.pl. [83.11.10.28])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ffdfbef7a3sm12397121fa.45.2024.12.02.02.40.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Dec 2024 02:40:04 -0800 (PST)
-Message-ID: <b50376c7-c5d5-41ae-95ea-e2d68c1cc809@linaro.org>
-Date: Mon, 2 Dec 2024 11:40:01 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: enable rng on all rk356x
-To: Dragan Simic <dsimic@manjaro.org>, Peter Robinson <pbrobinson@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <a> <20241201234613.52322-1-pbrobinson@gmail.com>
- <302bdae2f4defeefe88ea4018a0be11f@manjaro.org>
-From: Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>
-Content-Language: pl-PL, en-GB
-Organization: Linaro
-In-Reply-To: <302bdae2f4defeefe88ea4018a0be11f@manjaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Mon, 02 Dec 2024 10:43:04 +0000
+Content-Type: text/plain;
+	charset=utf-8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1733136179;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3XDTr/NR5SD4RF/6LFpn9c+Bv/YVG8nMFpd1E2zXJR4=;
+	b=vhuZPDWqgm76+q6ewLyMPCFh8xtFQfXZpnLlBP0GtCbRbGS5yT0vzIKcSESow+4tTUjouB
+	g08a9i5/NwhtOCRQkg+Av6KW+WHzXN8pNNRJsbcJ+Q0GCe/WY+fj+dLLEkg2Ci3n4L8xgO
+	IUyrOUDIcHYs9nOTbaUGL5ln6UQ2oNQ=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.200.121\))
+Subject: Re: [PATCH v5 00/43] arm64: Support for Arm CCA in KVM
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Itaru Kitayama <itaru.kitayama@linux.dev>
+In-Reply-To: <20241202102632.GB1704077@myrica>
+Date: Mon, 2 Dec 2024 19:42:35 +0900
+Cc: kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>,
+ "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <4313C668-D48C-4443-917E-67A112BE1C37@linux.dev>
+References: <20241004152804.72508-1-steven.price@arm.com>
+ <Z01BYOgsLXV5yULk@vm3> <01205247-ffcd-439f-b00f-d8e70720d049@arm.com>
+ <20241202102632.GB1704077@myrica>
+To: Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Steven Price <steven.price@arm.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_024006_800612_C000F68E 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20241202_024303_365478_76D9ED54 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,20 +91,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-W dniu 2.12.2024 o 04:55, Dragan Simic pisze:
- > On 2024-12-02 00:46, Peter Robinson wrote:
- >> The rk356x rng is available on both the rk3566 and rk3568
- >> parts, the IP is all self contained within the SoCs so
- >> it's enabled already by default on rk3568 so let's enable
- >> it in the base rk356x.dtsi so it's enabled consistently
- >> everywhere.
- >
- > Please, go through the mailing list threads [1][2] that have led us
- > to the current state.  To sum it up, it isn't about what's supported
- > in the two RK356x SoC variants, but about the RK3566's HWRNG being
- > disabled because the testing showed that it produces unacceptably
- > low quality of random data, for some yet unknown reason.
+Hi Jean, Steven,
 
-So maybe there should be a comment in rockchip/rk3568.dtsi so we would 
-not get back to it again.
+> On Dec 2, 2024, at 19:26, Jean-Philippe Brucker =
+<jean-philippe@linaro.org> wrote:
+>=20
+> On Mon, Dec 02, 2024 at 08:54:11AM +0000, Steven Price wrote:
+>> Hi Itaru,
+>>=20
+>> On 02/12/2024 05:10, Itaru Kitayama wrote:
+>>> On Fri, Oct 04, 2024 at 04:27:21PM +0100, Steven Price wrote:
+>>>> This series adds support for running protected VMs using KVM under =
+the
+>>>> Arm Confidential Compute Architecture (CCA).
+>> ...
+>>>=20
+>>> On FVP, the v5+v7 kernel is unable to execute virt-manager:
+>>>=20
+>>> Starting install...
+>>> Allocating 'test9.qcow2'                                    |    0 B =
+ 00:00 ...
+>>> Removing disk 'test9.qcow2'                                 |    0 B =
+ 00:00
+>>> ERROR    internal error: process exited while connecting to monitor: =
+2024-12-04T18:56:11.646168Z qemu-system-aarch64: -accel kvm: =
+ioctl(KVM_CREATE_VM) failed: Invalid argument
+>>> 2024-12-04T18:56:11.646520Z qemu-system-aarch64: -accel kvm: failed =
+to initialize kvm: Invalid argument
+>>> Domain installation does not appear to have been successful.
+>>=20
+>> Can you check that the kernel has detected the RMM being available, =
+you
+>> should have a message like below when the host kernel is booting:
+>>=20
+>> kvm [1]: RMI ABI version 1.0
+>>=20
+>> My guess is that you've got mismatched versions of the RMM and TF-A. =
+The
+>> interface between those two components isn't stable and there were
+>> breaking changes fairly recently. And obviously if the RMM hasn't
+>> initialised successfully then confidential VMs won't be available.
+>>=20
+>>> Below is my virt-manager options:
+>>>=20
+>>> virt-install --machine=3Dvirt --arch=3Daarch64 --name=3Dtest9 =
+--memory=3D2048 --vcpu=3D1 --nographic --check all=3Doff --features =
+acpi=3Doff --virt-type kvm --boot =
+kernel=3DImage-cca,initrd=3Drootfs.cpio,kernel_args=3D'earlycon =
+console=3DttyAMA0 rdinit=3D/sbin/init rw root=3D/dev/vda acpi=3Doff' =
+--qemu-commandline=3D'-M =
+virt,confidential-guest-support=3Drme0,gic-version=3D3 -cpu host -object =
+rme-guest,id=3Drme0 -nodefaults' --disk size=3D4 --import --osinfo =
+detect=3Don,require=3Doff
+>>>=20
+>>> Userland is Ubuntu 24.10, the VMM is Linaro's cca/2024-11-20:
+>>>=20
+>>> =
+https://git.codelinaro.org/linaro/dcap/qemu/-/tree/cca/2024-11-20?ref_type=
+=3Dheads
+>=20
+> Indeed, QEMU branch 2024-11-20 has to be used with an older version of =
+the
+> KVM patch and older RMM. For KVM v5+v7 you need the most recent QEMU
+> branch, confusingly called cca/v3 (because it's the third patch =
+series).
+>=20
+> Thanks,
+> Jean
+
+I wasn=E2=80=99t applying with the updated Shrinkwrap=E2=80=99s overlay =
+file when building TF-RMM.
+With the correct VMM as you guys mentioned (cca/v3) I was able to start =
+the installation via
+the virt-install interacting with the Ubuntu 24.10=E2=80=99s monolitihc =
+libvirtd.
+
+Thanks,
+Itaru.
+
+>=20
+>>=20
+>> I don't think this is the latest QEMU tree, Jean-Philippe posted an
+>> update last week:
+>>=20
+>> =
+https://lore.kernel.org/qemu-devel/20241125195626.856992-2-jean-philippe@l=
+inaro.org/
+>>=20
+>> I'm not sure if there were any important updates there, but there are
+>> detailed instructions that might help.
+>>=20
+>> Regards,
+>> Steve
+
+
 
