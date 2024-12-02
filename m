@@ -4,56 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D051D10DCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 09:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287CBD10DDE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 09:53:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WpJ1eAcNnmmGykmdmUW/MBd+rg+EnEJfn+tXJmlEBec=; b=z7eI2Q+hBx+3b8ejjUlJPyPq65
-	pdu3hlrfvxLf2c/YUseaUJnWRZObEg7wTL2DRh3dyvl3/u6v08rRlqMnySV8d72uRnfpXSDo6zjFE
-	f/x0VzzCPFd3zxrE5U4rz6hWAuy7/T31dRM1IJTgjtG4zQoVq6gxjPaypq3NDnbUyN4rfsYJfDMKp
-	jiYp4LeU68sqQ4Od37f8Tuq8BWXWbh4XICe+0naObO0IiX/SXsWtT0sYKz9eJDCYs1FEYCHy6dSDd
-	vCPqmCK4udXW57yMDU4FDsuGueE80MztITFdGV+A3XWIvmmtN2NfoJ5M5tCvbi4jMGc/I2y2hVvMt
-	loGeqj5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iXgz+7R7UFZOhCrpab9KPYwxBnwB9NGWrEa1XDoD6y8=; b=bLjQcQpq2atGd4Vnhy7BnR2Xy9
+	JWwtU3ZwX1tOfUtSijLqLuRGRWSTffXoj4IhhWmns9WWJmITdrZfytFeXO/yQDanFMEwCKIhG4oBh
+	X+EK6kDEzGwV0JH21MWHy02QT044rEVmpPxqVO+6qy6m1Jw+dnH1FVUhdbGm5QiY2OkwHFpLR79kj
+	d6/8f5nMF4zo04aIEVaZQZOfIlceOIrJbeJubNtyy+2PiMsFvMYmrCN6WjsFMSVe8qBmbt5Ehc+/M
+	MaLgoCnwkSKd8N7FmpHvdW+/2Hl19+HY0MN0FQk7slHjrRJy8OYnkXXyTJxa6/IR+ZTfZ2jfv21o/
+	n87zDaUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI32C-00000005c7s-1kIT;
-	Mon, 02 Dec 2024 09:48:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI31C-00000005c34-4BFb
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 09:47:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 68A4EFEC;
-	Mon,  2 Dec 2024 01:47:26 -0800 (PST)
-Received: from [10.57.68.33] (unknown [10.57.68.33])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 745223F71E;
-	Mon,  2 Dec 2024 01:46:56 -0800 (PST)
-Message-ID: <62f5d1c5-05bd-41b6-8703-baacec3e2619@arm.com>
-Date: Mon, 2 Dec 2024 09:46:55 +0000
-MIME-Version: 1.0
+	id 1tI37G-00000005d6d-3io2;
+	Mon, 02 Dec 2024 09:53:18 +0000
+Received: from mail-db8eur05on2060c.outbound.protection.outlook.com ([2a01:111:f403:2614::60c] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tI36G-00000005d0m-4AR6;
+	Mon, 02 Dec 2024 09:52:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FbD93iO6SxQ5zQQqaNKty4LbbGCWwxkL/b6t9Q0XOqp6lMR2MnoLLN3W1aq1VAf6B75uXJ/QTtmZazUKj85EEyadd96D2JLRskQGa0plCsbmyljZyuAGcytR7WFCsPDGzQ0cL3ZNQruv5SsEOPGrOMj15JWxKgftQQ6QGCDZzAclx+fSK4ZvcgOc6XgwOShx9o4Nh7b0uk8qx88LwLzXHtz+TNIYzp40wn81bmLi2TkWckvLqlkAknB9oShIbLFb3fuygIqReoBvwwd+oHOvzLh7Nbi2DOhEXLagxri6h2q4pL5+4vZZGkAWtY4+7FTfSRoC1TLOsxQubAM2jAjAKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iXgz+7R7UFZOhCrpab9KPYwxBnwB9NGWrEa1XDoD6y8=;
+ b=ThJaZsHXSMT+yYY1tB6pDPrMgCJndu4Zc3nlEHcJC6mdh4Bvj7FjMeG2htPlS7rcxiYaKub6/wTEw80j0kfymGi5RQ0LI+mkFbddj+tYfm4lG3/MNyv6OZS5id/hUU+/d/OVLxGJT0i4GMSTXjMImW4u9O0I6xLQmbv+vA7kxoHdkBaHuLe0DMbqeSiUqaVEXCSZzKgHBrdVUYfIiCEXAvwtFgPD0i3WvB1emTFKnFnB3XHI8SwQEPyi3dkLEl2T3KgfsOOorQELADv0YX3/zegMklbLluNIfWcIZtB2qKHZqu/ePaKjttnA6pC6LPtsHjBgvgu8g86v/v8LViDf0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iXgz+7R7UFZOhCrpab9KPYwxBnwB9NGWrEa1XDoD6y8=;
+ b=hjpmb72GKtbdBr8xsC7cdBh73uJRjoOWgrIUioN/cyjrDfvk43qGAd5GSbpVz58PNk9CWlkQdzpzz2DdYNYkcbeQNgvoWfUVmnGZRZFAkYwLf++J0EiBVpelsMnp8plkZrD4J8Gx83THTHLSGav/hCNxoFmsxsmheyGSzbDT7Go=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by VI2PR04MB10764.eurprd04.prod.outlook.com (2603:10a6:800:271::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.18; Mon, 2 Dec
+ 2024 09:52:07 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%7]) with mapi id 15.20.8207.017; Mon, 2 Dec 2024
+ 09:52:07 +0000
+Message-ID: <63b3be80-cb6c-49e5-858f-70fd826140c5@cherry.de>
+Date: Mon, 2 Dec 2024 10:52:06 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] coresight: tmc-etr: Fix race condition between sysfs
- and perf mode
-Content-Language: en-GB
-To: Yicong Yang <yangyicong@huawei.com>, mike.leach@linaro.org,
- james.clark@linaro.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org
-Cc: jonathan.cameron@huawei.com, prime.zeng@hisilicon.com,
- hejunhao3@huawei.com, linuxarm@huawei.com, yangyicong@hisilicon.com
-References: <20241202092419.11777-1-yangyicong@huawei.com>
- <20241202092419.11777-4-yangyicong@huawei.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20241202092419.11777-4-yangyicong@huawei.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: increase gmac rx_delay to 0x11 on
+ rk3399-puma
+To: Jakob Unterwurzacher <jakobunt@gmail.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Sasha Levin <sashal@kernel.org>,
+ Iskander Amara <iskander.amara@theobroma-systems.com>,
+ Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>,
+ Vahe Grigoryan <vahe.grigoryan@theobroma-systems.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241202090408.201662-1-jakob.unterwurzacher@cherry.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20241202090408.201662-1-jakob.unterwurzacher@cherry.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR2P281CA0028.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:14::15) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|VI2PR04MB10764:EE_
+X-MS-Office365-Filtering-Correlation-Id: 930ebb99-24b3-44dd-b6d1-08dd12b6fb96
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z0xWWktmMFFKbDBkZUt6YXIrcGRtY1NkQStQbzZrSUpGdHc4S3B5K2xhQjZ3?=
+ =?utf-8?B?NkRZeDJEdjBMUGtpZGdUOC9kNXUxQmxKdStiM2RXTlhCbVF6VHRTejIrZzA1?=
+ =?utf-8?B?YlBiRlpubDArY3RUWFJGV29VZFJVbEtKQ3hUM1grNkRDZ1RtM1ZuWjZyNFV3?=
+ =?utf-8?B?NFk1b1hCNjMxUE9mVVBEMXk4NXJETSsweFM3Zm9LMmNzODJ2aFkzVmkwYmZn?=
+ =?utf-8?B?cVVPZ3dodEoxS09ZZTJWVDJHOTNzN3Ezdk5JYVBYU3dLRFo1WEFTUjBIYTdZ?=
+ =?utf-8?B?R0dReHlxaVNXUWRjbzVZdzk5bHRHR3piaVAwWkZUTDNvbDVxVno4L0x2cVlD?=
+ =?utf-8?B?Undla0IwOHIrOXZxdHlrMXE4dlArd2dlbmRYWFNSVGI1ZmJ5VnptQ2laaElk?=
+ =?utf-8?B?Y3hKSzdZNUp5VkpCREhINlc3aHZoWHhFaERDRkdTZlM3L2tqUEJlS1lhaFJL?=
+ =?utf-8?B?RWtKRzJNSktXblpZZm9teHE5U0cxSVdzQ1A5N2g3U2pPcW9Ld3ZpZ2VkOUx6?=
+ =?utf-8?B?L05WZzBoNkFQbWxjRlB0Tk1yK3ZsQlhFdG50Nk5zK21vQWlHNlYramZSNEl2?=
+ =?utf-8?B?TjltRWpOR0xBUGE3QUdWZnlmU2t0ZlV4WlVGSE1zYWg5cUgrQUd4K3FGMm5J?=
+ =?utf-8?B?b2tYczVRZzNiR2F3Z0VHaURFQVFGY2J0aURYVGxHaFArR2syangyM3JCOHJj?=
+ =?utf-8?B?eUVzSWxCWVNOTDFkMG03cHlyL1lpWEFDSHBaaUp0S2JFeHRRdllRM05yMENL?=
+ =?utf-8?B?NVlqdmE2dWNNaG9VUzZlZDJIMDMzeENQMjZjYkRJaEltVnMwYVZxM2VmQUQ3?=
+ =?utf-8?B?bjNjNTJUV09CRUNBNy9ERVlXRFg5NHdsVXgyRjhhbDVibjJhbGFYZmRvRW1J?=
+ =?utf-8?B?WHgzTU1OMUtjb2ZadnpFa3lPK2VTL0U4MlI4eTloOEdZV2ZoN2o4WjZvdWFi?=
+ =?utf-8?B?VzY2QjNWTDB5dG1EM3VNUDBzcERRdmM3YUdhSWxtaExPUkszWWRFSHUyclBa?=
+ =?utf-8?B?RXRFT2RUOHdGYnpuanRIM3M1Yjl5S3ZtVFNaTDBFQlBzTTRhbjJmYURUOTlk?=
+ =?utf-8?B?ZHdMdVYyeWZNL0tUV1l4SHI2WXk0VmlLM2U3K3JIbDlZNytuSHRXMXpRN1h0?=
+ =?utf-8?B?dG1VMFovVC8xclUxVWFqeW9TZzVJQUtGR1g1WHVQbDBmZFBrdFptVzFEQzhp?=
+ =?utf-8?B?OTBMY2FKWEc3THY2SEgzTkR2a0NHNjRXRDNHMFd3VjBscjlmenU1ZFF6bWYy?=
+ =?utf-8?B?L3l2R3p6MEt5Zk5zeHg3TnNOU0dmeEcxaW0vQlZOd1hJcDBtNWNpd2xvdHVZ?=
+ =?utf-8?B?RDN4NFVwWGxVYXVqTjArQW1KNGt5M3dIK1hjM1JQNTdrNFU4bFA0YkJMbmdv?=
+ =?utf-8?B?NEJrMklpTU12VVBPYUNuTXBoWmdqUjN3U2V0VTFWZkNVVm16N2J6S0owcTQ2?=
+ =?utf-8?B?UUswRWFlRWVRaTAzZURYcVIrYlBUUFJDOTBNYmlxTWNsdUFaY0ZCNk5Eak1Y?=
+ =?utf-8?B?KzhBdU9URG5mOERiQnBrV2puc09ZSkNrTlpGQjBvYlQvTldqL3RiQTY2R3Y5?=
+ =?utf-8?B?MXpkRzdkREFReHd6SGlGaWZycTU3aTFLOWh2YjJXOFpnUjRaRERYTHc4elF3?=
+ =?utf-8?B?Y0M0bkloRWpFZmY4V0tkc3oxeU5LUTJseUo3NW9YNWVQVDdhanVaNmtCSzdP?=
+ =?utf-8?B?WlN1a0VDblNIeW8xaEQ5b2pjWkVBZnhlVXB6RFJHSUZ2dUFIQnZ2ZXRFc293?=
+ =?utf-8?B?NUVRai9oc0RGNklHODVWZkhxU1lXdnd3NGxLSTlMZ2hNY3phajFpWmtFOWpI?=
+ =?utf-8?B?RjhReTVRdjBtdUlORGJiUT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TEl0cFJCT2VDcDZGYnhXNzFjMWFBVTBuRW5JTDFPZWo1WnJhNnE0TDQ2dC8x?=
+ =?utf-8?B?VEJsUjdweUtIQzVjMHlGeW0wb0tLZlJqRUc1eStIZzBKeWJqNWYrTi94R1g4?=
+ =?utf-8?B?eFd1UTU2enRrcTIxSWJqZXc4c211VjI0QTg1eUFrZC9lQmcwNEpib0c2L2dO?=
+ =?utf-8?B?Z2cyZ01EV01LQUw4WkhSSENtTXZOcWpCajhHbkdQNS8rZWw2cmNrQlZDalZH?=
+ =?utf-8?B?Ky9Ga3c3TlI0TlhDNkZzVnVQRGRBVGJSWlRIbUtrczY5SFNrL3ZnRGhWaEhN?=
+ =?utf-8?B?L3ZKMXdPbnE5b3NsOVYyQzJ1alk2MEtsRDVaM2t1M2c5UWRSMHlTdmpvZVhJ?=
+ =?utf-8?B?S01DN3BkWEN5M0RNQUpSS2dQWGNuMWw1VUhRTVVYM0tQUlhHRUdkWE5kT2pz?=
+ =?utf-8?B?NFhGT00vRmozV3h3Y3ZvbmZ2SVJmMFNnZlFobzFVb1hyMGROSnF2Ni9JcW15?=
+ =?utf-8?B?RXEzUjZMeWkwelEvRVpJckpiaENuNWFWN3Jvb2VYNUJGb0tIdG5HY0pPZ2t4?=
+ =?utf-8?B?ZUQ0Rk9UUUFwalNyMlY4OXJOWDJtVEI4RS9qcDJrMlVsdXhtNUM1QlNtUnhx?=
+ =?utf-8?B?NzVjSjNOVFlwWUlmRU1USHZOcWsxaEZURlVrOStQMnFIU01SYmtPckFnTFF6?=
+ =?utf-8?B?K1E3RWRuQVdyK1BLRXdaVGhvSzAxakltZGwvWnVlSXY3YnZ1VWRlZk0vQ0NZ?=
+ =?utf-8?B?ZWdVbnBVSVRKR3J6UjFHck5uL2ptN3VCVEQ5TW5DUGpQR2FFbExUTXFWbmRR?=
+ =?utf-8?B?akFNcVdIY2hjRDZHeXV2TzhPV1VlNURqUFduampJWGdpc3NiNU1BL0tROENq?=
+ =?utf-8?B?cDhIRis3N3NrYjluRjRjbTJibkZiRnZVempnZXdlUEtBemQ5MXgwbnB2Yk92?=
+ =?utf-8?B?THV3RTlhL285RVNhUXd2WGQ0Y0RnUTNrZUxSamg2c3VDNnQvMll0cm04SXpF?=
+ =?utf-8?B?M1NUWlVoQVV3bU1VaFRXc3RyN1U3czFpMlI3TzBuMndhNkFyZGdKdTQ4QnVn?=
+ =?utf-8?B?Z1pUd0xkQ0w3WC9OanRKek16VVVwRk01VlNsZmpGZDVSS2trTWZqdUpsbmcx?=
+ =?utf-8?B?OFlvNEs5L3pFRDFMTUNUSTlBeG5Rb1J0aHM0eDQzZkNtTkx3VXJ0YXJQSzV2?=
+ =?utf-8?B?M2tzRHRxVyswNzJGaFRtK0tjU0hGMGFDTkN1eVNUeWJhd0FqanJZUlIxZkpn?=
+ =?utf-8?B?M0U1WEF0MDBTcldaSm1DbDZQT0Z6N2t0ZHd3bWd0dWVYd3RhVzJZck9GWGc5?=
+ =?utf-8?B?MUdJTy9Zc2w2a2w3cFZTSVlRcG5pMjhUeTVWNHpGK2tmWHRrTjlXUGU2SmJE?=
+ =?utf-8?B?ZXpkZ1ZxejNOMkRRL3pjRzBxWkVZZVdZRzB4azRVSlZoOTJ5SVpQOC9vMjBz?=
+ =?utf-8?B?K0tLNFZSS096bXRzNUdTV1NLUHBWUHRnQjVITFJZU0JOQlE5NFE0VXVNd2RS?=
+ =?utf-8?B?RXZIV21lTVN2MzM1cUFPNy9MQ0JxRGlKTGN5cnVaZFpHZWNqM0VhenVKRVZD?=
+ =?utf-8?B?bHQvWW50VGhxeVlhOVVaMUtSMXQ0M24vaGpHWlRWNnh4MklBcmV0Q3dRRlFQ?=
+ =?utf-8?B?MnovcHRMR3lFTkovendMWEd3cm52azhacTVHYXRFbEtYTzFINlBnOHc2cEdE?=
+ =?utf-8?B?S2dKS0s3SG5QM2VzWm9ic2hwaGRVb21nblBQeEpDVjlRSExUZUlobFc0QW11?=
+ =?utf-8?B?cDBIRmltK3NEQ1JrZlc4Njl5L25BdEtHSS9IZnh6ZHJVeWxnVjhwUzhaeVBI?=
+ =?utf-8?B?NHNJRTlXWFZLeDV0TXk0UHhRVU9nZTQ0MTZyMjROZE0vNWdubFdiSXBVNnF6?=
+ =?utf-8?B?d2piL0c1TE1LTU5qZFNhTWcvQWlyZWczSVpHNXFCQUNuNFBKWThxWDhKcmJw?=
+ =?utf-8?B?UEpxOXlleUh1ZGE1SkJ5R0k5YWhQRlQ5MTkrYUVoSm1lb2VzUjFxK3JXT3pZ?=
+ =?utf-8?B?V0xjemNLdlNXL3ZaNnluUlh1ak82b2drdmlMOWN1YUFud0dxd0lOUTJKeXpE?=
+ =?utf-8?B?cXlVaUdHV3ZBL0h2V0hXRFNhYmdHRkhaaC83UWVhN3F2ejdhL2VoSmU5R0lT?=
+ =?utf-8?B?eWlRaHhqRjdhemZoaEU4SkZTK1hNWk5NTGlyK1U3WG9RTERZdnh4Q1QrSnRX?=
+ =?utf-8?B?L2R0eFhObHR3cnB6Z1d1enFrRkNmaXoyTnpyVzRtT3lFQ082UlJZb3BHVm5F?=
+ =?utf-8?B?Tmc9PQ==?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 930ebb99-24b3-44dd-b6d1-08dd12b6fb96
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2024 09:52:07.2182
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: agHZADi1Yqoes5pBEYUEOQxoB68VWfukLfDdgdqb5Er9ooCjfPHV2HzMuhPWBWq2bJgWTe9MASkKwCqig8k/AocwAJs5WIBP5FS3fPcyir8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10764
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_014703_130063_37616D23 
-X-CRM114-Status: GOOD (  21.80  )
+X-CRM114-CacheID: sfid-20241202_015217_042059_7EF61407 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,100 +182,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yicong
+Hi Jakob,
 
-On 02/12/2024 09:24, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
+On 12/2/24 10:04 AM, Jakob Unterwurzacher wrote:
+> During mass manufacturing, we noticed the mmc_rx_crc_error counter,
+> as reported by "ethtool -S eth0 | grep mmc_rx_crc_error" to increase
+> above zero during nuttcp speedtests.
 > 
-> When trying to run perf and sysfs mode simultaneously, the WARN_ON()
-> in tmc_etr_enable_hw() is triggered sometimes:
+> Cycling through the rx_delay range on two boards shows that is a large
+> "good" region from 0x11 to 0x35 (see below for details).
 > 
->   WARNING: CPU: 42 PID: 3911571 at drivers/hwtracing/coresight/coresight-tmc-etr.c:1060 tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
->   [..snip..]
->   Call trace:
->    tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
->    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
->    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
->    coresight_enable_path+0x1c8/0x218 [coresight]
->    coresight_enable_sysfs+0xa4/0x228 [coresight]
->    enable_source_store+0x58/0xa8 [coresight]
->    dev_attr_store+0x20/0x40
->    sysfs_kf_write+0x4c/0x68
->    kernfs_fop_write_iter+0x120/0x1b8
->    vfs_write+0x2c8/0x388
->    ksys_write+0x74/0x108
->    __arm64_sys_write+0x24/0x38
->    el0_svc_common.constprop.0+0x64/0x148
->    do_el0_svc+0x24/0x38
->    el0_svc+0x3c/0x130
->    el0t_64_sync_handler+0xc8/0xd0
->    el0t_64_sync+0x1ac/0x1b0
->   ---[ end trace 0000000000000000 ]---
-> 
-> Since the enablement of sysfs mode is separeted into two critical regions,
-> one for sysfs buffer allocation and another for hardware enablement, it's
-> possible to race with the perf mode. Fix this by double check whether
-> the perf mode's been used before enabling the hardware in sysfs mode.
 
-Thanks for the fix. Some minor comments below.
+Is this missing a "there" after that? "that there is a large good region"?
 
-It needs a Fixes tag.
-
+> This commit increases rx_delay to 0x11, which is the smallest
+> possible change that fixes the issue we are seeing on the KSZ9031 PHY.
+> This also matches what most other rk3399 boards do.
 > 
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> Tests for Puma PCBA S/N TT0069903:
+> 
+> 	rx_delay mmc_rx_crc_error
+> 	-------- ----------------
+> 	0x09 (dhcp broken)
+> 	0x10 897
+> 	0x11 0
+> 	0x20 0
+> 	0x30 0
+> 	0x35 0
+> 	0x3a 745
+> 	0x3b 11375
+> 	0x3c 36680
+> 	0x40 (dhcp broken)
+> 	0x7f (dhcp broken)
+> 
+> Tests for Puma PCBA S/N TT0157733:
+> 
+> 	rx_delay mmc_rx_crc_error
+> 	-------- ----------------
+> 	0x10 59
+> 	0x11 0
+> 	0x35 0
+> 
+> Signed-off-by: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
+
+This would be a candidate for backporting I believe.
+
+Therefore, a
+
+Cc: <stable@vger.kernel.org>
+
+here would have been nice (in the commit log), c.f. 
+https://www.kernel.org/doc/html/latest/process/submitting-patches.html#select-the-recipients-for-your-patch
+
 > ---
->   .../hwtracing/coresight/coresight-tmc-etr.c   | 30 +++++++++++++++++++
->   1 file changed, 30 insertions(+)
+>   arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> index ad83714ca4dc..d382d95da5ff 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> @@ -1230,6 +1230,36 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
->   
->   	spin_lock_irqsave(&drvdata->spinlock, flags);
->   
-> +	/*
-> +	 * Since the sysfs buffer allocation and the hardware enablement is not
-> +	 * in the same critical region, it's possible to race with the perf
-> +	 * mode:
-> +	 *   [sysfs mode]                   [perf mode]
-> +	 *   tmc_etr_get_sysfs_buffer()
-> +	 *     spin_lock(&drvdata->spinlock)
-> +	 *     [sysfs buffer allocation]
-> +	 *     spin_unlock(&drvdata->spinlock)
-> +	 *                                  spin_lock(&drvdata->spinlock)
-> +	 *                                  tmc_etr_enable_hw()
-> +	 *                                    drvdata->etr_buf = etr_perf->etr_buf
-> +	 *                                  spin_unlock(&drvdata->spinlock)
-> +	 *   spin_lock(&drvdata->spinlock)
-> +	 *   tmc_etr_enable_hw()
-> +	 *     WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf initialized at
-> +	 *                                  the perf side
-> +	 *   spin_unlock(&drvdata->spinlock)
-> +	 *
-> +	 * So check here before continue.
-> +	 */
-> +	if (coresight_get_mode(csdev) == CS_MODE_PERF) {
-> +		drvdata->sysfs_buf = NULL;
-> +		spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> +
-> +		/* Free allocated memory out side of the spinlock */
-> +		tmc_etr_free_sysfs_buf(sysfs_buf);
-> +		return -EBUSY;
-> +	}
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+> index 9efcdce0f593..13d0c511046b 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+> @@ -181,7 +181,7 @@ &gmac {
+>   	snps,reset-active-low;
+>   	snps,reset-delays-us = <0 10000 50000>;
+>   	tx_delay = <0x10>;
+> -	rx_delay = <0x10>;
+> +	rx_delay = <0x11>;
 
-With this in place, I think we should remove the check for CS_MODE_PERF 
-in get_etr_sysfs_buf() to avoid confusion (which I believe opened up 
-this race)
+While at it, we could reorder this alphabetically and move rx_delay 
+between pinctrl-0 and snps,reset-gpio? c.f. 
+https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html#order-of-properties-in-device-node 
+rx_delay and tx_delay seem to be vendor-specific but without the vendor 
+prefix, but so is snps,reset-gpio so that should be fine to reorder this 
+way.
 
-Suzuki
+Considering we have an option for KSZ9031 on RK3588 Jaguar and RK3588 
+Tiger and the "same" MAC IP is used and that we use the same TXD and RXD 
+delay than on RK3399 Puma right now, I guess we would want to check 
+those don't need a change as well? (funnily enough, all RK3588-based 
+boards in 6.12 actually have 0x00 for rx_delay and 0x43/0x44 for 
+tx_delay, except ours which are at 0x10). Not a blocker for this patch 
+though, so:
 
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
 
-
-> +
->   	/*
->   	 * In sysFS mode we can have multiple writers per sink.  Since this
->   	 * sink is already enabled no memory is needed and the HW need not be
-
+Thanks!
+Quentin
 
