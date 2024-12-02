@@ -4,116 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21124D7830C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 11:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3177D7830C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 11:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+dNlxUlq/zQec54ENuov38IuayLoY+NtEDaFnmM1inQ=; b=JQoDSM3bPWr8mc2wsar9OEKhpA
-	LN9ZSO4WjXy+e0Qobd3zZ/eTWYQVNhQ1IHYg687gWrjZneWfJobmcIvSIpJ+cVB9OSm/NfeLV0Qkm
-	3izyJSpv3bYOPUHLgVgyTXpZGXexSDySkrC5D6ckoQnZKJOX8gJ1g+bZE5EeShGv2x8Ako7td8w5y
-	hyt2MPcE8Bl/ZttndlH0vv+XTlx5GvBqbRZwcxAsZmEXdBi4e7/X2FV+4lVw6Tx1zOmWu38EZhQdx
-	lsKlakZAtyGTLBtKIiIDaBAYJ+FtTR/t/yq+y6fZoOS9gBwVoHTeaeob1ss05OMIlPADcUFOwXLKj
-	uCrxe47A==;
+	bh=KFa/x6NqebHX6NhaPtqvNPNC1BHQhGJS+uZXTpQZhTM=; b=EiI68gp2tPRZKFLxrEK1keP511
+	UMLoWslG1fSJhlI1cIkm4BKHHrgiTVXEwMUyT1Pb7ntspLgcg3FnTRq/RyLfj0nzI+vOoZ0YS6qzR
+	YOhn2nH9n1vXWc3anK1jDCozTuHBYIYW6FFBGqW6iZDpQFA5qEp4oATK3V2DfFTBPptm2ICVWkRRc
+	Me+ssfRmb6nq7npz15F5+iK5glKhRUW1t+TUqhgw169NHOe5eRnwiIiSeIHKUDhVKo8MxznDQDKBy
+	mToiy99HCGPBq1QtBiUleIqni4XAyeK3ToWwg/znUb7nqCeJZ+UngpqUCnpGdb4VXeNryYGO90VcL
+	XfFgqidQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI4d6-00000005tzG-12t4;
-	Mon, 02 Dec 2024 11:30:16 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1tI4e5-00000005uDN-1Uhy;
+	Mon, 02 Dec 2024 11:31:17 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI4SS-00000005rNr-3SlW
+	id 1tI4SU-00000005rPZ-49c7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 11:19:17 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5d0c92e335bso2772347a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 03:19:16 -0800 (PST)
+	Mon, 02 Dec 2024 11:19:21 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5cf6f367f97so5012009a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 03:19:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1733138355; x=1733743155; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+dNlxUlq/zQec54ENuov38IuayLoY+NtEDaFnmM1inQ=;
-        b=JNdZ3Krk6NzQDnVQFijWrXIo47qwZqTUeWIQ8SEiddB0f+SYAzLJVL3aRGRlrVSEj7
-         qx/Pdt0dr0irAzuE58pRSYDTNe+jNpKjjXUCuRMrfN8gPbyCBZzT1SiVbOLWhtzRx/Vz
-         3fLrafOE+6wF27d3Z+Mox9MTXEsp8ICpNSevjX/Vu0LMrAuUYumDokFTsxFhvl/xzMJl
-         gMXJrJtC2JnQ2xhP7UroWWQB4HXN4HQnjEE1EW5fJdhoS8lzqT4HOJ8jUH1MUKnYR5sQ
-         1feQAM8PVmuJEqsTBSVZyGG7xMvcwZqff4LzT39k8g9n9rR/R/VMhnNcHln+lz+wDpg6
-         CsFA==
+        d=linaro.org; s=google; t=1733138357; x=1733743157; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=KFa/x6NqebHX6NhaPtqvNPNC1BHQhGJS+uZXTpQZhTM=;
+        b=tFYzQKqCtZ1Pxr8Z6gQ0hFRNrCl2Vi46CwnGXhfvnKLJIEPLCXIOGtieYFpU3CKujF
+         ymAoQCQ0ekuHegz7U7jBy4ky6X/E9w5Otl/3q1slurcuJrv3Fdy5UXEb8nNJ7ThJQGEE
+         dN36nUMggwoXF0hIZpO94Ih3h7di8XEVitdP/cnV1CDWEJ0Um389woNqRsX0yuO9CsBU
+         UrxP5+IkyjbHbu0fAXHmqnLcnptlciWen1pGnEFHfYzfIloUU27MPn91nT0yT/B7DGMA
+         58Y2gkNekYjLjxhAt2mzo7ps/OUysI7sBn6etSSaUUYIJPZwe9GmULVQQbesiw8rTxx1
+         uo9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733138355; x=1733743155;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+dNlxUlq/zQec54ENuov38IuayLoY+NtEDaFnmM1inQ=;
-        b=F38zOwQAqbHesSXAclUE098kI8bj2yhIHooy7qWhBcEHm6dB7WXGvjHqW1/mqqgt6e
-         2rm1aioGss2eVZFD5BJ8hVrrNNttg7Edy8TKfHDmuHnFm7k2lsj16HFBQTAUxIv73TI7
-         r5sDLWUz2DIbd5izr6cmlIopL3b0QSvXRRLJmBExIz+AML2ed16yQ98tchSOaYwNQpz6
-         +0nkXhRTRyuENUhrCLRzDhTVKvA3YD64mPpBYn207qimdwtJ9lqYmkX70MURcGh6VjKQ
-         K9IpCkJCPWw0VYGZg1bx58eNyQV6ZNz2v7d2bvapiy391eLJdetcs05K8ehgJLqrTpTA
-         EPPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUH9Fg50hT6DSDs4TOULvSWkq8Vv+mS6jDlkbOkBIBj9VmksohrXRvpSEOWIcHU0l+ghAELMIypIF8v4SoOHA9M@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUCcQ4HUU9bRmEpzoES3KV/0p5Q2MUZhb/1y95h65i8sDfJ7y6
-	H2k3vCVXET7RNH4huEPi2WRf0mYw+buUBg5jePxl810EVjVSRuOrCM2r3XZ4JN8=
-X-Gm-Gg: ASbGncvtfhggvrlXtoGlobqmOrBitZjkbhCEDLZlSkhg592qkKL59JEzHXaQi+qgrBL
-	33VJpBo/dyw8juY68rzqFqo/hY7r2OW4961vYq7Sit34ZQSYzWd4DRa/kw7iSikmO/g8rhSJbWf
-	ac95r01enzNg7ZBH6Uihq4Jml5NjLFe0J67Y1iFrEdZLbEFRHwKVhdGYXyLg+vTZVYLaK+GAUJg
-	qWVYnkL51AufV/cAXcOG48UiHNd3tcVKkQluN5I/wIb9vu2Jq8CNGvuTtVAcUIobmb6Yd+tQXXL
-	YVwCn2NunBLoDnzf+06s
-X-Google-Smtp-Source: AGHT+IEh8VAXDJC3bTBBrwDpqq8+bh66QBF8HuQqB3DA5Y6Ne4IKysOOgMjNIKrVqzCRG1epx5t5JQ==
-X-Received: by 2002:a05:6402:3484:b0:5d0:904f:710b with SMTP id 4fb4d7f45d1cf-5d0904f726amr20592659a12.34.1733138354832;
-        Mon, 02 Dec 2024 03:19:14 -0800 (PST)
-Received: from localhost (host-87-20-211-251.retail.telecomitalia.it. [87.20.211.251])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d0d2f0652bsm2371980a12.25.2024.12.02.03.19.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Dec 2024 03:19:14 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH v5 10/10] arm64: defconfig: Enable RP1 misc/clock/gpio drivers
-Date: Mon,  2 Dec 2024 12:19:34 +0100
-Message-ID: <2dc27b08d82e5257a831026c963ac148d11cb6e8.1733136811.git.andrea.porta@suse.com>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <cover.1733136811.git.andrea.porta@suse.com>
-References: <cover.1733136811.git.andrea.porta@suse.com>
+        d=1e100.net; s=20230601; t=1733138357; x=1733743157;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=KFa/x6NqebHX6NhaPtqvNPNC1BHQhGJS+uZXTpQZhTM=;
+        b=pS5tRJwWxbiseEQhFbF1R+CoYKJpzxokJGq163FG9LgZkFCulTmi51KxVKU0K7gSX/
+         4O8N7KdMVnwg0YG44YU8xhSFm92m02cT2Wf4GFsJxnTX36JjXQt+eRgLZJOJd+O2V3z3
+         Qei2mixia1Svp30KgiKOaD68ti+jPiwEJV14EJ78TZnTroMpaBQtC27o//iDaLCNY2qt
+         pN3tjwnorH84zLzPGRk5/CtN+hj+apV6WTfcZGO5lGN6wV39t2n9RUlD0SjX0+W2MHNp
+         x8Etv0YIvtJkFwpVnVCW3yBEk+J6ZBw2xPSdlfOB60oXczpTZSoQcYaEV4uizzZqK3od
+         ztTw==
+X-Forwarded-Encrypted: i=1; AJvYcCV/ZqgWPO7HsEzpSdNjdyRPh85vyxmltBXyNISsGPPKbOHtTwgZ9C+jvtRuJo1S7rlvPcQygynyfsPu7D2NV6Ym@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzkPbSHeiNUywp6oxsL2XD1Iet8fbuYcYGbbDMsEbb/zMTCUIE
+	S41XXa+DMDnJ/XA0qQiBegYzkfs8t7rvgnc2vqQrBLr19BXFaogJf9LdeYzMyLc=
+X-Gm-Gg: ASbGncu1UTfqdp7QaC2K5wFGf/u0srGQWlKjMKpoagMDwnz+sXsePesyukTDqz8eLdO
+	4YxOwGGuC0GlpVTZXqrjj78aEPIRUD7GRGoTFG7FJZk1ShQUgSmG4RmukBldQLo9ViKAw+JlAjl
+	PHdiQxc8wsGEOUgjvfno7zNTrzFGUnitJmO/CMeoB491Z1tl1TTrCmOvDxoJ8oOQ/spr9VwqiHA
+	JkVE99CYA6ohFUKJWKzMJ+LfrmpUYhmTcH5gX3dAO52TNR6t+zC1P2o6rLK
+X-Google-Smtp-Source: AGHT+IGzoGPcMCigjC8HL2Vqs142wtWQUzUekPYvt9/T6UGvGp+oWi8DTXFtntMUU65u26iWQRcZuw==
+X-Received: by 2002:a05:6402:270b:b0:5d0:e560:487f with SMTP id 4fb4d7f45d1cf-5d0e56049bdmr5767480a12.11.1733138357316;
+        Mon, 02 Dec 2024 03:19:17 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.90.200])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa5996de7fdsm496598766b.54.2024.12.02.03.19.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Dec 2024 03:19:16 -0800 (PST)
+Message-ID: <ca63ed33-f9ab-484a-b846-9e00a8d1d1ca@linaro.org>
+Date: Mon, 2 Dec 2024 11:19:15 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] coresight: tmc-etr: Fix race condition between sysfs
+ and perf mode
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Yicong Yang <yangyicong@huawei.com>, mike.leach@linaro.org,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Cc: jonathan.cameron@huawei.com, prime.zeng@hisilicon.com,
+ hejunhao3@huawei.com, linuxarm@huawei.com, yangyicong@hisilicon.com
+References: <20241202092419.11777-1-yangyicong@huawei.com>
+ <20241202092419.11777-4-yangyicong@huawei.com>
+ <62f5d1c5-05bd-41b6-8703-baacec3e2619@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <62f5d1c5-05bd-41b6-8703-baacec3e2619@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_031916_859751_F544A416 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20241202_031919_089820_DFB68485 
+X-CRM114-Status: GOOD (  29.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,45 +103,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Select the RP1 drivers needed to operate the PCI endpoint containing
-several peripherals such as Ethernet and USB Controller. This chip is
-present on RaspberryPi 5.
 
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
----
- arch/arm64/configs/defconfig | 3 +++
- 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index c62831e61586..91b39026dc56 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -609,6 +609,7 @@ CONFIG_PINCTRL_QCM2290=y
- CONFIG_PINCTRL_QCS404=y
- CONFIG_PINCTRL_QDF2XXX=y
- CONFIG_PINCTRL_QDU1000=y
-+CONFIG_PINCTRL_RP1=m
- CONFIG_PINCTRL_SA8775P=y
- CONFIG_PINCTRL_SC7180=y
- CONFIG_PINCTRL_SC7280=y
-@@ -690,6 +691,7 @@ CONFIG_SENSORS_RASPBERRYPI_HWMON=m
- CONFIG_SENSORS_SL28CPLD=m
- CONFIG_SENSORS_INA2XX=m
- CONFIG_SENSORS_INA3221=m
-+CONFIG_MISC_RP1=m
- CONFIG_THERMAL_GOV_POWER_ALLOCATOR=y
- CONFIG_CPU_THERMAL=y
- CONFIG_DEVFREQ_THERMAL=y
-@@ -1272,6 +1274,7 @@ CONFIG_COMMON_CLK_CS2000_CP=y
- CONFIG_COMMON_CLK_FSL_SAI=y
- CONFIG_COMMON_CLK_S2MPS11=y
- CONFIG_COMMON_CLK_PWM=y
-+CONFIG_COMMON_CLK_RP1=m
- CONFIG_COMMON_CLK_RS9_PCIE=y
- CONFIG_COMMON_CLK_VC3=y
- CONFIG_COMMON_CLK_VC5=y
--- 
-2.35.3
+On 02/12/2024 9:46 am, Suzuki K Poulose wrote:
+> Hi Yicong
+> 
+> On 02/12/2024 09:24, Yicong Yang wrote:
+>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>
+>> When trying to run perf and sysfs mode simultaneously, the WARN_ON()
+>> in tmc_etr_enable_hw() is triggered sometimes:
+>>
+>>   WARNING: CPU: 42 PID: 3911571 at drivers/hwtracing/coresight/ 
+>> coresight-tmc-etr.c:1060 tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
+>>   [..snip..]
+>>   Call trace:
+>>    tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
+>>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
+>>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
+>>    coresight_enable_path+0x1c8/0x218 [coresight]
+>>    coresight_enable_sysfs+0xa4/0x228 [coresight]
+>>    enable_source_store+0x58/0xa8 [coresight]
+>>    dev_attr_store+0x20/0x40
+>>    sysfs_kf_write+0x4c/0x68
+>>    kernfs_fop_write_iter+0x120/0x1b8
+>>    vfs_write+0x2c8/0x388
+>>    ksys_write+0x74/0x108
+>>    __arm64_sys_write+0x24/0x38
+>>    el0_svc_common.constprop.0+0x64/0x148
+>>    do_el0_svc+0x24/0x38
+>>    el0_svc+0x3c/0x130
+>>    el0t_64_sync_handler+0xc8/0xd0
+>>    el0t_64_sync+0x1ac/0x1b0
+>>   ---[ end trace 0000000000000000 ]---
+>>
+>> Since the enablement of sysfs mode is separeted into two critical 
+>> regions,
+>> one for sysfs buffer allocation and another for hardware enablement, it's
+>> possible to race with the perf mode. Fix this by double check whether
+>> the perf mode's been used before enabling the hardware in sysfs mode.
+> 
+> Thanks for the fix. Some minor comments below.
+> 
+> It needs a Fixes tag.
+> 
+>>
+>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>> ---
+>>   .../hwtracing/coresight/coresight-tmc-etr.c   | 30 +++++++++++++++++++
+>>   1 file changed, 30 insertions(+)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/ 
+>> drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> index ad83714ca4dc..d382d95da5ff 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> @@ -1230,6 +1230,36 @@ static int tmc_enable_etr_sink_sysfs(struct 
+>> coresight_device *csdev)
+>>       spin_lock_irqsave(&drvdata->spinlock, flags);
+>> +    /*
+>> +     * Since the sysfs buffer allocation and the hardware enablement 
+>> is not
+>> +     * in the same critical region, it's possible to race with the perf
+>> +     * mode:
+>> +     *   [sysfs mode]                   [perf mode]
+>> +     *   tmc_etr_get_sysfs_buffer()
+>> +     *     spin_lock(&drvdata->spinlock)
+>> +     *     [sysfs buffer allocation]
+>> +     *     spin_unlock(&drvdata->spinlock)
+>> +     *                                  spin_lock(&drvdata->spinlock)
+>> +     *                                  tmc_etr_enable_hw()
+>> +     *                                    drvdata->etr_buf = 
+>> etr_perf->etr_buf
+>> +     *                                  spin_unlock(&drvdata->spinlock)
+>> +     *   spin_lock(&drvdata->spinlock)
+>> +     *   tmc_etr_enable_hw()
+>> +     *     WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf 
+>> initialized at
+>> +     *                                  the perf side
+>> +     *   spin_unlock(&drvdata->spinlock)
+>> +     *
+>> +     * So check here before continue.
+>> +     */
+>> +    if (coresight_get_mode(csdev) == CS_MODE_PERF) {
+>> +        drvdata->sysfs_buf = NULL;
+>> +        spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>> +
+>> +        /* Free allocated memory out side of the spinlock */
+>> +        tmc_etr_free_sysfs_buf(sysfs_buf);
+>> +        return -EBUSY;
+>> +    }
+> 
+> With this in place, I think we should remove the check for CS_MODE_PERF 
+> in get_etr_sysfs_buf() to avoid confusion (which I believe opened up 
+> this race)
+> 
+> Suzuki
+> 
+
+Is it not simpler to set the mode to SYSFS before allocating the buffer 
+in the first place? Then we don't need to free if it races and can't get 
+into the intermediate state where it's a half initialized sysfs mode. 
+The lock doesn't need to be held the whole time, just when setting the mode.
+
+Or maybe to make it more consistent with etm4_enable() use 
+coresight_take_mode() outside of the lock.
+
+And then also clean up the perf mode check in get_etr_sysfs_buf().
+
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c 
+b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+index a48bb85d0e7f..29c07832127b 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+@@ -1219,13 +1219,17 @@ static int tmc_enable_etr_sink_sysfs(struct 
+coresight_device *csdev)
+         int ret = 0;
+         unsigned long flags;
+         struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+-       struct etr_buf *sysfs_buf = tmc_etr_get_sysfs_buffer(csdev);
++       struct etr_buf *sysfs_buf;
+
++       spin_lock_irqsave(&drvdata->spinlock, flags);
++
++       if (coresight_get_mode(csdev) == CS_MODE_PERF)
++               return -EBUSY;
++
++       sysfs_buf = tmc_etr_get_sysfs_buffer(csdev);
+         if (IS_ERR(sysfs_buf))
+                 return PTR_ERR(sysfs_buf);
+
+-       spin_lock_irqsave(&drvdata->spinlock, flags);
+-
+         /*
+          * In sysFS mode we can have multiple writers per sink.  Since this
+          * sink is already enabled no memory is needed and the HW need 
+not be
+
 
 
