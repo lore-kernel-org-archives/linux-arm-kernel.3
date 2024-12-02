@@ -4,170 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287CBD10DDE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 09:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D5ECD10DDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 09:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iXgz+7R7UFZOhCrpab9KPYwxBnwB9NGWrEa1XDoD6y8=; b=bLjQcQpq2atGd4Vnhy7BnR2Xy9
-	JWwtU3ZwX1tOfUtSijLqLuRGRWSTffXoj4IhhWmns9WWJmITdrZfytFeXO/yQDanFMEwCKIhG4oBh
-	X+EK6kDEzGwV0JH21MWHy02QT044rEVmpPxqVO+6qy6m1Jw+dnH1FVUhdbGm5QiY2OkwHFpLR79kj
-	d6/8f5nMF4zo04aIEVaZQZOfIlceOIrJbeJubNtyy+2PiMsFvMYmrCN6WjsFMSVe8qBmbt5Ehc+/M
-	MaLgoCnwkSKd8N7FmpHvdW+/2Hl19+HY0MN0FQk7slHjrRJy8OYnkXXyTJxa6/IR+ZTfZ2jfv21o/
-	n87zDaUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qc054gM7Bv2R/3/jFzj28NNSZl9oumKdCqduypG+yy4=; b=kkliaUYl/sU2cWE23Unn5LwlhQ
+	ezH3gijwK8n4n1k9W3UjINFfGTLI88muJtMgBEEGfeLs4bP1z17MD/3TZkWPjz8PERAGDkAG9sPzP
+	DNe9lV8XXakt0trVwW4V/V5GyI/RwkI8mYFNTfCeVm4LT3LqEILzRET1MX8/k+h0WzNlNwYfEXUWH
+	g6M0K8CXTXBh5/mTxQ/5c5w27ExMMLojEmBddQNBTuyyAqEmNeGzJXFEz7JEFewa7XWctEuJ0fOMF
+	nFTvTSV1zfN4O9JJWWB4SgL6x3TPS4gdn3EUHp1pBbzVV2+NuVE7DkAGIFy2SWuu8FbxhzGcH37O9
+	N2xaNlsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI37G-00000005d6d-3io2;
-	Mon, 02 Dec 2024 09:53:18 +0000
-Received: from mail-db8eur05on2060c.outbound.protection.outlook.com ([2a01:111:f403:2614::60c] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tI39r-00000005dU1-3rOQ;
+	Mon, 02 Dec 2024 09:55:59 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI36G-00000005d0m-4AR6;
-	Mon, 02 Dec 2024 09:52:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FbD93iO6SxQ5zQQqaNKty4LbbGCWwxkL/b6t9Q0XOqp6lMR2MnoLLN3W1aq1VAf6B75uXJ/QTtmZazUKj85EEyadd96D2JLRskQGa0plCsbmyljZyuAGcytR7WFCsPDGzQ0cL3ZNQruv5SsEOPGrOMj15JWxKgftQQ6QGCDZzAclx+fSK4ZvcgOc6XgwOShx9o4Nh7b0uk8qx88LwLzXHtz+TNIYzp40wn81bmLi2TkWckvLqlkAknB9oShIbLFb3fuygIqReoBvwwd+oHOvzLh7Nbi2DOhEXLagxri6h2q4pL5+4vZZGkAWtY4+7FTfSRoC1TLOsxQubAM2jAjAKQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iXgz+7R7UFZOhCrpab9KPYwxBnwB9NGWrEa1XDoD6y8=;
- b=ThJaZsHXSMT+yYY1tB6pDPrMgCJndu4Zc3nlEHcJC6mdh4Bvj7FjMeG2htPlS7rcxiYaKub6/wTEw80j0kfymGi5RQ0LI+mkFbddj+tYfm4lG3/MNyv6OZS5id/hUU+/d/OVLxGJT0i4GMSTXjMImW4u9O0I6xLQmbv+vA7kxoHdkBaHuLe0DMbqeSiUqaVEXCSZzKgHBrdVUYfIiCEXAvwtFgPD0i3WvB1emTFKnFnB3XHI8SwQEPyi3dkLEl2T3KgfsOOorQELADv0YX3/zegMklbLluNIfWcIZtB2qKHZqu/ePaKjttnA6pC6LPtsHjBgvgu8g86v/v8LViDf0g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iXgz+7R7UFZOhCrpab9KPYwxBnwB9NGWrEa1XDoD6y8=;
- b=hjpmb72GKtbdBr8xsC7cdBh73uJRjoOWgrIUioN/cyjrDfvk43qGAd5GSbpVz58PNk9CWlkQdzpzz2DdYNYkcbeQNgvoWfUVmnGZRZFAkYwLf++J0EiBVpelsMnp8plkZrD4J8Gx83THTHLSGav/hCNxoFmsxsmheyGSzbDT7Go=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by VI2PR04MB10764.eurprd04.prod.outlook.com (2603:10a6:800:271::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.18; Mon, 2 Dec
- 2024 09:52:07 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%7]) with mapi id 15.20.8207.017; Mon, 2 Dec 2024
- 09:52:07 +0000
-Message-ID: <63b3be80-cb6c-49e5-858f-70fd826140c5@cherry.de>
-Date: Mon, 2 Dec 2024 10:52:06 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: increase gmac rx_delay to 0x11 on
- rk3399-puma
-To: Jakob Unterwurzacher <jakobunt@gmail.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Sasha Levin <sashal@kernel.org>,
- Iskander Amara <iskander.amara@theobroma-systems.com>,
- Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>,
- Vahe Grigoryan <vahe.grigoryan@theobroma-systems.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241202090408.201662-1-jakob.unterwurzacher@cherry.de>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20241202090408.201662-1-jakob.unterwurzacher@cherry.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR2P281CA0028.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:14::15) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+	id 1tI38s-00000005dKR-2eAT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Dec 2024 09:54:59 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B28RKcM008726;
+	Mon, 2 Dec 2024 09:54:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Qc054gM7Bv2R/3/jFzj28NNSZl9oumKdCqduypG+yy4=; b=DX+ETSJy3vxKk52I
+	fZSs2VwQ1mOluu2ygvYkpaatLNBNIdpRAzSlzWE++q/DFb7KtU4pYrkUzH09xN78
+	8s21Cv+zBe4CcNqdC9/vrgrBEm6nODqWnIii+Mvtr4or3tQUHAyChYrqYb1v2ntQ
+	6kLfW8eZls5L3m8r5a/AfvnaUWlFU2zM2TapS70UGxCTkFIsGTfSneg38ll9h+4v
+	AZYgVOrXHU8MVEkggmpnYn5MjZijMPtwNiofIUZLuttpdhB5hcAvWryIc/BY8vLT
+	ab55v2PTtCbHRFBfW6DTmqfxbA6D7drRbH2qgMOsdZrqZpFVyMR2uoFcIGYCDLBN
+	hsbn0A==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 437u36ccp7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 02 Dec 2024 09:54:51 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B29soul023039
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 2 Dec 2024 09:54:50 GMT
+Received: from [10.64.68.72] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 2 Dec 2024
+ 01:54:46 -0800
+Message-ID: <4c39e6f8-22d2-4568-9116-01294f85a283@quicinc.com>
+Date: Mon, 2 Dec 2024 17:54:44 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|VI2PR04MB10764:EE_
-X-MS-Office365-Filtering-Correlation-Id: 930ebb99-24b3-44dd-b6d1-08dd12b6fb96
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z0xWWktmMFFKbDBkZUt6YXIrcGRtY1NkQStQbzZrSUpGdHc4S3B5K2xhQjZ3?=
- =?utf-8?B?NkRZeDJEdjBMUGtpZGdUOC9kNXUxQmxKdStiM2RXTlhCbVF6VHRTejIrZzA1?=
- =?utf-8?B?YlBiRlpubDArY3RUWFJGV29VZFJVbEtKQ3hUM1grNkRDZ1RtM1ZuWjZyNFV3?=
- =?utf-8?B?NFk1b1hCNjMxUE9mVVBEMXk4NXJETSsweFM3Zm9LMmNzODJ2aFkzVmkwYmZn?=
- =?utf-8?B?cVVPZ3dodEoxS09ZZTJWVDJHOTNzN3Ezdk5JYVBYU3dLRFo1WEFTUjBIYTdZ?=
- =?utf-8?B?R0dReHlxaVNXUWRjbzVZdzk5bHRHR3piaVAwWkZUTDNvbDVxVno4L0x2cVlD?=
- =?utf-8?B?Undla0IwOHIrOXZxdHlrMXE4dlArd2dlbmRYWFNSVGI1ZmJ5VnptQ2laaElk?=
- =?utf-8?B?Y3hKSzdZNUp5VkpCREhINlc3aHZoWHhFaERDRkdTZlM3L2tqUEJlS1lhaFJL?=
- =?utf-8?B?RWtKRzJNSktXblpZZm9teHE5U0cxSVdzQ1A5N2g3U2pPcW9Ld3ZpZ2VkOUx6?=
- =?utf-8?B?L05WZzBoNkFQbWxjRlB0Tk1yK3ZsQlhFdG50Nk5zK21vQWlHNlYramZSNEl2?=
- =?utf-8?B?TjltRWpOR0xBUGE3QUdWZnlmU2t0ZlV4WlVGSE1zYWg5cUgrQUd4K3FGMm5J?=
- =?utf-8?B?b2tYczVRZzNiR2F3Z0VHaURFQVFGY2J0aURYVGxHaFArR2syangyM3JCOHJj?=
- =?utf-8?B?eUVzSWxCWVNOTDFkMG03cHlyL1lpWEFDSHBaaUp0S2JFeHRRdllRM05yMENL?=
- =?utf-8?B?NVlqdmE2dWNNaG9VUzZlZDJIMDMzeENQMjZjYkRJaEltVnMwYVZxM2VmQUQ3?=
- =?utf-8?B?bjNjNTJUV09CRUNBNy9ERVlXRFg5NHdsVXgyRjhhbDVibjJhbGFYZmRvRW1J?=
- =?utf-8?B?WHgzTU1OMUtjb2ZadnpFa3lPK2VTL0U4MlI4eTloOEdZV2ZoN2o4WjZvdWFi?=
- =?utf-8?B?VzY2QjNWTDB5dG1EM3VNUDBzcERRdmM3YUdhSWxtaExPUkszWWRFSHUyclBa?=
- =?utf-8?B?RXRFT2RUOHdGYnpuanRIM3M1Yjl5S3ZtVFNaTDBFQlBzTTRhbjJmYURUOTlk?=
- =?utf-8?B?ZHdMdVYyeWZNL0tUV1l4SHI2WXk0VmlLM2U3K3JIbDlZNytuSHRXMXpRN1h0?=
- =?utf-8?B?dG1VMFovVC8xclUxVWFqeW9TZzVJQUtGR1g1WHVQbDBmZFBrdFptVzFEQzhp?=
- =?utf-8?B?OTBMY2FKWEc3THY2SEgzTkR2a0NHNjRXRDNHMFd3VjBscjlmenU1ZFF6bWYy?=
- =?utf-8?B?L3l2R3p6MEt5Zk5zeHg3TnNOU0dmeEcxaW0vQlZOd1hJcDBtNWNpd2xvdHVZ?=
- =?utf-8?B?RDN4NFVwWGxVYXVqTjArQW1KNGt5M3dIK1hjM1JQNTdrNFU4bFA0YkJMbmdv?=
- =?utf-8?B?NEJrMklpTU12VVBPYUNuTXBoWmdqUjN3U2V0VTFWZkNVVm16N2J6S0owcTQ2?=
- =?utf-8?B?UUswRWFlRWVRaTAzZURYcVIrYlBUUFJDOTBNYmlxTWNsdUFaY0ZCNk5Eak1Y?=
- =?utf-8?B?KzhBdU9URG5mOERiQnBrV2puc09ZSkNrTlpGQjBvYlQvTldqL3RiQTY2R3Y5?=
- =?utf-8?B?MXpkRzdkREFReHd6SGlGaWZycTU3aTFLOWh2YjJXOFpnUjRaRERYTHc4elF3?=
- =?utf-8?B?Y0M0bkloRWpFZmY4V0tkc3oxeU5LUTJseUo3NW9YNWVQVDdhanVaNmtCSzdP?=
- =?utf-8?B?WlN1a0VDblNIeW8xaEQ5b2pjWkVBZnhlVXB6RFJHSUZ2dUFIQnZ2ZXRFc293?=
- =?utf-8?B?NUVRai9oc0RGNklHODVWZkhxU1lXdnd3NGxLSTlMZ2hNY3phajFpWmtFOWpI?=
- =?utf-8?B?RjhReTVRdjBtdUlORGJiUT09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TEl0cFJCT2VDcDZGYnhXNzFjMWFBVTBuRW5JTDFPZWo1WnJhNnE0TDQ2dC8x?=
- =?utf-8?B?VEJsUjdweUtIQzVjMHlGeW0wb0tLZlJqRUc1eStIZzBKeWJqNWYrTi94R1g4?=
- =?utf-8?B?eFd1UTU2enRrcTIxSWJqZXc4c211VjI0QTg1eUFrZC9lQmcwNEpib0c2L2dO?=
- =?utf-8?B?Z2cyZ01EV01LQUw4WkhSSENtTXZOcWpCajhHbkdQNS8rZWw2cmNrQlZDalZH?=
- =?utf-8?B?Ky9Ga3c3TlI0TlhDNkZzVnVQRGRBVGJSWlRIbUtrczY5SFNrL3ZnRGhWaEhN?=
- =?utf-8?B?L3ZKMXdPbnE5b3NsOVYyQzJ1alk2MEtsRDVaM2t1M2c5UWRSMHlTdmpvZVhJ?=
- =?utf-8?B?S01DN3BkWEN5M0RNQUpSS2dQWGNuMWw1VUhRTVVYM0tQUlhHRUdkWE5kT2pz?=
- =?utf-8?B?NFhGT00vRmozV3h3Y3ZvbmZ2SVJmMFNnZlFobzFVb1hyMGROSnF2Ni9JcW15?=
- =?utf-8?B?RXEzUjZMeWkwelEvRVpJckpiaENuNWFWN3Jvb2VYNUJGb0tIdG5HY0pPZ2t4?=
- =?utf-8?B?ZUQ0Rk9UUUFwalNyMlY4OXJOWDJtVEI4RS9qcDJrMlVsdXhtNUM1QlNtUnhx?=
- =?utf-8?B?NzVjSjNOVFlwWUlmRU1USHZOcWsxaEZURlVrOStQMnFIU01SYmtPckFnTFF6?=
- =?utf-8?B?K1E3RWRuQVdyK1BLRXdaVGhvSzAxakltZGwvWnVlSXY3YnZ1VWRlZk0vQ0NZ?=
- =?utf-8?B?ZWdVbnBVSVRKR3J6UjFHck5uL2ptN3VCVEQ5TW5DUGpQR2FFbExUTXFWbmRR?=
- =?utf-8?B?akFNcVdIY2hjRDZHeXV2TzhPV1VlNURqUFduampJWGdpc3NiNU1BL0tROENq?=
- =?utf-8?B?cDhIRis3N3NrYjluRjRjbTJibkZiRnZVempnZXdlUEtBemQ5MXgwbnB2Yk92?=
- =?utf-8?B?THV3RTlhL285RVNhUXd2WGQ0Y0RnUTNrZUxSamg2c3VDNnQvMll0cm04SXpF?=
- =?utf-8?B?M1NUWlVoQVV3bU1VaFRXc3RyN1U3czFpMlI3TzBuMndhNkFyZGdKdTQ4QnVn?=
- =?utf-8?B?Z1pUd0xkQ0w3WC9OanRKek16VVVwRk01VlNsZmpGZDVSS2trTWZqdUpsbmcx?=
- =?utf-8?B?OFlvNEs5L3pFRDFMTUNUSTlBeG5Rb1J0aHM0eDQzZkNtTkx3VXJ0YXJQSzV2?=
- =?utf-8?B?M2tzRHRxVyswNzJGaFRtK0tjU0hGMGFDTkN1eVNUeWJhd0FqanJZUlIxZkpn?=
- =?utf-8?B?M0U1WEF0MDBTcldaSm1DbDZQT0Z6N2t0ZHd3bWd0dWVYd3RhVzJZck9GWGc5?=
- =?utf-8?B?MUdJTy9Zc2w2a2w3cFZTSVlRcG5pMjhUeTVWNHpGK2tmWHRrTjlXUGU2SmJE?=
- =?utf-8?B?ZXpkZ1ZxejNOMkRRL3pjRzBxWkVZZVdZRzB4azRVSlZoOTJ5SVpQOC9vMjBz?=
- =?utf-8?B?K0tLNFZSS096bXRzNUdTV1NLUHBWUHRnQjVITFJZU0JOQlE5NFE0VXVNd2RS?=
- =?utf-8?B?RXZIV21lTVN2MzM1cUFPNy9MQ0JxRGlKTGN5cnVaZFpHZWNqM0VhenVKRVZD?=
- =?utf-8?B?bHQvWW50VGhxeVlhOVVaMUtSMXQ0M24vaGpHWlRWNnh4MklBcmV0Q3dRRlFQ?=
- =?utf-8?B?MnovcHRMR3lFTkovendMWEd3cm52azhacTVHYXRFbEtYTzFINlBnOHc2cEdE?=
- =?utf-8?B?S2dKS0s3SG5QM2VzWm9ic2hwaGRVb21nblBQeEpDVjlRSExUZUlobFc0QW11?=
- =?utf-8?B?cDBIRmltK3NEQ1JrZlc4Njl5L25BdEtHSS9IZnh6ZHJVeWxnVjhwUzhaeVBI?=
- =?utf-8?B?NHNJRTlXWFZLeDV0TXk0UHhRVU9nZTQ0MTZyMjROZE0vNWdubFdiSXBVNnF6?=
- =?utf-8?B?d2piL0c1TE1LTU5qZFNhTWcvQWlyZWczSVpHNXFCQUNuNFBKWThxWDhKcmJw?=
- =?utf-8?B?UEpxOXlleUh1ZGE1SkJ5R0k5YWhQRlQ5MTkrYUVoSm1lb2VzUjFxK3JXT3pZ?=
- =?utf-8?B?V0xjemNLdlNXL3ZaNnluUlh1ak82b2drdmlMOWN1YUFud0dxd0lOUTJKeXpE?=
- =?utf-8?B?cXlVaUdHV3ZBL0h2V0hXRFNhYmdHRkhaaC83UWVhN3F2ejdhL2VoSmU5R0lT?=
- =?utf-8?B?eWlRaHhqRjdhemZoaEU4SkZTK1hNWk5NTGlyK1U3WG9RTERZdnh4Q1QrSnRX?=
- =?utf-8?B?L2R0eFhObHR3cnB6Z1d1enFrRkNmaXoyTnpyVzRtT3lFQ082UlJZb3BHVm5F?=
- =?utf-8?B?Tmc9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 930ebb99-24b3-44dd-b6d1-08dd12b6fb96
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2024 09:52:07.2182
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: agHZADi1Yqoes5pBEYUEOQxoB68VWfukLfDdgdqb5Er9ooCjfPHV2HzMuhPWBWq2bJgWTe9MASkKwCqig8k/AocwAJs5WIBP5FS3fPcyir8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10764
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/4] arm64: dts: qcom: add QCS8300 platform
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Jingyi Wang
+	<quic_jingyw@quicinc.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        "Konrad
+ Dybcio" <konradybcio@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Catalin
+ Marinas" <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: <quic_tengfan@quicinc.com>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20241128-qcs8300_initial_dtsi-v3-0-26aa8a164914@quicinc.com>
+ <20241128-qcs8300_initial_dtsi-v3-3-26aa8a164914@quicinc.com>
+ <2a2a780d-5e3e-4582-b75d-211732a9b727@oss.qualcomm.com>
+From: Xin Liu <quic_liuxin@quicinc.com>
+In-Reply-To: <2a2a780d-5e3e-4582-b75d-211732a9b727@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: sG6BpQ02kSGQrQNSp8cy4NXRDen06MUL
+X-Proofpoint-ORIG-GUID: sG6BpQ02kSGQrQNSp8cy4NXRDen06MUL
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 mlxscore=0
+ clxscore=1011 bulkscore=0 adultscore=0 lowpriorityscore=0 impostorscore=0
+ mlxlogscore=999 phishscore=0 suspectscore=0 spamscore=0 priorityscore=1501
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2412020087
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_015217_042059_7EF61407 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20241202_015458_797823_761CF519 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,90 +112,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakob,
 
-On 12/2/24 10:04 AM, Jakob Unterwurzacher wrote:
-> During mass manufacturing, we noticed the mmc_rx_crc_error counter,
-> as reported by "ethtool -S eth0 | grep mmc_rx_crc_error" to increase
-> above zero during nuttcp speedtests.
+
+在 2024/11/29 4:14, Konrad Dybcio 写道:
+> On 28.11.2024 9:44 AM, Jingyi Wang wrote:
+>> Add initial DTSI for QCS8300 SoC.
+>>
+>> Features added in this revision:
+>> - CPUs with PSCI idle states
+>> - Interrupt-controller with PDC wakeup support
+>> - Timers, TCSR Clock Controllers
+>> - Reserved Shared memory
+>> - GCC and RPMHCC
+>> - TLMM
+>> - Interconnect
+>> - QuP with uart
+>> - SMMU
+>> - QFPROM
+>> - Rpmhpd power controller
+>> - UFS
+>> - Inter-Processor Communication Controller
+>> - SRAM
+>> - Remoteprocs including ADSP,CDSP and GPDSP
+>> - BWMONs
+>>
+>> Written with help from Zhenhua Huang(added the smmu node), Xin Liu(added
+>> ufs, adsp and gpdsp nodes), Tingguo Cheng(added the rpmhpd node), Kyle
+>> Deng(added the aoss_qmp node), Raviteja Laggyshetty(added interconnect
+>> nodes) and Cong Zhang(added the INTID of EL2 non-secure physical timer).
+>>
+>> Signed-off-by: Jingyi Wang <quic_jingyw@quicinc.com>
+>> ---
 > 
-> Cycling through the rx_delay range on two boards shows that is a large
-> "good" region from 0x11 to 0x35 (see below for details).
+> [...]
 > 
-
-Is this missing a "there" after that? "that there is a large good region"?
-
-> This commit increases rx_delay to 0x11, which is the smallest
-> possible change that fixes the issue we are seeing on the KSZ9031 PHY.
-> This also matches what most other rk3399 boards do.
+>> +		cpu-map {
+>> +			cluster0 {
+>> +				core0 {
+>> +					cpu = <&cpu0>;
+>> +				};
+>> +
+>> +				core1 {
+>> +					cpu = <&cpu1>;
+>> +				};
+>> +
+>> +				core2 {
+>> +					cpu = <&cpu2>;
+>> +				};
+>> +
+>> +				core3 {
+>> +					cpu = <&cpu3>;
+>> +				};
+>> +
+>> +				core4 {
+>> +					cpu = <&cpu4>;
+>> +				};
 > 
-> Tests for Puma PCBA S/N TT0069903:
+> The MPIDR_EL1 register value (CPU node reg) suggests they are not
+> part of the same cluster (as you confirmed in the psci idle domains
+> description)
 > 
-> 	rx_delay mmc_rx_crc_error
-> 	-------- ----------------
-> 	0x09 (dhcp broken)
-> 	0x10 897
-> 	0x11 0
-> 	0x20 0
-> 	0x30 0
-> 	0x35 0
-> 	0x3a 745
-> 	0x3b 11375
-> 	0x3c 36680
-> 	0x40 (dhcp broken)
-> 	0x7f (dhcp broken)
+> [...]
 > 
-> Tests for Puma PCBA S/N TT0157733:
+>> +
+>> +		ufs_mem_hc: ufs@1d84000 {
+>> +			compatible = "qcom,qcs8300-ufshc", "qcom,ufshc", "jedec,ufs-2.0";
+>> +			reg = <0x0 0x01d84000 0x0 0x3000>;
+>> +			interrupts = <GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>;
+>> +			phys = <&ufs_mem_phy>;
+>> +			phy-names = "ufsphy";
+>> +			lanes-per-direction = <2>;
+>> +			#reset-cells = <1>;
+>> +			resets = <&gcc GCC_UFS_PHY_BCR>;
+>> +			reset-names = "rst";
+>> +
+>> +			power-domains = <&gcc GCC_UFS_PHY_GDSC>;
+>> +			required-opps = <&rpmhpd_opp_nom>;
+>> +
+>> +			iommus = <&apps_smmu 0x100 0x0>;
+>> +			dma-coherent;
+>> +
+>> +			interconnects = <&aggre1_noc MASTER_UFS_MEM 0
 > 
-> 	rx_delay mmc_rx_crc_error
-> 	-------- ----------------
-> 	0x10 59
-> 	0x11 0
-> 	0x35 0
+> QCOM_ICC_TAG_ALWAYS, file-wide
 > 
-> Signed-off-by: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
-
-This would be a candidate for backporting I believe.
-
-Therefore, a
-
-Cc: <stable@vger.kernel.org>
-
-here would have been nice (in the commit log), c.f. 
-https://www.kernel.org/doc/html/latest/process/submitting-patches.html#select-the-recipients-for-your-patch
-
-> ---
->   arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+> [...]
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
-> index 9efcdce0f593..13d0c511046b 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
-> @@ -181,7 +181,7 @@ &gmac {
->   	snps,reset-active-low;
->   	snps,reset-delays-us = <0 10000 50000>;
->   	tx_delay = <0x10>;
-> -	rx_delay = <0x10>;
-> +	rx_delay = <0x11>;
+>> +		ufs_mem_phy: phy@1d87000 {
+>> +			compatible = "qcom,qcs8300-qmp-ufs-phy", "qcom,sa8775p-qmp-ufs-phy";
+>> +			reg = <0x0 0x01d87000 0x0 0xe10>;
+>> +			/*
+>> +			 * Yes, GCC_EDP_REF_CLKREF_EN is correct in qref. It
+>> +			 * enables the CXO clock to eDP *and* UFS PHY.
+>> +			 */
+>> +			clocks = <&rpmhcc RPMH_CXO_CLK>,
+>> +				 <&gcc GCC_UFS_PHY_PHY_AUX_CLK>,
+>> +				 <&gcc GCC_EDP_REF_CLKREF_EN>;
+> 
+> Are you sure about this, or is this just copypasted from sa8775p?
+Thank you for your comments. I confirm with the colleague responsible 
+for this area, and configuring the clock this way is correct.
+> 
+> [...]
+> 
+>> +
+>> +		intc: interrupt-controller@17a00000 {
+>> +			compatible = "arm,gic-v3";
+>> +			reg = <0x0 0x17a00000 0x0 0x10000>,     /* GICD */
+>> +			      <0x0 0x17a60000 0x0 0x100000>;    /* GICR * 8 */
+> 
+> Drop these comments
+> 
+>> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+>> +			#interrupt-cells = <3>;
+>> +			interrupt-controller;
+>> +			#redistributor-regions = <1>;
+>> +			redistributor-stride = <0x0 0x20000>;
+>> +		};
+>> +
+>> +		memtimer: timer@17c20000 {
+> 
+> Unused label
+> 
+> [...]
+> 
+>> +	arch_timer: timer {
+> 
+> Ditto
+> 
+> Konrad
 
-While at it, we could reorder this alphabetically and move rx_delay 
-between pinctrl-0 and snps,reset-gpio? c.f. 
-https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html#order-of-properties-in-device-node 
-rx_delay and tx_delay seem to be vendor-specific but without the vendor 
-prefix, but so is snps,reset-gpio so that should be fine to reorder this 
-way.
-
-Considering we have an option for KSZ9031 on RK3588 Jaguar and RK3588 
-Tiger and the "same" MAC IP is used and that we use the same TXD and RXD 
-delay than on RK3399 Puma right now, I guess we would want to check 
-those don't need a change as well? (funnily enough, all RK3588-based 
-boards in 6.12 actually have 0x00 for rx_delay and 0x43/0x44 for 
-tx_delay, except ours which are at 0x10). Not a blocker for this patch 
-though, so:
-
-Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
-
-Thanks!
-Quentin
 
