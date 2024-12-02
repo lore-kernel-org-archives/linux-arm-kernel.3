@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A7FD49792
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 01:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8129D49793
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 01:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ip5zHEkyUM7h2o++LoVpmSBFQRoTeMqChUEBfs6fBoU=; b=lYpGxsuZh91cZ8LzAu6mflZhzG
-	whFxNYPlP3dIcUdf4583Qg5DAoVgtmMPzGW3fv4Lqyw8FW0BhojbRS6i+2SLIQBqBx/6xjWjhjmCK
-	RXFbG00Sfk2WuoVcWs1ENxUQ58Qxe4DekyvReU4S8zSqm4MYWQzGi4ytqAnqi7Lt5c0sN4EBv4oSh
-	wSwwKqH8w6vRVbUZ8bdz3NjJJ9RbjhZhrnri2oDc8zg9xB5VD7kfav7GhhKFAAjb0wrsiMPvlsM75
-	g3tpIauy68Oer2uA3DKzHLvoVXZOBqeiSBB7a3RGc5JuDPlWLP4N6m//Nnq+i7BiJwjposNDCGgKy
-	zMfLqTWw==;
+	bh=aIaWsjKEYq+wuvckBGlvUe+61wiBuTMop5hhwwmP2lA=; b=FxZvRRIpalALNdXC3gi3wy40qU
+	htbocY2i+6QSq5WCfNtv+ycpcD2eLQuQe6U95rMqSuJVcxzO2dj+bruh9kfTj4jgvTTROF3fRMS8l
+	Qhu5YqRNzN4IwJKU2vSe6095kWCm5Gzk/PrHbhxo5Nb4g4CSMUAvLF8h2gDh5sOCYR0fhUy+JlBZN
+	mK/ypx9lIMmj9tdlvz4wlrduiFn/yYt7/fRMt6sTdCp2JMjsgGWA7cOJtU7STMAkcU3VvwIUcWnnw
+	InY3O/qp3cng3VIJAkRV+O943sl6tdtwVXw10VOj3xhtjCs03b8ltHheZ8kifhiNud5SiZZ72JoRZ
+	WitPO9tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHvIY-00000004jDg-1reG;
-	Mon, 02 Dec 2024 01:32:26 +0000
+	id 1tHvJW-00000004jKe-0TZK;
+	Mon, 02 Dec 2024 01:33:26 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHv7y-00000004hL0-2c6b
+	id 1tHv7z-00000004hMB-3D8u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 01:21:32 +0000
+	Mon, 02 Dec 2024 01:21:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 50C83A40C2E;
-	Mon,  2 Dec 2024 01:19:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DE92C4CEDC;
-	Mon,  2 Dec 2024 01:21:29 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 544C0A40C35;
+	Mon,  2 Dec 2024 01:19:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52CAAC4CEE2;
+	Mon,  2 Dec 2024 01:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733102489;
-	bh=DVKfdgkx+XQWnXd7S0Vc0JfNUBLYmfwnEAvdzQ4yAyk=;
+	s=k20201202; t=1733102490;
+	bh=DBCZBKy5Xl57+NGINhjIrOhgQNsT8ZZWQ/xJmC6dxmA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FPlVWXqSkitqAzqYhZ2GDIeWs0qQ4N6kOao+XaK539fPu2WgSyqqKAjXzyRSCKiMX
-	 R13j+UAzuSqDFtPj+ykjxZQz1L+UsaMOfvu3G71McAVWhdhIQqB3n3uIcm49B2yzWE
-	 KUiPwbMfHNoK0U+ELSx7KLDkI+zYee5SkLXeyvDt09tJ0ws8Hs4l43ZR0SqxdqsVUl
-	 gJ9xelTxBnb8hVsnIkdqC/f+hh8QPGKTZNL4OW3GpUkjmdm49wxSoH2+7nURPOGn7w
-	 UY2axe7+UxRgGKpP7d4l3/h2ybImQnMDusQrrVdCZT3NoGyY1bsgPNj/3uz031TdD0
-	 3gCbpKqNl/1kA==
+	b=Lb/WtWYtV7IfGAQh/T9cs4NLshbxZA1ntyfvceEtOWaStAzMgSfK2PXjuab6RTd/T
+	 mYc8q4z5m9zMNX/8V4S9rjXnT99604OvM1Sl4R+rZnqw6oxHWv8P+iWzMVzLJPH47z
+	 HB1bJnm82BjPoSzauIka55ES1I5NIxyBwims7V5xfSlMwyx/JXbBAG8jiLBF6pgcZS
+	 PyJ6Te98iPGo6zOTZDz2OvMYZit6PA9+59jqGNIxuO+xbnEN5oW8zWHYrxD7Rvf1OA
+	 4J0sfOZDigemZGH+X/92c5mjQZ6hMKhl+XRgzNIkdoDVX+h3Km/6QpiBnVu9CeMH0Y
+	 NG1kZynFOmbZQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -52,17 +52,17 @@ Cc: linux-arch@vger.kernel.org,
 	Zhihang Shao <zhihang.shao.iscas@gmail.com>,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Martin K. Petersen" <martin.petersen@oracle.com>
-Subject: [PATCH v2 02/12] lib/crc-t10dif: add support for arch overrides
-Date: Sun,  1 Dec 2024 17:20:46 -0800
-Message-ID: <20241202012056.209768-3-ebiggers@kernel.org>
+Subject: [PATCH v2 05/12] arm/crc-t10dif: expose CRC-T10DIF function through lib
+Date: Sun,  1 Dec 2024 17:20:49 -0800
+Message-ID: <20241202012056.209768-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20241202012056.209768-1-ebiggers@kernel.org>
 References: <20241202012056.209768-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_172130_793530_AB0FEA60 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20241201_172131_956266_7A6C0BCB 
+X-CRM114-Status: GOOD (  22.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,100 +79,331 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Following what was done for CRC32, add support for architecture-specific
-override of the CRC-T10DIF library.  This will allow the CRC-T10DIF
-library functions to access architecture-optimized code directly.
+Move the arm CRC-T10DIF assembly code into the lib directory and wire it
+up to the library interface.  This allows it to be used without going
+through the crypto API.  It remains usable via the crypto API too via
+the shash algorithms that use the library interface.  Thus all the
+arch-specific "shash" code becomes unnecessary and is removed.
+
+Note: to see the diff from arch/arm/crypto/crct10dif-ce-glue.c to
+arch/arm/lib/crc-t10dif-glue.c, view this commit with 'git show -M10'.
 
 Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 Reviewed-by: Martin K. Petersen <martin.petersen@oracle.com>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- include/linux/crc-t10dif.h | 12 ++++++++++++
- lib/Kconfig                | 32 ++++++++++++++++++++++++++++++++
- 2 files changed, 44 insertions(+)
+ arch/arm/Kconfig                              |   1 +
+ arch/arm/crypto/Kconfig                       |  11 --
+ arch/arm/crypto/Makefile                      |   2 -
+ arch/arm/crypto/crct10dif-ce-glue.c           | 124 ------------------
+ arch/arm/lib/Makefile                         |   3 +
+ .../crc-t10dif-core.S}                        |   0
+ arch/arm/lib/crc-t10dif-glue.c                |  80 +++++++++++
+ 7 files changed, 84 insertions(+), 137 deletions(-)
+ delete mode 100644 arch/arm/crypto/crct10dif-ce-glue.c
+ rename arch/arm/{crypto/crct10dif-ce-core.S => lib/crc-t10dif-core.S} (100%)
+ create mode 100644 arch/arm/lib/crc-t10dif-glue.c
 
-diff --git a/include/linux/crc-t10dif.h b/include/linux/crc-t10dif.h
-index 206ba2305483..16787c1cee21 100644
---- a/include/linux/crc-t10dif.h
-+++ b/include/linux/crc-t10dif.h
-@@ -5,18 +5,30 @@
- #include <linux/types.h>
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index f817ca317b02..3ad4c3c97918 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -6,10 +6,11 @@ config ARM
+ 	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE if HAVE_KRETPROBES && FRAME_POINTER && !ARM_UNWIND
+ 	select ARCH_HAS_BINFMT_FLAT
+ 	select ARCH_HAS_CPU_CACHE_ALIASING
+ 	select ARCH_HAS_CPU_FINALIZE_INIT if MMU
+ 	select ARCH_HAS_CRC32 if KERNEL_MODE_NEON
++	select ARCH_HAS_CRC_T10DIF if KERNEL_MODE_NEON
+ 	select ARCH_HAS_CURRENT_STACK_POINTER
+ 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+ 	select ARCH_HAS_DMA_ALLOC if MMU
+ 	select ARCH_HAS_DMA_OPS
+ 	select ARCH_HAS_DMA_WRITE_COMBINE if !ARM_DMA_MEM_BUFFERABLE
+diff --git a/arch/arm/crypto/Kconfig b/arch/arm/crypto/Kconfig
+index ea0ebf336d0d..32650c8431d9 100644
+--- a/arch/arm/crypto/Kconfig
++++ b/arch/arm/crypto/Kconfig
+@@ -220,18 +220,7 @@ config CRYPTO_CHACHA20_NEON
+ 	  stream cipher algorithms
  
- #define CRC_T10DIF_DIGEST_SIZE 2
- #define CRC_T10DIF_BLOCK_SIZE 1
+ 	  Architecture: arm using:
+ 	  - NEON (Advanced SIMD) extensions
  
-+u16 crc_t10dif_arch(u16 crc, const u8 *p, size_t len);
- u16 crc_t10dif_generic(u16 crc, const u8 *p, size_t len);
+-config CRYPTO_CRCT10DIF_ARM_CE
+-	tristate "CRCT10DIF"
+-	depends on KERNEL_MODE_NEON
+-	depends on CRC_T10DIF
+-	select CRYPTO_HASH
+-	help
+-	  CRC16 CRC algorithm used for the T10 (SCSI) Data Integrity Field (DIF)
+-
+-	  Architecture: arm using:
+-	  - PMULL (Polynomial Multiply Long) instructions
+-
+ endmenu
  
- static inline u16 crc_t10dif_update(u16 crc, const u8 *p, size_t len)
- {
-+	if (IS_ENABLED(CONFIG_CRC_T10DIF_ARCH))
-+		return crc_t10dif_arch(crc, p, len);
- 	return crc_t10dif_generic(crc, p, len);
- }
+diff --git a/arch/arm/crypto/Makefile b/arch/arm/crypto/Makefile
+index 38ec5cc1e844..3d0e23ff9e74 100644
+--- a/arch/arm/crypto/Makefile
++++ b/arch/arm/crypto/Makefile
+@@ -18,11 +18,10 @@ obj-$(CONFIG_CRYPTO_CURVE25519_NEON) += curve25519-neon.o
  
- static inline u16 crc_t10dif(const u8 *p, size_t len)
- {
- 	return crc_t10dif_update(0, p, len);
- }
+ obj-$(CONFIG_CRYPTO_AES_ARM_CE) += aes-arm-ce.o
+ obj-$(CONFIG_CRYPTO_SHA1_ARM_CE) += sha1-arm-ce.o
+ obj-$(CONFIG_CRYPTO_SHA2_ARM_CE) += sha2-arm-ce.o
+ obj-$(CONFIG_CRYPTO_GHASH_ARM_CE) += ghash-arm-ce.o
+-obj-$(CONFIG_CRYPTO_CRCT10DIF_ARM_CE) += crct10dif-arm-ce.o
  
-+#if IS_ENABLED(CONFIG_CRC_T10DIF_ARCH)
-+bool crc_t10dif_is_optimized(void);
-+#else
-+static inline bool crc_t10dif_is_optimized(void)
+ aes-arm-y	:= aes-cipher-core.o aes-cipher-glue.o
+ aes-arm-bs-y	:= aes-neonbs-core.o aes-neonbs-glue.o
+ sha1-arm-y	:= sha1-armv4-large.o sha1_glue.o
+ sha1-arm-neon-y	:= sha1-armv7-neon.o sha1_neon_glue.o
+@@ -34,11 +33,10 @@ libblake2s-arm-y:= blake2s-core.o blake2s-glue.o
+ blake2b-neon-y  := blake2b-neon-core.o blake2b-neon-glue.o
+ sha1-arm-ce-y	:= sha1-ce-core.o sha1-ce-glue.o
+ sha2-arm-ce-y	:= sha2-ce-core.o sha2-ce-glue.o
+ aes-arm-ce-y	:= aes-ce-core.o aes-ce-glue.o
+ ghash-arm-ce-y	:= ghash-ce-core.o ghash-ce-glue.o
+-crct10dif-arm-ce-y	:= crct10dif-ce-core.o crct10dif-ce-glue.o
+ chacha-neon-y := chacha-scalar-core.o chacha-glue.o
+ chacha-neon-$(CONFIG_KERNEL_MODE_NEON) += chacha-neon-core.o
+ poly1305-arm-y := poly1305-core.o poly1305-glue.o
+ nhpoly1305-neon-y := nh-neon-core.o nhpoly1305-neon-glue.o
+ curve25519-neon-y := curve25519-core.o curve25519-glue.o
+diff --git a/arch/arm/crypto/crct10dif-ce-glue.c b/arch/arm/crypto/crct10dif-ce-glue.c
+deleted file mode 100644
+index a8b74523729e..000000000000
+--- a/arch/arm/crypto/crct10dif-ce-glue.c
++++ /dev/null
+@@ -1,124 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-only
+-/*
+- * Accelerated CRC-T10DIF using ARM NEON and Crypto Extensions instructions
+- *
+- * Copyright (C) 2016 Linaro Ltd <ard.biesheuvel@linaro.org>
+- */
+-
+-#include <linux/crc-t10dif.h>
+-#include <linux/init.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-#include <linux/string.h>
+-
+-#include <crypto/internal/hash.h>
+-#include <crypto/internal/simd.h>
+-
+-#include <asm/neon.h>
+-#include <asm/simd.h>
+-
+-#define CRC_T10DIF_PMULL_CHUNK_SIZE	16U
+-
+-asmlinkage u16 crc_t10dif_pmull64(u16 init_crc, const u8 *buf, size_t len);
+-asmlinkage void crc_t10dif_pmull8(u16 init_crc, const u8 *buf, size_t len,
+-				  u8 out[16]);
+-
+-static int crct10dif_init(struct shash_desc *desc)
+-{
+-	u16 *crc = shash_desc_ctx(desc);
+-
+-	*crc = 0;
+-	return 0;
+-}
+-
+-static int crct10dif_update_ce(struct shash_desc *desc, const u8 *data,
+-			       unsigned int length)
+-{
+-	u16 *crc = shash_desc_ctx(desc);
+-
+-	if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE && crypto_simd_usable()) {
+-		kernel_neon_begin();
+-		*crc = crc_t10dif_pmull64(*crc, data, length);
+-		kernel_neon_end();
+-	} else {
+-		*crc = crc_t10dif_generic(*crc, data, length);
+-	}
+-
+-	return 0;
+-}
+-
+-static int crct10dif_update_neon(struct shash_desc *desc, const u8 *data,
+-			         unsigned int length)
+-{
+-	u16 *crcp = shash_desc_ctx(desc);
+-	u8 buf[16] __aligned(16);
+-	u16 crc = *crcp;
+-
+-	if (length > CRC_T10DIF_PMULL_CHUNK_SIZE && crypto_simd_usable()) {
+-		kernel_neon_begin();
+-		crc_t10dif_pmull8(crc, data, length, buf);
+-		kernel_neon_end();
+-
+-		crc = 0;
+-		data = buf;
+-		length = sizeof(buf);
+-	}
+-
+-	*crcp = crc_t10dif_generic(crc, data, length);
+-	return 0;
+-}
+-
+-static int crct10dif_final(struct shash_desc *desc, u8 *out)
+-{
+-	u16 *crc = shash_desc_ctx(desc);
+-
+-	*(u16 *)out = *crc;
+-	return 0;
+-}
+-
+-static struct shash_alg algs[] = {{
+-	.digestsize		= CRC_T10DIF_DIGEST_SIZE,
+-	.init			= crct10dif_init,
+-	.update			= crct10dif_update_neon,
+-	.final			= crct10dif_final,
+-	.descsize		= CRC_T10DIF_DIGEST_SIZE,
+-
+-	.base.cra_name		= "crct10dif",
+-	.base.cra_driver_name	= "crct10dif-arm-neon",
+-	.base.cra_priority	= 150,
+-	.base.cra_blocksize	= CRC_T10DIF_BLOCK_SIZE,
+-	.base.cra_module	= THIS_MODULE,
+-}, {
+-	.digestsize		= CRC_T10DIF_DIGEST_SIZE,
+-	.init			= crct10dif_init,
+-	.update			= crct10dif_update_ce,
+-	.final			= crct10dif_final,
+-	.descsize		= CRC_T10DIF_DIGEST_SIZE,
+-
+-	.base.cra_name		= "crct10dif",
+-	.base.cra_driver_name	= "crct10dif-arm-ce",
+-	.base.cra_priority	= 200,
+-	.base.cra_blocksize	= CRC_T10DIF_BLOCK_SIZE,
+-	.base.cra_module	= THIS_MODULE,
+-}};
+-
+-static int __init crc_t10dif_mod_init(void)
+-{
+-	if (!(elf_hwcap & HWCAP_NEON))
+-		return -ENODEV;
+-
+-	return crypto_register_shashes(algs, 1 + !!(elf_hwcap2 & HWCAP2_PMULL));
+-}
+-
+-static void __exit crc_t10dif_mod_exit(void)
+-{
+-	crypto_unregister_shashes(algs, 1 + !!(elf_hwcap2 & HWCAP2_PMULL));
+-}
+-
+-module_init(crc_t10dif_mod_init);
+-module_exit(crc_t10dif_mod_exit);
+-
+-MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
+-MODULE_DESCRIPTION("Accelerated CRC-T10DIF using ARM NEON and Crypto Extensions");
+-MODULE_LICENSE("GPL v2");
+-MODULE_ALIAS_CRYPTO("crct10dif");
+diff --git a/arch/arm/lib/Makefile b/arch/arm/lib/Makefile
+index 01cd4db2ed47..007874320937 100644
+--- a/arch/arm/lib/Makefile
++++ b/arch/arm/lib/Makefile
+@@ -46,5 +46,8 @@ endif
+ 
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+ 
+ obj-$(CONFIG_CRC32_ARCH) += crc32-arm.o
+ crc32-arm-y := crc32-glue.o crc32-core.o
++
++obj-$(CONFIG_CRC_T10DIF_ARCH) += crc-t10dif-arm.o
++crc-t10dif-arm-y := crc-t10dif-glue.o crc-t10dif-core.o
+diff --git a/arch/arm/crypto/crct10dif-ce-core.S b/arch/arm/lib/crc-t10dif-core.S
+similarity index 100%
+rename from arch/arm/crypto/crct10dif-ce-core.S
+rename to arch/arm/lib/crc-t10dif-core.S
+diff --git a/arch/arm/lib/crc-t10dif-glue.c b/arch/arm/lib/crc-t10dif-glue.c
+new file mode 100644
+index 000000000000..d24dee62670e
+--- /dev/null
++++ b/arch/arm/lib/crc-t10dif-glue.c
+@@ -0,0 +1,80 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Accelerated CRC-T10DIF using ARM NEON and Crypto Extensions instructions
++ *
++ * Copyright (C) 2016 Linaro Ltd <ard.biesheuvel@linaro.org>
++ */
++
++#include <linux/crc-t10dif.h>
++#include <linux/init.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/string.h>
++
++#include <crypto/internal/simd.h>
++
++#include <asm/neon.h>
++#include <asm/simd.h>
++
++static DEFINE_STATIC_KEY_FALSE(have_neon);
++static DEFINE_STATIC_KEY_FALSE(have_pmull);
++
++#define CRC_T10DIF_PMULL_CHUNK_SIZE	16U
++
++asmlinkage u16 crc_t10dif_pmull64(u16 init_crc, const u8 *buf, size_t len);
++asmlinkage void crc_t10dif_pmull8(u16 init_crc, const u8 *buf, size_t len,
++				  u8 out[16]);
++
++u16 crc_t10dif_arch(u16 crc, const u8 *data, size_t length)
 +{
-+	return false;
++	if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE) {
++		if (static_branch_likely(&have_pmull)) {
++			if (crypto_simd_usable()) {
++				kernel_neon_begin();
++				crc = crc_t10dif_pmull64(crc, data, length);
++				kernel_neon_end();
++				return crc;
++			}
++		} else if (length > CRC_T10DIF_PMULL_CHUNK_SIZE &&
++			   static_branch_likely(&have_neon) &&
++			   crypto_simd_usable()) {
++			u8 buf[16] __aligned(16);
++
++			kernel_neon_begin();
++			crc_t10dif_pmull8(crc, data, length, buf);
++			kernel_neon_end();
++
++			crc = 0;
++			data = buf;
++			length = sizeof(buf);
++		}
++	}
++	return crc_t10dif_generic(crc, data, length);
 +}
-+#endif
++EXPORT_SYMBOL(crc_t10dif_arch);
 +
- #endif
-diff --git a/lib/Kconfig b/lib/Kconfig
-index be59f7cdf448..e52a38d8d783 100644
---- a/lib/Kconfig
-+++ b/lib/Kconfig
-@@ -159,10 +159,42 @@ config CRC_T10DIF
- 	help
- 	  This option is only needed if a module that's not in the
- 	  kernel tree needs to calculate CRC checks for use with the
- 	  SCSI data integrity subsystem.
- 
-+config ARCH_HAS_CRC_T10DIF
-+	bool
++static int __init crc_t10dif_arm_init(void)
++{
++	if (elf_hwcap & HWCAP_NEON) {
++		static_branch_enable(&have_neon);
++		if (elf_hwcap2 & HWCAP2_PMULL)
++			static_branch_enable(&have_pmull);
++	}
++	return 0;
++}
++arch_initcall(crc_t10dif_arm_init);
 +
-+choice
-+	prompt "CRC-T10DIF implementation"
-+	depends on CRC_T10DIF
-+	default CRC_T10DIF_IMPL_ARCH if ARCH_HAS_CRC_T10DIF
-+	default CRC_T10DIF_IMPL_GENERIC if !ARCH_HAS_CRC_T10DIF
-+	help
-+	  This option allows you to override the default choice of CRC-T10DIF
-+	  implementation.
++static void __exit crc_t10dif_arm_exit(void)
++{
++}
++module_exit(crc_t10dif_arm_exit);
 +
-+config CRC_T10DIF_IMPL_ARCH
-+	bool "Architecture-optimized" if ARCH_HAS_CRC_T10DIF
-+	help
-+	  Use the optimized implementation of CRC-T10DIF for the selected
-+	  architecture.  It is recommended to keep this enabled, as it can
-+	  greatly improve CRC-T10DIF performance.
++bool crc_t10dif_is_optimized(void)
++{
++	return static_key_enabled(&have_neon);
++}
++EXPORT_SYMBOL(crc_t10dif_is_optimized);
 +
-+config CRC_T10DIF_IMPL_GENERIC
-+	bool "Generic implementation"
-+	help
-+	  Use the generic table-based implementation of CRC-T10DIF.  Selecting
-+	  this will reduce code size slightly but can greatly reduce CRC-T10DIF
-+	  performance.
-+
-+endchoice
-+
-+config CRC_T10DIF_ARCH
-+	tristate
-+	default CRC_T10DIF if CRC_T10DIF_IMPL_ARCH
-+
- config CRC64_ROCKSOFT
- 	tristate "CRC calculation for the Rocksoft model CRC64"
- 	select CRC64
- 	select CRYPTO
- 	select CRYPTO_CRC64_ROCKSOFT
++MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
++MODULE_DESCRIPTION("Accelerated CRC-T10DIF using ARM NEON and Crypto Extensions");
++MODULE_LICENSE("GPL v2");
 -- 
 2.47.1
 
