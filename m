@@ -4,107 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343D5D78300
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F98D78303
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7zi05WH5Hj8NgTQRsbfYRexh1KnuKvP3EPvqI20gDBI=; b=yDsY0GesFB/S+17I3z5PTThxyM
-	YbNATFFG8Yy1XFLZK0tFX6R/ItXUuQEf7DYWygRzSUceW6qQFi3bf3GlC0ZTOpsib+Xn35KvVNW5i
-	7CLYrrk+uhV7yC9EqVaxceIaASUJSbLx+lCGTmbY36285LB3m7hm7GtAwfMUJ7P9tDeKNTuD1FpID
-	r5TLmgKP/OPA9O1IMhwQ6yWUPweWTh1cztOtl7zw1cDu/OY1JsaBm8FijD3pnUHlSiyLdwvh/az8/
-	h8YYJWp/GAJcFt+Bn5egXazr7oKmTyBlqP4GCcBu6ZuzK4MoMMqeZWZdkKxb2PHst/xwqSNQUaX3P
-	4KrymMKg==;
+	bh=kI7vAHJP2xzXL2Ldf4Pd669MPbu2D6JPp+Ub1IliRd4=; b=1KOq5o51lnyuX5EJZMO+Kl2Emw
+	sSmoL4ZscgL5U7EOUItRB8dmOZbL/g2yedG8em994CRs90X7LYSDaRI6DpaW6CkPpMOcV/rLNSSs2
+	4pTrXAHhEpPmeRVE5OLMKUo7TDNqA0JZNWYKZe85WRtABOJ/U1Wie/XvQZ5AvPDaOsWPQJ6T9oOKC
+	vFKNdo26ngExp75V459bF35cxa/ojLID6vBZHd1Bjig4IWaWxr8skE0LnnjIUt4JtkMxs881WMFzn
+	Kt/s1Uy5XDwXXi48zhZw5lP1PRLpS3H5FnLLzuaunPS01ZhSqPqgcObFjfJ4VgEbT/rVT3nd8iBvi
+	a2ELOEUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3T9-00000005hIN-396T;
-	Mon, 02 Dec 2024 10:15:55 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tI3Xr-00000005hxz-0uuH;
+	Mon, 02 Dec 2024 10:20:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3S9-00000005h8B-1wEo
+	id 1tI3Wr-00000005hsB-47M5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 10:14:54 +0000
+	Mon, 02 Dec 2024 10:19:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4B0E9A4080A;
-	Mon,  2 Dec 2024 10:13:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CCFAC4CED1;
-	Mon,  2 Dec 2024 10:14:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 90CA45C4BDF;
+	Mon,  2 Dec 2024 10:19:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA1B3C4CED1;
+	Mon,  2 Dec 2024 10:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733134492;
-	bh=UPiH6OxK7a+tjPG8wPVKRgPcGsYQ3XZcFQgo+TNLwO8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mZeOuYr5JndHg2txWoEX25RXvikuq5ou2bIBLwElC6ZGhb0ifWWWf2Xon1lg3xx/a
-	 CFgbb/a3fkX8KfNwIdD9bPfRT1o3J/N3OtSqGtuKVAA2mJ9IjOG1zwcyT/jMh3KaJx
-	 FRePqg0HVlQcq+uVreK2YRS39SK3FSIPnSVH0Z4WW5FOF8xDOKTeyiwlY8kRT+9LKs
-	 DvriAcmFQkuokL1DtZh153K/lfjFTtLz0wAWT+HQ/wyNu0kAEQu+J+l0ZV6i2St4rZ
-	 osVcWs1f/kKma7nMeP7OQPBzvmc+G4PhT//3n092lav6TTUDSRki3IcrFWOVk382M4
-	 IAGlXHRUmGkTA==
-Message-ID: <dabbad2b-f8a6-4ed7-86da-ec696cf67461@kernel.org>
-Date: Mon, 2 Dec 2024 11:14:46 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE
- output for PCIe1
-To: Romain Naour <romain.naour@smile.fr>, devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
- conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org, kristo@kernel.org,
- vigneshr@ti.com, nm@ti.com, Romain Naour <romain.naour@skf.com>,
- Siddharth Vadapalli <s-vadapalli@ti.com>
-References: <20241202101140.48778-1-romain.naour@smile.fr>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241202101140.48778-1-romain.naour@smile.fr>
-Content-Type: text/plain; charset=UTF-8
+	s=k20201202; t=1733134784;
+	bh=0nLS4J9qXeFv/L92DDeQg9+azIKURqKYfy9mdnxjm3k=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=kmhsd5qNP8PjnFw7JW1cgOBNkW9mQLZPH4pXX5/8dwKvqwnJuyfirt1aqyztIlDdV
+	 IH1fjkg7XyFypJst+r31tBHNAEr7/qTjDQF2oM/8PA2tPcxtUxuYqdYsN77yJxxDxE
+	 D49bbL44XFfS1wbpfVfBn5YTyxG+t99wmK43EiWT1WvygzcP6G28C/zlIKWPnlzfCe
+	 zAxLiPTwPN1zh6Klz9GCZ0auLZ+9TcEQ0RsSi8QLjmsaMREjCrwaybirjM8aDu7HJp
+	 PiDC4e0R7txSroxQpjqcg7C7CBbHK/g+gMX1VhGs3ZGwVqMxES1G+5DNd4QBX8vEir
+	 0VvpMFIv5dbLw==
+Message-ID: <77545786331df8bfaf5fdcb309437358@kernel.org>
+Date: Mon, 02 Dec 2024 10:19:41 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>
+Subject: Re: [PATCH 00/10] drm/connector: add eld_mutex to protect
+ connector->eld
+In-Reply-To: <20241201-drm-connector-eld-mutex-v1-0-ba56a6545c03@linaro.org>
+References: <20241201-drm-connector-eld-mutex-v1-0-ba56a6545c03@linaro.org>
+Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, "Abhinav
+ Kumar" <quic_abhinavk@quicinc.com>, "Alain Volmat" <alain.volmat@foss.st.com>, "Alex
+ Deucher" <alexander.deucher@amd.com>, "Alim Akhtar" <alim.akhtar@samsung.com>, "Andrzej
+ Hajda" <andrzej.hajda@intel.com>, =?utf-8?b?Q2hyaXN0aWFuIEvDtm5pZw==?= <christian.koenig@amd.com>, "Dave
+ Stevenson" <dave.stevenson@raspberrypi.com>, "David Airlie" <airlied@gmail.com>, "Harry
+ Wentland" <harry.wentland@amd.com>, "Inki Dae" <inki.dae@samsung.com>, "Jani
+ Nikula" <jani.nikula@linux.intel.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
+ Karlman" <jonas@kwiboo.se>, "Joonas Lahtinen" <joonas.lahtinen@linux.intel.com>, "Krzysztof
+ Kozlowski" <krzk@kernel.org>, "Kyungmin Park" <kyungmin.park@samsung.com>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Leo Li" <sunpeng.li@amd.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marijn Suijten" <marijn.suijten@somainline.org>, "Maxime
+ Ripard" <mripard@kernel.org>, =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Phong LE" <ple@baylibre.com>, "Raphael
+ Gallais-Pou" <rgallaispou@gmail.com>, "Raspberry Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Rob
+ Clark" <robdclark@gmail.com>, "Robert Foss" <rfoss@kernel.org>, "Rodrigo
+ Siqueira" <Rodrigo.Siqueira@amd.com>, "Rodrigo Vivi" <rodrigo.vivi@intel.com>, "Sean
+ Paul" <sean@poorly.run>, "Seung-Woo Kim" <sw0312.kim@samsung.com>, "Simona
+ Vetter" <simona@ffwll.ch>, "Thomas Zimmermann" <tzimmermann@suse.de>, "Tvrtko
+ Ursulin" <tursulin@ursulin.net>, "Xinhui Pan" <Xinhui.Pan@amd.com>
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_021453_628692_62307366 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20241202_021946_069886_498011EE 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,40 +88,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/12/2024 11:11, Romain Naour wrote:
-> From: Romain Naour <romain.naour@skf.com>
+On Sun, 1 Dec 2024 01:55:17 +0200, Dmitry Baryshkov wrote:
+> The connector->eld is accessed by the .get_eld() callback. This access
+> can collide with the drm_edid_to_eld() updating the data at the same
+> time. Add drm_connector.eld_mutex to protect the data from concurrenct
+> access.
 > 
-> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
-> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
-> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
-> provide refclk through PCIe_REFCLK pins.
 > 
-> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
-> module's PAD IO Buffers.
-> 
-> Reuse the compatible "ti,j784s4-acspcie-proxy-ctrl" since the ACSPCIE
-> buffer and its functionality is the same across all K3 SoCs.
-> 
-> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
-> Signed-off-by: Romain Naour <romain.naour@skf.com>
-> ---
-> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
-> applied on vendor kernel for BeagleBone AI-64:
-> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
-> 
-> v2:
->  - use generic style comments
->  - use "syscon" as generic node name for "acspcie0_proxy_ctrl" node
->  - Keep the compatible "ti,j784s4-acspcie-proxy-ctrl" since the
->    ACSPCIE buffer and its functionality is the same across all K3 SoCs.
->    (Siddharth Vadapalli)
-> 
->    "The compatible "ti,j784s4-acspcie-pcie-ctrl" should be reused for
->    J721E and all other K3 SoCs.
+> [ ... ]
 
-No, it shouldn't and you got comment on this. You always need specific
-compatible, see writing bindings doc.
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
-Best regards,
-Krzysztof
+Thanks!
+Maxime
 
