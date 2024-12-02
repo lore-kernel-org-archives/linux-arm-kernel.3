@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3A26E69E85
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 18:53:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F4EE69E81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 18:58:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZgB/0b4DRUYfPuTkx30gmOcph3LtRPAAxoRoTJ+aweo=; b=X2qNcuujCPyLGEp5zfsnMjn3Hn
-	GFCPZiGmgygVeFiyapFu4dbaXH7ciRc7B9RHzmSwznFsvBWRR3GtM+l7/SPS+NOiN8knWax0LmWVd
-	C1w5wCceizqXwRY+YC1/fG2dxqAMiZQle3lbR0iUJIhyY//8qOzUtKx/mKv9S6QHRVhLWdqW6HK73
-	gQQUxjtesz9KAk6OD4H8uIkt7d2QC40TMgBzRoHWWNSDFN7Wgn09gmmrabMUA6oM2roDjvuUjndC/
-	PHuHiQuyt2v1lTFDae4Db5y1TUIRg0Z7VsQXO1roxDGvQsAmIRKFJjQ2SPAhj87yT8/ovSUhIqGwg
-	CIlnuJ8Q==;
+	bh=KOr1wAKeSH3r8Wezvgm9CpgwVzLFLCpj5YY4q4Vs6WM=; b=4iVtBPpnI2frGFhDwTeqA4iFmy
+	r5CJhmco7uNGKf7+SECsDUYUAIE9nA2hFViDfaCtHvRgeDVgs8d8onmwlfL78vGU0/2t0/AtpLxn/
+	hGIB0PP5n/HYizXgwEip91OFXqJv6enHX/+UVU4oN6AVHdDXedAvbOy8D+FqAzRR/1Hu94eS5qewt
+	Csnmb+cuHCWzeJFCSGsLrykDk+EMj4rxO3e8Kd9VbqMxTS1QB3UXE5XCBStSMCpSp3k1S7zsyZSTi
+	EV/p2Lv4aoQTv3GioGkvP+p1ootULq2KtaGGMxOx6ao+a7cWEc/XvtqupVvwDlC1BlVqtO2Vff3OP
+	C2DCxxCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIBXN-00000007DE0-2wU4;
-	Mon, 02 Dec 2024 18:52:49 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1tIBd8-00000007Dj5-2tbv;
+	Mon, 02 Dec 2024 18:58:46 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIBWO-00000007DAd-12qt
+	id 1tIAKB-00000007213-13nx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 18:51:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1733165494; x=1733770294; i=wahrenst@gmx.net;
-	bh=ZgB/0b4DRUYfPuTkx30gmOcph3LtRPAAxoRoTJ+aweo=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=d1+850v/UjxK7V8+HZxecukwNyaInPHNRcoDefqRUjy9+ZdpDd+sAKJ92HDeKkaH
-	 Ydlrz0Pa+y4aS2BwCL8BqHlrXJYHIbmDPDYzo9Jp2e5nDHCMro8kSopd/zvBw/xoP
-	 GAhEdQvcO9aAhpaG3HXuJzo68/jfkNzxsZxFOnzMD/2EuBF1xBQUYxmxvB8uYyrvO
-	 8pzhVWqLwm1TV8HzWSxUNiqoBRb0Mzg+rghtO1XrT0kMOCEmdgN4Tx7H4vo45EOPo
-	 FP2RDPJP1UpwOUAsga8//6/14iZT5hLLeyP30ifrRuvDWwl6koEdW5QEAqyh/TpFf
-	 +cIGeF5yaBkQPbZXew==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([37.4.251.153]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MYeMt-1tDdDR35xj-00WWt9; Mon, 02
- Dec 2024 19:51:34 +0100
-Message-ID: <d418a30d-f0b0-49c5-8f2a-ddda9a7eeb07@gmx.net>
-Date: Mon, 2 Dec 2024 19:51:28 +0100
+	Mon, 02 Dec 2024 17:35:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5B024A410F2;
+	Mon,  2 Dec 2024 17:33:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EE828C4AF0C;
+	Mon,  2 Dec 2024 17:35:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733160905;
+	bh=uAZMv8YsD+O3wlShIE66KqQtYXWRRt5F/8DqFrLry7o=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=bnpeLmKTZ0P/1nIlgfq6P/89fGBp79XUw1RuAsTRlXRHCp2izeFvyG+TI1GSO6Kkj
+	 +vSOTNpWal9tOo9dbUTbh9ga3NCi42/NymrTLb22Q4h+u/cokTPsWtrlid/tRFM1T1
+	 6dV8OjkixQG4eXBo6SkrUV3AeE/R4D8dTZFDlu9F64ELfy0Kyibo9a/OngDbjQ2PZS
+	 fRCmDaWTk6tZnYjK8xTrQZoanmydKBBAOMVkExgd7RD1+VOe0fYp5Yw3cTebcM93v7
+	 5dsvx+CeiiRXTK43GkDDCdvLdYPnost8GIN8ypR562MwwNxO1YQn1QxI+326LAvREB
+	 1xToeg5fGWCxA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E082BD7833D;
+	Mon,  2 Dec 2024 17:35:04 +0000 (UTC)
+From: Vincent Mailhol via B4 Relay <devnull+mailhol.vincent.wanadoo.fr@kernel.org>
+Date: Tue, 03 Dec 2024 02:33:32 +0900
+Subject: [PATCH 10/10] compiler.h: remove __is_constexpr()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V5 2/9] dmaengine: bcm2835-dma: add suspend/resume pm
- support
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, Minas Harutyunyan
- <hminas@synopsys.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Lukas Wunner <lukas@wunner.de>, Peter Robinson <pbrobinson@gmail.com>,
- "Ivan T . Ivanov" <iivanov@suse.de>, linux-arm-kernel@lists.infradead.org,
- kernel-list@raspberrypi.com, bcm-kernel-feedback-list@broadcom.com,
- dmaengine@vger.kernel.org, linux-mmc@vger.kernel.org,
- linux-usb@vger.kernel.org
-References: <20241025103621.4780-1-wahrenst@gmx.net>
- <20241025103621.4780-3-wahrenst@gmx.net> <Z03l308ur7xuE1SB@vaman>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-In-Reply-To: <Z03l308ur7xuE1SB@vaman>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:JFDPQWC/iWpVzlUOkBhNid0hdinoSmvzk39ECSz5KjcFNJzYYLQ
- bBJMN8vYMo8K65/OG7nxKZi2ufJFsPLlUks4fTHwBgeG5A6u58gKNWajQ3rbJDbo69Q86rS
- RtZNPwoSGajeAVR+DOZiOCxm/H1bdwtbTF6N9RzFTSM5ECdql2Jx3a1XcD0+mDFkL8hSQvM
- A7RwEWwiFuPMe2lQdAq/g==
-UI-OutboundReport: notjunk:1;M01:P0:HAeP/ZkyvB4=;PI/pDBlpVI/bM72GS5GvEQE1UE8
- SKq+3RgesVtT2pv+9/2xfw+yP78CjWdpPe5yI9KVb7dkz4sIfpfmCOTWLNzTAS9F/qVhzn6xW
- HrqPuHyJVT/YEmcKwoANZMOOYoPmPpy9EtA4WpZU1Q0H5mCjWiM64ss1dM18TpohYmEA9shsX
- oPWAC9l0ksfyx5wQgXdG+815rPT11ve4dPBjIAJLH9xoKdVZ70OKTfMKxyc0zh09tP7MqdHCh
- 8dAUwyzYVPKpcuyqoCTHlbVgs/2UPsNTS7pPOD+0DrL0dHC5o1xQbV7BYIhLLtoNTXkdIAPZl
- Joe0hw2nk1rUyWb5Uki0nJrNjVoNn2bUOVFd+wV1E2EbzRNOFBO6qMWIA5zxcywFv1zssKDBU
- 8FJaldSzveeB8JY5hI3u3buV57t0sGzaHNzpiTY2fHqVStBzVrQ8eWgJtW9LmHM7IwyYyAfeo
- cr5FJ2bDtt9mIRn92X//m1rcSuoO9749wbPCi9+U389Z2/ZztyyfI0TsrfJfNuIjBzn/NtGj4
- XvOEAxzRSBFqJc1TR1PRrBjaCF3mYwMhy6groxUWSHKsrPaJ4a9ftYYWh5+VgVFRLlj7f8MAQ
- Sg92jkCl3N9fpW1yitEOfgNey/NGxTw7YFFU1iPAijVR9jgbVZJ3+nucM/U0Iu7GVmO0a1xzQ
- kpm/0eoFWNc1SX7hSSfiqCgbPDBrPxk7QS2DrsqKYhUNQlfVD//cWEj/PeWhP1NwEibciYC0+
- Jw19uT9aM412Gl/k5JtTl5GkBkqj7W7+4+nhL+vhfXp0MEMn/gzx0ckpQTQ561LJtnZnWidg/
- SA0LsUg1H2BFAR2V7lWDFe2kdTLQKisTyHn+70lAQ3rt8bRjL8W1nzL1Xe4Upw9Ad9KPSqB7U
- LHp7odcaeJqLLSATuOWSucCg4iJGFppwihygh8f0lcb37uGQ1OSrgNw/tBnD1ZIZc540i3IEF
- rrrxqKfio4YpH+u3rPfrMDnJblgubSmKTkaXGnJ2dofZOFlNklo5QHGBicf5N7oInPK/A1hVK
- xjD3Nz10ndbDDBdtiIB8jbdIP+34RC+c7C3NFE0F/5m61+PGIt8pfZb3KJAir9y7ekYerfQUa
- 9wwDlmugDl457aIlAYHr3UmCetY4z8
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241203-is_constexpr-refactor-v1-10-4e4cbaecc216@wanadoo.fr>
+References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+In-Reply-To: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+To: Linus Torvalds <torvalds@linux-foundation.org>, 
+ David Laight <David.Laight@aculab.com>, 
+ Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Yury Norov <yury.norov@gmail.com>, 
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>, 
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Rikard Falkeborn <rikard.falkeborn@gmail.com>, 
+ Martin Uecker <Martin.Uecker@med.uni-goettingen.de>
+Cc: linux-sparse@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, linux-hardening@vger.kernel.org, 
+ intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3686;
+ i=mailhol.vincent@wanadoo.fr; h=from:subject:message-id;
+ bh=KhSEJ/z9NSPJazKznaA4eGwJC3/rNJqN3dS4dHFF/N0=;
+ b=owGbwMvMwCV2McXO4Xp97WbG02pJDOm+7485PP/cFjpv4ddvR2VLOPkvvJfXCD3qLZ3Eld3nt
+ LjUeklRRykLgxgXg6yYIsuyck5uhY5C77BDfy1h5rAygQxh4OIUgImY+zH8T7uwUoiP88gRLpWl
+ X/NO/Lygvi6i7yFjyKWdpdGpMdvv/2P4H5bWr3/0ydJ1OX+dF13m2GEVIfQr88mHOomEbc+bzFv
+ kGAE=
+X-Developer-Key: i=mailhol.vincent@wanadoo.fr; a=openpgp;
+ fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
+X-Endpoint-Received: by B4 Relay for mailhol.vincent@wanadoo.fr/default
+ with auth_id=291
+X-Original-From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_105148_577866_A1C8983B 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20241202_093507_425267_FFAAB738 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,56 +104,84 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: mailhol.vincent@wanadoo.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vinod,
+From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 
-Am 02.12.24 um 17:52 schrieb Vinod Koul:
-> On 25-10-24, 12:36, Stefan Wahren wrote:
->> bcm2835-dma provides the service to others, so it should
->> suspend late and resume early.
->>
->> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
->> ---
->>   drivers/dma/bcm2835-dma.c | 30 ++++++++++++++++++++++++++++++
->>   1 file changed, 30 insertions(+)
->>
->> diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
->> index e1b92b4d7b05..647dda9f3376 100644
->> --- a/drivers/dma/bcm2835-dma.c
->> +++ b/drivers/dma/bcm2835-dma.c
->> @@ -875,6 +875,35 @@ static struct dma_chan *bcm2835_dma_xlate(struct o=
-f_phandle_args *spec,
->>   	return chan;
->>   }
->>
->> +static int bcm2835_dma_suspend_late(struct device *dev)
->> +{
->> +	struct bcm2835_dmadev *od =3D dev_get_drvdata(dev);
->> +	struct bcm2835_chan *c, *next;
->> +
->> +	list_for_each_entry_safe(c, next, &od->ddev.channels,
->> +				 vc.chan.device_node) {
->> +		void __iomem *chan_base =3D c->chan_base;
->> +
->> +		if (readl(chan_base + BCM2835_DMA_ADDR)) {
->> +			dev_warn(dev, "Suspend is prevented by chan %d\n",
->> +				 c->ch);
->> +			return -EBUSY;
->> +		}
-> Can you help understand how this helps by logging... we are not adding
-> anything except checking this and resume is NOP as well!
-My intention of this patch is just to make sure, that no DMA transfer is
-in progress during late_suspend. So i followed the implementation of
-fsldma.c
+Now that all the users of __is_constexpr() have been migrated to
+is_const() or one of its friends, remove it.
 
-Additionally i added this warning mostly to know if this ever occurs.
-But i wasn't able to trigger.
+The homage to Martin Uecker's genius hack remains in the documentation
+of __is_const_zero().
 
-Should i drop the warning and make resume callback =3D NULL?
+Signed-off-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+---
+ include/linux/compiler.h | 47 -----------------------------------------------
+ 1 file changed, 47 deletions(-)
 
-Best regards
+diff --git a/include/linux/compiler.h b/include/linux/compiler.h
+index 165aa5b9bc484376087a130a1ac1f3edb50c983d..7ba75044828129cf1f81f458ade695786dbf132a 100644
+--- a/include/linux/compiler.h
++++ b/include/linux/compiler.h
+@@ -252,53 +252,6 @@ static inline void *offset_to_ptr(const int *off)
+ #define __must_be_cstr(p) \
+ 	__BUILD_BUG_ON_ZERO_MSG(__annotated(p, nonstring), "must be cstr (NUL-terminated)")
+ 
+-/*
+- * This returns a constant expression while determining if an argument is
+- * a constant expression, most importantly without evaluating the argument.
+- * Glory to Martin Uecker <Martin.Uecker@med.uni-goettingen.de>
+- *
+- * Details:
+- * - sizeof() return an integer constant expression, and does not evaluate
+- *   the value of its operand; it only examines the type of its operand.
+- * - The results of comparing two integer constant expressions is also
+- *   an integer constant expression.
+- * - The first literal "8" isn't important. It could be any literal value.
+- * - The second literal "8" is to avoid warnings about unaligned pointers;
+- *   this could otherwise just be "1".
+- * - (long)(x) is used to avoid warnings about 64-bit types on 32-bit
+- *   architectures.
+- * - The C Standard defines "null pointer constant", "(void *)0", as
+- *   distinct from other void pointers.
+- * - If (x) is an integer constant expression, then the "* 0l" resolves
+- *   it into an integer constant expression of value 0. Since it is cast to
+- *   "void *", this makes the second operand a null pointer constant.
+- * - If (x) is not an integer constant expression, then the second operand
+- *   resolves to a void pointer (but not a null pointer constant: the value
+- *   is not an integer constant 0).
+- * - The conditional operator's third operand, "(int *)8", is an object
+- *   pointer (to type "int").
+- * - The behavior (including the return type) of the conditional operator
+- *   ("operand1 ? operand2 : operand3") depends on the kind of expressions
+- *   given for the second and third operands. This is the central mechanism
+- *   of the macro:
+- *   - When one operand is a null pointer constant (i.e. when x is an integer
+- *     constant expression) and the other is an object pointer (i.e. our
+- *     third operand), the conditional operator returns the type of the
+- *     object pointer operand (i.e. "int *"). Here, within the sizeof(), we
+- *     would then get:
+- *       sizeof(*((int *)(...))  == sizeof(int)  == 4
+- *   - When one operand is a void pointer (i.e. when x is not an integer
+- *     constant expression) and the other is an object pointer (i.e. our
+- *     third operand), the conditional operator returns a "void *" type.
+- *     Here, within the sizeof(), we would then get:
+- *       sizeof(*((void *)(...)) == sizeof(void) == 1
+- * - The equality comparison to "sizeof(int)" therefore depends on (x):
+- *     sizeof(int) == sizeof(int)     (x) was a constant expression
+- *     sizeof(int) != sizeof(void)    (x) was not a constant expression
+- */
+-#define __is_constexpr(x) \
+-	(sizeof(int) == sizeof(*(8 ? ((void *)((long)(x) * 0l)) : (int *)8)))
+-
+ /*
+  * Whether 'type' is a signed type or an unsigned type. Supports scalar types,
+  * bool and also pointer types.
+
+-- 
+2.45.2
 
 
 
