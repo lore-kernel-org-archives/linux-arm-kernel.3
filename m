@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67001E69E9A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 22:07:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF65E69E99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 22:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=czEMZ2LYZ7yn4W/XpL9xxgwSyAv54G8CxWzNOcpEJ10=; b=doY1MT7YICgmi+X6C+64dGXBET
-	1o2CPZ99r7/9cnYMQiT0Kp8F5SPfF9O3cP7+MFwIgXFjFMlwdYCtulVVA2EXn4O8qMASuVPjd9xXf
-	Y0vaG24VS8lUT2vlPyB0j4eIlsIf2TZyGARHjHIqRQAQBCSFrO7SMm0n9iQstaVMNDrQ9NiIuB5cK
-	6vah+eInvoZaBoCCWXtXQCeDtWnF+ZWCENd65KOeIyqAV/Fj+6np7rVfshI1iOmc7lt/qnI6ZBW0k
-	fclZDsSAXDkccAkZgTjjMlP4FZoFlyOEQlHOTounig5dYDoc5IwlK8GTumGsc/L+KR6ulrN7qBfHU
-	v/DEpI6w==;
+	bh=Mt0rCyXwBH75gm/hEp3dAw9YHLQ8vtgxRJ/+PYQudJI=; b=Aide+NioO8JdJQnvoZqu5ItbOA
+	3Ch/5bbLLaIgnJeHK9dZSi0J9IdstSUQKaxwKoztJFVxdTHAAIagzjlbbYlScwgVedG/mp7TbABNF
+	k7p8U9nkZx/FA75x0Ahtha9LtIdfiifpFHiuaEJgYACTfBGPsGYtoUuuuO1yMZC8GFJ59NJTW7U3L
+	siSjU3T325hPnWyFJRJZDXeU3zvZZKjos/Gz3IZl0upHJX0cgZAKaOvHXbGPYMXwhIly96HDmU4bt
+	s2Ynsv+g0+VlRzcMtg+uRv2F6QZTq6iJUxBEL+cDvfgr3UHU5EYR3/IXA7nRCiGO4+fp2J9OO3yKg
+	b7Y9i7Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIEa3-00000007aZ0-2Z6R;
-	Mon, 02 Dec 2024 22:07:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tIEb2-00000007anW-0wBP;
+	Mon, 02 Dec 2024 22:08:48 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIEWA-00000007ZdN-2E84
+	id 1tIEWA-00000007ZdS-40yC
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Dec 2024 22:03:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 83A0B5C6990;
-	Mon,  2 Dec 2024 22:03:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9982BC4CEE3;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0E713A41320;
+	Mon,  2 Dec 2024 22:01:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 83AB3C4AF15;
 	Mon,  2 Dec 2024 22:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1733177024;
-	bh=cDLcuBxu4MlG3S8lQE9mNu4I9S677lFh6lW7mFum0/A=;
+	bh=qT18XtbzllFJO6K/EGbpIUkVOz74iHPo6IUZe3P4fQc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=T6hjT1+arBPgp7c33VwEcTT8f/S4S9a673U+azCiuPkyQ+12Juiv3znjuZqbOVHqS
-	 jg25QPFQIAvpRtiX3s8jGJb4wW0DFiVLfPokQL91YL81Y6JTj/2M92d54Ke/MqnSL4
-	 JeiHXYwERm9wUkoP6QO7LLyqRvqM/453/NNHEqoSXQypzpiF81iCv96WhTCmROA24M
-	 8jn/XuQllNnyFdG7J1ymxzSfmX8sobB/Ys6Yo2cibrfCYP2ZcPtjkNnvKz+smG4wbr
-	 VVJkHm4xMbf5fLz/TSkiJxTp0CkEOml6j5BiMyHwe+Qn13y6QLBo5F5nt3T6ASTe4u
-	 n0vtNf4CXVuqw==
+	b=bz/JxYz3eyi1DhpbrkglrRzAgfLElTXav/19j3GXNtp9SZKMkT0FbRY4kdp/8LZkc
+	 iQZ6sWk6qhKcy5iPHVNu150Hq+ybHvOrrexkJ7axObU7AAF8dRPn5jRrFWt1LDWmt7
+	 w+31n7cHdbE/wf6G9niNqiYv5fHO5d7swxbpmJpAz+g3U3+o6ep/8d9uIn5GeQTEal
+	 B7mvhWI+P3l54DcUQLiGcraB7ibaDn1sM3Sw3Bmj2k8I/gruj2d5ek5yMdi0w62KJs
+	 UXkFboGXWZQTGEiOGHJwpXyOlkIp/Iud7FZM0u1XRPEygZ86pX2uKSfW31fLhuMPxx
+	 7JCZLiSzH9wgw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8D717E69E95;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 742CCE69E92;
 	Mon,  2 Dec 2024 22:03:44 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Mon, 02 Dec 2024 23:03:44 +0100
-Subject: [PATCH net-next v7 05/15] net: dwmac-dwc-qos-eth: Use helper
- rgmii_clock
+Date: Mon, 02 Dec 2024 23:03:43 +0100
+Subject: [PATCH net-next v7 04/15] net: phy: Add helper for mapping RGMII
+ link speed to clock rate
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241202-upstream_s32cc_gmac-v7-5-bc3e1f9f656e@oss.nxp.com>
+Message-Id: <20241202-upstream_s32cc_gmac-v7-4-bc3e1f9f656e@oss.nxp.com>
 References: <20241202-upstream_s32cc_gmac-v7-0-bc3e1f9f656e@oss.nxp.com>
 In-Reply-To: <20241202-upstream_s32cc_gmac-v7-0-bc3e1f9f656e@oss.nxp.com>
 To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
@@ -84,19 +84,19 @@ Cc: linux-stm32@st-md-mailman.stormreply.com,
  "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
  "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1733177022; l=1290;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733177022; l=1509;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=ZX+NwH2HQko3cIWDQjmmck130Lb3TijMXiPn59w6r/U=;
- b=uFp6e8h+BhAGpSRRXxR2e7S65R+2Nk4BVvwpSvoqxh9gwImcp6mIyNDmExHQ6dDj4WXJX7JbM
- p5u50oCGZHYCFppK8t8F3U0MIgqvWLohOmp9qdkp+hZl4WEN6/eC13h
+ bh=3exSjKEVuojsQxBeLN9HdAigOEc+2YUOvrl9BYstKAs=;
+ b=G3P71RfPl33hdVrDlllnb16IbsYPoOcbVUfjx5BRK9sLuAk1f23ksXhvEFKSyHDK31XhRAOK2
+ U1oVgeCKwORDNS5e53cGGVvj7ThJyNr6urmK7ABSgVasVuimT0ur8iv
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
  auth_id=217
 X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_140346_658183_B2B3A5BD 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20241202_140347_150583_919A5A78 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,47 +114,58 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-Utilize a new helper function rgmii_clock().
+The RGMII interface supports three data rates: 10/100 Mbps
+and 1 Gbps. These speeds correspond to clock frequencies
+of 2.5/25 MHz and 125 MHz, respectively.
 
+Many Ethernet drivers, including glues in stmmac, follow
+a similar pattern of converting RGMII speed to clock frequency.
+
+To simplify code, define the helper rgmii_clock(speed)
+to convert connection speed to clock frequency.
+
+Suggested-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c | 11 +++--------
- 1 file changed, 3 insertions(+), 8 deletions(-)
+ include/linux/phy.h | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-index 83290e707df5..bd4eb187f8c6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-@@ -181,24 +181,19 @@ static void dwc_qos_remove(struct platform_device *pdev)
- static void tegra_eqos_fix_speed(void *priv, unsigned int speed, unsigned int mode)
- {
- 	struct tegra_eqos *eqos = priv;
--	unsigned long rate = 125000000;
- 	bool needs_calibration = false;
-+	long rate = 125000000;
- 	u32 value;
- 	int err;
+diff --git a/include/linux/phy.h b/include/linux/phy.h
+index 563c46205685..a746f056ed57 100644
+--- a/include/linux/phy.h
++++ b/include/linux/phy.h
+@@ -298,6 +298,29 @@ static inline const char *phy_modes(phy_interface_t interface)
+ 	}
+ }
  
- 	switch (speed) {
- 	case SPEED_1000:
--		needs_calibration = true;
--		rate = 125000000;
--		break;
--
- 	case SPEED_100:
- 		needs_calibration = true;
--		rate = 25000000;
--		break;
-+		fallthrough;
++/**
++ * rgmii_clock - map link speed to the clock rate
++ * @speed: link speed value
++ *
++ * Description: maps RGMII supported link speeds
++ * into the clock rates.
++ *
++ * Returns: clock rate or negative errno
++ */
++static inline long rgmii_clock(int speed)
++{
++	switch (speed) {
++	case SPEED_10:
++		return 2500000;
++	case SPEED_100:
++		return 25000000;
++	case SPEED_1000:
++		return 125000000;
++	default:
++		return -EINVAL;
++	}
++}
++
+ #define PHY_INIT_TIMEOUT	100000
+ #define PHY_FORCE_TIMEOUT	10
  
- 	case SPEED_10:
--		rate = 2500000;
-+		rate = rgmii_clock(speed);
- 		break;
- 
- 	default:
 
 -- 
 2.47.0
