@@ -4,85 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5248BD78321
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 14:31:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD1F3D78326
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 14:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CBAMNnEvB2nsWHJ/x+Nsh/dKVIbLn0LpFjqIo5NkHcc=; b=CfSK9ERTCwPkk1i4EdQ6Uu8uYn
-	akJVBtkY9shoFqfsVXOHvcnjMYRgBvuY04xzKMj/aooZvq9kOJfBnwicNncueipqdfcdNSFud2Gpp
-	kuHSroKZskqt5tBRXI30vApKfO+r5hIm3vUf2sDGus25SQKFmZsF/lSYJ6ywhcZRsOJ88VkEPjGi0
-	Xof/Isi2a7CEjbw+berD05dEuEEiSnkOmPUbzCBtvKL3DgDKGSbaUIe7UKu3R45jX/Va/yIy/pTFX
-	MiA96FIuHP3yRLK4wdmORJl5sPFf0CazWmWbDpgA7c1Xf6MJmWABLwyTRugKcvWfXHrrxnuI8jVQ1
-	OJzBSVig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4jbIOMJhwzZujSBJo3/F7e/CHOV5fOnXM/PrRzCOyTU=; b=rG13TEOoBDmdXK5dj+mHPe9gm3
+	9pIGS6ogCXO5doEvVhXTEGaGA2A407L4IsQuY3g8+ThgaX440Sehw0KLwBygDfAW+FtIOWE/bJNSP
+	4rPkhK1w9cOOPTUOhgwbVjSXczZczHJkYpDvRLwvlEZxoScX5GmlfZSzszGNUdwo95Cyeh4QdnND6
+	t7O4xYEFlNGEG78uZVRRR8UxG+lNM52T6OSD3wb3u2rMxOKK6zF2Uz5uYdcAkAiM+Jz6s2qQqUnGw
+	SkbQHFzkDOQ6oAdWyUNK8V4+WcQknEA6Y0zxbwzuJafLUGNYB5JP3zP80QU/VnMFt2vIoJjY3UVsk
+	tYVxgpBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI7Sh-00000006R4L-2jwS;
-	Mon, 02 Dec 2024 14:31:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tI7UJ-00000006SjR-1Md0;
+	Mon, 02 Dec 2024 14:33:23 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI7R0-00000006Qbu-0u0O
+	id 1tI7TD-00000006Ri0-09QX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 14:29:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7D378A40D79;
-	Mon,  2 Dec 2024 14:28:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82161C4CED1;
-	Mon,  2 Dec 2024 14:29:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733149796;
-	bh=zXR6eQrgz3AScDFaT1NWaDHwLo2yw/lqyGIISozyVrA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=dI+vp98KwxM0HKBbgdeiQAOBMA3jilc5DZjKNGFTlUgCgz6TgI+3/CbkQFnAOaqRm
-	 JR4pi00J64NRzk8tdcHD31jQtHJLl1d/5NhUKSnCPEle0exynenfszcDutaPy4qRJB
-	 PuS4I1UOKGkEtaayRBocWFzIYIKmuwMsVhmkG2K/Pzd/uLQ1zSjnqYGBCYnnRgF+5o
-	 1m44whoDf+wPkKPva4eU0MshyX05i5IN3osdYNT39922016uujCoeKlBoD8Py6yaDe
-	 mGVL4DfMRyFIKrZWOw9opQxM35/jKOOO9nnOADoiIx0VEHDfx31ptevvisXfAHd8BV
-	 5heDtnsdOOqjA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tI7Qv-00HMtc-WD;
-	Mon, 02 Dec 2024 14:29:54 +0000
-Date: Mon, 02 Dec 2024 14:29:53 +0000
-Message-ID: <86v7w2taxq.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	oliver.upton@linux.dev,
-	james.clark@linaro.org,
-	will@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	broonie@kernel.org,
-	qperret@google.com,
-	kristina.martsenko@arm.com
-Subject: Re: [PATCH v3 14/15] KVM: arm64: Convert the SVE guest vcpu flag to a vm flag
-In-Reply-To: <CA+EHjTysFaaxGBo212e8kSHi_VkpXx6N6ddxwB0UGC6bSoK0gA@mail.gmail.com>
-References: <20241128123515.1709777-1-tabba@google.com>
-	<20241128123515.1709777-15-tabba@google.com>
-	<864j3nv9tk.wl-maz@kernel.org>
-	<CA+EHjTyXj6NhUcxTfER=zPz3VOtd+HgqpfmyfR88cVyiXoxqwA@mail.gmail.com>
-	<CA+EHjTysFaaxGBo212e8kSHi_VkpXx6N6ddxwB0UGC6bSoK0gA@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, james.clark@linaro.org, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, kristina.martsenko@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 02 Dec 2024 14:32:16 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B29fYZE011828
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 2 Dec 2024 14:32:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	4jbIOMJhwzZujSBJo3/F7e/CHOV5fOnXM/PrRzCOyTU=; b=Q+ptKS+KNn69T76+
+	UTx7JyZYQsLwwtc/Y86rh0ScKOXyyFXvPlZnep4FtAQxnkFrKrnTppAawPIbUdHD
+	rR2LSV8QG0rtGrOVvsyXJkgEE1q3hNNbNR8rhXejcQ+nHQf7dUbWVqugNmqsc3Fj
+	tBpGB8K57UxUNZkTBr3grUSl9+dGdgFQAkgHIKx7b5AA7wIdUn8Z3RWz3TQKYsod
+	793vWz74ooHLnRYmDs4jmrNDQTmks7TYyGBTk6VOjNehRk9BICZESrfLPtdoJDdT
+	BkfTr0GJZJjk9sf7uDuY/WHvzTLcllopmaLL8gdLUcYQwSVs/EI8ptgA5cpfEVeX
+	TWRDlg==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4393mpa0a1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 14:32:14 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4668cee0202so6921011cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 06:32:14 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733149933; x=1733754733;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4jbIOMJhwzZujSBJo3/F7e/CHOV5fOnXM/PrRzCOyTU=;
+        b=pYEKTzvvQGzjPJwAimNjs0rzVUCtMZyWK+fAYskYGdc1trGflxmltRQw6+MublsM7J
+         s3dumfd/iENBrVvWL0SQvJdLPReJWm4cfeVDRm5Sju2AEt4UqYOn9tcqSJluIesqx0wQ
+         UHVQq9MBKEBoJtrFTU0+EkXlI1RgznsR5L4HdS5HWgYilIB5Vq/qmNEZV7SdmQ7/wtc9
+         rGrSgrfSHbgsDiH+0kp+djRHY2MXnp4UWx5/qMWEjmhdIhWhj/Xsb75X10Jes9lE/lxM
+         fZGO0b/i4+ZufIyYAAMFPOk4q1mpOsxG0zxd+856YyKH5ldxWsvK47LoyFNiCpLgRW0W
+         CD4w==
+X-Forwarded-Encrypted: i=1; AJvYcCV8U/PNNHR+5Zp9SO62QBeFAD6Im34ym+HZNBgKM/IyJKTdWq7xSWYxDv/CHXKiwww0BbrF4r1gq5+C+GVG/FTG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTpz53GUZfhQVSDBzwa7jjCYn4cVKsfxgh/rbkIyhdBMh8pKVj
+	F0Om+EDyxwFfkzYGxuVj9praklnTiCmqVyZd4lwu4N8HuYxxeUwEMmLQ+SI3Ck4pSH+s37bHzSx
+	mjcfagw5CLj3k+aW0Io+ihm8N0ET8h9zL4uqvIT6IeMspnXTJPIZNnXGv84ZgC3pY8zjxiS020Q
+	==
+X-Gm-Gg: ASbGncu6NCFSTAO/h0zKC+FlJF1mGGJefZh4g05CH925+UtVnlr6pKQgv2EFCN8qAgC
+	h8lmrf2sehykUKGoVATWn1eYXy91VvT+BXGTK7fhmpMJK6+1dpkspdCmHvvbCGYVoAcCB72XbaW
+	pnpnCzyAxeczUQ+ySrMZwGdweESTzkkBU8a0Im4dnxrMc4ez82+oMpn4iZBPHjbzKQj329zQZ/W
+	tLGFFKH00DPG5xjP4nrURygYGdV4KuHdjPAGk72jzWNQrIdKi9o3KSHceT9I6bFtoOwA+mq/nu9
+	uUM5VRuVXGtROzztWktCvCiGRDIwSk8=
+X-Received: by 2002:ac8:5ac5:0:b0:460:9026:6861 with SMTP id d75a77b69052e-466b35709cfmr140702281cf.9.1733149932675;
+        Mon, 02 Dec 2024 06:32:12 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGf1cpJzrtskSGjo4fG1SF33+hbIJADVXKdZwRVrExj/yH5XpQNftzyNj1gO9ADrRCLD3i4rA==
+X-Received: by 2002:ac8:5ac5:0:b0:460:9026:6861 with SMTP id d75a77b69052e-466b35709cfmr140702001cf.9.1733149932112;
+        Mon, 02 Dec 2024 06:32:12 -0800 (PST)
+Received: from [192.168.212.120] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa5996d8b7asm514983366b.48.2024.12.02.06.32.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Dec 2024 06:32:11 -0800 (PST)
+Message-ID: <30985d44-a460-437d-8423-615c198e02a2@oss.qualcomm.com>
+Date: Mon, 2 Dec 2024 15:32:09 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: qcom: x1e80100-crd: Add USB multiport
+ fingerprint reader
+To: Stephan Gerhold <stephan.gerhold@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Catalin Marinas
+ <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, Abel Vesa <abel.vesa@linaro.org>,
+        Johan Hovold <johan@kernel.org>
+References: <20241118-x1e80100-crd-fp-v1-0-ec6b553a2e53@linaro.org>
+ <20241118-x1e80100-crd-fp-v1-1-ec6b553a2e53@linaro.org>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20241118-x1e80100-crd-fp-v1-1-ec6b553a2e53@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: -hRF6Tr-54pULRm3c_Qgz5GcnTquZZZI
+X-Proofpoint-GUID: -hRF6Tr-54pULRm3c_Qgz5GcnTquZZZI
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=602
+ impostorscore=0 mlxscore=0 malwarescore=0 suspectscore=0
+ lowpriorityscore=0 adultscore=0 spamscore=0 priorityscore=1501
+ clxscore=1015 bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412020125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_062958_377591_60853E70 
-X-CRM114-Status: GOOD (  35.60  )
+X-CRM114-CacheID: sfid-20241202_063215_084716_E539C7B8 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,90 +128,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 02 Dec 2024 12:57:44 +0000,
-Fuad Tabba <tabba@google.com> wrote:
+On 18.11.2024 11:34 AM, Stephan Gerhold wrote:
+> The X1E80100 CRD has a Goodix fingerprint reader connected to the USB
+> multiport controller on eUSB6. All other ports (including USB super-speed
+> pins) are unused.
 > 
-> Hi Marc,
+> Set it up in the device tree together with the NXP PTN3222 repeater.
 > 
-> On Sun, 1 Dec 2024 at 16:01, Fuad Tabba <tabba@google.com> wrote:
-> >
-> > Hi Marc,
-> >
-> >
-> > On Sun, 1 Dec 2024 at 12:58, Marc Zyngier <maz@kernel.org> wrote:
-> > >
-> > > On Thu, 28 Nov 2024 12:35:14 +0000,
-> > > Fuad Tabba <tabba@google.com> wrote:
-> > > >
-> > > > The vcpu flag GUEST_HAS_SVE is per-vcpu, but it is based on what
-> > > > is now a per-vm feature. Make the flag per-vm.
-> > > >
-> > > > Signed-off-by: Fuad Tabba <tabba@google.com>
-> > > > ---
-> > > >  arch/arm64/include/asm/kvm_emulate.h    |  6 +++---
-> > > >  arch/arm64/include/asm/kvm_host.h       | 10 ++++++----
-> > > >  arch/arm64/kvm/hyp/include/hyp/switch.h |  2 +-
-> > > >  arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  2 +-
-> > > >  arch/arm64/kvm/hyp/nvhe/pkvm.c          | 11 +++++++----
-> > > >  arch/arm64/kvm/hyp/nvhe/switch.c        |  8 ++++----
-> > > >  arch/arm64/kvm/hyp/vhe/switch.c         |  2 +-
-> > > >  arch/arm64/kvm/reset.c                  |  2 +-
-> > > >  8 files changed, 24 insertions(+), 19 deletions(-)
-> > > >
-> > > > diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> > > > index 406e99a452bf..ae6d0dc0e4ff 100644
-> > > > --- a/arch/arm64/include/asm/kvm_emulate.h
-> > > > +++ b/arch/arm64/include/asm/kvm_emulate.h
-> > > > @@ -620,7 +620,7 @@ static __always_inline void kvm_write_cptr_el2(u64 val)
-> > > >  }
-> > > >
-> > > >  /* Resets the value of cptr_el2 when returning to the host. */
-> > > > -static __always_inline void kvm_reset_cptr_el2(struct kvm_vcpu *vcpu)
-> > > > +static __always_inline void kvm_reset_cptr_el2(struct kvm *kvm)
-> > >
-> > > I'd rather you avoid the resulting churn:
-> > >
-> > > static __always_inline void kvm_reset_cptr_el2(struct kvm_vcpu *vcpu)
-> > > {
-> > >         struct kvm *kvm = kern_hyp_va(vcpu->kvm);
-> > >         [...]
-> > >
-> > > which does the trick at zero cost. It is also more logical to keep the
-> > > vcpu as a parameter, as the per-VM-ness is only an implementation
-> > > detail.
-> >
-> > The reason for the churn (here and below for vcpu_has_sve()), which in
-> > hindsight I should have mentioned in the commit message or as a note,
-> > is that this code is called by the host kernel (e.g., in reset.c), and
-> > by the hypervisor). For nvhe, we need kern_hyp_va(), but not for the
-> > host. Should I gate the va conversion with is_hyp_nvhe()?
-> 
-> I spoke too soon. Your suggestion results in less churn, and of
-> course, solves the issue I had with kern_hyp_va.
-> 
-> I did have to convert kvm_reset_cptr_el2() into a macro, because it
-> now needs kern_hyp_va(), defined in kvm_mmu.h, which in turn includes
-> kvm_emulate.h. But since it's __always_inline, it shouldn't make any
-> difference in practice.
-> 
-> If this conversion to a macro is alright by you, I'll respin this.
+> Signed-off-by: Stephan Gerhold <stephan.gerhold@linaro.org>
+> ---
 
-If you can convert it to something like:
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-static __always_inline void __kvm_reset_cptr_el2(struct kvm *kvm)
-{
-	[...]
-}
-
-#define kvm_reset_cptr_el2(v)	__kvm_reset_cptr_el2(kern_hyp_va((v)->kvm))
-
-that'd be great, as it keeps the body of the function as C code, which
-helps with debugging.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Konrad
 
