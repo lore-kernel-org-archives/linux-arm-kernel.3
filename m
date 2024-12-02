@@ -4,85 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA685D10DA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 06:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D999FD4979F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 06:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Bn0LDqdl1s00AOGHv9alMWMkV5CbY2Y3h7DtmORE+v0=; b=KTa0GAk4Ovbul6uN1hoSqWBaF0
-	qYtzyrf5pP5TRUbv4U66b8wByO1ba00QJcsWt33abbybjv+ExTw10ndOLbFYI4Pv5/IyMesj+YTkv
-	wc7aPn2AQchVyJ92mWfJPuJaD2kz2eNCei/xe1At6kL8t1+TEwhWTGt5SdyY/zQgSkyRlk5rzZ160
-	ZSvvVT4d3pawwblvv1aawtRsWxbFFcLqlwfMg8+Dt57w2WRtAJaPE4UHMvcuTOSt9LDjovdVZFK31
-	GR4vIiikzfugNUmCiPdh9EY5jIswks0EM7DNYvi09AV/hSQtxv77u69NzPQHEa3zpoDFfC9mziNag
-	iGzax+0A==;
+	bh=u0dUzbcnpc7P5pixi8+kLQtek5TdB7ZvvvQlbpg5ADI=; b=kEL3YOcjnanI5dNYfAMa245f7O
+	3bVlHH6T6Kon9B/LyJoN7BVQxX2qYS5rDgNnfHQAG9MtvPc3f1CrCzxywpqpRwo5v0+tk4GM4Bb6p
+	Uuhc7BanHulmPwy1cPbZzuOCGm8Ij5kg2zp9OGsVvKmcGEP2Hq1WZZUbevUTwArfPn2nwWv9im0X0
+	KGG/4RdYxAJs78ng8Lhe4s0ZibiDaSafEIjtvklCednRTPt8RRKb9/YDhz4SZ3NzCfPfcRpFVt3Cb
+	1hmp7ktgh6umdI8F68l2BFBt4KPvQFm/8D7Fh01xqP7nxlWRIIpJkXDM9q9KgZjvPvuYIkRWKzUEA
+	lRgy+l4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHzw6-00000005C0C-0vhA;
-	Mon, 02 Dec 2024 06:29:34 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHzv6-00000005BsL-1qwC
+	id 1tI0BN-00000005DUp-0cZA;
+	Mon, 02 Dec 2024 06:45:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tI0AM-00000005DMl-2S6D
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 06:28:33 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2154e3af730so16228705ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Dec 2024 22:28:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1733120911; x=1733725711; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bn0LDqdl1s00AOGHv9alMWMkV5CbY2Y3h7DtmORE+v0=;
-        b=e0dGD0Bv1DgAE77AdS/D9E6F+0UeqX2HITjtLO8R9enjs+OSnGOlkvRRmBI26Z5Wzf
-         nci9AjjgCFF6nZ7DyAC9O0iDqQeJuQdKMVUn7PUXfKLPj96NCFuBP6k1FKEHD/FkHonw
-         dBjwbjIfRJtSeGkzOUJx07U0BuLU2485WVAi0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733120911; x=1733725711;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Bn0LDqdl1s00AOGHv9alMWMkV5CbY2Y3h7DtmORE+v0=;
-        b=ouoBMGMSnT/gY1Nk0OqEuXWCljwrxbWzrzQGPGeuZrADufb+mDqWMjuAuEdH6kAxXB
-         cMquVO46dlu7gPvU6gHnHRCeT53Jt4RwyA/Q8rxTtnYU/Uj+E2wQRbWOplAOnyvsfbVk
-         EfitMx2I20odTttdmbsARsw70qheZmVSc2DhZgNkG+OxiIsCwS9Vx97k8XY2jNpn2kfM
-         XW2PgkCzt+K0O3PYBMRB+rraGj4N9OdYW678/o62vEX/jpDtpYuRP8McVZ1y1LEuW12X
-         VL03A77ngfWX6/5+dRDVAX5Zn3wfZiOYvNv+l7OUuGrtQMEyNz8JUPZ94sT935gPWY7m
-         sHqw==
-X-Forwarded-Encrypted: i=1; AJvYcCWIWwYdDKWZ0tX84ZLV0abN2D9+JZFx7+rUFob0QuTNX8YNvSLXAkhbl+Aue5sG5v7ewgDsQ0MVWhKvNLW1PKSf@lists.infradead.org
-X-Gm-Message-State: AOJu0YwO8HIA9zY/F/G6HsD2g8FxotgjWAWZ7zRUE1uXdyJY0t7M2Au2
-	FVGyjJwaKsDu1uMayP6EmR0tCDCzVtzDYDHaSKFUBmnIVtHkmkhQlSfG4AIKAg==
-X-Gm-Gg: ASbGncu4Z91I/XSdA+6VxxfUM6nWmvjCk8seVrvzIGH9nuqPnPSsoXz5w5RB9fRtrmT
-	UsKLDSQ6NG6MeMfe1kHURyJQEnXy+WyjvMcz3V3kciuUpk6M2gx+5ntVv7vElx5SIm1yynD4rzG
-	mc8OTRss+xcdw8/azdtpvcDrWXmWFbXiPajLwh8UTLHsxvdrZksPQkaXCfmcVflUNcMXx2UuZhI
-	QHd+dluSu4K5roRsFsK5ItLB5xoVz68L/0gD5N3YlpD5CBACS2I9oKTsrHa86TSWP6U
-X-Google-Smtp-Source: AGHT+IHrImvV+P3fnp6O9oKMYzWe60hrfjJ4izSDkEkKWNLOabp7zSbgf2dW9C8Dph+qT+k/E/6L3A==
-X-Received: by 2002:a17:902:cccb:b0:215:89a0:416f with SMTP id d9443c01a7336-21589a04ec8mr55693695ad.30.1733120911505;
-        Sun, 01 Dec 2024 22:28:31 -0800 (PST)
-Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:94c8:21f5:4a03:8964])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215361fd5a6sm58878555ad.94.2024.12.01.22.28.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Dec 2024 22:28:31 -0800 (PST)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-remoteproc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Tinghan Shen <tinghan.shen@mediatek.com>
-Subject: [PATCH] remoteproc: mtk_scp: Only populate devices SCP cores
-Date: Mon,  2 Dec 2024 14:28:25 +0800
-Message-ID: <20241202062826.66619-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
+	Mon, 02 Dec 2024 06:44:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7CCD4497;
+	Sun,  1 Dec 2024 22:44:44 -0800 (PST)
+Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.16.41])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4C9D33F58B;
+	Sun,  1 Dec 2024 22:44:13 -0800 (PST)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64/mm: Ensure adequate HUGE_MAX_HSTATE
+Date: Mon,  2 Dec 2024 12:14:07 +0530
+Message-Id: <20241202064407.53807-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_222832_477026_41BEA1D7 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20241201_224418_668828_5E376219 
+X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,64 +66,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When multi-core SCP support was added, the driver was made to populate
-platform devices for all the sub-nodes. This ended up adding platform
-devices for the rpmsg sub-nodes as well, which never actually get used,
-since rpmsg devices are registered through the rpmsg interface.
+This asserts that HUGE_MAX_HSTATE is sufficient enough preventing potential
+hugetlb_max_hstate runtime overflow in hugetlb_add_hstate() thus triggering
+a BUG_ON() there after.
 
-Limit of_platform_populate() to just populating the SCP cores with a
-compatible string match list.
-
-Fixes: 1fdbf0cdde98 ("remoteproc: mediatek: Probe SCP cluster on multi-core SCP")
-Cc: Tinghan Shen <tinghan.shen@mediatek.com>
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- drivers/remoteproc/mtk_scp.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+This patch applies on v6.13-rc1
 
-diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
-index 0f4a7065d0bd..8206a1766481 100644
---- a/drivers/remoteproc/mtk_scp.c
-+++ b/drivers/remoteproc/mtk_scp.c
-@@ -1326,6 +1326,11 @@ static int scp_cluster_init(struct platform_device *pdev, struct mtk_scp_of_clus
- 	return ret;
- }
+ arch/arm64/mm/hugetlbpage.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+index 3215adf48a1b..98a2a0e64e25 100644
+--- a/arch/arm64/mm/hugetlbpage.c
++++ b/arch/arm64/mm/hugetlbpage.c
+@@ -519,6 +519,18 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
  
-+static const struct of_device_id scp_core_match[] = {
-+	{ .compatible = "mediatek,scp-core" },
-+	{}
-+};
-+
- static int scp_probe(struct platform_device *pdev)
+ static int __init hugetlbpage_init(void)
  {
- 	struct device *dev = &pdev->dev;
-@@ -1357,13 +1362,15 @@ static int scp_probe(struct platform_device *pdev)
- 	INIT_LIST_HEAD(&scp_cluster->mtk_scp_list);
- 	mutex_init(&scp_cluster->cluster_lock);
- 
--	ret = devm_of_platform_populate(dev);
-+	ret = of_platform_populate(dev_of_node(dev), scp_core_match, NULL, dev);
- 	if (ret)
- 		return dev_err_probe(dev, ret, "Failed to populate platform devices\n");
- 
- 	ret = scp_cluster_init(pdev, scp_cluster);
--	if (ret)
-+	if (ret) {
-+		of_platform_depopulate(dev);
- 		return ret;
-+	}
- 
- 	return 0;
- }
-@@ -1379,6 +1386,7 @@ static void scp_remove(struct platform_device *pdev)
- 		rproc_del(scp->rproc);
- 		scp_free(scp);
- 	}
-+	of_platform_depopulate(&pdev->dev);
- 	mutex_destroy(&scp_cluster->cluster_lock);
- }
++	/*
++	 * HugeTLB pages are supported on maximum four page table
++	 * levels (PUD, CONT PMD, PMD, CONT PTE) for a given base
++	 * page size, corresponding to hugetlb_add_hstate() calls
++	 * here.
++	 *
++	 * HUGE_MAX_HSTATE should at least match maximum supported
++	 * HugeTLB page sizes on the platform. Any new addition to
++	 * supported HugeTLB page sizes will also require changing
++	 * HUGE_MAX_HSTATE as well.
++	 */
++	BUILD_BUG_ON(HUGE_MAX_HSTATE < 4);
+ 	if (pud_sect_supported())
+ 		hugetlb_add_hstate(PUD_SHIFT - PAGE_SHIFT);
  
 -- 
-2.47.0.338.g60cca15819-goog
+2.30.2
 
 
