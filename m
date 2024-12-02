@@ -4,81 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 423A8D78333
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 631A1D78337
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3iIxLX8MdJKmfYZx84Ifi8jJEfVuHKL2dEYMIadupn0=; b=AMm8FRwDyQfDiC9y9t8MoK6SL7
-	GT4F2A6G4+sAbbOPOEHPPySrckGoJ7jjD7522iVd8dTGdtlgHMgYI9FKCMt5bBgkDOh6FX32y1/c7
-	cwKOULuzCyDBIju6f2GPXld77NHAQEKOhU6fRZHICyKq/eK2N0MLMUpD74fugUqYl2LGYd4ZWTXFl
-	TUH7HAQQhaZAEeBYvuCduN4BVtbfhpHU1zvvu9liqR1ulXfLDCAWC8wIE+if+nCD3vDMmj4vKKq5j
-	6EBCLdmWoZhcoG26lpk/kcnQTmKhaKsWP9H909OaNzzy0soGJHXcgflZoR5R4WpxQvpFFHREJNxy5
-	YsXNzyYw==;
+	bh=53HRny2OPbiIDCn5g9MEYNkmUxD0U5pObycMcQTgjLc=; b=fJpU5N5S+3ZmnpntGezQd0ZORf
+	QYiZR6Yaq4kAwzBXLOUqYtnjdkKLSWJyerMt5ui8qR0zfeIr7eGRkiEAWrF9mbqiGUpnzj4gC+Lz0
+	s2JicfueqKI4nhvrrb6XfRXV8lgJsmqZ/nHG4tR6BFDzNNVI4LsmBCbiX/wik8hzIzIh3YrdIzDXi
+	YHMZlhViF8D3Q/MdK7xzQsGWlS5lqCs9lX/q+93wMPlTVLGnzbSdeJty7U8TR2RN24lixtZYgKZgW
+	nYCH8TxC3EBVA35Jai7htgpF5Lx+jo4C9muqZfVd8kxFdPPXU6ugxfRNWQT3Qq3hsk6Djx5ndZtwF
+	pxsggiOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI9Wx-00000006uDg-2k0J;
-	Mon, 02 Dec 2024 16:44:15 +0000
-Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
+	id 1tI9Xw-00000006uXu-119J;
+	Mon, 02 Dec 2024 16:45:16 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI9Pe-00000006sPx-0QAA
+	id 1tI9GK-00000006qPj-2KHA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 16:36:43 +0000
-Received: by mail-yb1-xb36.google.com with SMTP id 3f1490d57ef6-e333af0f528so2833317276.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 08:36:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733157400; x=1733762200; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=3iIxLX8MdJKmfYZx84Ifi8jJEfVuHKL2dEYMIadupn0=;
-        b=eq+YrgWG69SeUgtCk+6ZDlA18ImLqUDsoJM2dZF6LH8I9v3xQPAr+rJUThlNt6KjBR
-         6AeR5hKLBu/aXvOjyBIRS9y9h5Tkp4JTrDLSS6SJqQfBjXHrJd4VcI19mff5NQ2SYSG1
-         lu1IsT/AHHy3zNjqmX3SkxLhOPegi2kn2moo/L7LYpqPlb2/XOpK0nCVKg0Hx1CYMsmT
-         CKG0+F6evF4EapE7SeWUYXb6+iCYOtY1dFp6PtSsjFi9sFdmEZ5oduxYZOq52cZgp3Ww
-         f6+bPLaCDlk1WfPTprIX6WmiGj7P92nHqJ/Rgb07wZp+FfW80R7CaYYl8dby3TAOXuqv
-         dyXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733157400; x=1733762200;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3iIxLX8MdJKmfYZx84Ifi8jJEfVuHKL2dEYMIadupn0=;
-        b=GgskTbkU4pM5ejVxdGXd9hBDDYdl5hqBHR3FVZw881hLZY8CtzR2vibbLYILAeuO4G
-         T4/aXjrAvW18rgKR72tG4FouwFmBxJSkTSZ53IXvcFWxAIHfCZLD6cYvm85qzK/qZG8D
-         GyFHNoRY3JVzWaxUpDRLZAl0GLfIWUOYNLtA8KZ7JkMQ1T4XJ26zUrTmsi5QwJei1l3w
-         nBuwvS4HrgFEj+b+qrqiVt7qBefFmBKInY2uHQ/wn9ko4F775k5G0l/NwLPTmlO0ewZr
-         P+MIQimyT6UCvRCTxuDKtfXen/fT/DRk7rAFZxQYeqXFEXCcHb4Bv1dzDZTdYMB6dL0q
-         CNHg==
-X-Forwarded-Encrypted: i=1; AJvYcCVGyik/S4Anbyq7g6yopNEY08frD4MiP6YuoOGYuLkUM0WYFJkkPdZcVfjjKTuOF2t9ezqoXSZCNeYsYQr0nJv+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0WxFxZVlv6RBlq3USZlOpsb+3P0CHJJyQ85AFY/OuzSbptwMd
-	6IXQi1shSXJR0Uw/h8BdGPl9h8Ty+zbHSYUojuEJQVplazm7H7/kd4qRDI0JrDvVlgZJykYMA5a
-	7iAK7wAXJs7LFP90XELTo5/T9F2c=
-X-Gm-Gg: ASbGncuvYsKjuYoTL4GujhuhDeDQrEPbrC7iB6aQH/MTtc7zY4etZ6z/H96KfXNQqYp
-	2uZi7A9juR73kMaUt/VKIz4CzuucT+sUq
-X-Google-Smtp-Source: AGHT+IFQ4i9gEalC/d1K/SdeClnhnHzZj+IX6cR1THj7nWjoIltHkFk9vX6X4yTjjoj8SQHlC0zxj1n3y1n377U0g9Y=
-X-Received: by 2002:a05:6902:110b:b0:e39:7a90:eed0 with SMTP id
- 3f1490d57ef6-e397a90f42emr15007609276.44.1733157400328; Mon, 02 Dec 2024
- 08:36:40 -0800 (PST)
-MIME-Version: 1.0
-References: <20241124-admac-power-v1-1-58f2165a4d55@gmail.com> <Z03f08Os/csGbMap@vaman>
-In-Reply-To: <Z03f08Os/csGbMap@vaman>
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Date: Mon, 2 Dec 2024 17:36:28 +0100
-Message-ID: <CAMT+MTTFkVcZHoC77BAVc+R_rvDfhoSQZujic9SCCqb8OkgSew@mail.gmail.com>
-Subject: Re: [PATCH] dmaengine: apple-admac: Avoid accessing registers in probe
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, =?UTF-8?Q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>, 
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Mon, 02 Dec 2024 16:27:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6122CA40F8A;
+	Mon,  2 Dec 2024 16:25:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3500C4CED6;
+	Mon,  2 Dec 2024 16:27:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733156823;
+	bh=nPtb1zSByJeaDM0DUV8mbGmOuC3IvCO7oLz660454R8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tqDFWYx7tpuPs3199TfcyJNFHIKuE9dIV29mA/Za4FBuKVG04CgyqNFfqVNTXOkGE
+	 j5u+kEm6H5NIy4FvI/Jo5lXhzQcMhvrPpRtT8TWqTy7jrTDrJcy08aqMoaDKDlnm04
+	 7uEsw71bbPEAa8jiTRrjUn58w39Tc5IKSbLrELF05NTtzs5FfsAOG2S8Dna5J0Adcl
+	 UVmAVfjsJy/+ZFFf2p7UB0mixrpNIiVPGsC88kxq88WslnlWxI22tRcX6Sxnw1wEle
+	 v9Y2UOyFEOOcY/Xs9QtBR/R3fae/o17hjvAfF/yhxhjKHJkbkQhJ54Fa9/2nhy8cgN
+	 pr9+jf6ygE3zQ==
+Date: Mon, 2 Dec 2024 21:56:59 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: fnkl.kernel@gmail.com
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH] dmaengine: apple-admac: Avoid accessing registers in
+ probe
+Message-ID: <Z03f08Os/csGbMap@vaman>
+References: <20241124-admac-power-v1-1-58f2165a4d55@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241124-admac-power-v1-1-58f2165a4d55@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_083642_133320_E98081DF 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241202_082704_654129_4E7BB424 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,14 +75,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2 Dec 2024 at 17:27, Vinod Koul <vkoul@kernel.org> wrote:
-> So looking at the driver, there is code to turn power, so what ensures
-> that power is up while we are in alloc callback
+On 24-11-24, 16:48, Sasha Finkelstein via B4 Relay wrote:
+> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> 
+> The ADMAC attached to the AOP has complex power sequencing, and is
+> power gated when the probe callback runs. Move the register reads
+> to other functions, where we can guarantee that the hardware is
+> switched on.
 
-There are two devices that use admacs, mca, and aop, with aop
-only having a downstream driver for now. Aop's admac is controlled
-by aop firmware, which does the power switching. Naturally, that firmware
-has it's own idea of how power is supposed to be managed, so we can't
-sequence it in such a way that the relevant admac has power when we
-are running probe().
+So looking at the driver, there is code to turn power, so what ensures
+that power is up while we are in alloc callback
+
+> 
+> Fixes: 568aa6dd641f ("dmaengine: apple-admac: Allocate cache SRAM to channels")
+> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> ---
+>  drivers/dma/apple-admac.c | 7 ++-----
+>  1 file changed, 2 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/dma/apple-admac.c b/drivers/dma/apple-admac.c
+> index 9588773dd2eb670a2f6115fdaef39a0e88248015..037ec38730cf980eee11ebb8ec17be7623879cf8 100644
+> --- a/drivers/dma/apple-admac.c
+> +++ b/drivers/dma/apple-admac.c
+> @@ -153,6 +153,8 @@ static int admac_alloc_sram_carveout(struct admac_data *ad,
+>  {
+>  	struct admac_sram *sram;
+>  	int i, ret = 0, nblocks;
+
+Empty line before this please
+
+> +	ad->txcache.size = readl_relaxed(ad->base + REG_TX_SRAM_SIZE);
+> +	ad->rxcache.size = readl_relaxed(ad->base + REG_RX_SRAM_SIZE);
+>  
+>  	if (dir == DMA_MEM_TO_DEV)
+>  		sram = &ad->txcache;
+> @@ -912,12 +914,7 @@ static int admac_probe(struct platform_device *pdev)
+>  		goto free_irq;
+>  	}
+>  
+> -	ad->txcache.size = readl_relaxed(ad->base + REG_TX_SRAM_SIZE);
+> -	ad->rxcache.size = readl_relaxed(ad->base + REG_RX_SRAM_SIZE);
+> -
+>  	dev_info(&pdev->dev, "Audio DMA Controller\n");
+> -	dev_info(&pdev->dev, "imprint %x TX cache %u RX cache %u\n",
+> -		 readl_relaxed(ad->base + REG_IMPRINT), ad->txcache.size, ad->rxcache.size);
+>  
+>  	return 0;
+>  
+> 
+> ---
+> base-commit: 9f16d5e6f220661f73b36a4be1b21575651d8833
+> change-id: 20241124-admac-power-7f32c2a1850a
+> 
+
+-- 
+~Vinod
 
