@@ -4,102 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24EE6D4979C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 04:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7774D49795
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 05:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cDVRJapTTKIEkPi1buTVc3tXS1QEJK+G0n5EUf611IE=; b=zKFjCQM7jAVIwxUyEXkyWHIJJn
-	V3kHFuGpdSNCmN4t3e5LDLlI0+8BZXoxo1fPp6/9q+xbDhkBPliFY5BbC7D/GVzJ4f6hgjuIbaJhg
-	4bgzlkVmtzVypRUI/u8/YFdzp8Is/b6lLoivnkG8PYCTG2RtExl/RVguJKoyZLgEP8JCtPkX1afYA
-	3eTWFvmXJ/xeqrc1H9h9tJtvx5k3LpSCbB3QmYKq4Q2Ml/2Ap6tM13j2iDAlsukB6yxCrbDlt+Obu
-	dZG46THeFJVb/CukkE/j6ula9hjl1lyS7EU71NNHStQ7tgSSgXUnvjgFBzWLN09h45/798gyavWvD
-	y3wGaemQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P6wamS4M2uxVf2Rl78ammRN/gU5kZkDk7D1GpegljsM=; b=yWxG+OwxDkJ77kAUsmylE9erG4
+	+pl2fCywMVL+lTSLAMWy1BEVVXqupNci7j4C35p0X6/1pvgVrZ5ZlyeK7V1zFKs5TOY5Uck3PlPqW
+	M2YvAvGkAkSqQz1vn8/vgyvGpihMjTsJcbx562J3xk6FEPstpKBNE7mzlqQDbunn4R/oYcPzpxamX
+	iqxHsSIE1JGy7o6hNvRpwHvd7WmpuCBpNCH5UWIqlEbDHfcebjSC9J2HayFY6Aoy4/9MNWT163hBO
+	R+UC5E00caMQ9GnZ9J+yknucwfZAHdvuHfTiu8b3DpBHNAMTBUZG/tskmjhRo+0QDPhKzFu/bQj08
+	R+gorYyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHyQs-0000000550H-2TOu;
-	Mon, 02 Dec 2024 04:53:14 +0000
-Received: from omta36.uswest2.a.cloudfilter.net ([35.89.44.35])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHyPW-000000054pD-1mmv
+	id 1tHyXV-000000055Rz-3Xgq;
+	Mon, 02 Dec 2024 05:00:05 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tHyW4-000000055N8-0hgK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 04:51:52 +0000
-Received: from eig-obgw-5009a.ext.cloudfilter.net ([10.0.29.176])
-	by cmsmtp with ESMTPS
-	id HE5nt5ZeRqvuoHyPGt9EPG; Mon, 02 Dec 2024 04:51:35 +0000
-Received: from md-in-79.webhostbox.net ([43.225.55.182])
-	by cmsmtp with ESMTPS
-	id HyPDtC3xLlDL5HyPEt3Rcu; Mon, 02 Dec 2024 04:51:33 +0000
-X-Authority-Analysis: v=2.4 cv=LLtgQoW9 c=1 sm=1 tr=0 ts=674d3cd5
- a=LfuyaZh/8e9VOkaVZk0aRw==:117 a=kofhyyBXuK/oEhdxNjf66Q==:17
- a=IkcTkHD0fZMA:10 a=RZcAm9yDv7YA:10 a=-pn6D5nKLtMA:10 a=vU9dKmh3AAAA:8
- a=c-Ag78a_ZS1VCw5oD-gA:9 a=QEXdDO2ut3YA:10 a=rsP06fVo5MYu2ilr0aT5:22
- a=ZCPYImcxYIQFgLOT52_G:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:To:Subject:Cc:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=cDVRJapTTKIEkPi1buTVc3tXS1QEJK+G0n5EUf611IE=; b=UzLNJVZlQFq1k7ehsk6kZJSGU3
-	g1M3vCrp39TdiFyZFZwRkb8mrYzKfKewwfS9EGRRpM+tp4XT6RVFVW7yB9BYRQQfMDGIiqcI+dQLw
-	zpwXbwbb6uwGmwrf04kyQZSmQ4aBfA6p0bBEDETL8KToM0R1w2KbMqCAUWjiDIqiT7IGXr9JY/SwZ
-	uZ4gwg41I1yXsSjr+QmOlUKiLfEGHBVtiMvcDO2+bg1HLp6TMoqGs/Jfhjh4tAHg5KSwGlVcHWDR1
-	vK2SCletrX0aSkmYz32ZmqdAMF9+VIDGdcUltIMRWG2jzOjO1TQ7My+7vdhYQfnuFF9RN+Bq0q2HC
-	B7AJq2Sw==;
-Received: from [122.165.245.213] (port=48956 helo=[192.168.1.5])
-	by md-in-79.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <parthiban@linumiz.com>)
-	id 1tHyPB-003JlN-2w;
-	Mon, 02 Dec 2024 10:21:30 +0530
-Message-ID: <d394f125-f301-4cc6-a477-36d1267b614a@linumiz.com>
-Date: Mon, 2 Dec 2024 10:21:26 +0530
+	Mon, 02 Dec 2024 04:58:38 +0000
+Received: from imap.altlinux.org (imap.altlinux.org [194.107.17.38])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 08EEE72C8CC;
+	Mon,  2 Dec 2024 07:58:31 +0300 (MSK)
+Received: from altlinux.org (sole.flsd.net [185.75.180.6])
+	by imap.altlinux.org (Postfix) with ESMTPSA id F31FA36D0178;
+	Mon,  2 Dec 2024 07:58:30 +0300 (MSK)
+Date: Mon, 2 Dec 2024 07:58:30 +0300
+From: Vitaly Chikunov <vt@altlinux.org>
+To: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org
+Subject: v6.13-rc1: Internal error: Oops - Undefined instruction:
+ 0000000002000000 [#1] SMP
+Message-ID: <20241202045830.e4yy3nkvxtzaybxk@altlinux.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: parthiban@linumiz.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH 2/2] arm64: dts: allwinner: a100: Add syscon nodes
-To: Cody Eksal <masterr3c0rd@epochal.quest>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
-References: <20241202-a100-syscon-v1-0-86c6524f24d7@epochal.quest>
- <20241202-a100-syscon-v1-2-86c6524f24d7@epochal.quest>
-Content-Language: en-US
-From: Parthiban <parthiban@linumiz.com>
-Organization: Linumiz
-In-Reply-To: <20241202-a100-syscon-v1-2-86c6524f24d7@epochal.quest>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - md-in-79.webhostbox.net
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - linumiz.com
-X-BWhitelist: no
-X-Source-IP: 122.165.245.213
-X-Source-L: No
-X-Exim-ID: 1tHyPB-003JlN-2w
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: ([192.168.1.5]) [122.165.245.213]:48956
-X-Source-Auth: parthiban@linumiz.com
-X-Email-Count: 4
-X-Org: HG=dishared_whb_net_legacy;ORG=directi;
-X-Source-Cap: bGludW1jbWM7aG9zdGdhdG9yO21kLWluLTc5LndlYmhvc3Rib3gubmV0
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfKmQtVDeQDfesKzWhkvySkfm8lTTSM/4FiutTBiJl8jH1qm4tiQXeV4sWA5hA/XOmvwqTBcezrxcJbsAmG5slNLWHusNxFXytJnUl4dPP7820vruD07Z
- pc/3yaFHI66K9ARim8pO20+3/EWHpz2kDkAx6lf8ViO/9QdIyIjHqt5iVBjlWbQyp40LsIO34OJGwbQmMBuQIo+x56AbndxTBK44ZEBaFa9mnAzCOHtKgrVs
+Content-Type: text/plain; charset=koi8-r
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_205150_805936_E61C4E25 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20241201_205836_544850_BE86B580 
+X-CRM114-Status: UNSURE (   6.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,64 +63,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/2/24 10:13 AM, Cody Eksal wrote:
-> The Allwinner A100 has a system configuration block, denoted as SYS_CFG
-> in the user manual's memory map. It is undocumented in the manual, but
-> a glance at the vendor tree shows this block is similar to its
-> predecessors in the A64 and H6. The A100 also has 3 SRAM blocks: A1, A2,
-> and C. Add all of these to the SoC's device tree.
-> 
-> Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
-Reviewed-by: Parthiban Nallathambi <parthiban@linumiz.com>
+Hi,
+
+v6.13-rc1 exhibits a boot failure on aarch64 under KVM. (QEMU 9.1.1, CPU
+Kunpeng-920). Boot log:
+
++ time qemu-system-aarch64 -M accel=kvm:tcg -smp cores=8 -m 4096 -serial mon:stdio -nodefaults -nographic -no-reboot -fsdev local,id=root,path=/,security_model=none,multidevs=remap -device virtio-9p-pci,fsdev=root,mount_tag=virtio-9p:/ -device virtio-rng-pci -kernel /usr/src/tmp/kernel-image-6.13-buildroot/boot/vmlinuz-6.13.0-6.13-alt0.rc1 -initrd /usr/src/tmp/initramfs-6.13.0-6.13-alt0.rc1.img -sandbox on,spawn=deny -M virt,gic-version=3 -cpu max -append 'console=ttyAMA0 mitigations=off nokaslr  panic=-1 SCRIPT=/usr/src/tmp/vm.SchsIm2FjB earlycon earlyprintk=serial ignore_loglevel debug rddebug'
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x481fd010]
+[    0.000000] Linux version 6.13.0-6.13-alt0.rc1 (builder@localhost.localdomain) (gcc-14 (GCC) 14.2.1 20241028 (ALT Sisyphus 14.2.1-alt1), GNU ld (GNU Binutils) 2.43.1.20241025) #1 SMP PREEMPT_DYNAMIC Mon Dec  2 03:33:29 UTC 2024
+[    0.000000] KASLR disabled on command line
+[    0.000000] random: crng init done
+[    0.000000] Machine model: linux,dummy-virt
+[    0.000000] printk: debug: ignoring loglevel setting.
+[    0.000000] efi: UEFI not found.
+[    0.000000] earlycon: pl11 at MMIO 0x0000000009000000 (options '')
+[    0.000000] printk: legacy bootconsole [pl11] enabled
+[    0.000000] OF: reserved mem: Reserved memory: No reserved-memory node in the DT
+[    0.000000] NUMA: Faking a node at [mem 0x0000000040000000-0x000000013fffffff]
+[    0.000000] NODE_DATA(0) allocated [mem 0x13f7f3540-0x13f7f947f]
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000040000000-0x00000000ffffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   [mem 0x0000000100000000-0x000000013fffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000040000000-0x000000013fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000040000000-0x000000013fffffff]
+[    0.000000] cma: Reserved 256 MiB at 0x00000000f0000000 on node -1
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: Trusted OS migration not required
+[    0.000000] psci: SMC Calling Convention v1.1
+[    0.000000] smccc: KVM: hypervisor services detected (0x00000000 0x00000000 0x00000000 0x00000003)
+[    0.000000] percpu: Embedded 34 pages/cpu s100632 r8192 d30440 u139264
+[    0.000000] pcpu-alloc: s100632 r8192 d30440 u139264 alloc=34*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 [0] 4 [0] 5 [0] 6 [0] 7
+[    0.000000] Internal error: Oops - Undefined instruction: 0000000002000000 [#1] SMP
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.13.0-6.13-alt0.rc1 #1
+[    0.000000] Hardware name: linux,dummy-virt (DT)
+[    0.000000] pstate: 004000c5 (nzcv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    0.000000] pc : __cpuinfo_store_cpu+0xe8/0x240
+[    0.000000] lr : cpuinfo_store_boot_cpu+0x34/0x88
+[    0.000000] sp : ffff800082013df0
+[    0.000000] x29: ffff800082013df0 x28: 000000000000008e x27: ffff800081e38128
+[    0.000000] x26: ffff800081702190 x25: ffff80008201f040 x24: ffff0000ff7d1d00
+[    0.000000] x23: ffff80008201ec00 x22: ffff800081e39100 x21: ffff8000816f9750
+[    0.000000] x20: ffff800081f55280 x19: ffff0000ff6be2e0 x18: 0000000000000000
+[    0.000000] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+[    0.000000] x14: 000000000000002f x13: 000000013f7f9490 x12: 0000008000000000
+[    0.000000] x11: 0000000000000000 x10: 00000000007f8000 x9 : 000000013f808000
+[    0.000000] x8 : 0000000000000000 x7 : 0000000000000000 x6 : 000000013f7f94c0
+[    0.000000] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 1100010011111111
+[    0.000000] x2 : 0000000000000001 x1 : 0000000084448004 x0 : ffff0000ff6be2e0
+[    0.000000] Call trace:
+[    0.000000]  __cpuinfo_store_cpu+0xe8/0x240 (P)
+[    0.000000]  cpuinfo_store_boot_cpu+0x34/0x88 (L)
+[    0.000000]  cpuinfo_store_boot_cpu+0x34/0x88
+[    0.000000]  smp_prepare_boot_cpu+0x30/0x58
+[    0.000000]  start_kernel+0x514/0x9d0
+[    0.000000]  __primary_switched+0x88/0x98
+[    0.000000] Code: f100085f 54000600 f2580c7f 54000060 (d538a482)
+[    0.000000] ---[ end trace 0000000000000000 ]---
+[    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
+[    0.000000] Rebooting in 600 seconds..
 
 Thanks,
-Parthiban
-> ---
->  arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi | 31 ++++++++++++++++++++++++++
->  1 file changed, 31 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
-> index 29ac7716c7a5284ccf8af675db9c7d016785f0ff..31540a7ca1f01c6c2e69e329054aca16ffd112c4 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
-> @@ -101,6 +101,37 @@ soc {
->  		#size-cells = <1>;
->  		ranges = <0 0 0 0x3fffffff>;
->  
-> +		syscon: syscon@3000000 {
-> +			compatible = "allwinner,sun50i-a100-system-control",
-> +				     "allwinner,sun50i-a64-system-control";
-> +			reg = <0x03000000 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			ranges;
-> +
-> +			sram_a1: sram@20000 {
-> +				compatible = "mmio-sram";
-> +				reg = <0x00020000 0x4000>;
-> +				#address-cells = <1>;
-> +				#size-cells = <1>;
-> +				ranges = <0 0x00020000 0x4000>;
-> +			};
-> +			sram_c: sram@24000 {
-> +				compatible = "mmio-sram";
-> +				reg = <0x024000 0x21000>;
-> +				#address-cells = <1>;
-> +				#size-cells = <1>;
-> +				ranges = <0 0x024000 0x21000>;
-> +			};
-> +			sram_a2: sram@100000 {
-> +				compatible = "mmio-sram";
-> +				reg = <0x0100000 0x14000>;
-> +				#address-cells = <1>;
-> +				#size-cells = <1>;
-> +				ranges = <0 0x0100000 0x14000>;
-> +			};
-> +		};
-> +
->  		ccu: clock@3001000 {
->  			compatible = "allwinner,sun50i-a100-ccu";
->  			reg = <0x03001000 0x1000>;
-> 
 
 
