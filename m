@@ -4,85 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C4B7E69E82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 18:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 337A8E69E83
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 18:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y1fSjzDB3EYral3FJfD5w5SvZiqHwVm4ThrouSzXoG0=; b=z3mUgB6K7FzPYMVLz3Ia5gezdI
-	TF8Ts+ST7UXqqSIhNhOyk2OnMT8yrXnT9cC8RE3WYoWfqV/Dd5lm9Qtj68sMoZahFE85ZwOv+KbzD
-	OOzyW9rO03kwZ3xlFWhAbQlPukH5xwPP8qOQLOmIHW2xF0Oav53p15X6l11NevL0FarjoN8N9J5Tq
-	uBdxcNGHuvVNmQevFjNNGbcyg3GPmVQ5vW4RViphUitxxbwgwluAM19Wq6okmBRDctwl7dIPDWWkY
-	df/JmlbZFaEsvf+225G2qMnL55VYcfgZNrhy2wjblY9sKOwRjNhvfyNOyj7KrdHcTc7dS6zKM7eeB
-	+7fxTleA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yRGheXDFSsPMo10+NqlshISyAL28nDOjigGtIJLWauU=; b=Fm9XOau9ij5ggedUuHwI66XEP6
+	Y2IeHTs59SmTwMNcwdE8zFZO8KhgrHQG+fE6VKCYxzots1mv+xmK0fxKZ+8iOlSf2q6NIb3tyEfWw
+	D8peGfVGdl/8AWORmp50SLxVyBK/S3JsKU1oiNODexc6/hHIDv2UHGvN2l567/gPmStEWdY/iEdWY
+	+rCl/2rNtZjcPtVKXmFHXz8pTdre2nLD7z/6KnIE1geqXWHMWzzWUEXIUHsWyhhwcTMWZOirk+Hu6
+	QW0+dGJDujqxEGmtMzN2LRtVnbWUdHLmnzSMlgk2zO5Oh/L7d7p4EYPM+DQhV+s5rF9rFY5J12Ic1
+	06frx8uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIB8r-00000007A5O-0VYg;
-	Mon, 02 Dec 2024 18:27:29 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1tIBA6-00000007AIz-1I3Q;
+	Mon, 02 Dec 2024 18:28:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIB7p-000000079qH-1X5V
+	id 1tIA7m-00000006zxI-3HTe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 18:26:27 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2155312884fso28887215ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 10:26:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1733163984; x=1733768784; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=y1fSjzDB3EYral3FJfD5w5SvZiqHwVm4ThrouSzXoG0=;
-        b=dew7p8cE1ZTX5NFMGMd6ijLah/jyP4jOooISgU5H5U9Rb6+g7KKZaFGwXyKYPN5zP7
-         +euJM0yEa1zt573pED/WU38pHmqiD2V8KW9adCUYqxh08o5NLvw9+TaFEHc9TcD7m4Il
-         bmEqFl5ZEsj/i+5fxe7/ygoJnKPtT+tYMy/0JNXANGprKDKRUZXZvBem2xsMoDBoiK31
-         bC/A1UPOLYqwtwjAGcv4jZHVAsx1rRi31d9dGjRJdM+K3As+L/wdruKXCvD3aJbKlhx7
-         Pkhrlhy4hn2euOxIBU/SsPpdQHvCBmWabb6Dn9Y6EeGOIKwUUrD00v234piTlcZLJFhM
-         1FyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733163984; x=1733768784;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=y1fSjzDB3EYral3FJfD5w5SvZiqHwVm4ThrouSzXoG0=;
-        b=NeYdwxPIzDuVZfLORVrHEc8PSQgLytYVwrfH5T+U8sSQDQKGb3mfmCRQuXDg5Ge2uk
-         O89fyDuyoyoTE1SMTxARyrI+EH/MrDhn7p+iNlr9WNSpJxzyCqVbg64xSE7eeuICegLD
-         h2MlyJzbfck80hBQ3iUAKeEWAbqYa3YL5zqOwQ30OcLgqh1XpcI+WgRZN32cTg7n/5LX
-         PccTKzj3IKNiF3v9Vu4oxruMpf30EBPez54XEUQl+sL/2ROBdDS0ccHJ1BlyM7Ok8ydq
-         ITW6C8OAm6mWlbniAOED5JACVVB3VKE80/lQYcX6YoSsZVMXj1dteqNIgRgfnljvkJY3
-         n+lw==
-X-Forwarded-Encrypted: i=1; AJvYcCXpEfkqftvQyw3beIPJrMRDOCkvR6ppLaAfXANC2hRPAaYWJr2fCvQL3yUrKsFA7ZlF75BEAyNz1U7eHRWFh7qL@lists.infradead.org
-X-Gm-Message-State: AOJu0YygLTVUtBbweHCfzRFnnDxMjD3aVETxBCV83bSaxJKCrR99ES+8
-	6rw3tAwrWfV2HwwBVZ3fEEfc4PKFLOhN5lNJqzsHTgjZ1Oo5XG2foJBLg76tGdw9LdP282xH7UA
-	0rRlXlE31duTN0kaVnYMhJmFrZzWNT+j0oJIKHQ==
-X-Gm-Gg: ASbGncunT6o+GEUsOa1Rg9Q4oHQuf43o/oJ+lhwfQTtkwPnD4iGJGGnrResBqQFh3ny
-	yF1Bj1fKrkX2MYQ7MAR+m+qliJVArHQ==
-X-Google-Smtp-Source: AGHT+IHisvs3rWpMuRQOWixPnTvVtgjxW+u1yNS90T+VjRikLrDQHeBjU8J20X11uqJqFe47EIY9Qqlj+A9dyAN+3sc=
-X-Received: by 2002:a17:902:f54c:b0:215:8695:ef91 with SMTP id
- d9443c01a7336-2158695f663mr92656975ad.6.1733163984202; Mon, 02 Dec 2024
- 10:26:24 -0800 (PST)
+	Mon, 02 Dec 2024 17:22:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2B14B5C53CD;
+	Mon,  2 Dec 2024 17:21:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD101C4CED1;
+	Mon,  2 Dec 2024 17:22:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733160137;
+	bh=UpzE0ZmBH3j6iH9EdlvMQO+Y3xZZ7zh9pVe57GIdbkY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=pYDSI5e3AmxzREPbNfe/OtP9tFYgHbjYic41biAC5nbB5i/Zd5IQOfR/3Hlw3WzlC
+	 3T3va3TYFnjO88NLAHp/32MA2708EYAGN1Q4emlZiJZ29ch6i1yAkLpTw45rJVRzvr
+	 /Vjx1xCWDzI9FGAJW07fm+4rTnFzQ6PaRBC3ULHzg4dFVGlF2n8CjWikCSkdDvv/K7
+	 06N22GExQSq0AIrQnSbpHi2ncbFHAWWP9t617Y3w5zzEMCPA4aAF0VUvYM57X4aNjf
+	 UJID57/cPI4Rkc8OQd/k+J10jk47xuaH/ZQnxuk0f4LH0F1YBrXRRWXVOqNEbWQDDv
+	 bPnFe5nRIVB6Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tIA7j-00HQcf-LD;
+	Mon, 02 Dec 2024 17:22:15 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Christoffer Dall <christoffer.dall@arm.com>
+Subject: [PATCH 00/11] KVM: arm64: Add NV timer support
+Date: Mon,  2 Dec 2024 17:21:23 +0000
+Message-Id: <20241202172134.384923-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-References: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
- <20241119-pmu_event_info-v1-2-a4f9691421f8@rivosinc.com> <77b7b44f-e05a-4845-8d45-0e0d831bb8e7@ghiti.fr>
-In-Reply-To: <77b7b44f-e05a-4845-8d45-0e0d831bb8e7@ghiti.fr>
-From: Atish Kumar Patra <atishp@rivosinc.com>
-Date: Mon, 2 Dec 2024 10:26:13 -0800
-Message-ID: <CAHBxVyHZvLrKNCAPJfHxYYn30Mm++J=mff+tVU9GZ_8rt3WnEg@mail.gmail.com>
-Subject: Re: [PATCH 2/8] drivers/perf: riscv: Fix Platform firmware event data
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, andersson@kernel.org, christoffer.dall@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_102625_402058_891B7ED7 
-X-CRM114-Status: GOOD (  28.05  )
+X-CRM114-CacheID: sfid-20241202_092218_906719_CFA0A3C2 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,111 +85,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 28, 2024 at 5:10=E2=80=AFAM Alexandre Ghiti <alex@ghiti.fr> wro=
-te:
->
-> Hi Atish,
->
-> On 19/11/2024 21:29, Atish Patra wrote:
-> > Platform firmware event data field is allowed to be 62 bits for
-> > Linux as uppper most two bits are reserved to indicate SBI fw or
-> > platform specific firmware events.
-> > However, the event data field is masked as per the hardware raw
-> > event mask which is not correct.
-> >
-> > Fix the platform firmware event data field with proper mask.
-> >
-> > Fixes: f0c9363db2dd ("perf/riscv-sbi: Add platform specific firmware ev=
-ent handling")
-> >
-> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >   arch/riscv/include/asm/sbi.h |  1 +
-> >   drivers/perf/riscv_pmu_sbi.c | 12 +++++-------
-> >   2 files changed, 6 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.=
-h
-> > index 98f631b051db..9be38b05f4ad 100644
-> > --- a/arch/riscv/include/asm/sbi.h
-> > +++ b/arch/riscv/include/asm/sbi.h
-> > @@ -158,6 +158,7 @@ struct riscv_pmu_snapshot_data {
-> >   };
-> >
-> >   #define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(47, 0)
-> > +#define RISCV_PMU_PLAT_FW_EVENT_MASK GENMASK_ULL(61, 0)
-> >   #define RISCV_PMU_RAW_EVENT_IDX 0x20000
-> >   #define RISCV_PLAT_FW_EVENT 0xFFFF
-> >
-> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.=
-c
-> > index cb98efa9b106..50cbdbf66bb7 100644
-> > --- a/drivers/perf/riscv_pmu_sbi.c
-> > +++ b/drivers/perf/riscv_pmu_sbi.c
-> > @@ -508,7 +508,6 @@ static int pmu_sbi_event_map(struct perf_event *eve=
-nt, u64 *econfig)
-> >   {
-> >       u32 type =3D event->attr.type;
-> >       u64 config =3D event->attr.config;
-> > -     u64 raw_config_val;
-> >       int ret;
-> >
-> >       /*
-> > @@ -529,21 +528,20 @@ static int pmu_sbi_event_map(struct perf_event *e=
-vent, u64 *econfig)
-> >       case PERF_TYPE_RAW:
-> >               /*
-> >                * As per SBI specification, the upper 16 bits must be un=
-used
-> > -              * for a raw event.
-> > +              * for a hardware raw event.
-> >                * Bits 63:62 are used to distinguish between raw events
-> >                * 00 - Hardware raw event
-> >                * 10 - SBI firmware events
-> >                * 11 - Risc-V platform specific firmware event
-> >                */
-> > -             raw_config_val =3D config & RISCV_PMU_RAW_EVENT_MASK;
-> > +
-> >               switch (config >> 62) {
-> >               case 0:
-> >                       ret =3D RISCV_PMU_RAW_EVENT_IDX;
-> > -                     *econfig =3D raw_config_val;
-> > +                     *econfig =3D config & RISCV_PMU_RAW_EVENT_MASK;
-> >                       break;
-> >               case 2:
-> > -                     ret =3D (raw_config_val & 0xFFFF) |
-> > -                             (SBI_PMU_EVENT_TYPE_FW << 16);
-> > +                     ret =3D (config & 0xFFFF) | (SBI_PMU_EVENT_TYPE_F=
-W << 16);
-> >                       break;
-> >               case 3:
-> >                       /*
-> > @@ -552,7 +550,7 @@ static int pmu_sbi_event_map(struct perf_event *eve=
-nt, u64 *econfig)
-> >                        * Event data - raw event encoding
-> >                        */
-> >                       ret =3D SBI_PMU_EVENT_TYPE_FW << 16 | RISCV_PLAT_=
-FW_EVENT;
-> > -                     *econfig =3D raw_config_val;
-> > +                     *econfig =3D config & RISCV_PMU_PLAT_FW_EVENT_MAS=
-K;
-> >                       break;
-> >               }
-> >               break;
-> >
->
-> It seems independent from the other patches, so I guess we should take
-> it for 6.13 rcX.
->
+Here's another batch of NV-related patches, this time bringing in most
+of the timer support for EL2 as well as nested guests.
 
-Yes. This patch doesn't have any SBI v3.0 dependencies. I will send
-this patch separately
-so that it can be applied for 6.13 rcX
+The code is pretty convoluted for a bunch of reasons:
 
-> Let me know if that's not the case.
->
-> Thanks,
->
-> Alex
->
+- FEAT_NV2 breaks the timer semantics by redirecting HW controls to
+  memory, meaning that a guest could setup a timer and never see it
+  firing until the next exit
+
+- We go try hard to reflect the timer state in memory, but that's not
+  great.
+
+- With FEAT_ECV, we can finally correctly emulate the virtual timer,
+  but this emulation is pretty costly
+
+- As a way to make things suck less, we handle timer reads as early as
+  possible, and only defer writes to the normal trap handling
+
+- Finally, some implementations are badly broken, and require some
+  hand-holding, irrespective of NV support. So we try and reuse the NV
+  infrastructure to make them usable. This could be further optimised,
+  but I'm running out of patience for this sort of HW.
+
+What this is not implementing is support for CNTPOFF_EL2. It appears
+that the architecture doesn't let you correctly emulate it, so I guess
+this will be trap/emulate for the foreseeable future.
+
+This series is on top of v6.13-rc1, and has been tested on my usual M2
+setup, but also on a Snapdragon X1 Elite devkit. I would like to thank
+Qualcomm for the free hardware with no strings (nor support) attached!
+
+If you are feeling brave, you can run the whole thing from [1].
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/nv-next
+
+Marc Zyngier (11):
+  KVM: arm64: nv: Add handling of EL2-specific timer registers
+  KVM: arm64: nv: Sync nested timer state with FEAT_NV2
+  KVM: arm64: nv: Publish emulated timer interrupt state in the
+    in-memory state
+  KVM: arm64: nv: Use FEAT_ECV to trap access to EL0 timers
+  KVM: arm64: nv: Accelerate EL0 timer read accesses when FEAT_ECV in
+    use
+  KVM: arm64: nv: Acceletate EL0 counter accesses from hypervisor
+    context
+  KVM: arm64: Handle counter access early in non-HYP context
+  KVM: arm64: nv: Add trap routing for
+    CNTHCTL_EL2.EL1{NVPCT,NVVCT,TVT,TVCT}
+  KVM: arm64: nv: Propagate CNTHCTL_EL2.EL1NV{P,V}CT bits
+  KVM: arm64: nv: Sanitise CNTHCTL_EL2
+  KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity
+
+ arch/arm64/include/asm/cputype.h        |   2 +
+ arch/arm64/include/asm/kvm_host.h       |   2 +-
+ arch/arm64/include/asm/sysreg.h         |   4 +
+ arch/arm64/kernel/cpu_errata.c          |   8 ++
+ arch/arm64/kernel/image-vars.h          |   3 +
+ arch/arm64/kvm/arch_timer.c             | 177 +++++++++++++++++++++---
+ arch/arm64/kvm/arm.c                    |   3 +
+ arch/arm64/kvm/emulate-nested.c         |  58 +++++++-
+ arch/arm64/kvm/hyp/include/hyp/switch.h |  39 ++++--
+ arch/arm64/kvm/hyp/nvhe/timer-sr.c      |  16 ++-
+ arch/arm64/kvm/hyp/vhe/switch.c         |  84 +++++++++++
+ arch/arm64/kvm/nested.c                 |  15 ++
+ arch/arm64/kvm/sys_regs.c               | 146 ++++++++++++++++++-
+ arch/arm64/tools/cpucaps                |   1 +
+ include/clocksource/arm_arch_timer.h    |   6 +
+ include/kvm/arm_arch_timer.h            |  23 +++
+ 16 files changed, 546 insertions(+), 41 deletions(-)
+
+-- 
+2.39.2
+
 
