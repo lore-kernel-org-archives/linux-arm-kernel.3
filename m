@@ -4,82 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C464D78333
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:27:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 648ECD78333
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g65m5wLGmeNM0imaWPfjDT5gKeN2tJjUFhX3nreziMM=; b=WBFZeyEu2GZHPolV7cagcb+nqc
-	A1w2v0o5AGWCVg/G8DKVwQYIvzO7in4JUlbCTftZV8f8xZB2+ocN5QMKvhoZC8KfqOojFDBEZBvFg
-	SBEUD5hxVRONORz5E4RoZxYkSOq13VIBNG9ho7ks4cgz6OV532RB/6zkaNc6i8i6e/82ONdZHLCYG
-	53MxKTbhXljswGwqSR+gNCsCb1gFFtqRSRnTFzZXLFaHfGs+Xb66L5T7QO2fVn2mI82CnyB67kCCf
-	qG0xQRlicOvGsU4UD1gJznsQPUZ/KUA2DR6glmQgXqMmRjIUQjoWWivXb+EuU3ZTMOVADrRyFapBE
-	6mQdWSZA==;
+	bh=UeMvm5EnFdrIdqfp6aMO3RZ6O6x0CMFFsFBU61eAI9Q=; b=YpFT/PrFoOfoi2mnzAcYRYR5MY
+	QmMUdJBZrDE17bx4d/jp75uXYHkOXDBLMV+H0OIgpTByAPmk5A7e7OLiburW1nPWbbQWvEukqYW8j
+	4Wb82NBwAFk09VfrNjeiRGlWr0O+d64drScfkUX94kmu2mHV2rpgI/7aQk47i/yEM8m3Pxqhq3Txm
+	uAwf5HCCetlWOVOwooBSgxL6EZMaI1PrpCFQoNovfwx6LqjMbRI/xu0ca50lTdZcnCupbBwpa2smw
+	SmT9uH3MPh15GWeIew6l4U+NG0epgXU+V9QLeAIdvtvoprI5v/21PZnsbcwpLqFWoeeR7UKGUQity
+	zlU1o9hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI9GB-00000006qMM-2KTB;
-	Mon, 02 Dec 2024 16:26:55 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1tI9H9-00000006qWV-1fXG;
+	Mon, 02 Dec 2024 16:27:55 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8yM-00000006mgt-0lJN
+	id 1tI90u-00000006nFX-3Tl9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 16:08:32 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-6e9f8dec3daso33422757b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 08:08:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733155709; x=1733760509; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=g65m5wLGmeNM0imaWPfjDT5gKeN2tJjUFhX3nreziMM=;
-        b=T3kgsCg6QDahtCSItonpPS6bTEZk68G1lXPttvjYN+WNX+NFs+RXMxvmmW3wCIplRk
-         9C6VgStJyYbaUPsPJegSKQjgUCpPl8k1K1eYCuZZB32jcLPulz/vlYyyTcVMuSYdwidc
-         TTY64Ii7Z/yqYiZ4w08c10OXcf0faGKM/aV9A8YXa0ursnIsYKaPrDE0tPpXPLDiwym2
-         7iYg7GzSGhw6XUDna98OFcTh5MfmRrAwsXkhugrPiHL4dJZqZVyKhHLAmg7i4Ddg9jjG
-         zr0dE8ZAV2x4H47y0OdnweerPxwcJe7y2Wre1kOejf4w+Ievs1ioPe7jMprV6JpTBrFo
-         c0EA==
+	Mon, 02 Dec 2024 16:11:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1733155865;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=UeMvm5EnFdrIdqfp6aMO3RZ6O6x0CMFFsFBU61eAI9Q=;
+	b=MXlSuJSbKY1d3nuoNALS+/MDNpWiegYAXVxnJsu7/seJIMIkcxZOSo+9zEXYRgTyBenWqy
+	JihcLC2Nbbk17Ya10kvD8C0gRbrp/X2zYVYlt+/cZAqrcJeymkyEcIXKZMMXohEY+jRGIS
+	teLFkUtq3ZH7zxuj+22gSQ6/d8xE6AM=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-202-wgsSA5f6OySjwiYp6uJaDQ-1; Mon, 02 Dec 2024 11:11:04 -0500
+X-MC-Unique: wgsSA5f6OySjwiYp6uJaDQ-1
+X-Mimecast-MFC-AGG-ID: wgsSA5f6OySjwiYp6uJaDQ
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-385e1fd40acso1342856f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 08:11:04 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733155709; x=1733760509;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=g65m5wLGmeNM0imaWPfjDT5gKeN2tJjUFhX3nreziMM=;
-        b=gJxjd08KyduaniCcBis00fDWR0S7L7vTTzFxvREMVQKBMxDaxd6YEtEhFSMhHluV1c
-         b3GnQCfSfHjXHWMhBbUC8maZYAyCyGMpxJyXgoCWXlpR7/pcYjnNDNVoo9NS6vvs+p4A
-         xRjBZiZk8ucbLV3tdn0OjXJUCFBEF/mdBlBRoVHciygsPe94RxDRyPlDYuQPzaulXNoZ
-         JyeMSoMEA5L6IqnFEc7+VZ+qXE0Sb+7IoHbSD/L8w/Ghym84HZfIEOeRy6dezFDDVDpr
-         uqudQ097QrBPRlFtgjFuqA6KBVp3EF8UmbT7++aYBVFrDYTIl+Z3HY/A3smtZi/5GNuX
-         Ud/w==
-X-Forwarded-Encrypted: i=1; AJvYcCWiGwK0gl/onQ/iIzKku+xacoxCeQGJUdJpzQi7ZfC2D0U/Pt8yFAuLzVAq4GvTb/lTx1rSAO8EFzrVb/QRjCLn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxF1IrV6YzuEDZH8L83dGRn/pMYe+KhaTUfO8NZg636nKHD4Ajy
-	H5hDiStmefn1V+cuFQOfeNqyNwDhquIx3AzSWFDquA9LiknBN4K8H5OsAINqGcrR1EhQP+AGhP6
-	tXkMMoQ8Vh9Kyx+9aERryzpCxDo6s2rk/T18WxCEL5+RYBdzq
-X-Gm-Gg: ASbGnctphseHXvx/aHzCmtaPbzVGF3iJXbuOyRXA/8ZhexU8j4BnalpJgzGkbokJDVK
-	medpCUFU/cvHM65UP3vjkae1+Sx3KU7rU
-X-Google-Smtp-Source: AGHT+IFz8rX9DRRJ5onEJ67Od7I+D7KR9TNvA59oNfUh6oW0pwLXWng/zcOviJd4aYPyq52DFvFRuuqZBB6m7oAYo2M=
-X-Received: by 2002:a05:6902:2b07:b0:e2b:e0ba:d50 with SMTP id
- 3f1490d57ef6-e395b870e93mr21476694276.5.1733155698386; Mon, 02 Dec 2024
- 08:08:18 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733155863; x=1733760663;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=UeMvm5EnFdrIdqfp6aMO3RZ6O6x0CMFFsFBU61eAI9Q=;
+        b=HIBgz/OCnQoHQV0xXrVRJD/E3gXEqt/JLdaCdSMRHdmloKif7JHXQIv0LuyOvn12mb
+         siq2bAwhIbYVcR+pLW+/2PCcTlVlGRKQoje6W3e1m54wDWdrsRnHjEDSmg+we5xsuf2z
+         bTWoi3c5M6IW3fWxNZfYNEeyycnDN0CgEqkHoeG7mPiYlNAXNrUPBVxj9zJ2h8bfadxp
+         TOHQIHHLPBVesDeG4SAfUfDaqxNsdy3m0rdN3wVDUrNYtXIMTp7z2vBVPySzsq9bKRRe
+         qXRyjIQmd3q7cCPNcpB8JgecuW4Q7p8zurhcRuUTVCMLLFLSCDWejDajEA2QdC8iSp6P
+         a/2A==
+X-Forwarded-Encrypted: i=1; AJvYcCXHhCok/EQwlIe9tOTbUVpAH02rzQv/47aVOzc3oxq56KIyv7TepyPB/ijAnPM2IcLOhIzOkugQdN/7ZUVuqF2D@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLS2y5N9DNBprZoYN1VXk9IgA1WXEHXHlQTPyJtG/QIt69SXud
+	cWz6L7Fg9a3UYfubBBgxz+TiijCdPl2135+HglAXkFz19yXGTTHiDoG1X0UW78SuGVdwCaGh8xK
+	SgupimY9E4P9cBjmVLBHBH9Gopr39kZvqEHO99eTp/g2p4mVW1snfKX5k5dyYiycRTK0lL5/6
+X-Gm-Gg: ASbGncv2Qk/Tjldt4IiUFhkH8VHg9SLk3g8OkxIaFK6IsNIHXkVqoFiydV7VPk0eYUv
+	ucNiiFgq6FmNIjE9skUtOkf8eMnfwLX8iLUQBX5XcYl5EG4MSZzsAI0OTPRm99wAVaeK+fOm0qj
+	6AHol3goPoWl50UO0j94vc1HXAu1ZOjOtcUFXArcP6pWewURuslJ06zMcXGJmHFgjspr805ZKey
+	UOlMFLuxWFfQQ2mZvLvR9vomVHg86+5BBiRkzi4reL17SS1A1h/NNN2xkL8TELWiF1G5auM/yXi
+	6dGSPOFT1bbS2c6+YoT7Oy3baa5R5swXx0DX9HFtEn5HWPj/qtCbxqQ1AEhs2XOZlYfa+RJzzFm
+	gfg==
+X-Received: by 2002:a5d:64c3:0:b0:385:faaa:9d1d with SMTP id ffacd0b85a97d-385faaaa0famr1211527f8f.35.1733155863049;
+        Mon, 02 Dec 2024 08:11:03 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHjInTc7ygfnAmD6TjdglitCOoutWAV+90CVhwOGIUhKaDe+qMP4cJZO6lUHPEL2rPPpjKvlA==
+X-Received: by 2002:a5d:64c3:0:b0:385:faaa:9d1d with SMTP id ffacd0b85a97d-385faaaa0famr1211475f8f.35.1733155862595;
+        Mon, 02 Dec 2024 08:11:02 -0800 (PST)
+Received: from ?IPV6:2003:cb:c73b:ba00:bcff:e7c1:84bd:9486? (p200300cbc73bba00bcffe7c184bd9486.dip0.t-ipconnect.de. [2003:cb:c73b:ba00:bcff:e7c1:84bd:9486])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434b0d9bd06sm159755685e9.3.2024.12.02.08.10.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Dec 2024 08:11:00 -0800 (PST)
+Message-ID: <789f8be8-a423-43aa-baa7-b808d6c59072@redhat.com>
+Date: Mon, 2 Dec 2024 17:10:58 +0100
 MIME-Version: 1.0
-References: <20241001113052.3124869-1-fshao@chromium.org> <CAGXv+5E4=dKkUo73x5vCMHawcr9AUd71LyLmDbdyOdJZv0ZBaQ@mail.gmail.com>
-In-Reply-To: <CAGXv+5E4=dKkUo73x5vCMHawcr9AUd71LyLmDbdyOdJZv0ZBaQ@mail.gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 2 Dec 2024 17:07:42 +0100
-Message-ID: <CAPDyKFor=KyPEfrfLWct0dLa03hj6uawM-R3z4rOEzHSrNCWCg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/8] MT8188 DT and binding fixes
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Fei Shao <fshao@chromium.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL] arm64 updates for 6.13-rc1
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>
+Cc: Sasha Levin <sashal@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon
+ <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241118100623.2674026-1-catalin.marinas@arm.com>
+ <Z0STR6VLt2MCalnY@sashalap> <Z0TLhc3uxa5RnK64@arm.com>
+ <0c09425b-c8ba-4ed6-b429-0bce4e7d00e9@os.amperecomputing.com>
+ <Z0dhc-DtVsvufv-E@arm.com>
+ <dc5e8809-825f-4c38-b487-b16c7d516311@os.amperecomputing.com>
+ <Z0h6Qtleb-znhX3u@arm.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <Z0h6Qtleb-znhX3u@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: fVemAAUomZRhuo9oxIaIoMQCcapDymNWr4LP7lkrirE_1733155863
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_080830_221368_17BC55C1 
-X-CRM114-Status: GOOD (  23.92  )
+X-CRM114-CacheID: sfid-20241202_081108_942146_858831CA 
+X-CRM114-Status: GOOD (  20.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,102 +164,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2 Dec 2024 at 05:24, Chen-Yu Tsai <wenst@chromium.org> wrote:
->
-> Hi,
->
-> On Tue, Oct 1, 2024 at 7:31=E2=80=AFPM Fei Shao <fshao@chromium.org> wrot=
-e:
-> >
-> > Hi,
-> >
-> > This series is split from a previous series[*] to focus on few fixes an=
-d
-> > improvements around MediaTek MT8188 device tree and associated bindings=
-,
-> > and addressed comments and carried tags from the previous series.
-> >
-> > [*]: https://lore.kernel.org/all/20240909111535.528624-1-fshao@chromium=
-.org/
-> > [v1]: https://lore.kernel.org/all/20240925110044.3678055-1-fshao@chromi=
-um.org/
-> >
-> > Regards,
-> > Fei
-> >
-> > Changes in v2:
-> > - new patch to MediaTek jpeg and vcodec bindings
-> > - new patch to move MT8188 SPI NOR cell properties
-> > - revise commit message of vdec power domain changes
-> >
-> > Fei Shao (8):
->
-> >   dt-bindings: power: mediatek: Add another nested power-domain layer
->
-> This one ^
->
-> >   dt-bindings: PCI: mediatek-gen3: Allow exact number of clocks only
->
-> >   dt-bindings: media: mediatek,jpeg: Relax IOMMU max item count
-> >   dt-bindings: media: mediatek,vcodec: Revise description
->
-> and these two ^ have not been picked up, and now v6.13-rc1 has DT
-> validation errors for MT8188:
->
-> /ssd1/wenst/linux/mtk/arch/arm64/boot/dts/mediatek/mt8188-evb.dtb:
-> syscon@10006000:
-> power-controller:power-domain@15:power-domain@16:power-domain@29:power-do=
-main@30:
-> Unevaluated properties are not allowed ('power-domain@31',
-> 'power-domain@32' were unexpected)
->     from schema $id:
-> http://devicetree.org/schemas/mfd/mediatek,mt8195-scpsys.yaml#
-> /ssd1/wenst/linux/mtk/arch/arm64/boot/dts/mediatek/mt8188-evb.dtb:
-> power-controller:
-> power-domain@15:power-domain@16:power-domain@29:power-domain@30:
-> Unevaluated properties are not allowed ('power-domain@31',
-> 'power-domain@32' were unexpected)
->     from schema $id:
-> http://devicetree.org/schemas/power/mediatek,power-controller.yaml#
->
-> /ssd1/wenst/linux/mtk/arch/arm64/boot/dts/mediatek/mt8188-evb.dtb:
-> jpeg-decoder@1a040000: iommus: [[101, 685], [101, 686], [101, 690],
-> [101, 691], [101, 692], [101, 693]] is too long
->     from schema $id:
-> http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
->
->
-> Is there any way we can get them into v6.13 as well?
+On 28.11.24 15:12, Catalin Marinas wrote:
+> On Wed, Nov 27, 2024 at 05:21:37PM -0800, Yang Shi wrote:
+>>>> diff --git a/arch/arm64/mm/copypage.c b/arch/arm64/mm/copypage.c
+>>>> index 87b3f1a25535..ef303a2262c5 100644
+>>>> --- a/arch/arm64/mm/copypage.c
+>>>> +++ b/arch/arm64/mm/copypage.c
+>>>> @@ -30,9 +30,9 @@ void copy_highpage(struct page *to, struct page *from)
+>>>>     	if (!system_supports_mte())
+>>>>     		return;
+>>>> -	if (folio_test_hugetlb(src) &&
+>>>> -	    folio_test_hugetlb_mte_tagged(src)) {
+>>>> -		if (!folio_try_hugetlb_mte_tagging(dst))
+>>>> +	if (folio_test_hugetlb(src)) {
+>>>> +		if (!folio_test_hugetlb_mte_tagged(src) ||
+>>>> +		    !folio_try_hugetlb_mte_tagging(dst))
+>>>>     			return;
+>>>>     		/*
+>>> I wonder why we had a 'return' here originally rather than a
+>>> WARN_ON_ONCE() as we do further down for the page case. Do you seen any
+>>> issue with the hunk below? Destination should be a new folio and not
+>>> tagged yet:
+>>
+>> Yes, I did see problem. Because we copy tags for all sub pages then set
+>> folio mte tagged when copying the data for the first subpage. The warning
+>> will be triggered when we copy the second subpage.
+> 
+> Ah, good point, copy_highpage() will be called multiple times for each
+> subpage but we only do the copying once for the folio.
+> 
 
-I don't know why I missed picking up the DT power-domain patch for
-v6.13. Sorry for the delay. Anyway, I have taken it now and applied it
-as a fix for v6.13-rc[n], thanks!
+It makes me still a bit nervous that we assume both the src and the 
+destination folio have the same #pages (and in particular, that both are 
+hugetlb folios :) ).
 
-I assume someone else can help to take the DT media patches.
+Hopefully that's an invariant that will always hold :)
 
-Kind regards
-Uffe
+> Now, I wonder whether we should actually defer the tag copying until
+> copy_page() is called on the head page. This way we can keep the warning
+> for consistency with the non-compound page case:
+> 
+> diff --git a/arch/arm64/mm/copypage.c b/arch/arm64/mm/copypage.c
+> index 87b3f1a25535..a86c897017df 100644
+> --- a/arch/arm64/mm/copypage.c
+> +++ b/arch/arm64/mm/copypage.c
+> @@ -30,11 +30,13 @@ void copy_highpage(struct page *to, struct page *from)
+>   	if (!system_supports_mte())
+>   		return;
+>   
+> -	if (folio_test_hugetlb(src) &&
+> -	    folio_test_hugetlb_mte_tagged(src)) {
+> -		if (!folio_try_hugetlb_mte_tagging(dst))
+> +	if (folio_test_hugetlb(src)) {
+> +		if (!folio_test_hugetlb_mte_tagged(src) ||
+> +		    from != folio_page(src, 0))
+>   			return;
+>   
+> +		WARN_ON_ONCE(!folio_try_hugetlb_mte_tagging(dst));
+> +
+>   		/*
+>   		 * Populate tags for all subpages.
+>   		 *
+> 
 
+Yes, looks better. A comment describing the oddity of "copy single page 
+but copy all tags on head page access" might be reasonable.
 
->
-> ChenYu
->
-> >   arm64: dts: mediatek: mt8188: Add missing dma-ranges to soc node
-> >   arm64: dts: mediatek: mt8188: Update vppsys node names to syscon
-> >   arm64: dts: mediatek: mt8188: Move vdec1 power domain under vdec0
-> >   arm64: dts: mediatek: mt8188: Move SPI NOR *-cells properties
-> >
-> >  .../media/mediatek,vcodec-subdev-decoder.yaml | 100 +++++++++++-------
-> >  .../bindings/media/mediatek-jpeg-decoder.yaml |   3 +-
-> >  .../bindings/media/mediatek-jpeg-encoder.yaml |   2 +-
-> >  .../bindings/pci/mediatek-pcie-gen3.yaml      |   5 +-
-> >  .../power/mediatek,power-controller.yaml      |   4 +
-> >  arch/arm64/boot/dts/mediatek/mt8188-evb.dts   |   2 -
-> >  arch/arm64/boot/dts/mediatek/mt8188.dtsi      |  33 +++---
-> >  7 files changed, 88 insertions(+), 61 deletions(-)
-> >
-> > --
-> > 2.46.1.824.gd892dcdcdd-goog
-> >
-> >
+-- 
+Cheers,
+
+David / dhildenb
+
 
