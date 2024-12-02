@@ -4,155 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4701D78303
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5772DD78302
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:29:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eGvANRNh+rcpqx1BIdJLPzEZHvPorZcVc6rMfzU8drw=; b=iGLsUJTVP4dCmmBLLbH1gTVPkC
-	m6/KodZ9a0YQwOB3rn/1Pvif++cKVO0Q/SeHAZyfTIivzlzohBYzET/K2zScGKu2JH9o6JboVCRRX
-	TVTf8fbk9pl4hsjTPkgaCHkPh8t7RM/qM5NxlAnncagVQiJyTEWIPRERAfK9KQ/CNH34DLSLlV31k
-	rs6GE2BZgVILQJNZliTXWNmdEguJ1DVrRqjZci50yDrSwPJNDft2fLdAcFa3eiFI5l0ey5YQK+zMh
-	aYTkK7KlF0SLoLAtjxoUeo12ZBR3fwvJFqtKUUG3SKYAL9GdhAhaeZarp72165Lltztc+TQm5FJ+z
-	idUbdONA==;
+	bh=QALA3vJFqR8NKYOn5MTUFDxKO0FcS0aiXq3k1iQUdts=; b=xC4MpsA9E/YMo6aPJSQQBz4HVN
+	5SSZCz2VLH6BnEDj4PYaSiUKkQLxMQi/q5qHs4+xrR4VVoK5Xos3IH3SKmiSqxSgi6qlKL51gOItp
+	MEIQTmGZiXnJpJtgur3zMuZ4H1nkj/iufNKeyJYG3JAGL+GJckNvimQscdF/xX5tJmr5pjyvool7Z
+	tDLWU3Fkq1BhR4HFBM2u1qDZLqIkZu9EwRLOV2tz6/clbtcq72X2djCwWqUlKLhhgUO/1X0kn8nTo
+	IEq3xotSRBGu0ElrOzwYcSA5rPlDH0cQ8FRq9bm83z3NkC7ockY9rWIMz9Z1J2K1s6kDJAjceao5h
+	pZhDaMzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3f1-00000005jAf-0ZGN;
-	Mon, 02 Dec 2024 10:28:11 +0000
-Received: from mail-francecentralazlp170120004.outbound.protection.outlook.com ([2a01:111:f403:c20a::4] helo=PR0P264CU014.outbound.protection.outlook.com)
+	id 1tI3fy-00000005jOe-31d4;
+	Mon, 02 Dec 2024 10:29:10 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3dw-00000005ixp-3YUu
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 10:27:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Chp/HZefW/6Uz1BCCpyh8NNwnk2+Tp4er4jMv66GEhvbA5qOpCgfuahpGUUsbylAR7CPFXrbMpq1sEGewOBE6tc4naGewa8YOgMoD/bqIpLmz0ibSzSWVV58zXI3rfRodrvNwxuU0D3an51H5y9RMv6ikEo9MmImk5oJ2AHwP+AXYvdEcPNY/Os3fFTf0P27gESHlIz+yTz1DOekDYw8nNzFSu3rosRVmzhbflYpdc7e6S6Lv6mhB54YDPU0LGhMtjh8nVC3G3sK/F3Qxl1jjGGrZ1va0daHnPxVlYZg6NWHCMdimhhz0OCtmh7QMSC0DnJlnO5fYrQMO3tDWusXfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eGvANRNh+rcpqx1BIdJLPzEZHvPorZcVc6rMfzU8drw=;
- b=wVbacINXxGRtz8X7nO1FVViCoDZUjCtkEgVqheXO+m5WZKgICtQr2pEQCBf/+qnXrsj50SAziKQDHx7R8UECVDUfcRRUqRU/+Qb/T3VKSrLjyaso70S+a2YUaTxEu54odhS+9FCiFQ0H9yxMHjbnbmMZKM9i2hlOieUPgY95DLaLZiuFzdYS1RGGBnphXvi6Yy/uX+mAfJ2NTxJNjeAfI3PDN5alF68gXRA2v1G7nIvKTSd+tVc+TYc7U3NR0UngTtEJbXDyTJLnhi1PUPM6GUa6dNk0K9StIDK8wFv39o8oOswT3sZ9fAZQXO13WGS6QDSKE/+8yWtFyPBLPTpdig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=allegrodvt.com; dmarc=pass action=none
- header.from=allegrodvt.com; dkim=pass header.d=allegrodvt.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=allegrodvt.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eGvANRNh+rcpqx1BIdJLPzEZHvPorZcVc6rMfzU8drw=;
- b=u1zkMt9jinVPcI4UICEoKNbvZuoPLY65OEW8ihHz+48hBbd4DsKmCEa0MH832qkpO1YLEKbF/T1q6G8iqxlYT2xM4TLYgFxj//p6hhf6uYKZcgdlk0Ov+1MJnPnyfI+91a77PaXOlY8beL4yBhvmUPbXqoB9dH0ExS2AuoOnRSmr3mFGqRwYgeRJjAKzI2rgPnxNAtpm5VddkiRLek6wUM7vseA6KrbDG0feNOxnOI8TxvZcu0+cjLG/5yedy37wv3qyIEX+gwOvyVdnY1iMLZj/81lWOnrn4azLpcL17Z4ayEGMrWrqyEpwfgp7XEhHljjEuTi2SIPZzpaoRDxfIw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=allegrodvt.com;
-Received: from MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:3d::18)
- by PAZP264MB2318.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:1f7::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.19; Mon, 2 Dec
- 2024 10:26:56 +0000
-Received: from MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
- ([fe80::9f26:a361:4704:1a67]) by MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
- ([fe80::9f26:a361:4704:1a67%2]) with mapi id 15.20.8207.017; Mon, 2 Dec 2024
- 10:26:55 +0000
-From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
-To: 
-Cc: yassine.ouaissa@allegrodvt.com,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Michael Tretter <m.tretter@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Michal Simek <michal.simek@amd.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	Gaosheng Cui <cuigaosheng1@huawei.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Ricardo Ribalda <ribalda@chromium.org>,
-	linux-kernel@vger.kernel.org (open list),
-	linux-media@vger.kernel.org (open list:MEDIA INPUT INFRASTRUCTURE (V4L/DVB)),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE)
-Subject: [PATCH] media: allegro-dvt: Moving the current driver to subdirectory
-Date: Mon,  2 Dec 2024 11:26:38 +0100
-Message-Id: <20241202102654.40472-1-yassine.ouaissa@allegrodvt.com>
-X-Mailer: git-send-email 2.30.2
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MR2P264CA0044.FRAP264.PROD.OUTLOOK.COM (2603:10a6:500::32)
- To MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:3d::18)
+	id 1tI3en-00000005j84-3ZcR;
+	Mon, 02 Dec 2024 10:27:59 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-385f4a4093eso455456f8f.1;
+        Mon, 02 Dec 2024 02:27:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733135276; x=1733740076; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QALA3vJFqR8NKYOn5MTUFDxKO0FcS0aiXq3k1iQUdts=;
+        b=YNErOJZ7LcxPZBdHlJN9g6GYn6jMSvsVTl/sRV/E20RU555elNc2dRUmZGMaxpnNDc
+         1CvPYGWeg0GITEDd2nfEnYhAuBanrodJtC0YwRdIxppR7Ohi6qbXLTHr8rs6IWxWsPXx
+         CxDpz/qNODrHx1R4R9e0dk/5veuDOtgxQTH/F6qnwFXpZt/Qfnq+UbLBTdnn73tGa0ST
+         Xr0rCE0tQnPhUsKn+2tkHgEACja99GyS1pjwR2scNfBdFOeoia3ON1yMyRd4H1fDsFA3
+         4727yVpJ5egb0cUfpofmV3DJrDT3Cuh+sbp2F18SlwMUo436nAm02rX8CiNG1qxSah3N
+         HVuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733135276; x=1733740076;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QALA3vJFqR8NKYOn5MTUFDxKO0FcS0aiXq3k1iQUdts=;
+        b=Q9XzOLCyrxFEyYJF4mAR5gz5A/8dHrG6CJ86UQxUzLSlYAtqLmbRjP9RN3z1GUZJY+
+         fhGHteZI9UNRgtM+cg9T4yZQa/YKWXQnBx6DgKHohxsnBbT7Nj6U8qR4xajODCbn5Ny/
+         Tnb0KZPIdmFaAObavaVC9zCeMVr5BcC5X0jBby/QW+GXWwAdPgZvFP8raxqGWa59c6kD
+         iFlC8az7e7AurZqUqdDFq8LJ6JNSKukp3gJcE4mzzZzdm8TNMP+SJkoPey65mcX9yLNn
+         vCggVWzfU+UWTB/5DUY4gN4jOn/K3ElQl0tmlN6b9ZHzhDBOeNoy47/GUZ0jqzbXXRxd
+         9Tpw==
+X-Forwarded-Encrypted: i=1; AJvYcCUcoY8/wWvDPJeVG0Wt7Bt7rnZPDfB/fLvCdhD4ugixqWj22noAOZqrtpJdmrb812jE4CZxhZIbHHA9ZFebAkt/@lists.infradead.org, AJvYcCXUIZgDc+OXQy+HXAXAaFSHEJj9z5YiGWHTjoC1WGFjPXx3gxE234KbHcn5ZoDIwQ9zkcYQsnxEJ7uDQhjHIWM=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNniofyAU1sZIvrvy61XNUP2wVmdfq50UQC5RLkOmAF9hjqXWV
+	B4vgUO14TzwNEyszpCfOURdZiFg3Vt/hTmcFJHSJXAvQB0fn9MgW
+X-Gm-Gg: ASbGncvY0UXPRGXJf/l9FdoqvTMwRbnfU9cN56AChPavyanxbhoFr8HwM6kg7uOmH/Q
+	3XfCpE7zCAEoKFW/iSSXCCVLBa/F8jlU0fZIkZRQ5XFEopmfJXzNafxbGfVmv5Jiqey7zlvhiOE
+	Lc0Nt3kBh7wkrV285GzYlTxqLd0FukHyvVl7SjUVksax9cjJDxWX/sIKwzgR8VO0tGesGlb9T9o
+	sUrid2U7r5OapiinCv3uhi3/yisrLLHxsaTBEhjuVXFn/HOraat8vXQq/SVAe20SwJK99fldllB
+	gowiW86pRdFB7MmNZNk=
+X-Google-Smtp-Source: AGHT+IEtcv376POJl9E2bAxspbhqve3Y2tJ7pgMGWk2qvbJcgbnauunS2AuXTdMYxck6zEO85ZI3Tg==
+X-Received: by 2002:a05:6000:4610:b0:385:df43:2179 with SMTP id ffacd0b85a97d-385df432337mr10679245f8f.17.1733135275802;
+        Mon, 02 Dec 2024 02:27:55 -0800 (PST)
+Received: from opti3050-1.lan (ip092042140082.rev.nessus.at. [92.42.140.82])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-385eeb999f4sm3781643f8f.109.2024.12.02.02.27.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Dec 2024 02:27:55 -0800 (PST)
+From: Jakob Unterwurzacher <jakobunt@gmail.com>
+X-Google-Original-From: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
+To: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Iskander Amara <iskander.amara@theobroma-systems.com>,
+	Sasha Levin <sashal@kernel.org>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>,
+	Vahe Grigoryan <vahe.grigoryan@theobroma-systems.com>,
+	Klaus Goger <klaus.goger@theobroma-systems.com>
+Cc: stable@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] arm64: dts: rockchip: increase gmac rx_delay to 0x11 on rk3399-puma
+Date: Mon,  2 Dec 2024 11:25:44 +0100
+Message-Id: <20241202102543.204154-1-jakob.unterwurzacher@cherry.de>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MR1P264MB3140:EE_|PAZP264MB2318:EE_
-X-MS-Office365-Filtering-Correlation-Id: 06e1104a-ce77-4ab0-aea7-08dd12bbd85e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YzPVs7kKCx+JyrXwvQdpTfD+czHVaFyWILo2q3e7BkE7D9BF42Rwy4HYkT6N?=
- =?us-ascii?Q?OMG6WgOyJS7/a+QxttDC6hSZ6KWrDo3FzsbgZr6/99hGqjXxoyWfFaolVGI2?=
- =?us-ascii?Q?u2thbGUtQnF56o/LKWNMMrFsbQKpC1bvWQrBBUM7ObrqVPwdZKNhPQIurM5B?=
- =?us-ascii?Q?8qoXsVw37YJlaybEBWPyOX/02h5kfiL00QX+iiQLiJk7dgwPwTrvrk0vyLId?=
- =?us-ascii?Q?BS93k3T4HoHWMexsFbaxRzyceRF6HiSQFsuJf1yawj39Yus+bCaPIVN9kOx9?=
- =?us-ascii?Q?3vIYymuDTE5SgD4GmLrnt98OwWE0d4alH6j7xgRTbIwwnLoGcMIKfmM4AIZM?=
- =?us-ascii?Q?YGtdMV1xqK8R9bGomR1CPiFPB4DAAUCIK/JLVFk3MUkwCjVQqRI0wNhdF+I7?=
- =?us-ascii?Q?eFqg1NmjREYluZt2/gTnEsMqdNC9E+rd2pan/r0TnrKBqsDp1DfUMu7i5nCP?=
- =?us-ascii?Q?BgNRqsphldtpiObM+EdXxxuyFlz5OGQwh76VOgwX0Qvf5qBZ8BP7udYArwho?=
- =?us-ascii?Q?cQwYXtKDPaP+o8Iz4U4bQL0HZSBUlepBijuqPLVVxH8PcEZAhSEMWhqeEJJu?=
- =?us-ascii?Q?qB9jJOZ7ybwWjcPbHVx6ggRbgWhR+Fya5w3W6igGrQNgKN/GATDdMeNy3N1C?=
- =?us-ascii?Q?EdE56mlHi3/QvMaMlCNCJ90dxl5bk9zWcotpEFOlcmnLQEPp/+HKtjXbIlVl?=
- =?us-ascii?Q?IHuU1OD2Uyg4IuuJJXA8wYtUr7lN/UyHOqGP+l/VGmCp6lPiHe620GTxW8TP?=
- =?us-ascii?Q?ksHYkLEX0keWhANgWT1fC32E30z1QNf3Fh8ZHOXYCgTDJpN0Pr/EwpTV03We?=
- =?us-ascii?Q?maqwUPbGZaq31yOjvN9w6ZFZ+nqOgVkT3cFHyJNBlsYi03GXPCkYNyM3UF23?=
- =?us-ascii?Q?l3gGmfmeOgvLaixMmtRIMrTDJlklPR1n2CVvANuts/pck+qYSy3M/ov69J0R?=
- =?us-ascii?Q?4ZHLBqMdF1d9fjH8Y7R/X1pibpDp7ApcPx4SV43i0P8ke/xP0FAtw/ghnkrW?=
- =?us-ascii?Q?S6xidbTAFKpOKo82unMGuRkGqljFTrnWpX2tRILI5UFicu5DB1JK3A0ZHp9Y?=
- =?us-ascii?Q?8dKiR2osn2NUEithadB0VALR8PJoQbkYv9TQb5gThp6MO/QD4ALLREgj/CY4?=
- =?us-ascii?Q?zyvGd+sk4Ccv9o5efDgGkOK2z7TjFVsyM5diI5rfI/aUNYHpxYxcY/B5ONDx?=
- =?us-ascii?Q?VqRezz6wXovi8cgs9KnQijRfBQK45vjr47yJGtKA7kqBxK7ma+f5g8B/6Yl+?=
- =?us-ascii?Q?TDGN76kn9X42t5xp1IhD51Buz4q2afr0wWobQiHYP5/U4XoooZtz3kh/iw+X?=
- =?us-ascii?Q?ZDefvQX9bMbjaQOXiIQhBz2vFKBVIe41k2Rtdkl5YVTs9LXsdv3r24inPJYY?=
- =?us-ascii?Q?w3zBaKh831c3NXzcDo3xQhYoIbpQSVIbofMvGCP/aB/ZoSD91Q=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fC7t2n5MHjVoXK5rlwDJt0YlxO614+XznuyAEBCjwnhg7GC8PpmKJl1mRkDE?=
- =?us-ascii?Q?9M8w0kOulg+Q2LvjOYgxbr9Spq97gjC9O91PRosM1kodnFd5+vFJslcnUfOk?=
- =?us-ascii?Q?51BWf6/DDD43jK12J2tPkU+qdeCqoJl/O6pPxpPy0VQzAFApLenV+ulqxK8S?=
- =?us-ascii?Q?SdysvZVs0SN7ICTVXJWjXFqOMuwLW3h8+/cDEVdpB8tblVLIPt++Vf2PGKTw?=
- =?us-ascii?Q?5jgQgxvN/7qYXK0KJkIEdhw/xWTY8GQkQp/UVLUR650Pz6KRfsOCbb1mvzTB?=
- =?us-ascii?Q?m0hxkGGNhi3cjsC9JjZrIngNhCPLYSbBRe0Hr+yaz5gqjeDsD1NeTJ2QODrS?=
- =?us-ascii?Q?EqO06g9smAH5hWXCprCi77BioOfUImset00dVwiaWO4NWFFSSwQpjqKujdBw?=
- =?us-ascii?Q?V+2PUvsD9OwgJL6tbBKG7QHUQmh7JL/bfzDAHVSesyZrUg/KOKIXtLfDhsqz?=
- =?us-ascii?Q?m0Yy+o3hRLaLZ6V/o1ChFSrT944MTDvAPFaM0r7v/Fgp+cn3xqEhHZzumtkA?=
- =?us-ascii?Q?9/PBjEPlVpSmIG1XlIVhvLzzF38uSoPbdcDKJmuqS1h58JZbV4Tp8EwcY+yc?=
- =?us-ascii?Q?txiPZMqMd4ppCGpWtWPXXthOAYBzuigwTqc9tmzUNGczu7RffMkeebg71gyb?=
- =?us-ascii?Q?AGpRNzZTpUUCqixLR/1Ln8GZub7n04yuVhcXlQppoUtHYi07XQCUgkk//sEq?=
- =?us-ascii?Q?hfm3m2VPRX147Q2SkxNWGJcNguWTrM0nPzRFu/3qruB6Qe8V3ACnJMbm+Uhb?=
- =?us-ascii?Q?lnMETT+hTh8/djHz2FkbLEQSPK+iLQcBx1kWL0W2byceQJp9oHbte/TqYLMc?=
- =?us-ascii?Q?H6G+dl9E08aHEkwhepME+qjObZHT3RR4jqrf8TWHkJIwxOebZ4aTOpaOhsPb?=
- =?us-ascii?Q?3mnC5XsHK7L6tyedarZ9hBG1xMdgj05k4QYa3gKWQc0zTqhVFhhnVOHvjNdn?=
- =?us-ascii?Q?LvTrvv2ddDPzfVIiZJcgOIuKCcAfb2lbY6VVLnTVZiCBq4GtzNLM+9aKFsNR?=
- =?us-ascii?Q?Q8L+J4hx5OA7mV4swMPsQI7uSbHtvvjFa418e/hqC6iBg44c5EM14OqzoTZz?=
- =?us-ascii?Q?LnUxQ8rdFTsqnwt6x8F0DiQXCmf2OUYnQ34h/1wVyYAg7gD/b/FfV0Yv5alL?=
- =?us-ascii?Q?VUiXmpU2X9QeP7bEd49P6kOuFH9H/93D6FnxuYx9HlNJD5A8zkIkB4krSv0v?=
- =?us-ascii?Q?CBe1FpWSPSHNZ1FozCA5JAPu+m0u76QLVPX+22wEcfRTynSBeL2czK9d7DB8?=
- =?us-ascii?Q?avbtYrHOBayNSjrB3osYaQMsY5OnFd+fDlsUvxYr3hBMOTsLQICKNOAFa4uv?=
- =?us-ascii?Q?OruymBtDiMo2Cgi8T9pXD89qNkaEVEFs4P4NV4zi/+83CmKYo5Q7fwCdSXAM?=
- =?us-ascii?Q?PWvkuTE8AU8/m0vebAEaGRz1NT72ISi8IxTzDitvv8fWZcHBgHgKHGMzXIvZ?=
- =?us-ascii?Q?/GIkZT1r4ud8O+eyX87VqQryEbEDbw0I9O2kpS2gZrVvtnNJQpX/9B7wEtgv?=
- =?us-ascii?Q?hhGZ4NsTkoqk3xPXO6s+mCvY8nqCMyE25vG4TnyefGFyBA6fm511ppGkgm6l?=
- =?us-ascii?Q?rzpjlbwH/8hNotAs/BLrepAo3F6EUXP/fS8K/OO1MTcR215BgyPPrtsR9ZEk?=
- =?us-ascii?Q?TQ=3D=3D?=
-X-OriginatorOrg: allegrodvt.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 06e1104a-ce77-4ab0-aea7-08dd12bbd85e
-X-MS-Exchange-CrossTenant-AuthSource: MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2024 10:26:55.6286
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 6c7a5ec0-2d92-465a-a3e1-9e3f1e9fd917
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: l7ISmmANbZKGdXBf0tE1QunDt3sDV5lQHixc8HiB1cVIKWXo7rz3PmYY4etbuOO5qsOniSvQUSaZvkqO5fHiu2mNZL1pmRr7dpBi4VsMlyI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAZP264MB2318
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_022705_352531_F99C1440 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20241202_022757_887799_B7EB42B8 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,155 +107,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for the upcoming driver update, we need to realocate the
-current driver that is not maintained by us ( allegro-dvt ).
-This will help ensure a clean transition and avoid any potential
-conflicts with the new driver.
+During mass manufacturing, we noticed the mmc_rx_crc_error counter,
+as reported by "ethtool -S eth0 | grep mmc_rx_crc_error" to increase
+above zero during nuttcp speedtests.
 
-This patch is crucial for keeping our directory organized and
-facilitating a smooth integration of the new driver
+Cycling through the rx_delay range on two boards shows that there is a
+large "good" region from 0x11 to 0x35 (see below for details).
 
-Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+This commit increases rx_delay to 0x11, which is the smallest
+possible change that fixes the issue we are seeing on the KSZ9031 PHY.
+This also matches what most other rk3399 boards do.
+
+Tests for Puma PCBA S/N TT0069903:
+
+	rx_delay mmc_rx_crc_error
+	-------- ----------------
+	0x09 (dhcp broken)
+	0x10 897
+	0x11 0
+	0x20 0
+	0x30 0
+	0x35 0
+	0x3a 745
+	0x3b 11375
+	0x3c 36680
+	0x40 (dhcp broken)
+	0x7f (dhcp broken)
+
+Tests for Puma PCBA S/N TT0157733:
+
+	rx_delay mmc_rx_crc_error
+	-------- ----------------
+	0x10 59
+	0x11 0
+	0x35 0
+
+Fixes: 2c66fc34e945 ("arm64: dts: rockchip: add RK3399-Q7 (Puma) SoM")
+Cc: <stable@vger.kernel.org>
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Signed-off-by: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
 ---
- MAINTAINERS                                               | 2 +-
- drivers/media/platform/allegro-dvt/Kconfig                | 4 ++--
- drivers/media/platform/allegro-dvt/Makefile               | 8 ++------
- drivers/media/platform/allegro-dvt/zynqmp/Makefile        | 6 ++++++
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-h264.c    | 0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-h264.h    | 0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.c    | 0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.h    | 0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.c    | 0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.h    | 0
- .../{allegro-core.c => zynqmp/zynqmp-allegro-core.c}      | 2 +-
- .../{allegro-mail.c => zynqmp/zynqmp-allegro-mail.c}      | 2 +-
- .../{allegro-mail.h => zynqmp/zynqmp-allegro-mail.h}      | 0
- 13 files changed, 13 insertions(+), 11 deletions(-)
- create mode 100644 drivers/media/platform/allegro-dvt/zynqmp/Makefile
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-h264.c (100%)
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-h264.h (100%)
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.c (100%)
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.h (100%)
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.c (100%)
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.h (100%)
- rename drivers/media/platform/allegro-dvt/{allegro-core.c => zynqmp/zynqmp-allegro-core.c} (99%)
- rename drivers/media/platform/allegro-dvt/{allegro-mail.c => zynqmp/zynqmp-allegro-mail.c} (99%)
- rename drivers/media/platform/allegro-dvt/{allegro-mail.h => zynqmp/zynqmp-allegro-mail.h} (100%)
+v2: cc stable, add "Fixes:", add omitted "there" to commit msg,
+    add Reviewed-by.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 7292e4a1ddb8..d79efe6f8992 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -795,7 +795,7 @@ R:	Pengutronix Kernel Team <kernel@pengutronix.de>
- L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/media/allegro,al5e.yaml
--F:	drivers/media/platform/allegro-dvt/
-+F:	drivers/media/platform/allegro-dvt/zynqmp
+ arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+index 9efcdce0f593..13d0c511046b 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+@@ -181,7 +181,7 @@ &gmac {
+ 	snps,reset-active-low;
+ 	snps,reset-delays-us = <0 10000 50000>;
+ 	tx_delay = <0x10>;
+-	rx_delay = <0x10>;
++	rx_delay = <0x11>;
+ 	status = "okay";
+ };
  
- ALLIED VISION ALVIUM CAMERA DRIVER
- M:	Tommaso Merciai <tomm.merciai@gmail.com>
-diff --git a/drivers/media/platform/allegro-dvt/Kconfig b/drivers/media/platform/allegro-dvt/Kconfig
-index 2182e1277568..9bc7e99788b8 100644
---- a/drivers/media/platform/allegro-dvt/Kconfig
-+++ b/drivers/media/platform/allegro-dvt/Kconfig
-@@ -2,8 +2,8 @@
- 
- comment "Allegro DVT media platform drivers"
- 
--config VIDEO_ALLEGRO_DVT
--	tristate "Allegro DVT Video IP Core"
-+config VIDEO_ZYNQMP_ALLEGRO_DVT
-+	tristate "Allegro DVT Video IP Core for ZynqMP"
- 	depends on V4L_MEM2MEM_DRIVERS
- 	depends on VIDEO_DEV
- 	depends on ARCH_ZYNQMP || COMPILE_TEST
-diff --git a/drivers/media/platform/allegro-dvt/Makefile b/drivers/media/platform/allegro-dvt/Makefile
-index 66108a303774..04727c5f7ef4 100644
---- a/drivers/media/platform/allegro-dvt/Makefile
-+++ b/drivers/media/platform/allegro-dvt/Makefile
-@@ -1,6 +1,2 @@
--# SPDX-License-Identifier: GPL-2.0
--
--allegro-objs := allegro-core.o allegro-mail.o
--allegro-objs += nal-rbsp.o nal-h264.o nal-hevc.o
--
--obj-$(CONFIG_VIDEO_ALLEGRO_DVT) += allegro.o
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-y += zynqmp/
-diff --git a/drivers/media/platform/allegro-dvt/zynqmp/Makefile b/drivers/media/platform/allegro-dvt/zynqmp/Makefile
-new file mode 100644
-index 000000000000..a8ddb9cf93a8
---- /dev/null
-+++ b/drivers/media/platform/allegro-dvt/zynqmp/Makefile
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+zynqmp-allegro-objs := zynqmp-allegro-core.o zynqmp-allegro-mail.o
-+zynqmp-allegro-objs += nal-rbsp.o nal-h264.o nal-hevc.o
-+
-+obj-$(CONFIG_VIDEO_ZYNQMP_ALLEGRO_DVT) += zynqmp-allegro.o
-diff --git a/drivers/media/platform/allegro-dvt/nal-h264.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-h264.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-h264.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.c
-diff --git a/drivers/media/platform/allegro-dvt/nal-h264.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-h264.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-h264.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.h
-diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-hevc.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.c
-diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-hevc.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.h
-diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-rbsp.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.c
-diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-rbsp.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.h
-diff --git a/drivers/media/platform/allegro-dvt/allegro-core.c b/drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-core.c
-similarity index 99%
-rename from drivers/media/platform/allegro-dvt/allegro-core.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-core.c
-index e491399afcc9..8895d7755987 100644
---- a/drivers/media/platform/allegro-dvt/allegro-core.c
-+++ b/drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-core.c
-@@ -31,7 +31,7 @@
- #include <media/videobuf2-dma-contig.h>
- #include <media/videobuf2-v4l2.h>
- 
--#include "allegro-mail.h"
-+#include "zynqmp-allegro-mail.h"
- #include "nal-h264.h"
- #include "nal-hevc.h"
- 
-diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.c b/drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-mail.c
-similarity index 99%
-rename from drivers/media/platform/allegro-dvt/allegro-mail.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-mail.c
-index aadc947a77ae..88a98f9e5d00 100644
---- a/drivers/media/platform/allegro-dvt/allegro-mail.c
-+++ b/drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-mail.c
-@@ -12,7 +12,7 @@
- #include <linux/string.h>
- #include <linux/videodev2.h>
- 
--#include "allegro-mail.h"
-+#include "zynqmp-allegro-mail.h"
- 
- const char *msg_type_name(enum mcu_msg_type type)
- {
-diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.h b/drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-mail.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/allegro-mail.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/zynqmp-allegro-mail.h
 -- 
-2.30.2
+2.39.5
 
 
