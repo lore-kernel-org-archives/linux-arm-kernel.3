@@ -4,82 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8CD5D78332
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:47:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97742D7832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wANpDU65LhU/8X4F+bXK7+FUgsbERBICABWmsZeuQxA=; b=0d0Z+vYlA0DJpFlRykrB6RPOgh
-	ec2m4JMb8a2PN8fuEpZeUlIpo+92RW/JpzVWXj+s2IleUN9yBlzweMRApEWervoDT65ilSvOpzcRX
-	zPCDUIYBVNxg8GO+cY136K3E5QomBw2YGTEUkIF1Hhsz3EFt+4Ml/ZAmm7naLYB9JMmrNPCkrFOIv
-	ehBaNfJsz5XbFH8zM0NqXKTUqDXOa1BirL6U/+1gS9Rs3RD6sLk/Un0Q7kM6ZZWQcxE3S9YTI9von
-	SPzPSUW44j6UWwhNdf4bdHWnVMf7GS6oWELHuJzwskIbBLqi6XG4Y8OpQ7Sk21dGhw+SANZTNKrav
-	IdD9uQyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S6AbZeNaZ6bTE249nttA7aUaHmMUAtPIQUa4jnYv9dg=; b=hiwSd6DaUXswrFeYJwPtfHLfBx
+	Qy75VgOtmDhgboEhbSa+HZN+o8s+d7Xy1727hpnq8LqHIAQ7COiOLFE8grsSHIVtB7KtqMM+3s59d
+	K0kzobD1Q9qcIALjgLWS/RVVy7OBXKTDA8G1HOlF33FJ6YjNeIvaDrwwroFTrZEFtCQxstSbnCULA
+	vUYk1bllYdcqlcTvI4nhQlVmEuyOo1fYJGv2BdC2rpzoc7zkaF7iKrQ46SPAWZFaHUvzCyG31sNh3
+	fla8J8GEvmH6yyt98epbfYMgwK5f+nONtuahjGG9LHv7ELslIsX/rZ+NoNWZYqFqVwD7r8XyYdol1
+	nZGkMo4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8dW-00000006iBM-0zPi;
-	Mon, 02 Dec 2024 15:46:58 +0000
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
+	id 1tI8eU-00000006iUF-1FZX;
+	Mon, 02 Dec 2024 15:47:58 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8cP-00000006hw4-02rM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 15:45:50 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4B2FjjrN114294;
-	Mon, 2 Dec 2024 09:45:45 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1733154345;
-	bh=wANpDU65LhU/8X4F+bXK7+FUgsbERBICABWmsZeuQxA=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=jFnqVkxOIUyPOkGVaCVEyrgdzttAInlmUGz4K49J1QYGbRX3VbQ3/AaZiDZXls69J
-	 sRj6A3T2hq5s6b27di1Uut3P1QDu+UJ1S31GYwueGCc1gbWo0jfrA5x/n7pbFTE0I6
-	 DD5GMW2bDD0MDxEwp8a+YDExQw6lkTcWfj7Zm1og=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B2FjjZr018855
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 2 Dec 2024 09:45:45 -0600
-Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 2
- Dec 2024 09:45:44 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 2 Dec 2024 09:45:44 -0600
-Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.81])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B2Fjh03025124;
-	Mon, 2 Dec 2024 09:45:44 -0600
-Date: Mon, 2 Dec 2024 21:15:43 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Siddharth Vadapalli <s-vadapalli@ti.com>,
-        Romain Naour
-	<romain.naour@smile.fr>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>,
-        <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
-        <kristo@kernel.org>, <vigneshr@ti.com>, <nm@ti.com>,
-        Romain Naour
-	<romain.naour@skf.com>
-Subject: Re: [PATCHv2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable
- ACSPCIE output for PCIe1
-Message-ID: <rjecpmr4bsedbfhu74sdlzmdz2mh2shsr5myawb3qveooawa3j@i2ysnnyf7hio>
-References: <20241202101140.48778-1-romain.naour@smile.fr>
- <dabbad2b-f8a6-4ed7-86da-ec696cf67461@kernel.org>
- <k7udgqugqseweckb7hjniz3aops4kn35ttju2ju7f2pcbmndrg@dau5nr4leish>
- <abeb632b-9efc-48e5-a28a-a9d7c02e0a6e@kernel.org>
- <cndc3fopwhwkotfikul2jtzfczpdpwlrs5uhuqq76ck36ndtfs@gvxavxt5tgd5>
- <f332947a-d7b5-4f68-84d8-3ecce118c24c@kernel.org>
+	id 1tI8cn-00000006i1E-40p1;
+	Mon, 02 Dec 2024 15:46:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1733154355; x=1733759155; i=wahrenst@gmx.net;
+	bh=S6AbZeNaZ6bTE249nttA7aUaHmMUAtPIQUa4jnYv9dg=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=MRPqzPUxvHdhDzn6BrdRf9grvVpT8loh0TtvRFigS/N98YMO1eGNg2fMgFa1dSMq
+	 A6rbPAVQpkNh4opLucf/B62DtGd/jC7ZcbLP+KbiKZskMu2fA6wCez3Uw36yldNU6
+	 xqw432FV8UqXo21pJtc6yzUJYboQdW2gLJmFMOdTQ0GPqua7Bx6HAubqoWlA0Vrdl
+	 g4O/yXL5s/2BjEKL4dWmN+/2kyxxx+PH0S17cHZb2N48A3SZHfiNfmP1houYEQuEP
+	 yLo3hILr2K31IMW/wWJ6IRqSjJkbR51Z2IPUj5XS0qVbvRTUV3Ro2uwUWecOnMRR7
+	 e4CU2AzcVntMm0yiZA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([37.4.251.153]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MJVHU-1syHO72DwO-00LIU9; Mon, 02
+ Dec 2024 16:45:55 +0100
+Message-ID: <31d19aae-e2d2-4219-abe1-10516c42befe@gmx.net>
+Date: Mon, 2 Dec 2024 16:45:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <f332947a-d7b5-4f68-84d8-3ecce118c24c@kernel.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/7] dt-bindings: gpio: brcmstb: add gpio-line-name
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, =?UTF-8?Q?Ma=C3=ADra_Canal?=
+ <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Doug Berger <opendmb@gmail.com>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
+ linux-gpio@vger.kernel.org
+References: <20241202-dt-bcm2712-fixes-v1-0-fac67cc2f98a@raspberrypi.com>
+ <20241202-dt-bcm2712-fixes-v1-3-fac67cc2f98a@raspberrypi.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+In-Reply-To: <20241202-dt-bcm2712-fixes-v1-3-fac67cc2f98a@raspberrypi.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:IOMHa3ZcSMqatNTk+ufT5/RmKhqFiwzBeWyjcIAIec/+E8wlQQC
+ fdKZZK9TLuHh1jL1hDr4uBSd7nS/U5aDZZXZGyDz4LM1c9B7zrueEd8FSeezrohk31PE2Ao
+ kKWLjdrAAAN6ZIjGLWWXIzaRkfq57UuXqprcF0rbPF9DTt7UrdPhwz4zmOiMbtqMFSEu5rx
+ h1u1Qozkm5XfeKRDKaH+w==
+UI-OutboundReport: notjunk:1;M01:P0:ArgobiVFoHY=;i5fh4paZoVkp5qjDIySZTSIapOP
+ L7gJtxwiztdtk86rYcuduxH+osuuESVmiV89rg7PrCpE8vVfLgYAoj+htWE2bgwEJ7BkvNC9F
+ xYhcb6QFIky4cTsN1RaAB3dexZ3fK/p/uo16OfnhqKMkFzu9Q1+0l8rT6jp4Id2XROEpRnyUY
+ QQi+N28duCW9gzvHwldDlAlJvrElZRvGtqDZGYzHJrln0zeUfVP82t1UJTaRoODibhzE642O3
+ wqX4ggf/+QVbcbtMSoryU1RAVXlenFa6paCaCkyylC1AljpyFkTsJ9Ue6qKyH1D26NqjoETOo
+ RF0Ky2fsAcQKxmg9IyzC88/69hxUxO4PL+SDoMUSpcDak6lgngvdhoge9dQ4HHCBwOavx5mAM
+ W4yUBiKYJqXv6sxnm1cmCyVEy2YtNRXoI0HT65XeXu7THGIdKqoQcPI9HjSKnQslf5faGyESj
+ Q3kEDNYOZ9jmUlVDXrKfRJZ6uzFMjW2WDka3AyRWc9+yQ3krpHDdeGjnPI4at5yRUu/R/Lk+S
+ Osv3zlNNwx1a7tRs4DiU6bPcP2RFk19+oEEPChPwPVc1UvCRnzBagB8PFReV9j20OaAgVG9NJ
+ 187DPQdiomDkE/yjplISD8km/cI9WZixQ3+afgMscNuAjqKBsnV5+7gKDvZsvlS/lXOvLnBSD
+ OwBUIgZfMp8whoIryacYaQiJLuIu4cAMcNxIo/pOrGzdZ5MgnJJPy05XChz4q2uiRBn6tFchE
+ rHW0SQZxwl6JIXeSymrp6wHivbnco8pxhP9bRcVt2FhkRFvMNPxGcOMsb5fLzd0ZZLoFOg45/
+ z/rSwz3UXEtDgcggdgYU40LxDztxQkpEdmt1rBItTNmSf0f94BB+7VVU21dzA03+jaekZyTGP
+ YAknUnwpXcurCo9GJG5ST2pn3tzC2+RyXXsr3klzJyCVAlkwlZbnMug7HKXcfiPWaPkGPsDhG
+ QiSLAEWPxysBdU8lRb/ARji75WJqVV4GdYR996jOYP34CgN5aXqgbZVMfpuoj9u6HkiBUEo2V
+ Jn8JmYeHpoJ+QgzPR2uTk1UQ5ud66S7WQN0iQuHHoBlCvaCZ8skO0qzFTkdWGGxYcP/oO1A2z
+ tEH+w4eM6q17dL9vVwB3u4yEtMGqP8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_074549_137006_1D03CBE8 
-X-CRM114-Status: GOOD (  26.02  )
+X-CRM114-CacheID: sfid-20241202_074614_278329_4D6E46A3 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,86 +112,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 04:09:51PM +0100, Krzysztof Kozlowski wrote:
-> On 02/12/2024 15:53, Siddharth Vadapalli wrote:
-> > On Mon, Dec 02, 2024 at 12:07:17PM +0100, Krzysztof Kozlowski wrote:
-> > 
-> > Hello Krzysztof,
-> > 
-> >> On 02/12/2024 11:58, Siddharth Vadapalli wrote:
-> >>> On Mon, Dec 02, 2024 at 11:14:46AM +0100, Krzysztof Kozlowski wrote:
-> >>>
-> >>> Hello Krzysztof,
-> >>>
-> >>>> On 02/12/2024 11:11, Romain Naour wrote:
-> >>>>> From: Romain Naour <romain.naour@skf.com>
-> >>>>>
-> >>>>> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
-> >>>>> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
-> >>>>> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
-> >>>>> provide refclk through PCIe_REFCLK pins.
-> >>>>>
-> >>>>> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
-> >>>>> module's PAD IO Buffers.
-> >>>>>
-> >>>>> Reuse the compatible "ti,j784s4-acspcie-proxy-ctrl" since the ACSPCIE
-> >>>>> buffer and its functionality is the same across all K3 SoCs.
-> >>>>>
-> >>>>> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
-> >>>>> Signed-off-by: Romain Naour <romain.naour@skf.com>
-> >>>>> ---
-> >>>>> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
-> >>>>> applied on vendor kernel for BeagleBone AI-64:
-> >>>>> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
-> >>>>>
-> >>>>> v2:
-> >>>>>  - use generic style comments
-> >>>>>  - use "syscon" as generic node name for "acspcie0_proxy_ctrl" node
-> >>>>>  - Keep the compatible "ti,j784s4-acspcie-proxy-ctrl" since the
-> >>>>>    ACSPCIE buffer and its functionality is the same across all K3 SoCs.
-> >>>>>    (Siddharth Vadapalli)
-> >>>>>
-> >>>>>    "The compatible "ti,j784s4-acspcie-pcie-ctrl" should be reused for
-> >>>>>    J721E and all other K3 SoCs.
-> >>>>
-> >>>> No, it shouldn't and you got comment on this. You always need specific
-> >>>> compatible, see writing bindings doc.
-> >>>
-> >>> Could you please clarify in which cases reusing the compatible is
-> >>> permissible? The list of compatibles at:
-> >>
-> >> Never? You always need specific compatible. Did you read the writing
-> >> bindings document?
-> > 
-> > I went through the bindings document again at:
-> > https://www.kernel.org/doc/Documentation/devicetree/bindings/writing-bindings.rst
-> > It mentions:
-> > - DON'T use 'syscon' alone without a specific compatible string. A 'syscon'
-> >   hardware block should have a compatible string unique enough to infer the
-> >   register layout of the entire block (at a minimum).
-> > 
-> > The ACSCPCIE Block as well as its integration across all of TI's K3 SoCs
-> > is the same i.e. same Hardware/IP. The register bits corresponding to
-> 
-> 
-> And first rule for compatible property? DT bindings maintainers keep
-> repeating it over and over - specific means soc as front compatible.
-> 
-> > the feature to be enabled/disabled via the ACSPCIE block are the same as
-> > well i.e. "register layout can be inferred". The same goes for the
-> > compatibles listed below in my previous reply i.e. they aren't bugs.
-> > Same IP and integration across SoCs and hence reused in the sense of
-> > Hardware and not Software. I hope this clarifies the rationale for the
-> > "reuse".
-> 
-> 
-> You mix re-use with fallback. These are almost never the same blocks,
-> which you imply here.
+Hi Dave,
 
-I know that the IP is the same, the bits are the same and those bits enable
-the same functionality of the IP across the SoCs. If you still insist that
-they are not same, I don't know what to say anymore.
+Am 02.12.24 um 15:31 schrieb Dave Stevenson:
+> Support comes from gpiolib, so permit it through the binding.
+Sorry for the nitpicking, but gpiolib is a software part of Linux and we
+should describe the hardware here.
 
-Regards,
-Siddharth.
+Best regards
+>
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> ---
+>   Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml | 2 ++
+>   1 file changed, 2 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.ya=
+ml b/Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml
+> index f096f286da19..086d016df6ef 100644
+> --- a/Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml
+> @@ -64,6 +64,8 @@ properties:
+>
+>     gpio-ranges: true
+>
+> +  gpio-line-names: true
+> +
+>     wakeup-source:
+>       type: boolean
+>       description: >
+>
+
 
