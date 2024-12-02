@@ -4,77 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 211E0D78333
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:15:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 337D3D78333
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ppr8WxtTmFP5slbOkApIi79MQ0VaItBRbgLDFxiwd6o=; b=OrGD+mXbaW80YFXj8NdckS+AIb
-	6BIh/qp5y38EYzFuG4Un/yLsHu+5GgXZxZOzqdQcSjRxdpSLgrgFKglKUT6iDo48EAH0XKz6jRRA0
-	GcUalyeWHp5SuuHVglHjo1xpFEmnMTETuLZE+NeGrgs/xzfK//AUuXzbqLhgg3+r3jCKlXSSNLS32
-	xjvpztIrB1I+FoGq6ckyp7Tmwa16L6KqhYRTGE62nAmimg8obyDiAComY6kCj3sXYLqqSiGKPdBEh
-	FQSme2K3m0ma8qWR8TFR61K/x0klWYq1JBCzrgmwbtOc258ep3a06i6LglWF0lzennvcDeCUSjWQN
-	/skeaBLQ==;
+	bh=ZGTZLqyiKrqe7BzhPHyNmqltDOLbo44Bqwmvhp/DjDE=; b=O43R9WCq0Lv5tmyImneVfGqDAo
+	idKUm/GS8X3qRvcLasr2pYWK33XwVXPUcdTzuno8K6juNwCPU7NbaF1AHxpNszkmCb9H7zJ8mibtC
+	LSfZg8EHpMMLQkQCe+cv5yYEtbSgMvKkGNpuXR9SJsOdXpPG7EpxU6kIX9xJ4YN3KIZjeMBGwnWVL
+	pDdvpKehBnutdaqCj3sUwKBvAImebX6V1vsi/MawlvLUHAcyLYx4Z1XWGFN86aB+aStVCvc/vDBPw
+	k0aU4xszh3Xgwu6m2db5k/ShlBbKm8GcomVqF/+fsehfrUF0hEnEmu4Gdl/kVLyAxr9hdqIh6I/jb
+	NIAX/cJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI94Z-00000006nuZ-1Gep;
-	Mon, 02 Dec 2024 16:14:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8lV-00000006k7y-2Z1F
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Dec 2024 15:55:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Ppr8WxtTmFP5slbOkApIi79MQ0VaItBRbgLDFxiwd6o=; b=Ked7O/Ua0MnELNiOXJwKWbKKvQ
-	9gCTNI5rvk1lnO7vciDVn4S7oiprxugzSEUqjJZP3V7OZ7/SbGyu0wBYxM4nTXe9y4j6i1AfKEWva
-	IgetpI92XChuQ1MZe8il1cPAustIkX4A1y4rKcLkH1/CGYarbJyimFHznNhG1X3knnEyghCENuDGp
-	ZDuxr9vY+EiY+hdHVMvWANA3YLc3+h6Gr+TjadNJakXgr4goIvBj0i/d0V8hDVf6SNamWP5+uyNJB
-	g1doTvMpzMwnbX1GOed+cSlQzRX6VHyRkXMH1i9H08ivJxKzPwK8j8eomXkazwTgiEHK9hJ1PbDoC
-	pFkbOFuw==;
+	id 1tI95Y-00000006o8x-068Q;
+	Mon, 02 Dec 2024 16:15:56 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8lS-00000002C1B-1zTf
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 15:55:12 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tI8p1-00000006km7-2hzU;
+	Mon, 02 Dec 2024 15:58:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5CBF0A40F2E;
-	Mon,  2 Dec 2024 15:53:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51FD4C4CED2;
-	Mon,  2 Dec 2024 15:55:01 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 88335A40EEB;
+	Mon,  2 Dec 2024 15:56:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E25F2C4CED1;
+	Mon,  2 Dec 2024 15:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733154905;
-	bh=9wQ89Q5JLop4nCESxKGCFrCO8u8oY0ND2CvEKSdoUys=;
+	s=k20201202; t=1733155130;
+	bh=fW1G5fe6jq6m4BjYv6eXDZABakXNo+lmsyCAr91F1L0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bc3EEuOquLGwSd6rRDhjH2vCeSO6pMpgam8LdBNxrULqvDJQRiyuE9lhS3qd1DHlX
-	 pcImSgXxzzwphdruQbaoPM+a5JydW/GGDoiluxWFYQ6XqnL2smvEXNnfDR1lU54b0h
-	 3kyDgCufWdAiXcmg5b/rKSBjv+HQwCsBHZq2uy7GXM8aWh/aU4+vUuEOtwvRhBPc/h
-	 sWr2DANueGC6z/HR9OrlTyWL9NZI4HHIQKg+sT4K1INswX6WJ9nrO/E7NSBAbN4YR4
-	 hQgq6JHA19OLt05PIP4vlBI+i4ilAYYePi1odbu1FUh2wkRMsT83PkRNwq5eXQ6ZZ+
-	 SQ0PrDCmMqRCw==
-Message-ID: <1bfdf1f1-7542-4149-a85d-2ac4b659b26b@kernel.org>
-Date: Mon, 2 Dec 2024 16:54:59 +0100
+	b=QMzZjFk86MGurUZ976h/wSFEhuKhygZnKxCWDeVwuSa0Q1qQFx+X4TVOsfO2uJwCh
+	 gvy0o9sOro8SMI4q6Rc9sH7GdQvKZliY43B8TJ8+kiJz3zc0oUtKG4S5YNAqUPCIlJ
+	 maQVcxGZRv5aFnIlhSAmnYo/9dmRBPVJOWCFS/RBCwtDG3/sj2q1VEF9nPzMkK0ykx
+	 BlBgJ6vtqB58MwUtwQrnhktsltJ0+y6DzKxWqZ3VjadGWCjzgzZ6GOYIrVUjmNMI5G
+	 8nJLSFkTwvW5DRVpkcxWXUc0QcU8Fq5XT1Aqb1zPJ3Gg84J3ckI4ioGqaNsWfFzAVw
+	 wf7Rbl4TtENdw==
+Message-ID: <e1343cc5-d5e8-40d6-a6f1-3eaf22a8cd6d@kernel.org>
+Date: Mon, 2 Dec 2024 16:58:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE
- output for PCIe1
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: Romain Naour <romain.naour@smile.fr>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
- conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org, kristo@kernel.org,
- vigneshr@ti.com, nm@ti.com, Romain Naour <romain.naour@skf.com>
-References: <20241202101140.48778-1-romain.naour@smile.fr>
- <dabbad2b-f8a6-4ed7-86da-ec696cf67461@kernel.org>
- <k7udgqugqseweckb7hjniz3aops4kn35ttju2ju7f2pcbmndrg@dau5nr4leish>
- <abeb632b-9efc-48e5-a28a-a9d7c02e0a6e@kernel.org>
- <cndc3fopwhwkotfikul2jtzfczpdpwlrs5uhuqq76ck36ndtfs@gvxavxt5tgd5>
- <f332947a-d7b5-4f68-84d8-3ecce118c24c@kernel.org>
- <rjecpmr4bsedbfhu74sdlzmdz2mh2shsr5myawb3qveooawa3j@i2ysnnyf7hio>
+Subject: Re: [PATCH v2 11/18] arm64: dts: mediatek: mt7988: add chosen node on
+ bpi-r4
+To: Frank Wunderlich <linux@fw-web.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20241202122602.30734-1-linux@fw-web.de>
+ <20241202122602.30734-12-linux@fw-web.de>
+ <0fb58a4a-7bad-4623-99c8-67f5763558bb@kernel.org>
+ <D92CAF3C-F6B7-46DC-BF83-A71907E2D7EA@fw-web.de>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -120,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <rjecpmr4bsedbfhu74sdlzmdz2mh2shsr5myawb3qveooawa3j@i2ysnnyf7hio>
+In-Reply-To: <D92CAF3C-F6B7-46DC-BF83-A71907E2D7EA@fw-web.de>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_155510_823619_6C7D5F22 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20241202_075851_819608_C649AC10 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,27 +123,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/12/2024 16:45, Siddharth Vadapalli wrote:
->>> the feature to be enabled/disabled via the ACSPCIE block are the same as
->>> well i.e. "register layout can be inferred". The same goes for the
->>> compatibles listed below in my previous reply i.e. they aren't bugs.
->>> Same IP and integration across SoCs and hence reused in the sense of
->>> Hardware and not Software. I hope this clarifies the rationale for the
->>> "reuse".
+On 02/12/2024 15:29, Frank Wunderlich wrote:
+> Am 2. Dezember 2024 14:46:24 MEZ schrieb Krzysztof Kozlowski <krzk@kernel.org>:
+>> On 02/12/2024 13:25, Frank Wunderlich wrote:
+>>> From: Frank Wunderlich <frank-w@public-files.de>
+>>>
+>>> Add chosen node on Bananapi R4 board with stdout and default bootargs.
+>>>
+>>> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+>>> ---
+>>>  arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts | 5 +++++
+>>>  1 file changed, 5 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
+>>> index 9037f35857a9..1c2a806f6f6c 100644
+>>> --- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
+>>> +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
+>>> @@ -9,6 +9,11 @@ / {
+>>>  	model = "Banana Pi BPI-R4";
+>>>  	chassis-type = "embedded";
+>>>  
+>>> +	chosen {
+>>> +		stdout-path = &serial0;
+>>> +		bootargs = "console=ttyS0,115200n1";
 >>
->>
->> You mix re-use with fallback. These are almost never the same blocks,
->> which you imply here.
+>> Drop or merge into stdout path.
 > 
-> I know that the IP is the same, the bits are the same and those bits enable
-> the same functionality of the IP across the SoCs. If you still insist that
-> they are not same, I don't know what to say anymore.
+> Have you an example to pass speed setting to stdout-path? As it is only a phandle it is not clear to me how to merge these 2...
+It is really trivial to find, considering that 66% of files have it.
 
-
-You can say what we have been saying on mailing lists all the time:
-hardware datasheets lie and sometimes you find one, tiny tiny
-difference. If you are uncertain, please consult your SoC maintainer on
-this matter.
+git grep stdout
 
 Best regards,
 Krzysztof
