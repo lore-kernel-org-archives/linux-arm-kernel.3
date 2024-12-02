@@ -4,82 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DB92D7830E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 12:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EAC7D7830E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 12:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uq6P50nPVqYzYznK6CDOgelQtYASy802lUz2VNa3X4k=; b=jJ7dJiu4AiXkMEcWKGi890gNiy
-	/a0y9oVffaG75rjSC/XDBFEX9MjN8xjrJKOu4L6oxHpvZAxh/BpKkJhlUIuUxlsD/h72Spz8E67ZV
-	U5k1X/Am3QD5Ym6gw0yT2V2+Jp2o4EL6fkK5n4FYvekxWo+CKT2Ie/SjVBstO7IH55we0ASqne8X4
-	/44gy7z9nBzd+xDjDDXDMRKyIeZr6Pw5gaNRG3u7xy4izEtJ+eZdI867pnDU5WnMdwqvhMiBceLuq
-	ViCoN7O/JUbwjIO57kFGUx3pDP4tbL5DUUhk7Eo7wmuQXyWV/DfJI2YRdxSf/jf62AMF3DEOR0F4Z
-	sRp99wow==;
+	bh=SeaqylB7ZGSevZEzf6I6m5NbSZV24/TR+vYt+L3laSM=; b=Y6s2gF5w8GVJ2N2QX9tQCAaN0D
+	4jYUI73iI7lE6a0wKbA+5lS5oy094Maa4pjRUUXlArzrsnR+zx7f+L04t6UI5IP3jiHinGg2c2bSd
+	pxXxVdvBldP+u2fuoxaYDN7O+qs+/osZV+fSHdaiD8lfUWcTJLaFr+VesDF1voIjuJ/ZqYr5h2Bu7
+	F4d78Iesrirhol+LujxFVIsGRYc3lYDU1SECUvvJ2VKbrH2uuTINypuerCzznPW/woyC/oPM5qyma
+	irMzyZlQ5iCpiDogbLhrabZaJ3ItwwDkXn9zVO0/MFMCTmU+GvAaTnydo9yT9Y2R3ZjLGo+ju/Nz1
+	dWbcGFCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI57I-00000005z8x-3t9F;
-	Mon, 02 Dec 2024 12:01:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tI58G-00000005zK6-2LPJ;
+	Mon, 02 Dec 2024 12:02:28 +0000
+Received: from jabberwock.ucw.cz ([46.255.230.98])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI56J-00000005yu0-0vYZ
+	id 1tI577-00000005z5d-3Nk2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 12:00:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7E8635C6468;
-	Mon,  2 Dec 2024 11:59:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89875C4CED2;
-	Mon,  2 Dec 2024 12:00:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733140826;
-	bh=uq6P50nPVqYzYznK6CDOgelQtYASy802lUz2VNa3X4k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YNJkDSvbo8lkY9GLqT/hIrlkLQ08AZHdWUxs5r6bl3m2EBQ5pBgHM/mjPWR+I6JMf
-	 WHkFLn1IDnuQbsHQe0nadbr8vKz3xRW21XdUSdb4xT+i2Zor5fgGmzAoSEMfYcJPEX
-	 fwGe0wsbkhNxUqOwQeGiP8NfPPrneSL6Q9Sw24mlIlLforIDucg4Oz6evGeFxOliV0
-	 MWA8nqkra3Zn8VhWEpF06jAI0MaT8iKhzitPgCHIdv1qO0FwMpYUOE7uBvzD2uekk0
-	 +LA/RyRMTlyePXs6iJYth+3uw/OLHT4f3rvhAG9K2jgL+C9JqGuyzaknOpMmRTdq0t
-	 0COIRkOoz/T+w==
-Date: Mon, 2 Dec 2024 13:00:23 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	David Airlie <airlied@gmail.com>, Harry Wentland <harry.wentland@amd.com>, 
-	Inki Dae <inki.dae@samsung.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Leo Li <sunpeng.li@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Phong LE <ple@baylibre.com>, 
-	Raphael Gallais-Pou <rgallaispou@gmail.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Rob Clark <robdclark@gmail.com>, Robert Foss <rfoss@kernel.org>, 
-	Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Sean Paul <sean@poorly.run>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, Xinhui Pan <Xinhui.Pan@amd.com>
-Subject: Re: [PATCH 00/10] drm/connector: add eld_mutex to protect
- connector->eld
-Message-ID: <20241202-hummingbird-of-hypothetical-aptitude-646def@houat>
-References: <20241201-drm-connector-eld-mutex-v1-0-ba56a6545c03@linaro.org>
- <77545786331df8bfaf5fdcb309437358@kernel.org>
- <ohbtatnn33jj6y3q4milf4txi4n7yirnny2eefdjddlkn2dnhp@eqjedetct4q3>
+	Mon, 02 Dec 2024 12:01:19 +0000
+Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
+	id 18A7A1C00A0; Mon,  2 Dec 2024 13:01:12 +0100 (CET)
+Date: Mon, 2 Dec 2024 13:01:11 +0100
+From: Pavel Machek <pavel@denx.de>
+To: Sasha Levin <sashal@kernel.org>
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Luo Yifan <luoyifan@cmss.chinamobile.com>,
+	Mark Brown <broonie@kernel.org>, olivier.moysan@foss.st.com,
+	arnaud.pouliquen@foss.st.com, lgirdwood@gmail.com, perex@perex.cz,
+	tiwai@suse.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, alsa-devel@alsa-project.org,
+	linux-sound@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH AUTOSEL 5.10 4/6] ASoC: stm: Prevent potential division
+ by zero in stm32_sai_mclk_round_rate()
+Message-ID: <Z02hh/K7okT4fvOc@duo.ucw.cz>
+References: <20241112103803.1654174-1-sashal@kernel.org>
+ <20241112103803.1654174-4-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="rf5ewnb7ayc4e2uu"
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="3fawmNHJI3c1oRFq"
 Content-Disposition: inline
-In-Reply-To: <ohbtatnn33jj6y3q4milf4txi4n7yirnny2eefdjddlkn2dnhp@eqjedetct4q3>
+In-Reply-To: <20241112103803.1654174-4-sashal@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_040027_341999_A803ECBA 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20241202_040117_984507_D52612E0 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,49 +69,64 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---rf5ewnb7ayc4e2uu
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+--3fawmNHJI3c1oRFq
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 00/10] drm/connector: add eld_mutex to protect
- connector->eld
-MIME-Version: 1.0
 
-On Mon, Dec 02, 2024 at 01:03:07PM +0200, Dmitry Baryshkov wrote:
-> On Mon, Dec 02, 2024 at 10:19:41AM +0000, Maxime Ripard wrote:
-> > On Sun, 1 Dec 2024 01:55:17 +0200, Dmitry Baryshkov wrote:
-> > > The connector->eld is accessed by the .get_eld() callback. This access
-> > > can collide with the drm_edid_to_eld() updating the data at the same
-> > > time. Add drm_connector.eld_mutex to protect the data from concurrenct
-> > > access.
-> > >=20
-> > >=20
-> > > [ ... ]
-> >=20
-> > Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Hi!
+
+> [ Upstream commit 63c1c87993e0e5bb11bced3d8224446a2bc62338 ]
 >=20
-> Thanks!
+> This patch checks if div is less than or equal to zero (div <=3D 0). If
+> div is zero or negative, the function returns -EINVAL, ensuring the
+> division operation (*prate / div) is safe to perform.
+
+Well, previous version propagated error code, now it is eaten. Is
+stm32_sai_get_clk_div returning 0?
+
+BR,
+								Pavel
+
+> Signed-off-by: Luo Yifan <luoyifan@cmss.chinamobile.com>
+> Link: https://patch.msgid.link/20241106014654.206860-1-luoyifan@cmss.chin=
+amobile.com
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
+> ---
+>  sound/soc/stm/stm32_sai_sub.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 >=20
-> I'm going to post v2 to fix Jani's comment, but what should be the merge
-> strategy? Merge patches 1-3, 5, 9-10 through drm-misc and the rest (AMD,
-> i915, MSM, radeon) through the driver trees?
+> diff --git a/sound/soc/stm/stm32_sai_sub.c b/sound/soc/stm/stm32_sai_sub.c
+> index 3aa1cf2624020..3a7f0102b4c5c 100644
+> --- a/sound/soc/stm/stm32_sai_sub.c
+> +++ b/sound/soc/stm/stm32_sai_sub.c
+> @@ -380,8 +380,8 @@ static long stm32_sai_mclk_round_rate(struct clk_hw *=
+hw, unsigned long rate,
+>  	int div;
+> =20
+>  	div =3D stm32_sai_get_clk_div(sai, *prate, rate);
+> -	if (div < 0)
+> -		return div;
+> +	if (div <=3D 0)
+> +		return -EINVAL;
+> =20
+>  	mclk->freq =3D *prate / div;
+> =20
 
-The easiest is probably to merge everything through drm-misc if everyone ag=
-rees.
+--=20
+DENX Software Engineering GmbH,        Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
 
-Maxime
-
---rf5ewnb7ayc4e2uu
+--3fawmNHJI3c1oRFq
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ02hVgAKCRAnX84Zoj2+
-did2AYCKqjIX2aHftKtybJaUPI3aEKi2s1lRBLYyjb1Uwicsybws1tIK08t+OLLX
-OfIShgYBfiJJHZ+4Gj/u8uuAs91T4EvzTss9Zo2aF+YDFdrV47edIsjbVE2McJQO
-YLEiS8Wy0Q==
-=Idbn
+iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCZ02hhwAKCRAw5/Bqldv6
+8hAkAKC0b/Oh8ldKHa90Tlm10HU7ITeWowCgxMxATUX7/rKamYpZAx5Mk1HHjC8=
+=I7ba
 -----END PGP SIGNATURE-----
 
---rf5ewnb7ayc4e2uu--
+--3fawmNHJI3c1oRFq--
 
