@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 708E8D78322
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD61D78321
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 13:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EjVFO8JhvsvylPaTO8azmcT6H+gajD9WNMhqwa2ir5Y=; b=ocscY14ai8c9vruJWm319QbVli
-	IcwLGPIvydu354a70w26/x/tjb1nuTnigHEfJlc8S7DYOIgzRvbCpmPJJnI1A3P/q49+ExZ3ZykXp
-	HbZ9CgbIImeWu5rX2VvK5GauFRQLjNAULd9GrUZYLwpA8HeByXR48QgJXJxqY9RbyV/g+EQsJGPP1
-	KAXF2pc1Ayfwf+XN3U/7zE4gJrFw9Yhggei0NBL5GhHVbsHqlt3FzYkCb9bZ7kfW2qYH3SkxEYPYa
-	/sMdl3S6ONQxA19Zv/7Bj1cbANTb5Q1bEjtc8ILLJRSVSAkgBmVp7DphKkkcsfpwc2Out/GSoadnH
-	4spz9+5Q==;
+	bh=gzy9MzVQQIMMhcdatkgnqvqQnHB8wlmljErS48v9crs=; b=il1nHTaaUAMl8iEijSYN0974C+
+	Y2jsN483RE1T1ukaPdXzJiwD1jl9CiGYEk1WacZJfhzTkef9pjWNm0gAvb4BZJKJirdUUvwFitHWF
+	cy9QP1jKe7Q5QDmzs8MrAFdDiPZyGFGOxPeezUnobOn7BeatK1e9PfNKmeqL7AzQCIZTgEoQqUsYC
+	lzN9iuYlRqqpcRnwz/qvdLlo/k8oFOhG/yw6g4aXleZDOa9pvAdlYiSfygUQTX4HgY06qS3sc2R0H
+	WKiJFyKdSs0AGb6GBnCJr8QNiPZcnGsWOu16LHSFJ1Tgqcjl3YbEgnXT25/Tdtk/4jtRyzMfj8JFM
+	DbvXr1xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6h9-00000006HXl-1fMx;
-	Mon, 02 Dec 2024 13:42:35 +0000
+	id 1tI6i7-00000006Hhf-1qEi;
+	Mon, 02 Dec 2024 13:43:35 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI6fS-00000006GyW-3TUb
+	id 1tI6gI-00000006HKE-48YK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 13:40:52 +0000
+	Mon, 02 Dec 2024 13:41:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9BEAAA40D37;
-	Mon,  2 Dec 2024 13:38:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6578C4CED9;
-	Mon,  2 Dec 2024 13:40:44 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DBFDCA40D37;
+	Mon,  2 Dec 2024 13:39:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED9ABC4CEE0;
+	Mon,  2 Dec 2024 13:41:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733146849;
-	bh=m9OdSom+ZtLUNID50N96istyEEv18eQJ2OYYXEm8Au8=;
+	s=k20201202; t=1733146902;
+	bh=aHbNT8/7s93kv5HKX8tdKETN3m1n4K+2pSzalI1wkBw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mz+K6udVT45TBvT0jC9eJ0BQPriWIExpITvjTK5/D1DXfdF770o0w6cfnqWa/7WwR
-	 KKUQVJ1RRbnO7QebuBGVK/Xc0nWFM78ohzt79pIK71Hrvlsx6MaT+TtqVwgkLkQhbM
-	 LuQJVsBOa1WsraHRC2kyojKM8mMpfLrhWzm2VRg7bb+NCAehnoLGT+ql4emyi65SCB
-	 kKw6xu42TT2JgqIHY8FZIfcdoCdMKiv+40OTEVrNs65FUAz2ZTCVO9aAz8eLYLZSCk
-	 X3elav8hHejM05feHWZVOai1zhGvuc0GOw5nJrt8QKO2W+aYUcMbRBTGwtyCccxnQ3
-	 5GNN0FUgUxtrQ==
-Message-ID: <a917cb0b-68de-4916-9a4d-021a8da37289@kernel.org>
-Date: Mon, 2 Dec 2024 14:40:42 +0100
+	b=gvGY5e0mRTR1JDu8827hApyq9ya3WkD973VUrcZAAOnSe+PEdDnHZ3EDlyI7CmPFr
+	 aDugMn6ECPHzREpNrD9jJ+NbtGTI90MmaPSOILiVXZ6QXnaf2IX8P34wp9tMajCGp7
+	 SMHU0REinpjeLGlGYbYPHdmagKYnFs1ERSFeHuY2bvycV/EsM1vQdN4r/JwGdn/Z9L
+	 c19VWhm7Xs/YKo5H0KZB5/kPS5IcR4Lc+sZ43Q/jT9qRpS+2mXgyZ/9sY/RQQtInv9
+	 bDvJxJ8hKF9gFNQkDoMRgRp6dQ2izAF5Mj9+D6eXqGvwSYA/WRwit0Qc3CRUU9BVl4
+	 plKbU4kszGcDA==
+Message-ID: <68b897f0-5583-4d09-87d5-4ff4d3080ef7@kernel.org>
+Date: Mon, 2 Dec 2024 14:41:34 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: defconfig: enable Maxim max1720x driver
+Subject: Re: [PATCH 4/4] arm64: dts: exynos: gs101-oriole: enable Maxim
+ max77759 fuel gauge
 To: t.antoine@uclouvain.be, Sebastian Reichel <sre@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
@@ -57,7 +58,7 @@ Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org
 References: <20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be>
- <20241202-b4-gs101_max77759_fg-v1-3-98d2fa7bfe30@uclouvain.be>
+ <20241202-b4-gs101_max77759_fg-v1-4-98d2fa7bfe30@uclouvain.be>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241202-b4-gs101_max77759_fg-v1-3-98d2fa7bfe30@uclouvain.be>
+In-Reply-To: <20241202-b4-gs101_max77759_fg-v1-4-98d2fa7bfe30@uclouvain.be>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_054051_055842_DA4D6E7E 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20241202_054143_172273_AF77CBBF 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,26 +127,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 02/12/2024 14:07, Thomas Antoine via B4 Relay wrote:
 > From: Thomas Antoine <t.antoine@uclouvain.be>
 > 
-> Enable the Maxim max1720x as it is used by the gs101-oriole
-> (Google Pixel 6) board.
+> Add the node for the max77759 fuel gauge as a slave of the i2c.
+> 
+> The fuel gauge has been tested and seems to give coherent results.
+> Manual activation of the charger via i2cset shows that the sign of
+> the current does indicate charging/discharging status.
 > 
 > Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
 > ---
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 7 +++++++
+>  1 file changed, 7 insertions(+)
 > 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index d13218d0c30f458d9c555ab9771a1fd9139ce1aa..e7523e53f2ed26bab39e64f3b2d8c8afc7c1a1f0 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -675,6 +675,7 @@ CONFIG_NVMEM_REBOOT_MODE=m
->  CONFIG_BATTERY_QCOM_BATTMGR=m
->  CONFIG_BATTERY_SBS=m
->  CONFIG_BATTERY_BQ27XXX=y
-> +CONFIG_BATTERY_MAX1720X=m
->  CONFIG_BATTERY_MAX17042=m
+> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
+> index 387fb779bd29ea3812331a7951f03b181c5fe659..4c45dd6fd0173889234b7b04d7abb4b382c7706c 100644
+> --- a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
+> +++ b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
+> @@ -90,6 +90,13 @@ eeprom: eeprom@50 {
+>  &hsi2c_12 {
+>  	status = "okay";
+>  	/* TODO: add the devices once drivers exist */
 
-Are you sure this is placed according to savedefconfig order?
+
+Is this still applicable?
+
+> +
+> +	fuel-gauge@36 {
+> +		compatible = "maxim,max77759-fg";
+> +		reg = <0x36>;
+> +		reg-names = "m5";
+
+
+No interrupts?
+
+> +	};
+> +
+
+
+Do not add stray blank lines.
 
 Best regards,
 Krzysztof
