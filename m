@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63388D7833D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB87D7831C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VQbNxxLvKizWmipaY6ktrmBB/P4axuGO/OUGY80KUCM=; b=JO6OJskWC2cynFmUbY5ePmYUfU
-	o5RicmmERzp2yKfM2YR6wjPvmEAILKnpJ2yAwgY70iF8ZpdSOtap0WYZMsuX2+z4nAP92bN6M3BZ+
-	dJ8j4eXk4l8A7eaxahpytsS7JjPZDu52tNDhegVpoVDB/HVduxREtQEY96lEja1oD4T9IAhLTlpSn
-	DBIEr9jB0gsIrCa0/qaKhhdFakFwAiQr0CI+nPQ84j4EvnMDDl7WTI+rgf0mmLA6GZCkXgdztxe8M
-	dMxevulHSUbPIzJMFGqpBDbo7ORlNSTDZ6VixFdJ3c/c80cQnDngBra+UDH/BxD6tXpVv1AsfDoHV
-	gA8ojkZw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yTDbXQrXeL1QtkcRT6P5tuG++7/ooNKDiK5MNH+dj+8=; b=pGxqA7BpI6SjKp7bKCWnFr7kgW
+	vMi6XPaag6ar0nPwZ1j1UM2WJbZKv0zyYnFybVwIhqV7YGfK6+QPch3Lt9UFCW+1LieCvd1diL+CJ
+	BAKO09XoOPZkItr/PMvq7qT8s7R/U6oNYMGuTd/iSjUM89t3Vhp+TbD5XR5/fdC1cWzT08Y7cml7K
+	jtHlfwZIybFm+Zq6G4yVNuUhhEEnYzMhnEA2xU0ifj4yV1+HoEYM0fb5z2fpwhGWf5ngrCTp0/qFc
+	eZ0J0OSTpkkqJB8DXYrlLO7xQn9KoVhvvPoyKDwe7Q6xkXSSTiE4K8qCgzy5XgIXTVEmRc1LC/QyF
+	ah1R1bng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIAQ8-000000073XS-40Fd;
-	Mon, 02 Dec 2024 17:41:16 +0000
+	id 1tIAR6-000000073g7-2lya;
+	Mon, 02 Dec 2024 17:42:16 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIAK9-000000071zg-1H0f
+	id 1tIAK9-000000071zi-2bTM
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Dec 2024 17:35:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 320D35C0365;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 448955C5D5B;
 	Mon,  2 Dec 2024 17:34:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D02C2C4CED1;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EB054C4CED6;
 	Mon,  2 Dec 2024 17:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733160903;
-	bh=H6X4HxSuzHzBru4loE1fIv7uvjl0ePjrXaJ1JNnadsE=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=cvO1Ds0kUEVV4XP+U5TwsILj0wy1zw0nCs8k2BqpB3wKlYNvzoUniCJQW65nhjh1o
-	 saSQvVKWHUB6swLh4BekAGHyuiL7dQGD057mzrrCfRUuwd10KzdXMc8tpFW/8BnkRB
-	 4HeDTCgax/W3CPuKaTfS5n8go2bgRAPSFtrer4xmE9FlWmX/LZZtPzC/Jez2CPdj9H
-	 5kh1QsTxfKRNhIuSLYUGggIwNioUd/ecVgh+aInzhkQwluvfUTcIwBJUfkw6rsCVyw
-	 MzGKoRpR7joyAEBnq0jj5mfcJYOTeryL6ScLsY4B/FLWvv2G+zYK2fx6rQjA8yM9PF
-	 DjJT9eyAXyZFA==
+	s=k20201202; t=1733160904;
+	bh=5SkdVpyxMkwcefHUvrmeRmooVspzWLLjyCNkLAyYF/4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=krYcOchpdZfTOGmmZmYXGkkzng0VBYzBaTIPS/JdWNiJdmt/4S7+V2deZeuJtDiHJ
+	 5bOfjWx9PMCJkw4vWMJA+j7RGJgyQT3MCvZz+ywWGgXkUPQ1I8zhp2RRNDd7wmPgUC
+	 KVr3TdRx7r3vS7sNZQQ4VuZSeMJ1Co4MyFc7SbZRWDfa4cIk4lQ19T0FRsrpwOa17T
+	 JopKvCO/OnNKT3V7n07PfE9Ll3My7kWEoWbthp4JMgarfO7M35ovTZ+SUQIDeAkdh8
+	 VxQs0KDQFLoqYMNE9XZ9vIlYg+Eia5POewyoXqK+ltXanlAIbCfNk8+zvx51tcJKic
+	 OeLS9BafEnm7Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ABEF6D7831C;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D2CC9D7833C;
 	Mon,  2 Dec 2024 17:35:03 +0000 (UTC)
 From: Vincent Mailhol via B4 Relay <devnull+mailhol.vincent.wanadoo.fr@kernel.org>
-Subject: [PATCH 00/10] compiler.h: refactor __is_constexpr() into
- is_const{,_true,_false}()
-Date: Tue, 03 Dec 2024 02:33:22 +0900
-Message-Id: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+Date: Tue, 03 Dec 2024 02:33:23 +0900
+Subject: [PATCH 01/10] compiler.h: add statically_false()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGLvTWcC/x2MQQqAIBAAvxJ7TlCRqL4SEaJb7UVlNyII/550H
- IaZFwSZUGDuXmC8SSinBqbvIJw+HagoNgarrTPGTopkCznJhU9hxbj7cGVWZnKD9hFjcCO0tjR
- Dz/9d1lo/1Xd5X2cAAAA=
-X-Change-ID: 20241129-is_constexpr-refactor-19460adedc48
+Message-Id: <20241203-is_constexpr-refactor-v1-1-4e4cbaecc216@wanadoo.fr>
+References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+In-Reply-To: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
 To: Linus Torvalds <torvalds@linux-foundation.org>, 
  David Laight <David.Laight@aculab.com>, 
  Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, 
@@ -81,21 +78,21 @@ Cc: linux-sparse@vger.kernel.org, linux-kernel@vger.kernel.org,
  coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2878;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1089;
  i=mailhol.vincent@wanadoo.fr; h=from:subject:message-id;
- bh=H6X4HxSuzHzBru4loE1fIv7uvjl0ePjrXaJ1JNnadsE=;
- b=owGbwMvMwCV2McXO4Xp97WbG02pJDOm+749yHXE+efV7rnOkcu+WY3bx8n7fTmrbr7jmluH9X
- F7W1cW8o5SFQYyLQVZMkWVZOSe3Qkehd9ihv5Ywc1iZQIYwcHEKwER4zRkZer+7/w40uWUXt65D
- Rr+mWXn16tUHF2i6i7bLMZjcEecUZmQ4/WjnTadfPbbmk36KXW7f62Rq1pXeP+uB7A/2w3svHNv
- MBgA=
+ bh=MUJOQQOOJL9dYDVaPT65KhZRSmD+ZVJ1pjvxSAixArY=;
+ b=owGbwMvMwCV2McXO4Xp97WbG02pJDOm+74/KH7/U7qegXjXTofXb3TYljXrmuVYbMjW/tLXe4
+ w0P49vQUcrCIMbFICumyLKsnJNboaPQO+zQX0uYOaxMIEMYuDgFYCKiExj+h59n32w4XUS9Q6Hd
+ rUTL9LrKv/cufhltT6M9vi38WfriOSPDth1s9Y4XTgudV69oFplrmhzR2RRm0jljjlHtl08TxWX
+ ZAQ==
 X-Developer-Key: i=mailhol.vincent@wanadoo.fr; a=openpgp;
  fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
 X-Endpoint-Received: by B4 Relay for mailhol.vincent@wanadoo.fr/default
  with auth_id=291
 X-Original-From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_093505_432469_F931B59B 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20241202_093505_756979_F0B06A45 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,74 +108,38 @@ Reply-To: mailhol.vincent@wanadoo.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is the spiritual successor of [1] which introduced
-const_true(). In [1], following a comment from David Laight, Linus
-came with a suggestion to simplify __is_constexpr() and its derived
-macros using a _Generic() selection. Because of the total change of
-scope, I am starting a new series.
+From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 
-The goal is to introduce a set of three macros:
+For completion, add statically_false() which is the equivalent of
+statically_true() except that it will return true only if the input is
+known to be false at compile time.
 
-  - is_const(): a one to one replacement of __is_constexpr() in term
-    of features but written in a less hacky way thanks to _Generic().
+The == operator is used instead of the ! negation to prevent a
+-Wint-in-bool-context compiler warning when the argument is not a
+boolean. For example:
 
-  - is_const_true(): tells whether or not the argument is a true
-    integer constant expression.
-
-  - is_const_false(): tells whether or not the argument is a false
-    integer constant expression.
-
-Once defined, apply them tree-wide.
-
-All those three macros will rely on a single building block:
-__is_const_zero().
-
-Patch 1 adds statically_false(). This is just done so that at the end
-of this series, the full set of statically_true/false() and
-is_const_true/false() is present.
-
-Patch 2 adds __is_const_zero() and is_const().
-
-Patch 3 adds is_const_true() and is_const_false().
-
-Patch 4 to 9 do a tree-wide replacement to remove all the usages of
-__is_constexpr() and replace them by is_const_true() or
-is_const_false() whenever feasible, or by is_const() otherwise.
-
-Patch 10 finally remove __is_constexpr(). RIP!
-
-[1] add const_true() to simplify GENMASK_INPUT_CHECK()
-Link: https://lore.kernel.org/all/20241113172939.747686-4-mailhol.vincent@wanadoo.fr/
+  statically_false(var * 0)
 
 Signed-off-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 ---
-Vincent Mailhol (10):
-      compiler.h: add statically_false()
-      compiler.h: add is_const() as a replacement of __is_constexpr()
-      compiler.h: add is_const_true() and is_const_false()
-      linux/bits.h: simplify GENMASK_INPUT_CHECK() by using is_const_true()
-      minmax: simplify __clamp_once() by using is_const_false()
-      fortify: replace __is_constexpr() by is_const() in strlen()
-      overflow: replace __is_constexpr() by is_const()
-      drm/i915/reg: replace __is_const_expr() by is_const_true() or is_const()
-      coresight: etm4x: replace __is_const_expr() by is_const()
-      compiler.h: remove __is_constexpr()
+ include/linux/compiler.h | 1 +
+ 1 file changed, 1 insertion(+)
 
- drivers/gpu/drm/i915/i915_reg_defs.h          |  47 +++++------
- drivers/hwtracing/coresight/coresight-etm4x.h |   2 +-
- include/linux/bits.h                          |   5 +-
- include/linux/compiler.h                      | 112 +++++++++++++++-----------
- include/linux/fortify-string.h                |   4 +-
- include/linux/minmax.h                        |   3 +-
- include/linux/overflow.h                      |   8 +-
- 7 files changed, 97 insertions(+), 84 deletions(-)
----
-base-commit: e70140ba0d2b1a30467d4af6bcfe761327b9ec95
-change-id: 20241129-is_constexpr-refactor-19460adedc48
+diff --git a/include/linux/compiler.h b/include/linux/compiler.h
+index 469a64dd6495fefab2c85ffc279568a657b72660..a2a56a50dd85227a4fdc62236a2710ca37c5ba52 100644
+--- a/include/linux/compiler.h
++++ b/include/linux/compiler.h
+@@ -314,6 +314,7 @@ static inline void *offset_to_ptr(const int *off)
+  * values to determine that the condition is statically true.
+  */
+ #define statically_true(x) (__builtin_constant_p(x) && (x))
++#define statically_false(x) (__builtin_constant_p(x) && (x) == 0)
+ 
+ /*
+  * This is needed in functions which generate the stack canary, see
 
-Best regards,
 -- 
-Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+2.45.2
 
 
 
