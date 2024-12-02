@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96D7D4978E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 00:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3ADCD4978E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 00:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LsLrPVxdPPM88Lsuw9W4JxVinjdPLNWv/2GSWcv7fHg=; b=WGtL9A7e5W7+ADVRbFdpNSSfeM
-	iNJFWRJTC5P/q1y4+W9I2rixqwM0e+IMJthYWMfxMx3RqoCXAGOgcRuxQkaE+Gzt0+47R6AP4NTa8
-	5L7KBpiCo/jQnGmTb7Hn5/Fg8Y5uW/zAPq8WZLcTTz1kVGh+nb/fk7j8hbyRxerk6DAfNNV8gJiF8
-	SmJOp/xR68fiXXLWdBj3VobEACKBw0Y5qQaKvvJCJYuSvYwYtWJ0prwj3suQUgN+cUXiqvdxNWo9z
-	jtbh/u1rMoLV8YRRuGqQNT7wOi7vaGWowbdNr0NWEONylDjaVh3+QqADPW4kqZLMYdbxrEakcbOVJ
-	t1e1fmgA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=savipbmLhTx7LIXVXD8Lvdul953yNxuStkQ1uEsHqYI=; b=qv2F6FZkfSir0G13Pkh/bu0sCy
+	bJvQJ5TPcsNQOABldL86k1O6afxmwso2WkAFLrzHTlONGyWuTdYHkxoWrKc6xcIlH9NjHqc1vNyxK
+	Z6sMls2SvkURLsD6+JQX+g1TNS1CDlgOKSVQwRh3ZHvPckw5kd8QnrhJkCIRqjkiae2fTpbaedASQ
+	5RQP7YUqBLVyYBtqIZy207yrWt2BjcesM5gQLVxZtO9b34CmyB/Sz2rc80MMdJ4wtpezL68x7h7gx
+	mrJYc5k6SkgjJQMp1EcclzfFN5ht4CKnOvbD4bJRG9LK4Z5hPm0MMRSwhzWJpXPN7RlKrLsR7X37s
+	LS5yUNUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHuAG-00000004aiN-078k;
-	Mon, 02 Dec 2024 00:19:48 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1tHuBC-00000004apM-2fKP;
+	Mon, 02 Dec 2024 00:20:46 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHu7M-00000004aMG-1krv
+	id 1tHu7M-00000004aME-21dA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 00:16:50 +0000
+	Mon, 02 Dec 2024 00:16:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1733098598; x=1733703398; i=wahrenst@gmx.net;
-	bh=LsLrPVxdPPM88Lsuw9W4JxVinjdPLNWv/2GSWcv7fHg=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Transfer-Encoding:cc:
+	s=s31663417; t=1733098599; x=1733703399; i=wahrenst@gmx.net;
+	bh=savipbmLhTx7LIXVXD8Lvdul953yNxuStkQ1uEsHqYI=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:cc:
 	 content-transfer-encoding:content-type:date:from:message-id:
 	 mime-version:reply-to:subject:to;
-	b=rsIAOXCD6SDPCPzhyuNo3WnPYNEMxC4P0mbPErZ8sIpuz2GbjfwIb8OVKD2SAXA0
-	 fA6WQoidaMIhSQRGVWnVyrZFt16NSYEf1kR27THkT48ADSxqriUiqOSLLjTwqfYfX
-	 WzJzgebEy2z6bq24cqifpasfPyDB8y3ZbX6sQluWeooCMM6w5J0RjoT1931N+buYy
-	 +QfVEBRPpzY9K9nKqh/o7GTt4T2D47i0mFnTDzKQaubAKpeNNvFOtEEJvvGGpyNf8
-	 hnhIGNSGnwLmJBY/a8dbKoXS6wqHJpCaCY6d94RSfBCxRZPXebLVGwCEz26izLitP
-	 jtGqHdFK5W5dE14wzw==
+	b=ayYhCXWS5ZLEfAi3WGziZTsJQ/215rBdef6+V03rVoal2obkKLt5UkVDuo1R5SxO
+	 u+4DtO2ku5sjUrKNpEDKuvsLQUai9mA3bxgZKPyLZxmfbEZPHtnDtRO7CWI6P3sVP
+	 AkpUwZeYHsj5vWTCjyuh6QhSptGA4CICllCe7s/wCaKY/AlQSqzN3ToEAL44p5P3O
+	 LKl0IVE8vLjbt+dK3MA854EhTvDLzppHkd6knlBWiK798ZvEpP6SlEq/pJmuhPGBQ
+	 ncMRIsWq8YzYd1tQqk7o3xoqnmzlmHeHHsd6/3S3rhGEsLE1i3ke1dfhCALB3qE+m
+	 A4bhGEwDfcMfXpO2kQ==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
 Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MOzOw-1t1J2g1slg-00X5KM; Mon, 02
- Dec 2024 01:16:38 +0100
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MQvCv-1t4LJI1LbL-00VigD; Mon, 02
+ Dec 2024 01:16:39 +0100
 From: Stefan Wahren <wahrenst@gmx.net>
 To: Minas Harutyunyan <hminas@synopsys.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
@@ -56,37 +56,38 @@ Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-usb@vger.kernel.org,
 	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH 0/3] usb: dwc2: Fix HCD issues on Raspberry Pi
-Date: Mon,  2 Dec 2024 01:16:28 +0100
-Message-Id: <20241202001631.75473-1-wahrenst@gmx.net>
+Subject: [PATCH 2/3] usb: dwc2: hcd: Fix GetPortStatus & SetPortFeature
+Date: Mon,  2 Dec 2024 01:16:30 +0100
+Message-Id: <20241202001631.75473-3-wahrenst@gmx.net>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241202001631.75473-1-wahrenst@gmx.net>
+References: <20241202001631.75473-1-wahrenst@gmx.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:GZb6XypkJ2trclZRcE3wdoCOXnsMwh7WXxoEQxLIUWyrxO0MvCq
- bbgRMP8ZPXPAYJNI8f8LvtlECdnkhnfOSVC+lu3u+TDL2EcJcPOSHh4fwhbHiEy1AV93+yN
- vLlTKX4O1IT6MT5csY6GtTqyHz3ISXeOLsG8uJ6x7l4zm+gNXydx3GKtZnD1MYTky4OyqOa
- yVhNUZeGSdiTAMnIRqNkQ==
-UI-OutboundReport: notjunk:1;M01:P0:W0K37wS3vf0=;g5CYaqlhzi9kxXOEWJ1H9fA9+lV
- vaRSCnM0UKe9y0osLlWumG1BlrTmv8DwQr1Bzi798Pmu/ogV9OucrjLDLC7LQ1T2uclWO4Q5s
- wckyS1si1QIDbuivsckUL6nErbstyAr2s53gOXrliCLSXHg9B1pdpfcYj6JrSpT5qzayty2hX
- 9PFfxCXt9tM+lt7VT2zs1YTlMCQHF2k94yYH+JblGMcvg1g1JeiEe0sMaAiUYfrw6THs4fLtm
- kXApuhaunKbpQGsLdlBMPvVBlsw4At49ZvhF1wRTxvugkQp4JMaDTd1SoMeun9Btw5l7zlRn3
- LgkEeMpSTn8YMAljhLKrBMieCDNs1hrBYwGV+Pci3I/QwOvr4X+Zjm9JiIRG9PzSfmVgbvtUr
- RtYtsKXYFvdk0n8KqtxPCympxH9l87dHUt99S6iJ+fwf4YNkLgA5nkLzw4PJ/zEontK8kTZIy
- z2BzEqYKPlJjL5pYXayZjt2SRypzHRkXxxU5gOGn0EcEOlSOSBExJ9Y9cFQImJIlyj6RA5Jlq
- niIgHasz1aDO/elf/FAS5RBYJN60BAEBCVdALTWQaiP5TljgGN3VSYU8pc9XQW6r2XhZHBd4a
- 18zvRCBe88KrTh4S5f34Li2LON1qyPrI89mnUEvcI8ZdwkqjdTQc6yKVJ0413gwryop2gFNF8
- sbKih5HY92Fr4lGxhicOoGRsrSzM8xbTkMAbtJqS4GEMhj102s2MR0LH+sr6dd2M5ZML7Z+vt
- 5UwjRxoyTYRF0Kt5rbhx//ZCqoYyFjFkGMeYbqeOy+iaZSD+orGsIKLsXrj9ijIHM6I3RYt4O
- 7NtaVZGEtiDnjm0iVl+Wi0ei/U21wPJvvg3j15/6eUNIg+Ua/kGR4GTvqSsvj6K4sRhYHFp25
- DYPPQ4KKhIziZEfAlt4vZfkSIqT9AGW2NvVEDG8CRzsjVyVCXCRjl65xG928UDk/zADZVR5A3
- agE2Ij/p6QRl25tQYY4kOKxlQWuxxxTfra+2EXP0LUarZJXXzU/AME32STLZAWkQsgsSLSWeR
- g8yNQzdKe3t4Uky2WnwHu6rpnxApRqKCi0VVd1W3qFbk7wkNOa2Wp+ist4Fso9UXv8kVL1Qo7
- ypmOZr6Xwo8G3rBMdfwuDi8i+ybc98
+X-Provags-ID: V03:K1:ylSSHTQV4E3SYFVCQAPBWkD1qDiPe7LExFSl1jmro7feAr/+Sc5
+ +0YnKiEhUDvpY6eNY14d0ikeRLclOaCCWE1c6QNTJKv5EhR2HvrC4R1y+PoEAGJXyle5kMM
+ ATotZgnL6/dm6UL8QKUnK3mxC1ju2PuFknzjBnzHYMV3/1Wcetr/dlUCxghU+iVOlzHvPue
+ QE6OxNil1CqpZg+ArZfEw==
+UI-OutboundReport: notjunk:1;M01:P0:pAVUCQoHj+Q=;MJtKgxIBAAnPdvLH0ezLsSJ5Mmm
+ cvrqqz300fi4igVC6+R9KaeXs1tokNTDCaLZyuDzSXHeZcNcv3jWCw0uxN3VwXVQY5yfr7Pow
+ z9LHGF3X8WI9cufyudtb429YCgQdcMJZ4wqy57mIdWiuhUqoGF1QRDvYhM+BHEDUqkMcq1yjV
+ q7VxcJNfihWYLStzJCrffOSnGOHRzYySGtfEVBEKSeu2DBqy+IzdsftKfSmVVWtHvHqQ0yuiz
+ 38DUJHcAmdqrpwmQ0B2U3c5csFgGFlzRpPUyPz8Cf7nh/GeIgR7D57MHaGP8oEDjrrvynxoji
+ 6npC8BfxaSpKW2iK5f2NmuYap2citvZzKJtIwwqBPRd+hD4wnBtKhIB64LLFxlzdWzpnIZNW7
+ qMCMsx97cFtNPW6yJ+9ChPEIxU+feDpgCL2efikPdwqFJVMvmrkH++Y7FEF1XVrH4XePXiPd+
+ 769XXupriYDK0yVbcq4DwBFnM4Ki03z+KN3PSNBKDL/05sGe/+5chIwgOZLh63ifs6TNdrCvo
+ fkw23V52cqyOZGyIkHMp/jFsBsBnT7glJsle0jBz4DgHVinNKOlwN49+KywzjhsfLmAwZ/L+3
+ cudxflBnzMLDXKbeVhfngpGm7kufF2tz3ZhnAw2DVMSGEasI1fc5B7Mmoug0M/4Qvg6u5R7wv
+ CGT+E3qGn8yFzkb5+zihFRL0XYVf8czRCj98UbYElI6/mpl2Tww2VU9/rZCaj0ztCUL9Bx1BX
+ LRSR+1s7OJEN0xhVJGCxwOFA++kRvIHVjRGhuaAjxCqWCZ1jiluVhZk6Uu4MqW0tXouI54XCl
+ uz7w2OTfgULEIPhrJmhYQCGX7G2bNd/IDTIJ6QICOoPV1EjIIf05IAt7vGlN6ueewnvFWO12c
+ XgRsU+FCGvBlC4CqrpFN3FIzXh8ZW8Gn8bJGm8kMrLSmEVJehLb/y4HFPJ4NNhH6RNH9SJiWb
+ Go3O/2QuQT2GZ7P17eUx1Me0ufuiQw4Cy2XFDTR3Xd2+fBhkkgO8z8790RFIVBBFWjEZ1xHhW
+ oO14qKHNeoJBNIUTFmlP+O24PGB9DTxdUkSxJRjSoOrozlCx2FTqSEoVWFy4VIKZgizcnKK7C
+ v1MCmexkx4W0BIerrQKLgiNtauwaIZ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_161648_740722_C9B0C870 
-X-CRM114-Status: UNSURE (   5.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241201_161648_803075_923662CA 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,16 +102,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series address some serious HCD issues on the Raspberry Pi.
+On Rasperry Pis without onboard USB hub the power cycle during
+power connect init only disable the port but never enabled it again:
 
-Stefan Wahren (3):
-  usb: dwc2: Fix HCD resume
-  usb: dwc2: hcd: Fix GetPortStatus & SetPortFeature
-  usb: dwc2: Fix HCD port connection race
+  usb usb1-port1: attempt power cycle
 
- drivers/usb/dwc2/hcd.c | 19 ++++++++-----------
- 1 file changed, 8 insertions(+), 11 deletions(-)
+The port relevant part in dwc2_hcd_hub_control() is skipped in case
+port_connect_status =3D 0 under the assumption the core is or will be soon
+in device mode. But this assumption is wrong, because after ClearPortFeatu=
+re
+USB_PORT_FEAT_POWER the port_connect_status will also be 0 and
+SetPortFeature (incl. USB_PORT_FEAT_POWER) will be a no-op.
 
+Fix the behavior of dwc2_hcd_hub_control() by replacing the
+port_connect_status check with dwc2_is_device_mode().
+
+Link: https://github.com/raspberrypi/linux/issues/6247
+Fixes: 7359d482eb4d ("staging: HCD files for the DWC2 driver")
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+=2D--
+ drivers/usb/dwc2/hcd.c | 16 ++++++----------
+ 1 file changed, 6 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/usb/dwc2/hcd.c b/drivers/usb/dwc2/hcd.c
+index 26a320c1979a..fb4fbd8c43df 100644
+=2D-- a/drivers/usb/dwc2/hcd.c
++++ b/drivers/usb/dwc2/hcd.c
+@@ -3546,11 +3546,9 @@ static int dwc2_hcd_hub_control(struct dwc2_hsotg *=
+hsotg, u16 typereq,
+ 			port_status |=3D USB_PORT_STAT_C_OVERCURRENT << 16;
+ 		}
+
+-		if (!hsotg->flags.b.port_connect_status) {
++		if (dwc2_is_device_mode(hsotg)) {
+ 			/*
+-			 * The port is disconnected, which means the core is
+-			 * either in device mode or it soon will be. Just
+-			 * return 0's for the remainder of the port status
++			 * Just return 0's for the remainder of the port status
+ 			 * since the port register can't be read if the core
+ 			 * is in device mode.
+ 			 */
+@@ -3620,13 +3618,11 @@ static int dwc2_hcd_hub_control(struct dwc2_hsotg =
+*hsotg, u16 typereq,
+ 		if (wvalue !=3D USB_PORT_FEAT_TEST && (!windex || windex > 1))
+ 			goto error;
+
+-		if (!hsotg->flags.b.port_connect_status) {
++		if (dwc2_is_device_mode(hsotg)) {
+ 			/*
+-			 * The port is disconnected, which means the core is
+-			 * either in device mode or it soon will be. Just
+-			 * return without doing anything since the port
+-			 * register can't be written if the core is in device
+-			 * mode.
++			 * Just return 0's for the remainder of the port status
++			 * since the port register can't be read if the core
++			 * is in device mode.
+ 			 */
+ 			break;
+ 		}
 =2D-
 2.34.1
 
