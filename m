@@ -4,87 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E21D4979F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 06:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA685D10DA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 06:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vDhO31tk1fZx5nO1D34ac67vgcEF+XlfAfCpGqdW5mI=; b=SiwTCtwsRxsei4lQ5eIfNY1Dcu
-	t7Ptf+6BRH2DaKw70xGVX7+WZOuMNRt7gia9IRvn17Z6Of5Ipxc3OdmK5iI70tBbfuxGDa+Pzykjm
-	vZXw3b+2NU1EQ3ZJuMA4QVjmRPpDca+niRvpNEL8drInsxPF13nfSXaRfCIjofDrrbyfA06xQ7KRK
-	n5oThQHFK5YMnz398yyrRmHct6ZVdWbhRBPhHwx8jQ+C6XK5wZK5ArPzZi324Y0gghZBa+Fm+hr/z
-	QeSzUXM8fN4gYru0eXOa/u1ctMc6yi0VLP2kyDQHxXby4fqH1YiIwyfE6179sjLlD9XH2dBiWqxsa
-	iyn8Mx9A==;
+	bh=Bn0LDqdl1s00AOGHv9alMWMkV5CbY2Y3h7DtmORE+v0=; b=KTa0GAk4Ovbul6uN1hoSqWBaF0
+	qYtzyrf5pP5TRUbv4U66b8wByO1ba00QJcsWt33abbybjv+ExTw10ndOLbFYI4Pv5/IyMesj+YTkv
+	wc7aPn2AQchVyJ92mWfJPuJaD2kz2eNCei/xe1At6kL8t1+TEwhWTGt5SdyY/zQgSkyRlk5rzZ160
+	ZSvvVT4d3pawwblvv1aawtRsWxbFFcLqlwfMg8+Dt57w2WRtAJaPE4UHMvcuTOSt9LDjovdVZFK31
+	GR4vIiikzfugNUmCiPdh9EY5jIswks0EM7DNYvi09AV/hSQtxv77u69NzPQHEa3zpoDFfC9mziNag
+	iGzax+0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHzgl-00000005Av1-0fya;
-	Mon, 02 Dec 2024 06:13:43 +0000
-Received: from mail-oi1-x235.google.com ([2607:f8b0:4864:20::235])
+	id 1tHzw6-00000005C0C-0vhA;
+	Mon, 02 Dec 2024 06:29:34 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHyVZ-000000055J1-1znT
+	id 1tHzv6-00000005BsL-1qwC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 04:58:06 +0000
-Received: by mail-oi1-x235.google.com with SMTP id 5614622812f47-3ea60f074c3so2039752b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Dec 2024 20:58:05 -0800 (PST)
+	Mon, 02 Dec 2024 06:28:33 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2154e3af730so16228705ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Dec 2024 22:28:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1733115484; x=1733720284; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1733120911; x=1733725711; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vDhO31tk1fZx5nO1D34ac67vgcEF+XlfAfCpGqdW5mI=;
-        b=TlPtTGEl4sG+pE543nnNo/KUiB+x1pQEOcuw+ErzmuEMtwwkhv1sJd0teeoL3v9sjZ
-         Uj8OjLObdDsXnw+1fpUkEtTnsAY8dkM10szwzVHwUKqhWXWRmBYa4qGLFfawfWcVuNxg
-         8EQiT8O+G4zMICT8qA3Q0fINK4ZziHwwlRwd4=
+        bh=Bn0LDqdl1s00AOGHv9alMWMkV5CbY2Y3h7DtmORE+v0=;
+        b=e0dGD0Bv1DgAE77AdS/D9E6F+0UeqX2HITjtLO8R9enjs+OSnGOlkvRRmBI26Z5Wzf
+         nci9AjjgCFF6nZ7DyAC9O0iDqQeJuQdKMVUn7PUXfKLPj96NCFuBP6k1FKEHD/FkHonw
+         dBjwbjIfRJtSeGkzOUJx07U0BuLU2485WVAi0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733115484; x=1733720284;
+        d=1e100.net; s=20230601; t=1733120911; x=1733725711;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vDhO31tk1fZx5nO1D34ac67vgcEF+XlfAfCpGqdW5mI=;
-        b=lD3yLVGkGHWmHl+JHi8DwMXAWvc8LrKbypdnJHHGqgZ0MeaV3FkeT7cjqKluDfhK33
-         +h3X8IlZH/hgI5j8U59jlLrnXWU+xaqbTCNAUZNDNx900jvIXmS9u18yyPbmpkoBvliC
-         ViLXuEeuKsQ8b3em3Hx6rqC7R4JqXUOriRhjnDwWUtgPyD44J8a6GcCXOgGwNGvdrCc3
-         0mGVex/lWd6nhrHpQ4Gn3qB+ca7ClWFxxs6qggAK9+hhNCKdur73q/bBMcNFHhaylKpR
-         o+PVCR01V/CyeBiYWimnQzgUoXrouhtoohtDxeW0MwzHnUxv1WSudrn0pSfjZPD12CxQ
-         gnhA==
-X-Forwarded-Encrypted: i=1; AJvYcCXiVvOsGfGfPEUiyWnLuc77Lu61PJmc+o3g/5ALa0aFQEU5sKQvEkKzcqFYzHitETTPm0ZsYblb+VwQcLUgFBVv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxY8TwEbPebXqhDUl+oZFrBIsdsoLfR27Tti+CkkYf71nbzjNY7
-	LIfpaGf+9YwNqZJ8tElt2x095zOMmYF0JevsX0tINe2ujfdoFfZWjhTyjLCarA==
-X-Gm-Gg: ASbGnctiBFvlWV1PNKRDYu9eCUeCwuWKlxsIpP055rZIyIi1UXW+f/XDAQg5z4UgxbF
-	TyJz0vJPrZMrKnvrPhYWcROW4kIPNOmpLj3IbsdulFOdRkoW/weLZcs36Y7iqQFX7hiVfQfw34S
-	W+k/pF2EY44t8L0Stiv4htEGc6gMW6cDKYzIQRROQG/RMVw2giIsjMfhdvMtcHsmut8u56uGY1L
-	5frMMBDTo94X8Ue2ktd4RyOttFRK3G4XiRrvxFy2+hffIk668Oe4v/GQACug8YPARj7
-X-Google-Smtp-Source: AGHT+IFb+ZRLH+3t3GZ+Wqs0KteaVy0F6ImlvlAlGAnh/Pchain6QOhSaXFDzaByBXFgCM7QNb8V/Q==
-X-Received: by 2002:a05:6808:2018:b0:3e6:3860:596b with SMTP id 5614622812f47-3ea6db6410dmr21148963b6e.8.1733115484363;
-        Sun, 01 Dec 2024 20:58:04 -0800 (PST)
+        bh=Bn0LDqdl1s00AOGHv9alMWMkV5CbY2Y3h7DtmORE+v0=;
+        b=ouoBMGMSnT/gY1Nk0OqEuXWCljwrxbWzrzQGPGeuZrADufb+mDqWMjuAuEdH6kAxXB
+         cMquVO46dlu7gPvU6gHnHRCeT53Jt4RwyA/Q8rxTtnYU/Uj+E2wQRbWOplAOnyvsfbVk
+         EfitMx2I20odTttdmbsARsw70qheZmVSc2DhZgNkG+OxiIsCwS9Vx97k8XY2jNpn2kfM
+         XW2PgkCzt+K0O3PYBMRB+rraGj4N9OdYW678/o62vEX/jpDtpYuRP8McVZ1y1LEuW12X
+         VL03A77ngfWX6/5+dRDVAX5Zn3wfZiOYvNv+l7OUuGrtQMEyNz8JUPZ94sT935gPWY7m
+         sHqw==
+X-Forwarded-Encrypted: i=1; AJvYcCWIWwYdDKWZ0tX84ZLV0abN2D9+JZFx7+rUFob0QuTNX8YNvSLXAkhbl+Aue5sG5v7ewgDsQ0MVWhKvNLW1PKSf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwO8HIA9zY/F/G6HsD2g8FxotgjWAWZ7zRUE1uXdyJY0t7M2Au2
+	FVGyjJwaKsDu1uMayP6EmR0tCDCzVtzDYDHaSKFUBmnIVtHkmkhQlSfG4AIKAg==
+X-Gm-Gg: ASbGncu4Z91I/XSdA+6VxxfUM6nWmvjCk8seVrvzIGH9nuqPnPSsoXz5w5RB9fRtrmT
+	UsKLDSQ6NG6MeMfe1kHURyJQEnXy+WyjvMcz3V3kciuUpk6M2gx+5ntVv7vElx5SIm1yynD4rzG
+	mc8OTRss+xcdw8/azdtpvcDrWXmWFbXiPajLwh8UTLHsxvdrZksPQkaXCfmcVflUNcMXx2UuZhI
+	QHd+dluSu4K5roRsFsK5ItLB5xoVz68L/0gD5N3YlpD5CBACS2I9oKTsrHa86TSWP6U
+X-Google-Smtp-Source: AGHT+IHrImvV+P3fnp6O9oKMYzWe60hrfjJ4izSDkEkKWNLOabp7zSbgf2dW9C8Dph+qT+k/E/6L3A==
+X-Received: by 2002:a17:902:cccb:b0:215:89a0:416f with SMTP id d9443c01a7336-21589a04ec8mr55693695ad.30.1733120911505;
+        Sun, 01 Dec 2024 22:28:31 -0800 (PST)
 Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:94c8:21f5:4a03:8964])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fc9c2d5be4sm6970599a12.3.2024.12.01.20.58.01
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215361fd5a6sm58878555ad.94.2024.12.01.22.28.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Dec 2024 20:58:03 -0800 (PST)
+        Sun, 01 Dec 2024 22:28:31 -0800 (PST)
 From: Chen-Yu Tsai <wenst@chromium.org>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
+To: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Frank Li <Frank.Li@nxp.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] dt-bindings: soc: fsl: cpm_qe: Limit matching to nodes with "fsl,qe"
-Date: Mon,  2 Dec 2024 12:57:55 +0800
-Message-ID: <20241202045757.39244-1-wenst@chromium.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Tinghan Shen <tinghan.shen@mediatek.com>
+Subject: [PATCH] remoteproc: mtk_scp: Only populate devices SCP cores
+Date: Mon,  2 Dec 2024 14:28:25 +0800
+Message-ID: <20241202062826.66619-1-wenst@chromium.org>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_205805_546337_10D9D658 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241201_222832_477026_41BEA1D7 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,58 +97,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Otherwise the binding matches against random nodes with "simple-bus"
-giving out all kinds of invalid warnings:
+When multi-core SCP support was added, the driver was made to populate
+platform devices for all the sub-nodes. This ended up adding platform
+devices for the rpmsg sub-nodes as well, which never actually get used,
+since rpmsg devices are registered through the rpmsg interface.
 
-    $ make CHECK_DTBS=y mediatek/mt8188-evb.dtb
-      SYNC    include/config/auto.conf.cmd
-      UPD     include/config/kernel.release
-      SCHEMA  Documentation/devicetree/bindings/processed-schema.json
-      DTC [C] arch/arm64/boot/dts/mediatek/mt8188-evb.dtb
-    arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: compatible:0: 'fsl,qe' was expected
-	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
-    arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: compatible: ['simple-bus'] is too short
-	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
-    arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controller@c000000:compatible:0: 'fsl,qe-ic' was expected
-	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
-    arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controller@c000000:reg: [[0, 201326592, 0, 262144], [0, 201588736, 0, 2097152]] is too long
-	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
-    arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controller@c000000:#interrupt-cells:0:0: 1 was expected
-	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
-    arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controller@c000000: '#redistributor-regions', 'ppi-partitions' do not match any of the regexes: 'pinctrl-[0-9]+'
-	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
-    arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: 'reg' is a required property
-	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
-    arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: 'bus-frequency' is a required property
-	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
+Limit of_platform_populate() to just populating the SCP cores with a
+compatible string match list.
 
-Fixes: ecbfc6ff94a2 ("dt-bindings: soc: fsl: cpm_qe: convert to yaml format")
-Cc: Frank Li <Frank.Li@nxp.com>
-Cc: <stable@vger.kernel.org> # v6.11+
+Fixes: 1fdbf0cdde98 ("remoteproc: mediatek: Probe SCP cluster on multi-core SCP")
+Cc: Tinghan Shen <tinghan.shen@mediatek.com>
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- .../devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml        | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/remoteproc/mtk_scp.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml
-index 89cdf5e1d0a8..9e07a2c4d05b 100644
---- a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml
-+++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml
-@@ -21,6 +21,14 @@ description: |
-   The description below applies to the qe of MPC8360 and
-   more nodes and properties would be extended in the future.
+diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
+index 0f4a7065d0bd..8206a1766481 100644
+--- a/drivers/remoteproc/mtk_scp.c
++++ b/drivers/remoteproc/mtk_scp.c
+@@ -1326,6 +1326,11 @@ static int scp_cluster_init(struct platform_device *pdev, struct mtk_scp_of_clus
+ 	return ret;
+ }
  
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        const: fsl,qe
-+  required:
-+    - compatible
++static const struct of_device_id scp_core_match[] = {
++	{ .compatible = "mediatek,scp-core" },
++	{}
++};
 +
- properties:
-   compatible:
-     items:
+ static int scp_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -1357,13 +1362,15 @@ static int scp_probe(struct platform_device *pdev)
+ 	INIT_LIST_HEAD(&scp_cluster->mtk_scp_list);
+ 	mutex_init(&scp_cluster->cluster_lock);
+ 
+-	ret = devm_of_platform_populate(dev);
++	ret = of_platform_populate(dev_of_node(dev), scp_core_match, NULL, dev);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "Failed to populate platform devices\n");
+ 
+ 	ret = scp_cluster_init(pdev, scp_cluster);
+-	if (ret)
++	if (ret) {
++		of_platform_depopulate(dev);
+ 		return ret;
++	}
+ 
+ 	return 0;
+ }
+@@ -1379,6 +1386,7 @@ static void scp_remove(struct platform_device *pdev)
+ 		rproc_del(scp->rproc);
+ 		scp_free(scp);
+ 	}
++	of_platform_depopulate(&pdev->dev);
+ 	mutex_destroy(&scp_cluster->cluster_lock);
+ }
+ 
 -- 
 2.47.0.338.g60cca15819-goog
 
