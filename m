@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ED8AD78321
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:20:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A610D7832E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E+WnkyP4yhPXGqwYPmWvNWcp4lJ/nTmrWvm5zfeqZAU=; b=HEcC16BHY9E1rLSnIjeGYw0BqD
-	n3XLoj4YCBheaG94YcPshjtxNrKft/zjNQXKVMOJphXNv90PVM9Brcu+Xyvc0z6QM2PxD0bNFsCEU
-	dyNxQx1S5S0X6FLHF0UqDeqS8D/ekMowcJwk64pNkkdIubpenQR5Ajw3ceKzIBzxSWt4lYC4KMEks
-	Oh6ihG/kEj0vDtC6Ofe9P8ANXQIxKfdhxxfyD52FxsTA2c3vipkZZZpmgpxcbdCeQqTuCUqvmjmWV
-	jE2uZH2j2Wa8cDXA6bnqWsvrst4U6YXOl7G9c5orJQDqb+oaSPFBg60fDuQ9OwG1Jc1zrlnynFWcj
-	PR6K6zAg==;
+	bh=qwXzRhrDCCgKkm6ujXXss5Fqc+7whW+jKb7q3nZz/GE=; b=E9/yyWPUKUPpgf9eO/yl4FvU6n
+	eOaxfQt7YognlqylVGTEmt9wlh0BbljonV+0aus1yiDaWZdAMxvduw+GAvOf4wqdpNbtj6j+kOI25
+	SUtPjbT7h97B1qy1kzaVWh7z3TkSnwmEZ9iyxY4ncd+JBzGdqxf3rkgPJrdjscf/i8lbvdbt26Y93
+	9imCMT8dxFiywE11sZYE2w43aMICmnyXRBHIPJRxvyIal3zLIhAgjxFDLccxtDkH4UnM0NiH7HEmJ
+	XVVbeRjrTutjLUJsMi62wQhyJvAE3tX8nHvzgt18WJa92NlY5sb3tJsEO0F/wBl+S/zpMNN5Z5M59
+	0/LOTqLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8Dv-00000006ctC-47Uy;
-	Mon, 02 Dec 2024 15:20:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tI8FK-00000006dET-2aK9;
+	Mon, 02 Dec 2024 15:21:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8CT-00000006cXp-1QeS;
-	Mon, 02 Dec 2024 15:19:02 +0000
+	id 1tI8EL-00000006d3L-0Wpo;
+	Mon, 02 Dec 2024 15:20:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C8CBA5C67DF;
-	Mon,  2 Dec 2024 15:18:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92E2AC4CED1;
-	Mon,  2 Dec 2024 15:18:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7F6A05C67B0;
+	Mon,  2 Dec 2024 15:20:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8918C4CED1;
+	Mon,  2 Dec 2024 15:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733152740;
-	bh=XoFHIPAltC82OoSpVZ6ozybYAmhZuriiKQSdNzVonGA=;
+	s=k20201202; t=1733152856;
+	bh=yWb+tTceECTkMaeb3y5YPHK4Zn30bJgkuIO5Tpla1b4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=f5xonekbcd3epNYuMYmqBS4p3LztZuO16RNoc/cDahZSrVcYiuy3jADxZMqtXRDE4
-	 GBG4a1alCSvxJ6ktkMAeS6S5Wurzh5hX3xlAn2XJL9dNotqqAb/8WtfqQcItE04OWk
-	 oRAdIEB3Adc+KjfJb05do1mPSYKFqpoIdbdaPD3ynx8SotoKatud/BKudCfydEgAdQ
-	 q5gpLyApPQpyAGnSoR9bOMrUzl0xZN0lfRkPoxokaqBTS0zXtUQrOKkjb86E4lnE6L
-	 e5FThZaPrUGz+yNj3T99H2hCpcMWHZuh/f+OzjJ7/BFJ0bqsvuj9kdzuUdl8vtbioh
-	 vHZJd1/9TUWqg==
-Message-ID: <39c73599-9bea-4b2e-afa6-3780726e27f5@kernel.org>
-Date: Mon, 2 Dec 2024 16:18:51 +0100
+	b=ouXi79B4x2irSAs8JUO2Z3rqtcBcPVFYv0nfTfO3yR0059jrNuF+vUSTNUlhLUA4J
+	 x2yaZAv0lxmKH4qwlwXZnYpQee3BK6N2F9OlogjRzmHd7NLq/WCL/1t27WefM1objS
+	 kP99HHtq96cevjZH2cH9CcJmqR+89DeIFoQgouC/t7KQYISQ3D199HEDrvFB6lYcYQ
+	 25iSCIZZ14IuGbugBZxok815kXt7dVmsPz5uRKIn0cvayyuzfFZD1yP5kRxeDUcdon
+	 Ht4uloJkpOsWFtfMPchDDhdOIeTGiUg4pFvK+1wOqBr/9An2KPHjIErKTxoTu3Zyh1
+	 D5AuFu/7tDnjQ==
+Message-ID: <c8093283-f2c1-4a66-823a-50aeabb3c82b@kernel.org>
+Date: Mon, 2 Dec 2024 16:20:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/7] dt-bindings: gpio: brcmstb: add gpio-line-name
+Subject: Re: [PATCH 4/7] arm64: dts: broadcom: Fix device tree warnings for
+ BCM2712 display pipeline
 To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
@@ -65,7 +66,7 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
  linux-gpio@vger.kernel.org
 References: <20241202-dt-bcm2712-fixes-v1-0-fac67cc2f98a@raspberrypi.com>
- <20241202-dt-bcm2712-fixes-v1-3-fac67cc2f98a@raspberrypi.com>
+ <20241202-dt-bcm2712-fixes-v1-4-fac67cc2f98a@raspberrypi.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,12 +112,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241202-dt-bcm2712-fixes-v1-3-fac67cc2f98a@raspberrypi.com>
+In-Reply-To: <20241202-dt-bcm2712-fixes-v1-4-fac67cc2f98a@raspberrypi.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_071901_474217_34C6E6DD 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20241202_072057_255831_6A310325 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,27 +133,51 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 02/12/2024 15:31, Dave Stevenson wrote:
-> Support comes from gpiolib, so permit it through the binding.
+> Fixes up errors on HDMI and interrupt controllers that weren't
+
+What errors? I can't find anything in the commit. Describe the error.
+
+> noticed before merging.
 > 
+> Fixes: de9bc2dba3db ("arm64: dts: broadcom: Add display pipeline support to BCM2712")
 > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 > ---
->  Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+>  arch/arm64/boot/dts/broadcom/bcm2712.dtsi | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml b/Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml
-> index f096f286da19..086d016df6ef 100644
-> --- a/Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml
-> @@ -64,6 +64,8 @@ properties:
+> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+> index 39305e0869ec..f42fad2d8b37 100644
+> --- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+> +++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+> @@ -336,7 +336,7 @@ ddc1: i2c@7d508280 {
+>  			#size-cells = <0>;
+>  		};
 >  
->    gpio-ranges: true
+> -		bsc_irq: intc@7d508380 {
+> +		bsc_irq: interrupt-controller@7d508380 {
+
+
+Do not mix cleanups with bugfixes.
+
+BTW, do not mix DTS to DRM. DRM has its own development style. DTS
+*cannot* be merged there, so combining these series is not welcomed and
+leads to issues (like DRM applying DTS!).
+
+>  			compatible = "brcm,bcm7271-l2-intc";
+>  			reg = <0x7d508380 0x10>;
+>  			interrupts = <GIC_SPI 242 IRQ_TYPE_LEVEL_HIGH>;
+> @@ -344,7 +344,7 @@ bsc_irq: intc@7d508380 {
+>  			#interrupt-cells = <1>;
+>  		};
 >  
-> +  gpio-line-names: true
-
-
-maxItems
-
-
+> -		main_irq: intc@7d508400 {
+> +		main_irq: interrupt-controller@7d508400 {
+>  			compatible = "brcm,bcm7271-l2-intc";
+>  			reg = <0x7d508400 0x10>;
+>  			interrupts = <GIC_SPI 244 IRQ_TYPE_LEVEL_HIGH>;
+> @@ -352,7 +352,7 @@ main_irq: intc@7d508400 {
+>  			#interrupt-cells = <1>;
+>  		};
 Best regards,
 Krzysztof
 
