@@ -4,86 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF4D5E69E99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 22:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B619E69E99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 22:32:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zEBOguTLHIH6xcHwcvmBhhg77nQarXu6nn+BUTvZLUs=; b=XNTWqrEtCdduiZPLSHErvhhFSg
-	c2NYYA0lW06Ec+jP2fBF2y4hEOTouZFByU/lV0OWcoKCWcbvheykWF4MwG8JFpzrZf+Y095ekSiKg
-	bArS688I+k90nPLtUP/G2muj5VCcb16h2/5v6SB3WsOyXZqZXsIthNHuX6WnnKKiD8aLfbt6suJjq
-	R+7qWmDwU0jM/2QZylvhG3qzgD5plVJCBYySqfO38VTRWuKdUkkKpjc7Drkc+E5QzO4i5F0uerPGw
-	AnmPKfGEewroGa44XC9S50QGgBDxJ1zSItiTK+DYwrg6eIPXsk7jUVdXyobIHojy/lJQIqPOre8sP
-	ErZSWrZg==;
+	bh=+HFoDORCHcKDAxkFumGquCXueOfWiQJIno4F6rSRnSE=; b=clqUZ9Gi34nKTIJgnX65SIStJx
+	S5fLUmUG/+YmQypm/EfgqJYPDqlgU4t5B8CrAO7wo6UJWkvwQHPihqZpIEYZRaUb7mkeBJXt6s8yw
+	QHYdtdAl++fOadKu90OEjfMHrgvAsRRGdX9OtyyjrsD8K+F0ZBaZOtDcLyI83fBcGIo3Kr/YT8U6b
+	5Be7s26R67qYKz92TRpzsua7kVvWafBPaP2kTrOgIx7nXQYtR9oh/e/fIhlhi/yozCrltmjVwR6Qz
+	hJlcR70dW9zqF4TFJVJSoXYFGmRQPW1sP4EIKdX2em3n57JTW7wA+N/q+fIyXLaUotOYflq6km5Dk
+	x7dUAK4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIEoV-00000007d6P-38XI;
-	Mon, 02 Dec 2024 22:22:43 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIEgk-00000007bqg-3eIC
+	id 1tIExr-00000007e8S-1XYk;
+	Mon, 02 Dec 2024 22:32:23 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIEws-00000007e2O-1rcQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 22:14:44 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-434aafd68e9so40969225e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 14:14:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1733177680; x=1733782480; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zEBOguTLHIH6xcHwcvmBhhg77nQarXu6nn+BUTvZLUs=;
-        b=djsE00XLZCRnPHC2vrF9ulFARTMZ0oiKmSdtsEd4RafdwYdd1I+nX1AZOLSzueY/qT
-         6eJavPV8r6fYTHVB1ua8Nmht7q6O2lrHnfdV6TZJ+J/ohy5dl/7A2C/6q6BIwmHJ2Mq/
-         NKRFN/ruWJJ+f5H6q/AwvAJswv9j21qs66Ysa8oBk+wW/OqGVB35Yj7lejHMnpD/g/FJ
-         YmLtBtQDPZwnACr13I2o637DNCzqbMxw8KIhxu1Ss0HsJ2c6lKyL4hmAnfMA4T87bmJO
-         WY7JsbxH/5ZJrAbD74PiOmwUq9bIB2bpTwFPnrsKW/WFrhd8LEr3rKwfZ/EAOXEFuKrk
-         aosw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733177680; x=1733782480;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zEBOguTLHIH6xcHwcvmBhhg77nQarXu6nn+BUTvZLUs=;
-        b=ajL8up78QEmQp1OLWES6XyMaGxnoQ3j5awMl9Da/RU0gxZH55saoRH/lpHpZ0hsDCA
-         vTYQyWpWqXKUiuY+rzTcLrZmbyGS3Y6DNRbPdIxqOp4stLrFBKGVwhh6fssZQTpLt8Gy
-         ctVUY6ib5/MrLYz/253mZyn4mQU+s169mtjSeXdGk6mLMLvtHywCyDA/HNXLARHJbfk6
-         WVuFBOtphpc9JgzTkBdVNFV1HANKvXMgtKy7fvd9+Ra2gqYivOLzYfomSA9rxVbYlogu
-         Eg7ShN0Ye+QV9P9WHa44xRFofkKmTk5lC/ETztmVuaXbXq50jVLQRxPrWGs5d5cN2Dad
-         HXXA==
-X-Forwarded-Encrypted: i=1; AJvYcCUfK5pAcyz1Gsv54ytkrR1Imlg4IrzymwnrFe8E1vReGDnsLA5LuiV/eOYR3tGLCkB682tmjcaV7Wy+8QsU4KlQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyW67TOpPaR2sRpSilUROKJHjgQEQFuiaxPLJNvwpRaTRMI8eY5
-	aRsV/0xNM0y7pTAnBV1qfJoaxBPB7yyH1sppm9yMoiRtxzKgydr9BDPyZ3rsr00=
-X-Gm-Gg: ASbGncs1zSlCPsE1WOcMYXBzSGeFv3NiVRtGuOpEiiluLicBRgLcvp9QSzlxLjpFP7m
-	iotKuQsPEpe2sN7Xh7CFRhriETtSki9d+ksZZzFJnXLd5wYSfOv55gPRv/cb3BPLrUuQJSdUmAK
-	KV5KouXNcA9MVSf4kLXhScopVbOshlPlOqqZwzCHxRJRIuygc4YHGhVXA9MPaBU6mm6KVbXadfX
-	zcDOyH4MGQaZqIlK7s4XZuUDgPJK8FTWVDZN6euhKIi2NHPT73iYpY=
-X-Google-Smtp-Source: AGHT+IE6wkpzszXeh8QXwJktXSSGMnpnxPCLO1BCEILblGYzEG/8lqGUupwDDJqT4OyienDrFeEliA==
-X-Received: by 2002:a05:600c:458b:b0:434:a8d8:760e with SMTP id 5b1f17b1804b1-434d09ce3c5mr970095e9.19.1733177680463;
-        Mon, 02 Dec 2024 14:14:40 -0800 (PST)
-Received: from localhost ([2a02:8071:b783:6940:17db:769b:1fd5:7a62])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434b0dc63b6sm166225345e9.22.2024.12.02.14.14.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Dec 2024 14:14:39 -0800 (PST)
-Date: Mon, 2 Dec 2024 23:14:35 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Jeremy Kerr <jk@ozlabs.org>, Joel Stanley <joel@jms.id.au>
-Cc: Alistar Popple <alistair@popple.id.au>, 
-	Eddie James <eajames@linux.ibm.com>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	linux-fsi@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org
-Subject: Re: [PATCH] fsc: Switch back to struct platform_driver::remove()
-Message-ID: <qey6imfeo3ntk45lbpadi2yo5gucgtllkgbymy6vmejin7pvye@oetb44ax2ynn>
-References: <20241130150530.901263-2-u.kleine-koenig@baylibre.com>
+	Mon, 02 Dec 2024 22:31:24 +0000
+Received: from imap.altlinux.org (imap.altlinux.org [194.107.17.38])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 3FBE572C8FB;
+	Tue,  3 Dec 2024 01:31:19 +0300 (MSK)
+Received: from altlinux.org (sole.flsd.net [185.75.180.6])
+	by imap.altlinux.org (Postfix) with ESMTPSA id 33FBF36D0178;
+	Tue,  3 Dec 2024 01:31:19 +0300 (MSK)
+Date: Tue, 3 Dec 2024 01:31:19 +0300
+From: Vitaly Chikunov <vt@altlinux.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Will Deacon <will@kernel.org>, james.morse@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-kernel@vger.kernel.org, oliver.upton@linux.dev,
+	mark.rutland@arm.com
+Subject: Re: v6.13-rc1: Internal error: Oops - Undefined instruction:
+ 0000000002000000 [#1] SMP
+Message-ID: <20241202223119.k3uod4ksnlf7gqh2@altlinux.org>
+References: <20241202045830.e4yy3nkvxtzaybxk@altlinux.org>
+ <20241202153618.GA6834@willie-the-truck>
+ <86ttbmt71k.wl-maz@kernel.org>
+ <20241202155940.p267a3tz5ypj4sog@altlinux.org>
+ <86ser6t6fs.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xnpjwpbkqa7snswj"
+Content-Type: text/plain; charset=koi8-r
 Content-Disposition: inline
-In-Reply-To: <20241130150530.901263-2-u.kleine-koenig@baylibre.com>
+In-Reply-To: <86ser6t6fs.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_141442_907792_4196D5C4 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20241202_143122_644640_C196E48D 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,51 +70,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Marc,
 
---xnpjwpbkqa7snswj
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] fsc: Switch back to struct platform_driver::remove()
-MIME-Version: 1.0
+On Mon, Dec 02, 2024 at 04:07:03PM +0000, Marc Zyngier wrote:
+> On Mon, 02 Dec 2024 15:59:40 +0000,
+> Vitaly Chikunov <vt@altlinux.org> wrote:
+> > 
+> > Marc,
+> > 
+> > On Mon, Dec 02, 2024 at 03:53:59PM +0000, Marc Zyngier wrote:
+> > >
+> > > What the log doesn't say is what the host is. Is it 6.13-rc1 as well?
+> > 
+> > No, host is 6.6.60.
+> 
+> Right. I wouldn't be surprised if:
+> 
+> - this v6.6 kernel doesn't hide the MPAM feature as it should (and
+>   that's proably something we should backport)
 
-Hello,
+How to confirm this? Currently I cannot find any (case-insensitive)
+"MPAM" files in /sys, nor mpam string in /proc/cpuinfo, nor MPAM strings
+in `strace -v` (as it decodes some KVM ioctls) of qemu process.
 
-On Sat, Nov 30, 2024 at 04:05:30PM +0100, Uwe Kleine-K=F6nig wrote:
-> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
-> return void") .remove() is (again) the right callback to implement for
-> platform drivers.
->=20
-> Convert all platform drivers below drivers/fsi to use .remove(), with
-> the eventual goal to drop struct platform_driver::remove_new(). As
-> .remove() and .remove_new() have the same prototypes, conversion is done
-> by just changing the structure member name in the driver initializer.
->=20
-> While touching these drivers, make the alignment of the touched
-> initializers consistent.
->=20
-> Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
-Note that with e70140ba0d2b ("Get rid of 'remove_new' relic from
-platform driver struct") (in Linus Torvald's tree) this patch isn't
-needed any more.
+> 
+> - you get a nastygram in the host log telling you that the guest has
+>   executed something it shouldn't (you'll get the encoding of the
+>   instruction)
 
-Best regards
-Uwe
+I requested admins of the box for dmesg output since I don't have root
+access myself and nowadays dmesg is not accessible for a user.
 
---xnpjwpbkqa7snswj
-Content-Type: application/pgp-signature; name="signature.asc"
+> 
+> Can you confirm these two things?
 
------BEGIN PGP SIGNATURE-----
+Also, I tried to reproduce on another Kunpeng box with slightly
+different HiSilicon CPU (presenting to the system as Cortex-A72) and the
+problem is not reproducible there.
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmdOMUgACgkQj4D7WH0S
-/k57xggAlwbUYwXtBd3CmO29X1f21wgrXACLUAPKl6JbBSm4P8QmKW6wn3NLAwPH
-yxbwWp1H2Zs3D++eYyGvbVS7FZSRdmE1u9gRQsGSBSIyrnMNEAgcKzJ1YuIfLITM
-eNwU6VmnpjZmu/9g4Uh+WUWixaHXzyewXp7J/OXCZGUu5ytAMJGc/duWiNpiNwQX
-2HhqLqLEakVjd6qE5B8ajLajmjp19eRIHqxWFgZzcimfn+luC+Ps5Ktuc10hgqKa
-1jAtfAnOinwQBMzvrwLwo+oCIfsgiZBGzeEfJOS4lgJw3nRS4XWPlmCcAbWMcLKY
-6trx81sEhQwXqDVI2QZ2Y7W0SoMtWw==
-=7PAX
------END PGP SIGNATURE-----
+While things are not resolved, is it possible to workaround the problem
+with some QEMU option, kernel command line, config option, or a patch?
 
---xnpjwpbkqa7snswj--
+Thanks,
+
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
