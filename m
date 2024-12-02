@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF41D7832F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8CD5D78332
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6yngoBc+P0tSqmoe1jZ+Y5aDigwip9SVRIGIG24gAQ8=; b=noSjk+sUS4D8x4G3L1uci622u3
-	lyz7GcnOwvo2PPBQib7H516YFi5yatmT2nM13AgWenkE5jZcOY1muKvLu4k7BhXehxX/28H9/lCFB
-	/dNJNV7vb9NJDccb0+HuCsV+MV4BArLffZpfUbqdKvX1ua7mc56RL69yGAnreSaUcYyMlbkZHGush
-	J9dPBTBRSIru5gpx0zklGF8XFSdCfTWqLLVtdi4y9qpePwIsl3So4UtHuHDfYdp7jUxiqCgCFiNJk
-	l1AlIYd2RW6minF5hrCKKzmbGdcIr3yfb4+XyuSi66XEqdTlC5S/Yuh9M8WvMERRgCsxQs+/ip23y
-	z58MSsIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wANpDU65LhU/8X4F+bXK7+FUgsbERBICABWmsZeuQxA=; b=0d0Z+vYlA0DJpFlRykrB6RPOgh
+	ec2m4JMb8a2PN8fuEpZeUlIpo+92RW/JpzVWXj+s2IleUN9yBlzweMRApEWervoDT65ilSvOpzcRX
+	zPCDUIYBVNxg8GO+cY136K3E5QomBw2YGTEUkIF1Hhsz3EFt+4Ml/ZAmm7naLYB9JMmrNPCkrFOIv
+	ehBaNfJsz5XbFH8zM0NqXKTUqDXOa1BirL6U/+1gS9Rs3RD6sLk/Un0Q7kM6ZZWQcxE3S9YTI9von
+	SPzPSUW44j6UWwhNdf4bdHWnVMf7GS6oWELHuJzwskIbBLqi6XG4Y8OpQ7Sk21dGhw+SANZTNKrav
+	IdD9uQyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8cY-00000006hyn-2SYx;
-	Mon, 02 Dec 2024 15:45:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tI8dW-00000006iBM-0zPi;
+	Mon, 02 Dec 2024 15:46:58 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8bY-00000006hli-2Twh
+	id 1tI8cP-00000006hw4-02rM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 15:44:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E37775C674D;
-	Mon,  2 Dec 2024 15:44:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29BF5C4CED1;
-	Mon,  2 Dec 2024 15:44:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733154295;
-	bh=J/q1xWj4DxCp6IzU7uPb7iTssY8YnrBnsl5MtdaRI/Q=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=bBLmPfEuiTfRJnp+ZnwgaRqb9cxXz0K6fMMlUyvDEsusKLVmzaRUkMK6epO8opKEs
-	 PwmmSAPf9vdTpehrIfen0th26tLjWFetjQq2vFJs315alQa0XFABW5BAVfcJy5vH3D
-	 qCnqbb0sbSC8lSZB9WwLsOaDr4ykQgEM6fQUspxdClGm1c1NZI0O9ThDWxAH9A4id7
-	 hIwTG55au1gkzWkIt3zOPFTeeNy8K6nea7RTJUvG/AkLDeFtDbKtDjcZq8Tq7a1zQ5
-	 jOfEqNrBFhY8oDlt835VUwvXntb8rAhmkDL0P1EWn8PrpBBLQVNpG3mQzMwHuhfP1x
-	 DYAxZ855ED4dg==
-Message-ID: <f7d5a7e084f01661572b2608c9a73db2@kernel.org>
-Date: Mon, 02 Dec 2024 15:44:53 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>
-Subject: Re: [PATCH v5 04/10] drm/display: hdmi: add generic mode_valid
- helper
-In-Reply-To: <20241130-hdmi-mode-valid-v5-4-742644ec3b1f@linaro.org>
-References: <20241130-hdmi-mode-valid-v5-4-742644ec3b1f@linaro.org>
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, "Andrzej
- Hajda" <andrzej.hajda@intel.com>, "Chen-Yu Tsai" <wens@csie.org>, "Dave
- Stevenson" <dave.stevenson@raspberrypi.com>, "David Airlie" <airlied@gmail.com>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime
- Ripard" <mripard@kernel.org>, =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, "Raspberry Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Robert
- Foss" <rfoss@kernel.org>, "Samuel Holland" <samuel@sholland.org>, "Simona
- Vetter" <simona@ffwll.ch>, "Thomas Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: 7bit
+	Mon, 02 Dec 2024 15:45:50 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4B2FjjrN114294;
+	Mon, 2 Dec 2024 09:45:45 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733154345;
+	bh=wANpDU65LhU/8X4F+bXK7+FUgsbERBICABWmsZeuQxA=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=jFnqVkxOIUyPOkGVaCVEyrgdzttAInlmUGz4K49J1QYGbRX3VbQ3/AaZiDZXls69J
+	 sRj6A3T2hq5s6b27di1Uut3P1QDu+UJ1S31GYwueGCc1gbWo0jfrA5x/n7pbFTE0I6
+	 DD5GMW2bDD0MDxEwp8a+YDExQw6lkTcWfj7Zm1og=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B2FjjZr018855
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 2 Dec 2024 09:45:45 -0600
+Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 2
+ Dec 2024 09:45:44 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 2 Dec 2024 09:45:44 -0600
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.81])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B2Fjh03025124;
+	Mon, 2 Dec 2024 09:45:44 -0600
+Date: Mon, 2 Dec 2024 21:15:43 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>,
+        Romain Naour
+	<romain.naour@smile.fr>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>,
+        <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
+        <kristo@kernel.org>, <vigneshr@ti.com>, <nm@ti.com>,
+        Romain Naour
+	<romain.naour@skf.com>
+Subject: Re: [PATCHv2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable
+ ACSPCIE output for PCIe1
+Message-ID: <rjecpmr4bsedbfhu74sdlzmdz2mh2shsr5myawb3qveooawa3j@i2ysnnyf7hio>
+References: <20241202101140.48778-1-romain.naour@smile.fr>
+ <dabbad2b-f8a6-4ed7-86da-ec696cf67461@kernel.org>
+ <k7udgqugqseweckb7hjniz3aops4kn35ttju2ju7f2pcbmndrg@dau5nr4leish>
+ <abeb632b-9efc-48e5-a28a-a9d7c02e0a6e@kernel.org>
+ <cndc3fopwhwkotfikul2jtzfczpdpwlrs5uhuqq76ck36ndtfs@gvxavxt5tgd5>
+ <f332947a-d7b5-4f68-84d8-3ecce118c24c@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <f332947a-d7b5-4f68-84d8-3ecce118c24c@kernel.org>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_074456_671831_A89F34B7 
-X-CRM114-Status: UNSURE (   6.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241202_074549_137006_1D03CBE8 
+X-CRM114-Status: GOOD (  26.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,14 +94,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 30 Nov 2024 03:52:29 +0200, Dmitry Baryshkov wrote:
-> Add drm_hdmi_connector_mode_valid(), generic helper for HDMI connectors.
-> It can be either used directly or as a part of the .mode_valid callback.
+On Mon, Dec 02, 2024 at 04:09:51PM +0100, Krzysztof Kozlowski wrote:
+> On 02/12/2024 15:53, Siddharth Vadapalli wrote:
+> > On Mon, Dec 02, 2024 at 12:07:17PM +0100, Krzysztof Kozlowski wrote:
+> > 
+> > Hello Krzysztof,
+> > 
+> >> On 02/12/2024 11:58, Siddharth Vadapalli wrote:
+> >>> On Mon, Dec 02, 2024 at 11:14:46AM +0100, Krzysztof Kozlowski wrote:
+> >>>
+> >>> Hello Krzysztof,
+> >>>
+> >>>> On 02/12/2024 11:11, Romain Naour wrote:
+> >>>>> From: Romain Naour <romain.naour@skf.com>
+> >>>>>
+> >>>>> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
+> >>>>> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
+> >>>>> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
+> >>>>> provide refclk through PCIe_REFCLK pins.
+> >>>>>
+> >>>>> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
+> >>>>> module's PAD IO Buffers.
+> >>>>>
+> >>>>> Reuse the compatible "ti,j784s4-acspcie-proxy-ctrl" since the ACSPCIE
+> >>>>> buffer and its functionality is the same across all K3 SoCs.
+> >>>>>
+> >>>>> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+> >>>>> Signed-off-by: Romain Naour <romain.naour@skf.com>
+> >>>>> ---
+> >>>>> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
+> >>>>> applied on vendor kernel for BeagleBone AI-64:
+> >>>>> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
+> >>>>>
+> >>>>> v2:
+> >>>>>  - use generic style comments
+> >>>>>  - use "syscon" as generic node name for "acspcie0_proxy_ctrl" node
+> >>>>>  - Keep the compatible "ti,j784s4-acspcie-proxy-ctrl" since the
+> >>>>>    ACSPCIE buffer and its functionality is the same across all K3 SoCs.
+> >>>>>    (Siddharth Vadapalli)
+> >>>>>
+> >>>>>    "The compatible "ti,j784s4-acspcie-pcie-ctrl" should be reused for
+> >>>>>    J721E and all other K3 SoCs.
+> >>>>
+> >>>> No, it shouldn't and you got comment on this. You always need specific
+> >>>> compatible, see writing bindings doc.
+> >>>
+> >>> Could you please clarify in which cases reusing the compatible is
+> >>> permissible? The list of compatibles at:
+> >>
+> >> Never? You always need specific compatible. Did you read the writing
+> >> bindings document?
+> > 
+> > I went through the bindings document again at:
+> > https://www.kernel.org/doc/Documentation/devicetree/bindings/writing-bindings.rst
+> > It mentions:
+> > - DON'T use 'syscon' alone without a specific compatible string. A 'syscon'
+> >   hardware block should have a compatible string unique enough to infer the
+> >   register layout of the entire block (at a minimum).
+> > 
+> > The ACSCPCIE Block as well as its integration across all of TI's K3 SoCs
+> > is the same i.e. same Hardware/IP. The register bits corresponding to
 > 
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> 
+> And first rule for compatible property? DT bindings maintainers keep
+> repeating it over and over - specific means soc as front compatible.
+> 
+> > the feature to be enabled/disabled via the ACSPCIE block are the same as
+> > well i.e. "register layout can be inferred". The same goes for the
+> > compatibles listed below in my previous reply i.e. they aren't bugs.
+> > Same IP and integration across SoCs and hence reused in the sense of
+> > Hardware and not Software. I hope this clarifies the rationale for the
+> > "reuse".
+> 
+> 
+> You mix re-use with fallback. These are almost never the same blocks,
+> which you imply here.
 
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
+I know that the IP is the same, the bits are the same and those bits enable
+the same functionality of the IP across the SoCs. If you still insist that
+they are not same, I don't know what to say anymore.
 
-Thanks!
-Maxime
+Regards,
+Siddharth.
 
