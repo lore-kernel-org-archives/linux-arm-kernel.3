@@ -4,56 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EAC7D7830E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 12:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80436D7830E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 12:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SeaqylB7ZGSevZEzf6I6m5NbSZV24/TR+vYt+L3laSM=; b=Y6s2gF5w8GVJ2N2QX9tQCAaN0D
-	4jYUI73iI7lE6a0wKbA+5lS5oy094Maa4pjRUUXlArzrsnR+zx7f+L04t6UI5IP3jiHinGg2c2bSd
-	pxXxVdvBldP+u2fuoxaYDN7O+qs+/osZV+fSHdaiD8lfUWcTJLaFr+VesDF1voIjuJ/ZqYr5h2Bu7
-	F4d78Iesrirhol+LujxFVIsGRYc3lYDU1SECUvvJ2VKbrH2uuTINypuerCzznPW/woyC/oPM5qyma
-	irMzyZlQ5iCpiDogbLhrabZaJ3ItwwDkXn9zVO0/MFMCTmU+GvAaTnydo9yT9Y2R3ZjLGo+ju/Nz1
-	dWbcGFCQ==;
+	bh=zE2OmnrpksGvdeKauyPLCFpi8Ev/7hTWSH5TEETlfos=; b=lVK7Bv8QeMT7X7Dn0w30joWbiR
+	eiQpYIoNHAoY0T3aOYYQUxGnaeQQ7f/oR68O2fCVfZiHK8bPEnA0j9pgTh65KvPmvsGsC4EFSWUDd
+	a0myeEa24Pr9ehAfsUPjdhUZz9E9BgZe6Vqxxv/ZF8TrofkTJt4cBAYel66jzQpuJR22N+hp6cPgW
+	3ONjwnkd9F7+uWypNXXJA12eNNfSbkWh5H7eDaR3kc7hzF0uNOqp9Fyu2XvkVhvdvt9BulMtrClJp
+	MVXtYB7zD7Dg4lIVivYcf8g76bwm0pCi2DRXaQ7NehxSkpwLOx+Ws0tkWtAdllCXDBF4UibjzPGf1
+	u7jUkWZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI58G-00000005zK6-2LPJ;
-	Mon, 02 Dec 2024 12:02:28 +0000
-Received: from jabberwock.ucw.cz ([46.255.230.98])
+	id 1tI59E-00000005zZt-25t5;
+	Mon, 02 Dec 2024 12:03:28 +0000
+Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI577-00000005z5d-3Nk2
+	id 1tI57G-00000005z6k-3r6V
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 12:01:19 +0000
-Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
-	id 18A7A1C00A0; Mon,  2 Dec 2024 13:01:12 +0100 (CET)
-Date: Mon, 2 Dec 2024 13:01:11 +0100
-From: Pavel Machek <pavel@denx.de>
-To: Sasha Levin <sashal@kernel.org>
-Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org,
-	Luo Yifan <luoyifan@cmss.chinamobile.com>,
-	Mark Brown <broonie@kernel.org>, olivier.moysan@foss.st.com,
-	arnaud.pouliquen@foss.st.com, lgirdwood@gmail.com, perex@perex.cz,
-	tiwai@suse.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, alsa-devel@alsa-project.org,
-	linux-sound@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH AUTOSEL 5.10 4/6] ASoC: stm: Prevent potential division
- by zero in stm32_sai_mclk_round_rate()
-Message-ID: <Z02hh/K7okT4fvOc@duo.ucw.cz>
-References: <20241112103803.1654174-1-sashal@kernel.org>
- <20241112103803.1654174-4-sashal@kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="3fawmNHJI3c1oRFq"
-Content-Disposition: inline
-In-Reply-To: <20241112103803.1654174-4-sashal@kernel.org>
+	Mon, 02 Dec 2024 12:01:28 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1733140880;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zE2OmnrpksGvdeKauyPLCFpi8Ev/7hTWSH5TEETlfos=;
+	b=LiQyTvQwaQqMmBNU1M5tMte6SZt2JDT2miztkcBeTMXSmwtYLHyROU2fPKNARIVxhHR7SI
+	CefFw+TjjmXafVH0t4wJwk2MHYgiMKyET7oiR20SvDhBnEfIU+6dUB9JEHR3TILwV0pkPI
+	C4xufc+6oGA7ft1bR0xHYRvhQx/6UxwIzW0g4d0fx5yZWVdNb2L32veMPZH9XLCvq1vqvM
+	oU9pzM17CvNQcs65bpHd1YyyjMPuIjn6Re+Rp/l9jeNoAIXw5WaIqxhijbRm3ZOnB9zC0C
+	a7VxyLkjR3iCkj/RU7ee+gHWnc1WKb5v5r57Cmt8nY6CIsxW6Nr97Dr17M/6Ng==
+Content-Type: multipart/signed;
+ boundary=b5f45d1f61fb7924a69af3f0023ad359b7a5d5d310c6ea15f796a8275403;
+ micalg=pgp-sha256; protocol="application/pgp-signature"
+Date: Mon, 02 Dec 2024 13:01:09 +0100
+Message-Id: <D6175VTSP13T.200HWIIHOIDQQ@cknow.org>
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko
+ Stuebner" <heiko@sntech.de>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>
+Subject: Re: [PATCH] arm64: dts: rockchip: enable rng on all rk356x
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Marcin Juszkiewicz" <marcin.juszkiewicz@linaro.org>, "Dragan Simic"
+ <dsimic@manjaro.org>, "Peter Robinson" <pbrobinson@gmail.com>
+References: <20241201234613.52322-1-pbrobinson@gmail.com>
+ <302bdae2f4defeefe88ea4018a0be11f@manjaro.org>
+ <b50376c7-c5d5-41ae-95ea-e2d68c1cc809@linaro.org>
+In-Reply-To: <b50376c7-c5d5-41ae-95ea-e2d68c1cc809@linaro.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_040117_984507_D52612E0 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20241202_040127_089077_454FA8CB 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,65 +76,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---3fawmNHJI3c1oRFq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+--b5f45d1f61fb7924a69af3f0023ad359b7a5d5d310c6ea15f796a8275403
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Hi!
+On Mon Dec 2, 2024 at 11:40 AM CET, Marcin Juszkiewicz wrote:
+> W dniu 2.12.2024 o 04:55, Dragan Simic pisze:
+>  > On 2024-12-02 00:46, Peter Robinson wrote:
+>  >> The rk356x rng is available on both the rk3566 and rk3568
+>  >> parts, the IP is all self contained within the SoCs so
+>  >> it's enabled already by default on rk3568 so let's enable
+>  >> it in the base rk356x.dtsi so it's enabled consistently
+>  >> everywhere.
+>  >
+>  > Please, go through the mailing list threads [1][2] that have led us
+>  > to the current state.  To sum it up, it isn't about what's supported
+>  > in the two RK356x SoC variants, but about the RK3566's HWRNG being
+>  > disabled because the testing showed that it produces unacceptably
+>  > low quality of random data, for some yet unknown reason.
+>
+> So maybe there should be a comment in rockchip/rk3568.dtsi so we would=20
+> not get back to it again.
 
-> [ Upstream commit 63c1c87993e0e5bb11bced3d8224446a2bc62338 ]
->=20
-> This patch checks if div is less than or equal to zero (div <=3D 0). If
-> div is zero or negative, the function returns -EINVAL, ensuring the
-> division operation (*prate / div) is safe to perform.
+I suggested to put that in the (original) commit message:
+https://lore.kernel.org/linux-rockchip/6690040.iosknibmi9@bagend/
+precisely because this was quite predictable to happen.
 
-Well, previous version propagated error code, now it is eaten. Is
-stm32_sai_get_clk_div returning 0?
+So a +1 on a comment in the dtsi with a link to the discussion in the
+commit message.
 
-BR,
-								Pavel
-
-> Signed-off-by: Luo Yifan <luoyifan@cmss.chinamobile.com>
-> Link: https://patch.msgid.link/20241106014654.206860-1-luoyifan@cmss.chin=
-amobile.com
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> Signed-off-by: Sasha Levin <sashal@kernel.org>
-> ---
->  sound/soc/stm/stm32_sai_sub.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/sound/soc/stm/stm32_sai_sub.c b/sound/soc/stm/stm32_sai_sub.c
-> index 3aa1cf2624020..3a7f0102b4c5c 100644
-> --- a/sound/soc/stm/stm32_sai_sub.c
-> +++ b/sound/soc/stm/stm32_sai_sub.c
-> @@ -380,8 +380,8 @@ static long stm32_sai_mclk_round_rate(struct clk_hw *=
-hw, unsigned long rate,
->  	int div;
-> =20
->  	div =3D stm32_sai_get_clk_div(sai, *prate, rate);
-> -	if (div < 0)
-> -		return div;
-> +	if (div <=3D 0)
-> +		return -EINVAL;
-> =20
->  	mclk->freq =3D *prate / div;
-> =20
-
---=20
-DENX Software Engineering GmbH,        Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-
---3fawmNHJI3c1oRFq
+--b5f45d1f61fb7924a69af3f0023ad359b7a5d5d310c6ea15f796a8275403
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCZ02hhwAKCRAw5/Bqldv6
-8hAkAKC0b/Oh8ldKHa90Tlm10HU7ITeWowCgxMxATUX7/rKamYpZAx5Mk1HHjC8=
-=I7ba
+iHUEABYIAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCZ02hiAAKCRDXblvOeH7b
+bl8ZAQDzAkc1dza7+FMijsFijExJqS8p/Wf3mTBaIcy5txEEmQEAyJoYozFLN/9W
+nHDB3oiWH07uU/u4hh5+ih8L8E5J5Qg=
+=4tEc
 -----END PGP SIGNATURE-----
 
---3fawmNHJI3c1oRFq--
+--b5f45d1f61fb7924a69af3f0023ad359b7a5d5d310c6ea15f796a8275403--
 
