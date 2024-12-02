@@ -4,79 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8355D78307
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 176D8D78306
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 10:51:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3XDTr/NR5SD4RF/6LFpn9c+Bv/YVG8nMFpd1E2zXJR4=; b=PGjUMZgsaAr8EHO7md8ipXwae8
-	AtU5ujV1QKhYr0W6oJ1AU7LOn6nOIf/E8wmt73Ob4ckFQRXAyt93cdKvDiMZbaRjNIlthzHcA3C9x
-	ISkrqAJrmyZ8J+u+7t9A8o5FuFMbTZvq2w0UNUoGC3AspqCAuO+Dl0rWAr1pREAK1gNh0+i1WTeVK
-	TO0Vi7ikLD09A7RulS0uDLNAiJ5qCheHZZ4NIZDEjjvIPlmnogQVEhcIEd9SL0mhGfugsrQW4Udyv
-	TCB0ShJaTzvbycJFa2obM/G98FtltlZtAtOjjukRuYGmK87wMqhlud2tEluKx/syouK2jipSWVIJr
-	zQwuUlTw==;
+	bh=YoO40zl/s7ZnqzqIb0x9bS2VWKzdum6rohqZrbmtpKY=; b=GB50ktOJREI3K8eKe87yOblU3R
+	LTAC8VRBBp2KfETyGH4HNHUQOTNAyf1ojv+pTWXfrijXFNlIuQHbF0yTt4HScPjvOYc/HVw26QYWQ
+	pl+HAaHMHenYPoIgIBXn3i87TKYbpY3Ga5UR/2duShsQjInl4/giBEikpIh//5GIbQ25OhjFPXj3A
+	kJC04sFIsqYqksIf+1/CozB7s93NOqryRLuyzWzPQcF+OPvO5chZlxCAhsKgH5/r3ZUCbug+7pNqO
+	RvyxFm+01lVbYn/Ja+A63VuWFIc3aUoJLuGphqrqRP5K4lLnZFlag9ZbI3F9nVC9XHNVuKyEp70/W
+	+z3/h0Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3uO-00000005lHA-3gW5;
-	Mon, 02 Dec 2024 10:44:04 +0000
-Received: from out-173.mta0.migadu.com ([91.218.175.173])
+	id 1tI41e-00000005mLO-1Kgz;
+	Mon, 02 Dec 2024 10:51:34 +0000
+Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3tP-00000005l8J-08m6
+	id 1tI40d-00000005mBy-3z0s
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 10:43:04 +0000
-Content-Type: text/plain;
-	charset=utf-8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1733136179;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3XDTr/NR5SD4RF/6LFpn9c+Bv/YVG8nMFpd1E2zXJR4=;
-	b=vhuZPDWqgm76+q6ewLyMPCFh8xtFQfXZpnLlBP0GtCbRbGS5yT0vzIKcSESow+4tTUjouB
-	g08a9i5/NwhtOCRQkg+Av6KW+WHzXN8pNNRJsbcJ+Q0GCe/WY+fj+dLLEkg2Ci3n4L8xgO
-	IUyrOUDIcHYs9nOTbaUGL5ln6UQ2oNQ=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.200.121\))
-Subject: Re: [PATCH v5 00/43] arm64: Support for Arm CCA in KVM
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Itaru Kitayama <itaru.kitayama@linux.dev>
-In-Reply-To: <20241202102632.GB1704077@myrica>
-Date: Mon, 2 Dec 2024 19:42:35 +0900
-Cc: kvm@vger.kernel.org,
- kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>,
- Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>,
- "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+	Mon, 02 Dec 2024 10:50:33 +0000
+Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e397269c68fso3177433276.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 02:50:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1733136630; x=1733741430; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YoO40zl/s7ZnqzqIb0x9bS2VWKzdum6rohqZrbmtpKY=;
+        b=H59waj9ZahXV6L8y37MYEpQ8bfInOgJFB2EiDjzDOe8FGhM5vZgaOZB/6AYrieSjjs
+         NeNBhrsrz3e8dovt61LhnpwfsCRZ9s7I2ogY9BWP5WMBnL+SyyKU7MR/Fy3dzITQ19ix
+         U6spC0XPSOyCqDupIRk5ewGAuTWzrow8MyLVser8G1ZtwL2doKJ+CVn2H38ojxJ2lhbV
+         RfLAaoSAWiE4nXC7Ng+ajKMdrAtChtDydvkvI4Z/93alK9R+6Qyw5FT9qdWIE387CqoH
+         26ELHsUBX5ciUmmMTud9gF8JDle6n1OyJiQPkKV36RGu1cEjWbf91GiY33SZE8I+WNeO
+         8ALw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733136630; x=1733741430;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YoO40zl/s7ZnqzqIb0x9bS2VWKzdum6rohqZrbmtpKY=;
+        b=evE6MLf7pkZcM+0KkwvcuzsDCl1d60tPM7++aTp+i5lETW9J62dgYV0Cbg/bOuhb6H
+         jc+C50ALmsZQjTyX0IUckL4S6ej5+c8XxQRvNh+XabsMCw3SvNfCv1Ab+kb/giLUA0Ea
+         9onJnDRMryFiHlNmrroevzVZ/mzmqYcJmI0HSJTd+if/9OoB/XX0aq3nwkhgtGrgvPxl
+         S0O0wkesZHyin+c9TEBO0ScIJKZn++qua/TYs4Uy0z1A7kXRu33I3aC4zyHs70GFdXf3
+         R9XkRcmLMK7Vdog2bb1DY7lSl/UYc0x6oMCdM+HAne7IzYlQPj0zv96HSzdfNAtjMpni
+         zGEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVg+YLvG26OIeri5nAP2ERRubRfFZkWa3oj7yH4+ovT1vcaHmGRek80Beb3fqlmODQlE7bMbdGAivYqROdXjivU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzjw6FSvQz7JuwqR/OqwaO+gdxuUN6Wk2PGYz56DLL7Yd8U8qpQ
+	NpDfyPNwAQtoF8Ydcr4hSyZvfx7GDuDY679w5NIcGTStwUYcMpgCgKuHO0SGFFm6hidHhzjGn+h
+	e1bIPkFqEFukMXqhs306xtLZJm3Hiz0nB2NxvWg==
+X-Gm-Gg: ASbGncsbLmE/ehU25l9Uxo9TPxW5h1nI4yhdQ7XtKV/DcOPalBL6gJGE6Y582EsQwID
+	W6Q9FgjyA/BnZRCsBh+zW0FnxqPBdtauL
+X-Google-Smtp-Source: AGHT+IExerCQ7sAUwgoXkBOkYbDVHSC68g+nFnlF4d2JadWUyhW3V21jeoCT4WtL5P/vbC1ORnld9fcul7IdcQprIzo=
+X-Received: by 2002:a05:6902:c13:b0:e33:67d8:654e with SMTP id
+ 3f1490d57ef6-e395b9548f7mr22613536276.49.1733136630377; Mon, 02 Dec 2024
+ 02:50:30 -0800 (PST)
+MIME-Version: 1.0
+References: <20241112105030.93337-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20241112105030.93337-1-angelogioacchino.delregno@collabora.com>
+From: Alexandre Mergnat <amergnat@baylibre.com>
+Date: Mon, 2 Dec 2024 11:50:19 +0100
+Message-ID: <CAFGrd9qe5Q60zBEXyCokcLtFQVk+qa9yajO4_gHZR381i9cVOA@mail.gmail.com>
+Subject: Re: [PATCH] drm/mediatek: Initialize pointer in mtk_drm_of_ddp_path_build_one()
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, matthias.bgg@gmail.com, sui.jingfeng@linux.dev, 
+	ck.hu@mediatek.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
+	dan.carpenter@linaro.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <4313C668-D48C-4443-917E-67A112BE1C37@linux.dev>
-References: <20241004152804.72508-1-steven.price@arm.com>
- <Z01BYOgsLXV5yULk@vm3> <01205247-ffcd-439f-b00f-d8e70720d049@arm.com>
- <20241202102632.GB1704077@myrica>
-To: Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Steven Price <steven.price@arm.com>
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_024303_365478_76D9ED54 
-X-CRM114-Status: GOOD (  19.35  )
+X-CRM114-CacheID: sfid-20241202_025031_978331_5A74EDBE 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,98 +96,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jean, Steven,
+On Tue, Nov 12, 2024 at 11:50=E2=80=AFAM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> The struct device_node *next pointer is not initialized, and it is
+> used in an error path in which it may have never been modified by
+> function mtk_drm_of_get_ddp_ep_cid().
+>
+> Since the error path is relying on that pointer being NULL for the
+> OVL Adaptor and/or invalid component check and since said pointer
+> is being used in prints for %pOF, in the case that it points to a
+> bogus address, the print may cause a KP.
+>
+> To resolve that, initialize the *next pointer to NULL before usage.
+>
 
-> On Dec 2, 2024, at 19:26, Jean-Philippe Brucker =
-<jean-philippe@linaro.org> wrote:
->=20
-> On Mon, Dec 02, 2024 at 08:54:11AM +0000, Steven Price wrote:
->> Hi Itaru,
->>=20
->> On 02/12/2024 05:10, Itaru Kitayama wrote:
->>> On Fri, Oct 04, 2024 at 04:27:21PM +0100, Steven Price wrote:
->>>> This series adds support for running protected VMs using KVM under =
-the
->>>> Arm Confidential Compute Architecture (CCA).
->> ...
->>>=20
->>> On FVP, the v5+v7 kernel is unable to execute virt-manager:
->>>=20
->>> Starting install...
->>> Allocating 'test9.qcow2'                                    |    0 B =
- 00:00 ...
->>> Removing disk 'test9.qcow2'                                 |    0 B =
- 00:00
->>> ERROR    internal error: process exited while connecting to monitor: =
-2024-12-04T18:56:11.646168Z qemu-system-aarch64: -accel kvm: =
-ioctl(KVM_CREATE_VM) failed: Invalid argument
->>> 2024-12-04T18:56:11.646520Z qemu-system-aarch64: -accel kvm: failed =
-to initialize kvm: Invalid argument
->>> Domain installation does not appear to have been successful.
->>=20
->> Can you check that the kernel has detected the RMM being available, =
-you
->> should have a message like below when the host kernel is booting:
->>=20
->> kvm [1]: RMI ABI version 1.0
->>=20
->> My guess is that you've got mismatched versions of the RMM and TF-A. =
-The
->> interface between those two components isn't stable and there were
->> breaking changes fairly recently. And obviously if the RMM hasn't
->> initialised successfully then confidential VMs won't be available.
->>=20
->>> Below is my virt-manager options:
->>>=20
->>> virt-install --machine=3Dvirt --arch=3Daarch64 --name=3Dtest9 =
---memory=3D2048 --vcpu=3D1 --nographic --check all=3Doff --features =
-acpi=3Doff --virt-type kvm --boot =
-kernel=3DImage-cca,initrd=3Drootfs.cpio,kernel_args=3D'earlycon =
-console=3DttyAMA0 rdinit=3D/sbin/init rw root=3D/dev/vda acpi=3Doff' =
---qemu-commandline=3D'-M =
-virt,confidential-guest-support=3Drme0,gic-version=3D3 -cpu host -object =
-rme-guest,id=3Drme0 -nodefaults' --disk size=3D4 --import --osinfo =
-detect=3Don,require=3Doff
->>>=20
->>> Userland is Ubuntu 24.10, the VMM is Linaro's cca/2024-11-20:
->>>=20
->>> =
-https://git.codelinaro.org/linaro/dcap/qemu/-/tree/cca/2024-11-20?ref_type=
-=3Dheads
->=20
-> Indeed, QEMU branch 2024-11-20 has to be used with an older version of =
-the
-> KVM patch and older RMM. For KVM v5+v7 you need the most recent QEMU
-> branch, confusingly called cca/v3 (because it's the third patch =
-series).
->=20
-> Thanks,
-> Jean
-
-I wasn=E2=80=99t applying with the updated Shrinkwrap=E2=80=99s overlay =
-file when building TF-RMM.
-With the correct VMM as you guys mentioned (cca/v3) I was able to start =
-the installation via
-the virt-install interacting with the Ubuntu 24.10=E2=80=99s monolitihc =
-libvirtd.
-
-Thanks,
-Itaru.
-
->=20
->>=20
->> I don't think this is the latest QEMU tree, Jean-Philippe posted an
->> update last week:
->>=20
->> =
-https://lore.kernel.org/qemu-devel/20241125195626.856992-2-jean-philippe@l=
-inaro.org/
->>=20
->> I'm not sure if there were any important updates there, but there are
->> detailed instructions that might help.
->>=20
->> Regards,
->> Steve
-
-
+Reviewed-by: Alexandre Mergnat <amergnat@baylibre.com>
 
