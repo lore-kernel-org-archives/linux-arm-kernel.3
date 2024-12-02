@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC508D78336
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:34:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48252D78333
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dWGx5e8hKxNL74ebkxkBlchBwQfP9shzk/fNvXaLpjI=; b=HHa39jNoc49CcK9pgZaydYHYQ6
-	CvecBJdTQZqsG3UD3BQ5CizqUThj1ZbxhSU8M1YoSIHamyxcdEUdv7272aVuL2iv/pcs/i974DrJo
-	ju/AhwyA79ULMVr5GG/LMuGYGAUGPXsGbjWIve6xJ2lsyxf9JS27eAkLlE8fQ6LCeWORQlPf2hfUY
-	SUoarNTOxXwfM9NO4fnKBrhHXkcYuj/emDls1zX2jXvSJX3SR4/hExrau+MoSjbX0MuQW1ZY3OAF5
-	nJyzGl4THjdONFpUu73bAAU4jkfnTmbVcnzLmCb0N6krK8FMqYJhH6DXrI8c+lNN02rDj4ST1XZYV
-	ZJ3Z82hg==;
+	bh=x2Ita7er/IZRaLpSSrS1OXMTKD0AunfPvW9j+zyzZq0=; b=ow+xZsNYE/vn+H6kS4Uh/WK1Vk
+	Z8sIajxzHLvFr1sQQ1kdFwD5IQyDspnW4B0E/cej14YvxIVZIc/wLpQnV8PVewf48d+58IrdJVP8R
+	JNDafDB8BwNBqIlkLyioteb045X9NSnbjef6jqNwALdlIbj2KNzb6amCXjKnblKfeL8VyvCBEkgkS
+	BooQCT5Fimsla1yWKUhextOLtHALI/awPictVUqGDgwL/q1s8OZjGTaEq0drDWcIDC85BihS1HUwK
+	p+UC4P8FcV0sSaRja7EHzlTAClTXKA1tw5E0Arm1aalzwWGsDdB6qd8s87h/i5WkF3SZbGwElfZ8o
+	npig//dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI9Mv-00000006rr7-2pFO;
-	Mon, 02 Dec 2024 16:33:53 +0000
-Received: from out-03.smtp.spacemail.com ([63.250.43.88])
+	id 1tI9Nt-00000006s23-18XP;
+	Mon, 02 Dec 2024 16:34:53 +0000
+Received: from out-02.smtp.spacemail.com ([63.250.43.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI9C1-00000006pWF-10b2
+	id 1tI9C5-00000006pXD-11F5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 16:22:38 +0000
+	Mon, 02 Dec 2024 16:22:42 +0000
 Received: from prod-lbout-phx.jellyfish.systems (unknown [198.177.122.3])
-	by smtp.spacemail.com (Postfix) with ESMTPA id 4Y28Ff54vFzGpHk;
-	Mon, 02 Dec 2024 16:22:30 +0000 (UTC)
+	by smtp.spacemail.com (Postfix) with ESMTPA id 4Y28Fm52K3z4wDW;
+	Mon, 02 Dec 2024 16:22:36 +0000 (UTC)
 Received: from umer-b550pro4.lan (host-213-78-252-153.as13285.net [213.78.252.153])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.spacemail.com (Postfix) with ESMTPSA id 4Y28FV1NGCz6tkP;
-	Mon,  2 Dec 2024 16:22:22 +0000 (UTC)
+	by mail.spacemail.com (Postfix) with ESMTPSA id 4Y28Fd03HKz6tkS;
+	Mon,  2 Dec 2024 16:22:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=mentallysanemainliners.org; s=spacemail; t=1733156545;
-	bh=jOxsA+CL9aUkhSVrBAbfTar5Qf4DtRIr0OegAhr6BDM=;
+	d=mentallysanemainliners.org; s=spacemail; t=1733156551;
+	bh=p4/oDNeAcM8YTvV1ZrRQzkUmZ2zyB7c9FNreyRr5PDM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EmkR19quzcs03s+ltBDWUG3sxlu+tTZ66ElinH0HqGX20gOl6r5XrFwIPnvC7jKuh
-	 oCB7z6iGX863yHDNaQkJQKNS+Tig7lNokraPBibwxPfR9gynJpM6YqVXkR18WxjbM8
-	 O/G4bbWYdJy2w0c6Zp3IzhHuH2UXU/CndZd+XXH0tUCYEDsK6eisGg20ARsjYuP9ug
-	 6PILKZyaCht+5yZ5m1wIZd1dDwo55vXMywCaYvncLWDHIkoU0KLz7TlufK2zsElEzD
-	 umG3ajoRiE0S3U4hDPvTl+Eb2Hv7oNmsYGUIFRL44/Rhq2oNxZc+q0TMMm3D+zRO3+
-	 NC9g+Ldd52GxQ==
+	b=YY1zYL6th/bpswcCWvwIy+CaPdpxssCiXSF9TbzoXeRzNQ9xM8b66K0ZszcB3McXA
+	 JcWkt+5s6k95wDMVfV1agP1llI7YxWZ7fHewwCAjJUKCNDVtb4dZa8z1VM/zC0LdJk
+	 nOw2f+A+UbIs/xWyfEQl4RdCSkms2ks8/gmx+tPKVqLJxxV3Nwf9wjFZqWPkWD2CUp
+	 vtRzMtGSfPd155kxoBrLkBj7KY8oxg6d3YOyAYA93C2zZEDeyO0fJGfGXtG1PxPlme
+	 2TGYRm4e85ZHA46Yaz5S/NJNFXtxkl2h0SKWnzVAvd0z93SNXWCIJg2LPdoZblHVkO
+	 lGVOYUL3JHdlg==
 From: Umer Uddin <umer.uddin@mentallysanemainliners.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>,
 	Alim Akhtar <alim.akhtar@samsung.com>,
@@ -57,17 +57,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	igor.belwon@mentallysanemainliners.org
-Subject: [PATCH v3 2/4] arm64: dts: exynos: Add initial support for Samsung Galaxy S20 Series boards (hubble)
-Date: Mon,  2 Dec 2024 16:21:56 +0000
-Message-ID: <20241202162158.5208-3-umer.uddin@mentallysanemainliners.org>
+Subject: [PATCH v3 4/4] arm64: dts: exynos: Add initial support for Samsung Galaxy S20 (x1slte)
+Date: Mon,  2 Dec 2024 16:21:58 +0000
+Message-ID: <20241202162158.5208-5-umer.uddin@mentallysanemainliners.org>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20241202162158.5208-1-umer.uddin@mentallysanemainliners.org>
 References: <20241202162158.5208-1-umer.uddin@mentallysanemainliners.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_082237_298613_42B1A571 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20241202_082241_299926_927172B6 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,125 +82,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial support for the Samsung Galaxy S20 Series (hubble) phones.
-They were launched in 2020, and are based on the Exynos 990 SoC.
-The devices have multiple RAM configurations,
-starting from 8GB going all the way up to 16GB for the S20 Ultra devices.
+Add initial support for the Samsung Galaxy S20 (x1slte/SM-G980F)
+phone. It was launched in 2020, and it's based on the Exynos 990 SoC. It
+has only one configuration with 8GB of RAM and 128GB of UFS 3.0 storage.
 
 This device tree adds support for the following:
 
 - SimpleFB
-- 8GB RAM (Any more will be mapped in device trees)
+- 8GB RAM
 - Buttons
 
 Signed-off-by: Umer Uddin <umer.uddin@mentallysanemainliners.org>
 ---
- .../dts/exynos/exynos990-hubble-common.dtsi   | 98 +++++++++++++++++++
- 1 file changed, 98 insertions(+)
- create mode 100644 arch/arm64/boot/dts/exynos/exynos990-hubble-common.dtsi
+ arch/arm64/boot/dts/exynos/Makefile           |  1 +
+ .../boot/dts/exynos/exynos990-x1slte.dts      | 28 +++++++++++++++++++
+ 2 files changed, 29 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos990-x1slte.dts
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos990-hubble-common.dtsi b/arch/arm64/boot/dts/exynos/exynos990-hubble-common.dtsi
+diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
+index deb8dc509..783807249 100644
+--- a/arch/arm64/boot/dts/exynos/Makefile
++++ b/arch/arm64/boot/dts/exynos/Makefile
+@@ -10,5 +10,6 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
+ 	exynos8895-dreamlte.dtb		\
+ 	exynos990-c1s.dtb		\
+ 	exynos990-x1s.dtb		\
++	exynos990-x1slte.dtb		\
+ 	exynosautov9-sadk.dtb		\
+ 	exynosautov920-sadk.dtb
+diff --git a/arch/arm64/boot/dts/exynos/exynos990-x1slte.dts b/arch/arm64/boot/dts/exynos/exynos990-x1slte.dts
 new file mode 100644
-index 000000000..55fa8e9e0
+index 000000000..7bca641e5
 --- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos990-hubble-common.dtsi
-@@ -0,0 +1,98 @@
++++ b/arch/arm64/boot/dts/exynos/exynos990-x1slte.dts
+@@ -0,0 +1,28 @@
 +// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
 +/*
-+ * Samsung Galaxy S20 Series device tree source
++ * Samsung Galaxy S20 (x1slte/SM-G980F) device tree source
 + *
 + * Copyright (c) 2024, Umer Uddin <umer.uddin@mentallysanemainliners.org>
 + */
 +
 +/dts-v1/;
-+#include "exynos990.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
++#include "exynos990-hubble-common.dtsi"
 +
 +/ {
-+	chosen {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
++	#address-cells = <2>;
++	#size-cells = <2>;
 +
-+		framebuffer0: framebuffer@f1000000 {
-+			compatible = "simple-framebuffer";
-+			reg = <0 0xf1000000 0 (1440 * 3200 * 4)>;
-+			width = <1440>;
-+			height = <3200>;
-+			stride = <(1440 * 4)>;
-+			format = "a8r8g8b8";
-+		};
-+	};
++	model = "Samsung Galaxy S20";
++	compatible = "samsung,x1slte", "samsung,exynos990";
 +
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		cont_splash_mem: framebuffer@f1000000 {
-+			reg = <0 0xf1000000 0 0x1194000>;
-+			no-map;
-+		};
-+
-+		abox_reserved: audio@f7fb0000 {
-+			reg = <0 0xf7fb0000 0 0x2a50000>;
-+			no-map;
-+		};
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		pinctrl-0 = <&key_power &key_voldown &key_volup>;
-+		pinctrl-names = "default";
-+
-+		power-key {
-+			label = "Power";
-+			linux,code = <KEY_POWER>;
-+			gpios = <&gpa2 4 GPIO_ACTIVE_LOW>;
-+			wakeup-source;
-+		};
-+
-+		voldown-key {
-+			label = "Volume Down";
-+			linux,code = <KEY_VOLUMEDOWN>;
-+			gpios = <&gpa0 4 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		volup-key {
-+			label = "Volume Up";
-+			linux,code = <KEY_VOLUMEUP>;
-+			gpios = <&gpa0 3 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+};
-+
-+&oscclk {
-+	clock-frequency = <26000000>;
-+};
-+
-+&pinctrl_alive {
-+	key_power: key-power-pins {
-+		samsung,pins = "gpa2-4";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+
-+	key_voldown: key-voldown-pins {
-+		samsung,pins = "gpa0-4";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+
-+	key_volup: key-volup-pins {
-+		samsung,pins = "gpa0-3";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x0 0x80000000 0x0 0x3ab00000>,
++		      /* Memory hole */
++		      <0x0 0xc1200000 0x0 0x1ee00000>,
++		      /* Memory hole */
++		      <0x0 0xe1900000 0x0 0x1e700000>,
++		      /* Memory hole */
++		      <0x8 0x80000000 0x1 0x7ec00000>;
 +	};
 +};
 -- 
