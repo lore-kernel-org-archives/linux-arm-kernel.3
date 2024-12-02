@@ -4,112 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01768D10DB4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 08:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D506DD10DB5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 08:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aN+6aXxjhPFYN+ILtJ8oROYNyiXPAUR4XJGNYkKrR8w=; b=phPqvCNvhM1WoTgmcXuHmO4fja
-	MwDVj5kgmSBhrWob099zSMpJE/nyLYbEpT1JCIJBckRQ/y/n54D+wc7LPWi//ntfE6IUsvcYOhllu
-	Ge7aY1lOGqiAyPuRV67AhdNsvwXY0AeD8SG5r0rBPN/gjWMmYEacUVlXOLa6Y6B12Rhg1UKREFi8E
-	vRE843FotcQIL59IOJoy7WH4rz1nuK+CCv8Q9QemaFxtcvWWkOhD+1JiRfwNz55eqA15FZR5QrlRE
-	ERusNwXPK6MGXNFAW6NLKbd4yj5NNNF67rjzcNdPovwHDXbLs9yVv4RJlZuKbPdHAEm+IexuuiVYw
-	OP/bVgdg==;
+	bh=Nt9G7KmSxpaO4MDaESLiYEAxzFatOQtvUL6niYdnua4=; b=boGs7bz5ixtMBm1+el2EiVkZgy
+	L0UmVFHj0BOhUtqUejsZjAbVjEpB8Jvn/Cm9l5M7NRQY9PbowjyowZl854BZK91RV8bxm/PUlS/B9
+	0hDQZockFxiiVOyrVrBpZ4S93tAUjpjKq175eIfFrMg0vY8uaSq7+JbsdlePEHdyl8cVwDf2fB5nF
+	rTGrMeylmszBhhUgRBS1VX7ABkKS24RwN7A3zaTRoO/QlT8/255m2tlD8qRhxvIpKEzG8i8gorWQN
+	m5ZD8w3+NgiSjODwjpgJnBufXApqoKvn0CqrlxocZ5p6aVfT2Hb8pgWNaZqttYf2in57PqXBjKHSM
+	VKZWp/2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI1Q2-00000005MoX-2lF6;
-	Mon, 02 Dec 2024 08:04:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tI1Rj-00000005N7I-2RlS;
+	Mon, 02 Dec 2024 08:06:19 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI1P3-00000005Mj6-2DtQ
+	id 1tI1Qk-00000005MxU-02en
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 08:03:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1733126611;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aN+6aXxjhPFYN+ILtJ8oROYNyiXPAUR4XJGNYkKrR8w=;
-	b=FgumfeWNdWjtX6ns2WTBlIQqdfY6VwRAjue6FvDOyO1HLTJNZN6GqTzw+Om8XpTS6Eojjy
-	JnD9hDAcawQxhfyennJPGTUeqjRmbKTVIioa420DUBRBbnnEZy+VgcW6EbWViqI9ASuSXH
-	CpTuVROVAk+Y9TJLpFqFD51i8G7Q5cQ=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-629-wVhYxNPkOOedhnTvVHt1Rg-1; Mon, 02 Dec 2024 03:03:30 -0500
-X-MC-Unique: wVhYxNPkOOedhnTvVHt1Rg-1
-X-Mimecast-MFC-AGG-ID: wVhYxNPkOOedhnTvVHt1Rg
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-434a195814fso29422935e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 00:03:30 -0800 (PST)
+	Mon, 02 Dec 2024 08:05:19 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-2ffdbc0c103so52031921fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 00:05:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1733126716; x=1733731516; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Nt9G7KmSxpaO4MDaESLiYEAxzFatOQtvUL6niYdnua4=;
+        b=otMET0AHhmoDJZzp5Yx6MykVKtIcKcbTCP1Mm1MwJY/LKpTegk//TAQB8l7jaAhwSt
+         RwsPoz/oyqkQy7qhgCIevbUtGaDPZSssdq9coLGcMZGrZBd7b/YnnVSahu5WwBqnO3yY
+         HrOuT9UaEABtIzY3whXIAZwpwRzcPZPbrBQHbvALipFqyB/PYUc+0oQvn1Ws0L2txa1d
+         HDVZBLwJ5pPf2+eldv2nB9jYkC32F6YGX8Yc4q5x0KXDMrasqjJD7+NEw8D6zB9e8JAx
+         DnbvsevRX4PdL/2wBNX72XY665/g7ewnFLAvBr7eM8ABLR4x3P9tJOpcUe0bhno0S/sB
+         CbAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733126609; x=1733731409;
+        d=1e100.net; s=20230601; t=1733126716; x=1733731516;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aN+6aXxjhPFYN+ILtJ8oROYNyiXPAUR4XJGNYkKrR8w=;
-        b=Ch+NBGjanwAm7m1Zdn3CxQbWPVgIeU5KJDvsRmnWPaw7jacKWpH9PPFWi1eZNJ6mDW
-         upS/i+qpYLhfciFO/0gcDD12UXYXJsnkJHavY48zUTrpr3gECpUPA66K3pVkl/FNAdzZ
-         Nhqz7KhQtSXPoCOK9EO6nYZ90lYHNxTwXG84bjjJYKSmX7Q7x0mCeoXFWUQcw16+T7+o
-         s8xrNtbjhCKYuMPkRjJMUqw18r4bDmxKyEOmtAquPBMMTM/0OksvviP0XRip8q7C7gtS
-         x4DqDwloY6aI0IR3BFL0IyMqAfFQPzYydfAK7fJ/22+umooMXooNAqHyX1p0yUgA9WR/
-         H/og==
-X-Forwarded-Encrypted: i=1; AJvYcCU5eXsjLVIVJBBqDuwenwv4T1DnXMYy8Klvl7t7WLRVk1brxd+SKH/gN6Vqv1eVkk5OlY5HdtvuW9cLhju1U/u0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+TUxsO/RnAIzViS7bXu2ypymRim+PFHrc4ykIClGkJWC6PTEf
-	gm4kIyuWDcMp0QiV2abdAD7OI5qEP5uAXbdyxdWsadKrXbQ36s62M+rJEVq3XscTHs5WkRW+aop
-	wtUhfjdZpc2eaO6ayvZU+phcu2mAy+Gg5JBLs5lDY8wIYKWEnNJvhyFGFL5wiMMpJ5AiFODXG
-X-Gm-Gg: ASbGncsT6z56n4tMQEGhoomk0lw8GZMpNnpaLKhBYtvnzA+EttC1rx+SkZGUcUzUIYd
-	BSOcZqIL6DqLirTJVb7A6rTyo45yMRLR7GHHeu5y7M7piTrtZp+/ovR3tGF2JYawjKHYMHljpyn
-	CAzyFI19ix6qQ0tmuWkBooP+UHJyCGaFzzincThGgpVrqOaMMYVWsgXmXzVkRYTMMih6VanbfXY
-	Du/So4k/fbFy7qt9314aFCrrcz7v+xCCriQiGAh0DdNwgTu/ocOlXlDb0+hHhu2Ut97mUTCzm2T
-	Y+uk/p4gZ7queaR9
-X-Received: by 2002:a05:600c:588c:b0:434:a7e3:db50 with SMTP id 5b1f17b1804b1-434a9df26cbmr158067965e9.21.1733126609336;
-        Mon, 02 Dec 2024 00:03:29 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEOoKcy4ZLxYfJuHVBmETBdh3cXi5dFZ/+hCy9umKs5/0947WIDG+W1ZeqLNq9Ru+txGZNWXg==
-X-Received: by 2002:a05:600c:588c:b0:434:a7e3:db50 with SMTP id 5b1f17b1804b1-434a9df26cbmr158067725e9.21.1733126608984;
-        Mon, 02 Dec 2024 00:03:28 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434b0f32837sm145415305e9.33.2024.12.02.00.03.26
+        bh=Nt9G7KmSxpaO4MDaESLiYEAxzFatOQtvUL6niYdnua4=;
+        b=hpoWsdj27IOT4FKbUc9KKux2LM5kW29UQHNmkAMYsYaKBH6o2t3zX8bsxJSYtEOUD1
+         hHBBQq9aINtv0jTAyEawyZr8jyohHeWR7HIoX8itGgClrwpkcbFumwX+mdfKhqoYzh4L
+         NaGgxCkZnkYJ3OC3CIjvPivB96+pxv1wliGjTssCoBjPta8wXZvHDAsnuDUD7Z+gGY0c
+         cLXtsFL5UtqQ0o3rM+/+miEB0mBbITHesWDGu2a0JKgT0SCo0+49uQPfxe04IQA+1UB6
+         yZXKgQB1W8b8rHvQ4QtoL+cABLsnVmzTSlspmvS64qqctaTwAH57K8+fbh8MrDDGRi33
+         pQCA==
+X-Gm-Message-State: AOJu0YzX0NgVwT3fiK3FOSsCIHvHioAw4ZFLqEXCN4NuRAb1F7Pf2ap5
+	ar+adE/uN/KEwHC0TFIDOoHhPyyzIDy/Ru/UhAO2MLFBtkAg/90tQwGE7x9YbuI=
+X-Gm-Gg: ASbGncs0vMiRWSFpNepdPAsxbR8kGuv1CD52ilms3gytLV8UNKlGAcEsYQ0DKxOCf0w
+	3IqfkAlHtehD/3M4m99bxzOCakT23/nm+LzFzwlxloQG+jvm+0fU9RnvyHHoCbiiIYd9Xpy4gBF
+	FqVn9/DUDZHzlvFeBNp6uO153TaAr5y+s7pM0RyTq3qfzM8XMYzSBV8sxLECqAd0KpYO+YUDwp+
+	RKLh7KMMziuc3Iji+6VPRV/8n1UU1THz+hmLGKz1mS0B2GPlccMFMFbSg==
+X-Google-Smtp-Source: AGHT+IFUfZ5e2F1fAB4ao3/fokEu8MgM9xJJBXI2ftiU7+MWrxZpJdyaH0ok5YzBfo7DCvJTbQZ7iA==
+X-Received: by 2002:a2e:be25:0:b0:2ff:96dc:af29 with SMTP id 38308e7fff4ca-2ffd5ffe050mr116068701fa.10.1733126715444;
+        Mon, 02 Dec 2024 00:05:15 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.46])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434b0f327casm144987935e9.27.2024.12.02.00.05.13
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Dec 2024 00:03:28 -0800 (PST)
-Message-ID: <e35612b4-e25b-4846-8fd2-56c2473c140d@redhat.com>
-Date: Mon, 2 Dec 2024 09:03:26 +0100
+        Mon, 02 Dec 2024 00:05:14 -0800 (PST)
+Message-ID: <34a5b77b-e732-4393-a469-d9c719afa879@tuxon.dev>
+Date: Mon, 2 Dec 2024 10:05:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Make the exposed feature bits in AA64DFR0_EL1
- writable from userspace
-To: Marc Zyngier <maz@kernel.org>
-Cc: Sebastian Ott <sebott@redhat.com>,
- Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "will@kernel.org" <will@kernel.org>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "oliver.upton@linux.dev" <oliver.upton@linux.dev>,
- "james.morse@arm.com" <james.morse@arm.com>,
- "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
- yuzenghui <yuzenghui@huawei.com>, "Wangzhou (B)" <wangzhou1@hisilicon.com>,
- Linuxarm <linuxarm@huawei.com>, "reijiw@google.com" <reijiw@google.com>
-References: <20240813142835.77180-1-shameerali.kolothum.thodi@huawei.com>
- <86v804z3lk.wl-maz@kernel.org> <b2dad37ac5464384abe4edf76cb6b546@huawei.com>
- <4d3a7dde-e085-fa70-8859-ba153c93b615@redhat.com>
- <87zfllssji.wl-maz@kernel.org>
- <c879fda9-db5a-4743-805d-03c0acba8060@redhat.com>
- <865xo3vbjq.wl-maz@kernel.org>
-From: Eric Auger <eauger@redhat.com>
-In-Reply-To: <865xo3vbjq.wl-maz@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: YTyOhxAjdKeZ5I91hiBqCiCjp0JnEXl3WB9ETVbvhig_1733126609
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH] ARM: at91: pm: change BU Power Switch to automatic mode
 Content-Language: en-US
+To: nicolas.ferre@microchip.com,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Cristian Birsan <cristian.birsan@microchip.com>
+References: <20241125165648.509162-1-nicolas.ferre@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+In-Reply-To: <20241125165648.509162-1-nicolas.ferre@microchip.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_000333_648932_77118505 
-X-CRM114-Status: GOOD (  28.03  )
+X-CRM114-CacheID: sfid-20241202_000518_220152_5BBC4552 
+X-CRM114-Status: GOOD (  26.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,84 +98,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Hi, Nicolas,
 
-On 12/1/24 13:21, Marc Zyngier wrote:
-> Hey Eric,
+On 25.11.2024 18:56, nicolas.ferre@microchip.com wrote:
+> From: Nicolas Ferre <nicolas.ferre@microchip.com>
 > 
-> On Thu, 28 Nov 2024 09:31:08 +0000,
-> Eric Auger <eauger@redhat.com> wrote:
->>
->> Hi Marc,
->>
->> On 11/26/24 20:29, Marc Zyngier wrote:
->>> Finally, who is going to ensure this keeps working in the foreseeable
->>> future? Because while this is nice, that's not what gets deployed in
->>> production, as it leads to unpredictable performances. My take is that
->>> this thing will eventually bitrot and die.
->> In the context of our works to define qemu vcpu models for ARM
->> (https://lore.kernel.org/all/20241025101959.601048-1-eric.auger@redhat.com/)
->> , our current approach is to try migrating between modern HW we have
->> access to. The case above is migration between AmpereOne and Grace which
->> both should be prevalent systems. Do you think this does not make sense
->> at all to try migrating between those, alhough this may be challenging?
+> Change how the Backup Unit Power is configured and force the
+> automatic/hardware mode.
+> This change eliminates the need for software management of the power
+> switch, ensuring it transitions to the backup power source before
+> entering low power modes.
 > 
-> I don't mind the challenge. But I'm worried this is something that
-> looks like a reasonable idea that doesn't get any traction in
-> practice.
-> 
-> And the example you mention is pretty striking: who in their right
-> mind would migrate between these two systems? If you deploy a Grace
-> system, that's because you are making use of the GPU, and your VM is
-> likely to require it. Conversely, if you run on an Ampere system, you
-> don't want to use a valuable (read: bloody expensive) slot on a Grace
-> machine.
+> This is done in the only locaton where this swich was configured. It's
 
-Yes I acknowledge it is a total valid point from a use case and cost
-point of view. I was expecting maybe some interest migrating between
-AmpereOne and Grace-Grace for farm enhancement but most probably it is
-marginal.
+s/locaton/location
 
-Definition of [qemu] named vcpu models looks pretty uneasy then because
-we don't have much relevant and accessible HW to test with, taking into
-account such non technical considerations. Besides migration within a
-CPU family I don't see much.
+> usually done in the bootloader.
 > 
->> Other cases we have looked at are migration within Ampere Altra Max
->> system family (which should be hopefully fine now with have CTR_EL0
->> works from Sebastian upstream), mig between Graviton hosts. Wrt Ampere
->> Altra Max to AmpereOne, Oliver pointed out the cntfrq issue which is
->> blocking.
->>
->> Do you think we should restrict our studies to systems which are
->> "closer" to each other in terms of ARM spec rev. We throught that
->> migration bewteen AmpereOne And Grace would be an interesting POC and
->> not totally irrelevant in terms of industry.
-> 
-> These two implementations may be close in terms of CPU features. But
-> as systems, they are massively different, and I very much doubt they
-> have the same deployment story. If they have one at all.
-OK thank you for sharing your point of view.
-> 
-> The Graviton story may have more traction, but these folks have their
-> own way of doing things, and in my experience do not give upstream
-> much consideration.
-OK thanks
-> 
-> To sum it up, I'm not opposed to this work. But if we are going to
-> carry this sort of complex emulation, I want someone to step up and
-> promise that they will test it for the next 10 years, at the very
-> least. Because I'm very unlikely to ever have access to any of these
-> machines, let alone both, and I don't see people using it in practice.
-understood!
+> Previously, the loss of the VDDANA (or VDDIN33) power source was not
+> automatically compensated by an alternative power source. This resulted
+> in the loss of Backup Unit content, including Backup Self-refresh low
+> power mode information, OTP emulation configuration, and boot
+> configuration, for instance.
 
-Thanks
+Should we add a fixes for this?
 
-Eric
 > 
-> Thanks,
+> Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+> ---
+>  arch/arm/mach-at91/pm.c | 31 ++++++++++++++++++++-----------
+>  1 file changed, 20 insertions(+), 11 deletions(-)
 > 
-> 	M.
-> 
+> diff --git a/arch/arm/mach-at91/pm.c b/arch/arm/mach-at91/pm.c
+> index b9b995f8a36e..05a1547642b6 100644
+> --- a/arch/arm/mach-at91/pm.c
+> +++ b/arch/arm/mach-at91/pm.c
+> @@ -598,7 +598,21 @@ static int at91_suspend_finish(unsigned long val)
+>  	return 0;
+>  }
+>  
+> -static void at91_pm_switch_ba_to_vbat(void)
+> +/**
+> + * at91_pm_switch_ba_to_auto() - Configure Backup Unit Power Switch
+> + * to automatic/hardware mode.
+> + *
+> + * The Backup Unit Power Switch can be managed either by software or hardware.
+> + * Enabling hardware mode allows the automatic transition of power between
+> + * VDDANA (or VDDIN33) and VDDBU (or VBAT, respectively), based on the
+> + * availability of these power sources.
+> + *
+> + * If the Backup Unit Power Switch is already in automatic mode, no action is
+> + * required. If it is in software-controlled mode, it is switched to automatic
+> + * mode to enhance safety and eliminate the need for toggling between power
+> + * sources.
+> + */
+> +static void at91_pm_switch_ba_to_auto(void)
+>  {
+>  	unsigned int offset = offsetof(struct at91_pm_sfrbu_regs, pswbu);
+>  	unsigned int val;
+> @@ -609,24 +623,19 @@ static void at91_pm_switch_ba_to_vbat(void)
+>  
+>  	val = readl(soc_pm.data.sfrbu + offset);
+>  
+> -	/* Already on VBAT. */
+> -	if (!(val & soc_pm.sfrbu_regs.pswbu.state))
+> +	/* Already on auto/hardware. */
+> +	if (!(val & soc_pm.sfrbu_regs.pswbu.ctrl))
+>  		return;
+>  
+> -	val &= ~soc_pm.sfrbu_regs.pswbu.softsw;
 
+It seems that softsw and state members of at91_pm_sfrbu_regs.pswbu along
+with their initialization could be dropped. What do you think?
+
+I can do it while applying, if any.
+
+Thank you,
+Claudiu
+
+
+> -	val |= soc_pm.sfrbu_regs.pswbu.key | soc_pm.sfrbu_regs.pswbu.ctrl;
+> +	val &= ~soc_pm.sfrbu_regs.pswbu.ctrl;
+> +	val |= soc_pm.sfrbu_regs.pswbu.key;
+>  	writel(val, soc_pm.data.sfrbu + offset);
+> -
+> -	/* Wait for update. */
+> -	val = readl(soc_pm.data.sfrbu + offset);
+> -	while (val & soc_pm.sfrbu_regs.pswbu.state)
+> -		val = readl(soc_pm.data.sfrbu + offset);
+>  }
+>  
+>  static void at91_pm_suspend(suspend_state_t state)
+>  {
+>  	if (soc_pm.data.mode == AT91_PM_BACKUP) {
+> -		at91_pm_switch_ba_to_vbat();
+> +		at91_pm_switch_ba_to_auto();
+>  
+>  		cpu_suspend(0, at91_suspend_finish);
+>  
 
