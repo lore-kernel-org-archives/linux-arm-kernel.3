@@ -4,105 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE3FD7830C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 11:08:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5021CD7830C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 11:09:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6X4f5B7p/4ISxO7icMRqa8h5IT36sTqoFNtM1b1oYjE=; b=YRcGENPK5F/K1x8KAZKqIox9ZO
-	SzjSVulCKtu6rjU53FKhruFKDj+/WlBom/gsosHtt160Y92GPn/TsJtetfUjNK2kzuatz3uMU0beH
-	aPyGVp3lhp1Gr1e8PvPozF490/RI/O37lvrQd4dst84nZwIrPGavjKTQO9rSHy112I/26SbacZAtN
-	04d5AOcVlYWZpzkNnyMyafXjsszo/Blm+90aca9KGqQiGkgonw6NAVDFOk6A0LTtw+R8GVe7prvGp
-	ne4ck6D+SG2VDxoUNaFywOPB4uPAuXEBgmtnnr7PL5RS1p1gInu167Rgu5tM9b/WPELDTEwd6aPnm
-	EDzaBCRA==;
+	bh=ASa3m08qUJJzx/CkZxXi2bS9QogDhirKkzyYhtJe3go=; b=Q3o4qCvrFtIgXRjCXzbzAI8hOm
+	r8/XriiVTSMMlx+paLmV3hDPPIW4NkvyJIj0NzIRGTa6rzm94L+fJCCqUheUqe63jiln68Bkaz3rB
+	iZ+/15GdCzH9B7t9A3mjjmwNZKejVYmPsN0EaxBNCsvEJMpQY2AU9khxtj68X9uados9a6NSfwzVu
+	bv4xCvvARfBUtmpDvrzwqZKHEyEAGG3WHSMQFOr0AsBGiWflycdlzi18V3X72rfTZq40K3loRvTgw
+	ABuyTYMkCYz9A0s6Ih94d8WhsfIkjtIp71kkEX5DdjxPqZCAWQDawvaOTGxcv/mskDCFqJza0oh2/
+	CIYt8GLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI4Ha-00000005oU7-17Vl;
-	Mon, 02 Dec 2024 11:08:02 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1tI4IY-00000005onz-1FCp;
+	Mon, 02 Dec 2024 11:09:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI4Cw-00000005nbI-2eXe
+	id 1tI4DQ-00000005nhj-1qQA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 11:03:15 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-53dd0cb9ce3so3597289e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 03:03:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733137392; x=1733742192; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6X4f5B7p/4ISxO7icMRqa8h5IT36sTqoFNtM1b1oYjE=;
-        b=tdUy7iclUjHwn9HDqjdZpQniKfDo22g4XDTP2fJqZqoDvU6ehT/EQnb+FROd00SIc8
-         uGF7mqoYY/qUug3yRNfDBiufiNujYbAGHm1u8bwaCMBDUIs7F2VKEalAKK7eWKy8E6EV
-         roti7Y29G96tZg/dogn5UP0du8W/Z6hRJxjb7HzcgpOJnBATuQ/2GHKUGsFiUJDqXsok
-         TiYJnPn2lACsXA7yH2gOfvjmgZrJ3PwduFSK9EsrVYcBk85WDZoNq+y2bmfLj3okg8qC
-         fUJn7MYAJZPz+5adij8te57o4fi5HsmhLi9TlKmcIkS0xsVU5Rvwk4OdoWNHmWbjJQIV
-         JmDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733137392; x=1733742192;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6X4f5B7p/4ISxO7icMRqa8h5IT36sTqoFNtM1b1oYjE=;
-        b=lhIaZZOf9LvBVw+5jCew9aH4aiVGAXlq6pLrP6QUWS5jEYCVMvkDwkOc58jNNBrsQp
-         JsDq2sx2Dzj/IaXMiG1WeeS5eenMXyzDBYOdePR5crwgtmEJImPksdhS9byHdZbVVhkC
-         vvgnE+Rp/vd2EhHZK13BzswoYsT/98w1bjW8BnzkFUIv8xBS+Xfe2zulqTdeeGBr9zH3
-         DtE+r+iIN9Jz7YajlnbzN0KiJNkAOMC4KJDOw1sDVy0ZULwhXRvGGifBDZWvy5WsiIrs
-         iLFQ/ZOOBQbAEV/cKnlxN2eFE9FYsy3XxyevDp8+aNqjDk96XJHySRpJyV9IS9ByXixh
-         8UAg==
-X-Forwarded-Encrypted: i=1; AJvYcCUSiCT29eGbnA2BymEeJ56IEUcjnyVynsjOETH4tdJD/XRs8ofKwGLJ8NbGbn4nDtvOd3H5WrYrHhUWVezHEaYK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyw+0//LKZTEZp4Mo1kZONL5LTQF7b3oVgf8RYBnx3i9jXpL30r
-	KfvCm1TCAaJ8OasrOExGFMVLBboz6Ss3P/fTODJyUcUjXhZ5cOxN3TMR4Uw/9C4=
-X-Gm-Gg: ASbGncuiSbzOEkdRhxN7cQLsWHblgu0ktHSfmkvRw9NxNKDFw0FWsRpPRX7E3Att5xz
-	88h6U8SShCcAidVFN/P+WbBgwbPCaJ25CZQTazmQD+PXkSkox21Dk45efXIbGMeQnfoWTDb/OJY
-	bRxJwAUbCXaDEpxbRAVAZwajWWhBv3XBSlc5ki9GTSxDTzvaOMuxBFQ+A9TKOqqcGes6pIY18vJ
-	VxLsgo5jeCR1asazkgRbA2Kxz4qCb+C6NbDWW+K8RK3GA4sPFDd9OrBNk6Hz/w+drhcjnHkPI4z
-	GHHS8k0tXVl7kmiVK4uxaJVzvw9Suw==
-X-Google-Smtp-Source: AGHT+IFGDFefBhtw1PCqTOI5KhQIlj3rWjRnFP/b36RPBBTJEaQRx6orQjZk5ZBCQurK/QAedMSg2Q==
-X-Received: by 2002:a05:6512:2385:b0:53d:ed25:fb75 with SMTP id 2adb3069b0e04-53df00d3e65mr7699888e87.15.1733137392309;
-        Mon, 02 Dec 2024 03:03:12 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53df646efd9sm1443877e87.143.2024.12.02.03.03.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Dec 2024 03:03:10 -0800 (PST)
-Date: Mon, 2 Dec 2024 13:03:07 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	David Airlie <airlied@gmail.com>, Harry Wentland <harry.wentland@amd.com>, 
-	Inki Dae <inki.dae@samsung.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Leo Li <sunpeng.li@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Phong LE <ple@baylibre.com>, 
-	Raphael Gallais-Pou <rgallaispou@gmail.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Rob Clark <robdclark@gmail.com>, Robert Foss <rfoss@kernel.org>, 
-	Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Sean Paul <sean@poorly.run>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, Xinhui Pan <Xinhui.Pan@amd.com>
-Subject: Re: [PATCH 00/10] drm/connector: add eld_mutex to protect
- connector->eld
-Message-ID: <ohbtatnn33jj6y3q4milf4txi4n7yirnny2eefdjddlkn2dnhp@eqjedetct4q3>
-References: <20241201-drm-connector-eld-mutex-v1-0-ba56a6545c03@linaro.org>
- <77545786331df8bfaf5fdcb309437358@kernel.org>
+	Mon, 02 Dec 2024 11:03:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3EE6CA40A21;
+	Mon,  2 Dec 2024 11:01:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCD8CC4CED1;
+	Mon,  2 Dec 2024 11:03:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733137423;
+	bh=ASa3m08qUJJzx/CkZxXi2bS9QogDhirKkzyYhtJe3go=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Lnao6/1VwaWZVmtG192hq1NdLwiouRyR5TQs9OkySAVRKuWa4HtPw2rk95QESRBd0
+	 5RfMnqvUZwesvmkdqhX5ILou+eVdZlOoNWSqwl3+jSAe0i9XuP+3nYUbAXEnIGUInp
+	 gLALbSYOYyhKeRuNtLtDo9h/7q28zEDO6RcxUGDxnkqKf9X16VJLQvI/hEJwgE4DhV
+	 fCbzsYH2qZL9qytt3mT68yv6/cjtqIUr4Li2cdcSiFDuAM3qUNYidslXYxHbKEMuOA
+	 IAQKu008kKVz3nUm1pV7Jw/HB/d1LGJmOERhvMcaHexhPr5NF+lwT+twMO6zdQpeWg
+	 g+LEZRWJJgj5g==
+Date: Mon, 2 Dec 2024 12:03:40 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Paul Kocialkowski <contact@paulk.fr>
+Subject: Re: [PATCH] pinctrl: sunxi: Use minimal debouncing period as default
+Message-ID: <20241202-magnetic-curious-bear-1cc48e@houat>
+References: <20241119140805.3345412-1-paulk@sys-base.io>
+ <20241119-prudent-jasmine-lizard-195cef@houat>
+ <ZzyoIABRArkGoZBn@collins>
+ <20241119-vivacious-optimistic-squirrel-a2f3c5@houat>
+ <ZzzdT0wr0u1ApVgV@collins>
+ <20241120-wild-stimulating-prawn-ffefb7@houat>
+ <Zz20dquzl5_2_3TQ@collins>
+ <20241129-amazing-whale-of-proficiency-ee6fd2@houat>
+ <Z0rqILFESdje9qUn@collins>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="7vib2wfrmfkzpfdq"
 Content-Disposition: inline
-In-Reply-To: <77545786331df8bfaf5fdcb309437358@kernel.org>
+In-Reply-To: <Z0rqILFESdje9qUn@collins>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_030314_698450_40323BAB 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20241202_030344_618769_D35BD8CF 
+X-CRM114-Status: GOOD (  51.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,25 +83,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 10:19:41AM +0000, Maxime Ripard wrote:
-> On Sun, 1 Dec 2024 01:55:17 +0200, Dmitry Baryshkov wrote:
-> > The connector->eld is accessed by the .get_eld() callback. This access
-> > can collide with the drm_edid_to_eld() updating the data at the same
-> > time. Add drm_connector.eld_mutex to protect the data from concurrenct
-> > access.
-> > 
-> > 
-> > [ ... ]
-> 
-> Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
-Thanks!
+--7vib2wfrmfkzpfdq
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] pinctrl: sunxi: Use minimal debouncing period as default
+MIME-Version: 1.0
 
-I'm going to post v2 to fix Jani's comment, but what should be the merge
-strategy? Merge patches 1-3, 5, 9-10 through drm-misc and the rest (AMD,
-i915, MSM, radeon) through the driver trees?
+On Sat, Nov 30, 2024 at 11:34:08AM +0100, Paul Kocialkowski wrote:
+> Hi Maxime,
+>=20
+> Le Fri 29 Nov 24, 16:37, Maxime Ripard a =E9crit :
+> > On Wed, Nov 20, 2024 at 11:05:42AM +0100, Paul Kocialkowski wrote:
+> > > Le Wed 20 Nov 24, 09:01, Maxime Ripard a =E9crit :
+> > > > > > If anything, the status quo doesn't impose anything, it just ro=
+lls with
+> > > > > > the hardware default. Yours would impose one though.
+> > > > >=20
+> > > > > The result is that it puts a strong limitation and breaks many us=
+e cases by
+> > > > > default. I don't think we have to accept whatever register defaul=
+t was chosen
+> > > > > by hardware engineers as the most sensible default choice and pre=
+tend that this
+> > > > > is not a policy decision.
+> > > >=20
+> > > > You're making it much worse than it is. It doesn't "break many use
+> > > > cases" it broke one, by default, with a supported way to unbreak it=
+, in
+> > > > 12 years.
+> > >=20
+> > > I think this is exaggerated. Like I mentioned previously there are *m=
+any*
+> > > situations that are not covered by the default.
+> >=20
+> > Note that this statement would be true for any default. The current, the
+> > one you suggest, or any other really. The fact that we have a way to
+> > override it is an acknowledgement that it's not a one size fits all
+> > situation.
+>=20
+> Again the debate is about which option has the best advantages over
+> disadvantages. I'm not saying the default I suggest has no issues, but
+> rather that the benefits very clearly outweight the issues. Hence the many
+> situations that would be supported with the shortest debouncing period (b=
+oth
+> short and frequent interrupts) versus the few broken-hardware use-cases
+> (related to interrupt storms) support with the largest period.
+>=20
+> > > The fact that I'm the first person to bring it up in 12 years doesn't
+> > > change that.
+> >=20
+> > Sure. It does however hint that it seems like it's a sane enough
+> > default.
+>=20
+> Or maybe people didn't realize this mechanism existed, failed to understa=
+nd
+> why their device didn't work with Allwinner platforms and just moved on to
+> use something else. Indeed it's all very subjective interpretation.
+>=20
+> > > Sofar the downside you brought up boils down to: badly-designed
+> > > hardware may have relied on this mechanism to avoid interrupt storms
+> > > that could prevent the system from booting.
+> >=20
+> > It's not about good or bad design. Buttons bounce, HPD signals bounce,
+> > it's just the world we live in.
+>=20
+> Well I'm an electrical engineer and the first thing we were told about
+> buttons and connectors is to include hardware debouncing. The second thing
+> is that it can be done in software (which again is done in a number of dr=
+ivers)
+> by just disabling the interrupt for a while if it happens too often.
+>=20
+> So I'm quite affirmative that taking none of these into account is consti=
+tutive
+> of a broken hardware design. No electrical engineer is told that they sho=
+uldn't
+> care about this because the SoC will filter interrupts for them.
 
--- 
-With best wishes
-Dmitry
+The SoC provides the hardware debouncing. There's no reason not to use
+it, or to choose something redundant. Some might, but it's also
+perfectly valid to just rely on the SoC there.
+
+> Of course it's fine to use this mechanism when it exists, but it's not a
+> reasonable expectation to just assume it will always be there. This is why
+> I think it's not a legitimate reason to make it a default.
+
+Nobody ever designed a board without considering the SoC features but
+rather by adhering to a dogma. The SoC features, components chosen and
+their price, etc. all play a role.
+
+> > But let me rephrase if my main objection wasn't clear enough: you want
+> > to introduce an ABI breaking change. With the possibility of breaking
+> > devices that have worked fine so far. That's not ok.
+>=20
+> I believe it is highly questionable that this constitutes ABI breakage.
+> To me there was no defined behavior in the first place, since the debounc=
+ing
+> configuration is inherited either from the reset value or the boot stage.
+> There is also no formal indication of what the default is, anywhere.
+
+Depending on the interpretation, it either means that you change the
+default, or add a default, to a device-tree property. That constitutes
+an ABI breakage on its own right. And then we can introduce regressions
+for boards, which is another breakage.
+
+> Changing the default configuration of hardware is commonplace. One might
+> for example introduce a reset to a driver to get a clean state because it
+> happened that some boot software would mess it up and it went unnoticed f=
+or
+> a while. Would you also call that ABI breakage?
+
+No, because it doesn't require a change in the default state Linux
+expects when it boots, or changing anything in the device tree. It's a
+self-contained change, and thus there's no interface to break.
+
+> I think there's a number of situations where it's much more sensible to c=
+hange
+> a default state to avoid very visible and practical issues. And it does h=
+appen.
+>=20
+> Also my understanding of the "ABI breakage" rule in the kernel is that no
+> userspace program should stop working when it was implemented to (correct=
+ly)
+> follow some kernel-related ABI. It doesn't mean that we cannot change any
+> default state
+
+If applications rely on that default one way or another, it's absolutely
+what it means. The only criteria is whether this will create a
+regression for any application.
+
+Maxime
+
+--7vib2wfrmfkzpfdq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ02UDAAKCRAnX84Zoj2+
+dlvaAX9//D/IPxxaf7TL1qH2t8T1ewaRAX1zfQ1E+ts3njBZQ2sTuC73YRfz+83a
+s+gNMWIBgMlxRDKQexft0OGEGGccpjg0jtGrrlO7+akPBVqJLefEwCXcioRfL9It
+vtX8zJ8dCg==
+=U1WY
+-----END PGP SIGNATURE-----
+
+--7vib2wfrmfkzpfdq--
 
