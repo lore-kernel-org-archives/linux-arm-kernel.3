@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B5A5D49795
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 03:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32F9BD49798
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 03:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vh9tD9SrY2g72tru/wF+GzXI2rvH2WwAaYCCUwc+uu4=; b=Sc+pPk6SsFTNaaiIoJ7hL3GJ17
-	XTcSj0wLq1r0B7qZQP4WB2pYcYgYvGXvfMoaMcfbrNkWn4HzUJs94tV4TYuSQ0DP6Th+Mb8FsRXh2
-	fEKqNAEJ09GJ+MONaQYRkbsr8gtEqd0Evw4y6r22v6pHEOekHpoWg3jgRrjMQHc17WzE8U+R13rhF
-	dKefiE2GPkG9KOmpjxxw2XXtrcV2uwW48+lsn+Fo+G1qOQtjZB0huBKxpV+Rzc/BP6Fz+M8PgHu/N
-	PNhTn5sPM+JKujh1IjoBir67b1MOaYlO6giLJ3c3MwVyYiXHDmCUOykiUMMgW890ze/C3SKsRYFOu
-	L96aN+Kw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/7PGTzmjpPUY4RIlcJXB5Q1jmNe+Wfb9Ofzi2ziDYRw=; b=4qO+g8etbx+SatyfX2ajYfH4Y5
+	mAm0yqk/CUbi82DulRoa4p9XRJc2vaXPeVzMCizw5RdmVp1/kYJbs0pDfCn053jgjNutyOthgKc2e
+	Un8EZoH3tdH/9jvc+cBGXdcnGqKwgdrAdkCPX+DqH4xKxFF8QIoO22oYgvvjWJ4eqR7lGiPP1pDjd
+	rxe1flIpmeEgUskrTMdpkSs7cB8F7RrnlC2w81iZ3BzJdpNM1X+Jp4nbWXv8HaKCu63zxyL5YKIhK
+	n6A5jzFGLDZooG0alNpN5Qo2Jcfd9rZSOxsh78v7vkeP7irSY+jSLLV1aFu7kbmtWs7c+7MX674Ho
+	C9di/LQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHx2x-00000004vlr-1mB7;
-	Mon, 02 Dec 2024 03:24:27 +0000
-Received: from mail-pj1-f68.google.com ([209.85.216.68])
+	id 1tHx3x-00000004w6j-2TK9;
+	Mon, 02 Dec 2024 03:25:29 +0000
+Received: from mail-pj1-f66.google.com ([209.85.216.66])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHwyB-00000004ukt-1KTd;
-	Mon, 02 Dec 2024 03:19:32 +0000
-Received: by mail-pj1-f68.google.com with SMTP id 98e67ed59e1d1-2ee50ffcf14so1842603a91.0;
-        Sun, 01 Dec 2024 19:19:30 -0800 (PST)
+	id 1tHwyZ-00000004uqa-3jAi;
+	Mon, 02 Dec 2024 03:19:56 +0000
+Received: by mail-pj1-f66.google.com with SMTP id 98e67ed59e1d1-2e56750bb0dso2655362a91.0;
+        Sun, 01 Dec 2024 19:19:55 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733109570; x=1733714370;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vh9tD9SrY2g72tru/wF+GzXI2rvH2WwAaYCCUwc+uu4=;
-        b=Zzi/56GEjOH3l9kIRxQo7eJSAULiIJdjTq0plojxCCN4cgWKvPNjaTT9IiX+xW2UWD
-         zs+etmMQdrL5wsKiQyh7zfjAGRrnMUJ6bKW/wGRtIu1cCysjTgz/KCaB16dcM5DagWnH
-         EDbWU1dLputNOZjwVt3FqFlIUe+lGO3lmoUpGuMLh1KanlgX8xw01oEE4IaUrNvt2MM4
-         hFMvPoQKErKrQ+PKEmyG3CqaU9cE5ApMcCbPrzGsk4/S5c8bl1r46csUOKx6wZxoTAOB
-         GOIR6a8pJh+OO7a8GqzFnVN4N2IIS8qfE5SBB4+kXBAzcjBhxgW5GWyaIz6DyywoGMV3
-         2f8A==
-X-Forwarded-Encrypted: i=1; AJvYcCUKAdxWZFEkWuI8GXIyrallgoqKBBCBNlXYXIQSg1zmYOc5bVI929ZQHnKm7ZKd5FUQzJhkq/0JmcZki2itXpk=@lists.infradead.org, AJvYcCV4LKfmRud+POzIRPg4vX3u245YEQ9zNv6rZwJsgkgk8rWyoIMKneawCzSd7momzeAOZywPBfcSIQ9H5RFXTLYQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3+u2M7aR4Zs8TPJMAuqCFyoozp03X2nwnocsooZJIfjcZDfmM
-	C3k5oKMRqw367WWmqVm09sQ3gsyq90ENfQWVpwZOxqod4loggSFLHeEHkyvASR9UcA==
-X-Gm-Gg: ASbGnctESwVgb2gvTqp5Wi2fADLuAliKszqdFSyAuzGfPI32M2yBdGqexc1ZVBREPco
-	/hgurWcaiLq94lu/IQdO4LIi8f/WupbOI5he7HN2QHgcCrBcNVq1bNQXxjwEjBZEG9JhvU/z9AL
-	NCtTuSicgEdqeLXhTSIftzgFjm6zg91hVlhjZVKel2RDDxMPKFTqApvHvUBwa+Fko+co6Yc83fM
-	bzGzEdm/xMLJOqDk9p2wzU0jhHHamuqoEEgOqrzu1ZCeo59GyEx36fqqY5iSMiGmkKAWY7rng==
-X-Google-Smtp-Source: AGHT+IH7C1NY/qRNbiAs+CizDGqF/VvpgeXetIUzpHeXj6J4+ZGypzWJxzoRraQ19KSnD28F1l8fQg==
-X-Received: by 2002:a17:90a:17e6:b0:2ee:6900:1439 with SMTP id 98e67ed59e1d1-2ee690014b1mr15752762a91.9.1733109569845;
-        Sun, 01 Dec 2024 19:19:29 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733109595; x=1733714395;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/7PGTzmjpPUY4RIlcJXB5Q1jmNe+Wfb9Ofzi2ziDYRw=;
+        b=QjbsIBi5q1q32Ubr/a3dfWk4PeyN0f4grw8FldU++aZ28CMK9p4fvDMhmquo1FysPy
+         AwC8G74yfrIXAka2a+DxeVSJ8cdFAnqKxjQXOJyTf/Z3b0TidULpyvqZC8r2+fMUBr8X
+         N5dRnIx4zrBbbERWl0qJ7wU6NxukOFRz52zube5IbrOhweeINbkG1qZfOrQ3ZB4VLsdU
+         OklOU8vKNUzJ90kPOWzzPDpVG59x6PAm5YEYlV64CNuHK12gwp+d8ld3D32sbGpU+taU
+         vtt4vqIMmXjanuBKCw3vwvZNU+72XJ80cyZH8RlN7fEOyfKPDtalDv7XOes8mzZeiyb7
+         1Wvw==
+X-Forwarded-Encrypted: i=1; AJvYcCWXqhgL0n4wo5q9Xjye+H+AVo55j+6j9pEm8Hi8Z/kDl2XSRctOq+utNnbc9SICEjF/rfVxFwWdfDaFNl0OT7d1@lists.infradead.org, AJvYcCXeabbXZpY/PMSSWt1dnimlzts0wS7aQ79kWMYNO0bEq+Ug5hnx/YjRdjBx/utwtmNf54F/PmVOEBpVJgCt80c=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzQCUOwpH5kPYDYg0iae/vpGTnM801/zUuSLaLWcsyL5LKCB7+
+	O19FT1KMVYRx9jGxMk3IwFxU4H2y2fXI3o/TXOBoW6xm+UYrYd+C
+X-Gm-Gg: ASbGncunnd09XAEzkG0x1Xd9KQqapCc7i7HIhv5t/aAO+3UJwFd8nD0G4caOtCWN1Tf
+	RRga3+GjfltEtiS4RDu2TMY2agTEG00X/qbFUTfoWN28zMPMv/k7OxbjwbWiHOp+Y3WkhGFPm7c
+	z3xN88qUBzfjRGtIZLX8hs4UZ+TAfY3caXpiWHwFE7JzQUbk/EZ4FRhh2b6DwpDto7iavyu7wDp
+	9yLL58+2oaCB8z+IdmD1IEzLEQJcCeutE3B/f4zONJSEXckrz9IPqAH3TyCpsNBILS8McfDHQ==
+X-Google-Smtp-Source: AGHT+IHPuvPyPPD6cvd+D5abHos051/bvNzDVRAVaVZTftg3J9BWL4z22siyBxu7rg8pdYMhYTe9LQ==
+X-Received: by 2002:a17:90b:3505:b0:2ee:b4bf:2d12 with SMTP id 98e67ed59e1d1-2eeb4bf2eb3mr4701338a91.22.1733109594893;
+        Sun, 01 Dec 2024 19:19:54 -0800 (PST)
 Received: from kylin-ThinkBook-15-G2-ITL.. ([116.128.244.171])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2eed19aa971sm540723a91.1.2024.12.01.19.19.22
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2eed19aa971sm540723a91.1.2024.12.01.19.19.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Dec 2024 19:19:29 -0800 (PST)
+        Sun, 01 Dec 2024 19:19:54 -0800 (PST)
 From: xueqin Luo <luoxueqin@kylinos.cn>
 To: nbd@nbd.name,
 	lorenzo@kernel.org,
@@ -75,16 +75,17 @@ Cc: howard-yh.hsu@mediatek.com,
 	linux-mediatek@lists.infradead.org,
 	make24@iscas.ac.cn,
 	xueqin Luo <luoxueqin@kylinos.cn>
-Subject: [PATCH -next 0/2] *** fix overflows seen when writing limit attributes ***
-Date: Mon,  2 Dec 2024 11:19:15 +0800
-Message-Id: <20241202031917.23741-1-luoxueqin@kylinos.cn>
+Subject: [PATCH -next 1/2] wifi: mt76: mt7996: fix overflows seen when writing limit attributes
+Date: Mon,  2 Dec 2024 11:19:16 +0800
+Message-Id: <20241202031917.23741-2-luoxueqin@kylinos.cn>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241202031917.23741-1-luoxueqin@kylinos.cn>
+References: <20241202031917.23741-1-luoxueqin@kylinos.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_191931_358116_28CD838C 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241201_191955_925511_CB38517A 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,14 +105,25 @@ number such as 18446744073709551615 is provided by the user.
 Fix it by reordering clamp_val() and DIV_ROUND_CLOSEST() operations.
 This commit was inspired by commit: 57ee12b6c514.
 
-xueqin Luo (2):
-  wifi: mt76: mt7996: fix overflows seen when writing limit attributes
-  mt76: mt7915: fix overflows seen when writing limit attributes
-
- drivers/net/wireless/mediatek/mt76/mt7915/init.c | 2 +-
+Fixes: 6879b2e94172 ("wifi: mt76: mt7996: add thermal sensor device support")
+Signed-off-by: xueqin Luo <luoxueqin@kylinos.cn>
+---
  drivers/net/wireless/mediatek/mt76/mt7996/init.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+index 5e96973226bb..3a175222f8ba 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+@@ -85,7 +85,7 @@ static ssize_t mt7996_thermal_temp_store(struct device *dev,
+ 		return ret;
+ 
+ 	mutex_lock(&phy->dev->mt76.mutex);
+-	val = clamp_val(DIV_ROUND_CLOSEST(val, 1000), 40, 130);
++	val = DIV_ROUND_CLOSEST(clamp_val(val, 40 * 1000, 130 * 1000), 1000);
+ 
+ 	/* add a safety margin ~10 */
+ 	if ((i - 1 == MT7996_CRIT_TEMP_IDX &&
 -- 
 2.34.1
 
