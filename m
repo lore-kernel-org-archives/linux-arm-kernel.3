@@ -4,111 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D066ED78321
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA4A4D7832E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 15:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LRyhPmwuB9bNoP1yI+HbdW66yfdC8rSpxgAAsBTZkTI=; b=Go4vS1CA9/oK5U9nKNjITmqDDg
-	4HSZpDsm+il5w/YJ3AxMztqj/KkS79yoHD9ViP9LO3TJ3t5I/DZZppRwqDAxnMmd0cjAxpPNh0cBP
-	jcMdyJNy83ZTknzM1trQWWGRqUR9cSSD3pBgwn073GdFmUkMtCpLLyogmueCyQg+L/8Rql4mStI5i
-	fKEN0SonK8Jfy7LAXCUsUrzbhrWCvu+Vd/RNG45d0ucgO6SILVlMje8W74EL+asMmY/jKXSKAisBJ
-	ByiE/eTBlrmXkNr5a3VDULgXwlAKCz6Tux5xIZT8Gt/vTpmrGG0dstsAzOET1U4r6US9CWkP7C9nV
-	V/jgpahQ==;
+	bh=aSE1oYmswp4nZQvrKL5VAYP4YbLQSL+PfB27DrayTI4=; b=FslGQsbbXFOGx9Rt4K4DSrKAiz
+	4rHGU6IO7lL3VAOOqbVd/4FY+tQohvlofJWIJLwTCPsbl0GvxETPCZ+Vn1aHyoTzV2cDLFAOebBqZ
+	wluIBU9lJOaPSvYxLTPazaAb0+dn5QCcI+zr36vN3ukAnYGTJbvSawWDmRlAMxmko3qfzMW37I0AP
+	oznUIzkqj7Qe8XZHESNMGfflK8q5lySr5aYqA24fVQuWhRzrZHvZkU2JrC90UWxYjG9DNcHEdLIgw
+	PWBmWaGvcvArZKzyBrZUpsa1cOpQZPMHa4pd52ElsjXhh+hqmX5ai9MuNIbhD+btqB2QzE+SnLAXO
+	tZA7jCWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI84j-00000006aYJ-48en;
-	Mon, 02 Dec 2024 15:11:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tI86t-00000006b5I-0Ftu;
+	Mon, 02 Dec 2024 15:13:15 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI83k-00000006aPk-1P1K
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 15:10:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 35A33A40EF6;
-	Mon,  2 Dec 2024 15:08:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDC11C4CED2;
-	Mon,  2 Dec 2024 15:09:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733152198;
-	bh=A3Lo9lFCeqF/GPYFe1Yj2juaBqvLzmCWQzlTAPTwBss=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MNlH33vpyXvutISj4rwQxl2mp3YpKB7QTLGmp7sGfh2us5dZK/yoHL5kidtgMXE+V
-	 ZtOHwCPySAW2C5GdRaGXY09g4vrZVo+gnOaG9f9HMmEskgqb9B6pVPE6szOwjTH/3/
-	 JZcIA8mpAp6kbna+pvfiuk2iYT0VBD7K+Ygp/dLXahw8ex1kZ5SKi3JjPz7WUjJJ3a
-	 OFB4AQ0PrYUCZu2mJ27d+liaqUxPLYwL5BXvytUjmTlKb8H+f77XyOEbigqTYWnjLs
-	 q3zLYaHIAkyoZhDWLVFznS1XeQOZCOWScSvg4Ezd7GhqVrdvK/JNtD0PZCsBz3+ZtB
-	 ps9Hw+aLbDwuA==
-Message-ID: <f332947a-d7b5-4f68-84d8-3ecce118c24c@kernel.org>
-Date: Mon, 2 Dec 2024 16:09:51 +0100
+	id 1tI85s-00000006ato-3TFu;
+	Mon, 02 Dec 2024 15:12:13 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-215936688aeso10765635ad.1;
+        Mon, 02 Dec 2024 07:12:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733152332; x=1733757132; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aSE1oYmswp4nZQvrKL5VAYP4YbLQSL+PfB27DrayTI4=;
+        b=OXdGcBhJzEe2CCFj8f3wzd4F6z/4VIaFkhbmxTzwoQohED1j+Cpbt1vC5VReoLHcNh
+         +V6AHw5DR58BLQ3/yFizO2xg7DDzJNpcjKMPNPwCleXdlYePP5Ni451b653JwDOweCVR
+         4oU9dzm3Gqp8oSDcdUhxcMQnjQLyQ7xz6CokkDRyTCTaWFka/q5qQSuAHsU54QE18moQ
+         fCgeQ+HNS99+4Xg+B6mC33MFE99m/EcmX2D0MzxApcohH/Cq7hDE7jDr8wFAlBCU4mvL
+         NSU2J62pSe/AWDb7KJ9wd2Bs5AnhDe8R254+X/QQn5x00E5XBTYvs5IY3zZD5UbLMstt
+         rJlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733152332; x=1733757132;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aSE1oYmswp4nZQvrKL5VAYP4YbLQSL+PfB27DrayTI4=;
+        b=h4UcHB7XuystHww2lnP2bi+haNCwr0s9i1rknxF8XBz5L4OUcaW9dlSnrKMA5YcTiU
+         vHPC5/ymXb8RF7OZ/x4ToTXP9uBqVONyUQtUai2KBJvOOQV0jLLbhAj2qL0D7GgFWVyf
+         yxhhy1Fy75rpTtOsk0l2uUTCbJTHedINvbJOiCopoCpAg+jx+fA6zfcJKqxtQrXht0Ua
+         1kEGZMx2aHSXf8kPQm0UizqJp1nsKUdRBKQlJHWY1YNWdqDdxwuAURL+pTIJSIYVpuKK
+         UrQmbpaMgvrHeqvkLtdES5Eskj9vqCsKlXdYsKxbJd1kscJauvZS+jGJ7GECvh3fcpWl
+         2vAw==
+X-Forwarded-Encrypted: i=1; AJvYcCWI3NGbRJj46YCCRSPgmAvsidb1rTjg2MCTR+Cwobps02QkefF0lbXICu51vitqJLKHpooBIC/1iQf23TFgQsjj@lists.infradead.org, AJvYcCWSFg+CVrH9/eq/GaSA5KhU9Ghdi3wa2r9om6tD+cqFZvnTh4AQg0daBDgrQfkoCFejhzQwbSicoDp0jTtwqU0=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxjBaN7RfwMTlAIosBq+z+sC8ODab1cMLS6r5y4LJSAPF+oCqy1
+	Ap+zDTDN+Iv2z/BQ3DA4Jcc1DYf+xMukIXX9xbjLpJTZV4pQyaVx
+X-Gm-Gg: ASbGnctxjQeGu6tzTxUecOJyXjsmnwC2wifrQeAwVTD+17RwO27Rp9wZAtIwjgnqIFD
+	Pn+PUUJRCGNJVMiGpPEbMrIvM4KXrkTMdGA6XlHTS7JbSjksuSslfTqk28Ek8ndcw2uybHuyOV+
+	5x3d+M694JEb/oBRb9fulGdm85vTsFp0zdZ/RMHQWsXvymnvgGptI3pMdkg0oXvzJTACwoDJeQM
+	TlmVbgEa+T5k95+HkOhoMmTTOMZQqIeF7PgvtumNk2QvXVZOOrP3g5GudwfZ+RvEA==
+X-Google-Smtp-Source: AGHT+IGJGsBN5Bz9z/jmVRFG5EPn8EbineRclxV2mlzSvVxPBgKVWQ30c1kjlQPr/eERQsBmU2EONA==
+X-Received: by 2002:a17:903:440f:b0:215:a7e4:8475 with SMTP id d9443c01a7336-215a7e48795mr33777685ad.24.1733152331602;
+        Mon, 02 Dec 2024 07:12:11 -0800 (PST)
+Received: from localhost.localdomain ([113.30.217.223])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215218f1da4sm78524955ad.12.2024.12.02.07.12.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Dec 2024 07:12:10 -0800 (PST)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Anand Moon <linux.amoon@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-pci@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v11 1/3] PCI: rockchip: Simplify clock handling by using clk_bulk*() function
+Date: Mon,  2 Dec 2024 20:41:42 +0530
+Message-ID: <20241202151150.7393-2-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241202151150.7393-1-linux.amoon@gmail.com>
+References: <20241202151150.7393-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE
- output for PCIe1
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: Romain Naour <romain.naour@smile.fr>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
- conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org, kristo@kernel.org,
- vigneshr@ti.com, nm@ti.com, Romain Naour <romain.naour@skf.com>
-References: <20241202101140.48778-1-romain.naour@smile.fr>
- <dabbad2b-f8a6-4ed7-86da-ec696cf67461@kernel.org>
- <k7udgqugqseweckb7hjniz3aops4kn35ttju2ju7f2pcbmndrg@dau5nr4leish>
- <abeb632b-9efc-48e5-a28a-a9d7c02e0a6e@kernel.org>
- <cndc3fopwhwkotfikul2jtzfczpdpwlrs5uhuqq76ck36ndtfs@gvxavxt5tgd5>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <cndc3fopwhwkotfikul2jtzfczpdpwlrs5uhuqq76ck36ndtfs@gvxavxt5tgd5>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_071000_506190_2C6CDD52 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20241202_071212_863733_1BE53807 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,81 +105,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/12/2024 15:53, Siddharth Vadapalli wrote:
-> On Mon, Dec 02, 2024 at 12:07:17PM +0100, Krzysztof Kozlowski wrote:
-> 
-> Hello Krzysztof,
-> 
->> On 02/12/2024 11:58, Siddharth Vadapalli wrote:
->>> On Mon, Dec 02, 2024 at 11:14:46AM +0100, Krzysztof Kozlowski wrote:
->>>
->>> Hello Krzysztof,
->>>
->>>> On 02/12/2024 11:11, Romain Naour wrote:
->>>>> From: Romain Naour <romain.naour@skf.com>
->>>>>
->>>>> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
->>>>> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
->>>>> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
->>>>> provide refclk through PCIe_REFCLK pins.
->>>>>
->>>>> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
->>>>> module's PAD IO Buffers.
->>>>>
->>>>> Reuse the compatible "ti,j784s4-acspcie-proxy-ctrl" since the ACSPCIE
->>>>> buffer and its functionality is the same across all K3 SoCs.
->>>>>
->>>>> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
->>>>> Signed-off-by: Romain Naour <romain.naour@skf.com>
->>>>> ---
->>>>> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
->>>>> applied on vendor kernel for BeagleBone AI-64:
->>>>> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
->>>>>
->>>>> v2:
->>>>>  - use generic style comments
->>>>>  - use "syscon" as generic node name for "acspcie0_proxy_ctrl" node
->>>>>  - Keep the compatible "ti,j784s4-acspcie-proxy-ctrl" since the
->>>>>    ACSPCIE buffer and its functionality is the same across all K3 SoCs.
->>>>>    (Siddharth Vadapalli)
->>>>>
->>>>>    "The compatible "ti,j784s4-acspcie-pcie-ctrl" should be reused for
->>>>>    J721E and all other K3 SoCs.
->>>>
->>>> No, it shouldn't and you got comment on this. You always need specific
->>>> compatible, see writing bindings doc.
->>>
->>> Could you please clarify in which cases reusing the compatible is
->>> permissible? The list of compatibles at:
->>
->> Never? You always need specific compatible. Did you read the writing
->> bindings document?
-> 
-> I went through the bindings document again at:
-> https://www.kernel.org/doc/Documentation/devicetree/bindings/writing-bindings.rst
-> It mentions:
-> - DON'T use 'syscon' alone without a specific compatible string. A 'syscon'
->   hardware block should have a compatible string unique enough to infer the
->   register layout of the entire block (at a minimum).
-> 
-> The ACSCPCIE Block as well as its integration across all of TI's K3 SoCs
-> is the same i.e. same Hardware/IP. The register bits corresponding to
+Currently, the driver acquires clks and prepare enable/disable unprepare
+the clks individually thereby making the driver complex to read.
+But this can be simplified by using the clk_bulk*() APIs.
+Use devm_clk_bulk_get_all() API to acquire all the clks and use
+clk_bulk_prepare_enable() to prepare enable clks
+and clk_bulk_disable_unprepare() APIs disable unprepare them in bulk.
 
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+---
+V11: None
+V10: None
+v9: Re write the commmit message.
+v8: Improve the description of the code changes in commit messagee.
+    Add Rb: Manivannan
+v7: Update the functional change in commmit message.
+v6: None.
+v5: switch to use use devm_clk_bulk_get_all()? gets rid of hardcoding the
+       clock names in driver.
+v4: use dev_err_probe for error patch.
+v3: Fix typo in commit message, dropped reported by.
+v2: Fix compilation error reported by Intel test robot.
+---
+ drivers/pci/controller/pcie-rockchip.c | 65 +++-----------------------
+ drivers/pci/controller/pcie-rockchip.h |  7 ++-
+ 2 files changed, 10 insertions(+), 62 deletions(-)
 
-And first rule for compatible property? DT bindings maintainers keep
-repeating it over and over - specific means soc as front compatible.
+diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/controller/pcie-rockchip.c
+index b9ade7632e11..53aaba03aca6 100644
+--- a/drivers/pci/controller/pcie-rockchip.c
++++ b/drivers/pci/controller/pcie-rockchip.c
+@@ -129,29 +129,9 @@ int rockchip_pcie_parse_dt(struct rockchip_pcie *rockchip)
+ 		return dev_err_probe(dev, PTR_ERR(rockchip->perst_gpio),
+ 				     "failed to get PERST# GPIO\n");
+ 
+-	rockchip->aclk_pcie = devm_clk_get(dev, "aclk");
+-	if (IS_ERR(rockchip->aclk_pcie)) {
+-		dev_err(dev, "aclk clock not found\n");
+-		return PTR_ERR(rockchip->aclk_pcie);
+-	}
+-
+-	rockchip->aclk_perf_pcie = devm_clk_get(dev, "aclk-perf");
+-	if (IS_ERR(rockchip->aclk_perf_pcie)) {
+-		dev_err(dev, "aclk_perf clock not found\n");
+-		return PTR_ERR(rockchip->aclk_perf_pcie);
+-	}
+-
+-	rockchip->hclk_pcie = devm_clk_get(dev, "hclk");
+-	if (IS_ERR(rockchip->hclk_pcie)) {
+-		dev_err(dev, "hclk clock not found\n");
+-		return PTR_ERR(rockchip->hclk_pcie);
+-	}
+-
+-	rockchip->clk_pcie_pm = devm_clk_get(dev, "pm");
+-	if (IS_ERR(rockchip->clk_pcie_pm)) {
+-		dev_err(dev, "pm clock not found\n");
+-		return PTR_ERR(rockchip->clk_pcie_pm);
+-	}
++	rockchip->num_clks = devm_clk_bulk_get_all(dev, &rockchip->clks);
++	if (rockchip->num_clks < 0)
++		return dev_err_probe(dev, err, "failed to get clocks\n");
+ 
+ 	return 0;
+ }
+@@ -375,39 +355,11 @@ int rockchip_pcie_enable_clocks(struct rockchip_pcie *rockchip)
+ 	struct device *dev = rockchip->dev;
+ 	int err;
+ 
+-	err = clk_prepare_enable(rockchip->aclk_pcie);
+-	if (err) {
+-		dev_err(dev, "unable to enable aclk_pcie clock\n");
+-		return err;
+-	}
+-
+-	err = clk_prepare_enable(rockchip->aclk_perf_pcie);
+-	if (err) {
+-		dev_err(dev, "unable to enable aclk_perf_pcie clock\n");
+-		goto err_aclk_perf_pcie;
+-	}
+-
+-	err = clk_prepare_enable(rockchip->hclk_pcie);
+-	if (err) {
+-		dev_err(dev, "unable to enable hclk_pcie clock\n");
+-		goto err_hclk_pcie;
+-	}
+-
+-	err = clk_prepare_enable(rockchip->clk_pcie_pm);
+-	if (err) {
+-		dev_err(dev, "unable to enable clk_pcie_pm clock\n");
+-		goto err_clk_pcie_pm;
+-	}
++	err = clk_bulk_prepare_enable(rockchip->num_clks, rockchip->clks);
++	if (err)
++		return dev_err_probe(dev, err, "failed to enable clocks\n");
+ 
+ 	return 0;
+-
+-err_clk_pcie_pm:
+-	clk_disable_unprepare(rockchip->hclk_pcie);
+-err_hclk_pcie:
+-	clk_disable_unprepare(rockchip->aclk_perf_pcie);
+-err_aclk_perf_pcie:
+-	clk_disable_unprepare(rockchip->aclk_pcie);
+-	return err;
+ }
+ EXPORT_SYMBOL_GPL(rockchip_pcie_enable_clocks);
+ 
+@@ -415,10 +367,7 @@ void rockchip_pcie_disable_clocks(void *data)
+ {
+ 	struct rockchip_pcie *rockchip = data;
+ 
+-	clk_disable_unprepare(rockchip->clk_pcie_pm);
+-	clk_disable_unprepare(rockchip->hclk_pcie);
+-	clk_disable_unprepare(rockchip->aclk_perf_pcie);
+-	clk_disable_unprepare(rockchip->aclk_pcie);
++	clk_bulk_disable_unprepare(rockchip->num_clks, rockchip->clks);
+ }
+ EXPORT_SYMBOL_GPL(rockchip_pcie_disable_clocks);
+ 
+diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
+index a51b087ce878..f79c0a1cbbd0 100644
+--- a/drivers/pci/controller/pcie-rockchip.h
++++ b/drivers/pci/controller/pcie-rockchip.h
+@@ -11,6 +11,7 @@
+ #ifndef _PCIE_ROCKCHIP_H
+ #define _PCIE_ROCKCHIP_H
+ 
++#include <linux/clk.h>
+ #include <linux/kernel.h>
+ #include <linux/pci.h>
+ #include <linux/pci-ecam.h>
+@@ -321,10 +322,8 @@ struct rockchip_pcie {
+ 	struct	reset_control *pm_rst;
+ 	struct	reset_control *aclk_rst;
+ 	struct	reset_control *pclk_rst;
+-	struct	clk *aclk_pcie;
+-	struct	clk *aclk_perf_pcie;
+-	struct	clk *hclk_pcie;
+-	struct	clk *clk_pcie_pm;
++	struct  clk_bulk_data *clks;
++	int	num_clks;
+ 	struct	regulator *vpcie12v; /* 12V power supply */
+ 	struct	regulator *vpcie3v3; /* 3.3V power supply */
+ 	struct	regulator *vpcie1v8; /* 1.8V power supply */
+-- 
+2.47.0
 
-> the feature to be enabled/disabled via the ACSPCIE block are the same as
-> well i.e. "register layout can be inferred". The same goes for the
-> compatibles listed below in my previous reply i.e. they aren't bugs.
-> Same IP and integration across SoCs and hence reused in the sense of
-> Hardware and not Software. I hope this clarifies the rationale for the
-> "reuse".
-
-
-You mix re-use with fallback. These are almost never the same blocks,
-which you imply here.
-
-Best regards,
-Krzysztof
 
