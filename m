@@ -4,81 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B78AAD78338
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAAA8D78333
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 16:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KcIwgDwhH0r2JEAbp50oSCByWlOCYMPyzaBWedWcxxE=; b=VWbMUcFPynrhBeo0t9zuTlULUo
-	prqqjPL+sZo2bU+huf1VKM0gIO8JtZaxKYfhk++YGhkhvdKPEiSOyuOUV6v0djnC55kOFwfy5+m5C
-	UuuKr9BebeVrIwhbVV20My2JoLi681ugEeQaRgabylegsAPB/kqd0NrRb5F4xth2BNY5L8CE/UuA6
-	ytZZFWp8/9uRbvxInEjp9RItLsSPFZcfT3xKTgnx+brFmPoF39v0RewMptYOHJeScnD3xLP9W6s5P
-	KL8e83hqKiuWaHA9Femq5ZlJ9ygf8xucfrDSR1Az/yvMDbcF9LRRJHjHqi3yydlzVS1140as0xpPx
-	chQN43EQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=efShJr0gLJICqjKZNApmGGuj+aHNd7w0+iRzKLrCFTE=; b=mXIZeBY5JKHQnCWoKb9S1TDO2M
+	tAOg1J3bpmWE6gEOYRTQ1TK1Fl+qfEI+i/xQ5oToqYhLPw7CpGyjt97yfNavI+7sdstr6PYNR6gcP
+	sgoobxlBBTax8FUIbVNkyd2kLFBm9jkS9bYtD4VZUe626OmJZhPre8WiGFsOqIS7cQVp0fgWMJwxp
+	e2bZN7RF5z06Yuhk5GhNa3T3Hy1yANyEGuw6Wmu14eDCSZHgCwf3PkFI46fZ3Zn2m7Ethr8nW1T+F
+	Ew3Ua6Fu/3nQPbc5Fx9QmKp4XIZnZBx/MVMvJPXEwLAdkpaHcZTAyHoVwiuZSw4rN6SVh8FGib4p1
+	8PmoDcBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI98R-00000006onv-2djO;
-	Mon, 02 Dec 2024 16:18:55 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1tI99P-00000006p0N-2Slo;
+	Mon, 02 Dec 2024 16:19:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8rs-00000006lU9-03X0;
-	Mon, 02 Dec 2024 16:01:49 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-aa5366d3b47so718595966b.0;
-        Mon, 02 Dec 2024 08:01:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733155306; x=1733760106; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=KcIwgDwhH0r2JEAbp50oSCByWlOCYMPyzaBWedWcxxE=;
-        b=BenBxHKtWpHdDSVMHdooT14R3MNQo0/zKoGDlWx45rtz2B/NtfRi7ak+//BWFvy+ZC
-         8b2+WSunq97TfCDxhwtlyZ6xx5of043qOKeYxxyO8GlokosZvU5CSzS4DFOvZ3oZwgYp
-         iLERrGu0RP78hRTIAZsTYm3Fr55zbJhZDW6ZhpaixJMheiv9w6ItF3i2WUYFi4NGc4vL
-         M9lFDJvmPwZ1yD0+2gT4MDnj4/LB9qNpHzmekMJGwzv5L2y79X8Kybt5+wht9JXLDzfc
-         l3Psn4OMWg3oBF7/q7L/hsHVnc66R+NvLcrPBInupIfshd0PwVc14z5cKQEWDxfz8Pq9
-         JEZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733155306; x=1733760106;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KcIwgDwhH0r2JEAbp50oSCByWlOCYMPyzaBWedWcxxE=;
-        b=pSYeJB21oXWAKHTC65y/2/YN+wlAHK/lEZWv7SyiUpzeDAQ1PQgGvadwEUBQ7mXV8Q
-         8pVIltV8KGEZjpUeUBkqonOqaMzP7IhucYaAKl5qtr2pM/QhP5v8WPKjG1Rl/xHh9amt
-         AV+mIvtO8sV6lxZkpXzBhdOqXvW3J7a4wN05qvS6R4D3kPf01V7M2fEM4hvM+wqxI84O
-         KJD4FyctGCxIriR2Cau6vVaPOvTaAWHn8FYtM0hNcY6Bv6ucwLjQu0q/fvh5UwCCHszP
-         Tx6CUpROUAVezvsiFqWiN6SQraPz85paVCg0roDkIN48311nkQzwnqluA1mj2ESGQBNW
-         mzDg==
-X-Forwarded-Encrypted: i=1; AJvYcCUsMKhl9KNS9nSLHbKiLoMnpwhktvcEgt7oZLiew8/CMRSDGSU4V8QAZUHzGmXbQ7MaycEFLsWScZp9KAchHn0=@lists.infradead.org, AJvYcCW5mSIO8NPy1/hyQJdqd6Q3oGtv5WUa1wfWNnpkaJtIxtrV4/HzuKSiJah3mTwAWuyA2RW/ARQtwgIc@lists.infradead.org, AJvYcCX/i6qfExZMyceWepnwCN6nZL6oCv4O37B+jcmnOVap0NCD0fVA1tK1JrZ6cm9seQ9LIyWOWWMrnKMW5Sxx0Y9L@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZPjy6CwRzJV4YeHfDUYC1wzNsAZp8axAqn8Z/CNwCsSLf0yDt
-	B0TbeJ049yvP/Ds60EJDHiSYNrF/VTnYyzQBPcupR0SDc5ResvRrKCmo1e962llVmu4zBBVqLeM
-	0obfW3bdVkCzqC9UQKR6QE0b/rxQ=
-X-Gm-Gg: ASbGncv2AnW7L0GGFD2OLaFjXubr6RssRchCZffZQ0SSY9Ku6fBiOAdZERH4VDwbImp
-	SIzkJPWTh8gtNAiGiVFBe5qOP0/cfPZ4X
-X-Google-Smtp-Source: AGHT+IGFABNZQaOPRburPWloYkSi4CpGPxba8eF7BykGzMmRWWY/MWtNoKOUl7owa7F4QGuaqVaPpnIxNrEo8kH/2NE=
-X-Received: by 2002:a17:906:846c:b0:aa5:2a71:1646 with SMTP id
- a640c23a62f3a-aa580f56a7fmr1829897466b.33.1733155303815; Mon, 02 Dec 2024
- 08:01:43 -0800 (PST)
+	id 1tI8tF-00000006lml-3e9q
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Dec 2024 16:03:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E17D25C673D;
+	Mon,  2 Dec 2024 16:02:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE273C4CED1;
+	Mon,  2 Dec 2024 16:03:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733155392;
+	bh=RScNYALkuTnO3i/zO9R+Ncw1GfFLqcahc2rAVTG8cQU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jIZE6AoyCeI7gVLvvakszzpiZ8uOZKi1BJbnlwMBsh8QFFCRpWHIJAfCHNwPbDBTS
+	 fDrV69C71toQJ7TQElgJebpjv6YRVVpVPvkLKFoKhmCAar7ABbIxGMvQySTkxJWAJh
+	 CJ+kYvE/cDDV0Z5DGQBsDBsGchCC3z+yhwpI1+U29CNFhh2NgUo61Dqk9H7O0YFBBj
+	 +mQS9q1KnVo6M7KIlvdrzR6jEzT/TpZa/YPXGbLOeOBUa97m8bvnK1qKU63sN+wLf0
+	 WmIjHFVZPWuwyDviAW5i+3qJemGYNuBq4405dOKeA/rn6884cneg62aZQr/yNqwRTV
+	 B2tgJrsyocTxA==
+Message-ID: <a3a4296d-8a0b-4894-b979-00f3e8f8a75a@kernel.org>
+Date: Mon, 2 Dec 2024 17:03:07 +0100
 MIME-Version: 1.0
-References: <20241012071919.3726-1-linux.amoon@gmail.com>
-In-Reply-To: <20241012071919.3726-1-linux.amoon@gmail.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Mon, 2 Dec 2024 21:31:26 +0530
-Message-ID: <CANAwSgSusXfr73LNySLJVnYPDNsyYmK_=2+YXAwm6bLE+NsWdQ@mail.gmail.com>
-Subject: Re: [PATCH v3 0/6] RK3399: PCie Phy using new helper function
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	"open list:GENERIC PHY FRAMEWORK" <linux-phy@lists.infradead.org>, 
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/4] arm64: dts: exynos: Add initial support for
+ Samsung Galaxy S20 5G (x1s)
+To: Umer Uddin <umer.uddin@mentallysanemainliners.org>
+Cc: alim.akhtar@samsung.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
+ igor.belwon@mentallysanemainliners.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, robh@kernel.org
+References: <88f6ab28-1b3f-4144-91c8-0131ee008838@kernel.org>
+ <20241202160011.3232-1-umer.uddin@mentallysanemainliners.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241202160011.3232-1-umer.uddin@mentallysanemainliners.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_080148_051314_FDC2DCF1 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20241202_080313_997463_D436D99D 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,46 +120,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+On 02/12/2024 17:00, Umer Uddin wrote:
+> On 02/12/2024 8:53, Krzysztof Kozlowski wrote:
+> 
+>> Umer,
+>>
+>> I wanted to apply the series, but for two weeks you ignored this
+>> feedback/comment, so I am dropping the patchset from my queue.
+>>
+>> Be sure you respond to reviewers in timely manner (and if you give
+>> yourself more than two weeks to respond it also means other have more
+>> than two weeks...).
+>>
+>> Best regards,
+>> Krzysztof
+> 
+> Hi Krzysztof, I did not mean to ignore him, I had mock examinations coming
+> up when this feedback was sent. I had no chance to reply as i had to prepare
+> and do good in these examinations as they influence what colleges I get
+> accepted at. Sorry for any inconvenience caused to both of you.
 
-On Sat, 12 Oct 2024 at 12:49, Anand Moon <linux.amoon@gmail.com> wrote:
->
-> Few clean of the phy change and Using guard notation makes the code
-> more compact and error handling for mutex_lock/mutex_unlock.
->
-> Plz review te code changes, I tend to do silly mistake.
->
-> v1:
-> [1] https://lore.kernel.org/all/20240901183221.240361-5-linux.amoon@gmail.com/
-> v2: Fix some typo in the subjects.
-> [2] https://lore.kernel.org/all/20241006182445.3713-1-linux.amoon@gmail.com/
->
+I understand. No problem on my side, just wanted to share the reason of
+dropping from my queue. After resolving the discussion somehow, please
+send a new version (if something changed) or resend (if resolution
+results in no changes).
 
-Do you have any device comments on these code changes?
 
-> Thanks
-> -Anand
->
-Thank
--Anand
-
-> Anand Moon (6):
->   phy: rockchip-pcie: Simplify error handling with dev_err_probe()
->   phy: rockchip-pcie: Use devm_clk_get_enabled() helper
->   phy: rockchip-pcie: Use regmap_read_poll_timeout() for PCIe reference
->     clk PLL status
->   phy: rockchip-pcie: Refactor mutex handling in
->     rockchip_pcie_phy_power_off()
->   phy: rockchip-pcie: Refactor mutex handling in
->     rockchip_pcie_phy_power_on()
->   phy: rockchip-pcie: Use guard notation when acquiring mutex
->
->  drivers/phy/rockchip/phy-rockchip-pcie.c | 148 +++++++----------------
->  1 file changed, 47 insertions(+), 101 deletions(-)
->
->
-> base-commit: 09f6b0c8904bfaa1e0601bc102e1b6aa6de8c98f
-> --
-> 2.44.0
->
+Best regards,
+Krzysztof
 
