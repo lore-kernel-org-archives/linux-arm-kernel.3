@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD305D7833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 17:59:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36403D7833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 18:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5SZ1QpPCtoeQnshs6MblGQL+SgBd07fSmzRZ0+2stJY=; b=ZsbUSXbyaEXO/uN9rZ5pK1SNg7
-	IZot5nEHrHhkPYh+P9YO2tsaDTnYZ84FuT4jpxykBJtWz59fe40zevcXFBY7F1FxQdLq12qK7w4IK
-	IM+J/ND8yvs4UoMWQCV3lwqC16/7DHuob9XOF0O8t40B6AaAfyzISf1bXX/ypYtWQaebpa1PpqSt0
-	2jKQq4mtz5q77B6Poe/RivHS5zY8BlR+SxJPD65cIWSH8ieTDezQhVaEFRTixUhPcRpnFZls8NXSu
-	ET6t2C7phW2Y8ZNTB35cfJUjgpquYd7E23ie5oIC2VeZ4iarjiKEyw7nro6ySrv+Z3Zi1whgXccpj
-	8tgfEn6A==;
+	bh=aG5V9bPMmr3yvJlAwQdUJ7OtjiRklUtEDk3XNW725Oo=; b=h63DBaTEA7WtoA1WJIUn4xPOfj
+	sTu0FUnHx8KYTqomq/guA14k7c/CfUOiOEsi5nQV3Wkc/dvtEUD+VHCGr33/Q2E8wQOKjEDnSjYeC
+	ccbse3RiRxxBVqG2hvg/NpAHaqaSlzE2yLsoHuTVfe7eqDxT2uRARyEBRsOgZtXydhg7qquaK/hZk
+	tSCVeg823JArim1EpzDUvUHWBLAHemO0TwX/IORUt1c9mlOGHPFExWkzkfKbab6CFXfNQEQEnIdEJ
+	MZRSmwRAlgYLuuQ9cMSxAkuaFOMf/N+lUv1mzN78lrDIzap8gFJxZGLJ81FrEKqrcUS6VNMMJn8Di
+	I9p4jr1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIAhe-000000076ED-2Efk;
-	Mon, 02 Dec 2024 17:59:22 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tIAic-000000076OZ-25Nq;
+	Mon, 02 Dec 2024 18:00:22 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIAge-0000000763r-1IpH;
-	Mon, 02 Dec 2024 17:58:21 +0000
+	id 1tIAgj-0000000764I-0UOz;
+	Mon, 02 Dec 2024 17:58:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 32920A40CBA;
-	Mon,  2 Dec 2024 17:56:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BD91C4CED1;
-	Mon,  2 Dec 2024 17:58:17 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E6869A411CF;
+	Mon,  2 Dec 2024 17:56:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 156DBC4CED1;
+	Mon,  2 Dec 2024 17:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733162299;
-	bh=bJXHhv1125KrcH8q0sNs+ESdxa4r7njPfil1NuS7//A=;
+	s=k20201202; t=1733162304;
+	bh=RmCnNjhUcPfj4ZV7oqO8MNtJx7x0NboJ5/JOdBfbFVU=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Dxz/NeTUoIAnlz4vAj6C9KKzvQtSbUU6WtoHAu8iLkZlmOnxVaXaFYG1rhiMeqzDz
-	 rZDgv5XsmDpZZRowHBN1zLxUYkeddWh7TNZXK+PlceuAXTWSo7X1gOawVhIFOn1RKP
-	 X1gVSeEK/YgT/+3I6O65NQcMq+vtnsEPiSEjN/sUbXgT+sRxK+lBHFt2mGsRwkxEdO
-	 J6F8P+i4Kt7YpEKQsbdHAbcF2fT7ID+Lq2TrxINt5Aq9OaMC5AhQgGIaUQD90q3stV
-	 Y4qu7OYXEOBr9Se06hMfLiLdyhQ0+/5m/Wkf4UCLiRsNdAjHLRssmh5PXDELgRl2DQ
-	 Ea3QEzsPTnsIw==
+	b=UpQWIfe0QTWKVzbmsHY8AvwXql88P2Uo1M7HBqZjVBV3/oGu6U4ZDflItE396DMVk
+	 tHR62hLdfEvCfdSSLl5COy639nYpCxcjAph2rqtvqFC0ZzCxtL7VccaSeFZsTD/Guf
+	 EkhW2E9yv8C1OjWmibIpd0VHi6J+yqNjYxQGztQdQ4oiV9k+bDcDqNOW1KzjHerhXf
+	 vIxjD1j6kQphHn8fqqEiwJmHX3Ln8c8iZShprFNOK9YZWHCrHSZT/9I2RApjZWngEB
+	 azt/+2/HXBqeng28g9WBKGL1r86FA82ahT9EEqJBoBVpcI3dUrlyRan6kxvcDCELNB
+	 8SHJ853O14eKw==
 From: Mark Brown <broonie@kernel.org>
-To: frattaroli.nicolas@gmail.com, linux-rockchip@lists.infradead.org, 
- Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
-Cc: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, heiko@sntech.de, 
- linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20241118045605.48440-1-dheeraj.linuxdev@gmail.com>
-References: <20241118045605.48440-1-dheeraj.linuxdev@gmail.com>
-Subject: Re: [PATCHv2,sound-next] ASoC: rockchip: i2s-tdm: Fix a useless
- call issue
-Message-Id: <173316229709.189181.1009410834028591581.b4-ty@kernel.org>
-Date: Mon, 02 Dec 2024 17:58:17 +0000
+To: Nicolas Belin <nbelin@baylibre.com>, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20241031102725.2447711-1-andriy.shevchenko@linux.intel.com>
+References: <20241031102725.2447711-1-andriy.shevchenko@linux.intel.com>
+Subject: Re: [PATCH v1 1/1] ASoc: mediatek: mt8365: Don't use "proxy"
+ headers
+Message-Id: <173316230181.189181.7179970847637835365.b4-ty@kernel.org>
+Date: Mon, 02 Dec 2024 17:58:21 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15-dev-9b746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_095820_419411_1EA15107 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20241202_095825_220962_C4CA6E69 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,11 +77,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 Nov 2024 10:26:05 +0530, Dheeraj Reddy Jonnalagadda wrote:
-> This commit fixes a useless call issue detected by Coverity
-> (CID 1507978). The call to rockchip_i2s_ch_to_io is unnecessary as its
-> return value is never checked or used. As a result, the function
-> definition and call is removed.
+On Thu, 31 Oct 2024 12:27:25 +0200, Andy Shevchenko wrote:
+> Update header inclusions to follow IWYU (Include What You Use)
+> principle.
 > 
 > 
 
@@ -88,8 +89,8 @@ Applied to
 
 Thanks!
 
-[1/1] ASoC: rockchip: i2s-tdm: Fix a useless call issue
-      commit: 42c7af046aaf35c42ef864cbd96df025c48ce50f
+[1/1] ASoc: mediatek: mt8365: Don't use "proxy" headers
+      commit: 509544d1b6dbffe7bc1849593ff217f965ec0419
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
