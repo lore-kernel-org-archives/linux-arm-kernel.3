@@ -4,83 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FCD8D10DDD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 09:18:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB92D10DDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Dec 2024 09:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xheUdNTjQZCXCu1iqFVovuDp12XGPVK2eJ3J0wQfUu0=; b=aB5Bdt5raiXZ9BE29tjeJz78bg
-	o+DZWkyj5Kw9+C4dksa6yPs+KH+LbgZ/6hLFxGdjDufHSpxr3LkZ8HyMUZi+ojCh2WY4mXgxUDvRu
-	cbxRPV3qg8gKpjm01wdRV/vghU4ie/1O7j8jwuE5v7rJaIhm56YlRJj1/jEU5Ybh63gpcbZbm3mP7
-	zTIiygNm7RlUYDpjiQtdxQ/kYC5kG4YwX/xWieQ3s2iWDvNrLAsFdt/hp0hlxfLcXPmLfkYiwuqty
-	6vsSlKfa7S9jaesl2c5gFe+BuIZXlhHMvgDR4ixnH7wi1XhAMnZQig5i9DAw1MZF3nd0qyKksEUBx
-	M4NUdxKA==;
+	bh=9CnR6cugJeZs80WFd1vc3StZ9brSKMmV49E9dW03A9g=; b=Rr9X+39+Uu9ggILJGZDYKCo5K2
+	VhK1ldnlPDgD+aDY3E/DnhQ03kqgkI6uWTZnV6PkcQXISqrtxb1lBn9OwNrUzvb4mHUpwMjSHKx/S
+	2Xf0fE1Y+QFfEiM6Qbs3WqMGYOasTZNdmVgRz1j++ocW09Auuj7YIt1vL8YdWy2yeoKVJN48IOhP2
+	w/DY09C/gjqq2Bz3p/ln4XN/fL5dJ9f4/54Epp7CiaWX5CH+QaqXMmy+q0PnLN10jeAfymEuCtAPK
+	cgznpJIiC9CPaFssrNzGBVpbkx/7++iQUkbi+Lycnzd28aSfpNA+/dNnK9LspGSw5+ck5YFOmvqgc
+	mlSBsfgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI2ZX-00000005XDn-2jcB;
-	Mon, 02 Dec 2024 09:18:27 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tI2hA-00000005Yo9-2HpD;
+	Mon, 02 Dec 2024 09:26:20 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI2YY-00000005X6C-29Ej
+	id 1tI2gB-00000005Ygm-1Ege
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Dec 2024 09:17:27 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-434a9f9a225so206625e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 01:17:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733131045; x=1733735845; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=xheUdNTjQZCXCu1iqFVovuDp12XGPVK2eJ3J0wQfUu0=;
-        b=OKfP4ecT+hX0M7jC4LJ4Z7jT68QrNpK+FwJO3wsz8r12rYfUMRoFd5OqC+i1OeM67r
-         UkIO1bXNNJp0BjwJM9KDn+IJdeyKt8Zz1pMw3fPrx+CFQl3jAC8g4QDFiqr2Rz9aIjqI
-         Db+MnBBOLXZJoOmIa9CV0C/zQdS1yZ1gegSKCp1z3GFtg5QWqCuu81MATUC5hf38gc0C
-         /0glnBr/oMaDpAbz2S7w50OSAR2aOxU1urOWKn3Lx7Sjgi+fGkPyb6qZIaKq6MuUaCxO
-         uPJpd5IxzqzMDd/LSUNV9HGVU4zmIpjk981oP4JthYd9Q/6mO5ve0LOnrpQWsnlG2cUj
-         HA9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733131045; x=1733735845;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xheUdNTjQZCXCu1iqFVovuDp12XGPVK2eJ3J0wQfUu0=;
-        b=KFLosQXi3+v1UwNgS5HeT0PxgtWVkBGelIdBfTGed2hTVCUeyDWjqZNGTHNovKkiaf
-         HTwiLabVFTQH5Xe8EvBOooM6tVSWdMWT7feTMn+Lm3r68eRb9ym9KNaEtU4zd9AgctGQ
-         escXJJNRuWR3tccLmVtsZEtoyO+J0urhInHbmJpWgJfePR+NTl1VyCBwIkKhtCxrA0Ni
-         u+M8krnC9D52TubSgvogXqwRvn78y8UMgGCiXMmNTGBjZ7ksc3TIIVdlznEG0m0Zilvb
-         ZfBM1buWn0MCEv7JFG0/b+h9BWkMbVvcrmBaKWg2+E5KFcykVVK4h0ki2EiQTS4nJ312
-         1vxA==
-X-Forwarded-Encrypted: i=1; AJvYcCUqVIb/KrLcZv428sxf0eMT45khHd6NKBYgABwTkXoiVdmI982FSKyA0g2qT/Ppxu02ztR3mQ3DY+qCMbvzsF4u@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxphz4yydB96YHK+TcQG4KbOXPomPLrCzAaF/ZBi3iH6cdXDVV7
-	FZGhC0tzFVAotNYvbxa2pdR+FOBG1PprE+4smmG/4bp6hIyLTCFykBgjrJRo73SR6XV8lKuu6ik
-	PKbI0eB/ZD0dlyuXISrhWtU63g9Xw6thJjDG0
-X-Gm-Gg: ASbGncumw2z519gvpwrtedPV+7ComZxu5MRaofcJsRyqxNCOiJAeMpSAy9lQHvn91pp
-	UV6V+nPcKSSRB1szVO2A3MRaiJbB4+A==
-X-Google-Smtp-Source: AGHT+IGdGsEiB9WCD/AraN19zYGjoqrq86Rwh4ys+1rlPGRuRnqjVWf7BZbYMcLYEbVI3xMnZtgZrN3VG06AQdhaNtM=
-X-Received: by 2002:a05:600c:6a88:b0:42b:a961:e51 with SMTP id
- 5b1f17b1804b1-434b0401690mr4445725e9.0.1733131044951; Mon, 02 Dec 2024
- 01:17:24 -0800 (PST)
+	Mon, 02 Dec 2024 09:25:21 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4Y1yxX42Scz1T6GV;
+	Mon,  2 Dec 2024 17:22:56 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 569911A0188;
+	Mon,  2 Dec 2024 17:25:11 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Mon, 2 Dec 2024 17:25:10 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>,
+	<james.clark@linaro.org>, <coresight@lists.linaro.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <yangyicong@hisilicon.com>
+Subject: [PATCH 1/4] coresight: tmc: Don't reallocate the sysfs_buffer if it's in use
+Date: Mon, 2 Dec 2024 17:24:16 +0800
+Message-ID: <20241202092419.11777-2-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20241202092419.11777-1-yangyicong@huawei.com>
+References: <20241202092419.11777-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-References: <20241128123515.1709777-1-tabba@google.com> <20241128123515.1709777-16-tabba@google.com>
- <8634j7v9rm.wl-maz@kernel.org>
-In-Reply-To: <8634j7v9rm.wl-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 2 Dec 2024 09:16:48 +0000
-Message-ID: <CA+EHjTxnYi7_kStfQtExuQTyBEZict5ekmfn_vg100tHFv_VJQ@mail.gmail.com>
-Subject: Re: [PATCH v3 15/15] KVM: arm64: Renumber remaining vcpu guest
- configuration flags
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	oliver.upton@linux.dev, james.clark@linaro.org, will@kernel.org, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, 
-	kristina.martsenko@arm.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_011726_547367_388D5694 
-X-CRM114-Status: GOOD (  19.03  )
+X-CRM114-CacheID: sfid-20241202_012519_678640_A37B329B 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,52 +72,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 1 Dec 2024 at 13:00, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Thu, 28 Nov 2024 12:35:15 +0000,
-> Fuad Tabba <tabba@google.com> wrote:
-> >
-> > With the vcpu's SVE and PtrAuth configuration flags removed,
-> > there are gaps in the numbering of the cflag bits. Renumber
-> > VCPU_INITIALIZED to bit 0 to remove the gaps.
-> >
-> > No functional change intended.
-> >
-> > Signed-off-by: Fuad Tabba <tabba@google.com>
-> > ---
-> >  arch/arm64/include/asm/kvm_host.h | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > index c5c80c789ad0..2e4afec09728 100644
-> > --- a/arch/arm64/include/asm/kvm_host.h
-> > +++ b/arch/arm64/include/asm/kvm_host.h
-> > @@ -864,10 +864,10 @@ struct kvm_vcpu_arch {
-> >  #define vcpu_set_flag(v, ...)        __vcpu_set_flag((v), __VA_ARGS__)
-> >  #define vcpu_clear_flag(v, ...)      __vcpu_clear_flag((v), __VA_ARGS__)
-> >
-> > +/* KVM_ARM_VCPU_INIT completed */
-> > +#define VCPU_INITIALIZED     __vcpu_single_flag(cflags, BIT(0))
-> >  /* SVE config completed */
-> >  #define VCPU_SVE_FINALIZED   __vcpu_single_flag(cflags, BIT(1))
-> > -/* KVM_ARM_VCPU_INIT completed */
-> > -#define VCPU_INITIALIZED     __vcpu_single_flag(cflags, BIT(3))
-> >
-> >  /* Exception pending */
-> >  #define PENDING_EXCEPTION    __vcpu_single_flag(iflags, BIT(0))
->
-> Please fold this with the relevant patches, even if that makes two
-> consecutive renumbering patches.
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-Will do.
+Enable the trace in below steps will crash the kernel by NULL pointer
+dereferencing:
+echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
+echo 1 > /sys/bus/coresight/devices/etm0/enable_source
+echo 0x400000 > /sys/bus/coresight/devices/tmc_etr0/buffer_size
+echo 1 > /sys/bus/coresight/devices/etm2/enable_source
+dd if=/dev/tmc_etr0 of=test_etm_sysfs_etr_030.data
 
-Thanks!
-/fuad
+The call trace will be like:
+ WARNING: CPU: 39 PID: 8586 at drivers/hwtracing/coresight/coresight-tmc-etr.c:1123 __tmc_etr_disable_hw+0x108/0x140 [coresight_tmc]
+ [...]
+ Call trace:
+  __tmc_etr_disable_hw+0x108/0x140 [coresight_tmc]
+  tmc_read_prepare_etr+0xc0/0xd0 [coresight_tmc]
+  tmc_open+0x60/0xa0 [coresight_tmc]
+  misc_open+0x11c/0x170
+  chrdev_open+0xcc/0x2b0
+  do_dentry_open+0x140/0x4e0
+  vfs_open+0x34/0xf8
+  path_openat+0x2b0/0xf58
+  do_filp_open+0x8c/0x148
+  do_sys_openat2+0xb8/0xe8
+  __arm64_sys_openat+0x70/0xc0
+  el0_svc_common.constprop.0+0x64/0x148
+  do_el0_svc+0x24/0x38
+  el0_svc+0x40/0x140
+  el0t_64_sync_handler+0xc0/0xc8
+  el0t_64_sync+0x1a4/0x1a8
+ ---[ end trace 0000000000000000 ]---
+ Unable to handle kernel NULL pointer dereference at virtual address 0000000000000028
+ [...]
+ Call trace:
+  tmc_etr_get_sysfs_trace+0x10/0x80 [coresight_tmc]
+  vfs_read+0xcc/0x310
+  ksys_read+0x74/0x108
+  __arm64_sys_read+0x24/0x38
+  el0_svc_common.constprop.0+0x64/0x148
+  do_el0_svc+0x24/0x38
+  el0_svc+0x40/0x140
 
-> Thanks,
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+Due to the buffer size changed, the buffer will be reallocated in
+tmc_etr_get_sysfs_buffer() when the second source enabled. At trace
+end tmc_etr_sync_sysfs_buf() will reset the drvdata->sysfs_buf and
+trigger the later NULL pointer dereference when reading out the
+data. Fix this by checking whether the buffer's in use before
+reallocate a now one in tmc_etr_get_sysfs_buffer().
+
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ drivers/hwtracing/coresight/coresight-tmc-etr.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+index a48bb85d0e7f..ad83714ca4dc 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+@@ -1178,7 +1178,11 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+ 	 */
+ 	spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	sysfs_buf = READ_ONCE(drvdata->sysfs_buf);
+-	if (!sysfs_buf || (sysfs_buf->size != drvdata->size)) {
++
++	/* Don't reallocate the buffer if it's already in use */
++	if (!sysfs_buf ||
++	    ((sysfs_buf->size != drvdata->size) &&
++	     coresight_get_mode(csdev) != CS_MODE_SYSFS)) {
+ 		spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 		/* Allocate memory with the locks released */
+-- 
+2.24.0
+
 
