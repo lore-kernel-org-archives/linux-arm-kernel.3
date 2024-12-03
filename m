@@ -4,98 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5288CE64AB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 14:57:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1003AE64AB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o8U6IT/JuO4gtWqGNmB8j7fyacrJGeMkE1vPT6JfBfA=; b=U6ushgsj4LFGF19VjsLNtoJo6J
-	FvJhHCXXImRCCQy332nwEWImZwz3+cQ3aFz2ofM7ZFLE3fQhNT3V7M8mKFyz4IB6wb8ZLHaSNl9d7
-	47VqYOgdew/dL8PzesQy9quGg6anAyEBQ9+BIfMk2DNaocNSHzVvezFI2ngvaqT9QiWtg+I+VmQQD
-	TclwnZA48CPdNoRzmeeoJA5MzXFWVmCP55DUL6obZWSiuZWGHur3oRAkSyjZYakHWFG6ZMQnLdIK7
-	vEB3XHPMfP+9WCCtPt9pHHf8HW5AcJ2DEJztuX+PrOpUNogcbHjSWYoDWDjMGpE5LYiCoGqZ2hJCO
-	+Gfvl3CQ==;
+	bh=AQfWXnwBtjN4+gVX0bHkzy3HHnT2/jPXP6zHmg2fCvs=; b=vP+dZimr8ZIAngwvO9DXXrVau+
+	1sWzJqOKgfXxwWJ+4w68MDCf17JlaDM1FcOVovxPkVVpL3sq5DqwCYNS48Td2Um5baFfda2FM+ycL
+	5W5TAjOYrQh8s6Cb7RUKSwoAQx8dpC+q1C2lmYu0YDr5jtcaOyUK9uYWHbKs8i2Ddw69puWVYiviF
+	1lbXhvrHTTWRxdKkPWsVT9WlXp9i6BOUnzWL/UytQGMQASDkryI+zehLZtafRLDm3nTghBJRZGEGh
+	cBFmuUTMxP5qZCYnmM0eKjft0DI6a6xbxkz2nIp08JiIx1pFY8qBbZzm7LRMN9fpyDliimuABGldU
+	iADo2JQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUL6-00000009qii-3ss8;
-	Tue, 03 Dec 2024 14:57:24 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1tIUNb-00000009rCH-3ATg;
+	Tue, 03 Dec 2024 14:59:59 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUK6-00000009qYd-2xuO
+	id 1tIUMb-00000009r4O-3cgl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 14:56:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733237783; x=1764773783;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=nr9bqAPsYmVIpKYgeN/1T2895DfBpqXXw8ki35XQrNY=;
-  b=KprpihPD/jcSOCFwLVv4rLo4MbsWaVqPSJmHUBqQGZ2JUOGzZ6rJd3SX
-   aW/MnwDl2heIhez9qA4sG0Cn6CCwzy8n5sVCutrEUHFn60xGV1rD82Kjf
-   /BAQWLmpJeAX/bwQLuy99LmgNkwK3dzfkmqRGZs7waT3jaNCogNLy/6l2
-   jQhL5CubDwYWyZ9ZD5aNzJhrxnm34ZgN1i7o/R0MwcTBtwjN7QThL0UOt
-   kahD/XuOA+jOh5MlBU+zFDWytUherSWgMmAoSEbwzI/f0Zv5EWo37+iI4
-   Ivil/nRErtW262opzxQ/2bpcEuQcJm9CWMEb+x41ckXi54Zqk0l//W+BR
-   A==;
-X-CSE-ConnectionGUID: FVcwl0tRSA6+oexvoeMkPg==
-X-CSE-MsgGUID: NPjRJye2Qa+VEOY9LOta0A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11275"; a="37391899"
-X-IronPort-AV: E=Sophos;i="6.12,205,1728975600"; 
-   d="scan'208";a="37391899"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Dec 2024 06:56:20 -0800
-X-CSE-ConnectionGUID: Tre4A+gIQ0+OsOTsF+JqxA==
-X-CSE-MsgGUID: /jaX+ZgoRZKGdDviMXmvsQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,205,1728975600"; 
-   d="scan'208";a="93921130"
-Received: from kniemiec-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.246.135])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Dec 2024 06:56:07 -0800
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Harry Wentland <harry.wentland@amd.com>,
- Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>,
- Alex Deucher <alexander.deucher@amd.com>, Christian =?utf-8?Q?K=C3=B6nig?=
- <christian.koenig@amd.com>, Xinhui Pan <Xinhui.Pan@amd.com>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Phong LE <ple@baylibre.com>,
- Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski
- <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Rodrigo Vivi
- <rodrigo.vivi@intel.com>, Joonas Lahtinen
- <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>,
- Rob Clark <robdclark@gmail.com>, Abhinav Kumar
- <quic_abhinavk@quicinc.com>, Sean Paul <sean@poorly.run>, Marijn Suijten
- <marijn.suijten@somainline.org>, Alain Volmat <alain.volmat@foss.st.com>,
- Raphael Gallais-Pou <rgallaispou@gmail.com>, Dave Stevenson
- <dave.stevenson@raspberrypi.com>, =?utf-8?Q?Ma=C3=ADra?= Canal
- <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- amd-gfx@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, linux-arm-msm@vger.kernel.org,
- freedreno@lists.freedesktop.org
-Subject: Re: [PATCH 06/10] drm/i915/audio: use eld_mutex to protect access
- to connector->eld
-In-Reply-To: <20241201-drm-connector-eld-mutex-v1-6-ba56a6545c03@linaro.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-References: <20241201-drm-connector-eld-mutex-v1-0-ba56a6545c03@linaro.org>
- <20241201-drm-connector-eld-mutex-v1-6-ba56a6545c03@linaro.org>
-Date: Tue, 03 Dec 2024 16:56:04 +0200
-Message-ID: <874j3k4xyz.fsf@intel.com>
+	Tue, 03 Dec 2024 14:58:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=AQfWXnwBtjN4+gVX0bHkzy3HHnT2/jPXP6zHmg2fCvs=; b=Ln
+	B4d1FLm6hFKT1zzUVBGaUbFqCSIXxlRMFuTgS6FHvoDQDHLEdDcUOJ8gi8ngmraFhNAug/S96vt/i
+	t3QOSt5H8yDbjbaPbKmXFEjhTgrH+vleuSIwL0JbIp+/p6Xs3FsMCIm+Nafv2zdnT/daIZdJpICGx
+	oZHrT0RltarQVX4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tIUMM-00F6Nb-5j; Tue, 03 Dec 2024 15:58:42 +0100
+Date: Tue, 3 Dec 2024 15:58:42 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Joey Lu <a0987203069@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	richardcochran@gmail.com, alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com, ychuang3@nuvoton.com, schung@nuvoton.com,
+	yclu4@nuvoton.com, peppe.cavallaro@st.com,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v4 3/3] net: stmmac: dwmac-nuvoton: Add dwmac glue for
+ Nuvoton MA35 family
+Message-ID: <ba09cea2-4cf7-4203-ae98-ea5d8413f69e@lunn.ch>
+References: <20241202023643.75010-1-a0987203069@gmail.com>
+ <20241202023643.75010-4-a0987203069@gmail.com>
+ <9f2c8532-8e52-439a-b253-ad2ceb07b21b@lunn.ch>
+ <75eb13d7-b582-4056-b707-706865611706@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <75eb13d7-b582-4056-b707-706865611706@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_065622_756908_994F56E4 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20241203_065857_906576_9A95E18C 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,53 +80,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 01 Dec 2024, Dmitry Baryshkov <dmitry.baryshkov@linaro.org> wrote:
-> Reading access to connector->eld can happen at the same time the
-> drm_edid_to_eld() updates the data. Take the newly added eld_mutex in
-> order to protect connector->eld from concurrent access.
->
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+On Tue, Dec 03, 2024 at 05:12:24PM +0800, Joey Lu wrote:
+> Dear Andrew,
+> 
+> You're correct. In the stmmac_hw_init function within stmmac_main.c, whether
+> pmt is true is determined by checking the pmt_remote_wake_up bit in the
+> hardware feature register. However, our hardware configuration only supports
+> magic packet and not remote wakeup, so it must be overwritten in the glue
+> driver.
 
-Reviewed-by: Jani Nikula <jani.nikula@intel.com>
-
-and
-
-Acked-by: Jani Nikula <jani.nikula@intel.com>
-
-for merging via whichever tree you find best.
+Please add a comment explaining this. 
 
 
+I'm not sure why the original code doesn't include magic packet as part
+> of pmt.
+> 
+> source code:
+> 
+>         stmmac_hw_init() @net/ethernet/stmicro/stmmac/stmmac_main.c
+> 
+>         priv->plat->enh_desc = priv->dma_cap.enh_desc;
+>         priv->plat->pmt = priv->dma_cap.pmt_remote_wake_up &&
+>                 !(priv->plat->flags & STMMAC_FLAG_USE_PHY_WOL);
+>         priv->hw->pmt = priv->plat->pmt;
+> 
+> Or modify the condition as follows:
+> 
+>         priv->plat->pmt = (priv->dma_cap.pmt_remote_wake_up || priv->
+> dma_cap.pmt_magic_frame) &&
+>                 !(priv->plat->flags & STMMAC_FLAG_USE_PHY_WOL);
 
-> ---
->  drivers/gpu/drm/i915/display/intel_audio.c | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/drivers/gpu/drm/i915/display/intel_audio.c b/drivers/gpu/drm/i915/display/intel_audio.c
-> index 32aa9ec1a204d2ecde46cad36598aa768a3af671..3902ab8431139c3ff4dc17b841d94b6d3241dec3 100644
-> --- a/drivers/gpu/drm/i915/display/intel_audio.c
-> +++ b/drivers/gpu/drm/i915/display/intel_audio.c
-> @@ -699,10 +699,12 @@ bool intel_audio_compute_config(struct intel_encoder *encoder,
->  	const struct drm_display_mode *adjusted_mode =
->  		&crtc_state->hw.adjusted_mode;
->  
-> +	mutex_lock(&connector->eld_mutex);
->  	if (!connector->eld[0]) {
->  		drm_dbg_kms(&i915->drm,
->  			    "Bogus ELD on [CONNECTOR:%d:%s]\n",
->  			    connector->base.id, connector->name);
-> +		mutex_unlock(&connector->eld_mutex);
->  		return false;
->  	}
->  
-> @@ -710,6 +712,7 @@ bool intel_audio_compute_config(struct intel_encoder *encoder,
->  	memcpy(crtc_state->eld, connector->eld, sizeof(crtc_state->eld));
->  
->  	crtc_state->eld[6] = drm_av_sync_delay(connector, adjusted_mode) / 2;
-> +	mutex_unlock(&connector->eld_mutex);
->  
->  	return true;
->  }
+Are there other glue drivers which would benefit from this? It is hard
+for me to say if you hardware is odd, or if this should be a generic
+feature which other glue drivers would use.
 
--- 
-Jani Nikula, Intel
+	Andrew
 
