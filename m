@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B142E74AC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 19:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87BF3E74ACA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 19:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2WPpz2Qk6slKm6K4L/hEF3t3hcDY4cKIF/iBTjqOWQ=; b=qUn81l3F/tW+JXjl2VJ6kL1obu
-	ok8GgdetuTf3kI/ufo58zr6993f3++5tLuhWJ04+RvoLxpFA2SHoHayuMIiHxUw/79HvBLjL+eLCt
-	z36619hA0ZBagn7g6tyW0yO0zZcM7uGAi4YyU4DcNkfWqCxHkRGQ7ohARI7PCB7qduIzbQYLELevf
-	X5SkmC/WYXSxuYzmkx6mVIHNNTJ2RG5yFGUD9WbUmKNSKubFxvldX64awO+9G0onEUNh3xRJo/mqp
-	J8y1sC9bN2jXv3RqYmDf10L8zqffYHhQ8/ITx3svluqqO5D8wbM/tqsIoCjklIWlWrmTP3Zx6Ij3Y
-	qyoWueQA==;
+	bh=Ljs+gv1hVr+XiRqVBXY0trSq+If0bzU9o/nEcT3XzDA=; b=VDZOV62UUkot5a1Lay5vgVBUwm
+	Pl7OGszEehKXxohODy7FatX7GtTIxFhS0LHhoEtprfv5W6/2r3iNO3rTUUdxYF5JOMFFVy6aLyvqM
+	GhHTrctHjaFTE4dNioZJippE0dU20T2x17d2LazRjmnKAJd1b91P95UYd6Zmj3iJrFu+NzCvBojQ7
+	jfWVitR0X4nRQ9jT8c9Qv25+7Omm1jX5fCuijGr2b1XwwkFxCPmq++kw3T3N0ApzunWZKZG/NdVtf
+	jRZQr979qsKJ6VVXFbfaT8iru8M9BgdWUcq3v1Zkh6rmo3ZpUGnTPT/ugo7bWclJib/ujS0QR0y10
+	Gp0yUbwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIYkc-0000000AVNs-3KjK;
-	Tue, 03 Dec 2024 19:40:02 +0000
-Received: from out-186.mta1.migadu.com ([2001:41d0:203:375::ba])
+	id 1tIYlb-0000000AVa6-1ltO;
+	Tue, 03 Dec 2024 19:41:03 +0000
+Received: from out-189.mta1.migadu.com ([2001:41d0:203:375::bd])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIYdz-0000000AU1E-3LdW
+	id 1tIYe1-0000000AU2x-1xJQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 19:33:13 +0000
+	Tue, 03 Dec 2024 19:33:14 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1733254389;
+	t=1733254392;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=p2WPpz2Qk6slKm6K4L/hEF3t3hcDY4cKIF/iBTjqOWQ=;
-	b=TQW/xvxDkAst3EoN0BB+tNWtuzOBv8CuD8/HpYmenhK7aBN9e/64QzSF4nLIc59Y99E79S
-	kHZAAxb1BftagUhFLL8qJL+w1dhuyyYG9sk3fzZqEkoQvF0LhF09K5Rcfuw4rUAaG5ZJY1
-	ttCVmu+rjebQpeeqDtJFoRU3kDMWQds=
+	bh=Ljs+gv1hVr+XiRqVBXY0trSq+If0bzU9o/nEcT3XzDA=;
+	b=XiQiFqWh063UMkAQqarnzcY7a3lTc4w6NAl6KqXOSpy+790Wst359gsWA+VqC0iHa9phUK
+	FeGXRXyhrhLWzZg1gdxGIUCYLnSkzaiqFJdkE/hc3AQ7+WAcUf0jNA+DKisq21wbx77kiv
+	OF/wLHsxqBkKA9Bvo2gbsSRWjn3pWjk=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -53,17 +53,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [RFC PATCH 06/14] KVM: arm64: Use PERF_COUNT_HW_CPU_CYCLES for fixed cycle counter
-Date: Tue,  3 Dec 2024 11:32:12 -0800
-Message-Id: <20241203193220.1070811-7-oliver.upton@linux.dev>
+Subject: [RFC PATCH 07/14] KVM: arm64: Use a cpucap to determine if system supports FEAT_PMUv3
+Date: Tue,  3 Dec 2024 11:32:13 -0800
+Message-Id: <20241203193220.1070811-8-oliver.upton@linux.dev>
 In-Reply-To: <20241203193220.1070811-1-oliver.upton@linux.dev>
 References: <20241203193220.1070811-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_113311_978088_14D30922 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20241203_113313_651369_9051F42B 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,58 +78,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-KVM will soon be able to emulate PMUv3 on non-PMUv3 hardware. Use the
-generic event for CPU cycles to allow a non-PMUv3 driver to map the
-event correctly on underlying hardware.
+KVM is about to learn some new tricks to virtualize PMUv3 on IMPDEF
+hardware. As part of that, we now need to differentiate host support
+from guest support for PMUv3.
+
+Add a cpucap to determine if an architectural PMUv3 is present to guard
+host usage of PMUv3 controls.
 
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- arch/arm64/kvm/pmu-emul.c | 17 +++++++++++++----
- 1 file changed, 13 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/cpufeature.h     |  5 +++++
+ arch/arm64/kernel/cpufeature.c          | 19 +++++++++++++++++++
+ arch/arm64/kvm/hyp/include/hyp/switch.h |  4 ++--
+ arch/arm64/kvm/pmu.c                    | 10 +++++-----
+ arch/arm64/tools/cpucaps                |  1 +
+ include/kvm/arm_pmu.h                   |  2 +-
+ 6 files changed, 33 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 3e7091e1a2e4..0b2ad60717e8 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -700,16 +700,27 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index b64e49bd9d10..3718840e9767 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -867,6 +867,11 @@ static __always_inline bool system_supports_mpam_hcr(void)
+ 	return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
+ }
+ 
++static inline bool system_supports_pmuv3(void)
++{
++	return cpus_have_final_cap(ARM64_HAS_PMUV3);
++}
++
+ int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
+ bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
+ 
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 6ce71f444ed8..fa73fbdd8617 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -1889,6 +1889,19 @@ static bool has_lpa2(const struct arm64_cpu_capabilities *entry, int scope)
+ }
+ #endif
+ 
++static bool has_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
++{
++	u64 dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
++	unsigned int pmuver;
++
++	pmuver = cpuid_feature_extract_unsigned_field(dfr0,
++						      ID_AA64DFR0_EL1_PMUVer_SHIFT);
++	if (pmuver == ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
++		return false;
++
++	return pmuver >= ID_AA64DFR0_EL1_PMUVer_IMP;
++}
++
+ #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+ #define KPTI_NG_TEMP_VA		(-(1UL << PMD_SHIFT))
+ 
+@@ -2990,6 +3003,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, GCS, IMP)
+ 	},
+ #endif
++	{
++		.desc = "PMUv3",
++		.capability = ARM64_HAS_PMUV3,
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.matches = has_pmuv3,
++	},
+ 	{},
+ };
+ 
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index 34f53707892d..995aca419b1e 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -244,7 +244,7 @@ static inline void __activate_traps_common(struct kvm_vcpu *vcpu)
+ 	 * counter, which could make a PMXEVCNTR_EL0 access UNDEF at
+ 	 * EL1 instead of being trapped to EL2.
+ 	 */
+-	if (kvm_arm_support_pmu_v3()) {
++	if (system_supports_pmuv3()) {
+ 		struct kvm_cpu_context *hctxt;
+ 
+ 		write_sysreg(0, pmselr_el0);
+@@ -281,7 +281,7 @@ static inline void __deactivate_traps_common(struct kvm_vcpu *vcpu)
+ 	write_sysreg(*host_data_ptr(host_debug_state.mdcr_el2), mdcr_el2);
+ 
+ 	write_sysreg(0, hstr_el2);
+-	if (kvm_arm_support_pmu_v3()) {
++	if (system_supports_pmuv3()) {
+ 		struct kvm_cpu_context *hctxt;
+ 
+ 		hctxt = host_data_ptr(host_ctxt);
+diff --git a/arch/arm64/kvm/pmu.c b/arch/arm64/kvm/pmu.c
+index 0b3adf3e17b4..6b48a3d16d0d 100644
+--- a/arch/arm64/kvm/pmu.c
++++ b/arch/arm64/kvm/pmu.c
+@@ -41,7 +41,7 @@ void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr)
  {
- 	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
- 	struct arm_pmu *arm_pmu = vcpu->kvm->arch.arm_pmu;
-+	struct perf_event_attr attr = {};
- 	struct perf_event *event;
--	struct perf_event_attr attr;
- 	u64 eventsel, evtreg;
+ 	struct kvm_pmu_events *pmu = kvm_get_pmu_events();
  
- 	evtreg = kvm_pmc_read_evtreg(pmc);
+-	if (!kvm_arm_support_pmu_v3() || !kvm_pmu_switch_needed(attr))
++	if (!system_supports_pmuv3() || !kvm_pmu_switch_needed(attr))
+ 		return;
  
- 	kvm_pmu_stop_counter(pmc);
- 	if (pmc->idx == ARMV8_PMU_CYCLE_IDX) {
--		eventsel = ARMV8_PMUV3_PERFCTR_CPU_CYCLES;
-+		/*
-+		 * Use the common event space for the cycle counter, allowing
-+		 * the underlying PMU driver to map it onto hardware in the
-+		 * unlikely case the host doesn't actually have PMUv3.
-+		 */
-+		attr.type = PERF_TYPE_HARDWARE;
-+		eventsel = PERF_COUNT_HW_CPU_CYCLES;
- 	} else {
-+		/*
-+		 * Otherwise, treat the event as a raw event for the selected
-+		 * PMU.
-+		 */
-+		attr.type = arm_pmu->pmu.type;
- 		eventsel = evtreg & kvm_pmu_event_mask(vcpu->kvm);
+ 	if (!attr->exclude_host)
+@@ -57,7 +57,7 @@ void kvm_clr_pmu_events(u64 clr)
+ {
+ 	struct kvm_pmu_events *pmu = kvm_get_pmu_events();
  
- 		/*
-@@ -729,8 +740,6 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
- 			return;
- 	}
+-	if (!kvm_arm_support_pmu_v3())
++	if (!system_supports_pmuv3())
+ 		return;
  
--	memset(&attr, 0, sizeof(struct perf_event_attr));
--	attr.type = arm_pmu->pmu.type;
- 	attr.size = sizeof(attr);
- 	attr.pinned = 1;
- 	attr.disabled = !kvm_pmu_counter_is_enabled(pmc);
+ 	pmu->events_host &= ~clr;
+@@ -133,7 +133,7 @@ void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu)
+ 	struct kvm_pmu_events *pmu;
+ 	u64 events_guest, events_host;
+ 
+-	if (!kvm_arm_support_pmu_v3() || !has_vhe())
++	if (!system_supports_pmuv3() || !has_vhe())
+ 		return;
+ 
+ 	preempt_disable();
+@@ -154,7 +154,7 @@ void kvm_vcpu_pmu_restore_host(struct kvm_vcpu *vcpu)
+ 	struct kvm_pmu_events *pmu;
+ 	u64 events_guest, events_host;
+ 
+-	if (!kvm_arm_support_pmu_v3() || !has_vhe())
++	if (!system_supports_pmuv3() || !has_vhe())
+ 		return;
+ 
+ 	pmu = kvm_get_pmu_events();
+@@ -180,7 +180,7 @@ bool kvm_set_pmuserenr(u64 val)
+ 	struct kvm_cpu_context *hctxt;
+ 	struct kvm_vcpu *vcpu;
+ 
+-	if (!kvm_arm_support_pmu_v3() || !has_vhe())
++	if (!system_supports_pmuv3() || !has_vhe())
+ 		return false;
+ 
+ 	vcpu = kvm_get_running_vcpu();
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index eb17f59e543c..b291eb73f5e0 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -45,6 +45,7 @@ HAS_LSE_ATOMICS
+ HAS_MOPS
+ HAS_NESTED_VIRT
+ HAS_PAN
++HAS_PMUV3
+ HAS_S1PIE
+ HAS_S1POE
+ HAS_RAS_EXTN
+diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+index e61dd7dd2286..7ef9eb3cede5 100644
+--- a/include/kvm/arm_pmu.h
++++ b/include/kvm/arm_pmu.h
+@@ -87,7 +87,7 @@ void kvm_vcpu_pmu_resync_el0(void);
+  */
+ #define kvm_pmu_update_vcpu_events(vcpu)				\
+ 	do {								\
+-		if (!has_vhe() && kvm_arm_support_pmu_v3())		\
++		if (!has_vhe() && system_supports_pmuv3())		\
+ 			vcpu->arch.pmu.events = *kvm_get_pmu_events();	\
+ 	} while (0)
+ 
 -- 
 2.39.5
 
