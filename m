@@ -4,98 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6015E6C5EE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 02:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F21E6C5F0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 02:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o8uM5ZCf1NAiH2GbTE4Ns0QI3puCq6vIOnKhBpmBZKI=; b=QuXazc3esAUNRG9MMpJ/2ykyhi
-	1BkCX5OeVYyKkbWhN67V86xcAFGlrnxH38hXv+H2HMZUHmFm3FyLZO6phLh5jntw/Sb104ckdsn5T
-	STKaarRaKe0EaJav3RHQ8hAeD+5zQ5MQu+BkXdxc1O9PugSFMLGxs3qg4riXpmzMLxjnS267+2dUq
-	R2wYu+0WCwGqEqdU21BA9YmLadpWEk2e4uQrOPCjp2oLyyIqzYmpU8Tck1dIgFWMPo2CfEaZf+RvU
-	oC9xdEDf65aHWg/6HPq8IvlRD0gjD6FQBZoGzYdIjMntbakAhefWqJ/sGqAGvwFW3GFo+WeOHxMU+
-	1uIGzEXA==;
+	bh=XjMkX0FWa0V9wXUyOrM/F9rNNXBn3JwpSVSYdg5vpNY=; b=h84HJkI14WyENtoIeXpoj/jcDZ
+	TNAqy06XbW2MW2VBt38q4xbJm00O8GXhEQlcbmRRm9ChJQTL0MXh1jq/r8PjU6oJ05ZWk/7WchHLu
+	aOZ79UZGk0kphaLzeNBSmATPDZCmvzqPN1Oqkn3pgTPgD6CkTYH1ADte8RB7guGIaKdf4/6CvPvJ6
+	GGpwVQspC6QxDUJEnW81CF9frnudea6ZYwuamUaLDUOiTFHy5IYSot/T5cMgIejovRGjY7nNAVDTP
+	qPb+zzxLVd3u8eZVUmZOYsVb47puM54PiwKBQh54c+P68yXi4sg7qs3pZSUkQD2OF99rNFfwuEc7H
+	RajGsHFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIIyf-0000000845g-0hCd;
-	Tue, 03 Dec 2024 02:49:29 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tIJ3b-000000084b6-242G;
+	Tue, 03 Dec 2024 02:54:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIIx7-000000083eB-1QdK
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 02:47:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1733194072;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o8uM5ZCf1NAiH2GbTE4Ns0QI3puCq6vIOnKhBpmBZKI=;
-	b=Y1mHAhR/BZcohd/UpwmQ7+WDioxE81mJt76BYfBlqSImAJYHWmlGBky+f65COwF5bcnSgE
-	GB4DCTxWeIXBZEJdTHI9xSRr+irphb9xhgN7HQW9nWbcUyLa7uMFXJizd7l9+IJT65s+Nl
-	VjL6cDzrX9c5iez8Jj0md6ihpRqV7B8=
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
- [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-390-MvgcpjSZPjWlhaX87GhYrw-1; Mon, 02 Dec 2024 21:47:51 -0500
-X-MC-Unique: MvgcpjSZPjWlhaX87GhYrw-1
-X-Mimecast-MFC-AGG-ID: MvgcpjSZPjWlhaX87GhYrw
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2152c1dbcabso38000645ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 18:47:50 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733194070; x=1733798870;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=o8uM5ZCf1NAiH2GbTE4Ns0QI3puCq6vIOnKhBpmBZKI=;
-        b=k7QatXoWwpmNt/A29NibBSrxQ9jPqMGWBeO4msgvy1UWZjnoozDLYP+er8unFpfcHj
-         HHHel+467CwuMZt5KKsi1co2aHSsUK+ANqC2NfgTqCYn0WqTWzihxYxAFS/nomDd4m+S
-         goXE2txDXbPpaZslceRW1/2MBmVmShiD5J9IPMJVQ6XYRfU/VewN2RBiHfjqwfDg6Ei3
-         iNW54N54Sjh/4G7lbh7dMuSfBtNZa0Ul22dEGK3R/NOQky6Ss+i+a2Kyc3Z5lmWLEGOu
-         GLk+AG2gp2W8GQG0RPkWpOxd+oXv1KdmbNNjfSeSBdOgGyDZVwLgz5DeqOYnwAJnIV4O
-         FNhg==
-X-Forwarded-Encrypted: i=1; AJvYcCVZnaHOZRznYZI7PQZaJNZw97QvZFwzMDJftqEixK1dhkRqpf53PnFnJQb6wbrgsigvo9wfIJj3FhwbJkfXBX7u@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCcNzEu1dHrjfatUxy8lkkzw6Diqjq9Es+nVb7VbfS88zAWrKp
-	W/Zvju2KBn4RFs//D9mXL62p4UhfkmEV8hjKMEYaZ0NUG4yQUz2q6RZ6AHsjQtyqPnd0ZR7e/ua
-	FjbWpqmM3PDjJH5J5+pg6AADlH6ZLid/p5miv07GBsgNpIizYCgFUAQey4+yocGop6LpMJJQw
-X-Gm-Gg: ASbGncsSHRWXVsTHBIQVrY7lX71U2up0e5+bOtizaeeXVRWtQRJHMKirO5KhBHuUZqM
-	72OYD5c0QOiq3J1At0Eav1YvnaLSlDok/GgWHaQJvX09A9gWoZUaKSwqkKcSPU9pS2bv2akdrtL
-	LWhv4T8pR09xCTvk0sKLmgRoc35/s/KdHtzzAPi8x0Yw5Sijd+LClujN3PM/k2weFG7/zjZGLWE
-	toqoYyyOOMDqXM8xvw3u3U9YRqDwIJNWoCkEbRk/XRxSiNDfew=
-X-Received: by 2002:a17:902:db0f:b0:215:5d8c:7e3f with SMTP id d9443c01a7336-2155d8c8072mr148391255ad.23.1733194070092;
-        Mon, 02 Dec 2024 18:47:50 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGzeFJ+2ROTZvJnL0D3su2mbemsSdeUnJmTDHLP0c4GM9H7s7uGaM2AzZpaQluWaupBDBrvSw==
-X-Received: by 2002:a17:902:db0f:b0:215:5d8c:7e3f with SMTP id d9443c01a7336-2155d8c8072mr148390975ad.23.1733194069802;
-        Mon, 02 Dec 2024 18:47:49 -0800 (PST)
-Received: from [10.72.112.107] ([43.228.180.230])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2154dae56e8sm59832805ad.19.2024.12.02.18.47.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Dec 2024 18:47:49 -0800 (PST)
-Message-ID: <e0e5d74c-5e5e-4448-aa83-9187daff5b2a@redhat.com>
-Date: Tue, 3 Dec 2024 12:47:44 +1000
+	id 1tIJ2b-000000084PI-19mW;
+	Tue, 03 Dec 2024 02:53:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C3B875C476C;
+	Tue,  3 Dec 2024 02:52:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66EE1C4CED1;
+	Tue,  3 Dec 2024 02:53:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733194412;
+	bh=5NrfrujeFDf+fSH5kneC5axcRATmJ0Nz3tqBpohP0O4=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=MDMb89+cXWpckQeitaTf+4Fsdz2GcREa0ZeO+jAxqBDf4AoOIZerr12+iiwTXJfJm
+	 EwC95pmrY2tOpTHpeMcaus/DE/qIC1pcf4TkH6uEavp1i6l3zu3Q7DjAGRJWoo4aee
+	 KfS5xOuGxQ46w0C7bKs8UyWctftKF1sR1ItCFb14YznnkNWp7EYFWDEFgwkfaPwZ07
+	 Z7gkyitCytSLX4UOySYqy7S9PhV7e85pRkvmvpdc6ITUdCzBdhvoq4ne8X9QxWQ6H5
+	 hx63iPyVu9bjUV+GYRhMcBcpwJbOoeQC49b65w3JbzM6Eff8jcZWxllOTh/VcYGQ9r
+	 9UTP8UDzDsJwg==
+Message-ID: <df0a53ee859e450d84e81547099f5f36.sboyd@kernel.org>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: Ensure adequate HUGE_MAX_HSTATE
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org
-References: <20241202064407.53807-1-anshuman.khandual@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20241202064407.53807-1-anshuman.khandual@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: dTXrGkqLI7Eq8Ral9NOGcW9jh0i-CN0NxFLMe3BW1z8_1733194070
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <ce67e512-a15b-4482-8194-b917096f4eeb@app.fastmail.com>
+References: <20241127-clk-audio-fix-rst-missing-v1-1-9f9d0ab98fce@baylibre.com> <12f29978-c8ce-4bee-a447-dcd086eb936d@app.fastmail.com> <1ja5dk2y5l.fsf@starbuckisacylon.baylibre.com> <f8de4a2a-776f-4c10-b75e-e845bcc38dde@app.fastmail.com> <1j4j3r32ld.fsf@starbuckisacylon.baylibre.com> <306b0b30-5a32-4c7c-86b4-57d50e2307e8@app.fastmail.com> <1jy1131kxz.fsf@starbuckisacylon.baylibre.com> <c06317c6-b2b2-4b6d-96e4-0c2cfc6846de@app.fastmail.com> <1jplmf1jqa.fsf@starbuckisacylon.baylibre.com> <ce67e512-a15b-4482-8194-b917096f4eeb@app.fastmail.com>
+Subject: Re: [PATCH] clk: amlogic: axg-audio: select RESET_MESON_AUX
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Michael Turquette <mturquette@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>, Jerome Brunet <jbrunet@baylibre.com>
+Date: Mon, 02 Dec 2024 18:53:30 -0800
+User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_184753_460162_4E95505A 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20241202_185333_400273_BC9F5622 
+X-CRM114-Status: GOOD (  33.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,26 +70,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/2/24 4:44 PM, Anshuman Khandual wrote:
-> This asserts that HUGE_MAX_HSTATE is sufficient enough preventing potential
-> hugetlb_max_hstate runtime overflow in hugetlb_add_hstate() thus triggering
-> a BUG_ON() there after.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> This patch applies on v6.13-rc1
-> 
->   arch/arm64/mm/hugetlbpage.c | 12 ++++++++++++
->   1 file changed, 12 insertions(+)
-> 
+Happy Thanksgiving!
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Quoting Arnd Bergmann (2024-11-28 07:34:46)
+> On Thu, Nov 28, 2024, at 16:06, Jerome Brunet wrote:
+> > On Thu 28 Nov 2024 at 15:51, "Arnd Bergmann" <arnd@arndb.de> wrote:
+> >> On Thu, Nov 28, 2024, at 15:39, Jerome Brunet wrote:
+> >>> On Thu 28 Nov 2024 at 15:11, "Arnd Bergmann" <arnd@arndb.de> wrote:
+> >>> Eventually that will happen for the rest of the reset implemented
+> >>> under drivers/clk/meson.
+> >>>
+> >>> It allows to make some code common between the platform reset
+> >>> drivers and the aux ones. It also ease maintainance for both
+> >>> Stephen and Philipp.
+> >>
+> >> I don't understand how this helps: the entire point of using
+> >> an auxiliary device is to separate the lifetime rules of
+> >> the different bits, but by doing the creation of the device
+> >> in the same file as the implementation, you are not taking
+> >> advantage of that at all, but instead get the complexity of
+> >> a link-time dependency in addition to a lot of extra code
+> >> for dealing with the additional device.
+> >
+> > My initial rework had the creation in clock (note: that is why I
+> > initially used 'imply', and forgot to update when the creation moved to
+> > reset).
+> >
+> > I was asked to move the creation in reset:
+> > https://lore.kernel.org/r/217a785212d7c1a5b504c6040b3636e6.sboyd@kernel=
+.org
+> >
+> > We are deviating a bit from the initial regression reported by Mark.
+> > Is Ok with you to proceed with that fix and then continue this discussi=
+on
+> > ?
+>=20
+> I really don't want to see those stray 'select' statements
+> in there, as that leave very little incentive for anyone to
+> fix it properly.
+>=20
+> It sounds like Stephen gave you bad advice for how it should
+> be structured, so my best suggestion would be to move the
+> the problem (and the reset driver) back into his subsystem
+> and leave only a simple 'select RESET_CONTROLLER'.
+>=20
+> From the message you cited, I think Stephen had the right
+> intentions ("so that the clk and reset drivers are decoupled"),
+> but the end result did not actually do what he intended
+> even if you did what he asked for.
+>=20
+> Stephen, can you please take a look here and see if you
+> have a better idea for either decoupling the two drivers
+> enough to avoid the link time dependency, or to reintegrate
+> the reset controller code into the clk driver and avoid
+> the complexity?
 
+I think the best approach is to add the reset auxilary device with a
+function that creates the auxiliary device directly by string name and
+does nothing else. Maybe we can have some helper in the auxiliary
+layer that does that all for us, because it's quite a bit of boiler
+plate that we need to write over and over again. Something like:
+
+  int devm_auxiliary_device_create(struct device *parent, const char *name)
+
+that does the whole kzalloc() + ida dance that
+devm_meson_rst_aux_register() is doing today and wraps it all up so that
+the device is removed when the parent driver unbinds. Then this clk
+driver can register the reset device with a single call and not need to
+do anything besides select AUXILIARY_BUS. The regmap can be acquired
+from the parent device in the auxiliary driver probe with
+dev_get_regmap(adev->parent).
 
