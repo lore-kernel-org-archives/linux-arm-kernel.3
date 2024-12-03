@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 361A0E64A89
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D106E64A8A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RaHCE9OgIpmErY0WvfeOvesBKFfHCPf1FxQOg4dpST0=; b=KVLlfFD0vGE5pMDcs+ZCeWsuuU
-	8Vro9UqNtokKynC/l19mXTuXakM5MpsOnJLE8lw2wiSCATQ0J6AeAkeGIC4tqhyqwyMtiKLUR8Ns2
-	6FcEVXwNOHqJ9bs1+JnYxZJM2PzUieK34mMlo4wqqrFy8uCz/+NYnGZ5Xue97gCR9xTqI7jSNAKou
-	6KOF3qoOV6MSb1hhPyR7+CcjZTdW9g6zkSZFvguKoZljdTAGy+ALMLMX44gJkwYVEH5GPzVFd9tO9
-	pbmmLezX+zC03flrppk66gFsYbJ4FfzjZDbrTvvJKcsbSCa/f2bqB4AtHc8sf+2yJe9ZhfyGCX2NI
-	XDdzi6oQ==;
+	bh=ALL+f4BHuaRoZ/AUgNwI0nO8k6FjKsDG+h9P3HobR9A=; b=Xf0k6sNJhF1TFG7BSa7A9Fx6op
+	h5GhzLpc04zLe6P5zysLsuoLM5ycEaS0RcQ0uHonI+FyZ2DceqGaS0+Upwph6oGoFBKHr+9tj2rrQ
+	YqZj+fykNJpwf4D1BPQ3GgS20zK5LMcnBtY7dQ1CCRMGVPCKqRDapjckr/0b9kucbAZIUZ2NFBCNv
+	G8znM18HRcs+1mTTo7fb1JPMadathPKui5f4pEVcX2sfJZgCcZ5ZcxiuNj2vjNOXm/dIHJBjddt2y
+	WC1V0q++hLwseDzQ6RZvDq5FNlufdtJoKeiI6tMlHDWDySKCICRVHylfCSwBLGh+kM+v526erXTWQ
+	WXZ+WTAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISQI-00000009Vij-39di;
-	Tue, 03 Dec 2024 12:54:38 +0000
+	id 1tISRH-00000009VvC-1Suz;
+	Tue, 03 Dec 2024 12:55:39 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISG1-00000009T6h-3DrY
+	id 1tISG5-00000009T86-0ILB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 12:44:02 +0000
+	Tue, 03 Dec 2024 12:44:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C0339A40D14;
-	Tue,  3 Dec 2024 12:42:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23FF5C4CEDD;
-	Tue,  3 Dec 2024 12:43:57 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 01B28A40D14;
+	Tue,  3 Dec 2024 12:42:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CBF7C4CED9;
+	Tue,  3 Dec 2024 12:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733229840;
-	bh=EJS6cgRpKX8lhOM9Z2U2OyNni/XrqcdIMqgpN3jOt9Q=;
+	s=k20201202; t=1733229844;
+	bh=tQF2bkOES8pELS6AoX890Q67hdQxb7iIENpry3lJWio=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=GpFHHavnqh/65aoJp2UGMoEbiC2+a4ajKJxsQoWAUo8ocdkYupQ/zvrrqVtK/87GT
-	 rH5iE5BB8RWMmsFzw42kBWbTRCcQ2I7e7xU/6+0HbfA15IZlJfXHz3RQwbTCiaiPhZ
-	 9LiSBWGlCc6ev8z5L7afxE2DJoLsJkOSs8y6fEAAYUOjomZLaUgMiuI78EcTxjvfiV
-	 Fa/c1xeuPDZYLwZAPe+Zrfy2IduS/zabXq477Pvm5Y3HViRr1KjTQJ/hEPvsnRmNt3
-	 JrucnNpGV2YrJ0w/ekJiEt6mO/CC+O/wZiRXLLrx5e+vBKcldLKDq+WscEH+dh9gvV
-	 WRwF+5Ss7lRbQ==
+	b=nC1M3M5+VVBkODuzNkW9NGIdcDyI34Jna9XLZ1crkDpXOz/ZR4HyPnzQS1qIx/WLw
+	 5lDAsem/1QBfyySsSoZXfiiZDYUVTtOZFWytgB8fTPQSzBjq30G1UrSHMhoY3LpqXk
+	 FJWbyGUKhTJI1Q5EXZSa5FDXZTR2szbIUA3VavLPkHMlAJ+Y2tF0d8/Cbob8LA3St7
+	 6PCZXBayvYngPYr+3juZw07DWGLZBye+lv5JmXQxV4s6rD5N035vFhdz2xQ4TjvugN
+	 phFEKB+5/8+ZCdlQ0Qe6/hGLVgOacyeCkduOU4XVHRGuuM6KN605BdQlrLxWl6QVJH
+	 hWEaNGDNfQ//Q==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 03 Dec 2024 12:39:25 +0000
-Subject: [PATCH v3 6/9] arm64/sysreg: Update ID_AA64ISAR2_EL1 to DDI0601
- 2024-09
+Date: Tue, 03 Dec 2024 12:39:26 +0000
+Subject: [PATCH v3 7/9] arm64/hwcap: Describe 2024 dpISA extensions to
+ userspace
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241203-arm64-2024-dpisa-v3-6-a6c78b1aa297@kernel.org>
+Message-Id: <20241203-arm64-2024-dpisa-v3-7-a6c78b1aa297@kernel.org>
 References: <20241203-arm64-2024-dpisa-v3-0-a6c78b1aa297@kernel.org>
 In-Reply-To: <20241203-arm64-2024-dpisa-v3-0-a6c78b1aa297@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -61,21 +61,20 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, 
  linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=827; i=broonie@kernel.org;
- h=from:subject:message-id; bh=EJS6cgRpKX8lhOM9Z2U2OyNni/XrqcdIMqgpN3jOt9Q=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnTvz4GZPk6EOBZUaoV4zRxu7Rli0wsiye0feNwuA9
- 7WLttSKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ078+AAKCRAk1otyXVSH0JwSB/
- wNUoK5Q2y/2oZkMqGqP4YcOOfJMOTRiEkdFEKe+7gJk7dpGQDlI3/GFZ/0tU7rpgltEDucIwS8fG+Z
- HxengsD/m5dqC7734pajuHEvwgo+HEOc7xSYMP7WsqfLyTXYBr0lR+JpsfrsyULFkCfdNq9f2sOOjT
- otyDCS0IzRMCXBMyIhp4P/3Ld9UYc4tsCI8wsHVTSdMYqod1+d6pjLw6FZiteF2/qOylLZgxsaEcY9
- cBLGmr5BHilHZrP+LNSKUiEJ3DyW5RRe79Dl9M9HIRSOdPtEy1pLtjr5U/2c/GUgWx5ZVCP8xaDuez
- gNT2lqpUWYGunwmUpN58nQeSqSpXsY
+X-Developer-Signature: v=1; a=openpgp-sha256; l=14319; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=tQF2bkOES8pELS6AoX890Q67hdQxb7iIENpry3lJWio=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnTvz50eVDO8Gq9OUeVRI3/nAoGKV05dELjxVA/Biw
+ hUf4PEyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ078+QAKCRAk1otyXVSH0CuIB/
+ 0QFmJOko6uaGygzNaNhJL9FLz37MbQwYTkRUhPQYXWFa+eR9K4WcUyID8DubUjgvTxx7jN0aStCOec
+ MiS5lQVL9oy6AEORg/aNM5TFWNqC4dzVXvwM4+trryYXyuzfJAKzvDbZKgcUdqV4OulZajaC8qSnfF
+ BWK6xJSd9+qBQ04LpNXk7vwqGLFecNn+dspqMiw+HRQwFq1Yia8OsYQVbhtwTpgpi6cWK/ACrRd2jD
+ I/w4BFOSOdaHw6q2aOL8lF6yNakWm1BaS+VytDm5Ui8RJ8Tj2UEdzWGWYSYf2J8tE3lWFj7qzxKzOw
+ I86jB6sz+M0ljR8uoTpRdIzOS+v2Vq
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_044401_876131_C045D685 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241203_044405_253549_446C428C 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,36 +89,280 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DDI0601 2024-09 introduces new features which are enumerated via
-ID_AA64ISAR2_EL1, update the sysreg file to reflect these updates.
+The 2024 dpISA introduces a number of architecture features all of which
+only add new instructions so only require the addition of hwcaps and ID
+register visibility.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/tools/sysreg | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ Documentation/arch/arm64/elf_hwcaps.rst | 51 +++++++++++++++++++++++++++++++++
+ arch/arm64/include/asm/hwcap.h          | 17 +++++++++++
+ arch/arm64/include/uapi/asm/hwcap.h     | 17 +++++++++++
+ arch/arm64/kernel/cpufeature.c          | 35 ++++++++++++++++++++++
+ arch/arm64/kernel/cpuinfo.c             | 17 +++++++++++
+ 5 files changed, 137 insertions(+)
 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 0253d3847aeb2294da04b2b0b3f33f81f32c849f..fe55c04624de74a6c1a5e0be45363b9c46ff1340 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -1556,12 +1556,16 @@ EndEnum
- UnsignedEnum	55:52	CSSC
- 	0b0000	NI
- 	0b0001	IMP
-+	0b0010	CMPBR
- EndEnum
- UnsignedEnum	51:48	RPRFM
- 	0b0000	NI
- 	0b0001	IMP
- EndEnum
--Res0	47:44
-+UnsignedEnum	47:44	PCDPHINT
-+	0b0000	NI
-+	0b0001	IMP
-+EndEnum
- UnsignedEnum	43:40	PRFMSLC
- 	0b0000	NI
- 	0b0001	IMP
+diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
+index 2ff922a406ad83d0dff8104a6e362ac6b02d0e1f..7c99894ca3e8f5433b1a0db6a4679395e5cd9ecc 100644
+--- a/Documentation/arch/arm64/elf_hwcaps.rst
++++ b/Documentation/arch/arm64/elf_hwcaps.rst
+@@ -174,6 +174,57 @@ HWCAP_GCS
+     Functionality implied by ID_AA64PFR1_EL1.GCS == 0b1, as
+     described by Documentation/arch/arm64/gcs.rst.
+ 
++HWCAP_CMPBR
++    Functionality implied by ID_AA64ISAR2_EL1.CSSC == 0b0010.
++
++HWCAP_FPRCVT
++    Functionality implied by ID_AA64ISAR3_EL1.FPRCVT == 0b0001.
++
++HWCAP_F8MM8
++    Functionality implied by ID_AA64FPFR0_EL1.F8MM8 == 0b0001.
++
++HWCAP_F8MM4
++    Functionality implied by ID_AA64FPFR0_EL1.F8MM4 == 0b0001.
++
++HWCAP_SVE_F16MM
++    Functionality implied by ID_AA64ZFR0_EL1.F16MM == 0b0001.
++
++HWCAP_SVE_ELTPERM
++    Functionality implied by ID_AA64ZFR0_EL1.ELTPERM == 0b0001.
++
++HWCAP_SVE_AES2
++    Functionality implied by ID_AA64ZFR0_EL1.AES == 0b0011.
++
++HWCAP_SVE_BFSCALE
++    Functionality implied by ID_AA64ZFR0_EL1.B16B16 == 0b0010.
++
++HWCAP_SVE2P2
++    Functionality implied by ID_AA64ZFR0_EL1.SVEver == 0b0011.
++
++HWCAP_SME2P2
++    Functionality implied by ID_AA64SMFR0_EL1.SMEver == 0b0011.
++
++HWCAP_SME_SF8MM8
++    Functionality implied by ID_AA64SMFR0_EL1.SF8MM8 == 0b1.
++
++HWCAP_SME_SF8MM4
++    Functionality implied by ID_AA64SMFR0_EL1.SF8MM4 == 0b1.
++
++HWCAP_SME_SBITPERM
++    Functionality implied by ID_AA64SMFR0_EL1.SBitPerm == 0b1.
++
++HWCAP_SME_AES
++    Functionality implied by ID_AA64SMFR0_EL1.AES == 0b1.
++
++HWCAP_SME_SFEXPA
++    Functionality implied by ID_AA64SMFR0_EL1.SFEXPA == 0b1.
++
++HWCAP_SME_STMOP
++    Functionality implied by ID_AA64SMFR0_EL1.STMOP == 0b1.
++
++HWCAP_SME_SMOP4
++    Functionality implied by ID_AA64SMFR0_EL1.SMOP4 == 0b1.
++
+ HWCAP2_DCPODP
+     Functionality implied by ID_AA64ISAR1_EL1.DPB == 0b0010.
+ 
+diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
+index 2b6c61c608e2cd107503b09aba5aaeab639b759a..dbec921ee39c8c897f3e1e1c84d522b5b57130bb 100644
+--- a/arch/arm64/include/asm/hwcap.h
++++ b/arch/arm64/include/asm/hwcap.h
+@@ -93,6 +93,23 @@
+ #define KERNEL_HWCAP_PACA		__khwcap_feature(PACA)
+ #define KERNEL_HWCAP_PACG		__khwcap_feature(PACG)
+ #define KERNEL_HWCAP_GCS		__khwcap_feature(GCS)
++#define KERNEL_HWCAP_CMPBR		__khwcap_feature(CMPBR)
++#define KERNEL_HWCAP_FPRCVT		__khwcap_feature(FPRCVT)
++#define KERNEL_HWCAP_F8MM8		__khwcap_feature(F8MM8)
++#define KERNEL_HWCAP_F8MM4		__khwcap_feature(F8MM4)
++#define KERNEL_HWCAP_SVE_F16MM		__khwcap_feature(SVE_F16MM)
++#define KERNEL_HWCAP_SVE_ELTPERM	__khwcap_feature(SVE_ELTPERM)
++#define KERNEL_HWCAP_SVE_AES2		__khwcap_feature(SVE_AES2)
++#define KERNEL_HWCAP_SVE_BFSCALE	__khwcap_feature(SVE_BFSCALE)
++#define KERNEL_HWCAP_SVE2P2		__khwcap_feature(SVE2P2)
++#define KERNEL_HWCAP_SME2P2		__khwcap_feature(SME2P2)
++#define KERNEL_HWCAP_SME_SF8MM8		__khwcap_feature(SME_SF8MM8)
++#define KERNEL_HWCAP_SME_SF8MM4		__khwcap_feature(SME_SF8MM4)
++#define KERNEL_HWCAP_SME_SBITPERM	__khwcap_feature(SME_SBITPERM)
++#define KERNEL_HWCAP_SME_AES		__khwcap_feature(SME_AES)
++#define KERNEL_HWCAP_SME_SFEXPA		__khwcap_feature(SME_SFEXPA)
++#define KERNEL_HWCAP_SME_STMOP		__khwcap_feature(SME_STMOP)
++#define KERNEL_HWCAP_SME_SMOP4		__khwcap_feature(SME_SMOP4)
+ 
+ #define __khwcap2_feature(x)		(const_ilog2(HWCAP2_ ## x) + 64)
+ #define KERNEL_HWCAP_DCPODP		__khwcap2_feature(DCPODP)
+diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
+index 48d46b768eaec4c307360cd3bee8b564687f4b88..61fbc88d2bfb81d0bad639ed533ac67440ae2fc4 100644
+--- a/arch/arm64/include/uapi/asm/hwcap.h
++++ b/arch/arm64/include/uapi/asm/hwcap.h
+@@ -56,6 +56,23 @@
+ #define HWCAP_PACA		(1 << 30)
+ #define HWCAP_PACG		(1UL << 31)
+ #define HWCAP_GCS		(1UL << 32)
++#define HWCAP_CMPBR		(1UL << 33)
++#define HWCAP_FPRCVT		(1UL << 34)
++#define HWCAP_F8MM8		(1UL << 35)
++#define HWCAP_F8MM4		(1UL << 36)
++#define HWCAP_SVE_F16MM		(1UL << 37)
++#define HWCAP_SVE_ELTPERM	(1UL << 38)
++#define HWCAP_SVE_AES2		(1UL << 39)
++#define HWCAP_SVE_BFSCALE	(1UL << 40)
++#define HWCAP_SVE2P2		(1UL << 41)
++#define HWCAP_SME2P2		(1UL << 42)
++#define HWCAP_SME_SF8MM8	(1UL << 43)
++#define HWCAP_SME_SF8MM4	(1UL << 44)
++#define HWCAP_SME_SBITPERM	(1UL << 45)
++#define HWCAP_SME_AES		(1UL << 46)
++#define HWCAP_SME_SFEXPA	(1UL << 47)
++#define HWCAP_SME_STMOP		(1UL << 48)
++#define HWCAP_SME_SMOP4		(1UL << 49)
+ 
+ /*
+  * HWCAP2 flags - for AT_HWCAP2
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 6ce71f444ed84f9056196bb21bbfac61c9687e30..7ba73fdee6deb57cd745ff684eeb97f66d2ea85f 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -268,6 +268,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar2[] = {
+ };
+ 
+ static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
++	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_FPRCVT_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_FAMINMAX_SHIFT, 4, 0),
+ 	ARM64_FTR_END,
+ };
+@@ -317,6 +318,8 @@ static const struct arm64_ftr_bits ftr_id_aa64zfr0[] = {
+ 		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ZFR0_EL1_F64MM_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SVE),
+ 		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ZFR0_EL1_F32MM_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SVE),
++		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ZFR0_EL1_F16MM_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SVE),
+ 		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ZFR0_EL1_I8MM_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SVE),
+@@ -329,6 +332,8 @@ static const struct arm64_ftr_bits ftr_id_aa64zfr0[] = {
+ 		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ZFR0_EL1_BF16_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SVE),
+ 		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ZFR0_EL1_BitPerm_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SVE),
++		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ZFR0_EL1_EltPerm_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SVE),
+ 		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ZFR0_EL1_AES_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SVE),
+@@ -373,6 +378,20 @@ static const struct arm64_ftr_bits ftr_id_aa64smfr0[] = {
+ 		       FTR_STRICT, FTR_EXACT, ID_AA64SMFR0_EL1_SF8DP4_SHIFT, 1, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SME),
+ 		       FTR_STRICT, FTR_EXACT, ID_AA64SMFR0_EL1_SF8DP2_SHIFT, 1, 0),
++	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SME),
++		       FTR_STRICT, FTR_EXACT, ID_AA64SMFR0_EL1_SF8MM8_SHIFT, 1, 0),
++	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SME),
++		       FTR_STRICT, FTR_EXACT, ID_AA64SMFR0_EL1_SF8MM4_SHIFT, 1, 0),
++	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SME),
++		       FTR_STRICT, FTR_EXACT, ID_AA64SMFR0_EL1_SBitPerm_SHIFT, 1, 0),
++	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SME),
++		       FTR_STRICT, FTR_EXACT, ID_AA64SMFR0_EL1_AES_SHIFT, 1, 0),
++	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SME),
++		       FTR_STRICT, FTR_EXACT, ID_AA64SMFR0_EL1_SFEXPA_SHIFT, 1, 0),
++	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SME),
++		       FTR_STRICT, FTR_EXACT, ID_AA64SMFR0_EL1_STMOP_SHIFT, 1, 0),
++	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SME),
++		       FTR_STRICT, FTR_EXACT, ID_AA64SMFR0_EL1_SMOP4_SHIFT, 1, 0),
+ 	ARM64_FTR_END,
+ };
+ 
+@@ -381,6 +400,8 @@ static const struct arm64_ftr_bits ftr_id_aa64fpfr0[] = {
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_EXACT, ID_AA64FPFR0_EL1_F8FMA_SHIFT, 1, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_EXACT, ID_AA64FPFR0_EL1_F8DP4_SHIFT, 1, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_EXACT, ID_AA64FPFR0_EL1_F8DP2_SHIFT, 1, 0),
++	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_EXACT, ID_AA64FPFR0_EL1_F8MM8_SHIFT, 1, 0),
++	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_EXACT, ID_AA64FPFR0_EL1_F8MM4_SHIFT, 1, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_EXACT, ID_AA64FPFR0_EL1_F8E4M3_SHIFT, 1, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_EXACT, ID_AA64FPFR0_EL1_F8E5M2_SHIFT, 1, 0),
+ 	ARM64_FTR_END,
+@@ -3092,12 +3113,15 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64MMFR2_EL1, AT, IMP, CAP_HWCAP, KERNEL_HWCAP_USCAT),
+ #ifdef CONFIG_ARM64_SVE
+ 	HWCAP_CAP(ID_AA64PFR0_EL1, SVE, IMP, CAP_HWCAP, KERNEL_HWCAP_SVE),
++	HWCAP_CAP(ID_AA64ZFR0_EL1, SVEver, SVE2p2, CAP_HWCAP, KERNEL_HWCAP_SVE2P2),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, SVEver, SVE2p1, CAP_HWCAP, KERNEL_HWCAP_SVE2P1),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, SVEver, SVE2, CAP_HWCAP, KERNEL_HWCAP_SVE2),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, AES, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEAES),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, AES, PMULL128, CAP_HWCAP, KERNEL_HWCAP_SVEPMULL),
++	HWCAP_CAP(ID_AA64ZFR0_EL1, AES, AES2, CAP_HWCAP, KERNEL_HWCAP_SVE_AES2),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, BitPerm, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBITPERM),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, B16B16, IMP, CAP_HWCAP, KERNEL_HWCAP_SVE_B16B16),
++	HWCAP_CAP(ID_AA64ZFR0_EL1, B16B16, BFSCALE, CAP_HWCAP, KERNEL_HWCAP_SVE_BFSCALE),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, BF16, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBF16),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, BF16, EBF16, CAP_HWCAP, KERNEL_HWCAP_SVE_EBF16),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, SHA3, IMP, CAP_HWCAP, KERNEL_HWCAP_SVESHA3),
+@@ -3105,6 +3129,8 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEI8MM),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, F32MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF32MM),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, F64MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF64MM),
++	HWCAP_CAP(ID_AA64ZFR0_EL1, F16MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVE_F16MM),
++	HWCAP_CAP(ID_AA64ZFR0_EL1, EltPerm, IMP, CAP_HWCAP, KERNEL_HWCAP_SVE_ELTPERM),
+ #endif
+ #ifdef CONFIG_ARM64_GCS
+ 	HWCAP_CAP(ID_AA64PFR1_EL1, GCS, IMP, CAP_HWCAP, KERNEL_HWCAP_GCS),
+@@ -3124,6 +3150,7 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64MMFR0_EL1, ECV, IMP, CAP_HWCAP, KERNEL_HWCAP_ECV),
+ 	HWCAP_CAP(ID_AA64MMFR1_EL1, AFP, IMP, CAP_HWCAP, KERNEL_HWCAP_AFP),
+ 	HWCAP_CAP(ID_AA64ISAR2_EL1, CSSC, IMP, CAP_HWCAP, KERNEL_HWCAP_CSSC),
++	HWCAP_CAP(ID_AA64ISAR2_EL1, CSSC, CMPBR, CAP_HWCAP, KERNEL_HWCAP_CMPBR),
+ 	HWCAP_CAP(ID_AA64ISAR2_EL1, RPRFM, IMP, CAP_HWCAP, KERNEL_HWCAP_RPRFM),
+ 	HWCAP_CAP(ID_AA64ISAR2_EL1, RPRES, IMP, CAP_HWCAP, KERNEL_HWCAP_RPRES),
+ 	HWCAP_CAP(ID_AA64ISAR2_EL1, WFxT, IMP, CAP_HWCAP, KERNEL_HWCAP_WFXT),
+@@ -3133,6 +3160,7 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64PFR1_EL1, SME, IMP, CAP_HWCAP, KERNEL_HWCAP_SME),
+ 	HWCAP_CAP(ID_AA64SMFR0_EL1, FA64, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_FA64),
+ 	HWCAP_CAP(ID_AA64SMFR0_EL1, LUTv2, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_LUTV2),
++	HWCAP_CAP(ID_AA64SMFR0_EL1, SMEver, SME2p2, CAP_HWCAP, KERNEL_HWCAP_SME2P2),
+ 	HWCAP_CAP(ID_AA64SMFR0_EL1, SMEver, SME2p1, CAP_HWCAP, KERNEL_HWCAP_SME2P1),
+ 	HWCAP_CAP(ID_AA64SMFR0_EL1, SMEver, SME2, CAP_HWCAP, KERNEL_HWCAP_SME2),
+ 	HWCAP_CAP(ID_AA64SMFR0_EL1, I16I64, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_I16I64),
+@@ -3150,6 +3178,13 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64SMFR0_EL1, SF8FMA, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SF8FMA),
+ 	HWCAP_CAP(ID_AA64SMFR0_EL1, SF8DP4, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SF8DP4),
+ 	HWCAP_CAP(ID_AA64SMFR0_EL1, SF8DP2, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SF8DP2),
++	HWCAP_CAP(ID_AA64SMFR0_EL1, SF8MM8, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SF8MM8),
++	HWCAP_CAP(ID_AA64SMFR0_EL1, SF8MM4, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SF8MM4),
++	HWCAP_CAP(ID_AA64SMFR0_EL1, SBitPerm, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SBITPERM),
++	HWCAP_CAP(ID_AA64SMFR0_EL1, AES, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_AES),
++	HWCAP_CAP(ID_AA64SMFR0_EL1, SFEXPA, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SFEXPA),
++	HWCAP_CAP(ID_AA64SMFR0_EL1, STMOP, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_STMOP),
++	HWCAP_CAP(ID_AA64SMFR0_EL1, SMOP4, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SMOP4),
+ #endif /* CONFIG_ARM64_SME */
+ 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8CVT, IMP, CAP_HWCAP, KERNEL_HWCAP_F8CVT),
+ 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8FMA, IMP, CAP_HWCAP, KERNEL_HWCAP_F8FMA),
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index d79e88fccdfce427507e7a34c5959ce6309cbd12..9861291843d8fbcc5f8e68e2b9eaac65a0b37c22 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -145,6 +145,23 @@ static const char *const hwcap_str[] = {
+ 	[KERNEL_HWCAP_SME_SF8DP4]	= "smesf8dp4",
+ 	[KERNEL_HWCAP_SME_SF8DP2]	= "smesf8dp2",
+ 	[KERNEL_HWCAP_POE]		= "poe",
++	[KERNEL_HWCAP_CMPBR]		= "cmpbr",
++	[KERNEL_HWCAP_FPRCVT]		= "fprcvt",
++	[KERNEL_HWCAP_F8MM8]		= "f8mm8",
++	[KERNEL_HWCAP_F8MM4]		= "f8mm4",
++	[KERNEL_HWCAP_SVE_F16MM]	= "svef16mm",
++	[KERNEL_HWCAP_SVE_ELTPERM]	= "sveeltperm",
++	[KERNEL_HWCAP_SVE_AES2]		= "sveaes2",
++	[KERNEL_HWCAP_SVE_BFSCALE]	= "svebfscale",
++	[KERNEL_HWCAP_SVE2P2]		= "sve2p2",
++	[KERNEL_HWCAP_SME2P2]		= "sme2p2",
++	[KERNEL_HWCAP_SME_SF8MM8]	= "smesf8mm8",
++	[KERNEL_HWCAP_SME_SF8MM4]	= "smesf8mm4",
++	[KERNEL_HWCAP_SME_SBITPERM]	= "smesbitperm",
++	[KERNEL_HWCAP_SME_AES]		= "smeaes",
++	[KERNEL_HWCAP_SME_SFEXPA]	= "smesfexpa",
++	[KERNEL_HWCAP_SME_STMOP]	= "smestmop",
++	[KERNEL_HWCAP_SME_SMOP4]	= "smesmop4",
+ };
+ 
+ #ifdef CONFIG_COMPAT
 
 -- 
 2.39.5
