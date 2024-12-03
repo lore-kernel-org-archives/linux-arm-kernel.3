@@ -4,150 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 181F5E6C60B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 06:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9298BE6C60B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 06:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S5W1pdG1/g1x5Kl5aExxDvEWOMwYFO++dRHej9/5fSc=; b=rT7DwkW0TfXenZM4DbVXnyL+bQ
-	idplcH4Kvy84sVI0DOj4yNatuECUYHqM9QPKsAEU4PRv+7cTrrJ9a3SXArytehdhS0O/smVJGTc/D
-	I59Te8TVQ2F/6Psu0iiovc6a2WRnk+fOfkDquk/bWcrX5b9WJbHzF1yusN5w4Q5iMfuNoCfCYxo88
-	oegwt/nuhSPF83EgQc+gK2pcYyUdshZR3Kwz76EkSkNGWU63rNWvYY/N/Anx9X0kN/w4W7ZQ5rNhK
-	XIFxWglxYpLCS/50DJqTqWGRzMJkd8oIRlBHig8OgA4xJGfv2ijQIClW/ltg011o0AHu+t3eH/eyg
-	wRypuWPw==;
+	bh=/RobnTVBYLiaDMD8JmMIw8HC0/tWcGzmOm0rswY3UxM=; b=Mh2F8PdVe113s3rZjDCo7yQHbI
+	/iQJfQcE21+k0uDCk97CA59kvgTtyET9Yw/ReB8pQBZbpmTIhy0JIOU8DiksGB0xestsm3U66jSCv
+	GKLCwhjZgHip5/a6LUCUMnDYu4gnqeFes8FD/DYKTq4zFJ7KtXMipAkO00VXQHGvTPHgIIoxeduEz
+	RL84uDqkQszc9zUOMxseG6uHQjIwU2pL/nbxzd0+xjk7lm9Xv9XypnzrxodmWdrGucD4Lq7rFvuAw
+	Ja3BxHt1TNjx0lXIhez/RKNyXiLRifBndah1HmO8ZfsZPy3PEj9eJ/AHo7386TyDYtSe3RLeadxZD
+	77wkAs0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIMi2-00000008RWh-1mFE;
-	Tue, 03 Dec 2024 06:48:34 +0000
-Received: from mail-vi1eur05on20608.outbound.protection.outlook.com ([2a01:111:f403:2613::608] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tIMj2-00000008Rdh-0Jq5;
+	Tue, 03 Dec 2024 06:49:36 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIMh2-00000008RJe-1fvN
+	id 1tIMhF-00000008RMq-3uef
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 06:47:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MsWWjNDUteQPZ61H0XcgAcgG1y3w9ICDGIPzGMgf8L5T1hUwBYj/W66Q5jwBSANzBwCrbOyfmcLlp7n9A0ZcFMYazKhcBIi+7GeUqi4zBnQni+4lsBkbIJml4dro7w6BlyuRBRkpy+T5VodTj5P8bg1cuIZdsWC+BFdG1LKDkDEekowDaAnGqNw3XB4Mf4yQFGepxqwyqFWZW+0zb0IywX+ZpUpZ89kbmMSN2HatRyztICBCyTLO7elhu7m6Na5nCoRWblfTssS4YvvXoKhFrv1wcZrhaxxj4ijpRIovi104dxG7yjQ4T0539u3uAOE+8WXFlZS6lOwVskRxfz5z/A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=S5W1pdG1/g1x5Kl5aExxDvEWOMwYFO++dRHej9/5fSc=;
- b=jEdAaFqQxnC/qogvaBDkn6le64oPDJctQvfZhFcLk1UoZk6baOLm/KTCxBKJlqACGNnO038iccFTacJcUFN/CFlq1X3Hwxv3OMvTncD0dB/wo7JkSt3cOVxgD+g4d+3M01jiD1f6bSXMMcf0MkUX7r/Nhrxru1AE2qTIcdfjCnBaERi3PVM4mpZuEhffU6EQhsDzrgzl1fbgfFvKhUJ5wllVrvcZe3TLWYFd7nN5a0ErX3ZYz0Xay/Qpr7TV4+u9xR2WyDRph+IeDaQZqxDxMNx4Fv5D7qza+U3nmnB3d4acOVm0VrZkCOrmLonq4H4rhoUXJuj9BpYZ2Jos0QftWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=S5W1pdG1/g1x5Kl5aExxDvEWOMwYFO++dRHej9/5fSc=;
- b=dOJ2RV7pwTEmwRFOix8tDeGGlZUJSLMbLjgxojp9/qV4Gu1i1Qdkjev9BPFzIrsPNsx4qDYVdLDAXjapLQkfaxKWTCE28glfhtQsMM+xRzy9ELDq1pInR+iSspjQzPk4/FT0qx3HHpuh0iJGn/QSuA1McJnk9kcqGlwA6DEPmJCV1FV7iFPPHtTXOy4hRaN5izlVem1/IdHvg/ZjT6b7CgGLSh8VSVFFFz246T0fQIRvGW6N3GQ0pyIJEXHxVGEhpKCwPNXqWncajkBBkjDtp3yXY75iOd0U/w2462pq54ArtWnXLQi9T2ML5MzdLZEAZbdez08t3um1tCa0bszxog==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI1PR04MB7119.eurprd04.prod.outlook.com (2603:10a6:800:12e::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.15; Tue, 3 Dec
- 2024 06:47:22 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8207.017; Tue, 3 Dec 2024
- 06:47:22 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>, Srinivas Kandagatla
-	<srinivas.kandagatla@linaro.org>, Shawn Guo <shawnguo@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-CC: "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, stable <stable@kernel.org>
-Subject: RE: [PATCH v2 0/4] nvmem: imx-ocotp-ele: fix reading from ELE OCOTP
-Thread-Topic: [PATCH v2 0/4] nvmem: imx-ocotp-ele: fix reading from ELE OCOTP
-Thread-Index: AQHbRKyGyC+sdMxPwU+E4a5ImYqmM7LUFNtQ
-Date: Tue, 3 Dec 2024 06:47:22 +0000
-Message-ID: <PAXPR04MB845905D963FC162FD46D4F2488362@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20241202-imx-ele-ocotp-fixes-v2-0-3c021a97eb5d@pengutronix.de>
-In-Reply-To: <20241202-imx-ele-ocotp-fixes-v2-0-3c021a97eb5d@pengutronix.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|VI1PR04MB7119:EE_
-x-ms-office365-filtering-correlation-id: cdde9586-8efd-431b-b432-08dd136656db
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?+IGV6wNBB9BKhw1xn8F0vXE3goVB843iIqbwmd6uG+C9wY7bkgp1/DpL5tYq?=
- =?us-ascii?Q?iuRqBkyEEZLf7+LeK29inotvuBCbnklrclxkA8sVMqT6RnX1NQJCvg5ETgPX?=
- =?us-ascii?Q?tbW6TOW5ira+K3k0Vs7ggiXuUw7qIe4/9RP2P+76mVAaAc2J5G1s7THNFnL8?=
- =?us-ascii?Q?DbUVDT0frxF77KoDg55m4kkk6danGvnc1QxBrEJ1AklMYe2Fy6kAx/+R39I7?=
- =?us-ascii?Q?IUaBNDYBWZ9HVXLS9/ISCIPOCeVTmUwApZU4gC/aveH6n3rYrgylwIkZ4GFV?=
- =?us-ascii?Q?bGe8izUaGcKAfLOk93p/ACOfWSY04X7vEqqkbr63JjyfmjddWZ6JLiT+oNrF?=
- =?us-ascii?Q?d7lclKPTUekWYhDIewN2M3vsdQJU1kqC/CdDXK8yp7j8UdWmppdySXiEPPYt?=
- =?us-ascii?Q?9eCQbI1/z7ZNYfdRxD5ILtSvUNBodEQ7UDQEI8qeCns7wlnEjoQZc8ZnTFXg?=
- =?us-ascii?Q?pqEdQCRuXjRna8RFclunJZUKNNN+5YG3n3+C3NDzW6PUD80lCogvlWIfYYp0?=
- =?us-ascii?Q?1NDzyX1bSrMNmidv2QMRtxbRXT74dYQv8ZVPeMjpiZFjrLcFeyRYYPs+HSz9?=
- =?us-ascii?Q?twUPtOqBJTFEckVvo8HlSWtQ73o8f8+mDl8sUdjFOgbBCqY5Rt5FwAec2twF?=
- =?us-ascii?Q?5F6ZWi2Q3yZcgmpjSMqDQVKrQNuHycOpiV5rZE6+NBCnGTBkDUaD4NQZeEpZ?=
- =?us-ascii?Q?2henxUgpXPL0GF13zFpn5evYseBqh/sQtKn8A1qNRZw/Etnin3V7u0Hr4U5B?=
- =?us-ascii?Q?aOxCkZ94Tc5ogj2NAQEmZoQpZFoTSBbxEkWYf4V9I3w2IubtHc/VFHkxL/r5?=
- =?us-ascii?Q?IBvZjt8HTWBIXJs+PAPKZ1eZPWiOwSfJ6fo8wiW+aIYq81ltxhEX7QNS4sXt?=
- =?us-ascii?Q?s/n7N6ge/+Ps6GPG4ikDoh5fHyMcroSGraEGiLYVjuD7oAzEXY1JFAXKrz+I?=
- =?us-ascii?Q?0feZYXsqbS9h7L30qgen1lWn1qHOzE3W/xo9ZuRvDNCOATh2USDdl49R9BEc?=
- =?us-ascii?Q?5F4L1mQ4G3IKjj/S0BWz8G4FOMkYE02L4geyAikL5WslAHxiYpnJtTUHRZQ3?=
- =?us-ascii?Q?s4w1Y+0UL/YUbXsTbX/jTB/241EPZMIZH9mXFCb+sAmeMYqygYr9nFDGHFSq?=
- =?us-ascii?Q?dMI0JdlzhuR673RIOcldhbQr34YarxZsezScWehbP9D+vSwOj+oxiHA6O5+E?=
- =?us-ascii?Q?fDEYjg40P7p5Yea1bzHrsjDSfRQCIYk38y87i83+Q6SedPRciICyvbjXwAT5?=
- =?us-ascii?Q?7D3XjIOztZDPj5b/wXZxETtHYIMuSw2tO2PeGfObI5T8nKH1ogNAFt3WQlLC?=
- =?us-ascii?Q?TDEpwmzEckYBpyabw7+B5UHOjraAUtML10GyE6/aR2gtGul37fKrfTY9nFHj?=
- =?us-ascii?Q?7rm2UewxfJjcwuII0/EkIhc0ZXGFQoIw5YGqA4eYP5je+UZL4w=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?pjD951pb80pwqfwciwEI584eCo3tmt1P08n8jDM2wqBqZX8BcmPXFXnlgKsS?=
- =?us-ascii?Q?JyFa/c5397jy5NffdtZIjQUpvTPqN4FscFyJl5Skzjk497y6pBlei7iS9r83?=
- =?us-ascii?Q?QZLlH2t0PfjLs4Qdhmi017frg+J6QzeXwY5xN2liiQ2pFu4QpRvBRmfzuidu?=
- =?us-ascii?Q?Y3ErK9UmuWIuSJHXpzqyX3G7RdMcTiQ/YLSoK8oYHaMxXWaAvUkI14Ub/rgf?=
- =?us-ascii?Q?1okQQF0itJNwjtqIJgduOahLYr5765bHbuFsdUdooWQf1ZPpbM2xJ7XLvtRD?=
- =?us-ascii?Q?ZMvqJ7Xc/aEVV6DDMx68hEEeqq1pBjjdz6YPO5NF2CcQ+yShR/Xbva3IthOU?=
- =?us-ascii?Q?BG8cX5cJyIWyRTRjyDenJR6v0HLBjBGDOpgARIFlGLj1qbgmYySkazr4pjY9?=
- =?us-ascii?Q?VJv4F1jBpMRzIp2RPy3NQj1OjjfcV/hErJEgUiHUZn/jB8EYnXQUjHBIUUho?=
- =?us-ascii?Q?g3LPOw4xBoMukQfTcxua/YpfTUQvv491wmU8fUc3UFNKzgeB1Hfxt5lM7ocw?=
- =?us-ascii?Q?0I+fHwUWEKPkWqIQpA+EMr9aqY6g/Zy37KNyhn2yAp8R3ve4ot//vHB0+Lpm?=
- =?us-ascii?Q?FO4T2pjVrpQ+aVlNVsu5PW/CB/S/zA1RAjuvUC7t5vKTlMPwe5nPxXc53pVb?=
- =?us-ascii?Q?hE7/Z5NsVjd+nvEb/hJxUlhDE1Abv6a3bVit15ZMVKi3pmZOVDiXmh/Uc7EQ?=
- =?us-ascii?Q?6kiilu9uOezJ7yVxGONA5zBdscf6rOVIUA9IWsWW8fmseZ+BRiWQDlT7EOSj?=
- =?us-ascii?Q?OFP1xDdfvHx5mkpRMJaDhjQTuAMgp8UeOtWaBJElf850Czlde6WID+lyxn2R?=
- =?us-ascii?Q?n5PRO6SL/Nl4BhjNY95wCYyj0hFHS7NZIbjEioWqWO3pUA2YwXQW+JG9cX0Q?=
- =?us-ascii?Q?p2PaLD3XPWT7TeOirFm4WgXkFyYNcd2kCNrzgQph8nxnmBaQBUaOau1IIi4w?=
- =?us-ascii?Q?TxgZr3S/GR+giDBCNrGV6I2wksUZh1mZ9UaY8iopO5Alq8IR94Dlly0/dGRB?=
- =?us-ascii?Q?/u1Si4d1v1FYMwuhjwsKXUod05a3pzbhlWdGUBU7kmVB6F4T74L43Ug4PuXb?=
- =?us-ascii?Q?yFcFXS/YEUCDBRoU0hpolvGWKGl+NNzzu1gv+IR/MuSiaEnOll8UzddBbNeu?=
- =?us-ascii?Q?R3B25B2RScjwlixR1P32kh2Afkv4JeE4zHgbXYpAcxcpR2pUt8XRy38XB4P2?=
- =?us-ascii?Q?0MS/npx3pCvIjKTmnfeMAkR1KSMF2LunDArTcRBzmEAOI2af+fNaGkgJC0xX?=
- =?us-ascii?Q?6W7NpWLlq6vTgfNoGX9xWR67/CMPfhd510qTMp7g8bWKSHlvkCv3CzX/b0MP?=
- =?us-ascii?Q?h1nTgd51nZWk80097Uy+ECmKV06StuWyCtVhBzTMWMTu0Fq8ZMVdbsScOVCg?=
- =?us-ascii?Q?/TMWO5KK6hU+xTqcipxuYQCS4UHvj5xxiVcnhL21BvBjtAK8l0gSV09DHcJO?=
- =?us-ascii?Q?7ToKkqLZJ+EkqvS9vY/mLXKEgZWCEc58E6FnzDiiHhll7Y74yMuhfTbWT1pm?=
- =?us-ascii?Q?l773T8XpKezXjIjkwtJh6JYSfP66IR0sUqsCmPulTd4vuqRc9AGKicGDkote?=
- =?us-ascii?Q?d8FYhRTEgcal2PTLyxQ=3D?=
-Content-Type: text/plain; charset="us-ascii"
+	Tue, 03 Dec 2024 06:47:47 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-382610c7116so3396298f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 22:47:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733208463; x=1733813263; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=/RobnTVBYLiaDMD8JmMIw8HC0/tWcGzmOm0rswY3UxM=;
+        b=AsvJG3bOSc/be9kZDpY73KGJSLJJa4H0T8AM/0bYufXBigxOV4lUp74gBiw2sEHZoR
+         TfsIhHd4HFUJISb34D21DZ6iRPCNFbrdYgQX+P5i8VEFTW6AK3STVyErqU7f2VvRGdW+
+         wsYlSTG0OHw+Rz+6emg9jcJ0DeSdEyu3QazBtyidBXLcoTSK1fuE5gkYOIRStqWvmads
+         oNXZ1YDY1v0mXWDqOJbvL5uTTpDvflxtjDJwrA7IYEmdHR7u2nL+c5kTtLOfSq6eseny
+         vKUZ1O1acqxONt6Z8mEW2vdvg/740v9w0tJ7CmODS/WsXWR5uIbpkx0uKo2eVL94aDNV
+         fwCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733208463; x=1733813263;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/RobnTVBYLiaDMD8JmMIw8HC0/tWcGzmOm0rswY3UxM=;
+        b=Jr5ghM/UB0o8MidlEk4CyIDk+NTBpmCtKPK800o1I95wvsw+i7ymd8FKX1w1LzIxfs
+         HFZWjE7CsDJ/bdprJlDJaMorD7MJjhZyjeH9VxEmRjVwJiuey/fCkDoVN4KvE5riP3oV
+         282iRg9xCiQK6q2YpzhTDaoV0XWSBGfNofO1t4EMRQ6ITe5opogYY8V5ggCfkKUXgUZB
+         TY+FMTo3wJyuXQ0ommRXyZEzntlkGgn9N9ATAi6XXH8RkgEGCgFgYK8v3iVWi3E9RFh4
+         hfQz0Hulo0a/QjLu0HhHTrz4BDc0Bp5AGfUsynk58qnaWbt95ly94lFXgnf9ymEzARlA
+         rgMg==
+X-Forwarded-Encrypted: i=1; AJvYcCX33pU7odnacBUYKWJsxPtvT0FrG7Jbo9+D4wGHAz+0Hpq6w/b2mnNGRAan0oP9e6y/Av64NwUCLZZheOkmKvwV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaEdjvdVWWEdePfkCPcWkJ9yljsG6AMd3eNlTE9TVeDfC/qwAA
+	WmD1GhYzq+V1rlSlRJ+9cZjWcOW0DBcvPnd3NeZfOfPnEI0SGBkfMO+91cjTkGrna3i7lCMH8bG
+	e
+X-Gm-Gg: ASbGnct5vr/rLUYUDm9MAxGOCvmwaBJYzmD+bDGehwnNYQE5YB0HLnxUbEX7vvg7Wfm
+	ZjMaRblWFvOHarcxNV1ZOZpPwPdZ87/tJode2fElB7ZsMgTiWElG0fo2RugwtfC3MyrpP2rcTCU
+	K5rLG5qC2m0vWIfjGZonj1cg0ezDqIT+xGMR2geGSLFE1ZlmoaOdmzoy/e1Sd1zm+LoZLll9Afx
+	UzTj5gKAYzKV0KANEM0O2E9VmYHWMzVBw36afaeJKKKYzyCZwg8vus=
+X-Google-Smtp-Source: AGHT+IFvIm1Cj+m9L3+8eoO1wguyNHK3N/D+YEl/HgW5fjyufsSwyyXyAHnmtnybYP0D7O4sZNMCrg==
+X-Received: by 2002:a05:6000:1acd:b0:385:de67:2297 with SMTP id ffacd0b85a97d-385fd532bdcmr879010f8f.54.1733208463581;
+        Mon, 02 Dec 2024 22:47:43 -0800 (PST)
+Received: from [10.1.1.109] ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-385e391656csm9296916f8f.47.2024.12.02.22.47.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Dec 2024 22:47:43 -0800 (PST)
+Message-ID: <c377f3302c6c282ad826211c859e2b65bb1222cb.camel@linaro.org>
+Subject: Re: [PATCH 1/4] power: supply: add support for max77759 fuel gauge
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: t.antoine@uclouvain.be, Sebastian Reichel <sre@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Peter
+ Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org
+Date: Tue, 03 Dec 2024 06:47:41 +0000
+In-Reply-To: <20241202-b4-gs101_max77759_fg-v1-1-98d2fa7bfe30@uclouvain.be>
+References: <20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be>
+	 <20241202-b4-gs101_max77759_fg-v1-1-98d2fa7bfe30@uclouvain.be>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.1-4 
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cdde9586-8efd-431b-b432-08dd136656db
-X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Dec 2024 06:47:22.0691
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 7NBFNo5o4GMPVTqFqRKupecIE/tU9ICy/vDso+wK42uxNPOc+rJFgg7rQWYn+Wa8G0lr7a3xuECqzqab2WJ9/w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7119
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_224732_438339_C6A673A2 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20241202_224746_024391_1333EE40 
+X-CRM114-Status: GOOD (  32.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,36 +104,244 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: [PATCH v2 0/4] nvmem: imx-ocotp-ele: fix reading from ELE
-> OCOTP
->=20
-> Commits b2ab0edaf484 ("arm64: dts: imx93: add nvmem property for
-> fec1") and 0d4fbaffbdca ("arm64: dts: imx93: add nvmem property for
-> eqos") introduced NVMEM cell bindings for reading MAC addresses
-> from the ELE OCOTP. This doesn't work as expected due to bugs in the
-> driver:
->=20
-> - imx_ocotp_reg_read() interprets the incoming offset as 32bit word
->   offset, but it really is in bytes which means the driver reads bogus
->   values whenever the offset is non zero
-> - imx_ocotp_reg_read() reads wrong results when the offset is not 32bit
->   word aligned
-> - MAC addresses are stored in reverse byte order in the ELE OCOTP, we
->   have to swap the order before passing them to the upper layer
->=20
-> This likely went through unnoticed because the bootloader normally
-> adds the MAC addresses to the ethernet nodes and in this case they are
-> preferred over the NVMEM addresses.
->=20
-> This series fixes these issues.
->=20
-> Sascha
->=20
-> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Hi Thomas,
 
-For the patchset:
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Thanks for looking into this!
 
-Thanks,
-Peng.
+> From: Thomas Antoine <t.antoine@uclouvain.be>
+>=20
+> The Maxim max77759 fuel gauge has the same interface as the Maxim max1720=
+x
+> except for the non-volatile memory slave address which is not available.
+
+It is not fully compatible, and it also has a lot more registers.
+
+For example, the voltage now is not in register 0xda as this driver assumes=
+.
+With these changes, POWER_SUPPLY_PROP_VOLTAGE_NOW just reads as 0. 0xda
+doesn't exist in max77759
+
+I haven't compared in depth yet, though.
+
+> No slave is available at address 0xb of the i2c bus, which is coherent
+> with the following driver from google: line 5836 disables non-volatile
+> memory for m5 gauge.
+>=20
+> Link:
+> https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef47=
+4573cc8629cc1d121eb6a81ab68c/max1720x_battery.c
+>=20
+> Add support for the max77759 by allowing to use the non-volatile
+> memory or not based on the chip. Value for RSense comes from the followin=
+g
+> stock devicetree:
+>=20
+> Link:
+> https://android.googlesource.com/kernel/devices/google/gs101/+/33eca36d43=
+da6c2b6a546806eb3e7411bbe6d60d/dts/gs101-raviole-battery.dtsi
+>=20
+> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
+> ---
+> =C2=A0drivers/power/supply/max1720x_battery.c | 71 ++++++++++++++++++++++=
++++++-
+> -----
+> =C2=A01 file changed, 59 insertions(+), 12 deletions(-)
+>=20
+> diff --git a/drivers/power/supply/max1720x_battery.c
+> b/drivers/power/supply/max1720x_battery.c
+> index
+> 33105419e2427bb37963bda9948b647c239f8faa..faf336938dd4306dd2ceeb0a84b90ca=
+8
+> 0ad41a9f 100644
+> --- a/drivers/power/supply/max1720x_battery.c
+> +++ b/drivers/power/supply/max1720x_battery.c
+> @@ -13,6 +13,7 @@
+> =C2=A0#include <linux/nvmem-provider.h>
+> =C2=A0#include <linux/power_supply.h>
+> =C2=A0#include <linux/regmap.h>
+> +#include <linux/types.h>
+
+Please keep file names in alphabetical order.
+
+> =C2=A0
+> =C2=A0#include <linux/unaligned.h>
+> =C2=A0
+> @@ -39,6 +40,7 @@
+> =C2=A0#define MAX172XX_DEV_NAME_TYPE_MASK	GENMASK(3, 0)
+> =C2=A0#define MAX172XX_DEV_NAME_TYPE_MAX17201	BIT(0)
+> =C2=A0#define MAX172XX_DEV_NAME_TYPE_MAX17205	(BIT(0) | BIT(2))
+> +#define MAX172XX_DEV_NAME_TYPE_MAX77759	0
+> =C2=A0#define MAX172XX_QR_TABLE10		0x22
+> =C2=A0#define MAX172XX_BATT			0xDA	/* Battery voltage */
+> =C2=A0#define MAX172XX_ATAVCAP		0xDF
+> @@ -46,6 +48,7 @@
+> =C2=A0static const char *const max1720x_manufacturer =3D "Maxim Integrate=
+d";
+> =C2=A0static const char *const max17201_model =3D "MAX17201";
+> =C2=A0static const char *const max17205_model =3D "MAX17205";
+> +static const char *const max77759_model =3D "MAX77759";
+> =C2=A0
+> =C2=A0struct max1720x_device_info {
+> =C2=A0	struct regmap *regmap;
+> @@ -54,6 +57,21 @@ struct max1720x_device_info {
+> =C2=A0	int rsense;
+> =C2=A0};
+> =C2=A0
+> +struct chip_data {
+> +	u16 default_nrsense; /* in regs in 10^-5 */
+> +	u8 has_nvmem;
+> +};
+> +
+> +static const struct chip_data max1720x_data=C2=A0 =3D {
+> +	.default_nrsense =3D 1000,
+> +	.has_nvmem =3D 1,
+> +};
+> +
+> +static const struct chip_data max77759_data =3D {
+> +	.default_nrsense =3D 500,
+> +	.has_nvmem =3D 0,
+> +};
+
+This should be made a required devicetree property instead, at least for
+max77759, as it's completely board dependent, 'shunt-resistor-micro-ohms'
+is widely used.
+
+I also don't think there should be a default. The driver should just fail
+to probe if not specified in DT (for max77759).
+
+> +
+> =C2=A0/*
+> =C2=A0 * Model Gauge M5 Algorithm output register
+> =C2=A0 * Volatile data (must not be cached)
+> @@ -369,6 +387,8 @@ static int max1720x_battery_get_property(struct
+> power_supply *psy,
+> =C2=A0			val->strval =3D max17201_model;
+> =C2=A0		else if (reg_val =3D=3D MAX172XX_DEV_NAME_TYPE_MAX17205)
+> =C2=A0			val->strval =3D max17205_model;
+> +		else if (reg_val =3D=3D MAX172XX_DEV_NAME_TYPE_MAX77759)
+> +			val->strval =3D max77759_model;
+> =C2=A0		else
+
+This is a 16 bit register, and while yes, MAX172XX_DEV_NAME_TYPE_MASK only
+cares about the bottom 4 bits, the register is described as 'Firmware
+Version Information'.
+
+But maybe it's ok to do it like that, at least for now.
+
+> =C2=A0			return -ENODEV;
+> =C2=A0		break;
+> @@ -416,7 +436,6 @@ static int max1720x_probe_nvmem(struct i2c_client
+> *client,
+> =C2=A0		.priv =3D info,
+> =C2=A0	};
+> =C2=A0	struct nvmem_device *nvmem;
+> -	unsigned int val;
+> =C2=A0	int ret;
+> =C2=A0
+> =C2=A0	info->ancillary =3D i2c_new_ancillary_device(client, "nvmem", 0xb)=
+;
+> @@ -438,6 +457,27 @@ static int max1720x_probe_nvmem(struct i2c_client
+> *client,
+> =C2=A0		return PTR_ERR(info->regmap_nv);
+> =C2=A0	}
+> =C2=A0
+> +	nvmem =3D devm_nvmem_register(dev, &nvmem_config);
+> +	if (IS_ERR(nvmem)) {
+> +		dev_err(dev, "Could not register nvmem!");
+> +		return PTR_ERR(nvmem);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int max1720x_get_rsense(struct device *dev,
+> +					 struct max1720x_device_info
+> *info,
+> +					 const struct chip_data *data)
+> +{
+> +	unsigned int val;
+> +	int ret;
+> +
+> +	if (!data->has_nvmem) {
+> +		info->rsense =3D data->default_nrsense;
+> +		return 0;
+> +	}
+> +
+> =C2=A0	ret =3D regmap_read(info->regmap_nv, MAX1720X_NRSENSE, &val);
+> =C2=A0	if (ret < 0) {
+> =C2=A0		dev_err(dev, "Failed to read sense resistor value\n");
+> @@ -446,14 +486,9 @@ static int max1720x_probe_nvmem(struct i2c_client
+> *client,
+> =C2=A0
+> =C2=A0	info->rsense =3D val;
+> =C2=A0	if (!info->rsense) {
+> -		dev_warn(dev, "RSense not calibrated, set 10 mOhms!\n");
+> -		info->rsense =3D 1000; /* in regs in 10^-5 */
+> -	}
+> -
+> -	nvmem =3D devm_nvmem_register(dev, &nvmem_config);
+> -	if (IS_ERR(nvmem)) {
+> -		dev_err(dev, "Could not register nvmem!");
+> -		return PTR_ERR(nvmem);
+> +		dev_warn(dev, "RSense not calibrated, set %d mOhms!\n",
+> +						data-
+> >default_nrsense/100);
+> +		info->rsense =3D data->default_nrsense;
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	return 0;
+> @@ -474,6 +509,7 @@ static int max1720x_probe(struct i2c_client *client)
+> =C2=A0	struct device *dev =3D &client->dev;
+> =C2=A0	struct max1720x_device_info *info;
+> =C2=A0	struct power_supply *bat;
+> +	const struct chip_data *data;
+> =C2=A0	int ret;
+> =C2=A0
+> =C2=A0	info =3D devm_kzalloc(dev, sizeof(*info), GFP_KERNEL);
+> @@ -488,9 +524,19 @@ static int max1720x_probe(struct i2c_client *client)
+> =C2=A0		return dev_err_probe(dev, PTR_ERR(info->regmap),
+> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0 "regmap initialization failed\n");
+> =C2=A0
+> -	ret =3D max1720x_probe_nvmem(client, info);
+> +	data =3D device_get_match_data(dev);
+> +	if (!data)
+> +		return dev_err_probe(dev, ret, "Failed to get chip
+> data\n");
+> +
+> +	if (data->has_nvmem) {
+> +		ret =3D max1720x_probe_nvmem(client, info);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret, "Failed to probe
+> nvmem\n");
+> +	}
+> +
+> +	ret =3D max1720x_get_rsense(dev, info, data);
+> =C2=A0	if (ret)
+> -		return dev_err_probe(dev, ret, "Failed to probe
+> nvmem\n");
+> +		return dev_err_probe(dev, ret, "Failed to get RSense");
+> =C2=A0
+> =C2=A0	bat =3D devm_power_supply_register(dev, &max1720x_bat_desc,
+> &psy_cfg);
+> =C2=A0	if (IS_ERR(bat))
+> @@ -501,7 +547,8 @@ static int max1720x_probe(struct i2c_client *client)
+> =C2=A0}
+> =C2=A0
+> =C2=A0static const struct of_device_id max1720x_of_match[] =3D {
+> -	{ .compatible =3D "maxim,max17201" },
+> +	{ .compatible =3D "maxim,max17201", .data =3D (void *) &max1720x_data
+> },
+> +	{ .compatible =3D "maxim,max77759-fg", .data =3D (void *)
+> &max77759_data},
+
+missing space before }
+
+Cheers,
+Andre'
+
+> =C2=A0	{}
+> =C2=A0};
+> =C2=A0MODULE_DEVICE_TABLE(of, max1720x_of_match);
+>=20
+
 
