@@ -4,55 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51FA9D73612
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 09:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B41D4979A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 09:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cSfbpLVsX9/TkPoZeYAo1LTKkWTtGCuWPTBpyIKZtrA=; b=wJ15nE7A+xnpXN/hWmCYnvX8pG
-	ZjS7jtDxojb6pBPP2PVvINNR3DEOMM3CqJVzpcXOq46bIKZljlzHWglHONCG+QwGs04JgjuT6oGC1
-	p6FWsHh1fmHeLkLuRYicSqA82Vjfnx1OJu/QuhxI9evTNVf9aNzQv9xrjmEwdZ5oh/PTSpkHbESIy
-	oDLwdJ9c934Vxj9c94qQjYL7ZXSm0Ztdz1ssperzWuytsGGqHKzgON+kM7PjpSKfmLhLaFhY0Fu4r
-	ykU+J0uRBNcRXnRcGmimaGlqmgdmOjBaGl55mmcA1iOxhX+FVRhtyTtuwzwBmvowsZSlpPx0myRYw
-	2ay2nsEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LVy4fzr1ctQeI1kNYJhqvbZO8RMQAENJYVJs8RmiPjw=; b=nBNkXPkA+EWB7gBxA01IX8Kkq1
+	QLNyhJ4TG61UWRCX8linxGgVk0U4T8jmRSUxjcCZnIB9ODJ1G363Q9GSWUDbg2lFf6vSSicfqFInv
+	Adwao76yoObJIU3JfLIWqAoydRs4t9NNB9146UeogQk5qjkH4bp1aSgtozT2Bk1C5dLkLCLw16xFQ
+	hnVRTVbR6qVy1PrXynoBFWcAlID71gv0kkNwi0klzCGfxG9r23u03bESNcPPZv4TLz1BVJd2PyPVS
+	9+uSnkSqV2slw/6bBBz/dLCkpiZ0jS/xVfmzhe/PcP9sNZfxu2SLsG28Rt/1rhFPPHyfKM6GvTx0C
+	sAaCCd5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIPKb-00000008ug0-1slQ;
-	Tue, 03 Dec 2024 09:36:33 +0000
-Received: from cmccmta6.chinamobile.com ([111.22.67.139] helo=cmccmta3.chinamobile.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIPHi-00000008td4-2QsP
+	id 1tIPNG-00000008vcJ-08fC;
+	Tue, 03 Dec 2024 09:39:18 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIPME-00000008vD2-3yoc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 09:33:36 +0000
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG: 00000000
-Received: from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee9674ed0652e6-c82fd;
-	Tue, 03 Dec 2024 17:33:25 +0800 (CST)
-X-RM-TRANSID: 2ee9674ed0652e6-c82fd
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG: 00000000
-Received: from ubuntu.localdomain (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee9674ed064de8-2691c;
-	Tue, 03 Dec 2024 17:33:25 +0800 (CST)
-X-RM-TRANSID: 2ee9674ed064de8-2691c
-From: Zhu Jun <zhujun2@cmss.chinamobile.com>
-To: catalin.marinas@arm.com
-Cc: will@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	zhujun2@cmss.chinamobile.com
-Subject: [RESEND] arm64: asm: Fix typo in pgtable.h
-Date: Tue,  3 Dec 2024 01:33:23 -0800
-Message-Id: <20241203093323.7831-1-zhujun2@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.17.1
+	Tue, 03 Dec 2024 09:38:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id ED240A41046;
+	Tue,  3 Dec 2024 09:36:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D89C7C4CECF;
+	Tue,  3 Dec 2024 09:38:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733218693;
+	bh=rQ5TW4rFrG6qYjejx5fpKqPKvSS6CRZZUK/Q5K0MDv8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=QhPYIwpxwd9nqFAUL5d17x0oJaAJ+KTmcr+RxiiZhe3ME0ryYuMY//UynJsU0GB6D
+	 hxLOAvCOnBzjkcD3Mc+UJiDfPpka9fca8mlnhXLtodkl4ED5DLfSip5kdAfIIsrQrR
+	 mvtxRTtAwIw8V/oMNSJKNSwCNB3dmVmwV/TAdeJjmcIOQhv8YD9UxrUsn6XaZaGKqt
+	 B9rPZRV1WG/n+eAhQAg01eLy01SWr0lvFKDtrkakCq717t2Zcs2UP4XLP0M+tbFJq/
+	 U+8Uu3IDFinEXfTbYXzEL+kkOMaJENVi8zKYdSHJqAB5XgLnqJRuNoWTQHmoicG/h6
+	 Hz4/dFHcadjLw==
+Received: from [104.132.45.111] (helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tIPMB-0002K5-Bc;
+	Tue, 03 Dec 2024 09:38:11 +0000
+Date: Tue, 03 Dec 2024 09:38:10 +0000
+Message-ID: <87o71trtrx.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: <catalin.marinas@arm.com>,
+	<will@kernel.org>,
+	<oliver.upton@linux.dev>,
+	<corbet@lwn.net>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>,
+	<joey.gouly@arm.com>,
+	<suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>,
+	<shuah@kernel.org>,
+	<jonathan.cameron@huawei.com>,
+	<shameerali.kolothum.thodi@huawei.com>,
+	<linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>,
+	<xuwei5@huawei.com>,
+	<yangyicong@hisilicon.com>
+Subject: Re: [PATCH 5/5] KVM: arm64: Handle DABT caused by LS64* instructions on unsupported memory
+In-Reply-To: <20241202135504.14252-6-yangyicong@huawei.com>
+References: <20241202135504.14252-1-yangyicong@huawei.com>
+	<20241202135504.14252-6-yangyicong@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 104.132.45.111
+X-SA-Exim-Rcpt-To: yangyicong@huawei.com, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, corbet@lwn.net, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, shuah@kernel.org, jonathan.cameron@huawei.com, shameerali.kolothum.thodi@huawei.com, linuxarm@huawei.com, prime.zeng@hisilicon.com, xuwei5@huawei.com, yangyicong@hisilicon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_013335_145926_1540EC8F 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241203_013815_114533_2E3839C3 
+X-CRM114-Status: GOOD (  29.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,29 +100,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The word 'trasferring' is wrong, so fix it.
+On Mon, 02 Dec 2024 13:55:04 +0000,
+Yicong Yang <yangyicong@huawei.com> wrote:
+> 
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> 
+> FEAT_LS64* instructions only support to access Device/Uncacheable
+> memory, otherwise a data abort for unsupported Exclusive or atomic
 
-Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
----
- arch/arm64/include/asm/pgtable.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Not quite. FEAT_LS64WB explicitly supports Write-Back mappings.
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index c329ea061dc9..4a5acf522c82 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1338,7 +1338,7 @@ static inline void ___ptep_set_wrprotect(struct mm_struct *mm,
- }
- 
- /*
-- * __ptep_set_wrprotect - mark read-only while trasferring potential hardware
-+ * __ptep_set_wrprotect - mark read-only while transferring potential hardware
-  * dirty status (PTE_DBM && !PTE_RDONLY) to the software PTE_DIRTY bit.
-  */
- static inline void __ptep_set_wrprotect(struct mm_struct *mm,
+> access (0x35) is generated per spec. It's implementation defined
+> whether the target exception level is routed and is possible to
+> implemented as route to EL2 on a VHE VM. Per DDI0487K.a Section
+> C3.2.12.2 Single-copy atomic 64-byte load/store:
+> 
+>   The check is performed against the resulting memory type after all
+>   enabled stages of translation. In this case the fault is reported
+>   at the final enabled stage of translation.
+> 
+> If it's implemented as generate the DABT to the final enabled stage
+> (stage-2), inject a DABT to the guest to handle it.
+> 
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> ---
+>  arch/arm64/kvm/mmu.c | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index c9d46ad57e52..b7e6f0a27537 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1787,6 +1787,20 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>  		return 1;
+>  	}
+>  
+> +	/*
+> +	 * If instructions of FEAT_{LS64, LS64_V, LS64_ACCDATA} operated on
+> +	 * unsupported memory regions, a DABT for unsupported Exclusive or
+> +	 * atomic access is generated. It's implementation defined whether
+> +	 * the exception will be taken to, a stage-1 DABT or the final enabled
+> +	 * stage of translation (stage-2 in this case as we hit here). Inject
+> +	 * a DABT to the guest to handle it if it's implemented as a stage-2
+> +	 * DABT.
+> +	 */
+> +	if (esr_fsc_is_excl_atomic_fault(esr)) {
+> +		kvm_inject_dabt(vcpu, kvm_vcpu_get_hfar(vcpu));
+> +		return 1;
+> +	}
+
+This doesn't seem quite right. This is injecting an *External* Data
+Abort, which is not what the spec says happens, as you are emulating
+the *first* acceptable behaviour:
+
+  "The check is performed at each enabled stage of translation, and
+   the fault is reported for the first stage of translation that
+   provides an inappropriate memory type. In this case, the value of
+   the HCR_EL2.DC bit does not cause accesses generated by the
+   instructions to generate a stage 1 Data abort,"
+
+So while the exception is reported at a different EL, the fault should
+still be an "unsupported Exclusive or atomic access". But that's also
+assuming that S2 has a device mapping, and it is EL1 that did
+something wrong. Surely you should check the IPA against its memory
+type?
+
+Further questions: what happens when a L2 guest triggers such fault?
+I don't think you can't arbitrarily route it back to L2 without
+looking at why it faulted.
+
+Thanks,
+
+	M.
+
 -- 
-2.17.1
-
-
-
+Without deviation from the norm, progress is not possible.
 
