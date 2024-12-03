@@ -4,48 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F5DE64A8A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:12:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA1BE64A8B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=c0BAXKT0Nv5QbqG9HDB4twz0iRlgr9gmDOmS9YKGEY4=; b=kW9JDRW5AI019ySyjUEMosSCDA
-	7NAWqgLmCPFLDaPcTYXITxURLbbmv09KLCWfq7z+CD08Otk8QUXNxhVfCaxt5b0EWaMv19K27W9Vv
-	pqLAG76cgi9nk/ipq7itpc2GCiqIV6wVgUkpjsidBQkGQR6ZzNBmk+bpJpv1KcIPA+fW1vTeDpQQb
-	8Gyg4QwhI+MLUijuRAlPh7DQs1Xxn7FzUTd2yK0BoeiPNw0WzfF0goJrn+C26xjzUQpLabUNTKqqM
-	D0Dy41Rmgfu3ZeEKXKns4eLeRgdFBUTB8U83zKCTBMH7YwK5wllbTGJekINHFTfl0x1n5rrnnZuCj
-	uPO9QeKw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nnrdvc3d3caqUVtbJCpIFXWv8qFhinXssPh3bTy9ySY=; b=b8pvJ+qAoY8wPfrFifKQZ5EujU
+	s6ZJ2cwmpFlDipzDwGCww6lGPuVNeLvqTbu+z9vAAbWSysdO72/ngHfTLOsoCpJyViWqcH8qgt2Kd
+	9W2nUX1OQEPODse+E6YrwHsdbC1QJvhz56KoEY9tszhtFlR9e/1py4I6GhyjoDfe7Y8n8qjxE28GK
+	Z4cmymD9pWOyo3CCqi3SA4y/Xc7t7yJfpz+H2FM4EkEGzPMKjbpos6zrCtey8nn+FkNytjgD0LlVr
+	rX76W32/aQ9tLrqK51kCaFNeSNFGDZEwXPJOeBK7r/25OAxeYm2fzvIUDBXvL1uoYh1aJvmsUwPOk
+	bNMoelYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIShp-00000009Z7i-0x87;
-	Tue, 03 Dec 2024 13:12:45 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1tISin-00000009ZMT-3M8Y;
+	Tue, 03 Dec 2024 13:13:45 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISNZ-00000009V9w-3B9v
+	id 1tISNa-00000009VAK-0Dmd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 12:51:51 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Y2gTK0T91z11Pbp;
-	Tue,  3 Dec 2024 20:49:25 +0800 (CST)
+	Tue, 03 Dec 2024 12:51:52 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Y2gTP1G36z1k17q;
+	Tue,  3 Dec 2024 20:49:29 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 23CF2140444;
-	Tue,  3 Dec 2024 20:51:41 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id A5D331A0188;
+	Tue,  3 Dec 2024 20:51:44 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Tue, 3 Dec 2024 20:51:40 +0800
+ 15.2.1258.34; Tue, 3 Dec 2024 20:51:44 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <jonathan.cameron@huawei.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>
 CC: <yangyicong@hisilicon.com>, <hejunhao3@huawei.com>, <linuxarm@huawei.com>,
 	<wangyushan12@huawei.com>, <prime.zeng@hisilicon.com>
-Subject: [PATCH v4 00/10] Refactor the common parts to the HiSilicon Uncore PMU core and cleanups
-Date: Tue, 3 Dec 2024 20:50:39 +0800
-Message-ID: <20241203125049.39458-1-yangyicong@huawei.com>
+Subject: [PATCH v4 08/10] drivers/perf: hisi: Export associated CPUs of each PMU through sysfs
+Date: Tue, 3 Dec 2024 20:50:47 +0800
+Message-ID: <20241203125049.39458-9-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20241203125049.39458-1-yangyicong@huawei.com>
+References: <20241203125049.39458-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -53,8 +55,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_045150_198922_7B4E74E2 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20241203_045150_290493_D8990764 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,71 +73,60 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-This series mainly contains the refactor of the HiSilicon Uncore PMU by
-extracting the common parts from each drivers into the core:
-- the retrieving of the PMU topology ID
-- the common sysfs attributes like cpumask and identifier
+Although the event of the uncore PMU can only be opened on a single
+CPU, some PMU does have the affinity on a range of CPUs. For example
+the L3C PMU is associated to the CPUs sharing the L3T it monitors.
+Users may infer this affinity by the PMU name which may have SCCL ID
+and CCL ID encoded (for L3C etc), but it's not that straightforward.
+So export this information by adding an "associated_cpus" sysfs
+attribute then user can get this directly.
 
-In order to achieve this, we need to do below preparation:
-- refactor the detection of associated CPUs for PMUs locates on a SICL
-- maintain the topology information in a dedicated data structure
-- provides a generic implementation of cpumask/identifier attributes
+Reviewed-by: Jonathan Cameron <Joanthan.Cameron@huawei.com>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ Documentation/admin-guide/perf/hisi-pmu.rst |  5 ++++-
+ drivers/perf/hisilicon/hisi_uncore_pmu.c    | 10 ++++++++++
+ 2 files changed, 14 insertions(+), 1 deletion(-)
 
-Besides also include below changes/cleanups in this patchset
-- add one new sysfs attributes for better describing the topology information
-  of the associated CPUs of the PMU.
-- define a symbol namespace for HiSilicon Uncore PMUs to avoid pollute the
-  common ones
-- two minor nonfunctional cleanups of DDRC PMU
-
-Change since v3:
-- Split the associated_cpus refactor patches according to the functions, hope
-  will be easier to review
-- Drop the use of cpu_online_mask out of cpuhp
-Link: https://lore.kernel.org/linux-arm-kernel/20241026072424.29887-1-yangyicong@huawei.com/
-
-Change since v2:
-- remove one redundant newline and add Jonathan's tag for Patch 1 and 5
-Link: https://lore.kernel.org/linux-arm-kernel/20241022145305.47056-1-yangyicong@huawei.com/
-
-Changes since v1:
-Address Jonathan's comments and add tags for some patches
-- Provide a generic cpumask/identifier attribute group
-- refine the comments/commit as suggested
-Link: https://lore.kernel.org/linux-arm-kernel/20241018095745.57057-1-yangyicong@huawei.com/
-
-Junhao He (2):
-  drivers/perf: hisi: Fix incorrect variable name "hha_pmu" in DDRC PMU
-    driver
-  drivers/perf: hisi: Delete redundant blank line of DDRC PMU
-
-Yicong Yang (8):
-  drivers/perf: hisi: Define a symbol namespace for HiSilicon Uncore
-    PMUs
-  drivers/perf: hisi: Don't update the associated_cpus on CPU offline
-  drivers/perf: hisi: Migrate to one online CPU if no associated one
-    online
-  drivers/perf: hisi: Refactor the detection of associated CPUs
-  drivers/perf: hisi: Extract topology information to a separate
-    structure
-  drivers/perf: hisi: Add a common function to retrieve topology from
-    firmware
-  drivers/perf: hisi: Provide a generic implementation of
-    cpumask/identifier
-  drivers/perf: hisi: Export associated CPUs of each PMU through sysfs
-
- Documentation/admin-guide/perf/hisi-pmu.rst   |   5 +-
- drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c  |  42 +----
- drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c |  61 ++-----
- drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  |  48 ++----
- drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c  |  44 ++---
- drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   |  53 ++----
- drivers/perf/hisilicon/hisi_uncore_pmu.c      | 160 +++++++++++++-----
- drivers/perf/hisilicon/hisi_uncore_pmu.h      |  49 +++++-
- drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c |  43 +----
- drivers/perf/hisilicon/hisi_uncore_uc_pmu.c   |  45 ++---
- 10 files changed, 248 insertions(+), 302 deletions(-)
-
+diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
+index 5cc248d18c63..48992a0b8e94 100644
+--- a/Documentation/admin-guide/perf/hisi-pmu.rst
++++ b/Documentation/admin-guide/perf/hisi-pmu.rst
+@@ -35,7 +35,10 @@ e.g. hisi_sccl1_hha0/rx_operations is RX_OPERATIONS event of HHA index #0 in
+ SCCL ID #1.
+ 
+ The driver also provides a "cpumask" sysfs attribute, which shows the CPU core
+-ID used to count the uncore PMU event.
++ID used to count the uncore PMU event. An "associated_cpus" sysfs attribute is
++also provided to show the CPUs associated with this PMU. The "cpumask" indicates
++the CPUs to open the events, usually as a hint for userspaces tools like perf.
++It only contains one associated CPU from the "associated_cpus".
+ 
+ Example usage of perf::
+ 
+diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+index 339e346e94ee..f86aba567224 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+@@ -51,8 +51,18 @@ EXPORT_SYMBOL_NS_GPL(hisi_cpumask_sysfs_show, HISI_PMU);
+ 
+ static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
+ 
++static ssize_t hisi_associated_cpus_sysfs_show(struct device *dev,
++				struct device_attribute *attr, char *buf)
++{
++	struct hisi_pmu *hisi_pmu = to_hisi_pmu(dev_get_drvdata(dev));
++
++	return cpumap_print_to_pagebuf(true, buf, &hisi_pmu->associated_cpus);
++}
++static DEVICE_ATTR(associated_cpus, 0444, hisi_associated_cpus_sysfs_show, NULL);
++
+ static struct attribute *hisi_pmu_cpumask_attrs[] = {
+ 	&dev_attr_cpumask.attr,
++	&dev_attr_associated_cpus.attr,
+ 	NULL
+ };
+ 
 -- 
 2.24.0
 
