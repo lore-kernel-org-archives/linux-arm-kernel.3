@@ -4,51 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 577C5E6689A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A165D4979A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yXSZqfVCRFqO/EkaLoJnxQdMY4F3FCl7PW/nukt4Sec=; b=VxpI0cWcBiFe7o9w62Bc2qd06g
-	XzYqaQPE0pSkUi8SyGLI/BukgLCV7OXtK+H7ayjbyspHBctAejWkaXfBa84Iw7nNcDxIqDbRmZwTu
-	e1rzfSQBNg6yOJT0FBPgWbpXmqxbgoExQcq4sbgt+KDmwZNTU9GnBy77mOvOHAoOP4E5q/vBeyGLm
-	4nCe4UcFCVHiHBl4sOaxN9GyyxXByz2073gcb0/iMlt7gTWpqudkjSUm3ntS4BfrukPKMnKcWufdU
-	VuLzMaAVhWQuaLK286FcwVY1nmRYAL4yov2Xo1Al3Lh8d7qjNrL5oYyylL9cCaUbabg2suHDeWN6M
-	xofe9vug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rDhrWjqsitQOm02p1yx3Crr6aSKeDzrUUQOFa0Mc4Mk=; b=sILsfSf0trs9PTIdfTnGHEyKxk
+	6nCosFcVRzO3hZA+c3C/Lc7OoazGw2CJd21id/YHAHQePOemlUkfGormj1Uja/caXKee/DZPHxeX3
+	2pp41qtIejLZN939zjlKaZvYCliD3tTG1VSCuqlMNiWD9PA00txN3dZwQStUoF3uMsMSikzYD55R/
+	Fu0DZCKMZVRAyt6m4qVi+ls9kcEjPyVj1dyMhVHICb1ZqCoza1BvqTyWjDbDaB1n2iWIzhuAwv8eN
+	RcRGmigclTZvQcrvhjdk8xsihalHAjZSNI26acuOV+vbg80eV6x2sWGZWfbrKxP/k633zsnaT0HUe
+	Gw9R6SPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIPnI-000000091Xt-3d1T;
-	Tue, 03 Dec 2024 10:06:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIPmI-000000091R1-0I02
+	id 1tIPpU-000000091ps-2Jqz;
+	Tue, 03 Dec 2024 10:08:28 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIPoU-000000091hl-3eEn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 10:05:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 929A3FEC;
-	Tue,  3 Dec 2024 02:05:34 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F3713F71E;
-	Tue,  3 Dec 2024 02:05:05 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
-	broonie@kernel.org,
-	catalin.marinas@arm.com,
-	Dave.Martin@arm.com,
-	will@kernel.org
-Subject: [PATCH] arm64: signal: Ensure signal delivery failure is recoverable
-Date: Tue,  3 Dec 2024 10:03:22 +0000
-Message-ID: <20241203100322.1626805-1-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
+	Tue, 03 Dec 2024 10:07:28 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-434a852bb6eso48817355e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 02:07:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733220445; x=1733825245; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=rDhrWjqsitQOm02p1yx3Crr6aSKeDzrUUQOFa0Mc4Mk=;
+        b=p70mRmfluqkmNJuJKuo+/FTwz2VZatsSxUCjNdMBlZycjPVpLU5sPpk8kw0CFET8/N
+         4slYfBlUap+9kxjwQY0aCvIUnhBfwhFRk70f0344MEy198UqFAA40av4jvrbZhOewDxJ
+         +Y0CLKj12GErnXwIQ4hiRi6KXrO0yUJctVuwXEQWz2HONNsM+iAETob5GluQnZFNpj4x
+         5vwKnEXWOiDS0cIN5CGeENRpOKOGmk+nj3/L4vw012GyaOLZjdYF8o38cmc1fUarT/Kr
+         kMIeEL1GSwroMh5u42mQVsx/ZhCfTvqFUxa2Ge1H+UGe56f++tfx4i5vHtI8L8koaeec
+         8wCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733220445; x=1733825245;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rDhrWjqsitQOm02p1yx3Crr6aSKeDzrUUQOFa0Mc4Mk=;
+        b=iG6F+QSUF41WVy8vLwI/3KxjPeMDpT6/wtQMrM8mrrOWD+5sla3HMY3Aw9crbE1Tpm
+         JiIjTs/4m6oXl7aOvhlGfM8whhkamSm3ab7aTmBQRJze/B/Sj/2COR2OkUjDJGePw70E
+         g4EiMts+f580ZsCKLyYFs51NAHYp38yKqsGrAuoWh5eIYHRg+5mvjXQvNF4hyepY9Z9h
+         clOFNSbpPhnJ3E7LFIYgk46VnbSqHYoIxoG71gzLO3syTH+C+J1UQ8mgW0lQPvkm7qCD
+         8bfsoDROp/5UKe/ybXtmzgtQNualxkx1+SB5nUlEUu6jgZ6+42KrSvQzbNDWDXDNrTcQ
+         JvhA==
+X-Forwarded-Encrypted: i=1; AJvYcCUykq8xAOLxrT2GqmODjfI7y0tm1+aZEhJwGC/CP1y7hssiBhH5eOnd4TGRSSSV5ZM+QwBmRJ8aSNFPC/IXq/Hl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoFQvgnyXLSK16DWq5XdL/rN5y1uxRstHRyEORis8bYW1hU7GG
+	dBvNAM2vimOnnx4GYB69kaOn+t3rp0x0KTtpgt/7/eXDbiJGpJc35z5XHRYHw34W1DHHZNDhAQf
+	eBfA=
+X-Gm-Gg: ASbGncuBtLZuXEuE6PhQTxNohO0ynynADy1Tre3j3K2L+4Dq+IsocvuH87gPjawKKhA
+	vKqtGDzIBcz/r32Do3TDX/Zepc0u+7KIOA2JlxgP1aPDma9+V77BiWAIQBR8enzcIaiKCrWXQ4G
+	fhtpNpKiAhjwKo6Lsp9J9Ahg71H5fLfwOlHaENw1xovdRjni9bD8VkN6Xgu6YFyGIXpZZpgxpic
+	6OhepiVroUCrOgfZ9gq3+lDbXac1rhKTtodoz0BgahOctU3hU0JKYk=
+X-Google-Smtp-Source: AGHT+IEX3CBzUR11qB9xMFFVxV7orqiKJB6nzE3kEEtb8duUyFuW0fDSGHNnay9m/wWpgm8QQt4SVg==
+X-Received: by 2002:a05:600c:1f8e:b0:434:9efd:26b0 with SMTP id 5b1f17b1804b1-434d09c0c12mr16633575e9.13.1733220445220;
+        Tue, 03 Dec 2024 02:07:25 -0800 (PST)
+Received: from [10.1.1.109] ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa7e5b9csm215194865e9.43.2024.12.03.02.07.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Dec 2024 02:07:24 -0800 (PST)
+Message-ID: <b311b50e0f54959cd8dac1ef21dd798dd6204331.camel@linaro.org>
+Subject: Re: [PATCH 2/4] dt-bindings: power: supply: add max77759-fg flavor
+ and don't require nvme address
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Thomas Antoine <t.antoine@uclouvain.be>, Sebastian Reichel
+ <sre@kernel.org>,  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Dimitri Fedrau
+ <dima.fedrau@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>,  Peter Griffin <peter.griffin@linaro.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org
+Date: Tue, 03 Dec 2024 10:07:23 +0000
+In-Reply-To: <20588923-a660-49fe-8efb-766bee22f215@uclouvain.be>
+References: <20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be>
+	 <20241202-b4-gs101_max77759_fg-v1-2-98d2fa7bfe30@uclouvain.be>
+	 <fe254a002000f2bbfbe51d074cf28f7427a27f9a.camel@linaro.org>
+	 <20588923-a660-49fe-8efb-766bee22f215@uclouvain.be>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.1-4 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_020510_189936_54DE0EBB 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20241203_020726_925618_DE5940A2 
+X-CRM114-Status: GOOD (  18.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,119 +108,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit eaf62ce1563b ("arm64/signal: Set up and restore the GCS
-context for signal handlers") introduced a potential failure point
-at the end of setup_return(). This is unfortunate as it is too late
-to deliver a SIGSEGV: if that SIGSEGV is handled, the subsequent
-sigreturn will end up returning to the original handler, which is
-not the intention (since we failed to deliver that signal).
+On Tue, 2024-12-03 at 10:32 +0100, Thomas Antoine wrote:
+> On 12/3/24 07:57, Andr=C3=A9 Draszik wrote:
+> > On Mon, 2024-12-02 at 14:07 +0100, Thomas Antoine via B4 Relay wrote:
+> > > From: Thomas Antoine <t.antoine@uclouvain.be>
+> > >=20
+> > > As the Maxim max77759 fuel gauge has no non-volatile memory slave add=
+ress,
+> > > make it non-obligatory. Except for this, the max77759 seems to behave=
+ the
+> > > same as the max1720x.
+> >=20
+> > It also needs an interrupt line, and the previously mentioned shunt-
+> > resistor-micro-ohms, and probably a power supply.
+>=20
+> I will try to add the interrupt line for v2. About the power supply, I
+> didn't see anything about it in the devicetree from Google. Even it
+> there is one, I guess it would be a single power supply for the whole
+> max77759, not just the fuel gauge. Wouldn't it be more logical to have an
+> mfd which activates the supply when other functions of the max77759 have
+> been implemented?
 
-Make sure this does not happen by calling gcs_signal_entry()
-at the very beginning of setup_return(), and add a comment just
-after to discourage error cases being introduced from that point
-onwards.
+I've looked it up now and for power supply nothing indeed seems necessary.
 
-While at it, also take care of copy_siginfo_to_user(): since it may
-fail, we shouldn't be calling it after setup_return() either. Call
-it before setup_return() instead, and move the setting of X1/X2
-inside setup_return() where it belongs (after the "point of no
-failure").
 
-Background: the first part of setup_rt_frame(), including
-setup_sigframe(), has no impact on the execution of the interrupted
-thread. The signal frame is written to the stack, but the stack
-pointer remains unchanged. Failure at this stage can be recovered by
-a SIGSEGV handler, and sigreturn will restore the original context,
-at the point where the original signal occurred. On the other hand,
-once setup_return() has updated registers including SP, the thread's
-control flow has been modified and we must deliver the original
-signal.
-
-Fixes: eaf62ce1563b ("arm64/signal: Set up and restore the GCS context for signal handlers")
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
-Cc: broonie@kernel.org
-Cc: catalin.marinas@arm.com
-Cc: Dave.Martin@arm.com
-Cc: will@kernel.org
----
- arch/arm64/kernel/signal.c | 43 +++++++++++++++++++++++++-------------
- 1 file changed, 28 insertions(+), 15 deletions(-)
-
-diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-index 14ac6fdb872b..0adaa165b876 100644
---- a/arch/arm64/kernel/signal.c
-+++ b/arch/arm64/kernel/signal.c
-@@ -1462,10 +1462,33 @@ static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
- 			 struct rt_sigframe_user_layout *user, int usig)
- {
- 	__sigrestore_t sigtramp;
-+	int err;
-+
-+	if (ksig->ka.sa.sa_flags & SA_RESTORER)
-+		sigtramp = ksig->ka.sa.sa_restorer;
-+	else
-+		sigtramp = VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
-+
-+	err = gcs_signal_entry(sigtramp, ksig);
-+	if (err)
-+		return err;
-+
-+	/*
-+	 * We must not fail from this point onwards. We are going to update
-+	 * registers, including SP, in order to invoke the signal handler. If
-+	 * we failed and attempted to deliver a nested SIGSEGV to a handler
-+	 * after that point, the subsequent sigreturn would end up restoring
-+	 * the (partial) state for the original signal handler.
-+	 */
- 
- 	regs->regs[0] = usig;
-+	if (ksig->ka.sa.sa_flags & SA_SIGINFO) {
-+		regs->regs[1] = (unsigned long)&user->sigframe->info;
-+		regs->regs[2] = (unsigned long)&user->sigframe->uc;
-+	}
- 	regs->sp = (unsigned long)user->sigframe;
- 	regs->regs[29] = (unsigned long)&user->next_frame->fp;
-+	regs->regs[30] = (unsigned long)sigtramp;
- 	regs->pc = (unsigned long)ksig->ka.sa.sa_handler;
- 
- 	/*
-@@ -1506,14 +1529,7 @@ static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
- 		sme_smstop();
- 	}
- 
--	if (ksig->ka.sa.sa_flags & SA_RESTORER)
--		sigtramp = ksig->ka.sa.sa_restorer;
--	else
--		sigtramp = VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
--
--	regs->regs[30] = (unsigned long)sigtramp;
--
--	return gcs_signal_entry(sigtramp, ksig);
-+	return 0;
- }
- 
- static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
-@@ -1537,14 +1553,11 @@ static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
- 
- 	err |= __save_altstack(&frame->uc.uc_stack, regs->sp);
- 	err |= setup_sigframe(&user, regs, set, &ua_state);
--	if (err == 0) {
-+	if (ksig->ka.sa.sa_flags & SA_SIGINFO)
-+		err |= copy_siginfo_to_user(&frame->info, &ksig->info);
-+
-+	if (err == 0)
- 		err = setup_return(regs, ksig, &user, usig);
--		if (ksig->ka.sa.sa_flags & SA_SIGINFO) {
--			err |= copy_siginfo_to_user(&frame->info, &ksig->info);
--			regs->regs[1] = (unsigned long)&frame->info;
--			regs->regs[2] = (unsigned long)&frame->uc;
--		}
--	}
- 
- 	if (err == 0)
- 		set_handler_user_access_state();
--- 
-2.47.0
+Cheers,
+Andre'
 
 
