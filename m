@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 492D7E74ACA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 19:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43017E74AC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 19:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+p5reWVqLjy4I/TWVxsMBx1YnEZvRo6ajPef4GWCnXg=; b=l/EvFl3iSTfRJcG7ceDpoeOecX
-	46wd6nizSEhsrFimtkIXzjQAvFoSE15ALUNKcsLkTv/SJ/EHvA4WSoYtpT1i68ADYMeF9KeKs5lk/
-	jarbVzzwefvweX9R4H5dOq6blMiz4OVu1YVc/cNXNCZDczreW7bTkVSmQmUIpxxHI5KN1E4Lc5Vbq
-	2O0MpnjDxgyXREQlC50aLcq9PEFKK69sdGMkInhh7cjc/s/2jP0+fJCxPBaBaURSzDMzqNHhSCoul
-	zUNSeP4gIB2ZQ9oE2ZFStthh9YR/uRb7KWm6qh1dc7/IbqfChw5VMEcLYGNALCJwGtanh0YlpDBZU
-	vb7QshvA==;
+	bh=S9OvSlPazCgFtig4k2fUccNlDviHoE6kU11ttZKdFgo=; b=Wnw3QtmCbgooc2r9NJ4QqDdqin
+	tGXeCWsS7iFRNNIE7O1tsKqviAXXEqEMcyHLPbTLN/KYLt8Rx03RwmijSgbpIQ6OsL4OT8QhGhU1I
+	wzqUIFb2/Vs5ADW5Q19RyoMiqHNNRJe7FwugeVseeDcc90mZWHpA9BM4WWhuUhg3YOfTXUbjrqtY5
+	YnReeh+q/FMsc3jQylQto8jgOGrC6hxCkOmAq32q8sbscXfyiLPP8WDCCPeCTBL4k+QvwzqAa8pLv
+	OZQ0kxzHzhgKj9O48s6BdHzLqao+orAIoL1CuRBHGBljkhg/zsm8mc/lN11BAK95enVMnQW8Ax5/Q
+	g9eFIu+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIYgj-0000000AUjL-1QoD;
-	Tue, 03 Dec 2024 19:36:01 +0000
-Received: from out-179.mta1.migadu.com ([95.215.58.179])
+	id 1tIYhh-0000000AUwV-44Em;
+	Tue, 03 Dec 2024 19:37:01 +0000
+Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIYdo-0000000ATxh-2sMi
+	id 1tIYdr-0000000ATyc-2L9w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 19:33:01 +0000
+	Tue, 03 Dec 2024 19:33:04 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1733254378;
+	t=1733254381;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=+p5reWVqLjy4I/TWVxsMBx1YnEZvRo6ajPef4GWCnXg=;
-	b=QElGUt9oWvjr2JFV8BMnxyp9iwlv3abSzu4xFpAnZQdtjXFNPPCb0cyKsp7QmEhCfTqv9q
-	gShA/lU1ZvGgOYeqHVn2dB+iuD1UMScdKkcG2pBCLkPvhq3AK5cWTiUioBYv8uTabJJ5/S
-	WFC3GVt6qyXEadoxlHRJ54olb0cpii8=
+	bh=S9OvSlPazCgFtig4k2fUccNlDviHoE6kU11ttZKdFgo=;
+	b=CphpkuBekQ/ZqHvtCaCPQxVsciHNxHsaQxAL4qy522T5vb0sPEhOIYGfPG4BADtLtLq91L
+	SUjcqrnDAAHMnfoh9flpwKxSHUV/A2KG/25vc0zFhxxP1OdzsV7xAs13Zz2dUCXPshuZTK
+	bplpdilpm4d/BZLV03wypJJLmT3kHck=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -53,17 +53,18 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [RFC PATCH 02/14] drivers/perf: apple_m1: Support host/guest event filtering
-Date: Tue,  3 Dec 2024 11:32:08 -0800
-Message-Id: <20241203193220.1070811-3-oliver.upton@linux.dev>
+Subject: [RFC PATCH 03/14] drivers/perf: apple_m1: Map generic branch events
+Date: Tue,  3 Dec 2024 11:32:09 -0800
+Message-Id: <20241203193220.1070811-4-oliver.upton@linux.dev>
 In-Reply-To: <20241203193220.1070811-1-oliver.upton@linux.dev>
 References: <20241203193220.1070811-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_113300_871582_5D6FFB0E 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20241203_113303_731834_62C0C9F5 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,91 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PMU appears to have a separate register for filtering 'guest'
-exception levels (i.e. EL1 and !ELIsInHost(EL0)) which has the same
-layout as PMCR1_EL1. Conveniently, there exists a VHE register alias
-(PMCR1_EL12) that can be used to configure it.
-
-Support guest events by programming the EL12 register with the intended
-guest kernel/userspace filters. Limit support for guest events to VHE
-(i.e. kernel running at EL2), as it avoids involving KVM to context
-switch PMU registers. VHE is the only supported mode on M* parts anyway,
-so this isn't an actual feature limitation.
+Map the generic perf events for branch prediction stats to the
+corresponding hardware events.
 
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- drivers/perf/apple_m1_cpu_pmu.c | 20 ++++++++++++++++----
- 1 file changed, 16 insertions(+), 4 deletions(-)
+ drivers/perf/apple_m1_cpu_pmu.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/drivers/perf/apple_m1_cpu_pmu.c b/drivers/perf/apple_m1_cpu_pmu.c
-index ecc71f6808dd..2a34523500f8 100644
+index 2a34523500f8..d6d4ff6da862 100644
 --- a/drivers/perf/apple_m1_cpu_pmu.c
 +++ b/drivers/perf/apple_m1_cpu_pmu.c
-@@ -120,6 +120,8 @@ enum m1_pmu_events {
- 	 */
- 	M1_PMU_CFG_COUNT_USER					= BIT(8),
- 	M1_PMU_CFG_COUNT_KERNEL					= BIT(9),
-+	M1_PMU_CFG_COUNT_HOST					= BIT(10),
-+	M1_PMU_CFG_COUNT_GUEST					= BIT(11),
+@@ -170,6 +170,8 @@ static const unsigned m1_pmu_perf_map[PERF_COUNT_HW_MAX] = {
+ 	PERF_MAP_ALL_UNSUPPORTED,
+ 	[PERF_COUNT_HW_CPU_CYCLES]		= M1_PMU_PERFCTR_CORE_ACTIVE_CYCLE,
+ 	[PERF_COUNT_HW_INSTRUCTIONS]		= M1_PMU_PERFCTR_INST_ALL,
++	[PERF_COUNT_HW_BRANCH_INSTRUCTIONS]	= M1_PMU_PERFCTR_INST_BRANCH,
++	[PERF_COUNT_HW_BRANCH_MISSES]		= M1_PMU_PERFCTR_BRANCH_MISPRED_NONSPEC,
  };
  
- /*
-@@ -326,7 +328,7 @@ static void m1_pmu_disable_counter_interrupt(unsigned int index)
- }
- 
- static void __m1_pmu_configure_event_filter(unsigned int index, bool user,
--					    bool kernel)
-+					    bool kernel, bool host)
- {
- 	u64 clear, set, user_bit, kernel_bit;
- 
-@@ -354,7 +356,10 @@ static void __m1_pmu_configure_event_filter(unsigned int index, bool user,
- 	else
- 		clear |= kernel_bit;
- 
--	sysreg_clear_set_s(SYS_IMP_APL_PMCR1_EL1, clear, set);
-+	if (host)
-+		sysreg_clear_set_s(SYS_IMP_APL_PMCR1_EL1, clear, set);
-+	else if (is_kernel_in_hyp_mode())
-+		sysreg_clear_set_s(SYS_IMP_APL_PMCR1_EL12, clear, set);
- }
- 
- static void __m1_pmu_configure_eventsel(unsigned int index, u8 event)
-@@ -389,10 +394,13 @@ static void __m1_pmu_configure_eventsel(unsigned int index, u8 event)
- static void m1_pmu_configure_counter(unsigned int index, unsigned long config_base)
- {
- 	bool kernel = config_base & M1_PMU_CFG_COUNT_KERNEL;
-+	bool guest = config_base & M1_PMU_CFG_COUNT_GUEST;
-+	bool host = config_base & M1_PMU_CFG_COUNT_HOST;
- 	bool user = config_base & M1_PMU_CFG_COUNT_USER;
- 	u8 evt = config_base & M1_PMU_CFG_EVENT;
- 
--	__m1_pmu_configure_event_filter(index, user, kernel);
-+	__m1_pmu_configure_event_filter(index, user && host, kernel && host, true);
-+	__m1_pmu_configure_event_filter(index, user && guest, kernel && guest, false);
- 	__m1_pmu_configure_eventsel(index, evt);
- }
- 
-@@ -568,7 +576,7 @@ static int m1_pmu_set_event_filter(struct hw_perf_event *event,
- {
- 	unsigned long config_base = 0;
- 
--	if (!attr->exclude_guest) {
-+	if (!attr->exclude_guest && !is_kernel_in_hyp_mode()) {
- 		pr_debug("ARM performance counters do not support mode exclusion\n");
- 		return -EOPNOTSUPP;
- 	}
-@@ -576,6 +584,10 @@ static int m1_pmu_set_event_filter(struct hw_perf_event *event,
- 		config_base |= M1_PMU_CFG_COUNT_KERNEL;
- 	if (!attr->exclude_user)
- 		config_base |= M1_PMU_CFG_COUNT_USER;
-+	if (!attr->exclude_host)
-+		config_base |= M1_PMU_CFG_COUNT_HOST;
-+	if (!attr->exclude_guest)
-+		config_base |= M1_PMU_CFG_COUNT_GUEST;
- 
- 	event->config_base = config_base;
- 
+ /* sysfs definitions */
 -- 
 2.39.5
 
