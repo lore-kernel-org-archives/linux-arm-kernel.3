@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DEB2E74AC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 20:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1CDEE74AD0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 20:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qIMCYU85gmz7C56/WNyYcs7dDw6rakgcMWw5MWREcwA=; b=qVyBNvbADCdD26uvQYbec3IH5l
-	H3hE6iRpxgyQw8WaQ6g1wsdXOgwZlPVIwtKWTBr9J+7QIwKeGZeBHXMgkEIZtQ74vqfXEjW6yVu2e
-	GyqG54zOZxBddGsHLGXM2DrHkTaiuep4RjTBJkmo8LQTs6rddtHu3kXnb2VbtDlk0ryK8g6IK2vuX
-	KUJjZwjbd11HGNajnxTGWD+ZVp0SLY2zpS2YZF56d5fQnKzLjfG5znt78kVUAzL1N+uj/lgB3KEkc
-	pK+V5VKyDU6umUynni9VkVDCHEDdQ7d3uVqasiXDe2n8asAtBjObdkoHG7ZkQgcALOHKR9RESC3A7
-	04zkzuyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YuGAnd8sW4F+V+CEmJaUv5di3BtGFuYG5RsoEXvfXOc=; b=uMKdurEMNWURB6BOYKlViQJSpY
+	NT2AtHJoVyL3pKg3jltK/wxs5zW9XLi0BRmp+SHkhCT5nH19ZS3We5bhUxFB2HIX4oFhP1YcmLN9B
+	E8Zm8Cu/sdZdgs6pOsS+7RycOZ/5HfVyrmVGYUgraWqVWEZscoCO6nKon+E7Sw98WfLRPUifDYcU2
+	EKtUTnDikWMG9Xkfk+bBIzC8rotl9yZa460iIFuN/U2xR0nd2kGJvFM1vMdNOu9DTb56JndkYaU1J
+	25DxJaJ117260nzaxIncHN9rCjIRRz/VHu445+5HYTMxODKqRKF2dgi3PMWMjCjXJqysZud3q/iIC
+	KKHg2BzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIZ81-0000000AZqn-2LEi;
-	Tue, 03 Dec 2024 20:04:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIZ56-0000000AZ0e-2u1b
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 20:01:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 60529175D;
-	Tue,  3 Dec 2024 12:01:40 -0800 (PST)
-Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1E913F5A1;
-	Tue,  3 Dec 2024 12:01:09 -0800 (PST)
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Cc: sudeep.holla@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org,
-	johan+linaro@kernel.org,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH 2/2] firmware: arm_scmi: Add module aliases to i.MX vendor protocols
-Date: Tue,  3 Dec 2024 20:00:38 +0000
-Message-ID: <20241203200038.3961090-3-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241203200038.3961090-1-cristian.marussi@arm.com>
-References: <20241203200038.3961090-1-cristian.marussi@arm.com>
+	id 1tIZD4-0000000AarH-2FgT;
+	Tue, 03 Dec 2024 20:09:26 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIZC4-0000000Aahp-1OCM;
+	Tue, 03 Dec 2024 20:08:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733256500;
+	bh=nMuqNASdDvXJ7RQQnLGP4ZYna4CqD0GHPdKOd8h24RU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=ZbYSgf4Zo1i9VrUp7UXd5QcS7atcnIODtz9GHmtYQ09YmVXT6of71Rh8K3g79PXbG
+	 kziOpE5jN2nm/wQR6O1UleZj0LuJEPug4/j42PIsdusXRR0twS5TfMDz75gDkEKv4r
+	 gZgRgPe0gpjj/JIqWPk1hUnUZu2voIUsnGXgCFBeCEL4LXhXeaZ4p9NXsqP4t14XjP
+	 jgh1xMEZ/OTNd3LwF3AZKzvpCt+Nz60xnhNF9/KHdin0mLbsewVq3+Z+uYi7TII/li
+	 2HJJlF0kFNbJXfCq7nd+uJRRDRGfzXU6jOULFq2Owgy4xLz+dPGGwa387JTyLxl4os
+	 Krk0yLG0S81dQ==
+Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1005])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 42EA617E1091;
+	Tue,  3 Dec 2024 21:08:18 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Date: Tue, 03 Dec 2024 17:07:54 -0300
+Subject: [PATCH] ASoC: mediatek: mt8188: Enable apll1 clock during reg rw
+ to prevent hang
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20241203-mt8188-afe-fix-hang-disabled-apll1-clk-v1-1-07cdd7760834@collabora.com>
+X-B4-Tracking: v=1; b=H4sIABplT2cC/x2NwQrCMBAFf6Xs2QfdVDD4K+Jhk2x0MdaSFBFK/
+ 93ocWCY2ahpNW10Hjaq+rZmr7kDHwaKd5lvCkudyY3uyG6c8Fw9ew/Jimwf/BwkaxKKJshSCiO
+ WB8IUmU/exSCZemyp2vX/6HLd9y+aqKzAeAAAAA==
+X-Change-ID: 20241203-mt8188-afe-fix-hang-disabled-apll1-clk-b3c11782cbaf
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_120112_815333_62EE9FD5 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241203_120824_526866_E863237E 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,75 +81,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using the pattern 'scmi-protocol-0x<PROTO_ID>-<VEND_ID>' as MODULE_ALIAS
-allows the SCMI core to autoload this protocol, if built as a module, when
-its protocol operations are requested by an SCMI driver.
+Currently, booting the Genio 700 EVK board with the MT8188 sound
+platform driver configured as a module (CONFIG_SND_SOC_MT8188=m) results
+in a system hang right when the HW registers for the audio controller
+are read:
 
-Cc: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+  mt8188-audio 10b10000.audio-controller: No cache defaults, reading back from HW
+
+The hang doesn't occur with the driver configured as builtin as then the
+unused clocks are still enabled.
+
+Enable the apll1 clock during register read/write to prevent the hang.
+
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
- drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c  | 5 +++--
- drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c | 5 +++--
- include/linux/scmi_imx_protocol.h                   | 9 +++++----
- 3 files changed, 11 insertions(+), 8 deletions(-)
+ sound/soc/mediatek/mt8188/mt8188-afe-clk.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c
-index 17799eacf06c..aa176c1a5eef 100644
---- a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c
-+++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c
-@@ -374,10 +374,11 @@ static const struct scmi_protocol scmi_imx_bbm = {
- 	.ops = &scmi_imx_bbm_proto_ops,
- 	.events = &scmi_imx_bbm_protocol_events,
- 	.supported_version = SCMI_PROTOCOL_SUPPORTED_VERSION,
--	.vendor_id = "NXP",
--	.sub_vendor_id = "IMX",
-+	.vendor_id = SCMI_IMX_VENDOR,
-+	.sub_vendor_id = SCMI_IMX_SUBVENDOR,
- };
- module_scmi_protocol(scmi_imx_bbm);
+diff --git a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
+index e69c1bb2cb239596dee50b166c20192d5408be10..fb8cf286df3f02ac076528b898fd0d7a708ec1ea 100644
+--- a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
++++ b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
+@@ -587,6 +587,8 @@ int mt8188_afe_enable_reg_rw_clk(struct mtk_base_afe *afe)
+ 	mt8188_afe_enable_clk(afe, afe_priv->clk[MT8188_CLK_AUD_A1SYS_HP]);
+ 	mt8188_afe_enable_clk(afe, afe_priv->clk[MT8188_CLK_AUD_A1SYS]);
  
-+MODULE_ALIAS("scmi-protocol-" __stringify(SCMI_PROTOCOL_IMX_BBM) "-" SCMI_IMX_VENDOR);
- MODULE_DESCRIPTION("i.MX SCMI BBM driver");
- MODULE_LICENSE("GPL");
-diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-index a86ab9b35953..83b69fc4fba5 100644
---- a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-+++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-@@ -309,10 +309,11 @@ static const struct scmi_protocol scmi_imx_misc = {
- 	.ops = &scmi_imx_misc_proto_ops,
- 	.events = &scmi_imx_misc_protocol_events,
- 	.supported_version = SCMI_PROTOCOL_SUPPORTED_VERSION,
--	.vendor_id = "NXP",
--	.sub_vendor_id = "IMX",
-+	.vendor_id = SCMI_IMX_VENDOR,
-+	.sub_vendor_id = SCMI_IMX_SUBVENDOR,
- };
- module_scmi_protocol(scmi_imx_misc);
- 
-+MODULE_ALIAS("scmi-protocol-" __stringify(SCMI_PROTOCOL_IMX_MISC) "-" SCMI_IMX_VENDOR);
- MODULE_DESCRIPTION("i.MX SCMI MISC driver");
- MODULE_LICENSE("GPL");
-diff --git a/include/linux/scmi_imx_protocol.h b/include/linux/scmi_imx_protocol.h
-index 066216f1357a..53b356a26414 100644
---- a/include/linux/scmi_imx_protocol.h
-+++ b/include/linux/scmi_imx_protocol.h
-@@ -13,10 +13,11 @@
- #include <linux/notifier.h>
- #include <linux/types.h>
- 
--enum scmi_nxp_protocol {
--	SCMI_PROTOCOL_IMX_BBM = 0x81,
--	SCMI_PROTOCOL_IMX_MISC = 0x84,
--};
-+#define	SCMI_PROTOCOL_IMX_BBM	0x81
-+#define	SCMI_PROTOCOL_IMX_MISC	0x84
++	mt8188_afe_enable_clk(afe, afe_priv->clk[MT8188_CLK_APMIXED_APLL1]);
 +
-+#define SCMI_IMX_VENDOR		"NXP"
-+#define SCMI_IMX_SUBVENDOR	"IMX"
+ 	return 0;
+ }
  
- struct scmi_imx_bbm_proto_ops {
- 	int (*rtc_time_set)(const struct scmi_protocol_handle *ph, u32 id,
+@@ -594,6 +596,8 @@ int mt8188_afe_disable_reg_rw_clk(struct mtk_base_afe *afe)
+ {
+ 	struct mt8188_afe_private *afe_priv = afe->platform_priv;
+ 
++	mt8188_afe_disable_clk(afe, afe_priv->clk[MT8188_CLK_APMIXED_APLL1]);
++
+ 	mt8188_afe_disable_clk(afe, afe_priv->clk[MT8188_CLK_AUD_A1SYS]);
+ 	mt8188_afe_disable_clk(afe, afe_priv->clk[MT8188_CLK_AUD_A1SYS_HP]);
+ 	mt8188_afe_disable_clk(afe, afe_priv->clk[MT8188_CLK_AUD_AFE]);
+
+---
+base-commit: b852e1e7a0389ed6168ef1d38eb0bad71a6b11e8
+change-id: 20241203-mt8188-afe-fix-hang-disabled-apll1-clk-b3c11782cbaf
+
+Best regards,
 -- 
-2.47.0
+Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
 
