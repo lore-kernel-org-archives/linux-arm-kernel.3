@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C67E74AC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34AF5E74AC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ZrraI2kA2TOw3GAEcozWYMZfRXVKIpZZc6IZ/Oyre8=; b=zqzx6++Y1rzJEuBcuv4WesuIZL
-	W/qKScagWoY19EpR871nBHw/au2gGHvuUEWk7CMUdRcTFJlN4AH8hR8IIIt9Nvsf+0mwu/OaITiWx
-	YUHFsk14PRI3roE9gR6+v8iX6nwPiPvPD2sjGdwAGcxnFOPZhRQsLrnngSrZEGLrEsusemextvvrD
-	ew1F34dDz3ZB0sA4WcfaGu3JDioWbckLnHVJ741LIiZrWfHeJNfX7B7GUkhKj+BbSCZ/N3SoFzxoo
-	VGeAkD41HKoKlzbJ/Is3zWvESTg0c1i84ihJ//a4ojd7T4jLOcXbmdIqZ8WCBtoLskL1g4dETDybf
-	OgYtJGDw==;
+	bh=lntT44yDA/CQPJtT+Ol4QD6NQsks727x1mdyw4aP2xo=; b=n51CVjCzkfooswdN9AbGpP2L5A
+	fPfRqLCRxAcQXcLva9U/0Ubgmoz05DSn0ybP1gXyPCs8RTQ0Mlzc4Y8OIAEcczOMB+YOAcPzC5+72
+	npHF9akPAmnegXOo0snfiXFDBDKyb9DtHPvpdOf2EYXIizGEgCy+5ctihVkeBlPWDombzf3TUyujP
+	3z7g16CTYHBDJaaP3pqRcp6oHYdmtKu1qwcnGJ0/UgVorMfX70LJX6YSYDjOEQCjDYbUTKKBXcfDr
+	POfFZPLfZmrAyPhZn66IUYDXc7Ghk2QVtGMGeBIwnSTY9T9Jdjy3pUOXdZFs10DBc9YvS/uGxvDbv
+	3/i6u0og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWaa-0000000AEPt-0q3p;
-	Tue, 03 Dec 2024 17:21:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tIWei-0000000AF2u-0HGc;
+	Tue, 03 Dec 2024 17:25:48 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWZZ-0000000AEJ0-1peZ
+	id 1tIWdh-0000000AEvD-12B9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 17:20:30 +0000
+	Tue, 03 Dec 2024 17:24:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ECEC45C698A;
-	Tue,  3 Dec 2024 17:19:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A538C4CECF;
-	Tue,  3 Dec 2024 17:20:28 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 056FCA417FE;
+	Tue,  3 Dec 2024 17:22:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5597DC4CECF;
+	Tue,  3 Dec 2024 17:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733246428;
-	bh=eu8MFWETCzi5mUkFpsHp3K6rE1uqUbw4E2pfuGZED5M=;
+	s=k20201202; t=1733246683;
+	bh=LNXxnd+wAtX8yjnWtSQBVcGs5jeF1cYxXYnclU8AnDU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OwVM1pPTEPLNeSSEZQiHBH6Z4pCfskBgJS15+lqTzDaERICXmEXFijOJ+39t1WkDh
-	 Mmlt3qH1R2/J7kbNEBBNa8OGc8uG848l+SDnviF7uZqXjdG+6gomChXIEF/PNj4fCq
-	 5GCeweIH8jxGsQK2s4SgMyNMbL37kuMMLvFouyNks8GYnNWLHtFcvB3C2M1Utm+Pqo
-	 wGYr9QK1ZMAted2QhGKiI8EVFxEmwMJ32HyX2UToWc2UDLugOmTOsf6zIFiDXXjOLj
-	 mLANce+Qac3pq3ovswLVEsrczQCAZWTae2lEaiVvyOEdDjQTENw5PNhGigRUDjdGSs
-	 vfE8MJ/J/hVCg==
-Date: Tue, 3 Dec 2024 11:20:26 -0600
-From: Rob Herring <robh@kernel.org>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>,
+	b=G4fWRbkNm3jIkzfpx0pDOYw+KFGofLZR7Wkua0flCruEk9CYgjatRvlLgPHHy1ilD
+	 +WRMYBCdOJKYuHwHcfz4P+AY/FiH5A4c7paI3nsojLe8d1UYXjPFZL+Jieq4TPzKR+
+	 YPT3BdwA8JIKaPoJohyzwnFAjVS28hYvsatDGWDDhC4Q/1A8D+ZDHVquBLJlUBDzBf
+	 5KmDbKd0dGmv32Q3W+TRwteyk0Xw/ATWLjtku9mZw4eUTOYrofbJjNzMySg3fB0o0R
+	 Ic+q6vFVxzRcugP5nf1717ZCRcdX59WvuMK0vU0no9HyLqBGhGi8l5kbrtLsAE7Pw0
+	 fS+HssiZ74Uhg==
+Date: Tue, 3 Dec 2024 17:24:39 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Dave Martin <Dave.Martin@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: soc: fsl: cpm_qe: Limit matching to nodes
- with "fsl,qe"
-Message-ID: <20241203172026.GA1988559-robh@kernel.org>
-References: <20241202045757.39244-1-wenst@chromium.org>
+Subject: Re: [PATCH 1/6] arm64/sme: Flush foreign register state in
+ do_sme_acc()
+Message-ID: <44d67835-1e43-47cc-9a18-c279c885dcec@sirena.org.uk>
+References: <20241203-arm64-sme-reenable-v1-0-d853479d1b77@kernel.org>
+ <20241203-arm64-sme-reenable-v1-1-d853479d1b77@kernel.org>
+ <Z08khk6Mg6+T6VV9@e133380.arm.com>
+ <9365be76-8da6-47ce-b88e-dfa244b9e5b7@sirena.org.uk>
+ <Z085GKS8jzEhcZdW@e133380.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tHDCWXL5Z30wlzvr"
 Content-Disposition: inline
-In-Reply-To: <20241202045757.39244-1-wenst@chromium.org>
+In-Reply-To: <Z085GKS8jzEhcZdW@e133380.arm.com>
+X-Cookie: Alimony is the high cost of leaving.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_092029_563912_99886119 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20241203_092445_410915_4B3A15DA 
+X-CRM114-Status: GOOD (  33.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,58 +80,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 12:57:55PM +0800, Chen-Yu Tsai wrote:
-> Otherwise the binding matches against random nodes with "simple-bus"
-> giving out all kinds of invalid warnings:
-> 
->     $ make CHECK_DTBS=y mediatek/mt8188-evb.dtb
->       SYNC    include/config/auto.conf.cmd
->       UPD     include/config/kernel.release
->       SCHEMA  Documentation/devicetree/bindings/processed-schema.json
->       DTC [C] arch/arm64/boot/dts/mediatek/mt8188-evb.dtb
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: compatible:0: 'fsl,qe' was expected
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: compatible: ['simple-bus'] is too short
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controller@c000000:compatible:0: 'fsl,qe-ic' was expected
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controller@c000000:reg: [[0, 201326592, 0, 262144], [0, 201588736, 0, 2097152]] is too long
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controller@c000000:#interrupt-cells:0:0: 1 was expected
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controller@c000000: '#redistributor-regions', 'ppi-partitions' do not match any of the regexes: 'pinctrl-[0-9]+'
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: 'reg' is a required property
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: 'bus-frequency' is a required property
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
-> 
-> Fixes: ecbfc6ff94a2 ("dt-bindings: soc: fsl: cpm_qe: convert to yaml format")
-> Cc: Frank Li <Frank.Li@nxp.com>
-> Cc: <stable@vger.kernel.org> # v6.11+
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
->  .../devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml        | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml
-> index 89cdf5e1d0a8..9e07a2c4d05b 100644
-> --- a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml
-> +++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml
-> @@ -21,6 +21,14 @@ description: |
->    The description below applies to the qe of MPC8360 and
->    more nodes and properties would be extended in the future.
->  
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: fsl,qe
-> +  required:
-> +    - compatible
 
-Update your dtschema. The select is no longer necessary. dtbs_check will 
-also run 5x faster.
+--tHDCWXL5Z30wlzvr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Rob
+On Tue, Dec 03, 2024 at 05:00:08PM +0000, Dave Martin wrote:
+> On Tue, Dec 03, 2024 at 04:00:45PM +0000, Mark Brown wrote:
+
+> > It's to ensure that the last recorded CPU for the current task is
+> > invalid so that if the state was loaded on another CPU and we switch
+> > back to that CPU we reload the state from memory, we need to at least
+> > trigger configuration of the SME VL.
+
+> OK, so the logic here is something like:
+
+> Disregarding SME, the FPSIMD/SVE regs are up to date, which is fine
+> because SME is trapped.
+
+> When we take the SME trap, we suddenly have some work to do in order to
+> make sure that the SME-specific parts of the register state are up to
+> date, so we need to mark the state as stale before setting TIF_SME and
+> returning.
+
+We know that the only bit of register state which is not up to date at
+this point is the SME vector length, we don't configure that for tasks
+that do not have SME.  SVCR is always configured since we have to exit
+streaming mode for FPSIMD and SVE to work properly so we know it's
+already 0, all the other SME specific state is gated by controls in
+SVCR.
+
+> fpsimd_flush_task_state() means that we do the necessary work when re-
+> entering userspace, but is there a problem with simply marking all the
+> FPSIMD/vector state as stale?  If FPSR or FPCR is dirty for example, it
+> now looks like they won't get written back to thread struct if there is
+> a context switch before current re-enters userspace?
+
+> Maybe the other flags distinguish these cases -- I haven't fully got my
+> head around it.
+
+We are doing fpsimd_flush_task_state() in the TIF_FOREIGN_FPSTATE case
+so we know there is no dirty state in the registers.
+
+> (Actually, the ARM ARM says (IMHTLZ) that toggling PSTATE.SM by any
+> means causes FPSR to become 0x800009f.  I'm not sure where that fits in
+> -- do we handle that anywhere?  I guess the "soft" SM toggling via
+
+Urgh, not seen that one - that needs handling in the signal entry path
+and ptrace.  That will have been defined while the feature was being
+implemented.  It's not relevant here though since we are in the SME
+access trap, we might be trapping due to a SMSTART or equivalent
+operation but that SMSTART has not yet run at the point where we return
+to userspace.
+
+> ptrace, signal delivery or maybe exec, ought to set this?  Not sure how
+> that interacts with the expected behaviour of the fenv(3) API...  Hmm.
+> I see no corresponding statement about FPCR.)
+
+Fun.  I'm not sure how the ABI is defined there by libc.
+
+--tHDCWXL5Z30wlzvr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdPPtYACgkQJNaLcl1U
+h9APOAf/UFW40tTbHb8uLiLKWdPsreOHsimNJmtyKr1ffXaDSWdfVPDpmIkD2Pq0
+IfxTti7phJ0HbaSbSPQE5Q4wAuoWBKPBF1MA//sROlRYOrgRyGnoh4wYPHsKyHsC
+te9Y7m8YRG5BjAWU9AZxXDqrAzAD0Z2FUzPWHoeCfZfMzF39LVeT9fWrXifq//JL
+pukr0jwLO8Cl6h5beYMmvhhV+tUFooMIyswL0ao+U8oR34CtbTO43JsGwvIQ4jtN
+jkLXq4qeAFpbCdfepZcfO0GM3MIFMBu646I3pUVppZj0FAtQzShBrTdEz8IxAr4/
+Ae/GFy0QGUkCC6ZHRyE/6ZC3sp7Vmw==
+=MArm
+-----END PGP SIGNATURE-----
+
+--tHDCWXL5Z30wlzvr--
 
