@@ -4,80 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8506AE64A93
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:24:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC3EE64A8F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:26:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GrYwoDBPdwhzaEj/TCIQ/EW68kwHvhqNPiInEOsyzDo=; b=Hqsx+Py3JSI13ko3xJKJJSkFwL
-	xg/sGzzi3ROoJifunR8H8/0M062Ao3XH5JDQZEaRtN2JYDAi76kg/4uxCenGdPAuBXsqTBgfhkC4H
-	kcZys1eui9wnhmAbzTvpeEoGfzpEkak8hFAqwP8BPh9+pYu7+PYLryeGJOYUPbA7ILVduOy+A2Mlp
-	aEWGKfDAQkH2hFGDlH184HSFVzk+HiCuRdrX5/TQmZTIRZXujl3Kjfq4ZxpcuwQl/l7hc+xeJE2cq
-	3SCJLPRP/Q6wOQRJrZ3SnyywdBOhsagU/RIV3iNfuxS35EMKrdKoIiU7NI76L412PmVecTsLOrN0D
-	29iVPz6Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WXLrd8ABNcSoG1qW8IbIWSc1U86lTtpYwQQ7tf8PS7M=; b=SAIBIUPGPYKaEDyXCxIhnTA6nj
+	F0uYofEqag5uYCQBZX1zt3W/FcEr9VYPfL1CG6xzeMgIwEyStwcQS0XDl8Ni1hDFJNDhyqYD1L9J+
+	Kt8uIL8IeDAZG+2z7FAWOI5GSZ298OfqpR4qFeaBhPJnxMw449HjiM3taebp58v9XHfJW+uSgphvR
+	GCLoWp/BoR5SQisMrdsGNii4q/MIFF+50zmeINVMCPut2sDqevQrEPL70Q3hslj9cNZWPDmOvcXGl
+	ZLg6sAufoL3VMRPQViaftveNW2yXih+anIAQPY1pSjOF0IoHP+C/a1i1lH/K4m23WlxaxLdsQ9kw+
+	vkUG2LHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISst-00000009bU4-1fWT;
-	Tue, 03 Dec 2024 13:24:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tISvR-00000009boV-0bWf;
+	Tue, 03 Dec 2024 13:26:49 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISrs-00000009bJi-1XEu
+	id 1tISuQ-00000009bh1-2EsL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 13:23:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D1E4F5C6D2A;
-	Tue,  3 Dec 2024 13:22:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 74229C4CED8;
-	Tue,  3 Dec 2024 13:23:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733232186;
-	bh=iZ4QmU3VYs0LDZ8lr0fIemo81foNLGPlwRopsTWq1P0=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=GG+N/WIfnow38JRGkOfEUiqgEc8xibKWgESFJaJwR0/r5CeXFZfjHzUPdkXqIVXoZ
-	 sSSEQ7mkh31hGjPyo1lXQ0JdWOf5gS/pK7+x21tsqZyBOGzK1xDwtBUEdzPjclGXMk
-	 q67bDbgYt8PCuctS91TY55sFkMoZL/N3iXF4eAdedqqd0kCUlL6J7SnW4As8neP9M7
-	 LYmT2SClZZbkYnk1DeHDGbkt2m4nuUW2CKjvUIxFjCDm0HvS+iPn1+mdONVT1mn2iP
-	 siHZgH2lDRXJ8VBcdmW/odcujw3h1He5t1pFB2mj5ck3JKb6R8Ie0+Kh43UUc8aLDi
-	 M79Lh9i6I1xSQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6A53BE64A93;
-	Tue,  3 Dec 2024 13:23:06 +0000 (UTC)
-From: Manojkiran Eda via B4 Relay <devnull+manojkiran.eda.gmail.com@kernel.org>
-Date: Tue, 03 Dec 2024 18:52:45 +0530
-Subject: [PATCH] ARM: dts: aspeed: Enable video engine for IBM System1
+	Tue, 03 Dec 2024 13:25:48 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 49835FF803;
+	Tue,  3 Dec 2024 13:25:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1733232341;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WXLrd8ABNcSoG1qW8IbIWSc1U86lTtpYwQQ7tf8PS7M=;
+	b=gXxGUy3TlyX+gEi+BKC7mldOYoyJZZF95bB7ImyGoWvuyLqwNDnIeORJb1JCPJpZkkE3FH
+	ytcRAYM+s+EAcUCcd07TiDkWfrxUO1+i5PaSoBOGzwpJf3BV5ESv8D5z2shI8Vvngsw3rm
+	W2xLp9IMI7f/bGmJlzTp+AT3YoBm18x1yGisqOZTy4LS+vcv4k0IFHH9/Ur+ZLDn6cukyN
+	ncZn1iA9Z+G2inxyEv26vH8MU1GMwEcSkktBKd7dIsBfoOJngaueBHl7FPOG/EWXZHvXiH
+	PS7L0C8i0XuifQrh/rpvQFrQOI1kURlH+1y+GNfPWgeP3q1b8RQy6iVb49ydtg==
+Date: Tue, 3 Dec 2024 14:25:40 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Esben Haabendal <esben@geanix.com>
+Cc: linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Patrice Chotard <patrice.chotard@foss.st.com>
+Subject: Re: [PATCH 4/6] rtc: st-lpc: Fix initial enable_irq/disable_irq
+ balance
+Message-ID: <202412031325408acbe302@mail.local>
+References: <20241203-rtc-uie-irq-fixes-v1-0-01286ecd9f3f@geanix.com>
+ <20241203-rtc-uie-irq-fixes-v1-4-01286ecd9f3f@geanix.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241203-dts-system1-video-v1-1-008e5e660106@gmail.com>
-X-B4-Tracking: v=1; b=H4sIACQGT2cC/x3MMQqAMAxA0atIZgNNtSJeRRzERs1glUZEKd7d4
- viG/xMoR2GFrkgQ+RKVPWRQWcC0jmFhFJ8N1tiarKnQn4r66Mkb4SWedzSmJe/cSK5hyN0ReZb
- 7f/bD+36t1tcFYwAAAA==
-To: Rob Herring <robh+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Eddie James <eajames@linux.ibm.com>, Ninad Palsule <ninad@linux.ibm.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- openbmc@lists.ozlabs.org, Manojkiran Eda <manojkiran.eda@gmail.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1733232165; l=1038;
- i=manojkiran.eda@gmail.com; s=20241203; h=from:subject:message-id;
- bh=ejXpM+ALtz0H3f+cLC7p2P7soAQAZRSfhVgLG/KNusk=;
- b=JjpeBLox0ewhPlPyR7prwy4gXMJDMjI5b0bU4tGW8YA3C9sw1giJi/yDs/0TpN8fL4ElkieUV
- 1aQ6F65esdRAp5zDtx9n76PrAZNP1uwmNdM+yruTohVCsvcdrDKlH7S
-X-Developer-Key: i=manojkiran.eda@gmail.com; a=ed25519;
- pk=54WqHEFtBzlAODOpTWKI2J1uhv/sAk3WQ+lDMxMyKTI=
-X-Endpoint-Received: by B4 Relay for manojkiran.eda@gmail.com/20241203 with
- auth_id=292
-X-Original-From: Manojkiran Eda <manojkiran.eda@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241203-rtc-uie-irq-fixes-v1-4-01286ecd9f3f@geanix.com>
+X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_052308_451674_90C1B1B2 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241203_052546_716720_25DF75E8 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,45 +70,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: manojkiran.eda@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Manojkiran Eda <manojkiran.eda@gmail.com>
+On 03/12/2024 11:45:34+0100, Esben Haabendal wrote:
+> Interrupts are automatically enabled when requested, so we need to
+> initialize irq_enabled accordingly to avoid causing an unbalanced enable
+> warning.
+> 
+> To: Patrice Chotard <patrice.chotard@foss.st.com>
+> Signed-off-by: Esben Haabendal <esben@geanix.com>
+> ---
+>  drivers/rtc/rtc-st-lpc.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/rtc/rtc-st-lpc.c b/drivers/rtc/rtc-st-lpc.c
+> index c6d4522411b312f94de2701ff4ff491e5323aa96..dbc2c23bca23f5de6de3fd4b39c9c67290bfd78d 100644
+> --- a/drivers/rtc/rtc-st-lpc.c
+> +++ b/drivers/rtc/rtc-st-lpc.c
+> @@ -218,6 +218,7 @@ static int st_rtc_probe(struct platform_device *pdev)
+>  		return -EINVAL;
+>  	}
+>  
+> +	rtc->irq_enabled = true;
+>  	ret = devm_request_irq(&pdev->dev, rtc->irq, st_rtc_handler,
+>  			       IRQF_NO_AUTOEN, pdev->name, rtc);
 
-Signed-off-by: Manojkiran Eda <manojkiran.eda@gmail.com>
----
-This patch enables the aspeed video engine support in ASPEED BMC for
-IBM System1. It is crucial for facilitating the BMC's video capture
-and redirection capabilities, which are integral to remote management
-and KVM (Keyboard-Video-Mouse) over IP functionality.
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 4 ++++
- 1 file changed, 4 insertions(+)
+Seeing the IRQF_NO_AUTOEN here, I guess the patch is not correct.
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-index c8597dcded31..bea858b2eee6 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-@@ -479,6 +479,10 @@ &lpc_snoop {
- 	snoop-ports = <0x80>, <0x81>;
- };
- 
-+&video {
-+	status = "okay";
-+};
-+
- &i2c0 {
- 	status = "okay";
- 
+>  	if (ret) {
+> 
+> -- 
+> 2.47.1
+> 
 
----
-base-commit: f6d73b12ca9fd3b1c29a6a725cd751b972c740cf
-change-id: 20241203-dts-system1-video-0081d55a156e
-
-Best regards,
 -- 
-Manojkiran Eda <manojkiran.eda@gmail.com>
-
-
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
