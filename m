@@ -4,95 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 386E3E69EA6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88EDE69E9F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QjRZn9m36UpoMU1YfOpgfL0cMt4DBCuwE5rzTlpXXfM=; b=BTJWKml2w48zducpqwgqt6wvin
-	cRj4zqs+rIvOiWm8S3LsXlUQ/EVgdCnJC68r7nCGokZ+/uokaxNEWse38MZdinb75yU8UdqXOgIyM
-	X7ht4IvXWieeZIitFWxRdZxFQFl/Cwkhr+DwSeaynx8oG6KCUdbCjb+rB5EOFSKf9Pq3tynHxB3R6
-	lc3tVbfT4X6Q1c68BOblk8xDdAAa5hA01WtqhMGq9T576bWMo/L4kcJDQJdMmrojBHbE4r7ibIDxz
-	xTnskJ+zQ+x3ywI0pfSzqB0/F10i6d9uOwa/egJMAJh0xFuEJlyrptNB6Asbugc6eTL+mZ/rInKzk
-	IU60qDFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q4sUFc93gmjBPZgy68yfM8oI42T2WlPXmr5pgphYQSI=; b=eTaBrB5/Ovplvn1+ovvHQGoZG2
+	2s3KU0V4Cx645+WJcbXwLJzD2Ka21k3M/Wqi/TN00AGvrBmx7vLwhfibZ74IssoychjH1TXyXwBH1
+	wJIOUMgdF900sdlo4pI3WPE0O8gOiKh/pBFqor3IPwfR6GgwWyDsX2hmVXIDtDJfLA9UzHplCMm+r
+	kSHfjDOFDHJn4M9LMhnd2UzSdxb3I+qqpgB+Asr6goqLQllUyxKO3HLxnAcVqVz7naYUZURMA733C
+	PiKPYZHeLwwhBXPyGaGYGGsjRkagc9ksxOYf8RdE0A9Vnh+iHqUeef2x6rEsssWNF6mFpgg83fkFR
+	ZbchSr6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIQbG-00000009AAn-12Q6;
-	Tue, 03 Dec 2024 10:57:50 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1tIQcF-00000009ATf-1IYx;
+	Tue, 03 Dec 2024 10:58:51 +0000
+Received: from www530.your-server.de ([188.40.30.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIQKx-000000096ak-45Be
+	id 1tIQPq-000000097sX-0PHI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 10:41:01 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-385f4a4093eso1323600f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 02:40:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733222458; x=1733827258; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=QjRZn9m36UpoMU1YfOpgfL0cMt4DBCuwE5rzTlpXXfM=;
-        b=g9l4tO/EevOAWyCHopGnKi4EnyJwcyvd1d+ndqicYLtpKrmnLBQXaqamMA59siOXy+
-         kBzrybh5TNn+HgxOsHlefZwQt1uCBcgaLvkbwvYA104w1Yx7/ZGfNT1er2zN3zqQ6Zbk
-         HbAbb4enHxN/EnPrlJFTzlTQQJT2AOiWTmQ7VNvKce/dr/1Le5VbKUxEJr6+Eqgk95Ti
-         1GvHsGDl8btfm72I+OsJj5IoM5GYBIe/1mxn83wgyPRkjd16NXfkiDxV5BDSdHinhM9G
-         fKjAaqq3ruUNoMhPFtHlWoKg4BR+JM3+fyAR4LO2WT/3tPMjKz2hnGTh3vb5W65H10Js
-         BD6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733222458; x=1733827258;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=QjRZn9m36UpoMU1YfOpgfL0cMt4DBCuwE5rzTlpXXfM=;
-        b=H5vgGBw9Q8FIu1ADvB5rO0P/6YBVckSCyKDVxjaorj1t5oETcldt1VQrwJ/qfJHGlC
-         pD2E6i29uJKrMdpan6W1Xp0ruNrECDTzN3Sh4/+rH6H69CU+WC7HWwj/5pGbboRGHq3p
-         Ydv0S3qej3SVGnoLgirz+M5Z/RaTwERrcC1j5WWh9c7VWLEJhhsHQIhblk0YcISy7Ea6
-         mpRVJv1XL3qELLtCMvbYMdo6YtWmhVuh//xwPM8Eb5QSWY4GupcXtJdlZqhvx6Ma7kDS
-         Praez7DKJIl5MjfL+fuURgim402wYB31qSbrUiKDQ8okR5o0chukBsWitsLiNgwnY64i
-         kchw==
-X-Forwarded-Encrypted: i=1; AJvYcCX9wGyla4fzFNMxH1L7qHsbPf/cs8qZIRU78P4MK1gmO0uLxdIpt70fWRRyV2jiIAqSrKahB8gCCKZBfG2qp10X@lists.infradead.org
-X-Gm-Message-State: AOJu0Yymihhu+uObemcb6aeY563/W96c0heceltSNIuvJGItCqE6VZ05
-	USed2kqTg/gTCQXymw9DksIT0QU5GG3mnCrRAGnfgG5Xb18QuB94ko6OTsp/evg=
-X-Gm-Gg: ASbGncuoSt49/dxRjTLnGpa/+/8u6rRAMUFGM2D/359xvp/HXwig6OzEdZsqkwbbcpN
-	hQ4ZRdU5F5hxL+ZKXUalB0K/u9+l//Ar6/Q1QgEdG7zmocG7lEWhTuun9WNTLj76hewbRorOWz3
-	heZ731QFAtjEKeIkIUMtCh5aG+/4gU3D+2qUGfIDWMMjuCKnIylI4V858ejmQpVX/jDkYfeu8na
-	v7fuuuxredr+NcknQ2YAzihfKchOioUZeSHMR0vXCThOsGDnugZHOI=
-X-Google-Smtp-Source: AGHT+IEIQMRTqJYQglD4CUOE9KJIR7TrCdL2VS3fYUudSCxmJ2z/a94ILKbvxrjP3h0f3AYq8lLHfA==
-X-Received: by 2002:a5d:5988:0:b0:385:dedb:a12f with SMTP id ffacd0b85a97d-385fd3c6547mr1799666f8f.6.1733222458153;
-        Tue, 03 Dec 2024 02:40:58 -0800 (PST)
-Received: from [10.1.1.109] ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-385ee2c7559sm6885746f8f.12.2024.12.03.02.40.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 02:40:57 -0800 (PST)
-Message-ID: <30b0995903fb7db3f866d1304783d878f563fe2f.camel@linaro.org>
-Subject: Re: [PATCH 2/4] dt-bindings: power: supply: add max77759-fg flavor
- and don't require nvme address
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Thomas Antoine <t.antoine@uclouvain.be>, Sebastian Reichel
- <sre@kernel.org>,  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Dimitri Fedrau
- <dima.fedrau@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>,  Peter Griffin <peter.griffin@linaro.org>, Alim
- Akhtar <alim.akhtar@samsung.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Date: Tue, 03 Dec 2024 10:40:56 +0000
-In-Reply-To: <575b3275-b2fa-4e5c-bb6b-759394b02e18@uclouvain.be>
-References: <20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be>
-	 <20241202-b4-gs101_max77759_fg-v1-2-98d2fa7bfe30@uclouvain.be>
-	 <e23721ebd766f410103ddfb8705f3d7d6e5ae3e9.camel@linaro.org>
-	 <575b3275-b2fa-4e5c-bb6b-759394b02e18@uclouvain.be>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.1-4 
+	Tue, 03 Dec 2024 10:46:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=geanix.com;
+	s=default2211; h=Cc:To:In-Reply-To:References:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=q4sUFc93gmjBPZgy68yfM8oI42T2WlPXmr5pgphYQSI=; b=nTrt4M3CasJxXw6OBstUtotAwB
+	1WpkLzMA5oiU3Ba86Sa2CIFx8lJwxpKMWvAhVTsNWCxypFy4crjYZgHxUfIjloq0PSFz9Z6mLCja8
+	oq1Ce0VtkITV8dQ7PqrelwFvQHDwT+b1Ka3jhM/rn1oR5Lpws+Lo9izXljgMkZSYsre8Bx389bRnP
+	m1saEEoL2bDUQ9moGPwOIR5M3wyGvAH8jduBhN+/ibCY1f5PAQSQbspSClgVADFxNO5RNubN7YcRG
+	d8EkB38Vd+VTVd8H6GhekIHctrFkou6mPGf/KuaA5iKodR8RAy5PIHKzlCqZFJhYeKjFp9d/MmEEP
+	8YY/dTaw==;
+Received: from sslproxy06.your-server.de ([78.46.172.3])
+	by www530.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <esben@geanix.com>)
+	id 1tIQPj-0001Pu-Nv; Tue, 03 Dec 2024 11:45:55 +0100
+Received: from [185.17.218.86] (helo=localhost)
+	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <esben@geanix.com>)
+	id 1tIQPj-000LGA-0D;
+	Tue, 03 Dec 2024 11:45:55 +0100
+From: Esben Haabendal <esben@geanix.com>
+Date: Tue, 03 Dec 2024 11:45:36 +0100
+Subject: [PATCH 6/6] rtc: interface: Ensure alarm irq is enabled when UIE
+ is enabled
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241203-rtc-uie-irq-fixes-v1-6-01286ecd9f3f@geanix.com>
+References: <20241203-rtc-uie-irq-fixes-v1-0-01286ecd9f3f@geanix.com>
+In-Reply-To: <20241203-rtc-uie-irq-fixes-v1-0-01286ecd9f3f@geanix.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Esben Haabendal <esben@geanix.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733222752; l=1219;
+ i=esben@geanix.com; s=20240523; h=from:subject:message-id;
+ bh=9Dt96s2Bcm1MRb0U9H3U4fTwQJyZ4SwoQ7T4izq5lpw=;
+ b=r3Dyu5602AIrHx2dWjtPnTDJcvMVNYZzvLiEShal74iF5XFHfuxtkFwXBxg/GB5IcrPZAcp/Y
+ sUdFz60GGCoARdQ0Yvo2lFgP3OoUSFmijOQzgDAwUvHBkSD7c4NrMhn
+X-Developer-Key: i=esben@geanix.com; a=ed25519;
+ pk=PbXoezm+CERhtgVeF/QAgXtEzSkDIahcWfC7RIXNdEk=
+X-Authenticated-Sender: esben@geanix.com
+X-Virus-Scanned: Clear (ClamAV 0.103.10/27476/Tue Dec  3 10:52:11 2024)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_024100_011986_E3F9EBF5 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20241203_024602_448891_7B205A1D 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,52 +90,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2024-12-03 at 11:23 +0100, Thomas Antoine wrote:
-> On 12/3/24 08:12, Andr=C3=A9 Draszik wrote:
-> > On Mon, 2024-12-02 at 14:07 +0100, Thomas Antoine via B4 Relay wrote:
-> > > From: Thomas Antoine <t.antoine@uclouvain.be>
-> > >=20
-> > > As the Maxim max77759 fuel gauge has no non-volatile memory slave add=
-ress,
-> > > make it non-obligatory. Except for this, the max77759 seems to behave=
- the
-> > > same as the max1720x.
-> >=20
-> > What about the battery characterization tables? Aren't they needed for
-> > correct reporting?
->=20
-> I checked some other patches which added fuel gauge and other bindings an=
-d I
-> couldn't find such characterization table. Can you point me to an example=
- or
-> explain what it should contain if there needs one?
+When setting a normal alarm, user-space is responsible for using
+RTC_AIE_ON/RTC_AIE_OFF to control if alarm irq should be enabled.
 
-I haven't looked in detail, but there is
+But when RTC_UIE_ON is used, interrupts must be so that the requested
+irq events are generated.
+When RTC_UIE_OFF is used, alarm irq is disabled if there are no other
+alarms queued, so this commit brings symmetry to that.
 
+Signed-off-by: Esben Haabendal <esben@geanix.com>
+Cc: stable@vger.kernel.org
+---
+ drivers/rtc/interface.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-https://android.googlesource.com/kernel/google-modules/raviole-device/+/ref=
-s/heads/android-gs-raviole-mainline/arch/arm64/boot/dts/google/gs101-oriole=
--battery.dtsi#13
-https://android.googlesource.com/kernel/google-modules/raviole-device/+/ref=
-s/heads/android-gs-raviole-mainline/arch/arm64/boot/dts/google/gs101-raven-=
-battery.dtsi#13
+diff --git a/drivers/rtc/interface.c b/drivers/rtc/interface.c
+index e365e8fd166db31f8b44fac9fb923d36881b1394..39db12f267cc627febb78e67400aaf8fc3301b0c 100644
+--- a/drivers/rtc/interface.c
++++ b/drivers/rtc/interface.c
+@@ -617,6 +617,10 @@ int rtc_update_irq_enable(struct rtc_device *rtc, unsigned int enabled)
+ 		rtc->uie_rtctimer.node.expires = ktime_add(now, onesec);
+ 		rtc->uie_rtctimer.period = ktime_set(1, 0);
+ 		err = rtc_timer_enqueue(rtc, &rtc->uie_rtctimer);
++		if (!err && rtc->ops && rtc->ops->alarm_irq_enable)
++			err = rtc->ops->alarm_irq_enable(rtc->dev.parent, 1);
++		if (err)
++			goto out;
+ 	} else {
+ 		rtc_timer_remove(rtc, &rtc->uie_rtctimer);
+ 	}
 
-which include
-https://android.googlesource.com/kernel/google-modules/raviole-device/+/ref=
-s/heads/android-gs-raviole-mainline/arch/arm64/boot/dts/google/gs101-oriole=
--battery-data.dtsi
-https://android.googlesource.com/kernel/google-modules/raviole-device/+/ref=
-s/heads/android-gs-raviole-mainline/arch/arm64/boot/dts/google/gs101-raven-=
-battery-data.dtsi
-respectively
-
-Both overlay
-https://android.googlesource.com/kernel/google-modules/raviole-device/+/ref=
-s/heads/android-gs-raviole-mainline/arch/arm64/boot/dts/google/gs101-raviol=
-e-battery.dtsi#177
-
-
-Cheers,
-Andre'
+-- 
+2.47.1
 
 
