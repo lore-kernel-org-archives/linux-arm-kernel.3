@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF646E64AB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:18:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02146E64AB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AtfxN7sENpEMTbuvCdRdoHpnn0DF5MS9E6FtTuNVFY4=; b=fGqKpvKlZY+fuX1vDKj5zH0iEJ
-	X9YNsjpx9TFJGJDx44/MnRE353uTEeSc5Bb/tywi4UyAerVoX185RxG7z/6SBSnbcgCKP1E9zPyBg
-	A5sVTXXOqRYmSBsubt0W0IMQlWe2v2rdADhT8GByRipfWxAOFZuyFTgqerYVcoMhDR4UiqDvBF8uC
-	QwD25oU64pwAciodF/E3f4CAS03Jzn6Fc/cpcX03rttqBe2bv85HN5zM7OQ0EWnKvzj1moAmQUFIQ
-	/fPywqk4QHRe22PYj3oJfoJcjoP8ExUeDHA/12dUfV8vDFgu9fx4vyfMY1Jm74BxaGzFQESSutBMB
-	+xUIip7g==;
+	bh=cT72/4/tVK+gKV5ylTvuNcPx2r2Vffrx1cidI2Qbu7g=; b=e1wTeWWef1ig+rHNq17nr7ypV1
+	pDpkZmIHyb2spy0zmgaAJpddorHPGkh1nBniNvuRfdg4j/m+zIafg9brknP5/MeWQc+qfbAE+q2dM
+	pj/NSM9NNNenKzRY0zlj74vBX6JE4ZES83rx8x/wLC7m3VBdGPYAvJfcoPqPfBiCnOYQUmMaiBosp
+	HmvwcVYf6dOLq7CB8TUUkpU5ioabgLIUnD/7xbkNF7OZ/hwMxbgsu+bMzpzhAmVV4ws8TFdibL1sL
+	4s4G4Vq72EIm30ETW8BpXrZ6V8yNlknkE6LTU4Ks2ZQssUbncWA/Vz8lL8K9JfSiMyMGadeH+Q2Mk
+	L0c+3Hkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUfU-00000009u36-365q;
-	Tue, 03 Dec 2024 15:18:28 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tIUgn-00000009uDN-1LKn;
+	Tue, 03 Dec 2024 15:19:49 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUeU-00000009tt8-1aLt
+	id 1tIUfn-00000009u5n-0Igq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 15:17:28 +0000
+	Tue, 03 Dec 2024 15:18:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4AE38A416CD;
-	Tue,  3 Dec 2024 15:15:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0369C4CED8;
-	Tue,  3 Dec 2024 15:17:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6889E5C61F0;
+	Tue,  3 Dec 2024 15:18:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8210EC4CECF;
+	Tue,  3 Dec 2024 15:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1733239045;
-	bh=EF4xBJvDmICYpURJnWySEzsRhbId8eDhxP+tp8kHEeg=;
+	s=korg; t=1733239126;
+	bh=k6x86TfFb1xPFJjjMTjiPyo4iv8v/OOLn4Y0ccR1S5A=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JyHz5r8IEjMtaIrGNgJM3FnF3PnljAxABhWOLs8Ob2qmgMNl4LdqHDGgDyp2tgwkY
-	 maEnNSpzsgL6yyEA3STbMraWx/Ax89Dmi72sECfiHOqcBPs3M0MxGMxF6Buu7anHO/
-	 c/TJuD03lJCq9ayY9oYC+4ajn+weCXtHs5617/9g=
+	b=rDhLxtgeXfcUPEpSj2SyY0xV95iNyVyi0bwvGweWd0lAocOyRKwPhijVtDidKfeLb
+	 6GsCoGmq933xet6V9LINWi128/oXWt8av4ONE75Wm2ldwWALtVgfqwyHRqmAJ+MMCQ
+	 Rhf6sHvOGXj+lYw5uobqm7zhrECOBAyh+hEbx/Cc=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: stable@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	patches@lists.linux.dev,
-	Namhyung Kim <namhyung@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Leo Yan <leo.yan@arm.com>,
 	James Clark <james.clark@linaro.org>,
-	Yang Jihong <yangjihong@bytedance.com>,
-	Dominique Martinet <asmadeus@codewreck.org>,
-	Colin Ian King <colin.i.king@gmail.com>,
-	Howard Chu <howardchu95@gmail.com>,
-	Ze Gao <zegao2021@gmail.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	Weilin Wang <weilin.wang@intel.com>,
+	Ben Gainey <ben.gainey@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Will Deacon <will@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
 	Mike Leach <mike.leach@linaro.org>,
-	Jing Zhang <renyu.zj@linux.alibaba.com>,
-	Yang Li <yang.lee@linux.alibaba.com>,
-	Leo Yan <leo.yan@linux.dev>,
-	ak@linux.intel.com,
-	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
+	Ruidong Tian <tianruidong@linux.alibaba.com>,
+	Benjamin Gray <bgray@linux.ibm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Sun Haiyong <sunhaiyong@loongson.cn>,
+	coresight@lists.linaro.org,
 	John Garry <john.g.garry@oracle.com>,
+	scclevenger@os.amperecomputing.com,
+	Namhyung Kim <namhyung@kernel.org>,
 	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.11 486/817] perf stat: Uniquify event name improvements
-Date: Tue,  3 Dec 2024 15:40:58 +0100
-Message-ID: <20241203144014.842031727@linuxfoundation.org>
+Subject: [PATCH 6.11 481/817] perf cs-etm: Dont flush when packet_queue fills up
+Date: Tue,  3 Dec 2024 15:40:53 +0100
+Message-ID: <20241203144014.646375317@linuxfoundation.org>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20241203143955.605130076@linuxfoundation.org>
 References: <20241203143955.605130076@linuxfoundation.org>
@@ -77,8 +71,8 @@ X-Patchwork-Hint: ignore
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_071726_552929_4B46C4C6 
-X-CRM114-Status: GOOD (  23.67  )
+X-CRM114-CacheID: sfid-20241203_071847_193682_BA55C604 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,224 +91,119 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 ------------------
 
-From: Ian Rogers <irogers@google.com>
+From: James Clark <james.clark@linaro.org>
 
-[ Upstream commit 057f8bfc6f7070577523d1e3081081bbf4229c1c ]
+[ Upstream commit 5afd032961e8465808c4bc385c06e7676fbe1951 ]
 
-Without aggregation on Intel:
-```
-$ perf stat -e instructions,cycles ...
-```
-Will use "cycles" for the name of the legacy cycles event but as
-"instructions" has a sysfs name it will and a "[cpu]" PMU suffix. This
-often breaks things as the space between the event and the PMU name
-look like an extra column. The existing uniquify logic was also
-uniquifying in cases when all events are core and not with uncore
-events, it was not correctly handling modifiers, etc.
+cs_etm__flush(), like cs_etm__sample() is an operation that generates a
+sample and then swaps the current with the previous packet. Calling
+flush after processing the queues results in two swaps which corrupts
+the next sample. Therefore it wasn't appropriate to call flush here so
+remove it.
 
-Change the logic so that an initial pass that can disable
-uniquification is run. For individual counters, disable uniquification
-in more cases such as for consistency with legacy events or for
-libpfm4 events. Don't use the "[pmu]" style suffix in uniquification,
-always use "pmu/.../". Change how modifiers/terms are handled in the
-uniquification so that they look like parse-able events.
+Flushing is still done on a discontinuity to explicitly clear the last
+branch buffer, but when the packet_queue fills up before reaching a
+timestamp, that's not a discontinuity and the call to
+cs_etm__process_traceid_queue() already generated samples and drained
+the buffers correctly.
 
-This fixes "102: perf stat metrics (shadow stat) test:" that has been
-failing due to "instructions [cpu]" breaking its column/awk logic when
-values aren't aggregated. This started happening when instructions
-could match a sysfs rather than a legacy event, so the fixes tag
-reflects this.
+This is visible by looking for a branch that has the same target as the
+previous branch and the following source is before the address of the
+last target, which is impossible as execution would have had to have
+gone backwards:
 
-Fixes: 617824a7f0f7 ("perf parse-events: Prefer sysfs/JSON hardware events over legacy")
-Acked-by: Namhyung Kim <namhyung@kernel.org>
-Signed-off-by: Ian Rogers <irogers@google.com>
-[ Fix Intel TPEBS counting mode test ]
-Acked-by: Kan Liang <kan.liang@linux.intel.com>
+  ffff800080849d40 _find_next_and_bit+0x78 => ffff80008011cadc update_sg_lb_stats+0x94
+   (packet_queue fills here before a timestamp, resulting in a flush and
+    branch target ffff80008011cadc is duplicated.)
+  ffff80008011cb1c update_sg_lb_stats+0xd4 => ffff80008011cadc update_sg_lb_stats+0x94
+  ffff8000801117c4 cpu_util+0x24 => ffff8000801117d4 cpu_util+0x34
+
+After removing the flush the correct branch target is used for the
+second sample, and ffff8000801117c4 is no longer before the previous
+address:
+
+  ffff800080849d40 _find_next_and_bit+0x78 => ffff80008011cadc update_sg_lb_stats+0x94
+  ffff80008011cb1c update_sg_lb_stats+0xd4 => ffff8000801117a0 cpu_util+0x0
+  ffff8000801117c4 cpu_util+0x24 => ffff8000801117d4 cpu_util+0x34
+
+Make sure that a final branch stack is output at the end of the trace
+by calling cs_etm__end_block(). This is already done for both the
+timeless decode paths.
+
+Fixes: 21fe8dc1191a ("perf cs-etm: Add support for CPU-wide trace scenarios")
+Reported-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Closes: https://lore.kernel.org/all/20240719092619.274730-1-gankulkarni@os.amperecomputing.com/
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
-Cc: Yang Jihong <yangjihong@bytedance.com>
-Cc: Dominique Martinet <asmadeus@codewreck.org>
-Cc: Colin Ian King <colin.i.king@gmail.com>
-Cc: Howard Chu <howardchu95@gmail.com>
-Cc: Ze Gao <zegao2021@gmail.com>
-Cc: Yicong Yang <yangyicong@hisilicon.com>
-Cc: Weilin Wang <weilin.wang@intel.com>
+Tested-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Cc: Ben Gainey <ben.gainey@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
 Cc: Will Deacon <will@kernel.org>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>
 Cc: Mike Leach <mike.leach@linaro.org>
-Cc: Jing Zhang <renyu.zj@linux.alibaba.com>
-Cc: Yang Li <yang.lee@linux.alibaba.com>
-Cc: Leo Yan <leo.yan@linux.dev>
-Cc: ak@linux.intel.com
-Cc: Athira Rajeev <atrajeev@linux.vnet.ibm.com>
+Cc: Ruidong Tian <tianruidong@linux.alibaba.com>
+Cc: Benjamin Gray <bgray@linux.ibm.com>
 Cc: linux-arm-kernel@lists.infradead.org
-Cc: Sun Haiyong <sunhaiyong@loongson.cn>
+Cc: coresight@lists.linaro.org
 Cc: John Garry <john.g.garry@oracle.com>
-Link: https://lore.kernel.org/r/20240926144851.245903-3-james.clark@linaro.org
+Cc: scclevenger@os.amperecomputing.com
+Link: https://lore.kernel.org/r/20240916135743.1490403-2-james.clark@linaro.org
 Signed-off-by: Namhyung Kim <namhyung@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- .../perf/tests/shell/test_stat_intel_tpebs.sh |  11 +-
- tools/perf/util/stat-display.c                | 101 ++++++++++++++----
- 2 files changed, 85 insertions(+), 27 deletions(-)
+ tools/perf/util/cs-etm.c | 25 ++++++++++++++++++-------
+ 1 file changed, 18 insertions(+), 7 deletions(-)
 
-diff --git a/tools/perf/tests/shell/test_stat_intel_tpebs.sh b/tools/perf/tests/shell/test_stat_intel_tpebs.sh
-index c60b29add9801..9a11f42d153ca 100755
---- a/tools/perf/tests/shell/test_stat_intel_tpebs.sh
-+++ b/tools/perf/tests/shell/test_stat_intel_tpebs.sh
-@@ -8,12 +8,15 @@ grep -q GenuineIntel /proc/cpuinfo || { echo Skipping non-Intel; exit 2; }
- # Use this event for testing because it should exist in all platforms
- event=cache-misses:R
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index 5e9fbcfad7d44..f4615fa4280d8 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -2439,12 +2439,6 @@ static void cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
  
-+# Hybrid platforms output like "cpu_atom/cache-misses/R", rather than as above
-+alt_name=/cache-misses/R
-+
- # Without this cmd option, default value or zero is returned
--echo "Testing without --record-tpebs"
--result=$(perf stat -e "$event" true 2>&1)
--[[ "$result" =~ $event ]] || exit 1
-+#echo "Testing without --record-tpebs"
-+#result=$(perf stat -e "$event" true 2>&1)
-+#[[ "$result" =~ $event || "$result" =~ $alt_name ]] || exit 1
- 
- # In platforms that do not support TPEBS, it should execute without error.
- echo "Testing with --record-tpebs"
- result=$(perf stat -e "$event" --record-tpebs -a sleep 0.01 2>&1)
--[[ "$result" =~ "perf record" && "$result" =~ $event ]] || exit 1
-+[[ "$result" =~ "perf record" && "$result" =~ $event || "$result" =~ $alt_name ]] || exit 1
-diff --git a/tools/perf/util/stat-display.c b/tools/perf/util/stat-display.c
-index ea96e4ebad8c8..cbff43ff8d0fb 100644
---- a/tools/perf/util/stat-display.c
-+++ b/tools/perf/util/stat-display.c
-@@ -871,38 +871,66 @@ static void printout(struct perf_stat_config *config, struct outstate *os,
- 
- static void uniquify_event_name(struct evsel *counter)
- {
--	char *new_name;
--	char *config;
--	int ret = 0;
-+	const char *name, *pmu_name;
-+	char *new_name, *config;
-+	int ret;
- 
--	if (counter->uniquified_name || counter->use_config_name ||
--	    !counter->pmu_name || !strncmp(evsel__name(counter), counter->pmu_name,
--					   strlen(counter->pmu_name)))
-+	/* The evsel was already uniquified. */
-+	if (counter->uniquified_name)
- 		return;
- 
--	config = strchr(counter->name, '/');
-+	/* Avoid checking to uniquify twice. */
-+	counter->uniquified_name = true;
-+
-+	/* The evsel has a "name=" config term or is from libpfm. */
-+	if (counter->use_config_name || counter->is_libpfm_event)
-+		return;
-+
-+	/* Legacy no PMU event, don't uniquify. */
-+	if  (!counter->pmu ||
-+	     (counter->pmu->type < PERF_TYPE_MAX && counter->pmu->type != PERF_TYPE_RAW))
-+		return;
-+
-+	/* A sysfs or json event replacing a legacy event, don't uniquify. */
-+	if (counter->pmu->is_core && counter->alternate_hw_config != PERF_COUNT_HW_MAX)
-+		return;
-+
-+	name = evsel__name(counter);
-+	pmu_name = counter->pmu->name;
-+	/* Already prefixed by the PMU name. */
-+	if (!strncmp(name, pmu_name, strlen(pmu_name)))
-+		return;
-+
-+	config = strchr(name, '/');
- 	if (config) {
--		if (asprintf(&new_name,
--			     "%s%s", counter->pmu_name, config) > 0) {
--			free(counter->name);
--			counter->name = new_name;
--		}
--	} else {
--		if (evsel__is_hybrid(counter)) {
--			ret = asprintf(&new_name, "%s/%s/",
--				       counter->pmu_name, counter->name);
-+		int len = config - name;
-+
-+		if (config[1] == '/') {
-+			/* case: event// */
-+			ret = asprintf(&new_name, "%s/%.*s/%s", pmu_name, len, name, config + 2);
- 		} else {
--			ret = asprintf(&new_name, "%s [%s]",
--				       counter->name, counter->pmu_name);
-+			/* case: event/.../ */
-+			ret = asprintf(&new_name, "%s/%.*s,%s", pmu_name, len, name, config + 1);
- 		}
-+	} else {
-+		config = strchr(name, ':');
-+		if (config) {
-+			/* case: event:.. */
-+			int len = config - name;
- 
--		if (ret) {
--			free(counter->name);
--			counter->name = new_name;
-+			ret = asprintf(&new_name, "%s/%.*s/%s", pmu_name, len, name, config + 1);
-+		} else {
-+			/* case: event */
-+			ret = asprintf(&new_name, "%s/%s/", pmu_name, name);
- 		}
- 	}
+ 		/* Ignore return value */
+ 		cs_etm__process_traceid_queue(etmq, tidq);
 -
--	counter->uniquified_name = true;
-+	if (ret > 0) {
-+		free(counter->name);
-+		counter->name = new_name;
-+	} else {
-+		/* ENOMEM from asprintf. */
-+		counter->uniquified_name = false;
-+	}
+-		/*
+-		 * Generate an instruction sample with the remaining
+-		 * branchstack entries.
+-		 */
+-		cs_etm__flush(etmq, tidq);
+ 	}
  }
  
- static bool hybrid_uniquify(struct evsel *evsel, struct perf_stat_config *config)
-@@ -1559,6 +1587,31 @@ static void print_cgroup_counter(struct perf_stat_config *config, struct evlist
- 		print_metric_end(config, os);
- }
+@@ -2587,7 +2581,7 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
  
-+static void disable_uniquify(struct evlist *evlist)
-+{
-+	struct evsel *counter;
-+	struct perf_pmu *last_pmu = NULL;
-+	bool first = true;
+ 	while (1) {
+ 		if (!etm->heap.heap_cnt)
+-			goto out;
++			break;
+ 
+ 		/* Take the entry at the top of the min heap */
+ 		cs_queue_nr = etm->heap.heap_array[0].queue_nr;
+@@ -2670,6 +2664,23 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
+ 		ret = auxtrace_heap__add(&etm->heap, cs_queue_nr, cs_timestamp);
+ 	}
+ 
++	for (i = 0; i < etm->queues.nr_queues; i++) {
++		struct int_node *inode;
 +
-+	evlist__for_each_entry(evlist, counter) {
-+		/* If PMUs vary then uniquify can be useful. */
-+		if (!first && counter->pmu != last_pmu)
-+			return;
-+		first = false;
-+		if (counter->pmu) {
-+			/* Allow uniquify for uncore PMUs. */
-+			if (!counter->pmu->is_core)
-+				return;
-+			/* Keep hybrid event names uniquified for clarity. */
-+			if (perf_pmus__num_core_pmus() > 1)
-+				return;
++		etmq = etm->queues.queue_array[i].priv;
++		if (!etmq)
++			continue;
++
++		intlist__for_each_entry(inode, etmq->traceid_queues_list) {
++			int idx = (int)(intptr_t)inode->priv;
++
++			/* Flush any remaining branch stack entries */
++			tidq = etmq->traceid_queues[idx];
++			ret = cs_etm__end_block(etmq, tidq);
++			if (ret)
++				return ret;
 +		}
 +	}
-+	evlist__for_each_entry_continue(evlist, counter) {
-+		counter->uniquified_name = true;
-+	}
-+}
-+
- void evlist__print_counters(struct evlist *evlist, struct perf_stat_config *config,
- 			    struct target *_target, struct timespec *ts,
- 			    int argc, const char **argv)
-@@ -1572,6 +1625,8 @@ void evlist__print_counters(struct evlist *evlist, struct perf_stat_config *conf
- 		.first = true,
- 	};
- 
-+	disable_uniquify(evlist);
-+
- 	if (config->iostat_run)
- 		evlist->selected = evlist__first(evlist);
- 
+ out:
+ 	return ret;
+ }
 -- 
 2.43.0
 
